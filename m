@@ -4,119 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B831AFEE4E2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 09:58:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FD4BFEE4E5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 10:02:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nPqybairoqCj3U0Qn9GiaAysoqZ9ot/+xayXP3cEwhI=; b=czwN9X2Nx1cNobOjdnvrfSWlU8
-	ORqpxYNwNChh+4tknKP79wrw1XURE9A4noVtphWxcIMwaaUB+y8lzvg73CaWuOGIMaQrs6JxKVvi2
-	1cdzBM94LJKrsxk3DGSWTLfeK4hqunAznZ7hvHLYRhWulGqThn4JwuHEdo2cB6fSl/v5+lDQOMlpD
-	GBXVR3OdQS+8UrA+M7775QnI2aitaboSTP1AJkoKjbVEc9ytbNPN3K5achbT4MBBX9v74aUDcxvYX
-	nJ8zh/Q4z36IF0oPmqA/M4kbAz294z6z0nZQYZBhl1eFQuOK8XGUD0nSCPdbvdlkh8bLEo1hwKbq+
-	efaSmlsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fSVUCWSIM1flG2TV3EjouGAyJrnTt2LzL+TdvWqo8aQ=; b=wU/nPpIcLnbF1pSK6llQQzedt7
+	FSf+wq1bXrIhJkq7s9c8FTOHveoOpZHM43NLrk9ihD3fSYL6sQdm9bZq3R/rdLYUkjpHjgsn6+oMY
+	/f2NMK+TOQE0hzuKg+ZbpJg3ghHtK8nabkp3F2IfW9nZfQbUsntjLGyUYnvgWj/6nnu9aAtzPwvyF
+	saWgyShlCmZCsjfDu8pRG94KBDHTxbbljdKSt8MDhB+xhlg42Pv42DfuZ9yrgJMdgwxmXez4RwT78
+	8PQzEvIyf6bYRWAHaFgErF/1vNbpkeYrOgy0INFqh021zupzB3hXKGkxGiIyBZWM/oTLn8RGMtehH
+	NIOyeoUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwH5w-00000009i4P-2uo6;
-	Sat, 28 Feb 2026 09:58:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwH5u-00000009i3h-1lYO;
-	Sat, 28 Feb 2026 09:58:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3574D41959;
-	Sat, 28 Feb 2026 09:58:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6576DC116D0;
-	Sat, 28 Feb 2026 09:58:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772272720;
-	bh=M1ZVXAgdI+k2ver4Oogh4cCDb9JUYzaaPcG1HU2vtUU=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=T3Dp89SJj0XANR2+ltQcNAKjCca/I83gUhAUzfSr+JGlTWrsuJ1H3pdbKWueDJiWK
-	 rkc3keGVQFygcL4LNmcUN02q4M/qNtgPTUmPxDfmLFwmpobNV2jNnFudMToJgz6U6J
-	 YgEov3D2Ar4L56aVbPPzyK0Zyn3LodINo2uvWbJGwHx1Npcu3xpzwjw8rkx3Nmv8KW
-	 KCMFBpeBPjpmDoj8P/nQgjpdXd+p4MjL57I2SVimUfQLCItVKtfBFT+PQE686GTAc0
-	 4zw96YkelQWqkOrvXbvr3fxFkOLelPhlQRqBzI01XvoYo/OHMmWlKf+tEY6So+ycY6
-	 rbf7YyLDJctpQ==
-Message-ID: <59b442c8-da2a-40a8-b9db-1609a8eee744@kernel.org>
-Date: Sat, 28 Feb 2026 10:58:34 +0100
+	id 1vwH9N-00000009iKz-0LMH;
+	Sat, 28 Feb 2026 10:02:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vwH9K-00000009iKe-2fEn
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 28 Feb 2026 10:02:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 69E081516;
+	Sat, 28 Feb 2026 02:02:05 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 24DCF3F73B;
+	Sat, 28 Feb 2026 02:02:07 -0800 (PST)
+Date: Sat, 28 Feb 2026 10:02:04 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Sebin Francis <sebin.francis@ti.com>,
+	Brian Masney <bmasney@redhat.com>, linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v7 6/6] clk: scmi: Add i.MX95 OEM extension support for
+ SCMI clock driver
+Message-ID: <aaK9HOMWNCb0wzq_@pluto>
+References: <20251231-clk-ssc-v7-1-v7-0-380e8b58f9e3@nxp.com>
+ <20251231-clk-ssc-v7-1-v7-6-380e8b58f9e3@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/3] media: dt-bindings: rockchip,vdec: Add alternative
- reg-names order for RK35{76,88}
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Conor Dooley <conor@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Detlev Casanova <detlev.casanova@collabora.com>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Hans Verkuil <hverkuil@kernel.org>, kernel@collabora.com,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Conor Dooley <conor.dooley@microchip.com>, linux-media@vger.kernel.org
-References: <20260226-vdec-reg-order-rk3576-v4-0-b8d72dc75250@collabora.com>
- <20260226-vdec-reg-order-rk3576-v4-1-b8d72dc75250@collabora.com>
- <20260227-observant-roaring-ara-ef7eb0@quoll>
- <adbbdbb1-b126-4807-821c-c9850befd695@collabora.com>
- <20260227-omission-stoic-417d7109ad4d@spud>
- <3ab4f91e-37d0-4950-af88-01920705d31a@collabora.com>
- <1fe5529f-cd9f-4960-b6dd-96a2d02b8d86@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <1fe5529f-cd9f-4960-b6dd-96a2d02b8d86@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251231-clk-ssc-v7-1-v7-6-380e8b58f9e3@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_015842_536588_9ECFF397 
-X-CRM114-Status: GOOD (  20.52  )
+X-CRM114-CacheID: sfid-20260228_020214_767164_FE519018 
+X-CRM114-Status: GOOD (  32.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,69 +73,285 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/02/2026 10:54, Krzysztof Kozlowski wrote:
-> On 27/02/2026 18:42, Cristian Ciocaltea wrote:
->> On 2/27/26 7:13 PM, Conor Dooley wrote:
->>> On Fri, Feb 27, 2026 at 01:37:17PM +0200, Cristian Ciocaltea wrote:
->>>> Hi Krzysztof, Conor,
->>>>
->>>> On 2/27/26 9:46 AM, Krzysztof Kozlowski wrote:
->>>>> On Thu, Feb 26, 2026 at 12:46:53PM +0200, Cristian Ciocaltea wrote:
->>>>>> With the introduction of the RK3588 SoC, and RK3576 afterwards, two more
->>>>>> register blocks have been provided for the video decoder unit.
->>>>>>
->>>>>> However, the binding does not properly describe the new hardware layout,
->>>>>
->>>>> As you shown me last time with excerpt of address spaces from
->>>>> datasheet/manual, the binding correctly describes the hardware and above
->>>>> sentence is not true.
->>>>>
->>>>>> as it breaks the convention expecting the unit address to indicate the
->>>>>> start of the first register range, i.e. 'function' block is listed
->>>>>
->>>>> Imprecise wording. "start of the main or primary register range"
->>>>>
->>>>> (if you have 0x1000 with one reg and 0x20000000 with everything, the
->>>>> unit address will be 0x20000000).
->>>>>
->>>>>> before 'link' instead of the opposite.
->>>>>>
->>>>>> Since the binding changes have been already released and a fix would
->>>>>> bring up an ABI break, mark the current 'reg-names' ordering as
->>>>>> deprecated and introduce an alternative 'link,function,cache' listing
->>>>>> which follows the address-based ordering according to the TRM.
->>>>>>
->>>>>> Additionally, drop the 'reg' description items as the order is not fixed
->>>>>> anymore, while the information they offer is not very relevant anyway.
->>>>>
->>>>> This is fine for me.
->>>>
->>>> Thanks for the additional feedback!
->>>>
->>>> If I'm not mistaken (please correct me), the only remaining (hard)
->>>> blocker for the series would be to improve this commit message.
->>>
->>> No, you also need to fix the problem I pointed out about reg-names being
->>> optional on the devices you're relying on reg-names for. 
->>
->> My only concern is that by marking reg-names as required we would break the ABI,
+On Wed, Dec 31, 2025 at 06:12:53PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
 > 
-> You are ALREADY BREAKING the ABI. Really, for absolutely non-important
-> cosmetic change in unit address, where I asked you repeatedly to fix the
-> unit address, you change the ABI affecting kernel and DTS users.
-> 
-> This is barely acceptable, but I am just annoyed already explain it to
-> you multiple times.
-> 
-> But now you claim, you can break ABI for cosmetic unimportant change,
-> but actually doing something meaningful is a no-go?
-> 
-> At least use correct arguments if you want to discuss.
+>  - Introduce 'clk-scmi-oem.c' to support vendor-specific OEM extensions
+>    for the SCMI clock driver, allows clean integration of vendor-specific
+>    features without impacting the core SCMI clock driver logic.
+>  - Extend 'clk-scmi.h' with 'scmi_clk_oem' structure and related
+>    declarations.
+>  - Initialize OEM extensions via 'scmi_clk_oem_init()'.
+>  - Support querying OEM-specific features and setting spread spectrum.
+>  - Pass 'scmi_device' to 'scmi_clk_ops_select()' for OEM data access.
 
-And I double checked now with Conor - your binding and drivers are
-broken here and THIS you must fix. Not the unit address you are so
-focused about.
+Hi,
 
-Best regards,
-Krzysztof
+> 
+> Reviewed-by: Sebin Francis <sebin.francis@ti.com>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/clk/Makefile       |   2 +-
+>  drivers/clk/clk-scmi-oem.c | 103 +++++++++++++++++++++++++++++++++++++++++++++
+>  drivers/clk/clk-scmi.c     |  19 +++++++--
+>  drivers/clk/clk-scmi.h     |  11 +++++
+>  4 files changed, 131 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
+> index cb10156db2a37e1956d84113d1711e23d9d864ab..8e0e03a79f793ffab6c8636b7796c067287e1712 100644
+> --- a/drivers/clk/Makefile
+> +++ b/drivers/clk/Makefile
+> @@ -95,7 +95,7 @@ obj-$(CONFIG_COMMON_CLK_RP1)            += clk-rp1.o
+>  obj-$(CONFIG_COMMON_CLK_RPMI)		+= clk-rpmi.o
+>  obj-$(CONFIG_COMMON_CLK_HI655X)		+= clk-hi655x.o
+>  obj-$(CONFIG_COMMON_CLK_S2MPS11)	+= clk-s2mps11.o
+> -obj-$(CONFIG_COMMON_CLK_SCMI)           += clk-scmi.o
+> +obj-$(CONFIG_COMMON_CLK_SCMI)           += clk-scmi.o clk-scmi-oem.o
+>  obj-$(CONFIG_COMMON_CLK_SCPI)           += clk-scpi.o
+>  obj-$(CONFIG_COMMON_CLK_SI5341)		+= clk-si5341.o
+>  obj-$(CONFIG_COMMON_CLK_SI5351)		+= clk-si5351.o
+> diff --git a/drivers/clk/clk-scmi-oem.c b/drivers/clk/clk-scmi-oem.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..fd81aca7bfca254669ee117ebd51e481a74cdcb4
+> --- /dev/null
+> +++ b/drivers/clk/clk-scmi-oem.c
+> @@ -0,0 +1,103 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * The Vendor OEM extension for System Control and Power Interface (SCMI)
+> + * Protocol based clock driver
+> + *
+> + * Copyright 2025 NXP
+> + */
+> +
+> +#include <linux/clk-provider.h>
+> +#include <linux/of.h>
+> +#include <linux/scmi_imx_protocol.h>
+> +#include <linux/scmi_protocol.h>
+> +
+> +#include "clk-scmi.h"
+> +
+> +#define SCMI_CLOCK_CFG_IMX_SSC			0x80
+> +#define SCMI_CLOCK_IMX_SS_PERCENTAGE_MASK	GENMASK(7, 0)
+> +#define SCMI_CLOCK_IMX_SS_MOD_FREQ_MASK		GENMASK(23, 8)
+> +#define SCMI_CLOCK_IMX_SS_ENABLE_MASK		BIT(24)
+> +
+> +struct scmi_clk_oem_info {
+> +	char *vendor_id;
+> +	char *sub_vendor_id;
+> +	char *compatible;
+
+I suppose different OEM per impl_ver is overkill...and maybe better
+to be trated as a bug if it happens leveraging the Quirk framework..
+
+> +	const void *data;
+> +};
+> +
+> +static int
+> +scmi_clk_imx_set_spread_spectrum(struct clk_hw *hw,
+> +				 const struct clk_spread_spectrum *ss_conf)
+> +{
+> +	struct scmi_clk *clk = to_scmi_clk(hw);
+> +	int ret;
+> +	u32 val;
+> +
+> +	/*
+> +	 * extConfigValue[7:0]   - spread percentage (%)
+> +	 * extConfigValue[23:8]  - Modulation Frequency
+> +	 * extConfigValue[24]    - Enable/Disable
+> +	 * extConfigValue[31:25] - Reserved
+> +	 */
+> +	val = FIELD_PREP(SCMI_CLOCK_IMX_SS_PERCENTAGE_MASK, ss_conf->spread_bp / 10000);
+> +	val |= FIELD_PREP(SCMI_CLOCK_IMX_SS_MOD_FREQ_MASK, ss_conf->modfreq_hz);
+> +	if (ss_conf->method != CLK_SPREAD_NO)
+> +		val |= SCMI_CLOCK_IMX_SS_ENABLE_MASK;
+> +	ret = scmi_proto_clk_ops->config_oem_set(clk->ph, clk->id,
+> +						 SCMI_CLOCK_CFG_IMX_SSC,
+> +						 val, false);
+> +	if (ret)
+> +		dev_warn(clk->dev,
+> +			 "Failed to set spread spectrum(%u,%u,%u) for clock ID %d\n",
+> +			 ss_conf->modfreq_hz, ss_conf->spread_bp, ss_conf->method,
+> +			 clk->id);
+> +
+> +	return ret;
+> +}
+> +
+> +static int
+> +scmi_clk_imx_query_oem_feats(const struct scmi_protocol_handle *ph, u32 id,
+> +			     unsigned int *feats_key)
+> +{
+> +	int ret;
+> +	u32 val;
+> +
+> +	ret = scmi_proto_clk_ops->config_oem_get(ph, id,
+> +						 SCMI_CLOCK_CFG_IMX_SSC,
+> +						 &val, NULL, false);
+> +	if (!ret)
+> +		*feats_key |= BIT(SCMI_CLK_EXT_OEM_SSC_SUPPORTED);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct scmi_clk_oem scmi_clk_oem_imx = {
+> +	.query_ext_oem_feats = scmi_clk_imx_query_oem_feats,
+> +	.set_spread_spectrum = scmi_clk_imx_set_spread_spectrum,
+> +};
+> +
+> +const struct scmi_clk_oem_info info[] = {
+
+Any reason why this cannot be made static too ?
+Given that you just embed it with set_drvdata and then get_drvdata
+back from the main clk driver...
+
+> +	{ SCMI_IMX_VENDOR, SCMI_IMX_SUBVENDOR, NULL, &scmi_clk_oem_imx },
+> +};
+> +
+> +int scmi_clk_oem_init(struct scmi_device *sdev)
+> +{
+> +	const struct scmi_handle *handle = sdev->handle;
+> +	int i, size = ARRAY_SIZE(info);
+> +
+> +	for (i = 0; i < size; i++) {
+> +		if (strcmp(handle->version->vendor_id, info[i].vendor_id) ||
+> +		    strcmp(handle->version->sub_vendor_id, info[i].sub_vendor_id))
+> +			continue;
+> +		if (info[i].compatible &&
+> +		    !of_machine_is_compatible(info[i].compatible))
+> +			continue;
+> +
+> +		break;
+> +	}
+> +
+> +	if (i < size)
+> +		dev_set_drvdata(&sdev->dev, (void *)info[i].data);
+> +
+> +	return 0;
+> +}
+> diff --git a/drivers/clk/clk-scmi.c b/drivers/clk/clk-scmi.c
+> index bf85924d61985eb9e596419349eb883e3817de73..1ed2091e3d4a951c8662db4c94dee4b9c98b8326 100644
+> --- a/drivers/clk/clk-scmi.c
+> +++ b/drivers/clk/clk-scmi.c
+> @@ -14,6 +14,8 @@
+>  #include <linux/scmi_protocol.h>
+>  #include <asm/div64.h>
+>  
+> +#include "clk-scmi.h"
+> +
+>  const struct scmi_clk_proto_ops *scmi_proto_clk_ops;
+>  
+>  static unsigned long scmi_clk_recalc_rate(struct clk_hw *hw,
+> @@ -242,6 +244,7 @@ static int scmi_clk_ops_init(struct device *dev, struct scmi_clk *sclk,
+>  static const struct clk_ops *
+>  scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
+>  {
+> +	struct scmi_clk_oem *oem_data = dev_get_drvdata(dev);
+>  	struct clk_ops *ops;
+>  
+>  	ops = devm_kzalloc(dev, sizeof(*ops), GFP_KERNEL);
+> @@ -288,11 +291,15 @@ scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
+>  		ops->set_duty_cycle = scmi_clk_set_duty_cycle;
+>  	}
+>  
+> +	if (oem_data && (feats_key & BIT(SCMI_CLK_EXT_OEM_SSC_SUPPORTED)))
+> +		ops->set_spread_spectrum = oem_data->set_spread_spectrum;
+> +
+>  	return ops;
+>  }
+>  
+>  /**
+>   * scmi_clk_ops_select() - Select a proper set of clock operations
+> + * @sdev: pointer to the SCMI device
+>   * @sclk: A reference to an SCMI clock descriptor
+>   * @atomic_capable: A flag to indicate if atomic mode is supported by the
+>   *		    transport
+> @@ -317,8 +324,8 @@ scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
+>   *	   NULL otherwise.
+>   */
+>  static const struct clk_ops *
+> -scmi_clk_ops_select(struct scmi_clk *sclk, bool atomic_capable,
+> -		    unsigned int atomic_threshold_us,
+> +scmi_clk_ops_select(struct scmi_device *sdev, struct scmi_clk *sclk,
+> +		    bool atomic_capable, unsigned int atomic_threshold_us,
+>  		    const struct clk_ops **clk_ops_db, size_t db_size)
+>  {
+>  	int ret;
+> @@ -326,6 +333,7 @@ scmi_clk_ops_select(struct scmi_clk *sclk, bool atomic_capable,
+>  	const struct scmi_clock_info *ci = sclk->info;
+>  	unsigned int feats_key = 0;
+>  	const struct clk_ops *ops;
+> +	struct scmi_clk_oem *oem_data = dev_get_drvdata(&sdev->dev);
+>  
+>  	/*
+>  	 * Note that when transport is atomic but SCMI protocol did not
+> @@ -350,6 +358,9 @@ scmi_clk_ops_select(struct scmi_clk *sclk, bool atomic_capable,
+>  						 &val, NULL, false);
+>  		if (!ret)
+>  			feats_key |= BIT(SCMI_CLK_DUTY_CYCLE_SUPPORTED);
+> +
+> +		if (oem_data && oem_data->query_ext_oem_feats)
+> +			oem_data->query_ext_oem_feats(sclk->ph, sclk->id, &feats_key);
+>  	}
+>  
+>  	if (WARN_ON(feats_key >= db_size))
+> @@ -407,6 +418,8 @@ static int scmi_clocks_probe(struct scmi_device *sdev)
+>  	clk_data->num = count;
+>  	hws = clk_data->hws;
+>  
+> +	scmi_clk_oem_init(sdev);
+> +
+>  	transport_is_atomic = handle->is_transport_atomic(handle,
+>  							  &atomic_threshold_us);
+>  
+> @@ -438,7 +451,7 @@ static int scmi_clocks_probe(struct scmi_device *sdev)
+>  		 * to avoid sharing the devm_ allocated clk_ops between multiple
+>  		 * SCMI clk driver instances.
+>  		 */
+> -		scmi_ops = scmi_clk_ops_select(sclk, transport_is_atomic,
+> +		scmi_ops = scmi_clk_ops_select(sdev, sclk, transport_is_atomic,
+>  					       atomic_threshold_us,
+>  					       scmi_clk_ops_db,
+>  					       ARRAY_SIZE(scmi_clk_ops_db));
+> diff --git a/drivers/clk/clk-scmi.h b/drivers/clk/clk-scmi.h
+> index 6ef6adc77c836dc2d599ff852cdc941f217ee388..d7f63f36c56d155f728325efd6bcf7fe2585b170 100644
+> --- a/drivers/clk/clk-scmi.h
+> +++ b/drivers/clk/clk-scmi.h
+> @@ -7,6 +7,7 @@
+>  #define __SCMI_CLK_H
+>  
+>  #include <linux/bits.h>
+> +#include <linux/clk-provider.h>
+>  #include <linux/scmi_protocol.h>
+>  #include <linux/types.h>
+>  
+> @@ -19,6 +20,7 @@ enum scmi_clk_feats {
+>  	SCMI_CLK_RATE_CTRL_SUPPORTED,
+>  	SCMI_CLK_PARENT_CTRL_SUPPORTED,
+>  	SCMI_CLK_DUTY_CYCLE_SUPPORTED,
+> +	SCMI_CLK_EXT_OEM_SSC_SUPPORTED,
+>  	SCMI_CLK_FEATS_COUNT
+>  };
+>  
+> @@ -37,4 +39,13 @@ struct scmi_clk {
+>  
+>  extern const struct scmi_clk_proto_ops *scmi_proto_clk_ops;
+>  
+> +struct scmi_clk_oem {
+> +	int (*query_ext_oem_feats)(const struct scmi_protocol_handle *ph,
+> +				   u32 id, unsigned int *feats_key);
+> +	int (*set_spread_spectrum)(struct clk_hw *hw,
+> +				   const struct clk_spread_spectrum *ss_conf);
+> +};
+> +
+> +int scmi_clk_oem_init(struct scmi_device *dev);
+> +
+>  #endif
+>
+
+Other than the above, LGTM.
+
+Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
+
+Thanks,
+Cristian
 
