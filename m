@@ -4,79 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 145FDFEE4E9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 11:12:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D01B2FEE4E9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 11:12:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n0adQ1LTfoozkI2DnSyuFq7NmwmEQzUHNOLdqAVK2Ak=; b=Qp03doQKK6XuvsgBY/j/XYlEGX
-	dqgozQdba8+NXb5uUweqtetu1B3Dqanid1K3QUJDUCkQ8L6nvVYxOK0Tsx3orglJ3vKFH256+W+/D
-	m4HG2NlABziWMov8UzgW4bpMyteaJw/gvjy64dlA8YbToJBmAZLjTgLE4dGnqWasuTXlkc5sVBTUR
-	US2v4hQp6zjMMNzI/qsY2y8bdnaR+hKmszxTgKXS2iBNsBA/aktYvxRjDI0SBqcMj4SGOwXId0E3u
-	iOCgyGSau911dFMhcAXsDjGjs5D7xlp2mpFC0wf7vO5v8U4o7+Ugh4Kp8ciViu0gxxVu/XH+g1m4O
-	dY+JP06Q==;
+	bh=RMwuMCZhE8UWennE1yJWXSzCbqUWiVeyPnm/DJr1mQ8=; b=dIWyEYTcAMDoM7TzkIOYydwlw3
+	xvPq8sAQhll8dAGNtWjpjt3A936BpDgyg3Lj88wphGzoFLfiWkxWbTefg4rqbYwfrBIdlZynKn16E
+	iFJcbMNTglmGVyXKVZdCCUq0KEfXugHhPcco93cC8mpH7BvlduF18VEhxd5mvLcZvLyT11pUZ2jFT
+	H2uvj9GjDwqDxEtDnV/j3Q8OWtifGMPWqBkqIH5/82HhTyak9Q7wvNipa3hqrdAku5EHaaA9D1uF9
+	tUQS01bEQ97J2vRnrKuNNw6jQDfe6R1rvhy80rX/dqwav6AU0IHPwRUhtQbjkKgsF4eU5FaMSThk5
+	n1nYoTdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwIFI-00000009lqV-1fu5;
-	Sat, 28 Feb 2026 11:12:28 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1vwIFc-00000009ltG-37og;
+	Sat, 28 Feb 2026 11:12:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwIFF-00000009lq7-3hAh
+	id 1vwIFM-00000009lr5-2zNr
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Feb 2026 11:12:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1772277146; x=1803813146;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=mUtDowZDqA0oBKwdrOYblxuFtFXR8pMwiMk2ClUuiDk=;
-  b=kblwvmNGJXfuReAwVMk4NfIyUUNl6JrXNqKnUBen1IS8vQNlB9mAMgHF
-   MdT+5O1juWtybVN26pr/KVZxjG9anJLUIaAiZKD5OxJu5VoUhiXqnpiij
-   US/ASR6qulTD70PJDFcBJET/XC3qc1/pKdZWA6HLPHaJbuzBrxaT/wSjC
-   RmH9JO3AeUd6XaqYk4Mnl8VJmaBuws1BciCguaSlhcpS5B364zYHJ0r+9
-   9oXgMbWIYoxXHbvtQMV4ynsBbg+ZJAMIH6noGTO4/rqvsTA1bpT969p3Y
-   yAPY1SGt5yfN94Y+uvJ6yCLbArkZv97Zr5bt1kS2YFmS8JOEF0fLzx2Tj
-   w==;
-X-CSE-ConnectionGUID: KQH0izIgT2Os0yCfe7OucA==
-X-CSE-MsgGUID: 5lW6SQW2S1G1K70mh+0n8g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11714"; a="77218265"
-X-IronPort-AV: E=Sophos;i="6.21,316,1763452800"; 
-   d="scan'208";a="77218265"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Feb 2026 03:12:25 -0800
-X-CSE-ConnectionGUID: 9lU5LI+nSCCFS1IJ6rJy2w==
-X-CSE-MsgGUID: EImgYVglRc209T40J9PKaQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,316,1763452800"; 
-   d="scan'208";a="221651691"
-Received: from dhhellew-desk2.ger.corp.intel.com (HELO localhost) ([10.245.245.224])
-  by orviesa004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Feb 2026 03:12:23 -0800
-Date: Sat, 28 Feb 2026 13:12:20 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-sound@vger.kernel.org" <linux-sound@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
-Subject: Re: [PATCH v1 1/1] ASoC: pxa2xx-ac97: Use devm_gpiod_get_optional()
-Message-ID: <aaLNlJKommN4cDX-@ashevche-desk.local>
-References: <20260129133340.302446-1-andriy.shevchenko@linux.intel.com>
- <PAXPR04MB845926A386618396ED8F0405889AA@PAXPR04MB8459.eurprd04.prod.outlook.com>
+	Sat, 28 Feb 2026 11:12:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CB2D56001D;
+	Sat, 28 Feb 2026 11:12:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A9BBC116D0;
+	Sat, 28 Feb 2026 11:12:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772277151;
+	bh=nLRrxszpvSY+0yk4jSIM9YoyXBlAYxZf7vJPBm1s4bY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=K1u6+7PA5r3BlisSxInQ3ULtJgGGhUBovE8u72FEpNFmvWh+t2+BqOCqaBX+w0Kjm
+	 6zQpvvQN44xIARcwKgdX9KhXiLp+b4tCa4eMeJLTSqsf8nriHVepoYqczdP2RHXsVD
+	 X8EZVojDZAqJdMGPKk1HrAgcizYCY3aB4UIykfF7RfCGwJkatCMuG4b0F6bTebppoq
+	 a9OMdqFWud4K6E3GCb6Mp5sqnVaYB39P2DJRmB9tZQa0U3DdGpIFoK5+mm+XiSM/0T
+	 9kHucfsye4QxE0l110lOJZRbMBJUrY75WM6NSi1sAxloU/y8fF1t+NpuSC3XAB6qYA
+	 Cfflj1fPN/+3A==
+Date: Sat, 28 Feb 2026 12:12:29 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH 7/8] ARM: dts: Add a Raidsonic IB-4210-B DTS
+Message-ID: <20260228-magnificent-swine-of-jest-03cfbd@quoll>
+References: <20260228-gemini-dts-fixes-v1-0-0c6f6d0fb4bd@kernel.org>
+ <20260228-gemini-dts-fixes-v1-7-0c6f6d0fb4bd@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <PAXPR04MB845926A386618396ED8F0405889AA@PAXPR04MB8459.eurprd04.prod.outlook.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_031225_953843_C23AE088 
-X-CRM114-Status: GOOD (  10.18  )
+In-Reply-To: <20260228-gemini-dts-fixes-v1-7-0c6f6d0fb4bd@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,24 +70,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 02, 2026 at 05:16:11AM +0000, Peng Fan wrote:
-> > Subject: [PATCH v1 1/1] ASoC: pxa2xx-ac97: Use
-> > devm_gpiod_get_optional()
-> > 
-> > No need to open code the devm_gpiod_get_optional() wrapper.
-> > Instead of checking for a certain error code, check for NULL.
-> > 
-> > Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+On Sat, Feb 28, 2026 at 01:05:47AM +0100, Linus Walleij wrote:
+> This adds a device tree for the Raidsonic IB-4210-B NAS, a slightly
+> under-powered version of IB-4220-B with half the memory and
+> the cheaper version of the SoC.
 > 
-> Reviewed-by: Peng Fan <peng.fan@nxp.com>
+> Signed-off-by: Linus Walleij <linusw@kernel.org>
+> ---
+>  arch/arm/boot/dts/gemini/Makefile            |   1 +
+>  arch/arm/boot/dts/gemini/gemini-nas4210b.dts | 205 +++++++++++++++++++++++++++
+>  2 files changed, 206 insertions(+)
+> 
+> diff --git a/arch/arm/boot/dts/gemini/Makefile b/arch/arm/boot/dts/gemini/Makefile
+> index d5d32f02e232..4722fb1bac49 100644
+> --- a/arch/arm/boot/dts/gemini/Makefile
+> +++ b/arch/arm/boot/dts/gemini/Makefile
+> @@ -2,6 +2,7 @@
+>  dtb-$(CONFIG_ARCH_GEMINI) += \
+>  	gemini-dlink-dir-685.dtb \
+>  	gemini-dlink-dns-313.dtb \
+> +	gemini-nas4210b.dtb \
+>  	gemini-nas4220b.dtb \
+>  	gemini-ns2502.dtb \
+>  	gemini-rut1xx.dtb \
+> diff --git a/arch/arm/boot/dts/gemini/gemini-nas4210b.dts b/arch/arm/boot/dts/gemini/gemini-nas4210b.dts
+> new file mode 100644
+> index 000000000000..8bec57c8b7b1
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/gemini/gemini-nas4210b.dts
+> @@ -0,0 +1,205 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Device Tree file for the Gemini-based Raidsonic NAS IB-4210-B
+> + * Based on the NAS Forum experiments by user "CptSpock".
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "gemini.dtsi"
+> +#include <dt-bindings/input/input.h>
+> +
+> +/ {
+> +	model = "Raidsonic NAS IB-4210-B";
+> +	compatible = "raidsonic,ib-4210-b", "cortina,gemini";
 
-Thanks!
+So here it is - that's a new compatible, not missing one.
 
-Mark, did this slip through cracks?
-
--- 
-With Best Regards,
-Andy Shevchenko
-
+Best regards,
+Krzysztof
 
 
