@@ -4,101 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 590D6FEE4EF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 14:02:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 915B7FEE4C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 14:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sE4wHOtl4QFDYLaI8Z+N6cuSjBv02ee9bfXFs7o+Rlg=; b=G5XbseWoynwfXy6jyNv1nlo5Tt
-	TitBavZArgBZY2L3/mHc8lexW7dpW8zL1viQPX9C6bjmZXS4xlwLJkYqODt08zNb7N4BbhU98wwvN
-	3USJfpkQLbC29CF60S9Mnq/OvUZhgw4aAPOLtJ+4y51WgahzQC41YPXEgljn153alhI6qOrbWb3qB
-	yc4WTG3PrN80j6s1dxcacSA+QI2rVAbI5RmIEvXM3st7d8ukUJdr9yv/ZVJW8GlHdVcbshl5eaD2b
-	uC/4bonpR4ok+7XR91p2zoiceL6XtA6NlfmOMywxlEsFI7qp04flAPzx3ehAvmKkFe6aJ7DqTqDdB
-	XksA2fQg==;
+	bh=vtW+TvDVbM5bVPkT5f4veuf3YOot6jvs+xND9WyGWvg=; b=caVoQECbuWcSJAVo4Zpv02BqgN
+	8Gj3pcXCHnrliOHmegVzYa74KFdhGRGRVEtE0G+x7aRgEROYO9C+Y2qXPLk0de2ltYrL1CmRE3NyK
+	9S/VI+XEjNRRhMYmzvT518c0VWHOJ140VRdrk3EAwxrkzRaNe10dgpY646ON2067rhaVp1Hvxk1pi
+	NOVw84JlHDEmRJK+LZ7WTpQMlpKQN3Ad5ylxqqWd9k4Ztf1D0cRbWj8Zjw/BrIU8VQVP+DtnhCVNs
+	Yb7R7UMCCK9s5XxM43EXsPktCSeQA11tnkuE5Wz47EZmY3WHviwr/mZSbjzdg+/djJoyRXEqMwC7j
+	YBTKcAAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwKtp-00000009tsV-1C1l;
-	Sat, 28 Feb 2026 14:02:29 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1vwLDC-00000009v6V-2gHo;
+	Sat, 28 Feb 2026 14:22:30 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwKtn-00000009trR-0Jc7
+	id 1vwLD7-00000009v60-1XK0
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Feb 2026 14:02:28 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-48374014a77so34853985e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Feb 2026 06:02:26 -0800 (PST)
+	Sat, 28 Feb 2026 14:22:28 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-48069a48629so32429195e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Feb 2026 06:22:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1772287345; x=1772892145; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1772288543; x=1772893343; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=sE4wHOtl4QFDYLaI8Z+N6cuSjBv02ee9bfXFs7o+Rlg=;
-        b=H1fHTd/39O+XcnZJyw6nlcsJjp4qsp7t7OsPGNwrag9AYM/qzXQx/IlQHF5LR+6iZn
-         IhhjQpqMI8u/pvoqvs3z6MAd3tml5T0xWb7O4ko/IuOclGnaS2rfX2CErBct8T1VhFx1
-         +TvwuYSAq7J3ylHaKaEQFa80mqG+JDpiqqqfF4/f+W9rb990mCLtBYPZ+vuBhQ6/sTWd
-         L7zG4gedqQ4liRMje+5pJsJ7eQ27G4LsgiAMzAx9kSo8iOBU6ACavQMHXTN3RCc4zANy
-         6q7APQZ9Kjq58KOiWj4p6Z5UmTvXQo8wh50Xrg7AcfnraxlOJ1+PoE5xb5wTq3An0gOI
-         zNIg==
+        bh=vtW+TvDVbM5bVPkT5f4veuf3YOot6jvs+xND9WyGWvg=;
+        b=AJXCJwbWZCm8ft6grh67HGBE2595He8QOzzvFSVRtxaXeU3Li+GfpPPSKqpziauZDr
+         uNvWCv0M5jUf2wxFX5f9F43kzrLJflsX7daeosb6wDhf+XoTIpv1SrvcYToWDnjAD2oT
+         FG9v7xHoKLWuGHTV+IMIAPIMjLMpN+TOFJXNZmmv5k1HRvBcRNe9pZbO6+HCSXHf6EEB
+         zpJBEH6f9VTQWqZtHj/bBb4PfglJzG7FIsF+Y0LSJF4xzLMpyo3IRTUV4KxZ0PE7ho59
+         egLpvojm4ZtXQHmyqLaoEbIUB8MtA0XZmzVF36d55Oeotv71TM8C4aR7xI5ZAeIY+KDH
+         9VKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772287345; x=1772892145;
+        d=1e100.net; s=20230601; t=1772288543; x=1772893343;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=sE4wHOtl4QFDYLaI8Z+N6cuSjBv02ee9bfXFs7o+Rlg=;
-        b=U10qimUAzCwO0xZpegJdkFFUOq8+WuzNu84CIo9ALXTgIasygbtXJGoOdCF7UIwZ2c
-         an+pObTNBqODJX5Vnx9npg7W0ludvsDY0Mrr1U+7/hQUqE8elg+lXOs/Qecc9NdgfNEt
-         IVdUlIievtWBiMu1R9d1CL7Y7KZR7ffoKzVRzuPzLF8W3InTrHpQ3H8wiEgdKJMIlM4s
-         wObhu5NiYaoEKsfKS4laatfPBxgiNdwpl0thgiRPg2fWQHgBA7HMV7LVa2KR0bcVLJ0u
-         XUlLmCfkJ/B/HTv+NrjtUcIQGaqw9myZODupM73DnLWTLame3ihz8IohmF9Q0ghSt5RR
-         +TqA==
-X-Forwarded-Encrypted: i=1; AJvYcCULJn4JmD6kCixZ4TYulKfMYILiQJsUI/pyu0tPK/4Sk488fhb2zwn47VaoZVGUtoZjTYmUvhBTbuUKBjsVL808@lists.infradead.org
-X-Gm-Message-State: AOJu0YyhmAyurGio7Lv+419++79etGXstIbAmKgNuDNCDOQTwjsuYgqu
-	c1IQTeqeTVT+MAK5PijkhU+mQKQ8XQSn9tHJ4EdIEYLOpdbFt6V36gxLK8ufGvRhlH4=
-X-Gm-Gg: ATEYQzx0cRK5/CzMM+FO42E/ZUlF1J5+fgz3U80hTZJWpnTRr6MwRRz+tu/j5C+Jaao
-	P+wab3U8gL8qv9+/ko5IMMBkwpVOs88oXiWTtvoIf05Q8Y2PuNVZzQfvEqUVN/gdCwt6gnJ0PPD
-	wtC4g2+0NLk6YTs2GN7v8aCQ9hyKKXoBaY133YH/1+XFWGacCUKmMl/uEw/gCXdyuhJJYVp+SAx
-	Fh22WV8ExDgvQL2cu9I7m7HhCl3PNnPaJDANYwt3+FMgMk3NUlI/lFL8pOAUoc4DKHRL19qIgCX
-	XaOq0424ifGkkQ5pMNUVXnODb1VOEvuCYzYoDlef5gzxm2SDfVqaauku7/4Janzk1nsKWeu32tx
-	yhjedv086uGQbnqyrR0vU7OJYlwuOUT/x2ixlIzBD/sgjc6jrM+oWTSaQqGwUhmeduGDHZ74hLq
-	XZUL7j02+3x6Vrfw1EGkQftX/TGRJ9oA==
-X-Received: by 2002:a05:600c:4e94:b0:483:6fc6:1e20 with SMTP id 5b1f17b1804b1-483c9bc0291mr95806085e9.9.1772287345117;
-        Sat, 28 Feb 2026 06:02:25 -0800 (PST)
+        bh=vtW+TvDVbM5bVPkT5f4veuf3YOot6jvs+xND9WyGWvg=;
+        b=Al8BVFPuqLjKZ8wk+A+TnU2JXUnurIwPB2qNo/+9nsSlX4z4EmfRJ/zYuzc5fEQv8l
+         qYfpB2aVbnbGsXi00vyd0ezBIY5Z/NwvRi+fcsTU6A9KCmThecMbuHxlgqi6II5mMoIZ
+         njUU2Kxdl2MRqAjWswPBKbz6bpjlzx7kNACz8+RvHI3VH+rjKZsFCBXfbyh3+GvKCjXE
+         E0J619V0B8UZz1+36XYcMlru0+wy8Sr3yz2y1UCTALZP0NQQow0k8VT2ZH8HWMIkgic/
+         LTFB04YUFlBnEjDERSfj78kmJ4vca7deVH9puzdUUZ6PUXfiiVtysyML4SzLPeFxXQmW
+         CA/g==
+X-Forwarded-Encrypted: i=1; AJvYcCUiZcsrB0TSX9wwyxWBZUcSPT5vhiGIHY3nDFm2pUuLGAcfTg6U1ZGwR1+8X8paesHUOw3iRiZAcdCt6w+WIzFT@lists.infradead.org
+X-Gm-Message-State: AOJu0YwOkmsOHYWnb+2PijIZr95vX1FXy3Fp/JXlAND62Uo8ghppZkoy
+	7Ws/T1GiVYd3dDRtRoFJyWKGy6gS0oAdH5KX2NcY8NWKQ1hlffpFfjX2sAHu1TJlpFs=
+X-Gm-Gg: ATEYQzznSqQFRuN/zIBbLEisuhx5OVR9X8vovf2Dx3u8CVzC0LuzLwXUPyBFkqH9dYP
+	ilGbFsdnTW7jlmWcQqs22650Ixr1pQD8x9LLjeGLA/ApSO+F5tumC/+LkJzrPfL6EBkHlG1RL/3
+	yHvlyWJJNowKEO7RMy+WdNJIoFBlmzKnd2gY+lR1zyl2MM2/rPNkuy74C6lhP3Oh3qtl6W4bxKa
+	opOxVSdpWjYFYkPr70u0TbcG72dFWFsopt8wjYabbyoxeMNYlLbOX9Bcglv6wjHozVbR2IaF/MU
+	S4H1Lv/B2f9LKH4l3b3mU0u/7oIGvTqRFm6rF8xwl2ehQNNjkCVXLgI9Y73HKKgtvUdGGtFxX3A
+	qvq+QmRo8lHo0nN5soKFCUtLGdnFkvRNmNgH4Jwy6/UzfpLVKPm4WSlaDPuTeNSpFCmguGHvC3E
+	p+gBNQPsHojgW4f6JBkZ3r89nyD3TnLA==
+X-Received: by 2002:a05:600c:154b:b0:477:5af7:6fa with SMTP id 5b1f17b1804b1-483c9c2059bmr90939375e9.32.1772288543254;
+        Sat, 28 Feb 2026 06:22:23 -0800 (PST)
 Received: from [192.168.50.4] ([82.78.167.73])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483bfb789efsm144734705e9.2.2026.02.28.06.02.22
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483bfcb4f8bsm212800145e9.4.2026.02.28.06.22.21
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 28 Feb 2026 06:02:24 -0800 (PST)
-Message-ID: <9b88e1e8-bb9e-4b79-b722-72eb66a9309c@tuxon.dev>
-Date: Sat, 28 Feb 2026 16:02:21 +0200
+        Sat, 28 Feb 2026 06:22:22 -0800 (PST)
+Message-ID: <9965d2fb-e1ee-4103-a5d3-01cb94468db0@tuxon.dev>
+Date: Sat, 28 Feb 2026 16:22:21 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/6] ARM: configs: at91: sama7: enable LVDS serializer
- support
-To: Manikandan Muralidharan <manikandan.m@microchip.com>,
- andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, airlied@gmail.com, simona@ffwll.ch,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
- linux@armlinux.org.uk, ebiggers@google.com, martin.petersen@oracle.com,
- ardb@kernel.org, tytso@mit.edu, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: Aubin Constans <aubin.constans@microchip.com>
-References: <20260225085430.480052-1-manikandan.m@microchip.com>
- <20260225085430.480052-7-manikandan.m@microchip.com>
+Subject: Re: [PATCH v2 1/4] clk: at91: sam9x7: Remove gmac peripheral and
+ generic clock entries with ID 67
+To: Mihai Sain <mihai.sain@microchip.com>, mturquette@baylibre.com,
+ sboyd@kernel.org, nicolas.ferre@microchip.com,
+ alexandre.belloni@bootlin.com, varshini.rajendran@microchip.com,
+ cristian.birsan@microchip.com, balamanikandan.gunasundar@microchip.com,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ ryan.wanner@microchip.com
+References: <20260212100147.5007-1-mihai.sain@microchip.com>
+ <20260212100147.5007-2-mihai.sain@microchip.com>
 Content-Language: en-US
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <20260225085430.480052-7-manikandan.m@microchip.com>
+In-Reply-To: <20260212100147.5007-2-mihai.sain@microchip.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_060227_127852_8CFA94CA 
-X-CRM114-Status: UNSURE (   5.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260228_062225_438057_98209031 
+X-CRM114-Status: GOOD (  14.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,16 +108,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi, Mihai,
 
+On 2/12/26 12:01, Mihai Sain wrote:
+> According with datasheet table 12.1 the instance ID 67 is reserved.
 
-On 2/25/26 10:54, Manikandan Muralidharan wrote:
-> From: Aubin Constans <aubin.constans@microchip.com>
+Could you please mention the datasheet revision ID?
+
+> This change drops the gmactsu_clk and gmac_gclk entries from
+> the SAM9X7 clock description tables.
 > 
-> Add config support to enable LVDS serializer
+> Signed-off-by: Mihai Sain <mihai.sain@microchip.com>
+> ---
+>   drivers/clk/at91/sam9x7.c | 10 ----------
+>   1 file changed, 10 deletions(-)
 > 
-> Signed-off-by: Aubin Constans <aubin.constans@microchip.com>
-> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+> diff --git a/drivers/clk/at91/sam9x7.c b/drivers/clk/at91/sam9x7.c
+> index 89868a0aeaba..d9603f1124d0 100644
+> --- a/drivers/clk/at91/sam9x7.c
+> +++ b/drivers/clk/at91/sam9x7.c
+> @@ -420,7 +420,6 @@ static const struct {
+>   	{ .n = "lvdsc_clk",	.id = 56, },
+>   	{ .n = "pit64b1_clk",	.id = 58, },
+>   	{ .n = "puf_clk",	.id = 59, },
+> -	{ .n = "gmactsu_clk",	.id = 67, },
 
-Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Could you please keep this in a separate patch?
 
+>   };
+>   
+>   /*
+> @@ -702,15 +701,6 @@ static const struct {
+>   		.pp_count = 1,
+>   		.pp_chg_id = INT_MIN,
+>   	},
+> -
+> -	{
+> -		.n = "gmac_gclk",
+> -		.id = 67,
+> -		.pp = { "audiopll_divpmcck", "plla_div2pmcck", },
+> -		.pp_mux_table = { 6, 8, },
+> -		.pp_count = 2,
+> -		.pp_chg_id = INT_MIN,
+> -	},
+
+And squash this changes with patch 3/4 "clk: at91: sam9x7: Add gmac generic 
+clock entry with ID 24" and also provide a fixes tag for it?
+
+Thank you,
+Claudiu
 
