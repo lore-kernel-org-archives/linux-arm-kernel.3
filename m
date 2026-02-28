@@ -4,82 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B641FEE4C6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 07:16:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C1FCFEE4C6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 07:29:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GY7w9lG2hNjdddPK/8x1giPete9XsAMvnf7gDXNDb+Y=; b=LXI0vsqhhlXd3lOOoMtgPnDxGz
-	4HZuOuwvBHB2m93DBXX8D8dD9eFOGa5/JRaxypWjHGxnPjGiNj+bFkbFjBFcItPQ/0Pxp7LfGPszv
-	bcI0pZe666cq5YBicBvX6U6uvi2Ewi6JB78ykk5cX3n7oil4Ju94HSi1dDUGepamBLGzLjBNfwK6m
-	oZv0aPTHpGeJnWPPmdUYYuCWIOFBPSV14sAOawsiWGZ6ZW+mxftTXG9+zFv+koSokdWXUIwjHjY/Q
-	H/MoYAUNejwqdtYaq5XZ3+tHQ+tVhjQZUDx5MJFBltifZ3KxH8BDQ/7PSvAuk5/qKtWt7/GQfiPOo
-	hGCbpLAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=D/aYgbsoUR4XNDbHeLuKdktx2rZD2uUhaYoSxA8M2Jc=; b=jgskiQecYhAWpUpG5emi1Un+UT
+	RtPovW3KcKU/FuluLGwlbgeMdLOO77UhVRKhm1BPx5w/fflsyJcxTPYEc+dfHcgPsdYSSmcx4iUX6
+	5gPeiTcIgzRz9cWuGNQbfWLJCLXSogpwDpjkj0bHLth1yVdlQiqYOJ12VM2bPXfymMURAFUqB9HLd
+	coRT2/BzIvpHiwUMnnccf8+Tzb3hTTNBS6Wvb1ro7AB7+GtIHn1UJG5abBYuzyFfIvh/D0GbJVtVY
+	SfaJ3KMwgKdY1mJBVzljymCVF/6Uf9JhkvIaPBJLXJEG9WD/Ji2Ni0eDGAdIjmbcNY+A8HxsBgJGc
+	+/ZI8PgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwEYF-00000009b7n-0Xv2;
-	Sat, 28 Feb 2026 07:15:52 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1vwElJ-00000009cFW-08Dn;
+	Sat, 28 Feb 2026 07:29:17 +0000
+Received: from mail-francecentralazon11013018.outbound.protection.outlook.com ([40.107.162.18] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwEY3-00000009b2l-2Ksy
+	id 1vwElG-00000009cF1-1kZm
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Feb 2026 07:15:37 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=GY7w9lG2hNjdddPK/8x1giPete9XsAMvnf7gDXNDb+Y=;
-	b=F2yxSYtM126iXPXdt97LlTD02LO7RRIbC7ASktZs819acq4FuUmUfnDGPoEXJ5gfBqoq++I+U
-	VDjuSx7eYE2bDrwHfE4kyrEq0bo0V6N7u9JZnmeORNH0RStBvhdzxjA5ALyY5zk4khG4RjBYism
-	OW4U8djntX5MznrWT8xvruQ=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4fNGYM6X91zcb1Z;
-	Sat, 28 Feb 2026 15:10:15 +0800 (CST)
-Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
-	by mail.maildlp.com (Postfix) with ESMTPS id 041724056E;
-	Sat, 28 Feb 2026 15:15:22 +0800 (CST)
-Received: from huawei.com (10.50.87.63) by kwepemr500001.china.huawei.com
- (7.202.194.229) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Sat, 28 Feb
- 2026 15:15:20 +0800
-From: Yin Tirui <yintirui@huawei.com>
-To: <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>, <x86@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <willy@infradead.org>,
-	<david@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
-	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <luto@kernel.org>,
-	<peterz@infradead.org>, <akpm@linux-foundation.org>,
-	<lorenzo.stoakes@oracle.com>, <ziy@nvidia.com>,
-	<baolin.wang@linux.alibaba.com>, <Liam.Howlett@oracle.com>,
-	<npache@redhat.com>, <ryan.roberts@arm.com>, <dev.jain@arm.com>,
-	<baohua@kernel.org>, <lance.yang@linux.dev>, <vbabka@suse.cz>,
-	<rppt@kernel.org>, <surenb@google.com>, <mhocko@suse.com>,
-	<anshuman.khandual@arm.com>, <rmclure@linux.ibm.com>,
-	<kevin.brodsky@arm.com>, <apopple@nvidia.com>, <ajd@linux.ibm.com>,
-	<pasha.tatashin@soleen.com>, <bhe@redhat.com>, <thuth@redhat.com>,
-	<coxu@redhat.com>, <dan.j.williams@intel.com>, <yu-cheng.yu@intel.com>,
-	<yangyicong@hisilicon.com>, <baolu.lu@linux.intel.com>, <jgross@suse.com>,
-	<conor.dooley@microchip.com>, <Jonathan.Cameron@huawei.com>,
-	<riel@surriel.com>
-CC: <wangkefeng.wang@huawei.com>, <chenjun102@huawei.com>,
-	<yintirui@huawei.com>
-Subject: [PATCH RFC v3 4/4] mm: add PMD-level huge page support for remap_pfn_range()
-Date: Sat, 28 Feb 2026 15:09:06 +0800
-Message-ID: <20260228070906.1418911-5-yintirui@huawei.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260228070906.1418911-1-yintirui@huawei.com>
-References: <20260228070906.1418911-1-yintirui@huawei.com>
-MIME-Version: 1.0
+	Sat, 28 Feb 2026 07:29:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PVh9BsGXNU+XZA8YjgnbewJJHKVWtmF8F42peoqLQYd/cDrT7j8DdVId8lonuwbsU7dIdowqHXwrNo8zxa7Qt1MCq4ndbJvyi6iWAKRbuZqigAGpyc+YR511RVhgWAs0H1mpBiCU35VobbpUhuXWFnTeC79l3Qdfb96NsZkA8EoUSxYRDi9NMkEnDgHz8m43KuBS0AHmZq4eaPdmboaZVz+nBPH8U9fJ2BVijev39BX5erLo93NIDgiP2nQJIVIY9YY9PR2od+7kwPJbH7sxk+0bOdcWTAqnRHTjLCN5QlhLgzd5dzFcW2DjBhWT/IlvqyJ+TZD2/Ppposl54VMZfA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=D/aYgbsoUR4XNDbHeLuKdktx2rZD2uUhaYoSxA8M2Jc=;
+ b=OPUYYotdbselz23xSrlQ2zAjoD6brnKxhbpIjQfZDXH3RLEraR1ATWJWL4nHakye3McFginCe95u0nDaUxWTqaaTM1PR4Q7RuuYANjscWwfGsoYk83rwOnsTNwGZZJ4XGyRJ4+9mDXyKxmkJPY2SjqUWciYNxwM338iNhxlyvNandx125oMde8I81o+2sJ1SB+VVWdPuBgs8bFNZkIyOBOT/4HqISf7V6/3mCdF7wL7PlnuvBo03tZQt3BU9Gs5pLGVhYqPTRJLh/W5KbtuE5KehPYzWIJBS85wcIy9nqPVXziwx+UguFeAnMpt0Uq8f3GvhP8UV1/hOeJQXfw1x6g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=D/aYgbsoUR4XNDbHeLuKdktx2rZD2uUhaYoSxA8M2Jc=;
+ b=dP3kkwJOaLoaFmuk5kose3Lr0kHx2mEBo4+OxBmaQGPYSqzcbpTU41gDYuf/ZV5bmrRTMGku9M1e54l/SVXPrE/R1VQ2szP6E9me50voZEOB/ftzmGPUwas6tb0yaR7+0MB2jby2l0owTZUNZCYUKEnnNJ+NMa+0lyQ5iRN5x+Nh8IqdJv+Y93530TBdLjOMrCK2TauPhg/cKFpuIu2P2yf0Stwq3z0KoQ2Fk5+vkRa6zHjJKfTTZt8p1Sz1zXVeKP1VN9Lvan9ll0vli2GlI5E82cXi2By/r0P9Iu9FTZ6dyE76t3dDOeDXVil5bGey/SPYF7Y+bBtCYRs2gtLj1Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
+ by GV4PR04MB11971.eurprd04.prod.outlook.com (2603:10a6:150:2ec::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.14; Sat, 28 Feb
+ 2026 07:29:08 +0000
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86%3]) with mapi id 15.20.9654.015; Sat, 28 Feb 2026
+ 07:29:08 +0000
+From: Richard Zhu <hongxing.zhu@nxp.com>
+To: frank.li@nxp.com,
+	l.stach@pengutronix.de,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Richard Zhu <hongxing.zhu@nxp.com>
+Subject: [PATCH v1] PCI: imx6: Fix IMX6SX_GPR12_PCIE_TEST_POWERDOWN handling
+Date: Sat, 28 Feb 2026 15:30:10 +0800
+Message-Id: <20260228073010.1554804-1-hongxing.zhu@nxp.com>
+X-Mailer: git-send-email 2.37.1
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-Originating-IP: [10.50.87.63]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemr500001.china.huawei.com (7.202.194.229)
+X-ClientProxiedBy: SG2PR02CA0045.apcprd02.prod.outlook.com
+ (2603:1096:3:18::33) To AS8PR04MB8833.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8833:EE_|GV4PR04MB11971:EE_
+X-MS-Office365-Filtering-Correlation-Id: 62e4d6aa-c1aa-453e-28b7-08de769b0f5e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|376014|7416014|52116014|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: xs4VXbzXOR3++YbQBIOVPvCGj1BAljDUlfwuBr5PeF7OCURLxlVywZs3yNGAoWY4JhhjVK/3xMHX1cawsMClUiyoAIhow+jmeiuWnNrsnCD6SUgCsHpKbziOatVKaTvwXRnYiPuLsGaBdgp5qVOgONyRpy9H+3W4UIw1KP7uwdvHuzdBt7TI2v54yoB8bj2deWDlCcQRtEWssLr2LebYREQoTvQO/BbKEhYALGpaVZMmKvg8skZzq14TlJdnuXjGL7aQptZh9qkqQMf4nrTE68d7xsA5NyjIlnyrs1cejSMDvlP2l2ePDpVZdYOzEN/aa6cneZox3O8ygnTgB3gmar3P1FMxsphwyYkUbbhp3cc3zf8CkpuPQ+YOAIvBraaOWZ5D0Du1qc+b5sy/eWORgmamYKn5KAjU6DnCrUfn0ldt4wLxD6IFefuS8NhPRkGUlNGu3VlwoL1MesMdB7pZSYSsnexXu2vVYE7QC1P+S+bjNSVk4wu6NWFQUf4UOO37ArkPhfVpMJ4ROKgNZL30btTy8iNhTgvNDCnua+eZ76RI2kJmmOJtXYygoJ63f69qALP6kFqOAoUDkITWxNd6Zk1VuApzEO2XUe/wZc1P1xqIS/9ahrLQRzdxEeGmdz9fouje6xiqoAgIeGSvf+FKWuOrlBLR5wPzFMtdJUH9tyVd780dfdu9xvmhn9ii4m46UTgipG2Z+Sr4DLfbmdZI1Yx/SDuyPaUXzEHg2ylcw101YgmwpzhScbMrzc/KQf4GgtWcE/SFyBmsYHEUU8JNSUw/JcANZIHR4e5syCtnCjbtpqxByroaE9yfFMcTRNOF
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(376014)(7416014)(52116014)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?clHwaEAsbspYObmRPdd7ZkCWMqGKbAPnuYIuu2LGIW2arS7DHHJSw+cBjmDb?=
+ =?us-ascii?Q?MLFreXzkYUieCUJLwNup9q4e4e7Qy4ni0dnb6YjJc9btZXhkKNMw+w/KzImZ?=
+ =?us-ascii?Q?4pTkxRUVcbU3I1+T5iTcdCEmkeUQrvpCNtXm0umdqvXxapr1kpXmMrw3W1VD?=
+ =?us-ascii?Q?0IU9+/Z68W140OXseTkHuBt7i3t8VvLPeegBFVIVn+pm1wSpg8afdVFApgdb?=
+ =?us-ascii?Q?MRiCoJycX2+1tY7ytUmXlR0enPtNuZ0q+PA39WTfAWpIKE8sm/YmjaKRrsCM?=
+ =?us-ascii?Q?6m1Fs+aigRGmQia+E6jDopeTa9OFK7nlEaPea2uttffT/yMt+JGAxxTEYHGz?=
+ =?us-ascii?Q?STTC9fCpM+OLrUxe+Vz+OogcBVrnrzvpAFkwVOIkesYdnUeH+Tiu7sc318vB?=
+ =?us-ascii?Q?qolVZzSwieZ7y9sISKRd9aOPjOKjkJEly9LZIPyx8tdc5iKRw+5duksFyRtl?=
+ =?us-ascii?Q?tbkFnnsUjYFwkvqWRCbmNgdMS4ee4+D78fshBICC59ffS7Mwvz2FY+ZMSidu?=
+ =?us-ascii?Q?cGRSyJLS4op/odb/cJD2qVMCrmAEr6RpBeeXN0n9SBAalANiuKuFz0d4VMw8?=
+ =?us-ascii?Q?YCOCcTTdDMQtdEBvKZpt/ukU+uRgfE12nt05vKkpHeRXH2gxwyOquuqsaPGW?=
+ =?us-ascii?Q?f59SGRnLzLAvaECb7KgmftNjW/CRpNd8Vpz6Oxy2E5ON/BqGS2CxBX4udB5l?=
+ =?us-ascii?Q?LnF4XK1YP2VELUrhNcxLq/ag4XxBUxS1+mEDAY2Si/Tl1A12ExlZaDvBAsTV?=
+ =?us-ascii?Q?z0bkgG1c/JiiWzkm9mdzm5Z5ux6KJAm52pFmW73MmnSOl//V6SYPhYpApuFz?=
+ =?us-ascii?Q?CHSWwGOG7xdDRegWu3T+mP3amRdugkofXnGjl1SgyFkbDQNPUEFeWjtuH02k?=
+ =?us-ascii?Q?v+xg00q00RGmaf8HH6HRxovrf3s68fhuEZilvOMAqk5PMRUw8n+RhNyNc4Rv?=
+ =?us-ascii?Q?lWuREJ9ZGsQSXADDD/wGlClEFU9xLeOxTl+4r60qViZZScAQQzTigMZ2CS24?=
+ =?us-ascii?Q?MlFqDhsP9+L0BVNLGwlvMZ9NIqOGMFB8BDq6fWbHzF27Sm4FwNL6ilWcTT2u?=
+ =?us-ascii?Q?9iG7I78280u4e5ZcZpSTU2eGPrRmsCc1PX5v5/HhbXX5h/8DsYXIKJZkB8A6?=
+ =?us-ascii?Q?jH2Sz7Dw7pBFGhs17ZM3lz3vPtMXmtxRWUbSVqhS+FSy+91XvOO1j62uzTtl?=
+ =?us-ascii?Q?loXtQiz470WBWki5me4dwXAdVcGcROXMPjLUwzs4ANXDUJRoIc0RhH4JjitA?=
+ =?us-ascii?Q?gYZVn9qlLygUiJCPgYYNtrojYm1IxJ3Gvbrbsqye4DA8QPKVS2cBVRILcO/F?=
+ =?us-ascii?Q?QhLdsiFjLp1Z0W5j+iWGc8Gq78iCRptpcsTS23A2xlFJPyoGOcfXGZam/rKw?=
+ =?us-ascii?Q?N9bPnwGuUE3sngfKr2FnT0kEvZdX/clpfGV3mgvYj465eBf0Az2pO+ocF5i/?=
+ =?us-ascii?Q?E3I3TBsCKp5SyEpEh6U0iAhaJgcA10vZt1pceRGhg+GAJh6VJxGibpBgXtFd?=
+ =?us-ascii?Q?SBXMXb82eCGl1PcFzyTjD3U54KRgB7njfDf/5EZxUylbCE5HU8BRaS+BQ4cQ?=
+ =?us-ascii?Q?+mzeQNUfwkR19y27rLNygKrApUf9WYG3Y6Z/2g0GhwkSITM06+d0vvmdLqkl?=
+ =?us-ascii?Q?xNqMIIK/+rhuS51wkuyZ92mMoOWRtsaO38/aLUlGI0k9OZ4E2z5RLiaRId9m?=
+ =?us-ascii?Q?y3a1RJJBZlp0zBzhEFIsLSj49maXzP5YeLoItKCmqzwXTu8SK5s/EbbnjzMC?=
+ =?us-ascii?Q?NwFEMTwsbw=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 62e4d6aa-c1aa-453e-28b7-08de769b0f5e
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Feb 2026 07:29:08.6151
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: iJr7i3NPEhG/4e0r0alrETcxm31yfEvvJe56zmZLC+XPl14vPDWi6KisliMdAb/54BPpFJa+T5ad/giNRCuBpw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11971
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_231536_232288_17B54E2A 
-X-CRM114-Status: GOOD (  14.16  )
+X-CRM114-CacheID: sfid-20260227_232914_685980_619E2ED3 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,155 +145,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add PMD-level huge page support to remap_pfn_range(), automatically
-creating huge mappings when prerequisites are satisfied (size, alignment,
-architecture support, etc.) and falling back to normal page mappings
-otherwise.
+The IMX6SX_GPR12_PCIE_TEST_POWERDOWN bit does not control the PCIe
+reference clock on i.MX6SX. Instead, it is part of i.MX6SX PCIe core
+reset sequence.
 
-Implement special huge PMD splitting by utilizing the pgtable deposit/
-withdraw mechanism. When splitting is needed, the deposited pgtable is
-withdrawn and populated with individual PTEs created from the original
-huge mapping.
+Move the IMX6SX_GPR12_PCIE_TEST_POWERDOWN assertion/deassertion into
+the core reset functions to properly reflect its purpose. Remove the
+.enable_ref_clk callback for i.MX6SX since it was incorrectly
+manipulating this bit.
 
-Signed-off-by: Yin Tirui <yintirui@huawei.com>
+Fixes: e3c06cd063d6 ("PCI: imx6: Add initial imx6sx support")
+Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
 ---
- mm/huge_memory.c | 36 ++++++++++++++++++++++++++++++++++--
- mm/memory.c      | 40 ++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 74 insertions(+), 2 deletions(-)
+ drivers/pci/controller/dwc/pci-imx6.c | 12 +++---------
+ 1 file changed, 3 insertions(+), 9 deletions(-)
 
-diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-index d4ca8cfd7f9d..e463d51005ee 100644
---- a/mm/huge_memory.c
-+++ b/mm/huge_memory.c
-@@ -1857,6 +1857,9 @@ int copy_huge_pmd(struct mm_struct *dst_mm, struct mm_struct *src_mm,
- 	pmd = pmdp_get_lockless(src_pmd);
- 	if (unlikely(pmd_present(pmd) && pmd_special(pmd) &&
- 		     !is_huge_zero_pmd(pmd))) {
-+		pgtable = pte_alloc_one(dst_mm);
-+		if (unlikely(!pgtable))
-+			goto out;
- 		dst_ptl = pmd_lock(dst_mm, dst_pmd);
- 		src_ptl = pmd_lockptr(src_mm, src_pmd);
- 		spin_lock_nested(src_ptl, SINGLE_DEPTH_NESTING);
-@@ -1870,6 +1873,12 @@ int copy_huge_pmd(struct mm_struct *dst_mm, struct mm_struct *src_mm,
- 		 * able to wrongly write to the backend MMIO.
- 		 */
- 		VM_WARN_ON_ONCE(is_cow_mapping(src_vma->vm_flags) && pmd_write(pmd));
-+
-+		/* dax won't reach here, it will be intercepted at vma_needs_copy() */
-+		VM_WARN_ON_ONCE(vma_is_dax(src_vma));
-+
-+		mm_inc_nr_ptes(dst_mm);
-+		pgtable_trans_huge_deposit(dst_mm, dst_pmd, pgtable);
- 		goto set_pmd;
- 	}
- 
-@@ -2360,6 +2369,8 @@ int zap_huge_pmd(struct mmu_gather *tlb, struct vm_area_struct *vma,
- 	arch_check_zapped_pmd(vma, orig_pmd);
- 	tlb_remove_pmd_tlb_entry(tlb, pmd, addr);
- 	if (!vma_is_dax(vma) && vma_is_special_huge(vma)) {
-+		if (pmd_special(orig_pmd))
-+			zap_deposited_table(tlb->mm, pmd);
- 		if (arch_needs_pgtable_deposit())
- 			zap_deposited_table(tlb->mm, pmd);
- 		spin_unlock(ptl);
-@@ -3005,14 +3016,35 @@ static void __split_huge_pmd_locked(struct vm_area_struct *vma, pmd_t *pmd,
- 
- 	if (!vma_is_anonymous(vma)) {
- 		old_pmd = pmdp_huge_clear_flush(vma, haddr, pmd);
-+
-+		if (!vma_is_dax(vma) && vma_is_special_huge(vma)) {
-+			pte_t entry;
-+
-+			if (!pmd_special(old_pmd)) {
-+				zap_deposited_table(mm, pmd);
-+				return;
-+			}
-+			pgtable = pgtable_trans_huge_withdraw(mm, pmd);
-+			if (unlikely(!pgtable))
-+				return;
-+			pmd_populate(mm, &_pmd, pgtable);
-+			pte = pte_offset_map(&_pmd, haddr);
-+			entry = pfn_pte(pmd_pfn(old_pmd), pmd_pgprot(old_pmd));
-+			set_ptes(mm, haddr, pte, entry, HPAGE_PMD_NR);
-+			pte_unmap(pte);
-+
-+			smp_wmb(); /* make pte visible before pmd */
-+			pmd_populate(mm, pmd, pgtable);
-+			return;
-+		}
-+
- 		/*
- 		 * We are going to unmap this huge page. So
- 		 * just go ahead and zap it
- 		 */
- 		if (arch_needs_pgtable_deposit())
- 			zap_deposited_table(mm, pmd);
--		if (!vma_is_dax(vma) && vma_is_special_huge(vma))
--			return;
-+
- 		if (unlikely(pmd_is_migration_entry(old_pmd))) {
- 			const softleaf_t old_entry = softleaf_from_pmd(old_pmd);
- 
-diff --git a/mm/memory.c b/mm/memory.c
-index 07778814b4a8..affccf38cbcf 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -2890,6 +2890,40 @@ static int remap_pte_range(struct mm_struct *mm, pmd_t *pmd,
- 	return err;
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index a5b8d0b71677..2d01c21b5570 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -663,14 +663,6 @@ static int imx_pcie_attach_pd(struct device *dev)
+ 	return 0;
  }
  
-+#ifdef CONFIG_ARCH_SUPPORTS_PMD_PFNMAP
-+static int remap_try_huge_pmd(struct mm_struct *mm, pmd_t *pmd,
-+			unsigned long addr, unsigned long end,
-+			unsigned long pfn, pgprot_t prot)
-+{
-+	pgtable_t pgtable;
-+	spinlock_t *ptl;
-+
-+	if ((end - addr) != PMD_SIZE)
-+		return 0;
-+
-+	if (!IS_ALIGNED(addr, PMD_SIZE))
-+		return 0;
-+
-+	if (!IS_ALIGNED(pfn, HPAGE_PMD_NR))
-+		return 0;
-+
-+	if (pmd_present(*pmd) && !pmd_free_pte_page(pmd, addr))
-+		return 0;
-+
-+	pgtable = pte_alloc_one(mm);
-+	if (unlikely(!pgtable))
-+		return 0;
-+
-+	mm_inc_nr_ptes(mm);
-+	ptl = pmd_lock(mm, pmd);
-+	set_pmd_at(mm, addr, pmd, pmd_mkspecial(pmd_mkhuge(pfn_pmd(pfn, prot))));
-+	pgtable_trans_huge_deposit(mm, pmd, pgtable);
-+	spin_unlock(ptl);
-+
-+	return 1;
-+}
-+#endif
-+
- static inline int remap_pmd_range(struct mm_struct *mm, pud_t *pud,
- 			unsigned long addr, unsigned long end,
- 			unsigned long pfn, pgprot_t prot)
-@@ -2905,6 +2939,12 @@ static inline int remap_pmd_range(struct mm_struct *mm, pud_t *pud,
- 	VM_BUG_ON(pmd_trans_huge(*pmd));
- 	do {
- 		next = pmd_addr_end(addr, end);
-+#ifdef CONFIG_ARCH_SUPPORTS_PMD_PFNMAP
-+		if (remap_try_huge_pmd(mm, pmd, addr, next,
-+				pfn + (addr >> PAGE_SHIFT), prot)) {
-+			continue;
-+		}
-+#endif
- 		err = remap_pte_range(mm, pmd, addr, next,
- 				pfn + (addr >> PAGE_SHIFT), prot);
- 		if (err)
+-static int imx6sx_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
+-{
+-	regmap_update_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR12,
+-			   IMX6SX_GPR12_PCIE_TEST_POWERDOWN,
+-			   enable ? 0 : IMX6SX_GPR12_PCIE_TEST_POWERDOWN);
+-	return 0;
+-}
+-
+ static int imx6q_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
+ {
+ 	if (enable) {
+@@ -784,6 +776,9 @@ static int imx6sx_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+ 	if (assert)
+ 		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR12,
+ 				IMX6SX_GPR12_PCIE_TEST_POWERDOWN);
++	else
++		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR12,
++				  IMX6SX_GPR12_PCIE_TEST_POWERDOWN);
+ 
+ 	/* Force PCIe PHY reset */
+ 	regmap_update_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR5, IMX6SX_GPR5_PCIE_BTNRST_RESET,
+@@ -1883,7 +1878,6 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 		.mode_off[0] = IOMUXC_GPR12,
+ 		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
+ 		.init_phy = imx6sx_pcie_init_phy,
+-		.enable_ref_clk = imx6sx_pcie_enable_ref_clk,
+ 		.core_reset = imx6sx_pcie_core_reset,
+ 		.ops = &imx_pcie_host_ops,
+ 	},
 -- 
-2.22.0
+2.37.1
 
 
