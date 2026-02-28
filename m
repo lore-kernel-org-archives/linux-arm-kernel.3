@@ -4,126 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B90A9FEE4CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 06:38:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FDA8FEE4C6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 06:59:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KWz4TaMGkb39+r0Rxj52QVnZ9T/Xwm7dp6zyjarHMsc=; b=FlyQk/QMOwYLfcWo/aXd+iI0nU
-	+WYbF+SIZTW4Vv0DRS9Cq8RRCekCLi6RCFy0RiwJ8q/+OTl1LBseT1944O8EhaRQpQSDDWm3Ky26V
-	rOkXixGp/FSPRD7Keermxxx3Y9Si2TauAqLQKtCVbwB4hy1/CrsWdnZq2NeefsE7+eiNcregUF9Wc
-	8CV0kAdXWJleQB/h29nK5CGP4Dz9p4YUkckZQloFcVkbRrpzzBTmJxOTUZHBuSuKBAZejdmbveN+o
-	PRZGoS15xo8ZwSpKLMelHTbxJGc/0haFhEEspm1yetKeIV1Sg1n5vlyYdYFhLoUaxAdtNyT6dpV5N
-	Fpc4sYww==;
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zA3P8UxXCMQvOD+LzqgpDVN6V5tmycwSpavE/3RkesY=; b=Fxs6OLDSt6szL4wMk1tjUx2kT+
+	uABAdDwDUAwT9BFffhY/l9zV17eqzpXLSJrXd6leQMu0nlJwB5SCB1zOhFrQKjcexo4evF+AA2M8s
+	efJEcbaAZT5+7c4zbvXEq196ZvBmUMZ6+swGkN2bdnxtev22VxXm5dG8qL3KNQgbUe4g2OsdNJg17
+	THAFmzzFqZvhZXENa4TuqMeUImvtJ9OYPxGf701nNG9tii8hkZcqgp1ICTZp6yBBWxwWzhivagsKl
+	ZYJzCCv9HpgVdAbJEYfpGZHpfdFcMJC8BbjB3w9G4o86WuSX9aAebdMKDhAHM/P5U8dnoQv12bH0N
+	ZxxhaRZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwDyN-00000009YUl-0xpH;
-	Sat, 28 Feb 2026 06:38:43 +0000
-Received: from mail-koreacentralazon11023098.outbound.protection.outlook.com ([40.107.44.98] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1vwEI1-00000009ZxX-0f5V;
+	Sat, 28 Feb 2026 06:59:01 +0000
+Received: from mail-japaneastazon11023084.outbound.protection.outlook.com ([52.101.127.84] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwDyI-00000009YNp-015H;
-	Sat, 28 Feb 2026 06:38:39 +0000
+	id 1vwEHz-00000009ZwY-0SQ7;
+	Sat, 28 Feb 2026 06:59:00 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=H7Zd+2OSuXWyytPyRLwYT+R+0iaSQFcZGMRNILlzrJJF7x2w+wlxfVxYE5bn4HI/n7CNeyHPKm6uM8n/Ug/DfED/FX6BIBO3tuTnX7JCXRBfyVROPwdmSbwRJNTp5WjtoamO0fytZiGW4DYgoNC6D928lOLA1UKsHeF+WzojfHh3DHvArq6IP4yb9m0anqt767UNHsFf4e0hyiUWiFWIU5tf8c3JjCObT9AXM3hil5Wcrm8jWBTARt1g23XfP1++yl8W2ojZPZpOFF4hucSs/DGzm7H/sk+4IfIyHxid2my4rEoyacpOMYQxtrtAYtzus+4ajscrdIxlmmj5Jvxs1A==
+ b=aqL6aEyUUrtQSU1c3iOQ/rcI4X6IH0lHBf2vzxBg2aV3PNCrXulTtQse/Qm5dCj7V8xYeOVWmwyRTrPfMO+LCAhm1eu+VpB/0scExbfV8v4rdyFnZSTcW1VqwgQAipUcaswE/MyKHeiXibq/0n2qUE5SjJAbYWgy3rHBQUvcqOLmDBkhdXwqUDM1ACkElUScgZEEFSEUh+1g6oTK0dPJhRtG/NgETX8t0ewl0MMr0zk/BCDUh1NQdH28OYiZT9VE3Psca09KTl5z1WZCMjn1IKJgufUtDLBnqy2LI10uEqoYEHYouiWxRZfvIQduLH1quEaqxHw1Mu+/3lsiLC1hKQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KWz4TaMGkb39+r0Rxj52QVnZ9T/Xwm7dp6zyjarHMsc=;
- b=m9a0XT/MHq+IZZwXNgN/zUantvNURNSOcFjZsT17KISrxP/nMCsoe5e6XEP00vVKeCGT2W0X8eoZFnW44p52z7gfUKHsM82Et8Tu0fiSjTMPK6LBG7SrETvhphbqd2wfR5KIKavvkA/AdQ7AHeiftWvN8riQJqVAGHD7vW0GaJWJdECl8/QzG+853Uxp48oLB+I75Rlbs5C/xbraU6QjMstGgw43esfB9YAHhIrjNs6TNxVAPc4VnBJmTVa8PmWItAHWsLl3e4JY51A6omBzi6iXyvnwBkaMuvbAjImBOH19aFdXRidKNQnoh9HWSJYoLN1NSMaPgxu2iW/1yuTf4A==
+ bh=zA3P8UxXCMQvOD+LzqgpDVN6V5tmycwSpavE/3RkesY=;
+ b=b7N8Hw+nOFtbuG3xkhxezBVFXwP5mtuyC2HptNXglNSD/rxKLPANA1HUHES+9qKcxJsdkZ1t4rDwVau2wIgOZ60hjJSJF2NfAaqiDVmxI5fsmplfnqccvh+tD1nqxO28W1uetnKRq19PdH8NNSEsMMezccv7fOakgDNOHZaSscAPOp3v0IyQpdLKA3EK7yFsEEirT1OBnxx94KER6WQoyQM0LvWXBI1v7MCraPTCGvoR2QM6Aqk7V6AYIkUr5VeEq4pSh6lK4ioZ5weoeH9Mo/dLOAXx3sruoKfR1kWQwaaaiaLx7N+EYigp6aHp19QnWLF/yGMsVzHzejvsjbkrQA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=khadas.com; dmarc=pass action=none header.from=khadas.com;
  dkim=pass header.d=khadas.com; arc=none
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=khadas.com;
 Received: from PS1PPF62EEA9B1D.apcprd03.prod.outlook.com (2603:1096:308::2da)
- by SI4PR03MB9867.apcprd03.prod.outlook.com (2603:1096:4:298::14) with
+ by SEYPR03MB6722.apcprd03.prod.outlook.com (2603:1096:101:6a::5) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.16; Sat, 28 Feb
- 2026 06:38:33 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.22; Sat, 28 Feb
+ 2026 06:58:53 +0000
 Received: from PS1PPF62EEA9B1D.apcprd03.prod.outlook.com
  ([fe80::20a2:a696:ac88:2549]) by PS1PPF62EEA9B1D.apcprd03.prod.outlook.com
  ([fe80::20a2:a696:ac88:2549%4]) with mapi id 15.20.9654.014; Sat, 28 Feb 2026
- 06:38:33 +0000
+ 06:58:53 +0000
 From: Nick Xie <nick@khadas.com>
 To: neil.armstrong@linaro.org,
 	khilman@baylibre.com,
 	martin.blumenstingl@googlemail.com,
 	jbrunet@baylibre.com,
-	krzk+dt@kernel.org
-Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	jic23@kernel.org,
+	dlechner@baylibre.com,
+	nuno.sa@analog.com,
+	andy@kernel.org
+Cc: linux-iio@vger.kernel.org,
+	robh@kernel.org,
 	conor+dt@kernel.org,
 	linux-amlogic@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
+	xieqinick@gmail.com,
 	Nick Xie <nick@khadas.com>
-Subject: [PATCH v2 4/4] arm64: dts: amlogic: meson-s4-s905y4-khadas-vim1s: add POWER key support
-Date: Sat, 28 Feb 2026 14:37:50 +0800
-Message-Id: <20260228063750.701887-5-nick@khadas.com>
+Subject: [PATCH v1 0/4] iio: adc: meson-saradc: add support for Meson S4
+Date: Sat, 28 Feb 2026 14:58:36 +0800
+Message-Id: <20260228065840.702651-1-nick@khadas.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260228063750.701887-1-nick@khadas.com>
-References: <20260228063750.701887-1-nick@khadas.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: TYCP286CA0001.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:26c::7) To PS1PPF62EEA9B1D.apcprd03.prod.outlook.com
+X-ClientProxiedBy: TY4PR01CA0055.jpnprd01.prod.outlook.com
+ (2603:1096:405:372::11) To PS1PPF62EEA9B1D.apcprd03.prod.outlook.com
  (2603:1096:308::2da)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PS1PPF62EEA9B1D:EE_|SI4PR03MB9867:EE_
-X-MS-Office365-Filtering-Correlation-Id: d6b9c7ea-13a0-40f8-3e4f-08de7693fe0a
+X-MS-TrafficTypeDiagnostic: PS1PPF62EEA9B1D:EE_|SEYPR03MB6722:EE_
+X-MS-Office365-Filtering-Correlation-Id: 463e4fe8-6dfd-4166-b09b-08de7696d55f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: Wnd/Lswt2KtKBpt8siR7AhiT23+yWB291EFR3LLKBiSNYAaSlnPKZeSduaIPRadD3oRPJhXF/doE8rIjePIpFiEa00T0U02zdTnEpZSQ/o8vOAyg0MXRls6yT24M4YU5wXU+CUJ6adMRR+VRpNvihQ1xsWp2d4miYvry3HMof4xj/P+Gb7fCOId/tSrFvWQQ6yZgcbwfl7N9DADC1NVsh8ezz9Fy3jbnkf+2FQKfSm3fz3RGspGy2FqMmCky6ZwS/esIgPVJzPgCw/n6tHIz5r4lpN2JVzp1eylK/e4MOXpAZLuGbrPQ+1CZgKwKbyWTldKnFbKznxjCv5gNSZfEV4ad63WsrHzbEjc1+n9U0EYTwYpVkBfHK7m80MQ5sGWqO0IabqCCNMLNEJyxMGjkgIhNplo/LwDC+qQzyNUWhANTFWv8p1CdpHcPOAq7ox/AW77hgD+/j1mgOr6P2JauRWqVb+sko0KFG0hDV5YyKwBJ/gBRoD1IerWQLJiOxXxjio5G+SnUgAO/TDy1+T4K67sMFDS78shKAgqyYlsgZS72q+kDKf4LMgbNHfHaeepr42PFqrPtno9c1z0diHUcUxpE4un948gihgbrsqmUVv8yzSUobWYhro1UwYP23zu7bLyt9hKm210kG84mvhNukMnmHsUqlbp5+beGfuj7ymNZPCNQuLLXOqTItvQ9tVlAWvp+NS/U8vEUjsBZYhlKroSCNg8G7l0RBb9o52cI2dcSCazKZZu1atP99EPs3KJyKDGUHBrHoJy8OMy3rOrZB8MuxwHwRv5MAubTX0uhlmw=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PS1PPF62EEA9B1D.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|376014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: NEPMqQC29I+ZCqvb5KYL6O8/J9vdKCRzDbBpcV4uzdUHIhiVF8RZMcA9mZVSZyq1icJlin1vXGJhWyXbcLbGJfG1JEUBw8rMbjDfo5FWtcX8oIPzwRSdnXa1EyTpT/rzCFt1wQVPZQpKUotr/CgLCt44U6xJpg/TisYWgONcywKQ7RAHGEmLOHwuKk9tUHmia0LXXaeuUkHXk7le2F+7v2BlXP2YoIm2prEMcch2N1JRxF2rM2KOVoMvnkRs9yqXQ+SaxtjraAF6Z+aOTGTHyaE/xs5pH07Tpb7xsEiFZCoXSubpMfREkE255hNirBL4B/NAdPt8LbDnozYIpSF2PpVWUh0+5IBY59Prm2r5XgpYpF7/FKsJGB4mtvLz2h9MwQt7jX9MUCK8iUyVyFYV1ngi+hLGeVf4D6BV01HZwzC+IlslZvHlWeQekgU7g2ePQR3nfbR1NccMsHjrJH3EDvcaObsmKzVBgj10cc398BV4c5krMciaAeHU5zQwnzrm8cArEkKsPfl6VrHe2AJtW+23CsNznrgwdstYWlgx5d1YkWWSLmcObq3u2h53fQMSlrScbwY0xA/oAOK6fiDxE5yUsCINxTHZVWpiYNn3JfJHcrt0VxvKJP7BsnOkY6mo5r/PWMEVAhnVVZk4inu+wdJ/sF53F1xAlC7EbBtaAJSWgm1XHhAjeNk2nyyamzp1qhONFsVNQaUI8ijPPgCWALvB49kmyVgIgRHTGqtIjjoQ+rcXOKd8tnRszyY4anmt
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PS1PPF62EEA9B1D.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(376014)(366016)(38350700014);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tp7Atz6A1rdFP7Out1TEBtTLAcYFlex1cANrBHymf9qcOjYGw/ORB8PRFVgK?=
- =?us-ascii?Q?qbyhdqjqKCLq6O2poZ5Ut/4WjX/c0LNGQNNXKyAX4iWphZ21SSXTXGffJxcf?=
- =?us-ascii?Q?IpmX9r6HFYdkueo40OVX1buSB6hGx3y/evz9Oe3CjILMdxvklRRTbL7mGCXT?=
- =?us-ascii?Q?ISYIjmYU2ZjkIJzsWQHs8S9shHVfGUs2cXCEgaarVs7Hxvo8jPMhJ1pgRova?=
- =?us-ascii?Q?SgdfBLjWED4+UbCDd0Brhtn8/8D7ByMu0VQbS2u3FvemlvJvViiaVZ/KqSsc?=
- =?us-ascii?Q?SQO6r590Yxv1GE6OqVZF39T4RWhB2oY5QGdZl3vFVXCqwYIfNzbvL51N8C6L?=
- =?us-ascii?Q?EpofwrECwHuD2LSVgQ09L43VRrVFYRfqNov7tcqiIqPCtvgpDsXzxS0fwLgr?=
- =?us-ascii?Q?gAsbce85ITeX2uOvJ93evpiJz2Pi3NbxtPEPnn0+zNBg7MWUK2chVvfGyAyK?=
- =?us-ascii?Q?qeRHWoPag+W1BAmiiCc4QNyMsf/yGqBeLSObWzPc3XFQ7RJLSKvLlSrui16O?=
- =?us-ascii?Q?yCu+JU6dW8/zZPuWl9+TGSEgCvQ6J5y16l+BZahVI+cEmArOi3w7vQ1LuoaT?=
- =?us-ascii?Q?55PONlQITbya5sl00YW879tZuUdLPz+D1a4A6zniVXm8SqTfCs1+aDETZ8aC?=
- =?us-ascii?Q?LxtUmuiIZdmXPkOBxeqIBB8VJgXpeA7V9Rat0CZupbQ2uHONOkt5GrJGO9vx?=
- =?us-ascii?Q?Ngac7qzYhfdF+zOXG0e4E+drsD63T1iYqi3HgG27xuPwwL0NUhqEElqYmGcF?=
- =?us-ascii?Q?LjaZt427tkX458k9PQi8vxte1iaS4wMZAZ68zsZzxTX+NBQA8z4B9U0wpW1Y?=
- =?us-ascii?Q?eu/n8Dc+Njio1T339hgqKxkmG/Lm/nCctE3jFgHrE3wkIXy7Zj4zJov19RyJ?=
- =?us-ascii?Q?sVgAL4zSY28wIAtpmPsiIaOI5kjLVylchf+Ntg/72HfG/ZMMw0c4wojbCN5a?=
- =?us-ascii?Q?kH4x6f7MnxNXZRMilMR3dQm+7iGuPrOMJD+dmQV0EJLVu/6xdFadJA/OR8Qh?=
- =?us-ascii?Q?sE3PzD00vGEfpIrScFdQ6eJyQa0zuFZ4ZRGTcKjOQJGP/fz+yBYPUR5iGc89?=
- =?us-ascii?Q?dPoX4xGdEUEtudb4Ei4kIPTJDp2qys6LFHtF+sBvDubS9fuDmXOEjuJeMm1x?=
- =?us-ascii?Q?G0y/lY0C++pJaNzvxAtOX/LAty+Auubpaujo2VWYx999NPnU5msBiFm+7afK?=
- =?us-ascii?Q?QmzFzmsvwY7POnMFfM5Ol5S1hbC47E3sZcgLbqz+OKvypJ43UB/N3F1Xq2Ff?=
- =?us-ascii?Q?1YMTpyC0Fao1NNwG6VgWjHH4SjLIzPTZwUeL1favMcP1No0dJG0g14THXUz2?=
- =?us-ascii?Q?k/tcYp/B5jXZ4yamdP7z3ZU55ne3uIne6OtAoTO74YI4F73nY2ORR/jmGZU3?=
- =?us-ascii?Q?nldd3+8KANSkgjhxkzBR0J23A3ssdYOTb+CHq6GP2o5FfeYsrSU1wu/lSKp0?=
- =?us-ascii?Q?K53LNpBBrX1mnWC2/vt2zP59igpNPN1dxoT9pnZAP07hLZU43LXo7xaOssSO?=
- =?us-ascii?Q?eS6ls41RgLzW1KaoDLtS+8AoHRY2PGEJcf6M2R63o/twRLIy1gICusLmrW9e?=
- =?us-ascii?Q?ArP52bIaN9s/O3qlUJOQJD0FQhjE/1mg3f29fWDOz/czkpme1CmaeE9UpQQD?=
- =?us-ascii?Q?cRDiRDq2T2FQlFTS4mSSRW5jPGrGQNcWoNEiaMQq7/DInvQrQNlttmPYS9in?=
- =?us-ascii?Q?qMBgF9beKpIrkSakxi7tQfodcFbzlwqxwC7MzImrBM4AZKEI?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CkGF5YMPpZCoGEtPQPeSBabI3Yb51a8bKjMh0gyRbxo6bkZ6CoKtZ/RyCztD?=
+ =?us-ascii?Q?thbqdB6bSrc/Mprg64JWN7QvIuU0OChzqnpTxaPQDENK5Es54fqQ6PRIeRmt?=
+ =?us-ascii?Q?t76/QTGyEy+KkII9wq0AhbaYwLggYhvMIW/LX1z0JWZDq2JbFp+bN/+Vh4gi?=
+ =?us-ascii?Q?z4XLRhcw6DeXe4S7yh3av1MCnz5I+bv2CdCl9Hex+KSnfrJRm5IgFmMiHLUM?=
+ =?us-ascii?Q?VLRZ7JTNaCul6fuZvAizF+GYax9ZpKrtm3i+i2E74vpZ+K3GoykWAIqN+xYI?=
+ =?us-ascii?Q?Dgcc6Wupw//0c6qIB8HHtYj6Zmac6Of2T77rMdIN7pwMrMY7WPeg2yeexpTO?=
+ =?us-ascii?Q?9lvsUwcudzAUIhMWufmNOxdlw+5/pQyDKQiv+qcZchFbOL+2OE9+HBK57LpV?=
+ =?us-ascii?Q?cwwsq9IK0QZuLLxearMVmIwTI4zqyglAD41cZiHiSdTokR5PAHBHInerdJtB?=
+ =?us-ascii?Q?adzX3E328s+jUjfpWYMw5BUyK5FZuTQBJNV0rtaGqTIg+MoEEZCFT92eCUVF?=
+ =?us-ascii?Q?eu0Dn9mq7PNb2xffhpxEJ9RQ4CugjYgFha2axfSSBE7CDfJQEvbHDxatDldG?=
+ =?us-ascii?Q?VN3c6LenPj2NpvzUWo1YxoU5kDClb/ozizVJDRcx6sNIJ1gBKIOvW8lKw+tR?=
+ =?us-ascii?Q?nHtQt25U4aX6C3bHgoA9tpmWrxyHV4qvrlEYDx29P2RTb44RGMTt6v/ZbGzK?=
+ =?us-ascii?Q?QB9wFzBCFAHztxahSEuzdtsx++vO3BK5hsrfVGEzWCdiYRuPdzxtXSoQX6jO?=
+ =?us-ascii?Q?wTtd2wZLwakW+WeX8ja431obsyP7PlnuWe5HxMFWghjP/Xh8A7Newg5xEDwc?=
+ =?us-ascii?Q?4DcEyIkbDwCdN+D9Z4ma++3uhQ+/+TP4XbQrvFQtwJhPro/NGMJnu1Zn3KgG?=
+ =?us-ascii?Q?n1vCZvpgP61TR7vU2vfuOFNmwyhthisXfaTMLYira0My2KqqLYIBJoBt7NPN?=
+ =?us-ascii?Q?vzHtUvsOWCo+H6HWZwCsAkycqTZ5RbJgOKPMwX/LGlL3z9pu/XWCybBzDF0u?=
+ =?us-ascii?Q?hFSSDNJvTXApMx+TGoWTmZnx/i4XKxqShK82i9u1v5xt0PifgalgE+enBj3J?=
+ =?us-ascii?Q?rY1VTeVockNjCk9v3bkdkRu3dPoPDUX3lk2ZUWwb6svmP8KyfGYe2cj8KvRO?=
+ =?us-ascii?Q?TPsMHcVmz/e40fgUpu5fRIAd4Sex3BxgirS+WflqYSQa+SrTBFp/thTG7b+5?=
+ =?us-ascii?Q?HCz9nfh8tQcf3xo+qSckCIClSgXKT/0A42cWdBueD6JPao+nSykWUmfBDQOK?=
+ =?us-ascii?Q?rKY5GgQmwiHJ063zFmTXs+4oqPcfZviM+TTy/wVyWx+inl27hUGrFYSAN+B8?=
+ =?us-ascii?Q?X+4mEj9Wq/udJRMdZBj9huox2PKA08puFOeYb9HRPvNBZJiGe8/HgkXD4+9V?=
+ =?us-ascii?Q?8ucc8t1B9M+WxJClNTDxQ2rmwMq3YR/60OhQlAxMz3bXNiG+WahUpzFLPNm6?=
+ =?us-ascii?Q?c/VrqUNEzKokJCIWkI8E7Q84kfK3waLeahVnkgCtRmDLo61FcFFSXfhbAMJl?=
+ =?us-ascii?Q?GTTyYPx4ndCO/YASw82rTKeIfVYnWZjXp1k0YM24dSOX4CFrvJvyDl4rGRZe?=
+ =?us-ascii?Q?FV9W1GHEAoWm2HHem+FenrqRGTeX+hpepZOfqj8Ta1o/3ER+/agEMNvky38R?=
+ =?us-ascii?Q?aUgdJ01gpbYpEoAbDSXn3uuQZux6V6mEWz4lbS5a/q7OYa3HcaEHiGO/72Y6?=
+ =?us-ascii?Q?cR91Xhrt8+ZhisDpCFRQMDhlvSQDmLs8yKxNvGwAe9dvQpLe?=
 X-OriginatorOrg: khadas.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d6b9c7ea-13a0-40f8-3e4f-08de7693fe0a
+X-MS-Exchange-CrossTenant-Network-Message-Id: 463e4fe8-6dfd-4166-b09b-08de7696d55f
 X-MS-Exchange-CrossTenant-AuthSource: PS1PPF62EEA9B1D.apcprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Feb 2026 06:38:32.9524
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Feb 2026 06:58:53.2962
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 2dc3bd76-7ac2-4780-a5b7-6c6cc6b5af9b
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: IcZ0EI9MlYW/SCAxYuDccFp8DmTl2HiNcLxglBhN+Dp1E0uyE+b52uWyEKs9aISf
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI4PR03MB9867
+X-MS-Exchange-CrossTenant-UserPrincipalName: t+jWC7eMZFVXvZVf8sxCTJOldrCNDoR4atwD5DA1HGLBs/d87JMO1v++SzKTeZjJ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR03MB6722
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_223838_050718_6DD53D79 
-X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-CacheID: sfid-20260227_225859_148125_AE9EEF20 
+X-CRM114-Status: UNSURE (   7.40  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -139,48 +143,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the gpio-keys-polled node to support the Power button found on the
-Khadas VIM1S board. The button is connected to the GPIOD_8 pin.
+This series adds support for the SARADC IP block found in the Amlogic
+Meson S4 (S905Y4) SoC and enables it for the Khadas VIM1S board to
+support the onboard ADC 'Function' key.
 
-Use polled mode instead of gpio-keys because the GPIO interrupt
-controller support for Meson S4 SoC is not yet available upstream.
+Following discussions in a previous board-enablement thread [1], a
+dedicated compatible string ("amlogic,meson-s4-saradc") is introduced.
+While the hardware currently operates perfectly using the G12A parameter
+set, defining an S4-specific string ensures forward compatibility should
+any S4-specific quirks or BL30 integration differences be discovered in
+the future.
 
-Signed-off-by: Nick Xie <nick@khadas.com>
-Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
----
- .../dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts     | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+[1] https://lore.kernel.org/linux-amlogic/20260123022258.136448-1-nick@khadas.com/
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts b/arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts
-index 0bd738c1e7862..664d64a267f2d 100644
---- a/arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts
-@@ -6,6 +6,7 @@
- /dts-v1/;
- 
- #include "meson-s4.dtsi"
-+#include <dt-bindings/input/input.h>
- #include <dt-bindings/leds/common.h>
- 
- / {
-@@ -44,6 +45,17 @@ emmc_pwrseq: emmc-pwrseq {
- 		reset-gpios = <&gpio GPIOB_9 GPIO_ACTIVE_LOW>;
- 	};
- 
-+	gpio-keys-polled {
-+		compatible = "gpio-keys-polled";
-+		poll-interval = <100>;
-+
-+		power-button {
-+			label = "power";
-+			linux,code = <KEY_POWER>;
-+			gpios = <&gpio GPIOD_8 GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+
- 	pwm-leds {
- 		compatible = "pwm-leds";
- 
+Nick Xie (4):
+  dt-bindings: iio: adc: amlogic,meson-saradc: add S4 compatible
+  iio: adc: meson-saradc: add support for Meson S4
+  arm64: dts: amlogic: meson-s4: add internal SARADC controller
+  arm64: dts: amlogic: meson-s4-s905y4-khadas-vim1s: add Function key
+    support
+
+ .../iio/adc/amlogic,meson-saradc.yaml         |  1 +
+ .../amlogic/meson-s4-s905y4-khadas-vim1s.dts  | 19 +++++++++++++++++++
+ arch/arm64/boot/dts/amlogic/meson-s4.dtsi     | 14 ++++++++++++++
+ drivers/iio/adc/meson_saradc.c                |  8 ++++++++
+ 4 files changed, 42 insertions(+)
+
 -- 
 2.34.1
 
