@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33C49FEE4F8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 19:43:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0E83FEE4F7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 19:43:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Sy+MoMMuIP0uzZzBvgD9IvMEukA2rbz8mQmpWnAUqxw=; b=hNP5TGMD0rM7ZK69jL3YpAXLzi
-	5g82UAE6qNhA5xeO8oRdhKZgTMVjXXGD88wdbzG1WKDN+jsYwW/m0Bha3a7RKcZ1CZFzbnq0C2Cm9
-	6CJrG91BVTR2efbW1yBeCkIeJ3BdD0YB8ShPUL5TFbnxUSuCNF7pfO4dqxq9tcGCshN21OoB6FWqj
-	XMZx0LK5Y4Dp/HKvUSJFq/4M/jCXHPwXfkZT4V1Q0itFgnJE+lCP0hved0b7IzZ2L8XSNj47axAUm
-	i08fs1ZtKeuUN9J+lP71BtZithuKWDcUNDDLDdiyu/GxBQliUWt14TApwIK2wAv1YPEd7euUhEQQR
-	yXtIiFZA==;
+	bh=on0VhF10HvrGsC3xgVd6E3dtUeQ8UNCEMcYpUvxVQ8M=; b=Y3bACa4bBux6wHti8naFOIr6ew
+	TAAjAyOzRqHoedVWKGgZJ3miTayZkhCAZt5ZDBP4yyWZYXx0Bc8CzgkV68mnolaRFIbHOyxImrt2j
+	iQq+Eg0A8uUBbOvmWRiFdszboTTQkqXNJZjdyoNZdlWRnTMFs1r5MyZPW7ROtD1e/YZfDvJ3E3El+
+	2oX1I+GonefFkAJQ4pAcKZQec10pV1i+WUs23rLzvQ8bab2khBcpuB5U6HZ3j3YY5zFvS4vZ+x/i+
+	aRL67kkgev1ONckz7qNZGQ7dgTKwbyQylYLEAdFJOrWmAIsI5XCARzfQ+octYl7A+I6uOyPtmYmWW
+	lWKij9eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwQDT-0000000ADDu-098C;
-	Sat, 28 Feb 2026 19:43:07 +0000
-Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
+	id 1vwQDX-0000000ADEr-3Z2v;
+	Sat, 28 Feb 2026 19:43:11 +0000
+Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwQDQ-0000000ADDD-1eOI
+	id 1vwQDR-0000000ADDG-0Vxt
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Feb 2026 19:43:05 +0000
-Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-899ed41208fso4275926d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Feb 2026 11:43:03 -0800 (PST)
+	Sat, 28 Feb 2026 19:43:06 +0000
+Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-8cb5c9ba82bso547060885a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Feb 2026 11:43:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772307782; x=1772912582; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1772307784; x=1772912584; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Sy+MoMMuIP0uzZzBvgD9IvMEukA2rbz8mQmpWnAUqxw=;
-        b=KJlOxoyagwF4KTgZ7DRVN4RnKYQ4fHs6nO6D7J+Py5LFTqHJC34adPLTAZpHO6PLqu
-         bBNeL6oTkIZQhjhDpqq+kELUWiE9Ww5o2zOR28tFd7YHIPyOprk4iXzzc99Q/7Rlk+eP
-         DiGVMbwigwYPVVB7StTmvBIHwiuSl9Hi2/L6PdTAPuN9iNzBR2O48fqyS1uj7gzkE77E
-         jhZWiaFGvcEc+JVXrVZpMjwy/C+G2QoV2aoJyE2GGHF/6yC8Vo96d9ZnZLXq8RPF3mba
-         ZxgEdgqWKH3e9LNwsINmaiDLmQfGUM3+h2gT3j3cmJt4TSxymXG6jbr+086GYc/KVvy0
-         Rljg==
+        bh=on0VhF10HvrGsC3xgVd6E3dtUeQ8UNCEMcYpUvxVQ8M=;
+        b=gmY++xND8Vc+YQTsKzI0g4Gz8c76uHBTQR8rBOfZ/B8ReW3764z+37XMk5ZTfl2gy9
+         GBwqFIKWS2EA57M3YKLTneMpPbCbuQlbKb5e2gMMikXJnAYmoC4cCpqRg2eNUVfpQCwk
+         ZVgjX/CVGpx+8vQE70lYXxPsyiH0VqZF6cEJGAsfo5efJaArshtVvXZXvcJlgl4cxmr7
+         qCSC7mQ+PhTdPhfZAz+t97LwrOIsR2lokGYJCDr/O/4a1DORSPA0G2yUI8j8YSZ2WCue
+         W1QXo9kbVnzJwdShUtRf6S8o2iD5+HLnFV9lw0Z9jREe/Tog5uVG+gtSWBcDeEGaXr/Q
+         I4Og==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772307782; x=1772912582;
+        d=1e100.net; s=20230601; t=1772307784; x=1772912584;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Sy+MoMMuIP0uzZzBvgD9IvMEukA2rbz8mQmpWnAUqxw=;
-        b=rdARC+gi5R9Mi4b0NzPFnTUUXSspC3ip8uHlIpa0L54wige9NqcWCKKv0Uxc6Ulccd
-         nMmxkq055NRDHKMqkyUt0CDiiOSptLlC5+ZZYa7w7TlVjBWYcCRAp5XwMDAGoWWqlLJY
-         qSVMoEjZsHwAFCjODZE5hKZ9WWHmMm0sped+1X7daEbaLjLb/4vo4i29WvAJWa0icy/L
-         WRwuLzIAudFZdaxRUnz/zhJ4Y4lRRRAZQ5m3hkVKCfMmZWjMptP/Icotn4nnp3ZcMjXN
-         B9y572sKca3OdUlC9qV7m1Ecrvr6q41S3w013Vsjb1Blj9OXGBgvglR+Q6yQVnzFzIwG
-         VUoQ==
-X-Gm-Message-State: AOJu0Yz956JWGTT3qO1KlpYRYDJQnD6WMep/RriqhJkzM3euhOG5LHDJ
-	kO/V6UXYmW3LO//qQzkTPHZE0efm9jxi9+YkM7sLuJ8GKxbJ7W5tDvvL
-X-Gm-Gg: ATEYQzzPQbJc23+2Ned02zCkjdZh+uadue4vI6bu2gB9v/zwmtQVF2+RzJM7JYUBaSJ
-	Zr9sXWXcAN1y5cdJqBBMuLnadlAUgrqL8fPuBu75xDcCqN8TiFlujx7gFKlg4Pc6uNDgEhD3d2L
-	vmWbcqrIaop7v5P0KwUFUBF3Bx8TZiDudlkVGSe3w+4xq1Plut6QNXdoWoSJqDG0KE2+h80xYR9
-	x9PyKlTuedcRDuFZfaUVqPSOKn87zHzibRYPbkrATYW27pMi6ByYHBs+Xm3Wsza+D9CtQZ4Zco0
-	jqiTFH38q5Q0IpXTW+Lgpa24CVmaCZh7NIjmXeSwTV14nA+2ZXGeH65iATxU60+1VdZF69+yqbO
-	ag7npGRo6/VjMUOBvgIYLtZOGxIz+bCGz4Iu0jmTdo9tlHj/V4Q+5DBvUy8BWDVpMsEPsfv13SQ
-	w46A5X5j8ZCKKolUucm0OCCWvMN8I1+syuKjePdDYhzto8bCkSZjdRjtgKHfxo95v0HzF4SKuyD
-	IeK
-X-Received: by 2002:a05:6214:27e3:b0:894:71c4:d2c6 with SMTP id 6a1803df08f44-899d1dcba48mr113429866d6.29.1772307782474;
-        Sat, 28 Feb 2026 11:43:02 -0800 (PST)
+        bh=on0VhF10HvrGsC3xgVd6E3dtUeQ8UNCEMcYpUvxVQ8M=;
+        b=SEHuV2g8VA9qVvw21XbL4JJUNc2ePW8kVUlDIoanI09ULQSjSKr3wyqKZQINorBKoM
+         3oQVYa5eVQoExrt2wn5sFbnTmBbWtyHfrERqrBWDuR2fFScHEhjoPJv7enkxdusPNcTd
+         EGK1A4x8UEMmhyTpkK1RiDCKYzWbzr3ifkOJXVq5CjCmPGgZgBzgxBMsca6yBy8Q51Wd
+         0ubdITZJ2rqi1o/s8ns5/puqVKuum3KzGHLUA/+NZCWbLF60RSlz2w2yq39c/1pAbsBp
+         aFlNtP32gBsSIjYhnltlMpkx21tfVhvPpvLuSDow43i1/8IrqfN851O2fH8H+eYaX9h8
+         vJdQ==
+X-Gm-Message-State: AOJu0Yyy8Hu74dlVBdBhZ2gGZxVTlFmuHTou0dNRBkSU2m6j4b3reIzP
+	Wn5DRMfnhsO2a9Tvo/yTivVZOr8PVXDWf3Kx+tJtONWzoJ+Byoshu2HH
+X-Gm-Gg: ATEYQzyenkmyvpqLf8RMSqKbnVhgMbF66CVb2SAZXahuMQHj52zULvtMQnolX1joGYi
+	8ZoepJAP4d5jSJnaPf6fpMdltEPFxWZMmy9zy4vkMbdqBJngt7IJa2YP4j/1E0vUwlC+DbRhUic
+	IbpRy0oxf2dqCN8nYCWOijlihccVcVrxaCNO+ecKJAyqsM4/6KviuC1x/FMPG3ZtEVZPuJQ7sKK
+	NRK92kXH5Se0bt/rl3aY2fv7xJkxndfFgbTZBpaxTcU58/H7M/9b8x8aag9LUhzGvM9s+RXNU6W
+	Y09y9gtyPcHvbY02SvJOVzapB9zG2FyCplmSClVFxKicSAucBDxnvCoOC6Q2IAtm0q8Lj0nwPll
+	ifarasVXADPEo5duUEBA79rwVs3o+xEF1NUCKhKvn2mIgGUO/oWz+P2T+bSJgpGYOvc1wd40TmW
+	gbsa9flUzN0LWe6gcz1v27IGfSJfuC2ENFsBxqLJaLTv3bmOotd1h/PFHPAN4rXa21zRQWmVH45
+	8Yx
+X-Received: by 2002:a05:620a:1aa7:b0:8c7:806:386 with SMTP id af79cd13be357-8cbc8df4931mr1029210285a.34.1772307783602;
+        Sat, 28 Feb 2026 11:43:03 -0800 (PST)
 Received: from instance-20260207-1316.vcn12250046.oraclevcn.com ([150.136.248.187])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-899c7376847sm72669366d6.28.2026.02.28.11.43.01
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cbbf6869f5sm871517285a.20.2026.02.28.11.43.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Feb 2026 11:43:02 -0800 (PST)
+        Sat, 28 Feb 2026 11:43:03 -0800 (PST)
 From: techyguyperplexable <hlcj1234567@gmail.com>
 X-Google-Original-From: techyguyperplexable <objecting@objecting.org>
 To: Catalin Marinas <catalin.marinas@arm.com>,
@@ -75,16 +75,15 @@ To: Catalin Marinas <catalin.marinas@arm.com>,
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	techyguyperplexable <objecting@objecting.org>
-Subject: [PATCH 2/3] arm64: lib: fix missing blank line in csum.c
-Date: Sat, 28 Feb 2026 19:43:01 +0000
-Message-ID: <20260228194301.2467186-1-objecting@objecting.org>
+Subject: [PATCH 3/3] arm64: lib: fix space before tab in delay.c
+Date: Sat, 28 Feb 2026 19:43:02 +0000
+Message-ID: <20260228194302.2467200-1-objecting@objecting.org>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_114304_488981_EE7D6D55 
-X-CRM114-Status: UNSURE (   8.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260228_114305_319150_EE4F3E47 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,20 +100,21 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Signed-off-by: techyguyperplexable <objecting@objecting.org>
 ---
- arch/arm64/lib/csum.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/lib/delay.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/lib/csum.c b/arch/arm64/lib/csum.c
-index 2432683e48a6..dc363d74afdd 100644
---- a/arch/arm64/lib/csum.c
-+++ b/arch/arm64/lib/csum.c
-@@ -11,6 +11,7 @@
- static u64 accumulate(u64 sum, u64 data)
- {
- 	__uint128_t tmp = (__uint128_t)sum + data;
-+
- 	return tmp + (tmp >> 64);
- }
+diff --git a/arch/arm64/lib/delay.c b/arch/arm64/lib/delay.c
+index e278e060e78a..35e0ddd193b2 100644
+--- a/arch/arm64/lib/delay.c
++++ b/arch/arm64/lib/delay.c
+@@ -52,7 +52,7 @@ void __delay(unsigned long cycles)
+ 		wfit(end);
+ 		while ((__delay_cycles() - start) < cycles)
+ 			wfet(end);
+-	} else 	if (arch_timer_evtstrm_available()) {
++	} else if (arch_timer_evtstrm_available()) {
+ 		const cycles_t timer_evt_period =
+ 			USECS_TO_CYCLES(ARCH_TIMER_EVT_STREAM_PERIOD_US);
  
 -- 
 2.43.0
