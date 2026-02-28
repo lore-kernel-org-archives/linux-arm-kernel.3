@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C223FEE4EE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 19:53:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17532FEE4F7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 20:16:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gYJtdbq92lJwxAY8zEz41rbLPgrr8AqLw2l7+cG/47A=; b=N1tBnY0qSwPhcQE1m+2mJLJsaL
-	aeGLPDo6sY5+8lD8HkkfobhV7DQFlKH1QqEPbX/xajlz3lFZz/DJTs5U3okbEEApBql6A8RKdSHOA
-	UkZWNQC4RO06vdqKqYHZZ9e1R2ke3SIBP6JwnMWuCr1p4eFNvtEWX75wc0+PUR4mLfCAN5Qtjsdyr
-	yM+9tQYtmU73eK2oXQqzUNoJ6e4UPsiQyC3q1PbJpNAGlUBnjKyEnFqT3HVWNxhz7iXJtSAAagmal
-	/qZSGnkOA9YJkDroEQBkb6Wxn6wd13qZNJzjkZcKoSn2c2Q7DfEdrABzpeTyZdPfX+ch6PFngfGkW
-	2DB5WXZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i0EO3MAT0PhT89XNAI/GfjfNbmwU/BmzVjMk+UmCPwQ=; b=qFxTsHNt/zPhvZu+53WL2Z5U0Q
+	TNWPJSJG3NWdiy++lCaW1mrXjYK9OY8FA+wCBdIha2dSwr1nauWVjcVp7nDjr8bRHX8rBM5m39o5G
+	i9RhsL+AnCn6lRAKcWAd4NiYh+FMBjtl6wI/oRX2v6Hq4JEhmQlMjheTIfOkDasyj8Rrq8s7MIRlA
+	X0URERyFpiIeWkpuc42/gyii2uZiZUmMPuXqP+gDVWyeES7t3nzUQ63SWBjmVBlHaSaSxQ6ue+El3
+	BophexO35Zu1VFVjpEZMKcO9r9Ry/6k1+3E98KBgZ7Qkl5veMdjtGFTbjLOs5eTQd8KwTBnxWppHs
+	rsCxJgWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwQNH-0000000ADmi-0sVu;
-	Sat, 28 Feb 2026 19:53:15 +0000
-Received: from mail-qv1-xf2c.google.com ([2607:f8b0:4864:20::f2c])
+	id 1vwQjF-0000000AF84-47XW;
+	Sat, 28 Feb 2026 20:15:58 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwQN9-0000000ADl2-0eVy
+	id 1vwQjC-0000000AF7g-0PV7
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Feb 2026 19:53:09 +0000
-Received: by mail-qv1-xf2c.google.com with SMTP id 6a1803df08f44-896f8feee14so42083706d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Feb 2026 11:53:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772308386; x=1772913186; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=gYJtdbq92lJwxAY8zEz41rbLPgrr8AqLw2l7+cG/47A=;
-        b=Why4kzl94nzprkJSDLXBUtK87+2cRSw8qwNC0Ds+/KUlri0qMAgoeUnmGxbrHhBXg/
-         y013OeeIsikJKEnCBUaTol2akpqG6VT4TKT8pt2RVSAmDpwUcPLTAAAPOMJTVX/R50rn
-         oBfdTl0L0/VqFDbJSGDOMqv9pbZtbd2Deaq2tEIp+eHjf2NTjj848lULcKQ+Oj/qwW0e
-         jJyKjOEBzw/r2hiAEgRAd/kMkAs2mejueDNKsyhG74oHfGvCWdUJwvgGpJEz00+UzSQl
-         WXKEOmEPrMGKvfBUbLCz8+b/bAeaK9KpvI31CFOURQ5INSYgI3V+GJpgQjAucuPg/WIg
-         Zc2g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772308386; x=1772913186;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gYJtdbq92lJwxAY8zEz41rbLPgrr8AqLw2l7+cG/47A=;
-        b=PaYhjnSUbx8Q3Zk3c0FU2WMQ9F2n/+EbmRII2eKCjUPIP3miyLrV+n+l1UcOHpG+4t
-         ddPY9J17TKoaWOD5gTTTQDv8q8zlD2gMKJEkD1dYLqWosZ/YYZdugJg73CWsrB1GI9hH
-         /p+gWE/nPWxa1Vs1GE/sQm5Iaq55wRc87+FbWg/Xycjxnqj0/HVISIzM1sDV+SnJwmHX
-         vP5qR+9G53xsQSrCZoZa16DGDI5hhh4osCgBDmi94U8Ankdu1AB93YgNiUfTg5s1gcUA
-         9o3EXa73cnfYIl+r8zNKtO+fRjF6Q6Zt0nEykKZ/MDl+AWoLvtqeurmS2W0ShfKh6GTu
-         Ef9w==
-X-Gm-Message-State: AOJu0YxAsKS5KduqKh6xGSBtpSPQMYGmkq97SAtDwES+Bqnuvxw33cBv
-	U9o6idYfh5mICMH8K08NqooaKxcqAn8GxKcmv2w1r8MVMa3l2MRTedyd
-X-Gm-Gg: ATEYQzwmqWMMIDwMFjDNwKK28r3LhPwLdUrpr4PH7E5aSoQMMUZYOzz3TapkLzZflVy
-	4AVRIkgcb6yuu/gJKid/N+qTmplNyMB08vKagTDqDGHoTl+dBZmYq/+GCkdcVJlXEqsAYZbP3gS
-	RIRfXcVJIlnxbVlXpATj14ROkB87q8gCbekDLtG2Fcrtt4dbGu7mkLEj24yFWGQP2goqhcceE/4
-	9K4obpRo+jVElXik3O7q+IWWTIRp2bUlwbASwPvTt2hg8qv2moEhyDP6V+Grd9ITHc6julVOZvm
-	y2bghczs2SDhsv3P4IiszqKrKI++AkfHL365sXzja0RE7HH28u6t1x4whhXau3Rrp92cIUmFxGB
-	463hTCr+Szli1gJkySCuvlZU3+SEbOuoXizqWwayrGbkmK1ZlHqMmxjdNSllRgmOT96FZ6l+Zxu
-	vrD3OwYGCiUmo0p2NmLFHilJFsowUCZ98Lqa0aLNW6lwFINSO3/KPLS5CcHz4iTkKAAIAALhoJT
-	A6GNwpgHG5JGHM=
-X-Received: by 2002:ad4:5bc5:0:b0:894:6eea:709c with SMTP id 6a1803df08f44-899d1e030f3mr105018336d6.8.1772308385879;
-        Sat, 28 Feb 2026 11:53:05 -0800 (PST)
-Received: from instance-20260207-1316.vcn12250046.oraclevcn.com ([150.136.248.187])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-899c716ccf5sm87224906d6.17.2026.02.28.11.53.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Feb 2026 11:53:05 -0800 (PST)
-From: Josh Law <hlcj1234567@gmail.com>
-X-Google-Original-From: Josh Law <objecting@objecting.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Josh Law <objecting@objecting.org>
-Subject: [PATCH v2 4/4] arm64: lib: fix space before tab in delay.c
-Date: Sat, 28 Feb 2026 19:53:04 +0000
-Message-ID: <20260228195304.2468340-1-objecting@objecting.org>
-X-Mailer: git-send-email 2.43.0
+	Sat, 28 Feb 2026 20:15:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1772309754; x=1803845754;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Pf2ZqDiNTaVpou8OCsl9k0nAKVHkTrsQ8rYWDuqHje8=;
+  b=W6XiScxmEOz2bHSeC6zCjlHfu3o9oRI6AafLrmzeu2xxYVLN0t/trisy
+   GOZmoPo7M14BzRZwPkOZkJgwIfOgs1oOhy4/TxR5o3Pc1By1svIdCx1OD
+   J5n0vHmyH6vlcCaGtIij/aalIZn6E4EK4ALt54ZMFtp5omNCy3+K+aKGQ
+   2Mnx9nWRqaHnVip7+7FFxyQxFRBPnbN9LEY/7CaKc5QF1qc83KWHw1+dx
+   xcKr4WAQX4AycP9B7yKzy0tkfQKBpEZZ12Sp57K7Cb4Dj4zLFm4xNjzQj
+   yrKz2KP+EIUCjf/5ni4VE5Ub1PDqxl4TUmlyysIhrpVVYSbJAu+2ME4ju
+   A==;
+X-CSE-ConnectionGUID: CagjuwSYRyyk7iK77DdpPA==
+X-CSE-MsgGUID: rxRz3WsIQRKjazmMUTERIw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11715"; a="84001428"
+X-IronPort-AV: E=Sophos;i="6.21,316,1763452800"; 
+   d="scan'208";a="84001428"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Feb 2026 12:15:53 -0800
+X-CSE-ConnectionGUID: +7+h/CCuRO2AFQu/kS6OeQ==
+X-CSE-MsgGUID: ekF6cjXETo6a1NGSKrOlSw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,316,1763452800"; 
+   d="scan'208";a="214980288"
+Received: from lkp-server01.sh.intel.com (HELO 59784f1c7b2a) ([10.239.97.150])
+  by fmviesa010.fm.intel.com with ESMTP; 28 Feb 2026 12:15:50 -0800
+Received: from kbuild by 59784f1c7b2a with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vwQj5-0000000009v-0A1G;
+	Sat, 28 Feb 2026 20:15:47 +0000
+Date: Sun, 1 Mar 2026 04:15:30 +0800
+From: kernel test robot <lkp@intel.com>
+To: Badhri Jagan Sridharan <badhri@google.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, amitsd@google.com,
+	Badhri Jagan Sridharan <badhri@google.com>
+Subject: Re: [PATCH v2] arm64: dts: exynos: gs101: Enable AVS APDO
+Message-ID: <202603010422.kDnbXirr-lkp@intel.com>
+References: <20260227083954.3529857-1-badhri@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260227083954.3529857-1-badhri@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_115308_159235_FC51AB05 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20260228_121554_151668_5D66D60D 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,25 +98,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Signed-off-by: Josh Law <objecting@objecting.org>
----
- arch/arm64/lib/delay.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Hi Badhri,
 
-diff --git a/arch/arm64/lib/delay.c b/arch/arm64/lib/delay.c
-index e278e060e78a..35e0ddd193b2 100644
---- a/arch/arm64/lib/delay.c
-+++ b/arch/arm64/lib/delay.c
-@@ -52,7 +52,7 @@ void __delay(unsigned long cycles)
- 		wfit(end);
- 		while ((__delay_cycles() - start) < cycles)
- 			wfet(end);
--	} else 	if (arch_timer_evtstrm_available()) {
-+	} else if (arch_timer_evtstrm_available()) {
- 		const cycles_t timer_evt_period =
- 			USECS_TO_CYCLES(ARCH_TIMER_EVT_STREAM_PERIOD_US);
- 
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on 5d692f20de6311fa507c952adc3487c641edee00]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Badhri-Jagan-Sridharan/arm64-dts-exynos-gs101-Enable-AVS-APDO/20260227-164153
+base:   5d692f20de6311fa507c952adc3487c641edee00
+patch link:    https://lore.kernel.org/r/20260227083954.3529857-1-badhri%40google.com
+patch subject: [PATCH v2] arm64: dts: exynos: gs101: Enable AVS APDO
+config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20260301/202603010422.kDnbXirr-lkp@intel.com/config)
+compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260301/202603010422.kDnbXirr-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603010422.kDnbXirr-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   Lexical error: arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi:177.10-30 Unexpected 'PDO_SPR_AVS_SNK_APDO'
+   Error: arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi:177.35-36 syntax error
+>> FATAL ERROR: Unable to parse input tree
+
 -- 
-2.43.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
