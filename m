@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A1C2FD0040
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 22:11:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49910FD0040
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 22:12:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=xviIpIkstRNT9sPfU0zk0oRcwgO9vdYQGOA0hVgSiDQ=; b=tuxMQGOUwrRAnI
-	c1+3R/Ed3PYkU10LG5lP9v+ERbX/iJ3F0owYqP23pC2Ri2tXy0xRd+dMOd1NK9LnbSSyK3klesXq6
-	3CHlgMDFm7gSqMcLkI2eUJO9y3HF9d2Sj1yllMPCYXqoPVh2fY1C1Gk4XV61fQjex/5+Pb850m1qc
-	jwmS7KHZ9jBnPcw5zAb99dubE6d0ssmiJJSUr72+st7T9KbukDjdGB9WkjSv4DElmoV+33t9O3gQ2
-	4vjPCIk2WEXtnl1iNloCjhOMbbE9v0ePVyoktu5pcVTPwm7Hd36tQa9Mpf8oQkNyqGicw9qIDRpoL
-	afEIQXn4JVqAgOvlkApQ==;
+	List-Owner; bh=b1vxRCPG0GEyJG0dLWnSAzn6wjV232WVUDRNGvKP04U=; b=JppKg5OtvKTH32
+	8Z87izbmAuhOi/wBPlALqWiuNsijF19mhWLRkB1EpU1wmMQchT2uOGNtzbjocQ1ffW+MYDMrmn2jc
+	oza3DHXDf2dtsLmJbNC1Fg7Qjwg1nlLhhi0AYZZ0lxW15cwHnEa13KmhperhyRBrcsm9IAo3esKfj
+	g/3nQXFYQXy+xW0l1MGxP+J9jisVgfzIFcytuze1G+GZE7qmsFQ7mJD0pqMYVyJUe3mcq0UG4orfb
+	Fm4XBgg9q9PGLCzslyTiDZtZehUNUYz+YjXyCDcg6STSU4ryVXsoMJ2YYswOlmpjqxQZrCPMTxGH9
+	pKulVztc16T/dcRgG5dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwSXH-0000000AJgS-0BTy;
-	Sat, 28 Feb 2026 22:11:43 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1vwSY6-0000000AJl4-1diu;
+	Sat, 28 Feb 2026 22:12:34 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwSXE-0000000AJfd-0ESr
+	id 1vwSY4-0000000AJkA-08IZ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Feb 2026 22:11:42 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2ae4988e039so378815ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Feb 2026 14:11:39 -0800 (PST)
+	Sat, 28 Feb 2026 22:12:33 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2a8fba3f769so15137785ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Feb 2026 14:12:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772316699; x=1772921499; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1772316751; x=1772921551; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=xviIpIkstRNT9sPfU0zk0oRcwgO9vdYQGOA0hVgSiDQ=;
-        b=W3YzsYeo1WSig6rxCMdblIQE+mpJPg7w2gvYn20/496a2zZTRJJEcd3v2FOr0HSv6C
-         2iMkJPGjZ/FncfoVoyPDckAwmZjgSMma4u/VfjqsMxwpt2vgX84mOrKZKPHLrGFD1vyI
-         8VTg5Gy3H0xo4sWBFRWDOweh57eraaYrM2h697q+jxeJDkQrWbs0l0GF/jelOeDlM4du
-         tRymaaTIqIXrf+NDhmBAGnlVl3D7G4azNda+jtfHcP59DftNpGpacjOl0R78ilMD6f1v
-         tJYb/gSt+ngMyRm4XeeB/dbZnY9m4ceJ3spg3MvwuSGf9ko708IAMihZdQA5exwUNYrk
-         1OuA==
+        bh=b1vxRCPG0GEyJG0dLWnSAzn6wjV232WVUDRNGvKP04U=;
+        b=Mk0KNy51/S5sLyBULBi5mOzOC4+fBMrJpujDobTFA/o0kN4K4/bflZlnkGVfMMeRwh
+         R6syyTF3cGAnNz+ZDlaWfS2lqnBV5U8Oc8pHnHJl0Aqk7NdBFxpwfM9pktfONgC5FvTf
+         /l+S1IHPrW4cHwB0wYI52YpXb+Q7PIeBXcr3wB0FmM33YBNMGKI/m43VR9ibUb6oHvLs
+         mpgpZ7QGuy7GMe/KjRyTt4bbxxNG7g9QiPNVjAfFRKo9nloqMinRrimoTMBJZ5nfeGer
+         xA78GhafJ6mzxA43O/eOeShmUKTwnN4a1IkcoVJwaw3R9pPyYzRbDwhXIhhKfQ3TYmgo
+         85Xg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772316699; x=1772921499;
+        d=1e100.net; s=20230601; t=1772316751; x=1772921551;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=xviIpIkstRNT9sPfU0zk0oRcwgO9vdYQGOA0hVgSiDQ=;
-        b=FaEyBAXUCsXe8CNfXVFTZuNCeuggesN7KmhkpHdQJMZSPRbEQCEM1sY+LY2EHrkWzK
-         ACqBYdbDXD2GevKEXjPzIB1CCAYUWQCn274xFhUTKjb0RjOvORwcERVXyxx5nLhw6Qds
-         mIhjuDVtzJ5g7E2MWJUhBvx/UEi4I/txGiC8VSTTCJu35zMJU7FS7vkz37j07K6CjC+S
-         BbIikvNeCIOgX2Lh3wVyHUttQkg2JCI0LFPOMfFLsEXokG5flS5gABPyeQXh2L/g4Nfg
-         zqJlZnj5wKUs0rfUqVSr87z3uxZ7aHw2gomPDzNyup/2z+LxTgcTaqifsHAvNRW2HbqP
-         aYmg==
-X-Forwarded-Encrypted: i=1; AJvYcCVopi4Jcu3XJdZLAItm9kbMWmPsgUFhFKfR043C+sEjNxfr8lxlvrI/60/is1CRfRqIu3h7/CC0nwunYnaz8295@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8e6275ZV9uzv9OpcCiiYLfR3wEZRJi3xHDwNTHAyjh2WEBpWU
-	H9063GD50Kaxo/cQ2RDt5pAQDEjFV2C+njCTwSD16A1hIgRB2kNbeiEV
-X-Gm-Gg: ATEYQzx/hJ4iv2Q268M1dthvT+PEpX2gFiAcaFZrtTCCkosFP/aeqYugivBvy+ocEnq
-	RQF1KZ/S4LxcGCQdkPmYBMHsE1M8gRZ0ggK9aVqM5/RZUnojrpdOdD9YdcQ/3KlNBI6J113rmJx
-	1gD8QqMnYIjiuvabSCJQ5g7Hp5K7cSehEgDOjy0+dGP0/wFV78NN/qHj2VcjoN8iTbxTteuDYug
-	jCNaIrJfHarEhPq+OHtMR12ba5bcfhsIxPfca/63b4B8lA8nKzzvtkiUXpHHpMmcCuCHmxYpexv
-	oOPj4811a0yyxrKIntOpLnWPI7sb6rJKQhwaPNzFjT9lVpCotJjggOrx8sEEaBY4Q0YfiOvB084
-	r5dW2fe04TlcBXg7z4CSYlz9kXHHV8VHTV3Ppjrn2jAKDsNK7fQeKojKnlY676dvf4WglZ5efsP
-	rN5QxCP+03Dv2OnuXh8n/tLpdbku5LHSqUvcHa
-X-Received: by 2002:a17:903:94e:b0:295:55fc:67a0 with SMTP id d9443c01a7336-2adf78db0ebmr119480805ad.2.1772316698623;
-        Sat, 28 Feb 2026 14:11:38 -0800 (PST)
+        bh=b1vxRCPG0GEyJG0dLWnSAzn6wjV232WVUDRNGvKP04U=;
+        b=PyRw9ydcXqA/sKtwtSH23IGO/nJIvacAwDnNFKLMln0xrYdkzUXz01Jr3N/8ayLAcp
+         aSRHT9l4tZzOEzajpWzAn0FzjmPgV5zlx0/LXdZMJqEwCDbcICuKgDTWrwS8kg11UYXC
+         gG3Nv6WtgnNmULjjaGCLLcATDmhWg1Gc6T6brQriZEcrZInOzBR3bcNenTo0ldeNEjIs
+         MsqR6EyY06ZgcerEQvryHj37ne5PYrqZJ2g/amh9fhv7WBVMxiCotFjfP2vezbhb2G2I
+         hPFRj5f3teMMPdnMzckO8WacfPCd2vWNR5ygXclwmN8R4QqbCegp0YfnlWqMX1L5v83v
+         Ak3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVitHvEaMzwpXEd9XstUpUeCjBBj9IUt1BGjj8Z5Nd4H3oF5N2Vjel36+YxxSbyGWtIgsdqUb2yiuQjys9SlRW2@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjnmN6wWjjeE4oxYY+AcPxCBjzJPZHOahdv16QWq1lO9JdwSxC
+	gP1SqadvrRyQckh8bsbyYuLKh1YxaI5WF001470uo21EE3+XJAJBPLPP
+X-Gm-Gg: ATEYQzxyPDlqRSBxMKTjjUoWxxLyYxlfQrwedxBlzAUX/IwbOgo4VTNEOoPz8cX0lHS
+	ex50y7W/AbqSnf9oqQgApLSNxWVs4zaM3G1ODIYkpnKpR7E+t42Hu6l2vrYOsGLwNUmq5iqg3C4
+	t8A1gDYxZw0lWQi9Gdyiyt78ZrGvtB3m61y5FOMZCuvMq0SZoFX3TP9/PtFg89Z6B3P3E5nZllA
+	5gxWuU01U1D+E0RSWojOW3kX7rmw8KF1bTD36LiwtAumHSCq8O8QyMp9HZIYxpo908nsMUA4Fdr
+	YNOBZnPQO51dij2G3FTPRifmfLMIgT9KWoibeTg6fCUfSlQceFUXRqg+qoT0lfON3b6whSBvOxP
+	V1GLBqqS/5PB6DVwHLSIhID6QqMHlLexwUfqy5fFSK52ke8YOFMuoKAkcmnH3rFOy0CyZVMWj/e
+	HORYS0otsTmoBR35KscVmhcEnA+Sxkeqbyas3/
+X-Received: by 2002:a17:902:ce91:b0:2a0:c58c:fdd2 with SMTP id d9443c01a7336-2ae2e4b0e92mr83742325ad.26.1772316750783;
+        Sat, 28 Feb 2026 14:12:30 -0800 (PST)
 Received: from Barrys-MBP.hub ([47.72.129.29])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2adfb6b9b32sm129494295ad.66.2026.02.28.14.11.31
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2adfb6b4160sm89495125ad.64.2026.02.28.14.12.24
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 28 Feb 2026 14:11:38 -0800 (PST)
+        Sat, 28 Feb 2026 14:12:30 -0800 (PST)
 From: Barry Song <21cnbao@gmail.com>
 To: catalin.marinas@arm.com,
 	m.szyprowski@samsung.com,
@@ -75,16 +75,15 @@ To: catalin.marinas@arm.com,
 	will@kernel.org,
 	iommu@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 0/5] dma-mapping: arm64: support batched cache sync
-Date: Sun,  1 Mar 2026 06:11:25 +0800
-Message-Id: <20260228221125.59863-1-21cnbao@gmail.com>
+Subject: [PATCH v3 1/5] arm64: Provide dcache_by_myline_op_nosync helper
+Date: Sun,  1 Mar 2026 06:12:16 +0800
+Message-Id: <20260228221216.59886-1-21cnbao@gmail.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_141140_128020_8B354552 
-X-CRM114-Status: GOOD (  15.29  )
+X-CRM114-CacheID: sfid-20260228_141232_079521_2C3A715D 
+X-CRM114-Status: GOOD (  12.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,107 +95,112 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Juergen Gross <jgross@suse.com>, Barry Song <baohua@kernel.org>, Stefano Stabellini <sstabellini@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, Leon Romanovsky <leon@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>, Marc Zyngier <maz@kernel.org>, Joerg Roedel <joro@8bytes.org>, linux-kernel@vger.kernel.org, Tangquan Zheng <zhengtangquan@oppo.com>, Xueyuan Chen <xueyuan.chen21@gmail.com>, Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>, Suren Baghdasaryan <surenb@google.com>, Ard Biesheuvel <ardb@kernel.org>, Huacai Zhou <zhouhuacai@oppo.com>
+Cc: Barry Song <baohua@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, Leon Romanovsky <leon@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>, Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org, Tangquan Zheng <zhengtangquan@oppo.com>, Xueyuan Chen <xueyuan.chen21@gmail.com>, Suren Baghdasaryan <surenb@google.com>, Ard Biesheuvel <ardb@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 From: Barry Song <baohua@kernel.org>
 
-Many embedded ARM64 SoCs still lack hardware cache coherency support, which
-causes DMA mapping operations to appear as hotspots in on-CPU flame graphs.
-
-For an SG list with *nents* entries, the current dma_map/unmap_sg() and DMA
-sync APIs perform cache maintenance one entry at a time. After each entry,
-the implementation synchronously waits for the corresponding region’s
-D-cache operations to complete. On architectures like arm64, efficiency can
-be improved by issuing all entries’ operations first and then performing a
-single batched wait for completion.
-
-Tangquan's results show that batched synchronization can reduce
-dma_map_sg() time by 64.61% and dma_unmap_sg() time by 66.60% on an MTK
-phone platform (MediaTek Dimensity 9500). The tests were performed by
-pinning the task to CPU7 and fixing the CPU frequency at 2.6 GHz,
-running dma_map_sg() and dma_unmap_sg() on 10 MB buffers (10 MB / 4 KB
-sg entries per buffer) for 200 iterations and then averaging the
-results.
-
-Thanks to Xueyuan for volunteering to take on the testing tasks. He
-put significant effort into validating paths such as IOVA link/unlink
-and SWIOTLB on RK3588 boards with NVMe.
-
-v3:
- * Fold patches 5/8, 7/8, and 8/8 into patch 4/8 as suggested by Leon,
-   reducing the series from 8 patches to 5;
- * Fix the SWIOTLB path by ensuring a sync is issued before memcpy;
- * Add ARCH_HAS_BATCHED_DMA_SYNC Kconfig as suggested by Leon;
- * Collect Reviewed-by tags from Leon and Juergen. Leon's tag is not
-   added to patch 4 since it has changed significantly since v2 and
-   requires re-review;
- * Rename some asm macros and functions as suggested by Will;
- * Add Xueyuan's Tested-by. His help is greatly appreciated!
- v2 link:
- https://lore.kernel.org/lkml/20251226225254.46197-1-21cnbao@gmail.com/
-
-v2:
- * Refine a large amount of arm64 asm code based on feedback from
-   Robin, thanks!
- * Drop batch_add APIs and always use arch_sync_dma_for_* + flush,
-   even for a single buffer, based on Leon’s suggestion, thanks!
- * Refine a large amount of code based on feedback from Leon, thanks!
- * Also add batch support for iommu_dma_sync_sg_for_{cpu,device}
-v1 link:
- https://lore.kernel.org/lkml/20251219053658.84978-1-21cnbao@gmail.com/
-
-v1, diff with RFC:
- * Drop a large number of #ifdef/#else/#endif blocks based on feedback
-   from Catalin and Marek, thanks!
- * Also add batched iova link/unlink support, marked as RFC since I lack
-   the required hardware. This was suggested by Marek, thanks!
-RFC link:
- https://lore.kernel.org/lkml/20251029023115.22809-1-21cnbao@gmail.com/
-
-Barry Song (5):
-  arm64: Provide dcache_by_myline_op_nosync helper
-  arm64: Provide dcache_clean_poc_nosync helper
-  arm64: Provide dcache_inval_poc_nosync helper
-  dma-mapping: Separate DMA sync issuing and completion waiting
-  dma-mapping: Support batch mode for dma_direct_{map,unmap}_sg
-
- arch/arm64/Kconfig                  |  1 +
- arch/arm64/include/asm/assembler.h  | 25 ++++++++++---
- arch/arm64/include/asm/cache.h      |  5 +++
- arch/arm64/include/asm/cacheflush.h |  2 +
- arch/arm64/kernel/relocate_kernel.S |  3 +-
- arch/arm64/mm/cache.S               | 57 +++++++++++++++++++++++------
- arch/arm64/mm/dma-mapping.c         |  4 +-
- drivers/iommu/dma-iommu.c           | 35 ++++++++++++++----
- drivers/xen/swiotlb-xen.c           | 24 ++++++++----
- include/linux/dma-map-ops.h         |  6 +++
- kernel/dma/Kconfig                  |  3 ++
- kernel/dma/direct.c                 | 23 +++++++++---
- kernel/dma/direct.h                 | 21 ++++++++---
- kernel/dma/mapping.c                |  6 +--
- kernel/dma/swiotlb.c                |  7 +++-
- 15 files changed, 171 insertions(+), 51 deletions(-)
+dcache_by_myline_op ensures completion of the data cache operations for a
+region, while dcache_by_myline_op_nosync only issues them without waiting.
+This enables deferred synchronization so completion for multiple regions
+can be handled together later.
 
 Cc: Leon Romanovsky <leon@kernel.org>
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Will Deacon <will@kernel.org>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: Robin Murphy <robin.murphy@arm.com>
 Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 Cc: Ard Biesheuvel <ardb@kernel.org>
 Cc: Marc Zyngier <maz@kernel.org>
 Cc: Anshuman Khandual <anshuman.khandual@arm.com>
 Cc: Ryan Roberts <ryan.roberts@arm.com>
 Cc: Suren Baghdasaryan <surenb@google.com>
-Cc: Robin Murphy <robin.murphy@arm.com>
-Cc: Joerg Roedel <joro@8bytes.org>
-Cc: Juergen Gross <jgross@suse.com>
-Cc: Stefano Stabellini <sstabellini@kernel.org>
-Cc: Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
 Cc: Tangquan Zheng <zhengtangquan@oppo.com>
-Cc: Huacai Zhou <zhouhuacai@oppo.com>
-Cc: Xueyuan Chen <xueyuan.chen21@gmail.com>
+Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
+Signed-off-by: Barry Song <baohua@kernel.org>
+---
+ arch/arm64/include/asm/assembler.h  | 25 +++++++++++++++++++------
+ arch/arm64/kernel/relocate_kernel.S |  3 ++-
+ 2 files changed, 21 insertions(+), 7 deletions(-)
+
+diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+index d3d46e5f7188..cdbaad41bddb 100644
+--- a/arch/arm64/include/asm/assembler.h
++++ b/arch/arm64/include/asm/assembler.h
+@@ -371,14 +371,13 @@ alternative_endif
+  * [start, end) with dcache line size explicitly provided.
+  *
+  * 	op:		operation passed to dc instruction
+- * 	domain:		domain used in dsb instruction
+  * 	start:          starting virtual address of the region
+  * 	end:            end virtual address of the region
+  *	linesz:		dcache line size
+  * 	fixup:		optional label to branch to on user fault
+  * 	Corrupts:       start, end, tmp
+  */
+-	.macro dcache_by_myline_op op, domain, start, end, linesz, tmp, fixup
++	.macro dcache_by_myline_op_nosync op, start, end, linesz, tmp, fixup
+ 	sub	\tmp, \linesz, #1
+ 	bic	\start, \start, \tmp
+ alternative_if ARM64_WORKAROUND_4311569
+@@ -412,14 +411,28 @@ alternative_if ARM64_WORKAROUND_4311569
+ 	cbnz	\start, .Ldcache_op\@
+ 	.endif
+ alternative_else_nop_endif
+-	dsb	\domain
+ 
+ 	_cond_uaccess_extable .Ldcache_op\@, \fixup
+ 	.endm
+ 
+ /*
+  * Macro to perform a data cache maintenance for the interval
+- * [start, end)
++ * [start, end) without waiting for completion
++ *
++ * 	op:		operation passed to dc instruction
++ * 	start:          starting virtual address of the region
++ * 	end:            end virtual address of the region
++ * 	fixup:		optional label to branch to on user fault
++ * 	Corrupts:       start, end, tmp1, tmp2
++ */
++	.macro dcache_by_line_op_nosync op, start, end, tmp1, tmp2, fixup
++	dcache_line_size \tmp1, \tmp2
++	dcache_by_myline_op_nosync \op, \start, \end, \tmp1, \tmp2, \fixup
++	.endm
++
++/*
++ * Macro to perform a data cache maintenance for the interval
++ * [start, end) and wait for completion
+  *
+  * 	op:		operation passed to dc instruction
+  * 	domain:		domain used in dsb instruction
+@@ -429,8 +442,8 @@ alternative_else_nop_endif
+  * 	Corrupts:       start, end, tmp1, tmp2
+  */
+ 	.macro dcache_by_line_op op, domain, start, end, tmp1, tmp2, fixup
+-	dcache_line_size \tmp1, \tmp2
+-	dcache_by_myline_op \op, \domain, \start, \end, \tmp1, \tmp2, \fixup
++	dcache_by_line_op_nosync \op, \start, \end, \tmp1, \tmp2, \fixup
++	dsb \domain
+ 	.endm
+ 
+ /*
+diff --git a/arch/arm64/kernel/relocate_kernel.S b/arch/arm64/kernel/relocate_kernel.S
+index 413f899e4ac6..6cb4209f5dab 100644
+--- a/arch/arm64/kernel/relocate_kernel.S
++++ b/arch/arm64/kernel/relocate_kernel.S
+@@ -64,7 +64,8 @@ SYM_CODE_START(arm64_relocate_new_kernel)
+ 	mov	x19, x13
+ 	copy_page x13, x12, x1, x2, x3, x4, x5, x6, x7, x8
+ 	add	x1, x19, #PAGE_SIZE
+-	dcache_by_myline_op civac, sy, x19, x1, x15, x20
++	dcache_by_myline_op_nosync civac, x19, x1, x15, x20
++	dsb	sy
+ 	b	.Lnext
+ .Ltest_indirection:
+ 	tbz	x16, IND_INDIRECTION_BIT, .Ltest_destination
 -- 
 2.39.3 (Apple Git-146)
 
