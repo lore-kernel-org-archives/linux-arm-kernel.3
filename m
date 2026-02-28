@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93249FEE4ED
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 15:05:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 107DDFEE4EF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 15:42:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CBA+AYU46ghvzoWPqp0657ZVThhk7N1h2c8fah8mqtA=; b=3DaxpJOutOWVTTBohuS/LDwc5S
-	HEf4HJ3iGSrE9MYGlm92s286IIOqMS2XmdrISsTunxaUotChxKWVFHqMl22gxRZ/rHr4+a2nj/tFz
-	srVd4k9U0f18jPMdSUKNvE64xLV/NFxSUE0+YbA+PPHpLLivh8YtSj5ElDoRykhi6sRrKB2xfeRsS
-	XtokHVa0ZwQL+IJiD3jrG38TF7yKac6S0rmYydzBFZRME/fHo2lvtqovRiA483DkoczJBu3AEN8rt
-	iDCFkNNM3znPG6JSn2w4DD3DuViOiOA8aCpVhxEBfcZLSkeWI+WFPba5CC0Vut1kfQmlSdLglK5Un
-	RERDpxnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ouE7c527BS2v3HOI8uXoCrqcS3QLeO5E4Kjh3MX18VU=; b=OlhwNPf9bMqybqrmpTCk8SJ9LM
+	+3mFc53aGtK1/nfv1W8LqF9DIGZZxJWR/n3wEWxtY36Mqk+bxRxf1qEd6/L9CDjZc0d2T9RmQrG8a
+	UklF8gzzDHq9nlSXFe9gdlKmfq6FVOnJyNKW0+XaULP1xl9N7/6aapjxsJjdZK8QQNQ1UQm3s2Ul3
+	QsQ5nzlsg9WxVhIy9QoK52UnlbrarxlwuiGhbGvsP9ZkkNyknefaTCiorsHTGfK+u/RWzTaz4cH6V
+	U2yDPiyPM2Y5m6jKz9Mdui8Fi7g2+/KsWF80cP306VtsZBT1J1vtJCdEeE1OBKCScJNngTySi7OTl
+	E0aXLlGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwLt3-00000009yTo-3wsN;
-	Sat, 28 Feb 2026 15:05:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vwMSt-0000000A0Q5-27n2;
+	Sat, 28 Feb 2026 15:42:47 +0000
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwLt2-00000009yTa-3i5H
+	id 1vwMSq-0000000A0Pc-3zwq
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Feb 2026 15:05:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CA7746014C;
-	Sat, 28 Feb 2026 15:05:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AF0AC19424;
-	Sat, 28 Feb 2026 15:05:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772291143;
-	bh=0OxJIGMPv76RywmKCdOMvITmwAh2+4ivhDnHMnZnzag=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ch1Gg2yAQ1PMpheX8+vCmGY8HMEwDFC/hs8l0hqgf2x2w4fkDrBVkS26fABBzrX/b
-	 tOatzn+ODy9Qfl2iFvAMrPoYNA+dETAbqE+ZlRgx1BD2n7lQss9UtXusRO8re9CrBJ
-	 rHCOJrUGjqjs63PyTMZX8TYRgFZtNaIQ9nkKlmSUxlFAOVucxN28nOVrpCUvGWimnn
-	 e2piRZmLR58wfKxdi4IeBlId6JdYpvNAJHF5ttgVRkGXomCi1qr0YQx16DDnr0RuLD
-	 vJQmNUVaI0xEw/yJmMFtcNI0HnGHZUvrJjMj/Pqk2lvcHu9uI0mWUxMTqrHC3Fea4m
-	 izPytNjE6AS7A==
-Date: Sat, 28 Feb 2026 20:35:26 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Hongxing Zhu <hongxing.zhu@nxp.com>
-Cc: Sherry Sun <sherry.sun@nxp.com>, 
-	"l.stach@pengutronix.de" <l.stach@pengutronix.de>, Frank Li <frank.li@nxp.com>, 
-	"bhelgaas@google.com" <bhelgaas@google.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>, 
-	"kwilczynski@kernel.org" <kwilczynski@kernel.org>, "robh@kernel.org" <robh@kernel.org>, 
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, 
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
-	"imx@lists.linux.dev" <imx@lists.linux.dev>, "kernel@pengutronix.de" <kernel@pengutronix.de>, 
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH V5 02/12] PCI: host-generic: Add common helpers for
- parsing Root Port properties
-Message-ID: <2pxztu4pnngj55bqvrqjukaeatzcr6t267trfimlnctgznocsz@svgi3dyvcme2>
-References: <20260213040852.3340547-1-sherry.sun@nxp.com>
- <20260213040852.3340547-3-sherry.sun@nxp.com>
- <woglgacwnhpzy3wrevjs4am4rs754tajzmhvndli4u2fycmzuf@rvbwfzcgnsrf>
- <VI0PR04MB12114C1EF27CE2314B2E789EE9274A@VI0PR04MB12114.eurprd04.prod.outlook.com>
- <dzykdgno7cuy5pc6gcooq7s2dbdzb5p2tktuswk6uiyrnx5fzi@nv7hbkodrxce>
- <VI0PR04MB12114F7059ED27ABAB51FDBE99272A@VI0PR04MB12114.eurprd04.prod.outlook.com>
- <AS8PR04MB8833F7D36FFA325DD87023308C70A@AS8PR04MB8833.eurprd04.prod.outlook.com>
+	Sat, 28 Feb 2026 15:42:46 +0000
+Received: by mail-pf1-x444.google.com with SMTP id d2e1a72fcca58-824c9da9928so1752274b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Feb 2026 07:42:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=localtargetshows-com.20230601.gappssmtp.com; s=20230601; t=1772293363; x=1772898163; darn=lists.infradead.org;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ouE7c527BS2v3HOI8uXoCrqcS3QLeO5E4Kjh3MX18VU=;
+        b=iOs5jQjIm1vpc+SnpgAK0wmSsXQDIvhqZjdSV4KGzjqd4lweRRXvgENTqQ/zfLA11e
+         OlWTz2VpU+8nhFwyiWP936xPU1BBogpSVgSfX2la1hLi7CjjtIBulNbRkNe1DnNKaV9m
+         Fq1mGyIoSqBYCXyhCtyMgceKBY2g/5yK3myIcTEx3s3Sf1CRuCRzngUwHh05ypq68wiy
+         kFikfJ590GzkCQ4bhZIVmpEy9OUlS0kltJBTZHYbfpOwcXXv+PumLXmWwD637Gz9Fv1L
+         G+NhE94YleeGEW6m+NDXeMFGRRcgNm/A1yqv16xEOILA9hriRYVfEms6tr6oJohHH3B7
+         Tifw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772293363; x=1772898163;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ouE7c527BS2v3HOI8uXoCrqcS3QLeO5E4Kjh3MX18VU=;
+        b=tO1MJ3PyDWCPZo+XDVbRIYYjnAE3EP7uie/p8F1J+Dge6MfGRRjLP1BGufXDlDEAUZ
+         jyUtwg3YHHnBdrHYNTLgRst4IKrr+JWbRZuiul+r8X4Eqqo9AlMMEgMS3ni+wBRShgQL
+         8ogIMwL93ZVI5aYpe9SBGZoeIsCMTdz2d2BM5OfW83c9hhx+eIs/ppUqDcu32BcLLppj
+         jE1Ew4OdIPB4IDbpqCody+PZAUmRwp3an2Q+r0uBq2A+kgkuUPFXccA89M4cNzGk0JD/
+         5lT1MvFTTBr24jZ+RfY0sZ2Lpw2Cv+nzNVSJpNZYogZFTRIqWuxjh1BQ/mPbe2Qjvzde
+         kYMg==
+X-Gm-Message-State: AOJu0YwVCxKLeaP6SD8QKmOs1LrxuwOJOv9CKVoBHcujJbHmVbJWZN7C
+	qJepee7IeIC8O8+QF9ME+vndIDHwM+r8DwChZh+9I/mtmUBYxFCODWy5+iCb4o8c2sEAck+zXkB
+	svjOiL3g=
+X-Gm-Gg: ATEYQzzFQFHXTjF7Q9JPPBhOYsL4keLEgUQsbOxTp1+rgCzqhRA9qrp3CcZnrlkqfwx
+	h+cP8tp6rFj1M1Yk8NdDuz1tCYDlOUMYRVUcupLiYJGiS9fphLvUwV18bt2BFKvrvGbXw6pNyOS
+	q+Qx3GQgAWnsKbLNgP2a8SYdd4NaHZQPYqdgQ6iHD+KtP1w63u2LNnttAoK5fDv2JI+QCKgPoKq
+	FKSVLA0N4DrI4WJSxAkJJQxy5e9CTAZ7fIZONFDVR3L0lWJCqFcLd/Oe32h8mfB65iHmgF/UGES
+	xiNNZXUrDCM1j9DUYzuRlOxOBgorcOgy4frTw3kU0aMtJppOTbSTpiMIyqzsUT0VTkMacsi4dzt
+	wksul88W30uKPsNB3bC7W6q70oks2vYPtN/Zk2mkNCxkS/0sPak9Vtm+fsFtGINQdoI/gXHcYy5
+	OWIkzZxsKFyp/clqV71WOuDaR3t2sU86zdLBolyDfUQPnjXebqL0XHTXqZZT27tj4t
+X-Received: by 2002:a05:6a20:94cf:b0:393:dc6b:a10b with SMTP id adf61e73a8af0-395c3b0f6e6mr6415707637.44.1772293362929;
+        Sat, 28 Feb 2026 07:42:42 -0800 (PST)
+Received: from DESKTOPO5PKTIC ([2406:7400:11d:7944:b022:eb99:128b:bc27])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2adfb5c2e4bsm130159535ad.32.2026.02.28.07.42.40
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 28 Feb 2026 07:42:41 -0800 (PST)
+From: "Caitlyn Christensen" <cchristensen@localtargetshows.com>
+To: <linux-arm-kernel@lists.infradead.org>
+Subject: OFC Conference 2026 - Lists.Infradead
+Date: Sat, 28 Feb 2026 10:42:37 -0500
+Message-ID: <150401dca8c8$df92aed0$9eb80c70$@localtargetshows.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <AS8PR04MB8833F7D36FFA325DD87023308C70A@AS8PR04MB8833.eurprd04.prod.outlook.com>
+Content-Type: multipart/mixed;
+	boundary="----=_NextPart_000_1505_01DCA89E.F6BCA6D0"
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AdyoyNp1Szz6YAmRTsWj0p54MJdTYw==
+Content-Language: en-in
+X-MS-TNEF-Correlator: 00000000B48EE13E633F4E45B250D8DCD108A12D44895700
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260228_074245_254564_BCA92474 
+X-CRM114-Status: UNSURE (   1.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,189 +99,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 28, 2026 at 01:58:43AM +0000, Hongxing Zhu wrote:
-> > -----Original Message-----
-> > From: Sherry Sun <sherry.sun@nxp.com>
-> > Sent: 2026年2月26日 11:40
-> > To: Manivannan Sadhasivam <mani@kernel.org>
-> > Cc: Hongxing Zhu <hongxing.zhu@nxp.com>; l.stach@pengutronix.de; Frank
-> > Li <frank.li@nxp.com>; bhelgaas@google.com; lpieralisi@kernel.org;
-> > kwilczynski@kernel.org; robh@kernel.org; krzk+dt@kernel.org;
-> > conor+dt@kernel.org; s.hauer@pengutronix.de; festevam@gmail.com;
-> > imx@lists.linux.dev; kernel@pengutronix.de; linux-pci@vger.kernel.org;
-> > linux-arm-kernel@lists.infradead.org; devicetree@vger.kernel.org;
-> > linux-kernel@vger.kernel.org
-> > Subject: RE: [PATCH V5 02/12] PCI: host-generic: Add common helpers for
-> > parsing Root Port properties
-> > 
-> > > Subject: Re: [PATCH V5 02/12] PCI: host-generic: Add common helpers
-> > > for parsing Root Port properties
-> > >
-> > > On Tue, Feb 24, 2026 at 10:24:41AM +0000, Sherry Sun wrote:
-> > > > > Subject: Re: [PATCH V5 02/12] PCI: host-generic: Add common
-> > > > > helpers for parsing Root Port properties
-> > > > >
-> > > > > On Fri, Feb 13, 2026 at 12:08:42PM +0800, Sherry Sun wrote:
-> > > > > > Introduce generic helper functions to parse Root Port device
-> > > > > > tree nodes and extract common properties like reset GPIOs. This
-> > > > > > allows multiple PCI host controller drivers to share the same parsing
-> > logic.
-> > > > > >
-> > > > > > Define struct pci_host_port to hold common Root Port properties
-> > > > > > (currently only reset GPIO descriptor) and add
-> > > > > > pci_host_common_parse_ports() to parse Root Port nodes from
-> > > > > > device
-> > > > > tree.
-> > > > > >
-> > > > > > Also add the 'ports' list to struct pci_host_bridge for better
-> > > > > > maintain parsed Root Port information.
-> > > > > >
-> > > > > > Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-> > > > > > ---
-> > > > > >  drivers/pci/controller/pci-host-common.c | 58
-> > > > > > ++++++++++++++++++++++++
-> > > > > > ++++++++++++++++++++++++ drivers/pci/controller/pci-host-common.
-> > > > > > ++++++++++++++++++++++++ h
-> > > > > > ++++++++++++++++++++++++ |
-> > > > > 15 ++++++
-> > > > > >  drivers/pci/probe.c                      |  2 +
-> > > > > >  include/linux/pci.h                      |  1 +
-> > > > > >  4 files changed, 76 insertions(+)
-> > > > > >
-> > > > > > diff --git a/drivers/pci/controller/pci-host-common.c
-> > > > > > b/drivers/pci/controller/pci-host-common.c
-> > > > > > index d6258c1cffe5..0c35907a5076 100644
-> > > > > > --- a/drivers/pci/controller/pci-host-common.c
-> > > > > > +++ b/drivers/pci/controller/pci-host-common.c
-> > > > > > @@ -9,6 +9,7 @@
-> > > > > >
-> > > > > >  #include <linux/kernel.h>
-> > > > > >  #include <linux/module.h>
-> > > > > > +#include <linux/gpio/consumer.h>
-> > > > > >  #include <linux/of.h>
-> > > > > >  #include <linux/of_address.h>
-> > > > > >  #include <linux/of_pci.h>
-> > > > > > @@ -17,6 +18,63 @@
-> > > > > >
-> > > > > >  #include "pci-host-common.h"
-> > > > > >
-> > > > > > +/**
-> > > > > > + * pci_host_common_parse_port - Parse a single Root Port node
-> > > > > > + * @bridge: PCI host bridge
-> > > > > > + * @node: Device tree node of the Root Port
-> > > > > > + *
-> > > > > > + * Returns: 0 on success, negative error code on failure  */
-> > > > > > +static int pci_host_common_parse_port(struct pci_host_bridge
-> > *bridge,
-> > > > > > +                                 struct device_node *node) {
-> > > > > > +   struct device *dev = &bridge->dev;
-> > > > > > +   struct pci_host_port *port;
-> > > > > > +   struct gpio_desc *reset;
-> > > > > > +
-> > > > > > +   reset = devm_fwnode_gpiod_get(dev, of_fwnode_handle(node),
-> > > > > > +                                 "reset", GPIOD_OUT_HIGH,
-> > > > > > + "PERST#");
-> > > > >
-> > > > > For usecases like link retention from bootloader to kernel, this
-> > > > > could be requested as GPIOD_ASIS:
-> > > > > https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2F
-> > > > > lo
-> > > > >
-> > > re.ke%2F&data=05%7C02%7Csherry.sun%40nxp.com%7C7957eace8620494e
-> > > da250
-> > > > >
-> > >
-> > 8de74700adc%7C686ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0%7C63907
-> > > 622173
-> > > > >
-> > >
-> > 6969266%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiO
-> > > iIwLjAu
-> > > > >
-> > >
-> > MDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%
-> > > 7C%7
-> > > > >
-> > >
-> > C&sdata=S6ME9QOAFR5OC8w5WRjFeHW46t4OAxVkVz6E3pCJWQk%3D&rese
-> > > rved=0
-> > > > > rnel.org%2Flinux-pci%2F20260109-link_retain-v1-3-
-> > > > >
-> > >
-> > 7e6782230f4b%40oss.qualcomm.com%2F&data=05%7C02%7Csherry.sun%40
-> > > > >
-> > >
-> > nxp.com%7C55c78c3dde694150dd1408de6d778ccd%7C686ea1d3bc2b4c6fa9
-> > > > >
-> > >
-> > 2cd99c5c301635%7C0%7C0%7C639068557422583280%7CUnknown%7CTWFp
-> > > > >
-> > >
-> > bGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4z
-> > > > >
-> > > MiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=zZAzwcH
-> > > > > U2y8kH4YP0OoTVN66tUlCEq6m2aAKkWCFeTM%3D&reserved=0
-> > > > >
-> > > >
-> > > > Hi Manivannan,
-> > > >
-> > > > I understand the concern about supporting use‑cases where the PCIe
-> > > > link is intentionally retained from bootloader to kernel. However,
-> > > > relying on GPIOD_ASIS may introduces a practical problem: it removes
-> > > > any guarantee about the PERST# level during the early power‑on
-> > window.
-> > > >
-> > > > According to the PCIe initialization requirements, PERST# must
-> > > > remain asserted until power rails and REFCLK are valid. If we
-> > > > request the GPIO as GPIOD_ASIS, the kernel no longer controls or
-> > > > even knows the actual state of PERST# at probe time, which means the
-> > > > device may observe a deassert reset before power/clock stable, it is
-> > > > risky even
-> > > > xx_pcie_host_init() asserts/deasserts PERST# again after enable
-> > > > power rails hoping to reset the device cleanly. Once PERST# is
-> > > > released before power or clock rails are fully valid, the device may
-> > > > already have entered undefined or partially‑initialized states. Even
-> > > > if the driver asserts PERST# later, this does not guarantee that all
-> > > > internal domains return to a well‑defined reset state. Some
-> > > > implementations do not route PERST# to all functional blocks, or
-> > > > early deassert during unstable power/clock conditions can leave the
-> > > > PCIe controller or endpoint
-> > > PHY/LTSSM in inconsistent conditions. Consequently, such a sequence
-> > > can still lead to undefined device state, failed link training, or
-> > > inconsistent enumeration behavior.
-> > > >
-> > >
-> > > I don't think this is true. Even if you request PERST# as GPIOD_ASIS,
-> > > if you explicitly assert it *before* doing the controller
-> > > initialization, net result would be the same.
-> > >
-> > > Like,
-> > > 	devm_fwnode_gpiod_get(GPIOD_ASIS)
-> > > 	...
-> > > 	assert_perst()
-> > > 	(perform controller initialization and enable resources)
-> > > 	deassert_perst()
-> > >
-> > > So if you request PERST# as GPIOD_OUT_HIGH, the first assert_perst()
-> > > becomes a NOP, otherwise, the endpoint gets asserted right before the
-> > > controller initialization.
-> > >
-> > Hi Manivannan,
-> > Got your point, seems there are some issues in the order of assert/deassert
-> > and power/clk enable in pci-imx6 driver. Maybe I need to readjust the
-> > sequence internal imx_pcie_host_init().
-> > 
-> > Thanks, will change to use GPIOD_ASIS in next version.
-> If the GPIOD_ASIS is used, the PERST# should be asserted before vpcie3v3
->  or vpcie3v3aux is turned on.
-> That's the reason why GPIOD_OUT_HIGH is set in the probe of pci-imx6.c
->  driver currently.
+This is a multipart message in MIME format.
 
-That's fine. We can add a separate PERST# assert before enabling 3.3v
-regulator.
+------=_NextPart_000_1505_01DCA89E.F6BCA6D0
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-- Mani
+Hi,
 
--- 
-மணிவண்ணன் சதாசிவம்
+ 
+
+Would you be interested in acquiring the attendee email database for the
+Optical Fiber Communication (OFC) Conference 2026?
+
+ 
+
+Attendees include: Fiber Optic Engineers, Optical Network Architects,
+Telecom Network Engineers, Photonics Researchers, RF Engineers, Optical
+Systems Designers, Network Infrastructure Managers, Data Transmission
+Specialists, R&D Scientists, Product Development Engineers, Technical
+Directors, VPs of Engineering, CTOs, Telecom Consultants, System
+Integrators, Optical Component Manufacturers, Communication Technology
+Professionals, and other leading industry experts.
+
+ 
+
+Please let me know if you are interested, and I will share the total number
+of attendees along with the pricing details for your review.
+
+ 
+
+Best regards,
+
+Caitlyn Christensen
+
+Trade Show & Events Data Specialist
+
+ 
+
+Note: If you are also interested in upcoming event lists or targeted
+industry email/user databases, please feel free to let me know. I would be
+happy to assist you in finding the right data for your business needs.
+
+
+------=_NextPart_000_1505_01DCA89E.F6BCA6D0
+Content-Type: application/ms-tnef;
+	name="winmail.dat"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+	filename="winmail.dat"
+
+eJ8+IikPAQaQCAAEAAAAAAABAAEAAQeQBgAIAAAA5AQAAAAAAADoAAEIgAcAGAAAAElQTS5NaWNy
+b3NvZnQgTWFpbC5Ob3RlADEIAQOQBgAkDQAAKAAAAAsAAgABAAAAAwAmAAAAAAALACkAAAAAAB4A
+cAABAAAAJgAAAE9GQyBDb25mZXJlbmNlIDIwMjYgLSBMaXN0cy5JbmZyYWRlYWQAAAACAXEAAQAA
+ABYAAAAB3KjI2nVLPPpgCZFOxaPSnngwl1NjAAALAAEOAAAAAAIBCg4BAAAAGAAAAAAAAAC0juE+
+Yz9ORbJQ2NzRCKEtwoAAAAMAFA4BAAAAHgAoDgEAAABNAAAAMDAwMDAwMDQBY2NocmlzdGVuc2Vu
+QGxvY2FsdGFyZ2V0c2hvd3MuY29tAWNjaHJpc3RlbnNlbkBsb2NhbHRhcmdldHNob3dzLmNvbQAA
+AAAeACkOAQAAAE0AAAAwMDAwMDAwNAFjY2hyaXN0ZW5zZW5AbG9jYWx0YXJnZXRzaG93cy5jb20B
+Y2NocmlzdGVuc2VuQGxvY2FsdGFyZ2V0c2hvd3MuY29tAAAAAAMA3j+fTgAAAwDxPwlAAAADAAJZ
+AAAWAAMACVkCAAAAAwAQgAggBgAAAAAAwAAAAAAAAEYAAAAAEIUAAAAAAAALACmACCAGAAAAAADA
+AAAAAAAARgAAAAADhQAAAAAAAAMAL4AIIAYAAAAAAMAAAAAAAABGAAAAAAGFAAAAAAAACwBBgAgg
+BgAAAAAAwAAAAAAAAEYAAAAABoUAAAAAAAALAEKACCAGAAAAAADAAAAAAAAARgAAAAAOhQAAAAAA
+AAMAQ4AIIAYAAAAAAMAAAAAAAABGAAAAABiFAAAAAAAACwBEgAggBgAAAAAAwAAAAAAAAEYAAAAA
+goUAAAEAAAAeAEaACCAGAAAAAADAAAAAAAAARgEAAAAYAAAAQwBvAG0AcABvAHMAZQBUAHkAcABl
+AAAAAQAAAAgAAABuZXdNYWlsAAMAR4AIIAYAAAAAAMAAAAAAAABGAAAAAOuFAAAJBAAAAgFIgAgg
+BgAAAAAAwAAAAAAAAEYBAAAANgAAAEkAbgBUAHIAYQBuAHMAaQB0AE0AZQBzAHMAYQBnAGUAQwBv
+AHIAcgBlAGwAYQB0AG8AcgAAAAAAAQAAABAAAAAwrl5wU8TEQYZigTOGdPAIBQD+gCkDAgAAAAAA
+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
+kAMQBCCb0pghBcD9GVB2CJAqYO//8Q/yH/Mv//Q/9U/2X/dv+H/5j+zv7f//7w8DbwR/BY8Gnwev
+EG8Jz78K3wvvDP8OD74/GyhCmOH3AsFOIE8Ac8EPwh8bVX8//xH/Ew8UHxUvFj8XTxhfGW//Gn8n
+kjnANrBdYJlQYUCZwP+Y8c8QoYAh3yLvI/8lDyYf/ycvKD8pTypfK297Yc7hAcC/00DIkPvQDh/R
+r8MXRdSw/9nxzoTPuC3fLu8v/zEPMh//My80PzVPNl83bxufDv8QD/89jz6fP69Av0HPSo9D70T/
+x0YPRx9LDDE0OEwQWOLnddZc02ajMTFnoneRVK93e2FUIMZgOszw/AjfwW/5mI11cNkxmdLUodUh
+0BN/14Cb8WihAdCZE+FWmvIv7+Fgw9GbRsThcPrUoVDG4O+bwKFw/pL7Ki79kpfTmGH5/iBwcN8A
+YYF5MdAh/BPdmUFm4TGZ1pnAZzrAmzP9Ajhi4WDEkVPA/wCasB8Q/wM/TB9NLFXsdHBvwlcRIG+/
+VZNOD08fUC9RP2puMGiBzi940Wv/cB9nNVbRIEB11DB5aO43ICE6wlJAfQF3gAAAAAMAFhADAAAA
+AwANNP0/pQ4DAA80/T+lDgIBFDQBAAAAEAAAAE5JVEH5v7gBAKoAN9luAAACAX8AAQAAADEAAAAw
+MDAwMDAwMEI0OEVFMTNFNjMzRjRFNDVCMjUwRDhEQ0QxMDhBMTJENDQ4OTU3MDAAAAAAAwAGEL0L
+W6MDAAcQaQMAAAMAEBAAAAAAAwAREAEAAAAeAAgQAQAAAGUAAABISSxXT1VMRFlPVUJFSU5URVJF
+U1RFRElOQUNRVUlSSU5HVEhFQVRURU5ERUVFTUFJTERBVEFCQVNFRk9SVEhFT1BUSUNBTEZJQkVS
+Q09NTVVOSUNBVElPTihPRkMpQ09ORkVSAAAAAAU/
+
+------=_NextPart_000_1505_01DCA89E.F6BCA6D0--
+
 
