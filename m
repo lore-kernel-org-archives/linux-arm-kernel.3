@@ -4,76 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 325821048922
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 00:20:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C68581048925
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 00:40:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7i49nip5TBMddeZ1zFCfyTc6K0SWqVCSWzZq88A8BeA=; b=s3BBRw4ELHJuEhvMFFQEnm6RKP
-	ZY2Qw1HMabur40Tnrfx3x/tN4+Ww3AprBq0oRV22dyGK82rocigkbS45IgG0+S5S7dcTE+WIkwtkf
-	CGhHHkrjZRwiYAEqJAF9389w9W9HE+yZ9KnK9KNiT6BGtLypJAEeLK4a9/Xo1VVFFaWyNgo+HVjJH
-	RsS49i7QbTNBBCr+COvHv49HzhcrqgbZJFUMGp7qxG/JFUOX0wFjYLO2ohVggJ5JQwcCqiHMbC/RU
-	ftAy8ASZoq2xGiJiOpaPyuA2sLdhcaRek5Ta4mfLfAbzz1IusJ6OkWCGjvbJD9GcUeEwqtDSQQqhh
-	HqIm0+yA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qacH+Q9ciAKndVpHtY1Zlaz2hXg9vVNCcAbgJQJ7KmI=; b=TNG9sCxKjhChcB7fcpBdJY2Qyf
+	sMq/pEdxrs6NjGK+bek+9jcnQwF/rAARXFUKo1giQ8ZnkSA+ybNjn+N5xZAZ84SRAp3588lsXEbfG
+	tGizvLDpl0z/W65BlsZTsYwycva+1ZXY7ov/APDoUqkrFnJfcLYt8AlyKFs5iqN2Zcx2w6VqOSLfE
+	SzCAdVtxD3+9hbGhWNEYcuB+KjM9aqI4D/FmsihzxMahYFdl1qZnXOKPFfUyDypqu+B0wEsJcnVAM
+	s4Pz/MzfFRdMqkrcFIrnijkmGwSSj48ONec7H7keNKgzXxsa7PHHXXWnR+Qw/XWKxlzVXU7vYrglo
+	9vQbppzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw83s-00000009Jpl-0Kke;
-	Sat, 28 Feb 2026 00:20:00 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vw8NL-00000009Kl7-0Xkh;
+	Sat, 28 Feb 2026 00:40:07 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw83p-00000009Jp8-3qGS;
-	Sat, 28 Feb 2026 00:19:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1772237993;
-	bh=eEWOJLC5iXka6AARlFgyl+EPvoGlADG4k4kYulrx3Wc=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=YG1S4cQCItG4wh33BA/xp5pv5bzJWN7qr+2SrhcDxWdw1eOTsEa0xeOMT981QtdVj
-	 LDEbrpqeDNXAa3A1OAI05M1LKnMzVP74y/de7yGLlGybv8g6gTbGLMJE/eWpXUwaFl
-	 Xp+GYqK9CWyxjl3FZQ+kGEVpyDf8r0Wa0CM0Xhy64iADAgGEevXUxO/2GWtwfhejJa
-	 N7IQmVGUvlsh3fbT2UN3oEg3tWCsqSQBxc5d+RXTYTU36p/aVJV1l+eLJJt1KjUM73
-	 BhUhf7F3p5s/8ZRDu4ba6RSlCNs4E2wShG1B9ig1HZSntqeCTa/jxlgnPHLqCxSyQj
-	 Sy2rRpetH1djw==
-Received: from [192.168.1.90] (unknown [86.123.23.225])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5457D17E0454;
-	Sat, 28 Feb 2026 01:19:53 +0100 (CET)
-Message-ID: <67adf0fb-707f-4cc9-b394-8627149d8587@collabora.com>
-Date: Sat, 28 Feb 2026 02:19:52 +0200
+	id 1vw8NJ-00000009KkL-2KaX
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 28 Feb 2026 00:40:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=isvs9ZKHK8yURgp0pF8JO5uP5NU8VD52+hBKVFDOGhbH3ONx4SkmpxTfjCPZXi47rWPlNyQ4GANK8gkAT8uNJbXmUbEiiKwuYub65ULoyjEjCDKxo1dqGNW/hVP7Z5SeQ/Uz3Z0eHQ1bFcoAHdr35brLhtFLr2mRtlHB+92jbjrJHsWTtmWVgh3Dtpsv1ZPRdi30s/BHmgrf1cSTAF8ZKmJk3QBfaelRQ/prCrSUscN4CDQm6skThKtfzprqUwBpfhaq/9lQy+XEUacX4lUilTv4haMej4MkcVbiyvcneIrFZIj9i8j5Mz8Fi4isiEUI+9OidhAVrJQq7akOROr8iA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qacH+Q9ciAKndVpHtY1Zlaz2hXg9vVNCcAbgJQJ7KmI=;
+ b=XuAsZ20zVnt7PNPh8QwNmBWi5dWF+Y3sI/ERIPvHLDFneMkxt+Er7Kfgwb+wT2fHDk8v9t0nfnKd5aRktcV6CWZvpvqKk1mq1X35YKsw35yIT983go93Ki0diNEB8Ajz/tEf8nIE9i22eIiaxfeS4bUHTHU2w0MWr7udzvQ1ljac8BJ3PjFetuhZHyCEQA2mw1CBS5gnfvgtitnu83kXjPCDiaoTahVfsrgqoz3TLbXa7KlKrClHgs22USExZ0mFQ6IweiFQD1nkDpZ78iSe0gtTwj/q/gnxGzLTJZ+CjReVzYHhfoLi6otuerB/k19p2JYcw4CYYPzGSQW7MQpBCA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qacH+Q9ciAKndVpHtY1Zlaz2hXg9vVNCcAbgJQJ7KmI=;
+ b=gio60ip/NdmgrVCWbqpL7/JaFC9bMJQqO5GovlZKl0BpfGqgScdnv/Wtq/2wGWGeyrmoOJXhX3ITcdXXFkJYGWW8ySLBfIY+LeeJQkD71oKFP14ox9YLb1d2ocREvYXeY4icxDAWOcudvwa4Kbgv6ejw/KL7avQyIjxlh8Q5VF5GOTfaJRVDsigefKodCP1NUFuNQ2EHsBNENObULtTfXaYFgSXen9IdRSRymiPrXFoHtMdHEakHPbC5XdyzBkz3TyvjUAYQk0EGzI9b4PZLHykpADMq1Av6tpLa+/6JJ3Lmd8JVinAWtKXWZGBoNfWhCT0nL53AZCxWgYeBwsLXBA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by VI2PR04MB11218.eurprd04.prod.outlook.com (2603:10a6:800:29a::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.14; Sat, 28 Feb
+ 2026 00:25:22 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e%7]) with mapi id 15.20.9632.017; Sat, 28 Feb 2026
+ 00:25:22 +0000
+Date: Sat, 28 Feb 2026 08:27:11 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, sudeep.holla@arm.com,
+	philip.radford@arm.com, james.quinlan@broadcom.com,
+	f.fainelli@gmail.com, vincent.guittot@linaro.org,
+	etienne.carriere@foss.st.com, michal.simek@amd.com,
+	dan.carpenter@linaro.org, geert+renesas@glider.be,
+	kuninori.morimoto.gx@renesas.com, marek.vasut+renesas@gmail.com
+Subject: Re: [PATCH 01/11] firmware: arm_scmi: Add clock determine_rate
+ operation
+Message-ID: <aaI2X6qnGabtW1t0@shlinux89>
+References: <20260227153225.2778358-1-cristian.marussi@arm.com>
+ <20260227153225.2778358-2-cristian.marussi@arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260227153225.2778358-2-cristian.marussi@arm.com>
+X-ClientProxiedBy: SG2PR01CA0181.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:189::13) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [REGRESSION] HDMI monitor not working on Radxa Rock 5B after phy
- rockchip samsung hdptx HDMI 2.1 FRL patchset
-To: dubito@online.de, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner
- <heiko@sntech.de>, linux-phy@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, regressions@lists.linux.dev
-References: <b32164001947ba922aefb6ca86a8dc59e9323d2b.camel@online.de>
- <8e410a11-bd7b-4a12-a711-0514a59409c0@collabora.com>
- <1859c940219a4dbfdf0497afbf333e627ab0ba25.camel@online.de>
- <98e46dbb-c8e2-451f-accb-ea48f63f9408@collabora.com>
- <4544ec4ccfa49cbdffee098878df7806223935a0.camel@online.de>
- <08369c90-fbab-477d-9ac6-388deddfd3b1@collabora.com>
- <26e31b3b-484f-433b-833f-c639ee437f63@collabora.com>
- <03b5f3d1-6db4-4835-b2a5-c22c1aa63825@collabora.com>
- <a3c3964e9e13c82d944fa1ee0acbb1a7806dd382.camel@online.de>
- <a662745a-1b2a-47b3-a66d-7c1c5c8af525@collabora.com>
- <e18fce6a3216427d26bd10ebd837e9152c0c8b60.camel@online.de>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <e18fce6a3216427d26bd10ebd837e9152c0c8b60.camel@online.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI2PR04MB11218:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3d668875-f795-4df7-a1b6-08de765fdc06
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|52116014|19092799006|376014|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: qGKLAjlHI7U7sI8sN4iOpPsX0fE+3zNitvLNJ3LrQMi1+A+niFu8ZAjQrB1eVcdFBr2Ml2fdxV6mzpVpN5VIray3WrVE1W9wMy3b7fJl+TdNb0lS7gIFUGXIdRRAtalxama5Nenm4Snb9sqWjtfAnnqVMnQpnmxbhEo3h+hrod8p0Px2VBEf3JSKetrWc5D13LsA+X4bW5pkF3ZMKqgGIbqpUGCDStXKuZmB5uKIqxq9EvL/g3vsnQq51RCsq80QW56hHhLXLuhGTMpr7bjIu0sjY20JvzvkHvin+ho61NYuqxLIHupHweq0o879zuQ/HoGUwkc6BlpCKkx2wMPZSmLev5o5aexDTxdSZaD9AmzWfPkA3cMWuEaR33oQHIy4+xMw9Udqyd+StoZh5xEBZg0JalIuFxZtAaYdwZTsGFBMpEhe+9qxTrTae6pB3q0fdpqF2a0zIUu26t6dZh5TXDw4UjAq6CqZFlqXQA1Ez25Z4Ys0IiaDboOuf/H6i+dOwpv3kItvuxs5P4+EeT2pPT68XU3uSiWYqhtHjkrVF+ykQRlqlSmFuib36oe04sv/xca+KhJLBIVm3eZTI60+Hxbnvt/6vxZrgraMz6KRXjqiVuIvAbyWum4ZJkiUmMsoEG+7C+W6nmyo+tPvI6tWXzMvuz1Tzz9bqn55lC70nc7EiERUOoFnU3VXvYJmt8BrWXZwjRPcy8JOcwdAN5borl9PWpZuM5+tOFsGb2TEWw8mRuE1vnhEAT5U0kP2MdwvZ5fmx/nmBFAVuD6NJlWXmiLxWQoe3t8EHnpLL8kCK/Q=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(52116014)(19092799006)(376014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OGYGqVZVAJkXPY8CG2Ikbmd6qI5Rt0MSnn1ii/s1Bf9fb2NNaNQNe/waTscC?=
+ =?us-ascii?Q?wv3CwZslXQzIGXN98TUngw+T1sjVBOKQ1nU2dj/cQFeTCgh7BSAd2bVyoLlE?=
+ =?us-ascii?Q?ONe6m4PpiTz8elGzZ7xC1sfxzb/bzY7MzzjRdYKrTyLyFmyEks0E4irbZcaT?=
+ =?us-ascii?Q?K57CB9ftKnmi/u8+x80z661ZshBeFett4ARRzX5L7YKM8ZI/aWDTKeA+558m?=
+ =?us-ascii?Q?BS78i4BPJCueWpWIZZgc+jSNV5DAQApU5MOi079pfvP+lCtxsBHFEycaAhwY?=
+ =?us-ascii?Q?xGxKHCOr2E2iD5i1ALxKhrTawiKm9SQrdjOxpmguecEO/gkjQSUw3MW1aWaQ?=
+ =?us-ascii?Q?DYdZ+8u7TvqwAGuZNB6O5Z5xuSpF11ZsM2pX3KTHNHWyARAYFSqy1jkxDcnl?=
+ =?us-ascii?Q?a/BFZXuXQLd+46Yaev2FemBfPMmaEg5OZpMCzUnd9EyUKmWUejhvQ9p4e/VU?=
+ =?us-ascii?Q?2ndJ9gHNYBoB9eUMSxDnh2BOexECT2MqIF2AvFwCTb9g3amGlA+leUrwXp63?=
+ =?us-ascii?Q?ZTBcTdmSiIaUvZ7GwmKeAff7FHHh6kbMn8BZ6mjn3DEEh+hiohhMOk0PbDf8?=
+ =?us-ascii?Q?ur7PBESFlwSypiC1GTuoPlr25EC0texpiTEq4wESF/aG4Q0hl9xQQ0pKJ1kl?=
+ =?us-ascii?Q?1FlfbJLU4W4Y6bPb804K2+UQJ/KIulK66b+8kpm/aLRLXQQFCDaGbNy7K3+9?=
+ =?us-ascii?Q?0Gsv6y1K9T9znZiHmbqGxsyyowVcu0XIUBkiA/B9ahUrhjN2rWBQ0bODxCjw?=
+ =?us-ascii?Q?i+eE9WO0ZKfRmf3VwLmvQLa79XTzqc1sBYpW0DpNZtn9CJqg3noz8Z2GeLny?=
+ =?us-ascii?Q?LDzUPh4RxfxIrFDAxx2TiZ7DF38mWmgJqf09X6Cg1+EznK41jGwvSD/Kye7f?=
+ =?us-ascii?Q?JFIGuwRa2/mwCRjTqVMyZLxv4+f/aeRKE5Xj+nZ+cBlboRbCE9CutAOjG/9k?=
+ =?us-ascii?Q?pQGnCwfgfO9oZP5gSBSBVpyPPXrxapoKW8y0ydqwx7YYcaVvW7vbhvFb/bUG?=
+ =?us-ascii?Q?8RNhx33PdacpuCBrxxLd4j3kO44FQwYyYpPtAIaULLjq3fS4w50BYrbrpHc3?=
+ =?us-ascii?Q?Ue6I0yAbr+awKjQ3KFjDqgYGI7Rn42RFfwPvHVNR51VbYf+4g8N58At+3zuX?=
+ =?us-ascii?Q?eDeDKJdj/Ti5lYJrwGQKIApF/vcyb+VvCeO54cMiMorFyc+gqjMTEzAewvf9?=
+ =?us-ascii?Q?DNQ+pODcEPFNhVmJ0UW30OVbdjH+nIPgN0v2wzgtFTmDy5WRh/j9si1uyzsR?=
+ =?us-ascii?Q?o0lSqAAlA3OZSKi5NlvjoW8sCOh75ROMyHFgTp2lF5vyKJH3WNpNz0Yd9gyj?=
+ =?us-ascii?Q?aheEPROdevdpdGKPxChTVNE3WvHRhpSQq5NKsdHOEf3ftHhQ/jgkBtiQFR7A?=
+ =?us-ascii?Q?nYx5GpaRfKJDrGeFetKwkRKq0LXuzReBbP55STLM5/VpalzaJ4ZzavqZiY3Z?=
+ =?us-ascii?Q?EGoCP8aZpKEDXpfQpzgIiIdP9vO+sXeK5k9779RhlrkZb2gcGgAUVcudSLVC?=
+ =?us-ascii?Q?EruB2/uOUslNJR4v9bJy8hcoNs3EZo8ownb/r9qNUni0o1/Y1ZJFGwY8eeQb?=
+ =?us-ascii?Q?xwxSqimiZOtWAjEO1O28TX5LFeSRrnyo4ae1Rkk78ALUAIaP6TpZl7uMyNug?=
+ =?us-ascii?Q?1FLpxT1ZnYmKnv3Kz4KHLfPXrI2hLmwg63QXgBdQQ9j19Q8GoMmrWwt+AYx7?=
+ =?us-ascii?Q?FF1ftRPu23ZYVqhsijWY/Tz4n0zMI/8sYULE54h4+5QGkm3rNXIJg036FHgG?=
+ =?us-ascii?Q?Sxol8UgA8Q=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3d668875-f795-4df7-a1b6-08de765fdc06
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Feb 2026 00:25:22.2450
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: q8YSVqlCEhp0kpA4mwd/i6xiLqtQ8C3qoy5iovslM39+PGAI2/kxYCVdOh7re+6/wI9kV59P6KDJU9G/QprKKQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB11218
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_161958_114016_CDFC2F42 
-X-CRM114-Status: UNSURE (   9.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260227_164005_617667_D99B2525 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,48 +145,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas,
+Hi Cristian,
 
-On 2/21/26 5:05 PM, Thomas Niederprüm wrote:
-> Hi Cristian,
+On Fri, Feb 27, 2026 at 03:32:15PM +0000, Cristian Marussi wrote:
+>Add a clock operation to help determining the effective rate, closest to
+>the required one, that a specific clock can support.
+>
+>Calculation is currently performed kernel side and the logic is taken
+>directly from the SCMI Clock driver: embedding the determinate rate logic
+>in the protocol layer enables semplifications in the SCMI Clock protocol
+>interface and  will more easily accommodate further evolutions where such
+>determine_rate logic into is optionally delegated to the platform SCMI
+>server.
+>
+>Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+>---
+>Spoiler alert next SCMI spec will most probably include a new
+>CLOCK_DETERMINE_RATE command to delegate to the platform such calculations,
+>so this clock proto_ops will be needed anyway sooner or later
+
+Is there any early reviewing version available?
+
+Thanks,
+Peng
+
+>---
+> drivers/firmware/arm_scmi/clock.c | 42 +++++++++++++++++++++++++++++++
+> include/linux/scmi_protocol.h     |  6 +++++
+> 2 files changed, 48 insertions(+)
+>
+>diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
+>index ab36871650a1..54e8b59c3941 100644
+>--- a/drivers/firmware/arm_scmi/clock.c
+>+++ b/drivers/firmware/arm_scmi/clock.c
+>@@ -8,6 +8,7 @@
+> #include <linux/module.h>
+> #include <linux/limits.h>
+> #include <linux/sort.h>
+>+#include <asm/div64.h>
 > 
-> Am Mittwoch, dem 18.02.2026 um 22:56 +0200 schrieb Cristian Ciocaltea:
->> Hi Thomas,
->>
->> On 2/18/26 10:43 PM, 1und1 wrote:
->>> Hi Cristian,
->>>
->>>
->>> Am Mittwoch, dem 18.02.2026 um 22:15 +0200 schrieb Cristian Ciocaltea:
->>>> On 2/18/26 3:22 AM, Cristian Ciocaltea wrote:
->>>>> On 2/18/26 2:52 AM, Cristian Ciocaltea wrote:
->>>>>> Hi Thomas,
-
-[...]
-
->>> applying these commits solves my problems. I tested 1920x1080@60,
->>> 1920x1080@50
->>> and 1920x1080@30. All work now. Thanks for the quick fix! 
->>
->> Thanks for the quick test!
->>
->> I can add you to cc: when I submit the series, so that you may provide your
->> Tested-by tag if you'd like to.
+> #include "protocols.h"
+> #include "notify.h"
+>@@ -624,6 +625,46 @@ static int scmi_clock_rate_set(const struct scmi_protocol_handle *ph,
+> 	return ret;
+> }
 > 
-> sure, I would be happy to.
-
-I've just realized I missed to add your recipient email to the series [1] sent
-out just a few hours ago - sorry for that.  However, you can find some reply
-instructions at the bottom of that page, e.g. import the mbox into your mail
-client.
-
-Please note this is a reworked version of the initial patches, fixing some
-additional issues, hence retesting would be necessary.  For convenience, you may
-also pick these patches from [2].
-
-Regards,
-Cristian
-
-[1] https://lore.kernel.org/all/20260227-hdptx-clk-fixes-v1-0-f998f2762d0f@collabora.com/
-[2] https://gitlab.collabora.com/cristicc/linux-next/-/commits/b4/hdptx-clk-fixes
+>+static int scmi_clock_determine_rate(const struct scmi_protocol_handle *ph,
+>+				     u32 clk_id, unsigned long *rate)
+>+{
+>+	u64 fmin, fmax, ftmp;
+>+	struct scmi_clock_info *clk;
+>+	struct clock_info *ci = ph->get_priv(ph);
+>+
+>+	if (!rate)
+>+		return -EINVAL;
+>+
+>+	clk = scmi_clock_domain_lookup(ci, clk_id);
+>+	if (IS_ERR(clk))
+>+		return PTR_ERR(clk);
+>+
+>+	/*
+>+	 * If we can't figure out what rate it will be, so just return the
+>+	 * rate back to the caller.
+>+	 */
+>+	if (clk->rate_discrete)
+>+		return 0;
+>+
+>+	fmin = clk->range.min_rate;
+>+	fmax = clk->range.max_rate;
+>+	if (*rate <= fmin) {
+>+		*rate = fmin;
+>+		return 0;
+>+	} else if (*rate >= fmax) {
+>+		*rate = fmax;
+>+		return 0;
+>+	}
+>+
+>+	ftmp = *rate - fmin;
+>+	ftmp += clk->range.step_size - 1; /* to round up */
+>+	do_div(ftmp, clk->range.step_size);
+>+
+>+	*rate = ftmp * clk->range.step_size + fmin;
+>+
+>+	return 0;
+>+}
+>+
+> static int
+> scmi_clock_config_set(const struct scmi_protocol_handle *ph, u32 clk_id,
+> 		      enum clk_state state,
+>@@ -936,6 +977,7 @@ static const struct scmi_clk_proto_ops clk_proto_ops = {
+> 	.info_get = scmi_clock_info_get,
+> 	.rate_get = scmi_clock_rate_get,
+> 	.rate_set = scmi_clock_rate_set,
+>+	.determine_rate = scmi_clock_determine_rate,
+> 	.enable = scmi_clock_enable,
+> 	.disable = scmi_clock_disable,
+> 	.state_get = scmi_clock_state_get,
+>diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+>index aafaac1496b0..28579c145045 100644
+>--- a/include/linux/scmi_protocol.h
+>+++ b/include/linux/scmi_protocol.h
+>@@ -91,6 +91,10 @@ enum scmi_clock_oem_config {
+>  * @info_get: get the information of the specified clock
+>  * @rate_get: request the current clock rate of a clock
+>  * @rate_set: set the clock rate of a clock
+>+ * @determine_rate: determine the effective rate that can be supported by a
+>+ *		    clock calculating the closest allowed rate.
+>+ *		    Note that @rate is an input/output parameter used both to
+>+ *		    describe the requested rate and report the closest match
+>  * @enable: enables the specified clock
+>  * @disable: disables the specified clock
+>  * @state_get: get the status of the specified clock
+>@@ -108,6 +112,8 @@ struct scmi_clk_proto_ops {
+> 			u64 *rate);
+> 	int (*rate_set)(const struct scmi_protocol_handle *ph, u32 clk_id,
+> 			u64 rate);
+>+	int (*determine_rate)(const struct scmi_protocol_handle *ph, u32 clk_id,
+>+			      unsigned long *rate);
+> 	int (*enable)(const struct scmi_protocol_handle *ph, u32 clk_id,
+> 		      bool atomic);
+> 	int (*disable)(const struct scmi_protocol_handle *ph, u32 clk_id,
+>-- 
+>2.53.0
+>
 
