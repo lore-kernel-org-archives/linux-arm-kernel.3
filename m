@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBBD3FEE4C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 14:43:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE425FEE4ED
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 14:44:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N+ALpJPmcNTK2xGjrtQlYRfrVAE8SjcsDUHr37fAnME=; b=t4mo/2KHMEo/rZTUnbaaBS08M/
-	nvBKJ9n8G1Q+6Gva21fd1eijNM2UkCH8hBtlSsJVx2qPuUbsSOzlpg8x5KjN4RsqEW5p2ljt5ohqr
-	q8cOaHRdvmYOnCou2FkgbpXCQ+3nDa1jh4qbpNgjTjTSiXrVORQQ0yaRa2Ayl3xGbwnUmIfU9wpGq
-	ef8Pghk+k3q3WGhjKF+PJ+HB0OlFkqpaFIW59zDNqonEXAekzKjkJm6kLn6FbbyVl4QUZZxgfxnpt
-	NpnQvH4SgiiFw4PDcM7bd/oz+STV3ZX67EsdB7oBRvWC2/GkgcFuVgkcRzJPkZbOvbVbsEt/ckuMu
-	EgfVzE+g==;
+	bh=HMh8c+ggoIPUI/l9GdwHfBAeSvb2X4JRqC6Enzr5e/E=; b=pYBsJCLJlh89d6FLgbGryDJd+p
+	/HOgDojqLOkJn5F/DZXJQ8vhIBU/6BtsUAQmZFWiGdHMx/hGBOS6ZgOhfO18WWjFwMnqvTwVdeZb5
+	1LSaOy6hD6cfRXRGSo/0x1ErdhJOp1A5evhfsWub/0tSn6cOl3Bn8D+8bqnO4+x9KPzfPsjr/25fb
+	MgenfBrtlmAKIfvM0rY7pog+LC2FQxFVR4kHu9p9qmijVH+k/XeLS7xTDaErYtOe2X1JrWuL3SHfq
+	nNbHOlyP8YFYqhpnmVUUCmuYX2RvieL7PEE8ZwhUwySlwjTOtrIG5pvtpI9Z0+DMgjnU2aQqEdp+M
+	a5w/dS3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwLXs-00000009w66-2cuw;
-	Sat, 28 Feb 2026 14:43:52 +0000
+	id 1vwLYB-00000009wBt-1wTA;
+	Sat, 28 Feb 2026 14:44:11 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwLXf-00000009w47-1s5W
+	id 1vwLYA-00000009wBb-3NDS
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Feb 2026 14:43:39 +0000
+	Sat, 28 Feb 2026 14:44:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4EC3E6057A;
-	Sat, 28 Feb 2026 14:43:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3396CC19424;
-	Sat, 28 Feb 2026 14:43:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4027261118;
+	Sat, 28 Feb 2026 14:44:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7183EC116D0;
+	Sat, 28 Feb 2026 14:44:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772289818;
-	bh=CfsfHc2IZvizVqWXqW65hOnIoVPxOt9iivCaVzIk/Mo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=m+MolcBByd47Ey7eT4TjLfGewAgb47Al4Ru5uuvyAruYPN0bqQq+kKCrKljfm6gs/
-	 kC+0DBIplXr7nrlYU5WFk+IPQZ98y73BCLdbUVjt4cx9KOfctQtVjcRgzPnW6py2rs
-	 iVKEzuDd9YmD94q6HHQWeFTg4x6SKJDgC2aUPHdQqwZXzJ7d2pkgMwE81ywZoV+LWr
-	 bhSEbiMd7hmsoFtRfYiVZPitrDdRRGkYo6WvnELY+GGyt7w4eN6qvywVeTZd9xYKCo
-	 yTnwjRcVfIRSu38IUd3RN5mDTntkILKawTVmKLZlslXZyfl4xls5suhd+Oo9TnFuU+
-	 L5zdka5GkPY7w==
+	s=k20201202; t=1772289849;
+	bh=D/V84I++CGPRixWIXwRVaJCeGB1kFgaeefcBrnaxXbc=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=JTzS4eT4U0jWAF2K11CNh4YnEC05Z7K6olSpRD6JEY30iEu1SKCp9hdx8CKifmnqn
+	 ttgMF/+4HmKLPIehW8mb5y3zk6KM1t0+mrx0cC6sdbAQDxHZLcvMlJXLhqHyoXwezx
+	 R8Fu6wuSe/mT/AcGoa3U1vo/EsRGH1m8pLue6Yn1mh3kf5IV7db/XuRt5E9F8wX0oR
+	 y6vMpxFAIHuw8SR2kaGTaa9bAdMyKiAPktFVODQoQJQj9OtVkJo0TYG0dFb9zTXpqg
+	 8dlc3SS01/0DhI9kL7YUTkExxVwJT2fzeau7VdmAMNS/Bteo1JsgwhEZHYMlrW94El
+	 yO1Im9g2XlPkw==
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: s.nawrocki@samsung.com,
-	cw00.choi@samsung.com,
-	alim.akhtar@samsung.com,
-	mturquette@baylibre.com,
-	sboyd@kernel.org,
-	robh@kernel.org,
-	conor+dt@kernel.org,
-	sunyeal.hong@samsung.com,
-	shin.son@samsung.com,
-	Raghav Sharma <raghav.s@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-samsung-soc@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	chandan.vn@samsung.com,
-	dev.tailor@samsung.com,
-	karthik.sun@samsung.com
-Subject: Re: (subset) [PATCH 2/3] clk: samsung: exynosautov920: add block G3D clock support
-Date: Sat, 28 Feb 2026 15:43:22 +0100
-Message-ID: <177228975881.54431.9547973271595973650.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260202103555.2089376-3-raghav.s@samsung.com>
-References: <20260202103555.2089376-1-raghav.s@samsung.com> <CGME20260202101957epcas5p224b18e84c561e542c39096b2bd7f29a7@epcas5p2.samsung.com> <20260202103555.2089376-3-raghav.s@samsung.com>
+To: Peter Griffin <peter.griffin@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: Juan Yescas <jyescas@google.com>, kernel-team@android.com, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20260210-s2mpg1x-regulators-dts-v2-1-68783c9e0a32@linaro.org>
+References: <20260210-s2mpg1x-regulators-dts-v2-1-68783c9e0a32@linaro.org>
+Subject: Re: [PATCH v2] arm64: dts: exynos: gs101-pixel: add all S2MPG1x
+ regulators
+Message-Id: <177228984717.54920.3352980611735084045.b4-ty@kernel.org>
+Date: Sat, 28 Feb 2026 15:44:07 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-X-Developer-Signature: v=1; a=openpgp-sha256; l=570; i=krzk@kernel.org; h=from:subject:message-id; bh=M3/w8Kjaa5+4q1BF5CF5iRHUViQIxQUsXUslcUtgoRs=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpov8MKoFI6cn9WQaNzBpeerXBWEmeDuz0Frz2a bysmdIAUL+JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaaL/DAAKCRDBN2bmhouD 13dAD/sEl5lanhP3VthwFPk4bqJxrtZ+Cr9iyE3xQ+CvyagHWK+vu0GVWAqOK6h/hDeIzHjgQ1h O9LuN85PTNVa5DCPVy2BOm4hqNuhf1+jbptO9UslNExVYnMA7Ob6XSpmwvPBOkVWrbMHa48GoSs D3StuQdBSTvMv06FPesw45CJF7izooDuB7RHZMrnVJzyauKKr4Cte3UHZSBY+BsrEPUwp3mC6c5 eekGhTIT5kixVFMgMO8iH6igL9lgrrIv4zBuCiDhyxbat2Lxa2YgwY/owl3sEW741BbqVq6Qg0i biBPGeMjJwjxXquKIPY5VqgIW4elkUfw0RJGIPi5HlvOnqRl9PfKMqdHbIQcbLJQpLuQTENKKdP 0CC7AeKPcAkRVfwcANFLNIRB4LIW4/twRf19M/7KZoc/tmDGegJWooK7gXLCXou7xrCGL5qwy4r 0tHAK/U0UuvNfsMAKPiFK41ekWvSHEHjVa/wnxA7CKCCHXW9NPzwnloNUuXQZkC56s/3JIvQ7uR r1XvORtJkzi7VZnxOfmEHg1x6GwrVBElehHs9YolwHJQFv8z7P78L+vzo6YUpvep7F+9Hw5167m JvWO1KiLSTps2NCqQ6B2yl4WhvPndquM6zlPuPFw2DinfvFyN3sDMnW7I464hXudxX8sFuD+LiT rpXGjsnuPnWcaO
- A==
-X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,23 +76,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 02 Feb 2026 16:05:54 +0530, Raghav Sharma wrote:
-> Add support for CMU_G3D which provides clocks to G3D block, and
-> register the required compatible and cmu_info for the same.
+On Tue, 10 Feb 2026 11:30:43 +0000, André Draszik wrote:
+> Most rails are the same between Pixel 6 and Pro, with the following
+> differences:
+>     * only Pro has UWB
+>     * Pro uses l2m, not l14m, for TCXO
+>     * Pro uses bucka, not l31m, for NFC
 > 
 > 
-
-You have checkpatch warnings:
-CHECK: Alignment should match open parenthesis
-
-You should fix them before my scripts or my CI sees them.
+> [...]
 
 Applied, thanks!
 
-[2/3] clk: samsung: exynosautov920: add block G3D clock support
-      https://git.kernel.org/krzk/linux/c/5e5f3286d66712fb49264da20e3d89534754d707
+[1/1] arm64: dts: exynos: gs101-pixel: add all S2MPG1x regulators
+      https://git.kernel.org/krzk/linux/c/862529843fb0de9b007a9423996d4cfe19cea883
 
 Best regards,
 -- 
 Krzysztof Kozlowski <krzk@kernel.org>
+
 
