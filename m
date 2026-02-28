@@ -4,70 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F429FEE4EF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 16:46:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3946FEE4EE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 17:33:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CxrlGmq2c3H7O0tsu6Yg5IehgkF7iA8LfNt/ZJCeYOo=; b=n6LZtuBVUnKHVyaNKMi05CLb/Y
-	Cf/gfFEuMNcp+V0zwcWQjT+zCfj3jDy2OvkptRENt/qF73Xe4kMJpL+1LpUpjljMVDLpcKbd3odzo
-	QCQaB6Jt370M4509EDDviqdjR5aFwC38rq8RjndPpwE45vkI/RK6wgUie29bZUZFFV56WNWp5KXn7
-	mIkH26wUqM7cSVyMh8LcvCgrBYZC+yUxJ3qqnGHS86UFSH90nFNc77YvaFTfQHglqZL98xN2dDoQB
-	Ly1QuvwtP4kLoTS3w6eDK30S2mCI61lKMSj/aIPBCnBJhY0i1i9OYgWSzK8TC8dJ6i0TZE5uwbqnD
-	J0bwKhlA==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pIGvyP2A1lhIrFqoOjsWcafI4ZTGBfludOMa4jxIZVM=; b=GY42hPKRECqcwZROUe4wNvD2/r
+	wKcrWuL/B1MA+/9DkDNwxqQMLTFTjcmsp2y5FrTxEPhkT46kcQFKr1wY7kTUV8BVSaxLUsCjdXSaG
+	dSrcXQEyDpuqrmXe7XizDeL2TLdq5h5TOuv2y8/JJjuX+Gcn9CG7lMtu6r2sWZOFupHzRuJAdn5jR
+	4TL9tRb6UzueFjFPXv2t85TkyELBr6I/ZO6XOw1RXKZT6377GYkGf8TMklsXP03+zOxFmsvFAHkEE
+	JMxdxXC3tJWGGm8m83OFJ2xOYr2gNCvIz19BzVWr6OFZ/eXqlDahHiawu8SYhjj8Gin3oF0NGOhBu
+	3c/lfhRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwNSG-0000000A4Fb-48c4;
-	Sat, 28 Feb 2026 16:46:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vwOBp-0000000A6R7-2z7X;
+	Sat, 28 Feb 2026 17:33:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwNSD-0000000A4Ep-0FW5
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Feb 2026 16:46:10 +0000
+	id 1vwOBo-0000000A6Qv-0gE4;
+	Sat, 28 Feb 2026 17:33:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D477F400D7;
-	Sat, 28 Feb 2026 16:46:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD1D1C116D0;
-	Sat, 28 Feb 2026 16:46:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3BBC860126;
+	Sat, 28 Feb 2026 17:33:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 556D3C116D0;
+	Sat, 28 Feb 2026 17:33:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772297165;
-	bh=Gy42boqG2eqrjUlKDrHNiSULcXwm9xj8pqcL0AWo8+o=;
-	h=From:To:Cc:Subject:Date:From;
-	b=VzX1xkCNereOQPbg2jUBXguI48WhbA0S1NcSq8x8WELw8rc9onFhhHYQnL3yUHIzx
-	 0Oly6PBQI1Y7jg3lFZE9qmTp9HUhsEYooU3SVBKyQxHKfB1sBaDplBYKe9YCW6iUxd
-	 NJqQFOR299My5iTgWf8S68cuEMElVUhTV/YYLJwsPN2dBHzdo+5RvIXE2ZFK1j4K9x
-	 2S37Sit9iRvX7NN2Evog4SImkhegSpEadJ0vRXzO5uUOsksYUGyT21R6VNVZo6F1/+
-	 rI/T6X1Ek5N03j+gtjSVPuTwgkbdh6+JnlUHL6rMNDG4H6MEb+w0jmxg5GeSixL5GX
-	 wFEXjtqf1JOUw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vwNS7-0000000Ein1-1GGD;
-	Sat, 28 Feb 2026 16:46:03 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH] KVM: arm64: Eagerly init vgic dist/redist on vgic creation
-Date: Sat, 28 Feb 2026 16:45:59 +0000
-Message-ID: <20260228164559.936268-1-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	s=k20201202; t=1772299994;
+	bh=6qtRVGbtS3aR0ZqG9gZBcpPW4reY+sZyC7E9G0/88Kk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=RTVkpQotEjY2XKW5ptVdwWfYTC7/ezU4MXgnPRchNo0lRMOotHQw+Dl8MYwpDP0pM
+	 8yDsxhZIjUH59wxIxdmPO9D4Z0xMI5qFI9JQOwyxzFAGXw7ffZ+Xu3MhfSDsEdS9gw
+	 wsdnl8NUO1akO43ERZbbT5/51epsX+F/hDjs3GUccP9Aatl7QI/pfzrOF8XLpWAKd2
+	 XixJsg4ewOK/NHDB36ofzugTEd7ztYCjwwtEay7g2p/DkkCtqGQnMN519EWgml5W00
+	 3zxbLRDTqlwSFci64itcQ+tx+a0rSGp9VS6cRQHJJ0e9Hte3aWNOwfqt3teoG6wYI6
+	 iEbefzv2hUqLA==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Ian Rogers <irogers@google.com>,
+	James Clark <james.clark@linaro.org>,
+	Aditya Bodkhe <aditya.b1@linux.ibm.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Athira Rajeev <atrajeev@linux.ibm.com>,
+	Bill Wendling <morbo@google.com>,
+	"Dr. David Alan Gilbert" <linux@treblig.org>,
+	Guo Ren <guoren@kernel.org>,
+	Howard Chu <howardchu95@gmail.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	John Garry <john.g.garry@oracle.com>,
+	Julia Lawall <Julia.Lawall@inria.fr>,
+	Justin Stitt <justinstitt@google.com>,
+	=?UTF-8?q?Krzysztof=20=C5=81opatowski?= <krzysztof.m.lopatowski@gmail.com>,
+	Leo Yan <leo.yan@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Namhyung Kim <namhyung@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Sergei Trofimovich <slyich@gmail.com>,
+	Shimin Guo <shimin.guo@skydio.com>,
+	Suchit Karunakaran <suchitkarunakaran@gmail.com>,
+	Thomas Falcon <thomas.falcon@intel.com>,
+	Tianyou Li <tianyou.li@intel.com>,
+	Will Deacon <will@kernel.org>,
+	Zecheng Li <zecheng@google.com>,
+	Arnaldo Carvalho de Melo <acme@redhat.com>,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH 6.19 016/844] perf annotate: Fix args leak of map_symbol
+Date: Sat, 28 Feb 2026 12:18:49 -0500
+Message-ID: <20260228173244.1509663-17-sashal@kernel.org>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20260228173244.1509663-1-sashal@kernel.org>
+References: <20260228173244.1509663-1-sashal@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+X-stable: review
+X-Patchwork-Hint: Ignore
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_084609_162447_2112D33C 
-X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,80 +106,417 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If vgic_allocate_private_irqs_locked() fails for any odd reason,
-we exit kvm_vgic_create() early, leaving dist->rd_regions uninitialised.
+From: Ian Rogers <irogers@google.com>
 
-kvm_vgic_dist_destroy() then comes along and walks into the weeds
-trying to free the RDs. Got to love this stuff.
+[ Upstream commit 00419892bac28bf148450d762bbff990a6bd5494 ]
 
-Solve it by moving all the static initialisation early, and make
-sure that if we fail halfway, we're in a reasonable shape to
-perform the rest of the teardown. While at it, reset the vgic model
-on failure, just in case...
+map_symbol__exit() needs calling on an annotate_args.ms, however, rather
+than introduce proper reference count handling to symbol__annotate()
+just switch to passing the map_symbol pointer parameter around, making
+the puts the caller's responsibility.
 
-Reported-by: syzbot+f6a46b038fc243ac0175@syzkaller.appspotmail.com
-Tested-by: syzbot+f6a46b038fc243ac0175@syzkaller.appspotmail.com
-Fixes: b3aa9283c0c50 ("KVM: arm64: vgic: Hoist SGI/PPI alloc from vgic_init() to kvm_create_vgic()")
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Link: https://lore.kernel.org/r/69a2d58c.050a0220.3a55be.003b.GAE@google.com
+Fix a number of cases to ensure the map in a map_symbol has a
+reference count increment and add the then necessary map_symbol_exits.
+
+Fixes: 56e144fe98260a0f ("perf mem_info: Add and use map_symbol__exit and addr_map_symbol__exit")
+Reviewed-by: James Clark <james.clark@linaro.org>
+Signed-off-by: Ian Rogers <irogers@google.com>
+Cc: Aditya Bodkhe <aditya.b1@linux.ibm.com>
+Cc: Adrian Hunter <adrian.hunter@intel.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>
+Cc: Athira Rajeev <atrajeev@linux.ibm.com>
+Cc: Bill Wendling <morbo@google.com>
+Cc: Dr. David Alan Gilbert <linux@treblig.org>
+Cc: Guo Ren <guoren@kernel.org>
+Cc: Howard Chu <howardchu95@gmail.com>
+Cc: Ian Rogers <irogers@google.com>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Jiri Olsa <jolsa@kernel.org>
+Cc: John Garry <john.g.garry@oracle.com>
+Cc: Julia Lawall <Julia.Lawall@inria.fr>
+Cc: Justin Stitt <justinstitt@google.com>
+Cc: Krzysztof Łopatowski <krzysztof.m.lopatowski@gmail.com>
+Cc: Leo Yan <leo.yan@linux.dev>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-csky@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Cc: Namhyung Kim <namhyung@kernel.org>
+Cc: Nathan Chancellor <nathan@kernel.org>
+Cc: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Paul Walmsley <pjw@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Sergei Trofimovich <slyich@gmail.com>
+Cc: Shimin Guo <shimin.guo@skydio.com>
+Cc: Suchit Karunakaran <suchitkarunakaran@gmail.com>
+Cc: Thomas Falcon <thomas.falcon@intel.com>
+Cc: Tianyou Li <tianyou.li@intel.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Zecheng Li <zecheng@google.com>
+Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic-init.c | 32 ++++++++++++++++----------------
- 1 file changed, 16 insertions(+), 16 deletions(-)
+ .../arch/loongarch/annotate/instructions.c    | 14 ++++----
+ tools/perf/arch/s390/annotate/instructions.c  | 11 +++---
+ tools/perf/util/annotate.c                    |  2 +-
+ tools/perf/util/capstone.c                    | 14 ++++----
+ tools/perf/util/disasm.c                      | 36 ++++++++++---------
+ tools/perf/util/disasm.h                      |  2 +-
+ tools/perf/util/llvm.c                        |  6 ++--
+ 7 files changed, 47 insertions(+), 38 deletions(-)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-index 9b3091ad868cf..e9b8b5fc480c7 100644
---- a/arch/arm64/kvm/vgic/vgic-init.c
-+++ b/arch/arm64/kvm/vgic/vgic-init.c
-@@ -143,6 +143,21 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
- 	kvm->arch.vgic.in_kernel = true;
- 	kvm->arch.vgic.vgic_model = type;
- 	kvm->arch.vgic.implementation_rev = KVM_VGIC_IMP_REV_LATEST;
-+	kvm->arch.vgic.vgic_dist_base = VGIC_ADDR_UNDEF;
-+
-+	aa64pfr0 = kvm_read_vm_id_reg(kvm, SYS_ID_AA64PFR0_EL1) & ~ID_AA64PFR0_EL1_GIC;
-+	pfr1 = kvm_read_vm_id_reg(kvm, SYS_ID_PFR1_EL1) & ~ID_PFR1_EL1_GIC;
-+
-+	if (type == KVM_DEV_TYPE_ARM_VGIC_V2) {
-+		kvm->arch.vgic.vgic_cpu_base = VGIC_ADDR_UNDEF;
-+	} else {
-+		INIT_LIST_HEAD(&kvm->arch.vgic.rd_regions);
-+		aa64pfr0 |= SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, GIC, IMP);
-+		pfr1 |= SYS_FIELD_PREP_ENUM(ID_PFR1_EL1, GIC, GICv3);
-+	}
-+
-+	kvm_set_vm_id_reg(kvm, SYS_ID_AA64PFR0_EL1, aa64pfr0);
-+	kvm_set_vm_id_reg(kvm, SYS_ID_PFR1_EL1, pfr1);
+diff --git a/tools/perf/arch/loongarch/annotate/instructions.c b/tools/perf/arch/loongarch/annotate/instructions.c
+index 70262d5f14442..1c3abb43c8d72 100644
+--- a/tools/perf/arch/loongarch/annotate/instructions.c
++++ b/tools/perf/arch/loongarch/annotate/instructions.c
+@@ -10,9 +10,7 @@ static int loongarch_call__parse(struct arch *arch, struct ins_operands *ops, st
+ {
+ 	char *c, *endptr, *tok, *name;
+ 	struct map *map = ms->map;
+-	struct addr_map_symbol target = {
+-		.ms = { .map = map, },
+-	};
++	struct addr_map_symbol target;
  
- 	kvm_for_each_vcpu(i, vcpu, kvm) {
- 		ret = vgic_allocate_private_irqs_locked(vcpu, type);
-@@ -157,25 +172,10 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
- 			vgic_cpu->private_irqs = NULL;
- 		}
+ 	c = strchr(ops->raw, '#');
+ 	if (c++ == NULL)
+@@ -38,12 +36,16 @@ static int loongarch_call__parse(struct arch *arch, struct ins_operands *ops, st
+ 	if (ops->target.name == NULL)
+ 		return -1;
  
-+		kvm->arch.vgic.vgic_model = 0;
- 		goto out_unlock;
+-	target.addr = map__objdump_2mem(map, ops->target.addr);
++	target = (struct addr_map_symbol) {
++		.ms = { .map = map__get(map), },
++		.addr = map__objdump_2mem(map, ops->target.addr),
++	};
+ 
+ 	if (maps__find_ams(ms->maps, &target) == 0 &&
+ 	    map__rip_2objdump(target.ms.map, map__map_ip(target.ms.map, target.addr)) == ops->target.addr)
+ 		ops->target.sym = target.ms.sym;
+ 
++	addr_map_symbol__exit(&target);
+ 	return 0;
+ }
+ 
+@@ -58,7 +60,7 @@ static int loongarch_jump__parse(struct arch *arch, struct ins_operands *ops, st
+ 	struct map *map = ms->map;
+ 	struct symbol *sym = ms->sym;
+ 	struct addr_map_symbol target = {
+-		.ms = { .map = map, },
++		.ms = { .map = map__get(map), },
+ 	};
+ 	const char *c = strchr(ops->raw, '#');
+ 	u64 start, end;
+@@ -90,7 +92,7 @@ static int loongarch_jump__parse(struct arch *arch, struct ins_operands *ops, st
+ 	} else {
+ 		ops->target.offset_avail = false;
+ 	}
+-
++	addr_map_symbol__exit(&target);
+ 	return 0;
+ }
+ 
+diff --git a/tools/perf/arch/s390/annotate/instructions.c b/tools/perf/arch/s390/annotate/instructions.c
+index c61193f1e0964..626e6d2cbc81a 100644
+--- a/tools/perf/arch/s390/annotate/instructions.c
++++ b/tools/perf/arch/s390/annotate/instructions.c
+@@ -6,9 +6,7 @@ static int s390_call__parse(struct arch *arch, struct ins_operands *ops,
+ {
+ 	char *endptr, *tok, *name;
+ 	struct map *map = ms->map;
+-	struct addr_map_symbol target = {
+-		.ms = { .map = map, },
+-	};
++	struct addr_map_symbol target;
+ 
+ 	tok = strchr(ops->raw, ',');
+ 	if (!tok)
+@@ -36,12 +34,17 @@ static int s390_call__parse(struct arch *arch, struct ins_operands *ops,
+ 
+ 	if (ops->target.name == NULL)
+ 		return -1;
+-	target.addr = map__objdump_2mem(map, ops->target.addr);
++
++	target = (struct addr_map_symbol) {
++		.ms = { .map = map__get(map), },
++		.addr = map__objdump_2mem(map, ops->target.addr),
++	};
+ 
+ 	if (maps__find_ams(ms->maps, &target) == 0 &&
+ 	    map__rip_2objdump(target.ms.map, map__map_ip(target.ms.map, target.addr)) == ops->target.addr)
+ 		ops->target.sym = target.ms.sym;
+ 
++	addr_map_symbol__exit(&target);
+ 	return 0;
+ }
+ 
+diff --git a/tools/perf/util/annotate.c b/tools/perf/util/annotate.c
+index cc7764455faf6..791d60f97c23e 100644
+--- a/tools/perf/util/annotate.c
++++ b/tools/perf/util/annotate.c
+@@ -1031,7 +1031,7 @@ int symbol__annotate(struct map_symbol *ms, struct evsel *evsel,
+ 		return 0;
+ 
+ 	args.arch = arch;
+-	args.ms = *ms;
++	args.ms = ms;
+ 
+ 	if (notes->src == NULL) {
+ 		notes->src = annotated_source__new();
+diff --git a/tools/perf/util/capstone.c b/tools/perf/util/capstone.c
+index be5fd44b1f9dc..2c7feab61b7bf 100644
+--- a/tools/perf/util/capstone.c
++++ b/tools/perf/util/capstone.c
+@@ -143,7 +143,7 @@ static void print_capstone_detail(cs_insn *insn, char *buf, size_t len,
+ 				  struct annotate_args *args, u64 addr)
+ {
+ 	int i;
+-	struct map *map = args->ms.map;
++	struct map *map = args->ms->map;
+ 	struct symbol *sym;
+ 
+ 	/* TODO: support more architectures */
+@@ -222,7 +222,7 @@ int symbol__disassemble_capstone(const char *filename __maybe_unused,
+ {
+ #ifdef HAVE_LIBCAPSTONE_SUPPORT
+ 	struct annotation *notes = symbol__annotation(sym);
+-	struct map *map = args->ms.map;
++	struct map *map = args->ms->map;
+ 	struct dso *dso = map__dso(map);
+ 	u64 start = map__rip_2objdump(map, sym->start);
+ 	u64 offset;
+@@ -256,7 +256,7 @@ int symbol__disassemble_capstone(const char *filename __maybe_unused,
+ 	args->line = disasm_buf;
+ 	args->line_nr = 0;
+ 	args->fileloc = NULL;
+-	args->ms.sym = sym;
++	args->ms->sym = sym;
+ 
+ 	dl = disasm_line__new(args);
+ 	if (dl == NULL)
+@@ -268,7 +268,7 @@ int symbol__disassemble_capstone(const char *filename __maybe_unused,
+ 	    !strcmp(args->options->disassembler_style, "att"))
+ 		disassembler_style = true;
+ 
+-	if (capstone_init(maps__machine(args->ms.maps), &handle, is_64bit, disassembler_style) < 0)
++	if (capstone_init(maps__machine(args->ms->maps), &handle, is_64bit, disassembler_style) < 0)
+ 		goto err;
+ 
+ 	needs_cs_close = true;
+@@ -345,7 +345,7 @@ int symbol__disassemble_capstone_powerpc(const char *filename __maybe_unused,
+ {
+ #ifdef HAVE_LIBCAPSTONE_SUPPORT
+ 	struct annotation *notes = symbol__annotation(sym);
+-	struct map *map = args->ms.map;
++	struct map *map = args->ms->map;
+ 	struct dso *dso = map__dso(map);
+ 	struct nscookie nsc;
+ 	u64 start = map__rip_2objdump(map, sym->start);
+@@ -382,7 +382,7 @@ int symbol__disassemble_capstone_powerpc(const char *filename __maybe_unused,
+ 	    !strcmp(args->options->disassembler_style, "att"))
+ 		disassembler_style = true;
+ 
+-	if (capstone_init(maps__machine(args->ms.maps), &handle, is_64bit, disassembler_style) < 0)
++	if (capstone_init(maps__machine(args->ms->maps), &handle, is_64bit, disassembler_style) < 0)
+ 		goto err;
+ 
+ 	needs_cs_close = true;
+@@ -408,7 +408,7 @@ int symbol__disassemble_capstone_powerpc(const char *filename __maybe_unused,
+ 	args->line = disasm_buf;
+ 	args->line_nr = 0;
+ 	args->fileloc = NULL;
+-	args->ms.sym = sym;
++	args->ms->sym = sym;
+ 
+ 	dl = disasm_line__new(args);
+ 	if (dl == NULL)
+diff --git a/tools/perf/util/disasm.c b/tools/perf/util/disasm.c
+index 50b9433f3f8e6..924429142631a 100644
+--- a/tools/perf/util/disasm.c
++++ b/tools/perf/util/disasm.c
+@@ -269,9 +269,7 @@ static int call__parse(struct arch *arch, struct ins_operands *ops, struct map_s
+ {
+ 	char *endptr, *tok, *name;
+ 	struct map *map = ms->map;
+-	struct addr_map_symbol target = {
+-		.ms = { .map = map, },
+-	};
++	struct addr_map_symbol target;
+ 
+ 	ops->target.addr = strtoull(ops->raw, &endptr, 16);
+ 
+@@ -296,12 +294,16 @@ static int call__parse(struct arch *arch, struct ins_operands *ops, struct map_s
+ 	if (ops->target.name == NULL)
+ 		return -1;
+ find_target:
+-	target.addr = map__objdump_2mem(map, ops->target.addr);
++	target = (struct addr_map_symbol) {
++		.ms = { .map = map__get(map), },
++		.addr = map__objdump_2mem(map, ops->target.addr),
++	};
+ 
+ 	if (maps__find_ams(ms->maps, &target) == 0 &&
+ 	    map__rip_2objdump(target.ms.map, map__map_ip(target.ms.map, target.addr)) == ops->target.addr)
+ 		ops->target.sym = target.ms.sym;
+ 
++	addr_map_symbol__exit(&target);
+ 	return 0;
+ 
+ indirect_call:
+@@ -366,7 +368,7 @@ static int jump__parse(struct arch *arch, struct ins_operands *ops, struct map_s
+ 	struct map *map = ms->map;
+ 	struct symbol *sym = ms->sym;
+ 	struct addr_map_symbol target = {
+-		.ms = { .map = map, },
++		.ms = { .map = map__get(map), },
+ 	};
+ 	const char *c = strchr(ops->raw, ',');
+ 	u64 start, end;
+@@ -440,7 +442,7 @@ static int jump__parse(struct arch *arch, struct ins_operands *ops, struct map_s
+ 	} else {
+ 		ops->target.offset_avail = false;
+ 	}
+-
++	addr_map_symbol__exit(&target);
+ 	return 0;
+ }
+ 
+@@ -1046,7 +1048,7 @@ static size_t disasm_line_size(int nr)
+ struct disasm_line *disasm_line__new(struct annotate_args *args)
+ {
+ 	struct disasm_line *dl = NULL;
+-	struct annotation *notes = symbol__annotation(args->ms.sym);
++	struct annotation *notes = symbol__annotation(args->ms->sym);
+ 	int nr = notes->src->nr_events;
+ 
+ 	dl = zalloc(disasm_line_size(nr));
+@@ -1064,7 +1066,7 @@ struct disasm_line *disasm_line__new(struct annotate_args *args)
+ 		} else if (disasm_line__parse(dl->al.line, &dl->ins.name, &dl->ops.raw) < 0)
+ 			goto out_free_line;
+ 
+-		disasm_line__init_ins(dl, args->arch, &args->ms);
++		disasm_line__init_ins(dl, args->arch, args->ms);
  	}
  
--	kvm->arch.vgic.vgic_dist_base = VGIC_ADDR_UNDEF;
--
--	aa64pfr0 = kvm_read_vm_id_reg(kvm, SYS_ID_AA64PFR0_EL1) & ~ID_AA64PFR0_EL1_GIC;
--	pfr1 = kvm_read_vm_id_reg(kvm, SYS_ID_PFR1_EL1) & ~ID_PFR1_EL1_GIC;
--
--	if (type == KVM_DEV_TYPE_ARM_VGIC_V2) {
--		kvm->arch.vgic.vgic_cpu_base = VGIC_ADDR_UNDEF;
--	} else {
--		INIT_LIST_HEAD(&kvm->arch.vgic.rd_regions);
--		aa64pfr0 |= SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, GIC, IMP);
--		pfr1 |= SYS_FIELD_PREP_ENUM(ID_PFR1_EL1, GIC, GICv3);
--	}
--
--	kvm_set_vm_id_reg(kvm, SYS_ID_AA64PFR0_EL1, aa64pfr0);
--	kvm_set_vm_id_reg(kvm, SYS_ID_PFR1_EL1, pfr1);
--
- 	if (type == KVM_DEV_TYPE_ARM_VGIC_V3)
- 		kvm->arch.vgic.nassgicap = system_supports_direct_sgis();
+ 	return dl;
+@@ -1119,7 +1121,7 @@ static int symbol__parse_objdump_line(struct symbol *sym,
+ 				      struct annotate_args *args,
+ 				      char *parsed_line, int *line_nr, char **fileloc)
+ {
+-	struct map *map = args->ms.map;
++	struct map *map = args->ms->map;
+ 	struct annotation *notes = symbol__annotation(sym);
+ 	struct disasm_line *dl;
+ 	char *tmp;
+@@ -1151,7 +1153,7 @@ static int symbol__parse_objdump_line(struct symbol *sym,
+ 	args->line    = parsed_line;
+ 	args->line_nr = *line_nr;
+ 	args->fileloc = *fileloc;
+-	args->ms.sym  = sym;
++	args->ms->sym  = sym;
  
+ 	dl = disasm_line__new(args);
+ 	(*line_nr)++;
+@@ -1169,12 +1171,14 @@ static int symbol__parse_objdump_line(struct symbol *sym,
+ 	if (dl->ins.ops && ins__is_call(&dl->ins) && !dl->ops.target.sym) {
+ 		struct addr_map_symbol target = {
+ 			.addr = dl->ops.target.addr,
+-			.ms = { .map = map, },
++			.ms = { .map = map__get(map), },
+ 		};
+ 
+-		if (!maps__find_ams(args->ms.maps, &target) &&
++		if (!maps__find_ams(args->ms->maps, &target) &&
+ 		    target.ms.sym->start == target.al_addr)
+ 			dl->ops.target.sym = target.ms.sym;
++
++		addr_map_symbol__exit(&target);
+ 	}
+ 
+ 	annotation_line__add(&dl->al, &notes->src->source);
+@@ -1338,7 +1342,7 @@ static int symbol__disassemble_raw(char *filename, struct symbol *sym,
+ 					struct annotate_args *args)
+ {
+ 	struct annotation *notes = symbol__annotation(sym);
+-	struct map *map = args->ms.map;
++	struct map *map = args->ms->map;
+ 	struct dso *dso = map__dso(map);
+ 	u64 start = map__rip_2objdump(map, sym->start);
+ 	u64 end = map__rip_2objdump(map, sym->end);
+@@ -1375,7 +1379,7 @@ static int symbol__disassemble_raw(char *filename, struct symbol *sym,
+ 	args->line = disasm_buf;
+ 	args->line_nr = 0;
+ 	args->fileloc = NULL;
+-	args->ms.sym = sym;
++	args->ms->sym = sym;
+ 
+ 	dl = disasm_line__new(args);
+ 	if (dl == NULL)
+@@ -1501,7 +1505,7 @@ static int symbol__disassemble_objdump(const char *filename, struct symbol *sym,
+ 				       struct annotate_args *args)
+ {
+ 	struct annotation_options *opts = &annotate_opts;
+-	struct map *map = args->ms.map;
++	struct map *map = args->ms->map;
+ 	struct dso *dso = map__dso(map);
+ 	char *command;
+ 	FILE *file;
+@@ -1644,7 +1648,7 @@ static int symbol__disassemble_objdump(const char *filename, struct symbol *sym,
+ int symbol__disassemble(struct symbol *sym, struct annotate_args *args)
+ {
+ 	struct annotation_options *options = args->options;
+-	struct map *map = args->ms.map;
++	struct map *map = args->ms->map;
+ 	struct dso *dso = map__dso(map);
+ 	char symfs_filename[PATH_MAX];
+ 	bool delete_extract = false;
+diff --git a/tools/perf/util/disasm.h b/tools/perf/util/disasm.h
+index d2cb555e4a3be..a3ea9d6762816 100644
+--- a/tools/perf/util/disasm.h
++++ b/tools/perf/util/disasm.h
+@@ -97,7 +97,7 @@ struct ins_ops {
+ 
+ struct annotate_args {
+ 	struct arch		  *arch;
+-	struct map_symbol	  ms;
++	struct map_symbol	  *ms;
+ 	struct annotation_options *options;
+ 	s64			  offset;
+ 	char			  *line;
+diff --git a/tools/perf/util/llvm.c b/tools/perf/util/llvm.c
+index 2ebf1f5f65bf7..4ada9a10bd93f 100644
+--- a/tools/perf/util/llvm.c
++++ b/tools/perf/util/llvm.c
+@@ -118,7 +118,7 @@ int symbol__disassemble_llvm(const char *filename, struct symbol *sym,
+ {
+ #ifdef HAVE_LIBLLVM_SUPPORT
+ 	struct annotation *notes = symbol__annotation(sym);
+-	struct map *map = args->ms.map;
++	struct map *map = args->ms->map;
+ 	struct dso *dso = map__dso(map);
+ 	u64 start = map__rip_2objdump(map, sym->start);
+ 	/* Malloc-ed buffer containing instructions read from disk. */
+@@ -184,7 +184,7 @@ int symbol__disassemble_llvm(const char *filename, struct symbol *sym,
+ 	args->line = disasm_buf;
+ 	args->line_nr = 0;
+ 	args->fileloc = NULL;
+-	args->ms.sym = sym;
++	args->ms->sym = sym;
+ 
+ 	dl = disasm_line__new(args);
+ 	if (dl == NULL)
+@@ -242,7 +242,7 @@ int symbol__disassemble_llvm(const char *filename, struct symbol *sym,
+ 					 &line_storage_len);
+ 		args->line_nr = 0;
+ 		args->fileloc = NULL;
+-		args->ms.sym = sym;
++		args->ms->sym = sym;
+ 
+ 		llvm_addr2line(filename, pc, &args->fileloc,
+ 			       (unsigned int *)&args->line_nr, false, NULL);
 -- 
-2.47.3
+2.51.0
 
 
