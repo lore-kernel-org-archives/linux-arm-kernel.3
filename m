@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6A7F1039882
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 02:05:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28FC81039882
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 02:11:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
 	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wLMdUZnGbDrqz6J0iY8xJVlVmtea+PHiVkE266wDA44=; b=RRRRx8Kt2I5RyuIdq6ru3kpewr
-	Vtgk7blw88C5AXgGYpTMvWSXF2wA9CLbCpP6aTfxuIcfvlzoCSAG5AA2e7Jsyim09E8mzan7cIg32
-	c+5imQtgeU+beljbzlFRns1Qn5wO8MFoywcbSclsLIxhSx/6RZu1zGdeKO+N7QARi5J3hntMvVHCa
-	mDEAN9kufrzkPqkcUQ8AtdvBcWp6Wfth07bE/p5nuDk4D0dLzBMZ3zU1/qoZjqjnx7ZObCXn5J6gj
-	9fC5W+hnfFje9+admch5SbP0VfOK2UklSqkgI2B2bZBl15eptvE4Gycm8tSMXqpRGo5Nvgd0c2Tnt
-	QECLYrsQ==;
+	bh=qXlFB+xqqZjuQ8kXDrW8zCQwx3qCIGS2tQ7QMaHrdPU=; b=3F7nyl4CKydnBkMwpbAFXnHqok
+	/tpWUPBpzq4v33KryD+7IHlSWWmJTQbrlUfCQCE2Vr5HLaa3P1atMYhFi974O/ThmzMoNcV12NQMr
+	GwGLdQ1tHf07vieLLwKlqhcdZCbaA4bBu07WeIy6gHjJWiEtaukMifrIhlInQOYRYBxAthLyT5vNs
+	NeiGNdC3u5DIkgTWpVoETZQVr5zIzccjlO8BmaYE0NZunyg7vRuYaxzhIZqMmacII+yYMg/TKzf/d
+	UtAqdDm59J2npay6EZf5I5+p5BlNz2N7LDnWItXLSZVuHdrkxI1DFkFxwpWB30xt2xkYohlZS4QMU
+	eytZuVrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw9iG-00000009PfC-3mbo;
-	Sat, 28 Feb 2026 02:05:49 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1vw9nf-00000009Pqk-0ykI;
+	Sat, 28 Feb 2026 02:11:23 +0000
+Received: from mail-northeuropeazon11011040.outbound.protection.outlook.com ([52.101.65.40] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw9iD-00000009Peq-3sBC
+	id 1vw9na-00000009PqR-2Nrw
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Feb 2026 02:05:47 +0000
+	Sat, 28 Feb 2026 02:11:21 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IrXLmTuAZNrYjKtofR9HFhWXnqwgBxZFgF5VSCQx+51aV81VZm1V8nhLckc0LL1RQ1mOMZXPun8xPaicku19e6OZfF4Z4j+61hZCicVA56w/VFb6KhCCKKYY7w4rCB9TcQafp5fIaDLtgFYELUW5ymQuSq/xJ0i+X2WZQ4Vg+cdlDuWRaEnJeiCbI6MWfBdnWoce52e9GrDpzoIDhr5UCtXCRijKUYVodSJSrwFajfZZghS7XaV9dCnTnX7NPr/u/3Bv9ruBWwxech52QcyTIxWF/XCQsqe1byij5pBumYtAU24HNlxDnLPYn8HBRTmdUjfVLKwP9l8iSZuIhwZV9Q==
+ b=er+uYb873eGO6VwFNMJ5e3fpIXn7V/S197dn/h4s6uDJo6X8QE80E1LG0G+8V6AnWA/HmqJqXH1dNu65BFOgztlrYKoGflxDeLjiDIt5GbHk69uz7DT428HSauaSgaTLW1QPxSvY0MQhDQbhTaNVMa6X4PS0kObb0SXDuRjSn3PH+SYxaH9wof23cT5jcSQnnSjls0bDQzmPQZxCqUUZFiI6zB5Czt13vnaxkZKbnBf/o+JLmI8sRIYyiZDnCS13nPhBcWJ7uqWEmXcqgZTxTwZZPXR5Qk0POhE+4f097IszVAefS25X/6rhxaybyDotpEhRSjyzErXgrpo+C/5O6A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wLMdUZnGbDrqz6J0iY8xJVlVmtea+PHiVkE266wDA44=;
- b=zWhDQvm1ppu5KJAdPPQR9XiNo0F+RZaJILnfGKbrwkQENBaSxR33YrLyTyNbZba/zRfdkk+YTZ5oc21D5giHAEXPNXMqJoi+hjTBZQtSwf/qGQ7x1pHLBZ+ujX9ryi6HRnFeArmbPuQC3HoZ+J5diIfua2bVfJjJEK6Fowtl0x0XJLkgrfFN4XIln6uSOqkwiCi+jk5J2dskc54ndj5rJIIf41dk2eIPOR9uYIihohRXQHzuNkyED20tLHJqM3wRx7eV31W2pW/f2rq1S8ExWWVoPNDoJpCvKhwW5sHpYzxGROAXzCvu3Ty4Gb93XfJ3c3YYd/OtG9UeuNqackNbFw==
+ bh=qXlFB+xqqZjuQ8kXDrW8zCQwx3qCIGS2tQ7QMaHrdPU=;
+ b=O+KJUlgYt1KVaxErpv+XS+I0tMTxwHSBQwc6N4sPcMLGqywYJbQotAG9hnue9qbXzO8o2tJp7QXpA13qUsl83Y6WsBytA0j3IDAzhLWgJemVMetESmQJ+dAIr3UkupfdN+2Pi1PqDNM8kBaY1wTWMyiiJIT5mfRjSN1Q/zPjtNjWh2OxMKjToZY91sofUQ8ghYer9e4E6T9neAxgJK6QvwKqoPaD1o3vhn9NITHzuS33pGXtyPRDuO2SYRnbUIIJvLyqda3VxaKqJEfRh7J2GvY+s2DdtGtqfQtC15GsEA6rzQPVwzqYkBANe0Q0HyZ0NQCVxQaVt/HQmvIY3Sd2UA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wLMdUZnGbDrqz6J0iY8xJVlVmtea+PHiVkE266wDA44=;
- b=Jvm32nFnNWM8osAo9UmDym/7AxLK31NtvnJdc6fUIjrhQdx7i7/bXXxx+Colj0GFhrGd42auY3P+JVckJ0i8TeCEnKjPXmC/M+NdznpEWtKbdiDaRrdU9UO0cRFeG/ay6Xc8GNge3g2Dvx5rs0w1N7Nz5WlKb8bBHzPiKT9qdjO8fbhI0/u1d2nQh1EdgOMVXNDEyTRxZUgHRQ1bdpySgglhgdWYShiH+2BP24ceQ6Ad4Zh7yXAYiPw9uo20OH4X3qSRxUHwcAXnPN/HJj85Hnt2M9KGjrGwAjrwNKNNKQUCVWrjSKWm6QaGIjHJJ0kmq7lVD5xfgZNIwHPg4sCXZQ==
+ bh=qXlFB+xqqZjuQ8kXDrW8zCQwx3qCIGS2tQ7QMaHrdPU=;
+ b=WELXOdxEXWj3qJdeqSEoMWslmNGXSZAlbBfNZEXXQUGEiQUcjjt9w/VfKmGIHG1haUn3nGPEtuC6F9NMWNSYcBRkp2Oa8JkgH+C0xT3KR+rgAeBYtnVgQfEvC/AoiLi03qhw+gc7J+3Tsgz5gfsFKeVblp4gi+vidWnAHVRhkhPFn/LKtUh2XvtwsYLi1iZJpBE5/vReOZMoETTDbld7hQlFu/MsjeO9p2vhxLrdr364R5vtZf7CoCZx3/X6Gjg0zlEEwNHmVNleawpsBuhfgKUxFIeNKpFBH8Yle4D26IXhN5nOqQ+ihq1BKDOHnRTHGK+HR8AJ7Vgnw/NElYDNMg==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
  by DB9PR04MB8185.eurprd04.prod.outlook.com (2603:10a6:10:240::22) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.13; Sat, 28 Feb
- 2026 02:05:35 +0000
+ 2026 02:11:13 +0000
 Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
  ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
  ([fe80::4972:7eaa:b9f6:7b5e%7]) with mapi id 15.20.9632.017; Sat, 28 Feb 2026
- 02:05:35 +0000
-Date: Sat, 28 Feb 2026 10:07:28 +0800
+ 02:11:13 +0000
+Date: Sat, 28 Feb 2026 10:13:08 +0800
 From: Peng Fan <peng.fan@oss.nxp.com>
 To: Cristian Marussi <cristian.marussi@arm.com>
 Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
@@ -64,73 +64,74 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	etienne.carriere@foss.st.com, michal.simek@amd.com,
 	dan.carpenter@linaro.org, geert+renesas@glider.be,
 	kuninori.morimoto.gx@renesas.com, marek.vasut+renesas@gmail.com
-Subject: Re: [PATCH 03/11] firmware: arm_scmi: Simplify clock rates exposed
- interface
-Message-ID: <aaJN4BSVB2RhICWK@shlinux89>
+Subject: Re: [PATCH 05/11] firmware: arm_scmi: Drop unused clock rate
+ interfaces
+Message-ID: <aaJPNH9o3EvUGLV3@shlinux89>
 References: <20260227153225.2778358-1-cristian.marussi@arm.com>
- <20260227153225.2778358-4-cristian.marussi@arm.com>
+ <20260227153225.2778358-6-cristian.marussi@arm.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260227153225.2778358-4-cristian.marussi@arm.com>
-X-ClientProxiedBy: MA5PR01CA0073.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1b7::12) To PAXPR04MB8459.eurprd04.prod.outlook.com
+In-Reply-To: <20260227153225.2778358-6-cristian.marussi@arm.com>
+X-ClientProxiedBy: MA5P287CA0013.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:179::11) To PAXPR04MB8459.eurprd04.prod.outlook.com
  (2603:10a6:102:1da::15)
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DB9PR04MB8185:EE_
-X-MS-Office365-Filtering-Correlation-Id: 612c1a43-6d07-45ac-a252-08de766ddbf4
+X-MS-Office365-Filtering-Correlation-Id: 268233d8-2340-4e7f-7b08-08de766ea5da
 X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|19092799006|376014|366016|1800799024|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: 6TS9Bd7ZLQ4fByCVYufytXK2UB1XIDH4a1kfOYE3bN6L+ZnWX1t49mPNmEoWZXXF2Kcyj/sSifKqTID+nROShlypM0ia233MYZmbxK/6a2m6NOwl04EVy99fQujclj4Iuoz5LOq4uuE2LYvXfisSNLZ/qFXdHJTerD9G2Wm5zdnyQRldjgYyJDDYeO88InM7D5X8ZgXk+R+JbHyhRJ0cAUyrbSmK5/ECpO7TSemh4cEsyTdSkJx+Omca7i4/1E4OOCLSVCAufw23veBrydKrbVk+ebSUUawy5sItPwlGYQun6P3kQZVkteOU38JxONuU4t6iCpYio6wBT/RUFBINULX0K2S/PKxB/KjM7cm8Xx/tUzijGEJGJgcqgNBtCINAlyEaTJL/g4NT5Gs1vStuB2kjMZl7nxTYYJVdzKEG43FWgqfK+PgmwQAJmX3DUTlIibsnnPIJ4xRkR6qnf3Iq2piVAvV3D6N/K01O+upghq5nrTVqUnDh+BKiOILWEOwr3ooN3FfmThWv7OINNQZFqbPFOhWUhF9PEaQVNUa80FK4tR8ZnEhdMVWODKPFsujoONjB5qKpDeODMOxy55hwtBxx4diwLFtcMYWtFfRT8WwylzE7NPxRk9g0ZRYSA3hIssSdK2YeNxF0AYwjOEBYutpuUwrzqA2DpsBCN3GePt9Uxg8bphDi5nYFy2bgZ50/4Sg7LEj7D9KIzb1k4n/9FoL2BsnKobhu7NgIqEycGBn//JHcW1Ac4PFy4R074HixG29QQBhv2OF3OsZ26XRF4vxyaUBhyFNNBpFBgyP5vGg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(19092799006)(376014)(366016)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|19092799006|376014|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: dWRmPVWGNZ2IZ+JRPSCUYDdcbDG3jfoACXO2dCruGv5IRHk80oK/z1NKij2sWoonLKWER+KYAWh6+7AKTfeZ6U7aLncPW/64HR+KTZrxYRq4tvPrw7alLL5eTmKG2C40H8oVQYnJjEAx4c8u2glyTTJyleNaGsHWqmPVYcjbQ2iShke+2cds573YszLe5a7A5OUqMZOL7kn52fajU/saEWL4/+IZAr8MeTjWc2Fq3T1/9wHRUqF7t3hGc1KYqqubAeTN3fkgIdn1K+zw6kv3+V8pru6CXxxwUPAq6fjVtM3d1mKbuUOR3qRTBO1SNoT9sxFNUsvdUQJlbhAGNVY0HFsK3q2wz/wsXSQfT8T+j3HV7plT3Nd3tLYAhcYppe9tkVlTXgqsqDtRfLqzOZ1uYvduI/8GpbimWYKKTdeV7QkH7f0pIcpXjERa8pMK7J+N+5UQYoegSU7kgGAAUDgtxblcCRedT/6cEIMboc1EA8hkF1V+a2RTWm26f9OTAvx1cIOO1TaOj4ryj99B9/jVvp4CnA/ds1Dl3q7TsYpeZttwkQBaXL2JVhVZJDpp+iLAbV6zEzSOYhQxp2DI0maOVAl17Og5wZpt/qH8A/ldL25k9mQsNQcIVHyRWz6xaav/L6R+2pv68kCMH3jVXgp6JKdG5HyTYIEzYc0XZAkcld0lUDDxd0MHJTfmr7b9i67F//l/8bqo09OPSEXr5kFz/dxtIUi7AHoGWHbC196uGrl3iaAtGwoVwTGIfu+Jc2H2YpkOUr5qXx0vk5/jXtSU7YluzF5cvPEwusqAC16x0SA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(19092799006)(376014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?xIzghiWTviZM09v/WckPF766iCQAESWPxIUAmOBLHRduQfR3fQ/pmQ6drqnS?=
- =?us-ascii?Q?A4FFXrHTUsP6uSsz2svGY50a0AF4FxqYR4aQEndOm6lozSC/XLMr0HesKtcT?=
- =?us-ascii?Q?kU9Fn53Fklmec5Xo/Ft923qIydlzw0YErRYxK6S33jGotGLgqdTDiIl2P5Ic?=
- =?us-ascii?Q?S382rJgh6E7sl8IhXHkGd45XOFQ0BICdLw5m+5cqUrjGRQI3DPHd6uWbWvs6?=
- =?us-ascii?Q?CLBdpo5hEwS+EpgvLkZj1rvggun4dyJ+kza2fGhyHeBLLQqFM4KvqH44ueKK?=
- =?us-ascii?Q?12P9u9gN3c3raJZATllkH09xI4vEycreWUY4iglS9MxYE4Ji6bBfTyWp6Tab?=
- =?us-ascii?Q?1BWRZeUJWbNYmKWSP/kCZKR5kZ5BdkJKC0vjgiTLqLBYaaZJwv9FJ9YVuo6t?=
- =?us-ascii?Q?3diq6/d5lQnlRKopiJNfp8M8YDTOJ2eal1MTgEUhbnpoAnc63OEC8MOH6dJi?=
- =?us-ascii?Q?lFjabBU0PuZZKRPNb6vf5bQ9MQlXzcsphGHTIGKkEvsU1U544L2qojIpqxMn?=
- =?us-ascii?Q?0mC9KzpGVHKSwcr1526fovjCZNaFpjQ42Ro1z/4G4GVAKXMeEs5lWwSEj1XO?=
- =?us-ascii?Q?tNCm/5aEIv6Ru9LF1NjjhTunJ35wn9YUO8viDgohlTQeSuaqkZ+Ud7Q9UHsk?=
- =?us-ascii?Q?F0rNTeXxIrRG7dcBVEX9MQfbZ+JFoRh9+n6bX724wRfeVt3+eYLIMrFuaXUG?=
- =?us-ascii?Q?Iy/Wv8s9XOir99r5OyCWFFSfX2R7cOi7s4a8JIcvZV28YqA21tvVN1w5VlIE?=
- =?us-ascii?Q?96fCf5/vUPhKTwblBVj32r2CxQeSxWL7Jom1c2V9UW5YFjj0WXP+qg+z1N61?=
- =?us-ascii?Q?+oyySDOFJM/Jlj3+Ozsq6NiLrH3NK5G44+VhHy7Z9SFOodDhSineoVYLN/F2?=
- =?us-ascii?Q?YRiwrdZU8Zrq/Q7AMr1n9U/lK2clHRHxuvLGoO2W02uSq5OJANzFKly4nPqy?=
- =?us-ascii?Q?3mfZ8MGEEgypw+iEK1o2kbgMjDlgMJqmirPcGE48HFhTi8Gg4ZVdA/Sip4U8?=
- =?us-ascii?Q?x3Jz7Vh6hM8KbeLEpKYXJ/h1Dqv2EWnoaqqBhHzBBT8T8xuvxGaiW1oX0urM?=
- =?us-ascii?Q?2ewGDPiTlcU/7DnLOmC7Wtn6/G495j9s/WXUDEJITw52am21w+rVJ1BH5uxJ?=
- =?us-ascii?Q?zSaTb+m85vWtAS43Zga02InqUwnseGtESNlAV1SDaIMN0eKbYWCACI1VL+4r?=
- =?us-ascii?Q?A1qF5Q2OdL6p0UEjUpAqcaqCvVjRsvfelcQtQmLPrTYDq0mKI899VAgRX4aN?=
- =?us-ascii?Q?rl20BzP32Hqh7SlqBlyspWM4cBxY7l0pbUEiCZEyJzAEtAoxd/eb91CB73zp?=
- =?us-ascii?Q?SspiviBHrXCqBaH86KQR8EzYYSRNfUrueKQ0Sgw2VKYWmiJTVH4JX2RpusYC?=
- =?us-ascii?Q?kpFPXUsDm9trDoSGl3XphL0fNyEj958d+uC7r5UcNk9Atb+O/kOgE9MrN1tY?=
- =?us-ascii?Q?usriThydwiKCbMjPny8V1fPCpxkcNDmXQYcWkJRwEKYzuQgyxAFDVcF0sDhu?=
- =?us-ascii?Q?6Gtd/h9zKXTmfYiZ90Y9lEvWOe+cEP9xFp9VsPI/gl0l/JqjFvD77GpcrbiC?=
- =?us-ascii?Q?QyZJGzXyPox9QX0WkVGDNSEEDphtoUceh+qOLjwlx4y7fXXXzBI9ov5T63Vt?=
- =?us-ascii?Q?9+8xxRMMfmSa+WGno7b7yQmw70+fvobllvyQw721oZbIlANfB7v3iHOzsSpp?=
- =?us-ascii?Q?2Umm00ebazexz6i7XF3VVSbHyJYGr5S4TrJFClcLkXyCiq2jcLOwxL7htXJw?=
- =?us-ascii?Q?ds8aiJrKuQ=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CjEAT1U2/RaJ7u6yYuDw6LxgRjjLxCWS/fFKBmkLfwxbcUCThEhRaODcNR9d?=
+ =?us-ascii?Q?dLhu3Ysek0m2k10M1pXGEi2mNN+SxKKz3BQSJR5mobdfOms1sta0fXDXU0hL?=
+ =?us-ascii?Q?4ZI4Kzsijn8S28v9TGs6RUEOJ307wF+ZnpAgFOwP8zsllh6TFa7JbjB0jNOW?=
+ =?us-ascii?Q?cuHcAhp5nFVFVo8X8LAvroxx89Fq3mlfmvBXW3y0WUvZb39rs0tkKfBaNQbn?=
+ =?us-ascii?Q?hTSxsMykyxTnvHmEUwx/5V73newUfgxWO870F/02QM+a0sOHfoiXB8Jd2GEi?=
+ =?us-ascii?Q?mFL5SkqkbHZnlTVOPbsmPZZQaZ13lF+Q7thONid02ZAP8Jc91UeIIxSWibwt?=
+ =?us-ascii?Q?6y1OeT6w6VP7GkQcrvih9ObRP/eKHoANJTyYZd3/0llBsbySh3XGsNyKRl+q?=
+ =?us-ascii?Q?5weGHE7oL+relBpQQvSqigV5kuZ4F1AU7enQ6xLhay5S4geEa2JsK3vJ5PFN?=
+ =?us-ascii?Q?3aMpdK7d3f5KoSgyrcIrJVdrt7wS8LXXZAKLw9+W9dYQhwSnHdpd4iMd3/BL?=
+ =?us-ascii?Q?ZLhr/xN3mT4EQBUSCs93CEOVy9zZSn9cLarIrLNhhkmaL3OQ4Ix2j6hrLG3P?=
+ =?us-ascii?Q?xnzGCxg5Ws+5p+UQQsRkEQxiU08GHUp+TmLGRe6cH1ylai3CsZUTQi+5wu4W?=
+ =?us-ascii?Q?xKBTxX9WVoYFpCEOGEs1xu0fmS3X/ZC0xCBWEQ1lAtaY25wlQeu4ZkYSYkSI?=
+ =?us-ascii?Q?qgBLHN1ytzIxJbyRDanC+qykD5dJf0WZd2yUWYlK1n+Z9fdQw6iq44MLPkXS?=
+ =?us-ascii?Q?XCtEB38a26u6S2BeaQTHUG6uEYfevDf2BAzJKSubWZn8ywIwkZpkTamcJBBK?=
+ =?us-ascii?Q?tYx1FtkPV4NkMj3tBMTEhZbgHzJbmfBBkbIo7kCAvdTHfEJml1Vb9qiEbqwo?=
+ =?us-ascii?Q?DDMiD3LPXsddpVS5H9PwuQFBbsMJhR03cOZWqTtQ+gnfr1sd3jEGYY3hFC+3?=
+ =?us-ascii?Q?aWFE0HY6mowFfLzODN7HteCg61BcwK+mR5O3FVK6m0cLldrn9uONYl42eYBn?=
+ =?us-ascii?Q?+/07NyP2S2GMrZ6qFQ3QkW8aFAshSngmi41oCmqbCTHZsUxCeaiio4hAagpf?=
+ =?us-ascii?Q?tdaF+MgGl/Qn5KwvzL6BCK140SraV+Iq7oWA+RtY9a65isGNAoLQy6RfOxpT?=
+ =?us-ascii?Q?JrquFnS2PcSFkbgmTDDhVmOqFWk1GEm3GT2YipA4C6s6+OT3Rhe4koWOLuG/?=
+ =?us-ascii?Q?Xjb6jrWD2WIOjjtJv0s1d0oMUZhBW8rUcHp3gYnB3r0WaF7r9z9aalqj7Wl1?=
+ =?us-ascii?Q?BChX4bgKnGz9KEkOKtV5Lo1Tggt4lPgXTTtXMa8J74bdweGTkUF47AD/fqON?=
+ =?us-ascii?Q?rCrEX0dG3ppQKSSVF1yq0oDHvP4QQ4YwNciCgpdEKUWCtYl4Y3beEZMk2rs0?=
+ =?us-ascii?Q?qcqbhx1BqqshBvmA6GwJRTj0HD5+D3VjNVGLhHbg2QZe0cnkQFS2b5Z/5x5N?=
+ =?us-ascii?Q?+wTPwudID8lIWkheEOUasnBmb0IGWHtxibZIDoU8jF0m1Oq4fkSjD8tecwbL?=
+ =?us-ascii?Q?Uh1K+LV7c0OhqbiUHDrabvKFybU6HKOkAUT8PBhOwDv/2hZGcBQYHTCmBIoB?=
+ =?us-ascii?Q?NetWoogJSx9ddtsR7SK2BqL+V+JLBhP/JlvN2MQvddBTjwx4JaxCXlkSBCW5?=
+ =?us-ascii?Q?jCmWHLoxk9BiOGt8k//hWCawOGNqadLqtgE7gVRL/wQgucSy4fMk86wJpOlW?=
+ =?us-ascii?Q?p9BnbTSuo+bjrx6WydyE5hGykRZ0dvb4hEIb1mvVY/v/i8Mtp0xCe31xG6j8?=
+ =?us-ascii?Q?fvM8rLbXvg=3D=3D?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 612c1a43-6d07-45ac-a252-08de766ddbf4
+X-MS-Exchange-CrossTenant-Network-Message-Id: 268233d8-2340-4e7f-7b08-08de766ea5da
 X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Feb 2026 02:05:35.1834
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Feb 2026 02:11:13.6913
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 60vF0b2o9fR1D+GQk92UfD0tTzPkVrkOsw7boDviJfgbCfshZtjeuvjP8q8Kivz0ERlamgS2z2u6GndqAEFrKw==
+X-MS-Exchange-CrossTenant-UserPrincipalName: FXnoj4ohqakLmmCh6zXIkkveMt7SjrQOMR16inJ8z6xFA+YDcF4PgYZZrqtJWfc2Bm7yWJXzxC76+VuBQa2v+Q==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8185
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_180546_115129_EB7871A8 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20260227_181120_835666_E62C97B6 
+X-CRM114-Status: UNSURE (   5.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,278 +146,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 27, 2026 at 03:32:17PM +0000, Cristian Marussi wrote:
->Move needlessly exposed fields away from scmi_clock_info into the new
->internal struct scmi_clock_desc while keeping exposed only the two new
->min_rate and max_rate fields for each clock.
->
->No functional change.
+On Fri, Feb 27, 2026 at 03:32:19PM +0000, Cristian Marussi wrote:
+>Only the unified interface exposing min_rate/max_rate is now used.
 >
 >Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
->---
-> drivers/firmware/arm_scmi/clock.c | 145 +++++++++++++++---------------
-> include/linux/scmi_protocol.h     |   2 +
-> 2 files changed, 74 insertions(+), 73 deletions(-)
->
->diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
->index 54e8b59c3941..f5d1c608f85a 100644
->--- a/drivers/firmware/arm_scmi/clock.c
->+++ b/drivers/firmware/arm_scmi/clock.c
->@@ -157,13 +157,27 @@ struct scmi_clock_rate_notify_payld {
-> 	__le32 rate_high;
-> };
-> 
->+struct scmi_clock_desc {
->+	u32 id;
->+	bool rate_discrete;
->+	unsigned int num_rates;
->+	u64 rates[SCMI_MAX_NUM_RATES];
->+#define	RATE_MIN	0
->+#define	RATE_MAX	1
->+#define	RATE_STEP	2
->+	struct scmi_clock_info info;
->+};
->+
->+#define to_desc(p)	(container_of((p), struct scmi_clock_desc, info))
 
-Nit:
-no need parentheses
-
->+
-> struct clock_info {
-> 	int num_clocks;
-> 	int max_async_req;
-> 	bool notify_rate_changed_cmd;
-> 	bool notify_rate_change_requested_cmd;
-> 	atomic_t cur_async_req;
->-	struct scmi_clock_info *clk;
->+	struct scmi_clock_desc *clkds;
->+#define CLOCK_INFO(c, i)	(&(((c)->clkds + (i))->info))
-
-Ditto.
-
-> 	int (*clock_config_set)(const struct scmi_protocol_handle *ph,
-> 				u32 clk_id, enum clk_state state,
-> 				enum scmi_clock_oem_config oem_type,
->@@ -185,7 +199,7 @@ scmi_clock_domain_lookup(struct clock_info *ci, u32 clk_id)
-> 	if (clk_id >= ci->num_clocks)
-> 		return ERR_PTR(-EINVAL);
-> 
->-	return ci->clk + clk_id;
->+	return CLOCK_INFO(ci, clk_id);
-> }
-> 
-> static int
->@@ -226,8 +240,7 @@ scmi_clock_protocol_attributes_get(const struct scmi_protocol_handle *ph,
-> 
-> struct scmi_clk_ipriv {
-> 	struct device *dev;
->-	u32 clk_id;
->-	struct scmi_clock_info *clk;
->+	struct scmi_clock_desc *clkd;
-> };
-> 
-> static void iter_clk_possible_parents_prepare_message(void *message, unsigned int desc_index,
->@@ -236,7 +249,7 @@ static void iter_clk_possible_parents_prepare_message(void *message, unsigned in
-> 	struct scmi_msg_clock_possible_parents *msg = message;
-> 	const struct scmi_clk_ipriv *p = priv;
-> 
->-	msg->id = cpu_to_le32(p->clk_id);
->+	msg->id = cpu_to_le32(p->clkd->id);
-> 	/* Set the number of OPPs to be skipped/already read */
-> 	msg->skip_parents = cpu_to_le32(desc_index);
-> }
->@@ -246,7 +259,6 @@ static int iter_clk_possible_parents_update_state(struct scmi_iterator_state *st
-> {
-> 	const struct scmi_msg_resp_clock_possible_parents *r = response;
-> 	struct scmi_clk_ipriv *p = priv;
->-	struct device *dev = ((struct scmi_clk_ipriv *)p)->dev;
-> 	u32 flags;
-> 
-> 	flags = le32_to_cpu(r->num_parent_flags);
->@@ -258,12 +270,13 @@ static int iter_clk_possible_parents_update_state(struct scmi_iterator_state *st
-> 	 * assume it's returned+remaining on first call.
-> 	 */
-> 	if (!st->max_resources) {
->-		p->clk->num_parents = st->num_returned + st->num_remaining;
->-		p->clk->parents = devm_kcalloc(dev, p->clk->num_parents,
->-					       sizeof(*p->clk->parents),
->-					       GFP_KERNEL);
->-		if (!p->clk->parents) {
->-			p->clk->num_parents = 0;
->+		p->clkd->info.num_parents = st->num_returned + st->num_remaining;
->+		p->clkd->info.parents = devm_kcalloc(p->dev,
->+						     p->clkd->info.num_parents,
->+						     sizeof(*p->clkd->info.parents),
->+						     GFP_KERNEL);
->+		if (!p->clkd->info.parents) {
->+			p->clkd->info.num_parents = 0;
-> 			return -ENOMEM;
-> 		}
-> 		st->max_resources = st->num_returned + st->num_remaining;
->@@ -280,29 +293,27 @@ static int iter_clk_possible_parents_process_response(const struct scmi_protocol
-> 	const struct scmi_msg_resp_clock_possible_parents *r = response;
-> 	struct scmi_clk_ipriv *p = priv;
-> 
->-	u32 *parent = &p->clk->parents[st->desc_index + st->loop_idx];
->+	u32 *parent = &p->clkd->info.parents[st->desc_index + st->loop_idx];
-> 
-> 	*parent = le32_to_cpu(r->possible_parents[st->loop_idx]);
-> 
-> 	return 0;
-> }
-> 
->-static int scmi_clock_possible_parents(const struct scmi_protocol_handle *ph, u32 clk_id,
->-				       struct scmi_clock_info *clk)
->+static int scmi_clock_possible_parents(const struct scmi_protocol_handle *ph,
->+				       u32 clk_id, struct clock_info *cinfo)
-> {
-> 	struct scmi_iterator_ops ops = {
-> 		.prepare_message = iter_clk_possible_parents_prepare_message,
-> 		.update_state = iter_clk_possible_parents_update_state,
-> 		.process_response = iter_clk_possible_parents_process_response,
-> 	};
->-
->+	struct scmi_clock_desc *clkd = &cinfo->clkds[clk_id];
-> 	struct scmi_clk_ipriv ppriv = {
->-		.clk_id = clk_id,
->-		.clk = clk,
->+		.clkd = clkd,
-> 		.dev = ph->dev,
-> 	};
-> 	void *iter;
->-	int ret;
-> 
-> 	iter = ph->hops->iter_response_init(ph, &ops, 0,
-> 					    CLOCK_POSSIBLE_PARENTS_GET,
->@@ -311,9 +322,7 @@ static int scmi_clock_possible_parents(const struct scmi_protocol_handle *ph, u3
-> 	if (IS_ERR(iter))
-> 		return PTR_ERR(iter);
-> 
->-	ret = ph->hops->iter_response_run(iter);
->-
->-	return ret;
->+	return ph->hops->iter_response_run(iter);
-> }
-> 
-> static int
->@@ -352,7 +361,7 @@ static int scmi_clock_attributes_get(const struct scmi_protocol_handle *ph,
-> 	u32 attributes;
-> 	struct scmi_xfer *t;
-> 	struct scmi_msg_resp_clock_attributes *attr;
->-	struct scmi_clock_info *clk = cinfo->clk + clk_id;
->+	struct scmi_clock_info *clk = CLOCK_INFO(cinfo, clk_id);
-> 
-> 	ret = ph->xops->xfer_get_init(ph, CLOCK_ATTRIBUTES,
-> 				      sizeof(clk_id), sizeof(*attr), &t);
->@@ -394,7 +403,7 @@ static int scmi_clock_attributes_get(const struct scmi_protocol_handle *ph,
-> 			clk->rate_change_requested_notifications = true;
-> 		if (PROTOCOL_REV_MAJOR(ph->version) >= 0x3) {
-> 			if (SUPPORTS_PARENT_CLOCK(attributes))
->-				scmi_clock_possible_parents(ph, clk_id, clk);
->+				scmi_clock_possible_parents(ph, clk_id, cinfo);
-> 			if (SUPPORTS_GET_PERMISSIONS(attributes))
-> 				scmi_clock_get_permissions(ph, clk_id, clk);
-> 			if (SUPPORTS_EXTENDED_CONFIG(attributes))
->@@ -424,7 +433,7 @@ static void iter_clk_describe_prepare_message(void *message,
-> 	struct scmi_msg_clock_describe_rates *msg = message;
-> 	const struct scmi_clk_ipriv *p = priv;
-> 
->-	msg->id = cpu_to_le32(p->clk_id);
->+	msg->id = cpu_to_le32(p->clkd->id);
-> 	/* Set the number of rates to be skipped/already read */
-> 	msg->rate_index = cpu_to_le32(desc_index);
-> }
->@@ -457,14 +466,14 @@ iter_clk_describe_update_state(struct scmi_iterator_state *st,
-> 	flags = le32_to_cpu(r->num_rates_flags);
-> 	st->num_remaining = NUM_REMAINING(flags);
-> 	st->num_returned = NUM_RETURNED(flags);
->-	p->clk->rate_discrete = RATE_DISCRETE(flags);
->+	p->clkd->rate_discrete = RATE_DISCRETE(flags);
-> 
-> 	/* Warn about out of spec replies ... */
->-	if (!p->clk->rate_discrete &&
->+	if (!p->clkd->rate_discrete &&
-> 	    (st->num_returned != 3 || st->num_remaining != 0)) {
-> 		dev_warn(p->dev,
-> 			 "Out-of-spec CLOCK_DESCRIBE_RATES reply for %s - returned:%d remaining:%d rx_len:%zd\n",
->-			 p->clk->name, st->num_returned, st->num_remaining,
->+			 p->clkd->info.name, st->num_returned, st->num_remaining,
-> 			 st->rx_len);
-> 
-> 		SCMI_QUIRK(clock_rates_triplet_out_of_spec,
->@@ -479,38 +488,19 @@ iter_clk_describe_process_response(const struct scmi_protocol_handle *ph,
-> 				   const void *response,
-> 				   struct scmi_iterator_state *st, void *priv)
-> {
->-	int ret = 0;
-> 	struct scmi_clk_ipriv *p = priv;
-> 	const struct scmi_msg_resp_clock_describe_rates *r = response;
-> 
->-	if (!p->clk->rate_discrete) {
->-		switch (st->desc_index + st->loop_idx) {
->-		case 0:
->-			p->clk->range.min_rate = RATE_TO_U64(r->rate[0]);
->-			break;
->-		case 1:
->-			p->clk->range.max_rate = RATE_TO_U64(r->rate[1]);
->-			break;
->-		case 2:
->-			p->clk->range.step_size = RATE_TO_U64(r->rate[2]);
->-			break;
->-		default:
->-			ret = -EINVAL;
->-			break;
->-		}
->-	} else {
->-		u64 *rate = &p->clk->list.rates[st->desc_index + st->loop_idx];
->+	p->clkd->rates[st->desc_index + st->loop_idx] =
->+		RATE_TO_U64(r->rate[st->loop_idx]);
->+	p->clkd->num_rates++;
-> 
->-		*rate = RATE_TO_U64(r->rate[st->loop_idx]);
->-		p->clk->list.num_rates++;
->-	}
->-
->-	return ret;
->+	return 0;
-> }
-> 
-> static int
-> scmi_clock_describe_rates_get(const struct scmi_protocol_handle *ph, u32 clk_id,
->-			      struct scmi_clock_info *clk)
->+			      struct clock_info *cinfo)
-> {
-> 	int ret;
-> 	void *iter;
->@@ -519,9 +509,9 @@ scmi_clock_describe_rates_get(const struct scmi_protocol_handle *ph, u32 clk_id,
-> 		.update_state = iter_clk_describe_update_state,
-> 		.process_response = iter_clk_describe_process_response,
-> 	};
->+	struct scmi_clock_desc *clkd = &cinfo->clkds[clk_id];
-> 	struct scmi_clk_ipriv cpriv = {
->-		.clk_id = clk_id,
->-		.clk = clk,
->+		.clkd = clkd,
-> 		.dev = ph->dev,
-> 	};
-> 
->@@ -536,16 +526,23 @@ scmi_clock_describe_rates_get(const struct scmi_protocol_handle *ph, u32 clk_id,
-> 	if (ret)
-> 		return ret;
-> 
->-	if (!clk->rate_discrete) {
->+	/* empty set ? */
->+	if (!clkd->num_rates)
->+		return 0;
->+
->+	if (!clkd->rate_discrete) {
->+		clkd->info.max_rate = clkd->rates[RATE_MAX];
-
-Not related to this patch. Just have a question,
-if a broken firmware returns RATE_MIN, but no RATE_MAX and RATE_STEP,
-should some sanity checking being added?
-
-Regards,
-Peng
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
