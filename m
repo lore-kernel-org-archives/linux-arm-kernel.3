@@ -4,58 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D01B2FEE4E9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 11:12:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B22FEE4EB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 11:18:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RMwuMCZhE8UWennE1yJWXSzCbqUWiVeyPnm/DJr1mQ8=; b=dIWyEYTcAMDoM7TzkIOYydwlw3
-	xvPq8sAQhll8dAGNtWjpjt3A936BpDgyg3Lj88wphGzoFLfiWkxWbTefg4rqbYwfrBIdlZynKn16E
-	iFJcbMNTglmGVyXKVZdCCUq0KEfXugHhPcco93cC8mpH7BvlduF18VEhxd5mvLcZvLyT11pUZ2jFT
-	H2uvj9GjDwqDxEtDnV/j3Q8OWtifGMPWqBkqIH5/82HhTyak9Q7wvNipa3hqrdAku5EHaaA9D1uF9
-	tUQS01bEQ97J2vRnrKuNNw6jQDfe6R1rvhy80rX/dqwav6AU0IHPwRUhtQbjkKgsF4eU5FaMSThk5
-	n1nYoTdg==;
+	bh=Pew039JfZAlJjaElxpgJRZ+nNgjTgGGbktRpJh5x1cI=; b=0lgo58TrrGtEPKYoIUEtqu3rpO
+	GDm7R4dVsGwY+/HFiFs+IATykY4xzFjw7VDqf5+VPbWHiDL+xXCGcf27IvULkJuqHYQlEq2LlI/D9
+	ftlRIij9ca41SX3g6ASLpRp+DvOHK6Srt/Hw/5OBC1YgtmvZO+aY1oQeZfdEmQKivtU80TdVYqkzO
+	QDnOUpORXva0+rUCH0ED28Yrhebr3u1yUi5uUnnN/5X/8xYAc6b1Gj+9949E4oYI4zAULtqZ4aly6
+	9DI07bRp5+yG010nfCuOHf8wKj0KpAXYx0oijc9AEl5SQPjr4Eenj5OTf9twOhEJZrb2ER5ezxTP1
+	/o7qqsEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwIFc-00000009ltG-37og;
-	Sat, 28 Feb 2026 11:12:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vwIKe-00000009mJn-2K9P;
+	Sat, 28 Feb 2026 11:18:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwIFM-00000009lr5-2zNr
+	id 1vwIKd-00000009mJc-1htV
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Feb 2026 11:12:33 +0000
+	Sat, 28 Feb 2026 11:17:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CB2D56001D;
-	Sat, 28 Feb 2026 11:12:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A9BBC116D0;
-	Sat, 28 Feb 2026 11:12:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 40C926001D;
+	Sat, 28 Feb 2026 11:17:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22147C116D0;
+	Sat, 28 Feb 2026 11:17:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772277151;
-	bh=nLRrxszpvSY+0yk4jSIM9YoyXBlAYxZf7vJPBm1s4bY=;
+	s=k20201202; t=1772277477;
+	bh=jZWXF3FSqtf+aARQ2Sqm5G5WYHMhSQtLomtx/zb4iPU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=K1u6+7PA5r3BlisSxInQ3ULtJgGGhUBovE8u72FEpNFmvWh+t2+BqOCqaBX+w0Kjm
-	 6zQpvvQN44xIARcwKgdX9KhXiLp+b4tCa4eMeJLTSqsf8nriHVepoYqczdP2RHXsVD
-	 X8EZVojDZAqJdMGPKk1HrAgcizYCY3aB4UIykfF7RfCGwJkatCMuG4b0F6bTebppoq
-	 a9OMdqFWud4K6E3GCb6Mp5sqnVaYB39P2DJRmB9tZQa0U3DdGpIFoK5+mm+XiSM/0T
-	 9kHucfsye4QxE0l110lOJZRbMBJUrY75WM6NSi1sAxloU/y8fF1t+NpuSC3XAB6qYA
-	 Cfflj1fPN/+3A==
-Date: Sat, 28 Feb 2026 12:12:29 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH 7/8] ARM: dts: Add a Raidsonic IB-4210-B DTS
-Message-ID: <20260228-magnificent-swine-of-jest-03cfbd@quoll>
-References: <20260228-gemini-dts-fixes-v1-0-0c6f6d0fb4bd@kernel.org>
- <20260228-gemini-dts-fixes-v1-7-0c6f6d0fb4bd@kernel.org>
+	b=Q5i3/kOmW/i0sUqzxJ3FKLi2yeBskmRPGb6DY6Ec1H+TYDc/Qrhdr5WHM/I2q1WO0
+	 Z7YdJeXtqkKmjW15QmTb1pbAicnNyXc8qgKFxFJ2v0wCr/p31kOfMGmtsw+MTJXnT7
+	 50phJM1WxA+FvNNnksGF0NXwd2PY0vuPXebF0YEuH8ZqG3CQW4tDVyWQOmDc4/ZFcJ
+	 MuaQHxrEtdTAE/GH/Xgm1Wy0nwf1+pP6K30ZENYjDjJKyWJckKf6wLEneM6BOgg7mz
+	 6O4loYJhwm23/jqut/hEvS3Q6xIXrMak9UDUMMkfq1ux7Ca6bAz7EVS1XaedQg4Snz
+	 irg8fkIn0Ezuw==
+Date: Sat, 28 Feb 2026 13:17:51 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Linu Cherian <linu.cherian@arm.com>, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org
+Subject: Re: [RFC V1 09/16] arm64/mm: Route all pgtable reads via ptdesc_get()
+Message-ID: <aaLO3yOu1ShO2tNz@kernel.org>
+References: <20260224051153.3150613-1-anshuman.khandual@arm.com>
+ <20260224051153.3150613-10-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260228-gemini-dts-fixes-v1-7-0c6f6d0fb4bd@kernel.org>
+In-Reply-To: <20260224051153.3150613-10-anshuman.khandual@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,53 +76,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 28, 2026 at 01:05:47AM +0100, Linus Walleij wrote:
-> This adds a device tree for the Raidsonic IB-4210-B NAS, a slightly
-> under-powered version of IB-4220-B with half the memory and
-> the cheaper version of the SoC.
+Hi Anshuman,
+
+On Tue, Feb 24, 2026 at 10:41:46AM +0530, Anshuman Khandual wrote:
+> Define arm64 platform specific implementations for new pXdp_get() helpers.
+> These resolve into READ_ONCE(), thus ensuring required single copy atomic
+> semantics for the page table entry reads.
 > 
-> Signed-off-by: Linus Walleij <linusw@kernel.org>
+> In future this infrastructure can be used for D128 to maintain single copy
+> atomicity semantics with inline asm blocks.
+> 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 > ---
->  arch/arm/boot/dts/gemini/Makefile            |   1 +
->  arch/arm/boot/dts/gemini/gemini-nas4210b.dts | 205 +++++++++++++++++++++++++++
->  2 files changed, 206 insertions(+)
+>  arch/arm64/include/asm/pgtable.h | 28 +++++++++++++++++++++++++++-
+>  1 file changed, 27 insertions(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm/boot/dts/gemini/Makefile b/arch/arm/boot/dts/gemini/Makefile
-> index d5d32f02e232..4722fb1bac49 100644
-> --- a/arch/arm/boot/dts/gemini/Makefile
-> +++ b/arch/arm/boot/dts/gemini/Makefile
-> @@ -2,6 +2,7 @@
->  dtb-$(CONFIG_ARCH_GEMINI) += \
->  	gemini-dlink-dir-685.dtb \
->  	gemini-dlink-dns-313.dtb \
-> +	gemini-nas4210b.dtb \
->  	gemini-nas4220b.dtb \
->  	gemini-ns2502.dtb \
->  	gemini-rut1xx.dtb \
-> diff --git a/arch/arm/boot/dts/gemini/gemini-nas4210b.dts b/arch/arm/boot/dts/gemini/gemini-nas4210b.dts
-> new file mode 100644
-> index 000000000000..8bec57c8b7b1
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/gemini/gemini-nas4210b.dts
-> @@ -0,0 +1,205 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Device Tree file for the Gemini-based Raidsonic NAS IB-4210-B
-> + * Based on the NAS Forum experiments by user "CptSpock".
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "gemini.dtsi"
-> +#include <dt-bindings/input/input.h>
-> +
-> +/ {
-> +	model = "Raidsonic NAS IB-4210-B";
-> +	compatible = "raidsonic,ib-4210-b", "cortina,gemini";
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 257af1c3015d..804ef49aea88 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -84,6 +84,32 @@ static inline void arch_leave_lazy_mmu_mode(void)
+>  	arch_flush_lazy_mmu_mode();
+>  }
+>  
+> +#define ptdesc_get(x)		READ_ONCE(x)
 
-So here it is - that's a new compatible, not missing one.
+This will be confusing with 'struct ptdesc' APIs, maybe ptent_get()?
 
-Best regards,
-Krzysztof
+> +#define pmdp_get pmdp_get
+> +static inline pmd_t pmdp_get(pmd_t *pmdp)
+> +{
+> +	return ptdesc_get(*pmdp);
+> +}
+> +
+> +#define pudp_get pudp_get
+> +static inline pud_t pudp_get(pud_t *pudp)
+> +{
+> +	return ptdesc_get(*pudp);
+> +}
+> +
+> +#define p4dp_get p4dp_get
+> +static inline p4d_t p4dp_get(p4d_t *p4dp)
+> +{
+> +	return ptdesc_get(*p4dp);
+> +}
+> +
+> +#define pgdp_get pgdp_get
+> +static inline pgd_t pgdp_get(pgd_t *pgdp)
+> +{
+> +	return ptdesc_get(*pgdp);
+> +}
+> +
+>  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+>  #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
+>  
+> @@ -384,7 +410,7 @@ static inline void __set_pte(pte_t *ptep, pte_t pte)
+>  
+>  static inline pte_t __ptep_get(pte_t *ptep)
+>  {
+> -	return READ_ONCE(*ptep);
+> +	return ptdesc_get(*ptep);
+>  }
+>  
+>  extern void __sync_icache_dcache(pte_t pteval);
+> -- 
+> 2.43.0
+> 
 
+-- 
+Sincerely yours,
+Mike.
 
