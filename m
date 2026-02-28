@@ -4,69 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 566C7FEE4C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 14:44:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51A03FEE4C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 14:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R3oEcZ87YdJD9H6EtCXI+3siTA5Vf1f0vkHE6sVlLYk=; b=2gb6y7jmW+PgpBUD3u+DaZqTYj
-	YYoI9PrhMkg81npaqqbj5ThcWLnAV1Sati6YsAfxbJgY1TKqN2rW+oMWCFT306/rFpHaWIHRREtE4
-	33/h5qBhjKWlNmdznz/eisZ/q+qo66JFwS87/M0PcQhEs7U7rG7d6GQMcYwbNuQOGAdBx4ZDHZ1aE
-	fyeE2AwPDf4k3GQHxi1+cZOEp9AxfAYkYYO8psZanXdrwSXfLppacl2epMLlZ9GhrcZv0mGHh1Z3S
-	qP7VhBvDxyjyJZ4lWPdeb22P1dn9tIWj3jGxBTes0QXCeBF/FkzDehDsbemfKlgwZnT/OnQ2W4qs7
-	LMV0rkUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qoZ00ajqxBezQYRAdV/BKLdfQUToIhljG+cbQi+JqYA=; b=UqbUfF3kJ/25hCHaKwy91RbYh4
+	RNSPbHa5MMndyw/7nkrIjQLwqa8haHi2v3usSWE6FIukxvCpn2tDF003Kml3cr47fjfY6jCvd2EUW
+	QwJbt6HJghAx1TIPqckvMw9UXAe2ErrcBpce/TQisfsiKJ7AUlMvpYfdwk7z823aNmrsoVpWO4wWH
+	0sBPd+NKMnO4zisViv0kSty/eP+szIphukEch7UFn3rCeftG9dMhQ+q04h/ZFABx7ZnW90KMlistF
+	J2wTgfDs8ok22MRCNOAdz9sybjwpWrRYq4agTp2VsZlrOf+eqCuV0bCCdKGOXgeKkofWe+oeVrNI+
+	xzphen5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwLYS-00000009wGE-3FdN;
-	Sat, 28 Feb 2026 14:44:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vwLj2-00000009xmA-2ybV;
+	Sat, 28 Feb 2026 14:55:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwLYE-00000009wD1-1AeM
+	id 1vwLj1-00000009xm0-0mGP
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Feb 2026 14:44:15 +0000
+	Sat, 28 Feb 2026 14:55:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E9D7143A2A;
-	Sat, 28 Feb 2026 14:44:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 682B2C2BC87;
-	Sat, 28 Feb 2026 14:44:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B97EB60141;
+	Sat, 28 Feb 2026 14:55:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C573C116D0;
+	Sat, 28 Feb 2026 14:55:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772289853;
-	bh=8uBL+lM1E6r1mevBWfyFVMB3IGUpvr/djhVuaXmKqhc=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=I6Vkf1du4xFWzgVNJFeMdki+NgnDQO3zCAagEE+lfQSxyCfK2iMEWPQmN5s1g9y/O
-	 9Ak2srQ+Cn4n+YSfya//t3dBNG7mbBRwavZDRTGYXeFZ9ZoAgnVyyo32qSvkGZ8mc+
-	 R7RhnVjJkHOGyRwH6kykbtkWSAjabGfbuoH5Sj3miqthZvr/SaeYIH49nod7gQmkAw
-	 xgMeCDTnHqErF4Kb4bsibeEMFmSc7gAzYcUYVh+E9ddB8yd5dRiQUqS7rS9sbBXZBA
-	 04gooO4UPBFz5Cm2QhtniFC8K3xwUkxi5vkSXdPF9ySEqDIr9y/oNceIl83dnLxGbA
-	 qyreKpnpOPtBQ==
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: s.nawrocki@samsung.com, cw00.choi@samsung.com, alim.akhtar@samsung.com, 
- mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
- conor+dt@kernel.org, sunyeal.hong@samsung.com, shin.son@samsung.com, 
- Raghav Sharma <raghav.s@samsung.com>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, chandan.vn@samsung.com, 
- dev.tailor@samsung.com, karthik.sun@samsung.com
-In-Reply-To: <20260202103555.2089376-4-raghav.s@samsung.com>
-References: <20260202103555.2089376-1-raghav.s@samsung.com>
- <CGME20260202102001epcas5p4ebe15ce1cec50c6ca024464ffdbe9d79@epcas5p4.samsung.com>
- <20260202103555.2089376-4-raghav.s@samsung.com>
-Subject: Re: (subset) [PATCH 3/3] arm64: dts: exynosautov920: add CMU_G3D
- clock DT nodes
-Message-Id: <177228985014.54920.4826846692131993586.b4-ty@kernel.org>
-Date: Sat, 28 Feb 2026 15:44:10 +0100
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_064414_350426_97A2AF1E 
-X-CRM114-Status: UNSURE (   4.98  )
-X-CRM114-Notice: Please train this message.
+	s=k20201202; t=1772290521;
+	bh=uDGbn5qTPyn7SYcOtQEiMBHNdhrIS+xWkV/U9uw99VQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=lvL+ytNRenVVjkZCGdLRzJfFajM2+nss730FrnO5QQHOVTmrRBXsPejW+Bgkpw18K
+	 39KxNpbsdzd+0oqWIjH+zBf7cyrp+/PpYvpVUADfVhsKDDqxuocj0G5yvwRH33/7kr
+	 7jJO17LPjA7tZxrhOC0it+orKWBXkTWKyGQumc38L19bYEfd5ETU0OEQtGRJZhCUy1
+	 g9cCDQAH0Fzy9mtjNeMNHZOg6PiK6ZAWVGmS+GMd9p69LiG0Mr0TQuwEcHQ5BoM4Zk
+	 Bgb6/+CvtemEthv+F0ziPbmR5bbgXB4wZvmZheal1MjvWHhpZoaDBvKZaKfRUETRlv
+	 hzRPgSiU9o4Dw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vwLix-0000000EhXB-0BmL;
+	Sat, 28 Feb 2026 14:55:19 +0000
+Date: Sat, 28 Feb 2026 14:55:18 +0000
+Message-ID: <874in0ex49.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: syzbot <syzbot+f6a46b038fc243ac0175@syzkaller.appspotmail.com>, syzkaller@googlegroups.com
+Cc: catalin.marinas@arm.com,
+	joey.gouly@arm.com,
+	kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	oupton@kernel.org,
+	suzuki.poulose@arm.com,
+	syzkaller-bugs@googlegroups.com,
+	will@kernel.org,
+	yuzenghui@huawei.com
+Subject: Re: [syzbot] [kvmarm?] [kvm?] BUG: unable to handle kernel paging request in kvm_vgic_destroy
+In-Reply-To: <69a2d58c.050a0220.3a55be.003b.GAE@google.com>
+References: <69a2d58c.050a0220.3a55be.003b.GAE@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: syzbot+f6a46b038fc243ac0175@syzkaller.appspotmail.com, syzkaller@googlegroups.com, catalin.marinas@arm.com, joey.gouly@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, oupton@kernel.org, suzuki.poulose@arm.com, syzkaller-bugs@googlegroups.com, will@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,20 +89,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 02 Feb 2026 16:05:55 +0530, Raghav Sharma wrote:
-> Add required dt node for cmu_g3d block, which provides
-> clocks for G3D IP
+On Sat, 28 Feb 2026 11:46:20 +0000,
+syzbot <syzbot+f6a46b038fc243ac0175@syzkaller.appspotmail.com> wrote:
 > 
+> Hello,
 > 
+> syzbot found the following issue on:
+> 
+> HEAD commit:    6316366129d2 Merge branch kvm-arm64/misc-6.20 into kvmarm-..
+> git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git next
+> console output: https://syzkaller.appspot.com/x/log.txt?x=15e59c4a580000
+> kernel config:  https://syzkaller.appspot.com/x/.config?x=148fc9aa8e041d0a
+> dashboard link: https://syzkaller.appspot.com/bug?extid=f6a46b038fc243ac0175
+> compiler:       Debian clang version 21.1.8 (++20251221033036+2078da43e25a-1~exp1~20251221153213.50), Debian LLD 21.1.8
+> userspace arch: arm64
+> syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=13182006580000
+> C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=173900ba580000
+> 
+> Downloadable assets:
+> disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/fa3fbcfdac58/non_bootable_disk-63163661.raw.xz
+> vmlinux: https://storage.googleapis.com/syzbot-assets/1018400deda3/vmlinux-63163661.xz
+> kernel image: https://storage.googleapis.com/syzbot-assets/fb8a8bb5d8a4/Image-63163661.gz.xz
+> 
+> IMPORTANT: if you fix the issue, please add the following tag to the commit:
+> Reported-by: syzbot+f6a46b038fc243ac0175@syzkaller.appspotmail.com
+> 
+>  __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline]
+>  invoke_syscall+0x90/0x230 arch/arm64/kernel/syscall.c:49
+>  el0_svc_common+0x120/0x2f4 arch/arm64/kernel/syscall.c:132
+>  do_el0_svc+0x58/0x74 arch/arm64/kernel/syscall.c:151
+>  el0_svc+0x5c/0x238 arch/arm64/kernel/entry-common.c:724
+>  el0t_64_sync_handler+0x84/0x12c arch/arm64/kernel/entry-common.c:743
+>  el0t_64_sync+0x198/0x19c arch/arm64/kernel/entry.S:596
+> Unable to handle kernel paging request at virtual address ffef800000000000
+> KASAN: maybe wild-memory-access in range [0xff00000000000000-0xff0000000000000f]
+> Mem abort info:
+>   ESR = 0x0000000096000004
+>   EC = 0x25: DABT (current EL), IL = 32 bits
+>   SET = 0, FnV = 0
+>   EA = 0, S1PTW = 0
+>   FSC = 0x04: level 0 translation fault
+> Data abort info:
+>   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
+>   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+>   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+> [ffef800000000000] address between user and kernel address ranges
+> Internal error: Oops: 0000000096000004 [#1]  SMP
+> Modules linked in:
+> CPU: 0 UID: 0 PID: 3651 Comm: syz.2.17 Not tainted syzkaller #0 PREEMPT 
+> Hardware name: linux,dummy-virt (DT)
+> pstate: 01402009 (nzcv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
+> pc : kvm_vgic_dist_destroy arch/arm64/kvm/vgic/vgic-init.c:445 [inline]
+> pc : kvm_vgic_destroy+0x2d4/0x624 arch/arm64/kvm/vgic/vgic-init.c:518
+> lr : kvm_vgic_dist_destroy arch/arm64/kvm/vgic/vgic-init.c:444 [inline]
+> lr : kvm_vgic_destroy+0x290/0x624 arch/arm64/kvm/vgic/vgic-init.c:518
+> sp : ffff80008e647b90
+> x29: ffff80008e647ba0 x28: 0000000000000005 x27: cdf00000200a52d8
+> x26: cdf00000200a4db0 x25: 00000000000000cd x24: cdf00000200a4d8c
+> x23: 00000000000000cd x22: 00000000000000cd x21: cdf00000200a4ad0
+> x20: efff800000000000 x19: cdf00000200a4000 x18: 00000000030f4b63
+> x17: 0000000000000031 x16: 0000000000000000 x15: ffff800088209a68
+> x14: ffffffffffffffff x13: 0000000000000028 x12: 5df000001795c1f0
+> x11: ffff800088209a68 x10: 0000000000ff0100 x9 : 0ff0000000000000
+> x8 : 0000000000000000 x7 : ffff80008672f958 x6 : 0000000000000000
+> x5 : 0000000000000000 x4 : 0000000000000000 x3 : 0000000000000002
+> x2 : 0000000000000008 x1 : 0000000000000000 x0 : 0000000000000007
+> Call trace:
+>  kvm_vgic_dist_destroy arch/arm64/kvm/vgic/vgic-init.c:445 [inline] (P)
+>  kvm_vgic_destroy+0x2d4/0x624 arch/arm64/kvm/vgic/vgic-init.c:518 (P)
+>  kvm_arch_destroy_vm+0x88/0x138 arch/arm64/kvm/arm.c:299
+>  kvm_destroy_vm virt/kvm/kvm_main.c:1317 [inline]
+>  kvm_put_kvm+0x778/0xbe0 virt/kvm/kvm_main.c:1354
+>  kvm_vm_release+0x58/0x78 virt/kvm/kvm_main.c:1377
+>  __fput+0x4ac/0x978 fs/file_table.c:468
+>  ____fput+0x20/0x58 fs/file_table.c:496
+>  task_work_run+0x1b8/0x250 kernel/task_work.c:233
+>  resume_user_mode_work include/linux/resume_user_mode.h:50 [inline]
+>  __exit_to_user_mode_loop kernel/entry/common.c:44 [inline]
+>  exit_to_user_mode_loop+0x110/0x188 kernel/entry/common.c:75
+>  __exit_to_user_mode_prepare include/linux/irq-entry-common.h:226 [inline]
+>  exit_to_user_mode_prepare_legacy include/linux/irq-entry-common.h:242 [inline]
+>  arm64_exit_to_user_mode arch/arm64/kernel/entry-common.c:81 [inline]
+>  el0_svc+0x17c/0x238 arch/arm64/kernel/entry-common.c:725
+>  el0t_64_sync_handler+0x84/0x12c arch/arm64/kernel/entry-common.c:743
+>  el0t_64_sync+0x198/0x19c arch/arm64/kernel/entry.S:596
+> Code: 54000420 b2481c28 d344fd09 d378fc28 (38696a89) 
+> ---[ end trace 0000000000000000 ]---
+> ----------------
+> Code disassembly (best guess):
+>    0:	54000420 	b.eq	0x84  // b.none
+>    4:	b2481c28 	orr	x8, x1, #0xff00000000000000
+>    8:	d344fd09 	lsr	x9, x8, #4
+>    c:	d378fc28 	lsr	x8, x1, #56
+> * 10:	38696a89 	ldrb	w9, [x20, x9] <-- trapping instruction
 
-Applied, thanks!
+Oh gawd, fault injection. Because we didn't have enough bona fide,
+directly triggerable bugs, we're tricking the kernel into generating
+more. Oh well.
 
-[3/3] arm64: dts: exynosautov920: add CMU_G3D clock DT nodes
-      https://git.kernel.org/krzk/linux/c/a94b4c84ae9294e4f2e398c61d94bedd56162785
+Thankfully, that's an easy one: vgic_allocate_private_irqs_locked()
+fails, we exit kvm_vgic_create() early, leaving dist->rd_regions
+uninitialised. kvm_vgic_dist_destroy() comes along and walks into the
+weeds.
 
-Best regards,
+Note to the syzcaller folks: being a lazy bastard, I run the test case
+(both kernel and C reproducer) as a nested guest using kvmtool.
+kvmtool has a very simple init that doesn't mount debugfs by default.
+It'd be great if the reproducer could check that the debugfs files are
+accessible and stop if it can't configure them. I initially couldn't
+reproduce the issue because of this.
+
+Anyway, that being said:
+
+#syz test: git://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git kvm-arm64/vgic-fixes-7.0
+
+Thanks,
+
+	M.
+
 -- 
-Krzysztof Kozlowski <krzk@kernel.org>
-
+Jazz isn't dead. It just smells funny.
 
