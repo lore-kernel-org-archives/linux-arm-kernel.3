@@ -4,118 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB186FEE4E9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 09:54:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 924B4FEE4E2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 09:58:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=928b7PSvHdVLdLi0mE/NSooz4uHAisfjQR3JZLk2c44=; b=qBDkqzGSQLB815ZfFGMJdFwBrk
-	FAezOnmPcZVJSth+zJO/8RwzqcbVSrldzdHsEjv3dw8iJudfjMhiOg1LMwCmyrKErrIAmhp41IyQg
-	WDL1a0o2xIQcKQYJxKoaCt5TnpBtGKY9BoE5cRftUv+26IO2oI5+kv9iKlZjqfyiRc1RYfHerJ81Y
-	4dyuuhKoM1frzQIEbuXkWSjgWhWinnyDHnWXjjcwpBXwIUrnOvVzLCHN4qR9xM3Gj2bTW6wIws6QZ
-	4zFY4Ll4UkOvHnG2W2YX+hRD4kFLd1Fr8+uVyGpQKCMHp9pADa6bOUx6tCksOL7g0eAOX/WvKxars
-	++x4T5cA==;
+	bh=t+ZD0E/Be2DkeoGJSTMXxYgl8VB2e+o0QP4h5bIji8A=; b=Tepl8a/mX1pHD0H2wn00wOBnvk
+	bYyVzmqxfd7qK8JsFqLMZGMSJrrU5royDjOamReBsUSY92PtnFesxHsM+qgqFXu9X2B94CJJrdKCq
+	ib5sZmRghK/ObLcGBowXW7UnbReT+Po5Lv62xKIIAERROGt4SVBW+by2YeC2fSjWBky57ROpBZ0wR
+	HwJMpvyacaMTaT7P/adTvxrQIeyhM2g67vK0AV7V+ux4aJfrEpYQDqTrmLAWpx5VzkEkuf8KgsOQA
+	gxUiRGVuL9ZMnFKvArR2gMYNAG+Mjdu/UFUzMLV5whOV/tqS9wlIc7KCK+RajXiA52V6x9XwhtJ9G
+	idOY8DEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwH1z-00000009hr3-21WW;
-	Sat, 28 Feb 2026 09:54:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vwH5m-00000009i2i-1c9g;
+	Sat, 28 Feb 2026 09:58:34 +0000
+Received: from out-186.mta0.migadu.com ([2001:41d0:1004:224b::ba])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwH1w-00000009hqa-499W;
-	Sat, 28 Feb 2026 09:54:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8AC51434BD;
-	Sat, 28 Feb 2026 09:54:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7A02C116D0;
-	Sat, 28 Feb 2026 09:54:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772272475;
-	bh=YouXqvnP0taKGHklJH5cIaDhX7R1/igobBji1f49w58=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eLr0iciQqYzyeJegC9ou3JYzCPQGiRD6iyZk/FvAPJn7LjWxoZCtM9mZr+ncM/IW/
-	 LSnEl+FRkXITDqIyh9SAOPbl9xIV1MhTl6JHOZ/Y16XydHloEF/vqe4/qieBsfx8wE
-	 Ta9hdkqnPNzXNldxX2Rut8glRmPPoF/Nvo8TFkfURHkH+pam8Nm2TMgcEOwV2RQQlo
-	 0rVWcx05ELDSSA0FDwZD6aglEUC65FLDa42tIqHqIZ8iOq2mEU1leUp3TCLVmKshfI
-	 WRodMOJvn8/UeHbzi1v6FWPd1rRBW9qr+AIGBBG9Q8rxs2pxGu3OSGNjPbc1+z+M4r
-	 yp2ft605pTPuw==
-Message-ID: <1fe5529f-cd9f-4960-b6dd-96a2d02b8d86@kernel.org>
-Date: Sat, 28 Feb 2026 10:54:29 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/3] media: dt-bindings: rockchip,vdec: Add alternative
- reg-names order for RK35{76,88}
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Conor Dooley <conor@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Detlev Casanova <detlev.casanova@collabora.com>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Hans Verkuil <hverkuil@kernel.org>, kernel@collabora.com,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Conor Dooley <conor.dooley@microchip.com>, linux-media@vger.kernel.org
-References: <20260226-vdec-reg-order-rk3576-v4-0-b8d72dc75250@collabora.com>
- <20260226-vdec-reg-order-rk3576-v4-1-b8d72dc75250@collabora.com>
- <20260227-observant-roaring-ara-ef7eb0@quoll>
- <adbbdbb1-b126-4807-821c-c9850befd695@collabora.com>
- <20260227-omission-stoic-417d7109ad4d@spud>
- <3ab4f91e-37d0-4950-af88-01920705d31a@collabora.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <3ab4f91e-37d0-4950-af88-01920705d31a@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	id 1vwH5j-00000009i2E-2wif
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 28 Feb 2026 09:58:33 +0000
+Content-Type: text/plain;
+	charset=us-ascii
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1772272705;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=t+ZD0E/Be2DkeoGJSTMXxYgl8VB2e+o0QP4h5bIji8A=;
+	b=mvZ04meN/UBkJwE1Q9w6856JK0QYUvTooBgrFSSmSVjY0Rab63Nj0smQneIHTi/m+ZsX/G
+	tLoFBvisCyMxVuHOwRMM2VgdYXnaaNsmyo6/25xo2T/0KQrhC6peeRGa1NUKKdIXYv4ahC
+	L9Jbs8p78GYmX43/p6kMxoqBMC2JKfs=
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81.1.4\))
+Subject: Re: [PATCH] crypto: atmel-sha204a - Fix error codes in OTP reads
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Thorsten Blum <thorsten.blum@linux.dev>
+In-Reply-To: <aaKr1E1mPOgxo0JL@gondor.apana.org.au>
+Date: Sat, 28 Feb 2026 10:57:51 +0100
+Cc: "David S. Miller" <davem@davemloft.net>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Lothar Rubusch <l.rubusch@gmail.com>,
+ stable@vger.kernel.org,
+ linux-crypto@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <21D21541-8B24-47CA-9BFE-CC3B287CCB3A@linux.dev>
+References: <20260215205152.518472-3-thorsten.blum@linux.dev>
+ <aaKr1E1mPOgxo0JL@gondor.apana.org.au>
+To: Herbert Xu <herbert@gondor.apana.org.au>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_015437_105678_4672F1B5 
-X-CRM114-Status: GOOD (  22.27  )
+X-CRM114-CacheID: sfid-20260228_015832_179338_B8532B35 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,105 +77,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/02/2026 18:42, Cristian Ciocaltea wrote:
-> On 2/27/26 7:13 PM, Conor Dooley wrote:
->> On Fri, Feb 27, 2026 at 01:37:17PM +0200, Cristian Ciocaltea wrote:
->>> Hi Krzysztof, Conor,
->>>
->>> On 2/27/26 9:46 AM, Krzysztof Kozlowski wrote:
->>>> On Thu, Feb 26, 2026 at 12:46:53PM +0200, Cristian Ciocaltea wrote:
->>>>> With the introduction of the RK3588 SoC, and RK3576 afterwards, two more
->>>>> register blocks have been provided for the video decoder unit.
->>>>>
->>>>> However, the binding does not properly describe the new hardware layout,
->>>>
->>>> As you shown me last time with excerpt of address spaces from
->>>> datasheet/manual, the binding correctly describes the hardware and above
->>>> sentence is not true.
->>>>
->>>>> as it breaks the convention expecting the unit address to indicate the
->>>>> start of the first register range, i.e. 'function' block is listed
->>>>
->>>> Imprecise wording. "start of the main or primary register range"
->>>>
->>>> (if you have 0x1000 with one reg and 0x20000000 with everything, the
->>>> unit address will be 0x20000000).
->>>>
->>>>> before 'link' instead of the opposite.
->>>>>
->>>>> Since the binding changes have been already released and a fix would
->>>>> bring up an ABI break, mark the current 'reg-names' ordering as
->>>>> deprecated and introduce an alternative 'link,function,cache' listing
->>>>> which follows the address-based ordering according to the TRM.
->>>>>
->>>>> Additionally, drop the 'reg' description items as the order is not fixed
->>>>> anymore, while the information they offer is not very relevant anyway.
->>>>
->>>> This is fine for me.
->>>
->>> Thanks for the additional feedback!
->>>
->>> If I'm not mistaken (please correct me), the only remaining (hard)
->>> blocker for the series would be to improve this commit message.
->>
->> No, you also need to fix the problem I pointed out about reg-names being
->> optional on the devices you're relying on reg-names for. 
-> 
-> My only concern is that by marking reg-names as required we would break the ABI,
+On 28. Feb 2026, at 09:48, Herbert Xu wrote:
+> On Sun, Feb 15, 2026 at 09:51:53PM +0100, Thorsten Blum wrote:
+>> Return -EINVAL from atmel_i2c_init_read_otp_cmd() on invalid =
+addresses
+>> instead of -1. Since the OTP zone is accessed in 4-byte blocks, valid
+>> addresses range from 0 to OTP_ZONE_SIZE / 4 - 1. Fix the bounds check
+>> accordingly.
+>>=20
+>> In atmel_sha204a_otp_read(), propagate the actual error code from
+>> atmel_i2c_init_read_otp_cmd() instead of -1. Also, return -EIO =
+instead
+>> of -EINVAL when the device is not ready.
+>>=20
+>> Cc: stable@vger.kernel.org
+>> Fixes: e05ce444e9e5 ("crypto: atmel-sha204a - add reading from otp =
+zone")
+>> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+>> ---
+>> Compile-tested only.
+>> ---
+>> drivers/crypto/atmel-i2c.c     | 4 ++--
+>> drivers/crypto/atmel-sha204a.c | 7 ++++---
+>> 2 files changed, 6 insertions(+), 5 deletions(-)
+>=20
+> Patch applied.  Thanks.
 
-You are ALREADY BREAKING the ABI. Really, for absolutely non-important
-cosmetic change in unit address, where I asked you repeatedly to fix the
-unit address, you change the ABI affecting kernel and DTS users.
+Hi Herbert,
 
-This is barely acceptable, but I am just annoyed already explain it to
-you multiple times.
+I also submitted [1], which combines this patch here and patch [2] after
+Lothar suggested to squash them. Feel free to apply them separately or
+together. Just FYI.
 
-But now you claim, you can break ABI for cosmetic unimportant change,
-but actually doing something meaningful is a no-go?
+Thanks,
+Thorsten
 
-At least use correct arguments if you want to discuss.
+[1] =
+https://lore.kernel.org/lkml/20260224225547.683713-2-thorsten.blum@linux.d=
+ev/
+[2] =
+https://lore.kernel.org/lkml/20260220133135.1122081-2-thorsten.blum@linux.=
+dev/
 
-> since the RK3588 related changes in the binding (not the DTS ones) got already
-> released (i.e. since v6.17). That's also the reason we went with this deprecated
-> order approach.
-> 
->> The new commit
->> message I am happy with, provided you also add the information Nicolas
->> provided about the impact on users.
-> 
-> Nicolas, can you please provide here the statement so that we can agree on the
-> wording?
-> 
-> Thanks,
-> Cristian
-> 
->>
->>>
->>> How about the following:
->>>
->>>     With the introduction of the RK3588 SoC, and RK3576 afterwards, three
->>>     register blocks have been provided for the video decoder unit instead of
->>>     just one, which are further referenced in the datasheet by 'link table',
->>>     'function' and 'cache'.  The former is present at the top of the
->>>     listing, starting at video decoder unit base address.
->>>
->>>     However, while documenting RK3588, the binding broke the convention
->>>     expecting the unit address to indicate the start of the primary register
->>>     range, i.e. the 'function' block got listed before the 'link' one.
->>>
->>>     Since the binding changes have been already released and a fix would
->>>     bring up an ABI break, mark the current 'reg-names' ordering as
->>>     deprecated and introduce an alternative 'link,function,cache' listing
->>>     which follows the address-based ordering according to the TRM.
->>>
->>>     Additionally, drop the 'reg' description items as the order is not fixed
->>>     anymore, while the information they offer is not very relevant anyway.
->>>
->>> Regards,
->>> Cristian
-> 
-
-
-Best regards,
-Krzysztof
 
