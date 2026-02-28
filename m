@@ -4,92 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A46D71048925
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 01:33:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 187691048926
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 01:47:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yacvo8FTXmtUK6kvMPHtNgDomN8fLaxrnZj3UqvDkYk=; b=gmqCS4JmCO6Jzl4vXTGFIO7Wc9
-	fV9xMOod3Z41tgn1Ipkfb1lByS8iSyy4DNkAsd0bLCaJT1DIk16foljDFrU1L7R6xr5ZIxmnuiSgC
-	rO4MKbeIytZe79TtEPdfVZxkAZ5JPM7P/DNTfTZ2W7oyD0QU3BBB+z/X16CxPLh3IptYNff3wWkfk
-	hem4X1DyixV0BBvK/r1JUd3w5IdMHbiptSRnA7tqSpi5Hpf72ZZALN4KRr5siEeqTU543bPNxCNCn
-	/9PV3GCWthqlRqEqlSnKJRg44EN0QCp6PFCBfTA3ez7BK5DjMpt7sbSQHx61RPswIfajTlyPWnf1R
-	HozhO+6Q==;
+	bh=nYm62l7h9IssC8pYlAqoKgXtyHZXXq6P9yH72X8r6sw=; b=yEDUWRfqaZu+AZZAjGbLdfJZPV
+	E05RFE+/KAOP6dr5xhaLxt+goO2tPDofuy18NTLKAGh/F2kMSYuZ6vsV1IdKB6ESrF3Ifl6am2nG/
+	EpxZB1kGVfXPF1DcMlB8m4xJjDof7gNpvCAou1mbt5pq+6UAOvM6b3WQ5gNp4b4juE4dr4vzBefn1
+	zIh0GE3Y5mD08rVwthoLHrpEwv3ssleqP3yA8YqoZarnd+82f6icj7d6zR+js4yxwR0/BmPPKzS0P
+	cpdLDhnbSJOkd6RFXC6jfvmL92VrTQknj3/pLqnAukPEfdM9fgmKwCHEccJ584hb1H2ttoGPa56dj
+	QaAI2g4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw9Ck-00000009OWH-3BZI;
-	Sat, 28 Feb 2026 01:33:14 +0000
-Received: from mail-vk1-xa2f.google.com ([2607:f8b0:4864:20::a2f])
+	id 1vw9Qe-00000009P4Z-0DQp;
+	Sat, 28 Feb 2026 01:47:36 +0000
+Received: from mail-dl1-x122f.google.com ([2607:f8b0:4864:20::122f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw9Ci-00000009OV2-2nxi
+	id 1vw9Qb-00000009P4A-1g9l
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Feb 2026 01:33:13 +0000
-Received: by mail-vk1-xa2f.google.com with SMTP id 71dfb90a1353d-56a9a7e762bso1972899e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 17:33:12 -0800 (PST)
+	Sat, 28 Feb 2026 01:47:34 +0000
+Received: by mail-dl1-x122f.google.com with SMTP id a92af1059eb24-127423bea4bso1499848c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 17:47:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772242391; x=1772847191; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1772243252; x=1772848052; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=yacvo8FTXmtUK6kvMPHtNgDomN8fLaxrnZj3UqvDkYk=;
-        b=bMPFuyl7MuDvLFgD7ZKxjb19ja1zz9O/0/3yDrq821T/I83g1VhWta5EUymjpGo6PM
-         JQ9JOlOfxQxr/hOzXHzg5Rwq5Iv/ltdEbxIO8KkbXDYS+qnzBM85MsuOVYVGyC6GB7f/
-         jMwRH22W9DxqZYCMFvNMGLa7DK6iWQjvjpZls8hYxTzUs+T57cLNzmnC7I81GyqLriao
-         +wGL5hab8uPBl1lRPxytv3InFxtnWYF5V/Hw1ZL5PS2tfKA4ZQ+cUOfnKXNINd15QQj/
-         ViJLFMeuJ30a/eG2x7p9qp8nLwBBWXQTer1vCOKGJCTEwiW9wQ2GdX/yVsQF4rZjrfwP
-         rq+g==
+        bh=nYm62l7h9IssC8pYlAqoKgXtyHZXXq6P9yH72X8r6sw=;
+        b=FtZR3NhX/ilwOzPAxyb1KBgUJj3tHe8wiaA666IIov9a6y47sYEENeQlnYCVvRmgdB
+         njvszNER48NeRPSxBPqJ9+OGF8bkDFferYtFhqUQlmKuMMISQJEftwyqrfVJ2dn6A6WA
+         /K7SebTul3hhwOFSa0Yrm2vHv+UR9BrGdaEEbPjZ/6m35vW76dIVpiXjyOxWgiVxK+EA
+         sFORMh+OVy9tgKU1A5HaUMDFA1GmTwWYftDZp4X8Jb6SPy0Owud0MJ0S0KCx5sCRpffY
+         8ISPAp+MhxGg43aj7d8q+/dmriUQtWxwB2imV0dCNQqC1+Fzgm3k1crmHXV9rLbcNTQ/
+         475Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772242391; x=1772847191;
+        d=1e100.net; s=20230601; t=1772243252; x=1772848052;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=yacvo8FTXmtUK6kvMPHtNgDomN8fLaxrnZj3UqvDkYk=;
-        b=d9ja44mwUhhufvr+7+LWLXf+rchB6IOoFJe44hRNVApf/1UvCBB1haWevjRrkCLXSA
-         GOLgZjUbrHYT45z7+xHCAmQ+GpFekr1bZd2lWqI6POAZ84ahJfaSr5K1YDFEjCvN4uxx
-         QO/RKcASRQq2A7jILshLkPjJMI9iFvWsVZ/qilno9qzR/b6fXeAuh8KTNaaLXNNDMpc8
-         WjfHG871e13+ZDS5JIKHMg70zpqETr4js81EomYa7jTdP8LUtBSJJ7O2xG44LpIrwMt7
-         YzRNW4KgsBqlJQU1RLmDI7PhrSXNH5JisKC+qGqvYQygutFVFCt4zX0ByidqU/b0hKVw
-         LjNw==
-X-Forwarded-Encrypted: i=1; AJvYcCVdToCiPm8eDYn1u9HqujYYjOFH+NadpjusnZ76jpB0pE0hwbxMAOd5iPrUuEIGamKXxfSRAeC9lISefHfJgXoc@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXQ8BwGtlwzoMtIUAwsF3NybtjMW8/jXrYGyB+3F3tpVb5QVk9
-	9Wwi0MJCTgBIlaOwesI+DTggk3haQLZ/v3gqR5wS7Q3qGK5c1qhEiLfUKrW09w==
-X-Gm-Gg: ATEYQzxPxZ+1ulxYczfRJrTv4XPjDk16yQ1oT0Q7H/PmUv+GxZfbee8AiwZvhaA9Cl5
-	9SQTmLZ51QJlE0zWJ/F6j2Gq96SZzYwtfjkD9aOWcqZ6p3wbonG+JpHcW0vbwF04xwuek2m8yhn
-	SDDc+X5I/IsEZ3DVxk5mYIiPS4YcQLwNN914GnVsYIwRPfLVwYjVfYENX55yGbESCj7s7c8UXET
-	puOQTgSlww4eWNnU7SXJXxoTQsbu2wsuinQhZaPyI3wUW+/sle0K/CYaW0rERCY3ic8MikwiMXt
-	ntfsNl84piQhs/CP9ow1aArR7Hue8cnwdRFuZ7wcoaZFj5joKB4/5KxlVlH6xDFVEHhWFPXxdjP
-	kOnyQdpfif/aZuSQwNX+YD7F/m7juAuAduxkow7E2W3JR43GZaovbmVk73F1H7GaL+uDSpByLFN
-	3KBfCguZ/r4saU/zR4pUjgZ7qJ9Arq8M0TnBf2oZjwFxR+lM9opm4LIIELntKbCWRTvNb4
-X-Received: by 2002:a05:6122:4d85:b0:56a:8c20:2d9b with SMTP id 71dfb90a1353d-56aa08dabd3mr2771676e0c.0.1772242391379;
-        Fri, 27 Feb 2026 17:33:11 -0800 (PST)
-Received: from fabio-Precision-3551.. ([2804:1b3:a802:8875:2e2b:437e:ccf6:b644])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56a91b8c7a8sm8950597e0c.4.2026.02.27.17.33.06
+        bh=nYm62l7h9IssC8pYlAqoKgXtyHZXXq6P9yH72X8r6sw=;
+        b=Okm4OzJ2qwuWsr2aAZFE++g2SPVVG9J3WyGU6eVXIsZllwOZ9w5oZ0EHacQYf3YNFX
+         bYZs9gWWQq0MbucWunx9P1JrvgguoqQPiN0oTcrgjQTk+C4DkP6fmbPL6zXhHHkjU/l1
+         BITtP/jVmbPm3eV6vKTJCGy3eT4GdhvnJM+TNefh9KWzit/yqNkfHfPBs21ebunncmgW
+         4Ls4h5JC3Z6CCyVdjnt2B/ttBiSc591Odf9FWX9XpDrVLgsH82j7uxRZ43vVWZI/LB56
+         v7HmRcycEyEcHqJcGWWPVrgheqV5TVrVhXL9lpxH6NZUZI97DWR+b+vhQP3Hj2SOojQm
+         MJIw==
+X-Forwarded-Encrypted: i=1; AJvYcCV1ffizHysnxkuvB//iJb+xebgR6EO4GpEvb+D+HXwReH0gBM/BIhqxasdioxHUaLmYroxI/ZENEVMjRFmpohPR@lists.infradead.org
+X-Gm-Message-State: AOJu0YySZtcBY6B9AcLuwY6wJGtyzoxXezH6S/SNsOW7a/H7jH0YpjHW
+	G0hWuihiHQ+rUxf79gpy/1mXNRqPnr4LgaXey1Uqbyko6P8ofisFlae4zsdyqWhmK+U=
+X-Gm-Gg: ATEYQzwO4x4ul6BJoLypR8jOQXzAYgVI11+7v6laBUacVOfZwUq/A+qgwjKLzrCgPRN
+	vRG6SA/616+giYz3GAxsW1WDfHXAmg9r/zC8Bn0iLRexXGc7K8JqouYweL7AWjydDBu+EE01brY
+	BeCIsX87Vk3/bJItsjLc2pAhl4BmVYSn5uA5NTL6j3szwtGdwibCbiHlFJIceao6r4PfpfRAxwn
+	OHr9UloeYxep9YTtDmkiSXQecCd9cnzwbo5Y6Xl7gOC3vU7Hl1lDnhJ+gG7ZWIn5fvbQD0yTl4h
+	/1q1o8Gm/odJ956TloiIH0rNHhzcBSqQVRtJ5hxJGg7OXImiXIUkQnQsPyVf7bi4QMqgkIwQlgo
+	+7z6Q8qFBk9a8MF4tycKsqm0TJlw5CkgSp844ElvyJhtINJjdIgTOa9vo8vZ6dI7FGepkcYRiOQ
+	LHGN2foSDFh82Oy60za2Zxn9On0N3HOjI3x8/wrNi+iWBRnXGjAQPKLATE0+UXPr6fcMfP4w5Z
+X-Received: by 2002:a05:7022:20d:b0:121:9f05:7e4c with SMTP id a92af1059eb24-1278fc5c3demr2053905c88.16.1772243252369;
+        Fri, 27 Feb 2026 17:47:32 -0800 (PST)
+Received: from arch.localdomain ([149.34.251.245])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-12789a43a18sm7734470c88.13.2026.02.27.17.47.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Feb 2026 17:33:10 -0800 (PST)
-From: Fabio Estevam <festevam@gmail.com>
-To: heiko@sntech.de
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
+        Fri, 27 Feb 2026 17:47:32 -0800 (PST)
+From: Jun Yan <jerrysteve1101@gmail.com>
+To: jerrysteve1101@gmail.com
+Cc: conor+dt@kernel.org,
 	devicetree@vger.kernel.org,
+	jernej.skrabec@gmail.com,
+	krzk+dt@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH 2/2] ARM: dts: rockchip: rk3288: Remove rockchip,grf from tsadc
-Date: Fri, 27 Feb 2026 22:32:57 -0300
-Message-Id: <20260228013257.256973-2-festevam@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260228013257.256973-1-festevam@gmail.com>
-References: <20260228013257.256973-1-festevam@gmail.com>
+	linux-sunxi@lists.linux.dev,
+	mripard@kernel.org,
+	robh@kernel.org,
+	samuel@sholland.org,
+	wens@kernel.org
+Subject: Re: [PATCH v2 0/3] board: sunxi: Add TaiqiCat (TQC) A01
+Date: Sat, 28 Feb 2026 09:47:24 +0800
+Message-ID: <20260228014726.258796-1-jerrysteve1101@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260227155801.211376-1-jerrysteve1101@gmail.com>
+References: <20260227155801.211376-1-jerrysteve1101@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_173312_715852_52EB7494 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20260227_174733_444127_241C4F62 
+X-CRM114-Status: GOOD (  12.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,35 +107,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to rockchip-thermal.yaml, RK3288 does not require rockchip,grf,
-so remove this invalid property.
+> This series adds support for the TaiqiCat (TQC) A01 — 
+> a set-top box based on the Allwinner H6 SoC. 
+> Originally released by Ultrapower(UQSoft) as a blockchain terminal, 
+> the device has been discontinued and is no longer officially
+> supported.
+>   
+>   https://web.archive.org/web/20190409213228/https://tq.ultrapower.com.cn/product.html
 
-This fixes the following dt-schema warning:
+My apologies for not including the Changes section.
 
-tsadc@ff280000 (rockchip,rk3288-tsadc): False schema does not allow [[53]]
+Changes in v2:                                                                                                                                                                         
+- Replace "UQSoft" with "Ultrapower", and add relevant explanations.
+- Link to v1: https://lore.kernel.org/all/20260226084850.417731-1-jerrysteve1101@gmail.com
 
-The rockchip_thermal driver also confirms that grf is not needed as
-the rk3288_tsadc_data contains:
- .grf_required = false,
+> 
+> Jun Yan (3):
+>   dt-bindings: vendor-prefixes: Add Beijing Ultrapower Software Co.,
+>     Ltd.
+>   dt-bindings: arm: sunxi: Add TaiqiCat (TQC) A01
+>   arm64: dts: allwinner: h6: Add TaiqiCat (TQC) A01 support
+> 
+>  .../devicetree/bindings/arm/sunxi.yaml        |   5 +
+>  .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+>  arch/arm64/boot/dts/allwinner/Makefile        |   1 +
+>  .../dts/allwinner/sun50i-h6-taiqicat-a01.dts  | 361 ++++++++++++++++++
+>  4 files changed, 369 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-h6-taiqicat-a01.dts
+> 
+> -- 
+> 2.53.0
 
-Signed-off-by: Fabio Estevam <festevam@gmail.com>
----
- arch/arm/boot/dts/rockchip/rk3288.dtsi | 1 -
- 1 file changed, 1 deletion(-)
-
-diff --git a/arch/arm/boot/dts/rockchip/rk3288.dtsi b/arch/arm/boot/dts/rockchip/rk3288.dtsi
-index 4e5e7509de48..4f2c048aee54 100644
---- a/arch/arm/boot/dts/rockchip/rk3288.dtsi
-+++ b/arch/arm/boot/dts/rockchip/rk3288.dtsi
-@@ -551,7 +551,6 @@ tsadc: tsadc@ff280000 {
- 		pinctrl-1 = <&otp_out>;
- 		pinctrl-2 = <&otp_pin>;
- 		#thermal-sensor-cells = <1>;
--		rockchip,grf = <&grf>;
- 		rockchip,hw-tshut-temp = <95000>;
- 		status = "disabled";
- 	};
--- 
-2.34.1
 
 
