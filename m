@@ -4,141 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 277581048924
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 01:11:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0534D1048924
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 01:12:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=q2dcCUTTvXFe/Gl/yxTZPhDrwbF1H5VzVzxp+19vuAg=; b=TbvO0Wsgt9iilstlkaxdhqS12g
-	kAmRCv/D99VWOvEhfFDUU5Pg6rRsGp9WVJp/tcNvaZ6myYRGKTRmFwtSWi9QFhwx2hoN2Pg71t3SB
-	LYsKL+V3148tY33yEpFrYOkIwt9EjZ340/ZXqXvf2sJv575J0geIlmBbDAPVK86H5l1AB2RxL9CAu
-	UKj8qM+n84P3F9CigdONQL+44JvebHc+6AS5Au7uv2yXgZkwscyj9+CWt3AA0Gg3JdH2p3TParamV
-	JIAQCRwNU6fuijxJjL/Q8hBrOZlGzAmznf1iT+l5ByWuNVWVKydnUauck9eG9DmaHzrg0zHGHnPCe
-	s2NK51nQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N5I1VxEcV2pKAkv9StM6h+bUekLg6n3u51XxkXEli8s=; b=VV236q404hFIc/fwLn9pFrXuyn
+	AB/8iz6ka7CMVyFWGFHziop1VJd/plPsMOZ5e2xM86TthKXqTEPhd/K0uGJgaDZ0ksVj3AKtpFCfk
+	lJ3SIfjGvQvw6/iLlcy8rK+d/2LZiRdEiSqvc6vkYtPCdc8MhRYudzIYd9ndUjqJ2FK8C6teBLg7d
+	v5QaC1dbfjz0OptfPxFtOrzWzmkZ9pKkmYSqNJCtTrkzVrEm3sp0DFSh5c/Ros6OVN72+jm/MUL7O
+	+PVAcoPX0HqpsJ730DgwCPxoWAHkmoxuskhtVaBAzWMfwAqZnPSYu2/VA7R3buZz94vCq6t40brPA
+	bLsE19TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw8rg-00000009N4h-1nmc;
-	Sat, 28 Feb 2026 01:11:28 +0000
-Received: from mail-swedencentralazon11013025.outbound.protection.outlook.com ([52.101.83.25] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vw8sL-00000009NAb-3ECa;
+	Sat, 28 Feb 2026 01:12:09 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw8rc-00000009N3u-3rgu
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Feb 2026 01:11:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oVwtbboaicQTU3E1HJH4nuYUxJZQ3JQQontM+dH5TZ8d3RhRw1Ou2sLjP3gqvkPOhrfulE4qVH49qzwjyrHeI+t2HlanUNQMCn7Li1V5uMTg8X7pyBc+LZxiSMFavQUOox6X3xGI2RZV/SNIFLR0YJr6I7rjcu7fdDiofRCazQK9jTSzM7xtpYFYrNHf0ee+51GmZlsv5fxoDbOIRXSLm5ZsTn+8axSW6twHOmA6IGZuAExkN1GJEurUHhn5cVPtyRG2+mGE2JJyztiCkwssaprnh2FuwFhl/nJYOEZBF4ovBT63FRLDnqrQgNmfpRP/s9skQNoVO0ENe/VRf2un9Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=q2dcCUTTvXFe/Gl/yxTZPhDrwbF1H5VzVzxp+19vuAg=;
- b=G8SPvNa7AdaZkTzoYKX37t6zXOaO8VYdhY53N1sWlCgKjPJ8lx0JfY0tnTN2/Td8exERLbJJn1kgS9QxfFYS8X76Up/+EI0cngd8BE+anah8UP3qytPE/SLgusS14UEY3N8xacq+BnuE+8H6tV07F9upkdMDgX5G5evJh+TXt36Ioy7W+LRpQj3xFkQwtMqhydoIpZ8+qDrp0YOTBW2s+Jz72J3flwaadl6Cmx6YB2L2JzefGY6z3669RhhiIcKmLHWur1d+DUtP1qk3V1Tnr0uXK2FNGqrQRdHtId6SyP0YcdR9pJZYore0mAbEsqV0/Bc7yeinyvva39xw9CkOpA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=q2dcCUTTvXFe/Gl/yxTZPhDrwbF1H5VzVzxp+19vuAg=;
- b=ho7qDwsOjDGKxTUzF0ir8xJ8GmdMMBZX5DA4/h8wn/2zuoiN0drNxMvFNIjO6HffreqqU+5WdP6tp//KqhqyTousngYyiFPuICUZ2w38StR5Ivk4VUHabbmJS88YvVBiLNiF7lT32SPUBJpnSx5ginQFlZFHSo4Ok/zo5L3wwbtrQqtXjzbuXt30Gfw9dbiY5zv1SRIgze+/Z2TgwE+EQjlOm6vcNlPBnMsiFYRRaVwSoQ4rzJ4uQN+0CjBZjw6NI62GKLkLrpu4AlcNg6CgcKo/UHaJ9xrOWA9q8IWroP7niuIv/ZGKVnZr7BsuOdeD0EMK1Ij21T0ZJLLtIzc1wg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AM9PR04MB8423.eurprd04.prod.outlook.com (2603:10a6:20b:3e3::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.16; Sat, 28 Feb
- 2026 01:11:19 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%7]) with mapi id 15.20.9632.017; Sat, 28 Feb 2026
- 01:11:19 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Sat, 28 Feb 2026 09:12:45 +0800
-Subject: [PATCH v2] pmdomain: imx: Fix i.MX8MP VC8000E power up sequence
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260228-imx8mp-vc8000e-pm-v2-1-fd255a0d5958@nxp.com>
-X-B4-Tracking: v=1; b=H4sIAAxBomkC/32NQQ6CMBBFr0Jm7ZhOLdC44h6GhZZRZlFoWtNgS
- O9u5QAu30v++zskjsIJrs0OkbMkWZcK+tSAm+/Li1GmyqCV7hRpi+I36wNmZ5VSjMGj0b3lbjL
- 20RqouxD5KdvRvI2VZ0nvNX6Oi0w/+6+WCQk7Rz2Zllx/0cOyhbNbPYyllC8I2holsAAAAA==
-X-Change-ID: 20260128-imx8mp-vc8000e-pm-4278e6d48b54
-To: Ulf Hansson <ulf.hansson@linaro.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Lucas Stach <l.stach@pengutronix.de>, 
- Jacky Bai <ping.bai@nxp.com>, Frank Li <frank.li@nxp.com>
-Cc: linux-pm@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Peng Fan <peng.fan@nxp.com>, stable@vger.kernel.org
-X-Mailer: b4 0.14.2
-X-ClientProxiedBy: SGXP274CA0021.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b8::33)
- To PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+	id 1vw8sJ-00000009N9l-0uQq;
+	Sat, 28 Feb 2026 01:12:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1772241124;
+	bh=FTpFrrnmK4vqnqZPNlbSmsvAtJAjaotCdfMV7I/jZ7s=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=lz/LW1LuOvvEBhbmXEg/YAcmk5SAaMQFyl8PRNds/r8U50ytwDoyvwU94Z74oLaGb
+	 z4hrejurcVQ28QoicDRpwUJNbtIMrXGGhmezXKhTBhJii34j8ASqYO0q5rduJUbsty
+	 9ZVBTDijFucEkvdQjPlOxjRoPuAP4elPr6+CaDwAXIgYYaB1WFQBu3CeRlF0s0HtoO
+	 IKh/aYbBR3fiIIIJGauHyuzEFdu+KdR6rtzZfrN8j5Xt8LKQ/FTxYA+3VzfmC9/FSt
+	 6zt6JueETqyV+9sEGTn9pCToUbUeQwUQSnoY+NYRL/HoqKWXjAlQT/1IBUE3iY+JqY
+	 iu1czmZkLqZeA==
+Received: from [IPv6:2606:6d00:15:210e::5ac] (unknown [IPv6:2606:6d00:15:210e::5ac])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A43E717E027A;
+	Sat, 28 Feb 2026 02:12:01 +0100 (CET)
+Message-ID: <da7a9990e3a10de809f8109a5c2ae69715bee2b2.camel@collabora.com>
+Subject: Re: [PATCH v4 1/3] media: dt-bindings: rockchip,vdec: Add
+ alternative reg-names order for RK35{76,88}
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Cristian Ciocaltea
+	 <cristian.ciocaltea@collabora.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Detlev Casanova	 <detlev.casanova@collabora.com>, Ezequiel Garcia
+ <ezequiel@vanguardiasur.com.ar>,  Mauro Carvalho Chehab	
+ <mchehab@kernel.org>, Hans Verkuil <hverkuil@kernel.org>,
+ kernel@collabora.com, 	devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, 	linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Conor Dooley	 <conor.dooley@microchip.com>,
+ linux-media@vger.kernel.org
+Date: Fri, 27 Feb 2026 20:11:58 -0500
+In-Reply-To: <dc2e9e13-165f-4ca1-be29-aabdbf133856@kernel.org>
+References: <20260226-vdec-reg-order-rk3576-v4-0-b8d72dc75250@collabora.com>
+	 <20260226-vdec-reg-order-rk3576-v4-1-b8d72dc75250@collabora.com>
+	 <20260227-observant-roaring-ara-ef7eb0@quoll>
+	 <adbbdbb1-b126-4807-821c-c9850befd695@collabora.com>
+	 <dc2e9e13-165f-4ca1-be29-aabdbf133856@kernel.org>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-upWNrmByhbR1y4m3hEOj"
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM9PR04MB8423:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6f226043-d6f8-4a80-4b4c-08de7666477c
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|19092799006|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: ialZJFeVEV1WH4bkwTjEcfc4v/t635DraI6N1k+ZSeUubVGlogdb1OWCNAGDgaYdGXtdPdBnguUV6VUBLlCJAAISeHMiceap1+j+wQ8TujgzmxKhW+2CFENcOmIvB1SGa88YixEKn2XOsbUQjZkfDKjoCTGnhzdfx6LqddLaz2C6s6W/gNku9urE00lLOsCm4/jzEobz6CwlKzyvzTpeI1w8ol2v9rPT91kV3nV0xBtrdWCtaJfZYomNxSou0RlRvW7HvphdRIDimHk0NZbo9478P29Mq4iZfa1s9US58FgOixf9hY6wikH//4QdVhn83nmALRU3ffrFIOx/vGjdQ2/vFfISmm05kzECfl4afcLH98uaq7wBKuggAhc4WPYoQN3wB9yyvsyKfQEWUjXyK/uDq+VNpHO01s0d8Uk8IlaJ1PmqjaErK3A5DMF3n0pT35AjghPLxa9+/B+KxdC8dhpVK7k9RbgqQDq9ZmDuaAQzSG/P65msIL3hhmDBR98zbs5erfZUDawvKuSIfQcBRqIr45qTGH7Pm3Rr4I8SCpLymYKflva4rDAODJtsL6797j20F/8DPIVif6RnL/4mUCXB3Q6c3grIF/gW3P9iSyrvgaFXOHQt3pVk4M0lBwRxNMkEcnoP+uxCrk8VhAsP/7QewIA3yhrjbj4GKDefaqMD+SZcj784poSaDcWN6yF3zmsRyTxnbSMELDcWOiPAcVUgmVOmbCTMJNNw7CFe5PCXCLjxx3b4k0m5Bm8LU6o1
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(19092799006)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TXo0enJxRlZSOHRTN0Y1WEFtQ0YycWN2TEZqTm1Qc2Q2dG5MOFEzTEgzYnRB?=
- =?utf-8?B?RFhLSnpVTHlOS1hLTmlDNHBQTXoxU2ZJNlNKdGQydWRaSlBtZUFtNytHRU9G?=
- =?utf-8?B?RFVzUk9WWGo2ekcxNGl4WklWYWFPaGtCVU8zYzBzM1hyK0d4d1VZUXpMRTJv?=
- =?utf-8?B?TFVla28vcWtRamN6MzFLOU1McmNBMlNyaG1BdHF5LzVsaFB1V1JqU1NtaEJV?=
- =?utf-8?B?UVRhWnZmdmJzNGRaVDAyaE1ZY2dKQjZFbVh3UjAyb2dCZGJGazE0eXliSllG?=
- =?utf-8?B?QVhWQ1NvdFg2T0ZBODVRSlVjYmRoMmY3QUlFL0U1WHNwRHl3WTlPMGFORmth?=
- =?utf-8?B?TUVNUHYrdnBnU3YxMU9yYXZOTzNwc3R5aEdQL0xqSlV1QmtvZW9WdnBiUTRt?=
- =?utf-8?B?ZHlIdHZEUHlmUHkvbUgvOTZOMU5mKzZ6S2dZZ09qTU9UdVBZTi9aZDJPU05P?=
- =?utf-8?B?bmtXUzgrcmd0NlllZjFORVd3VDZITW5IbkhBT3EzQXpMU1hYT2VvSXg5NGpN?=
- =?utf-8?B?b2UyTE5RNXFmeUovUzBoVTFwaGV3S1p5TzZUYmIvWFNsSzgrMU81SCsyTUZP?=
- =?utf-8?B?UkRIQWtMaVEvdERFTFMwdnNKNTVsWW1qS0ZJeGdpaVN3SCt0WlZmQU01WldB?=
- =?utf-8?B?SkNWdjdGNXMxVnhCb0dVSlpZVTlNQllQQkVwUGVLRnRxNXRlZkd0N1RsVjBM?=
- =?utf-8?B?YlRNbDhxbXNtSFFYU1YzSmJGVG15K3o4ZlNyd0pncHhTRnJLaDlnS3Y5OEM2?=
- =?utf-8?B?c2wzMWhsanZ3SlJKRlMzVCs3dU8xMlR0MnpXQ3FpbzNZbjBlUXdGMzJuUGg4?=
- =?utf-8?B?MWVyNXp6ZWNFVHRYWno4cEdQcXBQSngwQ3RYZ0ZoSzQ3anNnbmlLenpEUEpi?=
- =?utf-8?B?MTcwenNXb0p6Rzc1NG5lQXkxbnEzY2VsOEJweHd3SzFCdnJjRGpGTjFXd0Jq?=
- =?utf-8?B?ZXdUWmtmRFVpS0d3bGI2aS9nYXp3TjhXMyt3czlXRVIvVWQvckhYRTVIaUhP?=
- =?utf-8?B?Yy9pc0huTU5GNkNzYW9RRFE1TjJLTm9nYm9Cdit4Y3VQTU9lVlYrd0FqamE0?=
- =?utf-8?B?WlFUcnN2d1VmRnBRdTIzK29lR3pjVU81L3FDYnB0bGNQckNibDBqL1dQVDY2?=
- =?utf-8?B?WlM0dytkR1FlYnd5U3lWaks0VUhuUmJLS1d2RElIZXB2V2NVUXhCd3QzUW5J?=
- =?utf-8?B?K1AxazlHMWRXUjhvL08wK1pOa056dk5GT0NJZEJKWWtML3FCWjlubWZBRThG?=
- =?utf-8?B?d3NLc0ViZkN0dmtPTUlDdzRuS1Zsa1IwaEsrdWJ6TFArUU5PSnlDV1VjNTdu?=
- =?utf-8?B?R1V5RDhZYWVQUHY5RU5VdmJZdGdOTEVEVXAxZlB4eXhtdkRKOUtPeU9yL0tK?=
- =?utf-8?B?bktFL2ZPYlVlamxFa09TcTlzR05vcnJ4c2p2MXlXZkkwMUljYzhaU1FUZDNu?=
- =?utf-8?B?VjBsQ3krdEVNTTBOUlBVd0FGVmR3WEpUdDVXZnVhVEg4WWs3ODMvR2RIK0pY?=
- =?utf-8?B?R3lRR3FCVU5aTVJCRUV1b0s2Yks2RWIzcGtKZlp3Q0xPekJsc29qdDl3TG5o?=
- =?utf-8?B?WlU0YXpkYWZvMHl3aWVTcGM1SjhTWEJxNi95Q2RxNVY4Z1dOMUZlZ2hwcGZz?=
- =?utf-8?B?OXloQ1ZHbDlWMWVTVTgwYmdpbjVnMkt0K0c1L0Rxc0NRZjNKS25ZLzRvRmtI?=
- =?utf-8?B?OCtrMUZoc1ZnUUZSRXFBeEFuMTEvNmJMd0xtSytBVTVSV3R1dlNCVndrdGMx?=
- =?utf-8?B?eVgvU1BoRDdERjhYUWJLM1I2RW4wSGZJMlVWQUJWYnM1ZjFtamNsa3ZQS2kz?=
- =?utf-8?B?dSsrQUUxYTh1MHNNYmorQXh2dmR2MmkrcDUyZEdFaTB1MDl3ejdSWmdwN2Z0?=
- =?utf-8?B?aTk0cDltWEw1YWR0SG4zZGkzVVdhRkpXTFcxZ2NQZ0FEeUZ5VVZGVlYzeEky?=
- =?utf-8?B?cnhlWW5LcTI2cEs5NFVvQ1pMUDRham9UNFVmcFZwcXI1U3lpTFM5V1pVVjVE?=
- =?utf-8?B?SGM0alZjamltS0VSNVJtKzRMMFhCeTdrU0k5by9TWTY2L2hkV29hYkpxMEVG?=
- =?utf-8?B?bG9yZnNKTmY3azAwNTFmTlVyd1FmV1loSDBhZ2pFZkFtTU5HRzR5cURBOTJo?=
- =?utf-8?B?TXJpZGsvVHR1UXg3WVh0YVNJZUxwZk9LaVBtR2VDazRpZWNIR0RoazZrTXM4?=
- =?utf-8?B?L0hYYWpBNG1tYnlaRTV6SXFOZUM1QVZCMUlibUxhaXlHdEFHdEJ0UzRIK1R6?=
- =?utf-8?B?UnFqWWdYa2U5QWJ3ZGpPajE2MFpmbkRiVExPWXNJKzdHYlF2NDRzYVMweE1B?=
- =?utf-8?B?L1ErMjJjT05WZ1BiUTljK2E4QVFDaEpRWnl0eGFKb3pNRU1zbjJEdz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6f226043-d6f8-4a80-4b4c-08de7666477c
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Feb 2026 01:11:19.2559
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 18mPwb6sys+TayUpCUGFPEL4Mg664IXMFReJ0LVeX7IIrB7hkD1AHxBX8ytqAebmUvfqYxP5mlkwxWlsPcCyPQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8423
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_171124_968099_D3B24404 
-X-CRM114-Status: GOOD (  19.16  )
+X-CRM114-CacheID: sfid-20260227_171207_410924_D0AA6C80 
+X-CRM114-Status: GOOD (  31.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,128 +100,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
 
-Per errata[1]:
-ERR050531: VPU_NOC power down handshake may hang during VC8000E/VPUMIX
-power up/down cycling.
-Description: VC8000E reset de-assertion edge and AXI clock may have a
-timing issue.
-Workaround: Set bit2 (vc8000e_clk_en) of BLK_CLK_EN_CSR to 0 to gate off
-both AXI clock and VC8000E clock sent to VC8000E and AXI clock sent to
-VPU_NOC m_v_2 interface during VC8000E power up(VC8000E reset is
-de-asserted by HW)
+--=-upWNrmByhbR1y4m3hEOj
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Add a bool variable is_errata_err050531 in
-'struct imx8m_blk_ctrl_domain_data' to represent whether the workaround
-is needed. If is_errata_err050531 is true, first clear the clk before
-powering up gpc, then enable the clk after powering up gpc.
+Le vendredi 27 f=C3=A9vrier 2026 =C3=A0 14:03 +0100, Krzysztof Kozlowski a =
+=C3=A9crit=C2=A0:
+> On 27/02/2026 12:37, Cristian Ciocaltea wrote:
+> > Hi Krzysztof, Conor,
+> >=20
+> > On 2/27/26 9:46 AM, Krzysztof Kozlowski wrote:
+> > > On Thu, Feb 26, 2026 at 12:46:53PM +0200, Cristian Ciocaltea wrote:
+> > > > With the introduction of the RK3588 SoC, and RK3576 afterwards, two=
+ more
+> > > > register blocks have been provided for the video decoder unit.
+> > > >=20
+> > > > However, the binding does not properly describe the new hardware la=
+yout,
+> > >=20
+> > > As you shown me last time with excerpt of address spaces from
+> > > datasheet/manual, the binding correctly describes the hardware and ab=
+ove
+> > > sentence is not true.
+> > >=20
+> > > > as it breaks the convention expecting the unit address to indicate =
+the
+> > > > start of the first register range, i.e. 'function' block is listed
+> > >=20
+> > > Imprecise wording. "start of the main or primary register range"
+> > >=20
+> > > (if you have 0x1000 with one reg and 0x20000000 with everything, the
+> > > unit address will be 0x20000000).
+> > >=20
+> > > > before 'link' instead of the opposite.
+> > > >=20
+> > > > Since the binding changes have been already released and a fix woul=
+d
+> > > > bring up an ABI break, mark the current 'reg-names' ordering as
+> > > > deprecated and introduce an alternative 'link,function,cache' listi=
+ng
+> > > > which follows the address-based ordering according to the TRM.
+> > > >=20
+> > > > Additionally, drop the 'reg' description items as the order is not =
+fixed
+> > > > anymore, while the information they offer is not very relevant anyw=
+ay.
+> > >=20
+> > > This is fine for me.
+> >=20
+> > Thanks for the additional feedback!
+> >=20
+> > If I'm not mistaken (please correct me), the only remaining (hard)
+> > blocker for the series would be to improve this commit message.
+> >=20
+> > How about the following:
+> >=20
+> > =C2=A0=C2=A0=C2=A0 With the introduction of the RK3588 SoC, and RK3576 =
+afterwards, three
+> > =C2=A0=C2=A0=C2=A0 register blocks have been provided for the video dec=
+oder unit instead of
+> > =C2=A0=C2=A0=C2=A0 just one, which are further referenced in the datash=
+eet by 'link table',
+> > =C2=A0=C2=A0=C2=A0 'function' and 'cache'.=C2=A0 The former is present =
+at the top of the
+> > =C2=A0=C2=A0=C2=A0 listing, starting at video decoder unit base address=
+.
+> >=20
+> > =C2=A0=C2=A0=C2=A0 However, while documenting RK3588, the binding broke=
+ the convention
+> > =C2=A0=C2=A0=C2=A0 expecting the unit address to indicate the start of =
+the primary register
+> > =C2=A0=C2=A0=C2=A0 range, i.e. the 'function' block got listed before t=
+he 'link' one.
+> >=20
+> > =C2=A0=C2=A0=C2=A0 Since the binding changes have been already released=
+ and a fix would
+> > =C2=A0=C2=A0=C2=A0 bring up an ABI break, mark the current 'reg-names' =
+ordering as
+> > =C2=A0=C2=A0=C2=A0 deprecated and introduce an alternative 'link,functi=
+on,cache' listing
 
-While at here, using imx8mm_vpu_power_notifier() is wrong, as it ungates
-the VPU clocks to provide the ADB clock, which is necessary on i.MX8MM,
-but on i.MX8MP there is a separate gate (bit 3) for the NoC. So add
-imx8mp_vpu_power_notifier() for i.MX8MP.
+I would suggest something around:
 
-[1] https://www.nxp.com/webapp/Download?colCode=IMX8MP_1P33A
+		   and introduce the actual hardware order "link, function,  =20
+=C2=A0
+                   cache" ...
 
-Fixes: a1a5f15f7f6cb ("soc: imx: imx8m-blk-ctrl: add i.MX8MP VPU blk ctrl")
-Cc: stable@vger.kernel.org
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
-Changes in v2:
-- Add errata link in commit message
-- Add comment for is_errata_err050531
-- Link to v1: https://lore.kernel.org/r/20260128-imx8mp-vc8000e-pm-v1-1-6c171451c732@nxp.com
----
- drivers/pmdomain/imx/imx8m-blk-ctrl.c | 45 +++++++++++++++++++++++++++++++++--
- 1 file changed, 43 insertions(+), 2 deletions(-)
+The rationale is that there is no alternative, if you use the deprecated or=
+der,
+a hypothetical driver maybe interpret the offsets wrong. There is no possib=
+le
+backward compatibility with a new order, and you can't have two possible or=
+der
+in this syntax.
 
-diff --git a/drivers/pmdomain/imx/imx8m-blk-ctrl.c b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-index 19e992d2ee3b845bc9382bcd494a5d96f9c6ac44..1cd0a22ce3e533358dd7449da9989162b36c5fe6 100644
---- a/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-+++ b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-@@ -54,6 +54,15 @@ struct imx8m_blk_ctrl_domain_data {
- 	 * register.
- 	 */
- 	u32 mipi_phy_rst_mask;
-+
-+	/*
-+	 * VC8000E reset de-assertion edge and AXI clock may have a timing issue.
-+	 * Workaround: Set bit2 (vc8000e_clk_en) of BLK_CLK_EN_CSR to 0 to gate off
-+	 * both AXI clock and VC8000E clock sent to VC8000E and AXI clock sent to
-+	 * VPU_NOC m_v_2 interface during VC8000E power up(VC8000E reset is
-+	 * de-asserted by HW)
-+	 */
-+	bool is_errata_err050531;
- };
- 
- #define DOMAIN_MAX_CLKS 4
-@@ -108,7 +117,11 @@ static int imx8m_blk_ctrl_power_on(struct generic_pm_domain *genpd)
- 		dev_err(bc->dev, "failed to enable clocks\n");
- 		goto bus_put;
- 	}
--	regmap_set_bits(bc->regmap, BLK_CLK_EN, data->clk_mask);
-+
-+	if (data->is_errata_err050531)
-+		regmap_clear_bits(bc->regmap, BLK_CLK_EN, data->clk_mask);
-+	else
-+		regmap_set_bits(bc->regmap, BLK_CLK_EN, data->clk_mask);
- 
- 	/* power up upstream GPC domain */
- 	ret = pm_runtime_get_sync(domain->power_dev);
-@@ -117,6 +130,9 @@ static int imx8m_blk_ctrl_power_on(struct generic_pm_domain *genpd)
- 		goto clk_disable;
- 	}
- 
-+	if (data->is_errata_err050531)
-+		regmap_set_bits(bc->regmap, BLK_CLK_EN, data->clk_mask);
-+
- 	/* wait for reset to propagate */
- 	udelay(5);
- 
-@@ -514,9 +530,34 @@ static const struct imx8m_blk_ctrl_domain_data imx8mp_vpu_blk_ctl_domain_data[]
- 	},
- };
- 
-+static int imx8mp_vpu_power_notifier(struct notifier_block *nb,
-+				     unsigned long action, void *data)
-+{
-+	struct imx8m_blk_ctrl *bc = container_of(nb, struct imx8m_blk_ctrl,
-+						 power_nb);
-+
-+	if (action == GENPD_NOTIFY_ON) {
-+		/*
-+		 * On power up we have no software backchannel to the GPC to
-+		 * wait for the ADB handshake to happen, so we just delay for a
-+		 * bit. On power down the GPC driver waits for the handshake.
-+		 */
-+
-+		udelay(5);
-+
-+		/* set "fuse" bits to enable the VPUs */
-+		regmap_set_bits(bc->regmap, 0x8, 0xffffffff);
-+		regmap_set_bits(bc->regmap, 0xc, 0xffffffff);
-+		regmap_set_bits(bc->regmap, 0x10, 0xffffffff);
-+		regmap_set_bits(bc->regmap, 0x14, 0xffffffff);
-+	}
-+
-+	return NOTIFY_OK;
-+}
-+
- static const struct imx8m_blk_ctrl_data imx8mp_vpu_blk_ctl_dev_data = {
- 	.max_reg = 0x18,
--	.power_notifier_fn = imx8mm_vpu_power_notifier,
-+	.power_notifier_fn = imx8mp_vpu_power_notifier,
- 	.domains = imx8mp_vpu_blk_ctl_domain_data,
- 	.num_domains = ARRAY_SIZE(imx8mp_vpu_blk_ctl_domain_data),
- };
+Though, the rational to break ABI and backward compatibility is something w=
+e all
+agreed on.
 
----
-base-commit: 81f98c6c88ebd36df93d903bdfd3c8a10a722eef
-change-id: 20260128-imx8mp-vc8000e-pm-4278e6d48b54
+> > =C2=A0=C2=A0=C2=A0 which follows the address-based ordering according t=
+o the TRM.
+> >=20
+> > =C2=A0=C2=A0=C2=A0 Additionally, drop the 'reg' description items as th=
+e order is not fixed
+> > =C2=A0=C2=A0=C2=A0 anymore, while the information they offer is not ver=
+y relevant anyway.
+>=20
+> Yes, it's fine. My comments were actually not blocking, I just wanted to
+> wait if discussion with Conor resolves somehow.
+>=20
+> But for me anyway:
+>=20
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+>=20
+>=20
+> Best regards,
+> Krzysztof
 
-Best regards,
--- 
-Peng Fan <peng.fan@nxp.com>
+--=-upWNrmByhbR1y4m3hEOj
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaaJA3wAKCRDZQZRRKWBy
+9E7eAQD7eBKuRWQizFQXyLJYdA2O0SdCieGgFYeAuhPz4TNfvwEA+qq94TAEmNy2
+274VsKH25GkqEIFDufTIZrfBHRxBuww=
+=JQoX
+-----END PGP SIGNATURE-----
+
+--=-upWNrmByhbR1y4m3hEOj--
 
