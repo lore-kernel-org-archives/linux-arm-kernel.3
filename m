@@ -4,107 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 967E21048926
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7F631048927
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 00:56:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vjfco02/smFUClEsqTheeyjpW86+y48auZFweZaaMU4=; b=X3DfYYtpQXPYMZEytu297OHdUz
-	80zxdIlbo3/PHP42d3CUGakLmX3MGlM0w40ZPpiD3x+ih46apLQzEGcDgg4BbDNarXvHt/4r0DQOL
-	QgyuGmiBaklKXr1y2371lD89pFNAbyuv8DgK/mxt66+WiaDMg60aemuAjVkZbVhGh6pZ87Wu+COG0
-	zeV8GduTqfWj2opHy0nBpkTZic6WARnju6I68IiZHnTagb5TlnWrtNBs2WYA478SPwORIjC66z8rc
-	crtWIIds7HtEtM3DpZzIBnZUSuNq4UC/QOMU153+tU6bPrWijwx1aAZ1m0toI8XoxqB4B02DndYGl
-	7KCk5ZDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m56MCNSdemC7M/yNjQY8R0BzpwpuN6R8qkSkdL3s7N4=; b=ahXYUZogxl9mN4LCryj6v5w1o9
+	OuBbFgY8ccmcFMXj5gHIchp8IsygEWovPMlLgom9n5zBEibg3nEMuOXTnrvQUOuhiftQGHc4Tvn8m
+	wLjVoliLqQUTU4ZDXuITXvF5vg4E/NsQFA05bJzj/9U+E4r4lOn7TQIE0B65KnfF1ZLDLLpshzb9t
+	jmyPav9/EchYUlU3OUGXyjpccE3RGHhx2abKIjlkhdVv0f23i/fdufoibLhdZ57arHlhP5bGaIVm2
+	+3SVK9661YR9N7q2ZyOE5kffUt1/tLVVRIA/uLxzCfWeov8tL/Ek2ppXdV4cSHCirw83dDt/oKpwu
+	64uJad1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw8ck-00000009MBb-1N3r;
-	Sat, 28 Feb 2026 00:56:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vw8cj-00000009MAi-2Vtq;
+	Sat, 28 Feb 2026 00:56:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw8ci-00000009M9K-0Fzu
-	for linux-arm-kernel@bombadil.infradead.org;
+	id 1vw8ci-00000009M9G-0GhW;
 	Sat, 28 Feb 2026 00:56:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Vjfco02/smFUClEsqTheeyjpW86+y48auZFweZaaMU4=; b=lncIZBRJf8PEcgP2UCbMJI9PRr
-	zU7scc5G+EbvT7U9qEXSmLFp0iDMYoAz75eCSCoC9SxheA9N5qoasZ6f/NqL+aOymeleTeKgHQfWD
-	nvKYPKD9qRoTAdLOvTXtNQs5rFqcDmtMMnRPgF/BP57x//shQqe7HObfj6hPXxc6V/R9JhRWe6qdd
-	DCQvSqTpf/94NheCRvmLJa55ppuOcVG+wN50fDVScbzZjZiixv+oqxNhK+/J49lethH2M7X13MHYm
-	ECkpr+icWlpg9ci68w1XAz99OnsOltvLnGnmrDHcyYU1jNXb4Uxs1tp0YcmddDTlynlkpAR8XM/4e
-	RcqzPQnQ==;
-Received: from mail-vk1-xa33.google.com ([2607:f8b0:4864:20::a33])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw8ce-0000000E8Wj-3NbY
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Feb 2026 00:55:59 +0000
-Received: by mail-vk1-xa33.google.com with SMTP id 71dfb90a1353d-5688b9e4e80so2651327e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Feb 2026 16:55:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772240154; x=1772844954; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Vjfco02/smFUClEsqTheeyjpW86+y48auZFweZaaMU4=;
-        b=QqyO2Bsqa7vdVuyUReQZARmT/vqjiFKP5AO0APEtfzlsoBx1j8C2zvJF8vCF3nlqlI
-         m/Je6I0l51SaoYIVjT/70oaCK4TS2CUHuyYRrcdvKZOy5U0U02pj7ymKhyvgB0hFM01x
-         sP5jUKcjTMaedNKpR4Ip2bgDbW183X9f1l15tZdRIF5m55PeUct5ICsXwWePocLA5tGX
-         FwciZB1HWQQz4AwB0vYB/HNIW2ZqzMaxT58PTZuOyYIXnfKyqIYj6Of9CvEgvGdT10h/
-         Iv4QI35W3lrjzyuSTZFIkz+l9N6rku73lVKzW06CDrMQhNjCAi0gwP7DAHgw3BBY4/NE
-         DC5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772240154; x=1772844954;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Vjfco02/smFUClEsqTheeyjpW86+y48auZFweZaaMU4=;
-        b=TpxcYTSQNtNnHVkZp8e2Jtx59xXl8bd75NxLBnaYsAkRbfbwxrTmaIFpSNLHWBmRtu
-         maE+fE+lViVk/2CEBccM0Z3owo4aI/SojG+WSxLunvYFXUbaowmEzjtEvxf+dEeSXXYQ
-         K5vEE/jOpXqkLyhdYkcgWQ3wnnZ07C65kowkSWyT6EA58x/lRh1DpAbKsgeEKDbmmN6s
-         E8T0w6ZJEqr3IvG6ed2Zt/kMkgiIIIpcwaNbRKK0yjJvYO9OYU1z46CYf2UWvupE68E6
-         wMQT64hXAA0velWLq2sPXjoVNTyfQ5eas/m3PN8AfjzMvwG/KPDfGrj+4e4OC1Ikf3A4
-         QVEA==
-X-Forwarded-Encrypted: i=1; AJvYcCUgWGfc6f6glEe3tXCzM/1s+JRpHQEXuptZSmYn8C09N0CokZCHSyCFapA/UnjeouftlYdfORj9kNcoQXdkpw6U@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyr4LbJ7kwAEyh4WglwrfEb1WO5hMtoNq18xh1UVJaZMaEZOuHm
-	NVLL9KwvHe1mv2H85rUQoh1nqCNi7mCPs+2wnsjgE/d+pkSYk4x5hs5F
-X-Gm-Gg: ATEYQzxCsJygwPiuHhkWtBFFl43wbA0ampU+rAFD87xLSilKBrDNL1qqHOLWc44U+qc
-	+OypDAFNFFMhciAal20S5noe3a2WNT2EPhMnn4JLCxpkAi91JOlSafVySB2eadXUKLjVHX0OuAa
-	zaMXKEwf2xrd0G5oxOQtT0FeKFZksWJtMyd3P5pVPwHNxpKzRr0ffGcCKrCbq5xyNgrLAygbMAH
-	BbXB7EJQ8L0kuSNhOm9krCPrz3Ygjll38zNJ/kda9s68Q9TnzVuQ9pKiIu4MukOBZFeQsXosV1w
-	ORvMoxmyIDfi7T11ZxiFLstpRz+3qifgMduEcqqo8AkGOCtOCjUu8VrhGgzOFZW+PIyEZFtjf3h
-	80VpKy3dpb3LVRvqVb5uzgsR2vADye1/PNqMiILyAxiqqUmQGdD9MwKh9uqlLjADdm7kTZwuPBc
-	DCRE0jKBCVPA==
-X-Received: by 2002:a05:6122:1da0:b0:567:4838:8e4c with SMTP id 71dfb90a1353d-56aa10046d4mr2709747e0c.8.1772240154391;
-        Fri, 27 Feb 2026 16:55:54 -0800 (PST)
-Received: from geday ([2804:7f2:800b:feb1::dead:c001])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56a91bb4fbesm8368019e0c.5.2026.02.27.16.55.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Feb 2026 16:55:54 -0800 (PST)
-Date: Fri, 27 Feb 2026 21:55:47 -0300
-From: Geraldo Nascimento <geraldogabriel@gmail.com>
-To: Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Geraldo Nascimento <geraldogabriel@gmail.com>,
-	Dragan Simic <dsimic@manjaro.org>
-Cc: linux-rockchip@lists.infradead.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH v5 4/4] PCI: rockchip: drop 5.0 GT/s defines
-Message-ID: <d0ccf2b80715e956f15720ebe45880705272ba43.1772239598.git.geraldogabriel@gmail.com>
-References: <cover.1772239598.git.geraldogabriel@gmail.com>
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CCA1B6057A;
+	Sat, 28 Feb 2026 00:55:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE281C116C6;
+	Sat, 28 Feb 2026 00:55:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772240158;
+	bh=vrU43BCMFUhI571ZBbWK67TPeRBthBSfjXT1gOjxGvQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=dRJG/cV8UO4EPLOKG0SME4XWTL4z5+/lxOI0LO0x5zNDpR+qZweaw3EUQYWAzB9FT
+	 37zQcfCwjx1gG5dRwZp20pzpF4TNkFE5UcmOT4hRk05N1ImyGFMBPXQIcdcuZCcmas
+	 dC8O3aVwWe/GhZIG0cUq8VJgxRXIniKxAfZXa7g/2NO9Y4BXlWSg86KbHD5w2PZtr7
+	 EE7dPsHb0FyJSR/rEvqBiohBTTyWqg4hJikV+Rnp9QyjIAr1g6GZLFvHHnwuDB8ewn
+	 C4Yr7XlOLRxL1OmTNEj/wkzNlWm+/HxDV2UK/fMes811tdjUuzNMlvHLbDjQUiy6ze
+	 k367Oe98bd7sg==
+Date: Fri, 27 Feb 2026 16:55:56 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
+ S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
+ Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>, Neil Armstrong
+ <neil.armstrong@linaro.org>, netdev@vger.kernel.org, Paolo Abeni
+ <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH RESEND2 net-next 0/8] net: stmmac: qcom-ethqos: further
+ serdes reorganisation
+Message-ID: <20260227165556.5cf9e844@kernel.org>
+In-Reply-To: <aaIysVxy-WxbiJz9@shell.armlinux.org.uk>
+References: <aaDSJAc-x2-klvHJ@shell.armlinux.org.uk>
+	<aaIysVxy-WxbiJz9@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1772239598.git.geraldogabriel@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_005556_985395_CEDEEAE5 
-X-CRM114-Status: GOOD (  11.74  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,52 +75,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Drop the 5.0 GT/s Link Speed defines from Rockchip PCIe header.
-The reason is that Shawn Lin from Rockchip has reiterated that there
-may be danger of "catastrophic failure" in using their PCIe with
-5.0 GT/s speeds.
+On Sat, 28 Feb 2026 00:11:29 +0000 Russell King (Oracle) wrote:
+> The AI review for patch 7 says:
+> 
+>   This commit fixes a bug but lacks a Fixes: tag. The commit modifies
+>   behavior introduced in 360000820ae2 ("phy: qcom-sgmii-eth: add
+>   .set_mode() and .validate() methods") by making phy_power_on() call
+>   qcom_dwmac_sgmii_phy_calibrate() to restore the previous setup, and by
+>   making qcom_dwmac_sgmii_phy_set_mode() check if the PHY is powered on
+>   before attempting calibration.
+> 
+>   Should this commit include:
+> 
+>   Fixes: 360000820ae2 ("phy: qcom-sgmii-eth: add .set_mode() and .validate() methods")
+> 
+> which is _wrong_, this isn't a bug fix.
 
-While Rockchip has done so informally without issuing a proper errata,
-and the particulars are thus unknown, this may cause data loss or
-worse.
+Yes, that's what I thought but then I saw the other thread..
 
-This change is corroborated by RK3399 official datasheet [1], which
-states maximum link speed for this platform is 2.5 GT/s.
+> So, in light of AI review being incorrect, my comment about re-sending
+> due to the AI review is no longer relevant, and no changes are required.
 
-[1] https://opensource.rock-chips.com/images/d/d7/Rockchip_RK3399_Datasheet_V2.1-20200323.pdf
+Okay.
 
-Fixes: 956cd99b35a8 ("PCI: rockchip: Separate common code from RC driver")
-Link: https://lore.kernel.org/all/ffd05070-9879-4468-94e3-b88968b4c21b@rock-chips.com/
-Cc: stable@vger.kernel.org
-Reported-by: Dragan Simic <dsimic@manjaro.org>
-Reported-by: Shawn Lin <shawn.lin@rock-chips.com>
-Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
----
- drivers/pci/controller/pcie-rockchip.h | 3 ---
- 1 file changed, 3 deletions(-)
+pw-bot: new
 
-diff --git a/drivers/pci/controller/pcie-rockchip.h b/drivers/pci/controller/pcie-rockchip.h
-index 3e82a69b9c00..b5da15601b58 100644
---- a/drivers/pci/controller/pcie-rockchip.h
-+++ b/drivers/pci/controller/pcie-rockchip.h
-@@ -42,7 +42,6 @@
- #define   PCIE_CLIENT_MODE_RC			HWORD_SET_BIT(0x0040)
- #define   PCIE_CLIENT_MODE_EP			HWORD_CLR_BIT(0x0040)
- #define   PCIE_CLIENT_GEN_SEL_1			HWORD_CLR_BIT(0x0080)
--#define   PCIE_CLIENT_GEN_SEL_2			HWORD_SET_BIT(0x0080)
- #define PCIE_CLIENT_LEGACY_INT_CTRL	(PCIE_CLIENT_BASE + 0x0c)
- #define   PCIE_CLIENT_INT_IN_ASSERT		HWORD_SET_BIT(0x0002)
- #define   PCIE_CLIENT_INT_IN_DEASSERT		HWORD_CLR_BIT(0x0002)
-@@ -197,8 +196,6 @@
- 	(((x) & PCIE_CORE_PL_CONF_LS_MASK) == PCIE_CORE_PL_CONF_LS_READY)
- #define PCIE_LINK_UP(x) \
- 	(((x) & PCIE_CLIENT_LINK_STATUS_MASK) == PCIE_CLIENT_LINK_STATUS_UP)
--#define PCIE_LINK_IS_GEN2(x) \
--	(((x) & PCIE_CORE_PL_CONF_SPEED_MASK) == PCIE_CORE_PL_CONF_SPEED_5G)
- 
- #define RC_REGION_0_ADDR_TRANS_H		0x00000000
- #define RC_REGION_0_ADDR_TRANS_L		0x00000000
--- 
-2.52.0
-
+> The only thing that's necessary is to have Vinod's ack added to patches
+> 4, 5, 6 and 7, as he gave them against the very first posting of these
+> on Wednesday. This is despite waiting the required 24h before sending
+> the first resend.
 
