@@ -4,95 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D19AFEE4C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 14:23:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EE6FFEE4ED
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 14:43:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hPjdZsZGp98bzXhzTSlyBYqfNOAXOQtvUQ//D9HXBng=; b=T7J1SPb3oyMz+RL4X2xkhUYLOb
-	tq/qOspj3ZVs3z1ztHttyUTkMXg13PXEtI45k23z3vXnZP2hQyWz0I9z3LBRe2yWVZ7DZ8K6s45LA
-	ZD2wv9EUOtm9fNVOlyAUJFywcqYN57iPChZ0nehkrRe7qoyhzS9x/Iu2+cbRlYn/GWVKBuwQhR6TH
-	0F1EQ5/nL6uaMXCXLt086rqbzngNt01/u8fyveGQVbHSaixL6lHrBme8W/odSYwmmWzM8a3sp+gO2
-	dg9ADi6vhGJJ6ZJZHOaS5UwJUpfAyrTXR3FuijpOVTDCaFUqWmuME/6pxgB5NOV+Zjdp9/T0i/Y/l
-	T97eOGaw==;
+	bh=gPK+NaLQf50xu2Fhaj1tgGT7iUo/kV3hqX5GBq4zPwE=; b=XW9SGOPSTR35SFeiogRk4xSeK5
+	wmK06XZr31onNgykqVp53rMFkhZM1X2G9aJuATzX6yOqIJiJgGZvxkGH2ZceFMt4fmeMvWv1Fvzz8
+	72YBZ/3cXP4DaePTaz9lPCpdxz8EFzEUpdUtwI1far7VU0YG+aB/6tCXDfp/APLkkJw7GMntMIn2L
+	o5X7np2Q3BnVsUWZ8pgz17zECMhUsyPDdc4VnDYm3rdLPQQLzzYNhW9VeuEoqYfwlow6X9jxsXfaq
+	kYezNvmoyvzIVq4xcI9TaiCCI7mmKvmkFw0xsUc/eJN61QvkXUWjvMhl1hQSfrPvQ1JTw0z6GCLVf
+	UAppucNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwLDf-00000009v9o-41dn;
-	Sat, 28 Feb 2026 14:23:00 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1vwLXd-00000009w41-1FcK;
+	Sat, 28 Feb 2026 14:43:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwLDd-00000009v9A-1W1Y
+	id 1vwLXa-00000009w3c-2a0r
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Feb 2026 14:22:58 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-483abed83b6so24320675e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Feb 2026 06:22:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1772288575; x=1772893375; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=hPjdZsZGp98bzXhzTSlyBYqfNOAXOQtvUQ//D9HXBng=;
-        b=jRv/1nmacnHuYygnTyzNGpdvTPw4jRZih8K1WqwZxLRw0YO3AlyK7iVh2qU3OpFlGL
-         cmvCWLixTBTD6bsibQ9FR36hNChrssBm72IygCTa97RUMmrrMj4sIIMdxUTj2vVl+9aG
-         zZ/54xbJ368RL7uMzFSTnJTH61jBwkEfVDKhIIWlggXzxwOvEnjDFZ7IJLsIi8AM4eXQ
-         MApnSVmTqwn+Ss5ASIbcb+B7GWteymmmRd2YjTI5YB2PuxQ1PSd2sALI5mDu7RSICbUh
-         +cToUPxHnOkwDBvcb03krIsKLbnfTpbER8jKAOwIHYQ6xouqKGelWi82/9S6hyCDedD5
-         0UHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772288575; x=1772893375;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hPjdZsZGp98bzXhzTSlyBYqfNOAXOQtvUQ//D9HXBng=;
-        b=cgGSHHNL7l/JVCEotwqGxBqcvw7/oPZN1Oj82HH1qoJAZp5UOgve18sBHWcbDBuHiM
-         bqClDwcHaF7bA2V69Gg2LxV/8OiYqBPF5ztzuhfLLSvrTn3H52/jG4eb3lzgdaT+Evkj
-         zWWaEMALmFw+udWnEdVL4nJeA+L51fYDUqLPTG+0a+07ycnxzm3wVf1KeFBEnZN5nnYC
-         vqdBTG1NmgSmcMm3YX5M3scF0dH3mgQtoMZ3rxG356+Nv2cJ8OLePQ4DiXUQVUn+uinK
-         1h4hk8fQZVwlvHVxMhZ8AvSjui2mxXPNMzcyAJys5p+nXApdsVMRMJP1YPvwkn8B0i76
-         m0jA==
-X-Forwarded-Encrypted: i=1; AJvYcCWLeXKAiNwVhWKy6Cj6s1sGQBbtFqbO9NVlgWzfbx4noj31SGVabNRGbig+LZNiT0U6ZFJbyMMX4Gym4+Em7jij@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRy30kptbDrwXGa7bG+apd1XzD5EFFgL3vE+jcA7M2iewM4k4D
-	BnPrXM8juqdsgZLtt8aGHCuOU98lAX3PX7lfs3DXOW7c2al8YQtKB2jfPZZYWZoed9U=
-X-Gm-Gg: ATEYQzw+slszAypcgMBLUZZpQ19g4VL/2om6FbPmR4CI+AAcqKRmPSQFADYSmWetfB9
-	jTKA6l/XQeY2/2yWf6wcyE1Vg8TtHI6sYJxdLjfo6ZMnQsHnH3M/znGedyJuMmgv9An9RnlVDoe
-	lgYL/ZoHSCEKTsxYyX11oiYz/NVdJzbKhHE3l04FIuOfrps5NrEUCV5DaavduS+ohrVKkphCxSh
-	EpsvGGaITFML6u45gw5jC5TURftkqW04VKJzWdq97bJYQkPrlPccMsjsqLrW0nmAG2znq3aRQi1
-	4laNu9FMBS14l5hfBEVA4oyiC7MOzNVMXw+pW5XR91NJ90BJELeZAsr/tJMs7REy6mxg5zSMah6
-	MdTMJQd40Wvu011XOCymmEfu04YAGCkZTwxYsyTQo7YkM5k4c6OkZVT9gaTpLXg0ViKvmoR3iEI
-	SAUm0VQEg8phwU4etvAT1xExkbNKNzfA==
-X-Received: by 2002:a05:600c:6990:b0:483:7ce6:1efb with SMTP id 5b1f17b1804b1-483c9bde843mr102315835e9.17.1772288575503;
-        Sat, 28 Feb 2026 06:22:55 -0800 (PST)
-Received: from [192.168.50.4] ([82.78.167.73])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483bffc17dasm159284865e9.2.2026.02.28.06.22.52
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 28 Feb 2026 06:22:54 -0800 (PST)
-Message-ID: <89e2618a-a0e9-42d5-b82f-eded1269bd9e@tuxon.dev>
-Date: Sat, 28 Feb 2026 16:22:52 +0200
+	Sat, 28 Feb 2026 14:43:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D851D409B8;
+	Sat, 28 Feb 2026 14:43:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2236C19421;
+	Sat, 28 Feb 2026 14:43:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772289813;
+	bh=DxlsWt8JrSJgLLW+czcpjK+QrBU8SMywKLQVpxZEYNo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Zi43zS/heJJsjx8xD5CvT1NRMRViVtJGHmPcYbdsLKPOkA4kgvPuBIc6eHi3FYHNu
+	 tKU1DY2o72t7cdJ85/8qLCfrTPKsjc2I0w0IqLRHk+Of69MnALJWE1nzCmnkz8fXPy
+	 sEuAnCesSKNISU0tLU9aGVEIQaVldt+UahGx/Sj+7Sd78a4q27SyezNs/cdxpQ4u9r
+	 uwOU1+GOmCXPRXR4M4U7QKn4Tw5bYAiJ/vzYE/rFaacKlsJ+0CrmDbncafKhc7e/NU
+	 sXr1UkDQvz+RBz1TzBTlmnCP5ENZlloBy1Omt9vThLGReYdukXtQhY5IolHn4X07Wt
+	 tB29snDc15nsQ==
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: s.nawrocki@samsung.com,
+	cw00.choi@samsung.com,
+	alim.akhtar@samsung.com,
+	mturquette@baylibre.com,
+	sboyd@kernel.org,
+	robh@kernel.org,
+	conor+dt@kernel.org,
+	sunyeal.hong@samsung.com,
+	shin.son@samsung.com,
+	Raghav Sharma <raghav.s@samsung.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-samsung-soc@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	chandan.vn@samsung.com,
+	dev.tailor@samsung.com,
+	karthik.sun@samsung.com
+Subject: Re: (subset) [PATCH 1/3] dt-bindings: clock: exynosautov920: add G3D clock definitions
+Date: Sat, 28 Feb 2026 15:43:21 +0100
+Message-ID: <177228975881.54431.6677380218613505033.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20260202103555.2089376-2-raghav.s@samsung.com>
+References: <20260202103555.2089376-1-raghav.s@samsung.com> <CGME20260202101954epcas5p27735b03488efceba5d7f970931905ec5@epcas5p2.samsung.com> <20260202103555.2089376-2-raghav.s@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/4] clk: at91: sam9x7: Rename macb0_clk to gmac_clk
-To: Mihai Sain <mihai.sain@microchip.com>, mturquette@baylibre.com,
- sboyd@kernel.org, nicolas.ferre@microchip.com,
- alexandre.belloni@bootlin.com, varshini.rajendran@microchip.com,
- cristian.birsan@microchip.com, balamanikandan.gunasundar@microchip.com,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- ryan.wanner@microchip.com
-References: <20260212100147.5007-1-mihai.sain@microchip.com>
- <20260212100147.5007-3-mihai.sain@microchip.com>
-Content-Language: en-US
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <20260212100147.5007-3-mihai.sain@microchip.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+X-Developer-Signature: v=1; a=openpgp-sha256; l=359; i=krzk@kernel.org; h=from:subject:message-id; bh=BJphhyUvycG85ma5KiuFViDXgyFJrR33M1MzhR+Y77M=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpov8J8SkbXScdOWTrVFJmnCLf50v3D3l/X2Fku d5SPKzffhGJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaaL/CQAKCRDBN2bmhouD 10CoD/wLDDrPPVk8HYtoavOY2eDXT/oFhSPX6oi2KVGzlzFii8DoOQ3XddBN0UpoaLGYxx1Xz7g w3DLym2bRUJBHma0SrdsRgTUdj1jhYXfv24T0iyuehPfvtVrbT+Iat3cDSBaZ2bMlP5b3So93/W GpXeXRGBjLpbP2ei/bZiLFMl1xDpmXyCZdaAcaQQlqzErlXLMRNKoUZvYhgorPedAVA9xFJqxra yjUzhC5lNXAoCf8VYWW7m/M4+qvUqRjtKt2w4L0f7fsd4DEYMLESLCszLsNGLM4vCoAtBpiBRdx kED9HDXv2iOMHlO9qXKqKDId20D8VnOgyN+KJbokks4a/MiZo92D87jrSQ3mv2FJy2ZK4Dj32HU QPLTNnyrebFcAq51Tj0PY4eEwaFAtwSPXLF9tT9hNPXtgeuwX12ie0e/ZannXGpzDMPMtoMIR1T GSwB2bUaiWSAFp8NPVFHcqkH3V5WRqMt+1J61isK3rqz2wEY/cEjibWiNjAG4aGVAEoqd58YAHG Mv/LWEtTKPL652h07w5C8gVtMRlX84bXD3HJK6H8EUVfQkoKzfm2paxXYB4J5lRVsEYhwHJ9mih NLkQoj/eyepRBNNa85ILYbKTziaFcetm1od5QuOn8KQqT5UFCUXTkiipEm5VDeiGXfYW2fAYHit Y9R1xJHBqpWHa1
+ A==
+X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_062257_421955_33BB4DD8 
-X-CRM114-Status: UNSURE (   8.42  )
+X-CRM114-CacheID: sfid-20260228_064334_700086_534F55B1 
+X-CRM114-Status: UNSURE (   5.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,15 +93,17 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
-On 2/12/26 12:01, Mihai Sain wrote:
-> Update the peripheral clock name for ID 24 from macb0_clk to gmac_clk
-> to match the actual GMAC hardware block present on SAM9X7 SoCs.
-> This aligns the clock naming with the device tree and avoids confusion
-> with legacy MACB controllers.
+On Mon, 02 Feb 2026 16:05:53 +0530, Raghav Sharma wrote:
+> Add device tree clock binding definitions for CMU_G3D
 > 
-> Signed-off-by: Mihai Sain<mihai.sain@microchip.com>
+> 
 
-Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Applied, thanks!
 
+[1/3] dt-bindings: clock: exynosautov920: add G3D clock definitions
+      https://git.kernel.org/krzk/linux/c/6e5913328102f818303b01e854df37fa9f251a47
+
+Best regards,
+-- 
+Krzysztof Kozlowski <krzk@kernel.org>
 
