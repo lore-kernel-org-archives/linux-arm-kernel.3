@@ -4,133 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 918D9FEE4CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 06:59:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1347FEE4CB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 07:15:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PJPIEBzxGra6FpeKObUxonN1k6L89V29jIvA47ICgos=; b=vcALYa/6dFMFokUVgfD/cychji
-	dgtOB20ZB90Zbaug+2CkMMYXkScumabclttH8yTpjYbSxORpp3r6TUi1pP6fGpy26z2Y0Q3ZrpBCa
-	m1CMKNnEL7nBneSimIXkto2JHwxOALg0ez5f26Io961MYxt8LyybleRKScDQWADuEEHoBq0ca8xn9
-	lTjhrEXXYb6+qwSPNPkbA56yIQDssxnq+PLvjPim5qJ1H0ggXrMcqQo6CbpVmj9hK8fT/RG4wsWsF
-	/YARDDGKSmFCS2proIvDXphrtTKtv8dWQ78wqRf5UtvATr4J/2hM078k3ee6NBzTZe5Ahp+eyN2Fo
-	aSKMrpAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4WAYkRFCYpcA+nAu13ib8+d0IGvS7iebtzbag+H95n4=; b=EMhtzxT1HqQXbUOQhbz1mOSYS/
+	NTU24DbRT3U7dzq7MU4LsXk8WWb3l2Ri1PW/BpdgmQX2ileK8sNUmHVg3POlMA4SDG9TNOBKGGSlw
+	SLim/VZOiAL+A8ambtNHs9hQt8ALRVWoEK92CNiTgiM6SxwfydKL2WwZh5twZz1aJG6ObYrD2mIYr
+	wWyZuKOQGedcCn2ou9uh6+4eTjmK7J8eRhrC8iOuBqqxaR9vxs7grOLhE7sPJOLztglR0XaHBuGKK
+	ZsPJtQDT7vUdLkOfFuDOZfKTGIkJjvSnSV8Hwg2t+rHfEH9O8oPW8GWCBxvpbuYHCx2iADuW2xLhw
+	AywT+1hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwEIL-00000009aBS-06jz;
-	Sat, 28 Feb 2026 06:59:21 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1vwEYL-00000009b9Y-1xjS;
+	Sat, 28 Feb 2026 07:15:53 +0000
+Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwEIE-00000009a47-2dr4;
-	Sat, 28 Feb 2026 06:59:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lPXFP95G+SpCp3lS/iVUtqF8UwFUnQbi/ZIHIenEv7oVkp3ajprMYbmo68G6/AzlStHmOuogjF10yfsCKTKqzMjFr60EVz9AlKjnTZUkDt+MuZ/9HjpyQ9xNriLGsDJs2J7XoCBnxt9cwgYWhx84fQhVygvHxLW8Jauu0eD6t5CrWhX3RsaNDRAiTTni5UiMT7VPNBQ4p2Wr8aUi0Fd4efXUyMCb1hoK0BGV76A8CMw7O6w4P8avuKT+x8s6a5F5O5p5Hja+ajxpy8RocS6mAYi4skZya7EewjtWnGqxmUgyps7My0hdASA3PEDU3fWBqOiIfKugXbIUYnyEULm2dA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PJPIEBzxGra6FpeKObUxonN1k6L89V29jIvA47ICgos=;
- b=DMV+wcqnNGLVEBiw8F8OO1lp+DHY0jRNrl9xhq19Ytlci5zbd+mxCA6ymvOeFD6ml0ZMwyioVwI9yI419+51V9/uRI5rDU4HpM8Zx//ZvRbrDlu4APC9Dhr0gU9RKmvUTSCAN2HFujpQtgF+enTaol7FVvUjub2Qc6dq2bZrOeKm11o1QsBB6shjg78NqkKv0gpxUQteqeySNveAq7vpHBxQG519r/6dVvJh64VqVigZBHy4yRkYBBRGxDz54MvK9rJy2PAKQ1V2JGzanTi4A3WrsK/WsslFM9SJrcLwmfz3ovGPKTLX/92pY/JganeUs4Wity7+OsnY3xkwxsJIZA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=khadas.com; dmarc=pass action=none header.from=khadas.com;
- dkim=pass header.d=khadas.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=khadas.com;
-Received: from PS1PPF62EEA9B1D.apcprd03.prod.outlook.com (2603:1096:308::2da)
- by SEYPR03MB6722.apcprd03.prod.outlook.com (2603:1096:101:6a::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.22; Sat, 28 Feb
- 2026 06:59:09 +0000
-Received: from PS1PPF62EEA9B1D.apcprd03.prod.outlook.com
- ([fe80::20a2:a696:ac88:2549]) by PS1PPF62EEA9B1D.apcprd03.prod.outlook.com
- ([fe80::20a2:a696:ac88:2549%4]) with mapi id 15.20.9654.014; Sat, 28 Feb 2026
- 06:59:09 +0000
-From: Nick Xie <nick@khadas.com>
-To: neil.armstrong@linaro.org,
-	khilman@baylibre.com,
-	martin.blumenstingl@googlemail.com,
-	jbrunet@baylibre.com,
-	krzk+dt@kernel.org,
-	jic23@kernel.org,
-	dlechner@baylibre.com,
-	nuno.sa@analog.com,
-	andy@kernel.org
-Cc: linux-iio@vger.kernel.org,
-	robh@kernel.org,
-	conor+dt@kernel.org,
-	linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	xieqinick@gmail.com,
-	Nick Xie <nick@khadas.com>
-Subject: [PATCH v1 4/4] arm64: dts: amlogic: meson-s4-s905y4-khadas-vim1s: add Function key support
-Date: Sat, 28 Feb 2026 14:58:40 +0800
-Message-Id: <20260228065840.702651-5-nick@khadas.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260228065840.702651-1-nick@khadas.com>
-References: <20260228065840.702651-1-nick@khadas.com>
+	id 1vwEY3-00000009b2k-2JMB
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 28 Feb 2026 07:15:39 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=4WAYkRFCYpcA+nAu13ib8+d0IGvS7iebtzbag+H95n4=;
+	b=LoTKhMsnG4bUuracOAyVcvy7GChGNh6pZ0RXf5XyLir4bwYo/l+8jGr8CLDvZFyTS5KqC73M5
+	tcFI8XDj92UQ0NwM/PDBYjTSTLRu09DO2bv0fhN/8yVkr9XQyw+Wwb/ZZT4oJNaYFDxkRhi9SFL
+	6yMWypZ6QWkvJvOIu++TKjk=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4fNGYs1cGwznTVY;
+	Sat, 28 Feb 2026 15:10:41 +0800 (CST)
+Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
+	by mail.maildlp.com (Postfix) with ESMTPS id 3B40B40568;
+	Sat, 28 Feb 2026 15:15:20 +0800 (CST)
+Received: from huawei.com (10.50.87.63) by kwepemr500001.china.huawei.com
+ (7.202.194.229) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Sat, 28 Feb
+ 2026 15:15:19 +0800
+From: Yin Tirui <yintirui@huawei.com>
+To: <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>, <x86@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <willy@infradead.org>,
+	<david@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <luto@kernel.org>,
+	<peterz@infradead.org>, <akpm@linux-foundation.org>,
+	<lorenzo.stoakes@oracle.com>, <ziy@nvidia.com>,
+	<baolin.wang@linux.alibaba.com>, <Liam.Howlett@oracle.com>,
+	<npache@redhat.com>, <ryan.roberts@arm.com>, <dev.jain@arm.com>,
+	<baohua@kernel.org>, <lance.yang@linux.dev>, <vbabka@suse.cz>,
+	<rppt@kernel.org>, <surenb@google.com>, <mhocko@suse.com>,
+	<anshuman.khandual@arm.com>, <rmclure@linux.ibm.com>,
+	<kevin.brodsky@arm.com>, <apopple@nvidia.com>, <ajd@linux.ibm.com>,
+	<pasha.tatashin@soleen.com>, <bhe@redhat.com>, <thuth@redhat.com>,
+	<coxu@redhat.com>, <dan.j.williams@intel.com>, <yu-cheng.yu@intel.com>,
+	<yangyicong@hisilicon.com>, <baolu.lu@linux.intel.com>, <jgross@suse.com>,
+	<conor.dooley@microchip.com>, <Jonathan.Cameron@huawei.com>,
+	<riel@surriel.com>
+CC: <wangkefeng.wang@huawei.com>, <chenjun102@huawei.com>,
+	<yintirui@huawei.com>
+Subject: [PATCH RFC v3 2/4] mm/pgtable: Make pfn_pte() filter out huge page attributes
+Date: Sat, 28 Feb 2026 15:09:04 +0800
+Message-ID: <20260228070906.1418911-3-yintirui@huawei.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260228070906.1418911-1-yintirui@huawei.com>
+References: <20260228070906.1418911-1-yintirui@huawei.com>
+MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: TY4PR01CA0055.jpnprd01.prod.outlook.com
- (2603:1096:405:372::11) To PS1PPF62EEA9B1D.apcprd03.prod.outlook.com
- (2603:1096:308::2da)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PS1PPF62EEA9B1D:EE_|SEYPR03MB6722:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3d7bad57-ca09-4c6a-fced-08de7696debb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|376014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: Mq72GeKHliEXC43m1zzfEjpyID6kBxvydzOInuJeYlz7OAl7vAab1VPKXdvLvi6JYzfcWpTT4gg4BgVLWvFw4qUXteCZg/c1spTT6habKBqpUQq/rVy3dqKuNo6JZgp/ATija4FOtLAyXlr61pSuHHV24cEil/WmWWG96feqSxMY1+XT1aLzJJOYAPqXYWuwhgEbfvtmAY9TQlbyComEQnLsxniSEFaJ/0ky0VDqdO7kccXbo7iWJG3E8bfaN0+QUPWeDELRJ32LJ3PGPqwaSq2kYVeNL4y52W68lb0B00vHeBRN8j/lVME2ps2ZJgiLp/lOsgI0zVmjWc0pS+je89tf/PvTUizO7N+UtJNhKEgdAsJzr0iY2mKhJIACxGBZHqzphpEEV7BC55fj/upHNeQX9wW3WX1bGtL3Y55lT4/BhtO6uff8kEAxCfRfzKe4UbpSt1obkxatBTxnFw5SkEsEGT8fOL5nCIuUar55U9kwJAOc1iNKuwCJ/RKYsk9c7PH06LxO9ZQ+y3YmxLCBW4srGVWusOtAmG0Cc++c3rXmQBLY65s4J2OEdv0xu7wOG4SWOAJXUt4m6i795zuAjnc+HXo5yCt4dJne3Moh+8bBH7cPycvahtguAbVP4ayb99nOAswr0lK6plYR5D4zacNqjx2bRbqugYE9ow+iOKty0qmuSuLxap1nrw9/Hr15mZdBke/viXgDecH9oWzrVuPjbzoOC5oucV/Yhjcy001FTAgP7xk2AgfdO4MYUUfddFhk7czbxQPuT/LNkbNcUqwxn32J1Yky4HkIV1moM/w=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PS1PPF62EEA9B1D.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(376014)(366016)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?od+AsoMbifcZUYQI/oT4Bl3I+WpjY5Rm/Dtfgln4JN7L7hi6NPXWOM10UJTl?=
- =?us-ascii?Q?yC/y9yfg6n2znMv9Q9E1SvGWXjmbfiK38OcjKkz3LgtP6U3j2q5hd1ERjGT0?=
- =?us-ascii?Q?Fcp13U/flSt/HnZkaeeG30aStIreiibBqtWynC8hEX+jeoRByzFSj6ruUp3B?=
- =?us-ascii?Q?0t3EYZkzN/0d18mLJend6pkGorkUKC8nu7/hc5cRWyq6HCTjCUNhqQrB/q7I?=
- =?us-ascii?Q?QNPBrCyK6VA8/h17+7CCg13tZN/5JTx79LBMun7o+galjCYG1cKTGS8fcKaf?=
- =?us-ascii?Q?0cGPRJ09jxW7ePangGt+ptdkFLtAp/ek+Xoo412zTSskIhIa+uvq4+azGOud?=
- =?us-ascii?Q?5PfFa9/ZX0lXZKUKkpixexBOsev89yxZNLQbVcFaK0Mi0fVqwEfXTxBFzUcf?=
- =?us-ascii?Q?1mbu4Ms0scnNIWWdSG8GCVD9QZvmA6u+A0wWBSIq2XeOn9uOjC4UOoidECca?=
- =?us-ascii?Q?894R783BrrzjEEAXleltyEYBrnzFeHORmQi99ASRT+FgnT8caCE7RCQkSd2f?=
- =?us-ascii?Q?C3OMqnvaBzaVQrnCV79/cvAgu36yvS5j0SkkgkPG4eIyYwx1YdOisEOU2ssm?=
- =?us-ascii?Q?O2CoFkoOs3FHFHJR8x+AGyaC6sKxIWxKu/RPS1kg6SsWPjZRjRxuSc5iwv9E?=
- =?us-ascii?Q?AcRxl4Tz5ah+/DWxN+NVKPqtXNCvbO3mJ5wOKhdbc5QmgPNeGZ2hL3Qwhj4r?=
- =?us-ascii?Q?RhdvuovM6/rAGD2hgeeqC/OEuCBRe5v9Xs30dHNLv70SCnmo2g0QBR4u1g/S?=
- =?us-ascii?Q?f7BSdpnJH513spqbEgGLyYutvpSRPtGw2fqM5Yp4aecMxZ8I7rGUgHv/lRKO?=
- =?us-ascii?Q?pm0VMvQFsckebFPE9eoPfCKiTvm++5BsGstFmNiik/J+zWeFg6J76GS29aKs?=
- =?us-ascii?Q?A+OKbz7fRY2fQ6NR4xJlMbEVsVsaVU6lB1WMklqgrw253Cy8GCWSI0VjpGGR?=
- =?us-ascii?Q?BXc3J79tH8fhpPXCakvpsw7M2wvxzEaBR7X7Y+Bspto6NfdMkO96gF0oX1Um?=
- =?us-ascii?Q?g4sm81qzxGJwk1ahMv/Ikr7k2uFo8C8i1lVJiCUI/fWAp+tN9l2fWf6lZhW3?=
- =?us-ascii?Q?n9A5YKcMaiwmKK+dAMWxPm+8g7y5feR8kv/Ltif6l2Wxz03JKGuWcIaDqwZS?=
- =?us-ascii?Q?W1l1bLFpMQuxGFH1u8VrL1zBYXHKvyrbGRXByQPHlDQ0zGVSbU1nivyQQ8Ug?=
- =?us-ascii?Q?b7TWDIcxtAlWVLbgV7vK9F8MgvjTMmUmyQakL75Md4NXlNqgJWBAsR1DYBK4?=
- =?us-ascii?Q?UkL7PdEqTAApDmfGweXMB6yUFuT0EV56X7B9aBwuJeQ0LLGzBHXZTXJWgQXL?=
- =?us-ascii?Q?nqgAJtGg2OzUlTFaNplq4IgYFOusPPaPSK/oigeEDBpJhDvt7kOhOYDz2C34?=
- =?us-ascii?Q?Q4evaCwS2fSvTvcI+ZnTjslGmHbfk7pLyodNKt4losZxjzsTMkUyYG+FsYMi?=
- =?us-ascii?Q?epyNfLchAtqejcF7wZju/j674zP+J1Ux78Q7HdyNoSOmGEWkHklRG7Z8tXO9?=
- =?us-ascii?Q?tu9iueI8NYmPgNi3hnzf3/yEyNrU0q4bM/E09j7qS8dgz49A12/OHEJYR860?=
- =?us-ascii?Q?aaJcy+bum1t9WjIbmoMMRYEPFeDHkJphwzuxPUEr5Gt99RAULnopthQza56r?=
- =?us-ascii?Q?M17YsDoY9+G/PuMrPmLopzUV7Tog/Gh+9fb8qZOK4EAIxPS2zNnOrrTBrKN3?=
- =?us-ascii?Q?gOoJ9DpZeBgeaSxdW7dW7oOQ/qER3JdnEqoTToxqnRC6q0z2?=
-X-OriginatorOrg: khadas.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3d7bad57-ca09-4c6a-fced-08de7696debb
-X-MS-Exchange-CrossTenant-AuthSource: PS1PPF62EEA9B1D.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Feb 2026 06:59:08.9909
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 2dc3bd76-7ac2-4780-a5b7-6c6cc6b5af9b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: GNErJWNB4hSLK7CXytPJA6nGlH9hjGOmnemwOFxXXKkOESat+6pGqEisY5Ouz+7X
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR03MB6722
+X-Originating-IP: [10.50.87.63]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemr500001.china.huawei.com (7.202.194.229)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_225914_674470_8846A492 
-X-CRM114-Status: UNSURE (   7.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260227_231538_597347_B0220C5F 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,53 +94,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the SARADC controller and add the adc-keys node to support
-the Function key found on the Khadas VIM1S board.
+A fundamental principle of page table type safety is that `pte_t` represents
+the lowest level page table entry and should never carry huge page attributes.
 
-Signed-off-by: Nick Xie <nick@khadas.com>
-Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Currently, passing a pgprot with huge page bits (e.g., extracted via
+pmd_pgprot()) into pfn_pte() creates a malformed PTE that retains the huge
+attribute, leading to the necessity of the ugly `pte_clrhuge()` anti-pattern.
+
+Enforce type safety by making `pfn_pte()` inherently filter out huge page
+attributes:
+- On x86: Strip the `_PAGE_PSE` bit.
+- On ARM64: Mask out the block descriptor bits in `PTE_TYPE_MASK` and
+  enforce the `PTE_TYPE_PAGE` format.
+- On RISC-V: No changes required, as RISC-V leaf PMDs and PTEs share the
+  exact same hardware format and do not use a distinct huge bit.
+
+Signed-off-by: Yin Tirui <yintirui@huawei.com>
 ---
- .../amlogic/meson-s4-s905y4-khadas-vim1s.dts  | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+ arch/arm64/include/asm/pgtable.h | 4 +++-
+ arch/x86/include/asm/pgtable.h   | 4 ++++
+ 2 files changed, 7 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts b/arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts
-index 664d64a267f2d..792ab45c4c944 100644
---- a/arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts
-@@ -40,6 +40,20 @@ secmon_reserved: secmon@5000000 {
- 		};
- 	};
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index b3e58735c49b..f2a7a40106d2 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -141,7 +141,9 @@ static inline pteval_t __phys_to_pte_val(phys_addr_t phys)
  
-+	adc-keys {
-+		compatible = "adc-keys";
-+		io-channels = <&saradc 0>;
-+		io-channel-names = "buttons";
-+		keyup-threshold-microvolt = <1710000>;
-+		poll-interval = <100>;
-+
-+		button-function {
-+			label = "Function";
-+			linux,code = <KEY_FN>;
-+			press-threshold-microvolt = <10000>;
-+		};
-+	};
-+
- 	emmc_pwrseq: emmc-pwrseq {
- 		compatible = "mmc-pwrseq-emmc";
- 		reset-gpios = <&gpio GPIOB_9 GPIO_ACTIVE_LOW>;
-@@ -278,6 +292,11 @@ brcmf: wifi@1 {
- 	};
- };
+ #define pte_pfn(pte)		(__pte_to_phys(pte) >> PAGE_SHIFT)
+ #define pfn_pte(pfn,prot)	\
+-	__pte(__phys_to_pte_val((phys_addr_t)(pfn) << PAGE_SHIFT) | pgprot_val(prot))
++	__pte(__phys_to_pte_val((phys_addr_t)(pfn) << PAGE_SHIFT) | \
++		((pgprot_val(prot) & ~(PTE_TYPE_MASK & ~PTE_VALID)) | \
++		(PTE_TYPE_PAGE & ~PTE_VALID)))
  
-+&saradc {
-+	status = "okay";
-+	vref-supply = <&vddio_ao1v8>;
-+};
+ #define pte_none(pte)		(!pte_val(pte))
+ #define pte_page(pte)		(pfn_to_page(pte_pfn(pte)))
+diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
+index 1662c5a8f445..a4dbd81d42bf 100644
+--- a/arch/x86/include/asm/pgtable.h
++++ b/arch/x86/include/asm/pgtable.h
+@@ -738,6 +738,10 @@ static inline pgprotval_t check_pgprot(pgprot_t pgprot)
+ static inline pte_t pfn_pte(unsigned long page_nr, pgprot_t pgprot)
+ {
+ 	phys_addr_t pfn = (phys_addr_t)page_nr << PAGE_SHIFT;
 +
- &spicc0 {
- 	status = "okay";
- 	pinctrl-names = "default";
++	/* Filter out _PAGE_PSE to ensure PTEs never carry the huge page bit */
++	pgprot = __pgprot(pgprot_val(pgprot) & ~_PAGE_PSE);
++
+ 	/* This bit combination is used to mark shadow stacks */
+ 	WARN_ON_ONCE((pgprot_val(pgprot) & (_PAGE_DIRTY | _PAGE_RW)) ==
+ 			_PAGE_DIRTY);
 -- 
-2.34.1
+2.22.0
 
 
