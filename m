@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31B40FEE4C6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 07:16:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 195C7FEE4CC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 07:16:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SOSDprgL0d5fs/XXHSWHAOQEs7sQM/PZoje0g5bejM4=; b=yO2jt3GPA0xHRUd5VyJWNWqIAg
-	TovudW/D5fG+l9PcP/g+Alf7QOO3QAxVRy+MqejZjE4c3pGK5/i6hhhO8uLb4xWOEUQQU8aOEJdTj
-	KxAdkiq9bZuOfDkWVzQ/ixNEN6Z9TaGCpo9Xcjcpl1gOmfpQ+qIdJYc5WRUSKmYarRWFiirsPw71B
-	qHwu7RI/oyfX0QvtARZceXq8fhZLcQZhFwGfpMRUVKBR8Q6N+4lySW0mITBix3o+K0SVb4cwMy7JF
-	TJ+Hu0Mfl75obtnWIRs6GMHyh9B60aQhWvzL51aCtXxyTlyZ3mwO4ckSAkRYIn9A3/ICI3kUJI5mv
-	gjEs7xYg==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mFgtGAL8dH+1/Hg4XeTLDkYoN8VuWkxKnd+XeVBTUlY=; b=3GHTc8QaEmT1tsL3bla7qM05qi
+	+X7/J30hiS0PBLGuOs+jPb4RzuU75aYcD8rXp45zauhu1RISumTnhn3cqow/87N4f1DxAythp0Hlq
+	n2ftnInvFyYNx9XyvO8vAcJWLsW5Xvsm77GwtIKeDGI37L9PHhAPInSwMxZAgVoGLsHWY7VT9K6sH
+	PAUnZfB6cQfWG+SRjw/6thdnoQv8lWgZpIB5JMqU4FCsatm7B6gxuGaDr+WvDuY8Lo5LTl53CuBv1
+	GHvsUMekYuATCFEpDxy84QpvWkLzLveR1uQf4AEEi8WYexToKUxoBFmAV11iWCv7DE6XKIk5G8cIh
+	yaElU9qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwEYL-00000009b92-0lbZ;
+	id 1vwEYL-00000009b9p-3A1V;
 	Sat, 28 Feb 2026 07:15:53 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwEY3-00000009b2m-2IPa
+	id 1vwEY5-00000009b2n-21Nk
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Feb 2026 07:15:39 +0000
+	Sat, 28 Feb 2026 07:15:41 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=SOSDprgL0d5fs/XXHSWHAOQEs7sQM/PZoje0g5bejM4=;
-	b=b221ls319orrwaq2qXPX2X0zO6JRk7cd5joqvN2G2Lw2Z1N4/h1DK7lO7egszzySI87F0+NCZ
-	O0HVVtR/kXiJ5iHfgXHC74jXTGkIoz4xJ2UEd7vIeGKxB7f9+6BZDG0zz6yp0mKfUcKwuVer6nW
-	1joxT8IUuxM8Vaj5HB3NzDQ=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4fNGYh4GDDzLlT6;
-	Sat, 28 Feb 2026 15:10:32 +0800 (CST)
+	bh=mFgtGAL8dH+1/Hg4XeTLDkYoN8VuWkxKnd+XeVBTUlY=;
+	b=EodAyxOmCYEFBPJpOjKo/Q3dPBnTr3eTjEpNxA4EGPuNhVCUFFJb/pc866X3VVGXjINMZ1K1d
+	oF1qyVtJKV92neV+7AcQ5SlekmeKj2yatm5oTRu8OdZVHqNQTfvVhjtjC9bAf7PddXOeIA34Fgh
+	1Aw0pwSSMio3RYaiRPOZi/g=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4fNGYJ2b1PzcZy3;
+	Sat, 28 Feb 2026 15:10:12 +0800 (CST)
 Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1684A40565;
-	Sat, 28 Feb 2026 15:15:21 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 70D9A40561;
+	Sat, 28 Feb 2026 15:15:18 +0800 (CST)
 Received: from huawei.com (10.50.87.63) by kwepemr500001.china.huawei.com
  (7.202.194.229) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Sat, 28 Feb
- 2026 15:15:19 +0800
+ 2026 15:15:17 +0800
 From: Yin Tirui <yintirui@huawei.com>
 To: <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>, <x86@kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <willy@infradead.org>,
@@ -65,12 +65,10 @@ To: <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>, <x86@kernel.org>,
 	<riel@surriel.com>
 CC: <wangkefeng.wang@huawei.com>, <chenjun102@huawei.com>,
 	<yintirui@huawei.com>
-Subject: [PATCH RFC v3 3/4] x86/mm: Remove pte_clrhuge() and clean up init_64.c
-Date: Sat, 28 Feb 2026 15:09:05 +0800
-Message-ID: <20260228070906.1418911-4-yintirui@huawei.com>
+Subject: [PATCH RFC v3 0/4] mm: add huge pfnmap support for remap_pfn_range()
+Date: Sat, 28 Feb 2026 15:09:02 +0800
+Message-ID: <20260228070906.1418911-1-yintirui@huawei.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260228070906.1418911-1-yintirui@huawei.com>
-References: <20260228070906.1418911-1-yintirui@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -78,9 +76,8 @@ X-Originating-IP: [10.50.87.63]
 X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
  kwepemr500001.china.huawei.com (7.202.194.229)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_231538_593129_82444199 
-X-CRM114-Status: UNSURE (   8.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260227_231538_601374_3964803C 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,60 +92,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With `pfn_pte()` now guaranteeing that it will natively filter out
-huge page attributes like `_PAGE_PSE`, the `pte_clrhuge()` helper has
-become obsolete.
+v3:
+1. Architectural Type Safety (Matthew Wilcox):
+Following the insightful architectural feedback from Matthew Wilcox in v2,
+the approach to clearing huge page attributes has been completely redesigned.
+Instead of spreading the `pte_clrhuge()` anti-pattern to ARM64 and RISC-V,
+this series enforces strict type safety at the lowest level: `pfn_pte()`
+must never natively return a PTE with huge page attributes set.
 
-Remove `pte_clrhuge()` entirely. Concurrently, clean up the ugly type-casting
-anti-pattern in `arch/x86/mm/init_64.c` where `(pte_t *)` was forcibly
-cast from `pmd_t *` to call `pte_clrhuge()`. Now, we can simply extract
-the pgprot directly via `pmd_pgprot()` and safely pass it downstream, knowing
-that `pfn_pte()` will strip the huge bit automatically.
+To achieve this without breaking the x86 core MM, the series is structured as:
+  - Fix historical type-casting abuses in x86 (vmemmap, vmalloc, CPA) where
+    `pfn_pte()` was wrongly used to generate huge PMDs/PUDs.
+  - Update `pfn_pte()` on x86 and ARM64 to inherently filter out huge page
+    attributes. (RISC-V leaf PMDs and PTEs share the exact same hardware
+    format without a specific "huge" bit, so it is naturally compliant).
+  - Completely eradicate `pte_clrhuge()` from the x86 tree and clean up
+    the type-casting mess in `arch/x86/mm/init_64.c`.
 
-Signed-off-by: Yin Tirui <yintirui@huawei.com>
----
- arch/x86/include/asm/pgtable.h | 5 -----
- arch/x86/mm/init_64.c          | 4 ++--
- 2 files changed, 2 insertions(+), 7 deletions(-)
+2. Page Table Deposit fix during clone() (syzbot):
+Previously, `copy_huge_pmd()` was unaware of special PMDs created by pfnmap,
+failing to deposit a page table for the child process during `clone()`.
+This led to crashes during process teardown or PMD splitting. The logic is now
+updated to properly allocate and deposit pgtables for `pmd_special()` entries.
 
-diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
-index a4dbd81d42bf..e8564d4ce318 100644
---- a/arch/x86/include/asm/pgtable.h
-+++ b/arch/x86/include/asm/pgtable.h
-@@ -483,11 +483,6 @@ static inline pte_t pte_mkhuge(pte_t pte)
- 	return pte_set_flags(pte, _PAGE_PSE);
- }
- 
--static inline pte_t pte_clrhuge(pte_t pte)
--{
--	return pte_clear_flags(pte, _PAGE_PSE);
--}
--
- static inline pte_t pte_mkglobal(pte_t pte)
- {
- 	return pte_set_flags(pte, _PAGE_GLOBAL);
-diff --git a/arch/x86/mm/init_64.c b/arch/x86/mm/init_64.c
-index d65f3d05c66f..a1ddcf793a8a 100644
---- a/arch/x86/mm/init_64.c
-+++ b/arch/x86/mm/init_64.c
-@@ -572,7 +572,7 @@ phys_pmd_init(pmd_t *pmd_page, unsigned long paddr, unsigned long paddr_end,
- 				paddr_last = paddr_next;
- 				continue;
- 			}
--			new_prot = pte_pgprot(pte_clrhuge(*(pte_t *)pmd));
-+			new_prot = pmd_pgprot(*pmd);
- 		}
- 
- 		if (page_size_mask & (1<<PG_LEVEL_2M)) {
-@@ -658,7 +658,7 @@ phys_pud_init(pud_t *pud_page, unsigned long paddr, unsigned long paddr_end,
- 				paddr_last = paddr_next;
- 				continue;
- 			}
--			prot = pte_pgprot(pte_clrhuge(*(pte_t *)pud));
-+			prot = pud_pgprot(*pud);
- 		}
- 
- 		if (page_size_mask & (1<<PG_LEVEL_1G)) {
+v2: https://lore.kernel.org/linux-mm/20251016112704.179280-1-yintirui@huawei.com/#t
+- remove "nohugepfnmap" boot option and "pfnmap_max_page_shift" variable.
+- zap_deposited_table for non-special pmd.
+- move set_pmd_at() inside pmd_lock.
+- prevent PMD mapping creation when pgtable allocation fails.
+- defer the refactor of pte_clrhuge() to a separate patch series. For now,
+  add a TODO to track this.
+
+v1: https://lore.kernel.org/linux-mm/20250923133104.926672-1-yintirui@huawei.com/
+
+Overview
+========
+This patch series adds huge page support for remap_pfn_range(),
+automatically creating huge mappings when prerequisites are satisfied
+(size, alignment, architecture support, etc.) and falling back to
+normal page mappings otherwise.
+
+This work builds on Peter Xu's previous efforts on huge pfnmap
+support [0].
+
+TODO
+====
+- Add PUD-level huge page support. Currently, only PMD-level huge
+pages are supported.
+
+Tests Done
+==========
+- Cross-build tests.
+- Core MM Regression Tests
+   - Booted x86 kernel with `debug_pagealloc=on` to heavily stress the
+     large page splitting logic in direct mapping. No panics observed.
+   - Ran `make -C tools/testing/selftests/vm run_tests`. Both THP and
+     Hugetlbfs tests passed successfully, proving the `pfn_pte()` changes
+     do not interfere with native huge page generation.
+- Functional Tests (with a custom device driver & PTDUMP):
+   - Verified that `remap_pfn_range()` successfully creates 2MB mappings
+     by observing `/sys/kernel/debug/page_tables/current_user`.
+   - Triggered PMD splits via 4K-granular `mprotect()` and partial `munmap()`,
+     verifying correct fallback to 512 PTEs without corrupting permissions
+     or causing kernel crashes.
+   - Triggered `fork()`/`clone()` on the mapped regions, validating the
+     syzbot fix and ensuring safe pgtable deposit/withdraw lifecycle.
+- Performance tests with custom device driver implementing mmap()
+  with remap_pfn_range():
+    - lat_mem_rd benchmark modified to use mmap(device_fd) instead of
+      malloc() shows around 40% improvement in memory access latency with
+      huge page support compared to normal page mappings.
+
+      numactl -C 0 lat_mem_rd -t 4096M (stride=64)
+      Memory Size (MB)    Without Huge Mapping With Huge Mapping Improvement
+      ----------------    -----------------    --------------    -----------
+      64.00               148.858 ns           100.780 ns        32.3%
+      128.00              164.745 ns           103.537 ns        37.2%
+      256.00              169.907 ns           103.179 ns        39.3%
+      512.00              171.285 ns           103.072 ns        39.8%
+      1024.00             173.054 ns           103.055 ns        40.4%
+      2048.00             172.820 ns           103.091 ns        40.3%
+      4096.00             172.877 ns           103.115 ns        40.4%
+
+    - Custom memory copy operations on mmap(device_fd) show around 18% performance 
+      improvement with huge page support compared to normal page mappings.
+
+      numactl -C 0 memcpy_test (memory copy performance test)
+      Memory Size (MB)    Without Huge Mapping With Huge Mapping Improvement
+      ----------------    -----------------    --------------    -----------
+      1024.00             95.76 ms             77.91 ms          18.6%
+      2048.00             190.87 ms            155.64 ms         18.5%
+      4096.00             380.84 ms            311.45 ms         18.2%
+
+[0] https://lore.kernel.org/all/20240826204353.2228736-2-peterx@redhat.com/T/#u
+
+Yin Tirui (4):
+  x86/mm: Use proper page table helpers for huge page generation
+  mm/pgtable: Make pfn_pte() filter out huge page attributes
+  x86/mm: Remove pte_clrhuge() and clean up init_64.c
+  mm: add PMD-level huge page support for remap_pfn_range()
+
+ arch/arm64/include/asm/pgtable.h |  4 +++-
+ arch/x86/include/asm/pgtable.h   |  9 ++++---
+ arch/x86/mm/init_64.c            | 10 ++++----
+ arch/x86/mm/pat/set_memory.c     |  6 ++++-
+ arch/x86/mm/pgtable.c            |  4 ++--
+ mm/huge_memory.c                 | 36 ++++++++++++++++++++++++++--
+ mm/memory.c                      | 40 ++++++++++++++++++++++++++++++++
+ 7 files changed, 93 insertions(+), 16 deletions(-)
+
 -- 
 2.22.0
 
