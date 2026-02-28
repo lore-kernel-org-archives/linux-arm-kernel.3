@@ -4,74 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D34AC1048925
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 00:11:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 325821048922
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 00:20:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GZdE3v1uM6dshlMijAz4RF1iw09aYz2wg0tBwp/dyGA=; b=nXE2ypBh4Ud7AkANZPbaqVwlsP
-	aAVI00Kx7Qwww0NbtoP7+bQptN8zUICWGtUYOq094nbIMWyehQMV66SRaJxBbex9xD3HpS4ANErlI
-	2UhOZ5LuO4jWh4wR3/7NzZISsZLwzxNMqUKgueq+Ygr2d8N4rh4rSLgg8WkqlKy583s6Z28VXJsXr
-	YFcEp9D8a2PyYkPhIiC3FNxOJz1D0KNEVgBEjIgToT9ZGHdSb/QUkERw6sfZmg4KsgRnc2b2bi+2K
-	wMeykvmhN7i7ewMgYe0C+v/60qnCvSneMzG5JIi8teC55T5/rSdCrZg4su+7tGnea/FpiidBePyoY
-	Jl/CWa6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7i49nip5TBMddeZ1zFCfyTc6K0SWqVCSWzZq88A8BeA=; b=s3BBRw4ELHJuEhvMFFQEnm6RKP
+	ZY2Qw1HMabur40Tnrfx3x/tN4+Ww3AprBq0oRV22dyGK82rocigkbS45IgG0+S5S7dcTE+WIkwtkf
+	CGhHHkrjZRwiYAEqJAF9389w9W9HE+yZ9KnK9KNiT6BGtLypJAEeLK4a9/Xo1VVFFaWyNgo+HVjJH
+	RsS49i7QbTNBBCr+COvHv49HzhcrqgbZJFUMGp7qxG/JFUOX0wFjYLO2ohVggJ5JQwcCqiHMbC/RU
+	ftAy8ASZoq2xGiJiOpaPyuA2sLdhcaRek5Ta4mfLfAbzz1IusJ6OkWCGjvbJD9GcUeEwqtDSQQqhh
+	HqIm0+yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw7vz-00000009JD6-1SrQ;
-	Sat, 28 Feb 2026 00:11:51 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vw83s-00000009Jpl-0Kke;
+	Sat, 28 Feb 2026 00:20:00 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vw7vw-00000009JCh-2r5v;
-	Sat, 28 Feb 2026 00:11:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=GZdE3v1uM6dshlMijAz4RF1iw09aYz2wg0tBwp/dyGA=; b=XlYnerF5xK1Ql3eFDyGif3TCY2
-	lfIAnzkBeHR3C7xAuoMd0iZlod2dCvxiH0kDHYgoxRbb2hPiQ3d8W5ER859VOyBAYAdOKf8cs7NTJ
-	Me1GZrqatduWjJVAio3hJRolyvfJkQ1VfGuyFKnzC+O8Oc6LT/vjJKxMaB4RRiqSvur17Yb4LN0zC
-	cHIzkBRkf5Qx+kZfdWnscVzDOZ0bu03U2P11u82Yp8thQpexjjSWxx5Z9xzRop9apWv+tyit5ihu3
-	/xNEh60H0vH8sU1tfSghfrBv+Ucx5M9JQu8IYeO30o5BJ+YGyycDBvbLTvApaoifmtps/5GKE8BKb
-	dQDPhLoQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:46012)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vw7vj-000000001Rv-3OlC;
-	Sat, 28 Feb 2026 00:11:35 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vw7ve-000000003WJ-2CMn;
-	Sat, 28 Feb 2026 00:11:30 +0000
-Date: Sat, 28 Feb 2026 00:11:29 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH RESEND2 net-next 0/8] net: stmmac: qcom-ethqos: further
- serdes reorganisation
-Message-ID: <aaIysVxy-WxbiJz9@shell.armlinux.org.uk>
-References: <aaDSJAc-x2-klvHJ@shell.armlinux.org.uk>
+	id 1vw83p-00000009Jp8-3qGS;
+	Sat, 28 Feb 2026 00:19:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1772237993;
+	bh=eEWOJLC5iXka6AARlFgyl+EPvoGlADG4k4kYulrx3Wc=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=YG1S4cQCItG4wh33BA/xp5pv5bzJWN7qr+2SrhcDxWdw1eOTsEa0xeOMT981QtdVj
+	 LDEbrpqeDNXAa3A1OAI05M1LKnMzVP74y/de7yGLlGybv8g6gTbGLMJE/eWpXUwaFl
+	 Xp+GYqK9CWyxjl3FZQ+kGEVpyDf8r0Wa0CM0Xhy64iADAgGEevXUxO/2GWtwfhejJa
+	 N7IQmVGUvlsh3fbT2UN3oEg3tWCsqSQBxc5d+RXTYTU36p/aVJV1l+eLJJt1KjUM73
+	 BhUhf7F3p5s/8ZRDu4ba6RSlCNs4E2wShG1B9ig1HZSntqeCTa/jxlgnPHLqCxSyQj
+	 Sy2rRpetH1djw==
+Received: from [192.168.1.90] (unknown [86.123.23.225])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5457D17E0454;
+	Sat, 28 Feb 2026 01:19:53 +0100 (CET)
+Message-ID: <67adf0fb-707f-4cc9-b394-8627149d8587@collabora.com>
+Date: Sat, 28 Feb 2026 02:19:52 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aaDSJAc-x2-klvHJ@shell.armlinux.org.uk>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [REGRESSION] HDMI monitor not working on Radxa Rock 5B after phy
+ rockchip samsung hdptx HDMI 2.1 FRL patchset
+To: dubito@online.de, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner
+ <heiko@sntech.de>, linux-phy@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, regressions@lists.linux.dev
+References: <b32164001947ba922aefb6ca86a8dc59e9323d2b.camel@online.de>
+ <8e410a11-bd7b-4a12-a711-0514a59409c0@collabora.com>
+ <1859c940219a4dbfdf0497afbf333e627ab0ba25.camel@online.de>
+ <98e46dbb-c8e2-451f-accb-ea48f63f9408@collabora.com>
+ <4544ec4ccfa49cbdffee098878df7806223935a0.camel@online.de>
+ <08369c90-fbab-477d-9ac6-388deddfd3b1@collabora.com>
+ <26e31b3b-484f-433b-833f-c639ee437f63@collabora.com>
+ <03b5f3d1-6db4-4835-b2a5-c22c1aa63825@collabora.com>
+ <a3c3964e9e13c82d944fa1ee0acbb1a7806dd382.camel@online.de>
+ <a662745a-1b2a-47b3-a66d-7c1c5c8af525@collabora.com>
+ <e18fce6a3216427d26bd10ebd837e9152c0c8b60.camel@online.de>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <e18fce6a3216427d26bd10ebd837e9152c0c8b60.camel@online.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_161148_718948_FD3EAEF3 
-X-CRM114-Status: GOOD (  18.12  )
+X-CRM114-CacheID: sfid-20260227_161958_114016_CDFC2F42 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,51 +88,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 26, 2026 at 11:07:16PM +0000, Russell King (Oracle) wrote:
-> This is part 2 of the qcom-ethqos series, part 1 has now been merged.
+Hi Thomas,
+
+On 2/21/26 5:05 PM, Thomas Niederprüm wrote:
+> Hi Cristian,
 > 
-> This part of the series focuses on the generic PHY driver, but these
-> changes have dependencies on the ethernet driver, hence why
-> it will need to go via net-next. Furthermore, subsequent changes
-> depend on these patches.
+> Am Mittwoch, dem 18.02.2026 um 22:56 +0200 schrieb Cristian Ciocaltea:
+>> Hi Thomas,
+>>
+>> On 2/18/26 10:43 PM, 1und1 wrote:
+>>> Hi Cristian,
+>>>
+>>>
+>>> Am Mittwoch, dem 18.02.2026 um 22:15 +0200 schrieb Cristian Ciocaltea:
+>>>> On 2/18/26 3:22 AM, Cristian Ciocaltea wrote:
+>>>>> On 2/18/26 2:52 AM, Cristian Ciocaltea wrote:
+>>>>>> Hi Thomas,
+
+[...]
+
+>>> applying these commits solves my problems. I tested 1920x1080@60,
+>>> 1920x1080@50
+>>> and 1920x1080@30. All work now. Thanks for the quick fix! 
+>>
+>> Thanks for the quick test!
+>>
+>> I can add you to cc: when I submit the series, so that you may provide your
+>> Tested-by tag if you'd like to.
 > 
-> The underlying ideas here are:
-> 
-> - get rid of the driver using phy_set_speed() with SPEED_1000 and
->   SPEED_2500 which makes no sense for an ethernet SerDes due to the
->   PCS 8B10B data encoding, which inflates the data rate at the SerDes
->   compared to the MAC. This is replaced with phy_set_mode_ext().
-> - allow phy_power_on() / phy_set_mode*() to be called in any order.
-> 
-> Mohd has tested this series, but it would be great to get acks/reviews
-> from the generic PHY maintainers.
+> sure, I would be happy to.
 
-So, PW says "changes requested" - please let me know what changes have
-been requested.
+I've just realized I missed to add your recipient email to the series [1] sent
+out just a few hours ago - sorry for that.  However, you can find some reply
+instructions at the bottom of that page, e.g. import the mbox into your mail
+client.
 
-The AI review for patch 7 says:
+Please note this is a reworked version of the initial patches, fixing some
+additional issues, hence retesting would be necessary.  For convenience, you may
+also pick these patches from [2].
 
-  This commit fixes a bug but lacks a Fixes: tag. The commit modifies
-  behavior introduced in 360000820ae2 ("phy: qcom-sgmii-eth: add
-  .set_mode() and .validate() methods") by making phy_power_on() call
-  qcom_dwmac_sgmii_phy_calibrate() to restore the previous setup, and by
-  making qcom_dwmac_sgmii_phy_set_mode() check if the PHY is powered on
-  before attempting calibration.
+Regards,
+Cristian
 
-  Should this commit include:
-
-  Fixes: 360000820ae2 ("phy: qcom-sgmii-eth: add .set_mode() and .validate() methods")
-
-which is _wrong_, this isn't a bug fix.
-
-So, in light of AI review being incorrect, my comment about re-sending
-due to the AI review is no longer relevant, and no changes are required.
-The only thing that's necessary is to have Vinod's ack added to patches
-4, 5, 6 and 7, as he gave them against the very first posting of these
-on Wednesday. This is despite waiting the required 24h before sending
-the first resend.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+[1] https://lore.kernel.org/all/20260227-hdptx-clk-fixes-v1-0-f998f2762d0f@collabora.com/
+[2] https://gitlab.collabora.com/cristicc/linux-next/-/commits/b4/hdptx-clk-fixes
 
