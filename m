@@ -4,46 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3946FEE4EE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 17:33:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AFE6FEE4F2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 17:48:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pIGvyP2A1lhIrFqoOjsWcafI4ZTGBfludOMa4jxIZVM=; b=GY42hPKRECqcwZROUe4wNvD2/r
-	wKcrWuL/B1MA+/9DkDNwxqQMLTFTjcmsp2y5FrTxEPhkT46kcQFKr1wY7kTUV8BVSaxLUsCjdXSaG
-	dSrcXQEyDpuqrmXe7XizDeL2TLdq5h5TOuv2y8/JJjuX+Gcn9CG7lMtu6r2sWZOFupHzRuJAdn5jR
-	4TL9tRb6UzueFjFPXv2t85TkyELBr6I/ZO6XOw1RXKZT6377GYkGf8TMklsXP03+zOxFmsvFAHkEE
-	JMxdxXC3tJWGGm8m83OFJ2xOYr2gNCvIz19BzVWr6OFZ/eXqlDahHiawu8SYhjj8Gin3oF0NGOhBu
-	3c/lfhRg==;
+	bh=4PFzA6x7XpGtL5gGAe9ZkCbhjFM0+Eu/npdy+Yhrt1I=; b=gc0txQb8OVjP8KZ+xVIsM2wkpm
+	2nxXBpBBvBt3cxYfSope3QDKxVCUf57pyoqjaD13zzeWjqrOilqsdoRlR3CKfWCFh+m3oQGyvfp7J
+	BB3/WSqcW7iUxfYv1M6pvvSztq2QnlZAQoDOYpIxNSngPjAA7HcTFB0Hm3vOO7TCG6Ay3KGTikW2j
+	Zo/fdhZLMzyW8SHS/lIgIiuThpHqBbwX/bxDzrLhsS42RTYGkEy2Ding4gs315GG46sSd65n3E+Eq
+	MCoOu7z0DRbmeuen+YncAh2YmhDbHSVhuika6ElRnod+xe21++AW4wRa+BernbV805oCnoab6X0N4
+	272VAfPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwOBp-0000000A6R7-2z7X;
-	Sat, 28 Feb 2026 17:33:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vwOQJ-0000000A7H4-0c68;
+	Sat, 28 Feb 2026 17:48:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwOBo-0000000A6Qv-0gE4;
-	Sat, 28 Feb 2026 17:33:16 +0000
+	id 1vwOQI-0000000A7Gu-11dV;
+	Sat, 28 Feb 2026 17:48:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3BBC860126;
-	Sat, 28 Feb 2026 17:33:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 556D3C116D0;
-	Sat, 28 Feb 2026 17:33:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5A97060054;
+	Sat, 28 Feb 2026 17:48:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8689DC116D0;
+	Sat, 28 Feb 2026 17:48:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772299994;
-	bh=6qtRVGbtS3aR0ZqG9gZBcpPW4reY+sZyC7E9G0/88Kk=;
+	s=k20201202; t=1772300892;
+	bh=GPuD30vv6sqzucOUBpi9B4iP3HDC27EbjrmXMtZrSlM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=RTVkpQotEjY2XKW5ptVdwWfYTC7/ezU4MXgnPRchNo0lRMOotHQw+Dl8MYwpDP0pM
-	 8yDsxhZIjUH59wxIxdmPO9D4Z0xMI5qFI9JQOwyxzFAGXw7ffZ+Xu3MhfSDsEdS9gw
-	 wsdnl8NUO1akO43ERZbbT5/51epsX+F/hDjs3GUccP9Aatl7QI/pfzrOF8XLpWAKd2
-	 XixJsg4ewOK/NHDB36ofzugTEd7ztYCjwwtEay7g2p/DkkCtqGQnMN519EWgml5W00
-	 3zxbLRDTqlwSFci64itcQ+tx+a0rSGp9VS6cRQHJJ0e9Hte3aWNOwfqt3teoG6wYI6
-	 iEbefzv2hUqLA==
+	b=Z2mgJSbqwaIzBUJt2LWHO7DtyBBo6dByNe0+cm5mtPjD5SjBJgUbmpXTc2k1VzIlI
+	 d9hm8GWkBdswB5dNllvs4U8G6OzMk5yVlvsL1ulYwew8QQZWh3npCAXZRUB/RDA0cy
+	 7CV1tosjl3Xx2sKL8XbyeNG6Ihupamt1VWUP/EtfcktCbyMdn0jEBndwexVUAGp8jU
+	 +Slna/T8En3j6/M/AuZR6CVTbUiGyNzZ681qDQwXbjAasALDVfmfRx9YEAdoLchTmG
+	 xHIBKqER452Lx0N5zmJMizP+HaukA10kZvBZ5uq9YksmaKtJa2XpeJntxVDzel+SHi
+	 9QWWBncCev2Zw==
 From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
+To: patches@lists.linux.dev
 Cc: Ian Rogers <irogers@google.com>,
 	James Clark <james.clark@linaro.org>,
 	Aditya Bodkhe <aditya.b1@linux.ibm.com>,
@@ -81,12 +80,12 @@ Cc: Ian Rogers <irogers@google.com>,
 	Zecheng Li <zecheng@google.com>,
 	Arnaldo Carvalho de Melo <acme@redhat.com>,
 	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 6.19 016/844] perf annotate: Fix args leak of map_symbol
-Date: Sat, 28 Feb 2026 12:18:49 -0500
-Message-ID: <20260228173244.1509663-17-sashal@kernel.org>
+Subject: [PATCH 6.18 011/752] perf annotate: Fix args leak of map_symbol
+Date: Sat, 28 Feb 2026 12:35:22 -0500
+Message-ID: <20260228174750.1542406-11-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260228173244.1509663-1-sashal@kernel.org>
-References: <20260228173244.1509663-1-sashal@kernel.org>
+In-Reply-To: <20260228174750.1542406-1-sashal@kernel.org>
+References: <20260228174750.1542406-1-sashal@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 X-stable: review
@@ -253,7 +252,7 @@ index c61193f1e0964..626e6d2cbc81a 100644
  }
  
 diff --git a/tools/perf/util/annotate.c b/tools/perf/util/annotate.c
-index cc7764455faf6..791d60f97c23e 100644
+index 1d6900033b3a0..dc80d922f450d 100644
 --- a/tools/perf/util/annotate.c
 +++ b/tools/perf/util/annotate.c
 @@ -1031,7 +1031,7 @@ int symbol__annotate(struct map_symbol *ms, struct evsel *evsel,
