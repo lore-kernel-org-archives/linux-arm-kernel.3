@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B6EAFEE4E8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 10:13:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60D6FFEE4E2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 10:24:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vwFb0g+3Dn+Sp1LGvJFqOIA5TbSda0/hm9wge/DggGw=; b=QURxzRpar9ta84oku5c1ubIC8M
-	z0Ud5Vjr1wmj+2YItastQRsQ5CbFWNIf7CH3w6q9JQM6xq1G9KJJrZWGtdCnef26L2WH5KRI/X3PT
-	xJadz7LjUnlnmQoncGBvZfzwZH102Vr2R5sODk0SScc0TDhJHdyW4pRPuv4I2wW8ChSoQGoL7xFKu
-	aJwNacBD8bZYeCYVWuPPnKdA/oIyKViUmB42QSYLvK7NiFi3sPdLrK2d6lqKUlfBQ9N1uxTR9lzh3
-	oO36jqW0qjEuQnsmjdFIJDva6+d2Gvt1l9QlOoElcleErgX7VFNoZi84LCL5x4sj+FusMoLIAev04
-	22iwfntQ==;
+	bh=mFg2G95XMmwLJrNH4K8fKYMaazgcQEySW0oDy186VH4=; b=mBMmhFTyHHIucUAPL1rIGJMSFQ
+	A1Pj83itelzIkI5a6FZqYWBczblVWEQLIMd/plWfsym2LR3zbLOpAWPCQ9F8jcj6rfqOpMswJHN9o
+	JWclim78vocTbSHbJx5d4/NpjECa9RcOznLFxsD4rF3bhXSDBWS5u9KmqQ8Pacb/k6BhpyyjFzOBv
+	r50Ls2P0jSnHTBkTc7hqZ0Ls3gLF4kQgpO2b96hpYjCoQORsvfwYSlOHLCXNNsYISxDPE/+CR2zGk
+	pB+mLN7HvJtLOS9q9w2qKl5IRV23pczfSiA4fJ9HcptK53FGcPVPRttd9Qprx9Ejr+yQq163uLw9D
+	0YsJVB8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwHKE-00000009iwD-3O0C;
-	Sat, 28 Feb 2026 10:13:30 +0000
+	id 1vwHUU-00000009jQo-3u47;
+	Sat, 28 Feb 2026 10:24:07 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwHKB-00000009ivq-3elr
+	id 1vwHUS-00000009jQM-1LDS
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Feb 2026 10:13:29 +0000
+	Sat, 28 Feb 2026 10:24:05 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4095B1516;
-	Sat, 28 Feb 2026 02:13:19 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7B62B1516;
+	Sat, 28 Feb 2026 02:23:56 -0800 (PST)
 Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 979463F7BD;
-	Sat, 28 Feb 2026 02:13:21 -0800 (PST)
-Date: Sat, 28 Feb 2026 10:13:18 +0000
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C8EC33F7BD;
+	Sat, 28 Feb 2026 02:23:57 -0800 (PST)
+Date: Sat, 28 Feb 2026 10:23:54 +0000
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: Peng Fan <peng.fan@oss.nxp.com>
 Cc: Cristian Marussi <cristian.marussi@arm.com>,
@@ -44,20 +44,22 @@ Cc: Cristian Marussi <cristian.marussi@arm.com>,
 	f.fainelli@gmail.com, vincent.guittot@linaro.org,
 	etienne.carriere@foss.st.com, michal.simek@amd.com,
 	dan.carpenter@linaro.org, geert+renesas@glider.be,
-	kuninori.morimoto.gx@renesas.com, marek.vasut+renesas@gmail.com
-Subject: Re: [PATCH 01/11] firmware: arm_scmi: Add clock determine_rate
- operation
-Message-ID: <aaK_vgwyH1l8LRJ1@pluto>
+	kuninori.morimoto.gx@renesas.com, marek.vasut+renesas@gmail.com,
+	Brian Masney <bmasney@redhat.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>
+Subject: Re: [PATCH 02/11] clk: scmi: Use new determine_rate clock operation
+Message-ID: <aaLCOstT89XQEP6P@pluto>
 References: <20260227153225.2778358-1-cristian.marussi@arm.com>
- <20260227153225.2778358-2-cristian.marussi@arm.com>
- <aaI2X6qnGabtW1t0@shlinux89>
+ <20260227153225.2778358-3-cristian.marussi@arm.com>
+ <aaI9JBwWaMmfBbd/@shlinux89>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aaI2X6qnGabtW1t0@shlinux89>
+In-Reply-To: <aaI9JBwWaMmfBbd/@shlinux89>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_021327_955465_9AD51E1C 
-X-CRM114-Status: GOOD (  15.39  )
+X-CRM114-CacheID: sfid-20260228_022404_494893_94D68C78 
+X-CRM114-Status: GOOD (  27.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,44 +74,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 28, 2026 at 08:27:11AM +0800, Peng Fan wrote:
-> Hi Cristian,
-> 
-> On Fri, Feb 27, 2026 at 03:32:15PM +0000, Cristian Marussi wrote:
-> >Add a clock operation to help determining the effective rate, closest to
-> >the required one, that a specific clock can support.
+On Sat, Feb 28, 2026 at 08:56:04AM +0800, Peng Fan wrote:
+> On Fri, Feb 27, 2026 at 03:32:16PM +0000, Cristian Marussi wrote:
+> >Use the Clock protocol layer determine_rate logic to calculate the closest
+> >rate that can be supported by a specific clock.
 > >
-> >Calculation is currently performed kernel side and the logic is taken
-> >directly from the SCMI Clock driver: embedding the determinate rate logic
-> >in the protocol layer enables semplifications in the SCMI Clock protocol
-> >interface and  will more easily accommodate further evolutions where such
-> >determine_rate logic into is optionally delegated to the platform SCMI
-> >server.
+> >No functional change.
 > >
+> >Cc: Brian Masney <bmasney@redhat.com>
+> >Cc: Michael Turquette <mturquette@baylibre.com>
+> >Cc: Stephen Boyd <sboyd@kernel.org>
+> >Cc: linux-clk@vger.kernel.org
 > >Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 > >---
-> >Spoiler alert next SCMI spec will most probably include a new
-> >CLOCK_DETERMINE_RATE command to delegate to the platform such calculations,
-> >so this clock proto_ops will be needed anyway sooner or later
+> >Note that the calculation logic in the protocol layer is exactly the same
+> >as it wes here.
+> >
+> >@Brian I suppose once your CLK_ROUNDING_FW_MANAGED sereis is merged I can flag
+> >such SCMI clocks.
 > 
+> Per my reading of Brain's thread, if ->determine_rate exists,
+> ->determine_rate() will be used.
+> 
+>  	} else if (core->ops->determine_rate) {
+>  		return core->ops->determine_rate(core->hw, req);
+> +	} else if (clk_is_rounding_fw_managed(core)) {
+> +		return 0;
+> 
+> So unless update scmi_clk_determine_rate() to something:
+> --------
+> if (clk & CLK_ROUNDING_FW_MANAGED)
+> 	return 0;
+> 
+> return scmi_proto_clk_ops->determine_rate(clk->ph, clk->id, &req->rate);
+> --------
+> 
+> It maybe better to update Brain's patch to move clk_is_rounding_fw_managed()
+> above the check of core->ops->determine_rate().
 
-Hi Peng, 
+Indeed, I may have not fully understood Brian patch, since it appeared
+while I was already reworking this...
 
-thanks for having a look...
+I suppose I could also refrain from registering a determine_rate and
+use the new flag when I know the rate will be rounded by FW...in the
+future simply there will be the possibility to ask the firmware first
+for a final 'clock rate determination' upfront in some of the cases in
+which now we rely on FW rounding..
 
-> Is there any early reviewing version available?
+> 
+> >---
+> > drivers/clk/clk-scmi.c | 31 ++++++-------------------------
+> > 1 file changed, 6 insertions(+), 25 deletions(-)
+> >
+> >diff --git a/drivers/clk/clk-scmi.c b/drivers/clk/clk-scmi.c
+> >index 6b286ea6f121..c223e4ef1dd1 100644
+> >--- a/drivers/clk/clk-scmi.c
+> >+++ b/drivers/clk/clk-scmi.c
+> >@@ -12,7 +12,6 @@
+> > #include <linux/of.h>
+> > #include <linux/module.h>
+> > #include <linux/scmi_protocol.h>
+> >-#include <asm/div64.h>
+> > 
+> > #define NOT_ATOMIC	false
+> > #define ATOMIC		true
+> >@@ -57,35 +56,17 @@ static unsigned long scmi_clk_recalc_rate(struct clk_hw *hw,
+> > static int scmi_clk_determine_rate(struct clk_hw *hw,
+> > 				   struct clk_rate_request *req)
+> > {
+> >-	u64 fmin, fmax, ftmp;
+> >+	int ret;
+> > 	struct scmi_clk *clk = to_scmi_clk(hw);
+> > 
+> > 	/*
+> >-	 * We can't figure out what rate it will be, so just return the
+> >-	 * rate back to the caller. scmi_clk_recalc_rate() will be called
+> >-	 * after the rate is set and we'll know what rate the clock is
+> >+	 * If we could not get a better rate scmi_clk_recalc_rate() will be
+> >+	 * called after the rate is set and we'll know what rate the clock is
+> > 	 * running at then.
+> > 	 */
+> >-	if (clk->info->rate_discrete)
+> >-		return 0;
+> >-
+> >-	fmin = clk->info->range.min_rate;
+> >-	fmax = clk->info->range.max_rate;
+> >-	if (req->rate <= fmin) {
+> >-		req->rate = fmin;
+> >-
+> >-		return 0;
+> >-	} else if (req->rate >= fmax) {
+> >-		req->rate = fmax;
+> >-
+> >-		return 0;
+> >-	}
+> >-
+> >-	ftmp = req->rate - fmin;
+> >-	ftmp += clk->info->range.step_size - 1; /* to round up */
+> >-	do_div(ftmp, clk->info->range.step_size);
+> >-
+> >-	req->rate = ftmp * clk->info->range.step_size + fmin;
+> >+	ret = scmi_proto_clk_ops->determine_rate(clk->ph, clk->id, &req->rate);
+> >+	if (ret)
+> >+		return ret;
+> 
+> nit:
+> "return scmi_proto_clk_ops->determine_rate(clk->ph, clk->id, &req->rate);"
 
-No I dont think there is anything shareable...just some preliminary
-exploratory work following your and other vendor reaquest to have a way
-to properly determine upfront what will be the final rate starting from
-the requested one, because delegating all to the fw-side round-up leads
-to issues in some cases when the final rate is different from teh
-requested one...well...you know better than me why, being one of the
-guys that pointed out the issues... :D (if I am not mistaken)
-
-It is anyway material for v4.1...which has still to be started...so this
-was just a reminder that a dedicated protocol version would be most
-probably needed soon-ish..
+..oh yes...
+> 
+> Otherwise:
+> Reviewed-by: Peng Fan <peng.fan@nxp.com>
+> 
 
 Thanks,
 Cristian
