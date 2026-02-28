@@ -4,109 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18C4AFEE4F2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 18:00:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28D89FEE4C8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 18:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CzbAnz6T/IhzT60BwbsGo7FPW25EednVTt62Gcqnlt4=; b=jrRg7wG7jOm4b4DEjNHYtoKz3d
-	5dtUD8TlW9LMyd1+g1aqb8RnB5+SKKa8A97OiNc2pYce46oUi/HzvWGnxS1DTRKvBuJxfQ9pkC4bN
-	LyWxpECDSD6ntQATUiU0BIf/+8k6ODJ5KV6gpj8RBXzwEWmw7Mw1Sx0tzb4V2NrYQXSLmgvrtSrdf
-	HDSxLv0pwyTB2Do6/nwG4GduSdqxUWu0Z30DG6dbzJYX2g6w4IRTRKRGpJnJ2ouYsePuPA/2tTlnR
-	vtEYWxtIw8rITKtMwRGgLd+6eVacYkXjjeECsjDH9Jri2IjWEE3/8FnnQgZLVIxNQ2O9Rh94Gt8no
-	dbXgquUA==;
+	bh=7BA9BRUpqJtfVLTnPLuM/6UaIA6/IWTrORNjtsMQdjc=; b=XYva2Rg5ibhmU+7ZfKDKpeqL9y
+	uIGwmdwd2CUQapNmGslh7NHa87Jvv5vWR/IZBIZPfwM+t+qf/exyGwSmLVeO2llCA5uOI/nDu8a7w
+	Yn9skQgMkeWT6j9mXXXoozAa4pejt0nST+5r4dYqCZX4+rGlJqzHY65f5YKF2Cvyr7JdkkdEWVGrm
+	F+yQguZNY2teMAju5mxg7S5/PrSJ/4r7Pq8OwS/XdRaOFf1+G8sCjAtrPrRj2qONmqyE922XLYmXK
+	ap9naQpTS6fnQPvUGdmDpZ7p+B/E0+UaWpHQttZeodX2va104+TnP6RFiRnGECOag/YSIyuGA6rQa
+	SmQpao3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwOcL-0000000A7yR-2Trx;
-	Sat, 28 Feb 2026 18:00:41 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
+	id 1vwOty-0000000A90B-1jpC;
+	Sat, 28 Feb 2026 18:18:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwOcJ-0000000A7xD-2Jit
+	id 1vwOtv-0000000A8zn-3wQU
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Feb 2026 18:00:40 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-506a1b23c05so37435851cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Feb 2026 10:00:38 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772301638; cv=none;
-        d=google.com; s=arc-20240605;
-        b=hs2jmrjur0Y7Q0/eIfLzjwAxPD85ZRgHNpPIYe2fIJlqSEMAK5KteZvwq8VU2klJ2i
-         KB3jfu8SwJJm9MMWfmOxAaRO00U0BYGfzWH1ZhjXJWQN21LPaD6xf9Tr20TxHug9xEV7
-         5Ymi9abn3W1am6VWOIkQTC9ceduNEW9/OlgCJe1vbQPrK7AHFFTRxS87v7trZOS41uuQ
-         9/+sqvHMdj4fqBtuTa67qXpdjDJCOnYQCUPFiIj4TbkgmV+IYb8wGZJeDdWkPgXrJoTj
-         nAQL51cJabMiZxtdfzZ81SAbKSomHSVVB81GdhHp+SW2Qn7AOS5rqxiTTIN/ZN33aagu
-         RSVg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=CzbAnz6T/IhzT60BwbsGo7FPW25EednVTt62Gcqnlt4=;
-        fh=EUqyV6i7eb9/jvSo4cem1+oZqT5/p7fDr6UvYXEqYy8=;
-        b=cVw6I4gBqMhI6HQUOFCJwe4006lB1v2sgp3Gc++XM0D2LAbNeEfR9HySkoUjbaTV1f
-         J+iH7a5xceQOYlvnKLc2jq1PX4QUaLYrEhWIMEIQoZJid+447gYsLDqbeuuE+L64361E
-         8Rb0PEtsEdoax2uZEa5t6qjIHEklQx+3rmQhuqRXEJswKekEB9YcXNnTWHhot+jGAjaV
-         x4qI0K6qXLbkVrsGLvSpajyNAw7/azjCAxgJ8d6oG0tpajDTWR4Mv5STYNvYGPFvYLsy
-         FZnFH+W4XtrUZ7GXAX6eYEII2q6tBhLwFV4FS8pcR2Id0C5rf+pDr22eiIJFxJNj28jI
-         3cRA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772301638; x=1772906438; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CzbAnz6T/IhzT60BwbsGo7FPW25EednVTt62Gcqnlt4=;
-        b=Q+Ga0A3pHi2wFe4bTMQAkYzSxsqkjakjiQCZKfLsbswTfG6QGatdaYbSt2qYXTFA5d
-         7LUsUwRve9QBKrlZJh/F915hH919n5JDGz49EjXSIi2Y2OPslsL+6IOqs52irnZcK6xc
-         /OoQoRKadTP12aeNcfHTDSoX6vOqU+NqUC46+UeMw609SOGLacLo2ctQTzO3URonvkyf
-         7WiFmSl6lJwSI9K29ilGTSOLLDJXleUt/m3olYVvKXtwfEdZy7qmNJpe/dT5CZZSBywJ
-         q1RAc/Nd1srBtUmMS/n9Z+die05k6rgU1fKHtPGIp53gPD70TK1kyQVxp/z07xDHwxf+
-         bPSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772301638; x=1772906438;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=CzbAnz6T/IhzT60BwbsGo7FPW25EednVTt62Gcqnlt4=;
-        b=frfqv0gLr9IqUJhiwxID/I2GqVUVtYTtbbM6vlRjjsWb8GIHqdLYmrqgRaef5lMBCJ
-         XejRMHq+6zYvjqAOVM0S9sekC7Bv+AJDCOu+ZY+IvDub2PTbCauQiqbl5AZbMoK5V0ID
-         PV0K5t3w5dv5j65liOccpiNrbtx/tUwqyq4ChZOLHdwxy7KXIixvzWDx9t+LaK7RlO56
-         G4BmfOcEeaDFh8DJGIQq+4JQC9JbUEHu8KZrlYM0ZEaWSJICOyPZCW5eVZ1UIPfu0ERT
-         B33cPoeKdpmS5PWCKWfncmdJ6qGNb+KBIgs050GbtWmrzy2IGfGBXm5Ldeqa9KsWRWZg
-         fUkw==
-X-Forwarded-Encrypted: i=1; AJvYcCXh+za5j2NnnGBdlZtZ4zI2uyHgM1/WXvtJvWXEYjoGxBgTbLMAccGOcXJ/EOsAC9cckKZbC8zZeReavoomiTz6@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIElIXhHowtj1V/E51GTX+7qZijj937KW8i74Wk9NcVLahDwHV
-	T2F0Be1akMh9oLApJAgxC9DwAlpqnVwKltzy9yztmsGUk6fTkv5WHJ1HVWRUvmTU9A4/LfRIQUV
-	SmX0Z58z60cjvHI1FZ0M4t8LUHJJn0WY=
-X-Gm-Gg: ATEYQzwNi6S8J/2Ksl8nOOd6cJnwc1YawdXX1BAN8Yc5HugdUlczEs8fvaIrJbjBEcJ
-	vafrUW4VJ+L0dg84jN/8ezNV21OjTIgd83dDeMBp2FTEueR4zhhNsqh2kDSPwXRiQolKGReMCMK
-	oHz5MKQG0JPwctsuRL9P3nZszmWX43JtLbX4t9nC9KRLpx6413OY4kA1PfIbkoWfuQiUlugigJI
-	gV/SjtFDLKbjV1POzhAUuF6WFzpuwk3PkCQ/b8h1CRGtD8LCHRu5I2ok6Hp/mWO0JYRAotPHpem
-	ZGmdNwEuoR1grYfJDEZ/xPlw
-X-Received: by 2002:ac8:5f4c:0:b0:4ff:b211:6aa6 with SMTP id
- d75a77b69052e-50752796176mr90990561cf.27.1772301637636; Sat, 28 Feb 2026
- 10:00:37 -0800 (PST)
+	Sat, 28 Feb 2026 18:18:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5EF7B4477B;
+	Sat, 28 Feb 2026 18:18:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C649C19424;
+	Sat, 28 Feb 2026 18:18:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772302730;
+	bh=4WL4niNBc4LNDjYLHXwe/xfh27MyGtS+WTgnDFNMZ6s=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=geNJDCV4LekaAYqiwlk6QUUsoK7zp1ckHShoJM8TMR0urKxreuOAicCBl64hXxyWm
+	 0PXLRQlblWNjtF/Zw+7wxxuR4lB1IWUVTNkg74LYuOXEITFuf3AGLYfdDuu59ZHxT/
+	 YqaWuSmv96i20qemPU7LyGCz3rlejwkGGe5ZMIEn2UISWnH23iBsOfau+p4hVwux9m
+	 LMAIfzf3o4+4ldoWKsHlTmFfft4C2A2hk93UyQT4vwdKaLHJKuSrcTH0c3us3LlgUp
+	 +zwAZF9NPctlD1V/rhRBOoDMEzeSN6Tytm1kH+WvBvAGuDp0NJsLXL2mfD4n4oP7T3
+	 PBNPj1GI6wddg==
+From: Sasha Levin <sashal@kernel.org>
+To: patches@lists.linux.dev
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	linux-arm-kernel@lists.infradead.org,
+	Daniel Mack <daniel@zonque.org>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH 5.10 092/147] power: supply: wm97xx_battery: Convert to GPIO descriptor
+Date: Sat, 28 Feb 2026 13:16:40 -0500
+Message-ID: <20260228181736.1605592-92-sashal@kernel.org>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20260228181736.1605592-1-sashal@kernel.org>
+References: <20260228181736.1605592-1-sashal@kernel.org>
 MIME-Version: 1.0
-References: <20260111092833.466263-1-akkun11.open@gmail.com> <6a499e1a-80fe-4fc3-af77-b5d31f689d7f@collabora.com>
-In-Reply-To: <6a499e1a-80fe-4fc3-af77-b5d31f689d7f@collabora.com>
-From: Akari Tsuyukusa <akkun11.open@gmail.com>
-Date: Sun, 1 Mar 2026 03:00:26 +0900
-X-Gm-Features: AaiRm512V9E6SYs2_Yyac0rJXDDdrcUO_TD7gqKE_u9D1yEofE0XT1GKOLrzGEk
-Message-ID: <CAKr_iV40A8=8e4Bqez-mbq6Jt+ZVNH=Vbvk1mQPZq1Z_feu+ng@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: mediatek: common-v1: introduce per-function
- multibase control
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Sean Wang <sean.wang@kernel.org>, Linus Walleij <linusw@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	"moderated list:PIN CONTROLLER - MEDIATEK" <linux-mediatek@lists.infradead.org>, 
-	"open list:PIN CONTROL SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
-	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-stable: review
+X-Patchwork-Hint: Ignore
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_100039_601065_0AC3BB55 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20260228_101852_045688_D49FB468 
+X-CRM114-Status: GOOD (  22.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,40 +78,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 12, 2026 at 5:31=E2=80=AFPM AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
-> Thanks for the patch!
-> What you're saying here makes a lot of sense, but there's one big questio=
-n for you.
->
-> Have you considered migrating those pinctrl drivers to use a PIN_FIELD_BA=
-SE()
-> like it's being done for all other(/newer) MediaTek SoCs?
->
-> Why would this not be applicable for those old ones?
+From: Linus Walleij <linus.walleij@linaro.org>
 
-Hi Angelo,
+[ Upstream commit cb6d6918c56ffd98e88164d5471f692d33dabf2b ]
 
-Thanks for your review and sorry for the too late response.
+This converts the WM97xx driver to use a GPIO descriptor
+instead of passing a GPIO number thru platform data.
 
-I am developing the pinctrl driver for MT6589 and initially based
-it on the MT8135 driver, because those two SoCs are very similar.
-However, I realized that the hard-coded multi-base settings in v1
-are not compatible with MT6589, which led me to create this patch.
+Like everything else in the driver, use a simple local
+variable for the descriptor, it can only ever appear in
+one instance anyway so it should not hurt.
 
-After looking at v2, it seems likely compatible with MT6589 as well,
-so I will proceed with my development based on v2.
+After converting the driver I noticed that none of the
+boardfiles actually define a meaningful GPIO line for
+this, but hey, it is converted.
 
-Also, this patch has two flaws:
+Cc: Haojian Zhuang <haojian.zhuang@gmail.com>
+Cc: Robert Jarzmik <robert.jarzmik@free.fr>
+Cc: linux-arm-kernel@lists.infradead.org
+Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+Reviewed-by: Daniel Mack <daniel@zonque.org>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+Stable-dep-of: 39fe0eac6d75 ("power: supply: wm97xx: Fix NULL pointer dereference in power_supply_changed()")
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ arch/arm/mach-pxa/mioa701.c           |  1 -
+ arch/arm/mach-pxa/palm27x.c           |  1 -
+ arch/arm/mach-pxa/palmte2.c           |  1 -
+ drivers/power/supply/wm97xx_battery.c | 45 +++++++++++----------------
+ include/linux/wm97xx.h                |  1 -
+ 5 files changed, 19 insertions(+), 30 deletions(-)
 
-- It hard-codes the behavior of mt8365_set_clr_mode, which would
-  cause issues if there are other SoCs similar to MT8365.
-- spec_ies_smt_set expects the IES and SMT registers to be on the same
-  base; if an SoC does not follow this, additional handling will be require=
-d.
+diff --git a/arch/arm/mach-pxa/mioa701.c b/arch/arm/mach-pxa/mioa701.c
+index d3af80317f2da..a79f296e81e02 100644
+--- a/arch/arm/mach-pxa/mioa701.c
++++ b/arch/arm/mach-pxa/mioa701.c
+@@ -577,7 +577,6 @@ static struct platform_device power_dev = {
+ static struct wm97xx_batt_pdata mioa701_battery_data = {
+ 	.batt_aux	= WM97XX_AUX_ID1,
+ 	.temp_aux	= -1,
+-	.charge_gpio	= -1,
+ 	.min_voltage	= 0xc00,
+ 	.max_voltage	= 0xfc0,
+ 	.batt_tech	= POWER_SUPPLY_TECHNOLOGY_LION,
+diff --git a/arch/arm/mach-pxa/palm27x.c b/arch/arm/mach-pxa/palm27x.c
+index 0d246a1aebbcd..6230381a7ca0c 100644
+--- a/arch/arm/mach-pxa/palm27x.c
++++ b/arch/arm/mach-pxa/palm27x.c
+@@ -212,7 +212,6 @@ void __init palm27x_irda_init(int pwdn)
+ static struct wm97xx_batt_pdata palm27x_batt_pdata = {
+ 	.batt_aux	= WM97XX_AUX_ID3,
+ 	.temp_aux	= WM97XX_AUX_ID2,
+-	.charge_gpio	= -1,
+ 	.batt_mult	= 1000,
+ 	.batt_div	= 414,
+ 	.temp_mult	= 1,
+diff --git a/arch/arm/mach-pxa/palmte2.c b/arch/arm/mach-pxa/palmte2.c
+index e3bcf58b4e639..a2b10db4aacc4 100644
+--- a/arch/arm/mach-pxa/palmte2.c
++++ b/arch/arm/mach-pxa/palmte2.c
+@@ -273,7 +273,6 @@ static struct platform_device power_supply = {
+ static struct wm97xx_batt_pdata palmte2_batt_pdata = {
+ 	.batt_aux	= WM97XX_AUX_ID3,
+ 	.temp_aux	= WM97XX_AUX_ID2,
+-	.charge_gpio	= -1,
+ 	.max_voltage	= PALMTE2_BAT_MAX_VOLTAGE,
+ 	.min_voltage	= PALMTE2_BAT_MIN_VOLTAGE,
+ 	.batt_mult	= 1000,
+diff --git a/drivers/power/supply/wm97xx_battery.c b/drivers/power/supply/wm97xx_battery.c
+index 58f01659daa5f..a0e1eaa25d93e 100644
+--- a/drivers/power/supply/wm97xx_battery.c
++++ b/drivers/power/supply/wm97xx_battery.c
+@@ -15,11 +15,12 @@
+ #include <linux/wm97xx.h>
+ #include <linux/spinlock.h>
+ #include <linux/interrupt.h>
+-#include <linux/gpio.h>
++#include <linux/gpio/consumer.h>
+ #include <linux/irq.h>
+ #include <linux/slab.h>
+ 
+ static struct work_struct bat_work;
++static struct gpio_desc *charge_gpiod;
+ static DEFINE_MUTEX(work_lock);
+ static int bat_status = POWER_SUPPLY_STATUS_UNKNOWN;
+ static enum power_supply_property *prop;
+@@ -96,12 +97,11 @@ static void wm97xx_bat_external_power_changed(struct power_supply *bat_ps)
+ static void wm97xx_bat_update(struct power_supply *bat_ps)
+ {
+ 	int old_status = bat_status;
+-	struct wm97xx_batt_pdata *pdata = power_supply_get_drvdata(bat_ps);
+ 
+ 	mutex_lock(&work_lock);
+ 
+-	bat_status = (pdata->charge_gpio >= 0) ?
+-			(gpio_get_value(pdata->charge_gpio) ?
++	bat_status = (charge_gpiod) ?
++			(gpiod_get_value(charge_gpiod) ?
+ 			POWER_SUPPLY_STATUS_DISCHARGING :
+ 			POWER_SUPPLY_STATUS_CHARGING) :
+ 			POWER_SUPPLY_STATUS_UNKNOWN;
+@@ -171,18 +171,19 @@ static int wm97xx_bat_probe(struct platform_device *dev)
+ 	if (dev->id != -1)
+ 		return -EINVAL;
+ 
+-	if (gpio_is_valid(pdata->charge_gpio)) {
+-		ret = gpio_request(pdata->charge_gpio, "BATT CHRG");
+-		if (ret)
+-			goto err;
+-		ret = gpio_direction_input(pdata->charge_gpio);
+-		if (ret)
+-			goto err2;
+-		ret = request_irq(gpio_to_irq(pdata->charge_gpio),
++	charge_gpiod = devm_gpiod_get_optional(&dev->dev, NULL, GPIOD_IN);
++	if (IS_ERR(charge_gpiod))
++		return dev_err_probe(&dev->dev,
++				     PTR_ERR(charge_gpiod),
++				     "failed to get charge GPIO\n");
++	if (charge_gpiod) {
++		gpiod_set_consumer_name(charge_gpiod, "BATT CHRG");
++		ret = request_irq(gpiod_to_irq(charge_gpiod),
+ 				wm97xx_chrg_irq, 0,
+ 				"AC Detect", dev);
+ 		if (ret)
+-			goto err2;
++			return dev_err_probe(&dev->dev, ret,
++					     "failed to request GPIO irq\n");
+ 		props++;	/* POWER_SUPPLY_PROP_STATUS */
+ 	}
+ 
+@@ -204,7 +205,7 @@ static int wm97xx_bat_probe(struct platform_device *dev)
+ 	}
+ 
+ 	prop[i++] = POWER_SUPPLY_PROP_PRESENT;
+-	if (pdata->charge_gpio >= 0)
++	if (charge_gpiod)
+ 		prop[i++] = POWER_SUPPLY_PROP_STATUS;
+ 	if (pdata->batt_tech >= 0)
+ 		prop[i++] = POWER_SUPPLY_PROP_TECHNOLOGY;
+@@ -242,23 +243,15 @@ static int wm97xx_bat_probe(struct platform_device *dev)
+ err4:
+ 	kfree(prop);
+ err3:
+-	if (gpio_is_valid(pdata->charge_gpio))
+-		free_irq(gpio_to_irq(pdata->charge_gpio), dev);
+-err2:
+-	if (gpio_is_valid(pdata->charge_gpio))
+-		gpio_free(pdata->charge_gpio);
+-err:
++	if (charge_gpiod)
++		free_irq(gpiod_to_irq(charge_gpiod), dev);
+ 	return ret;
+ }
+ 
+ static int wm97xx_bat_remove(struct platform_device *dev)
+ {
+-	struct wm97xx_batt_pdata *pdata = dev->dev.platform_data;
+-
+-	if (pdata && gpio_is_valid(pdata->charge_gpio)) {
+-		free_irq(gpio_to_irq(pdata->charge_gpio), dev);
+-		gpio_free(pdata->charge_gpio);
+-	}
++	if (charge_gpiod)
++		free_irq(gpiod_to_irq(charge_gpiod), dev);
+ 	cancel_work_sync(&bat_work);
+ 	power_supply_unregister(bat_psy);
+ 	kfree(prop);
+diff --git a/include/linux/wm97xx.h b/include/linux/wm97xx.h
+index 58e082dadc683..462854f4f286c 100644
+--- a/include/linux/wm97xx.h
++++ b/include/linux/wm97xx.h
+@@ -294,7 +294,6 @@ struct wm97xx {
+ struct wm97xx_batt_pdata {
+ 	int	batt_aux;
+ 	int	temp_aux;
+-	int	charge_gpio;
+ 	int	min_voltage;
+ 	int	max_voltage;
+ 	int	batt_div;
+-- 
+2.51.0
 
-Please ignore this patch for now.
-
-Best regards,
-Akari
 
