@@ -4,66 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7582FEE4C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 13:39:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F2DEFEE4EF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 14:01:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=al299pOVNbjRpkNOf94OpuR7Olfd8ATQC9P+U6CKqEc=; b=AupzPxexntMytdgbMTe7epvUDS
-	4bKy6DRqzhIicHwpb+nJBDbL2H3fDHIrPTjmI2Dj2lwdRoIU7RhZ/OKVvpuxfByZP3zNDzyGZx8Yc
-	KVwe0vMjmrKBLXghoH/B220gbqyPSkMNePTcwEEsBXk3XJa3Z52Ijati5uB1CaVE5fW5hr58ZA1Jm
-	QWeRcKJDqhS/6EgrABjkI6dNnL5kZ5/6q3DAGoqbNPgQHoST8FsC+J62GGcWRPUAe50jafi2OwtYo
-	Jj9RFtMRq3iFN1rIgqfKIl6yRYySSNd46lVuAY9SZ7y/qdVBgD+MhaVLKXJ2TME0etirS9S5WGk2h
-	eUIw9tPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z8ilFU5WuG18swnOUDhw7CL76xSB1EetAmw090m1DI4=; b=EKD/oDz5HnEfYqhDCDG0PQR3JQ
+	diCfe5sAmiXeuWXj8viCAPgalpck0FbcnEdApLEV1K1VxfA53t/JeEp5+mwCdHrt2T8NtqVOkrMk4
+	TslRyCs36qcJPx+dIbKZGpxSJ6OdR/N1B6b5vw2bE0b5jS1lyYg71xjs9CopXt+k2cSknqDf+Q7ON
+	AWsQagyWzDE9ULaz+LATta2nRjVs55hBf0AHDhviXz51OsdtCAU17/GNwtoj/QGuaCud1zTnSMNMT
+	S+ZvzN12XiXrRhk+HueS7aG2wyksTBkQ07xI4hGQ1HAKZx5T0k+4VMGO9nc0MgKNeR7+vRaj6oyrt
+	D3mm/yDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwKXL-00000009sYm-2SS4;
-	Sat, 28 Feb 2026 13:39:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vwKsY-00000009tZF-20yi;
+	Sat, 28 Feb 2026 14:01:10 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwKXK-00000009sYF-1Z7V
+	id 1vwKsV-00000009tYG-1FRU
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Feb 2026 13:39:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2595E61118;
-	Sat, 28 Feb 2026 13:39:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB101C116D0;
-	Sat, 28 Feb 2026 13:39:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772285951;
-	bh=A+jgu3UIsJ6M/4OKomoCN0p7y+V5ItH79wf3WXnQeC8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ITRiTv4CidtEFRpHIIPQD5Pni6Af5N7tgWhl1qZYUeSjKi7YoYDGCy1Xso2S6C5B8
-	 Z6jqm8/mFhvJleeJoy59EIhOsbcg2lSniTPFzZ73Y9awZPxl7TPLT1i46XWdRvTi6u
-	 et6n4iUwe36LuFg74xDOjbtm+FrcDI1jNYrgXGF2WeUXfheCeC/YfyFEoIPs/PMXTf
-	 PQcpu+ozcLFBS/lqda6P9PQgQ7Fn/FwRjZqO1A3E2kgX9b1iPOfX2wLsQdDX4b2Kod
-	 yiMsSTuViekA/wkH0uta+IFPVH9vA/ozGy5KB1mYEFJxj4F+jVa4IxOevqJCVl2dFo
-	 K8nfrDImB2q2Q==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 1311C1AC58E4; Sat, 28 Feb 2026 13:39:09 +0000 (GMT)
-Date: Sat, 28 Feb 2026 13:39:09 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Yifan Wu <wuyifan50@huawei.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, shuah@kernel.org,
-	yeoreum.yun@arm.com, jonathan.cameron@huawei.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linuxarm@huawei.com,
-	xiaqinxin@huawei.com, prime.zeng@hisilicon.com,
-	wangyushan12@huawei.com, xuwei5@huawei.com, fanghao11@huawei.com,
-	wangzhou1@hisilicon.com
-Subject: Re: [PATCH 2/2] selftest/arm64: Fix sve2p1_sigill() to hwcap test
-Message-ID: <aaLv_X7SihBUX5c_@sirena.co.uk>
-References: <20260227031933.4103333-1-wuyifan50@huawei.com>
- <20260227031933.4103333-3-wuyifan50@huawei.com>
+	Sat, 28 Feb 2026 14:01:08 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-48375f10628so19698095e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Feb 2026 06:01:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1772287265; x=1772892065; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Z8ilFU5WuG18swnOUDhw7CL76xSB1EetAmw090m1DI4=;
+        b=B8yrpWxhI4eDcGv4pSifyEA/Ps+uWKdagJV1v7L9An1Jzg/TbsN0vBDdcj7zdPBb58
+         pPcP+E4+l/NOF4ktGsFIE2uZIxWuepKVH7QKRX6julMH+Af27JfY0uqtH9LXzt2tQgkZ
+         uwguc0keU/5TjDDt6ga1TGTFoEpQf0mhEu4pdAYd0tLMpPK/J6gqgmX7C3WpnrYkhyoo
+         D3M2gg250ihlf76VYPfUqUdnG9Ql16itPE2Twcm6+UcMeAcpaZMHMFUcDh/qkZgv9cw7
+         9IszrkwDEgy2wE3cvRjq56ATroKWE6kPDD6ugO/Ke1nS534esqmEFdKMF1g7kRD2kIj/
+         3J2A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772287265; x=1772892065;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Z8ilFU5WuG18swnOUDhw7CL76xSB1EetAmw090m1DI4=;
+        b=XF+TKyAggVWNBPwUDV6dICSanmCd3mxMIXRlXLsRsiBPLSLEv2mA47Zgb4qSFNqsXv
+         vnlxIerJALeQKEgvG5ma7Wga8IRzhcFGs2gxmADhdC75vwmxAu0rmsXm/mSyNqHF2zzC
+         uN5uLDGZJXTy0kFTGQva2cpx+duEdTSc1Npsw1BsLo5V8g+d86NtCwor0wXKt8dikRn4
+         uahs7pdH4stWwR/WcIrtCD+03EkmURTASTNjKzXKqlfi+TpJO4Mnmp2X64ifoRP0RxQR
+         JORPACMU99fuFTweY0CKwqs6swIVFxa6G81UP7UuKh8OgedZBueh0o/d+DQoC9y3qBXN
+         jzWA==
+X-Forwarded-Encrypted: i=1; AJvYcCUl3gTs2Tn+NnyN7lr6hs1mwSp8eWGmZkoh9qBZGYOD35f4j6gW/nxVNfp5DD1r2KIC9qJ+DjGNPO+nMkCZBHg0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7k+BZrFOiKQQB3OEfz1QiaS4SL7lkpFS3GGwxSgjXKeVoUlD2
+	BHD4TtUMtRK9iG5KZ+sB5AAkmArs85YPwBcUr13b2Guy2NCvRNjVc48cinstlacgxMM=
+X-Gm-Gg: ATEYQzzGhVUAO+1M6xKAf3fmxoQnbSD035TnZnzJvDJJw3vV7YioqzbsenDLRHiC85r
+	MYlk8fbvcFFfWd+XZPE1EJev95lt43s0j0cDdu0shfkvbQZhLAd7yeSe+LrkY6dyJw9QRJ0yDmS
+	Qi9Au56P499rZqzWV1dHljLSP5X/phU1c9rY+QmMGvV1upuCwoQuPTtG3TfUCK0NYAqEGM1FP6w
+	5maQNl6s+ive5FR+4hZzZDC+/hFrbVtM1u0+N9nKIGmytd5uYT68Sv1vDaUQpe1hB5Okcz79X8A
+	ZGG6pun40QPsRftmJcCxmKXmog5s1nYNGQ79vCdIfABWwMLDDHi099Fu973gnQ6EDXf9nXUuDpw
+	SQKad6iCs44SYTiS6uQszN9xlqiFDM4iKuHna03VblujZG9waC9iY+xjGQRZqYh72ttHXkOoXok
+	0sq+Fk4DtY1bFGWXN5y04sNeksoWcNnw==
+X-Received: by 2002:a05:600c:83c8:b0:47f:f952:d207 with SMTP id 5b1f17b1804b1-483c9bde71amr115364265e9.19.1772287264671;
+        Sat, 28 Feb 2026 06:01:04 -0800 (PST)
+Received: from [192.168.50.4] ([82.78.167.73])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483bd7507adsm310079535e9.9.2026.02.28.06.01.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 28 Feb 2026 06:01:04 -0800 (PST)
+Message-ID: <b76b271d-5249-4e84-b10c-f9b364b08b3a@tuxon.dev>
+Date: Sat, 28 Feb 2026 16:01:02 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Ww5PzAmBeP3CClFP"
-Content-Disposition: inline
-In-Reply-To: <20260227031933.4103333-3-wuyifan50@huawei.com>
-X-Cookie: Think big.  Pollute the Mississippi.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/6] ARM: dts: microchip: sama7d65: add LVDS controller
+To: Manikandan Muralidharan <manikandan.m@microchip.com>,
+ andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, airlied@gmail.com, simona@ffwll.ch,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+ linux@armlinux.org.uk, ebiggers@google.com, martin.petersen@oracle.com,
+ ardb@kernel.org, tytso@mit.edu, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: Ryan Wanner <Ryan.Wanner@microchip.com>
+References: <20260225085430.480052-1-manikandan.m@microchip.com>
+ <20260225085430.480052-4-manikandan.m@microchip.com>
+Content-Language: en-US
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+In-Reply-To: <20260225085430.480052-4-manikandan.m@microchip.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260228_060107_346786_1FF3679D 
+X-CRM114-Status: UNSURE (   6.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,55 +113,15 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---Ww5PzAmBeP3CClFP
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Fri, Feb 27, 2026 at 11:19:33AM +0800, Yifan Wu wrote:
-> The FEAT_SVE2p1 is indicated by ID_AA64ZFR0_EL1.SVEver. However,
-> the BFADD requires the FEAT_SVE_B16B16, which is indicated by
-> ID_AA64ZFR0_EL1.B16B16. This could cause the test to incorrectly
-> fail on a CPU that supports FEAT_SVE2.1 but not FEAT_SVE_B16B16.
->=20
-> LD1Q Gather load quadwords which is decoded from SVE encodings and
-> implied by FEAT_SVE2p1.
+On 2/25/26 10:54, Manikandan Muralidharan wrote:
+> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+> 
+> Add support for LVDS controller node
+> 
+> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
 
-Ah, good spot - I think my search for instructions to use got confused
-by them mention of SVE2 in the description of BFADD.  Since this is a
-fix it should really be patch 1.
+Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 
-> -	/* BFADD Z0.H, Z0.H, Z0.H */
-> -	asm volatile(".inst 0x65000000" : : : "z0");
-> +	/* LD1Q Z0.Q, P0/Z, Z0.D, X0 */
-
-That should be:
-
-	LD1Q {Z0.Q}, P0/Z, [Z0.D, X0]
-
-(the existing asm has some issues which we ought to get round fixing but
-may as well keep the new stuff good.)
-
-> +	asm volatile(".inst 0xC400A000" : : : "z0");
-
-Verified the decode with objdump.  With the above change to the comment:
-
-Reviewed-by: Mark Brown <broonie@kernel.org>=20
-
---Ww5PzAmBeP3CClFP
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmmi7/wACgkQJNaLcl1U
-h9DVZgf/eYoxaImZMJFJqdQF0wT+T+ig4eiur8/tZT3g5gsg+VfHYUPi6NXyzs9p
-stxVJ0eQrzEgJ/Gz65Y8scnRHIDaBZrrqKZ68Ud1meP01/gi4ThKoS7Oe9VfsfPn
-unqStwMAVFnA5dzBDpz89lZD3+PmP6rRHasvcnbWZMpJTyU2SnlGT1mupvoJMttr
-BXBQ/LO0bRqlarGr8MSiqWcuYXtG1cd7pgMx5dLW+4RRZB1EzC//U4unNoJ9//bB
-4lMoIgZeYh8zBZxEE36oIzuQCdW61IhwKDZlrxPL/QC+/Zwy92nT9/1YuQqsxQLe
-XpPwMp612+RAj5kbds1NyUvxMddXTA==
-=Z7yh
------END PGP SIGNATURE-----
-
---Ww5PzAmBeP3CClFP--
 
