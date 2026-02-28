@@ -4,141 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9FB2FEE4CA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 07:38:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0172CFEE4CF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 07:57:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0ldq32dcltsUd50tnJED6VBErYyfIhkgCldGRQqhwFw=; b=SQEggW9haNZ+gBeUn2F2WHoz6b
-	6zAQSDgiPZDfpIM9QJPuSbiYyxUgIIX6EqeWbXm4olU9y74iDPrrRzWpyQQmz1Qii+LQLXXKhP1Oe
-	azbpsUtw7GVTKBH3m7Bc9PPpC+d4jaAoJLXYN90nVYAd8nawczS5LaSFUOnUNo+gjPUWiqA+xUfID
-	G2REtRMVUpNxLkyElFuZZvtLHU2mijjgupSEjTD1ALjoBaA31IKhioy5PQYgujP0BQVn4hhxB41rZ
-	Z/tB1ZhA8CUQZAY4rxVlrvKH/tjodRN3Dkj4lvBaaf9pKf4sXVumdsMtubAtV5K06DG7n+cTuKi6/
-	np20iaFA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QaW5bYekYk9X1XetJP4xQ96VXjNZLusUXu+FqrNq4gU=; b=BDf6uyBmf8JCWEWVhj/ShSDFOY
+	LYkv9+c6kanCW7lW92NAWohJt6Rzeiup1SEAhcwZ/y/rEMXhiApWc00pnGZ5EgZLXdcrmlNYoYqoD
+	pO9V8BNbDVPgiBJ27mRrnSKIa7Psp7VWobyRDcR4OEY1DSqCoRxZDrsrNBDKNemqeD+xj8Y/coaC5
+	iCFhEUPAFdTiEXAnoIWXwqeA8R4gAnv1uTMjpVsyj4aDH3bmfmsJFqVJwNAUN/UIexFy8pPq9F04D
+	vkapyKFikINpr8/LqUszE6U32rCunpCKXZ7o/ezx9jeWahWYf6ql3ZcA1WQhS2EFUX31nMVFaxl46
+	s94z07nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwEuN-00000009cha-1laU;
-	Sat, 28 Feb 2026 07:38:39 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1vwFC2-00000009dHs-3Ge5;
+	Sat, 28 Feb 2026 07:56:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwEuK-00000009cgi-40sA;
-	Sat, 28 Feb 2026 07:38:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=l34i/jNcE7kcOk9J+fzqI0N7IrcB8lHls8y4UvOertuN4bkGhoeVFnMHofn3Ic4nE/npS67D/tUL0gVYqma/12P4S5HNZQ7rkHQgEcXJTp6q565jobRNnoEKvGtT+pKsTow2/aJVkRdgN6HrX5G0MpoDfssk2GBbET3NQiFzOei/0k9rzeuYb9Q8GPMyx0oMG0QBvV9hOX0ipeQtr4Gl8z/KJ4Ta2Suy0woPdgRSz1ZJsr1VkhwVUg47XXSa/3Fc5KRL4HWOppjv0JVQUdLaON1mmub57yKxTA5wCm+uwaBSREWqGAt1kXaE/95ONiHAD9AgpNXeQtuza7SL1hOOEw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0ldq32dcltsUd50tnJED6VBErYyfIhkgCldGRQqhwFw=;
- b=mZZOcKRYRLFE+yFdbcIC/tBJTLBTFrXF7+/FcuZYJlBxpezWIZojze+ZE1fXEBURlkoW1HmfrP4oc38defID2Oc2eXIbi+4W7d+NZWKuBk2mkH3vzhsJw7HCF0wvpYatfjt9NC4mzmZ1xlBiukqVOfc3gonVuU0BsVBRzjdAI7Eb0m3ulkReacW2V4Stq2iSNB5rOaawr+W3Y0PH+oqGZyNqX6OnvhQrdYlMyW88N4dLfJl1LBf4qOIm0Fts7SmsrPw2M6blwAOCgouDfNHd1MDO5xgPw8Av5UEtyOv3JBFv6iB7Z9iOmEUuVOowNeMc6/FnhVYVm38MOA69ruihsg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0ldq32dcltsUd50tnJED6VBErYyfIhkgCldGRQqhwFw=;
- b=Nx3V1AnhcKJyoGoCOn2gN8l2dUYkZcUGjfTsWbDrJxLLcNNjIpcIcZjEaHRTIlZQYuzT8GFBiskZ5js0QKwMnbW2G2aLQ00Fu184QE+2+dL+JmMMYL8cZpDG1NdL3p+HH8gydu5DwTqJGdfTXSd+E9SQmNrQLIOCdQRGHOjrku/CVdDJoPb9BSMuDoUhziq4Rx3N98iJWwiW9RDyMCKbShQp1/9nkHfoiUaHV7YAcmLMyX5zuXpqO7PMGC8GZuFHDR4zRPavG4nJ61pM3jIRjgtGcSzcX2F+cfuAtDNEoYhX+Tzq/wRmjhA23vEsdmfPiFcfKWKcF/oKFSotvcicrA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from TYZPR03MB6896.apcprd03.prod.outlook.com (2603:1096:400:289::14)
- by KUXPR03MB9643.apcprd03.prod.outlook.com (2603:1096:d10:5f::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.16; Sat, 28 Feb
- 2026 07:38:24 +0000
-Received: from TYZPR03MB6896.apcprd03.prod.outlook.com
- ([fe80::78d4:9dee:2e32:d1e4]) by TYZPR03MB6896.apcprd03.prod.outlook.com
- ([fe80::78d4:9dee:2e32:d1e4%6]) with mapi id 15.20.9654.015; Sat, 28 Feb 2026
- 07:38:24 +0000
-Message-ID: <1e2f18ac-bba9-41bd-a5b6-3b3a3d870eee@amlogic.com>
-Date: Sat, 28 Feb 2026 15:38:21 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] arm64: dts: add support for A9 based Amlogic BY401
-Content-Language: en-US
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
-References: <20260205-a9-baisc-dts-v1-0-1212b46f95a7@amlogic.com>
- <20260205-a9-baisc-dts-v1-3-1212b46f95a7@amlogic.com>
- <CAFBinCDmOG74HMTo7AtYPUhWCJu3_e0XjE=CKuDWOdwfq21ygA@mail.gmail.com>
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
-In-Reply-To: <CAFBinCDmOG74HMTo7AtYPUhWCJu3_e0XjE=CKuDWOdwfq21ygA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: TYCP286CA0087.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:2b3::18) To TYZPR03MB6896.apcprd03.prod.outlook.com
- (2603:1096:400:289::14)
+	id 1vwFC0-00000009dGh-3aCQ;
+	Sat, 28 Feb 2026 07:56:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C13ED6001D;
+	Sat, 28 Feb 2026 07:56:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 66F6FC116D0;
+	Sat, 28 Feb 2026 07:56:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772265411;
+	bh=OVzZ4dnEVWocRNtfND2tDhbl7RIBn27b3hByZQ/BmAw=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=rIfcP+q4k78lkohmaSrtESLBqm/EEuKHZhINLPjyN/U0bpfR8XfFSLJY14SIFbYB0
+	 bmssZxLBf2jiNzARa1Efp2tWweQ8s5MBagKC/jxxaAvLGJHp5ObVHrkyzeQ6CW3+pb
+	 5LXEeW1AQmGrm1v6ACksKjvyCF0srRciycqWHxN6/sATDgKNGtqvgvRqaAa2cCZsud
+	 NSofUhGu5UAOX653MuCQwCJ+Llu0CHCxvaarRO9FVaeMyT4uoTWASWjMwIMb36i1L+
+	 hdUwM88jvhJ9p1pTwvofklrfWN6/8LtN/xrsonSSVI01aiB1Yqibvu4zsEmfT3wjkR
+	 BHmvnT1C4RitQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4F7D8FEE4CE;
+	Sat, 28 Feb 2026 07:56:51 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Subject: [PATCH v2 0/3] basic devicetree support for Amlogic A9
+Date: Sat, 28 Feb 2026 07:56:13 +0000
+Message-Id: <20260228-a9-baisc-dts-v2-0-47489d5cc1a8@amlogic.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYZPR03MB6896:EE_|KUXPR03MB9643:EE_
-X-MS-Office365-Filtering-Correlation-Id: 812f5061-441f-4638-99ba-08de769c5ac3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: TJGFdRavGrLJuy5gWi8UrtlTxHDH4vi5vdSDe1/jGe0t33VY5pSMgbJ+FchLnP1M575M5gZZH+yFwnGkSHtGcci3o+2fReh1Li8gxXQRhLe3HVGs1SKrAae/j5xIFagYrzSmfqM8t24EB1yHmHB78DI5flehKyiPVVm2uZo68cQZcpCrYXlmy8KqL06ppc2ucsaWlLoG8dlc/1bQ0q9AwdkYt1ONuXEz8mCdwXe5lAcZ1UW970cHXqGqh/C54Y9cBpwOeMIQIVSPtYarkO0dYZ8zf3tVm1VlIzPG0EY7fNpS/0Ik+aX9QnRqJcFYqQjywh0su4cnxdAXO7SJ1V4xdip6mcDmPyUY937KY8c2rSIxZfjYyCdPrCmqQ1xlqjls7MgKegENvni0Gqxig0QbBwWM/JAU0hKGKXmn+Z3uKybea2u1E5W+GxkkLVpkBs/WBRyoSSv32UlylZaqcxMpKiucrfhV39n11jwyiFt6F9ZpNghvFYVvv+uZe4L9pDEKXnlQkVyXIg0++1tsM0h6euUaEqSCwD08IEMNaAjZ4cE+k4SEQNFwB51EmFUuvRtb1XYASMAlZP0eSiqxtpa04THgfCsc3gf46/2I1V1nFbOTxFyU5W5BjM+aG5Hs56q4LXBRJf7NOhsk0bhdCxzHbfYQsIiqYfNgwx1ygCcuxCK442EQbuZIMWLiA0CxeRoXP1JsegRc96gQkTtDdciWpSeH3eQzG4jOnF3SPkpFbmE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6896.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?S1R1VUd1cXU3cFo1Z2JVaTlubWZMWXhiMmJOM0NSM1FoYXVmdVlWTzJRRWlw?=
- =?utf-8?B?Q213R0lzMlZUcFZ1MWNxU1MrK09jMWkybGxxSlUvK2VIZWxlbUgzU245eUYx?=
- =?utf-8?B?UVpkdlJ0cVZkL0M5RzBzd1FlL3EvRjRNK2Z2K3U4Yi9Ed2RDR0hqNFg1ck1T?=
- =?utf-8?B?TDNDcDhLcmVEamFtNlFVNlQ3ZnN4dVk3NzBlc05vOWZEc2lRZlY5eUcrTWE1?=
- =?utf-8?B?ZlEyNmdIWWV3TG1IYWtjK29TSWcydk02ZHp4TkZIdTJ0UHhnN3RIVUVhZnRz?=
- =?utf-8?B?dHVkRHpmUzRUdXlXb0JuRzNkdmQyczFsMS9SZVd4OVlSU01tMEw1QUVzVHE5?=
- =?utf-8?B?b0dZbU9WdHkvUjZvVTZpN0FJRWdvYnF0RDlza1QzUnpCSGZsenIwd0d3ejRx?=
- =?utf-8?B?bmRwcXpjVk5EV3BqUEdPYUtBUWZ1VHExeWdMOHBLUzZNR3RZMzN6VXVuMUcz?=
- =?utf-8?B?eVpLbjMxMnBsb0p2MXdtSGsvM0VzS2l2TjhUbWpDM3BQVzNCTC9QRGxPNUNr?=
- =?utf-8?B?SjZtWWxKTmhOSVhBTHdiVXFvUzZUZ2NEbDRsZTJkTXF4SUtlbVBmV2NjVEw4?=
- =?utf-8?B?eUJkd1R2dkpwYjlJNDdYTVcraERNKzhTSkdOa1ZEcys1V2hzNnIydUQrelZo?=
- =?utf-8?B?ZE1OSGJMZThXeHVybGNad1BuNWxlWStLRllQQ0Z2aTBITUw5aytmVnJCVFo1?=
- =?utf-8?B?d044dUZNNDRmY2duQTBrdmFQR1JacXZmcXNLTUNBVHNOUWNuZCtrb2ovL0Iv?=
- =?utf-8?B?NURucm1sbFgvc0J6Mi9FeFQzR0hFUU81UVRKWlFwbnFkeVZEdGM5ZXExRWdE?=
- =?utf-8?B?VG1ZNS9RM3BxbWQ0M0hTTWpiM29oV2k1cVhYYlRXTU1VM1FWWVVRdVRadWZr?=
- =?utf-8?B?eTQ3T0lSSklFMndEb0R1TXBxQXN0dlVCV1BoeDBmbVlxQ0F3K3JOSnNPYnRB?=
- =?utf-8?B?NG1xczY2R3dveU9pcjhXUDJiNWUyN0orNnl5RnNCeXFnQWxsZ1BhK1AvWjkw?=
- =?utf-8?B?OHJCUWVTS3I3WER6UU1JMkR1c08xOVYrY05hMEJLaDhJVmdBRnRIL3BsZnRu?=
- =?utf-8?B?cWxRUnNIWEgvNXJsMTltMVlPS21tbVJKbkxMdXExRlB1bmpRd3BJdVFZYXFk?=
- =?utf-8?B?QWQ2cExWaEp2Ym1GRnB6VmVMc3NVNkVOTERmSVVOZFczb0I3OFVVOHVtYVMw?=
- =?utf-8?B?cVZJNjZrVytYVlN3TFhkMGFKbEc2WmNKcElxS3pwS21PcWcvbzBxNFNqTFJL?=
- =?utf-8?B?MURlWkNvdFh6aDZsSWRBWWY3Q0xoRXlVdFpmeGgybDY5Z1Fzazl5b0tCRXFq?=
- =?utf-8?B?Vmt2SktGaUlxTDk5cEovRkdVaXd3SG9YaFlkM0xRWW00Zm9LcTJ0ellKYm9Z?=
- =?utf-8?B?RkdVWFlVTCtRM1BUNVJVRjR3L1hQaW1xYU9NYkhSaHNZRi9Ya21nK1U2R1NW?=
- =?utf-8?B?a2pwWEpxN1kwRWlXRjYveDBvUktrTHpSMnNmRXMrRUFodnI5K0ZpdWVkU0J2?=
- =?utf-8?B?VmFwTGdkTWdYd2toV1JmendLaUZLVDNzYWdxM0lMRnFBMHpua1dTQXdxWW9R?=
- =?utf-8?B?YUVOZ2dFcHIzTGUrcUEyNVc5ajdobHJINUVwV241eCtXSjVkM2hCSUdISGZu?=
- =?utf-8?B?S2hlNzFtVmNKQm8xRHJiYnNaNm1hMGF4R0ordWp0MmQzZEkxM29TMno4MVZT?=
- =?utf-8?B?dlFtV21VQmdUdnVkZlNYaHFsbkxUQm1hVDRBd0sxdmhEbGdENHFxTTYzV25F?=
- =?utf-8?B?dmx5cS90ODlNcG92VG9OV1BkbUQvTGNSYkNLUTQwdk5rNWNtdFBqNnlhSnAz?=
- =?utf-8?B?dS9BTGlNWWY0MSsrN29CRUpzblJtTFF4UUpJdmNvWWIvOXM2RlJoNFkrOThj?=
- =?utf-8?B?TGhKb0NrQjY5Qis0OFB4SEhoWDNpSExQR012Z3liTEc4Y09TRW5QT09MWXEv?=
- =?utf-8?B?QzNMNVQ2K2s2RkNVV29BdU1nT1l0UWdldjJXa1BNaXdJMkt2UmhDc3ZiUHVW?=
- =?utf-8?B?TU03VTlmVFJzRWRJZHVLVnFibGdRL21hWm9sbU9QZGU5KzJyaTBmTFpFYXpD?=
- =?utf-8?B?aGxxcXI1dU4zaDJJVWNXbEs5Ti9PRnpTS1RSZlRZYVJidlR6eXBLaFZrcStj?=
- =?utf-8?B?V21iK25xU3lQR3ZCSnhVN3JxaDlPbFRNazZ2T2txakIxU2VXb0dCdURWWitI?=
- =?utf-8?B?Ky9HRE1NRU5yMEJBWWY3RWRJWWVFeUxrR1R0S1E0UU1HU0Y2Vm15aEltZE1P?=
- =?utf-8?B?NzdqMyttODJLbktlR3lPeEdsOWE4M0lsS2kzR1JXZkdyTnFSaWtRSGRxTHdt?=
- =?utf-8?B?SlBxdHdQcEFDK0RrSVRGeFBoL2tRSTlmUVNKUGxNMWtjTC9ZS1R4QT09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 812f5061-441f-4638-99ba-08de769c5ac3
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6896.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Feb 2026 07:38:24.5167
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 10RSZ2UVt7fiLr+zSYEzMSLEPK58sr88ApTp9X5IqiQAHbjf96QQEjDXSjpQGoem8jMY8MhQ4KOdMWTvOKPqm080Uv1FyzDxlDAtoGn4uRw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KUXPR03MB9643
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_233837_010642_5217BC7C 
-X-CRM114-Status: GOOD (  10.24  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJ2fomkC/3XMQQ6CMBCF4auQWTumnQiKK+9hWLRlCpMIJS0hG
+ tK7W9m7/F/yvh0SR+EE92qHyJskCXMJOlXgRjMPjNKXBlLUKFI1mhatkeSwXxM6ay0TK+1vCsp
+ liezlfXDPrvQoaQ3xc+ib/q1/oE2jQk2a7KXxbW2uDzO9wiDu7MIEXc75C/aCAGGqAAAA
+X-Change-ID: 20260205-a9-baisc-dts-cbbbe2e01f80
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772265409; l=1030;
+ i=xianwei.zhao@amlogic.com; s=20251216; h=from:subject:message-id;
+ bh=OVzZ4dnEVWocRNtfND2tDhbl7RIBn27b3hByZQ/BmAw=;
+ b=LfbpQ1fdBBhJoJV0uW17gUrr4WPIh//xfGOnTRXHTvsk/AyKgS9It4f9KiyUA4g2mdNfhkwL+
+ 0vq6Q+WUSJ8DPR+KgC0bP5bGvdXPEQt2jdehos09j0lQ8nh42iP5zI+
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=dWwxtWCxC6FHRurOmxEtr34SuBYU+WJowV/ZmRJ7H+k=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20251216 with
+ auth_id=578
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,35 +88,37 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Martin,
-    Thanks for your reply.
+Add the new A9 SoC/board device tree and related bindings.
 
-On 2026/2/10 06:19, Martin Blumenstingl wrote:
-> On Thu, Feb 5, 2026 at 7:04 AM Xianwei Zhao via B4 Relay
-> <devnull+xianwei.zhao.amlogic.com@kernel.org>  wrote:
-> [...]
->> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts b/arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts
->> new file mode 100644
->> index 000000000000..ad35a3292d49
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts
->> @@ -0,0 +1,41 @@
->> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
->> +/*
->> + * Copyright (c) 2026 Amlogic, Inc. All rights reserved.
->> + */
->> +
->> +/dts-v1/;
->> +
->> +#include "amlogic-a9.dtsi"
->> +/ {
->> +       model = "Amlogic A311DY3 BY401 Development Board";
->> +       compatible = "amlogic,by401", "amlogic,a9";
->> +       interrupt-parent = <&gic>;
-> Shouldn't this go into amlogic-a9.dtsi (I can't see why different
-> boards may choose a different default interrupt-parent)?
-Will do.
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+---
+Changes in v2:
+- Move default interrupt-parent into dtsi.
+- Link to v1: https://lore.kernel.org/r/20260205-a9-baisc-dts-v1-0-1212b46f95a7@amlogic.com
+
+---
+Xianwei Zhao (3):
+      dt-bindings: arm: amlogic: add A311Y3 support
+      dt-bindings: serial: amlogic,meson-uart: Add compatible string for A9
+      arm64: dts: add support for A9 based Amlogic BY401
+
+ Documentation/devicetree/bindings/arm/amlogic.yaml |   6 +
+ .../bindings/serial/amlogic,meson-uart.yaml        |   1 +
+ arch/arm64/boot/dts/amlogic/Makefile               |   1 +
+ .../boot/dts/amlogic/amlogic-a9-a311y3-by401.dts   |  40 +++++++
+ arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi        | 129 +++++++++++++++++++++
+ 5 files changed, 177 insertions(+)
+---
+base-commit: e3194dfb772304a1b7ca3bcfccacefec3468b7bf
+change-id: 20260205-a9-baisc-dts-cbbbe2e01f80
+
+Best regards,
+-- 
+Xianwei Zhao <xianwei.zhao@amlogic.com>
+
+
 
