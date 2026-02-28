@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84327FD0040
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 22:13:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBDE8FD0040
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Feb 2026 22:13:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Xvx8E7qiB01vJhqM9saSuJdmjeUVy74XGiStAmL658I=; b=mO7//Pj7KnHfVk
-	YEBjf2cLahMdfSZJmc/LNETTjjUGqmT/pZrCW4m07lbhsNX7aGHGvDQ/fxNxvO0+U6G8aUCxAILcd
-	ye/D4dtxa6pxE4Jw07M/U0ZBoVREzA47k7dGXpFO/USeCVe8heXAhUGlgkv1hZ1lHNl20/joFtQ6E
-	RLB+qbEbAEFKia3bUIEFu8cPn/QApcDej812Cb66mobMLU+VVf7tUrg2tg2uiDWUF9cFEDefbc4nK
-	p5kRbv7Ml+529AZety4jnmjkt8/AMMtwWKyrrm/UGbfB6CJE8wgeCilEHPe7cDyKtohA5DZuF9EBd
-	zKS4GtKtieLFmxQimtjw==;
+	List-Owner; bh=b6WpdJ1Uj/mNRIGGoUCingnccNT1bUYjuIwJgJ29my4=; b=U9IRPYDy6ka2TU
+	Mt8a9gYXGODdocEegcPwwELXH6ZXuMG7QO1kQzKffbHhG+cEgvwCAcbTZNCHFMVilR/DHcn7SFf1D
+	MUwYuqLMItARZYxPr/VkIn47G+t4SogPJYUD+CEbf2oKQumGolnpYRELIB9G8KHp8bLWqFUnxuntx
+	Pd9dl4va5tK0ScSaeA/NaRU1sNTaaL7FJVXSKyNamGEpyQmWfaSemsnqLpvZ702f7bMHTDxn+iDYo
+	7BwHaQBKoHoKLZMsp1AS9de1mf9w1IpQDi+yKnK7xmLZyiWj+3Xq3y7C3gOtKbO3fcvu2LHmiQFqu
+	Qf5dWvugbz/uHEo6+7xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwSYQ-0000000AJox-3N67;
-	Sat, 28 Feb 2026 22:12:54 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1vwSYi-0000000AJup-3w7W;
+	Sat, 28 Feb 2026 22:13:12 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwSYO-0000000AJny-2VSj
+	id 1vwSYg-0000000AJu4-3PkK
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Feb 2026 22:12:53 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-358d80f60ccso1334256a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Feb 2026 14:12:52 -0800 (PST)
+	Sat, 28 Feb 2026 22:13:11 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2ab39b111b9so16007025ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Feb 2026 14:13:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772316772; x=1772921572; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1772316790; x=1772921590; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Xvx8E7qiB01vJhqM9saSuJdmjeUVy74XGiStAmL658I=;
-        b=RZQ6Fj5yoJ7EjSar0PJil6qU5dszut4iqBjheABvKngnAJ+YsVS0R/MIZ6nrubH+f4
-         eXiZh/vhGGS5yOc6DIdB6assDp5MbSRJJT2Yodh/FIEscIQ5WKjIGUCFDkU7lMppXttS
-         kWiqxaD4qNcyWtrPW/jg9qUSsinrVKo49OloPbJTSr0mdraLG6WIikyD/AH6mOVyXUDX
-         ANl25RRUubM9YI5awf0Y6cqdo74+LRNtSnr/knaUCnMZALrXwG1FiPv2dZEB7l1q2aMC
-         tmRmRHeBGLYick+5einjiXHFeIUnDXBGVk3mVgjjljVxGHvQh8c/7jZoQryJoftzJI4p
-         cX7g==
+        bh=b6WpdJ1Uj/mNRIGGoUCingnccNT1bUYjuIwJgJ29my4=;
+        b=Q8h3sxz7LeH38pOmVXRRFD54ms24nOpgrURGhPLywJSJYnGnDKtR/LGw2iJg5voH92
+         ev+ETRWtOiWOi6aQRWPQI1wDOBxyqOJeDfv4kylw1JvjYAT8IGRNDdp1uFUBxqmwmI6A
+         rm1v3pg1Vs36/BHzGBgT0heWX+mIRWHXBMvreebyD5wAp0TrW87PVnLPlXZ+kGvaTW2n
+         K5JvWuMcdYJqaqiOV7IBQaBtlmL2JUKur/81KpckwaZtBzrlzF8oQhgXniAI2lnrUhQr
+         h4eH0QIJ1JNo1/GeHtac4jzXgzQPR7Rp2c9KVwot54NChG4dKQtY9J/68TuWWQS5Z8uA
+         kn6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772316772; x=1772921572;
+        d=1e100.net; s=20230601; t=1772316790; x=1772921590;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Xvx8E7qiB01vJhqM9saSuJdmjeUVy74XGiStAmL658I=;
-        b=arZQg3hUjpiABajfs1TSVTVCNGGek9Ja6Qi9lDkqVzH2R2GgLkA92Njq1UPjjvnTjj
-         PeyFK3LMJ9MztnGAa5xImzWzPd23ss0kVQ/jgSvNQGYyqP6xi4JbgBVttR18oh/R1tG4
-         Arus0Pp1Qexkn7GXwXLuwEUTiSoeSmhzp4qsTg4GhqK+YbdFUxvM+vy8R+4N4UTHqJh3
-         q2QBaqaomPBoDgF5eQBxA+2n5nK1ugDAoeuSU4k8PY3aFfBxSoW0nKs5aF96UOtvOxS6
-         EZiyLDmKVw0Fdlxys4KL+IuSj2HT9opjBEGWuYGpV4wHrMLjjCNFr23mf8BFgjFU+hGJ
-         ekIA==
-X-Forwarded-Encrypted: i=1; AJvYcCWL/mVOV+m6lkE/XKUMXbl/rNEsaT7X9K2hYqTKxczmwMnRikFoJUGWaeKSPcAAMcUmtv31WpbPGrZ/hZog3rEf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzx65/v8ZNUb7c2RuE1bnaz17YcXfIwHKPGrabx2XKFPcL2Awc5
-	r1xDGTnwoONzr7iBl9A466PoQD4HEgok1fUhfp1wWBbkNNZBf/nFkPBx
-X-Gm-Gg: ATEYQzzbv2diJinGDz/pE1Q1UQkltAsur0g8vpSwNCSgG1Jg/iMH39JSCtsby9/+SM2
-	jE7L2oKcrNZzjg2amsjneeUqJ5T2eYDGNklqxsONJyVga/GaeNoFTNLI1ndfeZ91Z79qxE+wIJE
-	3cIgWxGEbjayqlZLFjUIf2Noz2FaoGjX+FEq4sGduyqcF7xFZB/EtKUBzMqN4y3jg8+ZneDB0ga
-	9QUGdV05DmFzFF0FwJafmdZGAUkmKVUsZzyaNspXjjfljM0AB0exURsjWxBs1Gu4JKehIBouGW+
-	ljTbXICF/bVxA9WqfrYo2w7pucrvlhc4zR6HiIEmICg+qxCthWnfL+R4XkVKuckenf4u0aq+tGQ
-	L5aEMLK4WevOTVv2G66XjGatKcBQx0GT2AeU9WI6bVjfB17YhxoyrEiNebzLEUoeeRZaMWyHFZL
-	MR/eIBQyxZhVNghVNLM3xS9z4rwAb/youh5ZBG
-X-Received: by 2002:a17:90b:4a89:b0:354:bf10:e6a4 with SMTP id 98e67ed59e1d1-35965c4d062mr6628977a91.9.1772316771396;
-        Sat, 28 Feb 2026 14:12:51 -0800 (PST)
+        bh=b6WpdJ1Uj/mNRIGGoUCingnccNT1bUYjuIwJgJ29my4=;
+        b=Yv+GZsAds0fEO/Jqx8N+qM39lPMdHlK08ii8OvluWGeTLLcPPjdCjxbk8j1K68SBTl
+         4HUKZtNLOyz37FJONUeO0T28eU1BFun1xWDBKXAx92TViDsOBd/eR/3OT/VDPuX5Wy2L
+         qG1e9dXm3afS7z7KqxEKzxYQA48DGZxPqABvSlgmcm2aU6dc4UejasTkCQMTEKrn5aHT
+         R+U+DSgzHxTcXw/SB5dIKE4imO1AiPZEj1XU5lUzCBkox1a/lRh/8bca6C5iJZF7HFDx
+         YRd1db75Vv+FuEiXXPtJ+Q/WSkcQG+isz6NrIpHIAMmcTkGiIiYExkYiraz9VTCQzA4e
+         JBSA==
+X-Forwarded-Encrypted: i=1; AJvYcCVJO/vSQRlph/3jYPgmicnhMMWPGBqxvEjn9jyozW9lGZQaSTRvuiDq/hLREj9qbo+ACtcw2RylsstsE8oP6fzp@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXFm7P35uBiiY/DlODsGbBkA6/iWIZqO9Mb0wK+rqEXpe1YB6h
+	EGdJqfabbF76z6ZeucO5lswNwKLVcghhtXWRTV6bphH2U4sp5aWtaFhB7zRkiRsf
+X-Gm-Gg: ATEYQzxa3fjv0UTRafJFqyZYrXNTUmDtyfISqME2B/e03ExM8PY4i7WVVzly7jbnO9J
+	xnIe8ZwnfpaVzII9OgZUmq+34aao1SITo2QjKUWMAqX7QPWo4oMLJft8V5CckkMCSVKsn5jshOP
+	jkKCeMc4WLbIC4HxvaTiz4/6KcpZC2uX1eOTVYwCBQxa2JxaF7vGfMBxXXuCOp/PG7lh/2RVb6T
+	DPgasmor/f+RwSG3TFKDRwhtnenhWEAaB8WdxvJDLurPiUZHoHiQkmRuYLc86u0eIck/7jdOUoe
+	EID5eEZkWMAU6qbA8MPyQIcboJcSmPnKpp8hkIm6f7vKZNcB+f+Dg596v2AUo1V+MhBdY8GFxTv
+	FTrVZ5QfbatH0/UV3WfQAGI4GuvYIFBh7aqIlpOVbFfBx3oEe5g8TrfB3xAYahI1eA+qZqozTvn
+	0rYyCy07TiUJJx416Qb7bg6wOLkv+v6CpouSFS
+X-Received: by 2002:a17:902:e88a:b0:2a9:649:6f5 with SMTP id d9443c01a7336-2ae2e3e5abcmr80828365ad.12.1772316789684;
+        Sat, 28 Feb 2026 14:13:09 -0800 (PST)
 Received: from Barrys-MBP.hub ([47.72.129.29])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c70fa5ea0dcsm7349601a12.3.2026.02.28.14.12.45
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae489c3626sm2927925ad.8.2026.02.28.14.13.03
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 28 Feb 2026 14:12:50 -0800 (PST)
+        Sat, 28 Feb 2026 14:13:09 -0800 (PST)
 From: Barry Song <21cnbao@gmail.com>
 To: catalin.marinas@arm.com,
 	m.szyprowski@samsung.com,
@@ -75,15 +75,15 @@ To: catalin.marinas@arm.com,
 	will@kernel.org,
 	iommu@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 2/5] arm64: Provide dcache_clean_poc_nosync helper
-Date: Sun,  1 Mar 2026 06:12:39 +0800
-Message-Id: <20260228221239.59903-1-21cnbao@gmail.com>
+Subject: [PATCH v3 3/5] arm64: Provide dcache_inval_poc_nosync helper
+Date: Sun,  1 Mar 2026 06:12:58 +0800
+Message-Id: <20260228221258.59918-1-21cnbao@gmail.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_141252_642319_E8D60042 
-X-CRM114-Status: GOOD (  10.14  )
+X-CRM114-CacheID: sfid-20260228_141310_857165_242CA5AA 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,9 +101,9 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Barry Song <baohua@kernel.org>
 
-dcache_clean_poc_nosync does not wait for the data cache clean to
-complete. Later, we wait for completion of all scatter-gather entries
-together.
+dcache_inval_poc_nosync does not wait for the data cache invalidation to
+complete. Later, we defer the synchronization so we can wait for all SG
+entries together.
 
 Cc: Leon Romanovsky <leon@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
@@ -121,46 +121,85 @@ Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
 Signed-off-by: Barry Song <baohua@kernel.org>
 ---
  arch/arm64/include/asm/cacheflush.h |  1 +
- arch/arm64/mm/cache.S               | 15 +++++++++++++++
- 2 files changed, 16 insertions(+)
+ arch/arm64/mm/cache.S               | 42 +++++++++++++++++++++--------
+ 2 files changed, 32 insertions(+), 11 deletions(-)
 
 diff --git a/arch/arm64/include/asm/cacheflush.h b/arch/arm64/include/asm/cacheflush.h
-index 28ab96e808ef..9b6d0a62cf3d 100644
+index 9b6d0a62cf3d..382b4ac3734d 100644
 --- a/arch/arm64/include/asm/cacheflush.h
 +++ b/arch/arm64/include/asm/cacheflush.h
 @@ -74,6 +74,7 @@ extern void icache_inval_pou(unsigned long start, unsigned long end);
  extern void dcache_clean_inval_poc(unsigned long start, unsigned long end);
  extern void dcache_inval_poc(unsigned long start, unsigned long end);
  extern void dcache_clean_poc(unsigned long start, unsigned long end);
-+extern void dcache_clean_poc_nosync(unsigned long start, unsigned long end);
++extern void dcache_inval_poc_nosync(unsigned long start, unsigned long end);
+ extern void dcache_clean_poc_nosync(unsigned long start, unsigned long end);
  extern void dcache_clean_pop(unsigned long start, unsigned long end);
  extern void dcache_clean_pou(unsigned long start, unsigned long end);
- extern long caches_clean_inval_user_pou(unsigned long start, unsigned long end);
 diff --git a/arch/arm64/mm/cache.S b/arch/arm64/mm/cache.S
-index 503567c864fd..4a7c7e03785d 100644
+index 4a7c7e03785d..ab75c050f559 100644
 --- a/arch/arm64/mm/cache.S
 +++ b/arch/arm64/mm/cache.S
-@@ -178,6 +178,21 @@ SYM_FUNC_START(__pi_dcache_clean_poc)
- SYM_FUNC_END(__pi_dcache_clean_poc)
- SYM_FUNC_ALIAS(dcache_clean_poc, __pi_dcache_clean_poc)
+@@ -132,17 +132,7 @@ alternative_else_nop_endif
+ 	ret
+ SYM_FUNC_END(dcache_clean_pou)
+ 
+-/*
+- *	dcache_inval_poc(start, end)
+- *
+- * 	Ensure that any D-cache lines for the interval [start, end)
+- * 	are invalidated. Any partial lines at the ends of the interval are
+- *	also cleaned to PoC to prevent data loss.
+- *
+- *	- start   - kernel start address of region
+- *	- end     - kernel end address of region
+- */
+-SYM_FUNC_START(__pi_dcache_inval_poc)
++.macro __dcache_inval_poc_nosync
+ 	dcache_line_size x2, x3
+ 	sub	x3, x2, #1
+ 	tst	x1, x3				// end cache line aligned?
+@@ -158,11 +148,41 @@ SYM_FUNC_START(__pi_dcache_inval_poc)
+ 3:	add	x0, x0, x2
+ 	cmp	x0, x1
+ 	b.lo	2b
++.endm
++
++/*
++ *	dcache_inval_poc(start, end)
++ *
++ * 	Ensure that any D-cache lines for the interval [start, end)
++ * 	are invalidated. Any partial lines at the ends of the interval are
++ *	also cleaned to PoC to prevent data loss.
++ *
++ *	- start   - kernel start address of region
++ *	- end     - kernel end address of region
++ */
++SYM_FUNC_START(__pi_dcache_inval_poc)
++	__dcache_inval_poc_nosync
+ 	dsb	sy
+ 	ret
+ SYM_FUNC_END(__pi_dcache_inval_poc)
+ SYM_FUNC_ALIAS(dcache_inval_poc, __pi_dcache_inval_poc)
  
 +/*
-+ *	dcache_clean_poc_nosync(start, end)
++ *	dcache_inval_poc_nosync(start, end)
 + *
-+ * 	Issue the instructions of D-cache lines for the interval [start, end).
-+ * 	not necessarily cleaned to the PoC till an explicit dsb sy afterward.
++ * 	Issue the instructions of D-cache lines for the interval [start, end)
++ * 	for invalidation. Not necessarily cleaned to PoC till an explicit dsb
++ *	sy is issued later
 + *
-+ *	- start   - virtual start address of region
-+ *	- end     - virtual end address of region
++ *	- start   - kernel start address of region
++ *	- end     - kernel end address of region
 + */
-+SYM_FUNC_START(__pi_dcache_clean_poc_nosync)
-+	dcache_by_line_op_nosync cvac, x0, x1, x2, x3
++SYM_FUNC_START(__pi_dcache_inval_poc_nosync)
++	__dcache_inval_poc_nosync
 +	ret
-+SYM_FUNC_END(__pi_dcache_clean_poc_nosync)
-+SYM_FUNC_ALIAS(dcache_clean_poc_nosync, __pi_dcache_clean_poc_nosync)
++SYM_FUNC_END(__pi_dcache_inval_poc_nosync)
++SYM_FUNC_ALIAS(dcache_inval_poc_nosync, __pi_dcache_inval_poc_nosync)
 +
  /*
-  *	dcache_clean_pop(start, end)
+  *	dcache_clean_poc(start, end)
   *
 -- 
 2.39.3 (Apple Git-146)
