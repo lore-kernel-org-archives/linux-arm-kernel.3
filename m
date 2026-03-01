@@ -4,98 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97A4EFD005B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 10:47:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A455FD0061
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 10:59:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zMjjSX07o27ArEy58bafhXTfzgI0LtEb8dLPu9QRg6g=; b=sxxROZj0NZ+AzFyImXAE6aglom
-	YyQvE/3Gcx+/gmXo5ZPoewOnBRcRLRKDTBymnVXRiZpUl2MXjYKpfhtRuOikQo8QGerk/MvCXm6Sj
-	BbBQsbAz4cUqN/phq+sgqCmVtqelph24wPfoKYaopZdsQ9QmUWYaNo31INLt15A3eg/0wPN9m9/iL
-	9WKYpvK8th2wOcwkKv82F/xl5jE2B9mJJXUfVxZW8GkKgyrvBBRGfaTEKVFhGZ87J81a3Ovr/j1Wt
-	eJzBqldTz5NqnWAhPS9lyFYqEebIFFfOIjYbo245Mnn5pn4zYhOzw7FcXb3vIL3nw+VxaySK4Awzw
-	iLlp8NGg==;
+	bh=tWvbzoSirp2+/mfj208EVtuCkSsURTVI0XL++QIzXe8=; b=0JXYbpI3vNac+1xfkAEK8ki/yu
+	Snyqd5RdLQmCLeYJKIhoFe02xILHqQFIUbi57yMAZpaQa8z7lhE+/aeSlBqwqhUGnSK9lPtoHw2Jm
+	XxeLPMvP7BZ6TrCT76nlnfgD8tU2YF9YyVfmCFFZm3JCt9fscFfV6cmeteMhztH364hZdqxGrEkMJ
+	uq86jvSgbJ3tptBql2HEu7dGfBLQMlvaZSWmk9i3S8Y0+iKUnm51ZGiYSbsLAZQJvboFn/8C7R5xu
+	PbGoGopr6ZOwGWOX6HYqXowgv4Xof/j/yypsThyyKmuhpekRuR04DAHkT+qmjhDzQx3wLyP7KMXvp
+	YgGI1FLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vweKH-0000000B2UL-3Rhd;
-	Sun, 01 Mar 2026 10:47:05 +0000
+	id 1vweWM-0000000B2wT-0Huu;
+	Sun, 01 Mar 2026 10:59:34 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vweKG-0000000B2Tf-05p9
+	id 1vweWI-0000000B2w5-0P4p
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 10:47:05 +0000
+	Sun, 01 Mar 2026 10:59:32 +0000
 Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6217uewq533721
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 1 Mar 2026 10:47:02 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6212LASQ4071445
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 1 Mar 2026 10:59:28 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=zMjjSX07o27ArEy58bafhXTf
-	zgI0LtEb8dLPu9QRg6g=; b=YHzedMVvaaQRmITBFe8xlRAGp8P99EssBQY/pKU4
-	5F2QJ5TRhTc6aItMbvykuefuUQIazptsv9UE9PHpvwpC1M+e1jXsUT62ohJytu/e
-	RldhLQBp18YepRjUSmK6wuw5wmhrPTkxHh0nYq0lBb+4nK4Ztl0J/nvTVcQEhFmQ
-	jAhvb//acoWSA3UXKpi1kdahy8aWY8gtcFTmo0MoXVHVDbZtADY+PBM2PDG5mLct
-	9m7MkPMdZ843hZ+h40XdTx1WGnDLataaldhWe/qsX5StDb8rU25k1g+v6s9gPp5d
-	3cg1+H4J+zKzj/uIE/BAyVD607KfK0kE+a/7LiwBCbbnSw==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cksg72g1s-1
+	:references:subject:to; s=qcppdkim1; bh=tWvbzoSirp2+/mfj208EVtuC
+	kSsURTVI0XL++QIzXe8=; b=ZbRtpKNVrLZlATBeln8U+o1HVMJ1NJFODQD2g1Xt
+	5zqmD26FEi7oT89X6dB/3Kf0XkkF6A8sXLJiy6k2cdCfTElYXz+CjMK5FIy3AQPe
+	xpwFsAEbry2aIJz+ovYfTdhNnokCCupYZNrBBmfiE6N5iXxEnaecxqJfkBq7jA6g
+	atxv+7P2SKJ+CThu9PnqyE+e14r5zyxB6+fChJWyb7bmsbhO1nbIl9sdXtyQ92aF
+	9NNtP7wU75FlG/y0oxLuqIE1sXvncry7ovuFrwD64sbYiUvq0bz1X2QeTCCuTyIj
+	PQrXowySKFMO/mebdHFA3zvBB6060oQ2+M3ZZuPrtLkY+g==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cksg72gcx-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Mar 2026 10:47:02 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8cb3a2eb984so2510097185a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Mar 2026 02:47:02 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Mar 2026 10:59:28 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8cb403842b6so3546393485a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Mar 2026 02:59:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1772362022; x=1772966822; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1772362768; x=1772967568; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zMjjSX07o27ArEy58bafhXTfzgI0LtEb8dLPu9QRg6g=;
-        b=K36nIvfGYu6ZKRvHArw+4uZr+/lDTXd7QN7cMQLVlX+rj8AowTv6apZvCheBLavpcL
-         8VX9dCGbe8pvnWF5ePpgJW+hyQheUTina/TReMRBIEOvd6Pf636SB1kMwOmDfjUFo/lR
-         1DpOiHqgCp7G6KnN5Unh3xBiDVWPAYWsF1fuxP9dGhc9kaewFX3V55ELWpFBJKcYxEXz
-         yr+JhCvSUx6MMYgvcWCYEWnM7T/+JD/FAp0KynSqX9MvNZKTZ6+hbK8aQqgN2XHasAs2
-         279ZlIY3AsSVb9oGs8ij3199Mh0AvcMrIBPsz0hRRWOiUGcSwdJSXSWG3Iau/rZ3N1zP
-         nBNQ==
+        bh=tWvbzoSirp2+/mfj208EVtuCkSsURTVI0XL++QIzXe8=;
+        b=Cw+y3cJ5YzE/mT+aydEffzbyWIw3b7cmgVXnzDWJ7eohqFWYLL4g4d8/gv4jVRNvME
+         CVhAcS7rFQ7/KBUBKQOWK28mLKNExAn6SoWbHM25ZsERCu4/4Br9W/0q5brNgu75vPBZ
+         JOkZMmF6LQk9y7B8INAtu4hb+jdbPZoT84k1HLeqlV8tilj5RI00SBRm+J706XgDmMWS
+         c9nvGWWzWNDOioMrexO2GN5IKtucliuaY34kEzoTCRjkCxZnp9ko5B4KurceS+8ZpWzX
+         UTs1+Gl5waZu2Epq7c4nr9eTIf3f7WGyDlSGbh00dK90Q6e8rM7VeCXPbFPbx2/xB2qu
+         fOCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772362022; x=1772966822;
+        d=1e100.net; s=20230601; t=1772362768; x=1772967568;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=zMjjSX07o27ArEy58bafhXTfzgI0LtEb8dLPu9QRg6g=;
-        b=WBirzwGBdrKQT6LtYE5mS5OxwY2pD3MxDskKd9bLwgnzJT3S7X1/gY/pyqRRM41IY8
-         +DLDCPIn2Ge83dJT/RN8l+Q84Torx1u+MMMYLaG7OfNW8MKL9qjBBqk8xozS4txkb+Dc
-         VMsHVq8HNMlnl7GTsTh3UuF7EdvpTvh0DbidTQdH8Jo6l/6vW7JNEabBSHGiKzrNWQXZ
-         VjGYDUd57dg9mX7S2/0MjhsKbUuGINjU2kgbjWTQPSeKbh2v9HFcrXM0DblmG7J3pTAP
-         i6N9JidnKuhGauMUBQLxIaqKTL4/mPERdvx6RX2fKSHjVmj/4W0Vt6keDMnDgHLfvXfD
-         RdlQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWvjH9p4JffwhDrPsX2jiAVTLyksfXkbfwc1bz1e1jZHmwdPdWGFWArNGPX0D43Eh916zMAigogxI926IhqpgVS@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+ZHBEJGA0a98Nt1T8DcFDTtOEvv7J1Q3TzJVIYAKgzlDkeY57
-	iFlYs/Zq7ZTEaGRqkndGHAat6UUXn3p/Cm2MEE/Fw/xsgTxqbKv6BYXxVUQB1tNXCzgNfu5eEol
-	28w6omdQbQ2bXu602VvM1j/Kuy/KEbTEXODo/ydSpXtDzVLdnszlzrEfLgi39d0vD0glfB2Pv93
-	x6pw==
-X-Gm-Gg: ATEYQzyGSGpGQ/6y/QnHcW/6k6CbhLe0V7TBukm2XsvfQh+I6D+LQFI8fLH9HflUdh+
-	XyGz/aCsZGtrNYTnek1jLWgqXgKLH4SIxeLN91y1LbK6I1+cO4qHtORq5Q8ZTEBtWF6iSiQDq/K
-	CR8rvnChBZz+QqwHLVXUvxqBz7dMB5Nb0PXq8NsgUVbiyK9IMSU7pl6PgCzD0sum39jxF1yeyRa
-	hqQm0MiMhhN2H2xBgjDuJH5GNn1mASr42u9yI456naFOdtCQf/qEgSJ/mTa4xuNBrqny9/OxgN2
-	NfasHeTTFhCuBMbx0EBR/zeuNHqoOBXisNrYS/YbOXV9ZOWXaqBtq18En7BoQaYm+Ik+4TLcLOn
-	FAV8DfmnZJI4hUi4mIps59tzMWyMzFop19dJoYVsieM5f3+1fDSgR/FwAxKAvn+2rFgyAXF7SHQ
-	EVBf6hw7XR42TpQpL8RC+yyS71aNTON2pqdkU=
-X-Received: by 2002:a05:620a:199c:b0:8cb:50d6:18c3 with SMTP id af79cd13be357-8cbc8d6ef5bmr1217219685a.1.1772362021848;
-        Sun, 01 Mar 2026 02:47:01 -0800 (PST)
-X-Received: by 2002:a05:620a:199c:b0:8cb:50d6:18c3 with SMTP id af79cd13be357-8cbc8d6ef5bmr1217215585a.1.1772362021320;
-        Sun, 01 Mar 2026 02:47:01 -0800 (PST)
+        bh=tWvbzoSirp2+/mfj208EVtuCkSsURTVI0XL++QIzXe8=;
+        b=cqGkGHbxv9sPboFaeDTgzMHVDSR7Cgxn/yPBpW57RT5ALqxLX65WNSyW2es9vnqnUx
+         t/70LHxK+YOTMDV+b5V8GBNjxlXkfWXAvhNAiuT3Hj0f2k31isjjfJtzkCoKrSkatPlK
+         mywhgCc85mkHY2bee2yivdhQzXbaegD9mgMeHgOtOmM3QqoxY6jITx5P0p+vb8/jYDMs
+         8UiH03yUl45/hHwmtu8oR/7H8O2ILpZkzrBHn12p7cfJu7JeavDigukXAcg5Ct5mFyeI
+         fnXAga9KH6nrWrD97RjK2AyIjEISOX+NhL9H30Yb04uprKL2FQl5IuDxRG3LMtLNs/tE
+         vwqg==
+X-Forwarded-Encrypted: i=1; AJvYcCU7Jq4Q2QDg7QLimxEpWd+ROx2iPdVbmQuBv2BvmiqMLuU2CP4b0oT2t6udzBw2Pp3z1MiOccbleEDzOyI8KUCf@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8nolgiAylexTUMyF5M2q9a5ffWCd9rz1OvY1O/nWXgTuz5C0Y
+	RszwOuBCzihQM1HP2+PcLp0dcinFOjN4284Bo8zWGnAqns55MI4fRyDurBTawyqzdzE8sH7Sfao
+	5B0C/1gedkG7f2gvIjlbMgKLpOXjW0qMO0Ns7aqQ1ApJi5xSuapkg867ncxsqwA7i6nYXYK99CB
+	A1Bg==
+X-Gm-Gg: ATEYQzyX0Mf06W1cEtQvoyYbRTWzhIeLsHfiNtTxdFE94+Vf+kAq3iAcQTTKwET7AeE
+	o7yFX+hgE7r5GfnjjOt4yviWVFiOOHOOtG5YW1Nvhu6slXuvQ410H8b7JUOpYGEK5skM4v6V6iR
+	8nzbR9w0Fg+ZtCWnGxuXRXF8Ljf8AOGS2JGUHMB8bt8sgZGrEUsOrOc0Z9PrIXTHhOQOxiTvuvh
+	vYQnI9mhFAl6+I+3A4TznteB3MnKrADlADKGj3viNfjKVDI2ao6oBe+vy81zxf6nrTu222+gRUs
+	KEJGYdS0eOj5vP6+S+2mGamkNYKh4x/1JCDuHmkBcMd3K4JVOXR7ngM1xQkLCghysq1qXsIpkjk
+	Nfn84AFsmjwv4f27yea4OdwQBXrbb5zDzHQYpZkIU5ho7XOLAky1d7UFtC9djRslYitpaoZt6up
+	6unqKe/y9qKkxuTSMOXt2x4mp1bp9ZaiJMpx0=
+X-Received: by 2002:a05:620a:3949:b0:8c7:1b3f:7d0c with SMTP id af79cd13be357-8cbc8e55216mr1090395685a.16.1772362767966;
+        Sun, 01 Mar 2026 02:59:27 -0800 (PST)
+X-Received: by 2002:a05:620a:3949:b0:8c7:1b3f:7d0c with SMTP id af79cd13be357-8cbc8e55216mr1090393285a.16.1772362767407;
+        Sun, 01 Mar 2026 02:59:27 -0800 (PST)
 Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a115bce377sm971860e87.15.2026.03.01.02.46.58
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a116de019esm872280e87.3.2026.03.01.02.59.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Mar 2026 02:47:00 -0800 (PST)
-Date: Sun, 1 Mar 2026 12:46:57 +0200
+        Sun, 01 Mar 2026 02:59:26 -0800 (PST)
+Date: Sun, 1 Mar 2026 12:59:23 +0200
 From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>,
-        Nipun Gupta <nipun.gupta@amd.com>,
-        Nikhil Agarwal <nikhil.agarwal@amd.com>,
+To: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+Cc: Nipun Gupta <nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>,
         Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>,
+        Robin Murphy <robin.murphy@arm.com>, Marc Zyngier <maz@kernel.org>,
         Lorenzo Pieralisi <lpieralisi@kernel.org>,
         Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>,
         Saravana Kannan <saravanak@kernel.org>,
@@ -122,30 +120,29 @@ Cc: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>,
         Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
 Subject: Re: [PATCH v9 2/3] of: factor arguments passed to of_map_id() into a
  struct
-Message-ID: <ehhnta6zvfua723llpb52hh3lwqdh4ttomzt7xqrmcjnsslbop@p4w3gjzxp4rn>
+Message-ID: <bo5kb53hrzvl6e5mctvnpqluobdgbpq4x3m5ca7mwtfnl53npw@7axqsph2vyqd>
 References: <20260301-parse_iommu_cells-v9-0-4d1bceecc5e1@oss.qualcomm.com>
  <20260301-parse_iommu_cells-v9-2-4d1bceecc5e1@oss.qualcomm.com>
- <861pi3amuu.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <861pi3amuu.wl-maz@kernel.org>
-X-Proofpoint-ORIG-GUID: xF6aNqlsjVNQNQKVW7nXfqp9gy3rCC3W
-X-Proofpoint-GUID: xF6aNqlsjVNQNQKVW7nXfqp9gy3rCC3W
-X-Authority-Analysis: v=2.4 cv=FaA6BZ+6 c=1 sm=1 tr=0 ts=69a41926 cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+In-Reply-To: <20260301-parse_iommu_cells-v9-2-4d1bceecc5e1@oss.qualcomm.com>
+X-Proofpoint-ORIG-GUID: zZIS5sPkBa9j-5oAcl1gboZwsYNSsfmf
+X-Proofpoint-GUID: zZIS5sPkBa9j-5oAcl1gboZwsYNSsfmf
+X-Authority-Analysis: v=2.4 cv=FaA6BZ+6 c=1 sm=1 tr=0 ts=69a41c10 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
  a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=YG64nluAAAAA:20
- a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=Pq9JgrngHnaR5_AiyuMA:9 a=CjuIK1q_8ugA:10
- a=PEH46H7Ffwr30OY-TuGO:22 a=bA3UWDv6hWIuX7UZL3qL:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzAxMDA5NiBTYWx0ZWRfX10LtmdmLk7Ac
- JrvPvvYIRW32+DHsP0S/5BiHrva/Wpoqqoeta5zzfJTAv0nk+d3k5Oov4UEKPwy2vdhPrz4MJLE
- +Qoqr6MnXvBWjhOJCUaOuTbvcEBQnz6z6NdjOnpCI1Om8lm6I1b6oa6GpmmPAYR6o/8rBHm9oqE
- bjbubGJZAccdmtvX5DwHer5MtRnXU1W+pZLjOv589UJ/FiWP5nuep53tSri8SL9xroF54IfpL2y
- Ty9gVaLhBdXbrTJPLdJxJd7xixtGwHPKDFUQ/JP+1r3fX0PhVI3QH1yM6PUvNgcAkZyxwQWsSRF
- fWBCrkgTGjNhVfYuq9mGChc9jGMSQpFtcfwdUDdbKt6H8yEVMH2F5K3sBuVdCp/zRSyBovClUEN
- /RXULYSw5k9nSaS+De/I+iFyb9AprOawk683GM2AiDWEHxVc0srYumpX/8LvzP/xlaJKB6WihFa
- DDsJbo9Z/gy0QXlwvfg==
+ a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=EUspDBNiAAAA:8
+ a=VwQbUJbxAAAA:8 a=Dq95N7oyZucg39lo86YA:9 a=CjuIK1q_8ugA:10
+ a=IoWCM6iH3mJn3m4BftBB:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzAxMDA5OCBTYWx0ZWRfXzyTJBf8tCr5K
+ Tvy5sj+PSnApTHSkfAsCtB7odX2XTZYvAZ1s1ivOdUPGY7UMyIF8vqeR7QgVSnU5UyP7ub/xmmn
+ eJJLtu1IPjLjgR9wJFbFlzTLh3H11hp+WC+SiQVP3n2OmpUMPG/dnYBJywSx3rDFH22T6rHwL7U
+ zKqzpDwhkamrt7flWMyELwQgyNyJKY+jqQZ4QAKcbP4WjL7IJDySR0AxrHtYKIKSCWGjAWeYhwb
+ 1tocJSB2M4aGrpOfRQ4TzNUfl3x4ujHLIS5zZnn+xQ8JnXnsObNVBC/h6afk46LPdifT+sGwMBe
+ rIvYOsnJnkT2WRFmMO5LoH/YYOKwqvJR9FHRrXNieNljYa1/HNqjcbtND5uGrfnFVBxWgf49O98
+ /RXsiUgmSsAwiqSdkbtUOEq5qxkR5biR7gvMOU9UPf1JEiyPykfEQPQ6JKlzZUzhCnKcHB4TXrH
+ fB2LeF25mC8yce8hRnw==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-03-01_01,2026-02-27_03,2025-10-01_01
@@ -154,10 +151,10 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  priorityscore=1501 spamscore=0 bulkscore=0 adultscore=0 malwarescore=0
  suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2602130000
- definitions=main-2603010096
+ definitions=main-2603010098
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_024704_187385_7E0AD0C0 
-X-CRM114-Status: GOOD (  37.51  )
+X-CRM114-CacheID: sfid-20260301_025931_448338_88A5CFD3 
+X-CRM114-Status: GOOD (  21.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,256 +169,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 01, 2026 at 10:02:49AM +0000, Marc Zyngier wrote:
-> On Sun, 01 Mar 2026 08:34:20 +0000,
-> Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com> wrote:
-> > 
-> > From: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
-> > 
-> > Change of_map_id() to take a pointer to struct of_phandle_args
-> > instead of passing target device node and translated IDs separately.
-> > Update all callers accordingly.
-> > 
-> > Subsequent patch will make use of the args_count field in
-> > struct of_phandle_args.
-> > 
-> > Suggested-by: Rob Herring (Arm) <robh@kernel.org>
-> > Signed-off-by: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
-> > Signed-off-by: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-> > ---
-> >  drivers/iommu/of_iommu.c              |  2 +-
-> >  drivers/of/base.c                     | 37 +++++++++++++++++------------------
-> >  drivers/pci/controller/dwc/pci-imx6.c |  8 +++++++-
-> >  drivers/pci/controller/pcie-apple.c   |  4 +++-
-> >  drivers/xen/grant-dma-ops.c           |  2 +-
-> >  include/linux/of.h                    | 21 +++++++++++++-------
-> >  6 files changed, 44 insertions(+), 30 deletions(-)
-> > 
-> > diff --git a/drivers/iommu/of_iommu.c b/drivers/iommu/of_iommu.c
-> > index a511ecf21fcd..d255d0f58e8c 100644
-> > --- a/drivers/iommu/of_iommu.c
-> > +++ b/drivers/iommu/of_iommu.c
-> > @@ -48,7 +48,7 @@ static int of_iommu_configure_dev_id(struct device_node *master_np,
-> >  	struct of_phandle_args iommu_spec = { .args_count = 1 };
-> >  	int err;
-> >  
-> > -	err = of_map_iommu_id(master_np, *id, &iommu_spec.np, iommu_spec.args);
-> > +	err = of_map_iommu_id(master_np, *id, &iommu_spec);
-> >  	if (err)
-> >  		return err;
-> >  
-> > diff --git a/drivers/of/base.c b/drivers/of/base.c
-> > index 57420806c1a2..6c3628255908 100644
-> > --- a/drivers/of/base.c
-> > +++ b/drivers/of/base.c
-> > @@ -2102,8 +2102,11 @@ int of_find_last_cache_level(unsigned int cpu)
-> >   * @id: device ID to map.
-> >   * @map_name: property name of the map to use.
-> >   * @map_mask_name: optional property name of the mask to use.
-> > - * @target: optional pointer to a target device node.
-> > - * @id_out: optional pointer to receive the translated ID.
-> > + * @arg: of_phandle_args structure,
-> > + *	which includes:
-> > + *	np: pointer to the target device node
-> > + *	args_count: number of arguments
+On Sun, Mar 01, 2026 at 02:04:20PM +0530, Vijayanand Jitta wrote:
+> From: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
 > 
-> Number of arguments *to what*? Isn't that the size of args[] instead?
-
-It is a number of values corresponding to the phandle in the DT
-property. It might be not obvious here for iommu-maps, but the struct is
-idiomatic in OF world. Let me quote a (trimmed) example from
-qcom/sm8650.dtsi (for a different property, but it explains the meaning
-of the values here):
-
-gem_noc: interconnect@24100000 {
-	#interconnect-cells = <2>;
-};
-
-epss_l3: interconnect@17d90000 {
-	#interconnect-cells = <1>;
-};
-
-interconnects = <&gem_noc MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
-		 &gem_noc SLAVE_LLCC QCOM_ICC_TAG_ACTIVE_ONLY>,
-		<&epss_l3 MASTER_EPSS_L3_APPS
-		 &epss_l3 SLAVE_EPSS_L3_SHARED>;
-/* I skipped the second pair, it adds nothing here */
-
-Here the parsing function for this property (of_icc_get_by_index()) will
-call of_parse_phandle_with_args() 4 times and it expects to return the
-following values in the of_phandle_args:
-
-1. { .np = gem_noc, .args_count = 2, .args = [MASTER_APPSS_PROC,
-                                              QCOM_ICC_TAG_ACTIVE_ONLY] }
-2. { .np = gem_noc, .args_count = 2, .args = [SLAVE_LLCC,
-                                              QCOM_ICC_TAG_ACTIVE_ONLY] }
-3. { .np = epss_l3, .args_count = 1, .args = [MASTER_EPSS_L3_APPS] }
-4. { .np = epss_l3, .args_count = 1, .args = [SLAVE_EPSS_L3_SHARED] }
-
-The whole of_phandle_args is then typically passed to the corresponding
-xlate function, specific to the paricular .np ('provider'), which will
-use #args_count values from the #args array to return the object from
-the provider.
-
-Now let's see iommu-maps (again, qcom/sm8650.dtsi):
-
-apps_smmu: iommu@15000000 {
-	#iommu-cells = <2>;
-};
-
-iommu-map = <0     &apps_smmu 0x1400 0x1>,
-	    <0x100 &apps_smmu 0x1401 0x1>;
-
-The property matches current definition at [1], however this spec
-doesn't match the DT practice. It forces that the property should use 1
-cell for identifying the "object" in the IOMMU provider, even if the
-provider expects to use 2 cells (two args).
-
-The correct property should look like:
-
-iommu-map = <0     &apps_smmu 0x1400 0x0 0x1>,
-	    <0x100 &apps_smmu 0x1401 0x0 0x1>;
-
-[1] https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/pci/pci-iommu.yaml
-
+> Change of_map_id() to take a pointer to struct of_phandle_args
+> instead of passing target device node and translated IDs separately.
+> Update all callers accordingly.
 > 
-> > + *	args[]: array to receive the translated ID(s).
-> >   *
-> >   * Given a device ID, look up the appropriate implementation-defined
-> >   * platform ID and/or the target device which receives transactions on that
-> > @@ -2117,21 +2120,21 @@ int of_find_last_cache_level(unsigned int cpu)
-> >   */
-> >  int of_map_id(const struct device_node *np, u32 id,
-> >  	       const char *map_name, const char *map_mask_name,
-> > -	       struct device_node **target, u32 *id_out)
-> > +	       struct of_phandle_args *arg)
-> >  {
-> >  	u32 map_mask, masked_id;
-> >  	int map_len;
-> >  	const __be32 *map = NULL;
-> >  
-> > -	if (!np || !map_name || (!target && !id_out))
-> > +	if (!np || !map_name || !arg)
-> >  		return -EINVAL;
-> >  
-> >  	map = of_get_property(np, map_name, &map_len);
-> >  	if (!map) {
-> > -		if (target)
-> > +		if (arg->np)
-> >  			return -ENODEV;
-> >  		/* Otherwise, no map implies no translation */
-> > -		*id_out = id;
-> > +		arg->args[0] = id;
+> Subsequent patch will make use of the args_count field in
+> struct of_phandle_args.
 > 
-> What if args_count is 0? Given that you place no restriction on the
-> way this can be called, that'd be entirely legitimate, and you'd
-> corrupt something you're not supposed to touch.
+> Suggested-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
+> Signed-off-by: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+> ---
+>  drivers/iommu/of_iommu.c              |  2 +-
+>  drivers/of/base.c                     | 37 +++++++++++++++++------------------
+>  drivers/pci/controller/dwc/pci-imx6.c |  8 +++++++-
+>  drivers/pci/controller/pcie-apple.c   |  4 +++-
+>  drivers/xen/grant-dma-ops.c           |  2 +-
+>  include/linux/of.h                    | 21 +++++++++++++-------
+>  6 files changed, 44 insertions(+), 30 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
+> index a0937b7b3c4d..e1d4b37d200d 100644
+> --- a/drivers/pci/controller/pcie-apple.c
+> +++ b/drivers/pci/controller/pcie-apple.c
+> @@ -755,6 +755,7 @@ static int apple_pcie_enable_device(struct pci_host_bridge *bridge, struct pci_d
+>  {
+>  	u32 sid, rid = pci_dev_id(pdev);
+>  	struct apple_pcie_port *port;
+> +	struct of_phandle_args iommu_spec = { .args_count = 1 };
 
-args is an array (not a pointer) in of_phandle_args. As such we know
-that args[0] is legit.
+Hmm, I didn't notice this. Parsing functions are expected to ignore
+of_phandle_args before the parsing. So passing .args_count = 1 is
+strange.
 
-> 
-> >  		return 0;
-> >  	}
-> >  
-> > @@ -2173,18 +2176,15 @@ int of_map_id(const struct device_node *np, u32 id,
-> >  		if (!phandle_node)
-> >  			return -ENODEV;
-> >  
-> > -		if (target) {
-> > -			if (*target)
-> > -				of_node_put(phandle_node);
-> > -			else
-> > -				*target = phandle_node;
-> > +		if (arg->np)
-> > +			of_node_put(phandle_node);
-> > +		else
-> > +			arg->np = phandle_node;
-> >  
-> > -			if (*target != phandle_node)
-> > -				continue;
-> > -		}
-> > +		if (arg->np != phandle_node)
-> > +			continue;
-> >  
-> > -		if (id_out)
-> > -			*id_out = masked_id - id_base + out_base;
-> > +		arg->args[0] = masked_id - id_base + out_base;
-> >  
-> >  		pr_debug("%pOF: %s, using mask %08x, id-base: %08x, out-base: %08x, length: %08x, id: %08x -> %08x\n",
-> >  			np, map_name, map_mask, id_base, out_base,
-> > @@ -2193,11 +2193,10 @@ int of_map_id(const struct device_node *np, u32 id,
-> >  	}
-> >  
-> >  	pr_info("%pOF: no %s translation for id 0x%x on %pOF\n", np, map_name,
-> > -		id, target && *target ? *target : NULL);
-> > +		id, arg->np ? arg->np : NULL);
-> >  
-> >  	/* Bypasses translation */
-> > -	if (id_out)
-> > -		*id_out = id;
-> > +	arg->args[0] = id;
-> >  	return 0;
-> >  }
-> >  EXPORT_SYMBOL_GPL(of_map_id);
-> > diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> > index bff8289f804a..74fc603b3f84 100644
-> > --- a/drivers/pci/controller/dwc/pci-imx6.c
-> > +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> > @@ -1139,12 +1139,18 @@ static int imx_pcie_add_lut_by_rid(struct imx_pcie *imx_pcie, u32 rid)
-> >  {
-> >  	struct device *dev = imx_pcie->pci->dev;
-> >  	struct device_node *target;
-> > +	struct of_phandle_args iommu_spec = { .args_count = 1 };
-> >  	u32 sid_i, sid_m;
-> >  	int err_i, err_m;
-> >  	u32 sid = 0;
-> >  
-> >  	target = NULL;
-> > -	err_i = of_map_iommu_id(dev->of_node, rid, &target, &sid_i);
-> > +	err_i = of_map_iommu_id(dev->of_node, rid, &iommu_spec);
-> > +	if (!err_i) {
-> > +		target = iommu_spec.np;
-> > +		sid_i = iommu_spec.args[0];
-> > +	}
-> > +
-> >  	if (target) {
-> >  		of_node_put(target);
-> >  	} else {
-> > diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
-> > index a0937b7b3c4d..e1d4b37d200d 100644
-> > --- a/drivers/pci/controller/pcie-apple.c
-> > +++ b/drivers/pci/controller/pcie-apple.c
-> > @@ -755,6 +755,7 @@ static int apple_pcie_enable_device(struct pci_host_bridge *bridge, struct pci_d
-> >  {
-> >  	u32 sid, rid = pci_dev_id(pdev);
-> >  	struct apple_pcie_port *port;
-> > +	struct of_phandle_args iommu_spec = { .args_count = 1 };
-> >  	int idx, err;
-> >  
-> >  	port = apple_pcie_get_port(pdev);
-> > @@ -764,10 +765,11 @@ static int apple_pcie_enable_device(struct pci_host_bridge *bridge, struct pci_d
-> >  	dev_dbg(&pdev->dev, "added to bus %s, index %d\n",
-> >  		pci_name(pdev->bus->self), port->idx);
-> >  
-> > -	err = of_map_iommu_id(port->pcie->dev->of_node, rid, NULL, &sid);
-> > +	err = of_map_iommu_id(port->pcie->dev->of_node, rid, &iommu_spec);
-> >  	if (err)
-> >  		return err;
-> >  
-> > +	sid = iommu_spec.args[0];
-> 
-> I find this stuff absolutely unreadable. You're fishing the SID in a
-> random position of a random structure, without any documentation of
-> how this is supposed to work. This really needs a wrapper that hides
-> this implementation detail.
-> 
-> Thanks,
-> 
-> 	M.
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
+>  	int idx, err;
+>  
+>  	port = apple_pcie_get_port(pdev);
 
 -- 
 With best wishes
