@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52B8DFD0048
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:58:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85599FD0048
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:59:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PUOsH3VkbgZkHkknydmCofT/Op5MJKGNiZL5UkqdFww=; b=qLPggzt+aFaAHydxK6J41VgRru
-	KQAmJWcHvl4piSAa0PMZKSDVYOFyU4OTKhx2jDQMvk5WdzzK95Q1I5Gw04I+MRNIm1oJ1aNYExM6w
-	v1l3f/NwZQiintqDwyEvGEyVBvAYpLNnbMdHyQ8jOCzqzhH4P+2cSPsNVc3ofa8X4DLXfeixZpo3D
-	qIkibYsWlN0NwvwPfU+MM4AebMPAW2Ct6bKNmDdWec3o7MUNvVY8xX/MSOFoz9PQZKaSkdd44nQQl
-	EOaIYpn5zkRHO+npQ3ObcxmR5OwU6dn9saKmvpFKZERsaDZmGHd9aRf18ItoGdLbv3w8zdagF4tNe
-	B7Wp+ziA==;
+	bh=SkLMpg7URuGXWEhoQnXHYR4d/Crb6zM+cmZtQ8es2ME=; b=aaZH5KvB8RRXYQcUndGJqR0pRY
+	Nzl81FNNqvfyMyExnWjC6gXXbl44yrLNi3/h/lIpbQir8I8jwQpkoS6dbwmjYof3tOsEEmgmNMmEP
+	VA8UPpEpeBwlCMzEczrRJQeVv+kEsz1EhnffCLOOjqaCZUJlUs16KRK7f4Irx87zr6JH4QU3gr/xv
+	vJP7U3cRg0h9F9nSalVgfnFb34i9pIHa0BMf9anmFi6SROfsWEObRGKrIy0m+ldKl9J8u02tjzLW1
+	4xloH0VgS3rwlsDEVAYVLjQgm9NHy/xmws6NGJWah3uQDIOTpXbSpMJgcqWKqJ6eRveVoeNnExOX/
+	oArF0NXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwW4f-0000000AhEE-16V3;
-	Sun, 01 Mar 2026 01:58:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vwW5D-0000000AhN3-254c;
+	Sun, 01 Mar 2026 01:58:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwW4d-0000000AhDt-0Vb1
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 01:58:24 +0000
+	id 1vwW5C-0000000AhMR-1hv9;
+	Sun, 01 Mar 2026 01:58:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 58150440EE;
-	Sun,  1 Mar 2026 01:58:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C101C19424;
-	Sun,  1 Mar 2026 01:58:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9477B6014C;
+	Sun,  1 Mar 2026 01:58:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 839CFC19421;
+	Sun,  1 Mar 2026 01:58:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772330302;
-	bh=SxLvl1psNeYgb85A6rqfTbSyIxTw8V3MFIueb/QNoIA=;
+	s=k20201202; t=1772330337;
+	bh=yxlCfotF3k6+oWzaGc2DHOAIInXiSVjrNkRzCXscn0w=;
 	h=From:To:Cc:Subject:Date:From;
-	b=T+gZLC3q6feZvr2kG3r0tKbV5mm/uSoNni6fFegEpaIkUr1vKwK43/QWg4SbUzbHX
-	 9UPd7fA3JimVqBHLmmEbWSXG1MHUAgRSOJBZ9mt/ya6/RRDc9DTIxpVimpftjwNR2o
-	 q7lO0pTp1gP8sOzy8mdiWGox8+nDiD8qbR1el/SWbXpIXZfVuN+dEeWxarfHpGJw8H
-	 IJBMwHLHTcqVljWCIt/GWf+P1ZHQy/pVZEWrAE/vS5rnirvzcNm5CwmX3hrf9/eIpu
-	 rL3ByzQhSVdOhTs58jtkejmCTrYv2Qd7RzOzGGoZo8KqBFClwjH7E+PMJR/HPpa8ho
-	 z4i9tvSSNx/4g==
+	b=Nz6RKfso3Y8kByLDom7vGi8gncCmECPTuvCzmR1B1hgReUj91fInh/qzWMdUmN4iv
+	 duqAhk/yrjGJ/Scgni5a5VhWCvymGLeeufGyxG5ei/Oe9jhmeq1eP+arFCbQsu+RuN
+	 ASEA1mvOKEF0zbat3D+wL99AVIpKwGC/40d+58GdKEC1KAt2eImUUHG7feZPAfjiLz
+	 UHGPozWKd3nOuxa5jH6bEizBKwh227U5f1HLG57PRvxVcDoBsNe6216XH8ADdIFIme
+	 eva1gYMSDhXPp4vuC49Fp1sABsq/q7hNltNVOQp2aHzScYKjYhOi91KmnpHr09OLny
+	 3+c8WmiwleF7Q==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	fourier.thomas@gmail.com
-Cc: Helge Deller <deller@gmx.de>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-fbdev@vger.kernel.org,
-	dri-devel@lists.freedesktop.org
-Subject: FAILED: Patch "fbdev: vt8500lcdfb: fix missing dma_free_coherent()" failed to apply to 5.15-stable tree
-Date: Sat, 28 Feb 2026 20:58:20 -0500
-Message-ID: <20260301015820.1723769-1-sashal@kernel.org>
+	johan@kernel.org
+Cc: Yong Wu <yong.wu@mediatek.com>,
+	Miaoqian Lin <linmq006@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: FAILED: Patch "memory: mtk-smi: fix device leak on larb probe" failed to apply to 5.10-stable tree
+Date: Sat, 28 Feb 2026 20:58:55 -0500
+Message-ID: <20260301015855.1724542-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_175823_180268_B7EBC994 
-X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,7 +71,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The patch below does not apply to the 5.15-stable tree.
+The patch below does not apply to the 5.10-stable tree.
 If someone wants it applied there, or to any other stable or longterm
 tree, then please email the backport, including the original git commit
 id to <stable@vger.kernel.org>.
@@ -84,45 +81,40 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From 88b3b9924337336a31cefbe99a22ed09401be74a Mon Sep 17 00:00:00 2001
-From: Thomas Fourier <fourier.thomas@gmail.com>
-Date: Mon, 12 Jan 2026 15:00:27 +0100
-Subject: [PATCH] fbdev: vt8500lcdfb: fix missing dma_free_coherent()
+From 9dae65913b32d05dbc8ff4b8a6bf04a0e49a8eb6 Mon Sep 17 00:00:00 2001
+From: Johan Hovold <johan@kernel.org>
+Date: Fri, 21 Nov 2025 17:46:23 +0100
+Subject: [PATCH] memory: mtk-smi: fix device leak on larb probe
 
-fbi->fb.screen_buffer is allocated with dma_alloc_coherent() but is not
-freed if the error path is reached.
+Make sure to drop the reference taken when looking up the SMI device
+during larb probe on late probe failure (e.g. probe deferral) and on
+driver unbind.
 
-Fixes: e7b995371fe1 ("video: vt8500: Add devicetree support for vt8500-fb and wm8505-fb")
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
-Signed-off-by: Helge Deller <deller@gmx.de>
+Fixes: cc8bbe1a8312 ("memory: mediatek: Add SMI driver")
+Fixes: 038ae37c510f ("memory: mtk-smi: add missing put_device() call in mtk_smi_device_link_common")
+Cc: stable@vger.kernel.org	# 4.6: 038ae37c510f
+Cc: stable@vger.kernel.org	# 4.6
+Cc: Yong Wu <yong.wu@mediatek.com>
+Cc: Miaoqian Lin <linmq006@gmail.com>
+Signed-off-by: Johan Hovold <johan@kernel.org>
+Link: https://patch.msgid.link/20251121164624.13685-3-johan@kernel.org
+Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
 ---
- drivers/video/fbdev/vt8500lcdfb.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ drivers/memory/mtk-smi.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/video/fbdev/vt8500lcdfb.c b/drivers/video/fbdev/vt8500lcdfb.c
-index b08a6fdc53fd2..85c7a99a7d648 100644
---- a/drivers/video/fbdev/vt8500lcdfb.c
-+++ b/drivers/video/fbdev/vt8500lcdfb.c
-@@ -369,7 +369,7 @@ static int vt8500lcd_probe(struct platform_device *pdev)
- 	if (fbi->palette_cpu == NULL) {
- 		dev_err(&pdev->dev, "Failed to allocate palette buffer\n");
- 		ret = -ENOMEM;
--		goto failed_free_io;
-+		goto failed_free_mem_virt;
- 	}
+diff --git a/drivers/memory/mtk-smi.c b/drivers/memory/mtk-smi.c
+index dd6150d200e89..3609bfd3c64be 100644
+--- a/drivers/memory/mtk-smi.c
++++ b/drivers/memory/mtk-smi.c
+@@ -685,6 +685,7 @@ static void mtk_smi_larb_remove(struct platform_device *pdev)
+ 	device_link_remove(&pdev->dev, larb->smi_common_dev);
+ 	pm_runtime_disable(&pdev->dev);
+ 	component_del(&pdev->dev, &mtk_smi_larb_component_ops);
++	put_device(larb->smi_common_dev);
+ }
  
- 	irq = platform_get_irq(pdev, 0);
-@@ -432,6 +432,9 @@ static int vt8500lcd_probe(struct platform_device *pdev)
- failed_free_palette:
- 	dma_free_coherent(&pdev->dev, fbi->palette_size,
- 			  fbi->palette_cpu, fbi->palette_phys);
-+failed_free_mem_virt:
-+	dma_free_coherent(&pdev->dev, fbi->fb.fix.smem_len,
-+			  fbi->fb.screen_buffer, fbi->fb.fix.smem_start);
- failed_free_io:
- 	iounmap(fbi->regbase);
- failed_free_res:
+ static int __maybe_unused mtk_smi_larb_resume(struct device *dev)
 -- 
 2.51.0
 
