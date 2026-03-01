@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 453D2FD0049
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:21:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53016FD0048
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:21:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cqkiB1ClvvJ+20rQ3r6FmugeZqNbEGgeu6IapCnrhi4=; b=Y9BLWQOb05euzRNJWhYa6IScET
-	EFoAgrj7gwm/whMQlfAljo+h73YPPxDnwu7NzQSuHn2c+TwazgWRyMcIJMPUf3C1SauIQ/Mm82uR7
-	WhGa/802vyIW/Pp3HcV1zMnw3CPCfpBF0Dx/wxaFrWpu9kGdlvF6BHH5DfHUA2udg3eavninCrihr
-	HJqyhg7z3L9B/tUDdgX40KqAdkkUim7WpSqW75SVHHtB4sAKNdjWtzE83k11lxVbcjJkv8EOp7MuO
-	S+qWRO5Y9f4E/ofdtU52wrYUVwYYh6efKlcpGRCUsPaLLIUJLtVdHZNL/+tgIfWd+J+29mNCRteSp
-	nol49PxQ==;
+	bh=ZMivsMGPEzqLiVTGe1OW/5PZwJG/tJoLHC/2ShaYK7A=; b=rV19Uz2QfmVdHAFybp9hp0nZNj
+	0EZjNqXpPiJT3jbPDeYytYakycic1R9wiMBl0UF3Q9mDfxv4zngXP6IurHJIs9ZPqhaK3NvDqAVsJ
+	LgYHwNOExKh4QP18cbLD566EkWIxzFXXagW7j1vlzZsAYxZNV3+BM7K0KCNIEFeL2HA3xkKu2+GwR
+	2lJIQuN3kwn5OwSLKw9ziYn+7ClznvkwQp3jwmIFLNdcwQpzufhIbVEToXn93zkL5Iv2ihnFpQ52N
+	Oj9tkr0qzs3bbzIiO8AVfmii92TLsyE6FDAPRTISD3vLzk0S7cwQC+Im2XkpaSkSuriCccc0qyKIq
+	FvZYBPdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVUl-0000000AUbM-0QOQ;
-	Sun, 01 Mar 2026 01:21:19 +0000
+	id 1vwVUq-0000000AUeN-02fn;
+	Sun, 01 Mar 2026 01:21:24 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVUi-0000000AUaK-1TYv;
-	Sun, 01 Mar 2026 01:21:17 +0000
+	id 1vwVUm-0000000AUcQ-46dr
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 01 Mar 2026 01:21:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D2B0143683;
-	Sun,  1 Mar 2026 01:21:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1A0FC19421;
-	Sun,  1 Mar 2026 01:21:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AE91441A99;
+	Sun,  1 Mar 2026 01:21:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE5BBC19421;
+	Sun,  1 Mar 2026 01:21:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772328075;
-	bh=gQxXscpsLwQIJ42R6QUu9NjQi7vsh0oFj54D737sPYM=;
+	s=k20201202; t=1772328080;
+	bh=nQi1ZwZu+uxNekWTc62vjx6L1HetqztgxKUdU7MC5Xw=;
 	h=From:To:Cc:Subject:Date:From;
-	b=a1CimT4MLWX63c9m8hAKDX8tNV8hAmHd070SLh3P4vWZS1AhMl8nejYBhOKtWLW/8
-	 3PjpSUVxnH8kOZ8LGyN4A/Jdl8BjyRmb3hbgcK0Dej3eDSP8Yrv2dmEkqKDqLTCq6Q
-	 tM84TnVZfg17exzO7XFOaCuD672SJ90xhwaZDWVttGEM+NLGVfiA3ubxi9JcqbLb6Q
-	 C2u6mzQE5R+ASljoDCIqM1ECHFB144ca8XcTmxgA8g2WDrGiX/8mB5b1Rv4x5mrf22
-	 njc5JCIwzWgPpxWIPnh5FIWYZlA+WWNPD8mqPfTnadD+zjlF44gtqQ8YvfAQhRtCVb
-	 cKxlNx7Og0R1A==
+	b=ViqGU/ImNXjNkA7XbRDttcC0vb44p71MF4PcE3XiqLp+NjVpnDJz707KR+fG3x01H
+	 t5hVS8RwmgvjdydGui5bsXL5e2zckIIyqp1x8mLoi8knVsIV1Pzih24LEP8P4ptBuo
+	 KvQhcZWBQqLsFybUmO7piNZI7W4jpEsX360FmcunyYMVsdpz79aOaum5W0qwEtbGiX
+	 5RpepB8nC2okgXaBTh0pJqHAc/3xp1zV824ORevYS7lF2yWr02aqSt+CNrBjyycrbo
+	 TyquL6J/vfVlGEC1qNZLj6ZPwJf/5y3ZPFjTmP+ZuWoKBSuRI3zmQWZROJoa9hyrc4
+	 HrNHX3jQ+KhUw==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	shawn.lin@rock-chips.com
-Cc: Detlev Casanova <detlev.casanova@collabora.com>,
-	Marco Schirrmeister <mschirrmeister@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
+	j@jannau.net
+Cc: Stephen Boyd <sboyd@kernel.org>,
+	Neal Gompa <neal@gompa.dev>,
+	asahi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: FAILED: Patch "soc: rockchip: grf: Support multiple grf to be handled" failed to apply to 6.12-stable tree
-Date: Sat, 28 Feb 2026 20:21:13 -0500
-Message-ID: <20260301012113.1677090-1-sashal@kernel.org>
+	linux-clk@vger.kernel.org
+Subject: FAILED: Patch "clk: clk-apple-nco: Add "apple,t8103-nco" compatible" failed to apply to 6.12-stable tree
+Date: Sat, 28 Feb 2026 20:21:18 -0500
+Message-ID: <20260301012118.1677195-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_172116_440030_6464828B 
-X-CRM114-Status: GOOD (  17.47  )
+X-CRM114-CacheID: sfid-20260228_172121_043014_134E3DA4 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,93 +85,40 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From 75fb63ae031211e9264ac888fabc2ca9cd3fcccf Mon Sep 17 00:00:00 2001
-From: Shawn Lin <shawn.lin@rock-chips.com>
-Date: Fri, 16 Jan 2026 08:55:29 +0800
-Subject: [PATCH] soc: rockchip: grf: Support multiple grf to be handled
+From ef9b3b4dbe767e4ac642a88dc0507927ac545047 Mon Sep 17 00:00:00 2001
+From: Janne Grunau <j@jannau.net>
+Date: Wed, 31 Dec 2025 13:22:00 +0100
+Subject: [PATCH] clk: clk-apple-nco: Add "apple,t8103-nco" compatible
 
-Currently, only the first matched node will be handled. This leads
-to jtag switching broken for RK3576, as rk3576-sys-grf is found before
-rk3576-ioc-grf. Change the code to scan all the possible node to fix
-the problem.
+After discussion with the devicetree maintainers we agreed to not extend
+lists with the generic compatible "apple,nco" anymore [1]. Use
+"apple,t8103-nco" as base compatible as it is the SoC the driver and
+bindings were written for.
 
-Fixes: e1aaecacfa13 ("soc: rockchip: grf: Add rk3576 default GRF values")
+[1]: https://lore.kernel.org/asahi/12ab93b7-1fc2-4ce0-926e-c8141cfe81bf@kernel.org/
+
+Fixes: 6641057d5dba ("clk: clk-apple-nco: Add driver for Apple NCO")
 Cc: stable@vger.kernel.org
-Cc: Detlev Casanova <detlev.casanova@collabora.com>
-Signed-off-by: Shawn Lin <shawn.lin@rock-chips.com>
-Tested-by: Marco Schirrmeister <mschirrmeister@gmail.com>
-Link: https://patch.msgid.link/1768524932-163929-3-git-send-email-shawn.lin@rock-chips.com
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+Acked-by: Stephen Boyd <sboyd@kernel.org>
+Reviewed-by: Neal Gompa <neal@gompa.dev>
+Signed-off-by: Janne Grunau <j@jannau.net>
+Signed-off-by: Stephen Boyd <sboyd@kernel.org>
 ---
- drivers/soc/rockchip/grf.c | 55 +++++++++++++++++++-------------------
- 1 file changed, 27 insertions(+), 28 deletions(-)
+ drivers/clk/clk-apple-nco.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/soc/rockchip/grf.c b/drivers/soc/rockchip/grf.c
-index 8974d1c6b35dc..04937c40da471 100644
---- a/drivers/soc/rockchip/grf.c
-+++ b/drivers/soc/rockchip/grf.c
-@@ -217,34 +217,33 @@ static int __init rockchip_grf_init(void)
- 	struct regmap *grf;
- 	int ret, i;
+diff --git a/drivers/clk/clk-apple-nco.c b/drivers/clk/clk-apple-nco.c
+index d3ced4a0f029e..434c067968bbc 100644
+--- a/drivers/clk/clk-apple-nco.c
++++ b/drivers/clk/clk-apple-nco.c
+@@ -320,6 +320,7 @@ static int applnco_probe(struct platform_device *pdev)
+ }
  
--	np = of_find_matching_node_and_match(NULL, rockchip_grf_dt_match,
--					     &match);
--	if (!np)
--		return -ENODEV;
--	if (!match || !match->data) {
--		pr_err("%s: missing grf data\n", __func__);
--		of_node_put(np);
--		return -EINVAL;
--	}
--
--	grf_info = match->data;
--
--	grf = syscon_node_to_regmap(np);
--	of_node_put(np);
--	if (IS_ERR(grf)) {
--		pr_err("%s: could not get grf syscon\n", __func__);
--		return PTR_ERR(grf);
--	}
--
--	for (i = 0; i < grf_info->num_values; i++) {
--		const struct rockchip_grf_value *val = &grf_info->values[i];
--
--		pr_debug("%s: adjusting %s in %#6x to %#10x\n", __func__,
--			val->desc, val->reg, val->val);
--		ret = regmap_write(grf, val->reg, val->val);
--		if (ret < 0)
--			pr_err("%s: write to %#6x failed with %d\n",
--			       __func__, val->reg, ret);
-+	for_each_matching_node_and_match(np, rockchip_grf_dt_match, &match) {
-+		if (!of_device_is_available(np))
-+			continue;
-+		if (!match || !match->data) {
-+			pr_err("%s: missing grf data\n", __func__);
-+			of_node_put(np);
-+			return -EINVAL;
-+		}
-+
-+		grf_info = match->data;
-+
-+		grf = syscon_node_to_regmap(np);
-+		if (IS_ERR(grf)) {
-+			pr_err("%s: could not get grf syscon\n", __func__);
-+			return PTR_ERR(grf);
-+		}
-+
-+		for (i = 0; i < grf_info->num_values; i++) {
-+			const struct rockchip_grf_value *val = &grf_info->values[i];
-+
-+			pr_debug("%s: adjusting %s in %#6x to %#10x\n", __func__,
-+				val->desc, val->reg, val->val);
-+			ret = regmap_write(grf, val->reg, val->val);
-+			if (ret < 0)
-+				pr_err("%s: write to %#6x failed with %d\n",
-+					__func__, val->reg, ret);
-+		}
- 	}
- 
- 	return 0;
+ static const struct of_device_id applnco_ids[] = {
++	{ .compatible = "apple,t8103-nco" },
+ 	{ .compatible = "apple,nco" },
+ 	{ }
+ };
 -- 
 2.51.0
 
