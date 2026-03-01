@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A88BFD0049
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:43:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F16CFD0049
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:44:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ry2NpkmM4tHs9wt1tx5o4loizxBTMOi3Xk/eVhE7WSQ=; b=EM9J4/eFqEkMVxltSDa7ZUU0Vy
-	Ge/IwA3yXbFZ3iEnJm1QuASGRDOtSozNaozD9o9MOqEOSnmDrcYeIX21p6RRFz0jdLhN5H+hWYuBp
-	kPK14MFWc+E7ZjX9cuK/gnS9GDQFOqmDUbCG/fxsduGtIJ3EkbAoTvfF1bCRMDyYVxN/9QurSLQLP
-	CmLJSlZTP5em+7a59ige5ZYYjnOHSljWu4P4ARZfL2Mk00WeysCUz6zf+Fx4QNEjlcIeQ+f4GF0mx
-	HznwCYY093HdyqijjiaMiYdM6n05dJQU0TgsXFoJo3bN5OEUZimCDH+CA5W7dundQQ2RUM6eUd4ie
-	odZFKgKQ==;
+	bh=4StviWvb4qs1PQG7jL+7tC7Yg/mEjsHQi7MnQsEPFNM=; b=B3D9G/uPEbUvh0CI3S+8wGOoF9
+	yDubvm/jOb7/1Po3K7jJ51pLdfPNYtQ4CWiCoXN/gbz1lZbAVsar1RPcSsQ1pQG52jD0ZApi7/1kj
+	tr2CbW85jqFIRKDWsHEguSl5fuFZZR8kdM39Put3+LuTUeNtglXZ5RyZY8zn/ICvfmFSeWtXCmgEX
+	B/GL9TkIcSSJR5+nLy/QYlSUTlh2/FJHGQzTZhOFL8/wR42ciUwMl68uNUtuShAgDe2/Q//14CoRA
+	Nkazzu1zoBRjqVkXf9iYsQFCZ1PX3xnl0KrPgtPJVBDOf8nI4HRjghH1UeJMQWCvlJaYoLV/f6HLq
+	RRpDdMNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVq0-0000000Ad6c-3swq;
-	Sun, 01 Mar 2026 01:43:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vwVrO-0000000AdMi-1yCJ;
+	Sun, 01 Mar 2026 01:44:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVpy-0000000Ad5i-29HR;
-	Sun, 01 Mar 2026 01:43:15 +0000
+	id 1vwVrN-0000000AdM4-1HbK
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 01 Mar 2026 01:44:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 092EA40524;
-	Sun,  1 Mar 2026 01:43:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26824C19421;
-	Sun,  1 Mar 2026 01:43:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BB8D660123;
+	Sun,  1 Mar 2026 01:44:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1220C19421;
+	Sun,  1 Mar 2026 01:44:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772329393;
-	bh=MiR9CnyBFm7C/mCgechdtkp7FS7z0nXkTSx/DIQrygE=;
+	s=k20201202; t=1772329480;
+	bh=i45ny4Bn+1PNIcoy8/a2WfIIXlDIsIw6Wy9nXvdzvrw=;
 	h=From:To:Cc:Subject:Date:From;
-	b=vBU1yJH3dzPJ/UVilxsgn5pmoMrKDbX67BKu3E7sh/3noNbgNBuNK/Z5hq9B7tB0K
-	 Ohui7IOvmtD6qxM8mtikHQ8NrZNYpfE+TfyWcTncIVkC7jAIoiGW4QLW6YLEXunkOB
-	 HvZt3OaWFjjSSi+q9h0YosMFyWZUm4ACc+Y49FqfsMf8dafmx1a8G8vW/TgDSA2AlD
-	 BaVi3uZuZ9Wd+hupoTBCff0ieCrTunl1GFjfbskVsix7pUD3NLJrouFgq/Ywa4PUiA
-	 VDZdaAjtFwpQIbdrUxaGStXLdps3DbCf5o00op9zvRdSl3xghpSeBP98lz416qHbbw
-	 LinMbGIQCkYdQ==
+	b=XF3q3P2+BjSFSkmxQDGdRCKVyHI+NgZnc8iLwgWcBkxsMVw4X/lfK2St9ijQaSrpl
+	 zoZoBiv1VIocjjsPZyBKuq73/tj1tswCPjPjhYwkd4hvtg9YTRpi5n5xioq/6s+Vsx
+	 o79BysR5hKoweYPP/mUBjw5h7+Lak8E7WuVjsG0yU/z967eX7pdAqQlsoOLP7yY9d+
+	 wpdu+TURLMjYoEJWqcMuF1Lq7efff0mUukJrci97xecPGFqxTNNNqmJt41WfIHvARQ
+	 cSxCLOJuvkRsPePkQpFg3uNTTv4wBfu8waswMJ+7bxmPPIjKiiRUcSOP8n4s9C0KDI
+	 Sg84YiQmeX2Lw==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	shawn.lin@rock-chips.com
-Cc: Andrew Powers-Holmes <aholmes@omnom.net>,
-	Heiko Stuebner <heiko@sntech.de>,
-	devicetree@vger.kernel.org,
+	aha310510@gmail.com
+Cc: Inki Dae <inki.dae@samsung.com>,
+	dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: FAILED: Patch "arm64: dts: rockchip: Fix rk356x PCIe range mappings" failed to apply to 6.1-stable tree
-Date: Sat, 28 Feb 2026 20:43:11 -0500
-Message-ID: <20260301014312.1705238-1-sashal@kernel.org>
+	linux-samsung-soc@vger.kernel.org
+Subject: FAILED: Patch "drm/exynos: vidi: use priv->vidi_dev for ctx lookup in vidi_connection_ioctl()" failed to apply to 6.1-stable tree
+Date: Sat, 28 Feb 2026 20:44:38 -0500
+Message-ID: <20260301014438.1707045-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_174314_584023_D1864867 
-X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,63 +81,96 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From f63ea193a404481f080ca2958f73e9f364682db9 Mon Sep 17 00:00:00 2001
-From: Shawn Lin <shawn.lin@rock-chips.com>
-Date: Mon, 5 Jan 2026 16:15:28 +0800
-Subject: [PATCH] arm64: dts: rockchip: Fix rk356x PCIe range mappings
+From d3968a0d85b211e197f2f4f06268a7031079e0d0 Mon Sep 17 00:00:00 2001
+From: Jeongjun Park <aha310510@gmail.com>
+Date: Mon, 19 Jan 2026 17:25:51 +0900
+Subject: [PATCH] drm/exynos: vidi: use priv->vidi_dev for ctx lookup in
+ vidi_connection_ioctl()
 
-The pcie bus address should be mapped 1:1 to the cpu side MMIO address, so
-that there is no same address allocated from normal system memory. Otherwise
-it's broken if the same address assigned to the EP for DMA purpose.Fix it to
-sync with the vendor BSP.
+vidi_connection_ioctl() retrieves the driver_data from drm_dev->dev to
+obtain a struct vidi_context pointer. However, drm_dev->dev is the
+exynos-drm master device, and the driver_data contained therein is not
+the vidi component device, but a completely different device.
 
-Fixes: 568a67e742df ("arm64: dts: rockchip: Fix rk356x PCIe register and range mappings")
-Fixes: 66b51ea7d70f ("arm64: dts: rockchip: Add rk3568 PCIe2x1 controller")
-Cc: stable@vger.kernel.org
-Cc: Andrew Powers-Holmes <aholmes@omnom.net>
-Signed-off-by: Shawn Lin <shawn.lin@rock-chips.com>
-Link: https://patch.msgid.link/1767600929-195341-1-git-send-email-shawn.lin@rock-chips.com
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+This can lead to various bugs, ranging from null pointer dereferences and
+garbage value accesses to, in unlucky cases, out-of-bounds errors,
+use-after-free errors, and more.
+
+To resolve this issue, we need to store/delete the vidi device pointer in
+exynos_drm_private->vidi_dev during bind/unbind, and then read this
+exynos_drm_private->vidi_dev within ioctl() to obtain the correct
+struct vidi_context pointer.
+
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Jeongjun Park <aha310510@gmail.com>
+Signed-off-by: Inki Dae <inki.dae@samsung.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3568.dtsi      | 4 ++--
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 2 +-
- 2 files changed, 3 insertions(+), 3 deletions(-)
+ drivers/gpu/drm/exynos/exynos_drm_drv.h  |  1 +
+ drivers/gpu/drm/exynos/exynos_drm_vidi.c | 14 +++++++++++++-
+ 2 files changed, 14 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568.dtsi b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-index e719a3df126c5..658097ed69714 100644
---- a/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-@@ -185,7 +185,7 @@ pcie3x1: pcie@fe270000 {
- 		      <0x0 0xf2000000 0x0 0x00100000>;
- 		ranges = <0x01000000 0x0 0xf2100000 0x0 0xf2100000 0x0 0x00100000>,
- 			 <0x02000000 0x0 0xf2200000 0x0 0xf2200000 0x0 0x01e00000>,
--			 <0x03000000 0x0 0x40000000 0x3 0x40000000 0x0 0x40000000>;
-+			 <0x03000000 0x3 0x40000000 0x3 0x40000000 0x0 0x40000000>;
- 		reg-names = "dbi", "apb", "config";
- 		resets = <&cru SRST_PCIE30X1_POWERUP>;
- 		reset-names = "pipe";
-@@ -238,7 +238,7 @@ pcie3x2: pcie@fe280000 {
- 		      <0x0 0xf0000000 0x0 0x00100000>;
- 		ranges = <0x01000000 0x0 0xf0100000 0x0 0xf0100000 0x0 0x00100000>,
- 			 <0x02000000 0x0 0xf0200000 0x0 0xf0200000 0x0 0x01e00000>,
--			 <0x03000000 0x0 0x40000000 0x3 0x80000000 0x0 0x40000000>;
-+			 <0x03000000 0x3 0x80000000 0x3 0x80000000 0x0 0x40000000>;
- 		reg-names = "dbi", "apb", "config";
- 		resets = <&cru SRST_PCIE30X2_POWERUP>;
- 		reset-names = "pipe";
-diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-index 8893b7b6cc9ff..a2c4957a58992 100644
---- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-@@ -1022,7 +1022,7 @@ pcie2x1: pcie@fe260000 {
- 		power-domains = <&power RK3568_PD_PIPE>;
- 		ranges = <0x01000000 0x0 0xf4100000 0x0 0xf4100000 0x0 0x00100000>,
- 			 <0x02000000 0x0 0xf4200000 0x0 0xf4200000 0x0 0x01e00000>,
--			 <0x03000000 0x0 0x40000000 0x3 0x00000000 0x0 0x40000000>;
-+			 <0x03000000 0x3 0x00000000 0x3 0x00000000 0x0 0x40000000>;
- 		resets = <&cru SRST_PCIE20_POWERUP>;
- 		reset-names = "pipe";
- 		#address-cells = <3>;
+diff --git a/drivers/gpu/drm/exynos/exynos_drm_drv.h b/drivers/gpu/drm/exynos/exynos_drm_drv.h
+index 23646e55f142c..06c29ff2aac0e 100644
+--- a/drivers/gpu/drm/exynos/exynos_drm_drv.h
++++ b/drivers/gpu/drm/exynos/exynos_drm_drv.h
+@@ -199,6 +199,7 @@ struct drm_exynos_file_private {
+ struct exynos_drm_private {
+ 	struct device *g2d_dev;
+ 	struct device *dma_dev;
++	struct device *vidi_dev;
+ 	void *mapping;
+ 
+ 	/* for atomic commit */
+diff --git a/drivers/gpu/drm/exynos/exynos_drm_vidi.c b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
+index 64c69dd2966ec..480c99a8f9f75 100644
+--- a/drivers/gpu/drm/exynos/exynos_drm_vidi.c
++++ b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
+@@ -224,9 +224,14 @@ ATTRIBUTE_GROUPS(vidi);
+ int vidi_connection_ioctl(struct drm_device *drm_dev, void *data,
+ 				struct drm_file *file_priv)
+ {
+-	struct vidi_context *ctx = dev_get_drvdata(drm_dev->dev);
++	struct exynos_drm_private *priv = drm_dev->dev_private;
++	struct device *dev = priv ? priv->vidi_dev : NULL;
++	struct vidi_context *ctx = dev ? dev_get_drvdata(dev) : NULL;
+ 	struct drm_exynos_vidi_connection *vidi = data;
+ 
++	if (!ctx)
++		return -ENODEV;
++
+ 	if (!vidi) {
+ 		DRM_DEV_DEBUG_KMS(ctx->dev,
+ 				  "user data for vidi is null.\n");
+@@ -372,6 +377,7 @@ static int vidi_bind(struct device *dev, struct device *master, void *data)
+ {
+ 	struct vidi_context *ctx = dev_get_drvdata(dev);
+ 	struct drm_device *drm_dev = data;
++	struct exynos_drm_private *priv = drm_dev->dev_private;
+ 	struct drm_encoder *encoder = &ctx->encoder;
+ 	struct exynos_drm_plane *exynos_plane;
+ 	struct exynos_drm_plane_config plane_config = { 0 };
+@@ -379,6 +385,8 @@ static int vidi_bind(struct device *dev, struct device *master, void *data)
+ 	int ret;
+ 
+ 	ctx->drm_dev = drm_dev;
++	if (priv)
++		priv->vidi_dev = dev;
+ 
+ 	plane_config.pixel_formats = formats;
+ 	plane_config.num_pixel_formats = ARRAY_SIZE(formats);
+@@ -424,8 +432,12 @@ static int vidi_bind(struct device *dev, struct device *master, void *data)
+ static void vidi_unbind(struct device *dev, struct device *master, void *data)
+ {
+ 	struct vidi_context *ctx = dev_get_drvdata(dev);
++	struct drm_device *drm_dev = data;
++	struct exynos_drm_private *priv = drm_dev->dev_private;
+ 
+ 	timer_delete_sync(&ctx->timer);
++	if (priv)
++		priv->vidi_dev = NULL;
+ }
+ 
+ static const struct component_ops vidi_component_ops = {
 -- 
 2.51.0
 
