@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C565FD0055
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 06:46:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F4C8FD0055
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 06:53:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gVGsXvoV9StiwJoHN3Pbd7IjrBXT0gROrT2DlxKt0HU=; b=U5Cj+rFj0X5OtD7I7s+NihItQP
-	eA3yaHq5mQCkcQITH4W0XpA4BA/NeI0jokJYn9ehNi7x0Oh9Zfuz0/ax8YY88ZDvF8u9ZSaxyEml1
-	USAXaDwJDjgXMgjJ3dF/hdRKHt1bXMeUmSyW8YYHaL5ncr/1vJRunUDZ48RNeEV6JhiZD+bnGCnW1
-	DtdxW394yuhRkiEgcwR9ImK/OSZrYcrP7sEJAG8nDSNqc1oO6pQZ0ngOy5GEwUFoMRKZo6nLZgPWl
-	fp0s0gjRpspJoTlVRfm/a7cmhwl7ZO5lUx8YCbg6E3KvrD3gJWahuVSnbbs+JAAnmJLtnhNAmKkEA
-	1dGDP3ng==;
+	bh=faepIDOVsrKlDsuenkj3kaRDJx3WSLGjGgblO/Yfu1k=; b=QX8nxmPJhPwTgkEjgl39PiU9mT
+	O5OXTFPdPqOj3SEmbVg7QuC37i8apYKGoIQGiigU3voLoSox/J6GCgfkCGwf3nPv8NVIQbWiR2Vb7
+	0/WjRrzO/QRfnjRit91SubBKJmBuyqt7UxLbNjJ9Kr92ry0jUWASFpgK98JE1phUFUAWc6zjF/jT0
+	Q+yQ8tS4Q35tq8MyfFNka+f7tGAvsVGxG9JC9WoyTajAitQWK+N5aI44c6xeXgYvK2Y5T09c0B8TQ
+	gDnqhY9NuuD9zu7OsXmwnBcqx3wdVvNK2fvK5t0Q4xdlXE+SgvDVCD0RlNbrcenlC78oQq7tkCsQO
+	5DTwxKvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwaZX-0000000At1n-2zE8;
-	Sun, 01 Mar 2026 06:46:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vwag8-0000000AtGQ-23cu;
+	Sun, 01 Mar 2026 06:53:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwaZV-0000000At1Q-2sCG
+	id 1vwag7-0000000AtGJ-1trY
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 06:46:34 +0000
+	Sun, 01 Mar 2026 06:53:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 52FF640A39
-	for <linux-arm-kernel@lists.infradead.org>; Sun,  1 Mar 2026 06:46:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F7F3C2BC87
-	for <linux-arm-kernel@lists.infradead.org>; Sun,  1 Mar 2026 06:46:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AE0FF600AD
+	for <linux-arm-kernel@lists.infradead.org>; Sun,  1 Mar 2026 06:53:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63665C2BCAF
+	for <linux-arm-kernel@lists.infradead.org>; Sun,  1 Mar 2026 06:53:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772347591;
-	bh=c7yt7t1C7IKL+PTpcaEB7MdzhrMReQnLePjLzslok6M=;
+	s=k20201202; t=1772348000;
+	bh=uBz5/DsNTkQF53CTWrzktdKlRSarb9rE0O45U+rT51I=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Smg8NnrELaPtnPQPrQHongBwDTvCU9ZD3AeAZ11USkiZjL87XgAkTGwZRlBjsmvAL
-	 x8Ys5TRnpkAe7NCGnBr+zFJ4b+7gZhFTF7lz37kP+sXXAfRzTX4o/+AS7jcbUPVgL+
-	 bY1D732eG3r6l/AyciB7d1y4ZbD7JaxAq3ymY8jU8PYRC9/7at4/BIgAMfHO65rmeh
-	 pw1FIW3rrfGgGomcKF3wFah5AQQHhYtffa316hVhCkulpzcrUCf8BluChJC1gsyOpg
-	 MZxwHoEMFPUIg48ejALTN+FtrRDI8YMSaBMUdvfvsgYFuueNALqb1o2F14YLRyQAhO
-	 Xd8xDonEt249g==
-Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-65c0891f4e9so6110490a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Feb 2026 22:46:31 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXiYbKoRH9yPyEKsS9snVG8/co0/NRYSjqX3db32bzFVKBXTcXusrn5hF1c1B2ze/0M6pA8LyrZDh35WP1XdVgR@lists.infradead.org
-X-Gm-Message-State: AOJu0YzaVQ+Sv3jv49QUlDiA2Wth5x5edBvsZU+tTWfrz0BWCaxxfav5
-	m8pf1TWCEZyKd36W1q34d2WqE7widPPe6LuKezPXburkZy7dnW8Ru+hxAHDFjQAw/ebImR+RZ1V
-	jvlbn6PYphLK2GuizkeGsYAv6X10P0jk=
-X-Received: by 2002:a05:6402:f23:b0:65f:730d:8026 with SMTP id
- 4fb4d7f45d1cf-65fdd6d76efmr3466140a12.9.1772347589719; Sat, 28 Feb 2026
- 22:46:29 -0800 (PST)
+	b=hHe0qPKqlA2jRVjg5vABP2Aa6hNExBjEIedvyNDQZXuI7E+qTe5af0cTSaWg6BS5w
+	 ssd24632XDM6/aEhP9EXoJ/rM+sMNvu5NLZ8F7aPAg9nCBOYI81O4knii0Qd46Gq6/
+	 HYPxI3Ku/dctrl3SUfMZX+8G5fQgWoA6BffzdVMMh0NTn9Z/1+6NIavwQPJQWDmSlz
+	 booQh/xG8Szq7fWhYzrIWYyqG8wZxOphFwhbgV5b3mhA98kNIIhb4GSF9pjbnS0+QW
+	 toXEgIQK4QvCMMj8OFd1xQ6eGUMIQsvCMN9HsGV5X8W5OYRcwgdrHph+V/75AfFzf+
+	 xNld2+Z7uzHug==
+Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-65c5a778923so5419338a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Feb 2026 22:53:20 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXrVB0e/RoeyimugmuT2v6Io9EPoM7qIsFblP+x9aTc308jMuoe0jmImDV+COIhx0laTJsv8brX9Dbagl3+pOyr@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMGAMstTiOJnlSZV1DO4DkjTdLtibtnIdwHcboIGCCIXqPrPzN
+	UGjyfe63gt3Mr8oQixCw70FJ3FO7bb0jl28EWcTlp1Y+KUPH1J2VypA4nHd9b1OPaFF9kSMhBfo
+	lylfhphku69Jw7yx5UKvB7LhSD/LwrqY=
+X-Received: by 2002:a05:6402:4493:b0:660:475:93f2 with SMTP id
+ 4fb4d7f45d1cf-660047594bemr3098193a12.18.1772347998875; Sat, 28 Feb 2026
+ 22:53:18 -0800 (PST)
 MIME-Version: 1.0
-References: <20260301014529.1708098-1-sashal@kernel.org>
-In-Reply-To: <20260301014529.1708098-1-sashal@kernel.org>
+References: <20260301015348.1720657-1-sashal@kernel.org>
+In-Reply-To: <20260301015348.1720657-1-sashal@kernel.org>
 From: Huacai Chen <chenhuacai@kernel.org>
-Date: Sun, 1 Mar 2026 14:46:18 +0800
-X-Gmail-Original-Message-ID: <CAAhV-H7cxVAG3QKSDaUg-M-AYGMCVBqvUqnps52paScPMYO8Qg@mail.gmail.com>
-X-Gm-Features: AaiRm507T7L922KCkjo9JPTmLoki11dW6Wc7eq38sLI5dzSAZfHwtLRzBf0YCu0
-Message-ID: <CAAhV-H7cxVAG3QKSDaUg-M-AYGMCVBqvUqnps52paScPMYO8Qg@mail.gmail.com>
+Date: Sun, 1 Mar 2026 14:53:07 +0800
+X-Gmail-Original-Message-ID: <CAAhV-H7CpjDY29zPB60d8Ct2NWRrwGf+tJ52oYCL3fjRPEkEDA@mail.gmail.com>
+X-Gm-Features: AaiRm50zfa7_kKX2hukVQSNRYw5_Ic-T65iYr0aa-JHwjvscZiMEXArH3ZD0ets
+Message-ID: <CAAhV-H7CpjDY29zPB60d8Ct2NWRrwGf+tJ52oYCL3fjRPEkEDA@mail.gmail.com>
 Subject: Re: FAILED: Patch "net: stmmac: dwmac-loongson: Set clk_csr_i to
- 100-150MHz" failed to apply to 6.1-stable tree
+ 100-150MHz" failed to apply to 5.15-stable tree
 To: Sasha Levin <sashal@kernel.org>
 Cc: stable@vger.kernel.org, Hongliang Wang <wanghongliang@loongson.cn>, 
 	Huacai Chen <chenhuacai@loongson.cn>, Jakub Kicinski <kuba@kernel.org>, netdev@vger.kernel.org, 
@@ -68,9 +68,6 @@ Cc: stable@vger.kernel.org, Hongliang Wang <wanghongliang@loongson.cn>,
 	linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_224633_775616_D845D02F 
-X-CRM114-Status: GOOD (  22.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,19 +84,18 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi, Sasha,
 
-On Sun, Mar 1, 2026 at 9:45=E2=80=AFAM Sasha Levin <sashal@kernel.org> wrot=
+On Sun, Mar 1, 2026 at 9:53=E2=80=AFAM Sasha Levin <sashal@kernel.org> wrot=
 e:
 >
-> The patch below does not apply to the 6.1-stable tree.
+> The patch below does not apply to the 5.15-stable tree.
 > If someone wants it applied there, or to any other stable or longterm
 > tree, then please email the backport, including the original git commit
 > id to <stable@vger.kernel.org>.
-I have already submit a patch for 6.1 some days ago:
+I have already submit a patch for 5.15 some days ago:
 https://lore.kernel.org/loongarch/20260218121310.2545149-1-chenhuacai@loong=
 son.cn/T/#u
 
 Huacai
-
 >
 > Thanks,
 > Sasha
