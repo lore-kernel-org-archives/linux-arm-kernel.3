@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4B77FD0058
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 08:06:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DE01FD0058
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 08:07:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fGlR6YzXE5keZeD5R4R4wdzj80ZRJofyKqhSLLbK2aA=; b=QRQZ5BtDMk7gcGdZagpT3GEsU9
-	TSZ8xtcHXhA/M2CJVwJQ37aIDz+pGyem4j0l3va2jRhztLZYfgRxclPS/n9ECbIDsu8VajZa0G4wL
-	1CVt2lIQ9EgrVRXYDLi2vARzQrpFuyMlAM5/yD6IV7nUh74kODgpMa5AvDx5cFut6CAAV54TixLR9
-	epuU8XFxIy4cZiV2r+ova2o4I/kA8uL8Un3tDXTN7VAmuJNqahuYyxt6nrxTpyYLYlx+Ca+qTq4G3
-	l/tIsJjTIIELUkCv0wI44GgMt3EV62HsN7Al6t6YW4w+Rv3eeq5s23Mhfb17kKJ6h6FlQAjqIc/Qr
-	G6xxXb0w==;
+	bh=COktpS70G1jBT7Oq0awQeJHx1NZJeipbMMF36OzY5Z0=; b=lK8BqsInCOrl0sRfRncj41x62h
+	yc6CMbzp4H1idIDJlXw7bjwvffyfazIWfovWnz/YNp1uZ5ZYSWHunwVh6caw5IfMz1TNwY41rUDmb
+	YHk+jUdsBZ1fYuxz2MOY5fQtZkl+ZyEOzHSf3ZLMZFCpeofh1HZM9u146CapSBWs2gX6g/v6cMWly
+	/WX0N7P5UPhO8r33SYYi9+enWGDnkgjC4+o2KJPVMObxIM8RaqA3On1DKxsZf8u/lsC9a5ICqwHYX
+	c8q7CPaAqhv9yjqE6AqdCB85Vjo7+wrl9SXg6MfBE/Wym5Wk2cMsPJLKoUkeKv11tH5lFW/JkIfi9
+	MMjVLGOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwbp1-0000000AwKp-0nBL;
-	Sun, 01 Mar 2026 08:06:39 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1vwbp5-0000000AwNj-26wV;
+	Sun, 01 Mar 2026 08:06:43 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwbou-0000000AwJC-2lH8
+	id 1vwbp2-0000000AwLg-3ZXk
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 08:06:38 +0000
-Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-c70bfef17a4so2137225a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Mar 2026 00:06:32 -0800 (PST)
+	Sun, 01 Mar 2026 08:06:42 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-3562e858da5so1467071a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Mar 2026 00:06:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772352392; x=1772957192; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1772352400; x=1772957200; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=fGlR6YzXE5keZeD5R4R4wdzj80ZRJofyKqhSLLbK2aA=;
-        b=mo+Jb+Gk7X/DGZ31pHKh6Zw39YizpM+qJ5oOc7c06sQYPmSd0TdmUCs6YBOnolJcqD
-         joU0GnRkYf+n4kilEXKj14YTXd1JSZh12x+Ubs6icn6Q/ADCIe6f7eT0/4aR6iIjX8hD
-         68/sgAzOrxjd/3eDsYod8IcLRmbPZTybcO1AOn7rAcVg1J4shMCcCUfUV58UN0Yhz0cM
-         RqrS/IxrXjVmx/qEUB9ye8JNM+kv5m68JwGaumBh9WNb+gucb2ZLxP1PucUAljT0PIat
-         pUPP9bYImdXmIo4py/Vk2vFUfSuz/6PvAgtK65bS6IOI9dlOSwpr6re8bOMfr+IgyDgE
-         3Ing==
+        bh=COktpS70G1jBT7Oq0awQeJHx1NZJeipbMMF36OzY5Z0=;
+        b=CMyy39XaFI+OZepECDbovb8ximimdtDo7z0X05/OtX1mIigph/iuH4ElcF3O+i+ONG
+         KTyZDjry2LnkIq9NmqN/sLR04EDaEGV7XuGdEqT6JXkaptbmXeJuiayTGkrSzfGT8CYx
+         j2tc6P5ABfR4D1mR0su+aA6sslqX468t+OZHBqkJ3CJ9qxXLyHvHfegSYfIzGWg2xVbL
+         cyUia4K+xgzEu1Ua4tvsQmkxrefOZg68IqSN6jhj2DCWPbO2Bc7y0Vw7CDUD6X8Dl18z
+         NQF5Ir4/w1puZ2898r3W+YGHrs7Tx5x9qvJtdw6mcU0H4XG1wiNIMQ5FZR24c0St0FOR
+         k8kA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772352392; x=1772957192;
+        d=1e100.net; s=20230601; t=1772352400; x=1772957200;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=fGlR6YzXE5keZeD5R4R4wdzj80ZRJofyKqhSLLbK2aA=;
-        b=XqNenB16y2j4Tu8mFGP27cbrFHOLGAExBivOH3bp6pqlCP9HBE9bivhtcR5mPeTFTw
-         rLQ4bf8aE3ChGNf3ceybuh4qRndrsK0ziUAZN9d737daT5ngbIkvwwmBuji9w+xLqeXK
-         IeQKjmy+av0APgQrYDLBHOR2KwUwJtORcdo266KusLUqhE0DaiuMIIM8ad3YC1ryVMct
-         7ZzHYw0sU7uCRbfOYQqvWrhrLE88BfWtm0RUcodBMMX7gA9MbjJq+ci5pMhB3Oe8tFmb
-         ughnXfFzrJ3nkpvNhIR89w6QprMzzXCPoyocwX8AhaJ0W5Fos1T+2c1GIH/6UNcLi91O
-         lhzw==
-X-Forwarded-Encrypted: i=1; AJvYcCX2JR/jYdkugA0FcTtTBPhsmnA3QXG8cV63S9BIwS5ngGcU1221c/RwpAhTUxFO+guqUVU2ziUwfiK4QO7kyY4C@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw55RjzhB6wClKch7AjVM3j3tCaA+UZslKa4VFSjDeJ1M85XNWc
-	XLfPl5SrPPZY/6IpWvLSc+D9/9Cv8i6cvIou/JNsGloGUGxwNNFdUwU5
-X-Gm-Gg: ATEYQzx6+g0RUVQldvxBH1RqgepWeHTnMaiNr4GSfoGTsJs0ZlnIZSvt56+blffcNkN
-	yBbeBzN8CeQbXi90UXHyrqPNsl3j7dDjwO8nSHKht+X9XeUMSS8UYBRd2lOzFIisqcUmIGr84vY
-	FsnUdwp/lv6LkYzNAl4uKwnPj6apHR/k7V1JCfpYWvO8ZIem6yP22EjR7ojHJDwrnG3HCNexb8B
-	BeTByUGBlRGDy4mKg6W5vPKix7yYt7i/gpZJDNuOtMaHu9Dc6gYPI0o5RXkOdsYS2qHmapYfoni
-	qbqEVJIm+ycq/1vZlXQMpbH1SQ+dzDuFVl5Ttr+76yRcO/9CkoqhOUstARIwp1zBNqNb5+bCzMX
-	G9DGMfKD+qBgZH7NMBiQiRe4QcUSQDZBo9H8HIaQnf2TVL2ga6QlmowzG2pw/tNrk2Ui5KymfMc
-	uHoOLvaOYQjraroFU55N4Y15JLRGyA40I4qrwkenl+199/MK1gtZ52GSCYsxaZT6sPpjOaig7yU
-	ICh3MG/rYnhhkYYsojjaIPEXCjfYBq2n0/Cjb60biBDz4TpwBbnW4ibFgRSK6IUYYifH5TvfVGR
-X-Received: by 2002:a17:90b:578e:b0:34c:2db6:578f with SMTP id 98e67ed59e1d1-35965cccb83mr6714723a91.19.1772352392000;
-        Sun, 01 Mar 2026 00:06:32 -0800 (PST)
+        bh=COktpS70G1jBT7Oq0awQeJHx1NZJeipbMMF36OzY5Z0=;
+        b=Ab78MTR7JCVhiZK9ycOsY6CC0tlTXPz5YLeu9sJg1UAIY7toUZLVJp5Ihdsdj5wMOJ
+         9pm2MCSOkzSw5DzSxCXRlTr8V5raJwvZ29yOi6Nuifd2O+BrW8iTRv3DFx3xdYhnwO9f
+         ca1prlLi4pJ6lAHUUE+u9BAvJ+WQgVswYOLrAc4PZnK4fmtVUmxwTVfP5n04kahNzpNa
+         RUdLdXnAYmj4Z+YeR1440PTwz4AO9GyuvHZOhzYqHSwGk6OY3FUxy6hoE6YKuDIpaV7p
+         bww/WqpQS3jdJBpLWMVp2x9HSvAY8tG3oSytTOWfKP2SxJgCm+LwslkRSNnYaBbhenaL
+         u/Og==
+X-Forwarded-Encrypted: i=1; AJvYcCXKuIAbAwFykVgoZ3MMjLNSt6XRrEvx/G/F6iLo8eWwaatyQI9BHf2yzlwjPQyTyQWt55ydgPj9zgf3Y8gaxV9v@lists.infradead.org
+X-Gm-Message-State: AOJu0YxLNjG2TkJXJoMU6iWTADLVoAjraHAPE2QKjffq8V5NBeEXpymc
+	djCVuSbzD5k/pW6Sin6eN+pRWs15sFxgSJ/MhxgsrHZx80FehMUqE7t6
+X-Gm-Gg: ATEYQzxuzdlT10xj+Av7MXWlTtu2UPGDfKKaxE1WzG14RG+HfxUocV2TEK24ULOLyV7
+	KJ+rYvYZ6mVFn7Ux/RI+k0czLZPeUto2RpYeJ+7w5ymoheQYx+0CO6o7JMYJKMdOFgWVG3VCVRh
+	QzhL+iscqHF+P5ufdqAUSNZJePGdmxAabcjwtKd2jHy/BhxwE0IQV92SmJDk72MmJVacC1GEErd
+	4BKWVxXaCSGRDSqEPgkAgf4RPiFc6dS+dXKF0LlNqDuFYLaCM0kG2H5fLKymdI8U6nZAITYq33R
+	KI7vU++TFkxXGGMtbc1wuK1AzvnYZ5VyBk6AkxmRodT24ZA/qABTFWYd1gjfYwfflXvAzqZJhmN
+	CzrRbshqIEBbeCE2+o8pOt8ek5zCImLa9M0qV+Rqf4vQqQcgBG5+8M2QrIrc0OYuIwu8KujeSPE
+	7I7K892GLlZepxggVcgeEe8nWfX4v9NUXosvnKT0BFyCpHHCqst2v9J4HJMV+SQ2rVVMHAk7J1c
+	vQ0k1fXBJqQ5O5t+IAAe82PHEm5Qi0McSqYzLXDGgl+3i3Ofvnaomt/YA89RjlHlMpsb9bDVY3u
+X-Received: by 2002:a17:90a:fd97:b0:349:3fe8:e7de with SMTP id 98e67ed59e1d1-35965cd1066mr4480685a91.28.1772352399832;
+        Sun, 01 Mar 2026 00:06:39 -0800 (PST)
 Received: from [192.168.2.3] ([2403:581e:d87e:0:fc2d:ed31:e80e:412d])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-359135ef1d7sm8885384a91.5.2026.03.01.00.06.24
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-359135ef1d7sm8885384a91.5.2026.03.01.00.06.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Mar 2026 00:06:31 -0800 (PST)
+        Sun, 01 Mar 2026 00:06:39 -0800 (PST)
 From: James Calligeros <jcalligeros99@gmail.com>
-Date: Sun, 01 Mar 2026 18:05:22 +1000
-Subject: [PATCH v3 3/7] ASoC: dt-bindings: add TDM slot idle mode
- properties
+Date: Sun, 01 Mar 2026 18:05:23 +1000
+Subject: [PATCH v3 4/7] ASoC: soc-dai: define possible idle TDM slot modes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260301-tdm-idle-slots-v3-3-c6ac5351489a@gmail.com>
+Message-Id: <20260301-tdm-idle-slots-v3-4-c6ac5351489a@gmail.com>
 References: <20260301-tdm-idle-slots-v3-0-c6ac5351489a@gmail.com>
 In-Reply-To: <20260301-tdm-idle-slots-v3-0-c6ac5351489a@gmail.com>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
@@ -96,18 +95,18 @@ Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, asahi@lists.linux.dev, 
  James Calligeros <jcalligeros99@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2001;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2335;
  i=jcalligeros99@gmail.com; h=from:subject:message-id;
- bh=115g/WH2mtui7fHuZcwchXsAefVgpriJAftdKhU/VY4=;
- b=owGbwMvMwCV2xczoYuD3ygTG02pJDJmLP6fH1CYvWfDi6+VdS/ptHsxy/zZ9/q/rWu7bdB9du
- c1wrz6BrWMiC4MYF4OlmCLLhiYhj9lGbDf7RSr3wsxhZQIZIi3SwAAELAx8uYl5pUY6Rnqm2oZ6
- hkY6xjpGDFycAjDV96cxMvRPZA5hNnB6kNker/euf6nWnZJG5XMz9l95IXBFaqHH4QUM/13ivlz
- XP+vO+XRlp0D1vO8fDn37U1wXWD5Z6kr+pOTQSCYA
+ bh=VyTWRPS81+vOo86P7NyB7zBl67kC7Sarhern+hi6yV0=;
+ b=owGbwMvMwCV2xczoYuD3ygTG02pJDJmLP6fXyj+ot16S9/zirdpppzcc2LDlnapn6bXO1G+Hz
+ 6y9z3LmXMdEFgYxLgZLMUWWDU1CHrON2G72i1TuhZnDygQyRFqkgQEIWBj4chPzSo10jPRMtQ31
+ DI10jHWMGLg4BWCqJ+gx/GJO9N22/us5k96pFR4/V7C08c4w3xVVcFidZcP8zCcfjNIZGQ6lTXT
+ u+PN3rYrwtOxN968V75nySMXRV/eSfPhus8QJ+iwA
 X-Developer-Key: i=jcalligeros99@gmail.com; a=openpgp;
  fpr=B08212489B3206D98F1479BDD43632D151F77960
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_000637_346600_45C98427 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20260301_000641_003731_A992C598 
+X-CRM114-Status: GOOD (  13.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,55 +121,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add properties to describe TDM slot idle behaviour. These properties can
-be used to describe how a DAI is supposed to behave when not active.
+Some audio devices, such as certain Texas Instruments codecs,
+include configurable bus keepers. We currently don't have
+a standardised way to configure such hardware, and instead
+rely on the hardware initialising setting itself up into a
+sane state. There are situations where this is insufficient,
+however, and some platforms require more concrete guarantees
+as to the state of the bus, and being able to explicitly
+configure bus keepers enables this.
 
-For example, Apple Silicon laptops split a single I2S bus between two
-physical lines which are combined at an OR gate in front of the
-receiving port. One codec on each line is expected to transmit zeroes
-during the active TDM slots of the opposite line, or we will have corrupted
-data at the receiver.
+For example, some Apple Silicon machines have an odd bus topology where
+the SDOUT pins of all codecs are split across two data lines, which
+are summed via an OR gate in front of the receiving port on the
+SoC's I2S peripheral. Each line must transmit 0 while a codec
+on the other line is actively transmitting data, or the SoC
+will receive garbage data. To do this, one codec on each line
+must be configured to transmit zeroes during the other line's
+active TDM slots.
+
+Thus, we define seven possible bus-keeping modes that a device can
+be in: NONE (UB/as initialised), OFF (explicitly disabled), ZERO
+(actively transmit a 0), PULLDOWN, HIZ (floating), PULLUP, and
+DRIVE_HIGH.
+
+These will be consumed by CODEC/CPU drivers via a common DAI
+op, enabling the explicit configuration of bus keepers where
+required.
 
 Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
 ---
- .../bindings/sound/tdm-slot.yaml         | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+ include/sound/soc-dai.h | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/sound/tdm-slot.yaml b/Documentation/devicetree/bindings/sound/tdm-slot.yaml
-index ca71e3660f62..457a899e8872 100644
---- a/Documentation/devicetree/bindings/sound/tdm-slot.yaml
-+++ b/Documentation/devicetree/bindings/sound/tdm-slot.yaml
-@@ -20,6 +20,20 @@ properties:
-     $ref: /schemas/types.yaml#/definitions/uint32
-     description: Width, in bits, of each slot
+diff --git a/include/sound/soc-dai.h b/include/sound/soc-dai.h
+index 224396927aef..44dd06add52e 100644
+--- a/include/sound/soc-dai.h
++++ b/include/sound/soc-dai.h
+@@ -52,6 +52,21 @@ struct snd_compr_stream;
+ #define SND_SOC_POSSIBLE_DAIFMT_AC97		(1 << SND_SOC_DAI_FORMAT_AC97)
+ #define SND_SOC_POSSIBLE_DAIFMT_PDM		(1 << SND_SOC_DAI_FORMAT_PDM)
  
-+  dai-tdm-idle-mode:
-+    $ref: /schemas/types.yaml#/definitions/string
-+    enum:
-+      - none
-+      - off
-+      - zero
-+      - pulldown
-+      - hiz
-+      - pullup
-+      - drivehigh
-+    description: Drive mode for inactive/idle TDM slots. For hardware that
-+      implements .set_tdm_idle(). Optional. "None" represents undefined
-+      behaviour and is the same as not setting this property.
++/*
++ * DAI TDM slot idle modes
++ *
++ * Describes a CODEC/CPU's behaviour when not actively receiving or
++ * transmitting on a given TDM slot. NONE is undefined behaviour.
++ * Add new modes to the end.
++ */
++#define SND_SOC_DAI_TDM_IDLE_NONE	0
++#define SND_SOC_DAI_TDM_IDLE_OFF	1
++#define SND_SOC_DAI_TDM_IDLE_ZERO	2
++#define SND_SOC_DAI_TDM_IDLE_PULLDOWN	3
++#define SND_SOC_DAI_TDM_IDLE_HIZ	4
++#define SND_SOC_DAI_TDM_IDLE_PULLUP	5
++#define SND_SOC_DAI_TDM_IDLE_DRIVE_HIGH	6
 +
- patternProperties:
-   '^dai-tdm-slot-[rt]x-mask$':
-     $ref: /schemas/types.yaml#/definitions/uint32-array
-@@ -30,4 +44,9 @@ patternProperties:
-       a mask. The first element of the array is slot 0 (LSB). Any nonzero
-       value will be treated as 1.
- 
-+  '^dai-tdm-slot-[rt]x-idle-mask$':
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description: Idle slot mask. Optional. A bit being set to 1 indicates
-+      that the corresponding TDM slot is inactive/idle.
-+
- additionalProperties: true
+ /*
+  * DAI Clock gating.
+  *
 
 -- 
 2.53.0
