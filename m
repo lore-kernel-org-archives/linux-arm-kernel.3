@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E1CAFD0048
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:21:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D03C5FD004A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:22:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WekV9hQ9xhh2IGweb9bRPGMV607zrL6rjPDCuS+9Wao=; b=msohD5UTlwLqLlPkQbCxbwyYTy
-	ZiIPVihLTk6w/b4nEyyKPfcVa1SC0Vx64e2s8CE46zHrS9jZX/7AoMZUr+9wp2zHBR6PaHCsyNyPR
-	rU3mtPeZsMrYthgXf2WLP8JqIviheUpkB4iwqQUO1lGzj6DNnv2ydbJJrFjlfLSdSY1P1NwrHkIsZ
-	qhw58o4aXNrXRY8E0YfXg0yaOYCeHUZGS47uo/nYbmzJiSJQ4oRf50KXiGpyakVq62Rdyqwhlf8WA
-	+lr7vImWZjwASfCNKFGqCSZ+VEIoCl5RFxDbwuXm0HLUQbxqUcdpglW1VnLD70jLDgrArwPrRF80L
-	lW5RwcUg==;
+	bh=oSaLTD96fIVkaCDrdNB7IUOKI7dTu0oUBTQXx8bWYms=; b=2vhGDnXCfmlPN1k6ex+ZV73oAY
+	nszEx5saCfAEfTMzlVoi9oLWoYPB9Bj1d5yq3auKMmanCAo+W6l4ElO3gCOKbZcLyQAiUq8uIO8Ul
+	JrpmRLlIeo2tX692hp/G800dtQZt1G2wRzz3X0ZmEmhvQwUfyCoYj4ROgpnzl9a+ybcQPa8cbngM4
+	33/wqQsEMRLi9ht1mB7cdU8/l6t0EpaGDWocwe9Aih1/FB6KBwWjwlwh5OJ1wFg+pN+PqQBmYXU7t
+	2zRYioX4UShvzHTuLpgW//moqHKSXl8K1TG4CnBWkHDJIIUyW3kXQe30asMj5IVFRZcW5hvs0Fkvg
+	YwnrZ35A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVV3-0000000AUmW-2F7b;
-	Sun, 01 Mar 2026 01:21:37 +0000
+	id 1vwVVi-0000000AVAi-41tM;
+	Sun, 01 Mar 2026 01:22:18 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVUs-0000000AUfe-0Fpd
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 01:21:27 +0000
+	id 1vwVVg-0000000AV9M-1LSD;
+	Sun, 01 Mar 2026 01:22:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B811540B07;
-	Sun,  1 Mar 2026 01:21:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D37B2C2BC87;
-	Sun,  1 Mar 2026 01:21:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EE4ED405E6;
+	Sun,  1 Mar 2026 01:22:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 040D6C19421;
+	Sun,  1 Mar 2026 01:22:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772328085;
-	bh=cStXjZw7ZuEYg6hpY1Da/79s+sXlHNHkAc0ebc5k6So=;
+	s=k20201202; t=1772328135;
+	bh=3k7OQsiVcaP5g+1HoaLmipVxH474h+K0lLE9htxoVXU=;
 	h=From:To:Cc:Subject:Date:From;
-	b=qqewTdWiS+TWTom0KgacxrEk1idMHYNuBz3yUGUsMxsFM3HP4CrKyO19Ob0WOiCHP
-	 KZvIAWf3MIK3xnsWX+yIkpLwOkDjj02YtkCO/n+YGYOAR6EmyLoZL1EA865GWPxrxz
-	 YqkHvm8UAVeek6kUffIRy9iuUHMGcvRBbc/yTZEB+5VDIdxT0rDJrUhSQcJQvQfBOQ
-	 MlGWo2B/NUB6lZoNuRni5l9zAVJ7leh0tRJco6Pn87zuQ2FHpk1FnLef8FgcUmG6oT
-	 2iaqrgzvVFMmmffbDMV9wDGi7ATUusyBeSPTF2bqTN/OeE5lTEpEFod1g1dnuNYNGY
-	 rNL9eXJHHI3sQ==
+	b=f4bhP5GoUTw4+CHfMm34iAXeBln9EGymb1Vqpb4dpxzeTDmGPRN/z2l4suQm2qFa2
+	 DcpvZHHdQ2ZiP2FBIr1rHNcHSD7Cx9MjI9KnrnBz0XUfThNoCmIFaPVhOnMQqCdf9p
+	 gf1SbV2hLd2RHXN7OB3J3WXJWedR1Z8WTdDWwz6bekKIzd9LFp9ArPscR7CMsqPDg5
+	 UioKbQkDmpbb04Eei470Rz02OjXoLPo/LMiy2yj/ve6+pov/JvAw5/OGVBmdWrCIA4
+	 TNsFXv2oPO3LmOKShAPxSR6qFb94s8xOKugpxXFV3bPe+5gTxaZMWCsz+Q6jQi1BhZ
+	 XwBQDbiMU+7kQ==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	alain.volmat@foss.st.com
-Cc: Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>,
-	linux-media@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: FAILED: Patch "media: stm32: dcmipp: bytecap: clear all interrupts upon stream stop" failed to apply to 6.12-stable tree
-Date: Sat, 28 Feb 2026 20:21:23 -0500
-Message-ID: <20260301012123.1677297-1-sashal@kernel.org>
+	jerrysteve1101@gmail.com
+Cc: Peter Robinson <pbrobinson@gmail.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: FAILED: Patch "arm64: dts: rockchip: Do not enable hdmi_sound node on Pinebook Pro" failed to apply to 6.12-stable tree
+Date: Sat, 28 Feb 2026 20:22:13 -0500
+Message-ID: <20260301012213.1678405-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_172126_120298_F355521C 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20260228_172216_383782_72BAF0E7 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,40 +85,50 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From 222f1279edd9008ee35b62de156ddac84e31443c Mon Sep 17 00:00:00 2001
-From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Fri, 19 Dec 2025 15:30:35 +0100
-Subject: [PATCH] media: stm32: dcmipp: bytecap: clear all interrupts upon
- stream stop
+From b18247f9dab735c9c2d63823d28edc9011e7a1ad Mon Sep 17 00:00:00 2001
+From: Jun Yan <jerrysteve1101@gmail.com>
+Date: Fri, 16 Jan 2026 23:12:53 +0800
+Subject: [PATCH] arm64: dts: rockchip: Do not enable hdmi_sound node on
+ Pinebook Pro
 
-Ensure that there are no pending interrupts after we have stopped the
-pipeline. Indeed, it could happen that new interrupt has been generated
-during the stop_streaming processing hence clear them in order to avoid
-getting a new interrupt right from the start of a next start_streaming.
+Remove the redundant enabling of the hdmi_sound node in the Pinebook Pro
+board dts file, because the HDMI output is unused on this device. [1][2]
 
-Fixes: 28e0f3772296 ("media: stm32-dcmipp: STM32 DCMIPP camera interface driver")
+This change also eliminates the following kernel log warning, which is
+caused by the unenabled dependent node of hdmi_sound that ultimately
+results in the node's probe failure:
+
+  platform hdmi-sound: deferred probe pending: asoc-simple-card: parse error
+
+[1] https://files.pine64.org/doc/PinebookPro/pinebookpro_v2.1_mainboard_schematic.pdf
+[2] https://files.pine64.org/doc/PinebookPro/pinebookpro_schematic_v21a_20220419.pdf
+
 Cc: stable@vger.kernel.org
-Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
-Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
-Signed-off-by: Hans Verkuil <hverkuil+cisco@kernel.org>
+Fixes: 5a65505a69884 ("arm64: dts: rockchip: Add initial support for Pinebook Pro")
+Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
+Reviewed-by: Peter Robinson <pbrobinson@gmail.com>
+Reviewed-by: Dragan Simic <dsimic@manjaro.org>
+Link: https://patch.msgid.link/20260116151253.9223-1-jerrysteve1101@gmail.com
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 ---
- drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts | 4 ----
+ 1 file changed, 4 deletions(-)
 
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
-index 1c1b6b48918ee..b18e273ef4a3e 100644
---- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
-@@ -512,6 +512,9 @@ static void dcmipp_bytecap_stop_streaming(struct vb2_queue *vq)
- 	/* Disable pipe */
- 	reg_clear(vcap, DCMIPP_P0FSCR, DCMIPP_P0FSCR_PIPEN);
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
+index eaaca08a76018..a6ac89567bafe 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
+@@ -421,10 +421,6 @@ &gpu {
+ 	status = "okay";
+ };
  
-+	/* Clear any pending interrupts */
-+	reg_write(vcap, DCMIPP_CMFCR, DCMIPP_CMIER_P0ALL);
-+
- 	spin_lock_irq(&vcap->irqlock);
- 
- 	/* Return all queued buffers to vb2 in ERROR state */
+-&hdmi_sound {
+-	status = "okay";
+-};
+-
+ &i2c0 {
+ 	clock-frequency = <400000>;
+ 	i2c-scl-falling-time-ns = <4>;
 -- 
 2.51.0
 
