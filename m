@@ -4,101 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F14FD0049
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 02:57:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2072BFD0055
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 03:33:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
 	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
 	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v7j7u4Cgs/YgDdAJ7Cmwg6YLlgzhvBFEmlTEsg17hQE=; b=39fnryEVq3gA+NS1/DuqhUaPZ5
-	Rr11ULM4MwbvvDZ6ZifanP/xpbE8vjHF2LIrBx/6uXgcy6scNimaSpHa3Dz6FPsDNcAClDSLwxQjh
-	vh50bzqq8+yk1y0tszIjm1g06hYdGso61Z9o+/9DY4XOm0idugDl6vwUnRWIuZwjUMS5m9o+Of0QH
-	DRJLhJra95ynzWb4Zi4wpYZ1ygyMuceTP9XanZ3ceZiiJeUw3JMfXOdzO2bZEZ7M5Stv4HQCCd1yi
-	8dgC6nN4B9yu2TgGeEConnWe5KkgvG2cXPGCTfsxWTZEFEmMlk7fpv8UyUe8J4JGnKBnzo4xRaCYn
-	sGkegv7w==;
+	bh=oGUtErtO1WheKt0/0USuDzWLghEWqZdNvFs6ivnvkR0=; b=u5pGIWhCL/ICe7Fnl2yXAUVois
+	79qfYrBpwTpP0N5vPZCiJSncnA1hikTpWuYcaSlzXqSkA89geBaFFTsAp/yVc77/zZ8u07EdU4L3C
+	Di5ziMq+h8hC6owOg5uvL8W46asSqumAs8pWc4CrHp0UYTm9H2faz31F0cv5tzaT7AziDMfL1MtV6
+	W0ewm1MMGxu+nDKfJozEjIi4Ne7gR2mA5i1JqEDAkk3MNmnvKRBwDJo/nOqXHWrkhA/3QP2RMV6af
+	RmhhJE6A79VYoQmjVS1lBPs/KOHLr7ohNRRfogscoAVyKWOBGn/XA8piGRNT2LS0EkmbLp2FvTm3E
+	KdC1SPAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwX0C-0000000AlxN-3I4U;
-	Sun, 01 Mar 2026 02:57:52 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1vwXYf-0000000AnQZ-2Lhs;
+	Sun, 01 Mar 2026 03:33:29 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwX09-0000000AlwY-1Klg
+	id 1vwXYc-0000000AnQ4-2wO8
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 02:57:50 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-48375f1defeso23869625e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Feb 2026 18:57:48 -0800 (PST)
+	Sun, 01 Mar 2026 03:33:28 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-4398f8403edso2655226f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Feb 2026 19:33:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1772333867; x=1772938667; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1772336004; x=1772940804; darn=lists.infradead.org;
         h=in-reply-to:references:to:from:subject:cc:message-id:date
          :content-transfer-encoding:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=v7j7u4Cgs/YgDdAJ7Cmwg6YLlgzhvBFEmlTEsg17hQE=;
-        b=SG9wk7fhIDwkiBAmdDdyLNQ7x5Heyy5qtYMUDJESf8nZpxpbZHnFakrRYq5syAeCZo
-         n8LlKi77VoiglkE9ShNNWCcZNcR5fEPEPDlqfgRiUOBAWB14fkQ1vmKpOfS2SK0aXJW0
-         N1mMKIWfn9WNcxBCfVcWwi2CgUgy7dZmBYQZvLKcmoySi5fJUKvJ3+QqJNVVMC6RRPo6
-         pmMUD+3lqjAIgZ4Iwtw83HEvczo1ms7OzOolFqCL3/FI8l13RkdfNQRVs9iMv73OKp4r
-         9+FwoMgHd9kqJf3OqVfEOova+700PjMQBl8C7ztUcglItHeKU8uWOqHwveJ9i8CJtokp
-         6p9Q==
+        bh=oGUtErtO1WheKt0/0USuDzWLghEWqZdNvFs6ivnvkR0=;
+        b=pinmUeizQiDdMg3euGgmIMtwRkRaQo10UAxpx8tjkMXm68nUfc1wgYJhUZTjcDrocp
+         G6EFJr7+lzAgkETlRrllRHwisvDMv1+KRh7OoTv+mMxVPxiROKMi+B/zaCuLf9s9GGIO
+         40zlutF+oRAL+kLBTjfELnFCZZcfu8p1LMXxb+S2/6QCk1b2d1+ucztFe7xRthEw2IaG
+         ye0wzTbNjv0lqBExwqRMCRcedmTcgKkaZrr1+1+YjS7/W7HHcCGYTFdSHW7oYXspya4F
+         akleQgLZlyDpE39IL0kC5pjfLziu115978dFvlEnUnEY/zjT46l3PxJJ9uBQbT9AFIvK
+         DyZw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772333867; x=1772938667;
+        d=1e100.net; s=20230601; t=1772336004; x=1772940804;
         h=in-reply-to:references:to:from:subject:cc:message-id:date
          :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=v7j7u4Cgs/YgDdAJ7Cmwg6YLlgzhvBFEmlTEsg17hQE=;
-        b=TPLSywhEdFXRhaupSXijBjHytZyjSjD1J4ZzDcIq+TyZJEhF/JC1R3JsSWFVYyqbwX
-         FLnXQJZP9vHIsxCNmEvHT5F6ahIu577DXGW7iDqD8OwS/VRtKa2tus+oHAw6egn5Ospr
-         0BTjNv5q3T+wnmW+K9y+wTpQXNRG6erwQMKp+Mu2pxM7o84+YIoblB0INsOXqJEVr/ES
-         Tc1PYN6zkV6iViBLoLPd8gLoDWXCpQJnOyDU/Qog25fIGMF2AEZwvS71rccdjo4LrJIn
-         J4Cu9OzX8Khp34vdq8Ndo3u4ECOnTHdl3elGyCO2sfNYEwYhfIH0xBvvrQONKjIaI/8R
-         5N8A==
-X-Forwarded-Encrypted: i=1; AJvYcCUN7cvTZF+pXId2l47oYW6Y5AMPwxBC6AuuG+beJ4k1MiWBkYOQNv5r+yymagATzycqEjHxdYcW5RxJQ1PIK2bc@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJ7HPzZpxpdCFYB7fXcjWhM8i3W4hbJD1nTICvKX5FAf8iAeAL
-	sU5Z2V0Wi4raMtgaSza/rRJrkfK5kH2/TILjjFWoaAn8mQttiEX4/vwty982Kr06uE0=
-X-Gm-Gg: ATEYQzxvLuG8x/n0ZkXfatZOz+A4Iz7GQwryukf9h93zUvyklxSrhxy5rBoz5S+YlPS
-	DPQxZxqHyRmGdNYnsiVRc8S6WmLmcW98K8GjRsS5UQasAwrULgY9K4txoZhJuZYhm1EM1VWRq10
-	muGP2KFXm9JXj0735rq06ZN6YB5lKKb0Nhz3+e68qttHg4KIJW3wNaFw8/Ahv7Qtq4wgxJcV+ku
-	dwwXn2IpdOAabTaIretDHg+HCvD0cnhOW/jg5vVV3F/wfrMcyUdnjxR89Z88fw9XpYvHZK8PKu2
-	IhnVACumPC8As1dlXvit0LsiZP6L7jyOyJK4xaa8qhaXs0VHaSWye+oce4pfZM6rZZJii1gAdLE
-	bw9ILfnAnwQDdKDaZ4fgoeW7Srq6xvQRSbkVlGaXgANg8EwFcLtH42NnssAXcqBDheXyoY8Vnmw
-	oVUl6oR5HgI3O2bTHjRyU+/QVUltGo1dps4PSSaiqr8I8lPyhirfPi3BEprs0d6hry3jDUHQJHD
-	Y0Yo5v0F0C0dis4vg==
-X-Received: by 2002:a05:600c:8106:b0:483:afbb:a064 with SMTP id 5b1f17b1804b1-483c9bb7b7emr131516965e9.1.1772333866793;
-        Sat, 28 Feb 2026 18:57:46 -0800 (PST)
+        bh=oGUtErtO1WheKt0/0USuDzWLghEWqZdNvFs6ivnvkR0=;
+        b=SIr/U0m7IPQnXi5Eh35syJ7dtFg5bpL2NxzXUwkLdSjU5P65xZCF2H55Z6ik8TdKr/
+         fh7aCD5czVIzZ+XY8hlPIrR+jE0a+v6odiQbwR8Gt40zuiLeR7ftk+EZOqwlWXsZ2HvS
+         eV2fX+G+irzddCpeTwi/5mFs0L5jZbmo5KXQKDbxlomaQ5qXEvhz1xCF197HREdWHIKi
+         ouX+EEY2pNI1krKP/PJAQOMzYeVB3auffYG5R5wWBLNCosNQRx6uaq0GtTntQOVola8d
+         4OqJ9CRnm2zOqEEO4G++WsWPa38LAnYc391727+x3LPzoj6LtjiP11n9jEAMWJxbNYaX
+         PmSA==
+X-Forwarded-Encrypted: i=1; AJvYcCXPFK+peLW27pdY3uaY7jL0RKQfvzBh1sJPKykP2PRJRczTQtSiGbJvqNO+Bkvun8ScqQXXvvTUWc0qZRiN+z3A@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpSbAlecb2V7BZa2Ny0cvN1SB5Jd7jb8ef2P0JER2V54OW95bx
+	olRO+kXP1T09/MO3cdHJufvuTIUWxhOGC8CD2GuceklLAGCLX1s51/fmrXRjQSpqui0=
+X-Gm-Gg: ATEYQzxWPwrZpnd0hrp+6mKdSeNqcuy380TubzMGUpOGGFXv9z3n/Ls7yfNaT8Fod0Y
+	GIJOedBsY0s7VsTSOzIrySKngiHZpt4UB0kJMjLEZNEahezhCHefYAR/45yy6PBxgx2YsUU5fCD
+	s+ntv+g8bZGyNtCF8AckY9HpdszGjWHZd/e5crPUpW07z+9pCNg7RhUKbtGVUVNAdF0ZAvSbZqC
+	yMqMiB+Y3xdzWaKi3vn6MmVp+H59iC6ixV1feFZascmKEbVLGCahHKPg7EL+eNv4Gu+mn+YXv4H
+	bMH2SZiFlPWq8yZ7ijvcpouV7nOOLYXIL3sce8MeFGJuDK8ZN+ccbFx+TP3+LJ/30JiWbQQq2Cn
+	TVdT9vqezqz+NAiexd2Hbfz4pKDQXw1WisUzxNS1GTcNufYOyhjNhNf2Iy+iIkqh92U5rnD9LuY
+	9Zz1mjB0DDKoDfJBUxqOUw1csJJ1KpCWq7OPlkxvxVkUm4D4IhGa5c1toMjXIQ8OKB0pd4q8NQg
+	Ztf1rs8Z/Sjj9mmaw==
+X-Received: by 2002:a05:6000:2dc6:b0:437:6963:a115 with SMTP id ffacd0b85a97d-4399de2ca49mr12536069f8f.42.1772336004517;
+        Sat, 28 Feb 2026 19:33:24 -0800 (PST)
 Received: from localhost ([2a02:c7c:5e34:8000:6ece:b3d1:ab81:6eaf])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4399c764a35sm19633263f8f.30.2026.02.28.18.57.44
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439b03db76bsm2970858f8f.18.2026.02.28.19.33.23
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 28 Feb 2026 18:57:46 -0800 (PST)
+        Sat, 28 Feb 2026 19:33:24 -0800 (PST)
 Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Date: Sun, 01 Mar 2026 02:57:44 +0000
-Message-Id: <DGR3X53FPO88.3C2UO0HGRVQGF@linaro.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, "Daniel Lezcano"
- <daniel.lezcano@linaro.org>, "Zhang Rui" <rui.zhang@intel.com>, "Lukasz
- Luba" <lukasz.luba@arm.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Krzysztof Kozlowski" <krzk@kernel.org>, "Alim Akhtar"
- <alim.akhtar@samsung.com>, "Bartlomiej Zolnierkiewicz"
- <bzolnier@gmail.com>, "Kees Cook" <kees@kernel.org>, "Gustavo A. R. Silva"
- <gustavoars@kernel.org>, "Peter Griffin" <peter.griffin@linaro.org>,
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- <willmcvicker@google.com>, <jyescas@google.com>, <shin.son@samsung.com>,
+Date: Sun, 01 Mar 2026 03:33:23 +0000
+Message-Id: <DGR4OFNJXOI2.3QACIHMM1V429@linaro.org>
+Cc: <willmcvicker@google.com>, <jyescas@google.com>, <shin.son@samsung.com>,
  <linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
  <linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>,
  <linux-arm-kernel@lists.infradead.org>, <linux-hardening@vger.kernel.org>
-Subject: Re: [PATCH v2 0/7] thermal: samsung: Add support for Google GS101
- TMU
+Subject: Re: [PATCH v2 4/7] thermal: samsung: Add support for GS101 TMU
 From: "Alexey Klimov" <alexey.klimov@linaro.org>
 To: "Tudor Ambarus" <tudor.ambarus@linaro.org>, "Rafael J. Wysocki"
- <rafael@kernel.org>
+ <rafael@kernel.org>, "Daniel Lezcano" <daniel.lezcano@linaro.org>, "Zhang
+ Rui" <rui.zhang@intel.com>, "Lukasz Luba" <lukasz.luba@arm.com>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Krzysztof Kozlowski"
+ <krzk@kernel.org>, "Alim Akhtar" <alim.akhtar@samsung.com>, "Bartlomiej
+ Zolnierkiewicz" <bzolnier@gmail.com>, "Kees Cook" <kees@kernel.org>,
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>, "Peter Griffin"
+ <peter.griffin@linaro.org>, =?utf-8?q?Andr=C3=A9_Draszik?=
+ <andre.draszik@linaro.org>
 X-Mailer: aerc 0.20.0
 References: <20260119-acpm-tmu-v2-0-e02a834f04c6@linaro.org>
-In-Reply-To: <20260119-acpm-tmu-v2-0-e02a834f04c6@linaro.org>
+ <20260119-acpm-tmu-v2-4-e02a834f04c6@linaro.org>
+In-Reply-To: <20260119-acpm-tmu-v2-4-e02a834f04c6@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_185749_385207_32EA76B4 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20260228_193326_789417_75C8C0F8 
+X-CRM114-Status: GOOD (  22.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,35 +113,82 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On Mon Jan 19, 2026 at 12:08 PM GMT, Tudor Ambarus wrote:
-> Add support for the Thermal Management Unit (TMU) on the Google GS101
-> SoC.
+> Add the thermal driver for the Google GS101 SoC.
+
+Is this driver for GS101 platforms only or for all Exynos-based
+platforms where we have deal with thermal unit via ACPM?
+
+> The GS101 TMU utilizes a hybrid management model shared between the
+> Application Processor (AP) and the ACPM (Alive Clock and Power Manager)
+> firmware. The driver maintains direct memory-mapped access to the TMU
+> interrupt pending registers to identify thermal events, while delegating
+> functional tasks - such as sensor initialization, threshold configuration=
+,
+> and temperature acquisition - to the ACPM firmware via the ACPM IPC
+> protocol.
 >
-> The GS101 TMU implementation utilizes a hybrid architecture where
-> management is shared between the kernel and the Alive Clock and
-> Power Manager (ACPM) firmware.
-
-[..]
-
-> Sensor Mapping (One-to-Many)
-> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+> ---
+>  drivers/thermal/samsung/Kconfig    |  16 +
+>  drivers/thermal/samsung/Makefile   |   2 +
+>  drivers/thermal/samsung/acpm-tmu.c | 643 +++++++++++++++++++++++++++++++=
+++++++
+>  3 files changed, 661 insertions(+)
 >
-> The SoC contains multiple physical temperature sensors, but the ACPM
-> firmware abstracts these into logical groups (Clusters) for reporting:
->
-> - ACPM Sensor 0 (Big Cluster): Aggregates physical sensors 0, 6, 7, 8, 9.
-> - ACPM Sensor 1 (Mid Cluster): Aggregates physical sensors 4, 5.
-> - ACPM Sensor 2 (Little Cluster): Aggregates physical sensors 1, 2.
+> diff --git a/drivers/thermal/samsung/Kconfig b/drivers/thermal/samsung/Kc=
+onfig
+> index f4eff5a41a84ce02b12abb85d6a0f8818031d0dc..5679dfa85f4079c7d40317ac2=
+31bd6a1af93c7e7 100644
+> --- a/drivers/thermal/samsung/Kconfig
+> +++ b/drivers/thermal/samsung/Kconfig
+> @@ -9,3 +9,19 @@ config EXYNOS_THERMAL
+>  	  the TMU, reports temperature and handles cooling action if defined.
+>  	  This driver uses the Exynos core thermal APIs and TMU configuration
+>  	  data from the supported SoCs.
+> +
+> +config EXYNOS_ACPM_THERMAL
+> +	tristate "Exynos ACPM thermal management unit driver"
+> +	depends on THERMAL_OF
+> +	depends on EXYNOS_ACPM_PROTOCOL || (COMPILE_TEST && !EXYNOS_ACPM_PROTOC=
+OL)
+> +	help
+> +	  Support for the Thermal Management Unit (TMU) on Google GS101 SoC.
+> +
+> +	  The TMU on GS101 is managed through a hybrid architecture. This drive=
+r
+> +	  handles direct register access for thermal interrupt status monitorin=
+g
+> +	  and communicates with the Alive Clock and Power Manager (ACPM)
+> +	  firmware via the ACPM IPC protocol for functional sensor control and
+> +	  configuration.
+> +
+> +	  Select this if you want to monitor device temperature and enable
+> +	  thermal mitigation on GS101 based devices.
 
-What about other non-CPU devices? Are there no sensors or implementation
-currently doesn't support them?
+I don't understand this. What this driver actually supports/implements?
+Dealing with TMU over ACPM firmware is not exclusive to Google GS101 SoC,
+some other Exynos-based systems has this as well. However, it names
+the config option EXYNOS_ACPM_THERMAL but a lot of other things say that
+it is only for GS101, isn't it?
+Does it implement the generic layer dealing with TMU via ACPM (hence the na=
+me)
+and adds specific things to support gs101?
 
-Is this implementation and ACPM TMU support exclusive only to GS101 SoC?
-IIRC, mapping could be different for other SoCs and, for instance, last
-sensors could be non-CPU devices.
+Should it be something like this (feel free to correct):
+Support for the Thermal Management Unit (TMU) exported via ACPM.
 
+This driver handles direct register access for thermal interrupt
+status monitoring and communicates with the Alive Clock and Power
+Manager (ACPM) firmware via the ACPM IPC protocol for functional
+sensor control and configuration.
+
+Select this if you want to monitor device temperature and enable
+thermal mitigation on Exynos-based devices that implement dealing
+with TMU via ACPM, for instance, GS101-based devices.
+
+?
+
+[...]
 Best regards,
 Alexey
-
-[..]
 
