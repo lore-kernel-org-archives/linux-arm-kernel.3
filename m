@@ -4,97 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DC87FD0073
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 17:51:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66325FD0073
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 18:10:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gBxMJaUKa1C9JEFX2ZaVz3QyDUnGEtOPQuNCPOMH3xw=; b=eZMXmOkA6K1As6gqKu724MG4Al
-	fqOGqr70JVcNFflIVGCFU3AWH7Oe2ReEbX7T2kAovhiwwn45eg67WUjTpIhZdYJVw5VAZd6Du+7Cd
-	T09OmciIYYzgudANK9E0A+xBRB2Qj3g3f7ZBfiNHh2kkn0+OEOFmqjr6svRdCLi3DLRjOlJoWZayO
-	xqPhUGrzP43VhDsUU1hHHRLA28nHENxe0Sv2MITnXFj17lEa6vM9wFXbfrSEeP6BKJyZjsSP0Ewbi
-	vSpfhk04Gg4DrJWTNdix+kfBNmNgKAlhi4VUL5u/ggp2opMT4fpL1My1BOy+P3n6mzoL+gJ5ZO7QR
-	R1Arm6bw==;
+	bh=8SYg1iKkO2flLsw1BArunFvmkI1jDns0goFy4yQIn8E=; b=pfSExNFyaGVZ4riDoOuDgMqLoJ
+	4N63jRKNzKVpo6qmli7lsUG1yu4YKIpWmEMxDOVtp5wuSCOVQeQE7dD23bPh+pJNqA8gKpWiweLr7
+	53OISP9DXhosgVAGgCkVNux+R0q7EJnPLUCVc/LonVNUcjreApKcbMQ0zEf2oyzssQ46JYjj+vKVF
+	AERvu0hUlTNhJuY513Aqj5W7PJnI8XLeGuapkZBUU/PUzimJPzDbuFzlCjAG5jHt9P58lTow3hilf
+	9aAFAOu3VcxGJQ9Z6HB7Nl6J09mN6zkCHBbAO3RJAoJPtmNEOd77yxb3T7+hhymqOdPnK/IMwP/7q
+	kyfRcqwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwkxM-0000000BkHk-3TzN;
-	Sun, 01 Mar 2026 17:51:52 +0000
-Received: from 011.lax.mailroute.net ([199.89.1.14])
+	id 1vwlFQ-0000000Blfb-2lh4;
+	Sun, 01 Mar 2026 18:10:32 +0000
+Received: from ixit.cz ([185.100.197.86])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwkxK-0000000BkDX-0k4a;
-	Sun, 01 Mar 2026 17:51:51 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by 011.lax.mailroute.net (Postfix) with ESMTP id 4fP8l76g1fz1XM31H;
-	Sun,  1 Mar 2026 17:51:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
-	content-transfer-encoding:content-type:content-type:in-reply-to
-	:from:from:content-language:references:subject:subject
-	:user-agent:mime-version:date:date:message-id:received:received;
-	 s=mr01; t=1772387495; x=1774979496; bh=gBxMJaUKa1C9JEFX2ZaVz3Qy
-	DUnGEtOPQuNCPOMH3xw=; b=BNwluevo8QwQgftfHB+DAqTk9ymT2rv4ZQaRtkv1
-	fEE+STVCIEETCbEGDy6mPRz/sGX18yEGYpRhqFMzOGhGTN2IeFLZUb2xX5fByOva
-	HSPj3fQYRzfbH8s99Gojromm8NSb7kZqaVqPqiRcwFpg0igO7/hef9tgIxeT1dUi
-	6s/15zHh1tkYNv9+Ck+Jaa7msTHuvX1wexjljDqKd5CGnECL/W8Ueahcos4OV1rt
-	k2Ub1EtAEcCNTTF6F6XWyjlYJmmStvxNYUokguq1Ocp3+fsvoTwY+RBUu7MIzxQS
-	MB8AcL9iv6pLSpoLjF0H+Q4bgEu1UABPn13zEmAVM8AF1w==
-X-Virus-Scanned: by MailRoute
-Received: from 011.lax.mailroute.net ([127.0.0.1])
- by localhost (011.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
- id G5Djf-GxRJGn; Sun,  1 Mar 2026 17:51:35 +0000 (UTC)
-Received: from [192.168.51.14] (c-73-231-117-72.hsd1.ca.comcast.net [73.231.117.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	id 1vwlFM-0000000BlfA-2lRK
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 01 Mar 2026 18:10:30 +0000
+Received: from [IPV6:2a02:f000:10bd:e301::1d7] (unknown [IPv6:2a02:f000:10bd:e301::1d7])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	(Authenticated sender: bvanassche@acm.org)
-	by 011.lax.mailroute.net (Postfix) with ESMTPSA id 4fP8kk4Xv4z1XM5jn;
-	Sun,  1 Mar 2026 17:51:26 +0000 (UTC)
-Message-ID: <3abcef32-f872-4aa5-a7e1-c99286f426aa@acm.org>
-Date: Sun, 1 Mar 2026 09:51:25 -0800
+	by ixit.cz (Postfix) with ESMTPSA id 1B5045340941;
+	Sun, 01 Mar 2026 19:10:14 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
+	t=1772388614;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=8SYg1iKkO2flLsw1BArunFvmkI1jDns0goFy4yQIn8E=;
+	b=yZm4JGAxzSLiOSI/y/m0Uu5QmMQEWlJ9aQc/I6YrTAhXSi5Um5/E8rXLOB0DwHn3zP1cpe
+	aSVyOjJTlRXCRpds/D5zLgnrm+hgVonhkaiIYf2KiSIXDP/0c60sx9YtarbklBBgI+31rz
+	RlEgfkwGvhoI1gKCfVm398x2HGCHiLM=
+Message-ID: <69cf95e2-75db-405a-a813-b1a63a4d876e@ixit.cz>
+Date: Sun, 1 Mar 2026 19:10:13 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/11] scsi: ufs: core: Introduce a new ufshcd vops
- negotiate_pwr_mode()
-To: Can Guo <can.guo@oss.qualcomm.com>, avri.altman@wdc.com,
- beanhuo@micron.com, martin.petersen@oracle.com
-Cc: linux-scsi@vger.kernel.org, Alim Akhtar <alim.akhtar@samsung.com>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
- Ajay Neeli <ajay.neeli@amd.com>, Peter Griffin <peter.griffin@linaro.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, Peter Wang <peter.wang@mediatek.com>,
- Chaotian Jing <chaotian.jing@mediatek.com>,
- Stanley Jhu <chu.stanley@gmail.com>, Manivannan Sadhasivam
- <mani@kernel.org>, Orson Zhai <orsonzhai@gmail.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Chunyan Zhang <zhang.lyra@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- "Bao D. Nguyen" <quic_nguyenb@quicinc.com>,
- Adrian Hunter <adrian.hunter@intel.com>,
- Archana Patni <archana.patni@intel.com>,
- open list <linux-kernel@vger.kernel.org>,
- "open list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER..."
- <linux-samsung-soc@vger.kernel.org>,
- "moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
- <linux-arm-kernel@lists.infradead.org>,
- "moderated list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER..."
- <linux-mediatek@lists.infradead.org>,
- "open list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER..."
- <linux-arm-msm@vger.kernel.org>
-References: <20260227160809.2620598-1-can.guo@oss.qualcomm.com>
- <20260227160809.2620598-2-can.guo@oss.qualcomm.com>
- <9d975881-7570-495d-94ea-085e2012a9af@acm.org>
- <5a2961af-dada-44f3-8e57-119076f10750@oss.qualcomm.com>
+Subject: Re: [PATCH 00/10] Input: support for STM FTS5
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: Petr Hodina <petr.hodina@protonmail.com>, linux-input@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, phone-devel@vger.kernel.org
+References: <20260301-stmfts5-v1-0-22c458b9ac68@ixit.cz>
 Content-Language: en-US
-From: Bart Van Assche <bvanassche@acm.org>
-In-Reply-To: <5a2961af-dada-44f3-8e57-119076f10750@oss.qualcomm.com>
+From: David Heidelberg <david@ixit.cz>
+Autocrypt: addr=david@ixit.cz; keydata=
+ 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
+In-Reply-To: <20260301-stmfts5-v1-0-22c458b9ac68@ixit.cz>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_095150_296914_59DEE547 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20260301_101028_963859_1C8C5874 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,31 +126,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/1/26 6:26 AM, Can Guo wrote:
-> On 2/28/2026 3:31 AM, Bart Van Assche wrote:
->> On 2/27/26 8:07 AM, Can Guo wrote:
->>> -=C2=A0=C2=A0=C2=A0 return -ENOTSUPP;
->>> +=C2=A0=C2=A0=C2=A0 return -EOPNOTSUPP;
->>
->> Why has ENOTSUPP been changed into EOPNOTSUPP?
-> I got a warning from checkpatch.pl when I add the new vops, so I change=
-d=20
-> the same for
-> ufshcd_vops_pwr_change_notify() too.
->=20
-> WARNING: ENOTSUPP is not a SUSV4 error code, prefer EOPNOTSUPP
-Hi Can,
+On 01/03/2026 18:51, David Heidelberg via B4 Relay wrote:
+> Used on various phones. Minimal basic support.
+> 
+> Includes device-tree with possibility to enable touchscreen on Pixel 3.
+> 
+> Sending as RFC, as this is first, seemingly clean version which works.
+> 
+> What is missing:
+>   - firmware loading
+>   - switching between AP and SLPI mode (to wake up phone by touch)
+>   - anything above basic touch
+> 
+> Signed-off-by: David Heidelberg <david@ixit.cz>
+> ---
 
-SUSv4 =3D Single UNIX Specification, Version 4. This is a standard that
-defines how system calls should behave. Hence, ENOTSUPP must not be
-returned as an error value by e.g. sysfs callbacks. As far as I know the
-ufshcd_vops_pwr_change_notify() return value is never returned to user
-space and hence returning ENOTSUPP from inside this function is fine.
+First, I said it's RFC, but I didn't marked the series such as, sorry bout that.
 
-If you want to keep this change in ufshcd_vops_pwr_change_notify()
-please make it a separate patch.
+Second, already found typo in binding: s/switch-gpio/switch-gpios/ .
 
-Thanks,
+At last, the series, until merged can be found at:
+   https://codeberg.org/sdm845/linux/commits/branch/b4/stmfts5
 
-Bart.
+
 
