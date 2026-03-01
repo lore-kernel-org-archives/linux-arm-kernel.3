@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43422FD0048
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:59:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDF38FD0045
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:59:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TJnxs+FoAifVds4uTVQXp0+eInM2LnWlVEZkQNAqe3M=; b=CF4NQwhiYGO6SV/BCmO+z/vj+q
-	enONRUhPP6m+Q768chvUZK+ZWKvWJXy1kX/B/nPpxVsX29+brI9VL8gyjzgzKXrvBQegp9LvZ6QfL
-	UvHHFxL4QEWD38AhTL3vZdWr2zREw/f2vKVUnOYfrDrh1Pxerokmx8KIamJ6iSyXZ5FAIr88thMER
-	fjsrch2gXxeEjo0Ozii7lGXPcFhIK7V6/uvBknpAvae+tyD462iilhanu1SRW3ZuCafoeFHn+p2fA
-	ZSlYvt1rga4SgO/w3SUe0IUHxwfkRy4YBukGuEeNVT2BbKvmLrpfb+Gt+B8f0sF25d9JTL2Bq87yj
-	ja2+baUQ==;
+	bh=hs3tOeRE0HqOGwCFcwMoL0Ibe8iNiIKwP59ytNnHCFo=; b=ah/Pt0KVSwbW0j15eyyBoUDloT
+	QlvpwEDjhJSUcY4QQ2aq4xF77NVjSD57WsbhFDEAHTfxY/IXkdPIKwbigdn6wb9qPtZszCk/5phZ5
+	Kp6j3HYerhkbsrqopl5+nrW79g3aWZtjUPnIeLfKsAIiXAfuIOVOaw+bMD42mBgTqg2AoA/xJNl3Z
+	pNyEOLQtS/+rkdOAaexpPxoHJjm4c6ZRChllarc1pjdXmM0wsE+tMGDSKitxJA7gu9V2WHDal1haZ
+	7t1WVEXcLXpRoiJVDgienK/J02q5hxl7zkIMVBqDs2Rc2gAtbC4nRf58isZm8O5mMv92aE5g7TgXo
+	mnJByVpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwW5b-0000000Ahb6-1Ljr;
-	Sun, 01 Mar 2026 01:59:23 +0000
+	id 1vwW5f-0000000Ahfn-43qF;
+	Sun, 01 Mar 2026 01:59:27 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwW5Z-0000000AhZJ-18vF;
-	Sun, 01 Mar 2026 01:59:22 +0000
+	id 1vwW5b-0000000AhbX-3BBX;
+	Sun, 01 Mar 2026 01:59:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D4495400F9;
-	Sun,  1 Mar 2026 01:59:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCE5DC19421;
-	Sun,  1 Mar 2026 01:59:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5903E42DCA;
+	Sun,  1 Mar 2026 01:59:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7514FC19421;
+	Sun,  1 Mar 2026 01:59:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772330360;
-	bh=Xi/NihH8UFixspuJm5jyfnV3azpeFhqBiprmcA4TYBQ=;
+	s=k20201202; t=1772330363;
+	bh=vPSsL5T0AQ1BBMikTuchU4LX3w3jTDKSd53KniRRoWw=;
 	h=From:To:Cc:Subject:Date:From;
-	b=mp2Jkl8pICtOap+5o7IIH5G2dnl1V0uMvDupvTsB5MtUNBLf+bofGgMKPK/eyspam
-	 o8fCcWOS1b8okOFgNvH79joAsHWGiAyz88dlgErDcNYbTFRAGXKeBkF5uRzrdagHam
-	 GCNvjF4+rBhWzNdVdteP5oJ6hfHdeZhe9806DUFJHik24KYt/1YxTFrsZAMVxwfJyj
-	 FNM+H8eeHov5L4ndsYXg9ypWzcDsMCt+Q2JU8FlJnpyCMdSCabfH43MxWuAG3DGz0t
-	 Q37hwDydjTuBVlSq2K3+y+rn7SmcC5OyBVDM29VL9jjpuhsHwPxJgrR7RT/C7NlTli
-	 q0gesJYKY5l6w==
+	b=thx1Boyj4mRxP7jQEkI51gJ+m2cjobN/eOiQuB1MzZyQo19rcqdCxLeMwXBzOVa91
+	 uTwpE/pE9bibvIGbvdJtq1Zz0WYg7FcqIEEhnbumKOlDsCx5ov4zMBmOZlv24Q3X2h
+	 8PJr028lnHsEeUMx17JGTxCryhaXAKd0HUWeqEf2JPkxcKGsEQentmc8pmLDA+BIKY
+	 7NyFNwwY5vC0I5YxL2e8qe/mfxc6Q6xa0e8YuMtoe/mI53nJTN8YWeLX8Wb7pgUZcL
+	 XqTJKtRegc3KQBc/d3KS7hMcCS4e324hRvQQLGmpfcXEF3vLSvXx7sBtaOSYvnLshr
+	 AJmEi8keApisA==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	irui.wang@mediatek.com
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	haoxiang_li2024@163.com
+Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
 	Hans Verkuil <hverkuil+cisco@kernel.org>,
 	linux-media@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: FAILED: Patch "media: mediatek: encoder: Fix uninitialized scalar variable issue" failed to apply to 5.10-stable tree
-Date: Sat, 28 Feb 2026 20:59:18 -0500
-Message-ID: <20260301015918.1724995-1-sashal@kernel.org>
+Subject: FAILED: Patch "media: mtk-mdp: Fix a reference leak bug in mtk_mdp_remove()" failed to apply to 5.10-stable tree
+Date: Sat, 28 Feb 2026 20:59:21 -0500
+Message-ID: <20260301015921.1725046-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_175921_360945_7F1A9978 
-X-CRM114-Status: GOOD (  14.17  )
+X-CRM114-CacheID: sfid-20260228_175923_861299_D5FEF4D4 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,58 +84,36 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From 88e935de7cf8795d7a6a51385db87ecb361a7050 Mon Sep 17 00:00:00 2001
-From: Irui Wang <irui.wang@mediatek.com>
-Date: Sun, 7 Sep 2025 17:35:56 +0800
-Subject: [PATCH] media: mediatek: encoder: Fix uninitialized scalar variable
- issue
+From f128bab57b8018e526b7eda854ca20069863af47 Mon Sep 17 00:00:00 2001
+From: Haoxiang Li <haoxiang_li2024@163.com>
+Date: Wed, 8 Oct 2025 17:01:56 +0800
+Subject: [PATCH] media: mtk-mdp: Fix a reference leak bug in mtk_mdp_remove()
 
-UNINIT checker finds some instances of variables that are used
-without being initialized, for example using the uninitialized
-value enc_result.is_key_frm can result in unpredictable behavior,
-so initialize these variables after declaring.
+In mtk_mdp_probe(), vpu_get_plat_device() increases the reference
+count of the returned platform device. Add platform_device_put()
+to prevent reference leak.
 
-Fixes: 4e855a6efa54 ("[media] vcodec: mediatek: Add Mediatek V4L2 Video Encoder Driver")
+Fixes: c8eb2d7e8202 ("[media] media: Add Mediatek MDP Driver")
 Cc: stable@vger.kernel.org
-Signed-off-by: Irui Wang <irui.wang@mediatek.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
 Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 Signed-off-by: Hans Verkuil <hverkuil+cisco@kernel.org>
 ---
- .../media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/media/platform/mediatek/mdp/mtk_mdp_core.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-index 6faf3f659e751..b3a0a1d8b7a8e 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-@@ -850,7 +850,7 @@ static void vb2ops_venc_buf_queue(struct vb2_buffer *vb)
- static int vb2ops_venc_start_streaming(struct vb2_queue *q, unsigned int count)
- {
- 	struct mtk_vcodec_enc_ctx *ctx = vb2_get_drv_priv(q);
--	struct venc_enc_param param;
-+	struct venc_enc_param param = { };
- 	int ret;
- 	int i;
+diff --git a/drivers/media/platform/mediatek/mdp/mtk_mdp_core.c b/drivers/media/platform/mediatek/mdp/mtk_mdp_core.c
+index f78fa30f18648..8432833814f31 100644
+--- a/drivers/media/platform/mediatek/mdp/mtk_mdp_core.c
++++ b/drivers/media/platform/mediatek/mdp/mtk_mdp_core.c
+@@ -254,6 +254,7 @@ static void mtk_mdp_remove(struct platform_device *pdev)
  
-@@ -1004,7 +1004,7 @@ static int mtk_venc_encode_header(void *priv)
- 	int ret;
- 	struct vb2_v4l2_buffer *src_buf, *dst_buf;
- 	struct mtk_vcodec_mem bs_buf;
--	struct venc_done_result enc_result;
-+	struct venc_done_result enc_result = { };
+ 	pm_runtime_disable(&pdev->dev);
+ 	vb2_dma_contig_clear_max_seg_size(&pdev->dev);
++	platform_device_put(mdp->vpu_dev);
+ 	mtk_mdp_unregister_m2m_device(mdp);
+ 	v4l2_device_unregister(&mdp->v4l2_dev);
  
- 	dst_buf = v4l2_m2m_dst_buf_remove(ctx->m2m_ctx);
- 	if (!dst_buf) {
-@@ -1125,7 +1125,7 @@ static void mtk_venc_worker(struct work_struct *work)
- 	struct vb2_v4l2_buffer *src_buf, *dst_buf;
- 	struct venc_frm_buf frm_buf;
- 	struct mtk_vcodec_mem bs_buf;
--	struct venc_done_result enc_result;
-+	struct venc_done_result enc_result = { };
- 	int ret, i;
- 
- 	/* check dst_buf, dst_buf may be removed in device_run
 -- 
 2.51.0
 
