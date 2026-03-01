@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD715FD004A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:31:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45BFFFD0049
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:31:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3/VQHvioMjRLeeMfGwnAqFgQG1gY75vK9k/qo3JPhl0=; b=A34FZhLS5Dup9Mip3Ncd0eadnG
-	IxeGDYUydCJQrW2snp5tjhmJm0PhjOjySlHbbeeu+AniLZwyCbrQFaB8JqpnFc4WvXiSzmpvq4w+j
-	Wp1IVCTD1UceDewt93Ez5xALn0v/CxImSJ0UE2yxWC88THI+SBBhW6UZelGihtK4BDX4hWTDdCBbB
-	Kid17sm5gC/WOCsZVPQUTax53Jp20LkNzQNn9wyvE7FrQKVuVxM6jSAZM05l0EuAx6YrD4M0D+Sck
-	SOd+arVDeHBQAOs6DteJfHLWPZvGkV7WGQ4dhm+U2sPYUhJ+lwzIs7WO53DDh33wW7UjYm3Tw1nsE
-	YcMCalog==;
+	bh=0EdwS4Dkbdklj7AkLxIxvRHGr7A9J7BN3ucEj6/CqhA=; b=FwWL3b4nUEodCjRdlTuSDmvWbW
+	GSXIteuYSGShoCSSyqk4la02rigAp3FS0S50jai6v+u+gO06P/+D/8OR+mp9cbNywmQ6J4lpNmoNW
+	OPAzmIRBMLUTjg/cSpjZxBTdBdZ/8kZosLEMuT8D5o8tYZN7gHpQhJndNWcOt+pRxPM36o6PDKPbh
+	93FJjXE6QPDJuFH+jvszVIjBprdtso4nOr4AkN/Ux2O/BVmARHMSxGTgu7OiP1fnBnKXdFuK4yyIn
+	U3IMuLR8WJK+GcQAfUtgBePxajMBl3+P5btUKX2nxWHXaV6lSApmo8ZDAlNeavNN1BCaRsCBHEtgK
+	Xy/qFwlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVeU-0000000AYJ6-0jwK;
-	Sun, 01 Mar 2026 01:31:22 +0000
+	id 1vwVeg-0000000AYW4-1uvN;
+	Sun, 01 Mar 2026 01:31:34 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVeE-0000000AY2w-1ieu;
-	Sun, 01 Mar 2026 01:31:10 +0000
+	id 1vwVeG-0000000AY5b-3fZb
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 01 Mar 2026 01:31:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 204C041A31;
-	Sun,  1 Mar 2026 01:31:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F372C19421;
-	Sun,  1 Mar 2026 01:31:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 93256401F3;
+	Sun,  1 Mar 2026 01:31:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7D69C19421;
+	Sun,  1 Mar 2026 01:31:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772328666;
-	bh=h2ill5+uxEeNEWUBCmyv1vIpyevnt2AvWrn381YkCOQ=;
+	s=k20201202; t=1772328668;
+	bh=XDkG6B7bK/eu/nQ1Z2Gbh1MDzgZ1mQuq99ntnQ9A1TY=;
 	h=From:To:Cc:Subject:Date:From;
-	b=cmWlr0xqJa2zZaM2d+KrOvikxKVvwvhn75/4k1OH1NkHU3+2AYFYEWUR1dDkNJRuu
-	 tB8bDxAZG2ay0HCAiOtlFnaDAebYWsehceVD8ynN6nI0fsv1bNQjtPrJJXg4NeQBJj
-	 GpbYP6rBKEN1Rr0+borouxuKP8pTRJPBQWjiG8jj3UFt3qdLuotKkJCbozN0NCKTfB
-	 0y9fIyXGzGAdmz5KCaDEvkKwMSxMZNsbMFqogrbiM0Jb1MQmfP2BBll0yqZfWGHnFn
-	 b7dk6oYMnMSK51/TOU5rHBwNXe5d3gohO+c0r+/I4ZP353oVm8dvd3kIzfCObhdLWh
-	 HgJNx+inQDH+g==
+	b=VLy8k4rPH4l3FW7GqtWkBnxT8nwNO58O2UxoQgpFIvVl3lgWEwCgGpyjfQCDOQk3c
+	 nxmHu/314mVxnaCMmW+bgNpLIeXaamCtbOc83GiOicI3HbzdTot47rVrtPb0PyGAk8
+	 QZvEI/Vfdwgyq080rR981Pk7lrLGhjwdMTSjPzt/Jc9+Vvubs4q/rEXNPx0h78S/bu
+	 UzFBl7y22y664IYJ1dLjmem9tvzJKm1SU08rWNubzUVhL0s+UszjpPlAv4AbQj6Kxd
+	 A1a0ZhmdKli8Fzl7SbyjOYbg+72YZQsE87hfwqAcNSdHC/F6V10aCv8on5u3sHj0id
+	 Bi527Lw34Ng5A==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	haoxiang_li2024@163.com
-Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>,
-	linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: FAILED: Patch "media: mtk-mdp: Fix a reference leak bug in mtk_mdp_remove()" failed to apply to 6.6-stable tree
-Date: Sat, 28 Feb 2026 20:31:03 -0500
-Message-ID: <20260301013104.1689436-1-sashal@kernel.org>
+	vulab@iscas.ac.cn
+Cc: Andreas Kemnade <andreas@kemnade.info>,
+	Kevin Hilman <khilman@baylibre.com>,
+	linux-omap@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: FAILED: Patch "ARM: omap2: Fix reference count leaks in omap_control_init()" failed to apply to 6.6-stable tree
+Date: Sat, 28 Feb 2026 20:31:06 -0500
+Message-ID: <20260301013106.1689495-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_173107_289478_47878074 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20260228_173110_516129_BE2FD77F 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,36 +84,77 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From f128bab57b8018e526b7eda854ca20069863af47 Mon Sep 17 00:00:00 2001
-From: Haoxiang Li <haoxiang_li2024@163.com>
-Date: Wed, 8 Oct 2025 17:01:56 +0800
-Subject: [PATCH] media: mtk-mdp: Fix a reference leak bug in mtk_mdp_remove()
+From 93a04ab480c8bbcb7d9004be139c538c8a0c1bc8 Mon Sep 17 00:00:00 2001
+From: Wentao Liang <vulab@iscas.ac.cn>
+Date: Wed, 17 Dec 2025 14:21:22 +0000
+Subject: [PATCH] ARM: omap2: Fix reference count leaks in omap_control_init()
 
-In mtk_mdp_probe(), vpu_get_plat_device() increases the reference
-count of the returned platform device. Add platform_device_put()
-to prevent reference leak.
+The of_get_child_by_name() function increments the reference count
+of child nodes, causing multiple reference leaks in omap_control_init():
 
-Fixes: c8eb2d7e8202 ("[media] media: Add Mediatek MDP Driver")
+1. scm_conf node never released in normal/error paths
+2. clocks node leak when checking existence
+3. Missing scm_conf release before np in error paths
+
+Fix these leaks by adding proper of_node_put() calls and separate error
+handling.
+
+Fixes: e5b635742e98 ("ARM: OMAP2+: control: add syscon support for register accesses")
 Cc: stable@vger.kernel.org
-Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
-Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Signed-off-by: Hans Verkuil <hverkuil+cisco@kernel.org>
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+Reviewed-by: Andreas Kemnade <andreas@kemnade.info>
+Link: https://patch.msgid.link/20251217142122.1861292-1-vulab@iscas.ac.cn
+Signed-off-by: Kevin Hilman <khilman@baylibre.com>
 ---
- drivers/media/platform/mediatek/mdp/mtk_mdp_core.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm/mach-omap2/control.c | 14 ++++++++++----
+ 1 file changed, 10 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/media/platform/mediatek/mdp/mtk_mdp_core.c b/drivers/media/platform/mediatek/mdp/mtk_mdp_core.c
-index f78fa30f18648..8432833814f31 100644
---- a/drivers/media/platform/mediatek/mdp/mtk_mdp_core.c
-+++ b/drivers/media/platform/mediatek/mdp/mtk_mdp_core.c
-@@ -254,6 +254,7 @@ static void mtk_mdp_remove(struct platform_device *pdev)
+diff --git a/arch/arm/mach-omap2/control.c b/arch/arm/mach-omap2/control.c
+index 79860b23030de..eb6fc7c61b6e0 100644
+--- a/arch/arm/mach-omap2/control.c
++++ b/arch/arm/mach-omap2/control.c
+@@ -732,7 +732,7 @@ int __init omap2_control_base_init(void)
+  */
+ int __init omap_control_init(void)
+ {
+-	struct device_node *np, *scm_conf;
++	struct device_node *np, *scm_conf, *clocks_node;
+ 	const struct of_device_id *match;
+ 	const struct omap_prcm_init_data *data;
+ 	int ret;
+@@ -753,16 +753,19 @@ int __init omap_control_init(void)
  
- 	pm_runtime_disable(&pdev->dev);
- 	vb2_dma_contig_clear_max_seg_size(&pdev->dev);
-+	platform_device_put(mdp->vpu_dev);
- 	mtk_mdp_unregister_m2m_device(mdp);
- 	v4l2_device_unregister(&mdp->v4l2_dev);
+ 			if (IS_ERR(syscon)) {
+ 				ret = PTR_ERR(syscon);
+-				goto of_node_put;
++				goto err_put_scm_conf;
+ 			}
  
+-			if (of_get_child_by_name(scm_conf, "clocks")) {
++			clocks_node = of_get_child_by_name(scm_conf, "clocks");
++			if (clocks_node) {
++				of_node_put(clocks_node);
+ 				ret = omap2_clk_provider_init(scm_conf,
+ 							      data->index,
+ 							      syscon, NULL);
+ 				if (ret)
+-					goto of_node_put;
++					goto err_put_scm_conf;
+ 			}
++			of_node_put(scm_conf);
+ 		} else {
+ 			/* No scm_conf found, direct access */
+ 			ret = omap2_clk_provider_init(np, data->index, NULL,
+@@ -780,6 +783,9 @@ int __init omap_control_init(void)
+ 
+ 	return 0;
+ 
++err_put_scm_conf:
++	if (scm_conf)
++		of_node_put(scm_conf);
+ of_node_put:
+ 	of_node_put(np);
+ 	return ret;
 -- 
 2.51.0
 
