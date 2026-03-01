@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48FF3FD0048
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:25:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC85FD0048
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:25:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GpSP06LAoPbT+9zfxAzM5LZclPATlDkY+RiNLOe5VDI=; b=afNLoHyt5u1MJENSN+44d+DRMg
-	9bgMFNVGDidQ38+hwmzEbg4ae1+k73nA1ppnqWl95xo6DuI0wKdxNX36F0/9dLXfTSDhc1iqGZXrv
-	HUzTDh3A5uuyPa6VC2lO1eZpskS09p5NMmNb0OKYVG/x1aqBBsM5LQiPEKXFJwD51gB3g4449dsPa
-	qG96CGXT6HneXMt4UOEPoNyoFH8OZ7h8aMIF+WL6uSZI1QVMLGmJLRFGY8kn3i+SUxv58a2R3x1hr
-	oTipYxVA7McP27wEjdbzXUKhV6IuAc1w37/+R5amUDbtfocjrO7bGobITM2HPeElHgXdZIfkgDyex
-	7sbNM9tg==;
+	bh=z5Z/a/T0+e/IFnKf/cE2Bxr12uYVXFHSP2nQekfdV0k=; b=GfLmt1FOFOAIeiidnJByO4C1Vd
+	V3L/MmEqbts+/m3SVohOz3rBIX85d7/vQwbNpMutBgBuFHbagpx4P6ROCZcqK3Sw9B7I+vjr/zS2o
+	rqV7aGJwDNLaGDARXSO8PV1iPnk9VwK/9gGE9vU7XLFHNdcgXfPbccxw1JPVj+/h0Ymo5s7rqG8rC
+	yyaPRy09WjxXOTX0ICA3G8oLgsPqaQ1pIWMUgK6KXqHEnzaQX/GK24Kd+jWdKCMbpATedieqFexay
+	YOtlJY6oAvJ9BWCzBwtdhyDuJZNJH85Aj2WlGwuDniCn2LcgIMY0SDfOxmH9ZNFlqXSFhEmleEW9q
+	rz9qkf5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVYT-0000000AW2X-3V5S;
-	Sun, 01 Mar 2026 01:25:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vwVYj-0000000AWDp-2i3X;
+	Sun, 01 Mar 2026 01:25:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVYP-0000000AVyu-31Kp
+	id 1vwVYh-0000000AWCd-28Mf
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 01:25:06 +0000
+	Sun, 01 Mar 2026 01:25:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5776B4022A;
-	Sun,  1 Mar 2026 01:25:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C65DC19421;
-	Sun,  1 Mar 2026 01:25:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F0469600AD;
+	Sun,  1 Mar 2026 01:25:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2502C19424;
+	Sun,  1 Mar 2026 01:25:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772328305;
-	bh=1kohjlHpBOE1cT/yofHfpcyfxcJume9ZHRM0PgSF/CE=;
+	s=k20201202; t=1772328322;
+	bh=p1l63WeXc4D9MuN7I3Wqx11wL6kIqX8nQK0itJKGcQI=;
 	h=From:To:Cc:Subject:Date:From;
-	b=k9zHLOD7KlLGjOqmKyT9MCtIA7jhKTBN7ntVHBkv06GIlcyxIE0LaWHJwSWNwW95k
-	 goVILDIWD+ga+7u1mERYeRWwBBx9x3buBJSyGXkqpH4XZUw17oU7Ptxt4mTvttk9mm
-	 3dnd70ejbX7nDecMDqSfQWEhWr6y8CMouNfPuRf+NnfRIwBbrCA6TXxSc5WunyDR20
-	 TcyAqr7b6cS+HHjpnTjpGReyARTFC3NuIw+xLvZq28jEwxzjtXhLXBklujjLV2T3ah
-	 CHon0u2K9+huS4M7tRUbrPG6aNxz0rBhBo7TgSgfAIdqSfK1c5q5H/qjBtG14W70Nm
-	 DFgoF3b1m57Zg==
+	b=EAnOB9an4Rt20OfuYaBR6+H2e4RHgXdlWqzo7kVyTBDu8aAyhQUAI8Onb1oOwet2i
+	 Wrmgybr0V5C4prR/Qjm70bp3kb9hQe2h540dCt5+9AodzysIDLLMoHL8QwgvyRBqJI
+	 PFyvIhSMSFfx3JMcxgB83FW33+UgPDRIjTL2BzAX5k/WNN2G4g5n78UXi7pNxt5mxL
+	 TBfM5DmmZTwF4I9TN6qVUZLcbmuW/iTQdYNCG8eu/E/TE0r3RsXTi99q6uchoZ7kJt
+	 XkzzWu6gQ0q2HT7sbCcPdB+a2CnsJn1FFX6o2UySThcsHEQcz/VMeiTV4txiYzz+lz
+	 hTs5sVSiI7YFQ==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	elver@google.com
-Cc: Boqun Feng <boqun@kernel.org>,
-	David Laight <david.laight.linux@gmail.com>,
-	Will Deacon <will@kernel.org>,
+	peng.fan@nxp.com
+Cc: Daniel Baluta <daniel.baluta@nxp.com>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: FAILED: Patch "arm64: Fix non-atomic __READ_ONCE() with CONFIG_LTO=y" failed to apply to 6.12-stable tree
-Date: Sat, 28 Feb 2026 20:25:03 -0500
-Message-ID: <20260301012503.1682060-1-sashal@kernel.org>
+Subject: FAILED: Patch "remoteproc: imx_rproc: Fix invalid loaded resource table detection" failed to apply to 6.12-stable tree
+Date: Sat, 28 Feb 2026 20:25:20 -0500
+Message-ID: <20260301012520.1682420-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_172505_797276_3AF72760 
-X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,52 +82,56 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From bb0c99e08ab9aa6d04b40cb63c72db9950d51749 Mon Sep 17 00:00:00 2001
-From: Marco Elver <elver@google.com>
-Date: Fri, 30 Jan 2026 14:28:24 +0100
-Subject: [PATCH] arm64: Fix non-atomic __READ_ONCE() with CONFIG_LTO=y
+From 26aa5295010ffaebcf8f1991c53fa7cf2ee1b20d Mon Sep 17 00:00:00 2001
+From: Peng Fan <peng.fan@nxp.com>
+Date: Thu, 29 Jan 2026 09:44:48 +0800
+Subject: [PATCH] remoteproc: imx_rproc: Fix invalid loaded resource table
+ detection
 
-The implementation of __READ_ONCE() under CONFIG_LTO=y incorrectly
-qualified the fallback "once" access for types larger than 8 bytes,
-which are not atomic but should still happen "once" and suppress common
-compiler optimizations.
+imx_rproc_elf_find_loaded_rsc_table() may incorrectly report a loaded
+resource table even when the current firmware does not provide one.
 
-The cast `volatile typeof(__x)` applied the volatile qualifier to the
-pointer type itself rather than the pointee. This created a volatile
-pointer to a non-volatile type, which violated __READ_ONCE() semantics.
+When the device tree contains a "rsc-table" entry, priv->rsc_table is
+non-NULL and denotes where a resource table would be located if one is
+present in memory. However, when the current firmware has no resource
+table, rproc->table_ptr is NULL. The function still returns
+priv->rsc_table, and the remoteproc core interprets this as a valid loaded
+resource table.
 
-Fix this by casting to `volatile typeof(*__x) *`.
+Fix this by returning NULL from imx_rproc_elf_find_loaded_rsc_table() when
+there is no resource table for the current firmware (i.e. when
+rproc->table_ptr is NULL). This aligns the function's semantics with the
+remoteproc core: a loaded resource table is only reported when a valid
+table_ptr exists.
 
-With a defconfig + LTO + debug options build, we see the following
-functions to be affected:
+With this change, starting firmware without a resource table no longer
+triggers a crash.
 
-	xen_manage_runstate_time (884 -> 944 bytes)
-	xen_steal_clock (248 -> 340 bytes)
-	  ^-- use __READ_ONCE() to load vcpu_runstate_info structs
-
-Fixes: e35123d83ee3 ("arm64: lto: Strengthen READ_ONCE() to acquire when CONFIG_LTO=y")
+Fixes: e954a1bd1610 ("remoteproc: imx_rproc: Use imx specific hook for find_loaded_rsc_table")
 Cc: stable@vger.kernel.org
-Reviewed-by: Boqun Feng <boqun@kernel.org>
-Signed-off-by: Marco Elver <elver@google.com>
-Tested-by: David Laight <david.laight.linux@gmail.com>
-Signed-off-by: Will Deacon <will@kernel.org>
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Acked-by: Daniel Baluta <daniel.baluta@nxp.com>
+Link: https://lore.kernel.org/r/20260129-imx-rproc-fix-v3-1-fc4e41e6e750@nxp.com
+Signed-off-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 ---
- arch/arm64/include/asm/rwonce.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/remoteproc/imx_rproc.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/arch/arm64/include/asm/rwonce.h b/arch/arm64/include/asm/rwonce.h
-index 78beceec10cda..fc0fb42b0b641 100644
---- a/arch/arm64/include/asm/rwonce.h
-+++ b/arch/arm64/include/asm/rwonce.h
-@@ -58,7 +58,7 @@
- 	default:							\
- 		atomic = 0;						\
- 	}								\
--	atomic ? (typeof(*__x))__u.__val : (*(volatile typeof(__x))__x);\
-+	atomic ? (typeof(*__x))__u.__val : (*(volatile typeof(*__x) *)__x);\
- })
+diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+index 375de79168a1c..f5f916d679051 100644
+--- a/drivers/remoteproc/imx_rproc.c
++++ b/drivers/remoteproc/imx_rproc.c
+@@ -729,6 +729,10 @@ imx_rproc_elf_find_loaded_rsc_table(struct rproc *rproc, const struct firmware *
+ {
+ 	struct imx_rproc *priv = rproc->priv;
  
- #endif	/* !BUILD_VDSO */
++	/* No resource table in the firmware */
++	if (!rproc->table_ptr)
++		return NULL;
++
+ 	if (priv->rsc_table)
+ 		return (struct resource_table *)priv->rsc_table;
+ 
 -- 
 2.51.0
 
