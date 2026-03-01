@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C4B2FD004A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:34:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E20FFD0049
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:35:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BhKicV96WOZJ6lSgGRUpGemzFGj+B6CIkwmU9YEdqH0=; b=bYoA2QWSqdLC37fh0L3fds8+Tt
-	O/DUjW1i61jECQ7gg8CaaeIVN2B3vLlo9SUxVBrt0SvYwIpGIDBNTdCBAvQ6Be2CC3gYGr3eA5yEi
-	sBtrBXsImO4QFd8hcCIYhKusjx7iL9NAHWTFwz3BGNs/h5rmGfQwvbo7FNW/gtHyYpD0MDQlAaziv
-	8/AI/NyBwsAhyuSrwvNYC8HSk4j4K+y+VMwMrlAlznpndp+g1fvO81fKTZSipXkEhg7QrvBKdK1Nq
-	bIdmbXuoyWy96Zd7sQNsdpzfDTnzsF4kP5kTjsAOrsKF1+i583StellBUuJ4DTqxE0cx7slVx/6fz
-	AUIjoUyg==;
+	bh=QAv1imYJjWnX6ujeoFwzfnskzo8yg4+9ZCnRFsxFP0M=; b=BTl1cGQ+hY9CV2A/Y8iHpShA4+
+	D6PztjP9ZfhXB1tJqSty1wbcjrFB5VOSmTKBCD1XY2GG39lX1VC1Zb0BEiAl0w28DJjIL+EYoClZK
+	jBPyZEWtApZPGu2Vv4K1nkJtgAp3nnuroWMZKeBDwUBinIULeZdX+qHGmLACeBvqN3oQqw3ajZ484
+	fz6tfw+NcMTpFiNmsRpZd35EMu21lpb7ijF/EHaHQ4hy9/4LpD4GuzW8wxdRt6rbRvow19OcUtWYK
+	syszve4peIwjgcslicuWkUFIHZtoJeh7Dj68VCwm3poF6R+j73jra/qdvm+9L8E+zmDvPrm8ISiRt
+	4kKLabcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVhN-0000000AZmJ-2aNM;
-	Sun, 01 Mar 2026 01:34:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vwVin-0000000Aa9Q-0C7x;
+	Sun, 01 Mar 2026 01:35:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVhK-0000000AZjc-0x5B;
-	Sun, 01 Mar 2026 01:34:19 +0000
+	id 1vwVim-0000000Aa96-0bqe
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 01 Mar 2026 01:35:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DF1964056E;
-	Sun,  1 Mar 2026 01:34:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 098F2C19425;
-	Sun,  1 Mar 2026 01:34:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 957C460126;
+	Sun,  1 Mar 2026 01:35:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A27F0C19421;
+	Sun,  1 Mar 2026 01:35:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772328857;
-	bh=0+cHeFH6bN3+Ii6nC3yaqGh3RNXA5v2GFSIX2DBpzrc=;
+	s=k20201202; t=1772328947;
+	bh=0NBsgjaFxCs79o5ZlkI2SzjkYxkJ5mT+tLDZeA+D23c=;
 	h=From:To:Cc:Subject:Date:From;
-	b=Se3d2dwoHH54bmA8OcXdW00cm8CWsGRhuJOP+aNu0XexPq1UcMssVgg/HEt/ko8jZ
-	 +IIadqJhIqhk56HQxVUDbTmgEEsCk6G711frQoI47q/Kb3hR9kepkYZ5wqpRn2UH6Z
-	 5KrqMfTa81EaL0WD3sPb5FQXNcjeLvcl3kIQNfsoGyR99Uj3DwHbK1qYoYJHrCrdUQ
-	 4jq4rzlnWLmI1987gnDtZ4FoIcfqsxL73oipPwqwJMt4oyPRWFmH8dNg4+v6k/gJDw
-	 mEGLdUEBE6TEJK6fiKO6kBPu7fwpv2hFGzPTiKy1xjFtGY2mWli9q8p2WFchq8R1CU
-	 5FDZt7+lFbhdA==
+	b=mWLSnn8ec1dP5xWoEXfaCFUwOYhGayeDbqCtE13g9cfj2ltpl7mB84Dz5a/W9fzkf
+	 bwndIhaUGUW6F4GF+3zTxTVWm1eYK7uuAplSBHDYXFExmuIyl4KTc1UPPrl9M3SAB8
+	 KjUn/VUJGjxMzTjBbjaY3qM9+IaDF9oMPdCD9JeQAjYfWWetxaBAIVnuVejlU2Q/1c
+	 lDQ54nFSIo9FptNVSw955GyjmrFsaeM6OOxQgAZqIxtWjHhv4PdWcnoDkaiZWS66sk
+	 CYg7LYE0Z0p8HaEwmPf8/EI+C4Ywog1on8BQgXwWH2xj1TQOze8dDtFcMZApkG3Bin
+	 JR+EsfkoSlx3g==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	shawn.lin@rock-chips.com
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	devicetree@vger.kernel.org,
+	aha310510@gmail.com
+Cc: Inki Dae <inki.dae@samsung.com>,
+	dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: FAILED: Patch "arm64: dts: rockchip: Fix rk3588 PCIe range mappings" failed to apply to 6.6-stable tree
-Date: Sat, 28 Feb 2026 20:34:15 -0500
-Message-ID: <20260301013415.1693700-1-sashal@kernel.org>
+	linux-samsung-soc@vger.kernel.org
+Subject: FAILED: Patch "drm/exynos: vidi: use ctx->lock to protect struct vidi_context member variables related to memory alloc/free" failed to apply to 6.6-stable tree
+Date: Sat, 28 Feb 2026 20:35:45 -0500
+Message-ID: <20260301013545.1695549-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_173418_319910_A0129875 
-X-CRM114-Status: GOOD (  14.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,81 +81,174 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From 46c56b737161060dfa468f25ae699749047902a2 Mon Sep 17 00:00:00 2001
-From: Shawn Lin <shawn.lin@rock-chips.com>
-Date: Mon, 5 Jan 2026 16:15:29 +0800
-Subject: [PATCH] arm64: dts: rockchip: Fix rk3588 PCIe range mappings
+From 52b330799e2d6f825ae2bb74662ec1b10eb954bb Mon Sep 17 00:00:00 2001
+From: Jeongjun Park <aha310510@gmail.com>
+Date: Mon, 19 Jan 2026 17:25:53 +0900
+Subject: [PATCH] drm/exynos: vidi: use ctx->lock to protect struct
+ vidi_context member variables related to memory alloc/free
 
-The pcie bus address should be mapped 1:1 to the cpu side MMIO address, so
-that there is no same address allocated from normal system memory. Otherwise
-it's broken if the same address assigned to the EP for DMA purpose.Fix it to
-sync with the vendor BSP.
+Exynos Virtual Display driver performs memory alloc/free operations
+without lock protection, which easily causes concurrency problem.
 
-Fixes: 0acf4fa7f187 ("arm64: dts: rockchip: add PCIe3 support for rk3588")
-Fixes: 8d81b77f4c49 ("arm64: dts: rockchip: add rk3588 PCIe2 support")
-Cc: stable@vger.kernel.org
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>
-Signed-off-by: Shawn Lin <shawn.lin@rock-chips.com>
-Link: https://patch.msgid.link/1767600929-195341-2-git-send-email-shawn.lin@rock-chips.com
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+For example, use-after-free can occur in race scenario like this:
+```
+	CPU0				CPU1				CPU2
+	----				----				----
+  vidi_connection_ioctl()
+    if (vidi->connection) // true
+      drm_edid = drm_edid_alloc(); // alloc drm_edid
+      ...
+      ctx->raw_edid = drm_edid;
+      ...
+								drm_mode_getconnector()
+								  drm_helper_probe_single_connector_modes()
+								    vidi_get_modes()
+								      if (ctx->raw_edid) // true
+								        drm_edid_dup(ctx->raw_edid);
+								          if (!drm_edid) // false
+								          ...
+				vidi_connection_ioctl()
+				  if (vidi->connection) // false
+				    drm_edid_free(ctx->raw_edid); // free drm_edid
+				    ...
+								          drm_edid_alloc(drm_edid->edid)
+								            kmemdup(edid); // UAF!!
+								            ...
+```
+
+To prevent these vulns, at least in vidi_context, member variables related
+to memory alloc/free should be protected with ctx->lock.
+
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Jeongjun Park <aha310510@gmail.com>
+Signed-off-by: Inki Dae <inki.dae@samsung.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi  | 4 ++--
- arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi | 6 +++---
- 2 files changed, 5 insertions(+), 5 deletions(-)
+ drivers/gpu/drm/exynos/exynos_drm_vidi.c | 38 ++++++++++++++++++++----
+ 1 file changed, 32 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index aa74e8d7b4e95..f79e54c14ff0a 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-@@ -2019,7 +2019,7 @@ pcie2x1l1: pcie@fe180000 {
- 		power-domains = <&power RK3588_PD_PCIE>;
- 		ranges = <0x01000000 0x0 0xf3100000 0x0 0xf3100000 0x0 0x00100000>,
- 			 <0x02000000 0x0 0xf3200000 0x0 0xf3200000 0x0 0x00e00000>,
--			 <0x03000000 0x0 0x40000000 0x9 0xc0000000 0x0 0x40000000>;
-+			 <0x03000000 0x9 0xc0000000 0x9 0xc0000000 0x0 0x40000000>;
- 		reg = <0xa 0x40c00000 0x0 0x00400000>,
- 		      <0x0 0xfe180000 0x0 0x00010000>,
- 		      <0x0 0xf3000000 0x0 0x00100000>;
-@@ -2071,7 +2071,7 @@ pcie2x1l2: pcie@fe190000 {
- 		power-domains = <&power RK3588_PD_PCIE>;
- 		ranges = <0x01000000 0x0 0xf4100000 0x0 0xf4100000 0x0 0x00100000>,
- 			 <0x02000000 0x0 0xf4200000 0x0 0xf4200000 0x0 0x00e00000>,
--			 <0x03000000 0x0 0x40000000 0xa 0x00000000 0x0 0x40000000>;
-+			 <0x03000000 0xa 0x00000000 0xa 0x00000000 0x0 0x40000000>;
- 		reg = <0xa 0x41000000 0x0 0x00400000>,
- 		      <0x0 0xfe190000 0x0 0x00010000>,
- 		      <0x0 0xf4000000 0x0 0x00100000>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-index 6e5a58428bbab..a2640014ee042 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-@@ -375,7 +375,7 @@ pcie3x4: pcie@fe150000 {
- 		power-domains = <&power RK3588_PD_PCIE>;
- 		ranges = <0x01000000 0x0 0xf0100000 0x0 0xf0100000 0x0 0x00100000>,
- 			 <0x02000000 0x0 0xf0200000 0x0 0xf0200000 0x0 0x00e00000>,
--			 <0x03000000 0x0 0x40000000 0x9 0x00000000 0x0 0x40000000>;
-+			 <0x03000000 0x9 0x00000000 0x9 0x00000000 0x0 0x40000000>;
- 		reg = <0xa 0x40000000 0x0 0x00400000>,
- 		      <0x0 0xfe150000 0x0 0x00010000>,
- 		      <0x0 0xf0000000 0x0 0x00100000>;
-@@ -462,7 +462,7 @@ pcie3x2: pcie@fe160000 {
- 		power-domains = <&power RK3588_PD_PCIE>;
- 		ranges = <0x01000000 0x0 0xf1100000 0x0 0xf1100000 0x0 0x00100000>,
- 			 <0x02000000 0x0 0xf1200000 0x0 0xf1200000 0x0 0x00e00000>,
--			 <0x03000000 0x0 0x40000000 0x9 0x40000000 0x0 0x40000000>;
-+			 <0x03000000 0x9 0x40000000 0x9 0x40000000 0x0 0x40000000>;
- 		reg = <0xa 0x40400000 0x0 0x00400000>,
- 		      <0x0 0xfe160000 0x0 0x00010000>,
- 		      <0x0 0xf1000000 0x0 0x00100000>;
-@@ -512,7 +512,7 @@ pcie2x1l0: pcie@fe170000 {
- 		power-domains = <&power RK3588_PD_PCIE>;
- 		ranges = <0x01000000 0x0 0xf2100000 0x0 0xf2100000 0x0 0x00100000>,
- 			 <0x02000000 0x0 0xf2200000 0x0 0xf2200000 0x0 0x00e00000>,
--			 <0x03000000 0x0 0x40000000 0x9 0x80000000 0x0 0x40000000>;
-+			 <0x03000000 0x9 0x80000000 0x9 0x80000000 0x0 0x40000000>;
- 		reg = <0xa 0x40800000 0x0 0x00400000>,
- 		      <0x0 0xfe170000 0x0 0x00010000>,
- 		      <0x0 0xf2000000 0x0 0x00100000>;
+diff --git a/drivers/gpu/drm/exynos/exynos_drm_vidi.c b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
+index 9709c07e5d8f4..67bbf9b8bc0ef 100644
+--- a/drivers/gpu/drm/exynos/exynos_drm_vidi.c
++++ b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
+@@ -187,29 +187,37 @@ static ssize_t vidi_store_connection(struct device *dev,
+ 				const char *buf, size_t len)
+ {
+ 	struct vidi_context *ctx = dev_get_drvdata(dev);
+-	int ret;
++	int ret, new_connected;
+ 
+-	ret = kstrtoint(buf, 0, &ctx->connected);
++	ret = kstrtoint(buf, 0, &new_connected);
+ 	if (ret)
+ 		return ret;
+-
+-	if (ctx->connected > 1)
++	if (new_connected > 1)
+ 		return -EINVAL;
+ 
++	mutex_lock(&ctx->lock);
++
+ 	/*
+ 	 * Use fake edid data for test. If raw_edid is set then it can't be
+ 	 * tested.
+ 	 */
+ 	if (ctx->raw_edid) {
+ 		DRM_DEV_DEBUG_KMS(dev, "edid data is not fake data.\n");
+-		return -EINVAL;
++		ret = -EINVAL;
++		goto fail;
+ 	}
+ 
++	ctx->connected = new_connected;
++	mutex_unlock(&ctx->lock);
++
+ 	DRM_DEV_DEBUG_KMS(dev, "requested connection.\n");
+ 
+ 	drm_helper_hpd_irq_event(ctx->drm_dev);
+ 
+ 	return len;
++fail:
++	mutex_unlock(&ctx->lock);
++	return ret;
+ }
+ 
+ static DEVICE_ATTR(connection, 0644, vidi_show_connection,
+@@ -244,11 +252,14 @@ int vidi_connection_ioctl(struct drm_device *drm_dev, void *data,
+ 		return -EINVAL;
+ 	}
+ 
++	mutex_lock(&ctx->lock);
+ 	if (ctx->connected == vidi->connection) {
++		mutex_unlock(&ctx->lock);
+ 		DRM_DEV_DEBUG_KMS(ctx->dev,
+ 				  "same connection request.\n");
+ 		return -EINVAL;
+ 	}
++	mutex_unlock(&ctx->lock);
+ 
+ 	if (vidi->connection) {
+ 		const struct drm_edid *drm_edid;
+@@ -282,14 +293,21 @@ int vidi_connection_ioctl(struct drm_device *drm_dev, void *data,
+ 					  "edid data is invalid.\n");
+ 			return -EINVAL;
+ 		}
++		mutex_lock(&ctx->lock);
+ 		ctx->raw_edid = drm_edid;
++		mutex_unlock(&ctx->lock);
+ 	} else {
+ 		/* with connection = 0, free raw_edid */
++		mutex_lock(&ctx->lock);
+ 		drm_edid_free(ctx->raw_edid);
+ 		ctx->raw_edid = NULL;
++		mutex_unlock(&ctx->lock);
+ 	}
+ 
++	mutex_lock(&ctx->lock);
+ 	ctx->connected = vidi->connection;
++	mutex_unlock(&ctx->lock);
++
+ 	drm_helper_hpd_irq_event(ctx->drm_dev);
+ 
+ 	return 0;
+@@ -304,7 +322,7 @@ static enum drm_connector_status vidi_detect(struct drm_connector *connector,
+ 	 * connection request would come from user side
+ 	 * to do hotplug through specific ioctl.
+ 	 */
+-	return ctx->connected ? connector_status_connected :
++	return READ_ONCE(ctx->connected) ? connector_status_connected :
+ 			connector_status_disconnected;
+ }
+ 
+@@ -327,11 +345,15 @@ static int vidi_get_modes(struct drm_connector *connector)
+ 	const struct drm_edid *drm_edid;
+ 	int count;
+ 
++	mutex_lock(&ctx->lock);
++
+ 	if (ctx->raw_edid)
+ 		drm_edid = drm_edid_dup(ctx->raw_edid);
+ 	else
+ 		drm_edid = drm_edid_alloc(fake_edid_info, sizeof(fake_edid_info));
+ 
++	mutex_unlock(&ctx->lock);
++
+ 	drm_edid_connector_update(connector, drm_edid);
+ 
+ 	count = drm_edid_connector_add_modes(connector);
+@@ -483,9 +505,13 @@ static void vidi_remove(struct platform_device *pdev)
+ {
+ 	struct vidi_context *ctx = platform_get_drvdata(pdev);
+ 
++	mutex_lock(&ctx->lock);
++
+ 	drm_edid_free(ctx->raw_edid);
+ 	ctx->raw_edid = NULL;
+ 
++	mutex_unlock(&ctx->lock);
++
+ 	component_del(&pdev->dev, &vidi_component_ops);
+ }
+ 
 -- 
 2.51.0
 
