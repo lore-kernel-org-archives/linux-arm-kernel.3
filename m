@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10153FD0049
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:41:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD7B9FD0049
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:41:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Qvzl1G+ZNXdTaAhdJXsk96+gOP43falCFaLL1T33Y9s=; b=nDHMa/J8AV/brz5qclsR8AUm7e
-	5U9+iFRJ30wthUc4i8g7dLlSdVpfPDhvDgpTjveLmQERoKCVdIZkEM5GPo/e/HUqsnLqkVxPil5u5
-	1ayvKt2KpWN7ZXyB+Z3dJR1F+SzS6UlJqLdkBHbFs9r8xxpby5lumBEehQLiybOlUNMAz5Cd5Y8/6
-	bHJR1CT/lWqxpZbtgLMi8g3r7CODJg5Z9CaMvuX6/O2SWR8V6pDFRkzeb8FXjeuYwYmfZvaa14u4r
-	DYD+dvPJwccrvc5yN90uidyCz+GOz7oNqoTlbODg7RwE44GaDJ4R8TgqEoiJZUb/B19ClAR1bxJ8x
-	tdovTsVQ==;
+	bh=loyaYH1dBVGbM0KbT9syAhEo7Ec46ke6e042a2acoFQ=; b=HsLoJ0apOlyxe1oM/lDNoAFfq4
+	q18JMlwj3Dxdn7jgnr4OoW4FXcOT78g9vqY/Rr3vL1JfSQP8xy9I9e8E2fk8D0jgTPbySJUl0SkAp
+	qN7jZT5n2I4q+FKLwKd7zUYvvi0w8A/3qtqMUvsgmEFB5LrtooFwHWTJEyN5mE1NNXNOLNVzRfdZD
+	joAbwjYdABWizvO3WITG4XZ74qRfJWt5zijVDXjk9L2peQOY+QIEzXluR2Jh6WNq32u3jpDNcLQhd
+	bApYs/KySIQW1U6XbRG+wahJDS4pmavFIksPHjvFGf5DYpH3CDRakLiTp44TYdqXGsKw32a/oJ1Fj
+	IS/t+M+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVno-0000000Ac7R-1O8T;
-	Sun, 01 Mar 2026 01:41:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vwVog-0000000Acf2-0NGi;
+	Sun, 01 Mar 2026 01:41:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVnb-0000000Abuk-2FhJ
+	id 1vwVoe-0000000Ace4-2MOA
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 01:40:55 +0000
+	Sun, 01 Mar 2026 01:41:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1CC824396F;
-	Sun,  1 Mar 2026 01:40:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 675FFC19421;
-	Sun,  1 Mar 2026 01:40:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EB9EE6012A;
+	Sun,  1 Mar 2026 01:41:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E23E0C19421;
+	Sun,  1 Mar 2026 01:41:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772329247;
-	bh=wRIuBqJa1mjTxbWlqcsQlvZamXHhr9wqwEByIjHA7Ds=;
+	s=k20201202; t=1772329311;
+	bh=sWCKkiCKWTg+DMqq+FIDjQiXxA9LlovjboPsGg0rn9k=;
 	h=From:To:Cc:Subject:Date:From;
-	b=OhAQgWSGtic9IU7X7ZS9/NuolwgI/jWjHDOe5Jbnw+5/0Vrw6Cs60oC2MYc0Ng7R8
-	 Thw9y5jlz9Qv78mojBnHZJHg9ibHl0n2S7+7cny93++4N7hL3Q7+gGQDpMuTA4jZMh
-	 okRjDYYdQ0LvJfwK50mgqmSYobMyyS0XSXnwNoXH2OjKWQsStr82KUqpS4h46GQdJ0
-	 xiqES7d0/iVAooOMRbgJfubtNL3j5AtTkIUNeXkwsD4ARjwq+q/+rDLkQhO1xxcgmD
-	 xBYwN0Xf/YY/TwodblKBr7Gz8qZvrYxm8SIS5gYN7Td8PdEQePo0hFrhmI2cMO/09Q
-	 PUqpaiTGJztEw==
+	b=ABdCagmwU4DsPTscoM91KJokNTS4rCYwDTVfKFICNrNpJPlqQuIpHMo+toOLYGAg/
+	 NHETNHZP2KFIFG+h5Is25I6GXQPi2ioCFdnwzaOfdFfbVYACerQv27soMe49lDjIol
+	 +dZ3EFgv2fZHeCiByw2Oibt1QKLFsJPhZR61ApvrQi/Lc3opBP2MgA89RiIf1DDSPU
+	 VTmCE0jZKwzsy5wdjvazdFTI6jAdmuQhPEw/ijxzKJCeFdzVAhBa+xi2qsrg+w35m/
+	 kZizD1ZgyRTyeqq9dxzVXTmFLCHcH1sBQagPuqeATVs+5uPNcbRxluSyhTfWr8uvpT
+	 n6rGdjxxN399g==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	leitao@debian.org
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: FAILED: Patch "arm64: Disable branch profiling for all arm64 code" failed to apply to 6.1-stable tree
-Date: Sat, 28 Feb 2026 20:40:45 -0500
-Message-ID: <20260301014045.1702128-1-sashal@kernel.org>
+	j@jannau.net
+Cc: Stephen Boyd <sboyd@kernel.org>,
+	Neal Gompa <neal@gompa.dev>,
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org
+Subject: FAILED: Patch "clk: clk-apple-nco: Add "apple,t8103-nco" compatible" failed to apply to 6.1-stable tree
+Date: Sat, 28 Feb 2026 20:41:49 -0500
+Message-ID: <20260301014149.1703547-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_174047_654407_0E4BA381 
-X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,47 +82,40 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From f22c81bebf8bda6e54dc132df0ed54f6bf8756f9 Mon Sep 17 00:00:00 2001
-From: Breno Leitao <leitao@debian.org>
-Date: Tue, 6 Jan 2026 02:16:35 -0800
-Subject: [PATCH] arm64: Disable branch profiling for all arm64 code
+From ef9b3b4dbe767e4ac642a88dc0507927ac545047 Mon Sep 17 00:00:00 2001
+From: Janne Grunau <j@jannau.net>
+Date: Wed, 31 Dec 2025 13:22:00 +0100
+Subject: [PATCH] clk: clk-apple-nco: Add "apple,t8103-nco" compatible
 
-The arm64 kernel doesn't boot with annotated branches
-(PROFILE_ANNOTATED_BRANCHES) enabled and CONFIG_DEBUG_VIRTUAL together.
+After discussion with the devicetree maintainers we agreed to not extend
+lists with the generic compatible "apple,nco" anymore [1]. Use
+"apple,t8103-nco" as base compatible as it is the SoC the driver and
+bindings were written for.
 
-Bisecting it, I found that disabling branch profiling in arch/arm64/mm
-solved the problem. Narrowing down a bit further, I found that
-physaddr.c is the file that needs to have branch profiling disabled to
-get the machine to boot.
+[1]: https://lore.kernel.org/asahi/12ab93b7-1fc2-4ce0-926e-c8141cfe81bf@kernel.org/
 
-I suspect that it might invoke some ftrace helper very early in the boot
-process and ftrace is still not enabled(!?).
-
-Rather than playing whack-a-mole with individual files, disable branch
-profiling for the entire arch/arm64 tree, similar to what x86 already
-does in arch/x86/Kbuild.
-
+Fixes: 6641057d5dba ("clk: clk-apple-nco: Add driver for Apple NCO")
 Cc: stable@vger.kernel.org
-Signed-off-by: Breno Leitao <leitao@debian.org>
-Acked-by: Mark Rutland <mark.rutland@arm.com>
-Signed-off-by: Will Deacon <will@kernel.org>
+Acked-by: Stephen Boyd <sboyd@kernel.org>
+Reviewed-by: Neal Gompa <neal@gompa.dev>
+Signed-off-by: Janne Grunau <j@jannau.net>
+Signed-off-by: Stephen Boyd <sboyd@kernel.org>
 ---
- arch/arm64/Kbuild | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/clk/clk-apple-nco.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/Kbuild b/arch/arm64/Kbuild
-index 5bfbf7d79c99b..d876bc0e54211 100644
---- a/arch/arm64/Kbuild
-+++ b/arch/arm64/Kbuild
-@@ -1,4 +1,8 @@
- # SPDX-License-Identifier: GPL-2.0-only
-+
-+# Branch profiling isn't noinstr-safe
-+subdir-ccflags-$(CONFIG_TRACE_BRANCH_PROFILING) += -DDISABLE_BRANCH_PROFILING
-+
- obj-y			+= kernel/ mm/ net/
- obj-$(CONFIG_KVM)	+= kvm/
- obj-$(CONFIG_XEN)	+= xen/
+diff --git a/drivers/clk/clk-apple-nco.c b/drivers/clk/clk-apple-nco.c
+index d3ced4a0f029e..434c067968bbc 100644
+--- a/drivers/clk/clk-apple-nco.c
++++ b/drivers/clk/clk-apple-nco.c
+@@ -320,6 +320,7 @@ static int applnco_probe(struct platform_device *pdev)
+ }
+ 
+ static const struct of_device_id applnco_ids[] = {
++	{ .compatible = "apple,t8103-nco" },
+ 	{ .compatible = "apple,nco" },
+ 	{ }
+ };
 -- 
 2.51.0
 
