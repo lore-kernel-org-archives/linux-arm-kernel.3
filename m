@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DA19FD0048
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:17:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C69BFFD004A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:18:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=S1OaieXv1+7SCHJ8SNRNl0rcZrwoyVjzMceLBTBGgHk=; b=QxC7ELFqTbo7bAKUwvOoS74E5H
-	K6XjMqMlLDja4uI/5nQ6IcZ1hu23PWIlerBMJRLg+dZnTiviRvw7os4Bg3S/wIKltJkRozHKfk2In
-	a21nrAVeGZzxrmT0+q33FA3qRq54oZLckTudtj38utz9H73xMTYOK1axxSMMmIiaI/+dBHPHaYNZq
-	ZstTG26i4A2jyxnff4hRqlMVsH1AluVGGhJ3Y2pnjnhe/9JU3UoXU5bYiza33p9tbsq1ZmCOukbXT
-	yvOghKqFOvNd6LDl4EwBtT5eZqwya0YIbeqxqvE924wZNFcX9/1KKjCPybWT2jEqtAsQ5YjO61N0A
-	gxO6eQ3g==;
+	bh=xQv/WpVf99V7V3hoKHCTm6CG9rvNYyJV+PwRJFX05Hw=; b=4rZ3NKr7T+FfhteHfRXAYEgycl
+	tIwGbh068u8E0i6Yw/X5Q/xi4IfwzwzsNb2iEBNGCvM/rS0wJk54OEiEXzuT6HIGHmcXYSEBZ7iMI
+	KFVBkDsF8r+lcvmfOphCh8tEZd0KWqM2dqxJ7TffPv/PgIE4NFa7U/JedZkxQVoZIk9M+NscDXr+n
+	fMBiimBCB7KY49/B6NxL75my4kFy3ES2d/xqlF/JPqptT22e5gY1FFxufdvYN+FUTJWFUa8l5p5tk
+	VIzR7mUKGZpH4ylCJEASufoKLKglM2+WFrbztl2bo6he4cGc5i++oDWKBvOvKXD5k+7auffsK9TRH
+	gBtCo5bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVQg-0000000ASXL-1NtH;
-	Sun, 01 Mar 2026 01:17:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vwVRZ-0000000AShH-2NDk;
+	Sun, 01 Mar 2026 01:18:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVQd-0000000ASWk-24rs;
-	Sun, 01 Mar 2026 01:17:05 +0000
+	id 1vwVRX-0000000ASga-2ZrF;
+	Sun, 01 Mar 2026 01:18:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2980041B5D;
-	Sun,  1 Mar 2026 01:17:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41D22C19421;
-	Sun,  1 Mar 2026 01:17:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1C5F9433E7;
+	Sun,  1 Mar 2026 01:17:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A73BEC19421;
+	Sun,  1 Mar 2026 01:17:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772327823;
-	bh=WFjBZmZT8Ljz8xNlXhLMjkBe3KDvvU4/6E+qmB7lTmg=;
+	s=k20201202; t=1772327879;
+	bh=kWgMT48C4ORLUtZwxrSADwgXn0DpuHYFbe4vBadeueY=;
 	h=From:To:Cc:Subject:Date:From;
-	b=QoTfRMyp3X/aIwEnj/E1zl/3vUBy/vr4/0t4OB4UJuh47eAs3yYmhW2Uyji9Z8my8
-	 2ZGx7BugGPVAOqfIdGfrmMuDnI6hNWGHZMWV/4/3DOuVAa5OGtRWGczHKKTpiohOcv
-	 a26VLvEuYNQU4EdmGeHrsYjp8xlkuvdzC6ccxYPnqjlN4zpKjGTaWaH/FOB52phaLO
-	 a9XcocwGcqugFe++sLGKQig2OP0wNgUNX8alAh7fObGGbt/BtjvKJ1PKXlltMHUB9q
-	 mtx/LwB0mi3tkQUbbrfmCBzf30wgSjHesapl2ODhtyU+FiB/laMDng/shJthQ8KDVq
-	 9Zy0D49aFNBMg==
+	b=AqrldhRirgj72xPeV8qSjxpICo5WN4crfhA6/BzE3tJ74ymjaCKN3yQ16Gq7XF71o
+	 dIiFVNIuCwh9A3uk6nMxC96yMuJvW5AqsHDp7GJ3zhXD1m2IGLKTa0v65vD9S+xPsJ
+	 OQ7970KjTGAoBEoMkTQE8FukKNEEqitZcnOYXXL+YcRL07EHYw6lm+BxlqaHLOUs32
+	 gwFNGW651zFU3dI4lgB2YWGdkxaP6SrMyXS2V+U79muEG7NIpAcBQrW7XzyERhW4bA
+	 2Gy2Bax0DmONbrdITHJkDS2iqALR7tdgGWhjgXpEqVVocWqIViTNF3D9kLcgl0s4KL
+	 Ku4xC+C/hVPUQ==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	shawn.lin@rock-chips.com
-Cc: Andrew Powers-Holmes <aholmes@omnom.net>,
-	Heiko Stuebner <heiko@sntech.de>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: FAILED: Patch "arm64: dts: rockchip: Fix rk356x PCIe range mappings" failed to apply to 6.18-stable tree
-Date: Sat, 28 Feb 2026 20:17:00 -0500
-Message-ID: <20260301011701.1670793-1-sashal@kernel.org>
+	johan@kernel.org
+Cc: Yong Wu <yong.wu@mediatek.com>,
+	Miaoqian Lin <linmq006@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: FAILED: Patch "memory: mtk-smi: fix device leaks on common probe" failed to apply to 6.12-stable tree
+Date: Sat, 28 Feb 2026 20:17:56 -0500
+Message-ID: <20260301011756.1672013-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_171704_433547_EE56CD8E 
-X-CRM114-Status: GOOD (  14.73  )
+X-CRM114-CacheID: sfid-20260228_171759_673002_5A42B413 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,7 +74,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The patch below does not apply to the 6.18-stable tree.
+The patch below does not apply to the 6.12-stable tree.
 If someone wants it applied there, or to any other stable or longterm
 tree, then please email the backport, including the original git commit
 id to <stable@vger.kernel.org>.
@@ -84,63 +84,48 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From f63ea193a404481f080ca2958f73e9f364682db9 Mon Sep 17 00:00:00 2001
-From: Shawn Lin <shawn.lin@rock-chips.com>
-Date: Mon, 5 Jan 2026 16:15:28 +0800
-Subject: [PATCH] arm64: dts: rockchip: Fix rk356x PCIe range mappings
+From 6cfa038bddd710f544076ea2ef7792fc82fbedd6 Mon Sep 17 00:00:00 2001
+From: Johan Hovold <johan@kernel.org>
+Date: Fri, 21 Nov 2025 17:46:22 +0100
+Subject: [PATCH] memory: mtk-smi: fix device leaks on common probe
 
-The pcie bus address should be mapped 1:1 to the cpu side MMIO address, so
-that there is no same address allocated from normal system memory. Otherwise
-it's broken if the same address assigned to the EP for DMA purpose.Fix it to
-sync with the vendor BSP.
+Make sure to drop the reference taken when looking up the SMI device
+during common probe on late probe failure (e.g. probe deferral) and on
+driver unbind.
 
-Fixes: 568a67e742df ("arm64: dts: rockchip: Fix rk356x PCIe register and range mappings")
-Fixes: 66b51ea7d70f ("arm64: dts: rockchip: Add rk3568 PCIe2x1 controller")
-Cc: stable@vger.kernel.org
-Cc: Andrew Powers-Holmes <aholmes@omnom.net>
-Signed-off-by: Shawn Lin <shawn.lin@rock-chips.com>
-Link: https://patch.msgid.link/1767600929-195341-1-git-send-email-shawn.lin@rock-chips.com
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+Fixes: 47404757702e ("memory: mtk-smi: Add device link for smi-sub-common")
+Fixes: 038ae37c510f ("memory: mtk-smi: add missing put_device() call in mtk_smi_device_link_common")
+Cc: stable@vger.kernel.org	# 5.16: 038ae37c510f
+Cc: stable@vger.kernel.org	# 5.16
+Cc: Yong Wu <yong.wu@mediatek.com>
+Cc: Miaoqian Lin <linmq006@gmail.com>
+Signed-off-by: Johan Hovold <johan@kernel.org>
+Link: https://patch.msgid.link/20251121164624.13685-2-johan@kernel.org
+Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
 ---
- arch/arm64/boot/dts/rockchip/rk3568.dtsi      | 4 ++--
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 2 +-
- 2 files changed, 3 insertions(+), 3 deletions(-)
+ drivers/memory/mtk-smi.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568.dtsi b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-index e719a3df126c5..658097ed69714 100644
---- a/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-@@ -185,7 +185,7 @@ pcie3x1: pcie@fe270000 {
- 		      <0x0 0xf2000000 0x0 0x00100000>;
- 		ranges = <0x01000000 0x0 0xf2100000 0x0 0xf2100000 0x0 0x00100000>,
- 			 <0x02000000 0x0 0xf2200000 0x0 0xf2200000 0x0 0x01e00000>,
--			 <0x03000000 0x0 0x40000000 0x3 0x40000000 0x0 0x40000000>;
-+			 <0x03000000 0x3 0x40000000 0x3 0x40000000 0x0 0x40000000>;
- 		reg-names = "dbi", "apb", "config";
- 		resets = <&cru SRST_PCIE30X1_POWERUP>;
- 		reset-names = "pipe";
-@@ -238,7 +238,7 @@ pcie3x2: pcie@fe280000 {
- 		      <0x0 0xf0000000 0x0 0x00100000>;
- 		ranges = <0x01000000 0x0 0xf0100000 0x0 0xf0100000 0x0 0x00100000>,
- 			 <0x02000000 0x0 0xf0200000 0x0 0xf0200000 0x0 0x01e00000>,
--			 <0x03000000 0x0 0x40000000 0x3 0x80000000 0x0 0x40000000>;
-+			 <0x03000000 0x3 0x80000000 0x3 0x80000000 0x0 0x40000000>;
- 		reg-names = "dbi", "apb", "config";
- 		resets = <&cru SRST_PCIE30X2_POWERUP>;
- 		reset-names = "pipe";
-diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-index 8893b7b6cc9ff..a2c4957a58992 100644
---- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-@@ -1022,7 +1022,7 @@ pcie2x1: pcie@fe260000 {
- 		power-domains = <&power RK3568_PD_PIPE>;
- 		ranges = <0x01000000 0x0 0xf4100000 0x0 0xf4100000 0x0 0x00100000>,
- 			 <0x02000000 0x0 0xf4200000 0x0 0xf4200000 0x0 0x01e00000>,
--			 <0x03000000 0x0 0x40000000 0x3 0x00000000 0x0 0x40000000>;
-+			 <0x03000000 0x3 0x00000000 0x3 0x00000000 0x0 0x40000000>;
- 		resets = <&cru SRST_PCIE20_POWERUP>;
- 		reset-names = "pipe";
- 		#address-cells = <3>;
+diff --git a/drivers/memory/mtk-smi.c b/drivers/memory/mtk-smi.c
+index 733e22f695ab7..dd6150d200e89 100644
+--- a/drivers/memory/mtk-smi.c
++++ b/drivers/memory/mtk-smi.c
+@@ -674,6 +674,7 @@ static int mtk_smi_larb_probe(struct platform_device *pdev)
+ err_pm_disable:
+ 	pm_runtime_disable(dev);
+ 	device_link_remove(dev, larb->smi_common_dev);
++	put_device(larb->smi_common_dev);
+ 	return ret;
+ }
+ 
+@@ -917,6 +918,7 @@ static void mtk_smi_common_remove(struct platform_device *pdev)
+ 	if (common->plat->type == MTK_SMI_GEN2_SUB_COMM)
+ 		device_link_remove(&pdev->dev, common->smi_common_dev);
+ 	pm_runtime_disable(&pdev->dev);
++	put_device(common->smi_common_dev);
+ }
+ 
+ static int __maybe_unused mtk_smi_common_resume(struct device *dev)
 -- 
 2.51.0
 
