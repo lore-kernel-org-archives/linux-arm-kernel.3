@@ -4,89 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F34FD0070
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 15:28:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36AD9FD0070
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 15:54:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=La09DCP0jA/AbFytPwXt0j25r8TkQJK+X1DFAQGkXJk=; b=Cc7VFlcVAGD3G6Msa7j7filgxR
-	n0O7+Oaby2G1uD7hu4iXmoaiLn9lX5wIEl1Hnv516S/3lW1FXIzoTmYcATtsCdkyhCpyTL5tfnxaH
-	HAH57D0ZlGVIcyqSA9hmZ3urjTuJCgfxp9G6cAmGALf1G12hBdHA7e40O4k648qUDMne5a+De6QPg
-	n1WlU7c2OV0Pzt6J2iEI7Oa2mpghwZA8rJG0khqVqfO14CSJqXYXzkY/ot0pQaCiO468p4Lk2sn6M
-	v/WoSrlvaH8RmruN08JtdLbufOG/lS73qB66gztBbj3g4jnyCyYNz8wTDPQlynAlmRTghN8Pt6IDd
-	OYfxCkpQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JNic++b0CHLHkvSoxiBl7njduC/qk14bmoBYjaOnaC0=; b=vQa25IRpJdjCI66+jmsGVBXGix
+	XgRFvo9W9PBJhxPmqRSAzHZRIvNohhyaS3kT1qrOOjMu39h+Lj4jCkdIuq6Ly486z+6JijttogTir
+	91jxLsrD8ExuEaAqqh5PgXVK6KaeN+IOjcWMiBONHEfigVqUA7KXPtyAbrNd65KQL+c56sGtNvqNg
+	d9806XT8soO9o5adBi1sfME7BRKc/RKMqXrD8rXab516NH7TePEK4ma8t+/fHoVXy77mfOUx53omG
+	/qLILxUhOQRRQiMWbGk3riDBOYA3TDsRaXgtetzjvPKX+E64Dvu75KKJYV/j2gYnbJzs4JgxCv0Xo
+	3fTRKjzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwiiY-0000000Bbwt-3B1s;
-	Sun, 01 Mar 2026 15:28:26 +0000
-Received: from mail-qv1-xf2d.google.com ([2607:f8b0:4864:20::f2d])
+	id 1vwj7W-0000000Bck8-3V23;
+	Sun, 01 Mar 2026 15:54:14 +0000
+Received: from smtpo67.poczta.onet.pl ([141.105.16.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwiiW-0000000BbwP-2bbH
+	id 1vwj7T-0000000Bcja-2u9k
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 15:28:25 +0000
-Received: by mail-qv1-xf2d.google.com with SMTP id 6a1803df08f44-899a917a4feso66334726d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Mar 2026 07:28:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772378903; x=1772983703; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=La09DCP0jA/AbFytPwXt0j25r8TkQJK+X1DFAQGkXJk=;
-        b=aC3bEnO8buEJ3wdXiLa3TBfgtugpPpfDY7FeBXuvHZqjl9MGXqs8tLhhJLSz1tonIY
-         1IW3O493uNWy9EZVrl3D22qT8z2SvHb8opViqaUxZThN1UsddwWnLqkAESCsuTqJc2Ud
-         v50rIsrETES5xsru4yd+qLG/YwXV4H2uXnRqIc25z+X0ov5rUY2dYBNvmpek/n1BQ28h
-         S67ksdQ0KaeKOEZqI/Zfwpt1Eh6Vxkhp5kmo8Z4NyxPijpCQW0S26LvilV/nbjT/BdMg
-         6/pWrwOjJcMRxnbE7kam//+odg8XhURTbweEq0AnlpoecmCaKDC8TYPwlIqEIn1zkhez
-         tg4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772378903; x=1772983703;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=La09DCP0jA/AbFytPwXt0j25r8TkQJK+X1DFAQGkXJk=;
-        b=YPLfiIWYbGJS6YFLATLhOlMQbZNj8PCGCCr87JexTlWfWudJ6noXi6dPUWdJ98K2BG
-         a9qRITIiIRMr4WX3ILOhh/l2ELW/eL+jwxPBUriPGhfciBCsSDAmTemUpfI4ySpK3v2J
-         i2Qg6oELW/DCCuaQVyBe9ZnxmEetpsRxKWHUFY7GS8uhefTk6G2FsL9aUoP8LLRwRZqk
-         OkAq6xvDXE6fHIxptnhEfHbUTWfZ0HgMVzZ6xxmG7aypxOz3+SJTxuJnOa1a2TSYwITW
-         oijETQ6yWScV28zTUMd9h/Qn0OdLNJX2UyIkP0MWDzyOBWzHZxx9DRVZNyzq4IQrHo/3
-         jq7Q==
-X-Gm-Message-State: AOJu0Ywp7XH7Nb4gD3pqrXlakbwx9Dpo+oyP+uOGGCxmEsN+r8MwPcvj
-	2QoXF1RtZ4OYz866VtL+APYp3nntI7N7Kcb+hlIaP+tZJCv72fvDkbZj
-X-Gm-Gg: ATEYQzxl6LHEvDSBYSdXhRpEf3Us8rbhvTqFWaB1MCu5vIpn5nVhFBULkJSigqBoDGW
-	Un5sH8wzq8fMHxySbqQ2PKU9/Ik2xHZsiPPAYCChEZrcxq8+HDcNSd+1rVtc8MHTrUyTtwjIgOl
-	oxLEVvIU/jfXIxmR4Is9kVPARhzQ3SCQhLqhcml8LpVCEbt/pscC3dW1/SR6nR/e4/Rkkz4MscL
-	+Q8h94rh1pZ46LZ2OeHXXD9fY46ATV9gh5awXXtIAUrZyJzKEiC4CA1z3dtDl0jD3m3oACdN7Kv
-	MyVmw+xPhMioZtXSjHbNZ6sF21bB0E9ivBjhAUl8EWBJXfT5QreQIE0uTCiXW8M/c+XGHhjtV4j
-	hK4u55vs7CCA+LkGnpeIAkH5RWfDi/Jp+IYgeHsIdsQzuQ4Xi1K1jtScLmKdC9xsE5gZp6Z5v8M
-	0fXdkmrgR19ThF54E4Ju7kXicKgxwDzK/lxah80Z+iaPdk+usyTGaVW0OiU46FvCcSygkGklk3M
-	81p
-X-Received: by 2002:a05:6214:d8f:b0:899:a91a:2e0c with SMTP id 6a1803df08f44-899d1e45937mr145098116d6.46.1772378903232;
-        Sun, 01 Mar 2026 07:28:23 -0800 (PST)
-Received: from instance-20260207-1316.vcn12250046.oraclevcn.com ([150.136.248.187])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-899e53a16c0sm32849486d6.35.2026.03.01.07.28.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Mar 2026 07:28:22 -0800 (PST)
-From: Josh Law <hlcj1234567@gmail.com>
-X-Google-Original-From: Josh Law <objecting@objecting.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Josh Law <objecting@objecting.org>
-Subject: [PATCH 2/2] arm64: lib: xor-neon: fix pointer spacing for __restrict
-Date: Sun,  1 Mar 2026 15:28:20 +0000
-Message-ID: <20260301152820.2589291-2-objecting@objecting.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260301152820.2589291-1-objecting@objecting.org>
-References: <20260301152820.2589291-1-objecting@objecting.org>
+	Sun, 01 Mar 2026 15:54:13 +0000
+Received: from laptop-olek.lan (83.24.116.171.ipv4.supernova.orange.pl [83.24.116.171])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	(No client certificate requested)
+	(Authenticated sender: aleksaander@onet.pl)
+	by smtp.poczta.onet.pl (Onet) with ESMTPSA id 4fP67657lSz1y1Q;
+	Sun,  1 Mar 2026 16:53:52 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=onet.pl; s=2011;
+	t=1772380441; bh=JNic++b0CHLHkvSoxiBl7njduC/qk14bmoBYjaOnaC0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=ounlYqP0niPtBMNhulCozlKpdBuSHNKnJH41/hTvvSGtmb1ABT2InkIZzFMLiGPpx
+	 87FPYhDMiDgcaYwqvwxtOFPTYDF5RV/GY7QKjUQvaolHppf1YV/kz3hJnOmyvJNiAX
+	 X3P5cSBZQrCo+acYu6LPHbbir4pTh3jVlSuWJz+w=
+From: Aleksander Jan Bajkowski <aleksaander@onet.pl>
+To: herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	linux-crypto@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Aleksander Jan Bajkowski <olek2@wp.pl>
+Subject: [PATCH 1/5] crypto: testmgr - Add test vectors for authenc(hmac(sha1),rfc3686(ctr(aes)))
+Date: Sun,  1 Mar 2026 16:53:38 +0100
+Message-ID: <20260301155351.5840-1-aleksaander@onet.pl>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_072824_688007_DB7454AD 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20260301_075412_068907_490C35FE 
+X-CRM114-Status: GOOD (  12.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,119 +72,270 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix coding style error where 'foo * bar' should be 'foo *bar' for the __restrict qualifier.
+From: Aleksander Jan Bajkowski <olek2@wp.pl>
 
-Signed-off-by: Josh Law <objecting@objecting.org>
+Test vectors were generated starting from existing RFC3686(CTR(AES)) test
+vectors and adding HMAC(SHA1) computed with software implementation.
+Then, the results were double-checked on Mediatek MT7986 (safexcel).
+Platform pass self-tests.
+
+Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
 ---
- arch/arm64/lib/xor-neon.c | 52 +++++++++++++++++++--------------------
- 1 file changed, 26 insertions(+), 26 deletions(-)
+ crypto/testmgr.c |   6 +-
+ crypto/testmgr.h | 221 +++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 226 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/lib/xor-neon.c b/arch/arm64/lib/xor-neon.c
-index c65b44a8f134..cdf6ae923e1b 100644
---- a/arch/arm64/lib/xor-neon.c
-+++ b/arch/arm64/lib/xor-neon.c
-@@ -9,8 +9,8 @@
- #include <linux/module.h>
- #include <asm/neon-intrinsics.h>
+diff --git a/crypto/testmgr.c b/crypto/testmgr.c
+index c4770b87551d..91831b548062 100644
+--- a/crypto/testmgr.c
++++ b/crypto/testmgr.c
+@@ -4136,8 +4136,12 @@ static const struct alg_test_desc alg_test_descs[] = {
+ 		}
+ 	}, {
+ 		.alg = "authenc(hmac(sha1),rfc3686(ctr(aes)))",
+-		.test = alg_test_null,
++		.generic_driver = "authenc(hmac-sha1-lib,rfc3686(ctr(aes-generic)))",
++		.test = alg_test_aead,
+ 		.fips_allowed = 1,
++		.suite = {
++			.aead = __VECS(hmac_sha1_aes_ctr_rfc3686_tv_temp)
++		}
+ 	}, {
+ 		.alg = "authenc(hmac(sha224),cbc(aes))",
+ 		.generic_driver = "authenc(hmac-sha224-lib,cbc(aes-generic))",
+diff --git a/crypto/testmgr.h b/crypto/testmgr.h
+index 8ee15a3e0ed1..d232417c20a1 100644
+--- a/crypto/testmgr.h
++++ b/crypto/testmgr.h
+@@ -14873,6 +14873,227 @@ static const struct aead_testvec hmac_sha1_aes_cbc_tv_temp[] = {
+ 	},
+ };
  
--static void xor_arm64_neon_2(unsigned long bytes, unsigned long * __restrict p1,
--	const unsigned long * __restrict p2)
-+static void xor_arm64_neon_2(unsigned long bytes, unsigned long *__restrict p1,
-+	const unsigned long *__restrict p2)
- {
- 	uint64_t *dp1 = (uint64_t *)p1;
- 	uint64_t *dp2 = (uint64_t *)p2;
-@@ -36,9 +36,9 @@ static void xor_arm64_neon_2(unsigned long bytes, unsigned long * __restrict p1,
- 	} while (--lines > 0);
- }
- 
--static void xor_arm64_neon_3(unsigned long bytes, unsigned long * __restrict p1,
--	const unsigned long * __restrict p2,
--	const unsigned long * __restrict p3)
-+static void xor_arm64_neon_3(unsigned long bytes, unsigned long *__restrict p1,
-+	const unsigned long *__restrict p2,
-+	const unsigned long *__restrict p3)
- {
- 	uint64_t *dp1 = (uint64_t *)p1;
- 	uint64_t *dp2 = (uint64_t *)p2;
-@@ -72,10 +72,10 @@ static void xor_arm64_neon_3(unsigned long bytes, unsigned long * __restrict p1,
- 	} while (--lines > 0);
- }
- 
--static void xor_arm64_neon_4(unsigned long bytes, unsigned long * __restrict p1,
--	const unsigned long * __restrict p2,
--	const unsigned long * __restrict p3,
--	const unsigned long * __restrict p4)
-+static void xor_arm64_neon_4(unsigned long bytes, unsigned long *__restrict p1,
-+	const unsigned long *__restrict p2,
-+	const unsigned long *__restrict p3,
-+	const unsigned long *__restrict p4)
- {
- 	uint64_t *dp1 = (uint64_t *)p1;
- 	uint64_t *dp2 = (uint64_t *)p2;
-@@ -117,11 +117,11 @@ static void xor_arm64_neon_4(unsigned long bytes, unsigned long * __restrict p1,
- 	} while (--lines > 0);
- }
- 
--static void xor_arm64_neon_5(unsigned long bytes, unsigned long * __restrict p1,
--	const unsigned long * __restrict p2,
--	const unsigned long * __restrict p3,
--	const unsigned long * __restrict p4,
--	const unsigned long * __restrict p5)
-+static void xor_arm64_neon_5(unsigned long bytes, unsigned long *__restrict p1,
-+	const unsigned long *__restrict p2,
-+	const unsigned long *__restrict p3,
-+	const unsigned long *__restrict p4,
-+	const unsigned long *__restrict p5)
- {
- 	uint64_t *dp1 = (uint64_t *)p1;
- 	uint64_t *dp2 = (uint64_t *)p2;
-@@ -191,9 +191,9 @@ static inline uint64x2_t eor3(uint64x2_t p, uint64x2_t q, uint64x2_t r)
- }
- 
- static void xor_arm64_eor3_3(unsigned long bytes,
--	unsigned long * __restrict p1,
--	const unsigned long * __restrict p2,
--	const unsigned long * __restrict p3)
-+	unsigned long *__restrict p1,
-+	const unsigned long *__restrict p2,
-+	const unsigned long *__restrict p3)
- {
- 	uint64_t *dp1 = (uint64_t *)p1;
- 	uint64_t *dp2 = (uint64_t *)p2;
-@@ -226,10 +226,10 @@ static void xor_arm64_eor3_3(unsigned long bytes,
- }
- 
- static void xor_arm64_eor3_4(unsigned long bytes,
--	unsigned long * __restrict p1,
--	const unsigned long * __restrict p2,
--	const unsigned long * __restrict p3,
--	const unsigned long * __restrict p4)
-+	unsigned long *__restrict p1,
-+	const unsigned long *__restrict p2,
-+	const unsigned long *__restrict p3,
-+	const unsigned long *__restrict p4)
- {
- 	uint64_t *dp1 = (uint64_t *)p1;
- 	uint64_t *dp2 = (uint64_t *)p2;
-@@ -270,11 +270,11 @@ static void xor_arm64_eor3_4(unsigned long bytes,
- }
- 
- static void xor_arm64_eor3_5(unsigned long bytes,
--	unsigned long * __restrict p1,
--	const unsigned long * __restrict p2,
--	const unsigned long * __restrict p3,
--	const unsigned long * __restrict p4,
--	const unsigned long * __restrict p5)
-+	unsigned long *__restrict p1,
-+	const unsigned long *__restrict p2,
-+	const unsigned long *__restrict p3,
-+	const unsigned long *__restrict p4,
-+	const unsigned long *__restrict p5)
- {
- 	uint64_t *dp1 = (uint64_t *)p1;
- 	uint64_t *dp2 = (uint64_t *)p2;
++static const struct aead_testvec hmac_sha1_aes_ctr_rfc3686_tv_temp[] = {
++	{ /* RFC 3686 Case 1 */
++#ifdef __LITTLE_ENDIAN
++		.key    = "\x08\x00"		/* rta length */
++			  "\x01\x00"		/* rta type */
++#else
++		.key    = "\x00\x08"		/* rta length */
++			  "\x00\x01"		/* rta type */
++#endif
++			  "\x00\x00\x00\x14"	/* enc key length */
++			  "\x00\x00\x00\x00\x00\x00\x00\x00"
++			  "\x00\x00\x00\x00\x00\x00\x00\x00"
++			  "\x00\x00\x00\x00"
++			  "\xae\x68\x52\xf8\x12\x10\x67\xcc"
++			  "\x4b\xf7\xa5\x76\x55\x77\xf3\x9e"
++			  "\x00\x00\x00\x30",
++		.klen	= 8 + 20 + 20,
++		.iv	= "\x00\x00\x00\x00\x00\x00\x00\x00",
++		.assoc	= "\x00\x00\x00\x00\x00\x00\x00\x00",
++		.alen	= 8,
++		.ptext	= "Single block msg",
++		.plen	= 16,
++		.ctext	= "\xe4\x09\x5d\x4f\xb7\xa7\xb3\x79"
++			  "\x2d\x61\x75\xa3\x26\x13\x11\xb8"
++			  "\x70\xdc\x6b\x62\x43\xa1\x2f\x08"
++			  "\xf1\xec\x93\x7d\x69\xb2\x8e\x1f"
++			  "\x0a\x97\x39\x86",
++		.clen	= 16 + 20,
++	}, { /* RFC 3686 Case 2 */
++#ifdef __LITTLE_ENDIAN
++		.key    = "\x08\x00"		/* rta length */
++			  "\x01\x00"		/* rta type */
++#else
++		.key    = "\x00\x08"		/* rta length */
++			  "\x00\x01"		/* rta type */
++#endif
++			  "\x00\x00\x00\x14"	/* enc key length */
++			  "\x20\x21\x22\x23\x24\x25\x26\x27"
++			  "\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f"
++			  "\x30\x31\x32\x33"
++			  "\x7e\x24\x06\x78\x17\xfa\xe0\xd7"
++			  "\x43\xd6\xce\x1f\x32\x53\x91\x63"
++			  "\x00\x6c\xb6\xdb",
++		.klen	= 8 + 20 + 20,
++		.iv	= "\xc0\x54\x3b\x59\xda\x48\xd9\x0b",
++		.assoc	= "\xc0\x54\x3b\x59\xda\x48\xd9\x0b",
++		.alen	= 8,
++		.ptext	= "\x00\x01\x02\x03\x04\x05\x06\x07"
++			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f"
++			  "\x10\x11\x12\x13\x14\x15\x16\x17"
++			  "\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f",
++		.plen	= 32,
++		.ctext	= "\x51\x04\xa1\x06\x16\x8a\x72\xd9"
++			  "\x79\x0d\x41\xee\x8e\xda\xd3\x88"
++			  "\xeb\x2e\x1e\xfc\x46\xda\x57\xc8"
++			  "\xfc\xe6\x30\xdf\x91\x41\xbe\x28"
++			  "\x6b\x7b\x4d\x39\x36\x1c\x12\x5f"
++			  "\x72\xd2\x88\xb2\x26\xa6\xa6\xb5"
++			  "\x1d\x3a\x49\xa6",
++		.clen	= 32 + 20,
++	}, { /* RFC 3686 Case 3 */
++#ifdef __LITTLE_ENDIAN
++		.key    = "\x08\x00"		/* rta length */
++			  "\x01\x00"		/* rta type */
++#else
++		.key    = "\x00\x08"		/* rta length */
++			  "\x00\x01"		/* rta type */
++#endif
++			  "\x00\x00\x00\x14"	/* enc key length */
++			  "\x11\x22\x33\x44\x55\x66\x77\x88"
++			  "\x99\xaa\xbb\xcc\xdd\xee\xff\x11"
++			  "\x22\x33\x44\x55"
++			  "\x76\x91\xbe\x03\x5e\x50\x20\xa8"
++			  "\xac\x6e\x61\x85\x29\xf9\xa0\xdc"
++			  "\x00\xe0\x01\x7b",
++		.klen	= 8 + 20 + 20,
++		.iv	= "\x27\x77\x7f\x3f\x4a\x17\x86\xf0",
++		.assoc	= "\x27\x77\x7f\x3f\x4a\x17\x86\xf0",
++		.alen	= 8,
++		.ptext	= "\x00\x01\x02\x03\x04\x05\x06\x07"
++			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f"
++			  "\x10\x11\x12\x13\x14\x15\x16\x17"
++			  "\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f"
++			  "\x20\x21\x22\x23",
++		.plen	= 36,
++		.ctext	= "\xc1\xcf\x48\xa8\x9f\x2f\xfd\xd9"
++			  "\xcf\x46\x52\xe9\xef\xdb\x72\xd7"
++			  "\x45\x40\xa4\x2b\xde\x6d\x78\x36"
++			  "\xd5\x9a\x5c\xea\xae\xf3\x10\x53"
++			  "\x25\xb2\x07\x2f"
++			  "\x2c\x86\xa0\x90\x8e\xc1\x02\x1d"
++			  "\x51\xdc\xd6\x21\xc7\x30\xcc\x32"
++			  "\x38\x55\x47\x64",
++		.clen	= 36 + 20,
++	}, { /* RFC 3686 Case 4 */
++#ifdef __LITTLE_ENDIAN
++		.key    = "\x08\x00"		/* rta length */
++			  "\x01\x00"		/* rta type */
++#else
++		.key    = "\x00\x08"		/* rta length */
++			  "\x00\x01"		/* rta type */
++#endif
++			  "\x00\x00\x00\x1c"	/* enc key length */
++			  "\x00\x00\x00\x00\x00\x00\x00\x00"
++			  "\x00\x00\x00\x00\x00\x00\x00\x00"
++			  "\x00\x00\x00\x00"
++			  "\x16\xaf\x5b\x14\x5f\xc9\xf5\x79"
++			  "\xc1\x75\xf9\x3e\x3b\xfb\x0e\xed"
++			  "\x86\x3d\x06\xcc\xfd\xb7\x85\x15"
++			  "\x00\x00\x00\x48",
++		.klen	= 8 + 20 + 28,
++		.iv	= "\x36\x73\x3c\x14\x7d\x6d\x93\xcb",
++		.assoc	= "\x36\x73\x3c\x14\x7d\x6d\x93\xcb",
++		.alen	= 8,
++		.ptext	= "Single block msg",
++		.plen	= 16,
++		.ctext	= "\x4b\x55\x38\x4f\xe2\x59\xc9\xc8"
++			  "\x4e\x79\x35\xa0\x03\xcb\xe9\x28"
++			  "\xe9\x4e\x49\xf0\x6b\x8d\x58\x2b"
++			  "\x26\x7f\xf3\xab\xeb\x2f\x74\x2f"
++			  "\x45\x43\x64\xc1",
++		.clen	= 16 + 20,
++	}, { /* RFC 3686 Case 5 */
++#ifdef __LITTLE_ENDIAN
++		.key    = "\x08\x00"		/* rta length */
++			  "\x01\x00"		/* rta type */
++#else
++		.key    = "\x00\x08"		/* rta length */
++			  "\x00\x01"		/* rta type */
++#endif
++			  "\x00\x00\x00\x1c"	/* enc key length */
++			  "\x20\x21\x22\x23\x24\x25\x26\x27"
++			  "\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f"
++			  "\x30\x31\x32\x33"
++			  "\x7c\x5c\xb2\x40\x1b\x3d\xc3\x3c"
++			  "\x19\xe7\x34\x08\x19\xe0\xf6\x9c"
++			  "\x67\x8c\x3d\xb8\xe6\xf6\xa9\x1a"
++			  "\x00\x96\xb0\x3b",
++		.klen	= 8 + 20 + 28,
++		.iv	= "\x02\x0c\x6e\xad\xc2\xcb\x50\x0d",
++		.assoc	= "\x02\x0c\x6e\xad\xc2\xcb\x50\x0d",
++		.alen	= 8,
++		.ptext	= "\x00\x01\x02\x03\x04\x05\x06\x07"
++			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f"
++			  "\x10\x11\x12\x13\x14\x15\x16\x17"
++			  "\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f",
++		.plen	= 32,
++		.ctext	= "\x45\x32\x43\xfc\x60\x9b\x23\x32"
++			  "\x7e\xdf\xaa\xfa\x71\x31\xcd\x9f"
++			  "\x84\x90\x70\x1c\x5a\xd4\xa7\x9c"
++			  "\xfc\x1f\xe0\xff\x42\xf4\xfb\x00"
++			  "\xab\xc4\xfa\x6d\x20\xe1\xce\x72"
++			  "\x0e\x92\x4e\x97\xaa\x4d\x30\x84"
++			  "\xb6\xd8\x4d\x3b",
++		.clen	= 32 + 20,
++	}, { /* RFC 3686 Case 7 */
++#ifdef __LITTLE_ENDIAN
++		.key    = "\x08\x00"		/* rta length */
++			  "\x01\x00"		/* rta type */
++#else
++		.key    = "\x00\x08"		/* rta length */
++			  "\x00\x01"		/* rta type */
++#endif
++			  "\x00\x00\x00\x24"	/* enc key length */
++			  "\x00\x00\x00\x00\x00\x00\x00\x00"
++			  "\x00\x00\x00\x00\x00\x00\x00\x00"
++			  "\x00\x00\x00\x00"
++			  "\x77\x6b\xef\xf2\x85\x1d\xb0\x6f"
++			  "\x4c\x8a\x05\x42\xc8\x69\x6f\x6c"
++			  "\x6a\x81\xaf\x1e\xec\x96\xb4\xd3"
++			  "\x7f\xc1\xd6\x89\xe6\xc1\xc1\x04"
++			  "\x00\x00\x00\x60",
++		.klen	= 8 + 20 + 36,
++		.iv	= "\xdb\x56\x72\xc9\x7a\xa8\xf0\xb2",
++		.assoc	= "\xdb\x56\x72\xc9\x7a\xa8\xf0\xb2",
++		.alen	= 8,
++		.ptext	= "Single block msg",
++		.plen	= 16,
++		.ctext	= "\x14\x5a\xd0\x1d\xbf\x82\x4e\xc7"
++			  "\x56\x08\x63\xdc\x71\xe3\xe0\xc0"
++			  "\x3d\x6c\x23\x27\xda\x0e\x7f\x29"
++			  "\xfd\x8d\x3c\x1b\xf7\x7a\x63\xd9"
++			  "\x7e\x0f\xe9\xf6",
++		.clen	= 16 + 20,
++	}, { /* RFC 3686 Case 8 */
++#ifdef __LITTLE_ENDIAN
++		.key    = "\x08\x00"		/* rta length */
++			  "\x01\x00"		/* rta type */
++#else
++		.key    = "\x00\x08"		/* rta length */
++			  "\x00\x01"		/* rta type */
++#endif
++			  "\x00\x00\x00\x24"	/* enc key length */
++			  "\x20\x21\x22\x23\x24\x25\x26\x27"
++			  "\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f"
++			  "\x30\x31\x32\x33"
++			  "\xf6\xd6\x6d\x6b\xd5\x2d\x59\xbb"
++			  "\x07\x96\x36\x58\x79\xef\xf8\x86"
++			  "\xc6\x6d\xd5\x1a\x5b\x6a\x99\x74"
++			  "\x4b\x50\x59\x0c\x87\xa2\x38\x84"
++			  "\x00\xfa\xac\x24",
++		.klen	= 8 + 20 + 36,
++		.iv	= "\xc1\x58\x5e\xf1\x5a\x43\xd8\x75",
++		.assoc	= "\xc1\x58\x5e\xf1\x5a\x43\xd8\x75",
++		.alen	= 8,
++		.ptext	= "\x00\x01\x02\x03\x04\x05\x06\x07"
++			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f"
++			  "\x10\x11\x12\x13\x14\x15\x16\x17"
++			  "\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f",
++		.plen	= 32,
++		.ctext	= "\xf0\x5e\x23\x1b\x38\x94\x61\x2c"
++			  "\x49\xee\x00\x0b\x80\x4e\xb2\xa9"
++			  "\xb8\x30\x6b\x50\x8f\x83\x9d\x6a"
++			  "\x55\x30\x83\x1d\x93\x44\xaf\x1c"
++			  "\xe7\xee\x22\xa4\xdd\xbf\x5d\x44"
++			  "\x3b\x43\x1c\x69\x55\x11\xd5\xad"
++			  "\x14\x5f\x44\xa6",
++		.clen	= 32 + 20,
++	},
++};
++
+ static const struct aead_testvec hmac_sha1_ecb_cipher_null_tv_temp[] = {
+ 	{ /* Input data from RFC 2410 Case 1 */
+ #ifdef __LITTLE_ENDIAN
 -- 
-2.43.0
+2.47.3
 
 
