@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56F1DFD0048
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:19:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EFBAFD0048
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:20:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lDGE4CMoAvEZhLbMs7isfXbJFpJExf2lQjQvJwZvxw4=; b=IE7qQdnbVcgxs/5+Xd3BTVtsyL
-	ux23xv4yZfYbObH5q7rFNu+qsQx+2T7xVPYIKZF6mb2DXNJYxpQA5c/hd91QDIU6oeIlRlA18qRJ8
-	Brcep5fvNyGUSKCXfLf9t9fMbZ04oBAq5luYcH3ScBd8/gO2+aQzBt9cz/PW02t/zhqxPsk6LvL4J
-	bwGlb0d/gdDK12ClDcQjMjNJ0neklc3PJeTzM2nK+FB1xbu3lklMRczJJh5+cqtlWATJg7KSbqH+k
-	AOkyXU4fw65rNJCim82raDKP7XSa27ukyASwMQMA17/n+kS3F0kw5Ve/HnRAjxvRfHdGQo1eOPtMM
-	Yz+Wj6JA==;
+	bh=LMxNdYDmwAGCpFmVUfa8xGeNFiFObbkj71UXXnlsh2s=; b=kqs+hY7wS0SPpS7+O53vc0lNGk
+	M1bhbNZD+TO1daA79mWxK6wQg19SgNZLIteQ08vgOat8QvUlKMedb41HgTUiJ/EKA84ixEXmhbiDM
+	LZRyz6ntTzlLl7CuDYzSDg/kYzJuLx2q0AyoeRSm9+2PmwI48u80sXuofvuULQ82hOD61itNDJ44C
+	l9gBoPvQwkcRtaWe7CSqc4zfwRbKMNd3471CUQLbfS+dWjJ9Y/OyssihL/59zL0RWHLx4Nej18nnw
+	lhFcyZyUQLyzJ/xz2xj1VaTECh75bzaFhSv80Y0Gk7hLJlP36uSpg8jW7vVMbk/+HhYwgeBoDqmDx
+	fpPMfldg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVTG-0000000ATqU-1dYX;
-	Sun, 01 Mar 2026 01:19:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vwVTO-0000000ATzP-3MNz;
+	Sun, 01 Mar 2026 01:19:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVT2-0000000ATZX-0xZQ
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 01:19:43 +0000
+	id 1vwVTL-0000000ATvQ-1enn;
+	Sun, 01 Mar 2026 01:19:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B61A040164;
-	Sun,  1 Mar 2026 01:19:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 080C4C19421;
-	Sun,  1 Mar 2026 01:19:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B5AF860008;
+	Sun,  1 Mar 2026 01:19:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 933D9C19424;
+	Sun,  1 Mar 2026 01:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772327971;
-	bh=2M9vkXXL3bQw/LBh+BIy1+CbLyIf6zojcnCf0sXqJQU=;
+	s=k20201202; t=1772327990;
+	bh=8HWlHUoKFmh3jh8W3WSGJzHOoxrEt60poeRlUEbtgv8=;
 	h=From:To:Cc:Subject:Date:From;
-	b=vCgmXqeN81XhcUvFAPAZq700xMMWriIE8QqCyq4o03vNo4Wg7XE+Kb1msMIUrOt4p
-	 wGzU9cK8M2pCIIsVkiTEAFFIsH9EiFz/BCz0b0XYP0+j06HXQdBL3K1lobEGmpA2as
-	 tVkY124pYgeLUxIRNOHvMusxbhEvXBvmKcL5YQSXDkcrOgzSkCwOHInXk2FeAI34gg
-	 wlVs4cxEp8yFGjMqNYcrsO9kQWos8b/x5KFacUQW4seFdAC6kJtvQ2ioHH6sbBaQzP
-	 FiA8Jfay6jvUFna447R9GxPIYaE9Zi2RoBwZhBRGZ83XobuYaiVH+7huK9/sYdx6Fd
-	 /kyEkA603U95g==
+	b=fCFfuGnv80H9u02Qyapooka2u7VN+CzhNkMoK0dlh7ZTOXZclsRrnYYxZoQtNmZWv
+	 635wBqFr/Jb4Jtg2BGudedbeCpmaxRRQDxRxVwXBBQPe4PqYzJf51ukq2tLUU9LtHr
+	 sNWINNXs59Pbs6BMkaANZrrY81Qdu27Cr+A/9eOMYGNY8rYVeUPAueQTpyXSl/7YiZ
+	 C/c1ZA2QzrjCjtWeyLeuS6KUtFr2VMJuIpHDbsXj0tXrwSJ9ZVhEGPZgI13uk3c+0t
+	 VC55zcVM3Dx9fGqTABgpP2LyfhKRi/kwYDTGq9P14t04up0Wcpvt4UKwaAzHHiImcy
+	 MGWQiOMDWJZ6Q==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	leitao@debian.org
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Will Deacon <will@kernel.org>,
+	benjamin.gaignard@collabora.com
+Cc: Jianfeng Liu <liujianfeng1994@gmail.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
+	linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: FAILED: Patch "arm64: Disable branch profiling for all arm64 code" failed to apply to 6.12-stable tree
-Date: Sat, 28 Feb 2026 20:19:29 -0500
-Message-ID: <20260301011929.1674573-1-sashal@kernel.org>
+Subject: FAILED: Patch "media: verisilicon: AV1: Set IDR flag for intra_only frame type" failed to apply to 6.12-stable tree
+Date: Sat, 28 Feb 2026 20:19:48 -0500
+Message-ID: <20260301011948.1675062-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_171932_347458_62916FCA 
-X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,47 +82,39 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From f22c81bebf8bda6e54dc132df0ed54f6bf8756f9 Mon Sep 17 00:00:00 2001
-From: Breno Leitao <leitao@debian.org>
-Date: Tue, 6 Jan 2026 02:16:35 -0800
-Subject: [PATCH] arm64: Disable branch profiling for all arm64 code
+From 1c1b79f40ee4444fa1ac96079751608b724c6b2b Mon Sep 17 00:00:00 2001
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Date: Thu, 8 Jan 2026 14:29:46 +0100
+Subject: [PATCH] media: verisilicon: AV1: Set IDR flag for intra_only frame
+ type
 
-The arm64 kernel doesn't boot with annotated branches
-(PROFILE_ANNOTATED_BRANCHES) enabled and CONFIG_DEBUG_VIRTUAL together.
+Intra_only frame could be considered as a key frame so Instantaneous
+Decoding Refresh (IDR) flag must be set of the both case and not only
+for key frames.
 
-Bisecting it, I found that disabling branch profiling in arch/arm64/mm
-solved the problem. Narrowing down a bit further, I found that
-physaddr.c is the file that needs to have branch profiling disabled to
-get the machine to boot.
-
-I suspect that it might invoke some ftrace helper very early in the boot
-process and ftrace is still not enabled(!?).
-
-Rather than playing whack-a-mole with individual files, disable branch
-profiling for the entire arch/arm64 tree, similar to what x86 already
-does in arch/x86/Kbuild.
-
+Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Reported-by: Jianfeng Liu <liujianfeng1994@gmail.com>
+Fixes: 727a400686a2c ("media: verisilicon: Add Rockchip AV1 decoder")
 Cc: stable@vger.kernel.org
-Signed-off-by: Breno Leitao <leitao@debian.org>
-Acked-by: Mark Rutland <mark.rutland@arm.com>
-Signed-off-by: Will Deacon <will@kernel.org>
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Signed-off-by: Hans Verkuil <hverkuil+cisco@kernel.org>
 ---
- arch/arm64/Kbuild | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/Kbuild b/arch/arm64/Kbuild
-index 5bfbf7d79c99b..d876bc0e54211 100644
---- a/arch/arm64/Kbuild
-+++ b/arch/arm64/Kbuild
-@@ -1,4 +1,8 @@
- # SPDX-License-Identifier: GPL-2.0-only
-+
-+# Branch profiling isn't noinstr-safe
-+subdir-ccflags-$(CONFIG_TRACE_BRANCH_PROFILING) += -DDISABLE_BRANCH_PROFILING
-+
- obj-y			+= kernel/ mm/ net/
- obj-$(CONFIG_KVM)	+= kvm/
- obj-$(CONFIG_XEN)	+= xen/
+diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+index f52b8208e6b93..500e94bcb0293 100644
+--- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
++++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+@@ -2018,7 +2018,7 @@ static void rockchip_vpu981_av1_dec_set_parameters(struct hantro_ctx *ctx)
+ 			 !!(ctrls->frame->quantization.flags
+ 			    & V4L2_AV1_QUANTIZATION_FLAG_DELTA_Q_PRESENT));
+ 
+-	hantro_reg_write(vpu, &av1_idr_pic_e, !ctrls->frame->frame_type);
++	hantro_reg_write(vpu, &av1_idr_pic_e, IS_INTRA(ctrls->frame->frame_type));
+ 	hantro_reg_write(vpu, &av1_quant_base_qindex, ctrls->frame->quantization.base_q_idx);
+ 	hantro_reg_write(vpu, &av1_bit_depth_y_minus8, ctx->bit_depth - 8);
+ 	hantro_reg_write(vpu, &av1_bit_depth_c_minus8, ctx->bit_depth - 8);
 -- 
 2.51.0
 
