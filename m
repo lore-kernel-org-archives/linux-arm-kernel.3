@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 039ABFD004A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:48:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A82DBFD0048
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:48:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zMsoIv7HMcotth8MKd+AoQsyZK7r75/2a69IjG325bs=; b=lciW/f0TbLQo9xdUfuHKOWkl6O
-	wU0t0M+pZkdkErpP/DZMdUaNZxwuIRIdUFcZQXpHo1brmd6oykYf8XPsbE1WTU4MQija0zE7a4S6T
-	CWqszOivuRV6U84SB9kqWlMXMKUJbSazXwlQ8lNk4adbXeQysaTq/9wuNGj29oxORFE+eCwtDk4Xl
-	Zg3MI4bk62Sza+xT7M3IJSRpymeNx2eLmRntgeGSyX5LSVwwc0LZb0xapwry9gW0t64ygGj9l0Hxb
-	LTpFvYdUNR+NgsLb8jc3o5FBPtQNWUsblv3jetJp4ry9PWgajooAvVtEgKdhPegN9CjVa9YOP5JX6
-	jzyJmHpw==;
+	bh=JleOjiTgCj0mggOej+8j5CAkFXuCBc6Z/GYo/Gd4irU=; b=i+3ZkCP5exn/IGjyF4IsSsBcz+
+	oKBLDqHHC57Az74GAjy5zxmMxaTt43E7QnrSshSlGM+eAEbeRggSWag3Y2nKtJOa0sBLmMmErAr+V
+	JsK9W7tL9znKxSqUAHtiN3OABVrug0RqU29fz41dZ1cLch+VHqjAEmutZ8kxEgqAH5kgf2kt/moDh
+	EVN1JoBl+dRek3JayVY5xzubKQCoeayP1aXXKmjQysLLtbb5XEBxtJlkD5NnuamQH6Ef8S7eYyUwK
+	g9GiuCLpiugR5OMw/CoA7PyEYwoNXwFVcAU6a85WjtJ1vz273ATC4W+HL9UQb5m4ut5eB6NDyV0tE
+	jAWrfyXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVus-0000000AeTN-2pDH;
-	Sun, 01 Mar 2026 01:48:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vwVvA-0000000AeaZ-2pNI;
+	Sun, 01 Mar 2026 01:48:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVuq-0000000AeSB-11FY
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 01:48:17 +0000
+	id 1vwVv7-0000000AeYh-00Fm;
+	Sun, 01 Mar 2026 01:48:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CB37A4030B;
-	Sun,  1 Mar 2026 01:48:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C8CBC19424;
-	Sun,  1 Mar 2026 01:48:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7939B432D0;
+	Sun,  1 Mar 2026 01:48:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96AA8C19421;
+	Sun,  1 Mar 2026 01:48:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772329695;
-	bh=aNK4COqloVFBsSCNXaDcc11THSoStO5TSc4ZkgP4WDM=;
+	s=k20201202; t=1772329712;
+	bh=GnqiyrPx6H54np56kyfyEaN9ZySH9ie2NjzrGMOZrMw=;
 	h=From:To:Cc:Subject:Date:From;
-	b=f1uPO2c75xs/J0Go4KM378KVwWKWyNPteA87j31VaEFq9GTfRDs+0gKD5+zjLWeAX
-	 OEwkBW/RoH1jhZesC0qGQVNLQ3ImjunbacDv0Ht+QySPpdU+qwI5koR+q57ajan9kw
-	 gDnRz7jsgBGcLNIxE/ijQuBG94M79tggX93h5Y/Yf29x/h/n8tzBYDGTHUcFo9Ohyr
-	 8gpALXMOnetzkhSiCd7gMPGfv21ZmBMvF2UxLPeNgZndVc6w/BDtCkeAs3O0MtYTaz
-	 vTbzQB/O+9dU2gUlRWWEEunntGYAPeBC2CQBWovSff0icIbLU1NAcsgDJTuOI4VTA/
-	 oDtzfZ5nU424w==
+	b=vGp5B7Jka3rukB9f2fURsBdnxL0Mlek7rZ/t0Xby71h/8FpHxDy/mDfUETCMNNclA
+	 nrjVHU51VY5DgewqRhn3XJJJ2R1cq9aQE6LkeCL/l3Rg899NgYZM5MpqwG0NpD4hb0
+	 FTh5d/Ft3bbNMjMiwOuADOLfgTaksiETqMYMxzW0GqkxgZ8Dg5izZHO88TlYCvg0VQ
+	 b7Kjcsegg+TiyfErc/KmW0XA3HdTejkwQihB+ciVrbhXXJugAZLE0xtznUuiLOTreK
+	 LW8fM8pc0J+ulCe3E9XtSBKtobmRR6U0JAi4XobC342G+IaWXuLjBpJpJuagnY+dbI
+	 zY1MOi/uJYG8g==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	maz@kernel.org
-Cc: Hyesoo Yu <hyesoo.yu@samsung.com>,
-	Quentin Perret <qperret@google.com>,
-	Will Deacon <will@kernel.org>,
+	johan@kernel.org
+Cc: Yong Wu <yong.wu@mediatek.com>,
+	Miaoqian Lin <linmq006@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-mediatek@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: FAILED: Patch "arm64: Force the use of CNTVCT_EL0 in __delay()" failed to apply to 6.1-stable tree
-Date: Sat, 28 Feb 2026 20:48:13 -0500
-Message-ID: <20260301014813.1712364-1-sashal@kernel.org>
+Subject: FAILED: Patch "memory: mtk-smi: fix device leak on larb probe" failed to apply to 5.15-stable tree
+Date: Sat, 28 Feb 2026 20:48:30 -0500
+Message-ID: <20260301014830.1712707-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_174816_327648_3805C1EB 
-X-CRM114-Status: GOOD (  20.55  )
+X-CRM114-CacheID: sfid-20260228_174833_584080_BD71A660 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,7 +74,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The patch below does not apply to the 6.1-stable tree.
+The patch below does not apply to the 5.15-stable tree.
 If someone wants it applied there, or to any other stable or longterm
 tree, then please email the backport, including the original git commit
 id to <stable@vger.kernel.org>.
@@ -84,86 +84,40 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From 29cc0f3aa7c64d3b3cb9d94c0a0984ba6717bf72 Mon Sep 17 00:00:00 2001
-From: Marc Zyngier <maz@kernel.org>
-Date: Fri, 13 Feb 2026 14:16:19 +0000
-Subject: [PATCH] arm64: Force the use of CNTVCT_EL0 in __delay()
+From 9dae65913b32d05dbc8ff4b8a6bf04a0e49a8eb6 Mon Sep 17 00:00:00 2001
+From: Johan Hovold <johan@kernel.org>
+Date: Fri, 21 Nov 2025 17:46:23 +0100
+Subject: [PATCH] memory: mtk-smi: fix device leak on larb probe
 
-Quentin forwards a report from Hyesoo Yu, describing an interesting
-problem with the use of WFxT in __delay() when a vcpu is loaded and
-that KVM is *not* in VHE mode (either nVHE or hVHE).
+Make sure to drop the reference taken when looking up the SMI device
+during larb probe on late probe failure (e.g. probe deferral) and on
+driver unbind.
 
-In this case, CNTVOFF_EL2 is set to a non-zero value to reflect the
-state of the guest virtual counter. At the same time, __delay() is
-using get_cycles() to read the counter value, which is indirected to
-reading CNTPCT_EL0.
-
-The core of the issue is that WFxT is using the *virtual* counter,
-while the kernel is using the physical counter, and that the offset
-introduces a really bad discrepancy between the two.
-
-Fix this by forcing the use of CNTVCT_EL0, making __delay() consistent
-irrespective of the value of CNTVOFF_EL2.
-
-Reported-by: Hyesoo Yu <hyesoo.yu@samsung.com>
-Reported-by: Quentin Perret <qperret@google.com>
-Reviewed-by: Quentin Perret <qperret@google.com>
-Fixes: 7d26b0516a0d ("arm64: Use WFxT for __delay() when possible")
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Link: https://lore.kernel.org/r/ktosachvft2cgqd5qkukn275ugmhy6xrhxur4zqpdxlfr3qh5h@o3zrfnsq63od
-Cc: stable@vger.kernel.org
-Signed-off-by: Will Deacon <will@kernel.org>
+Fixes: cc8bbe1a8312 ("memory: mediatek: Add SMI driver")
+Fixes: 038ae37c510f ("memory: mtk-smi: add missing put_device() call in mtk_smi_device_link_common")
+Cc: stable@vger.kernel.org	# 4.6: 038ae37c510f
+Cc: stable@vger.kernel.org	# 4.6
+Cc: Yong Wu <yong.wu@mediatek.com>
+Cc: Miaoqian Lin <linmq006@gmail.com>
+Signed-off-by: Johan Hovold <johan@kernel.org>
+Link: https://patch.msgid.link/20251121164624.13685-3-johan@kernel.org
+Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
 ---
- arch/arm64/lib/delay.c | 19 +++++++++++++++----
- 1 file changed, 15 insertions(+), 4 deletions(-)
+ drivers/memory/mtk-smi.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/lib/delay.c b/arch/arm64/lib/delay.c
-index cb2062e7e2340..d02341303899e 100644
---- a/arch/arm64/lib/delay.c
-+++ b/arch/arm64/lib/delay.c
-@@ -23,9 +23,20 @@ static inline unsigned long xloops_to_cycles(unsigned long xloops)
- 	return (xloops * loops_per_jiffy * HZ) >> 32;
+diff --git a/drivers/memory/mtk-smi.c b/drivers/memory/mtk-smi.c
+index dd6150d200e89..3609bfd3c64be 100644
+--- a/drivers/memory/mtk-smi.c
++++ b/drivers/memory/mtk-smi.c
+@@ -685,6 +685,7 @@ static void mtk_smi_larb_remove(struct platform_device *pdev)
+ 	device_link_remove(&pdev->dev, larb->smi_common_dev);
+ 	pm_runtime_disable(&pdev->dev);
+ 	component_del(&pdev->dev, &mtk_smi_larb_component_ops);
++	put_device(larb->smi_common_dev);
  }
  
-+/*
-+ * Force the use of CNTVCT_EL0 in order to have the same base as WFxT.
-+ * This avoids some annoying issues when CNTVOFF_EL2 is not reset 0 on a
-+ * KVM host running at EL1 until we do a vcpu_put() on the vcpu. When
-+ * running at EL2, the effective offset is always 0.
-+ *
-+ * Note that userspace cannot change the offset behind our back either,
-+ * as the vcpu mutex is held as long as KVM_RUN is in progress.
-+ */
-+#define __delay_cycles()	__arch_counter_get_cntvct_stable()
-+
- void __delay(unsigned long cycles)
- {
--	cycles_t start = get_cycles();
-+	cycles_t start = __delay_cycles();
- 
- 	if (alternative_has_cap_unlikely(ARM64_HAS_WFXT)) {
- 		u64 end = start + cycles;
-@@ -35,17 +46,17 @@ void __delay(unsigned long cycles)
- 		 * early, use a WFET loop to complete the delay.
- 		 */
- 		wfit(end);
--		while ((get_cycles() - start) < cycles)
-+		while ((__delay_cycles() - start) < cycles)
- 			wfet(end);
- 	} else 	if (arch_timer_evtstrm_available()) {
- 		const cycles_t timer_evt_period =
- 			USECS_TO_CYCLES(ARCH_TIMER_EVT_STREAM_PERIOD_US);
- 
--		while ((get_cycles() - start + timer_evt_period) < cycles)
-+		while ((__delay_cycles() - start + timer_evt_period) < cycles)
- 			wfe();
- 	}
- 
--	while ((get_cycles() - start) < cycles)
-+	while ((__delay_cycles() - start) < cycles)
- 		cpu_relax();
- }
- EXPORT_SYMBOL(__delay);
+ static int __maybe_unused mtk_smi_larb_resume(struct device *dev)
 -- 
 2.51.0
 
