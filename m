@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE377FD004B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:25:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD3D6FD004D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:25:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HZHfZ0k3sUp+fzrBgUdAuQ8wTcJyLyg7wqTlLXItoAc=; b=4Lo3z+FLyvq3gBFfWDIHvmd8Cn
-	Mv3hse0tF38+jHFpWUVmWuqkFYqcN13wlRte2+hQg/po6chtLWdbgIQJKAHMyi4GiBp/eb+e+WZQT
-	QWeI7YFVeRj6X4gvYXBuY2wyy5RQ/7Jh/k5/5FG9kpEJNe00zJQPzTcrb4XP7v5S3rbjjOWM/mm4Q
-	S6GzibEDUXBrrgn3TvKSGqD3Pw0ouTl4hmTBnhJ+T9T99P7cpUq2uzWMtZPBZSoQwWs5u//8rPa+T
-	gyGY25Ej1fNSbUOGsFFoCYWksqkKpsodkYTp2NMdkShgLHfTk88eI/2se7ZqQKe9ow6PzsmQprwKN
-	sppps0nA==;
+	bh=abgdRSPOUAiP+dUrjW+VKI3hQmC9eG+fkEUZiQ5gJR0=; b=cyOnE9iWYtDGfrJV6z6zYvk6re
+	4QstfShaSJegrHh/p/RdYLPrlabsa6Otk2uY5YMgSr6vbcfk/TBvui1sBkuvqZdseKNjqDTR/7kM2
+	Upi/9m0irwxxiP4YwRKGzI0mQ5N9hKnZztEUmF9525KSnv6rUrR1RBm1nLvYYRk+BFgA1P3m0uzGH
+	oIJNYjzbtEE+kg+rmhPay0WD+zhhCv6Dhm75dsi+27CX7V0MNOFz8r6yPsDDT9bwwCWz4tYAe6j9q
+	3ksp/y7Ir7R4dey9xPgUukzmm3qWozeBvVnDUBu1XwiE/kkKHJ9BkzLdce/OAaRb/2QY+pbIGAI67
+	GP2rf15w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVYs-0000000AWIl-42gH;
-	Sun, 01 Mar 2026 01:25:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vwVZ7-0000000AWRo-1B4u;
+	Sun, 01 Mar 2026 01:25:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVYq-0000000AWHf-2heO
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 01:25:33 +0000
+	id 1vwVZ5-0000000AWQr-2oNQ;
+	Sun, 01 Mar 2026 01:25:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5983C4022A;
-	Sun,  1 Mar 2026 01:25:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 933BBC19421;
-	Sun,  1 Mar 2026 01:25:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1D6CA60008;
+	Sun,  1 Mar 2026 01:25:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0F79C19421;
+	Sun,  1 Mar 2026 01:25:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772328332;
-	bh=YoQb1GfTmltnr+4AbRnLrCMrQ9CRaLDWHMX9phNRAsQ=;
+	s=k20201202; t=1772328346;
+	bh=jHUj4j0OlZX3qQ+irl9wtqpBEGMbY23kRfObPdjCQiI=;
 	h=From:To:Cc:Subject:Date:From;
-	b=IBJ4+u8rObU8JfnHuWh7rVtqrnNTcfmopvl6t4/Z+ED65ihBV0Z+t9i2iYdZoFL5e
-	 z0h8WAt36wojiNDKZoGOiEdFRs0rhGbZo5BeJVPEB5WHN8Qh2n9Hf2R72HgspKQ1is
-	 PS3ojAuE1hDs6+Kd8f/TxiRAUGlNWPUVo/KpXqbycWbsPDfzOoqp52dmfd2LaRJoSh
-	 u01zqWVZ9IWek9T+aA3tvMzHpWNV4dt8Q5EjONwzo/0FR5B5qXbsdG//MF1FY4hFL0
-	 xo50ywH+rE/n9ecfnSZHAaPUk2EsuB43iduHflB7y2W0ECtvh7SK2YGilYiIVAaJ0y
-	 9aP6FamJpNNxw==
+	b=LMuhY1ySRjCmDIEEH3GXIdzw4QlNqv+31NjwA/SwPlN5JUwMTjsnqgd/W7eXOI5Db
+	 lCFhrNzIdGjOSbJu80uupmfSHmhg2qFzbbMfUsxgxGyJ1PiWRRWRV3zWen4McoTu0t
+	 P2ANUWluujN7qbC07QXw25pGS/YPwAmH+4KY5WbyIpG0IrJRNYtFoVMS+l6a7t0SJi
+	 2epINfZMlBqz0JP4M/B3cVd7v4rn144vBKRO30ay6FqfcvPucQvqV4NWWgig3zLRa/
+	 aO82U8OMdEvYTYgN7cM+/leVLO4cV4dFjiarSvgmqcX3Qcwt6HOpzWH2qz0L9izxmK
+	 aym1x1cGSHjdQ==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	robin.murphy@arm.com
-Cc: Ilkka Koskinen <ilkka@os.amperecomputing.com>,
-	Will Deacon <will@kernel.org>,
+	thomasyen@google.com
+Cc: Peter Wang <peter.wang@mediatek.com>,
+	Bart Van Assche <bvanassche@acm.org>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	linux-scsi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org
-Subject: FAILED: Patch "perf/arm-cmn: Reject unsupported hardware configurations" failed to apply to 6.12-stable tree
-Date: Sat, 28 Feb 2026 20:25:30 -0500
-Message-ID: <20260301012530.1682624-1-sashal@kernel.org>
+	linux-mediatek@lists.infradead.org
+Subject: FAILED: Patch "scsi: ufs: core: Flush exception handling work when RPM level is zero" failed to apply to 6.12-stable tree
+Date: Sat, 28 Feb 2026 20:25:44 -0500
+Message-ID: <20260301012544.1682971-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_172532_723130_76156D38 
-X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,73 +82,50 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From 36c0de02575ce59dfd879eb4ef63d53a68bbf9ce Mon Sep 17 00:00:00 2001
-From: Robin Murphy <robin.murphy@arm.com>
-Date: Tue, 3 Feb 2026 14:07:29 +0000
-Subject: [PATCH] perf/arm-cmn: Reject unsupported hardware configurations
+From f8ef441811ec413717f188f63d99182f30f0f08e Mon Sep 17 00:00:00 2001
+From: Thomas Yen <thomasyen@google.com>
+Date: Fri, 30 Jan 2026 00:51:51 +0800
+Subject: [PATCH] scsi: ufs: core: Flush exception handling work when RPM level
+ is zero
 
-So far we've been fairly lax about accepting both unknown CMN models
-(at least with a warning), and unknown revisions of those which we
-do know, as although things do frequently change between releases,
-typically enough remains the same to be somewhat useful for at least
-some basic bringup checks. However, we also make assumptions of the
-maximum supported sizes and numbers of things in various places, and
-there's no guarantee that something new might not be bigger and lead
-to nasty array overflows. Make sure we only try to run on things that
-actually match our assumptions and so will not risk memory corruption.
+Ensure that the exception event handling work is explicitly flushed during
+suspend when the runtime power management level is set to UFS_PM_LVL_0.
 
-We have at least always failed on completely unknown node types, so
-update that error message for clarity and consistency too.
+When the RPM level is zero, the device power mode and link state both
+remain active. Previously, the UFS core driver bypassed flushing exception
+event handling jobs in this configuration. This created a race condition
+where the driver could attempt to access the host controller to handle an
+exception after the system had already entered a deep power-down state,
+resulting in a system crash.
 
-Cc: stable@vger.kernel.org
-Fixes: 7819e05a0dce ("perf/arm-cmn: Revamp model detection")
-Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
-Signed-off-by: Will Deacon <will@kernel.org>
+Explicitly flush this work and disable auto BKOPs before the suspend
+callback proceeds. This guarantees that pending exception tasks complete
+and prevents illegal hardware access during the power-down sequence.
+
+Fixes: 57d104c153d3 ("ufs: add UFS power management support")
+Signed-off-by: Thomas Yen <thomasyen@google.com>
+Cc: Stable Tree <stable@vger.kernel.org>
+Reviewed-by: Peter Wang <peter.wang@mediatek.com>
+Reviewed-by: Bart Van Assche <bvanassche@acm.org>
+Link: https://patch.msgid.link/20260129165156.956601-1-thomasyen@google.com
+Signed-off-by: Martin K. Petersen <martin.petersen@oracle.com>
 ---
- drivers/perf/arm-cmn.c | 15 ++++++++++++++-
- 1 file changed, 14 insertions(+), 1 deletion(-)
+ drivers/ufs/core/ufshcd.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
-index 651edd73bfcb1..4fbafc4b79843 100644
---- a/drivers/perf/arm-cmn.c
-+++ b/drivers/perf/arm-cmn.c
-@@ -2422,6 +2422,15 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
- 			arm_cmn_init_node_info(cmn, reg & CMN_CHILD_NODE_ADDR, dn);
- 			dn->portid_bits = xp->portid_bits;
- 			dn->deviceid_bits = xp->deviceid_bits;
-+			/*
-+			 * Logical IDs are assigned from 0 per node type, so as
-+			 * soon as we see one bigger than expected, we can assume
-+			 * there are more than we can cope with.
-+			 */
-+			if (dn->logid > CMN_MAX_NODES_PER_EVENT) {
-+				dev_err(cmn->dev, "Node ID invalid for supported CMN versions: %d\n", dn->logid);
-+				return -ENODEV;
-+			}
+diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
+index 66223d2908532..8349fe2090db6 100644
+--- a/drivers/ufs/core/ufshcd.c
++++ b/drivers/ufs/core/ufshcd.c
+@@ -9998,6 +9998,8 @@ static int __ufshcd_wl_suspend(struct ufs_hba *hba, enum ufs_pm_op pm_op)
  
- 			switch (dn->type) {
- 			case CMN_TYPE_DTC:
-@@ -2471,7 +2480,7 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
- 				break;
- 			/* Something has gone horribly wrong */
- 			default:
--				dev_err(cmn->dev, "invalid device node type: 0x%x\n", dn->type);
-+				dev_err(cmn->dev, "Device node type invalid for supported CMN versions: 0x%x\n", dn->type);
- 				return -ENODEV;
- 			}
- 		}
-@@ -2499,6 +2508,10 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
- 		cmn->mesh_x = cmn->num_xps;
- 	cmn->mesh_y = cmn->num_xps / cmn->mesh_x;
+ 	if (req_dev_pwr_mode == UFS_ACTIVE_PWR_MODE &&
+ 			req_link_state == UIC_LINK_ACTIVE_STATE) {
++		ufshcd_disable_auto_bkops(hba);
++		flush_work(&hba->eeh_work);
+ 		goto vops_suspend;
+ 	}
  
-+	if (max(cmn->mesh_x, cmn->mesh_y) > CMN_MAX_DIMENSION) {
-+		dev_err(cmn->dev, "Mesh size invalid for supported CMN versions: %dx%d\n", cmn->mesh_x, cmn->mesh_y);
-+		return -ENODEV;
-+	}
- 	/* 1x1 config plays havoc with XP event encodings */
- 	if (cmn->num_xps == 1)
- 		dev_warn(cmn->dev, "1x1 config not fully supported, translate XP events manually\n");
 -- 
 2.51.0
 
