@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC85FD0048
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:25:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE377FD004B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:25:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=z5Z/a/T0+e/IFnKf/cE2Bxr12uYVXFHSP2nQekfdV0k=; b=GfLmt1FOFOAIeiidnJByO4C1Vd
-	V3L/MmEqbts+/m3SVohOz3rBIX85d7/vQwbNpMutBgBuFHbagpx4P6ROCZcqK3Sw9B7I+vjr/zS2o
-	rqV7aGJwDNLaGDARXSO8PV1iPnk9VwK/9gGE9vU7XLFHNdcgXfPbccxw1JPVj+/h0Ymo5s7rqG8rC
-	yyaPRy09WjxXOTX0ICA3G8oLgsPqaQ1pIWMUgK6KXqHEnzaQX/GK24Kd+jWdKCMbpATedieqFexay
-	YOtlJY6oAvJ9BWCzBwtdhyDuJZNJH85Aj2WlGwuDniCn2LcgIMY0SDfOxmH9ZNFlqXSFhEmleEW9q
-	rz9qkf5w==;
+	bh=HZHfZ0k3sUp+fzrBgUdAuQ8wTcJyLyg7wqTlLXItoAc=; b=4Lo3z+FLyvq3gBFfWDIHvmd8Cn
+	Mv3hse0tF38+jHFpWUVmWuqkFYqcN13wlRte2+hQg/po6chtLWdbgIQJKAHMyi4GiBp/eb+e+WZQT
+	QWeI7YFVeRj6X4gvYXBuY2wyy5RQ/7Jh/k5/5FG9kpEJNe00zJQPzTcrb4XP7v5S3rbjjOWM/mm4Q
+	S6GzibEDUXBrrgn3TvKSGqD3Pw0ouTl4hmTBnhJ+T9T99P7cpUq2uzWMtZPBZSoQwWs5u//8rPa+T
+	gyGY25Ej1fNSbUOGsFFoCYWksqkKpsodkYTp2NMdkShgLHfTk88eI/2se7ZqQKe9ow6PzsmQprwKN
+	sppps0nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVYj-0000000AWDp-2i3X;
-	Sun, 01 Mar 2026 01:25:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vwVYs-0000000AWIl-42gH;
+	Sun, 01 Mar 2026 01:25:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVYh-0000000AWCd-28Mf
+	id 1vwVYq-0000000AWHf-2heO
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 01:25:23 +0000
+	Sun, 01 Mar 2026 01:25:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F0469600AD;
-	Sun,  1 Mar 2026 01:25:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2502C19424;
-	Sun,  1 Mar 2026 01:25:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5983C4022A;
+	Sun,  1 Mar 2026 01:25:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 933BBC19421;
+	Sun,  1 Mar 2026 01:25:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772328322;
-	bh=p1l63WeXc4D9MuN7I3Wqx11wL6kIqX8nQK0itJKGcQI=;
+	s=k20201202; t=1772328332;
+	bh=YoQb1GfTmltnr+4AbRnLrCMrQ9CRaLDWHMX9phNRAsQ=;
 	h=From:To:Cc:Subject:Date:From;
-	b=EAnOB9an4Rt20OfuYaBR6+H2e4RHgXdlWqzo7kVyTBDu8aAyhQUAI8Onb1oOwet2i
-	 Wrmgybr0V5C4prR/Qjm70bp3kb9hQe2h540dCt5+9AodzysIDLLMoHL8QwgvyRBqJI
-	 PFyvIhSMSFfx3JMcxgB83FW33+UgPDRIjTL2BzAX5k/WNN2G4g5n78UXi7pNxt5mxL
-	 TBfM5DmmZTwF4I9TN6qVUZLcbmuW/iTQdYNCG8eu/E/TE0r3RsXTi99q6uchoZ7kJt
-	 XkzzWu6gQ0q2HT7sbCcPdB+a2CnsJn1FFX6o2UySThcsHEQcz/VMeiTV4txiYzz+lz
-	 hTs5sVSiI7YFQ==
+	b=IBJ4+u8rObU8JfnHuWh7rVtqrnNTcfmopvl6t4/Z+ED65ihBV0Z+t9i2iYdZoFL5e
+	 z0h8WAt36wojiNDKZoGOiEdFRs0rhGbZo5BeJVPEB5WHN8Qh2n9Hf2R72HgspKQ1is
+	 PS3ojAuE1hDs6+Kd8f/TxiRAUGlNWPUVo/KpXqbycWbsPDfzOoqp52dmfd2LaRJoSh
+	 u01zqWVZ9IWek9T+aA3tvMzHpWNV4dt8Q5EjONwzo/0FR5B5qXbsdG//MF1FY4hFL0
+	 xo50ywH+rE/n9ecfnSZHAaPUk2EsuB43iduHflB7y2W0ECtvh7SK2YGilYiIVAaJ0y
+	 9aP6FamJpNNxw==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	peng.fan@nxp.com
-Cc: Daniel Baluta <daniel.baluta@nxp.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	linux-remoteproc@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: FAILED: Patch "remoteproc: imx_rproc: Fix invalid loaded resource table detection" failed to apply to 6.12-stable tree
-Date: Sat, 28 Feb 2026 20:25:20 -0500
-Message-ID: <20260301012520.1682420-1-sashal@kernel.org>
+	robin.murphy@arm.com
+Cc: Ilkka Koskinen <ilkka@os.amperecomputing.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org
+Subject: FAILED: Patch "perf/arm-cmn: Reject unsupported hardware configurations" failed to apply to 6.12-stable tree
+Date: Sat, 28 Feb 2026 20:25:30 -0500
+Message-ID: <20260301012530.1682624-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260228_172532_723130_76156D38 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,56 +84,73 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From 26aa5295010ffaebcf8f1991c53fa7cf2ee1b20d Mon Sep 17 00:00:00 2001
-From: Peng Fan <peng.fan@nxp.com>
-Date: Thu, 29 Jan 2026 09:44:48 +0800
-Subject: [PATCH] remoteproc: imx_rproc: Fix invalid loaded resource table
- detection
+From 36c0de02575ce59dfd879eb4ef63d53a68bbf9ce Mon Sep 17 00:00:00 2001
+From: Robin Murphy <robin.murphy@arm.com>
+Date: Tue, 3 Feb 2026 14:07:29 +0000
+Subject: [PATCH] perf/arm-cmn: Reject unsupported hardware configurations
 
-imx_rproc_elf_find_loaded_rsc_table() may incorrectly report a loaded
-resource table even when the current firmware does not provide one.
+So far we've been fairly lax about accepting both unknown CMN models
+(at least with a warning), and unknown revisions of those which we
+do know, as although things do frequently change between releases,
+typically enough remains the same to be somewhat useful for at least
+some basic bringup checks. However, we also make assumptions of the
+maximum supported sizes and numbers of things in various places, and
+there's no guarantee that something new might not be bigger and lead
+to nasty array overflows. Make sure we only try to run on things that
+actually match our assumptions and so will not risk memory corruption.
 
-When the device tree contains a "rsc-table" entry, priv->rsc_table is
-non-NULL and denotes where a resource table would be located if one is
-present in memory. However, when the current firmware has no resource
-table, rproc->table_ptr is NULL. The function still returns
-priv->rsc_table, and the remoteproc core interprets this as a valid loaded
-resource table.
+We have at least always failed on completely unknown node types, so
+update that error message for clarity and consistency too.
 
-Fix this by returning NULL from imx_rproc_elf_find_loaded_rsc_table() when
-there is no resource table for the current firmware (i.e. when
-rproc->table_ptr is NULL). This aligns the function's semantics with the
-remoteproc core: a loaded resource table is only reported when a valid
-table_ptr exists.
-
-With this change, starting firmware without a resource table no longer
-triggers a crash.
-
-Fixes: e954a1bd1610 ("remoteproc: imx_rproc: Use imx specific hook for find_loaded_rsc_table")
 Cc: stable@vger.kernel.org
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
-Acked-by: Daniel Baluta <daniel.baluta@nxp.com>
-Link: https://lore.kernel.org/r/20260129-imx-rproc-fix-v3-1-fc4e41e6e750@nxp.com
-Signed-off-by: Mathieu Poirier <mathieu.poirier@linaro.org>
+Fixes: 7819e05a0dce ("perf/arm-cmn: Revamp model detection")
+Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+Signed-off-by: Will Deacon <will@kernel.org>
 ---
- drivers/remoteproc/imx_rproc.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/perf/arm-cmn.c | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-index 375de79168a1c..f5f916d679051 100644
---- a/drivers/remoteproc/imx_rproc.c
-+++ b/drivers/remoteproc/imx_rproc.c
-@@ -729,6 +729,10 @@ imx_rproc_elf_find_loaded_rsc_table(struct rproc *rproc, const struct firmware *
- {
- 	struct imx_rproc *priv = rproc->priv;
+diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+index 651edd73bfcb1..4fbafc4b79843 100644
+--- a/drivers/perf/arm-cmn.c
++++ b/drivers/perf/arm-cmn.c
+@@ -2422,6 +2422,15 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
+ 			arm_cmn_init_node_info(cmn, reg & CMN_CHILD_NODE_ADDR, dn);
+ 			dn->portid_bits = xp->portid_bits;
+ 			dn->deviceid_bits = xp->deviceid_bits;
++			/*
++			 * Logical IDs are assigned from 0 per node type, so as
++			 * soon as we see one bigger than expected, we can assume
++			 * there are more than we can cope with.
++			 */
++			if (dn->logid > CMN_MAX_NODES_PER_EVENT) {
++				dev_err(cmn->dev, "Node ID invalid for supported CMN versions: %d\n", dn->logid);
++				return -ENODEV;
++			}
  
-+	/* No resource table in the firmware */
-+	if (!rproc->table_ptr)
-+		return NULL;
-+
- 	if (priv->rsc_table)
- 		return (struct resource_table *)priv->rsc_table;
+ 			switch (dn->type) {
+ 			case CMN_TYPE_DTC:
+@@ -2471,7 +2480,7 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
+ 				break;
+ 			/* Something has gone horribly wrong */
+ 			default:
+-				dev_err(cmn->dev, "invalid device node type: 0x%x\n", dn->type);
++				dev_err(cmn->dev, "Device node type invalid for supported CMN versions: 0x%x\n", dn->type);
+ 				return -ENODEV;
+ 			}
+ 		}
+@@ -2499,6 +2508,10 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
+ 		cmn->mesh_x = cmn->num_xps;
+ 	cmn->mesh_y = cmn->num_xps / cmn->mesh_x;
  
++	if (max(cmn->mesh_x, cmn->mesh_y) > CMN_MAX_DIMENSION) {
++		dev_err(cmn->dev, "Mesh size invalid for supported CMN versions: %dx%d\n", cmn->mesh_x, cmn->mesh_y);
++		return -ENODEV;
++	}
+ 	/* 1x1 config plays havoc with XP event encodings */
+ 	if (cmn->num_xps == 1)
+ 		dev_warn(cmn->dev, "1x1 config not fully supported, translate XP events manually\n");
 -- 
 2.51.0
 
