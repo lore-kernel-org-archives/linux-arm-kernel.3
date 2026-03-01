@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4298BFD0045
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AC46FD0049
 	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:36:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,54 +12,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OzOnvSf+c47GyCQjthM/O0b0Nbl1+cPX/Q1HbHy5Htw=; b=BYNwo0TqzL+zbh+z+L2YAn92mv
-	HNXmcaBXvk+uIQVi5grUw0sAsoP/YgQsiusmytBJniW/DsEAdpKtMR+uJGnnKf0ziV4oSTHpD7Jku
-	3RyzoTT9PC249DTraH4J2QR/RJ0XPSr8RQt6dAC/07Fc/Afpm3zStt8uubVI8r9JYdUnHnZCAdCAP
-	sE2qOVU7zFgoaMYA56JefBjeELl88R/r4HAy6jrYYIM4D8xLC3ipSplkBGJt4+lKSlemnN8l9fgNl
-	7tQrIm/Krw+YtUVmOlfjvI+BPnj9QvNOtCMBKUdNsz5LPq+84mVZhvMtbmTKGXBM4F9vqu/OLkTzO
-	xfxj1fNA==;
+	bh=ze6cEnyijGV/6hwl59Mwq99HDAViC752szFUdlqLN0U=; b=gBtoSp1VezyipVobBtxnD8FFPb
+	IrnbLT+70ACz15lXiEj5/2SpFLNuYlPxRJGKbnExTGrgOMBIgG8RXM2b+NzlC0EcLOcQKKND+QnBr
+	ryfrw1bMjFSTOMc9G03ACDyQ1MC9GRppbxYmaT+hKtUv63i8uLCdP+OHNOoK8SV7VOUbCkLvVDafW
+	SP+BtUcexEhKs9j0iEzbc7nT2iBuZGuIBonIzUq5E/hGraukwg1zHktuYYorYuB/DqyYVQK/ziluB
+	68ODObqDKvLokLuNHGxl75NOjsEAG7kSsEsGt4+c5XpM5M9HjcASvlhYObSOe8qsOPbfeoCCrxw0V
+	B6vqZ6Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVj4-0000000AaGY-49Fb;
-	Sun, 01 Mar 2026 01:36:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vwViu-0000000AaBp-2gmU;
+	Sun, 01 Mar 2026 01:35:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVj2-0000000AaFD-413Z
+	id 1vwVir-0000000AaAc-00qJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 01:36:05 +0000
+	Sun, 01 Mar 2026 01:35:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6FD5E40B7F;
-	Sun,  1 Mar 2026 01:36:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6F77C19421;
-	Sun,  1 Mar 2026 01:36:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7301860126;
+	Sun,  1 Mar 2026 01:35:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77EF2C19424;
+	Sun,  1 Mar 2026 01:35:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772328964;
-	bh=o8QrnyXx5YcxW+HWTjGYCHtVrysbfGeXpzhFdGiZZJw=;
+	s=k20201202; t=1772328952;
+	bh=d6hSXjZ6oSdlFyBVHtboQvnWqS7fr7QvkPdadaMqHm4=;
 	h=From:To:Cc:Subject:Date:From;
-	b=TmpEkmVLeRX5EGm3U8/LrfQy6/1E31LEuzhH+2n6CnHLW6h947oah5JgdL1FPLQ1M
-	 BEHQL7b7pFouA6gI26X2LhppY8Bfu3BiteIh30JzLMhuObUr66kS9PHEVFd1itKbFS
-	 OIUhGbpcZ/ebf8pz/PoRkzEW3BL5Ag6lcGOtJO4UdBD2Yoqx7Ia4vTMBzloHN66H4j
-	 SqXCBO9Dk7cqbvbGbKzsZH4u5V2E0Cs2uM7MNwX6cGzet/mlP4hTHcbYrBS3d5Zelm
-	 vm9ehSs+fUfV/CP0Br5nsEi9TGbWrNjGa4px/AGgkjAcc7tZGZB1oYsikpUmHKF8zQ
-	 99qg4QcYALGLQ==
+	b=EapDrr7Vm+3+BqZTSsSWWadFF87neitQBZOHsmsj7jq49wjatBjh/XjVTWpar3OYl
+	 6f5i1d7/HJYA5QkHzzqzr+FqCmWak7JfXMZ6mL1rffOP5W1C8dKuAMmbcw3KNL/1De
+	 2lLaOKXiM5ZBnNRtEpH33PpDvx4SRdjBodSiTjBQT4Rh0AJs3AUQIG1aJy3Pi2ngV8
+	 XPt9xXWrKYJAGfGH+kFzDkegJxVZh4wBntiw8Yo7XHQRDixrCIUtEZ8sQJHVlMbKua
+	 7T5zZdFbXnaES2lnE7H/ucHSYGVBt2G218i0J2GzAQjDsnUyxHUyIK7L/fTGMEQSiU
+	 DZjh5bfIuBsMg==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	elver@google.com
-Cc: Boqun Feng <boqun@kernel.org>,
-	David Laight <david.laight.linux@gmail.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: FAILED: Patch "arm64: Fix non-atomic __READ_ONCE() with CONFIG_LTO=y" failed to apply to 6.6-stable tree
-Date: Sat, 28 Feb 2026 20:36:02 -0500
-Message-ID: <20260301013602.1695886-1-sashal@kernel.org>
+	aha310510@gmail.com
+Cc: Inki Dae <inki.dae@samsung.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org
+Subject: FAILED: Patch "drm/exynos: vidi: fix to avoid directly dereferencing user pointer" failed to apply to 6.6-stable tree
+Date: Sat, 28 Feb 2026 20:35:50 -0500
+Message-ID: <20260301013550.1695639-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_173605_011419_E071964C 
-X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,52 +81,62 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From bb0c99e08ab9aa6d04b40cb63c72db9950d51749 Mon Sep 17 00:00:00 2001
-From: Marco Elver <elver@google.com>
-Date: Fri, 30 Jan 2026 14:28:24 +0100
-Subject: [PATCH] arm64: Fix non-atomic __READ_ONCE() with CONFIG_LTO=y
+From d4c98c077c7fb2dfdece7d605e694b5ea2665085 Mon Sep 17 00:00:00 2001
+From: Jeongjun Park <aha310510@gmail.com>
+Date: Mon, 19 Jan 2026 17:25:52 +0900
+Subject: [PATCH] drm/exynos: vidi: fix to avoid directly dereferencing user
+ pointer
 
-The implementation of __READ_ONCE() under CONFIG_LTO=y incorrectly
-qualified the fallback "once" access for types larger than 8 bytes,
-which are not atomic but should still happen "once" and suppress common
-compiler optimizations.
+In vidi_connection_ioctl(), vidi->edid(user pointer) is directly
+dereferenced in the kernel.
 
-The cast `volatile typeof(__x)` applied the volatile qualifier to the
-pointer type itself rather than the pointee. This created a volatile
-pointer to a non-volatile type, which violated __READ_ONCE() semantics.
+This allows arbitrary kernel memory access from the user space, so instead
+of directly accessing the user pointer in the kernel, we should modify it
+to copy edid to kernel memory using copy_from_user() and use it.
 
-Fix this by casting to `volatile typeof(*__x) *`.
-
-With a defconfig + LTO + debug options build, we see the following
-functions to be affected:
-
-	xen_manage_runstate_time (884 -> 944 bytes)
-	xen_steal_clock (248 -> 340 bytes)
-	  ^-- use __READ_ONCE() to load vcpu_runstate_info structs
-
-Fixes: e35123d83ee3 ("arm64: lto: Strengthen READ_ONCE() to acquire when CONFIG_LTO=y")
-Cc: stable@vger.kernel.org
-Reviewed-by: Boqun Feng <boqun@kernel.org>
-Signed-off-by: Marco Elver <elver@google.com>
-Tested-by: David Laight <david.laight.linux@gmail.com>
-Signed-off-by: Will Deacon <will@kernel.org>
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Jeongjun Park <aha310510@gmail.com>
+Signed-off-by: Inki Dae <inki.dae@samsung.com>
 ---
- arch/arm64/include/asm/rwonce.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/gpu/drm/exynos/exynos_drm_vidi.c | 22 ++++++++++++++++++----
+ 1 file changed, 18 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/include/asm/rwonce.h b/arch/arm64/include/asm/rwonce.h
-index 78beceec10cda..fc0fb42b0b641 100644
---- a/arch/arm64/include/asm/rwonce.h
-+++ b/arch/arm64/include/asm/rwonce.h
-@@ -58,7 +58,7 @@
- 	default:							\
- 		atomic = 0;						\
- 	}								\
--	atomic ? (typeof(*__x))__u.__val : (*(volatile typeof(__x))__x);\
-+	atomic ? (typeof(*__x))__u.__val : (*(volatile typeof(*__x) *)__x);\
- })
+diff --git a/drivers/gpu/drm/exynos/exynos_drm_vidi.c b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
+index 480c99a8f9f75..9709c07e5d8f4 100644
+--- a/drivers/gpu/drm/exynos/exynos_drm_vidi.c
++++ b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
+@@ -252,13 +252,27 @@ int vidi_connection_ioctl(struct drm_device *drm_dev, void *data,
  
- #endif	/* !BUILD_VDSO */
+ 	if (vidi->connection) {
+ 		const struct drm_edid *drm_edid;
+-		const struct edid *raw_edid;
++		const void __user *edid_userptr = u64_to_user_ptr(vidi->edid);
++		void *edid_buf;
++		struct edid hdr;
+ 		size_t size;
+ 
+-		raw_edid = (const struct edid *)(unsigned long)vidi->edid;
+-		size = (raw_edid->extensions + 1) * EDID_LENGTH;
++		if (copy_from_user(&hdr, edid_userptr, sizeof(hdr)))
++			return -EFAULT;
+ 
+-		drm_edid = drm_edid_alloc(raw_edid, size);
++		size = (hdr.extensions + 1) * EDID_LENGTH;
++
++		edid_buf = kmalloc(size, GFP_KERNEL);
++		if (!edid_buf)
++			return -ENOMEM;
++
++		if (copy_from_user(edid_buf, edid_userptr, size)) {
++			kfree(edid_buf);
++			return -EFAULT;
++		}
++
++		drm_edid = drm_edid_alloc(edid_buf, size);
++		kfree(edid_buf);
+ 		if (!drm_edid)
+ 			return -ENOMEM;
+ 
 -- 
 2.51.0
 
