@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAACAFD0049
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:15:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EF28FD004B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:15:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eO2KDDhmeKwMm3W5rnjzEreoi2eNMPaGAG6JNCF97sw=; b=ZQbU6stp9O7ypDIfBznFb6gJ+u
-	tBoijk/WW+gXq5naMF0bxkV9TpahYtTsMzcfIuI0O4EY+eIXetH9up80In8rHCQVeTPmtFq1/8zC0
-	xixFJZilckttGHoEbkl21TewkYkQShvLPgX4YRNc5TSuB18cbUUdoUYOa2IGOCQ7IZ+fp27Qv2dJA
-	HMQxGaEGYt5EekeN32aiN40PWTnav7zTgSdbQLO3ZoKcPadRlBKVzKwdfRIN7pBvYfC9f85ODKIaI
-	Iic4pvh6qEC0mV4rytr8XgSYeFDYMEmMzj/HWOfIaodXuyUHVrSeJ17vALr+rs9A5sxLPCLyzuhQI
-	zDrvzVig==;
+	bh=R9iDRs/tqvnvN+f0IdKVrpRsSKmHURpj3QYvR6Ikpvg=; b=4/oWJMFIoz3S6TrMu5VfYagdWd
+	MEmgUduGZWMQ4XoijMZ1MmRBSKQxQYchXiYBdfBI1ybOs1L5ZrV4rzS/L4XCaPa/MSqZ0hwwrtPES
+	j3bniMzvdWaxc0Jl1gNZuN9svJGlJuF7241mt+hU+YlpAl61CbD49vc1MflAQbGUwYv55bjQuq46m
+	E/itpBWKnO6UX6FXzEAiJ4GZQy/LTtCzfuZkFUBleeuP9/hgZr0X47u6NsxoWpP+9Ofx4KXHgKYpy
+	zPMoeYSO4EXz4K5bfddbjt71/nDTN9NoH6Jh1fYWL+BfQqym/uUGZkYJQInwiZiQfN6Gd3E2SH9Q1
+	M6ZNiTzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVP2-0000000ARjX-2drc;
+	id 1vwVP1-0000000ARit-3qYX;
 	Sun, 01 Mar 2026 01:15:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVP0-0000000ARiB-2C5W;
-	Sun, 01 Mar 2026 01:15:22 +0000
+	id 1vwVOx-0000000ARh1-0ApM;
+	Sun, 01 Mar 2026 01:15:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 550A660008;
-	Sun,  1 Mar 2026 01:15:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EB47C19421;
-	Sun,  1 Mar 2026 01:15:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 415DD43281;
+	Sun,  1 Mar 2026 01:15:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65D6FC19421;
+	Sun,  1 Mar 2026 01:15:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772327721;
-	bh=NCT6pGNSoNEDvuAg1+YO09RDq4gjI00siAgnQvYfAZ0=;
+	s=k20201202; t=1772327718;
+	bh=0KT0uYt9nO24XwAB0yD/495s2n1S7+JBd7/h+QDK2RE=;
 	h=From:To:Cc:Subject:Date:From;
-	b=aGcTfw0Q2aiVIg/KcMA+ReIYzLX6xCuubxNHXny/kaoIfVU/wFfCsWkXPy3Z/TwWi
-	 iQ3YTScU9K95Cca0CjCkBjnPAwNjcmhZyEzSR3NN/1pS3BQqu1nQfPCYJSUuVdufTy
-	 iudj4C1p/jQs+mh5A/mUTXbdqmzsEIIh20VDuAH1YUnXyX+pE4uZ+izHKRn8yGfhEZ
-	 NNoikxhj4CvgDj+ks1njsmbkPbPNJTiM8DDIa67kbdgydNa1MKvZ0Jeu+usKQ2pktg
-	 JGdJBN7HjR9KVexCmy9FbU97c+NeWHj157VjD8KWoiVgmL3OGut78j0rZe/YtTTW4m
-	 O3rE3f+q4f/iQ==
+	b=kI31p+25uQOz/ONLZFNdf0z/TVNUVfSDK/Q9hOpO/YK6HVBN6eJ8WjByuR6Zzjioj
+	 coNfSxCmTgZ07MB3R8ME60RhNpAH6+qcutZzngIJqsqfQfgcz+SLWB878IGGGSQkIK
+	 ql/EY7cdORIV3cB2LveFbI9Tb/SLD8SCxOCd+427a8pCSYQwocAWEDnGpF+Swo3ChY
+	 vSIt3MPGRnW41fIJyKa4yfOWT+hVi5jrh81Gd309eaxcoComXrOUMc8Er1nHztJqn3
+	 1lDNDfFw2b+r8emtSZvYBTUL4mt4fUmBT4KRi0kIQDQ0LUPVXdABDfvD/sBRy0CHRz
+	 cjTa72wmxOy4g==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	ming.qian@oss.nxp.com
-Cc: Frank Li <Frank.Li@nxp.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>,
-	linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	imx@lists.linux.dev,
+	johan@kernel.org
+Cc: Yong Wu <yong.wu@mediatek.com>,
+	Miaoqian Lin <linmq006@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-mediatek@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: FAILED: Patch "media: verisilicon: Avoid G2 bus error while decoding H.264 and HEVC" failed to apply to 6.18-stable tree
-Date: Sat, 28 Feb 2026 20:15:18 -0500
-Message-ID: <20260301011518.1668455-1-sashal@kernel.org>
+Subject: FAILED: Patch "memory: mtk-smi: fix device leaks on common probe" failed to apply to 6.18-stable tree
+Date: Sat, 28 Feb 2026 20:15:15 -0500
+Message-ID: <20260301011516.1668360-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260228_171519_104734_65ADE80E 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,172 +84,48 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From e0203ddf9af7c8e170e1e99ce83b4dc07f0cd765 Mon Sep 17 00:00:00 2001
-From: Ming Qian <ming.qian@oss.nxp.com>
-Date: Fri, 5 Dec 2025 09:54:26 +0800
-Subject: [PATCH] media: verisilicon: Avoid G2 bus error while decoding H.264
- and HEVC
+From 6cfa038bddd710f544076ea2ef7792fc82fbedd6 Mon Sep 17 00:00:00 2001
+From: Johan Hovold <johan@kernel.org>
+Date: Fri, 21 Nov 2025 17:46:22 +0100
+Subject: [PATCH] memory: mtk-smi: fix device leaks on common probe
 
-For the i.MX8MQ platform, there is a hardware limitation: the g1 VPU and
-g2 VPU cannot decode simultaneously; otherwise, it will cause below bus
-error and produce corrupted pictures, even potentially lead to system hang.
+Make sure to drop the reference taken when looking up the SMI device
+during common probe on late probe failure (e.g. probe deferral) and on
+driver unbind.
 
-[  110.527986] hantro-vpu 38310000.video-codec: frame decode timed out.
-[  110.583517] hantro-vpu 38310000.video-codec: bus error detected.
-
-Therefore, it is necessary to ensure that g1 and g2 operate alternately.
-This allows for successful multi-instance decoding of H.264 and HEVC.
-
-To achieve this, g1 and g2 share the same v4l2_m2m_dev, and then the
-v4l2_m2m_dev can handle the scheduling.
-
-Fixes: cb5dd5a0fa518 ("media: hantro: Introduce G2/HEVC decoder")
-Cc: stable@vger.kernel.org
-Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Co-developed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Signed-off-by: Hans Verkuil <hverkuil+cisco@kernel.org>
+Fixes: 47404757702e ("memory: mtk-smi: Add device link for smi-sub-common")
+Fixes: 038ae37c510f ("memory: mtk-smi: add missing put_device() call in mtk_smi_device_link_common")
+Cc: stable@vger.kernel.org	# 5.16: 038ae37c510f
+Cc: stable@vger.kernel.org	# 5.16
+Cc: Yong Wu <yong.wu@mediatek.com>
+Cc: Miaoqian Lin <linmq006@gmail.com>
+Signed-off-by: Johan Hovold <johan@kernel.org>
+Link: https://patch.msgid.link/20251121164624.13685-2-johan@kernel.org
+Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
 ---
- drivers/media/platform/verisilicon/hantro.h   |  2 +
- .../media/platform/verisilicon/hantro_drv.c   | 42 +++++++++++++++++--
- .../media/platform/verisilicon/imx8m_vpu_hw.c |  8 ++++
- 3 files changed, 49 insertions(+), 3 deletions(-)
+ drivers/memory/mtk-smi.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/media/platform/verisilicon/hantro.h b/drivers/media/platform/verisilicon/hantro.h
-index e0fdc4535b2d7..0353de154a1ec 100644
---- a/drivers/media/platform/verisilicon/hantro.h
-+++ b/drivers/media/platform/verisilicon/hantro.h
-@@ -77,6 +77,7 @@ struct hantro_irq {
-  * @double_buffer:		core needs double buffering
-  * @legacy_regs:		core uses legacy register set
-  * @late_postproc:		postproc must be set up at the end of the job
-+ * @shared_devices:		an array of device ids that cannot run concurrently
-  */
- struct hantro_variant {
- 	unsigned int enc_offset;
-@@ -101,6 +102,7 @@ struct hantro_variant {
- 	unsigned int double_buffer : 1;
- 	unsigned int legacy_regs : 1;
- 	unsigned int late_postproc : 1;
-+	const struct of_device_id *shared_devices;
- };
- 
- /**
-diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
-index 60b95b5d8565f..94f58f4e4a4e5 100644
---- a/drivers/media/platform/verisilicon/hantro_drv.c
-+++ b/drivers/media/platform/verisilicon/hantro_drv.c
-@@ -13,6 +13,7 @@
- #include <linux/clk.h>
- #include <linux/module.h>
- #include <linux/of.h>
-+#include <linux/of_platform.h>
- #include <linux/platform_device.h>
- #include <linux/pm.h>
- #include <linux/pm_runtime.h>
-@@ -1035,6 +1036,41 @@ static int hantro_disable_multicore(struct hantro_dev *vpu)
- 	return 0;
+diff --git a/drivers/memory/mtk-smi.c b/drivers/memory/mtk-smi.c
+index 733e22f695ab7..dd6150d200e89 100644
+--- a/drivers/memory/mtk-smi.c
++++ b/drivers/memory/mtk-smi.c
+@@ -674,6 +674,7 @@ static int mtk_smi_larb_probe(struct platform_device *pdev)
+ err_pm_disable:
+ 	pm_runtime_disable(dev);
+ 	device_link_remove(dev, larb->smi_common_dev);
++	put_device(larb->smi_common_dev);
+ 	return ret;
  }
  
-+static struct v4l2_m2m_dev *hantro_get_v4l2_m2m_dev(struct hantro_dev *vpu)
-+{
-+	struct device_node *node;
-+	struct hantro_dev *shared_vpu;
-+
-+	if (!vpu->variant || !vpu->variant->shared_devices)
-+		goto init_new_m2m_dev;
-+
-+	for_each_matching_node(node, vpu->variant->shared_devices) {
-+		struct platform_device *pdev;
-+		struct v4l2_m2m_dev *m2m_dev;
-+
-+		pdev = of_find_device_by_node(node);
-+		if (!pdev)
-+			continue;
-+
-+		shared_vpu = platform_get_drvdata(pdev);
-+		if (IS_ERR_OR_NULL(shared_vpu) || shared_vpu == vpu) {
-+			platform_device_put(pdev);
-+			continue;
-+		}
-+
-+		v4l2_m2m_get(shared_vpu->m2m_dev);
-+		m2m_dev = shared_vpu->m2m_dev;
-+		platform_device_put(pdev);
-+
-+		of_node_put(node);
-+
-+		return m2m_dev;
-+	}
-+
-+init_new_m2m_dev:
-+	return v4l2_m2m_init(&vpu_m2m_ops);
-+}
-+
- static int hantro_probe(struct platform_device *pdev)
- {
- 	const struct of_device_id *match;
-@@ -1186,7 +1222,7 @@ static int hantro_probe(struct platform_device *pdev)
- 	}
- 	platform_set_drvdata(pdev, vpu);
+@@ -917,6 +918,7 @@ static void mtk_smi_common_remove(struct platform_device *pdev)
+ 	if (common->plat->type == MTK_SMI_GEN2_SUB_COMM)
+ 		device_link_remove(&pdev->dev, common->smi_common_dev);
+ 	pm_runtime_disable(&pdev->dev);
++	put_device(common->smi_common_dev);
+ }
  
--	vpu->m2m_dev = v4l2_m2m_init(&vpu_m2m_ops);
-+	vpu->m2m_dev = hantro_get_v4l2_m2m_dev(vpu);
- 	if (IS_ERR(vpu->m2m_dev)) {
- 		v4l2_err(&vpu->v4l2_dev, "Failed to init mem2mem device\n");
- 		ret = PTR_ERR(vpu->m2m_dev);
-@@ -1225,7 +1261,7 @@ static int hantro_probe(struct platform_device *pdev)
- 	hantro_remove_enc_func(vpu);
- err_m2m_rel:
- 	media_device_cleanup(&vpu->mdev);
--	v4l2_m2m_release(vpu->m2m_dev);
-+	v4l2_m2m_put(vpu->m2m_dev);
- err_v4l2_unreg:
- 	v4l2_device_unregister(&vpu->v4l2_dev);
- err_clk_unprepare:
-@@ -1248,7 +1284,7 @@ static void hantro_remove(struct platform_device *pdev)
- 	hantro_remove_dec_func(vpu);
- 	hantro_remove_enc_func(vpu);
- 	media_device_cleanup(&vpu->mdev);
--	v4l2_m2m_release(vpu->m2m_dev);
-+	v4l2_m2m_put(vpu->m2m_dev);
- 	v4l2_device_unregister(&vpu->v4l2_dev);
- 	clk_bulk_unprepare(vpu->variant->num_clocks, vpu->clocks);
- 	reset_control_assert(vpu->resets);
-diff --git a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
-index 5be0e2e76882f..6f8e43b7f1575 100644
---- a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
-+++ b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
-@@ -343,6 +343,12 @@ const struct hantro_variant imx8mq_vpu_variant = {
- 	.num_regs = ARRAY_SIZE(imx8mq_reg_names)
- };
- 
-+static const struct of_device_id imx8mq_vpu_shared_resources[] __initconst = {
-+	{ .compatible = "nxp,imx8mq-vpu-g1", },
-+	{ .compatible = "nxp,imx8mq-vpu-g2", },
-+	{ /* sentinel */ }
-+};
-+
- const struct hantro_variant imx8mq_vpu_g1_variant = {
- 	.dec_fmts = imx8m_vpu_dec_fmts,
- 	.num_dec_fmts = ARRAY_SIZE(imx8m_vpu_dec_fmts),
-@@ -356,6 +362,7 @@ const struct hantro_variant imx8mq_vpu_g1_variant = {
- 	.num_irqs = ARRAY_SIZE(imx8mq_irqs),
- 	.clk_names = imx8mq_g1_clk_names,
- 	.num_clocks = ARRAY_SIZE(imx8mq_g1_clk_names),
-+	.shared_devices = imx8mq_vpu_shared_resources,
- };
- 
- const struct hantro_variant imx8mq_vpu_g2_variant = {
-@@ -371,6 +378,7 @@ const struct hantro_variant imx8mq_vpu_g2_variant = {
- 	.num_irqs = ARRAY_SIZE(imx8mq_g2_irqs),
- 	.clk_names = imx8mq_g2_clk_names,
- 	.num_clocks = ARRAY_SIZE(imx8mq_g2_clk_names),
-+	.shared_devices = imx8mq_vpu_shared_resources,
- };
- 
- const struct hantro_variant imx8mm_vpu_g1_variant = {
+ static int __maybe_unused mtk_smi_common_resume(struct device *dev)
 -- 
 2.51.0
 
