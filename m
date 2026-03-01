@@ -4,87 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DA2AFD0057
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 14:50:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A628FD006F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 14:59:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jMNSOkyr1OQmwknC/40Y8S8bviPWaYmHo+yrz5Q3E7M=; b=P5ivMZQqdS3/gpNkLZEzlt0dy9
-	0Bbq8bghnwoOLPhaagiyE7e6JOBre1qSEPfy/zDk54+aeH1tmD28Xko79k3hFQYBXPA0EjkajxWPV
-	gZm54ZpnoBpVeY8/IEK+pNL8GJAtXjcsscMz0hQ0vaML2UpTYXSDRi8whgjXSgiiH+owagpuSvtO9
-	/QI5odKIkLWAsTVNfaosKZjGLj2FA++VcF5MnGRHqaKlLZ8prmGQnsCgKlIEEJhfq2Wh5oDkbO/YF
-	l0sfg8sXoAw/D/4P0gLFvhZ6dQUG+WWznrKTIY/fbmvaxg+qDcV9sn1y3Avo4PumjAJRg/iCvTW1g
-	T6yctr/w==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kvxfwv9YItCl98F/UgZP9Kytwk2UIr78C0lNmMRlKt8=; b=oMjgPmtKiD/iC65Ay3Gyc05Kva
+	7TaC/mOKtr1g0kW2Sh8id43Kbv6OnJvTzNxF20nF+nQuKQi+sapySsCVTetCx++vWQ1oZFcv2Fm/Z
+	knagYNfFpRo4UG8+XsJgEf2dAOYdfBCLxdy8zGDQ/zPeHKs3+V1ANF8GpbWVF4hQGlReKi7INXhGO
+	sh36WvuamYCDiWqXl7wfxuxUH3gp23hRhajGsD2RBZ6b+UJb/f/BSBHsCYApO9+xj9l27KEW11APw
+	d/bn3HFAo+VwwINGLHZuRBTHXa+hikYuwE+1uAAAvk4VVzZ/kYaqHBOhFDir84J7OpKtotq/BUbDg
+	aYVW9XZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwi7f-0000000Baip-2nmT;
-	Sun, 01 Mar 2026 14:50:19 +0000
-Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
+	id 1vwiGO-0000000Bazz-3icc;
+	Sun, 01 Mar 2026 14:59:20 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwi7c-0000000BaiT-1jZ4
+	id 1vwiGL-0000000BazE-3DY3
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 14:50:17 +0000
-Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-506a297c14bso33552491cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Mar 2026 06:50:15 -0800 (PST)
+	Sun, 01 Mar 2026 14:59:19 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-483bd7354efso50023925e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Mar 2026 06:59:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772376614; x=1772981414; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=jMNSOkyr1OQmwknC/40Y8S8bviPWaYmHo+yrz5Q3E7M=;
-        b=HXGPU6yg2WQSxT6GOeDe0fkH+OGY4gfTLhP0mlGbioyLrASawsEdXyAQylTKgWhU8P
-         X+PoYIPXCUhbHiE3MFc4UZ2QmUmvpmrhx/QuIESa/c5hcPJTnQl2/YX+4McVoVA+bpp3
-         t8PKlViEOXnINCbeL3so2b2OQpHfvDp/octxLivGLgO+N6q/Kw+j9oqDpwEzGS82/CdY
-         UnV0+uu84rgdW1JNq8VsBdoz2XPOUbSRycHbGG4ditRKtc6cOT/3QH99L13aMITF1dy1
-         YO8xWztnAwI6xuhXsqL776JD2X33Q7rr/zcnYptKj9V+Dj0skK3wkepBg/0Cc2wyPgL1
-         ztxw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772376614; x=1772981414;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1772377155; x=1772981955; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=jMNSOkyr1OQmwknC/40Y8S8bviPWaYmHo+yrz5Q3E7M=;
-        b=DJpUrWHrtUc71O72lxsWKcnbJbjPFq0fSkGV/ZB8Bsn5XfYyIxtyC6T4TKJfVvSKTr
-         j7ZKkfM9s8KKHB5bpgDVmZtIoE6zUHZBRXrMfnuJcxUti1KHD3LY40VEFcJrUDTy6m1i
-         C/vNWOxrdLFYrlAHFDy92akKYuW1rXXc5PL2WPdGzyl3w/zqPmVXz4FqWyagSrb4Gmg5
-         yyghW2bkITvUEcIA4hWnYcDgZ2IRyGrxOrxoMLa172hGYrVzk5NSx6M2aLdHitpqlD05
-         MGlqfH/lVcrh6juRXbNuhj8ARTZv28zQo6Vlz+BvRhCGBMPohbruTUapul6VtfBEsyht
-         QtCQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX84ilbxmPj8YBDoPo6kKm783R1v6zEOgMhxaHwgj4O+FsqCstfXKiFkNJpCVhxk3xpPwSVodBfDDyTOJ6vsgrO@lists.infradead.org
-X-Gm-Message-State: AOJu0YyN16ftWeCoAbxEJUWNaXbUDAbYtAZsi+60aAkj5lbD+lTUJdRQ
-	qsqTouCrfbs7xj37Ij6N1U7/xWKkzztvn6ZAIPdOuUhwMEojPrmNH63N
-X-Gm-Gg: ATEYQzxV7UbHBeVUlRLQ+A+jCiKDA4QCpdps7p9QB+Ncq1KMA8qIxLqfuwpOrySR3XX
-	K/e94SFYd+XdrseSIr2DUd/hlwKdydDw09gVT+53N9KJn+0wBT/saDUqjEj81siyZLFZqSz2vhv
-	yWi2ipnNCOE2ZZ5BZDwf9m35igPAMPA9Gm47JUt2Rs7mwpJ7RORYAZ6JOLW6WNF3WfwELGvj5S9
-	wSfwuCDZEZyZy+zTl9PJzBwJRwbG6ggEoEF15YihGwIvgoo3plJ+lyMDKwNZS99aA9QkRZdBLiG
-	kTKugsApK/xzyfYEh44JjcqGtYedfOW0zgEVWPMaoeAk313v4Wu0ya0ZWi8+mKXoJ600qxFGrUs
-	9s1JOtXmDEhpoqFcspzHspGDcex+PYmuJV0pju3EHDsECpLq56TkC0OTFfC/oEhjcQNG7UODR6x
-	+AEyZiS6srDpKrV3zTQZCHBT5qVDg=
-X-Received: by 2002:ac8:5991:0:b0:501:44a7:ad50 with SMTP id d75a77b69052e-507528d2800mr117305101cf.26.1772376614382;
-        Sun, 01 Mar 2026 06:50:14 -0800 (PST)
-Received: from new-nest ([94.19.228.143])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-899c73a25e4sm84714256d6.50.2026.03.01.06.50.12
+        bh=kvxfwv9YItCl98F/UgZP9Kytwk2UIr78C0lNmMRlKt8=;
+        b=SMYDVzweZ8T84hxhOzO10+0MbCRTUYp+yjab9xpDV3BlGK8oHoUONgHwC3AoakTlb9
+         6yp0neoxE/U3DtYe4S3dPAz7ejg/irMHihC7wTXovLeXK3LP52QioXR17YzIqKjk3dXR
+         MLJSiTVjMpCpe57eLRkgdpPUIokG+k18gIGg08ZVnjH3kcpCobjpN8o0W/ZiDxGaQuRD
+         Jpm/Tkkn1tbnLN8cJbgyiYl3UWULoFi6jnOEEnTQmyCgi396pnflIxz5yApIHT5jCVpq
+         NUzofsxEHA94p3QScZFnocxYVm7zl61KMiUASz9YAKwLNVzl64K2EFAFhD5kogfcpbc6
+         tQQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772377155; x=1772981955;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=kvxfwv9YItCl98F/UgZP9Kytwk2UIr78C0lNmMRlKt8=;
+        b=IcWH82WrGsNOVOzfv8sbOAQheFlrcrzxdzokd6jT2sJBy6shdeE9bUVuK49PuelB29
+         CntMx9htbgeeTTisLkjYy9wiwhSXG5RGmNkDPiTFbAfhjFVrE1Jku+8kaB+iDgSzGR6q
+         NVmUiecqjEqMF4IXqUtYU2/1D6RB7+ptbz1aJ3HxsqRKecAN1GO31fP0Wp+ciwdYEQ6v
+         BVmh0gHSyY5Wy+OIjxP0Z+n5rQvhtRgN+o41UCk9VzppGm1R12x6zA976f2vPYlzZe6+
+         CIb5A1he7q9cPYQZ7WJaAyui8AsCxulVV1G2lWHar6HgAkuuWYvdXv3WurjzTVseHiOT
+         cyKg==
+X-Forwarded-Encrypted: i=1; AJvYcCUlrfohuffTYPYIV13Dsn7W7SiEThgQrNiR1Hq6obykEVoVbSRnC88Vg2yM02WUM1wjz+Gyv3Q7kwkyguWyefDM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+uj5JID8rR62mIk/UEUR5B6UvCd8Lkp2YthLp4TuDIkLid5ae
+	ZHsTgta311tbaQ+SP6nx/bm7wI+vVPHFoaQ4NAOzOTR2rzaiI3TQLpwu
+X-Gm-Gg: ATEYQzzphfmqTELi8nnPkl71k6jsOYqt2tDoSNx5sjFlLjOft0qkAOQ2EqrsCB05u/g
+	GNq3DK7Omtxn1onVYuDaBViCsOz83akn8Mm1gHOiYd58uEG+qszmar8hLIzLJxQx+ufmjIKsUR/
+	+6WiclFkFKN5ZNn3ZlJO+YzZYqSliCDFLewRRFdIEfF5Tc7sw8KmV5EQN5/mgUUXVyYD2z1BJ4b
+	7fHdkUhEsMQNodKdjzEIQjBA/OFeCJog1RBlrB0Rlzcvy9oQcCxRBB0M+11MMGYMFVQs/kF5S7v
+	+Pmqd9wK3QnOymT3x+0iK2/8u/JcDSk17SB6CAW+RWUvz9NiUWuyQYx4PruJZVsDQ8HeJDb76J8
+	jO7RnmZTjX9Vnb3f37YRpI3ieuShVNFOgglbV31SihmmoeWfGCy7ZUvLgScjwWm/rF/zrPRo5uM
+	HBqhsnmpZqo8RGz5mjsWD3
+X-Received: by 2002:a05:600c:4e09:b0:483:a21:7744 with SMTP id 5b1f17b1804b1-483c9bc574cmr150778635e9.26.1772377155124;
+        Sun, 01 Mar 2026 06:59:15 -0800 (PST)
+Received: from arch.localdomain ([2409:8a28:a55:9af1::1002])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483bd7031f3sm309080845e9.6.2026.03.01.06.59.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Mar 2026 06:50:13 -0800 (PST)
-From: Andrey Skvortsov <andrej.skvortzov@gmail.com>
-To: Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
+        Sun, 01 Mar 2026 06:59:14 -0800 (PST)
+From: Jun Yan <jerrysteve1101@gmail.com>
+To: sashal@kernel.org
+Cc: devicetree@vger.kernel.org,
+	dsimic@manjaro.org,
+	heiko@sntech.de,
+	jerrysteve1101@gmail.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Cc: Andrey Skvortsov <andrej.skvortzov@gmail.com>
-Subject: [PATCH] bus: sunxi-rsb: Always check register address validity
-Date: Sun,  1 Mar 2026 17:49:39 +0300
-Message-ID: <20260301144939.1832806-1-andrej.skvortzov@gmail.com>
-X-Mailer: git-send-email 2.51.0
+	linux-rockchip@lists.infradead.org,
+	pbrobinson@gmail.com,
+	stable@vger.kernel.org
+Subject: Re: FAILED: Patch "arm64: dts: rockchip: Do not enable hdmi_sound node on Pinebook Pro" failed to apply to 5.10-stable tree
+Date: Sun,  1 Mar 2026 22:59:05 +0800
+Message-ID: <20260301145905.41164-1-jerrysteve1101@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260301020101.1728010-1-sashal@kernel.org>
+References: <20260301020101.1728010-1-sashal@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_065016_457055_FCB121CC 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20260301_065917_809017_49A50C40 
+X-CRM114-Status: GOOD (  24.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,34 +104,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Samuel Holland <samuel@sholland.org>
+> The patch below does not apply to the 5.10-stable tree.
+> If someone wants it applied there, or to any other stable or longterm
+> tree, then please email the backport, including the original git commit
+> id to <stable@vger.kernel.org>.
+I have manually tested the commit b18247f9dab73 ("arm64: dts: rockchip: 
+Do not enable hdmi_sound node on Pinebook Pro") and found that executing
+`git cherry-pick b18247f9dab73` applies successfully on the linux-stable 
+branches 5.10.251, 5.15.201, 6.1.164, 6.6.127, and 6.12.74. 
 
-The register address was already validated for read operations in
-regmap_sunxi_rsb_reg_read before being truncated to a u8. Write operations
-have the same set of possible addresses, and the address is being truncated
-from u32 to u8 here as well, so the same check is needed.
+Could there be other reasons that cause the patch to fail to apply?
 
-Signed-off-by: Samuel Holland <samuel@sholland.org>
-Signed-off-by: Andrey Skvortsov <andrej.skvortzov@gmail.com>
----
- drivers/bus/sunxi-rsb.c | 3 +++
- 1 file changed, 3 insertions(+)
+Best regards,
+Jun Yan
+> 
+> Thanks,
+> Sasha
+> 
+> ------------------ original commit in Linus's tree ------------------
+> 
+> >From b18247f9dab735c9c2d63823d28edc9011e7a1ad Mon Sep 17 00:00:00 2001
+> From: Jun Yan <jerrysteve1101@gmail.com>
+> Date: Fri, 16 Jan 2026 23:12:53 +0800
+> Subject: [PATCH] arm64: dts: rockchip: Do not enable hdmi_sound node on
+>  Pinebook Pro
+> 
+> Remove the redundant enabling of the hdmi_sound node in the Pinebook Pro
+> board dts file, because the HDMI output is unused on this device. [1][2]
+> 
+> This change also eliminates the following kernel log warning, which is
+> caused by the unenabled dependent node of hdmi_sound that ultimately
+> results in the node's probe failure:
+> 
+>   platform hdmi-sound: deferred probe pending: asoc-simple-card: parse error
+> 
+> [1] https://files.pine64.org/doc/PinebookPro/pinebookpro_v2.1_mainboard_schematic.pdf
+> [2] https://files.pine64.org/doc/PinebookPro/pinebookpro_schematic_v21a_20220419.pdf
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: 5a65505a69884 ("arm64: dts: rockchip: Add initial support for Pinebook Pro")
+> Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
+> Reviewed-by: Peter Robinson <pbrobinson@gmail.com>
+> Reviewed-by: Dragan Simic <dsimic@manjaro.org>
+> Link: https://patch.msgid.link/20260116151253.9223-1-jerrysteve1101@gmail.com
+> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts | 4 ----
+>  1 file changed, 4 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
+> index eaaca08a76018..a6ac89567bafe 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
+> @@ -421,10 +421,6 @@ &gpu {
+>  	status = "okay";
+>  };
+>  
+> -&hdmi_sound {
+> -	status = "okay";
+> -};
+> -
+>  &i2c0 {
+>  	clock-frequency = <400000>;
+>  	i2c-scl-falling-time-ns = <4>;
+> -- 
+> 2.51.0
 
-diff --git a/drivers/bus/sunxi-rsb.c b/drivers/bus/sunxi-rsb.c
-index b4f2c64ac1810..daf0ea563e477 100644
---- a/drivers/bus/sunxi-rsb.c
-+++ b/drivers/bus/sunxi-rsb.c
-@@ -445,6 +445,9 @@ static int regmap_sunxi_rsb_reg_write(void *context, unsigned int reg,
- 	struct sunxi_rsb_ctx *ctx = context;
- 	struct sunxi_rsb_device *rdev = ctx->rdev;
- 
-+	if (reg > 0xff)
-+		return -EINVAL;
-+
- 	return sunxi_rsb_write(rdev->rsb, rdev->rtaddr, reg, &val, ctx->size);
- }
- 
--- 
-2.51.0
+
+
+
+
+_______________________________________________
+Linux-rockchip mailing list
+Linux-rockchip@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-rockchip
 
 
