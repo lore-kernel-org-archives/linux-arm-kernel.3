@@ -4,59 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93F08FD0045
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:45:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 843BEFD0045
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:45:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xMy9nZmRu/da34ZKq0Tf8tGl+gYJgL/L+TGPE6Ev7YA=; b=l9ZeL26vpzqpk5DUUgIcAnccvy
-	0B3HPlnF5L9tO3aZ4NRpvh5zE4PVcEyhcEC8VMbESALr0BFQVWm5xiWLA5kf56d9qxYGZqVxibl3U
-	fM33fVknKJilSgpd89w5cBfZaPz1e/2o07Z9yjk31vetU0v0NpIB0bcvOWhCEY8voNnwMcpSbXcS4
-	l/25sCYQHCE4xsNADCZH6p9RILJl38pdxBFN6/Uj2C6YbD0P1OaQIJatNoXPEyoDtNBGVfUhywSG8
-	3ooXiUR5ek1jwwgMelPzVRHYLnqUnyUPltd+1H/0CVUAAI0NogCdT/SAneQEjK3jMmNda0OTXFVvG
-	3IhfKWiA==;
+	bh=ZV2cgOSTi3nBjNDUYFZXamFAAEpDy+L4FwDtk8a54b0=; b=pzI/aYUT2jsHuJ9GD0OChH3s0S
+	vgMRDvhguuR29rHtmpfIksXVnNaBKOwf3OWCTcV4fckND+X4Muy3nmZUBvnFu2ZjZ/HAmonr8uHVg
+	rRNcG49A2FZh6F6t9FMFk2xOa32x/P9I4ShB9xTqODq4Fr18m0ZSKxlkHA3anaP4TCSpqs1Gm5NTc
+	hrHnSC/B98yulB8yeqUAZ7VzJ6x1hUn/bQGjWuwRCCnR0RpOPRcFEbKZv1BEjzPcGV77OjcTMXFg0
+	vV3Ui4FGcgls7eaJpqHHEqzFZlvFO9dqXEMjrwrmQ6zpvnHgcpmkjk+JNDsx3n8cJG4Iy3eQFHPAT
+	hRmDexyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVrf-0000000AdSz-1zsR;
-	Sun, 01 Mar 2026 01:44:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vwVrl-0000000AdWs-16FK;
+	Sun, 01 Mar 2026 01:45:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVre-0000000AdRt-1cD0
+	id 1vwVri-0000000AdV0-3Pwt
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 01:44:58 +0000
+	Sun, 01 Mar 2026 01:45:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CCB9B6013C;
-	Sun,  1 Mar 2026 01:44:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB247C19421;
-	Sun,  1 Mar 2026 01:44:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 72552407CA;
+	Sun,  1 Mar 2026 01:45:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A56CDC19421;
+	Sun,  1 Mar 2026 01:45:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772329497;
-	bh=5FMDaDjdpb2VCefNYqWysWzqQCbjFhhtrBy4heq23YQ=;
+	s=k20201202; t=1772329502;
+	bh=zsA1yqcXUfbZ5VevAccsE1T2z6pA2uUkD9SZfyB6KQk=;
 	h=From:To:Cc:Subject:Date:From;
-	b=YgBPaqqh1z4LJnJSA9Vxybh6Q/tGVz30beEH1KUelQYsm5e6HhyHEwlR4L80miGns
-	 X3s/HmraFt8GpQjPMzSjgUuiyk4eEK7KXEnsqJ76fTr4xoRL2rbDBsW4/mGvWTDUxa
-	 sV39rgqvEzPTarWT00KhhynO5I1BOGogw0dbSEGBoF58e3SYn4b5KvenzpepA8D40v
-	 +crEW6hJHShcWyzZllDPBo/B5XX/FzYN4bX6lVnLR5O7wYADHGVsrdX6AcUbzh/YZN
-	 TRTM/rton5GvpDcewkpU0/Phv6bFdIHU4FWOZot1meFgUTHmkFkxJDV0uez8aDcNI0
-	 k0QJMdEivGwxg==
+	b=uB62cOKvPGbOK8sm47G31E/5H94PLxFpMO5xSpRNkwFB/rKJskd4/qVYkEROCOLVa
+	 1QzB+n6z1SD8gjqCYxXOLh2f8qOSM8e63snff6jzFI+Zs0gfT62F4mgVPfz0HIjdPX
+	 D0kkoBsyUIGlAYA8rVntU1hzIU25MLtsImIL1UUQs6+KBpH7l6Rn11Z880DQXoorQY
+	 QJePvYorZQpNWfAL39yEBwD0VcW7cJZu6h9KnQ4WEavVGzG4NpeLCPgXT4N+jZc4fW
+	 RvvvxAJrv7b+1YmZ0U9Gdkh2gZTGAdsvHq0iLBIMEbqAsWQR5sdpIKTgCY5mg+051S
+	 GfdkdK4ZdsR3w==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	elver@google.com
-Cc: Boqun Feng <boqun@kernel.org>,
-	David Laight <david.laight.linux@gmail.com>,
+	robin.murphy@arm.com
+Cc: Ilkka Koskinen <ilkka@os.amperecomputing.com>,
 	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: FAILED: Patch "arm64: Fix non-atomic __READ_ONCE() with CONFIG_LTO=y" failed to apply to 6.1-stable tree
-Date: Sat, 28 Feb 2026 20:44:55 -0500
-Message-ID: <20260301014455.1707393-1-sashal@kernel.org>
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org
+Subject: FAILED: Patch "perf/arm-cmn: Reject unsupported hardware configurations" failed to apply to 6.1-stable tree
+Date: Sat, 28 Feb 2026 20:45:00 -0500
+Message-ID: <20260301014500.1707496-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260228_174502_890050_78752940 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,52 +84,73 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From bb0c99e08ab9aa6d04b40cb63c72db9950d51749 Mon Sep 17 00:00:00 2001
-From: Marco Elver <elver@google.com>
-Date: Fri, 30 Jan 2026 14:28:24 +0100
-Subject: [PATCH] arm64: Fix non-atomic __READ_ONCE() with CONFIG_LTO=y
+From 36c0de02575ce59dfd879eb4ef63d53a68bbf9ce Mon Sep 17 00:00:00 2001
+From: Robin Murphy <robin.murphy@arm.com>
+Date: Tue, 3 Feb 2026 14:07:29 +0000
+Subject: [PATCH] perf/arm-cmn: Reject unsupported hardware configurations
 
-The implementation of __READ_ONCE() under CONFIG_LTO=y incorrectly
-qualified the fallback "once" access for types larger than 8 bytes,
-which are not atomic but should still happen "once" and suppress common
-compiler optimizations.
+So far we've been fairly lax about accepting both unknown CMN models
+(at least with a warning), and unknown revisions of those which we
+do know, as although things do frequently change between releases,
+typically enough remains the same to be somewhat useful for at least
+some basic bringup checks. However, we also make assumptions of the
+maximum supported sizes and numbers of things in various places, and
+there's no guarantee that something new might not be bigger and lead
+to nasty array overflows. Make sure we only try to run on things that
+actually match our assumptions and so will not risk memory corruption.
 
-The cast `volatile typeof(__x)` applied the volatile qualifier to the
-pointer type itself rather than the pointee. This created a volatile
-pointer to a non-volatile type, which violated __READ_ONCE() semantics.
+We have at least always failed on completely unknown node types, so
+update that error message for clarity and consistency too.
 
-Fix this by casting to `volatile typeof(*__x) *`.
-
-With a defconfig + LTO + debug options build, we see the following
-functions to be affected:
-
-	xen_manage_runstate_time (884 -> 944 bytes)
-	xen_steal_clock (248 -> 340 bytes)
-	  ^-- use __READ_ONCE() to load vcpu_runstate_info structs
-
-Fixes: e35123d83ee3 ("arm64: lto: Strengthen READ_ONCE() to acquire when CONFIG_LTO=y")
 Cc: stable@vger.kernel.org
-Reviewed-by: Boqun Feng <boqun@kernel.org>
-Signed-off-by: Marco Elver <elver@google.com>
-Tested-by: David Laight <david.laight.linux@gmail.com>
+Fixes: 7819e05a0dce ("perf/arm-cmn: Revamp model detection")
+Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/include/asm/rwonce.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/perf/arm-cmn.c | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/rwonce.h b/arch/arm64/include/asm/rwonce.h
-index 78beceec10cda..fc0fb42b0b641 100644
---- a/arch/arm64/include/asm/rwonce.h
-+++ b/arch/arm64/include/asm/rwonce.h
-@@ -58,7 +58,7 @@
- 	default:							\
- 		atomic = 0;						\
- 	}								\
--	atomic ? (typeof(*__x))__u.__val : (*(volatile typeof(__x))__x);\
-+	atomic ? (typeof(*__x))__u.__val : (*(volatile typeof(*__x) *)__x);\
- })
+diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+index 651edd73bfcb1..4fbafc4b79843 100644
+--- a/drivers/perf/arm-cmn.c
++++ b/drivers/perf/arm-cmn.c
+@@ -2422,6 +2422,15 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
+ 			arm_cmn_init_node_info(cmn, reg & CMN_CHILD_NODE_ADDR, dn);
+ 			dn->portid_bits = xp->portid_bits;
+ 			dn->deviceid_bits = xp->deviceid_bits;
++			/*
++			 * Logical IDs are assigned from 0 per node type, so as
++			 * soon as we see one bigger than expected, we can assume
++			 * there are more than we can cope with.
++			 */
++			if (dn->logid > CMN_MAX_NODES_PER_EVENT) {
++				dev_err(cmn->dev, "Node ID invalid for supported CMN versions: %d\n", dn->logid);
++				return -ENODEV;
++			}
  
- #endif	/* !BUILD_VDSO */
+ 			switch (dn->type) {
+ 			case CMN_TYPE_DTC:
+@@ -2471,7 +2480,7 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
+ 				break;
+ 			/* Something has gone horribly wrong */
+ 			default:
+-				dev_err(cmn->dev, "invalid device node type: 0x%x\n", dn->type);
++				dev_err(cmn->dev, "Device node type invalid for supported CMN versions: 0x%x\n", dn->type);
+ 				return -ENODEV;
+ 			}
+ 		}
+@@ -2499,6 +2508,10 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
+ 		cmn->mesh_x = cmn->num_xps;
+ 	cmn->mesh_y = cmn->num_xps / cmn->mesh_x;
+ 
++	if (max(cmn->mesh_x, cmn->mesh_y) > CMN_MAX_DIMENSION) {
++		dev_err(cmn->dev, "Mesh size invalid for supported CMN versions: %dx%d\n", cmn->mesh_x, cmn->mesh_y);
++		return -ENODEV;
++	}
+ 	/* 1x1 config plays havoc with XP event encodings */
+ 	if (cmn->num_xps == 1)
+ 		dev_warn(cmn->dev, "1x1 config not fully supported, translate XP events manually\n");
 -- 
 2.51.0
 
