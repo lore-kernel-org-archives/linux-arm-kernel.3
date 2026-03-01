@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B29AFD0045
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:40:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3370DFD0045
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:40:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=R0dXP/PgLov5TC25TyASXdpq6WFry42nbwX83MYkg4s=; b=mlIdAOuxMxjRR87trN7TLwh3Dn
-	4G3Lck00dkMexdbWWMeOtR+9cbTZNpsZaW2ioKGH2b0SBsHdEq3VfP0T4L4AMkc0RujEU2m37nfB4
-	MI+pFFLME2wlEtq+BKn+4uo505Ub1nmJFFK0jTUly71kJfN38sP4NkbmkqZsjpCHKt6xttxq8uMq3
-	MFoT0TZw6MorneubnwydUCDdoEy+NJM6DQfROOoWKt2SGYHV2AbmOflcalFTJSzFtS93dVTHxRiGu
-	WuDeaxTMSueuDMDRphILJQlF9MlnXmP0kbGZzE8CsDsUbN07BR906gLHC+vzRaU9CnazDiMYgyC+w
-	y+PGzDZw==;
+	bh=1f3by8ZLNUI/mfK2z2JGwbR7sePHKbA/HCafMooQBQU=; b=Q6hobNLU2mMMpIeom764cQPW0W
+	BNNCDN3gpjv4gwhKDzeG5dN9tB5mpC5sivV67j+IhAfJSWi/WZ2afSBCNwgRQivT59PmPMhszRW6n
+	+ABdbMTnX+qn/ZF6VJtMHl/JLyf5EE5CoBMlj6En33H5Dhb/Uqy7J43uQECFFaWY/WI/RxJSV91us
+	QlYkcjTq2FfdaNO96WgF3yta2lblymwh6MYxSJxgequaD1so4AntB4ygRd8sBDNj1gJ+STrOK40l9
+	liYs32EoLblopwNaSA31p3Oh0EvM02UAL4tJWBnBOVOZKbDNBsSzORRnUPFxAA+SHlrnuC/IgXeC8
+	b5nPk1/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVnD-0000000AbYV-3iWo;
-	Sun, 01 Mar 2026 01:40:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vwVnR-0000000Abkr-1MZS;
+	Sun, 01 Mar 2026 01:40:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVnC-0000000AbXJ-1PaB;
-	Sun, 01 Mar 2026 01:40:22 +0000
+	id 1vwVnP-0000000Abix-1f7G;
+	Sun, 01 Mar 2026 01:40:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AF39F6012A;
-	Sun,  1 Mar 2026 01:40:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A57E9C19424;
-	Sun,  1 Mar 2026 01:40:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CC3706012A;
+	Sun,  1 Mar 2026 01:40:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0487C19421;
+	Sun,  1 Mar 2026 01:40:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772329221;
-	bh=HOR70tu412dDpRqy858lbiCFaCJ6RxS/Co8VPlOdhf4=;
+	s=k20201202; t=1772329234;
+	bh=qoPBFVk5wk8VfEbLL0CjaifgTX27bi8zrXhqU8zt4/c=;
 	h=From:To:Cc:Subject:Date:From;
-	b=ZXDlx1V88itZpL6HJcPl56JMwV8gtT2IBvWc8JoqJIRcOYh5+Wlp+WOmFRXOBq770
-	 pGm2pVDqjitf/Q1BAFEdhNLUD6Pxk1PJMkNaNkkLypF6nX0ZPk7XE9qME1K3XDfN8n
-	 9FS7/qt9+IastN0Mbg33NscKnTxdrA/2c1HrOxl1Rcbs+fY55Org7v6ALQGZ+fszLr
-	 jqzWParZPW+g8+M2zhB/h3zwy5n/B1j5nwB2bBgCPrKYXYWlXZecOFKZDhI6negY9F
-	 in+bienldJw+ZRJBAdqTzxx2HIAs534wG7ZJaxhaUmG0e2m/p9Zc5yK2YXS3OM6V8y
-	 AcJAjK/9FDv/w==
+	b=cnvt+D99HA2WEVoeLri6M1jrGRzBov/KkMSloQ60wnwWvMcVXqksDs1OWAMLcxRSU
+	 S6WaujYXyOR+nMpX7JyS39HuHUkheYO0SSDWeFMHw86WCHQE3tZZgjJybiQaKHCJ56
+	 57mWSO9uk+9CKIHHeXf7o32iBFfIROaFzEV0IUhTeFEZyiI+/XbG8OJhuo9GWVyWO2
+	 eRLXKjs8GvvyvQueRIm/M5QiWLJstE1QSPPmJQMUOGwNgzlZLxOV2zHl5mIbCWlbRj
+	 nvqVwrsAWgVJ9/QiE0ukV/VTjw07vgFUXJSYjL159MsnShCnK5xEwySEzAWt2G2bE8
+	 RgtCIoEuNOtcQ==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	cassel@kernel.org
-Cc: Manivannan Sadhasivam <mani@kernel.org>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	linux-pci@vger.kernel.org,
+	haoxiang_li2024@163.com
+Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
+	linux-media@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: FAILED: Patch "Revert "PCI: dw-rockchip: Don't wait for link since we can detect Link Up"" failed to apply to 6.1-stable tree
-Date: Sat, 28 Feb 2026 20:40:19 -0500
-Message-ID: <20260301014019.1701545-1-sashal@kernel.org>
+	linux-mediatek@lists.infradead.org
+Subject: FAILED: Patch "media: mtk-mdp: Fix a reference leak bug in mtk_mdp_remove()" failed to apply to 6.1-stable tree
+Date: Sat, 28 Feb 2026 20:40:32 -0500
+Message-ID: <20260301014032.1701797-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
@@ -81,75 +81,36 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From fc6298086bfacaa7003b0bd1da4e4f42b29f7d77 Mon Sep 17 00:00:00 2001
-From: Niklas Cassel <cassel@kernel.org>
-Date: Mon, 22 Dec 2025 07:42:08 +0100
-Subject: [PATCH] Revert "PCI: dw-rockchip: Don't wait for link since we can
- detect Link Up"
+From f128bab57b8018e526b7eda854ca20069863af47 Mon Sep 17 00:00:00 2001
+From: Haoxiang Li <haoxiang_li2024@163.com>
+Date: Wed, 8 Oct 2025 17:01:56 +0800
+Subject: [PATCH] media: mtk-mdp: Fix a reference leak bug in mtk_mdp_remove()
 
-This reverts commit ec9fd499b9c60a187ac8d6414c3c343c77d32e42.
+In mtk_mdp_probe(), vpu_get_plat_device() increases the reference
+count of the returned platform device. Add platform_device_put()
+to prevent reference leak.
 
-While this fake hotplugging was a nice idea, it has shown that this feature
-does not handle PCIe switches correctly:
-pci_bus 0004:43: busn_res: can not insert [bus 43-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
-pci_bus 0004:43: busn_res: [bus 43-41] end is updated to 43
-pci_bus 0004:43: busn_res: can not insert [bus 43] under [bus 42-41] (conflicts with (null) [bus 42-41])
-pci 0004:42:00.0: devices behind bridge are unusable because [bus 43] cannot be assigned for them
-pci_bus 0004:44: busn_res: can not insert [bus 44-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
-pci_bus 0004:44: busn_res: [bus 44-41] end is updated to 44
-pci_bus 0004:44: busn_res: can not insert [bus 44] under [bus 42-41] (conflicts with (null) [bus 42-41])
-pci 0004:42:02.0: devices behind bridge are unusable because [bus 44] cannot be assigned for them
-pci_bus 0004:45: busn_res: can not insert [bus 45-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
-pci_bus 0004:45: busn_res: [bus 45-41] end is updated to 45
-pci_bus 0004:45: busn_res: can not insert [bus 45] under [bus 42-41] (conflicts with (null) [bus 42-41])
-pci 0004:42:06.0: devices behind bridge are unusable because [bus 45] cannot be assigned for them
-pci_bus 0004:46: busn_res: can not insert [bus 46-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
-pci_bus 0004:46: busn_res: [bus 46-41] end is updated to 46
-pci_bus 0004:46: busn_res: can not insert [bus 46] under [bus 42-41] (conflicts with (null) [bus 42-41])
-pci 0004:42:0e.0: devices behind bridge are unusable because [bus 46] cannot be assigned for them
-pci_bus 0004:42: busn_res: [bus 42-41] end is updated to 46
-pci_bus 0004:42: busn_res: can not insert [bus 42-46] under [bus 41] (conflicts with (null) [bus 41])
-pci 0004:41:00.0: devices behind bridge are unusable because [bus 42-46] cannot be assigned for them
-pcieport 0004:40:00.0: bridge has subordinate 41 but max busn 46
-
-During the initial scan, PCI core doesn't see the switch and since the Root
-Port is not hot plug capable, the secondary bus number gets assigned as the
-subordinate bus number. This means, the PCI core assumes that only one bus
-will appear behind the Root Port since the Root Port is not hot plug
-capable.
-
-This works perfectly fine for PCIe endpoints connected to the Root Port,
-since they don't extend the bus. However, if a PCIe switch is connected,
-then there is a problem when the downstream busses starts showing up and
-the PCI core doesn't extend the subordinate bus number and bridge resources
-after initial scan during boot.
-
-The long term plan is to migrate this driver to the upcoming pwrctrl APIs
-that are supposed to handle this problem elegantly.
-
-Suggested-by: Manivannan Sadhasivam <mani@kernel.org>
-Signed-off-by: Niklas Cassel <cassel@kernel.org>
-Signed-off-by: Manivannan Sadhasivam <mani@kernel.org>
-Tested-by: Shawn Lin <shawn.lin@rock-chips.com>
-Acked-by: Shawn Lin <shawn.lin@rock-chips.com>
+Fixes: c8eb2d7e8202 ("[media] media: Add Mediatek MDP Driver")
 Cc: stable@vger.kernel.org
-Link: https://patch.msgid.link/20251222064207.3246632-9-cassel@kernel.org
+Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
+Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Signed-off-by: Hans Verkuil <hverkuil+cisco@kernel.org>
 ---
- drivers/pci/controller/dwc/pcie-dw-rockchip.c | 1 -
- 1 file changed, 1 deletion(-)
+ drivers/media/platform/mediatek/mdp/mtk_mdp_core.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 8c1c922088023..ca808d8f79753 100644
---- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-+++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -601,7 +601,6 @@ static int rockchip_pcie_configure_rc(struct platform_device *pdev,
+diff --git a/drivers/media/platform/mediatek/mdp/mtk_mdp_core.c b/drivers/media/platform/mediatek/mdp/mtk_mdp_core.c
+index f78fa30f18648..8432833814f31 100644
+--- a/drivers/media/platform/mediatek/mdp/mtk_mdp_core.c
++++ b/drivers/media/platform/mediatek/mdp/mtk_mdp_core.c
+@@ -254,6 +254,7 @@ static void mtk_mdp_remove(struct platform_device *pdev)
  
- 	pp = &rockchip->pci.pp;
- 	pp->ops = &rockchip_pcie_host_ops;
--	pp->use_linkup_irq = true;
+ 	pm_runtime_disable(&pdev->dev);
+ 	vb2_dma_contig_clear_max_seg_size(&pdev->dev);
++	platform_device_put(mdp->vpu_dev);
+ 	mtk_mdp_unregister_m2m_device(mdp);
+ 	v4l2_device_unregister(&mdp->v4l2_dev);
  
- 	ret = dw_pcie_host_init(pp);
- 	if (ret) {
 -- 
 2.51.0
 
