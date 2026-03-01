@@ -4,63 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 562FDFD0048
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 02:01:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BAAFFD0049
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 02:02:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OEMzse+V31rXNCRaOLFcc2ANx86I0GXkz737rTN1xGs=; b=3cBRVQymvAzN4Tk7x6Sd8kYt98
-	MN1sbz89NnDApBEy2d2i71hk2Lbg8dYVh1y9975SzJpX0Ymdqe6dsis6YuiDG6AyzjSG6osSWKmzt
-	2EQOcF8xpe75E6G3gDaM3CC6qoj12gESDps/PruzS5C3n4IHjGHY5M+N5W3hZ3WRlKDhteyWH808t
-	BHy8HRSey9/JsXZgQ898Py75Ia76mzUXUz8zikaLXdeAxHu72D8iGYQMBzdbMNpYQmN67rzGlMr2+
-	7ZXzZMyuHCME6uh3oQyVRlo25DC4icVkQLv7YcSs7USeS/OCABRjOKYoy338rT/MKni0CQ+aTyEs8
-	b0OqKr6g==;
+	bh=9Bi98EdnTTnVTXGELexBxMTfbc1GAZeQ0+31PKpGBpM=; b=n9kO/d4Eal33xqB5jYsvywIqIP
+	T+V9a2yzE9VwWIO8Z6csg30Hz/hcr1V4xvQqVUG9sD9qbS1164Tq4d8k2uVqbRNKvBlYO0tX0vJCF
+	ashhxko/g4sMTUhDTlkL3HSaLSAyTPO03wAfp3kUSq0blWv6w/TbZKjCGr89WQIcIlPCv1oUiVXO6
+	87mzchBwVh1HWSavBVArgrGzRC4ZTn2QxWfIHkr2H83TOoAT5gVKhAIAAoAvtlYpPbNTAvHQGJDm3
+	AfgVykiYuktHhpen7qvfc4GZsOIVtkZ9alVUxi4fDOhYipPoD3GJW92575o0qnRvLoP4mWEkQ7Vl2
+	GenPRlvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwW7F-0000000AiYe-3gB8;
-	Sun, 01 Mar 2026 02:01:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vwW8z-0000000AipE-0LHt;
+	Sun, 01 Mar 2026 02:02:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwW7D-0000000AiXV-3QAV;
-	Sun, 01 Mar 2026 02:01:05 +0000
+	id 1vwW8x-0000000Aip7-2h1r
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 01 Mar 2026 02:02:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6F083438F8;
-	Sun,  1 Mar 2026 02:01:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75DA5C19421;
-	Sun,  1 Mar 2026 02:01:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0411D6012B;
+	Sun,  1 Mar 2026 02:02:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09DCBC19421;
+	Sun,  1 Mar 2026 02:02:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772330463;
-	bh=dyxHGjJI8DjxC6R5BVOEZ5pjv5AkreDImFcN1oum+pg=;
+	s=k20201202; t=1772330570;
+	bh=syPIQXWwhj6eiG9ZKlOOFdyQ/tRTgqffREQT43QIoJs=;
 	h=From:To:Cc:Subject:Date:From;
-	b=frswDLhTPIIQlnudDHnWQXOc5M6P6/VXzxVLDKLtQZg/d/rHlMEvPKUQjZoc3F5zi
-	 AUwuHvPvMTF+yb54w8yNVyN5O0pqUQU9o86F2dOKyn4gjHEdU1Yyo8uiuowJmwidGw
-	 G+oEG/docMbdBihbv89K9x7WYnyrPrRMOncQx7yv2i9L9wXV1c67qn4rfw/nzk8wBV
-	 XoudCFi1SuOKqL7mmAWf2tQwnw832vpuVNECLwkTQYfW/RBqLRi8D5Mp2ceuc58s77
-	 bDo0+05TsTggc8Q6AC9dzBPe0f3YisMnqeRLLvrqNUGTAuB079T08N5wHDPMFSvjoh
-	 vgrgk80ahzUQA==
+	b=PSK+5ArnCNIHrBrrg39YznHx9/OVeJhBhqH+fh4flCxYn0l9w4dpOnxhu+vSNd3Z7
+	 J5NuPen0XAZVhORdNx3+OGpF3mtBDBFDycs4UUe45e0HyY/2lZssK/+LFACrf0VNjL
+	 UvFaEHBBDyB13no7EAg6FUg0vokqIILMipD4qMkuQXpgetE7BgWSNGb+nH2in/JsG5
+	 4SOdbgWWAq0QPph+XLAjNSyoY530iRfg9oWCyhuAYioDr6SlaN3p8hABurUvM6y00y
+	 uCIG0J0zyi3NMzEcDP7Mv28VaqL9LtUwubeZuegtKmfhCkhbDaNFj25BmUSgdZfkoc
+	 VYKz/3U2MRvbw==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	jerrysteve1101@gmail.com
-Cc: Peter Robinson <pbrobinson@gmail.com>,
-	Dragan Simic <dsimic@manjaro.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	devicetree@vger.kernel.org,
+	aha310510@gmail.com
+Cc: Inki Dae <inki.dae@samsung.com>,
+	dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: FAILED: Patch "arm64: dts: rockchip: Do not enable hdmi_sound node on Pinebook Pro" failed to apply to 5.10-stable tree
-Date: Sat, 28 Feb 2026 21:01:00 -0500
-Message-ID: <20260301020101.1728010-1-sashal@kernel.org>
+	linux-samsung-soc@vger.kernel.org
+Subject: FAILED: Patch "drm/exynos: vidi: fix to avoid directly dereferencing user pointer" failed to apply to 5.10-stable tree
+Date: Sat, 28 Feb 2026 21:02:48 -0500
+Message-ID: <20260301020248.1730726-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_180103_866506_DA271986 
-X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,50 +81,62 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From b18247f9dab735c9c2d63823d28edc9011e7a1ad Mon Sep 17 00:00:00 2001
-From: Jun Yan <jerrysteve1101@gmail.com>
-Date: Fri, 16 Jan 2026 23:12:53 +0800
-Subject: [PATCH] arm64: dts: rockchip: Do not enable hdmi_sound node on
- Pinebook Pro
+From d4c98c077c7fb2dfdece7d605e694b5ea2665085 Mon Sep 17 00:00:00 2001
+From: Jeongjun Park <aha310510@gmail.com>
+Date: Mon, 19 Jan 2026 17:25:52 +0900
+Subject: [PATCH] drm/exynos: vidi: fix to avoid directly dereferencing user
+ pointer
 
-Remove the redundant enabling of the hdmi_sound node in the Pinebook Pro
-board dts file, because the HDMI output is unused on this device. [1][2]
+In vidi_connection_ioctl(), vidi->edid(user pointer) is directly
+dereferenced in the kernel.
 
-This change also eliminates the following kernel log warning, which is
-caused by the unenabled dependent node of hdmi_sound that ultimately
-results in the node's probe failure:
+This allows arbitrary kernel memory access from the user space, so instead
+of directly accessing the user pointer in the kernel, we should modify it
+to copy edid to kernel memory using copy_from_user() and use it.
 
-  platform hdmi-sound: deferred probe pending: asoc-simple-card: parse error
-
-[1] https://files.pine64.org/doc/PinebookPro/pinebookpro_v2.1_mainboard_schematic.pdf
-[2] https://files.pine64.org/doc/PinebookPro/pinebookpro_schematic_v21a_20220419.pdf
-
-Cc: stable@vger.kernel.org
-Fixes: 5a65505a69884 ("arm64: dts: rockchip: Add initial support for Pinebook Pro")
-Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
-Reviewed-by: Peter Robinson <pbrobinson@gmail.com>
-Reviewed-by: Dragan Simic <dsimic@manjaro.org>
-Link: https://patch.msgid.link/20260116151253.9223-1-jerrysteve1101@gmail.com
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Jeongjun Park <aha310510@gmail.com>
+Signed-off-by: Inki Dae <inki.dae@samsung.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts | 4 ----
- 1 file changed, 4 deletions(-)
+ drivers/gpu/drm/exynos/exynos_drm_vidi.c | 22 ++++++++++++++++++----
+ 1 file changed, 18 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
-index eaaca08a76018..a6ac89567bafe 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
-@@ -421,10 +421,6 @@ &gpu {
- 	status = "okay";
- };
+diff --git a/drivers/gpu/drm/exynos/exynos_drm_vidi.c b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
+index 480c99a8f9f75..9709c07e5d8f4 100644
+--- a/drivers/gpu/drm/exynos/exynos_drm_vidi.c
++++ b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
+@@ -252,13 +252,27 @@ int vidi_connection_ioctl(struct drm_device *drm_dev, void *data,
  
--&hdmi_sound {
--	status = "okay";
--};
--
- &i2c0 {
- 	clock-frequency = <400000>;
- 	i2c-scl-falling-time-ns = <4>;
+ 	if (vidi->connection) {
+ 		const struct drm_edid *drm_edid;
+-		const struct edid *raw_edid;
++		const void __user *edid_userptr = u64_to_user_ptr(vidi->edid);
++		void *edid_buf;
++		struct edid hdr;
+ 		size_t size;
+ 
+-		raw_edid = (const struct edid *)(unsigned long)vidi->edid;
+-		size = (raw_edid->extensions + 1) * EDID_LENGTH;
++		if (copy_from_user(&hdr, edid_userptr, sizeof(hdr)))
++			return -EFAULT;
+ 
+-		drm_edid = drm_edid_alloc(raw_edid, size);
++		size = (hdr.extensions + 1) * EDID_LENGTH;
++
++		edid_buf = kmalloc(size, GFP_KERNEL);
++		if (!edid_buf)
++			return -ENOMEM;
++
++		if (copy_from_user(edid_buf, edid_userptr, size)) {
++			kfree(edid_buf);
++			return -EFAULT;
++		}
++
++		drm_edid = drm_edid_alloc(edid_buf, size);
++		kfree(edid_buf);
+ 		if (!drm_edid)
+ 			return -ENOMEM;
+ 
 -- 
 2.51.0
 
