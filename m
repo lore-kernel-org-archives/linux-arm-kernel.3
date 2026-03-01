@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30B3CFD0048
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 02:03:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 010F0FD0049
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 02:03:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rmLhwSk48wtFKZRSHqoNeN59WzKh9FVbp3qYKSY7mzg=; b=VbWvOcjFev7sEYR6ViZautvLRw
-	6eu5fKeUKgXf5bji1MT7DqMuXG9Bj/FiUUB10URsvYhAGX8H75y1OD9d4qShNxWjul8O7LKW2LgSc
-	/VbXopjbZ1fINiAkCtpCsHMym065PK67A+vm8klou1mUlVUYIMpUX063VXYeD7R4MEEJDJFw4Munz
-	66vhzcXiddIGXXWXtbBMuo9A3TSvPfI2fj2aLHW+JX0YzKQF8I3qcEhVQJo9s0Rr06WZpJ3UuBiJx
-	mNtPEnIMWqyIVJFSUM/Wa3WKgAE9OXZH4YxMq39yTf5WGMboSybB2i+XjAE8KmDkulO/rMDbb5seE
-	1EU8YDrg==;
+	bh=HCehjue0np/ThN8dPHI42k6tiSJrBRhqeEoFmRGdtgY=; b=dv74sgAY4SOW/CxLyBDU2R4KJ7
+	4s+pEZhBbJ63xiMMyDdHsN0lQgLrcTYsxr5K2U9TpkIlkVitsVJkZf4G576iMnbve5AtxTuBmnLwO
+	LJbjeKKNLeSJc8Lowj00uol5WnvvpuCKe6Uqs8ZM88B7lwVU32F+EFoXvfcXzBMjFEgRdkvxza39N
+	WhhcHnanLdEa8+XgF0YQ9vyVkr/0tyfazc4+0rLR+7fnfSYlwCjqhVVoAoFKb6Z1pnTPoQ5trCNBX
+	irYlYl1GxhgKOE8axrgQ2G7X2im0BMAlVaTI/JCxadT42Po7aOLP/3J5TfNk66kAkzXB9gMQI6wIx
+	8wKpHEFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwW9C-0000000Aiu6-0l4S;
-	Sun, 01 Mar 2026 02:03:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vwW9N-0000000AizD-27JH;
+	Sun, 01 Mar 2026 02:03:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwW9A-0000000Aisi-2951
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 02:03:05 +0000
+	id 1vwW9K-0000000Aixb-2LZP;
+	Sun, 01 Mar 2026 02:03:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 07E3A41879;
-	Sun,  1 Mar 2026 02:03:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35C0EC19421;
-	Sun,  1 Mar 2026 02:03:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 31D2441879;
+	Sun,  1 Mar 2026 02:03:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E30AC19421;
+	Sun,  1 Mar 2026 02:03:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772330583;
-	bh=ZeufoZvanyMB3x+IzpiMTgfyZuWRNuphRNP74F/S/k4=;
+	s=k20201202; t=1772330594;
+	bh=OCgSm9Dz4TygZ5WhD58rtVpczEmAwYpt2PIP7yJz1Fs=;
 	h=From:To:Cc:Subject:Date:From;
-	b=Q7D2T8yPSgT3tyxoYov9a1pg1ewv6p4AZFSMcwiLZRM06BmDXLYcdPY/hQrLyHKOO
-	 ZjdNr0j8oJrf64fuknzWUBhpgQIp2e70A6uI7oItxrXOMhIEftjOy/GtpudKaGIswY
-	 6sBT73DOyw0McDurUetvhCZo30F5Fv9Wq3s8QX+6aiPXUYbSS+nZ8ix3FcLhMTZMkr
-	 iZRQUN2wXPrpPrEw2lOLnaF/vROjOm5TX4dLVaEaLXwpMpqqgqTIEsHLhiQbAXeRMe
-	 K1a2nV8jousS26teaT9iBdqwQNl6Ned3vXKYeRnHL8TZuQ/T/vvoLzkDrvBRQyxo9y
-	 CmHqyOCS9cRIg==
+	b=UCr+IIbeYL2cwJlETcFZhA7MeMsnowTaOLSosejQeWF160Vj+IDySc6++FSeAGP2H
+	 wW18ApZ05Xlyfzr4Cxf0i+UTaVtg0N+2fhW8O1E53TEusZPhSK9Gbs5u9kuTHXJsGd
+	 XgF6WbVfIJwof7Fh1n8L5x/IrYgzuTNsxbQpb5u6jt4WN41826QS2IYGr3zdczupPw
+	 u38U4+u8AVguMGZKhr76QK0zJPsMT/94gextGTnQBaDqAuQRbcmty0xqhDy+MsPTeu
+	 IRgq5RZN6eqPMoeNmdwACVh2dPPLZ5cKsUffijjsMMQ+bndg1QC2RncLg5AoBecZcl
+	 /Ot3pviWiOo8Q==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	aha310510@gmail.com
-Cc: Inki Dae <inki.dae@samsung.com>,
-	dri-devel@lists.freedesktop.org,
+	thomasyen@google.com
+Cc: Peter Wang <peter.wang@mediatek.com>,
+	Bart Van Assche <bvanassche@acm.org>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	linux-scsi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: FAILED: Patch "drm/exynos: vidi: use priv->vidi_dev for ctx lookup in vidi_connection_ioctl()" failed to apply to 5.10-stable tree
-Date: Sat, 28 Feb 2026 21:03:01 -0500
-Message-ID: <20260301020302.1730998-1-sashal@kernel.org>
+	linux-mediatek@lists.infradead.org
+Subject: FAILED: Patch "scsi: ufs: core: Flush exception handling work when RPM level is zero" failed to apply to 5.10-stable tree
+Date: Sat, 28 Feb 2026 21:03:11 -0500
+Message-ID: <20260301020312.1731206-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_180304_592100_A180BF01 
-X-CRM114-Status: GOOD (  17.66  )
+X-CRM114-CacheID: sfid-20260228_180314_614394_E50709F2 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,96 +85,50 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From d3968a0d85b211e197f2f4f06268a7031079e0d0 Mon Sep 17 00:00:00 2001
-From: Jeongjun Park <aha310510@gmail.com>
-Date: Mon, 19 Jan 2026 17:25:51 +0900
-Subject: [PATCH] drm/exynos: vidi: use priv->vidi_dev for ctx lookup in
- vidi_connection_ioctl()
+From f8ef441811ec413717f188f63d99182f30f0f08e Mon Sep 17 00:00:00 2001
+From: Thomas Yen <thomasyen@google.com>
+Date: Fri, 30 Jan 2026 00:51:51 +0800
+Subject: [PATCH] scsi: ufs: core: Flush exception handling work when RPM level
+ is zero
 
-vidi_connection_ioctl() retrieves the driver_data from drm_dev->dev to
-obtain a struct vidi_context pointer. However, drm_dev->dev is the
-exynos-drm master device, and the driver_data contained therein is not
-the vidi component device, but a completely different device.
+Ensure that the exception event handling work is explicitly flushed during
+suspend when the runtime power management level is set to UFS_PM_LVL_0.
 
-This can lead to various bugs, ranging from null pointer dereferences and
-garbage value accesses to, in unlucky cases, out-of-bounds errors,
-use-after-free errors, and more.
+When the RPM level is zero, the device power mode and link state both
+remain active. Previously, the UFS core driver bypassed flushing exception
+event handling jobs in this configuration. This created a race condition
+where the driver could attempt to access the host controller to handle an
+exception after the system had already entered a deep power-down state,
+resulting in a system crash.
 
-To resolve this issue, we need to store/delete the vidi device pointer in
-exynos_drm_private->vidi_dev during bind/unbind, and then read this
-exynos_drm_private->vidi_dev within ioctl() to obtain the correct
-struct vidi_context pointer.
+Explicitly flush this work and disable auto BKOPs before the suspend
+callback proceeds. This guarantees that pending exception tasks complete
+and prevents illegal hardware access during the power-down sequence.
 
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Jeongjun Park <aha310510@gmail.com>
-Signed-off-by: Inki Dae <inki.dae@samsung.com>
+Fixes: 57d104c153d3 ("ufs: add UFS power management support")
+Signed-off-by: Thomas Yen <thomasyen@google.com>
+Cc: Stable Tree <stable@vger.kernel.org>
+Reviewed-by: Peter Wang <peter.wang@mediatek.com>
+Reviewed-by: Bart Van Assche <bvanassche@acm.org>
+Link: https://patch.msgid.link/20260129165156.956601-1-thomasyen@google.com
+Signed-off-by: Martin K. Petersen <martin.petersen@oracle.com>
 ---
- drivers/gpu/drm/exynos/exynos_drm_drv.h  |  1 +
- drivers/gpu/drm/exynos/exynos_drm_vidi.c | 14 +++++++++++++-
- 2 files changed, 14 insertions(+), 1 deletion(-)
+ drivers/ufs/core/ufshcd.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_drv.h b/drivers/gpu/drm/exynos/exynos_drm_drv.h
-index 23646e55f142c..06c29ff2aac0e 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_drv.h
-+++ b/drivers/gpu/drm/exynos/exynos_drm_drv.h
-@@ -199,6 +199,7 @@ struct drm_exynos_file_private {
- struct exynos_drm_private {
- 	struct device *g2d_dev;
- 	struct device *dma_dev;
-+	struct device *vidi_dev;
- 	void *mapping;
+diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
+index 66223d2908532..8349fe2090db6 100644
+--- a/drivers/ufs/core/ufshcd.c
++++ b/drivers/ufs/core/ufshcd.c
+@@ -9998,6 +9998,8 @@ static int __ufshcd_wl_suspend(struct ufs_hba *hba, enum ufs_pm_op pm_op)
  
- 	/* for atomic commit */
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_vidi.c b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-index 64c69dd2966ec..480c99a8f9f75 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-@@ -224,9 +224,14 @@ ATTRIBUTE_GROUPS(vidi);
- int vidi_connection_ioctl(struct drm_device *drm_dev, void *data,
- 				struct drm_file *file_priv)
- {
--	struct vidi_context *ctx = dev_get_drvdata(drm_dev->dev);
-+	struct exynos_drm_private *priv = drm_dev->dev_private;
-+	struct device *dev = priv ? priv->vidi_dev : NULL;
-+	struct vidi_context *ctx = dev ? dev_get_drvdata(dev) : NULL;
- 	struct drm_exynos_vidi_connection *vidi = data;
+ 	if (req_dev_pwr_mode == UFS_ACTIVE_PWR_MODE &&
+ 			req_link_state == UIC_LINK_ACTIVE_STATE) {
++		ufshcd_disable_auto_bkops(hba);
++		flush_work(&hba->eeh_work);
+ 		goto vops_suspend;
+ 	}
  
-+	if (!ctx)
-+		return -ENODEV;
-+
- 	if (!vidi) {
- 		DRM_DEV_DEBUG_KMS(ctx->dev,
- 				  "user data for vidi is null.\n");
-@@ -372,6 +377,7 @@ static int vidi_bind(struct device *dev, struct device *master, void *data)
- {
- 	struct vidi_context *ctx = dev_get_drvdata(dev);
- 	struct drm_device *drm_dev = data;
-+	struct exynos_drm_private *priv = drm_dev->dev_private;
- 	struct drm_encoder *encoder = &ctx->encoder;
- 	struct exynos_drm_plane *exynos_plane;
- 	struct exynos_drm_plane_config plane_config = { 0 };
-@@ -379,6 +385,8 @@ static int vidi_bind(struct device *dev, struct device *master, void *data)
- 	int ret;
- 
- 	ctx->drm_dev = drm_dev;
-+	if (priv)
-+		priv->vidi_dev = dev;
- 
- 	plane_config.pixel_formats = formats;
- 	plane_config.num_pixel_formats = ARRAY_SIZE(formats);
-@@ -424,8 +432,12 @@ static int vidi_bind(struct device *dev, struct device *master, void *data)
- static void vidi_unbind(struct device *dev, struct device *master, void *data)
- {
- 	struct vidi_context *ctx = dev_get_drvdata(dev);
-+	struct drm_device *drm_dev = data;
-+	struct exynos_drm_private *priv = drm_dev->dev_private;
- 
- 	timer_delete_sync(&ctx->timer);
-+	if (priv)
-+		priv->vidi_dev = NULL;
- }
- 
- static const struct component_ops vidi_component_ops = {
 -- 
 2.51.0
 
