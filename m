@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 123E7FD0048
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:53:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C32DFD0045
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:53:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cB9kCN5HdWXJnDs+bVshiTQ5Q6jtXVm/fNlyDuAL13w=; b=4fcCOgkZ1rVn/gaT3/MGQU8FRK
-	WDfKuFiQuuUETeoveQvyFt1FXt6nPB08/ijAAa1S4QMGD5gZAYQMrfWYWklIRkNR62xlG+BjhgGZo
-	aAc43YLpGTba9GKm3+yZzmLvnVCvTznGX1EntlK35KOn9XNBZac9Qbt2fr5Ww7RWBAb07+psPXNBD
-	lbbHxdqjS/EEjb4pQMgN4JJrnaFeKs9O67iY0jbsBGYCH7MDDvKJTHTpP/6wNT38HBZUf2DoTXKEr
-	+B7lP5Pn3SEasRxzdMgfwjEwXSWE5az10iEUHFdnztI58ttx6Vw1IofHxgTCWgdpzRQKGOmPBtrZo
-	aPsw35dA==;
+	bh=JvZDDrjts6+FFmsyaibX0+euslssgBEFvkB8H1lurwM=; b=4NEkur0OT9XyqyjR6TEkabgSM5
+	q/dL8b8SOjc8fyfpfaiev/lyA5Eu+280R6G2evBroC2Kc1XlydACFA7YubnGlMCeSz6ey+NMTrC0D
+	zs0HP4tOEZAAS8+MTult1L7iWV9kzMuNP7Y7vgN5rO71xFwu6xZsh4ZKaxvzna2Ve/R9F6IBFfz4u
+	d3BichT3Sn0gWRz6ShkPraUVhGOQWw/PQy3do1Sw6uRLAuXjw/D3W4DKt0hzvX3Q5HA6u/2wpoTyP
+	5jYBaSyCE8HY8J8AcZQ7tQHwO11Pkcb7OuPfUaQUwB9n4swEUzoWANS8gAOIDJ9mxDxhqb4YIrQQA
+	g/ggAe7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVzY-0000000AgE7-38mI;
-	Sun, 01 Mar 2026 01:53:10 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vwVzd-0000000AgFx-1gFx;
+	Sun, 01 Mar 2026 01:53:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVzU-0000000AgCy-1Ihd
+	id 1vwVzc-0000000AgF8-0FeV
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 01:53:05 +0000
+	Sun, 01 Mar 2026 01:53:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C1300400F0;
-	Sun,  1 Mar 2026 01:53:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBFC8C19421;
-	Sun,  1 Mar 2026 01:53:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 80ECC6013A;
+	Sun,  1 Mar 2026 01:53:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88E35C19421;
+	Sun,  1 Mar 2026 01:53:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772329983;
-	bh=aY3P8zrU/EFjgbAzxGLBGp6GrHlhuS9zMqY1sPloWEQ=;
+	s=k20201202; t=1772329991;
+	bh=kxeBlUcPBFMnqFuMlYJuhCiq2X6vslJ1sOWPFc360pQ=;
 	h=From:To:Cc:Subject:Date:From;
-	b=RR608h92ug5yVgTD15W2GFydumMWau8nveoiOPzRdtSnmuiywrgtSNaQdfpUXF26d
-	 1zTi4r2WSXCoy9wjvqc+3lHvZ38sD6K0Uo8x4qN6jBFYIZEmalWF9u377coc7PIdzt
-	 28cI8ltf48Up82ggV9NihRYAUuh/R3Ml/ETtU8KW9iNU+hTAgfp+RsySJstONon/ay
-	 cUTieBwJCuiplZCiaI7XU8eAl1gGSkLAD1aWQGLmIOeUi1OCBYB+ToEZYfMKT+kV4L
-	 SRF8GhYq7aYzPFKvGfrCgXr2WED0qWMInSX0f2l87d4dXW1VtWywakonluSMUimjZf
-	 dQQnpbIQ+j1IQ==
+	b=GxRnl2kKTvymFxK6SoxdCdntLcyBEnI3mjU4F8gpJZlPQCpsFu+5WUgJsoweRX5Q6
+	 nofjBYwPe0gxfwojsvQW6YqzRtEI7S9sjDepvOOlPI0O2CoIZB4qhZ9oXYd/2zdQ8h
+	 nGNOxE2gL33trs3DRq3HayTTdzSWnYF75X9kmfyeKKLNStAHot3lLRj3ijhCnnGY5q
+	 C8ko7n3SvCf70bI8f8l2FlDRBDSeYE6Wj2wk8jq2/k5qjWv8XV2hOZZXMMprMUg56n
+	 ntfWF4ust2tso3myXkvRRB+JyYwl72DGWuPZxjRPIkmH0GxJlLufptT5d0OkuYBeUS
+	 k0G4Rz5hSXPxw==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	aha310510@gmail.com
-Cc: Inki Dae <inki.dae@samsung.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: FAILED: Patch "drm/exynos: vidi: use priv->vidi_dev for ctx lookup in vidi_connection_ioctl()" failed to apply to 5.15-stable tree
-Date: Sat, 28 Feb 2026 20:53:01 -0500
-Message-ID: <20260301015301.1719682-1-sashal@kernel.org>
+	elver@google.com
+Cc: Boqun Feng <boqun@kernel.org>,
+	David Laight <david.laight.linux@gmail.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: FAILED: Patch "arm64: Fix non-atomic __READ_ONCE() with CONFIG_LTO=y" failed to apply to 5.15-stable tree
+Date: Sat, 28 Feb 2026 20:53:09 -0500
+Message-ID: <20260301015309.1719827-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_175304_384609_B8050E3F 
-X-CRM114-Status: GOOD (  17.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,96 +81,52 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From d3968a0d85b211e197f2f4f06268a7031079e0d0 Mon Sep 17 00:00:00 2001
-From: Jeongjun Park <aha310510@gmail.com>
-Date: Mon, 19 Jan 2026 17:25:51 +0900
-Subject: [PATCH] drm/exynos: vidi: use priv->vidi_dev for ctx lookup in
- vidi_connection_ioctl()
+From bb0c99e08ab9aa6d04b40cb63c72db9950d51749 Mon Sep 17 00:00:00 2001
+From: Marco Elver <elver@google.com>
+Date: Fri, 30 Jan 2026 14:28:24 +0100
+Subject: [PATCH] arm64: Fix non-atomic __READ_ONCE() with CONFIG_LTO=y
 
-vidi_connection_ioctl() retrieves the driver_data from drm_dev->dev to
-obtain a struct vidi_context pointer. However, drm_dev->dev is the
-exynos-drm master device, and the driver_data contained therein is not
-the vidi component device, but a completely different device.
+The implementation of __READ_ONCE() under CONFIG_LTO=y incorrectly
+qualified the fallback "once" access for types larger than 8 bytes,
+which are not atomic but should still happen "once" and suppress common
+compiler optimizations.
 
-This can lead to various bugs, ranging from null pointer dereferences and
-garbage value accesses to, in unlucky cases, out-of-bounds errors,
-use-after-free errors, and more.
+The cast `volatile typeof(__x)` applied the volatile qualifier to the
+pointer type itself rather than the pointee. This created a volatile
+pointer to a non-volatile type, which violated __READ_ONCE() semantics.
 
-To resolve this issue, we need to store/delete the vidi device pointer in
-exynos_drm_private->vidi_dev during bind/unbind, and then read this
-exynos_drm_private->vidi_dev within ioctl() to obtain the correct
-struct vidi_context pointer.
+Fix this by casting to `volatile typeof(*__x) *`.
 
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Jeongjun Park <aha310510@gmail.com>
-Signed-off-by: Inki Dae <inki.dae@samsung.com>
+With a defconfig + LTO + debug options build, we see the following
+functions to be affected:
+
+	xen_manage_runstate_time (884 -> 944 bytes)
+	xen_steal_clock (248 -> 340 bytes)
+	  ^-- use __READ_ONCE() to load vcpu_runstate_info structs
+
+Fixes: e35123d83ee3 ("arm64: lto: Strengthen READ_ONCE() to acquire when CONFIG_LTO=y")
+Cc: stable@vger.kernel.org
+Reviewed-by: Boqun Feng <boqun@kernel.org>
+Signed-off-by: Marco Elver <elver@google.com>
+Tested-by: David Laight <david.laight.linux@gmail.com>
+Signed-off-by: Will Deacon <will@kernel.org>
 ---
- drivers/gpu/drm/exynos/exynos_drm_drv.h  |  1 +
- drivers/gpu/drm/exynos/exynos_drm_vidi.c | 14 +++++++++++++-
- 2 files changed, 14 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/rwonce.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_drv.h b/drivers/gpu/drm/exynos/exynos_drm_drv.h
-index 23646e55f142c..06c29ff2aac0e 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_drv.h
-+++ b/drivers/gpu/drm/exynos/exynos_drm_drv.h
-@@ -199,6 +199,7 @@ struct drm_exynos_file_private {
- struct exynos_drm_private {
- 	struct device *g2d_dev;
- 	struct device *dma_dev;
-+	struct device *vidi_dev;
- 	void *mapping;
+diff --git a/arch/arm64/include/asm/rwonce.h b/arch/arm64/include/asm/rwonce.h
+index 78beceec10cda..fc0fb42b0b641 100644
+--- a/arch/arm64/include/asm/rwonce.h
++++ b/arch/arm64/include/asm/rwonce.h
+@@ -58,7 +58,7 @@
+ 	default:							\
+ 		atomic = 0;						\
+ 	}								\
+-	atomic ? (typeof(*__x))__u.__val : (*(volatile typeof(__x))__x);\
++	atomic ? (typeof(*__x))__u.__val : (*(volatile typeof(*__x) *)__x);\
+ })
  
- 	/* for atomic commit */
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_vidi.c b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-index 64c69dd2966ec..480c99a8f9f75 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-@@ -224,9 +224,14 @@ ATTRIBUTE_GROUPS(vidi);
- int vidi_connection_ioctl(struct drm_device *drm_dev, void *data,
- 				struct drm_file *file_priv)
- {
--	struct vidi_context *ctx = dev_get_drvdata(drm_dev->dev);
-+	struct exynos_drm_private *priv = drm_dev->dev_private;
-+	struct device *dev = priv ? priv->vidi_dev : NULL;
-+	struct vidi_context *ctx = dev ? dev_get_drvdata(dev) : NULL;
- 	struct drm_exynos_vidi_connection *vidi = data;
- 
-+	if (!ctx)
-+		return -ENODEV;
-+
- 	if (!vidi) {
- 		DRM_DEV_DEBUG_KMS(ctx->dev,
- 				  "user data for vidi is null.\n");
-@@ -372,6 +377,7 @@ static int vidi_bind(struct device *dev, struct device *master, void *data)
- {
- 	struct vidi_context *ctx = dev_get_drvdata(dev);
- 	struct drm_device *drm_dev = data;
-+	struct exynos_drm_private *priv = drm_dev->dev_private;
- 	struct drm_encoder *encoder = &ctx->encoder;
- 	struct exynos_drm_plane *exynos_plane;
- 	struct exynos_drm_plane_config plane_config = { 0 };
-@@ -379,6 +385,8 @@ static int vidi_bind(struct device *dev, struct device *master, void *data)
- 	int ret;
- 
- 	ctx->drm_dev = drm_dev;
-+	if (priv)
-+		priv->vidi_dev = dev;
- 
- 	plane_config.pixel_formats = formats;
- 	plane_config.num_pixel_formats = ARRAY_SIZE(formats);
-@@ -424,8 +432,12 @@ static int vidi_bind(struct device *dev, struct device *master, void *data)
- static void vidi_unbind(struct device *dev, struct device *master, void *data)
- {
- 	struct vidi_context *ctx = dev_get_drvdata(dev);
-+	struct drm_device *drm_dev = data;
-+	struct exynos_drm_private *priv = drm_dev->dev_private;
- 
- 	timer_delete_sync(&ctx->timer);
-+	if (priv)
-+		priv->vidi_dev = NULL;
- }
- 
- static const struct component_ops vidi_component_ops = {
+ #endif	/* !BUILD_VDSO */
 -- 
 2.51.0
 
