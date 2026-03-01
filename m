@@ -4,59 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30051FD004B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:31:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1734FD0049
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:31:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LV+YKhm0IT9VYfo88h106c7QAS5m+aQ8HUwgaMbi1Ls=; b=S+7F1eY2zvXWbTZXdYJM1r3n1S
-	ntGawQuZWfHOawEK6AqWxHkQYhhskdridPwbofNQ/m2fmo8cTnYjOO6OYP1k85aM0/BroayIn9LR+
-	6nknYdPDKCcsBa2ChdDDW4u+3AvYsRBZhe+TmjjJB3xaMaP5cBJMX+9HDv8WQfwPIcl3VpNqiQv0V
-	tfrsgaqJB9F2bU3E1OPlTWcJh8utMZb0qsf3fPGigcBMPc4hpSH8jqhgccoSQ29I1LHjRDE/9nlgR
-	6IaPSUM2Ku0g+wMaCD40zPYNnBPJGIpMMIsbuoFxWa8Fu/AGkopVpUZ3h3enLf1C0i4U1J7ghxMVo
-	/3IlRlcA==;
+	bh=iCq2MXA/vXpgJ0fvFRRMsy1wxQNXh9t+w+xWQb2a5nQ=; b=DvXgjnsnHmc/Hu7B2UltVNwniY
+	hyqB1Tm3zsalSQMgHe+Hqp9jtGmJMSc3+kCMj8Ik4XX0T+lQYU2YQqOjJi6hLmM/sDNZKbPWFVsxS
+	siZnDpoGgwjyvVsZB35An6HAil4uhSNIz5+q61VuYmjBHWQCUcMx+xdHrLLhE8F+17miLDDw0qONQ
+	7e4y1XsRzbcdTXKeYEEFjcceVo2PbUHIQCdfazxM9bp6CDF+w98AF8esipGsKSf5yhX4E+CTvfz+K
+	le0Z9ZVqKOa0KJhYnYPnL44zuZ6AR0c61UhBV/nlSpsoOHUMoTObzwdJxBG16+Ub6eHufHZpWk822
+	emOdhAOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVe7-0000000AXv0-1SUW;
-	Sun, 01 Mar 2026 01:30:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vwVeA-0000000AY0Y-47xK;
+	Sun, 01 Mar 2026 01:31:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVe4-0000000AXsA-1wMA;
-	Sun, 01 Mar 2026 01:30:57 +0000
+	id 1vwVe6-0000000AXtq-2ROq;
+	Sun, 01 Mar 2026 01:31:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E1C2260126;
-	Sun,  1 Mar 2026 01:30:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA02FC19421;
-	Sun,  1 Mar 2026 01:30:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 43738401F3;
+	Sun,  1 Mar 2026 01:30:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48724C19421;
+	Sun,  1 Mar 2026 01:30:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772328655;
-	bh=/DA37+Hf7sJ+rlGkNUToe112J/LF9yM23uSueEqaDgc=;
+	s=k20201202; t=1772328658;
+	bh=BxNeqP8cU8tj8jwijO1wKYNCYi0T3XxDYn9+O1aDONE=;
 	h=From:To:Cc:Subject:Date:From;
-	b=NPaW/rhNn49j8onPmXHHz49DbT9mpmNI07Cq6Bc3cCF9j3ANsPpQaivvUdhd4smZA
-	 onbbHfq1CoB4DtFnXdO5ZqO+JDX9NPV/3yk7rPKVkuJfOVkAfMhDbyrrTlKsR0M8sE
-	 cbRhAApex+1bwh7hJr8d2CWEm0J8ED3aTKdL+ILR9akHvcf1FZLmapdzXt/WG+fGWL
-	 DR5xpeTijKLHa+fukoNF10ScQtmHXqMeUsvK9bQQ0Sx63YHM4kYV++yqRaTtgWeyTD
-	 Si9DnSEH4Q4YXtmJ9fcXqBIny/zrJCM/D46i23UDxklKh/shtlqEVJzxgA2+7oxLdI
-	 /XQBdyLDYO2/w==
+	b=q6mK4hM+RA3jlvp5Yn0DDQ9bcIRbujisDTxJhjUGYttoNMqkEdrTQ8QYlby6/AUrN
+	 Zo0QrReqcJ3yDi6/voqTXwdfynILbI4qn+yIAZo/cIqsdmYFK+Te3nG0nMM4ifzdgq
+	 to2Mg80Roi5s+9hfUn/tSCzPAeLqzXU2Qn7F6GJFWD9KWMxEDpTlDw7OI42HX+HeLl
+	 9VwVnkdVCJUkID71Cxk9mDS8/2ywLpyybc1Bh79MG7J7miWsUdgfq6oZGR9OkfmoKJ
+	 iqMPq2edwm9bf6YnlcW7GBGRLQvPok2/3XpFaeN8ppmEPdEBhIokHHkGbVENSJI9HQ
+	 TVvLeil8xcMrA==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	benjamin.gaignard@collabora.com
-Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	irui.wang@mediatek.com
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
 	Hans Verkuil <hverkuil+cisco@kernel.org>,
 	linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: FAILED: Patch "media: verisilicon: AV1: Fix tx mode bit setting" failed to apply to 6.6-stable tree
-Date: Sat, 28 Feb 2026 20:30:53 -0500
-Message-ID: <20260301013053.1689229-1-sashal@kernel.org>
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: FAILED: Patch "media: mediatek: encoder: Fix uninitialized scalar variable issue" failed to apply to 6.6-stable tree
+Date: Sat, 28 Feb 2026 20:30:55 -0500
+Message-ID: <20260301013056.1689285-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260228_173059_055189_BC070446 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,82 +85,58 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From cb3f945c012ab152fd2323e0df34c2b640071738 Mon Sep 17 00:00:00 2001
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Date: Tue, 9 Dec 2025 11:34:17 +0100
-Subject: [PATCH] media: verisilicon: AV1: Fix tx mode bit setting
+From 88e935de7cf8795d7a6a51385db87ecb361a7050 Mon Sep 17 00:00:00 2001
+From: Irui Wang <irui.wang@mediatek.com>
+Date: Sun, 7 Sep 2025 17:35:56 +0800
+Subject: [PATCH] media: mediatek: encoder: Fix uninitialized scalar variable
+ issue
 
-AV1 specification describes 3 possibles tx modes: 4x4 only, largest and
-select. The hardware allows 5 possibles tx modes: 4x4 only, 8x8, 16x16,
-32x32 and select. Since the both aren't exactly matching we need to add
-a mapping function to set the correct mode on hardware.
+UNINIT checker finds some instances of variables that are used
+without being initialized, for example using the uninitialized
+value enc_result.is_key_frm can result in unpredictable behavior,
+so initialize these variables after declaring.
 
-Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Fixes: 727a400686a2c ("media: verisilicon: Add Rockchip AV1 decoder")
+Fixes: 4e855a6efa54 ("[media] vcodec: mediatek: Add Mediatek V4L2 Video Encoder Driver")
 Cc: stable@vger.kernel.org
+Signed-off-by: Irui Wang <irui.wang@mediatek.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 Signed-off-by: Hans Verkuil <hverkuil+cisco@kernel.org>
 ---
- .../verisilicon/rockchip_vpu981_hw_av1_dec.c  | 27 ++++++++++++++++++-
- 1 file changed, 26 insertions(+), 1 deletion(-)
+ .../media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-index f4f7cb45b1f1b..f52b8208e6b93 100644
---- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-+++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-@@ -72,6 +72,14 @@
- 		: AV1_DIV_ROUND_UP_POW2((_value_), (_n_)));		\
- })
- 
-+enum rockchip_av1_tx_mode {
-+	ROCKCHIP_AV1_TX_MODE_ONLY_4X4	= 0,
-+	ROCKCHIP_AV1_TX_MODE_8X8	= 1,
-+	ROCKCHIP_AV1_TX_MODE_16x16	= 2,
-+	ROCKCHIP_AV1_TX_MODE_32x32	= 3,
-+	ROCKCHIP_AV1_TX_MODE_SELECT	= 4,
-+};
-+
- struct rockchip_av1_film_grain {
- 	u8 scaling_lut_y[256];
- 	u8 scaling_lut_cb[256];
-@@ -1935,11 +1943,26 @@ static void rockchip_vpu981_av1_dec_set_reference_frames(struct hantro_ctx *ctx)
- 	rockchip_vpu981_av1_dec_set_other_frames(ctx);
- }
- 
-+static int rockchip_vpu981_av1_get_hardware_tx_mode(enum v4l2_av1_tx_mode tx_mode)
-+{
-+	switch (tx_mode) {
-+	case V4L2_AV1_TX_MODE_ONLY_4X4:
-+		return ROCKCHIP_AV1_TX_MODE_ONLY_4X4;
-+	case V4L2_AV1_TX_MODE_LARGEST:
-+		return ROCKCHIP_AV1_TX_MODE_32x32;
-+	case V4L2_AV1_TX_MODE_SELECT:
-+		return ROCKCHIP_AV1_TX_MODE_SELECT;
-+	}
-+
-+	return ROCKCHIP_AV1_TX_MODE_32x32;
-+}
-+
- static void rockchip_vpu981_av1_dec_set_parameters(struct hantro_ctx *ctx)
+diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
+index 6faf3f659e751..b3a0a1d8b7a8e 100644
+--- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
++++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
+@@ -850,7 +850,7 @@ static void vb2ops_venc_buf_queue(struct vb2_buffer *vb)
+ static int vb2ops_venc_start_streaming(struct vb2_queue *q, unsigned int count)
  {
- 	struct hantro_dev *vpu = ctx->dev;
- 	struct hantro_av1_dec_hw_ctx *av1_dec = &ctx->av1_dec;
- 	struct hantro_av1_dec_ctrls *ctrls = &av1_dec->ctrls;
-+	int tx_mode;
+ 	struct mtk_vcodec_enc_ctx *ctx = vb2_get_drv_priv(q);
+-	struct venc_enc_param param;
++	struct venc_enc_param param = { };
+ 	int ret;
+ 	int i;
  
- 	hantro_reg_write(vpu, &av1_skip_mode,
- 			 !!(ctrls->frame->flags & V4L2_AV1_FRAME_FLAG_SKIP_MODE_PRESENT));
-@@ -2005,7 +2028,9 @@ static void rockchip_vpu981_av1_dec_set_parameters(struct hantro_ctx *ctx)
- 			 !!(ctrls->frame->flags & V4L2_AV1_FRAME_FLAG_ALLOW_HIGH_PRECISION_MV));
- 	hantro_reg_write(vpu, &av1_comp_pred_mode,
- 			 (ctrls->frame->flags & V4L2_AV1_FRAME_FLAG_REFERENCE_SELECT) ? 2 : 0);
--	hantro_reg_write(vpu, &av1_transform_mode, (ctrls->frame->tx_mode == 1) ? 3 : 4);
-+
-+	tx_mode = rockchip_vpu981_av1_get_hardware_tx_mode(ctrls->frame->tx_mode);
-+	hantro_reg_write(vpu, &av1_transform_mode, tx_mode);
- 	hantro_reg_write(vpu, &av1_max_cb_size,
- 			 (ctrls->sequence->flags
- 			  & V4L2_AV1_SEQUENCE_FLAG_USE_128X128_SUPERBLOCK) ? 7 : 6);
+@@ -1004,7 +1004,7 @@ static int mtk_venc_encode_header(void *priv)
+ 	int ret;
+ 	struct vb2_v4l2_buffer *src_buf, *dst_buf;
+ 	struct mtk_vcodec_mem bs_buf;
+-	struct venc_done_result enc_result;
++	struct venc_done_result enc_result = { };
+ 
+ 	dst_buf = v4l2_m2m_dst_buf_remove(ctx->m2m_ctx);
+ 	if (!dst_buf) {
+@@ -1125,7 +1125,7 @@ static void mtk_venc_worker(struct work_struct *work)
+ 	struct vb2_v4l2_buffer *src_buf, *dst_buf;
+ 	struct venc_frm_buf frm_buf;
+ 	struct mtk_vcodec_mem bs_buf;
+-	struct venc_done_result enc_result;
++	struct venc_done_result enc_result = { };
+ 	int ret, i;
+ 
+ 	/* check dst_buf, dst_buf may be removed in device_run
 -- 
 2.51.0
 
