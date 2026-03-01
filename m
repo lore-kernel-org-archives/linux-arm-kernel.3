@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB0FEFD0079
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69ECDFD006E
 	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 17:51:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,46 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZA/xgEL5Ftcf1p9aOgEb02xpLEcdm3Ipp4ohkN/BvbY=; b=XWqK0q2AacaCrTPl1ZDo7VxEij
-	eZOCsLD9aI6CPI7sS6hqLKEXnp3Zp8beS+2G04Bm4OPitDPdCIw4gjJopCQUoxqQkGGFP8ihj+tU7
-	lciO/uMXfj2dBboPMBZaV2lOEYlsOl3GkQdYUHRtueh+V7lDz7kdHRUy3FIMNsKHuY+J39eNJYJML
-	BenbccZxhUpAHtJvy310RXeZt/Df9l6F5T17UefKaJPga0GMlZVv0gpDVIGQiWxGDc1n4QLasvI0R
-	o6gdUobHxsk/JkM98cTNqSMSz0S5Hix3+PendjwF+Qin9FcyIs5oNMXm+qC6Z3Cku+lZ6QKX65acr
-	ywQtQNTw==;
+	bh=76b8T3n6Zdjfb8FIbLCmKlMxFgH8uKZOzv50AbARm18=; b=W/iO5I/CEL5bI+S2nj/YXDF/De
+	/zeiOudCbwJa8SMFvbpRSR6xxYPCRKZWwJRavuB7zNn/+lHmNg+IY4/IdQbDA9Py2YyJvi1TFvOpu
+	IwHgwQqIu0kcr9HFXYLPiMR28ygkWQaLZveZr4ZXQ4bJbZfKdOjgrehwUBGxqmc93I5YLxCuIvVvH
+	ZeMI5NmjiSzWDW8oOt5PM6cjQYVRjWtP0XmXdjFGjb+qSaUcFUaZkmLpaGme/kU224vXC9zIVz3wn
+	77k4+1lovBT5u9mZNBxEkOj7oinu7h+LBckujUc3iH7Y5ULkaRteQWVv9DFQ7JDdhbc2DV38mmwN5
+	OQfdHGWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwkwx-0000000BjvA-31px;
+	id 1vwkwx-0000000Bjus-1m7K;
 	Sun, 01 Mar 2026 17:51:27 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwkwr-0000000BjoX-2IwE
+	id 1vwkwr-0000000BjoS-2Ca2
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 17:51:24 +0000
+	Sun, 01 Mar 2026 17:51:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 06D53445A7;
-	Sun,  1 Mar 2026 17:51:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id CF9A3C2BCC4;
+	by sea.source.kernel.org (Postfix) with ESMTP id 8FAE544546;
+	Sun,  1 Mar 2026 17:51:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 5B6F9C2BC87;
 	Sun,  1 Mar 2026 17:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1772387479;
-	bh=yY6HMohkzo4ZeIoq6o3ZwMoP3nLGiLYGmwXnzvxtDXk=;
+	bh=n23ZcFkmyPNEvO2IkqQ957PDqVWeO4dI1IFebDR/vt0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=KOt/J5uArC6mg5B7q+15QaHzAM94g8fGP7kWisv4AGrhShgw4zOXI5/awMguFB359
-	 TYOnanb2C5IE7vRwuLp66E+U1ZI+guwe/OvAdVggCig8LO4oc94SukKb9W3cQ9BeMz
-	 dgbHC0BB14kDiV92l8FPcGPXRZXPZugmmJIGZcidQzXZavZyrfm1LVNICJ3hDiP/Gs
-	 cezJpjvQ69EzOo+hsyf3nQnxloZLAuGrDCYOjHpGJ6ulYbkn6E92UMoLgLwaV5nIMW
-	 QOio7qy/0ESxmU73TeeQ0vCY5JiauTF9YVK60HEXumXqa1FBYdlV+RHrLLcq2k/S52
-	 sDWEa7McjAw1Q==
+	b=sp4MjfggG+nw8htHlPxq+Xi5qN3fZ+0/9AGUstqO/BykF9za20Ok3VwQU+80HvGyr
+	 tn+HJQ02bAuQrO3m1A8B9n8MC4WvQUdf/LuWuj765/Vwwf63q5hmXii6hnSP/Lb1TB
+	 xmqQOGpj2lKXLPrzysiPpidJN26qP46I7KNuLzpOZN+gLDZ/3s6Cu+qyq4ngMlEmGT
+	 vsNUYKaoptZWZ/V6v6QmazpXf/32okUsDnLd6jWAbKNRJ+uvRh42fMDKPvB1L6NVlo
+	 5G9F1GvXnpeYjBFKXe0VXuLOru6ZmCVG2yX9CNX3GcoEcjC8Ow+T3eQDB73da7pgeJ
+	 aDatin4/FK4MA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C2277FD006E;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 516DEFD0071;
 	Sun,  1 Mar 2026 17:51:19 +0000 (UTC)
 From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
-Date: Sun, 01 Mar 2026 18:51:21 +0100
-Subject: [PATCH 07/10] Input: stmfts - add optional reset GPIO support
+Date: Sun, 01 Mar 2026 18:51:16 +0100
+Subject: [PATCH 02/10] Input: stmfts - Switch to
+ devm_regulator_bulk_get_const
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260301-stmfts5-v1-7-22c458b9ac68@ixit.cz>
+Message-Id: <20260301-stmfts5-v1-2-22c458b9ac68@ixit.cz>
 References: <20260301-stmfts5-v1-0-22c458b9ac68@ixit.cz>
 In-Reply-To: <20260301-stmfts5-v1-0-22c458b9ac68@ixit.cz>
 To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
@@ -68,28 +69,28 @@ Cc: Petr Hodina <petr.hodina@protonmail.com>, linux-input@vger.kernel.org,
  linux-arm-msm@vger.kernel.org, phone-devel@vger.kernel.org, 
  David Heidelberg <david@ixit.cz>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2354; i=david@ixit.cz;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2336; i=david@ixit.cz;
  h=from:subject:message-id;
- bh=daBviKrwdNaBon25+W21BV0l53Jhcl6A1asMOmlUHP8=;
- b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBppHyVl29wFOXwqGmWw88xHEwXRAdEU8Cr60aAt
- Q7pe6uFN+OJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCaaR8lQAKCRBgAj/E00kg
- ct8PD/4l2VVdFOhnFJ2dH/degpVL401NqhKnFc6/SpzMWFv7jHx7K0ZjOB09th5pZYh5Zbka73w
- O9rLXubm0PRi4fVhOTAT68wO95N/sq5TcMuPLefP4p2qN73YXjtk4RFoyE0HXw8VXcN9SXdJAAa
- 7btuvK4ahgeEahRM9AsiaLK6cdPEy2b1F69/09NJJCFQi/g0d86ovQj70Q0J71XRHfHiTuSptEm
- 5T9F7z6XxrOo1sZ6NVco3s//1Yljjvx2xIU0yi9k+4dztQWsBzDuxDTZgvyHsgKwZf4YyTavce9
- ScoChG4Mxoj9i/B58foc8AAtPGoj/eL0j8+kYXSPmTrygUr05bh7qnLO6DXviUB4Pjqf73vvid7
- UWu95j8KvUxGnsxoCYJXMl4L4u6TknuVXvzI2/E+FzDgSVU5XuQin+uhWN7wmO1MxcAddjdTJoI
- lfDP6MyBK1FTmWB9O/yIpnXq060pzqyUv2y323DeG33ZYjGtlIFCvYs3o0mJgMKGpqUQYQm68pp
- 5aozfmaFiIr4qe6yEd0mu9c3GfAMAf0kfERrPkjkk2/9Nm+pCBuBc0usDin/CCOyvpz5IFb/5HE
- 3prMd8KBg+aGKn/vL31zMDMfVRgKVxMOws+gARdnL4ZtU8OMuEvgFa9L5KpecHY7peiV3IlhTid
- QVzIyiNFfLWfPQQ==
+ bh=gp0Adpeb0dgRnIzbTX0yz5VA3gvM4FK6mupYKoiFMj0=;
+ b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBppHyURAP+6GmRBdj1YMjGOxEXecCpiSaiwdK38
+ nv4OmVUw1SJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCaaR8lAAKCRBgAj/E00kg
+ cuMlD/96F1ggG3DCx9p28DKIQjERz38LjXqEcedMM/S+1ZJUHTM4uyM9XUaHyO6V9e1/UUxuD1A
+ YeTodQ7ny4ouLM14vM3Vo24MD6EaOJxpVWPLm4IxLESagvS4gNalrkbrf/Y4v14mXDw1kXWpQmw
+ M08g7WifVWBuHyOLnZ5EHQ4ueDqhDnGzoXvR1AxUCxZoUa7dZ8Pr49Uy6M7ZQKPY1SHVspziZ0p
+ A01pQkrJoCZbXvvOY6oDBV99mnx94lydjM3NBbyQAi0fzooZEbUtvjYEEgRtdNlqZIMqhO6QnlH
+ oEciiUverffQU3Nfx09m4BuyZNjFpkWFunIGuj7C4Q2bJufTQTtYv72FkIIGzvLju8yodpEqpBG
+ GRkkLCRg9NQh1uRL3DxNkIrFFfqohEgb+BGzaR6OwXYeRhu8+AN8uiPoVevSlW+rvz6XRUBFlWV
+ fGbsCL4Q0YpRe9BcnRw++lj5nB3Y0+Kdp3pNlh0VRYCFWexu9P8CtrQ1u1QHNPdLbULVDqANTaC
+ M6yxpV0co47vYcmJroF9Pe5A9H49Ybv5B3Ne1zIGtyNGYc9d8yFX97MlY1y2x7SVaW4y3Ceu/Iz
+ YMENmGjWFOVfy6PHDlXcknxLtc3HYQOqt4TiDXL3dSPdqM+faTPtxiJbGye7WEmtgSxz+zEFVi0
+ xga+b9htJMYCDaw==
 X-Developer-Key: i=david@ixit.cz; a=openpgp;
  fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
 X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
 X-Original-From: David Heidelberg <david@ixit.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_095121_651142_56DEEC08 
-X-CRM114-Status: GOOD (  14.54  )
+X-CRM114-CacheID: sfid-20260301_095121_653656_7DA08DCE 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,81 +106,80 @@ Reply-To: david@ixit.cz
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Petr Hodina <petr.hodina@protonmail.com>
+From: David Heidelberg <david@ixit.cz>
 
-Add support for an optional "reset-gpios" property. If present, the
-driver drives the reset line high at probe time and releases it during
-power-on, after the regulators have been enabled.
+Switch to devm_regulator_bulk_get_const() to stop setting the supplies
+list in probe(), and move the regulator_bulk_data struct in static const.
 
-Signed-off-by: Petr Hodina <petr.hodina@protonmail.com>
-Co-developed-by: David Heidelberg <david@ixit.cz>
 Signed-off-by: David Heidelberg <david@ixit.cz>
 ---
- drivers/input/touchscreen/stmfts.c | 23 +++++++++++++++++++++++
- 1 file changed, 23 insertions(+)
+ drivers/input/touchscreen/stmfts.c | 25 ++++++++++++-------------
+ 1 file changed, 12 insertions(+), 13 deletions(-)
 
 diff --git a/drivers/input/touchscreen/stmfts.c b/drivers/input/touchscreen/stmfts.c
-index 9dedccbb183ed..a4d8e81aba275 100644
+index 27adb139fa0ce..7c0f94ba49464 100644
 --- a/drivers/input/touchscreen/stmfts.c
 +++ b/drivers/input/touchscreen/stmfts.c
-@@ -77,6 +77,7 @@ static const struct regulator_bulk_data stmfts_supplies[] = {
+@@ -69,9 +69,9 @@
+ #define STMFTS_MAX_FINGERS	10
+ #define STMFTS_DEV_NAME		"stmfts"
+ 
+-enum stmfts_regulators {
+-	STMFTS_REGULATOR_VDD,
+-	STMFTS_REGULATOR_AVDD,
++static const struct regulator_bulk_data stmfts_supplies[] = {
++	{ .supply = "vdd" },
++	{ .supply = "avdd" },
+ };
+ 
  struct stmfts_data {
- 	struct i2c_client *client;
- 	struct input_dev *input;
-+	struct gpio_desc *reset_gpio;
- 	struct led_classdev led_cdev;
- 	struct mutex mutex;
+@@ -82,7 +82,7 @@ struct stmfts_data {
  
-@@ -540,6 +541,15 @@ static int stmfts_read_system_info(struct stmfts_data *sdata)
- 	return 0;
- }
+ 	struct touchscreen_properties prop;
  
-+static void stmfts_reset(struct stmfts_data *sdata)
-+{
-+	gpiod_set_value_cansleep(sdata->reset_gpio, 1);
-+	msleep(20);
-+
-+	gpiod_set_value_cansleep(sdata->reset_gpio, 0);
-+	msleep(50);
-+}
-+
- static int stmfts_power_on(struct stmfts_data *sdata)
- {
+-	struct regulator_bulk_data regulators[2];
++	struct regulator_bulk_data *supplies;
+ 
+ 	/*
+ 	 * Presence of ledvdd will be used also to check
+@@ -524,8 +524,8 @@ static int stmfts_power_on(struct stmfts_data *sdata)
  	int err;
-@@ -549,6 +559,9 @@ static int stmfts_power_on(struct stmfts_data *sdata)
+ 	u8 reg[8];
+ 
+-	err = regulator_bulk_enable(ARRAY_SIZE(sdata->regulators),
+-				    sdata->regulators);
++	err = regulator_bulk_enable(ARRAY_SIZE(stmfts_supplies),
++				    sdata->supplies);
  	if (err)
  		return err;
  
-+	if (sdata->reset_gpio)
-+		stmfts_reset(sdata);
-+
- 	/*
- 	 * The datasheet does not specify the power on time, but considering
- 	 * that the reset time is < 10ms, I sleep 20ms to be sure
-@@ -607,6 +620,10 @@ static void stmfts_power_off(void *data)
+@@ -590,8 +590,8 @@ static void stmfts_power_off(void *data)
  	struct stmfts_data *sdata = data;
  
  	disable_irq(sdata->client->irq);
-+
-+	if (sdata->reset_gpio)
-+		gpiod_set_value_cansleep(sdata->reset_gpio, 1);
-+
- 	regulator_bulk_disable(ARRAY_SIZE(stmfts_supplies),
- 			       sdata->supplies);
+-	regulator_bulk_disable(ARRAY_SIZE(sdata->regulators),
+-						sdata->regulators);
++	regulator_bulk_disable(ARRAY_SIZE(stmfts_supplies),
++			       sdata->supplies);
  }
-@@ -663,6 +680,12 @@ static int stmfts_probe(struct i2c_client *client)
+ 
+ static int stmfts_enable_led(struct stmfts_data *sdata)
+@@ -639,11 +639,10 @@ static int stmfts_probe(struct i2c_client *client)
+ 	mutex_init(&sdata->mutex);
+ 	init_completion(&sdata->cmd_done);
+ 
+-	sdata->regulators[STMFTS_REGULATOR_VDD].supply = "vdd";
+-	sdata->regulators[STMFTS_REGULATOR_AVDD].supply = "avdd";
+-	err = devm_regulator_bulk_get(dev,
+-				      ARRAY_SIZE(sdata->regulators),
+-				      sdata->regulators);
++	err = devm_regulator_bulk_get_const(dev,
++					    ARRAY_SIZE(stmfts_supplies),
++					    stmfts_supplies,
++					    &sdata->supplies);
  	if (err)
  		return err;
  
-+	sdata->reset_gpio = devm_gpiod_get_optional(dev, "reset",
-+						    GPIOD_OUT_HIGH);
-+	if (IS_ERR(sdata->reset_gpio))
-+		return dev_err_probe(dev, PTR_ERR(sdata->reset_gpio),
-+				     "Failed to get GPIO 'reset'\n");
-+
- 	sdata->input = devm_input_allocate_device(dev);
- 	if (!sdata->input)
- 		return -ENOMEM;
 
 -- 
 2.51.0
