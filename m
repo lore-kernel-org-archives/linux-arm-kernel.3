@@ -4,40 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E0A6FD0045
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:48:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 039ABFD004A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:48:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YY+xekhdVJW52itkHKARbbf+ZUuL7gL0RFcUCSQ6pI4=; b=Gu5ciiZDIh+X/odhf9Ye29Co/M
-	Wrh+G2nDZoE69pvTyEcjUfRnxc2KNObLfl1AvXuDGhT01SySLsy4gxL+GHDBRIAyvBpsFh8IgHtf9
-	crKM0aVOUdW+wNZLnCw9aBW0nLfxn4qSw55zeDLyzlbU0s7sOvRlwJhWaxDIxHY8Oc94aXdsn6QN6
-	16ES8C8lFbSMnsLjQmFSWJD+Z0HhlRfyYxEiDoN8C8knZYcEZeALsTEsP8lVPVZuWyH0q7ekizqyj
-	9hzv/E/76XmGEMavN/d9j4auMiNIxz+QkRK9v8tYgf7fdfxzdUBSLvn3B7vQUBTb2K9PyFgidw4tM
-	Yqk1SALw==;
+	bh=zMsoIv7HMcotth8MKd+AoQsyZK7r75/2a69IjG325bs=; b=lciW/f0TbLQo9xdUfuHKOWkl6O
+	wU0t0M+pZkdkErpP/DZMdUaNZxwuIRIdUFcZQXpHo1brmd6oykYf8XPsbE1WTU4MQija0zE7a4S6T
+	CWqszOivuRV6U84SB9kqWlMXMKUJbSazXwlQ8lNk4adbXeQysaTq/9wuNGj29oxORFE+eCwtDk4Xl
+	Zg3MI4bk62Sza+xT7M3IJSRpymeNx2eLmRntgeGSyX5LSVwwc0LZb0xapwry9gW0t64ygGj9l0Hxb
+	LTpFvYdUNR+NgsLb8jc3o5FBPtQNWUsblv3jetJp4ry9PWgajooAvVtEgKdhPegN9CjVa9YOP5JX6
+	jzyJmHpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVun-0000000AeRD-1eq8;
-	Sun, 01 Mar 2026 01:48:13 +0000
-Received: from [50.53.43.113] (helo=bombadil.infradead.org)
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVum-0000000AeQq-0sau;
-	Sun, 01 Mar 2026 01:48:12 +0000
-From: Randy Dunlap <rdunlap@infradead.org>
-To: linux-kernel@vger.kernel.org
-Cc: Randy Dunlap <rdunlap@infradead.org>,
-	Linus Walleij <linusw@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org
-Subject: [PATCH] gpio: nomadik: repair some kernel-doc comments
-Date: Sat, 28 Feb 2026 17:48:11 -0800
-Message-ID: <20260301014811.3133250-1-rdunlap@infradead.org>
-X-Mailer: git-send-email 2.53.0
+	id 1vwVus-0000000AeTN-2pDH;
+	Sun, 01 Mar 2026 01:48:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vwVuq-0000000AeSB-11FY
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 01 Mar 2026 01:48:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CB37A4030B;
+	Sun,  1 Mar 2026 01:48:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C8CBC19424;
+	Sun,  1 Mar 2026 01:48:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772329695;
+	bh=aNK4COqloVFBsSCNXaDcc11THSoStO5TSc4ZkgP4WDM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=f1uPO2c75xs/J0Go4KM378KVwWKWyNPteA87j31VaEFq9GTfRDs+0gKD5+zjLWeAX
+	 OEwkBW/RoH1jhZesC0qGQVNLQ3ImjunbacDv0Ht+QySPpdU+qwI5koR+q57ajan9kw
+	 gDnRz7jsgBGcLNIxE/ijQuBG94M79tggX93h5Y/Yf29x/h/n8tzBYDGTHUcFo9Ohyr
+	 8gpALXMOnetzkhSiCd7gMPGfv21ZmBMvF2UxLPeNgZndVc6w/BDtCkeAs3O0MtYTaz
+	 vTbzQB/O+9dU2gUlRWWEEunntGYAPeBC2CQBWovSff0icIbLU1NAcsgDJTuOI4VTA/
+	 oDtzfZ5nU424w==
+From: Sasha Levin <sashal@kernel.org>
+To: stable@vger.kernel.org,
+	maz@kernel.org
+Cc: Hyesoo Yu <hyesoo.yu@samsung.com>,
+	Quentin Perret <qperret@google.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: FAILED: Patch "arm64: Force the use of CNTVCT_EL0 in __delay()" failed to apply to 6.1-stable tree
+Date: Sat, 28 Feb 2026 20:48:13 -0500
+Message-ID: <20260301014813.1712364-1-sashal@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
+X-Patchwork-Hint: ignore
+X-stable: review
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260228_174816_327648_3805C1EB 
+X-CRM114-Status: GOOD (  20.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -52,79 +74,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Avoid these kernel-doc warnings by:
-- adding short descriptions for enums
-- using correct (matching) struct names in kernel-doc short descriptions
-- using the correct struct member name for @nfunctions
+The patch below does not apply to the 6.1-stable tree.
+If someone wants it applied there, or to any other stable or longterm
+tree, then please email the backport, including the original git commit
+id to <stable@vger.kernel.org>.
 
-Warning: include/linux/gpio/gpio-nomadik.h:116 missing initial short
- description on line: * enum prcm_gpiocr_reg_index
-Warning: include/linux/gpio/gpio-nomadik.h:125 missing initial short
- description on line: * enum prcm_gpiocr_altcx_index
-Warning: include/linux/gpio/gpio-nomadik.h:146 expecting prototype for
- struct prcm_gpio_altcx. Prototype was for struct prcm_gpiocr_altcx instead
-Warning: include/linux/gpio/gpio-nomadik.h:156 expecting prototype for
- struct prcm_gpio_altcx_pin_desc. Prototype was for
- struct prcm_gpiocr_altcx_pin_desc instead
-Warning: include/linux/gpio/gpio-nomadik.h:212 struct member 'nfunctions'
- not described in 'nmk_pinctrl_soc_data'
+Thanks,
+Sasha
 
-Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+------------------ original commit in Linus's tree ------------------
+
+From 29cc0f3aa7c64d3b3cb9d94c0a0984ba6717bf72 Mon Sep 17 00:00:00 2001
+From: Marc Zyngier <maz@kernel.org>
+Date: Fri, 13 Feb 2026 14:16:19 +0000
+Subject: [PATCH] arm64: Force the use of CNTVCT_EL0 in __delay()
+
+Quentin forwards a report from Hyesoo Yu, describing an interesting
+problem with the use of WFxT in __delay() when a vcpu is loaded and
+that KVM is *not* in VHE mode (either nVHE or hVHE).
+
+In this case, CNTVOFF_EL2 is set to a non-zero value to reflect the
+state of the guest virtual counter. At the same time, __delay() is
+using get_cycles() to read the counter value, which is indirected to
+reading CNTPCT_EL0.
+
+The core of the issue is that WFxT is using the *virtual* counter,
+while the kernel is using the physical counter, and that the offset
+introduces a really bad discrepancy between the two.
+
+Fix this by forcing the use of CNTVCT_EL0, making __delay() consistent
+irrespective of the value of CNTVOFF_EL2.
+
+Reported-by: Hyesoo Yu <hyesoo.yu@samsung.com>
+Reported-by: Quentin Perret <qperret@google.com>
+Reviewed-by: Quentin Perret <qperret@google.com>
+Fixes: 7d26b0516a0d ("arm64: Use WFxT for __delay() when possible")
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Link: https://lore.kernel.org/r/ktosachvft2cgqd5qkukn275ugmhy6xrhxur4zqpdxlfr3qh5h@o3zrfnsq63od
+Cc: stable@vger.kernel.org
+Signed-off-by: Will Deacon <will@kernel.org>
 ---
-Cc: Linus Walleij <linusw@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-gpio@vger.kernel.org
+ arch/arm64/lib/delay.c | 19 +++++++++++++++----
+ 1 file changed, 15 insertions(+), 4 deletions(-)
 
- include/linux/gpio/gpio-nomadik.h |   12 +++++-------
- 1 file changed, 5 insertions(+), 7 deletions(-)
-
---- linux-next-20260227.orig/include/linux/gpio/gpio-nomadik.h
-+++ linux-next-20260227/include/linux/gpio/gpio-nomadik.h
-@@ -114,8 +114,7 @@ struct nmk_gpio_chip {
+diff --git a/arch/arm64/lib/delay.c b/arch/arm64/lib/delay.c
+index cb2062e7e2340..d02341303899e 100644
+--- a/arch/arm64/lib/delay.c
++++ b/arch/arm64/lib/delay.c
+@@ -23,9 +23,20 @@ static inline unsigned long xloops_to_cycles(unsigned long xloops)
+ 	return (xloops * loops_per_jiffy * HZ) >> 32;
  }
  
- /**
-- * enum prcm_gpiocr_reg_index
-- * Used to reference an PRCM GPIOCR register address.
-+ * enum prcm_gpiocr_reg_index - Used to reference a PRCM GPIOCR register address.
-  */
- enum prcm_gpiocr_reg_index {
- 	PRCM_IDX_GPIOCR1,
-@@ -123,8 +122,7 @@ enum prcm_gpiocr_reg_index {
- 	PRCM_IDX_GPIOCR3
- };
- /**
-- * enum prcm_gpiocr_altcx_index
-- * Used to reference an Other alternate-C function.
-+ * enum prcm_gpiocr_altcx_index - Used to reference an Other alternate-C function.
-  */
- enum prcm_gpiocr_altcx_index {
- 	PRCM_IDX_GPIOCR_ALTC1,
-@@ -135,7 +133,7 @@ enum prcm_gpiocr_altcx_index {
- };
++/*
++ * Force the use of CNTVCT_EL0 in order to have the same base as WFxT.
++ * This avoids some annoying issues when CNTVOFF_EL2 is not reset 0 on a
++ * KVM host running at EL1 until we do a vcpu_put() on the vcpu. When
++ * running at EL2, the effective offset is always 0.
++ *
++ * Note that userspace cannot change the offset behind our back either,
++ * as the vcpu mutex is held as long as KVM_RUN is in progress.
++ */
++#define __delay_cycles()	__arch_counter_get_cntvct_stable()
++
+ void __delay(unsigned long cycles)
+ {
+-	cycles_t start = get_cycles();
++	cycles_t start = __delay_cycles();
  
- /**
-- * struct prcm_gpio_altcx - Other alternate-C function
-+ * struct prcm_gpiocr_altcx - Other alternate-C function
-  * @used: other alternate-C function availability
-  * @reg_index: PRCM GPIOCR register index used to control the function
-  * @control_bit: PRCM GPIOCR bit used to control the function
-@@ -147,7 +145,7 @@ struct prcm_gpiocr_altcx {
- } __packed;
+ 	if (alternative_has_cap_unlikely(ARM64_HAS_WFXT)) {
+ 		u64 end = start + cycles;
+@@ -35,17 +46,17 @@ void __delay(unsigned long cycles)
+ 		 * early, use a WFET loop to complete the delay.
+ 		 */
+ 		wfit(end);
+-		while ((get_cycles() - start) < cycles)
++		while ((__delay_cycles() - start) < cycles)
+ 			wfet(end);
+ 	} else 	if (arch_timer_evtstrm_available()) {
+ 		const cycles_t timer_evt_period =
+ 			USECS_TO_CYCLES(ARCH_TIMER_EVT_STREAM_PERIOD_US);
  
- /**
-- * struct prcm_gpio_altcx_pin_desc - Other alternate-C pin
-+ * struct prcm_gpiocr_altcx_pin_desc - Other alternate-C pin
-  * @pin: The pin number
-  * @altcx: array of other alternate-C[1-4] functions
-  */
-@@ -193,7 +191,7 @@ struct nmk_pingroup {
-  *		numbering.
-  * @npins:	The number of entries in @pins.
-  * @functions:	The functions supported on this SoC.
-- * @nfunction:	The number of entries in @functions.
-+ * @nfunctions:	The number of entries in @functions.
-  * @groups:	An array describing all pin groups the pin SoC supports.
-  * @ngroups:	The number of entries in @groups.
-  * @altcx_pins:	The pins that support Other alternate-C function on this SoC
+-		while ((get_cycles() - start + timer_evt_period) < cycles)
++		while ((__delay_cycles() - start + timer_evt_period) < cycles)
+ 			wfe();
+ 	}
+ 
+-	while ((get_cycles() - start) < cycles)
++	while ((__delay_cycles() - start) < cycles)
+ 		cpu_relax();
+ }
+ EXPORT_SYMBOL(__delay);
+-- 
+2.51.0
+
+
+
+
 
