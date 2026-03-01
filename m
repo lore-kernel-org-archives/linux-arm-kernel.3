@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0F2DFD0073
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 17:51:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B25EFD006E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 17:51:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zhInBc9xBjiN/WB6ThVtfJ9uDChq69SJEtwcmq3dwfc=; b=ampe9vEb7gPGc+Whr9u0OGWW5o
-	7RXFnE7ADNV+raO+4BtwzFn/wVE8hoPpPvXBfjeL4AGOg8xGlVramrTLt0+A1gqJRR+7JoocaGv1/
-	znrbmTDcV6W3m0ENDBcFPWkYuTGXR6PYOCR0O8vnV19CrzLbsmmOTtMD7eXQlzpJssJmKfXL2/oi9
-	R5c28VYfJ6wJ/sKlPjsrCv8E1GrQyBoMUZ3l/H48oHjkW1vkTo7T0KTrTPqGyK3qW0JI1XCwMQZZH
-	mJw0XOS1LzjQELOKZ4RDsOjx27XYmdIV4av9eUq3oN9ORVi4vegUP8cKhpE6oMlMXbFn7LfisDU2F
-	ae37u1aw==;
+	bh=XHfEgbR0Kww6WJ39GY6+X1+4NNdMoWeXAl5PBALtTg4=; b=caX6QBtcSJ7/XGrGi+IzlE0wPL
+	pueGMwYSPWxkVrCM1QUzpLUPOsuUBBF28GdXMA8VKifHPw+rBmsYQrZ72GuizGy5NTjBllYnZV4qx
+	rMcn9qPEcikXt1yPobabIfDBb4kkx58KmpXCOUK02gPsVrpvnoAlJ+05pIemFj1ueFj2y+UmkZ3L4
+	AEiUuhKpbuc/JAvGDZeP3IpddPqI7we64vlp7vaHLA4MlzcfEm4kmluSPypJoUbUiFSpXFwo7osBj
+	VyXKodcBz23AQyVFQai2IDv5vn6hBLOYjrcyp1bJVriFahnWCXTpAgDcPZ1GuoEzaUy+c9RH7LjOT
+	p6u2BZCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwkwt-0000000BjrM-2Cg0;
-	Sun, 01 Mar 2026 17:51:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwkwr-0000000Bjoo-48Ui
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vwkws-0000000Bjqj-3m2D;
 	Sun, 01 Mar 2026 17:51:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vwkwq-0000000BjoW-3suD
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 01 Mar 2026 17:51:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 709EE6132B;
-	Sun,  1 Mar 2026 17:51:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 32520C2BCB3;
-	Sun,  1 Mar 2026 17:51:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E901960133;
+	Sun,  1 Mar 2026 17:51:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 83773C2BCB7;
+	Sun,  1 Mar 2026 17:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772387480;
-	bh=W6cSrGd0y+hrVmL05+ccKmQuO7d2OHllkzkMpslpFb4=;
+	s=k20201202; t=1772387479;
+	bh=2RcZ1YrtLk3LFD+fkggSEgyijYJUi2tSNAB95o1MrT4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=stX4SPXDwpSTyym0Pc/k1PVxPfqXK73WCgkdk873AKI8DSR7H+Tg1Zga+lwuAwI76
-	 0/N2F7myFUzWOWVzPhStrjs4LXBc0oyJfYhZ+tpCEVXbWmBh10ol0eBCtRCoK4MhMs
-	 aHDzRwuRZ5Ie4vszBeaz+pZEzh7hI+3PGCgsg1nPSa7eqq/DTDjvV+u2E++1xJ+nVo
-	 BS0Yrldt9MgdJLDz0au/PXz9HE3e49TKaAFvumLea6B6jMP1WgvFDuK0mLu3hPoi7b
-	 WO+Ol2PkpQY5wxaz3mLgeXUqayApkbf4l7+st+nCz+im1TQc/btzQM3LXgc74etpyA
-	 6HQ1SgYC4lmMw==
+	b=IBja9dwv8Wb9Q+0XLAl4w+PrfuisazmmSVNGe02N03sUrDTzJAU8QYBneofUbNj+c
+	 NZN+cTeJAnfzAGDxf1SafBOtW9Gco0IBHNb5EAXsKtBQ2r0L4ZmoIjZAHKltRYyUkM
+	 d0cCnLjAh8I00rlfUiZTxnvoj9o7z8T4PBxukjvLj6Kb//jpGRR/8MW5+w0d/+ODjI
+	 Mkh9Jy0LYxXVO82EQWQYzxlVQqnQUbsgzkodHZdCeEaISJts5cqNgG6EKkHpLqIqXF
+	 UtyvIF4lnKgJ4pnVbWAtwGEx5uefshJxTX8b6rNuTISbRi+DkpiVc0cpfi3Bl/r49a
+	 oodUgrHjme58A==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 18F3DFD0075;
-	Sun,  1 Mar 2026 17:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 77F27FD0074;
+	Sun,  1 Mar 2026 17:51:19 +0000 (UTC)
 From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
-Date: Sun, 01 Mar 2026 18:51:24 +0100
-Subject: [PATCH 10/10] arm64: dts: qcom: sdm845-google: Add STM FTS
- touchscreen support
+Date: Sun, 01 Mar 2026 18:51:18 +0100
+Subject: [PATCH 04/10] Input: stmfts - disable regulators when power on
+ fails
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260301-stmfts5-v1-10-22c458b9ac68@ixit.cz>
+Message-Id: <20260301-stmfts5-v1-4-22c458b9ac68@ixit.cz>
 References: <20260301-stmfts5-v1-0-22c458b9ac68@ixit.cz>
 In-Reply-To: <20260301-stmfts5-v1-0-22c458b9ac68@ixit.cz>
 To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
@@ -69,21 +69,21 @@ Cc: Petr Hodina <petr.hodina@protonmail.com>, linux-input@vger.kernel.org,
  linux-arm-msm@vger.kernel.org, phone-devel@vger.kernel.org, 
  David Heidelberg <david@ixit.cz>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1269; i=david@ixit.cz;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1598; i=david@ixit.cz;
  h=from:subject:message-id;
- bh=4/lfzEYYZjUSxYP/aTkLrRQ2VN8Psoxavi/IstIzuL0=;
- b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBppHyVaCX9KjhoeEmo7YHELzM8zuZw6Mbc4G6o0
- VIq1w9OLZWJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCaaR8lQAKCRBgAj/E00kg
- ciBFD/41NrAOanfs7cx7e+2sECckL6NCNiYD4+R7Ez7hXveR0nbWJxveRy3dbRvMv6/MSxR/3M7
- 9xyS9sWp24g3qnPNugFmVr5Sw7L5EXuW0dq7N56JBE9aAEab3D8E5CDyqqoNxYItk5Liv1oCvke
- oG2ZF6RO4fAEIdfScDi179tNE050cB3ddgWCm7kxwIh98oxNSUfVdYzXY2X3zDOeCyqs1xOrK1c
- JBRKed9j+vcJ22XL/nPZvN30P5EaD/yzbDJALiBdcZInagRoYRYrDLm/NIr09Kx85a5c/wQNqaA
- TTG6kv+SNNF/w3wuxb86eDrEegWJFhztfew5zKha8AQP/ikCnUwOT5OG8G9tyPkiG3YlMX861MG
- e9EYqc/JPDmpR0g3V/6FNqfO+nrfQb72T3n2ZgnRq/Q//+G+waw+uroFZuPEQRpb4lXqtJmZK6w
- cv74HQ8VTmTjzlGHOAeWPZuPyOKxZSmo1zIGlYRy9idGqNvkx+D8a5TGkDJXrqO+zXvXy1BuPLk
- LNU5vQm8hXUcmWFuIScQvTeeXX4B6Ucp27RDqM0fykYu6kWLj5mBUVk+C+Xy5jFQU/ZHLZIMhEx
- ZyAreXzqU3StjwAJx69dWraCNBF4HfZH8aB+r9LYuWOYOaLrra6j6FgOSYjx+Zxi3BID/E88zIL
- RvFppiUpphwbgLA==
+ bh=Z29IokqtA9ULVf4cQSlm3q9NJhfdPu/mSq+nU9M0a4M=;
+ b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBppHyU9u/DZ1GreqI2xQDH8VFabq8lVGipnGV6u
+ YblMQC0S3WJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCaaR8lAAKCRBgAj/E00kg
+ cuLzD/45dchsfZkaDN8R4+2qYOi2IqahkhRBhZymvtMYZ+qXaWMz652M3IZpAy59eOOwkGO5B6j
+ qfvIu57Qipc1I+UeTxkmepghYsA+E46SSYff8toz8tUAsOJBEY01FgLX4VSKV4hXPGR438LipBg
+ 2TjRUk5+jlm9sHdaOYdBQuGqejUnD/oL14qi4yYtOoGqLbqWs8wzDXFRTMS6YvT2GjnFOlDRqcB
+ 5DC+Idb7rWxyNtJdbOdH/ht3R5CCrpsq6YhK4KVub9rrCuRKAT/qQYMeXiSQVBr0eu4elXnm2Cy
+ qZV/1QwsbgVwL5IiysQdp8T5Wu1ESmCMKB59jeR2QAmflZ0R3AkEsI69TK9akDlFEzsfFUm7mrz
+ om83TzDnVnLrOZPYYMOzWNVLEPjSgpYWsBYK7U674/cEfRDFOkqdew6tw70v2GJm3Oio5VEzGVL
+ O1SuQ+WaaVzCxEy9aqtNNxpy/FTnSsgcLc2xfFY4zgsS/Uxvgm83J7unPbfnaKxxizEy5w3NJ+A
+ nHsF5XzVxS3APrLPRfLwnO5G4g4UVLw2lcJvsTp45CHzjthuOZiqZxvd177P52lkivJE//X4bnK
+ 02GDVbH9OLze8pxZBwDyrQLrbleT1JV1CuEywAlZwe9uk6weDvJTYTiPatc0US27Zw5CMDd9/tc
+ 9S68x3aBfA3/spQ==
 X-Developer-Key: i=david@ixit.cz; a=openpgp;
  fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
 X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
@@ -103,49 +103,63 @@ Reply-To: david@ixit.cz
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Petr Hodina <petr.hodina@protonmail.com>
+From: David Heidelberg <david@ixit.cz>
 
-Basic touchscreen connected to second i2c bus.
+We must power off regulators after failing at power on phase.
 
-Signed-off-by: Petr Hodina <petr.hodina@protonmail.com>
-Co-developed-by: David Heidelberg <david@ixit.cz>
 Signed-off-by: David Heidelberg <david@ixit.cz>
 ---
- arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts | 21 ++++++++++++++++++++-
- 1 file changed, 20 insertions(+), 1 deletion(-)
+ drivers/input/touchscreen/stmfts.c | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts b/arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts
-index fa89be500fb85..2501104b06e1b 100644
---- a/arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts
-+++ b/arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts
-@@ -26,7 +26,26 @@ &i2c2 {
+diff --git a/drivers/input/touchscreen/stmfts.c b/drivers/input/touchscreen/stmfts.c
+index db2dd0bb59fcc..f4e5f1b3ce796 100644
+--- a/drivers/input/touchscreen/stmfts.c
++++ b/drivers/input/touchscreen/stmfts.c
+@@ -558,7 +558,7 @@ static int stmfts_power_on(struct stmfts_data *sdata)
  
- 	status = "okay";
+ 	err = stmfts_read_system_info(sdata);
+ 	if (err)
+-		return err;
++		goto power_off;
  
--	/* ST,FTS @ 49 */
-+	touchscreen@49 {
-+		compatible = "st,stmfts5";
-+		reg = <0x49>;
-+
-+		pinctrl-0 = <&touchscreen_pins &touchscreen_reset>;
-+		pinctrl-names = "default";
-+
-+		interrupt-parent = <&tlmm>;
-+		interrupts = <125 IRQ_TYPE_LEVEL_LOW>;
-+
-+		irq-gpios = <&tlmm 125 GPIO_ACTIVE_HIGH>;
-+		switch-gpios = <&tlmm 136 GPIO_ACTIVE_HIGH>;
-+		reset-gpios = <&tlmm 99 GPIO_ACTIVE_LOW>;
-+
-+		avdd-supply = <&vreg_l14a_1p8>;
-+		vdd-supply = <&vreg_l19a_3p3>;
-+
-+		touchscreen-size-x = <1079>;
-+		touchscreen-size-y = <2159>;
-+	};
- };
+ 	enable_irq(sdata->client->irq);
  
- &mdss_dsi0 {
+@@ -566,11 +566,11 @@ static int stmfts_power_on(struct stmfts_data *sdata)
+ 
+ 	err = stmfts_command(sdata, STMFTS_SYSTEM_RESET);
+ 	if (err)
+-		return err;
++		goto power_off;
+ 
+ 	err = stmfts_command(sdata, STMFTS_SLEEP_OUT);
+ 	if (err)
+-		return err;
++		goto power_off;
+ 
+ 	/* optional tuning */
+ 	err = stmfts_command(sdata, STMFTS_MS_CX_TUNING);
+@@ -586,7 +586,7 @@ static int stmfts_power_on(struct stmfts_data *sdata)
+ 
+ 	err = stmfts_command(sdata, STMFTS_FULL_FORCE_CALIBRATION);
+ 	if (err)
+-		return err;
++		goto power_off;
+ 
+ 	/*
+ 	 * At this point no one is using the touchscreen
+@@ -595,6 +595,11 @@ static int stmfts_power_on(struct stmfts_data *sdata)
+ 	(void) i2c_smbus_write_byte(sdata->client, STMFTS_SLEEP_IN);
+ 
+ 	return 0;
++
++power_off:
++	regulator_bulk_disable(ARRAY_SIZE(stmfts_supplies),
++			       sdata->supplies);
++	return err;
+ }
+ 
+ static void stmfts_power_off(void *data)
 
 -- 
 2.51.0
