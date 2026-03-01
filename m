@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1734FD0049
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:31:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63DDAFD0049
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:31:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iCq2MXA/vXpgJ0fvFRRMsy1wxQNXh9t+w+xWQb2a5nQ=; b=DvXgjnsnHmc/Hu7B2UltVNwniY
-	hyqB1Tm3zsalSQMgHe+Hqp9jtGmJMSc3+kCMj8Ik4XX0T+lQYU2YQqOjJi6hLmM/sDNZKbPWFVsxS
-	siZnDpoGgwjyvVsZB35An6HAil4uhSNIz5+q61VuYmjBHWQCUcMx+xdHrLLhE8F+17miLDDw0qONQ
-	7e4y1XsRzbcdTXKeYEEFjcceVo2PbUHIQCdfazxM9bp6CDF+w98AF8esipGsKSf5yhX4E+CTvfz+K
-	le0Z9ZVqKOa0KJhYnYPnL44zuZ6AR0c61UhBV/nlSpsoOHUMoTObzwdJxBG16+Ub6eHufHZpWk822
-	emOdhAOQ==;
+	bh=orN/ZPONLXCnS9Fr/iPhROj5+EZiR9U43zD+ihH/gTc=; b=mWFKvmZMtilOZ1tonJn83JxVzu
+	8K7dQqIowrEbYdO1EFl/yuIIqkkSN/mggPohxRaGAvriKxYTIr++NB1eXYAGWzRDCxr74cz3aqP7W
+	f9Ur8tfzhKFgSCm1fwc/YG0Yd5CB4Jl4suET8ji3Bsku9NnnnQys6YsO5IazBnx/u3AMgdPeagalv
+	0x1uWJZSXKV3OsvJ5QG36vhR6w6Y7cFFkRpMNRT9eDuGepogwnMN4UKolQEXSyNF5V+HgoTbcLOec
+	/WiwqJ6MSRB4SQdjdg8Sz5pVJ6Pf184F7Xbmns30CmHVNDH9pCBoR3rki2DgBkhF+tDtNSw+075lT
+	BnfzVF6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVeA-0000000AY0Y-47xK;
-	Sun, 01 Mar 2026 01:31:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vwVeK-0000000AY8y-0jlW;
+	Sun, 01 Mar 2026 01:31:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVe6-0000000AXtq-2ROq;
-	Sun, 01 Mar 2026 01:31:00 +0000
+	id 1vwVe9-0000000AXxd-1cdb;
+	Sun, 01 Mar 2026 01:31:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 43738401F3;
-	Sun,  1 Mar 2026 01:30:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48724C19421;
-	Sun,  1 Mar 2026 01:30:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D4F1243FDD;
+	Sun,  1 Mar 2026 01:31:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D73DBC19424;
+	Sun,  1 Mar 2026 01:30:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772328658;
-	bh=BxNeqP8cU8tj8jwijO1wKYNCYi0T3XxDYn9+O1aDONE=;
+	s=k20201202; t=1772328660;
+	bh=mpiC9xljl7dj+601z18lVm9ShfISnfT4pIJ29B2acow=;
 	h=From:To:Cc:Subject:Date:From;
-	b=q6mK4hM+RA3jlvp5Yn0DDQ9bcIRbujisDTxJhjUGYttoNMqkEdrTQ8QYlby6/AUrN
-	 Zo0QrReqcJ3yDi6/voqTXwdfynILbI4qn+yIAZo/cIqsdmYFK+Te3nG0nMM4ifzdgq
-	 to2Mg80Roi5s+9hfUn/tSCzPAeLqzXU2Qn7F6GJFWD9KWMxEDpTlDw7OI42HX+HeLl
-	 9VwVnkdVCJUkID71Cxk9mDS8/2ywLpyybc1Bh79MG7J7miWsUdgfq6oZGR9OkfmoKJ
-	 iqMPq2edwm9bf6YnlcW7GBGRLQvPok2/3XpFaeN8ppmEPdEBhIokHHkGbVENSJI9HQ
-	 TVvLeil8xcMrA==
+	b=nmUgo1jrgE6ezDtGclVlzEy9aJZneCVoVOJrCgxOp2CPKovVnqq/qSHWUnIKdVPT6
+	 /frf8toJP6sc6jOJkMYux61u4m9rKRUY0qqAMKB3D8M2YUJzTD3QMpMBMw+Z5MBO6l
+	 ab8SjAKPhsZcIDT7au9Uh7Iv6Qz5jw1bHjdB6hJIieqicr5cj+W6By805ZW2Mw5acr
+	 880nDjGLr5ljV383rWwvU3PeyNf+NseDAW1iLa5UVGSFK6a93Qb8T7acTob3IRFAW5
+	 L82rjYu4cZnq1vxusMwnRgdbdWyICd056XEnIwv+Ws3x8uO7/dXWeOr6j6Kb5HAmU1
+	 trsAt6EHJXkhg==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	irui.wang@mediatek.com
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	benjamin.gaignard@collabora.com
+Cc: Jianfeng Liu <liujianfeng1994@gmail.com>,
 	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
 	Hans Verkuil <hverkuil+cisco@kernel.org>,
 	linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: FAILED: Patch "media: mediatek: encoder: Fix uninitialized scalar variable issue" failed to apply to 6.6-stable tree
-Date: Sat, 28 Feb 2026 20:30:55 -0500
-Message-ID: <20260301013056.1689285-1-sashal@kernel.org>
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: FAILED: Patch "media: verisilicon: AV1: Fix enable cdef computation" failed to apply to 6.6-stable tree
+Date: Sat, 28 Feb 2026 20:30:58 -0500
+Message-ID: <20260301013058.1689335-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_173059_055189_BC070446 
-X-CRM114-Status: GOOD (  14.17  )
+X-CRM114-CacheID: sfid-20260228_173101_724070_0DEA8A91 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,58 +85,58 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From 88e935de7cf8795d7a6a51385db87ecb361a7050 Mon Sep 17 00:00:00 2001
-From: Irui Wang <irui.wang@mediatek.com>
-Date: Sun, 7 Sep 2025 17:35:56 +0800
-Subject: [PATCH] media: mediatek: encoder: Fix uninitialized scalar variable
- issue
+From e0f99b810e1181374370f91cd996d761549e147f Mon Sep 17 00:00:00 2001
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Date: Tue, 9 Dec 2025 11:34:01 +0100
+Subject: [PATCH] media: verisilicon: AV1: Fix enable cdef computation
 
-UNINIT checker finds some instances of variables that are used
-without being initialized, for example using the uninitialized
-value enc_result.is_key_frm can result in unpredictable behavior,
-so initialize these variables after declaring.
+If all the fields of the CDEF parameters are zero (which is the default),
+then av1_enable_cdef register needs to be unset
+(despite the V4L2_AV1_SEQUENCE_FLAG_ENABLE_CDEF possibly being set).
 
-Fixes: 4e855a6efa54 ("[media] vcodec: mediatek: Add Mediatek V4L2 Video Encoder Driver")
+Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Fixes: 727a400686a2c ("media: verisilicon: Add Rockchip AV1 decoder")
 Cc: stable@vger.kernel.org
-Signed-off-by: Irui Wang <irui.wang@mediatek.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reported-by: Jianfeng Liu <liujianfeng1994@gmail.com>
+Closes: https://gitlab.freedesktop.org/gstreamer/gstreamer/-/issues/4786
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 Signed-off-by: Hans Verkuil <hverkuil+cisco@kernel.org>
+[hverkuil: dropped Link tag since it just duplicated the Closes: URL]
 ---
- .../media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ .../platform/verisilicon/rockchip_vpu981_hw_av1_dec.c  | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-index 6faf3f659e751..b3a0a1d8b7a8e 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-@@ -850,7 +850,7 @@ static void vb2ops_venc_buf_queue(struct vb2_buffer *vb)
- static int vb2ops_venc_start_streaming(struct vb2_queue *q, unsigned int count)
- {
- 	struct mtk_vcodec_enc_ctx *ctx = vb2_get_drv_priv(q);
--	struct venc_enc_param param;
-+	struct venc_enc_param param = { };
- 	int ret;
+diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+index e4703bb6be7c1..f4f7cb45b1f1b 100644
+--- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
++++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+@@ -1396,8 +1396,16 @@ static void rockchip_vpu981_av1_dec_set_cdef(struct hantro_ctx *ctx)
+ 	u16 luma_sec_strength = 0;
+ 	u32 chroma_pri_strength = 0;
+ 	u16 chroma_sec_strength = 0;
++	bool enable_cdef;
  	int i;
  
-@@ -1004,7 +1004,7 @@ static int mtk_venc_encode_header(void *priv)
- 	int ret;
- 	struct vb2_v4l2_buffer *src_buf, *dst_buf;
- 	struct mtk_vcodec_mem bs_buf;
--	struct venc_done_result enc_result;
-+	struct venc_done_result enc_result = { };
++	enable_cdef = !(cdef->bits == 0 &&
++			cdef->damping_minus_3 == 0 &&
++			cdef->y_pri_strength[0] == 0 &&
++			cdef->y_sec_strength[0] == 0 &&
++			cdef->uv_pri_strength[0] == 0 &&
++			cdef->uv_sec_strength[0] == 0);
++	hantro_reg_write(vpu, &av1_enable_cdef, enable_cdef);
+ 	hantro_reg_write(vpu, &av1_cdef_bits, cdef->bits);
+ 	hantro_reg_write(vpu, &av1_cdef_damping, cdef->damping_minus_3);
  
- 	dst_buf = v4l2_m2m_dst_buf_remove(ctx->m2m_ctx);
- 	if (!dst_buf) {
-@@ -1125,7 +1125,7 @@ static void mtk_venc_worker(struct work_struct *work)
- 	struct vb2_v4l2_buffer *src_buf, *dst_buf;
- 	struct venc_frm_buf frm_buf;
- 	struct mtk_vcodec_mem bs_buf;
--	struct venc_done_result enc_result;
-+	struct venc_done_result enc_result = { };
- 	int ret, i;
- 
- 	/* check dst_buf, dst_buf may be removed in device_run
+@@ -1953,8 +1961,6 @@ static void rockchip_vpu981_av1_dec_set_parameters(struct hantro_ctx *ctx)
+ 			 !!(ctrls->frame->flags & V4L2_AV1_FRAME_FLAG_SHOW_FRAME));
+ 	hantro_reg_write(vpu, &av1_switchable_motion_mode,
+ 			 !!(ctrls->frame->flags & V4L2_AV1_FRAME_FLAG_IS_MOTION_MODE_SWITCHABLE));
+-	hantro_reg_write(vpu, &av1_enable_cdef,
+-			 !!(ctrls->sequence->flags & V4L2_AV1_SEQUENCE_FLAG_ENABLE_CDEF));
+ 	hantro_reg_write(vpu, &av1_allow_masked_compound,
+ 			 !!(ctrls->sequence->flags
+ 			    & V4L2_AV1_SEQUENCE_FLAG_ENABLE_MASKED_COMPOUND));
 -- 
 2.51.0
 
