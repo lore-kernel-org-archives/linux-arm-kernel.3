@@ -4,112 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12F10FD0068
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 14:01:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0A6AFD0066
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 14:10:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tQ6uR1FWxTc25bymhuLD2DT7bqkszczJKsThgTHV6ZY=; b=Vrz5NO8fVRQI+Ln08PymLGnkH0
-	wd09PCsT7NA6nPgqejU4BdLT5Zvwt/83YBF4LY7HNuHTIPkBdpvOdE/wr2cwAHajcIIzEcA/VQlEr
-	nZLdVVfmQmZiOteZdsL11II46/hi5YQIKe/WD0Bp2MP1vezP1CtCBpJY0kX39AF0hUsvfiud0QRUI
-	aWeYowmV2wXZHzV5ftEw/+MnqrBsIlKM+1tLOIqmXucmUANGYWbtgqoc/MoJtpUROsJDuhCYo3SfO
-	2o/W+nakvwzXeIGrIMJ5FdLUv2k5dxWFSax65zgJw8olCEzHO4Qfdmsr25gqIHT53KJaXZRB/b3bz
-	3yUCMZzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TVGLTQN8MHuJLb/cmqvoQTI+Y7O1OTfTNxTJJccPmrI=; b=wu5lAfTDxGphxlhRa8bmj87G8w
+	3wYaMbgqFR1rlQ0yU5mciUNBpKwQwjX6EKewnnoOWW6BDctoIpKCSZzVGjdsaGJwwU1uI3iFiFiGG
+	84a7GrNaEFmhNkfZii/6gnPNbuDQAkYi38HvYu0uZaGzdBJBQHoRJq33UHbSmDjyMnxHfo7EF8AVu
+	E0VewppWObgiF+ByBAUjojwXnYNSQm12Z19cqOTXwi2ul5s9sftwhJhg0Ap/bDelh/Rk4hwNh126r
+	lGPtLcCvoGNx71hopEWz9bMBBkxhjVDlFI8l28Q2w0xD7Rz2qoEmAJgjWEQECbZCjtZnBpHK1nbmV
+	cYntE6Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwhLq-0000000BYU3-2szY;
-	Sun, 01 Mar 2026 14:00:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vwhVP-0000000BZ09-37OX;
+	Sun, 01 Mar 2026 14:10:47 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwhLo-0000000BYTD-1Saq
+	id 1vwhVN-0000000BYzJ-1nfq
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 14:00:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C6A0441A19;
-	Sun,  1 Mar 2026 14:00:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADE24C116C6;
-	Sun,  1 Mar 2026 14:00:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772373651;
-	bh=9FkwOMEB58b/EdwlM6D8D482qRf4ibRXEkNY4oawu0E=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gJHetkCoFjG4yMpQmnkb1n0kzrYPTDGPWjy9ypzB/jO+hvGqzB7/XeE540N84Kxy/
-	 KWv+CODohWCoGcp48HV5Pi7KlfnZSMx0G3cKpN3GwxAbeSr2fyquAjm4e5FNw8TM+X
-	 ZnSWxg2UBVTS19BW/oJwsZnX81NQOXgW35lCPtYgdXQY+I7aMQjHsyRzMPuAvClTdr
-	 FOV5nufSDJpyPYZ6/Vvh3ayPOKc6iswd5Y6mLKPHZrpZ0sShoVmkd0158O8dSJC74r
-	 rzdD8qtJiXeLBT3wbkSlYMmglL71HxefCvPtqKbA/XYcSG53eWRM5kLnb1rqbSwZtN
-	 yCV3gAX5/nS8A==
-Message-ID: <9739f859-6acc-47b6-bbe0-d7d9195487a3@kernel.org>
-Date: Sun, 1 Mar 2026 15:00:46 +0100
+	Sun, 01 Mar 2026 14:10:46 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4830f029407so7741105e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Mar 2026 06:10:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772374243; x=1772979043; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=TVGLTQN8MHuJLb/cmqvoQTI+Y7O1OTfTNxTJJccPmrI=;
+        b=Vfk7rRycsuRI8YkZspp1zNZebUZSLWDev83FwjwcZz/VyCfnk7Fx+4xsTWU7o9rXs2
+         mkLwX98xx50oJFYScKX9MEN0I1oTM7XhiP2Bh4VHirPvTXTtAh5T8RZAH7OMv/Ua3GCP
+         rSDEuYY6XDgARiUg7PxABHYg2DLtM5+O1ha8Sx4XhEjANMploPuV3kAwO3CV4DETl2R6
+         iZB7ccA1HeDp8lqV88PMqcuVm9U1lWvpR7Dt+QqwcBYFqAYwTLeSOShHkCiTMiDmHqfi
+         vhQZOLZHBpjBJyOK3gCnhlAuFip4Q9Sqnc3TrHgV1d1OqLb/deb4nXwCpxAE1tO6gX1v
+         5A2A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772374243; x=1772979043;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TVGLTQN8MHuJLb/cmqvoQTI+Y7O1OTfTNxTJJccPmrI=;
+        b=XoF99tjaEIgcYl0YFiAxxsmkJuKVTpxjJbpOjlt5qfQN0MHCG+TRV6tyrD9GPZ5eM6
+         /LsyYB0L6Fo6zkgfzj+HaDlc6CTAEwN7krhhNTHDAdef8Td7dV08aG3wm2hBdVZglyZr
+         l9fFflbud1Jggm1uCLpDgmNgdExeZzdP+PQ+Edq5laOIvZ8iLw5odZulmvUzJrVOM0Tp
+         4ikucrIZzc2XfQdEQgJeftumSSbw5AXk/FkZoRvww/t0pM3yGZZnd21kXmXx60N4xC3E
+         Ktk7jhjywGtCpPaUgnd3EY0Qv9lLuKtzUtbN8ud37OTVi/HAfiAVC0nsToY4eIi3XVLP
+         codQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUKF6se3+QlCiLisMWcVqfkKtAOlLfpfHes6/iQCTDTR7/U7yVXKS30zKmIPcsIXucl9E8A6cNNpnn04KJ4Baib@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzt+Wz8UpzPjuIKpzYJTkFhfTwBaiYszd4I1QDhysGmLNxQ0olx
+	Gxpt7DFQwzrZdhoqUbD/II3dWU7WdMskqB+KQefSzIQfZ+XBrCmQeog2x8HgDg==
+X-Gm-Gg: ATEYQzzarIdvO/Fumq72CswoJbt1OEmegsLc0I3BJQUane74bHdEHFb69IwGaXfA8Vr
+	O4+mRWhO9EMQ5tGflJzgMRaGdKoASjRFSfZqnU5PQQNI1g5ezV4Opm/ZPKJ7S4FMYktOuKURsfa
+	nS3scvivZCtqRAb5MbfKw7uUtXZMwxKRu2FuivEhmeytDFgxXLXAfStndRzLl1qluoMcHMG9Mw/
+	7a2NoUCG8vYHA3N+5AX7lcLJVR+aKPAWLyGkTHEc+tx8B9zYRQw4LqdH/jKj3xMdbtVuiBvqQ5f
+	AXLaNmdCpDimABZeYKFuq54NZCYDIUhZTqAglJDj+tfxHOTnOc1B4zUwYFd498br6q42FiudRZC
+	kGaIEcME2mySXTQofdlOp+MnMar+Jlp5vT2gBgGfuV0FKMfnpG0AYdwfcN+RQWnXTJBeR1PFIXR
+	Biq/0czLJQyi1q560Nq2c=
+X-Received: by 2002:a05:600c:4e8a:b0:483:887:6e32 with SMTP id 5b1f17b1804b1-483c9bd9eaemr93243805e9.8.1772374243073;
+        Sun, 01 Mar 2026 06:10:43 -0800 (PST)
+Received: from skbuf ([2a02:2f04:d608:3a00:8f4c:42a4:aebb:ef65])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483bfb77abdsm107413555e9.2.2026.03.01.06.10.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 01 Mar 2026 06:10:42 -0800 (PST)
+Date: Sun, 1 Mar 2026 16:10:39 +0200
+From: Vladimir Oltean <olteanv@gmail.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH RESEND2 net-next 0/8] net: stmmac: qcom-ethqos: further
+ serdes reorganisation
+Message-ID: <20260301141039.muzcrt6cynilvpei@skbuf>
+References: <aaDSJAc-x2-klvHJ@shell.armlinux.org.uk>
+ <aaIysVxy-WxbiJz9@shell.armlinux.org.uk>
+ <20260227165556.5cf9e844@kernel.org>
+ <20260228083111.5df8550c@kernel.org>
+ <20260301001453.lpd2rawy7bqxyivp@skbuf>
+ <aaRCN7zbX6FjUtQ_@shell.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] arm64: dts: axiado: Use lowercase hex
-To: Karthikeyan Mitran <kmitran@axiado.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Prasad Bolisetty <pbolisetty@axiado.com>,
- Tzu-Hao Wei <twei@axiado.com>, Axiado Reviewers <linux-maintainer@axiado.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Linus Walleij <linus.walleij@linaro.org>, Drew Fustini <fustini@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260226-maintainers-addition-and-axiado-ax3000_dtsi-update-v3-0-a3b095989823@axiado.com>
- <20260226-maintainers-addition-and-axiado-ax3000_dtsi-update-v3-1-a3b095989823@axiado.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260226-maintainers-addition-and-axiado-ax3000_dtsi-update-v3-1-a3b095989823@axiado.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aaRCN7zbX6FjUtQ_@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_060052_429526_3005983A 
-X-CRM114-Status: UNSURE (   8.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260301_061045_473948_BE87B380 
+X-CRM114-Status: GOOD (  29.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,23 +112,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/02/2026 01:31, Karthikeyan Mitran wrote:
-> From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+On Sun, Mar 01, 2026 at 01:42:15PM +0000, Russell King (Oracle) wrote:
+> On Sun, Mar 01, 2026 at 02:14:53AM +0200, Vladimir Oltean wrote:
+> > On Sat, Feb 28, 2026 at 08:31:11AM -0800, Jakub Kicinski wrote:
+> > > On Fri, 27 Feb 2026 16:55:56 -0800 Jakub Kicinski wrote:
+> > > > On Sat, 28 Feb 2026 00:11:29 +0000 Russell King (Oracle) wrote:
+> > > > > The AI review for patch 7 says:
+> > > > > 
+> > > > >   This commit fixes a bug but lacks a Fixes: tag. The commit modifies
+> > > > >   behavior introduced in 360000820ae2 ("phy: qcom-sgmii-eth: add
+> > > > >   .set_mode() and .validate() methods") by making phy_power_on() call
+> > > > >   qcom_dwmac_sgmii_phy_calibrate() to restore the previous setup, and by
+> > > > >   making qcom_dwmac_sgmii_phy_set_mode() check if the PHY is powered on
+> > > > >   before attempting calibration.
+> > > > > 
+> > > > >   Should this commit include:
+> > > > > 
+> > > > >   Fixes: 360000820ae2 ("phy: qcom-sgmii-eth: add .set_mode() and .validate() methods")
+> > > > > 
+> > > > > which is _wrong_, this isn't a bug fix.  
+> > > > 
+> > > > Yes, that's what I thought but then I saw the other thread..
+> > > 
+> > > Trying to apply this now but stmmac parts don't apply on Linus's tree,
+> > > and Vinod wants a tag :( What do we do? 
+> > > 
+> > > Could you, perhaps, send us a PR with this on top of Linus's tree 
+> > > (a resolution of the inevitable conflict with net-next would be helpful
+> > > too).
+> > > 
+> > > Or do we give up on the tag?
+> > 
+> > Actually, I think it's mainly me who wants a stable tag. I'm working on
+> > a series for phy-next which will conflict with this hunk from Russell's
+> > patch 1:
 > 
-> The DTS code coding style expects lowercase hex for values and unit
-> addresses.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> Reviewed-by: Tzu-Hao Wei <twei@axiado.com>
-> Signed-off-by: Tzu-Hao Wei <twei@axiado.com>
-> Signed-off-by: Karthikeyan Mitran <kmitran@axiado.com>
+> Is this because of the issues I raised with the quality of generic PHY
+> API implementation by drivers?
 
-It is not a big deal, but I just don't understand what are you doing
-here with my patch. I sent it, it got reviewed, so why are you posting
-it again for review?
+I don't think the issue you are referring to is so much a "quality" one
+as it is a "lack of requirements" one, but to answer - not necessarily.
+Eventually I'll get to Ethernet Generic PHY interop too, but I saw as
+first actionable step to clearly delineate what is PHY provider API from
+what is PHY consumer API, in an attempt to stop PHY consumers from
+poking inside struct phy.
 
-What is the point of this posting?
+To improve the interop situation, apart from patching drivers, I plan to
+introduce a new CONFIG_GENERIC_PHY_EXPERIMENTAL (meaning: enable for
+development, don't enable for production, but drivers required to work
+with EXPERIMENTAL turned on) which would make a few changes:
+- make the .validate() function pointer be a required dependency for
+  .set_mode().
+- call .validate() before calling .set_mode(), and reject the call if
+  the mode and submode don't pass validation
+- swap the power state before calling .set_mode(), and restore it
+  afterwards
 
-Best regards,
-Krzysztof
+Some of these changes do need that consumer/provider API separation I
+was talking about. For example, consumers should not look at the power
+count of the PHY (some of them currently do; not to mention they do this
+without proper locking). They should only concern themselves with
+whether *they* powered the PHY up themselves.
 
