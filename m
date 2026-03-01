@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45BFFFD0049
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:31:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 394F7FD0045
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:31:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0EdwS4Dkbdklj7AkLxIxvRHGr7A9J7BN3ucEj6/CqhA=; b=FwWL3b4nUEodCjRdlTuSDmvWbW
-	GSXIteuYSGShoCSSyqk4la02rigAp3FS0S50jai6v+u+gO06P/+D/8OR+mp9cbNywmQ6J4lpNmoNW
-	OPAzmIRBMLUTjg/cSpjZxBTdBdZ/8kZosLEMuT8D5o8tYZN7gHpQhJndNWcOt+pRxPM36o6PDKPbh
-	93FJjXE6QPDJuFH+jvszVIjBprdtso4nOr4AkN/Ux2O/BVmARHMSxGTgu7OiP1fnBnKXdFuK4yyIn
-	U3IMuLR8WJK+GcQAfUtgBePxajMBl3+P5btUKX2nxWHXaV6lSApmo8ZDAlNeavNN1BCaRsCBHEtgK
-	Xy/qFwlw==;
+	bh=D4yzhA3vtvV7NukHL3p+E6ThuuReKggJllVTOz1XERM=; b=GPbGD+wLWytqaxCbxjLq7gN06I
+	GuefqK7rZ18/lW7KL3xOeIClnbB2RtnolP46bpyoZ6doq5Z34Lh533YAlcwxRd8Rt/Xk4cYsPKOzr
+	9VFDxAjYNtOGqqvnPISJ/trv90D/9IGTMPWY3Bh1wqFDX0bHU45oubQSMr+FsjffmBNO2C6a8Ym9n
+	cYqtNccnrnLLrvAWmFoTz8u6xhhtr+XuWeDvEsElyYbVe0x7XKCaSIDYEpVDgMIZA5ZS1MimSUsbO
+	yrRtpffAPToQIjMc2Up88YtJ88KaBgP//dtVNkwWAumieWkpiPxAZZW8pKmtm37AnL8qqRrvP+Sb+
+	jaaLIj0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVeg-0000000AYW4-1uvN;
-	Sun, 01 Mar 2026 01:31:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vwVeh-0000000AYXv-3NOj;
+	Sun, 01 Mar 2026 01:31:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVeG-0000000AY5b-3fZb
+	id 1vwVeL-0000000AYA1-1gzX
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 01:31:12 +0000
+	Sun, 01 Mar 2026 01:31:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 93256401F3;
-	Sun,  1 Mar 2026 01:31:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7D69C19421;
-	Sun,  1 Mar 2026 01:31:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id ED314401F3;
+	Sun,  1 Mar 2026 01:31:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 482B0C19425;
+	Sun,  1 Mar 2026 01:31:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772328668;
-	bh=XDkG6B7bK/eu/nQ1Z2Gbh1MDzgZ1mQuq99ntnQ9A1TY=;
+	s=k20201202; t=1772328672;
+	bh=nfzOI4nWkNv1wjV16M1zkmIDTjPKrlni2uCrsDWzFLI=;
 	h=From:To:Cc:Subject:Date:From;
-	b=VLy8k4rPH4l3FW7GqtWkBnxT8nwNO58O2UxoQgpFIvVl3lgWEwCgGpyjfQCDOQk3c
-	 nxmHu/314mVxnaCMmW+bgNpLIeXaamCtbOc83GiOicI3HbzdTot47rVrtPb0PyGAk8
-	 QZvEI/Vfdwgyq080rR981Pk7lrLGhjwdMTSjPzt/Jc9+Vvubs4q/rEXNPx0h78S/bu
-	 UzFBl7y22y664IYJ1dLjmem9tvzJKm1SU08rWNubzUVhL0s+UszjpPlAv4AbQj6Kxd
-	 A1a0ZhmdKli8Fzl7SbyjOYbg+72YZQsE87hfwqAcNSdHC/F6V10aCv8on5u3sHj0id
-	 Bi527Lw34Ng5A==
+	b=jDyyxh75Pt1QWK6VevCrQ3VoZWj9YO5UbJ8qGFB9pD14jeCdN2uehPE6m7Ren0ba5
+	 5A+ci0xXb5VutSgYxdBkj8g4YiZxmN80leKdhIeRSr+nla/AWxdWQ7lQhXV3XVkUMt
+	 BVCBGgn3k6SMZlpfpM2IYdpZ1zj3gRb/hDCQ6XZP10IzKHjksyvRou1H8fyX0JG8Uf
+	 8PytBVpW/KI4tGYTr+VVb9PXOox3Zg9HjwOzJnfFNIEclZLxz8WN4FxJl5bjSiR/HD
+	 iSfhMiyFshsoLan15pkptNJU6v6bYCvlhxBC1+yFiwKbdBWZVOCi/A97Psf9hrCSEy
+	 9KaEby7DFgI1g==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	vulab@iscas.ac.cn
-Cc: Andreas Kemnade <andreas@kemnade.info>,
-	Kevin Hilman <khilman@baylibre.com>,
-	linux-omap@vger.kernel.org,
+	leitao@debian.org
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org
-Subject: FAILED: Patch "ARM: omap2: Fix reference count leaks in omap_control_init()" failed to apply to 6.6-stable tree
-Date: Sat, 28 Feb 2026 20:31:06 -0500
-Message-ID: <20260301013106.1689495-1-sashal@kernel.org>
+Subject: FAILED: Patch "arm64: Disable branch profiling for all arm64 code" failed to apply to 6.6-stable tree
+Date: Sat, 28 Feb 2026 20:31:10 -0500
+Message-ID: <20260301013111.1689605-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_173110_516129_BE2FD77F 
-X-CRM114-Status: GOOD (  14.54  )
+X-CRM114-CacheID: sfid-20260228_173113_572056_51538473 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,77 +83,47 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From 93a04ab480c8bbcb7d9004be139c538c8a0c1bc8 Mon Sep 17 00:00:00 2001
-From: Wentao Liang <vulab@iscas.ac.cn>
-Date: Wed, 17 Dec 2025 14:21:22 +0000
-Subject: [PATCH] ARM: omap2: Fix reference count leaks in omap_control_init()
+From f22c81bebf8bda6e54dc132df0ed54f6bf8756f9 Mon Sep 17 00:00:00 2001
+From: Breno Leitao <leitao@debian.org>
+Date: Tue, 6 Jan 2026 02:16:35 -0800
+Subject: [PATCH] arm64: Disable branch profiling for all arm64 code
 
-The of_get_child_by_name() function increments the reference count
-of child nodes, causing multiple reference leaks in omap_control_init():
+The arm64 kernel doesn't boot with annotated branches
+(PROFILE_ANNOTATED_BRANCHES) enabled and CONFIG_DEBUG_VIRTUAL together.
 
-1. scm_conf node never released in normal/error paths
-2. clocks node leak when checking existence
-3. Missing scm_conf release before np in error paths
+Bisecting it, I found that disabling branch profiling in arch/arm64/mm
+solved the problem. Narrowing down a bit further, I found that
+physaddr.c is the file that needs to have branch profiling disabled to
+get the machine to boot.
 
-Fix these leaks by adding proper of_node_put() calls and separate error
-handling.
+I suspect that it might invoke some ftrace helper very early in the boot
+process and ftrace is still not enabled(!?).
 
-Fixes: e5b635742e98 ("ARM: OMAP2+: control: add syscon support for register accesses")
+Rather than playing whack-a-mole with individual files, disable branch
+profiling for the entire arch/arm64 tree, similar to what x86 already
+does in arch/x86/Kbuild.
+
 Cc: stable@vger.kernel.org
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
-Reviewed-by: Andreas Kemnade <andreas@kemnade.info>
-Link: https://patch.msgid.link/20251217142122.1861292-1-vulab@iscas.ac.cn
-Signed-off-by: Kevin Hilman <khilman@baylibre.com>
+Signed-off-by: Breno Leitao <leitao@debian.org>
+Acked-by: Mark Rutland <mark.rutland@arm.com>
+Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm/mach-omap2/control.c | 14 ++++++++++----
- 1 file changed, 10 insertions(+), 4 deletions(-)
+ arch/arm64/Kbuild | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/arch/arm/mach-omap2/control.c b/arch/arm/mach-omap2/control.c
-index 79860b23030de..eb6fc7c61b6e0 100644
---- a/arch/arm/mach-omap2/control.c
-+++ b/arch/arm/mach-omap2/control.c
-@@ -732,7 +732,7 @@ int __init omap2_control_base_init(void)
-  */
- int __init omap_control_init(void)
- {
--	struct device_node *np, *scm_conf;
-+	struct device_node *np, *scm_conf, *clocks_node;
- 	const struct of_device_id *match;
- 	const struct omap_prcm_init_data *data;
- 	int ret;
-@@ -753,16 +753,19 @@ int __init omap_control_init(void)
- 
- 			if (IS_ERR(syscon)) {
- 				ret = PTR_ERR(syscon);
--				goto of_node_put;
-+				goto err_put_scm_conf;
- 			}
- 
--			if (of_get_child_by_name(scm_conf, "clocks")) {
-+			clocks_node = of_get_child_by_name(scm_conf, "clocks");
-+			if (clocks_node) {
-+				of_node_put(clocks_node);
- 				ret = omap2_clk_provider_init(scm_conf,
- 							      data->index,
- 							      syscon, NULL);
- 				if (ret)
--					goto of_node_put;
-+					goto err_put_scm_conf;
- 			}
-+			of_node_put(scm_conf);
- 		} else {
- 			/* No scm_conf found, direct access */
- 			ret = omap2_clk_provider_init(np, data->index, NULL,
-@@ -780,6 +783,9 @@ int __init omap_control_init(void)
- 
- 	return 0;
- 
-+err_put_scm_conf:
-+	if (scm_conf)
-+		of_node_put(scm_conf);
- of_node_put:
- 	of_node_put(np);
- 	return ret;
+diff --git a/arch/arm64/Kbuild b/arch/arm64/Kbuild
+index 5bfbf7d79c99b..d876bc0e54211 100644
+--- a/arch/arm64/Kbuild
++++ b/arch/arm64/Kbuild
+@@ -1,4 +1,8 @@
+ # SPDX-License-Identifier: GPL-2.0-only
++
++# Branch profiling isn't noinstr-safe
++subdir-ccflags-$(CONFIG_TRACE_BRANCH_PROFILING) += -DDISABLE_BRANCH_PROFILING
++
+ obj-y			+= kernel/ mm/ net/
+ obj-$(CONFIG_KVM)	+= kvm/
+ obj-$(CONFIG_XEN)	+= xen/
 -- 
 2.51.0
 
