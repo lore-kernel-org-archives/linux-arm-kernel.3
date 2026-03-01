@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8F2CFD004B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:36:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1253FD0049
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:36:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=khzfhxSUW7CG7c3d8rNWnA9kgIragG/BMQPtGIMiFnU=; b=izuapV+rwoLMalorYyjUNTo9fS
-	zi3BtZpW6/IYdYLSpH+yl/Xn3t0l18RwcLYINzVfYG1HGofLog83UrKpop3WqXYbtl+qQQ9GkMeQo
-	GvJBXJW1DNRToLyFgIJcJ5ctW/MkDXHQwIN14Sn0VsspXPA+7knEOMYNXyk9VHEo1hkOZDa4dQPoV
-	GssWsO+rXoYah59snOvMZjW8GPZrirDHPgQS3uQ9qbZYqQDdQh4lkspegil+/j+cfiKgOyaxyBT9M
-	ScsZF39gnvQv5bqFCGurh1OZIwGoKXEM+ZEPi1VKRfSlGPbsBb0+zERPKydHhyMLRLfoCfpXkY8ju
-	H5JsfzcQ==;
+	bh=wOd3wV0eagl7aqDuphh5lpbjObonga73tHIx4AjNUus=; b=dfYAc/rgnsMoCTE+tsiZ9Mifbi
+	q+h0g1hFeUaTM1AREsT3g+M6qXJUANv5yorFUqqw3yMjrQFLrgtfcOcrj+59VSeLqma2xCGtoVFbi
+	R0dM9F/0+e7mDPe7VJPr9EV6wb9oSZf19MBwoqk0BBzCCBfVsU4aTj0ygOyvJpJpUQqb4Vt0dZ8e8
+	RQLGyqlLNBD03QZE35PqR+tp42iIEz1EFBnNOtWUVeBRFvlEJc5oI99h+Bun/b6RnQALlLdSTI5Mp
+	0mwgfCeDUL3hmHm+KwVHKh7mdTqXMzaGTtB5LCyJY1vuGroQn0djtiikpsh8rI632SoIKkcGo17rL
+	pA+AwLGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVjM-0000000AaSM-1hyl;
-	Sun, 01 Mar 2026 01:36:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vwVjg-0000000AagC-1SWF;
+	Sun, 01 Mar 2026 01:36:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVjJ-0000000AaPw-2kpX;
-	Sun, 01 Mar 2026 01:36:22 +0000
+	id 1vwVjf-0000000AafR-1M8g
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 01 Mar 2026 01:36:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3A77E401CC;
-	Sun,  1 Mar 2026 01:36:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E136C19421;
-	Sun,  1 Mar 2026 01:36:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C146060126;
+	Sun,  1 Mar 2026 01:36:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FDB5C19421;
+	Sun,  1 Mar 2026 01:36:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772328981;
-	bh=tRcoHPL1SnJU0xLlCrcYeFzmKPCMpkkyxCC7E+YL23Q=;
+	s=k20201202; t=1772329002;
+	bh=mcmW7qRb0znSGLQr6DPmCGSmcFCJ6c+r0uNGS+CmCr8=;
 	h=From:To:Cc:Subject:Date:From;
-	b=Lw8VzEQoN8fC/NrFfeDjHTHBOXIrjM6u2Z3sCo8oZC3oTI1uevOANXWGD2gy8fAIL
-	 hkQe7670ICAroJZxd40NP76fsD341ICkWZe4J2ng6A3gTGT3IAtU1pTocv88BxlMUM
-	 YdcSEeyiW4UPNU3xllzvCIyfFG32cJ7Jq4jEBcTskKhwiD+3BH+osEKzppJKi+paOB
-	 qy+NN6lwlEKJRaNVG7ueXuLZXMRVyWbTbtQFlwbCSioNTQ6kLACjmB4EfkdfZvMceU
-	 0dVOYMzBvl7iDBpCWDEa+LvVFM2CL/Ej1JPRQY+4AHEMOEBuUfSkVuVcNKwRgQCFVt
-	 vcD6UXONojG5Q==
+	b=U7Wu8Fvvk2PmSkgYaeHUTS3SsU/3vcpH3uFYScxyYFhRvey19kK1P5L6BNGwNWmn2
+	 26IT5x7WK+6PBWHL7EIscpXo/kbzRF9jlmdDgPEgDNTT0F5gR46Vis3u94Oqwj+Cyc
+	 e7nI7ulLbg740DWH07mUGM6LFtKneWI5A//i11iEFvjNvAyt42sPE4xb9oVbjpO6ul
+	 NuTmJ9ZCGiBElvkiO+oxbrXZ6DMYwxVkd1jUVZdnOGDRP8Lh1PueEjDOT//mbQdCAW
+	 oAZ+05FI6tGdmNpku4UMl5VO4NFgewTOBhl8sRx8vJ4/7oiIoJRP0rgaWsIYLFdRBO
+	 BMuUE773b6Ygw==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	thomasyen@google.com
-Cc: Peter Wang <peter.wang@mediatek.com>,
-	Bart Van Assche <bvanassche@acm.org>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	linux-scsi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: FAILED: Patch "scsi: ufs: core: Flush exception handling work when RPM level is zero" failed to apply to 6.6-stable tree
-Date: Sat, 28 Feb 2026 20:36:18 -0500
-Message-ID: <20260301013619.1696250-1-sashal@kernel.org>
+	chenhuacai@kernel.org
+Cc: Hongliang Wang <wanghongliang@loongson.cn>,
+	Huacai Chen <chenhuacai@loongson.cn>,
+	Jakub Kicinski <kuba@kernel.org>,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: FAILED: Patch "net: stmmac: dwmac-loongson: Set clk_csr_i to 100-150MHz" failed to apply to 6.6-stable tree
+Date: Sat, 28 Feb 2026 20:36:40 -0500
+Message-ID: <20260301013640.1696690-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_173621_718230_63166253 
-X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,49 +83,41 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From f8ef441811ec413717f188f63d99182f30f0f08e Mon Sep 17 00:00:00 2001
-From: Thomas Yen <thomasyen@google.com>
-Date: Fri, 30 Jan 2026 00:51:51 +0800
-Subject: [PATCH] scsi: ufs: core: Flush exception handling work when RPM level
- is zero
+From e1aa5ef892fb4fa9014a25e87b64b97347919d37 Mon Sep 17 00:00:00 2001
+From: Huacai Chen <chenhuacai@loongson.cn>
+Date: Tue, 3 Feb 2026 14:29:01 +0800
+Subject: [PATCH] net: stmmac: dwmac-loongson: Set clk_csr_i to 100-150MHz
 
-Ensure that the exception event handling work is explicitly flushed during
-suspend when the runtime power management level is set to UFS_PM_LVL_0.
+Current clk_csr_i setting of Loongson STMMAC (including LS7A1000/2000
+and LS2K1000/2000/3000) are copy & paste from other drivers. In fact,
+Loongson STMMAC use 125MHz clocks and need 62 freq division to within
+2.5MHz, meeting most PHY MDC requirement. So fix by setting clk_csr_i
+to 100-150MHz, otherwise some PHYs may link fail.
 
-When the RPM level is zero, the device power mode and link state both
-remain active. Previously, the UFS core driver bypassed flushing exception
-event handling jobs in this configuration. This created a race condition
-where the driver could attempt to access the host controller to handle an
-exception after the system had already entered a deep power-down state,
-resulting in a system crash.
-
-Explicitly flush this work and disable auto BKOPs before the suspend
-callback proceeds. This guarantees that pending exception tasks complete
-and prevents illegal hardware access during the power-down sequence.
-
-Fixes: 57d104c153d3 ("ufs: add UFS power management support")
-Signed-off-by: Thomas Yen <thomasyen@google.com>
-Cc: Stable Tree <stable@vger.kernel.org>
-Reviewed-by: Peter Wang <peter.wang@mediatek.com>
-Reviewed-by: Bart Van Assche <bvanassche@acm.org>
-Link: https://patch.msgid.link/20260129165156.956601-1-thomasyen@google.com
-Signed-off-by: Martin K. Petersen <martin.petersen@oracle.com>
+Cc: stable@vger.kernel.org
+Fixes: 30bba69d7db40e7 ("stmmac: pci: Add dwmac support for Loongson")
+Signed-off-by: Hongliang Wang <wanghongliang@loongson.cn>
+Signed-off-by: Huacai Chen <chenhuacai@loongson.cn>
+Link: https://patch.msgid.link/20260203062901.2158236-1-chenhuacai@loongson.cn
+Signed-off-by: Jakub Kicinski <kuba@kernel.org>
 ---
- drivers/ufs/core/ufshcd.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
-index 66223d2908532..8349fe2090db6 100644
---- a/drivers/ufs/core/ufshcd.c
-+++ b/drivers/ufs/core/ufshcd.c
-@@ -9998,6 +9998,8 @@ static int __ufshcd_wl_suspend(struct ufs_hba *hba, enum ufs_pm_op pm_op)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
+index 107a7c84ace80..c05e3e7a539cf 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
+@@ -91,8 +91,8 @@ static void loongson_default_data(struct pci_dev *pdev,
+ 	/* Get bus_id, this can be overwritten later */
+ 	plat->bus_id = pci_dev_id(pdev);
  
- 	if (req_dev_pwr_mode == UFS_ACTIVE_PWR_MODE &&
- 			req_link_state == UIC_LINK_ACTIVE_STATE) {
-+		ufshcd_disable_auto_bkops(hba);
-+		flush_work(&hba->eeh_work);
- 		goto vops_suspend;
- 	}
+-	/* clk_csr_i = 20-35MHz & MDC = clk_csr_i/16 */
+-	plat->clk_csr = STMMAC_CSR_20_35M;
++	/* clk_csr_i = 100-150MHz & MDC = clk_csr_i/62 */
++	plat->clk_csr = STMMAC_CSR_100_150M;
+ 	plat->core_type = DWMAC_CORE_GMAC;
+ 	plat->force_sf_dma_mode = 1;
  
 -- 
 2.51.0
