@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C6DCFD004A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:53:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5600FD0045
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:53:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=N4/FcWOTEC6WKVT3gbfQ1zElmjtQcD9ACNQY/sozWUE=; b=U+WpHVhQgvjQA8uSfvUZNk9xHc
-	lDvcdQdl65OMZq7Mb+wXb+RSzuS/QJx84LdOOI2dG5XDmJVfpkeYOF6dfmrLRqNmbKVAjfwvM+vU5
-	HV5HHm8ISSGTkuHHwU8IpmAIPvEthGhQhCiHIa7sECqnlDhKBnh0IQSShGsV7Jhhiu9xXs4Qn0Uu5
-	bdyqIb3mSWYgPhNhMpsNQTu9FqZX6IJxJt/4HU5xCGyPFolHccPHuZ8trSST33lUHBUhISCzzJqj/
-	/sqd2WYQSe5Hyg5i/mm+TNnFcjiYjY/NQZcInY8enxMM4Q0jn4B4DBelYMfIVOkstpOEo2axDwXjv
-	+rZkzORg==;
+	bh=wluT5/GZhlyqSdlLuxz5fojnUmiiiDVa/KGhd3nV5/4=; b=buHAqJToanFLTIkikdWIQhDlys
+	tYA8I34qiMS5V64R3Mo258TJ+kqLdVXBwOMsEewb6y073lJxPEHzwnyrfmvJ1i61wlqUDOnYovmh/
+	AothB1KguXgnJ4II+0d6w8p/KFwpOx0X9gFP8jePLnEYhBJfvHx3p1PaingP4gjnnj0VRVbukRVxi
+	97YG2fS+dig7k5vt3AZuVq6Zb7KPkHtayFzflRbD9IptCpWN+bUQ/SxIQX6eDya1YwRAiJAadd1Em
+	pHVdvffK0+aTwaZBYUY3tpzeWjvDorcQtq3mcqnWB9WffXBYQn3MGEItM7LwEGbWtDjO2XNkA2sti
+	OssRw+vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVzd-0000000AgFR-0PSf;
-	Sun, 01 Mar 2026 01:53:13 +0000
+	id 1vwVzp-0000000AgND-0yT2;
+	Sun, 01 Mar 2026 01:53:25 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVzZ-0000000AgEA-3ziq
+	id 1vwVzn-0000000AgMD-47ym
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 01:53:10 +0000
+	Sun, 01 Mar 2026 01:53:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2AD216012A;
-	Sun,  1 Mar 2026 01:53:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CCC0C19421;
-	Sun,  1 Mar 2026 01:53:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6C8296012A;
+	Sun,  1 Mar 2026 01:53:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A0CCC19421;
+	Sun,  1 Mar 2026 01:53:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772329988;
-	bh=+pbNvFP42gZnFwNKHp5slg+0QkkbyANNdsfR+p5ViGw=;
+	s=k20201202; t=1772330003;
+	bh=Gtw8uFGVxUnO81TZRr6VyieEz03KfvIksKiE+ks+pmk=;
 	h=From:To:Cc:Subject:Date:From;
-	b=VnxIDYjYEQAfBjr4dCsS6hLgyK0XECcR0iyb03bAAJsh3vd/JPNfyaE9v6lXsHoGI
-	 fW7JI76kpejZMA1SYfoDuxqvSsDP7jRV27HoU170RuHDDc6h/6S+d8rqAHTWQXexBA
-	 o9clAULVzo8w1rhEKGqIRY6/DNmNMxVhK9964HXafCT/rAa77s+DX26F/lPJnn7qtz
-	 vXfEMkBKF4VoioQ3zsP4wjqvF7Mdo60KfhdJetpbUKYq9T7KaOOc55JHv6ZsDiYCIu
-	 fj9fF3+r/GIlwbY9McVPJBbLdiN2ETv0nEIq664te0C+nKfJoAeNFn2s1i8xaCTTZn
-	 idH9UNAtylsIg==
+	b=n3iEXUv0qlXJLiOVmLF317pdNW9Yg3ReREW+QNdRdMFiJcezrzHxlxEtmcBJLUFxC
+	 e/8yZ61KMQHuExEIfGfdwpdqCjfpfSYnvuQnjwR5UknFFW7Vk3EH01Q98S3LoqzN6O
+	 PjhpBynoipMpZcYL1AVxy0sJFFgrgxluhZc2+bIBmEGG717QgZQBPjFb6WsheMvG4h
+	 6MOoPvORzqXyS/ALT1RlfntJJCeoC8eMGiIE+S3dbfinA2uL4PQlMZXb/zZJWD1vFU
+	 yvA7UGmx4lSvTpfVVUOg2DbW1gAtWFBrsJACTK1kmmpvmKMvPrtXogtpEHiQyHiHoi
+	 nr5Wv+EQ/zn1Q==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	aha310510@gmail.com
-Cc: Inki Dae <inki.dae@samsung.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: FAILED: Patch "drm/exynos: vidi: use ctx->lock to protect struct vidi_context member variables related to memory alloc/free" failed to apply to 5.15-stable tree
-Date: Sat, 28 Feb 2026 20:53:06 -0500
-Message-ID: <20260301015307.1719782-1-sashal@kernel.org>
+	peng.fan@nxp.com
+Cc: Daniel Baluta <daniel.baluta@nxp.com>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: FAILED: Patch "remoteproc: imx_rproc: Fix invalid loaded resource table detection" failed to apply to 5.15-stable tree
+Date: Sat, 28 Feb 2026 20:53:20 -0500
+Message-ID: <20260301015321.1720088-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
@@ -81,173 +82,55 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From 52b330799e2d6f825ae2bb74662ec1b10eb954bb Mon Sep 17 00:00:00 2001
-From: Jeongjun Park <aha310510@gmail.com>
-Date: Mon, 19 Jan 2026 17:25:53 +0900
-Subject: [PATCH] drm/exynos: vidi: use ctx->lock to protect struct
- vidi_context member variables related to memory alloc/free
+From 26aa5295010ffaebcf8f1991c53fa7cf2ee1b20d Mon Sep 17 00:00:00 2001
+From: Peng Fan <peng.fan@nxp.com>
+Date: Thu, 29 Jan 2026 09:44:48 +0800
+Subject: [PATCH] remoteproc: imx_rproc: Fix invalid loaded resource table
+ detection
 
-Exynos Virtual Display driver performs memory alloc/free operations
-without lock protection, which easily causes concurrency problem.
+imx_rproc_elf_find_loaded_rsc_table() may incorrectly report a loaded
+resource table even when the current firmware does not provide one.
 
-For example, use-after-free can occur in race scenario like this:
-```
-	CPU0				CPU1				CPU2
-	----				----				----
-  vidi_connection_ioctl()
-    if (vidi->connection) // true
-      drm_edid = drm_edid_alloc(); // alloc drm_edid
-      ...
-      ctx->raw_edid = drm_edid;
-      ...
-								drm_mode_getconnector()
-								  drm_helper_probe_single_connector_modes()
-								    vidi_get_modes()
-								      if (ctx->raw_edid) // true
-								        drm_edid_dup(ctx->raw_edid);
-								          if (!drm_edid) // false
-								          ...
-				vidi_connection_ioctl()
-				  if (vidi->connection) // false
-				    drm_edid_free(ctx->raw_edid); // free drm_edid
-				    ...
-								          drm_edid_alloc(drm_edid->edid)
-								            kmemdup(edid); // UAF!!
-								            ...
-```
+When the device tree contains a "rsc-table" entry, priv->rsc_table is
+non-NULL and denotes where a resource table would be located if one is
+present in memory. However, when the current firmware has no resource
+table, rproc->table_ptr is NULL. The function still returns
+priv->rsc_table, and the remoteproc core interprets this as a valid loaded
+resource table.
 
-To prevent these vulns, at least in vidi_context, member variables related
-to memory alloc/free should be protected with ctx->lock.
+Fix this by returning NULL from imx_rproc_elf_find_loaded_rsc_table() when
+there is no resource table for the current firmware (i.e. when
+rproc->table_ptr is NULL). This aligns the function's semantics with the
+remoteproc core: a loaded resource table is only reported when a valid
+table_ptr exists.
 
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Jeongjun Park <aha310510@gmail.com>
-Signed-off-by: Inki Dae <inki.dae@samsung.com>
+With this change, starting firmware without a resource table no longer
+triggers a crash.
+
+Fixes: e954a1bd1610 ("remoteproc: imx_rproc: Use imx specific hook for find_loaded_rsc_table")
+Cc: stable@vger.kernel.org
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Acked-by: Daniel Baluta <daniel.baluta@nxp.com>
+Link: https://lore.kernel.org/r/20260129-imx-rproc-fix-v3-1-fc4e41e6e750@nxp.com
+Signed-off-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 ---
- drivers/gpu/drm/exynos/exynos_drm_vidi.c | 38 ++++++++++++++++++++----
- 1 file changed, 32 insertions(+), 6 deletions(-)
+ drivers/remoteproc/imx_rproc.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_vidi.c b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-index 9709c07e5d8f4..67bbf9b8bc0ef 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-@@ -187,29 +187,37 @@ static ssize_t vidi_store_connection(struct device *dev,
- 				const char *buf, size_t len)
+diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+index 375de79168a1c..f5f916d679051 100644
+--- a/drivers/remoteproc/imx_rproc.c
++++ b/drivers/remoteproc/imx_rproc.c
+@@ -729,6 +729,10 @@ imx_rproc_elf_find_loaded_rsc_table(struct rproc *rproc, const struct firmware *
  {
- 	struct vidi_context *ctx = dev_get_drvdata(dev);
--	int ret;
-+	int ret, new_connected;
+ 	struct imx_rproc *priv = rproc->priv;
  
--	ret = kstrtoint(buf, 0, &ctx->connected);
-+	ret = kstrtoint(buf, 0, &new_connected);
- 	if (ret)
- 		return ret;
--
--	if (ctx->connected > 1)
-+	if (new_connected > 1)
- 		return -EINVAL;
- 
-+	mutex_lock(&ctx->lock);
++	/* No resource table in the firmware */
++	if (!rproc->table_ptr)
++		return NULL;
 +
- 	/*
- 	 * Use fake edid data for test. If raw_edid is set then it can't be
- 	 * tested.
- 	 */
- 	if (ctx->raw_edid) {
- 		DRM_DEV_DEBUG_KMS(dev, "edid data is not fake data.\n");
--		return -EINVAL;
-+		ret = -EINVAL;
-+		goto fail;
- 	}
- 
-+	ctx->connected = new_connected;
-+	mutex_unlock(&ctx->lock);
-+
- 	DRM_DEV_DEBUG_KMS(dev, "requested connection.\n");
- 
- 	drm_helper_hpd_irq_event(ctx->drm_dev);
- 
- 	return len;
-+fail:
-+	mutex_unlock(&ctx->lock);
-+	return ret;
- }
- 
- static DEVICE_ATTR(connection, 0644, vidi_show_connection,
-@@ -244,11 +252,14 @@ int vidi_connection_ioctl(struct drm_device *drm_dev, void *data,
- 		return -EINVAL;
- 	}
- 
-+	mutex_lock(&ctx->lock);
- 	if (ctx->connected == vidi->connection) {
-+		mutex_unlock(&ctx->lock);
- 		DRM_DEV_DEBUG_KMS(ctx->dev,
- 				  "same connection request.\n");
- 		return -EINVAL;
- 	}
-+	mutex_unlock(&ctx->lock);
- 
- 	if (vidi->connection) {
- 		const struct drm_edid *drm_edid;
-@@ -282,14 +293,21 @@ int vidi_connection_ioctl(struct drm_device *drm_dev, void *data,
- 					  "edid data is invalid.\n");
- 			return -EINVAL;
- 		}
-+		mutex_lock(&ctx->lock);
- 		ctx->raw_edid = drm_edid;
-+		mutex_unlock(&ctx->lock);
- 	} else {
- 		/* with connection = 0, free raw_edid */
-+		mutex_lock(&ctx->lock);
- 		drm_edid_free(ctx->raw_edid);
- 		ctx->raw_edid = NULL;
-+		mutex_unlock(&ctx->lock);
- 	}
- 
-+	mutex_lock(&ctx->lock);
- 	ctx->connected = vidi->connection;
-+	mutex_unlock(&ctx->lock);
-+
- 	drm_helper_hpd_irq_event(ctx->drm_dev);
- 
- 	return 0;
-@@ -304,7 +322,7 @@ static enum drm_connector_status vidi_detect(struct drm_connector *connector,
- 	 * connection request would come from user side
- 	 * to do hotplug through specific ioctl.
- 	 */
--	return ctx->connected ? connector_status_connected :
-+	return READ_ONCE(ctx->connected) ? connector_status_connected :
- 			connector_status_disconnected;
- }
- 
-@@ -327,11 +345,15 @@ static int vidi_get_modes(struct drm_connector *connector)
- 	const struct drm_edid *drm_edid;
- 	int count;
- 
-+	mutex_lock(&ctx->lock);
-+
- 	if (ctx->raw_edid)
- 		drm_edid = drm_edid_dup(ctx->raw_edid);
- 	else
- 		drm_edid = drm_edid_alloc(fake_edid_info, sizeof(fake_edid_info));
- 
-+	mutex_unlock(&ctx->lock);
-+
- 	drm_edid_connector_update(connector, drm_edid);
- 
- 	count = drm_edid_connector_add_modes(connector);
-@@ -483,9 +505,13 @@ static void vidi_remove(struct platform_device *pdev)
- {
- 	struct vidi_context *ctx = platform_get_drvdata(pdev);
- 
-+	mutex_lock(&ctx->lock);
-+
- 	drm_edid_free(ctx->raw_edid);
- 	ctx->raw_edid = NULL;
- 
-+	mutex_unlock(&ctx->lock);
-+
- 	component_del(&pdev->dev, &vidi_component_ops);
- }
+ 	if (priv->rsc_table)
+ 		return (struct resource_table *)priv->rsc_table;
  
 -- 
 2.51.0
