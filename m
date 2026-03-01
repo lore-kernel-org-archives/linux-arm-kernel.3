@@ -4,65 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D068FD0068
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 13:41:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21186FD0068
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 13:42:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IJR0gix/qcjxRB9opOK+DpKMd4C5hZuqEeiEi3zYUkU=; b=aD3rq09KR/1V3cxPx9Hrghn98v
-	Kpp2+erV39tHmmhqR+ggZ4yvERIw1RCx1Mw69pAB9QEkKb7vrpAPdpXKHN41aNeHiGzL1q0vJtqn9
-	Prgtm7g7vYmlnvoAt4JBe2rKAHSjyV2Sfzpj+pZwqWOhvqvtvUt3hPsKYcHC/LzXz87hV9k9IsDzM
-	rSfjvEY753ADOo4Z6CWIHTR5sAK/PSswHXP8FOuoP+n3HXVXyvP6ncpVa9ZKwvR2RfGkIGGfL3FgJ
-	HVi1AqpHlDQNTMlL6ftUrFHEEOD9urfbpZVJAEmOsjRUjKZvSlS5+qlnpMe5XhLkLyaxoUqLr85nj
-	PxvHqgGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WpLeXtLyKHRcvN1WgzNsqUfY7g82mlvTHaVSolT+rAw=; b=S6pziu8nx/GD3wsDkmGZODcH/H
+	0C+/pQ20domj2oZwQmLeBUdzVq45OtE5N6cHNh5zzOEnxNUdG7c/qYTp9ymk7QLG2FOxBLOnPDu8o
+	BdnVa+Q+STfeZhrjsfkzRJycfnFusns05fSjZ3EvBdLD80IbN3Dq9c7nWwGryncN+HMgbnK0Nps+p
+	11rqH6OI573Rua9DNNsJXuSUh5zdMn3mtQMqpWjU4FbOjYCL6BtUYEITlyUzJswQxO2NJnzcvVFxm
+	i2aXGsxeio8IAGcgg4zuwuxjaA4HEOkNPd2KsCpz1TCEsHvhhH+bri1/NTfuyVImtzqyvBOPIHm4n
+	vHb63zLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwh37-0000000BXdw-20Qo;
-	Sun, 01 Mar 2026 13:41:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vwh3z-0000000BXjD-3W6y;
+	Sun, 01 Mar 2026 13:42:27 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwh34-0000000BXdQ-3qpo
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 13:41:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2097F40A7A;
-	Sun,  1 Mar 2026 13:41:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33FB6C116C6;
-	Sun,  1 Mar 2026 13:41:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772372490;
-	bh=EpqZVzKWdEsIkiPzJLsZ2dOR2VUf0GLN3zoNLCZ07I0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=FRjKGUAOwBXUw/Q4rIXTMJTFpyf/hELE745qa8J8eJbLJubMPF+dzDZ2/lHjLk7LC
-	 4G4E9qEnfWW1NNbiShcur5+UphomtkhaTGlSeLbrjZtaQ+vG4PH4GXBYLMONfctJw2
-	 V1fl1huk3bBdVGzaSf7H8dLFsuo2hojF20kKyu5VGD3Iu3l8TSWF8nTsByaEKcAa0g
-	 L7xmfGmmgSKIVpIJj4ZX39j7yzS5dv3ttvEHg0fZsbFgkTGxcNOljeNz1yp52prbse
-	 Rl6IlZ1x3C65VAtItkhlSsR3Rdx++DhswtBd+xb+sebjCLba53bJ/wZr6YSlkeo0aX
-	 zr77y5F+pohQw==
-Date: Sun, 1 Mar 2026 13:41:20 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Billy Tsai <billy_tsai@aspeedtech.com>, dlechner@baylibre.com,
- nuno.sa@analog.com, andy@kernel.org, joel@jms.id.au,
- andrew@codeconstruct.com.au, linux-iio@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] iio: adc: aspeed: clear reference voltage bits
- before configuring vref
-Message-ID: <20260301134120.38ae5ae0@jic23-huawei>
-In-Reply-To: <aQCXm_rvwpB6-UUq@smile.fi.intel.com>
-References: <20251028054102.1954503-1-billy_tsai@aspeedtech.com>
-	<aQCXm_rvwpB6-UUq@smile.fi.intel.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.51; x86_64-pc-linux-gnu)
+	id 1vwh3x-0000000BXia-0M0X;
+	Sun, 01 Mar 2026 13:42:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=WpLeXtLyKHRcvN1WgzNsqUfY7g82mlvTHaVSolT+rAw=; b=mSynvnueSrkVI69YpKkbBjRG9f
+	aDqJMD3Z92UYypxgYcWlSpCCtaGG2y5OYeYOflT/SvZk3WJSEFJHK+L4vcEl0QEUh/m7fdWN1X8nD
+	UjUsf4wbB5jtulQNCeRci5aBAJSaol5Z3TYzHhfJ7KrF9ikCaGhXijMFvUJ8Xu7OiZS40PeV0uWKJ
+	6r9q6qFwUJLNJ9ROOSBrzNHPwcUQ2O7GDrXGAjhsH4CViafGcb9wnhbllqGjyN6QWTHhN663z4boG
+	z14caRvnp4pi0+vYszyFsw7gFgYh3yopRncaw+ZSz/0GlrMYVQJy2mfwnHUizYlAXgzrjlVOLi4Ka
+	qv/Sd9YA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:41064)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vwh3p-0000000030E-41Ie;
+	Sun, 01 Mar 2026 13:42:18 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vwh3n-0000000052j-1vRB;
+	Sun, 01 Mar 2026 13:42:15 +0000
+Date: Sun, 1 Mar 2026 13:42:15 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Vladimir Oltean <olteanv@gmail.com>
+Cc: Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH RESEND2 net-next 0/8] net: stmmac: qcom-ethqos: further
+ serdes reorganisation
+Message-ID: <aaRCN7zbX6FjUtQ_@shell.armlinux.org.uk>
+References: <aaDSJAc-x2-klvHJ@shell.armlinux.org.uk>
+ <aaIysVxy-WxbiJz9@shell.armlinux.org.uk>
+ <20260227165556.5cf9e844@kernel.org>
+ <20260228083111.5df8550c@kernel.org>
+ <20260301001453.lpd2rawy7bqxyivp@skbuf>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260301001453.lpd2rawy7bqxyivp@skbuf>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_054130_982226_895CCF7C 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20260301_054225_120480_C29D18C7 
+X-CRM114-Status: GOOD (  20.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,30 +91,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 28 Oct 2025 12:14:51 +0200
-Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
-
-> On Tue, Oct 28, 2025 at 01:41:02PM +0800, Billy Tsai wrote:
-> > Ensures the reference voltage bits are cleared in the ADC engine
-> > control register before configuring the voltage reference. This
-> > avoids potential misconfigurations caused by residual bits.
+On Sun, Mar 01, 2026 at 02:14:53AM +0200, Vladimir Oltean wrote:
+> On Sat, Feb 28, 2026 at 08:31:11AM -0800, Jakub Kicinski wrote:
+> > On Fri, 27 Feb 2026 16:55:56 -0800 Jakub Kicinski wrote:
+> > > On Sat, 28 Feb 2026 00:11:29 +0000 Russell King (Oracle) wrote:
+> > > > The AI review for patch 7 says:
+> > > > 
+> > > >   This commit fixes a bug but lacks a Fixes: tag. The commit modifies
+> > > >   behavior introduced in 360000820ae2 ("phy: qcom-sgmii-eth: add
+> > > >   .set_mode() and .validate() methods") by making phy_power_on() call
+> > > >   qcom_dwmac_sgmii_phy_calibrate() to restore the previous setup, and by
+> > > >   making qcom_dwmac_sgmii_phy_set_mode() check if the PHY is powered on
+> > > >   before attempting calibration.
+> > > > 
+> > > >   Should this commit include:
+> > > > 
+> > > >   Fixes: 360000820ae2 ("phy: qcom-sgmii-eth: add .set_mode() and .validate() methods")
+> > > > 
+> > > > which is _wrong_, this isn't a bug fix.  
+> > > 
+> > > Yes, that's what I thought but then I saw the other thread..
 > > 
-> > Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
-> > ---  
+> > Trying to apply this now but stmmac parts don't apply on Linus's tree,
+> > and Vinod wants a tag :( What do we do? 
+> > 
+> > Could you, perhaps, send us a PR with this on top of Linus's tree 
+> > (a resolution of the inevitable conflict with net-next would be helpful
+> > too).
+> > 
+> > Or do we give up on the tag?
 > 
-> It's a v2 and here a changelog is missing.
-> No need to resend, just reply with a missing piece.
-> 
+> Actually, I think it's mainly me who wants a stable tag. I'm working on
+> a series for phy-next which will conflict with this hunk from Russell's
+> patch 1:
 
-Billy. This one is still outstanding.
+Is this because of the issues I raised with the quality of generic PHY
+API implementation by drivers?
 
-I was rather expecting a fixes tag as well.
-I'm going to mark it as changes requested in patchwork and stop
-tracking it. Hence please send a v3 addressing Andy's comment
-and either add a fixes tag or say why one isn't appropriate.
-
-
-Thanks,
-
-Jonathan
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
