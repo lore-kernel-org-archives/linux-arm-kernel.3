@@ -4,62 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6585DFD0048
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:48:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E0A6FD0045
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:48:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UPU1OAK9OtU/fsUc2zz5AH/DdhhVafP78ryhtso5OXY=; b=AvhCMVKpstbmQQ2L7ukmEDbwve
-	bbvpuwc1vkGxeJ0hGGIDVTnVu02z3WCs8HOrvJ9Jw+5aFPay+TMNVtF/PCmjTVlB9XDy3vPRn9tQ0
-	OzE+W6dwLqfJqMhcZ6LNJVAK0AU6UWInwRnFHG9G4680cadCs7KsivqaMCh6yWDqpvk33KiMr0mOA
-	Aylgbk/VqYFoyZZclynSXZqJZnQo1JqQHQWehtDNxfLKjevsC+MAKz4TbUm9/S0pCOffQA+bOKMqm
-	RWnPgzq3xaGkWufPYO1zlrctX5revu6eAKLTHehOlI1mc6Bn7PB2CpUU5MZo9YGa59Kp6qciUFc5l
-	KJ8CLxvw==;
+	bh=YY+xekhdVJW52itkHKARbbf+ZUuL7gL0RFcUCSQ6pI4=; b=Gu5ciiZDIh+X/odhf9Ye29Co/M
+	Wrh+G2nDZoE69pvTyEcjUfRnxc2KNObLfl1AvXuDGhT01SySLsy4gxL+GHDBRIAyvBpsFh8IgHtf9
+	crKM0aVOUdW+wNZLnCw9aBW0nLfxn4qSw55zeDLyzlbU0s7sOvRlwJhWaxDIxHY8Oc94aXdsn6QN6
+	16ES8C8lFbSMnsLjQmFSWJD+Z0HhlRfyYxEiDoN8C8knZYcEZeALsTEsP8lVPVZuWyH0q7ekizqyj
+	9hzv/E/76XmGEMavN/d9j4auMiNIxz+QkRK9v8tYgf7fdfxzdUBSLvn3B7vQUBTb2K9PyFgidw4tM
+	Yqk1SALw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVuX-0000000AeOO-0L0J;
-	Sun, 01 Mar 2026 01:47:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVuU-0000000AeNf-11ir
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 01:47:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 78D4F4082E;
-	Sun,  1 Mar 2026 01:47:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE1EFC19421;
-	Sun,  1 Mar 2026 01:47:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772329673;
-	bh=M7AjvNGQ6ivPiRbc206heB/jGonoRNCbN3E/EnL2zjM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Z/babn51pwctts/dQwb1PAK2xWkNgMYhuCVIIRfJgFA3k68Xkf5QZSmad/y2cVMOt
-	 X/kr3c3T/0oPdxemzobB+MvHgb8PuIATOdjkqU5aTve7KLraIoZ8ksyHkgsbXGmPQk
-	 S+486F3Snzb/oFw9TkP1otOJrwm1aRIqadoxHxCOugO5PHp1NXJpKk2tW1op/sJpll
-	 WnCTr8jM5gQK5lfIjk+U4qsCGsUZJCwrOlKl1jn+xj4YNNnfKPzqCzOLOesXkS+Xd5
-	 PTK+649d+L6xF3shBUwYMboJpCU5AUSMvj7FjpJgXtJyXDh2JJ5CfZ1ZttunyVl2Wl
-	 zyqsQVhPaXdMQ==
-From: Sasha Levin <sashal@kernel.org>
-To: stable@vger.kernel.org,
-	fourier.thomas@gmail.com
-Cc: Helge Deller <deller@gmx.de>,
+	id 1vwVun-0000000AeRD-1eq8;
+	Sun, 01 Mar 2026 01:48:13 +0000
+Received: from [50.53.43.113] (helo=bombadil.infradead.org)
+	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vwVum-0000000AeQq-0sau;
+	Sun, 01 Mar 2026 01:48:12 +0000
+From: Randy Dunlap <rdunlap@infradead.org>
+To: linux-kernel@vger.kernel.org
+Cc: Randy Dunlap <rdunlap@infradead.org>,
+	Linus Walleij <linusw@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-fbdev@vger.kernel.org,
-	dri-devel@lists.freedesktop.org
-Subject: FAILED: Patch "fbdev: vt8500lcdfb: fix missing dma_free_coherent()" failed to apply to 6.1-stable tree
-Date: Sat, 28 Feb 2026 20:47:51 -0500
-Message-ID: <20260301014751.1711844-1-sashal@kernel.org>
-X-Mailer: git-send-email 2.51.0
+	linux-gpio@vger.kernel.org
+Subject: [PATCH] gpio: nomadik: repair some kernel-doc comments
+Date: Sat, 28 Feb 2026 17:48:11 -0800
+Message-ID: <20260301014811.3133250-1-rdunlap@infradead.org>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-Patchwork-Hint: ignore
-X-stable: review
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_174754_320816_9222E9F7 
-X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,59 +52,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The patch below does not apply to the 6.1-stable tree.
-If someone wants it applied there, or to any other stable or longterm
-tree, then please email the backport, including the original git commit
-id to <stable@vger.kernel.org>.
+Avoid these kernel-doc warnings by:
+- adding short descriptions for enums
+- using correct (matching) struct names in kernel-doc short descriptions
+- using the correct struct member name for @nfunctions
 
-Thanks,
-Sasha
+Warning: include/linux/gpio/gpio-nomadik.h:116 missing initial short
+ description on line: * enum prcm_gpiocr_reg_index
+Warning: include/linux/gpio/gpio-nomadik.h:125 missing initial short
+ description on line: * enum prcm_gpiocr_altcx_index
+Warning: include/linux/gpio/gpio-nomadik.h:146 expecting prototype for
+ struct prcm_gpio_altcx. Prototype was for struct prcm_gpiocr_altcx instead
+Warning: include/linux/gpio/gpio-nomadik.h:156 expecting prototype for
+ struct prcm_gpio_altcx_pin_desc. Prototype was for
+ struct prcm_gpiocr_altcx_pin_desc instead
+Warning: include/linux/gpio/gpio-nomadik.h:212 struct member 'nfunctions'
+ not described in 'nmk_pinctrl_soc_data'
 
------------------- original commit in Linus's tree ------------------
-
-From 88b3b9924337336a31cefbe99a22ed09401be74a Mon Sep 17 00:00:00 2001
-From: Thomas Fourier <fourier.thomas@gmail.com>
-Date: Mon, 12 Jan 2026 15:00:27 +0100
-Subject: [PATCH] fbdev: vt8500lcdfb: fix missing dma_free_coherent()
-
-fbi->fb.screen_buffer is allocated with dma_alloc_coherent() but is not
-freed if the error path is reached.
-
-Fixes: e7b995371fe1 ("video: vt8500: Add devicetree support for vt8500-fb and wm8505-fb")
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
-Signed-off-by: Helge Deller <deller@gmx.de>
+Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
 ---
- drivers/video/fbdev/vt8500lcdfb.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+Cc: Linus Walleij <linusw@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-gpio@vger.kernel.org
 
-diff --git a/drivers/video/fbdev/vt8500lcdfb.c b/drivers/video/fbdev/vt8500lcdfb.c
-index b08a6fdc53fd2..85c7a99a7d648 100644
---- a/drivers/video/fbdev/vt8500lcdfb.c
-+++ b/drivers/video/fbdev/vt8500lcdfb.c
-@@ -369,7 +369,7 @@ static int vt8500lcd_probe(struct platform_device *pdev)
- 	if (fbi->palette_cpu == NULL) {
- 		dev_err(&pdev->dev, "Failed to allocate palette buffer\n");
- 		ret = -ENOMEM;
--		goto failed_free_io;
-+		goto failed_free_mem_virt;
- 	}
+ include/linux/gpio/gpio-nomadik.h |   12 +++++-------
+ 1 file changed, 5 insertions(+), 7 deletions(-)
+
+--- linux-next-20260227.orig/include/linux/gpio/gpio-nomadik.h
++++ linux-next-20260227/include/linux/gpio/gpio-nomadik.h
+@@ -114,8 +114,7 @@ struct nmk_gpio_chip {
+ }
  
- 	irq = platform_get_irq(pdev, 0);
-@@ -432,6 +432,9 @@ static int vt8500lcd_probe(struct platform_device *pdev)
- failed_free_palette:
- 	dma_free_coherent(&pdev->dev, fbi->palette_size,
- 			  fbi->palette_cpu, fbi->palette_phys);
-+failed_free_mem_virt:
-+	dma_free_coherent(&pdev->dev, fbi->fb.fix.smem_len,
-+			  fbi->fb.screen_buffer, fbi->fb.fix.smem_start);
- failed_free_io:
- 	iounmap(fbi->regbase);
- failed_free_res:
--- 
-2.51.0
-
-
-
-
+ /**
+- * enum prcm_gpiocr_reg_index
+- * Used to reference an PRCM GPIOCR register address.
++ * enum prcm_gpiocr_reg_index - Used to reference a PRCM GPIOCR register address.
+  */
+ enum prcm_gpiocr_reg_index {
+ 	PRCM_IDX_GPIOCR1,
+@@ -123,8 +122,7 @@ enum prcm_gpiocr_reg_index {
+ 	PRCM_IDX_GPIOCR3
+ };
+ /**
+- * enum prcm_gpiocr_altcx_index
+- * Used to reference an Other alternate-C function.
++ * enum prcm_gpiocr_altcx_index - Used to reference an Other alternate-C function.
+  */
+ enum prcm_gpiocr_altcx_index {
+ 	PRCM_IDX_GPIOCR_ALTC1,
+@@ -135,7 +133,7 @@ enum prcm_gpiocr_altcx_index {
+ };
+ 
+ /**
+- * struct prcm_gpio_altcx - Other alternate-C function
++ * struct prcm_gpiocr_altcx - Other alternate-C function
+  * @used: other alternate-C function availability
+  * @reg_index: PRCM GPIOCR register index used to control the function
+  * @control_bit: PRCM GPIOCR bit used to control the function
+@@ -147,7 +145,7 @@ struct prcm_gpiocr_altcx {
+ } __packed;
+ 
+ /**
+- * struct prcm_gpio_altcx_pin_desc - Other alternate-C pin
++ * struct prcm_gpiocr_altcx_pin_desc - Other alternate-C pin
+  * @pin: The pin number
+  * @altcx: array of other alternate-C[1-4] functions
+  */
+@@ -193,7 +191,7 @@ struct nmk_pingroup {
+  *		numbering.
+  * @npins:	The number of entries in @pins.
+  * @functions:	The functions supported on this SoC.
+- * @nfunction:	The number of entries in @functions.
++ * @nfunctions:	The number of entries in @functions.
+  * @groups:	An array describing all pin groups the pin SoC supports.
+  * @ngroups:	The number of entries in @groups.
+  * @altcx_pins:	The pins that support Other alternate-C function on this SoC
 
