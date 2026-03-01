@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BCF2FD0049
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02A22FD0048
 	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 00:34:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XxIS8ycUyW3MT9JevkYgetlYvS4Wi6yo/KxzS9TIkdE=; b=Ji/lkYWPTGkI7dL4SWcO2XA/th
-	4iBHmg/IQZX8oMs/P8duVq7GBGEc/mkXM3GxP0qebtJUWv3YJJLkakco2Kk26tI+BR4+FCdTpoXHa
-	1MZAqO+aZYO05O4y4rdtIKuGPp1/4iCW7ZX4HVioafGrn7rmSP+MVlwR8bAXQDiJ+3hn0Igda37tw
-	ITTuu9O+G8uHsvFLmFXFAFBj0ICiKiqlyeLcPDP73CpTXLCU/lPwYIM8tGJhrd+DAKNnUjfv9iDq0
-	ZPbe9zxMUoJeD/ZjM3YPzRECJiZBDQNhG3hE90edCPovZBRv5lFh503BT4fT6nTD4cHql4xMMk0jw
-	AFPpaviw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eA+onLgMMepT/141GKbghkHUwVEHwiBzeeQ+OO6+2KI=; b=Y23AF/jF0Dr0p30+JtZAB1kSBd
+	g4Cgk99Z5BGxa5PhDhTzIEkmVZr6nbqM7iJMf6/i7nRJNltDLUPsi2sgRlns+MNEsrxYxLVpeenRc
+	7F2gAvSOBm45xaWjHBRtG4CGdnP+mabFC1v8+vgD5TtQEk9YpS5k2orqtwJimPmFAF/MrczTAHhWX
+	7jR1Q+SnDIqOaCtAf9NFAKR+WrmhJ6YyiLROYkC0uwxqCm3dmpXjjDP5Gz82wcnoT348hbKOQIhSN
+	9pV0y8HHDmivdOs8XleehoRWWGEsm8y+S82i4zPpbpYCcVsrNLi2kRw4OVq4RkfgfIN18LMUoeWm4
+	iaM7aAzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwUlA-0000000APfP-2waT;
+	id 1vwUlA-0000000APfh-495m;
 	Sun, 01 Mar 2026 00:34:12 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
+Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwUl8-0000000APeA-1z2C
+	id 1vwUl8-0000000APeB-3pBq
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 01 Mar 2026 00:34:11 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-506a1627a09so18401071cf.1
+Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-506a321cc53so38742221cf.3
         for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Feb 2026 16:34:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772325249; x=1772930049; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=XxIS8ycUyW3MT9JevkYgetlYvS4Wi6yo/KxzS9TIkdE=;
-        b=kexzzd2zFgMUV1zjgIwK0YT+NScpYDwXX++UeOU60lLewAwX8wS8YfYCCtpGAI3Riw
-         LoP/u4UscoFQn6ERoCrlcATQsAxyDeI4Ch6rmlqkUSmlEXvyEgCLLqz7HvlELb3nad2g
-         febsbfaMYzBUsuaUgDCcm/W2gBdRExmOUeudZLlZw1N/tGq/0UvbTu8JhSFCwwb8l9UO
-         5TsDFyrX0JqOUMTzKw5Syd/UQ3w298K6ej3R5VBnWOVv4FimOceaxDbBiuY0KOslTOUS
-         ezA+ZZm+0QG0d4NRmE67ED9CaFiaSEHNh/OehAmWmuYkDQTUN3sCQHAzPkGLwo84N8L5
-         1pag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772325249; x=1772930049;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1772325250; x=1772930050; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=XxIS8ycUyW3MT9JevkYgetlYvS4Wi6yo/KxzS9TIkdE=;
-        b=lUrnAqRP0c9Q1N2tvhopMi0WkXLVyPu/pED+mZsiV3IgtB6NhPVdK0V0OBY1d0JAYh
-         5LaJjytgFvPbzLHFNFoVCgc0/VLn5Ww5TtHgig+CvZcDKWqCpY9Xyeub8mXITt5TmKS+
-         wzFm05326R74iCvP/Kle0uDM+lT547dris/DOdaEmGwFCaWwbPbrRFiwv3xEk0x+eoE2
-         hM99TQAVdzO8X6hxWV3Z+8ncryRS31lFINPJ6ykT0YCQ8LO+NScWMgUzP9GNMY7OrBqC
-         YkznVGUPfzVFUajZFOfcsowntSL8TfghoeqGN3XRtEf3IhPRbeq2Q/Sl5D/+q7YQCbgJ
-         VGTg==
-X-Gm-Message-State: AOJu0YzJP5gUCScc8794iUY0YGOUVACgWLgJvX11Gmt8yfK9nggkzDPp
-	R+5Ge6qZOlWyyYHklcnTM8CJdcd9zr7d2EzQ0xvuwRBYT8SY7Odir2I2
-X-Gm-Gg: ATEYQzyTQgXHVRQyk23N4k2X0Y9EhYvcPzXDc06zB2TcOUQCYpomKRvLqDg0fvSdhft
-	XUSpE2jaGes0cKlLqqMcV3uXEleXDD1yzB4CxKMqelS1xOUd/HPzKD++m2nqApPvhMGLfVYPbES
-	7zEDk5IiqONNEVYbi3TsrBq6qjuuDR+LRsvDIyZQztKGGLHY4bd7IpUsLzV5qZsZ+wXJbF/he6j
-	/uWJJ/GzchFj0I/WzoOXDMd0Z4m6RlrChL78EK+PG6nD6eyt6xQSV4AaP9P6PKPfxH/nuoNRLeQ
-	TGlhzjf0QBpkRi5ZI9L55MUxPhYHQxb1NWkzlE91QeSR/+hLQbqMPwmcYkFAf+NOMI26tqKoZhG
-	PrT/EICEIz8pArpoh9m+VQLvCmqD710P8MnoWviEP91beHn76jcIBffmqvl0oECq/9Fe006LJzs
-	usPILV/1OUHdlLyK+F5awGDsZZfUWLkbhDIctWZicGXgRXDjzGqR5U6Z6f2kn+4LN+yGQIql0Ky
-	vhugBh93GYnXQU=
-X-Received: by 2002:a05:622a:1212:b0:4ed:b47d:8f68 with SMTP id d75a77b69052e-50752840aa9mr98103971cf.15.1772325249022;
+        bh=eA+onLgMMepT/141GKbghkHUwVEHwiBzeeQ+OO6+2KI=;
+        b=OV6ZUoRUT8vMMqFVtccbvgG1dTi5huz+vu1udoVd9I3ix4qAkgKcXZPcZ2SCuURxH6
+         6yA5aNFmIglYwTybbyDvSkmx000tz9ZF8chjkVBsm4CNmodB8YfB1V4XAexxy8qiLF85
+         RJZP4yLow6vAObnI4MuTtjBNx+Lsr8J1KQSv8Hwb50tH+BhRkIppPQAZXZAgOOkhlr+n
+         s2ByCMbOVbfCFiRS0gNI2mJrqE/rzPZpNYJ6+zYehUIuc5HHSOlu825pIPmLw/q6hQT8
+         HmxZWS4MBWzLfZmE4gNwdrgnGSyV2aDsKo9qieGJkIyArlTx2hlGNzCEp6WA1jJ+NQXY
+         DWbQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772325250; x=1772930050;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=eA+onLgMMepT/141GKbghkHUwVEHwiBzeeQ+OO6+2KI=;
+        b=Kxj/ApErOTrY5ScrdYKX4Sb2YQpO4ukdqzrMrsxiXAlFg2baRI498Zyoyf83mny4cB
+         cKyrIBW347765BK4ovv9gjkdNx4+AwUbyo2HnidEqMIMzNcFEKvFEnsI2yOc+PKksTrQ
+         DUvsms4Coo+xMtfuS3Xb6C8aluxaSIs8D0fukr7K9CMa+rPHOBHUb1Foh8h9mC31a+nx
+         ve8lqoGR3RNYboH80vClgXMbewOmQKp65kFS5QWPzv1f1CaiLHjTZJwucGMd8QhnGCpA
+         xXcyOhKkpT8XR8mcQu8FNKqEMz7QEG0ruv+iDTpDe2KdfAeh36SHRLaGvxo5xwajAM32
+         sIuA==
+X-Gm-Message-State: AOJu0YzyqkVjZSrlIENCcZR6QBzWdl+jH1LAEVxIBBcBx2LB9Ge1FOmF
+	7ipaa5k6brWNcIOKyvqFlh5AQz6NWhcNLBlYV35JlxNhoAtvdHP0PYh1
+X-Gm-Gg: ATEYQzzXf79qP3zSbCnZFBNCTg2k/BCtT+IRlDMVpXbzX0NdpRJD+L8ogeMsI+mVMQg
+	AMjbm1gOBPnUaNND3yb2f2ausfxZMnCbaj1CMBkqZynvL5lbrc7AV+JIWJBlScKvgNnPe0XAZrU
+	tpkvhitlMX5epnGjy+ypFrLBwjacXGr1qZOliy5p3x3nUPS0TVOtwBFr0cmk7PNkimmWEPyGM5l
+	AMViEXW6Y+ZUyLx2LpwxYqmHkEr0dkKQSxz0J5ZwAQEdblP0Xr3o/adswUzK45EqqsduL/ED7s1
+	zSArLOkgRbXpGTHztpimAuv9lbCqJbxqOuJ8VV7KspFQ8gxzIvJ1I9AZf2hWhrRnhDXWCDT+UgE
+	x1WiYVvviKaSvUwyEzh7ncdpQ9cI2nvWXJwvCsz1wT6axy+1JVpTKN6up4QWDfnldACpkSAvabw
+	NmhddZU76TWF6QFLTa73qAJA01l/GBX3JGqcqQ7lMF0DVSvW+/O1Qp2EYR9eq+ctFrRMJXJCWb4
+	UVp
+X-Received: by 2002:ac8:7d4d:0:b0:4e8:b9fd:59f0 with SMTP id d75a77b69052e-507529b9a60mr108561001cf.61.1772325249650;
         Sat, 28 Feb 2026 16:34:09 -0800 (PST)
 Received: from instance-20260207-1316.vcn12250046.oraclevcn.com ([150.136.248.187])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-507449630a0sm73258381cf.6.2026.02.28.16.34.08
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-507449630a0sm73258381cf.6.2026.02.28.16.34.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Feb 2026 16:34:08 -0800 (PST)
+        Sat, 28 Feb 2026 16:34:09 -0800 (PST)
 From: Josh Law <hlcj1234567@gmail.com>
 X-Google-Original-From: Josh Law <objecting@objecting.org>
 To: Catalin Marinas <catalin.marinas@arm.com>,
@@ -75,15 +76,17 @@ To: Catalin Marinas <catalin.marinas@arm.com>,
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Josh Law <objecting@objecting.org>
-Subject: [PATCH 1/4] arm64: errata: Fix missing space after comma
-Date: Sun,  1 Mar 2026 00:34:04 +0000
-Message-ID: <20260301003407.2493781-1-objecting@objecting.org>
+Subject: [PATCH 2/4] arm64: fpsimd: make stack ctl_table const
+Date: Sun,  1 Mar 2026 00:34:05 +0000
+Message-ID: <20260301003407.2493781-2-objecting@objecting.org>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260301003407.2493781-1-objecting@objecting.org>
+References: <20260301003407.2493781-1-objecting@objecting.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_163410_543991_CC56E6AF 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20260228_163410_951135_E1B5FEAC 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,22 +103,22 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Signed-off-by: Josh Law <objecting@objecting.org>
 ---
- arch/arm64/kernel/cpu_errata.c | 2 +-
+ arch/arm64/kernel/fpsimd.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-index 5c0ab6bfd44a..5f8eaaf028ef 100644
---- a/arch/arm64/kernel/cpu_errata.c
-+++ b/arch/arm64/kernel/cpu_errata.c
-@@ -884,7 +884,7 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
- 		.capability = ARM64_WORKAROUND_2658417,
- 		/* Cortex-A510 r0p0 - r1p1 */
- 		ERRATA_MIDR_RANGE(MIDR_CORTEX_A510, 0, 0, 1, 1),
--		MIDR_FIXED(MIDR_CPU_VAR_REV(1,1), BIT(25)),
-+		MIDR_FIXED(MIDR_CPU_VAR_REV(1, 1), BIT(25)),
- 	},
- #endif
- #ifdef CONFIG_ARM64_ERRATUM_3194386
+diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+index 9de1d8a604cb..86035d48ed27 100644
+--- a/arch/arm64/kernel/fpsimd.c
++++ b/arch/arm64/kernel/fpsimd.c
+@@ -549,7 +549,7 @@ static int vec_proc_do_default_vl(const struct ctl_table *table, int write,
+ 	enum vec_type type = info->type;
+ 	int ret;
+ 	int vl = get_default_vl(type);
+-	struct ctl_table tmp_table = {
++	const struct ctl_table tmp_table = {
+ 		.data = &vl,
+ 		.maxlen = sizeof(vl),
+ 	};
 -- 
 2.43.0
 
