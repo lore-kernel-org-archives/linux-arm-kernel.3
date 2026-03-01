@@ -4,58 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F87FD0049
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:42:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4C71FD0049
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:42:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=adP03129T0AUoTRB//bsXzui5ePf0kYucIKY5B9Fr70=; b=A0xcwBXVwKLn2Ig9tLhuDdRVtw
-	/lpTIrLokTmxyW7GxlNHceOOfXnwiQeYvC/S9EJCFvPjy0pX8uZBvn4mONSgwdPyv7rWLy4kz7S6g
-	lqyPA9Mbsi3Z67npBL4QUi11W05WnzoX+yFBwn2xL8dhHUET2PFrxBYs1oDOPuH4h7Ff04FmHF7mp
-	h78Pu+5D2j98d89Xal41Z6jWfmjLXzKL2x1plMHCI5f4oMhkUPgFB07amW9ATScRwxkevg+AOv7ER
-	242memiENQm/3g4AWHC8lj6mzCQ6CoKFTS5AvXdPm5DcBXmYhJe187StFjGLO5wrRZ2DUateBVjfa
-	F3+lKJeg==;
+	bh=pY9Al5zbc/SrySwfL7vtc1yg8L5bXnwUXk4c29dghSA=; b=4BLPPYeofUBO5sZVvRl/dVxteX
+	P9MDhGpx5w0HKejDWCjJXbLnqJr4xIu/4Wxi/j9/EHlB3KS3rMB7hc5Xp/SDWNapRZ6QcEeYmLbZg
+	30cGGsSV7XkeFTxW4KKQf+Iup2QaHkBmpHXi1wr56Bify9QCRBBx6Im9SKdNzO3qeq4C/O3v1nNjH
+	mCuiyIQwtENYk3F8uF0f6N2b57dj9P3+3ZwdLN02rN7mlLCf4NhtuUUzQYqc4g2mKfhbhbrnrT0Mp
+	/yKct8t2Stqn/zSx/eXkUQkgw9KUMvBMkYCJGeVTYdeBJj5lY6lxcqnjUyfatonpi6BF+A+DIaFft
+	vAXJ9S1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVol-0000000Acgh-3mv9;
+	id 1vwVom-0000000AchQ-40nW;
 	Sun, 01 Mar 2026 01:42:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVog-0000000Acf5-3MG9
+	id 1vwVoi-0000000Acfg-2hIT
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 01:41:55 +0000
+	Sun, 01 Mar 2026 01:41:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 43E8F60123;
-	Sun,  1 Mar 2026 01:41:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FEB0C19421;
-	Sun,  1 Mar 2026 01:41:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 46A17405B9;
+	Sun,  1 Mar 2026 01:41:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3CB6C19421;
+	Sun,  1 Mar 2026 01:41:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772329314;
-	bh=XK485chqRAUqkZ6BF7Q8Flh4ocDzLimSDIKeo7CZc7Y=;
+	s=k20201202; t=1772329316;
+	bh=DZgwUkLbSC1Gsk2Cp5BMaa7SvKj5k//iiNKBuBlwVJA=;
 	h=From:To:Cc:Subject:Date:From;
-	b=svQAWwzssDK/yhSraStRq43nEaojDL9Cd8tdAxvXWjLyIGzcTxKKwqiKaGtUdj3eU
-	 d6JV7lY1P1cyLLhQeDxG7vClXf47Lal8gTfYqk9CWAyPaUlBS8SPGDuy2EI0fGK0Fi
-	 atvfbFcRQr7jS/+SGtuOYZUct4crIWlJp8QzOi1WWLswADvyDs/xyhfOSMRmM2W/Rn
-	 ODvw+0RQ2L0jP3Q17+Ez2dsA2rIewe4ZGK47n/HOhjhjaIKWZAIcDjN6sjhWobNTWN
-	 27yrpRMmWuioxM0/8K3UIVNdQ/ozJ9rKqzr/BFH4ssQL7vABpn4Yyg9jfDvojszzru
-	 +ACdLVDKOdOfA==
+	b=Nll+fgC560Sb//QAfgRNhQn9pzKTpAGQdnHALF3swu9ueWX3SlaZzOzg04mgWMJLN
+	 lFJDZO+9sDUZHFaFH7u6XwQkqvVVxR8iO3Zbs+bZ6is5aRFdcNJP6mwApVoPQ5qcRd
+	 pL2JcfRyfuRuuYX5xALpe+HSfaFyIpzyBE5tn8XvAKMeYHZvRBLfd45GwATEVCWr/w
+	 rXrYSaTF01sI+/0k6ptMMPOCfXOZFJsmQ/mk8/bvWr1FmxpBcQ/K2FXlDvErVp2W1A
+	 Cc8KwbnKlMdrqfsTQ8D9tk7tbmn7+NbbXW1DmrpcSjZ+pfKn9qVlbkAnmXnH0U4GtD
+	 NLkcizf6XAwpg==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	johan@kernel.org
-Cc: Andrew Davis <afd@ti.com>,
-	Nishanth Menon <nm@ti.com>,
+	vulab@iscas.ac.cn
+Cc: Nishanth Menon <nm@ti.com>,
 	linux-arm-kernel@lists.infradead.org
-Subject: FAILED: Patch "soc: ti: k3-socinfo: Fix regmap leak on probe failure" failed to apply to 6.1-stable tree
-Date: Sat, 28 Feb 2026 20:41:51 -0500
-Message-ID: <20260301014152.1703596-1-sashal@kernel.org>
+Subject: FAILED: Patch "soc: ti: pruss: Fix double free in pruss_clk_mux_setup()" failed to apply to 6.1-stable tree
+Date: Sat, 28 Feb 2026 20:41:54 -0500
+Message-ID: <20260301014154.1703645-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260228_174156_700018_2943F7BE 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,40 +82,47 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From c933138d45176780fabbbe7da263e04d5b3e525d Mon Sep 17 00:00:00 2001
-From: Johan Hovold <johan@kernel.org>
-Date: Thu, 27 Nov 2025 14:49:42 +0100
-Subject: [PATCH] soc: ti: k3-socinfo: Fix regmap leak on probe failure
+From 80db65d4acfb9ff12d00172aed39ea8b98261aad Mon Sep 17 00:00:00 2001
+From: Wentao Liang <vulab@iscas.ac.cn>
+Date: Tue, 13 Jan 2026 01:47:16 +0000
+Subject: [PATCH] soc: ti: pruss: Fix double free in pruss_clk_mux_setup()
 
-The mmio regmap allocated during probe is never freed.
+In the pruss_clk_mux_setup(), the devm_add_action_or_reset() indirectly
+calls pruss_of_free_clk_provider(), which calls of_node_put(clk_mux_np)
+on the error path. However, after the devm_add_action_or_reset()
+returns, the of_node_put(clk_mux_np) is called again, causing a double
+free.
 
-Switch to using the device managed allocator so that the regmap is
-released on probe failures (e.g. probe deferral) and on driver unbind.
+Fix by returning directly, to avoid the duplicate of_node_put().
 
-Fixes: a5caf03188e4 ("soc: ti: k3-socinfo: Do not use syscon helper to build regmap")
-Cc: stable@vger.kernel.org	# 6.15
-Cc: Andrew Davis <afd@ti.com>
-Signed-off-by: Johan Hovold <johan@kernel.org>
-Acked-by: Andrew Davis <afd@ti.com>
-Link: https://patch.msgid.link/20251127134942.2121-1-johan@kernel.org
+Fixes: ba59c9b43c86 ("soc: ti: pruss: support CORECLK_MUX and IEPCLK_MUX")
+Cc: stable@vger.kernel.org
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+Link: https://patch.msgid.link/20260113014716.2464741-1-vulab@iscas.ac.cn
 Signed-off-by: Nishanth Menon <nm@ti.com>
 ---
- drivers/soc/ti/k3-socinfo.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/soc/ti/pruss.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/soc/ti/k3-socinfo.c b/drivers/soc/ti/k3-socinfo.c
-index 50c170a995f90..42275cb5ba1c8 100644
---- a/drivers/soc/ti/k3-socinfo.c
-+++ b/drivers/soc/ti/k3-socinfo.c
-@@ -141,7 +141,7 @@ static int k3_chipinfo_probe(struct platform_device *pdev)
- 	if (IS_ERR(base))
- 		return PTR_ERR(base);
+diff --git a/drivers/soc/ti/pruss.c b/drivers/soc/ti/pruss.c
+index 038576805bfa0..0fd59c73f585d 100644
+--- a/drivers/soc/ti/pruss.c
++++ b/drivers/soc/ti/pruss.c
+@@ -366,12 +366,10 @@ static int pruss_clk_mux_setup(struct pruss *pruss, struct clk *clk_mux,
  
--	regmap = regmap_init_mmio(dev, base, &k3_chipinfo_regmap_cfg);
-+	regmap = devm_regmap_init_mmio(dev, base, &k3_chipinfo_regmap_cfg);
- 	if (IS_ERR(regmap))
- 		return PTR_ERR(regmap);
+ 	ret = devm_add_action_or_reset(dev, pruss_of_free_clk_provider,
+ 				       clk_mux_np);
+-	if (ret) {
++	if (ret)
+ 		dev_err(dev, "failed to add clkmux free action %d", ret);
+-		goto put_clk_mux_np;
+-	}
  
+-	return 0;
++	return ret;
+ 
+ put_clk_mux_np:
+ 	of_node_put(clk_mux_np);
 -- 
 2.51.0
 
