@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E461FD0057
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 14:00:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12F10FD0068
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 14:01:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hlU+iT3hqVfVvedm/RjFHP+xarjy52J3RYDXW8QLnMs=; b=LVRoUXP7Yb9mXgdN9yC4h4yPcQ
-	Q3GHzrdi8fLGsd8R4vwrG/QNOc+5P1cdLnfsPyXdF5yVGNY8prAMqBmUYgyo3gwUyPAGOkedFdzSO
-	zLcprs4cy86wcha44awpnCsDxe3cnAZShzuIjk4y1S5xboeRLROWPiIUVu2s1rdnWmPlhI2cPTJqO
-	OubLqeICap9WL7MbzcQLzTctpyeZag1Hg+tcCu0KpK6g44GP97MqzpR364kwI1Q67qiVQHgDLIcfS
-	L2pLnNN6AEfULwqKC0dr5ScmriU1DMC1KrxBmmTdc+vrG/a4zv6hLdXVdvwC/Aq+K7Mz+OU1nRcYn
-	hyQp8Beg==;
+	bh=tQ6uR1FWxTc25bymhuLD2DT7bqkszczJKsThgTHV6ZY=; b=Vrz5NO8fVRQI+Ln08PymLGnkH0
+	wd09PCsT7NA6nPgqejU4BdLT5Zvwt/83YBF4LY7HNuHTIPkBdpvOdE/wr2cwAHajcIIzEcA/VQlEr
+	nZLdVVfmQmZiOteZdsL11II46/hi5YQIKe/WD0Bp2MP1vezP1CtCBpJY0kX39AF0hUsvfiud0QRUI
+	aWeYowmV2wXZHzV5ftEw/+MnqrBsIlKM+1tLOIqmXucmUANGYWbtgqoc/MoJtpUROsJDuhCYo3SfO
+	2o/W+nakvwzXeIGrIMJ5FdLUv2k5dxWFSax65zgJw8olCEzHO4Qfdmsr25gqIHT53KJaXZRB/b3bz
+	3yUCMZzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwhKt-0000000BYOS-0JgU;
-	Sun, 01 Mar 2026 13:59:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vwhLq-0000000BYU3-2szY;
+	Sun, 01 Mar 2026 14:00:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwhKq-0000000BYO9-33dy
+	id 1vwhLo-0000000BYTD-1Saq
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 13:59:53 +0000
+	Sun, 01 Mar 2026 14:00:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C53A843E81;
-	Sun,  1 Mar 2026 13:59:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B480DC116C6;
-	Sun,  1 Mar 2026 13:59:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C6A0441A19;
+	Sun,  1 Mar 2026 14:00:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADE24C116C6;
+	Sun,  1 Mar 2026 14:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772373591;
-	bh=kZ81LTEIWDX5qMRjETGl+EdCtjtT/+JxR1+V3ftul+c=;
+	s=k20201202; t=1772373651;
+	bh=9FkwOMEB58b/EdwlM6D8D482qRf4ibRXEkNY4oawu0E=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qyrc9MqNrbW5NX4b3d4tyxM4RijPSDDW6VEcM/H3VcFahKc5FNP/TYbBCZI/Vj61b
-	 uYIfcS9WGZMv4UzfeAjHuObtbAs9i5f524OGyKS7MRXEhiQeI8IZAqYtDQQsHlxUvI
-	 chYGFyw5JtgE5+Wf/xM5+isoj4fv2q/1LQzEQQV0ODhhCt7EP0ViShcHHIUP75i4Go
-	 +rcV603BBGN14exfUaAoM31wZrPxheWAyUJvcU5vPlNJGlrrjqBq1nxTqetccjRsRj
-	 npmZ3jTDgNNOvam/63M0mzsNe9HxzcKnUKUIV515iim46Yzff+Gt4R70bvtw71cpu5
-	 yprCVnVPf8+jg==
-Message-ID: <d902cd11-7509-4173-ba67-d9ef48379f85@kernel.org>
-Date: Sun, 1 Mar 2026 14:59:46 +0100
+	b=gJHetkCoFjG4yMpQmnkb1n0kzrYPTDGPWjy9ypzB/jO+hvGqzB7/XeE540N84Kxy/
+	 KWv+CODohWCoGcp48HV5Pi7KlfnZSMx0G3cKpN3GwxAbeSr2fyquAjm4e5FNw8TM+X
+	 ZnSWxg2UBVTS19BW/oJwsZnX81NQOXgW35lCPtYgdXQY+I7aMQjHsyRzMPuAvClTdr
+	 FOV5nufSDJpyPYZ6/Vvh3ayPOKc6iswd5Y6mLKPHZrpZ0sShoVmkd0158O8dSJC74r
+	 rzdD8qtJiXeLBT3wbkSlYMmglL71HxefCvPtqKbA/XYcSG53eWRM5kLnb1rqbSwZtN
+	 yCV3gAX5/nS8A==
+Message-ID: <9739f859-6acc-47b6-bbe0-d7d9195487a3@kernel.org>
+Date: Sun, 1 Mar 2026 15:00:46 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] MAINTAINERS: Update Axiado reviewer
+Subject: Re: [PATCH v3 1/2] arm64: dts: axiado: Use lowercase hex
 To: Karthikeyan Mitran <kmitran@axiado.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Prasad Bolisetty <pbolisetty@axiado.com>,
@@ -55,9 +55,9 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org,
  Alexandre Belloni <alexandre.belloni@bootlin.com>,
  Linus Walleij <linus.walleij@linaro.org>, Drew Fustini <fustini@kernel.org>,
- Harshit Shah <hshah@axiado.com>
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 References: <20260226-maintainers-addition-and-axiado-ax3000_dtsi-update-v3-0-a3b095989823@axiado.com>
- <20260226-maintainers-addition-and-axiado-ax3000_dtsi-update-v3-2-a3b095989823@axiado.com>
+ <20260226-maintainers-addition-and-axiado-ax3000_dtsi-update-v3-1-a3b095989823@axiado.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,12 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260226-maintainers-addition-and-axiado-ax3000_dtsi-update-v3-2-a3b095989823@axiado.com>
+In-Reply-To: <20260226-maintainers-addition-and-axiado-ax3000_dtsi-update-v3-1-a3b095989823@axiado.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_055952_813228_6BF4A18D 
-X-CRM114-Status: UNSURE (   7.30  )
+X-CRM114-CacheID: sfid-20260301_060052_429526_3005983A 
+X-CRM114-Status: UNSURE (   8.70  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,16 +125,21 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 27/02/2026 01:31, Karthikeyan Mitran wrote:
-> From: Prasad Bolisetty <pbolisetty@axiado.com>
+> From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 > 
-> Adding 3 new maintainers Prasad,Tzu-Hao, and Karthikeyan
-> also adding a group reviewer entry for review coverage.
+> The DTS code coding style expects lowercase hex for values and unit
+> addresses.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Reviewed-by: Tzu-Hao Wei <twei@axiado.com>
+> Signed-off-by: Tzu-Hao Wei <twei@axiado.com>
+> Signed-off-by: Karthikeyan Mitran <kmitran@axiado.com>
 
-Same comments as before. You are doing much more in the patch which is
-not explained at all.
+It is not a big deal, but I just don't understand what are you doing
+here with my patch. I sent it, it got reviewed, so why are you posting
+it again for review?
 
-You received comments, so respond or implement them, not just send the same.
-
+What is the point of this posting?
 
 Best regards,
 Krzysztof
