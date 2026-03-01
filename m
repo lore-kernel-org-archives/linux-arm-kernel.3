@@ -4,114 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66325FD0073
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 18:10:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EF19FD0062
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 18:30:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8SYg1iKkO2flLsw1BArunFvmkI1jDns0goFy4yQIn8E=; b=pfSExNFyaGVZ4riDoOuDgMqLoJ
-	4N63jRKNzKVpo6qmli7lsUG1yu4YKIpWmEMxDOVtp5wuSCOVQeQE7dD23bPh+pJNqA8gKpWiweLr7
-	53OISP9DXhosgVAGgCkVNux+R0q7EJnPLUCVc/LonVNUcjreApKcbMQ0zEf2oyzssQ46JYjj+vKVF
-	AERvu0hUlTNhJuY513Aqj5W7PJnI8XLeGuapkZBUU/PUzimJPzDbuFzlCjAG5jHt9P58lTow3hilf
-	9aAFAOu3VcxGJQ9Z6HB7Nl6J09mN6zkCHBbAO3RJAoJPtmNEOd77yxb3T7+hhymqOdPnK/IMwP/7q
-	kyfRcqwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3kqBbueUDxERIgPGXyh3nUsM0K1ytywiDUxoMxxPeN8=; b=q3cR/qFI95+JEP4CZaW3or4499
+	Po3Eq0oXaeyWLZvfF7PDe3qWM8LqtuQpD2Olx38RyoJYi1bnR9uz+1vpAJ9jtcqtDZR4c79O8ZkVg
+	oTGijPGso/J+lmu+MZfvc5r1sG1eb6OZc8F4pFZq2StOc4UAhnhws6gjOeFcPBp/WMO7NoH1PdJj+
+	XAwTfd+Y0FVOw9rZtnS4Ad90xYN/2gMbhdUPSPAPQP6dU9LlmqzJKEaL/aHVaN6Z4V6sysFLK2D/P
+	9tgJ8+HBAiDFAlvL9yYtW/mKwCVsf/TLyyLAjQpwVQSb6Fn67dmDRNJCRCSNN2MDzd8aICKzk92Y7
+	qw7pHKwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwlFQ-0000000Blfb-2lh4;
-	Sun, 01 Mar 2026 18:10:32 +0000
-Received: from ixit.cz ([185.100.197.86])
+	id 1vwlYk-0000000Bmcq-2S3V;
+	Sun, 01 Mar 2026 18:30:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwlFM-0000000BlfA-2lRK
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Mar 2026 18:10:30 +0000
-Received: from [IPV6:2a02:f000:10bd:e301::1d7] (unknown [IPv6:2a02:f000:10bd:e301::1d7])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by ixit.cz (Postfix) with ESMTPSA id 1B5045340941;
-	Sun, 01 Mar 2026 19:10:14 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
-	t=1772388614;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=8SYg1iKkO2flLsw1BArunFvmkI1jDns0goFy4yQIn8E=;
-	b=yZm4JGAxzSLiOSI/y/m0Uu5QmMQEWlJ9aQc/I6YrTAhXSi5Um5/E8rXLOB0DwHn3zP1cpe
-	aSVyOjJTlRXCRpds/D5zLgnrm+hgVonhkaiIYf2KiSIXDP/0c60sx9YtarbklBBgI+31rz
-	RlEgfkwGvhoI1gKCfVm398x2HGCHiLM=
-Message-ID: <69cf95e2-75db-405a-a813-b1a63a4d876e@ixit.cz>
-Date: Sun, 1 Mar 2026 19:10:13 +0100
+	id 1vwlYi-0000000BmcP-2Ff6;
+	Sun, 01 Mar 2026 18:30:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EC6CD4382B;
+	Sun,  1 Mar 2026 18:30:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F451C116C6;
+	Sun,  1 Mar 2026 18:30:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772389827;
+	bh=vGBT1CRkaStGJJvFrAHCByqOWl2Xsq8KpNcMMUGtREM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=k1tj63LetdqMY7WPcDH0WBVp+mGiFlaHWkFu+ZO/eUKLQJlecjS4dIpgN1NsJJ00E
+	 HeN/rI/nvTUK5+p8qbwUcquDiW8szvu7cPINpGUKmeIHO6RUp7nx+Rz/s3oxDp8CYT
+	 vqI0MfOd4RhaQmHKInBARPsvNoM87+/s55MIIlxW51D5IfWwghEO5iE/xMPCWy4O6c
+	 ibNgDUzS1SL1dTpahCDeKdP+S5hxNWu+vi6iOEf56dTy2Vg0R+wKzE4X8KTV1kMIA0
+	 nIulaYaayTW64Zh1QWhJ2JCRml49ux39r1Vg/D39dc+UX5Smo/8oxu5ri0UQLrIwt6
+	 /b4T8Ucjye0+g==
+Date: Sun, 1 Mar 2026 18:30:21 +0000
+From: Simon Horman <horms@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Paolo Valerio <pvalerio@redhat.com>, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [PATCH net] net: ethernet: mtk_eth_soc: Reset prog ptr to NULL
+ in case of error in mtk_xdp_setup()
+Message-ID: <aaSFvfXen4XnmPpP@horms.kernel.org>
+References: <20260227-mtk-xdp-prog-ptr-fix-v1-1-b73d7588b645@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/10] Input: support for STM FTS5
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>
-Cc: Petr Hodina <petr.hodina@protonmail.com>, linux-input@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, phone-devel@vger.kernel.org
-References: <20260301-stmfts5-v1-0-22c458b9ac68@ixit.cz>
-Content-Language: en-US
-From: David Heidelberg <david@ixit.cz>
-Autocrypt: addr=david@ixit.cz; keydata=
- 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
-In-Reply-To: <20260301-stmfts5-v1-0-22c458b9ac68@ixit.cz>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260227-mtk-xdp-prog-ptr-fix-v1-1-b73d7588b645@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_101028_963859_1C8C5874 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20260301_103028_619558_869582AB 
+X-CRM114-Status: UNSURE (   7.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,27 +85,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/03/2026 18:51, David Heidelberg via B4 Relay wrote:
-> Used on various phones. Minimal basic support.
+On Fri, Feb 27, 2026 at 04:52:11PM +0100, Lorenzo Bianconi wrote:
+> Reset eBPF prog pointer to NULL if mtk_open routine in mtk_xdp_setup()
+> fails.
 > 
-> Includes device-tree with possibility to enable touchscreen on Pixel 3.
-> 
-> Sending as RFC, as this is first, seemingly clean version which works.
-> 
-> What is missing:
->   - firmware loading
->   - switching between AP and SLPI mode (to wake up phone by touch)
->   - anything above basic touch
-> 
-> Signed-off-by: David Heidelberg <david@ixit.cz>
-> ---
+> Fixes: 7c26c20da5d42 ("net: ethernet: mtk_eth_soc: add basic XDP support")
+> Suggested-by: Paolo Valerio <pvalerio@redhat.com>
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-First, I said it's RFC, but I didn't marked the series such as, sorry bout that.
+Reviewed-by: Simon Horman <horms@kernel.org>
 
-Second, already found typo in binding: s/switch-gpio/switch-gpios/ .
-
-At last, the series, until merged can be found at:
-   https://codeberg.org/sdm845/linux/commits/branch/b4/stmfts5
-
-
+...
 
