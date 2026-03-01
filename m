@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A248AFD0049
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:42:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A88BFD0049
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Mar 2026 01:43:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cl2ILr2gVDhpZytYOljqYYpxfuQDlQl67uR1EslIQtM=; b=s1hwDyPC4aC6ShITKPyhbSCYzg
-	ANXz/x/EPKjudgkskne+QzbK38/uJHtZwTC4djmSqW0v+2ewgh1Ot2iNTxZAgVAVJy7Anm89lPIux
-	dsHSmz7OBgGhY5xUEwN5YqtdTRJ2ncFs8bAD+Xc00eym7DF7TkKbyyAacY+PMo5LHadFIruZBni0S
-	3IPjoPCgBx8+euHL6YF+9NhxbRFWkw6TFLF52E90FRPLMRc92FBuB6ckY/t04pGmIvlh9ab3Lnudf
-	Q4L398r0X6QDUmHBRuJfjpq/6EeuaInFc448p94rNZ0VSsnIjvUyTFhm6izHmH7jDJRKmi1uUBHJv
-	rHLCEISw==;
+	bh=Ry2NpkmM4tHs9wt1tx5o4loizxBTMOi3Xk/eVhE7WSQ=; b=EM9J4/eFqEkMVxltSDa7ZUU0Vy
+	Ge/IwA3yXbFZ3iEnJm1QuASGRDOtSozNaozD9o9MOqEOSnmDrcYeIX21p6RRFz0jdLhN5H+hWYuBp
+	kPK14MFWc+E7ZjX9cuK/gnS9GDQFOqmDUbCG/fxsduGtIJ3EkbAoTvfF1bCRMDyYVxN/9QurSLQLP
+	CmLJSlZTP5em+7a59ige5ZYYjnOHSljWu4P4ARZfL2Mk00WeysCUz6zf+Fx4QNEjlcIeQ+f4GF0mx
+	HznwCYY093HdyqijjiaMiYdM6n05dJQU0TgsXFoJo3bN5OEUZimCDH+CA5W7dundQQ2RUM6eUd4ie
+	odZFKgKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVpV-0000000Acvb-1IKS;
-	Sun, 01 Mar 2026 01:42:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vwVq0-0000000Ad6c-3swq;
+	Sun, 01 Mar 2026 01:43:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwVpT-0000000Acuu-0UxC;
-	Sun, 01 Mar 2026 01:42:44 +0000
+	id 1vwVpy-0000000Ad5i-29HR;
+	Sun, 01 Mar 2026 01:43:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 69568417DB;
-	Sun,  1 Mar 2026 01:42:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78D12C19421;
-	Sun,  1 Mar 2026 01:42:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 092EA40524;
+	Sun,  1 Mar 2026 01:43:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26824C19421;
+	Sun,  1 Mar 2026 01:43:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772329362;
-	bh=eYTLjnC2N0hlb2f/E2AZzfdoA2wbpnn/w0ubB5styxE=;
+	s=k20201202; t=1772329393;
+	bh=MiR9CnyBFm7C/mCgechdtkp7FS7z0nXkTSx/DIQrygE=;
 	h=From:To:Cc:Subject:Date:From;
-	b=hOTbw38OnOwIC2KasvDkRHHTaWdR5emPyOKMw911I/QtRlyai/iYt2aRZwqpJqPol
-	 9QoNsfnSy9jFLHOrz0vTsuFjmr3LVs9lh8gQvkm71Ah4+8jBfj91wpuRDOkYCNA7lc
-	 +0BWTIwLiIX254PhCSaBw1vdGKPAdXLj5ujDeqDph65g6cn0+7aYnXML41q/XgT6Hk
-	 xgGhP/KGRuuS69OXDzt5/qmgVsGN2Zead9De1aC+2n7ryJWZc+ro/09chNw4ER5eXV
-	 dbuVfhJjWKFgKtlSOUq+Xd5yZQO02W/hJ0lt25s4xkWp+PCqn0PNr4blvrUIoK7UhO
-	 N2j1lrgDwk/aA==
+	b=vBU1yJH3dzPJ/UVilxsgn5pmoMrKDbX67BKu3E7sh/3noNbgNBuNK/Z5hq9B7tB0K
+	 Ohui7IOvmtD6qxM8mtikHQ8NrZNYpfE+TfyWcTncIVkC7jAIoiGW4QLW6YLEXunkOB
+	 HvZt3OaWFjjSSi+q9h0YosMFyWZUm4ACc+Y49FqfsMf8dafmx1a8G8vW/TgDSA2AlD
+	 BaVi3uZuZ9Wd+hupoTBCff0ieCrTunl1GFjfbskVsix7pUD3NLJrouFgq/Ywa4PUiA
+	 VDZdaAjtFwpQIbdrUxaGStXLdps3DbCf5o00op9zvRdSl3xghpSeBP98lz416qHbbw
+	 LinMbGIQCkYdQ==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
-	jerrysteve1101@gmail.com
-Cc: Peter Robinson <pbrobinson@gmail.com>,
-	Dragan Simic <dsimic@manjaro.org>,
+	shawn.lin@rock-chips.com
+Cc: Andrew Powers-Holmes <aholmes@omnom.net>,
 	Heiko Stuebner <heiko@sntech.de>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org
-Subject: FAILED: Patch "arm64: dts: rockchip: Do not enable hdmi_sound node on Pinebook Pro" failed to apply to 6.1-stable tree
-Date: Sat, 28 Feb 2026 20:42:40 -0500
-Message-ID: <20260301014240.1704581-1-sashal@kernel.org>
+Subject: FAILED: Patch "arm64: dts: rockchip: Fix rk356x PCIe range mappings" failed to apply to 6.1-stable tree
+Date: Sat, 28 Feb 2026 20:43:11 -0500
+Message-ID: <20260301014312.1705238-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260228_174243_177910_B6B1664B 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20260228_174314_584023_D1864867 
+X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,50 +84,63 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From b18247f9dab735c9c2d63823d28edc9011e7a1ad Mon Sep 17 00:00:00 2001
-From: Jun Yan <jerrysteve1101@gmail.com>
-Date: Fri, 16 Jan 2026 23:12:53 +0800
-Subject: [PATCH] arm64: dts: rockchip: Do not enable hdmi_sound node on
- Pinebook Pro
+From f63ea193a404481f080ca2958f73e9f364682db9 Mon Sep 17 00:00:00 2001
+From: Shawn Lin <shawn.lin@rock-chips.com>
+Date: Mon, 5 Jan 2026 16:15:28 +0800
+Subject: [PATCH] arm64: dts: rockchip: Fix rk356x PCIe range mappings
 
-Remove the redundant enabling of the hdmi_sound node in the Pinebook Pro
-board dts file, because the HDMI output is unused on this device. [1][2]
+The pcie bus address should be mapped 1:1 to the cpu side MMIO address, so
+that there is no same address allocated from normal system memory. Otherwise
+it's broken if the same address assigned to the EP for DMA purpose.Fix it to
+sync with the vendor BSP.
 
-This change also eliminates the following kernel log warning, which is
-caused by the unenabled dependent node of hdmi_sound that ultimately
-results in the node's probe failure:
-
-  platform hdmi-sound: deferred probe pending: asoc-simple-card: parse error
-
-[1] https://files.pine64.org/doc/PinebookPro/pinebookpro_v2.1_mainboard_schematic.pdf
-[2] https://files.pine64.org/doc/PinebookPro/pinebookpro_schematic_v21a_20220419.pdf
-
+Fixes: 568a67e742df ("arm64: dts: rockchip: Fix rk356x PCIe register and range mappings")
+Fixes: 66b51ea7d70f ("arm64: dts: rockchip: Add rk3568 PCIe2x1 controller")
 Cc: stable@vger.kernel.org
-Fixes: 5a65505a69884 ("arm64: dts: rockchip: Add initial support for Pinebook Pro")
-Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
-Reviewed-by: Peter Robinson <pbrobinson@gmail.com>
-Reviewed-by: Dragan Simic <dsimic@manjaro.org>
-Link: https://patch.msgid.link/20260116151253.9223-1-jerrysteve1101@gmail.com
+Cc: Andrew Powers-Holmes <aholmes@omnom.net>
+Signed-off-by: Shawn Lin <shawn.lin@rock-chips.com>
+Link: https://patch.msgid.link/1767600929-195341-1-git-send-email-shawn.lin@rock-chips.com
 Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 ---
- arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts | 4 ----
- 1 file changed, 4 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3568.dtsi      | 4 ++--
+ arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
-index eaaca08a76018..a6ac89567bafe 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
-@@ -421,10 +421,6 @@ &gpu {
- 	status = "okay";
- };
- 
--&hdmi_sound {
--	status = "okay";
--};
--
- &i2c0 {
- 	clock-frequency = <400000>;
- 	i2c-scl-falling-time-ns = <4>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3568.dtsi b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
+index e719a3df126c5..658097ed69714 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3568.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
+@@ -185,7 +185,7 @@ pcie3x1: pcie@fe270000 {
+ 		      <0x0 0xf2000000 0x0 0x00100000>;
+ 		ranges = <0x01000000 0x0 0xf2100000 0x0 0xf2100000 0x0 0x00100000>,
+ 			 <0x02000000 0x0 0xf2200000 0x0 0xf2200000 0x0 0x01e00000>,
+-			 <0x03000000 0x0 0x40000000 0x3 0x40000000 0x0 0x40000000>;
++			 <0x03000000 0x3 0x40000000 0x3 0x40000000 0x0 0x40000000>;
+ 		reg-names = "dbi", "apb", "config";
+ 		resets = <&cru SRST_PCIE30X1_POWERUP>;
+ 		reset-names = "pipe";
+@@ -238,7 +238,7 @@ pcie3x2: pcie@fe280000 {
+ 		      <0x0 0xf0000000 0x0 0x00100000>;
+ 		ranges = <0x01000000 0x0 0xf0100000 0x0 0xf0100000 0x0 0x00100000>,
+ 			 <0x02000000 0x0 0xf0200000 0x0 0xf0200000 0x0 0x01e00000>,
+-			 <0x03000000 0x0 0x40000000 0x3 0x80000000 0x0 0x40000000>;
++			 <0x03000000 0x3 0x80000000 0x3 0x80000000 0x0 0x40000000>;
+ 		reg-names = "dbi", "apb", "config";
+ 		resets = <&cru SRST_PCIE30X2_POWERUP>;
+ 		reset-names = "pipe";
+diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+index 8893b7b6cc9ff..a2c4957a58992 100644
+--- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+@@ -1022,7 +1022,7 @@ pcie2x1: pcie@fe260000 {
+ 		power-domains = <&power RK3568_PD_PIPE>;
+ 		ranges = <0x01000000 0x0 0xf4100000 0x0 0xf4100000 0x0 0x00100000>,
+ 			 <0x02000000 0x0 0xf4200000 0x0 0xf4200000 0x0 0x01e00000>,
+-			 <0x03000000 0x0 0x40000000 0x3 0x00000000 0x0 0x40000000>;
++			 <0x03000000 0x3 0x00000000 0x3 0x00000000 0x0 0x40000000>;
+ 		resets = <&cru SRST_PCIE20_POWERUP>;
+ 		reset-names = "pipe";
+ 		#address-cells = <3>;
 -- 
 2.51.0
 
