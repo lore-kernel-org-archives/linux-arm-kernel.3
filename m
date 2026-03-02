@@ -4,80 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7687AEA4E3E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 16:31:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E36A1EA4E3A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 16:33:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UWBkNjFzwyc2+9a+OYS1igmYVLGKwS2CUF9Ja/ph5AQ=; b=0jWCoH7667EP5blV3JblIBq0a9
-	XL2uMYPdHPZOvACz3fUA9Ua9zAnSduWOlJ9Yr3eHBw5pr+biDdJn46NrjpDmI2Kfx56jDHO4gZ9UD
-	QoOptnuX9jLweGiGjot6BS2PCIeoY6BKnKNu8j1PyBoTkGfpkWxVbJf2agaY9B4fXvHnoccsafPtU
-	3p6rwDIPWYbvHoYtxM3wMLkALB/9cKL1mFnGil6du40qJIsYwdIvK87tyfC8BGUVbhnhVa7p0sWUu
-	djC4GzXzTt3V+QtajQ/PGkDbSlti/r4XbpFLQCKANGZ9Ct6XQ3eemegQbC9ukcqWMmZWFJjOCmBN0
-	mQXOUd4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:References:
+	In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iLI6HHDtIbPQYF+JGH/PutU89i39MSgIovkGyuo5Fqg=; b=s5gqNjDci42XoKEpN7ona+/rr0
+	hkdi8eNmo6wtPAOA+6QSy1Fag8jnlZkoL+MXVuCiSCLgng2+FUiQFtuWT/c8sW2j+oD5CCEOmY7UD
+	3zt1qLaoxO7BmkzdDDS7EpyI71PO3APQCo9cY8at7EokHj6B5pMom0rIxCq5OivKtCzSrI7Lo6p33
+	LvJCSCURTmAyYr+OCOIEJw3HhcaSG6ASCzT2HwPWwjCsGFthLb9dVf0XjLBvSfZg/7KYrrJrLpSYq
+	dB2Ih39fbbNng3ws1kxn+RQ44UKFjAjuwJMFt2PxA9C3vCA7fv5Mc6wyWmmrsObrdiu6RZ+UBjGxO
+	XG/ExRtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx6Au-0000000DUnt-1e2o;
-	Mon, 02 Mar 2026 16:31:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vx6D1-0000000DV2z-3mNL;
+	Mon, 02 Mar 2026 16:33:27 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx6At-0000000DUnY-14om
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 02 Mar 2026 16:31:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=UWBkNjFzwyc2+9a+OYS1igmYVLGKwS2CUF9Ja/ph5AQ=; b=hS8/5iHoxB/a7cJrWI/7CRWF+H
-	p3AciwD5zrxKRh3rAxcv5ryx7WQ5plA7qIXjMmyr4vMEHD77QDQhWnfiX4qSIHOhx/pFzmel1UnuK
-	WSGRgSJyzzgn92B6mOU5InxURa4H7rlbPUDGQQ7lBAglkOqoPwnkiy4FNeL9D23LdBHy/hMuMeA9X
-	0BR9U6uJJ1vW3zPPcBj843ygGz79lNSu34bPLO0bvuOGcKPlL6sSK84k1LUbWDXbIU08QKEKtHbmS
-	emCPQEge4lGjGwX5FkdE/nMBd06xbJo0vYWjCladRBchh1SCYnPQJi5biqRnQXqUMZn8jst5Txcxx
-	ChokTpGw==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx6Ap-00000000a2q-3DYA
+	id 1vx6Cy-0000000DV2R-34ed
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 16:31:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2BB8114BF;
-	Mon,  2 Mar 2026 08:31:01 -0800 (PST)
-Received: from [10.57.55.216] (unknown [10.57.55.216])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5FEBE3F694;
-	Mon,  2 Mar 2026 08:31:03 -0800 (PST)
-Message-ID: <92fe1041-e8fe-4015-8e3b-872cbcce66a2@arm.com>
-Date: Mon, 2 Mar 2026 16:31:00 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 11/46] arm64: RMI: Activate realm on first VCPU run
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>
-References: <20251217101125.91098-1-steven.price@arm.com>
- <20251217101125.91098-12-steven.price@arm.com> <86seai8fbd.wl-maz@kernel.org>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <86seai8fbd.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+	Mon, 02 Mar 2026 16:33:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TIeXPJTzax4oy4ShjpYSqn8caaBa2cLAimgDCnuKw7w2fnME3GKNCiPi4IA7tlYtJw/II6Kzt7X8USyL0tpJfv9L4J94wBgcjDNDqYZngqH/yCzE0cMberve3xLFMhy3InwxmJo+llcJlIZlcKuEZHXAmWHuq5MeKEbEwjRidyztvMCsvWKtX2i8ScpMM7ntYJOW57hjq6Pew2F2hULY903Ci97190W3XjlzsKGSSjkZ28orzNUswFxTYKbYOn/iHgjzTzkUrTZDna5K7MeqVYbvQjMpo+hN8Ex6PsxH9Zzy1v6puLHNmjD4L+v5bEy1/wgVs8mOHKSTrEC9MGCb8Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=iLI6HHDtIbPQYF+JGH/PutU89i39MSgIovkGyuo5Fqg=;
+ b=tRIWBEba/Fyqt5UvoE/TQr/Qk1zXVBynB5j3zP6kQWcwDPZ8os/9ku9VIvLFeAoBH8K+Bb6kkXVUnk+/stx/GFUbaqd6I1AT+838C/Qs0ITQ+r41ve/WMqbIBQa9P25wk+qYnaw7xnVhhuLbaoiVuJ8xcmacYnJqbTvF4gkeEo5ywgpll7QWxNZUvJ1TBOofPRORq4wrKcRx5IZMaWn0+mT0qFHUqJgdmNlOMuYfwyo2+7iCL440QZoxv+g7EW1dDhcLIAoPLyV3ZidFIrY5r3TdodvLxDPQmtuveeYgaDE6b5CIg7GUwafnzo6968BPpqXBXw0TDOmm1axf97pjiQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=iLI6HHDtIbPQYF+JGH/PutU89i39MSgIovkGyuo5Fqg=;
+ b=Ent29sw/vkfA0ja9SRQxWq8uJ2lqy8vHXNF0E0nulGqy92UWofb/h+EOnNPEs2G2LfC24b304RefrwJ+hLs7c1bwzZt/Vnpeh/5ntD52KXu9qWUQFFNvMaCb9AgKVHa0ueRm4Q8LYLIdSzkwnEgy0bZ3ow9uwS93Jlm+9NmO6/YyqyQHoGT5PdwFhoSxg/B23B+LL3p5SwVnO4vninIEA3DdX8bNZkBXNAl6mgqNrqXXaHQGMGP5Bsdzsrv+P1aWnH++OAAkiu4HNTIh+Plw8SwexObpAERGRUzahvd3352gDGnxxRBGaUhhqNXR0OO94pnPyBWN4IiuKa5x2wzTTw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by VE1PR04MB7295.eurprd04.prod.outlook.com (2603:10a6:800:1ac::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.20; Mon, 2 Mar
+ 2026 16:33:18 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9654.020; Mon, 2 Mar 2026
+ 16:33:18 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: frank.li@nxp.com, sherry.sun@nxp.com, robh@kernel.org, 
+ krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, 
+ s.hauer@pengutronix.de, festevam@gmail.com, 
+ Richard Zhu <hongxing.zhu@nxp.com>
+Cc: kernel@pengutronix.de, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20260209055745.1545129-1-hongxing.zhu@nxp.com>
+References: <20260209055745.1545129-1-hongxing.zhu@nxp.com>
+Subject: Re: [PATCH v2 0/3] Add i.MX943 PCIe supports
+Message-Id: <177246919562.2086883.17926195087426226216.b4-ty@nxp.com>
+Date: Mon, 02 Mar 2026 11:33:15 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: PH7P221CA0081.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:328::33) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VE1PR04MB7295:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0f3b0bef-d5d7-4321-19c1-08de78796919
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|19092799006|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: 0E93UTuOYDpC2dxzcqao1nfvqX+isfX2QpFGXSNGWDtsa4SCA3G6InuhG4092uxLjWAJeunLtWxhHnFMvbSFWMweN9EJwp0+6D3jk83An2eAMfzFJjx9A++1h1Dq6o4LUsR9t5GAX2hvHjD6dclQ7i5BR2zU8b7HXJoBqzbiJUvgg95VaS8Olh/LwiUdIVNVNv8H5XyPrs8R4n15ApadARwypIvpR6cF8WtKOkYVYjmupHQy+AaRQBLq+VHZ9Ag+1yOZD1bTuyysmB1LRbbcHizKqxbxB9w4lU9Dwsub16Hrq7+v1vfgqmyXNtfqUwLY7K1Tp/VhKF1UVogydsmISvPVzcftP3x7NVDKJw35wF40Lj0tNkGkqp7+nSKMgo9V0hwJUZW9PNItqxd/j2xH/WWxvqgrTTzO75d2rEKTci+ANBE1vW9J4nKBF0LG1JLOFuk5zyrWtPiOhw+BzqW6XQb7AXX30J9rKbQavajJuwMNpzzZ2PTS14Lw/xoqTLCJGWjTfWqw1zMipxL9h0h/4ErepNdyEsh8U5j1aoGr+6kDe6G80UyPZzolFyJZNNqj7nUgGknfp+IDGSJ0GBIuBpyV1gdDUom2WOXlDEGo+S95rH0PNueSHYA1a8mPPQHyv5bk8iKpo+rTCE//WphJP1B8M15F3bA5aVeTkR3oe+ZZDfDFLq3Sop7WKKMLfPti7Q//bdg5Moh9yop5RWsiRVdpdSP47FqVjzZ2xUhdHlJ1l2+yrYzpvylWSSApF8QW+9purdqaKBok8PfEYEjwwG7W1rd7ipCD//0un/Zc7Og=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(19092799006)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y1BSMU4zWnFCU1lBWUdUTXczd25BQzFGcUxYQ1MvcnUwaC9wVGU5K20yNUpl?=
+ =?utf-8?B?VTBvbkhEQ2M0ck9RdmJPWjQ3VTRrZnBIZjY3dzVqU0FkczN3KzhaSUlocHpU?=
+ =?utf-8?B?Tno1SjNhQzJOdWZOZTZ4MG5VY3daVGVtTS9Nd0hZdTdobURVZXRsTkpOM1Zx?=
+ =?utf-8?B?TXIwZGE5UEZzY2ZDbFB0SHdnWFJqUWJndkhwbm82YVZYVU5OQzNyckQ4MGxK?=
+ =?utf-8?B?Q0NFckphQ3Y0ZnN5MjRyWUk4N0lja0dOSUE5aDR1NHFOQzJqOGh6eENCcHFa?=
+ =?utf-8?B?S1lLb0JDMWE4dEI2a2lQNENoVkNxWWpZelVZTlhncld1bThYUE1SREQ0T0tE?=
+ =?utf-8?B?Z1QyUG10MWdDRmQ4ZUxWTmIxeXAxU29kWHNGK0h6Ny9NdXQxYXQyT2laRlRY?=
+ =?utf-8?B?VVpsbTUzQThHTENPYWxHSkJlYUtCYkIxbTlDZU93YUx5QXhSVGpMdkdwRmJ3?=
+ =?utf-8?B?R1BVQ1lod1RtTUhsa2hESXdOOEhhcFpGSXROaGxCSTR5NUlZQkpYa3cvYU9M?=
+ =?utf-8?B?S1dIb1d0ZTFKRmtlaDEveTRDUmZJWVREeld6NXZHRUY4ZlpmU2t5M0V2MHJY?=
+ =?utf-8?B?THl3OHZQZ20zenZVa01qMm1RQ1BsS0xkall4ZGJrUHY1QmJ0cEZkZE5ONzNQ?=
+ =?utf-8?B?WFhzZUwxeEtwMmVqR3BzdFI4UmZaVmxJZDNmK2VQWG5EZmxpTGFuOVVGb0VP?=
+ =?utf-8?B?MlJWSnNJZlhEWk1mQ2pOK1VFNVFNblJxa0xpa243eDAyNFI0aUkwM2YwclpD?=
+ =?utf-8?B?MllwWmtzcU1zYVk4ZGxZc3dBRjU0RUZwUWZNRUhNdkJiWkw5R2NuSGVadk1l?=
+ =?utf-8?B?VktjYUNCK1BtNmw2YXlOR0sySTh4S0pwYkNKUjdOSjdPc1hhTjdRemkzMzY3?=
+ =?utf-8?B?NW9qM2plMnR2M29aS1FWb0kvYnJUTEFuZy8yc1FnMmhFTm14N0pNckNqenFp?=
+ =?utf-8?B?Q3BualVIME5YY2FiaG5xaUtWdTJXa213Z0Yvd3VDYUZSRjdwSUxXMjdheThT?=
+ =?utf-8?B?dTJGQVNPQUE4UTF4R3JqckZiSjNGZldrMUxuanZNd3dnZ3BjSjQvbDZEcWtt?=
+ =?utf-8?B?b3dyaDlheVNya1h2bk5hWTU2dDNKYjFHZmdld2o5azBJcEdkSTRuQjk0U0dM?=
+ =?utf-8?B?UGNMOWMvM2RTSit2dk5OK0xNRU15bEx2b3pIeTVDK0dhZHhvVml6OGU2SS83?=
+ =?utf-8?B?Q3ViTzE2SFd6NDlJR0FhUUF6NWZkdCs2YTloaDFsUmxuSm5JdVlJRGN2SlZo?=
+ =?utf-8?B?VVN6Q0Q3R1pUSGNxbzVjNEN1R0xQbnkyQ0Vhc0xlcFNab2lZcXpRbm95TE50?=
+ =?utf-8?B?MzRBajBrTmV5TEgwNHFuMHRSSnlWMlNuUG1pc1RTKzdycE9taVk3cWxQMHZs?=
+ =?utf-8?B?eXUrRmJQbm8wM1BaUFlWZWJacjEwRU1tcG9JVkFqWXpyVjY4bHdReXpia2NV?=
+ =?utf-8?B?aFkwaUdTeURROWViclNuYXFvNWVHbDh5VVAwTFBzSEJzYWk3WUNMdDV3aHhL?=
+ =?utf-8?B?ZVhqcHVvclRFeTZSZWx1OXFNUVQxeUpGcWc2eXZqQ3VYTzB2b3lNdmlCUGR5?=
+ =?utf-8?B?YUI5dmluRXo1L0hyT2xGbjJYcWJLNzMwTWVxSlRyYUxSMHhxeE16ZE1UcEFY?=
+ =?utf-8?B?cmlDNDY4S3pGb1JmZnltSkhJM3B4djdQUnBNUTlqZmFYYjJUZFQrRm9WWTR1?=
+ =?utf-8?B?RVdrb3FBZzdBTGNpakxzcmIra2JXOVZOVXlYWXBhL1BWcmNCMEhhRUtkdnpz?=
+ =?utf-8?B?eHArVmJkQkNad2NRWnFqMDJiR1FVdm1GbVZYd2hVOUkrNC8xYTNCb3FmcTB3?=
+ =?utf-8?B?WDhXeDdKcGZzT2hGL3RqRUtYbmZJRDQvUkNXTlc4RE5kcjFWUmViR3Y0Sjhv?=
+ =?utf-8?B?ZzhnbXRMTit6WTdhQVVNMU5NOEx5djFNY1VHczVOYnUxZXU1VG1kR2pxZlNk?=
+ =?utf-8?B?OUVmcVBPU2dIbW8vd0VLa3R5NythVU9hc1Q2UFJGOU14WWZxQW92WTBOUjRw?=
+ =?utf-8?B?dUZDVjVXT0piRGFrbkRZTmRFNGNYR2VpOERVL0NyUnNKT0kyOHBNTndEMnhK?=
+ =?utf-8?B?L0x5RzV0MVh6dzFyZnJyaEEyWjJQVGY4dm9zRTFnVmMyaXJGQ0FzOS9EazdY?=
+ =?utf-8?B?azFFMitMM05tVDBUMkowaTliUFFjVDVJMHRxM0RGNzJwWEVocDI3UC9iUHR1?=
+ =?utf-8?B?R1FlaUxQMUZhWXpJdzFOUnF3bTY4U3pybngyLy9wY0doMzJWWHBnZE8wMzFX?=
+ =?utf-8?B?ZkJnMDR5UGYyK1d5TitHL2FGUXNydmhmaVRIMUtYaFNCcEdmV09UVmRGY1FQ?=
+ =?utf-8?Q?ib3woip6J1v7Lm+Jbr?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0f3b0bef-d5d7-4321-19c1-08de78796919
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Mar 2026 16:33:18.5892
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: pC8qwWN3afU1gaIt0ZswR/GuCVP5FomvcCBG7QKtjIgaUJ8z1idFQQzBmvfAVL5M4kNjrIsF8ocu7cCYVDdhAw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7295
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_163112_097463_9C1C5FD6 
-X-CRM114-Status: GOOD (  26.16  )
+X-CRM114-CacheID: sfid-20260302_083324_797507_C3B1CCA7 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,141 +147,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/03/2026 14:40, Marc Zyngier wrote:
-> On Wed, 17 Dec 2025 10:10:48 +0000,
-> Steven Price <steven.price@arm.com> wrote:
->>
->> When a VCPU migrates to another physical CPU check
-> 
-> To another physical CPU?
-> 
-> That's not what kvm_arch_vcpu_run_pid_change() tracks. It really is
-> limited to a new PID being associated to the vpcu thread. Which is
-> indeed the case when the vpcu runs for the first time, but that's
-> about it.
-> 
-> If you need to track the physical CPU, we have some tracking for it in
-> vcpu_load(), but that'd need some rework.
 
-Sorry that was just a complete brainfart when I wrote that commit
-message. We don't care about physical CPUs - this is just catching the
-first VCPU run. Thanks for catching that.
-
->> if this is the first
->> time the guest has run, and if so activate the realm.
->>
->> Before the realm can be activated it must first be created, this is a
->> stub in this patch and will be filled in by a later patch.
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> New patch for v12
->> ---
->>  arch/arm64/include/asm/kvm_rmi.h |  1 +
->>  arch/arm64/kvm/arm.c             |  6 +++++
->>  arch/arm64/kvm/rmi.c             | 42 ++++++++++++++++++++++++++++++++
->>  3 files changed, 49 insertions(+)
->>
->> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
->> index cb7350f8a01a..e4534af06d96 100644
->> --- a/arch/arm64/include/asm/kvm_rmi.h
->> +++ b/arch/arm64/include/asm/kvm_rmi.h
->> @@ -69,6 +69,7 @@ void kvm_init_rmi(void);
->>  u32 kvm_realm_ipa_limit(void);
->>  
->>  int kvm_init_realm_vm(struct kvm *kvm);
->> +int kvm_activate_realm(struct kvm *kvm);
->>  void kvm_destroy_realm(struct kvm *kvm);
->>  void kvm_realm_destroy_rtts(struct kvm *kvm);
->>  
->> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->> index 941d1bec8e77..542df37b9e82 100644
->> --- a/arch/arm64/kvm/arm.c
->> +++ b/arch/arm64/kvm/arm.c
->> @@ -951,6 +951,12 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
->>  			return ret;
->>  	}
->>  
->> +	if (kvm_is_realm(vcpu->kvm)) {
->> +		ret = kvm_activate_realm(kvm);
->> +		if (ret)
->> +			return ret;
->> +	}
->> +
->>  	mutex_lock(&kvm->arch.config_lock);
->>  	set_bit(KVM_ARCH_FLAG_HAS_RAN_ONCE, &kvm->arch.flags);
->>  	mutex_unlock(&kvm->arch.config_lock);
->> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
->> index e57e8b7eafa9..98929382c365 100644
->> --- a/arch/arm64/kvm/rmi.c
->> +++ b/arch/arm64/kvm/rmi.c
->> @@ -223,6 +223,48 @@ void kvm_realm_destroy_rtts(struct kvm *kvm)
->>  	WARN_ON(realm_tear_down_rtt_range(realm, 0, (1UL << ia_bits)));
->>  }
->>  
->> +static int realm_ensure_created(struct kvm *kvm)
->> +{
->> +	/* Provided in later patch */
->> +	return -ENXIO;
->> +}
->> +
->> +int kvm_activate_realm(struct kvm *kvm)
->> +{
->> +	struct realm *realm = &kvm->arch.realm;
->> +	int ret;
->> +
->> +	if (!kvm_is_realm(kvm))
->> +		return -ENXIO;
+On Mon, 09 Feb 2026 13:57:42 +0800, Richard Zhu wrote:
+> This patch-set adds i.MX943 PCIe supports on EVK board. Please pay
+> attention to that it relies on the patch-set[1], and the PCIe1 port on
+> the EVK board relies on the {2].
 > 
-> nit: you already checked for this in caller.
-
-Ack
-
->> +
->> +	if (kvm_realm_state(kvm) == REALM_STATE_ACTIVE)
->> +		return 0;
+> Both of them are queuing up to be included in the coming 6.20 kernel.
+> [1] https://lore.kernel.org/imx/176649331066.523506.9443864112044699350.b4-ty@kernel.org/
+> [2] https://lore.kernel.org/imx/inzg46tc2fwsajxq4vzdyuiq7krzy6xtcg2mjaieninz7zsmgm@mtdjr4tuegpq/
 > 
-> You probably also want to return early once the realm has been marked
-> as dead -- it shouldn't be able to be a zombie and die twice.
+> [...]
 
-Indeed, >= would be a better check.
+Applied, thanks!
 
-Thanks,
-Steve
+[1/3] arm64: dts: imx94: add pcie0 and pcie0-ep supports
+      (no commit info)
+[2/3] arm64: dts: imx943: add pcie1 and pcie1-ep supports
+      (no commit info)
+[3/3] arm64: dts: imx943-evk: Add pcie[0,1] and pcie-ep[0,1] support
+      (no commit info)
 
->> +
->> +	guard(mutex)(&kvm->arch.config_lock);
->> +	/* Check again with the lock held */
->> +	if (kvm_realm_state(kvm) == REALM_STATE_ACTIVE)
->> +		return 0;
->> +
->> +	ret = realm_ensure_created(kvm);
->> +	if (ret)
->> +		return ret;
->> +
->> +	/* Mark state as dead in case we fail */
->> +	WRITE_ONCE(realm->state, REALM_STATE_DEAD);
->> +
->> +	if (!irqchip_in_kernel(kvm)) {
->> +		/* Userspace irqchip not yet supported with realms */
->> +		return -EOPNOTSUPP;
->> +	}
->> +
->> +	ret = rmi_realm_activate(virt_to_phys(realm->rd));
->> +	if (ret)
->> +		return -ENXIO;
->> +
->> +	WRITE_ONCE(realm->state, REALM_STATE_ACTIVE);
->> +	return 0;
->> +}
->> +
->>  void kvm_destroy_realm(struct kvm *kvm)
->>  {
->>  	struct realm *realm = &kvm->arch.realm;
-> 
-> Thanks,
-> 
-> 	M.
-> 
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
 
 
