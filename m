@@ -4,76 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96D92EA4E07
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 14:21:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD4CBEA4E07
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 14:25:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kIFwjD4GwsnzNGdOG/mwijpxCKJChD6AnBK5cOib7wA=; b=RpmQaV+jGKu2tLqpLaDL0tvbID
-	5pm31R6UhIPEfQl4sU2WHMP4OouyaV5LhJYEhIqDu2pmltji+ft2PFuZbzXODYl4mSQQ0rEoYVaj5
-	+xc5AqHfJ3hAWmWPw/sKWlSBN4fvHvxI/GqA4cbWzd5Cs/h0Sfc2TJS94wZuMAaBVUzQGvTf8HdOG
-	Yca5b5smSEkj/eOTXha8rnXHMb8lKqGS9y1c+CuP3MU9Hlc4ou2VfQt3xg6IcmQZ+Y5J33dhW9Bpv
-	r/hxAMEzhTiqOYgqjfUf6dIXoM0uqkDxJ5ahUp86OBfJmLSk/1VSSW7U6YkwY5pl4LWG1ED6FQMV9
-	1s92wnRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mALrw1eLH641PMlMGV5CJ+/tyimstfqkzeMzQzYlWZw=; b=WklP97IxIFZmlgypnLG3Tde2gc
+	hBTYdfo/W556XdjcUw64auiBOmaCJwPunlXhlCKfgzPmSgUjwXwWT0zPDP/g9FfzaKFC7rDv9s/H+
+	GUzHfyeGucd32C9M7tAPKl0Gf9Njg8k02QEXQfF+dCb//uFB4ZcG5HMJ9sEF6iTawEH0S1qk+MqS0
+	qOpWA+eQHhDKvW0KQNw/fq43Bx+sY3cuQwsQOWQMYAqyXVwYxa1exc+dSndWrQEdnYyye4GO9TJ+u
+	zm3qqtfVjWFYK5I5w1ehoCZE0qL5LDXMIXTZJo0yrh+2T7+P5GTT5Y9v/LROhFJ+6ArNsuEl/qHHv
+	1kj0wG8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx49A-0000000DDqI-0jTM;
-	Mon, 02 Mar 2026 14:21:20 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1vx4DO-0000000DENQ-4Awl;
+	Mon, 02 Mar 2026 14:25:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx497-0000000DDon-3j3D
+	id 1vx4DO-0000000DENK-08Q3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 14:21:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1772461277; x=1803997277;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=QntaU4iicWXzgHMvjcDEMFDc8eb5pgaNlUYW7f+yomU=;
-  b=l5/UnYnViN+ToYlkN5qluj0+TfiVdxeFLVubmy4A09iu/hnRgzDRKNR2
-   kvXgWH9UmwbO5HDGgN6RnSZN1WcKCEoTVvbi/NZSfgTns1ySVme5i9Lq7
-   dqG71Y1vonH8I3Ff/ngGHO4FVGWNOp7qgdE17r/CU3E2BQ9c36jyXOIlA
-   Q4f2S50jMjDa/P3uLt1y0Bjr0sQql4Q3flaZ6mGn7zx5TNIKVegWAsRbo
-   DbAcbQi1yrBNHsPamub946p5duu9aavi+w4mdQt5cA+K4TKIXSEEJ8rTz
-   YOIrRSDxktv5oEaIS4/qjrm66mqVeOvwzavDozrCBXpnFhS32gyO01QRV
-   w==;
-X-CSE-ConnectionGUID: mnpI00XeSz+qTiTXOT3G5Q==
-X-CSE-MsgGUID: v0MzJIpTRXq7VTTCraAtWQ==
-X-IronPort-AV: E=Sophos;i="6.21,320,1763449200"; 
-   d="scan'208";a="53332801"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Mar 2026 07:21:16 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
- chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.35; Mon, 2 Mar 2026 07:20:16 -0700
-Received: from archlinux.mchp-main.com (10.10.85.11) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Mon, 2 Mar 2026 07:20:13 -0700
-From: Mihai Sain <mihai.sain@microchip.com>
-To: <mturquette@baylibre.com>, <sboyd@kernel.org>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>, <varshini.rajendran@microchip.com>,
-	<cristian.birsan@microchip.com>, <balamanikandan.gunasundar@microchip.com>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <linux-clk@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<ryan.wanner@microchip.com>, Mihai Sain <mihai.sain@microchip.com>
-Subject: [PATCH v3 0/4] Update gmac clocks and devicetree for sam9x7 mpu
-Date: Mon, 2 Mar 2026 16:20:04 +0200
-Message-ID: <20260302142008.3253-1-mihai.sain@microchip.com>
-X-Mailer: git-send-email 2.53.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_062117_996879_67731616 
-X-CRM114-Status: UNSURE (   8.94  )
-X-CRM114-Notice: Please train this message.
+	Mon, 02 Mar 2026 14:25:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0E86A600C4;
+	Mon,  2 Mar 2026 14:25:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB7C0C19423;
+	Mon,  2 Mar 2026 14:25:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772461540;
+	bh=5XDiqS4aSa5oC2UuISF+9AW9hAYh/GZv5E3lc65T4uc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=oOFMmDn87wu4l7gzys50haVeiBkImmxEMtScj3uKhiIYYZtOnPd5AP8biFi62yFHS
+	 d681BrkYEuw4CE0DQW7uvmFT2ehaO/i4KgCx6LJKN7a5XM93dNqEj2eGTiotJAXruG
+	 J6m2hl+rq7UFPISzpOqDDGCTxnwqiR3ekewREzTGWF4zIX98fpkc+MPgG8+RkclSpe
+	 8sAvMxRNy4ajTIjIb08oh1xYVy/AqJOgll9q9GyvfuOXmPMnJX2DdtfY9wSQpQHdoz
+	 mBgATrDb1vm3H44DFllUC7N/mylvQoi+mchHoZVRNwtZG9B8b0tUUY/mw9lBgkQ8JM
+	 ef9+kMXGFeW+g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vx4DK-0000000FGwW-21PP;
+	Mon, 02 Mar 2026 14:25:38 +0000
+Date: Mon, 02 Mar 2026 14:25:37 +0000
+Message-ID: <86tsuy8g0u.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>
+Subject: Re: [PATCH v12 06/46] arm64: RMI: Define the user ABI
+In-Reply-To: <20251217101125.91098-7-steven.price@arm.com>
+References: <20251217101125.91098-1-steven.price@arm.com>
+	<20251217101125.91098-7-steven.price@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,32 +101,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series updates the GMAC clock configuration for the
-SAM9X7 family. The current clock definitions contain inconsistencies
-around the GMAC peripheral and its associated generic clock IDs, which
-lead to incorrect wiring in both the clock driver and the devicetree.
+On Wed, 17 Dec 2025 10:10:43 +0000,
+Steven Price <steven.price@arm.com> wrote:
+> 
+> There is one CAP which identified the presence of CCA, and two ioctls.
+> One ioctl is used to populate memory and the other is used when user
+> space is providing the PSCI implementation to identify the target of the
+> operation.
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v11:
+>  * Completely reworked to be more implicit. Rather than having explicit
+>    CAP operations to progress the realm construction these operations
+>    are done when needed (on populating and on first vCPU run).
+>  * Populate and PSCI complete are promoted to proper ioctls.
+> Changes since v10:
+>  * Rename symbols from RME to RMI.
+> Changes since v9:
+>  * Improvements to documentation.
+>  * Bump the magic number for KVM_CAP_ARM_RME to avoid conflicts.
+> Changes since v8:
+>  * Minor improvements to documentation following review.
+>  * Bump the magic numbers to avoid conflicts.
+> Changes since v7:
+>  * Add documentation of new ioctls
+>  * Bump the magic numbers to avoid conflicts
+> Changes since v6:
+>  * Rename some of the symbols to make their usage clearer and avoid
+>    repetition.
+> Changes from v5:
+>  * Actually expose the new VCPU capability (KVM_ARM_VCPU_REC) by bumping
+>    KVM_VCPU_MAX_FEATURES - note this also exposes KVM_ARM_VCPU_HAS_EL2!
+> ---
+>  Documentation/virt/kvm/api.rst | 57 ++++++++++++++++++++++++++++++++++
+>  include/uapi/linux/kvm.h       | 23 ++++++++++++++
+>  2 files changed, 80 insertions(+)
+> 
+> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+> index 01a3abef8abb..2d5dc7e48954 100644
+> --- a/Documentation/virt/kvm/api.rst
+> +++ b/Documentation/virt/kvm/api.rst
+> @@ -6517,6 +6517,54 @@ the capability to be present.
+>  
+>  `flags` must currently be zero.
+>  
+> +4.144 KVM_ARM_VCPU_RMI_PSCI_COMPLETE
+> +------------------------------------
+> +
+> +:Capability: KVM_CAP_ARM_RMI
+> +:Architectures: arm64
+> +:Type: vcpu ioctl
+> +:Parameters: struct kvm_arm_rmi_psci_complete (in)
+> +:Returns: 0 if successful, < 0 on error
+> +
+> +::
+> +
+> +  struct kvm_arm_rmi_psci_complete {
+> +	__u64 target_mpidr;
+> +	__u32 psci_status;
+> +	__u32 padding[3];
+> +  };
+> +
+> +Where PSCI functions are handled by user space, the RMM needs to be informed of
+> +the target of the operation using `target_mpidr`, along with the status
+> +(`psci_status`). The RMM v1.0 specification defines two functions that require
+> +this call: PSCI_CPU_ON and PSCI_AFFINITY_INFO.
+> +
+> +If the kernel is handling PSCI then this is done automatically and the VMM
+> +doesn't need to call this ioctl.
 
-Changelog:
+Shouldn't we make handling of PSCI mandatory for VMMs that deal with
+CCA? I suspect it would simplify the implementation significantly.
 
-v2 -> v3:
-- Rework patch 1 and 3 based on Claudiu's comments
+What vcpu fd does this apply to? The vcpu calling the PSCI function?
+Or the target? This is pretty important for PSCI_ON. My guess is that
+this is setting the return value for the caller?
 
-v1 -> v2:
-- Add only one patch for devicetree with detailed description
+Assuming this is indeed for the caller, why do we have a different
+flow from anything else that returns a result from a hypercall?
 
-Mihai Sain (4):
-  clk: at91: sam9x7: Remove gmac peripheral clock with ID 67
-  clk: at91: sam9x7: Rename macb0_clk to gmac_clk
-  clk: at91: sam9x7: Fix gmac_gclk clock definition
-  ARM: dts: microchip: sam9x7: fix GMAC clock configuration
+> +
+> +4.145 KVM_ARM_RMI_POPULATE
+> +--------------------------
+> +
+> +:Capability: KVM_CAP_ARM_RMI
+> +:Architectures: arm64
+> +:Type: vm ioctl
+> +:Parameters: struct kvm_arm_rmi_populate (in)
+> +:Returns: number of bytes populated, < 0 on error
+> +
+> +::
+> +
+> +  struct kvm_arm_rmi_populate {
+> +	__u64 base;
+> +	__u64 size;
+> +	__u64 source_uaddr;
+> +	__u32 flags;
+> +	__u32 reserved;
+> +  };
+> +
+> +Populate a region of protected address space by copying the data from the user
+> +space pointer provided. This is only valid before any VCPUs have been run.
+> +The ioctl might not populate the entire region and user space may have to
+> +repeatedly call it (with updated pointers) to populate the entire region.
 
- arch/arm/boot/dts/microchip/sam9x7.dtsi |  6 +++---
- drivers/clk/at91/sam9x7.c               | 21 ++++++++++-----------
- 2 files changed, 13 insertions(+), 14 deletions(-)
+size as a __u64 is odd, as the return value from the ioctl is a signed
+int. This implies that you can't really report how many bytes you have
+copied.  Some form of consistency wouldn't hurt.
 
+Thanks,
 
-base-commit: 11439c4635edd669ae435eec308f4ab8a0804808
+	M.
+
 -- 
-2.53.0
-
+Without deviation from the norm, progress is not possible.
 
