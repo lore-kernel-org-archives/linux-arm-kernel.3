@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC44E9B36B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 11:22:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EB9DE9B36A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 11:22:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QOxR18o2+9ulYS4r73qXsZYgHJUpIGAEfbN7mi92aLE=; b=rGPgzGXdGyZw/cfEGKKf9OF4bM
-	+epMzKk7zDoEVSGHsrfRoFGTdrHeYjzKGBO2s0hrCRz3J+pOYbsVmeVo5pLvq7/hXg2XzOJtrIrhH
-	6zuKMblxyNrui+wJtQDz67BS8My2xLOTmm8d3s4lRuyRaNsrdjDF8yHgoBpr8Pbh7Uj62A8dPQJpC
-	Dclv6Jyae6kUWDiH7IOQpAVgGbLnqhd+g/oXlkWcFKs6WmI0A3opIftQU1HR52I13bn3wmOgHQ5HR
-	uWYXKlNzzG2VIUTk3rZIJ2ps1UBIzaXQgDDHBP/X8MjAtNsUG6MXyEFIYTXnR4UPmb8mBxNYnnbfc
-	mgWW4Fkw==;
+	bh=BEL8xD6r/LZl69+xMFv9iWD7+sHUzbOpHHkJN7M+9SA=; b=ohSRsMBoX0OF7KCQv/h3NROTD1
+	/uGwWReDlcBvDZumr56phB5Lvhjq9i/Co6rCGpluQ2c2NFOmPCOyiGb87dJ/oi+En1qGvEvaj6xef
+	ub4qGV2dJeDqcxzQ8uye48/my4tgFLviQPEmSLb4Ju2rX5yk68moKKTMUyKUicUZUMRFTBVbTdhYj
+	RMANn07KAFZdOopwVo1c0IXaxZu3mmBz+O+6ddiVegxHsz7HY3jDxriDvgliCyO/X9DRKKZZr56Bl
+	7tbYCgZVuKQWkaaxlXSC4pLYmJAgKWXPlN0VkmXpHvcirE8DPi3zf+C1mSQk411PGZzlUi5JiiMnJ
+	PG+sS3RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx1Ll-0000000Co6l-3lO7;
-	Mon, 02 Mar 2026 11:22:09 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1vx1Lo-0000000Co8g-132A;
+	Mon, 02 Mar 2026 11:22:12 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx1Lj-0000000Co4z-2x2V
+	id 1vx1Ll-0000000Co5n-1qTb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 11:22:08 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-48371119eacso54168935e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 03:22:07 -0800 (PST)
+	Mon, 02 Mar 2026 11:22:10 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-483703e4b08so37978205e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 03:22:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1772450526; x=1773055326; darn=lists.infradead.org;
+        d=sartura.hr; s=sartura; t=1772450527; x=1773055327; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=QOxR18o2+9ulYS4r73qXsZYgHJUpIGAEfbN7mi92aLE=;
-        b=sUaR4cYXHX6YeJHuYXn87wPYNPaBIPLC9dhVU3P5pGO6paON8RbH0tcVyMJ2E1sGkA
-         C5bBww8a5YoM5SxOiJdg6gN65CHCluKXg477tBrCr8A9qpXklMN9CU66fD1O00dYGcns
-         i+loI/7o6HncdajyFcC6l3Uh+LhPYYICwbbiTEQh7kOCRelIHnKzjJfIFe6yEL7MOBXZ
-         rH1U9nJFqHVzSN23to44RFOs0D85Wn4/jEajZInrw34bULLI8NbWMmvmCBXrwBO9UYqO
-         +YA08kwkXerq501E74KWHFXSuzHZ2HtSHKAvZ1sZOpDz8LrhDumiMSbmWgemspz0bHJ6
-         wh6g==
+        bh=BEL8xD6r/LZl69+xMFv9iWD7+sHUzbOpHHkJN7M+9SA=;
+        b=KEBvo1bbHmnOcPlOcPvH9gSVtEsKUn/YKECKdusgPFIyEbyxXDjUjcwdw7Q7/JjWfM
+         OBDE/lknYu/lBPwTUa6quOcViiHKYQBkY7fH2AImSW8qqvH5Z0RgBcFZ/HF1zpmMKo35
+         rjeZ5l+eBQOP7pvoijwLA3Ns3YC6v1qA/QsDRVxCBtOG6B2kptnXTGdglOrmwfcnwrZ2
+         2x9JVx6BZCKlthH556y+48YbtrOJjy+Vs4PvqYlecXAxA5xzucu8PMIgIpDMJEfo0HAy
+         xjhf3KvIcaB/EfWmKM9fdei0o22o/eAd1ZI1cCPiQFyR4C4Us7cOn0Rb57z+3OaqM5K5
+         NnpA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772450526; x=1773055326;
+        d=1e100.net; s=20230601; t=1772450527; x=1773055327;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=QOxR18o2+9ulYS4r73qXsZYgHJUpIGAEfbN7mi92aLE=;
-        b=g0bujxaG5U/it63NwsNA7mAvtRCyALSGPL9YRMgkitXKXv7opP1Ge0okKxpLRZ3HfR
-         vexzR1ANWnciIrSYYDgmoILPbayxw8XRIjcrrji9WlRDE4rGzgEWP8EczGswrJra0QKS
-         JzgMO1d+1v0ejLlGxhZWmRIgZPjgJabmpWKjS36kQY0qMujhqxmG+nwoMEsaf6JRzi27
-         aalJJrWyohAsQwbSO4yhn0XozrBFaJq1Dy6am8HxC5h/QOfBvi5zzj7HdTqRmIz+D7sl
-         xHQMO/rSs4iML0WOTFzdgFwxsnvSvn6z+SnmDWqiDzx/9VvTOD6gtbilh9emoRLEs3Wr
-         +xTw==
-X-Forwarded-Encrypted: i=1; AJvYcCWaaaQtfLwx/y/5mXZnMVL885AGMshRmUCjE+1pat8p+nhbhDA+3zQj+S69YaaXbNgFJeNB2oO6fQHRva5LwKvg@lists.infradead.org
-X-Gm-Message-State: AOJu0YxRr+EXb3Yyt3gPEGOVAU9NybrTAlCJ+meOaLBSwkcXfLLpymIs
-	kougyl7E+nq1b0y6rowoyaSucnoPqlFrKGVS5UaFYKmppT0QBxikEi4kCNOAnRGR0/A=
-X-Gm-Gg: ATEYQzwIxT2Dm5DWeBaoc2uTFYUP6tYFyKzj1xLLfgd7PlOeubZdOnZ0tStLt0/A1tn
-	V+7BnJ/lIG+2ItDou85epb0jTyljWIKhYPouRZ6oQuLGzhl+4pKuSawkADhWrTBpb9KlJB2YeSU
-	B5yJ4yX7QzVVtGj1pL6XfinSph+/5MUW74OLJ0JET46DOGtIsJa2oAIuegrxio6I19iyurrJjFQ
-	XI6hnsnwGlI5Z9T+vLtwvF1h8kWlec0fS4ZpAXIrzcKVQOZ7SjQUIlgET6BAMk7nmbexfEZjhXO
-	Gmu4GR1OaY0k2hYJjQPzF5FbK/ILVEai3bDjEkq15Fu0umB+5syngpFzdI7+NJErEZq6/0BXQv9
-	YPpdmo3YunlRKhsllJCVXpiCFDOhwxpC7umWhXPZTx4+5ROmyETLNOXZ6XqjppaLxOH5uDfnzJ2
-	ZXih+7HIa7fJK7h9u7Knt0g1yoYVQ3UGXXw9VjxiuoGf0gge5eEGRLkAv9WUE2tBtpozngBV6eP
-	k8gZ1vJMIBEdxxbe1w9CP4u0BKclKFQs3XqukOsLG4=
-X-Received: by 2002:a05:600c:8b53:b0:47e:e91d:73c0 with SMTP id 5b1f17b1804b1-483c9c0bce5mr211979425e9.19.1772450525627;
-        Mon, 02 Mar 2026 03:22:05 -0800 (PST)
+        bh=BEL8xD6r/LZl69+xMFv9iWD7+sHUzbOpHHkJN7M+9SA=;
+        b=cjYCURU3lecGNfiNmGLlsOvyFgseTBhtftvcwhTy6zcaq4vsSjYBVqJMYefP1VgnMJ
+         iZSgkadwcfe578cA2QZax2p6H5ZDKqEiBdbMuhxL7PVigGI2/cdJW9knQh5Pwx3P7YHm
+         /uxSOJdKTrR2frMBa1VfAN9inTU1WOAiDaS/IQuP0HQn7r0ZtPFLaubQXc3/NSRtLgTO
+         /DYw/gTJqd2gIugCHCY7VXvepJ5P3g6X3H+eFyM3Q/OAdErf+/eQ2s13X4RSTYYgPMj1
+         ZTyWTS+ewWBDNcAosLTrqFujbRgboWkw1YWjoBeoB2b4YRtlhF7WmNdKpiMETlNG93/y
+         FwBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXK/+75OZk+vtC1BPYHR3s8Lc/SC14ntXGXhoRa04Pn6kddPLguhy33BDUj/owVjdm6uV8Y/PGHtsdvCl+beLP0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxmvp7kvWtb1KYKmEtRLz7A9rl6mNp957ZSqRXp5k6w1gLC9w7o
+	I3w3Ym27+DQGR80SGwJbL5pHmjruF1GhV5WmwGdch+5Qakc4D8Ik9rGyudJeRzmN9yc=
+X-Gm-Gg: ATEYQzykEdcuvK1NVmHKphy3sKdNzCWvwBRRufkCmDNSOIC/QHamS7RQXgII1Moo+Ht
+	LlcDi+KpAXWO23Lowv7fXP5vu5nQRzgVUx0isu1H98gItHstvhEWwHozflRMMzTvcBogO3FUcRp
+	oSFS6uYp/r3xRQkArMq8HIm3C/0cKiYUnHIuLZHsoG+/Kx3ZVvN7/3n93BlhZ4pU9oYkeWlwsDO
+	ewmz3l82eDNv4pmRnmD55McAEYdy3JpyE5oDPRwaBMndBT5xDqop3+yZleNcntcN2KUISiA1cZI
+	neIF23kHOirqZsGqijMDXDh1sLSV245ZezzECkF/iTxsul1C62ks1eoXJOTqCawya4Fjo18aKfW
+	no9qVMp+LLO60mQD+jsqNwhvvOsH/XnAp140mLyJ6FVQ/89xOmD/I/hoVLlgWJ40s7PAhSdvZSN
+	ejCKj3CbwpDT/ZEP5uE/pUxVPlOSMKFyKMmEBXRGvJE6/VazMXyhqSwVbKxd8c4/x9FMk/KOWkO
+	gk/Z4R2le5VpLFFGyUBbHl8hGMaDZuyJJCvLWuF4pMd22Kwl2jM5Q==
+X-Received: by 2002:a05:600c:1549:b0:47e:e59c:67c5 with SMTP id 5b1f17b1804b1-483c990de68mr204131235e9.8.1772450527342;
+        Mon, 02 Mar 2026 03:22:07 -0800 (PST)
 Received: from fedora (cpe-109-60-83-135.zg3.cable.xnet.hr. [109.60.83.135])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-483bfbb465bsm292493035e9.3.2026.03.02.03.22.04
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-483bfbb465bsm292493035e9.3.2026.03.02.03.22.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Mar 2026 03:22:05 -0800 (PST)
+        Mon, 02 Mar 2026 03:22:06 -0800 (PST)
 From: Robert Marko <robert.marko@sartura.hr>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -93,20 +93,18 @@ To: robh@kernel.org,
 	linux-serial@vger.kernel.org,
 	daniel.machon@microchip.com
 Cc: luka.perkov@sartura.hr,
-	Robert Marko <robert.marko@sartura.hr>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v6 2/6] dt-bindings: rng: atmel,at91-trng: add microchip,lan9691-trng
-Date: Mon,  2 Mar 2026 12:20:10 +0100
-Message-ID: <20260302112153.464422-3-robert.marko@sartura.hr>
+	Robert Marko <robert.marko@sartura.hr>
+Subject: [PATCH v6 3/6] arm64: dts: microchip: add LAN969x clock header file
+Date: Mon,  2 Mar 2026 12:20:11 +0100
+Message-ID: <20260302112153.464422-4-robert.marko@sartura.hr>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260302112153.464422-1-robert.marko@sartura.hr>
 References: <20260302112153.464422-1-robert.marko@sartura.hr>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_032207_756165_262ECE6B 
-X-CRM114-Status: UNSURE (   8.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260302_032209_492945_812AD37F 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,33 +119,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document Microchip LAN969X TRNG compatible.
+LAN969x uses hardware clock indexes, so document theses in a header to make
+them humanly readable.
 
 Signed-off-by: Robert Marko <robert.marko@sartura.hr>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 ---
-Changes in v5:
+Changes in v6:
 * Pick Reviewed-by from Claudiu
 
-Changes in v3:
-* Pick Acked-by from Conor
+Changes in v5:
+* Relicense to GPL-2.0-or-later OR MIT to match DTSI
 
- Documentation/devicetree/bindings/rng/atmel,at91-trng.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/boot/dts/microchip/clk-lan9691.h | 24 +++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/microchip/clk-lan9691.h
 
-diff --git a/Documentation/devicetree/bindings/rng/atmel,at91-trng.yaml b/Documentation/devicetree/bindings/rng/atmel,at91-trng.yaml
-index f78614100ea8..3628251b8c51 100644
---- a/Documentation/devicetree/bindings/rng/atmel,at91-trng.yaml
-+++ b/Documentation/devicetree/bindings/rng/atmel,at91-trng.yaml
-@@ -19,6 +19,7 @@ properties:
-           - microchip,sam9x60-trng
-       - items:
-           - enum:
-+              - microchip,lan9691-trng
-               - microchip,sama7g5-trng
-           - const: atmel,at91sam9g45-trng
-       - items:
+diff --git a/arch/arm64/boot/dts/microchip/clk-lan9691.h b/arch/arm64/boot/dts/microchip/clk-lan9691.h
+new file mode 100644
+index 000000000000..0f2d7a0f881e
+--- /dev/null
++++ b/arch/arm64/boot/dts/microchip/clk-lan9691.h
+@@ -0,0 +1,24 @@
++/* SPDX-License-Identifier: (GPL-2.0-or-later OR MIT) */
++
++#ifndef _DTS_CLK_LAN9691_H
++#define _DTS_CLK_LAN9691_H
++
++#define GCK_ID_QSPI0		0
++#define GCK_ID_QSPI2		1
++#define GCK_ID_SDMMC0		2
++#define GCK_ID_SDMMC1		3
++#define GCK_ID_MCAN0		4
++#define GCK_ID_MCAN1		5
++#define GCK_ID_FLEXCOM0		6
++#define GCK_ID_FLEXCOM1		7
++#define GCK_ID_FLEXCOM2		8
++#define GCK_ID_FLEXCOM3		9
++#define GCK_ID_TIMER		10
++#define GCK_ID_USB_REFCLK	11
++
++/* Gate clocks */
++#define GCK_GATE_USB_DRD	12
++#define GCK_GATE_MCRAMC		13
++#define GCK_GATE_HMATRIX	14
++
++#endif
 -- 
 2.53.0
 
