@@ -4,83 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D9B8EA4E3D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 16:11:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA609EA4E3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 16:11:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oi3hI5s8Axl1nemjxCxw3qeFh3rZxzn1jyNI3RpAPE0=; b=lJDM+hzD8H/EZvWKygpHCxVtx4
-	yUC8ydHkWd4F4zera0wxyhvNMJrNCooVUdoZDEGBl6H4OVs2BUivYbbDYVG4q/Bznb3kJkxiHl9mq
-	PL7cBe91DZ/cYl4gVuyGvuV4qEuM1Y86TiqBCT/e/saFvhY92DR6j1OXmnvrEULtKB4a9BQPvO7Ba
-	59xRXK8IvSB88nJvLk1IGnaXcosYwx63flOCgssVAUp1pgq9+G0xcNY8WdZyHfO1VhPMSz/wwB4ln
-	8tKgKVkk/k8AUlnEATpeNRLFRcwIX5FKxj6tLVKadDY9/G/gL/Xn+FGFMi1+PV9fC3FOFZe5VWvEc
-	5ZEnNYIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w7U2i7wNnzNewzg0HZ0VM12VPokXKDs53EuGg6YDrv8=; b=sosb06/d9yCCaphfDSB+t6IEyv
+	os9hnQa4vT43bJizpQY2HpK0+NLolm+OGZ0SHlMu8TZazHqW/AjrUalBnW1wCvS+vngGodBiO+Un+
+	Gc4pOFUpihtQnyiTFoxnwpm4mFf4CF23JQlILupXHslVOxm3kBEbSX6dQUFAFWO0U5QJeGD3AKB8q
+	VqEBxM7L+qFUyNYUriN7kF3LawdL+7cdKR4vVSzNpIUrKcACAscCj8dVaCvQE8aO2oaHZUkw1aQFv
+	ieWySdDiC0L+AOItBB78vqyc6WxspYix0gQg1VbCOSeeQ7tOG9/bvn1L0UlyVSu7gHa4MeeZv4g8d
+	XQp0rRhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx5rk-0000000DSaz-1Gzt;
-	Mon, 02 Mar 2026 16:11:28 +0000
+	id 1vx5ru-0000000DSgo-1gQK;
+	Mon, 02 Mar 2026 16:11:38 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx5rg-0000000DSZc-3mkk
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 02 Mar 2026 16:11:25 +0000
+	id 1vx5rs-0000000DSfV-3mTD;
+	Mon, 02 Mar 2026 16:11:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=Oi3hI5s8Axl1nemjxCxw3qeFh3rZxzn1jyNI3RpAPE0=; b=kW0z+SFjxhKT+yO2yVDlBp07y3
-	zGwyarYiNz+cmFkyCFfdD3dGM5cCH7nnYkRG/YDNjX2hCN6EK6ujwMp+pys8050FGdPVPdpPrLom/
-	ZFez1zB1/z3mlqOIy0Ii4Ey5li2wz837m1YaLaX3Ejkr4mzgs0XFC1iL87KHothARrmixkLQhqxhv
-	sLsUjNNuRYmI73XzkonqQ5zkP/O7ey5NvYRAJWDpEgYYx/3jN8rdnvXkdTNW9I0GKR3jeH/VnEjoo
-	Reu3eEzQ0wgH/Sr9rqOgUTc4aJSGWqQmM62lmtwMqKI4qwvS6E4RLiTSngy3I7NSrSBNEOq8lcIM3
-	AoFf9AGw==;
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=w7U2i7wNnzNewzg0HZ0VM12VPokXKDs53EuGg6YDrv8=; b=IWHuR6yd9hrEUe+FUg8bIhVATS
+	Og0U5yU3HGnKU8jrUSkuhe+akCBHsBVDdxu3r2VL1z6tupHtAGmr2sGfYwVls1EPBerDnkQ8EyvV/
+	aUsbhzQh967oL8ch4AcnG6aN9ANwsYePQHrKrMEu9b44uAeYFrI5ilIjGBVQkvXPOkE37a5gRdO3D
+	OLJxF505pYOIBVlUYALU3nVTyX2zZjmq8Afr+RwmGsPOBAaTq4pkkSyO2DWA9IA+uRTXPpoL3MpV5
+	zkydx5twImq+tAWu7Tk9UFPrZzo7QcZ0UZkC7qcNClMElyq4iyAuq/ZP7Vmru+mrF/LC6dX7e0pjj
+	Y6vvF2rw==;
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx5re-00000000X7p-0Eaz
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 16:11:23 +0000
-Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <m.felsch@pengutronix.de>)
-	id 1vx5rC-0002vi-Is; Mon, 02 Mar 2026 17:10:54 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-Date: Mon, 02 Mar 2026 17:10:41 +0100
-Subject: [PATCH v10 2/3] drm/bridge: imx: Add i.MX93 parallel display
- format configuration support
+	id 1vx5ro-00000000X95-3p6k;
+	Mon, 02 Mar 2026 16:11:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1772467825; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=JXcnLJWgLCF+YZoorFdBR1yAwjY7LGAS1wsZttwSZ7OX1N8/tnJuRhgJ+frB9Q4b6lfq6qMedTrSlMEU0sGgxTyLFOvcWCVEFFb2d7R3YdZGhKZTR/jPT5rJdYY3mxQxVtAR7qnensaRyP+gChcl9H3hdJAEAS6X/GfVjtSeshI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1772467825; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=w7U2i7wNnzNewzg0HZ0VM12VPokXKDs53EuGg6YDrv8=; 
+	b=SQsvFxkGjCOpd7AR/Pg3XOdD9HKqPhI4gLsvZbyx5J/H/xqlfcr1VbYYjBddL2YeSvaT/AV6AeOR2BFX+17Pe1UHRHufhxgqho1yhn6vXQj+llmafnzH3fKftx5V0gU+97otl0p1YJKSCULW73P8EG4ZLbp9FMXu+pvWGIzxzvU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772467825;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=w7U2i7wNnzNewzg0HZ0VM12VPokXKDs53EuGg6YDrv8=;
+	b=W0F/s1WVOicRqRRlh5k5bS16DecRt/X1lliwR6v9bihZZKydDIaE9AyHGcfVgqOl
+	DvAw1wWZ42oww1fu25LhPzUbERsubMtUdY7LsGOtMzSepxHtaknXKw8XPpJIsvcOnzc
+	wcoHVxy/hBVsZb7ebXFaIeFPF7bsc7pFw7l7IamY=
+Received: by mx.zohomail.com with SMTPS id 1772467823906968.5878195359694;
+	Mon, 2 Mar 2026 08:10:23 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Jani Nikula <jani.nikula@linux.intel.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
+ Rodrigo Siqueira <siqueira@igalia.com>,
+ Alex Deucher <alexander.deucher@amd.com>,
+ Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Andy Yan <andy.yan@rock-chips.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Sandy Huang <hjc@rock-chips.com>,
+ Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
+ Liu Ying <victor.liu@nxp.com>, Chen-Yu Tsai <wens@kernel.org>,
+ Samuel Holland <samuel@sholland.org>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Maxime Ripard <mripard@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ amd-gfx@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, Jani Nikula <jani.nikula@intel.com>
+Subject: Re: [PATCH v2 14/14] drm/display: hdmi: Use drm_output_color_format instead
+ of hdmi_colorspace
+Date: Mon, 02 Mar 2026 17:10:13 +0100
+Message-ID: <5970802.DvuYhMxLoT@workhorse>
+In-Reply-To: <20260227-drm-rework-color-formats-v2-14-8bd278e2af9d@kernel.org>
+References: <20260227-drm-rework-color-formats-v2-0-8bd278e2af9d@kernel.org>
+ <20260227-drm-rework-color-formats-v2-14-8bd278e2af9d@kernel.org>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 7Bit
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260302-v6-18-topic-imx93-parallel-display-v10-2-634fe2778c7a@pengutronix.de>
-References: <20260302-v6-18-topic-imx93-parallel-display-v10-0-634fe2778c7a@pengutronix.de>
-In-Reply-To: <20260302-v6-18-topic-imx93-parallel-display-v10-0-634fe2778c7a@pengutronix.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
- Liu Ying <victor.liu@nxp.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- luca.ceresoli@bootlin.com
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- dri-devel@lists.freedesktop.org, kernel@pengutronix.de, 
- Marco Felsch <m.felsch@pengutronix.de>
-X-Mailer: b4 0.14.2
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::28
-X-SA-Exim-Mail-From: m.felsch@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_161122_269967_9D0938BE 
-X-CRM114-Status: GOOD (  24.64  )
+X-CRM114-CacheID: sfid-20260302_161133_197684_84BBDC42 
+X-CRM114-Status: GOOD (  21.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,287 +117,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Liu Ying <victor.liu@nxp.com>
+On Friday, 27 February 2026 14:59:58 Central European Standard Time Maxime Ripard wrote:
+> The hdmi_colorspace enum was defined to represent the colorspace value
+> of the HDMI infoframes. It was later used by some HDMI drivers to
+> express the output format they should be setting up.
+> 
+> During the introduction of the HDMI helpers, it then was used to
+> represent it in the drm_connector_hdmi_state structure.
+> 
+> However, it's always been somewhat redundant with the DRM_COLOR_FORMAT_*
+> defines, and now with the drm_output_color_format enum. Let's
+> consolidate around drm_output_color_format in drm_connector_hdmi_state
+> to facilitate the current effort to provide a global output format
+> selection mechanism.
+> 
+> Acked-by: Jani Nikula <jani.nikula@intel.com>
+> Signed-off-by: Maxime Ripard <mripard@kernel.org>
+> ---
+>  drivers/gpu/drm/bridge/inno-hdmi.c                 |   6 +-
+>  drivers/gpu/drm/bridge/ite-it6263.c                |   2 +-
+>  drivers/gpu/drm/display/drm_bridge_connector.c     |   4 +-
+>  drivers/gpu/drm/display/drm_hdmi_helper.c          |   7 +-
+>  drivers/gpu/drm/display/drm_hdmi_state_helper.c    |  52 ++++--
+>  drivers/gpu/drm/drm_bridge.c                       |   2 +-
+>  drivers/gpu/drm/drm_connector.c                    |  14 +-
+>  drivers/gpu/drm/mediatek/mtk_hdmi_v2.c             |   8 +-
+>  drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c             |   2 +-
+>  drivers/gpu/drm/tests/drm_connector_test.c         |  80 ++++-----
+>  drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 182 ++++++++++-----------
+>  drivers/gpu/drm/vc4/vc4_hdmi.c                     |  18 +-
+>  drivers/gpu/drm/vc4/vc4_hdmi.h                     |   2 +-
+>  include/drm/bridge/dw_hdmi_qp.h                    |   2 +-
+>  include/drm/display/drm_hdmi_helper.h              |   3 +-
+>  include/drm/drm_connector.h                        |   7 +-
+>  16 files changed, 208 insertions(+), 183 deletions(-)
+> 
+> [... snip ...]
+> diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
+> index f686aa5c0ed9b84dbe5e0957df22d08aff2f1945..39cc18f78eda11ba35954f75315f646c0cb0d8e6 100644
+> --- a/drivers/gpu/drm/display/drm_bridge_connector.c
+> +++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+> @@ -787,11 +787,11 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
+>  {
+>  	struct drm_bridge_connector *bridge_connector;
+>  	struct drm_connector *connector;
+>  	struct i2c_adapter *ddc = NULL;
+>  	struct drm_bridge *panel_bridge __free(drm_bridge_put) = NULL;
+> -	unsigned int supported_formats = BIT(HDMI_COLORSPACE_RGB);
+> +	unsigned int supported_formats = BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444);
+>  	unsigned int max_bpc = 8;
+>  	bool support_hdcp = false;
+>  	int connector_type;
+>  	int ret;
 
-NXP i.MX93 mediamix blk-ctrl contains one DISPLAY_MUX register which
-configures parallel display format by using the "PARALLEL_DISP_FORMAT"
-field. Add a DRM bridge driver to support the display format configuration.
+Just noticed that we definitely also need to adjust the comment in
+drm_bridge.h for drm_bridge::supported_formats. It still claims
+it's a bitfield of HDMI_COLORSPACE_* values, but in this function,
+gets assigned DRM_OUTPUT_COLOR_FORMAT values now.
 
-Signed-off-by: Liu Ying <victor.liu@nxp.com>
-[m.felsch@pengutronix.de: port to v7.0-rc1]
-[m.felsch@pengutronix.de: add review feedback (Alexander)]
-[m.felsch@pengutronix.de: fix to short Kconfig description (checkpath)]
-[m.felsch@pengutronix.de: use "GPL" instead of "GPL v2" (checkpatch)]
-[m.felsch@pengutronix.de: add bus-width support]
-Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
----
- drivers/gpu/drm/bridge/imx/Kconfig      |  11 ++
- drivers/gpu/drm/bridge/imx/Makefile     |   1 +
- drivers/gpu/drm/bridge/imx/imx93-pdfc.c | 225 ++++++++++++++++++++++++++++++++
- 3 files changed, 237 insertions(+)
+Kind regards,
+Nicolas Frattaroli
 
-diff --git a/drivers/gpu/drm/bridge/imx/Kconfig b/drivers/gpu/drm/bridge/imx/Kconfig
-index b9028a5e5a065c3237b404111d8df57e8e017f9d..47829300a4486a090514ebe914b7667a703039a9 100644
---- a/drivers/gpu/drm/bridge/imx/Kconfig
-+++ b/drivers/gpu/drm/bridge/imx/Kconfig
-@@ -99,4 +99,15 @@ config DRM_IMX93_MIPI_DSI
- 	  Choose this to enable MIPI DSI controller found in Freescale i.MX93
- 	  processor.
- 
-+config DRM_IMX93_PARALLEL_DISP_FMT_CONVERTER
-+	tristate "NXP i.MX91/i.MX93 parallel display format converter"
-+	depends on OF
-+	select DRM_KMS_HELPER
-+	help
-+	  On i.MX93 and i.MX91 SoCs the parallel display format output is
-+	  controlled via the MEDIAMIX BLK-CTRL DISPLAY_MUX.
-+
-+	  Say 'Y' or 'M' if you use the parallel display output path on a
-+	  i.MX93 or i.MX91 SoC.
-+
- endif # ARCH_MXC || COMPILE_TEST
-diff --git a/drivers/gpu/drm/bridge/imx/Makefile b/drivers/gpu/drm/bridge/imx/Makefile
-index 8d01fda25451aaa1bf51a068da18948094327116..da57fde2d813b88cdde89115ca801b4cfc69afbd 100644
---- a/drivers/gpu/drm/bridge/imx/Makefile
-+++ b/drivers/gpu/drm/bridge/imx/Makefile
-@@ -9,3 +9,4 @@ obj-$(CONFIG_DRM_IMX8QXP_PIXEL_COMBINER) += imx8qxp-pixel-combiner.o
- obj-$(CONFIG_DRM_IMX8QXP_PIXEL_LINK) += imx8qxp-pixel-link.o
- obj-$(CONFIG_DRM_IMX8QXP_PIXEL_LINK_TO_DPI) += imx8qxp-pxl2dpi.o
- obj-$(CONFIG_DRM_IMX93_MIPI_DSI) += imx93-mipi-dsi.o
-+obj-$(CONFIG_DRM_IMX93_PARALLEL_DISP_FMT_CONVERTER) += imx93-pdfc.o
-diff --git a/drivers/gpu/drm/bridge/imx/imx93-pdfc.c b/drivers/gpu/drm/bridge/imx/imx93-pdfc.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..56698168a66bf716762a139b6fea318bf450f6b5
---- /dev/null
-+++ b/drivers/gpu/drm/bridge/imx/imx93-pdfc.c
-@@ -0,0 +1,225 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+
-+/*
-+ * Copyright 2022-2025 NXP
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/bits.h>
-+#include <linux/media-bus-format.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_graph.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+
-+#include <drm/drm_atomic_state_helper.h>
-+#include <drm/drm_bridge.h>
-+
-+#define IMX93_DISPLAY_MUX_REG		0x60
-+#define PARALLEL_DISP_FORMAT		GENMASK(10, 8)
-+#define FORMAT_RGB888_TO_RGB888		FIELD_PREP(PARALLEL_DISP_FORMAT, 0)
-+#define FORMAT_RGB888_TO_RGB666		FIELD_PREP(PARALLEL_DISP_FORMAT, 1)
-+#define FORMAT_RGB565_TO_RGB565		FIELD_PREP(PARALLEL_DISP_FORMAT, 2)
-+
-+struct imx93_pdfc {
-+	struct drm_bridge bridge;
-+	struct device *dev;
-+	struct regmap *regmap;
-+	u32 phy_bus_width;
-+};
-+
-+static struct imx93_pdfc *bridge_to_imx93_pdfc(struct drm_bridge *bridge)
-+{
-+	return container_of(bridge, struct imx93_pdfc, bridge);
-+}
-+
-+static int
-+imx93_pdfc_bridge_attach(struct drm_bridge *bridge, struct drm_encoder *encoder,
-+			 enum drm_bridge_attach_flags flags)
-+{
-+	return drm_bridge_attach(bridge->encoder, bridge->next_bridge, bridge, flags);
-+}
-+
-+static void imx93_pdfc_bridge_atomic_enable(struct drm_bridge *bridge,
-+					    struct drm_atomic_state *state)
-+{
-+	struct imx93_pdfc *pdfc = bridge_to_imx93_pdfc(bridge);
-+	const struct drm_bridge_state *bridge_state;
-+	unsigned int mask = PARALLEL_DISP_FORMAT;
-+	unsigned int val;
-+
-+	bridge_state = drm_atomic_get_new_bridge_state(state, bridge);
-+
-+	switch (bridge_state->output_bus_cfg.format) {
-+	case MEDIA_BUS_FMT_RGB888_1X24:
-+	case MEDIA_BUS_FMT_FIXED:
-+		val = FORMAT_RGB888_TO_RGB888;
-+		if (pdfc->phy_bus_width == 18) {
-+			/*
-+			 * Can be valid if physical bus limitation exists,
-+			 * therefore use dev_dbg().
-+			 */
-+			dev_dbg(pdfc->dev, "Truncate two LSBs from each color\n");
-+			val = FORMAT_RGB888_TO_RGB666;
-+		}
-+		break;
-+	case MEDIA_BUS_FMT_RGB666_1X18:
-+		val = FORMAT_RGB888_TO_RGB666;
-+		break;
-+	case MEDIA_BUS_FMT_RGB565_1X16:
-+		val = FORMAT_RGB565_TO_RGB565;
-+		break;
-+	}
-+
-+	regmap_update_bits(pdfc->regmap, IMX93_DISPLAY_MUX_REG, mask, val);
-+}
-+
-+/* TODO: Add YUV formats */
-+static const u32 imx93_pdfc_bus_output_fmts[] = {
-+	MEDIA_BUS_FMT_FIXED,
-+	MEDIA_BUS_FMT_RGB888_1X24,
-+	MEDIA_BUS_FMT_RGB666_1X18,
-+	MEDIA_BUS_FMT_RGB565_1X16,
-+};
-+
-+static bool imx93_pdfc_bus_output_fmt_supported(const  u32 fmt)
-+{
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(imx93_pdfc_bus_output_fmts); i++) {
-+		if (imx93_pdfc_bus_output_fmts[i] == fmt)
-+			return true;
-+	}
-+
-+	return false;
-+}
-+
-+static u32 *
-+imx93_pdfc_bridge_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
-+					    struct drm_bridge_state *bridge_state,
-+					    struct drm_crtc_state *crtc_state,
-+					    struct drm_connector_state *conn_state,
-+					    u32 output_fmt,
-+					    unsigned int *num_input_fmts)
-+{
-+	struct imx93_pdfc *pdfc = bridge_to_imx93_pdfc(bridge);
-+	u32 *input_fmts;
-+
-+	*num_input_fmts = 0;
-+
-+	input_fmts = kmalloc_obj(*input_fmts, GFP_KERNEL);
-+	if (!input_fmts)
-+		return NULL;
-+
-+	*num_input_fmts = 1;
-+
-+	if (!imx93_pdfc_bus_output_fmt_supported(output_fmt)) {
-+		dev_dbg(pdfc->dev, "No valid output bus-fmt detected, fallback to MEDIA_BUS_FMT_RGB888_1X24\n");
-+		input_fmts[0] = MEDIA_BUS_FMT_RGB888_1X24;
-+		return input_fmts;
-+	}
-+
-+	switch (output_fmt) {
-+	case MEDIA_BUS_FMT_RGB888_1X24:
-+	case MEDIA_BUS_FMT_RGB565_1X16:
-+		input_fmts[0] = output_fmt;
-+		break;
-+	case MEDIA_BUS_FMT_RGB666_1X18:
-+	case MEDIA_BUS_FMT_FIXED:
-+		input_fmts[0] = MEDIA_BUS_FMT_RGB888_1X24;
-+		break;
-+	}
-+
-+	return input_fmts;
-+}
-+
-+static int imx93_pdfc_bridge_atomic_check(struct drm_bridge *bridge,
-+					  struct drm_bridge_state *bridge_state,
-+					  struct drm_crtc_state *crtc_state,
-+					  struct drm_connector_state *conn_state)
-+{
-+	struct imx93_pdfc *pdfc = bridge_to_imx93_pdfc(bridge);
-+	const u32 format = bridge_state->output_bus_cfg.format;
-+
-+	if (imx93_pdfc_bus_output_fmt_supported(format))
-+		return 0;
-+
-+	dev_warn(pdfc->dev, "Unsupported output bus format: 0x%x\n", format);
-+
-+	return -EINVAL;
-+}
-+
-+static const struct drm_bridge_funcs funcs = {
-+	.attach			= imx93_pdfc_bridge_attach,
-+	.atomic_enable		= imx93_pdfc_bridge_atomic_enable,
-+	.atomic_duplicate_state	= drm_atomic_helper_bridge_duplicate_state,
-+	.atomic_destroy_state	= drm_atomic_helper_bridge_destroy_state,
-+	.atomic_get_input_bus_fmts	= imx93_pdfc_bridge_atomic_get_input_bus_fmts,
-+	.atomic_check		= imx93_pdfc_bridge_atomic_check,
-+	.atomic_reset		= drm_atomic_helper_bridge_reset,
-+};
-+
-+static int imx93_pdfc_bridge_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct drm_bridge *next_bridge;
-+	struct imx93_pdfc *pdfc;
-+	struct device_node *ep;
-+	int err;
-+
-+	pdfc = devm_drm_bridge_alloc(dev, struct imx93_pdfc, bridge, &funcs);
-+	if (IS_ERR(pdfc))
-+		return PTR_ERR(pdfc);
-+
-+	pdfc->regmap = syscon_node_to_regmap(dev->of_node->parent);
-+	if (IS_ERR(pdfc->regmap))
-+		return dev_err_probe(dev, PTR_ERR(pdfc->regmap),
-+				     "failed to get regmap\n");
-+
-+	/* No limits per default */
-+	pdfc->phy_bus_width = 24;
-+
-+	/* Get output ep (port1/endpoint) */
-+	ep = of_graph_get_endpoint_by_regs(dev->of_node, 1, -1);
-+	if (ep) {
-+		err = of_property_read_u32(ep, "bus-width", &pdfc->phy_bus_width);
-+		of_node_put(ep);
-+
-+		/* bus-width is optional but it must have valid data if present */
-+		if (err && err != -EINVAL)
-+			return dev_err_probe(dev, err,
-+					     "failed to query bus-width\n");
-+	}
-+
-+	next_bridge = devm_drm_of_get_bridge(dev, dev->of_node, 1, 0);
-+	if (IS_ERR(next_bridge))
-+		return dev_err_probe(dev, PTR_ERR(next_bridge),
-+				     "failed to get next bridge\n");
-+	pdfc->dev = dev;
-+	pdfc->bridge.of_node = dev->of_node;
-+	pdfc->bridge.type = DRM_MODE_CONNECTOR_DPI;
-+	pdfc->bridge.next_bridge = next_bridge;
-+
-+	return devm_drm_bridge_add(dev, &pdfc->bridge);
-+}
-+
-+static const struct of_device_id imx93_pdfc_dt_ids[] = {
-+	{ .compatible = "nxp,imx93-pdfc", },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, imx93_pdfc_dt_ids);
-+
-+static struct platform_driver imx93_pdfc_bridge_driver = {
-+	.probe	= imx93_pdfc_bridge_probe,
-+	.driver	= {
-+		.of_match_table = imx93_pdfc_dt_ids,
-+		.name = "imx93_pdfc",
-+	},
-+};
-+module_platform_driver(imx93_pdfc_bridge_driver);
-+
-+MODULE_DESCRIPTION("NXP i.MX93 parallel display format configuration driver");
-+MODULE_AUTHOR("Liu Ying <victor.liu@nxp.com>");
-+MODULE_LICENSE("GPL");
+>  
+> @@ -958,11 +958,11 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
+>  	if (connector_type == DRM_MODE_CONNECTOR_Unknown)
+>  		return ERR_PTR(-EINVAL);
+>  
+>  	if (bridge_connector->bridge_hdmi) {
+>  		if (!connector->ycbcr_420_allowed)
+> -			supported_formats &= ~BIT(HDMI_COLORSPACE_YUV420);
+> +			supported_formats &= ~BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR420);
+>  
+>  		bridge_connector->hdmi_funcs = drm_bridge_connector_hdmi_funcs;
+>  
+>  		if (bridge_connector->bridge_hdmi->ops & DRM_BRIDGE_OP_HDMI_AUDIO)
+>  			bridge_connector->hdmi_funcs.audio =
+> [... snip ...]
 
--- 
-2.47.3
 
 
