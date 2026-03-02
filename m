@@ -4,145 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1870D58E7E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 08:42:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D97D2D58E7A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 08:46:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g7B6E7k51Xq185j9LrcM+nzga3IaR7/VAV8IpRhu9oY=; b=hLcEzHOPgUtaa0xhE3q2wQ+KKm
-	MQCC+CvP6aTqlfXaSqaKurUJ3cA5l4Jx2AOrr99y5FgmZ4g7W+5RMgdSZ32LS4M0OIH+OpqKf9VmY
-	VEPLTydEwEcN+0U24A+OAt3Ysm68w7XZ1n4VLEpeYILo58UbfiPcnUBEkHtm0iiBMRCM7AjEKRLik
-	6fsjJWeenJJ1wVM2+Ky9CrKq7E4hCgtIKgdQnyIhtb1e503XPnj4SkXJ8lWzIhV056Nuv5OHs2nAr
-	OKCVjzBT+A1D4zopL1vvQLXNIvQEHuGXHUVimmNQp/UUtU0FhWSTTaN8DFokzbme/ohwtfh8VRx41
-	U/dJ8kEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OMCtZh3s1MPyX6OvpvOhiWfZ85Z4lv+T3YdJvZr1/y4=; b=LQmmXbZF8Dqe3lIY657/9PvuYS
+	r+6Pk+INxe00e+Oai+evzQ2iRfEbmzg0ZVDwHlDxImSfgK2uH2Ur8I16FqMExJtyVdCwq9fWthCdv
+	HzZzwe5CSCRk4axsea4CT0Iad2LkLGMa4dY6FagMwHMNNiEQlaDlDUdyVU0pqiR+N1MjPFEp0q/BP
+	SsBpV+hwNnYZPM83/F2YG6g3ipJSHkjaKMjYQmtbiEqOu72NAGX1rVCHhPjzMqH1GU2W15dpHyOFW
+	kWrO+7mNloWHOHCW2OJ9ceV6TKT2+KverXYm0y5UczEy/RntqLuokri+D7Iz2SyPQ2MTkhShTMngb
+	kVILIw5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwyrK-0000000CXAb-26GO;
-	Mon, 02 Mar 2026 08:42:34 +0000
-Received: from mail-northeuropeazon11011029.outbound.protection.outlook.com ([52.101.65.29] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1vwyur-0000000CXiA-2hKs;
+	Mon, 02 Mar 2026 08:46:13 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwyrH-0000000CX9B-0Wv1
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 08:42:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QOjyCl4EIpxAZiIxQr6DRpGGqfHvBbKgBACYhrXf2Tz0UxN5LBlWGvu6csQzpGGP1qBNoPvWBbZtKDKsKv9Wjn2CCZkQ5WPu5u68bGG8ITIPcD9V0QNLtzTfKd7c8+bIHcxusnihQ70xwFT8hdBnoWs+iCQd9YbmFdKV98wAslawlq3n2+DdwnCM+7E4v1PZvwWUrZJk+1zq5HupHASXg8tZ4RJJpRlp9b7SQYpUK2/2WXHkWJhARupaPT2hmekH3n8+cuVYY9cXEY1gBiDQs4VlQxzBivKmUb4RxO4IMjOom1wIve6UfIkBV1+PMFdT3IBNF2e9CSYQJcJ0UCVPsA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=g7B6E7k51Xq185j9LrcM+nzga3IaR7/VAV8IpRhu9oY=;
- b=Z8y4OrjSxw+e6sGwUHGZp28Ue3Xng//x81oSGcH/f9eFEZr4lh59Y+zlbmkX9rXpb568kfBSy0rCCBBaxV3MTzk67YZZxR78HyRIk55VURNOd01D661xk1KSc/OJm2ptI6DA7EyuOKd84qMGosnfYx+kDH+cjoHNNDcBB3wOsAKie6BSHeOEJQp9VxgqGDSSlZRGy8gSEIn8JOeNcga7CoqUrHgyektycaUW1/SZXUYBu5qNmv5iOkocu6zzwGr5hs2qp56lYZpjTQr3Gp0t6yeYYFQHWMT1gPWOOHbe9OKpm0jUVItDt01Y5pMJISwZclvbmgN6q6DEJGLRNY+Unw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=g7B6E7k51Xq185j9LrcM+nzga3IaR7/VAV8IpRhu9oY=;
- b=TEnLcVqh04U/XrsrRLgJ4mviTPRfGlnuowX8YEYatJnbDSDJGMLHaf+6dM6sTB9O+C3H2K7jRkHMkUI4DmFOhjMvqymFd6GFZIAKCeOU0c7tikN1VkuAv4bUsSVYiEsMeVUAs0LwujDJpNNoghfB8wpYSNn/JdGfyL+ADYA9oGPLtTIP10xBkImS/Tlm5IRCNvfNE08Cn9U0XLcjByBBIrOP1x5SlO/azS0Ld3PfVdWrhx+gLOqW/uHcyLAoU0zYus7wrPISCQg6z1m84pW2tWv6v0U7B32rijOzQg1uV5MsAflIPjiNmmm03Zxn4BegEozkHmRxu5jb6rz8b95JLQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DB9PR04MB9378.eurprd04.prod.outlook.com (2603:10a6:10:36a::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.18; Mon, 2 Mar
- 2026 08:42:26 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%7]) with mapi id 15.20.9632.017; Mon, 2 Mar 2026
- 08:42:25 +0000
-Date: Mon, 2 Mar 2026 16:44:22 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Sebin Francis <sebin.francis@ti.com>,
-	Brian Masney <bmasney@redhat.com>, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v7 6/6] clk: scmi: Add i.MX95 OEM extension support for
- SCMI clock driver
-Message-ID: <aaVN5lr3JBi6LwYX@shlinux89>
-References: <20251231-clk-ssc-v7-1-v7-0-380e8b58f9e3@nxp.com>
- <20251231-clk-ssc-v7-1-v7-6-380e8b58f9e3@nxp.com>
- <aaK9HOMWNCb0wzq_@pluto>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aaK9HOMWNCb0wzq_@pluto>
-X-ClientProxiedBy: SG2P153CA0038.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c6::7)
- To PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+	id 1vwyup-0000000CXhj-1WfP;
+	Mon, 02 Mar 2026 08:46:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D42EB437BD;
+	Mon,  2 Mar 2026 08:46:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A83AC19423;
+	Mon,  2 Mar 2026 08:46:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772441169;
+	bh=YLIStkIR1KJnf5YwD17+MZnntYrS4W0CEDe/6e+dJPw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=s5TC01paLL43eTxonms1l0UTMB4QscnLOYJJh0RDmcC95ZK4NIh4yD4712OZgUuCL
+	 tGqNwHCeuKPPfd/Y9RMuzjFpMVmtx4gMtyFak2D4RcHbIe5Vj6uBb69MFJcJn8i1MV
+	 LZ3G6cmaomOi4BrrxqreSH1M6xtIAVmo/cePrRxgpg98RMOH0Y27kjzCOFgFY32W9Z
+	 YScYRspyy630xCT3XFhu+bPmy9R1s9nWAjo80hSv3xIbOX0venX94Nvrxjj1aRNf4p
+	 kRf4aeZrCSzUJ13Por+I5nwALTVi5dTSqYKsEbG78P6SkwRUpll2ijXXo3iGzov5Qj
+	 htsykmjAjatjw==
+Date: Mon, 2 Mar 2026 09:46:06 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <skhan@linuxfoundation.org>, kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org
+Subject: Re: [PATCH v9 04/19] drm/display: hdmi-state-helper: Act on color
+ format DRM property
+Message-ID: <20260302-literate-shrew-of-health-ec19d2@houat>
+References: <20260227-color-format-v9-0-658c3b9db7ef@collabora.com>
+ <20260227-color-format-v9-4-658c3b9db7ef@collabora.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DB9PR04MB9378:EE_
-X-MS-Office365-Filtering-Correlation-Id: 638e52f0-c290-4f75-53fa-08de7837a129
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|7416014|376014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: C+oJFUH7mYU1kw8Cre54GDQ35OoBjksjuwcoxM5ZHzlzs9/WHaLITxCNF/wj5dRfXCB7CXTVRYR3P4eH18GcsAgKq+lX342kUBfAOxtPiCOT2IhqFHR9m8KZN53K8xl6yI2vmq4u6VqQovLwqWVvd/BN6UxRtV8iNk1xPKtra0yZnup/M8zB3iaVa262p3Lcq8Wuru6x5arrJ5n0Sa/Y5Ku3xEykqNv89egI5RJUytbU8Bhv6B+XOXUB47gLFympy/4C0QiVgDPoDd0bCO76DuygP/oJqIlS0p4qNGJoN1nnf1quF6DFOgg3ZshGO3URDVLl/wtsh7DrT2NfaYDe9EX+z/HYIr2Sxm1R10eiA7XBfZGAW4z4/F7zU2Spv3uM1Xv7TOwFuQTcdw+n0uGOrw5snegzrbylU+X6E88LIRswsVpB1RQXwpMctTEFmRhpOJBpzmBQ2sKcDJYgDaVSltKYcBsvWDPFYPlSxvFgxPg+opOJaJ2Hfl2YOHahqd5JImWjjiGNAilXXbmkXppwghDMFDgccZ5YO9U5lff7GR9OtTkT16q3DxuXyg2vAULsOhRRE65DUdGa0FAES2JiaseNGFCgSC8uIuskYZesQzBDZPdHP9UqXnWEB9Do94tZ488AzXXj6NboemC5shoFVcOZ8k5Qixv+5KmswDKvuxFhlQzXSWxruoGaMvV8am/lWXdoG0bxsxatt38tAfKLcnDdj+jx9kRBRk8UtgoZ2zNWRAq6iBPmLSmaLRIZaxx7x4+UCfZPjsMjDJi6zyQkDzYmVxY/UrJ9dfRkmJgcJ94=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(7416014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MHNVM2wyQXZwQzkrUGY2UE9QaHJLMUFTSHZlb0xJUWFucWtmZUxCNFdNSFZa?=
- =?utf-8?B?ZXUwdGxPeUxjU1ZmNnpFNVZuaS9MWUJsQU52a29ERzVNcmRvOVN1SXMraGhI?=
- =?utf-8?B?U3NRQ0FNWmxHaWtobDdsblFaSy92UmZHWi81bXdTTUtHT1NtSDRkVFNFWEZE?=
- =?utf-8?B?Q2pUN2pNaVdnOEtqUDQrQ3BBS1VBMFRnY3dnSU5JRXQ1MElodlpHODQvWEE0?=
- =?utf-8?B?a2FraHBnUWwrbXpibDUyeUdQblgwaVlLL25XKzNFdEJISXU2MlpRdTJoWmVB?=
- =?utf-8?B?RUllNWhKbWprdFJReUM0Q1BKU2RqckNiUEFBVlozTGNpNUhYMFRJc1h6U2tJ?=
- =?utf-8?B?d1ZHaFFNbG52bFFzSU9NNWJqL2tHcmIwb0FsNUo5bDk5UnM2bUJvUnZwTHB2?=
- =?utf-8?B?WHBjSmhzRUZsb1BFbGZZZnFVeDlFNW1hcTY0NTNRbUFaaDVndUlvekx1NG9X?=
- =?utf-8?B?amZmak9MdEdvT0JjUlpKTHQxZzVrKzJSbWxpczlIQjVmUDdPcHBoZ2wzVTRh?=
- =?utf-8?B?RGNCa3MrbjRwaUpBWnZUaFhjMzlVQVppS1dFLzhmd3ppM1FCdzVsQThJNW1K?=
- =?utf-8?B?S1FPaGpwWTA0cjR6dnRpUGRubURRcHBmUThMYmRySFRMTkIrSmtEckZ1UUtL?=
- =?utf-8?B?eVN2bGxac1VKNjBsZVBFMDdDUnYvRXdBQXdENm1wWnpXYkVhWVJYNEtJS1gy?=
- =?utf-8?B?SE04cFVZcTRxKzVGN3RmZ2IyZGpkdlp3TlFNN1o0T2dZdmhVdEJQS0lpQ0NE?=
- =?utf-8?B?ZkZXeStqeFlxbGRYenUzdG91RTlrZi94YzhpMXFOSU95SXhzYVdva01ZaE9J?=
- =?utf-8?B?djhmRVpoMVpVNmxWTzRuLzNKc1JCYVNkOWFtcjlxY2haakMySnhOL1M3emUz?=
- =?utf-8?B?ZWZQMks5QVNVclJBZFo2SUU1TCtVck5ZdTc0cG8vTVZ3bzBTYnhjSzZyc2c3?=
- =?utf-8?B?djJFaWZQQXluRzY4YllDdzMwQStrUjl6ZnRBU1U3RFNjNVRSVzdFc3JHbEg1?=
- =?utf-8?B?NHFGY2ZVMEdSV08xWWIvSUM3T2J1WGNKc0pSOVgxcjR4MjVTMHBDaTlGUmZ1?=
- =?utf-8?B?UTJwU29NNVVjbmZ4YkUvVXJ6dkpQakcxRmJ2akJuYWpnR3lhSzFld0FRLysr?=
- =?utf-8?B?VnZnQUxQbzNxTUxYekhSUS9xbUxmRWd3MFNTSW8wVXlqUk9qanVKOXpLcFZI?=
- =?utf-8?B?RDhhL3dLNWJzTTdkZlM5dEhKajBQbENhbHZ5d1FldkdBS0Y0anErK0pOeVZt?=
- =?utf-8?B?aldLVW16OTRSSXJGbDRvckNHeDArbFFOTnFZbjcrdzlaV0M3VlpVV1BoSWpq?=
- =?utf-8?B?bFJXd1RvcklFTFBpWmhwYjZ0L1ZMUWlEZmJhZ2dyS0JvVjlHVFhBNCtkWEEy?=
- =?utf-8?B?ckpLdVE4ODFWTnFSVHFrY2ovZW5iMjJkMWdVYmgwTjBRdmUrUWFBV0sreU9p?=
- =?utf-8?B?T0IrK3dFRXJ3VFpUdXdQbkRlcW13OUVOQWJuMm9KTW9MMUFDVWhRcHQ5VFhR?=
- =?utf-8?B?eXpLMzNCUkNLSmw3ZFp6bmFOYUVHQmp3Ukh6T0NZWVp5TXFXMkJ6QUJjNld3?=
- =?utf-8?B?QUJ3bmNibDR5RzF1ZkRwTU9WMElXdjVUU2Z1MngxSE14dlliMWpOTHYzb0Fk?=
- =?utf-8?B?a1JaTXQ4ZkZ4N3JDYXlWODRoclFzdGs4dDhBQkQ4K2RhZ1c2MVFWYkZmOG1w?=
- =?utf-8?B?OER0K0dtZ0JURmFlTVdDOFlDVUpjN2phcWlsQ1hlRGtZWmZaaWlhOERUNzR2?=
- =?utf-8?B?VkJmL0ZBRnh1QWU0VzBuYllyRjhIblB1V1cwMm9mQ1ppYjRoZERpSTVmSS94?=
- =?utf-8?B?N1N1bHNFS0x1cCtGZEZoODNURElZSFdoT0k1NjRWcW5HQVV6T0QxMldFSVAw?=
- =?utf-8?B?emtvZE5OVjN4Z3dKb1RUSnlPTmNLa001Z0RmOFVwUG1uUHVSbmRFZXFZMlZV?=
- =?utf-8?B?ZmtBT0cybDdzSmMrOXlGMzRHMzdKbE5RT2dhSiswMkFpWVErc3pRTzN5ZnBa?=
- =?utf-8?B?M25WMlhIYnozUTVOMnp1RGxqTVlFb1pMSHZHYUZBMFc0dFhPQ1gzV3ZWdWdI?=
- =?utf-8?B?ZzNZNWx4bmViaE5kc1Q1QWhxZ3RzbkZKeUhrZ0R5dzBkbmIvcHhtR1lMay82?=
- =?utf-8?B?TlZQbjc0Y09TM21ob0tVb0E4M05ZRit3dlBRSXFYUnVqV2VhVktHV2JGSVNo?=
- =?utf-8?B?TkdJRS9qNXAzVHF5aXY4bTVXL0YwaXc0elFTbVFKcFZpdHp4QkdnSWpieXQ4?=
- =?utf-8?B?cTdtL0kxeDZWUVZFV0Z1dkhMZzdsWnY4cXJuVC81NkNmQWJrSi8xUm9sNGxP?=
- =?utf-8?B?MjNxVVRzT2p5a0tNKy9TNUdpa0ZTamdDTFErcU9ud3NpbUNNaFFWZz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 638e52f0-c290-4f75-53fa-08de7837a129
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Mar 2026 08:42:25.8160
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4TpOyIqN6W/c8SOKbG67Z2apyoO8aWMsFrmfSKi7pulvMX4Wf9Flc8vjTcyqsxp4H6VP0dWcq8PHmAul9tv4nw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9378
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="vlv6rbxnnxkik4dv"
+Content-Disposition: inline
+In-Reply-To: <20260227-color-format-v9-4-658c3b9db7ef@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_004232_354484_6C3B6D25 
-X-CRM114-Status: GOOD (  24.19  )
+X-CRM114-CacheID: sfid-20260302_004611_443014_D9B8C9B7 
+X-CRM114-Status: GOOD (  23.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,206 +88,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cristian,
 
-Thanks for reviewing!
+--vlv6rbxnnxkik4dv
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v9 04/19] drm/display: hdmi-state-helper: Act on color
+ format DRM property
+MIME-Version: 1.0
 
-On Sat, Feb 28, 2026 at 10:02:04AM +0000, Cristian Marussi wrote:
->On Wed, Dec 31, 2025 at 06:12:53PM +0800, Peng Fan (OSS) wrote:
->> +
->> +struct scmi_clk_oem_info {
->> +	char *vendor_id;
->> +	char *sub_vendor_id;
->> +	char *compatible;
->
->I suppose different OEM per impl_ver is overkill...and maybe better
->to be trated as a bug if it happens leveraging the Quirk framework..
+Hi,
 
-Hope I not get you wrong. impl_ver is not used here.
-compatible is machine compatible string.
+On Fri, Feb 27, 2026 at 08:20:09PM +0100, Nicolas Frattaroli wrote:
+> With the introduction of the "color format" DRM property, which allows
+> userspace to request a specific color format, the HDMI state helper
+> should implement this.
+>=20
+> Implement it by translating the requested drm_connector_color_format to
+> a drm_output_color_format enum value as per the logic HDMI should use
+> for this: Auto is translated to RGB, and a fallback to YUV420 is only
+> performed if the original color format was auto.
+>=20
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+>  drivers/gpu/drm/display/drm_hdmi_state_helper.c | 28 +++++++++++++++++++=
+++++--
+>  1 file changed, 26 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gp=
+u/drm/display/drm_hdmi_state_helper.c
+> index 9f3b696aceeb..31c6d55fa995 100644
+> --- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> +++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> @@ -669,10 +669,34 @@ hdmi_compute_config(const struct drm_connector *con=
+nector,
+>  	unsigned int max_bpc =3D clamp_t(unsigned int,
+>  				       conn_state->max_bpc,
+>  				       8, connector->max_bpc);
+> +	enum drm_output_color_format fmt;
+>  	int ret;
+> =20
+> -	ret =3D hdmi_compute_format_bpc(connector, conn_state, mode, max_bpc,
+> -				      DRM_OUTPUT_COLOR_FORMAT_RGB444);
+> +	switch (conn_state->color_format) {
+> +	case DRM_CONNECTOR_COLOR_FORMAT_AUTO:
+> +	case DRM_CONNECTOR_COLOR_FORMAT_RGB444:
+> +		fmt =3D DRM_OUTPUT_COLOR_FORMAT_RGB444;
+> +		break;
+> +	case DRM_CONNECTOR_COLOR_FORMAT_YCBCR444:
+> +		fmt =3D DRM_OUTPUT_COLOR_FORMAT_YCBCR444;
+> +		break;
+> +	case DRM_CONNECTOR_COLOR_FORMAT_YCBCR422:
+> +		fmt =3D DRM_OUTPUT_COLOR_FORMAT_YCBCR422;
+> +		break;
+> +	case DRM_CONNECTOR_COLOR_FORMAT_YCBCR420:
+> +		fmt =3D DRM_OUTPUT_COLOR_FORMAT_YCBCR420;
+> +		break;
+> +	default:
+> +		drm_dbg_kms(connector->dev, "HDMI does not support color format '%d'.\=
+n",
+> +			    conn_state->color_format);
+> +		return -EINVAL;
+> +	}
+> +
+> +	ret =3D hdmi_compute_format_bpc(connector, conn_state, mode, max_bpc, f=
+mt);
+> +
+> +	if (conn_state->color_format !=3D DRM_CONNECTOR_COLOR_FORMAT_AUTO)
+> +		return ret;
+> +
 
-The OEM matching introduced in this patch is strictly based
-on SCMI vendor_id and sub_vendor_id as reported by the firmware. There is no
-dependency on impl_ver, nor do we intend to distinguish OEM behavior based on
-implementation version.
+We discussed it before, and it wasn't as trivial as it should have been,
+but now, I really feel something like the following would be simpler:
 
-If in the future any firmware shows inconsistent behavior across different
-impl_ver, we agree that this should be treated as a firmware bug and
-handled through the existing SCMI quirk framework.
+if (conn_state->color_format !=3D DRM_CONNECTOR_COLOR_FORMAT_AUTO) {
+	enum drm_output_color_format fmt;
 
-I could add a comment for the structure in next version:
-/*
- * Selection is based on SCMI vendor_id/sub_vendor_id and optional machine
- * comaptible string, without involving impl_ver. impl_ver‑specific behavior
- * should be handled via the SCMI Quirk framework
- */
+	switch (conn_state->color_format) {
+	case DRM_CONNECTOR_COLOR_FORMAT_AUTO:
+	     drm_warn(connector->dev, "The format shouldn't be auto here"); // or =
+any better message
+	     fallthrough;
+	case DRM_CONNECTOR_COLOR_FORMAT_RGB444:
+	     fmt =3D DRM_OUTPUT_COLOR_FORMAT_RGB444;
+	     break;
+	....
+	}
 
->
->> +	const void *data;
->> +};
->> +
->> +static int
->> +scmi_clk_imx_set_spread_spectrum(struct clk_hw *hw,
->> +const struct scmi_clk_oem_info info[] = {
->
->Any reason why this cannot be made static too ?
->Given that you just embed it with set_drvdata and then get_drvdata
->back from the main clk driver...
+	return hdmi_compute_format_bpc(connector, conn_state, mode, max_bpc, fmt);
+}
 
-Fix in next version.
+ret =3D hdmi_compute_format_bpc(connector, conn_state, mode, max_bpc,
+			      DRM_OUTPUT_COLOR_FORMAT_RGB444);
 
-Thanks,
-Peng
+It makes it much clearer what the two branches are, and we don't have to
+test for auto multiple times.
 
->
->> +	{ SCMI_IMX_VENDOR, SCMI_IMX_SUBVENDOR, NULL, &scmi_clk_oem_imx },
->> +};
->> +
->> +int scmi_clk_oem_init(struct scmi_device *sdev)
->> +{
->> +	const struct scmi_handle *handle = sdev->handle;
->> +	int i, size = ARRAY_SIZE(info);
->> +
->> +	for (i = 0; i < size; i++) {
->> +		if (strcmp(handle->version->vendor_id, info[i].vendor_id) ||
->> +		    strcmp(handle->version->sub_vendor_id, info[i].sub_vendor_id))
->> +			continue;
->> +		if (info[i].compatible &&
->> +		    !of_machine_is_compatible(info[i].compatible))
->> +			continue;
->> +
->> +		break;
->> +	}
->> +
->> +	if (i < size)
->> +		dev_set_drvdata(&sdev->dev, (void *)info[i].data);
->> +
->> +	return 0;
->> +}
->> diff --git a/drivers/clk/clk-scmi.c b/drivers/clk/clk-scmi.c
->> index bf85924d61985eb9e596419349eb883e3817de73..1ed2091e3d4a951c8662db4c94dee4b9c98b8326 100644
->> --- a/drivers/clk/clk-scmi.c
->> +++ b/drivers/clk/clk-scmi.c
->> @@ -14,6 +14,8 @@
->>  #include <linux/scmi_protocol.h>
->>  #include <asm/div64.h>
->>  
->> +#include "clk-scmi.h"
->> +
->>  const struct scmi_clk_proto_ops *scmi_proto_clk_ops;
->>  
->>  static unsigned long scmi_clk_recalc_rate(struct clk_hw *hw,
->> @@ -242,6 +244,7 @@ static int scmi_clk_ops_init(struct device *dev, struct scmi_clk *sclk,
->>  static const struct clk_ops *
->>  scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
->>  {
->> +	struct scmi_clk_oem *oem_data = dev_get_drvdata(dev);
->>  	struct clk_ops *ops;
->>  
->>  	ops = devm_kzalloc(dev, sizeof(*ops), GFP_KERNEL);
->> @@ -288,11 +291,15 @@ scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
->>  		ops->set_duty_cycle = scmi_clk_set_duty_cycle;
->>  	}
->>  
->> +	if (oem_data && (feats_key & BIT(SCMI_CLK_EXT_OEM_SSC_SUPPORTED)))
->> +		ops->set_spread_spectrum = oem_data->set_spread_spectrum;
->> +
->>  	return ops;
->>  }
->>  
->>  /**
->>   * scmi_clk_ops_select() - Select a proper set of clock operations
->> + * @sdev: pointer to the SCMI device
->>   * @sclk: A reference to an SCMI clock descriptor
->>   * @atomic_capable: A flag to indicate if atomic mode is supported by the
->>   *		    transport
->> @@ -317,8 +324,8 @@ scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
->>   *	   NULL otherwise.
->>   */
->>  static const struct clk_ops *
->> -scmi_clk_ops_select(struct scmi_clk *sclk, bool atomic_capable,
->> -		    unsigned int atomic_threshold_us,
->> +scmi_clk_ops_select(struct scmi_device *sdev, struct scmi_clk *sclk,
->> +		    bool atomic_capable, unsigned int atomic_threshold_us,
->>  		    const struct clk_ops **clk_ops_db, size_t db_size)
->>  {
->>  	int ret;
->> @@ -326,6 +333,7 @@ scmi_clk_ops_select(struct scmi_clk *sclk, bool atomic_capable,
->>  	const struct scmi_clock_info *ci = sclk->info;
->>  	unsigned int feats_key = 0;
->>  	const struct clk_ops *ops;
->> +	struct scmi_clk_oem *oem_data = dev_get_drvdata(&sdev->dev);
->>  
->>  	/*
->>  	 * Note that when transport is atomic but SCMI protocol did not
->> @@ -350,6 +358,9 @@ scmi_clk_ops_select(struct scmi_clk *sclk, bool atomic_capable,
->>  						 &val, NULL, false);
->>  		if (!ret)
->>  			feats_key |= BIT(SCMI_CLK_DUTY_CYCLE_SUPPORTED);
->> +
->> +		if (oem_data && oem_data->query_ext_oem_feats)
->> +			oem_data->query_ext_oem_feats(sclk->ph, sclk->id, &feats_key);
->>  	}
->>  
->>  	if (WARN_ON(feats_key >= db_size))
->> @@ -407,6 +418,8 @@ static int scmi_clocks_probe(struct scmi_device *sdev)
->>  	clk_data->num = count;
->>  	hws = clk_data->hws;
->>  
->> +	scmi_clk_oem_init(sdev);
->> +
->>  	transport_is_atomic = handle->is_transport_atomic(handle,
->>  							  &atomic_threshold_us);
->>  
->> @@ -438,7 +451,7 @@ static int scmi_clocks_probe(struct scmi_device *sdev)
->>  		 * to avoid sharing the devm_ allocated clk_ops between multiple
->>  		 * SCMI clk driver instances.
->>  		 */
->> -		scmi_ops = scmi_clk_ops_select(sclk, transport_is_atomic,
->> +		scmi_ops = scmi_clk_ops_select(sdev, sclk, transport_is_atomic,
->>  					       atomic_threshold_us,
->>  					       scmi_clk_ops_db,
->>  					       ARRAY_SIZE(scmi_clk_ops_db));
->> diff --git a/drivers/clk/clk-scmi.h b/drivers/clk/clk-scmi.h
->> index 6ef6adc77c836dc2d599ff852cdc941f217ee388..d7f63f36c56d155f728325efd6bcf7fe2585b170 100644
->> --- a/drivers/clk/clk-scmi.h
->> +++ b/drivers/clk/clk-scmi.h
->> @@ -7,6 +7,7 @@
->>  #define __SCMI_CLK_H
->>  
->>  #include <linux/bits.h>
->> +#include <linux/clk-provider.h>
->>  #include <linux/scmi_protocol.h>
->>  #include <linux/types.h>
->>  
->> @@ -19,6 +20,7 @@ enum scmi_clk_feats {
->>  	SCMI_CLK_RATE_CTRL_SUPPORTED,
->>  	SCMI_CLK_PARENT_CTRL_SUPPORTED,
->>  	SCMI_CLK_DUTY_CYCLE_SUPPORTED,
->> +	SCMI_CLK_EXT_OEM_SSC_SUPPORTED,
->>  	SCMI_CLK_FEATS_COUNT
->>  };
->>  
->> @@ -37,4 +39,13 @@ struct scmi_clk {
->>  
->>  extern const struct scmi_clk_proto_ops *scmi_proto_clk_ops;
->>  
->> +struct scmi_clk_oem {
->> +	int (*query_ext_oem_feats)(const struct scmi_protocol_handle *ph,
->> +				   u32 id, unsigned int *feats_key);
->> +	int (*set_spread_spectrum)(struct clk_hw *hw,
->> +				   const struct clk_spread_spectrum *ss_conf);
->> +};
->> +
->> +int scmi_clk_oem_init(struct scmi_device *dev);
->> +
->>  #endif
->>
->
->Other than the above, LGTM.
->
->Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
->
->Thanks,
->Cristian
+Maxime
+
+--vlv6rbxnnxkik4dv
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaaVOSgAKCRAnX84Zoj2+
+duj9AYC6G+CPt23Nm72keJB2VkI/OrdBkSffWrgwixDMIES2m/uxHVPMi8koLjpl
+BYFiCIUBf0RielKN8kXZvqBYg3FOuVBkylhQtEUK3blNIgR3cHtExnVL3+ecatTR
+DqljNp/Vrw==
+=9ih2
+-----END PGP SIGNATURE-----
+
+--vlv6rbxnnxkik4dv--
 
