@@ -4,57 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4125D58E65
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 06:45:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72EF4D58E6C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 06:55:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kanCFeNtmoqsE80GUPjGn4xqHS1sdBUq7vbrjsSrXI8=; b=2E0CMXXBkDkU/JS3ukQBm3zO/V
-	8Uf6YGYZOyyE0C19wtK8g1SrTXTR0ke7dnJa7+QQWLrll97zu+q4z0VLWphBUSWyhM2b6dPvJSU4X
-	07+fZyL2cgCzdXG26BgD84nSUgKIXtCJ3bdQLl6iRELTNTr5s/bhovODm/Aqr2WjP1hwhVXCDf80z
-	a8G0soMQxVlQBe32yBsXkgCkTdG9WNxzyI/RtFmORCjJfiOCDDVeVi9VRxxpi1cUVUgO0Sw93+VCc
-	6XJoa5jLzVPyk/fZVIktcAYRkA3ZR0WMNf0urOoJNWVf62U7yIEEdeus4qiqqx0eLsmGPQcv5BTqX
-	gIvaAIvA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=C8gYYr7/QOZlGSHIGDha4QpWLq44tHecy3o5Aaz/+gM=; b=jvXEz2kqkVMKMtJfo/4XRtLsxQ
+	EtmPkYR0vLiR0EAOI/X60nOlF3uLwZJlJiJn/pfjhEG0jX9oeikqV/h0FcGfKTuvwtu+N/20xim1/
+	tWm29sI4TrE54phh1T6ZL+zjvF9FbHiSGkj8/IifJzyLPTqGXRrsViAATAgqLBnH8EcH3d89z4LWe
+	vfP/nmpf2W9Oj+k90i9csYZyauYC1Dmc/CMKbuslLUA2lRH9epa4qnkPrctM7kDW9odu+14jey0z8
+	goHUt6HHCgZODKv25s9EBRaqYrh9pqGFo53C3AC+0ygb1bykJ2N5n/JgSE2Bt6vRRC1G6DtF4jbtA
+	mmptwCow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwx1U-0000000CMAL-2Z6h;
-	Mon, 02 Mar 2026 06:44:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwx1R-0000000CM7h-1AIC
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 06:44:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3A1DB1596;
-	Sun,  1 Mar 2026 22:44:45 -0800 (PST)
-Received: from ergosum.cambridge.arm.com (ergosum.cambridge.arm.com [10.1.196.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C2EF63F7BD;
-	Sun,  1 Mar 2026 22:44:49 -0800 (PST)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
+	id 1vwxBl-0000000CN2K-17dM;
+	Mon, 02 Mar 2026 06:55:33 +0000
+Received: from n169-110.mail.139.com ([120.232.169.110])
+	by bombadil.infradead.org with smtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vwxBh-0000000CN1K-1KfC;
+	Mon, 02 Mar 2026 06:55:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=139.com; s=dkim; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=jQYcORwvVGgafP32QYYiyirgUNSO0hmpd1mwGrFOa+QJsyHMnau8KoI8BwGSO9x717iUJVM4krK4Z
+	 CZ9p+Cs3zSsNOBWyFeyspR2TF+daA+eQHlSvtR/0qGZvsTeFAJfOOIecANcGR51ZA66C4X/Col8wqk
+	 dn1+34GaDj5BYJfE=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM: 
+X-RM-SPAM-FLAG: 00000000
+Received: from NTT-kernel-dev (unknown[60.247.85.88])
+	by rmsmtp-lg-appmail-03-12081 (RichMail) with SMTP id 2f3169a5345964b-01670;
+	Mon, 02 Mar 2026 14:55:24 +0800 (CST)
+X-RM-TRANSID: 2f3169a5345964b-01670
+From: Li hongliang <1468888505@139.com>
+To: gregkh@linuxfoundation.org,
+	stable@vger.kernel.org,
+	nbd@nbd.name
+Cc: patches@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: [PATCH V2 2/2] arm64/mm: Directly use TTBRx_EL1_CnP
-Date: Mon,  2 Mar 2026 06:44:37 +0000
-Message-Id: <20260302064437.2791034-3-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20260302064437.2791034-1-anshuman.khandual@arm.com>
-References: <20260302064437.2791034-1-anshuman.khandual@arm.com>
+	edumazet@google.com,
+	davem@davemloft.net,
+	dsahern@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	willemb@google.com,
+	netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	bpf@vger.kernel.org
+Subject: [PATCH 6.6.y 2/3] net: gso: fix tcp fraglist segmentation after pull from frag_list
+Date: Mon,  2 Mar 2026 14:55:22 +0800
+Message-Id: <20260302065522.2695626-1-1468888505@139.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_224453_444235_4CEF64F0 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20260301_225529_830105_18C4B023 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,103 +81,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace all TTBR_CNP_BIT macro instances with TTBRx_EL1_CNP_BIT which
-is a standard field from tools sysreg format. Drop the now redundant
-custom macro TTBR_CNP_BIT. No functional change.
+From: Felix Fietkau <nbd@nbd.name>
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: kvmarm@lists.linux.dev
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+[ Upstream commit 17bd3bd82f9f79f3feba15476c2b2c95a9b11ff8 ]
+
+Detect tcp gso fraglist skbs with corrupted geometry (see below) and
+pass these to skb_segment instead of skb_segment_list, as the first
+can segment them correctly.
+
+Valid SKB_GSO_FRAGLIST skbs
+- consist of two or more segments
+- the head_skb holds the protocol headers plus first gso_size
+- one or more frag_list skbs hold exactly one segment
+- all but the last must be gso_size
+
+Optional datapath hooks such as NAT and BPF (bpf_skb_pull_data) can
+modify these skbs, breaking these invariants.
+
+In extreme cases they pull all data into skb linear. For TCP, this
+causes a NULL ptr deref in __tcpv4_gso_segment_list_csum at
+tcp_hdr(seg->next).
+
+Detect invalid geometry due to pull, by checking head_skb size.
+Don't just drop, as this may blackhole a destination. Convert to be
+able to pass to regular skb_segment.
+
+Approach and description based on a patch by Willem de Bruijn.
+
+Link: https://lore.kernel.org/netdev/20240428142913.18666-1-shiming.cheng@mediatek.com/
+Link: https://lore.kernel.org/netdev/20240922150450.3873767-1-willemdebruijn.kernel@gmail.com/
+Fixes: bee88cd5bd83 ("net: add support for segmenting TCP fraglist GSO packets")
+Cc: stable@vger.kernel.org
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
+Reviewed-by: Willem de Bruijn <willemb@google.com>
+Link: https://patch.msgid.link/20240926085315.51524-1-nbd@nbd.name
+Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+Signed-off-by: Li hongliang <1468888505@139.com>
 ---
- arch/arm64/include/asm/pgtable-hwdef.h | 2 --
- arch/arm64/kernel/mte.c                | 4 ++--
- arch/arm64/kvm/hyp/nvhe/hyp-init.S     | 4 ++--
- arch/arm64/mm/context.c                | 2 +-
- arch/arm64/mm/mmu.c                    | 2 +-
- 5 files changed, 6 insertions(+), 8 deletions(-)
+ net/ipv4/tcp_offload.c   | 10 ++++++++--
+ net/ipv6/tcpv6_offload.c | 10 ++++++++--
+ 2 files changed, 16 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/include/asm/pgtable-hwdef.h b/arch/arm64/include/asm/pgtable-hwdef.h
-index d49180bb7cb3..5e6809a462c7 100644
---- a/arch/arm64/include/asm/pgtable-hwdef.h
-+++ b/arch/arm64/include/asm/pgtable-hwdef.h
-@@ -223,8 +223,6 @@
-  */
- #define S1_TABLE_AP		(_AT(pmdval_t, 3) << 61)
+diff --git a/net/ipv4/tcp_offload.c b/net/ipv4/tcp_offload.c
+index 03b2bf580997..36595709279c 100644
+--- a/net/ipv4/tcp_offload.c
++++ b/net/ipv4/tcp_offload.c
+@@ -104,8 +104,14 @@ static struct sk_buff *tcp4_gso_segment(struct sk_buff *skb,
+ 	if (!pskb_may_pull(skb, sizeof(struct tcphdr)))
+ 		return ERR_PTR(-EINVAL);
  
--#define TTBR_CNP_BIT		(UL(1) << 0)
--
- /*
-  * TCR flags.
-  */
-diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
-index 32148bf09c1d..eceead1686f2 100644
---- a/arch/arm64/kernel/mte.c
-+++ b/arch/arm64/kernel/mte.c
-@@ -315,8 +315,8 @@ void mte_cpu_setup(void)
- 	 * CnP is not a boot feature so MTE gets enabled before CnP, but let's
- 	 * make sure that is the case.
- 	 */
--	BUG_ON(read_sysreg(ttbr0_el1) & TTBR_CNP_BIT);
--	BUG_ON(read_sysreg(ttbr1_el1) & TTBR_CNP_BIT);
-+	BUG_ON(read_sysreg(ttbr0_el1) & TTBRx_EL1_CnP);
-+	BUG_ON(read_sysreg(ttbr1_el1) & TTBRx_EL1_CnP);
+-	if (skb_shinfo(skb)->gso_type & SKB_GSO_FRAGLIST)
+-		return __tcp4_gso_segment_list(skb, features);
++	if (skb_shinfo(skb)->gso_type & SKB_GSO_FRAGLIST) {
++		struct tcphdr *th = tcp_hdr(skb);
++
++		if (skb_pagelen(skb) - th->doff * 4 == skb_shinfo(skb)->gso_size)
++			return __tcp4_gso_segment_list(skb, features);
++
++		skb->ip_summed = CHECKSUM_NONE;
++	}
  
- 	/* Normal Tagged memory type at the corresponding MAIR index */
- 	sysreg_clear_set(mair_el1,
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-init.S b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
-index 0d42eedc7167..445eb0743af2 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-init.S
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
-@@ -130,7 +130,7 @@ SYM_CODE_START_LOCAL(___kvm_hyp_init)
- 	ldr	x1, [x0, #NVHE_INIT_PGD_PA]
- 	phys_to_ttbr x2, x1
- alternative_if ARM64_HAS_CNP
--	orr	x2, x2, #TTBR_CNP_BIT
-+	orr	x2, x2, #TTBRx_EL1_CnP
- alternative_else_nop_endif
- 	msr	ttbr0_el2, x2
+ 	if (unlikely(skb->ip_summed != CHECKSUM_PARTIAL)) {
+ 		const struct iphdr *iph = ip_hdr(skb);
+diff --git a/net/ipv6/tcpv6_offload.c b/net/ipv6/tcpv6_offload.c
+index 503a4338e37a..7567c32670c6 100644
+--- a/net/ipv6/tcpv6_offload.c
++++ b/net/ipv6/tcpv6_offload.c
+@@ -106,8 +106,14 @@ static struct sk_buff *tcp6_gso_segment(struct sk_buff *skb,
+ 	if (!pskb_may_pull(skb, sizeof(*th)))
+ 		return ERR_PTR(-EINVAL);
  
-@@ -291,7 +291,7 @@ SYM_TYPED_FUNC_START(__pkvm_init_switch_pgd)
- 	/* Install the new pgtables */
- 	phys_to_ttbr x5, x0
- alternative_if ARM64_HAS_CNP
--	orr	x5, x5, #TTBR_CNP_BIT
-+	orr	x5, x5, #TTBRx_EL1_CnP
- alternative_else_nop_endif
- 	msr	ttbr0_el2, x5
+-	if (skb_shinfo(skb)->gso_type & SKB_GSO_FRAGLIST)
+-		return __tcp6_gso_segment_list(skb, features);
++	if (skb_shinfo(skb)->gso_type & SKB_GSO_FRAGLIST) {
++		struct tcphdr *th = tcp_hdr(skb);
++
++		if (skb_pagelen(skb) - th->doff * 4 == skb_shinfo(skb)->gso_size)
++			return __tcp6_gso_segment_list(skb, features);
++
++		skb->ip_summed = CHECKSUM_NONE;
++	}
  
-diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
-index 718c495832d0..0f4a28b87469 100644
---- a/arch/arm64/mm/context.c
-+++ b/arch/arm64/mm/context.c
-@@ -354,7 +354,7 @@ void cpu_do_switch_mm(phys_addr_t pgd_phys, struct mm_struct *mm)
- 
- 	/* Skip CNP for the reserved ASID */
- 	if (system_supports_cnp() && asid)
--		ttbr0 |= TTBR_CNP_BIT;
-+		ttbr0 |= TTBRx_EL1_CnP;
- 
- 	/* SW PAN needs a copy of the ASID in TTBR0 for entry */
- 	if (IS_ENABLED(CONFIG_ARM64_SW_TTBR0_PAN))
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index a6a00accf4f9..c22678769c37 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -2188,7 +2188,7 @@ void __cpu_replace_ttbr1(pgd_t *pgdp, bool cnp)
- 	phys_addr_t ttbr1 = phys_to_ttbr(virt_to_phys(pgdp));
- 
- 	if (cnp)
--		ttbr1 |= TTBR_CNP_BIT;
-+		ttbr1 |= TTBRx_EL1_CnP;
- 
- 	replace_phys = (void *)__pa_symbol(idmap_cpu_replace_ttbr1);
- 
+ 	if (unlikely(skb->ip_summed != CHECKSUM_PARTIAL)) {
+ 		const struct ipv6hdr *ipv6h = ipv6_hdr(skb);
 -- 
-2.30.2
+2.34.1
+
 
 
