@@ -4,86 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 185E5EB3629
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 17:50:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6199DEB3629
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 17:52:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E2yV377sQW0c5N6RevrqfWbOyFtalU/YHrkLt3cGBxw=; b=g3k0fDRkZgIFpoW8GYNkfNLdch
-	0Ebv8mFOBE3YbEQ+hpdwFzGC3derGwy7ihKtX4wosWg0qtFKsk68/iXvU/9rbRcVaRvrQj/0leQvJ
-	fhvHdgInacdFe3sDkMww4TVhqq22vFnYD5YVcY8R2aLaJaXSMaa+LdpcZSazZiKfpz/BnqfHycVhr
-	xUWXXkaxIHCqZfzWgj5OU+erEioRR+9ytU63xWr+bWFxt49spCt+VGyoUm5SPME09mRBxSeg3/PRA
-	CHXxiVXve25l5UrZyFbn5/MV/Uf0hQK9OHuh8FQ1CPOuHCV6onpcpBTmg34yde2fGiFtWmFJOGh5x
-	euWlKAUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w6/q0PlUhQsQqCgtm8MH8kpDBLtZoKxA/5qdQMwsczA=; b=NvzXBL8TwclDSX0UFeOnedCYhw
+	YHDvot2TkdKLrzEHV1HyI1/xOB0favT7phBT8CTTmFPmcGHzUZLiHAwvMPsLQvtrRYB6eJz8yhLU1
+	03OW9/R28anqdqg3GwMyjmuyjnb6IM2KiI9IDMbcAEYJJpR/6RatRt+6XtQkkamAdJKUVfkWC7RXq
+	y4/Rpyf3vO9ZemuHU4R9LfH+cL/3gL4IiD2kqdRfuJSOuTial6SaLGBfskhPkyTyXHdOzxZ7L7H1I
+	jR9DOJyizZHmCExI5tHvIJb1zhFpj8HOXBlD6zeGKCxyvKTj1smGtyId2WR5xj3FYo+ABtfUZvHBg
+	3isAzy1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx7PL-0000000Dci6-3icf;
-	Mon, 02 Mar 2026 17:50:15 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vx7RH-0000000DcyV-3oMv;
+	Mon, 02 Mar 2026 17:52:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx7PI-0000000DcgI-2XpA
+	id 1vx7RH-0000000Dcy8-1Brr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 17:50:15 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 2DC694E424BD;
-	Mon,  2 Mar 2026 17:50:08 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id CDA2C5FE89;
-	Mon,  2 Mar 2026 17:50:07 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5531310368CAA;
-	Mon,  2 Mar 2026 18:49:52 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1772473805; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=E2yV377sQW0c5N6RevrqfWbOyFtalU/YHrkLt3cGBxw=;
-	b=WtyOZQTbfFKj5/QbEli0TEvhsV3N0ByWqHfL50YME4xvob9drpxOaglxWkH8A7Ep9nM9WH
-	x7rzQFw3ZkITL7KN1xsfBmyQFr1wNNoKK6amYqo/jZJDpOaZARS5Op6HZmvwcFtk2/u7Xj
-	HBgzwzTKPezImCYZhWWdUyX2wRZljwrT51fPvgaozlDXeW9A5cVPv+7+pHBLeVsSFZkD+8
-	yEwejZUmhAVHvqSCt4oFDi5QgEvV6pLjRBwXYNygBhyEXihVT1OcsqZUJ6kEMnRNcO4Qwg
-	xfnDZzbjCzOc+0NtYva1pV5JjqL2URwmBA0X0r02y18BlDBCyFzcmqpCmvWZmA==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 02 Mar 2026 18:49:51 +0100
-Message-Id: <DGSHIQOB2YTB.1559SD1YLGT7P@bootlin.com>
-Subject: Re: [PATCH v14 7/9] drm/rockchip: cdn-dp: Add multiple bridges to
- support PHY port selection
-Cc: <linux-usb@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-phy@lists.infradead.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <dri-devel@lists.freedesktop.org>
-To: "Chaoyi Chen" <kernel@airkyi.com>, "Heikki Krogerus"
- <heikki.krogerus@linux.intel.com>, "Greg Kroah-Hartman"
- <gregkh@linuxfoundation.org>, "Dmitry Baryshkov"
- <dmitry.baryshkov@oss.qualcomm.com>, "Peter Chen" <hzpeterchen@gmail.com>,
- "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Vinod Koul"
- <vkoul@kernel.org>, "Kishon Vijay Abraham I" <kishon@kernel.org>, "Heiko
- Stuebner" <heiko@sntech.de>, "Sandy Huang" <hjc@rock-chips.com>, "Andy Yan"
- <andy.yan@rock-chips.com>, "Yubing Zhang" <yubing.zhang@rock-chips.com>,
- "Frank Wang" <frank.wang@rock-chips.com>, "Andrzej Hajda"
- <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
- <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Amit Sunil Dhamne"
- <amitsd@google.com>, "Chaoyi Chen" <chaoyi.chen@rock-chips.com>, "Dragan
- Simic" <dsimic@manjaro.org>, "Johan Jonker" <jbx6244@gmail.com>, "Diederik
- de Haas" <didi.debian@cknow.org>, "Peter Robinson" <pbrobinson@gmail.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.20.1
-References: <20260119073100.143-1-kernel@airkyi.com>
- <20260119073100.143-8-kernel@airkyi.com>
-In-Reply-To: <20260119073100.143-8-kernel@airkyi.com>
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_095013_268582_75993BBA 
-X-CRM114-Status: GOOD (  47.76  )
+	Mon, 02 Mar 2026 17:52:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6773160126;
+	Mon,  2 Mar 2026 17:52:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF105C2BC87;
+	Mon,  2 Mar 2026 17:52:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772473934;
+	bh=K8AbHsz72TSgP2bdOzk1adrzjtFHygOozSMVIl4YU5E=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Un2wc4GcAn+A+x3q/r96Cd4A2DUNx1rVQJVZ2ThgSQ4ele3Q9GCq9n2yPBQgMjdRs
+	 KNqvXv29i8kqjRUSapwR3pMNdMBMGqS9p7St3M0Xr8q2X4xfo47AbBbhtzvjg/sNrY
+	 9O+aRTGPuPasBqklO2yQhGZkyyYjeWNEsNPkv2tSIH2lJ5T91wlFFc/Uf4y2WXY4m7
+	 +Piw1dCw0Y7GeKY1Dsun4X3febHf6UndTUb8wOdxOmzXLQsOLqy3Rci6UmlYPSwgD+
+	 PUrPluICHRDEjcFM/eHAtK7+h0HgFKvvWgXerpuFQI9FnH56ZRdD8TWrU3BfIyYyEH
+	 slyajjKYbk0ig==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vx7RD-0000000FLem-1iil;
+	Mon, 02 Mar 2026 17:52:11 +0000
+Date: Mon, 02 Mar 2026 17:52:10 +0000
+Message-ID: <86o6l686gl.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: amitsinght@marvell.com,
+	baisheng.gao@unisoc.com,
+	baolin.wang@linux.alibaba.com,
+	carl@os.amperecomputing.com,
+	dave.martin@arm.com,
+	david@kernel.org,
+	dfustini@baylibre.com,
+	fenghuay@nvidia.com,
+	gshan@redhat.com,
+	james.morse@arm.com,
+	jonathan.cameron@huawei.com,
+	kobak@nvidia.com,
+	lcherian@marvell.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	peternewman@google.com,
+	punit.agrawal@oss.qualcomm.com,
+	quic_jiles@quicinc.com,
+	reinette.chatre@intel.com,
+	rohit.mathew@arm.com,
+	scott@os.amperecomputing.com,
+	sdonthineni@nvidia.com,
+	tan.shaopeng@fujitsu.com,
+	xhao@linux.alibaba.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	corbet@lwn.net,
+	oupton@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	kvmarm@lists.linux.dev,
+	zengheng4@huawei.com,
+	linux-doc@vger.kernel.org,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+Subject: Re: [PATCH v5 02/41] KVM: arm64: Preserve host MPAM configuration when changing traps
+In-Reply-To: <20260224175720.2663924-3-ben.horgan@arm.com>
+References: <20260224175720.2663924-1-ben.horgan@arm.com>
+	<20260224175720.2663924-3-ben.horgan@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ben.horgan@arm.com, amitsinght@marvell.com, baisheng.gao@unisoc.com, baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com, dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com, fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, peternewman@google.com, punit.agrawal@oss.qualcomm.com, quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com, scott@os.amperecomputing.com, sdonthineni@nvidia.com, tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev, zengheng4@huawei.com, linux-doc@vger.kernel.org, tan.shaopeng@jp.fujitsu.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,546 +113,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon Jan 19, 2026 at 8:30 AM CET, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->
-> The RK3399 has two USB/DP combo PHY and one CDN-DP controller. And
-> the CDN-DP can be switched to output to one of the PHYs. If both ports
-> are plugged into DP, DP will select the first port for output.
->
-> This patch adds support for multiple bridges, enabling users to flexibly
-> select the output port. For each PHY port, a separate encoder and bridge
-> are registered.
->
-> The change is based on the DRM AUX HPD bridge, rather than the
-> extcon approach. This requires the DT to correctly describe the
-> connections between the first bridge in bridge chain and DP
-> controller. For example, the bridge chain may be like this:
->
-> PHY aux birdge -> fsa4480 analog audio switch bridge ->
-> onnn,nb7vpq904m USB reminder bridge -> USB-C controller AUX HPD bridge
->
-> In this case, the connection relationships among the PHY aux bridge
-> and the DP contorller need to be described in DT.
->
-> In addition, the cdn_dp_parse_next_bridge_dt() will parses it and
-> determines whether to register one or two bridges.
->
-> Since there is only one DP controller, only one of the PHY ports can
-> output at a time. The key is how to switch between different PHYs,
-> which is handled by cdn_dp_switch_port() and cdn_dp_enable().
->
-> There are two cases:
->
-> 1. Neither bridge is enabled. In this case, both bridges can
-> independently read the EDID, and the PHY port may switch before
-> reading the EDID.
->
-> 2. One bridge is already enabled. In this case, other bridges are not
-> allowed to read the EDID. So we will try to return the cached EDID.
->
-> Since the scenario of two ports plug in at the same time is rare,
-> I don't have a board which support two TypeC connector to test this.
-> Therefore, I tested forced switching on a single PHY port, as well as
-> output using a fake PHY port alongside a real PHY port.
->
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+On Tue, 24 Feb 2026 17:56:41 +0000,
+Ben Horgan <ben.horgan@arm.com> wrote:
+> 
+> When kvm enables or disables MPAM traps to EL2 it clears all other bits in
+
+nit: s/kvm/KVM/g
+
+> MPAM2_EL2.  Notably, it clears the partition ids (PARTIDs) and performance
+> monitoring groups (PMGs). Avoid changing these bits in anticipation of
+> adding support for MPAM in the kernel. Otherwise, on a VHE system with the
+> host running at EL2 where MPAM2_EL2 and MPAM1_EL1 access the same register,
+> any attempt to use MPAM to monitor or partition resources for kernel space
+> would be foiled by running a KVM guest. Additionally, MPAM2_EL2.EnMPAMSM is
+> always set to 0 which causes MPAMSM_EL1 to always trap. Keep EnMPAMSM set
+> to 1 when not in a guest so that the kernel can use MPAMSM_EL1.
+> 
+> Tested-by: Gavin Shan <gshan@redhat.com>
+> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Tested-by: Peter Newman <peternewman@google.com>
+> Tested-by: Zeng Heng <zengheng4@huawei.com>
+> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 > ---
->
-> (no changes since v11)
->
-> Changes in v10:
-> - Fix refcount usage of drm_bridge.
-> - Remove unused cdn_dp_next_bridge type.
->
-> Changes in v9:
-> - Select DRM_AUX_HPD_BRIDGE when using DP driver.
->
-> (no changes since v7)
->
-> Changes in v6:
-> - Rename some variable names.
-> - Attach the DP bridge to the next bridge.
->
-> Changes in v5:
-> - By parsing the HPD bridge chain, set the connector's of_node to the
-> of_node corresponding to the USB-C connector.
-> - Return EDID cache when other port is already enabled.
-> ---
->
->  drivers/gpu/drm/rockchip/Kconfig       |   1 +
->  drivers/gpu/drm/rockchip/cdn-dp-core.c | 325 ++++++++++++++++++++-----
->  drivers/gpu/drm/rockchip/cdn-dp-core.h |  18 +-
->  3 files changed, 287 insertions(+), 57 deletions(-)
->
-> diff --git a/drivers/gpu/drm/rockchip/Kconfig b/drivers/gpu/drm/rockchip/=
-Kconfig
-> index b7b025814e72..10d9f29a3d44 100644
-> --- a/drivers/gpu/drm/rockchip/Kconfig
-> +++ b/drivers/gpu/drm/rockchip/Kconfig
-> @@ -56,6 +56,7 @@ config ROCKCHIP_CDN_DP
->  	select DRM_DISPLAY_HELPER
->  	select DRM_BRIDGE_CONNECTOR
->  	select DRM_DISPLAY_DP_HELPER
-> +	select DRM_AUX_HPD_BRIDGE
->  	help
->  	  This selects support for Rockchip SoC specific extensions
->  	  for the cdn DP driver. If you want to enable Dp on
-> diff --git a/drivers/gpu/drm/rockchip/cdn-dp-core.c b/drivers/gpu/drm/roc=
-kchip/cdn-dp-core.c
-> index 1e27301584a4..0bc3d248c266 100644
-> --- a/drivers/gpu/drm/rockchip/cdn-dp-core.c
-> +++ b/drivers/gpu/drm/rockchip/cdn-dp-core.c
-> @@ -27,16 +27,17 @@
->  #include "cdn-dp-core.h"
->  #include "cdn-dp-reg.h"
->
-> -static inline struct cdn_dp_device *bridge_to_dp(struct drm_bridge *brid=
-ge)
-> +static int cdn_dp_switch_port(struct cdn_dp_device *dp, struct cdn_dp_po=
-rt *prev_port,
-> +			      struct cdn_dp_port *port);
-> +
-> +static inline struct cdn_dp_bridge *bridge_to_dp_bridge(struct drm_bridg=
-e *bridge)
+>  arch/arm64/kvm/hyp/include/hyp/switch.h | 12 ++++++++----
+>  1 file changed, 8 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> index 2597e8bda867..0b50ddd530f3 100644
+> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
+> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> @@ -267,7 +267,8 @@ static inline void __deactivate_traps_hfgxtr(struct kvm_vcpu *vcpu)
+>  
+>  static inline void  __activate_traps_mpam(struct kvm_vcpu *vcpu)
 >  {
-> -	return container_of(bridge, struct cdn_dp_device, bridge);
-> +	return container_of(bridge, struct cdn_dp_bridge, bridge);
->  }
->
-> -static inline struct cdn_dp_device *encoder_to_dp(struct drm_encoder *en=
-coder)
-> +static inline struct cdn_dp_device *bridge_to_dp(struct drm_bridge *brid=
-ge)
->  {
-> -	struct rockchip_encoder *rkencoder =3D to_rockchip_encoder(encoder);
-> -
-> -	return container_of(rkencoder, struct cdn_dp_device, encoder);
-> +	return bridge_to_dp_bridge(bridge)->parent;
->  }
->
->  #define GRF_SOC_CON9		0x6224
-> @@ -191,14 +192,27 @@ static int cdn_dp_get_sink_count(struct cdn_dp_devi=
-ce *dp, u8 *sink_count)
->  static struct cdn_dp_port *cdn_dp_connected_port(struct cdn_dp_device *d=
-p)
->  {
->  	struct cdn_dp_port *port;
-> -	int i, lanes;
-> +	int i, lanes[MAX_PHY];
->
->  	for (i =3D 0; i < dp->ports; i++) {
->  		port =3D dp->port[i];
-> -		lanes =3D cdn_dp_get_port_lanes(port);
-> -		if (lanes)
-> +		lanes[i] =3D cdn_dp_get_port_lanes(port);
-> +		if (!dp->next_bridge_valid)
->  			return port;
->  	}
-> +
-> +	if (dp->next_bridge_valid) {
-> +		/* If more than one port is available, pick the last active port */
-> +		if (dp->active_port > 0 && lanes[dp->active_port])
-> +			return dp->port[dp->active_port];
-> +
-> +		/* If the last active port is not available, pick an available port in=
- order */
-> +		for (i =3D 0; i < dp->bridge_count; i++) {
-> +			if (lanes[i])
-> +				return dp->port[i];
-> +		}
-> +	}
-> +
->  	return NULL;
->  }
->
-> @@ -253,12 +267,45 @@ static const struct drm_edid *
->  cdn_dp_bridge_edid_read(struct drm_bridge *bridge, struct drm_connector =
-*connector)
->  {
->  	struct cdn_dp_device *dp =3D bridge_to_dp(bridge);
-> -	const struct drm_edid *drm_edid;
-> +	struct cdn_dp_bridge *dp_bridge =3D bridge_to_dp_bridge(bridge);
-> +	struct cdn_dp_port *port =3D dp->port[dp_bridge->id];
-> +	struct cdn_dp_port *prev_port;
-> +	const struct drm_edid *drm_edid =3D NULL;
-> +	int i, ret;
->
->  	mutex_lock(&dp->lock);
-> +
-> +	/* More than one port is available */
-> +	if (dp->bridge_count > 1 && !port->phy_enabled) {
-> +		for (i =3D 0; i < dp->bridge_count; i++) {
-> +			/* Another port already enable */
-> +			if (dp->bridge_list[i] !=3D dp_bridge && dp->bridge_list[i]->enabled)
-> +				goto get_cache;
-> +			/* Find already enabled port */
-> +			if (dp->port[i]->phy_enabled)
-> +				prev_port =3D dp->port[i];
-> +		}
-> +
-> +		/* Switch to current port */
-> +		if (prev_port) {
-> +			ret =3D cdn_dp_switch_port(dp, prev_port, port);
-> +			if (ret)
-> +				goto get_cache;
-> +		}
-> +	}
-> +
->  	drm_edid =3D drm_edid_read_custom(connector, cdn_dp_get_edid_block, dp)=
-;
-> +	/* replace edid cache */
-> +	if (dp->edid_cache[dp_bridge->id])
-> +		drm_edid_free(dp->edid_cache[dp_bridge->id]);
-> +	dp->edid_cache[dp_bridge->id] =3D drm_edid_dup(drm_edid);
-> +
->  	mutex_unlock(&dp->lock);
-> +	return drm_edid;
->
-> +get_cache:
-> +	drm_edid =3D drm_edid_dup(dp->edid_cache[dp_bridge->id]);
-> +	mutex_unlock(&dp->lock);
->  	return drm_edid;
->  }
->
-> @@ -267,12 +314,13 @@ cdn_dp_bridge_mode_valid(struct drm_bridge *bridge,
->  			 const struct drm_display_info *display_info,
->  			 const struct drm_display_mode *mode)
->  {
-> +	struct cdn_dp_bridge *dp_bridge =3D bridge_to_dp_bridge(bridge);
->  	struct cdn_dp_device *dp =3D bridge_to_dp(bridge);
->  	u32 requested, actual, rate, sink_max, source_max =3D 0;
->  	u8 lanes, bpc;
->
->  	/* If DP is disconnected, every mode is invalid */
-> -	if (!dp->connected)
-> +	if (!dp_bridge->connected || !dp->connected)
->  		return MODE_BAD;
->
->  	switch (display_info->bpc) {
-> @@ -550,6 +598,54 @@ static bool cdn_dp_check_link_status(struct cdn_dp_d=
-evice *dp)
->  	return drm_dp_channel_eq_ok(link_status, min(port->lanes, sink_lanes));
->  }
->
-> +static int cdn_dp_switch_port(struct cdn_dp_device *dp, struct cdn_dp_po=
-rt *prev_port,
-> +			      struct cdn_dp_port *port)
-> +{
-> +	int ret;
-> +
-> +	if (dp->active)
-> +		return 0;
-> +
-> +	ret =3D cdn_dp_disable_phy(dp, prev_port);
-> +	if (ret)
-> +		goto out;
-> +	ret =3D cdn_dp_enable_phy(dp, port);
-> +	if (ret)
-> +		goto out;
-> +
-> +	ret =3D cdn_dp_get_sink_capability(dp);
-> +	if (ret) {
-> +		cdn_dp_disable_phy(dp, port);
-> +		goto out;
-> +	}
-> +
-> +	dp->active =3D true;
-> +	dp->lanes =3D port->lanes;
-> +
-> +	if (!cdn_dp_check_link_status(dp)) {
-> +		dev_info(dp->dev, "Connected with sink; re-train link\n");
-> +
-> +		ret =3D cdn_dp_train_link(dp);
-> +		if (ret) {
-> +			dev_err(dp->dev, "Training link failed: %d\n", ret);
-> +			goto out;
-> +		}
-> +
-> +		ret =3D cdn_dp_set_video_status(dp, CONTROL_VIDEO_IDLE);
-> +		if (ret) {
-> +			dev_err(dp->dev, "Failed to idle video %d\n", ret);
-> +			goto out;
-> +		}
-> +
-> +		ret =3D cdn_dp_config_video(dp);
-> +		if (ret)
-> +			dev_err(dp->dev, "Failed to configure video: %d\n", ret);
-> +	}
-> +
-> +out:
-> +	return ret;
-> +}
-> +
->  static void cdn_dp_display_info_update(struct cdn_dp_device *dp,
->  				       struct drm_display_info *display_info)
->  {
-> @@ -571,6 +667,7 @@ static void cdn_dp_display_info_update(struct cdn_dp_=
-device *dp,
->  static void cdn_dp_bridge_atomic_enable(struct drm_bridge *bridge, struc=
-t drm_atomic_state *state)
->  {
->  	struct cdn_dp_device *dp =3D bridge_to_dp(bridge);
-> +	struct cdn_dp_bridge *dp_bridge =3D bridge_to_dp_bridge(bridge);
->  	struct drm_connector *connector;
->  	int ret, val;
->
-> @@ -580,7 +677,7 @@ static void cdn_dp_bridge_atomic_enable(struct drm_br=
-idge *bridge, struct drm_at
->
->  	cdn_dp_display_info_update(dp, &connector->display_info);
->
-> -	ret =3D drm_of_encoder_active_endpoint_id(dp->dev->of_node, &dp->encode=
-r.encoder);
-> +	ret =3D drm_of_encoder_active_endpoint_id(dp->dev->of_node, &dp_bridge-=
->encoder.encoder);
->  	if (ret < 0) {
->  		DRM_DEV_ERROR(dp->dev, "Could not get vop id, %d", ret);
+> -	u64 r = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1;
+> +	u64 clr = MPAM2_EL2_EnMPAMSM;
+> +	u64 set = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1;
+>  
+>  	if (!system_supports_mpam())
 >  		return;
-> @@ -599,6 +696,9 @@ static void cdn_dp_bridge_atomic_enable(struct drm_br=
-idge *bridge, struct drm_at
->
->  	mutex_lock(&dp->lock);
->
-> +	if (dp->next_bridge_valid)
-> +		dp->active_port =3D dp_bridge->id;
-> +
->  	ret =3D cdn_dp_enable(dp);
->  	if (ret) {
->  		DRM_DEV_ERROR(dp->dev, "Failed to enable bridge %d\n",
-> @@ -631,6 +731,7 @@ static void cdn_dp_bridge_atomic_enable(struct drm_br=
-idge *bridge, struct drm_at
->  		goto out;
+> @@ -277,18 +278,21 @@ static inline void  __activate_traps_mpam(struct kvm_vcpu *vcpu)
+>  		write_sysreg_s(MPAMHCR_EL2_TRAP_MPAMIDR_EL1, SYS_MPAMHCR_EL2);
+>  	} else {
+>  		/* From v1.1 TIDR can trap MPAMIDR, set it unconditionally */
+> -		r |= MPAM2_EL2_TIDR;
+> +		set |= MPAM2_EL2_TIDR;
 >  	}
->
-> +	dp_bridge->enabled =3D true;
->  out:
->  	mutex_unlock(&dp->lock);
+>  
+> -	write_sysreg_s(r, SYS_MPAM2_EL2);
+> +	sysreg_clear_set_s(SYS_MPAM2_EL2, clr, set);
 >  }
-> @@ -638,9 +739,11 @@ static void cdn_dp_bridge_atomic_enable(struct drm_b=
-ridge *bridge, struct drm_at
->  static void cdn_dp_bridge_atomic_disable(struct drm_bridge *bridge, stru=
-ct drm_atomic_state *state)
+>  
+>  static inline void __deactivate_traps_mpam(void)
 >  {
->  	struct cdn_dp_device *dp =3D bridge_to_dp(bridge);
-> +	struct cdn_dp_bridge *dp_bridge =3D bridge_to_dp_bridge(bridge);
->  	int ret;
->
->  	mutex_lock(&dp->lock);
-> +	dp_bridge->enabled =3D false;
->
->  	if (dp->active) {
->  		ret =3D cdn_dp_disable(dp);
-> @@ -827,6 +930,16 @@ static int cdn_dp_audio_mute_stream(struct drm_bridg=
-e *bridge,
->  	return ret;
->  }
->
-> +static void cdn_dp_bridge_hpd_notify(struct drm_bridge *bridge,
-> +			   enum drm_connector_status status)
-> +{
-> +	struct cdn_dp_bridge *dp_bridge =3D bridge_to_dp_bridge(bridge);
-> +	struct cdn_dp_device *dp =3D bridge_to_dp(bridge);
+> +	u64 clr = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1 | MPAM2_EL2_TIDR;
+> +	u64 set = MPAM2_EL2_EnMPAMSM;
 > +
-> +	dp->bridge_list[dp_bridge->id]->connected =3D status =3D=3D connector_s=
-tatus_connected;
-> +	schedule_work(&dp->event_work);
-> +}
-> +
->  static const struct drm_bridge_funcs cdn_dp_bridge_funcs =3D {
->  	.atomic_duplicate_state =3D drm_atomic_helper_bridge_duplicate_state,
->  	.atomic_destroy_state =3D drm_atomic_helper_bridge_destroy_state,
-> @@ -837,6 +950,7 @@ static const struct drm_bridge_funcs cdn_dp_bridge_fu=
-ncs =3D {
->  	.atomic_disable =3D cdn_dp_bridge_atomic_disable,
->  	.mode_valid =3D cdn_dp_bridge_mode_valid,
->  	.mode_set =3D cdn_dp_bridge_mode_set,
-> +	.hpd_notify =3D cdn_dp_bridge_hpd_notify,
->
->  	.dp_audio_prepare =3D cdn_dp_audio_prepare,
->  	.dp_audio_mute_stream =3D cdn_dp_audio_mute_stream,
-> @@ -885,7 +999,8 @@ static void cdn_dp_pd_event_work(struct work_struct *=
-work)
->  {
->  	struct cdn_dp_device *dp =3D container_of(work, struct cdn_dp_device,
->  						event_work);
-> -	int ret;
-> +	bool connected;
-> +	int i, ret;
->
->  	mutex_lock(&dp->lock);
->
-> @@ -944,9 +1059,12 @@ static void cdn_dp_pd_event_work(struct work_struct=
- *work)
->
->  out:
->  	mutex_unlock(&dp->lock);
-> -	drm_bridge_hpd_notify(&dp->bridge,
-> -			      dp->connected ? connector_status_connected
-> -					    : connector_status_disconnected);
-> +	for (i =3D 0; i < dp->bridge_count; i++) {
-> +		connected =3D dp->connected && dp->bridge_list[i]->connected;
-> +		drm_bridge_hpd_notify(&dp->bridge_list[i]->bridge,
-> +				      connected ? connector_status_connected
-> +						: connector_status_disconnected);
-> +	}
->  }
->
->  static int cdn_dp_pd_event(struct notifier_block *nb,
-> @@ -966,28 +1084,16 @@ static int cdn_dp_pd_event(struct notifier_block *=
-nb,
->  	return NOTIFY_DONE;
->  }
->
-> -static int cdn_dp_bind(struct device *dev, struct device *master, void *=
-data)
-> +static int cdn_bridge_add(struct device *dev,
-> +			  struct drm_bridge *bridge,
-> +			  struct drm_bridge *next_bridge,
-> +			  struct drm_encoder *encoder)
->  {
->  	struct cdn_dp_device *dp =3D dev_get_drvdata(dev);
-> -	struct drm_encoder *encoder;
-> +	struct drm_device *drm_dev =3D dp->drm_dev;
-> +	struct drm_bridge *last_bridge __free(drm_bridge_put) =3D NULL;
->  	struct drm_connector *connector;
-> -	struct cdn_dp_port *port;
-> -	struct drm_device *drm_dev =3D data;
-> -	int ret, i;
-> -
-> -	ret =3D cdn_dp_parse_dt(dp);
-> -	if (ret < 0)
-> -		return ret;
-> -
-> -	dp->drm_dev =3D drm_dev;
-> -	dp->connected =3D false;
-> -	dp->active =3D false;
-> -	dp->active_port =3D -1;
-> -	dp->fw_loaded =3D false;
-> -
-> -	INIT_WORK(&dp->event_work, cdn_dp_pd_event_work);
-> -
-> -	encoder =3D &dp->encoder.encoder;
-> +	int ret;
->
->  	encoder->possible_crtcs =3D drm_of_find_possible_crtcs(drm_dev,
->  							     dev->of_node);
-> @@ -1002,26 +1108,35 @@ static int cdn_dp_bind(struct device *dev, struct=
- device *master, void *data)
->
->  	drm_encoder_helper_add(encoder, &cdn_dp_encoder_helper_funcs);
->
-> -	dp->bridge.ops =3D
-> -			DRM_BRIDGE_OP_DETECT |
-> -			DRM_BRIDGE_OP_EDID |
-> -			DRM_BRIDGE_OP_HPD |
-> -			DRM_BRIDGE_OP_DP_AUDIO;
-> -	dp->bridge.of_node =3D dp->dev->of_node;
-> -	dp->bridge.type =3D DRM_MODE_CONNECTOR_DisplayPort;
-> -	dp->bridge.hdmi_audio_dev =3D dp->dev;
-> -	dp->bridge.hdmi_audio_max_i2s_playback_channels =3D 8;
-> -	dp->bridge.hdmi_audio_spdif_playback =3D 1;
-> -	dp->bridge.hdmi_audio_dai_port =3D -1;
-> -
-> -	ret =3D devm_drm_bridge_add(dev, &dp->bridge);
-> +	bridge->ops =3D
-> +		DRM_BRIDGE_OP_DETECT |
-> +		DRM_BRIDGE_OP_EDID |
-> +		DRM_BRIDGE_OP_HPD |
-> +		DRM_BRIDGE_OP_DP_AUDIO;
-> +	bridge->of_node =3D dp->dev->of_node;
-> +	bridge->type =3D DRM_MODE_CONNECTOR_DisplayPort;
-> +	bridge->hdmi_audio_dev =3D dp->dev;
-> +	bridge->hdmi_audio_max_i2s_playback_channels =3D 8;
-> +	bridge->hdmi_audio_spdif_playback =3D 1;
-> +	bridge->hdmi_audio_dai_port =3D -1;
-> +
-> +	ret =3D devm_drm_bridge_add(dev, bridge);
->  	if (ret)
->  		return ret;
->
-> -	ret =3D drm_bridge_attach(encoder, &dp->bridge, NULL, DRM_BRIDGE_ATTACH=
-_NO_CONNECTOR);
-> +	ret =3D drm_bridge_attach(encoder, bridge, NULL, DRM_BRIDGE_ATTACH_NO_C=
-ONNECTOR);
->  	if (ret)
->  		return ret;
->
-> +	if (next_bridge) {
-> +		ret =3D drm_bridge_attach(encoder, next_bridge, bridge,
-> +					DRM_BRIDGE_ATTACH_NO_CONNECTOR);
-> +		if (ret)
-> +			return ret;
-> +
-> +		last_bridge =3D drm_bridge_chain_get_last_bridge(bridge->encoder);
-> +	}
-> +
->  	connector =3D drm_bridge_connector_init(drm_dev, encoder);
->  	if (IS_ERR(connector)) {
->  		ret =3D PTR_ERR(connector);
-> @@ -1029,8 +1144,100 @@ static int cdn_dp_bind(struct device *dev, struct=
- device *master, void *data)
->  		return ret;
->  	}
->
-> +	if (last_bridge)
-> +		connector->fwnode =3D fwnode_handle_get(of_fwnode_handle(last_bridge->=
-of_node));
-> +
->  	drm_connector_attach_encoder(connector, encoder);
->
-> +	return 0;
-> +}
-> +
-> +static int cdn_dp_parse_next_bridge_dt(struct cdn_dp_device *dp)
-> +{
-> +	struct device_node *np =3D dp->dev->of_node;
-> +	struct device_node *port __free(device_node) =3D of_graph_get_port_by_i=
-d(np, 1);
-> +	struct drm_bridge *bridge;
-> +	int count =3D 0;
-> +	int ret =3D 0;
-> +	int i;
-> +
-> +	/* If device use extcon, do not use hpd bridge */
-> +	for (i =3D 0; i < dp->ports; i++) {
-> +		if (dp->port[i]->extcon) {
-> +			dp->bridge_count =3D 1;
-> +			return 0;
-> +		}
-> +	}
-> +
-> +	/* One endpoint may correspond to one next bridge. */
-> +	for_each_of_graph_port_endpoint(port, dp_ep) {
-> +		struct device_node *next_bridge_node __free(device_node) =3D
-> +			of_graph_get_remote_port_parent(dp_ep);
-> +
-> +		bridge =3D of_drm_find_bridge(next_bridge_node);
-> +		if (!bridge) {
-> +			ret =3D -EPROBE_DEFER;
-> +			goto out;
-> +		}
-> +
-> +		drm_bridge_get(bridge);
-> +		dp->next_bridge_valid =3D true;
-> +		dp->next_bridge_list[count] =3D bridge;
+>  	if (!system_supports_mpam())
+>  		return;
+>  
+> -	write_sysreg_s(0, SYS_MPAM2_EL2);
+> +	sysreg_clear_set_s(SYS_MPAM2_EL2, clr, set);
+>  
+>  	if (system_supports_mpam_hcr())
+>  		write_sysreg_s(MPAMHCR_HOST_FLAGS, SYS_MPAMHCR_EL2);
 
-Correct, but the drm_bridge_get() slightly far away from the assignement is
-a bit misleading. I hadn't seen it initially so I suspected a missing get.
+Acked-by: Marc Zyngier <maz@kernel.org>
 
-I suggest to do it in a single statement, for clarity:
+	M.
 
-		dp->next_bridge_list[count] =3D bridgedrm_bridge_get(bridge);
-
-With that changed, at least for the bridge lifetime aspects, you can add to
-the next version my:
-
- Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+-- 
+Without deviation from the norm, progress is not possible.
 
