@@ -4,88 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7EBDEB3624
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 18:21:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8023DEB362A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 18:31:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uKLs7LaNVRNd1atbobusqQm6rehZQXgScL2EvSc9Ljs=; b=odzMEmTfEHgh8fRXbqVf3eg9YV
-	m2CSErTkW5bddTppYJZIwRWYE78R+XJcqih8g+wPBpX7Lq7aYZcREtOTFqWerDYYUU1K2mW4ZH1Ex
-	+q0rQj8LhgvXjI1fbMrGMqj3P8oPQ85NNgsiJE5V6r6UUG8nD1xKQRL9ygldgyaDeWv2bjoJOthde
-	sFpNPhctq1TNmtaeKowtAJ3UiK4a6qezR1mAXsA+YQNyXw+x9Fp1YcjZTZDzTFafIkaWg7YB3tjDt
-	My8PNHelMMzk0Y37yQfz/UqDz4JY/DyyU5ukqWFWReSy3c2lFx2aARcD4p1BM4XRmlX555nGdjQ8s
-	4weCa1pw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=81g1AQ9LUBvNGZAcgE0oE1RFZWKZ81udvij0ADF9Goc=; b=XAO47JSzhAyAT8H9P+BFRbaO0C
+	plYoPwwNZvzsKC/LRlQD+jtlHu2DzKBDfusRpPH5w0ttRYR2ggJYQGbUGLIIgRrxDgwBxegiH+W83
+	sFSX+v38LOmdWYEXQFSLUeXLZ7RUJBXisXEzy/ThfBCSrazfSH+60b2iVQje/dY2h1yQsSuRVw0ub
+	OEiMzayymhFDGMVB8Kq9/YN0TJHe35rDUWyUp+m82x9PC4e0UzUVzLLOqpVnj3hPgeEcwfgA1QOhc
+	lPIcpzqwdq6jDr46Un61s1UMmF2b/ew4ndrYdPBPsa2JE49EKVtOxAa8o68epbGABXGF9QMCzbkGj
+	izmVexUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx7tX-0000000Dg8X-1sb7;
-	Mon, 02 Mar 2026 18:21:27 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1vx82v-0000000DgYn-3qBO;
+	Mon, 02 Mar 2026 18:31:09 +0000
+Received: from mail-yx1-xb134.google.com ([2607:f8b0:4864:20::b134])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx7tU-0000000Dg7m-1WVs
+	id 1vx82t-0000000DgYQ-1ZSM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 18:21:25 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-439af7d77f0so1716086f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 10:21:23 -0800 (PST)
+	Mon, 02 Mar 2026 18:31:08 +0000
+Received: by mail-yx1-xb134.google.com with SMTP id 956f58d0204a3-64cb577e79cso4807329d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 10:31:06 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772476266; cv=none;
+        d=google.com; s=arc-20240605;
+        b=fxXJx+YPpOs7+GFAa5TG5uPGWA+MVm0cl6Nz2sf7AWEmrL/WS/8MvjtBztwa0LyW/e
+         YtkTSXM18DXpW19iL8d7tM8a77VZRnzS1de7pWqPVNvo4858GFaDeHji3aIaZmyxJMKD
+         ZeC+8uWk64pqisoITXiQ95Tndya+vo2wdoqTUOmzs6zDNsKF4UAgnlVmVhUnc2mucc0V
+         B9vi1B3Yon/rlCIWSmsXznwKjmb9rrjH5JKOEE3JvPO7xUIq54rtq1zEw+hmt4c677Rb
+         4t6rKu19bjbYNU6mwIhbGzEtZwoqBo/x4/YAn3oHnBPW7Xp7UdL1xSSr+F+qwuI8N227
+         qEXA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=81g1AQ9LUBvNGZAcgE0oE1RFZWKZ81udvij0ADF9Goc=;
+        fh=rWt6FH/8jyd4xGgm/uhODrlQFs7HcyAUrdiL3SHozIk=;
+        b=f7WNUImYcXMvQC1BhxgvW1R9nnpJoN9Bh9Z8DSILAQZIRuaeZz0UqAsLf2/NfS/Byi
+         bWvhW1SUkeE/Y4vmXpa6X7IQnX3MoMwt62v+pvxvHOb4WngmdD+NeVlJu71WLEIWOQf/
+         nLn1UlkvaguCn7yQiKIZOtOho+XCgHLKeCFILdb0lZYHYlQkcKLZkQYkt/z0LPGNDQvR
+         9x1qZS1+jOdCu2eZxubjlWhEjIIPZr5GXBYBJf5WFIBMNcytzQzMUy/sYAXeLNsjk4gF
+         bQzXYA2Szl0F2tCq447o/SGp8QKeus1OzZrsGu/WJyf+9PYICOUPx5ui1tIJ3BhYm8Rn
+         AXYg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772475682; x=1773080482; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:subject:references
-         :in-reply-to:message-id:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uKLs7LaNVRNd1atbobusqQm6rehZQXgScL2EvSc9Ljs=;
-        b=fDBzkvEO2gajee9CQ594Nln2jKBnqMSA2uWVEeppytgUl7sLrS6jpt2QSYoA/NwKSN
-         pt+DLfitPmh6h5ufL461aL0Oig7ZIWew4f8BimGt56zsBYiqZmJWFmF9Vmu0F3nuGZpk
-         7wopiuGbKxNQfqQ51dGJEjcpjJq8mWPQNwU3DZrIffM208DXVjHhW67zWvILfTDOnl/9
-         LC9zlRjXP9rnW0ZmCGNYmSYLiZc0bvvDZosQhIxldWA7jzRJiQX08cI6LT2BjHljOnKa
-         z5laEGBxzguKxvLv47B8lu4VVK2QQumB+evSNnnAI36nPLD1akyYpHHMWaLiLUabtTbh
-         us0A==
+        d=linaro.org; s=google; t=1772476266; x=1773081066; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=81g1AQ9LUBvNGZAcgE0oE1RFZWKZ81udvij0ADF9Goc=;
+        b=XKYMtGAj4419NteJymS1LzTNDZ65FyKIwVfbCFATgBkhOfdtn1n/TdYo5cxx4QdgVR
+         hvvWzuZfJR0Xd4l1OoJoOuN5AQPKY6REelW69ALZ6f0wd6rBBcWA5jC8J/N3MZdmhbSx
+         MYxeTfqlUQR/Q3Bg1duE8cAmlRjtSCkzaecJgB3DvNEnNVewHFDO8TU6jcjOOK7bd8Fz
+         3VtdaxQYJS2UBBTzmIvkhNfAlSJApxdpPMsLsmu2gc0/X531EqODe5wPQlaeSuWh8r42
+         hsQ1i9fgMpPsyCe34P/HqargBAEMS167bsDbUh6xY2fzWDlwBW4rhdjTomHEX1WEn6I2
+         ghjA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772475682; x=1773080482;
-        h=content-transfer-encoding:mime-version:subject:references
-         :in-reply-to:message-id:cc:to:from:date:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=uKLs7LaNVRNd1atbobusqQm6rehZQXgScL2EvSc9Ljs=;
-        b=upa3AIqQPBkX/vuRO4HWps61BCs+w1AU0AFT2dFeDg02P2gKnr+ywOceY254DfiWbr
-         xiyliDvF5bTnAvgA/ME2YJ4VWu+SoaOXYxhGqMnoxxJCJ4ANwC6fFWu0Ue7Pj4Rgiuvc
-         ezCWkRO/3Im0yVGXI4DObioOVM+fBnQ7BQRedMhV3rNprlZ8sSDKMZS/OY+Abnxw5k8B
-         aRfHe1ZF/OcLMm8mCyHRrLlYeBU/3pGd5b9E0ccKSr7KHuR1ovwF1NBDm7LXCwcDp8dg
-         ghpSGHupXYmtebWKi5bhoHjEEh+KdRaT1snQODHmafadMVuD219k0YyN3Yh82tk9JKNu
-         6Z7Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXcpAWi+19y4GW3UYTk7EM7VjrSjHI+PbsWGz892bESfHKsU0Pjsa/Sq2YGYZu5CcWTyysN9BfDNN112FftZMXx@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQRJtEV4JRRTo1jYtL+4F601ddgKOxZxLEpvyNIzk3gk9vj3gv
-	/okcAQanK6fN1kstDhZ5ARYEjPdlQ5L+y1gQbt4DOFt0X8spffoWImgT9hrZxM4p5iM=
-X-Gm-Gg: ATEYQzxPyFwbtmPnqktJzWUFUA4UGuDLReiJ7XxggplrmjXjClPqFb1m1MmtRwifO0N
-	wH5d3R9VJhTigRIvDFGbGLy0y6dgzxsRFjRbWFQjt7zniz3suOxx+GsLv3HSwEr67I9q+3r3UqX
-	EOP75PUQq/ray5NlPOhdyQ+4vCUFVV/3LXaQcIgKrXcdUw+zIOdGUQBtRpTrKW1BnsTYV1BIzKL
-	hrR0yddvuiqjLMEFsGnXPJi2yYIj+JgIFZZLCuC+/JmHAbvBGzce2yUu/5SMmQVY/iC1d4meYFw
-	hDzZHEwAtHN0mtAsRzK9VhnSDCSPaVc2D94g7ooPad9o1fC4Y1/ltlkzA1S9tPXfcedZbZlXgSY
-	PG+IDe+PEIYGf7DLXfpq7cFDC6F6HfdDn4g2APL7EG0FgV7YEwesDAW18PVdYn/fDgfkWv0AIG4
-	kUPjyqlwstLhuA9pXP
-X-Received: by 2002:a5d:5c89:0:b0:439:b81f:ad98 with SMTP id ffacd0b85a97d-439b81faf6cmr6223979f8f.47.1772475682014;
-        Mon, 02 Mar 2026 10:21:22 -0800 (PST)
-Received: from [127.0.0.1] ([86.1.69.5])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4399c75b272sm28389886f8f.24.2026.03.02.10.21.21
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Mar 2026 10:21:21 -0800 (PST)
-Date: Mon, 2 Mar 2026 18:21:20 +0000
-From: Josh Law <hlcj1234567@gmail.com>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Josh Law <objecting@objecting.org>
-Message-ID: <1a19899b-862b-477f-8314-4821ac6b8716@gmail.com>
-In-Reply-To: <aaXSGSEY_3WQvjYS@J2N7QTR9R3>
-References: <20260301003407.2493781-1-objecting@objecting.org> <20260301003407.2493781-4-objecting@objecting.org> <aaWj4uIIiv_kwsFo@J2N7QTR9R3> <3fe578cc-07b3-442b-8eca-1f94c1975e85@gmail.com> <aaXSGSEY_3WQvjYS@J2N7QTR9R3>
-Subject: Re: [PATCH 4/4] arm64: kernel: Fix style in io.c macro
+        d=1e100.net; s=20230601; t=1772476266; x=1773081066;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=81g1AQ9LUBvNGZAcgE0oE1RFZWKZ81udvij0ADF9Goc=;
+        b=M4Abxu6bJkyH8VLDPlWlaArV1RTNVFjWgxgELrxX/AC3vuHNy+9Hl0CKI4JK/xnBqj
+         oDrIqzcJMZULuKdYGo2xIjz/WCLFZkzlY/MTKLr4Gm4A3lh9Qj3qLxx++WPgXD6/fRp/
+         zuW1UsVdBSqePdPdvyt4k5FYxtqywbLfjdGQobZA9f6bjFJMwAX5EGBWlURWsHgrGjqw
+         Rl1fv9TGQ8YH6df6LplpHhtLWZUVB40TRFX3qSxg1BkkQaCgMG/24yqs2q+ctZCuonGe
+         1clf53BoxTf5K2SoxhP4w41/p5IyKxiDUEa9vEWZQBqKzld/KlEeGdCrb/4Dfsw67Gkl
+         rF9g==
+X-Forwarded-Encrypted: i=1; AJvYcCVVg9lpZdzkZIibfU3FdAJwkM0B57sa9x3ISMd3RGqh7jmey/mwSxBD47VX8u2Lp8bfx8XjggPDOWl/x/XEHQFl@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUwm3N6G1ECljGzdO5B/FT+caT+MOscHdyvu0SP8OGkvNHCB/a
+	mlT4zK5hqNKjxU8Lrro8XI6crGieb6CgTORs/iapNK4LiHr6OxDrYv6UcfqhNT2qF0P9hQ6oNJ/
+	LEfdH6gocM1x5I4W/LR34RCGZmMIQRKxpidpyp4RnOQ==
+X-Gm-Gg: ATEYQzxK2oRsgEJljWBv9uKnAVmRi2aHmQ97M4gQoY+Pe/jChta7v1qmEZ0gYnk27kK
+	705dcXJSRegqro5jMZMpc0bV5nDExiF1Rc6nUGGCopBIWif3nQcVH8dCkolr4G2Bn0UkIYUQVcZ
+	KROq9ltlH5lJ61hV7eQTihBKmm8g8EpZJNHCTHnm3sOWsTDTXn/YuvbOGU0WZhHXZyl3k7fzy6j
+	fW7Z8y2kEP8zGNlrEjHQ5EHBzm9pLSvIpu5HjDcIeDbyiGlKcWf+YmD2bP2xL4wfjk9nn7KgbTI
+	LBynjcAp2ydgi9dZvK80mp0Rpokd1/POCB715NyhVyIYOf7CQlpjzU2LCxkqP96MDw==
+X-Received: by 2002:a05:690e:2060:b0:64a:e1de:e830 with SMTP id
+ 956f58d0204a3-64cc2025a5cmr8768669d50.16.1772476265235; Mon, 02 Mar 2026
+ 10:31:05 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Correlation-ID: <1a19899b-862b-477f-8314-4821ac6b8716@gmail.com>
+References: <20260119-acpm-tmu-v2-0-e02a834f04c6@linaro.org>
+In-Reply-To: <20260119-acpm-tmu-v2-0-e02a834f04c6@linaro.org>
+From: Alexey Klimov <alexey.klimov@linaro.org>
+Date: Mon, 2 Mar 2026 18:30:54 +0000
+X-Gm-Features: AaiRm515e3WzwnsMys39sfPXCKSu89p0-qrgz1al4LhQ_1OobhhtPkQJhg_LdoM
+Message-ID: <CANgGJDpjsyoCnuXuMMi1L3nWNJsM4aMs6C=NvBcTkWeC3NFadQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/7] thermal: samsung: Add support for Google GS101 TMU
+To: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	willmcvicker@google.com, jyescas@google.com, shin.son@samsung.com, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_102124_429011_A4DBDCD2 
-X-CRM114-Status: GOOD (  20.20  )
+X-CRM114-CacheID: sfid-20260302_103107_460755_754E0458 
+X-CRM114-Status: GOOD (  13.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,114 +123,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-2 Mar 2026 18:08:29 Mark Rutland <mark.rutland@arm.com>:
+Hi Tudor,
 
-> On Mon, Mar 02, 2026 at 03:45:16PM +0000, Josh Law wrote:
->> 2 Mar 2026 14:51:19 Mark Rutland <mark.rutland@arm.com>:
->>
->>> On Sun, Mar 01, 2026 at 12:34:07AM +0000, Josh Law wrote:
->>>> Signed-off-by: Josh Law <objecting@objecting.org>
->>>> ---
->>>> arch/arm64/kernel/io.c | 6 +++---
->>>> 1 file changed, 3 insertions(+), 3 deletions(-)
->>>>
->>>> diff --git a/arch/arm64/kernel/io.c b/arch/arm64/kernel/io.c
->>>> index fe86ada23c7d..ce27fa5d2e37 100644
->>>> --- a/arch/arm64/kernel/io.c
->>>> +++ b/arch/arm64/kernel/io.c
->>>> @@ -17,10 +17,10 @@
->>>> #define memcpy_toio_aligned(to, from, count, bits)=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 \
->>>> =C2=A0=C2=A0=C2=A0 ({=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 \
->>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 volatile u##bits __iomem *_=
-to =3D to;=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 \
->>>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 const u##bits *_from =3D from;=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 \
->>>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 const u##bits * _from =3D from;=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 \
->>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 size_t _count =3D count;=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 \
->>>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 const u##bits *_end_from =3D _fr=
-om + ALIGN_DOWN(_count, 8); \
->>>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 \
->>>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 const u##bits * _end_from =3D _f=
-rom + ALIGN_DOWN(_count, 8);\
->>>> +\
->>>
->>> There is no style violation here. There's no need to add a space betwee=
-n
->>> '*' and the variable name.
->>>
->>> Mark.
->>
->> I used checkpatch.pl... it detected that
->
-> So? Tools can be wrong.
->
-> In general, checkpatch.pl shouldn't be applied to existing files to find
-> issues, since there are many deliberate violations, and cases it cannot
-> parse correctly.
->
-> I checked out v7.0-rc2, and ran:
->
-> =C2=A0 ./scripts/checkpatch.pl -f arch/arm64/kernel/io.c
->
-> ... and the warning you see seems to be:
->
-> | ERROR: need consistent spacing around '*' (ctx:WxV)
-> | #20: FILE: arch/arm64/kernel/io.c:20:
-> | +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 const u##bits *_from =3D from;=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 \
-> |=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ^
->
-> From a quick scan of checkpatch.pl, that's because it has mis-parsed
-> this as a binary operator, where we *do* want consistent space around
-> the '*'.
->
-> For types that's not the case, e.g.
->
-> | [mark@lakrids:~/src/linux]% cat test.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
-> | int *foo =3D 1;
-> |
-> | int * bar =3D 1;
-> | [mark@lakrids:~/src/linux]% ./scripts/checkpatch.pl -f test.c=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
-> | WARNING: Missing or malformed SPDX-License-Identifier tag in line 1
-> | #1: FILE: test.c:1:
-> | +int *foo =3D 1;
-> |
-> | ERROR: "foo * bar" should be "foo *bar"
-> | #3: FILE: test.c:3:
-> | +int * bar =3D 1;
->
-> Mark.
+On Sun, 1 Mar 2026 at 02:26, Tudor Ambarus <tudor.ambarus@linaro.org> wrote:
 
+[...]
 
-Sorry Mark, I'm sure I'll do a real useful patch to you very soon
+> ---
+> Tudor Ambarus (7):
+>       dt-bindings: thermal: Add Google GS101 TMU
+>       firmware: samsung: acpm: Add TMU protocol support
+>       firmware: samsung: acpm: Add devm_acpm_get_by_phandle helper
+>       thermal: samsung: Add support for GS101 TMU
+>       MAINTAINERS: Add entry for Samsung Exynos ACPM thermal driver
+>       arm64: dts: exynos: gs101: Add thermal management unit
+>       arm64: defconfig: enable Exynos ACPM thermal support
+>
+>  .../bindings/thermal/google,gs101-tmu-top.yaml     |  67 +++
+>  MAINTAINERS                                        |   8 +
+>  arch/arm64/boot/dts/exynos/google/gs101-tmu.dtsi   | 209 +++++++
+>  arch/arm64/boot/dts/exynos/google/gs101.dtsi       |  18 +
+>  arch/arm64/configs/defconfig                       |   1 +
+>  drivers/firmware/samsung/Makefile                  |   1 +
+>  drivers/firmware/samsung/exynos-acpm-tmu.c         | 212 +++++++
+>  drivers/firmware/samsung/exynos-acpm-tmu.h         |  33 ++
+>  drivers/firmware/samsung/exynos-acpm.c             |  35 ++
+>  drivers/thermal/samsung/Kconfig                    |  16 +
+>  drivers/thermal/samsung/Makefile                   |   2 +
+>  drivers/thermal/samsung/acpm-tmu.c                 | 643 +++++++++++++++++++++
+>  .../linux/firmware/samsung/exynos-acpm-protocol.h  |  30 +
+>  13 files changed, 1275 insertions(+)
+> ---
+> base-commit: e2211f5d980086dd9fbdab3bcd86b715e12cae13
+> change-id: 20260113-acpm-tmu-27e21f0e2c3b
 
-V/R
+JFYI, the series doesn't clearly apply on today's linux-next:
+
+Grabbing thread from
+lore.kernel.org/all/20260119-acpm-tmu-v2-0-e02a834f04c6@linaro.org/t.mbox.gz
+Checking for newer revisions
+Grabbing search results from lore.kernel.org
+Analyzing 18 messages in the thread
+Looking for additional code-review trailers on lore.kernel.org
+Analyzing 20 code-review messages
+Checking attestation on all messages, may take a moment...
+
+Base: using specified base-commit e2211f5d980086dd9fbdab3bcd86b715e12cae13
+Applying: dt-bindings: thermal: Add Google GS101 TMU
+Applying: firmware: samsung: acpm: Add TMU protocol support
+Patch failed at 0002 firmware: samsung: acpm: Add TMU protocol support
+error: patch failed: include/linux/firmware/samsung/exynos-acpm-protocol.h:40
+error: include/linux/firmware/samsung/exynos-acpm-protocol.h: patch
+does not apply
+
+Was it done against mainline?
+
+Thanks,
+Alexey
 
