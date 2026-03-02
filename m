@@ -4,75 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14B46E9B37F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 16:59:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 337C9D58E48
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 17:02:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=odYzrck29LAOJzj3S/U8ypRmw6yfV/uqVpybrs/IoRA=; b=S2AmrufAQK6LsoVNyngfdNcFbb
-	4TwLtvApHThpYycNheaT04uM2mNWLXOKqfNlPFJnzbGmpAJvAqWLyWQ56/iiqtNvJ6a1P9kCIDZ3N
-	+BJH00O4SGdFoEnB13Ghew4iqa+yt1rHkJ7m88ijTf9rfp2h5uKpUApJ4k4m06tU9yFSq3Dvob315
-	2F1Cy8wgDGQIkGKyyrsQXvZcXS/aPTZXHx7CnZs5riFS5cNfZtLjXpfHGFnXnnFiKsmdIpk/N0hot
-	r6pQ3nWyt9cwKm0cgH03VWpqatX3hMTVQ32IbgQ/bTSx1Rp9LcbzFFYc8sIjQnLFRyMVwXIxBwIOh
-	2uoi+ztA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QaijC/p2L1n1TZ0ZHl3fOCy3J+kOaUlNmbkDRGgocyM=; b=QpoqkSUN+hZCqtR9UeVBcsVG9y
+	+RTqtNhzjGSAdoU9kvf1kxxrzZn4n6yTWfDF9YAp6+b8ic7nba7it5YQEcPyiYEbyWvAg62hx3LJc
+	naieSS3Gs4Yb5cLVqJNpi/o8Sg0dN0uZz5OLtyDUd9AEByZmWq1DDjI6oywpciU1IUabM4XbIWHGh
+	FClWxTRLOlT72unSk+zYQdPuUx7xUPlDAL1Jz5lP8yg4Tn/lK73DlLHfuJGya3u9eRWdQp2P/lRZU
+	8QY/4yxnw4CX4W73J0aSpEhijSaMwnjeozK/vgLJCIz3I9dwxPKGH8+t6hT2kfyAcMb10eUDd6p2V
+	g+p5yz2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx6bt-0000000DY7D-3ztC;
-	Mon, 02 Mar 2026 16:59:09 +0000
-Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
+	id 1vx6ex-0000000DYVe-1lXT;
+	Mon, 02 Mar 2026 17:02:19 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx6br-0000000DY5b-2amH;
-	Mon, 02 Mar 2026 16:59:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=kemnade.info; s=20220719; h=References:In-Reply-To:Cc:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=odYzrck29LAOJzj3S/U8ypRmw6yfV/uqVpybrs/IoRA=; b=rxv8OHCQZ75qUbOT2J8Uqae4Cn
-	Tcxwz4Fgv2EAMSeyQ5hvYhpWiQaVOAO8C6vdgGkzlUjxgyeKTZnUNfm5swOOKFk0FSh1hHf+HM2QV
-	BRissMDMOifQuTjY/fGMOMWjwej36iXTM24Y0Y/L2o5WpNhnT8en1La2uBemc4wldttOyS/96DvUk
-	QIABMgTR5flvk9rfyt8Ux8JoukeMKLo5SpIu09A0+mvAkR6oZNxZ4mWnBK4dPCKyH27Prf02VZojL
-	s1bsVLX4m4E2Fb9by8VKwi9z61LtGqhmgV5DhMulCCukdkERSenZq/HtOA8Zr5EVh0GnORv06+WG+
-	kuFgM5IA==;
-Date: Mon, 2 Mar 2026 17:56:40 +0100
-From: Andreas Kemnade <andreas@kemnade.info>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Kalle Niemi <kaleposti@gmail.com>, Bartosz Golaszewski
- <bartosz.golaszewski@oss.qualcomm.com>, Mukesh Kumar Savaliya
- <mukesh.savaliya@oss.qualcomm.com>, Viken Dadhaniya
- <viken.dadhaniya@oss.qualcomm.com>, Andi Shyti <andi.shyti@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
- <rjui@broadcom.com>, Branden Scott <sbranden@broadcom.com>,
- bcm-kernel-feedback-list@broadcom.com, Vignesh R <vigneshr@ti.com>, Aaro
- Koskinen <aaro.koskinen@iki.fi>, Janusz Krzysztofik <jmkrzyszt@gmail.com>,
- Tony Lindgren <tony@atomide.com>, Kevin Hilman <khilman@baylibre.com>,
- Roger Quadros <rogerq@kernel.org>, Geert Uytterhoeven
- <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, Patrice
- Chotard <patrice.chotard@foss.st.com>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Linus Walleij
- <linusw@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, linux-omap@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, linux-rpi-kernel@lists.infradead.org, Matti Vaittinen
- <mazziesaccount@gmail.com>, Wolfram Sang <wsa+renesas@sang-engineering.com>
-Subject: Re: [PATCH v2 01/12] i2c: allow setting the parent device and OF
- node through the adapter struct
-Message-ID: <20260302175640.1020393d@kemnade.info>
-In-Reply-To: <20260302165928.0e85b93c@kemnade.info>
-References: <EDF3FB58-4747-442E-8463-6F1C6E568962@gmail.com>
-	<CAMRc=Mc1+GX52A56kBLD0XytvL=E7kpjLDiqNkR=fici4-qUnw@mail.gmail.com>
-	<20260302165928.0e85b93c@kemnade.info>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
+	id 1vx6eu-0000000DYUr-2lj0
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Mar 2026 17:02:17 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-439b78b638eso1222700f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 09:02:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772470934; x=1773075734; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=QaijC/p2L1n1TZ0ZHl3fOCy3J+kOaUlNmbkDRGgocyM=;
+        b=bP8+EaVTThbRrDd0Xm0nFv1ra2z8aSgJEB2mOIUwklY7G/Ua+yjUx0UIBU2upi9ztB
+         wXXnicoiSPXr/VjpkoaLk6SwWmEFjQMdfjqDyRwxBHoE5KBJYI1FpUEygMVShWnNL8Sn
+         cvTZIG1V7FBCziWNqoFihcmsAwtk9eEF37NhSJ6J2Bp3MPXgOSsfWAtaKqDTAm9Y2kWC
+         DpF/sBr1LQxOHR+7QDP+8LQWCkq6G1FkxkJGBYE72HFg+iXxEVzj2eiNZiCVHpFLhjeX
+         /bJsggG1eLQHlegzVIWzztWCaTywnI2RAXsEEfzvdbaxqxxb3H9koAQiFU4cmD9CvWHM
+         SrkQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772470934; x=1773075734;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=QaijC/p2L1n1TZ0ZHl3fOCy3J+kOaUlNmbkDRGgocyM=;
+        b=LmJe+HbPJES5vIeibyWS0yaUZndPf9Fhgy/I3FoUZWURg2eZqsXeOVO/XJ7Sl5dGFA
+         oxcpT2ZcPqT/3yDy6shJBSOSP64d+4jldmlpwKYjWddYXeFZ49XjO+a6QdiKbJFR1whw
+         Lk4Xfzh8okDvKvle43/KxarRYsvl2MsNHeo4ubU0KWyTgNH5P9RSNqjYrciT63iLyYAz
+         P+OH50JKPjbNL67T1GuXcRn/KEcw7Q7L0Nb3WuXP/xRo3yp9AxY8mpegN35v0NH5sLo0
+         WhqTxZ0mZj0BRqN3bYMXmdK0u0AXPpaJikqEShtp9VJhnunMCuTNfiliI2EUmpVHS3Kw
+         cLVA==
+X-Forwarded-Encrypted: i=1; AJvYcCWMJw4CX0j3jz6yCefZcyEQHKMTR1ZcKp95NY3pz4pYKN+pkev6wMaxw6mEHF3whfo1sI8FURutXWSq/5DeOF0j@lists.infradead.org
+X-Gm-Message-State: AOJu0YwugSLXM1mWu2BC0zKG96gMyg+bIrGthMnephHirKhrY5rCSWgO
+	KvUoqDb8juRiqfcihoL7BJzZYCfSXHpMv/+XUX38YsU8R0kjtomvFcIt
+X-Gm-Gg: ATEYQzyQIyHbsOgTTPGP/3fRXsyhyI40N9R7gT3om3MmJ6oQsrU9LFixK7GjEebbmmg
+	fAQAodXQZv3PkwEjfWkyawISCRKEm7ntGFKmGzgHsxg+7Vr6Ju2Qf4iRDotpIixFC+aDLDgPnxG
+	cRsb/vSWMqw8LDuae7DdF0gxDKzjSNxPBnlIpMf3xmfrpoXvE25E1i4CcgUx2KAJEW0Ug01U2j6
+	FUF2tiNxrInSK2MK35Cc0Mf3eYn0ZirMLC0wV1JhMKooXgSDdj27X4uEVXk6Njk2aB+0VD1aHYe
+	LEhQxhKwvr+vJW5k5gZnC2qYU7inbyYYOA9ZWiqaxn1Ra7I2mboJHa9C/a7spQ5GgDOXdTcvn3O
+	ZVS5svKxcbmRldjXTaX+ujBmQoJyhuOF5RKV7oubvTgRk4V2Enwcg1D+yPFI4vhPewijIXsYETU
+	ZB77C1TdISPQLzGBTCbDWYba1WVFQnK/e0+v6L2IRANENU6gWyx29OVxBUZ+8xkXMobxQ/eUSqc
+	/5l4ap/3eJYRqYqDwMmZWR7JZoa+cjhGWvLP9JwaiPt+muPJ1J4BvYb
+X-Received: by 2002:a05:6000:4011:b0:439:b922:8479 with SMTP id ffacd0b85a97d-439b92285dfmr5706628f8f.36.1772470933596;
+        Mon, 02 Mar 2026 09:02:13 -0800 (PST)
+Received: from Lord-Beerus.station (net-188-152-100-94.cust.dsl.teletu.it. [188.152.100.94])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439ac9f3e5bsm19606933f8f.37.2026.03.02.09.02.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Mar 2026 09:02:12 -0800 (PST)
+Date: Mon, 2 Mar 2026 18:02:10 +0100
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, kernel@pengutronix.de,
+	festevam@gmail.com, alexander.stein@ew.tq-group.com,
+	dario.binacchi@amarulasolutions.com, primoz.fiser@norik.com,
+	Markus.Niebel@tq-group.com, y.moog@phytec.de, josua@solid-run.com,
+	francesco.dolcini@toradex.com, maudspierings@gocontroll.com,
+	pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>
+Subject: Re: [PATCH v2 2/3] arm64: dts: freescale: Add support for Variscite
+ DART-MX91
+Message-ID: <aaXCkswynHreRURk@Lord-Beerus.station>
+References: <20260205100125.9095-1-stefano.r@variscite.com>
+ <20260205100125.9095-3-stefano.r@variscite.com>
+ <aYSzgRRGewX6uSlc@lizhi-Precision-Tower-5810>
+ <aaW7EpLmhxk3elmd@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aaW7EpLmhxk3elmd@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_085907_658100_10FAC093 
-X-CRM114-Status: GOOD (  32.91  )
+X-CRM114-CacheID: sfid-20260302_090216_724157_847043AB 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,128 +111,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2 Mar 2026 16:59:28 +0100
-Andreas Kemnade <andreas@kemnade.info> wrote:
+Hi Frank
 
-> On Mon, 2 Mar 2026 03:08:24 -0800
-> Bartosz Golaszewski <brgl@kernel.org> wrote:
->=20
-> > On Mon, 2 Mar 2026 11:38:27 +0100, Kalle Niemi <kaleposti@gmail.com> sa=
-id: =20
-> > > On 3/2/26 10:55, Bartosz Golaszewski wrote:   =20
-> > >> On Mon, Mar 2, 2026 at 8:47=E2=80=AFAM Kalle Niemi <kaleposti@gmail.=
-com> wrote:   =20
-> > >>> On 2/23/26 11:05, Bartosz Golaszewski wrote:   =20
-> > >>>> In order to stop i2c bus drivers from dereferencing the struct dev=
-ice
-> > >>>> embedded in struct i2c_adapter, let's allow configuring the parent
-> > >>>> device and OF-node of the adapter directly through dedicated field=
-s.
-> > >>>> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualco=
-mm.com>
-> > >>>> ---   =20
-> > >>> Hello,
-> > >>> Automated driver test system bisected this commit to be the first b=
-ad
-> > >>> commit, linux-next next-20260227 was tested. Failed tests include d=
-river
-> > >>> tests for ROHM PMIC and accelerometers, which are connected to
-> > >>> BeagleBone Black.
-> > >>> The failed driver tests all fail to first i2cget and the tests stop
-> > >>> there: "Could not open file '/dev/i2c-2' or 'dev/i2c/2': No such fi=
-le or
-> > >>> directory".   =20
-> > >> Wolfram: well, now it would actually be useful to know which commit
-> > >> exactly is the culprit so maybe splitting the changes is not a bad
-> > >> idea after all.
-> > >> Kalle: which i2c bus driver fails here? Any errors in kernel log?
-> > >> Bart   =20
-> > >
-> > > Hello Bart,
-> > >
-> > > i2c-1 and i2c-2 are failing. I am not seeing any i2c errors in kernel=
- log. I got two failures without the dmesg available (this is bugged test s=
-equence, and not a kernel crash), but those got the same stdout message "Co=
-uld not open file ...." as all others.
-> > >
-> > > -Kalle
-> > >   =20
-> >=20
-> > I meant what driver are you using but I suppose it's i2c-omap.
-> >=20
-> > Can you try the following change and let me know if it fixes the issue?
-> >=20
-> > diff --git a/drivers/i2c/i2c-core-base.c b/drivers/i2c/i2c-core-base.c
-> > index dd8cec9b04c6..01656f82d2c6 100644
-> > --- a/drivers/i2c/i2c-core-base.c
-> > +++ b/drivers/i2c/i2c-core-base.c
-> > @@ -1548,6 +1548,11 @@ static int i2c_register_adapter(struct i2c_adapt=
-er *adap)
-> >  	if (adap->timeout =3D=3D 0)
-> >  		adap->timeout =3D HZ;
-> >=20
-> > +	if (!adap->dev.parent)
-> > +		adap->dev.parent =3D adap->parent;
-> > +	if (!adap->dev.of_node)
-> > +		adap->dev.of_node =3D adap->of_node;
-> > +
-> >  	/* register soft irqs for Host Notify */
-> >  	res =3D i2c_setup_host_notify_irq_domain(adap);
-> >  	if (res) {
-> > @@ -1561,11 +1566,6 @@ static int i2c_register_adapter(struct i2c_adapt=
-er *adap)
-> >  	adap->dev.type =3D &i2c_adapter_type;
-> >  	device_initialize(&adap->dev);
-> >=20
-> > -	if (!adap->dev.parent)
-> > -		adap->dev.parent =3D adap->parent;
-> > -	if (!adap->dev.of_node)
-> > -		adap->dev.of_node =3D adap->of_node;
-> > -
-> >  	/*
-> >  	 * This adapter can be used as a parent immediately after device_add(=
-),
-> >  	 * setup runtime-pm (especially ignore-children) before hand.
-> >  =20
-> No changes here. Devices probe, bus indexes are still shifted.
-> If I take that into account, i2cget still works.
->=20
-> But I think there is no defined order anyways. So if
-> I would add e.g. usb device provoding i2c busses early than
-> omap-i2c for some odd reason, things were messed anyways.
->=20
-> On the other hand, just having numbers skipped seems to be odd.
->=20
-ok, looked around further,
-We have aliases, so numbers should be static
+On Mon, Mar 02, 2026 at 11:30:10AM -0500, Frank Li wrote:
+> 
+> dts part can't apply, please rebase.
+> 
 
+Thanks for the feedback.
 
-i2c_add_adapter calls i2c_register_adapter() as the
-last thing, but needs to determine the number earlier.
+I rebased the series on top of the current mainline (Linux master tree) and
+it applies cleanly on my side.
 
-This seems to help:
+Could you please let me know which specific tree/branch I should rebase
+onto for the DTS changes? I will respin the series accordingly.
 
-diff --git a/drivers/i2c/i2c-core-base.c b/drivers/i2c/i2c-core-base.c
-index dd8cec9b04c6..e22d784202b8 100644
---- a/drivers/i2c/i2c-core-base.c
-+++ b/drivers/i2c/i2c-core-base.c
-@@ -1657,10 +1657,9 @@ static int __i2c_add_numbered_adapter(struct i2c_ada=
-pter *adap)
-  */
- int i2c_add_adapter(struct i2c_adapter *adapter)
- {
--	struct device *dev =3D &adapter->dev;
- 	int id;
-=20
--	id =3D of_alias_get_id(dev->of_node, "i2c");
-+	id =3D of_alias_get_id(adapter->of_node, "i2c");
- 	if (id >=3D 0) {
- 		adapter->nr =3D id;
- 		return __i2c_add_numbered_adapter(adapter);
-
-> Regards,
-> Andreas
->=20
->=20
-
+Best regards,
+Stefano
 
