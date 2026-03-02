@@ -4,69 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54986EB3640
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 23:29:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C14AEB3640
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 23:42:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=31XibZY9nB5Ar1vnpazCOACtxJ9dSnsFa3v0aJCBVtw=; b=gRNgGll/sIWi4sHxOHsml4EciZ
-	onLc42lp/+VDE/Dd31VrEkIw6lHzb1epLTS/obsgB1Q5BZREOD0/Y7xy2ENXmHiKu/TeGrHTl3/3H
-	ep/w5SI6fWGYSFZrx60vkWIW0VoAqFwaDCJRTkMXmNdVyS40OWtnaPPSYxVtxodhxX+SR9g/4jQWC
-	TxwL06Ipf85X5+/8FBfszwG6yLwEyFzqQDfzUMgf9i228EuCXkybfDXvuMsCL+4ftxupl4nRL4Lm3
-	17MB5vDe6NbATIgFf742gmPImRP9zm+vwENschUSt5phz1R/jAtp7otDJTIjQ8VkhdmfnATmejQ+s
-	4tI1VDZQ==;
+	bh=qVWBSsCyek5kDiWlToVHMui4A2oLpZYjRFP61uW/p+c=; b=AIwfnZYI8JWW2ogOyOfYfebUO+
+	cgmOg/4eCqQkupFjnY21ZC6/n4S3p1SGfsVFrfLdbTSoCde8UK92uChOQ/ENMEvwJhqh9wmx7Rqbm
+	brPoiyt7/bpH9Nze12MbrEA7jzxcHiTLKCiH+EnYRx6c0qaociAo4SFO4WIlJicM2nBPhlExvW/lw
+	1ghq534hS9lQnqzQkluENI/9EN8gf3kodrmTkPeQ6Ao0isnqHdLuqUtW+zEGYlZ8Hbp+hd9bbN7Fl
+	BTJQN9g7kcEyHWbS3I7Zwy0goQPQoLaq6CmGfHDCzL3zVUaSeXHfjkikbeqbXFjCDJaM+Qyo+OT9m
+	kiHxS+iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxChz-0000000ECqY-1F6z;
-	Mon, 02 Mar 2026 23:29:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vxCto-0000000EDTs-3DmW;
+	Mon, 02 Mar 2026 23:42:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxChy-0000000ECqO-0MUA;
-	Mon, 02 Mar 2026 23:29:50 +0000
+	id 1vxCtm-0000000EDTR-1pTB
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Mar 2026 23:42:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 29758600AE;
-	Mon,  2 Mar 2026 23:29:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38149C19423;
-	Mon,  2 Mar 2026 23:29:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772494188;
-	bh=JjhsBZbYD+PYZg+8Sa8bG20c+cqtp6NekCY1b69oRyQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=EKt/ujlmky2u6ZnrW0ZzIzvKVdvfswEr0r5SgScQgGqScbTcrnJfKRuu0fvXxqRid
-	 /hGQfglqXwH5c1P743ShC+bWlVez3LWQSj3+LVw6GzJYp5JUIGfOBH+QT8LapMMqha
-	 0GWr8KXbhvMqimB8TJZJZkPt3p1jWNLC8zVfE7u7MN2ViPCaT6+pQzoYAwSR1kLfzz
-	 W0mPDaNfumIKp5D/kuzKmmViL8TO4MkLJswpI6fEVP0JKiMRBKw2h1SVzKczhk9TTM
-	 RDrhQXwMIEuxDcKkRdlRVD6Yokio18R8Hd3P+6sOVU9mKyAlHRowZPoKEFw7rnbseo
-	 ifkm0+P7hNdCA==
-Date: Mon, 2 Mar 2026 15:29:47 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Vladimir Oltean <olteanv@gmail.com>
-Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, Andrew Lunn
- <andrew@lunn.ch>, Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew
- Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, linux-arm-kernel@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, Mohd Ayaan Anwar
- <mohd.anwar@oss.qualcomm.com>, Neil Armstrong <neil.armstrong@linaro.org>,
- netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>, Vinod Koul
- <vkoul@kernel.org>
-Subject: Re: [PATCH RESEND2 net-next 0/8] net: stmmac: qcom-ethqos: further
- serdes reorganisation
-Message-ID: <20260302152947.3f2a0c2d@kernel.org>
-In-Reply-To: <20260301120824.ot53bhv7z7kn5lfd@skbuf>
-References: <aaDSJAc-x2-klvHJ@shell.armlinux.org.uk>
-	<aaIysVxy-WxbiJz9@shell.armlinux.org.uk>
-	<20260227165556.5cf9e844@kernel.org>
-	<20260228083111.5df8550c@kernel.org>
-	<20260301001453.lpd2rawy7bqxyivp@skbuf>
-	<20260228163229.1024f263@kernel.org>
-	<20260301120824.ot53bhv7z7kn5lfd@skbuf>
+	by sea.source.kernel.org (Postfix) with ESMTP id 6411443D83;
+	Mon,  2 Mar 2026 23:42:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17B8FC4AF09;
+	Mon,  2 Mar 2026 23:42:00 +0000 (UTC)
+Received: by venus (Postfix, from userid 1000)
+	id 3710F181258; Tue, 03 Mar 2026 00:41:58 +0100 (CET)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Sebastian Reichel <sre@kernel.org>, Sven Peter <sven@kernel.org>, 
+ Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+ Lee Jones <lee@kernel.org>, Michael Reeves <michael.reeves077@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Hector Martin <marcan@marcan.st>, Joey Gouly <joey.gouly@arm.com>
+In-Reply-To: <20260217-b4-macsmc-power-v7-0-4a4d63664362@gmail.com>
+References: <20260217-b4-macsmc-power-v7-0-4a4d63664362@gmail.com>
+Subject: Re: (subset) [PATCH RESEND v7 0/2] Add Apple Silicon SMC power
+ driver
+Message-Id: <177249491821.606802.13655015043720076680.b4-ty@collabora.com>
+Date: Tue, 03 Mar 2026 00:41:58 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260302_154202_521328_8C326F12 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,12 +68,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 1 Mar 2026 14:08:24 +0200 Vladimir Oltean wrote:
-> > I don't recall us ever making a "dirty tag" on net-next which would
-> > propagate few 100s of netdev patches into someone else's tree :S
-> > IDK how Linus would react. It's the least good option IMO.  
-> 
-> Just for my curiosity, what difference would it make to him?
 
-The PHY PR will contain a bunch of networking code.
+On Tue, 17 Feb 2026 21:47:24 +1100, Michael Reeves wrote:
+> This series adds a power supply driver for the Apple SMC found on
+> Apple Silicon devices. This allows the kernel to report AC status,
+> battery charging status, and power metrics, and modify the charging
+> behaviour.
+> 
+> The first patch adds the driver itself, and the second patch wires it
+> up to the MFD core.
+> 
+> [...]
+
+Applied, thanks!
+
+[1/2] power: supply: Add macsmc-power driver for Apple Silicon
+      commit: bb7cd531f275cd643da6f26af0a25acdef6f26c7
+
+Best regards,
+-- 
+Sebastian Reichel <sebastian.reichel@collabora.com>
+
 
