@@ -4,88 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06AD3EA4E22
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 15:45:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAFBBEA4E24
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 15:45:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5QhNWK08EnIEokCkgCGA5mBi02+mJGugJBhnyHtXRJg=; b=2ITolwaAhxw10UFeTP+OwaKJ7R
-	MpTZqFKp5pWsSLuTVW6GFw7f7L2jxf3PV7UggXj3i3n0vk8uCZBQwGb1tcSqPHFCMzEKDnu03SiZQ
-	D9nUMaOWW00p0hd/zLOQ9CHEGSbIM41nY0PAS+uF0N39pjs3xwyATewfsj+UNT2ovXtbyZOByyR4i
-	xqFxLtFwg810PRuRBTD3fFt9QshG1bD5ea/8Yh8aWTR21cR2WcpZD/61EuMW4QsqB0SHlkRLGWkw/
-	+ebWXHzKOgb89u6m5ngYMuXWzEnYXy9oEswEXS7tDdjYI9cE4Bla+1pUFGyHVczZMQCdvC3i4kQIz
-	RsRjBJmg==;
+	bh=FYAWwVXpESUSi/WobVHvguowQxIxeIjbkgDoK4X/Hz4=; b=LdAXeAuQLUCV/kWcgSyAHZxuXW
+	RtJEhSjLSZhPpub6lwlq2Dx+pFMOO0IWjc6vK2BogS22H+vCNBo0Ck3V4Gjqc1xxgezdh8o5Y9ctC
+	6097TTsdknRcxePZtvMdFoTK5RnCmf2cDBBSX0WyF9BukljfzX0aunaS7pcv+3YUiTWE386JSLttY
+	qLDIIJXTVZvFBMp8ZmJa75oGiPUR6dgZUE3d1WuEfTyilR4QhfpmKmTRsfPl/3aHplkHqqAKxqOcp
+	fIGLNk0id4M4qiXpjAh1CineupxDL7eadhMViPfMQRYc6X0z8FXeLXTXjl533dElu+FXfisw4GFC4
+	6f0lkFbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx5SV-0000000DOR2-3oa7;
-	Mon, 02 Mar 2026 15:45:23 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1vx5SW-0000000DORc-31CE;
+	Mon, 02 Mar 2026 15:45:24 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx5ST-0000000DOQF-0v8Q
+	id 1vx5SU-0000000DOQT-3AXf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 15:45:22 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-48374014a77so55515935e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 07:45:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772466319; x=1773071119; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:subject:references
-         :in-reply-to:message-id:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5QhNWK08EnIEokCkgCGA5mBi02+mJGugJBhnyHtXRJg=;
-        b=L3PwBW/tOhC1JcHtC8FHl3HFW352sOrm1g5ZwBnSb6NDajqa+NoBPhlx7tUN//Rq6/
-         a6aQUwEBBhDvzm1t1OAWv+y8yd0C3ONrBKAx8FNk6LlfgFZS6QLBtLDqF2tq/+DMVH2d
-         wKjU56/5QCeE+XzX1xQQMCtba1UwHQGXoWUU920jLmAih38N97StA1MSuhiFrtwMOkyd
-         Q0nvOsbxM9EB7NpIsTGQFvM0hECPKM0QEvMMg2Us0c71HyZP+5an5fWWrDYITF9IV+f8
-         S3cO4TDmjjzU62/9haCyOHks460KLE5n66hH83e3/yEGJOEeyZQ1oBgQXMa8VPxl9sZt
-         zhuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772466319; x=1773071119;
-        h=content-transfer-encoding:mime-version:subject:references
-         :in-reply-to:message-id:cc:to:from:date:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=5QhNWK08EnIEokCkgCGA5mBi02+mJGugJBhnyHtXRJg=;
-        b=gaOCTDoYOIhiwzXdotcr2pLLyeBSpCPx6UscDtfQMfWDfZtjGN1l7ZHKq5/XmNocoG
-         4YQzrtmTjna/Z7v76oU2ogO2ZBdiRk3vYesXBBUjuT58HzDLAgbhfy9TG8R7t3xRNFLf
-         8vbrqzaiYHmr9AVH4cvZnL5l7OuVagmq4kteuzrWZPbU9j1IyZZ3ygnjr+twvjLAfv+r
-         c8l4OsxHWNJjVqu/9GcN84Umng5yb83wQ4chrvFX5hiUQLlaZgdo3vwvUN+1dvb3RdH8
-         RdJRTnxkezkzcv87fYDkw7Ahlk3Uekd/hNbHlKrpWjfxx/co4jesVFGQF3mbsx8GV3Gm
-         Ie/A==
-X-Forwarded-Encrypted: i=1; AJvYcCVo/g2sJkRUN8F3LAlPTpCFL2qtoTp4iFoLJROlPoiir7fr4Fs50vm+pWRD7MVieW4SPHi9Bun/nK6/GoaeOUkN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz5ANjIcVMCGo4U5KVG1V5cCdf/6QW1YpTjb7sdQkb2tMHTXf7U
-	L06LF6cABrRLVDlSHGUjqTZt0YC5FhiRavtbyP9gXWEf+LCePV8JumAw61l0/WH8iog=
-X-Gm-Gg: ATEYQzy7ZMqbaDFC1qw+2TQAAIP9Hq7cMAHhnda9/THN0dt/yvn1mg1xUk4hUZxeeMw
-	ouLeCgRth2r24/AbFtYzI/RBtl8aTIceQ3kc1pBE/8ecVr4pT/sMB30JNYjR3zPBx4a2NeqAOZf
-	qtsj1GYqQygimXix/ixVxJq0oPff4vka3mkpm/RBJTNmH3xeFYnbimLEJxFpVYdgJU1iEjxY2rr
-	1qqeMcPqrXngevKohD0BZdsObd5AEY1SMtMjOkLDQCrWCfkobBrhtNRAveUGM8D1wGnUHwFfVqp
-	7uVGYPr6SIqlmS7y8OVpX/CAsDfJXpw8g2eGGiv7+K/wFiFsr++Hz5IMC0cO+i+KOjU9S2KjreB
-	9Dm2jdXmSsW8EqwHWKFwqVxitpC0nBponn0n3On/yOFLNM0k2Cjn9SnrpjIy4OEtrXC9MW0BnTD
-	dZwR7YPjE3f8DIsEjB
-X-Received: by 2002:a05:600c:c490:b0:477:63b5:7148 with SMTP id 5b1f17b1804b1-483c9bb65ffmr188273145e9.6.1772466318382;
-        Mon, 02 Mar 2026 07:45:18 -0800 (PST)
-Received: from [127.0.0.1] ([86.1.69.5])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483bd6f2f88sm399613205e9.2.2026.03.02.07.45.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Mar 2026 07:45:18 -0800 (PST)
-Date: Mon, 2 Mar 2026 15:45:16 +0000
-From: Josh Law <hlcj1234567@gmail.com>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Josh Law <objecting@objecting.org>
-Message-ID: <3fe578cc-07b3-442b-8eca-1f94c1975e85@gmail.com>
-In-Reply-To: <aaWj4uIIiv_kwsFo@J2N7QTR9R3>
-References: <20260301003407.2493781-1-objecting@objecting.org> <20260301003407.2493781-4-objecting@objecting.org> <aaWj4uIIiv_kwsFo@J2N7QTR9R3>
-Subject: Re: [PATCH 4/4] arm64: kernel: Fix style in io.c macro
+	Mon, 02 Mar 2026 15:45:24 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id E1C6C4E41046;
+	Mon,  2 Mar 2026 15:45:20 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B63885FE89;
+	Mon,  2 Mar 2026 15:45:20 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6756F1036959D;
+	Mon,  2 Mar 2026 16:45:18 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1772466319; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=FYAWwVXpESUSi/WobVHvguowQxIxeIjbkgDoK4X/Hz4=;
+	b=mzKnAythfuXX+WDnpsNLgQVAAYTlL8oXpMwt6iPjxdCgXscB9QcXL2ZKovd+VIFWuWoRyT
+	AUAZj3dV1Y2KCOpxL1LHOH324mvVz5I/zTOtaN+TD8IwwpQuyeq7PZBx03WXBO6ygxpwRk
+	kP9okf0lbAlhyonKkJzoO1lfu1uDvLv9G+uy4VsgIYaBHZydQAE3v5zYkgp4k5fqa8/NQ0
+	ugyr5SzBWWjti4vZUDwpB3KgbQPdpEwg2D0vO444JzO87ucA4IPCin6WNAEuTvOhfF6qGy
+	T3LMYm+wd8lw+UYVuhOfUXP2hyNgAQ6I5tYlr61SBrPh+HlRwFiz0vJQCP0xdg==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: Gabor Juhos <j4g8y7@gmail.com>, Andrew Lunn <andrew@lunn.ch>, Sebastian
+ Hesselbarth <sebastian.hesselbarth@gmail.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Gabor Juhos <j4g8y7@gmail.com>
+Subject: Re: [PATCH] arm64: dts: marvell: armada-37xx: align 'phy-names' of
+ EHCI node with DT schema
+In-Reply-To: <20260220-armada-37xx-fix-ehci-phy-name-v1-1-27c9907aab8e@gmail.com>
+References: <20260220-armada-37xx-fix-ehci-phy-name-v1-1-27c9907aab8e@gmail.com>
+Date: Mon, 02 Mar 2026 16:45:18 +0100
+Message-ID: <87jyvufd69.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
-X-Correlation-ID: <3fe578cc-07b3-442b-8eca-1f94c1975e85@gmail.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_074521_269821_B3F3EBDF 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20260302_074522_924287_8275F50E 
+X-CRM114-Status: GOOD (  18.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,59 +78,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-2 Mar 2026 14:51:19 Mark Rutland <mark.rutland@arm.com>:
+Gabor Juhos <j4g8y7@gmail.com> writes:
 
-> On Sun, Mar 01, 2026 at 12:34:07AM +0000, Josh Law wrote:
->> Signed-off-by: Josh Law <objecting@objecting.org>
->> ---
->> arch/arm64/kernel/io.c | 6 +++---
->> 1 file changed, 3 insertions(+), 3 deletions(-)
->>
->> diff --git a/arch/arm64/kernel/io.c b/arch/arm64/kernel/io.c
->> index fe86ada23c7d..ce27fa5d2e37 100644
->> --- a/arch/arm64/kernel/io.c
->> +++ b/arch/arm64/kernel/io.c
->> @@ -17,10 +17,10 @@
->> #define memcpy_toio_aligned(to, from, count, bits)=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 \
->> =C2=A0=C2=A0=C2=A0 ({=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0 \
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 volatile u##bits __iomem *_to=
- =3D to;=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 \
->> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 const u##bits *_from =3D from;=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 \
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 const u##bits * _from =3D from;=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 \
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 size_t _count =3D count;=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 \
->> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 const u##bits *_end_from =3D _from=
- + ALIGN_DOWN(_count, 8); \
->> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 \
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 const u##bits * _end_from =3D _fro=
-m + ALIGN_DOWN(_count, 8);\
->> +\
+> According to the 'generic-ehci.yaml' schema, the name of the first phy
+> in an EHCI node must be "usb", however the 'usb@5e000' node in the
+> 'armada-37xx.dtsi' uses "usb2-utmi-host-phy" instead.
 >
-> There is no style violation here. There's no need to add a space between
-> '*' and the variable name.
+> This causes dtbs_check warnings like the following ones:
 >
-> Mark.
+>   arch/arm64/boot/dts/marvell/armada-3720-atlas-v5.dtb: usb@5e000 (marvel=
+l,armada-3700-ehci): phy-names:0: 'usb' was expected
+>       from schema $id: http://devicetree.org/schemas/usb/generic-ehci.yaml
+>   arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@5e000 (marvell,arma=
+da-3700-ehci): phy-names:0: 'usb' was expected
+>       from schema $id: http://devicetree.org/schemas/usb/generic-ehci.yaml
+>   arch/arm64/boot/dts/marvell/armada-3720-eDPU.dtb: usb@5e000 (marvell,ar=
+mada-3700-ehci): phy-names:0: 'usb' was expected
+>       from schema $id: http://devicetree.org/schemas/usb/generic-ehci.yaml
+>   ...
+>
+> Use "usb" as a name for the phy to avoid the warnings.
+>
+> No functional change, the USB interface works after the change:
+>
+>     [    1.472393] orion-ehci d005e000.usb: EHCI Host Controller
+>     [    1.477847] orion-ehci d005e000.usb: new USB bus registered, assig=
+ned bus number 1
+>     [    1.487127] orion-ehci d005e000.usb: irq 40, io mem 0xd005e000
+>     [    1.505759] orion-ehci d005e000.usb: USB 2.0 started, EHCI 1.00
+>     [    1.512493] hub 1-0:1.0: USB hub found
+>     [    1.516434] hub 1-0:1.0: 1 port detected
+>     ...
+>     [    4.175746] usb 1-1: new high-speed USB device number 2 using orio=
+n-ehci
+>     [    4.347643] usb-storage 1-1:1.0: USB Mass Storage device detected
+>     [    4.359972] scsi host0: usb-storage 1-1:1.0
+>     [    5.367100] scsi 0:0:0:0: Direct-Access     ADATA    USB Flash Dri=
+ve  1.00 PQ: 0 ANSI: 6
+>     [    5.387091] sd 0:0:0:0: [sda] 30869504 512-byte logical blocks: (1=
+5.8 GB/14.7 GiB)
+>     [    5.398420] sd 0:0:0:0: [sda] Write Protect is off
+>     [    5.408108] sd 0:0:0:0: [sda] Write cache: disabled, read cache: d=
+isabled, doesn't support DPO or FUA
+>     [    5.477359]  sda: sda1
+>     [    5.480037] sd 0:0:0:0: [sda] Attached SCSI removable disk
+>
+> Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
 
-I used checkpatch.pl... it detected that
+Applied on mvebu/dt
+
+Thanks,
+
+Gregory
+> ---
+>  arch/arm64/boot/dts/marvell/armada-37xx.dtsi | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/boot/dts/marvell/armada-37xx.dtsi b/arch/arm64/bo=
+ot/dts/marvell/armada-37xx.dtsi
+> index 87f9367aec1227c2c6de52f358d51bcff758c147..a8d10e4de81619c44ccbe0f08=
+e69707dc28005a3 100644
+> --- a/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
+> +++ b/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
+> @@ -396,7 +396,7 @@ usb2: usb@5e000 {
+>  				marvell,usb-misc-reg =3D <&usb2_syscon>;
+>  				interrupts =3D <GIC_SPI 17 IRQ_TYPE_LEVEL_HIGH>;
+>  				phys =3D <&usb2_utmi_host_phy>;
+> -				phy-names =3D "usb2-utmi-host-phy";
+> +				phy-names =3D "usb";
+>  				status =3D "disabled";
+>  			};
+>=20=20
+>
+> ---
+> base-commit: fcaf733ca526b69595ed1d227e2cc59ddd24eff7
+> change-id: 20260217-armada-37xx-fix-ehci-phy-name-cdfc108b2473
+>
+> Best regards,
+> --=20
+> Gabor Juhos <j4g8y7@gmail.com>
+>
+
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
