@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9BC4E9B37D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 13:28:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E13F5D58E61
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 13:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o2ClYLRupqDrO68wbhPYoX/KO8vhOPlwFWoOd/NbY3w=; b=1eLDe+p8ukxpWvWit+cQdM+XZ9
-	V6xv9VoUqTHLFP7O8p4fmBc+FcUHakdWEwONtr8H9wUih4vZFU4ZYlctmCbgJ7o/ccT3gwTY6d2hi
-	t2o80vpCYgOCs44ywAdFhsw6u20QLbmGlczteTcddhxkNgWKW914XWoDZph6SHfl0ryR96BsXzRF6
-	maPRHov3JCdGCmni/8wQqoFuIcyHDnDJYkDgDNeP97RK7OCojtJ157mWIDj7KqB1vUcZOYvmKb/Fi
-	7NkPXn/KHQ+VcFFyipHK9WsOtvMRt6dVokwstqGVyJyT7dtO1T499q2R8Ix3FLiCtL6Cr++dn5ETQ
-	kECyauZw==;
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TqCugejn+OGjGM2P4bwUziYu78OGaka0Bim+UNMgjx0=; b=mqy4ncoAj0e9ok9dBg2mOxpjfb
+	B6qWGU6dM18F8M+T8xpdCU5bDLTjfwM3/NyNq8ap56qRy4ME7U8d952qgMxkIQYAaCuk8n998SqLU
+	DeL+xJK4VRVGB+8tg8XrHgHA6GK5JF9vBt4zV9mc5He8s/VxNQXlBz7uPJG8XoTaVGhyK5rhHw0Iu
+	kNS7j39gZgMnoZH39YuonxFtYa7Xs9ypcbxA+02pdqe8UXDHFRsPu3udo8BFjar8bpr10sj7azlmr
+	K2JhJoiaE5OoHUIy1ftbVr1IAW/Xbeou4SObvuDermGfei5OVGPc3spc9TOMSpHLypHOIHTDlFOJu
+	qgwffRkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3K9-0000000D6Vn-0TnI;
-	Mon, 02 Mar 2026 13:28:37 +0000
+	id 1vx3KC-0000000D6ZD-00Ko;
+	Mon, 02 Mar 2026 13:28:40 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3K8-0000000D6V0-0cDL;
-	Mon, 02 Mar 2026 13:28:36 +0000
+	id 1vx3KA-0000000D6Wk-31TX;
+	Mon, 02 Mar 2026 13:28:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:To:From:Sender:Reply-To:Cc:
-	Content-Type:Content-ID:Content-Description;
-	bh=o2ClYLRupqDrO68wbhPYoX/KO8vhOPlwFWoOd/NbY3w=; b=jQgi8QHV+OBPcM8R0JbAogpIHw
-	sfcmMr8lAPRhrnf+RaQnylbB5/pjF2UdPETcZ/e0aeneijfhKpxCNlKR3C2/eAizeCAyG76E9MISM
-	z8dNJ4GKTE2SF6vSHBSKrU9A3SEewURnoqXGiBjj6l6fMUGqdC6yjcBuwgDjcJv1FCO3VzuUJhhcz
-	wYrxMfHgInetX5nreidsh6KWe5vrcg5elYELQO9pjWhIW0jdE1hivMbIOxijeXzTvDZOm3J1MUYsJ
-	zkeOVcyPmdmPXZ9NZRWCl0kbFKOuuRg3f1cjIgWbQj6QIB7sn7ppceSEpKGoOrXJv6Gvyl1eSGLE/
-	Uk6YyGzw==;
-Received: from mailtransmit05.runbox.com ([2a0c:5a00:149::26])
+	:Message-Id:Date:Subject:To:From:Sender:Reply-To:Cc:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=TqCugejn+OGjGM2P4bwUziYu78OGaka0Bim+UNMgjx0=; b=OtZpxxKQqQCLImjBvsY0i+tYm8
+	Su7gCZDwJhhzI7e8ENVRu+KXI5hXe77qIV08uBrDpqaEGXcSszbOhSwdDXg0r7oqbFEs/VKUt6OmT
+	Wh+2rWgMG807wsPtrqn/Wi2pc9e2IUuzCXciM8qk9xwGJvs0miVBE9evATCEWzmYgwcrwdMsI+W3c
+	bafs7Np7f5n4U80R2dC1xd9W0lY1jenQiwxySBVpWUqQFn4HQoEjjF5KpVDpdo8q7y5eCN5oKDfV7
+	rDZpFEf6FzA88dXH5BWTWBzqtTK0yVLYKoHymKWIsHY+txZplHHHjbOrHk2dr5KAQGfa9KzxfGgsg
+	YLo50Ubg==;
+Received: from mailtransmit04.runbox.com ([2a0c:5a00:149::25])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3K3-00000000A3v-45aP;
-	Mon, 02 Mar 2026 13:28:34 +0000
-Received: from mailtransmit03.runbox ([10.9.9.163] helo=aibo.runbox.com)
-	by mailtransmit05.runbox.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	id 1vx3K7-00000000A5n-1Llx;
+	Mon, 02 Mar 2026 13:28:37 +0000
+Received: from mailtransmit02.runbox ([10.9.9.162] helo=aibo.runbox.com)
+	by mailtransmit04.runbox.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 	(Exim 4.93)
 	(envelope-from <david.laight.linux_spam@runbox.com>)
-	id 1vx3Jx-003blN-9N; Mon, 02 Mar 2026 14:28:25 +0100
+	id 1vx3Jw-003ZDt-84; Mon, 02 Mar 2026 14:28:24 +0100
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=runbox.com;
-	 s=selector2; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To
-	:Message-Id:Date:Subject:To:From;
-	bh=o2ClYLRupqDrO68wbhPYoX/KO8vhOPlwFWoOd/NbY3w=; b=RaIJo34Y0Q7j2egm9oaHOlOtOd
-	qIf5fI6+l/d2wpNaqq8G9dXTQ9MMLD3B96RqcrmcIuZWAbHSJrVvAOsCyxNnHmB0ApiOwjvIA/WUq
-	2QHmlroveisu5RbpBCARdjIwFelcSMWSgnuhcGGnezIcVvrdSc/czwp60dIuZ0dJ0UBhYTt3Dir6A
-	kPjMxT6Sx+w5jzEelLAoWpF5WZwr5068t7N9pLbu3BuEHsUXyhRpZNDULOe1NTcLEJsTarSsqPA3q
-	jO3BiP4+6U4spuDiRYWorjNHk7ZXXdxC/8mJTlzMjB17nS6wB8o7mn+sdiXsOXXocQv+tO32ThUWi
-	FRs2OCew==;
+	 s=selector2; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:
+	Subject:To:From; bh=TqCugejn+OGjGM2P4bwUziYu78OGaka0Bim+UNMgjx0=; b=CnVsYB+8+
+	VTkexEkCIXtWxDk0ct8bmk056FpnSkPCeP5i9Yz34bIo3y9sfFFKxB70WZvWoa5uqvPOn8FGr0qGf
+	EbIp0aausm3TBu9LxPZnWweSATT+ezR5WZWL2ZB5A/AohwyvAn5sRz/2VIhze8//praDWx5tUs3Kh
+	uSZ5LHvoL37lkFaTAFRYZPn6z3367lk4BEMixUtiAnxmBvTrEt3Nok0C2xREQl+pFHBZNSGve89hN
+	sVBOcOV0Nc47MyZUOiMqCn7FnHZ5wI0tCUtCptdrGMcotngqvg2PlvnsYF2JihFCbaufaLijoNZFG
+	NDR1Prmpt8MS2YYeGDqIb7kqQ==;
 Received: from [10.9.9.73] (helo=submission02.runbox)
-	by mailtransmit03.runbox with esmtp (Exim 4.86_2)
+	by mailtransmit02.runbox with esmtp (Exim 4.86_2)
 	(envelope-from <david.laight.linux_spam@runbox.com>)
-	id 1vx3Jw-0001hU-9m; Mon, 02 Mar 2026 14:28:24 +0100
+	id 1vx3Js-0003sJ-UZ; Mon, 02 Mar 2026 14:28:21 +0100
 Received: by submission02.runbox with esmtpsa  [Authenticated ID (1493616)]  (TLS1.2:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
 	(Exim 4.93)
-	id 1vx3Jj-008UTR-SY; Mon, 02 Mar 2026 14:28:11 +0100
+	id 1vx3Jf-008UTR-B9; Mon, 02 Mar 2026 14:28:07 +0100
 From: david.laight.linux@gmail.com
 To: Alexander Viro <viro@zeniv.linux.org.uk>,
 	Andre Almeida <andrealmeid@igalia.com>,
@@ -96,17 +95,15 @@ To: Alexander Viro <viro@zeniv.linux.org.uk>,
 	x86@kernel.org,
 	Kees Cook <kees@kernel.org>,
 	akpm@linux-foundation.org
-Subject: [PATCH v2 4/5] uaccess: Disable -Wshadow in __scoped_user_access()
-Date: Mon,  2 Mar 2026 13:27:54 +0000
-Message-Id: <20260302132755.1475451-5-david.laight.linux@gmail.com>
+Subject: [PATCH v2 0/5] uaccess: Updates to scoped_user_access()
+Date: Mon,  2 Mar 2026 13:27:50 +0000
+Message-Id: <20260302132755.1475451-1-david.laight.linux@gmail.com>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260302132755.1475451-1-david.laight.linux@gmail.com>
-References: <20260302132755.1475451-1-david.laight.linux@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_132832_109501_7236CBA0 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20260302_132835_413397_E0E2A3CC 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,30 +120,44 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: David Laight <david.laight.linux@gmail.com>
 
--Wshadow is enabled by W=2 builds and __scoped_user_access() quite
-deliberately creates a 'const' shadow of the 'user' address that
-references a 'guard page' when the application passes a kernel pointer.
+Converting kernel/signal.c to use scoped_user_access() had compilation
+warnings because some of the pointers are 'pointer to const'.
+This is fixed in patch 1.
 
-Signed-off-by: David Laight <david.laight.linux@gmail.com>
----
- include/linux/uaccess.h | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+The same problem has been found compiling arch/powerpc/lib/checksum_wrappers.c
 
-diff --git a/include/linux/uaccess.h b/include/linux/uaccess.h
-index 64bc2492eb99..445391ec5a6d 100644
---- a/include/linux/uaccess.h
-+++ b/include/linux/uaccess.h
-@@ -739,7 +739,9 @@ static __always_inline void __scoped_user_rw_access_end(const void *p)
- #define __scoped_user_access(mode, uptr, size, elbl)					\
- 	with (auto _tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl))	\
- 		/* Force modified pointer usage within the scope */			\
--		and_with (const auto uptr __cleanup(__scoped_user_##mode##_access_end) = _tmpptr)
-+		__diag_push() __diag_ignore_all("-Wshadow", "uptr is readonly copy")	\
-+		and_with (const auto uptr __cleanup(__scoped_user_##mode##_access_end) = _tmpptr) \
-+		__diag_pop()
- 
- /**
-  * scoped_user_read_access_size - Start a scoped user read access with given size
+For v2 I've changed the code to use 'auto' and replaced the over-complex
+CLASS definition (and its for loop) with a much simpler __cleanup() function
+on the second loop.
+
+Patches 2 and 3 factor out the 'autoterminating nested for loops'.
+I'm sure there'll be a 'bikeshed' discussion about the names.
+
+Patch 4 stops warnings from -Wshadow (enabled by W=2).
+I did think about making the _diag_xxx conditional on a W=2 build,
+but since the pre-processor just emits #pragma lines and they are
+smaller that the for() loop it doesn't seem worth while.
+
+Patch 5 is the change to signal.c that prompted patch 1.
+The generated code looks fine, but I've not tested it.
+Most of the changes are to 'compat' code - so are probably not
+usually performance critical.
+IIRC the non-compat code uses copy_to/from_user() for the structures
+so is probably slower than the compat code's member by member copy.
+
+David Laight (5):
+  uaccess: Fix scoped_user_read_access() for 'pointer to const'
+  compiler.h: Add generic support for 'autoterminating nested for()
+    loops'
+  uaccess.h: Use with() and and_with() in __scoped_user_access()
+  uaccess: Disable -Wshadow in __scoped_user_access()
+  signal: Use scoped_user_access() instead of __put/get_user()
+
+ include/linux/compiler.h | 26 +++++++++++++++
+ include/linux/uaccess.h  | 51 ++++++++++------------------
+ kernel/signal.c          | 72 +++++++++++++++++++++++-----------------
+ 3 files changed, 86 insertions(+), 63 deletions(-)
+
 -- 
 2.39.5
 
