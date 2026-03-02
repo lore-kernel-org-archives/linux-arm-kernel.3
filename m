@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6199DEB3629
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 17:52:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A6C3EB3624
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 17:54:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w6/q0PlUhQsQqCgtm8MH8kpDBLtZoKxA/5qdQMwsczA=; b=NvzXBL8TwclDSX0UFeOnedCYhw
-	YHDvot2TkdKLrzEHV1HyI1/xOB0favT7phBT8CTTmFPmcGHzUZLiHAwvMPsLQvtrRYB6eJz8yhLU1
-	03OW9/R28anqdqg3GwMyjmuyjnb6IM2KiI9IDMbcAEYJJpR/6RatRt+6XtQkkamAdJKUVfkWC7RXq
-	y4/Rpyf3vO9ZemuHU4R9LfH+cL/3gL4IiD2kqdRfuJSOuTial6SaLGBfskhPkyTyXHdOzxZ7L7H1I
-	jR9DOJyizZHmCExI5tHvIJb1zhFpj8HOXBlD6zeGKCxyvKTj1smGtyId2WR5xj3FYo+ABtfUZvHBg
-	3isAzy1g==;
+	bh=54ms6gwdYGw/oqFQ92jKqr427TFrwbXBwadvjPkB/x0=; b=ldrr9nvr/9anCDsz1/p/IFl3fg
+	JQvM10PsRkKEHP2Z3Pembqadk3aCXlMp644hbtVtFanY2NGZ6bp2XbFTE8F1P10BEf+86bzBTae4b
+	HN2r86u4KZIn12VwEGISiXeOJuZtRZNhpznQkUnB5xGspMRXBajez8edVltJ88BukgapIHVghUFgc
+	8wWEmuZpI6WN09UwXBqPhy1VMijg/DaCdecj9n4brCOTWCokiIBUPKOiybcBt1K4Bhm913ktsXDEr
+	uQZCCrUJ4wro64jgXdjmB6kj78AL6mUzxZlLYO0GaiMOmTYq12Mg60OLCl+axD30M/9Neg60bkj+5
+	BB5q/ITQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx7RH-0000000DcyV-3oMv;
-	Mon, 02 Mar 2026 17:52:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vx7T5-0000000DdFJ-1ku3;
+	Mon, 02 Mar 2026 17:54:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx7RH-0000000Dcy8-1Brr
+	id 1vx7T3-0000000DdEX-1kyE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 17:52:15 +0000
+	Mon, 02 Mar 2026 17:54:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6773160126;
-	Mon,  2 Mar 2026 17:52:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF105C2BC87;
-	Mon,  2 Mar 2026 17:52:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8C2F340A3A;
+	Mon,  2 Mar 2026 17:54:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 665FBC19423;
+	Mon,  2 Mar 2026 17:54:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772473934;
-	bh=K8AbHsz72TSgP2bdOzk1adrzjtFHygOozSMVIl4YU5E=;
+	s=k20201202; t=1772474044;
+	bh=4s2+oQrCTsTX/U0FPD1SSCHqKbKcPyx/1cjPCg2PTW0=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Un2wc4GcAn+A+x3q/r96Cd4A2DUNx1rVQJVZ2ThgSQ4ele3Q9GCq9n2yPBQgMjdRs
-	 KNqvXv29i8kqjRUSapwR3pMNdMBMGqS9p7St3M0Xr8q2X4xfo47AbBbhtzvjg/sNrY
-	 9O+aRTGPuPasBqklO2yQhGZkyyYjeWNEsNPkv2tSIH2lJ5T91wlFFc/Uf4y2WXY4m7
-	 +Piw1dCw0Y7GeKY1Dsun4X3febHf6UndTUb8wOdxOmzXLQsOLqy3Rci6UmlYPSwgD+
-	 PUrPluICHRDEjcFM/eHAtK7+h0HgFKvvWgXerpuFQI9FnH56ZRdD8TWrU3BfIyYyEH
-	 slyajjKYbk0ig==
+	b=VlQKop6VWWe8+QMFSAXlRcmH3fXQOhdXqKV3mCya4UL5gFuD+LUM5B/xxyt1TrhrR
+	 1+A3KAd5SzypoD+hvQUDlWKnsL0yu8iRp0u/3mtDH/SapFFNR3LV7muf40LiwA0YOn
+	 PRHI4ypp3wovk/eSUib1GJXU/kqCBl79Si8RROAEMmXvKHn5sIG/NeUjo4S1DIvM4q
+	 TnfV9ZJ//GUTJAgAqTCFT2WPqngY7yfz4rRTGz6v2A0aurQkhPXL4gAtAGqjqGi3gs
+	 0Se86Y0++fFvozEMpwBvepVQ015vakhO+ysL4DMrhV1gNX2hR9dCxl6wH7c4ocd32a
+	 tVZ9fLjC3CZuQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vx7RD-0000000FLem-1iil;
-	Mon, 02 Mar 2026 17:52:11 +0000
-Date: Mon, 02 Mar 2026 17:52:10 +0000
-Message-ID: <86o6l686gl.wl-maz@kernel.org>
+	id 1vx7T0-0000000FLi8-0hBo;
+	Mon, 02 Mar 2026 17:54:02 +0000
+Date: Mon, 02 Mar 2026 17:54:01 +0000
+Message-ID: <86ms0q86di.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Ben Horgan <ben.horgan@arm.com>
 Cc: amitsinght@marvell.com,
@@ -86,10 +86,10 @@ Cc: amitsinght@marvell.com,
 	zengheng4@huawei.com,
 	linux-doc@vger.kernel.org,
 	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: Re: [PATCH v5 02/41] KVM: arm64: Preserve host MPAM configuration when changing traps
-In-Reply-To: <20260224175720.2663924-3-ben.horgan@arm.com>
+Subject: Re: [PATCH v5 03/41] KVM: arm64: Make MPAMSM_EL1 accesses UNDEF
+In-Reply-To: <20260224175720.2663924-4-ben.horgan@arm.com>
 References: <20260224175720.2663924-1-ben.horgan@arm.com>
-	<20260224175720.2663924-3-ben.horgan@arm.com>
+	<20260224175720.2663924-4-ben.horgan@arm.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -99,6 +99,9 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: ben.horgan@arm.com, amitsinght@marvell.com, baisheng.gao@unisoc.com, baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com, dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com, fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, peternewman@google.com, punit.agrawal@oss.qualcomm.com, quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com, scott@os.amperecomputing.com, sdonthineni@nvidia.com, tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev, zengheng4@huawei.com, linux-doc@vger.kernel.org, tan.shaopeng@jp.fujitsu.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260302_095405_494461_FB4BE017 
+X-CRM114-Status: GOOD (  17.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,21 +116,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 24 Feb 2026 17:56:41 +0000,
+On Tue, 24 Feb 2026 17:56:42 +0000,
 Ben Horgan <ben.horgan@arm.com> wrote:
 > 
-> When kvm enables or disables MPAM traps to EL2 it clears all other bits in
+> The MPAMSM_EL1 controls the MPAM labeling for an SMCU, Streaming Mode
 
-nit: s/kvm/KVM/g
+nit: The MPAMSM_EL1 *register* controls...
 
-> MPAM2_EL2.  Notably, it clears the partition ids (PARTIDs) and performance
-> monitoring groups (PMGs). Avoid changing these bits in anticipation of
-> adding support for MPAM in the kernel. Otherwise, on a VHE system with the
-> host running at EL2 where MPAM2_EL2 and MPAM1_EL1 access the same register,
-> any attempt to use MPAM to monitor or partition resources for kernel space
-> would be foiled by running a KVM guest. Additionally, MPAM2_EL2.EnMPAMSM is
-> always set to 0 which causes MPAMSM_EL1 to always trap. Keep EnMPAMSM set
-> to 1 when not in a guest so that the kernel can use MPAMSM_EL1.
+> Compute Unit. As there is on MPAM support in kvm, make sure MPAMSM_EL1
+
+s/on/no/, s/kvm/KVM/.
+
+> accesses trigger an UNDEF.
 > 
 > Tested-by: Gavin Shan <gshan@redhat.com>
 > Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
@@ -138,48 +138,25 @@ nit: s/kvm/KVM/g
 > Reviewed-by: Gavin Shan <gshan@redhat.com>
 > Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 > ---
->  arch/arm64/kvm/hyp/include/hyp/switch.h | 12 ++++++++----
->  1 file changed, 8 insertions(+), 4 deletions(-)
+> Changes since v2:
+> Remove paragraph from commit on allowed range of values
+> ---
+>  arch/arm64/kvm/sys_regs.c | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
-> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> index 2597e8bda867..0b50ddd530f3 100644
-> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> @@ -267,7 +267,8 @@ static inline void __deactivate_traps_hfgxtr(struct kvm_vcpu *vcpu)
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index a7cd0badc20c..2c9a52e66fe0 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -3373,6 +3373,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
 >  
->  static inline void  __activate_traps_mpam(struct kvm_vcpu *vcpu)
->  {
-> -	u64 r = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1;
-> +	u64 clr = MPAM2_EL2_EnMPAMSM;
-> +	u64 set = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1;
->  
->  	if (!system_supports_mpam())
->  		return;
-> @@ -277,18 +278,21 @@ static inline void  __activate_traps_mpam(struct kvm_vcpu *vcpu)
->  		write_sysreg_s(MPAMHCR_EL2_TRAP_MPAMIDR_EL1, SYS_MPAMHCR_EL2);
->  	} else {
->  		/* From v1.1 TIDR can trap MPAMIDR, set it unconditionally */
-> -		r |= MPAM2_EL2_TIDR;
-> +		set |= MPAM2_EL2_TIDR;
->  	}
->  
-> -	write_sysreg_s(r, SYS_MPAM2_EL2);
-> +	sysreg_clear_set_s(SYS_MPAM2_EL2, clr, set);
->  }
->  
->  static inline void __deactivate_traps_mpam(void)
->  {
-> +	u64 clr = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1 | MPAM2_EL2_TIDR;
-> +	u64 set = MPAM2_EL2_EnMPAMSM;
+>  	{ SYS_DESC(SYS_MPAM1_EL1), undef_access },
+>  	{ SYS_DESC(SYS_MPAM0_EL1), undef_access },
+> +	{ SYS_DESC(SYS_MPAMSM_EL1), undef_access },
 > +
->  	if (!system_supports_mpam())
->  		return;
+>  	{ SYS_DESC(SYS_VBAR_EL1), access_rw, reset_val, VBAR_EL1, 0 },
+>  	{ SYS_DESC(SYS_DISR_EL1), NULL, reset_val, DISR_EL1, 0 },
 >  
-> -	write_sysreg_s(0, SYS_MPAM2_EL2);
-> +	sysreg_clear_set_s(SYS_MPAM2_EL2, clr, set);
->  
->  	if (system_supports_mpam_hcr())
->  		write_sysreg_s(MPAMHCR_HOST_FLAGS, SYS_MPAMHCR_EL2);
 
 Acked-by: Marc Zyngier <maz@kernel.org>
 
