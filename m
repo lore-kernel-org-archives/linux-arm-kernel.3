@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C59CDE9B361
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 10:48:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CB48E9B357
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 10:50:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kQuI4K3ZEUJDKCq+x5XsDnEwD4uwogcQg4jLmDea6Ws=; b=Qk5TVndFPzGLOQxGf4Gcbz5q+1
-	cwAjd+xj5dc+nHd3Dt3KAnOfku45YAkBa2atCqiXZJsOxM3WTv7sboTNA5m3Gvy8hEzcVuCkT4iEW
-	wmfbJjeVD6R6i8Z24o8wBSVTwwquPseHcZdywguDP1cQHN4poRyKRlHMfvBVXSJ/9yM9o70T10dYh
-	jKQkaEgIRSvPMrXP4gz/6pXJKwjiexhivYAlt3QuyzK2YtItsEaz6DK7ExPqRm7STLJinHu0+456E
-	yjJYNj/FA/qH3gxu3tTpwPnf4ki8dZjCqeFefDz4alJhM6s858FvU0yyYVvRrImmGZCpir93DeErD
-	38S7oq2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LJ11vK6VtIVd139Ojxs5lX7W/wK7C3IqSgUGtUMF/Tk=; b=kU4fNJLuChYQui+r7L//P1xwwL
+	DE+/OEnXWBd3tn4KmrQPVygByrL/ODsYhSD+/bfJabBEoYueGG0tvbbORcU/8ny11EAFRjRdp2u/u
+	RHXZeUn6rXfDc6DcW6XPF9KkSSX1838Pa13KJzzcl9aXIucf8YHGbGRHNqnHP7B6CpIGZxc6ApR0o
+	QGP3NwdEtZywML6JeD2IyOCzc8aSfQuwPdmmQfBuvP+HsE0EU2s/Gjt6Wb9nsZ7QpArmozcdr7CaI
+	GQ7GmBMvJgH1UW/7swUuw6HxbNFJ1ocOX2ou5Jk5tlMfAdkYcXD/gmjSiG056nNfDDQHbZnGg8y2k
+	dbe9Xpog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx0ov-0000000Ck9T-3BLw;
-	Mon, 02 Mar 2026 10:48:13 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vx0r5-0000000CkM8-2dSc;
+	Mon, 02 Mar 2026 10:50:27 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx0ot-0000000Ck8r-3dK3;
-	Mon, 02 Mar 2026 10:48:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1772448488;
-	bh=TqIenPwt6OVbrGlBW9KR2jLxrOLkeSIALm72A1x7urM=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=m6qHuL/TKXNlqunZ0wzU29sKWp5+A2CGm4Kx+ly4uHO/jAO3VvfCwoejPNvlFTXJS
-	 mCxxI+TPWBx37cvSLFnQRkcDExAy6xY2VUPA6y/9iXUPNrcqqhUzv+jhAz5F29Zhug
-	 GTQ+8Z5iU9+GWIxlUpPOT3Srj46aFJZYApEcUcsEojDtSOpxHezS+SzfBtvCUTzPwG
-	 TVFi64lAC+CIzR/EHccz6VR913PW9j06scywnC272KzCCSiEV9vOdeDfayFDbxPdl/
-	 Btvx4z6Hh3lWdTyMOA7CUEZTUksq4envwyut40ic28XqPeTC4h2AHLY3oIDw2AzvuO
-	 uVUknf3oA3roA==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 75D3217E0D04;
-	Mon,  2 Mar 2026 11:48:08 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- Frank Wunderlich <linux@fw-web.de>
-Cc: Frank Wunderlich <frank-w@public-files.de>, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
-In-Reply-To: <20251215074609.4100-1-linux@fw-web.de>
-References: <20251215074609.4100-1-linux@fw-web.de>
-Subject: Re: [PATCH] arm64: dts: mediatek: mt7988a-bpi-r4pro: fix model
- string
-Message-Id: <177244848843.35091.13923037073302766637.b4-ty@collabora.com>
-Date: Mon, 02 Mar 2026 11:48:08 +0100
+	id 1vx0r2-0000000CkLm-210D
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Mar 2026 10:50:25 +0000
+Date: Mon, 2 Mar 2026 11:50:21 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1772448622;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LJ11vK6VtIVd139Ojxs5lX7W/wK7C3IqSgUGtUMF/Tk=;
+	b=luUvFsCRasCPcUrkKVKnAtbIOrxg4rL3l2Ho6jb0Sr9ebUjjDOodCMV6DEFK+OLsdjhnlx
+	Vo53M6cpIua++yWOi99HU/jxlsdZBNrWFtIOO6eVjV0wpXCLjugSDIj7psDMZR13yfEwrY
+	e1o4vl9BKxXA34alW176Fkx/47Hji9j6qe6bpA/xC68rT7Q8WQnW7pcX3rmBXX56DUiZqf
+	3mQJqlHkeHCjPc5uffcQoh3DrFQoa2lMqSdSsCdTNSZm9qqBIX+PhL9veQuN72GRMObuvt
+	DDmV/zme3z1uE7L9AZHycWpapiaUBW6t0JKY1MqMNMNyQgBWCIv/iDnlUUXBIA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1772448622;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LJ11vK6VtIVd139Ojxs5lX7W/wK7C3IqSgUGtUMF/Tk=;
+	b=Wecf0X0QCqKCWRC00mFP5q3KVKxeVz52yJ5P7FF+yXVbrqHG3w18h2LGlu6PSCc9uvnhp1
+	AR7irSQo3cS+c+Cg==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Clark Williams <clrkwllms@kernel.org>,
+	linux-rt-devel@lists.linux.dev,
+	Steven Rostedt <rostedt@goodmis.org>
+Subject: Re: [PATCH 4/6] ARM: use BIT() and GENMASK() for fault status
+ register fields
+Message-ID: <20260302105021.JEoFiIoj@linutronix.de>
+References: <aaG1wrNUaq_L0I5g@shell.armlinux.org.uk>
+ <E1vvzch-0000000AwoC-3JkD@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <E1vvzch-0000000AwoC-3JkD@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_024812_078220_9C510B4C 
-X-CRM114-Status: UNSURE (   5.75  )
+X-CRM114-CacheID: sfid-20260302_025024_660935_CD4FDA7C 
+X-CRM114-Status: UNSURE (   5.44  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,18 +80,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 15 Dec 2025 08:46:08 +0100, Frank Wunderlich wrote:
-> Fix incorrect model string in Devicetree for BPI-R4-Pro.
+On 2026-02-27 15:19:23 [+0000], Russell King (Oracle) wrote:
+> Modernise the fault status field definitions by using BIT() and
+> GENMASK().
 > 
-> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
-Applied to v7.0-next/dts64, thanks!
-
-[1/1] arm64: dts: mediatek: mt7988a-bpi-r4pro: fix model string
-      commit: e4e6f0c5a4dc238684acef079e792c81d37e3226
-
-Cheers,
-Angelo
-
-
+Sebastian
 
