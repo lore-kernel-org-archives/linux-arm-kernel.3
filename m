@@ -4,80 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9659EEA4E11
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 14:59:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7453EA4E13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 15:00:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GfsR3YGe/enFtfczqPrf/FazRH0Zt49eeJB9GFOvyuw=; b=wdSbKwjTJHjl/IilColWq0/B9h
-	aAQOQSlVo3b1z96dTzg/+JOh5OM1BcAdwej9otHds5SseNXWN8RM4ErXf7v5obLHgdlgZ7PYtoGsa
-	AW24UV94wjWa9GSESJ1ezBQdng3H/lwH+01ASVkkB8rrxjTls6ODmOSOl/FTJ5vOnGoLW7kw7aQQp
-	e4wxadg6pzmtfSEiglv9IG4ctNKcle7PXpqd0o2ue7WlHMhT/s7dko8h1OZB2mJyEPggGODtOSu6K
-	CVEVZuPMWCpS/k66DOFsZHbhzoBdSIciFOuSyucUTLu/Gmm1LFPrV8k6ZD0IPHKd7L/iEJcxPRgQM
-	+mQkmhOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yyYSDgVgelfRtGJZDAPXhcZ8WCDQJEXtVeHkCWjCWSA=; b=LKC3Ttufef9n9taB99c/5ID0PX
+	aS+dYyv4MNEGiGv/F+faKGX82hTdt1iYx+UP1OgxE38o+TY88u1l1ydfKCJhfIA5519hrwjCTm2AQ
+	asUvmohTB3BnRsnWINzx/rsepryrO4BeChuWsX6YTRFRwEI2CrRptMkcqlJqVdFXF/XyaENRjcU7d
+	ZWRvkfdbtxg15tD6oDgtaZrFh0bCjJJfuHL7RbJ8RKO0Wkm8YlY2oG3kXbj/fsvrOBH8twvgX6s2+
+	F4Pz+Be9OB78PHsjc+TPE+wcwZ2oQAeeD/MWYeGmCONQmC97nLVvEgHJjdrY136GzVhSUWB/M75Al
+	nXa95S2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx4jw-0000000DHM5-0zs4;
-	Mon, 02 Mar 2026 14:59:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vx4kV-0000000DHW4-1Xvs;
+	Mon, 02 Mar 2026 14:59:55 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx4jt-0000000DHLD-1gsM;
-	Mon, 02 Mar 2026 14:59:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8A5AC4430B;
-	Mon,  2 Mar 2026 14:59:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 211BAC19423;
-	Mon,  2 Mar 2026 14:59:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772463556;
-	bh=yLKCSXO+hQApHc+NF2pMZzlTvrx+yrgTZOCdhXU+l+s=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=f2NBa7irVPOLjk3WW4SCmf8FWi+7tBJ3LbL5TJX9XKvS1spGkziwe9pGBJY+oqLo7
-	 kA0iGOYvp0cjlRZXL+tt2MqQSyn2cirVYdwLABTi85/4lhjcDbtxxtfNHjPvF07WxM
-	 VGhJDv969X+0XD8Ltsk+AXrf1C36RCmK274CzxkNnrnNzf+bfkiSYGN9DW2Q5LeFol
-	 85vi9xmsuMiRcJ/1EsNPNL1+QYTCSEkkbB/fpWUiTL6w5gSJgyz7KbZ7zgfoOhM5xy
-	 GUA1X9y6ljSEOT1J2bnp5Y5mMfrMW692fy/GCNHYl8XYEYdmgabRaVoJG4M+mEOaEn
-	 5PRbc9SZdCdXw==
-Message-ID: <e8a688b3-97e1-4523-9a82-8d9dd16e3d90@kernel.org>
-Date: Mon, 2 Mar 2026 15:59:04 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/5] uaccess: Fix scoped_user_read_access() for
- 'pointer to const'
-To: david.laight.linux@gmail.com, Alexander Viro <viro@zeniv.linux.org.uk>,
- Andre Almeida <andrealmeid@igalia.com>,
- Andrew Cooper <andrew.cooper3@citrix.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Christian Brauner <brauner@kernel.org>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
- Heiko Carstens <hca@linux.ibm.com>, Jan Kara <jack@suse.cz>,
- Julia Lawall <Julia.Lawall@inria.fr>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Nicolas Palix <nicolas.palix@imag.fr>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <pjw@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Russell King <linux@armlinux.org.uk>, Sven Schnelle <svens@linux.ibm.com>,
- Thomas Gleixner <tglx@linutronix.de>, x86@kernel.org,
- Kees Cook <kees@kernel.org>, akpm@linux-foundation.org
-References: <20260302132755.1475451-1-david.laight.linux@gmail.com>
- <20260302132755.1475451-2-david.laight.linux@gmail.com>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <20260302132755.1475451-2-david.laight.linux@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	id 1vx4kT-0000000DHV7-0l6l
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Mar 2026 14:59:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xoru7ZKX0AEEUxXAFey5TD20EgIT9n8rjVNaZteFI0IpHllQQQGc5ZimVhSj2kHGDyw349qzAg0aF851tqOY3NJ35hKjLOzzhXZQe2sqYyNRRIawn9kBfCc28LDYmeaPSSkx/bTLPqKOOdhtz2ucp97183GlImqK8I/1BXcN5RNGRgCIv7Jee72elyJapXwjTo6OI7lFG0zdKn9X+ExLx3hpev7/CbfyMHnyOhRmSR2UdNE92bsmnFL9/gp20FJkgya/MckqK3XBFodQUGbFBzNDtHOXJr0/CwqkVk0dS8YCmSAyMFne6LAcVJzxqE0/E4Q9rm7A2w/8GfV7nlUW2g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yyYSDgVgelfRtGJZDAPXhcZ8WCDQJEXtVeHkCWjCWSA=;
+ b=fKrU6DSSMQ65QPqXEGPngu++onWLPw3lsIoekIZaDsv+kGZJIcEzG2zI5iSfY++fwgNBVdkUL7NL7KI3ibkRWuRKWvLWZ/QHZijFzT2Q0bdKwwDo6N9CNW7vtj5bKRSHtHBMQvpjgBKhPWTvAtIGMD7qzmVkahJ18luYqhoVl0s0VhzSNr7emah5tHD48r1/cGx/bWELUjmCQFX3ILW0RvJK/rk4c+GfoTVX85GvlU/QZKjesesOM9GsgQ3Ru3UBX/uLbqGFwEmHpjrnO0V72L8PmtbZA/xlbB2l6BnD8J3XoNqM206ZGyz6astBGGR7ilXTDzmTB4soZQSOAs81Hg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yyYSDgVgelfRtGJZDAPXhcZ8WCDQJEXtVeHkCWjCWSA=;
+ b=NtfrF14cUVSiW4gfLq5dn84t7E6fX/vbmVCS9Ml/boEj90ozboDkYeMxpaoJrTKq6QtNsVv3QU73mpuRD2PjK9lNCdN+BDQqKEDAOFIL91eMYLyt4g0QJTY4dx30zCL5jEZeILx1UEZqup7lwgHu4onR4RLpwpJyUYMf9zBixlFslzT1bI/2fuFeJh7d9w9VD0Jv0/tYi+hLf/hkYxm+M68XdiZ76KgNk4jXe5aG9uRdISDgORXAUg5hhpUqxflRimPsCDvDnPfvY5M0pVb9wDNzhxNaoDgIkPi3lJjAVbpdbwpnKCAiL0Dj7kcZ4YSl5BBBKTHq1vCWZRc4xa79jw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by VI0PR04MB12255.eurprd04.prod.outlook.com (2603:10a6:800:304::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.20; Mon, 2 Mar
+ 2026 14:59:48 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e%7]) with mapi id 15.20.9632.017; Mon, 2 Mar 2026
+ 14:59:48 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Subject: [PATCH v8 0/6] clk: Support spread spectrum and use it in clk-scmi
+Date: Mon, 02 Mar 2026 23:01:14 +0800
+Message-Id: <20260302-clk-ssc-v7-1-v8-0-2356443a7e4c@nxp.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIADqmpWkC/3XMTQ6CMBCG4auQWTumPyCFlfcwLLQdpFEpaU2DI
+ b27I3s3k7yTfM8GiaKnBH21QaTskw8zhzlUYKfrfCf0jhuUUI1UWqJ9PjAli7lFibVQztVjRyf
+ VAU+WSKNfd+4ycE8+vUP87Hpuf98/EB+B2ggyt8awp8/zuhxteMFQSvkCo2OTiaYAAAA=
+X-Change-ID: 20251231-clk-ssc-v7-1-402dd4f9e629
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Cristian Marussi <cristian.marussi@arm.com>, 
+ Sebin Francis <sebin.francis@ti.com>, Brian Masney <bmasney@redhat.com>, 
+ Sudeep Holla <sudeep.holla@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, arm-scmi@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: SGBP274CA0008.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b0::20)
+ To PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI0PR04MB12255:EE_
+X-MS-Office365-Filtering-Correlation-Id: efc162f3-1aa6-4f62-2343-08de786c58fe
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|366016|1800799024|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: +ggvm20to6ZycVIiJ2m0X8H1hs9Sv1nhwwkfwAEIZYj0Jz35A1NM/8mjCH10K3qSMbwETrGqoKdNAk9i3fOCcY4OyXyi0Xwi1TamRMrl5j4dv80rzh/sWlLFJ+tGvG4CJgdO0SWeiq75W4FAE/7DX59oFrAMROFE3gBy2V6UdhPdxTEhDPUzs6gdMtnhfsrJhM1N1PJ7UPcp7X37sqWF/FcYOEGfnU7zMWfiuS3ywNTbpq1FTBt+3UC/Xd9QNYM5h6tg0ehY8unInpV59zZJ03MeRnm+0gCrqmK7ZH/VRMczyRnN9JFGGDDO+toGF3SvUvOJvUTm0ub81fEwHt4e2RGA77AuCDdWhd7KTIEPqF1/goeUAQXsxtP+kgBupUP8Fxt9JOCB8M286PvX+73o0dUQ+ZS4oam2ztNyaLTW4zMdAl6yF47oF91KLk3sIAVJNsR+ounANN2GGSx5dqNku2DQJ/PXIB0/jFC/y8INl4NG+A2ZCPcxYEMjTNiqTKJrNRgvvtR0KUfRkQ/kl/UlBXJm0e6A+Mu0T2lDHpRY5LJh6w1CWqjVpXaeE/IEfG7HuvmP+zWW04hdShP/MRdEZSHqAmbfE8i3+1+t6TBgRAo4pHaFnJDKnSHJ+sJaiikxvt/HG8gNREAAabysfXH7FMqO6mIpZc5V3905GktPzZV3pf7MAcUDh2MmppxJcJyLraGIZ/OHqmr7Ihtxw/7bW7wGo0rCMqESHAd1EwTZpZfz8u6Urm8j53vrxrbpCX7hUs5Ew4rPgWswn958g6MQigp7LTRSvqXIPc7HH2Ky10M=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(366016)(1800799024)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d2w2NjluRXRIWlJpdC81UThXYkFZWnpSZGdsRXJBb2F4RXlydzVkUGpIa012?=
+ =?utf-8?B?ZXNTb3h1cHZ2Y2R1SkY0c1ZwNTR6dWpQMEJxTEt4cDdMZU4wbXF3U015TkZw?=
+ =?utf-8?B?dUxneGFldnZ4bXU5ZjA2T2hBUzBzZGQxN0xoUlJOU3RTWWk0NWxsQ21UeTB0?=
+ =?utf-8?B?NkRBWlBvWE5XT3JtTUo3c0RpbU1PUnl1ZVVRQi81SzdMN2p3RDJMNVp6N3Jz?=
+ =?utf-8?B?K0lwQ0NWZ0pNaEZEMzRoZzdZVmFtWnkwSmppSkozcjNNZFpWUW85TFZpV3B5?=
+ =?utf-8?B?MGxWVy8vZnZwMHc5NnJicmJlY1RNLzZZWVE0akVVUFNnZkw3aEtWVGYySWpM?=
+ =?utf-8?B?c1ptQ05PeHNxM1ZNcGp5ekN3a2ZYeENmcTVxM3I3bkdoTk9MUUQ5YWdaVUdi?=
+ =?utf-8?B?N3FNQ2xrMm9reUVtWTd3YnpUck9SSFFXOHk4QmoydzBNSnNHSlphYjBaUTNo?=
+ =?utf-8?B?RmkxUUQxeFhTZDFlUHpnNFJ3eUhjTXAvcTVISEg5ZG1ZSGdycS9NVy92QUdr?=
+ =?utf-8?B?WEhScjNUQ210VmlhUS8yL0hQQkdrcVQ0a3FxMk5pMjhuNlBKV0VuL0VIN0I2?=
+ =?utf-8?B?TnR4Qm1XbUxERCsxanZwS0wzeVpLZ3ZCTVMrVVVjamF0WnFCV0lsNTN4V3pU?=
+ =?utf-8?B?REtmdXNCZ2VVUXg2TklEcjV5SlB2ZXY2aUxyKzRBdDMxMmRQMTlQQW5RRGhl?=
+ =?utf-8?B?NEo0cTlReXVXWnBIRytWTVRQWjlPeG1PTEdQeGFZRWFIV1FJbGlSdjBPdlc1?=
+ =?utf-8?B?aW95UDdDc2xTWFhPbTZXaFR5L0ZOeDVJYjluamp2ODNSZWRZdWdyRHFqd2p4?=
+ =?utf-8?B?UHMvWURHa09yOEIxSTFPSU5IelV6K2hHZFg3TkJFWDhqOU9jOHRuNDVRaHJv?=
+ =?utf-8?B?T3BpeDRkOHNkZVVKNXNvNitGOStPYWNzWmcwV1owV0Z2dFBnVnJ1eU53WnM5?=
+ =?utf-8?B?ZUtpUDgyR0x6dVBRTVNTa0Z1cXlyREI3VHF0a0R1cm92T1g4eG1SNzh1TTRy?=
+ =?utf-8?B?V2hkcmFPWjcrWGpNZFJ1N3VPNTltc2YxT2QrZ2RKeEV6VWpoYkVqa0pPclB5?=
+ =?utf-8?B?RFZSU1EweUpPYnpraFpYWjVHbHdUMDB3d2h1UWFTZWJlZGxWNzBIbDAwSVZ2?=
+ =?utf-8?B?b1ZQMmZadUVXVFVrUXFENWwyb1NCWG1tbFNIeGpOZ1owVHZSaXE4UGg3TFU2?=
+ =?utf-8?B?QVRnblhyWGoyWktXbGZINGtaOVg4eDlubzZGRDBUWUJLV09oOXhOMloraTRI?=
+ =?utf-8?B?bXZkNU41cGl2cHpBR3NUR0F0dnUzVWR4V0ZZdTJQakhJRWY0ZnZaUVpJeFJU?=
+ =?utf-8?B?SzJ6QjY2YlRqOHZDaFVReHdIT3R4K3U3SmZNS0d1WVZjQmJlTWNYNU1yOERR?=
+ =?utf-8?B?MzNaanBkM2hWbTY3V0ZGRi8zR0s2cTZ6MzlxY1hVWENkenRJaUx0OVgwRHg4?=
+ =?utf-8?B?dXRCcUJPTVJMVjM1UHhqejZPN3hYR2NKZXAzRGxtQlNBbXliQlFkcWZDeVpv?=
+ =?utf-8?B?VXpoalVnQUhsaUsxM1h3WlFIaFdnQW9ra3kvWTZDTkV1cExrbld4a21yZ3E1?=
+ =?utf-8?B?d0xudW5JOWV3OW9KV0d2M2s5VENzUGlCMG84MmNWMnJ6Y1BCcnlzNTJaS1Ji?=
+ =?utf-8?B?L2Z0Mm14VjN0V0NBVSs4OTJMWXRYeC9RbDJuVVA0enlOYlRDcm9obTZGdVds?=
+ =?utf-8?B?Y0huS2tqK0VEV3ZOL3ZNWExMYTZjeTJTb2JkQ21JMktVTERqV2NIUXMvZDRU?=
+ =?utf-8?B?UFlMb3pWbFg5bXRVNjNoTEh4R2ZYUGF5dEIzWkhQdzB5Q0RMc2RJK2F0bFM1?=
+ =?utf-8?B?TTFlSmZ6SkY3K2hqWHVVUUt0WldicVltc2hMYW1Vc0N6WFNOcjcxRzIrVFM0?=
+ =?utf-8?B?aVI5MGw0MGVBSU54QndacHVxRkpHcG8vd2p2eDhDbVduSkRtOTBlbTBhZUdG?=
+ =?utf-8?B?dmNvajRiZXRTYkh5ZmZROXd6QXZ5bnBYTm1DYi9KL3dhOENWL09QejNtdTZq?=
+ =?utf-8?B?RGVleTVvL2RwL2FFb2RsRGJNT1BHTzZpbyswamoyUnZBbjQ3TUJhSmdvUEY3?=
+ =?utf-8?B?bUdYbVZRUXEySDRNUzMwRnBteERoc3FmbHJNc1RONFNBNWg4eExaZUpqbTFl?=
+ =?utf-8?B?alBrZ3J0c1EvVS9oVmtVMEdIbEloQlRpUzNmY1g1V0xrMTNwUU9YLzAxQXY3?=
+ =?utf-8?B?VDRXSjhlblg1Mk5oZjJLSmpka2tuOW1wV0phV3JNM3hUeG9rSndyVHdwZVVt?=
+ =?utf-8?B?UEZPSDV4cEQ0MlJiOXY0cU1UK3IyL1B1VHBwTlZxRTZXa0lIdFRFRTRjTVYz?=
+ =?utf-8?B?QTRZcXluZnowd3BGaE5QaWwrZTVDbTdRTmpUYTF2dnBxRnc4cDBrUT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: efc162f3-1aa6-4f62-2343-08de786c58fe
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Mar 2026 14:59:48.0440
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qpxEES65sLpQK1BM02f5XbXHV0GVmu+VjiPrFSy/T/YRyhia8nS/WQuKgkbxPmiaiYnwFm33f8+piDuwNMgebQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB12255
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_065917_477720_AFA90715 
-X-CRM114-Status: GOOD (  19.20  )
+X-CRM114-CacheID: sfid-20260302_065953_303512_1258E724 
+X-CRM114-Status: GOOD (  16.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,112 +155,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Since the assigned-clock-sscs property [1] has been accepted into the device
+tree schema, we can now support it in the Linux clock driver. Therefore,
+I've picked up the previously submitted work [2] titled "clk: Support
+spread spectrum and use it in clk-pll144x and clk-scmi."
+As more than six months have passed since [2] was posted, I’m treating this
+patchset as a new submission rather than a v3.
 
+- Introduce clk_set_spread_spectrum to set the parameters for enabling
+  spread spectrum of a clock.
+- Parse 'assigned-clock-sscs' and configure it by default before using the
+  clock. This property is parsed before parsing clock rate.
+- Enable this feature for clk-scmi on i.MX95.
 
-Le 02/03/2026 à 14:27, david.laight.linux@gmail.com a écrit :
-> From: David Laight <david.laight.linux@gmail.com>
-> 
-> If a 'const struct foo __user *ptr' is used for the address passed
-> to scoped_user_read_access() then you get a warning/error
-> uaccess.h:691:1: error: initialization discards 'const' qualifier
->      from pointer target type [-Werror=discarded-qualifiers]
-> for the
->      void __user *_tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl)
-> assignment.
-> 
-> Fix by using 'auto' for both _tmpptr and the redeclaration of uptr.
-> Replace the CLASS() with explicit __cleanup() functions on uptr.
-> 
-> Fixes: e497310b4ffb "(uaccess: Provide scoped user access regions)"
-> Signed-off-by: David Laight <david.laight.linux@gmail.com>
+Because SCMI spec will not include spread spectrum as a standard
+extension, we still need to use NXP i.MX OEM extension.
 
-Reviewed-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
-Tested-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+[1] https://github.com/devicetree-org/dt-schema/pull/154
+[2] https://lore.kernel.org/all/20250205-clk-ssc-v2-0-fa73083caa92@nxp.com/
 
-Can we get this fix merged in 7.0-rc3 so that we can start building 7.1 
-on top of it ?
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+Changes in v8:
+- Add R-b from Cristian for patch 5 and patch 6
+- Add comment for scmi_clk_oem_info in patch 6
+- Rebased to next-20260227
+- Link to v7: https://lore.kernel.org/r/20251231-clk-ssc-v7-1-v7-0-380e8b58f9e3@nxp.com
 
-Thanks
-Christophe
+Changes in v7:
+- Add R-b from Sebin
+- Drop __free usage per comment from Krzysztof in patch 3
+- Link to v6: https://lore.kernel.org/linux-clk/20251128-clk-ssc-v6-2-v6-0-cfafdb5d6811@nxp.com/
 
-> ---
->   include/linux/uaccess.h | 54 +++++++++++++++--------------------------
->   1 file changed, 20 insertions(+), 34 deletions(-)
-> 
-> diff --git a/include/linux/uaccess.h b/include/linux/uaccess.h
-> index 1f3804245c06..809e4f7dfdbd 100644
-> --- a/include/linux/uaccess.h
-> +++ b/include/linux/uaccess.h
-> @@ -647,36 +647,22 @@ static inline void user_access_restore(unsigned long flags) { }
->   /* Define RW variant so the below _mode macro expansion works */
->   #define masked_user_rw_access_begin(u)	masked_user_access_begin(u)
->   #define user_rw_access_begin(u, s)	user_access_begin(u, s)
-> -#define user_rw_access_end()		user_access_end()
->   
->   /* Scoped user access */
-> -#define USER_ACCESS_GUARD(_mode)				\
-> -static __always_inline void __user *				\
-> -class_user_##_mode##_begin(void __user *ptr)			\
-> -{								\
-> -	return ptr;						\
-> -}								\
-> -								\
-> -static __always_inline void					\
-> -class_user_##_mode##_end(void __user *ptr)			\
-> -{								\
-> -	user_##_mode##_access_end();				\
-> -}								\
-> -								\
-> -DEFINE_CLASS(user_ ##_mode## _access, void __user *,		\
-> -	     class_user_##_mode##_end(_T),			\
-> -	     class_user_##_mode##_begin(ptr), void __user *ptr)	\
-> -								\
-> -static __always_inline class_user_##_mode##_access_t		\
-> -class_user_##_mode##_access_ptr(void __user *scope)		\
-> -{								\
-> -	return scope;						\
-> -}
->   
-> -USER_ACCESS_GUARD(read)
-> -USER_ACCESS_GUARD(write)
-> -USER_ACCESS_GUARD(rw)
-> -#undef USER_ACCESS_GUARD
-> +/* Cleanup wrapper functions */
-> +static __always_inline void __scoped_user_read_access_end(const void *p)
-> +{
-> +	user_read_access_end();
-> +};
-> +static __always_inline void __scoped_user_write_access_end(const void *p)
-> +{
-> +	user_write_access_end();
-> +};
-> +static __always_inline void __scoped_user_rw_access_end(const void *p)
-> +{
-> +	user_access_end();
-> +};
->   
->   /**
->    * __scoped_user_access_begin - Start a scoped user access
-> @@ -750,13 +736,13 @@ USER_ACCESS_GUARD(rw)
->    *
->    * Don't use directly. Use scoped_masked_user_$MODE_access() instead.
->    */
-> -#define __scoped_user_access(mode, uptr, size, elbl)					\
-> -for (bool done = false; !done; done = true)						\
-> -	for (void __user *_tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl); \
-> -	     !done; done = true)							\
-> -		for (CLASS(user_##mode##_access, scope)(_tmpptr); !done; done = true)	\
-> -			/* Force modified pointer usage within the scope */		\
-> -			for (const typeof(uptr) uptr = _tmpptr; !done; done = true)
-> +#define __scoped_user_access(mode, uptr, size, elbl)				\
-> +for (bool done = false; !done; done = true)					\
-> +	for (auto _tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl);	\
-> +	     !done; done = true)						\
-> +		/* Force modified pointer usage within the scope */		\
-> +		for (const auto uptr  __cleanup(__scoped_user_##mode##_access_end) = \
-> +		     _tmpptr; !done; done = true)
->   
->   /**
->    * scoped_user_read_access_size - Start a scoped user read access with given size
+Changes in v6:
+- Add kunit build warning
+- Update OEM string comparation per Sebin
+- Link to v5: https://lore.kernel.org/linux-clk/20251009-clk-ssc-v5-1-v5-0-d6447d76171e@nxp.com/
+
+Changes in v5:
+- Per Stephen, export clk_hw_set_spread_spectrum, use enum for method,
+  add const for set_spread_spectrum and rename clk_ss/conf to ss_conf.
+- Per Sebin, Cristian, Sudeep, I added clk-scmi-oem.c to support vendor
+  extensions.
+- Link to v4: https://lore.kernel.org/arm-scmi/aNQPWO6pfA_3mmxf@redhat.com/T/#me81231bf286e2a8e4e00a68707ed1e525a2b4a3d
+
+Changes in v4:
+- Add R-b for patch 1 from Brian
+- Drop unecessary change in patch 4 Per Brian
+- Link to v3: https://lore.kernel.org/r/20250912-clk-ssc-version1-v3-0-fd1e07476ba1@nxp.com
+
+Changes in v3:
+- New patch 1 for dt-bindings per comment from Brian
+  https://lore.kernel.org/all/aLeEFzXkPog_dt2B@x1/
+  This might not be good to add a new dt-binding file in v3. But this is
+  quite a simple file that just has four macros to encode modulation
+  method. So hope this is fine for DT maintainers.
+- Add Brain's R-b for patch 2
+- New patch 3 to add Kunit test per Brain. Since Brain helped
+  draft part of the code, I added Co-developed-by tag from Brain.
+- Link to v2: https://lore.kernel.org/r/20250901-clk-ssc-version1-v2-0-1d0a486dffe6@nxp.com
+
+Changes in v2:
+- Simplify the code in patch 2 per Dan Carpenter and Brian Masney
+- Rebased to next-20250829
+- Link to v1: https://lore.kernel.org/r/20250812-clk-ssc-version1-v1-0-cef60f20d770@nxp.com
+
+---
+Peng Fan (6):
+      dt-bindings: clock: Add spread spectrum definition
+      clk: Introduce clk_hw_set_spread_spectrum
+      clk: conf: Support assigned-clock-sscs
+      clk: Add KUnit tests for assigned-clock-sscs
+      clk: scmi: Introduce common header for SCMI clock interface
+      clk: scmi: Add i.MX95 OEM extension support for SCMI clock driver
+
+ drivers/clk/Makefile                               |   8 +-
+ drivers/clk/clk-conf.c                             |  75 +++++++++++++
+ drivers/clk/clk-scmi-oem.c                         | 108 ++++++++++++++++++
+ drivers/clk/clk-scmi.c                             |  44 +++-----
+ drivers/clk/clk-scmi.h                             |  51 +++++++++
+ drivers/clk/clk.c                                  |  27 +++++
+ drivers/clk/clk_test.c                             | 121 ++++++++++++++++++++-
+ drivers/clk/kunit_clk_assigned_rates.h             |  10 ++
+ drivers/clk/kunit_clk_assigned_rates_multiple.dtso |   6 +
+ ...kunit_clk_assigned_rates_multiple_consumer.dtso |   6 +
+ drivers/clk/kunit_clk_assigned_rates_one.dtso      |   3 +
+ .../clk/kunit_clk_assigned_rates_one_consumer.dtso |   3 +
+ .../clk/kunit_clk_assigned_rates_u64_multiple.dtso |   6 +
+ ...t_clk_assigned_rates_u64_multiple_consumer.dtso |   6 +
+ drivers/clk/kunit_clk_assigned_rates_u64_one.dtso  |   3 +
+ .../kunit_clk_assigned_rates_u64_one_consumer.dtso |   3 +
+ drivers/clk/kunit_clk_assigned_sscs_null.dtso      |  16 +++
+ .../clk/kunit_clk_assigned_sscs_null_consumer.dtso |  20 ++++
+ drivers/clk/kunit_clk_assigned_sscs_without.dtso   |  15 +++
+ .../kunit_clk_assigned_sscs_without_consumer.dtso  |  19 ++++
+ drivers/clk/kunit_clk_assigned_sscs_zero.dtso      |  12 ++
+ .../clk/kunit_clk_assigned_sscs_zero_consumer.dtso |  16 +++
+ include/dt-bindings/clock/clock.h                  |  14 +++
+ include/linux/clk-provider.h                       |  31 ++++++
+ 24 files changed, 591 insertions(+), 32 deletions(-)
+---
+base-commit: e56845b74692e92699ca14a9f77bb77fe5c564dc
+change-id: 20251231-clk-ssc-v7-1-402dd4f9e629
+
+Best regards,
+-- 
+Peng Fan <peng.fan@nxp.com>
 
 
