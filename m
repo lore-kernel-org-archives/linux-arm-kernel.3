@@ -4,110 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D83BDE9B36D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 11:59:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8268E9B36D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 12:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cn6EW3SsdY/4N0vlnXwNpj8zo6nlR0XbllYn3nMAaMQ=; b=Z4GF4+P2fCywciOsclsGjTeVcW
-	X8E/De/Vsh1mpn2GsSLT2Azd8Iuy//r0nly7EYBWrBEhc6u2cmuP/SHmer3kSuy5KILtBBHK4ci+u
-	wJ7hx4XmPCK0t7ic+bpuT7uu/daTyybMJ6Bd9KCQaoBObtyE9Tj+gjIVVK9pW6RDu2Sba7RkdZAOH
-	HCkSSkK2BPcnYb/madMevNGu11LzsiRPGtJNB6rzSuFoo0TuvVak+mVe7lE8n2euhEHCph/pxETI8
-	Kv+JCeyr5CcJLi4JCguBrFSrnDF3LVyMd0D+ljNeW3yTe4+LQb/lcZNypk/yI2Aw1BDB7FwTyRQkY
-	9fYG3s2Q==;
+	bh=ArgC6tchR6EEgYRqqpyMGswMfqPtVUgik7Fa59Flxok=; b=t0gBp8fjZ+pNrT7gBILHxf0Ru0
+	KsE9YqxuycdJe6fvPEmICIgQDmSVzQHnqSP10bYYMzy6wLQ+p34uNc/f27SfLEoHgASBcAnBfFCJq
+	Ff4TtQ6dj6VSQocJtVA2tkdTh7tFGNLIYUfRb6tiKm0deTi4FP1DwdBjgnlLkeHrnA963mTdA1aTl
+	gNPIhtyA4Pvqgz1XyFhfTAWwAMX6j9HSdi5MNX61kMTeltdlOTNztxo69bJpqW/oaie1e3eZV0iAR
+	wwtayoJwbrAyqAQZULV0PuRPk82sSO/pDx3T+QIdfROS7mpRPWYFpsxeHSeoYlxyo6syvPE7Mw8vI
+	YHwWVdcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx1vS-0000000CtJp-0Hpn;
-	Mon, 02 Mar 2026 11:59:02 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1vx1wy-0000000CtW2-1o2w;
+	Mon, 02 Mar 2026 12:00:36 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx1vP-0000000CtIs-0Sg0
+	id 1vx1ww-0000000CtVK-0z9h
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 11:59:00 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2ae4988e039so7903985ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 03:58:58 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772452738; cv=none;
+	Mon, 02 Mar 2026 12:00:35 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2ae50a33ff8so6267875ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 04:00:34 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772452833; cv=none;
         d=google.com; s=arc-20240605;
-        b=BcuWG0+7xbjca8Iggw3Zt1QmDAadZyJDMOLVX6NS0SQAYkZU46fqKnyL4w4obXh55I
-         SwXpOEHvLaxQKzOSVGum99/C7JfkSohdq0t53M4JqFIiubZmkXRNDRlCQrD5U9dP/o9/
-         WI7RZ2yLybK0lwlkp7JS13LT6WViHxflzwYgzD1xQKnqS04Ar0ZDNzeXaLi4FItIEdbj
-         q8y77X95n3NZvIlcGM6x5TMs18pID6M/TgFJkGS9fIXXIkIvg4KF70nlO8C/o1rlnKWe
-         wDjq2fOPhlCEY5DP+09WREVRotk4ypYux+rPaSY94r38+IjkXD2w8ZohSGd2sM/d4VVN
-         Sc/w==
+        b=N/F7dbbFpVBv/ftp+lj4qXq8LWQ+dsOR0Lzy97IJR3UiPgZ9DycexiZDT5g0SzLkVx
+         k/jLwQ7hBrOj3pkQC0hWe96ZLlEx934fYAfPVNQo5V8JtY7pP8tZVAQLCtYp62AFNZKT
+         bRC7yqaKN68twVZP79v2KmWuUZZC4qXMLBxF3S/zmw10AtVzbbDnsTeqnSgjDG6kBvmz
+         rraltXkzB1HYh3i3RfbW51xwWy9D/QIstX/STmWBJBwLW34vo3pMe2AnzN/O2NhJiQtU
+         6rC6pxZ9NhqZgnturHlBdp9u31W2szuRyIt34U07yh+Pe9yLTZX/MQa+DpW95ASAhsEr
+         X8Lw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=Cn6EW3SsdY/4N0vlnXwNpj8zo6nlR0XbllYn3nMAaMQ=;
-        fh=cO1YnCPJZ/3Wv/pylmtbrKpP/fc9eIsRa+C5+lAwHEE=;
-        b=ixyzDwXiMHZBpKsrYr2BmXuSZIQKyla7u3KZz/37RJQqCFhebV9jFl1RjhU9aocRbg
-         Uwb3BhNQv5cLKSPE7VBicEnR5R3xzFhHlxS5N6vLtwxzlrauepNhNFNJAwrnb/ESXL/9
-         C8tCkkuZB1OsT2wRETcotWK6GBX+LpRKLt4cTxxbTBp5bolsos0ustZKrXMMx929I7f4
-         LqgvL0yFP9Gycs7t5ON/fDmooD/NJvLu4gyXthzWhSrpoaHXiwAZKhParuRNW1YaoHaO
-         5QpuRjDlV0f4+IDp9m1ztJAeJwQJNCidvScXDbaKVFLiJ0PsxtKHw5PUFfCUKVLdSGlX
-         nzUg==;
+        bh=ArgC6tchR6EEgYRqqpyMGswMfqPtVUgik7Fa59Flxok=;
+        fh=gU0T6csEq68yxqLeaajkn/5yI7aoJSkurInMzt33Lak=;
+        b=FRjJpvBnH6qB/+Se4L0Mm+vxK3scV5SGUmabcQeRcjqg+8m7IzoNqy3/k2NawSF2IY
+         DIrFOlP1RkM0Oq+j8i3bPTQTUKa9qLCAPvvrSqxJOVZeiowq3TwxGDtRXppf2V8OH6x+
+         BpWt/aEozcuCSD2+PkTJUu5VoftxALxIW28kQJGKdbTpvaAMsH65sre1TlZdRXUZ7rS7
+         ZNW0lLydkg/yqpsXqO0/YdHozk/N0O1dJ2hLDqph1pqzbvkjqnGjapu7PDezYexf/mC2
+         cF/fx4MFL0aWJlKTbGsDauo40c0m48ljABxyxG9wiVnCKzYU2w9hjflbEKMBVvj2afeC
+         RTfA==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1772452738; x=1773057538; darn=lists.infradead.org;
+        d=googlemail.com; s=20230601; t=1772452833; x=1773057633; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Cn6EW3SsdY/4N0vlnXwNpj8zo6nlR0XbllYn3nMAaMQ=;
-        b=LL83v06q0K4iutoP1bsV9iYgIAnkLB0EdO+TCCtfZuJMfqc/D25asXvZ88XuUc/JXF
-         PpZ64Gbfc7f3NWkzQqooE2+sH9LpzP9VUZSbrjir/pQ4XnG8u2Ff3ftv7VkpampuTVKw
-         yjpW3kZukbJDNygxC7NQiCnmrTBiX0f0UfMv+Z42blEe1ejCMinyeNH5wM+FCxzmKsua
-         ev1HUHkcHNEhOqS7xmvRlYueWczlKRpaHnYeD9+GvE4qxuVY+ZT5ecQz6Q39AVjyU0tG
-         bcLHKaxVgeEjnv0LoRuVM3z/eZ+cnUcqs2Xt9QE4oaaQaUSC+3lxJwG8VI/XZBzlOMzW
-         WSkg==
+        bh=ArgC6tchR6EEgYRqqpyMGswMfqPtVUgik7Fa59Flxok=;
+        b=axN12TeZxHItut0/d5wBFt5s5Z3FA54T2Je7F0It48TkioUUuqZ4uBTVih8/z9zozF
+         90iZouC30PAMP0hwam57YytZ937OhXco8krrIIOnTEFeTkfvX14wMYwFUC5XF5B9Yno7
+         rUnI4K0PRtmsDSlD85rUnbT+J2vHz3+LoOd2sHLeQK1oiDbNL9FkF4imVeG0EJ0fAx5M
+         hVKUgiOVtYx0RbOaVDE8mccIGj8WkJFuIIjQ3MhWS5luKqSTGyJGZFtc/TsWdEOZyIoX
+         HAigrJepgrJ40Xkrf6nBcaxpAjFPrmxAZx9NJYdAczm+7/sf0QoKsUdYO0OcmthAkWfD
+         WuSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772452738; x=1773057538;
+        d=1e100.net; s=20230601; t=1772452833; x=1773057633;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=Cn6EW3SsdY/4N0vlnXwNpj8zo6nlR0XbllYn3nMAaMQ=;
-        b=cdWCCz8oTZJvXz5ualXDZaBVNS3LaY+wN5chb+iI+lEUvyt9u8SbXjk96EUTMsNjww
-         3vNoo8/NcB3iN3SZ5KK7LzDIQPKoLnJBCg4yVphSMKdj47+dT0jXvdZCh+9a0CMQeZfK
-         5PoniIE3uguEjsr8Rf1N0UFuSYJGJyJvBNYZTuar6Fn1CnnssNr7r6zAfCV63wGy/beK
-         KRziwcIMC0MD9dmcFRykSDvC8wD+uOgsfFU8cI97baZ1Z6JD84rId+f6Ff9u2Vk80ZUO
-         GnX3TRio4xOXvgnAc/wBMIVPjpY+fLZVrhSkM2WV3REWmArHiJzRRQbiYIH5SK5GLxdj
-         GHGA==
-X-Forwarded-Encrypted: i=1; AJvYcCVEdVQFE4Kw0FzA+9R+m6a605m2y6MsyUUd8u/dEp9ISezovpNuesmNRkZuu+45wHtzjmU3DthFArGc2XmheiOq@lists.infradead.org
-X-Gm-Message-State: AOJu0YxcqEYeqeomKG+mI+MoLENx1p0wszlctURd5hKVpOrQpk7d11r2
-	6EaN4b3PpuHx95Oje9t+FNZmETJiZRjgWre3Jg14yowEmPmWmDqnVx9GA0i+PL1TlSkQPmPwDNB
-	W9i+KOQHg5FmsDG1NfG33g6CHChLpO58=
-X-Gm-Gg: ATEYQzyb0llMXUyF9BNmnrNZtJCpGQO09t40RJBU7hLl30Coa8oPXUaAfuFslhCYyLv
-	sj34iF1LlQLipkPhyFNkWbXB1l9XLDQxhzVyirlUBRmLkSKXQnUvpc0C2ioI2JT7cKvXs4ooT+j
-	LAXG35spAC89wni74/U8OmASdCirh5S+dV5PxGAE1CMSDiladL4kIwBVvJ37qmDAcv7Zq7i52cv
-	TmYBFp0fg6tbNICi6kzBBsc+YvEWmgfDo/YHN1SAB6Z+Xf9v63plysC9QAihYt5FfZtQ46i5eth
-	evAuBThPJYzQMK94NbsI9w8/JjHTq3zt4yGTy51D
-X-Received: by 2002:a17:902:e950:b0:2ae:5a44:ea80 with SMTP id
- d9443c01a7336-2ae5a44fdbamr8590715ad.17.1772452738264; Mon, 02 Mar 2026
- 03:58:58 -0800 (PST)
+        bh=ArgC6tchR6EEgYRqqpyMGswMfqPtVUgik7Fa59Flxok=;
+        b=gXxo/XeOXlXUXC07/vreJQQUI3UFojgFDmtsBImP1VfX/mzeWQdeEQLIZ29Gj3j8WX
+         RzhX4z6JH8e1TNQDFeMFpVsqSJrnKsX5Bs/BOjEoermhORB3jgdQYRB75L6SeBBRZAmg
+         jmdUQ5lBUWdcPjXcyVVEbAhgmKRt6DMJmjZrdjz6CeytgmL8pge5jYOgkO7cteQIdY3f
+         xpe357kitTm1J+TwbwhRdWRdL8M6+IdzeL+pIJOIvocuYxmXr+pLSqTrdLrguUzvcYgY
+         SLILgJgaxCg5lc2iRoCSyST/ePQmITlgXlwCvj/unNrwFqgf/ZNIuz+y2dF4IFKwq7S3
+         TGBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWAbSi9Oot1HUbKZH/bvDROZAIH6DtiBu7mLVE4Jqk7g0VTdaXWUipiOjyxoSx3YI4ZuIrpIMM/5xySOUHulIIO@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKiUH+bm83Ok2R/y8KPJRs2l7XrZtY/nZe/JUT7NfngfGy5m+1
+	UwuJ7kjYdTYSk8ObKei6Ts+7MShRjOqTzOW1YWDCGkVioSIKuhVlD/wm0TiL6k0vsX6Is3MM+nu
+	5wC3530SGr/s/r4CFSxi1+VHZThDTTWw=
+X-Gm-Gg: ATEYQzyhWO/Cy9sTXYToVVfzv5rf8fJhyQD0JGhAqe/jDFHGfcshcEQTQpIhDVvv4vK
+	t3M60s2beDxONLlG+cBuAR4uWV1XnUgzFn5XHskWg9WLeQd6wphfAVP9g0ilPPaF2G7vwARuXc9
+	WhPD8ICYgHx4Jd1Sd/75caoXGtGGy6ZIbQDTMo77unP586xX6H+G6+skqjenQoP6tgOSWq9moZy
+	HbUjW57YmepQQYceN6ddFrRVEEwJ8TSw0yk23K4ecrM/pnJW6+evl9C5UiIRzS92XnZ2Mbb9Mvq
+	PmT9h+iYP0bDPj6GZnzsXzCM3I4hyY+9AaqvQPVC
+X-Received: by 2002:a17:903:2b0b:b0:2ae:5a44:ea73 with SMTP id
+ d9443c01a7336-2ae5a44ff28mr9115965ad.30.1772452833138; Mon, 02 Mar 2026
+ 04:00:33 -0800 (PST)
 MIME-Version: 1.0
-References: <20260228065840.702651-1-nick@khadas.com> <20260228065840.702651-2-nick@khadas.com>
- <20260228-quirky-lemon-reindeer-1045f6@quoll>
-In-Reply-To: <20260228-quirky-lemon-reindeer-1045f6@quoll>
+References: <20260228065840.702651-5-nick@khadas.com> <202603010009.VfPuPoeI-lkp@intel.com>
+In-Reply-To: <202603010009.VfPuPoeI-lkp@intel.com>
 From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Mon, 2 Mar 2026 12:58:47 +0100
-X-Gm-Features: AaiRm50A5ixOEMCu9AMwpKXYw0q-1sXvRrgscdrkIScH0FsjWH2GNDFERRZkqCE
-Message-ID: <CAFBinCAkxO4HoN0Cw0Fc2B3KRLLJqso1p5+qjNN_E0c26VOf2g@mail.gmail.com>
-Subject: Re: [PATCH v1 1/4] dt-bindings: iio: adc: amlogic,meson-saradc: add
- S4 compatible
-To: Krzysztof Kozlowski <krzk@kernel.org>
+Date: Mon, 2 Mar 2026 13:00:22 +0100
+X-Gm-Features: AaiRm506ikB27OOPsiZaHy57remzQl6Z49Wi7FBnTFU4vfPVcSRrRPvLCZYsf3Y
+Message-ID: <CAFBinCDBR=cgQjhv9VxYLFAmTp2p+Fm_mWCZ5o5P_SA=Rb0R+A@mail.gmail.com>
+Subject: Re: [PATCH v1 4/4] arm64: dts: amlogic: meson-s4-s905y4-khadas-vim1s:
+ add Function key support
+To: kernel test robot <lkp@intel.com>
 Cc: Nick Xie <nick@khadas.com>, neil.armstrong@linaro.org, khilman@baylibre.com, 
 	jbrunet@baylibre.com, krzk+dt@kernel.org, jic23@kernel.org, 
 	dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org, 
+	llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev, 
 	linux-iio@vger.kernel.org, robh@kernel.org, conor+dt@kernel.org, 
 	linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, xieqinick@gmail.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_035859_247041_D6F6DA34 
-X-CRM114-Status: GOOD (  20.48  )
+X-CRM114-CacheID: sfid-20260302_040034_270315_A758E63D 
+X-CRM114-Status: GOOD (  15.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,61 +122,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
-
-On Sat, Feb 28, 2026 at 12:18=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.o=
-rg> wrote:
+On Sat, Feb 28, 2026 at 5:16=E2=80=AFPM kernel test robot <lkp@intel.com> w=
+rote:
 >
-> On Sat, Feb 28, 2026 at 02:58:37PM +0800, Nick Xie wrote:
-> > Add the compatible string for the SARADC (Successive Approximation
-> > Register ADC) IP block found in the Amlogic Meson S4 SoC.
+> Hi Nick,
 >
-> ... which is fully compatible with g12a?
+> kernel test robot noticed the following build errors:
 >
-> Write proper explanations.
-Would you be fine with:
-"There are no known differences between the SARADC on S4 and the one
-on G12A. In the past differences between SARADC on the different SoCs
-generations have been uncovered late, meaning that a dedicated
-compatible string has proven to be useful."
-
-Do you also require Nick to add amlogic,meson-g12a-saradc as fallback
-compatible string for amlogic,meson-s4-saradc?
-
-> >
-> > Signed-off-by: Nick Xie <nick@khadas.com>
-> > ---
-> >  .../devicetree/bindings/iio/adc/amlogic,meson-saradc.yaml        | 1 +
-> >  1 file changed, 1 insertion(+)
-> >
-> > diff --git a/Documentation/devicetree/bindings/iio/adc/amlogic,meson-sa=
-radc.yaml b/Documentation/devicetree/bindings/iio/adc/amlogic,meson-saradc.=
-yaml
-> > index bb9825e7346dd..5496a0dc714aa 100644
-> > --- a/Documentation/devicetree/bindings/iio/adc/amlogic,meson-saradc.ya=
-ml
-> > +++ b/Documentation/devicetree/bindings/iio/adc/amlogic,meson-saradc.ya=
-ml
-> > @@ -27,6 +27,7 @@ properties:
-> >                - amlogic,meson-gxm-saradc
-> >                - amlogic,meson-axg-saradc
-> >                - amlogic,meson-g12a-saradc
-> > +              - amlogic,meson-s4-saradc
+> [auto build test ERROR on jic23-iio/togreg]
+> [also build test ERROR on robh/for-next linus/master v7.0-rc1 next-202602=
+27]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch#_base_tree_information]
 >
-> If this is compatible with other device, you need proper fallback.
+> url:    https://github.com/intel-lab-lkp/linux/commits/Nick-Xie/dt-bindin=
+gs-iio-adc-amlogic-meson-saradc-add-S4-compatible/20260228-150346
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/jic23/iio.git tog=
+reg
+> patch link:    https://lore.kernel.org/r/20260228065840.702651-5-nick%40k=
+hadas.com
+> patch subject: [PATCH v1 4/4] arm64: dts: amlogic: meson-s4-s905y4-khadas=
+-vim1s: add Function key support
+> config: arm64-randconfig-001-20260228 (https://download.01.org/0day-ci/ar=
+chive/20260301/202603010009.VfPuPoeI-lkp@intel.com/config)
+> compiler: clang version 23.0.0git (https://github.com/llvm/llvm-project 9=
+a109fbb6e184ec9bcce10615949f598f4c974a9)
+> reproduce (this is a W=3D1 build): (https://download.01.org/0day-ci/archi=
+ve/20260301/202603010009.VfPuPoeI-lkp@intel.com/reproduce)
 >
-> >            - const: amlogic,meson-saradc
+> If you fix the issue in a separate patch/commit (i.e. not just a new vers=
+ion of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202603010009.VfPuPoeI-lkp=
+@intel.com/
 >
-> And this one is now kind of fake - how does this device use it?
-As you have noticed later, it is currently not used.
-Can you please confirm that my understanding of the next steps is correct:
-- you're expecting Nick to omit the amlogic,meson-saradc fallback
-compatible string for amlogic,meson-s4-saradc
-- and you would like to see amlogic,meson-saradc removed (from the
-bindings and .dts files that are already upstream) - I will take care
-of this once S4 support lands upstream
+> All errors (new ones prefixed by >>):
+>
+>    Lexical error: arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1=
+s.dts:50.18-24 Unexpected 'KEY_FN'
+> >> FATAL ERROR: Syntax error parsing input tree
+It turns out that this series is supposed to be applied on top of
+"arm64: dts: amlogic: meson-s4-khadas-vim1s: enable LEDs, Keys and
+Bluetooth" [0]
+When applying this series on top of the other then there's no more build er=
+ror.
 
 
-Best regards,
-Martin
+[0] https://lore.kernel.org/linux-amlogic/20260228063750.701887-1-nick@khad=
+as.com/T/#m2f4d30878fc8252f853bdb3005042c3aad97961e
 
