@@ -4,144 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D57AAEA4E0E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 14:57:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 505F7EA4E0E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 14:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5DHgQBdMjIifbJakwiv9c2diCf0e8qNoU/aeD30XnEY=; b=qtLtrqSlHO519ufUXME5BvG6J9
-	fm0M6DOpXpoCf+auMS42iOGW2fNuFI3kub1yMq1EuQQg06RAZmTdyGUUMOWrzpL/6sLJreskPMmoy
-	GqlKEDGrIMVTRPK0enkyJIMjWUcfrxIZTVwBfLcWUj5Sm5CJeFu4fVex0E+MeU8ybFt95+dPjKXc1
-	o76YCCKttTxxuH8dPsRpj/3aDp/LRNFNbabwBNIcwGeBJNrfTelTjT2EArkf17RJAjeISn6J75HXp
-	JQEphU1IosYM/bBpR121cDi8g6cWDoY1oFV1y+r9HxRBrltrRGslcXGEIarRHJvNvBDj09fSffncH
-	jsnICkcw==;
+	bh=G2tiCQAM7J3nKBvqatqhx2IcyXGt7NEO8HpnjOvw5gU=; b=tfQLTLt2+Cs+BMs8eWT0bZJYW+
+	TgjeyJevx5p7CBacNVzxPlRPXcw2OuHdjdKscggaY1nNYcvlGg1Rn+PwySbUFQ3GduWP0wz60db6i
+	dOCYiW16mKixu8hgupMFbrT4UcffmHUS4dyCfnG1RNQlurNz6OXOXOIg9Xn3JwrwWKe59RJd+/0Ic
+	j8r1Dy3IR87hhXyh7EwWE77M1zV7SgZhh6CWwTK3kwlCc9ELDnKrID/XUyiwFvRg8uMA+9X36UCpZ
+	lP9g904SuAhKMc9bEWtrlcnoFdAGM5epCF/6bWYvQYHBT0LMqe1WoC+dOUgLdkuFnZnWKU0xxuQJA
+	U+zfBjPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx4hx-0000000DH2C-2Cam;
-	Mon, 02 Mar 2026 14:57:17 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1vx4ii-0000000DH8A-46Lz;
+	Mon, 02 Mar 2026 14:58:05 +0000
+Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx4hv-0000000DH1R-0MAw
+	id 1vx4ig-0000000DH7g-0onE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 14:57:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gC0FT908hciMY2dGmvzKgbatohVFdEUsFIAgQ1wYlDpJJGtZF35PowLA5LJtZ/uw1AKU7KuvB28+3spzW9qtutFX9/lXUujBsCIq+r+8syYBqtzfN/NP7q5exRoCMQBVVcrhBqoqZxRavSCbRVPL7t4NynVebCyc6EbTCw9a3uBiWa6YZkxZN11kKadOVn2TFiBwzmFQ8vFbaOM9SftR+CAya4fb4J1RjLpgWC8K8YVN0I62aghAc54KPSNZpJpGm/GJftgHvPKmliZ3Q2BOX7MwR74ULsd93XEcQZoZ8w8sl3TY7Hvls7YpgYOWO6lan8yWCfg8ACZoC4fn65SMyw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5DHgQBdMjIifbJakwiv9c2diCf0e8qNoU/aeD30XnEY=;
- b=OPeabaGvW+LN83R01jsDpiwlqqF4j0OJx+9WDd+GDo4ODquGZjLvpFQTdRj4Gac4q4a2QRXCVbPFMexI++whmQ4wc/RTcvMHWUCzCtGIrFthlCxKoJqAlYvIU2ahNJwmBR50mbABarJyLanQ47KTSEuzLKAAQA84V7XIKQmpDY+bodsl3GAYJAXr6+SrAer7CNQteJHXhaukNU20i2/wYpwVIDjIyawA2ese3w4mPQoEE0VS63AdLAEYgLOsuA1ReVtv274tNavSy5OHZPImcAQ8WslNzYZa3qwQu/mPlqKalNSlbwD9vSur3Ht+ybc/HuNyX755HLgdzrMbx5ZjSQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5DHgQBdMjIifbJakwiv9c2diCf0e8qNoU/aeD30XnEY=;
- b=TivToU9axOIjMyA/T0nV1f643c5eijWa9uCt5ntX3saqkRRkmxnzb5/ukCOcSjZbt/c9SJwPFIZZWZjIjzd9DFa7KH33Y75r4Gh811NfFs+LXJpyVxTKyzs3K3q6BMd/bbD2SvHQlFx6Wg1fo1sN52LdAMfupqTQweynL+66VPJ0hJtG+r+8Das0iy6dQ+TghNYXzhy8Q+mFuLVULcSTLEM8szUMv/6PGvovpHP8OfaxmDGLLf3pUEgPrOvROueE2px8jqUIMPBqlasVWi1VmQtjsYAV8+UlBHmZ3UJs0uyXItwiAGPznv2oMSuqYlAZtDRU9YzCphiDQtnYw5v1zw==
-Received: from DB9PR04MB9426.eurprd04.prod.outlook.com (2603:10a6:10:36a::14)
- by MRWPR04MB12041.eurprd04.prod.outlook.com (2603:10a6:501:93::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.20; Mon, 2 Mar
- 2026 14:57:10 +0000
-Received: from DB9PR04MB9426.eurprd04.prod.outlook.com
- ([fe80::9024:608b:852c:f484]) by DB9PR04MB9426.eurprd04.prod.outlook.com
- ([fe80::9024:608b:852c:f484%6]) with mapi id 15.20.9654.020; Mon, 2 Mar 2026
- 14:57:10 +0000
-From: Ioana Ciocoi Radulescu <ruxandra.radulescu@nxp.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Oded Gabbay <ogabbay@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
-	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Sumit Semwal
-	<sumit.semwal@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li
-	<frank.li@nxp.com>, =?iso-8859-1?Q?Christian_K=F6nig?=
-	<christian.koenig@amd.com>
-CC: "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-media@vger.kernel.org"
-	<linux-media@vger.kernel.org>, "linaro-mm-sig@lists.linaro.org"
-	<linaro-mm-sig@lists.linaro.org>, Jiwei Fu <jiwei.fu@nxp.com>, Forrest Shi
-	<xuelin.shi@nxp.com>, Alexandru Iulian Taran <alexandru.taran@nxp.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>
-Subject: RE: [PATCH 3/9] dt-bindings: npu: Add bindings for NXP Neutron
-Thread-Topic: [PATCH 3/9] dt-bindings: npu: Add bindings for NXP Neutron
-Thread-Index: AQHcpyWNgEFrUuUjek+Hd2v4H4n447WWINoAgAU5y2A=
-Date: Mon, 2 Mar 2026 14:57:10 +0000
-Message-ID: <DB9PR04MB94265986C9FBF23C5C734337947EA@DB9PR04MB9426.eurprd04.prod.outlook.com>
-References: <20260226-neutron-v1-0-46eccb3bb50a@nxp.com>
- <20260226-neutron-v1-3-46eccb3bb50a@nxp.com>
- <9970272b-b406-4a25-a7d9-8197934f8c3a@kernel.org>
-In-Reply-To: <9970272b-b406-4a25-a7d9-8197934f8c3a@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DB9PR04MB9426:EE_|MRWPR04MB12041:EE_
-x-ms-office365-filtering-correlation-id: 0c647501-fdb1-41a9-bee3-08de786bfb20
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|1800799024|366016|921020|38070700021;
-x-microsoft-antispam-message-info: js3zNi0ABhUxCAVQqpJwQWTIIk5ML4EHlDzrZ5eNZ0lY3W79miqWq2bk7TjzVyARX1ITG/uupC1bYUyDb8fIelIUCPJ1iwaHV/Zy1Zssj7PfpmUNUKeyvRaEIaIVWuJ0WT0YDomDWRb8KPQjAwI9VyPxWQlw4ltxdBBSvYIB2IylshbeI+ICFkMxrZmVEQnq/uk2rl6xyWLv9F7pGgpB3EnCRC50Cs1G5FM+b4O9DP73+qzTBpZCKY9T4M2a9sRwOl9/7fXVIc67XnpP3GG/uj6VP5vnkg4j8+8Mn4aeJkzoq/j2lQtzh3oWVK3XtLrF9e+8NnOw8Q3ZKMhfClh8J/6mLrmlbbm++jELKx1U+BYVtLT8hEHYJgUHVAxv1ywyB+zN5u9hQikxcTt6fTgJcpICOqbKhPv9JkUZ10F0bUvvZJFic/fyyUstIaw0Pu/DuCiiyNX2BwdCcOZP252VyQ3lQRtAzUuyqWusngFB+2CJdEz8xUEySR6VwqGIvMvMRswdHKAmcK/LK2+kn77mKeoHAfqt6Eq70+gKlKhUYTfwBRmT0tXb7cS/+b6kgD1+38fw+4v10Eovc58nCYVaVnBBf/fcjdtYtCVwGVKb3PdSksi7YQ4z8LlNlJUc6hxWyfsIK7u+xA5nMP1sRCesSXCcinbuJ4twJy2SgBVe0Hz8MZxKRFRHjeS/WcIorOMQyRsPfasIDIgioBddxRfzWfz8cfoCt32Y4J0ocVSZOuDyRl3kG1+PjSExZ+2Zui1J
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9426.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(1800799024)(366016)(921020)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?QL5Ytb/p2j1/klkLBFOMEM0kO3ZYpIUeFtZksPZsvLX5Cj+2jaEihIvAxf?=
- =?iso-8859-1?Q?eiJNPrwR3wG0uESeGA4RuFiT8O74xLyhZ7xWaQnR5Pn+9C8dRv6KBHfMDy?=
- =?iso-8859-1?Q?jwdCcO31qoIfanpd2+Pf1WnOwXJ/YhspuCGpmCMenIPT0bT1M1hcQ8kEYL?=
- =?iso-8859-1?Q?Jjzg+nr24IC329/J/YfKr4pY50UGWNGcNLOqaLScVGREMlCkFokqHIYktj?=
- =?iso-8859-1?Q?040Of146Y2dFasvjIg43qTPvcjuIeO8DpESQQS5PeBXZuRjuyJ2Pm+hBrE?=
- =?iso-8859-1?Q?r8SRYn46i06l8zEKeAB/rMko1EJfdZ/KCTTieIsyFY5Uz0/6F4rqNeZYeA?=
- =?iso-8859-1?Q?Fa/6hZ+CAkyNbOVWwGLex07brcmzCbLxEBuYBhrzhfdrxl+3Pi0v6HM2RV?=
- =?iso-8859-1?Q?Bmeu1HcrNW9/ZtN1Cb6FWsl6+wukD8m5FccXTw7gdlP2aYvuU8oNAGCiqm?=
- =?iso-8859-1?Q?aWe5eYIMVZ9fnNLyTlDXI3xfLqyqwiW95YKO1W6JiXohrRqHj8NuyjQMbB?=
- =?iso-8859-1?Q?mVyv8Sq9zkySvhP9tuB8+5SGECM4xIjZgO2gt/Qq66WhmUs/q/SU51hQyv?=
- =?iso-8859-1?Q?W3BE+i7L2DeP424m/ZIHcK0Ipk2kLZHB3mFojmn2CLSsa3XRdh5CPn5v5J?=
- =?iso-8859-1?Q?9iSJEpPf77sZYiDSh7yWlSGG/2HhmKzew5rTjfSjY9eOd8H1H0FvtSxhlw?=
- =?iso-8859-1?Q?2QdsBQAr1NZqxIbUSkuUd+CLxui6UiBUIA6ofumS6FisB37QJzzQwSqCBN?=
- =?iso-8859-1?Q?mJUoeWWkzQK2JckHRE+r/PvlkDVJeu7OXntlSzC1IFTeV3rY/ySLemjAwo?=
- =?iso-8859-1?Q?YcXbqomwfS0zV3LkRoDjG1SN70W4a4+NfGKFmEgHPEh2U/i72UT8zmWtkM?=
- =?iso-8859-1?Q?ynueIvU4aP/BU+8E/lQwAJ5muZTnGzKmMjgjrAMSZ3JSQP9B4q8XXaOwM3?=
- =?iso-8859-1?Q?AuFzArdkamgE5Lp+uLmGmmjQEYk1QWzzCC9bHBzftMg46PLw6BHfR1cBJ/?=
- =?iso-8859-1?Q?aDVI2QC5J6HxwVA6KmeOH8cAV+OUXcHrBYbDWli1luKt12F/NIxqTM2ueU?=
- =?iso-8859-1?Q?E5ix7vo8elAC6E88ZZg9N2fY59OvffMwukXgpszx9yZB8rlvANyeAlJT5D?=
- =?iso-8859-1?Q?oq3NAudFJiR7R9Nce7DgLCt3wYfVY3Je1pILeDPy7CTgVSyjJSn9te/Kvy?=
- =?iso-8859-1?Q?CjZ/Xn4weh3luQLmbJ5UbDG+gaoWoVWz91CMpAcS7XblvH542Av1IcUpv1?=
- =?iso-8859-1?Q?EWOrZY58Yv9gm751bgq8wej2kzPBrnUohEZirTaNzRGjWoxd1fMeICvkEC?=
- =?iso-8859-1?Q?INgG6FLZn2rtiLC2ElGCHKx2vHys9kHyY3o2HcW+2s2M68doQkPeeVAZuN?=
- =?iso-8859-1?Q?R/Gyma938Fa672YnaEsngcJ1VBoK57G7Lb/X1ZuVHzDRUs0TVKtzjDm88V?=
- =?iso-8859-1?Q?w7gmrxFsnx1zBSduUWgBKVRSwLV7J3A+Xgv0Qsx0ZEk6U+hvys8XKhIWgz?=
- =?iso-8859-1?Q?6k/zCiHnqgJHL4XzQg0MsRRcNdeXXqyUKh6d/GXQXTLF5Yry8l9nAovM+L?=
- =?iso-8859-1?Q?ReOkOgpShjy9Tjv/l5DGKLAntzEkSkS4OTmb8sWegHczESYCJIYGTX4vyh?=
- =?iso-8859-1?Q?5hyvuPi2fwiGW7QbKVxzKohXMOpEuSdykyQOe5CINAPtlhPiQ8U03kBKTz?=
- =?iso-8859-1?Q?lPw9jZlFSuXUDwywm5yUnJ/whQ4UcPGy0ZROctNKK7TRPal+SIMwekvU3L?=
- =?iso-8859-1?Q?cSoqPq39CJfGjmUlGW6MRaoj5YYbAggS6aZtGmbGrbMR+/UGT9FQhGvUcX?=
- =?iso-8859-1?Q?gqQ65ZMm3Q=3D=3D?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 02 Mar 2026 14:58:03 +0000
+Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-5033b64256dso1042601cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 06:58:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772463480; cv=none;
+        d=google.com; s=arc-20240605;
+        b=MOYI2pBr8COluD4csMddImB5Joe97g9wrWM3THzL+Sf0E4VwXe/LksERiT0qzk7+/p
+         vBRGcjII96PMQgWiCMpllC0dYj1dwjgxMr7MEqxWIjjTA7wpPBmg1bdYFDAyQ0p/s2G8
+         Mh+fVWGhc0mX7ksmiGTXJq8PSI/HyhMqklcutOWu2F93apClDlCosThDoQ2hOkTeNLQg
+         aDyiAxGeXf8mcf9XBHBMiNkDxxufjDtN/l4kvI3UjcVtbb1uLKRIINRX0nJ1CL63pnVy
+         wP5WxX35HxgK19aNkt2He5ZVxSS4bIdJmvWOp+XizLgb60C/Zx1IzHkscXUeuM9D3uNO
+         ssFQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=G2tiCQAM7J3nKBvqatqhx2IcyXGt7NEO8HpnjOvw5gU=;
+        fh=VFXcUrr3kGurp0SuF0YJGl5pPwUAd9HYetUbgSB3cYw=;
+        b=SbZkZpkrNo6W8gz+57LLHSH/XpEtfUtwdAKg2ISXiYlQMuh0cQAlHJq5J/4InNOLvj
+         DO1u554d+sFDBJ1pssUW+mvbleEwDsD7tHIvxvM6rBVJ6IajJP9ujQu7J0Hvgm41AHZr
+         lpOv/r7eZtR2m6xbhFRfvCcy3F1y6MuoLCqKfFX+oLXps17LQ4bK9sQ92Qp9xeDYYm3B
+         QUS/03TfD9ExYEt4g2Hg3Y0SyMCGUHssqUDp/1n2ZeEhFjkQHhmnE6uv2L9tfDgysvpC
+         xv4Sm/Q7aHOZ5+ymFcKztb82mYYEQHgaqpNZnwQUVhzG/WPqnCA5zEkRawWALPCYeB0q
+         5T7Q==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1772463480; x=1773068280; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=G2tiCQAM7J3nKBvqatqhx2IcyXGt7NEO8HpnjOvw5gU=;
+        b=rkt4xKUZf00xoD+e6TVbMXb3z0yY71O143TU7K1Cziz6oM+ep2AKFPkgbJmXa986LU
+         fqUi3YwlU4Cp0BNXJrkAS1jBbfDEyQxg4dGEyYWNZyQPdFKx+rIKwIJ4O84CHImghSII
+         ohVLZU8tyb9zmI2nVJtdu4zaNBAd+IOswnmwoq6GBWuC/F8iKNp8+DMVlNWF2OTuWjPm
+         c3frQ02TPXxSJV6Ry7Q43AUIbULnWiYnWbmok9mEjPtP8H1mPZcB/Wr5PRwEdsFlvOnV
+         K2nWrlDQZ15JJot7Ny/cUBchFYYcLeXMd1/KEGQc/FMh2tBAWYx050rW8L/CrfouMQdQ
+         mDAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772463480; x=1773068280;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=G2tiCQAM7J3nKBvqatqhx2IcyXGt7NEO8HpnjOvw5gU=;
+        b=g5PgfyaTg6b0yJTt2innthEb4G7XQZ5yiX1lBP7GOqMU635q5Vi9dbMQCHUT6gExTO
+         GmJ22W6228owz7lRDTQOZ77aPuFujonRNf4+Qz0JZaBkJHNebKfvz1sz16sdWjjQ//l8
+         A8O7xJ9UUOa0gClbKx/iddSw4mPUE0jP6xDpxOJggPjVSbdVw3UsrDLEAgR/ILOJoEEB
+         trH1eMq1jWa/nm64pYtBIcIgDP4qVd1EkJ4vPinWYkhjFdyGvcA4xh4XSzdDSjOXH84e
+         eIhoa/tbzO8lwu3QK6EfgKDwlHcTZjA9kPHQL9mUD3gSDzjgewjhcmJe5nFHuylbgdM1
+         ybLA==
+X-Gm-Message-State: AOJu0YzfOJ3AgMlthCu6I4/421EGhlCcCxslIX2tNqpzVNB8VwV5k1Qo
+	DWkYw1iV3dbpQxrgdHf9unze6gXqMDLajtihd8pLN5r5nI/EJLIqMnZV06raSPuTXU8zPqRKZFv
+	yRXwjQw+dpatuVJJd4Sfs1r0I8csAkmy/AwuiPqCt
+X-Gm-Gg: ATEYQzx4THlAzdumwEaiQ4lXui0+TbMtbiqJkRc4EDGA08a09/drK9lmAc4+BAw8cuo
+	3tEZIM8MWA4qcdGAtJPvy+IpKNSTF+wrQEj/vkRs/qkRXOVEUMgjlgUnC/Rd4jS2r+zbZblDGKd
+	S+ywVJpio7866bpLt7KYu4xq8EhiOGprOnR7/1CE+EB2JeenyqJwVD3ujMotCWasRr3W+NIXCIa
+	MepQXWZph8wEMmy4OjFU8f1cJYD2BcQyQer71hqj/g1xBelYgD6id5CMdzTizad25nUW21rmq08
+	AtNLh+NV
+X-Received: by 2002:ac8:5995:0:b0:4ff:cb72:7c03 with SMTP id
+ d75a77b69052e-507617532dcmr21520541cf.3.1772463478513; Mon, 02 Mar 2026
+ 06:57:58 -0800 (PST)
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9426.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0c647501-fdb1-41a9-bee3-08de786bfb20
-X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Mar 2026 14:57:10.3184
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: XrHOJ5Tqjfse1/VTASfo71JRRE8XJ+vWGRsw7AOOI+nNw31tlBUofLSbChqCd6XS33pVQ4mcxj5+BD/bH7cgCXDSM4b0tN4YMqbMwpebvD8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MRWPR04MB12041
+References: <20260302115653.1517326-1-maz@kernel.org> <20260302115653.1517326-4-maz@kernel.org>
+In-Reply-To: <20260302115653.1517326-4-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Mon, 2 Mar 2026 14:57:21 +0000
+X-Gm-Features: AaiRm52cau_CBAybC8R8xab889bgpS_fXwwQzlJ-E-bLfbHFOruGTzIX5vD_ueY
+Message-ID: <CA+EHjTxuZfiA77sckm=96x_0JoUpmqDUVrB9WX+TgomQjWyMkw@mail.gmail.com>
+Subject: Re: [PATCH v2 03/11] arm64: Add logic to fully remove features from
+ sanitised id registers
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_065715_124759_DF379B2F 
-X-CRM114-Status: GOOD (  15.78  )
+X-CRM114-CacheID: sfid-20260302_065802_297029_97E40384 
+X-CRM114-Status: GOOD (  35.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,96 +117,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Friday, February 27, 2026 at 9:06 AM, Krzysztof Kozlowski wrote:
-> On 26/02/2026 14:40, Ioana Ciocoi-Radulescu wrote:
->=20
-> A nit, subject: drop second/last, redundant "bindings for". The "dt-bindi=
-ngs"
-> prefix is already stating that these are bindings.
-> See also:
-> https://elixir.bootlin.com/linux/v6.17-rc3/source/Documentation/devicetre=
-e/bindings/submitting-patches.rst#L18
+Hi Marc,
 
-Will fix.
+On Mon, 2 Mar 2026 at 11:57, Marc Zyngier <maz@kernel.org> wrote:
+>
+> We currently make support for some features such as Pointer Auth,
+> SVE or S1POE a compile time decision.
+>
+> However, while we hide that feature from userspace when such support
+> is disabled, we still leave the value provided by the HW visible to
+> the rest of the kernel, including KVM.
+>
+> This has the potential to result in ugly state leakage, as half of
+> the kernel knows about the feature, and the other doesn't.
+>
+> Short of completely banning such compilation options and restore
+> universal knowledge, introduce the possibility to fully remove such
+> knowledge from the sanitised id registers.
+>
+> This has more or less the same effect as the idreg override that
+> a user can pass on the command-line, only defined at build-time.
+>
+> For that purpose, we provide a new macro (FTR_CONFIG()) that defines
+> the behaviour of a feature, both when enabled and disabled.
+>
+> At this stage, nothing is making use of this anti-feature.
+>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/include/asm/cpufeature.h | 17 +++++++++------
+>  arch/arm64/kernel/cpufeature.c      | 32 ++++++++++++++++++++++-------
+>  2 files changed, 36 insertions(+), 13 deletions(-)
+>
+> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+> index 4de51f8d92cba..e853a0ac7db38 100644
+> --- a/arch/arm64/include/asm/cpufeature.h
+> +++ b/arch/arm64/include/asm/cpufeature.h
+> @@ -53,17 +53,22 @@ enum ftr_type {
+>  #define FTR_SIGNED     true    /* Value should be treated as signed */
+>  #define FTR_UNSIGNED   false   /* Value should be treated as unsigned */
+>
+> -#define FTR_VISIBLE    true    /* Feature visible to the user space */
+> -#define FTR_HIDDEN     false   /* Feature is hidden from the user */
+> +enum ftr_visibility {
+> +       FTR_HIDDEN,             /* Feature hidden from the user */
+> +       FTR_ALL_HIDDEN,         /* Feature hidden from kernel, user and KVM */
+> +       FTR_VISIBLE,            /* Feature visible to all observers */
+> +};
+> +
+> +#define FTR_CONFIG(c, e, d)                            \
+> +       (IS_ENABLED(c) ? FTR_ ## e : FTR_ ## d)
+>
+> -#define FTR_VISIBLE_IF_IS_ENABLED(config)              \
+> -       (IS_ENABLED(config) ? FTR_VISIBLE : FTR_HIDDEN)
+> +#define FTR_VISIBLE_IF_IS_ENABLED(c)   FTR_CONFIG(c, VISIBLE, HIDDEN)
+>
+>  struct arm64_ftr_bits {
+>         bool            sign;   /* Value is signed ? */
+> -       bool            visible;
+> +       enum ftr_visibility visibility:8;
+>         bool            strict; /* CPU Sanity check: strict matching required ? */
+> -       enum ftr_type   type;
+> +       enum ftr_type   type:8;
+>         u8              shift;
+>         u8              width;
+>         s64             safe_val; /* safe value for FTR_EXACT features */
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 102c5bac4d502..965dd2acf0640 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -192,7 +192,7 @@ void dump_cpu_features(void)
+>  #define __ARM64_FTR_BITS(SIGNED, VISIBLE, STRICT, TYPE, SHIFT, WIDTH, SAFE_VAL) \
+>         {                                               \
+>                 .sign = SIGNED,                         \
+> -               .visible = VISIBLE,                     \
+> +               .visibility = VISIBLE,                  \
+>                 .strict = STRICT,                       \
+>                 .type = TYPE,                           \
+>                 .shift = SHIFT,                         \
+> @@ -1063,16 +1063,33 @@ static void init_cpu_ftr_reg(u32 sys_reg, u64 new)
+>                                 ftrp->shift);
+>                 }
+>
+> -               val = arm64_ftr_set_value(ftrp, val, ftr_new);
+> -
+>                 valid_mask |= ftr_mask;
+>                 if (!ftrp->strict)
+>                         strict_mask &= ~ftr_mask;
+> -               if (ftrp->visible)
+> +
+> +               switch (ftrp->visibility) {
+> +               case FTR_VISIBLE:
+> +                       val = arm64_ftr_set_value(ftrp, val, ftr_new);
+>                         user_mask |= ftr_mask;
+> -               else
+> +                       break;
+> +               case FTR_ALL_HIDDEN:
+> +                       /*
+> +                        * ALL_HIDDEN and HIGHER_SAFE are incompatible.
+> +                        * Only hide from userspace, and log the oddity.
+> +                        */
+> +                       if (WARN_ON(ftrp->type == FTR_HIGHER_SAFE))
 
-> > +
-> > +  memory-region:
-> > +    description:
-> > +      Phandle referencing a "shared-dma-pool" to be used for Neutron
-> > +      inference buffers, which need to be 1MB aligned.
-> > +
-> > +      The memory region must be defined with alignment of 1MB and size
-> > +      should be large enough to accommodate the targeted ML models. It
-> > +      should be marked as reusable.
-> > +    maxItems: 1
-> > +
-> > +  interrupts:
-> > +    maxItems: 1
-> > +
-> > +  clocks:
-> > +    minItems: 2
-> > +    maxItems: 3
->=20
-> Why is this flexible?
+What about FTR_HIGHER_OR_ZERO_SAFE? It's not actually being used for
+any feature id register, only for CTR_EL0. Even there, it's a
+(theoretical at this point) performance issue, not a correctness one,
+as 0 assumes the largest possible size. I still think that it's safer
+to include it here.
 
-It shouldn't be, I'll fix in v2.
+That said:
 
->=20
-> > +
-> > +  clock-names:
-> > +    minItems: 2
-> > +    items:
-> > +      - const: npu
->=20
-> Name "npu" is pretty pointless.
->=20
-> > +      - const: npu_apb
-> > +      - const: npu_cgc
->=20
-> Drop npu perfix everywhere.
+Reviewed-by: Fuad Tabba <tabba@google.com>
 
-Ok, will rename.
+Cheers,
+/fuad
 
->=20
->=20
-> > +
-> > +  iommus:
-> > +    maxItems: 1
-> > +
-> > +  power-domains:
-> > +    maxItems: 1
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - reg-names
-> > +  - memory-region
-> > +  - interrupts
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> > +    #include <dt-bindings/interrupt-controller/irq.h>
-> > +
-> > +    bus {
-> > +      #address-cells =3D <2>;
-> > +      #size-cells =3D <2>;
-> > +
-> > +      neutron@4ab00000 {
-> > +              compatible =3D "nxp,imx95-neutron";
->=20
-> Messed indentation. Read writing bindings / writing schema.
 
-Will fix.
 
-Thanks for reviewing,
-Ioana
-
->=20
->=20
->=20
-> Best regards,
-> Krzysztof
+> +                               val = arm64_ftr_set_value(ftrp, val, ftr_new);
+> +                       else
+> +                               val = arm64_ftr_set_safe_value(ftrp, val);
+>                         reg->user_val = arm64_ftr_set_safe_value(ftrp,
+>                                                                  reg->user_val);
+> +                       break;
+> +               case FTR_HIDDEN:
+> +                       val = arm64_ftr_set_value(ftrp, val, ftr_new);
+> +                       reg->user_val = arm64_ftr_set_safe_value(ftrp,
+> +                                                                reg->user_val);
+> +                       break;
+> +               }
+>         }
+>
+>         val &= valid_mask;
+> @@ -1230,9 +1247,10 @@ static void update_cpu_ftr_reg(struct arm64_ftr_reg *reg, u64 new)
+>
+>                 /*
+>                  * Don't alter the initial value that has been forced
+> -                * by an override.
+> +                * by an override or a disabled feature.
+>                  */
+> -               if ((reg->override->mask & arm64_ftr_mask(ftrp)) == arm64_ftr_mask(ftrp))
+> +               if (ftrp->visibility == FTR_ALL_HIDDEN ||
+> +                   (reg->override->mask & arm64_ftr_mask(ftrp)) == arm64_ftr_mask(ftrp))
+>                         continue;
+>
+>                 if (ftr_cur == ftr_new)
+> --
+> 2.47.3
+>
 
