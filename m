@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E90BEEA4E22
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 15:27:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCDF6EA4E23
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 15:27:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ElCiVGRSI7oKC/FuVyiioCEYRYr9uDDK7MtuOqMEEfU=; b=prQo0NfCL57fIR0bebrRT7HB8/
-	j6hQ8OF64UJ/p1YTj3bESs8ICZ9q40rrFVbUzoEio2I5fpAk53lXmlKVy4pFmvWnOcdjQsof6HbqI
-	KzG6EkzLWOi0c6uQq7qCtZ5RXTV0KPbtYDwKLQ12qlvrh56rypzUMGwec6H/zqkmaVbt/l6qql4L1
-	Ppn3IefhUVUfuXLjceHCIOXKFMUZOZGfDamUJc3zki+Msq5pEXCxlXmEcY9yZ84eWXJu197obI//L
-	RSBgi8wFwO3OU9Z6V4Zu45zOIapDc3FDdpijODV5GDkQThctwEEinWvkT6ZBxuO1/xtVPfJf85oH/
-	FWd5h7Zw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ljta+m8Hc88D3VPTkEDyBjEDNIW1wMTkbXlf1BJqEbw=; b=XbRPGvu8ZS676i29pdMPJpLBot
+	yJh2kT/8wdIhFfj+XpZkEms4McDt7cX+bbdk29hefW/tzB8nbmY6U6giur/Tx01Rx52DuVsADzL5W
+	fGGmCeV61pJfC34d1XUv5ar9bxMyk8L9wl+Sos6WmzgzvojOIhH+fY/RofH5IaSYhBTx1caOA6Bfn
+	TdozeI1BmddUTXellie6xXkgpVM62Ay5dFZ5KWLuMw6btxZyO7IMQ+3Uk31zQCspFvapf1EE5iNjm
+	mVkQ8A1J7VuGfR3ov6VsCD5uRQNjVsbDIoAx/8QRQRcvP+X3OkKE1b1iRCSJBsvgxp6nibY4QMYfL
+	+nYHFIHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx5BL-0000000DMSG-2f72;
-	Mon, 02 Mar 2026 15:27:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vx5BN-0000000DMTM-0sCL;
+	Mon, 02 Mar 2026 15:27:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx5BK-0000000DMRW-3W5G
+	id 1vx5BK-0000000DMRX-3bih
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 15:27:38 +0000
+	Mon, 02 Mar 2026 15:27:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0508A60018;
+	by sea.source.kernel.org (Postfix) with ESMTP id 27BA9443D4;
 	Mon,  2 Mar 2026 15:27:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A6BDC19423;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC92FC2BCB2;
 	Mon,  2 Mar 2026 15:27:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772465257;
-	bh=U1LVZKiOs+6bdtnsgEbKMpwzp18gX4CvEKWahajFxIs=;
-	h=From:To:Cc:Subject:Date:From;
-	b=OthBj7JyQNqVdWBa+tKkfsYwNOE/jnS2htS8O+CFjl6ketwgSJoNjVhwLQTZL6V0G
-	 CjuUrsCOhwpRItGRBVRaal/b7rZ6XONV0bGXnv9P0BToxAGW+PPTCCZ5DHMUzBz8E2
-	 5pLo17vIyLBMJxvkuqR/HjAGvq8/ymI0fKGro0jcs0fXLWPhLhdDI6R0/g7+IhvItV
-	 jfRaBHEidcdTb6L7Vsoz0kJAEJBA2xEBKvU3ILPk0I3xnvZGe9nz8cvnz7/xBEbwmO
-	 IDOKTpqX9MpDWbz1IU6NBHsr2BahWRhGxMUyU+IgGAjhtytAn3o7kCYU5JjN2bfd6W
-	 Pi0jz+yf2l4ew==
+	s=k20201202; t=1772465258;
+	bh=Nu//A3zrzFksC/EsXtTpm79XAbNP4DoF4asm4g2YQsU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=nGY6ISHqP6autGvIwrh7lC5dnJWsyvVOBrkvvf0trB234KIUoQkc+WUp1EfNuWSMg
+	 IJHuinmmrVPGXvZzZSRb/pGFAFYuX2UqCQW7PTRxhLcBpgcHmG4QCgnhutdmXqk2Kd
+	 WCmfwP0BoNYeyevSx6qdiMP0BVrnUS2sTUUqM9/vJqCTrx6zgdX6up5WDAyBD4kM4N
+	 Pi7E82dWhWMP31xBvBPfpZjiR8RLkNBHCtoll1FSpmdLxW0PSweEzPXytRMrVO9J2z
+	 Zlku90JotkkwB/euR4ntsuRioDwBQ7wnYgfqYGFRftgyacB8gI4PCemMaBFhTT6kR4
+	 NI0ObqHXS39xA==
 Received: by wens.tw (Postfix, from userid 1000)
-	id 0B27D5FCAC; Mon, 02 Mar 2026 23:27:35 +0800 (CST)
+	id 432445F95F; Mon, 02 Mar 2026 23:27:35 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Lee Jones <lee@kernel.org>,
 	Pavel Machek <pavel@kernel.org>
@@ -57,13 +57,21 @@ Cc: Chen-Yu Tsai <wens@kernel.org>,
 	linux-sunxi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-leds@vger.kernel.org
-Subject: [PATCH v2 0/3] arm64: dts: allwinner: sun55i-t527: avaota-a1: Enable LEDs
-Date: Mon,  2 Mar 2026 23:27:19 +0800
-Message-ID: <20260302152724.3197587-1-wens@kernel.org>
+	linux-leds@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>
+Subject: [PATCH v2 1/3] dt-bindings: leds: sun50i-a100: Add compatible for Allwinner A523 SoC
+Date: Mon,  2 Mar 2026 23:27:20 +0800
+Message-ID: <20260302152724.3197587-2-wens@kernel.org>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260302152724.3197587-1-wens@kernel.org>
+References: <20260302152724.3197587-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260302_072738_918001_6E7029B3 
+X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,44 +86,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
+The Allwinner A523 SoC family features an identical LED controller as
+found on the A100.
 
-This is v2 of my A523 LED controller enablement series.
+Add a SoC-specific compatible for it, with fallback to the A100 one.
 
-Changes since v1:
-- Rebased onto next-20260226 to get rid of unmerged context
-- Collected tags
-- Link to v1:
-  https://lore.kernel.org/linux-sunxi/20260225160828.1687643-1-wens@kernel.org/
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
+---
+ .../devicetree/bindings/leds/allwinner,sun50i-a100-ledc.yaml     | 1 +
+ 1 file changed, 1 insertion(+)
 
-This series enables the RGB LEDs found on the Avaota A1 board. The LEDs
-are connected in series to the SoC's LED controller.
-
-Patch 1 adds a new compatible string for the LED controller found in the
-Allwinner A523 SoC family.
-
-Patch 2 adds a device node for the LED controller to the dtsi file.
-
-Patch 3 enables the LEDs found on the Avaota A1 board.
-
-
-Please have a look.
-
-
-Thanks
-ChenYu
-
-
-Chen-Yu Tsai (3):
-  dt-bindings: leds: sun50i-a100: Add compatible for Allwinner A523 SoC
-  arm64: dts: allwinner: sun55i-a523: Add LED controller
-  arm64: dts: allwinner: sun55i-t527: avaota-a1: Enable LEDs
-
- .../leds/allwinner,sun50i-a100-ledc.yaml      |  1 +
- .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 22 ++++++++++
- .../dts/allwinner/sun55i-t527-avaota-a1.dts   | 41 +++++++++++++++++++
- 3 files changed, 64 insertions(+)
-
+diff --git a/Documentation/devicetree/bindings/leds/allwinner,sun50i-a100-ledc.yaml b/Documentation/devicetree/bindings/leds/allwinner,sun50i-a100-ledc.yaml
+index 760cb336dccb..0b73fe5b662f 100644
+--- a/Documentation/devicetree/bindings/leds/allwinner,sun50i-a100-ledc.yaml
++++ b/Documentation/devicetree/bindings/leds/allwinner,sun50i-a100-ledc.yaml
+@@ -21,6 +21,7 @@ properties:
+           - enum:
+               - allwinner,sun20i-d1-ledc
+               - allwinner,sun50i-r329-ledc
++              - allwinner,sun55i-a523-ledc
+           - const: allwinner,sun50i-a100-ledc
+ 
+   reg:
 -- 
 2.47.3
 
