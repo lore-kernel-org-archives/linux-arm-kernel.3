@@ -4,99 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75AD1E9B352
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 10:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D32FE9B342
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 10:02:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JeaYZ091SL15KmEG6d+l0Xw5BQp6StXNV54X+bomZg4=; b=BtHnHFKC6OcUFhDBPDxYO0jNVm
-	ULKFGzIjRp6WNMrNUieRWbflnBR9T5tYzljnPzjpAeGJhOleCR3SKoeRIP3VRd2NVBO7ExVUOfpUy
-	hJuyUIjpKrueueTpLcMi5Q8prKummdhTkNMJRRE7PJ10bt21QyEUETYo9sjKsezLGpeVr8tsEyvZh
-	6pYJ1KgxIbp7ZxuRYO/vSEqytyF9UrwCwRHEz6JXy4JympoVVKUhYl/rs0qC2nPgTbLjdr3gT8RId
-	+qSYMmfFwB3COYtaBkLv7GzpPlxGKy3KqZhD9Ep+YGO6qwCHMfipzdxrtjhCD4ICFh7sKQRYerm3S
-	JnvHj+mA==;
+	bh=RzM+OWesyPL8oVd1EtAn8uBjKii7xT5jDduh/UaSZzY=; b=J6JibRNLSgYtnqRlxqqyg/vRVM
+	T13ibahChLqrBmOv/dahBC3k+Gh9RLaO45acJxExfur5DjQPeehekMDIoXdcUecbZG/7TDH2O3usc
+	Q97CM6+GLqyRSq+lesNK+CWZtiHPOw/NcrYjciUHK7zw1QzB4G7TT3w0Zi9eY+UUNn6oNfgArKEVL
+	pgwRdYHbCTbkr9Nk1avrOE6893Eahk+deB790T0djK3kPTjeAn3LVIXKo0UVmlYQTKUZsbSG8+Aws
+	hQX8mud7/tPq1tKtycLY1qAVpPQUElKOnZZz85QJXSRMVYLmoAnbIUbAXfFOY/QfMfUykPWzezwKp
+	xbtbRvrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx04r-0000000Cdja-2fuu;
-	Mon, 02 Mar 2026 10:00:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vx06C-0000000Ce7F-3wqn;
+	Mon, 02 Mar 2026 10:02:00 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx04p-0000000Cdij-3mCb;
-	Mon, 02 Mar 2026 10:00:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3AF7F60018;
-	Mon,  2 Mar 2026 10:00:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BF16C19425;
-	Mon,  2 Mar 2026 10:00:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772445634;
-	bh=9uD5ro267VZ2CO7qSRqt0cvPHYF+IatQD96SFa/H2FE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nzAoSDhzMP+/7MBbHjd4QjWZjsxDUYvv3XlFzR861v7WOBep693qlOwIeUbjv4F3a
-	 0jutfsMhA1MX3tX98Y9+ce615hPfXyJpJRw/R8d/SU8IfUtcOXnuKEM3rjgVIhhN5h
-	 R+qZL7qK33P5tHDiyNIzKK35m7G7tJSyuamDjJzeovesKhj0fQTJj4S3Vgpp5YbUbn
-	 zOPj42FecMpC81jZVARwvlcenvzIAs1ptXX6Ufwco07kWYtpOzc6Bn2/WfNYRgWGzj
-	 MckpsP0Uxayy7xE1tjuIBYbXVv9o89ciak3ift3gEUhRnwgUjseL61VbZ6fMdtXvqN
-	 nYY4ZKVQgdQHw==
-From: Niklas Cassel <cassel@kernel.org>
-To: Vignesh Raghavendra <vigneshr@ti.com>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Minghuan Lian <minghuan.Lian@nxp.com>,
-	Mingkai Hu <mingkai.hu@nxp.com>,
-	Roy Zang <roy.zang@nxp.com>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Marek Vasut <marek.vasut+renesas@gmail.com>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Christian Bruel <christian.bruel@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>
-Cc: Manikanta Maddireddy <mmaddireddy@nvidia.com>,
-	Koichiro Den <den@valinux.co.jp>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Niklas Cassel <cassel@kernel.org>,
-	linux-omap@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@axis.com,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-tegra@vger.kernel.org
-Subject: [PATCH v3 6/9] PCI: dwc: Disable BARs in common code instead of in each glue driver
-Date: Mon,  2 Mar 2026 10:59:18 +0100
-Message-ID: <20260302095913.48155-17-cassel@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260302095913.48155-11-cassel@kernel.org>
-References: <20260302095913.48155-11-cassel@kernel.org>
+	id 1vx068-0000000Ce5x-0eTW
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Mar 2026 10:01:59 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.177])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4fPZGL4ygMzKHMZ4
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  2 Mar 2026 18:01:46 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id 57A594058C
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  2 Mar 2026 18:01:49 +0800 (CST)
+Received: from k01.k01 (unknown [10.67.174.197])
+	by APP4 (Coremail) with SMTP id gCh0CgCXQvMKYKVpfu0vJQ--.22492S3;
+	Mon, 02 Mar 2026 18:01:49 +0800 (CST)
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+To: bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Anton Protopopov <a.s.protopopov@gmail.com>
+Subject: [PATCH bpf-next v5 1/5] bpf: Move JIT for single-subprog programs to verifier
+Date: Mon,  2 Mar 2026 18:27:22 +0800
+Message-ID: <20260302102726.1126019-2-xukuohai@huaweicloud.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260302102726.1126019-1-xukuohai@huaweicloud.com>
+References: <20260302102726.1126019-1-xukuohai@huaweicloud.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=14065; i=cassel@kernel.org; h=from:subject; bh=9uD5ro267VZ2CO7qSRqt0cvPHYF+IatQD96SFa/H2FE=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGDKXxldN+O092X5/aecSnlVPNk/6Mu0Oq8/2Cgt3qQvRE 28dXHt3WkcpC4MYF4OsmCKL7w+X/cXd7lOOK96xgZnDygQyhIGLUwAmkrGF4Z/qqQfr7j/77t7e 8nqRkq9h/pnDIRmb/JZrNh7iOfAzvyOW4b9Tx7WzXrH3dEX3MRZevbhHfzN340ul5YtmFcwJee7 cU8wDAA==
-X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: gCh0CgCXQvMKYKVpfu0vJQ--.22492S3
+X-Coremail-Antispam: 1UD129KBjvJXoW3Ww1xAF1rWr47Xr1kur1fCrg_yoW7XF1UpF
+	Z3X34UCr4UKwsrAwnrAF17A345Xa10gw13Ga93tryF9r4jqr4kWF1UWFsYqFWY9ryUtr1S
+	va109rZrZ345ZFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmab4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUGw
+	A2048vs2IY020Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
+	w2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
+	W8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v2
+	6rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMc
+	Ij6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_
+	Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI
+	0_Jw0_GFylc7CjxVAKzI0EY4vE52x082I5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCj
+	c4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4
+	CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1x
+	MIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF
+	4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsG
+	vfC2KfnxnUUI43ZEXa7IU0xsqJUUUUU==
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260302_020156_548416_81E70FDE 
+X-CRM114-Status: GOOD (  15.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,369 +92,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current EPC core design relies on an EPC driver disabling all BARs by
-default. An EPF driver will then enable the BARs that it wants to enabled.
+From: Xu Kuohai <xukuohai@huawei.com>
 
-This design is there because there is no epc->ops->disable_bar().
-(There is a epc->ops->clear_bar(), but that is only to disable a BAR that
-has been enabled using epc->ops->set_bar() first.)
+JIT for single-subprog programs is done after the verification stage. This
+prevents the JIT stage from accessing the verifier's internal datas, like
+env->insn_aux_data. So move it to the verifier. After the movement, all bpf
+progs loaded with bpf_prog_load() are JITed in the verifier. The JIT in
+bpf_prog_select_runtime() is preserved for bpf_migrate_filter() and test
+cases.
 
-By default, an EPF driver will not be able to get/enable BARs that are
-marked as BAR_RESERVED or BAR_DISABLED (see pci_epc_get_next_free_bar()).
-
-Since the current EPC code design requires an EPC driver to disable all
-BARs by default, let's move this to DWC common code from each glue driver.
-
-BAR_RESERVED BARs are not disabled by default because these BARs are
-hardware backed, and should only be disabled explicitly by an EPF driver
-if absolutely necessary for the EPF driver to function correctly.
-(This is similar to how e.g. NVMe may have vendor specific BARs outside of
-the mandatory BAR0 which contains the NVMe registers.)
-
-Note that there is currently no EPC operation to disable a BAR that has not
-first been programmed using pci_epc_set_bar(). If an EPF driver ever wants
-to disable a BAR marked as BAR_RESERVED, a disable_bar() operation would
-have to be added first.
-
-No functional changes intended.
-
-Tested-by: Manikanta Maddireddy <mmaddireddy@nvidia.com>
-Reviewed-by: Manikanta Maddireddy <mmaddireddy@nvidia.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Tested-by: Koichiro Den <den@valinux.co.jp>
-Signed-off-by: Niklas Cassel <cassel@kernel.org>
+Signed-off-by: Xu Kuohai <xukuohai@huawei.com>
 ---
- drivers/pci/controller/dwc/pci-dra7xx.c       |  4 ----
- drivers/pci/controller/dwc/pci-imx6.c         | 10 --------
- .../pci/controller/dwc/pci-layerscape-ep.c    |  4 ----
- drivers/pci/controller/dwc/pcie-artpec6.c     |  4 ----
- .../pci/controller/dwc/pcie-designware-ep.c   | 24 +++++++++++++++++++
- .../pci/controller/dwc/pcie-designware-plat.c | 10 --------
- drivers/pci/controller/dwc/pcie-dw-rockchip.c |  8 +------
- drivers/pci/controller/dwc/pcie-qcom-ep.c     | 10 --------
- drivers/pci/controller/dwc/pcie-rcar-gen4.c   | 10 --------
- drivers/pci/controller/dwc/pcie-stm32-ep.c    | 10 --------
- drivers/pci/controller/dwc/pcie-tegra194.c    | 10 --------
- drivers/pci/controller/dwc/pcie-uniphier-ep.c | 10 --------
- 12 files changed, 25 insertions(+), 89 deletions(-)
+ include/linux/filter.h |  2 ++
+ kernel/bpf/core.c      | 51 +++++++++++++++++++++++++++---------------
+ kernel/bpf/syscall.c   |  2 +-
+ kernel/bpf/verifier.c  |  7 +++++-
+ 4 files changed, 42 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/pci/controller/dwc/pci-dra7xx.c b/drivers/pci/controller/dwc/pci-dra7xx.c
-index d5d26229063f..cd904659c321 100644
---- a/drivers/pci/controller/dwc/pci-dra7xx.c
-+++ b/drivers/pci/controller/dwc/pci-dra7xx.c
-@@ -378,10 +378,6 @@ static void dra7xx_pcie_ep_init(struct dw_pcie_ep *ep)
- {
- 	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
- 	struct dra7xx_pcie *dra7xx = to_dra7xx_pcie(pci);
--	enum pci_barno bar;
--
--	for (bar = 0; bar < PCI_STD_NUM_BARS; bar++)
--		dw_pcie_ep_reset_bar(pci, bar);
- 
- 	dra7xx_pcie_enable_wrapper_interrupts(dra7xx);
- }
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index ec1e3557ca53..f5fe5cfc46c7 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -1401,15 +1401,6 @@ static const struct dw_pcie_ops dw_pcie_ops = {
- 	.stop_link = imx_pcie_stop_link,
- };
- 
--static void imx_pcie_ep_init(struct dw_pcie_ep *ep)
--{
--	enum pci_barno bar;
--	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
--
--	for (bar = BAR_0; bar <= BAR_5; bar++)
--		dw_pcie_ep_reset_bar(pci, bar);
--}
--
- static int imx_pcie_ep_raise_irq(struct dw_pcie_ep *ep, u8 func_no,
- 				  unsigned int type, u16 interrupt_num)
- {
-@@ -1478,7 +1469,6 @@ imx_pcie_ep_get_features(struct dw_pcie_ep *ep)
+diff --git a/include/linux/filter.h b/include/linux/filter.h
+index 44d7ae95ddbc..632c03e126d9 100644
+--- a/include/linux/filter.h
++++ b/include/linux/filter.h
+@@ -1108,6 +1108,8 @@ static inline int sk_filter_reason(struct sock *sk, struct sk_buff *skb,
+ 	return sk_filter_trim_cap(sk, skb, 1, reason);
  }
  
- static const struct dw_pcie_ep_ops pcie_ep_ops = {
--	.init = imx_pcie_ep_init,
- 	.raise_irq = imx_pcie_ep_raise_irq,
- 	.get_features = imx_pcie_ep_get_features,
- };
-diff --git a/drivers/pci/controller/dwc/pci-layerscape-ep.c b/drivers/pci/controller/dwc/pci-layerscape-ep.c
-index 5a03a8f895f9..1f5fccdb4ff4 100644
---- a/drivers/pci/controller/dwc/pci-layerscape-ep.c
-+++ b/drivers/pci/controller/dwc/pci-layerscape-ep.c
-@@ -152,15 +152,11 @@ static void ls_pcie_ep_init(struct dw_pcie_ep *ep)
- 	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
- 	struct ls_pcie_ep *pcie = to_ls_pcie_ep(pci);
- 	struct dw_pcie_ep_func *ep_func;
--	enum pci_barno bar;
++struct bpf_prog *bpf_prog_select_jit(struct bpf_prog *fp, int *err);
++struct bpf_prog *__bpf_prog_select_runtime(struct bpf_prog *fp, bool jit_attempted, int *err);
+ struct bpf_prog *bpf_prog_select_runtime(struct bpf_prog *fp, int *err);
+ void bpf_prog_free(struct bpf_prog *fp);
  
- 	ep_func = dw_pcie_ep_get_func_from_ep(ep, 0);
- 	if (!ep_func)
- 		return;
- 
--	for (bar = 0; bar < PCI_STD_NUM_BARS; bar++)
--		dw_pcie_ep_reset_bar(pci, bar);
--
- 	pcie->ls_epc->msi_capable = ep_func->msi_cap ? true : false;
- 	pcie->ls_epc->msix_capable = ep_func->msix_cap ? true : false;
- }
-diff --git a/drivers/pci/controller/dwc/pcie-artpec6.c b/drivers/pci/controller/dwc/pcie-artpec6.c
-index e994b75986c3..55cb957ae1f3 100644
---- a/drivers/pci/controller/dwc/pcie-artpec6.c
-+++ b/drivers/pci/controller/dwc/pcie-artpec6.c
-@@ -340,15 +340,11 @@ static void artpec6_pcie_ep_init(struct dw_pcie_ep *ep)
- {
- 	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
- 	struct artpec6_pcie *artpec6_pcie = to_artpec6_pcie(pci);
--	enum pci_barno bar;
- 
- 	artpec6_pcie_assert_core_reset(artpec6_pcie);
- 	artpec6_pcie_init_phy(artpec6_pcie);
- 	artpec6_pcie_deassert_core_reset(artpec6_pcie);
- 	artpec6_pcie_wait_for_phy(artpec6_pcie);
--
--	for (bar = 0; bar < PCI_STD_NUM_BARS; bar++)
--		dw_pcie_ep_reset_bar(pci, bar);
+diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
+index 229c74f3d6ae..00be578a438d 100644
+--- a/kernel/bpf/core.c
++++ b/kernel/bpf/core.c
+@@ -2505,18 +2505,18 @@ static bool bpf_prog_select_interpreter(struct bpf_prog *fp)
+ 	return select_interpreter;
  }
  
- static int artpec6_pcie_raise_irq(struct dw_pcie_ep *ep, u8 func_no,
-diff --git a/drivers/pci/controller/dwc/pcie-designware-ep.c b/drivers/pci/controller/dwc/pcie-designware-ep.c
-index 295076cf70de..386bfb7b2bf6 100644
---- a/drivers/pci/controller/dwc/pcie-designware-ep.c
-+++ b/drivers/pci/controller/dwc/pcie-designware-ep.c
-@@ -1114,6 +1114,28 @@ static void dw_pcie_ep_init_non_sticky_registers(struct dw_pcie *pci)
- 	dw_pcie_dbi_ro_wr_dis(pci);
- }
- 
-+static void dw_pcie_ep_disable_bars(struct dw_pcie_ep *ep)
+-/**
+- *	bpf_prog_select_runtime - select exec runtime for BPF program
+- *	@fp: bpf_prog populated with BPF program
+- *	@err: pointer to error variable
+- *
+- * Try to JIT eBPF program, if JIT is not available, use interpreter.
+- * The BPF program will be executed via bpf_prog_run() function.
+- *
+- * Return: the &fp argument along with &err set to 0 for success or
+- * a negative errno code on failure
+- */
+-struct bpf_prog *bpf_prog_select_runtime(struct bpf_prog *fp, int *err)
++struct bpf_prog *bpf_prog_select_jit(struct bpf_prog *fp, int *err)
 +{
-+	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
-+	enum pci_epc_bar_type bar_type;
-+	enum pci_barno bar;
++	*err = bpf_prog_alloc_jited_linfo(fp);
++	if (*err)
++		return fp;
 +
-+	for (bar = 0; bar < PCI_STD_NUM_BARS; bar++) {
-+		bar_type = dw_pcie_ep_get_bar_type(ep, bar);
-+
-+		/*
-+		 * Reserved BARs should not get disabled by default. All other
-+		 * BAR types are disabled by default.
-+		 *
-+		 * This is in line with the current EPC core design, where all
-+		 * BARs are disabled by default, and then the EPF driver enables
-+		 * the BARs it wishes to use.
-+		 */
-+		if (bar_type != BAR_RESERVED)
-+			dw_pcie_ep_reset_bar(pci, bar);
-+	}
++	fp = bpf_int_jit_compile(fp);
++	bpf_prog_jit_attempt_done(fp);
++	return fp;
 +}
 +
- /**
-  * dw_pcie_ep_init_registers - Initialize DWC EP specific registers
-  * @ep: DWC EP device
-@@ -1196,6 +1218,8 @@ int dw_pcie_ep_init_registers(struct dw_pcie_ep *ep)
- 	if (ep->ops->init)
- 		ep->ops->init(ep);
++struct bpf_prog *__bpf_prog_select_runtime(struct bpf_prog *fp, bool jit_attempted, int *err)
+ {
+ 	/* In case of BPF to BPF calls, verifier did all the prep
+ 	 * work with regards to JITing, etc.
+@@ -2540,12 +2540,11 @@ struct bpf_prog *bpf_prog_select_runtime(struct bpf_prog *fp, int *err)
+ 	 * be JITed, but falls back to the interpreter.
+ 	 */
+ 	if (!bpf_prog_is_offloaded(fp->aux)) {
+-		*err = bpf_prog_alloc_jited_linfo(fp);
+-		if (*err)
+-			return fp;
+-
+-		fp = bpf_int_jit_compile(fp);
+-		bpf_prog_jit_attempt_done(fp);
++		if (!jit_attempted) {
++			fp = bpf_prog_select_jit(fp, err);
++			if (*err)
++				return fp;
++		}
+ 		if (!fp->jited && jit_needed) {
+ 			*err = -ENOTSUPP;
+ 			return fp;
+@@ -2570,6 +2569,22 @@ struct bpf_prog *bpf_prog_select_runtime(struct bpf_prog *fp, int *err)
  
-+	dw_pcie_ep_disable_bars(ep);
+ 	return fp;
+ }
 +
- 	/*
- 	 * PCIe r6.0, section 7.9.15 states that for endpoints that support
- 	 * PTM, this capability structure is required in exactly one
-diff --git a/drivers/pci/controller/dwc/pcie-designware-plat.c b/drivers/pci/controller/dwc/pcie-designware-plat.c
-index 8530746ec5cb..d103ab759c4e 100644
---- a/drivers/pci/controller/dwc/pcie-designware-plat.c
-+++ b/drivers/pci/controller/dwc/pcie-designware-plat.c
-@@ -32,15 +32,6 @@ struct dw_plat_pcie_of_data {
- static const struct dw_pcie_host_ops dw_plat_pcie_host_ops = {
- };
++/**
++ *	bpf_prog_select_runtime - select exec runtime for BPF program
++ *	@fp: bpf_prog populated with BPF program
++ *	@err: pointer to error variable
++ *
++ * Try to JIT eBPF program, if JIT is not available, use interpreter.
++ * The BPF program will be executed via bpf_prog_run() function.
++ *
++ * Return: the &fp argument along with &err set to 0 for success or
++ * a negative errno code on failure
++ */
++struct bpf_prog *bpf_prog_select_runtime(struct bpf_prog *fp, int *err)
++{
++	return __bpf_prog_select_runtime(fp, false, err);
++}
+ EXPORT_SYMBOL_GPL(bpf_prog_select_runtime);
  
--static void dw_plat_pcie_ep_init(struct dw_pcie_ep *ep)
--{
--	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
--	enum pci_barno bar;
--
--	for (bar = 0; bar < PCI_STD_NUM_BARS; bar++)
--		dw_pcie_ep_reset_bar(pci, bar);
--}
--
- static int dw_plat_pcie_ep_raise_irq(struct dw_pcie_ep *ep, u8 func_no,
- 				     unsigned int type, u16 interrupt_num)
- {
-@@ -73,7 +64,6 @@ dw_plat_pcie_get_features(struct dw_pcie_ep *ep)
- }
+ static unsigned int __bpf_prog_ret1(const void *ctx,
+diff --git a/kernel/bpf/syscall.c b/kernel/bpf/syscall.c
+index 274039e36465..d6982107ba80 100644
+--- a/kernel/bpf/syscall.c
++++ b/kernel/bpf/syscall.c
+@@ -3090,7 +3090,7 @@ static int bpf_prog_load(union bpf_attr *attr, bpfptr_t uattr, u32 uattr_size)
+ 	if (err < 0)
+ 		goto free_used_maps;
  
- static const struct dw_pcie_ep_ops pcie_ep_ops = {
--	.init = dw_plat_pcie_ep_init,
- 	.raise_irq = dw_plat_pcie_ep_raise_irq,
- 	.get_features = dw_plat_pcie_get_features,
- };
-diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index ecc28093c589..8db27199cfa6 100644
---- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-+++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -361,13 +361,9 @@ static void rockchip_pcie_ep_hide_broken_ats_cap_rk3588(struct dw_pcie_ep *ep)
- static void rockchip_pcie_ep_init(struct dw_pcie_ep *ep)
- {
- 	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
--	enum pci_barno bar;
+-	prog = bpf_prog_select_runtime(prog, &err);
++	prog = __bpf_prog_select_runtime(prog, true, &err);
+ 	if (err < 0)
+ 		goto free_used_maps;
  
- 	rockchip_pcie_enable_l0s(pci);
- 	rockchip_pcie_ep_hide_broken_ats_cap_rk3588(ep);
--
--	for (bar = 0; bar < PCI_STD_NUM_BARS; bar++)
--		dw_pcie_ep_reset_bar(pci, bar);
- };
+diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+index fc4ccd1de569..ab2bc0850770 100644
+--- a/kernel/bpf/verifier.c
++++ b/kernel/bpf/verifier.c
+@@ -26086,6 +26086,11 @@ int bpf_check(struct bpf_prog **prog, union bpf_attr *attr, bpfptr_t uattr, __u3
+ 		convert_pseudo_ld_imm64(env);
+ 	}
  
- static int rockchip_pcie_raise_irq(struct dw_pcie_ep *ep, u8 func_no,
-@@ -415,9 +411,7 @@ static const struct pci_epc_bar_rsvd_region rk3588_bar4_rsvd[] = {
- /*
-  * BAR4 on rk3588 exposes the ATU Port Logic Structure to the host regardless of
-  * iATU settings for BAR4. This means that BAR4 cannot be used by an EPF driver,
-- * so mark it as RESERVED. (rockchip_pcie_ep_init() will disable all BARs by
-- * default.) If the host could write to BAR4, the iATU settings (for all other
-- * BARs) would be overwritten, resulting in (all other BARs) no longer working.
-+ * so mark it as RESERVED.
-  */
- static const struct pci_epc_features rockchip_pcie_epc_features_rk3588 = {
- 	DWC_EPC_COMMON_FEATURES,
-diff --git a/drivers/pci/controller/dwc/pcie-qcom-ep.c b/drivers/pci/controller/dwc/pcie-qcom-ep.c
-index e55675b3840a..e8c8ba1659fd 100644
---- a/drivers/pci/controller/dwc/pcie-qcom-ep.c
-+++ b/drivers/pci/controller/dwc/pcie-qcom-ep.c
-@@ -861,17 +861,7 @@ qcom_pcie_epc_get_features(struct dw_pcie_ep *pci_ep)
- 	return &qcom_pcie_epc_features;
- }
++	/* constants blinding in the JIT may increase prog->len */
++	len = env->prog->len;
++	if (env->subprog_cnt == 1)
++		env->prog = bpf_prog_select_jit(env->prog, &ret);
++
+ 	adjust_btf_func(env);
  
--static void qcom_pcie_ep_init(struct dw_pcie_ep *ep)
--{
--	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
--	enum pci_barno bar;
--
--	for (bar = BAR_0; bar <= BAR_5; bar++)
--		dw_pcie_ep_reset_bar(pci, bar);
--}
--
- static const struct dw_pcie_ep_ops pci_ep_ops = {
--	.init = qcom_pcie_ep_init,
- 	.raise_irq = qcom_pcie_ep_raise_irq,
- 	.get_features = qcom_pcie_epc_get_features,
- };
-diff --git a/drivers/pci/controller/dwc/pcie-rcar-gen4.c b/drivers/pci/controller/dwc/pcie-rcar-gen4.c
-index 9dd05bac22b9..1198ddc1752c 100644
---- a/drivers/pci/controller/dwc/pcie-rcar-gen4.c
-+++ b/drivers/pci/controller/dwc/pcie-rcar-gen4.c
-@@ -386,15 +386,6 @@ static void rcar_gen4_pcie_ep_pre_init(struct dw_pcie_ep *ep)
- 	writel(PCIEDMAINTSTSEN_INIT, rcar->base + PCIEDMAINTSTSEN);
- }
- 
--static void rcar_gen4_pcie_ep_init(struct dw_pcie_ep *ep)
--{
--	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
--	enum pci_barno bar;
--
--	for (bar = 0; bar < PCI_STD_NUM_BARS; bar++)
--		dw_pcie_ep_reset_bar(pci, bar);
--}
--
- static void rcar_gen4_pcie_ep_deinit(struct rcar_gen4_pcie *rcar)
- {
- 	writel(0, rcar->base + PCIEDMAINTSTSEN);
-@@ -449,7 +440,6 @@ static unsigned int rcar_gen4_pcie_ep_get_dbi2_offset(struct dw_pcie_ep *ep,
- 
- static const struct dw_pcie_ep_ops pcie_ep_ops = {
- 	.pre_init = rcar_gen4_pcie_ep_pre_init,
--	.init = rcar_gen4_pcie_ep_init,
- 	.raise_irq = rcar_gen4_pcie_ep_raise_irq,
- 	.get_features = rcar_gen4_pcie_ep_get_features,
- 	.get_dbi_offset = rcar_gen4_pcie_ep_get_dbi_offset,
-diff --git a/drivers/pci/controller/dwc/pcie-stm32-ep.c b/drivers/pci/controller/dwc/pcie-stm32-ep.c
-index c1944b40ce02..a7988dff1045 100644
---- a/drivers/pci/controller/dwc/pcie-stm32-ep.c
-+++ b/drivers/pci/controller/dwc/pcie-stm32-ep.c
-@@ -28,15 +28,6 @@ struct stm32_pcie {
- 	unsigned int perst_irq;
- };
- 
--static void stm32_pcie_ep_init(struct dw_pcie_ep *ep)
--{
--	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
--	enum pci_barno bar;
--
--	for (bar = 0; bar < PCI_STD_NUM_BARS; bar++)
--		dw_pcie_ep_reset_bar(pci, bar);
--}
--
- static int stm32_pcie_start_link(struct dw_pcie *pci)
- {
- 	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
-@@ -82,7 +73,6 @@ stm32_pcie_get_features(struct dw_pcie_ep *ep)
- }
- 
- static const struct dw_pcie_ep_ops stm32_pcie_ep_ops = {
--	.init = stm32_pcie_ep_init,
- 	.raise_irq = stm32_pcie_raise_irq,
- 	.get_features = stm32_pcie_get_features,
- };
-diff --git a/drivers/pci/controller/dwc/pcie-tegra194.c b/drivers/pci/controller/dwc/pcie-tegra194.c
-index 9f9453e8cd23..3a6bffaff9ea 100644
---- a/drivers/pci/controller/dwc/pcie-tegra194.c
-+++ b/drivers/pci/controller/dwc/pcie-tegra194.c
-@@ -1923,15 +1923,6 @@ static irqreturn_t tegra_pcie_ep_pex_rst_irq(int irq, void *arg)
- 	return IRQ_HANDLED;
- }
- 
--static void tegra_pcie_ep_init(struct dw_pcie_ep *ep)
--{
--	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
--	enum pci_barno bar;
--
--	for (bar = 0; bar < PCI_STD_NUM_BARS; bar++)
--		dw_pcie_ep_reset_bar(pci, bar);
--};
--
- static int tegra_pcie_ep_raise_intx_irq(struct tegra_pcie_dw *pcie, u16 irq)
- {
- 	/* Tegra194 supports only INTA */
-@@ -2008,7 +1999,6 @@ tegra_pcie_ep_get_features(struct dw_pcie_ep *ep)
- }
- 
- static const struct dw_pcie_ep_ops pcie_ep_ops = {
--	.init = tegra_pcie_ep_init,
- 	.raise_irq = tegra_pcie_ep_raise_irq,
- 	.get_features = tegra_pcie_ep_get_features,
- };
-diff --git a/drivers/pci/controller/dwc/pcie-uniphier-ep.c b/drivers/pci/controller/dwc/pcie-uniphier-ep.c
-index 5bde3ee682b5..494376d1812d 100644
---- a/drivers/pci/controller/dwc/pcie-uniphier-ep.c
-+++ b/drivers/pci/controller/dwc/pcie-uniphier-ep.c
-@@ -203,15 +203,6 @@ static void uniphier_pcie_stop_link(struct dw_pcie *pci)
- 	uniphier_pcie_ltssm_enable(priv, false);
- }
- 
--static void uniphier_pcie_ep_init(struct dw_pcie_ep *ep)
--{
--	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
--	enum pci_barno bar;
--
--	for (bar = BAR_0; bar <= BAR_5; bar++)
--		dw_pcie_ep_reset_bar(pci, bar);
--}
--
- static int uniphier_pcie_ep_raise_intx_irq(struct dw_pcie_ep *ep)
- {
- 	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
-@@ -283,7 +274,6 @@ uniphier_pcie_get_features(struct dw_pcie_ep *ep)
- }
- 
- static const struct dw_pcie_ep_ops uniphier_pcie_ep_ops = {
--	.init = uniphier_pcie_ep_init,
- 	.raise_irq = uniphier_pcie_ep_raise_irq,
- 	.get_features = uniphier_pcie_get_features,
- };
+ err_release_maps:
+@@ -26111,7 +26116,7 @@ int bpf_check(struct bpf_prog **prog, union bpf_attr *attr, bpfptr_t uattr, __u3
+ err_unlock:
+ 	if (!is_priv)
+ 		mutex_unlock(&bpf_verifier_lock);
+-	clear_insn_aux_data(env, 0, env->prog->len);
++	clear_insn_aux_data(env, 0, len);
+ 	vfree(env->insn_aux_data);
+ err_free_env:
+ 	bpf_stack_liveness_free(env);
 -- 
-2.53.0
+2.47.3
 
 
