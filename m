@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61B90D58E62
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73CAED58E64
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 06:45:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uAkqTPajZMJpQepb4GiaryiwHFbYCXxxkd99msk10wY=; b=L3UQqiIOK1PcunLPjip4q7306v
-	5XLNQ2ZNMiFWZ/Bv8+ssvD9GWEXqHgem9tQLGYYw2k4xlC+RiO8YuFU3B5kwKM2k6gJJHZIERexdI
-	CqQzvTev1D6UpRF1Mc6quAAA/q06oFidqfqAYKPt/V3CFm7C6WXUzENSGC4uTWyDi40OXB6hhQ3NC
-	aKz8UZgAO7/sEbQOfhWN653dg6nqC0iNujixf6sPfs6GE/AV/rBREra2NFrS0JgfedziTAwmgSBEc
-	or4CfNW5b1yR7DoYAcvz0txHwTcaxTYynedDR88O4PFqWanwgRkBcxmi2TqBG8eK827xobN95gJ1w
-	YFcNcCNA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DPIPXeNT8FAkJAcQQ1prsfvke5TvI62VvpFGGXzwY/E=; b=bJ1r4xipVXTWqoLCSFtsi6SJ5I
+	UNsfITuCFHVKoES/fceUs5hmf2CCIRP6H3gpF7zR0jV/JBbItJ+14ZaTIu0bjsK5ELs1c3q2hAcC2
+	Va54yHB2kNonMg8ivM0A+YVeSNYAK18TPTUHNHikwQ6BMRLs7hfUkl6EXWcpgHO5xsKib7/aIKCgq
+	7JIc4Gz1w4IzMvyVeZyeZhOiB7vSKWx4Zpx4tlYgGh4wTo+J5sTyN/j+5+Knuq1pQKeLxLwPqUgkH
+	efZt6K/BOOB5D3ff0bni2Sd1dtAjmyznmR4RkK5sbd/clDvJSBKRFchvtUQhs16q+2e1GKKCaFnM9
+	6rHoa5gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwx1R-0000000CM8K-3isT;
-	Mon, 02 Mar 2026 06:44:53 +0000
+	id 1vwx1S-0000000CM8e-17xg;
+	Mon, 02 Mar 2026 06:44:54 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwx1P-0000000CM5R-0JQP
+	id 1vwx1P-0000000CM4s-0JxT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 06:44:52 +0000
+	Mon, 02 Mar 2026 06:44:53 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 292F4150C;
-	Sun,  1 Mar 2026 22:44:43 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 193CE14BF;
+	Sun,  1 Mar 2026 22:44:41 -0800 (PST)
 Received: from ergosum.cambridge.arm.com (ergosum.cambridge.arm.com [10.1.196.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B28803F7BD;
-	Sun,  1 Mar 2026 22:44:47 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A14733F7BD;
+	Sun,  1 Mar 2026 22:44:45 -0800 (PST)
 From: Anshuman Khandual <anshuman.khandual@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
@@ -44,17 +44,16 @@ Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	kvmarm@lists.linux.dev
-Subject: [PATCH V2 1/2] arm64/mm: Directly use TTBRx_EL1_ASID_MASK
-Date: Mon,  2 Mar 2026 06:44:36 +0000
-Message-Id: <20260302064437.2791034-2-anshuman.khandual@arm.com>
+Subject: [PATCH V2 0/2] arm64/mm: Drop TTBR_CNP_BIT and TTBR_ASID_MASK
+Date: Mon,  2 Mar 2026 06:44:35 +0000
+Message-Id: <20260302064437.2791034-1-anshuman.khandual@arm.com>
 X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20260302064437.2791034-1-anshuman.khandual@arm.com>
-References: <20260302064437.2791034-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_224451_219193_B1EE205A 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20260301_224451_170356_47EDB2F3 
+X-CRM114-Status: UNSURE (   8.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,122 +68,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace all TTBR_ASID_MASK macro instances with TTBRx_EL1_ASID_MASK which
-is a standard field mask from tools sysreg format. Drop the now redundant
-custom macro TTBR_ASID_MASK. No functional change.
+Directly use existing tools sysreg format field macros TTBRx_EL1_CNP_BIT/
+TTBRx_EL1_ASID_MASK, while also dropping off now redundant custom macros
+TTBR_CNP_BIT and TTBR_ASID_MASK. With this change in place, there are no
+more TTBR_EL1 register based custom macros left in the tree.
+
+This was discussed and suggested earlier.
+
+https://lore.kernel.org/linux-arm-kernel/aRb8ezhQd0c0jp9G@J2N7QTR9R3/
+
+This series applies on v7.0-rc2.
+
+Changes in V2:
+
+- Used FIELD_PREP() in update_saved_ttbr0() per Marc
+- Dropped KVM TTBR_ASID_MASK changes as they are already merged upstream
+  via commit 54e367cb94d6 ("KVM: arm64: Deduplicate ASID retrieval code")
+
+Changes in V1:
+
+https://lore.kernel.org/all/20260225035157.1159962-1-anshuman.khandual@arm.com/
 
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Will Deacon <will@kernel.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
 Cc: Marc Zyngier <maz@kernel.org>
 Cc: Oliver Upton <oupton@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org
 Cc: kvmarm@lists.linux.dev
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
- arch/arm64/include/asm/asm-uaccess.h | 2 +-
- arch/arm64/include/asm/mmu.h         | 1 -
- arch/arm64/include/asm/mmu_context.h | 3 ++-
- arch/arm64/include/asm/uaccess.h     | 6 +++---
- arch/arm64/kernel/entry.S            | 2 +-
- arch/arm64/mm/context.c              | 6 +++---
- 6 files changed, 10 insertions(+), 10 deletions(-)
 
-diff --git a/arch/arm64/include/asm/asm-uaccess.h b/arch/arm64/include/asm/asm-uaccess.h
-index 9148f5a31968..12aa6a283249 100644
---- a/arch/arm64/include/asm/asm-uaccess.h
-+++ b/arch/arm64/include/asm/asm-uaccess.h
-@@ -15,7 +15,7 @@
- #ifdef CONFIG_ARM64_SW_TTBR0_PAN
- 	.macro	__uaccess_ttbr0_disable, tmp1
- 	mrs	\tmp1, ttbr1_el1			// swapper_pg_dir
--	bic	\tmp1, \tmp1, #TTBR_ASID_MASK
-+	bic	\tmp1, \tmp1, #TTBRx_EL1_ASID_MASK
- 	sub	\tmp1, \tmp1, #RESERVED_SWAPPER_OFFSET	// reserved_pg_dir
- 	msr	ttbr0_el1, \tmp1			// set reserved TTBR0_EL1
- 	add	\tmp1, \tmp1, #RESERVED_SWAPPER_OFFSET
-diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
-index 137a173df1ff..019b36cda380 100644
---- a/arch/arm64/include/asm/mmu.h
-+++ b/arch/arm64/include/asm/mmu.h
-@@ -10,7 +10,6 @@
- #define MMCF_AARCH32	0x1	/* mm context flag for AArch32 executables */
- #define USER_ASID_BIT	48
- #define USER_ASID_FLAG	(UL(1) << USER_ASID_BIT)
--#define TTBR_ASID_MASK	(UL(0xffff) << 48)
- 
- #ifndef __ASSEMBLER__
- 
-diff --git a/arch/arm64/include/asm/mmu_context.h b/arch/arm64/include/asm/mmu_context.h
-index cc80af59c69e..803b68758152 100644
---- a/arch/arm64/include/asm/mmu_context.h
-+++ b/arch/arm64/include/asm/mmu_context.h
-@@ -210,7 +210,8 @@ static inline void update_saved_ttbr0(struct task_struct *tsk,
- 	if (mm == &init_mm)
- 		ttbr = phys_to_ttbr(__pa_symbol(reserved_pg_dir));
- 	else
--		ttbr = phys_to_ttbr(virt_to_phys(mm->pgd)) | ASID(mm) << 48;
-+		ttbr = phys_to_ttbr(virt_to_phys(mm->pgd)) |
-+		       FIELD_PREP(TTBRx_EL1_ASID_MASK, ASID(mm));
- 
- 	WRITE_ONCE(task_thread_info(tsk)->ttbr0, ttbr);
- }
-diff --git a/arch/arm64/include/asm/uaccess.h b/arch/arm64/include/asm/uaccess.h
-index 9810106a3f66..86dfc356ee6e 100644
---- a/arch/arm64/include/asm/uaccess.h
-+++ b/arch/arm64/include/asm/uaccess.h
-@@ -62,7 +62,7 @@ static inline void __uaccess_ttbr0_disable(void)
- 
- 	local_irq_save(flags);
- 	ttbr = read_sysreg(ttbr1_el1);
--	ttbr &= ~TTBR_ASID_MASK;
-+	ttbr &= ~TTBRx_EL1_ASID_MASK;
- 	/* reserved_pg_dir placed before swapper_pg_dir */
- 	write_sysreg(ttbr - RESERVED_SWAPPER_OFFSET, ttbr0_el1);
- 	/* Set reserved ASID */
-@@ -85,8 +85,8 @@ static inline void __uaccess_ttbr0_enable(void)
- 
- 	/* Restore active ASID */
- 	ttbr1 = read_sysreg(ttbr1_el1);
--	ttbr1 &= ~TTBR_ASID_MASK;		/* safety measure */
--	ttbr1 |= ttbr0 & TTBR_ASID_MASK;
-+	ttbr1 &= ~TTBRx_EL1_ASID_MASK;		/* safety measure */
-+	ttbr1 |= ttbr0 & TTBRx_EL1_ASID_MASK;
- 	write_sysreg(ttbr1, ttbr1_el1);
- 
- 	/* Restore user page table */
-diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
-index f8018b5c1f9a..9e1bcc821a16 100644
---- a/arch/arm64/kernel/entry.S
-+++ b/arch/arm64/kernel/entry.S
-@@ -473,7 +473,7 @@ alternative_else_nop_endif
- 	 */
- SYM_CODE_START_LOCAL(__swpan_entry_el1)
- 	mrs	x21, ttbr0_el1
--	tst	x21, #TTBR_ASID_MASK		// Check for the reserved ASID
-+	tst	x21, #TTBRx_EL1_ASID_MASK	// Check for the reserved ASID
- 	orr	x23, x23, #PSR_PAN_BIT		// Set the emulated PAN in the saved SPSR
- 	b.eq	1f				// TTBR0 access already disabled
- 	and	x23, x23, #~PSR_PAN_BIT		// Clear the emulated PAN in the saved SPSR
-diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
-index b2ac06246327..718c495832d0 100644
---- a/arch/arm64/mm/context.c
-+++ b/arch/arm64/mm/context.c
-@@ -358,11 +358,11 @@ void cpu_do_switch_mm(phys_addr_t pgd_phys, struct mm_struct *mm)
- 
- 	/* SW PAN needs a copy of the ASID in TTBR0 for entry */
- 	if (IS_ENABLED(CONFIG_ARM64_SW_TTBR0_PAN))
--		ttbr0 |= FIELD_PREP(TTBR_ASID_MASK, asid);
-+		ttbr0 |= FIELD_PREP(TTBRx_EL1_ASID_MASK, asid);
- 
- 	/* Set ASID in TTBR1 since TCR.A1 is set */
--	ttbr1 &= ~TTBR_ASID_MASK;
--	ttbr1 |= FIELD_PREP(TTBR_ASID_MASK, asid);
-+	ttbr1 &= ~TTBRx_EL1_ASID_MASK;
-+	ttbr1 |= FIELD_PREP(TTBRx_EL1_ASID_MASK, asid);
- 
- 	cpu_set_reserved_ttbr0_nosync();
- 	write_sysreg(ttbr1, ttbr1_el1);
+Anshuman Khandual (2):
+  arm64/mm: Directly use TTBRx_EL1_ASID_MASK
+  arm64/mm: Directly use TTBRx_EL1_CnP
+
+ arch/arm64/include/asm/asm-uaccess.h   | 2 +-
+ arch/arm64/include/asm/mmu.h           | 1 -
+ arch/arm64/include/asm/mmu_context.h   | 3 ++-
+ arch/arm64/include/asm/pgtable-hwdef.h | 2 --
+ arch/arm64/include/asm/uaccess.h       | 6 +++---
+ arch/arm64/kernel/entry.S              | 2 +-
+ arch/arm64/kernel/mte.c                | 4 ++--
+ arch/arm64/kvm/hyp/nvhe/hyp-init.S     | 4 ++--
+ arch/arm64/mm/context.c                | 8 ++++----
+ arch/arm64/mm/mmu.c                    | 2 +-
+ 10 files changed, 16 insertions(+), 18 deletions(-)
+
 -- 
 2.30.2
 
