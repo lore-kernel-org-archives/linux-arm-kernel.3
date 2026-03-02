@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B94C7E9B361
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 10:47:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C59CDE9B361
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 10:48:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DAks2+uCr8s5khXU4zCF/Ly/YMx2xBgroa8/EVuyMJE=; b=PHiWussr73q6KUPq+6+IUg372y
-	ZNYczMEjq+mrewV5H37i8A4UINwGuJcCY9fEyl3VP/vVjdXyLAcErPzhqxJPBxFMrRAqsd2+2Dvg0
-	cOzRVtlq/Z+lmNRUkBBUx/+boIxqy4Bnna4yW8t1OISDu6Cgn1LF2HZNu8Y2TPtDcWbIpQaH33JTS
-	bpmAR2RFlVC7ThtFhpdChTfPCLkwWDkzY2T/3T/Y5DHfWRYQ3vkWmtNau5dcQ51T0/n91IOfDexA0
-	oYrK2eJ28fTmDsSiMUHAGUz4cyFN+VzUazmT8Htd+hBYeJJIijJ/h8YWvmPrnedP+D4tQATlDzh48
-	XRbHN4xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kQuI4K3ZEUJDKCq+x5XsDnEwD4uwogcQg4jLmDea6Ws=; b=Qk5TVndFPzGLOQxGf4Gcbz5q+1
+	cwAjd+xj5dc+nHd3Dt3KAnOfku45YAkBa2atCqiXZJsOxM3WTv7sboTNA5m3Gvy8hEzcVuCkT4iEW
+	wmfbJjeVD6R6i8Z24o8wBSVTwwquPseHcZdywguDP1cQHN4poRyKRlHMfvBVXSJ/9yM9o70T10dYh
+	jKQkaEgIRSvPMrXP4gz/6pXJKwjiexhivYAlt3QuyzK2YtItsEaz6DK7ExPqRm7STLJinHu0+456E
+	yjJYNj/FA/qH3gxu3tTpwPnf4ki8dZjCqeFefDz4alJhM6s858FvU0yyYVvRrImmGZCpir93DeErD
+	38S7oq2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx0oG-0000000Ck1r-1dhp;
-	Mon, 02 Mar 2026 10:47:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx0oD-0000000Ck0T-3MBU
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 10:47:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6CA4F14BF;
-	Mon,  2 Mar 2026 02:47:20 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CB0BD3F7BD;
-	Mon,  2 Mar 2026 02:47:22 -0800 (PST)
-Date: Mon, 2 Mar 2026 10:47:10 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, sudeep.holla@arm.com,
-	philip.radford@arm.com, james.quinlan@broadcom.com,
-	f.fainelli@gmail.com, vincent.guittot@linaro.org,
-	etienne.carriere@foss.st.com, michal.simek@amd.com,
-	dan.carpenter@linaro.org, geert+renesas@glider.be,
-	kuninori.morimoto.gx@renesas.com, marek.vasut+renesas@gmail.com
-Subject: Re: [PATCH 11/11] firmware: arm_scmi: Introduce all_rates_get clock
- operation
-Message-ID: <aaVqrsh_gd9meIWT@pluto>
-References: <20260227153225.2778358-1-cristian.marussi@arm.com>
- <20260227153225.2778358-12-cristian.marussi@arm.com>
- <aaJXy2V7oI1tH4Ac@shlinux89>
- <aaLHuHFpcxdyqf9P@pluto>
- <aaU5xn/UlHeAhdxk@shlinux89>
+	id 1vx0ov-0000000Ck9T-3BLw;
+	Mon, 02 Mar 2026 10:48:13 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vx0ot-0000000Ck8r-3dK3;
+	Mon, 02 Mar 2026 10:48:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1772448488;
+	bh=TqIenPwt6OVbrGlBW9KR2jLxrOLkeSIALm72A1x7urM=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=m6qHuL/TKXNlqunZ0wzU29sKWp5+A2CGm4Kx+ly4uHO/jAO3VvfCwoejPNvlFTXJS
+	 mCxxI+TPWBx37cvSLFnQRkcDExAy6xY2VUPA6y/9iXUPNrcqqhUzv+jhAz5F29Zhug
+	 GTQ+8Z5iU9+GWIxlUpPOT3Srj46aFJZYApEcUcsEojDtSOpxHezS+SzfBtvCUTzPwG
+	 TVFi64lAC+CIzR/EHccz6VR913PW9j06scywnC272KzCCSiEV9vOdeDfayFDbxPdl/
+	 Btvx4z6Hh3lWdTyMOA7CUEZTUksq4envwyut40ic28XqPeTC4h2AHLY3oIDw2AzvuO
+	 uVUknf3oA3roA==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 75D3217E0D04;
+	Mon,  2 Mar 2026 11:48:08 +0100 (CET)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ Frank Wunderlich <linux@fw-web.de>
+Cc: Frank Wunderlich <frank-w@public-files.de>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+In-Reply-To: <20251215074609.4100-1-linux@fw-web.de>
+References: <20251215074609.4100-1-linux@fw-web.de>
+Subject: Re: [PATCH] arm64: dts: mediatek: mt7988a-bpi-r4pro: fix model
+ string
+Message-Id: <177244848843.35091.13923037073302766637.b4-ty@collabora.com>
+Date: Mon, 02 Mar 2026 11:48:08 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aaU5xn/UlHeAhdxk@shlinux89>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_024729_971463_A98274E6 
-X-CRM114-Status: GOOD (  23.64  )
+X-CRM114-CacheID: sfid-20260302_024812_078220_9C510B4C 
+X-CRM114-Status: UNSURE (   5.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,67 +79,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 02, 2026 at 03:18:30PM +0800, Peng Fan wrote:
-> On Sat, Feb 28, 2026 at 10:47:20AM +0000, Cristian Marussi wrote:
-> >On Sat, Feb 28, 2026 at 10:49:47AM +0800, Peng Fan wrote:
-> >> On Fri, Feb 27, 2026 at 03:32:25PM +0000, Cristian Marussi wrote:
-> >> >Add a clock operation to get the whole set of rates available to a specific
-> >> >clock: when needed this request could transparently trigger a full rate
-> >> >discovery enumeration if this specific clock-rates were previously only
-> >> >lazily enumerated.
-> >> >
-
-Hi,
-
-> >> >Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-> >> >---
-> >> > drivers/firmware/arm_scmi/clock.c | 85 +++++++++++++++++++++----------
-> >> > include/linux/scmi_protocol.h     |  9 ++++
-> >> > 2 files changed, 67 insertions(+), 27 deletions(-)
-
-[snip]
-
-> >> > 
-> >> >-	if (clkd->rate_discrete)
-> >> >-		sort(clkd->rates, clkd->num_rates,
-> >> >-		     sizeof(clkd->rates[0]), rate_cmp_func, NULL);
-> >> >+	if (clkd->r.rate_discrete && PROTOCOL_REV_MAJOR(ph->version) == 0x1)
-> >> 
-> >> Not understand well "PROTOCOL_REV_MAJOR(ph->version) == 0x1", I may
-> >> get something wrong, should use ">="?
-> >
-> >I have NOT double checked BUT I think fro Etienne original patch, you
-> >can assume that clock rates are returned by the platform in ascending
-> >order (already sorted) only after Clock protocol version 0x01, the first
-> >ever, so ONLY when teh used version is 0x1 we must perform a full scan
-> >(no lazy optimization since we cannot assume that rates[last-1] is max
-> >AND we must sort the obtained list of clocks...
+On Mon, 15 Dec 2025 08:46:08 +0100, Frank Wunderlich wrote:
+> Fix incorrect model string in Devicetree for BPI-R4-Pro.
 > 
-> Per https://developer.arm.com/documentation/den0056/c/?lang=en, SCMI version
-> 3.0, CLOCK protocol version is 1.0, I see:
-> "The clock rates returned by this call should be in numeric ascending order".
 > 
-> SCMI 2.0 also has it. But SCMI 1.0 does not have above line.
-> 
-> All the above specs are using CLOCK protocol version 1.0.
-> 
-> It might be overshoot, should the "PROTOCOL_REV_MAJOR(ph->version) == 0x1"
-> be dropped, so always sort the array?
 
-Yes there is a 'glitch' in the specs v1.0/v2.0/v3.0 since all reports
-Clock proto version 0x10000 BUT the clarification around the ordering of
-the returned rates is NOT always there, so, since we must be absolutely
-pedantic to guarantee compatibility with any possible deployed SCMI/FW,
-we cannot assume that any 0x10000 protocol return ordered rates: this
-means that if proto==0x10000 we MUST sort AND we cannot play smart with
-the new bound iterators since we are NOT assure that rates[0] AND
-rates[last -1] contain respectively min and max rates...
+Applied to v7.0-next/dts64, thanks!
 
-On the other side for any protocol version != 0x10000 (i.e. v3.1/v3.2/v4.0)
-we can assume those rates as ordered and so, on one side, we can run 'lazy'
-partial enumerations AND, on the other side, we can avoid the overhead of
-sorting with full scans enumerations.
+[1/1] arm64: dts: mediatek: mt7988a-bpi-r4pro: fix model string
+      commit: e4e6f0c5a4dc238684acef079e792c81d37e3226
 
-Thanks,
-Cristian
+Cheers,
+Angelo
+
+
 
