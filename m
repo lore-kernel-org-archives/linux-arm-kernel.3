@@ -4,127 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F40E4E9B357
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 10:54:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 191FFE9B357
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 10:54:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zzJN+64IcS+RyJd/VgnL88SzR2FVDldBCnYxEzN1kLw=; b=XxnqvqUUq/+p3S
-	fwt5yBYO0+UaSPQCxixhkuydCE77XxKLK2egleTyUg2nYi3NuxVkRM6XNCjPu8vLn8akGyl4/apJa
-	pa8iJXnV0D4RewE6j+b+DzgVVeR/UMEDg+66sJZcloIX6yoIL2uSI9BBG5f/iCaP6NDFtgi6OaPz9
-	L4Sz/0DsgTq9I6MrujR+lX2YHp8+oawsOMYosPYVQByIOIZVSUaJKyLoyGPNv1nBc46zHhTo3w5v9
-	wpSeO8394WSvn/oFoOZSku7N9T2DJCPOGD34pp5ZVcjXQGphBKcYILHiLfZtMwBrsbIY90NdvCTvs
-	IbuCZAIJ/Vx0l9KbUhEw==;
+	List-Owner; bh=p/JhN9/z48dDFlvHp8xGdUBIxR1Gv80fZSaR5kiHJV0=; b=NLF+FC0eE7NrT8
+	8rP8O6c6TxgNQ/YUv3kLgp8kB2SnrzgZPlIIWobwKARYI9rzTqti4ARqYTDQ0O+y/ZYC75+xwMQup
+	UC4kwQV8J6F5Tn0FZ9T6WC7vP2hu6AxSJbU6Cg5RMhmZPlC5Xm0tKt3Q/Yd9cg46pSyTK/WVvjFjp
+	YE3ojAi50DjCQT7I0DypNe0GT2U2qcM34E1H2Z6qfptNac7Rva8lSY3G8qnyiVZ7Rrn2Q9Yz0M0mj
+	1yHOInIOMb6+0V4efHF3KQg90rgrI5oNmUgmCro8WUqasXTUUTb9ORbrlBm8csAgpkzqNaIIp8DmF
+	T1iGhVlP0z5j99HoUThw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx0uT-0000000Cktb-2yqY;
-	Mon, 02 Mar 2026 10:53:57 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vx0uY-0000000Ckv4-0IWm;
+	Mon, 02 Mar 2026 10:54:02 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx0uR-0000000CktC-0hoC
+	id 1vx0uV-0000000Cku4-3jS4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 10:53:56 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6227thth057664
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 2 Mar 2026 10:53:54 GMT
+	Mon, 02 Mar 2026 10:54:01 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6229EwmO3630910
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 2 Mar 2026 10:53:59 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=zzJN+64IcS+
-	RyJd/VgnL88SzR2FVDldBCnYxEzN1kLw=; b=BjIwmnOF5xH6xDd6eec+v1itiva
-	8gnAHGqfa7HB9TOX23fumeeEu7x9LkhVITQSlqnTzVPwZhgi865T2adIbcCQ8gg2
-	bvk32JfgLwmqX91mz2TDszeV38RhsWqdEHu/AOQhXN4AmRBt2ETskS1bzH42BbA1
-	aAFCksAcoSFF1j+cqLERlkHmKDgYDlnXfabpW3vdg7X+sXeD+H7Ov21JBjOdlulX
-	zvh65MAyoFtH3xuMmv9A1ZQu+A1RIedG+mivrSd1Me1g7w7pRDmqRz4FKwpnbvMG
-	VpwrEs/ZkhQ6OrTjKbC3obKp738lJL9YzF6NclqAHaioIGHQP8FHq8EZx6w==
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cmw64a23p-1
+	:mime-version:references:subject:to; s=qcppdkim1; bh=p/JhN9/z48d
+	DFlvHp8xGdUBIxR1Gv80fZSaR5kiHJV0=; b=YfIASNqYoGkQomrtKy/8g3fHjez
+	ZaAj2H97xT6UjfB9cD3Fnp0GzMXuJ5Iv80IkNwePX+xWYaMUSQVhP/BLSxNVY1AR
+	gtUVxS78x6jYsF8GLaa05Nkv6ED/9nVME8qA1C8lSICmfDKRaii8dQ6ObXd0JN6y
+	gn9/hq+bd6Hbs1YUKhXHB7k137xtlfNmppim4u7wS4Inw8RcjQ+hrqx9N4fWE//G
+	XScS2rVnBaiKWDHhDMhsM8uDUqezutrID84NUnJQvtXbN6TMhlcEAPq9j71m02Fz
+	XU4Qjj8GhrCsepVPNdXC/J8aUmZiswYN8cDcSj9OUtEpDXaIpC/wWebedtA==
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cn7rhrbg2-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 10:53:54 +0000 (GMT)
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-c70ea2f7d1bso2830775a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 02:53:54 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 10:53:58 +0000 (GMT)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3598ab49242so572423a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 02:53:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1772448834; x=1773053634; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1772448838; x=1773053638; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=zzJN+64IcS+RyJd/VgnL88SzR2FVDldBCnYxEzN1kLw=;
-        b=jD71UE5GTFTXJQ83ubl3H6di72n24GiJ3h/ULd7q07L8IJ8ic+6tSyRGDWgDD8VHMB
-         mKxGa/dXLywj93VdJZqE6LjlehzCylcN+oKGG6iU7zDztWglXcFP9IstZ9Q+EvtApZio
-         2PZHPfglKKaSi+sEzmqmlKaqFy0hbBoJJMVbqaeuVU5qy5k+kfsTKL/TIytXW9G/6L8o
-         1txRurl5Pshju31N9zUR0W29+MLzgBX/B3DIY4Q7k2flh68i0WP+yIBfdoTWCRFWHBQe
-         s4Z1zYKmwbthCuAPVD3QMZ7zjlZ2hHqdLBSE44W65Zgc3UE5ynnH9O8F00pg3H80Ad8q
-         cxoA==
+        bh=p/JhN9/z48dDFlvHp8xGdUBIxR1Gv80fZSaR5kiHJV0=;
+        b=Qeeo2+ySALiXSEB3t7qOWLO9XbJyFpz4WPQUCzvtuSwrUOWpRziEtmSjRqeLR3qoTn
+         anhOlhBsbl+PN29SjHvZO1LMEhoMbQHINqvtNQfNntzp5ksUKHhL2mR1IQR1Xn61AxXs
+         S8bAGuftWoV14iKEmzCbc83RThtSlngl7/xp3WBHMhyoNiRTWJGn6J7Vm/TiETDfdr0N
+         4KTyLJTcwPkbahhqoExYvSOl1qgPk4+k8TtHWeH1VDG1+pXbaCYb+Q5Mv1VbEYqZDT4V
+         r2r+Qo9xO2KttQdl0b8nucxKj9jvF0SibOeyg1D04QmZNBxWGYGrxo0QRHxAR/HDCSPQ
+         eoQg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772448834; x=1773053634;
+        d=1e100.net; s=20230601; t=1772448838; x=1773053638;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=zzJN+64IcS+RyJd/VgnL88SzR2FVDldBCnYxEzN1kLw=;
-        b=R/3iCNm1l5Pue8z5wTQCA24GBdfyrewbnbD/C24CT8lV+xhFBPpVLr/D6lyp6UtXoc
-         jbcbmG8Ixo66nzKxLg0nslL7PMs6SbMhnzIW5aZ0YRZy7RvdtZlHvozWXO1flWCEDdfR
-         oAD1gG4XNkTUEmOHRwhvRr2Kt8Ee3aSziej+VfY8lX+3oVFz/7TQo3UtaVHTtdHzK+CI
-         jy2NP0/25MJhURGzhzaJQHB47naOdgTamh+z2sW0VM+1nDZGEMR9C+oMtbVyGSXK8uK4
-         W0hOmddnB1JyOyWG/eVPtlEuX2MOifXK3uLsetPAFyq1hBs7Al46ID0H2v13u/mAVpvs
-         6EWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVamV1Qi8zw3PCnY0a8HFmNCahlp+57HXzxJLvoJeDbiP6c7VnWwrdsqUkZmdaojWOfUWRruIBKeThe37Tz2kLO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz848YpEPricpfyLO5WiqYkbEO2ADDl9EXx15CLUnscucYn9Cub
-	yU7lr/MnIlpnlCrkGgFq2RCQVGlwZifEb+aN+8QT3H2SHrnGRN4tdtW3vJgIxmBRSpdmYf/fL/+
-	fWjtHjif8XeCTOaxqYuKXq73zkBMeaaJr2LPMr5uBMSdAOgB2ncbC1Pv10vRjOOWqUcsG3PCz81
-	Ap8A==
-X-Gm-Gg: ATEYQzwxnyDXLkSOujsFeb4+F27PehiS5+hRIjfxbl/IPs4Hh3QvHYXuozkCL66UsGS
-	aHGMnY5gZRToVGOUEC6sQ8a4QMCw9E3Hd1VdLfZdcXTyWLBvfuu0/aB4fSVcu8MELn6VHrNXJ9J
-	4eFUbxmLRy34aw+c+YTdXseO9ogyFk6gIpNbUJzojRi87KkONjx1jyMWpCS3obmCMVRZTOb60uH
-	FF7vR/KOZaxA67l0+eoBUg9XCvjViI0+UD/0R7zafqD+YJCSGVjv/jps0QzweQaytBcyk41Zx9B
-	dRH4WALCMk/3uf56vH7pV7vLVF4NIzVsaF+ZMLwkkb/0GX2VrEaoVb6l8rLWgjfG31KZI6uQv1k
-	ymnThynMZUM1Hz61tVewNzsS+fQCePGpS4S4vFcj2gAgWDbWponzQ
-X-Received: by 2002:a05:6a20:d74a:b0:366:1880:7e06 with SMTP id adf61e73a8af0-395c372d14bmr10504458637.0.1772448833897;
-        Mon, 02 Mar 2026 02:53:53 -0800 (PST)
-X-Received: by 2002:a05:6a20:d74a:b0:366:1880:7e06 with SMTP id adf61e73a8af0-395c372d14bmr10504442637.0.1772448833428;
-        Mon, 02 Mar 2026 02:53:53 -0800 (PST)
+        bh=p/JhN9/z48dDFlvHp8xGdUBIxR1Gv80fZSaR5kiHJV0=;
+        b=cJGu4mySHJvDZg0pniG4yWwoe8OmEeMT1yBQyBfzkn32DB6Bu/Ix+fc/nU5b/ZTyl9
+         OgDUsUJ5lKLIDxHl3cKQoYXld3jqnXap6AIxPXjWS75pZFDANd7RDn6gBUDO5AEnjRqm
+         X3wN+VUR+qSQ+VRzzR/P+KXuMFwNa8rMDvaThZYG/PmAOR5YblX9snSVJljTozj/rVib
+         Limi4+1XxN1wkPHtY9L/SZ74RnkkdIqEHFsX3Khb8TyoOFxz/L3DBzNmpNCNbDWnY/E+
+         q1/cwGiMDQGulV+Ki3nqU/XprHPKWuRXeIsZKj6Hic0cIbCWl0vtmlyYtycBBVTFZhus
+         FBpw==
+X-Forwarded-Encrypted: i=1; AJvYcCU7WObbbAjEEDsSsUNwCxEDWiuJKxRgi9qG0zQvh1QRRZFSADvHjKIt7C5YEOaBEwCzxisX02ZO3TmTwAHlvqnD@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKcf51V+kQ2oXn71yRa6zSKbJXBbVcMefaf00jp1a/W/Q1LSx/
+	+khOOGRqO7wZAP88rXoitkhGARovmO5b4NsxGj16gMnF4Z8PbO8iR2whE7BR+Er5ZRolXBbtyOB
+	INEeNYsBaihE6PRKFk6b+niWi+MXnLlbQVr/L7/s8qfM4kV1x61qkyjmZWvbe+adpXdacPfZ62q
+	eiSg==
+X-Gm-Gg: ATEYQzy+Cs/Oe6819JBoKClbolRTRoQDhcvxSo79V9mcMkOc30Y1FiMDnqLUovBGT6c
+	5casQIcw5pS3YRKWjlKglbcuGvKDJobWc7WxzFodnRHq0zWuVekp3s0xidF4+FAvVYy3ACRYJIt
+	5M5I1MlyPEGqfMDU7qStDfGvrlo5ZnYxmCQcL2oHcASOQCJm6NKgj/yjF2t9Q64Bo2LZBOu9f5W
+	roy+3CgaJXyELZV5+c5KNJkUNWCMBZosXOVq5SDDQ7dbe4s21MziwxZKdfEkkRnQuu8KoinrxKx
+	M/6Y+bj8jGX76dWjWiK084B/+goG2WbO5pQ3GtkooaHfllyxBnI9dRmX/eR2xJ3boWv61rW5mJ7
+	3n9Go/iQJZclB0hRXUHN6jR+jXKGk7bMgPyS+zve+R5+5R4gk0USl
+X-Received: by 2002:a05:6a20:3ca8:b0:364:33f7:7338 with SMTP id adf61e73a8af0-395c39de575mr9990035637.8.1772448837823;
+        Mon, 02 Mar 2026 02:53:57 -0800 (PST)
+X-Received: by 2002:a05:6a20:3ca8:b0:364:33f7:7338 with SMTP id adf61e73a8af0-395c39de575mr9990008637.8.1772448837260;
+        Mon, 02 Mar 2026 02:53:57 -0800 (PST)
 Received: from hu-kshaikkh-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c70fa632ddesm11847479a12.13.2026.03.02.02.53.49
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c70fa632ddesm11847479a12.13.2026.03.02.02.53.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Mar 2026 02:53:52 -0800 (PST)
+        Mon, 02 Mar 2026 02:53:56 -0800 (PST)
 From: Khaja Hussain Shaik Khaji <khaja.khaji@oss.qualcomm.com>
 To: mark.rutland@arm.com
-Subject: [PATCH v3 0/1] kernel: kprobes: fix cur_kprobe corruption during
-Date: Mon,  2 Mar 2026 16:23:46 +0530
-Message-Id: <20260302105347.3602192-1-khaja.khaji@oss.qualcomm.com>
+Subject: [PATCH v3 1/1] kernel: kprobes: fix cur_kprobe corruption during re-entrant kprobe_busy_begin() calls
+Date: Mon,  2 Mar 2026 16:23:47 +0530
+Message-Id: <20260302105347.3602192-2-khaja.khaji@oss.qualcomm.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <aZSdkGjy2BXUL0bT@J2N7QTR9R3.cambridge.arm.com>
+In-Reply-To: <20260302105347.3602192-1-khaja.khaji@oss.qualcomm.com>
 References: <aZSdkGjy2BXUL0bT@J2N7QTR9R3.cambridge.arm.com>
+ <20260302105347.3602192-1-khaja.khaji@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: C5RtxqyQSiAbqLa6N5UCG9XSo7ItqVAV
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzAyMDA4OCBTYWx0ZWRfX4OwFl+bubJK5
- ETU0rE6bkWlXsz7rV2r2wesQpCRWnWWQBCwuYGrlajWinm4HGE0VNu55Yly261AO2eWBoxUu2EK
- Z1XZA6/Ic96AoKB3Z/tgO+a3huUQ/ZFYjpzKU3/R7T1ESGYC+Moj6FZHLwy/b0H+LKglFUuUN7r
- FyGzz9u8TOXO95zoqs/8Rc+NGDqVjcikr700iciDRT5VTZAPxg23TT3CPBqHt+uQqiMQ+OQrYXI
- f7k0yLeSN69oYK1hRuMHrRIg1aB/K0erUeDxy2uawElNz26XDK44O+USOEFp0ROL3iRhMnSXGjK
- MDkLbmvcNpf2z6vqpquY5y4K0ZxK4ie8MShDrKEvY/s/q95f+tVz3s2bdQ4IX/UaBD+T3GCOJ3K
- lBF2cOOjmu8vIvfUnI7QYruFKAZ5GhHVR7dS96sDS363OeMjRjMTtctc0CyR4qKuzI8ntPGTAc6
- VWiYI6qahqPG0szqTMQ==
-X-Proofpoint-ORIG-GUID: C5RtxqyQSiAbqLa6N5UCG9XSo7ItqVAV
-X-Authority-Analysis: v=2.4 cv=I5Vohdgg c=1 sm=1 tr=0 ts=69a56c42 cx=c_pps
- a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+X-Proofpoint-ORIG-GUID: EUoLRYZD8951YAUydD94jRB-aKd9TJaN
+X-Proofpoint-GUID: EUoLRYZD8951YAUydD94jRB-aKd9TJaN
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzAyMDA4OCBTYWx0ZWRfX7WFUB/s/DQVs
+ QSbv77qYTImPjt9BpWMRhdKaBzJ7y0ZFJNuij7AHHxXP4/pW9pq91JUhfEEXtD9a3pfrPs4mKMQ
+ bdZu+2R+V4vcE2HsHTDUyr03E2FMid+f5clvmkFCEUktX2X7EYjhBnb7B2sh1aQhJYOmJ/84Ldx
+ xcWIJGsfjiSPwuRGOg4zXE7wlabsdMGbK3AgS8sGVHRpdXHkwZQPiIi2tqCfJP3g0pWivXRU9oJ
+ k+GU3a28JF3ccy2cQaqS62cAMJ+zj/DEwS/JZYNao5C5hS1nXo45p2lnqR4vaL60SqoYpi7r1G2
+ z45KSF+XrLS97WVFj/NobshZ+fEPXtWF4sHDFHzGYAKE4HdEpf7VEZhZdW59T4HP9hhRspii66T
+ E36mTJRDYBzoXD0+d5ZckpuCE7NpR3p3SQxp79tkIHCGNALfY5vNAmZDMIaQh7/UVMAnG922nAB
+ 25YbgFKq5fJm0OC5xqw==
+X-Authority-Analysis: v=2.4 cv=cLntc1eN c=1 sm=1 tr=0 ts=69a56c46 cx=c_pps
+ a=vVfyC5vLCtgYJKYeQD43oA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
  a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=BfyKfM7flnzB51c3jB0A:9 a=_Vgx9l1VpLgwpw_dHYaR:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=EUspDBNiAAAA:8
+ a=7l7XfnHKCA38VmfCrlUA:9 a=rl5im9kqc5Lf4LNbBjHf:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-03-02_03,2026-02-27_03,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 adultscore=0 priorityscore=1501 lowpriorityscore=0
- clxscore=1015 phishscore=0 impostorscore=0 bulkscore=0 spamscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2602130000
- definitions=main-2603020088
+ adultscore=0 malwarescore=0 bulkscore=0 clxscore=1015 lowpriorityscore=0
+ impostorscore=0 phishscore=0 spamscore=0 suspectscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2603020088
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_025355_211951_7F87BF16 
-X-CRM114-Status: GOOD (  12.46  )
+X-CRM114-CacheID: sfid-20260302_025400_052080_75A297FF 
+X-CRM114-Status: GOOD (  17.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,83 +140,97 @@ Cc: linux-arm-msm@vger.kernel.org, dev.jain@arm.com, linux-kernel@vger.kernel.or
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch fixes a kprobes failure observed due to lost current_kprobe
-on arm64 during kretprobe entry handling under interrupt load.
+Fix cur_kprobe corruption that occurs when kprobe_busy_begin() is called
+re-entrantly during an active kprobe handler.
 
-v1 attempted to address this by simulating BTI instructions as NOPs and 
-v2 attempted to address this by disabling preemption across the
-out-of-line (XOL) execution window. Further analysis showed that this
-hypothesis was incorrect: the failure is not caused by scheduling or
-preemption during XOL.
+Previously, kprobe_busy_begin() unconditionally overwrites current_kprobe
+with &kprobe_busy, and kprobe_busy_end() writes NULL. This approach works
+correctly when no kprobe is active but fails during re-entrant calls.
 
-The actual root cause is re-entrant invocation of kprobe_busy_begin()
-from an active kprobe context. On arm64, IRQs are re-enabled before
-invoking kprobe handlers, allowing an interrupt during kretprobe
-entry_handler to trigger kprobe_flush_task(), which calls
-kprobe_busy_begin/end and corrupts current_kprobe and kprobe_status.
+On arm64, arm64_enter_el1_dbg() re-enables IRQs before invoking kprobe
+handlers. This allows an IRQ during kretprobe entry_handler to trigger
+kprobe_flush_task() via softirq, which calls kprobe_busy_begin/end and
+corrupts cur_kprobe.
 
-[ 2280.630526] Call trace:
-[ 2280.633044]  dump_backtrace+0x104/0x14c
-[ 2280.636985]  show_stack+0x20/0x30
-[ 2280.640390]  dump_stack_lvl+0x58/0x74
-[ 2280.644154]  dump_stack+0x20/0x30
-[ 2280.647562]  kprobe_busy_begin+0xec/0xf0
-[ 2280.651593]  kprobe_flush_task+0x2c/0x60
-[ 2280.655624]  delayed_put_task_struct+0x2c/0x124
-[ 2280.660282]  rcu_core+0x56c/0x984
-[ 2280.663695]  rcu_core_si+0x18/0x28
-[ 2280.667189]  handle_softirqs+0x160/0x30c
-[ 2280.671220]  __do_softirq+0x1c/0x2c
-[ 2280.674807]  ____do_softirq+0x18/0x28
-[ 2280.678569]  call_on_irq_stack+0x48/0x88
-[ 2280.682599]  do_softirq_own_stack+0x24/0x34
-[ 2280.686900]  irq_exit_rcu+0x5c/0xbc
-[ 2280.690489]  el1_interrupt+0x40/0x60
-[ 2280.694167]  el1h_64_irq_handler+0x20/0x30
-[ 2280.698372]  el1h_64_irq+0x64/0x68
-[ 2280.701872]  _raw_spin_unlock_irq+0x14/0x54
-[ 2280.706173]  dwc3_msm_notify_event+0x6e8/0xbe8
-[ 2280.710743]  entry_dwc3_gadget_pullup+0x3c/0x6c
-[ 2280.715393]  pre_handler_kretprobe+0x1cc/0x304
-[ 2280.719956]  kprobe_breakpoint_handler+0x1b0/0x388
-[ 2280.724878]  brk_handler+0x8c/0x128
-[ 2280.728464]  do_debug_exception+0x94/0x120
-[ 2280.732670]  el1_dbg+0x60/0x7c
-[ 2280.735815]  el1h_64_sync_handler+0x48/0xb8
-[ 2280.740114]  el1h_64_sync+0x64/0x68
-[ 2280.743701]  dwc3_gadget_pullup+0x0/0x124
-[ 2280.747827]  soft_connect_store+0xb4/0x15c
-[ 2280.752031]  dev_attr_store+0x20/0x38
-[ 2280.755798]  sysfs_kf_write+0x44/0x5c
-[ 2280.759564]  kernfs_fop_write_iter+0xf4/0x198
-[ 2280.764033]  vfs_write+0x1d0/0x2b0
-[ 2280.767529]  ksys_write+0x80/0xf0
-[ 2280.770940]  __arm64_sys_write+0x24/0x34
-[ 2280.774974]  invoke_syscall+0x54/0x118
-[ 2280.778822]  el0_svc_common+0xb4/0xe8
-[ 2280.782587]  do_el0_svc+0x24/0x34
-[ 2280.785999]  el0_svc+0x40/0xa4
-[ 2280.789140]  el0t_64_sync_handler+0x8c/0x108
-[ 2280.793526]  el0t_64_sync+0x198/0x19c
+Problem flow: kretprobe entry_handler -> IRQ -> softirq ->
+kprobe_flush_task -> kprobe_busy_begin/end -> cur_kprobe corruption.
 
-This v3 patch makes kprobe_busy_begin/end re-entrant safe by preserving
-the active kprobe state using a per-CPU depth counter and saved state.
-The detailed failure analysis and justification are included in the
-commit message.
+This corruption causes two issues:
+1. NULL cur_kprobe in setup_singlestep leading to panic in single-step
+handler
+2. kprobe_status overwritten with HIT_ACTIVE during execute-out-of-line
+window
 
-Changes since v2:
-  - Dropped the scheduling/preemption-based approach.
-  - Identified the re-entrant kprobe_busy_begin() root cause.
-  - Fixed kprobe_busy_begin/end to preserve active kprobe state.
-  - Link to v2: https://lore.kernel.org/all/20260217133855.3142192-2-khaja.khaji@oss.qualcomm.com/
+Implement a per-CPU re-entrancy tracking mechanism with:
+- A depth counter to track nested calls
+- Saved state for current_kprobe and kprobe_status
+- Save state on first entry, restore on final exit
+- Increment depth counter for nested calls only
 
-Khaja Hussain Shaik Khaji (1):
-  kernel: kprobes: fix cur_kprobe corruption during re-entrant
-    kprobe_busy_begin() calls
+This approach maintains compatibility with existing callers as
+save/restore of NULL is a no-op.
 
+Signed-off-by: Khaja Hussain Shaik Khaji <khaja.khaji@oss.qualcomm.com>
+---
  kernel/kprobes.c | 34 ++++++++++++++++++++++++++++++----
  1 file changed, 30 insertions(+), 4 deletions(-)
 
+diff --git a/kernel/kprobes.c b/kernel/kprobes.c
+index e2cd01cf5968..47a4ae50ee6c 100644
+--- a/kernel/kprobes.c
++++ b/kernel/kprobes.c
+@@ -70,6 +70,15 @@ static bool kprobes_all_disarmed;
+ static DEFINE_MUTEX(kprobe_mutex);
+ static DEFINE_PER_CPU(struct kprobe *, kprobe_instance);
+ 
++/* Per-CPU re-entrancy state for kprobe_busy_begin/end.
++ * kprobe_busy_begin() may be called while a kprobe handler
++ * is active - e.g. kprobe_flush_task() via softirq during
++ * kretprobe entry_handler on arm64 where IRQs are re-enabled.
++ */
++static DEFINE_PER_CPU(int, kprobe_busy_depth);
++static DEFINE_PER_CPU(struct kprobe *, kprobe_busy_saved_current);
++static DEFINE_PER_CPU(unsigned long, kprobe_busy_saved_status);
++
+ kprobe_opcode_t * __weak kprobe_lookup_name(const char *name,
+ 					unsigned int __unused)
+ {
+@@ -1307,14 +1316,31 @@ void kprobe_busy_begin(void)
+ 	struct kprobe_ctlblk *kcb;
+ 
+ 	preempt_disable();
+-	__this_cpu_write(current_kprobe, &kprobe_busy);
+-	kcb = get_kprobe_ctlblk();
+-	kcb->kprobe_status = KPROBE_HIT_ACTIVE;
++	if (__this_cpu_read(kprobe_busy_depth) == 0) {
++		kcb = get_kprobe_ctlblk();
++		__this_cpu_write(kprobe_busy_saved_current,
++				 __this_cpu_read(current_kprobe));
++		__this_cpu_write(kprobe_busy_saved_status,
++				 kcb->kprobe_status);
++		__this_cpu_write(current_kprobe, &kprobe_busy);
++		kcb->kprobe_status = KPROBE_HIT_ACTIVE;
++	}
++	__this_cpu_inc(kprobe_busy_depth);
+ }
+ 
+ void kprobe_busy_end(void)
+ {
+-	__this_cpu_write(current_kprobe, NULL);
++	struct kprobe_ctlblk *kcb;
++
++	__this_cpu_dec(kprobe_busy_depth);
++
++	if (__this_cpu_read(kprobe_busy_depth) == 0) {
++		kcb = get_kprobe_ctlblk();
++		__this_cpu_write(current_kprobe,
++				 __this_cpu_read(kprobe_busy_saved_current));
++		kcb->kprobe_status =
++				__this_cpu_read(kprobe_busy_saved_status);
++	}
+ 	preempt_enable();
+ }
+ 
 -- 
 2.34.1
 
