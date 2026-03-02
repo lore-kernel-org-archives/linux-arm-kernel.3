@@ -4,104 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96A51EB3629
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 17:58:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A13FEB3622
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 18:01:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nPHZ3t68sR112lKGCDnl5XFhz9PhE8AuPoIPUsIOlX8=; b=GmIIAWPXpQDyhEDxQGcmDAjrgd
-	ePuFE35nvlAiO1TAYVYSPsDaHuZT8x07Zsy/XjqbWj4Gts9WOS/MPq1acZq0TlKQGXkiYRNWe4pTr
-	fxN7J6dHbZotEqv6tSKE9XeU1JZmtgbhOYMHL1vCHpZXrmAGxruvgBBuWnsPF7lMWiUPNr+1aHqiv
-	L3IZPlOziA/rSKO/DhpfHT5T5PMVnuIjc9LKh5KuPilfS7I7Eb1A6t/jZNlgGvry21MmZ1ez38p7E
-	W4mtkOg8pENNBFiSvcWaOWF3kHGhejko5hfg/SFwqQdkLMkshrLe9W42SGr2Ma4wnKwagkL2zahsO
-	bCJwimHw==;
+	bh=3XVxUv9VFGIs66kBS1ywELCiYjFlBgmw/wMttbaL4lM=; b=xVbISF9TRL36ICUh65QpdR5uHB
+	G44oq/DLZkAecXXpCZVDLEwvrXxnzugrrF3mdgcfwm3ewPZTGwphDZo55uolcKnLNesmbQx7SieGD
+	iLEcaZVtPJDkx5MAwguCtFENbbFRAyY5iGZqk/LTo99fcbqUdy/QxC1G+Ilba1Y0HHWP/9MA67+nJ
+	RLEdnsQtc7PJ/YD41glhLNR4CEShB9Eqbud16pt0DaFGegVgKoobPzTrYMy1cpPo5fKoYkF4cnV1S
+	kgMzHgRW29z2/FWW3Qoz1ssIv2npZjY80MjR1mmw653f4HnJFFxvwqeqPIvf0HL6DguxOhPYbxtz6
+	k6Z1JgGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx7XA-0000000DdZz-1ith;
-	Mon, 02 Mar 2026 17:58:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vx7aP-0000000Ddoa-3X3W;
+	Mon, 02 Mar 2026 18:01:41 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx7X8-0000000DdZe-3VFW
+	id 1vx7aN-0000000Ddnv-1W1M
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 17:58:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8E71E41936;
-	Mon,  2 Mar 2026 17:58:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64961C19423;
-	Mon,  2 Mar 2026 17:58:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772474296;
-	bh=OB8JESXZ/eN8f+6G0rBZ7mCW9a2zuwMU13jphTg+7jU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=LwdACAA4muSULFDIa6Stc3FxkBousSfjxsyHR3c7814L9t2L/maRDQRgbh7jo/bOc
-	 X2KoGCrx5iCh1E9RIPxocjrs29TH0cP9cyVAOMC6Z0njCvKr1mL/aVlNn6GwL6OC9H
-	 RuFmgE1TiULKxooQI3pM0KNm2jpIGZ19pDwRNCE+MWg2J6RQK7qklXgnS/1sn+TL7T
-	 qnMrhC0tsu0ItzN8t2pWY+5Oe7fNX3BA4w8EvZsvEvr2MtF/2Il0laRIsTNr+nqwUv
-	 /tTVuimO9PlDcgrHEcuBgOCeg606U2aY5jdAH3TVorPGgDTz1XfFguPKhiMqe1rG4b
-	 fEHDPF9oXdAzQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vx7X3-0000000FLmV-3puJ;
-	Mon, 02 Mar 2026 17:58:14 +0000
-Date: Mon, 02 Mar 2026 17:58:12 +0000
-Message-ID: <86ldga866j.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: amitsinght@marvell.com,
-	baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com,
-	carl@os.amperecomputing.com,
-	dave.martin@arm.com,
-	david@kernel.org,
-	dfustini@baylibre.com,
-	fenghuay@nvidia.com,
-	gshan@redhat.com,
-	james.morse@arm.com,
-	jonathan.cameron@huawei.com,
-	kobak@nvidia.com,
-	lcherian@marvell.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	peternewman@google.com,
-	punit.agrawal@oss.qualcomm.com,
-	quic_jiles@quicinc.com,
-	reinette.chatre@intel.com,
-	rohit.mathew@arm.com,
-	scott@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	tan.shaopeng@fujitsu.com,
-	xhao@linux.alibaba.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	corbet@lwn.net,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	kvmarm@lists.linux.dev,
-	zengheng4@huawei.com,
-	linux-doc@vger.kernel.org,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: Re: [PATCH v5 11/41] KVM: arm64: Force guest EL1 to use user-space's partid configuration
-In-Reply-To: <20260224175720.2663924-12-ben.horgan@arm.com>
-References: <20260224175720.2663924-1-ben.horgan@arm.com>
-	<20260224175720.2663924-12-ben.horgan@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: ben.horgan@arm.com, amitsinght@marvell.com, baisheng.gao@unisoc.com, baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com, dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com, fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, peternewman@google.com, punit.agrawal@oss.qualcomm.com, quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com, scott@os.amperecomputing.com, sdonthineni@nvidia.com, tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev, zengheng4@huawei.com, linux-doc@vger.kernel.org, tan.shaopeng@jp.fujitsu.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 02 Mar 2026 18:01:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=3XVxUv9VFGIs66kBS1ywELCiYjFlBgmw/wMttbaL4lM=; b=gGtDOT+Qt9xtniDHEqZTXpL5qE
+	q02Tcwgb3cHkjMblOBuBCbnaCjoXE4LWITTF6Pbgt3mOd0CUE3tpHk1aIKfaXPJWMi0G7ieaQPr6E
+	iNMRM8hf+ka/Mvo37+L2xxLWHCKicGbduW6+B4dkJBjyyCfSre6dmbfp0B1MdAmooAxE=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vx7a3-009iZ2-HU; Mon, 02 Mar 2026 19:01:19 +0100
+Date: Mon, 2 Mar 2026 19:01:19 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Po-Yu Chuang <ratbert@faraday-tech.com>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, taoren@meta.com
+Subject: Re: [PATCH net-next v6 4/5] net: ftgmac100: Support rgmii delay in
+ old dts with AST2600
+Message-ID: <4a3975a5-f002-4c32-b45f-0f04edbfd25f@lunn.ch>
+References: <20260302-rgmii_delay_2600-v6-0-68319a4c4110@aspeedtech.com>
+ <20260302-rgmii_delay_2600-v6-4-68319a4c4110@aspeedtech.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260302-rgmii_delay_2600-v6-4-68319a4c4110@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_095818_914200_04E300D2 
-X-CRM114-Status: GOOD (  16.30  )
+X-CRM114-CacheID: sfid-20260302_100139_400747_DC1E1E03 
+X-CRM114-Status: UNSURE (   7.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,36 +81,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 24 Feb 2026 17:56:50 +0000,
-Ben Horgan <ben.horgan@arm.com> wrote:
-> 
-> From: James Morse <james.morse@arm.com>
-> 
-> While we trap the guest's attempts to read/write the MPAM control
-> registers, the hardware continues to use them. Guest-EL0 uses KVM's
-> user-space's configuration, as the value is left in the register, and
-> guest-EL1 uses either the host kernel's configuration, or in the case of
-> VHE, the UNKNOWN reset value of MPAM1_EL1.
-> 
-> We want to force the guest-EL1 to use KVM's user-space's MPAM
-> configuration. On nVHE rely on MPAM0_EL1 and MPAM1_EL1 always being
-> programmed the same and on VHE copy MPAM0_EL1 into the guest's
-> MPAM1_EL1. There is no need to restore as this is out of context once TGE
-> is set.
-> 
-> Tested-by: Gavin Shan <gshan@redhat.com>
-> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Tested-by: Peter Newman <peternewman@google.com>
-> Tested-by: Zeng Heng <zengheng4@huawei.com>
-> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+>  static int ftgmac100_set_ast2600_rgmii_delay(struct ftgmac100 *priv,
+> -					     u32 rgmii_tx_delay,
+> -					     u32 rgmii_rx_delay,
+> -					     phy_interface_t phy_intf)
+> +					     s32 rgmii_tx_delay,
+> +					     s32 rgmii_rx_delay,
 
-Acked-by: Marc Zyngier <maz@kernel.org>
+You introduced these parameters in the previous patch. Please get the
+types correct from the start.
 
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+	Andrew
 
