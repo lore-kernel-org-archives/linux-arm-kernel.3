@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86355D58E53
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 03:53:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CA67D58E4F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 03:53:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YxincR19n+n/u0r8OQlSgZvvbGiDFUYQw+mjXeEvtaQ=; b=axEcs9BllG8/mmYzmeyyR9UaJ6
-	BC64PcXhlQsE+5DZutkX+70mvdL2qZHAd1KWJPhpTmZEcUQrYyQN6CjrQnDZjZjl3Gh18pwRk91C8
-	YjXj/z6NHyrbfJQt6SVvWjWj/n6TTTDMu76qAvsgOcBLiXlJyfgFlZLcb3Qx/xWaikOC+IffMscHG
-	sjIdA/zbP52px4ytR+Xvjv1lYX51+jRC/2YPP/ddMWw7BX0wRq1oCLJId9CSIgagS8OF8dn84mdr5
-	wFy3Kpc+YRQcl6Vjs9Fi8WoP9rtK7Xif/wKEa/PupG3WYMAn1j4UtBu2aMKf7LDOsxyW0lRuAamqZ
-	erXWij5g==;
+	bh=XwLnuNJtzyKlfjAfkT08c0fRKXkLj+nKJ8UIT0tXs4g=; b=fUnC/223gQ39xReVqlkLHAKoCe
+	ot39HAS2GS1YBQtxXNV7RyDQ7utJPmZPC7V+6QdhWhqUFzaoLNY9peHTnm3AStEcooKUemzb+I29I
+	fTwpCjG/MQbiBhq5GU1/D5I/9nkxa22T6CtgcXIlF7X43BfXC+BH/t4Fd1vleGIRiI0vGm3mR78hQ
+	PowsgPZ1c9+tK/SqG0jt/U7YgqtTIWUoet5uU0py0JW0bhUYUMAcbPD1jzfvD84yavUwB/c/dKcHf
+	fafQcjZFFszDyxTHvr9hGJ0ID4T0BStSSdfxHvEpxt4QPEuopol11RGCDmXFk3Rz02IixDIzrU2xz
+	ss8tz7Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwuL8-0000000CClW-1K9B;
-	Mon, 02 Mar 2026 03:53:02 +0000
+	id 1vwuL9-0000000CCmn-0tSW;
+	Mon, 02 Mar 2026 03:53:03 +0000
 Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwuL4-0000000CCft-2p4D;
-	Mon, 02 Mar 2026 03:52:59 +0000
-X-UUID: 4a23149e15eb11f1a16f0188aa809bee-20260301
+	id 1vwuL5-0000000CCh3-2qxD;
+	Mon, 02 Mar 2026 03:53:00 +0000
+X-UUID: 4ad4015015eb11f1a16f0188aa809bee-20260301
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=YxincR19n+n/u0r8OQlSgZvvbGiDFUYQw+mjXeEvtaQ=;
-	b=aOdB4dQKWR7W5lTvOHKSwOreprST0uJ6s4y3Tbcw4GuqEFwVTxoEI4yx+hYx/ef6qWL9WqLP8Uqksm88MgWZ0PqTJ6BbdezLlhw/NY1PhmtUro+iC/exaE3bUpsjgGz0g1Kc+/JdDw/U1pPE52Xjjfxem8pOH7/hB0umQrZPXTM=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=XwLnuNJtzyKlfjAfkT08c0fRKXkLj+nKJ8UIT0tXs4g=;
+	b=Pb5+Fb3pS0BQ64BvLTQUOZ76fZtc6o0SDYBG0DxCuhDTvn7xS4J3xty58ipssjwTWoPaSCnU6Qsi7a16r8C7Q4og55y/q47fH+sZv8y4t5DaAd2t24Axt/L2N7X3r1hr1kbYYP0rrK4dBIl2VQdOJdF/WLRkqyvh6MGzSQUcbHA=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.11,REQID:acd3b346-dae4-4097-a62b-bfe2ddba7d1d,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:89c9d04,CLOUDID:e0e5be5b-a957-4259-bcca-d3af718d7034,B
+X-CID-O-INFO: VERSION:1.3.11,REQID:3a50ef17-1db9-4161-b117-fc45cb88387f,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:89c9d04,CLOUDID:44c720ea-ef90-4382-9c6f-55f2a0689a6b,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
 	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI
 	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
@@ -42,18 +42,18 @@ X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 4a23149e15eb11f1a16f0188aa809bee-20260301
+X-UUID: 4ad4015015eb11f1a16f0188aa809bee-20260301
 Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw01.mediatek.com
 	(envelope-from <irui.wang@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1361245503; Sun, 01 Mar 2026 20:52:53 -0700
+	with ESMTP id 313459254; Sun, 01 Mar 2026 20:52:54 -0700
 Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
  MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Mon, 2 Mar 2026 11:52:51 +0800
+ 15.2.2562.29; Mon, 2 Mar 2026 11:52:52 +0800
 Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
  mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Mon, 2 Mar 2026 11:52:50 +0800
+ 15.2.2562.29 via Frontend Transport; Mon, 2 Mar 2026 11:52:51 +0800
 From: Irui Wang <irui.wang@mediatek.com>
 To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
 	<mchehab@kernel.org>, Rob Herring <robh+dt@kernel.org>, Matthias Brugger
@@ -68,9 +68,9 @@ CC: Yunfei Dong <yunfei.dong@mediatek.com>, Maoguang Meng
 	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-mediatek@lists.infradead.org>
-Subject: [PATCH v5 4/6] media: mediatek: encoder: Add a new platform data member
-Date: Mon, 2 Mar 2026 11:52:41 +0800
-Message-ID: <20260302035244.8994-5-irui.wang@mediatek.com>
+Subject: [PATCH v5 5/6] media: dt-bindings: mediatek,vcodec-encoder: Add MT8196
+Date: Mon, 2 Mar 2026 11:52:42 +0800
+Message-ID: <20260302035244.8994-6-irui.wang@mediatek.com>
 X-Mailer: git-send-email 2.46.0
 In-Reply-To: <20260302035244.8994-1-irui.wang@mediatek.com>
 References: <20260302035244.8994-1-irui.wang@mediatek.com>
@@ -79,8 +79,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_195258_725170_0F7A7E5A 
-X-CRM114-Status: GOOD (  14.88  )
+X-CRM114-CacheID: sfid-20260301_195259_756678_CE2F6395 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,129 +95,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new platform data member to indicate each encoder IC, so that the
-get chip name function by 'of_device_is_compatible' can be removed.
+Add support for MT8196 video encoder which uses VCP (Video Co-Processor)
+for firmware management. Unlike previous platforms that use SCP/VPU, MT8196
+requires VCP to load and execute the video encoding firmware, with the
+encoder communicating through VCP to perform encoding operations.
+
+Add the "mediatek,mt8196-vcodec-enc" compatible string and introduce
+the "mediatek,vcp" property to reference the VCP device, which is
+required for MT8196 encoder operation.
 
 Signed-off-by: Irui Wang <irui.wang@mediatek.com>
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 ---
- .../mediatek/vcodec/encoder/mtk_vcodec_enc.c  | 22 ++-----------------
- .../vcodec/encoder/mtk_vcodec_enc_drv.c       |  6 +++++
- .../vcodec/encoder/mtk_vcodec_enc_drv.h       |  2 ++
- 3 files changed, 10 insertions(+), 20 deletions(-)
+ .../media/mediatek,vcodec-encoder.yaml        | 22 +++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-index f0344888f2cf..b2f911746c01 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-@@ -198,33 +198,15 @@ static int vidioc_enum_fmt_vid_out(struct file *file, void *priv,
- 			       pdata->num_output_formats);
- }
+diff --git a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
+index ebc615584f92..72698456374a 100644
+--- a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
++++ b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
+@@ -24,6 +24,7 @@ properties:
+               - mediatek,mt8188-vcodec-enc
+               - mediatek,mt8192-vcodec-enc
+               - mediatek,mt8195-vcodec-enc
++              - mediatek,mt8196-vcodec-enc
+       - items:
+           - const: mediatek,mt8186-vcodec-enc
+           - const: mediatek,mt8183-vcodec-enc
+@@ -58,6 +59,13 @@ properties:
+     description:
+       Describes point to scp.
  
--static int mtk_vcodec_enc_get_chip_name(struct mtk_vcodec_enc_ctx *ctx)
--{
--	struct device *dev = &ctx->dev->plat_dev->dev;
--
--	if (of_device_is_compatible(dev->of_node, "mediatek,mt8173-vcodec-enc"))
--		return 8173;
--	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8183-vcodec-enc"))
--		return 8183;
--	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8192-vcodec-enc"))
--		return 8192;
--	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8195-vcodec-enc"))
--		return 8195;
--	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8188-vcodec-enc"))
--		return 8188;
--	else
--		return 8173;
--}
--
- static int vidioc_venc_querycap(struct file *file, void *priv,
- 				struct v4l2_capability *cap)
- {
- 	struct mtk_vcodec_enc_ctx *ctx = file_to_enc_ctx(file);
-+	const struct mtk_vcodec_enc_pdata *pdata = ctx->dev->venc_pdata;
- 	struct device *dev = &ctx->dev->plat_dev->dev;
--	int platform_name = mtk_vcodec_enc_get_chip_name(ctx);
++  mediatek,vcp:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Reference to the VCP (Video Co-Processor) device that loads and executes
++      the video encoding firmware. The encoder communicates with the firmware
++      through VCP to perform encoding operations.
++
+   power-domains:
+     maxItems: 1
  
- 	strscpy(cap->driver, dev->driver->name, sizeof(cap->driver));
--	snprintf(cap->card, sizeof(cap->card), "MT%d video encoder", platform_name);
-+	snprintf(cap->card, sizeof(cap->card), "MT%d video encoder", pdata->venc_model_num);
+@@ -76,6 +84,20 @@ required:
+   - iommus
  
- 	return 0;
- }
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-index 36065c8ad94f..9a94bd096397 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-@@ -381,6 +381,7 @@ static int mtk_vcodec_probe(struct platform_device *pdev)
- }
- 
- static const struct mtk_vcodec_enc_pdata mt8173_avc_pdata = {
-+	.venc_model_num = 8173,
- 	.capture_formats = mtk_video_formats_capture_h264,
- 	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
- 	.output_formats = mtk_video_formats_output,
-@@ -391,6 +392,7 @@ static const struct mtk_vcodec_enc_pdata mt8173_avc_pdata = {
- };
- 
- static const struct mtk_vcodec_enc_pdata mt8173_vp8_pdata = {
-+	.venc_model_num = 8173,
- 	.capture_formats = mtk_video_formats_capture_vp8,
- 	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_vp8),
- 	.output_formats = mtk_video_formats_output,
-@@ -401,6 +403,7 @@ static const struct mtk_vcodec_enc_pdata mt8173_vp8_pdata = {
- };
- 
- static const struct mtk_vcodec_enc_pdata mt8183_pdata = {
-+	.venc_model_num = 8183,
- 	.uses_ext = true,
- 	.capture_formats = mtk_video_formats_capture_h264,
- 	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
-@@ -412,6 +415,7 @@ static const struct mtk_vcodec_enc_pdata mt8183_pdata = {
- };
- 
- static const struct mtk_vcodec_enc_pdata mt8188_pdata = {
-+	.venc_model_num = 8188,
- 	.uses_ext = true,
- 	.capture_formats = mtk_video_formats_capture_h264,
- 	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
-@@ -424,6 +428,7 @@ static const struct mtk_vcodec_enc_pdata mt8188_pdata = {
- };
- 
- static const struct mtk_vcodec_enc_pdata mt8192_pdata = {
-+	.venc_model_num = 8192,
- 	.uses_ext = true,
- 	.capture_formats = mtk_video_formats_capture_h264,
- 	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
-@@ -435,6 +440,7 @@ static const struct mtk_vcodec_enc_pdata mt8192_pdata = {
- };
- 
- static const struct mtk_vcodec_enc_pdata mt8195_pdata = {
-+	.venc_model_num = 8195,
- 	.uses_ext = true,
- 	.capture_formats = mtk_video_formats_capture_h264,
- 	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
-index 0529564027c4..769fb5009964 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
-@@ -21,6 +21,7 @@
- /**
-  * struct mtk_vcodec_enc_pdata - compatible data for each IC
-  *
-+ * @venc_model_num: encoder model number
-  * @uses_ext: whether the encoder uses the extended firmware messaging format
-  * @min_bitrate: minimum supported encoding bitrate
-  * @max_bitrate: maximum supported encoding bitrate
-@@ -33,6 +34,7 @@
-  * @uses_common_fw_iface: whether the encoder uses common driver interface
-  */
- struct mtk_vcodec_enc_pdata {
-+	u16 venc_model_num;
- 	bool uses_ext;
- 	u64 min_bitrate;
- 	u64 max_bitrate;
+ allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - mediatek,mt8196-vcodec-enc
++
++    then:
++      required:
++        - mediatek,vcp
++    else:
++      properties:
++        mediatek,vcp: false
++
+   - if:
+       properties:
+         compatible:
 -- 
 2.45.2
 
