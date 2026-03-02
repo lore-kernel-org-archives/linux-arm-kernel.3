@@ -4,67 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B66EEA4E04
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 14:54:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ED90EA4E0F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 14:56:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P1zRTXmeQCbtkPZiqRqHWxQMxoWFGt3hTwtVnY/mfXE=; b=FauXAiRxC+niBDC8nOHPPfMRMZ
-	MmDpd18IrGh5/qi4ytmgfevi+gHKnduaG65YXE7y62IpzxSr+qUE1H3PG4HjRakzbhAhvr3fZetii
-	ynkub7kjXuUUqP5IQ3H9c6kIMBv4M3paYHXLd5JVdHB7rMf9GLU+EbXGXsGIHhN/tD77W7wCQazo+
-	/pAy3xzuxzexlhrYJDT2xtEwjzIoLyf0Po3BWOM7NKFlPGPF/mIjPz/HePzuwLXD38T5NBbegaTHl
-	qkjLvRz7E3WgogOBKndk7/DDfoGDNTJUGo6f9kOIdA5FQS16OqusOvLtWhvo0eyq4NX8YTvP7cYcR
-	s9v1Gf0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q3/olRsrrgkrmk9Lua1J5q8Mh6/W/bXNgGQ+AhzjJXE=; b=vbVl21V2ym4jXsYmt7mq4XfgPq
+	T3SZd5Ez1MhF7QcHTOuzH8Qi+rfPe9bUbfsgbEohzBbinLGHgKRyBVsYW1XiTkzu48/J7Bxv5bawO
+	EbV8rwraUWlNalqIPRhn7b0Y+AfO0jKU9DUqsJEDMXAdZ5W48ev3gkUaYVMt5GbHNWD7M9zN+olaX
+	RncFGxYE6ngWuP+wDJb9WNML+FGrqIoaYLO5pF6ckWDh+xJ9tMEthS+a2gDka7durr+M/jwWoPNNg
+	SYHb0l6+/1AVn04Z9+Iz/2KoOl6EzI4Y8vLaKgk9hxPaIPOOVtyHLAFSAzSWHg9Ca1DnhZPyXj1Lh
+	xK3kJvmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx4fM-0000000DGlp-0YyS;
-	Mon, 02 Mar 2026 14:54:36 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vx4hD-0000000DGx1-0O0z;
+	Mon, 02 Mar 2026 14:56:31 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx4fJ-0000000DGlQ-03SH
+	id 1vx4hA-0000000DGwS-06Ss
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 14:54:34 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fPhl51Y1VzHnGdP;
-	Mon,  2 Mar 2026 22:53:37 +0800 (CST)
-Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2C32140086;
-	Mon,  2 Mar 2026 22:54:29 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
- (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 2 Mar
- 2026 14:54:28 +0000
-Date: Mon, 2 Mar 2026 14:54:26 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Nicolin Chen <nicolinc@nvidia.com>, <will@kernel.org>,
-	<robin.murphy@arm.com>, <bhelgaas@google.com>, <joro@8bytes.org>,
-	<praan@google.com>, <baolu.lu@linux.intel.com>, <kevin.tian@intel.com>,
-	<miko.lenczewski@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <dan.j.williams@intel.com>
-Subject: Re: [PATCH v2 3/3] iommu/arm-smmu-v3: Allow ATS to be always on
-Message-ID: <20260302145426.00001960@huawei.com>
-In-Reply-To: <aZ3NS4GhxhElWhh2@nvidia.com>
-References: <cover.1771886695.git.nicolinc@nvidia.com>
-	<bdeebd35e81cfa5f76d16706a775b23ee1f01fdd.1771886695.git.nicolinc@nvidia.com>
-	<20260224120615.00003ad9@huawei.com>
-	<aZ261odHq5gwQYXg@nvidia.com>
-	<20260224155742.00000282@huawei.com>
-	<aZ3NS4GhxhElWhh2@nvidia.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
-MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500009.china.huawei.com (7.191.174.84) To
- dubpeml500005.china.huawei.com (7.214.145.207)
+	Mon, 02 Mar 2026 14:56:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4873240811;
+	Mon,  2 Mar 2026 14:56:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F10F4C19423;
+	Mon,  2 Mar 2026 14:56:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772463387;
+	bh=oU0GLS1+U0aFHGSu270A22eis8d+o92JaCiSGmMvS24=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=WOqaPuFxs1WNSBVnJVs+xQ78aogVXY35SDYjXMhv134i3GflGPX8NXP0w0efq8mZp
+	 zi9knDrh4WhE8yqZTmPNiBnF8s2Fgecef/h2o3GZde7B2QwOMR25Xt+Vf3oMX7di9F
+	 ZImPHmuzLv04/JA8K3Qb4FUA2151t88+D2P4rr6j7qAJqCEIPxsBnm7TF1rPwZzODe
+	 XTTQ9A8PPtQN7cSGghlNLFSJWSUYhePiG2eYW0nH0t2iyr5I/tVv/XGKG0iemy4g3/
+	 u/ETusTUkU3kScjMhu8E1/7SE+QlY5P1/jGmgW6Z2qXUiwTMC5i3lIBNs7ALQhlxt7
+	 u5+cr7FDVMs4g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vx4h6-0000000FHdF-3Ieo;
+	Mon, 02 Mar 2026 14:56:24 +0000
+Date: Mon, 02 Mar 2026 14:56:24 +0000
+Message-ID: <86qzq28elj.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>
+Subject: Re: [PATCH v12 20/46] arm64: RMI: Allow populating initial contents
+In-Reply-To: <20251217101125.91098-21-steven.price@arm.com>
+References: <20251217101125.91098-1-steven.price@arm.com>
+	<20251217101125.91098-21-steven.price@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_065433_208886_4304D9B1 
-X-CRM114-Status: GOOD (  19.43  )
+X-CRM114-CacheID: sfid-20260302_065628_110743_D4F16C8C 
+X-CRM114-Status: GOOD (  38.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,38 +104,298 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 24 Feb 2026 12:09:47 -0400
-Jason Gunthorpe <jgg@nvidia.com> wrote:
-
-> On Tue, Feb 24, 2026 at 03:57:42PM +0000, Jonathan Cameron wrote:
-> > On Tue, 24 Feb 2026 10:51:02 -0400
-> > Jason Gunthorpe <jgg@nvidia.com> wrote:
-> >   
-> > > On Tue, Feb 24, 2026 at 12:06:15PM +0000, Jonathan Cameron wrote:
-> > >   
-> > > > In my head at least, it would be nice if a driver had to explicitly opt in
-> > > > to this behavior. The presence of CXL.cache support for instance doesn't
-> > > > actually mean the driver is going to enable it.  However it is probably
-> > > > harmless so lets go with this as path of least resistance.    
-> > > 
-> > > That same remark applies to ATS in general, we have no idea if the
-> > > device is going to use it when turned on or not..  
-> > 
-> > Yup. Understood. That's the bit that smells bad to me.  
+On Wed, 17 Dec 2025 10:10:57 +0000,
+Steven Price <steven.price@arm.com> wrote:
 > 
-> Do you have thoughts on when this is a problem (aside from device
-> pre-acceptance security already discussed)? So far I haven't heard
-> complaining on this point..
-
-Nothing explicit.  It was a very minor smells wrong moan on basis of
-assumptions of what an IOMMU is doing in the way of ATS checking if
-we have a malicious device.  So principle of not turning anything on
-we don't know we need.
-
-Jonathan
-
+> The VMM needs to populate the realm with some data before starting (e.g.
+> a kernel and initrd). This is measured by the RMM and used as part of
+> the attestation later on.
 > 
-> Jason
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v11:
+>  * The multiplex CAP is gone and there's a new ioctl which makes use of
+>    the generic kvm_gmem_populate() functionality.
+> Changes since v7:
+>  * Improve the error codes.
+>  * Other minor changes from review.
+> Changes since v6:
+>  * Handle host potentially having a larger page size than the RMM
+>    granule.
+>  * Drop historic "par" (protected address range) from
+>    populate_par_region() - it doesn't exist within the current
+>    architecture.
+>  * Add a cond_resched() call in kvm_populate_realm().
+> Changes since v5:
+>  * Refactor to use PFNs rather than tracking struct page in
+>    realm_create_protected_data_page().
+>  * Pull changes from a later patch (in the v5 series) for accessing
+>    pages from a guest memfd.
+>  * Do the populate in chunks to avoid holding locks for too long and
+>    triggering RCU stall warnings.
+> ---
+>  arch/arm64/include/asm/kvm_rmi.h |   4 +
+>  arch/arm64/kvm/Kconfig           |   1 +
+>  arch/arm64/kvm/arm.c             |   9 ++
+>  arch/arm64/kvm/rmi.c             | 175 +++++++++++++++++++++++++++++++
+>  4 files changed, 189 insertions(+)
 > 
+> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
+> index 8a862fc1a99d..b5e36344975c 100644
+> --- a/arch/arm64/include/asm/kvm_rmi.h
+> +++ b/arch/arm64/include/asm/kvm_rmi.h
+> @@ -99,6 +99,10 @@ int kvm_rec_enter(struct kvm_vcpu *vcpu);
+>  int kvm_rec_pre_enter(struct kvm_vcpu *vcpu);
+>  int handle_rec_exit(struct kvm_vcpu *vcpu, int rec_run_status);
+>  
+> +struct kvm_arm_rmi_populate;
+> +
+> +int kvm_arm_rmi_populate(struct kvm *kvm,
+> +			 struct kvm_arm_rmi_populate *arg);
+>  void kvm_realm_unmap_range(struct kvm *kvm,
+>  			   unsigned long ipa,
+>  			   unsigned long size,
+> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+> index 1cac6dfc0972..b495dfd3a8b4 100644
+> --- a/arch/arm64/kvm/Kconfig
+> +++ b/arch/arm64/kvm/Kconfig
+> @@ -39,6 +39,7 @@ menuconfig KVM
+>  	select GUEST_PERF_EVENTS if PERF_EVENTS
+>  	select KVM_GUEST_MEMFD
+>  	select KVM_GENERIC_MEMORY_ATTRIBUTES
+> +	select HAVE_KVM_ARCH_GMEM_POPULATE
+>  	help
+>  	  Support hosting virtualized guest machines.
+>  
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 7927181887cf..0a06ed9d1a64 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -2037,6 +2037,15 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+>  			return -EFAULT;
+>  		return kvm_vm_ioctl_get_reg_writable_masks(kvm, &range);
+>  	}
+> +	case KVM_ARM_RMI_POPULATE: {
+> +		struct kvm_arm_rmi_populate req;
+> +
+> +		if (!kvm_is_realm(kvm))
+> +			return -EPERM;
 
+EPERM is odd. It isn't that the VMM doesn't have the right to do it,
+it is that it shouldn't have called that, because the ioctl doesn't
+exist for a normal VM. -ENOSYS?
+
+> +		if (copy_from_user(&req, argp, sizeof(req)))
+> +			return -EFAULT;
+> +		return kvm_arm_rmi_populate(kvm, &req);
+> +	}
+>  	default:
+>  		return -EINVAL;
+>  	}
+> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+> index fe15b400091c..39577e956a59 100644
+> --- a/arch/arm64/kvm/rmi.c
+> +++ b/arch/arm64/kvm/rmi.c
+> @@ -558,6 +558,150 @@ void kvm_realm_unmap_range(struct kvm *kvm, unsigned long start,
+>  		realm_unmap_private_range(kvm, start, end, may_block);
+>  }
+>  
+> +static int realm_create_protected_data_granule(struct realm *realm,
+> +					       unsigned long ipa,
+> +					       phys_addr_t dst_phys,
+> +					       phys_addr_t src_phys,
+> +					       unsigned long flags)
+> +{
+> +	phys_addr_t rd = virt_to_phys(realm->rd);
+> +	int ret;
+> +
+> +	if (rmi_granule_delegate(dst_phys))
+> +		return -ENXIO;
+> +
+> +	ret = rmi_data_create(rd, dst_phys, ipa, src_phys, flags);
+> +	if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
+> +		/* Create missing RTTs and retry */
+> +		int level = RMI_RETURN_INDEX(ret);
+> +
+> +		WARN_ON(level == RMM_RTT_MAX_LEVEL);
+
+If this is unexpected, why do we still try to handle it? We should
+abort hard on anything that doesn't seem 100% correct, and mark the
+realm dead.
+
+> +
+> +		ret = realm_create_rtt_levels(realm, ipa, level,
+> +					      RMM_RTT_MAX_LEVEL, NULL);
+> +		if (ret)
+> +			return -EIO;
+> +
+> +		ret = rmi_data_create(rd, dst_phys, ipa, src_phys, flags);
+> +	}
+> +	if (ret)
+> +		return -EIO;
+> +
+> +	return 0;
+> +}
+> +
+> +static int realm_create_protected_data_page(struct realm *realm,
+> +					    unsigned long ipa,
+> +					    kvm_pfn_t dst_pfn,
+> +					    kvm_pfn_t src_pfn,
+> +					    unsigned long flags)
+> +{
+> +	unsigned long rd = virt_to_phys(realm->rd);
+> +	phys_addr_t dst_phys, src_phys;
+> +	bool undelegate_failed = false;
+> +	int ret, offset;
+> +
+> +	dst_phys = __pfn_to_phys(dst_pfn);
+> +	src_phys = __pfn_to_phys(src_pfn);
+> +
+> +	for (offset = 0; offset < PAGE_SIZE; offset += RMM_PAGE_SIZE) {
+> +		ret = realm_create_protected_data_granule(realm,
+> +							  ipa,
+> +							  dst_phys,
+> +							  src_phys,
+> +							  flags);
+> +		if (ret)
+> +			goto err;
+> +
+> +		ipa += RMM_PAGE_SIZE;
+> +		dst_phys += RMM_PAGE_SIZE;
+> +		src_phys += RMM_PAGE_SIZE;
+> +	}
+> +
+> +	return 0;
+> +
+> +err:
+> +	if (ret == -EIO) {
+> +		/* current offset needs undelegating */
+> +		if (WARN_ON(rmi_granule_undelegate(dst_phys)))
+> +			undelegate_failed = true;
+> +	}
+> +	while (offset > 0) {
+> +		ipa -= RMM_PAGE_SIZE;
+> +		offset -= RMM_PAGE_SIZE;
+> +		dst_phys -= RMM_PAGE_SIZE;
+> +
+> +		rmi_data_destroy(rd, ipa, NULL, NULL);
+> +
+> +		if (WARN_ON(rmi_granule_undelegate(dst_phys)))
+> +			undelegate_failed = true;
+> +	}
+> +
+> +	if (undelegate_failed) {
+> +		/*
+> +		 * A granule could not be undelegated,
+> +		 * so the page has to be leaked
+> +		 */
+> +		get_page(pfn_to_page(dst_pfn));
+> +	}
+> +
+> +	return -ENXIO;
+> +}
+> +
+> +static int populate_region_cb(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
+> +			      void __user *src, int order, void *opaque)
+> +{
+> +	struct realm *realm = &kvm->arch.realm;
+> +	unsigned long data_flags = *(unsigned long *)opaque;
+> +	phys_addr_t ipa = gfn_to_gpa(gfn);
+> +	int npages = (1 << order);
+> +	int i;
+> +
+> +	for (i = 0; i < npages; i++) {
+> +		struct page *src_page;
+> +		int ret;
+> +
+> +		ret = get_user_pages((unsigned long)src, 1, 0, &src_page);
+> +		if (ret < 0)
+> +			return ret;
+> +		if (ret != 1)
+> +			return -ENOMEM;
+> +
+> +		ret = realm_create_protected_data_page(realm, ipa, pfn,
+> +						       page_to_pfn(src_page),
+> +						       data_flags);
+> +
+> +		put_page(src_page);
+> +
+> +		if (ret)
+> +			return ret;
+> +
+> +		ipa += PAGE_SIZE;
+> +		pfn++;
+> +		src += PAGE_SIZE;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static long populate_region(struct kvm *kvm,
+> +			    gfn_t base_gfn,
+> +			    unsigned long pages,
+> +			    u64 uaddr,
+> +			    unsigned long data_flags)
+> +{
+> +	long ret = 0;
+> +
+> +	mutex_lock(&kvm->slots_lock);
+> +	mmap_read_lock(current->mm);
+> +	ret = kvm_gmem_populate(kvm, base_gfn, u64_to_user_ptr(uaddr), pages,
+> +				populate_region_cb, &data_flags);
+> +	mmap_read_unlock(current->mm);
+> +	mutex_unlock(&kvm->slots_lock);
+> +
+> +	return ret;
+> +}
+> +
+>  enum ripas_action {
+>  	RIPAS_INIT,
+>  	RIPAS_SET,
+> @@ -655,6 +799,37 @@ static int realm_ensure_created(struct kvm *kvm)
+>  	return -ENXIO;
+>  }
+>  
+> +int kvm_arm_rmi_populate(struct kvm *kvm,
+> +			 struct kvm_arm_rmi_populate *args)
+> +{
+> +	unsigned long data_flags = 0;
+> +	unsigned long ipa_start = args->base;
+> +	unsigned long ipa_end = ipa_start + args->size;
+> +	int ret;
+> +
+> +	if (args->reserved ||
+> +	    (args->flags & ~KVM_ARM_RMI_POPULATE_FLAGS_MEASURE) ||
+> +	    !IS_ALIGNED(ipa_start, PAGE_SIZE) ||
+> +	    !IS_ALIGNED(ipa_end, PAGE_SIZE))
+> +		return -EINVAL;
+> +
+> +	ret = realm_ensure_created(kvm);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (args->flags & KVM_ARM_RMI_POPULATE_FLAGS_MEASURE)
+
+This flag isn't documented.
+
+> +		data_flags |= RMI_MEASURE_CONTENT;
+> +
+> +	ret = populate_region(kvm, gpa_to_gfn(ipa_start),
+> +			      args->size >> PAGE_SHIFT,
+> +			      args->source_uaddr, args->flags);
+> +
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	return ret * PAGE_SIZE;
+
+Bits of the code works on PAGE_SIZE, other bits on RMM_PAGE_SIZE. It
+is pretty confusing. Are you in the middle of reworking this?
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
