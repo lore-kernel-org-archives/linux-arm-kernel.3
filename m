@@ -4,76 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5C55EA4E08
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 13:56:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A66AEA4E04
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 13:59:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NBKjLrGYsQBn2MUPKQOIjjbdoqrwQLahcH/n7D3T7ec=; b=2dOX9z18nW1cOeGNTD6SBfdZF/
-	vhFiX1ivXKmgq5zZrj0N6Pj+UMDbnZ7Nz5hMskLJLh/3Cq9lxY3YKtKtC3FMosbfobtZrh23o3PZG
-	ExKNRBEHwVAg6lSiXD23a/BxdsBPO573MJpJrNhI8DK1ftwDaLHqbhM/CJzxngGC0yatNg9ThkDpW
-	Bh1pJmlC0LZWPACT7oPV1bGLpL5RexNZtCicOh72St0xmA0jnLGhEFePGzyvclrBEiO8id7W0QDBu
-	TsIxMP6G/eeXSld3cNCaCasWnkXBB+KuvBfmWiu4A3P4J2juDxw0VSBvyIIvxyvVgTHPFuB0snZau
-	uJEjjaMg==;
+	bh=V0LG1mGhGJ6n0vvg0ko9suk0Rk0PRoVSpOPLCMxSa/4=; b=vg4PTo6OtONncCUwIjg42L/0lw
+	JaDYH66Z0sDBK/DbVBslORTgazXQdg8VAcRZvKHqSRFqxTqjTRYGDB2NcQSIB4Ezz99Xl3PbxVKJU
+	EDbFZm5GvdceC2PFFqiH9kpLZ2RhIuK5F0tQ9LgLw2Ty7pfSdMKxXWEhXcbr6waZH+cH3sb8HJ0Fb
+	GW3C/3mCPwMEAkV7lznu4nbdIas6SiqJuIW/BozfNnzOGf59fEoV+NL0JuKkRy2rTyPPyzyXxkPff
+	yr1yGwRA+xU/PLklOYmshqod9l+ldEbiTEiyPV6fA+GUdkwrdKopX35cQmIyniZOkrS6Ev9uopyJA
+	iHH11SQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3lR-0000000DB8t-1gJ9;
-	Mon, 02 Mar 2026 13:56:49 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vx3o2-0000000DBuj-2V6T;
+	Mon, 02 Mar 2026 13:59:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3lQ-0000000DB63-0ejJ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 02 Mar 2026 13:56:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=NBKjLrGYsQBn2MUPKQOIjjbdoqrwQLahcH/n7D3T7ec=; b=j+rNxx8E9zL6oQ/fsdmwL2s/PE
-	9+8AfBGSEcITd13BeLCVhwcLb/iSkt395qnRUOcwkE3fkPztvHcV9Gupn2yagRq3soWa44pY1OOlA
-	7gwifeYV1zgfON4rQfEJMzf0f0Gdow8mIlgP8DsianmL49lvhvylRKRYEs34J5IbWhjNsgJ/NYSCZ
-	/xHcbgraxXHd4JYUO+FMBDK3UaRBVbSGuB1R/r+6Ot2vPCx1aQEsWrcNx6/dqbCfpmjZsZlpH+2Dl
-	S0X4J/bGm1UWRJ64QnWTwIWHZ0id/dLfelCqpTJR7x5jN4gdtR+MBJmevL6qzPOGgh7uUHywj81+T
-	0NjMc13g==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3lM-00000000E4F-3k5K
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 13:56:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3E4A91570;
-	Mon,  2 Mar 2026 05:56:37 -0800 (PST)
-Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 922513F73B;
-	Mon,  2 Mar 2026 05:56:41 -0800 (PST)
-From: Ryan Roberts <ryan.roberts@arm.com>
-To: Will Deacon <will@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Marc Zyngier <maz@kernel.org>,
-	Dev Jain <dev.jain@arm.com>,
-	Linu Cherian <Linu.Cherian@arm.com>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Linu Cherian <linu.cherian@arm.com>
-Subject: [PATCH v3 12/13] arm64: mm: Wrap flush_tlb_page() around __do_flush_tlb_range()
-Date: Mon,  2 Mar 2026 13:55:59 +0000
-Message-ID: <20260302135602.3716920-13-ryan.roberts@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260302135602.3716920-1-ryan.roberts@arm.com>
-References: <20260302135602.3716920-1-ryan.roberts@arm.com>
+	id 1vx3nz-0000000DBuS-2Iq5;
+	Mon, 02 Mar 2026 13:59:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9BAA160018;
+	Mon,  2 Mar 2026 13:59:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA973C2BC87;
+	Mon,  2 Mar 2026 13:59:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772459966;
+	bh=viU66Yyaj99zg2CuwP4OxpKVWBfUfWva6xshngJ9Jv0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ZsGoKkT8vtmA9t5JzutKLMdYVu6V8t4mPz0rxKLrPB7CPrVwXo5DZuKKhm3VOMxV9
+	 QLaNZh4MYEUrUOuePyKB1g3FlsYe/W1xY5tiseoorjkLCzQc/f3jicPxR9A+hEBa4x
+	 5LnZ4evaLzgv5N8MHNR4Vkh3UXaQru0ksBWedZLMIxo3c0EE/B+VRBe2O151cNAGiF
+	 tKecTw310DbF4bwcV8LVEc0l+dg1Wh6s/zF5JSGHyrL4Yyif4QFrNGajG3yXBiaVBD
+	 3POpmrekZYBVxljx4N9q7BJMQg8U0WxkJmX57ayU3k2Bbmxg4j9cTB3efvgWIXlrdJ
+	 1A2PjX3qAGU9w==
+Message-ID: <49b3a87d-7ea0-4da1-871e-35ddf5d5b454@kernel.org>
+Date: Mon, 2 Mar 2026 14:59:21 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/4] dt-bindings: iio: adc: amlogic,meson-saradc: add
+ S4 compatible
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: Nick Xie <nick@khadas.com>, neil.armstrong@linaro.org,
+ khilman@baylibre.com, jbrunet@baylibre.com, krzk+dt@kernel.org,
+ jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com,
+ andy@kernel.org, linux-iio@vger.kernel.org, robh@kernel.org,
+ conor+dt@kernel.org, linux-amlogic@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, xieqinick@gmail.com
+References: <20260228065840.702651-1-nick@khadas.com>
+ <20260228065840.702651-2-nick@khadas.com>
+ <20260228-quirky-lemon-reindeer-1045f6@quoll>
+ <CAFBinCAkxO4HoN0Cw0Fc2B3KRLLJqso1p5+qjNN_E0c26VOf2g@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <CAFBinCAkxO4HoN0Cw0Fc2B3KRLLJqso1p5+qjNN_E0c26VOf2g@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_135645_536735_58CE4D2D 
-X-CRM114-Status: GOOD (  17.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,177 +121,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Flushing a page from the tlb is just a special case of flushing a range.
-So let's rework flush_tlb_page() so that it simply wraps
-__do_flush_tlb_range(). While at it, let's also update the API to take
-the same flags that we use when flushing a range. This allows us to
-delete all the ugly "_nosync", "_local" and "_nonotify" variants.
+On 02/03/2026 12:58, Martin Blumenstingl wrote:
+> Hi Krzysztof,
+> 
+> On Sat, Feb 28, 2026 at 12:18 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>
+>> On Sat, Feb 28, 2026 at 02:58:37PM +0800, Nick Xie wrote:
+>>> Add the compatible string for the SARADC (Successive Approximation
+>>> Register ADC) IP block found in the Amlogic Meson S4 SoC.
+>>
+>> ... which is fully compatible with g12a?
+>>
+>> Write proper explanations.
+> Would you be fine with:
+> "There are no known differences between the SARADC on S4 and the one
+> on G12A. In the past differences between SARADC on the different SoCs
+> generations have been uncovered late, meaning that a dedicated
+> compatible string has proven to be useful."
 
-Thanks to constant folding, all of the complex looping and tlbi-by-range
-options get eliminated so that the generated code for flush_tlb_page()
-looks very similar to the previous version.
+No, last sentence is redundant. You do not need to explain in the commit
+msg rules of bindings, because they are obvious/known. You need to
+explain the hardware, e.g. in this case the compatibility between devices.
 
-Reviewed-by: Linu Cherian <linu.cherian@arm.com>
-Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
----
- arch/arm64/include/asm/pgtable.h  |  6 +--
- arch/arm64/include/asm/tlbflush.h | 81 ++++++++++---------------------
- arch/arm64/mm/fault.c             |  2 +-
- 3 files changed, 29 insertions(+), 60 deletions(-)
+> 
+> Do you also require Nick to add amlogic,meson-g12a-saradc as fallback
+> compatible string for amlogic,meson-s4-saradc?
+> 
+>>>
+>>> Signed-off-by: Nick Xie <nick@khadas.com>
+>>> ---
+>>>  .../devicetree/bindings/iio/adc/amlogic,meson-saradc.yaml        | 1 +
+>>>  1 file changed, 1 insertion(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/iio/adc/amlogic,meson-saradc.yaml b/Documentation/devicetree/bindings/iio/adc/amlogic,meson-saradc.yaml
+>>> index bb9825e7346dd..5496a0dc714aa 100644
+>>> --- a/Documentation/devicetree/bindings/iio/adc/amlogic,meson-saradc.yaml
+>>> +++ b/Documentation/devicetree/bindings/iio/adc/amlogic,meson-saradc.yaml
+>>> @@ -27,6 +27,7 @@ properties:
+>>>                - amlogic,meson-gxm-saradc
+>>>                - amlogic,meson-axg-saradc
+>>>                - amlogic,meson-g12a-saradc
+>>> +              - amlogic,meson-s4-saradc
+>>
+>> If this is compatible with other device, you need proper fallback.
+>>
+>>>            - const: amlogic,meson-saradc
+>>
+>> And this one is now kind of fake - how does this device use it?
+> As you have noticed later, it is currently not used.
+> Can you please confirm that my understanding of the next steps is correct:
+> - you're expecting Nick to omit the amlogic,meson-saradc fallback
+> compatible string for amlogic,meson-s4-saradc
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 88bb9275ac898..7039931df4622 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -101,10 +101,10 @@ static inline void arch_leave_lazy_mmu_mode(void)
-  * entries exist.
-  */
- #define flush_tlb_fix_spurious_fault(vma, address, ptep)	\
--	local_flush_tlb_page_nonotify(vma, address)
-+	__flush_tlb_page(vma, address, TLBF_NOBROADCAST | TLBF_NONOTIFY)
- 
- #define flush_tlb_fix_spurious_fault_pmd(vma, address, pmdp)	\
--	local_flush_tlb_page_nonotify(vma, address)
-+	__flush_tlb_page(vma, address, TLBF_NOBROADCAST | TLBF_NONOTIFY)
- 
- /*
-  * ZERO_PAGE is a global shared page that is always zero: used
-@@ -1320,7 +1320,7 @@ static inline int __ptep_clear_flush_young(struct vm_area_struct *vma,
- 		 * context-switch, which provides a DSB to complete the TLB
- 		 * invalidation.
- 		 */
--		flush_tlb_page_nosync(vma, address);
-+		__flush_tlb_page(vma, address, TLBF_NOSYNC);
- 	}
- 
- 	return young;
-diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index 5509927e45b93..5096ec7ab8650 100644
---- a/arch/arm64/include/asm/tlbflush.h
-+++ b/arch/arm64/include/asm/tlbflush.h
-@@ -269,10 +269,7 @@ static inline void __tlbi_sync_s1ish_hyp(void)
-  *		unmapping pages from vmalloc/io space.
-  *
-  *	flush_tlb_page(vma, addr)
-- *		Invalidate a single user mapping for address 'addr' in the
-- *		address space corresponding to 'vma->mm'.  Note that this
-- *		operation only invalidates a single, last-level page-table
-- *		entry and therefore does not affect any walk-caches.
-+ *		Equivalent to __flush_tlb_page(..., flags=TLBF_NONE)
-  *
-  *
-  *	Next, we have some undocumented invalidation routines that you probably
-@@ -300,13 +297,14 @@ static inline void __tlbi_sync_s1ish_hyp(void)
-  *		TLBF_NOSYNC (don't issue trailing dsb) and TLBF_NOBROADCAST
-  *		(only perform the invalidation for the local cpu).
-  *
-- *	local_flush_tlb_page(vma, addr)
-- *		Local variant of flush_tlb_page().  Stale TLB entries may
-- *		remain in remote CPUs.
-- *
-- *	local_flush_tlb_page_nonotify(vma, addr)
-- *		Same as local_flush_tlb_page() except MMU notifier will not be
-- *		called.
-+ *	__flush_tlb_page(vma, addr, flags)
-+ *		Invalidate a single user mapping for address 'addr' in the
-+ *		address space corresponding to 'vma->mm'.  Note that this
-+ *		operation only invalidates a single, last-level page-table entry
-+ *		and therefore does not affect any walk-caches. flags may contain
-+ *		any combination of TLBF_NONOTIFY (don't call mmu notifiers),
-+ *		TLBF_NOSYNC (don't issue trailing dsb) and TLBF_NOBROADCAST
-+ *		(only perform the invalidation for the local cpu).
-  *
-  *	Finally, take a look at asm/tlb.h to see how tlb_flush() is implemented
-  *	on top of these routines, since that is our interface to the mmu_gather
-@@ -340,51 +338,6 @@ static inline void flush_tlb_mm(struct mm_struct *mm)
- 	mmu_notifier_arch_invalidate_secondary_tlbs(mm, 0, -1UL);
- }
- 
--static inline void __local_flush_tlb_page_nonotify_nosync(struct mm_struct *mm,
--							  unsigned long uaddr)
--{
--	dsb(nshst);
--	__tlbi_level_asid(vale1, uaddr, TLBI_TTL_UNKNOWN, ASID(mm));
--}
--
--static inline void local_flush_tlb_page_nonotify(struct vm_area_struct *vma,
--						 unsigned long uaddr)
--{
--	__local_flush_tlb_page_nonotify_nosync(vma->vm_mm, uaddr);
--	dsb(nsh);
--}
--
--static inline void local_flush_tlb_page(struct vm_area_struct *vma,
--					unsigned long uaddr)
--{
--	__local_flush_tlb_page_nonotify_nosync(vma->vm_mm, uaddr);
--	mmu_notifier_arch_invalidate_secondary_tlbs(vma->vm_mm, uaddr & PAGE_MASK,
--						(uaddr & PAGE_MASK) + PAGE_SIZE);
--	dsb(nsh);
--}
--
--static inline void __flush_tlb_page_nosync(struct mm_struct *mm,
--					   unsigned long uaddr)
--{
--	dsb(ishst);
--	__tlbi_level_asid(vale1is, uaddr, TLBI_TTL_UNKNOWN, ASID(mm));
--	mmu_notifier_arch_invalidate_secondary_tlbs(mm, uaddr & PAGE_MASK,
--						(uaddr & PAGE_MASK) + PAGE_SIZE);
--}
--
--static inline void flush_tlb_page_nosync(struct vm_area_struct *vma,
--					 unsigned long uaddr)
--{
--	return __flush_tlb_page_nosync(vma->vm_mm, uaddr);
--}
--
--static inline void flush_tlb_page(struct vm_area_struct *vma,
--				  unsigned long uaddr)
--{
--	flush_tlb_page_nosync(vma, uaddr);
--	__tlbi_sync_s1ish();
--}
--
- static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
- {
- 	return true;
-@@ -632,6 +585,22 @@ static inline void flush_tlb_range(struct vm_area_struct *vma,
- 	__flush_tlb_range(vma, start, end, PAGE_SIZE, TLBI_TTL_UNKNOWN, TLBF_NONE);
- }
- 
-+static inline void __flush_tlb_page(struct vm_area_struct *vma,
-+				    unsigned long uaddr, tlbf_t flags)
-+{
-+	unsigned long start = round_down(uaddr, PAGE_SIZE);
-+	unsigned long end = start + PAGE_SIZE;
-+
-+	__do_flush_tlb_range(vma, start, end, PAGE_SIZE, TLBI_TTL_UNKNOWN,
-+			     TLBF_NOWALKCACHE | flags);
-+}
-+
-+static inline void flush_tlb_page(struct vm_area_struct *vma,
-+				  unsigned long uaddr)
-+{
-+	__flush_tlb_page(vma, uaddr, TLBF_NONE);
-+}
-+
- static inline void flush_tlb_kernel_range(unsigned long start, unsigned long end)
- {
- 	const unsigned long stride = PAGE_SIZE;
-diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-index be9dab2c7d6a8..f91aa686f1428 100644
---- a/arch/arm64/mm/fault.c
-+++ b/arch/arm64/mm/fault.c
-@@ -239,7 +239,7 @@ int __ptep_set_access_flags(struct vm_area_struct *vma,
- 	 * flush_tlb_fix_spurious_fault().
- 	 */
- 	if (dirty)
--		local_flush_tlb_page(vma, address);
-+		__flush_tlb_page(vma, address, TLBF_NOBROADCAST);
- 	return 1;
- }
- 
--- 
-2.43.0
+Not omit but replace with proper fallback to specific compatible.
 
+> - and you would like to see amlogic,meson-saradc removed (from the
+> bindings and .dts files that are already upstream) - I will take care
+> of this once S4 support lands upstream
+
+This no. It's an ABI, you cannot change it. Not worth it, either.
+
+Best regards,
+Krzysztof
 
