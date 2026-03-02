@@ -4,56 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C14AEB3640
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 23:42:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E8B7EB3641
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 23:43:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qVWBSsCyek5kDiWlToVHMui4A2oLpZYjRFP61uW/p+c=; b=AIwfnZYI8JWW2ogOyOfYfebUO+
-	cgmOg/4eCqQkupFjnY21ZC6/n4S3p1SGfsVFrfLdbTSoCde8UK92uChOQ/ENMEvwJhqh9wmx7Rqbm
-	brPoiyt7/bpH9Nze12MbrEA7jzxcHiTLKCiH+EnYRx6c0qaociAo4SFO4WIlJicM2nBPhlExvW/lw
-	1ghq534hS9lQnqzQkluENI/9EN8gf3kodrmTkPeQ6Ao0isnqHdLuqUtW+zEGYlZ8Hbp+hd9bbN7Fl
-	BTJQN9g7kcEyHWbS3I7Zwy0goQPQoLaq6CmGfHDCzL3zVUaSeXHfjkikbeqbXFjCDJaM+Qyo+OT9m
-	kiHxS+iA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H8JFi69zK/ynYf7YiJC4Ed+hxjUhFeBq1kqdzcC2uXc=; b=Q+TTHTHFusnlak7wUBDlssc1Bl
+	kCM5+lGKqewc/NP9fr7PnuRAVnRVERhL/gQuiMCtNd3uXf0wD3uGf29I4EbTx4PWnqpiTxVnqeyDL
+	6NeIRH2YBtxqg+EuUHmwyXAAej1SCEN6VY/IO37aZr2hGiHJypczyw8wJYgJ7fAIthtYwrnqgSLZc
+	JR56lMIx11lonlfWHZxdrcAtg7PtJHzATrx4XWTvmEzuckV2OXaTcjH8IqgyC16lK64SwATbwcmQr
+	ldxwwrYhucaZQ58CRnEvDe89wAckJKP27clYrY/V5IB4GTsoQyF/7n0MVkt6BjOMABZ2u8hzFXqEe
+	RO8BAukA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxCto-0000000EDTs-3DmW;
-	Mon, 02 Mar 2026 23:42:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vxCv8-0000000EDdI-0eS6;
+	Mon, 02 Mar 2026 23:43:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxCtm-0000000EDTR-1pTB
+	id 1vxCv7-0000000EDd9-14Vp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 23:42:03 +0000
+	Mon, 02 Mar 2026 23:43:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6411443D83;
-	Mon,  2 Mar 2026 23:42:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17B8FC4AF09;
-	Mon,  2 Mar 2026 23:42:00 +0000 (UTC)
-Received: by venus (Postfix, from userid 1000)
-	id 3710F181258; Tue, 03 Mar 2026 00:41:58 +0100 (CET)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Sebastian Reichel <sre@kernel.org>, Sven Peter <sven@kernel.org>, 
- Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
- Lee Jones <lee@kernel.org>, Michael Reeves <michael.reeves077@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
- asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Hector Martin <marcan@marcan.st>, Joey Gouly <joey.gouly@arm.com>
-In-Reply-To: <20260217-b4-macsmc-power-v7-0-4a4d63664362@gmail.com>
-References: <20260217-b4-macsmc-power-v7-0-4a4d63664362@gmail.com>
-Subject: Re: (subset) [PATCH RESEND v7 0/2] Add Apple Silicon SMC power
- driver
-Message-Id: <177249491821.606802.13655015043720076680.b4-ty@collabora.com>
-Date: Tue, 03 Mar 2026 00:41:58 +0100
+	by tor.source.kernel.org (Postfix) with ESMTP id 133E5600AE;
+	Mon,  2 Mar 2026 23:43:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33EE6C19423;
+	Mon,  2 Mar 2026 23:43:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772495002;
+	bh=frEcAm5Sb1Cb7UDQJ6+oJvgem0+Bj3jNre9w1kRD5bU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZfF9RoqNtXK3zaSK0l/MgBBePdW41R0Gle86cjvmzgNhTjC1IHXCP+S5Zpl5Le1Or
+	 CEosyRxgDnvdYPp4qRa3ywnxuehbw0G9dgZ6DZ6S7pHk7s/Ia2DSCroth055V9R4kV
+	 a6XfrWTwYq01vB7ic9HNPvdDbqWQajs1WY2+SxnGfVS6OveSzDnEG5+4ZsH7jMAx2E
+	 pV57efldAweLJHnekmOnODknbfHlxnmZ7+21S7WzfUQ2HgDBaQmcGgpIKztJQTwUNy
+	 /F94rQu9QMf/4PZ9B0QpNlvkMYPW40yrS6IOQfKjVDd9/V379ag7FsKnaA97q9fsoR
+	 +I54U/iix+BTg==
+Date: Mon, 2 Mar 2026 15:43:19 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: Aleksander Jan Bajkowski <aleksaander@onet.pl>
+Cc: herbert@gondor.apana.org.au, davem@davemloft.net,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	linux-crypto@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Aleksander Jan Bajkowski <olek2@wp.pl>
+Subject: Re: [PATCH 1/5] crypto: testmgr - Add test vectors for
+ authenc(hmac(sha1),rfc3686(ctr(aes)))
+Message-ID: <20260302234319.GC20209@quark>
+References: <20260301155351.5840-1-aleksaander@onet.pl>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_154202_521328_8C326F12 
-X-CRM114-Status: GOOD (  11.99  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260301155351.5840-1-aleksaander@onet.pl>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,25 +73,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, Mar 01, 2026 at 04:53:38PM +0100, Aleksander Jan Bajkowski wrote:
+> diff --git a/crypto/testmgr.c b/crypto/testmgr.c
+> index c4770b87551d..91831b548062 100644
+> --- a/crypto/testmgr.c
+> +++ b/crypto/testmgr.c
+> @@ -4136,8 +4136,12 @@ static const struct alg_test_desc alg_test_descs[] = {
+>  		}
+>  	}, {
+>  		.alg = "authenc(hmac(sha1),rfc3686(ctr(aes)))",
+> -		.test = alg_test_null,
+> +		.generic_driver = "authenc(hmac-sha1-lib,rfc3686(ctr(aes-generic)))",
 
-On Tue, 17 Feb 2026 21:47:24 +1100, Michael Reeves wrote:
-> This series adds a power supply driver for the Apple SMC found on
-> Apple Silicon devices. This allows the kernel to report AC status,
-> battery charging status, and power metrics, and modify the charging
-> behaviour.
-> 
-> The first patch adds the driver itself, and the second patch wires it
-> up to the MFD core.
-> 
-> [...]
+aes-generic was replaced with aes-lib in v7.0-rc1.
 
-Applied, thanks!
-
-[1/2] power: supply: Add macsmc-power driver for Apple Silicon
-      commit: bb7cd531f275cd643da6f26af0a25acdef6f26c7
-
-Best regards,
--- 
-Sebastian Reichel <sebastian.reichel@collabora.com>
-
+- Eric
 
