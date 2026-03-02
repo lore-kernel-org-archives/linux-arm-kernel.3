@@ -4,114 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02FE9EA4E29
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 15:58:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E95D0EA4E2A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 15:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FqTHsx1l1/9oEj5e3q2mep/esitBtih9Ht1cGIH4yFE=; b=DKFhH3tvXxCJ3bG/gjpDFW0Vtb
-	2sgk0c28cO4AhyqGroCTI7dBCwrv2aznIlSdVCKS9pJDOyaoUbqvfe9qH/OmzET3aFVHLxsqQoU1Y
-	wxg26o2Pg/Cqnz8MEwBLQJwmwFmFZcMqEpvmqTrTcNtvkY8b3LfP+ehlz985PrTBT6wr722dY/3DV
-	p4KSUOZcWHklPF6xnpy5AltThK+mdemJjEQ5uTyo8aN030uU6gej3HzrQKJYbI5jfXbbNcRE4cOHP
-	lHyhiNA9IwRni/m/NGBsqBm0lmRiwBWEfKApLZmZqKcSapHZ8hbWqtj7XAMEqou8MFc9q0srbfC7t
-	8AYpQtbQ==;
+	bh=AJf/VHFbEfrJ7fM8DpDhu22yxXg6EYy+KGz73+G0kyo=; b=Fywar0Kj1qt0yu4bNzzVql3FsS
+	yE4APnTZu3lXv+nT1ZAP9oStXTxHIaGoglZP8iAwTE+s58MZ2xeWfDYdBBHJ2x5ig4XfQRSVj+vvh
+	YFFkaLmHBE83Eg1GwNjH7O203j9AuIyla5fVCmnT2vH3hCWlrIz0g75b0ROK830lYZbcMNXILtBB0
+	Ule2+R3aOpStRBzycSVoxgAytOJPSotm2dg2soHjEEBVxoBlJJd+sgYLRcci7Bz2SbqAH1cpLrApG
+	51jWB1prhmmwkfDf6OAX8OkX1OYeFR5gTUthyq9s7Ccr/7Vcebf1rGOcq0xgFQ+xBVHCqSKlAnDoE
+	HBRlua+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx5ek-0000000DQCs-1hsu;
-	Mon, 02 Mar 2026 15:58:02 +0000
+	id 1vx5eo-0000000DQIo-35H8;
+	Mon, 02 Mar 2026 15:58:06 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx5ei-0000000DQ9X-2NWa
+	id 1vx5em-0000000DQFB-2850
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 02 Mar 2026 15:58:00 +0000
+	Mon, 02 Mar 2026 15:58:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=FqTHsx1l1/9oEj5e3q2mep/esitBtih9Ht1cGIH4yFE=; b=H3n+C6kuWIukTHYSebi21Dq6X7
-	m9uN06N3DDaXwBKGZAPgQDw7bc4I9tcwXndJZh0H8kfyhkzL7b2KnW2zw79Mdend6PMyd8gVsRdrN
-	raJNwlVn2O66T+QZ7B43+XnrWDOj2AFbY/H1mtZJkMEPqWYQ9BfMU/T2SoFkvc1ZPGJDmPylVhQ8M
-	k7aPZ2ei3OlS9IIpv6885QJJL+AKUOY6Ar6BtyddRUXDaJiZGoTDPuoSixrripjpknoBV8I8/65ou
-	Sb+xSCyK5ymlzRcfALJZxT3TYMFzfjOzZOBIuN4NiZIsEkVxz8PkVV8LJTnEninF0uNpVDDqm9Y9P
-	RmwTKFgg==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	bh=AJf/VHFbEfrJ7fM8DpDhu22yxXg6EYy+KGz73+G0kyo=; b=cxXsUUJSpnF1ch966e5f3n1Enr
+	vycAWL4Rdi2IJwCnY3eV1nTcEQAP10qL7AAvwyqimyTRBT5N01gxFYvdX1dW3Iyymcf95M66y6swu
+	r9Y42phwabt0IXdJju44jdh1RgCo6MoKuQsxS5psj+ZPTxOFlL9K10tNKtmkGpktF2t+KnLhDpX7v
+	cS68HWLFHluAlwoqBe8NPkUI721dH+0iz4E8nhLvOZ6mxqSWTmZP0m5xq6jpsqmPvwX+KyqMqX6UR
+	7j0f1tqxvmRfoFt5B9JqUC/9vLKiQAxuwlMvYKlj3+Wml0sySmXLxNfyqoBt9mVWBOsbFlv8w/Cr4
+	f9yCCcdw==;
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx5ef-00000000VCv-1wAr
+	id 1vx5ei-00000000VDm-20Uc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 15:57:59 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 622FSs1F3224157
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 2 Mar 2026 15:57:56 GMT
+	Mon, 02 Mar 2026 15:58:03 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 622Elp3w2048854
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 2 Mar 2026 15:57:59 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	FqTHsx1l1/9oEj5e3q2mep/esitBtih9Ht1cGIH4yFE=; b=bj/lDlIfTCoGy+il
-	wTHLVJDnEZjglMVroeRiu4IlDmfvZlBnEN6tV/FFHa9mvQfi4tftG2kZdFw4odOB
-	QHgC/A2Vc754f5mItYFovLT4Qoy+82ZYq1zKVuoN9dZvVl3LxaBT6Ope4N2uTDWI
-	S964HuUTfamMVKabBkPMJmdm8Izb1Vbww7Gbwg3BNVjP6vSGiIXbbb16EDuINInW
-	+7DmTHUjq5ghEUTOwi4NiGZyOj7/6iZanBXbOlhPoMxGIFrnZPt5IQ/4tOUxu9i1
-	RXsdzkl66aG3uihpAdqqoHzXYB0KCjwCnMWFLWiR7QiDNJxergdycS2xSerGAttz
-	YES+/Q==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cn0b1jug3-1
+	AJf/VHFbEfrJ7fM8DpDhu22yxXg6EYy+KGz73+G0kyo=; b=pQ1cF/MHYq59woRz
+	oPrTjawyd36QiltIrv43pzT61p3G2qkYzR/zqYARzavBpUevniNAZXa1EVozR2PE
+	RbUaTpzJdtRHFOP7mHtMmZl9GdOAPUGNnztZJOdUxGIf7ppNfPUR85fQhI6nAoj+
+	hfkbZuQG4T3Zhd3V422sOQwPkHm+lkLJRudA8Ar4m8of5apM7xIz6yzQB2vJBhZX
+	vBjN5x/zBYjil+QO42LFEWpPtdaurRGUCpecBMuk7EPEg/QD+/NGvvzDErfDwP1b
+	lgJ2351XzPs7Uv+UQpq+SIPjiwBGb3Kk22wy3j8vJod/lMMA/RYfgM9B5WTv0Vgg
+	bRJXGw==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cncmfraka-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 15:57:55 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8cbb8040f48so3888720585a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 07:57:55 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 15:57:58 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8cb706313beso551386885a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 07:57:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1772467075; x=1773071875; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1772467078; x=1773071878; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=FqTHsx1l1/9oEj5e3q2mep/esitBtih9Ht1cGIH4yFE=;
-        b=jMTEq8f9Audug3ZPC6xW+yFkRO0+OCcMo/Fo4/JXJIpyDLJad+0cSigUFO+rGAukd6
-         caeWOE5poIpWjBANPg9U/JquG/Ci57CE4qj47cdVCfPxrefN5bSwXOcN/Jy7HeZqt51e
-         qtMoz8sHiu2xdj4x4tPS13TgtCqPnsTTn9ItV+ZU3GB+d5xhaQ4qwto+1Bf1rdm7OFf3
-         8qnIUPLxPdyQoZrzVsfyiIwFY/cINdW95YU+pGsGfIQFFsqS4cOgHwUftg8UeVQTVkMa
-         psBCs0oDNTm9RE274rr9Y2yPtnRJVoB3y4F1L3muDHTIjSqyPXWsE+8vB9fwZMplGGfF
-         Xjaw==
+        bh=AJf/VHFbEfrJ7fM8DpDhu22yxXg6EYy+KGz73+G0kyo=;
+        b=ZzsN2v9yVwU1/jIIbX4OzHvjGD/39SV9wBiYTOAPmF6Nbomazn9ummLHqIf/39hxx5
+         5wBozCDm48M6bLh850qEPZC9P1nGiidMI4j+4TxfXwShHObv+LFEKsDchbHO34xxzRP3
+         D7lO3+6IfJwOYPqJLtBOijwX/3dZXvk/ujL5MHJvOEpIl/ZTW+LJ64666tjW57TV85/D
+         12eB20syPo+6PxlE7DSIul3pNxJ5oFVI8V8eV8G9eIBXL0juUoxP66w2L7f/O2ArayKS
+         zr8m+tem55sjdJR67YNrhNz+1rKbSBqvr7oIZ0Ym8dOB9RUko2bwbTY+IGfAUhhQv345
+         TzXA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772467075; x=1773071875;
+        d=1e100.net; s=20230601; t=1772467078; x=1773071878;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=FqTHsx1l1/9oEj5e3q2mep/esitBtih9Ht1cGIH4yFE=;
-        b=Qel74lurywqN21mc9+FfBZauehnMcPUtP4lbL37GUcKmtXmLb7J3yty303eWpxfC4l
-         csm2J7eJefp2mXFag2AgnyhXVSlCOhnmWLuRnqzV65qNLiAFMNvWYBWQYvkuuqK6SxAt
-         h0KwmTyzhn9LMu6V46acMZ9GDHWN+wQSi4cOwvcL1xRP65jIlB2Z8e4921ZT2sUNDuJj
-         8cjW0jyF8WKB+6FijckrrRuNikYtz7FienFsaPT1XEPVxQeXptW6wivj0uM0m8lgXgal
-         gfh6yDwlv4t8heZ2IVaeAFtdj+LelQhaXHXO3hPoMXO3z4nHhQyINmMcWl0CCYgkGfDq
-         v9sw==
-X-Forwarded-Encrypted: i=1; AJvYcCVFNIIdhqqR+TaqyqRDCc01UVraGNX3MTbriIyPGKe0EWxWKiE8pW8py72hEzysS0RhFXbp78Vx1IyP9LMAGkbt@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdmpOAYyaJceNNrX3c0Va9hmJmtyuXIFtqUbuOMBmnX1xSoM5o
-	esUmfZaDWN7n7SLcv7DjN6sVtGgww7I1+HNzD4mUk5dpehdUI/Kv/cT/pC0DnUqtzZDeU+YgUOO
-	UnaY/1fohJPsMI0z9N6udJEudBBpC1raXky5qa3E30AgzK34PiBgkcVIIufE4uausK2Dr/uZRTE
-	GLbA==
-X-Gm-Gg: ATEYQzynQjoz9v5+m5cfDB6CRT0XV9Tacae+D8r4/AtVChlVxie915J3MfUjY7PhXJJ
-	XxpgzDQiy8MemV5aIopA28pP8P1xOfltaAVVxWY+czjMM2iUOUc+smHzTdsJsgLcYcDdl7/rgwP
-	3kwInxEFtSxANm7NLJIbUdRDvJ8z9jARCupWnhFFCaQn2yBG4bcnjAjRifo7RwW+UlY4TEohfjO
-	vLfL+0QH/ocf+IfvTS685M8Zu/epdh9+X/E4UN4J265MtjsY5OieH1hWgtk2ndTqm2X2T/iXWjc
-	BcD0UEuSj/NyWRZ6cIJXOMS+En7Juutb0YQa2QHj596+1BfYrxXvesjoQgl0HLdrg6yxX3ZCJFq
-	1ndCKhrp8/f8tzOdxgfaO9U2o1B549i5iDhOIzUF+w4VgkVjwT+Ch
-X-Received: by 2002:a05:620a:4543:b0:8ca:3d7c:e74a with SMTP id af79cd13be357-8cbc8e6996amr1438253185a.56.1772467074777;
-        Mon, 02 Mar 2026 07:57:54 -0800 (PST)
-X-Received: by 2002:a05:620a:4543:b0:8ca:3d7c:e74a with SMTP id af79cd13be357-8cbc8e6996amr1438246985a.56.1772467074240;
-        Mon, 02 Mar 2026 07:57:54 -0800 (PST)
+        bh=AJf/VHFbEfrJ7fM8DpDhu22yxXg6EYy+KGz73+G0kyo=;
+        b=e7WLJOl+TqWIHyFLmsIxPi3FEpujN3BC8pgxBC5dLar2AILTIT7oRwBgRbAJ/DI/nA
+         8f3g14bY/gETUXA7aXUtl9953XXPlr96nXY3k1AdhgXdDeWidkTXsNDYfwACzH1V3nx/
+         D9p4u5JH7jFwuUCzykm3RUp5Rwau1Y8YOKctQyB6/xOZ/gvo8owy53XCaWmX1o71L+SY
+         ClbgxV3mygfnxGvdP5wzR9QzptQVe5NYtwlQ8BBZ+a4qnjsvoghPcoFr/OjXmNStnVHN
+         k/GfOLalOzezzOgDM8E03Fz1KXSw1rJbxrXtqfqaMpTI9NTiryceN2/ZX7SApwZp7FqS
+         nlYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXspeceHpCMtmp58qrmXwI74HSDdwabXjiCj+zd9bL7V/yILyF/Gl59NGZgJtQkEALXVhFipfsk/MDVPKe9tsav@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0GVrGfRhfz362/4Y2NWF74D3DRFHAPb8tyxX043xuySr6QYhZ
+	Kjvd6hiQUBS1sH5VfdTcI1PEKpP9RF52z/G6dmU808LlwmUUd6C1P+T5piL1jLyTQ3F+d/PrDbU
+	+Du+F3aGO0x61j5d+ffOdz/zMhZuqtYGPzL5VYNER/gC6JQFTPqNozguToxhTcYRb5sGn/Cm1rL
+	1T+Q==
+X-Gm-Gg: ATEYQzw71efL8FT5AwSBVRxpyAiGWCS6PmmH0QOMzXXXC1pFQYqLMt0UgrUtLtDyUv+
+	FYxJuuBnGoHXm/RJxgo29wpJVIt/d2yZSJax6CyrqXatgiSiVvaHZhcMpbDR/CCvFhyhYg4FJfF
+	gi5C82XPvxsmgqHrrsqKl/h8fPJOKEL/1r1Yw6mF/BPaJDdiEm1AmnjT7GUa2iJXvisHO55kHoG
+	xenqpa4M3eMRGW9Ptz23qojzUptmrFnPHezC85GDFUmTtTLCND5ge2LPM18iK4zc4qtVLpG8va3
+	mCYghsi4ld55L8DBd1H+O+cvggF5kLhX6yu89yDTEkOlzvEFBZviErvLTSz4JiqWgadfysiZpFa
+	tKVKSW1VEaknpC+a7KeBiiN5N/W3ycppwu37CKdy9sb0p4JWyEOhQ
+X-Received: by 2002:a05:620a:404d:b0:8ca:2baa:774 with SMTP id af79cd13be357-8cbc8e82641mr1612983585a.18.1772467078427;
+        Mon, 02 Mar 2026 07:57:58 -0800 (PST)
+X-Received: by 2002:a05:620a:404d:b0:8ca:2baa:774 with SMTP id af79cd13be357-8cbc8e82641mr1612979485a.18.1772467077944;
+        Mon, 02 Mar 2026 07:57:57 -0800 (PST)
 Received: from brgl-qcom.local ([2a01:cb1d:dc:7e00:87af:7e67:1864:389d])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439b41831easm11282438f8f.12.2026.03.02.07.57.52
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439b41831easm11282438f8f.12.2026.03.02.07.57.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Mar 2026 07:57:53 -0800 (PST)
+        Mon, 02 Mar 2026 07:57:57 -0800 (PST)
 From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Date: Mon, 02 Mar 2026 16:57:22 +0100
-Subject: [PATCH RFC v11 09/12] dmaengine: qcom: bam_dma: convert tasklet to
- a BH workqueue
+Date: Mon, 02 Mar 2026 16:57:24 +0100
+Subject: [PATCH RFC v11 11/12] dmaengine: qcom: bam_dma: Add
+ pipe_lock_supported flag support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260302-qcom-qce-cmd-descr-v11-9-4bf1f5db4802@oss.qualcomm.com>
+Message-Id: <20260302-qcom-qce-cmd-descr-v11-11-4bf1f5db4802@oss.qualcomm.com>
 References: <20260302-qcom-qce-cmd-descr-v11-0-4bf1f5db4802@oss.qualcomm.com>
 In-Reply-To: <20260302-qcom-qce-cmd-descr-v11-0-4bf1f5db4802@oss.qualcomm.com>
 To: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
@@ -129,53 +129,53 @@ Cc: dmaengine@vger.kernel.org, linux-doc@vger.kernel.org,
         linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
         brgl@kernel.org, Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
         Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4367;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1425;
  i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
- bh=ZjTo93puqxgLaTUXkUuT1EliesGs2ukWThDJ46ZWj64=;
- b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBppbNsLhK1j9d23E6BouMmy1Syjsq/SkCH3Y7D9
- L29Yuvs3B6JAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCaaWzbAAKCRAFnS7L/zaE
- wxc6D/9IklHZUQkEAv7VtBKbEDjVJALH+W3s5NCnKWr7mjlYx01tUTylRIQydShsUtgX8iDbSnw
- KBKkdLu53Ey9b/5TcmdohP/R/QA94LyqnxChaXGpK2iIhKsNSfBBVxZnYCTR6/eYxSYkOpe7W+W
- 4/g2fYUqgt5LHy95b92BzCuQLOPmvJtkscBVBnm8xDVo6mIR8dbnVib9rWjUXJdPO58iU76aFiW
- VQG228PnWm/7IKpeEwOWBo7mqjNBloGnQbslE8guY0vZgQZOI1GxRu7i+B/4fJ5ujSBqBZzy4OH
- oYeSzBxqP4GtJBCUUwHN5/TTdVwl+tJdskbauS604LrGvUKTR7Iv6VeAh3TPHL10eZ0zDXcVeII
- v0l6ypHc7kE6N6jXoDHPGmdGKF5uEDf+40WB8pxg++ZizdL1c5Ui8+M6im0m1+wRnbahiGl+MbS
- h/eXoYqfNa7pGBUUpP5I7zYEMJaP2h8u9Qtleyyx3m1ihJHGqQNH7Qii7TTFT41EkPpKp2orrqy
- xPivIDR5fwN9Wr7ZRe25PLYwUfrViCqZJWA0eFhTKxU+gV260LvZ9wHadoNk58Oi/atD2AGTE4/
- g6Ke66o6ICLtq4ubEVDC1iHX8mgXIImhcxP7/3QEyQix0T5U4xVdIuNeNu7WWJY09fFMQje+b++
- CvOtNPLiNbuqAZQ==
+ bh=gfl+Fn+ISpyM/izQ226zR5pAGJiHs0gWIagW7nCmNI0=;
+ b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBppbNt5bDUkL7J/F9xgZHxua3RHn7yN37DQAd5k
+ a81DXZBCUmJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCaaWzbQAKCRAFnS7L/zaE
+ w1AsD/0dIvkbcuCLSVavXlzNy2A5vtB4RVHS7Sh8XU1wqW/rudIXRcE6A/tT6zQwwRl9FKk72R4
+ LRyW5woC/F8fOtXQbE60wN+nyNhHJqFaQrXGcgvkIdjSeMEPHBP0UGmLQc/DlMK7Myvcmha6NBq
+ a7R9i65yQ1O7/TjxzvKbo4c5VsEJosG9sqsIFAyo+cctWRU5+DVpaHS6Watckmbme0qFNGqMumJ
+ ZK+SoYfWp7qA+QUakyhPHwWmBJCyojx0QWjNQ8jaXYHBMQvDDGeTv5aXLGbiN/X7cONQ6t+5gok
+ bjmeSoRCll96nWdaXevAKoCcIZSlLAZtKNrPRTP2GWc9NskijVbNH/58e7ZJdTtHcrHe2AuqrDX
+ 5IoxbK++ZYng/eVj0Co2mqvxa7b9p17y2odXkzVfMnvcQiwUd3gp9OHNLvtUjXhwgnH2+9bLInl
+ 7QeLiTkq+oxQOUFnF2NkQSywZFTVeUuczgyvavqi+GMgYUPijvaprVjCA3R9hLuxKq/Xj99E9i0
+ bHNrt3Nd6WdtF2JvBKm+xXlADr7nUv01fx/TDwiXIhzvk/GnJoT/ZfH0BqGi/ktIBdPqgujId+7
+ xcRzaDdTjSY+NCHZL0FfykhDxXOXZjG03CXeFld/hXWHgD9mY3CgjRQ8lj2++jdO2J9Q3dLNRSB
+ Ddhf8CtiibFMAxA==
 X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
-X-Proofpoint-GUID: Vq_DQKxI4ojj1AID1dkro6KxKdSv_-9B
-X-Authority-Analysis: v=2.4 cv=Hol72kTS c=1 sm=1 tr=0 ts=69a5b383 cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+X-Authority-Analysis: v=2.4 cv=Br+QAIX5 c=1 sm=1 tr=0 ts=69a5b387 cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
  a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=KKAkSRfTAAAA:8 a=u-biHsxzOdRIXVMzAPsA:9 a=QEXdDO2ut3YA:10
- a=bTQJ7kPSJx9SKPbeHEYW:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-ORIG-GUID: Vq_DQKxI4ojj1AID1dkro6KxKdSv_-9B
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzAyMDEzMyBTYWx0ZWRfX0ajs7nbeU+iM
- ElZSjZylkvAEGv1n1zsqQVy3hUE5xd4h/x0hl4ZK+624iiEreTIHwlS0MSEhbm5nYOwopnYu8iP
- gzEyVue0VgwKtB6xc/a60somgOJcjBV1gIvmuiV+BiGgks3tWndHcScjg32V2xmMefji7VOjW91
- OMyglIq0YQz/7EaCjfIEJ0hCLFddH08QBYojue0kjTLmq1FOH7qiPHS0sCjpdjGQGaGMptUYPC2
- mBU2yaP1Qv/0rUWFGRFFH86DSmmyCWBlt+8tInnXmRJro0OV/I2+fxdpIMPld7lVIddx/2Ieuqo
- A8o3KAXwgU0B8VQfaiUhHwWZMdanLlk0IfSdX1/LoI72b9l+xhxavj2uNZHIFvOFFyADXfVTtZC
- J8e7cLIz1vpNl2elVLKWl3abZA3Jpo6CWCo+QY84mX2cC+chVwOjw5H03YeG+Ao0xWXfA/IqIke
- aE0hkV+bzjOjEQDUosA==
+ a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=KKAkSRfTAAAA:8
+ a=EUspDBNiAAAA:8 a=ZSnkYuKn9ZpO9KHknGoA:9 a=QEXdDO2ut3YA:10
+ a=PEH46H7Ffwr30OY-TuGO:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-ORIG-GUID: a-ml0Eu98WOHxDDyPCOpj-dVxwOGv-Ic
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzAyMDEzMyBTYWx0ZWRfX/ckTXZjy8BH0
+ PQNT5mVVPA2FSCCTw7wCv5KS6Tfy0ljSUOv752rnA6bL6qK32Yqi4YNX2MQO0IlPedWiCSsmSz8
+ Z9b/CX9oqRqCtN6JrYEAC7Ia2uhY4VaqXknn4YNz0q7fUB0avfOxCyD/2GSVxdOLbocSWilJh8j
+ mdWwz2PfxJnAXOj+1ZuRXThTaCd1j3yuAEyfmLgaSxXLAy3Sakt1cVjnVGCHA3mVPymG/f0Oq2O
+ HWMFP6z+qTb1lTj5N51erxmwxQKeB8MnAAQCp+gJuIM0gPn9Vfyh5qchwMgNYXApgcHSwnW51fK
+ 6GBRaTlPdEs3J79vgStHUtjXY518pGkDC0s6FoCGRVty66LfnvseEz/o2zDkpdShQeGx7oTaq7T
+ psJWtyH/otLF/TD2FTBuvHXoSJ6GXBcZHhbrQn4b7zDBPBMc2pyMB4lLED/brz0YDLDH2RddCtk
+ 9q8+Pl82VWmKb46XY2w==
+X-Proofpoint-GUID: a-ml0Eu98WOHxDDyPCOpj-dVxwOGv-Ic
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-03-02_03,2026-03-02_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 impostorscore=0 malwarescore=0 adultscore=0 suspectscore=0
- lowpriorityscore=0 phishscore=0 priorityscore=1501 bulkscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2603020133
+ phishscore=0 malwarescore=0 clxscore=1015 bulkscore=0 spamscore=0
+ priorityscore=1501 adultscore=0 lowpriorityscore=0 suspectscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2602130000
+ definitions=main-2603020133
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_155757_951664_BAD0D772 
-X-CRM114-Status: GOOD (  22.31  )
+X-CRM114-CacheID: sfid-20260302_155801_906548_35A795D0 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,138 +190,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-BH workqueues are a modern mechanism, aiming to replace legacy tasklets.
-Let's convert the BAM DMA driver to using the high-priority variant of
-the BH workqueue.
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-[Vinod: suggested using the BG workqueue instead of the regular one
-running in process context]
+Extend the device match data with a flag indicating whether the IP
+supports the BAM lock/unlock feature. Set it to true on BAM IP versions
+1.4.0 and above.
 
-Suggested-by: Vinod Koul <vkoul@kernel.org>
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Reviewed-by: Bjorn Andersson <andersson@kernel.org>
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 ---
- drivers/dma/qcom/bam_dma.c | 32 ++++++++++++++++----------------
- 1 file changed, 16 insertions(+), 16 deletions(-)
+ drivers/dma/qcom/bam_dma.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
 diff --git a/drivers/dma/qcom/bam_dma.c b/drivers/dma/qcom/bam_dma.c
-index 19116295f8325767a0d97a7848077885b118241c..c8601bac555edf1bb4384fd39cb3449ec6e86334 100644
+index 8f6d03f6c673b57ed13aeca6c8331c71596d077b..83491e7c2f17d8c9d12a1a055baea7e3a0a75a53 100644
 --- a/drivers/dma/qcom/bam_dma.c
 +++ b/drivers/dma/qcom/bam_dma.c
-@@ -42,6 +42,7 @@
- #include <linux/pm_runtime.h>
- #include <linux/scatterlist.h>
- #include <linux/slab.h>
-+#include <linux/workqueue.h>
+@@ -115,6 +115,7 @@ struct reg_offset_data {
  
- #include "../dmaengine.h"
- #include "../virt-dma.h"
-@@ -397,8 +398,8 @@ struct bam_device {
- 	struct clk *bamclk;
- 	int irq;
- 
--	/* dma start transaction tasklet */
--	struct tasklet_struct task;
-+	/* dma start transaction workqueue */
-+	struct work_struct work;
+ struct bam_device_data {
+ 	const struct reg_offset_data *reg_info;
++	bool pipe_lock_supported;
  };
  
- /**
-@@ -863,7 +864,7 @@ static u32 process_channel_irqs(struct bam_device *bdev)
- 			/*
- 			 * if complete, process cookie. Otherwise
- 			 * push back to front of desc_issued so that
--			 * it gets restarted by the tasklet
-+			 * it gets restarted by the work queue.
- 			 */
- 			if (!async_desc->num_desc) {
- 				vchan_cookie_complete(&async_desc->vd);
-@@ -893,9 +894,9 @@ static irqreturn_t bam_dma_irq(int irq, void *data)
+ static const struct reg_offset_data bam_v1_3_reg_info[] = {
+@@ -181,6 +182,7 @@ static const struct reg_offset_data bam_v1_4_reg_info[] = {
  
- 	srcs |= process_channel_irqs(bdev);
+ static const struct bam_device_data bam_v1_4_data = {
+ 	.reg_info = bam_v1_4_reg_info,
++	.pipe_lock_supported = true,
+ };
  
--	/* kick off tasklet to start next dma transfer */
-+	/* kick off the work queue to start next dma transfer */
- 	if (srcs & P_IRQ)
--		tasklet_schedule(&bdev->task);
-+		queue_work(system_bh_highpri_wq, &bdev->work);
+ static const struct reg_offset_data bam_v1_7_reg_info[] = {
+@@ -214,6 +216,7 @@ static const struct reg_offset_data bam_v1_7_reg_info[] = {
  
- 	ret = pm_runtime_get_sync(bdev->dev);
- 	if (ret < 0)
-@@ -1091,14 +1092,14 @@ static void bam_start_dma(struct bam_chan *bchan)
- }
+ static const struct bam_device_data bam_v1_7_data = {
+ 	.reg_info = bam_v1_7_reg_info,
++	.pipe_lock_supported = true,
+ };
  
- /**
-- * dma_tasklet - DMA IRQ tasklet
-- * @t: tasklet argument (bam controller structure)
-+ * bam_dma_work() - DMA interrupt work queue callback
-+ * @work: work queue struct embedded in the BAM controller device struct
-  *
-  * Sets up next DMA operation and then processes all completed transactions
-  */
--static void dma_tasklet(struct tasklet_struct *t)
-+static void bam_dma_work(struct work_struct *work)
- {
--	struct bam_device *bdev = from_tasklet(bdev, t, task);
-+	struct bam_device *bdev = from_work(bdev, work, work);
- 	struct bam_chan *bchan;
- 	unsigned int i;
- 
-@@ -1111,14 +1112,13 @@ static void dma_tasklet(struct tasklet_struct *t)
- 		if (!list_empty(&bchan->vc.desc_issued) && !IS_BUSY(bchan))
- 			bam_start_dma(bchan);
- 	}
--
- }
- 
- /**
-  * bam_issue_pending - starts pending transactions
-  * @chan: dma channel
-  *
-- * Calls tasklet directly which in turn starts any pending transactions
-+ * Calls work queue directly which in turn starts any pending transactions
-  */
- static void bam_issue_pending(struct dma_chan *chan)
- {
-@@ -1286,14 +1286,14 @@ static int bam_dma_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto err_disable_clk;
- 
--	tasklet_setup(&bdev->task, dma_tasklet);
-+	INIT_WORK(&bdev->work, bam_dma_work);
- 
- 	bdev->channels = devm_kcalloc(bdev->dev, bdev->num_channels,
- 				sizeof(*bdev->channels), GFP_KERNEL);
- 
- 	if (!bdev->channels) {
- 		ret = -ENOMEM;
--		goto err_tasklet_kill;
-+		goto err_workqueue_cancel;
- 	}
- 
- 	/* allocate and initialize channels */
-@@ -1358,8 +1358,8 @@ static int bam_dma_probe(struct platform_device *pdev)
- err_bam_channel_exit:
- 	for (i = 0; i < bdev->num_channels; i++)
- 		tasklet_kill(&bdev->channels[i].vc.task);
--err_tasklet_kill:
--	tasklet_kill(&bdev->task);
-+err_workqueue_cancel:
-+	cancel_work_sync(&bdev->work);
- err_disable_clk:
- 	clk_disable_unprepare(bdev->bamclk);
- 
-@@ -1393,7 +1393,7 @@ static void bam_dma_remove(struct platform_device *pdev)
- 			    bdev->channels[i].fifo_phys);
- 	}
- 
--	tasklet_kill(&bdev->task);
-+	cancel_work_sync(&bdev->work);
- 
- 	clk_disable_unprepare(bdev->bamclk);
- }
+ /* BAM CTRL */
 
 -- 
 2.47.3
