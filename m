@@ -4,91 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 862C9EA4E3F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 16:38:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17A10C624C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 16:39:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=32KLibA2LnxuiBPJQhexbcq4h5vz7CZtFSoqgdy1YZE=; b=zxrwXIwK27ZULLYEjLYcZLnG6t
-	DcHET25ViinfOgs6hNpVaTP5kRYM+2O5V45WukC5zvLoy2fzpmlgQhG+/HpHuxalWBKa7mm2RXGJT
-	KzbkwVwHsmWdEEyioIyTI0Ij30UP5DlnaXH0D1tCGnCkRv3puU0XiD18NixAZLfWjqwpeGAIuRKY/
-	l8FpGc29I3ub7F1bU10nSy5uTaIISLVGUf1EB0p+l06uG2TFUQKpCJDhUSmSvGyoxdCt+mKpAnBO5
-	EmcM5PKiZ3yPCu9BK0m7ZWpF25huQNZX+mqq2GpzC/qKCGNcXg9+rgEth8RvOhaEVIIICHfa7KxXD
-	qY+CS61A==;
+	bh=U3mJBzPybFzBoxxLhk9/5xXE6S7J174XlCAH/v+i6iI=; b=U/loW1Aze2IBZj+qZdwY1Jevxh
+	vb96Dz8f07AlXDCl6qkmrQn4fjakxM+3sgOMfE2dhc/74tZkBxgI0OHYEgyfCoATfTNbKWL5eTHaG
+	xg05guQO0LOx0O2k6xZiCeytl+zhY2WL1/sAAwNfWQT1tPd0P9DwePt1y21m/TjGU/1oYNb5CPT8E
+	Y/dQF+vj+lN+Ub6iVKHMkxcoyxeIKg0wY0xS5G+ZPZ2mKCnHDoxPS+9yAegQO42Sj1oyvvvpN/pB1
+	OgnEl671A6Sf2lp26JP7GQlqw22lPISZ6pEPI45eW7o2lmQgwfVnLuEkc514G1ijM5y2me38ZAvpi
+	o6cp8jYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx6IA-0000000DVl5-3rCq;
-	Mon, 02 Mar 2026 16:38:46 +0000
-Received: from mail-qk1-f173.google.com ([209.85.222.173])
+	id 1vx6Id-0000000DVrP-1ltc;
+	Mon, 02 Mar 2026 16:39:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx6I8-0000000DVkK-0wez
+	id 1vx6Ia-0000000DVr0-3jQH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 16:38:46 +0000
-Received: by mail-qk1-f173.google.com with SMTP id af79cd13be357-8cb3825b0fbso448096985a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 08:38:43 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772469522; x=1773074322;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=32KLibA2LnxuiBPJQhexbcq4h5vz7CZtFSoqgdy1YZE=;
-        b=rySs6dYL8kbdr0Z/H5t54EJGBLOjIgId31Zq9RLlUuzD2Cw3ftOVVRXpwKNvE2HL8/
-         LZz2XDebYhzyLMDpUVhWLIpmLI5dZsaL7KPXS5ARgIUcWRcmBYeEGbA7dAarVvfZGpav
-         xTS8WmppPgvhkN0SkDeGsObM7hUlyaSQRZxrmtBkrUXn5CBWM1ISO3wvNgDanruJDfCw
-         lFpnOojqG+N5BhNzvBInG9AgoQ8LHpVs/+W9AS6TXKuTZ+evXLFoOy3p7P0VQfowz/8z
-         LGWsLv47+jBFV4GNy8aXqCNmlczXsCH0n7BcfrKckOlMh8LuswKTNXEWtuAdQWPZjROC
-         Fczg==
-X-Forwarded-Encrypted: i=1; AJvYcCWJCt5BYNgxJZCjtrQ1x0zMAuCO+MFewEkyuHZdRTLf/JWB7J8FiOTaj6ydOoFukELU+zsd5p2/AJTBZ0m485wQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDnUvCobczTI9arotLpDSqVNrHokg587Bl3y66m3CvyUEJIkCx
-	IStpQgU8lSN6E/DJTDucEenCCGVdrHCDdk6DHfSfHm9XHJAHA6EMJoLIFCRsdp/p
-X-Gm-Gg: ATEYQzwKFSI17gdtYc40yDHqx1R3bjXv0HRX2MvEE66Mt4T9I1fWyRd7TP8cwiZOAtv
-	P35f167wagcz5BTDcu3SwUztU2VrzrsxHdh5TXmKMjU+zYc7AvjYIDsQxhHGXtRFU1xTkqYVNeW
-	i019lK2UBHU9sXt5JiBDVp9hDbooOQ5PFDXG6BIMufq+KlPof4Xulxr8rMB9jzCHIgLti73n25p
-	bJtSGeXLTPDrx48m5eMREK/LtcXiYT4534Sy/ZmgXChl5VoxyF+AqBWWwlHeKayqE742WMwG+Zl
-	/4GJjJo6qT2Bg/NeJYayIXkRzTAQCcalMapjX+jgBGBlsrE4O+DLejB4UhP0Kpfzla0P0dRpC07
-	isxxIQ1oAdg9rUE2ZviDFUJdF8HHduqd9SeqDBgALRw3nvH+Aakr9/M5NzMrVIc6B0Z00HqdOJb
-	hvSPub3U7+CwoRKNolWEsAzArv2v6jWFoGluqr8FmCrZbIq9F+P1rqb/feMUegx2+m
-X-Received: by 2002:a05:620a:4410:b0:8ca:3c67:8914 with SMTP id af79cd13be357-8cbc8e17411mr1678255085a.72.1772469522486;
-        Mon, 02 Mar 2026 08:38:42 -0800 (PST)
-Received: from mail-qk1-f175.google.com (mail-qk1-f175.google.com. [209.85.222.175])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cbbf6f5c41sm1169504985a.24.2026.03.02.08.38.42
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Mar 2026 08:38:42 -0800 (PST)
-Received: by mail-qk1-f175.google.com with SMTP id af79cd13be357-8cb4097794dso457556485a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 08:38:42 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUoX3jpUm4d4L1vIbL8IhFDAUx2a6qFXg7Qa2uH7JKMwgX+CUZewTI62v82SR3eoWq2f8wIbqr/VIVmadnjY9tv@lists.infradead.org
-X-Received: by 2002:a05:6102:a4c:b0:5ee:a1e5:6504 with SMTP id
- ada2fe7eead31-5ff3257ef76mr5247593137.36.1772469141709; Mon, 02 Mar 2026
- 08:32:21 -0800 (PST)
-MIME-Version: 1.0
-References: <20260223-soc-of-root-v2-0-b45da45903c8@oss.qualcomm.com> <20260223-soc-of-root-v2-8-b45da45903c8@oss.qualcomm.com>
-In-Reply-To: <20260223-soc-of-root-v2-8-b45da45903c8@oss.qualcomm.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 2 Mar 2026 17:32:10 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdX-rdzLhOFEJYBXzCYX5jH2E1=ydGWKgNkD0Nqx-tGr4Q@mail.gmail.com>
-X-Gm-Features: AaiRm53oB2X0Qg0vbG2fw10FsfcqVt_uYNXkS-NKRd6s-Lft2nvlJyc42VLB5T0
-Message-ID: <CAMuHMdX-rdzLhOFEJYBXzCYX5jH2E1=ydGWKgNkD0Nqx-tGr4Q@mail.gmail.com>
-Subject: Re: [PATCH v2 8/9] soc: renesas: don't access of_root directly
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Frank Li <Frank.Li@nxp.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org, 
-	linux-sunxi@lists.linux.dev, driver-core@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_083844_272431_21C3A7A1 
-X-CRM114-Status: GOOD (  26.66  )
+	Mon, 02 Mar 2026 16:39:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E1C8B60008;
+	Mon,  2 Mar 2026 16:39:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BC0AC2BC86;
+	Mon,  2 Mar 2026 16:39:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772469551;
+	bh=xGLpAlSOhj6lngWKueL7mnET/sC46MUHHxTN1ZnpwuA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=GIdAOSaIfkS/k4PXHDlja3lpV/xddGq1kmwLsXCqfaoTkLa4s/qTEwkYY3S9tIQ3s
+	 FVINZPmNoGaiPnzEGScwSj/KRi/z1K/Vj7yalDUnOm7ApWSzFo8dabAV8qCEq/P14R
+	 ftLqh/p9cvocgur8pHRfFjzyCOLseWDKL+GlBI0OspjyfJpcYGrIQus/yp9n8qPlUY
+	 402zTME8IvxDRT/z1ZHWl/u93yv8QC70LxlCKGYtcSBkDzoLov77aoX2eFbFQ4SVYt
+	 mLQFMHx+WcekBE/qYCiW0P0TLbPAw4NoYmG/oZWriB1itqLYHCOpKwW7sH/DNudxCT
+	 INw9uOqV+FWJQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vx6IX-0000000FK2P-0OL4;
+	Mon, 02 Mar 2026 16:39:09 +0000
+Date: Mon, 02 Mar 2026 16:39:08 +0000
+Message-ID: <86pl5m89ub.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>
+Subject: Re: [PATCH v12 27/46] KVM: arm64: Handle Realm PSCI requests
+In-Reply-To: <20251217101125.91098-28-steven.price@arm.com>
+References: <20251217101125.91098-1-steven.price@arm.com>
+	<20251217101125.91098-28-steven.price@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,66 +101,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bartosz,
-
-On Mon, 23 Feb 2026 at 14:38, Bartosz Golaszewski
-<bartosz.golaszewski@oss.qualcomm.com> wrote:
-> Don't access of_root directly as it reduces the build test coverage for
-> this driver with COMPILE_TEST=y and OF=n. Use existing helper functions
-> to retrieve the relevant information.
->
-> Suggested-by: Rob Herring <robh@kernel.org>
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-
-> --- a/drivers/soc/renesas/renesas-soc.c
-> +++ b/drivers/soc/renesas/renesas-soc.c
-
-> @@ -468,7 +469,11 @@ static int __init renesas_soc_init(void)
->         const char *soc_id;
->         int ret;
->
-> -       match = of_match_node(renesas_socs, of_root);
-> +       struct device_node *root __free(device_node) = of_find_node_by_path("/");
-> +       if (!root)
-> +               return -ENOENT;
+On Wed, 17 Dec 2025 10:11:04 +0000,
+Steven Price <steven.price@arm.com> wrote:
+> 
+> The RMM needs to be informed of the target REC when a PSCI call is made
+> with an MPIDR argument. Expose an ioctl to the userspace in case the PSCI
+> is handled by it.
+> 
+> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> ---
+> Changes since v11:
+>  * RMM->RMI renaming.
+> Changes since v6:
+>  * Use vcpu_is_rec() rather than kvm_is_realm(vcpu->kvm).
+>  * Minor renaming/formatting fixes.
+> ---
+>  arch/arm64/include/asm/kvm_rmi.h |  3 +++
+>  arch/arm64/kvm/arm.c             | 25 +++++++++++++++++++++++++
+>  arch/arm64/kvm/psci.c            | 30 ++++++++++++++++++++++++++++++
+>  arch/arm64/kvm/rmi.c             | 14 ++++++++++++++
+>  4 files changed, 72 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
+> index bfe6428eaf16..77da297ca09d 100644
+> --- a/arch/arm64/include/asm/kvm_rmi.h
+> +++ b/arch/arm64/include/asm/kvm_rmi.h
+> @@ -118,6 +118,9 @@ int realm_map_non_secure(struct realm *realm,
+>  			 kvm_pfn_t pfn,
+>  			 unsigned long size,
+>  			 struct kvm_mmu_memory_cache *memcache);
+> +int realm_psci_complete(struct kvm_vcpu *source,
+> +			struct kvm_vcpu *target,
+> +			unsigned long status);
+>  
+>  static inline bool kvm_realm_is_private_address(struct realm *realm,
+>  						unsigned long addr)
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 06070bc47ee3..fb04d032504e 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -1797,6 +1797,22 @@ static int kvm_arm_vcpu_set_events(struct kvm_vcpu *vcpu,
+>  	return __kvm_arm_vcpu_set_events(vcpu, events);
+>  }
+>  
+> +static int kvm_arm_vcpu_rmi_psci_complete(struct kvm_vcpu *vcpu,
+> +					  struct kvm_arm_rmi_psci_complete *arg)
+> +{
+> +	struct kvm_vcpu *target = kvm_mpidr_to_vcpu(vcpu->kvm, arg->target_mpidr);
 > +
-> +       match = of_match_node(renesas_socs, root);
->         if (!match)
->                 return -ENODEV;
+> +	if (!target)
+> +		return -EINVAL;
+> +
+> +	/*
+> +	 * RMM v1.0 only supports PSCI_RET_SUCCESS or PSCI_RET_DENIED
+> +	 * for the status. But, let us leave it to the RMM to filter
+> +	 * for making this future proof.
+> +	 */
+> +	return realm_psci_complete(vcpu, target, arg->psci_status);
+> +}
+> +
+>  long kvm_arch_vcpu_ioctl(struct file *filp,
+>  			 unsigned int ioctl, unsigned long arg)
+>  {
+> @@ -1925,6 +1941,15 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
+>  
+>  		return kvm_arm_vcpu_finalize(vcpu, what);
+>  	}
+> +	case KVM_ARM_VCPU_RMI_PSCI_COMPLETE: {
+> +		struct kvm_arm_rmi_psci_complete req;
+> +
+> +		if (!vcpu_is_rec(vcpu))
+> +			return -EPERM;
+
+Same remark as for the other ioctl: EPERM is not quite describing the
+problem.
+
+> +		if (copy_from_user(&req, argp, sizeof(req)))
+> +			return -EFAULT;
+> +		return kvm_arm_vcpu_rmi_psci_complete(vcpu, &req);
+> +	}
+>  	default:
+>  		r = -EINVAL;
+>  	}
+> diff --git a/arch/arm64/kvm/psci.c b/arch/arm64/kvm/psci.c
+> index 3b5dbe9a0a0e..a68f3c1878a5 100644
+> --- a/arch/arm64/kvm/psci.c
+> +++ b/arch/arm64/kvm/psci.c
+> @@ -103,6 +103,12 @@ static unsigned long kvm_psci_vcpu_on(struct kvm_vcpu *source_vcpu)
+>  
+>  	reset_state->reset = true;
+>  	kvm_make_request(KVM_REQ_VCPU_RESET, vcpu);
+> +	/*
+> +	 * Make sure we issue PSCI_COMPLETE before the VCPU can be
+> +	 * scheduled.
+> +	 */
+> +	if (vcpu_is_rec(vcpu))
+> +		realm_psci_complete(source_vcpu, vcpu, PSCI_RET_SUCCESS);
 >
 
-I still find it silly to add a call to of_find_node_by_path().
-In your reply to my comment on v1, you said you don't want to add
-another helper.
+I really think in-kernel PSCI should be for NS VMs only. The whole
+reason for moving to userspace support was to stop adding features to
+an already complex infrastructure, and CCA is exactly the sort of
+things we want userspace to deal with.
 
-Currently we have two helpers in this area:
-  1. of_machine_device_match(), which returns bool, and tells if a
-     match is available,
-  2. of_machine_get_match_data(), which returns the match data, if a
-     match is available.
-But there is no helper to return the actual match?
-of_machine_device_match() would be fine, if it wouldn't cast the result
-to bool...
+Thanks,
 
-As there is no cost (binary size-wise) in having the helper that returns
-the match, too, I have sent a series[1] to do that. The last patch[2]
-is an alternative to this patch, avoiding the need to add a call to
-of_find_node_by_path().
+	M.
 
-[1] "[PATCH 0/7] of: Add and use of_machine_get_match() helper"
-    https://lore.kernel.org/cover.1772468323.git.geert+renesas@glider.be
-[2] "[PATCH 7/7] soc: renesas: Convert to of_machine_get_match()"
-    https://lore.kernel.org/10876b30a8bdb7d1cfcc2f23fb859f2ffea335fe.1772468323.git.geert+renesas@glider.be
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+-- 
+Without deviation from the norm, progress is not possible.
 
