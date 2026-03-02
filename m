@@ -4,39 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16F79EB362F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 19:11:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D84EB3632
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 19:11:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MG/aMyI8Qd0q85e+gppePBd8Hzbs6zPTM2Iv1xiLvO0=; b=GGeMuGhM5snC8oXqdphy/fpv2s
-	Q3bWEtVI3la0SawGoS2DUjuWNCAIabsUe96zZv4Tg8AmLPItC642U72/NkXVLJhgEvwo6/yfitzpa
-	2/9AsxsLjPxKsgYDrwJ6XP4fp2x+NYpzzS9vZWjtCe38Jh0vkWE25cgym3m5MON5YDvM0b8lH0gbx
-	JOMPkGfUoKc6eNUGEN30hxhgTgyvnMQ7Adw0OuQWlp7CGG6jJJOL7YIpzqAmA6zs0Q+Xc+p2LtCga
-	nEGegZT8BDGbqeTChDlPY/H9Uh+fIVYo20sranYes3+oRoxFK6RqeUr5bN8A0t471iin7SnumWP+E
-	k2HW3eUw==;
+	bh=JX/Nu58kA5M2wq2cfRjJ5hGnvcTue0yUZtVSohB/Lk0=; b=QdVmH9J44tOIJbOSugmieiO0Ty
+	vs/ncH0UKqmSwRPQ20S8mtgjCXBWpCROQLTWuy1P2rjhpMUds79RPn0p71fixx/7mYlboV5Se6XqN
+	gGH2LhIw2Ll3dH+xX8wFBEyTKjIh+JiSNA9/vu8bdcIi/8xLivYXoR/nBSOSDcXdzL6c+04zUNdz0
+	7qd++KpVKRXUgdODJNoRWNQj5Cdnd73BMp1kblAGod4BWI/aFI5aIGzcwy+3vSWJ7c3QSsv81zKei
+	qJbm2vJnxG3JeuI22jGB8qSCmuIcmHMXjZNU+WrUyw1aZkTou9Xdb0HGEZ0dP4KHECfQWbfqfODB3
+	7+/pfcvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx8fk-0000000DiGr-1r3F;
-	Mon, 02 Mar 2026 19:11:16 +0000
-Received: from mail.hugovil.com ([162.243.120.170])
+	id 1vx8fp-0000000DiLh-34tL;
+	Mon, 02 Mar 2026 19:11:21 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx8fi-0000000DiER-1MpJ
+	id 1vx8fo-0000000DiJi-3quH
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 02 Mar 2026 19:11:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Subject:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Cc:To:From:Sender:
+	Reply-To:Content-Type:Content-ID:Content-Description;
+	bh=JX/Nu58kA5M2wq2cfRjJ5hGnvcTue0yUZtVSohB/Lk0=; b=dNpkdaEAxnprvXpb7U3o7jsh9t
+	7TeYpElwUDDmhDzAQHLGOPbtQxyEVrIA1JgRZJkpmJruL7kHZJNUjmm6ZvK7zDPJW1mVGy6w5fLb/
+	+rx/tSql1IR3GLv5Eu5pvc/kSwu4ZFf4uTBKLrs01G2LZPpcQHA/c7h8oPOYbiMEVJi2vZtfSceQt
+	SuKmOdhWgFRP2C6Ec+EUhoz9m3GeVSpz7yEgrTsDS8/6XsBwxHgqWcLFnUsNnt4pDO1vCDTJGrYGR
+	sVfQ/vZ5hAr7eWvhSGad6RhHJrxP6nmnWQsOS3UyfGnf/Mr9sEMhPnW6Kw6N5pVRrrPm6o8mNX5QL
+	gduiwq9Q==;
+Received: from mail.hugovil.com ([162.243.120.170])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vx8fm-00000009xIQ-0D8n
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 19:11:15 +0000
+	Mon, 02 Mar 2026 19:11:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
 	; s=x; h=Subject:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Cc:To
 	:From:subject:date:message-id:reply-to;
-	bh=MG/aMyI8Qd0q85e+gppePBd8Hzbs6zPTM2Iv1xiLvO0=; b=jtAyi2ATe7CWmPllKzyjX2cry+
-	Pl4RasVtXBTV+Ip09TdcJjTOHNCRXAiOGfFbNPknTi8h+udAgYl/t6+Yy0nZsXvTOjF+DpzXD4qMd
-	Wa4ef5Uq+2/wPdlhCLcSQrgQs8xR19k42g3tmcxtbdMcyQibF6g0srrIkifttDzKtvNw=;
+	bh=JX/Nu58kA5M2wq2cfRjJ5hGnvcTue0yUZtVSohB/Lk0=; b=HuQL53y7mE2iDL2iyATE/j4QeV
+	f422CrokHGJ/Xbki2jZ8iIOzIRA4O2Dq2bSXt7/cbhxbCa+pUszTjvAw0/vgWN2i545ZH3sMHjrmE
+	3gWEDSOvuoOAWK5MgtFjKn1M9NNbau2DlEs9xUkBOnDW2SAxsmN3unsZygPiC6Isa1tU=;
 Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168]:59962 helo=pettiford.lan)
 	by mail.hugovil.com with esmtpa (Exim 4.92)
 	(envelope-from <hugo@hugovil.com>)
-	id 1vx8fR-0007Wl-Av; Mon, 02 Mar 2026 14:10:57 -0500
+	id 1vx8fB-0007Wl-II; Mon, 02 Mar 2026 14:10:41 -0500
 From: Hugo Villeneuve <hugo@hugovil.com>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -66,8 +81,8 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	hugo@hugovil.com,
 	Hugo Villeneuve <hvilleneuve@dimonoff.com>
-Date: Mon,  2 Mar 2026 14:03:46 -0500
-Message-ID: <20260302190953.669325-11-hugo@hugovil.com>
+Date: Mon,  2 Mar 2026 14:03:39 -0500
+Message-ID: <20260302190953.669325-4-hugo@hugovil.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260302190953.669325-1-hugo@hugovil.com>
 References: <20260302190953.669325-1-hugo@hugovil.com>
@@ -75,12 +90,12 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 70.80.174.168
 X-SA-Exim-Mail-From: hugo@hugovil.com
-Subject: [PATCH 10/14] ARM: dts: imx6ul-var-som: factor out ENET2 ethernet support
+Subject: [PATCH 03/14] ARM: dts: imx6ul-var-som: change incorrect VAR-SOM-6UL model name
 X-SA-Exim-Version: 4.2.1 (built Wed, 08 May 2019 21:11:16 +0000)
 X-SA-Exim-Scanned: Yes (on mail.hugovil.com)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_111114_440589_BACD3495 
-X-CRM114-Status: GOOD (  18.83  )
+X-CRM114-CacheID: sfid-20260302_191118_142025_8FE7700B 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,231 +112,60 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
 
-Not all boards use the ethernet ENET2 port, so factor out this
-functionality to a separate DTSI include file.
+There is no Variscite module named VAR-SOM-MX6UL.
 
-On the concerto board, this uses the ethernet PHY assembled on it.
+The official name from the manufacturer is VAR-SOM-6UL.
+
+Change SOM model name to VAR-SOM-6UL to reduce confusion.
 
 Signed-off-by: Hugo Villeneuve <hvilleneuve@dimonoff.com>
 ---
- .../dts/nxp/imx/imx6ul-var-som-common.dtsi    |  7 --
- .../imx/imx6ul-var-som-concerto-common.dtsi   | 50 --------------
- .../nxp/imx/imx6ul-var-som-concerto-full.dts  |  1 +
- .../dts/nxp/imx/imx6ul-var-som-concerto.dts   |  1 +
- .../dts/nxp/imx/imx6ul-var-som-enet2.dtsi     | 68 +++++++++++++++++++
- .../nxp/imx/imx6ull-var-som-concerto-full.dts |  1 +
- .../dts/nxp/imx/imx6ull-var-som-concerto.dts  |  1 +
- 7 files changed, 72 insertions(+), 57 deletions(-)
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet2.dtsi
+ arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts | 4 ++--
+ arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi         | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-common.dtsi
-index af8c5d2db53d4..af9b92f7709b4 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-common.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-common.dtsi
-@@ -37,13 +37,6 @@ reg_gpio_dvfs: reg-gpio-dvfs {
- 		states = <1300000 0x1
- 			  1400000 0x0>;
- 	};
--
--	rmii_ref_clk: rmii-ref-clk {
--		compatible = "fixed-clock";
--		#clock-cells = <0>;
--		clock-frequency = <25000000>;
--		clock-output-names = "rmii-ref";
--	};
- };
- 
- &clks {
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-common.dtsi
-index ea8d9905ce6e7..53cf801f39fcd 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-common.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-common.dtsi
-@@ -56,30 +56,6 @@ &fec1 {
- 	status = "disabled";
- };
- 
--&fec2 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_enet2>, <&pinctrl_enet2_gpio>, <&pinctrl_enet2_mdio>;
--	phy-mode = "rmii";
--	phy-handle = <&ethphy1>;
--	status = "okay";
--
--	mdio {
--		#address-cells = <1>;
--		#size-cells = <0>;
--
--		ethphy1: ethernet-phy@3 {
--			compatible = "ethernet-phy-ieee802.3-c22";
--			reg = <3>;
--			clocks = <&rmii_ref_clk>;
--			clock-names = "rmii-ref";
--			reset-gpios = <&gpio5 5 GPIO_ACTIVE_LOW>;
--			reset-assert-us = <100000>;
--			micrel,led-mode = <0>;
--			micrel,rmii-reference-clock-select-25-mhz;
--		};
--	};
--};
--
- &i2c1 {
- 	clock-frequency = <100000>;
- 	pinctrl-names = "default";
-@@ -101,32 +77,6 @@ rtc@68 {
- };
- 
- &iomuxc {
--	pinctrl_enet2: enet2grp {
--		fsl,pins = <
--			MX6UL_PAD_ENET2_RX_EN__ENET2_RX_EN	0x1b0b0
--			MX6UL_PAD_ENET2_RX_ER__ENET2_RX_ER	0x1b0b0
--			MX6UL_PAD_ENET2_RX_DATA0__ENET2_RDATA00	0x1b0b0
--			MX6UL_PAD_ENET2_RX_DATA1__ENET2_RDATA01	0x1b0b0
--			MX6UL_PAD_ENET2_TX_EN__ENET2_TX_EN	0x1b0b0
--			MX6UL_PAD_ENET2_TX_DATA0__ENET2_TDATA00	0x1b0b0
--			MX6UL_PAD_ENET2_TX_DATA1__ENET2_TDATA01	0x1b0b0
--			MX6UL_PAD_ENET2_TX_CLK__ENET2_REF_CLK2	0x4001b031
--		>;
--	};
--
--	pinctrl_enet2_gpio: enet2-gpiogrp {
--		fsl,pins = <
--			MX6UL_PAD_SNVS_TAMPER5__GPIO5_IO05	0x1b0b0 /* fec2 reset */
--		>;
--	};
--
--	pinctrl_enet2_mdio: enet2-mdiogrp {
--		fsl,pins = <
--			MX6UL_PAD_GPIO1_IO06__ENET2_MDIO	0x1b0b0
--			MX6UL_PAD_GPIO1_IO07__ENET2_MDC		0x1b0b0
--		>;
--	};
--
- 	pinctrl_flexcan1: flexcan1grp {
- 		fsl,pins = <
- 			MX6UL_PAD_UART3_RTS_B__FLEXCAN1_RX	0x1b020
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts
-index 519250b31db24..3905171b47b32 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts
-@@ -11,6 +11,7 @@
- #include "imx6ul-var-som.dtsi"
- #include "imx6ul-var-som-concerto-common.dtsi"
- #include "imx6ul-var-som-wifi.dtsi"
-+#include "imx6ul-var-som-enet2.dtsi"
- 
- / {
- 	model = "Variscite VAR-SOM-6UL Concerto Board (6UL CPU)";
 diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts
-index 85ebac30d7bed..d0adcd0e80833 100644
+index 085985356668f..d16e75164fd18 100644
 --- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts
 +++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts
-@@ -12,6 +12,7 @@
- #include "imx6ul-var-som.dtsi"
- #include "imx6ul-var-som-concerto-common.dtsi"
- #include "imx6ul-var-som-sd.dtsi"
-+#include "imx6ul-var-som-enet2.dtsi"
+@@ -1,6 +1,6 @@
+ // SPDX-License-Identifier: GPL-2.0+
+ /*
+- * Support for Variscite MX6 Concerto Carrier board with the VAR-SOM-MX6UL
++ * Support for Variscite MX6 Concerto Carrier board with the VAR-SOM-6UL
+  * Variscite SoM mounted on it
+  *
+  * Copyright 2019 Variscite Ltd.
+@@ -11,7 +11,7 @@
+ #include <dt-bindings/leds/common.h>
  
  / {
- 	model = "Variscite VAR-SOM-6UL Concerto Board (6UL CPU)";
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet2.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet2.dtsi
-new file mode 100644
-index 0000000000000..334ed3bbe02ce
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet2.dtsi
-@@ -0,0 +1,68 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Ethernet ENET2 support for Variscite VAR-SOM-6UL module.
-+ *
-+ * Copyright 2019-2024 Variscite Ltd.
-+ * Copyright 2026 Dimonoff
-+ */
-+
-+/ {
-+	rmii_ref_clk: rmii-ref-clk {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <25000000>;
-+		clock-output-names = "rmii-ref";
-+	};
-+};
-+
-+&fec2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_enet2>, <&pinctrl_enet2_gpio>, <&pinctrl_enet2_mdio>;
-+	phy-mode = "rmii";
-+	phy-handle = <&ethphy1>;
-+	status = "okay";
-+
-+	mdio_enet2: mdio {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		ethphy1: ethernet-phy@3 {
-+			compatible = "ethernet-phy-ieee802.3-c22";
-+			reg = <3>;
-+			clocks = <&rmii_ref_clk>;
-+			clock-names = "rmii-ref";
-+			reset-gpios = <&gpio5 5 GPIO_ACTIVE_LOW>;
-+			reset-assert-us = <100000>;
-+			micrel,led-mode = <0>;
-+			micrel,rmii-reference-clock-select-25-mhz;
-+		};
-+	};
-+};
-+
-+&iomuxc {
-+	pinctrl_enet2: enet2grp {
-+		fsl,pins = <
-+			MX6UL_PAD_ENET2_RX_EN__ENET2_RX_EN	0x1b0b0
-+			MX6UL_PAD_ENET2_RX_ER__ENET2_RX_ER	0x1b0b0
-+			MX6UL_PAD_ENET2_RX_DATA0__ENET2_RDATA00	0x1b0b0
-+			MX6UL_PAD_ENET2_RX_DATA1__ENET2_RDATA01	0x1b0b0
-+			MX6UL_PAD_ENET2_TX_EN__ENET2_TX_EN	0x1b0b0
-+			MX6UL_PAD_ENET2_TX_DATA0__ENET2_TDATA00	0x1b0b0
-+			MX6UL_PAD_ENET2_TX_DATA1__ENET2_TDATA01	0x1b0b0
-+			MX6UL_PAD_ENET2_TX_CLK__ENET2_REF_CLK2	0x4001b031
-+		>;
-+	};
-+
-+	pinctrl_enet2_gpio: enet2-gpiogrp {
-+		fsl,pins = <
-+			MX6UL_PAD_SNVS_TAMPER5__GPIO5_IO05	0x1b0b0 /* fec2 reset */
-+		>;
-+	};
-+
-+	pinctrl_enet2_mdio: enet2-mdiogrp {
-+		fsl,pins = <
-+			MX6UL_PAD_GPIO1_IO06__ENET2_MDIO	0x1b0b0
-+			MX6UL_PAD_GPIO1_IO07__ENET2_MDC		0x1b0b0
-+		>;
-+	};
-+};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts b/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts
-index 7c0e313603630..89b6032203a28 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts
-@@ -11,6 +11,7 @@
- #include "imx6ull-var-som.dtsi"
- #include "imx6ul-var-som-concerto-common.dtsi"
- #include "imx6ul-var-som-wifi.dtsi"
-+#include "imx6ul-var-som-enet2.dtsi"
+-	model = "Variscite VAR-SOM-MX6UL Concerto Board";
++	model = "Variscite VAR-SOM-6UL Concerto Board";
+ 	compatible = "variscite,mx6ulconcerto", "variscite,var-som-imx6ul", "fsl,imx6ul";
+ 
+ 	chosen {
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi
+index 30032be6fdd50..7259526e2b884 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi
+@@ -1,6 +1,6 @@
+ // SPDX-License-Identifier: GPL-2.0+
+ /*
+- * Support for Variscite VAR-SOM-MX6UL Module
++ * Support for Variscite VAR-SOM-6UL Module
+  *
+  * Copyright 2019 Variscite Ltd.
+  * Copyright 2025 Bootlin
+@@ -13,7 +13,7 @@
+ #include <dt-bindings/gpio/gpio.h>
  
  / {
- 	model = "Variscite VAR-SOM-6UL Concerto Board (6ULL CPU)";
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts b/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts
-index ebf88c3e1addc..f9bc6a9a5c1be 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts
-@@ -11,6 +11,7 @@
- #include "imx6ull-var-som.dtsi"
- #include "imx6ul-var-som-concerto-common.dtsi"
- #include "imx6ul-var-som-sd.dtsi"
-+#include "imx6ul-var-som-enet2.dtsi"
+-	model = "Variscite VAR-SOM-MX6UL module";
++	model = "Variscite VAR-SOM-6UL module";
+ 	compatible = "variscite,var-som-imx6ul", "fsl,imx6ul";
  
- / {
- 	model = "Variscite VAR-SOM-6UL Concerto Board (6ULL CPU)";
+ 	memory@80000000 {
 -- 
 2.47.3
 
