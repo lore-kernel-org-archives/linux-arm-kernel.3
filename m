@@ -4,148 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE2AFD58E78
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 07:36:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38644D58E79
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 07:47:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MAGckS+LRaE68IhkXqnwdaf2WOZRrtfbUPWhTCJrKMU=; b=4Oujd6xJUk1KYjJ6P6eQw7OZQp
-	4kQa3h3agaU3Ho3pZtIHIrjKCq9M4Aa2sTXxvxilHaULwHOFfhC8aB3tE0JFaSvPeYDOBHEe+LNij
-	s3UTX1V7seFdWJSIxq7JU0rUf8Pg4hIzFD2/LzEPR+PGkfcmolbZtYitKxzcOHvTpEgJQwBkQlB6Z
-	VyW8BnvXNI8QAMCa8qwgHzafxH+yyNT35DBRPaG1V6zWbR2bd16SF6HPCI7j9JLbGdKaznAWh7tF/
-	o1ZJ1Guj8Tqpb3FdbrrvarqPDiKIVXn8s2qFW02YXlwmCbyyjKdhCMpAMjg9rvW1FxOmf3QGUC9L2
-	EXtgwkbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e68qiM5Z/tLR2me+b5hOCaInO/EcJkXq3qS1H6cb7Bs=; b=aldSVdjIco14CqnFLTYL1HhTcR
+	WNNXGqQ+DAZ1QyhHdnVSaeRfqwo/FBAjWj8NAobSTmiQQEmby5YkujJuP3bpYit2LuP+3HemI9rZn
+	QQuBugNy6Zs73N5H6iOsNxvlrhcVqxAsEDcs2wjC0WrMub7PQ0w/ioJAlow87gj16OxyLc+F8C9sk
+	EgVhvWi0ob5tJjFH6vTr2Axxb2gNAxD+bjMTxQuONWplXfpYO+NZG5vlo9ite37AIxA+pPxWJIadT
+	zRqtw4JndtzT/dlOGDSDoQUJhGpiZ+eVJjuivGmjrvYKse5p6GYg8NrgJ8nO8e29Jo6TMWQLZxCyD
+	uZAwXXpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwxp4-0000000CQTO-0oWH;
-	Mon, 02 Mar 2026 07:36:10 +0000
-Received: from mail-japanwestazon11010049.outbound.protection.outlook.com ([52.101.228.49] helo=OS0P286CU011.outbound.protection.outlook.com)
+	id 1vwxzm-0000000CRD7-0F0B;
+	Mon, 02 Mar 2026 07:47:14 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwxp0-0000000CQSN-0J34
+	id 1vwxzk-0000000CRCR-0NxI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 07:36:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=N4YCk7HbzKA/AAoFqYGD11wrJIBmJtWfHVhoUqvaUw1vqy0Iv2st0uJJaatKQtrMJTED4S/CfKPTIKX1OQ9yYIK0jMsx+3sn9Xc79YsdqI/KlvkICL05BooZIjEoELpPKnMIZjmBPdorS+8K3248P+e6/XTDjK+Ae+SH9quSxZkPmG+sdzut+ppk/tKhB7bHcW3lQI1yxxmffw8G/1CwCUO6Pe7TikTjIDPvULjdh6TcZ2Rrd7/eWQbTIBBg9BQ/F6LGPWdpBV1PElbO3OMK5PFMg18mI+2Xpco/Y+Gth1JFiCRxKa2afkNvsHqbh8qu3yK0+XpkSx/w84/WxTHGOw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MAGckS+LRaE68IhkXqnwdaf2WOZRrtfbUPWhTCJrKMU=;
- b=b0cZ2AQf1+B6IEQSYkHXL4uQuSVdedUluB6iUO7rwNEtXlFzD5fnHwJa7r8E7QKQ98GHN/EIr8AqM3iMBWn8/3bhulrBBnAhaMiaqXA58M/tE/S4uWIOgNMBV1ANn5frHjUWQDBuTgg8jH3iLKlBj/4Xz4bAUl26PsA5hA2vmfUlYvhF5upzIdKz3EZZjBLgAqmPfz8bJy+ZaLatoLF2p1Jd/lf7oEszeMJGKg+s3VwM7u2pAXgnEFEv7K13DyUV8WRxuxM45LGrMsIAxrYbIRG4YUzre9HanqBEdZ501JtjUBysvTgJFIYEjvJonXsi1AnD2diM19wLXWAg1BVPnA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
- dkim=pass header.d=fujitsu.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fujitsu.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MAGckS+LRaE68IhkXqnwdaf2WOZRrtfbUPWhTCJrKMU=;
- b=GuqO1MCNl5XxHof8N/PlAmeSL+qxut6FMA3AtYLRSYwJ1wm26GgQ/Hs8b5czbtfDqdl0xSCB8YvdwtRQEKc5BN2bGTFRWp/Q3JCHeI95tnktulIh8MmdIihdyS2a6p1N+25H5KQAwZihoiwCT7U+NDfQyLhO74xX3eDG2lP9Ehwj0JJzTbkAQS1yk1jNjBJ3HIOVy0yXMesi9fqPwd/gwDlZq03XjPkxSMcFwGo54/T+p2Ooz1VThSlcrGq7YONEUKREwrmFk9f6/H3B4kK6+0PYrgd6mn05IpxOcNs1SktQMorF2xbOUw3o5vebeDUD+VA5OFA4hjcHU0MeTcqzgw==
-Received: from TYWPR01MB9923.jpnprd01.prod.outlook.com (2603:1096:400:237::10)
- by TYRPR01MB14014.jpnprd01.prod.outlook.com (2603:1096:405:21c::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.20; Mon, 2 Mar
- 2026 07:35:59 +0000
-Received: from TYWPR01MB9923.jpnprd01.prod.outlook.com
- ([fe80::245:b736:f3ad:80c5]) by TYWPR01MB9923.jpnprd01.prod.outlook.com
- ([fe80::245:b736:f3ad:80c5%7]) with mapi id 15.20.9654.020; Mon, 2 Mar 2026
- 07:35:59 +0000
-From: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
-To: Reinette Chatre <reinette.chatre@intel.com>, "fenghuay@nvidia.com"
-	<fenghuay@nvidia.com>, "ben.horgan@arm.com" <ben.horgan@arm.com>,
-	"james.morse@arm.com" <james.morse@arm.com>, "shuah@kernel.org"
-	<shuah@kernel.org>
-CC: "linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [RFC PATCH 3/5] kselftests/resctrl: remove unnecessary
- exclude_idle
-Thread-Topic: [RFC PATCH 3/5] kselftests/resctrl: remove unnecessary
- exclude_idle
-Thread-Index: AQHcjCGwOW0s0hiQEUyJd8WdcvzeVrWHVCaAgBO9JUU=
-Date: Mon, 2 Mar 2026 07:35:58 +0000
-Message-ID: <TYWPR01MB99238EF3E9F54CB72C4C2FEE8B7EA@TYWPR01MB9923.jpnprd01.prod.outlook.com>
-References: <20260123044034.141247-1-tan.shaopeng@fujitsu.com>
- <20260123044034.141247-4-tan.shaopeng@fujitsu.com>
- <ef8a9e9e-0d44-4246-ac74-0369b78f39fa@intel.com>
-In-Reply-To: <ef8a9e9e-0d44-4246-ac74-0369b78f39fa@intel.com>
-Accept-Language: ja-JP, en-US
-Content-Language: ja-JP
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Enabled=True;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SetDate=2026-03-02T07:35:58.109Z;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Name=FUJITSU-RESTRICTED;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ContentBits=1;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Method=Standard;
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=fujitsu.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYWPR01MB9923:EE_|TYRPR01MB14014:EE_
-x-ms-office365-filtering-correlation-id: 01bc6afd-617a-4477-98c4-08de782e5903
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|38070700021|1580799027;
-x-microsoft-antispam-message-info: yfuz3VvGP8MEI/H4h52MHB4GptWv9xZZnn/sTGohaFPj3VratjA1sozKW5cBGGEKwPnKvuEgXXb3b2rLCh6ArLvZUKwuJPXwsDhPAb1QZ42eN2VW5XE8nUPmoFITc/369DFM6ZNzvQYfa4ULfAzMsG/mdY+Dj8IQUDNIgdiGGQMMsXxNA6sMdQdQYy0miuBpeJrpGy1bEQdluYKoGFjbfRCkB+SdIp5i6M/8fA20Grhf9esNjp6MveLX1nEd2br3RwkJKpEvbm7+Gt0RQxN9+iUyAZ7m+zg0CJKx5SoSwdgLLcQhMJ/dh3EgLjgiqXek5DM0wEOOHL83hvxTdTvqHoAHuMgzqiK6zHSFU8H9nxF5QJ9axXQIjgvfoG5kskuGHWb8qDu3Fb4aXexE2f3f0DB0m4wY3S54kkD3Qxm+w+SxZXQbuwdURUc9lDB/EUed9kRomAalBi+MTrbiyn9xpbLtubN3uK/auc0mwbOr+jRGKvCbKkwk9X58+nFTqCzY8vJcRwkWte2z3td3EM35wrXh1mdYN5H6JSkuOOOho6osSNj1ZDSapGi/7lAqu3IKy/ISMl4fx2c1R7s0SDcBPirx3Pyi6UzqVedO15M5ZCnAXeu05RmDoDyBQJ9lqXIRbhukR2WpMg2vtWINzg4GE+2p20ACge9GR7C/ooYP2Y45v/kZ1Pt7oVWnfZw3T/1VpS1AunFdhVDQIktO2C9OhnaFDDhELQeegOtjdtv+qy5BCQDMBPTTe1Teq55aZTenMM68raxgNpWVBjucJ1ITkDZmi8IrkEf7aYIg4lg4JWiS7uZd/QqC/gCi7GMC42L8
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYWPR01MB9923.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(38070700021)(1580799027);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?MmdkNVBPdUR5RWFTQUZvR2pkZ0tCcEpnaTlRcjBUMU9QRkl2RGhkY0ZP?=
- =?iso-2022-jp?B?Wm1MaENLS3NZeDFiOW4rUnFvcmFpaEp2K3Z2U2I2SzgwWVhmdy9nZVY1?=
- =?iso-2022-jp?B?L2pRTlZDTVJsNWZOT3lUbHN1cEYrT1dlV25SOE84cXFDUXJ1V2c2MTF1?=
- =?iso-2022-jp?B?WTlEMURSeGU2SUY3TFZSNm90bWZ1NkJYeFcyNktMenh6NVB2TzJTSWFL?=
- =?iso-2022-jp?B?Uk1JQmt2VXhEdEJFa3JMTVh6WmhSbUFhUzR6WlhQaHpDNDU1NWRraVp4?=
- =?iso-2022-jp?B?TGVqbkVDamkxQng0Q2YxTEY2M3FCOU54OEwwd1QzQkdjSGlNQUdZTFIw?=
- =?iso-2022-jp?B?VVBtZFNtUWJqTGx4bVhZUXI2U0NqVkN4bVNzUUhNZzBMOW9vMnV6L21H?=
- =?iso-2022-jp?B?NVBXZmJpV3FDZysyeWpnOGIybjZtYVBGOWZaeTFFbUpJeS9raE9WSThF?=
- =?iso-2022-jp?B?SlY1aXYrZktyN1VCcHR3K0VCZUVSWi8yOTFBbkp5V2w4OGpRcGFVVWg2?=
- =?iso-2022-jp?B?NVE3TkttQmc2aFRoakwySEpnaTVaandSbk9GL2xTb2lkL2phdDRTVEFS?=
- =?iso-2022-jp?B?RGZTN2cyMEd0K0p1RnJTSjdxc2JBQzFySGpxbGE3R1lWT2xDaENCaklu?=
- =?iso-2022-jp?B?NHF5bS9PRFhqOWUrK2tnUVFsS2VGQlBmSUp2cEdXc0YvazhDb2NjM3BD?=
- =?iso-2022-jp?B?Ui9RV1pWM1BKdXFBRzhpZVJ2R29EQXZ1bmJTdmM5eGl4WlB3c0FXS2Jh?=
- =?iso-2022-jp?B?RWdFcnFJK3VyYyt4bUcrOTA1cENKQk90YVJub3ZtU3NkdzRUakVOY1d6?=
- =?iso-2022-jp?B?N2pqdzZYVVVwWEFGdmJhdzFCMlZYSTdXTjFGV0pyU2t3UnBvL05RRWRv?=
- =?iso-2022-jp?B?M0RLTGdxaWVGdVRISGJVaE5Rb0ZFbzJwZDNNTE8xVzIrSVV2ZW0xbVNH?=
- =?iso-2022-jp?B?dDczMi9PVGNrZmRrNW83SEFySkJNS2cwZ3RJQks3ME1oMnJKT2lsbFJM?=
- =?iso-2022-jp?B?ZkY3c2RqU0daUndSRnRoQjNPVnpUdEZxemxsdEw5RFFoZHBnbzV1L0ZQ?=
- =?iso-2022-jp?B?VlM5bk95RC9qejRHbkxJdWNTL2taQ0Zub3Q0M0NmQ3lHZzcyNXlXR051?=
- =?iso-2022-jp?B?OHRJemNDVFlZOGQyQm9iczNpTFdLajZYalRod2tId1FDNi9WekNnejBL?=
- =?iso-2022-jp?B?ZkdCdXBUTWFUbTZzU1Q4bXhLbk8xY1pGQ1pSMzYyeE81ekYrTUtvajlN?=
- =?iso-2022-jp?B?Q1lmSzN3YlBab01raC9PYm9EL1VRbHRCZnRESEd3QzZCTVJLbWs1bjBo?=
- =?iso-2022-jp?B?SG1DNTk3UFJrNGdFcEtSb1U5cGdDbGo5OUtmV280eXZ1bEVhRkh2TDI2?=
- =?iso-2022-jp?B?OUJNWFlLc2FRWXNwWm5PNnBWdEo3cmdRZVQwT0wvRVhCK2Q3N3Q1eWMz?=
- =?iso-2022-jp?B?QUxjTDFTdENwOW5nTENsdU1rNDlrdjl0ME4vbW5BdDQzWURZY3BIYjNz?=
- =?iso-2022-jp?B?SjhmN21FeFFwa1NmV29TeUJEVHB1KzFqRlE3cmRzVnNGSEV5M2hDZ0lx?=
- =?iso-2022-jp?B?Unl0Sktid3hhUUt2bUYrMjRJaHc2RmlwWW5SNnlqR1dCd1NxNzNKS1M5?=
- =?iso-2022-jp?B?R3NpUHB5clpqU1pzQ2hjK0xrbVpaZnhmQWx5emtJY0xicm5ySzUrcUFS?=
- =?iso-2022-jp?B?S3pGZEd3MjZFVTB3Wm82dm9HNGNwMEVBY3RHVVFaTE4vQlBFRGlEL3Fn?=
- =?iso-2022-jp?B?Ukt4RnA3K09IOXN0NEVaUFRJOXgxOW55bHU3cWxqcU9oZlVEZDFVSlJJ?=
- =?iso-2022-jp?B?aDNyb3JadE9ETXZFbnhzOXhqWUcvQWdxYkU4MzBNT0VmNUJhZjVNb0xx?=
- =?iso-2022-jp?B?SVNaRWRkdlFqTFNzVDJqYyt3Z0V5UlhGaStlYlE0a2lBQkxnK0tITzlQ?=
- =?iso-2022-jp?B?Q1FTTEplVTkxN1EvSnFvZDFmaTRLYkJ5ZGpxMGI1Z0EveHFySVF0VURV?=
- =?iso-2022-jp?B?RUczODZDN3NHR21WYWNNS2JzSmpTRVI5M3hYMDFROFpWcUtlaGlPYWRL?=
- =?iso-2022-jp?B?VkQraWE3RFRpb08ydE9SMHFxcGhiNEwrMCtzaUlhOURrOEpjSmJvYW9j?=
- =?iso-2022-jp?B?aW0wbGVqZHcwQkRjZUdTQlZzeWZmV2pOVlBZbzdsN2FWZVd6Tk9pRk5k?=
- =?iso-2022-jp?B?SUtSeG9qQ3dqY1l2dHA5M3YxS25iY0grREpuRHlYMHVLZWozOTNyckxD?=
- =?iso-2022-jp?B?V3BzRnErU2pvLzBPbHBDeFdHc2Z1N0pHdXNLcGRPNlFrOW5BSHlLeGVh?=
- =?iso-2022-jp?B?ejVzdjQ3SVBwSnBwYVUvR2p4bUc4TDdwaU5ZUnpzTDZlZFRsRnhYZmd4?=
- =?iso-2022-jp?B?ZHVWN1V3c2ZkRVlBajBSZTZvTEY5T1E4K2V0VmxEb3NBbjBicUxxdzRr?=
- =?iso-2022-jp?B?WUllZkFtMW5FUjBBTWUyNUI0WDltWHRiOUFVaExGYjBSTVNPQUR0NEFo?=
- =?iso-2022-jp?B?alBjZHBqUWpROGIyeURXWk1EQnB0djlwU3dsQT09?=
-Content-Type: text/plain; charset="iso-2022-jp"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 02 Mar 2026 07:47:13 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-386b553c70eso62404451fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Mar 2026 23:47:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772437629; x=1773042429; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=e68qiM5Z/tLR2me+b5hOCaInO/EcJkXq3qS1H6cb7Bs=;
+        b=Sd3n28shNO6cbCYYrAHezxFlRwmiO4LK2df55RbfPjXQSj2twm6d3exMGrtqgVA8sG
+         sDqaqQya8VeF06Pc3t6kYLOgnoa6PTYFVdBUgCAs6EP8SKXenxK0zY8PrSNmQ2c0W1gn
+         g82OwaTlVWKfLnoDsoPXGjC3oTHypcJhpdELOjmnVWVdC9AnfctOJgjkoX5JMp44Gonq
+         KstsflGCX4P/64Fk/sYXVS2KsIeuB02T/UmJ5WPHwIX248m3X0s/ClIn8aNcl93hga36
+         XWygcNwKKbnFUdXRPw7Pm3wMenwdt11DyIC1P/U9KOwGGVlAxfmzU7vl233NjI1BvGPp
+         m41Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772437629; x=1773042429;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=e68qiM5Z/tLR2me+b5hOCaInO/EcJkXq3qS1H6cb7Bs=;
+        b=mPeCpoiCrrL62Vbc/ErwSMFTKgkRno30hNepB/PX8pt9QS0pFCfUUSH4qfv11FKd7t
+         zUVoeFQqgYmiVSdyeKtUITV9jUX0s3wlJ/PFk3HT7kcXVrsWaQ8QbBdCyV2hBmSryKuY
+         wavxmTeyDpqMclz3vDBtJ+LZSBSl67RDKkNi3cc3jdOiUIpynamJtaHyDF55vXEgV6o2
+         x5XERPknwSpO4AGvXBaAsrNlXJHTk5V21rTBRbzwTYjRYzxd47T7dFqsUU0egmXiObyX
+         cRPx+hsPn0swe7Vk+ttJcOVbfVDocvzstrq51+ODaL/Huc+yWGSRlAHD8MPpT+Eorp2I
+         EJBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVLgjkj8dtHPtd8hd5f0xBtPp7LDF3s1bKLe6k0TDnE5b7rjoxNmaghFWFYM5r7CoVNluwKA79YOvKROcao/E4f@lists.infradead.org
+X-Gm-Message-State: AOJu0YxSpvqLzvoa42r9/dOTb1sihW3BKpvh7kUvMk/L/M7A98M0ZJBr
+	LpEkQye9b3nJpv/uWyKOrXNb0Lk3fZl/snAPaHzBE+U5ZHJ0wNCQvIif
+X-Gm-Gg: ATEYQzwXvdXT/jIh+sp7IDLdZvMZCGqofIeRYBJz6nVp0U6MlKaWEaTALSbTwl5KCzZ
+	c6LY06LjMb/XeCi2M7dqfebWBbGticWkMOspoc30ytyjw3Dk3WSEV0Esncbhm7w/PCV3Lq0nLts
+	NYhNYnKZgeXrJZVVg520EIaymhmfFSJ/SDcKBtFUFUXSGP9fkZki3IVjKcwAekJYG80RScXtdWk
+	GjvD7bozA6NnNviADDkq00fuPg5sNNfTysoYsq/z3Di5FlZfXbCYRrDOdfzSGZv+N4B7MVFEnJi
+	nxImnc74yOCKirGzesrzFsEv4vixPPod1++wZkgFvZhC4YV3Ux25I85eqa5lh6B+x2j81nSf2HY
+	hRwf0CljogFol1BEo1+uoQkpOLE3Vank2un+N0nZH+sPTB4HhcTo5DZN06oTzVz+pOtq6+4uAXl
+	9UydjrKPLd/dQTKFC6rDQ2XzYY8g==
+X-Received: by 2002:a05:651c:1c7:b0:383:1c5f:84c7 with SMTP id 38308e7fff4ca-389ff130e18mr78428611fa.12.1772437628986;
+        Sun, 01 Mar 2026 23:47:08 -0800 (PST)
+Received: from [10.38.18.76] ([213.255.186.37])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a10a319f05sm3299418e87.50.2026.03.01.23.47.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 01 Mar 2026 23:47:08 -0800 (PST)
+Message-ID: <ac23aec1-6dce-4dd5-8990-9fad40998478@gmail.com>
+Date: Mon, 2 Mar 2026 09:47:05 +0200
 MIME-Version: 1.0
-X-OriginatorOrg: fujitsu.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYWPR01MB9923.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 01bc6afd-617a-4477-98c4-08de782e5903
-X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Mar 2026 07:35:58.9828
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: iEI0diTOohrCw8W5+xsdjt2SABQiUs5IW7v3RBDuTyRkTh1zD3BOcqaGp0iMYDuo4ax8i2pQJ3nhBIBlxKQY0bjn4gs43+IopDCoY/fKEV4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYRPR01MB14014
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 01/12] i2c: allow setting the parent device and OF node
+ through the adapter struct
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>,
+ Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>,
+ Andi Shyti <andi.shyti@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
+ <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Vignesh R <vigneshr@ti.com>,
+ Aaro Koskinen <aaro.koskinen@iki.fi>,
+ Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>,
+ Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>,
+ Roger Quadros <rogerq@kernel.org>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>,
+ Patrice Chotard <patrice.chotard@foss.st.com>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Linus Walleij <linusw@kernel.org>,
+ Frank Li <Frank.Li@nxp.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>, linux-i2c@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+ linux-rpi-kernel@lists.infradead.org,
+ Matti Vaittinen <mazziesaccount@gmail.com>
+References: <20260223-i2c-adap-dev-config-v2-0-d78db0a6fcf7@oss.qualcomm.com>
+ <20260223-i2c-adap-dev-config-v2-1-d78db0a6fcf7@oss.qualcomm.com>
+Content-Language: en-US
+From: Kalle Niemi <kaleposti@gmail.com>
+In-Reply-To: <20260223-i2c-adap-dev-config-v2-1-d78db0a6fcf7@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_233607_609435_E9F052BA 
-X-CRM114-Status: UNSURE (   6.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260301_234712_200483_21384A2F 
+X-CRM114-Status: GOOD (  18.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,31 +126,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Reinette,=0A=
- =0A=
-Thank you for your comments.=0A=
- =0A=
-> Just to confirm, does "not supported on Arm" imply that perf_event_open()=
- fails when=0A=
-> exclude_idle is 1? Thus encountering:=0A=
->         EPERM  Returned  on  many  (but  not  all)  architectures when an=
- unsupported=0A=
->                 exclude_hv, exclude_idle, exclude_user, or exclude_kernel=
- setting is=0A=
->                 specified.=0A=
-=0A=
-perf_event_open() fails and returns EOPNOTSUPP.=0A=
-=0A=
-perf_event_open({type=3DPERF_TYPE_RAW, size=3D0x88 /* PERF_ATTR_SIZE_??? */=
-, config=3D0x3, sample_period=3D0, sample_type=3DPERF_SAMPLE_IDENTIFIER, re=
-ad_format=3DPERF_FORMAT_GROUP, disabled=3D1, inherit=3D1, exclude_kernel=3D=
-1, exclude_hv=3D1, exclude_idle=3D1, precise_ip=3D0 /* arbitrary skid */, e=
-xclude_guest=3D1, exclude_callchain_kernel=3D1, ...}, 14260, 1, -1, PERF_FL=
-AG_FD_CLOEXEC) =3D -1 EOPNOTSUPP=0A=
-=0A=
-Other suggestions will be addressed in the next patch series. Thank you.=0A=
- =0A=
-Best regards,=0A=
-Shaopeng TAN=0A=
-=0A=
+On 2/23/26 11:05, Bartosz Golaszewski wrote:
+> In order to stop i2c bus drivers from dereferencing the struct device
+> embedded in struct i2c_adapter, let's allow configuring the parent
+> device and OF-node of the adapter directly through dedicated fields.
+> 
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> ---
+>   drivers/i2c/i2c-core-base.c | 5 +++++
+>   include/linux/i2c.h         | 4 ++++
+>   2 files changed, 9 insertions(+)
+> 
+> diff --git a/drivers/i2c/i2c-core-base.c b/drivers/i2c/i2c-core-base.c
+> index 9c46147e3506d15d53b9b7d6b592709de56e41b9..dd8cec9b04c64b8340d20e018ab5ba28f1f7f5c9 100644
+> --- a/drivers/i2c/i2c-core-base.c
+> +++ b/drivers/i2c/i2c-core-base.c
+> @@ -1561,6 +1561,11 @@ static int i2c_register_adapter(struct i2c_adapter *adap)
+>   	adap->dev.type = &i2c_adapter_type;
+>   	device_initialize(&adap->dev);
+>   
+> +	if (!adap->dev.parent)
+> +		adap->dev.parent = adap->parent;
+> +	if (!adap->dev.of_node)
+> +		adap->dev.of_node = adap->of_node;
+> +
+>   	/*
+>   	 * This adapter can be used as a parent immediately after device_add(),
+>   	 * setup runtime-pm (especially ignore-children) before hand.
+> diff --git a/include/linux/i2c.h b/include/linux/i2c.h
+> index 20fd41b51d5c85ee1665395c07345faafd8e2fca..72677f29aff161530bc3c497d1e07144a44eb9e4 100644
+> --- a/include/linux/i2c.h
+> +++ b/include/linux/i2c.h
+> @@ -761,6 +761,10 @@ struct i2c_adapter {
+>   	struct irq_domain *host_notify_domain;
+>   	struct regulator *bus_regulator;
+>   
+> +	/* Device configuration. */
+> +	struct device *parent;
+> +	struct device_node *of_node;
+> +
+>   	struct dentry *debugfs;
+>   
+>   	/* 7bit address space */
+> 
+
+Hello,
+
+Automated driver test system bisected this commit to be the first bad 
+commit, linux-next next-20260227 was tested. Failed tests include driver 
+tests for ROHM PMIC and accelerometers, which are connected to 
+BeagleBone Black.
+
+The failed driver tests all fail to first i2cget and the tests stop 
+there: "Could not open file '/dev/i2c-2' or 'dev/i2c/2': No such file or 
+directory".
+
+BR
+Kalle Niemi
+
 
