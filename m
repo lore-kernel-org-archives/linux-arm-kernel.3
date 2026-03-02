@@ -4,92 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63291E9B340
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 09:40:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2753FE9B342
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 09:42:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wX0OGsPu0Cxlv0PiFeBEE73XuyzU5Okzie1/FOEP9ag=; b=kJa70iveAOf2dJM25WGhWMztoy
-	wPXXrLOlFnuLpx1YauiV1riMdk4pnjhsX+5uboNTpoOeYWJ6Rd5YGfYvweX2n5ecTMm8LMSbzHn4r
-	WqaJlKFlQBFBLgIzsEM6reSG3wVm/c3EvQFEQqUWYepBmr7oiu4gfaYdCfQeDnNecLMrH9OCNtiE9
-	n7c2t2/q8oaCwjDhDMqjjNc/xFoAQQVEdKbMvg+l9OiBPXk+O2DWNzwrOH31FZuIUlPSodiEGmklN
-	CPwfxhOt4I6I5qTn0FdeLwf77BTs/4gRT87iABU4yJOIaUH4eMxKMlsAlnl2ux42M5zdF+5SZsWWd
-	AaxmJJgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6Rj0FGwd3DQtJxDtHyNp0wFP6a/UYgGmJ34lKdCtsXM=; b=fl9gMsbIxBMYxaR5GpZSy+29sW
+	yv2lVzIjzNGZNzAOOlp88HE0YqpNr3bB8GpgQjtUt1AcRLsTmfIh4Id40yE/P5vjvnZSNCD/du5ZS
+	c2JzESKuWtCabwfcofDB9Jxk5vxJCt4xAYvcZcusTFF19L20sjmApSxvc6h0djWKKFkQ3JafLAkVN
+	vvHYxyXcqKEEREFEUVwGsjdLmVik2V10KNC6OqJa4SkMeXD44D7vEvMlcxNQL/8mq0rM07px4IHem
+	h8WENgGbtw4eus/uyCMqKdpVOm347JsdkvIAFMPPuZ8vYK6MtgTK7+Cw2u/NJ+cr14/R8daiaqC3U
+	l2E3KG6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwzkx-0000000CbYj-1eLC;
-	Mon, 02 Mar 2026 09:40:03 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1vwzmk-0000000CbtW-3Vtu;
+	Mon, 02 Mar 2026 09:41:54 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwzkt-0000000CbY5-1jWU
+	id 1vwzmi-0000000Cbsk-05Ly
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 09:40:02 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2ae43042ea7so15901395ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 01:39:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772444398; x=1773049198; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=wX0OGsPu0Cxlv0PiFeBEE73XuyzU5Okzie1/FOEP9ag=;
-        b=JkaHBWab+hjbdp+B08whj7arzrgqXvo0ljBGjoOZunaP1StQgS2MC80H9pexGZAfiO
-         ld0LDhrveglHX542O3M5kwLAv5KueYxZJDn4eLFg0NraG8AN37TTJSiU+5+1U5tQwWR6
-         i7f4x4A9AZeJ5vVNAtiVhuJVSpZWNYtE0Q+znDgx4HITEgxGOStxvTKeRkGNJ3Qz0c5K
-         EbIYsHSZX8+RGWFfta4X0XShmc6Ynew+giEQf7hjpYuoaOUry6NJrRIFxspApCl7pkWo
-         co7Cl8GZI3SLiHXYXRbQ/9gM1ICK/2GMs0ELukup13uP+zG9vb6mFGTVP+gXMX+PBrPn
-         0Xpg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772444398; x=1773049198;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wX0OGsPu0Cxlv0PiFeBEE73XuyzU5Okzie1/FOEP9ag=;
-        b=vU5nE8YtOKLygegPijdqOFuDWeN0yToyYTJWlKJhhLBvWJdGJ2qKEjpLarZP/TnHkx
-         kVho2sGPuGp73NCxuGuotbvJe0rpIc5HeLd8C/eRqkOz3pnLi0aZVNo/IvOeDipp2PKp
-         TCzLlPbO4JVb6beHt+YBmxDQ8uxo1f2HfjwFVu1loxwZNUb6iOfOgvbRLyZXRmOmbP76
-         iwjc6VgBXwo5gbOz/Og0mZG7JptbJ7MAyJzFIntx1yEs5d/ikcIi0MMhzOwh4jxCaCOy
-         3z0SxaShHmZMlFazpLYcbK9e2ihgJDJff9DGs1kXL1O1XK2UuDGTbInwfLt33zj6su0z
-         rO7Q==
-X-Forwarded-Encrypted: i=1; AJvYcCULcWdMlqVrr74STZRESZqQnGQ4f73sGIG5jFjX4inG0WSsp5mIarH8/zEwBzOBuLkPJl75ciPiOXLWbdHN3d/5@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWxTbR7wGFZJrdc8B/yn/yd1b+woGamuYjKjPrkh03boD8eL3k
-	NqzfNLqx0YS9gg+F2tDnocNppNTnmtq9ww8BAHP62i2YkegnaMfDCjTB
-X-Gm-Gg: ATEYQzxG4xpKQd04zzaiQvYeZHiuujAHqW0GFc90vI/6P9TxnmLyZ/9mmaVmjre641p
-	jrVgv9w3ZSBb1OTN68zRcr7YT4LPaBsD16Lu8qCv5BuwBvS0PpSeJmNB9aUtYYdpG/n5/+No0lT
-	TkBEk07LiBINbU03XHzw5MTqGdaYpGvwg6M6uVBrtrfrZYX0hXkluZFgu8UPEbTLFvuLTc6PrWg
-	XoLYKjnDYb1E2ZP4Ksyc3WghP/XRA4sJ6WkJ3lBa+3Euyz42gT31nnWmXZ4j7Wp6KWyEOsHjWrN
-	+O8Mwbox3+nRzqUQYg8T7uwbvF0vM6bdWb8ABr1YjD8ZUkQJalfMdJZYpEgUb7UPn9NjjHlZqze
-	ryYsT/XAcJkvBd5bKpiqvcvrt7krbiMAFV+IBcXn1Ba9n7qD2IZj99X6RMuZLuqR9gF1W24zS9V
-	WBCBn4V9p3zTnshjwaWKJ2d5yoFrvQ9eh55PLF8WC6XOBLjfko639W31JAfxSZNl/cXSjMgGg=
-X-Received: by 2002:a17:902:e852:b0:2ad:ad0f:bbd2 with SMTP id d9443c01a7336-2ae2e4b54d3mr114451445ad.39.1772444398205;
-        Mon, 02 Mar 2026 01:39:58 -0800 (PST)
-Received: from [172.19.1.48] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae399acba4sm70151475ad.67.2026.03.02.01.39.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Mar 2026 01:39:57 -0800 (PST)
-Message-ID: <eb013eda-7e3c-492a-9d69-915f1564f522@gmail.com>
-Date: Mon, 2 Mar 2026 17:39:54 +0800
-MIME-Version: 1.0
+	Mon, 02 Mar 2026 09:41:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TLKrJdzOXRgJvBRYRvGtLEeevRkDxjstoXpZAlpRWxns98RSGIEDSeaHKvjhok8f/X8QxuGMtABOg4faO/H8jMI3CTibUl+0eE7yQ9Dc6X7GyJ/FUaYj4vDMWQ4r7rGZpYCEb5AQ5/r3YSSFDUYxhrfRCi3pEVckmjlI7IDqD7BEXnzDbZwzng+1D5Sl5NHllOLBCcn58oPsquf29t6TtkpaOS/CZSHOMHg72yWMJjymhCYy8i7SfWaoKUiUBdu07y6TAqx5E3pYchXSLSct/+qORPdtM4/WcR/QOjpP1ZAJT6kfk1kJm6c8GBy2B5zqVjTchTD4pCt7zredrHyO7g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6Rj0FGwd3DQtJxDtHyNp0wFP6a/UYgGmJ34lKdCtsXM=;
+ b=KcBXOeTTW0FX8mcbKZJstdQoXVQbcQUea+Kija6AZudocp/pPCAaiWEZGK+d0tefe/xUnNg+GdSVo0eVIZt9qF/4D2mifyv76obIBntaBlGDy+A1uMR36zUw9E4qqFZbyyob2UCvUcjqPWcsoHtWsfVpFKXaArFZknQI1BVCFgz9ZtYgMfKrtaYys7nJ00rjKlDan5KOQ6CXzxNC7gf/hyYv0oldC8PDE/6uu5OcQombmbGDLFEZzlQDN7/mk2qay7cb/rR5QDsHShekNKl264U4zD++VL3kTJcRx/pYPqS2UecOW7eXcHJFl+IfUFYvrORrSRebuf/L5w8VBk+fvA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6Rj0FGwd3DQtJxDtHyNp0wFP6a/UYgGmJ34lKdCtsXM=;
+ b=bkh107a/Y6Rla8kBz3s4WAu/gXj8MyeCXuFUbbl8ykjz7tM2AGYsLPVNiHVedUQiZhRvMLNj6F3S9zkNj4kwuxn0f8AKa1Yyld6gU0+KIp3dNU2JLh/ct4LANjOXEu3Le/pXPeQ7kJXXNdwSot0GsbJ8fWO1vZi0yhFYdiY9A945THt3iSOH9uR0tpALZpr5JJRi0PLGa28ak0CY8G7WLoT12J4/O7KiqJLwEG+oLp5egVuoKEd671+vJt7aBn/Yz/L/lgUOO+6T3rxMmaBZIxEfrP2yK+VUjJC6ynS4E2kH+K1RojhFWwONyrS45e30jdE80T9Vj/YZwIAFU/JtYw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA6PR04MB11910.eurprd04.prod.outlook.com
+ (2603:10a6:102:516::16) by VI0PR04MB10392.eurprd04.prod.outlook.com
+ (2603:10a6:800:21b::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.21; Mon, 2 Mar
+ 2026 09:41:13 +0000
+Received: from PA6PR04MB11910.eurprd04.prod.outlook.com
+ ([fe80::d3f0:3c24:f717:4989]) by PA6PR04MB11910.eurprd04.prod.outlook.com
+ ([fe80::d3f0:3c24:f717:4989%4]) with mapi id 15.20.9654.015; Mon, 2 Mar 2026
+ 09:41:13 +0000
+Message-ID: <c5b5619e-d67b-4d80-8496-a5e326d239ae@nxp.com>
+Date: Mon, 2 Mar 2026 10:41:10 +0100
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] i2c: ma35d1: Add Nuvoton MA35D1 I2C driver support
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: andi.shyti@kernel.org, ychuang3@nuvoton.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, linux-i2c@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260302020822.13936-1-zychennvt@gmail.com>
- <20260302020822.13936-3-zychennvt@gmail.com>
- <20260302-spiffy-capuchin-of-completion-e8c5b2@quoll>
+Subject: Re: Re: [RFC v1 01/11] media: uapi: v4l2-isp: Add v4l2 ISP extensible
+ statistics definitions
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Cc: julien.vuillaumier@nxp.com, alexi.birlinger@nxp.com,
+ daniel.baluta@nxp.com, peng.fan@nxp.com, frank.li@nxp.com,
+ mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260123080938.3367348-1-antoine.bouyer@nxp.com>
+ <20260123080938.3367348-2-antoine.bouyer@nxp.com> <aYIb8ZIZDfCJZEZ9@zed>
+ <71b57f1c-be22-46a2-89a2-5abae11e0436@nxp.com> <aYNEtmJwnAtYitHO@zed>
+ <20260209230036.GF2405149@killaraus.ideasonboard.com>
 Content-Language: en-US
-From: zychen <zychennvt@gmail.com>
-In-Reply-To: <20260302-spiffy-capuchin-of-completion-e8c5b2@quoll>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+From: Antoine Bouyer <antoine.bouyer@nxp.com>
+In-Reply-To: <20260209230036.GF2405149@killaraus.ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: AS4P192CA0033.EURP192.PROD.OUTLOOK.COM
+ (2603:10a6:20b:658::27) To PA6PR04MB11910.eurprd04.prod.outlook.com
+ (2603:10a6:102:516::16)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA6PR04MB11910:EE_|VI0PR04MB10392:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7f7c0ed4-abde-4e2d-91fc-08de783fd7d3
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: 7CBW5n7SDZkgrv1UoFhBErIWhXV8+8kefura16suPA1zgWmgcTOFE5nS9n2rVzYA0FK1Hy0EyDZnY4s7P7ipRxOMyiGLL633jtr4dcN9WLTloh6M6y9g70e+JwTpmLyHhUHIg1FqqS/u1Cnq+LjPQrdrk/2VKR0uIIrZmE69Kf44PwBvWFD42zHgpN+RHjCxx1uhSOzRpkp0h+e3Px0Xo6jzsrzBpbRUZjexVcJpuIMI/39/uf4A/oBXX/FSisF75tN0NvCL7PV4PjiX+pJuGBLuAnrHGs5VP3U/ymBSFJKr5Vo177+u4cYi2qEZ0V9XbwesFZp3Tv1TERruhl1Faiazcw8NZN7LhSZwllN+OASvy2CIpjYgPqXikbPIK+p3ZrHGhn5IghJk6fI9YNFf3mu2fnruANmNlRpTsk622CnBXJcAiG3pKgfKCeNNfWyO/ctQLDfI6OlLqlX1m9octP058JQh+hugbUhjvDSPNFBrjBTlzXCUzStG4adzj6ab1zmahF0bQxmI5/nkFlojqRH+IiPCAlcecwUPcrByqSfLUBKnMv1qsUNdIpHV/DgWq2q/pvGLe87y22PZVntPGvrF4acpVIfbdWNAZvq3hl9zqaWrxubbncrSBitslka+2aIFNAUgky0pg61VUh7etvh6S/PxPjtaV4tVELd/cYJ1/8nAN7dozUPhxZ+x40/z3afNVBBBpNJFSBai/a4CBdsUsv9J/EX5y2yqWfZH/NM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA6PR04MB11910.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dFVERXlPQ2s1VWY3bG80cU5nWklIQWxpTGJ3WnFzL0o5Z1lad0VzekVuRkl6?=
+ =?utf-8?B?OWNLVWtrUzV4bElQQXR6ZmZrNUpSSHQwUWk3emJ4Vmp0ZFdzNzd1S1JJZ0xa?=
+ =?utf-8?B?OXY1bHpmejhJdEVtdVJNVDVDT3JHOENNdDl5RWhwMWNtRDRLZW9zS2oxazdG?=
+ =?utf-8?B?WVMxdDVWdUJ6WkMvRmdZSkxiNXBRM0pnL3ZKZUR3NWdRUXp5dUNwZ3d4bkhO?=
+ =?utf-8?B?WjlDN1AxY0NmNzFWY0FnR0cyZ2xyUjVmZ3Y1Yko0Z2Y3c3ozaGplZ3BPRkcy?=
+ =?utf-8?B?NGJHU2pGNDd6c2s2K0tKUGhTRm1IN2hHaXU4R0dNbCtyWk5UbEw5WnZ5RlZU?=
+ =?utf-8?B?Z0tpWE13V3lYb0ZKWTU5anZ4eThyc1hOZGFtSVBJT1Q2RWxJTkZ4ZGs3bGxo?=
+ =?utf-8?B?UEFWZjFwaitiMEFQSnNKOXl2WjJUTXN2UUFJaWVWTGIrR2dBdWd3Unk2MHFi?=
+ =?utf-8?B?RWduSHBkL1hMUEdQZy8xc3liZlI5QTQ4d0VzdkRtbXc4T0xCV1NjNTZSTDVN?=
+ =?utf-8?B?ZGZpeGVBZXBMN2kra2M0Tkx5Um1vRHF3Y1JGdFdYWnZaUkF0NDFiQzRBZ0JI?=
+ =?utf-8?B?UHNHZGt1NHhYam1adnJLaDMwZE9KeWc4N3hpeXc5VXpyVExsaTg3bjJHU2R6?=
+ =?utf-8?B?MEJJbXdmWEhKMytmcDhEVVhBZkxRcWRmSTQ4KzR4MEJDbS9IeTJwL3RrRmoz?=
+ =?utf-8?B?bDdOZ2N0bjJ4azh4RHVvc04yOEg2TWg2WEtiYzdLS3NzczlZa3Urb3Rod0tr?=
+ =?utf-8?B?bSt2RXJveVAwWWVMWDYyWFcxbGdNRlN6ZnBzNWJHbTE5SmFOSHRLc2g5WHNm?=
+ =?utf-8?B?TmpiWEJrc24rR3g0Uk5WNjNKNG5TWm5BQzVkaXRia3Rmb3M2K29udVZSY3FZ?=
+ =?utf-8?B?SzZib2tmRzR3d1pKR1JrRUZQVUhFNzI1NTZEeU5yVzg0cnFCVzluLzcyYkcw?=
+ =?utf-8?B?SUV6cElieWdzN0huZ3VaTGZxSEtFYStyWHF1SXhWOFFqcEtOT2hzYXJVb3Uy?=
+ =?utf-8?B?MnFOWGVvMXlRM0w4OUVUNXVJWktDdUdBY1Nxc0ZKTXBZTUpSQ2lMcW9Lb1d1?=
+ =?utf-8?B?U2E2RUxMdlg2bmFyclZ1VnNYdUFXUDgzd2l1ODN2ZkVRR2p3VUI0K1ZiaWVn?=
+ =?utf-8?B?dTlKeXBPMnpBbStHTDN5NWVDTGl1dmZ0eFlBeVEreXdxZlc3a04vWEUrYzdw?=
+ =?utf-8?B?QmpUOFRaOGgwbmgzNm5FVXFRcVdIektOSjdRSUc3Zy8zVmVjSEdxOHZUQUlI?=
+ =?utf-8?B?ckEvemk0dms4QTcyb0UvKzRoNVlaYmVRdmxSci9IYzlXMjFrUFBPK1hCdGFv?=
+ =?utf-8?B?WlpXdlVqOVl4emNvcjVOSURzUi9mdFgwRFVkQVpOMGh3QW5mYUxUalFDNjdn?=
+ =?utf-8?B?Ly9IRVNEL0lqdkVWWmNYWnZFWmFRYXdWazRQaEhqWXFsM3E1M3VuSEZDcVhC?=
+ =?utf-8?B?R1NhYWdWZXFSTkhtbVNmZ1lJbXVhbXpOeDI0SmNIMEZ4bUplSDdYc21lcFYy?=
+ =?utf-8?B?OW1tWXhaRE9lL3IwZmRmMVNxWTJhRUI0cEZ1d3dHMUNEZlRwSmg4bSs4NWpw?=
+ =?utf-8?B?eTg3NVVWYTZELzZKeDZLY3dQTUpQWnJVQjRsUENwV3A5TWlKTUtHbDdCdTA2?=
+ =?utf-8?B?bk5XcnhRemQzdU8xSHVycWYyQWZWdGtTQ2ViTGRwMVc3TDdjekdOaUk4Umhh?=
+ =?utf-8?B?K3B5UU5zMnBZeDRGazNSTVlWLzBRWnl0djVJcWhNcGQvYWNhRzBzOHlGSFNa?=
+ =?utf-8?B?VXRpN29RWDdFYzBBZjQ1M2hMUllTTWREUkN5dWgrL2pEKzcrOWJKeXFvb2Ji?=
+ =?utf-8?B?SW8yRXlobVN6ZEk5WnJVR2RpdkhMZ1VRSlozREhSQnVFam1Idk9iT2phUmhl?=
+ =?utf-8?B?ckVXRXREZXR0clBDNC9qNTlWRHYzMzNLeENHbStVMGpLbGFWdXJuRFo4N0h3?=
+ =?utf-8?B?T3dib3hZdXRMa09IY3VENjUvL2FBRkpwcDdZMmxDVWdFa1NJSVlmazF4Nm9i?=
+ =?utf-8?B?dEJuZ1MvY01raHhxczVTNHBlRHBzeE1qcmlmbE96TE1EdGprZ2RZeWNUbG91?=
+ =?utf-8?B?NFlrODRjdTI3TWRDUm9QZldZcHpRRjRtQlhKdVl4MGdZdlpaQkNBaUNnTEho?=
+ =?utf-8?B?a0NwSjdjbkF0QWVpcm5GbFJVWE8vckpOWkNXdmhGbHIwc3dSNnNlNEE0bENP?=
+ =?utf-8?B?T1UrdEhWK01xYVc2LzY5VytsVmlMbG9DdDRaemt2cTMvK2t5Q3V1Z1RPZlJy?=
+ =?utf-8?B?WnFoNW5JQ2c0RUdvU0RGSDJFQkszbm1ra2ZTdjhNbCtqVzVoaVRTdU9KK2py?=
+ =?utf-8?B?M1JZZDBVUzIrdlMybEU1OGk2b1dVaWlQOG1kQi9PQ1ROdHpWVnFWZz09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7f7c0ed4-abde-4e2d-91fc-08de783fd7d3
+X-MS-Exchange-CrossTenant-AuthSource: PA6PR04MB11910.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Mar 2026 09:41:13.4938
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Ktqon5b6YKFCyDuNNz1zsxpU9UPw18hTmBGGD/ePlhlOwvjCEtuq9+/X6afbIIhdld0zqkMqokrqWpUkpd6GhQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10392
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_014000_718344_9158DB78 
-X-CRM114-Status: GOOD (  30.36  )
+X-CRM114-CacheID: sfid-20260302_014152_217255_8B9412DA 
+X-CRM114-Status: GOOD (  35.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,250 +156,256 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
-	Thank you for the review.
+Hi Laurent, Jacopo
 
-Krzysztof Kozlowski 於 2026/3/2 下午 03:24 寫道:
-> On Mon, Mar 02, 2026 at 02:08:21AM +0000, Zi-Yu Chen wrote:
->> Add I2C support for Nuvoton MA35D1 SoC.
->> The controller supports standard, fast and fast-plus modes,
->> and provides master/slave functionality.
+On 2/10/26 12:00 AM, Laurent Pinchart wrote:
+> 
+> 
+> On Wed, Feb 04, 2026 at 02:14:50PM +0100, Jacopo Mondi wrote:
+>> On Wed, Feb 04, 2026 at 12:07:41PM +0100, Antoine Bouyer wrote:
+>>> On 2/3/26 5:15 PM, Jacopo Mondi wrote:
+>>>> On Fri, Jan 23, 2026 at 09:09:28AM +0100, Antoine Bouyer wrote:
+>>>>> Extend the v4l2-isp extensible format introduced for isp parameters buffer
+>>>>> to the statistics buffer as well.
+>>>>>
+>>>>> Like for ISP configuration purpose, that will help supporting various ISP
+>>>>> hardware versions reporting different statistics data with less impact on
+>>>>> userspace.
+>>>>>
+>>>>> The `v4l2_isp_stats_buffer` reuses the `v4l2_isp_params_buffer` container
+>>>>> definitions, with similar header, versions and flags. V0 and V1 versions
+>>>>
+>>>> Why do you need two flags ?
+>>>>
+>>>> Params had to introduce two because we had two drivers already
+>>>> mainlined using the pre-v4l2-isp version of extensible params which
+>>>> had defined their version identifier as 1 and 0 and we didn't want to
+>>>> break existing userspace using those identifiers. So we had to accept
+>>>> both V0 and V1 as "first version of the v4l2-isp extensible parameters
+>>>> format".
+>>>>
+>>>> For stats we don't have users, so I guess we can start with V1 == 0 ?
+>>>
+>>> I wanted to keep it aligned with params, so that any driver/userspace can
+>>> use the same API version value for both params and stats buffers, and limit
+>>> headache.
+
+Seems this topic is not yet clarified. Should I use same version values 
+for both params and stats as in current patch ? Or use different values 
+V1 == 0 as suggested ?
+
+ From userspace perspective, I feel it would be easier to align params 
+and stats versions, so we don't need to maintain different versions for 
+same purpose; and if a new version V2 comes and is applied to both 
+params and stats buffers, then we can use same value too. What do you 
+think ?
+
+>>>
+>>>>> are provided to match with params versions. On the other side, ENABLE and
+>>>>> DISABLE flags are not really meaningfull for statistics purpose. So VALID
+>>>>> and INVALID flags are introduced. Purpose is to force ISP driver to
+>>>>> validate a statistics buffer, before it is consumed by userspace.
+>>>>
+>>>> Interesting. What do you mean with "validate a statistics buffer" ?
+>>>> And if a driver has to do validation, why would it send upstream a
+>>>> non-validated buffer ?
+>>>
+>>> Like for version, I wanted to keep same header structure, including flags.
+>>> Since ENABLE/DISABLE is not relevant for statistics, I thought about using a
+>>> "validation" flag, to force driver confirming statistics blocks are valid or
+>>> not.
 >>
->> Signed-off-by: Zi-Yu Chen <zychennvt@gmail.com>
->> ---
->>  drivers/i2c/busses/Kconfig      |  13 +
->>  drivers/i2c/busses/Makefile     |   1 +
->>  drivers/i2c/busses/i2c-ma35d1.c | 819 ++++++++++++++++++++++++++++++++
->>  3 files changed, 833 insertions(+)
->>  create mode 100644 drivers/i2c/busses/i2c-ma35d1.c
+>> See the question on the documentation patches.
 >>
->> diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
->> index e11d50750e63..6bf8be1d2575 100644
->> --- a/drivers/i2c/busses/Kconfig
->> +++ b/drivers/i2c/busses/Kconfig
->> @@ -1589,4 +1589,17 @@ config I2C_VIRTIO
->>            This driver can also be built as a module. If so, the module
->>            will be called i2c-virtio.
->>  
->> +config I2C_MA35D1
->> +	tristate "Nuvoton MA35D1 I2C driver"
->> +	depends on ARCH_MA35
+>>> If you feel it is useless, I'm fine with removing it. Should I keep a flag
+>>> field anyway to stay aligned with params then ?
+>>
+>> RkISP1 has support for both "legacy" and "extensible" formats because
+>> it has been mainline for a long time with the legacy format only. We
+>> couldn't simply replace the existing format with the new one because
+>> we would break existing users.
+>>
+>> All the other drivers that have been upstreamed with extensible only
+>> (Amlogic C3 and Mali C55) do not expose a legacy format as there was
+>> not prior version in mainline on which userspace might depend on.
+>>
+>> Unless you have very convincing reason, I would certainly drop the
+>> legacy format and only use extensible.
 > 
-> 
-> Missing COMPILE_TEST
-Will add || COMPILE_TEST to the dependency in v2.
-> 
-> ...
-> 
->> +	/* Setup info block for the I2C core */
->> +	strscpy(i2c->adap.name, "ma35d1-i2c", sizeof(i2c->adap.name));
->> +	i2c->adap.owner = THIS_MODULE;
->> +	i2c->adap.algo = &ma35d1_i2c_algorithm;
->> +	i2c->adap.retries = 2;
->> +	i2c->adap.algo_data = i2c;
->> +	i2c->adap.dev.parent = &pdev->dev;
->> +	i2c->adap.dev.of_node = pdev->dev.of_node;
->> +	i2c_set_adapdata(&i2c->adap, i2c);
->> +
->> +	ret = of_property_read_u32(pdev->dev.of_node, "clock-frequency",
->> +				   &busfreq);
->> +	if (ret) {
->> +		dev_err(i2c->dev, "clock-frequency not specified in DT\n");
->> +		return ret;
->> +	}
->> +
->> +	/* Calculate divider based on the current peripheral clock rate */
->> +	clkdiv = DIV_ROUND_CLOSEST(clk_get_rate(i2c->clk), busfreq * 4) - 1;
->> +	if (clkdiv < 0 || clkdiv > 0xffff) {
->> +		dev_err(dev, "invalid clkdiv value: %d\n", clkdiv);
->> +		return -EINVAL;
->> +	}
->> +
->> +	i2c->irq = platform_get_irq(pdev, 0);
->> +	if (i2c->irq < 0)
->> +		return i2c->irq;
->> +
->> +	platform_set_drvdata(pdev, i2c);
->> +
->> +	pm_runtime_set_autosuspend_delay(dev, I2C_PM_TIMEOUT);
->> +	pm_runtime_use_autosuspend(dev);
->> +	pm_runtime_set_active(dev);
->> +	pm_runtime_enable(dev);
->> +
->> +	ret = pm_runtime_get_sync(dev);
->> +	if (ret < 0)
->> +		goto rpm_disable;
->> +
->> +	writel(clkdiv & 0xffff, i2c->regs + MA35_CLKDIV);
->> +
->> +	ret = devm_request_irq(dev, i2c->irq, ma35d1_i2c_irq, IRQF_SHARED,
->> +			       dev_name(dev), i2c);
->> +
-> 
-> No blank line ever between call and if()
-Acknowledged. Will fix in v2.
-> 
->> +	if (ret != 0) {
-> 
-> Write simple and obvious code.
-> 
-> if (ret)
-> 
-Acknowledged. I will simplify the error check to if (ret) in v2.
->> +		dev_err(dev, "cannot claim IRQ %d\n", i2c->irq);
->> +		goto rpm_disable;
->> +	}
->> +
->> +	/* Give it another chance if pinctrl used is not ready yet */
->> +	if (ret == -EPROBE_DEFER)
-> 
-> Pointless and dead code.
-Acknowledged. I will remove the redundant -EPROBE_DEFER check and its associated comment in v2
-> 
->> +		goto rpm_disable;
->> +
->> +	ret = i2c_add_adapter(&i2c->adap);
->> +	if (ret) {
->> +		dev_err(dev, "failed to add bus to i2c core: %d\n", ret);
->> +		goto rpm_disable;
->> +	}
->> +
->> +	pm_runtime_put_autosuspend(dev);
->> +
->> +	return 0;
->> +
->> +rpm_disable:
->> +	pm_runtime_put_noidle(dev);
->> +	pm_runtime_disable(dev);
->> +	pm_runtime_set_suspended(dev);
->> +	pm_runtime_dont_use_autosuspend(dev);
->> +	return ret;
->> +}
->> +
->> +static void ma35d1_i2c_remove(struct platform_device *pdev)
->> +{
->> +	struct ma35d1_i2c *i2c = platform_get_drvdata(pdev);
->> +
->> +	i2c_del_adapter(&i2c->adap);
->> +	pm_runtime_disable(&pdev->dev);
->> +}
->> +
->> +static int ma35d1_i2c_suspend(struct device *dev)
->> +{
->> +	struct ma35d1_i2c *i2c = dev_get_drvdata(dev);
->> +	unsigned int val;
->> +
->> +	spin_lock_irq(&i2c->lock);
->> +
->> +	/* Prepare for wake-up from I2C events if slave mode is active */
->> +	if (i2c->slave) {
->> +		val = readl(i2c->regs + MA35_CTL0);
->> +		val |= (MA35_CTL_SI | MA35_CTL_AA);
->> +		writel(val, i2c->regs + MA35_CTL0);
->> +		ma35d1_i2c_enable_irq(i2c);
->> +	}
->> +
->> +	spin_unlock_irq(&i2c->lock);
->> +
->> +	/* Setup wake-up control */
->> +	writel(0x1, i2c->regs + MA35_WKCTL);
->> +
->> +	/* Clear pending wake-up flags */
->> +	val = readl(i2c->regs + MA35_WKSTS);
->> +	writel(val, i2c->regs + MA35_WKSTS);
->> +
->> +	enable_irq_wake(i2c->irq);
->> +
->> +	return 0;
->> +}
->> +
->> +static int ma35d1_i2c_resume(struct device *dev)
->> +{
->> +	struct ma35d1_i2c *i2c = dev_get_drvdata(dev);
->> +	unsigned int val;
->> +
->> +	/* Disable wake-up */
->> +	writel(0x0, i2c->regs + MA35_WKCTL);
->> +
->> +	/* Clear pending wake-up flags */
->> +	val = readl(i2c->regs + MA35_WKSTS);
->> +	writel(val, i2c->regs + MA35_WKSTS);
->> +
->> +	disable_irq_wake(i2c->irq);
->> +	return 0;
->> +}
->> +
->> +static int ma35d1_i2c_runtime_suspend(struct device *dev)
->> +{
->> +	struct ma35d1_i2c *i2c = dev_get_drvdata(dev);
->> +	unsigned int val;
->> +
->> +	/* Disable I2C controller */
->> +	val = readl(i2c->regs + MA35_CTL0);
->> +	val &= ~MA35_CTL_I2CEN;
->> +	writel(val, i2c->regs + MA35_CTL0);
->> +
->> +	clk_disable_unprepare(i2c->clk);
->> +
->> +	return 0;
->> +}
->> +
->> +static int ma35d1_i2c_runtime_resume(struct device *dev)
->> +{
->> +	struct ma35d1_i2c *i2c = dev_get_drvdata(dev);
->> +	unsigned int val;
->> +	int ret;
->> +
->> +	ret = clk_prepare_enable(i2c->clk);
->> +	if (ret) {
->> +		dev_err(dev, "failed to enable clock in resume\n");
->> +		return ret;
->> +	}
->> +
->> +	/* Enable I2C controller */
->> +	val = readl(i2c->regs + MA35_CTL0);
->> +	val |= MA35_CTL_I2CEN;
->> +	writel(val, i2c->regs + MA35_CTL0);
->> +
->> +	return 0;
->> +}
->> +
->> +static const struct dev_pm_ops ma35d1_i2c_pmops = {
->> +	SYSTEM_SLEEP_PM_OPS(ma35d1_i2c_suspend, ma35d1_i2c_resume)
->> +		RUNTIME_PM_OPS(ma35d1_i2c_runtime_suspend,
->> +			       ma35d1_i2c_runtime_resume, NULL)
->> +};
->> +
->> +static const struct of_device_id ma35d1_i2c_of_match[] = {
->> +	{ .compatible = "nuvoton,ma35d1-i2c" },
->> +	{},
->> +};
->> +MODULE_DEVICE_TABLE(of, ma35d1_i2c_of_match);
->> +
->> +static struct platform_driver ma35d1_i2c_driver = {
->> +	.probe      = ma35d1_i2c_probe,
->> +	.remove     = ma35d1_i2c_remove,
->> +	.driver     = {
->> +		.name   = "ma35d1-i2c",
->> +		.owner  = THIS_MODULE,
-> 
-> Do not upstream 12-year-old code. We fixed all these issues long time.
-> Please write your driver from scratch, so you will not
-> repeat/reintroduce all the issues which we already fixed.
-> 
-I will address these issues in V2 by:
+> I agree with that, for upstream we shouldn't carry legacy formats in new
+> drivers. I've read elsewhere in this thread that it won't cause issues,
+> otherwise I would have recommended carrying an extra patch in the BSP
+> kernel to implement legacy formats, and only use extensible formats
+> upstream.
 
-Removing the redundant .owner = THIS_MODULE.
+ok. I'm fine with removing legacy format from neo driver, and keep it 
+only in downstream for some time.
 
-Reviewing the entire driver to ensure all APIs and patterns align with current upstream standards.
+> 
+>>>>> Signed-off-by: Antoine Bouyer <antoine.bouyer@nxp.com>
+>>>>> ---
+>>>>>    include/uapi/linux/media/v4l2-isp.h | 85 +++++++++++++++++++++++++++++
+>>>>>    1 file changed, 85 insertions(+)
+>>>>>
+>>>>> diff --git a/include/uapi/linux/media/v4l2-isp.h b/include/uapi/linux/media/v4l2-isp.h
+>>>>> index 779168f9058e..ed1279b86694 100644
+>>>>> --- a/include/uapi/linux/media/v4l2-isp.h
+>>>>> +++ b/include/uapi/linux/media/v4l2-isp.h
+>>>>> @@ -99,4 +99,89 @@ struct v4l2_isp_params_buffer {
+>>>>>         __u8 data[] __counted_by(data_size);
+>>>>>    };
+>>>>>
+>>>>> +/**
+>>>>> + * enum v4l2_isp_stats_version - V4L2 ISP statistics versioning
+>>>>> + *
+>>>>> + * @V4L2_ISP_STATS_VERSION_V0: First version of the V4L2 ISP statistics format
+>>>>> + *                          (for compatibility)
+>>>>> + * @V4L2_ISP_STATS_VERSION_V1: First version of the V4L2 ISP statistics format
+>>>>> + *
+>>>>> + * V0 and V1 are identical, and comply with V4l2 ISP parameters versions. So
+>>>>> + * both V0 and V1 refers to the first version of the V4L2 ISP statistics
+>>>>> + * format.
+>>>>> + *
+>>>>> + * Future revisions of the V4L2 ISP statistics format should start from the
+>>>>> + * value of 2.
+>>>>> + */
+>>>>> +enum v4l2_isp_stats_version {
+>>>>> +     V4L2_ISP_STATS_VERSION_V0 = 0,
+>>>>> +     V4L2_ISP_STATS_VERSION_V1,
+>>>>
+>>>> As suggested I would make V1 == 0
+>>>>
+>>>>> +};
+>>>>> +
+>>>>> +#define V4L2_ISP_PARAMS_FL_BLOCK_VALID               (1U << 0)
+>>>>> +#define V4L2_ISP_PARAMS_FL_BLOCK_INVALID     (1U << 1)
+>>>>> +
+>>>>> +/*
+>>>>> + * Reserve the first 8 bits for V4L2_ISP_STATS_FL_* flag.
+>>>>> + *
+>>>>> + * Driver-specific flags should be defined as:
+>>>>> + * #define DRIVER_SPECIFIC_FLAG0     ((1U << V4L2_ISP_STATS_FL_DRIVER_FLAGS(0))
+>>>>> + * #define DRIVER_SPECIFIC_FLAG1     ((1U << V4L2_ISP_STATS_FL_DRIVER_FLAGS(1))
+>>>>> + */
+>>>>> +#define V4L2_ISP_STATS_FL_DRIVER_FLAGS(n)       ((n) + 8)
+>>>>
+>>>> Currently we have no users of V4L2_ISP_PARAMS_FL_DRIVER_FLAGS so we
+>>>> could even consider making it a V4L2_ISP_FL_DRIVER_FLAGS
+>>>>
+>>>> Or do you think it is worth creating a new symbol ?
+>>>
+>>> To limit impact on potential on-going development, and future conflict,
+>>> creating new symbol may be safer IMO. But I'm fine with using a single
+>>> symbol if you prefer. Most probably this flag customization is not used yet
+>>> by any driver.
+>>>
+>>>>> +
+>>>>> +/**
+>>>>> + * struct v4l2_isp_stats_block_header - V4L2 extensible statistics block header
+>>>>> + * @type: The statistics block type (driver-specific)
+>>>>> + * @flags: A bitmask of block flags (driver-specific)
+>>>>> + * @size: Size (in bytes) of the statistics block, including this header
+>>>>> + *
+>>>>> + * This structure represents the common part of all the ISP statistics blocks.
+>>>>> + * Each statistics block shall embed an instance of this structure type as its
+>>>>> + * first member, followed by the block-specific statistics data.
+>>>>> + *
+>>>>> + * The @type field is an ISP driver-specific value that identifies the block
+>>>>> + * type. The @size field specifies the size of the parameters block.
+>>>>> + *
+>>>>> + * The @flags field is a bitmask of per-block flags V4L2_STATS_ISP_FL_* and
+>>>>> + * driver-specific flags specified by the driver header.
+>>>>> + */
+>>>>> +struct v4l2_isp_stats_block_header {
+>>>>> +     __u16 type;
+>>>>> +     __u16 flags;
+>>>>> +     __u32 size;
+>>>>> +} __attribute__((aligned(8)));
+>>>>> +
+>>>>
+>>>> This is currently identical to v4l2_isp_params_block_header.
+>>>>
+>>>> Can we create a single header for both stats and params and provide a
+>>>>
+>>>> #define v4l2_isp_params_block_header v4l2_isp_block_header
+>>>>
+>>>> for maintaining compatibility with existing users ?
+>>>>
+>>>> Or do you expect stats and params to eventually need different headers ?
+>>>
+>>> Current approach is to use same structure definitions as for params. So I'm
+>>> fine with creating a single header as suggested, and provide symbols to keep
+>>> compatibility.
+>>>
+>>>>> +/**
+>>>>> + * struct v4l2_isp_stats_buffer - V4L2 extensible statistics data
+>>>>> + * @version: The statistics buffer version (driver-specific)
+>>>>> + * @data_size: The statistics data effective size, excluding this header
+>>>>> + * @data: The statistics data
+>>>>> + *
+>>>>> + * This structure contains the statistics information of the ISP hardware,
+>>>>> + * serialized for userspace into a data buffer. Each statistics block is
+>>>>> + * represented by a block-specific structure which contains a
+>>>>> + * :c:type:`v4l2_isp_stats_block_header` entry as first member. Driver
+>>>>> + * populates the @data buffer with statistics information of the ISP blocks it
+>>>>> + * intends to share to userspace. As a consequence, the data buffer effective
+>>>>> + * size changes according to the number of ISP blocks that driver intends to
+>>>>> + * provide and is set by the driver in the @data_size field.
+>>>>> + *
+>>>>> + * The statistics buffer is versioned by the @version field to allow modifying
+>>>>> + * and extending its definition. Driver shall populate the @version field to
+>>>>> + * inform the userpsace about the version it intends to use. The userspace will
+>>>>> + * parse and handle the @data buffer according to the data layout specific to
+>>>>> + * the indicated version.
+>>>>> + *
+>>>>> + * For each ISP block that driver wants to report, a block-specific structure
+>>>>> + * is appended to the @data buffer, one after the other without gaps in
+>>>>> + * between. Driver shall populate the @data_size field with the effective
+>>>>> + * size, in bytes, of the @data buffer.
+>>>>> + */
+>>>>> +struct v4l2_isp_stats_buffer {
+>>>>> +     __u32 version;
+>>>>> +     __u32 data_size;
+>>>>> +     __u8 data[] __counted_by(data_size);
+>>>>> +};
+>>>>> +
+>>>>
+>>>> Same question. Should we introduce a struct v4l2_isp_buffer ?
+>>>
+>>> Yes, sounds reasonable.
+> 
+> That seems to make sense. Once we'll have a driver using
+> v4l2_isp_stats_buffer the structure will become ABI. If it then is an
+> exact copy of v4l2_isp_params_buffer, it would make sense to unify them.
+> Let's see what will happen after a few review rounds, if we end up
+> requiring separate fields in the stats buffer header.
 
-I am performing a "from-scratch" review to eliminate legacy patterns.
->> +		.of_match_table = ma35d1_i2c_of_match,
->> +		.pm = pm_ptr(&ma35d1_i2c_pmops),
->> +	},
+ok to use same struct for both.
+
 > 
-> Best regards,
-> Krzysztof
+> It would also be nice to implement support for extensible stats in a
+> second driver to test the API.
+
+What is your preferred approach then ?
+
+Should I "split" v4l2_isp rework in different patchset BUT with another 
+driver using it (with userspace changes I guess). Not something I'm 
+really comfortable with since I only focused on i.MX95 isp so far. But 
+if this is the only way, that could be evaluated.
+
+Or should I "keep" v4l2_isp changes together with neoisp introduction ?
+
+Thanks
+
+Best regards
+Antoine
+
 > 
+>>>>>    #endif /* _UAPI_V4L2_ISP_H_ */
+> 
+> --
+> Regards,
+> 
+> Laurent Pinchart
 
 
