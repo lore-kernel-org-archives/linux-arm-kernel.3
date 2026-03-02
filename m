@@ -4,90 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DACE6E9B36F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 12:36:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2E6DE9B371
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 12:37:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3BG6NbMJZCakv4h2SAqH1WDhyhJOxLlkoG0+u/X9t+w=; b=MGARSmpzS32FrvPduPMK2KAsRr
-	0wbSSK02rTK9RSkYK+6JppHmvOZBBzqx20+DLDgO0nXLF4PsY/FQNUtARfakSaDlupvVHX61BWf1q
-	Yng5GXTJD/2T/FiIo63isdh2Yk8LWG3Gfc9Ke+iDWLZa1XwDCb4GF1G6XP7pczFQN21xsBydUXjdM
-	vuzODnYIpHW8ibQYV3589O0t56Q03sXmx03HE1XGa9pgEnQHv8ws9gdDlWLNEa1nQrmq3gIrN9NnB
-	h6uAgXZhbTzbp1aNaJKCKW2xp1vwHsGjMAWjxeck1Rk59kQJgu63uQ1MUut0Q9iuiilyJ4yrrJznI
-	XEKO/YIA==;
+	bh=jGJIr8wFv9hr5lqBHLuRLwT5yQ6DlyeOxeauruYedWE=; b=WhfTHhZFnr6itjaZDknIPM1aYN
+	I9qn/0hVSloAYnp+iePJZ09xbwMLVchXtQANROEFnJ4BOw5LDuhrzKDLjzVjKrstFTxXGcxKoMQav
+	wQSPQWg83KVabz+6GjbHdd7AyXmphMcAdjaeb6N9BBIfozqHQmrDFyCF+q9FdZVU463/8KpJ2Fr9u
+	3NhusqdSQ96xpkyuo5+4VvyCH6VkFzYD4gs1ZmVCiYhcM2GEeMnKE6u5PoxoQgCNuXkpcUE7H50Eo
+	4Xqx8avfkT70KYamwzPHE+n2rqJw2KQcmAg/rBeeytzvCwERJ2Ww2v6p7fql6W4OkX1GPzOsP+HoP
+	8Bs4uxCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx2VY-0000000Cztj-2jqR;
-	Mon, 02 Mar 2026 12:36:20 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vx2WV-0000000D0Ct-1GLi;
+	Mon, 02 Mar 2026 12:37:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx2VW-0000000Czt9-1zUw;
-	Mon, 02 Mar 2026 12:36:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1772454928; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=EdM6kuDOOrBMjnk82Ujo+bVjEAXNVDAZBqVU/C5AIUuCTCpiFxwCZcpe03EWauXknbjeD766XJC5tJXnzS73vS3HbLrIVgx4rI/i1umJU3RCWVf4cWtY31b9OEOnDlRP22zfC84VoMNE73XFwNmWC4jeftCBL06vVeerlFo1Mxg=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1772454928; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=3BG6NbMJZCakv4h2SAqH1WDhyhJOxLlkoG0+u/X9t+w=; 
-	b=TiGFuMZyrE5Ol/sLoQp+n0ByX0Xz2NUfj2Wbg/OGQXHHc+WHNgMxrth2sK/DXaQUgopkpXqtj73ZFd4FpvtZVvJsUOXn5b909FImg8PufyEmX3POJt6RtJLYu6HzjrzyRCD24SyHVJo7YW4IT+h4B294hCJ/oza3vNm3PR0QHA8=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772454928;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=3BG6NbMJZCakv4h2SAqH1WDhyhJOxLlkoG0+u/X9t+w=;
-	b=B7iz3Bd6S3S9gUGiY3IxUc2MxIUugQu7iDZrJ/yyGxTlAtxwtsUGr5Xe5CLIXEGc
-	4z1rqx/G6PEKW5Q98G92SaBOZWk7fscOfqGNo1g8UGj3WiRlrlT4fxUNnQkh/ltgEPS
-	YLQ2mrmefuTXI3ooJRzKjrWdygiygyjjnqNTQ15g=
-Received: by mx.zohomail.com with SMTPS id 1772454925950111.09737166746925;
-	Mon, 2 Mar 2026 04:35:25 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
- Rodrigo Siqueira <siqueira@igalia.com>,
- Alex Deucher <alexander.deucher@amd.com>,
- Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Sandy Huang <hjc@rock-chips.com>,
- Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>,
- Jani Nikula <jani.nikula@linux.intel.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- kernel@collabora.com, amd-gfx@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
- linux-doc@vger.kernel.org, Andri Yngvason <andri@yngvason.is>,
- Werner Sembach <wse@tuxedocomputers.com>,
- Marius Vlad <marius.vlad@collabora.com>
-Subject: Re: [PATCH v9 02/19] drm: Add new general DRM property "color format"
-Date: Mon, 02 Mar 2026 13:35:16 +0100
-Message-ID: <5081457.31r3eYUQgx@workhorse>
-In-Reply-To: <y5ybjitphwydvtcjdtrmpcx7t7hwevjszpktcnmyvjqkgzinmu@hoitkl7lghxh>
-References: <20260227-color-format-v9-0-658c3b9db7ef@collabora.com>
- <20260227-color-format-v9-2-658c3b9db7ef@collabora.com>
- <y5ybjitphwydvtcjdtrmpcx7t7hwevjszpktcnmyvjqkgzinmu@hoitkl7lghxh>
+	id 1vx2WU-0000000D0CY-03x5
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 02 Mar 2026 12:37:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=jGJIr8wFv9hr5lqBHLuRLwT5yQ6DlyeOxeauruYedWE=; b=IEZ3Avfp7gjUVi1GZB6gq6xk8a
+	UN8LeMQ/e/L/UxkX9hlEfkySynT+jJNsxplTPHS3qH+6ZqHchItGc81+3bqEXKqlJhdtqBmAWBlgj
+	oRVC57JqmAweS6kj0wgy77+xLZDlkzLEzmE+uDSUs9Nqt89UoEnOkEVrO/EKTyRhlsOhS1RulwOjq
+	paG7i7N6bDljUVCai+qpW2f5XJMzp4tgsew8lgJuOAK2x54xNU0shw7JPqQ17zyOa3ejnmslV3rx9
+	XGKNJjW+DgY1blM5HDklPXNURkwqckhLI77l+ITtnj2NCKnpJEmuRFUBR7FK0RhG3w+xKkoUvsvYS
+	uK8c+crg==;
+Received: from mail-ua1-f50.google.com ([209.85.222.50])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vx2WR-000000001kV-00ch
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Mar 2026 12:37:16 +0000
+Received: by mail-ua1-f50.google.com with SMTP id a1e0cc1a2514c-94acf9ce1b7so3176645241.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 04:37:14 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772455032; x=1773059832;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jGJIr8wFv9hr5lqBHLuRLwT5yQ6DlyeOxeauruYedWE=;
+        b=h79E8G/jtS3lrrewPTEJJq5zYezRUtayTUAopZ9CSB9od7q4DQGnX9ZXAnHV9ZWG/2
+         r42VXhN4yjFKeyy3EAypajrpTfSqdZw6z18fP+iTXNbN9Gild6PQoM6CaU4R4h1YIeVY
+         Xj4+lxUJgSj0K+L2SpPD83jB1glexsZkSikdevFeEupWfQ5gmurRKQ0stQYk+0LLPgCP
+         +P7hxw+Dt+GmvwVIM/ZvGXivIiWiErlpnqT0ctpnA+IXW2xrVhoJE1F2qkZDhHiZjM6y
+         VPWR7yqTZ/A7AL2EPzxuOcengdV0/EIVAYp52D9VrJQu+4trgVfCGJ+x10CekmMIaY44
+         wkcA==
+X-Forwarded-Encrypted: i=1; AJvYcCUGER9S7cx/XLeieLfAOtzo8F4YhLeT4GiivytcojxeMbcZfazXlSHSqR06IGOa12gG+fV9gdbHCUSMDM+p2X4b@lists.infradead.org
+X-Gm-Message-State: AOJu0YzcV5Ete/wM6xIDfkDtCesKRijkkhDaaSiSqPAR13C8sYOQoTEE
+	O2A4UVz1juQAW5O7y51wybWBnQq9R86rtdzc5HrtDXQ42l5RwiMD1WAb18nvWzIg
+X-Gm-Gg: ATEYQzzj87XM7MtPuEclfteMXUGo6mtRP1e51DNMJVxVN5s6ZpREVQyP0GUul1+1vAU
+	yond9qPjX+jXLUgckm2PnR/PN76Yj4lY7rRHDtjCqxSQSJIO2/nOiCrIfkSBRlBJbgRVsr3Erhi
+	PiBs9wJjeJ7MGg/S4xwXYpJMoKTkREQZVcENofqOZkll7qCR6JInHcEEKACHh3vAioE98fUDSRz
+	B4HfBHw1HDYK40RmaDdsDo2qvStBZ+P7+8uE6T+jqpde7t3cu7F3gzdBs962QdtUNU7ta5tkmXh
+	zpk2fLOQe3nESL9BG3Gvb/H1r3SYiMvaGVKNTJJXWRMQdLC1ztt5Ym69DbfqvNi6q6w3wNUsy6v
+	LgI74uVVfnPIMfRG/pWFq1x7fsKGvzeAYaiKuZT2NYGkBK6IGf/u5xa8lj2AkeFatl5uiRMlMNR
+	QfDB+2QIe7vp1EN+IyFfjPHgulKz4TUYXeZIGEA3WjetQg7qN1yfduj9klL8tQ
+X-Received: by 2002:a05:6102:1629:b0:5f5:46f6:fb29 with SMTP id ada2fe7eead31-5ff324e81ffmr5803679137.26.1772455032478;
+        Mon, 02 Mar 2026 04:37:12 -0800 (PST)
+Received: from mail-vs1-f43.google.com (mail-vs1-f43.google.com. [209.85.217.43])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-94df641e133sm11749516241.5.2026.03.02.04.37.11
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 02 Mar 2026 04:37:11 -0800 (PST)
+Received: by mail-vs1-f43.google.com with SMTP id ada2fe7eead31-5ff07cb35f2so2278477137.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 04:37:11 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVZmEPS+GfGIjIlIBES/ko9LETtsfpRA4qmXVG1efL0qM7HoN+dwStGjqh7hU4Ge7S2lapNeuRc9nGyzsO0q4YM@lists.infradead.org
+X-Received: by 2002:a05:6102:1629:b0:5f5:46f6:fb29 with SMTP id
+ ada2fe7eead31-5ff324e81ffmr5803667137.26.1772455031730; Mon, 02 Mar 2026
+ 04:37:11 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+References: <20260227153225.2778358-1-cristian.marussi@arm.com> <20260227153225.2778358-2-cristian.marussi@arm.com>
+In-Reply-To: <20260227153225.2778358-2-cristian.marussi@arm.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 2 Mar 2026 13:37:00 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUZjZvhifzh0W2wbMZf2DYgZjO=gXepsS2nQtSG0weCag@mail.gmail.com>
+X-Gm-Features: AaiRm53-o6YuVgiLNI10tKCGvgnqzSehuU_fUzxc3DHRL4EGR1lrqXZ8SrXsMvo
+Message-ID: <CAMuHMdUZjZvhifzh0W2wbMZf2DYgZjO=gXepsS2nQtSG0weCag@mail.gmail.com>
+Subject: Re: [PATCH 01/11] firmware: arm_scmi: Add clock determine_rate operation
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, sudeep.holla@arm.com, 
+	philip.radford@arm.com, james.quinlan@broadcom.com, f.fainelli@gmail.com, 
+	vincent.guittot@linaro.org, etienne.carriere@foss.st.com, 
+	peng.fan@oss.nxp.com, michal.simek@amd.com, dan.carpenter@linaro.org, 
+	geert+renesas@glider.be, kuninori.morimoto.gx@renesas.com, 
+	marek.vasut+renesas@gmail.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_043618_543534_09C17AD7 
-X-CRM114-Status: GOOD (  23.59  )
+X-CRM114-CacheID: sfid-20260302_123715_160326_D1366643 
+X-CRM114-Status: GOOD (  30.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,62 +115,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sunday, 1 March 2026 17:47:48 Central European Standard Time Dmitry Baryshkov wrote:
-> On Fri, Feb 27, 2026 at 08:20:07PM +0100, Nicolas Frattaroli wrote:
-> > From: Andri Yngvason <andri@yngvason.is>
-> > 
-> > Add a new general DRM property named "color format" which can be used by
-> > userspace to request the display driver to output a particular color
-> > format.
-> > 
-> > Possible options are:
-> >     - auto (setup by default, driver internally picks the color format)
-> >     - rgb
-> >     - ycbcr444
-> >     - ycbcr422
-> >     - ycbcr420
-> > 
-> > Drivers should advertise from this list which formats they support.
-> > Together with this list and EDID data from the sink we should be able
-> > to relay a list of usable color formats to users to pick from.
-> > 
-> > Signed-off-by: Werner Sembach <wse@tuxedocomputers.com>
-> > Signed-off-by: Andri Yngvason <andri@yngvason.is>
-> > Signed-off-by: Marius Vlad <marius.vlad@collabora.com>
-> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > ---
-> >  drivers/gpu/drm/drm_atomic_helper.c |   5 ++
-> >  drivers/gpu/drm/drm_atomic_uapi.c   |  11 ++++
-> >  drivers/gpu/drm/drm_connector.c     | 124 ++++++++++++++++++++++++++++++++++++
-> >  include/drm/drm_connector.h         | 103 ++++++++++++++++++++++++++++++
-> >  4 files changed, 243 insertions(+)
-> 
-> It seems and feels that the common code to be used (almost?) everywhere
-> would be:
-> 
-> if (!drm_mode_create_color_format_property(connector, supported_formats))
-> 	drm_connector_attach_color_format_property(connector);
-> 
-> 
-> Please mention somewhere the reason to split that into two functions.
-> 
+Hi Cristian,
 
-There isn't one I can think of, I kept it as-is since I inherited
-the code like this and figured this was the expected convention based
-on drm_mode_create_hdmi_colorspace_property ->
-drm_connector_attach_colorspace_property.
+On Fri, 27 Feb 2026 at 16:33, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> Add a clock operation to help determining the effective rate, closest to
+> the required one, that a specific clock can support.
+>
+> Calculation is currently performed kernel side and the logic is taken
+> directly from the SCMI Clock driver: embedding the determinate rate logic
+> in the protocol layer enables semplifications in the SCMI Clock protocol
+> interface and  will more easily accommodate further evolutions where such
+> determine_rate logic into is optionally delegated to the platform SCMI
+> server.
+>
+> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 
-Quite possibly, the idea is that callers can choose to probe whether
-a certain set of parameters would allow the property to be created
-without attaching it during said probing, but that's speculation on
-my part.
+Thanks for your patch!
 
-Having it work like drm_connector_attach_max_bpc_property may make
-more sense here, and I'll refactor it to do this in the next revision
-unless anyone has any objections.
+> --- a/drivers/firmware/arm_scmi/clock.c
+> +++ b/drivers/firmware/arm_scmi/clock.c
+> @@ -624,6 +625,46 @@ static int scmi_clock_rate_set(const struct scmi_protocol_handle *ph,
+>         return ret;
+>  }
+>
+> +static int scmi_clock_determine_rate(const struct scmi_protocol_handle *ph,
+> +                                    u32 clk_id, unsigned long *rate)
+> +{
+> +       u64 fmin, fmax, ftmp;
+> +       struct scmi_clock_info *clk;
+> +       struct clock_info *ci = ph->get_priv(ph);
+> +
+> +       if (!rate)
+> +               return -EINVAL;
+> +
+> +       clk = scmi_clock_domain_lookup(ci, clk_id);
+> +       if (IS_ERR(clk))
+> +               return PTR_ERR(clk);
+> +
+> +       /*
+> +        * If we can't figure out what rate it will be, so just return the
+> +        * rate back to the caller.
+> +        */
+> +       if (clk->rate_discrete)
+> +               return 0;
+> +
+> +       fmin = clk->range.min_rate;
+> +       fmax = clk->range.max_rate;
+> +       if (*rate <= fmin) {
+> +               *rate = fmin;
+> +               return 0;
+> +       } else if (*rate >= fmax) {
+> +               *rate = fmax;
+> +               return 0;
+> +       }
+> +
+> +       ftmp = *rate - fmin;
+> +       ftmp += clk->range.step_size - 1; /* to round up */
+> +       do_div(ftmp, clk->range.step_size);
 
-Kind regards,
-Nicolas Frattaroli
+step_size is u64, while do_div() truncates it to 32-bit.
 
+> +
+> +       *rate = ftmp * clk->range.step_size + fmin;
+> +
+> +       return 0;
+> +}
+> +
+>  static int
+>  scmi_clock_config_set(const struct scmi_protocol_handle *ph, u32 clk_id,
+>                       enum clk_state state,
 
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
