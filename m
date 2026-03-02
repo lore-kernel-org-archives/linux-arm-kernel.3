@@ -4,81 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28A73EB3624
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 17:18:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20DDEEB3624
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 17:23:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2AyTmtGapKV3ZDBpXl/zEatvMugJVMPsu8CkfUGOdnk=; b=ravqJGQl2rQWXmOaPs1UrteZET
-	cpncGw45TY2hjwK4GGRGO51QYWrf/s6351HfloIWND7a7ozJjRXSowLPCfBqZSU/nve/k7srWRgBH
-	+l9z/Quep9ITggclhQ82HfXfD10PvKalAGHvKHBOX2Rmp7oI6NC1Ppfe5x0TT8m1LCICs2QAiLsUx
-	nkzJKJmZbVNT9PAYbYoG+yvXoFCJxAeliWB34LGZW+1g73krQKH5B36UmwzkgRslgD3jMZfjCtacl
-	0nA7uudAEYQZrSs7jWig5kEMn4DDnksERrTaluGsBKVmO6sGQ4XRIawjwVszb43nm4FqQwNQkx3W5
-	wWzUfdeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TbIkpYLS9gbJFch6OaF8nYKkHDJKdsVHvQjZGTHSn/8=; b=Uv/fTsBFR5y2KQ5uxu/1I05wa5
+	m6VbiiHHOMO8EnSnIDINxgIFwsU5NjVNFyoqyShyuiMBH68SubqpqypPnukp3YxsKzaDDqOSPpzLs
+	8SBYORTGpB+tWSM5fJSkxxRmizotXMWL94XGbZOtnNMWP3W7ERZXdCQDiSIvLWafXOwovAQVUyO5Q
+	I/JHylrxzDxmP8unK+TG8h5USUAg79LvnqRwGBe2GiIgTT/i3545a/n948Hs1/wzpTX3R6YpegWj/
+	A5jjd4XuI8AZa1CNVFD35PCaxoxiUSP4YH7fNK0O8KZ1xlO5+F/sH8XqK5fcVir63PvrAZkY9gG0R
+	TYnwn6Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx6uW-0000000DZvi-305a;
-	Mon, 02 Mar 2026 17:18:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vx6zS-0000000DaEe-24Ft;
+	Mon, 02 Mar 2026 17:23:30 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx6uU-0000000DZui-0LfG
+	id 1vx6zP-0000000DaEI-3xzQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 17:18:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5D95144561
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  2 Mar 2026 17:18:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4191BC2BCC7
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  2 Mar 2026 17:18:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772471901;
-	bh=+MqM9KmRITyYRwaK2vO3M8KAYNBFVTYRhLwmb87Tibc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=kb3Nqe5RRQ6fZzn0hWpidUfbL2ksozo7iqaxctiNEtWQg41IQH7CybnHljjB6FoYE
-	 tSqIamkvZDxigySxPoGdI/0koM8f95QpBE1nv/YQ6xf+CWYKIwIQT17nJnZKj9D1uU
-	 gHmiMDtDSr6R8cgZGprDUbS0MDKyrdTvYRBJo4AKX5I3FqPu6dPUeUdM6EfGSah9/c
-	 K7u5M5qykk2BStQ3UsxRnqWs0FXcuJhgCnawQcW6y5xsruO5RS0j4A0zGSRKHHFd/Y
-	 ixHTWvP+28P17nLzxy813d5t+NivpygbdSHdkY8Wb8aGpAKPaQEClVjIjgG5G7dP4G
-	 ZRjj3CL+wcY0w==
-Received: by mail-dl1-f50.google.com with SMTP id a92af1059eb24-1270ac5d3efso4489250c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 09:18:21 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVm5PqLt28ArMyR5KfK6zQa8505DzVSwHGz7W6j+FnSk4bKeeYkaMAwHTuRFRzUkQcWg4iozrGpiCp9Mkdlevw6@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJJn8zbStCJ1lynLXgIh5SqmFKaKRpnvx7I+7z1q/RmTbXHFxL
-	j+dqGCAAqnROQ/F5e4lOSvQwFlEa2bh3JnO3Q0FLYXw0XiTkiT5LCIwSYXRnZPFOqZ9DZbhKWq5
-	ZmtPWfXHVPMGUsNsBTO47Mvwp8ehzH69HrhHmkGrs2w==
-X-Received: by 2002:a05:7022:2524:b0:11b:c2fd:3960 with SMTP id
- a92af1059eb24-1278fbff709mr5725970c88.28.1772471900307; Mon, 02 Mar 2026
- 09:18:20 -0800 (PST)
+	Mon, 02 Mar 2026 17:23:29 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-b7cf4a975d2so562095366b.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 09:23:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1772472206; x=1773077006; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=TbIkpYLS9gbJFch6OaF8nYKkHDJKdsVHvQjZGTHSn/8=;
+        b=F5tnC1uv6zkSUep29D12j29TWxFRtt/reFMQLttmHM0mqUz/rhERfZYL1IYoviqdMx
+         C6Mka8GqbGqPC+Y2BXq2oFBzBWUVhdR4RzohXNu1Xby4xGaA/Uca8qDCi7QA8vMuIIsM
+         Dydh8+09G38HK6l0VqIGro90P0BM5zAJKu3f4=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772472206; x=1773077006;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TbIkpYLS9gbJFch6OaF8nYKkHDJKdsVHvQjZGTHSn/8=;
+        b=V6KOZg6CmmsPKKkubmrtjOfiq3evcBOk7IJ5m/D1DVVn1U2Nz4VbA4XEzDTFlC2kzU
+         JdLiUN9AiEctOl2XBTmSTr3q1oYP/1KucOqM6jmy0MOCrZ60mIIbPVgwYwDqV4JXYC4a
+         WvY8oYKVou0K74+WPjWA+5QN9FBahU6GgO4RQ5uDhKULBe2o6PoIjTWu2NX7jnVsh/sI
+         J68Y2UVhb/wXu+rdxhvQSwK3p7HEpcEoAB+HyjFc1YlgIQQrTJDCKsZ1OiQy6M/BKUpW
+         R2kLEvCXCGInqy3ecOWeq8d+c9MrziwSBCRONGT65KDczztt8umJrZVH1Cr6BjEXTyQX
+         h8pg==
+X-Forwarded-Encrypted: i=1; AJvYcCVMFPA6XjNZp9KD3cXMVK9BEHrUDW0lvCRM1VvcDU9eSx2wey/cngXEiCryXD5m9gcCPN/HVLfrMPUbdg4doM8w@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyb8hMgGLGvAKB5rU4DMjBrs2506Fzq+B/7zLK5A+gtnH33O4v1
+	Rb0gztDucXgLsBBXQ3zuLu65+UdWzTRYD+T2hODrmbSMD+sq1RvxOuDh2zJw1MHtQZldN2QFVHr
+	WTS7doak6OQ==
+X-Gm-Gg: ATEYQzwhE51iP8cRcL+EfMITfg1WOtU35tVbXcsAvhLj/7D4dko6vVpXuOC+s055zmO
+	qvDqnO1DI+UySumzpNLsTV/qsXxG03z0i/t6trzlnx5vGykBI4hoclml2X6cAnBI8SFaJMXv7lK
+	LjNQKljC8jYDs7d44N/CA1doHc4muOOxlAIauPa31meIrnJMBgGt5VdsP8eNOtuHQ8emfbRlEkE
+	GxZ3KZ3E6j0J5MMYPylTMz58WKJEZque/zaC3PE+TSAtboF5Im2P38kC9da7DCWZCB4t5jgBbNH
+	oNLEUuyUlhJwWbu8czifby7/eVuIj0+9i4KP+byfuMHIDbF3CvcSjpxPyJJKS88btnF0SavCsKA
+	hz4pC8PQ4aKaVrbHsqmoJ69QV3AToaLXtNYtPnetKXTJPRYk0J2RkBvvJhpQPo6fn/i36GdYM5r
+	XXlMXQlywl5PPdP4nZmX6sk6xUayptyqT5TsO7pWWAf1nIx13S85KSkGAsMh8hArRC4RCgdT0+
+X-Received: by 2002:a17:907:3e0e:b0:b93:7255:2da with SMTP id a640c23a62f3a-b937659feb6mr866373866b.55.1772472205602;
+        Mon, 02 Mar 2026 09:23:25 -0800 (PST)
+Received: from mail-ed1-f52.google.com (mail-ed1-f52.google.com. [209.85.208.52])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b935ab135casm475088266b.14.2026.03.02.09.23.25
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 02 Mar 2026 09:23:25 -0800 (PST)
+Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-65f73225f45so7512528a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 09:23:25 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVVcE4NI6ZBEEb2h0ZFV1SLfBqpMcPXTk3EGDzvENPRaF7xwa5jxOGcMgaZ63AUBBqlyZ9koAqJ2stItmfqnj/P@lists.infradead.org
+X-Received: by 2002:a17:907:25c2:b0:b8e:7dcb:7f1b with SMTP id
+ a640c23a62f3a-b93763af8f8mr867609766b.21.1772471885098; Mon, 02 Mar 2026
+ 09:18:05 -0800 (PST)
 MIME-Version: 1.0
-References: <20260223-soc-of-root-v2-0-b45da45903c8@oss.qualcomm.com>
- <20260223-soc-of-root-v2-8-b45da45903c8@oss.qualcomm.com> <CAMuHMdX-rdzLhOFEJYBXzCYX5jH2E1=ydGWKgNkD0Nqx-tGr4Q@mail.gmail.com>
-In-Reply-To: <CAMuHMdX-rdzLhOFEJYBXzCYX5jH2E1=ydGWKgNkD0Nqx-tGr4Q@mail.gmail.com>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Mon, 2 Mar 2026 18:18:06 +0100
-X-Gmail-Original-Message-ID: <CAMRc=MfwQm58Md+rH0gfwAdKf2mdtZ=2VRDzXQOZpGVcQgeyMw@mail.gmail.com>
-X-Gm-Features: AaiRm50zY2ACynZYq07UnZgsPpbD86ujojZTOhhFyYjI7hbWVv0-GS9VJ_fMHck
-Message-ID: <CAMRc=MfwQm58Md+rH0gfwAdKf2mdtZ=2VRDzXQOZpGVcQgeyMw@mail.gmail.com>
-Subject: Re: [PATCH v2 8/9] soc: renesas: don't access of_root directly
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Rob Herring <robh@kernel.org>, 
-	Saravana Kannan <saravanak@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Frank Li <Frank.Li@nxp.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org, 
-	linux-sunxi@lists.linux.dev, driver-core@lists.linux.dev
+References: <20260302132755.1475451-1-david.laight.linux@gmail.com> <20260302132755.1475451-5-david.laight.linux@gmail.com>
+In-Reply-To: <20260302132755.1475451-5-david.laight.linux@gmail.com>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Mon, 2 Mar 2026 09:17:48 -0800
+X-Gmail-Original-Message-ID: <CAHk-=whaR_ujJvWGTe_fZxg_d2YSORZWnXwHLa5Gao+x136pYA@mail.gmail.com>
+X-Gm-Features: AaiRm52ly83FU0bUfVtu2Rv39h3JOZJTzcdxMzg3AYFviKySZcFGK5yhPqg6aWc
+Message-ID: <CAHk-=whaR_ujJvWGTe_fZxg_d2YSORZWnXwHLa5Gao+x136pYA@mail.gmail.com>
+Subject: Re: [PATCH v2 4/5] uaccess: Disable -Wshadow in __scoped_user_access()
+To: david.laight.linux@gmail.com
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>, Andre Almeida <andrealmeid@igalia.com>, 
+	Andrew Cooper <andrew.cooper3@citrix.com>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Christian Brauner <brauner@kernel.org>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Darren Hart <dvhart@infradead.org>, 
+	Davidlohr Bueso <dave@stgolabs.net>, Heiko Carstens <hca@linux.ibm.com>, Jan Kara <jack@suse.cz>, 
+	Julia Lawall <Julia.Lawall@inria.fr>, linux-arm-kernel@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	LKML <linux-kernel@vger.kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Nicolas Palix <nicolas.palix@imag.fr>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Russell King <linux@armlinux.org.uk>, 
+	Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>, x86@kernel.org, 
+	Kees Cook <kees@kernel.org>, akpm@linux-foundation.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_091822_160588_C7834182 
-X-CRM114-Status: GOOD (  25.64  )
+X-CRM114-CacheID: sfid-20260302_092328_002031_2CB7C307 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,67 +117,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 2, 2026 at 5:47=E2=80=AFPM Geert Uytterhoeven <geert@linux-m68k=
-.org> wrote:
+On Mon, 2 Mar 2026 at 05:28, <david.laight.linux@gmail.com> wrote:
 >
-> Hi Bartosz,
+> From: David Laight <david.laight.linux@gmail.com>
 >
-> On Mon, 23 Feb 2026 at 14:38, Bartosz Golaszewski
-> <bartosz.golaszewski@oss.qualcomm.com> wrote:
-> > Don't access of_root directly as it reduces the build test coverage for
-> > this driver with COMPILE_TEST=3Dy and OF=3Dn. Use existing helper funct=
-ions
-> > to retrieve the relevant information.
-> >
-> > Suggested-by: Rob Herring <robh@kernel.org>
-> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.co=
-m>
->
-> > --- a/drivers/soc/renesas/renesas-soc.c
-> > +++ b/drivers/soc/renesas/renesas-soc.c
->
-> > @@ -468,7 +469,11 @@ static int __init renesas_soc_init(void)
-> >         const char *soc_id;
-> >         int ret;
-> >
-> > -       match =3D of_match_node(renesas_socs, of_root);
-> > +       struct device_node *root __free(device_node) =3D of_find_node_b=
-y_path("/");
-> > +       if (!root)
-> > +               return -ENOENT;
-> > +
-> > +       match =3D of_match_node(renesas_socs, root);
-> >         if (!match)
-> >                 return -ENODEV;
-> >
->
-> I still find it silly to add a call to of_find_node_by_path().
-> In your reply to my comment on v1, you said you don't want to add
-> another helper.
->
-> Currently we have two helpers in this area:
->   1. of_machine_device_match(), which returns bool, and tells if a
->      match is available,
->   2. of_machine_get_match_data(), which returns the match data, if a
->      match is available.
-> But there is no helper to return the actual match?
-> of_machine_device_match() would be fine, if it wouldn't cast the result
-> to bool...
->
-> As there is no cost (binary size-wise) in having the helper that returns
-> the match, too, I have sent a series[1] to do that. The last patch[2]
-> is an alternative to this patch, avoiding the need to add a call to
-> of_find_node_by_path().
->
-> [1] "[PATCH 0/7] of: Add and use of_machine_get_match() helper"
->     https://lore.kernel.org/cover.1772468323.git.geert+renesas@glider.be
-> [2] "[PATCH 7/7] soc: renesas: Convert to of_machine_get_match()"
->     https://lore.kernel.org/10876b30a8bdb7d1cfcc2f23fb859f2ffea335fe.1772=
-468323.git.geert+renesas@glider.be
->
+> -Wshadow is enabled by W=2 builds and __scoped_user_access() quite
+> deliberately creates a 'const' shadow of the 'user' address that
+> references a 'guard page' when the application passes a kernel pointer.
 
-Sure, I'm fine with this patch being dropped and your series queued instead=
-.
+This is too ugly to live.
 
-Bart
+There is no way that we should make an already unreadable macro even
+worse just because somebody - incorrectly - thinks that W=2 matters.
+
+No - what matters a whole lot more is keeping the kernel sources
+readable (well, at least as readable as is possible).
+
+Because W=2 is one of those "you get what you deserve" things.
+
+             Linus
 
