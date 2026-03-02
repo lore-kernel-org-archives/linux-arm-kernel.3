@@ -4,105 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA609EA4E3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 16:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5378EA4E38
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 16:14:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w7U2i7wNnzNewzg0HZ0VM12VPokXKDs53EuGg6YDrv8=; b=sosb06/d9yCCaphfDSB+t6IEyv
-	os9hnQa4vT43bJizpQY2HpK0+NLolm+OGZ0SHlMu8TZazHqW/AjrUalBnW1wCvS+vngGodBiO+Un+
-	Gc4pOFUpihtQnyiTFoxnwpm4mFf4CF23JQlILupXHslVOxm3kBEbSX6dQUFAFWO0U5QJeGD3AKB8q
-	VqEBxM7L+qFUyNYUriN7kF3LawdL+7cdKR4vVSzNpIUrKcACAscCj8dVaCvQE8aO2oaHZUkw1aQFv
-	ieWySdDiC0L+AOItBB78vqyc6WxspYix0gQg1VbCOSeeQ7tOG9/bvn1L0UlyVSu7gHa4MeeZv4g8d
-	XQp0rRhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=twQe7m5x4QDzYF5myGO1qmalh+JuN/K7HsbfYxfx4IQ=; b=WXrjwrXV3EXcnAvuNsLrLZzpda
+	fAEtbJnVdcvBRB2uq1rJY/SHHaghX4RNwZi07JOqwUGHofCag9iwjorz9xix87A7tiWli0EMTId4Z
+	D1dFxPALNZyc9zAge9ZXj0u3o1fABpn6wilQ+RZiopfd7fqx7AQoyhxCHP0bIwBgCUFIjWWffF3DQ
+	7NuWsoJh2ClcEq5Dwo8nns40O3xkqcX2lk2cX9uojVJ0K8sJ0cZRN6X3oGjc8Tikf6pqb8p6nU1KW
+	yiso+gzwRLIzcAKingzGPGICaNN9s2cH8Kf4C024NLUr4QJT6309yq+fft5pJHQqMEWRNHjVt1DyF
+	srOYuzjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx5ru-0000000DSgo-1gQK;
-	Mon, 02 Mar 2026 16:11:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vx5uX-0000000DT8L-3Xpl;
+	Mon, 02 Mar 2026 16:14:21 +0000
+Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx5rs-0000000DSfV-3mTD;
-	Mon, 02 Mar 2026 16:11:37 +0000
+	id 1vx5uU-0000000DT7t-2IxD;
+	Mon, 02 Mar 2026 16:14:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=w7U2i7wNnzNewzg0HZ0VM12VPokXKDs53EuGg6YDrv8=; b=IWHuR6yd9hrEUe+FUg8bIhVATS
-	Og0U5yU3HGnKU8jrUSkuhe+akCBHsBVDdxu3r2VL1z6tupHtAGmr2sGfYwVls1EPBerDnkQ8EyvV/
-	aUsbhzQh967oL8ch4AcnG6aN9ANwsYePQHrKrMEu9b44uAeYFrI5ilIjGBVQkvXPOkE37a5gRdO3D
-	OLJxF505pYOIBVlUYALU3nVTyX2zZjmq8Afr+RwmGsPOBAaTq4pkkSyO2DWA9IA+uRTXPpoL3MpV5
-	zkydx5twImq+tAWu7Tk9UFPrZzo7QcZ0UZkC7qcNClMElyq4iyAuq/ZP7Vmru+mrF/LC6dX7e0pjj
-	Y6vvF2rw==;
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx5ro-00000000X95-3p6k;
-	Mon, 02 Mar 2026 16:11:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1772467825; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=JXcnLJWgLCF+YZoorFdBR1yAwjY7LGAS1wsZttwSZ7OX1N8/tnJuRhgJ+frB9Q4b6lfq6qMedTrSlMEU0sGgxTyLFOvcWCVEFFb2d7R3YdZGhKZTR/jPT5rJdYY3mxQxVtAR7qnensaRyP+gChcl9H3hdJAEAS6X/GfVjtSeshI=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1772467825; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=w7U2i7wNnzNewzg0HZ0VM12VPokXKDs53EuGg6YDrv8=; 
-	b=SQsvFxkGjCOpd7AR/Pg3XOdD9HKqPhI4gLsvZbyx5J/H/xqlfcr1VbYYjBddL2YeSvaT/AV6AeOR2BFX+17Pe1UHRHufhxgqho1yhn6vXQj+llmafnzH3fKftx5V0gU+97otl0p1YJKSCULW73P8EG4ZLbp9FMXu+pvWGIzxzvU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772467825;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=w7U2i7wNnzNewzg0HZ0VM12VPokXKDs53EuGg6YDrv8=;
-	b=W0F/s1WVOicRqRRlh5k5bS16DecRt/X1lliwR6v9bihZZKydDIaE9AyHGcfVgqOl
-	DvAw1wWZ42oww1fu25LhPzUbERsubMtUdY7LsGOtMzSepxHtaknXKw8XPpJIsvcOnzc
-	wcoHVxy/hBVsZb7ebXFaIeFPF7bsc7pFw7l7IamY=
-Received: by mx.zohomail.com with SMTPS id 1772467823906968.5878195359694;
-	Mon, 2 Mar 2026 08:10:23 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Jani Nikula <jani.nikula@linux.intel.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
- Rodrigo Siqueira <siqueira@igalia.com>,
- Alex Deucher <alexander.deucher@amd.com>,
- Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Andy Yan <andy.yan@rock-chips.com>, Liviu Dudau <liviu.dudau@arm.com>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Sandy Huang <hjc@rock-chips.com>,
- Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
- Liu Ying <victor.liu@nxp.com>, Chen-Yu Tsai <wens@kernel.org>,
- Samuel Holland <samuel@sholland.org>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- =?UTF-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- Maxime Ripard <mripard@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- amd-gfx@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-sunxi@lists.linux.dev, Jani Nikula <jani.nikula@intel.com>
-Subject: Re: [PATCH v2 14/14] drm/display: hdmi: Use drm_output_color_format instead
- of hdmi_colorspace
-Date: Mon, 02 Mar 2026 17:10:13 +0100
-Message-ID: <5970802.DvuYhMxLoT@workhorse>
-In-Reply-To: <20260227-drm-rework-color-formats-v2-14-8bd278e2af9d@kernel.org>
-References: <20260227-drm-rework-color-formats-v2-0-8bd278e2af9d@kernel.org>
- <20260227-drm-rework-color-formats-v2-14-8bd278e2af9d@kernel.org>
+	d=kemnade.info; s=20220719; h=References:In-Reply-To:Cc:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=twQe7m5x4QDzYF5myGO1qmalh+JuN/K7HsbfYxfx4IQ=; b=OW7jSdksduYz+IKSvOLDkKN61z
+	3stPn86I1Zpe3QM5ckzmWFy9QKdsLUm1afvc7mqa9jqSrsSe/HF2/UDMZ62nQEWps7ipDbyFKPiVR
+	B+i33nquzzN1C2mXfxh21wa5Gu4aAS/qpyikokftCREziVEfX/TnqygdkoVhF04Dhv6A+qn5OvTkU
+	vIA0BdP9CNGr3KG2rGgl7NeB6ktSCXuuxxCtOOKSwVx2SsE3wwuLUMj0qMAMS2pyIhfk68kfDoOFQ
+	1iFMM+u2zIw2O5oxhtUVW/Ql/PbtbqWjgYRdj0qwgQyK8kB0uCv7WxaiKTVaGvQN0LxGpEg200Mnx
+	Qv/VMSDA==;
+Date: Mon, 2 Mar 2026 17:14:07 +0100
+From: Andreas Kemnade <andreas@kemnade.info>
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Kalle Niemi <kaleposti@gmail.com>, Wolfram Sang
+ <wsa+renesas@sang-engineering.com>, Bartosz Golaszewski
+ <bartosz.golaszewski@oss.qualcomm.com>, Mukesh Kumar Savaliya
+ <mukesh.savaliya@oss.qualcomm.com>, Viken Dadhaniya
+ <viken.dadhaniya@oss.qualcomm.com>, Andi Shyti <andi.shyti@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
+ <rjui@broadcom.com>, Branden Scott <sbranden@broadcom.com>,
+ bcm-kernel-feedback-list@broadcom.com, Vignesh R <vigneshr@ti.com>, Aaro
+ Koskinen <aaro.koskinen@iki.fi>, Janusz Krzysztofik <jmkrzyszt@gmail.com>,
+ Tony Lindgren <tony@atomide.com>, Kevin Hilman <khilman@baylibre.com>,
+ Roger Quadros <rogerq@kernel.org>, Geert Uytterhoeven
+ <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, Patrice
+ Chotard <patrice.chotard@foss.st.com>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+ <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Linus Walleij
+ <linusw@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, linux-omap@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev, linux-rpi-kernel@lists.infradead.org, Matti Vaittinen
+ <mazziesaccount@gmail.com>
+Subject: Re: [PATCH v2 01/12] i2c: allow setting the parent device and OF
+ node through the adapter struct
+Message-ID: <20260302171407.5afe3b12@kemnade.info>
+In-Reply-To: <CAMRc=Mcg7_MAGA2_Ue7etOHvLOxpRs7aOBHxRM3AdAHyscFxDw@mail.gmail.com>
+References: <EDF3FB58-4747-442E-8463-6F1C6E568962@gmail.com>
+	<20260302160923.53abf2ea@kemnade.info>
+	<CAMRc=Mcg7_MAGA2_Ue7etOHvLOxpRs7aOBHxRM3AdAHyscFxDw@mail.gmail.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_161133_197684_84BBDC42 
-X-CRM114-Status: GOOD (  21.60  )
+X-CRM114-CacheID: sfid-20260302_081418_590169_4134919C 
+X-CRM114-Status: GOOD (  24.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,82 +88,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Friday, 27 February 2026 14:59:58 Central European Standard Time Maxime Ripard wrote:
-> The hdmi_colorspace enum was defined to represent the colorspace value
-> of the HDMI infoframes. It was later used by some HDMI drivers to
-> express the output format they should be setting up.
-> 
-> During the introduction of the HDMI helpers, it then was used to
-> represent it in the drm_connector_hdmi_state structure.
-> 
-> However, it's always been somewhat redundant with the DRM_COLOR_FORMAT_*
-> defines, and now with the drm_output_color_format enum. Let's
-> consolidate around drm_output_color_format in drm_connector_hdmi_state
-> to facilitate the current effort to provide a global output format
-> selection mechanism.
-> 
-> Acked-by: Jani Nikula <jani.nikula@intel.com>
-> Signed-off-by: Maxime Ripard <mripard@kernel.org>
-> ---
->  drivers/gpu/drm/bridge/inno-hdmi.c                 |   6 +-
->  drivers/gpu/drm/bridge/ite-it6263.c                |   2 +-
->  drivers/gpu/drm/display/drm_bridge_connector.c     |   4 +-
->  drivers/gpu/drm/display/drm_hdmi_helper.c          |   7 +-
->  drivers/gpu/drm/display/drm_hdmi_state_helper.c    |  52 ++++--
->  drivers/gpu/drm/drm_bridge.c                       |   2 +-
->  drivers/gpu/drm/drm_connector.c                    |  14 +-
->  drivers/gpu/drm/mediatek/mtk_hdmi_v2.c             |   8 +-
->  drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c             |   2 +-
->  drivers/gpu/drm/tests/drm_connector_test.c         |  80 ++++-----
->  drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 182 ++++++++++-----------
->  drivers/gpu/drm/vc4/vc4_hdmi.c                     |  18 +-
->  drivers/gpu/drm/vc4/vc4_hdmi.h                     |   2 +-
->  include/drm/bridge/dw_hdmi_qp.h                    |   2 +-
->  include/drm/display/drm_hdmi_helper.h              |   3 +-
->  include/drm/drm_connector.h                        |   7 +-
->  16 files changed, 208 insertions(+), 183 deletions(-)
-> 
-> [... snip ...]
-> diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-> index f686aa5c0ed9b84dbe5e0957df22d08aff2f1945..39cc18f78eda11ba35954f75315f646c0cb0d8e6 100644
-> --- a/drivers/gpu/drm/display/drm_bridge_connector.c
-> +++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-> @@ -787,11 +787,11 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
->  {
->  	struct drm_bridge_connector *bridge_connector;
->  	struct drm_connector *connector;
->  	struct i2c_adapter *ddc = NULL;
->  	struct drm_bridge *panel_bridge __free(drm_bridge_put) = NULL;
-> -	unsigned int supported_formats = BIT(HDMI_COLORSPACE_RGB);
-> +	unsigned int supported_formats = BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444);
->  	unsigned int max_bpc = 8;
->  	bool support_hdcp = false;
->  	int connector_type;
->  	int ret;
+On Mon, 2 Mar 2026 16:42:58 +0100
+Bartosz Golaszewski <brgl@kernel.org> wrote:
 
-Just noticed that we definitely also need to adjust the comment in
-drm_bridge.h for drm_bridge::supported_formats. It still claims
-it's a bitfield of HDMI_COLORSPACE_* values, but in this function,
-gets assigned DRM_OUTPUT_COLOR_FORMAT values now.
+> On Mon, Mar 2, 2026 at 4:11=E2=80=AFPM Andreas Kemnade <andreas@kemnade.i=
+nfo> wrote:
+> >
+> > On Mon, 2 Mar 2026 12:38:27 +0200
+> > Kalle Niemi <kaleposti@gmail.com> wrote:
+> > =20
+> > > =EF=BB=BFOn 3/2/26 10:55, Bartosz Golaszewski wrote: =20
+> > > > On Mon, Mar 2, 2026 at 8:47=E2=80=AFAM Kalle Niemi <kaleposti@gmail=
+.com> wrote: =20
+> > > >> On 2/23/26 11:05, Bartosz Golaszewski wrote: =20
+> > > >>> In order to stop i2c bus drivers from dereferencing the struct de=
+vice
+> > > >>> embedded in struct i2c_adapter, let's allow configuring the parent
+> > > >>> device and OF-node of the adapter directly through dedicated fiel=
+ds.
+> > > >>> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualc=
+omm.com>
+> > > >>> --- =20
+> > > >> Hello,
+> > > >> Automated driver test system bisected this commit to be the first =
+bad
+> > > >> commit, linux-next next-20260227 was tested. Failed tests include =
+driver
+> > > >> tests for ROHM PMIC and accelerometers, which are connected to
+> > > >> BeagleBone Black.
+> > > >> The failed driver tests all fail to first i2cget and the tests stop
+> > > >> there: "Could not open file '/dev/i2c-2' or 'dev/i2c/2': No such f=
+ile or
+> > > >> directory". =20
+> > > > Wolfram: well, now it would actually be useful to know which commit
+> > > > exactly is the culprit so maybe splitting the changes is not a bad
+> > > > idea after all.
+> > > > Kalle: which i2c bus driver fails here? Any errors in kernel log?
+> > > > Bart =20
+> > >
+> > > Hello Bart,
+> > >
+> > > i2c-1 and i2c-2 are failing. I am not seeing any i2c errors in kernel=
+ log. I got two failures without the dmesg available (this is bugged test s=
+equence, and not a kernel crash), but those got the same stdout message "Co=
+uld not open file ...." as all others.
+> > > =20
+> > Probably I am using the same host driver
+> >
+> > tested on OMAP3 DM3730, result: i2c drivers get bound to their devices,
+> > no obvious trouble. But controllers are registered with high indexes.
+> >
+> > localhost:~# i2cdetect -l
+> > i2c-3   i2c             OMAP I2C adapter                        I2C ada=
+pter
+> > i2c-4   i2c             OMAP I2C adapter                        I2C ada=
+pter
+> > i2c-5   i2c             OMAP I2C adapter                        I2C ada=
+pter
+> > localhost:~# uname -a
+> > Linux localhost 7.0.0-rc1-next-20260227 #27 SMP Mon Mar  2 11:56:27 CET=
+ 2026 armv7l Linux
+> >
+> > Regards,
+> > Andreas =20
+>=20
+> Hi! Does the change I posted earlier in this thread help?
+>=20
+It does *not* as written earlier.
 
-Kind regards,
-Nicolas Frattaroli
+Just for comparison, with the offending patch reverted, it
+looks like this:
 
->  
-> @@ -958,11 +958,11 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
->  	if (connector_type == DRM_MODE_CONNECTOR_Unknown)
->  		return ERR_PTR(-EINVAL);
->  
->  	if (bridge_connector->bridge_hdmi) {
->  		if (!connector->ycbcr_420_allowed)
-> -			supported_formats &= ~BIT(HDMI_COLORSPACE_YUV420);
-> +			supported_formats &= ~BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR420);
->  
->  		bridge_connector->hdmi_funcs = drm_bridge_connector_hdmi_funcs;
->  
->  		if (bridge_connector->bridge_hdmi->ops & DRM_BRIDGE_OP_HDMI_AUDIO)
->  			bridge_connector->hdmi_funcs.audio =
-> [... snip ...]
+localhost:~# i2cdetect -l
+i2c-0	i2c       	OMAP I2C adapter                	I2C adapter
+i2c-1	i2c       	OMAP I2C adapter                	I2C adapter
+i2c-2	i2c       	OMAP I2C adapter                	I2C adapter
 
 
+So as long only kernel drivers are used and matched via devicetree compatib=
+le
+nothing seems to care about the change of bus numbers.
+
+Regards,
+Andreas
 
