@@ -4,62 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E13F5D58E61
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1F3DE9B37E
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 13:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TqCugejn+OGjGM2P4bwUziYu78OGaka0Bim+UNMgjx0=; b=mqy4ncoAj0e9ok9dBg2mOxpjfb
-	B6qWGU6dM18F8M+T8xpdCU5bDLTjfwM3/NyNq8ap56qRy4ME7U8d952qgMxkIQYAaCuk8n998SqLU
-	DeL+xJK4VRVGB+8tg8XrHgHA6GK5JF9vBt4zV9mc5He8s/VxNQXlBz7uPJG8XoTaVGhyK5rhHw0Iu
-	kNS7j39gZgMnoZH39YuonxFtYa7Xs9ypcbxA+02pdqe8UXDHFRsPu3udo8BFjar8bpr10sj7azlmr
-	K2JhJoiaE5OoHUIy1ftbVr1IAW/Xbeou4SObvuDermGfei5OVGPc3spc9TOMSpHLypHOIHTDlFOJu
-	qgwffRkw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D3P/KaCqbTVRLW734Le3jm//dWEzoj6aOdRHjsDkHB0=; b=G/F3RgTrrpmRNNS06EbJHoOp5u
+	pATAEjMdINABo10l4CNVO35QiChrXoqqkCY7uN8Qg3iwWNBRq1h2Oo6LEQUA6oE9JGax9vZhz19iE
+	qTflsME0Z0t0z4egbU5scXeOIPUXCi6T94mFNnktF8RIGzFwmBFdGwo0LIxwudxaYg+kOA7mw2nO0
+	uki5R1CLt7u0T22Hjmam1tv6UR/pB6cIbXWMcwL6MwkXgIowN6233qgNewlsprRyaXEXL3f/pUTt3
+	gcg/xClnr6XoKaz5ZlzkumWHocQTm0c8TCOBWQTt8gEDJo0yfl6of9bgkskU9OneRDu8M3wiT+1cH
+	gWXL4FWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3KC-0000000D6ZD-00Ko;
+	id 1vx3KC-0000000D6aU-3ggU;
 	Mon, 02 Mar 2026 13:28:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from mailtransmit05.runbox.com ([2a0c:5a00:149::26])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3KA-0000000D6Wk-31TX;
-	Mon, 02 Mar 2026 13:28:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:To:From:Sender:Reply-To:Cc:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=TqCugejn+OGjGM2P4bwUziYu78OGaka0Bim+UNMgjx0=; b=OtZpxxKQqQCLImjBvsY0i+tYm8
-	Su7gCZDwJhhzI7e8ENVRu+KXI5hXe77qIV08uBrDpqaEGXcSszbOhSwdDXg0r7oqbFEs/VKUt6OmT
-	Wh+2rWgMG807wsPtrqn/Wi2pc9e2IUuzCXciM8qk9xwGJvs0miVBE9evATCEWzmYgwcrwdMsI+W3c
-	bafs7Np7f5n4U80R2dC1xd9W0lY1jenQiwxySBVpWUqQFn4HQoEjjF5KpVDpdo8q7y5eCN5oKDfV7
-	rDZpFEf6FzA88dXH5BWTWBzqtTK0yVLYKoHymKWIsHY+txZplHHHjbOrHk2dr5KAQGfa9KzxfGgsg
-	YLo50Ubg==;
-Received: from mailtransmit04.runbox.com ([2a0c:5a00:149::25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3K7-00000000A5n-1Llx;
-	Mon, 02 Mar 2026 13:28:37 +0000
-Received: from mailtransmit02.runbox ([10.9.9.162] helo=aibo.runbox.com)
-	by mailtransmit04.runbox.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	id 1vx3KA-0000000D6W4-29Tg
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Mar 2026 13:28:39 +0000
+Received: from mailtransmit03.runbox ([10.9.9.163] helo=aibo.runbox.com)
+	by mailtransmit05.runbox.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 	(Exim 4.93)
 	(envelope-from <david.laight.linux_spam@runbox.com>)
-	id 1vx3Jw-003ZDt-84; Mon, 02 Mar 2026 14:28:24 +0100
+	id 1vx3Jv-003bkz-S5; Mon, 02 Mar 2026 14:28:23 +0100
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=runbox.com;
-	 s=selector2; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:
-	Subject:To:From; bh=TqCugejn+OGjGM2P4bwUziYu78OGaka0Bim+UNMgjx0=; b=CnVsYB+8+
-	VTkexEkCIXtWxDk0ct8bmk056FpnSkPCeP5i9Yz34bIo3y9sfFFKxB70WZvWoa5uqvPOn8FGr0qGf
-	EbIp0aausm3TBu9LxPZnWweSATT+ezR5WZWL2ZB5A/AohwyvAn5sRz/2VIhze8//praDWx5tUs3Kh
-	uSZ5LHvoL37lkFaTAFRYZPn6z3367lk4BEMixUtiAnxmBvTrEt3Nok0C2xREQl+pFHBZNSGve89hN
-	sVBOcOV0Nc47MyZUOiMqCn7FnHZ5wI0tCUtCptdrGMcotngqvg2PlvnsYF2JihFCbaufaLijoNZFG
-	NDR1Prmpt8MS2YYeGDqIb7kqQ==;
+	 s=selector2; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To
+	:Message-Id:Date:Subject:To:From;
+	bh=D3P/KaCqbTVRLW734Le3jm//dWEzoj6aOdRHjsDkHB0=; b=dr2IYEGXpLn70YtwZCSevHlElv
+	/BDRdlUO4zDGofnTsHi42LvbEdi3VipTLE3qO2jms6/GGfUGILr2ElGxq76Qqa1IVjSRbEvOAc1Ro
+	pNaEyMGT7NC4B24epdTZtJNVCwBM3fXGAKN7d+4ezQMOiK4oex69VUMtEUOAjx+EPd5g+ct38316h
+	qxQXAxcAiiKRb6oyp9RzKKLymdA7Gx+8gSGQAGBZIzLD4BxE+G55Ccnmk/qMfgl9N6JGa4es8sujn
+	nzOnVNpMKlbluysxX5nsv82z0JQ/qI/Tt/bJCX331CVLx9DxsrepkWNzyJUPNhYsRNbEfHp1c25Sv
+	5z427ECQ==;
 Received: from [10.9.9.73] (helo=submission02.runbox)
-	by mailtransmit02.runbox with esmtp (Exim 4.86_2)
+	by mailtransmit03.runbox with esmtp (Exim 4.86_2)
 	(envelope-from <david.laight.linux_spam@runbox.com>)
-	id 1vx3Js-0003sJ-UZ; Mon, 02 Mar 2026 14:28:21 +0100
+	id 1vx3Jv-0001hG-7S; Mon, 02 Mar 2026 14:28:23 +0100
 Received: by submission02.runbox with esmtpsa  [Authenticated ID (1493616)]  (TLS1.2:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
 	(Exim 4.93)
-	id 1vx3Jf-008UTR-B9; Mon, 02 Mar 2026 14:28:07 +0100
+	id 1vx3Jh-008UTR-Jt; Mon, 02 Mar 2026 14:28:09 +0100
 From: david.laight.linux@gmail.com
 To: Alexander Viro <viro@zeniv.linux.org.uk>,
 	Andre Almeida <andrealmeid@igalia.com>,
@@ -95,15 +83,17 @@ To: Alexander Viro <viro@zeniv.linux.org.uk>,
 	x86@kernel.org,
 	Kees Cook <kees@kernel.org>,
 	akpm@linux-foundation.org
-Subject: [PATCH v2 0/5] uaccess: Updates to scoped_user_access()
-Date: Mon,  2 Mar 2026 13:27:50 +0000
-Message-Id: <20260302132755.1475451-1-david.laight.linux@gmail.com>
+Subject: [PATCH v2 2/5] compiler.h: Add generic support for 'autoterminating nested for() loops'
+Date: Mon,  2 Mar 2026 13:27:52 +0000
+Message-Id: <20260302132755.1475451-3-david.laight.linux@gmail.com>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20260302132755.1475451-1-david.laight.linux@gmail.com>
+References: <20260302132755.1475451-1-david.laight.linux@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_132835_413397_E0E2A3CC 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20260302_052838_559644_7BC55C13 
+X-CRM114-Status: GOOD (  16.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,44 +110,62 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: David Laight <david.laight.linux@gmail.com>
 
-Converting kernel/signal.c to use scoped_user_access() had compilation
-warnings because some of the pointers are 'pointer to const'.
-This is fixed in patch 1.
+Autoterminating nested for() loops can be used inside #defines to
+declare variables that are scoped to the statement that follows.
+These are used by __scoped_user_access() but may have other uses
+and the gory details are best separated from the use.
 
-The same problem has been found compiling arch/powerpc/lib/checksum_wrappers.c
+Using 'with (declaration)' and 'and_with (declaration)' seems to
+read reasonably well and doesn't seem to collide with any existing
+code.
 
-For v2 I've changed the code to use 'auto' and replaced the over-complex
-CLASS definition (and its for loop) with a much simpler __cleanup() function
-on the second loop.
+As an example the scoped user access definition becomes:
+	with (auto _tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl)) \
+		/* Force modified pointer usage within the scope */		\
+		and_with (const auto uptr __cleanup(...) = _tmpptr)
 
-Patches 2 and 3 factor out the 'autoterminating nested for loops'.
-I'm sure there'll be a 'bikeshed' discussion about the names.
+Signed-off-by: David Laight <david.laight.linux@gmail.com>
+---
+ include/linux/compiler.h | 26 ++++++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
 
-Patch 4 stops warnings from -Wshadow (enabled by W=2).
-I did think about making the _diag_xxx conditional on a W=2 build,
-but since the pre-processor just emits #pragma lines and they are
-smaller that the for() loop it doesn't seem worth while.
-
-Patch 5 is the change to signal.c that prompted patch 1.
-The generated code looks fine, but I've not tested it.
-Most of the changes are to 'compat' code - so are probably not
-usually performance critical.
-IIRC the non-compat code uses copy_to/from_user() for the structures
-so is probably slower than the compat code's member by member copy.
-
-David Laight (5):
-  uaccess: Fix scoped_user_read_access() for 'pointer to const'
-  compiler.h: Add generic support for 'autoterminating nested for()
-    loops'
-  uaccess.h: Use with() and and_with() in __scoped_user_access()
-  uaccess: Disable -Wshadow in __scoped_user_access()
-  signal: Use scoped_user_access() instead of __put/get_user()
-
- include/linux/compiler.h | 26 +++++++++++++++
- include/linux/uaccess.h  | 51 ++++++++++------------------
- kernel/signal.c          | 72 +++++++++++++++++++++++-----------------
- 3 files changed, 86 insertions(+), 63 deletions(-)
-
+diff --git a/include/linux/compiler.h b/include/linux/compiler.h
+index af16624b29fd..1098a91b5591 100644
+--- a/include/linux/compiler.h
++++ b/include/linux/compiler.h
+@@ -369,6 +369,32 @@ static inline void *offset_to_ptr(const int *off)
+  */
+ #define prevent_tail_call_optimization()	mb()
+ 
++/*
++ * Sometimes a #define needs to declare a variable that is scoped
++ * to the statement that follows without having mismatched {}.
++ *	with (int x = expression) {
++ *		statements
++ *	}
++ * is the same as:
++ *	{
++ *		int x = expression;
++ *		statements
++ *	}
++ * but lets it all be hidden from the call site, eg:
++ *	frobnicate(x, args) {
++ *		statements
++ *	} 
++ * Only a single variable can be defined, and_with() allows extra ones
++ * without adding an additional outer loop.
++ *
++ * The controlled scope can be terminated using return, break, continue or goto.
++ */
++#define with(declaration) \
++	for (bool _with_done = false; !_with_done; _with_done = true)	\
++		and_with (declaration)
++#define and_with(declaration) \
++	for (declaration; !_with_done; _with_done = true)
++
+ #include <asm/rwonce.h>
+ 
+ #endif /* __LINUX_COMPILER_H */
 -- 
 2.39.5
 
