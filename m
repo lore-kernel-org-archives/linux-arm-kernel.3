@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68B37E9B372
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E817FE9B375
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 12:26:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UXKzKPnNo79mUYkdJiep3JLHoQq9ak9QxiFmJzyZrYk=; b=LTkzwHyLvnX268GU6BxpcSLNRl
-	tjEOnzH+NbUGEjBMiO6L6FM2Y6IgCD1lqvwvGjv68CoVBuNzI2ohsuznRi4Tpv05eXNItluYg0Wox
-	FoqOViEzwQgpUPwNwlWv4nkbn6tR720MQtmZt4XcwdJSxjdkR/D2VRcLkzRgS53m3CbpXatS7oLcr
-	CglpLMZErclRJXR3CVrIf+HHLS0V7ldh1Qgy1lKoVlE0zOkrm4qxvPzG66/tmWtNRgfbo5su+hJ9W
-	fTa3JvGVsP1hMRkOlP7cqdaSRoWAifiJxILAUh2Ezm7lnp81ZGhXqmjar1rwgq82brPtOVkvOQC2q
-	D0qTSLJg==;
+	bh=HX+onBbKIdF8O3dhbdJuPiZKxOkNMup7muZzlzsxkeA=; b=JJeIZPAqj+0EDmD1iMiZaRvnlj
+	MWh7wo3j8rc7aGCSn5T8H7epuAblhUP5Wi3+SvdG324vrpydq8LQF+cDFBNFGV8s1Z54gRhsIblZT
+	RW0K7vb7E0OoO8BekMOv+3dN49U3y0ywN1OZz8bUIMDWizq3BU3978ABK0fSgcfgAkNxoRweBXlSi
+	EhyLFfYgMG3TCbcKNSdMQIhzzaIQsBbxIimivSCz66yoElkG1ZBRRAAkQ41rY1liYuNXzgGtaFRCf
+	yLs7Oy7bJZoI1joIP4rGWx7ozMG1j3vd88Kob+VzF6VovHQNrYLEN6MUJ7eOmPSuqOlD3Ks82X77Q
+	pZkQ/PIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx2MA-0000000CxEO-0UGC;
-	Mon, 02 Mar 2026 12:26:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vx2MC-0000000CxIW-1ziq;
+	Mon, 02 Mar 2026 12:26:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx2Ln-0000000CwX7-32gm
+	id 1vx2Ls-0000000CwhV-1cAJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 12:26:17 +0000
+	Mon, 02 Mar 2026 12:26:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 937E74434F;
+	by tor.source.kernel.org (Postfix) with ESMTP id F1C6060018;
+	Mon,  2 Mar 2026 12:26:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5E82C2BC86;
 	Mon,  2 Mar 2026 12:26:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA306C2BCB1;
-	Mon,  2 Mar 2026 12:26:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772454374;
-	bh=LpVDGZDugMWkrHcC6TYLAjdQro/fa60SFAmlKmoBr9Y=;
+	s=k20201202; t=1772454378;
+	bh=I4NFZM5AIlzm74pVn+R2WfmjjzGkM1+mEAg/zfHxn/k=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=h8VfU45c3f5inRo7+HH8001lgbHiti8EhUZNfZS0Rv6nEHFELs5Uw3cvuQnf+E4HW
-	 UOVFDWa6+kbunr5GVxFckdQ5C6UdllN82Bgb2bwFvtW+OLuaX9J5/2VIIowWEB/uuG
-	 3ud9Gx40gO8ID43qBOYMAwBFOwkHcWYw6lcXABq3lOHOmbFNXYVpx7Ev1yIjYU7PZ1
-	 9jZ9FywiQHDLArs5SL1elFLN5Hi9cDxsW29+MCdmMgRld1EnqX4uE2h7zoNhzlQgP1
-	 2w8YPTsIAOY2tbyCGF0mDVjX891Lkb5mYBIiitRZBAVsmJgDi3lOi7nFyOZUst8ahq
-	 GNxP7C9gcBwhg==
+	b=D27uCz/rNmOgc3Ikmrs4/qTihBfzt4Vjzk3pne8HYPMV8ROwf188qYm3G+OexKRqe
+	 8ECloHLUkwaro3rr9+ouoSzo7EtmzGblOGRDXnTUrI7bORtxob7+JI07wKy8c57C/z
+	 rjwUDjhkBJRrgm1GW7HwsIXqE9zlCKJyVlWvvQUrt1Bn6sWMmcB8aCsr6lOl1Zq21w
+	 xt6CFQlVB5hnrZhy6I2xd0qncdE1JUB+bD+VfwBpm5HOBIcBy3BRpHXGZExw1IpFQV
+	 Wnf0jCrsNeZsz5UpK2oklfg+lJYmq1koKNJx8f9ci592w4OU7JLAFaSVKX/0qOQXFE
+	 I3XnMQ6RvTo+Q==
 From: Michael Walle <mwalle@kernel.org>
 To: Nishanth Menon <nm@ti.com>,
 	Vignesh Raghavendra <vigneshr@ti.com>,
@@ -62,17 +62,14 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-doc@vger.kernel.org,
 	Michael Walle <mwalle@kernel.org>,
 	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v2 4/7] dt-bindings: arm: ti: Drop Kontron SMARC-sAM67 module
-Date: Mon,  2 Mar 2026 13:24:49 +0100
-Message-ID: <20260302122540.1377444-5-mwalle@kernel.org>
+Subject: [PATCH v2 5/7] dt-bindings: nvmem: sl28cpld: Drop sa67mcu compatible
+Date: Mon,  2 Mar 2026 13:24:50 +0100
+Message-ID: <20260302122540.1377444-6-mwalle@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260302122540.1377444-1-mwalle@kernel.org>
 References: <20260302122540.1377444-1-mwalle@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_042615_854387_8F7AC0BE 
-X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,27 +86,33 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 I was just informed that this product is discontinued (without being
 ever released to the market). Pull the plug and let's not waste any more
-maintainers time and revert commit 22e1d0d8cda7 ("dt-bindings: arm: ti:
-Add Kontron SMARC-sAM67 module").
+maintainers time and revert commit 4a9b344e90c7 ("dt-bindings: nvmem:
+sl28cpld: add sa67mcu compatible").
 
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Michael Walle <mwalle@kernel.org>
 ---
- Documentation/devicetree/bindings/arm/ti/k3.yaml | 1 -
- 1 file changed, 1 deletion(-)
+ .../bindings/nvmem/layouts/kontron,sl28-vpd.yaml           | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
-index 85deda6d4292..adda61e06173 100644
---- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
-+++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
-@@ -208,7 +208,6 @@ properties:
-         items:
-           - enum:
-               - beagle,am67a-beagley-ai
--              - kontron,sa67             # Kontron SMARC-sAM67 board
-               - ti,j722s-evm
-           - const: ti,j722s
+diff --git a/Documentation/devicetree/bindings/nvmem/layouts/kontron,sl28-vpd.yaml b/Documentation/devicetree/bindings/nvmem/layouts/kontron,sl28-vpd.yaml
+index afd1919c6b1c..c713e23819f1 100644
+--- a/Documentation/devicetree/bindings/nvmem/layouts/kontron,sl28-vpd.yaml
++++ b/Documentation/devicetree/bindings/nvmem/layouts/kontron,sl28-vpd.yaml
+@@ -19,12 +19,7 @@ select: false
  
+ properties:
+   compatible:
+-    oneOf:
+-      - items:
+-          - enum:
+-              - kontron,sa67-vpd
+-          - const: kontron,sl28-vpd
+-      - const: kontron,sl28-vpd
++    const: kontron,sl28-vpd
+ 
+   serial-number:
+     type: object
 -- 
 2.47.3
 
