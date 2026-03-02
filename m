@@ -4,87 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9C1FE9B37D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 13:25:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 317B0E9B37C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 13:25:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u/KgeLtXmZOUh5kr82wm/EePACuyTgS6gfBGBNvywTM=; b=yJnSW2HB7EMdmUDAlDIE3nsy5y
-	3YWQOvKp2/48KCo8RFrXLXAkKs34Ah65AlHAuRQ0vPQvxU3lD7VjzY56xh64gSCi43zcP85MIHQ28
-	jgAFVJo0lP2SP5PbOIj9xEj1tTOIuDDFD4MpiQYGOd0Q8EDx7lRjqGdTSHbd4Ezfcq3Iyhhvr8NN3
-	4solmma5HaAFGy8+s+E10F6cY8OcD1KXFBZW7TGg6PWxz3trhf8K/SmrSVWKEg3YFY7YCr+VyKzsR
-	jZOSQIr+AtZwLg7i1Fa/78uDHb11A2HLsEsiXk3tPPhkHjGZiBqQqE8IzJbnBGakMAELuIsPijsXG
-	W9GiXTog==;
+	bh=rSfYrdcvYZCq6fjK/fG5DKRg2HDKNwBkeGLukGZ6Dx4=; b=iVZUOxiJNoqOUyHK/mcUgvDVOq
+	Pt3gdJf94pU08QEiSRJQYQ2B7O8N6n6OSsjOpTqFY2gNYBLjRswnfyGFASG5+gByQ9RkEFGM3RXz8
+	xmNyaAUXQ/3q0gI03u/Iy2Tm6dhyXJ9Yys0fSUlDYDMA5T1HBn2pC7o5IQLhKoq1Z46TOUz8mgj3A
+	2GGMoUHPk/A7JEkajt4sO36N6LdC9X9izfdWNyJVONqVKCJkWlPy8ZmkdgJyb5l9kwE7SOwsdWwgM
+	q8y8dUpBTBqnsa11ba1aCklu6kC+20QzzVLCb2F7U8gFa/9XzmFV0OYZX3WNZt4p2QSt48sqI7xPz
+	FYj6w2VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3Gu-0000000D5hx-2yUr;
-	Mon, 02 Mar 2026 13:25:16 +0000
-Received: from mail-ua1-f44.google.com ([209.85.222.44])
+	id 1vx3HJ-0000000D5lE-0Ulk;
+	Mon, 02 Mar 2026 13:25:41 +0000
+Received: from mail-francecentralazon11013020.outbound.protection.outlook.com ([40.107.162.20] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3Gs-0000000D5hX-2IFC
+	id 1vx3HF-0000000D5kC-1wzE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 13:25:15 +0000
-Received: by mail-ua1-f44.google.com with SMTP id a1e0cc1a2514c-94dd0f3c4b7so2801890241.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 05:25:14 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772457913; x=1773062713;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=u/KgeLtXmZOUh5kr82wm/EePACuyTgS6gfBGBNvywTM=;
-        b=FiE8q50uZ2eYm8REXbKtweZrkUe63jXqVfKVhFIgFUoxh8lRxBcoZPTwg8Pff5/wFj
-         Mn4DQgMvjn0k32r3nhUsfZ8RxJDexNPYpg+xN0SqXYd9cK33uH2ZWRtaImhuj0SXuPQD
-         Fog09Ix6ByvuY8/WuWDkFvWygZrUG/fOuZt7IKansX5wYV0kV93BOLtZUL9Oqw2Vdam3
-         OdnaU4URB9WIb+WKp7H3ItBbsJpNCqBtj7DhXXsyRjszVpSHH6XoYE7MrVrk0TrFyh8z
-         RakTBeFWSZ4ulLuXAEI3GuuiDEWTkorq+ahUOIeFuruvUXp0ccMvnRaVXu+5NJvYG1ty
-         GTZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV5BMHC7koddomiLWxMycvZ3xIyhMLpPh9M5ydhNObhVuMxNYe/BYrExwmFhoXF7AuBV9zSht/Aakx8NPtKu/aV@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmgEW+NimZJcyPFZohLIO8gz9Sj/ndjxqQZCQu4Cr97/vLNFjX
-	BKUlDK+18y+uEiAhtqZoI2Pcenpj1Oiu4MyIq+UO/JAyZwX9tjFt+1C/Jik7oN3w
-X-Gm-Gg: ATEYQzx3Vr55Bw5IttIFhNM42xT+LGv2ydxe0Askagz/RJFaTTOUr/I8hQXKoEdzsMB
-	WUq+PbXMXXqOc0GdZGbF49Uj8yZ942D8iGB2bez8B9rBFk12jOfvwOwXzS4Ury8KJFGy3KGC0ZN
-	bgahAoJRKLJvvp85MnTwxJaxfLkYUHmH7JRUbJWh0KNZWr/21oAkiT+F66D4VNHFvrmbE87y/aw
-	eORTVAyThSzzlpcdXH1s6A2rMLF9JkkGHdkZfOTd43d0rNrn7enmpZe9n6xVJZZvntMxbshc7nA
-	wfKVWPe4qEBgwHg2kg3W8dugiyhvci7M5DNiXMgg5Jl5gA3y3Li4SKYG8didxb1T7plLjCnvryn
-	OH+Vvl6Mu07e4ZrdJP1nvM95G3TUCoI9pUPaM/oGrXyLj9hyIFyBtrWUf+fS78O5u8pmOsQ4kf5
-	KkDC1O7tKnKCrKXAyQ3S5/WTEcRiRfVv7UOJGxHj2Xh6DvrqL7/fprDfCouD1/
-X-Received: by 2002:a05:6102:a4c:b0:5fd:f944:6511 with SMTP id ada2fe7eead31-5ff32396d39mr5603551137.17.1772457913008;
-        Mon, 02 Mar 2026 05:25:13 -0800 (PST)
-Received: from mail-vs1-f45.google.com (mail-vs1-f45.google.com. [209.85.217.45])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-94df61672ddsm12078651241.0.2026.03.02.05.25.12
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Mar 2026 05:25:12 -0800 (PST)
-Received: by mail-vs1-f45.google.com with SMTP id ada2fe7eead31-5ff07cb35efso2953240137.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 05:25:12 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCX27HQHwBrCXjK18HgAn5U3RpL84makDX0l14dU1bn5RHW5lyHStKcQx1Awl753hrQPp6VzGp5OzTeskvhGvr2D@lists.infradead.org
-X-Received: by 2002:a05:6102:304c:b0:5ff:1d94:b746 with SMTP id
- ada2fe7eead31-5ff32519f2emr6218672137.27.1772457912000; Mon, 02 Mar 2026
- 05:25:12 -0800 (PST)
+	Mon, 02 Mar 2026 13:25:39 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=tXo9Fk1ddjnaKEHJNYWEwOt1ucK24lScFwmTCCFx24Bc9CKqVEgagBsIfn9rUTcwTynhaOCeCDpiKgFFax8NnNMf5QrUZWkJnMkPp5Xp2pDEXDdaYo1NFuulAlrWGgcN8bPZNqNTMCgHIpzXPbJBUgg3vdlLUtGTPHTyowYoE625UEekXRZA6gxL4PKJQqJc3s6xiXVipY7jfN7lmUili9t3kmsWwBVRPa+rEIHz1PuVZMJ+Zr+vm8AFcka2rv8+yF6smFuzMSgzIRJ7pbK0Pj53qHfpzllphnvihU1KREFDbwcYfL4TgGZcIc0a8J34qmGhqKgcKMWWA4QEC2gfrw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rSfYrdcvYZCq6fjK/fG5DKRg2HDKNwBkeGLukGZ6Dx4=;
+ b=F6Tqj+Qwb3LBO2kc03st1P9AN8bsAVk40LT1DHAfbAyAQLi2A7ti+yfBaqcWDScInCf3MA4Lrdg/cCw3RwEzjhmJYETFua6SjrS0BjBi4knF3WVHrNrgcg2wH84Qqe/ju3oh8PyTj/z2DnSK5FBwbU1AtrhcKuBukAbyrLtEpqiHfFttq1qWv6r3kE5tSjynW4wDpG5D3Tmp/Vh2WWlSAcFhSE7/FT/+zy57PDLNIOK694YwBiMnEec3ahrfJ48tNUCcj7JIwX5rNYLhg2n+NEkp9tQ+Pn8Ppg4IeBnqXghUYs0bJPe9kJ6k7fLNACnzLMpFuBVcQH5tJ7D8NUKQHQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rSfYrdcvYZCq6fjK/fG5DKRg2HDKNwBkeGLukGZ6Dx4=;
+ b=S16zt85uRdE+fK/9fAG/IOQCBKIO9Conm54eGMUYzAeA6VxXl7ZnCnORDxr0pRDS1RpMUQkY/5tzxf0kr/9PpFyV6sQgq+ke5xUtGZDUwzQuXNZ5K2zcB3YXTu0OiFURH0s0xLgwL1t5gO+PyoUdd78TUzZ62Jl/CdzC8tPCsdE=
+Received: from DU7P251CA0006.EURP251.PROD.OUTLOOK.COM (2603:10a6:10:551::7) by
+ VI0PR08MB11797.eurprd08.prod.outlook.com (2603:10a6:800:313::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.18; Mon, 2 Mar
+ 2026 13:25:27 +0000
+Received: from DU2PEPF00028D07.eurprd03.prod.outlook.com
+ (2603:10a6:10:551:cafe::bf) by DU7P251CA0006.outlook.office365.com
+ (2603:10a6:10:551::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9654.20 via Frontend Transport; Mon,
+ 2 Mar 2026 13:25:25 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DU2PEPF00028D07.mail.protection.outlook.com (10.167.242.167) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.12
+ via Frontend Transport; Mon, 2 Mar 2026 13:25:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XexuVWVztA+CJAK4iVco65kMZe4q5GnE0Cq1NdC5MX1hwIPtJ0WY2IfXa0yI1cQQuzTsGUnRlauhKhrhqklmvZsRsHKwAZu0plOIlymVgaDeT27RtChWNc5F2Df2bBmgO1XH8hreBiYQM4OtdvOfIvUUAHkmLMheATkFryXC7VRCGubEEQv4M2d3VIpXr9ZyHUmCgXP5Vz49b4KYTNWrvPwmcgLRMG0KU9YI8/sVhO8cShORPN3J3/5gwAlkSMCxDUT0FLmatHBQ/zshP3Mz4+Syl5J6C3XzsmZ/lX2T5ZCl242gOj3G6WsSSoaGcC1IiQzjYzF65vHOtfLc6UAc0Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rSfYrdcvYZCq6fjK/fG5DKRg2HDKNwBkeGLukGZ6Dx4=;
+ b=YzgKkokUAUSgXxG9UaddsB6pB1HVt2DzN2bLAD9vsCKUiyUHKNkQr/HrUgfqQzc0kvvZhN3mHU9FZLrBziLrO7ACxfr3+qliPnSoOYRDxA08Fyfdzxck/5FmAOu2xqjGtJ+aeCh+s+BQvYbCdy/H4/NGynrfCpBQ5HTx3wkhPjsl4TeOFsblg7Eb7lcvm0ZvTo7mOjq+aCRPNV2WFcCBxN34Z8aVujAH15hUkB7TEz39Fw/wHrJfsNt9iVClfNF7+nNNPTGd5IEvr5qCImJSJ4e9FC/MVMpnKSNpJJqakwINwffKBS5pB0zP0hmYCVtQgpAFVZNvh82Yj4g7DL1IcA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rSfYrdcvYZCq6fjK/fG5DKRg2HDKNwBkeGLukGZ6Dx4=;
+ b=S16zt85uRdE+fK/9fAG/IOQCBKIO9Conm54eGMUYzAeA6VxXl7ZnCnORDxr0pRDS1RpMUQkY/5tzxf0kr/9PpFyV6sQgq+ke5xUtGZDUwzQuXNZ5K2zcB3YXTu0OiFURH0s0xLgwL1t5gO+PyoUdd78TUzZ62Jl/CdzC8tPCsdE=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from AM0PR08MB11754.eurprd08.prod.outlook.com (2603:10a6:20b:743::9)
+ by GV2PR08MB11467.eurprd08.prod.outlook.com (2603:10a6:150:2b0::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.20; Mon, 2 Mar
+ 2026 13:24:22 +0000
+Received: from AM0PR08MB11754.eurprd08.prod.outlook.com
+ ([fe80::3427:f97c:862d:1850]) by AM0PR08MB11754.eurprd08.prod.outlook.com
+ ([fe80::3427:f97c:862d:1850%4]) with mapi id 15.20.9654.020; Mon, 2 Mar 2026
+ 13:24:22 +0000
+Message-ID: <da8a9feb-d365-4fcc-a7f4-65240aa00e30@arm.com>
+Date: Mon, 2 Mar 2026 13:24:21 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 02/11] arm64: Add a helper setting a feature field to
+ its safe value
+To: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev
+Cc: Fuad Tabba <tabba@google.com>, Will Deacon <will@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, Joey Gouly <joey.gouly@arm.com>,
+ Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
+References: <20260302115653.1517326-1-maz@kernel.org>
+ <20260302115653.1517326-3-maz@kernel.org>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260302115653.1517326-3-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO4P123CA0575.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:276::7) To AM0PR08MB11754.eurprd08.prod.outlook.com
+ (2603:10a6:20b:743::9)
 MIME-Version: 1.0
-References: <20260227153225.2778358-1-cristian.marussi@arm.com>
-In-Reply-To: <20260227153225.2778358-1-cristian.marussi@arm.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 2 Mar 2026 14:25:00 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdW9dtAnT2E103kp1zK=LJrER7k1ib8_WPk5aorPRw80uQ@mail.gmail.com>
-X-Gm-Features: AaiRm50Tkxhc-oCHlHPyabn9QxR4wbHw_RTC9z1g5dQZe_w9JY9CV7dca6PXC-4
-Message-ID: <CAMuHMdW9dtAnT2E103kp1zK=LJrER7k1ib8_WPk5aorPRw80uQ@mail.gmail.com>
-Subject: Re: [PATCH 00/11] SCMI Clock rates discovery rework
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, sudeep.holla@arm.com, 
-	philip.radford@arm.com, james.quinlan@broadcom.com, f.fainelli@gmail.com, 
-	vincent.guittot@linaro.org, etienne.carriere@foss.st.com, 
-	peng.fan@oss.nxp.com, michal.simek@amd.com, dan.carpenter@linaro.org, 
-	kuninori.morimoto.gx@renesas.com, marek.vasut+renesas@gmail.com
-Content-Type: text/plain; charset="UTF-8"
+X-MS-TrafficTypeDiagnostic: AM0PR08MB11754:EE_|GV2PR08MB11467:EE_|DU2PEPF00028D07:EE_|VI0PR08MB11797:EE_
+X-MS-Office365-Filtering-Correlation-Id: a27ffa18-aa7b-46a1-38e1-08de785f2ab5
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|1800799024|366016|7053199007;
+X-Microsoft-Antispam-Message-Info-Original: Gi2aySPSbmDRhJrorfRJBK8yU6MPzvmLIGrnoB7/D7UtDxcYv7loy+DcnYGsV7ZH4s4hSNXzQJ/5Mo8stEyHLqHkwCgOY7xSDWFGT1sbDqzKUdlxPkdeCRxQW4LGGwgvt38eym812K7MbaL7LpRpMD59B0xOmfxqIfw8TOZrTuERwnyrjU/f8mi165XzXC/wTf94LWaslcDsDi+gi+KW28GIHG9JBKw/Ci+zpAoZo8Stvd3V7UOJSTGm3wWNydUFQ2zBAhQwZ7MBZWxV+aMDFFBklfKDJ8g2nH9PK4XwX3wLyviJIJMJL85hBRrGhZHU4jGCk3RlPV7UgRkI+gQtoc7NtN/HBWWiJsvpKyD1LM4y2a5z0MgartkQfD4M8eYWEFcUCWIoXgkjRdqUAy8AGqNVpMqCADm/+G2+lf/LpnTWGks7pR09nGaK+qIh68AUqQMOZt0BVFNnLuOmBNCjZNDANDKLoLsC3Y/v+P+jDcPV1i16KJ4crHIu97a60/AMPYpUGF3DIbO921Tkb943vtv5rd98ePrDzth2BVTTvVQ9FJuVhysFyR0U6+Fq5kl0phuRkLbAdBUpQEZCaYWMQVnBCsO2YuWRR5evv05czenymaDjMajJDbrkJbc1h2bNyq3ttOqeDO+0zxdLA6DBTsPjhmvtbjtGx+ck7AHcoX+PTrsxWxw78Ci5+365IUjNwUOLHl1/j3HRbrdqJc8ecIlUwic7jkn34b1uuYuHqZI=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR08MB11754.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB11467
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF00028D07.eurprd03.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: f35db181-ef7f-48a7-3257-08de785f0417
+X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|82310400026|14060799003|376014|36860700013|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: /xT2xIFg8I4Sl6CAWJN6fjbsnNR2XAqwAYmIaTphVwF5ALYxkgT20DeRL/nppBJfgdVDFXBBtx4qsFhP4wTxeCjPsY4XVdG8m9ANcUR6vbbV82sPqaz67kEgMULRY4U6+c+UmpFQW9MY2+ubWbmKFGsmm+HGmKiuOERvk3+2yL6nhNp5Cs2wn8tc+N+wDfDlmE0mYiufZYbZplQMQpZo5LnL4NP09u7h0vLXVUTTuCHhxHSeP4Cm8XaM3a2fW8jkLroOtH2vM4FIHCGWwBf+4D5pT/5E5mnhqc7apRQTB0Hyk6cZi8qWsKQQn43BK32uuTzmVWmbT94KH6VJBuoqt7TyyLGGY8Q7rSnN6VnJA2PDOPzXmFAtvGOY+BIGXE80z6gWSAdWbFRun9+6+Tk/D1xLSvCsBusHzagjY+PB+y6Lm6r3JKjmhyMeVVN4DY0BhpB8mEra/QfVPVYHuR8xW+mTaazoyg3ClvL4Zl7eTqmy2O6ZEGD3bHbARX3C9ax09QrolY5yRSV95XFFdrbv40X7l2mYia5smTbHF6Aj5MU88iIQMqRhZRmbGwIwmMlb1euIbDxUVQR2MDKlhvIaLZu84PYO8KiXTorWF+IZ78ne+lRlYw7g5ERj6XsAolkJ3o1cNYpE+UaQRE/6+C6ZHncWLRqklarzZLD8xMIOaTzpk/2prUEX7HJTozwu7CwylwFlOY2a0LQV6Y8z6JV73lp5/1xIIVOb8RgPraElzZlchkO26Vcwdry8uM5uHJJUMBsgCNM0I0QM6snd3tCIetjK1TOBCTihu0RiGq3dzwUmo0JQNgZ/3554mXNZ43C3Cn6YAFFMFIp1+Ad7je+m0A==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(82310400026)(14060799003)(376014)(36860700013)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: ItjDsQjdar/QuX+W8VmTfCReeUoB7c0xhEhT2KXWMQOdUtKMciig9l0QcyTmAtfT4eCa1cgybFasRd/emTgC+FFG1y3ioXKMCFzmr6jv28c+4hyN9cEvwwv+NRMaKCpkyClBtnjx9RCghTi2YRIalOvHe+RTxQmZPFrJRI4YNUPw5KfwcVIkUDJIyFdwSJaFkgBIRfvnqC5mOSZLZUMSLXPqtXsVTfXJLv76wyejBqdLe4BeZgWt31pYpZa1Art76zxPvAK4HSkZZSYaz5y/kmB6f/0Kcchnr7D8dbzv3/JNz/0CzzbIlCwaDY0J2FYkimz55WNh1QcxTxVQaF2gxpou9rnwjZ2MyzA7rSm+3WmTnhBEAI2Ch3JZPfDtZ/qkaqtVWi3cbUorDIbMv2OxEO51v/Xx7Qvs+oHaAJO9NUAFqmsdYPFVwavwzLaRtykY
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Mar 2026 13:25:26.5866
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a27ffa18-aa7b-46a1-38e1-08de785f2ab5
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D07.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR08MB11797
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_052514_596606_6355D415 
-X-CRM114-Status: GOOD (  29.73  )
+X-CRM114-CacheID: sfid-20260302_052537_599689_27768266 
+X-CRM114-Status: GOOD (  15.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,74 +157,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cristian,
+On 02/03/2026 11:56, Marc Zyngier wrote:
+> In order to make the code more readable, add a simple helper
+> setting a given field to its safe value, and update the only
+> user so far. More will be added later.
+> 
+> Suggested-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 
-Thanks for your series!
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
-On Fri, 27 Feb 2026 at 16:33, Cristian Marussi <cristian.marussi@arm.com> wrote:
-> it was a known limitation, in the SCMI Clock protocol support, the lack of
-> dynamic allocation around per-clock rates discovery: fixed size statically
-> per-clock rates arrays did not scale and was increasingly a waste of memory
-> (see [1]).
->
-> This series aim at solving this in successive steps:
->
->  - simplify and reduce to the minimum possible the rates data info exposed
->    to the SCMI driver by scmi_clock_info
->  - move away from static fixed allocation of per-clock rates arrays in
->    favour of a completely dynamic runtime allocation: just allocate what
->    is needed based on the effectively discovered
->
-> This is done in patches 1-6.
->
-> A further bigger optimization suggested in a past series [1] by Etienne
 
-s/[1]/[2]/
+> ---
+>   arch/arm64/kernel/cpufeature.c | 10 +++++++---
+>   1 file changed, 7 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 28fc77443ccd3..102c5bac4d502 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -926,6 +926,11 @@ static u64 arm64_ftr_set_value(const struct arm64_ftr_bits *ftrp, s64 reg,
+>   	return reg;
+>   }
+>   
+> +static u64 arm64_ftr_set_safe_value(const struct arm64_ftr_bits *ftrp, s64 reg)
+> +{
+> +	return arm64_ftr_set_value(ftrp, reg, ftrp->safe_val);
+> +}
+> +
+>   s64 arm64_ftr_safe_value(const struct arm64_ftr_bits *ftrp, s64 new,
+>   				s64 cur)
+>   {
+> @@ -1066,9 +1071,8 @@ static void init_cpu_ftr_reg(u32 sys_reg, u64 new)
+>   		if (ftrp->visible)
+>   			user_mask |= ftr_mask;
+>   		else
+> -			reg->user_val = arm64_ftr_set_value(ftrp,
+> -							    reg->user_val,
+> -							    ftrp->safe_val);
+> +			reg->user_val = arm64_ftr_set_safe_value(ftrp,
+> +								 reg->user_val);
+>   	}
+>   
+>   	val &= valid_mask;
 
-> would be, whenever allowed by the spec, to limit upfront the number of
-> queries in order to simply retrieve min and max rate, that are indeed the
-> only rates needed by the CLK SCMI driver.
->
-> The approach proposed in [1] was open coding and duplicating some of the
-
-What does [1] refer to?
-
-> functionalities already provided by SCMI iterators, though.
->
-> Patch 7-10 implement such optimization instead by:
->
->  - reworking core SCMI iterators to support bound enumerations
->  - use such new bound iterators to perform the minimum number of queries
->    in order to ony retrieve min an max rate
->
-> As a final result now the rates enumeration triggered by the CLK SCMI
-> driver, while still allocating for all the existent rates, miminize the
-> number of SCMI CLK_DESCRIBE_RATE messages needed to obtain min and max.
->
-> Finally, patch 11 introduces a new clock protocol operation to be able to
-> trigger anytime on demand a full enumeration and obtain the full list of
-> rates when needed, not only min/max: this latter method is really only used
-> currently by some dowstream SCMI Test driver of mine.
->
-> Based on v7.0-rc1.
->
-> Tested on JUNO and an emulated environment.
-
-Thank you, this removes the need for increasing SCMI_MAX_NUM_RATES on
-R-Car X5H, while decreasing memory usage.
-Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
-
-> [1]: https://lore.kernel.org/arm-scmi/aZsX-oplR6fiLBBN@pluto/T/#t
-> [2]: https://lore.kernel.org/20241203173908.3148794-2-etienne.carriere@foss.st.com
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
