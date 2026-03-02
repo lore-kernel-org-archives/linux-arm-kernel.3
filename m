@@ -4,41 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1AE8EA4E06
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 13:52:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A40EA4E04
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 13:56:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AaqHtqWmOF9hRZG8kYmHF7cvCHh3pX6/QOes+yZLGGA=; b=ltDymN92wxUpOzBiJZYH3e1d4p
-	r9ZRApD6L2uOA2eizkl96z3Y0HnroVZzDKqcL55KfcAVqjpg+avr8bcal1H6I+H86gXXlCRThfKAi
-	/x75s56OJWdNvs3jtZUwUcCNqt07mj5MhyZIlPpEISFxW3ZC62y5sWtsgY7iClS1Lv7jvBUtPDDjl
-	7QdNezR4XLS/+T9fS56FXzpHcumvQE43lnT3idEo68M1sBwTunXpIDmePaHVMkwChQWn3EdeM2hHJ
-	dorrNmTloQL+sJMoOmOmxY48OXwL//PWbWBSWkWI9WDRr6RYrjMdMErH5Um5A/sQ9HvAvsew/iQK5
-	7wcjnOkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VOHGr3JptZUHOF9Bkd1EfKW89MuCS4gn4xdlVLLY0so=; b=OQED/H0yUkeL9XBW7r2eebCHAt
+	OK/RRcjdGOjFjGp4zXbPUGaQtxJNeDTWKXt22BJsQEGTGWTvNoqSukZN71mFR2tI0f9tgL3JuxSnA
+	7HJXA7vHuGYq5j/dx5ntLiHzGytjZDDS6bmybReotOeGP8VdmuG216AUXhy+fhj8etZV1pEXcSDWo
+	QVVhjkb+x0aAESid8XN47r77PLt+BZji8zbra8fY8tU2re8CYlJ7k1PQIXGxcXVXfRJ0Y1k2jaCDp
+	P/UI/S2BUTJHL+uZ7Qpn9HsUdkLT64GN1rUmTZfMA+i+ZmkwHbnuR91zUjYCvIk5zx18MxZsYN0eq
+	7I6ZhtoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3gu-0000000DAB6-2Dnt;
-	Mon, 02 Mar 2026 13:52:08 +0000
-Received: from hch by bombadil.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3gs-0000000DAAr-258l;
-	Mon, 02 Mar 2026 13:52:06 +0000
-Date: Mon, 2 Mar 2026 05:52:06 -0800
-From: Christoph Hellwig <hch@infradead.org>
-To: Josh Law <hlcj1234567@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Josh Law <objecting@objecting.org>
-Subject: Re: [PATCH 1/2] arm64: lib: xor-neon: remove redundant filename
- comment
-Message-ID: <aaWWBned-T74lsXl@infradead.org>
-References: <20260301152820.2589291-1-objecting@objecting.org>
+	id 1vx3l0-0000000DAhT-3PEB;
+	Mon, 02 Mar 2026 13:56:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vx3ky-0000000DAgn-0YF1
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Mar 2026 13:56:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AE379150C;
+	Mon,  2 Mar 2026 05:56:12 -0800 (PST)
+Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2F2A63F73B;
+	Mon,  2 Mar 2026 05:56:17 -0800 (PST)
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Will Deacon <will@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Marc Zyngier <maz@kernel.org>,
+	Dev Jain <dev.jain@arm.com>,
+	Linu Cherian <Linu.Cherian@arm.com>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 01/13] arm64: mm: Re-implement the __tlbi_level macro as a C function
+Date: Mon,  2 Mar 2026 13:55:48 +0000
+Message-ID: <20260302135602.3716920-2-ryan.roberts@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260302135602.3716920-1-ryan.roberts@arm.com>
+References: <20260302135602.3716920-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260301152820.2589291-1-objecting@objecting.org>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260302_055620_520381_61F21610 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -53,12 +72,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 01, 2026 at 03:28:19PM +0000, Josh Law wrote:
-> The filename in the header comment is redundant and not recommended by Linux kernel coding style.
+As part of efforts to reduce our reliance on complex preprocessor macros
+for TLB invalidation routines, convert the __tlbi_level macro to a C
+function for by-level TLB invalidation.
 
-I have a pretty big series pending that changes this file in
-meaninful ways.  But even without that please never send standalone
-patches for trivial cleanups like this, only do them if you have to
-touch the code for another reason anyway.
+Each specific tlbi level op is implemented as a C function and the
+appropriate function pointer is passed to __tlbi_level(). Since
+everything is declared inline and is statically resolvable, the compiler
+will convert the indirect function call to a direct inline execution.
+
+Suggested-by: Linus Torvalds <torvalds@linux-foundation.org>
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+---
+ arch/arm64/include/asm/tlbflush.h | 67 +++++++++++++++++++++++++------
+ 1 file changed, 54 insertions(+), 13 deletions(-)
+
+diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+index 1416e652612b7..a0e3ebe299864 100644
+--- a/arch/arm64/include/asm/tlbflush.h
++++ b/arch/arm64/include/asm/tlbflush.h
+@@ -97,19 +97,60 @@ static inline unsigned long get_trans_granule(void)
+ 
+ #define TLBI_TTL_UNKNOWN	INT_MAX
+ 
+-#define __tlbi_level(op, addr, level) do {				\
+-	u64 arg = addr;							\
+-									\
+-	if (alternative_has_cap_unlikely(ARM64_HAS_ARMv8_4_TTL) &&	\
+-	    level >= 0 && level <= 3) {					\
+-		u64 ttl = level & 3;					\
+-		ttl |= get_trans_granule() << 2;			\
+-		arg &= ~TLBI_TTL_MASK;					\
+-		arg |= FIELD_PREP(TLBI_TTL_MASK, ttl);			\
+-	}								\
+-									\
+-	__tlbi(op, arg);						\
+-} while(0)
++typedef void (*tlbi_op)(u64 arg);
++
++static __always_inline void vae1is(u64 arg)
++{
++	__tlbi(vae1is, arg);
++}
++
++static __always_inline void vae2is(u64 arg)
++{
++	__tlbi(vae2is, arg);
++}
++
++static __always_inline void vale1(u64 arg)
++{
++	__tlbi(vale1, arg);
++}
++
++static __always_inline void vale1is(u64 arg)
++{
++	__tlbi(vale1is, arg);
++}
++
++static __always_inline void vale2is(u64 arg)
++{
++	__tlbi(vale2is, arg);
++}
++
++static __always_inline void vaale1is(u64 arg)
++{
++	__tlbi(vaale1is, arg);
++}
++
++static __always_inline void ipas2e1(u64 arg)
++{
++	__tlbi(ipas2e1, arg);
++}
++
++static __always_inline void ipas2e1is(u64 arg)
++{
++	__tlbi(ipas2e1is, arg);
++}
++
++static __always_inline void __tlbi_level(tlbi_op op, u64 addr, u32 level)
++{
++	u64 arg = addr;
++
++	if (alternative_has_cap_unlikely(ARM64_HAS_ARMv8_4_TTL) && level <= 3) {
++		u64 ttl = level | (get_trans_granule() << 2);
++
++		FIELD_MODIFY(TLBI_TTL_MASK, &arg, ttl);
++	}
++
++	op(arg);
++}
+ 
+ #define __tlbi_user_level(op, arg, level) do {				\
+ 	if (arm64_kernel_unmapped_at_el0())				\
+-- 
+2.43.0
 
 
