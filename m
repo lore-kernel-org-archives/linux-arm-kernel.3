@@ -4,132 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18E67EB363C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 22:01:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A578FEB3637
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 22:08:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ryJBDdK6sIDP/m6NJ8hXuVJGM48YninxgbxNzBURJOU=; b=Ju2U93ZQH4O4dr
-	K6WLkNqA2fyflly4l9CHv7a8sYslo0/PfNoyzFAJRjqeJwILffmui4F3s0FGAheNzf/qZLZXEuA8a
-	LWID8XtN5WkMT0qDifRquBCpoUhtxEGr0ljYmgEQ4L+gCPFBIYBQ8D1hyRnIcRacoy+Q69aoVJGu6
-	EiqVkp09Q7BRRaiRYBni186/p986xlRcwNWUfGLIhxZgdmJ8NUQSOzwtICcy4vKP/Zckr8mnldM84
-	U18GaLDtROQghPPHeXAfU9ZOMzoTRq24HHhTuWXMS+9eHWn9dopMXM2FnMV4upJDg6hgv6+rvfVuC
-	usSlWX7lg1HlfYMz/DTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ibdCBGJverBpK88AppCUBsWMqvm3/HkV1KDQEAS59r8=; b=WWT2bzVIiNkXkmUy1FlOV14s3w
+	QWj1wiuzCJqR6PFxNFMmeRUg5Zd1GM8wmwT29evRFe/nCMn/gyiGTbIdQC5Mpa3xYDAtgzNcvMj2t
+	Hi0POmQwzgO3wbsJQgZdzHYszNlKylOfyNFh28xFJ8TzSvVlpl9ECpfnbC1GLxF2KTb75DL5OFy/y
+	Wh7PueoM+W8Kybo44iovesd2REgkdKbJHUq8ymXXpOcSrE6i9iCSi+Ga15Z9wIPihsQztqHeJRPp9
+	n9iZeO1e2dTgNKbdtNlSrP1A+1fwEkJaAZLLyuL0DVIEvOZUM3BccPWfVeL7KfR1GPALtgfP9DI5R
+	3f5vcSwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxBKB-0000000E4li-2ocZ;
-	Mon, 02 Mar 2026 22:01:11 +0000
-Received: from mail-eastusazon11022090.outbound.protection.outlook.com ([52.101.53.90] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1vxBRI-0000000E5OZ-2k6Y;
+	Mon, 02 Mar 2026 22:08:32 +0000
+Received: from mail-swedencentralazon11013016.outbound.protection.outlook.com ([52.101.83.16] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxBK8-0000000E4ji-2NUe
+	id 1vxBRF-0000000E5No-21t8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 22:01:09 +0000
+	Mon, 02 Mar 2026 22:08:30 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qW/zSEnvuRggxMJ1JN7GioBs5JxOUmsP0MqR14F5OjDW1Wyi9p/PbbNn5GQ4hKivXEoy0EobSBpbtp2mAgMFf+O1uK9mikiO6s3YoMJicvbaT8z87f9PAFb41wlX7PC2sOtFeNLRdOYMzYARoNJbPPFwTw0ccVgZM40njeXrgCMMQX91eOkFFfSrxoX7dJ46iR6h3s4BI0qIdx/j1HHN07aFIsi3OboLSvd8w9CFGbxQqAsrni2TqJNemRuZjNJLl+1KPDFx5n+1rdwwDBCpuvsh2v6j+rXV9FamY37sfpTPe1cdq/joWYPF3Wuhrd2JSt31NIYI1WMS5FxgE3Gftw==
+ b=f63cTsRPz4oz+pgnpWTiVFweW7q7Ta2aQnq+GM7qMoaYpJW4q6YNAU4q0b4GogSF3emKHI9sUsICDhvn5Dxo8EbRSH6ZSJt5lGtMXM/YRpiQP0xlwcRoazcivKbgwoR4S2m8cfKFbuI3gfE+8h/giWyrpDCrEgV2w0cmKELDBfz15D/Nd9IfD1u7VqsPJlIqMtahnMtgHf/VKf5diSWN1Msuabq8BIA2ICDCRoFbtfjAXyUTJKDUl2kgM/SiCb+jdRUFOSQtOc8Ij0gE9BvLgC/Ff+HZFYwSkf7kTgWqDIHfDwoR6A0/bUShuEZttRRM+2G42Z8YjMcr8wF5SvVvpA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ryJBDdK6sIDP/m6NJ8hXuVJGM48YninxgbxNzBURJOU=;
- b=hH1rqlWmt+radxrXE3O7loGyuS8P2NDp8ecVUSBd6Qk/3kQU8YFKFJ6UEX/fqzcm/mmhOML19+fmm147EMxnqVTbH3J5axizwIMnQtEpQt5HAMV+g15I/QpEXJIFbSmaOnvaRv3aEVXTieUlUbdn6H4lKdglu9haf/h8DOTEluWwasKPnJWLWFYHzXCIzqBcGO8nROcAk6bIjUyOcLixCuII+igH3v/TwwttD3UVWDYFY9EhaVxYmhXmOT/h16mqRhcAKyg8SW+ZhXcdasP1RkpWbOue6436rmvRv4Ca+LqUGqPYD9ehTDDAh7qOOFJRPGo9vFcmiyxkxOJxI/VVkQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 50.233.182.194) smtp.rcpttodomain=axiado.com smtp.mailfrom=axiado.com;
- dmarc=none action=none header.from=axiado.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
+ bh=ibdCBGJverBpK88AppCUBsWMqvm3/HkV1KDQEAS59r8=;
+ b=Ni4NMsuoU+7reuG6SnktqYEGqtv/912HOVAbh/3jesetJ4iV+pMpAh9hvfGUKO3VRMNreb80WZ0LklpOedHKdoFN9OTej1e2B8tg1/FGOFCaT+IlQrove9ZZ/4NgDGABQ/RjDqQv+wfqcer1XgZeL+hTtzrE23EtUuokm1jYic8QBHef3Ph/fonpbYisGNOofcFBG0WGw3vzOKFcaTtcNUR9ZrbTyeOITe/H4G/vcpD1/IGsb4oem9jnssqbcpFvDkQGp6NRILG+9YcIU564DF4EVh8h1NlDtv/lSHv5sMMVTJ29M/e2X7l4SGUR0igiZ+063jBGPb1iof/K9y+iLw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ryJBDdK6sIDP/m6NJ8hXuVJGM48YninxgbxNzBURJOU=;
- b=Wfa1LSwui74IK8NtwLxzPCg+bMCtgu0yUlEIcvlnrTUZ6eskP5C3AkrmDzK289W/Ex1kmpJXjU5ONq9hQ9NIDue0n7A6gO898pp6JhXpNzx4v88CoZmFE1rHXDIK72vt7AWmGdw74dhlr8FawDECUkjl5bdOZWM5nRICv/Dm3L73ub4CkAyvaRnuGQroJnF8/Y4/ARrUlEcG/eMF18mmSM4StfOciyQ2AA2PWwQ3U9/YR46iJAGcVHPH5nREnSdysz493DVtkOTz2t4JZJiLw+qfbbxxsRgD90dJ10aFlQkIPvBWZ/3aYD7Ecyd2fgTxmmeiPCLVjc4q16T4zHv40Q==
-Received: from DS7P220CA0037.NAMP220.PROD.OUTLOOK.COM (2603:10b6:8:223::30) by
- MW3PR18MB3660.namprd18.prod.outlook.com (2603:10b6:303:55::16) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9678.15; Mon, 2 Mar 2026 22:00:59 +0000
-Received: from DS1PEPF00017091.namprd03.prod.outlook.com
- (2603:10b6:8:223:cafe::e3) by DS7P220CA0037.outlook.office365.com
- (2603:10b6:8:223::30) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9654.21 via Frontend Transport; Mon,
- 2 Mar 2026 22:00:59 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 50.233.182.194)
- smtp.mailfrom=axiado.com; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
- designate 50.233.182.194 as permitted sender)
- receiver=protection.outlook.com; client-ip=50.233.182.194;
- helo=smtp.corp.axiado.com;
-Received: from smtp.corp.axiado.com (50.233.182.194) by
- DS1PEPF00017091.mail.protection.outlook.com (10.167.17.133) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9654.16
- via Frontend Transport; Mon, 2 Mar 2026 22:00:59 +0000
-Received: from vm-swbuild02.AxiadoRD (unknown [10.4.1.182])
-	by smtp.corp.axiado.com (Postfix) with ESMTP id 846ED4157BE1;
-	Mon,  2 Mar 2026 14:00:57 -0800 (PST)
-From: Karthikeyan Mitran <kmitran@axiado.com>
-Subject: [PATCH v4 0/2] Update Axiado reviewers and ax3000.dtsi fix
-Date: Mon, 02 Mar 2026 14:00:38 -0800
-Message-Id: <20260302-maintainers-addition-and-axiado-ax3000_dtsi-update-v4-0-84a5c9df6689@axiado.com>
+ bh=ibdCBGJverBpK88AppCUBsWMqvm3/HkV1KDQEAS59r8=;
+ b=WkY4uxUzCMf9hsOlphzAy6tSNEhLqPbcHF0+o17Pz0IKWu3o/NHaV+R9jnIOwrlLXpCA1mgm1oNTWozvw9wpdHPS/G9yJaQTI7PNOovY3QXQgkdviLNwjA1WiD9p7P446l4Gp73Vty9M3Ef1+Nh+WL37WUFXhAsdjcvwRoQoNS0Lim30ne0ejb6UADeakvy3uwEpkCk1BticZlwKsRFlOwL6eS5+yO4KTKUTEv8BvJn68omY+e+XK7bGoYBC/WefypYFYquhqrN91iWx/oNtF9bx3hidup46bU/JlRbxtdp2Z2axfxhw1JCfnBdkf6DJeXr7wnIYNFDNdpP0+XPsIw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by DU2PR04MB8581.eurprd04.prod.outlook.com (2603:10a6:10:2d8::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.21; Mon, 2 Mar
+ 2026 22:08:24 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9654.020; Mon, 2 Mar 2026
+ 22:08:24 +0000
+Date: Mon, 2 Mar 2026 17:08:16 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v3 0/3] ARM: dts: imx6: cleanup imx6/7 CCM related
+ CHECK_DTBS warnings
+Message-ID: <aaYKUC7pWjS1Xnpd@lizhi-Precision-Tower-5810>
+References: <20260121-ccm_dts-v3-0-820ce9b5fa38@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260121-ccm_dts-v3-0-820ce9b5fa38@nxp.com>
+X-ClientProxiedBy: SA1P222CA0109.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:3c5::26) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAIYIpmkC/6WOQQ6CMBBFr0K6dkxtBakr72GIGeggs6AlbSUYw
- t2teAQXk5/382f+rCJSYIriWqwi0MyRvctwPhSiG9A9CdhmFkqqSipVwYjsUh4KEdBaTnkB0Fn
- AhdH6LFpK+bApMrwmi4lA9fpCp6o1stQiH54C9bzspfcm88Ax+fDef5j11/2rbtYgAXUrTWlqU
- yt9+2WPnR9Fs23bB9z/GRr1AAAA
-X-Change-ID: 20260226-maintainers-addition-and-axiado-ax3000_dtsi-update-2f37e16b9053
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Prasad Bolisetty <pbolisetty@axiado.com>, Tzu-Hao Wei <twei@axiado.com>, 
- Axiado Reviewers <linux-maintainer@axiado.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Linus Walleij <linus.walleij@linaro.org>, Drew Fustini <fustini@kernel.org>, 
- Karthikeyan Mitran <kmitran@axiado.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
- Harshit Shah <hshah@axiado.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1574; i=kmitran@axiado.com;
- h=from:subject:message-id; bh=wX9sIx4UgZXQxGsC/zhEZzmufE0XsSlPe8hzNiDsKbg=;
- b=owEBbQKS/ZANAwAKAfykr3bAxbrPAcsmYgBppgiZLSuXzTD0jDmyYg50tzVgmgF7ILfP4Z+64
- 6rkVOFSetuJAjMEAAEKAB0WIQQykBiJeI5kfMQLrdj8pK92wMW6zwUCaaYImQAKCRD8pK92wMW6
- z13AD/4xa2fB8FMyUJsHQRMFmIynlfEZKCXu0qx2qN1Ns4VG2pcAfG5+OYiXf1AtZJlkXCm3t5D
- Ob/f2pYbZex+K+gxjiHF5xHjaUNwhzvY0D3tmLfQ3tyuKLl0FbISFWZEPYUbOKOKEljosVMWOJn
- GAk3migTY6V4pYVb7Z+Ya0WM0p0MFoV0jOMpJ5EGW8XpIziXKn4ROrX8iZSSz5dt07z6OxyShxf
- lxO4ZFcwedwmRvKkzwc+ni5u4xPohw1U9m4CgCvFGDJEJv6vIR9o12AmJmwYiaBF95k49L/p1La
- KwqdWXMzJliIkKZJlylcCIunxj3FET3E+j4uPHPOjqBCJ0Ozas1YoFtMZCF36+UkklizPX/uU9s
- rElstWskIlUVCKKaaSCLM6B7LLkB+Cwi6antlA5Z6zwRwjS+MwmqFRLgfoWPZPYZMx2ihQf7/fc
- 01hl2JLTrVRUCinl8y4kzgJolicBl1lFpQqbSoiUdvVWOjfE2/3kPve+Cou8MFeYeAVkQrv55eE
- Ek/iBpjfh9WZGwNOKwjufzobjNxPeSdIKj4fk5MU/mA+mwxkM4rqsjpSSqxKcu8ul/s95yPmYd8
- MFxWbQ/iPnsqor+ryAXwZYALj5U8nFLdh/ZNWZZA8coCmQ1l6MH+oSIvy47p0tQsHxYHR2Y69jP
- 9DmooxtU8SvXxDA==
-X-Developer-Key: i=kmitran@axiado.com; a=openpgp;
- fpr=32901889788E647CC40BADD8FCA4AF76C0C5BACF
-X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS1PEPF00017091:EE_|MW3PR18MB3660:EE_
-X-MS-Office365-Filtering-Correlation-Id: 22dba004-3668-4fbd-82a2-08de78a72ff8
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DU2PR04MB8581:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9850c220-e6a6-47d6-20d2-08de78a838f9
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700013|376014|7416014;
-X-Microsoft-Antispam-Message-Info: dGNl3prj3wBnA/lPIqJB339BNUQQGZIkN8qL3Ui2yS1QWnRXPNXJNM74lUWdSe1/qqU0Tduo5Y06zKy+FpphjNOGO9Ygox8Dg5JH4vwxPuNYM+hLQ2Vqol34hw2McGp8Du12Qyy+3eIiFDBSn8m1VQFLk40bRfbv6amuKAYAeGBOxaCm/wXltUAxu/OvDxV8mxA76xPyvM9YdB3Q16NmPePcY4/rX8ySv0LQFsqU9o3EsiEafAytXsKU+qmMKSl6uAA8nzGy7TYQ9kiRQGDql1H+qxOOXQ41JJfweQFQXj96pyMmbzDvIFa53kc2F0k7WREIBcVMGjnf3+tLgtP3BwNKUJ6Gl5m2+NXP4Cso8ydo/JjUO6+/bPL/NBAoFOOCr/Nb+WY/N1I9Z2O35EZSrxVwr+insg2IktdGtTJmqrkUj1XSWTTLtb9N6gbe+WA5UUBzgpLDuU6aDl7blNE0j2wvAcd9sz+ChtyQgbVRIGYup95KtM550hNFiBsqtdhRm8c/szvjFpyikDsyEcKTDE0WnH4bxS2mDgBakkzG3tD/Vi2/tkcxS26VZQuka6UT0PSxN1wx774LNzwGtmIKQML1nHUu15VnvfAQ8X5LKeGInlce000hX1lCmNBU8AYqq1oln73m+spqNJUX8ttzoGySA92S/VEHNJHa1XYoIcxhlEaGu7UQHzmebroeI1iZGhjZ9t0rYh5xfYL5ZCj3XdQZ7jQb9fkQj/RwBg5dS0zCKKhYcsqiEDIscLCoR45plIncTaac+AW73NL98OD1TreMg5azXCBR5WiTUV7Wt9YH0JL9pR43Z0eBNvSpIaxXfqYe+MJ6uy7tF52oiqhjHw==
-X-Forefront-Antispam-Report: CIP:50.233.182.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700013)(376014)(7416014);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|19092799006|1800799024|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: 9GibGea0qYbOfMgFwN3buiQcKHMLmTz3mfD/1gxUxxDqhY9pSmsgYGRzqnArfp+Bua4EY4YH4sQ/orX8dVzhtjc4CCBYoqLOaTIvOshgJyLDtzUppCHn9dVLvKHABVs/sRYXA+IpZWLcgZC2uaNJ7eh58/p1GwakRPsrb9WCxBRmrrb9KgDbG5NJ6xenjJQ6Qv22NoH8U2wQWHVUSe2WmTo+kY5fnvOZIrvm4k5hI5TyEGdj35HHpT4309TIgTDJ/NUwFkyv/yB4St0Qc3rccxO0NFk44AoC4RkwBKtgfheghkIX7X2zJvpMr1UjepgmlEPL6Mps6ZPNuanA91CS1ILbt0iP2TOypgyX7K7IDFBb3x/8ws6NUrvFUVdqrzoo1EOfr63AHVzuvAL8rRivDqoZTLARtj58o2bCYzK1tdx1ajkpLwdkAHz1SUOjI3FsYmqK+pRqTyvxmaKyQn0NSt4Pf4xQMTKs/+KOmKljvqH1h7UnWNtq5NS9MZEdk7ZYrZaW4PR3QQuLJZJcMixtNn5rbPtwelbD6uJL1qeGhCBmwMXXUz6eRcfHIlW0gvYpTVnHlk4YW39oGTGwVHGkzvRYeBUST4RXa+OqXrFGKrjd3pXn/RpLtV9MDbM4DAW7IrE2rb3nW1DIkvvy2mERhLOO259UpmxA945H3eRSgxYLAl6/dXsrFHJp6bAAWeeH1EMTBqyo00zod9Fx9O6DecFTDgAtuL6q0Et2sthl5ou7i6UWj7tGc+3Zx2FuusZthftJbqNAOWFUYUaInoxrKOxwBXQIh0OSzBEMBgGTX8ySpymSPTbtSlGSR2ndQfjW
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(19092799006)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: NfhwS8JE/mffZMwfNaEEzzp1srI4mvyVUB1o065oGYagD73IsFjqyThLqp3NUXdQXp2HN3bWHk4P2s4IW7gjnPqgsS9MK8o3k4PPXJiH1GW8+o8w0wOchJguTo+wExc12qTqMBzIOIa8DGBaP/u5szxrOeEwS2/uLsK3UlrAgt//S7yDGBWJY+wej2qXrMzUkAMmrwaMHDx1HmqASZB0LrmG9w9ZWymLWHp20HDQrUDV+QefYdGdFCJ0oSVKctn/eUhBTMdjvy2+i0NbGYDgWFkowmATHoMYd2OGjyFcc9+OO+EsBfK/zPgfQkk3FM2m+4wQVplSmAaB1ENFloTKXGtXveXlN88bnUT9zAqgEsuuZRbVLk+bHtpepLmVT4S/FTGGGi6GhbxjOjC46YuZN6tjVwuA68VY5dvOHGbl7UcPzX918H8Ftdd7LRri/o6W
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Mar 2026 22:00:59.1078
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ysaaF77FDvPjjmpXGayI1f8qqsf6O+EcC91CmkpRgRcBlDcyMLqPvLT+lUzR?=
+ =?us-ascii?Q?V5RsXYJz7WWYIO051SWOfwnU0IkDyqWzaPHbKyKDwFMVOJOYr/qC/YJe5O6D?=
+ =?us-ascii?Q?rZTOHruW+n2a1hes7CKbCwY7lnFLCSWgy9JtdpDpjc9hczyaMOtKeI30bCnT?=
+ =?us-ascii?Q?Cp0SvCvdwvvA7kboms8ePHccRdQFbDtol5tGLfs28iE5cDw9SQVZ6nUTQ0Jo?=
+ =?us-ascii?Q?v9VZ8+lkYWqRAHTleRiJoANaZvu0MkQ5JN2J7OztRPXfrHN9d45c1uAFDChE?=
+ =?us-ascii?Q?fkjlOWcFEX493x8q0eTJoaBu4u+2x8CVaNN/LIkdmlBPz4LMZ8WbTvaYT8Zc?=
+ =?us-ascii?Q?KPaZrPDHkbj/ZHQDEIr7Q1ImqXv9Zq7e895yIE2cssM7R8AdhLw7cbMv1Q5j?=
+ =?us-ascii?Q?SbNazaUMdKhVDc3Iz4AZpRTi5Lw7/DbZA0OjqoHB7PpCE0Hs4QHdiFBrwdPO?=
+ =?us-ascii?Q?qFZ6t6zM27RabX+L9yGESPl99aUZvwegXDWQXQms6XBAW6+LmUiTiyTIBa85?=
+ =?us-ascii?Q?2kcnMcM+jCfaR6Kii+Oth4UqMQzHJesIYyFQKyHyzoda/qJJlh5djwRwy4P8?=
+ =?us-ascii?Q?GtiVWGzgXe3hWdhZwohLJcKQ7fkkh5WfHqS850bvFk0ycytHuJVcCl2/nEgB?=
+ =?us-ascii?Q?6eaTrN7Qyjn4FPKOA0OFxcBZEb0/L2xzVXCdj54pWfj9xq1zHqYbHpjkebIc?=
+ =?us-ascii?Q?jk0Er2Jgwuub9tQpqIMHwWyJYWEuZbcDxwfU1Lvta2eg4PKxHssbtaM6hlG5?=
+ =?us-ascii?Q?MJODfs5vecn1sqUvshg5YDl7oOPlPp7Dyj92cx1wWhcA7W0n40e7d9HwhJ1d?=
+ =?us-ascii?Q?Xud9vZVH8OVmNXM35hZOT4rcH1WrbqkcekHzVXlg+wUhnXwHMvIUSOb8cV+d?=
+ =?us-ascii?Q?c7FgFGJQakS5KjC9CNm+Llm41VPlv19ULi+7FZy1x2GCM/Jmv30wU1wwsuXT?=
+ =?us-ascii?Q?7wqbpMp5ZRQAPkHZnzTSEbReOd9Nfk8VLqZdZzGOBkIPtNPgukIdplumKY+R?=
+ =?us-ascii?Q?42p61KoXOIJExUxX3oCRrc0+87YtvI3SZ7Zy3N3bolf1cgU5z8+xHDJQe9Lx?=
+ =?us-ascii?Q?W5+EvSxXTF8S+aSOqovuxW4KvzhgFXu0RJr0NOUp5qKIcUizckYrr0q8HvsK?=
+ =?us-ascii?Q?OBesxr/8PFpgTnIjMi6uQ7qxooJszg0NMh0GkM4/5LoOfu5czeqxCObdsQkC?=
+ =?us-ascii?Q?Af3MH9Z4dbVhBCCCY6VqTxnBFL0lKDO1zKOOo5eG8hUkvL3pal/dRQWG9MtG?=
+ =?us-ascii?Q?A3yiuUJ+nVhbp26NSO9GpfyHwG4PvBlnz2rL90JwT95xhpce4IvOJSxzBvE7?=
+ =?us-ascii?Q?pWAh1LvFBByTKORBFkNTsbznWZ8vnzaVzLYhqKPPDB6glKMWlKJ+tWRItaFB?=
+ =?us-ascii?Q?jWG14UjDi3VvBNNL2sF3LnvN3wTSXP0Ukt3e8+n+dOe/ZHH3JjFL4CDFpqWK?=
+ =?us-ascii?Q?bciohFkd2hzmfamdZWW5VvWjTW8G7wJP0qT1+xiKiVW25OAAp2I3Ihu6ejnX?=
+ =?us-ascii?Q?GCqQPZt60FAJBJEf208pj9fj6FDBLOSjWlr53mp2dTkUHD4zbg4xhufbLTH4?=
+ =?us-ascii?Q?XNIEigxFrAZrB+kzFMkIyqZr7Bk747KN/a1+OtgvQFGghpZeQO3/H5aa7FZt?=
+ =?us-ascii?Q?7KK512VLd+cbn9INbGlWZ6+ePNb8q1QaqgOj1YTgJDpUuFTP2l/aamxsYd9d?=
+ =?us-ascii?Q?4pD/eTw0xuFarnz4abmgWQ8nf/evIj4YH1X6eJ5MREEObdNLcfgLwC8pO9G8?=
+ =?us-ascii?Q?4o0teLGJ/Q=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9850c220-e6a6-47d6-20d2-08de78a838f9
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Mar 2026 22:08:24.1642
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 22dba004-3668-4fbd-82a2-08de78a72ff8
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[50.233.182.194];Helo=[smtp.corp.axiado.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017091.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR18MB3660
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: F/fapHC3PtsTeNo8RY+J9xY0tbDo1aEoZ6S2tS5ezAkJXEvY6vCxxIj/jB1FaVrXzoK/XsS5fnryxJgyaGB90A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8581
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_140108_642142_E8DA9C0E 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20260302_140829_526864_6FA3EC56 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,42 +144,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-----
-This series updates Axiado SoC maintainership and fixes devicetree formatting.
+On Wed, Jan 21, 2026 at 01:04:14PM -0500, Frank Li wrote:
+> cleanup imx6/7 CCM related CHECK_DTBS warnings
+>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
 
-A maintainer has moved from the project, so we are adding three new maintainers (Prasad, Tzu-Hao, and Karthikeyan) along with a reviewer group for broader coverage. also commit message amended to have the same. the other patch has a dtb address hex value change from capital to lowercase.
+Abel Vesa:
 
-Patch 1: Removed one and added new maintainers and reviewer group for Axiado SoC
-Patch 2: Convert ax3000.dtsi hex values to lowercase
+	Can you help pick binding part?  So I can start pick dts part.
 
-Changes since v3:
-- Updated commit message to clarify maintainer removal and additions
-- v3: https://lore.kernel.org/linux-devicetree/20260226-maintainers-addition-and-axiado-ax3000_dtsi-update-v3-0-a3b095989823@axiado.com/
+Frank
 
-Signed-off-by: Karthikeyan Mitran <kmitran@axiado.com>
----
----
-Changes in v4:
-- EDITME: describe what is new in this series revision.
-- EDITME: use bulletpoints and terse descriptions.
-- Link to v3: https://lore.kernel.org/r/20260226-maintainers-addition-and-axiado-ax3000_dtsi-update-v3-0-a3b095989823@axiado.com
-
----
-Krzysztof Kozlowski (1):
-      arm64: dts: axiado: Use lowercase hex
-
-Prasad Bolisetty (1):
-      MAINTAINERS: Update Axiado reviewer
-
- MAINTAINERS                            | 5 ++++-
- arch/arm64/boot/dts/axiado/ax3000.dtsi | 2 +-
- 2 files changed, 5 insertions(+), 2 deletions(-)
----
-base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-change-id: 20260226-maintainers-addition-and-axiado-ax3000_dtsi-update-2f37e16b9053
-
-Best regards,
--- 
-Karthikeyan Mitran <kmitran@axiado.com>
-
+> Changes in v3:
+> - fix wrong set minItem to 4 at binding doc.
+> - Link to v2: https://lore.kernel.org/r/20251106-ccm_dts-v2-0-12fa4c51fde7@nxp.com
+>
+> Changes in v2:
+> - rename enet_ref_pad from enet1_ref_pad (only 6ul use this name).
+> - Link to v1: https://lore.kernel.org/r/20251105-ccm_dts-v1-0-6aadcdf97cb8@nxp.com
+>
+> ---
+> Frank Li (3):
+>       dt-bindings: clock: imx6q[ul]-clock: add optional clock enet[1]_ref_pad
+>       ARM: dts: imx6qdl: add label for system clocks
+>       ARM: dts: imx: add required clocks and clock-names for ccm
+>
+>  .../devicetree/bindings/clock/imx6q-clock.yaml         |  4 ++++
+>  .../devicetree/bindings/clock/imx6ul-clock.yaml        |  4 ++++
+>  arch/arm/boot/dts/nxp/imx/imx6dl-alti6p.dts            |  4 ++--
+>  arch/arm/boot/dts/nxp/imx/imx6dl-eckelmann-ci4x10.dts  |  4 ++--
+>  arch/arm/boot/dts/nxp/imx/imx6dl-lanmcu.dts            |  4 ++--
+>  arch/arm/boot/dts/nxp/imx/imx6dl-plybas.dts            |  4 ++--
+>  arch/arm/boot/dts/nxp/imx/imx6dl-plym2m.dts            |  4 ++--
+>  arch/arm/boot/dts/nxp/imx/imx6dl-prtmvt.dts            |  4 ++--
+>  arch/arm/boot/dts/nxp/imx/imx6dl-qmx6.dtsi             |  5 +++--
+>  arch/arm/boot/dts/nxp/imx/imx6dl-victgo.dts            |  4 ++--
+>  arch/arm/boot/dts/nxp/imx/imx6q-prtwd2.dts             |  4 ++--
+>  arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi        |  4 ++--
+>  arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi                 | 18 +++++++++++++++---
+>  13 files changed, 44 insertions(+), 23 deletions(-)
+> ---
+> base-commit: d1d799fccb5002df8cd355c0a849cf4efcda4ac1
+> change-id: 20251104-ccm_dts-504ea501251b
+>
+> Best regards,
+> --
+> Frank Li <Frank.Li@nxp.com>
+>
 
