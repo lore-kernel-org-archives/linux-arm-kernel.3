@@ -4,67 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 103DBE9B342
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 10:33:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19937E9B359
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 10:36:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3zpCsC76A/B8FEp6NQth+KPKVyK8PduJ80CXc9DihGY=; b=H0bJ48KSQ1kh1f/3N2QwzkKf6c
-	WIuqQTuSf6JHfarQlbmDizQC5TVTIzqQsjPMk7L6cua+s3TC/P7FSCZdoZGsUu1NlqsdsaqPBainj
-	bKdvi9Hai/vZ1weFlQMhme22Xa7+WdjVQ8waWAwi0pw1dHT7mDdIUZ1DVdKJUrcRTZG3zuspggNEt
-	Sh3RSd+OLvyn1h4Q5GL3kzZewNZL+7tfjME8Ek3XkjwP64n2XK3vQUvP1R1y5gZ9q3onkixuTcCm1
-	kHZM1lbwufFd4CzMOIKiJtfhdu/0q7uJTlrM/P+8ElXqQMGPY7ISQ33BGllhuaLBOGM+nRzueS7en
-	ZNp+lWQw==;
+	bh=kO11BKmKFYoC09eco+6dmdwTd3OQRCC8tF7pTfHduz0=; b=R5Lu+Rp30SAzRTMka1HRr6sp+4
+	AdrXdvQ17uGlmv9JnADIZixRmndibxpMfAxRNoU+E0i4G1waqULHFvgs03UIwD6OvwROQ8Z6HX0Zw
+	6BFb33piSbNepzL+ZlgjYr9oNhIwQ6KTlrFo4mefzs5tlFgNagnttHTzPoCfttJmvLxisme0ftQW5
+	20WP1ZSP4T8h9hMoz9TAfIG0UpmUaAtIDLQ9zpNIHX8QXsVSAwn+h/PsWVyYN4GK576HRDVoPwxKf
+	vhdh/xnHKbZynJwOl1XLgaEjC259AVKzDKNKRbdBFG3cDx74Twxq9ldN1oUgxC4ykaTN+7ebcVrHE
+	qDvefLyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx0at-0000000CiXJ-1Z3K;
-	Mon, 02 Mar 2026 10:33:43 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vx0dv-0000000CimI-3Kti;
+	Mon, 02 Mar 2026 10:36:51 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx0aq-0000000CiWG-2dJ9
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 10:33:41 +0000
-Date: Mon, 2 Mar 2026 11:33:19 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1772447601;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3zpCsC76A/B8FEp6NQth+KPKVyK8PduJ80CXc9DihGY=;
-	b=agDuY6VSHjOEVidIw9tmeJdXttkw0fiS17n6SGkI/4sKaOdW3x451mWnod8UdVEJ8Q4wky
-	LqAV/voYBIHtT1nF+GjG4Tfldk5ScLL/XWqJjtBZD78+E1EhqJF50N5uP8kyIyXrPKc+14
-	kBdAPp2MzMWtUDbwyQWyg7PvKWGgTMALIMZO5oJKYqsFmUL+yMR6FKKFtjara5awUReslW
-	4IcE6aDrrGdKdEFrUVLA/jWNwYW7JgDn9OPx/Smbi1UwV+9QsKeLGviv5ThJdxjZCACznX
-	M8WRXzoyT2Ii9b69DQRsHciEGEjW5kQCLq95P6o/gEy6wpe2ZUh/hX0+wJk2hw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1772447601;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3zpCsC76A/B8FEp6NQth+KPKVyK8PduJ80CXc9DihGY=;
-	b=qLfEhmvnxGcsNliQohntBn3K6GLY3gY5LOFdBG1n0YwuyoOzlDQYN4lsWFmAV2BlNpy+m3
-	i4YMjG1POEhtljBQ==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Clark Williams <clrkwllms@kernel.org>,
-	linux-rt-devel@lists.linux.dev,
-	Steven Rostedt <rostedt@goodmis.org>
-Subject: Re: [PATCH 1/6] ARM: ensure interrupts are enabled in
- __do_user_fault()
-Message-ID: <20260302103319.VI_GSa_5@linutronix.de>
-References: <aaG1wrNUaq_L0I5g@shell.armlinux.org.uk>
- <E1vvzcS-0000000Awnu-1u0H@rmk-PC.armlinux.org.uk>
+	id 1vx0dt-0000000Cilp-1C28;
+	Mon, 02 Mar 2026 10:36:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=kO11BKmKFYoC09eco+6dmdwTd3OQRCC8tF7pTfHduz0=; b=EKp0nFdi5sCj9Lg7x8UsS+uiqc
+	uOvigeWC9f4WnNKIN4GhoQw2dIh6fy7FDYFCbKnU/BNYLRbxws6nPC7s/rEmjkgmWtVT2qypJS6gE
+	dSF84nfAkxRlqNyP86G63N5Ly7nfyn6gi3VYt479afbCYyC7CSljkjfZ3hhyrMagc6HHw1qyOmncN
+	qH67492d+MY9KH43uYzR/wO0arMiOe/1VsHZK2Guye+xehGUYaiMgxPdCbXJsduK7c/P1pjB4ZEL5
+	MWiykNb/FfbPcqLWjTIIFfXoSWW+Xnao4VUjXPfbxZhGJY+ylhYwamAaFx0+UAnk1SC28k0LNdI+N
+	yFzfzckw==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Fabio Estevam <festevam@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] ARM: dts: rockchip: rk3036: Move PHY reset to ethernet-phy
+ node
+Date: Mon, 02 Mar 2026 11:36:42 +0100
+Message-ID: <5051965.GXAFRqVoOG@phil>
+In-Reply-To: <CAOMZO5CfmS2UEd8JwbR7WHRhTVR4m6cOZUBxhXWAf2zxNhY-Fw@mail.gmail.com>
+References: <20260228013257.256973-1-festevam@gmail.com> <2819870.mvXUDI8C0e@phil>
+ <CAOMZO5CfmS2UEd8JwbR7WHRhTVR4m6cOZUBxhXWAf2zxNhY-Fw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <E1vvzcS-0000000Awnu-1u0H@rmk-PC.armlinux.org.uk>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_023340_935433_F4223282 
-X-CRM114-Status: GOOD (  16.45  )
+X-CRM114-CacheID: sfid-20260302_023649_493590_720C4157 
+X-CRM114-Status: GOOD (  17.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,38 +67,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-02-27 15:19:08 [+0000], Russell King (Oracle) wrote:
-> __do_user_fault() may be called from fault handling paths where the
-> interrupts are enabled or disabled. E.g. do_page_fault() calls this
-> with interrupts enabled, whereas do_sect_fault()->do_bad_area()
-> will call this with interrupts disabled. Since this is a userspace
-> fault, we know that interrupts were enabled in the parent context,
-> so call local_irq_enable() here to give a consistent interrupt state.
-> 
-> This is necessary for force_sig_info() when PREEMPT_RT is enabled.
+Hey Fabio,
 
-Reported-by: Yadi.hu <yadi.hu@windriver.com
-Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->  arch/arm/mm/fault.c | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
-> index ed4330cc3f4e..6c27ebd49093 100644
-> --- a/arch/arm/mm/fault.c
-> +++ b/arch/arm/mm/fault.c
-> @@ -190,7 +190,8 @@ __do_kernel_fault(struct mm_struct *mm, unsigned long addr, unsigned int fsr,
->  
->  /*
->   * Something tried to access memory that isn't in our memory map..
-> - * User mode accesses just cause a SIGSEGV
-> + * User mode accesses just cause a SIGSEGV. Ensure interrupts are enabled
-> + * for preempt RT.
-          PREEMPT_RT.
->   */
->  static void
->  __do_user_fault(unsigned long addr, unsigned int fsr, unsigned int sig,
+Am Samstag, 28. Februar 2026, 13:15:52 Mitteleurop=C3=A4ische Normalzeit sc=
+hrieb Fabio Estevam:
+> Hi Heiko,
+>=20
+> On Sat, Feb 28, 2026 at 8:40=E2=80=AFAM Heiko Stuebner <heiko@sntech.de> =
+wrote:
+>=20
+> > please don't send patches that "simply" fix devicetree warnings.
+> >
+> > As you can see in [0] the driver uses these properties currently.
+> > So while this fixes schema warnings, it will break the actual boards.
+> >
+> > So first of all you'll need to adapt the driver to handle the "official"
+> > properties and also provide a fallback in the driver for old devicetree=
+s.
+>=20
+> The rk3066a-rayeager board describes the reset-gpios inside the
+> Ethernet PHY node:
+>=20
+> https://github.com/torvalds/linux/blob/master/arch/arm/boot/dts/rockchip/=
+rk3066a-rayeager.dts#L155-L157
+>=20
+> Is this broken?
 
-Sebastian
+No it isn't :-) .
+
+That's what I get when I try looking at patches on a saturday before
+coffee ;-) .
+
+With the reset moving into the phy-node, the phy driver will trigger its
+reset itself of course. The arc-mdio also request the reset-gpio as
+optional, so the whole thing won't fail if te gpio is not present.
+
+Sorry about the noise, the patch is correct obviously.
+
+
+Heiko
+
+
 
