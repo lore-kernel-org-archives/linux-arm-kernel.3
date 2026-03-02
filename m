@@ -4,93 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDB2CD58E43
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 02:09:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29903D58E43
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 02:09:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kAiRnxNawBLozwr1RQWvSytcrnot4tDBwXBqxdM0Av4=; b=0HLkQzqVQ2GESkaxk5SEHt/GoT
-	ko97zH19ZIY96BqZD6Pg/JYVhMpg9e9Vd+bSpMKz5nIzMu46ewcSDiXw+rIJHf9BJnGIqEJ3WgzCL
-	rV9ORx0w+sJ69l1M0Ju6/wKiKXWkwNOXfpayWO4KyMoiHR/Ly7Kh+exu365HyUvM5nq+z+KjwZKvW
-	lYZCq9gQzRJVAoIMGyx5HhYlZ8o8gETvrNTsnx1p2rFwPe/O9GeTjrTiz+OWhDwvc3fK7bxDxxdXr
-	Zezh7VVm4Na7UtRmCyip9SmalwpkF2vdtCw8i4KxRFbBrRnjfB12DzyduIQMheTzmy/sF/mq9xcht
-	yk+QbqCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XvgyriYLrNOWp/SX/0FWU4Ue9CzRHuWZAD3A894u9yw=; b=lMaxQ+20lfXG0+mZMfNXaRDNaS
+	AS7ysPkVCounlNELU7Soi//tVWNp5+NH4Sqy5LcwmsLZyApJRgRZit3TCg05KJTxhY2+Py75vKqzf
+	BUW01o0vF57inzjrlsp7XMnUg9MwLCZGdbNZuEHzUg905WtHlAnK5lxgmrpdzDyJMzskr+7xEU9tB
+	NtOv91k5X311swnYV6Njgoa/8kiF9q2a77/wWpxjpA3c9nn5ByH1quW/G2dtb/Zf1/0sMCCooCHAo
+	cElnk4CUoGkMj8EXWeDvWGXqwZaoSco9itJlU5mHTGs2TK8qLXTBUtNJYCYGulEs1QKZ/7KC7uTPs
+	LRFHsjYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwsiN-0000000C5mR-3JTo;
-	Mon, 02 Mar 2026 02:08:55 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1vwsit-0000000C60J-3wIB;
+	Mon, 02 Mar 2026 02:09:27 +0000
+Received: from mail-westeuropeazon11013050.outbound.protection.outlook.com ([52.101.72.50] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwsiK-0000000C5ks-2Jrh
+	id 1vwsis-0000000C5yi-105H
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 02:08:53 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-3597b474cbdso503856a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Mar 2026 18:08:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772417331; x=1773022131; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kAiRnxNawBLozwr1RQWvSytcrnot4tDBwXBqxdM0Av4=;
-        b=mpU3Crk2z+WjeiGqfEtIBg7eXS+aiBHAnQ9ysd6vYvmQ1SSiVVYox7+WUCCZTuL2b+
-         QOXZ2Bncn719cWWgqY1RiLDZC3ivIhwPMIT/90UmRO+pNys3hbayEhVVEHEPYXPTzzYU
-         eV1Ob/3RPqF+Z0UYHbuKmzc0vzjW7gf/e1L1x+ZVu+DVOzYOFmMERV5vlp8iVIQQ+Flh
-         EIUGf3/7v+wTPno+ZYAKcofMuqTVrdlDJaENEh0anceU6/lM9EVXuXfxSH3aEYOkO/Mt
-         peQfRXm2XTy4U5wm02w9ad30H6dCtWHmqLj/8G9+Lx+RYuwFglN1hfa/46voYUdybQw1
-         qqRQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772417331; x=1773022131;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=kAiRnxNawBLozwr1RQWvSytcrnot4tDBwXBqxdM0Av4=;
-        b=fAHr0+PrcZdK0N5cnMP+lZ9vF5adxOIqlsJzfoCEGCvUZmR2LVBAMsqIwiBQX7PQp7
-         MAk1CmeuNVf5Zmlkb4hCQa38lPwFSo1yLTI+14fvHvk2QcongWfRCuBpH+97OEZbl8Ky
-         JLRPG/qE//NTNJCAVfrwzzBQ4/KMuE20vn7lY+Kl7a6QjdHci8P/RUjZFTOzvcRn2LDC
-         +tTtrGbL8KolFmBLXJXkdJUqL22vcW7XX7YI3VC95nWW84UpfoTxDdHVO3mTsEHD68Zf
-         gf1kcsHqDjKj7lNAOInKkJm0zUGxI3M309ZM79b+TME9QWP0FyHtb1dCE/Xl1BZ9ZJlo
-         LwyA==
-X-Forwarded-Encrypted: i=1; AJvYcCX16aT6denOHxHnOdF2NCH18SdTcDlyHBLHO4ChVONjztM6pRzahRvqeczwVCTGq6qO551S+O9IenLSDU52z3aR@lists.infradead.org
-X-Gm-Message-State: AOJu0YxA2TQbA6TE739w9rRpISD48DJwprPZ/KLpLgC3uALHNTDc5vhP
-	LdCZZUYjRRSn7mw35hjTUMz3kZ+DF9BbMdxMsAkZ15fIQzZ2QeiTpnkf
-X-Gm-Gg: ATEYQzwrd7f+jGTVQqm23xcz7+sVeePGpHblpVZNxY87RE8tnGC6d6QbqmuwFAeRNCY
-	T6bwyJYXb9AjzY9ropc2Kmso+2vOAWZV2engjMa7Q419HNfpwjwhXdl98eRE9nSC+F8EHMzqCm1
-	E0qlch9f+Hx1tD1qLiGYKkRgxzhibFggqQRpsq4jj097B+aB1rQ72LJSWYjHSbkUS0mwvxNk3fw
-	hexC5mO1mkDADdGl8fHoEId3UH00gPk7tI48ox797q4ZQyyS9xgr0Wlr9tx/X/sQsF+uIkFj5J1
-	68qP2s2ZUohMUBExXGqg80gW46OPELtdhT6wUUv9tX5YvHvUQq4jZ0Issuhza1KpgGYYxtWPHSh
-	S/HzTHlxdhUJr2XQvg6LfUPVTT6hFy/HUp3TD4UOx9Gqg36P438PkMrKKgwIZjNqnlDejv/1euA
-	0N7Ia/zcTQNEdfawESrT4LHDaPYvq3GAlilQ4x7AUEGiPzdr2Lxn2nCC46UStumY07GsMImEKVQ
-	me52St1+w==
-X-Received: by 2002:a17:90b:3d81:b0:359:8bb5:fb3d with SMTP id 98e67ed59e1d1-3598bb5fe02mr2122543a91.6.1772417331341;
-        Sun, 01 Mar 2026 18:08:51 -0800 (PST)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35987523629sm2764697a91.7.2026.03.01.18.08.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Mar 2026 18:08:50 -0800 (PST)
-From: Zi-Yu Chen <zychennvt@gmail.com>
-To: andi.shyti@kernel.org,
-	ychuang3@nuvoton.com
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	linux-i2c@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	zychennvt@gmail.com
-Subject: [PATCH 2/3] i2c: ma35d1: Add Nuvoton MA35D1 I2C driver support
-Date: Mon,  2 Mar 2026 02:08:21 +0000
-Message-Id: <20260302020822.13936-3-zychennvt@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260302020822.13936-1-zychennvt@gmail.com>
-References: <20260302020822.13936-1-zychennvt@gmail.com>
+	Mon, 02 Mar 2026 02:09:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QEnvjuT4A5Pb3u/vgZvdLGyJwv3q531/rFzMR4jSXjp9SglFOwphCmTHV3rNOC+vDxsWL7n8xOic6RNI6yKWcI1/corKwEZt/rxD1xxZ7uw06dk+bRRA9X4+4jTjmA1DiS5UHKpYr9KiLzSSLKmXh48wR9jETfC7ONgbECNdjSrdJrXUtS30r0ftMuqYKcxfz6z4tkF6HoWqr+9O0NNlIYUxoaQYxQH9yBsd98Py9fkS406pmfHoO7IhYWp+565BRF81o1fw8pkCF5Jo0glHUR7vcT4LyXN/yD110Hq0cZ23RkkHzWLQ5A6XovGtZVsSdmZbZ7ayYhVwpL625vzMUg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XvgyriYLrNOWp/SX/0FWU4Ue9CzRHuWZAD3A894u9yw=;
+ b=uABqgQvScIKHifRt3F96fDFNeF291q/C9Ao/zeXEuyaJtUsU8S2N3nDirHGS1HWaqTgLgR4RMR7CpkMh0sczdEyIbUsfvW7KysSJKCbGwjkwJpYX/wuYx34Hg+I2AQGgPXF+eHchpbt0B6HRa9jhpMjrQctApRg9zs+CUMF5EqKrgn0HB8gZyJl6bREwtWfOqMe23oUc0XOvR9fIelQU2Q5biHcevoGCLjlzvMCWrPrp6iDCE9tGeaHLwuDri2t2RRbnAU6CDmNwAoF7+/P2SDPJKQVuavJjtgHfOj2dA6lNWz/Gujw0jy5yxa7EqAtXb5E4S1lEt8iKnJsi2zFBGw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XvgyriYLrNOWp/SX/0FWU4Ue9CzRHuWZAD3A894u9yw=;
+ b=NOtO+vGbKsMqG/udOlVQWE/ObneKfZ+DLACdaZDfbCh66+Y/7zKxvHGDgrUqwygBhr6RyY26JB8r2qX37t2TiUc64oXvMFy1P9Z4XsrwFNgusD3Pp2SwsWa99yR2lzQvT0OePoIfI0S+YEuhm/tus3A38NF3fT8dq9iOcjDKLeoC3VrzhR0DpiWnWzHtaDVLNwvkqjivca+jiiYks4teRUV2QKMjQ3O756TojWT0+bk+XX+qhjZLDjTBwIXdqiETN68qiO3XtCRi8dJI5BSfE3TvaMJuo8GAT78BfX79YtflhoH5KN7y3OOgGrQU1euiDB4/RvFQhj4vAdX0cDIYJw==
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
+ by PA4PR04MB7711.eurprd04.prod.outlook.com (2603:10a6:102:e1::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.15; Mon, 2 Mar
+ 2026 02:09:18 +0000
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb]) by AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb%4]) with mapi id 15.20.9654.020; Mon, 2 Mar 2026
+ 02:09:18 +0000
+From: "G.N. Zhou (OSS)" <guoniu.zhou@oss.nxp.com>
+To: "G.N. Zhou (OSS)" <guoniu.zhou@oss.nxp.com>, Rui Miguel Silva
+	<rmfrfs@gmail.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Martin Kepplinger <martink@posteo.de>, Purism Kernel Team <kernel@puri.sm>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
+	<festevam@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, Frank Li
+	<frank.li@nxp.com>
+CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "G.N. Zhou" <guoniu.zhou@nxp.com>
+Subject: RE: [PATCH v10 2/5] media: imx8mq-mipi-csi2: Use
+ devm_clk_bulk_get_all() to fetch clocks
+Thread-Topic: [PATCH v10 2/5] media: imx8mq-mipi-csi2: Use
+ devm_clk_bulk_get_all() to fetch clocks
+Thread-Index: AQHcZcYcb/17jej+0Ee6rMVl5pG+jrWbB5Zg
+Date: Mon, 2 Mar 2026 02:09:18 +0000
+Message-ID: <AS8PR04MB9080AF73C1DB172488153901FA7EA@AS8PR04MB9080.eurprd04.prod.outlook.com>
+References: <20251205-csi2_imx8ulp-v10-0-69b5c4cebcf8@nxp.com>
+ <20251205-csi2_imx8ulp-v10-2-69b5c4cebcf8@nxp.com>
+In-Reply-To: <20251205-csi2_imx8ulp-v10-2-69b5c4cebcf8@nxp.com>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS8PR04MB9080:EE_|PA4PR04MB7711:EE_
+x-ms-office365-filtering-correlation-id: 7777c56f-01df-4a27-ddae-08de7800b613
+x-ms-exchange-sharedmailbox-routingagent-processed: True
+x-ld-processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|7416014|376014|921020|38070700021;
+x-microsoft-antispam-message-info: 0YOp0jVOJI6XJk2M82ukSv4aHuBDrQn6PwruWjdbZ8/a63RX/eU9RS831MZT4OV231YUW07xtXApbha32bGy/BJ+gOxFhr71d33V+Cjn/DEeqCFvMJjyfsT+3E2r4N6FyGtDF1FOIqqf8yY1l34FgTOeaWnDm9d/PJOWDGaDPnvl5V/ffb8IgMqvql4w5tQ+RNkHiCtW8MEC+XtSYbF97bo0CG0q+Zvd9wAkI6/yJDiu1PbsWCYyUuwabrrTYAjw7zuDov6MWwMkEbyhDZor++HBJ8iHF3M6uP40zt+GTngNF4f6FKr4nflOrVO/ZtCBcThHSpzeHf1QGV/5ZR117raZFc5EIwRk4zBcUPF0tg8pafqefjUf7Nnki89GZzRKmORgkM5ZKOq+iEsbGe+HkLEUaIBKOlxdU7mH7zbn92JycE9eg0q08ZuPr6tRJYxSUGKhPhNlKs4yNxk+Hq8JvWt1NV+nRSaR75fcg9WrvYkQSjPyoRuNNHlp7JOobDX1Lug6i5pNFz735XaYwgWZm19eYkzlbqkuiKxIhq2eUrvWDuoUpQEsl9i6Y0DmLOENeFmq1B32xcoDHc3knXPDcSq3wQhQJ6/CyiyRgLYLLsfDKiQy/dkWby20az0OhBVi1TbO/WWtoVin9PBxFTxG/R9IQyD7TswAZAFISrdTuSzvnFtIZuTNJJ0seeFmt15YYJErmjFpC8tu00olGoxkIDhMDEuYJNHKSzh3PtDYYBr0JdzbqwPEquN22YEitErWfnyXIFPTxLDvOAYb1kqStZ1wuHq6Q45SLgTKJZwAuh+s/ds7uwcu0xfaF2XswJ05
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(7416014)(376014)(921020)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?RXJlelVIOGNOaFhDZ3djYXA1cFE1anZ6dWxMY05IOVoxMzFxWkE5QW40L1V4?=
+ =?utf-8?B?c3o3UTYrTGd0UHM1bkpJbG83MzljVHVocnJxVE10U1JqNDJyQms0aTc3YXFy?=
+ =?utf-8?B?dDdDSkorSWRITHNLZkNFeEh6NDZnbldGakI2VmNsYTlDVjFnTlpDcDZISWJY?=
+ =?utf-8?B?UmhSSmpEcms1d09ncnJlSEhNVnBJbGZaK1pCSnl6bG1HMTU2YlBzeUtGclFZ?=
+ =?utf-8?B?V0UrbWFZS3NDZFVvcmE4Q1BYa1MrNkkySWdXMHhYYTBIejEwd0pFY1k1aThx?=
+ =?utf-8?B?TkxUSk1xZ3RuWjRSblcrWFVVdU9lWEl3RkVXOXNQeXF0L0lpdEJRR21vcDlK?=
+ =?utf-8?B?RTVSSytKQ0lsTnVPK0VEbWFMdk9rNFZCY1cySE5EZ3dNMVJLSXdJc1dNVTRL?=
+ =?utf-8?B?YldOL1RQZHVuVTRzMmFCTVJ2UGhxeGd4TWx2K0w2TnNNano2ZmlvaXF2anE3?=
+ =?utf-8?B?Y1FOcXllREJoR1dRRXNIbEdlS1RLZmF0UzVTbWJsZXV0QnpLdy92bHVEekJp?=
+ =?utf-8?B?YXVUMVVDaFI1a1h5ZGgrQkRueW1wRnlDS2NheE45TzhsSTlTVUZUZlYycHUy?=
+ =?utf-8?B?elhsMUFGNW9VZFRPYTMydDM4MzFtSXEyYzZKVFMyMlR1bytzUDVhYkRZWXpM?=
+ =?utf-8?B?WGhpdy9obzlQK1UvRWpsT2pheTBnNWFncHdQTmVmdHlJelZLS2pQVEVuNG1q?=
+ =?utf-8?B?OWxvSE92VXl1RFJuL2llVVZlYkdRYVVyMlVGV3Bxbi9sVERoOXA4a2Q5SVMy?=
+ =?utf-8?B?MUtGTmtkMjNZamVLeXJqbzduK01xSWVraVFtQnFYMXVqd2M5TUFZb3l1NmtW?=
+ =?utf-8?B?NkEzVzYyU0tDUXkwQU8vblFmN2ZWcXJsMVBKUDJTaThJMWFBRGFFbS9MQ05i?=
+ =?utf-8?B?SytFNDFua29mV3lzTS9pUFRuMnJNb2ZSZDdmcHZkRVQ1SlRpaTBPeGNmKzZU?=
+ =?utf-8?B?U0hlWVhEOE9PNHR1ODRvZURSbjlIRzRaN2M0TGlkSDhDODFBa3MvelBuclJu?=
+ =?utf-8?B?QUk4STN2bHE0TFFuaVBXemRnaUZid1BkV2ZvWTlnckl2Zi9qU1lWOWRyY3Mv?=
+ =?utf-8?B?Y0hZb0t4OFNLNGtYVkZJK0FMdDNMcFQyaHdFc25ES1RvNjZKMGVLRzE2S3Jn?=
+ =?utf-8?B?eVZ0UkJqTjJZc1RVdTBvUmVVUkxjVG5XQ2hUUVFDMnE1elZrZ09nTUxDWEJa?=
+ =?utf-8?B?Zm1KQ0EzUDZNOTJQQ3hucDl1aVpZWlpjYnhuTzJlWmR5WFVZeW1Ib2pvR3Vp?=
+ =?utf-8?B?WkZSMGhxRW80c0RhWkxQTURmdUxMSXE5ZWdYYWFxK0pwaHBGUzYveFFqYThG?=
+ =?utf-8?B?UmRiUlN2OXB1cDRnd0lxUVNuWWlyc2h1UDhpNzdnWTQ5dEh2Z2RiTFpuczRz?=
+ =?utf-8?B?a2FEWWpaMExwSE9Rd2ZRTW9HTHNIZkR3Wkp5am5Md01vc1pHWmhGRUhQZU1o?=
+ =?utf-8?B?R0hJWUduS2lack9VczhaK2JrbmVQK3czT0tqYXErNVVlU3kzU2pBYXNWNExK?=
+ =?utf-8?B?Z1FYMzhwTVpaWXlrL0FlUGNJZlJaeHV6WXlwWjlGd1oyZi9QNWVaL0tBb2E2?=
+ =?utf-8?B?QVd4VHNYcnNHTWpkN1pPZ2J5NlloUUtQVkxhbTN6UGdzRmxpVEdYWlRhaDZD?=
+ =?utf-8?B?ZExZd0JnNnVIa2xjYjB2Ni95OUVlZ2FlNG0wbWUyN2YrM2I4R2VrU2dldDhS?=
+ =?utf-8?B?MFA3VGxjZlRxVVVQbGhGU1Y2Q3F0YkJLekk0ZjZCaUtiL1d2ZS8zMkh1MnNT?=
+ =?utf-8?B?NHA5Z0tNbHRiV0MwWk4wUW5uOG8xaXBjQTdLUm1GWWpKdEttbi95VFh6TjdL?=
+ =?utf-8?B?R3hmblJMdU5jbm4vTXRNREY4SVd1TVdpL1RDUFlsT3RmejV3VGlIVU1sb2I4?=
+ =?utf-8?B?RlNmN3hwbW1UMmlXTlVwT2pmYVFaQUUvKzFJREd4R1o5ekFVbXRnRHc3dVdz?=
+ =?utf-8?B?UTBPVWRjUGdkbzhTZmpGK0tQYjNCdXhvTWpkQjMwRU5yd3QydkJuT3Rhb1FX?=
+ =?utf-8?B?TUxjYWw2M3dpV21sWXU2aUNURm1rY2VrUnhkK0g4SkJpS2x3dlJTdjM3K1lK?=
+ =?utf-8?B?dFYxS0EyYm9TZjdnNTBaUmhEMVZLbkowM244eUZ1VnYyZEFJU3Rla2x6YzJU?=
+ =?utf-8?B?cWJTVUozbU13RXRnWTkrQ3Btd2pCbnhFNUROMXFjbVU4TzJ3VVR3dWR1M0Fv?=
+ =?utf-8?B?bkN1REdTWkJhVVhWODhYbjUxQjNmQzBqbmQrTGpxR0JNcEdPRUllWDhpeDZK?=
+ =?utf-8?B?WU5oRUFDbWZTeTZ1WjNsdXQ0NUs3MEdzTUJySHB3NXJ5ZXVmazRMbldXUzdJ?=
+ =?utf-8?Q?/lYTDGeauDScVg2a4u?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7777c56f-01df-4a27-ddae-08de7800b613
+X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Mar 2026 02:09:18.2809
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: Mvh/bNzPqVC67iVo8hBjqVa9E8yQhtHBmk9T6WFc37TH0UzZV9EnElA7dyFV4f+ISK9NrM5EkpRe0ZXbfnU+qQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7711
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_180852_627821_733055F9 
-X-CRM114-Status: GOOD (  28.91  )
+X-CRM114-CacheID: sfid-20260301_180926_285951_A51D5C81 
+X-CRM114-Status: GOOD (  24.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,878 +165,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add I2C support for Nuvoton MA35D1 SoC.
-The controller supports standard, fast and fast-plus modes,
-and provides master/slave functionality.
-
-Signed-off-by: Zi-Yu Chen <zychennvt@gmail.com>
----
- drivers/i2c/busses/Kconfig      |  13 +
- drivers/i2c/busses/Makefile     |   1 +
- drivers/i2c/busses/i2c-ma35d1.c | 819 ++++++++++++++++++++++++++++++++
- 3 files changed, 833 insertions(+)
- create mode 100644 drivers/i2c/busses/i2c-ma35d1.c
-
-diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
-index e11d50750e63..6bf8be1d2575 100644
---- a/drivers/i2c/busses/Kconfig
-+++ b/drivers/i2c/busses/Kconfig
-@@ -1589,4 +1589,17 @@ config I2C_VIRTIO
-           This driver can also be built as a module. If so, the module
-           will be called i2c-virtio.
- 
-+config I2C_MA35D1
-+	tristate "Nuvoton MA35D1 I2C driver"
-+	depends on ARCH_MA35
-+	select I2C_SLAVE
-+	help
-+	  If you say yes to this option, support will be included for the
-+	  I2C controller in the Nuvoton MA35D1 SoC. This driver
-+	  supports the standard I2C bus protocols, including master and
-+	  slave modes.
-+
-+	  This driver can also be built as a module. If so, the module
-+	  will be called i2c-ma35d1.
-+
- endmenu
-diff --git a/drivers/i2c/busses/Makefile b/drivers/i2c/busses/Makefile
-index 547123ab351f..264f6f3f608d 100644
---- a/drivers/i2c/busses/Makefile
-+++ b/drivers/i2c/busses/Makefile
-@@ -130,6 +130,7 @@ obj-$(CONFIG_I2C_XILINX)	+= i2c-xiic.o
- obj-$(CONFIG_I2C_XLP9XX)	+= i2c-xlp9xx.o
- obj-$(CONFIG_I2C_RCAR)		+= i2c-rcar.o
- obj-$(CONFIG_I2C_GXP)		+= i2c-gxp.o
-+obj-$(CONFIG_I2C_MA35D1)	+= i2c-ma35d1.o
- 
- # External I2C/SMBus adapter drivers
- obj-$(CONFIG_I2C_DIOLAN_U2C)	+= i2c-diolan-u2c.o
-diff --git a/drivers/i2c/busses/i2c-ma35d1.c b/drivers/i2c/busses/i2c-ma35d1.c
-new file mode 100644
-index 000000000000..da2707c31463
---- /dev/null
-+++ b/drivers/i2c/busses/i2c-ma35d1.c
-@@ -0,0 +1,819 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2026 Nuvoton technology corporation.
-+ *
-+ * Author: Zi-Yu Chen <zychennvt@gmail.com>
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/err.h>
-+#include <linux/errno.h>
-+#include <linux/i2c.h>
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/iopoll.h>
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/reset.h>
-+
-+/* MA35D1 I2C registers offset */
-+#define MA35_CTL0		0x00
-+#define MA35_ADDR0		0x04
-+#define MA35_DAT		0x08
-+#define MA35_STATUS0	0x0C
-+#define MA35_CLKDIV		0x10
-+#define MA35_TOCTL		0x14
-+#define MA35_ADDR1		0x18
-+#define MA35_ADDR2		0x1C
-+#define MA35_ADDR3		0x20
-+#define MA35_ADDRMSK0	0x24
-+#define MA35_ADDRMSK1	0x28
-+#define MA35_ADDRMSK2	0x2C
-+#define MA35_ADDRMSK3	0x30
-+#define MA35_WKCTL		0x3C
-+#define MA35_WKSTS		0x40
-+#define MA35_CTL1		0x44
-+#define MA35_STATUS1	0x48
-+#define MA35_TMCTL		0x4C
-+#define MA35_BUSCTL		0x50
-+#define MA35_BUSTCTL	0x54
-+#define MA35_BUSSTS		0x58
-+#define MA35_PKTSIZE	0x5C
-+#define MA35_PKTCRC		0x60
-+#define MA35_BUSTOUT	0x64
-+#define MA35_CLKTOUT	0x68
-+#define MA35_AUTOCNT	0x78
-+
-+/* MA35D1 I2C Status */
-+/* Master */
-+#define MA35_M_START				0x08
-+#define MA35_M_REPEAT_START			0x10	/* Master Repeat Start */
-+#define MA35_M_TRAN_ADDR_ACK		0x18	/* Master Transmit Address ACK */
-+#define MA35_M_TRAN_ADDR_NACK		0x20	/* Master Transmit Address NACK */
-+#define MA35_M_TRAN_DATA_ACK		0x28	/* Master Transmit Data ACK */
-+#define MA35_M_TRAN_DATA_NACK		0x30	/* Master Transmit Data NACK */
-+#define MA35_M_ARB_LOST				0x38	/* Master Arbitration Los */
-+#define MA35_M_RECE_ADDR_ACK		0x40	/* Master Receive Address ACK */
-+#define MA35_M_RECE_ADDR_NACK		0x48	/* Master Receive Address NACK */
-+#define MA35_M_RECE_DATA_ACK		0x50	/* Master Receive Data ACK */
-+#define MA35_M_RECE_DATA_NACK		0x58	/* Master Receive Data NACK */
-+#define MA35_BUS_ERROR				0x00
-+
-+/*  Slave */
-+#define MA35_S_REPEAT_START_STOP	0xA0	/* Slave Transmit Repeat Start or Stop */
-+#define MA35_S_TRAN_ADDR_ACK		0xA8	/* Slave Transmit Address ACK */
-+#define MA35_S_TRAN_DATA_ACK		0xB8	/* Slave Transmit Data ACK */
-+#define MA35_S_TRAN_DATA_NACK		0xC0	/* Slave Transmit Data NACK */
-+#define MA35_S_TRAN_LAST_DATA_ACK	0xC8	/* Slave Transmit Last Data ACK */
-+#define MA35_S_RECE_ADDR_ACK		0x60	/* Slave Receive Address ACK */
-+#define MA35_S_RECE_ARB_LOST		0x68	/* Slave Receive Arbitration Lost */
-+#define MA35_S_RECE_DATA_ACK		0x80	/* Slave Receive Data ACK */
-+#define MA35_S_RECE_DATA_NACK		0x88	/* Slave Receive Data NACK */
-+
-+/* GC Mode */
-+#define MA35_GC_ADDR_ACK			0x70	/* GC mode Address ACK */
-+#define MA35_GC_ARB_LOST			0x78	/* GC mode Arbitration Lost */
-+#define MA35_GC_DATA_ACK			0x90	/* GC mode Data ACK */
-+#define MA35_GC_DATA_NACK			0x98	/* GC mode Data NACK */
-+
-+/* Other */
-+#define MA35_ADDR_TRAN_ARB_LOST		0xB0	/* Address Transmit Arbitration Lost */
-+#define MA35_BUS_RELEASED			0xF8	/* Bus Released */
-+
-+/*  I2C_CTL constant definitions. */
-+#define MA35_CTL_AA			BIT(2)
-+#define MA35_CTL_SI			BIT(3)
-+#define MA35_CTL_STO		BIT(4)
-+#define MA35_CTL_STA		BIT(5)
-+#define MA35_CTL_I2CEN		BIT(6)
-+#define MA35_CTL_INTEN		BIT(7)
-+#define MA35_CTL_SI_AA		(MA35_CTL_SI | MA35_CTL_AA)
-+#define MA35_CTL_STO_SI		(MA35_CTL_STO | MA35_CTL_SI)
-+#define MA35_CTL_STA_SI		(MA35_CTL_STA | MA35_CTL_SI)
-+#define MA35_CTL_STA_SI_AA	(MA35_CTL_STA | MA35_CTL_SI | MA35_CTL_AA)
-+#define MA35_CTL_STO_SI_AA	(MA35_CTL_STO | MA35_CTL_SI | MA35_CTL_AA)
-+
-+#define MA35_I2C_GC_EN		1
-+#define MA35_I2C_GC_DIS		0
-+
-+#define MA35_I2C_ADDR_MASK	(0x7f << 1)
-+#define STOP_TIMEOUT_MS		50
-+#define I2C_PM_TIMEOUT		5000
-+
-+struct ma35d1_i2c {
-+	spinlock_t lock; /* Protects I2C register access and state */
-+	wait_queue_head_t wait;
-+	struct i2c_msg *msg;
-+	unsigned int msg_num;
-+	unsigned int msg_idx;
-+	unsigned int msg_ptr;
-+	unsigned int irq;
-+	unsigned int arblost;
-+	void __iomem *regs;
-+	struct clk *clk;
-+	struct device *dev;
-+	struct i2c_adapter adap;
-+	struct i2c_client *slave;
-+	struct reset_control *rst;
-+};
-+
-+static inline bool ma35d1_is_master_status(unsigned int status)
-+{
-+	return status >= MA35_M_START && status <= MA35_M_RECE_DATA_NACK;
-+}
-+
-+/*
-+ * ma35d1_i2c_write_CTL - Update the I2C control register
-+ * @i2c: Pointer to the ma35d1 i2c instance
-+ * @ctl: Control bits to set (e.g., MA35_CTL_STA, SI, AA)
-+ *
-+ * This helper reads CTL0, clears the sticky state-change bits (STA, STO, SI, AA),
-+ * and then applies the new control bits provided by @ctl.
-+ */
-+static inline void ma35d1_i2c_write_CTL(struct ma35d1_i2c *i2c,
-+					unsigned int ctl)
-+{
-+	unsigned int val;
-+
-+	val = readl(i2c->regs + MA35_CTL0);
-+	val &= ~(MA35_CTL_STA_SI_AA | MA35_CTL_STO);
-+	val |= ctl;
-+	writel(val, i2c->regs + MA35_CTL0);
-+}
-+
-+static inline void ma35d1_i2c_set_addr(struct ma35d1_i2c *i2c)
-+{
-+	unsigned int rw = i2c->msg->flags & I2C_M_RD;
-+
-+	writel(((i2c->msg->addr & 0x7f) << 1) | rw, i2c->regs + MA35_DAT);
-+}
-+
-+static inline void ma35d1_i2c_master_complete(struct ma35d1_i2c *i2c, int ret)
-+{
-+	dev_dbg(i2c->dev, "master_complete %d\n", ret);
-+
-+	i2c->msg_ptr = 0;
-+	i2c->msg = NULL;
-+	i2c->msg_idx++;
-+	i2c->msg_num = 0;
-+	if (ret)
-+		i2c->msg_idx = ret;
-+
-+	wake_up(&i2c->wait);
-+}
-+
-+static inline void ma35d1_i2c_disable_irq(struct ma35d1_i2c *i2c)
-+{
-+	unsigned long tmp;
-+
-+	tmp = readl(i2c->regs + MA35_CTL0);
-+	writel(tmp & ~MA35_CTL_INTEN, i2c->regs + MA35_CTL0);
-+}
-+
-+static inline void ma35d1_i2c_enable_irq(struct ma35d1_i2c *i2c)
-+{
-+	unsigned long tmp;
-+
-+	tmp = readl(i2c->regs + MA35_CTL0);
-+	writel(tmp | MA35_CTL_INTEN, i2c->regs + MA35_CTL0);
-+}
-+
-+static void ma35d1_i2c_message_start(struct ma35d1_i2c *i2c)
-+{
-+	ma35d1_i2c_write_CTL(i2c, MA35_CTL_SI | MA35_CTL_STA);
-+}
-+
-+static inline void ma35d1_i2c_reset(struct ma35d1_i2c *i2c)
-+{
-+	unsigned int tmp;
-+
-+	tmp = readl(i2c->regs + MA35_CLKDIV);
-+
-+	reset_control_assert(i2c->rst);
-+	usleep_range(10, 20);
-+	reset_control_deassert(i2c->rst);
-+
-+	writel(tmp, (i2c->regs + MA35_CLKDIV));
-+	ma35d1_i2c_write_CTL(i2c, MA35_CTL_I2CEN);
-+
-+	if (i2c->slave)
-+		ma35d1_i2c_write_CTL(i2c, MA35_CTL_SI_AA);
-+}
-+
-+static inline void ma35d1_i2c_stop(struct ma35d1_i2c *i2c, int ret)
-+{
-+	unsigned int val;
-+	int err;
-+
-+	/* Ensure AA is cleared to prevent the master
-+	 * from re-claiming the bus unnecessarily
-+	 */
-+	if (readl(i2c->regs + MA35_CTL0) & MA35_CTL_AA) {
-+		val = readl(i2c->regs + MA35_CTL0);
-+		val &= ~MA35_CTL_AA;
-+		writel(val, (i2c->regs + MA35_CTL0));
-+
-+		err = readl_poll_timeout_atomic(i2c->regs + MA35_CTL0, val,
-+						!(val & MA35_CTL_AA), 1, 1000);
-+		if (err)
-+			dev_warn(i2c->dev,
-+				 "AA bit could not be cleared in time\n");
-+	}
-+
-+	ma35d1_i2c_write_CTL(i2c, MA35_CTL_STO_SI);
-+
-+	err = readl_poll_timeout_atomic(i2c->regs + MA35_CTL0, val,
-+					!(val & MA35_CTL_STO), 1, 1 * 1000);
-+	if (err)
-+		dev_warn(i2c->dev, "I2C Stop Timeout\n");
-+
-+	if (i2c->slave)
-+		ma35d1_i2c_write_CTL(i2c, MA35_CTL_SI_AA);
-+	else
-+		ma35d1_i2c_disable_irq(i2c);
-+
-+	ma35d1_i2c_master_complete(i2c, ret);
-+}
-+
-+/* Check if this is the last message in the set */
-+static inline bool is_last_msg(struct ma35d1_i2c *i2c)
-+{
-+	return i2c->msg_idx >= (i2c->msg_num - 1);
-+}
-+
-+/* Check if this is the last byte in the current message */
-+static inline bool is_last_byte(struct ma35d1_i2c *i2c)
-+{
-+	return i2c->msg_ptr == i2c->msg->len - 1;
-+}
-+
-+/* Check if reached the end of the current message */
-+static inline bool is_msgend(struct ma35d1_i2c *i2c)
-+{
-+	return i2c->msg_ptr >= i2c->msg->len;
-+}
-+
-+/*
-+ * i2c_ma35d1_irq_slave_trx - I2C Slave state machine handler
-+ * @i2c: ma35d1 i2c instance
-+ * @i2c_status: hardware status code from MA35_STATUS0
-+ */
-+static void i2c_ma35d1_irq_slave_trx(struct ma35d1_i2c *i2c,
-+				     unsigned long i2c_status)
-+{
-+	unsigned char byte;
-+
-+	switch (i2c_status) {
-+	case MA35_S_RECE_ADDR_ACK:
-+		/* Own SLA+W has been receive; ACK has been return */
-+		i2c_slave_event(i2c->slave, I2C_SLAVE_WRITE_REQUESTED, &byte);
-+		break;
-+	case MA35_S_TRAN_DATA_NACK:
-+	/* Data byte or last data in I2CDAT has been transmitted.
-+	 * Not ACK has been received
-+	 */
-+	case MA35_S_RECE_DATA_NACK:
-+	/* Previously addressed with own SLA address;
-+	 * NOT ACK has been returned
-+	 */
-+		break;
-+
-+	case MA35_S_RECE_DATA_ACK:
-+		/* Previously address with own SLA address Data has been received;
-+		 * ACK has been returned
-+		 */
-+		byte = readb(i2c->regs + MA35_DAT);
-+		i2c_slave_event(i2c->slave, I2C_SLAVE_WRITE_RECEIVED, &byte);
-+		break;
-+
-+	case MA35_S_TRAN_ADDR_ACK:
-+		/* Own SLA+R has been receive; ACK has been return */
-+		i2c_slave_event(i2c->slave, I2C_SLAVE_READ_REQUESTED, &byte);
-+
-+		writel(byte, i2c->regs + MA35_DAT);
-+		break;
-+
-+	case MA35_S_TRAN_DATA_ACK:
-+		i2c_slave_event(i2c->slave, I2C_SLAVE_READ_PROCESSED, &byte);
-+		writel(byte, i2c->regs + MA35_DAT);
-+		break;
-+
-+	case MA35_S_REPEAT_START_STOP:
-+		/* A STOP or repeated START has been received
-+		 *	while still addressed as Slave/Receiver
-+		 */
-+		i2c_slave_event(i2c->slave, I2C_SLAVE_STOP, &byte);
-+		break;
-+
-+	default:
-+		dev_err(i2c->dev, "Status 0x%02lx is NOT processed\n",
-+			i2c_status);
-+		break;
-+	}
-+	ma35d1_i2c_write_CTL(i2c, MA35_CTL_SI_AA);
-+}
-+
-+/*
-+ * i2c_ma35d1_irq_master_trx - I2C Master state machine handler
-+ * @i2c: ma35d1 i2c instance
-+ * @i2c_status: hardware status code from MA35_STATUS0
-+ */
-+static void i2c_ma35d1_irq_master_trx(struct ma35d1_i2c *i2c,
-+				      unsigned long i2c_status)
-+{
-+	unsigned char byte;
-+
-+	switch (i2c_status) {
-+	case MA35_M_START:
-+	case MA35_M_REPEAT_START:
-+		ma35d1_i2c_set_addr(i2c);
-+		ma35d1_i2c_write_CTL(i2c, MA35_CTL_SI);
-+		break;
-+
-+	case MA35_M_TRAN_ADDR_ACK:
-+	case MA35_M_TRAN_DATA_ACK:
-+		/* SLA+W has been transmitted and ACK has been received */
-+		if (i2c_status == MA35_M_TRAN_ADDR_ACK) {
-+			if (is_last_msg(i2c) && i2c->msg->len == 0) {
-+				ma35d1_i2c_stop(i2c, 0);
-+				return;
-+			}
-+		}
-+
-+		if (!is_msgend(i2c)) {
-+			byte = i2c->msg->buf[i2c->msg_ptr++];
-+			writel(byte, i2c->regs + MA35_DAT);
-+			ma35d1_i2c_write_CTL(i2c, MA35_CTL_SI);
-+		} else if (!is_last_msg(i2c)) {
-+			dev_dbg(i2c->dev, "WRITE: Next Message\n");
-+
-+			i2c->msg_ptr = 0;
-+			i2c->msg_idx++;
-+			i2c->msg++;
-+
-+			ma35d1_i2c_write_CTL(i2c, MA35_CTL_STA | MA35_CTL_SI);
-+		} else {
-+			ma35d1_i2c_stop(i2c, 0);
-+		}
-+		break;
-+
-+	case MA35_M_TRAN_DATA_NACK:
-+		ma35d1_i2c_stop(i2c, 0);
-+		break;
-+
-+	case MA35_M_TRAN_ADDR_NACK:
-+	case MA35_M_RECE_ADDR_NACK:
-+		/* Master Transmit Address NACK */
-+		/* 0x20: SLA+W has been transmitted and NACK has been received */
-+		/* 0x48: SLA+R has been transmitted and NACK has been received */
-+		if (!(i2c->msg->flags & I2C_M_IGNORE_NAK)) {
-+			dev_dbg(i2c->dev, "\n i2c: ack was not received\n");
-+			ma35d1_i2c_stop(i2c, -ENXIO);
-+		}
-+		break;
-+
-+	case MA35_M_RECE_ADDR_ACK:
-+		if (is_last_msg(i2c) && i2c->msg->len == 0)
-+			ma35d1_i2c_stop(i2c, 0);
-+		else if (is_last_msg(i2c) && (i2c->msg->len == 1))
-+			ma35d1_i2c_write_CTL(i2c, MA35_CTL_SI);
-+		else
-+			ma35d1_i2c_write_CTL(i2c, MA35_CTL_SI_AA);
-+		break;
-+
-+	case MA35_M_RECE_DATA_ACK:
-+	case MA35_M_RECE_DATA_NACK:
-+		/* DATA has been transmitted and ACK has been received */
-+		byte = readb(i2c->regs + MA35_DAT);
-+		i2c->msg->buf[i2c->msg_ptr++] = byte;
-+
-+		if (is_last_byte(i2c)) {
-+			ma35d1_i2c_write_CTL(i2c, MA35_CTL_SI);
-+		} else if (is_msgend(i2c)) {
-+			if (is_last_msg(i2c)) {
-+				dev_dbg(i2c->dev, "READ: Send Stop\n");
-+
-+				ma35d1_i2c_stop(i2c, 0);
-+			} else {
-+				dev_dbg(i2c->dev, "READ: Next Transfer\n");
-+
-+				i2c->msg_ptr = 0;
-+				i2c->msg_idx++;
-+				i2c->msg++;
-+
-+				ma35d1_i2c_write_CTL(i2c, MA35_CTL_STA_SI);
-+			}
-+		} else {
-+			ma35d1_i2c_write_CTL(i2c, MA35_CTL_SI_AA);
-+		}
-+		break;
-+
-+	default:
-+		dev_err(i2c->dev, "Status 0x%02lx is NOT processed\n",
-+			i2c_status);
-+		ma35d1_i2c_disable_irq(i2c);
-+		ma35d1_i2c_stop(i2c, 0);
-+		break;
-+	}
-+}
-+
-+static irqreturn_t ma35d1_i2c_irq(int irqno, void *dev_id)
-+{
-+	struct ma35d1_i2c *i2c = dev_id;
-+	unsigned long status, flags;
-+
-+	status = readl(i2c->regs + MA35_STATUS0);
-+
-+	spin_lock_irqsave(&i2c->lock, flags);
-+
-+	if (status == MA35_M_ARB_LOST) {
-+		dev_err(i2c->dev, "Arbitration lost\n");
-+		i2c->arblost = 1;
-+
-+		ma35d1_i2c_disable_irq(i2c);
-+		ma35d1_i2c_stop(i2c, -EAGAIN);
-+		goto out;
-+	}
-+
-+	else if (status == MA35_BUS_ERROR) {
-+		dev_err(i2c->dev, "IRQ: error i2c->state == IDLE\n");
-+		ma35d1_i2c_disable_irq(i2c);
-+		ma35d1_i2c_stop(i2c, 0);
-+		goto out;
-+	}
-+
-+	if (ma35d1_is_master_status(status))
-+		i2c_ma35d1_irq_master_trx(i2c, status);
-+	else
-+		i2c_ma35d1_irq_slave_trx(i2c, status);
-+
-+out:
-+	spin_unlock_irqrestore(&i2c->lock, flags);
-+	return IRQ_HANDLED;
-+}
-+
-+static int ma35d1_i2c_doxfer(struct ma35d1_i2c *i2c, struct i2c_msg *msgs,
-+			     int num)
-+{
-+	unsigned long timeout;
-+	unsigned int val;
-+	int ret, err;
-+
-+	spin_lock_irq(&i2c->lock);
-+
-+	ma35d1_i2c_enable_irq(i2c);
-+
-+	i2c->msg = msgs;
-+	i2c->msg_num = num;
-+	i2c->msg_ptr = 0;
-+	i2c->msg_idx = 0;
-+
-+	ma35d1_i2c_message_start(i2c);
-+	spin_unlock_irq(&i2c->lock);
-+
-+	timeout = wait_event_timeout(i2c->wait, i2c->msg_num == 0, HZ * 5);
-+	ret = i2c->msg_idx;
-+
-+	if (timeout == 0)
-+		dev_dbg(i2c->dev, "timeout\n");
-+	else if (ret != num)
-+		dev_dbg(i2c->dev, "incomplete xfer (%d)\n", ret);
-+
-+	err = readl_poll_timeout(i2c->regs + MA35_CTL0, val,
-+				 !(val & MA35_CTL_STO), 100,
-+				 STOP_TIMEOUT_MS * 1000);
-+
-+	if (err) {
-+		dev_err(i2c->dev, "Bus stuck! Resetting controller...\n");
-+		ma35d1_i2c_reset(i2c);
-+	}
-+
-+	if (i2c->arblost) {
-+		dev_dbg(i2c->dev, "arb lost, stop\n");
-+		i2c->arblost = 0;
-+	}
-+
-+	return ret;
-+}
-+
-+static int ma35d1_i2c_xfer(struct i2c_adapter *adap, struct i2c_msg *msgs,
-+			   int num)
-+{
-+	struct ma35d1_i2c *i2c = i2c_get_adapdata(adap);
-+	int retry, ret;
-+
-+	ret = pm_runtime_resume_and_get(i2c->dev);
-+	if (ret < 0)
-+		return ret;
-+
-+	for (retry = 0; retry < adap->retries; retry++) {
-+		ret = ma35d1_i2c_doxfer(i2c, msgs, num);
-+
-+		if (ret != -EAGAIN)
-+			break;
-+
-+		dev_dbg(i2c->dev, "Retrying transmission (%d)\n", retry);
-+		fsleep(100);
-+	}
-+
-+	if (ret == -EAGAIN)
-+		ret = -EREMOTEIO;
-+
-+	pm_runtime_put_autosuspend(i2c->dev);
-+
-+	return ret;
-+}
-+
-+static int ma35d1_reg_slave(struct i2c_client *slave)
-+{
-+	struct ma35d1_i2c *i2c = i2c_get_adapdata(slave->adapter);
-+	unsigned int val, slvaddr;
-+	int ret;
-+
-+	if (i2c->slave)
-+		return -EBUSY;
-+
-+	if (slave->flags & I2C_CLIENT_TEN)
-+		return -EAFNOSUPPORT;
-+
-+	ma35d1_i2c_enable_irq(i2c);
-+
-+	ret = pm_runtime_resume_and_get(i2c->dev);
-+	if (ret < 0) {
-+		dev_err(i2c->dev, "failed to resume i2c controller\n");
-+		return ret;
-+	}
-+
-+	i2c->slave = slave;
-+
-+	val = readl(i2c->regs + MA35_CTL0);
-+	val |= MA35_CTL_I2CEN;
-+	writel(val, i2c->regs + MA35_CTL0);
-+	slvaddr = slave->addr << 1;
-+	writel(slvaddr, i2c->regs + MA35_ADDR0);
-+
-+	/* I2C enter SLV mode */
-+	ma35d1_i2c_write_CTL(i2c, MA35_CTL_SI_AA);
-+
-+	return 0;
-+}
-+
-+static int ma35d1_unreg_slave(struct i2c_client *slave)
-+{
-+	struct ma35d1_i2c *i2c = i2c_get_adapdata(slave->adapter);
-+	unsigned int val;
-+	int ret;
-+
-+	/* Disable I2C */
-+	val = readl(i2c->regs + MA35_CTL0);
-+	val &= ~MA35_CTL_I2CEN;
-+	writel(val, i2c->regs + MA35_CTL0);
-+
-+	/* Disable I2C interrupt */
-+	ma35d1_i2c_disable_irq(i2c);
-+
-+	i2c->slave = NULL;
-+
-+	ret = pm_runtime_put_sync(i2c->dev);
-+	if (ret < 0)
-+		dev_err(i2c->dev, "failed to suspend i2c controller");
-+
-+	return 0;
-+}
-+
-+/* Declare Our I2C Functionality */
-+static u32 ma35d1_i2c_func(struct i2c_adapter *adap)
-+{
-+	return I2C_FUNC_I2C | I2C_FUNC_PROTOCOL_MANGLING | I2C_FUNC_SMBUS_EMUL;
-+}
-+
-+/* I2C Bus Registration Info */
-+
-+static const struct i2c_algorithm ma35d1_i2c_algorithm = {
-+	.master_xfer = ma35d1_i2c_xfer,
-+	.functionality = ma35d1_i2c_func,
-+	.reg_slave = ma35d1_reg_slave,
-+	.unreg_slave = ma35d1_unreg_slave,
-+};
-+
-+static int ma35d1_i2c_probe(struct platform_device *pdev)
-+{
-+	struct ma35d1_i2c *i2c;
-+	struct resource *res;
-+	int ret, clkdiv;
-+	unsigned int busfreq;
-+	struct device *dev = &pdev->dev;
-+
-+	i2c = devm_kzalloc(dev, sizeof(*i2c), GFP_KERNEL);
-+	if (!i2c)
-+		return -ENOMEM;
-+
-+	spin_lock_init(&i2c->lock);
-+	init_waitqueue_head(&i2c->wait);
-+
-+	i2c->dev = dev;
-+
-+	i2c->clk = devm_clk_get_enabled(dev, NULL);
-+	if (IS_ERR(i2c->clk))
-+		return dev_err_probe(dev, PTR_ERR(i2c->clk),
-+				     "failed to get core clk\n");
-+
-+	i2c->regs = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-+	if (IS_ERR(i2c->regs))
-+		return PTR_ERR(i2c->regs);
-+
-+	i2c->rst = devm_reset_control_get(&pdev->dev, NULL);
-+	if (IS_ERR(i2c->rst))
-+		return dev_err_probe(dev, PTR_ERR(i2c->rst),
-+				     "failed to get reset control\n");
-+
-+	/* Setup info block for the I2C core */
-+	strscpy(i2c->adap.name, "ma35d1-i2c", sizeof(i2c->adap.name));
-+	i2c->adap.owner = THIS_MODULE;
-+	i2c->adap.algo = &ma35d1_i2c_algorithm;
-+	i2c->adap.retries = 2;
-+	i2c->adap.algo_data = i2c;
-+	i2c->adap.dev.parent = &pdev->dev;
-+	i2c->adap.dev.of_node = pdev->dev.of_node;
-+	i2c_set_adapdata(&i2c->adap, i2c);
-+
-+	ret = of_property_read_u32(pdev->dev.of_node, "clock-frequency",
-+				   &busfreq);
-+	if (ret) {
-+		dev_err(i2c->dev, "clock-frequency not specified in DT\n");
-+		return ret;
-+	}
-+
-+	/* Calculate divider based on the current peripheral clock rate */
-+	clkdiv = DIV_ROUND_CLOSEST(clk_get_rate(i2c->clk), busfreq * 4) - 1;
-+	if (clkdiv < 0 || clkdiv > 0xffff) {
-+		dev_err(dev, "invalid clkdiv value: %d\n", clkdiv);
-+		return -EINVAL;
-+	}
-+
-+	i2c->irq = platform_get_irq(pdev, 0);
-+	if (i2c->irq < 0)
-+		return i2c->irq;
-+
-+	platform_set_drvdata(pdev, i2c);
-+
-+	pm_runtime_set_autosuspend_delay(dev, I2C_PM_TIMEOUT);
-+	pm_runtime_use_autosuspend(dev);
-+	pm_runtime_set_active(dev);
-+	pm_runtime_enable(dev);
-+
-+	ret = pm_runtime_get_sync(dev);
-+	if (ret < 0)
-+		goto rpm_disable;
-+
-+	writel(clkdiv & 0xffff, i2c->regs + MA35_CLKDIV);
-+
-+	ret = devm_request_irq(dev, i2c->irq, ma35d1_i2c_irq, IRQF_SHARED,
-+			       dev_name(dev), i2c);
-+
-+	if (ret != 0) {
-+		dev_err(dev, "cannot claim IRQ %d\n", i2c->irq);
-+		goto rpm_disable;
-+	}
-+
-+	/* Give it another chance if pinctrl used is not ready yet */
-+	if (ret == -EPROBE_DEFER)
-+		goto rpm_disable;
-+
-+	ret = i2c_add_adapter(&i2c->adap);
-+	if (ret) {
-+		dev_err(dev, "failed to add bus to i2c core: %d\n", ret);
-+		goto rpm_disable;
-+	}
-+
-+	pm_runtime_put_autosuspend(dev);
-+
-+	return 0;
-+
-+rpm_disable:
-+	pm_runtime_put_noidle(dev);
-+	pm_runtime_disable(dev);
-+	pm_runtime_set_suspended(dev);
-+	pm_runtime_dont_use_autosuspend(dev);
-+	return ret;
-+}
-+
-+static void ma35d1_i2c_remove(struct platform_device *pdev)
-+{
-+	struct ma35d1_i2c *i2c = platform_get_drvdata(pdev);
-+
-+	i2c_del_adapter(&i2c->adap);
-+	pm_runtime_disable(&pdev->dev);
-+}
-+
-+static int ma35d1_i2c_suspend(struct device *dev)
-+{
-+	struct ma35d1_i2c *i2c = dev_get_drvdata(dev);
-+	unsigned int val;
-+
-+	spin_lock_irq(&i2c->lock);
-+
-+	/* Prepare for wake-up from I2C events if slave mode is active */
-+	if (i2c->slave) {
-+		val = readl(i2c->regs + MA35_CTL0);
-+		val |= (MA35_CTL_SI | MA35_CTL_AA);
-+		writel(val, i2c->regs + MA35_CTL0);
-+		ma35d1_i2c_enable_irq(i2c);
-+	}
-+
-+	spin_unlock_irq(&i2c->lock);
-+
-+	/* Setup wake-up control */
-+	writel(0x1, i2c->regs + MA35_WKCTL);
-+
-+	/* Clear pending wake-up flags */
-+	val = readl(i2c->regs + MA35_WKSTS);
-+	writel(val, i2c->regs + MA35_WKSTS);
-+
-+	enable_irq_wake(i2c->irq);
-+
-+	return 0;
-+}
-+
-+static int ma35d1_i2c_resume(struct device *dev)
-+{
-+	struct ma35d1_i2c *i2c = dev_get_drvdata(dev);
-+	unsigned int val;
-+
-+	/* Disable wake-up */
-+	writel(0x0, i2c->regs + MA35_WKCTL);
-+
-+	/* Clear pending wake-up flags */
-+	val = readl(i2c->regs + MA35_WKSTS);
-+	writel(val, i2c->regs + MA35_WKSTS);
-+
-+	disable_irq_wake(i2c->irq);
-+	return 0;
-+}
-+
-+static int ma35d1_i2c_runtime_suspend(struct device *dev)
-+{
-+	struct ma35d1_i2c *i2c = dev_get_drvdata(dev);
-+	unsigned int val;
-+
-+	/* Disable I2C controller */
-+	val = readl(i2c->regs + MA35_CTL0);
-+	val &= ~MA35_CTL_I2CEN;
-+	writel(val, i2c->regs + MA35_CTL0);
-+
-+	clk_disable_unprepare(i2c->clk);
-+
-+	return 0;
-+}
-+
-+static int ma35d1_i2c_runtime_resume(struct device *dev)
-+{
-+	struct ma35d1_i2c *i2c = dev_get_drvdata(dev);
-+	unsigned int val;
-+	int ret;
-+
-+	ret = clk_prepare_enable(i2c->clk);
-+	if (ret) {
-+		dev_err(dev, "failed to enable clock in resume\n");
-+		return ret;
-+	}
-+
-+	/* Enable I2C controller */
-+	val = readl(i2c->regs + MA35_CTL0);
-+	val |= MA35_CTL_I2CEN;
-+	writel(val, i2c->regs + MA35_CTL0);
-+
-+	return 0;
-+}
-+
-+static const struct dev_pm_ops ma35d1_i2c_pmops = {
-+	SYSTEM_SLEEP_PM_OPS(ma35d1_i2c_suspend, ma35d1_i2c_resume)
-+		RUNTIME_PM_OPS(ma35d1_i2c_runtime_suspend,
-+			       ma35d1_i2c_runtime_resume, NULL)
-+};
-+
-+static const struct of_device_id ma35d1_i2c_of_match[] = {
-+	{ .compatible = "nuvoton,ma35d1-i2c" },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(of, ma35d1_i2c_of_match);
-+
-+static struct platform_driver ma35d1_i2c_driver = {
-+	.probe      = ma35d1_i2c_probe,
-+	.remove     = ma35d1_i2c_remove,
-+	.driver     = {
-+		.name   = "ma35d1-i2c",
-+		.owner  = THIS_MODULE,
-+		.of_match_table = ma35d1_i2c_of_match,
-+		.pm = pm_ptr(&ma35d1_i2c_pmops),
-+	},
-+};
-+module_platform_driver(ma35d1_i2c_driver);
-+
-+MODULE_AUTHOR("Zi-Yu Chen <zychennvt@gmail.com>");
-+MODULE_DESCRIPTION("MA35D1 I2C Bus Driver");
-+MODULE_LICENSE("GPL");
--- 
-2.34.1
-
+SGkgTGF1cmVudCwNCg0KU29ycnkgZm9yIGJvdGhlciB5b3UgYWdhaW4uDQoNCk1heSBJIGFzayBp
+ZiB5b3UgaGF2ZSBhbnkgb3RoZXIgY29tbWVudHMgb24gdGhpcyBwYXRjaCBvciB0aGUgc2VyaWFs
+cz8gSWYgbm90LCBjb3VsZCB3ZSBtYWtlIGl0IGZvcndhcmQ/IFRoYW5rcy4NCg0KQmVzdCBSZWdh
+cmRzDQpHLk4gWmhvdQ0KDQo+IC0tLS0tT3JpZ2luYWwgTWVzc2FnZS0tLS0tDQo+IEZyb206IEcu
+Ti4gWmhvdSAoT1NTKSA8Z3Vvbml1Lnpob3VAb3NzLm54cC5jb20+DQo+IFNlbnQ6IEZyaWRheSwg
+RGVjZW1iZXIgNSwgMjAyNSA1OjA1IFBNDQo+IFRvOiBSdWkgTWlndWVsIFNpbHZhIDxybWZyZnNA
+Z21haWwuY29tPjsgTGF1cmVudCBQaW5jaGFydA0KPiA8bGF1cmVudC5waW5jaGFydEBpZGVhc29u
+Ym9hcmQuY29tPjsgTWFydGluIEtlcHBsaW5nZXINCj4gPG1hcnRpbmtAcG9zdGVvLmRlPjsgUHVy
+aXNtIEtlcm5lbCBUZWFtIDxrZXJuZWxAcHVyaS5zbT47IE1hdXJvDQo+IENhcnZhbGhvIENoZWhh
+YiA8bWNoZWhhYkBrZXJuZWwub3JnPjsgUm9iIEhlcnJpbmcgPHJvYmhAa2VybmVsLm9yZz47DQo+
+IEtyenlzenRvZiBLb3psb3dza2kgPGtyemsrZHRAa2VybmVsLm9yZz47IENvbm9yIERvb2xleQ0K
+PiA8Y29ub3IrZHRAa2VybmVsLm9yZz47IFNoYXduIEd1byA8c2hhd25ndW9Aa2VybmVsLm9yZz47
+IFNhc2NoYSBIYXVlcg0KPiA8cy5oYXVlckBwZW5ndXRyb25peC5kZT47IFBlbmd1dHJvbml4IEtl
+cm5lbCBUZWFtDQo+IDxrZXJuZWxAcGVuZ3V0cm9uaXguZGU+OyBGYWJpbyBFc3RldmFtIDxmZXN0
+ZXZhbUBnbWFpbC5jb20+OyBQaGlsaXBwDQo+IFphYmVsIDxwLnphYmVsQHBlbmd1dHJvbml4LmRl
+PjsgRnJhbmsgTGkgPGZyYW5rLmxpQG54cC5jb20+DQo+IENjOiBsaW51eC1tZWRpYUB2Z2VyLmtl
+cm5lbC5vcmc7IGRldmljZXRyZWVAdmdlci5rZXJuZWwub3JnOw0KPiBpbXhAbGlzdHMubGludXgu
+ZGV2OyBsaW51eC1hcm0ta2VybmVsQGxpc3RzLmluZnJhZGVhZC5vcmc7IGxpbnV4LQ0KPiBrZXJu
+ZWxAdmdlci5rZXJuZWwub3JnOyBHLk4uIFpob3UgPGd1b25pdS56aG91QG54cC5jb20+DQo+IFN1
+YmplY3Q6IFtQQVRDSCB2MTAgMi81XSBtZWRpYTogaW14OG1xLW1pcGktY3NpMjogVXNlDQo+IGRl
+dm1fY2xrX2J1bGtfZ2V0X2FsbCgpIHRvIGZldGNoIGNsb2Nrcw0KPiANCj4gRnJvbTogR3Vvbml1
+IFpob3UgPGd1b25pdS56aG91QG54cC5jb20+DQo+IA0KPiBVc2UgZGV2bV9jbGtfYnVsa19nZXRf
+YWxsKCkgaGVscGVyIHRvIHNpbXBsaWZ5IGNsb2NrIGhhbmRsZSBjb2RlLg0KPiANCj4gTm8gZnVu
+Y3Rpb25hbCBjaGFuZ2VzIGludGVuZGVkLg0KPiANCj4gUmV2aWV3ZWQtYnk6IEZyYW5rIExpIDxG
+cmFuay5MaUBueHAuY29tPg0KPiBTaWduZWQtb2ZmLWJ5OiBHdW9uaXUgWmhvdSA8Z3Vvbml1Lnpo
+b3VAbnhwLmNvbT4NCj4gLS0tDQo+ICBkcml2ZXJzL21lZGlhL3BsYXRmb3JtL254cC9pbXg4bXEt
+bWlwaS1jc2kyLmMgfCA1NSArKysrKysrKysrLS0tLS0tLS0tLS0tLS0tLQ0KPiAtDQo+ICAxIGZp
+bGUgY2hhbmdlZCwgMjAgaW5zZXJ0aW9ucygrKSwgMzUgZGVsZXRpb25zKC0pDQo+IA0KPiBkaWZm
+IC0tZ2l0IGEvZHJpdmVycy9tZWRpYS9wbGF0Zm9ybS9ueHAvaW14OG1xLW1pcGktY3NpMi5jDQo+
+IGIvZHJpdmVycy9tZWRpYS9wbGF0Zm9ybS9ueHAvaW14OG1xLW1pcGktY3NpMi5jDQo+IGluZGV4
+DQo+IDM3MWI0ZTgxMzI4YzEwNzI2OWY4OWRhMjM4MThhYjBhYmQwMTc5ZGEuLjBlM2E0MWNkMzVl
+ZGZlZmM1MWI1NjMxDQo+IGUyYzM2ZmQ3NmUzZTE0ZDgzIDEwMDY0NA0KPiAtLS0gYS9kcml2ZXJz
+L21lZGlhL3BsYXRmb3JtL254cC9pbXg4bXEtbWlwaS1jc2kyLmMNCj4gKysrIGIvZHJpdmVycy9t
+ZWRpYS9wbGF0Zm9ybS9ueHAvaW14OG1xLW1pcGktY3NpMi5jDQo+IEBAIC03MSwyMSArNzEsNiBA
+QCBlbnVtIHsNCj4gIAlTVF9TVVNQRU5ERUQJPSA0LA0KPiAgfTsNCj4gDQo+IC1lbnVtIGlteDht
+cV9taXBpX2NzaV9jbGsgew0KPiAtCUNTSTJfQ0xLX0NPUkUsDQo+IC0JQ1NJMl9DTEtfRVNDLA0K
+PiAtCUNTSTJfQ0xLX1VJLA0KPiAtCUNTSTJfTlVNX0NMS1MsDQo+IC19Ow0KPiAtDQo+IC1zdGF0
+aWMgY29uc3QgY2hhciAqIGNvbnN0IGlteDhtcV9taXBpX2NzaV9jbGtfaWRbQ1NJMl9OVU1fQ0xL
+U10gPSB7DQo+IC0JW0NTSTJfQ0xLX0NPUkVdID0gImNvcmUiLA0KPiAtCVtDU0kyX0NMS19FU0Nd
+ID0gImVzYyIsDQo+IC0JW0NTSTJfQ0xLX1VJXSA9ICJ1aSIsDQo+IC19Ow0KPiAtDQo+IC0jZGVm
+aW5lIENTSTJfTlVNX0NMS1MJQVJSQVlfU0laRShpbXg4bXFfbWlwaV9jc2lfY2xrX2lkKQ0KPiAt
+DQo+ICBzdHJ1Y3QgaW14OG1xX3BsYXRfZGF0YSB7DQo+ICAJaW50ICgqZW5hYmxlKShzdHJ1Y3Qg
+Y3NpX3N0YXRlICpzdGF0ZSwgdTMyIGhzX3NldHRsZSk7DQo+ICAJdm9pZCAoKmRpc2FibGUpKHN0
+cnVjdCBjc2lfc3RhdGUgKnN0YXRlKTsgQEAgLTExMSw3ICs5Niw5IEBAIHN0cnVjdA0KPiBjc2lf
+c3RhdGUgew0KPiAgCXN0cnVjdCBkZXZpY2UgKmRldjsNCj4gIAljb25zdCBzdHJ1Y3QgaW14OG1x
+X3BsYXRfZGF0YSAqcGRhdGE7DQo+ICAJdm9pZCBfX2lvbWVtICpyZWdzOw0KPiAtCXN0cnVjdCBj
+bGtfYnVsa19kYXRhIGNsa3NbQ1NJMl9OVU1fQ0xLU107DQo+ICsJc3RydWN0IGNsa19idWxrX2Rh
+dGEgKmNsa3M7DQo+ICsJc3RydWN0IGNsayAqZXNjX2NsazsNCj4gKwl1MzIgbnVtX2Nsa3M7DQo+
+ICAJc3RydWN0IHJlc2V0X2NvbnRyb2wgKnJzdDsNCj4gIAlzdHJ1Y3QgcmVndWxhdG9yICptaXBp
+X3BoeV9yZWd1bGF0b3I7DQo+IA0KPiBAQCAtMzg0LDI0ICszNzEsMTYgQEAgc3RhdGljIHZvaWQg
+aW14OG1xX21pcGlfY3NpX3NldF9wYXJhbXMoc3RydWN0DQo+IGNzaV9zdGF0ZSAqc3RhdGUpDQo+
+ICAJCQkgICAgICBDU0kyUlhfU0VORF9MRVZFTCk7DQo+ICB9DQo+IA0KPiAtc3RhdGljIGludCBp
+bXg4bXFfbWlwaV9jc2lfY2xrX2VuYWJsZShzdHJ1Y3QgY3NpX3N0YXRlICpzdGF0ZSkgLXsNCj4g
+LQlyZXR1cm4gY2xrX2J1bGtfcHJlcGFyZV9lbmFibGUoQ1NJMl9OVU1fQ0xLUywgc3RhdGUtPmNs
+a3MpOw0KPiAtfQ0KPiAtDQo+IC1zdGF0aWMgdm9pZCBpbXg4bXFfbWlwaV9jc2lfY2xrX2Rpc2Fi
+bGUoc3RydWN0IGNzaV9zdGF0ZSAqc3RhdGUpIC17DQo+IC0JY2xrX2J1bGtfZGlzYWJsZV91bnBy
+ZXBhcmUoQ1NJMl9OVU1fQ0xLUywgc3RhdGUtPmNsa3MpOw0KPiAtfQ0KPiAtDQo+IC1zdGF0aWMg
+aW50IGlteDhtcV9taXBpX2NzaV9jbGtfZ2V0KHN0cnVjdCBjc2lfc3RhdGUgKnN0YXRlKQ0KPiAr
+c3RhdGljIHN0cnVjdCBjbGsgKmZpbmRfZXNjX2NsayhzdHJ1Y3QgY3NpX3N0YXRlICpzdGF0ZSkN
+Cj4gIHsNCj4gIAl1bnNpZ25lZCBpbnQgaTsNCj4gDQo+IC0JZm9yIChpID0gMDsgaSA8IENTSTJf
+TlVNX0NMS1M7IGkrKykNCj4gLQkJc3RhdGUtPmNsa3NbaV0uaWQgPSBpbXg4bXFfbWlwaV9jc2lf
+Y2xrX2lkW2ldOw0KPiArCWZvciAoaSA9IDA7IGkgPCBzdGF0ZS0+bnVtX2Nsa3M7IGkrKykgew0K
+PiArCQlpZiAoIXN0cmNtcChzdGF0ZS0+Y2xrc1tpXS5pZCwgImVzYyIpKQ0KPiArCQkJcmV0dXJu
+IHN0YXRlLT5jbGtzW2ldLmNsazsNCj4gKwl9DQo+IA0KPiAtCXJldHVybiBkZXZtX2Nsa19idWxr
+X2dldChzdGF0ZS0+ZGV2LCBDU0kyX05VTV9DTEtTLCBzdGF0ZS0+Y2xrcyk7DQo+ICsJcmV0dXJu
+IEVSUl9QVFIoLUVOT0RFVik7DQo+ICB9DQo+IA0KPiAgc3RhdGljIGludCBpbXg4bXFfbWlwaV9j
+c2lfY2FsY19oc19zZXR0bGUoc3RydWN0IGNzaV9zdGF0ZSAqc3RhdGUsIEBAIC00NTYsNw0KPiAr
+NDM1LDcgQEAgc3RhdGljIGludCBpbXg4bXFfbWlwaV9jc2lfY2FsY19oc19zZXR0bGUoc3RydWN0
+IGNzaV9zdGF0ZSAqc3RhdGUsDQo+ICAJICogZG9jdW1lbnRhdGlvbiByZWNvbW1lbmRzIHBpY2tp
+bmcgYSB2YWx1ZSBhd2F5IGZyb20gdGhlDQo+IGJvdW5kYXJpZXMuDQo+ICAJICogTGV0J3MgcGlj
+ayB0aGUgYXZlcmFnZS4NCj4gIAkgKi8NCj4gLQllc2NfY2xrX3JhdGUgPSBjbGtfZ2V0X3JhdGUo
+c3RhdGUtPmNsa3NbQ1NJMl9DTEtfRVNDXS5jbGspOw0KPiArCWVzY19jbGtfcmF0ZSA9IGNsa19n
+ZXRfcmF0ZShzdGF0ZS0+ZXNjX2Nsayk7DQo+ICAJaWYgKCFlc2NfY2xrX3JhdGUpIHsNCj4gIAkJ
+ZGV2X2VycihzdGF0ZS0+ZGV2LCAiQ291bGQgbm90IGdldCBlc2MgY2xvY2sgcmF0ZS5cbiIpOw0K
+PiAgCQlyZXR1cm4gLUVJTlZBTDsNCj4gQEAgLTc4Myw3ICs3NjIsNyBAQCBzdGF0aWMgdm9pZCBp
+bXg4bXFfbWlwaV9jc2lfcG1fc3VzcGVuZChzdHJ1Y3QNCj4gZGV2aWNlICpkZXYpDQo+IA0KPiAg
+CWlmIChzdGF0ZS0+c3RhdGUgJiBTVF9QT1dFUkVEKSB7DQo+ICAJCWlteDhtcV9taXBpX2NzaV9z
+dG9wX3N0cmVhbShzdGF0ZSk7DQo+IC0JCWlteDhtcV9taXBpX2NzaV9jbGtfZGlzYWJsZShzdGF0
+ZSk7DQo+ICsJCWNsa19idWxrX2Rpc2FibGVfdW5wcmVwYXJlKHN0YXRlLT5udW1fY2xrcywgc3Rh
+dGUtPmNsa3MpOw0KPiAgCQlzdGF0ZS0+c3RhdGUgJj0gflNUX1BPV0VSRUQ7DQo+ICAJfQ0KPiAN
+Cj4gQEAgLTgwMSw3ICs3ODAsNyBAQCBzdGF0aWMgaW50IGlteDhtcV9taXBpX2NzaV9wbV9yZXN1
+bWUoc3RydWN0IGRldmljZQ0KPiAqZGV2KQ0KPiANCj4gIAlpZiAoIShzdGF0ZS0+c3RhdGUgJiBT
+VF9QT1dFUkVEKSkgew0KPiAgCQlzdGF0ZS0+c3RhdGUgfD0gU1RfUE9XRVJFRDsNCj4gLQkJcmV0
+ID0gaW14OG1xX21pcGlfY3NpX2Nsa19lbmFibGUoc3RhdGUpOw0KPiArCQlyZXQgPSBjbGtfYnVs
+a19wcmVwYXJlX2VuYWJsZShzdGF0ZS0+bnVtX2Nsa3MsIHN0YXRlLT5jbGtzKTsNCj4gIAl9DQo+
+ICAJaWYgKHN0YXRlLT5zdGF0ZSAmIFNUX1NUUkVBTUlORykgew0KPiAgCQlzZF9zdGF0ZSA9IHY0
+bDJfc3ViZGV2X2xvY2tfYW5kX2dldF9hY3RpdmVfc3RhdGUoc2QpOw0KPiBAQCAtMTAyNyw5ICsx
+MDA2LDE1IEBAIHN0YXRpYyBpbnQgaW14OG1xX21pcGlfY3NpX3Byb2JlKHN0cnVjdA0KPiBwbGF0
+Zm9ybV9kZXZpY2UgKnBkZXYpDQo+ICAJaWYgKElTX0VSUihzdGF0ZS0+cmVncykpDQo+ICAJCXJl
+dHVybiBQVFJfRVJSKHN0YXRlLT5yZWdzKTsNCj4gDQo+IC0JcmV0ID0gaW14OG1xX21pcGlfY3Np
+X2Nsa19nZXQoc3RhdGUpOw0KPiArCXJldCA9IGRldm1fY2xrX2J1bGtfZ2V0X2FsbChkZXYsICZz
+dGF0ZS0+Y2xrcyk7DQo+ICAJaWYgKHJldCA8IDApDQo+IC0JCXJldHVybiByZXQ7DQo+ICsJCXJl
+dHVybiBkZXZfZXJyX3Byb2JlKGRldiwgcmV0LCAiRmFpbGVkIHRvIGdldCBjbG9ja3NcbiIpOw0K
+PiArDQo+ICsJc3RhdGUtPm51bV9jbGtzID0gcmV0Ow0KPiArDQo+ICsJc3RhdGUtPmVzY19jbGsg
+PSBmaW5kX2VzY19jbGsoc3RhdGUpOw0KPiArCWlmIChJU19FUlIoc3RhdGUtPmVzY19jbGspKQ0K
+PiArCQlyZXR1cm4gZGV2X2Vycl9wcm9iZShkZXYsIFBUUl9FUlIoc3RhdGUtPmVzY19jbGspLCAi
+Q291bGRuJ3QNCj4gZmluZCBlc2MNCj4gK2Nsb2NrXG4iKTsNCj4gDQo+ICAJcGxhdGZvcm1fc2V0
+X2RydmRhdGEocGRldiwgJnN0YXRlLT5zZCk7DQo+IA0KPiANCj4gLS0NCj4gMi4zNC4xDQoNCg==
 
