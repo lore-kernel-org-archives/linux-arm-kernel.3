@@ -4,66 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 692C1EA4E21
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 15:25:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AF16EA4E21
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 15:26:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I/tAMTzIOE7bFqndq4kXm1Iott5bt/Erb8taVDtOhVM=; b=Yzq0O7c3VcKK08MRulCJ5/fQBg
-	mLVmp+cJBJ40za47PKlpYSixtPts1MG4vMth2rhgp7dJ8F9ouZP9Pal5ZCIBworMJcsl8u6afQ41F
-	u0wcnk1H4c6rdP8qZKU9gmIZOunMw4a6USqHtfFlvSXSU3V6f8OYC+UupzDiWkCmuxGMqFmaYpHQn
-	YKRKdNGpm/8kz8tysWHSajWb8ts/rYkWjOCVqu5qPL9VNlfVBd10BJgK++x8ss7Rttpm3xjy1ld7P
-	LVDa6lkrbRKzJy5VDH6+P0R/js0DVFYy8lBCnvFon+yBasOcmn0yMohEUrzi1ZQlssZ/02Evdh+hh
-	fui9SuXA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xlcJrFChDIv95SjHOfVdEffnTClZglQAoeyjDtZkUy4=; b=m2UUgyITjx+/PA0KD0/RggQWAR
+	C2qWWsnBI8dY8ksfxs/DZG1TAyBBF8gXG89hSmZFI8rXvWISe9SMirjxVOwKuNYyqO3gr0NxomjL8
+	3XMBGU7psqSwSNHY/Urpg9Jx0rQXq98dTY5qf0vR7vzG+oIXUAiwddjePB9z5uwOZZWhKlUZ5VkvG
+	iwQCCQdQ+R5TfbYaPHTD8mDAsoXK0TtHUlR4X+8tVVwu5q0AS9Bg0UrurxXZTV96fPga9/v+1/cDB
+	3YeKP0damS0h3svUU4nW9mKG7Nwkk/c4rL/zgeTVH5GnI6Lj2/MeMAEt4KruPdvcdPTH7jql12D25
+	MNI0TSAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx58y-0000000DM8R-1RYt;
-	Mon, 02 Mar 2026 15:25:12 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vx5A6-0000000DMHB-18pq;
+	Mon, 02 Mar 2026 15:26:22 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx58u-0000000DM7a-2qNH
+	id 1vx5A2-0000000DMGe-0ohT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 15:25:10 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 1FB344E424D4;
-	Mon,  2 Mar 2026 15:25:05 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E632A5FE89;
-	Mon,  2 Mar 2026 15:25:04 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9D5DF10369562;
-	Mon,  2 Mar 2026 16:25:01 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1772465104; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=I/tAMTzIOE7bFqndq4kXm1Iott5bt/Erb8taVDtOhVM=;
-	b=2BZl40p1clVD9RsScsSKOR4NzroGtwRaIRwje2dQZpJLdoNWZ1C5lQdSItQ8aotpExfs7M
-	lKJ3IEjclt8EZEArNys5PFihZpgwgnGYMW7IcQL51837tlcJZZ9G/hszE+6msTdkzzVGYy
-	S6rSR9slyAkCyg0069Laeqqlgvo0GHOGO2270j6xt0biR8YkuFHFd6nXgK5lCpXp6Qud9A
-	UmPjRdUD90QCRjCt921q5NThgvHNZ4RPd9GuVOhZlOijNwHNxW3n71WCXKRuO0zfWSmfxB
-	pQ/Y0V9kPsiWkS2Q9LePEeRpdrSKCAAc5YifkFma/yRvcDIqmsO3Q6EBjmikjA==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: Lukas Bulwahn <lbulwahn@redhat.com>, Elad Nachman
- <enachman@marvell.com>, Andrew Lunn <andrew@lunn.ch>, Sebastian
- Hesselbarth <sebastian.hesselbarth@gmail.com>
-Cc: Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, kernel-janitors@vger.kernel.org,
- linux-kernel@vger.kernel.org, Lukas Bulwahn <lukas.bulwahn@redhat.com>
-Subject: Re: [PATCH] MAINTAINERS: drop file entry in Marvell Kirkwood and
- Armada SOC support
-In-Reply-To: <20260203083842.347391-1-lukas.bulwahn@redhat.com>
-References: <20260203083842.347391-1-lukas.bulwahn@redhat.com>
-Date: Mon, 02 Mar 2026 16:25:00 +0100
-Message-ID: <87seaife43.fsf@BLaptop.bootlin.com>
+	Mon, 02 Mar 2026 15:26:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1772465178; x=1804001178;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=WzWOK/weu/eua8sM2vFaS4HQZPDtBCH3vWv4YoQlErw=;
+  b=XfRBH6ftsya1E05mMFxYzsukwDr7iFUZtxj5OqqiFPrBD/a8kKeQr0L8
+   f3G7oQZIrejEzx2sKI88pK4WWvi/OR+5jVGK8l+5BSSKYNQDoqjBBCsmt
+   /+iE7+6CqEveXleA30/hV3mfL/ur/1ailw/FUkX/omJlm7eJ7u1cPs+x5
+   XuMmwte9SpQmfTV4sXZr8GRwhCSx0FAZVkuXM7iozPRdH6ZTmH1xBcdBu
+   K5ot/ufI7fHMvJ3Eykl8CuMFbfzAQx3/N3jvEP9Z5tnb3nFypv2bgnwiv
+   HcnYA2+UiLI4+r2Cwz7IZvqFSc9dIwwWlwxvzHOLKjVKOBG+qdSsO39n0
+   g==;
+X-CSE-ConnectionGUID: XhIBe7fhRXShCj4WCPqOYw==
+X-CSE-MsgGUID: FmvfAGOPTw631Gmsk/S/dQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11717"; a="73660168"
+X-IronPort-AV: E=Sophos;i="6.21,320,1763452800"; 
+   d="scan'208";a="73660168"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Mar 2026 07:26:16 -0800
+X-CSE-ConnectionGUID: FknM8oHgTpeOXx//eIUwAQ==
+X-CSE-MsgGUID: Z8sn/fjkSUeb9NrwbUp0og==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,320,1763452800"; 
+   d="scan'208";a="222187198"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by orviesa004.jf.intel.com with ESMTP; 02 Mar 2026 07:26:14 -0800
+Received: by black.igk.intel.com (Postfix, from userid 1003)
+	id 1000798; Mon, 02 Mar 2026 16:26:13 +0100 (CET)
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Peng Fan <peng.fan@nxp.com>
+Subject: [PATCH v2 1/1] ASoC: pxa2xx-ac97: Use devm_gpiod_get_optional()
+Date: Mon,  2 Mar 2026 16:26:05 +0100
+Message-ID: <20260302152610.2498426-1-andriy.shevchenko@linux.intel.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_072508_852453_20EC7FE2 
-X-CRM114-Status: GOOD (  18.21  )
+X-CRM114-CacheID: sfid-20260302_072618_301649_76C03AF9 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,55 +90,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Lukas Bulwahn <lbulwahn@redhat.com> writes:
+No need to open code the devm_gpiod_get_optional() wrapper.
+Instead of checking for a certain error code, check for NULL.
 
-> From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
->
-> Commit fcaf733ca526 ("MAINTAINERS: Add Falcon DB") adds a new file entry
-> referring to non-existing files arch/arm/boot/dts/marvell/db-falcon*.
-> Checking with 'find . -name db-falcon*' and the files actually added with
-> the commit b3370479a5f7 ("arm64: dts: a7k: add COM Express boards"), which
-> was part of the same patch series, the files intended to refer to are
-> actually arch/arm64/boot/dts/marvell/db-falcon-carrier-a7k.dts and
-> arch/arm64/boot/dts/marvell/db-falcon-carrier.dtsi.
->
-> Note though that there is already a file entry for
-> arch/arm64/boot/dts/marvell/ in the ARM/Marvell Kirkwood and Armada SOC
-> support section. So, the added files were already covered by the
-> existing MAINTAINERS file and no further file entry is required at all.
->
-> Drop the unneeded file entry, essentially reverting the commit
-> fcaf733ca526 ("MAINTAINERS: Add Falcon DB").
->
-> Signed-off-by: Lukas Bulwahn <lukas.bulwahn@redhat.com>
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
+Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+---
 
-Applied on mvebu/dt
+v2: added tag (Peng), rebased on top of latest ASoC tree
 
-Thanks,
+ sound/arm/pxa2xx-ac97-lib.c | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
 
-Gregory
-> ---
->  MAINTAINERS | 1 -
->  1 file changed, 1 deletion(-)
->
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 1d6c1df42bf5..0c474d8f62ff 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -2989,7 +2989,6 @@ S:	Maintained
->  T:	git git://git.kernel.org/pub/scm/linux/kernel/git/gclement/mvebu.git
->  F:	Documentation/devicetree/bindings/arm/marvell/
->  F:	arch/arm/boot/dts/marvell/armada*
-> -F:	arch/arm/boot/dts/marvell/db-falcon*
->  F:	arch/arm/boot/dts/marvell/kirkwood*
->  F:	arch/arm/configs/mvebu_*_defconfig
->  F:	arch/arm/mach-mvebu/
-> --=20
-> 2.52.0
->
+diff --git a/sound/arm/pxa2xx-ac97-lib.c b/sound/arm/pxa2xx-ac97-lib.c
+index 1e114dbcf93c..47889f6003c1 100644
+--- a/sound/arm/pxa2xx-ac97-lib.c
++++ b/sound/arm/pxa2xx-ac97-lib.c
+@@ -330,13 +330,12 @@ int pxa2xx_ac97_hw_probe(struct platform_device *dev)
+ 
+ 	if (dev->dev.of_node) {
+ 		/* Assert reset using GPIOD_OUT_HIGH, because reset is GPIO_ACTIVE_LOW */
+-		rst_gpio = devm_gpiod_get(&dev->dev, "reset", GPIOD_OUT_HIGH);
++		rst_gpio = devm_gpiod_get_optional(&dev->dev, "reset", GPIOD_OUT_HIGH);
+ 		ret = PTR_ERR(rst_gpio);
+-		if (ret == -ENOENT)
+-			reset_gpio = -1;
+-		else if (ret)
++		if (ret)
+ 			return ret;
+-		reset_gpio = desc_to_gpio(rst_gpio);
++
++		reset_gpio = rst_gpio ? desc_to_gpio(rst_gpio) : -1;
+ 	} else {
+ 		if (cpu_is_pxa27x())
+ 			reset_gpio = 113;
+-- 
+2.50.1
 
---=20
-Gr=C3=A9gory CLEMENT, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
