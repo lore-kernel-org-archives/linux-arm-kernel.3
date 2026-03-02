@@ -4,100 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FE52D58E7A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 08:47:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A02BBD58E7A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 08:54:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=S8KixDfsRAE0QkCkrj6ecFMAb3wezNZ0IVq81F5Gw8I=; b=S+1LRJh35+6vO/IPVYa/Pc2aO3
-	+R77s7TJ3lyIxf2kXxmE4pcE1Y1WCMErcOd17zYbXwBljyX8ItEsY05bEy0ddyGEj/nG9aVLYmJSq
-	FA+I1TPcK/gASnoYpz8VJi4mZamY2ONKA6nesfhyxD4cEOp+H9JYilH65S1P07v5qKdo962pglYwN
-	RcJDPqbFmWABq9MhX1fd5I/6N7TbFF8xC6duO5N+vRk9yZD1JjDXwvYWFMrLpzM9haYd1lDVxEWmq
-	zVNhogwKPFiF0OlrM/JxAKwmi6ToB20YUWXTMvGWS9XskKwZI89I0IVOjM3l8A2a2Rov2mPH/oqjG
-	dcwSCCCw==;
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:Cc:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BoRcFJQ0D6uiNJl2vl4CvN47KwDERFC3nwFcFOSRpt0=; b=gE2Ix92h0+Zv1X2fpR1YlVQUt2
+	Y7jjPh291KRA85S+9FHkdYA5CCcr94Es+Zc+Jg62wHMZt4ZRXWP3RgHr8QivnmvrGeM2gnb3cc9kh
+	UB+qrtOXybjQ2cAOR0c6cR+fHkn8xVJFRA2DuV9h32++jRuVzYb4DKWP9deKNPp//vWFQLE+pmM6M
+	xsQDQ5EdnFNVROTmGq/76HG79jmclnN8ojidkcwsYz/BZiDDY/3cCJPHsO3C8KE4D12/kYmienlIN
+	t+dI//tXT5LEJdvI0Iv4Ins/rmorVh3oDVqvgwUPniIvI+iVx8+OG1rqtRo2fn5OQN/NJZ4yfUmih
+	64DrGFvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwyvZ-0000000CXqR-39bq;
-	Mon, 02 Mar 2026 08:46:57 +0000
-Received: from mx-relay10-hz2.antispameurope.com ([83.246.65.96])
+	id 1vwz35-0000000CYHz-1P5E;
+	Mon, 02 Mar 2026 08:54:43 +0000
+Received: from mail-m49228.qiye.163.com ([45.254.49.228])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwyvV-0000000CXpq-1may
+	id 1vwz31-0000000CYGv-3ryO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 08:46:56 +0000
-ARC-Authentication-Results: i=1; mx-gate10-hz2.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com
- smtp.helo=hmail-p-smtp01-out04-hz1.hornetsecurity.com; dmarc=pass
- header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=S8KixDfsRAE0QkCkrj6ecFMAb3wezNZ0IVq81F5Gw8I=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1772441197;
- b=Fbdu0uTbfXrfcipCfRJ0csGDywdrZYbKxthIXGJLobj4zFZZNlM15jF4wDH3ACX/udBe4l20
- u5ZNyXFjTBa020wAqkkp9ZXLC3ZQyds/Q8FfWeOowJhFdA+cSTarw7RkeJTKi8hTaVpxdRWYWBj
- 9IWtFyqPUfL32DqiaKzLUmM++08M/PylbUzMxVhC9CajSIBl91aAvrvXlgSfZIaJQho69sowU/2
- M0LBRcTEUAxHTpyNdVrmyu8uGbRRu9GAZgCRd0mpBSJhsZZBnpLA0bfoFg9MFz6IvbXn3sHeKa1
- e7X1FFIONSWvuRezntG6PvF3iFSzlHdImvs9Kd2CwBpKg==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1772441197;
- b=eXmsVk6y3NZN0adNG6NbeReNmkySBANkrEK8+sW47WRieXLKpCDmwD/5RX/qLAxOlv41J2hR
- UZMVmXaE94uh6tZaGvPj/xK1qftyXn8Yr8OBApM2jxF38kUE9efu6sOz3fBDq+byRMjo3KgPKaG
- 7SYYdcN2J/j/nd+abN7XMsOSm6TjrnBszrPB9fFaXwCwYELZP6IWwg/T7fUcNRqsmCpKfqMWnsn
- SjXDKZeKF/a5P4ckOZ+g6y7xTN3riqM8HEJC3HiZzgr2Qa/MNoSSpUlj1G8tN7QnNntp3l+sdky
- 5fR66Bl5UaWMLiTzlkbivAV7ucBruGKeVeV7iDhUw2UfA==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay10-hz2.antispameurope.com;
- Mon, 02 Mar 2026 09:46:37 +0100
-Received: from schifferm-ubuntu.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: nora.schiffer@ew.tq-group.com)
-	by hmail-p-smtp01-out04-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 4311E220F0C;
-	Mon,  2 Mar 2026 09:46:09 +0100 (CET)
-From: Nora Schiffer <nora.schiffer@ew.tq-group.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux@ew.tq-group.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Nora Schiffer <nora.schiffer@ew.tq-group.com>
-Subject: [PATCH v2] arm64: dts: freescale: imx8mp-tqma8mpql-mba8mp-ras314: fix UART1 RTS/CTS muxing
-Date: Mon,  2 Mar 2026 09:45:48 +0100
-Message-ID: <20260302084548.6471-1-nora.schiffer@ew.tq-group.com>
-X-Mailer: git-send-email 2.53.0
+	Mon, 02 Mar 2026 08:54:41 +0000
+Received: from [172.16.12.14] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 356c83a96;
+	Mon, 2 Mar 2026 16:54:28 +0800 (GMT+08:00)
+Cc: shawn.lin@rock-chips.com, Frank.Li@nxp.com, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev,
+ linux-mmc@vger.kernel.org, s32@nxp.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ haibo.chen@nxp.com, ulf.hansson@linaro.org, adrian.hunter@intel.com
+Subject: Re: [PATCH 1/4] mmc: core: fix timing selection for 1-bit bus width
+To: ziniu.wang_1@nxp.com
+References: <20260302080057.974102-1-ziniu.wang_1@nxp.com>
+ <20260302080057.974102-2-ziniu.wang_1@nxp.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+Message-ID: <2135cbdd-9329-1097-dd38-bb12aa1a7ff6@rock-chips.com>
+Date: Mon, 2 Mar 2026 16:54:27 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <20260302080057.974102-2-ziniu.wang_1@nxp.com>
+Content-Type: text/plain; charset=gbk; format=flowed
 Content-Transfer-Encoding: 8bit
-X-cloud-security-sender: nora.schiffer@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: nora.schiffer@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay10-hz2.antispameurope.com with 4fPXb60bzBz4FL03
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 9d7a5410827e20c72befa8843b80a097
-X-cloud-security: scantime:3.725
+X-HM-Tid: 0a9cadc18b8709cckunmda3df11efd8467
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGk8ZTFZLSB5OSh5NT0seQ0tWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
 DKIM-Signature: a=rsa-sha256;
- bh=S8KixDfsRAE0QkCkrj6ecFMAb3wezNZ0IVq81F5Gw8I=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1772441196; v=1;
- b=a55+2sfqLJoiAevN8RmzdY/SrWHrDRaAfHsVgr59vd+2BE7Ic53B+eWvj5Mm/ajcvhpfFZCI
- Q2+2FX9hdQroJ6TQTmbTkwmRBxNI2K2eCrUtB25Btv71Gz2v6O1xQzOXGQH/SaZKvEg80jirwAf
- hxHvPgrmNPCJsbuqZDCsbhLLQLkcCP5SNYMQsWQ6bebMe0wGCmfbf6N4MXczj/JN1D5Nbd9VlNF
- X8NTEWEkJlraU1S7fvPB9sN9V4VuzWD5PSCMHjBIDJfSaepCa65+bchLJcMwIRLvlCet75nayYm
- MANCLWwTuT+zh/uY81+P48IMxk0rAinNDyMQUYvkSyvlA==
+	b=HmDu/dETENf3i+Y4cYXPTTZcQ0DZSnxDv0glq9Kjlq0KzFBJKT4S/Z+VowPcrj5rGXr0Pvd8uffO5neKMIJYKc6v4tibTK4HPP9Tm+gdZIzHLBVPOhQ4S5MkrTfgw0PRQj5fDGyGo8tkywbMZqc9pnUMBtYB2rC3i74q/UiB0bs=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=BoRcFJQ0D6uiNJl2vl4CvN47KwDERFC3nwFcFOSRpt0=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_004653_724293_54D2A1ED 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20260302_005440_522162_3933B666 
+X-CRM114-Status: GOOD (  21.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,43 +75,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-UART1 operates in DCE mode, but the RTS/CTS pins were incorrectly
-configured using the DTE pinmux setting.
+Hi Luke
 
-Correct the pinmux to match DCE mode. Switching the RTS and CTS signals
-is fine for this board, as UART1 is routed to a pin header. Existing
-functionality is unaffected, as RTS/CTS could never have worked with
-the incorrect pinmux.
+ÔÚ 2026/03/02 ÐÇÆÚÒ» 16:00, ziniu.wang_1@nxp.com Ð´µÀ:
+> From: Luke Wang <ziniu.wang_1@nxp.com>
+> 
+> When 1-bit bus width is used with HS200/HS400 capabilities set,
+> mmc_select_hs200() returns 0 without actually switching. This
+> causes mmc_select_timing() to skip mmc_select_hs(), leaving eMMC
+> in legacy mode (26MHz) instead of High Speed SDR (52MHz).
+> 
+> Per JEDEC eMMC spec section 5.3.2, 1-bit width supports High Speed
+> SDR. Drop incompatible HS200/HS400/UHS/DDR caps early so timing
+> selection falls through to mmc_select_hs() correctly.
+> 
 
-Fixes: ddabb3ce3f90 ("arm64: dts: freescale: add TQMa8MPQL on MBa8MP-RAS314")
-Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
----
+I've tested this patch, and it works as intended.
 
-v2: updated commit message based on suggestion by Frank Li
+Unrelated to your specific change, however, I'm not convinced that
+mmc_validate_host_caps() is doing what its name suggests, at least not
+comprehensively. For example, the SD card path handles 1-bit bus with
+UHS support correctly, thanks to the mmc_host_uhs() check inside the
+SD/SDIO code. This makes the validation logic feel scattered across
+different layers IMO. It would be even better if you could consolidate 
+all these checks in one place maybe, but anyway
+
+Tested-by: Shawn Lin <shawn.lin@rock-chips.com>
 
 
- .../boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts     | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-index b7f69c92b7748..1665a5030b993 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-@@ -848,8 +848,8 @@ pinctrl_tlv320aic3x04: tlv320aic3x04grp {
- 	pinctrl_uart1: uart1grp {
- 		fsl,pins = <MX8MP_IOMUXC_SAI2_RXFS__UART1_DCE_TX	0x14>,
- 			   <MX8MP_IOMUXC_SAI2_RXC__UART1_DCE_RX		0x14>,
--			   <MX8MP_IOMUXC_SAI2_RXD0__UART1_DTE_CTS	0x14>,
--			   <MX8MP_IOMUXC_SAI2_TXFS__UART1_DTE_RTS	0x14>;
-+			   <MX8MP_IOMUXC_SAI2_RXD0__UART1_DCE_RTS	0x14>,
-+			   <MX8MP_IOMUXC_SAI2_TXFS__UART1_DCE_CTS	0x14>;
- 	};
- 
- 	pinctrl_uart1_gpio: uart1gpiogrp {
--- 
-TQ-Systems GmbH | MÃ¼hlstraÃŸe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht MÃ¼nchen, HRB 105018
-GeschÃ¤ftsfÃ¼hrer: Detlef Schneider, RÃ¼diger Stahl, Stefan Schneider
-https://www.tq-group.com/
-
+> Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
+> ---
+>   drivers/mmc/core/host.c | 19 ++++++++++++++-----
+>   1 file changed, 14 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/mmc/core/host.c b/drivers/mmc/core/host.c
+> index 88c95dbfd9cf..18b9c3174e1f 100644
+> --- a/drivers/mmc/core/host.c
+> +++ b/drivers/mmc/core/host.c
+> @@ -617,17 +617,26 @@ EXPORT_SYMBOL(devm_mmc_alloc_host);
+>   static int mmc_validate_host_caps(struct mmc_host *host)
+>   {
+>   	struct device *dev = host->parent;
+> -	u32 caps = host->caps, caps2 = host->caps2;
+>   
+> -	if (caps & MMC_CAP_SDIO_IRQ && !host->ops->enable_sdio_irq) {
+> +	if (host->caps & MMC_CAP_SDIO_IRQ && !host->ops->enable_sdio_irq) {
+>   		dev_warn(dev, "missing ->enable_sdio_irq() ops\n");
+>   		return -EINVAL;
+>   	}
+>   
+> -	if (caps2 & (MMC_CAP2_HS400_ES | MMC_CAP2_HS400) &&
+> -	    !(caps & MMC_CAP_8_BIT_DATA) && !(caps2 & MMC_CAP2_NO_MMC)) {
+> +	/* UHS/DDR/HS200/HS400 modes require at least 4-bit bus */
+> +	if (!(host->caps & (MMC_CAP_4_BIT_DATA | MMC_CAP_8_BIT_DATA)) &&
+> +	    ((host->caps & (MMC_CAP_UHS | MMC_CAP_DDR)) ||
+> +	     (host->caps2 & (MMC_CAP2_HS200 | MMC_CAP2_HS400_ES | MMC_CAP2_HS400)))) {
+> +		dev_warn(dev, "drop UHS/DDR/HS200/HS400 support since 1-bit bus only\n");
+> +		host->caps &= ~(MMC_CAP_UHS | MMC_CAP_DDR);
+> +		host->caps2 &= ~(MMC_CAP2_HS200 | MMC_CAP2_HS400_ES | MMC_CAP2_HS400);
+> +	}
+> +
+> +	if (host->caps2 & (MMC_CAP2_HS400_ES | MMC_CAP2_HS400) &&
+> +	    !(host->caps & MMC_CAP_8_BIT_DATA) &&
+> +	    !(host->caps2 & MMC_CAP2_NO_MMC)) {
+>   		dev_warn(dev, "drop HS400 support since no 8-bit bus\n");
+> -		host->caps2 = caps2 & ~MMC_CAP2_HS400_ES & ~MMC_CAP2_HS400;
+> +		host->caps2 &= ~(MMC_CAP2_HS400_ES | MMC_CAP2_HS400);
+>   	}
+>   
+>   	return 0;
+> 
 
