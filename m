@@ -4,65 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE922D58E48
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 16:47:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2383DD58E48
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 16:47:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1u0ikuMZRgeVlFjG0fVn3f/YJeQoEzB4q9OdPimwIds=; b=eIghlHYyHQGka++KrD3xXeokxk
-	CC5BfEBxa+A7MZrcxzewOlNMDpyy3vk2pqSwaAcSH5Blj/1IJVB9sRBBr0JgXb/w9RWFbChLsx2w9
-	1c4Yd83lIf8Xu84WwkQ9U9BKzFcO2QnPTselFH1SalzAz5GcFASCaiypjuqfxbPeUIb1n0YxtqPGi
-	dWDvfFRJdNwHvHWXgoErqgK0T4ZU1s3f7BIOhj6f4MQLgsummc4hX+dZs6LfEXa37v2Wqg7Y8eQQq
-	pMo1RtPoWJawKfG5HbnNm4guxuIxFW1LhgvKcWtuW9ZNc5Rum398aPjKhrWmgbvY8izrWShJo8XKO
-	lAxOJFPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:References:
+	In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=REs8os8Q9hJQNxPL6/DqDw1OUks2ZGyaD9oCun8RGQE=; b=ifrDlKKCpUNz8VAwuDARCxywbh
+	95ljjnTnZw3cX7RmwrC54tedrKFYGKGtebsC3RiefEZzJ6PHmMSWTzuv+leGvAPsEeHQtPMoaJ0v7
+	43xJAbz5/Kd3jGqZQthFZw1yV0EP5FDGsh7QN8+6NebL4jwLiyeOwT7JQEw9RMlqq4QtktQoMyYir
+	u4n5nPJDl0QlU4nSY3BWu48iyQzuRcOdR9UrfcLbQH+zlbotihTyJFCYAVn9d1u2TAMeySAZtNOFx
+	BmIeTVGvLPCqeW9o/+YZxi482npQt5Vu5SVe5G8Hoh7djOKziB2hR8aYo/94Z6jigVBQXu6zvvY5a
+	EumvkQLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx6QD-0000000DWd7-1Oxg;
-	Mon, 02 Mar 2026 16:47:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx6QA-0000000DWca-2Miy
+	id 1vx6Qu-0000000DWhL-2tOl;
+	Mon, 02 Mar 2026 16:47:50 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vx6Qs-0000000DWgt-3AeJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 16:47:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 67C6714BF;
-	Mon,  2 Mar 2026 08:46:54 -0800 (PST)
-Received: from [10.57.55.216] (unknown [10.57.55.216])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DA0543F694;
-	Mon,  2 Mar 2026 08:46:54 -0800 (PST)
-Message-ID: <782ffcc2-1a72-46f0-a0c7-f1277fb84ced@arm.com>
-Date: Mon, 2 Mar 2026 16:46:52 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 20/46] arm64: RMI: Allow populating initial contents
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>
-References: <20251217101125.91098-1-steven.price@arm.com>
- <20251217101125.91098-21-steven.price@arm.com> <86qzq28elj.wl-maz@kernel.org>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <86qzq28elj.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+	Mon, 02 Mar 2026 16:47:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vUqa+C4IW5f7BdOge7ZiN5cSdb5TaI+GgHskIoahbcYAnxt6j5eZEmQDYxAoC+Kx6SZJVl5r09nNn6KY21szPgqahWa0uTdcq8FktzYVW+CDH+7cTfLnLZ/JJaAlvfSXfblIb4e/iRoYTgPZw/U2jUASfVNG9aIfd66vd8sRw7Xtkc4oxQ3+dNdQyBaLtiIvAYEu9HeNluxmLvEL98C86Ppw9zgTJnHy5w4OBVT2pgxUeuue5Y+Qdd+hWKNI7jiyf7T7Spect1z0vpXFT3CW+AssY9NhSRRnC2um+Rd8ZcmRhv3axbqlJ83/2zyZUpZVlL+tcE++XlYZdR9wll0vog==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=REs8os8Q9hJQNxPL6/DqDw1OUks2ZGyaD9oCun8RGQE=;
+ b=BFL7MLTph/cvO4fONedH64wDL7opcEyLtOYt05hsSZYpF382mibcCljrq9kiIb0zibDbt8zimRqTosa+KWPJkpPpCwXNOOIs/n4gO8Zvk2IJzcAtZODTFw8NHHdgS3ppDRFrPkz5D56m/p/LaiJpskcLlW58fhifoEnnG+TI59shoy8KUThttpowAPe9BpwtiK9odTT8wDE126o6L9u+EGDvMn15jm7fXeAqXnrp11AwALSYg9XYwF49XhQZxgeSMav5TQXKPKcTNZVK1ON9muKF0PjFAzKB4HP81spUmEKV7N5e3/rRM9FmeP3NryP1QuUYYQhQCe9ZzJcGfplOyQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=REs8os8Q9hJQNxPL6/DqDw1OUks2ZGyaD9oCun8RGQE=;
+ b=Pz7YY9Y5ksrwfDCrXfI4giJbCXIwXthdkuHSEsIazj354y1bl7CqWxfevlZlRsaBlPljs5zECiCiWHZojWQvJr656YiTtuT9AYSIYAv7VvuYzkr0V2ifaoT/dTNaOZ5kmejOzI+Le5mXbTqV6NnkT0YZmyaMkGxLDjfCxV0YlaoH0ZdYROjGuc6SUvbjx4Hsp6LkLuPQVPtu5RA4jCm2MfbDY8adBwXdNC/iA9AebrcQMHGrAQYnVWporyc02K/KnFGefuMqgmQHd9JlLIGIZkNFSZMw655sk7YBARXynnb2mvkf3aVOc7N4MmTlMHC0drEVA70lpLBrinGpXzNdUw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by AM0PR04MB6801.eurprd04.prod.outlook.com (2603:10a6:208:18d::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.14; Mon, 2 Mar
+ 2026 16:47:39 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9654.020; Mon, 2 Mar 2026
+ 16:47:38 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Alexander Shiyan <shc_work@mail.ru>, 
+ Shawn Guo <shawn.guo@freescale.com>, Frank Li <Frank.Li@nxp.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20260211-imx25_dts_simple_warning-v1-0-7b40e1acca27@nxp.com>
+References: <20260211-imx25_dts_simple_warning-v1-0-7b40e1acca27@nxp.com>
+Subject: Re: [PATCH 0/3] ARM: dts: imx: collect some simple fix for imx2*
+Message-Id: <177247005471.2102932.2171453781907076912.b4-ty@nxp.com>
+Date: Mon, 02 Mar 2026 11:47:34 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: SJ0PR03CA0198.namprd03.prod.outlook.com
+ (2603:10b6:a03:2ef::23) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AM0PR04MB6801:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4be2d32f-3fbe-4d93-acbf-08de787b69cc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|52116014|376014|7416014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: u5m31JqVeY5AyW3oq53pu0DZg5c5v6+DBP09M8+A8R36OglrgIRX2i5TnlttvFs40Ne+OmU1VeoKPBbMfJ2gPiuMO4RkjYVgaCfmT7jaVh5mcIfr7YAfpIQnrucAGEKhEx6x3VodAzIezQRzxt+MWPuOvtTwMT9k8LM+dRkX9wuwffeY8xsjtwnTLCb8quw7JLE56utiuLjN4cLftOBul+av46L2epQLCo2xtKbVO+bMxKlTy/Zeglg4yp2F9R0fG9ATpJgtsrN9FV8PD6oJ+Jl51wgmMF9SW3qHvnh8g7xUjzadYIXD/AMYNwchpZRorUaFeCZ1CzI3XWeMH6dMKxJ10KGnaCHTmDw35oW7vagTfF99Lg419nHScXGKshoOOb5xaCiNmI/xL2cQmQQ5Hv1V0DyvnG7n7sJwCLVkKgAgsiGYhzvC7x9WOFYc0XEe97ak1VegF7xJzmlGIN+RcM3e9d1YiNNFUf2IJOVVSoWxjrxV0fTyo0BKXyBixhwXE8ODHw1t9PCfoYh3VDeSh+gZiv/l41aphkCjkhQORLOFmLVrmCmlzcxf9UgHHTXsaUx7X65L70UJeku7tWTDIzHYVx0/X7m4e+4oEL/OnVu5BUwv65d8zTbMXdgV707+KVvNu22NsgPPisJhpnFyV171yP6rNzFGicL57cbI+G01vYBkcyK/b0aJWGhgm1i1Ychv88bS2wCc3jN6jHNp1w8XJAC97STN92PqrGgWvy0U8q7tyuAjOWL6pN/mNNHTRJSAoWJQwn5wSoChldkJ8irzI1n/+tdCAo6oqEfEQmI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(52116014)(376014)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?N1RTMXUzRlFlVVFuWE1aQlZzN2RZTUM0TGZsSGcwREd2Nzl1dU9reGpzS0o0?=
+ =?utf-8?B?V29ITUJUN0luclkyTS95WmlVYjFSQ3hQRDN6N3lRNk13dGtLaE9Ka2tuNWha?=
+ =?utf-8?B?Vmw4MWpoOFZuQUM3Z1JKa3ZKUEp3dlBiNlhTb09uQ2NKQnNqT0pzd3Q5MzU4?=
+ =?utf-8?B?ZDlQV0MzZ0txWC9VUEdsR2VvRHA0WnVCZ2YxaC81ZVA0S0NhWEF5M0VzTTdy?=
+ =?utf-8?B?Q2NQN2h2NWs1MHV6cXllaHhpdWVxa1VPVDF4cWFNTU5lYmhYdURtQnh0ZDdr?=
+ =?utf-8?B?NzRybFh4aGtnY042bE1SQjR4SnZ5blJTNW1lYlFBTDlhN0VhSUhyL0NlcVVx?=
+ =?utf-8?B?elFadCtacHJqdHh0ekxoWjNFcXNrYU5xdmFCWFRpKzhIMEdLb2tzdU85V09G?=
+ =?utf-8?B?NHhCajRMV3Zwc0RyMktJOEx4TnRKZnNadGZVU1FUaG9waGxuNXRuUS9oQkhs?=
+ =?utf-8?B?dk5iUnE0Q3RxYWdKWVdwVzZHRFVSZkt1RUhmZkZLRUFaVk1LQTcxYTY0azVC?=
+ =?utf-8?B?aGR4b1RVMlJFYjNTcXV5aHIzdm9ydTk0Mm82ZWZIZXlLaDZXWm1YQkUvVEto?=
+ =?utf-8?B?SHFSRTZHTWdOOHQ3SFNrUHBjejlQOThLRHh3TEE3cHRWWkxXQ1M5VVRacE05?=
+ =?utf-8?B?UHB2NUN0RHUxZHBDVHFBVUJtYnVwQWxHejR5M0NUWkFQSlNUa29ieEdtQU9a?=
+ =?utf-8?B?V284YzRNTUhwVTlvdWwvZFB5MlU0VHNpR0xCQkpGcHUzT25rcGJQNUM5clFt?=
+ =?utf-8?B?N1N4UTlKbGx4SG15TnhCNUE2VWhnT3BrdlRvNUtVbEsyNkNSN2dpMnovWS9s?=
+ =?utf-8?B?VWFOVVZlM0dzYjR4elpQelVMMUJHTllJMmg2d3pHdWVYUVNRbkdyTm1jQkdz?=
+ =?utf-8?B?dzQ0WnJZeWNmT3d5Z2tPZkR4YjNPbmxRRWxwamI0M25vMlhTU0Z6SkRSbGxq?=
+ =?utf-8?B?T005MUJjL2FwVU9hdEF3WUVKRFhtM2Yvd045UGMxN25QSDVxZEk3MmdQMjQ4?=
+ =?utf-8?B?S0pDM1kwMmJHZ01nOWZMWXJZdytFZnl1VEJKVmd1ZC8zWUlZUjV1N0U3S2pE?=
+ =?utf-8?B?NG1kU1F6Z1N5MGlQMFVrSlJzdG1FVkIzM2Z1c3NvT2VIdmRUQnpXeEt4Rkk0?=
+ =?utf-8?B?WE9UcXRGczBkTWkyazBOc2ZUQmc2TnY1Q0FhZHJPRGJmbjBFRVUyTGRFRFhi?=
+ =?utf-8?B?Qld5ODR3NnJtem1TNnNRL3puankrSjU0M2JWalA3dUFDcDE3UjJTYVp6cVBm?=
+ =?utf-8?B?MUhEZEI3WGs0SEJRbHpraXU5Uk5RaE9aNDhyaGowQjVkUCtOcHRUOVFqc05t?=
+ =?utf-8?B?aU4xQ1pFRFh2SFpFVjRrZjRpUEZERlhhU2tWK0p5U2FPUW01LzZjZEx6UUhQ?=
+ =?utf-8?B?Z1pmYUlQMU04QkxyMnpvOGdWOVREcW1LVkZRU2dCaWdTYThGTzk0QURrT1lk?=
+ =?utf-8?B?KzdaZ2FFaWRnUEJUb3BHd0ZpOXUvekdjMEI4VWErYkdwMG9kdXE1QmhnZ0pV?=
+ =?utf-8?B?N1I5eHA3bjV2TkNVb1p2R3FZNmEvSXNRTVZ3Mk4vbnpDM2dXUFdOOHl2RnBv?=
+ =?utf-8?B?NHp6N0FRejhZUTZBVE1xTUJCZjEydGpvSWJwMzRFQWtNaTlsNnNIZ3loZjFk?=
+ =?utf-8?B?TkNpREVjQTY0ZFA1VmxXYWVIZ2R3dkZEcE5MemJIaVFjV05sYVBJUmdBditm?=
+ =?utf-8?B?QkVPV2oxSjVRelJzVTdsTGkvdUpBZk1QVTFqRURaQlRzSWJiZlowNytJb3ZY?=
+ =?utf-8?B?L3RGbGdhaFhZUHo2Y2V6RWVONFVWWGNySDk4cXN3REFoZ1k1Q1I4cFJwTzRW?=
+ =?utf-8?B?OGRRUHFpQzlNWHdDZTk1M3puSzZXMUsxZjRLcmpzWC9oUWI4eUdMQnA2eWdx?=
+ =?utf-8?B?SjM2Vm93MjhLMk5pR0pheGFGRUpYamZUYmpocWdTdklwNE85eFdMcmZDVWdm?=
+ =?utf-8?B?N2trazlsdUd2MFdkN3ExU3ZNMEZ5MEMzQXFSNXRYMmJKTDBJUkx2b0d3R3BJ?=
+ =?utf-8?B?MHZkV3V5NU5VbHVBRFhxRTBYR0gwbGVYVFRCUFYrYXFWQVBDUFZHdzExUVN3?=
+ =?utf-8?B?L2FndWRCVkFaSStKNmNKVmZLbWZ4b3ZkbTcvL2xkTElSTFAyWHNGT0NNRjA5?=
+ =?utf-8?B?QXp3SUtjMHorL1JIRlNXYXFTVUNNN2JFOWR0T05RSFlHM1pLTVlxTTVCZXBQ?=
+ =?utf-8?B?V0xzN1dRSjduVUJySmxCTERRbmd6R1JXWExHbThUQ0srSDM2NjBsUGY0UEhB?=
+ =?utf-8?B?MjZtSjZObzdaZHZJU2cwTGpaclc3MCtERWk1cXYxbnYxVkVkQ3p5NXM1MDlP?=
+ =?utf-8?Q?YWAN8wNOWHT1Hxtwoi?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4be2d32f-3fbe-4d93-acbf-08de787b69cc
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Mar 2026 16:47:38.5937
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /VDNUR11Z+/EmXyAiZlGRHYSafX7FQRFiuIyPeajInpkzLflDmbTrkNRXcwk7fa7ierscJoQx7mdwoAKxeTENA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6801
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_084702_704311_B66B1050 
-X-CRM114-Status: GOOD (  35.39  )
+X-CRM114-CacheID: sfid-20260302_084746_799045_7F6F379B 
+X-CRM114-Status: UNSURE (   7.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,316 +149,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/03/2026 14:56, Marc Zyngier wrote:
-> On Wed, 17 Dec 2025 10:10:57 +0000,
-> Steven Price <steven.price@arm.com> wrote:
->>
->> The VMM needs to populate the realm with some data before starting (e.g.
->> a kernel and initrd). This is measured by the RMM and used as part of
->> the attestation later on.
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> Changes since v11:
->>  * The multiplex CAP is gone and there's a new ioctl which makes use of
->>    the generic kvm_gmem_populate() functionality.
->> Changes since v7:
->>  * Improve the error codes.
->>  * Other minor changes from review.
->> Changes since v6:
->>  * Handle host potentially having a larger page size than the RMM
->>    granule.
->>  * Drop historic "par" (protected address range) from
->>    populate_par_region() - it doesn't exist within the current
->>    architecture.
->>  * Add a cond_resched() call in kvm_populate_realm().
->> Changes since v5:
->>  * Refactor to use PFNs rather than tracking struct page in
->>    realm_create_protected_data_page().
->>  * Pull changes from a later patch (in the v5 series) for accessing
->>    pages from a guest memfd.
->>  * Do the populate in chunks to avoid holding locks for too long and
->>    triggering RCU stall warnings.
->> ---
->>  arch/arm64/include/asm/kvm_rmi.h |   4 +
->>  arch/arm64/kvm/Kconfig           |   1 +
->>  arch/arm64/kvm/arm.c             |   9 ++
->>  arch/arm64/kvm/rmi.c             | 175 +++++++++++++++++++++++++++++++
->>  4 files changed, 189 insertions(+)
->>
->> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
->> index 8a862fc1a99d..b5e36344975c 100644
->> --- a/arch/arm64/include/asm/kvm_rmi.h
->> +++ b/arch/arm64/include/asm/kvm_rmi.h
->> @@ -99,6 +99,10 @@ int kvm_rec_enter(struct kvm_vcpu *vcpu);
->>  int kvm_rec_pre_enter(struct kvm_vcpu *vcpu);
->>  int handle_rec_exit(struct kvm_vcpu *vcpu, int rec_run_status);
->>  
->> +struct kvm_arm_rmi_populate;
->> +
->> +int kvm_arm_rmi_populate(struct kvm *kvm,
->> +			 struct kvm_arm_rmi_populate *arg);
->>  void kvm_realm_unmap_range(struct kvm *kvm,
->>  			   unsigned long ipa,
->>  			   unsigned long size,
->> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
->> index 1cac6dfc0972..b495dfd3a8b4 100644
->> --- a/arch/arm64/kvm/Kconfig
->> +++ b/arch/arm64/kvm/Kconfig
->> @@ -39,6 +39,7 @@ menuconfig KVM
->>  	select GUEST_PERF_EVENTS if PERF_EVENTS
->>  	select KVM_GUEST_MEMFD
->>  	select KVM_GENERIC_MEMORY_ATTRIBUTES
->> +	select HAVE_KVM_ARCH_GMEM_POPULATE
->>  	help
->>  	  Support hosting virtualized guest machines.
->>  
->> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->> index 7927181887cf..0a06ed9d1a64 100644
->> --- a/arch/arm64/kvm/arm.c
->> +++ b/arch/arm64/kvm/arm.c
->> @@ -2037,6 +2037,15 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
->>  			return -EFAULT;
->>  		return kvm_vm_ioctl_get_reg_writable_masks(kvm, &range);
->>  	}
->> +	case KVM_ARM_RMI_POPULATE: {
->> +		struct kvm_arm_rmi_populate req;
->> +
->> +		if (!kvm_is_realm(kvm))
->> +			return -EPERM;
+
+On Wed, 11 Feb 2026 18:12:54 -0500, Frank Li wrote:
+> fix gpio irq issue. (review code)
+> fix check_dtbs warnings.
 > 
-> EPERM is odd. It isn't that the VMM doesn't have the right to do it,
-> it is that it shouldn't have called that, because the ioctl doesn't
-> exist for a normal VM. -ENOSYS?
-
-Ack
-
->> +		if (copy_from_user(&req, argp, sizeof(req)))
->> +			return -EFAULT;
->> +		return kvm_arm_rmi_populate(kvm, &req);
->> +	}
->>  	default:
->>  		return -EINVAL;
->>  	}
->> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
->> index fe15b400091c..39577e956a59 100644
->> --- a/arch/arm64/kvm/rmi.c
->> +++ b/arch/arm64/kvm/rmi.c
->> @@ -558,6 +558,150 @@ void kvm_realm_unmap_range(struct kvm *kvm, unsigned long start,
->>  		realm_unmap_private_range(kvm, start, end, may_block);
->>  }
->>  
->> +static int realm_create_protected_data_granule(struct realm *realm,
->> +					       unsigned long ipa,
->> +					       phys_addr_t dst_phys,
->> +					       phys_addr_t src_phys,
->> +					       unsigned long flags)
->> +{
->> +	phys_addr_t rd = virt_to_phys(realm->rd);
->> +	int ret;
->> +
->> +	if (rmi_granule_delegate(dst_phys))
->> +		return -ENXIO;
->> +
->> +	ret = rmi_data_create(rd, dst_phys, ipa, src_phys, flags);
->> +	if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
->> +		/* Create missing RTTs and retry */
->> +		int level = RMI_RETURN_INDEX(ret);
->> +
->> +		WARN_ON(level == RMM_RTT_MAX_LEVEL);
+> This is last around patch serise to cleanup all warning for imx2* dtb.
 > 
-> If this is unexpected, why do we still try to handle it? We should
-> abort hard on anything that doesn't seem 100% correct, and mark the
-> realm dead.
-
-Well this is a "should never happen - the RMM (or Linux kerne) is buggy" 
-situation - so it's not specifically the realm's fault. The "do nothing" 
-error handling deals with things quite reasonably - the following 
-realm_create_rtt_levels() call is a no-op, so we'll retry the 
-rmi_data_create() call and bubble the error up.
-
-I'll change this to KVM_BUG_ON so that the guest is killed just in case 
-it turns out the guest can somehow trigger this maliciously.
-
->> +
->> +		ret = realm_create_rtt_levels(realm, ipa, level,
->> +					      RMM_RTT_MAX_LEVEL, NULL);
->> +		if (ret)
->> +			return -EIO;
->> +
->> +		ret = rmi_data_create(rd, dst_phys, ipa, src_phys, flags);
->> +	}
->> +	if (ret)
->> +		return -EIO;
->> +
->> +	return 0;
->> +}
->> +
->> +static int realm_create_protected_data_page(struct realm *realm,
->> +					    unsigned long ipa,
->> +					    kvm_pfn_t dst_pfn,
->> +					    kvm_pfn_t src_pfn,
->> +					    unsigned long flags)
->> +{
->> +	unsigned long rd = virt_to_phys(realm->rd);
->> +	phys_addr_t dst_phys, src_phys;
->> +	bool undelegate_failed = false;
->> +	int ret, offset;
->> +
->> +	dst_phys = __pfn_to_phys(dst_pfn);
->> +	src_phys = __pfn_to_phys(src_pfn);
->> +
->> +	for (offset = 0; offset < PAGE_SIZE; offset += RMM_PAGE_SIZE) {
->> +		ret = realm_create_protected_data_granule(realm,
->> +							  ipa,
->> +							  dst_phys,
->> +							  src_phys,
->> +							  flags);
->> +		if (ret)
->> +			goto err;
->> +
->> +		ipa += RMM_PAGE_SIZE;
->> +		dst_phys += RMM_PAGE_SIZE;
->> +		src_phys += RMM_PAGE_SIZE;
->> +	}
->> +
->> +	return 0;
->> +
->> +err:
->> +	if (ret == -EIO) {
->> +		/* current offset needs undelegating */
->> +		if (WARN_ON(rmi_granule_undelegate(dst_phys)))
->> +			undelegate_failed = true;
->> +	}
->> +	while (offset > 0) {
->> +		ipa -= RMM_PAGE_SIZE;
->> +		offset -= RMM_PAGE_SIZE;
->> +		dst_phys -= RMM_PAGE_SIZE;
->> +
->> +		rmi_data_destroy(rd, ipa, NULL, NULL);
->> +
->> +		if (WARN_ON(rmi_granule_undelegate(dst_phys)))
->> +			undelegate_failed = true;
->> +	}
->> +
->> +	if (undelegate_failed) {
->> +		/*
->> +		 * A granule could not be undelegated,
->> +		 * so the page has to be leaked
->> +		 */
->> +		get_page(pfn_to_page(dst_pfn));
->> +	}
->> +
->> +	return -ENXIO;
->> +}
->> +
->> +static int populate_region_cb(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
->> +			      void __user *src, int order, void *opaque)
->> +{
->> +	struct realm *realm = &kvm->arch.realm;
->> +	unsigned long data_flags = *(unsigned long *)opaque;
->> +	phys_addr_t ipa = gfn_to_gpa(gfn);
->> +	int npages = (1 << order);
->> +	int i;
->> +
->> +	for (i = 0; i < npages; i++) {
->> +		struct page *src_page;
->> +		int ret;
->> +
->> +		ret = get_user_pages((unsigned long)src, 1, 0, &src_page);
->> +		if (ret < 0)
->> +			return ret;
->> +		if (ret != 1)
->> +			return -ENOMEM;
->> +
->> +		ret = realm_create_protected_data_page(realm, ipa, pfn,
->> +						       page_to_pfn(src_page),
->> +						       data_flags);
->> +
->> +		put_page(src_page);
->> +
->> +		if (ret)
->> +			return ret;
->> +
->> +		ipa += PAGE_SIZE;
->> +		pfn++;
->> +		src += PAGE_SIZE;
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->> +static long populate_region(struct kvm *kvm,
->> +			    gfn_t base_gfn,
->> +			    unsigned long pages,
->> +			    u64 uaddr,
->> +			    unsigned long data_flags)
->> +{
->> +	long ret = 0;
->> +
->> +	mutex_lock(&kvm->slots_lock);
->> +	mmap_read_lock(current->mm);
->> +	ret = kvm_gmem_populate(kvm, base_gfn, u64_to_user_ptr(uaddr), pages,
->> +				populate_region_cb, &data_flags);
->> +	mmap_read_unlock(current->mm);
->> +	mutex_unlock(&kvm->slots_lock);
->> +
->> +	return ret;
->> +}
->> +
->>  enum ripas_action {
->>  	RIPAS_INIT,
->>  	RIPAS_SET,
->> @@ -655,6 +799,37 @@ static int realm_ensure_created(struct kvm *kvm)
->>  	return -ENXIO;
->>  }
->>  
->> +int kvm_arm_rmi_populate(struct kvm *kvm,
->> +			 struct kvm_arm_rmi_populate *args)
->> +{
->> +	unsigned long data_flags = 0;
->> +	unsigned long ipa_start = args->base;
->> +	unsigned long ipa_end = ipa_start + args->size;
->> +	int ret;
->> +
->> +	if (args->reserved ||
->> +	    (args->flags & ~KVM_ARM_RMI_POPULATE_FLAGS_MEASURE) ||
->> +	    !IS_ALIGNED(ipa_start, PAGE_SIZE) ||
->> +	    !IS_ALIGNED(ipa_end, PAGE_SIZE))
->> +		return -EINVAL;
->> +
->> +	ret = realm_ensure_created(kvm);
->> +	if (ret)
->> +		return ret;
->> +
->> +	if (args->flags & KVM_ARM_RMI_POPULATE_FLAGS_MEASURE)
 > 
-> This flag isn't documented.
 
-Indeed - that's an oversight! I'll add the following to the docs:
+Applied, thanks!
 
-`flags` can be set to `KVM_ARM_RMI_POPULATE_FLAGS_MEASURE` to request that the
-populated data is hashed and added to the guest's Realm Initial Measurement
-(RIM).
+[1/3] ARM: dts: imx27-eukrea: replace interrupts with interrupts-extended
+      (no commit info)
+[2/3] ARM: dts: imx27-eukrea-cpuimx27: rename uart8250 to serial
+      (no commit info)
+[3/3] ARM: dts: imx27: remove fsl,imx-osc26m from fixed-clock node
+      (no commit info)
 
->> +		data_flags |= RMI_MEASURE_CONTENT;
->> +
->> +	ret = populate_region(kvm, gpa_to_gfn(ipa_start),
->> +			      args->size >> PAGE_SHIFT,
->> +			      args->source_uaddr, args->flags);
->> +
->> +	if (ret < 0)
->> +		return ret;
->> +
->> +	return ret * PAGE_SIZE;
-> 
-> Bits of the code works on PAGE_SIZE, other bits on RMM_PAGE_SIZE. It
-> is pretty confusing. Are you in the middle of reworking this?
-
-Yes, sorry about that - RMM_PAGE_SIZE will be completely gone when
-this is updated to RMM v2.0.
-
-Thanks,
-Steve
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
 
 
