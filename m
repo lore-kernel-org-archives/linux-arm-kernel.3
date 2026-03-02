@@ -4,117 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F7DCEB362B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 18:09:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25E83EB3624
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 18:15:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iVnT2YQYu3lgfxyCcAmKNLTFJvqdFe6+LJ4vDHPhHVc=; b=RQn2nE7KopwfLSE+On2DX1VneK
-	conguXnqkuoSLJVLLRjsggWVtiGyKP0EbSiI3B2hQ2WV1Mm3WcnfJGtRmEQd0h9gG5bI/G8o0Dhnw
-	kXZxoOU9l7Zd6v2YLLuNYXXnKxGposdzm6UptQ8pgKkkis2I1HaLd8jUFwq2YmnFhj/g8/Ly7dN7t
-	Ga94NaY9lETl01ZAv14qf9tCoRg0z5yGndcIGRQ7PQXvWua7covGPJxJOtl3mas0TU6ryMOd42cdJ
-	zdgujfEYPOcd49pxQXXh1bC3b5+BijiI3GbcQknjracwUv1T/aT+USZHSmAy0Om6Pbr/7fVjfC3s+
-	rvUV9ncQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5jxRt3B+AdYvPnzRzs3IVfidBsKzyCOgtVxmU2NODGY=; b=FsAu/a2CqyhN7Mzqz4crec6O0s
+	eaerLGgp4JzLy4cbl6hGx20qrt0VURvgAG29ansOmt/69FbJ2Zrk8tqa8MF+mX1NmhyE3UbK6Y4Dk
+	82VOBfWUAGwrhOccgC27wpTz4ahCOHPV+XeQOsllgTbf+b8PWqLVtAf7zTwXpQSE7NH6sxDHEM0JT
+	kox4KKJMs3PoenBjvQJWuLjxYJXglqmU+Yq4vut5SPfEfNicY4UW1Y+6tHPZ6ajzzqpwDJicH+CgB
+	WJ+myTglONLNjXDW1s2M3nypb69Gi+B+1wAYNB+tVdqinosn/lyYNUi1RzUp36BAtpny1ugdJ3hvW
+	bTuSWmng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx7hi-0000000Dekg-2Y0K;
-	Mon, 02 Mar 2026 18:09:14 +0000
-Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1vx7nx-0000000DfQS-2itS;
+	Mon, 02 Mar 2026 18:15:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx7hb-0000000Dei6-3iIE;
-	Mon, 02 Mar 2026 18:09:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rkLfG+HdQIokC3Wdnx2iQ7iUoSX3ilpx8LcHqJ+Fz8L8YqFr5cBr/VyRzY0iR3yHmhqN6YWlEhRJy0ngglcDp/23aVqKHyzIqdB7MZZgjXbrEhbvOBUf6qPD8pUouK1+RJ8YkbmwXqHqo4x5NUibWr6VWRmfulJmnu1ZQ+haUsK/a0uBk3H1EawiJZpOIQiw5/1IM/nCb26LCjwujEbueSsjMG0ck/rqPpjlZJgqQfJ0u6nhxTd4fAtiXN/YJ8G4gF4VyfuX33RV2QB0cIVYynSx0ddxCYO2M9ad9B0XHRlzI7g7H74EutNqyBpdh5Qqp2Fr+NWt8uDpOdeCCLv1/A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iVnT2YQYu3lgfxyCcAmKNLTFJvqdFe6+LJ4vDHPhHVc=;
- b=ufXzoa7Y2BgLOelXLIVvA5kTjop5QQ9vUyQAtz5Hyo56Urmeq684//BVJRKfIaH9kLSX4yY8j2/xFe8pZkBeqpEvGT02sONpFwep/yN1zBKBpShO0DJqNqi+t5argYRK1xXe8TIzXuuiLz0HD40aC6y8u8qzuvEkjUNLT9IDhqe++RXuBXnHb47CvHrZFsu6iaUXvqkZBveMdmVuTjy4/9Hvz0ieiyW92zdaDDsmkacb1IChj4K164MtI6AeKgQuBdsAKo67kJWmBPSvHM4/qctjQS3GLCTjzOCxUFODcseluLecnTaVG/XqdhiqvZ6fODUbqdPphuAd7qal3Z8j5Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iVnT2YQYu3lgfxyCcAmKNLTFJvqdFe6+LJ4vDHPhHVc=;
- b=XiC2oH6t9pFcd2SBx4R4GbQ041a23BJzBkQvzfJYryCvzuE0f07sB7zmUwxWtss64/E0i5Xs/SBxDvQoQhsTxAeWzftzqYE9piKqrV3+vGCTbkFiKHCN0g5r0HS1ut961N4fglKhe7hJlJokXaQwjqCplfuPiC0z89TBcA1cus4=
-Received: from BY5PR13CA0031.namprd13.prod.outlook.com (2603:10b6:a03:180::44)
- by SA1PR10MB5885.namprd10.prod.outlook.com (2603:10b6:806:234::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.20; Mon, 2 Mar
- 2026 18:08:57 +0000
-Received: from SJ5PEPF000001C8.namprd05.prod.outlook.com
- (2603:10b6:a03:180:cafe::a0) by BY5PR13CA0031.outlook.office365.com
- (2603:10b6:a03:180::44) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9654.19 via Frontend Transport; Mon,
- 2 Mar 2026 18:08:55 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- SJ5PEPF000001C8.mail.protection.outlook.com (10.167.242.36) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9654.16 via Frontend Transport; Mon, 2 Mar 2026 18:08:56 +0000
-Received: from DLEE208.ent.ti.com (157.170.170.97) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 2 Mar
- 2026 12:08:56 -0600
-Received: from DLEE200.ent.ti.com (157.170.170.75) by DLEE208.ent.ti.com
- (157.170.170.97) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 2 Mar
- 2026 12:08:55 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE200.ent.ti.com
- (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 2 Mar 2026 12:08:55 -0600
-Received: from lelvem-mr06.itg.ti.com ([10.249.42.149])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 622I8tvk729521;
-	Mon, 2 Mar 2026 12:08:55 -0600
-From: Andrew Davis <afd@ti.com>
-To: Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck
-	<linux@roeck-us.net>, Florian Fainelli <florian.fainelli@broadcom.com>, "Ray
- Jui" <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>
-CC: <linux-watchdog@vger.kernel.org>, <linux-rpi-kernel@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Andrew Davis <afd@ti.com>
-Subject: [PATCH] watchdog: bcm2835_wdt: Switch to new sys-off handler API
-Date: Mon, 2 Mar 2026 12:08:53 -0600
-Message-ID: <20260302180853.224112-1-afd@ti.com>
-X-Mailer: git-send-email 2.39.2
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001C8:EE_|SA1PR10MB5885:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1e9743c6-0a65-43f0-4733-08de7886c582
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|34020700016|36860700013;
-X-Microsoft-Antispam-Message-Info: r/Tg9Ve2jTXWrJQeqN8+G0dvk7Fbdb6QTSTGW8RA5Y6TlIWFtTad9RZbFA5141A90DJGYbdwLFaSpmWUXqqfrpT1R2BUW1IKz+zE9jtfeEzHSZe/POdoN9UW+AAczRhvCwBYt3/ct/jxO0T+1f1l1bdWWX0c8kUorFZuT3W5bEPG+7nM0zBKCf6CZO2Dcxa9wwrIOapb6+5zm2tLCLwOfKMuqx3m0q9ySlQ4uWYKORYLh+gGqF250GrjAnlgybdBWO3FDty0fmEcCKzdkeO11JwdUyxd2FNuzOdUnV/ZQIZnC2Tr1HOA1Sz/VSHQCpt9wEdQjd1ki5irko5AHafN11Mx0HJ02ihEPAm7ApLxLEkFELQUcU+PrWha2YNhYrMvX2He3jpWShjIGTvw+chJ+mYKl07Zfa4VTxRJAVm3ldGpB/rXw4XyJPS1qDKiXf5WJn0aHojPsEwVMXsuLfboZoUO3VcuxuZoW8CHxEurkOuMxlYrlPNNZhiJiinayXU9sTcEEDnZZY1dHC7XRgtCkEnnt9ur3Us0gEixdKoa6I34+kJftaFsrql2AxIcGNPJc9HaJlpqaxc3dpxW5be9a3JpxR+YfkoauNY9DgpsblBJ20RpETBx5Pr0bAJbDzgctctCCDgQqS4SIN0OlkX2H4hK5putsBI6nWvgCfwd5d1kdv42l4PYDUyZPcVPZxI3IZtJN2ulcWarH0AIxETb29uVt2xOXD21rEwCrDFh8hdrYELFuKocwMkmCDW/I3DceVN5TpWW0xZWTewAibALLf//m1o8bFbAxI/VjFwHgNDuQmhhLEqORvwBzS70LA1a1le8gDiPdjOYoD6MJDYeHg==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(34020700016)(36860700013);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 94zPDnfwRqqIHp+IhmuBeM4GCYjExOi8SPkfjjKvy2bmVJFUi9MFhiMIxQDbVimfhkRn5m1FR52Z7Y9BDx+T5yNrcmcL11MnvRaiRmGajdzOI81SHfk3J6QwjTBM53ThqrxzLuzQJO89Xk0s+fH0MbR0NDLU5Q8tZQjxbBwhLdLXpsX+3KkAAVxp1XEsmWx0fTy9FWFsgPz2lfvEv08XFlmKHgA+ZqRdN89mFzjka6CUSk7XOl9fRtz7pcUR6yqFhpU+nDYOBZ7MYEcVpJgd8spF2V1FbM0PKGEpeVh4KOMpJze2D8zMlAXwO3MXfNl7ZiBwTsJ/2iO8cQPYJ4WE4shw7M2QFkl0Re9z04quPRS9BpROZCV3zsnGZzSp8kbULO9dCWltCTAKlw8iUjE6oQT99SZJSeuW/OT4sXJFlIXTtMEEaVzf5hCpJohWgC0h
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Mar 2026 18:08:56.6484
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1e9743c6-0a65-43f0-4733-08de7886c582
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001C8.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB5885
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_100907_930646_1B38A4B9 
-X-CRM114-Status: GOOD (  15.90  )
+	id 1vx7nw-0000000DfQL-2PJe
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Mar 2026 18:15:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E696F60008;
+	Mon,  2 Mar 2026 18:15:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E8BDC19423;
+	Mon,  2 Mar 2026 18:15:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772475339;
+	bh=n0j3s+Jv9EfYcZg7WCG66qjQA0IbWq3aYDUwX+zmmpY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Mfs6dP63MQRqvFkP3VWM9bMGpb4DOCqjTpPenI6LAdbuNLXyunRWwgwj5wbvOR/FH
+	 ovy6+HXn2OLIIzdtg/qtNWlDBgguf9wveNIe3TtO2X7lQR8gOMeJ4NsH7fZBtqJyxx
+	 X8Q4z2sEt0gcEcNsSIO8prhFGAbnxmVyt+EJL9gRjlCrTPODa+YzT6AP1O8sf2dmyB
+	 WnUHc3d+4RDH+r6dTp17LHlRiaKQ9Moh8L/0SqZdat1T4YmNAa+B6sTYYQHRniEFxf
+	 Ks515h9ZCAxjHNLS90nUZ9eetOskJcrIu1Zjsk8Amd+WrhpAUrJCQWBfaxhYB/brbG
+	 YuR6o6KJQuAnA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vx7ns-0000000FMBu-3kY4;
+	Mon, 02 Mar 2026 18:15:37 +0000
+Date: Mon, 02 Mar 2026 18:15:36 +0000
+Message-ID: <86jyvu85dj.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: amitsinght@marvell.com,
+	baisheng.gao@unisoc.com,
+	baolin.wang@linux.alibaba.com,
+	carl@os.amperecomputing.com,
+	dave.martin@arm.com,
+	david@kernel.org,
+	dfustini@baylibre.com,
+	fenghuay@nvidia.com,
+	gshan@redhat.com,
+	james.morse@arm.com,
+	jonathan.cameron@huawei.com,
+	kobak@nvidia.com,
+	lcherian@marvell.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	peternewman@google.com,
+	punit.agrawal@oss.qualcomm.com,
+	quic_jiles@quicinc.com,
+	reinette.chatre@intel.com,
+	rohit.mathew@arm.com,
+	scott@os.amperecomputing.com,
+	sdonthineni@nvidia.com,
+	tan.shaopeng@fujitsu.com,
+	xhao@linux.alibaba.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	corbet@lwn.net,
+	oupton@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	kvmarm@lists.linux.dev,
+	zengheng4@huawei.com,
+	linux-doc@vger.kernel.org,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+Subject: Re: [PATCH v5 12/41] KVM: arm64: Use kernel-space partid configuration for hypercalls
+In-Reply-To: <20260224175720.2663924-13-ben.horgan@arm.com>
+References: <20260224175720.2663924-1-ben.horgan@arm.com>
+	<20260224175720.2663924-13-ben.horgan@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ben.horgan@arm.com, amitsinght@marvell.com, baisheng.gao@unisoc.com, baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com, dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com, fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, peternewman@google.com, punit.agrawal@oss.qualcomm.com, quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com, scott@os.amperecomputing.com, sdonthineni@nvidia.com, tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev, zengheng4@huawei.com, linux-doc@vger.kernel.org, tan.shaopeng@jp.fujitsu.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,92 +113,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Kernel now supports chained power-off handlers. Use
-devm_register_sys_off_handler() that registers a power-off handler. Legacy
-pm_power_off() will be removed once all drivers and archs are converted to
-the new sys-off API.
+On Tue, 24 Feb 2026 17:56:51 +0000,
+Ben Horgan <ben.horgan@arm.com> wrote:
+> 
+> On nVHE systems whether or not MPAM is enabled, EL2 continues to use
+> partid-0 for hypercalls, even when the host may have configured its kernel
+> threads to use a different partid. 0 may have been assigned to another
+> task. Copy the EL1 MPAM register to EL2. This ensures hypercalls use the
+> same partid as the kernel thread does on the host.
+> 
+> Tested-by: Gavin Shan <gshan@redhat.com>
+> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Tested-by: Peter Newman <peternewman@google.com>
+> Tested-by: Zeng Heng <zengheng4@huawei.com>
+> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> ---
+> Changes since v2:
+> Use mask
+> Use read_sysreg_el1 to cope with hvhe
+> 
+> Changes since v3:
+> Set MPAM2_EL2.MPAMEN to 1 as we rely on that before and after
+> ---
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 9 +++++++++
+>  1 file changed, 9 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index e7790097db93..80e71eeddc03 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -638,6 +638,15 @@ static void handle_host_hcall(struct kvm_cpu_context *host_ctxt)
+>  	unsigned long hcall_min = 0;
+>  	hcall_t hfn;
+>  
+> +	if (system_supports_mpam()) {
+> +		u64 mask = MPAM1_EL1_PARTID_D | MPAM1_EL1_PARTID_I |
+> +			MPAM1_EL1_PMG_D | MPAM1_EL1_PMG_I;
+> +		u64 val = MPAM2_EL2_MPAMEN | (read_sysreg_el1(SYS_MPAM1) & mask);
+> +
+> +		write_sysreg_s(val, SYS_MPAM2_EL2);
+> +		isb();
+> +	}
+> +
+>  	/*
+>  	 * If pKVM has been initialised then reject any calls to the
+>  	 * early "privileged" hypercalls. Note that we cannot reject
 
-Signed-off-by: Andrew Davis <afd@ti.com>
----
- drivers/watchdog/bcm2835_wdt.c | 28 +++++++++-------------------
- 1 file changed, 9 insertions(+), 19 deletions(-)
+It is extremely debatable whether this is desirable:
 
-diff --git a/drivers/watchdog/bcm2835_wdt.c b/drivers/watchdog/bcm2835_wdt.c
-index 9fcfee63905b9..6fd8b1b8e386a 100644
---- a/drivers/watchdog/bcm2835_wdt.c
-+++ b/drivers/watchdog/bcm2835_wdt.c
-@@ -19,6 +19,7 @@
- #include <linux/platform_device.h>
- #include <linux/of_address.h>
- #include <linux/of_platform.h>
-+#include <linux/reboot.h>
- 
- #define PM_RSTC				0x1c
- #define PM_RSTS				0x20
-@@ -49,8 +50,6 @@ struct bcm2835_wdt {
- 	spinlock_t		lock;
- };
- 
--static struct bcm2835_wdt *bcm2835_power_off_wdt;
--
- static unsigned int heartbeat;
- static bool nowayout = WATCHDOG_NOWAYOUT;
- 
-@@ -150,9 +149,9 @@ static struct watchdog_device bcm2835_wdt_wdd = {
-  * indicate to bootcode.bin not to reboot, then most of the chip will be
-  * powered off.
-  */
--static void bcm2835_power_off(void)
-+static int bcm2835_power_off(struct sys_off_data *data)
- {
--	struct bcm2835_wdt *wdt = bcm2835_power_off_wdt;
-+	struct bcm2835_wdt *wdt = data->cb_data;
- 	u32 val;
- 
- 	/*
-@@ -166,6 +165,8 @@ static void bcm2835_power_off(void)
- 
- 	/* Continue with normal reset mechanism */
- 	__bcm2835_restart(wdt);
-+
-+	return NOTIFY_DONE;
- }
- 
- static int bcm2835_wdt_probe(struct platform_device *pdev)
-@@ -206,28 +207,17 @@ static int bcm2835_wdt_probe(struct platform_device *pdev)
- 	if (err)
- 		return err;
- 
--	if (of_device_is_system_power_controller(pdev->dev.parent->of_node)) {
--		if (!pm_power_off) {
--			pm_power_off = bcm2835_power_off;
--			bcm2835_power_off_wdt = wdt;
--		} else {
--			dev_info(dev, "Poweroff handler already present!\n");
--		}
--	}
-+	if (of_device_is_system_power_controller(pdev->dev.parent->of_node))
-+		devm_register_sys_off_handler(dev, SYS_OFF_MODE_POWER_OFF,
-+					      SYS_OFF_PRIO_DEFAULT,
-+					      bcm2835_power_off, wdt);
- 
- 	dev_info(dev, "Broadcom BCM2835 watchdog timer");
- 	return 0;
- }
- 
--static void bcm2835_wdt_remove(struct platform_device *pdev)
--{
--	if (pm_power_off == bcm2835_power_off)
--		pm_power_off = NULL;
--}
--
- static struct platform_driver bcm2835_wdt_driver = {
- 	.probe		= bcm2835_wdt_probe,
--	.remove		= bcm2835_wdt_remove,
- 	.driver = {
- 		.name =		"bcm2835-wdt",
- 	},
+- pKVM really shouldn't be influenced by what the host does, which
+  means reserving PARTIDs and indirecting what the host sees. This can
+  be deferred until pKVM is actually useful upstream.
+
+- repeatedly hammering that register plus an ISB on the hot path of a
+  hypercall is a sure way to make things worse than they should be,
+  and that should be fixed now.
+
+Do you really expect the EL1 settings to change on a regular basis? If
+so, I'd rather you use a specific host hypercall, or even a trap to
+propagate the EL1 configuration. If not, just set it as part of the
+KVM init and be done with it.
+
+Thanks,
+
+	M.
+
 -- 
-2.39.2
-
+Without deviation from the norm, progress is not possible.
 
