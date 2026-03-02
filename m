@@ -4,65 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A35CE9B37D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 13:47:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A18DE9B37E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 13:47:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6IXUHyRBiquFzrwLQ0jb5B4CVRh2zpu99dVQ0k436Ok=; b=orOn1yNT4V8TKO+XNB3bc1qKzB
-	3ZlO3SGWbP/NBV2VihZ6oXqb4TbXZYYC28DMw05pKmRZkYdHl/oDlZ9xTFKK0XiN2CXdw6R1awxpo
-	BOMbvrNf+VYXU7Ih2Vsr88anrcFUZO64rS/7vERQ+nVCmVz/vznF6RZwvVgd1mVKnX4+YGjpV2I1j
-	PDGtAjEJmY2Wijgx1/lYxEyyfbrAz51YbOugs7HQHseoKVLFTTFYJs+PSBAaoaFwOfe9IDuFGRwNN
-	Dfc23D9xlInqj8ewQHNM8cImrJ3B2S1EFYIFkdNFAsrB/IYSzUp6fWAroCWSF8mOAw0VpyMr+qWh2
-	47jrPQDw==;
+	bh=19etRSJE9t4MqtgRfKOwWBsjZmOQTD0TaU9pT3V0aNA=; b=mPpf3UGIweVu3i2LnrucFD+UtX
+	WV7ymcMV1IIssigeLLoZWtJuMCZ9PkxCAz1N5GGAHxTUb6IigFxjmT/F9nbNe2jMclHnDsTcbEyEr
+	vPAXiSSUozcDN//ODt9PwI+Bikr7+tTSvE9jx99XbSRU9i/l9e+sHBXkGf1pchA3TRS0gBh9Bh7Fh
+	DUK0ZgVEbYxbD+kxg3RXxomwj802r/yPWYWyJlEb60QvxK8oHl57FFjWcU4ni7vT6/II8yee3zGdW
+	hBCC9ByQpo4NTdkaeWWJTllpQjNYwiKIUMmZgyA8Bxn9ul5flUzZl8DxH+9UebSq2SmUfUU3duWpN
+	MlCW3ILw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3cJ-0000000D9P1-0u5v;
-	Mon, 02 Mar 2026 13:47:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vx3cL-0000000D9QG-1WMT;
+	Mon, 02 Mar 2026 13:47:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3cI-0000000D9Og-0eqo
+	id 1vx3cJ-0000000D9Oz-3Ysv
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 02 Mar 2026 13:47:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=19etRSJE9t4MqtgRfKOwWBsjZmOQTD0TaU9pT3V0aNA=; b=GVPhtk74G12CZB6saSlUJuE0E8
+	ej5DJrLHwkH2QcR05JLuvUMLdbsBDCsph9jEGo2C2hJuypoqX6pN3zxuRbwZN7eMq6BsPCQFE4XhN
+	mROmTllPtGN71GtwpIWyk5j1xWYkVGsRa8srsTgcaVKHDgrDHbj5GsnAccxvCp2mMeXP9ZKI3N100
+	Hej59ZlGBbis31BV/qKC88hmQbGicdsu6HLjhqfOJ3s+H2rSeGroOJwd6BvxBiqCoDwSrOJCk0+s0
+	GwaNvOBseL9iXAq24lziB0AUaomRgLPgx92vTo1ayHbFUWzwvlG5br84ignA3Te6RHpwAKYfHHj1Q
+	OAZn+Nhg==;
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vx3cG-00000000Ctm-2YK8
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 02 Mar 2026 13:47:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 97BF160008;
-	Mon,  2 Mar 2026 13:47:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F35D2C19423;
-	Mon,  2 Mar 2026 13:47:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772459241;
-	bh=W5nnZweFf8NNDcW88ZMmJOYPXBTB0NTyBzW2KTU+qlw=;
-	h=From:Date:Subject:To:Cc:From;
-	b=BN9FwMgR9bSG6+naySUYK6iY1nAPDyLVXNpxi9Q5+Qvum2wnCGAZ93hxFSqli2YDe
-	 GZfXKNoLn6JBgAuR05V8drM9y70TQLw6hePImkaAz655J3DDD825nFPfIliZ0I5HGY
-	 ua+UbAIG0uCXwcMPrjemFU4jTAF+VkJ+BLcBsLs/RbDU/dyuV2ipAFHa31p+Nyg7xn
-	 xYfyMkcXW5g+udI3Z0sauzPgdCPpeHmAJuoWBSonqFv8i2lDAFuzHa/T0bniH/cw4c
-	 gZWHl4ktXvxIMUnXyTO+yj1y9FEx0boOZCXtEK7QK/1r7CGh3BkE0EasSQH2ZC6l0U
-	 MNQurDZWGmEDA==
-From: eballetbo@kernel.org
-Date: Mon, 02 Mar 2026 14:47:12 +0100
-Subject: [PATCH] clocksource: move NXP timer selection to
- drivers/clocksource
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2addb31945aso33450585ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 05:47:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772459238; x=1773064038; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=19etRSJE9t4MqtgRfKOwWBsjZmOQTD0TaU9pT3V0aNA=;
+        b=InMErIYncVoG62Ybhhfvp4ISTRK5r0uz5ahWsgZUcZEPzevZWOIzrXE6WDtKZqfFsx
+         GNapj9nMItlg+GBAknGyR13UaCQjrt7E7faBIvMMJ4ZxUPCykaOa1bShyeYxQ+rF7vhB
+         /6Jc2Aq+vey9Hnc2JaNJORL08MB50IrqQVZwUCk+lzHIJEka4x+821OC5x0XV4DnJZdx
+         GRvFU8Ggkpb+BZxQ3Hw0PPSrJrN2/2vA3nrVhbmuyJZQ+PAf9wjJZf0o8xCCeDmlsiKm
+         bPYiaTAOmaNl3IK8ray5RnlKes0v0QVnqDjcKCJKovzMW4U2ccoBBOlvxLNTv862Ndot
+         qLrg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772459238; x=1773064038;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=19etRSJE9t4MqtgRfKOwWBsjZmOQTD0TaU9pT3V0aNA=;
+        b=cKCKaQuTgXHAfsXz8vICQQDXk9PZY1tsBkeK4Wpv1Hg2uLHh+/Y4qI4cDcWTqe91S5
+         dPbNCpu4L7GoY1zELpTXpwstEpi0n7wpYVljGCytuNoCGphHKjjT/RxMTHorwYIeg78m
+         JTQIFzm+QdjbkHrYwWxbTny82fwPtMe9po6kwk+J5fNQxxgguxZd7zAAzRtntiVcjzy4
+         pJqPDMkdTDYXO7x6t1tlUxsO7kLW58MowSqmc3Zhc9nRwFARnoOBo+8zPzgPQdogV/2s
+         iVUAvs9fce2uIQ0F84FghIGpbvVt7wMk4hLEXQ/dDutyw6fJj+iTczTVU3FuXI3aoEuU
+         VHRQ==
+X-Gm-Message-State: AOJu0YwgkMeYUpe4Ovd2RKNec2uuEceIGuqs+UQupofBrQWr3XQRWC0D
+	54H6/+Fktpqg7ekLqghoG3EI5hVMQCEzxWS40bFuUc3CKzpzuxdKdAS5
+X-Gm-Gg: ATEYQzzz2PxyHCZCa2iIHLMqULAIIFcpE5am3pXuyTRQDjYMgYFSTdAbLu+tfKzdEwZ
+	8qLxjBiunFAMZuGBJEMTdbgvdm3ILrKK6IaX/Cw2uLBOiTYblu+3roaNeIkn9BKF0nluqaC5f0W
+	RnXxgCyikSoE8ds1lyCDa83zDVZcqKzbsGg6gIM47ZWQWe20wo1wEgLw5fEXitLukupbfuemOE5
+	Zfg9b4M1g8BeNwNjKgz3JTN4Jg84EjGB3eVCMv86rM81iO0sHJZy3MRAXH3EYg3J13E93V3eF+6
+	ZL45gdlUls8eKNu2FmRog8dVJNwuRVSVQ3mUfvN4pg+lFI58twf2bhqTloSVQoRpu/hfVVCDzZ9
+	lH3q5djhSbPF1/jrecCsYwJp7G2vUADr6BgG/tjNgYrvnLVSI67J0OImsufoEbwo6+XHpQPtzI8
+	5SoeQux3Ai29aHBX1TG4X7MuBkF3BeT/kcSJaE
+X-Received: by 2002:a17:902:e550:b0:2aa:d287:693d with SMTP id d9443c01a7336-2ae2e402022mr117574295ad.20.1772459237982;
+        Mon, 02 Mar 2026 05:47:17 -0800 (PST)
+Received: from junjungu-PC.localdomain ([2408:820c:9009:3f2:4c92:fc5c:54e5:712e])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae4e571b90sm37553965ad.62.2026.03.02.05.47.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Mar 2026 05:47:17 -0800 (PST)
+From: Felix Gu <ustc.gu@gmail.com>
+Date: Mon, 02 Mar 2026 21:47:12 +0800
+Subject: [PATCH v2] mmc: sdhci-of-bst: Fix memory leak in
+ sdhci_bst_alloc_bounce_buffer()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260302-fix-nxp-timer-v1-1-af4bc62d4ffa@redhat.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MQQqAIBAAvyJ7bkENivpKdEhdaw9ZaIQg/j3pO
- DAzBRJFpgSzKBDp5cRXaKA6AfbYwk7IrjFoqQfZS42eM4Z848MnRZysUd64cfPWQWvuSE34f8t
- a6wf2bI0pXwAAAA==
-X-Change-ID: 20260302-fix-nxp-timer-9cb1fbd7afcd
-To: Russell King <linux@armlinux.org.uk>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Enric Balletbo i Serra <eballetb@redhat.com>
-X-Mailer: b4 0.14.2
+Message-Id: <20260302-bst-v2-1-c7bfbed68d10@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAN+UpWkC/1WMywqDMBBFf0Vm3ZQ8IMGu+h/FhUmmOlBNyUiwS
+ P69qbsuz+WecwBjJmS4dQdkLMSU1gb60kGYx3VCQbExaKmtNFIJz5tw1nsXbHS9UdCe74xP2s/
+ KY2g8E28pf85oUb/13y9KKBGjD1pjMBj7+7SM9LqGtMBQa/0CSp/Zc5YAAAA=
+X-Change-ID: 20260301-bst-76bb7c6d7931
+To: Adrian Hunter <adrian.hunter@intel.com>, Ge Gordon <gordon.ge@bst.ai>, 
+ BST Linux Kernel Upstream Group <bst-upstream@bstai.top>, 
+ Ulf Hansson <ulf.hansson@linaro.org>, 
+ Albert Yang <yangzh0906@thundersoft.com>, Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mmc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Felix Gu <ustc.gu@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772459234; l=1415;
+ i=ustc.gu@gmail.com; h=from:subject:message-id;
+ bh=xCJrwcDDyo8LLH18A68PDQVaRjBZZCLL4CceXSPjnU4=;
+ b=0DCQ9xxPJewQ/HpTkeeyfaNTm8Jm/WD7oQHkoQgp71kyn27fZMrrkq0Hz3P8CN4TuwKvRyLY2
+ llzB6hbF953D69a6QL+fnDpluz9AFWpdUnI1NVDVlFYcTMwFNtxh5S6
+X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
+ pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260302_134720_788306_8ACE8AC5 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,108 +125,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Enric Balletbo i Serra <eballetb@redhat.com>
+In sdhci_bst_alloc_bounce_buffer(), if dma_alloc_coherent() fails, the
+function immediately returns -ENOMEM without releasing the reserved
+memory, which results in a memory leak.
 
-The Kconfig logic for selecting the scheduler clocksource on
-NXP Vybrid (VF610) uses a `choice` block restricted to 32-bit ARM. This
-prevents 64-bit architectures, such as the NXP S32 family, from enabling
-the NXP Periodic Interrupt Timer (PIT) driver (CONFIG_NXP_PIT_TIMER).
+Add the missing of_reserved_mem_device_release() call before returning
+-ENOMEM to properly clean up the reserved memory.
 
-Relocate the NXP clocksource selection from arch/arm/mach-imx/Kconfig to
-drivers/clocksource/Kconfig. This allows the configuration to be shared
-across different architectures.
-
-Update the selection to include support for ARCH_S32 and add a "None"
-option to allow using the standard ARM Architected Timer. The Vybrid
-Global Timer option is now specifically restricted to 32-bit ARM SOC_VF610
-platforms.
-
-Fixes: bee33f22d7c3 ("clocksource/drivers/nxp-pit: Add NXP Automotive s32g2 / s32g3 support")
-Signed-off-by: Enric Balletbo i Serra <eballetb@redhat.com>
+Fixes: 695824f45629 ("mmc: sdhci: add Black Sesame Technologies BST C1200 controller driver")
+Signed-off-by: Felix Gu <ustc.gu@gmail.com>
 ---
- arch/arm/mach-imx/Kconfig   | 21 ---------------------
- drivers/clocksource/Kconfig | 31 +++++++++++++++++++++++++++++++
- 2 files changed, 31 insertions(+), 21 deletions(-)
+Changes in v2:
+- Fix Adrian's comment.
+- Link to v1: https://lore.kernel.org/r/20260301-bst-v1-1-ddbc22ec3ed9@gmail.com
+---
+ drivers/mmc/host/sdhci-of-bst.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm/mach-imx/Kconfig b/arch/arm/mach-imx/Kconfig
-index 6ea1bd55acf8de30ce300f906924a12c27baa169..a361840d7a047863af85205161aa5bd30f335ab2 100644
---- a/arch/arm/mach-imx/Kconfig
-+++ b/arch/arm/mach-imx/Kconfig
-@@ -227,27 +227,6 @@ config SOC_VF610
- 	help
- 	  This enables support for Freescale Vybrid VF610 processor.
+diff --git a/drivers/mmc/host/sdhci-of-bst.c b/drivers/mmc/host/sdhci-of-bst.c
+index c124990a64f4..f8d3df715e1a 100644
+--- a/drivers/mmc/host/sdhci-of-bst.c
++++ b/drivers/mmc/host/sdhci-of-bst.c
+@@ -425,8 +425,10 @@ static int sdhci_bst_alloc_bounce_buffer(struct sdhci_host *host)
  
--choice
--	prompt "Clocksource for scheduler clock"
--	depends on SOC_VF610
--	default VF_USE_ARM_GLOBAL_TIMER
--
--	config VF_USE_ARM_GLOBAL_TIMER
--		bool "Use ARM Global Timer"
--		depends on ARCH_MULTI_V7
--		select ARM_GLOBAL_TIMER
--		select CLKSRC_ARM_GLOBAL_TIMER_SCHED_CLOCK
--		help
--		  Use the ARM Global Timer as clocksource
--
--	config VF_USE_PIT_TIMER
--		bool "Use PIT timer"
--		select NXP_PIT_TIMER
--		help
--		  Use SoC Periodic Interrupt Timer (PIT) as clocksource
--
--endchoice
--
- endif
+ 	host->bounce_buffer = dma_alloc_coherent(mmc_dev(mmc), bounce_size,
+ 						 &host->bounce_addr, GFP_KERNEL);
+-	if (!host->bounce_buffer)
++	if (!host->bounce_buffer) {
++		of_reserved_mem_device_release(mmc_dev(mmc));
+ 		return -ENOMEM;
++	}
  
- endif
-diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
-index fd9112706545425ad54a84b0c992cf09795c26c4..b5c88ec658025803aa42a034c3f3ce04ab13f7ac 100644
---- a/drivers/clocksource/Kconfig
-+++ b/drivers/clocksource/Kconfig
-@@ -794,4 +794,35 @@ config RTK_SYSTIMER
- 	  this option only when building for a Realtek platform or for compilation
- 	  testing.
+ 	host->bounce_buffer_size = bounce_size;
  
-+choice
-+	prompt "NXP clocksource for scheduler clock"
-+	depends on SOC_VF610 || ARCH_S32
-+	# Default to Global Timer for Vybrid (32-bit)
-+	default VF_USE_ARM_GLOBAL_TIMER if SOC_VF610
-+	# Default to None for S32 (64-bit)
-+	default VF_TIMER_NONE if ARCH_S32
-+
-+	config VF_USE_ARM_GLOBAL_TIMER
-+		bool "Use NXP Vybrid Global Timer"
-+		# This option is ONLY visible if we are on 32-bit ARM
-+		depends on ARM && SOC_VF610
-+		select ARM_GLOBAL_TIMER
-+		select CLKSRC_ARM_GLOBAL_TIMER_SCHED_CLOCK
-+		help
-+		  Use the NXP Vybrid Global Timer as clocksource.
-+
-+	config VF_USE_PIT_TIMER
-+		bool "Use NXP PIT timer"
-+		select NXP_PIT_TIMER
-+		help
-+		  Use NXP Periodic Interrupt Timer (PIT) as clocksource.
-+
-+	config VF_TIMER_NONE
-+		bool "None (Use standard Arch Timer)"
-+		help
-+		  Do not use any specific NXP timer driver. Use the standard
-+		  ARM Architected Timer instead.
-+
-+endchoice
-+
- endmenu
 
 ---
-base-commit: 11439c4635edd669ae435eec308f4ab8a0804808
-change-id: 20260302-fix-nxp-timer-9cb1fbd7afcd
+base-commit: 3fa5e5702a82d259897bd7e209469bc06368bf31
+change-id: 20260301-bst-76bb7c6d7931
 
 Best regards,
 -- 
-Enric Balletbo i Serra <eballetb@redhat.com>
+Felix Gu <ustc.gu@gmail.com>
 
 
