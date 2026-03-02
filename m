@@ -4,106 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AAAFE9B37D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 13:15:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9C1FE9B37D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 13:25:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BdCPnffZML7kxbwJKrhPE0nWT3T0abqC8IY8tAq2JzI=; b=IRW70BS3rsSCR7Q81wrTrx9yAR
-	M0SIWvX+jOdAI2bTyo/DIpUXJ5bkdz7358a3pFMrHd7rIV2vK5CpQJX7LKSzPhWMZACwTaYhfyXAb
-	NPfRJIdS6vTVJK5G4ZSTu34NNHyM6pe7mRydm8Is8ZRk25aA2vtD3R0HjDdWou2NsczCGamJ0adlb
-	G+Tifa6FS6wMB6WDD4IO5yTp7RGwbhQqIPYJ1igtqiHvJRFCLM1BIi9z6Hja9e7YB4GD1EUc8VpY8
-	uMox6zeIU0WQI1voX2WBhlm1dgcj+IuXV6OrDzLAbS50rsQPYooMT5+22mpXTekt/Z3jCwv0VbC06
-	Gq6Itzlw==;
+	bh=u/KgeLtXmZOUh5kr82wm/EePACuyTgS6gfBGBNvywTM=; b=yJnSW2HB7EMdmUDAlDIE3nsy5y
+	3YWQOvKp2/48KCo8RFrXLXAkKs34Ah65AlHAuRQ0vPQvxU3lD7VjzY56xh64gSCi43zcP85MIHQ28
+	jgAFVJo0lP2SP5PbOIj9xEj1tTOIuDDFD4MpiQYGOd0Q8EDx7lRjqGdTSHbd4Ezfcq3Iyhhvr8NN3
+	4solmma5HaAFGy8+s+E10F6cY8OcD1KXFBZW7TGg6PWxz3trhf8K/SmrSVWKEg3YFY7YCr+VyKzsR
+	jZOSQIr+AtZwLg7i1Fa/78uDHb11A2HLsEsiXk3tPPhkHjGZiBqQqE8IzJbnBGakMAELuIsPijsXG
+	W9GiXTog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx36v-0000000D50B-1MSb;
-	Mon, 02 Mar 2026 13:14:57 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+	id 1vx3Gu-0000000D5hx-2yUr;
+	Mon, 02 Mar 2026 13:25:16 +0000
+Received: from mail-ua1-f44.google.com ([209.85.222.44])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx36s-0000000D4zX-2piF
+	id 1vx3Gs-0000000D5hX-2IFC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 13:14:55 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-5069a785ed2so908071cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 05:14:54 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772457293; cv=none;
-        d=google.com; s=arc-20240605;
-        b=LYluXiqYe86z6MgNjsgCc+Po1T2MHk+B3XZsCg0u7fn9dUvtQlodMISZ98aOXw2Sfl
-         OjuslqVS4xHyVPTNXDH2WO/Os50QkB77LLWU1nwnWr3WqH2uersjYSj+DSJnCPXDVmOT
-         QOrkXUiswN57lSJP2wMtOvrl8i9b3ssCuSIlCruosxAk8UnmUIoOJWi+8RwJNFsEsJfL
-         lmiTahhPR1Y72/IPUc9pdyRASaC4hBB9AIFnrwI73WAh8MUWzbBZW6GzS2fY8xL/8zDI
-         GgXY6FWwLJXxbKbLS66EM+gosMo0mX1elraSagCrWHHzTz380T04KKuXnVIHRBGiTNZU
-         qHwA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=BdCPnffZML7kxbwJKrhPE0nWT3T0abqC8IY8tAq2JzI=;
-        fh=VFXcUrr3kGurp0SuF0YJGl5pPwUAd9HYetUbgSB3cYw=;
-        b=jfKDOoc79l6nZJNd9sh2fRCiFgJhMkuxyF+gL2hwXXWzgymg0BLF8DKPhuIGmLeEpP
-         7hynPo0hjJYhZf+S3LwVvyPyIv3Og2aiy7a6CXfBRZvMeIN5tW+BlXmzLSsZzkax0JFh
-         rFRUxfkC0/UmTDBnx5R9/sQKtznqassXsXdM2d+6vWBhg7c5bLjsXydTNeIKf9/RzcLx
-         3jzVOHluS7E4smKsApScDnUkU6pOooaYjwo5X/cTvSbbg+R9Ogd+j6OkfmMKX/rFDo9S
-         /5ZJgbfp8HWcKwOMTuWudiPgd8yCvrs9wV0Zrp/KT5lAZm+yZe0+wJYN1JKKlv5p8nia
-         ouEw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1772457293; x=1773062093; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=BdCPnffZML7kxbwJKrhPE0nWT3T0abqC8IY8tAq2JzI=;
-        b=M/+TsPrjuKCM8A6SGxT4AyB8dCbY+v7jc2sI4SUT+S0y6KjTCJrUwuct2qQIOZrKLG
-         wPccKAFLKtr4T997MdvUXF01+5DJSMeyOpCZBsE0pBuzMrta1gmI0DhBHgXHUAjdmxV8
-         Yj8HLuxZs6Cq1pbOLAWhzuTAutC0IoBbEreOeAamjSePKG70f556ezAFoL9VboQA2LvY
-         PplFLBGXEynzflvk+3L0IoMV0jW/3N1fGBaT7nZ4BZOxa/TjIGMSG01sacWf3ahBZ8N1
-         i5rRY10l+aJqyCjmLqtkH7NrlOz9FEP6ztB4fCMDKHDZmc1BqVpNIgdbqH3sw/iAK1t9
-         AmWA==
+	Mon, 02 Mar 2026 13:25:15 +0000
+Received: by mail-ua1-f44.google.com with SMTP id a1e0cc1a2514c-94dd0f3c4b7so2801890241.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 05:25:14 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772457293; x=1773062093;
+        d=1e100.net; s=20230601; t=1772457913; x=1773062713;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=BdCPnffZML7kxbwJKrhPE0nWT3T0abqC8IY8tAq2JzI=;
-        b=sK+t6cE2h2aqPcj47A+PNTf09HKbA3REH5nGEZpGUIEEik6jotKswipNZSCFqCKeqD
-         +ZjEYkPBYKRJEysZ2tQtxABrf6+ChgSFsuSptGVUSn79F/WImO7c1NYd5HycF8yRqkbs
-         s4ae9edoshSsgyFnmj5dOpNQ6PnfewZO9hwcyqucc5Ebe7v+BBoT5Hbe6268yenLCRH1
-         uxOV8gUp7BoBYUJQOLE+4m3ENkp1DutrDPKBKBLnfJeH61xRZI4YS5+QALjxA0m4i0rV
-         XnJmU/KOdJJnXt5S7dchvuyQeycAZ2j28/u8eewkDiBcUdE/O+S6brEHIsVrE7cgVS4B
-         Ck2g==
-X-Gm-Message-State: AOJu0YyB+iCxFA0/04RXlnhvOq3Utaw+UOls1Qi/08s5D0S3TsuegWTR
-	Im7bxznxYlIIc/uwQZXFkCZ0w5hJOaxJLiBHi247ygWRg31nMsD5N/ieHZecX8C1BrLATBJfyn6
-	IXpI2qJnbfU3DF6NtTBU5FdQta8ipABaX/50EHrRN
-X-Gm-Gg: ATEYQzwwqflQRKJeb7qW/YqIqHHrNU8EJzryr0dBH08tzdZ+auTs0WwlaDT3WnGXLL0
-	omYKhebPIkFobkpnScrBWrMiOqNflS2JSD1DZXb/CPBrtx2puOI8PPsN81/r6w9+XoayDKKRJwM
-	qfxkX4y9WQnpdoGJjDwjcyilnz5Keyj4KqV8tkg0+7td5wjwQ+xvehA1osMy9664b845TWXRsGK
-	zBMqSQ0j0jarn5ppQ6jaaFh54iD+VWRxUTFno5DcE92AyCYYSGJUZxXVWaBjPkaUuC4Af34ago9
-	PIh7anRJ
-X-Received: by 2002:ac8:7d06:0:b0:503:2e98:7842 with SMTP id
- d75a77b69052e-5075fd22f86mr20835191cf.4.1772457292926; Mon, 02 Mar 2026
- 05:14:52 -0800 (PST)
+        bh=u/KgeLtXmZOUh5kr82wm/EePACuyTgS6gfBGBNvywTM=;
+        b=FiE8q50uZ2eYm8REXbKtweZrkUe63jXqVfKVhFIgFUoxh8lRxBcoZPTwg8Pff5/wFj
+         Mn4DQgMvjn0k32r3nhUsfZ8RxJDexNPYpg+xN0SqXYd9cK33uH2ZWRtaImhuj0SXuPQD
+         Fog09Ix6ByvuY8/WuWDkFvWygZrUG/fOuZt7IKansX5wYV0kV93BOLtZUL9Oqw2Vdam3
+         OdnaU4URB9WIb+WKp7H3ItBbsJpNCqBtj7DhXXsyRjszVpSHH6XoYE7MrVrk0TrFyh8z
+         RakTBeFWSZ4ulLuXAEI3GuuiDEWTkorq+ahUOIeFuruvUXp0ccMvnRaVXu+5NJvYG1ty
+         GTZQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV5BMHC7koddomiLWxMycvZ3xIyhMLpPh9M5ydhNObhVuMxNYe/BYrExwmFhoXF7AuBV9zSht/Aakx8NPtKu/aV@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmgEW+NimZJcyPFZohLIO8gz9Sj/ndjxqQZCQu4Cr97/vLNFjX
+	BKUlDK+18y+uEiAhtqZoI2Pcenpj1Oiu4MyIq+UO/JAyZwX9tjFt+1C/Jik7oN3w
+X-Gm-Gg: ATEYQzx3Vr55Bw5IttIFhNM42xT+LGv2ydxe0Askagz/RJFaTTOUr/I8hQXKoEdzsMB
+	WUq+PbXMXXqOc0GdZGbF49Uj8yZ942D8iGB2bez8B9rBFk12jOfvwOwXzS4Ury8KJFGy3KGC0ZN
+	bgahAoJRKLJvvp85MnTwxJaxfLkYUHmH7JRUbJWh0KNZWr/21oAkiT+F66D4VNHFvrmbE87y/aw
+	eORTVAyThSzzlpcdXH1s6A2rMLF9JkkGHdkZfOTd43d0rNrn7enmpZe9n6xVJZZvntMxbshc7nA
+	wfKVWPe4qEBgwHg2kg3W8dugiyhvci7M5DNiXMgg5Jl5gA3y3Li4SKYG8didxb1T7plLjCnvryn
+	OH+Vvl6Mu07e4ZrdJP1nvM95G3TUCoI9pUPaM/oGrXyLj9hyIFyBtrWUf+fS78O5u8pmOsQ4kf5
+	KkDC1O7tKnKCrKXAyQ3S5/WTEcRiRfVv7UOJGxHj2Xh6DvrqL7/fprDfCouD1/
+X-Received: by 2002:a05:6102:a4c:b0:5fd:f944:6511 with SMTP id ada2fe7eead31-5ff32396d39mr5603551137.17.1772457913008;
+        Mon, 02 Mar 2026 05:25:13 -0800 (PST)
+Received: from mail-vs1-f45.google.com (mail-vs1-f45.google.com. [209.85.217.45])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-94df61672ddsm12078651241.0.2026.03.02.05.25.12
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 02 Mar 2026 05:25:12 -0800 (PST)
+Received: by mail-vs1-f45.google.com with SMTP id ada2fe7eead31-5ff07cb35efso2953240137.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 05:25:12 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCX27HQHwBrCXjK18HgAn5U3RpL84makDX0l14dU1bn5RHW5lyHStKcQx1Awl753hrQPp6VzGp5OzTeskvhGvr2D@lists.infradead.org
+X-Received: by 2002:a05:6102:304c:b0:5ff:1d94:b746 with SMTP id
+ ada2fe7eead31-5ff32519f2emr6218672137.27.1772457912000; Mon, 02 Mar 2026
+ 05:25:12 -0800 (PST)
 MIME-Version: 1.0
-References: <20260302115653.1517326-1-maz@kernel.org> <20260302115653.1517326-2-maz@kernel.org>
- <CA+EHjTwYhdjfmZxyW4yjfOaokNdVGkHB1h6Qb9O-4D_3f1a-Jw@mail.gmail.com>
-In-Reply-To: <CA+EHjTwYhdjfmZxyW4yjfOaokNdVGkHB1h6Qb9O-4D_3f1a-Jw@mail.gmail.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Mon, 2 Mar 2026 13:14:15 +0000
-X-Gm-Features: AaiRm52zbAJaUiKA2h0ehijliBClOvA-7sxDw9s8hswO4KclN4NGMGHaGZeuTPY
-Message-ID: <CA+EHjTw+zpNyAnsJsxFYxH5RiH2f_jNR0E_Zz5hnegzfy9Mh-g@mail.gmail.com>
-Subject: Re: [PATCH v2 01/11] arm64: Skip update of an idreg field affected by
- an override
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>
+References: <20260227153225.2778358-1-cristian.marussi@arm.com>
+In-Reply-To: <20260227153225.2778358-1-cristian.marussi@arm.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 2 Mar 2026 14:25:00 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdW9dtAnT2E103kp1zK=LJrER7k1ib8_WPk5aorPRw80uQ@mail.gmail.com>
+X-Gm-Features: AaiRm50Tkxhc-oCHlHPyabn9QxR4wbHw_RTC9z1g5dQZe_w9JY9CV7dca6PXC-4
+Message-ID: <CAMuHMdW9dtAnT2E103kp1zK=LJrER7k1ib8_WPk5aorPRw80uQ@mail.gmail.com>
+Subject: Re: [PATCH 00/11] SCMI Clock rates discovery rework
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, sudeep.holla@arm.com, 
+	philip.radford@arm.com, james.quinlan@broadcom.com, f.fainelli@gmail.com, 
+	vincent.guittot@linaro.org, etienne.carriere@foss.st.com, 
+	peng.fan@oss.nxp.com, michal.simek@amd.com, dan.carpenter@linaro.org, 
+	kuninori.morimoto.gx@renesas.com, marek.vasut+renesas@gmail.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_051454_741085_E85D90EC 
-X-CRM114-Status: GOOD (  22.17  )
+X-CRM114-CacheID: sfid-20260302_052514_596606_6355D415 
+X-CRM114-Status: GOOD (  29.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,59 +99,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2 Mar 2026 at 13:05, Fuad Tabba <tabba@google.com> wrote:
->
-> Hi Marc,
->
-> On Mon, 2 Mar 2026 at 11:57, Marc Zyngier <maz@kernel.org> wrote:
-> >
-> > When computing the new value od an idreg that contains a field
->
-> nit: od->of
->
-> > affected by an override, do not update that particular field.
-> >
-> > The value computed at init-time must be kept as-is, as that's
-> > what the user has asked for, for better or worse.
-> >
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+Hi Cristian,
 
-Another nit, should you add a fixes tag, since this flaw is tired to
-the original override facility? i.e.,
-8f266a5d878a ("arm64: cpufeature: Add global feature override facility").
+Thanks for your series!
 
-> Reviewed-by: Fuad Tabba <tabba@google.com>
-
-Thanks,
-/fuad
-
-> Cheers,
-> /fuad
+On Fri, 27 Feb 2026 at 16:33, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> it was a known limitation, in the SCMI Clock protocol support, the lack of
+> dynamic allocation around per-clock rates discovery: fixed size statically
+> per-clock rates arrays did not scale and was increasingly a waste of memory
+> (see [1]).
 >
+> This series aim at solving this in successive steps:
 >
-> > ---
-> >  arch/arm64/kernel/cpufeature.c | 7 +++++++
-> >  1 file changed, 7 insertions(+)
-> >
-> > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> > index c31f8e17732a3..28fc77443ccd3 100644
-> > --- a/arch/arm64/kernel/cpufeature.c
-> > +++ b/arch/arm64/kernel/cpufeature.c
-> > @@ -1224,6 +1224,13 @@ static void update_cpu_ftr_reg(struct arm64_ftr_reg *reg, u64 new)
-> >                 s64 ftr_cur = arm64_ftr_value(ftrp, reg->sys_val);
-> >                 s64 ftr_new = arm64_ftr_value(ftrp, new);
-> >
-> > +               /*
-> > +                * Don't alter the initial value that has been forced
-> > +                * by an override.
-> > +                */
-> > +               if ((reg->override->mask & arm64_ftr_mask(ftrp)) == arm64_ftr_mask(ftrp))
-> > +                       continue;
-> > +
-> >                 if (ftr_cur == ftr_new)
-> >                         continue;
-> >                 /* Find a safe value */
-> > --
-> > 2.47.3
-> >
+>  - simplify and reduce to the minimum possible the rates data info exposed
+>    to the SCMI driver by scmi_clock_info
+>  - move away from static fixed allocation of per-clock rates arrays in
+>    favour of a completely dynamic runtime allocation: just allocate what
+>    is needed based on the effectively discovered
+>
+> This is done in patches 1-6.
+>
+> A further bigger optimization suggested in a past series [1] by Etienne
+
+s/[1]/[2]/
+
+> would be, whenever allowed by the spec, to limit upfront the number of
+> queries in order to simply retrieve min and max rate, that are indeed the
+> only rates needed by the CLK SCMI driver.
+>
+> The approach proposed in [1] was open coding and duplicating some of the
+
+What does [1] refer to?
+
+> functionalities already provided by SCMI iterators, though.
+>
+> Patch 7-10 implement such optimization instead by:
+>
+>  - reworking core SCMI iterators to support bound enumerations
+>  - use such new bound iterators to perform the minimum number of queries
+>    in order to ony retrieve min an max rate
+>
+> As a final result now the rates enumeration triggered by the CLK SCMI
+> driver, while still allocating for all the existent rates, miminize the
+> number of SCMI CLK_DESCRIBE_RATE messages needed to obtain min and max.
+>
+> Finally, patch 11 introduces a new clock protocol operation to be able to
+> trigger anytime on demand a full enumeration and obtain the full list of
+> rates when needed, not only min/max: this latter method is really only used
+> currently by some dowstream SCMI Test driver of mine.
+>
+> Based on v7.0-rc1.
+>
+> Tested on JUNO and an emulated environment.
+
+Thank you, this removes the need for increasing SCMI_MAX_NUM_RATES on
+R-Car X5H, while decreasing memory usage.
+Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
+
+> [1]: https://lore.kernel.org/arm-scmi/aZsX-oplR6fiLBBN@pluto/T/#t
+> [2]: https://lore.kernel.org/20241203173908.3148794-2-etienne.carriere@foss.st.com
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
