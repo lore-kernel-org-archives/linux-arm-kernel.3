@@ -4,97 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16D8CE9B35B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 10:43:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4433E9B35E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 10:44:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9o7xK2KLyVLPeKdnPq73iKRcvJgeK10gXor6T1iRFhg=; b=mT99Pd8iMUZk8iwPOVyj0IB/v2
-	aHx89xicHXvNVZHCPLnCyDzb7duOJ66L4Z0MkYbMYOsYRTX/SmDv8eSSFP+9+aQRgGGVZx4/yNLbJ
-	nA+JzuFWmNcuMyUgMYO6QmL2C0T+irWi0DwbQiL+QcyRd1VbwsoNGBmW0DCxn4jgZYxwKye4YI8Tk
-	hFUSS3+xMjQD2/jHOQ7I//ynftLgukLDeKGRzqmH1Ch8UD1pV5SrOtT2Rog3x4lbFtcFW5tqFiw0Z
-	9ie+9iEP1T2fkdfEsHMkiYSbjwqKDwtyj+onsg6DtWIfzsDS/F5pvKUcqVcAkPXZv9/ksOhN9zv3W
-	H1vkssMg==;
+	bh=n0zLKLtB5A7zru2ahcIUFI/0NS64SB8AC7f0H7kN8aQ=; b=1CnsTa/7d1j3S5XrZtcXmK0mDU
+	dgdtuDU/KZybjZBRsuLki3FhsgG8b41R3uMYFdY8Y5/fqhlAOC3DzGBAboWTmCe9G8C1xtWlCPRl3
+	FUHWX+9/U0f+oB/L/JTPkrjqI62rMBUTKtquvF84m+vlat3MzJ3mwg3FDcPrrXrleyiOKOJtvwhxd
+	ZTSAQNYrj9HOJfpwx6eGgquBUfsiyC3as4mirqFOsgXZU7pa0HAmBrCQ+54ESp1vP82cNmGewzcOo
+	l4IegfE4RfTtdo13RT3feeygAKZ28jWcHqa4CLSmPFcf4uuHDwIee0qwOuZaAtktkYuyCB86B5E2h
+	g9ny8mQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx0k9-0000000CjIj-2476;
-	Mon, 02 Mar 2026 10:43:17 +0000
-Received: from mx-relay91-hz1.antispameurope.com ([94.100.132.91])
+	id 1vx0km-0000000CjNt-0wmk;
+	Mon, 02 Mar 2026 10:43:56 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx0k4-0000000CjIH-2gdL
+	id 1vx0kk-0000000CjNP-1O39
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 10:43:15 +0000
-ARC-Authentication-Results: i=1; mx-gate91-hz1.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com
- smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
- header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=9o7xK2KLyVLPeKdnPq73iKRcvJgeK10gXor6T1iRFhg=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1772448183;
- b=bsuRoa/Yu7ZVTPFLWjjQcVaYmjdySEBzy0QXsDZH2RdsNOBgzsmp97/8l6opuR7Mpx7XLocp
- qRJZ+9dJbwb0S2G9JUO/wV2xHQ3DCjS1tCXaAl6ysXxX2pZORw1903AJOiBGGuZkALmr/IEPKIy
- 0F0YD1DoBBRJJVZEtazfsri9rKHn0AdTEa34huGZJwm5MAS6yBu6N4cUBnynRxXk/nKornZ4gp6
- s4hZotwLFOQ6LaYOHigCr9ZKAbuhpNvF13W5tMyonUZTvv/yjW/xnP3PBLdsWVMoF9UAjc8+BdZ
- zNdzJ5sDhCuTnEzNGSZ5LF5zSJ4ZnPjRgML6vJfRj/W5Q==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1772448183;
- b=MXc5WAW11CeTB9yvTvpYqjZ3mzoOtnDI720Qm3kBhiN4JsfXDxu+xVwxodTTczAbcffo1GTR
- ACJ4r4IMVv3nvg0yGNkJ3d6rTSgWenRU/so7MQwJ73Ncq61/HCW6bQfv8Q5ExOXFz4ST3CUW6rV
- +xyE6tIJTi4SkbMIWNRiaynJZHF6C7FOV58YUD4I/mG1zkV21cTeS8ORNPhtj0ACKe6cWKsjWG9
- k9DgerqjhQfMeqlPENUCwKC5ZUHebPiK0AvARz7KVQUajlMcjkVT7+5fZRkMCrnmngWoEOXzPep
- 5zefq8C5KSrSlLmcE6f5tyUMs/P0W3oXvv3oUG9ZM6Q8g==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay91-hz1.antispameurope.com;
- Mon, 02 Mar 2026 11:43:03 +0100
-Received: from steina-w.localnet (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id D99EACC0CCA;
-	Mon,  2 Mar 2026 11:42:49 +0100 (CET)
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Nora Schiffer <nora.schiffer@ew.tq-group.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, linux@ew.tq-group.com, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Nora Schiffer <nora.schiffer@ew.tq-group.com>
-Subject: Re: [PATCH v2] arm64: dts: freescale: imx8mp-tqma8mpql-mba8mp-ras314: fix
- UART1 RTS/CTS muxing
-Date: Mon, 02 Mar 2026 11:42:49 +0100
-Message-ID: <5083150.31r3eYUQgx@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20260302084548.6471-1-nora.schiffer@ew.tq-group.com>
-References: <20260302084548.6471-1-nora.schiffer@ew.tq-group.com>
+	Mon, 02 Mar 2026 10:43:55 +0000
+Date: Mon, 2 Mar 2026 11:43:51 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1772448232;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=n0zLKLtB5A7zru2ahcIUFI/0NS64SB8AC7f0H7kN8aQ=;
+	b=POieAP56h6+EUimzNHr1QIXuhdRMFHnsWSD9O7dhECwq6nKFsDhzAzUpqHBqjz8t0ziLVj
+	ye3qvNWHsYvVxYLD4xcKeUad1ZCDGNMuaeprWloJyzSTLkelFvaDN560AhA/6wFapZyy4H
+	0P+v5rt8EDBgikY4QdAmh0K35fOJu27mh+DwoblNtsSaAQVyX0gej07v2PkIlM1nDbXMze
+	qrnQLkJCiUPfZO59LYc2Mgg4WLa3G8Z/gqiWv3d1USbieAXLciHwTYm9HWBQF2JlUJCGHo
+	T6Xx/e0zdHEdu6a7oc56sURg7cQsbmWuMy87ullACwz2E2YyMdq28Y7mdFEKCg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1772448232;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=n0zLKLtB5A7zru2ahcIUFI/0NS64SB8AC7f0H7kN8aQ=;
+	b=EZUWSgnMd/Mkt//b0cYqq7JbPWZYKwsKHKmTMXm8JVUnVvnTUAX/Q8/2b+2S+vYyoBK8It
+	OhAsdi09nhhhXnAw==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Clark Williams <clrkwllms@kernel.org>,
+	linux-rt-devel@lists.linux.dev,
+	Steven Rostedt <rostedt@goodmis.org>
+Subject: Re: [PATCH 2/6] ARM: move vmalloc() lazy-page table population
+Message-ID: <20260302104351.yyWvNCTb@linutronix.de>
+References: <aaG1wrNUaq_L0I5g@shell.armlinux.org.uk>
+ <E1vvzcX-0000000Awo0-2KBN@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-cloud-security-sender: alexander.stein@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay91-hz1.antispameurope.com with 4fPb9l44JYzMpHt
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security: scantime:1.592
-DKIM-Signature: a=rsa-sha256;
- bh=9o7xK2KLyVLPeKdnPq73iKRcvJgeK10gXor6T1iRFhg=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1772448182; v=1;
- b=TWMN0ZY9kf07Oa0KY0tr8ER9BerDm3c10q0m+u3gJKFfFXx1J10SCC/NnqK3fnI6MP50H79x
- LnrU4SqdGmthLEEQnoBcARftVMe6wGaIv4uAqHIm9TImdxF0JUOvKOLxzRSrtzysDD/xZ3T0oWG
- Lo8KZpHsNd3zKKqsFS3LePjRH1M+RoBjhfD6QLYF+mwisH30tnHo0vkHndLohthU+h58gz91jKW
- Z1tzOn2LpVvb5DdjKq50KYd5texwX5q2TICvcW9zOA8jDkQNs6JxjBADQQ1rcclCXWBrki/GXGC
- Tc5SsxzDvqgY9SR6Fp1WBd92BTQg1Bh+EhONa9fXPN0ZA==
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <E1vvzcX-0000000Awo0-2KBN@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_024312_933161_315F3B7A 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20260302_024354_510024_9F5F5F07 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,52 +79,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 2. M=E4rz 2026, 09:45:48 CET schrieb Nora Schiffer:
-> UART1 operates in DCE mode, but the RTS/CTS pins were incorrectly
-> configured using the DTE pinmux setting.
->=20
-> Correct the pinmux to match DCE mode. Switching the RTS and CTS signals
-> is fine for this board, as UART1 is routed to a pin header. Existing
-> functionality is unaffected, as RTS/CTS could never have worked with
-> the incorrect pinmux.
->=20
-> Fixes: ddabb3ce3f90 ("arm64: dts: freescale: add TQMa8MPQL on MBa8MP-RAS3=
-14")
-> Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+On 2026-02-27 15:19:13 [+0000], Russell King (Oracle) wrote:
+> Split the vmalloc() lazy-page table population from
+> do_translation_fault() into a new vmalloc_fault() function.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
-Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> ---
->=20
-> v2: updated commit message based on suggestion by Frank Li
->=20
->=20
->  .../boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts     | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->=20
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314=
-=2Edts b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-> index b7f69c92b7748..1665a5030b993 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-> @@ -848,8 +848,8 @@ pinctrl_tlv320aic3x04: tlv320aic3x04grp {
->  	pinctrl_uart1: uart1grp {
->  		fsl,pins =3D <MX8MP_IOMUXC_SAI2_RXFS__UART1_DCE_TX	0x14>,
->  			   <MX8MP_IOMUXC_SAI2_RXC__UART1_DCE_RX		0x14>,
-> -			   <MX8MP_IOMUXC_SAI2_RXD0__UART1_DTE_CTS	0x14>,
-> -			   <MX8MP_IOMUXC_SAI2_TXFS__UART1_DTE_RTS	0x14>;
-> +			   <MX8MP_IOMUXC_SAI2_RXD0__UART1_DCE_RTS	0x14>,
-> +			   <MX8MP_IOMUXC_SAI2_TXFS__UART1_DCE_CTS	0x14>;
->  	};
-> =20
->  	pinctrl_uart1_gpio: uart1gpiogrp {
->=20
+> --- a/arch/arm/mm/fault.c
+> +++ b/arch/arm/mm/fault.c
+> @@ -261,6 +261,70 @@ static inline bool ttbr0_usermode_access_allowed(struct pt_regs *regs)
+>  }
+>  #endif
+>  
+> +/*
+> + * Handle a vmalloc fault, copying the non-leaf page table entries from
+> + * init_mm.pgd. Any kernel context can trigger this, so we must not sleep
+> + * or enable interrupts. Having two CPUs execute this for the same page is
 
+"unconditionally enable interrupts."? It wouldn't be wrong to enable
+them if the calling context had them enabled, right?
 
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+> + * no problem, we'll just copy the same data twice.
+> + *
+> + * Returns false on failure.
+> + */
+> +static bool __kprobes __maybe_unused vmalloc_fault(unsigned long addr)
 
+Maybe handle_vmalloc_fault().
 
+> +{
+
+Sebastian
 
