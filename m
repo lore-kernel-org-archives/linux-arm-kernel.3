@@ -4,74 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB4BEE9B342
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 10:12:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DF23E9B356
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 10:17:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vwHTsu5oxU0kIOE7FVyMwEN9QlArCI+ahvaxQqRbZo4=; b=jjieYVtfv+dILtP1+ssEOpGzUY
-	KCVETyhkth1KlNRdfKbBCNiBEhQ+T61Zsb93OSgggKeZNo9bBUv3x+3dDvANKPaAm6LKnPwFyoxU+
-	ilvQocesfueo9UPz3VXWnaCXiCjEkXV/djs9tORknMrQHAY4F8PU20V87l2YOVp+97wUe8WSvvBam
-	XXDl9sfZ35ZdNSyifzfyfl4e6IpUJlFEPHO3PnvKSTOqVsuWruECbkI1bAXcfw9bTd6lJRk28LMXV
-	Ikc6/RwFWIRjXadb2fhKCNBNY+ej4kUEEN7yMPlqYz9HFcry3UGmmK+yZDJWv8YXwcWe4UmOQHwiM
-	JdECksFQ==;
+	bh=AMnRhDEp9Ptd0SpYBrIdln+6K/ZJlKaMBCVTSYNm69A=; b=sNHLxPR+2NZRhgH8lPL3ttJxAl
+	bBwbZx6Kud1RIMNPfMKc1WN0ql8f+Nd9G5m4fozbXvvt1FdbenYA2g0scfPLeN6EE4KPy89LVamJB
+	kzglmtNoYBicMBLHKKMFDESvbkReTcqsgMrNAIVCAeejhjFKBnNt1DbVuIDk1gdR3Wcdwp6meE8cC
+	fdaXF0EPoXN5nqq4Zy54B/q6b1ScXAXSOpCgrg9BvldWgDydPfSPiCH/f7XC+eel/k0irgK0uq8bq
+	u9YcpnUVZXSDDqn69QQEXu659q55q64wGKz/qxNMXZKSjJQqgR1mdcnM+Eslg3ogB1+J+ar0QcV+P
+	gQH6kZRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx0GZ-0000000CfwV-13Ml;
-	Mon, 02 Mar 2026 10:12:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vx0Ki-0000000CgDJ-3toG;
+	Mon, 02 Mar 2026 10:17:00 +0000
+Received: from mx-relay04-hz1.antispameurope.com ([94.100.132.204])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx0GV-0000000Cfw8-3zjj
+	id 1vx0Ke-0000000CgCt-3Ke0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 10:12:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2615D600AD
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  2 Mar 2026 10:12:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCAD4C4AF09
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  2 Mar 2026 10:12:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772446358;
-	bh=dmKKCEMChf9iozh5/BFVZZx9ALF9hCLR/Z/vU9qXNm8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=lNrmHv2R3N5gLRM45Ge37DwjBvl8fEeCAwiLFtsgFARHWInrtuSzjeI1k8R8bR4se
-	 jEQybZnkIfE+ljHL10eZPvLwVpH/pRrgDP54Jrzvjwd8pppqu8KDrhTJKgDphlKV13
-	 hThAk/25e3y9U81XEjVO9qMIpIUEs09pg3Zs7zBPNEx7FWyay4Pcgw3akrQBisZzUR
-	 ZdnuIpxonzXdr36o2YT7dumrt/DKri0homViNn8ATmhpSkXFn8aVHwi4qmkSk+WMBS
-	 icnHnEm33h8Jjf0IrW9JvbiflGZAi3PdCL0+2Zdr429FsXF3ONjciYL7a5fLh7kmvu
-	 vkrE1tlBjMPMg==
-Received: by mail-yx1-f43.google.com with SMTP id 956f58d0204a3-64ad9fabd08so3479801d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 02:12:38 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUN/yRn803ZE+hvstuUUogTzH/+cOLZDuzRjLGh/AxZXGzO9WxkLEPBUxOuuJOVP/1MVXHpB7HIXkUVdOgh/asn@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTKZJfUQSu4ZOMqfmtUYRxR0UN7Xi5K0jXxtsLdn9fWHg7wKDI
-	MOLf5WfsMFS7fnxEnRbsvtkss2g8sfSWKSFAKJlibNqZ3Fn9GOVz+ukoIcwxQG/oyicCSO9py1p
-	f/lnUykK03XO021nOXeHl5gNkKIaS9aw=
-X-Received: by 2002:a05:690e:175c:b0:64c:97ad:17dc with SMTP id
- 956f58d0204a3-64cc22c28damr6768085d50.66.1772446358117; Mon, 02 Mar 2026
- 02:12:38 -0800 (PST)
+	Mon, 02 Mar 2026 10:17:00 +0000
+ARC-Authentication-Results: i=1; mx-gate04-hz1.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out02-hz1.hornetsecurity.com;
+ dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=AMnRhDEp9Ptd0SpYBrIdln+6K/ZJlKaMBCVTSYNm69A=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1772446595;
+ b=n0Tmmf7EvQTvvsY890QEUGL6OHevqNaSEBycB5iTpEP+s5fAQt+irsRiYNPYXjTxMzr8D10L
+ jLdTx/yhhdK3HhwvbfAObdPxme/jSAxzPJLuUa/spaY6PK6xajAYPvcWBBpamzADhbYW431bYCK
+ AN6yCV/GdbJf03kuafjrxz+t1blc7hpt0q4t3brIDMw+TALEm5B+905FrMxRdj3bIz/Y/H440we
+ 1Ldgafvk3Tgc9K2I1a6AladlcqqTiy36U/hxJOocc4jhaHO9nYJNJasANznHcwJiFQ9gx97aRhb
+ eZqgABi0bl0i2nLNagbhZiZo6LFzxBN5HF0FfJKzU7ptg==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1772446595;
+ b=spFn6F2Nc3b7txNgY5GB6AQ78/+g+uOeMW7/Yuw3KGpbRGHFdTbkKUJjOhBxgjegjupHcvYH
+ mUaelQ77qrjdCIo/9OOzO/FUgAzmcZOutNS1gydn8Zi5mARkWMHVGIggTJ+0GXM8R0m4sNAkPzx
+ clygb/oFux318CHakBUmgss371D3/3AtrW9vwH31j8X98fk8+XNMPBfOSDAZsupNMLglNtJa1p9
+ JRcTIjr3PiOg8SxV5saYh8aEBosnpQeSXIqXIx0VuKil7s72FkuZBZw/+obOODreMLqe97+GB4q
+ VqyZP/7HPcshRe/vVCUWhIzMcUCIpbfC14y9ZTbbM7ZdA==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay04-hz1.antispameurope.com;
+ Mon, 02 Mar 2026 11:16:35 +0100
+Received: from schifferm-ubuntu.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: nora.schiffer@ew.tq-group.com)
+	by smtp-out02-hz1.hornetsecurity.com (Postfix) with ESMTPSA id D06D55A1244;
+	Mon,  2 Mar 2026 11:16:10 +0100 (CET)
+From: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+To: Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	Tony Luck <tony.luck@intel.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux@ew.tq-group.com,
+	Nora Schiffer <nora.schiffer@ew.tq-group.com>
+Subject: [PATCH v6 1/2] dt-bindings: arm: ti: Add compatible for AM625-based TQMa62xx SOM family and carrier board
+Date: Mon,  2 Mar 2026 11:14:58 +0100
+Message-ID: <af87b54279e3d0b7dceccd2625f0ed7c5e06b83e.1772443991.git.nora.schiffer@ew.tq-group.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <cover.1772443991.git.nora.schiffer@ew.tq-group.com>
+References: <cover.1772443991.git.nora.schiffer@ew.tq-group.com>
 MIME-Version: 1.0
-References: <20260225-pinctrl-mux-v2-0-1436a25fa454@nxp.com>
- <20260225-pinctrl-mux-v2-3-1436a25fa454@nxp.com> <CAD++jLkhH566rqkkQfWnOiAokxB8mLXw=eqrVN_pgs+dd8TkxQ@mail.gmail.com>
- <aaG5DpyET-vri-Vj@lizhi-Precision-Tower-5810>
-In-Reply-To: <aaG5DpyET-vri-Vj@lizhi-Precision-Tower-5810>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 2 Mar 2026 11:12:27 +0100
-X-Gmail-Original-Message-ID: <CAD++jLnVXgvKjF-8QdZONTBX6WK2q=XidZix0LSsyS2Sjq9tBA@mail.gmail.com>
-X-Gm-Features: AaiRm53iWIXpU3ZbOeuRosqaBYYTRiks42ceJwmNYd1HTxwTkyNjI2SuJYHEfX4
-Message-ID: <CAD++jLnVXgvKjF-8QdZONTBX6WK2q=XidZix0LSsyS2Sjq9tBA@mail.gmail.com>
-Subject: Re: [PATCH v2 3/6] pinctrl: add optional .release_mux() callback
-To: Frank Li <Frank.li@nxp.com>
-Cc: Peter Rosin <peda@axentia.se>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Haibo Chen <haibo.chen@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-cloud-security-sender: nora.schiffer@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: nora.schiffer@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay04-hz1.antispameurope.com with 4fPZZz5LXyzRvys
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: 4d4047286a7de5e590b3c07cf3114900
+X-cloud-security: scantime:3.932
+DKIM-Signature: a=rsa-sha256;
+ bh=AMnRhDEp9Ptd0SpYBrIdln+6K/ZJlKaMBCVTSYNm69A=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1772446593; v=1;
+ b=VZGDWyyieuuLxvfnSm3crd0eotrrBL9iTkcJuTZDOLEpVvC/h8HovGq7iPVPCtaUVoZLEtH/
+ 12+RAA83c5wwrUdGeW74P7dsDjIkBkYNNHt33U3ko+c11movNiMW6gLtFtlpQi4Q+HeVdQpG2Rh
+ GAOoZtcpAMGCUCu70sb/newACVfdlw9Q54DHPjKLCh5rTVh1emYDWPaT7lKN1MBUGCNWnzPoLJH
+ oTy5TkRWzElUJZZveCmgfkwK1NxAy1SNGyH7x0PhsIuR/kzUfje6h9I92gGkjcFcljYoLsV3r4h
+ 7cdEdeB8X2GYR1sm1V52xRlPAq5l6DS48wl2l6fPFg26g==
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260302_021657_095826_F68DA063 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,60 +114,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 27, 2026 at 4:32=E2=80=AFPM Frank Li <Frank.li@nxp.com> wrote:
-> On Fri, Feb 27, 2026 at 10:07:05AM +0100, Linus Walleij wrote:
-> > On Thu, Feb 26, 2026 at 12:55=E2=80=AFAM Frank Li <Frank.Li@nxp.com> wr=
-ote:
-> >
-> > > Add an optional .release_mux() callback to the pinmux_ops.
-> > >
-> > > Some devices require releasing resources that were previously acquire=
-d in
-> > > .set_mux(). Providing a dedicated .release_mux() callback allows driv=
-ers to
-> > > properly clean up hardware state or associated resources when a mux
-> > > function is no longer active.
-> > >
-> > > The callback is optional and does not affect existing drivers.
-> > >
-> > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> >
-> > Can you explain why you need this custom code for this?
-> >
-> > Nominally pin control defines and puts the hardware into a
-> > number of states such as:
-> > "default"
-> > "idle"
-> > "sleep"
-> > "init"
-> >
-> > Usually (at least for silicon) what .release_mux() would to
-> > is semantically equivalent to a transition into the "init" or
-> > "sleep" state. And if these are not descriptive enough you can
-> > even define a "released" state.
-> >
-> > Is it not possible to reach the set-up of the hardware that you
-> > are desiring by just defining such a relaxed state?
->
-> I am not familiar with pinctrl code. I just need a place to call a callba=
-ck
-> which do opposite work at .set_mux() function.
->
-> I see pair function pinmux_enable_setting() call .set_mux() and
->  pinmux_disable_setting() just missing do oppsite work of .set_mux();
->
-> I may think too simple. I just do insmod/rmmod test. Any suggestion where
-> is good place to put it?
->
-> Does it call pair pinmux_enable(disable)_setting when switch state?
+The TQMa62xx is a SoM family with a pluggable connector. The MBa62xx is
+the matching reference/starterkit carrier board.
 
-The pinmux states are more like a state machine, you transition
-between different states.
+Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ Documentation/devicetree/bindings/arm/ti/k3.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-I think in this case you may want your driver or the device driver
-core to transition to the "init" state to release the mux, see
-my other reply.
+diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+index 85deda6d42920..f1b6ef98714f3 100644
+--- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
++++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+@@ -95,6 +95,13 @@ properties:
+           - const: toradex,verdin-am62          # Verdin AM62 Module
+           - const: ti,am625
+ 
++      - description: K3 AM625 SoC on TQ-Systems TQMa62xx SoM
++        items:
++          - enum:
++              - tq,am625-tqma6254-mba62xx # MBa62xx base board
++          - const: tq,am625-tqma6254
++          - const: ti,am625
++
+       - description: K3 AM62P5 SoC Toradex Verdin Modules and Carrier Boards
+         items:
+           - enum:
+-- 
+TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht München, HRB 105018
+Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+https://www.tq-group.com/
 
-Yours,
-Linus Walleij
 
