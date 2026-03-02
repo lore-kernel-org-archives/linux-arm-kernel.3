@@ -4,57 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EBEFEA4E3F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 16:40:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7910DEA4E3F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 16:42:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xaNX5Hi7NGdLaC4H5wS7wUwsdKzu5nKzOzI5YHMiI4c=; b=NrfvYQb8y4zAC3P3SZhiFv6V/N
-	dzw4BxwewO54pp/fuWFWd7baaNZnoNSBU9O6sR9J3F3MTtyiBY16SSZ0UaH7X4DQpyajDYmkO/Spo
-	3uU/qrmdGTvB6s2f0Sxl9W3od/58VqbHOmxuCU5xi4W6e4EYuA0kcEslUtpPwTHGsFdbNDZQnQuvM
-	nlVsJdD8G7SzPzMGi1dFO/yYkL34LzXfr8DYFO3qMfAC3QnJM9m06IZDz8fDbnPlYot1AD001IHCf
-	nyjMpazd8vkqN1x77GjjfoEqvTscVwAQ/L3EOlKFZVwRotP2bBTCLojmQWraixu1eRPSrD1cGTxsi
-	HIRiRrdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:References:
+	In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VOZu/yVXWLoqw1sV1tgqrxooFCoTcKadC3Jb0pzte7s=; b=cRpeDBqJaNA3LUvKxyYlW26I8r
+	5/SBa+KHR/L3zZdBrTEHAAAg5znQMVfBOdsemVbAZyeTAYf7K8TcZLUAMaD//QDiwvp7eH785SpQV
+	ndiJIUgGM9Ej1qkq7BEeiJljt+L0UQ/GNx3SSJNz1fS3p9kA8ouAwL3W2y0swWui1EHtRk1OKm2f7
+	F5XVG0seSe1vx86cs5vY5gPZnpAduaTDqOwS++a2V2ngHxhrt6DwItbPSID/8A3Cca/zxrwYkZsRy
+	ZssGd6Cqsh4kwVhygD5S6Lvcr/r+wuwoBB2Kl87pXHEcmiUvjY1IAFy1dumDW4ZSohzp9I5FfXs7s
+	o+nhr0HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx6KB-0000000DW6h-1MrG;
-	Mon, 02 Mar 2026 16:40:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx6K7-0000000DW5t-3yai
+	id 1vx6Ld-0000000DWGR-3Db4;
+	Mon, 02 Mar 2026 16:42:21 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vx6LP-0000000DWFA-2QGB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 16:40:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0F69914BF;
-	Mon,  2 Mar 2026 08:40:39 -0800 (PST)
-Received: from [10.57.82.202] (unknown [10.57.82.202])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0D9363F694;
-	Mon,  2 Mar 2026 08:40:42 -0800 (PST)
-Message-ID: <1e2db927-6ffd-40a1-9ff5-6713631e989b@arm.com>
-Date: Mon, 2 Mar 2026 17:40:41 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: dts: zena: Add support for Zena CSS
-To: Debbie Horsfall <debbie.horsfall@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
- Sudeep Holla <sudeep.holla@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Linus Walleij <linusw@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260212-zena-css-v2-0-d33ea23cb9c2@arm.com>
- <20260212-zena-css-v2-2-d33ea23cb9c2@arm.com>
-Content-Language: en-US
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260212-zena-css-v2-2-d33ea23cb9c2@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	Mon, 02 Mar 2026 16:42:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PlgCBbjZTMv3PnYYoVQQhcT6a4tKSJKPMDWeNbAXxJjrHwEPi5N8fV1NwTMlg3k/p/9mPCCjutySIzUm0oIes/7kWCNneTmZrBKHgV1V9/ghNrJJDwkpIy3f04HKmo+vBU0C0CTo+pjeYa+taHNdouijlejXQLpbxeG9xEkrxJ9s523oOo7Pe5zY4PN2DZ5JXU5Qm8ekP1IioaNHEGE4ztVmL8bLkCpKx+L3/tqznDgRrMTnkCBJsMr6jxQzfN9DgTbw+1MVw2UIWUYJFNojlSxAVperzrDdl7NayF6Tdy2KnqOKSJhlRrf0GMBFGTv5bjA1yDBEt1BR4nFGjVWpvQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VOZu/yVXWLoqw1sV1tgqrxooFCoTcKadC3Jb0pzte7s=;
+ b=IyAJPZdk1pDp3RHmJnecxA+kZkRGEyaq/9hFodxC6UtrsfTQKBaRU0N+grO0jpvSEubfVEwgBOq2qS2iorA87bR5IfsFnduhVyp1WGZST5I6Om90FRSVYrW8164IeVxj1nm8pAyhuUOcukh4DnivEKovFL+cBSb1ZThFfDHr8nTFhA+4iDW9vJB0JvSz1YDkd2uWqcKUZIwLkwcgCcz9mTHGja5lntD3qsRLdISSsl2pY7fZpVfRbDhQ/WCWYjiSnZA8O55MpNZ+XEFeTqgaUjO0uow/j6zd+aCJZB4QRWK7lp8NPdvJea8+n0bz1Mw7K5NxXHEOOHX26Yr72h0MHA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VOZu/yVXWLoqw1sV1tgqrxooFCoTcKadC3Jb0pzte7s=;
+ b=i3NGiNSVN349fm/zv3Q6euB7XUl1nhaJuC5BkR0QhKnQAmiR1l5zMZyix7oedy3iGj9uUo7YVrxo0xD7BoLf5xiLbrVXPirl6K4Od4bp3pJyEy7vI3U3k+hoAszH3VnhtAfRbCKc3tyjUCyNT6K9wpDl1fLkOQhxhmnYPYSIW9Zr1pqvwnOZF4sASYSj/PBRTLPhWs0Qy+rnj03RtzioSqQi1PTvTIXn5mvGFm3oYAkaGeffz/uu9mFKez1GW566CXX3WseHrr6bveFqa1tIUelM+zrf3n102HINd6P3OIRtRbEckX/P5+5I8WOjkF9Gd94h5I+aVJymwD+LWsM9zQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by AS8PR04MB8867.eurprd04.prod.outlook.com (2603:10a6:20b:42e::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.21; Mon, 2 Mar
+ 2026 16:42:01 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9654.020; Mon, 2 Mar 2026
+ 16:42:00 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: linux-arm-kernel@lists.infradead.org, Marek Vasut <marex@nabladev.com>
+Cc: Christoph Niedermaier <cniedermaier@dh-electronics.com>, 
+ Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, kernel@dh-electronics.com, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20260209170739.22379-1-marex@nabladev.com>
+References: <20260209170739.22379-1-marex@nabladev.com>
+Subject: Re: [PATCH] ARM: dts: imx6ull-dhcor: Handle both 1DX and 1YN WiFi
+ on i.MX6ULL DHCOR
+Message-Id: <177246971688.2091049.7272707396719268452.b4-ty@nxp.com>
+Date: Mon, 02 Mar 2026 11:41:56 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: BY3PR05CA0034.namprd05.prod.outlook.com
+ (2603:10b6:a03:39b::9) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AS8PR04MB8867:EE_
+X-MS-Office365-Filtering-Correlation-Id: fc652ab1-3ddd-40ec-7f8c-08de787aa052
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|52116014|7416014|376014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: HcLklNeQuK3eUgM30aVnwwc5/Gpmp4PGDf7ayKk/eHG+p2OypUZOV+RBPJ2jOiZYA86Wqr5ohvp0KqJYDNXxe/F79rUq1JWmE6fcRmxFO/+5HpXfk0tlfSV3mQUgN0z6yFjePBdKVJgeH2CfXEY4recMzafhg5Ut/Nk0NInVVAXqb6KBpZuLb6SKAvau4KExp6HUeXvmyAD7v1jQ7c1YXIOpDMw2pRZgu0MlF6I/BWltn4JtyoqTfaBe/g3AaN1dVhhkqag6HQnCoSK/5/jhirxMu/FN9GT38F2Ld5OACGI+2ZHs1RoPxdM8jFvAYOTKde50ciuQcplsRWhTfjgk7hLhjUDLTMLAGywFkDrjLxDYLX1F6kaNi8WzpB0cY2bsw0824uYEEbzr8dNs+Zr0SVNT8i05mqa30d7xvIEctUL2BJImBI5V0B5eHbKgkd0gEwMXG3ysxiyUZUt75N4yx0z8OVqR4WOlGBEQbL8bsiPHzl7CjNkSuZh9wZwnGFSpw8/E0V7cvzz/lNh+h3ajwshpqv58r+H/2AdJ0Z8T5WkWngwYLZ+7/B8iZSYXnVUq1fBEjfF5Wj2WONCKtkS7lQQC1nQbMI9NfuyE8BWlpbdiyvHR3096us0JDNVPu1xn5gki1/+4K7Z5gO1R94eSEk6VHX4agHo3TEvE8+BFq/EOY888numBtKegkv+QKoJ1IzFXNBv/2eUkDktuCJImq0LKYw+BstZdZjTupPH5jl2gpIueNr6UXbgOGuSrZT+baccbPPA+iDbowJTW6l+NlEvBlCRns27othJvZk6LeMw=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(52116014)(7416014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?blRDSVFCaFpCUmF5L1hVVjI2bHVneVloNk9aK3J2ejdFTWRzc1JMQ1FlZmxx?=
+ =?utf-8?B?VWY4MUtaaGoyNE8yUlF5c094Q2VPaldwekh6aDhDSEd0UGpwTWZmK3VJSzc5?=
+ =?utf-8?B?SnN6UDhOdm14NXAyR0pnLzZmY1BadjM2SDFYdFJKeThWM2llbW1wNW9XdTJM?=
+ =?utf-8?B?dUxVbmsvYkpCQldhY0g2RkpablNhdlB1L2FmUGgxSjY2L3R4NlBqaDZUQXFn?=
+ =?utf-8?B?aHVhY2JwY2FhR0l3TnlwRjdYVVNkamEzZkR3SFJ5dEdMODlzVTZHTVpqekd2?=
+ =?utf-8?B?d2xOU2xPTXFkemRha3RzcTVaVld6b3orZzEyaG80eFZJVXZsZUV4c0o5TytQ?=
+ =?utf-8?B?RmQwTTU5T2ZReXo0dVZiNXd4TzVscncxUzIwUVdJWXE5aHlKb0VuUVdMYjd1?=
+ =?utf-8?B?SnBuUDZhUEw1aTRzbHpkb1AwNldic1dwVTJhek1rYkxmcnJ3akQ4SVVYeHpn?=
+ =?utf-8?B?TVZ6U2dtV1Y3aW9jalVHdHN2dDBQeHgwRm1zODB0QVkwZTVET0JZVTFwR0ZK?=
+ =?utf-8?B?RTBIS2V0Vlg3alc4bjJKVWtONDlrc1htWjhuc2ladU84WWlMWXoxZExTVzVJ?=
+ =?utf-8?B?TXhGU25GZFhYYnpRK1d3SlZMZ3gwMEhkUFo3ZU03NjR3Y3dKM2JrTVRPTkNt?=
+ =?utf-8?B?dXZCclNBNEMvWFBKamlZWnpUSkUwQUN3cFh4N3ppakwzbW5kUGU3UGE0SE5P?=
+ =?utf-8?B?U0oyeDNMTmFUQUtERzNlb25RU01rTXg0Y3VJQVhmR0U5bWdHVitzV1ZSb2pj?=
+ =?utf-8?B?Zk1Ja1kvenJTWVlLenl1bTYyMTZQeFVMbFozaTZLRTF4RmptV2ZTM1FFOE5v?=
+ =?utf-8?B?MXJTVlBNaHVGRE1WSnlRTjc2aHFEdGxNWk5IMzRrdWF6NS9GRENuV21FTDBS?=
+ =?utf-8?B?TG9DZEYyd1VuV1ZDMzZTOE1JdC84K2J1OC9xMThMazZUTWh6VzhQVFNKN1Bh?=
+ =?utf-8?B?MitEYi9uTmpadk9USGlObGFLYlZINktuM0xmWHNjcjlIN0VXQlpWU1NZZmVF?=
+ =?utf-8?B?SUF3WUt5M0NHVjhnQm5rSWlzOGhmb28xSGhuTDk5SGxrYXBJbTVXZ0I3R2Fj?=
+ =?utf-8?B?eG5TdEIvOUswRHZ2Z3kwNXJJQTg5L0VXSytJYThPYUR3UXV4MnFNdUxCcjJ0?=
+ =?utf-8?B?RXdnamVxMnlZbEdhZHd3OURvTXJ2SEdKemZCZWNMMEl4Zk9mTnovdVI3RWlu?=
+ =?utf-8?B?Zm91eE0vaWM3VXFYU0MxR1cxK2lweFl5QWZTdmVDWmpwV1JLRFFUWDlJaHY1?=
+ =?utf-8?B?ajFJTUZTR0FULzFXM2RuQ1AwaTkxcmlrSUo0ZkYzdXBkRk1PT3htNnByS0gw?=
+ =?utf-8?B?cWVsVjdUdkFoeE9CaEI5Snk3bkNaQ2NaQWlraTN2ZEluK0VLOUlpT1dWL1lV?=
+ =?utf-8?B?SkxQTWlkVWJNRjZNRmpsaVA2SXV3SWsvUWdEd3lFdktxRklLVjkyY2pZcUpq?=
+ =?utf-8?B?ZzlwK0crQmx4YWJjZG5zSWo3WTI3ZnRCNS9sRTZrcDhERE9pTGxuL2hlRnly?=
+ =?utf-8?B?Qm9DTkxBZW1kWlg4RGpJWFMzVUU1TkxrKzJUcXFqV09GejVHamFxNmJva1Fj?=
+ =?utf-8?B?cGVzU1E3d3lidEJ2aHFucDU1UFF5RGdGNlc5MW12QzFJM3VYRStadVB4UUlZ?=
+ =?utf-8?B?NDdFNFhsSmNsdWdNeXZpbXZDNmMvWUtCSElFZ2JMUTZxL3BEMUpxbTZQclV0?=
+ =?utf-8?B?OUpJRFRtbkxxV0VxdXM3RVRHQ1M3WGhuYnBrUUJDeURndmpMa3FFZ0V3VVMw?=
+ =?utf-8?B?MG1Kcm1scytoY1p5QWE0bmpjZFNnNWFNNXZDQ0xMZDZEY3pPMEtMYUVoTHFq?=
+ =?utf-8?B?aVhMeHZkWTY0U2N0SUlYYVlVRmlvanFLUVRLY1k4UjNzd3dSSVNnelN5UkZK?=
+ =?utf-8?B?dGdGU01tZlluUzlXSk5kL1FRWjZDUFFhQWZqSjQ4cVo3RFVmSmNZVzR0ZjRZ?=
+ =?utf-8?B?Q3Y0eWRuZmdoWU05RnpCUkZaQ01MMFMzRzUwdFB3dUl0eXArNGNGaTlJMnNZ?=
+ =?utf-8?B?cUlLVHN3a2FONmxGaUNPaWZLNGxzakxHV083SDNBTUhPZUIzeU1VK2loMUlZ?=
+ =?utf-8?B?bm50T0F2Sm96dXJYaHBEZHlBWENMekZmY1BXZCtiaWdmdHh3aUIwZlR2MXhs?=
+ =?utf-8?B?U280Q09ua3YybHQ1Q0tGQkUrZ29yMUJLVitwWG9CdEFYL1d0VWZORHpxaHc2?=
+ =?utf-8?B?UlhDRHovVGhFMW5mK2VhcFVHZXFzV1B0SnA0NEZZak9BNDduNHJ6SlYrcDJa?=
+ =?utf-8?B?QURucjNxSVN1aXBiUU51cWNTQms2MmZzOCtvZVhHS0EwRnZ4anVyVnRWTEJh?=
+ =?utf-8?B?MFF2R1o4MHVCN0RCdnFseTNQaUdqSHpQTlNmUVlTMEg3aFVFV3gyZz09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fc652ab1-3ddd-40ec-7f8c-08de787aa052
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Mar 2026 16:42:00.7442
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: f2RLsyRCnK7H6g4UWHM1+aJoRSyoiLkY1eGqpIUGuXwAX0udF7HNfLnIESrcnEJ4jSssbH0pd+DCIXd5tF2zgA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8867
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_084048_116392_E0D3E70F 
-X-CRM114-Status: GOOD (  18.99  )
+X-CRM114-CacheID: sfid-20260302_084219_794611_E239FB68 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,888 +151,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Debbie,
 
-On 2/12/26 12:16, Debbie Horsfall wrote:
-> Introduce the Zena CSS Fixed Virtual Platform (FVP) dts. This is
-> currently the only Zena CSS variant, however the common definitions are
-> included in a common dtsi for extensibility.
-
-Many thanks for the changes! I can confirm that the concerns I had on v1 
-have all been addressed. The other changes you did are indeed 
-cosmetical: upper case/lower case conversions, and moving of nodes and 
-properties. Thanks for addressing those coding style issues proactively!
-
-I checked the CPU nodes again: they match each other apart from the 
-obvious differences due to the MPIDRs and cluster/cache numbers.
-Also the rest looks as reasonable as one could expect.
-
-> Signed-off-by: Debbie Horsfall <debbie.horsfall@arm.com>
-
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-
-Cheers,
-Andre
-
-> ---
->   arch/arm64/boot/dts/arm/Makefile         |   1 +
->   arch/arm64/boot/dts/arm/zena-css-fvp.dts |  55 +++
->   arch/arm64/boot/dts/arm/zena-css.dtsi    | 777 +++++++++++++++++++++++++++++++
->   3 files changed, 833 insertions(+)
+On Mon, 09 Feb 2026 18:07:04 +0100, Marek Vasut wrote:
+> The muRata 1DX WiFi/BT chip is mounted on the DHCOM i.MX6ULL. This chip
+> has been discontinued and replaced by the muRata 1YN chip. The new chip
+> is a drop-in replacement of the old chip. To support both chips for the
+> i.MX6ULL DHCOR, drop the more specific compatible string and let the
+> driver auto-detect the chip type. Currently, there are no known quirks
+> that would apply only to one or the other chip.
 > 
-> diff --git a/arch/arm64/boot/dts/arm/Makefile b/arch/arm64/boot/dts/arm/Makefile
-> index f30ee045dc95..770fb145b4a9 100644
-> --- a/arch/arm64/boot/dts/arm/Makefile
-> +++ b/arch/arm64/boot/dts/arm/Makefile
-> @@ -8,3 +8,4 @@ dtb-$(CONFIG_ARCH_VEXPRESS) += vexpress-v2f-1xv7-ca53x2.dtb
->   dtb-$(CONFIG_ARCH_VEXPRESS) += fvp-base-revc.dtb
->   dtb-$(CONFIG_ARCH_VEXPRESS) += corstone1000-fvp.dtb corstone1000-mps3.dtb
->   dtb-$(CONFIG_ARCH_VEXPRESS) += morello-sdp.dtb morello-fvp.dtb
-> +dtb-$(CONFIG_ARCH_VEXPRESS) += zena-css-fvp.dtb
-> diff --git a/arch/arm64/boot/dts/arm/zena-css-fvp.dts b/arch/arm64/boot/dts/arm/zena-css-fvp.dts
-> new file mode 100644
-> index 000000000000..b75204a91882
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/arm/zena-css-fvp.dts
-> @@ -0,0 +1,55 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
-> +/*
-> + * Copyright (c) 2025, Arm Limited. All rights reserved.
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "zena-css.dtsi"
-> +
-> +/ {
-> +	model = "Zena CSS Fixed Virtual Platform";
-> +	compatible = "arm,zena-css-fvp", "arm,zena-css", "arm,vexpress";
-> +
-> +	chosen {
-> +		stdout-path = &soc_serial0;
-> +	};
-> +};
-> +
-> +&soc {
-> +	virtio@30020000 {
-> +		compatible = "virtio,mmio";
-> +		reg = <0x0 0x30020000 0x0 0x10000>;
-> +		interrupts = <GIC_SPI 257 IRQ_TYPE_LEVEL_HIGH>;
-> +	};
-> +
-> +	virtio@30030000 {
-> +		compatible = "virtio,mmio";
-> +		reg = <0x0 0x30030000 0x0 0x10000>;
-> +		interrupts = <GIC_SPI 258 IRQ_TYPE_LEVEL_HIGH>;
-> +	};
-> +
-> +	virtio@30040000 {
-> +		compatible = "virtio,mmio";
-> +		reg = <0x0 0x30040000 0x0 0x10000>;
-> +		interrupts = <GIC_SPI 259 IRQ_TYPE_LEVEL_HIGH>;
-> +	};
-> +
-> +	virtio@30050000 {
-> +		compatible = "virtio,mmio";
-> +		reg = <0x0 0x30050000 0x0 0x10000>;
-> +		interrupts = <GIC_SPI 260 IRQ_TYPE_LEVEL_HIGH>;
-> +	};
-> +
-> +	virtio@30060000 {
-> +		compatible = "virtio,mmio";
-> +		reg = <0x0 0x30060000 0x0 0x10000>;
-> +		interrupts = <GIC_SPI 261 IRQ_TYPE_LEVEL_HIGH>;
-> +	};
-> +
-> +	virtio@30080000 {
-> +		compatible = "virtio,mmio";
-> +		reg = <0x0 0x30080000 0x0 0x10000>;
-> +		interrupts = <GIC_SPI 263 IRQ_TYPE_LEVEL_HIGH>;
-> +	};
-> +};
-> diff --git a/arch/arm64/boot/dts/arm/zena-css.dtsi b/arch/arm64/boot/dts/arm/zena-css.dtsi
-> new file mode 100644
-> index 000000000000..9899d2883337
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/arm/zena-css.dtsi
-> @@ -0,0 +1,777 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
-> +/*
-> + * Copyright (c) 2025, Arm Limited. All rights reserved.
-> + */
-> +
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +/ {
-> +	#address-cells = <2>;
-> +	#size-cells = <2>;
-> +	interrupt-parent = <&gic>;
-> +
-> +	soc_clk24mhz: clock-24000000 {
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +		clock-frequency = <24000000>;
-> +		clock-output-names = "refclk24mhz";
-> +	};
-> +
-> +	cpus {
-> +		#address-cells = <2>;
-> +		#size-cells = <0>;
-> +
-> +		/*
-> +		 * The latency and residency numbers below are for illustrative
-> +		 * purposes only and may vary on actual silicon. These values are
-> +		 * considered just to demonstrate that the cpuidle governor logic
-> +		 * works.
-> +		 */
-> +		idle-states {
-> +			entry-method = "psci";
-> +
-> +			cpu_sleep: cpu-sleep {
-> +				compatible = "arm,idle-state";
-> +				arm,psci-suspend-param = <0x10000>;
-> +				entry-latency-us = <800>;
-> +				exit-latency-us = <3200>;
-> +				local-timer-stop;
-> +				min-residency-us = <4200>;
-> +			};
-> +
-> +			cluster_sleep: cluster-sleep {
-> +				compatible = "arm,idle-state";
-> +				arm,psci-suspend-param = <0x1010000>;
-> +				entry-latency-us = <1000>;
-> +				exit-latency-us = <3200>;
-> +				local-timer-stop;
-> +				min-residency-us = <4500>;
-> +			};
-> +		};
-> +
-> +		cpu-map {
-> +			cluster0 {
-> +				core0 { cpu = <&cpu0>; };
-> +				core1 { cpu = <&cpu1>; };
-> +				core2 { cpu = <&cpu2>; };
-> +				core3 { cpu = <&cpu3>; };
-> +			};
-> +
-> +			cluster1 {
-> +				core0 { cpu = <&cpu4>; };
-> +				core1 { cpu = <&cpu5>; };
-> +				core2 { cpu = <&cpu6>; };
-> +				core3 { cpu = <&cpu7>; };
-> +			};
-> +
-> +			cluster2 {
-> +				core0 { cpu = <&cpu8>; };
-> +				core1 { cpu = <&cpu9>; };
-> +				core2 { cpu = <&cpu10>; };
-> +				core3 { cpu = <&cpu11>; };
-> +			};
-> +
-> +			cluster3 {
-> +				core0 { cpu = <&cpu12>; };
-> +				core1 { cpu = <&cpu13>; };
-> +				core2 { cpu = <&cpu14>; };
-> +				core3 { cpu = <&cpu15>; };
-> +			};
-> +		};
-> +
-> +		cpu0: cpu@0 {
-> +			compatible = "arm,cortex-a720ae";
-> +			device_type = "cpu";
-> +			reg = <0x00 0x0000>;
-> +			enable-method = "psci";
-> +
-> +			clocks = <&scmi_dvfs 0>;
-> +			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-> +			next-level-cache = <&cl0_l2_0>;
-> +
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			i-cache-size = <0x10000>;
-> +
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <256>;
-> +			d-cache-size = <0x10000>;
-> +
-> +			cl0_l2_0: l2-cache {
-> +				compatible = "cache";
-> +				cache-level = <2>;
-> +				cache-line-size = <64>;
-> +				cache-sets = <0x400>;	/* 8-way set */
-> +				cache-size = <0x80000>;	/* 512KB */
-> +				cache-unified;
-> +				next-level-cache = <&cl0_l3>;
-> +			};
-> +		};
-> +
-> +		cpu1: cpu@100 {
-> +			compatible = "arm,cortex-a720ae";
-> +			device_type = "cpu";
-> +			reg = <0x00 0x0100>;
-> +			enable-method = "psci";
-> +
-> +			clocks = <&scmi_dvfs 0>;
-> +			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-> +			next-level-cache = <&cl0_l2_1>;
-> +
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			i-cache-size = <0x10000>;
-> +
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <256>;
-> +			d-cache-size = <0x10000>;
-> +
-> +			cl0_l2_1: l2-cache {
-> +				compatible = "cache";
-> +				cache-level = <2>;
-> +				cache-line-size = <64>;
-> +				cache-sets = <0x400>;	/* 8-way set */
-> +				cache-size = <0x80000>;	/* 512KB */
-> +				cache-unified;
-> +				next-level-cache = <&cl0_l3>;
-> +			};
-> +		};
-> +
-> +		cpu2: cpu@200 {
-> +			compatible = "arm,cortex-a720ae";
-> +			device_type = "cpu";
-> +			reg = <0x00 0x0200>;
-> +			enable-method = "psci";
-> +
-> +			clocks = <&scmi_dvfs 0>;
-> +			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-> +			next-level-cache = <&cl0_l2_2>;
-> +
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			i-cache-size = <0x10000>;
-> +
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <256>;
-> +			d-cache-size = <0x10000>;
-> +
-> +			cl0_l2_2: l2-cache {
-> +				compatible = "cache";
-> +				cache-level = <2>;
-> +				cache-line-size = <64>;
-> +				cache-sets = <0x400>;	/* 8-way set */
-> +				cache-size = <0x80000>;	/* 512KB */
-> +				cache-unified;
-> +				next-level-cache = <&cl0_l3>;
-> +			};
-> +		};
-> +
-> +		cpu3: cpu@300 {
-> +			compatible = "arm,cortex-a720ae";
-> +			device_type = "cpu";
-> +			reg = <0x00 0x0300>;
-> +			enable-method = "psci";
-> +
-> +			clocks = <&scmi_dvfs 0>;
-> +			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-> +			next-level-cache = <&cl0_l2_3>;
-> +
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			i-cache-size = <0x10000>;
-> +
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <256>;
-> +			d-cache-size = <0x10000>;
-> +
-> +			cl0_l2_3: l2-cache {
-> +				compatible = "cache";
-> +				cache-level = <2>;
-> +				cache-line-size = <64>;
-> +				cache-sets = <0x400>;	/* 8-way set */
-> +				cache-size = <0x80000>;	/* 512KB */
-> +				cache-unified;
-> +				next-level-cache = <&cl0_l3>;
-> +			};
-> +		};
-> +
-> +		cpu4: cpu@10000 {
-> +			compatible = "arm,cortex-a720ae";
-> +			device_type = "cpu";
-> +			reg = <0x00 0x10000>;
-> +			enable-method = "psci";
-> +
-> +			clocks = <&scmi_dvfs 0>;
-> +			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-> +			next-level-cache = <&cl1_l2_0>;
-> +
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			i-cache-size = <0x10000>;
-> +
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <256>;
-> +			d-cache-size = <0x10000>;
-> +
-> +			cl1_l2_0: l2-cache {
-> +				compatible = "cache";
-> +				cache-level = <2>;
-> +				cache-line-size = <64>;
-> +				cache-sets = <0x400>;	/* 8-way set */
-> +				cache-size = <0x80000>;	/* 512KB */
-> +				cache-unified;
-> +				next-level-cache = <&cl1_l3>;
-> +			};
-> +		};
-> +
-> +		cpu5: cpu@10100 {
-> +			compatible = "arm,cortex-a720ae";
-> +			device_type = "cpu";
-> +			reg = <0x00 0x10100>;
-> +			enable-method = "psci";
-> +
-> +			clocks = <&scmi_dvfs 0>;
-> +			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-> +			next-level-cache = <&cl1_l2_1>;
-> +
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			i-cache-size = <0x10000>;
-> +
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <256>;
-> +			d-cache-size = <0x10000>;
-> +
-> +			cl1_l2_1: l2-cache {
-> +				compatible = "cache";
-> +				cache-level = <2>;
-> +				cache-line-size = <64>;
-> +				cache-sets = <0x400>;	/* 8-way set */
-> +				cache-size = <0x80000>;	/* 512KB */
-> +				cache-unified;
-> +				next-level-cache = <&cl1_l3>;
-> +			};
-> +		};
-> +
-> +		cpu6: cpu@10200 {
-> +			compatible = "arm,cortex-a720ae";
-> +			device_type = "cpu";
-> +			reg = <0x00 0x10200>;
-> +			enable-method = "psci";
-> +
-> +			clocks = <&scmi_dvfs 0>;
-> +			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-> +			next-level-cache = <&cl1_l2_2>;
-> +
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			i-cache-size = <0x10000>;
-> +
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <256>;
-> +			d-cache-size = <0x10000>;
-> +
-> +			cl1_l2_2: l2-cache {
-> +				compatible = "cache";
-> +				cache-level = <2>;
-> +				cache-line-size = <64>;
-> +				cache-sets = <0x400>;	/* 8-way set */
-> +				cache-size = <0x80000>;	/* 512KB */
-> +				cache-unified;
-> +				next-level-cache = <&cl1_l3>;
-> +			};
-> +		};
-> +
-> +		cpu7: cpu@10300 {
-> +			compatible = "arm,cortex-a720ae";
-> +			device_type = "cpu";
-> +			reg = <0x00 0x10300>;
-> +			enable-method = "psci";
-> +
-> +			clocks = <&scmi_dvfs 0>;
-> +			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-> +			next-level-cache = <&cl1_l2_3>;
-> +
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			i-cache-size = <0x10000>;
-> +
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <256>;
-> +			d-cache-size = <0x10000>;
-> +
-> +			cl1_l2_3: l2-cache {
-> +				compatible = "cache";
-> +				cache-level = <2>;
-> +				cache-line-size = <64>;
-> +				cache-sets = <0x400>;	/* 8-way set */
-> +				cache-size = <0x80000>;	/* 512KB */
-> +				cache-unified;
-> +				next-level-cache = <&cl1_l3>;
-> +			};
-> +		};
-> +
-> +		cpu8: cpu@20000 {
-> +			compatible = "arm,cortex-a720ae";
-> +			device_type = "cpu";
-> +			reg = <0x00 0x20000>;
-> +			enable-method = "psci";
-> +
-> +			clocks = <&scmi_dvfs 0>;
-> +			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-> +			next-level-cache = <&cl2_l2_0>;
-> +
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			i-cache-size = <0x10000>;
-> +
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <256>;
-> +			d-cache-size = <0x10000>;
-> +
-> +			cl2_l2_0: l2-cache {
-> +				compatible = "cache";
-> +				cache-level = <2>;
-> +				cache-line-size = <64>;
-> +				cache-sets = <0x400>;	/* 8-way set */
-> +				cache-size = <0x80000>;	/* 512KB */
-> +				cache-unified;
-> +				next-level-cache = <&cl2_l3>;
-> +			};
-> +		};
-> +
-> +		cpu9: cpu@20100 {
-> +			compatible = "arm,cortex-a720ae";
-> +			device_type = "cpu";
-> +			reg = <0x00 0x20100>;
-> +			enable-method = "psci";
-> +
-> +			clocks = <&scmi_dvfs 0>;
-> +			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-> +			next-level-cache = <&cl2_l2_1>;
-> +
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			i-cache-size = <0x10000>;
-> +
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <256>;
-> +			d-cache-size = <0x10000>;
-> +
-> +			cl2_l2_1: l2-cache {
-> +				compatible = "cache";
-> +				cache-level = <2>;
-> +				cache-line-size = <64>;
-> +				cache-sets = <0x400>;	/* 8-way set */
-> +				cache-size = <0x80000>;	/* 512KB */
-> +				cache-unified;
-> +				next-level-cache = <&cl2_l3>;
-> +			};
-> +		};
-> +
-> +		cpu10: cpu@20200 {
-> +			compatible = "arm,cortex-a720ae";
-> +			device_type = "cpu";
-> +			reg = <0x00 0x20200>;
-> +			enable-method = "psci";
-> +
-> +			clocks = <&scmi_dvfs 0>;
-> +			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-> +			next-level-cache = <&cl2_l2_2>;
-> +
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			i-cache-size = <0x10000>;
-> +
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <256>;
-> +			d-cache-size = <0x10000>;
-> +
-> +			cl2_l2_2: l2-cache {
-> +				compatible = "cache";
-> +				cache-level = <2>;
-> +				cache-line-size = <64>;
-> +				cache-sets = <0x400>;	/* 8-way set */
-> +				cache-size = <0x80000>;	/* 512KB */
-> +				cache-unified;
-> +				next-level-cache = <&cl2_l3>;
-> +			};
-> +		};
-> +
-> +		cpu11: cpu@20300 {
-> +			compatible = "arm,cortex-a720ae";
-> +			device_type = "cpu";
-> +			reg = <0x00 0x20300>;
-> +			enable-method = "psci";
-> +
-> +			clocks = <&scmi_dvfs 0>;
-> +			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-> +			next-level-cache = <&cl2_l2_3>;
-> +
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			i-cache-size = <0x10000>;
-> +
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <256>;
-> +			d-cache-size = <0x10000>;
-> +
-> +			cl2_l2_3: l2-cache {
-> +				compatible = "cache";
-> +				cache-level = <2>;
-> +				cache-line-size = <64>;
-> +				cache-sets = <0x400>;	/* 8-way set */
-> +				cache-size = <0x80000>;	/* 512KB */
-> +				cache-unified;
-> +				next-level-cache = <&cl2_l3>;
-> +			};
-> +		};
-> +
-> +		cpu12: cpu@30000 {
-> +			compatible = "arm,cortex-a720ae";
-> +			device_type = "cpu";
-> +			reg = <0x00 0x30000>;
-> +			enable-method = "psci";
-> +
-> +			clocks = <&scmi_dvfs 0>;
-> +			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-> +			next-level-cache = <&cl3_l2_0>;
-> +
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			i-cache-size = <0x10000>;
-> +
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <256>;
-> +			d-cache-size = <0x10000>;
-> +
-> +			cl3_l2_0: l2-cache {
-> +				compatible = "cache";
-> +				cache-level = <2>;
-> +				cache-line-size = <64>;
-> +				cache-sets = <0x400>;	/* 8-way set */
-> +				cache-size = <0x80000>;	/* 512KB */
-> +				cache-unified;
-> +				next-level-cache = <&cl3_l3>;
-> +			};
-> +		};
-> +
-> +		cpu13: cpu@30100 {
-> +			compatible = "arm,cortex-a720ae";
-> +			device_type = "cpu";
-> +			reg = <0x00 0x30100>;
-> +			enable-method = "psci";
-> +
-> +			clocks = <&scmi_dvfs 0>;
-> +			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-> +			next-level-cache = <&cl3_l2_1>;
-> +
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			i-cache-size = <0x10000>;
-> +
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <256>;
-> +			d-cache-size = <0x10000>;
-> +
-> +			cl3_l2_1: l2-cache {
-> +				compatible = "cache";
-> +				cache-level = <2>;
-> +				cache-line-size = <64>;
-> +				cache-sets = <0x400>;	/* 8-way set */
-> +				cache-size = <0x80000>;	/* 512KB */
-> +				cache-unified;
-> +				next-level-cache = <&cl3_l3>;
-> +			};
-> +		};
-> +
-> +		cpu14: cpu@30200 {
-> +			compatible = "arm,cortex-a720ae";
-> +			device_type = "cpu";
-> +			reg = <0x00 0x30200>;
-> +			enable-method = "psci";
-> +
-> +			clocks = <&scmi_dvfs 0>;
-> +			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-> +			next-level-cache = <&cl3_l2_2>;
-> +
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			i-cache-size = <0x10000>;
-> +
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <256>;
-> +			d-cache-size = <0x10000>;
-> +
-> +			cl3_l2_2: l2-cache {
-> +				compatible = "cache";
-> +				cache-level = <2>;
-> +				cache-line-size = <64>;
-> +				cache-sets = <0x400>;	/* 8-way set */
-> +				cache-size = <0x80000>;	/* 512KB */
-> +				cache-unified;
-> +				next-level-cache = <&cl3_l3>;
-> +			};
-> +		};
-> +
-> +		cpu15: cpu@30300 {
-> +			compatible = "arm,cortex-a720ae";
-> +			device_type = "cpu";
-> +			reg = <0x00 0x30300>;
-> +			enable-method = "psci";
-> +
-> +			clocks = <&scmi_dvfs 0>;
-> +			cpu-idle-states = <&cpu_sleep &cluster_sleep>;
-> +			next-level-cache = <&cl3_l2_3>;
-> +
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			i-cache-size = <0x10000>;
-> +
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <256>;
-> +			d-cache-size = <0x10000>;
-> +
-> +			cl3_l2_3: l2-cache {
-> +				compatible = "cache";
-> +				cache-level = <2>;
-> +				cache-line-size = <64>;
-> +				cache-sets = <0x400>;	/* 8-way set */
-> +				cache-size = <0x80000>;	/* 512KB */
-> +				cache-unified;
-> +				next-level-cache = <&cl3_l3>;
-> +			};
-> +		};
-> +
-> +		cl0_l3: l3-cache0 {
-> +			compatible = "cache";
-> +			cache-level = <3>;
-> +			cache-line-size = <64>;
-> +			cache-sets = <0x1000>;		/* 16-way set */
-> +			cache-size = <0x400000>;	/* 4MB */
-> +			cache-unified;
-> +		};
-> +
-> +		cl1_l3: l3-cache1 {
-> +			compatible = "cache";
-> +			cache-level = <3>;
-> +			cache-line-size = <64>;
-> +			cache-sets = <0x1000>;		/* 16-way set */
-> +			cache-size = <0x400000>;	/* 4MB */
-> +			cache-unified;
-> +		};
-> +
-> +		cl2_l3: l3-cache2 {
-> +			compatible = "cache";
-> +			cache-level = <3>;
-> +			cache-line-size = <64>;
-> +			cache-sets = <0x1000>;		/* 16-way set */
-> +			cache-size = <0x400000>;	/* 4MB */
-> +			cache-unified;
-> +		};
-> +
-> +		cl3_l3: l3-cache3 {
-> +			compatible = "cache";
-> +			cache-level = <3>;
-> +			cache-line-size = <64>;
-> +			cache-sets = <0x1000>;		/* 16-way set */
-> +			cache-size = <0x400000>;	/* 4MB */
-> +			cache-unified;
-> +		};
-> +	};
-> +
-> +	firmware {
-> +		scmi {
-> +			compatible = "arm,scmi";
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			mbox-names = "tx", "tx_reply", "rx";
-> +			mboxes = <&mbox_db_tx 0 0 0>,
-> +				 <&mbox_db_rx 0 0 0>,
-> +				 <&mbox_db_rx 0 0 2>;
-> +			shmem = <&scmi_shmem_tx &scmi_shmem_rx>;
-> +
-> +			scmi_dvfs: protocol@13 {
-> +				reg = <0x13>;
-> +				#clock-cells = <1>;
-> +			};
-> +		};
-> +	};
-> +
-> +	dsu-pmu-0 {
-> +		compatible = "arm,dsu-pmu";
-> +		cpus = <&cpu0 &cpu1 &cpu2 &cpu3>;
-> +		interrupts = <GIC_SPI 184 IRQ_TYPE_EDGE_RISING>;
-> +	};
-> +
-> +	dsu-pmu-1 {
-> +		compatible = "arm,dsu-pmu";
-> +		cpus = <&cpu4 &cpu5 &cpu6 &cpu7>;
-> +		interrupts = <GIC_SPI 185 IRQ_TYPE_EDGE_RISING>;
-> +	};
-> +
-> +	dsu-pmu-2 {
-> +		compatible = "arm,dsu-pmu";
-> +		cpus = <&cpu8 &cpu9 &cpu10 &cpu11>;
-> +		interrupts = <GIC_SPI 186 IRQ_TYPE_EDGE_RISING>;
-> +	};
-> +
-> +	dsu-pmu-3 {
-> +		compatible = "arm,dsu-pmu";
-> +		cpus = <&cpu12 &cpu13 &cpu14 &cpu15>;
-> +		interrupts = <GIC_SPI 187 IRQ_TYPE_EDGE_RISING>;
-> +	};
-> +
-> +	psci {
-> +		compatible = "arm,psci-1.0", "arm,psci-0.2";
-> +		method = "smc";
-> +	};
-> +
-> +	soc: soc {
-> +		compatible = "simple-bus";
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +
-> +		timer@1a810000 {
-> +			compatible = "arm,armv7-timer-mem";
-> +			reg = <0x0 0x1a810000 0x0 0x10000>;
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +
-> +			/*
-> +			 * Map child space [0x0..0x30000) to parent @ 0x1a810000
-> +			 */
-> +			ranges = <0x0 0x0 0x1a810000 0x00030000>;
-> +
-> +			frame@20000 {
-> +				reg = <0x20000 0x10000>;
-> +				frame-number = <0>;
-> +				interrupts = <GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>;
-> +			};
-> +		};
-> +
-> +		gic: interrupt-controller@20800000 {
-> +			compatible = "arm,gic-v3";
-> +			#interrupt-cells = <3>;
-> +			#address-cells = <2>;
-> +			#size-cells = <2>;
-> +			#redistributor-regions = <16>;
-> +			interrupt-controller;
-> +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
-> +			ranges;
-> +
-> +			/*
-> +			 * With GIC-A720AE multiview enabled, GICR_TYPER.Last is
-> +			 * always reported as 1 on redistributor views other than
-> +			 * view 0. This breaks discovery of a single contiguous
-> +			 * GICR frame region, so each core is described with its own
-> +			 * redistributor region.
-> +			 */
-> +			reg = <0x0 0x20800000 0x0 0x10000>,	/* GICD */
-> +			      <0x0 0x20880000 0x0 0x40000>,	/* 16 * GICR */
-> +			      <0x0 0x208c0000 0x0 0x40000>,
-> +			      <0x0 0x20900000 0x0 0x40000>,
-> +			      <0x0 0x20940000 0x0 0x40000>,
-> +			      <0x0 0x20980000 0x0 0x40000>,
-> +			      <0x0 0x209c0000 0x0 0x40000>,
-> +			      <0x0 0x20a00000 0x0 0x40000>,
-> +			      <0x0 0x20a40000 0x0 0x40000>,
-> +			      <0x0 0x20a80000 0x0 0x40000>,
-> +			      <0x0 0x20ac0000 0x0 0x40000>,
-> +			      <0x0 0x20b00000 0x0 0x40000>,
-> +			      <0x0 0x20b40000 0x0 0x40000>,
-> +			      <0x0 0x20b80000 0x0 0x40000>,
-> +			      <0x0 0x20bc0000 0x0 0x40000>,
-> +			      <0x0 0x20c00000 0x0 0x40000>,
-> +			      <0x0 0x20c40000 0x0 0x40000>;
-> +
-> +			its: msi-controller@20840000 {
-> +				compatible = "arm,gic-v3-its";
-> +				reg = <0x0 0x20840000 0x0 0x40000>;
-> +				msi-controller;
-> +				#msi-cells = <1>;
-> +			};
-> +		};
-> +
-> +		/*
-> +		 * UART is fixed at 24MHz, both UARTCLK and PCLK.
-> +		 */
-> +		soc_serial0: serial@1a400000 {
-> +			compatible = "arm,pl011", "arm,primecell";
-> +			reg = <0x0 0x1a400000 0x0 0x10000>;
-> +			interrupts = <GIC_SPI 52 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&soc_clk24mhz>, <&soc_clk24mhz>;
-> +			clock-names = "uartclk", "apb_pclk";
-> +		};
-> +
-> +		watchdog@1a420000 {
-> +			compatible = "arm,sbsa-gwdt";
-> +			reg = <0x0 0x1a420000 0x0 0x10000>,
-> +			      <0x0 0x1a430000 0x0 0x10000>;
-> +			interrupts = <GIC_SPI 50 IRQ_TYPE_LEVEL_HIGH>;
-> +		};
-> +
-> +		rtc@300d0000 {
-> +			compatible = "arm,pl031", "arm,primecell";
-> +			reg = <0x0 0x300d0000 0x0 0x10000>;
-> +			interrupts = <GIC_SPI 268 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&soc_clk24mhz>;
-> +			clock-names = "apb_pclk";
-> +		};
-> +
-> +		mbox_db_tx: mailbox@40020000 {
-> +			compatible = "arm,mhuv3";
-> +			reg = <0x0 0x40020000 0x0 0x30000>;
-> +			interrupts = <GIC_SPI 112 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "combined";
-> +			clocks = <&soc_clk24mhz>;
-> +			#mbox-cells = <3>;
-> +		};
-> +
-> +		mbox_db_rx: mailbox@40060000 {
-> +			compatible = "arm,mhuv3";
-> +			reg = <0x0 0x40060000 0x0 0x30000>;
-> +			interrupts = <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "combined";
-> +			clocks = <&soc_clk24mhz>;
-> +			#mbox-cells = <3>;
-> +		};
-> +	};
-> +
-> +	timer {
-> +		compatible = "arm,armv8-timer";
-> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
-> +	};
-> +
-> +	sram: sram@104000 {
-> +		compatible = "mmio-sram";
-> +		reg = <0x0 0x00104000 0x0 0x00001000>;
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +		ranges = <0 0x0 0x00104000 0x00001000>;
-> +
-> +		scmi_shmem_tx: scpshmem-sram-section@0 {
-> +			compatible = "arm,scmi-shmem";
-> +			reg = <0x0 0x100>;
-> +		};
-> +
-> +		scmi_shmem_rx: scpshmem-sram-section@100 {
-> +			compatible = "arm,scmi-shmem";
-> +			reg = <0x100 0x100>;
-> +		};
-> +	};
-> +
-> +	memory@80000000 {
-> +		device_type = "memory";
-> +
-> +		/* ~2GB mapped at 2GB, another 2GB at 2TB */
-> +		reg = <0x00000000 0x80000000 0x00000000 0x7f000000>,
-> +		      <0x00000200 0x00000000 0x00000000 0x80000000>;
-> +	};
-> +};
-> 
+> [...]
+
+Applied, thanks!
+
+[1/1] ARM: dts: imx6ull-dhcor: Handle both 1DX and 1YN WiFi on i.MX6ULL DHCOR
+      (no commit info)
+
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
 
 
