@@ -4,133 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF8ABD58E73
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 07:59:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AD57D58E73
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 08:06:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Icj71/VK5Dj4zopWTZsMofjaXkyYoMpwSXnNn6ELPAM=; b=Wsmoa6twzqEGDFtxRxARVR0IEb
-	uRhRRsuZykvd6IB/pQyapq4hQfHHVj2pn7Mc1Eec+pDShgKWpHvhA3/hgQaRRmWcZS81xU5FMS81l
-	ZUPmWX6vERUU4Axq3S5q+ysU1afO/qZUuN6p51nP8DSRXbTvyBPhlVGCyGiAh76C4M1S7tX00SaAD
-	hWMddFzBpLtogr0E+sTJ2CrviDIF+2Mnggl/1j32PPYOQxdx6FHqMxzmWtyUahNiKI5A3tEHQ7nix
-	HH33z5uidP/ewCj7/Y3SSHhWos35jlmF2LL7FYzAVzqK3hHt/4HpbvBSyBFrsvwoSdTocApN9NLX7
-	mnbRStMw==;
+	bh=pzgC4aUzxFSpLAMwn+L0pn5MDObG9dJ9EJftg3QZJdc=; b=wYpcbBF7CjSsfF6S3tu6ogChdf
+	UGbUA4shT2d/ACDIHSW4bwAw0qUYtdGiLrlCKDbmh85VRbp6IfJb4P7j4BffIgmlBB+u8SzsOWDZF
+	xiR+TkPVAG1UqrN4aYix9IhEZZszlkXCgIpGbIgihHGQoIPv602jmk/ochPQKqeluo87Rn1MRNN/a
+	WzodnOtrsU8TRm1LWDe+H4vxSi4cddFfuKet6Zyb0NWyHK+7uq2Ol+ciDXWsEWgbKRqDRz0rvwoyc
+	OXAa3oWUTSTivqeK/gzgTaPnyX4z2Jo04gtvnh7Tk6kEF3eXI6YyQpNPr39cQUCskIyTFFhyFPzw4
+	t95L+FwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwyBl-0000000CS3z-0NUx;
-	Mon, 02 Mar 2026 07:59:37 +0000
-Received: from mail-northeuropeazon11012023.outbound.protection.outlook.com ([52.101.66.23] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1vwyI7-0000000CUqg-1OiG;
+	Mon, 02 Mar 2026 08:06:11 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwyBi-0000000CS1Z-48wS
+	id 1vwyI4-0000000CUqI-3x2k
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 07:59:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TO9fOCP8iFEBVnMhsh5ATzODyDf5otkSYnVNjqOIt6PtHkXwDwTSb/Pkvk8vutyU2iS1PmUhbNboIssJi7eeZfkWV9TiQu9bn6Rc0xZKY9nkYuMaYKTLOSJtBJrbGDRTiMQlET5Wzn+9jA1yiXiON/7Vqy+ojP19G9w2aRLq7n76ZLeqL300kAdHlMj1RGIZlwGBki0d0RscDQqXwQmrDj61N3vgJkiQrNK9WHnl/ew+O03DjMf4G/Ru4tjNwq0XkTuCk5ki30dPlIyYw/p32CxmE+crZSYkIIEFPGVf3A8dJXMwKLLvLJFRWg4B1EFZrC1sns5mDloNBeSbWD+KLw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Icj71/VK5Dj4zopWTZsMofjaXkyYoMpwSXnNn6ELPAM=;
- b=em8GNae5nKvee4y+kybhTWHSSNZUB72B7EcG7RUwliSoVmOhKZQvk4WK7yO/AKX3BiR1+SDIZ82xs3P7maDiRAARqWQtMLoAu3EK1E0RLqdFIvKer+MJWyiXq+OMy8rU0FQzVvLob9HDm6CqeE71gD6tf1SKOqMkVqDtfgbM8JYRSfToFFJ5euOBnuK9al2fCkCV9qwQBj9SdAJ3M81clL/85m49cxUdxSMKD0tdveODdItRlVi+Lpu07jb+t+LGjgWgiQyWCD2X7ZntxUc9KEJqLsf2hjc4/WqHIZt7XqFGJDXtyM6Ag8a8GOkN7PBI1rcQ8dpLEmcmQUG6Y18suA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Icj71/VK5Dj4zopWTZsMofjaXkyYoMpwSXnNn6ELPAM=;
- b=E1oOj0mQgPq4I6jL9Z8qd5R/6iocmF2bz99imNqshHG1u3zZi3RNawm/093NnHXteAF2doFzzmXc2OGYnAQue1+EzaXTuHf/0PXzaStNs15m4w0Lzft7bLtXfaU+rTgwZG6Ce4c12aQ9WxoHIk5QruQ6TrGEFeyqGXJgpDcmj/gcW8QZRqk+9N2tDUTKdD3PnXnjJvi/RN+Bkd6r2r5hGyoowBncxtT6PAngT+W018RVl7MtomtXMrCcTro8K/R+piFdcyReddjFvm9UhsfNrtQ+q7SvBWNZirdDuwBxZa4id1Gxhim0KtaguvlUTjP3vJxCYZvsh6UyxcrDMpqauw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8567.eurprd04.prod.outlook.com (2603:10a6:10:2d6::21)
- by PA1PR04MB11010.eurprd04.prod.outlook.com (2603:10a6:102:490::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.18; Mon, 2 Mar
- 2026 07:59:30 +0000
-Received: from DU2PR04MB8567.eurprd04.prod.outlook.com
- ([fe80::32c4:a8a7:1724:b754]) by DU2PR04MB8567.eurprd04.prod.outlook.com
- ([fe80::32c4:a8a7:1724:b754%6]) with mapi id 15.20.9654.015; Mon, 2 Mar 2026
- 07:59:30 +0000
-From: ziniu.wang_1@nxp.com
-To: adrian.hunter@intel.com,
-	ulf.hansson@linaro.org,
-	haibo.chen@nxp.com
-Cc: Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
-	linux-mmc@vger.kernel.org,
-	s32@nxp.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 4/4] mmc: sdhci-pltfm: remove duplicate DTS property parsing
-Date: Mon,  2 Mar 2026 16:00:57 +0800
-Message-Id: <20260302080057.974102-5-ziniu.wang_1@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260302080057.974102-1-ziniu.wang_1@nxp.com>
-References: <20260302080057.974102-1-ziniu.wang_1@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AS4P190CA0034.EURP190.PROD.OUTLOOK.COM
- (2603:10a6:20b:5d1::10) To DU2PR04MB8567.eurprd04.prod.outlook.com
- (2603:10a6:10:2d6::21)
+	Mon, 02 Mar 2026 08:06:10 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2a9296b3926so31339425ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 00:06:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772438768; x=1773043568; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=pzgC4aUzxFSpLAMwn+L0pn5MDObG9dJ9EJftg3QZJdc=;
+        b=JrSkmbMMGlcwYdNGdnK0fUqxRBQmg6i+4EVLTXPpKsRaDVPURvrRhhYAWRtM8mUWkL
+         IlvENwKkdPMN6exV2rR9H3+S0GxOOeB8Ip/K3jLaKNVdNhbdXy8Zf58e5vMl39gNsCo0
+         979Zi/quLs1K161pvm7rQj921RroOvzZk9yT+LR70IlT6K/JvNwHGrXE66rja5ohNDqB
+         cS8NU/L2LdTgveCxW85BjBxcE21GLQGldfMM2F87fE3wpQnMkwvp8orXdrM5MB53ecKW
+         mJ7q5yGZXkNU2rdTwJiFPXXw/XcQAzrYfdIIbx+4JQt+1eTggqhrNIqKRRJsPbE6S8vB
+         u19g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772438768; x=1773043568;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pzgC4aUzxFSpLAMwn+L0pn5MDObG9dJ9EJftg3QZJdc=;
+        b=cFWYsW0IiTBUpklJFYMazceb8YJ67nFz3U/8yubIlgbwJRFx9k56C77Gc4zakeTQj2
+         cD7+msm3RQvQs7KQATO0icFWcG12oB3o2BxmEZSIdUjolMhEE2PWtTHdCWhBeXPiTt9t
+         nLscqZz2RYHdATg7gRPlclzrud6c5vNhA5/opywXql18wbGtOhBw5pNYaUy943U8HXew
+         LVvtgx+ZAbYY9MF52MxMI369EY0lUir5MQ62MU3Jb9QIY2Z5Ypi26rkRXNvJfmcy3eyQ
+         K9RtBDBrL1fu1OlvrRkiNmlYfckZqS0q8TUKO6+6OxxGikzkbHFo1EnDVdpX3HlCnJfy
+         KIxA==
+X-Forwarded-Encrypted: i=1; AJvYcCW2nkh5C/sJ4C5t5yM1ufsM2YcyjKYaM8eFVxZG67alz9mnD6GiALh0Z5KyxGErXze0zuLTj3QCTv2Ja6caj2sK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwobfVPbQ3Y6dPML5v/TFPgaENeh+qkpLD1F8kms8QABONKtVKL
+	PwDvwgn3Ir3Q3lZ/0QmibEG6LqexK6uo4WvErfIWsTzxtpqQJsLRn/m/
+X-Gm-Gg: ATEYQzzGfQS1TWUddOqEEnQd/jT8+BDTYVqDgCcOCGOTGAm9Ri6c9WN9x9tk/Uu8LSj
+	qmNmqDJEuBjm+PTecE0+bWAdnMAy2Grm2wSS9IxzvtpnNxkZOhnftcDRDRjP0xd1zmqW4hOhSYV
+	DBWy4vA8vDg2pgmVmtEQt/9qCLC9k7v/xwukOmddHn8NRZcOETPknaX8ux3TrPk5JHLbFmvkrRn
+	RanyAvcBJ4YBWltvT+dFtqLKm4m7FX8HtcRdOhpUEYjEwc+QHTxCkzPZnWxTVjV5yKkU3oAii2N
+	IgUkiBJAUm4Pbzx2htEpbfZ7PV3CAtfAhXYHh0cpmIg1wmb8B7wjqoCV5ZpSvCOwNbuvrw8ZAoz
+	I7CsjQnYCq2Lcz2eASfzVrDRzat4e43Px4UtxkekFma3Vm7vK8xtqGzvSBurd3+Eva6sUqp8R9B
+	0cnCnTzp9yifHIwPB9174FtYCM7XQvwoV2kZl3I13SYNN5GTCTJCtkwN6C14DwnoPo0YI+RzA=
+X-Received: by 2002:a17:902:c945:b0:2ae:4e43:a607 with SMTP id d9443c01a7336-2ae4e43b71amr25850355ad.13.1772438767557;
+        Mon, 02 Mar 2026 00:06:07 -0800 (PST)
+Received: from [172.19.1.48] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2adfb5b257esm130191305ad.4.2026.03.02.00.06.05
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 02 Mar 2026 00:06:06 -0800 (PST)
+Message-ID: <5607ce87-a1ab-4de1-8917-0a7c31f943f2@gmail.com>
+Date: Mon, 2 Mar 2026 16:06:03 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8567:EE_|PA1PR04MB11010:EE_
-X-MS-Office365-Filtering-Correlation-Id: 52240a79-ccaa-44e2-d4cf-08de7831a239
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|376014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: eS5y0IVBTuiflZc9zbN2ynwxm62MvDkpi+S8LuAoxhljf5DNE3oliRWnHJYS4M+38MqlaD6l6QmEhjYB9IUzc1F0CHZCjc+1FHe5vGQ7+a6mImy/a7xw9QxnO5CBuRJnP/zvwX4AZPwp+SQoZ/YJstE+Sjv243evyaucFvVFLuUeC8bgR1+3lArX0YZPZD8HO3QlLtx7466zsW1PYJdGT2F/6f3FjQKubRfLiILK/jSpGhY1asX5rUcELzD8gEdM4ZmuJCjmyszZtRej99qcsP7+EK3PvGh3yzzojBnC7nNBmQrFhWabJBabKBQX4MAeYAHXD/+GFCIznZYRPvTQGpbwy0opPDlWohzC8/aUkRXoN/PxqK8rvhoiARxjRkU+Yy/NstfxVBCuj1GSb2dwjpv+lSFrwPj3G1kXnIVNMHTaCbrKoOCuOlWcVLjgMiXmmduHZ1GAHD0znqb9oqJ1+kGVBAsOyJoLRFx/4UMo78wIM/RGClguIkxuKN6tBPWrxzES+7BM2iz5skztATmmDb3XwL2nEsquNGZbw/JlZEQOCA/7z0KeNjGWbYavszhKTAZ80UJgnsIT/x/XbLF7+JjQBTFC3+Axk/uLWnzJK5xdU4ym+4TfSZsXv4bB/jXPIYE7WM/sgsoKa9PS2VlFFys3ZnhOPH5r2HCS0i8KdrhDcWugAaGrIs1rb6fWWtKQp2Wbr+myDYRcckCEuo9LcMIT3qrIHZy0SytZqkICLrXMjivBmQTkwmwC6Pjq2+D+WqBzQxJDP+zhNlJ9h94XpqtE9lBFA9ZcZo/73WIrvJs=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8567.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sWIoByjmS7ThFVsqrSiyOi3CwwAuvFjFUj8tUkprrSApAZMmoLu77sN7RLz9?=
- =?us-ascii?Q?sOiCXYKghDQpXbEHUJoLZvEC8SwIUiuGZTZ0YerM8SZ2b59DPt0r7WFmOOCP?=
- =?us-ascii?Q?UPNw92sl0QE6uI4786jc/SXnEbeHEkodCkhki/l4rrihiGtFW7yc8EJZaBTc?=
- =?us-ascii?Q?DnACoLPAUcLyMixvaOhM247pSlTNhkTf18gzQxa0iT8qxd4qkIqlH5Y3iGS+?=
- =?us-ascii?Q?7L01AT+nOhbiFll4r0qWO2vvz5lZorb5idsd0Ri5uPl05P34UCQBxzZwnVpX?=
- =?us-ascii?Q?j8Iqn5k2GpGiivXOSoSQRwlrkRECACezdkqubWgE2/6N68rsE6kPAUmBDlZY?=
- =?us-ascii?Q?gEemcO+0pqBKtNdtO8xUVznLSXkx9J9V4Oys8xpdtkmzisc9gzsTPXy1uvjj?=
- =?us-ascii?Q?PRkhDbcZGWDgYkWpWMGF30NNrVBEIDK1C3MgsokKtz4Vzn2SJetEcceNR0rN?=
- =?us-ascii?Q?RshMDGnXvYorj5wXpIBEMPdIX+sN/QTQeiqEK+dkFQegnS81KWu5cXuWAYHr?=
- =?us-ascii?Q?cvzWQUs9wnJc85MvfRd3C5QmJOS8QMR/w7bD4Pf7a1i3lDrZNGIE2EBQCYCe?=
- =?us-ascii?Q?zQvkZQuTfcGCPtErUh8dhygudYeFYsd9a188vrhEq2nktzf9V/+GvzARruqh?=
- =?us-ascii?Q?getYBGLzkCUDFJdY50I0906aRG0BeUoptaW3Efs074z95rfMDT4+rVfGG7Ix?=
- =?us-ascii?Q?gqGmZoAUFbDpyBK0Bol/0zsih7UsfJvLMCGaH07Cu9GMViwmqrCwJSsWlk7V?=
- =?us-ascii?Q?86WzqSS53H01lYkv4R5JjIOyGx+axHvfOJIyI2hp1dtGSsvpmNE3KWkmrvUN?=
- =?us-ascii?Q?GIO6y6RUWeyMYUGw0iRKbFs8qow4LqBht1cIuVM4oIRiaOHjrvyqjojRGGlP?=
- =?us-ascii?Q?ZXkfgSQAFPSBqKvBNIoNN9jD1ik3/RA6dxmXofq1lqlL20e4u9sNTxKwfg1p?=
- =?us-ascii?Q?iMOI23LgAMURhvaofwGDgL+c3HJpEoyfPRQ9W7Ruf5YL6qsaIwXZRa981i7y?=
- =?us-ascii?Q?k8CNp6DqPD5Mw0MjcdpsIfTFEsEmsCkWPu6zoEmp+Z89V+LJqFMUo5PdQx4o?=
- =?us-ascii?Q?Wu1dROGlqFo9jN9IP0q+06C8+oZj3zzaqlm8sLDaIBVOuO2JcaKUE78g4EkO?=
- =?us-ascii?Q?hzMgCYzD+rihMPn1ML0tqDu7b7xsJw6hO3gMsIda+ltNRPuSbHnBjVHykaTa?=
- =?us-ascii?Q?pro43E9RCiU0BdqJec2FFf9R5XnPIyHYQ42rf4GuhKubWna0RVrqpXknumRn?=
- =?us-ascii?Q?ibH1hvDY+qod373tbwCnpHKILNbnMdE7DAv1HYw1ZYQN4R+GUIrtjTdCfaHR?=
- =?us-ascii?Q?A2HGu72o8VfM27Lia48EPPa6xzK7fvY3+U44aq96UAl02rzFUYQAVvixv0gD?=
- =?us-ascii?Q?UC2uMSRPyrI0OiJRrOxw4fquT0fksIN4cNqO+7j4Doyx2FXLvRbIvsk+71IH?=
- =?us-ascii?Q?TGKn4Fq6FxNS+cxST1ycEtY9i59P8MRWF3zoCXDiiTmx6cA5HFiQCIXm+Pcq?=
- =?us-ascii?Q?FCgNOkS/XaIZCubTZJGTj0BNODtG59ojuv2aN4o05/eZYXgog2lMSyNY0UYc?=
- =?us-ascii?Q?H35Wlo0r6AYKHSOfcGF3WAGFstFXbn+vb5DDYEdti+zLQMt9YJVWF5DuUNd9?=
- =?us-ascii?Q?sODoXM/QHi+f1va4OarGqY8piJtAaqmT8dG+r16A1wE38q81Q7YwO8nG+mIA?=
- =?us-ascii?Q?4WovDoHuwihdkvOo/5susf4xcU1x82wACIcHOB2cs1zFoHWJorxKSk/Lrc0d?=
- =?us-ascii?Q?RkjE06ru8g=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 52240a79-ccaa-44e2-d4cf-08de7831a239
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8567.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Mar 2026 07:59:30.7509
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tUgrmf5/YbWTZbJLBPt/dO+a+GWRqji7x31kBd8wyASfyXN7QrVNZAbW8+LzDf8RlTDRebQe6YScPBnfcgt1Pw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11010
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] arm64: dts: nuvoton: Add I2C nodes for MA35D1 SoC
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: andi.shyti@kernel.org, ychuang3@nuvoton.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, linux-i2c@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260302020822.13936-1-zychennvt@gmail.com>
+ <20260302020822.13936-4-zychennvt@gmail.com>
+ <20260302-amiable-rugged-mastiff-ccded3@quoll>
+Content-Language: en-US
+From: zychen <zychennvt@gmail.com>
+In-Reply-To: <20260302-amiable-rugged-mastiff-ccded3@quoll>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260301_235935_029664_4248E3F3 
-X-CRM114-Status: UNSURE (   9.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260302_000609_015136_9846A606 
+X-CRM114-Status: GOOD (  16.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,38 +104,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Luke Wang <ziniu.wang_1@nxp.com>
+Hi Krzysztof,
+	Thanks for your review.
 
-The "keep-power-in-suspend", "wakeup-source" and "enable-sdio-wakeup"
-properties are already parsed in mmc_of_parse(). All sdhci drivers that
-call sdhci_get_property() also call mmc_of_parse(). The only exception
-is sdhci-of-hlwd, which does not call mmc_of_parse(), but its devicetree
-does not use these properties anyway.
-
-Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
----
- drivers/mmc/host/sdhci-pltfm.c | 7 -------
- 1 file changed, 7 deletions(-)
-
-diff --git a/drivers/mmc/host/sdhci-pltfm.c b/drivers/mmc/host/sdhci-pltfm.c
-index d4fb60c1ef69..933fafe0a0ef 100644
---- a/drivers/mmc/host/sdhci-pltfm.c
-+++ b/drivers/mmc/host/sdhci-pltfm.c
-@@ -95,13 +95,6 @@ void sdhci_get_property(struct platform_device *pdev)
- 	sdhci_get_compatibility(pdev);
- 
- 	device_property_read_u32(dev, "clock-frequency", &pltfm_host->clock);
--
--	if (device_property_present(dev, "keep-power-in-suspend"))
--		host->mmc->pm_caps |= MMC_PM_KEEP_POWER;
--
--	if (device_property_read_bool(dev, "wakeup-source") ||
--	    device_property_read_bool(dev, "enable-sdio-wakeup")) /* legacy */
--		host->mmc->pm_caps |= MMC_PM_WAKE_SDIO_IRQ;
- }
- EXPORT_SYMBOL_GPL(sdhci_get_property);
- 
--- 
-2.34.1
-
+Krzysztof Kozlowski 於 2026/3/2 下午 03:25 寫道:
+> On Mon, Mar 02, 2026 at 02:08:22AM +0000, Zi-Yu Chen wrote:
+>> Add I2C controller nodes to the MA35D1 SoC dtsi.
+>> Also enable the I2C interfaces on the MA35D1 SOM board
+>> to allow communication with onboard peripherals.
+>>
+>> Signed-off-by: Zi-Yu Chen <zychennvt@gmail.com>
+>> ---
+>>  .../boot/dts/nuvoton/ma35d1-som-256m.dts      | 14 ++++
+>>  arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       | 65 +++++++++++++++++++
+>>  2 files changed, 79 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
+>> index f6f20a17e501..2a8f0fd90ded 100644
+>> --- a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
+>> +++ b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
+>> @@ -98,6 +98,14 @@ pinctrl_uart16: uart16-pins {
+>>  			power-source = <1>;
+>>  		};
+>>  	};
+> 
+> Missing blank line
+Will fix in v2.
+> 
+>> +	i2c-grp {
+>> +		pinctrl_i2c1: i2c1-pins {
+>> +			nuvoton,pins = <1 10 12>,
+>> +				       <1 11 12>;
+>> +			bias-disable;
+>> +		};
+>> +
+>> +	};
+>>  };
+>>  
+>>  &uart0 {
+>> @@ -129,3 +137,9 @@ &uart16 {
+>>  	pinctrl-0 = <&pinctrl_uart16>;
+>>  	status = "okay";
+>>  };
+>> +
+>> +&i2c1 {
+> 
+> Why 'i' is after 'u'? Please read DTS coding style.
+Will move &i2c1 after &clk and before &pinctrl in v2 to follow alphabetical order.
+> 
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&pinctrl_i2c1>;
+>> +	status = "okay";
+>> +};
+>> diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+>> index e51b98f5bdce..36bd19e37b57 100644
+>> --- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+>> +++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+>> @@ -17,6 +17,10 @@ / {
+>>  	#address-cells = <2>;
+>>  	#size-cells = <2>;
+>>  
+>> +	aliases {
+>> +		i2c0 = &i2c2;
+> 
+> Not a property of DTSI, but DTS.
+Will move to DTSI in v2.
+> 
+>> +	};
+>> +
+>>  	cpus {
+>>  		#address-cells = <2>;
+>>  		#size-cells = <0>;
+>> @@ -372,6 +376,66 @@ uart15: serial@407f0000 {
+>>  			status = "disabled";
+>>  		};
+>>  
+>> +		i2c1: i2c@40810000 {
+>> +			compatible = "nuvoton,ma35d1-i2c";
+>> +			reg = <0x0 0x40810000 0x0 0x1000>;
+>> +			interrupts = <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH>;
+>> +			clocks = <&clk I2C1_GATE>;
+>> +			clock-frequency = <100000>;
+>> +			resets = <&sys MA35D1_RESET_I2C1>;
+>> +			status = "disabled";
+>> +			#address-cells = <1>;
+>> +			#size-cells = <0>;
+>> +		};
+>> +
+>> +		i2c2: i2c@40820000 {
+>> +			compatible = "nuvoton,ma35d1-i2c";
+>> +			reg = <0x0 0x40820000 0x0 0x1000>;
+>> +			interrupts = <GIC_SPI 97 IRQ_TYPE_LEVEL_HIGH>;
+>> +			clocks = <&clk I2C2_GATE>;
+>> +			clock-frequency = <100000>;
+>> +			resets = <&sys MA35D1_RESET_I2C2>;
+>> +			status = "disabled";
+>> +			#address-cells = <1>;
+>> +			#size-cells = <0>;
+>> +		};
+>> +
+>> +		i2c3: i2c@40830000 {
+>> +			compatible = "nuvoton,ma35d1-i2c";
+>> +			reg = <0x0 0x40830000 0x0 0x1000>;
+>> +			interrupts = <GIC_SPI 98 IRQ_TYPE_LEVEL_HIGH>;
+>> +			clocks = <&clk I2C3_GATE>;
+>> +			clock-frequency = <100000>;
+>> +			resets = <&sys MA35D1_RESET_I2C3>;
+>> +			status = "disabled";
+>> +			#address-cells = <1>;
+>> +			#size-cells = <0>;
+>> +		};
+>> +
+>> +		i2c4: i2c@40840000 {
+>> +			compatible = "nuvoton,ma35d1-i2c";
+>> +			reg = <0x0 0x40840000 0x0 0x1000>;
+>> +			interrupts = <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>;
+>> +			clocks = <&clk I2C4_GATE>;
+>> +			clock-frequency = <100000>;
+>> +			resets = <&sys MA35D1_RESET_I2C4>;
+>> +			#address-cells = <1>;
+>> +			#size-cells = <0>;
+>> +			status = "disabled";
+>> +		};
+>> +
+>> +		i2c5: i2c@40850000 {
+>> +			compatible = "nuvoton,ma35d1-i2c";
+>> +			reg = <0x0 0x40850000 0x0 0x1000>;
+>> +			interrupts = <GIC_SPI 124 IRQ_TYPE_LEVEL_HIGH>;
+>> +			clocks = <&clk I2C5_GATE>;
+>> +			clock-frequency = <100000>;
+>> +			resets = <&sys MA35D1_RESET_I2C5>;
+>> +			#address-cells = <1>;
+>> +			#size-cells = <0>;
+>> +			status = "disabled";
+>> +		};
+>> +
+>>  		uart16: serial@40880000 {
+>>  			compatible = "nuvoton,ma35d1-uart";
+>>  			reg = <0x0 0x40880000 0x0 0x100>;
+>> @@ -379,5 +443,6 @@ uart16: serial@40880000 {
+>>  			clocks = <&clk UART16_GATE>;
+>>  			status = "disabled";
+>>  		};
+>> +
+> 
+> Why? Do not introduce random changes.
+Will fix in v2.
+> 
+> Best regards,
+> Krzysztof
+> 
 
