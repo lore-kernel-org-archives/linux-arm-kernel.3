@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F169CE9B371
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 12:25:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F2D3E9B372
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 12:26:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Q8M0BzYT+8nDvDRpeOPQrwaX+SE1r8gh99dGV2h1fFk=; b=VKBqbjcCaHAZWm
-	QgnbhLab27ZyxRavaCFMmkfwQkMtUVjNzpItQwJfELEzP8oQhbskahq+msm0IVSyO214TGMRwbGT7
-	N5NN5PtcxRx2D+GwQfyJnGLrRWoemEN21/PWy8vmbP6VPXqZU9LD/1Mj/AMHWQ0iG9H2acXmvcLql
-	tbH55PYc3jM2Ig0KdEbcKsuGZby/zCKoC4dZ+zE5xgd4YJFRCDUQxjQvxh4eeYNzLuJQaE9HPIiEA
-	VISJK/fFv1wnjCe7mU72JFdsdM0GWD2EV1Ziw3EOLnyINw9qcEP4k3i10ts3dwOWkMnLcC1Arm/Cp
-	bJm+wSu6IgZQb4FgAKPw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y+wSVvr2iY1iH7k3F0iPCSqLzNSvbTbj527LLEkOjHE=; b=YaA3w9s2kQISEyeB5HEQh9AeUw
+	OicH0+Nf5EhQ9I6RDO20XrvWWuR3FDvHjX/eHBdLtRyqTKLrChTz7YmogNKLjx++0K7gdf/LGgysh
+	AHi2hV73t1MGHxuZThb0JEHIgT7kjVO01BlDskz4oJug0YBEK4Mpy82EG9PgpOC4wg9UpJXITQTR3
+	9RLMJZ/ega1I+5JJRlc+qu5SGmq84RVZi+oB/LPCMOZXADfvwKxy5WVvwDzAnKNDcdzMkld/xy+IB
+	WV7xvnUrPtdZzGLeyfM3E4UVMoq849qyug5F0d60g0fDiXehyJ3V7EhpBz86GE6lXVBUSspKXhEH3
+	Sk3hEnlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx2LP-0000000Cvt6-3qSE;
-	Mon, 02 Mar 2026 12:25:51 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vx2LT-0000000Cvxf-15YH;
+	Mon, 02 Mar 2026 12:25:55 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx2LM-0000000CvpB-0KP9;
-	Mon, 02 Mar 2026 12:25:49 +0000
+	id 1vx2LM-0000000CvpC-3INK;
+	Mon, 02 Mar 2026 12:25:50 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1772454344;
+	s=2020; t=1772454345;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=Q8M0BzYT+8nDvDRpeOPQrwaX+SE1r8gh99dGV2h1fFk=;
-	b=XTq/Qbdsmdrjjgi15d+mbxPv7MA1pmSdTxIgk0x+7gQ1SBn3Qk50BPvaiHTGQy/qTkOET0
-	CGc+OMjOeQ/n2dA3JdyCWwjrdxy0uscngADbfRLK8WmqnacdFL6h4HVWXe+3LbMBHdWR9X
-	qZ74nUVL9W2j3VLfwuTKczYIjFgmRo5MMH5f83HQtqnIdi+gp6yskGE9pemAt/5epkD38A
-	sdonFKgtjJGoOsIGmpIH2kKpN+TtX6hvt/oaC/e+zE3Kp4IcFO+phZTmHZCNcZy7Qe9ryj
-	DSBSapJLSRTcmYCf4GVgZP161CF/lM2AnixGVHOK2waHFibtLc9ifGRmcjG1Rw==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Y+wSVvr2iY1iH7k3F0iPCSqLzNSvbTbj527LLEkOjHE=;
+	b=0ote18nbZ1t68zJyeexrdJSVHAZPwP9UOAsFgAAFR/fpqYcoez3egBK6lgBnGLIpBoYIKz
+	byNNJflcxX/8kT7PsREcxt3F16BI7KnZB/m2IKc74GZSYeD2m3CHoAuFhIulLiNJ8gNHgT
+	fEGJClPPwBHWhKwqt8bqeoHqX9DFdCRP2bHywf7Ar1A3BuZHm88vpLBma/whU2VfEjPu/N
+	0AVHGyqtCyidsedREaPVbnXHovlkR1DKs3rnrmanu3HagPXtCHNl99JbLfJz39FsFs/Mnq
+	gYBYIP+QlW6OTeMQ6Ptwvq/2BcQ8xXbDDHUKO8JYjy6dMfwBHZRxnLHMpnCOzg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1772454344;
+	s=2020e; t=1772454345;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=Q8M0BzYT+8nDvDRpeOPQrwaX+SE1r8gh99dGV2h1fFk=;
-	b=f3MlQqxsNMwSdSaceDHlFwzKoTlTmrVShpKlZNDhQVk9O7AG1ihqK0Tpn92+Xr2oztP91Z
-	NrP6Rmm8D/oDiRBw==
-Subject: [PATCH 00/15] exec: Remove AT_VECTOR_SIZE_ARCH from UAPI
-Date: Mon, 02 Mar 2026 13:25:24 +0100
-Message-Id: <20260302-at-vector-size-arch-v1-0-a11f03ba2ca8@linutronix.de>
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Y+wSVvr2iY1iH7k3F0iPCSqLzNSvbTbj527LLEkOjHE=;
+	b=/aSPglB8AXbqg7opAXpO0/jUG+0+n3k3JqmDL/ll0iG0SJf+fha6jNyO8a0dtGc75s+t06
+	2+O3rwMHLHMlBaCw==
+Date: Mon, 02 Mar 2026 13:25:25 +0100
+Subject: [PATCH 01/15] MAINTAINERS: exec: Add more auxvec.h variants
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQ5AMBBG4avIrE1SXTS4ilhU/WU2yFRESO+us
- fwW772UoIJEffWS4pIk+1bQ1BWF1W8LWOZissY605iO/ckXwrkrJ3nAXsPKDiZadDG2k6NSHoo
- o938dxpw/BDR+BWUAAAA=
-X-Change-ID: 20260109-at-vector-size-arch-6e0f2e9ff8b6
+Message-Id: <20260302-at-vector-size-arch-v1-1-a11f03ba2ca8@linutronix.de>
+References: <20260302-at-vector-size-arch-v1-0-a11f03ba2ca8@linutronix.de>
+In-Reply-To: <20260302-at-vector-size-arch-v1-0-a11f03ba2ca8@linutronix.de>
 To: Kees Cook <kees@kernel.org>, Arnd Bergmann <arnd@arndb.de>
 Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
  linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
@@ -64,16 +64,16 @@ Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  linux-mips@vger.kernel.org, sparclinux@vger.kernel.org, 
  linux-sh@vger.kernel.org, linux-alpha@vger.kernel.org, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772454343; l=2953;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772454343; l=935;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=JDTHLUTBRhLdtWzI+cYwcXmhsRHrVsJSh1vwEnoNL54=;
- b=J6CYW4wsSS52A+nGxs9gwUdPdfHUZDIYWEVVGw/G+GXj/VTqu7W4L6C1R+uvBZbzZsf4FisCc
- r+YyP25hcjyC3G9P+jLo1JOj2qTAaURruN7qUwKyoqSA+FQdhvM39MD
+ bh=BIlr7zgi66zD1ig2kTolm4aENXktO7wosOLcoYFwhtU=;
+ b=0OWgCWYeIEIelNOmr0tEyiBwM5q6MuFfywVklpSmD0OLBHIs+3QQGBNYsmCJJqT5R/0oHxk2v
+ IVHrY681uTqCvAuwCRegS2QuY8D2kC+ODREUKmQlpZd3Q/msGQ3Pvmv
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_042548_339608_1346B625 
-X-CRM114-Status: UNSURE (   7.02  )
+X-CRM114-CacheID: sfid-20260302_042548_960130_DF05811F 
+X-CRM114-Status: UNSURE (   6.21  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,68 +89,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is nothing userspace can do with this value. In the kernel is
-always combined with AT_VECTOR_SIZE_BASE, which is not exposed to
-userspace and also changes from time to time.
-
-Move the symbol to kernel-internal headers.
-
-Meant to be applied through the asm-generic tree.
-The default recipient list was huge. I trimmed it to only the
-architecture lists.
+There are quite a few auxvec.h headers. Mark all of them maintained
+as part of 'EXEC & BINFMT API, ELF'.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
-Thomas Weißschuh (15):
-      MAINTAINERS: exec: Add more auxvec.h variants
-      auxvec.h: Move AT_VECTOR_SIZE definitions to linux/auxvec.h
-      asm-generic: add an in-kernel auxvec.h header
-      ARM: drop custom asm/auxvec.h
-      x86: Remove AT_VECTOR_SIZE_ARCH from UAPI
-      arm64: Remove AT_VECTOR_SIZE_ARCH from UAPI
-      RISC-V: Remove AT_VECTOR_SIZE_ARCH from UAPI
-      LoongArch: Remove AT_VECTOR_SIZE_ARCH from UAPI
-      s390: Remove AT_VECTOR_SIZE_ARCH from UAPI
-      powerpc: Remove AT_VECTOR_SIZE_ARCH from UAPI
-      MIPS: Remove AT_VECTOR_SIZE_ARCH from UAPI
-      sparc: Remove AT_VECTOR_SIZE_ARCH from UAPI
-      sh: Remove AT_VECTOR_SIZE_ARCH from UAPI
-      alpha: remove AT_VECTOR_SIZE_ARCH from UAPI
-      auxvec.h: Drop fallback AT_VECTOR_SIZE_ARCH
+ MAINTAINERS | 3 +++
+ 1 file changed, 3 insertions(+)
 
- MAINTAINERS                              |  5 +++++
- arch/alpha/include/asm/auxvec.h          |  7 +++++++
- arch/alpha/include/uapi/asm/auxvec.h     |  8 +++-----
- arch/arm/include/asm/auxvec.h            |  1 -
- arch/arm64/include/asm/auxvec.h          |  7 +++++++
- arch/arm64/include/uapi/asm/auxvec.h     |  6 ++----
- arch/loongarch/include/asm/auxvec.h      | 14 ++++++++++++++
- arch/loongarch/include/uapi/asm/auxvec.h |  8 +++-----
- arch/mips/include/asm/auxvec.h           | 17 +++++++++++++++++
- arch/mips/include/uapi/asm/auxvec.h      |  8 +++-----
- arch/powerpc/include/asm/auxvec.h        |  7 +++++++
- arch/powerpc/include/uapi/asm/auxvec.h   |  6 ++----
- arch/riscv/include/asm/auxvec.h          | 13 +++++++++++++
- arch/riscv/include/uapi/asm/auxvec.h     |  2 --
- arch/s390/include/asm/auxvec.h           |  7 +++++++
- arch/s390/include/uapi/asm/auxvec.h      |  6 ++----
- arch/sh/include/asm/auxvec.h             |  7 +++++++
- arch/sh/include/uapi/asm/auxvec.h        |  8 +++-----
- arch/sparc/include/asm/auxvec.h          |  6 ++++++
- arch/sparc/include/uapi/asm/auxvec.h     |  8 +++-----
- arch/x86/include/asm/auxvec.h            | 12 ++++++++++++
- arch/x86/include/uapi/asm/auxvec.h       | 13 +++----------
- include/asm-generic/Kbuild               |  1 +
- include/asm-generic/auxvec.h             |  7 +++++++
- include/linux/auxvec.h                   |  5 +++++
- include/linux/mm_types.h                 |  6 ------
- 26 files changed, 139 insertions(+), 56 deletions(-)
----
-base-commit: f6b3b0a4c85882ad75bce3b093173203e3f39f28
-change-id: 20260109-at-vector-size-arch-6e0f2e9ff8b6
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 55af015174a5..7a2c952d72bd 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -9573,13 +9573,16 @@ L:	linux-mm@kvack.org
+ S:	Supported
+ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/kees/linux.git for-next/execve
+ F:	Documentation/userspace-api/ELF.rst
++F:	arch/*/include/uapi/asm/auxvec.h
+ F:	fs/*binfmt_*.c
+ F:	fs/Kconfig.binfmt
+ F:	fs/exec.c
+ F:	fs/tests/binfmt_*_kunit.c
+ F:	fs/tests/exec_kunit.c
++F:	include/linux/auxvec.h
+ F:	include/linux/binfmts.h
+ F:	include/linux/elf.h
++F:	include/uapi/asm-generic/auxvec.h
+ F:	include/uapi/linux/auxvec.h
+ F:	include/uapi/linux/binfmts.h
+ F:	include/uapi/linux/elf.h
 
-Best regards,
 -- 
-Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+2.53.0
 
 
