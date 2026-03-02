@@ -4,79 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70A95EA4E22
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 15:22:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6870DEA4E22
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 15:23:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KX8LyfkGSnwWJK3wQK4qJ9fwSRGCapjjd7Xu/oRsfOY=; b=hy/S+iuIFlyOZ/u7hzbKntQW0r
-	aoH+v2tcjG43ufnt5VQ1o29k7A/xPOrBDxY8w2nrq6ZbUcMbd8JtS0PNNS9+mtjfmLEK9Mnx1nGZd
-	BwhD31myNZnwvK0U/AePMKo/0M45ZMrQ9gCjvQU7mCXJd9K5BA+VR2NdTcH93ilK2HLPGQjdB9ftY
-	jSb/946bSu93ZrQJMFZvIQMTf5YE07vwe6aXY+dY89s2G3tS68KCh2ZmWmPvSeLvDsT44Yp5NFM4/
-	1xSNUap9c3r1uYYMYxwd6RaG55XQRK7X1y4Y/GTFua2/r3iTszz1JqmL9HzlhC5lxx3pnyD0kGaBC
-	+KcnY/eQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z/L1RsM3ifNpNZNp4Aw/HlURvPThVG1lk4TYHvWSF78=; b=lVsUjVbHdsWHvabALbxa/P7+SM
+	1CcQQ5e1TI9LP/OWCRg+q/XCBMuJ3Kvf5J/zYjTvAV43rs4343Y7CUtJ/fQsvhv2xAcFQdctUkO3E
+	t/mEutvl4Ne2NSIYBP5G7SIYu5tVAUGk3TqzmaAVPe8zwCNFp4MJMtmy02c27F6k7b51560VplaZu
+	jQiRJmgnGMAXsh3DgriGn2nXZwjyaBx5iI9tIOIpe2Dx14OrHT7+NLygJjc/GX5/j9aw1MfhI06GT
+	pj6s65kXSz09h74QG3WDP6gMNEbEFPsg+diZnWT9wN6z0Thom9aO93XGVAyBAiDJPndjpcxnnglHZ
+	Ve3mEEnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx56E-0000000DLoc-0DXA;
-	Mon, 02 Mar 2026 15:22:22 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1vx56z-0000000DLu3-1w6e;
+	Mon, 02 Mar 2026 15:23:09 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx56C-0000000DLoT-1Fg0
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 02 Mar 2026 15:22:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=KX8LyfkGSnwWJK3wQK4qJ9fwSRGCapjjd7Xu/oRsfOY=; b=hPGaoihIGG0n4c6yP1ruGkidO1
-	BrNcFzgumjDn6Rbu4/sg45Cv5qyIarsBatmpMSAdsjKf23Bv1qQ8v2OyTWPijYWXNLrCtvYGbctqm
-	4VhAZz0WP26mHv6o4xiiBREhVbQLcSBZNKYgHJnn3AG57Uou2zHBjeaA7ZoCC89zJNJ+7Gz+x4kHQ
-	Nua55IorFpLuEOsaH+Of73fxyokfZWfBOKjzM1f1OQz9OlJyamdRCfePTrF97fXo5jeKXaWx3LvAR
-	uTQOu2wY/Hw4MMVN8wKcxPwa6OW9vEvpK5DwHqCllhqN0y61hiaEZFM0yFnwZ9wJxRTp1Iv9R1DsS
-	I0zIsaLA==;
-Received: from smtpout-04.galae.net ([185.171.202.116])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx569-00000009g0z-0PK9
+	id 1vx56x-0000000DLt9-2TyL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 15:22:19 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 3DD7EC40F86;
-	Mon,  2 Mar 2026 15:22:16 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id DCE165FE89;
-	Mon,  2 Mar 2026 15:21:58 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4EF7A10369578;
-	Mon,  2 Mar 2026 16:21:55 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1772464917; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=KX8LyfkGSnwWJK3wQK4qJ9fwSRGCapjjd7Xu/oRsfOY=;
-	b=Sp1XOY7MQ1zk8WE2oJ+NgQVnj6orYIwfCpXq7fcStXzRAPTbHwZTbSH8QtKq1g+tMuTPoR
-	Mjg6O+5U53e/cPQwYf9mVbpUvimmSclHJv5EjRqr936QS6GKL9dG6JD9zX4kt7VSstXWlL
-	8yNbfNU1k6OVyVzbK6SdVdXFOilEsc5yJFHuNiIdzwcvds9f+oJe57k/PXR+VfjUsEGYOQ
-	hHRsQOmWmNsRfznGmfO+FL+gPnYuZdvwnqXlcXl9XE9coe9XrTJlX+WX4sbycwRLCKLiG9
-	IlqwafFJsvgP7m40PNNPE8vIGi8n77wA76IfYR7VLEstJIWCYy+Zswr53wtmDg==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: Robert Marko <robert.marko@sartura.hr>, andrew@lunn.ch,
- sebastian.hesselbarth@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Robert Marko <robert.marko@sartura.hr>, stable@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: marvell: uDPU: add ethernet aliases
-In-Reply-To: <20260127123250.527714-1-robert.marko@sartura.hr>
-References: <20260127123250.527714-1-robert.marko@sartura.hr>
-Date: Mon, 02 Mar 2026 16:21:54 +0100
-Message-ID: <87v7fefe99.fsf@BLaptop.bootlin.com>
+	Mon, 02 Mar 2026 15:23:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=Z/L1RsM3ifNpNZNp4Aw/HlURvPThVG1lk4TYHvWSF78=; b=5A4V46mpge7k4Q/0orHLQoyri9
+	blKLRtS4agjMpmaalW+TWwrHoBTOWJaHLult03tudMjFWdWQvfAXS9V+unyuhg2E9GuebFc83lqOO
+	54Hx+w4Qa6jy1jvIsmGXdvzKYUlha0ocSzDAtAimxVhLfpHB8lE6nVHnDaNVd1LBqD68=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vx56e-009h7F-Ej; Mon, 02 Mar 2026 16:22:48 +0100
+Date: Mon, 2 Mar 2026 16:22:48 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Chen-Yu Tsai <wens@kernel.org>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next] net: phy: Handle PHY reset during initial PHY
+ ID read
+Message-ID: <9c29300b-a8f9-4b92-bb38-c75a6b56e793@lunn.ch>
+References: <20260302144458.3180702-1-wens@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260302144458.3180702-1-wens@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_152217_197473_6B97187E 
-X-CRM114-Status: GOOD (  13.35  )
+X-CRM114-CacheID: sfid-20260302_072307_631293_39DD7C70 
+X-CRM114-Status: GOOD (  15.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,52 +73,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Robert Marko <robert.marko@sartura.hr> writes:
+On Mon, Mar 02, 2026 at 10:44:57PM +0800, Chen-Yu Tsai wrote:
+> The mdio device core handles reset GPIOs and controls for PHYs and
+> MDIOs after the MDIO or PHY device is created. However this does not
+> cover the initial PHY ID read _before_ the PHY device is created, since
+> the PHY ID is needed for the PHY device. This causes PHY devices that
+> have reset GPIOs or controls to not work after a reboot if the GPIO
+> is left in the reset state; neither will it work if the reset GPIO is
+> by default (for example, missing a pull-up) in the reset state.
+> 
+> One possible workaround is to place the reset GPIO or control property
+> under the MDIO bus instead of under the PHY. However the common PHY
+> device tree bindings already allow a reset for the PHY, so we should
+> make some effort to support this.
 
-> On eDPU plus, which is an updated revision of eDPU which uses an external
-> MV88E6361 switch we are relying on U-Boot to detect the board, and then
-> enable and disable the required nodes for that revision.
->
-> However, it seems that I missed adding the required aliases for ethernet
-> controllers, and this worked as in OpenWrt we had added those locally.
->
-> Cc: stable@vger.kernel.org
-> Fixes: 660b8b2f3944 ("arm64: dts: marvell: eDPU: add support for version =
-with external switch")
-> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
+Please either:
 
-Applied on mvebu/dt64
+1) Add the ID to the DT
 
-Thanks,
+2) Work on driver/base, and add generic power on sequencing code which
+can handle reset GPIOs, reset controllers, regulators, clocks etc. A
+solution which works for PCIe, USB, SATA, and other enumerable
+devices.  And then modify phylib to use this generic code.
 
-Gregory
-> ---
->  arch/arm64/boot/dts/marvell/armada-3720-uDPU.dtsi | 5 +++++
->  1 file changed, 5 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/marvell/armada-3720-uDPU.dtsi b/arch/arm=
-64/boot/dts/marvell/armada-3720-uDPU.dtsi
-> index 242820845707..cd856c0aba71 100644
-> --- a/arch/arm64/boot/dts/marvell/armada-3720-uDPU.dtsi
-> +++ b/arch/arm64/boot/dts/marvell/armada-3720-uDPU.dtsi
-> @@ -15,6 +15,11 @@
->  #include "armada-372x.dtsi"
->=20=20
->  / {
-> +	aliases {
-> +		ethernet0 =3D &eth0;
-> +		ethernet1 =3D &eth1;
-> +	};
-> +
->  	chosen {
->  		stdout-path =3D "serial0:115200n8";
->  	};
-> --=20
-> 2.52.0
->
+    Andrew
 
---=20
-Gr=C3=A9gory CLEMENT, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+---
+pw-bot: cr
 
