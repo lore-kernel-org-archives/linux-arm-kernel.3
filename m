@@ -4,141 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF810EA4E1C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 15:06:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44CB7EA4E18
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 15:07:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wadq2m+FmgXvrzGESbTc/1jxM8gXxmwbUbtOvbfuNBk=; b=QttCnOA6cIe9Kjqt2uwMHTXlE2
-	XS0P5cv+HEdI54voy4tDjhm1Hl483PVzKEf+nWoX+WbMab0mhA2Syn5Z6ukCzkZ6aEVrJ0yafkuw0
-	mdEQa06mpwTAXLKkP3s6ue8KVhbCG6nGUrpLmaFJuGwfh/tC7r0Eenc0LIKcuGJv0mvLirz3/OqnZ
-	REj5sUobVdiBSpqC09yMNmd7wmWbuqF71AG7t+daPZufzQeDR7PFZtfMm36pvj9vzZrDGt0K8SZ7i
-	EkQpAan5cl+xGSM87PphBsfMkPQ2d4GUDzHeqkcjS2hLq2WitNMUcmoSFn5NxJf8ncCloQPdy8FJg
-	gliEnrFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+gDTORrI2pQyWVeOn4meK1oMBrguCe1b/ScMwN2EmY8=; b=GnFHXp9JmxA1ymwCo1kaB0mTRG
+	D/A+QNOK2DVA5urLDsswm5rCJxeDr3pfBI/g2Pz+PgIsTHIjr5sDtsHpvyZgewCC9bXv8s1hJkaUG
+	t1xSsnO2AZNJg8S5WVblJ+KSgVGieFOz80umEfER7A9207nsEzPCipuXnATrKh3il1HaIsF8H8gMO
+	ctU/fg08D3SRfWKZS4gzyjX2vYzhm6oiVYeR0W7/UvU8N+rzofAjPYSQ7h6aCSvFQ3+ixa47+r34Z
+	CnH3EdFb20RJbWv/NgRlVns6hfZxFpCGlw5yW2hCT/ZM/cNQ/kp3BV9anfNq5jnuu1Ti41Ic4LNHw
+	Kc4SMllg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx4r9-0000000DIsE-3LNT;
-	Mon, 02 Mar 2026 15:06:47 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vx4sE-0000000DJAx-1zMm;
+	Mon, 02 Mar 2026 15:07:54 +0000
+Received: from mail-yx1-xb136.google.com ([2607:f8b0:4864:20::b136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx4r7-0000000DIqT-1ZnG
+	id 1vx4sB-0000000DJ9T-1wcJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 15:06:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=B11BDMLqk5HzHzjcEO/hpYH/gJbi6Wq/+r4lAu1FStNIOhtXTwlEeqlqIoEi7KDN99MpeVZTvYx95Mctu7F1vwLi8TgZLbp2pjfHkv9JRPbgXjhGyETAwheUwppbEGsTonwAMk+y8/7Vpa+Gi8IfOZ2HRxPjMf2910YxKAqIprXtHlYefxX/I6qhLsqi8TrYGNY+wvjCUpIcW8fvADBEe9sZVld51xZ9S1U5243O9mGE2SyAWE/ZCweoD+6feXRUcENHPmxl/yYbB7VXhM9tF16cPH42yZyFFF0V4UWM1NJOr0EN0cB6FFpe/R/MpD6LF34hduEqqja/cGBOjTuETw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Wadq2m+FmgXvrzGESbTc/1jxM8gXxmwbUbtOvbfuNBk=;
- b=kIiEX+bBju0xuYIZRVGJzJyU/dMiDiFGV0+i/2a9vKh7bwf6iA30CQ8EsTd12JIBioswW4+rT/+p5Pzq3S6EffgYv0fNukur++PTj1c882gGoIZit/+nB4nptDQkgT5VZOAvU2/eM2+5fp1/N/cCIf1YX00Ta48x/gVazF5ieSNjKJOlBerR1x2cr/e6F6lzQDcIj0KWIML8SSb9dq+mucKZ3MAZ04e7scljU3H03Y0HVfi6BPMqZ2cEzIRulibQYO13v+XZNt8OEc+b2ibfY2orzPrfHVQXtO7+v37otz6zvEUCXHjrVOECqkfjz/Mnzpf7a38/5cASRiB/VmuaVw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Wadq2m+FmgXvrzGESbTc/1jxM8gXxmwbUbtOvbfuNBk=;
- b=vwiFfkU09TmaE3/xQVhWe/cUyeo3UErn0N9XeIP4qIX+D8JApEYYjLE01DKBhgBy25DPc7qa++5H1bG858gRI+532CVgoGdpSQItoL6LD1cUDuMhugctJZi5AvOSSeaM8cJhnl8ejYZ6+KaFovT39qpxK9PLT08GNI8Q46GwJ8C/gk+2YzOlZhLrUnyS2gI3a8soufLwchiyEqXRJKEb8WmuY+VroQqkRGc4Bvn67zpXv5vP0XrQs1qnZvkgZNCAYFLWsHjX49k1Cib4w13des1jxU76qVSuFh3x63rR798T5M5KHqnlYSCdMqYkgqh7stDqv08kJtI++lSUe13NSA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AM0PR04MB6980.eurprd04.prod.outlook.com (2603:10a6:208:17e::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.18; Mon, 2 Mar
- 2026 15:06:39 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%7]) with mapi id 15.20.9632.017; Mon, 2 Mar 2026
- 15:06:39 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Mon, 02 Mar 2026 23:07:42 +0800
-Subject: [PATCH v3 2/2] ARM: dts: imx7ulp: Add CPU clock and OPP table
- support
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260302-imx7ulp-v3-2-26b708aecc59@nxp.com>
-References: <20260302-imx7ulp-v3-0-26b708aecc59@nxp.com>
-In-Reply-To: <20260302-imx7ulp-v3-0-26b708aecc59@nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, "A.s. Dong" <aisheng.dong@nxp.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.14.2
-X-ClientProxiedBy: SG3P274CA0013.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:be::25)
- To PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+	Mon, 02 Mar 2026 15:07:53 +0000
+Received: by mail-yx1-xb136.google.com with SMTP id 956f58d0204a3-64aea64bf15so3888265d50.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 07:07:50 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772464070; cv=none;
+        d=google.com; s=arc-20240605;
+        b=keeNzcfUzLj6hbZgSycS+43leDG+Lb2KFxLKj8fXdHpTtLsR1kUohBTdUVC5aDRySL
+         AKcn8ONaxI1nOrmqJL221oaZTo3lq3Vc9SdhX9QaX6hHVaqOP0l4vt9IdonqdlqQ4xV0
+         u0I0B6BMR3uw9cFDtJeoRKHlVu/VwuMd/yKkMWe6jePQ52fGHchDpHpPpIJuub50IHut
+         FLo/A32ZzMUHunFemAd4PCbvAzSArvrYMKC/z4Im22oBGElgEKYtQCP6Y7cDE6oLMJ/q
+         htjfnimur3fi881G8gJPkOBYRnBy99e+kBlQKuubRKJ6B/StWQT8il34P6xdl9TIBKCT
+         fkEQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=+gDTORrI2pQyWVeOn4meK1oMBrguCe1b/ScMwN2EmY8=;
+        fh=pe+Kuk5bm6GsMA5fxctgPOHBOgxCB7pHwdd1pZrU3kg=;
+        b=LW4VoRY1gyfKDn7Tsmje4gW57+uczIHT5bo4E5abS7hpEy+4F9Hc6p0Ze7mdTG123p
+         7LePapGk9RQ2W6m6EoAnaI8G1r5egtqohul9JaxbjdVwG8+9JIj29Luah1PVlTlY5RaS
+         3cLYkqX3+LLLAYZiiu0K7exhuADFp/elLY5UDj230Tzyo1ncYXLuNpYZxtpNntic5X+V
+         eLe/lyHvl5b6dTrJmFrJC24/khJmjEEux6SDY3rfsL6y9YjBxCGUDJCUSn1xAlJbTVGH
+         q/6ATdu56iwx+VYAlMhw5GtqvJC9Gl1wnLQMphHOHjzz0H2aJztQcp2YuRtmvLy8rRqd
+         /c+w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=yngvason.is; s=google; t=1772464070; x=1773068870; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+gDTORrI2pQyWVeOn4meK1oMBrguCe1b/ScMwN2EmY8=;
+        b=M6VTNzJg7JUgSxFDeMZmK9Bj5vWNXHH20gC5wwzbijylLKcHhcUyZ1rmvt6/UmWZd5
+         Rh7iuhpCDry3Ch68RBXjMRqsVS43HC2gGvYtTN3a+UqemVStN0EnFEj5LGQWHkioQK0e
+         gWkFfmjePsTrSw5SF9zDR/LHMLkhtKrbWNWRw=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772464070; x=1773068870;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=+gDTORrI2pQyWVeOn4meK1oMBrguCe1b/ScMwN2EmY8=;
+        b=Bu/NV1BaaOJDoh8tHCiJmi9mLzQsvC3O9FPESbQMr1SAnKpWO2WWbxjyXOknOB2mUm
+         D7KlvqlmubgXRzQckL51IAFVJNIWJrRxBQuekdMoCN1mZY09KZGeLCexj/KaAmBTOH3t
+         uYkxC2zZf5hu6djYTRFjoqdWiuFSMmk7ucCEVgR6am72QMqpSEqVMWBrC5T0EqB0yDrh
+         HqIS1EfE7OSSMK8hzku5A5PpoaWv0bqiLPQEZ/Hva/Lx8YATsXScgHfNYGgDC8CsggHI
+         VUWciFvIqGE0HzHq8wRGhAnQuaBp03w5KrTz+2P+gALvCeqkFr9h4HQzUW6TzcWn622E
+         kG4A==
+X-Forwarded-Encrypted: i=1; AJvYcCUrdNRIpOKRYAhlKGPMBXHqij8JF08HIuT5hQmEcRW7PmVvwHhJ9Rs2JnhHsi7n7iC66nRJliytXv+gO9REy5Oe@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyt6qTegmLjiDX17HSLT4IVvKI6G6yMPGQJf1Uje0D1UebQx7iY
+	C0uHnNBcwWAopDjwh/LPbvG5fKZ31PnkeomScoj5bKAx4WLAjITnKUt8xTWWvoEOSUOD8JFkGIH
+	rUImpb9L3OCVea5su8ObCwfIaQkdLvXwXFb5SOQoq6Q==
+X-Gm-Gg: ATEYQzzuE9lMP/0aiMmFvy1UQ0m2qOCKsSryKhjPvxi8/PeYWPPN5sqkbLz/oOU1/fw
+	nBNGwNJdF8tfxinEsAbCnYPpw8wM3S0cu0a7ZBU5yU5n3hy1NMUYCPyGY0L0nbg1VoOktPPQpQR
+	1AqmlztgrghCunoYqRuF8xPnTQA352BpZZ7OXV9Zk7rcNNGbqmImKreirTeIZiTkfFKI3UaK4XQ
+	u0pU0MGwXe5KLAiXx9Zn7iGMN6w9Oyiv2PmGU8WvasZtsEEXW3S0VUHAYj6qGD8FmLecP4leEHT
+	EbglluYt9qocTUPx7BWKv8a1c8KdxpLVGXG7MeM=
+X-Received: by 2002:a53:ab0a:0:b0:64c:c1b6:714c with SMTP id
+ 956f58d0204a3-64cc2379297mr8671268d50.70.1772464069335; Mon, 02 Mar 2026
+ 07:07:49 -0800 (PST)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM0PR04MB6980:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1b162d1a-32ef-45fe-f985-08de786d4e4f
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|376014|7416014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: KPKkKzoRWonBehne4LA2j9sHH+Om4beDCVY19qpVgACiLrfM5Qvgjeiuhj7DPV2bBmnnFbMStosiqTMrqxpVgUeREjjqGcikOa2CrV/X6zgMFPBg+HRyKws/1jXqYCygcgq14oc8WPuWNh0rM4Udg+VCYDAkUDU07NUsNPgJzRIQ7PlvIupWNAT8QjoPgYFuwwJZVa6RUqr8CefX2OvMJQ1Zv5vc9GL8X6RD3FeRs+wQnkLQ2ACeTm4g+nLTAA4EASMF+Ilrgwu7WBj/4GDgAGCrwFiQ/QpRHTzo7hhhwKTYFTkItAR7PtxPlPWDQ1HI7WkmhPwVispDugr4RwD7vypwiQCBswF01eGjS7hPl4ANtJnczOVxkDs2ZA2gSkyX7vLw++Ujt6PyzdoCOpgoI7L1QmnQVcvrMPmGqHEv6tDacG5YSMD6Dfh/c+57rMoGW5I3WNc53jM8R3d6cU9rARy6+zBLGgNYiHyRwubqWQTaEnTqRfFGDlkOeHmNS4ngXdBRSl1iTN9vtCQkivS11GvQHrB6fOW/wL0Pk28nWBO2dS56veI0IYi7ZVq1x9d9i26aA5gL8LBXjEKb2sCG1+7LNHVcrYyLWgvZko+8Py9D5gir4I6bM5uzOT3AhE71KyxgDlfY+IVsxcSWyVSMtHahRG9bN9yCGOyWZANrysGedkidRAEq4lj0ige4B8pUQTRczLbeiOENbA3/xbARGu+3WI4ss5RLEasPJG9kLLJOO5510/Kjv7QYumCOuUjJlP2gbkpgHyzThfk9rphCQwmrWjQEHqqEGf1AfuQBVEE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NTd6WFl6RXltbWhhazBNQkZrc2RWZ3BHaXNjL2Y3NzJQMFhsNE81OFA2bUZw?=
- =?utf-8?B?Nk9jeDJxd015UlZXTC84blpuNEZLRnhNQzBnWHNIc0pBb3lQcEdCaXF2YUZM?=
- =?utf-8?B?dWo1M3o1VE5ocm5GOG9XRW81WVpVeVNOc1JDME9ORW9tUk54anY2WmdxYzR5?=
- =?utf-8?B?RE1ta2thU0d5UkthSlkwVDlMMzlKSGQ5UGFvNTFyR0lVRmNGS1dnRlNPOEdJ?=
- =?utf-8?B?eHRrV1V2L1ptaTIrQzBFQmJQK0daa2pBM09KZEZHeWpGbjZVWCs3QkY0ZUY2?=
- =?utf-8?B?aUxXcTB2R0RKeHk4bG5yUjhBQXdSMDlRb0hES2RFbVpyNi92emZ3OWhPeFRM?=
- =?utf-8?B?VFJBYnlkUlR1OUFOWCtwajJlczhqazRQV3MwWXAvL3UvMXQ0bzV1NzkyRHdS?=
- =?utf-8?B?YjU1b3llSFJ2aGc1L0NZSVNYd2NJMmhpV2xGQU1xc0ZlUGpoK3FydlBVcHZJ?=
- =?utf-8?B?QSt1U1ZqeFFXSVFLUUZHUVAxVlVhUkI4bU5VNktWOVhpVUJPUXkzWSs0ZW0v?=
- =?utf-8?B?bGptblJVTDlYVndsWWU5aXFEdmtWd1VhR0tOeiszZ2Y1OFdPNHdHNld4bHJs?=
- =?utf-8?B?UUpuM3lhY056N0lucXRSTTNjQ2NXNitwaHNEQmg0TWQ0cXgySFJ6d05CKy9F?=
- =?utf-8?B?dFBVVlV5WTU1RkN6MWFZSUZyOGRIMGF6b01tT3VOVWQvNmlsWW84YWdoeWJR?=
- =?utf-8?B?MkV4S0FYZ1QyRkxrNml0MDg5VERuRW94aFRGRkdJV3A5MnU3SERPbld4c2d4?=
- =?utf-8?B?MUl5aS9Ca1g0YTcyd2JVSWhieEJLbEdSRHQ1VUllQ2JEZjR1ME1LdHhwcEZW?=
- =?utf-8?B?WksveW51Tk1mdmQ1STcrNXpVbS9KMm9OTnl6M2dKSGNjZW1DRlZRVWs5cGtu?=
- =?utf-8?B?ZngvS1lDYlROKzA2Y0hRYXpLdzJaaXRJSFhVaTVJbUlyQTZNNEx4cUxBV1RG?=
- =?utf-8?B?enhnd2d4S0IyK1lrVDJNREZtQ1RlcEhwL0VGaS9qeWdqQWtYT25ZOXBDWFVU?=
- =?utf-8?B?aUFCSVJIK0lOaGdaRHA2N1JFN1JsMzAzNUFLeXVsMlBONlppUDltcDN2NkJL?=
- =?utf-8?B?NFVoSURBMFI5czFTVEwyK1N3eWJTUCtMcGpNcEgxQmtEWW5QbFZFMWFnQ0F1?=
- =?utf-8?B?MDQ0MWk0NW0ybzBOcmUzVTMrWU5pY2k5SWxuSElwT1hZQnN0UkVackdkUGpZ?=
- =?utf-8?B?ZjVlVFFBQXovWC9rZTZ0RkNKbnczd3I4Z09BUVlBMGYvNFp6TXhZVFpTSVEz?=
- =?utf-8?B?MXRUSEFzWkxzdUU4Q0pnWXJXQi95SVYwblo5R1pYS1JQN1BPeW5aQkRPKzRa?=
- =?utf-8?B?YWd2RlUyWjJsKzFFdytoWXlTVmdpd0Z2bDVMN3VHc1hDU0NobHVuWFF4OFYx?=
- =?utf-8?B?WlZTVHVJalZZOCt3SlYrbEgwNkJTeit2VUpDRW5OemIxN3BEbWJNMHZCOHNT?=
- =?utf-8?B?VHhHZk1uaGQ4SW9aL2VKTTJ3dkxLbGVIcEhLNVh0ZnFtdjZ2cFlza1dYenhu?=
- =?utf-8?B?NG0wVGZqWit0YnB4Q2FlQ3gzaVgrZGhSVkVrd01FSWtqcGkzeW9Pd2x0WFc0?=
- =?utf-8?B?YURZbkxCQUVzNGFrU2JDWmY3RHVNRCtmdzJRWXpNSkVNZWtra3lDSkFqaWJP?=
- =?utf-8?B?UmxKUVd4YXFSVkpDeGl1MWk1QXc3QmpKQ211WXB4ZEJEZnlWV3I3bmZON25j?=
- =?utf-8?B?a3FFaG9CTm9yMkZpeDJTcVJhNkY5ZVZJUms5VHBCQWhKUGlWNzJrMHFHNkE3?=
- =?utf-8?B?bmhDODQ0bXdtczJ6SE5OWGh3eWhyZmxjWFdZRlRhM0JLUEJpRjdvYU1HK3ZS?=
- =?utf-8?B?Y0VoV1BTYmRhVUVHOEhSdzhreGxJVjhhRjBhRnFlcWE3M21EcG1oYXNWeGxF?=
- =?utf-8?B?QWJWaE5vVTE4MTB0amcwL1lvTHpxa0ttTjR6Q3ZaRGVIek1nU3o3YWJNYUh4?=
- =?utf-8?B?cVV0U015N0p2ZWsvMVVOOFZZZUFBZFNzQ0RseWNZQS85NW1PNDZaZnR4SHg1?=
- =?utf-8?B?dWtUay9lMjhDdng0Y2d5KzZLakhJWUovc3VId1dWOVVwaTh2VjYvVlFwdVMz?=
- =?utf-8?B?L2lrN1IwaHFTRE5EdHRweEROVnZEcWJLcWQrR2EzOXlOVlZXdEhJTU42UjZG?=
- =?utf-8?B?VTA4YXhUaFlEd0hCdU5kclpFVkhPYU5TSGM5NENQMjltRVNwYTFWcEFCeXlM?=
- =?utf-8?B?b0d0TUJEdXROSjMrL3RQYUx1U3pwTE5tUlVsZkUzT2RZUHAwZEQ3UFRSS2dw?=
- =?utf-8?B?eTNrYzZNazBBWDdvbjdJZkgrb0IrRlBiRk5CSTNxOUJUWm01Q3Yrc25sdC9H?=
- =?utf-8?B?NWl6VnpjM0QyN3Z3L2g4QnRmSnR2RDV1dU1hVC9vd0YvUUg4Y00vdz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1b162d1a-32ef-45fe-f985-08de786d4e4f
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Mar 2026 15:06:39.5038
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: i435ze0QLG7ynFadfz2xyBvjAO/NWEphoTI8PxjnYUdfahT6BM2uvlBu2HwN00QjL2EZYUAZ1VRTEtTdQ2ptYQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6980
+References: <20260227-color-format-v9-0-658c3b9db7ef@collabora.com>
+ <20260227-color-format-v9-2-658c3b9db7ef@collabora.com> <y5ybjitphwydvtcjdtrmpcx7t7hwevjszpktcnmyvjqkgzinmu@hoitkl7lghxh>
+ <5081457.31r3eYUQgx@workhorse>
+In-Reply-To: <5081457.31r3eYUQgx@workhorse>
+From: Andri Yngvason <andri@yngvason.is>
+Date: Mon, 2 Mar 2026 15:07:12 +0000
+X-Gm-Features: AaiRm531VbuvPlDMvL8ehAEpeh4QP_0yXJbIL2OEHZWnP0es8QNn2W0TYwz5fEU
+Message-ID: <CAFNQBQymuv0roy_xupcgU1bHygfBeE3S1FepQYxpobLq8O0yEA@mail.gmail.com>
+Subject: Re: [PATCH v9 02/19] drm: Add new general DRM property "color format"
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
+	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
+	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
+	Rodrigo Vivi <rodrigo.vivi@intel.com>, Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+	Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, kernel@collabora.com, 
+	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, intel-gfx@lists.freedesktop.org, 
+	intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+	Werner Sembach <wse@tuxedocomputers.com>, Marius Vlad <marius.vlad@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_070645_414762_BE0E804A 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260302_070751_521720_C9F6FCF3 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,58 +134,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+Hi Nicolas,
 
-Add missing CPU clock definitions and operating-points-v2 table for the
-Cortex-A7 on i.MX7ULP to enable proper CPU frequency scaling and
-integration with the cpufreq/OPP frameworks.
+Thanks for carrying this forward.
 
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi | 28 ++++++++++++++++++++++++++++
- 1 file changed, 28 insertions(+)
+m=C3=A1n., 2. mar. 2026 kl. 12:36 skrifa=C3=B0i Nicolas Frattaroli
+<nicolas.frattaroli@collabora.com>:
+>
+> On Sunday, 1 March 2026 17:47:48 Central European Standard Time Dmitry Ba=
+ryshkov wrote:
+> > On Fri, Feb 27, 2026 at 08:20:07PM +0100, Nicolas Frattaroli wrote:
+> > > From: Andri Yngvason <andri@yngvason.is>
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi b/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
-index 880b9a4f32b0846a773dbf9ad30715c84ac2fda6..1355feda1aa72d88dcf56033dfdeaae631c108f8 100644
---- a/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
-@@ -41,6 +41,34 @@ cpu0: cpu@f00 {
- 			compatible = "arm,cortex-a7";
- 			device_type = "cpu";
- 			reg = <0xf00>;
-+			clocks = <&smc1 IMX7ULP_CLK_ARM>,
-+				 <&scg1 IMX7ULP_CLK_CORE>,
-+				 <&scg1 IMX7ULP_CLK_SYS_SEL>,
-+				 <&scg1 IMX7ULP_CLK_HSRUN_CORE>,
-+				 <&scg1 IMX7ULP_CLK_HSRUN_SYS_SEL>,
-+				 <&scg1 IMX7ULP_CLK_FIRC>;
-+			clock-names = "arm", "core", "scs_sel",
-+				      "hsrun_core", "hsrun_scs_sel",
-+				      "firc";
-+			operating-points-v2 = <&cpu0_opp_table>;
-+		};
-+	};
-+
-+	cpu0_opp_table: opp-table {
-+		compatible = "operating-points-v2";
-+		opp-shared;
-+
-+		opp-500210000 {
-+			opp-hz = /bits/ 64 <500210000>;
-+			opp-microvolt = <1025000>;
-+			clock-latency-ns = <150000>;
-+			opp-suspend;
-+		};
-+
-+		opp-720000000 {
-+			opp-hz = /bits/ 64 <720000000>;
-+			opp-microvolt = <1125000>;
-+			clock-latency-ns = <150000>;
- 		};
- 	};
- 
+N.b. this patch was originally from Werner Sembach, but it has grown
+considerably since either of us touched it, so I think that
+Co-developed-by tags would be more appropriate here.
 
--- 
-2.37.1
-
+Best regards,
+Andri
 
