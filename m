@@ -4,71 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC865E9B357
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 10:29:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 103DBE9B342
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 10:33:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=77NzOXsFscUEYSIPzpW63RovUXgHgTBaAIY3/pEj/Z0=; b=1G03nuZcHIh+hLHiUDirWOy5A+
-	8I4lXuicOUcF2GlXR8pIWqspIRDI88q5I/8XgxxNJqKLlX665INez2emCO37gJUq6hsLptjnnmJnS
-	q1Vp/MmxXvvb/HZisEjNARDc1bNHXR+Tlb19ol5qbOeXTVCXgouNWXhW1ZNbK9E3xZHPOSMoRP40R
-	irFGKmGcaAcVBK0Q0+hm6vKeSjHoZ4guB1JYilFDvhx/EH71QCSrVQ2ZdOczTyOU0QW1LeB/QmBKT
-	pX0/96aDPIGOl7Qx28IVlZ5xw3+YCCM8KkTdqBoJcTWvyC6Lk0p9jBxSbQgZ6XVk9/3RsFXbHuhRt
-	YwRaIb/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3zpCsC76A/B8FEp6NQth+KPKVyK8PduJ80CXc9DihGY=; b=H0bJ48KSQ1kh1f/3N2QwzkKf6c
+	WIuqQTuSf6JHfarQlbmDizQC5TVTIzqQsjPMk7L6cua+s3TC/P7FSCZdoZGsUu1NlqsdsaqPBainj
+	bKdvi9Hai/vZ1weFlQMhme22Xa7+WdjVQ8waWAwi0pw1dHT7mDdIUZ1DVdKJUrcRTZG3zuspggNEt
+	Sh3RSd+OLvyn1h4Q5GL3kzZewNZL+7tfjME8Ek3XkjwP64n2XK3vQUvP1R1y5gZ9q3onkixuTcCm1
+	kHZM1lbwufFd4CzMOIKiJtfhdu/0q7uJTlrM/P+8ElXqQMGPY7ISQ33BGllhuaLBOGM+nRzueS7en
+	ZNp+lWQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx0X3-0000000Chph-0uZX;
-	Mon, 02 Mar 2026 10:29:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vx0at-0000000CiXJ-1Z3K;
+	Mon, 02 Mar 2026 10:33:43 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx0X2-0000000Cho7-0kvt
+	id 1vx0aq-0000000CiWG-2dJ9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 10:29:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4DB3160018;
-	Mon,  2 Mar 2026 10:29:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0D7EC19425;
-	Mon,  2 Mar 2026 10:29:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772447383;
-	bh=RWsHN5U+WMS2JsLtHvvjkJBwH8qQN/pVdfbYmms77H8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nCIWpyvLbpNI41cEWQoUfqc5GRvl4MFYGtJuBYT7u2LgeY+ZpY3eYOwSCj4gs+905
-	 dJrjImIsmx/9ymryzc3ofvHDBNZutkHeqWdnonvjDVIkpnQhXPugXLpK+wGbtZ2fWd
-	 5ek8kmkufHutK04tVd5wv7xhku6bp5UtEkCf3jZMzmxcDGG9n8c5SbnzQwFETnjzDM
-	 pvAuQyL8oqnAKDNig+Nc0YZyehzXK2OMxdZpX1bJLKmORtO4F/sBmE6dIq/qWODfBS
-	 7D02rRu1oMG26Aml6+YB1MrH9zauAXkYoIWJMnbcLpiTzZjdvbcwFZxXN69hoTERjJ
-	 fD222U3imkkNg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vx0Wy-0000000FBCc-2YEB;
-	Mon, 02 Mar 2026 10:29:40 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ben Horgan <ben.horgan@arm.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>
-Subject: [PATCH 3/5] clocksource/drivers/arm_arch_timer: Drop the arch_counter_get_cnt{p,v}ct_stable() accessors
-Date: Mon,  2 Mar 2026 10:29:35 +0000
-Message-ID: <20260302102937.1516059-4-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260302102937.1516059-1-maz@kernel.org>
-References: <20260302102937.1516059-1-maz@kernel.org>
+	Mon, 02 Mar 2026 10:33:41 +0000
+Date: Mon, 2 Mar 2026 11:33:19 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1772447601;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3zpCsC76A/B8FEp6NQth+KPKVyK8PduJ80CXc9DihGY=;
+	b=agDuY6VSHjOEVidIw9tmeJdXttkw0fiS17n6SGkI/4sKaOdW3x451mWnod8UdVEJ8Q4wky
+	LqAV/voYBIHtT1nF+GjG4Tfldk5ScLL/XWqJjtBZD78+E1EhqJF50N5uP8kyIyXrPKc+14
+	kBdAPp2MzMWtUDbwyQWyg7PvKWGgTMALIMZO5oJKYqsFmUL+yMR6FKKFtjara5awUReslW
+	4IcE6aDrrGdKdEFrUVLA/jWNwYW7JgDn9OPx/Smbi1UwV+9QsKeLGviv5ThJdxjZCACznX
+	M8WRXzoyT2Ii9b69DQRsHciEGEjW5kQCLq95P6o/gEy6wpe2ZUh/hX0+wJk2hw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1772447601;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3zpCsC76A/B8FEp6NQth+KPKVyK8PduJ80CXc9DihGY=;
+	b=qLfEhmvnxGcsNliQohntBn3K6GLY3gY5LOFdBG1n0YwuyoOzlDQYN4lsWFmAV2BlNpy+m3
+	i4YMjG1POEhtljBQ==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Clark Williams <clrkwllms@kernel.org>,
+	linux-rt-devel@lists.linux.dev,
+	Steven Rostedt <rostedt@goodmis.org>
+Subject: Re: [PATCH 1/6] ARM: ensure interrupts are enabled in
+ __do_user_fault()
+Message-ID: <20260302103319.VI_GSa_5@linutronix.de>
+References: <aaG1wrNUaq_L0I5g@shell.armlinux.org.uk>
+ <E1vvzcS-0000000Awnu-1u0H@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, tglx@kernel.org, ben.horgan@arm.com, daniel.lezcano@linaro.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <E1vvzcS-0000000Awnu-1u0H@rmk-PC.armlinux.org.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260302_023340_935433_F4223282 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,82 +79,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Further simplify the counter accessors by eliminating the *_stable()
-ones, which serve little purpose at this stage.
+On 2026-02-27 15:19:08 [+0000], Russell King (Oracle) wrote:
+> __do_user_fault() may be called from fault handling paths where the
+> interrupts are enabled or disabled. E.g. do_page_fault() calls this
+> with interrupts enabled, whereas do_sect_fault()->do_bad_area()
+> will call this with interrupts disabled. Since this is a userspace
+> fault, we know that interrupts were enabled in the parent context,
+> so call local_irq_enable() here to give a consistent interrupt state.
+> 
+> This is necessary for force_sig_info() when PREEMPT_RT is enabled.
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- drivers/clocksource/arm_arch_timer.c | 38 +++++++++-------------------
- 1 file changed, 12 insertions(+), 26 deletions(-)
+Reported-by: Yadi.hu <yadi.hu@windriver.com
+Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
+>  arch/arm/mm/fault.c | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
+> index ed4330cc3f4e..6c27ebd49093 100644
+> --- a/arch/arm/mm/fault.c
+> +++ b/arch/arm/mm/fault.c
+> @@ -190,7 +190,8 @@ __do_kernel_fault(struct mm_struct *mm, unsigned long addr, unsigned int fsr,
+>  
+>  /*
+>   * Something tried to access memory that isn't in our memory map..
+> - * User mode accesses just cause a SIGSEGV
+> + * User mode accesses just cause a SIGSEGV. Ensure interrupts are enabled
+> + * for preempt RT.
+          PREEMPT_RT.
+>   */
+>  static void
+>  __do_user_fault(unsigned long addr, unsigned int fsr, unsigned int sig,
 
-diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
-index 723ba698b8c46..ee21804d6613c 100644
---- a/drivers/clocksource/arm_arch_timer.c
-+++ b/drivers/clocksource/arm_arch_timer.c
-@@ -100,19 +100,12 @@ static noinstr u64 raw_counter_get_cntpct(void)
- 	return __arch_counter_get_cntpct();
- }
- 
--static notrace u64 arch_counter_get_cntpct_stable(void)
-+static notrace u64 arch_counter_get_cntpct(void)
- {
--	u64 val;
--	preempt_disable_notrace();
--	val = __arch_counter_get_cntpct_stable();
--	preempt_enable_notrace();
--	return val;
--}
--
--static noinstr u64 arch_counter_get_cntpct(void)
--{
--	if (arch_counter_broken_accessors())
--		return arch_counter_get_cntpct_stable();
-+	if (arch_counter_broken_accessors()) {
-+		guard(preempt_notrace)();
-+		return __arch_counter_get_cntpct_stable();
-+	}
- 
- 	return __arch_counter_get_cntpct();
- }
-@@ -125,19 +118,12 @@ static noinstr u64 raw_counter_get_cntvct(void)
- 	return __arch_counter_get_cntvct();
- }
- 
--static notrace u64 arch_counter_get_cntvct_stable(void)
-+static notrace u64 arch_counter_get_cntvct(void)
- {
--	u64 val;
--	preempt_disable_notrace();
--	val = __arch_counter_get_cntvct_stable();
--	preempt_enable_notrace();
--	return val;
--}
--
--static noinstr u64 arch_counter_get_cntvct(void)
--{
--	if (arch_counter_broken_accessors())
--		return arch_counter_get_cntvct_stable();
-+	if (arch_counter_broken_accessors()) {
-+		guard(preempt_notrace)();
-+		return __arch_counter_get_cntvct_stable();
-+	}
- 
- 	return __arch_counter_get_cntvct();
- }
-@@ -342,10 +328,10 @@ void erratum_set_next_event_generic(const int access, unsigned long evt,
- 	ctrl &= ~ARCH_TIMER_CTRL_IT_MASK;
- 
- 	if (access == ARCH_TIMER_PHYS_ACCESS) {
--		cval = evt + arch_counter_get_cntpct_stable();
-+		cval = evt + arch_counter_get_cntpct();
- 		write_sysreg(cval, cntp_cval_el0);
- 	} else {
--		cval = evt + arch_counter_get_cntvct_stable();
-+		cval = evt + arch_counter_get_cntvct();
- 		write_sysreg(cval, cntv_cval_el0);
- 	}
- 
--- 
-2.47.3
-
+Sebastian
 
