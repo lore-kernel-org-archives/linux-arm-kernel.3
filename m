@@ -4,140 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17805EB362A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 18:03:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FE18EB362C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 18:03:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
+	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cG7S3pwn6cuqNtut1FaMpHEsViWOvwQj955UAW9Q8qo=; b=s0H9ar3gGtnxKNOpVm5SZQlVX4
-	fX1Ebv0Wf1ga3AePseZZE0zgA3n96gp9l7D0XLtPUXXs7eEoZJn5gKMhazcmLeI66P4G+Mj/meCAV
-	Nr6eaRBIcpW0hCXavjO7m0LRTsL6kgu62kH5QoGkBaw5vLMGPHGw1MtSX7BBCxZ4Vnyb87ZX/Ifjs
-	i+VP5NfaowO4I95cT6JKkE+RVqofmlQolnM0mhtrw54Sh0iAxcIDBTZBDg0zdGOJka9Asrt5rkCHu
-	W3dtkdNIA4HONJ8Y2h+pyUuVgq7fQQVmVoTLYhRbhpXthtC8K3MwisUX7/ayLIE+xzMg7sdDFT6sf
-	wgtnuEZw==;
+	bh=hIWPfXmB5nbwvU7mumku4c/eHWZjy8N66BBWpcOckUQ=; b=r/sIdl3CM/t9ULb4vVgqlLfvbf
+	NxxwyQyzLGx7qJwtisGBmzcEzCK99Kt5oxOC4SEM5g4hZItq8fp2QZE6YoMR3Tg4gt4hOzZ/e3umg
+	UPNrlVQIMnyNyHpEA+K1sdvBfwp/Jyo75wZ69GZVAnSIBIsD0qP0FrCb7Xe60+J2hSrsIQDf1Ebdc
+	nactMvvsNvV8pr0Nn6qz1JFtISCA/Q8FGBt170YKvgAg7X3A8YJlMe4iQYh/uzsGOQmYzN6dThdZG
+	5j/4CoTkaD605qtB6itkxd4s2j0XqXvhxkgby8d9RJqyatNSby+R7JdJJ5U2YXI8+YzfyVqV7HjEV
+	VraKXFnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx7bi-0000000De38-44C7;
-	Mon, 02 Mar 2026 18:03:02 +0000
-Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1vx7c7-0000000De8F-371c;
+	Mon, 02 Mar 2026 18:03:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx7bg-0000000De2P-3s8E;
-	Mon, 02 Mar 2026 18:03:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZOaH9+Gfp8PtyhKIN1OfKjUnN5aSUfpmnT/s3E2fmdQgZMlHAzn2o1ERPiSfUX2utCT2mDsXOyr2xWr+nYXXEuEaQVDD0fAfiDQbFDlIJZMeA/LpPvxIx7WvJbIZ8p3Z7rzq5631yNJPwwya3khAV/BgxyNCzBAh9r6X9DEZMHgwhpzJm6CXNbwlL5g2QHQqdC0hDQas5iJL4tPPGc4LXdsD7s/BSjtU+huLS9SsTXRp5EUKv+7umH5HCDz0JnyG8Ysq6omB0LP7Ezhmgg5kDAFrL/abH9PR2/edpVbXmArynl1PTgSpqYRVd5wE4RfrjLtC7jH6Jc7ntI315rPARQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cG7S3pwn6cuqNtut1FaMpHEsViWOvwQj955UAW9Q8qo=;
- b=Fp2OtBir45mNy4s8zzevPwmOnifs/jX5TvRke7dGjrjEnPEZsMa6gFw/lPhEjPQzvPAuS7sgl9Fny7HCZ6zBS9xs2EqpWvE4HVu9Sar0H3CL96KyGALLALBMtbLQZpBn/HkY958plnVwK5iiB+BfRxZRqp4mvhtKevquimOsrBldFpdspjz66Bh0Zf1zwgohpasX5oiqxL7Tw/1FBBvmVwPXPd5iNMgoCuS67+2hUfsyuhB8kvrgYODtSKP07Pe0jojiMynAXW4+PEYVPYC5bKaCS4heHtCtUeXta9P1ufdiT6LyzQhUfLZ8/EDw/NzKRDRzUa0dJY+qi0KpqcuD8A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=axiado.com; dmarc=pass action=none header.from=axiado.com;
- dkim=pass header.d=axiado.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cG7S3pwn6cuqNtut1FaMpHEsViWOvwQj955UAW9Q8qo=;
- b=VtXDX6cSa9zyx7QijHC9xx/fOgBPplKE84V/eXWpGZl/CpPopsaTqh97P1gHO/GtFch3oUU0G8cZXNMCeFueswHdtzDF+14AaI8SOXwfqvS44KgJzfme1WiajsCNOQCUg3zfasQ0mkS4zCNQnoPZpB76h1E3934PBqHSGdeeZjmbn4y64C1sV7W2goOU7U/Zh91eQ9b6PpN/GoLqFFIReYs8TLmsFuBnjT4NGQ6F/N8iFX2kzHADJW+5M5KhmwbCH0xMb4eriMESJmnicAFCwCZ03sU0Nk8byOm0QvSncO4+phsAIX3g3NknoPi1HWgKs1ggeZI68b/RgxjSifbMMg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received: from PH0PR18MB4558.namprd18.prod.outlook.com (2603:10b6:510:ac::13)
- by BL1PR18MB4247.namprd18.prod.outlook.com (2603:10b6:208:318::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.15; Mon, 2 Mar
- 2026 18:02:55 +0000
-Received: from PH0PR18MB4558.namprd18.prod.outlook.com
- ([fe80::ba9:422:da8:b963]) by PH0PR18MB4558.namprd18.prod.outlook.com
- ([fe80::ba9:422:da8:b963%2]) with mapi id 15.20.9678.009; Mon, 2 Mar 2026
- 18:02:55 +0000
-Message-ID: <e1628331-9fa2-4471-b7a2-4df5d34ce873@axiado.com>
-Date: Mon, 2 Mar 2026 10:02:53 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/4] phy: axiado: add Axiado eMMC PHY driver
-To: Vinod Koul <vkoul@kernel.org>
-Cc: SriNavmani A <srinavmani@axiado.com>,
- Prasad Bolisetty <pbolisetty@axiado.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org
-References: <20260206-axiado-ax3000-add-emmc-phy-driver-support-v2-0-a2f59e97a92d@axiado.com>
- <20260206-axiado-ax3000-add-emmc-phy-driver-support-v2-2-a2f59e97a92d@axiado.com>
- <aaGv3q8czkrKyW42@vaman>
-Content-Language: en-US
-From: Tzu-Hao Wei <twei@axiado.com>
-In-Reply-To: <aaGv3q8czkrKyW42@vaman>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: BYAPR11CA0056.namprd11.prod.outlook.com
- (2603:10b6:a03:80::33) To PH0PR18MB4558.namprd18.prod.outlook.com
- (2603:10b6:510:ac::13)
+	id 1vx7c5-0000000De7E-1mYg
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Mar 2026 18:03:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7DE8544284
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  2 Mar 2026 18:03:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55D50C2BCB7
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  2 Mar 2026 18:03:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772474604;
+	bh=KYTmWdCkzi4ZeFomh2vR1ikSgEuPoY2tyFbdDD9n6fM=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
+	b=GZSp+ocWQ0JzyJE/JKAbIQ6d9V4nscmY9HENIiTRDNhYqf32RPTvvrOXBOJ/rL0Au
+	 V0tq+1aXJpu9Tahvb4BZa9epjIAuurII8ahGS4+PQN9O8AeAWWb0ARzlgXgEJ45/Ze
+	 Zt3H+h6G2PN/tqW2wZZfBoNdZ5bXg7HRzH2H13BDooK5AyanDQdvmAM3lQenE5dNW4
+	 qHVik3vP/B99mJhk2P2t5lJVy9c14Ob1RYwtxgEryndkIMzru+Q+T2Xn36vdypiX5I
+	 0XJEREvvNi3qMd2jTQUKbxkTY/cDkpsScHevNphkemsDIHE18rLO8ZcF02sB8vl6Dv
+	 VA3j58+5tRJXA==
+Received: by mail-dl1-f53.google.com with SMTP id a92af1059eb24-1270ac5d3efso4561271c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 10:03:24 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCW8ztpK0M0GcJ1zcMISPbbpJx+gD1koH+fYskuZ3acZDBAGKoUwog8pvAHuzgfABP5c7rivXL62CbKnN3X04Tj/@lists.infradead.org
+X-Gm-Message-State: AOJu0YyDdoHVY3K3mNVgoxVoiTJt8fTSkdo02SYbcT52kDXyt78KmXXH
+	tTHgB/2DuTkXZINSTnHq2k21ZZqXE4YmtsP5gRQZLetY4Sd/ThdtAY3rb65tI00/uZtDIyHUrOd
+	szlOjySaGliItSeyg75wotwFIgQjL49G7fBmViQuIhw==
+X-Received: by 2002:a05:7022:6624:b0:11b:b3a1:714a with SMTP id
+ a92af1059eb24-1278fb78dd9mr4239860c88.12.1772474603495; Mon, 02 Mar 2026
+ 10:03:23 -0800 (PST)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 2 Mar 2026 12:03:19 -0600
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 2 Mar 2026 12:03:19 -0600
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <aaHI_VavZugXjVoL@hovoldconsulting.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH0PR18MB4558:EE_|BL1PR18MB4247:EE_
-X-MS-Office365-Filtering-Correlation-Id: 013be5c6-6c8a-48fa-c516-08de7885ee38
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|42112799006|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info: OMpP06oMwSAuLMfcrCI+yYBQF2N2OkJ4Z+D6P2ENMc6ADSX+gqXanMiq4YfQ1S+NMuOs289ljIb+tJhc5nNlQQbzWXX3UBNxjIqHkJVuK+U/hAtWVUbgeiaUg1jiTwNnT7tciaSD7Hz1lb+KSWCxQ70/XsTLJFMFlIPxZGkT8qShFL18lbG0mYaP5IUDRUuciJIcwx9IVA/wvA2EaMeCdLYuj8doLmBtqcHY8J9x/fpHc54WSgiriRx+W6OtI/6x4aPoWemy2zzTqzbX/1T7UJLKWxOgM3YtWxDEWzZbQG0Y4yTSykZMDYzrlKqkj6MzoXAD5NVCnEBOoySMxHi9t6cIUJHlbm7416WvtHEZKD+YqWaoI7shdL65G5MpjyR5kHCR+yj1XG2xDc7q5XJnI6kUL0vKY4ZcW7Xl7liElhdTsgrpIJKeDX61sHTh3PNJ9NQsvtPbPhLPvelRZzmaVPPfSSdEq7ZOJnJCiBcKTo8kF18jYUbLGmyjAJSN7ppABh3Kd/XlIVkScdj31se3Ec/l+WoheZRuWRlCLVFL4Q3FmrpFpbgUEzdkx1Om+iqw63PcD9bZNFtMeBnKqFsuM4LitZi3fei/F80WPNJBTfWVY9oKR1tSD6yDk6CsMj2dAnys3nG50vTJyl3yE09PXrYgG6XjK27N1pUXK9Ce3FCJkbF1f9ay2AFld5hNaJamrhILV+WLNQz3FhuK1BJ0Jf3TfQei+bgKqUP2avoYQ4o=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR18MB4558.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(42112799006)(366016)(7416014)(376014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QU93Y05jeVZGWkZHelJhM0RzSzNWUVdXUUVmbk5YeDd1MlBuRi9FYXhGbHdQ?=
- =?utf-8?B?MWdBaXQrUkxHR3hVSkc3MUVTYW5EQ0g2R3JxRlFYUjMvTWNIbU1kL2M1MHFV?=
- =?utf-8?B?ZFI2WW9DSkF1Rk5haFNkL3puRE9Walg1YjkzaFRJYnRGTWVzRXlSejVKazJQ?=
- =?utf-8?B?V3dSYVRJYlY5dHpZS05qOU55bjArclF4MlBxN1pRNk93eFhXNEQrOTREdnp2?=
- =?utf-8?B?cTZrL0hXanlZUExOZCs0UnpoM0x2eFNWckl0dVR1YlhrY1pTdXVSUHEwdjdI?=
- =?utf-8?B?UHQyZ3lyRjlZZzljdGdSSU92azBxQUU5TUZ0Zi9BVFFMclROaFQ0V2gyZWhs?=
- =?utf-8?B?UWFRTk4xa1ZVM3BvbVpaZTBPaEpQZ3VkZndYV0YwTms2RWttdXBNVEhmeUZH?=
- =?utf-8?B?NURENGhoK2F1VlRhS3Q1MGtpYU9TZ3U4azJyWDZiZVkrWkFOZGNhbk1YSnVr?=
- =?utf-8?B?UnJGTGozc1dnTklJeEpjbk1GUlMyZEQ1MFpFQnZmamdSanFobzQ5Z0NIb2lx?=
- =?utf-8?B?aDFJQ2tia3hPb0pEeHUxUVJBV3JZdk5TRzBCa0Q1YysxVk9vQWo2UFN2OEdC?=
- =?utf-8?B?TlpPNFJOcGdSVkxUU3NraFFzeEZrT1NxVVVvRkNpeWdZNEl5K0lrZ2tJRnpB?=
- =?utf-8?B?eEVWMk44QWRmTUNVS1hyNVQ3Y1lZNDJsTkF5eFVnTEp0YzhWSjM0QlNwQ252?=
- =?utf-8?B?WmhLQ1FnT1VvUCtOM1Y5bDhYcDJkUWlOc1V2ZkwvN0pSeVJGTE00VGFUT0FV?=
- =?utf-8?B?cXNiUDNWYXY4S280NHdPazhTdVBzcldHYjdUL0VtNEVIUHhjN3ZkRHMrem9u?=
- =?utf-8?B?eEhndVNENWwzcnN2TWtVbEh6ckYvSEtuZnhYRXQzanl6R3IrWkl6dzY2aUZD?=
- =?utf-8?B?Ry8vQ2F6cGwrT3lQZGlDUysySWJZMGlMT21JV2xaL002Sm04R0JPTHFKM2FP?=
- =?utf-8?B?cFlmYlFhdnk1QjIwRWNoc0NWQ3lSZ2VaUnJXMlV1WldDR0FCMnBBKzNPbGpm?=
- =?utf-8?B?WG1heWdYb3B1YUxhZjliOXliQkcxVEkxdG5LbGlSOVJLZWFYMERYRFNnbWRu?=
- =?utf-8?B?SFZuUm1OK0NrZTZYQW5sWDY3d3FNNHIrSklSV0Y3aTJzOWt5VVI1OUIxM3U2?=
- =?utf-8?B?bDRqNnU4QVd6by9hU0NETWNveHZtbnVkVHdMcXpKZEdsQmxXdFVoM3NCWW8w?=
- =?utf-8?B?ZE1TaE4vdTByRzNGRE5PMVB0U3VZaEZ6UGsvTlVSY0htcFR5b1lEMkFPci9V?=
- =?utf-8?B?eGovYVdURzZaemtxR1g4MnBTTUFUZHBONXNMcmQ0Lyt5R0pOMnhidXpBM0JW?=
- =?utf-8?B?QXN4SHVBNXozdHNMc3F5QWk2b1lLd1hRbkIxOGlQQ09pZFlETmNDWUlqeEhT?=
- =?utf-8?B?OTA4TEh1YlNIdGNUN1NVaExjN1Y5UzYyemhpRXFuOGpDVjFKRVRRQklKazdi?=
- =?utf-8?B?d21VTFNwaWNNbGVNZlJUN2k5THZSVGYvUjR0UDAwUTRTQTBxWVFtS3F2d2M1?=
- =?utf-8?B?L0pFc3lTMm94Rk5FUlpUaDNOMHFieUlKUnVCR3V4MzlkYmhCMzFNQVV4dlJL?=
- =?utf-8?B?MS9EZkJPU21mRzV2cnZkeXNVajRFV09TaEJLL0poL1JkdXR6YjdxQlVia1RN?=
- =?utf-8?B?amtkNUhKU2pkdXRjSHM2ZE5uK2toNy9IZE8yelFjUHh1eUJpeVFHRjM1dVVt?=
- =?utf-8?B?YUVCTzdkelBVWGdFNEEyS2dDa3N4Ni9UNE1XeER6Y1JicDRpdjQ5VEJ1STVD?=
- =?utf-8?B?MjAzazVjMGN5NitKS3puYTduYkFXbzFFcUc0K2IyMFpGTWVzd1NpR1RFKzlx?=
- =?utf-8?B?WVIwc3prR3I2ZFlhRmhpUy9WRkd6NGNra2dDcVFKZG5Weng4ODVTRFMvVEZ1?=
- =?utf-8?B?MVFyTGZBK1JHejlQL2dZQ2RNZFAwdUptczFBeTc4Nk9nNTBhQkJDbEFxak1X?=
- =?utf-8?B?MDMvK0xhMHV1V080cFk0Qm9rUGFEaEd4Z0RFeXZabVBVN3VNOUlvMFVnYWY0?=
- =?utf-8?B?alk4TXQ0c3hYc1Brc2xLb25xTkcvZjFraXdtRkhtYXg1cEZtVWg1M0ZhV1oy?=
- =?utf-8?B?dk9aSmgzemllbGt3ZkRPdjJDYVltNFdmM3RNSDUvcG00WThiUWdZcG9EUVh2?=
- =?utf-8?B?SkJhUnpEcTFMZm5hRkE1RW9kL25va0I3WG1BL2lWWjEwcktaYlZVeHlFSU8w?=
- =?utf-8?B?b0dxOFNIUWF1MTlOaTQrQll5WTNxL0xQQUY1Y2pjSmtKdTJkSXg5ektYMlpz?=
- =?utf-8?B?ZS9DRi9rWWl6RmM2bnBmWVE0QlJRRjhzbDVYcDhpQkd4dWZFcXVYdjROMUpa?=
- =?utf-8?B?NDJjdytmbUdFRzhSKzNWTmx0QThpWlVVNEY3MFNiK214aVZjMEZYZz09?=
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 013be5c6-6c8a-48fa-c516-08de7885ee38
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR18MB4558.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Mar 2026 18:02:55.7473
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 47/HNgOiXzrgdr72s9iFOvjoptjjGc4yJNPvAcBU4qCw9gtgKxOQpNHbROmjTLOS
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR18MB4247
+References: <20260223-i2c-printk-helpers-v2-0-13b2a97762af@oss.qualcomm.com>
+ <aaFcs1miP88QWmtH@hovoldconsulting.com> <aaFfEsfh0xTh0b1y@shikoro>
+ <aaFsZbiLYSz_YEjw@hovoldconsulting.com> <CAMRc=MfcvD1nJy=zpoCkSkJq6WjyXQxFUZ4QE6vyCS+XFCn5AA@mail.gmail.com>
+ <aaHI_VavZugXjVoL@hovoldconsulting.com>
+Date: Mon, 2 Mar 2026 12:03:19 -0600
+X-Gmail-Original-Message-ID: <CAMRc=MdKF29McBJ9U=qELkzf9GYV1CQpRF7U6OweDNtVzMXo7A@mail.gmail.com>
+X-Gm-Features: AaiRm5300NChK-leJ7j5rh6yPxkWOdKqgHQ-hP_JtNKBqi3Lo4LpSjP98XQOjgM
+Message-ID: <CAMRc=MdKF29McBJ9U=qELkzf9GYV1CQpRF7U6OweDNtVzMXo7A@mail.gmail.com>
+Subject: Re: [PATCH v2 00/13] i2c: add and start using i2c_adapter-specific
+ printk helpers
+To: Johan Hovold <johan@kernel.org>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Andi Shyti <andi.shyti@kernel.org>, 
+	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Khalil Blaiech <kblaiech@nvidia.com>, 
+	Asmaa Mnebhi <asmaa@nvidia.com>, Jean Delvare <jdelvare@suse.com>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	=?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>, linux-i2c@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-actions@lists.infradead.org, linux-media@vger.kernel.org, 
+	Bartosz Golaszewski <brgl@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_100300_976621_97E2C5FD 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20260302_100325_505970_3848D0A7 
+X-CRM114-Status: GOOD (  39.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,93 +101,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/27/2026 6:53 AM, Vinod Koul wrote:
->> --- /dev/null
->> +++ b/drivers/phy/axiado/phy-axiado-emmc.c
->> @@ -0,0 +1,221 @@
->> +// SPDX-License-Identifier: GPL-2.0-or-later
->> +/*
->> + * Axiado eMMC PHY driver
->> + *
->> + * Copyright (C) 2017 Arasan Chip Systems Inc.
->> + * Copyright (C) 2022-2025 Axiado Corporation (or its affiliates).
-> 
-> 2026
-> 
-Thanks. Will fix in the next version.
+On Fri, Feb 27, 2026 at 5:41=E2=80=AFPM Johan Hovold <johan@kernel.org> wro=
+te:
+>
+> On Fri, Feb 27, 2026 at 04:42:09PM +0100, Bartosz Golaszewski wrote:
+> > On Fri, Feb 27, 2026 at 11:06=E2=80=AFAM Johan Hovold <johan@kernel.org=
+> wrote:
+>
+> > > It seems all that is needed is to decouple the struct i2c_adapter fro=
+m
+> > > the driver data and have core manage the lifetime of the former using
+> > > the reference count of the embedded struct device.
+>
+> > This is a weird pattern you sometimes see where a driver allocates
+> > something and passes the ownership to the subsystem.
+>
+> It's not weird at all, this is the standard way to handle this. We have
+> these things called reference counts for a reason.
+>
 
->> + *
->> + * Based on Arasan Driver (sdhci-pci-arasan.c)
->> + * sdhci-pci-arasan.c - Driver for Arasan PCI Controller with integrated phy.
->> + */
->> +#include <linux/bitfield.h>
->> +#include <linux/delay.h>
->> +#include <linux/io.h>
->> +#include <linux/iopoll.h>
->> +#include <linux/module.h>
->> +#include <linux/of.h>
->> +#include <linux/phy/phy.h>
->> +#include <linux/platform_device.h>
->> +
->> +/* Arasan eMMC 5.1 - PHY configuration registers */
->> +#define CAP_REG_IN_S1_LSB            0x00
->> +#define CAP_REG_IN_S1_MSB            0x04
->> +#define PHY_CTRL_1                   0x38
->> +#define PHY_CTRL_2                   0x3C
-> 
-> smaller hex case please, here and other places
-> 
-Thanks. Will fix in the next version.
+I wouldn't say it's *the* standard way. There are at least several differen=
+t
+ways driver subsystems handle resource ownership. And even so: the fact tha=
+t
+something's done a lot does not make it automatically correct.
 
->> +#define PHY_CTRL_3                   0x40
->> +#define STATUS                               0x50
->> +
->> +#define DLL_ENBL     BIT(26)
->> +#define RTRIM_EN     BIT(21)
->> +#define PDB_ENBL     BIT(23)
->> +#define RETB_ENBL    BIT(1)
->> +
->> +#define REN_STRB     BIT(27)
->> +#define REN_CMD              BIT(12)
->> +#define REN_DAT0     BIT(13)
->> +#define REN_DAT1     BIT(14)
->> +#define REN_DAT2     BIT(15)
->> +#define REN_DAT3     BIT(16)
->> +#define REN_DAT4     BIT(17)
->> +#define REN_DAT5     BIT(18)
->> +#define REN_DAT6     BIT(19)
->> +#define REN_DAT7     BIT(20)
->> +#define REN_CMD_EN   (REN_CMD | REN_DAT0 | REN_DAT1 | REN_DAT2 | \
->> +             REN_DAT3 | REN_DAT4 | REN_DAT5 | REN_DAT6 | REN_DAT7)
->> +
->> +/* Pull-UP Enable on CMD Line */
->> +#define PU_CMD               BIT(3)
->> +#define PU_DAT0              BIT(4)
->> +#define PU_DAT1              BIT(5)
->> +#define PU_DAT2              BIT(6)
->> +#define PU_DAT3              BIT(7)
->> +#define PU_DAT4              BIT(8)
->> +#define PU_DAT5              BIT(9)
->> +#define PU_DAT6              BIT(10)
->> +#define PU_DAT7              BIT(11)
->> +#define PU_CMD_EN (PU_CMD | PU_DAT0 | PU_DAT1 | PU_DAT2 | PU_DAT3 | \
->> +             PU_DAT4 | PU_DAT5 | PU_DAT6 | PU_DAT7)
-> 
-> The bit define are used only once, why not define the cmd with
-> respective bits here
-> 
-Will replace it by
-#define PU_CMD_EN GENMASK(11, 3)
+> > This often
+> > causes confusion among driver authors, who logically assume that if
+> > you allocate something, you are responsible for freeing it.Since this
+> > is C and not Rust (where such things are tracked by the compiler), I
+> > strongly believe we should strive to keep ownership consistent: the
+> > driver should free resources it allocated within the bounds of the
+> > lifetime of the device it controls. The subsystem should manage the
+> > data it allocated - in this case the i2c adapter struct device.
+>
+> Drivers are responsible for dropping *their* reference, it doesn't mean
+> that the resource is necessarily freed immediately as someone else may
+> be holding a reference. Anyone surprised by this should not be doing
+> kernel development.
+>
 
->> +static const struct phy_ops axiado_emmc_phy_ops = {
->> +     .init = axiado_emmc_phy_init,
->> +     .power_on = axiado_emmc_phy_power_on,
-> 
-> no power_off?
-> 
-Thanks for reminding, will add power_off.
+I disagree. For some reason, you're defending a suboptimal programming
+interface. I'm all for reference counting but mixing reference-counted data
+with non-counted is simply not a good idea. An API should be easy to use an=
+d
+hard to misuse. Given the amount of issues, this approach is definitely eas=
+y
+to misuse.
 
-> --
-> ~Vinod
+I'm advocating for a hard split between the subsystem data (reference-count=
+ed)
+and driver data (living from probe() until remove()). A logical struct devi=
+ce
+managed entirely by the subsystem should live in a separate structure than
+driver data and be allocated - and freed - by the subsystem module.
 
+Let's put aside kernel code for a minute and work with an abstract C exampl=
+e,
+where the equivalent of what you're proposing would look like this:
+
+struct bar {
+	struct foo foo;
+	...
+};
+
+struct bar *bar =3D malloc(sizeof(*bar));
+
+ret =3D foo_register(&bar->foo);
+
+And the corresponding free() lives who knows where because foo_register()
+automagically introduces reference counting (nevermind the need to calculat=
+e
+where bar is in relations to foo).
+
+I strongly believe that this makes more sense:
+
+struct bar {
+	...
+};
+
+struct bar *bar =3D malloc();
+
+struct foo *foo =3D foo_register(bar);
+
+// foo is reference counted and allocated in the provider of foo_register()
+
+foo_put(foo);
+free(bar);
+
+The equivalent of which is moving struct device out of struct i2c_adapter.
+In fact: I would love to see i2c_adapter become a truly reference-counted
+object detached from driver data but due to it being embedded in every bus
+driver data structure it realistically won't happen.
+
+> > I know there are a lot of places where this is done in the kernel but
+> > let's not introduce new ones. This is a bad pattern.
+>
+> No, it's not. It's literally the standard way of doing this.
+>
+> > But even if you decided this is the way to go, I fail to see how it
+> > would be easier than what I'm trying to do. You would have to modify
+> > *all* I2C bus drivers as opposed to only modifying those that access
+> > the underlying struct device. Or am I missing something?
+>
+> Yes, you have to update the allocation and replace container_of() with
+> dev_get_drvdata() but it's a straight-forward transformation that brings
+> the i2c subsystem more in line with the driver model (unlike whatever it
+> is you're trying to do).
+>
+
+No, it's not that simple. The .release() callback of struct device embedded
+in struct i2c_adapter is assigned from the bus type and only calls complete=
+()
+(yeah, I too don't think it looks right, one would expect to see the associ=
+ated
+kfree() here, right?). It relies on the bus driver freeing the data in its
+remove() path. That's why we wait until all references to said struct devic=
+e
+are dropped. After your proposed change, if your new release() lives in the
+driver module, it must not be removed until all the references are dropped
+- basically where we are now. If on the other hand, the release() callback'=
+s
+functionality is moved into i2c-core, how would you handle the fact i2c_ada=
+pter
+can be embedded in a larger driver data structure? Provide yet another call=
+back
+in i2c_adapter called from the device's .release()? Sure, can be done but I
+doubt it's a better solution.
+
+Bartosz
 
