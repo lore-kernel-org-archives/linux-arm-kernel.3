@@ -4,105 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77CA0E9B37D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 13:41:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E12C8E9B37F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 13:43:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NYsmRJcAcMIsFoGcScC1fEs53MfSGQkBZ/HqjJdD1do=; b=K3/l3su5SVH2gOTsbjKyRZv8/f
-	tYQSC7ThTR5AHATjewmTGA2PgedQeOmBLqJHC2e/c8qCSN4NGeqtBJWIk4m6nMozkam7fPdZw3cVI
-	dBEHXJQri3WL6Uq6QWHSv4mYa/II1RSdhud3aEOuLnOBqNYgWhaDSQWcX1M+jWW8HKfg4gL1eY+if
-	r7IOj6Lm5SMpNffpYJMCBG+6IU11kj7CfDIFtdwu/eQrNGEfYuOFLdmDlLUqg8TMq2LzUmgMsRWqy
-	MmnH5t6kYpATbQ7SDslIOqXtnccJHMPKDNT3iQMKqLD3pGGBAbWYhn+8H2DazAPwEKMrDBtsOGRDX
-	SWMzcN/w==;
+	bh=Ek4bJJsM5l9dHRUyFiLAAxetRets0RMYQiCz09mj05A=; b=AH5Vk7jG6o8RhHXb/sE51NqRG0
+	/cMU5chrAeKoQ0sNPkzbUkUCJlx/J+TXowptiVL0lJb3lycLYpEn4KkX5+EOzfcZRhgbXBKkEX9ZQ
+	F9fbwTm9wZ8NKVfifma/eGFqhmivxsFv+hn7FmRpLQ2rzFMsGsR+8n/ThUA1/sHqLnwpZCkGkZBPI
+	930bqFsmsCZOMR7poXuZDLG7POvxvuJH4Bj1Sn590Umit2q3+lWky8omyQ597A2FTInjhbXAHdGCF
+	Zku6fFdWw6Wr/S8+pMSVnpNZvPfoqqb6YXTafMzA2Ra5pnVsDHQPd3bd9Clva5Xbfmut7Rm8FD1Vo
+	FEEQt+Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3Wp-0000000D8rA-1t5z;
-	Mon, 02 Mar 2026 13:41:43 +0000
-Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3Wn-0000000D8ql-0kMG
+	id 1vx3YV-0000000D93N-2wOs;
+	Mon, 02 Mar 2026 13:43:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vx3YS-0000000D931-3hXT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 13:41:42 +0000
-Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-505d3baf1a7so946901cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 05:41:40 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772458900; cv=none;
-        d=google.com; s=arc-20240605;
-        b=h7wSWzkQDxL6zTx6ZPlpYQqTKd0oc8diRkCSr+e7tHLqTfNgqnHAHLOUag3BTmP++Y
-         wkdo4pUb1qCn2l3E04H0QIues/QpiAI8sJsz9k97jKp0HsaDJQ60nchsvGhhlD0rZ+US
-         a3c6qjXtxTOISfNvV72dwI40ye1FfD4jNUAZEDow1UmvKag+T2Ki2uF331hwVwKoseF6
-         NiCDCFa57wFnOufu/htOgCneupOnWq06EbA7pcA6VY1L48LAHYQCDeQOzHdo2pXdN5Vg
-         +YTH+YW8FH8Ah2PqrZcPxMtSjpFgeGzWmf70B4HS/0GTwXmJQkCVWXs5SdYk7l2aWxtC
-         J9Cg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=NYsmRJcAcMIsFoGcScC1fEs53MfSGQkBZ/HqjJdD1do=;
-        fh=VFXcUrr3kGurp0SuF0YJGl5pPwUAd9HYetUbgSB3cYw=;
-        b=HWKxeJujLxnxaWuBi3jRPWQ1BeN8Wxg4oV335o2QzIrHvlp49x9mUHFgGAxgKrGzNN
-         nv5R6qYNRyKny7dUSInj9dC7f71NfcOxs42R3iAal58w3VmXbWK3FYLmfioUeDNsThhs
-         b/ysd1d1Q+CDjidrJI2b0ZNew9jGx9KQLsgLVVlbaM1unVm24lY7w2uwkv+MImwT4hwN
-         ZlDVjpALexxuWcJv8ufswX1z9aenKaM0fRLM305xBoTV9NgHc4mv7zI5mG1VPl9EUAmX
-         MymItqvSHkD5V7vXuDq9+r7MM8tVKhbE61oOvnVzX2YcuE/cjgMSL95zSgqEg3eAnBxj
-         tPSw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1772458900; x=1773063700; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=NYsmRJcAcMIsFoGcScC1fEs53MfSGQkBZ/HqjJdD1do=;
-        b=RPeTC15hl3px5loLOi90WkVBu9xwpv6wGk/lhp3LfNdUf/V9cpo09tBklGNhmNL5tb
-         GI675FpZ3X1KX2cibQDqgmLUzxZHcU/j6ij7kBo4Buup0bLfO4HXqcJ9OwZxvGwpu+Ia
-         D356LGBvVLeGnTLqPZ8vpFgRbDTbVrYzO9Mqz4e8Pn8evncl4rC1a/FOSSYxin1cgQz4
-         KRAjU8T5N7ZH9Sg1QBFkxpOb4pPEHSAb4P3bSu8qU02e2SOIB2AvHUgFKpuoZgOPUe9X
-         3Kw3ktfBGzk01fnZp3Se3AIGSq6NOuDUpeh6B5lxUYGCkPsX2DpIxdHqsVUPQWR7V1UB
-         47Ow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772458900; x=1773063700;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NYsmRJcAcMIsFoGcScC1fEs53MfSGQkBZ/HqjJdD1do=;
-        b=LYjlPpho0Wa0r5425jO7EiEGG4MeeapK8xgLdFUKot5OA5IKQht5cumX3MGZGhryA2
-         rQDLkFwhiiG7UIB5pEsgeFmz2pKqh9cvzNWux9iiY4giSzfO0RgUCDbRviDWj1DRE5q6
-         9NqaeBNnjZ6sKFz0E775g2gDPZjLk9LlOPCf8FdFsuQ9zWx/Otkeh0FYInZzrFZrJo4q
-         Ki+3FpMbHV9duhxBjPk/9bmdVxFNM6h3UAWSBYVFe6E8cGYYM3u77no5C3rbBrfOzO/F
-         hFmxiemmClmdSW5Inp0YiEPyEbKepB6jnEa5JP6zjcNXG8bLBOQiAK2b34R+IBsZihcD
-         ZXPw==
-X-Gm-Message-State: AOJu0YwlFpX8HJAZeetw2li5AuoKeR36bD2BzsycJqRpAEZWhDq1XlGj
-	E1Nx58gVq1ncxHesO+rR9xXXiFEf82ng5fbSGU2V0bnotKvlrRnScjzYgNU609gEhX/6Iq1X47f
-	xAS9zn45H44U84j5YBvY6PHQY7wqcYjlx/JDMkdnb
-X-Gm-Gg: ATEYQzyE0i+0jQ3usuTYhH3UBmhvrxoqSZ8mSNFFJtnI4uvKkIFgdrggu1Yosteu+27
-	9L5J3FmdO8vLtgC36/wSXnZpECAw+Ic1QA7kxZkbMOqN5p9b0oLVI8p+x8cTzp82OdinUOAIsVQ
-	TcwhiUaQJSOfovn6LJJNLC9Xzr5YdDxwMHgOZDUjYx2e3jrl7x0RDRqZLZo9d9pfniAsF9AS+r0
-	vK2JyqSjvfPbpxnl1mZI9k1QatB63bjtp5oQWS4dbbymokkW/Q7OZe/iOGJMV7Ra494yBPcpks8
-	OnmX4EIl
-X-Received: by 2002:ac8:5746:0:b0:4ed:ff79:e679 with SMTP id
- d75a77b69052e-5076186e697mr19981111cf.19.1772458899149; Mon, 02 Mar 2026
- 05:41:39 -0800 (PST)
+	Mon, 02 Mar 2026 13:43:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1759714BF;
+	Mon,  2 Mar 2026 05:43:17 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9BE4B3F73B;
+	Mon,  2 Mar 2026 05:43:21 -0800 (PST)
+Date: Mon, 2 Mar 2026 13:43:18 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Khaja Hussain Shaik Khaji <khaja.khaji@oss.qualcomm.com>
+Cc: catalin.marinas@arm.com, dev.jain@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, mhiramat@kernel.org, will@kernel.org,
+	yang@os.amperecomputing.com
+Subject: Re: [PATCH v3 0/1] kernel: kprobes: fix cur_kprobe corruption during
+ re-entrant kprobe_busy_begin() calls
+Message-ID: <aaWT9hneQSRgpIuj@J2N7QTR9R3>
+References: <aaVzOfAKhQ-uLG06@J2N7QTR9R3>
+ <20260302122338.3618334-1-khaja.khaji@oss.qualcomm.com>
 MIME-Version: 1.0
-References: <20260302115653.1517326-1-maz@kernel.org> <20260302115653.1517326-3-maz@kernel.org>
-In-Reply-To: <20260302115653.1517326-3-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Mon, 2 Mar 2026 13:41:02 +0000
-X-Gm-Features: AaiRm52IOKVuzwHscJ5ASw0VIGWLHTbRWdjOZ5cjYVQDzmb7A0iR2ZLSC-C0T3I
-Message-ID: <CA+EHjTyjzHu-b+rnkj6ZkJjFABtT-pHcNvK9McNESpL41Y7ZKQ@mail.gmail.com>
-Subject: Re: [PATCH v2 02/11] arm64: Add a helper setting a feature field to
- its safe value
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260302122338.3618334-1-khaja.khaji@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_054141_222065_B2E744A9 
-X-CRM114-Status: GOOD (  18.22  )
+X-CRM114-CacheID: sfid-20260302_054324_958021_C08004CF 
+X-CRM114-Status: GOOD (  18.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,57 +66,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc.
+On Mon, Mar 02, 2026 at 05:53:38PM +0530, Khaja Hussain Shaik Khaji wrote:
+> On Mon, Mar 02, 2026 at 04:23:46PM +0530, Mark Rutland wrote:
+> > The el1_dbg() function was removed in commit:
+> >
+> >   31575e11ecf7 ("arm64: debug: split brk64 exception entry")
+> >
+> > ... which was merged in v6.17.
+> >
+> > Are you able to reproduce the issue with v6.17 or later?
+> >
+> > Which specific kernel version did you see this with?
+> 
+> The call trace was captured on v6.9-rc1.
 
-On Mon, 2 Mar 2026 at 11:57, Marc Zyngier <maz@kernel.org> wrote:
->
-> In order to make the code more readable, add a simple helper
-> setting a given field to its safe value, and update the only
-> user so far. More will be added later.
->
-> Suggested-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+Why are you using an -rc1 release from almost two years ago?
 
-Reviewed-by: Fuad Tabba <tabba@google.com>
+> I have not yet tested on v6.17 or later. I will test and report back.
+> 
+> That said, the fix is in kernel/kprobes.c and addresses a generic
+> re-entrancy issue in kprobe_busy_begin/end that is not specific to the
+> arm64 entry path. The race -- where kprobe_busy_begin() is called
+> re-entrantly from within an active kprobe context (e.g. via softirq
+> during kretprobe entry_handler) -- can occur on any architecture where
+> IRQs are re-enabled before invoking kprobe handlers.
 
-Cheers,
-/fuad
+AFAICT, re-enabling IRQs in that path would be a bug, and re-entrancy is
+simply not expected. Please see my other reply on that front.
 
+> I will verify whether the issue is still reproducible on v6.17+ and
+> report back.
 
+Thanks, that would be much appreciated. As would anything you can share
+on the specifics of your kretprobe entry_handler
 
-> ---
->  arch/arm64/kernel/cpufeature.c | 10 +++++++---
->  1 file changed, 7 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index 28fc77443ccd3..102c5bac4d502 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -926,6 +926,11 @@ static u64 arm64_ftr_set_value(const struct arm64_ftr_bits *ftrp, s64 reg,
->         return reg;
->  }
->
-> +static u64 arm64_ftr_set_safe_value(const struct arm64_ftr_bits *ftrp, s64 reg)
-> +{
-> +       return arm64_ftr_set_value(ftrp, reg, ftrp->safe_val);
-> +}
-> +
->  s64 arm64_ftr_safe_value(const struct arm64_ftr_bits *ftrp, s64 new,
->                                 s64 cur)
->  {
-> @@ -1066,9 +1071,8 @@ static void init_cpu_ftr_reg(u32 sys_reg, u64 new)
->                 if (ftrp->visible)
->                         user_mask |= ftr_mask;
->                 else
-> -                       reg->user_val = arm64_ftr_set_value(ftrp,
-> -                                                           reg->user_val,
-> -                                                           ftrp->safe_val);
-> +                       reg->user_val = arm64_ftr_set_safe_value(ftrp,
-> +                                                                reg->user_val);
->         }
->
->         val &= valid_mask;
-> --
-> 2.47.3
->
+Mark.
 
