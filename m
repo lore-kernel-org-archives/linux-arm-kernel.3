@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E223CEA4E04
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 13:56:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DF02EA4E06
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 13:56:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=98mvfPKrMxZ+zjeMIlkDaZHoJOIKQ1SBX8G9fEwOfaw=; b=NlrpMUU2r3muLAlOPcyqoXBJl6
-	TYl2ZiD3lJEMQvz7K1CKcis0Yd7pnFQHq9O1+A7lbGChmIjjwgCuI0aqMxM1fm2uBpL1aQBuALfJn
-	2Qi58HrtnuwttBYhcI0/2u9m7lfgUGAdIJ9vT0yuAcEtcJQz3SDk/MRELWezDPwmnZLNNs3+JZNeJ
-	RDaKNYBgA5UihQvFI/BIdmmTcFzDT4aideNZ4X57wP1UrMUmjpEuizAcRPmejSEJuAFlZBUb+TTCb
-	zU8+zqprgZVtH92rPk9fDXWrB+PIn2VHgcWZr/lnFHn6QtQNQxaZhM8Sv4yfaxPYAUGnHf1UpSVvw
-	d6V9qW8A==;
+	bh=jQmGnVhpvzFtHYK/y3v+UA1WIb5Llc4SPqNj43AIZ1o=; b=Yb8Y/LW4CZQ+WW2s9jGQclQbWi
+	0VVoL9nkZA5D7+YiIy/UGb0cZYDUixoY0HviIld1GYpIRfrWNyLMApRUWXWF90T4xYNVVgmUtRE37
+	nby1hXWfW4nQgpW8iAEDIBQYVKDatV740acHL7D7mS7778CL5lgNP7Q3rk3S72UjRKKZYNq8M83Fp
+	apdwWC4XEas3h+s+KtsIzo1pr+cj4Nekmyx3ytBzDesqKg42N87io2lAOyyBjx5S1YtTs/wM60us3
+	dVXCF26n2oZo9qSFoozxxz5gdle/7RPztolZQKXVBKTjVKdfn6Xq64K/e9Ld3VL6Qppu6d0iQYrmC
+	97VZkaVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3lA-0000000DAoP-3kHU;
-	Mon, 02 Mar 2026 13:56:32 +0000
+	id 1vx3lB-0000000DAoo-1EJz;
+	Mon, 02 Mar 2026 13:56:33 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3l7-0000000DAlo-3S5K
+	id 1vx3l9-0000000DAnD-1ZMc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 13:56:31 +0000
+	Mon, 02 Mar 2026 13:56:32 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 972C11684;
-	Mon,  2 Mar 2026 05:56:21 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BEB9714BF;
+	Mon,  2 Mar 2026 05:56:23 -0800 (PST)
 Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EB0293F73B;
-	Mon,  2 Mar 2026 05:56:25 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3CEA93F73B;
+	Mon,  2 Mar 2026 05:56:28 -0800 (PST)
 From: Ryan Roberts <ryan.roberts@arm.com>
 To: Will Deacon <will@kernel.org>,
 	Ard Biesheuvel <ardb@kernel.org>,
@@ -46,19 +46,18 @@ To: Will Deacon <will@kernel.org>,
 	Jonathan Cameron <jonathan.cameron@huawei.com>
 Cc: Ryan Roberts <ryan.roberts@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Linu Cherian <linu.cherian@arm.com>
-Subject: [PATCH v3 05/13] arm64: mm: Inline __TLBI_VADDR_RANGE() into __tlbi_range()
-Date: Mon,  2 Mar 2026 13:55:52 +0000
-Message-ID: <20260302135602.3716920-6-ryan.roberts@arm.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 06/13] arm64: mm: Re-implement the __flush_tlb_range_op macro in C
+Date: Mon,  2 Mar 2026 13:55:53 +0000
+Message-ID: <20260302135602.3716920-7-ryan.roberts@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260302135602.3716920-1-ryan.roberts@arm.com>
 References: <20260302135602.3716920-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_055629_990183_3C6E5EC9 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20260302_055631_515144_E3F71330 
+X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,88 +72,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Will Deacon <will@kernel.org>
+The __flush_tlb_range_op() macro is horrible and has been a previous
+source of bugs thanks to multiple expansions of its arguments (see
+commit f7edb07ad7c6 ("Fix mmu notifiers for range-based invalidates")).
 
-The __TLBI_VADDR_RANGE() macro is only used in one place and isn't
-something that's generally useful outside of the low-level range
-invalidation gubbins.
+Rewrite the thing in C.
 
-Inline __TLBI_VADDR_RANGE() into the __tlbi_range() function so that the
-macro can be removed entirely.
-
+Suggested-by: Linus Torvalds <torvalds@linux-foundation.org>
+Co-developed-by: Will Deacon <will@kernel.org>
 Signed-off-by: Will Deacon <will@kernel.org>
-Reviewed-by: Linu Cherian <linu.cherian@arm.com>
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 ---
- arch/arm64/include/asm/tlbflush.h | 32 +++++++++++++------------------
- 1 file changed, 13 insertions(+), 19 deletions(-)
+ arch/arm64/include/asm/tlbflush.h | 84 +++++++++++++++++--------------
+ 1 file changed, 46 insertions(+), 38 deletions(-)
 
 diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index 2832305606b72..0f81547470ea2 100644
+index 0f81547470ea2..3c05afdbe3a69 100644
 --- a/arch/arm64/include/asm/tlbflush.h
 +++ b/arch/arm64/include/asm/tlbflush.h
-@@ -186,19 +186,6 @@ static inline void __tlbi_level(tlbi_op op, u64 addr, u32 level)
- #define TLBIR_TTL_MASK		GENMASK_ULL(38, 37)
- #define TLBIR_BADDR_MASK	GENMASK_ULL(36,  0)
- 
--#define __TLBI_VADDR_RANGE(baddr, asid, scale, num, ttl)		\
--	({								\
--		unsigned long __ta = 0;					\
--		unsigned long __ttl = (ttl >= 1 && ttl <= 3) ? ttl : 0;	\
--		__ta |= FIELD_PREP(TLBIR_BADDR_MASK, baddr);		\
--		__ta |= FIELD_PREP(TLBIR_TTL_MASK, __ttl);		\
--		__ta |= FIELD_PREP(TLBIR_NUM_MASK, num);		\
--		__ta |= FIELD_PREP(TLBIR_SCALE_MASK, scale);		\
--		__ta |= FIELD_PREP(TLBIR_TG_MASK, get_trans_granule());	\
--		__ta |= FIELD_PREP(TLBIR_ASID_MASK, asid);		\
--		__ta;							\
--	})
--
- /* These macros are used by the TLBI RANGE feature. */
- #define __TLBI_RANGE_PAGES(num, scale)	\
- 	((unsigned long)((num) + 1) << (5 * (scale) + 1))
-@@ -498,8 +485,19 @@ static __always_inline void ripas2e1is(u64 arg)
- 	__tlbi(ripas2e1is, arg);
- }
- 
--static __always_inline void __tlbi_range(tlbi_op op, u64 arg)
-+static __always_inline void __tlbi_range(tlbi_op op, u64 addr,
-+					 u16 asid, int scale, int num,
-+					 u32 level, bool lpa2)
- {
-+	u64 arg = 0;
-+
-+	arg |= FIELD_PREP(TLBIR_BADDR_MASK, addr >> (lpa2 ? 16 : PAGE_SHIFT));
-+	arg |= FIELD_PREP(TLBIR_TTL_MASK, level > 3 ? 0 : level);
-+	arg |= FIELD_PREP(TLBIR_NUM_MASK, num);
-+	arg |= FIELD_PREP(TLBIR_SCALE_MASK, scale);
-+	arg |= FIELD_PREP(TLBIR_TG_MASK, get_trans_granule());
-+	arg |= FIELD_PREP(TLBIR_ASID_MASK, asid);
-+
+@@ -429,12 +429,13 @@ static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
+ /*
+  * __flush_tlb_range_op - Perform TLBI operation upon a range
+  *
+- * @op:	TLBI instruction that operates on a range (has 'r' prefix)
++ * @lop:	TLBI level operation to perform
++ * @rop:	TLBI range operation to perform
+  * @start:	The start address of the range
+  * @pages:	Range as the number of pages from 'start'
+  * @stride:	Flush granularity
+  * @asid:	The ASID of the task (0 for IPA instructions)
+- * @tlb_level:	Translation Table level hint, if known
++ * @level:	Translation Table level hint, if known
+  * @lpa2:	If 'true', the lpa2 scheme is used as set out below
+  *
+  * When the CPU does not support TLB range operations, flush the TLB
+@@ -501,36 +502,44 @@ static __always_inline void __tlbi_range(tlbi_op op, u64 addr,
  	op(arg);
  }
  
-@@ -510,8 +508,6 @@ do {									\
- 	typeof(pages) __flush_pages = pages;				\
- 	int num = 0;							\
- 	int scale = 3;							\
--	int shift = lpa2 ? 16 : PAGE_SHIFT;				\
--	unsigned long addr;						\
- 									\
- 	while (__flush_pages > 0) {					\
- 		if (!system_supports_tlb_range() ||			\
-@@ -525,9 +521,7 @@ do {									\
- 									\
- 		num = __TLBI_RANGE_NUM(__flush_pages, scale);		\
- 		if (num >= 0) {						\
--			addr = __TLBI_VADDR_RANGE(__flush_start >> shift, asid, \
--						scale, num, tlb_level);	\
--			__tlbi_range(r##op, addr);			\
-+			__tlbi_range(r##op, __flush_start, asid, scale, num, tlb_level, lpa2); \
- 			__flush_start += __TLBI_RANGE_PAGES(num, scale) << PAGE_SHIFT; \
- 			__flush_pages -= __TLBI_RANGE_PAGES(num, scale);\
- 		}							\
+-#define __flush_tlb_range_op(op, start, pages, stride,			\
+-				asid, tlb_level, lpa2)			\
+-do {									\
+-	typeof(start) __flush_start = start;				\
+-	typeof(pages) __flush_pages = pages;				\
+-	int num = 0;							\
+-	int scale = 3;							\
+-									\
+-	while (__flush_pages > 0) {					\
+-		if (!system_supports_tlb_range() ||			\
+-		    __flush_pages == 1 ||				\
+-		    (lpa2 && __flush_start != ALIGN(__flush_start, SZ_64K))) {	\
+-			__tlbi_level_asid(op, __flush_start, tlb_level, asid);	\
+-			__flush_start += stride;			\
+-			__flush_pages -= stride >> PAGE_SHIFT;		\
+-			continue;					\
+-		}							\
+-									\
+-		num = __TLBI_RANGE_NUM(__flush_pages, scale);		\
+-		if (num >= 0) {						\
+-			__tlbi_range(r##op, __flush_start, asid, scale, num, tlb_level, lpa2); \
+-			__flush_start += __TLBI_RANGE_PAGES(num, scale) << PAGE_SHIFT; \
+-			__flush_pages -= __TLBI_RANGE_PAGES(num, scale);\
+-		}							\
+-		scale--;						\
+-	}								\
+-} while (0)
++static __always_inline void __flush_tlb_range_op(tlbi_op lop, tlbi_op rop,
++						 u64 start, size_t pages,
++						 u64 stride, u16 asid,
++						 u32 level, bool lpa2)
++{
++	u64 addr = start, end = start + pages * PAGE_SIZE;
++	int scale = 3;
++
++	while (addr != end) {
++		int num;
++
++		pages = (end - addr) >> PAGE_SHIFT;
++
++		if (!system_supports_tlb_range() || pages == 1)
++			goto invalidate_one;
++
++		if (lpa2 && !IS_ALIGNED(addr, SZ_64K))
++			goto invalidate_one;
++
++		num = __TLBI_RANGE_NUM(pages, scale);
++		if (num >= 0) {
++			__tlbi_range(rop, addr, asid, scale, num, level, lpa2);
++			addr += __TLBI_RANGE_PAGES(num, scale) << PAGE_SHIFT;
++		}
++
++		scale--;
++		continue;
++invalidate_one:
++		__tlbi_level_asid(lop, addr, level, asid);
++		addr += stride;
++	}
++}
++
++#define __flush_s1_tlb_range_op(op, start, pages, stride, asid, tlb_level) \
++	__flush_tlb_range_op(op, r##op, start, pages, stride, asid, tlb_level, lpa2_is_enabled())
+ 
+ #define __flush_s2_tlb_range_op(op, start, pages, stride, tlb_level) \
+-	__flush_tlb_range_op(op, start, pages, stride, 0, tlb_level, kvm_lpa2_is_enabled());
++	__flush_tlb_range_op(op, r##op, start, pages, stride, 0, tlb_level, kvm_lpa2_is_enabled())
+ 
+ static inline bool __flush_tlb_range_limit_excess(unsigned long start,
+ 		unsigned long end, unsigned long pages, unsigned long stride)
+@@ -569,11 +578,11 @@ static inline void __flush_tlb_range_nosync(struct mm_struct *mm,
+ 	asid = ASID(mm);
+ 
+ 	if (last_level)
+-		__flush_tlb_range_op(vale1is, start, pages, stride, asid,
+-				     tlb_level, lpa2_is_enabled());
++		__flush_s1_tlb_range_op(vale1is, start, pages, stride,
++				     asid, tlb_level);
+ 	else
+-		__flush_tlb_range_op(vae1is, start, pages, stride, asid,
+-				     tlb_level, lpa2_is_enabled());
++		__flush_s1_tlb_range_op(vae1is, start, pages, stride,
++				     asid, tlb_level);
+ 
+ 	mmu_notifier_arch_invalidate_secondary_tlbs(mm, start, end);
+ }
+@@ -597,8 +606,7 @@ static inline void local_flush_tlb_contpte(struct vm_area_struct *vma,
+ 
+ 	dsb(nshst);
+ 	asid = ASID(vma->vm_mm);
+-	__flush_tlb_range_op(vale1, addr, CONT_PTES, PAGE_SIZE, asid,
+-			     3, lpa2_is_enabled());
++	__flush_s1_tlb_range_op(vale1, addr, CONT_PTES, PAGE_SIZE, asid, 3);
+ 	mmu_notifier_arch_invalidate_secondary_tlbs(vma->vm_mm, addr,
+ 						    addr + CONT_PTE_SIZE);
+ 	dsb(nsh);
+@@ -631,8 +639,8 @@ static inline void flush_tlb_kernel_range(unsigned long start, unsigned long end
+ 	}
+ 
+ 	dsb(ishst);
+-	__flush_tlb_range_op(vaale1is, start, pages, stride, 0,
+-			     TLBI_TTL_UNKNOWN, lpa2_is_enabled());
++	__flush_s1_tlb_range_op(vaale1is, start, pages, stride, 0,
++				TLBI_TTL_UNKNOWN);
+ 	__tlbi_sync_s1ish();
+ 	isb();
+ }
 -- 
 2.43.0
 
