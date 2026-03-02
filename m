@@ -4,113 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 437C5E9B369
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 11:17:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54A7AE9B36A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 11:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q3MWmpqrRBbaRrOiez2LUWIgELLY7yueuhzd9wH/JBc=; b=dFIjoicIwDPMk7ntZFBo2KahuI
-	ZTR6cCRLP7Uu5A/Cmg5vkYQxGfQw8fm7p9wDQ9Peo96iwFWs3iCQJeJDCEYO2hUhce4OIDul1VOVb
-	S6X4gE5BwAsM/P0es3WzX0nokzISOWgldi2jRUlJfGt/WR1Df+e4/j1OrfzXvLRJVC5R1oGOrgLJJ
-	/MZDxH7jl/r9ylFnquWZpnM30bF0oJNaK2apO6Ma6bDxIPGHx889J2jnnQJkf/aO0/ohtrO+QBAr9
-	bibgAXFUedfZgN7oRYkF/lqhuKPVvom18pnqMTJzErt5oP/FqVo5JBVHPe+N75x1ghWMt1MvUZQuL
-	uQc0dF6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ocYEB4fdGgMKdOvsGSPbMiW4wO5zpFrlBMuOyfO3pn8=; b=TvbGVFVnxfv1bsHWMbr8HQcU6G
+	KB01M8FXq1NEZLxFu1tOV77wlsS2J70TX5l3Gk5MCjvYh95XF8M59TRxsXHLRGQ2+kzt7+HCrjsqa
+	1lDSITkth0dGz7w4R7cM2RDdUWR38dlm72TtecoL7YJhfvz5XwDM4H0RgU2X1A5+73BZ0Xi72Tmkr
+	oiXik4MeH6+vGukSz5uBmSxUdddL/qmByODUcwlbKTrXreEq3IGQ8YK39AG8anfbKjI14GEMvTwgt
+	t9marMirMbfwTg2/pAq5b1tLNo18sKubePMxqIBlOExEBDiSHiqYH155ouxA9peuvUEMQkEyPc80g
+	+jmHxdig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx1H2-0000000CnJy-1X8v;
-	Mon, 02 Mar 2026 11:17:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vx1Jf-0000000Cnid-21XB;
+	Mon, 02 Mar 2026 11:19:59 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx1H1-0000000CnJq-0H58
+	id 1vx1Jd-0000000Cnha-1neb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 11:17:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2AA4860008;
-	Mon,  2 Mar 2026 11:17:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED5F0C19423;
-	Mon,  2 Mar 2026 11:17:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772450233;
-	bh=3zUWRi5LRLXrd2uW3EmL+wjUmucogvXjF1d5em9rPvI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MrjmMX4Rh5HzqZymwbUd0tbsPihMgH1Ud7c9+q1NeHEourf0jE0MP5fZSi8j0ivAz
-	 pVUhBhLyMvBjOYVYmm/2SV+1TXtlYr18rdOs1hlIEtgG9MT/BqKSnT1+QbGmFJJp+V
-	 ErepmUdS51sGXt/y1pA6sNlgyS/DqJ8P+RN6OQL9yhg1jWiXsyCyxTrRMXHPM3gC2O
-	 1pGG0ofALzdq2zEHR3n9Tdg5WP4EWtyHSd5n0b7NEPrM0xxM2VRUQf7Ulfg9kebCOK
-	 riponpAmlqgaTMVMe+u+QwaHUkjvsIULDEWvWyVvyLWENzICxH89RfXCdQfMcSQc08
-	 3dvPto66nBWcw==
-Message-ID: <037db488-104c-45c3-8bc4-0e64358be3d1@kernel.org>
-Date: Mon, 2 Mar 2026 12:17:07 +0100
+	Mon, 02 Mar 2026 11:19:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=ocYEB4fdGgMKdOvsGSPbMiW4wO5zpFrlBMuOyfO3pn8=; b=l83eA+F97qbvUztHGOKN98Sc5U
+	s8yrqskGDymoQUqUzA7Elqf699sR7PTFIlFouqAj577IC/UI/DJBGgZ47IcaWGcWLaKeYu3ON7PQY
+	YBjRZX9r/LlLMEzsF3qWnrffsoxGgM3/RgmJXd294Cg9iSMOQ7lB9yluCQ8gidO0/0UspIdE++MBQ
+	I+qaVT1WY+/kqzU4wiSp9ov9NVTFoRFECKo1GP4ybLqQyzZ66W+YqxaAkDjWBWGTsXqzUdNMzhUlG
+	aaD5bT6eTI2kiREr0qbu582YzhnAuusFFW7VVDQrDWqp9Z8a6kI8QPnryxL7m9lD7FLA+hRshfr0N
+	L5t41C9Q==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:41268)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vx1Ja-000000003o0-2VeK;
+	Mon, 02 Mar 2026 11:19:54 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vx1JY-000000005tv-3Shu;
+	Mon, 02 Mar 2026 11:19:52 +0000
+Date: Mon, 2 Mar 2026 11:19:52 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Clark Williams <clrkwllms@kernel.org>,
+	linux-rt-devel@lists.linux.dev,
+	Steven Rostedt <rostedt@goodmis.org>
+Subject: Re: [PATCH 2/6] ARM: move vmalloc() lazy-page table population
+Message-ID: <aaVyWFNu8scqZeEY@shell.armlinux.org.uk>
+References: <aaG1wrNUaq_L0I5g@shell.armlinux.org.uk>
+ <E1vvzcX-0000000Awo0-2KBN@rmk-PC.armlinux.org.uk>
+ <20260302104351.yyWvNCTb@linutronix.de>
+ <aaVs_31KNKvUkNL8@shell.armlinux.org.uk>
+ <20260302110055.hFMkUcnt@linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 07/10] Input: stmfts - add optional reset GPIO support
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, david@ixit.cz,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>
-Cc: Petr Hodina <petr.hodina@protonmail.com>, linux-input@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- phone-devel@vger.kernel.org
-References: <20260301-stmfts5-v1-0-22c458b9ac68@ixit.cz>
- <20260301-stmfts5-v1-7-22c458b9ac68@ixit.cz>
- <5d3694c6-57e7-4943-8dbb-41334086e8ec@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <5d3694c6-57e7-4943-8dbb-41334086e8ec@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260302110055.hFMkUcnt@linutronix.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260302_031957_468039_04DF3CCC 
+X-CRM114-Status: GOOD (  20.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,29 +84,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/03/2026 12:04, Konrad Dybcio wrote:
-> On 3/1/26 6:51 PM, David Heidelberg via B4 Relay wrote:
->> From: Petr Hodina <petr.hodina@protonmail.com>
->>
->> Add support for an optional "reset-gpios" property. If present, the
->> driver drives the reset line high at probe time and releases it during
->> power-on, after the regulators have been enabled.
->>
->> Signed-off-by: Petr Hodina <petr.hodina@protonmail.com>
->> Co-developed-by: David Heidelberg <david@ixit.cz>
->> Signed-off-by: David Heidelberg <david@ixit.cz>
->> ---
+On Mon, Mar 02, 2026 at 12:00:55PM +0100, Sebastian Andrzej Siewior wrote:
+> On 2026-03-02 10:57:03 [+0000], Russell King (Oracle) wrote:
+> > > > --- a/arch/arm/mm/fault.c
+> > > > +++ b/arch/arm/mm/fault.c
+> > > > @@ -261,6 +261,70 @@ static inline bool ttbr0_usermode_access_allowed(struct pt_regs *regs)
+> > > >  }
+> > > >  #endif
+> > > >  
+> > > > +/*
+> > > > + * Handle a vmalloc fault, copying the non-leaf page table entries from
+> > > > + * init_mm.pgd. Any kernel context can trigger this, so we must not sleep
+> > > > + * or enable interrupts. Having two CPUs execute this for the same page is
+> > > 
+> > > "unconditionally enable interrupts."? It wouldn't be wrong to enable
+> > > them if the calling context had them enabled, right?
+> > 
+> > I don't know where you got "unconditionally enable interrupts" from the
+> > comment - it says the exact opposite.
 > 
-> [...]
-> 
->> +	sdata->reset_gpio = devm_gpiod_get_optional(dev, "reset",
->> +						    GPIOD_OUT_HIGH);
-> 
-> Are you really sure the reset is active-high?
+> My point. You could enable the interrupts if the parent context had them
+> enabled. It is not that you must keep them disabled because a second
+> fault/ interrupt would overwrite your CPU state.
 
-This is not choice of ACTIVE HIGH here. It's initialization to logical
-level to keep device in reset state.
+We've gone from the code always having interrupts disabled, to your
+review response that always wants them to be enabled (which is what
+*un*conditionally enable interrupts means) to now conditionally enable
+interrupts.
 
-Best regards,
-Krzysztof
+We are reading the CPU's page table pointer (the one programmed in
+hardware) here, and we don't want that changing while we're fixing
+the fault. So, interrupts need to stay disabled. x86 doesn't enable
+interrupts in this path either, and we shouldn't be having differing
+behaviour without good reason.
+
+There are two places where x86 enables interrupts in its fault
+handling. One of them is while handling a user address fault in
+do_user_addr_fault(). The other is __bad_area_nosemaphore() where we
+also know that we've come from user mode. All other fault handling
+happens with interrupts disabled.
+
+In any case, we've always had interrupts disabled in this path. Any
+change to that would need to be a separate patch.
+
+So, the comment in the patch is 100% correct.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
