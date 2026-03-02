@@ -4,58 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CD88E9B37E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 16:56:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98E4CD58E48
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 16:56:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=czXpryiOuNx4RyFMVD0F0mKTE/Ow16r1oulxR6Eo8UY=; b=QTsB435H21WHE5niD3IySdi5fo
-	hB5O821nE+VeEQTwSHdfeO+OvXfm7Y3Yqg6yNx7RjFQ+V7tn6CpED8QJ5AHXDqG91hzaqIOligXYX
-	jXSyVJ5Wbe1uuBGzghPliN/M3dmdEKLakad6f53SPd2cxBsq/SATsh/4wMAZ7MmtXwkG9oS035+gK
-	1YmCUjTDc0rreiASbf1aNVr4VniaU/e6o3b1rthzgbkR3tC7xWPkBPGcxfnqBHb29iimXy/9r8C/I
-	ZhfG81JK4JBydvcfk13SeFwEmJWKFjUGXNw8CU6A8leEimMWRKZ9NKI0Ey3QKY0m7+LLB51UAMa/C
-	OW5XZw0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:References:
+	In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=89n6K+28iFvYKD/NXD6f6Ndh6GZfY6e5bnIS6C9OjdA=; b=w9OB6Po38y9DNhnfx+wI9lNt6l
+	RILgVgP9WJlI4HYKIDlkIssLkMtco9zs5Ekz7D3+4+ULmHrj+s07tJqhuJKC+J1Ax4e09I14/J2++
+	wm5z0oF+bfrZ+ZUPXwFW4UzltLxIkFGTzfqQoxezAxw62/ZHD7SYyyb7ixWBsL8CeN04ZZHSz/6lx
+	eZYqw4g7BYuUDX4q1RrlZbTm42gmAwgk0EJLYvihitOAdsZAYN//YTwJZobLhSrla+ZxcEmBLA2VS
+	4o9RzWroP38b730/r+jRk2IaxiNBUNAD8rMbWmFFR9xMOYsqOkr3HGMc8OmUIZ8S9Bg9gi9+jz3rW
+	wRMSN8FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx6ZV-0000000DXNU-1sCY;
-	Mon, 02 Mar 2026 16:56:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx6ZS-0000000DXN3-3mjT
+	id 1vx6Ze-0000000DXPw-1Bqi;
+	Mon, 02 Mar 2026 16:56:50 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vx6Zb-0000000DXP1-2utq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 16:56:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0446A14BF;
-	Mon,  2 Mar 2026 08:56:30 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5661B3F694;
-	Mon,  2 Mar 2026 08:56:34 -0800 (PST)
-Message-ID: <31d68fe1-3b6b-4d1f-b998-f6b8875f435e@arm.com>
-Date: Mon, 2 Mar 2026 16:56:32 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm_mpam: Set feature bits on default partition config
-To: Fenghua Yu <fenghuay@nvidia.com>, James Morse <james.morse@arm.com>,
- Dave Martin <Dave.Martin@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Tony Luck
- <tony.luck@intel.com>, Shaopeng Tan <tan.shaopeng@fujitsu.com>,
- Peter Newman <peternewman@google.com>, Gavin Shan <gshan@redhat.com>,
- Jonathan Cameron <jonathan.cameron@huawei.com>,
- Carl Worth <carl@os.amperecomputing.com>, Zeng Heng <zengheng4@huawei.com>,
- Hanjun Guo <guohanjun@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260301171829.1357886-1-fenghuay@nvidia.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20260301171829.1357886-1-fenghuay@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
+	Mon, 02 Mar 2026 16:56:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xjHbzGAxP/bBReKPPK3gwBbh9fpSPudj4g0nhqSyrzEbyKPfvITF6qv+lWBhmcQdFxe5V1kvtcBl6gBtF/Yol53bHj6q5uZenLl0rTUKkoOn53nr8xu3fh67iFu9FZ/U4Qwb6H3s4TulaF1LHyDWH7xSUHXZAl1maiQFbFuPwaQcJtgTPEc0sVzAE4TzjQ3jkKwlhLobQx6q83IA6kysra1A9l0M1GBMaLmIRwC4zDT8EGmQq7zTGwvIyHAokaOb8drxRFD6n4+KtLZFiSClpDSWeG5OengJG9810Ty7Qj4vK3mZX8tYFW84HGapJYAfVOKMVL0MTGqtLcQdg0MRJw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=89n6K+28iFvYKD/NXD6f6Ndh6GZfY6e5bnIS6C9OjdA=;
+ b=BlL/HV9CO0KeFkaSIKI79NXUwyHlkCVQYSE8ZFILHwi+hSdMDuJ3T6IbvKCcFaV9bw3pqWGzDk0bs5KwoCl7+RpewCjJo/n1BrmZ7mG1vHZ5hTK0MmsBwuKdKaGbCDfyNEG+se8Xfz88y2WrRDzIFwgpCF772jj3OV3u4EAA3mH5uOKblAgy65SzW3nXMeQpjSutyvSlvkNYKJZqT+pbR2X70C2bdoYfBe5GZDrhkuMSaZcM4f+Lv/r1TIdLw5lH83TQRslOtAg97vs4ZjwDn8iGhTZTuVrMS18+bBgWRqqVaH4wexDGAbwquxdtpSH3IURRban6rfvBlORCgPy31Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=89n6K+28iFvYKD/NXD6f6Ndh6GZfY6e5bnIS6C9OjdA=;
+ b=jvBmZufWSqDCFulh4roGN0JD+JlnWR+0nnMAORUOJvmtjiHop89WkUEpVWOasWGmxqyRo3qLCyza7vnsnsF5SJVbqjxl6xCTz9XE8fTx0CTOJk/E+aYfUP1A3l+VvlTzstA7QX39NnckiJrt9+8lAcX20+IO6MeZcl5haBYlduKfUYhXDIwztYObwsOaZ642lCdTnNiHUFIZ7OQza2yxLwTRfF0YrKjRMNnzGfn9kBSEkWbPCAHglWqKB2XIob1B/wwo6lH3+bNe3fMTcPbo1EAJpv4N3ysOerporWLS7QOHy2uf+PzyQJZece1NCboMY+r49ln3jU72TRxKPLRnQQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by VI1PR04MB9954.eurprd04.prod.outlook.com (2603:10a6:800:1d7::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.16; Mon, 2 Mar
+ 2026 16:56:43 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9654.020; Mon, 2 Mar 2026
+ 16:56:43 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Matti Vaittinen <mazziesaccount@gmail.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Maud Spierings <maudspierings@gocontroll.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Conor Dooley <conor.dooley@microchip.com>
+In-Reply-To: <20260216-mini_iv-v8-0-8d528e7cb454@gocontroll.com>
+References: <20260216-mini_iv-v8-0-8d528e7cb454@gocontroll.com>
+Subject: Re: (subset) [PATCH v8 0/5] arm64: dts: freescale: add support for
+ the GOcontroll Moduline IV/Mini
+Message-Id: <177247059953.2123846.1132263201216944355.b4-ty@nxp.com>
+Date: Mon, 02 Mar 2026 11:56:39 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: PH7P220CA0070.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:32c::10) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI1PR04MB9954:EE_
+X-MS-Office365-Filtering-Correlation-Id: c9b299cd-96ad-407b-96fd-08de787cae3b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|52116014|376014|7416014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: LuU2M6GEA1I4FpapV2ckVIE7ZBhfiEjLDRrfBC0j4qOb/dWhV2urBSbxkArYAD2xIQC/n3ewMPIW08Udt1IPEFq4uFeTXbVT6KKDyjaL3M2kR8P4jS0MM8PGCcvLMtS6s40R/Tj/4ei2nm3DmS0Wv9s3aRPEyS6lqzXrLpW3t1VDTrba0SzbHaBjjB8X/IK3weRq9MMI3j8g1C7d1N+owtS8DITf5KRxFSLzgdM/G+zr8d4KOftiEgDRdNI9l4Um/+qCepfMdYIXch8rFuRjmoJFnXnfj3KU3piiInZCVPMTdUFn68scMGD68ghRxb3xWFkHODoqFgVURZCOez2LfTghy2nmBtbpRMfyA4R9nn2n/frCFOb1IVzdvTFWVtFyrGG6nN/GLGemsxjqtBQ2ugI4s9K2c3HA0aZ2x+26t2uGx0IKcSmh2ILCrqbwDjCJwZCLFcdkSWAPRXz7Xyco+V/vruTjxTMRte0Kl7zpEq44CBruFLllrjRCy/fGpRAnx7zThE5pNeS/1cLzhvB9iNzItJGSTtLJVgM6L0lub4LsFqNdnguJxtI9miGDAZ5bLtWj3/exax9F8ZldzB5QxghbCVWCsgDkW8IQsy5dKyDiQ6b3Vqqj1kfMZVenAX+mV+a1htqyEXsKlqVq0c1vR9iOk22y+3rtkydKIGA3mHwkPG9psZ/7+KCcD4Vt1mC5h0vWGtf/560vboVMnxxifi8WQUQznyYrPyibm4bZrPITA0zthwbtN9yopmbShQbJMKml8PUBvi+p7yJMXCi0KedFrsx5aS9qDE1zfJJxGi+YCQC4mCwi+uihYkSlDx+I
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(52116014)(376014)(7416014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SXlqMFVnSTl0MU9KeVQ3M0dYRzZFNk1aMWkzZk5xRllYcytwUkg5NTZEQ0h2?=
+ =?utf-8?B?RGhLL2haT3J4dG5acTJvQkhoOXdKNDYveVlTdFFWZUV1OUxnRzRPbzZvTllw?=
+ =?utf-8?B?M1lTNWJaV3BCWmpJNldhWHpLcnVSdHpIY05CMjhMck9VUCtBcXI1ODhoZzNP?=
+ =?utf-8?B?NzVQNHhZVUsxMEpNRmRLWW41dnBGUlRGZzViMTY4RHpZTFhISkJXWXRaWG1U?=
+ =?utf-8?B?K1R0UE16alRKbTZTKzlQUVlkVVg0NDJ0ZTFjM0JkdGlrbzNqdjJQejBPbTN2?=
+ =?utf-8?B?a1FMVjVVZkVNVTRWdmIydjlic2hHdDFBVzRRcXAxNFdVWkV4dW1kZ0dqSUVi?=
+ =?utf-8?B?SVkwM1R4Yjc0VVMrZ2ovT3JveDNsd3R1UVVaaHU0YTVxNk1yWGtqNWFNVVFD?=
+ =?utf-8?B?bzg2S293VytKL0h2TTZjNjlsOVYrNzZ3b0V0dkZFMDdZVzUwckJKdjJqb1M2?=
+ =?utf-8?B?eWU0RjZ3VEhKcXBVV1BGbWhVR1ZyL3RLL0I5K1I3NlYya2VZcU5tdVhudStE?=
+ =?utf-8?B?TXgyZ0wzaGw2dnRIMFFOanRacU5wY1BGUG02dUVMNTJtMWlGZDduS2JWaWh6?=
+ =?utf-8?B?TVNjVG1KWElaZldYRFAvSFdzM0dpZnE3ZzYrTVI0bkVrOS82dWw1bmhRTTVR?=
+ =?utf-8?B?QnYzTWFRSkFzWFVHcmJ2eHlhcVAyaWxWZ1psem51Qm84YjFWblF2SkhobUtM?=
+ =?utf-8?B?TmVMZ1Q4bTYreHZQTFhHaTU3YTBVeWs3YUI3TEk5ZlErbDhqb3pkcmxmMmFa?=
+ =?utf-8?B?YW5NcWQyZFF4OW13NWlxeWFjYlFZcXBpeVJVckJ6dGN2YjBzV28xTEdNRjh0?=
+ =?utf-8?B?NGdWSEJmaEJGRDR5Vm8zbHcwYTU5ZVNpUXk0UFBTY3VKNmdud2g1MXZweVBE?=
+ =?utf-8?B?T0RFMnovdmVFczI2QnhmWTdUd3lkZWtsa3lhTy9saVNBMER6NVllU3k1WXhk?=
+ =?utf-8?B?K2JHZE15Sm80eHZjSlV1akU1bDRLNmdreTRyT0RWKzlPLzJFOTJHZHozaWdQ?=
+ =?utf-8?B?NHRLOFRUU253aFFXZFZheTJ6QnFOUE1VOTlhNzhMTkMzRHo0T0g2VWF5V2wv?=
+ =?utf-8?B?ZFNiOVRpTHJJeUxaNXRoMDRGaklvdnh5OWkxL3dwcEZVOFBxQjJENXFkL0hn?=
+ =?utf-8?B?WWlKMjFOaXlYZis1MVZIK3VkcGxkK3JsQVZaZGMwQ3FHVnhjMHpIMkJQT3E4?=
+ =?utf-8?B?Q01QY0xpZWJ2dVh5V1FPQkVYbnNqUXRoTzVlWHo5WlpXZlFBdHUxNFRsZUhN?=
+ =?utf-8?B?M29rTGZ0aXZTVm1EZm0vMmtnK213WDUzWWJxZ2NCODRFc1lqcUlsSE5zcTkz?=
+ =?utf-8?B?bFMyM0Rxais1UzJNaURYV3pVY1NXRTRQamVMSjF0azZuSXhQK0lHUFVObWZT?=
+ =?utf-8?B?RjJVVEZ3eUdzTUIxTkE4d0xkZzVjYUVVME9pUnlzRzQreStMY0VZTGFSelhw?=
+ =?utf-8?B?YnJmWmRlUjY0clAwbHdBZVhxcHA5a0JiQ0dhZ2tJR29hL215emVHQVlUMjBM?=
+ =?utf-8?B?RVRSZGZvZlpZeHlHYjRMNnpURjgvbTlEUDRqQmxFb1phUjZLRHVQNzl1TGZn?=
+ =?utf-8?B?Y1E5QXBKSURXY3pTNmdYWnRSNXZxRW9pcFprNlNGMlZGSTh1TitUZjZsY0sr?=
+ =?utf-8?B?MHpVYmVPd2VYVElkQjNMR1dxQjBDOVYxZS9QRnNKVXNiMitpRWh6cCt2cHFi?=
+ =?utf-8?B?aVBMR3BaU3FVUTFLT1U2QkJZUDBWamtSRkszbXlqdEc2T1NpNWQwcHVzdXpv?=
+ =?utf-8?B?VWlmR0lYUFZwYlhpb0lQeUZaeHNvbGJlaThyVWhLcFhxdGJYSllMVzNzajBp?=
+ =?utf-8?B?S0xlbjdsU1JJTVhzMWVSL2lKSkhNdGIrY1BOZDMrMldZazF3VFQ1S2dxcDZz?=
+ =?utf-8?B?UHM2cTA4VWs4eVMwSXdzQ3JEelh4cVdId0tIeHpoT1dHcTlCSmE1d3NpdmV2?=
+ =?utf-8?B?a1BxaXI5TStjeDhFQUNFRVhuMjNTenFPMytLcCtPZXBuaVRMSjhpZkYycmds?=
+ =?utf-8?B?WUJlYXh1OE5EMzR2REFhUkI0Q3owSDlURTJrK2Y1OUhzbHlFRzFXaUlpdzlM?=
+ =?utf-8?B?dnZXaWtoZUZkRTV5cHVHTTAyUDVkK0NwbU5leVZwOHJoWUFIVVBzOVFSN2dG?=
+ =?utf-8?B?OGJhNTkrdy94SWxvZXJlWjZrSXF6Ly95V1I5WWFJMVRSUUdmNHpxZ1JaU2pL?=
+ =?utf-8?B?NlBWSDlnOHlydG9pSmlWdnhHZExwQzBUYWxKRmlpUUNRTndsaisxc0gzb2VN?=
+ =?utf-8?B?QlNtbEQxT2pBSWk0YWRaMmVGbTNqWTk3WkNwYVFzSjNsclVacDZ3OU1wY1h0?=
+ =?utf-8?Q?R6E+7/jXlMpaIhkpFo?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c9b299cd-96ad-407b-96fd-08de787cae3b
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Mar 2026 16:56:42.9186
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3Yoj9qPzUOdOtSQ4qmUfIdBIIhH6GTd4/0D4ou3ckpvYlLWoYSNGz7umd6TPgW3fV8gyCE3sN0aH7hMJgTOm6A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9954
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_085639_083990_6355EE17 
-X-CRM114-Status: GOOD (  29.39  )
+X-CRM114-CacheID: sfid-20260302_085647_744609_38A8D087 
+X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,97 +154,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fenghua,
 
-On 3/1/26 17:18, Fenghua Yu wrote:
-> Currently we only set the default values (cpbm, mbw_pbm, mbw_max)
-> and do not set the corresponding feature bits. As a result,
-> the MBW_MIN/MBW_MAX and CPBM/MBW_PBM blocks in
-> mpam_reprogram_ris_partid() does not apply the default config
-
-The current behaviour is the intended behaviour. The values here
-are there so that the expected values appear in the resctrl interface.
-When an actual reset is done we want to use the hardware default
-values and not limit ourselves to what is currently supported by
-resctrl. On well-behaved hardware for controls supporting resctrl
-these will be equivalent. cpor isn't supported if there are more than 32
-bits.
-
-
-> because they require both rprops and cfg to have the feature.
-> The missing feature bits may cause other issues in the future.
+On Mon, 16 Feb 2026 14:07:07 +0100, Maud Spierings wrote:
+> Add initial support for the Moduline IV and Moduline Mini embedded
+> controllers.
 > 
-> When initializing default per-partition config in
-> mpam_reset_component_cfg(), set the feature bits on cfg for
-> each resource we program (cpor_part, mbw_part, mbw_max)
-> so that "configured" matches the default values.
+> These systems are powered by the Ka-Ro Electronics tx8m-1610 COM, which
+> features an imx8mm SoC.
 > 
-> Set mpam_feat_cpor_part on cfg whenever we set default cpbm
-> (cpbm_wd implies cpor_part).
 > 
-> Set mpam_feat_mbw_part and mpam_feat_mbw_max on cfg only when the
-> class has the feature (mbw_pbm_bits/bwa_wd can be set without
-> HAS_PBM/HAS_MAX).
-> 
-> Fixes: 09b89d2a72f3 ("arm_mpam: Allow configuration to be applied and restored during cpu online")
-> Signed-off-by: Fenghua Yu <fenghuay@nvidia.com>
-> ---
-> Without the fix, mpam_wa_t241_calc_min_from_max() in the patch:
-> https://lore.kernel.org/lkml/20260224175720.2663924-39-ben.horgan@arm.com/
-> sees mpam_has_feature(mpam_feat_mbw_max, cfg) as false and always returned 0
-> on hardware that supports mbw_max. This causes performance degration
-> because of too small mbw_min on T241 platform.
+> [...]
 
-Isn't it only because of the erratum that this makes a difference. When
-mbw_max is at it's maximum then when mbw_min=0 or mbw_max at a maximum.
-Either the current bandwidth is always higher than mbw_min or it's
-always lower than mbw_min. In both cases everything is classified with
-the same priority.
+Applied, thanks!
 
-This has caused me to look again into the reset code and I've noticed a
-different issue. It's not recorded in the component configuration that
-it needs to reset. Hence, on unmount if not all cpus are online
-mpam_reset_component_locked() might not reset all msc and rely on cpuhp
-to finish the reset but it doesn't have the information to do that. For
-this reason, I think we should go back to James' original model of
-resetting any feature that isn't set in the feature bitmap. (I shouldn't
-have suggested we change that!)
+[2/5] arm64: dts: imx8mm: Add pinctrl config definitions
+      (no commit info)
+[3/5] arm64: dts: freescale: add Ka-Ro Electronics tx8m-1610 COM
+      (no commit info)
+[4/5] arm64: dts: freescale: Add the GOcontroll Moduline IV
+      (no commit info)
+[5/5] arm64: dts: freescale: Add the GOcontroll Moduline Mini
+      (no commit info)
 
-> 
->  drivers/resctrl/mpam_devices.c | 14 +++++++++++---
->  1 file changed, 11 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 9182c8fcf003..be4b554104e3 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -2618,12 +2618,20 @@ static void mpam_reset_component_cfg(struct mpam_component *comp)
->  
->  	for (i = 0; i <= mpam_partid_max; i++) {
->  		comp->cfg[i] = (struct mpam_config) {};
-> -		if (cprops->cpbm_wd)
-> +		if (cprops->cpbm_wd) {
->  			comp->cfg[i].cpbm = GENMASK(cprops->cpbm_wd - 1, 0);
-> -		if (cprops->mbw_pbm_bits)
-> +			mpam_set_feature(mpam_feat_cpor_part, &comp->cfg[i]);
-> +		}
-> +		if (cprops->mbw_pbm_bits) {
->  			comp->cfg[i].mbw_pbm = GENMASK(cprops->mbw_pbm_bits - 1, 0);
-> -		if (cprops->bwa_wd)
-> +			if (mpam_has_feature(mpam_feat_mbw_part, cprops))
-> +				mpam_set_feature(mpam_feat_mbw_part, &comp->cfg[i]);
-> +		}
-> +		if (cprops->bwa_wd) {
->  			comp->cfg[i].mbw_max = GENMASK(15, 16 - cprops->bwa_wd);
-> +			if (mpam_has_feature(mpam_feat_mbw_max, cprops))
-> +				mpam_set_feature(mpam_feat_mbw_max, &comp->cfg[i]);
-> +		}
->  	}
->  }
->  
-
-Thanks,
-
-Ben
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
 
 
