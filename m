@@ -4,103 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45478C624C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 09:16:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBB70C624C2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 09:24:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1ktr/JNOB3fV/EZRd7szBfJ+V3eeHkmzO1vLTnQ/4sY=; b=IHTymCI9aT2w2iADALh491Gbjr
-	ePivnTPsxvBc/NJ1klHjz5y6jh0psL3oceRzegDCiXLS25es7fAupW4F/N4KIMLFCEk5lb+DTcYep
-	T1qnNW5wB01KNBnyyRzNMc8gubhyoMuVzXEjgrf/ZU2dJ4gq9VeZA98nb2jCONVtoSRvd4DVvvYpy
-	IU+PWrLE5Amw6j/rsC6CPVzhuDXeswMvSKBnl5y1tO3tJM9tX20jBybhgfXUQ5pp3ZUHHzwQMDC0I
-	GVZGIzDN4IQnycPDxQCr6Je4ufuxExo2rXnjbmqIJmkJ1vcHKhZRSxvKXyzbcxVs/cgVLpuXmVM3a
-	ZUp4pozg==;
+	bh=DcOB6tYMsVoM0Bt7BP1vZOGhe0rRy62AX70ya1Muik0=; b=KJLgVKzTkzhTG+pg/OuoMb+g7H
+	hD3KWZdAXIEaqW4sLx6HDF5QGJtxjmbJr3BpArdL+bXCmTfXI/bm8eBktWyo4ms2rNpmOfZG51Z5u
+	4wDM2ch9Sy/ReOV+u2h1IDy8Cov2Nn/BywkrLuYgpMjQ2Kjc1zoiW5dVUoxu9zYtErtKf0SzEwfgD
+	gt2rp25XhuLDtT/PJHZUj7AY7DMlFAe2tssWdMGiKPm/aNQPyC/i+Ot9mqVdqJ15RJoHZvpdu+aNn
+	1B5KQMXdhypA3lQ07U3+KrE/qOj49LzjWfNgzag+6pj8v3x+r4acOiHxyTzWfJ5Z5pfsp8k6eUdH2
+	275coldg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwzOL-0000000Ca5r-28f0;
-	Mon, 02 Mar 2026 09:16:41 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwzOJ-0000000Ca5P-1Kac
+	id 1vwzVw-0000000CaaD-3q6l;
+	Mon, 02 Mar 2026 09:24:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vwzVu-0000000CaZ6-10S5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 09:16:40 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-48334ee0aeaso34893495e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 01:16:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1772442997; x=1773047797; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=1ktr/JNOB3fV/EZRd7szBfJ+V3eeHkmzO1vLTnQ/4sY=;
-        b=X93lqMM2QeeHMU2XaH8jYsKQ6KXLr9QT5YBu/6Tx5KjsCE/tedMdXk4CnkqMijJaTB
-         Hzvc8gb4Jw34m3UZXMacrJxUtFEmSlSK8ASgUz/KuYuEgU1XnGPXWpdUZpLFZzdSyLKj
-         akJSziHstEj7EVfosr+FTQO31HQJwjCuluNjV9ciBPNu2yR2CcMfPr30NX1kiKaBQ2BE
-         GPJmZMOSPgdaoj857rtQKjsz0MxRxEl1Iw/P+ilXRHkUo2ENbZ1ufRKeqQh+TkjNayKr
-         grr3U2A2VcSYzjB//4e9vmb3E2CKnuNI1UQCz7mz6M9gT6sfQ/Q8uxxN/M7qSniIZS3y
-         0o1Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772442997; x=1773047797;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1ktr/JNOB3fV/EZRd7szBfJ+V3eeHkmzO1vLTnQ/4sY=;
-        b=ivn/1nd611Tbo2Z9F38+fPTk31KLKy7x0SQy5WY9ZbpSCJusUk8bEa643t6GCCrPqk
-         yYZ0Q7PAq/B5lgWdDDKg8Vln+doYcvFsZTeYsjaQ/QDvs/qNez3no2oiGOLG5LbbBgtO
-         hSyCmtwvLAfx5ymlFE4UI7UtYmuwA2IhAX+bBvXZv2xnw0dMlbBBqJsQYmkh0NWLbkxk
-         zRB4V7+l/XJMvJTH0m6SCyFvHpyihjRqsBm+msHXKOZnAiKi14y+8ANszBGge6n/1HD+
-         uJZXNQyX10aI8eSg9g/HmrfWL3mA69OUYTDPbyic9210rXw/wSRrLgrL7+19ABCjZPni
-         dlNA==
-X-Forwarded-Encrypted: i=1; AJvYcCW6R1ppoYwSG45LskzcSXb+LauMbPzxbCfku4CjH1vTdgUCDGD6Bjw5GlwFucgEqhaQLzc+c06mvEPFp1BcBsvQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8IS8YtUpdX91EWckTMDClYv1BMd7TXQdFGScx2woMzYF5KYmV
-	2YC5GVQfFZ0e/uYQ0lFezVAOS/8LOnGW5kmAYbTn90ruJbEndrnR7akZvXuVL2ucmqo=
-X-Gm-Gg: ATEYQzzBeBfOq9B3vJaM2iloVwbS4NSkrPIeeOOYUv/OP+N1hNKLt/sHmRcYyWCemWY
-	0klwt632iacQUVs3Q+4U4mOdrQYXpqHqRbE7bmMabHjUzimKgVQc87u3qI+wsIsqa6FoS14oHVi
-	Zkfw/BCf2A+2Wz5C0SeIkiCwnYw1X+FmIQnX+NKtq6hiAOSVFnGMR3MFRWkN/C7RivCXgwjhy0N
-	exmKc0tUb64CUkoXnfdTTtzIfEiAMoPwVs+d9w/FRGioO2cTMfuzsbbr01z8/FODd0GPtbg9pE4
-	LnBc8nvRNteUcuEvM2xNHr+1O7y5BIZWE5Ovpzev63+NfmijqlA2WoDBfcLfGfpqe9QehwES8qY
-	kTnYMnusHLHVTqdkyjRSKhzz4/28OMZVx3wOH/Mc11eBlAgj6T2Ns+L2YKxcjB4KnvmfDu8YxaK
-	Ehrb/aB0su6fk/RfU7LS98XjHtPhW/TBg=
-X-Received: by 2002:a05:600c:4eca:b0:480:1e9e:f9b with SMTP id 5b1f17b1804b1-483c9beac6cmr219764705e9.16.1772442997213;
-        Mon, 02 Mar 2026 01:16:37 -0800 (PST)
-Received: from [10.11.12.108] ([79.115.63.77])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483bfabb84esm389964955e9.0.2026.03.02.01.16.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Mar 2026 01:16:35 -0800 (PST)
-Message-ID: <488f9257-94fd-4c5f-ba41-c9216bf0f7e5@linaro.org>
-Date: Mon, 2 Mar 2026 11:16:32 +0200
+	Mon, 02 Mar 2026 09:24:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E2F5814BF;
+	Mon,  2 Mar 2026 01:24:19 -0800 (PST)
+Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 288123F73B;
+	Mon,  2 Mar 2026 01:24:25 -0800 (PST)
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Elsanti <santiagojoseleal27@gmail.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Mike Leach <mike.leach@arm.com>
+Subject: Re: [PATCH] drivers/hwtracing/coresight: remove unneeded variable in tmc_crashdata_release()
+Date: Mon,  2 Mar 2026 09:24:10 +0000
+Message-ID: <177244343076.1680574.6923083572593250437.b4-ty@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260228222344.288639-1-santiagojoseleal27@gmail.com>
+References: <20260228222344.288639-1-santiagojoseleal27@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/7] thermal: samsung: Add support for GS101 TMU
-To: Alexey Klimov <alexey.klimov@linaro.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Kees Cook <kees@kernel.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: willmcvicker@google.com, jyescas@google.com, shin.son@samsung.com,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org
-References: <20260119-acpm-tmu-v2-0-e02a834f04c6@linaro.org>
- <20260119-acpm-tmu-v2-4-e02a834f04c6@linaro.org>
- <DGR4OFNJXOI2.3QACIHMM1V429@linaro.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <DGR4OFNJXOI2.3QACIHMM1V429@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_011639_457572_083F51F6 
-X-CRM114-Status: GOOD (  28.52  )
+X-CRM114-CacheID: sfid-20260302_012430_322933_6CC514E0 
+X-CRM114-Status: UNSURE (   5.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,93 +70,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
-On 3/1/26 5:33 AM, Alexey Klimov wrote:
-> On Mon Jan 19, 2026 at 12:08 PM GMT, Tudor Ambarus wrote:
->> Add the thermal driver for the Google GS101 SoC.
+On Sat, 28 Feb 2026 18:23:44 -0400, Elsanti wrote:
+> The variable 'ret' is initialized to 0, never modified, and returned
+> directly. Remove it and return 0 explicitly.
 > 
-> Is this driver for GS101 platforms only or for all Exynos-based
-> platforms where we have deal with thermal unit via ACPM?
-
-The driver can be extended for other Samsung Exynos SoCs.
-
-> 
->> The GS101 TMU utilizes a hybrid management model shared between the
->> Application Processor (AP) and the ACPM (Alive Clock and Power Manager)
->> firmware. The driver maintains direct memory-mapped access to the TMU
->> interrupt pending registers to identify thermal events, while delegating
->> functional tasks - such as sensor initialization, threshold configuration,
->> and temperature acquisition - to the ACPM firmware via the ACPM IPC
->> protocol.
->>
->> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
->> ---
->>  drivers/thermal/samsung/Kconfig    |  16 +
->>  drivers/thermal/samsung/Makefile   |   2 +
->>  drivers/thermal/samsung/acpm-tmu.c | 643 +++++++++++++++++++++++++++++++++++++
->>  3 files changed, 661 insertions(+)
->>
->> diff --git a/drivers/thermal/samsung/Kconfig b/drivers/thermal/samsung/Kconfig
->> index f4eff5a41a84ce02b12abb85d6a0f8818031d0dc..5679dfa85f4079c7d40317ac231bd6a1af93c7e7 100644
->> --- a/drivers/thermal/samsung/Kconfig
->> +++ b/drivers/thermal/samsung/Kconfig
->> @@ -9,3 +9,19 @@ config EXYNOS_THERMAL
->>  	  the TMU, reports temperature and handles cooling action if defined.
->>  	  This driver uses the Exynos core thermal APIs and TMU configuration
->>  	  data from the supported SoCs.
->> +
->> +config EXYNOS_ACPM_THERMAL
->> +	tristate "Exynos ACPM thermal management unit driver"
->> +	depends on THERMAL_OF
->> +	depends on EXYNOS_ACPM_PROTOCOL || (COMPILE_TEST && !EXYNOS_ACPM_PROTOCOL)
->> +	help
->> +	  Support for the Thermal Management Unit (TMU) on Google GS101 SoC.
->> +
->> +	  The TMU on GS101 is managed through a hybrid architecture. This driver
->> +	  handles direct register access for thermal interrupt status monitoring
->> +	  and communicates with the Alive Clock and Power Manager (ACPM)
->> +	  firmware via the ACPM IPC protocol for functional sensor control and
->> +	  configuration.
->> +
->> +	  Select this if you want to monitor device temperature and enable
->> +	  thermal mitigation on GS101 based devices.
-> 
-> I don't understand this. What this driver actually supports/implements?
-> Dealing with TMU over ACPM firmware is not exclusive to Google GS101 SoC,
-
-right
-
-> some other Exynos-based systems has this as well. However, it names
-> the config option EXYNOS_ACPM_THERMAL but a lot of other things say that
-> it is only for GS101, isn't it?
-
-right, because I'm currently adding support just for GS101. I wanted to be
-accurate and thought that when/if other SoCs will be supported by this
-driver, we can generalize the description.
-
-> Does it implement the generic layer dealing with TMU via ACPM (hence the name)
-> and adds specific things to support gs101?
-
-Right. I expect the sensor mask may differ from other Samsung Exynos SoCs.
-I remembered I compared the register set with e850, minor differences there.
-
-> 
-> Should it be something like this (feel free to correct):
-> Support for the Thermal Management Unit (TMU) exported via ACPM.
-> 
-> This driver handles direct register access for thermal interrupt
-> status monitoring and communicates with the Alive Clock and Power
-> Manager (ACPM) firmware via the ACPM IPC protocol for functional
-> sensor control and configuration.
-> 
-> Select this if you want to monitor device temperature and enable
-> thermal mitigation on Exynos-based devices that implement dealing
-> with TMU via ACPM, for instance, GS101-based devices.
 > 
 
-I can generalize the description in v2.
+Applied, thanks!
 
-Thanks,
-ta
+[1/1] drivers/hwtracing/coresight: remove unneeded variable in tmc_crashdata_release()
+      https://git.kernel.org/coresight/c/061c39a17136
 
+Best regards,
+-- 
+Suzuki K Poulose <suzuki.poulose@arm.com>
 
