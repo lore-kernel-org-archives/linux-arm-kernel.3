@@ -4,57 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1161CE9B357
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 10:46:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F1AE9B361
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 10:47:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Ckhn9DGeZgYT2J/BeYkwrCGdi0ubyhaE2yfugPYAIM=; b=tI7EsBZADscrPQcg5HLH8WqrIe
-	toRUi0kE8uiFjWTrdptiisELD3LQ9KbMjra4HWrma/L4G95Z2zxvZlzhh+Z1hHqpDHxg2ftHnguXU
-	LL/tTcCI1iCUZn5yQSEXdjQp2dwydp+NODVLg4Hj7xrM+dbm6keC2eYUuFeR+bF7vXVhDGFOuSMri
-	ogR6D5DZs29+RtfI3dcmWBgrrFgBFrQVgysgO+Nsb1NljTKG2olOs2ov03CWcrgXyPlvQNe0bn2dQ
-	CFxQXixxGVKOyy8TZKuEGDi+kikb5u2T/eWV3QtINcTNAm8hRX9EuHc7FrH9ql8TV5T7yX5EsPLj4
-	5BdI5lHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Guu5xxL90HTSu/oVrePUtkjHXxu31Oicp6v/n9zPze8=; b=z5geaBGJSqZKgJUhr6tlsUEKYx
+	d1evnCjhVQIDIYpx6ZBiojRd1yf4e/BBOMj0zOoFmpgokmtvHXX6Hd7R/sdvHnYRdGOwz6NEQqToP
+	Rt5O4soMXV2LC50Ao+op1L7KjYTY5Vx1/8jVEAgQbU9C784ErcRK5HGtBg8ie/oLyVGodRJ03qOYJ
+	ebZ3X8VrBzUVBcuHf+IhRAeP/nCcUv/4zqZyDLnlU3znIB1R1Lt3Ovy1Q8Eo4npXa9iub9o+NJ4hb
+	kd5FqMYhyjuzbLBurfUmPUmYo+VhzYIw6IPQMTTdptE2kbXN44dMeXRcl0QyIVfwYL2qOq736bndU
+	PsVW/2GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx0nX-0000000Cjml-21ue;
-	Mon, 02 Mar 2026 10:46:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vx0nk-0000000Cjqx-1Ugp;
+	Mon, 02 Mar 2026 10:47:00 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx0nU-0000000Cjm0-2jBV
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 10:46:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9199D402B3;
-	Mon,  2 Mar 2026 10:46:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30A53C19423;
-	Mon,  2 Mar 2026 10:46:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772448403;
-	bh=mRfUlHrS586k2FuQiBvSGHu6OuLzbXNHA5neBpISxiM=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date:From;
-	b=WQQLhZbo0Xgxn3IvHIU9hbySnqnUuWRbCx+Ts3KIxJM3/gYsRP1Tx9d6jBg2X++Eb
-	 eEMPO0rmguDM3XcBAXTmPyVTv2GxPAwxs0zInEwUXLTsRpA78uCMFLLS4mdufL3+bf
-	 osUSeG54d8M3Ecsn8FUdHGq6EKh+/jdULGbOIFoV2+BkvfHxcE88yvzmw8bzA/RsCS
-	 gscgRxbD/HcRfAkA+Ypxpgzwso5ulC1WmeIFSV9C8c22AOMKAQheH6258IfGXamQsC
-	 1p2LldK+SFZITq0rKRIo8UGCGOwggtZZzO6zF7ezKSEBLNu+5wUtjHvQ7LUDCYwWzo
-	 abiDzpTxQqJjA==
-Content-Type: multipart/mixed; boundary="===============2186911870242448320=="
+	id 1vx0nh-0000000CjpL-1gTy;
+	Mon, 02 Mar 2026 10:46:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1772448413;
+	bh=7aN20OVVEoXV/61pR66Bp3BcXzzUo9s9PuSf/BuulD8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=cBt5YerpgvE/q12nVvdCP1iW+ATX7GgIFeRKGhpGdFLn8hU2fWKHynJruhvxx4syh
+	 0yUsurxFdpVKCsmTpZ7dOINLrL6vOjXh2EJpp0fJ0INK3QyiaWy8Lk4867hVaWjoCA
+	 TDQzMtUEzfYNh4VuUkfqjMlrhERGeiKNW2vZENX/JRUP1sbOle6Hfr1yxy9wt1DA8l
+	 0kUky+p2SlfPaJME8pDjj5racIILa2gVaEO7YFwesz+inKD3kQlz5PHEupQ+ho1zwO
+	 ycl77hqB6su8NccOSr22CvfDNG5EOP+Tjil1rKacK1c2ZyE2Y0axiHHw/AEajIliv7
+	 uzCJVjLYSHuDQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 44F4017E0251;
+	Mon,  2 Mar 2026 11:46:53 +0100 (CET)
+Message-ID: <0eaf2427-af8f-4376-8bce-60be800c4a98@collabora.com>
+Date: Mon, 2 Mar 2026 11:46:52 +0100
 MIME-Version: 1.0
-Message-Id: <cae8a7cfe54f2f1f66bde10df2026eb2c1076998bef9e483b513abd3bb5722c3@mail.kernel.org>
-In-Reply-To: <20260302102726.1126019-2-xukuohai@huaweicloud.com>
-References: <20260302102726.1126019-2-xukuohai@huaweicloud.com>
-Subject: Re: [PATCH bpf-next v5 1/5] bpf: Move JIT for single-subprog programs to verifier
-From: bot+bpf-ci@kernel.org
-To: xukuohai@huaweicloud.com,bpf@vger.kernel.org,linux-kernel@vger.kernel.org,linux-arm-kernel@lists.infradead.org
-Cc: ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,martin.lau@linux.dev,eddyz87@gmail.com,yonghong.song@linux.dev,puranjay@kernel.org,a.s.protopopov@gmail.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
-Date: Mon,  2 Mar 2026 10:46:43 +0000 (UTC)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mfd: mt6397: Properly fix CID of MT6328, MT6331 and
+ MT6332
+To: Akari Tsuyukusa <akkun11.open@gmail.com>, lee@kernel.org
+Cc: matthias.bgg@gmail.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ y.oudjana@protonmail.com
+References: <20260228190820.357538-1-akkun11.open@gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260228190820.357538-1-akkun11.open@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_024644_734703_4E111A9A 
-X-CRM114-Status: GOOD (  14.81  )
+X-CRM114-CacheID: sfid-20260302_024657_603459_0FD61496 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,80 +76,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---===============2186911870242448320==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+Il 28/02/26 20:08, Akari Tsuyukusa ha scritto:
+> CIDs set for MT6328, MT6331 and MT6332 are not appropriate.
+> Many Android downstream kernels define CID as below,
+> 
+> MT6328:
+> 
+>      #define PMIC6328_E1_CID_CODE    0x2810
+>      #define PMIC6328_E2_CID_CODE    0x2820
+>      #define PMIC6328_E3_CID_CODE    0x2830
+> 
+> MT6331/MT6332:
+> 
+>      #define PMIC6331_E1_CID_CODE    0x3110
+>      #define PMIC6331_E2_CID_CODE    0x3120
+>      #define PMIC6331_E3_CID_CODE    0x3130
+> 
+>      #define PMIC6332_E1_CID_CODE    0x3210
+>      #define PMIC6332_E2_CID_CODE    0x3220
+>      #define PMIC6332_E3_CID_CODE    0x3230
+> 
+> The current configuration incorrectly uses the revision code as the CID.
+> Therefore, the driver cannot detect the same PMIC of different revisions.
+> (E1/E2 for MT6328, E1/E3 for MT6331/MT6332)
+> Based on these, the CID of MT6328, MT6331 and MT6332 should be corrected.
+> 
+> Additionally, the incorrect MT6331/MT6332 CID overlaps with the MT6320's
+> actual CID:
+> 
+>      #define PMIC6320_E1_CID_CODE    0x1020
+>      #define PMIC6320_E2_CID_CODE    0x2020
+> 
+> This causes a conflict in the switch-case statement of mt6397-irq.c,
+> this prevents adding support for MT6320.
+> 
+> Link: https://github.com/parthibx24/android_kernel_mediatek_k35/blob/4853d1fd9e40563573fa6d6b32b75d571a95e2b7/drivers/misc/mediatek/power/mt6735/pmic.h#L10-L12
+> Link: https://github.com/meizuosc/m75/blob/80ef1d26c5d73e131d064138ed09ff5a2be2bed8/mediatek/platform/mt6595/kernel/core/include/mach/pmic_mt6331_6332_sw.h#L9-L15
+> Link: https://github.com/toffyjan/android_Ticwatch_S_mooneye/blob/4f2a73b26f3821afc452cdce660cdbc73daf4e4a/arch/arm/mach-mt2601/include/mach/pmic_mt6320_sw.h#L29-L30
 
-> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-> index fc4ccd1de569..ab2bc0850770 100644
-> --- a/kernel/bpf/verifier.c
-> +++ b/kernel/bpf/verifier.c
-> @@ -26086,6 +26086,11 @@ int bpf_check(struct bpf_prog **prog, union bpf_attr *attr, bpfptr_t uattr, __u3
->  		convert_pseudo_ld_imm64(env);
->  	}
->
-> +	/* constants blinding in the JIT may increase prog->len */
-> +	len = env->prog->len;
-> +	if (env->subprog_cnt == 1)
-> +		env->prog = bpf_prog_select_jit(env->prog, &ret);
-> +
->  	adjust_btf_func(env);
->
->  err_release_maps:
+Please remove these links, these will be invalid in a few months, so they are
+irrelevant.
 
-[ ... ]
+> Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
 
-> @@ -26111,7 +26116,7 @@ int bpf_check(struct bpf_prog **prog, union bpf_attr *attr, bpfptr_t uattr, __u3
->  err_unlock:
->  	if (!is_priv)
->  		mutex_unlock(&bpf_verifier_lock);
-> -	clear_insn_aux_data(env, 0, env->prog->len);
-> +	clear_insn_aux_data(env, 0, len);
->  	vfree(env->insn_aux_data);
+Anyway:
 
-Can the len variable be stale when reaching clear_insn_aux_data()
-through an error path?
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-At the top of bpf_check(), len is first assigned as:
-
-    len = (*prog)->len;
-
-This original value is used to allocate insn_aux_data. Later,
-instruction rewriting passes like convert_ctx_accesses() and
-do_misc_fixups() can change env->prog->len and resize
-insn_aux_data to match via bpf_patch_insn_data().
-
-The second assignment added by this patch:
-
-    len = env->prog->len;
-
-is only reached on the success path, after all instruction
-rewriting and after the maps/btfs allocation. If an error occurs
-between the rewriting passes and this reassignment, for example
-bpf_vlog_finalize() returning an error, copy_to_bpfptr_offset()
-failing, or kmalloc for used_maps/used_btfs failing, the code
-jumps to err_release_maps and eventually reaches
-clear_insn_aux_data(env, 0, len) with the original program length
-rather than the current post-rewriting length.
-
-If rewriting increased env->prog->len (the common case for
-programs with context accesses), the iteration stops short of
-the actual insn_aux_data size, potentially leaking jt fields in
-the unvisited entries.
-
-
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/22571297111
-
-AI-authorship-score: low
-AI-authorship-explanation: Standard kernel refactoring by a known BPF contributor with non-native English patterns in the commit message.
-issues-found: 1
-issue-severity-score: low
-issue-severity-explanation: Stale len variable in bpf_check error paths can cause insn_aux_data jt field memory leaks when instruction rewriting changed prog->len before an error between rewriting and the len reassignment.
-
---===============2186911870242448320==--
+Cheers,
+Angelo
 
