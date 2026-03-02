@@ -4,157 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 617CFEA4E20
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 15:15:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5356AEA4E20
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 15:15:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K5hKP3FI0Rk214qRsw38EIaBcFaDuFDqNZgMi6bwa8s=; b=IHpuC4uUt/YP2IGnwO9RPK2ibC
-	SaEevI57omFFn2qrqfGHY7RZ6AcN8l2HqogS9NEQ/2p/t4/8Hb+K5xEHA+3Zm0lsEtHtTYPRpsGGp
-	/5+YweoPb3TfP6MUPkd/1Om0xxLhejf1t7a2j5WIXatJqlvFmV6Zcn9KhqpYL1YZ2j/aE1KNhZg20
-	FQl5IZH6q+vz/Yw9nM+2B7MZkbh/z2aiLLRx/PVieT1KRLvrXhbP9UjITsvA0+rdHz42bv2opT5qN
-	FuylrYXgWgzgZ0NLTPx+MTdcNBXV23aHkZhnc9L3TWVNcxQ9R5G67u5tzffWvWd2W9tk1PfY9qahH
-	RTt4r5cg==;
+	bh=XLhMi12c9hilSx0fJ9MNNmOkG5ZaJ8A8J3vzxrBi+l8=; b=wr5YZSLiywmDcECtrWjyeiOmUy
+	r2vYZKO1aIgc7DKaijbRWUYQrolyJK4xxN/mvT9prU//WkYJroPYMBWuMksBaWscSTFHCJPwtkpsg
+	+iOAs6a2DwOPE4TsN2702izrT88TM3AK9U2lbGba47l7mcm1Tp5gS5YIdXrZappXm/7trTWmm0IqP
+	/5tSez+WmD4Pcnpz8Z3ss/3pvbYwQTHTXw7/gNDZMs5O4lTsVQSIP5obu9L6XwNddeXKZXtxSIjBA
+	Dvj/JRX98GY6uJfLLmEZYPmXbzt3M2+Q4ILjOC+9avOHpCXWFrGy2v3RCvbNyVU6L7W+UTexDOmzv
+	l/f2347A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx4zF-0000000DKoo-0qTb;
-	Mon, 02 Mar 2026 15:15:09 +0000
+	id 1vx4zW-0000000DKx5-0DzU;
+	Mon, 02 Mar 2026 15:15:26 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx4zD-0000000DKnu-2Jlq
+	id 1vx4zU-0000000DKwH-3MFo
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 02 Mar 2026 15:15:07 +0000
+	Mon, 02 Mar 2026 15:15:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=K5hKP3FI0Rk214qRsw38EIaBcFaDuFDqNZgMi6bwa8s=; b=DV5qWOetaY3w9RB5WMk7nNWIyE
-	PVQtvJxWWXG+fF3WnDLvP9HnbfZ7xy3huejgmZNMN0TCaRJOQE8LNeX9mOfNMA+SH7zs9jzqUfCHg
-	o+28VIZwdoyW8hQX6Z1pTt3jLrMPnaJPwf8ONZN5EZLYTFU1/5H2eS8jUTUmRblGVAM8uGTdMgeXU
-	MALigWeyLXMh+v2YSQ8cuPp7Kp+RUBVjCogV6HKYkTcoG67Y3qTJyrvfLc7Pj6jSFljmle4qfrp5C
-	BfJj8C1iVSbhcUbVxHn910XpVnIaUiG2896i01/APgw58P0+Tc3e1HHjRjlWKe5pgf+HmJzT+3IW1
-	yDj0CCIQ==;
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=XLhMi12c9hilSx0fJ9MNNmOkG5ZaJ8A8J3vzxrBi+l8=; b=O1p4VlTq9qHJjiTu6pBw+LfKhC
+	lcP6A/9Yv7sb44KAQ2TPzTMt/dchHQsohsIea3uVjYO/FVyK+Zb9fSTVEzue/YGhsIWTUZ/QtBDQq
+	MxtESjhbSWXxeI/xfuRf6SMJhAHvqMcvz6+K7psiZ2iuQNPc71QFN56I8sBp3es33rcISkok1ruls
+	UyHefJQ13EbJNkwrcOKUfxtuatRoAidypwf9D/EtT6ALP1NxoMbjJoe/zUFip+vol0t3z/tXag7RS
+	YP59ytoFbrOpYozvsI0zsXG5C7AJfstYbWXZQeLyzzTokqkyjADAGS2V1DkUWWhHNjAU6aZ97G8A0
+	0CiFxxKA==;
+Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx4zA-00000000PbA-2c3Y
+	id 1vx4zS-00000000PeO-0IlP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 15:15:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=C2Jo12MCoJ8JqkY63qmsT7bg406/RXf08xCG8F2zttanpyeBdjfFzE03lhFZqZdPAGkzdoRLwVy6g35v0zPm9hl2sICJhOYpi4M2UsJaeWPPmG22YaBXsvoBqvWrOfwt6XEY09Ae9QOoMjxjt/nAT6lQp/aWQvwmfYvPJOOaVGxUl7PfAc6dw3Fl7pTIJO9uHrYkGkqV3ZWcEgkIisSkYBXpS7N582rkL7Nxdv+ztNY/xU2gutnl6/2t58rzJuX1OsDuhDBYiskLyL1ryNCSxTS4CHMxr8vc/FJ76WRFo3qlnraCmxUWJbIWP/0a4i7SlPMhQ24oIyMjrty4WU/5pg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=K5hKP3FI0Rk214qRsw38EIaBcFaDuFDqNZgMi6bwa8s=;
- b=dv4DR4BollyRospAGDXuWQa8wDPVhPkvl6FJFuNI7LySk5/5UWsjCQo/oNtA5TS35G8KYo3Kgfy6qp44ZgOSWnUqlE2U3AICKGEoqmFczH2RDzV2zhL7+ozhuqVLni66QyYkTashaDTQUkFyukd/6HqJsnaiHQRCLJMz+kbdQs5Y/q6/x9XBvU+10rjtDA+88J7wRwpHICOIS1ceZ6Hb07duWK/aanspW35H9FJv5bl3YEQPW3ZTFzZ9p3jd509OH/3qArS3r/dH0jA9HLeDrfaiPH5hfp2LYjtCGu19bCUvTsn/AvLF5a9c8rou4EUXjlIeC9NnHIVsAKsWuHkEqA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=K5hKP3FI0Rk214qRsw38EIaBcFaDuFDqNZgMi6bwa8s=;
- b=h34zAlgybkm64FqyXYXgrxafHCCu+Bbei8dK5C4lHdE6WHY8b9yHUWXszNfNFGHiNbsvraMcYjPF9WdNIx7zksnl7YCy1Hdt3k3JGTaH1UKzIfJOg27YJcXk7TJPyteYvXHF/3kN9B32jyze4I44cBZNJRZRbSO2zggtoTIZLxhU72QdOxG0+23rhuwVFlqotnXyU62cXlbpGTQpS1sDM2OsqHgQL79weggQCYL9xZGfrTdny+ewRYgNpangCxRfrFPCC95SvhjF6NvjG9zLK8+G9MUmND/sDyPSBQiKWK/y98Oog31dJ5FBGqNL58rnMDZzM+CwgzcGFhjJ8yla9g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AM0PR04MB6980.eurprd04.prod.outlook.com (2603:10a6:208:17e::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.18; Mon, 2 Mar
- 2026 15:00:15 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%7]) with mapi id 15.20.9632.017; Mon, 2 Mar 2026
- 15:00:14 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Mon, 02 Mar 2026 23:01:20 +0800
-Subject: [PATCH v8 6/6] clk: scmi: Add i.MX95 OEM extension support for
- SCMI clock driver
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260302-clk-ssc-v7-1-v8-6-2356443a7e4c@nxp.com>
-References: <20260302-clk-ssc-v7-1-v8-0-2356443a7e4c@nxp.com>
-In-Reply-To: <20260302-clk-ssc-v7-1-v8-0-2356443a7e4c@nxp.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Cristian Marussi <cristian.marussi@arm.com>, 
- Sebin Francis <sebin.francis@ti.com>, Brian Masney <bmasney@redhat.com>, 
- Sudeep Holla <sudeep.holla@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, arm-scmi@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.14.2
-X-ClientProxiedBy: SGBP274CA0008.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b0::20)
- To PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+	Mon, 02 Mar 2026 15:15:23 +0000
+Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-505d3baf1a7so993821cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 07:15:20 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772464519; cv=none;
+        d=google.com; s=arc-20240605;
+        b=VaLldtnM9h3bFjqdx9QTdL2XjdEDsXnz9ooNMbRO7z/VsbFgYFvGdjCGdRsq0vs5OO
+         YVwbJk/80omtzxlUZ0J/Fewd7leGsxCm1viWJwKb0zWyvnHQThJ2vH/+79g8neYMBq+M
+         VWrRRLnbW5HglalnuFuZkTgmodQzexC1d2ZtVip6yBTbiWEnLpj+npGsDqNMTYpYCBT7
+         ili+tKAtBhUILTz51OxmjSNP21n9a09lKmTuIlxAJVCqFgEB59QtaRvTEK8MeNi61KKa
+         sPHwuMn2N/2mZ43zYIrDNqKQ15+s2uJFT963lhO3mYi5j3Etz/OHKfELdUMUW3fyrnkw
+         ywOQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=XLhMi12c9hilSx0fJ9MNNmOkG5ZaJ8A8J3vzxrBi+l8=;
+        fh=VFXcUrr3kGurp0SuF0YJGl5pPwUAd9HYetUbgSB3cYw=;
+        b=k3pzVoEB7x8Zta22utD/p+1XtoYmBjl1aML68tZVSnYFPCu+n9Qh3zaJ9dYe0UVZPT
+         O35gRfNFlwng4sGynf1k6UtvfgvogubU6Fys2QtxGtnZ7eT3GooGIGL1y8MgQ6j/6ZIt
+         aGzyhA/zQAgja6XxPct54ZW/dHsle3JPJX0sLPpVv5V1XArDy9NuaViTqpkdB3jhyIfS
+         UNCh9aeD0APWg9yoIcdT6nqcsFHzzU9dGAp/sr6neqVk22I22oVQzCuMhGc7q7P7QcmE
+         hR25fFrqSDsVvx88PtOH0QO9K2D7j33FtS724LUrEeA21DY1xUXwmL5Is5I4b0MKjnE6
+         a3tg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1772464519; x=1773069319; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=XLhMi12c9hilSx0fJ9MNNmOkG5ZaJ8A8J3vzxrBi+l8=;
+        b=CxgS4u5IIBP1RqYl0SH/wQRJc+3N7NNk4GNa1ER3UToWyJucvX2YE63yA9VGXSAFvt
+         uEtaY5s5g1JVDaPgOJOSDQoMyCNYWW2MS3O00xmfbsB0eQjWzUMTb18vucvPpZeA5TEc
+         iXBugPz/8NqJ2G8Jd9Emd1pc+dF//3wX0+7z5lH5GQfhEgUom7mppoJMRXuy11QofVdh
+         Xb/hH39neF/dKbwbBxffyqvVsoOyGJuM5sryTkLqhwltPcxn3tIBuntUqFuPOmqS5cdy
+         4ITyPIFCmIR7XC7m1rxfK4yvHc46Dk9Z+81O9VzceaFrcATI4qt81iscJblAG7Sk1Myp
+         KYEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772464519; x=1773069319;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XLhMi12c9hilSx0fJ9MNNmOkG5ZaJ8A8J3vzxrBi+l8=;
+        b=nVMF1GnVnQUSi/IeItYYYrvydQ2fseo4iqsEz1E1oH1cyt8y6ZMMQ6T7SP/95hqY2N
+         mf3ctzJnls4kNdq6La73jM+uc6j0ugKZCQbK3g1sBqv41zzqsIq2uTq3lktQg6jAP4T4
+         46q6B60IQZa8i1u2GAfl83k7R7GErrbOszNXyfnKTvNLBoZT7h9crIQrBTTryD9nOUGg
+         9+9b/aFv13/T/jVnJYUkb54gxvFlbbqItJS+6TqI8y2kegLbUjiGwqeBvUPagIJUfabc
+         2Rni+mcf9oya2IseUif+UaGs3pCFryQbJdruaXSorSdkObULVw9tcDEpnRYYHvGwq0Pc
+         y+GQ==
+X-Gm-Message-State: AOJu0YwJrx0JoYDxLXZxB8SrJnepqaivDW5Y65gs3uPZ6YPvQKymcncT
+	ovshGxHMilzcFpDk/zz+2LhThDLuEACfwk3Dk39dSqqQdL8G2LE8DycI+tUqGhHUoY4wUIjHsgk
+	t0UnMIakOGBn3OM8laKymamkVklyAvAZoZoW2uJSd
+X-Gm-Gg: ATEYQzwIb505JcfS1xDV/2DuoV5lkmHv1zxHZW03bIO4gSa4go0rYnENZUO5ilYia1r
+	3h5lLkXVuEZUHIdRWySKTzcWYwKPaFQhh+PBI0L9NnWDjlCOBU9ap2EnrQPsL+C1sxO7/uo4C5k
+	NrlEaZQx2gnlRXhm7WptLejn1jQs1Szcrt9P1m5jkmk5FEveHYbe+tbjH/H2GAAWG9x0fXSCjVy
+	V7DgRQKXpcg+huQSAzWWDr/nQMP8vEp3LuiDzDU53K0yRUCCDIqr2s97dbjz2hJ+Y2zJlCNyW1A
+	ts5LnzCV
+X-Received: by 2002:ac8:5995:0:b0:4ff:cb72:7c03 with SMTP id
+ d75a77b69052e-507617532dcmr21739891cf.3.1772464518402; Mon, 02 Mar 2026
+ 07:15:18 -0800 (PST)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM0PR04MB6980:EE_
-X-MS-Office365-Filtering-Correlation-Id: f7c2ca11-62f4-424a-f0f6-08de786c68fe
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|376014|7416014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: fxPwGu8o4sva4g4fOLxSWC19MMTBds2St6uLNIXiccaDzz9+MMMtHsL6emh6G0NoycvAgh07fVory9wLSV5vBkDiYp6PFawcQM6uf2/Cs7qmJOvYY9CE3j+caJI5i0FgqwapuWNGbZEB/L2z5uE201bY1SrL3eerFd7AAB5b8tbowpXInwIo8C+jfqoDKyQGFZGGauDMR3Ix+3pqEc6Jp6XA+1n5K0ZMIrSdJQSkfTJCMa5vBqJ5q8N2X+hZv6B5SfelrYqh8louuFHMzqqPBra98emM356sqYJxhxz2/aXiOMma13KG3Fa85ue+8s0G2PJlcLeh3sf6UM11d1yvDMglY51LvHX82w+YQhZzV47JxRN7oflPfNfGue55cCvozLdMcQPRhKIZrEhCgOTOdlNKEgR3DLMkOh7qsP88TrB7wMfUgO6PDzoCo6FIXC5z1P03wHz4yI8mnAnIPOGB8QTSjb93OeCRTWnStiPxL8uFVpdC9X/vaGH8a4MkBtmRACNdL5/RlNaxM5a3O5tkkSP5kgHsD4F5sHVkcfTgmxSqkqmyM2DWf0URQKE2aEYnfotOX9iRoW4WJXSijhOvitcgSlVLJUwjcruY74jPhXVK5k8qaJGU0wK1UdMmZ6eOPmGPvbfUJ+0cHK2JPCtaynt9B8NZ+ME6jXZIS/AOtD2ZkjG1S05knIB/z0MTL5sCULBN3LOenhpF9Ti2tST57RDPCe6CA/bGi/BEGbo4dARBklT4o4vVpBXP+IzTilTM09CZninTKH2DNqQCFPMNmcHE7ke3z3n9kSr0l1JIilM=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y0ZSWXFGdHNWZTRVMUVPVVpaT2w0dnd2eVc5Y1ZtSXNoU1JuUS96cjFvY29Y?=
- =?utf-8?B?ZUg5ZGwvUjZxN0ZJWmtJZENMVUVsVjhIR0lha0xYejZ6Tk1pTEJMekhaaUpB?=
- =?utf-8?B?TGdaYVQ3eFpiTWZUVWZFMEpWdjlNUHpwbkQxR1F2TWREWXNXb2lMclVyS091?=
- =?utf-8?B?YTlaY1NITC9IVGdSejJtZFhlc2NwSDljN3lCczNhSE0zMUNvRzR4QWR0c2dQ?=
- =?utf-8?B?aUlCR3RoLzVqTTlaSXBrZ255TC9RSHpwczVnMzJyWGxkZ1prbnRBbGhrNndQ?=
- =?utf-8?B?WVpJVDY3dGw1NG9NTHlNNVh5UWtlZy9iRStvN2E1ZTV5dVBENUF0RDVxRG02?=
- =?utf-8?B?ZFRESDZYckVpT21Hb2g4aGFmR3VRZUpOMldaRGRNTWlTcTU0cGVSL2FuNlJZ?=
- =?utf-8?B?Mm5mYmFNR2JCZGN2MnRUeXRKcW1CVkJ3Yjl4QlpLeTlaRENraW5LZHAxYkc2?=
- =?utf-8?B?RFBIVU4yTU04eDdkOU12dWU2SHBGS09RRDB0c2JwZThRK1czeHNNcU1jSEZo?=
- =?utf-8?B?OHE0Ly9kYTI5dklZdTYybXJOejhkT1hMT0tZK2I4QlRaYStMc3RIaEgrazlI?=
- =?utf-8?B?OGpCczRoYkxYVThVK1hFYTRjT3lCc3hvV3VYWVFiOXF6ZklzVGV6VS90R0FI?=
- =?utf-8?B?RmR1VkJyclJ3VlhSTFI4c1FFR0dua0UrRkRQdHhYYnEzUUx4c25GaTdSNEZW?=
- =?utf-8?B?SXlTaVNQZC9WR2kwQkMxMTlRazdVZVNVUkZIbGhsWGJZTUtudDVZdnRMand2?=
- =?utf-8?B?ajVteFcwZTk1UjNZRjNHUlpXcWZ3czFuU2NMT3RoSmFrVy95YlhVRmV6SzBI?=
- =?utf-8?B?TWRRdUJvTzJQSXdiR2NiSVNmN1ArbkVzM3RoTGVpWjlDc1h4OFFJS3RNV0NI?=
- =?utf-8?B?cjJEdmRVTXpIbndLdEFUdjhxdUZXVHNSVWUvM1JCOUhUcGlqTkczT2h2RXR5?=
- =?utf-8?B?dWtuVkpKeUUzNXBXUzVQVW5TNUFOZ0NFdHNPY3pTa0ZlWSs5dEFmb0hUZzNw?=
- =?utf-8?B?Y0NuM2gvUG5BM1gzdHhyMDZ6OExYSXhiMTJYSDlaaXpaTHV6d1BKb1hEcWVo?=
- =?utf-8?B?NW52L3pGdEg2R1NBU1VpUkt4RUlaTi9hdnNFWlFOUTZ3VG5RZjd6KzBzaFJL?=
- =?utf-8?B?UHpEelZHQ3hnMGRwbHIvc3RmQlJJd1lWZ0V1WlhFUHh0NFhJcG5tT05SdEpK?=
- =?utf-8?B?c3JaVTR6OENFc051Wk0wVm9zL0lna2Q2TWtmK0Ywckc4UWZ2ZDFWTGhrTWFu?=
- =?utf-8?B?V0l0czZXMWd6bVJxaUFxbktuNk82V2I4cEZSL0ZpalpTYTNNT0JxLzBNbWN1?=
- =?utf-8?B?UmwxQkZSMXVYY3JEN1VZR2VyL1JNU1pFV1FsS0ZrMW02Wmd3NlhkNXFwRlFv?=
- =?utf-8?B?dXo4cnk5NzdQd3B4ck1nR3ZpUExXTHlYL1k0SkNCR1N0bFpTWk53YmpweS9j?=
- =?utf-8?B?d3RXTGtadHBTQjNESDV3N0FKWVNPTDFENm1ta0Vsc201MFFkc3JLZ3FmZlcx?=
- =?utf-8?B?cTBJZkhzaFlGRndhUzAwRGJ6MjF6OERBYjZIM2tUOTJNeE5JU1pUbXFFaldD?=
- =?utf-8?B?QjhudmN2c3J6WjQrTEtiU1E3WWF4YUc0Y1o1R2NsRG5oSXNJcGxJdXpMOFFX?=
- =?utf-8?B?V1BwR25naHFKSjlBdG55V1pEQVJSLytFY3FIRVpIQnN4KzRLQWtrOVUxRTdR?=
- =?utf-8?B?emdNSnh5Qi9OVU1PUGRoM25BVW9sLytQM1g3L0F1b2dqbHhZb3pTQUpnK0Va?=
- =?utf-8?B?dDVZTEZRK1ZQOVNSWWVtVnd6ZldQSU02YVVXaEFubFpaMHFYNVAxOHN6WUsw?=
- =?utf-8?B?T2F0SUxHbFJJODd2aFFRZ2JBQURUdk9rNFllOEw2b2J0aHZPdGVSc2x1MWw1?=
- =?utf-8?B?RXJOa3FQaUtjczVtbVVraWgrS2tnRitib3l2QXUzWWlGc1lTRkJBV2RpbU84?=
- =?utf-8?B?WCs1RE51YkU3dkFmNHdleUNCNUxPNGZqRmlNR285ZnBWOW8rWXJHeVFBZmhS?=
- =?utf-8?B?Vk9DbTBFbWw0UUs2OWxFYXA1aWY3NzRKaC9BWkYvVGRBeExBTFFoYjFWNVRR?=
- =?utf-8?B?REdDOUFLMkRianM5Y21hTzdBU0xwa1VRV2pNamRvL2ZNUnZhUTZFS1pjdW5v?=
- =?utf-8?B?RWxLa3hZVS9SS1NkeittUWZneVF2aVkyMHlDMmRvV2Jhdjg5OE92OVMvL1JS?=
- =?utf-8?B?VXZBblZUYVJyaUdkZWt0cVZwajdvTjVJdEVaWnVva2RTNU52ZStmZElqQVZG?=
- =?utf-8?B?bDFmUnFwVTFXQzJVbXBYazJNZkR1T2VWVjNyVElHU0NlYnpsLzlJbzBIbXVq?=
- =?utf-8?B?VWpPMXUxVjJ5aWNHRGIrNFkwSUdZZkVSNDNCamdmZEVLUTd5a0hFUT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f7c2ca11-62f4-424a-f0f6-08de786c68fe
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Mar 2026 15:00:14.8280
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qhb8QG5r3HDGURKD0qw5Q0OnM0Oh8lGkhItr8lIc1s1+xY6BjNpmY+4+9cKRPjncbJEYk9Tvop6fksUfNoJUpw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6980
+References: <20260302115653.1517326-1-maz@kernel.org> <20260302115653.1517326-9-maz@kernel.org>
+In-Reply-To: <20260302115653.1517326-9-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Mon, 2 Mar 2026 15:14:41 +0000
+X-Gm-Features: AaiRm53AeNzBUqCcvwVmtTfW3IVhaSW812eJdmucfptOpXaPRrJTjtj_9ytMZMk
+Message-ID: <CA+EHjTzhciLDu145E+iCLr+ej9Xi9etkk2uigpBgpHH5NBE6rQ@mail.gmail.com>
+Subject: Re: [PATCH v2 08/11] arm64: Convert CONFIG_ARM64_MTE to FTR_CONFIG()
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_151504_706173_F8E5D6C3 
-X-CRM114-Status: GOOD (  22.39  )
+X-CRM114-CacheID: sfid-20260302_151522_201288_D92F690D 
+X-CRM114-Status: GOOD (  20.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,274 +131,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+Hi Marc,
 
- - Introduce 'clk-scmi-oem.c' to support vendor-specific OEM extensions
-   for the SCMI clock driver, allows clean integration of vendor-specific
-   features without impacting the core SCMI clock driver logic.
- - Extend 'clk-scmi.h' with 'scmi_clk_oem' structure and related
-   declarations.
- - Initialize OEM extensions via 'scmi_clk_oem_init()'.
- - Support querying OEM-specific features and setting spread spectrum.
- - Pass 'scmi_device' to 'scmi_clk_ops_select()' for OEM data access.
+On Mon, 2 Mar 2026 at 11:57, Marc Zyngier <maz@kernel.org> wrote:
+>
+> While CONFIG_ARM64_MTE=n prevents userspace from using MTE,
+> the sanitised ID registers still advertise the feature.
+>
+> Make it clear that nothing in the kernel should rely on this by
+> marking the feature as hidden for all when CONFIG_ARM64_MTE=n.
+>
+> This is functionnaly equivalent to using arm64.nomte on the kernel
+> command-line.
+>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kernel/cpufeature.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index ab0a7d72608d4..a56d242fe1489 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -315,7 +315,7 @@ static const struct arm64_ftr_bits ftr_id_aa64pfr1[] = {
+>                        FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR1_EL1_SME_SHIFT, 4, 0),
+>         ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR1_EL1_MPAM_frac_SHIFT, 4, 0),
+>         ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR1_EL1_RAS_frac_SHIFT, 4, 0),
+> -       ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_MTE),
+> +       ARM64_FTR_BITS(FTR_CONFIG(CONFIG_ARM64_MTE, VISIBLE, ALL_HIDDEN),
+>                        FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR1_EL1_MTE_SHIFT, 4, ID_AA64PFR1_EL1_MTE_NI),
+>         ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR1_EL1_SSBS_SHIFT, 4, ID_AA64PFR1_EL1_SSBS_NI),
+>         ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_BTI),
 
-Reviewed-by: Sebin Francis <sebin.francis@ti.com>
-Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/clk/Makefile       |   2 +-
- drivers/clk/clk-scmi-oem.c | 108 +++++++++++++++++++++++++++++++++++++++++++++
- drivers/clk/clk-scmi.c     |  19 ++++++--
- drivers/clk/clk-scmi.h     |  11 +++++
- 4 files changed, 136 insertions(+), 4 deletions(-)
+Although it wouldn't really be for the scope of this patch, but what
+about gating the other MTE fields? e.g., MTE_frac here,
+ID_AA64PFR2_EL1.MTEFAR and MTESTOREONLY?
 
-diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
-index e053303984b8d61d5c74dc4cdb582eb2692f4ca1..ae069836f29c2af373e56d66f4e1d6ffa32be7b5 100644
---- a/drivers/clk/Makefile
-+++ b/drivers/clk/Makefile
-@@ -93,7 +93,7 @@ obj-$(CONFIG_COMMON_CLK_RP1)            += clk-rp1.o
- obj-$(CONFIG_COMMON_CLK_RPMI)		+= clk-rpmi.o
- obj-$(CONFIG_COMMON_CLK_HI655X)		+= clk-hi655x.o
- obj-$(CONFIG_COMMON_CLK_S2MPS11)	+= clk-s2mps11.o
--obj-$(CONFIG_COMMON_CLK_SCMI)           += clk-scmi.o
-+obj-$(CONFIG_COMMON_CLK_SCMI)           += clk-scmi.o clk-scmi-oem.o
- obj-$(CONFIG_COMMON_CLK_SCPI)           += clk-scpi.o
- obj-$(CONFIG_COMMON_CLK_SI5341)		+= clk-si5341.o
- obj-$(CONFIG_COMMON_CLK_SI5351)		+= clk-si5351.o
-diff --git a/drivers/clk/clk-scmi-oem.c b/drivers/clk/clk-scmi-oem.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..be11d359b4ec3633868f33bb429c7cfec9f1e48e
---- /dev/null
-+++ b/drivers/clk/clk-scmi-oem.c
-@@ -0,0 +1,108 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * The Vendor OEM extension for System Control and Power Interface (SCMI)
-+ * Protocol based clock driver
-+ *
-+ * Copyright 2025 NXP
-+ */
-+
-+#include <linux/clk-provider.h>
-+#include <linux/of.h>
-+#include <linux/scmi_imx_protocol.h>
-+#include <linux/scmi_protocol.h>
-+
-+#include "clk-scmi.h"
-+
-+#define SCMI_CLOCK_CFG_IMX_SSC			0x80
-+#define SCMI_CLOCK_IMX_SS_PERCENTAGE_MASK	GENMASK(7, 0)
-+#define SCMI_CLOCK_IMX_SS_MOD_FREQ_MASK		GENMASK(23, 8)
-+#define SCMI_CLOCK_IMX_SS_ENABLE_MASK		BIT(24)
-+
-+/*
-+ * Selection is based on SCMI vendor_id/sub_vendor_id and optional machine
-+ * compatible string, without involving impl_ver. impl_ver‑specific behavior
-+ * should be considered a bug and handled via SCMI Quirk framework.
-+ */
-+struct scmi_clk_oem_info {
-+	char *vendor_id;
-+	char *sub_vendor_id;
-+	char *compatible;
-+	const void *data;
-+};
-+
-+static int
-+scmi_clk_imx_set_spread_spectrum(struct clk_hw *hw,
-+				 const struct clk_spread_spectrum *ss_conf)
-+{
-+	struct scmi_clk *clk = to_scmi_clk(hw);
-+	int ret;
-+	u32 val;
-+
-+	/*
-+	 * extConfigValue[7:0]   - spread percentage (%)
-+	 * extConfigValue[23:8]  - Modulation Frequency
-+	 * extConfigValue[24]    - Enable/Disable
-+	 * extConfigValue[31:25] - Reserved
-+	 */
-+	val = FIELD_PREP(SCMI_CLOCK_IMX_SS_PERCENTAGE_MASK, ss_conf->spread_bp / 10000);
-+	val |= FIELD_PREP(SCMI_CLOCK_IMX_SS_MOD_FREQ_MASK, ss_conf->modfreq_hz);
-+	if (ss_conf->method != CLK_SPREAD_NO)
-+		val |= SCMI_CLOCK_IMX_SS_ENABLE_MASK;
-+	ret = scmi_proto_clk_ops->config_oem_set(clk->ph, clk->id,
-+						 SCMI_CLOCK_CFG_IMX_SSC,
-+						 val, false);
-+	if (ret)
-+		dev_warn(clk->dev,
-+			 "Failed to set spread spectrum(%u,%u,%u) for clock ID %d\n",
-+			 ss_conf->modfreq_hz, ss_conf->spread_bp, ss_conf->method,
-+			 clk->id);
-+
-+	return ret;
-+}
-+
-+static int
-+scmi_clk_imx_query_oem_feats(const struct scmi_protocol_handle *ph, u32 id,
-+			     unsigned int *feats_key)
-+{
-+	int ret;
-+	u32 val;
-+
-+	ret = scmi_proto_clk_ops->config_oem_get(ph, id,
-+						 SCMI_CLOCK_CFG_IMX_SSC,
-+						 &val, NULL, false);
-+	if (!ret)
-+		*feats_key |= BIT(SCMI_CLK_EXT_OEM_SSC_SUPPORTED);
-+
-+	return 0;
-+}
-+
-+static const struct scmi_clk_oem scmi_clk_oem_imx = {
-+	.query_ext_oem_feats = scmi_clk_imx_query_oem_feats,
-+	.set_spread_spectrum = scmi_clk_imx_set_spread_spectrum,
-+};
-+
-+static const struct scmi_clk_oem_info info[] = {
-+	{ SCMI_IMX_VENDOR, SCMI_IMX_SUBVENDOR, NULL, &scmi_clk_oem_imx },
-+};
-+
-+int scmi_clk_oem_init(struct scmi_device *sdev)
-+{
-+	const struct scmi_handle *handle = sdev->handle;
-+	int i, size = ARRAY_SIZE(info);
-+
-+	for (i = 0; i < size; i++) {
-+		if (strcmp(handle->version->vendor_id, info[i].vendor_id) ||
-+		    strcmp(handle->version->sub_vendor_id, info[i].sub_vendor_id))
-+			continue;
-+		if (info[i].compatible &&
-+		    !of_machine_is_compatible(info[i].compatible))
-+			continue;
-+
-+		break;
-+	}
-+
-+	if (i < size)
-+		dev_set_drvdata(&sdev->dev, (void *)info[i].data);
-+
-+	return 0;
-+}
-diff --git a/drivers/clk/clk-scmi.c b/drivers/clk/clk-scmi.c
-index bf85924d61985eb9e596419349eb883e3817de73..1ed2091e3d4a951c8662db4c94dee4b9c98b8326 100644
---- a/drivers/clk/clk-scmi.c
-+++ b/drivers/clk/clk-scmi.c
-@@ -14,6 +14,8 @@
- #include <linux/scmi_protocol.h>
- #include <asm/div64.h>
- 
-+#include "clk-scmi.h"
-+
- const struct scmi_clk_proto_ops *scmi_proto_clk_ops;
- 
- static unsigned long scmi_clk_recalc_rate(struct clk_hw *hw,
-@@ -242,6 +244,7 @@ static int scmi_clk_ops_init(struct device *dev, struct scmi_clk *sclk,
- static const struct clk_ops *
- scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
- {
-+	struct scmi_clk_oem *oem_data = dev_get_drvdata(dev);
- 	struct clk_ops *ops;
- 
- 	ops = devm_kzalloc(dev, sizeof(*ops), GFP_KERNEL);
-@@ -288,11 +291,15 @@ scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
- 		ops->set_duty_cycle = scmi_clk_set_duty_cycle;
- 	}
- 
-+	if (oem_data && (feats_key & BIT(SCMI_CLK_EXT_OEM_SSC_SUPPORTED)))
-+		ops->set_spread_spectrum = oem_data->set_spread_spectrum;
-+
- 	return ops;
- }
- 
- /**
-  * scmi_clk_ops_select() - Select a proper set of clock operations
-+ * @sdev: pointer to the SCMI device
-  * @sclk: A reference to an SCMI clock descriptor
-  * @atomic_capable: A flag to indicate if atomic mode is supported by the
-  *		    transport
-@@ -317,8 +324,8 @@ scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
-  *	   NULL otherwise.
-  */
- static const struct clk_ops *
--scmi_clk_ops_select(struct scmi_clk *sclk, bool atomic_capable,
--		    unsigned int atomic_threshold_us,
-+scmi_clk_ops_select(struct scmi_device *sdev, struct scmi_clk *sclk,
-+		    bool atomic_capable, unsigned int atomic_threshold_us,
- 		    const struct clk_ops **clk_ops_db, size_t db_size)
- {
- 	int ret;
-@@ -326,6 +333,7 @@ scmi_clk_ops_select(struct scmi_clk *sclk, bool atomic_capable,
- 	const struct scmi_clock_info *ci = sclk->info;
- 	unsigned int feats_key = 0;
- 	const struct clk_ops *ops;
-+	struct scmi_clk_oem *oem_data = dev_get_drvdata(&sdev->dev);
- 
- 	/*
- 	 * Note that when transport is atomic but SCMI protocol did not
-@@ -350,6 +358,9 @@ scmi_clk_ops_select(struct scmi_clk *sclk, bool atomic_capable,
- 						 &val, NULL, false);
- 		if (!ret)
- 			feats_key |= BIT(SCMI_CLK_DUTY_CYCLE_SUPPORTED);
-+
-+		if (oem_data && oem_data->query_ext_oem_feats)
-+			oem_data->query_ext_oem_feats(sclk->ph, sclk->id, &feats_key);
- 	}
- 
- 	if (WARN_ON(feats_key >= db_size))
-@@ -407,6 +418,8 @@ static int scmi_clocks_probe(struct scmi_device *sdev)
- 	clk_data->num = count;
- 	hws = clk_data->hws;
- 
-+	scmi_clk_oem_init(sdev);
-+
- 	transport_is_atomic = handle->is_transport_atomic(handle,
- 							  &atomic_threshold_us);
- 
-@@ -438,7 +451,7 @@ static int scmi_clocks_probe(struct scmi_device *sdev)
- 		 * to avoid sharing the devm_ allocated clk_ops between multiple
- 		 * SCMI clk driver instances.
- 		 */
--		scmi_ops = scmi_clk_ops_select(sclk, transport_is_atomic,
-+		scmi_ops = scmi_clk_ops_select(sdev, sclk, transport_is_atomic,
- 					       atomic_threshold_us,
- 					       scmi_clk_ops_db,
- 					       ARRAY_SIZE(scmi_clk_ops_db));
-diff --git a/drivers/clk/clk-scmi.h b/drivers/clk/clk-scmi.h
-index 6ef6adc77c836dc2d599ff852cdc941f217ee388..d7f63f36c56d155f728325efd6bcf7fe2585b170 100644
---- a/drivers/clk/clk-scmi.h
-+++ b/drivers/clk/clk-scmi.h
-@@ -7,6 +7,7 @@
- #define __SCMI_CLK_H
- 
- #include <linux/bits.h>
-+#include <linux/clk-provider.h>
- #include <linux/scmi_protocol.h>
- #include <linux/types.h>
- 
-@@ -19,6 +20,7 @@ enum scmi_clk_feats {
- 	SCMI_CLK_RATE_CTRL_SUPPORTED,
- 	SCMI_CLK_PARENT_CTRL_SUPPORTED,
- 	SCMI_CLK_DUTY_CYCLE_SUPPORTED,
-+	SCMI_CLK_EXT_OEM_SSC_SUPPORTED,
- 	SCMI_CLK_FEATS_COUNT
- };
- 
-@@ -37,4 +39,13 @@ struct scmi_clk {
- 
- extern const struct scmi_clk_proto_ops *scmi_proto_clk_ops;
- 
-+struct scmi_clk_oem {
-+	int (*query_ext_oem_feats)(const struct scmi_protocol_handle *ph,
-+				   u32 id, unsigned int *feats_key);
-+	int (*set_spread_spectrum)(struct clk_hw *hw,
-+				   const struct clk_spread_spectrum *ss_conf);
-+};
-+
-+int scmi_clk_oem_init(struct scmi_device *dev);
-+
- #endif
+Cheers,
+/fuad
 
--- 
-2.37.1
-
+> --
+> 2.47.3
+>
+>
 
