@@ -4,51 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F47E9B37F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 13:38:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77CA0E9B37D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 13:41:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nbxn4UV6/YFUf6QCWl6jGJ5FR/U81nsBaDLd3N1l9eE=; b=zlQe1ImD4K4s4oeBdOHyDxYs8U
-	SofxOqBFPmOiaQid0LFeHUKyFTySXMgweGO+8HLKypvFAclpqeouyJrxZkJZAARYTy3wywaAA8OjA
-	rnqsAITGFgA4696q48WJ1QGF6bZyLLEsKrCfBIIB1ZJTpxnY9RnyFtoxBVrVDV8h8IEogJAvQD/+n
-	4Vuyve9WH8PBxSXi4gJ1ajsLxhbmw3FpZvEn4wqd1qTe8l07zwd3SBwPGP5PHURwu6C6ro1gXaSAi
-	pt9GJ6TaCF2B6/pNP8i2kBWEjUCAayjw0KI46KjIOd1oJ+DZ3MMMSJY5Gzq5/hyfJ11k1iqhEsaRv
-	XcxDDvBw==;
+	bh=NYsmRJcAcMIsFoGcScC1fEs53MfSGQkBZ/HqjJdD1do=; b=K3/l3su5SVH2gOTsbjKyRZv8/f
+	tYQSC7ThTR5AHATjewmTGA2PgedQeOmBLqJHC2e/c8qCSN4NGeqtBJWIk4m6nMozkam7fPdZw3cVI
+	dBEHXJQri3WL6Uq6QWHSv4mYa/II1RSdhud3aEOuLnOBqNYgWhaDSQWcX1M+jWW8HKfg4gL1eY+if
+	r7IOj6Lm5SMpNffpYJMCBG+6IU11kj7CfDIFtdwu/eQrNGEfYuOFLdmDlLUqg8TMq2LzUmgMsRWqy
+	MmnH5t6kYpATbQ7SDslIOqXtnccJHMPKDNT3iQMKqLD3pGGBAbWYhn+8H2DazAPwEKMrDBtsOGRDX
+	SWMzcN/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3Tw-0000000D8co-3daz;
-	Mon, 02 Mar 2026 13:38:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3Tu-0000000D8cS-2yEV
+	id 1vx3Wp-0000000D8rA-1t5z;
+	Mon, 02 Mar 2026 13:41:43 +0000
+Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vx3Wn-0000000D8ql-0kMG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 13:38:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1833214BF;
-	Mon,  2 Mar 2026 05:38:34 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9E88A3F73B;
-	Mon,  2 Mar 2026 05:38:38 -0800 (PST)
-Date: Mon, 2 Mar 2026 13:38:35 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Khaja Hussain Shaik Khaji <khaja.khaji@oss.qualcomm.com>
-Subject: Re: [PATCH v3 1/1] kernel: kprobes: fix cur_kprobe corruption during
- re-entrant kprobe_busy_begin() calls
-Message-ID: <aaWS20g-jGu8mCKH@J2N7QTR9R3>
-References: <aZSdkGjy2BXUL0bT@J2N7QTR9R3.cambridge.arm.com>
- <20260302105347.3602192-1-khaja.khaji@oss.qualcomm.com>
- <20260302105347.3602192-2-khaja.khaji@oss.qualcomm.com>
+	Mon, 02 Mar 2026 13:41:42 +0000
+Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-505d3baf1a7so946901cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 05:41:40 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772458900; cv=none;
+        d=google.com; s=arc-20240605;
+        b=h7wSWzkQDxL6zTx6ZPlpYQqTKd0oc8diRkCSr+e7tHLqTfNgqnHAHLOUag3BTmP++Y
+         wkdo4pUb1qCn2l3E04H0QIues/QpiAI8sJsz9k97jKp0HsaDJQ60nchsvGhhlD0rZ+US
+         a3c6qjXtxTOISfNvV72dwI40ye1FfD4jNUAZEDow1UmvKag+T2Ki2uF331hwVwKoseF6
+         NiCDCFa57wFnOufu/htOgCneupOnWq06EbA7pcA6VY1L48LAHYQCDeQOzHdo2pXdN5Vg
+         +YTH+YW8FH8Ah2PqrZcPxMtSjpFgeGzWmf70B4HS/0GTwXmJQkCVWXs5SdYk7l2aWxtC
+         J9Cg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=NYsmRJcAcMIsFoGcScC1fEs53MfSGQkBZ/HqjJdD1do=;
+        fh=VFXcUrr3kGurp0SuF0YJGl5pPwUAd9HYetUbgSB3cYw=;
+        b=HWKxeJujLxnxaWuBi3jRPWQ1BeN8Wxg4oV335o2QzIrHvlp49x9mUHFgGAxgKrGzNN
+         nv5R6qYNRyKny7dUSInj9dC7f71NfcOxs42R3iAal58w3VmXbWK3FYLmfioUeDNsThhs
+         b/ysd1d1Q+CDjidrJI2b0ZNew9jGx9KQLsgLVVlbaM1unVm24lY7w2uwkv+MImwT4hwN
+         ZlDVjpALexxuWcJv8ufswX1z9aenKaM0fRLM305xBoTV9NgHc4mv7zI5mG1VPl9EUAmX
+         MymItqvSHkD5V7vXuDq9+r7MM8tVKhbE61oOvnVzX2YcuE/cjgMSL95zSgqEg3eAnBxj
+         tPSw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1772458900; x=1773063700; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=NYsmRJcAcMIsFoGcScC1fEs53MfSGQkBZ/HqjJdD1do=;
+        b=RPeTC15hl3px5loLOi90WkVBu9xwpv6wGk/lhp3LfNdUf/V9cpo09tBklGNhmNL5tb
+         GI675FpZ3X1KX2cibQDqgmLUzxZHcU/j6ij7kBo4Buup0bLfO4HXqcJ9OwZxvGwpu+Ia
+         D356LGBvVLeGnTLqPZ8vpFgRbDTbVrYzO9Mqz4e8Pn8evncl4rC1a/FOSSYxin1cgQz4
+         KRAjU8T5N7ZH9Sg1QBFkxpOb4pPEHSAb4P3bSu8qU02e2SOIB2AvHUgFKpuoZgOPUe9X
+         3Kw3ktfBGzk01fnZp3Se3AIGSq6NOuDUpeh6B5lxUYGCkPsX2DpIxdHqsVUPQWR7V1UB
+         47Ow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772458900; x=1773063700;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=NYsmRJcAcMIsFoGcScC1fEs53MfSGQkBZ/HqjJdD1do=;
+        b=LYjlPpho0Wa0r5425jO7EiEGG4MeeapK8xgLdFUKot5OA5IKQht5cumX3MGZGhryA2
+         rQDLkFwhiiG7UIB5pEsgeFmz2pKqh9cvzNWux9iiY4giSzfO0RgUCDbRviDWj1DRE5q6
+         9NqaeBNnjZ6sKFz0E775g2gDPZjLk9LlOPCf8FdFsuQ9zWx/Otkeh0FYInZzrFZrJo4q
+         Ki+3FpMbHV9duhxBjPk/9bmdVxFNM6h3UAWSBYVFe6E8cGYYM3u77no5C3rbBrfOzO/F
+         hFmxiemmClmdSW5Inp0YiEPyEbKepB6jnEa5JP6zjcNXG8bLBOQiAK2b34R+IBsZihcD
+         ZXPw==
+X-Gm-Message-State: AOJu0YwlFpX8HJAZeetw2li5AuoKeR36bD2BzsycJqRpAEZWhDq1XlGj
+	E1Nx58gVq1ncxHesO+rR9xXXiFEf82ng5fbSGU2V0bnotKvlrRnScjzYgNU609gEhX/6Iq1X47f
+	xAS9zn45H44U84j5YBvY6PHQY7wqcYjlx/JDMkdnb
+X-Gm-Gg: ATEYQzyE0i+0jQ3usuTYhH3UBmhvrxoqSZ8mSNFFJtnI4uvKkIFgdrggu1Yosteu+27
+	9L5J3FmdO8vLtgC36/wSXnZpECAw+Ic1QA7kxZkbMOqN5p9b0oLVI8p+x8cTzp82OdinUOAIsVQ
+	TcwhiUaQJSOfovn6LJJNLC9Xzr5YdDxwMHgOZDUjYx2e3jrl7x0RDRqZLZo9d9pfniAsF9AS+r0
+	vK2JyqSjvfPbpxnl1mZI9k1QatB63bjtp5oQWS4dbbymokkW/Q7OZe/iOGJMV7Ra494yBPcpks8
+	OnmX4EIl
+X-Received: by 2002:ac8:5746:0:b0:4ed:ff79:e679 with SMTP id
+ d75a77b69052e-5076186e697mr19981111cf.19.1772458899149; Mon, 02 Mar 2026
+ 05:41:39 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260302105347.3602192-2-khaja.khaji@oss.qualcomm.com>
+References: <20260302115653.1517326-1-maz@kernel.org> <20260302115653.1517326-3-maz@kernel.org>
+In-Reply-To: <20260302115653.1517326-3-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Mon, 2 Mar 2026 13:41:02 +0000
+X-Gm-Features: AaiRm52IOKVuzwHscJ5ASw0VIGWLHTbRWdjOZ5cjYVQDzmb7A0iR2ZLSC-C0T3I
+Message-ID: <CA+EHjTyjzHu-b+rnkj6ZkJjFABtT-pHcNvK9McNESpL41Y7ZKQ@mail.gmail.com>
+Subject: Re: [PATCH v2 02/11] arm64: Add a helper setting a feature field to
+ its safe value
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_053842_838234_B6D365CE 
-X-CRM114-Status: GOOD (  28.78  )
+X-CRM114-CacheID: sfid-20260302_054141_222065_B2E744A9 
+X-CRM114-Status: GOOD (  18.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,133 +114,60 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arm-msm@vger.kernel.org, dev.jain@arm.com, linux-kernel@vger.kernel.org, mhiramat@kernel.org, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, yang@os.amperecomputing.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 02, 2026 at 04:23:47PM +0530, Khaja Hussain Shaik Khaji wrote:
-> Fix cur_kprobe corruption that occurs when kprobe_busy_begin() is called
-> re-entrantly during an active kprobe handler.
-> 
-> Previously, kprobe_busy_begin() unconditionally overwrites current_kprobe
-> with &kprobe_busy, and kprobe_busy_end() writes NULL. This approach works
-> correctly when no kprobe is active but fails during re-entrant calls.
+Hi Marc.
 
-The structure of kprobe_busy_begin() and kprobe_busy_end() implies that
-re-entrancy is unexpected, and something that should be avoided somehow.
+On Mon, 2 Mar 2026 at 11:57, Marc Zyngier <maz@kernel.org> wrote:
+>
+> In order to make the code more readable, add a simple helper
+> setting a given field to its safe value, and update the only
+> user so far. More will be added later.
+>
+> Suggested-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 
-Is that the case, or are kprobe_busy_begin() and kprobe_busy_end()
-generally buggy?
+Reviewed-by: Fuad Tabba <tabba@google.com>
 
-> On arm64, arm64_enter_el1_dbg() re-enables IRQs before invoking kprobe
-> handlers. 
+Cheers,
+/fuad
 
-No, arm64_enter_el1_dbg() does not re-enable IRQs. It only manages state
-tracking.
 
-I don't know if you meant to say a different function here, but this
-statement is clearly wrong.
 
-> This allows an IRQ during kretprobe
-> entry_handler to trigger kprobe_flush_task() via softirq, which calls
-> kprobe_busy_begin/end and corrupts cur_kprobe.
-
-This would be easier to follow if the backtrace were included in the
-commit message, rather than in the cover letter, such that it could be
-referred to easily.
-
-> Problem flow: kretprobe entry_handler -> IRQ -> softirq ->
-> kprobe_flush_task -> kprobe_busy_begin/end -> cur_kprobe corruption.
-
-We shouldn't take the IRQ in the first place here. AFAICT, nothing
-unmasks IRQs prior to the entry handler.
-
-That suggests that something is going wrong *within* your entry handler
-that causes IRQs to be unmasked unexpectedly.
-
-Please can we find out *exactly* where IRQs get unmasked for the first
-time?
-
-Mark.
-
-> 
-> This corruption causes two issues:
-> 1. NULL cur_kprobe in setup_singlestep leading to panic in single-step
-> handler
-> 2. kprobe_status overwritten with HIT_ACTIVE during execute-out-of-line
-> window
-> 
-> Implement a per-CPU re-entrancy tracking mechanism with:
-> - A depth counter to track nested calls
-> - Saved state for current_kprobe and kprobe_status
-> - Save state on first entry, restore on final exit
-> - Increment depth counter for nested calls only
-> 
-> This approach maintains compatibility with existing callers as
-> save/restore of NULL is a no-op.
-> 
-> Signed-off-by: Khaja Hussain Shaik Khaji <khaja.khaji@oss.qualcomm.com>
 > ---
->  kernel/kprobes.c | 34 ++++++++++++++++++++++++++++++----
->  1 file changed, 30 insertions(+), 4 deletions(-)
-> 
-> diff --git a/kernel/kprobes.c b/kernel/kprobes.c
-> index e2cd01cf5968..47a4ae50ee6c 100644
-> --- a/kernel/kprobes.c
-> +++ b/kernel/kprobes.c
-> @@ -70,6 +70,15 @@ static bool kprobes_all_disarmed;
->  static DEFINE_MUTEX(kprobe_mutex);
->  static DEFINE_PER_CPU(struct kprobe *, kprobe_instance);
->  
-> +/* Per-CPU re-entrancy state for kprobe_busy_begin/end.
-> + * kprobe_busy_begin() may be called while a kprobe handler
-> + * is active - e.g. kprobe_flush_task() via softirq during
-> + * kretprobe entry_handler on arm64 where IRQs are re-enabled.
-> + */
-> +static DEFINE_PER_CPU(int, kprobe_busy_depth);
-> +static DEFINE_PER_CPU(struct kprobe *, kprobe_busy_saved_current);
-> +static DEFINE_PER_CPU(unsigned long, kprobe_busy_saved_status);
-> +
->  kprobe_opcode_t * __weak kprobe_lookup_name(const char *name,
->  					unsigned int __unused)
->  {
-> @@ -1307,14 +1316,31 @@ void kprobe_busy_begin(void)
->  	struct kprobe_ctlblk *kcb;
->  
->  	preempt_disable();
-> -	__this_cpu_write(current_kprobe, &kprobe_busy);
-> -	kcb = get_kprobe_ctlblk();
-> -	kcb->kprobe_status = KPROBE_HIT_ACTIVE;
-> +	if (__this_cpu_read(kprobe_busy_depth) == 0) {
-> +		kcb = get_kprobe_ctlblk();
-> +		__this_cpu_write(kprobe_busy_saved_current,
-> +				 __this_cpu_read(current_kprobe));
-> +		__this_cpu_write(kprobe_busy_saved_status,
-> +				 kcb->kprobe_status);
-> +		__this_cpu_write(current_kprobe, &kprobe_busy);
-> +		kcb->kprobe_status = KPROBE_HIT_ACTIVE;
-> +	}
-> +	__this_cpu_inc(kprobe_busy_depth);
+>  arch/arm64/kernel/cpufeature.c | 10 +++++++---
+>  1 file changed, 7 insertions(+), 3 deletions(-)
+>
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 28fc77443ccd3..102c5bac4d502 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -926,6 +926,11 @@ static u64 arm64_ftr_set_value(const struct arm64_ftr_bits *ftrp, s64 reg,
+>         return reg;
 >  }
->  
->  void kprobe_busy_end(void)
+>
+> +static u64 arm64_ftr_set_safe_value(const struct arm64_ftr_bits *ftrp, s64 reg)
+> +{
+> +       return arm64_ftr_set_value(ftrp, reg, ftrp->safe_val);
+> +}
+> +
+>  s64 arm64_ftr_safe_value(const struct arm64_ftr_bits *ftrp, s64 new,
+>                                 s64 cur)
 >  {
-> -	__this_cpu_write(current_kprobe, NULL);
-> +	struct kprobe_ctlblk *kcb;
-> +
-> +	__this_cpu_dec(kprobe_busy_depth);
-> +
-> +	if (__this_cpu_read(kprobe_busy_depth) == 0) {
-> +		kcb = get_kprobe_ctlblk();
-> +		__this_cpu_write(current_kprobe,
-> +				 __this_cpu_read(kprobe_busy_saved_current));
-> +		kcb->kprobe_status =
-> +				__this_cpu_read(kprobe_busy_saved_status);
-> +	}
->  	preempt_enable();
->  }
->  
-> -- 
-> 2.34.1
-> 
+> @@ -1066,9 +1071,8 @@ static void init_cpu_ftr_reg(u32 sys_reg, u64 new)
+>                 if (ftrp->visible)
+>                         user_mask |= ftr_mask;
+>                 else
+> -                       reg->user_val = arm64_ftr_set_value(ftrp,
+> -                                                           reg->user_val,
+> -                                                           ftrp->safe_val);
+> +                       reg->user_val = arm64_ftr_set_safe_value(ftrp,
+> +                                                                reg->user_val);
+>         }
+>
+>         val &= valid_mask;
+> --
+> 2.47.3
+>
 
