@@ -4,56 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBB70C624C2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 09:24:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C01A8C624C2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 09:28:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DcOB6tYMsVoM0Bt7BP1vZOGhe0rRy62AX70ya1Muik0=; b=KJLgVKzTkzhTG+pg/OuoMb+g7H
-	hD3KWZdAXIEaqW4sLx6HDF5QGJtxjmbJr3BpArdL+bXCmTfXI/bm8eBktWyo4ms2rNpmOfZG51Z5u
-	4wDM2ch9Sy/ReOV+u2h1IDy8Cov2Nn/BywkrLuYgpMjQ2Kjc1zoiW5dVUoxu9zYtErtKf0SzEwfgD
-	gt2rp25XhuLDtT/PJHZUj7AY7DMlFAe2tssWdMGiKPm/aNQPyC/i+Ot9mqVdqJ15RJoHZvpdu+aNn
-	1B5KQMXdhypA3lQ07U3+KrE/qOj49LzjWfNgzag+6pj8v3x+r4acOiHxyTzWfJ5Z5pfsp8k6eUdH2
-	275coldg==;
+	bh=XDqqJpO6KvaRP2y+HP6XP+sqGzk+KS+e/tXhKDCvw04=; b=d14odof8otF2fSZCqYds0Of3uv
+	bNsOYE9uZHxGQt7g5UuE/zkBhNrC0XaGykQ7RoBkYsfb/O7e0pZx1srHBvp3jygr7qV1JejNZczLx
+	aOtA4YyxpEFOjWk+rkxoSbXgiEWfcj43NZAhRGUWxyKMBpEIPlY0JI7VAsQFaDd2UZMcROjJuS7a/
+	akZVPyF5IkJNV7jgAFKjcrDwV1lE1eZwJXFOvx88NQajoj6i0P4VVKvADGGxT0qlbFDbMmCLkE+8V
+	fqKRO0UXmociLfRZ6+fvRaP8wVtM82aHzI2m3Vtj7OuicdJ6Xpg9xDb5tKjnd9AWdNCnLFaAcQVJa
+	iWS7c+dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwzVw-0000000CaaD-3q6l;
-	Mon, 02 Mar 2026 09:24:32 +0000
+	id 1vwzZM-0000000Carz-2Ezi;
+	Mon, 02 Mar 2026 09:28:04 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwzVu-0000000CaZ6-10S5
+	id 1vwzZK-0000000Carb-2GKG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 09:24:31 +0000
+	Mon, 02 Mar 2026 09:28:03 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E2F5814BF;
-	Mon,  2 Mar 2026 01:24:19 -0800 (PST)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 288123F73B;
-	Mon,  2 Mar 2026 01:24:25 -0800 (PST)
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: Elsanti <santiagojoseleal27@gmail.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Mike Leach <mike.leach@arm.com>
-Subject: Re: [PATCH] drivers/hwtracing/coresight: remove unneeded variable in tmc_crashdata_release()
-Date: Mon,  2 Mar 2026 09:24:10 +0000
-Message-ID: <177244343076.1680574.6923083572593250437.b4-ty@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260228222344.288639-1-santiagojoseleal27@gmail.com>
-References: <20260228222344.288639-1-santiagojoseleal27@gmail.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 290C314BF;
+	Mon,  2 Mar 2026 01:27:53 -0800 (PST)
+Received: from [10.57.13.119] (unknown [10.57.13.119])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3B60D3F73B;
+	Mon,  2 Mar 2026 01:27:50 -0800 (PST)
+Message-ID: <a5967fbf-7be7-44aa-aaae-f374ea7ea61c@arm.com>
+Date: Mon, 2 Mar 2026 10:27:47 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 00/30] pkeys-based page table hardening
+To: linux-hardening@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ Andy Lutomirski <luto@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@redhat.com>, Ira Weiny <ira.weiny@intel.com>,
+ Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>,
+ Joey Gouly <joey.gouly@arm.com>, Kees Cook <kees@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Marc Zyngier <maz@kernel.org>,
+ Mark Brown <broonie@kernel.org>, Matthew Wilcox <willy@infradead.org>,
+ Maxwell Bland <mbland@motorola.com>, "Mike Rapoport (IBM)"
+ <rppt@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Pierre Langlois <pierre.langlois@arm.com>,
+ Quentin Perret <qperret@google.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ Yang Shi <yang@os.amperecomputing.com>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, x86@kernel.org
+References: <20260227175518.3728055-1-kevin.brodsky@arm.com>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260227175518.3728055-1-kevin.brodsky@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_012430_322933_6CC514E0 
-X-CRM114-Status: UNSURE (   5.16  )
+X-CRM114-CacheID: sfid-20260302_012802_622186_103A0C88 
+X-CRM114-Status: UNSURE (   7.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -69,19 +81,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 27/02/2026 18:54, Kevin Brodsky wrote:
+> NEW in v6: support for large block mappings through a dedicated page table
+> allocator (patch 14-17)
 
-On Sat, 28 Feb 2026 18:23:44 -0400, Elsanti wrote:
-> The variable 'ret' is initialized to 0, never modified, and returned
-> directly. Remove it and return 0 explicitly.
-> 
-> 
+To be clear, v6 is still very much an RFC - I just forgot to pass --rfc
+to git format-patch...
 
-Applied, thanks!
-
-[1/1] drivers/hwtracing/coresight: remove unneeded variable in tmc_crashdata_release()
-      https://git.kernel.org/coresight/c/061c39a17136
-
-Best regards,
--- 
-Suzuki K Poulose <suzuki.poulose@arm.com>
+- Kevin
 
