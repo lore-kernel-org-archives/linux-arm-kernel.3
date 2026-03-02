@@ -4,54 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D84EB3632
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 19:11:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DDCFEB362C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 19:11:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JX/Nu58kA5M2wq2cfRjJ5hGnvcTue0yUZtVSohB/Lk0=; b=QdVmH9J44tOIJbOSugmieiO0Ty
-	vs/ncH0UKqmSwRPQ20S8mtgjCXBWpCROQLTWuy1P2rjhpMUds79RPn0p71fixx/7mYlboV5Se6XqN
-	gGH2LhIw2Ll3dH+xX8wFBEyTKjIh+JiSNA9/vu8bdcIi/8xLivYXoR/nBSOSDcXdzL6c+04zUNdz0
-	7qd++KpVKRXUgdODJNoRWNQj5Cdnd73BMp1kblAGod4BWI/aFI5aIGzcwy+3vSWJ7c3QSsv81zKei
-	qJbm2vJnxG3JeuI22jGB8qSCmuIcmHMXjZNU+WrUyw1aZkTou9Xdb0HGEZ0dP4KHECfQWbfqfODB3
-	7+/pfcvw==;
+	bh=HOoJmWe2h0lSbumvsX2QPmYQIgLBRq/iMywn4k+tB1U=; b=LBOxnzlzdt3C7J+IpUEhKuO3dq
+	C8YGWwS8a0PRZJPAZSFh7FLzLcMgF8OI9U833cDg9rLzwq03DDeoGVdPZxGMaEzFWxN8gDj5JT0Er
+	+W7t4P6XpZm5GxZE0clASQGH2c4tc1+0tr7nMGdgzwNcLWkJU2smPlPkaJXamTTguBJfY3Clu7Ga1
+	uMm4338DNiDEmBI8pJsGqCgl28gQCzdYCWZdayRrqRyEMfs644FsY5X9jMHQlkgpopGvx5knvVT50
+	hW65kOsptqqPVX5Ex8yCnPZLmDZemzFk16fm3BIXK9DFJXRURC39Y0OrQ/hr3hADpV6iXCJl6UZbl
+	phuWUtNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx8fp-0000000DiLh-34tL;
-	Mon, 02 Mar 2026 19:11:21 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx8fo-0000000DiJi-3quH
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 02 Mar 2026 19:11:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Subject:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Cc:To:From:Sender:
-	Reply-To:Content-Type:Content-ID:Content-Description;
-	bh=JX/Nu58kA5M2wq2cfRjJ5hGnvcTue0yUZtVSohB/Lk0=; b=dNpkdaEAxnprvXpb7U3o7jsh9t
-	7TeYpElwUDDmhDzAQHLGOPbtQxyEVrIA1JgRZJkpmJruL7kHZJNUjmm6ZvK7zDPJW1mVGy6w5fLb/
-	+rx/tSql1IR3GLv5Eu5pvc/kSwu4ZFf4uTBKLrs01G2LZPpcQHA/c7h8oPOYbiMEVJi2vZtfSceQt
-	SuKmOdhWgFRP2C6Ec+EUhoz9m3GeVSpz7yEgrTsDS8/6XsBwxHgqWcLFnUsNnt4pDO1vCDTJGrYGR
-	sVfQ/vZ5hAr7eWvhSGad6RhHJrxP6nmnWQsOS3UyfGnf/Mr9sEMhPnW6Kw6N5pVRrrPm6o8mNX5QL
-	gduiwq9Q==;
+	id 1vx8fx-0000000DiUO-0Nqy;
+	Mon, 02 Mar 2026 19:11:29 +0000
 Received: from mail.hugovil.com ([162.243.120.170])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx8fm-00000009xIQ-0D8n
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vx8fu-0000000DiPz-0mhI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 19:11:19 +0000
+	Mon, 02 Mar 2026 19:11:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
 	; s=x; h=Subject:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Cc:To
 	:From:subject:date:message-id:reply-to;
-	bh=JX/Nu58kA5M2wq2cfRjJ5hGnvcTue0yUZtVSohB/Lk0=; b=HuQL53y7mE2iDL2iyATE/j4QeV
-	f422CrokHGJ/Xbki2jZ8iIOzIRA4O2Dq2bSXt7/cbhxbCa+pUszTjvAw0/vgWN2i545ZH3sMHjrmE
-	3gWEDSOvuoOAWK5MgtFjKn1M9NNbau2DlEs9xUkBOnDW2SAxsmN3unsZygPiC6Isa1tU=;
+	bh=HOoJmWe2h0lSbumvsX2QPmYQIgLBRq/iMywn4k+tB1U=; b=ZmV7KRJo6W3CvYoZXALdYF4wLM
+	4tFTyR97yGRLlGllCUOD2ZkYuM+0Kj/38MEtExcmgWC8lmF4CVY+Obnp9AM3YbPdlGJCHwmWXJlXr
+	Bn/aKhlDaUHgrf5qzAcztQ5V9sBPGqoNHiRcFMf4tBe/RZ+cRYKILWdp+kMedq+EJgB8=;
 Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168]:59962 helo=pettiford.lan)
 	by mail.hugovil.com with esmtpa (Exim 4.92)
 	(envelope-from <hugo@hugovil.com>)
-	id 1vx8fB-0007Wl-II; Mon, 02 Mar 2026 14:10:41 -0500
+	id 1vx8fa-0007Wl-HB; Mon, 02 Mar 2026 14:11:07 -0500
 From: Hugo Villeneuve <hugo@hugovil.com>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -81,8 +66,8 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	hugo@hugovil.com,
 	Hugo Villeneuve <hvilleneuve@dimonoff.com>
-Date: Mon,  2 Mar 2026 14:03:39 -0500
-Message-ID: <20260302190953.669325-4-hugo@hugovil.com>
+Date: Mon,  2 Mar 2026 14:03:50 -0500
+Message-ID: <20260302190953.669325-15-hugo@hugovil.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260302190953.669325-1-hugo@hugovil.com>
 References: <20260302190953.669325-1-hugo@hugovil.com>
@@ -90,12 +75,12 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 70.80.174.168
 X-SA-Exim-Mail-From: hugo@hugovil.com
-Subject: [PATCH 03/14] ARM: dts: imx6ul-var-som: change incorrect VAR-SOM-6UL model name
+Subject: [PATCH 14/14] ARM: dts: imx6ul-var-som: add support for LVDS display panel
 X-SA-Exim-Version: 4.2.1 (built Wed, 08 May 2019 21:11:16 +0000)
 X-SA-Exim-Scanned: Yes (on mail.hugovil.com)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_191118_142025_8FE7700B 
-X-CRM114-Status: GOOD (  12.70  )
+X-CRM114-CacheID: sfid-20260302_111126_304459_6179BF7A 
+X-CRM114-Status: GOOD (  18.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,60 +97,250 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
 
-There is no Variscite module named VAR-SOM-MX6UL.
+Add support for the LD configuration option (LVDS encoder assembled on SOM)
+so that the LVDS display panel on the concerto EVK board now works
+properly.
 
-The official name from the manufacturer is VAR-SOM-6UL.
-
-Change SOM model name to VAR-SOM-6UL to reduce confusion.
+Not all VAR-SOM-6UL SOMs have the LD configuration optionso factor out this
+functionality to a separate DTSI file.
 
 Signed-off-by: Hugo Villeneuve <hvilleneuve@dimonoff.com>
 ---
- arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts | 4 ++--
- arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi         | 4 ++--
- 2 files changed, 4 insertions(+), 4 deletions(-)
+ .../imx/imx6ul-var-som-concerto-common.dtsi   |  35 ++++--
+ .../nxp/imx/imx6ul-var-som-concerto-full.dts  |   1 +
+ .../dts/nxp/imx/imx6ul-var-som-concerto.dts   |   1 +
+ .../nxp/imx/imx6ul-var-som-lvds-panel.dtsi    | 112 ++++++++++++++++++
+ .../nxp/imx/imx6ull-var-som-concerto-full.dts |   1 +
+ .../dts/nxp/imx/imx6ull-var-som-concerto.dts  |   1 +
+ 6 files changed, 139 insertions(+), 12 deletions(-)
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-lvds-panel.dtsi
 
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-common.dtsi
+index 107b1d0fe7827..658cec2f4d026 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-common.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-common.dtsi
+@@ -44,6 +44,29 @@ led-0 {
+ 			linux,default-trigger = "heartbeat";
+ 		};
+ 	};
++
++	lvds_panel: lvds-panel {
++		compatible = "sgd,gktw70sdae4se", "panel-lvds";
++		data-mapping = "jeida-18";
++		width-mm = <153>;
++		height-mm = <86>;
++
++		panel-timing {
++			clock-frequency = <35000000>;
++			hactive = <800>;
++			vactive = <480>;
++			hback-porch = <40>;
++			hfront-porch = <40>;
++			vback-porch = <29>;
++			vfront-porch = <13>;
++			hsync-len = <48>;
++			vsync-len = <3>;
++			hsync-active = <0>;
++			vsync-active = <0>;
++			de-active = <1>;
++			pixelclk-active = <0>;
++		};
++	};
+ };
+ 
+ &can1 {
+@@ -98,12 +121,6 @@ MX6UL_PAD_UART3_RX_DATA__GPIO1_IO25	0x1b0b0	/* GPLED2 */
+ 		>;
+ 	};
+ 
+-	pinctrl_pwm4: pwm4grp {
+-		fsl,pins = <
+-			MX6UL_PAD_GPIO1_IO05__PWM4_OUT		0x110b0
+-		>;
+-	};
+-
+ 	pinctrl_rtc: rtcgrp {
+ 		fsl,pins = <
+ 			MX6UL_PAD_JTAG_MOD__GPIO1_IO10		0x1b0b0 /* RTC alarm IRQ */
+@@ -139,12 +156,6 @@ MX6UL_PAD_GPIO1_IO01__WDOG1_WDOG_B	0x78b0
+ 	};
+ };
+ 
+-&pwm4 {
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&pinctrl_pwm4>;
+-	status = "okay";
+-};
+-
+ &snvs_pwrkey {
+ 	status = "disabled";
+ };
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts
+index 64a3cbd8b7c38..725f34d6b7ee9 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts
+@@ -14,6 +14,7 @@
+ #include "imx6ul-var-som-enet2.dtsi"
+ #include "imx6ul-var-som-enet1.dtsi"
+ #include "imx6ul-var-som-audio.dtsi"
++#include "imx6ul-var-som-lvds-panel.dtsi"
+ 
+ / {
+ 	model = "Variscite VAR-SOM-6UL Concerto Board (6UL CPU)";
 diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts
-index 085985356668f..d16e75164fd18 100644
+index f014ee66e18cb..e9e4b6882bca8 100644
 --- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts
 +++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0+
- /*
-- * Support for Variscite MX6 Concerto Carrier board with the VAR-SOM-MX6UL
-+ * Support for Variscite MX6 Concerto Carrier board with the VAR-SOM-6UL
-  * Variscite SoM mounted on it
-  *
-  * Copyright 2019 Variscite Ltd.
-@@ -11,7 +11,7 @@
- #include <dt-bindings/leds/common.h>
+@@ -14,6 +14,7 @@
+ #include "imx6ul-var-som-sd.dtsi"
+ #include "imx6ul-var-som-enet2.dtsi"
+ #include "imx6ul-var-som-audio.dtsi"
++#include "imx6ul-var-som-lvds-panel.dtsi"
  
  / {
--	model = "Variscite VAR-SOM-MX6UL Concerto Board";
-+	model = "Variscite VAR-SOM-6UL Concerto Board";
- 	compatible = "variscite,mx6ulconcerto", "variscite,var-som-imx6ul", "fsl,imx6ul";
- 
- 	chosen {
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi
-index 30032be6fdd50..7259526e2b884 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0+
- /*
-- * Support for Variscite VAR-SOM-MX6UL Module
-+ * Support for Variscite VAR-SOM-6UL Module
-  *
-  * Copyright 2019 Variscite Ltd.
-  * Copyright 2025 Bootlin
-@@ -13,7 +13,7 @@
- #include <dt-bindings/gpio/gpio.h>
+ 	model = "Variscite VAR-SOM-6UL Concerto Board (6UL CPU)";
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-lvds-panel.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-lvds-panel.dtsi
+new file mode 100644
+index 0000000000000..996b37d35d6e0
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-lvds-panel.dtsi
+@@ -0,0 +1,112 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * LVDS panel support for Variscite VAR-SOM-6UL module.
++ *
++ * Copyright 2019-2024 Variscite Ltd.
++ * Copyright 2026 Dimonoff
++ */
++
++/ {
++	lcd_backlight: lcd-backlight {
++		compatible = "pwm-backlight";
++		pwms = <&pwm4 0 2000000 0>;
++		pwm-names = "LCD_BKLT_PWM";
++		brightness-levels = <0 4 8 16 32 64 128 255>;
++		default-brightness-level = <6>;
++		status = "okay";
++	};
++
++	lvds_encoder: lvds-encoder {
++		compatible = "ti,sn75lvds93", "lvds-encoder";
++		power-supply = <&reg_3p3v>;
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			port@0 {
++				reg = <0>;
++
++				lvds_enc_in: endpoint {
++					remote-endpoint = <&lcdif_out>;
++				};
++			};
++
++			port@1 {
++				reg = <1>;
++
++				lvds_enc_out: endpoint {
++					remote-endpoint = <&lvds_panel_in>;
++				};
++			};
++		};
++	};
++};
++
++&iomuxc {
++	pinctrl_lcdif_ctrl: lcdif-ctrl-grp {
++		fsl,pins = <
++			MX6UL_PAD_LCD_CLK__LCDIF_CLK		0x79
++			MX6UL_PAD_LCD_ENABLE__LCDIF_ENABLE	0x79
++		>;
++	};
++
++	pinctrl_lcdif_dat: lcdif-dat-grp {
++		fsl,pins = <
++			MX6UL_PAD_LCD_DATA02__LCDIF_DATA02	0x79
++			MX6UL_PAD_LCD_DATA03__LCDIF_DATA03	0x79
++			MX6UL_PAD_LCD_DATA04__LCDIF_DATA04	0x79
++			MX6UL_PAD_LCD_DATA05__LCDIF_DATA05	0x79
++			MX6UL_PAD_LCD_DATA06__LCDIF_DATA06	0x79
++			MX6UL_PAD_LCD_DATA07__LCDIF_DATA07	0x79
++			MX6UL_PAD_LCD_DATA10__LCDIF_DATA10	0x79
++			MX6UL_PAD_LCD_DATA11__LCDIF_DATA11	0x79
++			MX6UL_PAD_LCD_DATA12__LCDIF_DATA12	0x79
++			MX6UL_PAD_LCD_DATA13__LCDIF_DATA13	0x79
++			MX6UL_PAD_LCD_DATA14__LCDIF_DATA14	0x79
++			MX6UL_PAD_LCD_DATA15__LCDIF_DATA15	0x79
++			MX6UL_PAD_LCD_DATA18__LCDIF_DATA18	0x79
++			MX6UL_PAD_LCD_DATA19__LCDIF_DATA19	0x79
++			MX6UL_PAD_LCD_DATA20__LCDIF_DATA20	0x79
++			MX6UL_PAD_LCD_DATA21__LCDIF_DATA21	0x79
++			MX6UL_PAD_LCD_DATA22__LCDIF_DATA22	0x79
++			MX6UL_PAD_LCD_DATA23__LCDIF_DATA23	0x79
++		>;
++	};
++
++	pinctrl_pwm4: pwm4-grp {
++		fsl,pins = <
++			MX6UL_PAD_GPIO1_IO05__PWM4_OUT		0x110b0 /* LCD BACKLIGHT */
++		>;
++	};
++};
++
++&lcdif {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_lcdif_dat
++		     &pinctrl_lcdif_ctrl>;
++	status = "okay";
++
++	port {
++		lcdif_out: endpoint {
++			remote-endpoint = <&lvds_enc_in>;
++		};
++	};
++};
++
++&lvds_panel {
++	status = "okay";
++
++	port {
++		lvds_panel_in: endpoint {
++			remote-endpoint = <&lvds_enc_out>;
++		};
++	};
++};
++
++/* PWM LCD */
++&pwm4 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_pwm4>;
++	status = "okay";
++};
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts b/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts
+index 2e1f75d5f25a6..1b7c1a3383eec 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts
+@@ -14,6 +14,7 @@
+ #include "imx6ul-var-som-enet2.dtsi"
+ #include "imx6ul-var-som-enet1.dtsi"
+ #include "imx6ul-var-som-audio.dtsi"
++#include "imx6ul-var-som-lvds-panel.dtsi"
  
  / {
--	model = "Variscite VAR-SOM-MX6UL module";
-+	model = "Variscite VAR-SOM-6UL module";
- 	compatible = "variscite,var-som-imx6ul", "fsl,imx6ul";
+ 	model = "Variscite VAR-SOM-6UL Concerto Board (6ULL CPU)";
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts b/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts
+index 0d0613e3a34f2..7d032e17134a7 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts
+@@ -13,6 +13,7 @@
+ #include "imx6ul-var-som-sd.dtsi"
+ #include "imx6ul-var-som-enet2.dtsi"
+ #include "imx6ul-var-som-audio.dtsi"
++#include "imx6ul-var-som-lvds-panel.dtsi"
  
- 	memory@80000000 {
+ / {
+ 	model = "Variscite VAR-SOM-6UL Concerto Board (6ULL CPU)";
 -- 
 2.47.3
 
