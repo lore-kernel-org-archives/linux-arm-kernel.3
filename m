@@ -4,111 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD27BE9B37E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 13:28:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D694EE9B37F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 13:30:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gjy8VzZho98qn7gDgAP8doLSL96/gQyRo0dz/GrFn7E=; b=p8WaFQTMEwmE65b0oNSpR/nS6F
-	XM0rpJRKKqvqXD6d1se7y4HqMxlkBWX/IfCJ2AaOp2BWzBg4Ay0YFdbeS8PYh+a18+LR61mRz+bcs
-	k19oD2Nc1CZsbk9QKHhOFQt0ujNYWI/GNV4PImrd3Pm0cNrh34MVmZK0xJByuNM0lpkETJXf5062i
-	GcdfG9Ct6IjVO4+p45eDjKD630PDG4AYODBtxvJcG0A9YnOZN4hN70DHW8fT4ZGhWKh1GadmEKQ1o
-	zaQJUW0XXwFxazbmVpy1gj+XkaiwvXX0Vx9ZgdLalgA/fHDfLY/jasGe4o8vLNedyLtPD0cMJFI+4
-	tgiCsGzw==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=l6VEiHbbXrSXnpEA233x9tN4NxHrbql59kNg3szndqg=; b=mOjwEOVge3o7nswhughr2hLeJm
+	eiNjVnXMk5Kel/xSEZCw2KUpMZwVQTN6hoHZtbBoFPJS8ONL2EONuqByiYoE13I2//4N4rBCN8snE
+	9JlzOHlsMB8l9O16eKQjHJ/EcpgsQBmye1iXvyHzl3zWRAiClzJUxN8QEMKsJ5yfhQoY9Z4cPUrR2
+	fWBg7mIVpni0JsT9q71xTV5VtIPWZswXlCQ6qS2DlgNpdzfkgWEafXyyGz01dXCt/nZOwjukNpVCh
+	xM3UlI+mNexiaQ43U7CrFr1QaviJqdktdDSRV36Ze0YjRULyH76NODno2TyTGkqDHlN0RRoa1tY0Q
+	OVq/RKbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3KF-0000000D6dg-3f9y;
-	Mon, 02 Mar 2026 13:28:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vx3Lf-0000000D7Xw-0vVi;
+	Mon, 02 Mar 2026 13:30:11 +0000
+Received: from mx-relay36-hz2.antispameurope.com ([94.100.136.236])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3KB-0000000D6YA-49Fh
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 02 Mar 2026 13:28:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:To:From:Sender:Reply-To:Cc:
-	Content-Type:Content-ID:Content-Description;
-	bh=gjy8VzZho98qn7gDgAP8doLSL96/gQyRo0dz/GrFn7E=; b=BVlTvbsr5wOSSImWnN1c4WkfJE
-	lLWqpDsvA9sw/9G2eNLWWvfSVVJm6cJld2PEWcfUYPMA0LlQcVnVbvVWD9muCl5nwqHcXr4KQCSuk
-	Rh1FodD9CLkO96o0taTA4J2IM5Quj18EfcFlkGGQlIMR0YsaTa/Lxc6KUL96LoV2udn/wNt6zi/oi
-	CdxgnTAUeqcB/f7bezE3kRFJmZ02ICL/sFVZdT8mqmeI+VHwWojaD7TW8ottS9vRLlujboqaM76PD
-	1KKBQiQqeDoq0gBDkWYp7l4BVZBVSN6x5En2fGuKInWjWDLalZ/dK7Xv4kfSEf/6NUV8nXzMuIbAz
-	vJr3QlxA==;
-Received: from mailtransmit05.runbox.com ([2a0c:5a00:149::26])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx3K8-00000000A6y-3Y2p
+	id 1vx3La-0000000D7WS-3zyT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 13:28:38 +0000
-Received: from mailtransmit02.runbox ([10.9.9.162] helo=aibo.runbox.com)
-	by mailtransmit05.runbox.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.93)
-	(envelope-from <david.laight.linux_spam@runbox.com>)
-	id 1vx3Jw-003bl2-4q; Mon, 02 Mar 2026 14:28:24 +0100
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=runbox.com;
-	 s=selector2; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To
-	:Message-Id:Date:Subject:To:From;
-	bh=gjy8VzZho98qn7gDgAP8doLSL96/gQyRo0dz/GrFn7E=; b=WNKhqMbveWP+K3PmL7U2N/ZjgC
-	CRkQIzZeOHgk5k2HnpMOotG24V0hTJvr6OyT7PqOl2Dm4nA4urOR3OWpHobtPgDSlAr7nWHDbEPwt
-	tSQA2Q7DOv2iXbAH5WTGLe+U0ioyZh17n7ApFQAc/XkWeA54mqXch5dDYlog2nx7U8hngM1sDJ11s
-	tNRhThx7ejIxz+T6UR24ZnQQNxcdrxg2eAm04+CH6ikcFduLKZhvpfDwjgDgloDXZCXGRn/V4LJTr
-	wYXmGMM3HPxkLojYe9Z7XsbLpV20rgoagwKiSMoPtipXBJZirNaVllMP0+p8CbfIcQhj00YQaveaN
-	J3vQaaWw==;
-Received: from [10.9.9.73] (helo=submission02.runbox)
-	by mailtransmit02.runbox with esmtp (Exim 4.86_2)
-	(envelope-from <david.laight.linux_spam@runbox.com>)
-	id 1vx3Ju-0003tB-95; Mon, 02 Mar 2026 14:28:22 +0100
-Received: by submission02.runbox with esmtpsa  [Authenticated ID (1493616)]  (TLS1.2:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.93)
-	id 1vx3Jg-008UTR-FQ; Mon, 02 Mar 2026 14:28:08 +0100
-From: david.laight.linux@gmail.com
-To: Alexander Viro <viro@zeniv.linux.org.uk>,
-	Andre Almeida <andrealmeid@igalia.com>,
-	Andrew Cooper <andrew.cooper3@citrix.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Darren Hart <dvhart@infradead.org>,
-	David Laight <david.laight.linux@gmail.com>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Jan Kara <jack@suse.cz>,
-	Julia Lawall <Julia.Lawall@inria.fr>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	LKML <linux-kernel@vger.kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Nicolas Palix <nicolas.palix@imag.fr>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	x86@kernel.org,
+	Mon, 02 Mar 2026 13:30:09 +0000
+ARC-Authentication-Results: i=1; mx-gate36-hz2.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out02-hz1.hornetsecurity.com;
+ dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=l6VEiHbbXrSXnpEA233x9tN4NxHrbql59kNg3szndqg=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1772446581;
+ b=p3pDtcP9e/KAow6xl8Sjai9n2HyqTBksYxt8Ws7KImju1HcCHX9PkAa+d2v+wqXjtFW8lDU1
+ NAgZP0JR4DlOnJUDAQtsTbjuSZsbv2eF+U+PPXOrMY+1Y7eo7rdEOpqD5PP3t6/5NvKjc2S5LUM
+ 4ZE3EPZZlsnN+ubPiO8TexN35BbPA7LyZznNVxxe+3SHbeFGJREFHq+aCE8Xge+mlEyS+/YXcND
+ LoirbI7ewYVekFkQW5P+UsZ/x3+5Q2lbQiTGlzRoVj3SqLJRm2GP6lgd3E5NITqKsLhPGdDmJvj
+ 6ubQsa6r8eeJzHVDoovebpLESqnb2WgVU/7DZQbrumI8w==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1772446581;
+ b=eF79PfEjtOVM5OR265zlHUQzkEFakYYRVzKOqu6lLzqkm87emJuueKG7vGhH6hsRuZf3nncP
+ d/Zy2XIvfo1tYjhMzG5PfDMJTNmbf0r8pg18cyWtOZ1AwHiAIOWgPqk1Sa6Ku6TjiXwRs/BFutl
+ SK5UWRvFUwFkT5jSmykQ/6g6uv2Diu5c2E/+I0sCMhQn/hkidvhb8c9YEHNN9NwFI4YEaOW8Uuq
+ REvCQwc9HDWCwaE7PpLNW+7alMCgAsYBNbA9uGCIzzMZtVcAiK+9tjTvLBERV6Na+Jh0MxJeb7n
+ /vP3M01ffq+zRRhuuw09hyhb1lz2VKpl6BwY/aC4s/eQA==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay36-hz2.antispameurope.com;
+ Mon, 02 Mar 2026 11:16:21 +0100
+Received: from schifferm-ubuntu.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: nora.schiffer@ew.tq-group.com)
+	by smtp-out02-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 123A45A0951;
+	Mon,  2 Mar 2026 11:16:10 +0100 (CET)
+From: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+To: Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Kees Cook <kees@kernel.org>,
-	akpm@linux-foundation.org
-Subject: [PATCH v2 1/5] uaccess: Fix scoped_user_read_access() for 'pointer to const'
-Date: Mon,  2 Mar 2026 13:27:51 +0000
-Message-Id: <20260302132755.1475451-2-david.laight.linux@gmail.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260302132755.1475451-1-david.laight.linux@gmail.com>
-References: <20260302132755.1475451-1-david.laight.linux@gmail.com>
+	Tony Luck <tony.luck@intel.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux@ew.tq-group.com,
+	Nora Schiffer <nora.schiffer@ew.tq-group.com>
+Subject: [PATCH v6 0/2] TQ-Systems TQMa62xx SoM and MBa62xx board
+Date: Mon,  2 Mar 2026 11:14:57 +0100
+Message-ID: <cover.1772443991.git.nora.schiffer@ew.tq-group.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-cloud-security-sender: nora.schiffer@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: nora.schiffer@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay36-hz2.antispameurope.com with 4fPZZy6kLjz1S5RV
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: 34f64186f7d5f0be3b0549b866decb73
+X-cloud-security: scantime:1.753
+DKIM-Signature: a=rsa-sha256;
+ bh=l6VEiHbbXrSXnpEA233x9tN4NxHrbql59kNg3szndqg=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1772446581; v=1;
+ b=jxpR+/sSLF+SBKPeGt9JzMZfJ7FlkQbgj4ZQnEPuXbtdy+Vrc50GyJjMUb4IH+k5rTfHS0RA
+ o8IsH6adyuYYFI0P2Ngjm7wGZk0si6JLZ1Ze/PP+elVhmYv+MLkQj8ltlMRf3LuXe3xc4NgoGEW
+ 5djEYEDvfU7W3gsC6FNm7ltLgwMWdAKuZKoLNDX0BcZUlcbpm7a1/8iq/78wFNe0WhV9cpZljYG
+ 5gJ0OkQdfZlT3nZ9e7wKgQW+Bjr2B2hQwCIIHLByg4ezvWJ0AGRFtD3ZF2i5q5o3DM63jjmT0Oi
+ gxIIAU0cAYcVOvIKX5XGbL2MJAOBrYEAYvfspn/BBQWgg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_132837_109554_31BDC73F 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20260302_053007_251813_07464CB5 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,101 +112,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: David Laight <david.laight.linux@gmail.com>
+This adds Device Trees for our AM62x-based SoM TQMa62xx and its
+reference carrier board MBa62xx.
 
-If a 'const struct foo __user *ptr' is used for the address passed
-to scoped_user_read_access() then you get a warning/error
-uaccess.h:691:1: error: initialization discards 'const' qualifier
-    from pointer target type [-Werror=discarded-qualifiers]
-for the
-    void __user *_tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl)
-assignment.
+Not yet included are overlays to enable LVDS display output and MIPI-CSI
+camera input.
 
-Fix by using 'auto' for both _tmpptr and the redeclaration of uptr.
-Replace the CLASS() with explicit __cleanup() functions on uptr.
+Changed in v6:
+- Update author information following name change
+- Rebase onto latest ti-k3-dts-next
+- Disable incomplete panel node
+- Add various comments to explain why nodes are disabled
+- Extend comment explaining disabled 1400MHz OPP
+- Use consistent comment style for pinmux
 
-Fixes: e497310b4ffb "(uaccess: Provide scoped user access regions)"
-Signed-off-by: David Laight <david.laight.linux@gmail.com>
----
- include/linux/uaccess.h | 54 +++++++++++++++--------------------------
- 1 file changed, 20 insertions(+), 34 deletions(-)
+Changes in v5:
+- Rebase onto latest ti-k3-dts-next
 
-diff --git a/include/linux/uaccess.h b/include/linux/uaccess.h
-index 1f3804245c06..809e4f7dfdbd 100644
---- a/include/linux/uaccess.h
-+++ b/include/linux/uaccess.h
-@@ -647,36 +647,22 @@ static inline void user_access_restore(unsigned long flags) { }
- /* Define RW variant so the below _mode macro expansion works */
- #define masked_user_rw_access_begin(u)	masked_user_access_begin(u)
- #define user_rw_access_begin(u, s)	user_access_begin(u, s)
--#define user_rw_access_end()		user_access_end()
- 
- /* Scoped user access */
--#define USER_ACCESS_GUARD(_mode)				\
--static __always_inline void __user *				\
--class_user_##_mode##_begin(void __user *ptr)			\
--{								\
--	return ptr;						\
--}								\
--								\
--static __always_inline void					\
--class_user_##_mode##_end(void __user *ptr)			\
--{								\
--	user_##_mode##_access_end();				\
--}								\
--								\
--DEFINE_CLASS(user_ ##_mode## _access, void __user *,		\
--	     class_user_##_mode##_end(_T),			\
--	     class_user_##_mode##_begin(ptr), void __user *ptr)	\
--								\
--static __always_inline class_user_##_mode##_access_t		\
--class_user_##_mode##_access_ptr(void __user *scope)		\
--{								\
--	return scope;						\
--}
- 
--USER_ACCESS_GUARD(read)
--USER_ACCESS_GUARD(write)
--USER_ACCESS_GUARD(rw)
--#undef USER_ACCESS_GUARD
-+/* Cleanup wrapper functions */
-+static __always_inline void __scoped_user_read_access_end(const void *p)
-+{
-+	user_read_access_end();
-+};
-+static __always_inline void __scoped_user_write_access_end(const void *p)
-+{
-+	user_write_access_end();
-+};
-+static __always_inline void __scoped_user_rw_access_end(const void *p)
-+{
-+	user_access_end();
-+};
- 
- /**
-  * __scoped_user_access_begin - Start a scoped user access
-@@ -750,13 +736,13 @@ USER_ACCESS_GUARD(rw)
-  *
-  * Don't use directly. Use scoped_masked_user_$MODE_access() instead.
-  */
--#define __scoped_user_access(mode, uptr, size, elbl)					\
--for (bool done = false; !done; done = true)						\
--	for (void __user *_tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl); \
--	     !done; done = true)							\
--		for (CLASS(user_##mode##_access, scope)(_tmpptr); !done; done = true)	\
--			/* Force modified pointer usage within the scope */		\
--			for (const typeof(uptr) uptr = _tmpptr; !done; done = true)
-+#define __scoped_user_access(mode, uptr, size, elbl)				\
-+for (bool done = false; !done; done = true)					\
-+	for (auto _tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl);	\
-+	     !done; done = true)						\
-+		/* Force modified pointer usage within the scope */		\
-+		for (const auto uptr  __cleanup(__scoped_user_##mode##_access_end) = \
-+		     _tmpptr; !done; done = true)
- 
- /**
-  * scoped_user_read_access_size - Start a scoped user read access with given size
+Changes in v4:
+- Rebase onto latest ti-k3-dts-next
+- Reorder boot phase tags after other standard DT properties
+- Add missing supply regulators in SPI-NOR flash and USB hub
+- Set status = "okay" in &cpsw3g, as it is disabled in k3-am62-main.dtsi
+  now
+- Add disabled 1400MHz OPP entry (will be enabled by bootloader if
+  supported by PMIC configuration)
+- Update copyright years in new files
+
+Changes in v3:
+- Rebased onto ti-k3-dt-for-v6.18
+- 3 of the 5 patches in v2 have been applied already and are dropped
+- Include k3-am62-ti-ipc-firmware.dtsi, drop now redundant configuration
+- Change node name for MCU reserved memory to 'memory'
+- Use rgmii-id PHY mode
+- Drop now redundant ti,rx-internal-delay
+- Update simple-audio-card,name to match other TQ SOMs with compatible
+  configuration
+- Reference dss_pins in dss node (actual display support will be added
+  in a follow-up patch series)
+- Consistently use GPIO_ACTIVE_HIGH define
+- Drop unneeded usb0 quirk flags
+- Add boot phase tags
+
+Changes in v2:
+- Collected acks and reviews
+- Rebased onto v6.13-rc1
+
+
+Nora Schiffer (2):
+  dt-bindings: arm: ti: Add compatible for AM625-based TQMa62xx SOM
+    family and carrier board
+  arm64: dts: ti: Add TQ-Systems TQMa62xx SoM and MBa62xx carrier board
+    Device Trees
+
+ .../devicetree/bindings/arm/ti/k3.yaml        |    7 +
+ arch/arm64/boot/dts/ti/Makefile               |    1 +
+ .../boot/dts/ti/k3-am625-tqma62xx-mba62xx.dts | 1034 +++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-am625-tqma62xx.dtsi |  360 ++++++
+ 4 files changed, 1402 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am625-tqma62xx-mba62xx.dts
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am625-tqma62xx.dtsi
+
 -- 
-2.39.5
+TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht München, HRB 105018
+Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+https://www.tq-group.com/
 
 
