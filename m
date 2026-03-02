@@ -4,104 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A6C3EB3624
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 17:54:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EAC0EB3629
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 17:56:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=54ms6gwdYGw/oqFQ92jKqr427TFrwbXBwadvjPkB/x0=; b=ldrr9nvr/9anCDsz1/p/IFl3fg
-	JQvM10PsRkKEHP2Z3Pembqadk3aCXlMp644hbtVtFanY2NGZ6bp2XbFTE8F1P10BEf+86bzBTae4b
-	HN2r86u4KZIn12VwEGISiXeOJuZtRZNhpznQkUnB5xGspMRXBajez8edVltJ88BukgapIHVghUFgc
-	8wWEmuZpI6WN09UwXBqPhy1VMijg/DaCdecj9n4brCOTWCokiIBUPKOiybcBt1K4Bhm913ktsXDEr
-	uQZCCrUJ4wro64jgXdjmB6kj78AL6mUzxZlLYO0GaiMOmTYq12Mg60OLCl+axD30M/9Neg60bkj+5
-	BB5q/ITQ==;
+	bh=78EFul1f7xedsdixIkfPm87QwZAsMUKJ49cs6Nh2wLI=; b=wm8amCZzo7TA3i65TkJnicahBq
+	4otCheCyOAb8Uxi32VRZ4ickmQUCjkt41yCfJS1nDdxD9pVoptNwIYdb4xGQS/hekXVogq2mhd8qJ
+	uwSbO7gK9ASXdJZfsb2sItHKHkW4AE4ZlbL9+sPKmjALiLVqMTNcsg9WOt8u26Yf6G7eNB3bhQ2Y5
+	r1MeL67/fXHVBKRvfcxa+MJ50yDWf15O78Whc+CuGfbJzIVzWiAt6G01qGhwklS1sYU1p2ywCcE8l
+	3iepMJMo1jvHCaMkywqn70qXoTRkVVl6/wIu4yNZ9LMv/hIyNQ5AKjs1BPtQapcxPNdZuyhfVrIb0
+	rwPfMSKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx7T5-0000000DdFJ-1ku3;
-	Mon, 02 Mar 2026 17:54:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx7T3-0000000DdEX-1kyE
+	id 1vx7V6-0000000DdR8-4555;
+	Mon, 02 Mar 2026 17:56:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vx7V4-0000000DdQl-0r05
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 17:54:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8C2F340A3A;
-	Mon,  2 Mar 2026 17:54:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 665FBC19423;
-	Mon,  2 Mar 2026 17:54:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772474044;
-	bh=4s2+oQrCTsTX/U0FPD1SSCHqKbKcPyx/1cjPCg2PTW0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=VlQKop6VWWe8+QMFSAXlRcmH3fXQOhdXqKV3mCya4UL5gFuD+LUM5B/xxyt1TrhrR
-	 1+A3KAd5SzypoD+hvQUDlWKnsL0yu8iRp0u/3mtDH/SapFFNR3LV7muf40LiwA0YOn
-	 PRHI4ypp3wovk/eSUib1GJXU/kqCBl79Si8RROAEMmXvKHn5sIG/NeUjo4S1DIvM4q
-	 TnfV9ZJ//GUTJAgAqTCFT2WPqngY7yfz4rRTGz6v2A0aurQkhPXL4gAtAGqjqGi3gs
-	 0Se86Y0++fFvozEMpwBvepVQ015vakhO+ysL4DMrhV1gNX2hR9dCxl6wH7c4ocd32a
-	 tVZ9fLjC3CZuQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vx7T0-0000000FLi8-0hBo;
-	Mon, 02 Mar 2026 17:54:02 +0000
-Date: Mon, 02 Mar 2026 17:54:01 +0000
-Message-ID: <86ms0q86di.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: amitsinght@marvell.com,
-	baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com,
-	carl@os.amperecomputing.com,
-	dave.martin@arm.com,
-	david@kernel.org,
-	dfustini@baylibre.com,
-	fenghuay@nvidia.com,
-	gshan@redhat.com,
-	james.morse@arm.com,
-	jonathan.cameron@huawei.com,
-	kobak@nvidia.com,
-	lcherian@marvell.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	peternewman@google.com,
-	punit.agrawal@oss.qualcomm.com,
-	quic_jiles@quicinc.com,
-	reinette.chatre@intel.com,
-	rohit.mathew@arm.com,
-	scott@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	tan.shaopeng@fujitsu.com,
-	xhao@linux.alibaba.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	corbet@lwn.net,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	kvmarm@lists.linux.dev,
-	zengheng4@huawei.com,
-	linux-doc@vger.kernel.org,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: Re: [PATCH v5 03/41] KVM: arm64: Make MPAMSM_EL1 accesses UNDEF
-In-Reply-To: <20260224175720.2663924-4-ben.horgan@arm.com>
-References: <20260224175720.2663924-1-ben.horgan@arm.com>
-	<20260224175720.2663924-4-ben.horgan@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: ben.horgan@arm.com, amitsinght@marvell.com, baisheng.gao@unisoc.com, baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com, dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com, fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, peternewman@google.com, punit.agrawal@oss.qualcomm.com, quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com, scott@os.amperecomputing.com, sdonthineni@nvidia.com, tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev, zengheng4@huawei.com, linux-doc@vger.kernel.org, tan.shaopeng@jp.fujitsu.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 02 Mar 2026 17:56:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DC94814BF;
+	Mon,  2 Mar 2026 09:56:01 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F061E3F73B;
+	Mon,  2 Mar 2026 09:56:05 -0800 (PST)
+Date: Mon, 2 Mar 2026 17:56:00 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Marc Zyngier <maz@kernel.org>, Dev Jain <dev.jain@arm.com>,
+	Linu Cherian <Linu.Cherian@arm.com>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 13/13] arm64: mm: Provide level hint for
+ flush_tlb_page()
+Message-ID: <aaXPMPVoAWrK7PUR@J2N7QTR9R3>
+References: <20260302135602.3716920-1-ryan.roberts@arm.com>
+ <20260302135602.3716920-14-ryan.roberts@arm.com>
+ <aaWh5XykBfGFIObI@J2N7QTR9R3>
+ <dca206e8-b430-4c02-aa4b-29216e3f31c6@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <dca206e8-b430-4c02-aa4b-29216e3f31c6@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_095405_494461_FB4BE017 
-X-CRM114-Status: GOOD (  17.93  )
+X-CRM114-CacheID: sfid-20260302_095610_339476_EC556432 
+X-CRM114-Status: GOOD (  43.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,52 +72,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 24 Feb 2026 17:56:42 +0000,
-Ben Horgan <ben.horgan@arm.com> wrote:
+On Mon, Mar 02, 2026 at 05:39:51PM +0000, Ryan Roberts wrote:
+> On 02/03/2026 14:42, Mark Rutland wrote:
+> > On Mon, Mar 02, 2026 at 01:56:00PM +0000, Ryan Roberts wrote:
+> >> Previously tlb invalidations issued by __flush_tlb_page() did not
+> >> contain a level hint. But the function is clearly only ever targeting
+> >> level 3 tlb entries and its documentation agrees:
+> >>
+> >>   | this operation only invalidates a single, last-level page-table
+> >>   | entry and therefore does not affect any walk-caches
+> > 
+> > FWIW, I'd have read "last-level" as synonymous with "leaf" (i.e. a Page
+> > or Block entry, which is the last level of walk) rather than level 3
+> > specifically. The architecture uses the term to match the former (e.g.
+> > in the description of TLBI VALE1IS).
 > 
-> The MPAMSM_EL1 controls the MPAM labeling for an SMCU, Streaming Mode
-
-nit: The MPAMSM_EL1 *register* controls...
-
-> Compute Unit. As there is on MPAM support in kvm, make sure MPAMSM_EL1
-
-s/on/no/, s/kvm/KVM/.
-
-> accesses trigger an UNDEF.
+> Hmm yeah, now that I'm re-reading, I agree that quoted documentation doesn't say
+> anything about it being level 3 specific.
 > 
-> Tested-by: Gavin Shan <gshan@redhat.com>
-> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Tested-by: Peter Newman <peternewman@google.com>
-> Tested-by: Zeng Heng <zengheng4@huawei.com>
-> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> ---
-> Changes since v2:
-> Remove paragraph from commit on allowed range of values
-> ---
->  arch/arm64/kvm/sys_regs.c | 2 ++
->  1 file changed, 2 insertions(+)
+> But actually that was arm64-specific documentation for flush_tlb_page(), which
+> is a core-mm function. The generic docs at Documentation/core-api/cachetlb.rst
+> make it clear that it's intended only for PTE invalidations, I think:
 > 
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index a7cd0badc20c..2c9a52e66fe0 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -3373,6 +3373,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
->  
->  	{ SYS_DESC(SYS_MPAM1_EL1), undef_access },
->  	{ SYS_DESC(SYS_MPAM0_EL1), undef_access },
-> +	{ SYS_DESC(SYS_MPAMSM_EL1), undef_access },
-> +
->  	{ SYS_DESC(SYS_VBAR_EL1), access_rw, reset_val, VBAR_EL1, 0 },
->  	{ SYS_DESC(SYS_DISR_EL1), NULL, reset_val, DISR_EL1, 0 },
->  
+>   | 4) ``void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr)``
+>   |
+>   |        This time we need to remove the PAGE_SIZE sized translation
+>   |        from the TLB. ...
 
-Acked-by: Marc Zyngier <maz@kernel.org>
+Ah! I agree that's stronger and clearer.
 
-	M.
+> > If we're tightening up __flush_tlb_page(), I think it'd be worth either
+> > updating the comment to explicitly note that this only applies to level
+> > 3 entries, OR update the comment+name to say it applies to leaf entries,
+> > and have it take a level parameter.
+> 
+> I'll fix the arm64-specific docs to align with the generic docs and replace
+> "last-level" with "level 3" if that works for you.
 
--- 
-Without deviation from the norm, progress is not possible.
+Yep, saying "level 3" definitely works for me -- I just want this to be
+explicit either way to minimize risk of confusion.
+
+[...]
+
+> >> However, it turns out that the function was actually being used to
+> >> invalidate a level 2 mapping via flush_tlb_fix_spurious_fault_pmd(). 
+> >> The bug was benign because the level hint was not set so the HW would
+> >> still invalidate the PMD mapping, and also because the TLBF_NONOTIFY
+> >> flag was set, the bounds of the mapping were never used for anything
+> >> else.
+> > 
+> > I suspect (as above) that the current usage was intentional, legitimate
+> > usage, just poorly documented.
+> 
+> Before this series flush_tlb_fix_spurious_fault_pmd() was implemented using
+> local_flush_tlb_page_nonotify() which never even gives an option to set the TTL
+> hint, so I agree.
+> 
+> But I don't think flush_tlb_fix_spurious_fault_pmd() should be calling any tlb
+> flush api that has "page" in the name since that implies PTE, not PMD.
+> 
+> I think what I have done is an improvement; but I'm happy to soften/correct this
+> description in the next version.
+
+I think if you include the quote from the core API documentation above,
+the rest is is good as is, and doesn't need to be softened.
+
+> >> Now that we have the new and improved range-invalidation API, it is
+> >> trival to fix flush_tlb_fix_spurious_fault_pmd() to explicitly flush the
+> >> whole range (locally, without notification and last level only). So
+> >> let's do that, and then update __flush_tlb_page() to hint level 3.
+> > 
+> > Do we never use __flush_tlb_page() to manipulate a level 1 block
+> > mapping? I'd have expected we did the same lazy invalidation for
+> > permission relazation there, but if that's not the case, then this seems
+> > fine in principle.
+> 
+> No, there is no flush_tlb_fix_spurious_fault_pud().
+> (flush_tlb_fix_spurious_fault_pmd() was only added last cycle).
+
+Thanks for confirming; I just wasn't sure whether that didn't exist or
+whether it had been possibly missed.
+
+[...]
+
+> >> -#define flush_tlb_fix_spurious_fault_pmd(vma, address, pmdp)	\
+> >> -	__flush_tlb_page(vma, address, TLBF_NOBROADCAST | TLBF_NONOTIFY)
+> >> +#define flush_tlb_fix_spurious_fault_pmd(vma, address, pmdp)			\
+> >> +	__flush_tlb_range(vma, address, address + PMD_SIZE, PMD_SIZE, 2,	\
+> >> +			  TLBF_NOBROADCAST | TLBF_NONOTIFY | TLBF_NOWALKCACHE)
+> > 
+> > Is there a reason to keep __flush_tlb_page(), rather than defining
+> > flush_tlb_fix_spurious_fault() in terms of __flush_tlb_range() with all
+> > the level 3 constants?
+> 
+> __flush_tlb_page() is called by __ptep_clear_flush_young() and
+> __ptep_set_access_flags() (as well as by flush_tlb_page()). I could replace them
+> all, but __flush_tlb_page() is a bit less verbose... I have no strong preference.
+
+That's reason enough to keep it; thanks for confirming, and sorry for
+the noise!
+
+Mark.
 
