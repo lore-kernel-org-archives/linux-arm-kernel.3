@@ -4,147 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4844FEB3637
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 21:59:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 919BAEB363C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 22:01:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W2MpJ9X0TD6UOWDu95AMdnD0jIMPiu+cexPzkeJudSI=; b=V4geEuEjN1HVUWwO+L8LX2dY7+
-	iFrk7he6yiBnZjY5gncQ27dKVv2Y0rIttYt500eE1+IKAMzBquRAFsU3wqxYvGv4iMEyB4zYRN0gv
-	zyY7KHMNPK0NXOzF4N1+tKi9qL/HUTDnUXcvIktglGOlQAkTD/dPuB6I/YJpd6hqurezw1JFPD+J2
-	j+wn4cqmxXF+7pJAvr81ASF0rd6+9v4+G++IJCAaqYPESWSBv3Ga7wmY/Nvtfwu7xSCV1yjBWgAgo
-	SYlOCcSsZQFij7l+lT2l62YkWq2NTQtShL1aj6uQ8JfKYFoJtnK/kn0eqKriUgX3OAPEjCy/79Aw9
-	Ko0IU5WA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hCMLQSYvtIqya9aEyo6BVCUSmqrlsEsojIsJtj/t038=; b=SZouL+mHyCZ4VmC1TyiDomraEq
+	CZJncWNyllIjzEAspF+KOpThgyVU6EINdidvF3E3w/aBx/CZtiikydHHjYuQ/0+VEsm3Yy5/4ICBC
+	ktFLbnZi/xCK2ANtzIDW+pXAXOE+cG3MRtXZNwj0YrldRioCJ3oLunefnPn9r4IwFuPui5+01TO+y
+	VQfcnHWzKZc8XQSXoWHBwLA257PTN6MGryhWuWhRecjTD4x6XURhCek8xTJS1XR33IIS8hy2VF1td
+	gyiPRPUq3mR9J4hQ2x6tSwXlSjZAMfIBqH6L223/hoknRAzoQu399pCrXVy3QwydQakNr4xKENKBj
+	JHz1SUTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxBIO-0000000E4SC-0ORW;
-	Mon, 02 Mar 2026 21:59:20 +0000
-Received: from mail-japanwestazon11011017.outbound.protection.outlook.com ([40.107.74.17] helo=OS0P286CU010.outbound.protection.outlook.com)
+	id 1vxBK8-0000000E4jz-1XNU;
+	Mon, 02 Mar 2026 22:01:08 +0000
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxBIJ-0000000E4RM-3xgL
+	id 1vxBK4-0000000E4j0-1eLV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 21:59:18 +0000
+	Mon, 02 Mar 2026 22:01:07 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tffpCOoWbkKoYVHQ/j+JMj8CTEOHn58jSi2MuKDSDN5ZCRNnPCkH1AhElncuLh8QUib8p5jTYhQugIiyKnwZk+A63DN+GGF6OUeHBok4fucfUAE1BWukuqtaQstk2RHYfqpnfRW1OxhKzk9uBxTyU4MH/ezAeAlGjr8M+BpPkoTBoYg6KPEDWPyHo0C8151TRAjvp7spI2iv5z9575iDik8+DcOBceABYFR6iFRjHtk0BxvUOyVp6KcOeJFuJ8lhelDlcOVpvfVAYugPBa1y7W4tg5OOlczX2z1T0oxMIkYsTnfusx9NlzM2bJnkRr8bd6hxTHa//hM7geimc5Mevw==
+ b=C+J9vpcRqs8x324JC8ucgcvyg9GSkXsY7E0O0vdAFNoBf42f2TjRSEpKjxfiMGkStbmO04zln1m+JBwNE/WtBLVCJjAg/CvXE04Nnjhuvq5rEvhcqgruA4k7n7En07/amNIDzO8GuvT/gmO+OGDYtL4IKqqgZ88jj6m9Xwi8aHHRGKrrtg7IrisM03tjP+unpz/XVBcSo3ri6q/dWmjZA6tE9Wc9OTBzSd2ltJtzsDzFpjTm6CgZJrdeijJtXauR0oPq5a+YlnyNrmTpqNlubr6eZ5LAY8s6WdwvSKeZ/YUHAouc8ZBDTeMgN4N8KOMzFO1BXQeb0/MqwkAY3XjOdg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=W2MpJ9X0TD6UOWDu95AMdnD0jIMPiu+cexPzkeJudSI=;
- b=EVu74Q2B1gQtOm+jTQACv/bGLWrUdzRm4jx6KDhQ1lLPe4UZhbMos3GrYIZz9y+Ps9ZMI/XHZkwJOPtbvqMc7/AVLtATzSCx9YIDjSe+HAegYesjDDWkGkpOHU3JKisIGMGAjzSl9BtvEAGZbXOX80CQNN7nR6bUfsBku0QK4dY11ww1zq/spFIqvfpballPhHiR2FT6G3aHPdhRXRS5lJcUnpbKQT9HWtbEY4D65jBR+Pd2fF/qtSc6yMo6e/XQL+jt1wxC40Hx0N33ZVaENpKqnnTNxsYY9iIGvXbGuRAw/aq3vgFkX91NTXZ8KmlBNycC4Go+UCIP4sR75MBYIA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
- dkim=pass header.d=renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
+ bh=hCMLQSYvtIqya9aEyo6BVCUSmqrlsEsojIsJtj/t038=;
+ b=vhzEE+SNoj2m6olTBPiIRAOKP/xGiIpWiI8Rnb9LdKy2ZUW5iH5puUg13vRFUjXUWwZWZGL9X3fkanjZ4tzBRP9sasqt1XDEgTH0mo/WvoJdpXB8w9lbBcClSYb13T/ftLK8CK4DowLZkEfMVHVBZmp1dkVR3p5MD+GC7OAKx+zH9u2svO/1GTKAU7DqaAatxRyfZ28HRbmc0Vbr216ln0s435JJHFTF9yEZoqkj0T4ewQZz+HoELkoW5krnkXOIAIWf+n40NJotnDsQ7MMC+NQpSlCFbSom13V3hnpMHd7OhM+UZUH5fQ1bRSDn8FTSEbtlLCyU+z678vMZrG+e/A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 50.233.182.194) smtp.rcpttodomain=axiado.com smtp.mailfrom=axiado.com;
+ dmarc=none action=none header.from=axiado.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=W2MpJ9X0TD6UOWDu95AMdnD0jIMPiu+cexPzkeJudSI=;
- b=XEhKH84HAX8ZYLK2kE1RRKdxdnH3vsyDYVf/+jCZrNDndYRj/R9iUwE1SF17F/HQdZ7pw5S7INF9yzhAo1zU7NT4c/hNA77zTEVPYq4fKczF/oEPy+staQ+7rkEgTA0vB4hOmWukdi1xGnrcwM7NhU4sJK89hLgvt5S8YdmD38w=
-Received: from TY7P301MB1984.JPNP301.PROD.OUTLOOK.COM (2603:1096:405:38d::6)
- by OS3P301MB0167.JPNP301.PROD.OUTLOOK.COM (2603:1096:604:208::11) with
+ bh=hCMLQSYvtIqya9aEyo6BVCUSmqrlsEsojIsJtj/t038=;
+ b=oS3W2wUwW7RWhEfkaJx92rygtbzAZK9fmywBTqDXuelKGRHGrQBKPmJ3FWFsuhf8ssSARvLeaCnTdSH5bDDJuBlyWcR0tXvyOhs/FHXNaKstVtcxe2w6tUpo9s0qletbGbd0PKZ504+A9Iswda5Yd2tsLs5IfF/vPWhzVFD43WtffVdCb4sxIG8psCipC3G5LIT396dsxZdQyiIqQaNGL7hn48K0PqOtwe3JVMoRQz+NnBrZxbWDZjt8eeMTTsoDL2E5UKwNc3lKE9S3xNzXTFasmem/LXH5tN5zSVFdNb34uAuOy4/age3FGoaQamlRanN7yBS6fzAc9PyNnJBsng==
+Received: from DM6PR03CA0071.namprd03.prod.outlook.com (2603:10b6:5:100::48)
+ by CHAPR18MB927661.namprd18.prod.outlook.com (2603:10b6:610:2f5::23) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.16; Mon, 2 Mar
- 2026 21:59:03 +0000
-Received: from TY7P301MB1984.JPNP301.PROD.OUTLOOK.COM
- ([fe80::5b4b:dd0c:b302:7911]) by TY7P301MB1984.JPNP301.PROD.OUTLOOK.COM
- ([fe80::5b4b:dd0c:b302:7911%5]) with mapi id 15.20.9678.010; Mon, 2 Mar 2026
- 21:59:00 +0000
-From: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-To: Jakub Kicinski <kuba@kernel.org>
-CC: "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
-	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
-	"pabeni@redhat.com" <pabeni@redhat.com>, "mcoquelin.stm32@gmail.com"
-	<mcoquelin.stm32@gmail.com>, "alexandre.torgue@foss.st.com"
-	<alexandre.torgue@foss.st.com>, "linux@armlinux.org.uk"
-	<linux@armlinux.org.uk>, "rmk+kernel@armlinux.org.uk"
-	<rmk+kernel@armlinux.org.uk>, "maxime.chevallier@bootlin.com"
-	<maxime.chevallier@bootlin.com>, "boon.khai.ng@altera.com"
-	<boon.khai.ng@altera.com>, "rohan.g.thomas@altera.com"
-	<rohan.g.thomas@altera.com>, "vladimir.oltean@nxp.com"
-	<vladimir.oltean@nxp.com>, "hayashi.kunihiko@socionext.com"
-	<hayashi.kunihiko@socionext.com>, "boon.leong.ong@intel.com"
-	<boon.leong.ong@intel.com>, "kim.tatt.chuah@intel.com"
-	<kim.tatt.chuah@intel.com>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"linux-stm32@st-md-mailman.stormreply.com"
-	<linux-stm32@st-md-mailman.stormreply.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH net-next v2 4/5] net: stmmac: Add write_hw parameter to
- VLAN filter operations
-Thread-Topic: [PATCH net-next v2 4/5] net: stmmac: Add write_hw parameter to
- VLAN filter operations
-Thread-Index: AQHcqOUI1D+c/5fBOE+24xeaA44rTLWbwoaQ
-Date: Mon, 2 Mar 2026 21:59:00 +0000
-Message-ID: <TY7P301MB1984067560FD51D7E2424CA2D37EA@TY7P301MB1984.JPNP301.PROD.OUTLOOK.COM>
-References: <20260225142414.130144-1-ovidiu.panait.rb@renesas.com>
-	<20260225142414.130144-5-ovidiu.panait.rb@renesas.com>
- <20260228110408.384420e1@kernel.org>
-In-Reply-To: <20260228110408.384420e1@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=renesas.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY7P301MB1984:EE_|OS3P301MB0167:EE_
-x-ms-office365-filtering-correlation-id: 97da639f-3809-434e-9192-08de78a6e902
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700021;
-x-microsoft-antispam-message-info: kBCnrrB8nMX00cD5zBktQs4GCYMnsWBuAfmjK84aqNZZ2vKkR9O2hRRFohsYyWmj8nQR8TKYg1kqKwPCINLQ0h9iZtgD/Ek4aDK+ll/sXTnDKhAO04ME4P4si0NIK4wTaI43JXPEmDOVGqv0iVMF0mk2oXzUouX1ev7HSymaCf3bwyUVfWYVkQII6IgYrARruoccepSzHYC0U+NuwWzyLXij47+iIq9ej3cl+FWi8teVNRZpG/3zFEBTutpU4X129++hOi39JAvZjp/m/z7D7eiXnq8fEEEknizWoz+BNeYqzdvhT/dxni3ZRfrEtfVDqt7h2c0LNVfU0Ps6Jm4RiIWdr9vKvU45J0hzcKo51n1vkc1b//afVy5ciNfEsQ2ZHDvBdnxNqsJbSnfeOp0zTakLPcwCERGJjNuoIUh9prykNZ2Nveroqzz848gJYWXGsBCvP2irGMaX5STiaoPT3CCESlDI8d4ICo6szbkSX//jBGvWUDdACoKvcv6GvLBdN423LCxysROubD7kqI1EJHiIKBco/4zAPxboNrHdw2gwJiCGBIrt/RHEZ3bUzochvWDp4H+oUUAE7zw8aXAM4VjbBRIGvMHpafdkwJhQUj+9lukJ6DmOcR64GjthdT68/ZuRxy8t6Ul7Y5OxNOuU+GFeIs6svk+YwlZ2+x1/lnNUsnm6OhQRHzN7S17CTOO3uEpMuy82us2tGklmbXcENOyrGrSXIIy/e2F73PGv3yzbMtBjojbDeXSQbpnoY0asbCCZrwYJ/wjx2OWa4OuP/BjKE4eXJXB6lpobEInx7tE=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY7P301MB1984.JPNP301.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?OP04jCQmskOYRYimvZOdpB+xx6UI+9r8h42/v9jq13UYzDifbpDSozIXCYlu?=
- =?us-ascii?Q?LYDbfluHCKZMppO1TNKT03IuHmwTqwyD8tQAuJebvX21gC7WQAd/E6+CFSMQ?=
- =?us-ascii?Q?c9kuhVsU6uAVZgFBpyJZ/mHGSzGdqNXWr29jO5jcOqeKJLyLibBtHejENh3U?=
- =?us-ascii?Q?pBbPVIh1EeY0UahE8L79EmgHqjaIXv80LQg605apKg5nEyVkTcOAdTWzL0tB?=
- =?us-ascii?Q?nHevo+E4rX+WWYuAxiTQT0tCSGOmjMZ4niqLjCXVd3e+KWjDsICzkQRb7ryn?=
- =?us-ascii?Q?oefZiwq/Lb0hRuBS3nSfn7tj77GRdnbbHFZM5+F2otVc/WwH4Cbp/5ZKjgCR?=
- =?us-ascii?Q?CuE8YkPfbu2P8e/CrcpLhb4Bhf5BoU1KFkPpowfilC04l8wRd4ULwB6AOQ2c?=
- =?us-ascii?Q?iZXWdZtyKmpwbyWQbR6O62b96b/qqf+ceziUhK2JBqP8p4WBZTkfBg7PiKkl?=
- =?us-ascii?Q?Vj1azFLUJ3hspD/6t0Q/CWlBhJKprVS2w6yeFD/OJ6nkgaJGzxb56xpQr0WV?=
- =?us-ascii?Q?JYhf3lJoLIt1hRW8DIZNXddMzfMpziBVP/p14lkQV66DzScDxi+fp4R7jo3M?=
- =?us-ascii?Q?oDPhnxmRHHIQ62Q6Umm4BVjGBVjN+Z9q2N3rRT32EFL6T+7EFs+5ywVe3GzZ?=
- =?us-ascii?Q?Uf/Etr9LrnKxn6cQtDcDBk01DsfreKy50+tpFxvWowH8Bi+DNadoICs6oOlC?=
- =?us-ascii?Q?OAAtsOyx1T/upV+DQdogrCzOACJWdUhqONRTUiFhBK5mZ05276/BI4JEAiJO?=
- =?us-ascii?Q?lvFUvc23qoT7LjxIQfaJXuKC5iLKOyY+0XB6HXk1vSRgy5DHXQgxM6zYzhgk?=
- =?us-ascii?Q?vRgi4dl8XxlJ1rBEeyltCLRwzRVtqKQVXEyFmFHpctrPbM+kUK54Fk9sGP1y?=
- =?us-ascii?Q?ycsrNwfPK/FH6M2VgZa3UQZ9PiRLtIFd8vpyoIZbe1ZELX11sXhkt8uWRr4w?=
- =?us-ascii?Q?dsbkMotK5Oz0Odoty48ce0i9lnYMFbSBqk4Be1vFxRJL6tN8fjPNLWX9Uqob?=
- =?us-ascii?Q?KseTzT0FqZt1vJDlEwha2Y3d5U6OKOAXcp7kUjhXHU9mdDSVulAZjpS04sUd?=
- =?us-ascii?Q?GlZIiAza3/SZQCQoqYPrN2SX/QjULCkp3m8d8lkql3W58tURzqXAhlmCmN+9?=
- =?us-ascii?Q?IdBvJe2zY/X15+WojAC/NepRxg6Z+p+1e2cIXOkHzfkjHjG5rMrQ97YrWzK6?=
- =?us-ascii?Q?wymFx87auD3GnSuwyjlqe7+7V7K2BrEpZuWeyWbQ/fwkthunYXkz2/zDSmD7?=
- =?us-ascii?Q?pj0B4Cf2PfPvh/3yVOZRqT2RiuHqWxuJ2/j4kwv1OiVAELmpGn+YlO3Rf6gG?=
- =?us-ascii?Q?itCzKKY+RnRqRJ8xQS8QSwHNIfWKNePCrfCscz+OYkm4iF+GLWd3SdJlJIgD?=
- =?us-ascii?Q?a5kpEpwfBnTkhRnpVuNQR1V2aW254T0SSSFiMivh256tkqpdG3+9tqePDyJn?=
- =?us-ascii?Q?hfJNlUcalb7xz8iNbH0u/LuD4UK9B3c1Zi91EFLTR1VssGzHLDmDcvKa9ro+?=
- =?us-ascii?Q?X0Asp4jRSAt3FovYf1rDjAamMJaFmcxKix4EnMzZw9WWk91s0I/tss9uNozA?=
- =?us-ascii?Q?rBnZO4y62Du4NUd0vY6hJiEcOW2TI3MEmqX7z/bUho4yze8YfYHwsV32GwOe?=
- =?us-ascii?Q?6hBKxh5n5lrmBYby3+rE4ota3mgiGZyxvbSb6ia8KgHINlYY5xi1kVoen4jT?=
- =?us-ascii?Q?QiVovQf4TI59n7XsgBZZjCBXrcZmVw0FGOrvAdwTIjSGUJaz7pmFmpMw9WGA?=
- =?us-ascii?Q?2J4CxYoUrz0G6SaU5k5GsvnOq84/Hmw=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.10; Mon, 2 Mar
+ 2026 22:00:59 +0000
+Received: from DS1PEPF00017092.namprd03.prod.outlook.com
+ (2603:10b6:5:100:cafe::68) by DM6PR03CA0071.outlook.office365.com
+ (2603:10b6:5:100::48) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9654.19 via Frontend Transport; Mon,
+ 2 Mar 2026 22:00:59 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 50.233.182.194)
+ smtp.mailfrom=axiado.com; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axiado.com;
+Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
+ designate 50.233.182.194 as permitted sender)
+ receiver=protection.outlook.com; client-ip=50.233.182.194;
+ helo=smtp.corp.axiado.com;
+Received: from smtp.corp.axiado.com (50.233.182.194) by
+ DS1PEPF00017092.mail.protection.outlook.com (10.167.17.135) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9654.16
+ via Frontend Transport; Mon, 2 Mar 2026 22:00:58 +0000
+Received: from vm-swbuild02.AxiadoRD (unknown [10.4.1.182])
+	by smtp.corp.axiado.com (Postfix) with ESMTP id 87A114186B59;
+	Mon,  2 Mar 2026 14:00:57 -0800 (PST)
+From: Karthikeyan Mitran <kmitran@axiado.com>
+Date: Mon, 02 Mar 2026 14:00:39 -0800
+Subject: [PATCH v4 1/2] arm64: dts: axiado: Use lowercase hex
 MIME-Version: 1.0
-X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY7P301MB1984.JPNP301.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: 97da639f-3809-434e-9192-08de78a6e902
-X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Mar 2026 21:59:00.1856
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260302-maintainers-addition-and-axiado-ax3000_dtsi-update-v4-1-84a5c9df6689@axiado.com>
+References: <20260302-maintainers-addition-and-axiado-ax3000_dtsi-update-v4-0-84a5c9df6689@axiado.com>
+In-Reply-To: <20260302-maintainers-addition-and-axiado-ax3000_dtsi-update-v4-0-84a5c9df6689@axiado.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Prasad Bolisetty <pbolisetty@axiado.com>, Tzu-Hao Wei <twei@axiado.com>, 
+ Axiado Reviewers <linux-maintainer@axiado.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, Drew Fustini <fustini@kernel.org>, 
+ Karthikeyan Mitran <kmitran@axiado.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=995; i=kmitran@axiado.com;
+ h=from:subject:message-id; bh=BGjstTWXM8EwzVmreSW0TuWco+4YYKACGi0r3fNb8xU=;
+ b=owEBbQKS/ZANAwAKAfykr3bAxbrPAcsmYgBppgiZ3pvV6+iVSJHiTOO6TqhMFWhT4VxTMnJSo
+ 3bh46WRvpCJAjMEAAEKAB0WIQQykBiJeI5kfMQLrdj8pK92wMW6zwUCaaYImQAKCRD8pK92wMW6
+ z+YPD/9Zpm7k7fdhei0QFnVQtYMhQQTVfqmod4+6Aer8pZiTe9tvfarRWNfc6pFSj7E6UXvHafI
+ F7XeuVM9Yuj3KW81+IUAi+3b+oEutR6EsbBHKzi8Z8X1+DLETkPmUfZFj80kx7rLesHpfaHcNO/
+ h3+YhO41qXhcfP3cERPQYmTZXBSLFSAOwx76F8RK8HxF8uvh5F0GT8TYXGcas1H1+L04Adhg6HK
+ SS3+YN1c11K5h48qH/C69OnhroSgsWDRmpRuhJ8VjtGwy2c6TtB+FFv9ppo27XpHRXsXC4Kw5u0
+ vtAB9tsVqxGTPJydGj/AmSN9n2karpWrok0R3ixZqCl/2LxSg5+v45Fmnrb2FuROSIECs+EHwEB
+ +i94d/DUmpFuGCTISyqrlqD2PyZGTPOs3YAWgxn88GakyOqdubOc69MJNGhDAvVwZT3j96lffbl
+ 7MpoQCCmCP5XiU+lVYB7Cq8qFBeHfFQ0j+o5YKhwG5x6l3guPUxKmzd5X2yiTEBlrVxQWbnQn5w
+ IoTX8X71WnlA1EoxciGCdDAXYt8lqxjA4Fq7ENDg/yjjpkHKu8l+PP5WgyJdXDVbz3ObRQXJ3OK
+ YWqfCBp/XGF0nu3r1e3sHD6PrRjcWtIWrHQSN7zLFCQPGgdySX0n3GnlhrYa2B9y/8eNNWwkutx
+ 6BhDh0MtPCy1InA==
+X-Developer-Key: i=kmitran@axiado.com; a=openpgp;
+ fpr=32901889788E647CC40BADD8FCA4AF76C0C5BACF
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS1PEPF00017092:EE_|CHAPR18MB927661:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4e6c47fd-40d0-4de3-7def-08de78a72fd8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|1800799024|376014|36860700013;
+X-Microsoft-Antispam-Message-Info: n8BCc/yItMiV5tj+2TfZUpbUtCfimggaoJUx65LHItL022YgEu/twmnRVOA6n/+wdkSQCgacRzBsh8lbis3damNu3Mq6cVFf6zDTqUCPoGIHwbTDYCN2gLLE5f6hWQQRmZkqnouMtgxS3tJ8raBpVWEUEHIajsOVR1zxxbuw8jAKAHId+Pl6YfwvzpGuC8zGSLC3EyRW1We2KXArNqgnT8CxmKTIZK65H+QZWvEapR7utQod4Hm/3kLaEcqpiUyUPwmBdisPyXewIFDfOYUBGit8IBADYnnTpvbzhgjRaEgSTGLkn/BozSsL+GzmK1c6hJY3pAkwl5D4+7DXsAW6diBurFJL4/ZSiKUlVo58T8zxZZwsk53mqfnussCwMI4beZuceT9V2gQuG1gVkc8vvQB39BD2l00tPInXmIhsB5rtMo0oVrWinB/2szguPhYQhh01RPwR24fPO3dF7BW41ckbxDscWi9lmitCECX2zTKqt8LmYVGmjjGWvxcq3vozJhRonT9/PDVFiRz6b6vcZ22ysQTCl1QybQrlj1wxhEAvFkXX2DEsy40cWLbnfGL8BpX6KUR6Rt1d64CtO28FB3RdMpCo18KodneRRUuVhhbvkRRaAYa+0j/doed7nMVR+KnhU4FBLrDtUFdnYYpmoqDQybHMGs6ilRPTNYYLGsB0LRak+CBHmN1x3jGvEblpn9hEXtisI6rE668gPASYrHEltyz6nlEpWUZrblRt8yaUsI7S8dch5skrVO4r5NBKa1pcXlYTYJXJhES3FzeNiot/CoA68bmlK2LpF1KFCI7Eg9xvMIAYk7Fg+x1xyAD0
+X-Forefront-Antispam-Report: CIP:50.233.182.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(1800799024)(376014)(36860700013);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: vYDYzFmdK80lPXwuppDkDV3kCIv4odvCyIND/uHzVykZRBPHLzrOgAJn2UxeFPpdjSgJAiRyvXOz/Lae14hw6wMAWtlUCH+akoUsdx6WHinl1Nzl+2+SGK/WLYci4sEYFc9/ub8cape9/7MXEYMEbesq2skcd6lI4vrWBZDuP5K/OgEWc+HtVmTpwvBoxKGdgMEuep9NCR+smrNPwIQWOVQbjtDF8pQ+W3yCAPCsKhzancSJUpF/q2risNxQBQ1RD1CmS92F41LdH6BqFM3BYKYsSAZIZx175B4iEHnCrqDD9rleDuCRuUcO/ZdJnv8wlETr1P38Z5N/HUmt4hsAT27g00wicjWRnEyDw09/qnU175MrmuuSZfks3OSWsp5jOeeI4HsOK0YZGmfScQrJl8NeCErzK3al9b1CRFtF7Yh10MRXzcZYiTIrmMWduwM0
+X-OriginatorOrg: axiado.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Mar 2026 22:00:58.9390
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Fnf8DTemb9cvX/ZWKsmtevOnF3/2U2FyRiryrEg3dEl3S4bLNs2XMvg1r9Qxa+aiJ0RU/iXVUuqvy2tPkA5Ne6Y64gsmtWV5SG4G54bNeWA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS3P301MB0167
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4e6c47fd-40d0-4de3-7def-08de78a72fd8
+X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[50.233.182.194];Helo=[smtp.corp.axiado.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017092.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CHAPR18MB927661
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_135916_211966_796346B2 
-X-CRM114-Status: GOOD (  19.46  )
+X-CRM114-CacheID: sfid-20260302_140104_461880_E71BD940 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,42 +141,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jakub,
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
->=20
->> On Wed, 25 Feb 2026 14:24:13 +0000 Ovidiu Panait wrote:
-> > Add a write_hw parameter to the VLAN add/delete HW filter functions and
-> > to stmmac_vlan_update(). This flag controls whether the actual hardware
-> > register accesses are performed. When set to false, only the software
-> > state is updated.
-> >
-> > The next commit will use this to defer hardware writes when the
-> > interface is down.
->=20
-> I wonder if instead of passing attributes like this around the driver
-> shouldn't simply maintain a flag (or have other way to test) whether
-> the clock to block X is currently enabled? It feels more like a global
-> state / property than trickiness directly related to VLAN config.
->=20
+The DTS code coding style expects lowercase hex for values and unit
+addresses.
 
-I'll drop the write_hw logic and instead just check netif_running()
-directly, to avoid passing attributes around.
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Reviewed-by: Tzu-Hao Wei <twei@axiado.com>
+Signed-off-by: Tzu-Hao Wei <twei@axiado.com>
+Signed-off-by: Karthikeyan Mitran <kmitran@axiado.com>
+---
+ arch/arm64/boot/dts/axiado/ax3000.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-In this case, the PHY RX clock needs to be on for the VLAN accesses to
-succeed. When stmmac supports VLAN, the PHY RX clock is always kept on
-via phylink when the interface is up, so I think there is no need for a
-new flag, just checking if the interface is up should be enough.
+diff --git a/arch/arm64/boot/dts/axiado/ax3000.dtsi b/arch/arm64/boot/dts/axiado/ax3000.dtsi
+index 792f52e0c7dd..d515f3141529 100644
+--- a/arch/arm64/boot/dts/axiado/ax3000.dtsi
++++ b/arch/arm64/boot/dts/axiado/ax3000.dtsi
+@@ -480,7 +480,7 @@ uart0: serial@80520000 {
+ 
+ 		uart1: serial@805a0000 {
+ 			compatible = "axiado,ax3000-uart", "cdns,uart-r1p12";
+-			reg = <0x00 0x805A0000 0x00 0x100>;
++			reg = <0x00 0x805a0000 0x00 0x100>;
+ 			interrupt-parent = <&gic500>;
+ 			interrupts = <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>;
+ 			clock-names = "uart_clk", "pclk";
 
-> Also any strong reason to post this for net-next? We take fixes via
-> the net tree, so when you repost please use "PATCH net". And an
-> appropriate Fixes tag on the last patch would be great to have
-> (presumably just ed64639bc1e0 again?)
+-- 
+2.34.1
 
-Will do.
-
-Thanks,
-Ovidiu
-
-> --
-> pw-bot: cr
 
