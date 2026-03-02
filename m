@@ -4,76 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D97D2D58E7A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 08:46:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FE52D58E7A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 08:47:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OMCtZh3s1MPyX6OvpvOhiWfZ85Z4lv+T3YdJvZr1/y4=; b=LQmmXbZF8Dqe3lIY657/9PvuYS
-	r+6Pk+INxe00e+Oai+evzQ2iRfEbmzg0ZVDwHlDxImSfgK2uH2Ur8I16FqMExJtyVdCwq9fWthCdv
-	HzZzwe5CSCRk4axsea4CT0Iad2LkLGMa4dY6FagMwHMNNiEQlaDlDUdyVU0pqiR+N1MjPFEp0q/BP
-	SsBpV+hwNnYZPM83/F2YG6g3ipJSHkjaKMjYQmtbiEqOu72NAGX1rVCHhPjzMqH1GU2W15dpHyOFW
-	kWrO+7mNloWHOHCW2OJ9ceV6TKT2+KverXYm0y5UczEy/RntqLuokri+D7Iz2SyPQ2MTkhShTMngb
-	kVILIw5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=S8KixDfsRAE0QkCkrj6ecFMAb3wezNZ0IVq81F5Gw8I=; b=S+1LRJh35+6vO/IPVYa/Pc2aO3
+	+R77s7TJ3lyIxf2kXxmE4pcE1Y1WCMErcOd17zYbXwBljyX8ItEsY05bEy0ddyGEj/nG9aVLYmJSq
+	FA+I1TPcK/gASnoYpz8VJi4mZamY2ONKA6nesfhyxD4cEOp+H9JYilH65S1P07v5qKdo962pglYwN
+	RcJDPqbFmWABq9MhX1fd5I/6N7TbFF8xC6duO5N+vRk9yZD1JjDXwvYWFMrLpzM9haYd1lDVxEWmq
+	zVNhogwKPFiF0OlrM/JxAKwmi6ToB20YUWXTMvGWS9XskKwZI89I0IVOjM3l8A2a2Rov2mPH/oqjG
+	dcwSCCCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwyur-0000000CXiA-2hKs;
-	Mon, 02 Mar 2026 08:46:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vwyvZ-0000000CXqR-39bq;
+	Mon, 02 Mar 2026 08:46:57 +0000
+Received: from mx-relay10-hz2.antispameurope.com ([83.246.65.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwyup-0000000CXhj-1WfP;
-	Mon, 02 Mar 2026 08:46:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D42EB437BD;
-	Mon,  2 Mar 2026 08:46:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A83AC19423;
-	Mon,  2 Mar 2026 08:46:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772441169;
-	bh=YLIStkIR1KJnf5YwD17+MZnntYrS4W0CEDe/6e+dJPw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=s5TC01paLL43eTxonms1l0UTMB4QscnLOYJJh0RDmcC95ZK4NIh4yD4712OZgUuCL
-	 tGqNwHCeuKPPfd/Y9RMuzjFpMVmtx4gMtyFak2D4RcHbIe5Vj6uBb69MFJcJn8i1MV
-	 LZ3G6cmaomOi4BrrxqreSH1M6xtIAVmo/cePrRxgpg98RMOH0Y27kjzCOFgFY32W9Z
-	 YScYRspyy630xCT3XFhu+bPmy9R1s9nWAjo80hSv3xIbOX0venX94Nvrxjj1aRNf4p
-	 kRf4aeZrCSzUJ13Por+I5nwALTVi5dTSqYKsEbG78P6SkwRUpll2ijXXo3iGzov5Qj
-	 htsykmjAjatjw==
-Date: Mon, 2 Mar 2026 09:46:06 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
-	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
-	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v9 04/19] drm/display: hdmi-state-helper: Act on color
- format DRM property
-Message-ID: <20260302-literate-shrew-of-health-ec19d2@houat>
-References: <20260227-color-format-v9-0-658c3b9db7ef@collabora.com>
- <20260227-color-format-v9-4-658c3b9db7ef@collabora.com>
+	id 1vwyvV-0000000CXpq-1may
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Mar 2026 08:46:56 +0000
+ARC-Authentication-Results: i=1; mx-gate10-hz2.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com
+ smtp.helo=hmail-p-smtp01-out04-hz1.hornetsecurity.com; dmarc=pass
+ header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=S8KixDfsRAE0QkCkrj6ecFMAb3wezNZ0IVq81F5Gw8I=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1772441197;
+ b=Fbdu0uTbfXrfcipCfRJ0csGDywdrZYbKxthIXGJLobj4zFZZNlM15jF4wDH3ACX/udBe4l20
+ u5ZNyXFjTBa020wAqkkp9ZXLC3ZQyds/Q8FfWeOowJhFdA+cSTarw7RkeJTKi8hTaVpxdRWYWBj
+ 9IWtFyqPUfL32DqiaKzLUmM++08M/PylbUzMxVhC9CajSIBl91aAvrvXlgSfZIaJQho69sowU/2
+ M0LBRcTEUAxHTpyNdVrmyu8uGbRRu9GAZgCRd0mpBSJhsZZBnpLA0bfoFg9MFz6IvbXn3sHeKa1
+ e7X1FFIONSWvuRezntG6PvF3iFSzlHdImvs9Kd2CwBpKg==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1772441197;
+ b=eXmsVk6y3NZN0adNG6NbeReNmkySBANkrEK8+sW47WRieXLKpCDmwD/5RX/qLAxOlv41J2hR
+ UZMVmXaE94uh6tZaGvPj/xK1qftyXn8Yr8OBApM2jxF38kUE9efu6sOz3fBDq+byRMjo3KgPKaG
+ 7SYYdcN2J/j/nd+abN7XMsOSm6TjrnBszrPB9fFaXwCwYELZP6IWwg/T7fUcNRqsmCpKfqMWnsn
+ SjXDKZeKF/a5P4ckOZ+g6y7xTN3riqM8HEJC3HiZzgr2Qa/MNoSSpUlj1G8tN7QnNntp3l+sdky
+ 5fR66Bl5UaWMLiTzlkbivAV7ucBruGKeVeV7iDhUw2UfA==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay10-hz2.antispameurope.com;
+ Mon, 02 Mar 2026 09:46:37 +0100
+Received: from schifferm-ubuntu.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: nora.schiffer@ew.tq-group.com)
+	by hmail-p-smtp01-out04-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 4311E220F0C;
+	Mon,  2 Mar 2026 09:46:09 +0100 (CET)
+From: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux@ew.tq-group.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Nora Schiffer <nora.schiffer@ew.tq-group.com>
+Subject: [PATCH v2] arm64: dts: freescale: imx8mp-tqma8mpql-mba8mp-ras314: fix UART1 RTS/CTS muxing
+Date: Mon,  2 Mar 2026 09:45:48 +0100
+Message-ID: <20260302084548.6471-1-nora.schiffer@ew.tq-group.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="vlv6rbxnnxkik4dv"
-Content-Disposition: inline
-In-Reply-To: <20260227-color-format-v9-4-658c3b9db7ef@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-cloud-security-sender: nora.schiffer@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: nora.schiffer@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay10-hz2.antispameurope.com with 4fPXb60bzBz4FL03
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: 9d7a5410827e20c72befa8843b80a097
+X-cloud-security: scantime:3.725
+DKIM-Signature: a=rsa-sha256;
+ bh=S8KixDfsRAE0QkCkrj6ecFMAb3wezNZ0IVq81F5Gw8I=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1772441196; v=1;
+ b=a55+2sfqLJoiAevN8RmzdY/SrWHrDRaAfHsVgr59vd+2BE7Ic53B+eWvj5Mm/ajcvhpfFZCI
+ Q2+2FX9hdQroJ6TQTmbTkwmRBxNI2K2eCrUtB25Btv71Gz2v6O1xQzOXGQH/SaZKvEg80jirwAf
+ hxHvPgrmNPCJsbuqZDCsbhLLQLkcCP5SNYMQsWQ6bebMe0wGCmfbf6N4MXczj/JN1D5Nbd9VlNF
+ X8NTEWEkJlraU1S7fvPB9sN9V4VuzWD5PSCMHjBIDJfSaepCa65+bchLJcMwIRLvlCet75nayYm
+ MANCLWwTuT+zh/uY81+P48IMxk0rAinNDyMQUYvkSyvlA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_004611_443014_D9B8C9B7 
-X-CRM114-Status: GOOD (  23.29  )
+X-CRM114-CacheID: sfid-20260302_004653_724293_54D2A1ED 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,115 +112,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+UART1 operates in DCE mode, but the RTS/CTS pins were incorrectly
+configured using the DTE pinmux setting.
 
---vlv6rbxnnxkik4dv
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v9 04/19] drm/display: hdmi-state-helper: Act on color
- format DRM property
-MIME-Version: 1.0
+Correct the pinmux to match DCE mode. Switching the RTS and CTS signals
+is fine for this board, as UART1 is routed to a pin header. Existing
+functionality is unaffected, as RTS/CTS could never have worked with
+the incorrect pinmux.
 
-Hi,
+Fixes: ddabb3ce3f90 ("arm64: dts: freescale: add TQMa8MPQL on MBa8MP-RAS314")
+Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+---
 
-On Fri, Feb 27, 2026 at 08:20:09PM +0100, Nicolas Frattaroli wrote:
-> With the introduction of the "color format" DRM property, which allows
-> userspace to request a specific color format, the HDMI state helper
-> should implement this.
->=20
-> Implement it by translating the requested drm_connector_color_format to
-> a drm_output_color_format enum value as per the logic HDMI should use
-> for this: Auto is translated to RGB, and a fallback to YUV420 is only
-> performed if the original color format was auto.
->=20
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
->  drivers/gpu/drm/display/drm_hdmi_state_helper.c | 28 +++++++++++++++++++=
-++++--
->  1 file changed, 26 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gp=
-u/drm/display/drm_hdmi_state_helper.c
-> index 9f3b696aceeb..31c6d55fa995 100644
-> --- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-> +++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-> @@ -669,10 +669,34 @@ hdmi_compute_config(const struct drm_connector *con=
-nector,
->  	unsigned int max_bpc =3D clamp_t(unsigned int,
->  				       conn_state->max_bpc,
->  				       8, connector->max_bpc);
-> +	enum drm_output_color_format fmt;
->  	int ret;
-> =20
-> -	ret =3D hdmi_compute_format_bpc(connector, conn_state, mode, max_bpc,
-> -				      DRM_OUTPUT_COLOR_FORMAT_RGB444);
-> +	switch (conn_state->color_format) {
-> +	case DRM_CONNECTOR_COLOR_FORMAT_AUTO:
-> +	case DRM_CONNECTOR_COLOR_FORMAT_RGB444:
-> +		fmt =3D DRM_OUTPUT_COLOR_FORMAT_RGB444;
-> +		break;
-> +	case DRM_CONNECTOR_COLOR_FORMAT_YCBCR444:
-> +		fmt =3D DRM_OUTPUT_COLOR_FORMAT_YCBCR444;
-> +		break;
-> +	case DRM_CONNECTOR_COLOR_FORMAT_YCBCR422:
-> +		fmt =3D DRM_OUTPUT_COLOR_FORMAT_YCBCR422;
-> +		break;
-> +	case DRM_CONNECTOR_COLOR_FORMAT_YCBCR420:
-> +		fmt =3D DRM_OUTPUT_COLOR_FORMAT_YCBCR420;
-> +		break;
-> +	default:
-> +		drm_dbg_kms(connector->dev, "HDMI does not support color format '%d'.\=
-n",
-> +			    conn_state->color_format);
-> +		return -EINVAL;
-> +	}
-> +
-> +	ret =3D hdmi_compute_format_bpc(connector, conn_state, mode, max_bpc, f=
-mt);
-> +
-> +	if (conn_state->color_format !=3D DRM_CONNECTOR_COLOR_FORMAT_AUTO)
-> +		return ret;
-> +
+v2: updated commit message based on suggestion by Frank Li
 
-We discussed it before, and it wasn't as trivial as it should have been,
-but now, I really feel something like the following would be simpler:
 
-if (conn_state->color_format !=3D DRM_CONNECTOR_COLOR_FORMAT_AUTO) {
-	enum drm_output_color_format fmt;
+ .../boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts     | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-	switch (conn_state->color_format) {
-	case DRM_CONNECTOR_COLOR_FORMAT_AUTO:
-	     drm_warn(connector->dev, "The format shouldn't be auto here"); // or =
-any better message
-	     fallthrough;
-	case DRM_CONNECTOR_COLOR_FORMAT_RGB444:
-	     fmt =3D DRM_OUTPUT_COLOR_FORMAT_RGB444;
-	     break;
-	....
-	}
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
+index b7f69c92b7748..1665a5030b993 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
+@@ -848,8 +848,8 @@ pinctrl_tlv320aic3x04: tlv320aic3x04grp {
+ 	pinctrl_uart1: uart1grp {
+ 		fsl,pins = <MX8MP_IOMUXC_SAI2_RXFS__UART1_DCE_TX	0x14>,
+ 			   <MX8MP_IOMUXC_SAI2_RXC__UART1_DCE_RX		0x14>,
+-			   <MX8MP_IOMUXC_SAI2_RXD0__UART1_DTE_CTS	0x14>,
+-			   <MX8MP_IOMUXC_SAI2_TXFS__UART1_DTE_RTS	0x14>;
++			   <MX8MP_IOMUXC_SAI2_RXD0__UART1_DCE_RTS	0x14>,
++			   <MX8MP_IOMUXC_SAI2_TXFS__UART1_DCE_CTS	0x14>;
+ 	};
+ 
+ 	pinctrl_uart1_gpio: uart1gpiogrp {
+-- 
+TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht München, HRB 105018
+Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+https://www.tq-group.com/
 
-	return hdmi_compute_format_bpc(connector, conn_state, mode, max_bpc, fmt);
-}
-
-ret =3D hdmi_compute_format_bpc(connector, conn_state, mode, max_bpc,
-			      DRM_OUTPUT_COLOR_FORMAT_RGB444);
-
-It makes it much clearer what the two branches are, and we don't have to
-test for auto multiple times.
-
-Maxime
-
---vlv6rbxnnxkik4dv
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaaVOSgAKCRAnX84Zoj2+
-duj9AYC6G+CPt23Nm72keJB2VkI/OrdBkSffWrgwixDMIES2m/uxHVPMi8koLjpl
-BYFiCIUBf0RielKN8kXZvqBYg3FOuVBkylhQtEUK3blNIgR3cHtExnVL3+ecatTR
-DqljNp/Vrw==
-=9ih2
------END PGP SIGNATURE-----
-
---vlv6rbxnnxkik4dv--
 
