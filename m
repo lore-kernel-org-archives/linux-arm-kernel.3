@@ -4,65 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE0DBEB3622
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 17:13:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28A73EB3624
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 17:18:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KdeU6pI+HlfJ8u9DUxmS57J1JYfTYIDtk8oMk8/46r4=; b=AIfHsessKYtPAsX7244pyUnGuU
-	CGYUh7nr/gLqKOgSm72x5iQuE8gxbK2JnmB3hWq7+FcGuvxdDIFzdpGibn6fSru7t9bFYTW03kWip
-	VJ8rLFoA6hTwkwsOZuXf7BOhTdn+dN+WADeMzwvI0iwEuUZh4JposrIfQtEpzYPx8idYKRVvl4eO1
-	+mVV8el80JjVCpQpWuVp4AxoYfFyhQwQkaX7p5wOEyZUb/6PCyE7aUimbJPer34J9BubXUPLfHIY9
-	uxWdw9q+4JrKCEKIjVCmBRhG2kZ3TW43C36flx0nWoTUVDv9VPgIbH6urO3OIaFk9kE6cYWr+u3qX
-	FeWHcPsQ==;
+	bh=2AyTmtGapKV3ZDBpXl/zEatvMugJVMPsu8CkfUGOdnk=; b=ravqJGQl2rQWXmOaPs1UrteZET
+	cpncGw45TY2hjwK4GGRGO51QYWrf/s6351HfloIWND7a7ozJjRXSowLPCfBqZSU/nve/k7srWRgBH
+	+l9z/Quep9ITggclhQ82HfXfD10PvKalAGHvKHBOX2Rmp7oI6NC1Ppfe5x0TT8m1LCICs2QAiLsUx
+	nkzJKJmZbVNT9PAYbYoG+yvXoFCJxAeliWB34LGZW+1g73krQKH5B36UmwzkgRslgD3jMZfjCtacl
+	0nA7uudAEYQZrSs7jWig5kEMn4DDnksERrTaluGsBKVmO6sGQ4XRIawjwVszb43nm4FqQwNQkx3W5
+	wWzUfdeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx6q6-0000000DZOT-2t5L;
-	Mon, 02 Mar 2026 17:13:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx6q4-0000000DZNn-3I7z
+	id 1vx6uW-0000000DZvi-305a;
+	Mon, 02 Mar 2026 17:18:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vx6uU-0000000DZui-0LfG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 17:13:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F4BC14BF;
-	Mon,  2 Mar 2026 09:13:41 -0800 (PST)
-Received: from [10.57.73.151] (unknown [10.57.73.151])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D56E03F73B;
-	Mon,  2 Mar 2026 09:13:43 -0800 (PST)
-Message-ID: <9d702666-72a8-43e4-8ab3-548d8154a529@arm.com>
-Date: Mon, 2 Mar 2026 17:13:41 +0000
+	Mon, 02 Mar 2026 17:18:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5D95144561
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  2 Mar 2026 17:18:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4191BC2BCC7
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  2 Mar 2026 17:18:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772471901;
+	bh=+MqM9KmRITyYRwaK2vO3M8KAYNBFVTYRhLwmb87Tibc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=kb3Nqe5RRQ6fZzn0hWpidUfbL2ksozo7iqaxctiNEtWQg41IQH7CybnHljjB6FoYE
+	 tSqIamkvZDxigySxPoGdI/0koM8f95QpBE1nv/YQ6xf+CWYKIwIQT17nJnZKj9D1uU
+	 gHmiMDtDSr6R8cgZGprDUbS0MDKyrdTvYRBJo4AKX5I3FqPu6dPUeUdM6EfGSah9/c
+	 K7u5M5qykk2BStQ3UsxRnqWs0FXcuJhgCnawQcW6y5xsruO5RS0j4A0zGSRKHHFd/Y
+	 ixHTWvP+28P17nLzxy813d5t+NivpygbdSHdkY8Wb8aGpAKPaQEClVjIjgG5G7dP4G
+	 ZRjj3CL+wcY0w==
+Received: by mail-dl1-f50.google.com with SMTP id a92af1059eb24-1270ac5d3efso4489250c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 09:18:21 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVm5PqLt28ArMyR5KfK6zQa8505DzVSwHGz7W6j+FnSk4bKeeYkaMAwHTuRFRzUkQcWg4iozrGpiCp9Mkdlevw6@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJJn8zbStCJ1lynLXgIh5SqmFKaKRpnvx7I+7z1q/RmTbXHFxL
+	j+dqGCAAqnROQ/F5e4lOSvQwFlEa2bh3JnO3Q0FLYXw0XiTkiT5LCIwSYXRnZPFOqZ9DZbhKWq5
+	ZmtPWfXHVPMGUsNsBTO47Mvwp8ehzH69HrhHmkGrs2w==
+X-Received: by 2002:a05:7022:2524:b0:11b:c2fd:3960 with SMTP id
+ a92af1059eb24-1278fbff709mr5725970c88.28.1772471900307; Mon, 02 Mar 2026
+ 09:18:20 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 06/46] arm64: RMI: Define the user ABI
-Content-Language: en-GB
-To: Steven Price <steven.price@arm.com>, Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>
-References: <20251217101125.91098-1-steven.price@arm.com>
- <20251217101125.91098-7-steven.price@arm.com> <86tsuy8g0u.wl-maz@kernel.org>
- <33053e22-6cc6-4d55-bc7f-01f873a15d28@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <33053e22-6cc6-4d55-bc7f-01f873a15d28@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260223-soc-of-root-v2-0-b45da45903c8@oss.qualcomm.com>
+ <20260223-soc-of-root-v2-8-b45da45903c8@oss.qualcomm.com> <CAMuHMdX-rdzLhOFEJYBXzCYX5jH2E1=ydGWKgNkD0Nqx-tGr4Q@mail.gmail.com>
+In-Reply-To: <CAMuHMdX-rdzLhOFEJYBXzCYX5jH2E1=ydGWKgNkD0Nqx-tGr4Q@mail.gmail.com>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Mon, 2 Mar 2026 18:18:06 +0100
+X-Gmail-Original-Message-ID: <CAMRc=MfwQm58Md+rH0gfwAdKf2mdtZ=2VRDzXQOZpGVcQgeyMw@mail.gmail.com>
+X-Gm-Features: AaiRm50zY2ACynZYq07UnZgsPpbD86ujojZTOhhFyYjI7hbWVv0-GS9VJ_fMHck
+Message-ID: <CAMRc=MfwQm58Md+rH0gfwAdKf2mdtZ=2VRDzXQOZpGVcQgeyMw@mail.gmail.com>
+Subject: Re: [PATCH v2 8/9] soc: renesas: don't access of_root directly
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Rob Herring <robh@kernel.org>, 
+	Saravana Kannan <saravanak@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Frank Li <Frank.Li@nxp.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+	imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org, 
+	linux-sunxi@lists.linux.dev, driver-core@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_091348_905632_8CF0BD16 
-X-CRM114-Status: GOOD (  34.89  )
+X-CRM114-CacheID: sfid-20260302_091822_160588_C7834182 
+X-CRM114-Status: GOOD (  25.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,160 +93,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/03/2026 15:23, Steven Price wrote:
-> Hi Marc,
-> 
-> On 02/03/2026 14:25, Marc Zyngier wrote:
->> On Wed, 17 Dec 2025 10:10:43 +0000,
->> Steven Price <steven.price@arm.com> wrote:
->>>
->>> There is one CAP which identified the presence of CCA, and two ioctls.
->>> One ioctl is used to populate memory and the other is used when user
->>> space is providing the PSCI implementation to identify the target of the
->>> operation.
->>>
->>> Signed-off-by: Steven Price <steven.price@arm.com>
->>> ---
->>> Changes since v11:
->>>   * Completely reworked to be more implicit. Rather than having explicit
->>>     CAP operations to progress the realm construction these operations
->>>     are done when needed (on populating and on first vCPU run).
->>>   * Populate and PSCI complete are promoted to proper ioctls.
->>> Changes since v10:
->>>   * Rename symbols from RME to RMI.
->>> Changes since v9:
->>>   * Improvements to documentation.
->>>   * Bump the magic number for KVM_CAP_ARM_RME to avoid conflicts.
->>> Changes since v8:
->>>   * Minor improvements to documentation following review.
->>>   * Bump the magic numbers to avoid conflicts.
->>> Changes since v7:
->>>   * Add documentation of new ioctls
->>>   * Bump the magic numbers to avoid conflicts
->>> Changes since v6:
->>>   * Rename some of the symbols to make their usage clearer and avoid
->>>     repetition.
->>> Changes from v5:
->>>   * Actually expose the new VCPU capability (KVM_ARM_VCPU_REC) by bumping
->>>     KVM_VCPU_MAX_FEATURES - note this also exposes KVM_ARM_VCPU_HAS_EL2!
->>> ---
->>>   Documentation/virt/kvm/api.rst | 57 ++++++++++++++++++++++++++++++++++
->>>   include/uapi/linux/kvm.h       | 23 ++++++++++++++
->>>   2 files changed, 80 insertions(+)
->>>
->>> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
->>> index 01a3abef8abb..2d5dc7e48954 100644
->>> --- a/Documentation/virt/kvm/api.rst
->>> +++ b/Documentation/virt/kvm/api.rst
->>> @@ -6517,6 +6517,54 @@ the capability to be present.
->>>   
->>>   `flags` must currently be zero.
->>>   
->>> +4.144 KVM_ARM_VCPU_RMI_PSCI_COMPLETE
->>> +------------------------------------
->>> +
->>> +:Capability: KVM_CAP_ARM_RMI
->>> +:Architectures: arm64
->>> +:Type: vcpu ioctl
->>> +:Parameters: struct kvm_arm_rmi_psci_complete (in)
->>> +:Returns: 0 if successful, < 0 on error
->>> +
->>> +::
->>> +
->>> +  struct kvm_arm_rmi_psci_complete {
->>> +	__u64 target_mpidr;
->>> +	__u32 psci_status;
->>> +	__u32 padding[3];
->>> +  };
->>> +
->>> +Where PSCI functions are handled by user space, the RMM needs to be informed of
->>> +the target of the operation using `target_mpidr`, along with the status
->>> +(`psci_status`). The RMM v1.0 specification defines two functions that require
->>> +this call: PSCI_CPU_ON and PSCI_AFFINITY_INFO.
->>> +
->>> +If the kernel is handling PSCI then this is done automatically and the VMM
->>> +doesn't need to call this ioctl.
->>
->> Shouldn't we make handling of PSCI mandatory for VMMs that deal with
->> CCA? I suspect it would simplify the implementation significantly.
-> 
-> What do you mean by making it "mandatory for VMMs"? If you mean PSCI is
-> always forwarded to user space then I don't think it's going to make
-> much difference. Patch 27 handles the PSCI changes (72 lines added), and
-> some of that is adding this uAPI for the VMM to handle it.
-> 
-> Removing the functionality to allow the VMM to handle it would obviously
-> simplify things a bit (we can drop this uAPI), but I think the desire is
-> to push this onto user space.
-> 
->> What vcpu fd does this apply to? The vcpu calling the PSCI function?
->> Or the target? This is pretty important for PSCI_ON. My guess is that
->> this is setting the return value for the caller?
-> 
-> Yes the fd is the vcpu calling PSCI. As you say, this is for the return
-> value to be set correctly.
-> 
->> Assuming this is indeed for the caller, why do we have a different
->> flow from anything else that returns a result from a hypercall?
-> 
-> I'm not entirely sure what you are suggesting. Do you mean why are we
-> not just writing to the GPRS that would contain the result? The issue
-> here is that the RMM needs to know the PA of the target REC structure -
-> this isn't a return to the guest, but information for the RMM itself to
-> complete the PSCI call.
-> 
-> Ultimately even in the case where the VMM is handling PSCI, it's
-> actually a combination of the VMM and the RMM - with the RMM validating
-> the responses.
-> 
+On Mon, Mar 2, 2026 at 5:47=E2=80=AFPM Geert Uytterhoeven <geert@linux-m68k=
+.org> wrote:
+>
+> Hi Bartosz,
+>
+> On Mon, 23 Feb 2026 at 14:38, Bartosz Golaszewski
+> <bartosz.golaszewski@oss.qualcomm.com> wrote:
+> > Don't access of_root directly as it reduces the build test coverage for
+> > this driver with COMPILE_TEST=3Dy and OF=3Dn. Use existing helper funct=
+ions
+> > to retrieve the relevant information.
+> >
+> > Suggested-by: Rob Herring <robh@kernel.org>
+> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.co=
+m>
+>
+> > --- a/drivers/soc/renesas/renesas-soc.c
+> > +++ b/drivers/soc/renesas/renesas-soc.c
+>
+> > @@ -468,7 +469,11 @@ static int __init renesas_soc_init(void)
+> >         const char *soc_id;
+> >         int ret;
+> >
+> > -       match =3D of_match_node(renesas_socs, of_root);
+> > +       struct device_node *root __free(device_node) =3D of_find_node_b=
+y_path("/");
+> > +       if (!root)
+> > +               return -ENOENT;
+> > +
+> > +       match =3D of_match_node(renesas_socs, root);
+> >         if (!match)
+> >                 return -ENODEV;
+> >
+>
+> I still find it silly to add a call to of_find_node_by_path().
+> In your reply to my comment on v1, you said you don't want to add
+> another helper.
+>
+> Currently we have two helpers in this area:
+>   1. of_machine_device_match(), which returns bool, and tells if a
+>      match is available,
+>   2. of_machine_get_match_data(), which returns the match data, if a
+>      match is available.
+> But there is no helper to return the actual match?
+> of_machine_device_match() would be fine, if it wouldn't cast the result
+> to bool...
+>
+> As there is no cost (binary size-wise) in having the helper that returns
+> the match, too, I have sent a series[1] to do that. The last patch[2]
+> is an alternative to this patch, avoiding the need to add a call to
+> of_find_node_by_path().
+>
+> [1] "[PATCH 0/7] of: Add and use of_machine_get_match() helper"
+>     https://lore.kernel.org/cover.1772468323.git.geert+renesas@glider.be
+> [2] "[PATCH 7/7] soc: renesas: Convert to of_machine_get_match()"
+>     https://lore.kernel.org/10876b30a8bdb7d1cfcc2f23fb859f2ffea335fe.1772=
+468323.git.geert+renesas@glider.be
+>
 
-More importantly, we have to make sure that the "RMI_PSCI_COMPLETE" is
-invoked before both of the following:
-   1. The "source" vCPU is run again
-   2. More importantly the "target" vCPU is run.
+Sure, I'm fine with this patch being dropped and your series queued instead=
+.
 
-The latter part makes it difficult to issue this RMI_PSCI_COMPLETE on
-the way back from servicing the SMCCC call.
-
-Suzuki
-
-
->>> +
->>> +4.145 KVM_ARM_RMI_POPULATE
->>> +--------------------------
->>> +
->>> +:Capability: KVM_CAP_ARM_RMI
->>> +:Architectures: arm64
->>> +:Type: vm ioctl
->>> +:Parameters: struct kvm_arm_rmi_populate (in)
->>> +:Returns: number of bytes populated, < 0 on error
->>> +
->>> +::
->>> +
->>> +  struct kvm_arm_rmi_populate {
->>> +	__u64 base;
->>> +	__u64 size;
->>> +	__u64 source_uaddr;
->>> +	__u32 flags;
->>> +	__u32 reserved;
->>> +  };
->>> +
->>> +Populate a region of protected address space by copying the data from the user
->>> +space pointer provided. This is only valid before any VCPUs have been run.
->>> +The ioctl might not populate the entire region and user space may have to
->>> +repeatedly call it (with updated pointers) to populate the entire region.
->>
->> size as a __u64 is odd, as the return value from the ioctl is a signed
->> int. This implies that you can't really report how many bytes you have
->> copied.  Some form of consistency wouldn't hurt.
-> 
-> Good spot. In practice this works because >2GB in one operation is
-> highly unlikely to be processed in one go. But I guess I'll change this
-> to have an output size argument. I guess I could make the kernel update
-> all of base,size,source_uaddr which would simplify user space.
-> 
-> Thanks,
-> Steve
-> 
-
+Bart
 
