@@ -4,46 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62BF2EA4E24
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 15:27:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACF6AEA4E22
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 15:27:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0LAkeeuR803P8LXVEZcANcWdKDHU68JzR37mEZkU3so=; b=HpvZyHwDYGStbDittkxagrZ8K5
-	Nm51313YLnug2gsVNdJYjF1zRMFb25KT3lcIqobU42kMY8CWVl41VtNFlstHdcosWXIX1d9EGA6Se
-	5NjGwITfOSlZmpTYGDYdToaxyfAau9fL6ddvOVuzmSEKbZ+l+W+0SecbIx72S4NUQzyHthe0S0L0j
-	v6P89Re75EgXSYzGxNhfNfZM35graMeeepjXK9U9ruFJ+gHPDYkDSh7GJCcFP4ry10UvXIitwNUVf
-	3Dmnezx8cDf/FYmyfVBdjtfivsrCJHvZM53XC7s1uD3Yi9gPWqERUvsMN5q30Q2+tSWLbqPfqGwrI
-	FPTw5c9g==;
+	bh=kANfip711vpiQBCFAIvvNl9ciTTZ0r6aVv54HQCstiI=; b=EM489qciBmZz/YdASL3ZyhedBV
+	rprPBJa5g2bECQnNjF4EdFYQFM9H/cArgB2B9+6Tjrw04AUIbMYWxEORd+qyUO+04oYsmuUNENOHr
+	wxTSX3E2EBz1D9pWxNlkFespXOTaE+iwJxiiT5iPOsI/FOpIsKNG+3In+g3eTlI7AJV1L2KpT7biE
+	aE7fflUjHloJB9128BwaTKGkq5bxEJLTNf9i+1upSYf2MAEjI4RACtk40iT9oO+YB+WdXiip5MpWJ
+	D7UhJ6J6T2aMigaVwVP92Jby5i0R/FwZOY0r60Itct+cS7qlYUlbF1A79V6NSGyRDf4fWzz1nblPN
+	p4FSllhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx5BM-0000000DMSy-3rHV;
-	Mon, 02 Mar 2026 15:27:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vx5BS-0000000DMWE-2K9m;
+	Mon, 02 Mar 2026 15:27:46 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx5BK-0000000DMRU-3ENv
+	id 1vx5BR-0000000DMVA-05gr
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 02 Mar 2026 15:27:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=kANfip711vpiQBCFAIvvNl9ciTTZ0r6aVv54HQCstiI=; b=nJgJOdsxOViXtZehOfmxo24MQf
+	IKf8DjrLk72P1pwJrQrYL8rZw4oBjqs5pJcTQdC1WEhZ1JXKYolBmFCuVVjBvWCiNJnPUqk5G5F6l
+	gST4Px460FFRaQNOR6qtAtO6en+IITGoDnjnkpm0H39eHenD0Jw4FjzI0uhq4pG6cr8sqfq+CIRPc
+	en/T1HSeKOwSImeuWlSu76SDeLOt/O1TPKl/X3TvFRvuPiXjNrdc6mkowd56g4HeOUivWxfcoG+No
+	VsFDg0BL0EatJOixIzo40cTJvtQQLi8EhThgupM3oVFEl/XQviwcUh6NNByqQ7Juk6X/GBHopj1De
+	TZLBe7Zg==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vx5BO-00000000RPJ-00f3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 15:27:39 +0000
+	Mon, 02 Mar 2026 15:27:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 13FC04434D;
+	by sea.source.kernel.org (Postfix) with ESMTP id 2E55F4448E;
 	Mon,  2 Mar 2026 15:27:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2EF6C2BC86;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9E86C2BCB1;
 	Mon,  2 Mar 2026 15:27:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1772465258;
-	bh=OMfRQgfsQDyQJeWugDAblKSTBtsVMa/6YkVPJx2p8lE=;
+	bh=BkdGVxBjkFgDtxop+akQ0p2oSsG6DQYEaX74MCiqCWY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OqxOI7BxzZ0qz7vSqumO/C6C0Zem/L8wwUk+SHT/N5E9PQyVzC7O9QFQ+SgBqDbat
-	 QlysAXQYr6FdoDrDlAfmLKw/QCKc0CwiQMhbN4lyuX36kjxN3vaMpi2vi6nOR237BZ
-	 +VvWZiqpK5MhJmzj73ZuftN5VCQYfv3nG6M3k9NPXHpx4V89zDErrPUY9DaoQSslGM
-	 kNsoXiaz06i19IQ1gSnntIE/91QPenxrh6rRTnjnufLIMqMElvaD/TKALvEU23Hu37
-	 i0Pdlk55ha2tOAqBSyHP7BTlzKecmx17yxK6nxpZIlCDt/vjET42y4P5Uc92Jp+Sd5
-	 Jw60Le+WzOEbw==
+	b=WWhlvzvuUZ0UgddDD2pZBOqxOURA6GrBn6uAITw94P/t8FR/PLO7De/F8ntbcp9KV
+	 iLzEEuVKxFqRpaYkz0X/5Z93rsS15JaEAF0IM1q/xfeqoVDjn0gdAc+iN03vzKzfbx
+	 26YjEtvA1k+jvZLTd4DYVhjG7N4mAtoas5EqTZijTiXhiJAsxipixoo/FIgtvSFu+o
+	 KVkFY+7tk6nt9iUbPiAsmcYZAqvXUeKgnFtIA+WFW/ToMb3prpBuMY7WXWKlxu+QzC
+	 ugmfSfAFvBrZcXmVxNMCjl+0LVFrRby0OFEo5coI0sD0qoQh2YcVNqGUYQgSSqIywJ
+	 Vx+Ze4F5E3rWA==
 Received: by wens.tw (Postfix, from userid 1000)
-	id 55D7060003; Mon, 02 Mar 2026 23:27:35 +0800 (CST)
+	id 4CF485FF08; Mon, 02 Mar 2026 23:27:35 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Lee Jones <lee@kernel.org>,
 	Pavel Machek <pavel@kernel.org>
@@ -59,17 +74,17 @@ Cc: Chen-Yu Tsai <wens@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-leds@vger.kernel.org,
 	Jernej Skrabec <jernej.skrabec@gmail.com>
-Subject: [PATCH v2 2/3] arm64: dts: allwinner: sun55i-a523: Add LED controller
-Date: Mon,  2 Mar 2026 23:27:21 +0800
-Message-ID: <20260302152724.3197587-3-wens@kernel.org>
+Subject: [PATCH v2 3/3] arm64: dts: allwinner: sun55i-t527: avaota-a1: Enable LEDs
+Date: Mon,  2 Mar 2026 23:27:22 +0800
+Message-ID: <20260302152724.3197587-4-wens@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260302152724.3197587-1-wens@kernel.org>
 References: <20260302152724.3197587-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_072738_826032_6E7C1787 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20260302_152742_210371_62228A29 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,58 +99,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The A523 SoC family features an LED controller that is identical to the
-one found on previous SoCs.
+The Avaota A1 board features 4 RGB LEDs in a string connected to the
+SoC's LED controller.
 
-Add a device node for it, and one of the possible pinmux settings. This
-setting is used on the Avaota A1.
+Enable the LED controller and add device nodes for them. The timings
+were copied from the downstream vendor DTS. The design does not specify
+what these LEDs are for, nor are there any markings on the board for
+them, so just use them as indicators.
 
-Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
 ---
- .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 22 +++++++++++++++++++
- 1 file changed, 22 insertions(+)
+ .../dts/allwinner/sun55i-t527-avaota-a1.dts   | 41 +++++++++++++++++++
+ 1 file changed, 41 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-index 9335977751e2..92aecb90d4e1 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-@@ -153,6 +153,13 @@ i2s2_pi_pins: i2s2-pi-pins {
- 				bias-disable;
- 			};
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+index 054d0357c139..7c24121de88f 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+@@ -6,6 +6,7 @@
+ #include "sun55i-a523.dtsi"
  
-+			/omit-if-no-ref/
-+			ledc_ph_pin: ledc-ph-pin {
-+				pins = "PH19";
-+				function = "ledc";
-+				allwinner,pinmux = <5>;
-+			};
-+
- 			mmc0_pins: mmc0-pins {
- 				pins = "PF0" ,"PF1", "PF2", "PF3", "PF4", "PF5";
- 				allwinner,pinmux = <2>;
-@@ -283,6 +290,21 @@ ccu: clock-controller@2001000 {
- 			#reset-cells = <1>;
- 		};
+ #include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/leds/common.h>
  
-+		ledc: led-controller@2008000 {
-+			compatible = "allwinner,sun55i-a523-ledc",
-+				     "allwinner,sun50i-a100-ledc";
-+			reg = <0x02008000 0x400>;
-+			interrupts = <GIC_SPI 28 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_LEDC>, <&ccu CLK_LEDC>;
-+			clock-names = "bus", "mod";
-+			resets = <&ccu RST_BUS_LEDC>;
-+			dmas = <&dma 42>;
-+			dma-names = "tx";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
+ / {
+ 	model = "Avaota A1";
+@@ -99,6 +100,46 @@ &gpu {
+ 	status = "okay";
+ };
+ 
++&ledc {
++	pinctrl-names = "default";
++	pinctrl-0 = <&ledc_ph_pin>;
++	allwinner,pixel-format = "grb";
++	allwinner,t0l-ns = <800>;
++	allwinner,t0h-ns = <300>;
++	allwinner,t1l-ns = <320>;
++	allwinner,t1h-ns = <800>;
++	allwinner,treset-ns = <84>;
++	status = "okay";
 +
- 		wdt: watchdog@2050000 {
- 			compatible = "allwinner,sun55i-a523-wdt";
- 			reg = <0x2050000 0x20>;
++	multi-led@0 {
++		reg = <0x0>;
++		color = <LED_COLOR_ID_RGB>;
++		function = LED_FUNCTION_INDICATOR;
++		function-enumerator = <0>;
++	};
++
++	multi-led@1 {
++		reg = <0x1>;
++		color = <LED_COLOR_ID_RGB>;
++		function = LED_FUNCTION_INDICATOR;
++		function-enumerator = <1>;
++	};
++
++	multi-led@2 {
++		reg = <0x2>;
++		color = <LED_COLOR_ID_RGB>;
++		function = LED_FUNCTION_INDICATOR;
++		function-enumerator = <2>;
++	};
++
++	multi-led@3 {
++		reg = <0x3>;
++		color = <LED_COLOR_ID_RGB>;
++		function = LED_FUNCTION_INDICATOR;
++		function-enumerator = <3>;
++	};
++};
++
+ &mdio0 {
+ 	ext_rgmii0_phy: ethernet-phy@1 {
+ 		compatible = "ethernet-phy-ieee802.3-c22";
 -- 
 2.47.3
 
