@@ -4,89 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01571EA4E07
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 14:41:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC982EA4E09
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 14:42:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IkTXPgOoOcrGEvukCA8+yJi0+fYvSBaaSakUT8ohqGw=; b=UsCrv1BadUXMTo7w7VkYlYnKjM
-	ZvWuMD/PUDNc7rpLO0xpqFBwYCf+c5kHQ77mlFEK0g+6KNC7sW+Yoyn8hQAWRdFYDAQ+1ts9YOfQu
-	AjG3/eG8QbQ8RsNmlt/PvpBsdEwCD7AFgvbHjP5VBPzzSJT6kSehjGlzz2Rxp3W20WFUbJPQ1N9yN
-	I1rn31Z0dl3W3JmvzKuKyr7IhwZ0V5g6U9+UQ/mMXcbce9dDJFhhImgmKQwbNGtl9p5VeDKyXbbJ+
-	FEdg9s0h9CmVmLd4wnKIfX6UYqhgb2tXpolqHybckNJWh7illcU98ZFcXbFinEU1QVoJSdD40Cb4H
-	iH8d2q4w==;
+	bh=T1mG0wv00yldVU/xwo7Yhg7780i70aRmq9BdQSKuqEU=; b=ibjK/CNBl6GZOjy6QSvKVdYEFl
+	advKGBuhjOutjm+zEwPbjDlqCHOJnXQocVcvMDLL0fLtwvoaVyZsaFY/1qn56L72jhlkornxfXQkf
+	TVfyN3D4earhxGqF1WC0m5qOT0fAB+SSlPejtD7i/Y6THpPikiOSNrHuSx9AEC9qcJ99fmn1gmu1f
+	fjYIVQitBJIgNpf78OCakhCEVcFlAdEUshwSTjRzRbZzgrA1Kj3IogxXOIQxkAb8ofE05QdS7GUSt
+	2OX04xSEAb7YE78wtuQqa2nAeN916nya1Kqzy+bXVCC1ZvjVvncAOVvHvEFPEPGjfSo6QR/eWkRey
+	PcI5cBQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx4SB-0000000DFbs-2Nmn;
-	Mon, 02 Mar 2026 14:40:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vx4Tm-0000000DFlE-45MP;
+	Mon, 02 Mar 2026 14:42:38 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx4SA-0000000DFbf-1X8Z
+	id 1vx4Tk-0000000DFko-0it5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 14:40:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 84FA1600AD;
-	Mon,  2 Mar 2026 14:40:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CD32C2BC87;
-	Mon,  2 Mar 2026 14:40:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772462457;
-	bh=0BX32rikMvdKmXC/ZetcwR4NQo3eeiBaEA6cl/8/jL4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=bQnl2EfjARf61qvvtmuKW2BmsdeY+7kF/+PPxOJsE6Ua/U1JITg9L3KPIwlNhwF/k
-	 prOm/v6D06rZ1UjUkTyOzW4CzXAbKppBTYmZ6/K3VLID1KROqhErHkbriTPSwoQNwS
-	 McRg5FPUb/rTUdi7rHTYU0G3IN4JcFE98+RQBolSjxGAaCAPztGb+7Hj8M47Jy2Wm2
-	 D+aegsuvJmrguzO+2AaAYCEZc/pdl7Cb2v/fhvcreFmjJzztvguK4a+gM4h7NmtjNg
-	 kb2ttvq8Niyg0hX3in9bZa4Oqksy/II0DgpIAmLaz8/Z37RreUvXo4/DIgNNEWuBt5
-	 1kKmMX+xxPrmQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vx4S6-0000000FHIR-37Cg;
-	Mon, 02 Mar 2026 14:40:54 +0000
-Date: Mon, 02 Mar 2026 14:40:54 +0000
-Message-ID: <86seai8fbd.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>
-Subject: Re: [PATCH v12 11/46] arm64: RMI: Activate realm on first VCPU run
-In-Reply-To: <20251217101125.91098-12-steven.price@arm.com>
-References: <20251217101125.91098-1-steven.price@arm.com>
-	<20251217101125.91098-12-steven.price@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 02 Mar 2026 14:42:37 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vx4Sh-0005yf-7l; Mon, 02 Mar 2026 15:41:31 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vx4Se-003OgQ-20;
+	Mon, 02 Mar 2026 15:41:29 +0100
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vx4Sf-0000000EFWv-3Xl9;
+	Mon, 02 Mar 2026 15:41:29 +0100
+Date: Mon, 2 Mar 2026 15:41:29 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, andrej.picej@norik.com, 
+	primoz.fiser@norik.com, c.hemp@phytec.de, s.mueller-klieser@phytec.de, n.wesp@phytec.de, 
+	c.stoidner@phytec.de, linux-clk@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v3] arm64: dts: imx93-phyboard-segin: Add peb-av-02
+ overlay
+Message-ID: <qhkhjjlhleg5hb4md35djnstzi2zfb3kyzgzs3uj6jwo2rr52v@dd74kclcxop2>
+References: <20260113-v6-18-topic-imx93-phyboard-segin-av-02-display-v3-1-fcbb85b0fbe5@pengutronix.de>
+ <aZ3AnxbjO8YDTPP7@lizhi-Precision-Tower-5810>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aZ3AnxbjO8YDTPP7@lizhi-Precision-Tower-5810>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260302_064236_426831_776D5D23 
+X-CRM114-Status: GOOD (  22.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,130 +83,229 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 17 Dec 2025 10:10:48 +0000,
-Steven Price <steven.price@arm.com> wrote:
+Hi Frank,
+
+On 26-02-24, Frank Li wrote:
+
+...
+
+> On Tue, Jan 13, 2026 at 08:06:08PM +0100, Marco Felsch wrote:
+> >  arch/arm64/boot/dts/freescale/Makefile             |   2 +
+> >  .../freescale/imx93-phyboard-segin-peb-av-02.dtso  | 146 +++++++++++++++++++++
+> >  2 files changed, 148 insertions(+)
+> >
+> > diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+> > index f30d3fd724d0ce6b38f7bef10e3970ac34f70f4a..a850cf5d8c0298c1bcfbff0fe857c39745ac7a6c 100644
+> > --- a/arch/arm64/boot/dts/freescale/Makefile
+> > +++ b/arch/arm64/boot/dts/freescale/Makefile
+> > @@ -384,12 +384,14 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
+> >  imx93-phyboard-nash-jtag-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-jtag.dtbo
+> >  imx93-phyboard-nash-peb-wlbt-07-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-peb-wlbt-07.dtbo
+> >  imx93-phyboard-nash-pwm-fan-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-pwm-fan.dtbo
+> > +imx93-phyboard-segin-peb-av-02-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-av-02.dtbo
+> >  imx93-phyboard-segin-peb-eval-01-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-eval-01.dtbo
+> >  imx93-phyboard-segin-peb-wlbt-05-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-wlbt-05.dtbo
+> >  imx93-phycore-rpmsg-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-segin.dtb imx93-phycore-rpmsg.dtbo
+> >  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-jtag.dtb
+> >  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-peb-wlbt-07.dtb
+> >  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-pwm-fan.dtb
+> > +dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-av-02.dtb
+> >  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-eval-01.dtb
+> >  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-wlbt-05.dtb
+> >  dtb-$(CONFIG_ARCH_MXC) += imx93-phycore-rpmsg.dtb
 > 
-> When a VCPU migrates to another physical CPU check
-
-To another physical CPU?
-
-That's not what kvm_arch_vcpu_run_pid_change() tracks. It really is
-limited to a new PID being associated to the vpcu thread. Which is
-indeed the case when the vpcu runs for the first time, but that's
-about it.
-
-If you need to track the physical CPU, we have some tracking for it in
-vcpu_load(), but that'd need some rework.
-
-> if this is the first
-> time the guest has run, and if so activate the realm.
+> I get build error
 > 
-> Before the realm can be activated it must first be created, this is a
-> stub in this patch and will be filled in by a later patch.
+> Failed to apply 'arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtbo': FDT_ERR_NOTFOUND
+
+I couldn't reproduce your error on my site:
+
+make ARCH=arm64 O=dtb defconfig
+make ARCH=arm64 O=dtb -j dtbs|grep imx93-phyboard-segin
+  DTC     arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dtb
+  DTC     arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtbo
+  DTC     arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-eval-01.dtbo
+  DTC     arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-wlbt-05.dtbo
+  OVL     arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtb
+  OVL     arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-eval-01.dtb
+  OVL     arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-wlbt-05.dtb
+
+Regards,
+  Marco
+
+
 > 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> New patch for v12
-> ---
->  arch/arm64/include/asm/kvm_rmi.h |  1 +
->  arch/arm64/kvm/arm.c             |  6 +++++
->  arch/arm64/kvm/rmi.c             | 42 ++++++++++++++++++++++++++++++++
->  3 files changed, 49 insertions(+)
+> Frank
 > 
-> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
-> index cb7350f8a01a..e4534af06d96 100644
-> --- a/arch/arm64/include/asm/kvm_rmi.h
-> +++ b/arch/arm64/include/asm/kvm_rmi.h
-> @@ -69,6 +69,7 @@ void kvm_init_rmi(void);
->  u32 kvm_realm_ipa_limit(void);
->  
->  int kvm_init_realm_vm(struct kvm *kvm);
-> +int kvm_activate_realm(struct kvm *kvm);
->  void kvm_destroy_realm(struct kvm *kvm);
->  void kvm_realm_destroy_rtts(struct kvm *kvm);
->  
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 941d1bec8e77..542df37b9e82 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -951,6 +951,12 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
->  			return ret;
->  	}
->  
-> +	if (kvm_is_realm(vcpu->kvm)) {
-> +		ret = kvm_activate_realm(kvm);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
->  	mutex_lock(&kvm->arch.config_lock);
->  	set_bit(KVM_ARCH_FLAG_HAS_RAN_ONCE, &kvm->arch.flags);
->  	mutex_unlock(&kvm->arch.config_lock);
-> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-> index e57e8b7eafa9..98929382c365 100644
-> --- a/arch/arm64/kvm/rmi.c
-> +++ b/arch/arm64/kvm/rmi.c
-> @@ -223,6 +223,48 @@ void kvm_realm_destroy_rtts(struct kvm *kvm)
->  	WARN_ON(realm_tear_down_rtt_range(realm, 0, (1UL << ia_bits)));
->  }
->  
-> +static int realm_ensure_created(struct kvm *kvm)
-> +{
-> +	/* Provided in later patch */
-> +	return -ENXIO;
-> +}
-> +
-> +int kvm_activate_realm(struct kvm *kvm)
-> +{
-> +	struct realm *realm = &kvm->arch.realm;
-> +	int ret;
-> +
-> +	if (!kvm_is_realm(kvm))
-> +		return -ENXIO;
-
-nit: you already checked for this in caller.
-
-> +
-> +	if (kvm_realm_state(kvm) == REALM_STATE_ACTIVE)
-> +		return 0;
-
-You probably also want to return early once the realm has been marked
-as dead -- it shouldn't be able to be a zombie and die twice.
-
-> +
-> +	guard(mutex)(&kvm->arch.config_lock);
-> +	/* Check again with the lock held */
-> +	if (kvm_realm_state(kvm) == REALM_STATE_ACTIVE)
-> +		return 0;
-> +
-> +	ret = realm_ensure_created(kvm);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* Mark state as dead in case we fail */
-> +	WRITE_ONCE(realm->state, REALM_STATE_DEAD);
-> +
-> +	if (!irqchip_in_kernel(kvm)) {
-> +		/* Userspace irqchip not yet supported with realms */
-> +		return -EOPNOTSUPP;
-> +	}
-> +
-> +	ret = rmi_realm_activate(virt_to_phys(realm->rd));
-> +	if (ret)
-> +		return -ENXIO;
-> +
-> +	WRITE_ONCE(realm->state, REALM_STATE_ACTIVE);
-> +	return 0;
-> +}
-> +
->  void kvm_destroy_realm(struct kvm *kvm)
->  {
->  	struct realm *realm = &kvm->arch.realm;
-
-Thanks,
-
-	M.
+> > diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtso b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtso
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..af330756abfd127f2dd0a7e54c2e141300462889
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtso
+> > @@ -0,0 +1,146 @@
+> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> > +/*
+> > + * Copyright (C) 2025 PHYTEC Messtechnik GmbH
+> > + * Copyright (C) 2025 Pengutronix
+> > + *
+> > + * Author: Andrej Picej <andrej.picej@norik.com>
+> > + * Author: Marco Felsch <kernel@pengutronix.de>
+> > + */
+> > +
+> > +#include <dt-bindings/clock/imx93-clock.h>
+> > +#include <dt-bindings/gpio/gpio.h>
+> > +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> > +#include "imx93-pinfunc.h"
+> > +
+> > +/dts-v1/;
+> > +/plugin/;
+> > +
+> > +&{/} {
+> > +	backlight: backlight {
+> > +		compatible = "pwm-backlight";
+> > +		brightness-levels = <0 4 8 16 32 64 128 255>;
+> > +		default-brightness-level = <5>;
+> > +		power-supply = <&reg_vcc_3v3_con>;
+> > +		pwms = <&pwm7 0 5000000 0>;
+> > +	};
+> > +
+> > +	panel {
+> > +		compatible = "edt,etm0700g0edh6";
+> > +		pinctrl-names = "default";
+> > +		pinctrl-0 = <&pinctrl_panel>;
+> > +
+> > +		backlight = <&backlight>;
+> > +		enable-gpios = <&gpio4 29 GPIO_ACTIVE_HIGH>;
+> > +		power-supply = <&reg_vcc_3v3_con>;
+> > +
+> > +		port {
+> > +			panel_in: endpoint {
+> > +				remote-endpoint = <&dpi_to_panel>;
+> > +			};
+> > +		};
+> > +	};
+> > +
+> > +	/* TODO: Convert to FlexIO PWM once supported */
+> > +	pwm7: pwm-7 {
+> > +		compatible = "pwm-gpio";
+> > +		pinctrl-names = "default";
+> > +		pinctrl-0 = <&pinctrl_pwm7>;
+> > +		gpios = <&gpio4 28 GPIO_ACTIVE_HIGH>;
+> > +		#pwm-cells = <3>;
+> > +	};
+> > +
+> > +	reg_vcc_3v3_con: regulator-vcc-3v3-con {
+> > +		compatible = "regulator-fixed";
+> > +		regulator-name = "VCC3V3_CON";
+> > +		regulator-max-microvolt = <3300000>;
+> > +		regulator-min-microvolt = <3300000>;
+> > +	};
+> > +};
+> > +
+> > +&dpi_bridge {
+> > +	status = "okay";
+> > +};
+> > +
+> > +&dpi_to_panel {
+> > +	remote-endpoint = <&panel_in>;
+> > +};
+> > +
+> > +&lcdif {
+> > +	pinctrl-names = "default";
+> > +	pinctrl-0 = <&pinctrl_lcdif>;
+> > +	assigned-clocks = <&clk IMX93_CLK_VIDEO_PLL>;
+> > +	assigned-clock-rates = <332600000>;
+> > +	status = "okay";
+> > +};
+> > +
+> > +&lpi2c2 {
+> > +	#address-cells = <1>;
+> > +	#size-cells = <0>;
+> > +
+> > +	touchscreen@38 {
+> > +		compatible = "edt,edt-ft5406";
+> > +		reg = <0x38>;
+> > +		pinctrl-names = "default";
+> > +		pinctrl-0 = <&pinctrl_touchscreen>;
+> > +		interrupt-parent = <&gpio4>;
+> > +		interrupts = <12 IRQ_TYPE_EDGE_FALLING>;
+> > +		reset-gpios = <&gpio4 1 GPIO_ACTIVE_LOW>;
+> > +		vcc-supply = <&reg_vcc_3v3_con>;
+> > +		iovcc-supply = <&reg_vcc_3v3_con>;
+> > +		touchscreen-size-x = <1792>;
+> > +		touchscreen-size-y = <1024>;
+> > +		wakeup-source;
+> > +	};
+> > +};
+> > +
+> > +&media_blk_ctrl {
+> > +	status = "okay";
+> > +};
+> > +
+> > +&iomuxc {
+> > +	pinctrl_lcdif: lcdifgrp {
+> > +		fsl,pins = <
+> > +			MX93_PAD_GPIO_IO00__MEDIAMIX_DISP_CLK		0x50e
+> > +			MX93_PAD_GPIO_IO01__MEDIAMIX_DISP_DE		0x50e
+> > +			MX93_PAD_GPIO_IO02__MEDIAMIX_DISP_VSYNC		0x50e
+> > +			MX93_PAD_GPIO_IO03__MEDIAMIX_DISP_HSYNC		0x50e
+> > +			MX93_PAD_GPIO_IO04__MEDIAMIX_DISP_DATA00	0x50e
+> > +			MX93_PAD_GPIO_IO05__MEDIAMIX_DISP_DATA01	0x50e
+> > +			MX93_PAD_GPIO_IO06__MEDIAMIX_DISP_DATA02	0x50e
+> > +			MX93_PAD_GPIO_IO07__MEDIAMIX_DISP_DATA03	0x50e
+> > +			MX93_PAD_GPIO_IO08__MEDIAMIX_DISP_DATA04	0x50e
+> > +			MX93_PAD_GPIO_IO09__MEDIAMIX_DISP_DATA05	0x51e
+> > +			MX93_PAD_GPIO_IO10__MEDIAMIX_DISP_DATA06	0x50e
+> > +			MX93_PAD_GPIO_IO11__MEDIAMIX_DISP_DATA07	0x50e
+> > +			MX93_PAD_GPIO_IO12__MEDIAMIX_DISP_DATA08	0x50e
+> > +			MX93_PAD_GPIO_IO13__MEDIAMIX_DISP_DATA09	0x50e
+> > +			MX93_PAD_GPIO_IO14__MEDIAMIX_DISP_DATA10	0x50e
+> > +			MX93_PAD_GPIO_IO15__MEDIAMIX_DISP_DATA11	0x50e
+> > +			MX93_PAD_GPIO_IO16__MEDIAMIX_DISP_DATA12	0x506
+> > +			MX93_PAD_GPIO_IO17__MEDIAMIX_DISP_DATA13	0x506
+> > +			MX93_PAD_GPIO_IO18__MEDIAMIX_DISP_DATA14	0x506
+> > +			MX93_PAD_GPIO_IO19__MEDIAMIX_DISP_DATA15	0x506
+> > +			MX93_PAD_GPIO_IO20__MEDIAMIX_DISP_DATA16	0x506
+> > +			MX93_PAD_GPIO_IO21__MEDIAMIX_DISP_DATA17	0x506
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_panel: panelgrp {
+> > +		fsl,pins = <
+> > +			MX93_PAD_CCM_CLKO4__GPIO4_IO29			0x1133e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_pwm7: pwm7grp {
+> > +		fsl,pins = <
+> > +			MX93_PAD_CCM_CLKO3__GPIO4_IO28			0x1133e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_touchscreen: touchscreengrp {
+> > +		fsl,pins = <
+> > +			MX93_PAD_ENET1_MDIO__GPIO4_IO01			0x11e
+> > +			MX93_PAD_ENET1_RD2__GPIO4_IO12			0x1133e
+> > +		>;
+> > +	};
+> > +};
+> >
+> > ---
+> > base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+> > change-id: 20251202-v6-18-topic-imx93-phyboard-segin-av-02-display-c1687aa1ccf4
+> >
+> > Best regards,
+> > --
+> > Marco Felsch <m.felsch@pengutronix.de>
+> >
+> 
 
 -- 
-Without deviation from the norm, progress is not possible.
+#gernperDu 
+#CallMeByMyFirstName
+
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
