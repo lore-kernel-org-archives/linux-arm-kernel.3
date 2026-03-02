@@ -4,121 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8652ED58E79
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 08:15:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF2DAD58E79
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 08:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0C8EFJIojzx0y8Hgn3zZJ0+/K4ss9RUxQ+deTNNJAmQ=; b=e9b4DugN0cv4loeeZ9KNe2wU87
-	hm85yPSFe4d/LbxNQTBMuFvrPn7VsxZ9IGIsCJd7RrX05w98IEKwe84SxJVRNfGnXYRWCzZiFOEcm
-	V7b+t0tLMBvWbKrEZ0vY/DX4wKepSQWAtSKAA3oL9LFROrlho4gak12Qgd/cDp1ARRcGzcPiGFDGR
-	4aLaso7xuP2/Lj67H6NYStxAOBSdljyy03VJgwHrcjbKVtqtd9wpJPyOS55KiqTLLcBy1qz4GdGbj
-	m3RfzBzcVY5nPs4NQjKGjDggn5PzbPPRr6RoHK5rwOXgCZjEjM/Hn8nnD379jLCvBW8WIjL9bXIti
-	6Il3BIMA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xWw1ENY7xwh3x5DMYGCsGtzmSA6ZkEBvkzOYoLPD+0I=; b=oP+5ycKH2ioBaqeVTvxMNN6D7Q
+	sd7dZ077q9BpUwvPyrjMlsnXSUmCgOXeDsxNORMSZgmvFKQGmO/ncGxqFNx2khUUHmZ6Y2L5bTmZO
+	kVxkvfluKmgdPiSGgxm9hn3CMf0jfgA1ARsdiDp3kol68sNGeDQyIhDwi7LjrCxTzS93hzysDe3sS
+	ZOC2Cf1at6aRHZyPhA7zEAmg9EwQOohdopdVFmbwoSzfFCzs0JYhgT927gse67iPUJI/PhJH2Dpb9
+	+qmqqNaYBoiBA7DglVR0+b5+6rv4hhZtYkKfX51m0u3Tc6uHC0DnrJB1pk8hChEFUz3KIQA96YZgy
+	FNEd9MNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwyRB-0000000CVP4-3gTt;
-	Mon, 02 Mar 2026 08:15:33 +0000
-Received: from mail-norwayeastazon11013043.outbound.protection.outlook.com ([40.107.159.43] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vwyR9-0000000CVOT-1ifR
+	id 1vwySY-0000000CVb7-0mIV;
+	Mon, 02 Mar 2026 08:16:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vwySV-0000000CVad-1QrA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 08:15:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=okEnmQXzJoruVOykxcbPTNJ6LPaXiBi+aXOzqxdQfFgO85Rkoel5brvDqzq0wr8knT48CJ2Pn7FNGuuEzrkelF1bVU+13s7Fgb+OnA6b28UYeQ5OdqOydYYnEivkvZ6T0z5vn+kDXVEOA5JeQ3dzDpPhY3Qhg1V5LLMD67oX2XVF29FcWVGi3nQWMqoKF/+7fWSLvAzsenpht5Oih5cpzViHak9vxiKzqJ4AXjaq3h7ANrAncr2M5101oR8LwCWIRfoppR1WDIt/ICKbcKM7kTs4vNJIKBS7hzbhAG3nn1zxuCsT+SeBVOneNRclhLn5M0qkoUCN+6A0MpuX86EtpQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0C8EFJIojzx0y8Hgn3zZJ0+/K4ss9RUxQ+deTNNJAmQ=;
- b=bGJrAcM4HRHqQ78/WsXIFlCdna24IGK0gNVvQFlnwfrulXJWtcFNGjV8UQznnq4e23hUUquxYCMcya16XBDsB/E7THwI1GHSc1hNlzV0Cvuts5RweuS5aHVSLVhzIcA3+fv8/c6QkBW8QxjWDK0MdKa8WVTPghY3s8c6kqfpTbcPh9OZ+fsjINKA6NvlgoXC49uHKHw3+kxLyyti+0pFyW5TmKxZXQEbZ7NID2dfL1s/a8GoBB95RFQbgTUc+YftPhNpC0N3cDpG0IMRGyfXkA1jDZReZgupVFE6kH3M2+Dc+ozjmb2iNX9UO8XvOdft1035ucHwnZ12VKiGLnjWnw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=oss.qualcomm.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0C8EFJIojzx0y8Hgn3zZJ0+/K4ss9RUxQ+deTNNJAmQ=;
- b=S26jE+9AGvE6Iens6PY2lkm62rYX1l1QOE3ANs5B0OMmLwJ7KyRSUDznDzVfyKbh7rcpIR+YGNbDq/GLdSGgkrDzwgdzFjgTC8EYq0aeix8O2Lv8NdOyZipt9EahswaE3OYBNMPhTQ+tIYchyRdPE/NVcv+xApFN8b3ROrqKjKwqCOuXCcCTGdKyHs1BHroxb/JqraDHFSJlOYJ1RSIkYoTMXA98jV1OGWqqgKWpJNHH6NiEsSp5jXm7vQHt5XatPl+z6wiiXTRRWRNU+Sa81tl6QdOqtXJNrHnlha4QozwikrjPa+cDv3qsBuKhxUqD7PgQNU1HuSvQ2x8vsk5a9g==
-Received: from AS9PR04CA0122.eurprd04.prod.outlook.com (2603:10a6:20b:531::24)
- by PAVPR10MB7515.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:2f6::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.18; Mon, 2 Mar
- 2026 08:15:24 +0000
-Received: from AMS0EPF000001A5.eurprd05.prod.outlook.com
- (2603:10a6:20b:531::4) by AS9PR04CA0122.outlook.office365.com
- (2603:10a6:20b:531::24) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9654.21 via Frontend Transport; Mon,
- 2 Mar 2026 08:15:24 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- AMS0EPF000001A5.mail.protection.outlook.com (10.167.16.232) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9654.16 via Frontend Transport; Mon, 2 Mar 2026 08:15:23 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 2 Mar
- 2026 09:17:41 +0100
-Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 2 Mar
- 2026 09:15:19 +0100
-Message-ID: <9a53fee8-3194-488c-a04d-2070d91fc6ce@foss.st.com>
-Date: Mon, 2 Mar 2026 09:15:18 +0100
+	Mon, 02 Mar 2026 08:16:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4125114BF;
+	Mon,  2 Mar 2026 00:16:47 -0800 (PST)
+Received: from ergosum.cambridge.arm.com (ergosum.cambridge.arm.com [10.1.196.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1C6953F7BD;
+	Mon,  2 Mar 2026 00:16:51 -0800 (PST)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] KVM: arm64: Move inside all remaining TCR_XXX macros
+Date: Mon,  2 Mar 2026 08:16:46 +0000
+Message-Id: <20260302081646.2866370-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] bus: stm32_firewall: Use scoped allocation to
- simplify cleanup
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, "Bjorn
- Andersson" <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>,
-	Gatien Chevallier <gatien.chevallier@foss.st.com>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, <linux-arm-msm@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: Jonathan Cameron <jonathan.cameron@huawei.com>
-References: <20260105143657.383621-4-krzysztof.kozlowski@oss.qualcomm.com>
- <20260105143657.383621-6-krzysztof.kozlowski@oss.qualcomm.com>
- <767cafff-1ce1-4291-bcda-7a9027efc32b@oss.qualcomm.com>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <767cafff-1ce1-4291-bcda-7a9027efc32b@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS0EPF000001A5:EE_|PAVPR10MB7515:EE_
-X-MS-Office365-Filtering-Correlation-Id: a7d4e270-502c-439d-05ae-08de7833da79
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|36860700013|7053199007;
-X-Microsoft-Antispam-Message-Info: c+mADtvIhIHGuxx1kvrqjXYL6TzI95VCflt4Bh1n3YjBlS3Puv7M45XKJN5rSL5om0oKRUqpgSX71uKzkryyLFri2uOdpLZSoUrpwpMwe4hyIN3h+ws0smWblbB/MxV8UV+y7ha0loF5eaMLesSPSWCR9QU07VhVIXdx6xWML96k6CXwY71AKu0w67mKmKxinSj2VT7i3Z6coMgJ0u0GP4hssmcE0xFQ2t5V1ddYD+QUKUgJ+g4N+kmfBq5oaIjZ6gvd54W3tYYiMtKqJi8Qn+TVEcRBrC/b0O8Hko5ZUZIcfl0ogBoYY1TWjhWk2XJBp8PXdCdHH2jHcrZfiIu4/Yu0yohoJfinj9sae3vsc0Lor3kpdM1kZSnG2K2mr/bN28nJMbPl5r6DQrS52vW8wgPZA4D+FGbVgsRHNCO0Dyk55YVibYlkEZ5a2ivW2/8l25OWfKgTCUYR6+I6CL6cv9dhtgVRgGB60p1K/N1osXyaBUCSbqFJmvVirYTHLpcoBff5IweK4acleVs1S74JJ8hCciGwyRXHwtynMOd0IhLrM4+KuKgGDJmgKQsDIA8hiIqgOAmb7x6YAJPMfljEUtRgWz/nTyOPyG1PauCcAZcJ8Nw7uREdy41UaPQpMypaehVyFS/yUc2d5cHfLcWcJJ4gzKcTQmG0ci0PCywIACW0w1hrkIWTy1W0ioNfmTVUCYpwqFTqAwehJn/yqjViAnr2GoadFijHdIXY675xWsuxWPFUxQuTTA7bknroKCvdZlgUWubxujwtWkQ3hnRYQ3paOd2fKiihdZaEKTs1KSxpQybT/cYB+Ev4iZcwNKAJLP9n64TsU3vIad1t9m4a2w==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(36860700013)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: NuFCnPWG9woXWvREWA+8Z9CvfZ+h+1DJIqZDegF24rIOipnE5w1itzOcRmdSkzE746WBh1J/a7iJznGYZlCyo/eBZ1+apWokzDkc21wk752R68LoNkMw93bCE6vs8mlmWGxXucybXn7OPERIIzy2CxJQUT6+mzoyVR9Sm396xS2QvYYgDBRvPStOR7HZFta26AQ4BITG6erRE/F7NFcZ64plKB09xWj2L1j1GIEDj9M+zTPTmL90Er4OH1MjFpngC3y0mhpqMlJ5GpO42ViG9PpK7L/tUzhxmJ0MRu44usdwpt4YQ+tnVEBBqT2k5A2Y3ZI4kgQxWuBkb65j+V7x4qSXNOKlvdg+dLRW9KUrGPRupxg8cJooZOgiuQAXJ+os3nHqv9M3u4HVfjOqXT/VZtf9Ab+xkiyCdI4smMFIbizYFqzz2YkjXI07UjGj5wKG
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Mar 2026 08:15:23.6407
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a7d4e270-502c-439d-05ae-08de7833da79
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001A5.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAVPR10MB7515
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_001531_955907_B98514D2 
-X-CRM114-Status: GOOD (  10.22  )
+X-CRM114-CacheID: sfid-20260302_001655_479819_73C930C8 
+X-CRM114-Status: UNSURE (   9.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,30 +66,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Move all remaining TCR_XXX macros inside KVM specific header i.e kvm_arm.h
+for their continued usage in KVM, as there are no more stage-1 usage left.
 
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: kvmarm@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+---
+This patch applies on v7.0-rc2
 
-On 3/1/26 15:12, Krzysztof Kozlowski wrote:
-> On 05/01/2026 15:37, Krzysztof Kozlowski wrote:
->> Allocate the memory with scoped/cleanup.h to reduce error handling and
->> make the code a bit simpler.
->>
->> Suggested-by: Jonathan Cameron <jonathan.cameron@huawei.com>
->> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
->>
->> ---
->>
->> Changes in v2:
->> 1. New patch
->> ---
->>   drivers/bus/stm32_firewall.c | 10 +++-------
->>   1 file changed, 3 insertions(+), 7 deletions(-)
-> 
-> Is anyone picking up patches for stm32?
+https://lore.kernel.org/all/20251013052945.2197190-4-anshuman.khandual@arm.com/
 
-I will.
+ arch/arm64/include/asm/kvm_arm.h       | 45 ++++++++++++++++++++++++++
+ arch/arm64/include/asm/pgtable-hwdef.h | 45 --------------------------
+ 2 files changed, 45 insertions(+), 45 deletions(-)
 
-> 
-> Best regards,
-> Krzysztof
+diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+index 3f9233b5a130..a7bbf853100e 100644
+--- a/arch/arm64/include/asm/kvm_arm.h
++++ b/arch/arm64/include/asm/kvm_arm.h
+@@ -107,6 +107,51 @@
+ 
+ #define MPAMHCR_HOST_FLAGS	0
+ 
++#define TCR_T0SZ_MASK		TCR_EL1_T0SZ_MASK
++#define TCR_T1SZ_MASK		TCR_EL1_T1SZ_MASK
++
++#define TCR_EPD0_MASK		TCR_EL1_EPD0_MASK
++#define TCR_EPD1_MASK		TCR_EL1_EPD1_MASK
++
++#define TCR_IRGN0_MASK		TCR_EL1_IRGN0_MASK
++#define TCR_IRGN0_WBWA		(TCR_EL1_IRGN0_WBWA << TCR_EL1_IRGN0_SHIFT)
++
++#define TCR_ORGN0_MASK		TCR_EL1_ORGN0_MASK
++#define TCR_ORGN0_WBWA		(TCR_EL1_ORGN0_WBWA << TCR_EL1_ORGN0_SHIFT)
++
++#define TCR_SH0_MASK		TCR_EL1_SH0_MASK
++#define TCR_SH0_INNER		(TCR_EL1_SH0_INNER << TCR_EL1_SH0_SHIFT)
++
++#define TCR_SH1_MASK		TCR_EL1_SH1_MASK
++
++#define TCR_TG0_SHIFT		TCR_EL1_TG0_SHIFT
++#define TCR_TG0_MASK		TCR_EL1_TG0_MASK
++#define TCR_TG0_4K		(TCR_EL1_TG0_4K << TCR_EL1_TG0_SHIFT)
++#define TCR_TG0_64K		(TCR_EL1_TG0_64K << TCR_EL1_TG0_SHIFT)
++#define TCR_TG0_16K		(TCR_EL1_TG0_16K << TCR_EL1_TG0_SHIFT)
++
++#define TCR_TG1_SHIFT		TCR_EL1_TG1_SHIFT
++#define TCR_TG1_MASK		TCR_EL1_TG1_MASK
++#define TCR_TG1_16K		(TCR_EL1_TG1_16K << TCR_EL1_TG1_SHIFT)
++#define TCR_TG1_4K		(TCR_EL1_TG1_4K << TCR_EL1_TG1_SHIFT)
++#define TCR_TG1_64K		(TCR_EL1_TG1_64K << TCR_EL1_TG1_SHIFT)
++
++#define TCR_IPS_SHIFT		TCR_EL1_IPS_SHIFT
++#define TCR_IPS_MASK		TCR_EL1_IPS_MASK
++#define TCR_A1			TCR_EL1_A1
++#define TCR_ASID16		TCR_EL1_AS
++#define TCR_TBI0		TCR_EL1_TBI0
++#define TCR_TBI1		TCR_EL1_TBI1
++#define TCR_HA			TCR_EL1_HA
++#define TCR_HD			TCR_EL1_HD
++#define TCR_HPD0		TCR_EL1_HPD0
++#define TCR_HPD1		TCR_EL1_HPD1
++#define TCR_TBID0		TCR_EL1_TBID0
++#define TCR_TBID1		TCR_EL1_TBID1
++#define TCR_E0PD0		TCR_EL1_E0PD0
++#define TCR_E0PD1		TCR_EL1_E0PD1
++#define TCR_DS			TCR_EL1_DS
++
+ /* TCR_EL2 Registers bits */
+ #define TCR_EL2_DS		(1UL << 32)
+ #define TCR_EL2_RES1		((1U << 31) | (1 << 23))
+diff --git a/arch/arm64/include/asm/pgtable-hwdef.h b/arch/arm64/include/asm/pgtable-hwdef.h
+index 5e6809a462c7..cd5571afd868 100644
+--- a/arch/arm64/include/asm/pgtable-hwdef.h
++++ b/arch/arm64/include/asm/pgtable-hwdef.h
+@@ -229,51 +229,6 @@
+ #define TCR_T0SZ(x)		((UL(64) - (x)) << TCR_EL1_T0SZ_SHIFT)
+ #define TCR_T1SZ(x)		((UL(64) - (x)) << TCR_EL1_T1SZ_SHIFT)
+ 
+-#define TCR_T0SZ_MASK		TCR_EL1_T0SZ_MASK
+-#define TCR_T1SZ_MASK		TCR_EL1_T1SZ_MASK
+-
+-#define TCR_EPD0_MASK		TCR_EL1_EPD0_MASK
+-#define TCR_EPD1_MASK		TCR_EL1_EPD1_MASK
+-
+-#define TCR_IRGN0_MASK		TCR_EL1_IRGN0_MASK
+-#define TCR_IRGN0_WBWA		(TCR_EL1_IRGN0_WBWA << TCR_EL1_IRGN0_SHIFT)
+-
+-#define TCR_ORGN0_MASK		TCR_EL1_ORGN0_MASK
+-#define TCR_ORGN0_WBWA		(TCR_EL1_ORGN0_WBWA << TCR_EL1_ORGN0_SHIFT)
+-
+-#define TCR_SH0_MASK		TCR_EL1_SH0_MASK
+-#define TCR_SH0_INNER		(TCR_EL1_SH0_INNER << TCR_EL1_SH0_SHIFT)
+-
+-#define TCR_SH1_MASK		TCR_EL1_SH1_MASK
+-
+-#define TCR_TG0_SHIFT		TCR_EL1_TG0_SHIFT
+-#define TCR_TG0_MASK		TCR_EL1_TG0_MASK
+-#define TCR_TG0_4K		(TCR_EL1_TG0_4K << TCR_EL1_TG0_SHIFT)
+-#define TCR_TG0_64K		(TCR_EL1_TG0_64K << TCR_EL1_TG0_SHIFT)
+-#define TCR_TG0_16K		(TCR_EL1_TG0_16K << TCR_EL1_TG0_SHIFT)
+-
+-#define TCR_TG1_SHIFT		TCR_EL1_TG1_SHIFT
+-#define TCR_TG1_MASK		TCR_EL1_TG1_MASK
+-#define TCR_TG1_16K		(TCR_EL1_TG1_16K << TCR_EL1_TG1_SHIFT)
+-#define TCR_TG1_4K		(TCR_EL1_TG1_4K << TCR_EL1_TG1_SHIFT)
+-#define TCR_TG1_64K		(TCR_EL1_TG1_64K << TCR_EL1_TG1_SHIFT)
+-
+-#define TCR_IPS_SHIFT		TCR_EL1_IPS_SHIFT
+-#define TCR_IPS_MASK		TCR_EL1_IPS_MASK
+-#define TCR_A1			TCR_EL1_A1
+-#define TCR_ASID16		TCR_EL1_AS
+-#define TCR_TBI0		TCR_EL1_TBI0
+-#define TCR_TBI1		TCR_EL1_TBI1
+-#define TCR_HA			TCR_EL1_HA
+-#define TCR_HD			TCR_EL1_HD
+-#define TCR_HPD0		TCR_EL1_HPD0
+-#define TCR_HPD1		TCR_EL1_HPD1
+-#define TCR_TBID0		TCR_EL1_TBID0
+-#define TCR_TBID1		TCR_EL1_TBID1
+-#define TCR_E0PD0		TCR_EL1_E0PD0
+-#define TCR_E0PD1		TCR_EL1_E0PD1
+-#define TCR_DS			TCR_EL1_DS
+-
+ /*
+  * TTBR.
+  */
+-- 
+2.30.2
 
 
