@@ -4,135 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81C4BEB362F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 19:38:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43B59EB3631
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Mar 2026 19:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MrB0PoGv53HSDiJNHmmqkSqXpBZqFv9SHC4pxN35SCU=; b=P8RRpArpY23VOOkwqVQWR+zr0T
-	o53I4gGxfpD76ChFin46UXwOtbiJHqGNjvRIgXIMb1yFZdmbChnVn8WW5P7NTsLaE0oEaslCJzKIZ
-	+ZxmDHy0uS1I4dmiEdXr3a9vrWnsZHTQ5POsi/QFCcw5hayLGxPGeidAmQpBe83+mJrCIyu2fzzJR
-	VhUW/u173kFxh81nLWOzYfgC2gT4UUWmg1YM4V9LX38VMhRmZ2IiqEzvO50ZerHRQ9CdfDd/D/wkP
-	702X+N/JNOCpggChu3KSU7sFige83CI0TIrkq89V0CyxMZTNKKWgq2H79DBPwdkg/NyoGppdI5ZVd
-	h9ZnZ1/A==;
+	bh=5wpJnUhLRwyBq+mVVA23zcsGSxWP3hdj1JlJ6fsTXco=; b=Opu2TLIMUHPYiARXeck0nWdw6O
+	ocVvGp+UL+k6PVksPzEHEbcFOPi00e4OPdRC96JphS9uQhyrja11Bu3eZkGySL4g6/qA333HgmDQw
+	lfvMItqGpyYcjQEWndJMQTXC400C8FPwzhKdkC/xGTu44nJsMDEtC92a4H4Goi82Q5zCdlzD4/G1p
+	M+4H+hY10/qVE50Jd9/3Chgei5fzGdpw6w1u6ooP4ZhWe6wGPNsPi/v6QXXoV5yZpwte1U8owvQlV
+	eJQxKTeW2i8+N4rdiC7b0+ssK41eAzecEzcN/3x39Y+RRehq7qSioQmcpggWrBprEsq5f8UlEXOKT
+	bLxRp1zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx95c-0000000Dkey-30Af;
-	Mon, 02 Mar 2026 19:38:00 +0000
-Received: from mail-dl1-x122d.google.com ([2607:f8b0:4864:20::122d])
+	id 1vx9E2-0000000Dl0C-1K0i;
+	Mon, 02 Mar 2026 19:46:42 +0000
+Received: from mout.kundenserver.de ([212.227.126.133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vx95Z-0000000DkeJ-3HjO
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Mar 2026 19:37:59 +0000
-Received: by mail-dl1-x122d.google.com with SMTP id a92af1059eb24-1277d379936so5871712c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 11:37:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772480277; x=1773085077; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=MrB0PoGv53HSDiJNHmmqkSqXpBZqFv9SHC4pxN35SCU=;
-        b=iAY32eIXvfC8sji/FYAxUBO+s4eJom9J7j3s07fy2KnAdzeI3AKBGeq+CJrt+67ElK
-         TRQL8rKkwPj7YRFiGsIlCc8yxFzw9m6IX+K13hm2WpciscYvRByaFpRcPv8kcZSKSxp6
-         SHNJjxZKSubFyuhUhYL6jKA1MK3so40/0PXHDhDximalai36wBVHho61nlMdTpxQg3zh
-         +EBborUnQAMHBX0PBYxTmkJCTAQj1AvRRkTrcW3EXasdjyOLAmB22K2Lh9xVyj6gDaYT
-         FJz7k33gQQuN4DI2rrYbYTITHRbH6ceNNDeJhZDOa5U5DvlVA1S2k/5iqgqB7580cBWB
-         kmeg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772480277; x=1773085077;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=MrB0PoGv53HSDiJNHmmqkSqXpBZqFv9SHC4pxN35SCU=;
-        b=DZNNVGtZ3v/chSLII0kbcZFcRcxJ8KCTgDJfGGvCFOWmxwmUqu5xdvYIzHkqAmL9G7
-         JKFl1ibsTReuliblz2XjrJhvWGNubbr72wcVWlJmy2nDQVlOAoVTvDE03e5nI3SAQG+G
-         9NpLB4V97djJQo1fcjZRQhjP4qfTHFeeqXRRK8/OS6jFZN0nIoxUJliKakkcJMbK3Vww
-         2062x4sdM1tzinfOzhbJqm4E9bRQR5RLfHhOZIWBz4UmFgp0FSjtXqOEU3p2yMwIsLOL
-         W//INnXBZZ1Of8Yq27MKHFys6P8yh6tS6OqscH54V3GHGW8QF6khGnR8dskiBc2HjXXq
-         sXnw==
-X-Forwarded-Encrypted: i=1; AJvYcCV01IF767nYl8VWjHS5+P+T8EdAyYcTc05u3nOJuDdYa5dP67ha/xTp4fsggb1AyPH0Rj57K8MzuhXcRx6S3Y32@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw1tOXMXIewSi9NbD7Fpr4hupULaoUymHAxv/1D+mF2xrYNGSWc
-	cF+a6oFU/i/Xlk2KAgAcZAAQ0VBZw0GXsVvglb/lM70RStyIhFw2xuJs
-X-Gm-Gg: ATEYQzxqOodyScczOG3sOHyDUk3BNXTr0pXN87TEkPfkPQOXGmUytAYE0H767degerh
-	THV6AXdUig38z4xwDWEbBP7g7PNP1YjDuc6taRF0NEVga0it+0jr9h6JFkDAI3J7h9CMOg+XHn8
-	afGpsNZJKsr+eCzeT3kAul8JlgqcDusvxtJcmQNj1LmLQG76phPwm/jnFp/uarVZIrnVfafV1Mp
-	yznxN3ZNJ8f8zrjDC2zTyCpsfBrabuZClVD7oecd2haI5hefOktN10Di+tn29Lm00gEK+hea+Fy
-	dAXJ11Zgadf67FmAek6FeDweWWPKqfI074e0EVd+i5XzhnfKWGE59eo9ZsVicAjX5Afifrnv4SH
-	qX7mGLS/+RSunkbcqX4pKoqz+pCsiu5lV7vds/X2JjKm1l/4fwr761wssats4Ogm1wu2MjuA6p4
-	EwlYhtUecI3ATmAyuAacE65WdiqtVp1JICS4ArC8Z36YoGLiVjbYhY33TmSmlyVYrTFlh42mVj
-X-Received: by 2002:a05:7022:b8d:b0:11d:c04a:dc5b with SMTP id a92af1059eb24-1278fc38dd4mr3574345c88.30.1772480276734;
-        Mon, 02 Mar 2026 11:37:56 -0800 (PST)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-127899df36asm14915952c88.4.2026.03.02.11.37.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Mar 2026 11:37:56 -0800 (PST)
-Message-ID: <8b64ed01-a635-4476-8ded-20496663b205@roeck-us.net>
-Date: Mon, 2 Mar 2026 11:37:54 -0800
+	id 1vx9Dz-0000000Dkzd-05Fn;
+	Mon, 02 Mar 2026 19:46:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=online.de;
+	s=s42582890; t=1772480778; x=1773085578; i=dubito@online.de;
+	bh=5wpJnUhLRwyBq+mVVA23zcsGSxWP3hdj1JlJ6fsTXco=;
+	h=X-UI-Sender-Class:Message-ID:Subject:From:Reply-To:To:Cc:Date:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
+	 MIME-Version:cc:content-transfer-encoding:content-type:date:from:
+	 message-id:mime-version:reply-to:subject:to;
+	b=Z8utqfQy8up1CjNjHJ++HIovPDAccNha3TEAGqLwi4/4iGFTIvKSbpe8xOU/hSEW
+	 oVzJdlguKH+75AOfc92ZQyP0rjPL9kbAaEhS4SC95kmqUD5vNfNZfwqqOp1TW7tDN
+	 uEbkMFWOm6C7ECJcNc0PyhuNKNs2ylif7PwREFGvRuld2Dhc0aS7/YtcwZeZPbKXK
+	 Y/XvyW8dgDGJaebx8QCHu7mHMSm8II7GjTniJazGDoF1E9waZINYue53QafkYIyYZ
+	 o3IGMjoUy7LKe8+5BhO38VRyry2dT9Sv++Er+oliD1MrZOW9ei6+ayYcJDuvHn9y3
+	 QJ1x/Mn+oX0GgpcKRg==
+X-UI-Sender-Class: 6003b46c-3fee-4677-9b8b-2b628d989298
+Received: from client.hidden.invalid by mrelayeu.kundenserver.de (mreue009
+ [212.227.15.167]) with ESMTPSA (Nemesis) id 1MCbMx-1voae939TH-008xjv; Mon, 02
+ Mar 2026 20:46:18 +0100
+Message-ID: <88436a35a3197393b5eb4fc49962a3b5906bf147.camel@online.de>
+Subject: Re: [PATCH 0/6] phy: rockchip: samsung-hdptx: Clock fixes and API
+ transition cleanups
+From: 1und1 <dubito@online.de>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Vinod Koul	
+ <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Heiko
+ Stuebner	 <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>, Dmitry
+ Baryshkov	 <lumag@kernel.org>
+Cc: kernel@collabora.com, linux-phy@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Date: Mon, 02 Mar 2026 20:46:17 +0100
+In-Reply-To: <20260227-hdptx-clk-fixes-v1-0-f998f2762d0f@collabora.com>
+References: <20260227-hdptx-clk-fixes-v1-0-f998f2762d0f@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.2 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] watchdog: bcm2835_wdt: Switch to new sys-off handler API
-To: Andrew Davis <afd@ti.com>, Wim Van Sebroeck <wim@linux-watchdog.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
- <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>
-Cc: linux-watchdog@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260302180853.224112-1-afd@ti.com>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <20260302180853.224112-1-afd@ti.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-Provags-ID: V03:K1:cHIHrp76Krx+GEiJ5Tr6zcnpn4uuuBPmlSmCgX9BsnMwNrozq1o
+ P7sQaNOEGbHnLO1lOUcJLcVt2eWyVNS2JZDjLtrgCVjobiXhS0XJhyAPkLaTd4v9Ohpp3aY
+ VfadFkfCnZFYH4mmvNjuvYL4c0h+K18RO5sXwGph08EHycTs+hXxJh4+DOgOmvUX+OW3dfR
+ WBDTIAnti+POCpjc0e97Q==
+UI-OutboundReport: notjunk:1;M01:P0:s4RTz3M8PsA=;YoUrHsNC9MqC5e3Q4AE0fVVvhCc
+ L3cVFd708vlOoBQQjNwTfHSwy4r/qwqtzutD8bdFuaS6GMVTLR6UPrXGUuEnmEpidnOoCIdn/
+ iJUiXJ5cv4hzZ3oCvr/MTOZ+pcqtd5HgKDIt/u9IFRvN/7YxlWpvCQFinEiy163txV4YlOppc
+ HRxS0FIXr/3UPAGJB9KMWeoY5jfiIluV4CgEqV2Axlo/eh5amwTPXo+34SdYmuJ/22XOcxEiU
+ feynNFwlfAobmwtRRNWxNcwwdcFkwxGtggOU+s9jNGSVN5y5VBhkqPYJ6IKXNgUID2xKsTzIx
+ r4XuuIXbceKD2RBclQvg9B2nZGG19DeyZzYJpptSY2oZkkbLLhI/IaF9hbMcM6Fv4RY9wkWlQ
+ PU0tkfFcSrqHpqzAj5cXB8qDmNAIhZR+2h3/P6R6vsa50QTWh42/ImLtbhl/fDPLvluHfhdib
+ KCKYz6wz4y8A4ek5GdWAlAZmc2v2LAwcPNlE6U5rkTFl8Lu/vgnb/B7lP5YGsjGKJiMQXeYNl
+ HiZu+GVTaiqq+lMlUcRUAal2R+0yZ1twqFc3Eg6ddU+f5VFHFdwmx5Bf9lzBarpxBbTsI93sY
+ v80k7gchXlWF3+GqAu/zJv6qRwRY/dTlRPSFJrMtCdj2XV7wNAyMHP4eqo0kPCOq5GsR2RUgl
+ CXm/MgHr9HeDc8cU/OERv7Ftd3HWgEvK0NhG8jVVehTEYWI/6wvM859JzKr2qQfcrFbbc1gTq
+ YV2/AzBGzQhlDu8No41umSdZwAC/8bghFtxuPEG+Uo/7WhZrMSnyEMncgL/m7NmCAkxAY4b5V
+ 7Ct9KvW5YJzLq9akjejY1vrhWs7CoWW/d0L+id54gxXRHUNc2bJspAjIfA2iSZA8RWm1+DOA7
+ HcwlhlHtRAyDK1H1vOqJ9pImjA3n2tJs/PBnKrIHiUf8ZZP4h8JxNWXIdW5a8fpaJwtAzmYNX
+ 87YpQQ2wt5pwSzNJ26fZEZvJNqol4Rl6fYQbWZpxZIr2BmfiXJFmIEjKneOLL++UtHPFulvHV
+ Lxa4gFTjjy3/AdTzTzQ9FfNOg++uxDAZMC9XSRl6umEjJWYZacsUKBsNOaaRLfQqVftKc4aeX
+ 18S718vr5nXYJtbeK/Vhjx3LHp3ndHndpGWr8vZTX67parLDPTJ55bLGoKEMYFoplL/FUZO1k
+ e2iZKwT83MvAn+yw45Tt4Tt7ic38aml8TUuCjGYGy7tlDNbpioMV4zEHsMoedeLftyew9zUUg
+ ApH2mbxnK4a51Fsl+Ay+FL00GPeQV1rhkbtQfPHPRF3sQ7Kvj7t7XtaO7DTD9K5+YyYntReqU
+ W1wm+Y6gVy/8q/s2BLdAnJ0A4w4W7EHXqTgdF25q76eLqm/S7bM2TULEDtDDpcx//OXCe+adk
+ Ful57G2Nw/X37RznMDCYOLCG90YO4tv5YqCm0f+BkcZaefyeZn3RvkN6cMtRamD/cQU+Zfx3B
+ a4njP3qB6GluYFSNCYVp6z2FmuZq9GlCDQ6ovXOuCqrPHdkR/SXn1c630GF6SLiOpJqn0F408
+ pzGmmQZ7TBdlNvWZtPFYs9gN3Yi0hFm8PacpUpLUHqZJgXrJOsGFQTcofsULx4RRGXp6sQTpO
+ d2aUS+w+t+unVlWg8Sdch5Hy20NQzSZy8UaE2CA3XgF8hg+FCb3XPmrPfDvYRBNEJxu1kUggY
+ OGOFPqrmN2WrfiC9Rjd95egP9AmOu2ZxCuU89V76Ua4PVc+H9l28/ouOzyLmR9yU5vAIDLgu/
+ TxkY7k1VKmkyF5/I0tths5+D3vBcFPd5SJ/9AGvaQBx74Irj/HjjcPPZzLU/LTn6I/tozBibF
+ GUp4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_113757_826780_A3F2F140 
-X-CRM114-Status: UNSURE (   8.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260302_114639_418147_622BCF01 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,17 +106,77 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: dubito@online.de
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/2/26 10:08, Andrew Davis wrote:
-> Kernel now supports chained power-off handlers. Use
-> devm_register_sys_off_handler() that registers a power-off handler. Legacy
-> pm_power_off() will be removed once all drivers and archs are converted to
-> the new sys-off API.
-> 
-> Signed-off-by: Andrew Davis <afd@ti.com>
+Hi Cristian,
 
-Reviewed-by: Guenter Roeck <linux@roeck-us.net>
+Am Freitag, dem 27.02.2026 um 22:48 +0200 schrieb Cristian Ciocaltea:
+> This series provides a set of bug fixes and cleanups for the Rockchip
+> Samsung HDPTX PHY driver.
+>=20
+> The first part of the series (i.e. PATCH 1 & 2) addresses clock rate
+> calculation and synchronization issues.=C2=A0 Specifically, it fixes edge
+> cases where the PHY PLL is pre-programmed by an external component (like
+> a bootloader) or when changing the color depth (bpc) while keeping the
+> modeline constant.=C2=A0
 
+as I brought up one of the mentioned edge cases=C2=A0with my Radxa Rock 5b =
+booting
+linux from EDK2 [1], I wanted to report that with this series applied,
+everything works as expected and my issues are fixed.
+
+Thus, feel free to add my
+
+Tested-by: Thomas Niederpr=C3=BCm <dubito@online.de>
+
+>  Because the Common Clock Framework .set_rate()
+> callback might not be invoked if the pixel clock remains unchanged, this
+> previously led to out-of-sync states between CCF and the actual HDMI PHY
+> configuration.
+>=20
+> The second part focuses on code cleanups and modernizing the register
+> access.=C2=A0 Now that dw_hdmi_qp driver has fully switched to using
+> phy_configure(), we can drop the deprecated TMDS rate setup workarounds
+> and the restrict_rate_change flag logic.=C2=A0 Finally, it refactors the
+> driver to consistently use standard bitfield macros.
+>=20
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+> Cristian Ciocaltea (6):
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 phy: rockchip: samsung-hdptx: Fix rate rec=
+alculation for high bpc
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 phy: rockchip: samsung-hdptx: Handle uncom=
+mitted PHY config changes
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 phy: rockchip: samsung-hdptx: Drop TMDS ra=
+te setup workaround
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 phy: rockchip: samsung-hdptx: Drop restric=
+t_rate_change handling
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 phy: rockchip: samsung-hdptx: Simplify GRF=
+ access with FIELD_PREP_WM16()
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 phy: rockchip: samsung-hdptx: Consistently=
+ use bitfield macros
+>=20
+> =C2=A0drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 215 +++++++++--=
+----------
+> -
+> =C2=A01 file changed, 92 insertions(+), 123 deletions(-)
+> ---
+> base-commit: 7d6661873f6b54c75195780a40d66bad3d482d8f
+> change-id: 20260227-hdptx-clk-fixes-47426632f862
+>=20
+>=20
+> _______________________________________________
+> Linux-rockchip mailing list
+> Linux-rockchip@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-rockchip
+
+Best regards,
+
+Thomas
+
+[1]:
+https://lore.kernel.org/lkml/b32164001947ba922aefb6ca86a8dc59e9323d2b.camel=
+@online.de/
 
