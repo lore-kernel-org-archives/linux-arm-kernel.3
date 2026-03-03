@@ -4,83 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90908EDEBFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 21:53:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68118EDEBF9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 22:07:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D1r1C1nkJC8myDUqBbWlJuno+S+Hsv+z3MI/a3FcqHc=; b=bZ2p+c7sLjNUeCE3QRRz5Ys1bR
-	hgYPl0Sekq1LQ5W4IMY9kciuyRhUT/W5OZGULzzurvQvlll6s2KeawOq4V4hzGC7LDKebq7Z8g3J2
-	BALiqJVClN+GkCWscNQNZc5/D7cQxntaJKsTWB4ZbaxZ7wzqjeCt1Gnrwy4r/Kt1TrSS2P0hNbhg9
-	80fzUxTG12xnQ4yKFAQmS0V5ezX5pUqS+BeMUmIBmV0sXhaCdpfyvSoAnvNU8cTnUeqBLHbPWiGsc
-	nxl8ToqRjcExtiQRsY1xatsA7B32SlWhxgj9i03V6zD6vu2FcXqhIG/YyYcjlGck0lASG9aoVOxtt
-	xYh17mRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3RtcCMTr+OnO7xlfNu5r6dFHo4ZhMRSBs8yQG9UndxA=; b=I7XP+HU1vaGm+zOYEC7r74Za6t
+	1Bwv5G8dBXoupN65hML8lRvk/F9iqj9uZVPmWGJbcF6dHukxMOSEshmNA4rHFM5XYKnfz3Udxdcs/
+	8A+W27GM0EqY1Rvru8euvEdBSAwjEHOTPEB13Xw7AOvFYMimCkTOG9vLucrSepwhrsjjTd6g5Ngs8
+	Y4Wo7lWrcdWLrOuRCVuI4cjr00SitrFrMX4TcQVQkCjLqvVmZpGm1MVqPs2yz7D9VmfdnantNrPn2
+	A2yjlOhSZ60L/RIoKC9n2wGe4cYh1qQxu4JzqAz15tSgHvvZUkm4rbO/cCpQ8g6w020F812OXE6x1
+	2+mXK8SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxXgU-0000000G0Nd-11U6;
-	Tue, 03 Mar 2026 21:53:42 +0000
-Received: from terminus.zytor.com ([2607:7c80:54:3::136] helo=mail.zytor.com)
+	id 1vxXu6-0000000G1GD-1DR4;
+	Tue, 03 Mar 2026 22:07:46 +0000
+Received: from mail-westeuropeazon11013008.outbound.protection.outlook.com ([52.101.72.8] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxXgQ-0000000G0N7-3dpw
+	id 1vxXu3-0000000G1Fb-2rIn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 21:53:40 +0000
-Received: from [172.27.2.41] (c-76-133-66-138.hsd1.ca.comcast.net [76.133.66.138])
-	(authenticated bits=0)
-	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 623LavOS3436858
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
-	Tue, 3 Mar 2026 13:36:57 -0800
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 623LavOS3436858
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
-	s=2026022301; t=1772573825;
-	bh=D1r1C1nkJC8myDUqBbWlJuno+S+Hsv+z3MI/a3FcqHc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RLwZ/rk8vaq6V4tFXUGKShs9EBYHpeXArYtAO8GRTPF0Qb9ckRJAy3tcD5EWeuBHX
-	 vr0OB9eU7N3DVYjRVanoVDfqhq4F+AkTzExopgowDGEFypgJWOgNXBkU6FNdThL97f
-	 Lw7JtD6O+ENFjRKkORJY5LGdYpcgeiUuBzkeJbD5nNV5qeKq9oq8xMw9GJMwXTJY58
-	 GQjC3/XyTBNrpt/UhJOXTqWbTWEJKRY1JmqsyxsLflRD6J85F4d6toUWrWmiKQly38
-	 ciLSIrOtlh968Kr67YxA/mjWIPI5I11u1R6hN8+kq3t5kAbHjJDAA+e6EhT7AmEGux
-	 lOCVXVCJis+ZQ==
-Message-ID: <0d2d834d-0f3c-43bb-9530-da6c2492763a@zytor.com>
-Date: Tue, 3 Mar 2026 13:36:52 -0800
+	Tue, 03 Mar 2026 22:07:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=j+GIM3wnwysojHCao15W5Cqmc55Cw/txLV12atZ2qXg/hmUEqpFHui0J58RQDMCmyP3etvtA6bqFVSRE9KQJCq5KyGLH6eAeGfwTk7PvIAQH7uQStMIF1NE3ZuTnSmgR0joD1CuZKMw9zFSDazUnd0VS+FDOAKMGbcTgSOiYLQKu/sTpxJTuo0oOXQC+cRPhp3qyXCejKG5hDxskRCBlRDhJdXR3vLsZlzfnr+L200rxJP7HK7LxX1ZyiiT6VcMuJb1/zJKdKxfExSVZOOkBUgbpqUGl8rN4uzLCWf1prHc6CjL+qDfjcRCVKjnjtc8Ed0jppelqap35efTBjQTqvw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3RtcCMTr+OnO7xlfNu5r6dFHo4ZhMRSBs8yQG9UndxA=;
+ b=LM8pZAekOoh9U+6B7CoxovLovZfUDe6tlvjuiaVf+43tMxAIJlHdR7U5uhb2x9vWsN4Jlm02VN+X6VSH4R44yQ3+0G1/k8YGqnNy0nE5wbMoPADfKWy7NAtLNmBEnj5+EdDFz7rghENPwR8lUyoeSvWvfUzfbavbF5w4G/NznVRUa7DRr79FZzGZ766UKYWakOs8N9EHgSvFhKefOzkdYXkijvEMt3HZPCB3cLOzuDcY2NGBsNcA4/FAbhSdJx9jEqF2VJD0fQ8FWTS2Y/QookdwPxTt+38RMbpvjxp9z3hcoVyEHvLnj4ZlDO/mBZX9aIlHRlluuVK29b7C10TzVg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3RtcCMTr+OnO7xlfNu5r6dFHo4ZhMRSBs8yQG9UndxA=;
+ b=NfJJ+6zKPB+4vNcrjg7ZD07aMOWDR4zj1Juk+nqknUk7L7mqcf24ifC2qzuZrie1srwdDJLEORRZLlkVSzYJ3JAkSzM+kbqOmCn0UEfchI0AQzj2orlZQVGO8B/KxAz9v6/M9K8ZnhgqJnczUFHLCmPo/T80tRjXuh7onD3cNA82j3Ctnrb1wvx6q1K89584+0BPrdWrW5sNRHp/h6ViO0R9ebjCVcKXDFog2YWebMGs4Gx+cucC+8yPmxsc+JAuYYluSeyuC5nOirw09AoPndzlWP9gWJEIGhfUvhfo7MOVJJRvfQPLpxPapANmUdYiIW6LOAtbUUbcl7lnB/cUWA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by PAXPR04MB8928.eurprd04.prod.outlook.com (2603:10a6:102:20f::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Tue, 3 Mar
+ 2026 22:07:38 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9654.020; Tue, 3 Mar 2026
+ 22:07:38 +0000
+Date: Tue, 3 Mar 2026 17:07:28 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	Liu Ying <victor.liu@nxp.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	luca.ceresoli@bootlin.com, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v11 2/3] drm/bridge: imx: Add i.MX93 parallel display
+ format configuration support
+Message-ID: <aadboEWF9tQuQnTF@lizhi-Precision-Tower-5810>
+References: <20260303-v6-18-topic-imx93-parallel-display-v11-2-1b03733c8461@pengutronix.de>
+ <20260303210131.2966214-2-Frank.Li@nxp.com>
+ <3dyb7wc7tg6hc4o4qocn4nft7bu3hbdpxcnv7cln2q6vkxo7bw@dtnswwyou5sp>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3dyb7wc7tg6hc4o4qocn4nft7bu3hbdpxcnv7cln2q6vkxo7bw@dtnswwyou5sp>
+X-ClientProxiedBy: PH3PEPF0000409A.namprd05.prod.outlook.com
+ (2603:10b6:518:1::46) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/7] x86/vdso: Respect COMPAT_32BIT_TIME
-To: Arnd Bergmann <arnd@arndb.de>,
-        =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-        Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-        Russell King <linux@armlinux.org.uk>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        Christophe Leroy <chleroy@kernel.org>,
-        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-        Vincenzo Frascino <vincenzo.frascino@arm.com>,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org
-References: <20260227-vdso-compat_32bit_time-v1-0-3f0286a7bac3@linutronix.de>
- <20260227-vdso-compat_32bit_time-v1-1-3f0286a7bac3@linutronix.de>
- <c29f5e70-bd17-4e1b-a005-5a3282e70075@app.fastmail.com>
- <03cd1e21-a2f2-46a1-a674-cbaef9712016@app.fastmail.com>
- <20260227103226-cc3bb32c-0107-4c09-b81a-ca33ea03ad5c@linutronix.de>
- <49b7c9f9-198a-49f7-880b-6ae74d7bd985@zytor.com>
- <2b1ac7b9-fcc8-4aa3-a0ad-eb37e4bce030@app.fastmail.com>
- <56591FD5-0DD0-4117-BC7B-4565E3F6512E@zytor.com>
- <d92f424c-9aee-417e-899e-3a0002a80f4a@app.fastmail.com>
-Content-Language: en-US, sv-SE
-From: "H. Peter Anvin" <hpa@zytor.com>
-In-Reply-To: <d92f424c-9aee-417e-899e-3a0002a80f4a@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PAXPR04MB8928:EE_
+X-MS-Office365-Filtering-Correlation-Id: b960f282-7787-445c-fdf3-08de7971484d
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|19092799006|7416014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: 1dGEfuN/bxLDFIEmb1b0uqsqIVCsWTzqxQHLnh8CVXxRtKYPCsxoE+kAOFkHtKwiL6i1oFfyr+ZAj61/6YOlvlEJ8bJlqCXAlGB6oL+PQNlSM37TPC3ZcH/vYkpNDNcXw9xK93PWoiWSLoN37r+y2ABAkHFp0xGhrMtO6GqmsQQ6qSfdzaxYSpY6HDdrIyX5OTbDJ2b/a7Y3TZXZzX2BjsV4PkFzKOCMFqTdvo+DRMOViS1O2oRw2Zan4Txi6V3z5ltnoswqtN5/tm0YW0CMh1WmUjG2KbAxEpfxAo7mg8oHsKlu/e2bgNtLdYId87Q8RK6PFvypbiH06kVz1cxguYlw4BXCmZ2JMQIMC7pmplekh1mTGX9MHNsC9QArHRBpd7K2ieh6znHBXXBR4pWWscWNV/Vd+8jqKSQIbQBB9rJvgiekTQ4dD90wNEkmkKsBuAS8T54HQGCJGVUOrpkQSa04YjOtLvbTsXRcOr3udLJyYPYDoo4XRg38ayXiC+DPwGvnuZ+cmPBxuYIzQMq5xnGjSSFimfs6jzChcKKuxsOzn0QOh2b2vOmZO2tsoBIKAa0DChMDnv+q2R3ONxvRK0FMlOK7gryXqFlYdANCbH/7qRxlzYeITG3upZ7cty2SSuRWQDKfFNyvg9pDPloXFO9h5rjgNmclcC2JcjFCyqKC8YE/hhF8B27d44O8SFXxLX5ZeAxExq1htFhHXuBVKhxuzJ1TayAC2TCUEceovXo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(19092799006)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?McF8dMqfG/qvAaO6nq3xcTsOe3IovRSIDn3N/qbBbEM7+rJlZDjsnorjihMT?=
+ =?us-ascii?Q?OIKqlnIJdqynYc83zvp9Crha5iXJ5K9Zgo2+X6Gm3cdwvzH4t4kYHWQCRu5f?=
+ =?us-ascii?Q?cMcfaMYRXl5InIld1FK+urifP2LwdLb70F9UzDgub2tYmgxBFOeRvDoL2ihv?=
+ =?us-ascii?Q?TjADfJy/KKXl+yuyNmZd1CO2q2dj4UywtfzuEgcDoIsbxUOBnvB8YIv5xm3n?=
+ =?us-ascii?Q?h+2Y6cRr7W8cdG3t/FeMyExQrt6nyOgxDXsfjHkGTnFS8UU1vUsjPRsoCTL7?=
+ =?us-ascii?Q?k+TsHXHb2xQt+G/GYWhM9wOH7avcFwQkweMlSA+ENjuTg7Rlbh2cZ/GeW5TV?=
+ =?us-ascii?Q?DPZ2fZbVCQ0gPGbmMc25YpZhQnLzueKqx9dfjLN6L+hBMRGME6UWkibi/0T3?=
+ =?us-ascii?Q?iU9D6DJF1oEk7tH+H681g1KIURMaim61Cqs0w73vtSVu1nwp0qshJW1pQsZP?=
+ =?us-ascii?Q?NbsX23T8LslLptC/cNDPpFPhmsenke0sPuJ4R6f6EZB8GlBW+AM9GpKMaiMU?=
+ =?us-ascii?Q?IwgeL8ZrH+nAxKQ0JJgEhZ0nHkxJhQVoGEbRDkbrRSDPoSNrH1vf7JUWjyVU?=
+ =?us-ascii?Q?ZOgFbfH6MhqHybdkSJjSvuMWv9D56O0/aGeJ1WUlOkSFZRh1+Hb0QywY3hmI?=
+ =?us-ascii?Q?SywNmaVkZ210BABJFNXedYeHcGXYv243Jfw1OnNfPeQmhQSO3FJJlH5/JBwd?=
+ =?us-ascii?Q?ZJz9PR/LyGgjRcPBTDtdrMVwU8EXkFvvjtUG0KgdENe/Hm5izrDTIFTljtwi?=
+ =?us-ascii?Q?LdRl0CgcKyRYHpJVuToS7i/SX1k9nXAecK+t0iTvdPwqFz12Ilh1KHNIsDci?=
+ =?us-ascii?Q?uuXz8qnRh1zI+xIynjqmM2cmM+FGTV9LQu+Rnw7598epamoCcgEO33xk6I7O?=
+ =?us-ascii?Q?E/fw6up1j+1+DKnQ13LLr4sHcWsZLAHdPDANrh2ZUeHQIkLhxA60KtEyfNB3?=
+ =?us-ascii?Q?dzsXZ3S2ePL9ooOccZd2GMg9y6HN6y/2sMo23DZNHNUgksRdHapAzSblbIF0?=
+ =?us-ascii?Q?svPh/nfGbKPyqFb/UXzMdSQZLZWkYWRQWf8ZYDAyq4HKIYpNZc07thYChmve?=
+ =?us-ascii?Q?B//QMjjzTJ4b+gQ5a8Q9pN4V4tx/VU1XWC5+M7LhFNzzFqEsZnWrol2O0s4T?=
+ =?us-ascii?Q?whfs7g775bsGCgTE/pinQ/KTgICYB6X+ZIylaCzZBaTwCWKHYbkV4QUbe3Ei?=
+ =?us-ascii?Q?Y+kxcFOGJdqivyglzPuFga8ZjQGQst8NyxKsRu7IDK165Z3CAne1U869HXTN?=
+ =?us-ascii?Q?dHToU79V2+Yl8fPWtPGTZDbHX9G9PACmceqKkO7ZRDHk6MHBqtfABe+UhkLZ?=
+ =?us-ascii?Q?tH3ZDx2fMWmhkzX3oFRgGBMeZh3m2tHThQZ4bWtRJ1ND3OJs+7wO5BTgx8qM?=
+ =?us-ascii?Q?O3qOs6mOs1HZkRhQE2sLh8FGw2oHcfGMChRTl94+Fpql1WeeBw+k+RMU6Ebz?=
+ =?us-ascii?Q?YabDvi4PpMsBWYT2nGVDBcfmBhvAXqUX9ozLVPrKNGbD7QfCrVvUJJrgJzFH?=
+ =?us-ascii?Q?AbGcA5gy5wKQTP52yVnAFOQaVvhfG6mBFG6SqYXSttu+Meut5UFEE8OKJTUH?=
+ =?us-ascii?Q?PJNWsraAy7of4BGSpabJ+cE50yDRXe804eEBgj72egjZIltoasRLFF9IVs2W?=
+ =?us-ascii?Q?GAB/EuzDP+dWxyve41/vEOWDRvELj+72M6cO2A5MQV5fnCg0AA3FYhCbwz+v?=
+ =?us-ascii?Q?mKUvUnDaceQ+7uyOum2zQheicN5Q9hzIPKih3uMQT9dghsvSpWQ38Up7n93N?=
+ =?us-ascii?Q?uquN+l1ZWQ=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b960f282-7787-445c-fdf3-08de7971484d
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2026 22:07:38.6760
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: brRDQGK0dhHiHAEL8QifyfIYy8x93eJPgVVsbP9cbmJCDYICw1BPtbK0Iya2kMTYbqmcKsSaviCm8Ckt/+iBOw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8928
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_135339_340124_BCC83043 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20260303_140743_759324_11C81B08 
+X-CRM114-Status: GOOD (  22.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,22 +155,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-03-03 13:27, Arnd Bergmann wrote:
-> 
-> I see. I would argue here that a link failure is actually the best
-> case then: the entire point of CONFIG_COMPAT_32BIT_TIME=n is to
-> enforce the fail-early case, as opposed to silent data corruption
-> after (now) 12 years of operation.
-> 
-> I don't think there is an actual link failure here, as dl_vdso_vsym()
-> resolves it at runtime by glibc (when using time32), while musl
-> doesn't use __vdso_gettimeofday at all.
-> 
+On Tue, Mar 03, 2026 at 10:22:02PM +0100, Marco Felsch wrote:
+> On 26-03-03, Frank Li wrote:
+> > From: Frank Li (AI-BOT) <frank.li@nxp.com>
+> >
+> > AI bot review and may be useless.
+>
+> Hi Frank,
+>
+> albeit I'm very open to new technology, I would appreciate it if your
+> AI-BOT is used internally first till you're convinced that it reports
+> real issues instead of false-positives.
 
-Well, the former is a link failure -- just one handled reasonably gracefully.
-A library that really wants a fallback can presumably also avoid the problem
-by provide a weak reference for the fallback.
+I tested 22 patches, which sent to imx mail list only. Need test script.
+Impact should be limited.
 
-	-hpa
+Frank
 
+>
+> Regards,
+>   Marco
+>
+> > > +static u32 *
+> > > +imx93_pdfc_bridge_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
+> > > +					    struct drm_bridge_state *bridge_state,
+> > > +					    struct drm_crtc_state *crtc_state,
+> > > +					    struct drm_connector_state *conn_state,
+> > > +					    u32 output_fmt,
+> > > +					    unsigned int *num_input_fmts)
+> > > +{
+> > > +	struct imx93_pdfc *pdfc = bridge_to_imx93_pdfc(bridge);
+> > > +	u32 *input_fmts;
+> > > +
+> > > +	*num_input_fmts = 0;
+> > > +
+> > > +	input_fmts = kmalloc_obj(*input_fmts);
+> > > +	if (!input_fmts)
+> > > +		return NULL;
+> >
+> > Missing kfree(input_fmts) in error path if the switch statement
+> > or subsequent logic fails. Consider allocating a fixed-size array
+> > or using devm_kzalloc() instead.
+> >
+> > > +	*num_input_fmts = 1;
+> > > +
+> > > +	if (!imx93_pdfc_bus_output_fmt_supported(output_fmt)) {
+> > > +		dev_dbg(pdfc->dev, "No valid output bus-fmt detected, fallback to MEDIA_BUS_FMT_RGB888_1X24\n");
+> >
+> > Line exceeds 80 characters (97 chars). Break into two lines.
+> >
+> > > +		input_fmts[0] = MEDIA_BUS_FMT_RGB888_1X24;
+> > > +		return input_fmts;
+> > > +	}
+> > > +
+> > > +	switch (output_fmt) {
+> > > +	case MEDIA_BUS_FMT_RGB888_1X24:
+> > > +	case MEDIA_BUS_FMT_RGB565_1X16:
+> > > +		input_fmts[0] = output_fmt;
+> > > +		break;
+> > > +	case MEDIA_BUS_FMT_RGB666_1X18:
+> > > +	case MEDIA_BUS_FMT_FIXED:
+> > > +		input_fmts[0] = MEDIA_BUS_FMT_RGB888_1X24;
+> > > +		break;
+> > > +	}
+> >
+> > Switch statement lacks default case. Add default case to handle
+> > unexpected format values explicitly.
+> >
+> > > +static int imx93_pdfc_bridge_atomic_enable(struct drm_bridge *bridge,
+> > > +					    struct drm_atomic_state *state)
+> > > +{
+> > > +	struct imx93_pdfc *pdfc = bridge_to_imx93_pdfc(bridge);
+> > > +	const struct drm_bridge_state *bridge_state;
+> > > +	unsigned int mask = PARALLEL_DISP_FORMAT;
+> > > +	unsigned int val;
+> > > +
+> > > +	bridge_state = drm_atomic_get_new_bridge_state(state, bridge);
+> > > +
+> > > +	switch (bridge_state->output_bus_cfg.format) {
+> > > +	case MEDIA_BUS_FMT_RGB888_1X24:
+> > > +	case MEDIA_BUS_FMT_FIXED:
+> > > +		val = FORMAT_RGB888_TO_RGB888;
+> > > +		if (pdfc->phy_bus_width == 18) {
+> > > +			/*
+> > > +			 * Can be valid if physical bus limitation exists,
+> > > +			 * therefore use dev_dbg().
+> > > +			 */
+> > > +			dev_dbg(pdfc->dev, "Truncate two LSBs from each color\n");
+> > > +			val = FORMAT_RGB888_TO_RGB666;
+> > > +		}
+> > > +		break;
+> > > +	case MEDIA_BUS_FMT_RGB666_1X18:
+> > > +		val = FORMAT_RGB888_TO_RGB666;
+> > > +
+> >
+>
+> --
+> #gernperDu
+> #CallMeByMyFirstName
+>
+> Pengutronix e.K.                           |                             |
+> Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
