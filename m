@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B58EE67A8D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 07:29:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EBF3E67A92
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 07:29:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SPEh3zztA7YgJb9ba/eJtCr9uFxiaZIfC4av1XaSlvI=; b=Qi6PAeMA3P5752u54WrKZ/6Q8T
-	Jv2Ckh1qrBI7ZT/Kszds+AZGpwM0phuNxZ+8u3ohvdUHPj+OdqvLZgs0ORYicd30iUlhAbysYWNB/
-	iq915AqgN3xOpSiq3r4qbWev/lnGoikp+SytgHUuL6lx/rtGJ0ZSzVTHz3RY/mLuI9Q1SsfPyrMup
-	NBRh3jJ1+sIc3loTlC1/tVIQtIKTa7WlU7W1FzZzdX3P69a/e8Dd3/mgaXc5xXZZoWY8GNd61IJcy
-	aQ9iyi0KiZ/PsF8XcJB1f7BwH8r0sYubztQBOmPkcExqOtq15BlIQK5IBXHmuyJoPmc2Uql0V+I7K
-	u+H8HJ6Q==;
+	bh=Ff/Zdbjdtkub8MypRwotH58Nhr/5MI7vGyYAVphSh7A=; b=THewzRnlzr3EC8TixznVYFbIDz
+	OHFpiQK7sTQ3zpm1gQM9mmclTqeMuoCpP6oN+7N+7qNOqCFfxHsdNdRzaozHkYGJdkTO50cBHD2qE
+	63NSWIfBnekSH+lf1TpB9CBuMgAeocxv7mmWUIfOsSPncVpdZhWOklsp/qtOafbfuu8Z30HFUvG+i
+	CaQyQJoy4HUEugMdVfDYbCUVjrLQNAHeKZk6m7IffbyJCamdKGnlDsyvi0obY+ll6GdG1ubgmJNXU
+	NJhZ9WE2MysRWPvkVJi5YMKupv/oAXD9clKQa5bv45ooi4V5jiKyiTathyy7zjpzPY655KJ/wmwbG
+	70CznRKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxKCQ-0000000EfqH-12fX;
-	Tue, 03 Mar 2026 07:29:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vxKCR-0000000Efqw-2Flw;
+	Tue, 03 Mar 2026 07:29:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxKCO-0000000EfpO-0pQ7
+	id 1vxKCQ-0000000Efq2-15dt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 07:29:45 +0000
+	Tue, 03 Mar 2026 07:29:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7D13044402;
+	by tor.source.kernel.org (Postfix) with ESMTP id 691B760123;
+	Tue,  3 Mar 2026 07:29:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3D64C116C6;
 	Tue,  3 Mar 2026 07:29:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EF7EC116C6;
-	Tue,  3 Mar 2026 07:29:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772522983;
-	bh=QQUUYYwURbACdUIdjrLHGvnuoEjtWjpzzgCNWpWSbAM=;
+	s=k20201202; t=1772522985;
+	bh=rhuH5bZWPXEvksruFJrNP1WLqN+56EEVyEMkg0zDSyw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=nWAK+a0QSTnekz8cnZL6Vr4QW3lSRxDv/ahB9SSHoveKS5atT2Y2bxISEYHT6slz5
-	 7JK64f6tUItpUGrnj+NVGQzyhARLGQTr6XfyjLbM9k1OejZx83YbLKQjnnL2KbiHQp
-	 1yhDDPmximlJh/u0X2kaW05uTalzG/8dEOOCI1M5oAp2s4fXQLSZ3LlQcUmZXS+TJm
-	 WrWyygsBiD/9TS+6tq+h91BYjNOvkTkDXre7TjWBZCVc+bAJMQ4cYiDUpOdjnZCKpR
-	 3qJuBuu9YoQFbdfDkbnr9biS4DFdonne5Hc06jfWPLrgO4i6nGt2t+RM/dxSjp9xVK
-	 heK0drwm3saNQ==
+	b=ZR7zefrT9PWtsxK7nZQ9yrrrSzG92OTmGeotEIPQhYVbM4vqfmAQJ69oWd3PS37x+
+	 YK9+GxeOwegpnxm+d5GLSgQAOJbje/bkQixYPahDuLiBaBhSJMpvpRvbnxsr+aLyXX
+	 1I1Zeg3MS2ALu/Kujf8C6ZCnHsFBjsOkSvn1J5PSiMNJh/EJvLt6lqwGL7haC6U/x5
+	 I1lvFIStin3T8LJ9VOkmKDQmLK64ndYjKHA+FWjDaVU5Lo3oggR3hAdMk/HJlEWHoR
+	 /kOfyiavtyylOReJAg/a6adVPlxvOBrNgRyZ+hXmyxxMVtdCpOYtZbcK72dpczLCj6
+	 wTX+M5764oOog==
 From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 03 Mar 2026 08:29:33 +0100
-Subject: [PATCH v2 1/8] ARM: dts: gemini: iTian SQ201 need to boot from
- mtdblock3
+Date: Tue, 03 Mar 2026 08:29:34 +0100
+Subject: [PATCH v2 2/8] ARM: dts: gemini: Tag disk led for disk-activity
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260303-gemini-dts-fixes-v2-1-5b92ced841ce@kernel.org>
+Message-Id: <20260303-gemini-dts-fixes-v2-2-5b92ced841ce@kernel.org>
 References: <20260303-gemini-dts-fixes-v2-0-5b92ced841ce@kernel.org>
 In-Reply-To: <20260303-gemini-dts-fixes-v2-0-5b92ced841ce@kernel.org>
 To: Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
@@ -58,9 +57,6 @@ To: Hans Ulli Kroll <ulli.kroll@googlemail.com>,
 Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
  Linus Walleij <linusw@kernel.org>
 X-Mailer: b4 0.14.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_232944_289713_AC786047 
-X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,27 +71,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Alter the rootfs partition to the one actually used for the
-rootfs.
+Linux now has a trigger specifically for all disk activity
+and this is what the LED is used for so tag it like such.
 
 Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- arch/arm/boot/dts/gemini/gemini-sq201.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm/boot/dts/gemini/gemini-nas4220b.dts | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm/boot/dts/gemini/gemini-sq201.dts b/arch/arm/boot/dts/gemini/gemini-sq201.dts
-index f8c6f6e5cdea..fb6959324658 100644
---- a/arch/arm/boot/dts/gemini/gemini-sq201.dts
-+++ b/arch/arm/boot/dts/gemini/gemini-sq201.dts
-@@ -20,7 +20,7 @@ memory@0 { /* 128 MB */
- 	};
- 
- 	chosen {
--		bootargs = "console=ttyS0,115200n8 root=/dev/mtdblock2 rw rootfstype=squashfs,jffs2 rootwait";
-+		bootargs = "console=ttyS0,115200n8 root=/dev/mtdblock3 rw rootfstype=squashfs,jffs2 rootwait";
- 		stdout-path = &uart0;
- 	};
- 
+diff --git a/arch/arm/boot/dts/gemini/gemini-nas4220b.dts b/arch/arm/boot/dts/gemini/gemini-nas4220b.dts
+index 6544c730340f..2488b9b24218 100644
+--- a/arch/arm/boot/dts/gemini/gemini-nas4220b.dts
++++ b/arch/arm/boot/dts/gemini/gemini-nas4220b.dts
+@@ -52,6 +52,7 @@ led-orange-hdd {
+ 			/* Conflict with TVC */
+ 			gpios = <&gpio1 28 GPIO_ACTIVE_HIGH>;
+ 			default-state = "on";
++			linux,default-trigger = "disk-activity";
+ 		};
+ 		led-green-os {
+ 			label = "nas4220b:green:os";
 
 -- 
 2.53.0
