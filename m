@@ -4,72 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 801CBE67A72
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 14:56:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B5B3E67A9E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 14:58:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:
-	Content-Transfer-Encoding:Content-Type:Mime-Version:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cTIgmgb/ImQ+v4+VhZg8vRmsZhPrw5oDndGDTm3rYyU=; b=cr1RE66VcZfD0h
-	rG/vLix+9gVUtdp2RyNVzzLQZjDEYpcURVO6oqFIcm88HL1yguYp8Aot6nt7PvXsaepHZuFhXJxRK
-	FC+oc9lbpGFqb+FuIFNpJvBTuEsJzk0lLs+DIlrSC5YyzA/+vEfpZr8C1xHZoAtNmzVY7xHqBD7YP
-	DLLS4HC1tWOnSqWNUaSrUeblSnuQc2qe7hf7FMNusIan9IoZ1lkXiZEIpxlK6n2IhFyAcGxCJRFKA
-	oNB2F1oGk3H1xWNzTdFN8qRTOCc3+xKfEfNx9XlfclhSBBUQf+tFkZw0kbCaJF7EKkcT2WUYEAynE
-	1EGRSuJXewa0UuFv9u1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aXnceo8fp+RQdhLmjh0H1Xk2pOs+LurT8zcbqeV6/qE=; b=jN9wJ5Yqci1rPeTPKGosB3W8w7
+	R1Yo36HlRRF3W/5c8F10q3RzOPUWPWVojDtslRkKUxUyG1bt9Zde84GDPORJXDDhi1H5XM8KX42lk
+	dl511LrtgVOqpH7lIcvYzg239JKb5rV87gGpl5cXQHZ4gm/auylMP1HClg7V9oFCkcZTBlvI4JzYP
+	kyJUg6C6vQId7rzjacZF5r79q6wuu1hHIQrclupyiB1b/t4j6tcYPico2sysIVg8T+DQGeoaTNZyY
+	U+4M2Cww0gF+YvJI8nEYucmgxaIooIPzoSoWAr8IJ4B8cD93zKfvMib1YuIbc9sd8DzBF5HDyKNOs
+	sXL9j/qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxRAY-0000000FMZH-2Uik;
-	Tue, 03 Mar 2026 14:56:18 +0000
-Received: from mail.hugovil.com ([162.243.120.170])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxRAV-0000000FMYr-1sK7
+	id 1vxRCv-0000000FMo7-0S07;
+	Tue, 03 Mar 2026 14:58:45 +0000
+Received: from relmlor1.renesas.com ([210.160.252.171] helo=relmlie5.idc.renesas.com)
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxRCr-0000000FMmy-0S3v
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 14:56:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
-	; s=x; h=Subject:Content-Transfer-Encoding:Mime-Version:Message-Id:Cc:To:From
-	:Date:subject:date:message-id:reply-to;
-	bh=cTIgmgb/ImQ+v4+VhZg8vRmsZhPrw5oDndGDTm3rYyU=; b=Dj6VtwQ/vo5l9HiQZuUUD75aA3
-	Vh/txUhdj0g+wsjdCXC/Kiz35j6z4cLxYbwnDvT5NZAH6DyyTFFxF1B7t+uW8+XBJROxShyx50ZTa
-	JwGmkaHJkyrGMQqcsBuxBVRtgxrtxOC9bT60v4kp233ssO1FI4Zwd25niUMiNVzbsTvs=;
-Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168]:38300 helo=pettiford.lan)
-	by mail.hugovil.com with esmtpa (Exim 4.92)
-	(envelope-from <hugo@hugovil.com>)
-	id 1vxR9q-0000YP-RN; Tue, 03 Mar 2026 09:55:35 -0500
-Date: Tue, 3 Mar 2026 09:55:33 -0500
-From: Hugo Villeneuve <hugo@hugovil.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, airlied@gmail.com, simona@ffwll.ch,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, shawnguo@kernel.org,
- laurent.pinchart+renesas@ideasonboard.com, antonin.godard@bootlin.com,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, Hugo Villeneuve
- <hvilleneuve@dimonoff.com>
-Message-Id: <20260303095533.1c6dff174f6c9d162d3e3303@hugovil.com>
-In-Reply-To: <20260303-rational-thundering-firefly-9dcaa9@quoll>
-References: <20260302190953.669325-1-hugo@hugovil.com>
-	<20260302190953.669325-5-hugo@hugovil.com>
-	<20260303-rational-thundering-firefly-9dcaa9@quoll>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 70.80.174.168
-X-SA-Exim-Mail-From: hugo@hugovil.com
-Subject: Re: [PATCH 04/14] dt-bindings: arm: fsl: change incorrect
- VAR-SOM-6UL model name
-X-SA-Exim-Version: 4.2.1 (built Wed, 08 May 2019 21:11:16 +0000)
-X-SA-Exim-Scanned: Yes (on mail.hugovil.com)
+	Tue, 03 Mar 2026 14:58:43 +0000
+X-CSE-ConnectionGUID: d2zDeClzQZKRKlwPLpq6Rw==
+X-CSE-MsgGUID: AMrbHGahT+ehlb7rchE76w==
+Received: from unknown (HELO relmlir5.idc.renesas.com) ([10.200.68.151])
+  by relmlie5.idc.renesas.com with ESMTP; 03 Mar 2026 23:58:36 +0900
+Received: from vm01.adwin.renesas.com (unknown [10.226.92.15])
+	by relmlir5.idc.renesas.com (Postfix) with ESMTP id 013F2400D0EA;
+	Tue,  3 Mar 2026 23:58:29 +0900 (JST)
+From: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	linux@armlinux.org.uk,
+	rmk+kernel@armlinux.org.uk,
+	maxime.chevallier@bootlin.com,
+	boon.khai.ng@altera.com,
+	rohan.g.thomas@altera.com,
+	vladimir.oltean@nxp.com,
+	hayashi.kunihiko@socionext.com,
+	boon.leong.ong@intel.com,
+	kim.tatt.chuah@intel.com
+Cc: netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net v3 0/4] net: stmmac: Fix VLAN handling when interface is down
+Date: Tue,  3 Mar 2026 14:58:24 +0000
+Message-ID: <20260303145828.7845-1-ovidiu.panait.rb@renesas.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_065615_612530_6F89B998 
-X-CRM114-Status: GOOD (  22.70  )
+X-CRM114-CacheID: sfid-20260303_065841_268500_804568A6 
+X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,75 +79,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+VLAN register accesses on the MAC side require the PHY RX clock to be
+active. When the network interface is down, the PHY is suspended and
+the RX clock is unavailable, causing VLAN operations to fail with
+timeouts.
 
-On Tue, 3 Mar 2026 08:10:51 +0100
-Krzysztof Kozlowski <krzk@kernel.org> wrote:
+The VLAN core automatically removes VID 0 after the interface goes down
+and re-adds it when it comes back up, so these timeouts happen during
+normal interface down/up:
 
-> On Mon, Mar 02, 2026 at 02:03:40PM -0500, Hugo Villeneuve wrote:
-> > From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
-> > 
-> > There is no Variscite module named VAR-SOM-MX6UL.
-> 
-> VAR-SOM-MX6? And there is.
-> https://dev.variscite.com/var-som-mx6/
+    # ip link set end1 down
+    renesas-gbeth 15c40000.ethernet end1: Timeout accessing MAC_VLAN_Tag_Filter
+    renesas-gbeth 15c40000.ethernet end1: failed to kill vid 0081/0
 
-Ok,
-I was confused by the "const: variscite,var-som-imx6ul" and thought the
-description was not matching.
+Adding VLANs while the interface is down also fails:
 
-But there is still no module named "VAR-SOM-MX6UL", but "VAR-SOM-MX6",
-with different CPU variants like UL, ULL, etc. So I will modify the
-patch to reflect that.
+    # ip link add link end1 name end1.10 type vlan id 10
+    renesas-gbeth 15c40000.ethernet end1: Timeout accessing MAC_VLAN_Tag_Filter
+    RTNETLINK answers: Device or resource busy
 
-In fact, I will modify the description to reflect that it supports both
-VAR-SOM-MX6 and VAR-SOM-6UL modules.
+Patch 4 fixes this by adding checks in the VLAN paths for netif_running(),
+and skipping register accesses if the interface is down. Only the software
+state is updated in this case. When the interface is brought up, the VLAN
+state is restored to hardware.
 
+Patches 1-3 fix some issues in the existing VLAN implementation.
 
-> 
-> > 
-> > The official name from the manufacturer is VAR-SOM-6UL.
-> > 
-> > Change SOM model name to VAR-SOM-6UL to reduce confusion.
-> 
-> That's just one paragraph. Please write concise commit msgs so reading
-> them will be fast and easy.
+v3:
+- Dropped the 'write_hw' approach and added checks for netif_running() directly
+  in the VLAN paths, to avoid passing attributes around.
 
-Ok, no problem.
+v2: https://lore.kernel.org/all/20260225142414.130144-1-ovidiu.panait.rb@renesas.com/
+- Added a new commit that fixes VLAN restore on the resume and open paths.
 
+v1: https://lore.kernel.org/all/20260223124102.120432-1-ovidiu.panait.rb@renesas.com/
 
-> 
-> Not a sentence.
-> 
-> By a sentence.
-> 
-> In multiple steps.
-> 
-> > 
-> > Signed-off-by: Hugo Villeneuve <hvilleneuve@dimonoff.com>
-> > ---
-> >  Documentation/devicetree/bindings/arm/fsl.yaml | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-> > index 5716d701292cf..99dc1b3f1ba92 100644
-> > --- a/Documentation/devicetree/bindings/arm/fsl.yaml
-> > +++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-> > @@ -688,7 +688,7 @@ properties:
-> >            - const: phytec,imx6ul-pcl063   # PHYTEC phyCORE-i.MX 6UL
-> >            - const: fsl,imx6ul
-> >  
-> > -      - description: i.MX6UL Variscite VAR-SOM-MX6 Boards
-> > +      - description: i.MX6UL Variscite VAR-SOM-6UL Boards
-> >          items:
-> >            - const: variscite,mx6ulconcerto
-> >            - const: variscite,var-som-imx6ul
-> > -- 
-> > 2.47.3
-> > 
-> 
+Ovidiu Panait (4):
+  net: stmmac: Fix error handling in VLAN add and delete paths
+  net: stmmac: Improve double VLAN handling
+  net: stmmac: Fix VLAN HW state restore
+  net: stmmac: Defer VLAN HW configuration when interface is down
 
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  1 +
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 53 ++++++++++++++--
+ .../net/ethernet/stmicro/stmmac/stmmac_vlan.c | 60 ++++++++++---------
+ 3 files changed, 79 insertions(+), 35 deletions(-)
 
 -- 
-Hugo Villeneuve
+2.51.0
+
 
