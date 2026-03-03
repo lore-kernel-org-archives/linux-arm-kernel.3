@@ -4,67 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9234CEDEBEC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 19:32:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16BC6EDEBEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 19:32:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KMGjuveVK/0VdEZtEB1srp5B3GwLURnt2HUgyVzfB/s=; b=E5X4EVMzPmIHmgxc7NqQ2Ii0Ow
-	trMOCeJM1YG2OqCth+x70CHA0Tr5fnYKQTn07vd2BmtpZ27UHHo7PlnHC9MhI07QpXpzQeEly7KLC
-	DFOEvqno5KQAWkOmzQsYe64HmWmr+djG4R1CCHlTm8HzK09BGsvMm6MNOq++zHtJkvDGZYqT3kUzq
-	6eog1ba6+YldmQ1uWCtShgPTsC0W0NAxjyBGwilN42N1tx0Sf0w+bpIK816aqa2v6kMGr9/5qM0pH
-	62CfNtoO8RDXDbZ90MxN+SqQDfCSjg9WEx51M/Ymp6DSQXH+nB3rtM1jQjWYGaU1j4nNJTDrmaq15
-	kmI6d4Gg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=huat1Y/wJ/zb768/t+yGa5XgKV25MRf5vTJTHiQcbnY=; b=lE4OlAq8BKymBHkgywwXDLn6mJ
+	i6BgDc+5NCWgu8CqY+QCd5WhqquwopfTBVIipcHL7PKEugByjjRKAKc6ULe6DdY3ZQJ60MRrUQtwP
+	UUujFacWkx8EZZQpfLJP5Kondw+6x6K6HegnAsg/Psd6s05H01lzMeQS61fH/8d+CaruQ2dzNyr1D
+	p+kqpu2/fqRJsbChAeZ7bZN69Yxx5JwtGQXurILNtoql0H2BuGhwTpH0CNfpOhZ5HNMxqGtqzx9AQ
+	ArOl1i2Vj1TiEqTL4Xow5jra6xe/D3yF/Cq/LRziRwFo1/QsKCROC8z2Y2uhzBemYhD0Uu8iFqctf
+	3UwXBjwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxVTN-0000000FnmU-28ph;
-	Tue, 03 Mar 2026 19:32:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vxVTP-0000000Fnot-1iax;
+	Tue, 03 Mar 2026 19:32:03 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxVTL-0000000FnjH-26jx
+	id 1vxVTL-0000000Fnj3-1rsH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 19:32:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 755DC444B8;
-	Tue,  3 Mar 2026 19:31:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAD2DC2BCB2;
-	Tue,  3 Mar 2026 19:31:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772566318;
-	bh=i9EZozHW8XRAVLe8EAr2xfM/6NutGAKezx67stLre7Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LBMtiYqdzTeup8FJVWXxT6ukyG6zRobBUe/9Mx8IhAhFrfRxHAAIym3RpikfeMD8m
-	 v+A2VcjZ21cSREjyMLdsu4gGu0wL0kRMhC4IlX1qyyeULlbBGl5uw6UGuBBquOolxm
-	 Row+8ruBmAX+JL+HmOC80eEVQkVtrtMP8DP02cDIuI7a5crnsN/KD8SglZtR0sV8T2
-	 FSzBQStrg4lKjjyetLh5Js0XceJBji3eyotTabSoV8O5Bg2+oeRAjkkb6HQGmyyYd8
-	 IiX+5wsaOMUgS37UEGItnTYawAACGA3cYTgx4ebBRCK2MxWOXqEBOSJPb1mhDQEhyr
-	 p8K4qxyCPAlBg==
-Date: Tue, 3 Mar 2026 11:31:02 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Christoph Hellwig <hch@infradead.org>
-Cc: Joachim Vandersmissen <git@jvdsn.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
+	Tue, 03 Mar 2026 19:32:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=from:to:cc:subject:date:message-id
+	:in-reply-to:references:mime-version:content-transfer-encoding;
+	 s=k1; bh=huat1Y/wJ/zb768/t+yGa5XgKV25MRf5vTJTHiQcbnY=; b=AgMxdy
+	KnDr6M+97zchJTQOZmBtEyKGpf5Kwm/4G1kAzt3yez5fujjTuGyc8mCPpmJDOOuv
+	uHkdw3H0FNHIvVuEBk3EWKlStqQbVdi2w9rjOiVTD5N7S3S5tFsDH5i0zW6u075I
+	J7/DBeBNqJoWAvuoV5KvVYImcWcmuA0AkEY6gLzaeaw0QncLREXWMoQVib84PKm5
+	aPnvhDw6Gj05D2vshFEhXKnCfoumEF/1Ar1yrUXUbipqKXY83RpJ50HLJ/dylQrM
+	02ktwynLlcTysaGvvOfZN9iUfxgp7BjH7XHP6XDLAfS8DpPm/jddxV5ic/zUJSgw
+	NtYnip+yGb8exfBw==
+Received: (qmail 430691 invoked from network); 3 Mar 2026 20:31:37 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 3 Mar 2026 20:31:37 +0100
+X-UD-Smtp-Session: l3s3148p1@V9eCwCNMJKgujnu+
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: linux-renesas-soc@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-crypto@vger.kernel.org,
+	Wilken Gottwalt <wilken.gottwalt@posteo.net>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	linux-remoteproc@vger.kernel.org,
+	linux-omap@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	dm-devel@lists.linux.dev
-Subject: Re: [PATCH] crypto: testmgr - block Crypto API xxhash64 in FIPS mode
-Message-ID: <20260303193102.GA2846@sol>
-References: <20260303060509.246038-1-git@jvdsn.com>
- <aab5ptuamQ7d_tTi@infradead.org>
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH v3 11/15] hwspinlock: move entries from internal to public header
+Date: Tue,  3 Mar 2026 20:26:03 +0100
+Message-ID: <20260303192600.7224-28-wsa+renesas@sang-engineering.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20260303192600.7224-17-wsa+renesas@sang-engineering.com>
+References: <20260303192600.7224-17-wsa+renesas@sang-engineering.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aab5ptuamQ7d_tTi@infradead.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_113159_575520_A895FDB3 
-X-CRM114-Status: GOOD (  20.31  )
+X-CRM114-CacheID: sfid-20260303_113159_794590_A8B4D548 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,49 +85,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+Cc dm-devel@lists.linux.dev]
+Providers need the ops-structure and the hwlock_to_id-function. Move
+these entries to the public header. With this change, all providers are
+also updated to use the public header only. The internal header is now
+used by the core only.
 
-On Tue, Mar 03, 2026 at 07:09:26AM -0800, Christoph Hellwig wrote:
-> On Tue, Mar 03, 2026 at 12:05:09AM -0600, Joachim Vandersmissen wrote:
-> > xxhash64 is not a cryptographic hash algorithm, but is offered in the
-> > same API (shash) as actual cryptographic hash algorithms such as
-> > SHA-256. The Cryptographic Module Validation Program (CMVP), managing
-> > FIPS certification, believes that this could cause confusion. xxhash64
-> > must therefore be blocked in FIPS mode.
-> > 
-> > The only usage of xxhash64 in the kernel is btrfs. Commit fe11ac191ce0
-> > ("btrfs: switch to library APIs for checksums") recently modified the
-> > btrfs code to use the lib/crypto API, avoiding the Kernel Cryptographic
-> > API. Consequently, the removal of xxhash64 from the Crypto API in FIPS
-> > mode should now have no impact on btrfs usage.
-> 
-> It sounds like xxhash should be removed the crypto API entirely.
-> There's no user of it, it's not crypto, and doing xxhash through
-> the userspace crypto API socket is so stupid that I doubt anyone
-> attempted it.
+Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+---
+ drivers/hwspinlock/hwspinlock_core.c     |  8 +++++++
+ drivers/hwspinlock/hwspinlock_internal.h | 29 ------------------------
+ drivers/hwspinlock/omap_hwspinlock.c     |  2 --
+ drivers/hwspinlock/qcom_hwspinlock.c     |  2 --
+ drivers/hwspinlock/sprd_hwspinlock.c     |  2 --
+ drivers/hwspinlock/stm32_hwspinlock.c    |  2 --
+ drivers/hwspinlock/sun6i_hwspinlock.c    |  2 --
+ include/linux/hwspinlock.h               | 23 +++++++++++++++++++
+ 8 files changed, 31 insertions(+), 39 deletions(-)
 
-dm-integrity, which uses crypto_shash and accepts arbitrary hash
-algorithm strings from userspace, might be relying on "xxhash64" being
-supported in crypto_shash.  The integritysetup man page specifically
-mentions xxhash64:
+diff --git a/drivers/hwspinlock/hwspinlock_core.c b/drivers/hwspinlock/hwspinlock_core.c
+index a7610ba755b4..e0227d027cf2 100644
+--- a/drivers/hwspinlock/hwspinlock_core.c
++++ b/drivers/hwspinlock/hwspinlock_core.c
+@@ -915,5 +915,13 @@ struct device *hwspin_lock_get_dev(struct hwspinlock *hwlock)
+ }
+ EXPORT_SYMBOL_GPL(hwspin_lock_get_dev);
+ 
++int hwlock_to_id(struct hwspinlock *hwlock)
++{
++	int local_id = hwlock - &hwlock->bank->lock[0];
++
++	return hwlock->bank->base_id + local_id;
++}
++EXPORT_SYMBOL_GPL(hwlock_to_id);
++
+ MODULE_DESCRIPTION("Hardware spinlock interface");
+ MODULE_AUTHOR("Ohad Ben-Cohen <ohad@wizery.com>");
+diff --git a/drivers/hwspinlock/hwspinlock_internal.h b/drivers/hwspinlock/hwspinlock_internal.h
+index 3c835d96bf86..20ae531fc389 100644
+--- a/drivers/hwspinlock/hwspinlock_internal.h
++++ b/drivers/hwspinlock/hwspinlock_internal.h
+@@ -15,28 +15,6 @@
+ 
+ struct hwspinlock_device;
+ 
+-/**
+- * struct hwspinlock_ops - platform-specific hwspinlock handlers
+- *
+- * @trylock:	make a single attempt to take the lock. returns 0 on
+- *		failure and true on success. may _not_ sleep.
+- * @unlock:	release the lock. always succeed. may _not_ sleep.
+- * @bust:	optional, platform-specific bust handler, called by hwspinlock
+- *		core to bust a specific lock.
+- * @relax:	optional, platform-specific relax handler, called by hwspinlock
+- *		core while spinning on a lock, between two successive
+- *		invocations of @trylock. may _not_ sleep.
+- * @init_priv:	optional, callback used when registering the hwspinlock device.
+- *		Its return value will be used to fill the per-lock 'priv' data.
+- */
+-struct hwspinlock_ops {
+-	int (*trylock)(struct hwspinlock *lock);
+-	void (*unlock)(struct hwspinlock *lock);
+-	int (*bust)(struct hwspinlock *lock, unsigned int id);
+-	void (*relax)(struct hwspinlock *lock);
+-	void *(*init_priv)(int local_id, void *init_data);
+-};
+-
+ /**
+  * struct hwspinlock - this struct represents a single hwspinlock instance
+  * @bank: the hwspinlock_device structure which owns this lock
+@@ -65,11 +43,4 @@ struct hwspinlock_device {
+ 	struct hwspinlock lock[];
+ };
+ 
+-static inline int hwlock_to_id(struct hwspinlock *hwlock)
+-{
+-	int local_id = hwlock - &hwlock->bank->lock[0];
+-
+-	return hwlock->bank->base_id + local_id;
+-}
+-
+ #endif /* __HWSPINLOCK_HWSPINLOCK_H */
+diff --git a/drivers/hwspinlock/omap_hwspinlock.c b/drivers/hwspinlock/omap_hwspinlock.c
+index f1ff6406db46..96fdc35ef642 100644
+--- a/drivers/hwspinlock/omap_hwspinlock.c
++++ b/drivers/hwspinlock/omap_hwspinlock.c
+@@ -23,8 +23,6 @@
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
+ 
+-#include "hwspinlock_internal.h"
+-
+ /* Spinlock register offsets */
+ #define SYSSTATUS_OFFSET		0x0014
+ #define LOCK_BASE_OFFSET		0x0800
+diff --git a/drivers/hwspinlock/qcom_hwspinlock.c b/drivers/hwspinlock/qcom_hwspinlock.c
+index e2836d6728e8..22cc6f9003df 100644
+--- a/drivers/hwspinlock/qcom_hwspinlock.c
++++ b/drivers/hwspinlock/qcom_hwspinlock.c
+@@ -14,8 +14,6 @@
+ #include <linux/platform_device.h>
+ #include <linux/regmap.h>
+ 
+-#include "hwspinlock_internal.h"
+-
+ #define QCOM_MUTEX_APPS_PROC_ID	1
+ #define QCOM_MUTEX_NUM_LOCKS	32
+ 
+diff --git a/drivers/hwspinlock/sprd_hwspinlock.c b/drivers/hwspinlock/sprd_hwspinlock.c
+index 95b254e9b6a0..d2aa4714e2ea 100644
+--- a/drivers/hwspinlock/sprd_hwspinlock.c
++++ b/drivers/hwspinlock/sprd_hwspinlock.c
+@@ -15,8 +15,6 @@
+ #include <linux/of_device.h>
+ #include <linux/platform_device.h>
+ 
+-#include "hwspinlock_internal.h"
+-
+ /* hwspinlock registers definition */
+ #define HWSPINLOCK_RECCTRL		0x4
+ #define HWSPINLOCK_MASTERID(_X_)	(0x80 + 0x4 * (_X_))
+diff --git a/drivers/hwspinlock/stm32_hwspinlock.c b/drivers/hwspinlock/stm32_hwspinlock.c
+index a966e967dcdb..08762cd96cee 100644
+--- a/drivers/hwspinlock/stm32_hwspinlock.c
++++ b/drivers/hwspinlock/stm32_hwspinlock.c
+@@ -14,8 +14,6 @@
+ #include <linux/platform_device.h>
+ #include <linux/pm_runtime.h>
+ 
+-#include "hwspinlock_internal.h"
+-
+ #define STM32_MUTEX_COREID	BIT(8)
+ #define STM32_MUTEX_LOCK_BIT	BIT(31)
+ #define STM32_MUTEX_NUM_LOCKS	32
+diff --git a/drivers/hwspinlock/sun6i_hwspinlock.c b/drivers/hwspinlock/sun6i_hwspinlock.c
+index 8e17deb503c7..5c6d20eb24b5 100644
+--- a/drivers/hwspinlock/sun6i_hwspinlock.c
++++ b/drivers/hwspinlock/sun6i_hwspinlock.c
+@@ -17,8 +17,6 @@
+ #include <linux/spinlock.h>
+ #include <linux/types.h>
+ 
+-#include "hwspinlock_internal.h"
+-
+ #define DRIVER_NAME		"sun6i_hwspinlock"
+ 
+ #define SPINLOCK_BASE_ID	0 /* there is only one hwspinlock device per SoC */
+diff --git a/include/linux/hwspinlock.h b/include/linux/hwspinlock.h
+index 58733cda7a9a..4f5b6932712e 100644
+--- a/include/linux/hwspinlock.h
++++ b/include/linux/hwspinlock.h
+@@ -27,8 +27,31 @@ struct hwspinlock_ops;
+ 
+ #ifdef CONFIG_HWSPINLOCK
+ 
++/**
++ * struct hwspinlock_ops - platform-specific hwspinlock handlers
++ *
++ * @trylock:	make a single attempt to take the lock. returns 0 on
++ *		failure and true on success. may _not_ sleep.
++ * @unlock:	release the lock. always succeed. may _not_ sleep.
++ * @bust:	optional, platform-specific bust handler, called by hwspinlock
++ *		core to bust a specific lock.
++ * @relax:	optional, platform-specific relax handler, called by hwspinlock
++ *		core while spinning on a lock, between two successive
++ *		invocations of @trylock. may _not_ sleep.
++ * @init_priv:	optional, callback used when registering the hwspinlock device.
++ *		Its return value will be used to fill the per-lock 'priv' data.
++ */
++struct hwspinlock_ops {
++	int (*trylock)(struct hwspinlock *lock);
++	void (*unlock)(struct hwspinlock *lock);
++	int (*bust)(struct hwspinlock *lock, unsigned int id);
++	void (*relax)(struct hwspinlock *lock);
++	void *(*init_priv)(int local_id, void *init_data);
++};
++
+ void *hwspin_lock_get_priv(struct hwspinlock *hwlock);
+ struct device *hwspin_lock_get_dev(struct hwspinlock *hwlock);
++int hwlock_to_id(struct hwspinlock *hwlock);
+ struct hwspinlock_device *hwspin_lock_register(struct device *dev, const struct hwspinlock_ops *ops,
+ 					       int base_id, int num_locks, void *init_data);
+ int hwspin_lock_unregister(struct hwspinlock_device *bank);
+-- 
+2.51.0
 
-     --integrity, -I algorithm
-         Use  internal  integrity  calculation (standalone mode). The integrity
-         algorithm can be CRC (crc32c/crc32), a non-cryptographic hash function
-         (xxhash64) or a hash function (sha1, sha256).
-
-         For HMAC (hmac-sha256), you must specify  an  integrity  key  and  its
-         size.
-
-Maybe the device-mapper maintainers have some insight into whether
-anyone is actually using xxhash64 with dm-integrity.
-
-If yes, then dm-integrity could still switch to using the library API
-for it.  dm-integrity would just need to gain some helper functions that
-call either the xxhash64 library or crypto_shash depending on the
-configured algorithm.  If the full set of algorithms being used can be
-determined, then dm-integrity could even switch to the library APIs
-entirely, like many other kernel subsystems such as btrfs have.
-
-- Eric
 
