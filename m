@@ -4,56 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F40E67A96
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 08:38:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE609E67A97
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 08:43:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2M/RYer8VqSFpIScaGLnqlWvdg8+Nw01gnVuCu5eeO8=; b=vebrlW0vaLuJEMih/FMbq9UshV
-	JPVpChIP6uHAdta7/7FFL5kMf4QKRX/CVkc3Fuf+MiTr56aCIaT864/nwR+CTla0QDZmstaZDCj6u
-	S8hkIZL8eeN6VfZ2zse/GnQEVl9RR5ZTmfSZDSf/aWsIuOjX7eGPG/JyZ2mIVs/yDtvu5jsTYh3Dv
-	Ew0v7Es4YCKao0rC60aLzOPlBJMjeDLd0tlk3hsxFp4WWp6CwNtPskGNQIkDf4B/MgMamgpN7+xnj
-	e4Jwk/TSzCYxKDH/zMhAsOfrTmsyVz2YsnNOWN7l94LvsTQe5zFTq6Al+ju2OLQ0aameCtpdnihf0
-	Cu/0NGPQ==;
+	bh=Xf4TKQNDzqWuHUGlzr5uhZtiBKuM3uW4fL3mWneyDJQ=; b=3v+p3B1xqpoRI/YybQHtE2MYko
+	NXtCxRRz5P5tAncAKoCyvKlb3Pgge/Uc/IgPX+mcsy2Nnm5MA1EYdTCHZNFOlYD/oGYb0ZVx0/Atm
+	GkqJFu5hTdzTcyhc1Z7U8uDfUds+pbeNF4dnz8ZP6DDs+lrw15/vHqBZR0p2TvkZ42EFNegJi2AmH
+	qUMDKUgqDbY84Q0HGYIVBr11tywFI4Lvslvf8iL70DzQd1K59h+MhydieZbAPu7QsBFuVHHe2U6Pb
+	8u28k6QDldEFb1Gz0iiazKJyFOCDslVTj//0QEAZ7DOyNPtX1f/UeAWJVcrP02vs4B5Ccs9lTcAtc
+	zpY/5yyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxLGw-0000000Emzg-20OE;
-	Tue, 03 Mar 2026 08:38:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxLGu-0000000EmzK-0nmU
+	id 1vxLLd-0000000EnEG-0LsN;
+	Tue, 03 Mar 2026 08:43:21 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxLLZ-0000000EnDq-4C7X
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 08:38:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 09E9A497;
-	Tue,  3 Mar 2026 00:38:20 -0800 (PST)
-Received: from [10.57.81.89] (unknown [10.57.81.89])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8222E3F7BD;
-	Tue,  3 Mar 2026 00:38:24 -0800 (PST)
-Message-ID: <0a10ea33-937a-4294-b9a1-9323c706434d@arm.com>
-Date: Tue, 3 Mar 2026 08:38:23 +0000
+	Tue, 03 Mar 2026 08:43:19 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6235V1sr2197021
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 3 Mar 2026 08:43:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Xf4TKQNDzqWuHUGlzr5uhZtiBKuM3uW4fL3mWneyDJQ=; b=B7fd91F6V74VdsCz
+	sRLq1lAOWRQjwnXsInvIxYgfjUctdiRXFbjO4H4DF//KiFWtq+UyOx9y88C/h+MF
+	ZQwxTOiykIFk1PT9B1OZIJ0oquTZ0nSfTNqnHjhQID0Cf0AWnh6xSwfsd1Fg7Kve
+	oAZB1oC/de6dJzp2+eWGBHT3pu0fliUsBRM1pZzosMg7+mxNKjzEvYNaGM0+UDFK
+	L3jlntNL23ZqP3zpI4DB2wn8hgn3DFIUyXoIz9NfyYuCEMu7TSzGY5uuErPm5j//
+	qcbpCn76i59kjeDRJgK0qZQ0VHydj+04Bchi1T2RkpivQ58NUVWFJUTwuaHFwEiy
+	dDo2hw==
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cnsjm0n5n-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 08:43:16 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-35641c14663so5616624a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 00:43:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1772527396; x=1773132196; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Xf4TKQNDzqWuHUGlzr5uhZtiBKuM3uW4fL3mWneyDJQ=;
+        b=BGBAm7ryAlFEr0OoryKz8LFtz8kgUkc48Whsz1zQ8U3+U5RfqKZBR2eAm7b5WL8TI0
+         1jGK6lxzW4nr0R8m/wWfp069pzMZBN2NjFCm8T/ulRD4hBIVnIQw2qHQPpyF6bdrclXy
+         GVM+cB+/TnItfKZi7zoh9IQMT2tqOYwDLafAaeyLzFX5+1V7HeO/imVDGWRH39PbK+lR
+         ZVeupmp4XV1WV1/6y+p+7H68wpgICuOfFTJ9QQO/0y1oVrmXJMkEtw9yaaUR3eVCSmEr
+         xNOZFfwqYKbBGfgUEG2yZ4zfDY+iGijmX1nX5p4vNvZW5XHXBxeXqS2ZgoECzrNmLUlc
+         D+IQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772527396; x=1773132196;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Xf4TKQNDzqWuHUGlzr5uhZtiBKuM3uW4fL3mWneyDJQ=;
+        b=VwVWRPDGNI0+4cP7mYnHGMZDyWgumO9c0JREkPchHBwPWTEfbENN6w3vGocMbBUq5Q
+         4DuiMw1WjMAASYjF3sO4YnXFLl4ejHnsRh8KnSjVUg/pbxytT7RwbJofjgyAsS8oAxgJ
+         G5sDgnNpsm9JIdp4wRl89qp3reeWtUt8+OqoI1nOnFIl8pESDYHzaJkWRfNnjEb1Ex8N
+         x8Kp+tdlvQnThXndZhP3UJ4T5slisERKMPuOp+p/Fw30mZeRJxunnGZMiH/OiT8eD9I5
+         0tKl5r9bx0M9e+qjsZGgq+IFBKvqUQlr41egIB0AnLsKJoBtq6JSXDViF5uTFJ2muuma
+         GqEg==
+X-Forwarded-Encrypted: i=1; AJvYcCVQmsxzSQ/03zKoOW2CpCtJSyMgfYIoaGPorc9wpmlUw9tpqxciC5XDvZwnmVGcn4suFvZ+deAJM4o+PE77pHXU@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLk6HseJlNCGwO8O4YAEvGnilVHXDjtxG8wn3HdFlWdBaKxd4r
+	toTi4GxO4pSHYsS7MpDsOPn37wcwprNCaYsiAAD8/3D7x4NvgaMKi3aW5F00zK8ja+m7pdVLqZH
+	WBUoYsITQEmYRW/8s6IsiHnfnhXlznHmCfngyHZD1gVhDXZ00PPBKxg9SionTtL4bRa426A6QHz
+	XQgA==
+X-Gm-Gg: ATEYQzwl/eARkKl0gpakdM59fyDHbg2sy9of1h8f4SvNkO4cmxMLsZirimlbWIVyNre
+	oCDsakzeCUNNZQlkQwyV5dDawmVVdNPZX3cLzoF/a9hxynK6BJgLQscQv1wzLiUb1WQ7ianBEXy
+	usc/+lVW5NWC4cp1FG8Fwk3udhWXMyZFE+9Cm3d3IBTV1flaxDz5rIOed62ic+j9Wg4zkHAZQ8l
+	/w3u/9scN50JCMLD7Jt6Swg4/40tYn6muAzTZduyMMGRGNLg2F76kUdE4aqKBgXd7HBQH6LAZNr
+	eEN/ZM4FgloEy55ufqMPohAkPZ093iQZLj5FuhiMWVN3Jrma4c/H7fMP0bnQYnPP1PeCnKnTAu2
+	udGUnsGZLmYQSLkEzDeuNBaDvCFgxzUkUXuOzeqf9FUXberBJa41U/8qWnEtchzdp9mmbkaB6Wx
+	Ebob4ArwXV/uQ=
+X-Received: by 2002:a17:902:f689:b0:2ad:ba80:df62 with SMTP id d9443c01a7336-2ae2e480d5cmr170332255ad.37.1772527396044;
+        Tue, 03 Mar 2026 00:43:16 -0800 (PST)
+X-Received: by 2002:a17:902:f689:b0:2ad:ba80:df62 with SMTP id d9443c01a7336-2ae2e480d5cmr170331605ad.37.1772527395036;
+        Tue, 03 Mar 2026 00:43:15 -0800 (PST)
+Received: from [10.133.33.114] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2adfb6d24b3sm155532085ad.78.2026.03.03.00.43.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 03 Mar 2026 00:43:14 -0800 (PST)
+Message-ID: <bbf51880-7c69-423e-8f35-84f51e4db667@oss.qualcomm.com>
+Date: Tue, 3 Mar 2026 16:43:07 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: contpte: fix set_access_flags() no-op check for
- SMMU/ATS faults
-Content-Language: en-GB
-To: Piotr Jaroszynski <pjaroszynski@nvidia.com>, Will Deacon
- <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
-Cc: Alistair Popple <apopple@nvidia.com>, Jason Gunthorpe <jgg@nvidia.com>,
- John Hubbard <jhubbard@nvidia.com>, Zi Yan <ziy@nvidia.com>,
- Breno Leitao <leitao@debian.org>, stable@vger.kernel.org
-References: <20260303063751.2531716-1-pjaroszynski@nvidia.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20260303063751.2531716-1-pjaroszynski@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH v13 6/8] coresight: ctcu: enable byte-cntr for TMC ETR
+ devices
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+ <Mike.Leach@arm.com>, James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org
+References: <20260223-enable-byte-cntr-for-ctcu-v13-0-9cb44178b250@oss.qualcomm.com>
+ <20260223-enable-byte-cntr-for-ctcu-v13-6-9cb44178b250@oss.qualcomm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20260223-enable-byte-cntr-for-ctcu-v13-6-9cb44178b250@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: 5Sr84jtRZRKVh495R3WFe_WrEZuxk_x0
+X-Authority-Analysis: v=2.4 cv=GIUF0+NK c=1 sm=1 tr=0 ts=69a69f24 cx=c_pps
+ a=0uOsjrqzRL749jD1oC5vDA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=EUspDBNiAAAA:8 a=_NS0HjBKCYVzgDJdXkEA:9 a=QEXdDO2ut3YA:10
+ a=mQ_c8vxmzFEMiUWkPHU9:22
+X-Proofpoint-ORIG-GUID: 5Sr84jtRZRKVh495R3WFe_WrEZuxk_x0
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzAzMDA2MyBTYWx0ZWRfXxqMZsgK8bVGB
+ 9mU/gtwKCWWXo028ma48VaHjprDLrQ2IC5hMM/IsdHZykaL8Dv36KF/6edrEQe0/GzFlH7Xn4Ei
+ d55t93fi99VEqB1rIAzuA3PN0pL8CXjB7w0Ss9vS4pPMkLvNsoDSZgfBVQ8qaGYIIjotRVKEfuE
+ yJjOhBIlw1KV4S+CzebxV+JmEcHeLNttE9fftrQqLymtopVCNhSLWsl8VSiurp2Z1J5DSZnYHUv
+ x3uqS0OUKKBWqwJX0B7Z0WCUyEt4EAzhamcI0ugudYdMF4/7FCxz7z0iyW2s8tPGz1gOyGMS3dc
+ 9ZliLgQ2eii8fm0cbFdUr5ivim83mBCEWyoKg/r719KzoybIpDZXLpLdBuVmENZeeGqvgrJWxmf
+ bgzfQvPDa61rW6Xy0ldrHPKO3zKpiHsdbDur3PhxYKM9ofdotou05Q00BYjsPJkTRcaUNe+sfPp
+ FkTH2DOvpIp9xUnKvhA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-02_05,2026-03-03_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 impostorscore=0 priorityscore=1501 clxscore=1015 malwarescore=0
+ suspectscore=0 spamscore=0 phishscore=0 lowpriorityscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2603030063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_003828_336431_11E303FE 
-X-CRM114-Status: GOOD (  34.72  )
+X-CRM114-CacheID: sfid-20260303_004318_084446_63850122 
+X-CRM114-Status: GOOD (  36.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,145 +159,755 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/03/2026 06:37, Piotr Jaroszynski wrote:
-> contpte_ptep_set_access_flags() compared the gathered ptep_get() value
-> against the requested entry to detect no-ops. ptep_get() ORs AF/dirty
-> from all sub-PTEs in the CONT block, so a dirty sibling can make the
-> target appear already-dirty. When the gathered value matches entry, the
-> function returns 0 even though the target sub-PTE still has PTE_RDONLY
-> set in hardware.
+
+
+On 2/23/2026 2:55 PM, Jie Gan wrote:
+> The byte-cntr function provided by the CTCU device is used to transfer data
+> from the ETR buffer to the userspace. An interrupt is triggered if the data
+> size exceeds the threshold set in the BYTECNTRVAL register. The interrupt
+> handler counts the number of triggered interruptions and the read function
+> will read the data from the synced ETR buffer.
 > 
-> For CPU page-table walks this is benign: with FEAT_HAFDBS the hardware
-> may set AF/dirty on any sub-PTE and the CPU TLB treats the gathered
-> result as authoritative for the entire range. But an SMMU without HTTU
-> (or with HA/HD disabled in CD.TCR) evaluates each descriptor
-> individually and will keep raising F_PERMISSION on the unchanged target
-> sub-PTE, causing an infinite fault loop.
-
-Ouch; thanks for the fix!
-
+> Switching the sysfs_buf when current buffer is full or the timeout is
+> triggered and resets rrp and rwp registers after switched the buffer.
+> The synced buffer will become available for reading after the switch.
 > 
-> Gathering can therefore cause false no-ops when only a sibling has been
-> updated:
->  - write faults: target still has PTE_RDONLY (needs PTE_RDONLY cleared)
->  - read faults:  target still lacks PTE_AF
-> 
-> Fix by checking all sub-PTEs' access flags individually (not via the
-> gathered view) before returning no-op, and use the raw target PTE for
-> the write-bit unfold decision. The access-flag mask matches the one
-> used by __ptep_set_access_flags().
-> 
-> Per Arm ARM (DDI 0487) D8.7.1 ("The Contiguous bit"), any sub-PTE in a CONT
-> range may become the effective cached translation and software must
-> maintain consistent attributes across the range.
-> 
-> Fixes: 4602e5757bcc ("arm64/mm: wire up PTE_CONT for user mappings")
-> 
-
-nit: there shouldn't be whitespace here.
-
-> Reviewed-by: Alistair Popple <apopple@nvidia.com>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Jason Gunthorpe <jgg@nvidia.com>
-> Cc: John Hubbard <jhubbard@nvidia.com>
-> Cc: Zi Yan <ziy@nvidia.com>
-> Cc: Breno Leitao <leitao@debian.org>
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Piotr Jaroszynski <pjaroszynski@nvidia.com>
-
-This fix looks good to me:
-
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-
-
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
 > ---
->  arch/arm64/mm/contpte.c | 47 +++++++++++++++++++++++++++++++++++++----
->  1 file changed, 43 insertions(+), 4 deletions(-)
+>   .../ABI/testing/sysfs-bus-coresight-devices-ctcu   |   8 +
+>   drivers/hwtracing/coresight/Makefile               |   2 +-
+>   .../hwtracing/coresight/coresight-ctcu-byte-cntr.c | 367 +++++++++++++++++++++
+>   drivers/hwtracing/coresight/coresight-ctcu-core.c  | 103 +++++-
+>   drivers/hwtracing/coresight/coresight-ctcu.h       |  77 ++++-
+>   drivers/hwtracing/coresight/coresight-tmc-etr.c    |  18 +
+>   drivers/hwtracing/coresight/coresight-tmc.h        |   1 +
+>   7 files changed, 563 insertions(+), 13 deletions(-)
 > 
-> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-> index bcac4f55f9c1..9868bfe4607c 100644
-> --- a/arch/arm64/mm/contpte.c
-> +++ b/arch/arm64/mm/contpte.c
-> @@ -390,6 +390,23 @@ void contpte_clear_young_dirty_ptes(struct vm_area_struct *vma,
->  }
->  EXPORT_SYMBOL_GPL(contpte_clear_young_dirty_ptes);
->  
-> +static bool contpte_all_subptes_match_access_flags(pte_t *ptep, pte_t entry)
+> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-ctcu b/Documentation/ABI/testing/sysfs-bus-coresight-devices-ctcu
+> new file mode 100644
+> index 000000000000..a58a05491f7a
+> --- /dev/null
+> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-ctcu
+> @@ -0,0 +1,8 @@
+> +What:           /sys/bus/coresight/devices/<ctcu-name>/irq_threshold[0:1]
+> +Date:           February 2026
+> +KernelVersion:  7.1
+> +Contact:        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>; Jinlong Mao <jinlong.mao@oss.qualcomm.com>; Jie Gan <jie.gan@oss.qualcomm.com>
+> +Description:
+> +		(RW) Configure the byte-cntr IRQ register for the specified ETR device
+> +		based on its port number. An interrupt is generated when the data size
+> +		exceeds the value set in the IRQ register.
+> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
+> index ab16d06783a5..821a1b06b20c 100644
+> --- a/drivers/hwtracing/coresight/Makefile
+> +++ b/drivers/hwtracing/coresight/Makefile
+> @@ -55,5 +55,5 @@ coresight-cti-y := coresight-cti-core.o	coresight-cti-platform.o \
+>   obj-$(CONFIG_ULTRASOC_SMB) += ultrasoc-smb.o
+>   obj-$(CONFIG_CORESIGHT_DUMMY) += coresight-dummy.o
+>   obj-$(CONFIG_CORESIGHT_CTCU) += coresight-ctcu.o
+> -coresight-ctcu-y := coresight-ctcu-core.o
+> +coresight-ctcu-y := coresight-ctcu-core.o coresight-ctcu-byte-cntr.o
+>   obj-$(CONFIG_CORESIGHT_KUNIT_TESTS) += coresight-kunit-tests.o
+> diff --git a/drivers/hwtracing/coresight/coresight-ctcu-byte-cntr.c b/drivers/hwtracing/coresight/coresight-ctcu-byte-cntr.c
+> new file mode 100644
+> index 000000000000..bf59e654465b
+> --- /dev/null
+> +++ b/drivers/hwtracing/coresight/coresight-ctcu-byte-cntr.c
+> @@ -0,0 +1,367 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+> + */
+> +
+> +#include <linux/coresight.h>
+> +#include <linux/device.h>
+> +#include <linux/fs.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/of_irq.h>
+> +#include <linux/uaccess.h>
+> +
+> +#include "coresight-ctcu.h"
+> +#include "coresight-priv.h"
+> +#include "coresight-tmc.h"
+> +
+> +static irqreturn_t byte_cntr_handler(int irq, void *data)
 > +{
-> +	pte_t *cont_ptep = contpte_align_down(ptep);
-> +	const pteval_t access_mask = PTE_RDONLY | PTE_AF | PTE_WRITE | PTE_DIRTY;
-> +	pteval_t entry_access = pte_val(entry) & access_mask;
-> +	int i;
+> +	struct ctcu_byte_cntr *byte_cntr_data = (struct ctcu_byte_cntr *)data;
 > +
-> +	for (i = 0; i < CONT_PTES; i++) {
-> +		pteval_t pte_access = pte_val(__ptep_get(cont_ptep + i)) & access_mask;
+> +	atomic_inc(&byte_cntr_data->irq_cnt);
+> +	wake_up(&byte_cntr_data->wq);
 > +
-> +		if (pte_access != entry_access)
-> +			return false;
-> +	}
-
-There are 2 forms of "dirty"; HW and SW. Here you are testing that all ptes in
-the contpte block have the same form of dirty, which I think is the correct
-thing to do. You could relax to just test that every pte has one of the forms of
-dirty, But in that case, if a pte is sw-dirty but not hw-dirty, then the
-PTE_RDONLY bit remains set and the SMMU will fault, I think?
-
-If my reasoning is correct, then I think arm64 hugetlb has a similar bug; See
-__cont_access_flags_changed(), which just checks for any form of dirty. So I
-guess hugetlb is buggy in the same way and should be fixed to use this more
-stringent approach?
-
-Thanks,
-Ryan
-
-> +
-> +	return true;
+> +	return IRQ_HANDLED;
 > +}
 > +
->  int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
->  					unsigned long addr, pte_t *ptep,
->  					pte_t entry, int dirty)
-> @@ -399,13 +416,35 @@ int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
->  	int i;
->  
->  	/*
-> -	 * Gather the access/dirty bits for the contiguous range. If nothing has
-> -	 * changed, its a noop.
-> +	 * Check whether all sub-PTEs in the CONT block already have the
-> +	 * requested access flags, using raw per-PTE values rather than the
-> +	 * gathered ptep_get() view.
-> +	 *
-> +	 * ptep_get() gathers AF/dirty state across the whole CONT block,
-> +	 * which is correct for CPU TLB semantics: with FEAT_HAFDBS the
-> +	 * hardware may set AF/dirty on any sub-PTE and the CPU TLB treats
-> +	 * the gathered result as authoritative for the entire range. But an
-> +	 * SMMU without HTTU (or with HA/HD disabled in CD.TCR) evaluates
-> +	 * each descriptor individually and will keep faulting on the target
-> +	 * sub-PTE if its flags haven't actually been updated. Gathering can
-> +	 * therefore cause false no-ops when only a sibling has been updated:
-> +	 *  - write faults: target still has PTE_RDONLY (needs PTE_RDONLY cleared)
-> +	 *  - read faults:  target still lacks PTE_AF
-> +	 *
-> +	 * Per Arm ARM (DDI 0487) D8.7.1, any sub-PTE in a CONT range may
-> +	 * become the effective cached translation, so all entries must have
-> +	 * consistent attributes. Check the full CONT block before returning
-> +	 * no-op, and when any sub-PTE mismatches, proceed to update the whole
-> +	 * range.
->  	 */
-> -	orig_pte = pte_mknoncont(ptep_get(ptep));
-> -	if (pte_val(orig_pte) == pte_val(entry))
-> +	if (contpte_all_subptes_match_access_flags(ptep, entry))
->  		return 0;
->  
-> +	/*
-> +	 * Use raw target pte (not gathered) for write-bit unfold decision.
-> +	 */
-> +	orig_pte = pte_mknoncont(__ptep_get(ptep));
+> +static void ctcu_reset_sysfs_buf(struct tmc_drvdata *drvdata)
+> +{
+> +	u32 sts;
 > +
->  	/*
->  	 * We can fix up access/dirty bits without having to unfold the contig
->  	 * range. But if the write bit is changing, we must unfold.
+> +	CS_UNLOCK(drvdata->base);
+> +	tmc_write_rrp(drvdata, drvdata->sysfs_buf->hwaddr);
+> +	tmc_write_rwp(drvdata, drvdata->sysfs_buf->hwaddr);
+> +	sts = readl_relaxed(drvdata->base + TMC_STS) & ~TMC_STS_FULL;
+> +	writel_relaxed(sts, drvdata->base + TMC_STS);
+> +	CS_LOCK(drvdata->base);
+> +}
+> +
+> +static void ctcu_cfg_byte_cntr_reg(struct tmc_drvdata *drvdata, u32 val, u32 offset)
+> +{
+> +	struct ctcu_drvdata *ctcu_drvdata;
+> +	struct coresight_device *helper;
+> +
+> +	helper = tmc_etr_get_ctcu_device(drvdata);
+> +	if (!helper)
+> +		return;
+> +
+> +	ctcu_drvdata = dev_get_drvdata(helper->dev.parent);
+> +	/* A one value for IRQCTRL register represents 8 bytes */
+> +	ctcu_program_register(ctcu_drvdata, val / 8, offset);
+> +}
+> +
+> +static struct ctcu_byte_cntr *ctcu_get_byte_cntr_data(struct tmc_drvdata *drvdata)
+> +{
+> +	struct ctcu_byte_cntr *byte_cntr_data;
+> +	struct ctcu_drvdata *ctcu_drvdata;
+> +	struct coresight_device *helper;
+> +	int port;
+> +
+> +	helper = tmc_etr_get_ctcu_device(drvdata);
+> +	if (!helper)
+> +		return NULL;
+> +
+> +	port = coresight_get_in_port(drvdata->csdev, helper);
+> +	if (port < 0)
+> +		return NULL;
+> +
+> +	ctcu_drvdata = dev_get_drvdata(helper->dev.parent);
+> +	byte_cntr_data = &ctcu_drvdata->byte_cntr_data[port];
+> +	return byte_cntr_data;
+> +}
+> +
+> +static bool ctcu_byte_cntr_switch_buffer(struct tmc_drvdata *drvdata,
+> +					 struct ctcu_byte_cntr *byte_cntr_data)
+> +{
+> +	struct etr_buf_node *nd, *next, *curr_node, *picked_node;
+> +	struct etr_buf *curr_buf = drvdata->sysfs_buf;
+> +	bool found_free_buf = false;
+> +
+> +	if (WARN_ON(!drvdata || !byte_cntr_data))
+> +		return found_free_buf;
+> +
+> +	/* Stop the ETR before we start the switch */
+> +	if (coresight_get_mode(drvdata->csdev) != CS_MODE_DISABLED)
+> +		tmc_etr_enable_disable_hw(drvdata, false);
+> +
+> +	list_for_each_entry_safe(nd, next, &drvdata->etr_buf_list, node) {
+> +		/* curr_buf is free for next round */
+> +		if (nd->sysfs_buf == curr_buf) {
+> +			nd->is_free = true;
+> +			curr_node = nd;
+> +		}
+> +
+> +		if (!found_free_buf && nd->is_free && nd->sysfs_buf != curr_buf) {
+> +			picked_node = nd;
+> +			found_free_buf = true;
+> +		}
+> +	}
+> +
+> +	if (found_free_buf) {
+> +		curr_node->pos = 0;
+> +		drvdata->reading_node = curr_node;
+> +		drvdata->sysfs_buf = picked_node->sysfs_buf;
+> +		drvdata->etr_buf = picked_node->sysfs_buf;
+> +		picked_node->is_free = false;
+> +		/* Reset irq_cnt for next etr_buf */
+> +		atomic_set(&byte_cntr_data->irq_cnt, 0);
+> +		/* Reset rrp and rwp when the system has switched the buffer*/
+> +		ctcu_reset_sysfs_buf(drvdata);
+> +		/* Restart the ETR when we find a free buffer */
+> +		if (coresight_get_mode(drvdata->csdev) != CS_MODE_DISABLED)
+> +			tmc_etr_enable_disable_hw(drvdata, true);
+> +	}
+> +
+> +	return found_free_buf;
+> +}
+> +
+> +/*
+> + * ctcu_byte_cntr_get_data() - reads data from the deactivated and filled buffer.
+> + * The byte-cntr reading work reads data from the deactivated and filled buffer.
+> + * The read operation waits for a buffer to become available, either filled or
+> + * upon timeout, and then reads trace data from the synced buffer.
+> + */
+> +static ssize_t ctcu_byte_cntr_get_data(struct tmc_drvdata *drvdata, loff_t pos,
+> +				       size_t len, char **bufpp)
+> +{
+> +	struct etr_buf *sysfs_buf = drvdata->sysfs_buf;
+> +	struct device *dev = &drvdata->csdev->dev;
+> +	ssize_t actual, size = sysfs_buf->size;
+> +	struct ctcu_byte_cntr *byte_cntr_data;
+> +	size_t thresh_val;
+> +	atomic_t *irq_cnt;
+> +	int ret;
+> +
+> +	byte_cntr_data = ctcu_get_byte_cntr_data(drvdata);
+> +	if (!byte_cntr_data)
+> +		return -EINVAL;
+> +
+> +	thresh_val = byte_cntr_data->thresh_val;
+> +	irq_cnt = &byte_cntr_data->irq_cnt;
+> +
+> +wait_buffer:
+> +	if (!byte_cntr_data->reading_buf) {
+> +		ret = wait_event_interruptible_timeout(byte_cntr_data->wq,
+> +				((atomic_read(irq_cnt) + 1) * thresh_val >= size) ||
+> +				!byte_cntr_data->enable,
+> +				BYTE_CNTR_TIMEOUT);
+> +		if (ret < 0)
+> +			return ret;
+> +		/*
+> +		 * The current etr_buf is almost full or timeout is triggered,
+> +		 * so switch the buffer and mark the switched buffer as reading.
+> +		 */
+> +		if (byte_cntr_data->enable) {
+> +			if (!ctcu_byte_cntr_switch_buffer(drvdata, byte_cntr_data)) {
+> +				dev_err(dev, "Switch buffer failed for byte-cntr\n");
+> +				return -EINVAL;
+> +			}
+> +
+> +			byte_cntr_data->reading_buf = true;
+> +		} else {
+> +			/*
+> +			 * TMC-ETR has been disabled, so directly reads data from
+> +			 * the drvdata->sysfs_buf.
+> +			 */
+> +			actual = drvdata->sysfs_ops->get_trace_data(drvdata, pos, len, bufpp);
+> +			if (actual > 0) {
+> +				byte_cntr_data->total_size += actual;
+> +				return actual;
+> +			}
+> +
+> +			/* Exit byte-cntr reading */
+> +			return 0;
+> +		}
+> +	}
+> +
+> +	/* Check the status of current etr_buf*/
+> +	if ((atomic_read(irq_cnt) + 1) * thresh_val >= size)
+> +		/*
+> +		 * Unlikely to find a free buffer to switch, so just disable
+> +		 * the ETR for a while.
+> +		 */
+> +		if (!ctcu_byte_cntr_switch_buffer(drvdata, byte_cntr_data))
+> +			dev_warn(dev, "No available buffer to store data, disable ETR\n");
+> +
+> +	pos = drvdata->reading_node->pos;
+> +	actual = drvdata->sysfs_ops->get_trace_data(drvdata, pos, len, bufpp);
+> +	if (actual <= 0) {
+> +		/* Reset flags upon reading is finished or failed */
+> +		byte_cntr_data->reading_buf = false;
+> +		drvdata->reading_node = NULL;
+> +
+> +		/*
+> +		 * Nothing in the buffer, waiting for the next buffer
+> +		 * to be filled.
+> +		 */
+> +		if (actual == 0)
+> +			goto wait_buffer;
+> +	} else
+> +		byte_cntr_data->total_size += actual;
+> +
+> +	return actual;
+> +}
+> +
+> +static int ctcu_read_prepare_byte_cntr(struct tmc_drvdata *drvdata)
+> +{
+> +	struct ctcu_byte_cntr *byte_cntr_data;
+> +	unsigned long flags;
+> +	int ret = 0;
+> +
+> +	/* config types are set a boot time and never change */
+> +	if (WARN_ON_ONCE(drvdata->config_type != TMC_CONFIG_TYPE_ETR))
+> +		return -EINVAL;
+> +
+> +	/*
+> +	 * Byte counter reading should start only after the TMC-ETR has been
+> +	 * enabled, which implies that the sysfs_buf has already been setup
+> +	 * in drvdata.
+> +	 */
+> +	if (!drvdata->sysfs_buf)
+> +		return -EINVAL;
+> +
+> +	byte_cntr_data = ctcu_get_byte_cntr_data(drvdata);
+> +	if (!byte_cntr_data)
+> +		return -EINVAL;
+> +
+> +	/*
+> +	 * The threshold value must not exceed the buffer size.
+> +	 * A margin should be maintained between the two values to account
+> +	 * for the time gap between the interrupt and buffer switching.
+> +	 */
+> +	if (byte_cntr_data->thresh_val + SZ_16K >= drvdata->size) {
+> +		dev_err(&drvdata->csdev->dev, "The threshold value is too large\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+> +	if (byte_cntr_data->reading) {
+> +		ret = -EBUSY;
+> +		goto out_unlock;
+> +	}
+> +
+> +	byte_cntr_data->reading = true;
+> +	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+> +	/* Setup an available etr_buf_list for byte-cntr */
+> +	ret = tmc_create_etr_buf_list(drvdata, 2);
+> +	if (ret)
+> +		goto out;
+> +
+> +	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+> +	atomic_set(&byte_cntr_data->irq_cnt, 0);
+> +	/* Configure the byte-cntr register to enable IRQ */
+> +	ctcu_cfg_byte_cntr_reg(drvdata, byte_cntr_data->thresh_val,
+> +			       byte_cntr_data->irq_ctrl_offset);
+> +	enable_irq_wake(byte_cntr_data->irq);
+> +	byte_cntr_data->total_size = 0;
+> +
+> +out_unlock:
+> +	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+> +
+> +out:
+> +	return ret;
+> +}
+> +
+> +static int ctcu_read_unprepare_byte_cntr(struct tmc_drvdata *drvdata)
+> +{
+> +	struct device *dev = &drvdata->csdev->dev;
+> +	struct ctcu_byte_cntr *byte_cntr_data;
+> +	unsigned long flags;
+> +
+> +	byte_cntr_data = ctcu_get_byte_cntr_data(drvdata);
+> +	if (!byte_cntr_data)
+> +		return -EINVAL;
+> +
+> +	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+> +	/* Configure the byte-cntr register to disable IRQ */
+> +	ctcu_cfg_byte_cntr_reg(drvdata, 0, byte_cntr_data->irq_ctrl_offset);
+> +	disable_irq_wake(byte_cntr_data->irq);
+> +	byte_cntr_data->reading = false;
+> +	byte_cntr_data->reading_buf = false;
+> +	drvdata->reading_node = NULL;
+> +	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+> +	dev_dbg(dev, "send data total size:%llu bytes\n", byte_cntr_data->total_size);
+> +	tmc_clean_etr_buf_list(drvdata);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct tmc_sysfs_ops byte_cntr_sysfs_ops = {
+> +	.read_prepare	= ctcu_read_prepare_byte_cntr,
+> +	.read_unprepare	= ctcu_read_unprepare_byte_cntr,
+> +	.get_trace_data	= ctcu_byte_cntr_get_data,
+> +};
+> +
+> +/* Start the byte-cntr function when the path is enabled. */
+> +void ctcu_byte_cntr_start(struct coresight_device *csdev, struct coresight_path *path)
+> +{
+> +	struct ctcu_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> +	struct coresight_device *sink = coresight_get_sink(path);
+> +	struct ctcu_byte_cntr *byte_cntr_data;
+> +	int port_num;
+> +
+> +	if (!sink)
+> +		return;
+> +
+> +	port_num = coresight_get_in_port(sink, csdev);
+> +	if (port_num < 0)
+> +		return;
+> +
+> +	byte_cntr_data = &drvdata->byte_cntr_data[port_num];
+> +	/* Don't start byte-cntr function when threshold is not set. */
+> +	if (!byte_cntr_data->thresh_val || byte_cntr_data->enable)
+> +		return;
+> +
+> +	guard(raw_spinlock_irqsave)(&byte_cntr_data->spin_lock);
+> +	byte_cntr_data->enable = true;
+> +	byte_cntr_data->reading_buf = false;
+> +}
+> +
+> +/* Stop the byte-cntr function when the path is disabled. */
+> +void ctcu_byte_cntr_stop(struct coresight_device *csdev, struct coresight_path *path)
+> +{
+> +	struct ctcu_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> +	struct coresight_device *sink = coresight_get_sink(path);
+> +	struct ctcu_byte_cntr *byte_cntr_data;
+> +	int port_num;
+> +
+> +	if (!sink || coresight_get_mode(sink) == CS_MODE_SYSFS)
+> +		return;
+> +
+> +	port_num = coresight_get_in_port(sink, csdev);
+> +	if (port_num < 0)
+> +		return;
+> +
+> +	byte_cntr_data = &drvdata->byte_cntr_data[port_num];
+> +	guard(raw_spinlock_irqsave)(&byte_cntr_data->spin_lock);
+> +	byte_cntr_data->enable = false;
+> +}
+> +
+> +void ctcu_byte_cntr_init(struct device *dev, struct ctcu_drvdata *drvdata, int etr_num)
+> +{
+> +	struct ctcu_byte_cntr *byte_cntr_data;
+> +	struct device_node *nd = dev->of_node;
+> +	int irq_num, ret, i;
+> +
+> +	drvdata->byte_cntr_sysfs_ops = &byte_cntr_sysfs_ops;
+> +	for (i = 0; i < etr_num; i++) {
+> +		byte_cntr_data = &drvdata->byte_cntr_data[i];
+> +		irq_num = of_irq_get(nd, i);
+> +		if (irq_num < 0) {
+> +			dev_err(dev, "Failed to get IRQ from DT for port%d\n", i);
+> +			continue;
+> +		}
+> +
+> +		ret = devm_request_irq(dev, irq_num, byte_cntr_handler,
+> +				       IRQF_TRIGGER_RISING | IRQF_SHARED,
+> +				       dev_name(dev), byte_cntr_data);
+> +		if (ret) {
+> +			dev_err(dev, "Failed to register IRQ for port%d\n", i);
+> +			continue;
+> +		}
+> +
+> +		byte_cntr_data->irq = irq_num;
+> +		init_waitqueue_head(&byte_cntr_data->wq);
+> +		raw_spin_lock_init(&drvdata->spin_lock);
+
+This is wrong here, correct:
+raw_spin_lock_init(&byte_cntr_data->spin_lock);
+
+Sorry for the error, will fix it in next version.
+
+Thanks,
+Jie
+
+> +	}
+> +}
+> diff --git a/drivers/hwtracing/coresight/coresight-ctcu-core.c b/drivers/hwtracing/coresight/coresight-ctcu-core.c
+> index 78be783b3cb2..0e5cadaac350 100644
+> --- a/drivers/hwtracing/coresight/coresight-ctcu-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-ctcu-core.c
+> @@ -15,6 +15,7 @@
+>   #include <linux/platform_device.h>
+>   #include <linux/pm_runtime.h>
+>   #include <linux/slab.h>
+> +#include <linux/sizes.h>
+>   
+>   #include "coresight-ctcu.h"
+>   #include "coresight-priv.h"
+> @@ -45,17 +46,21 @@ DEFINE_CORESIGHT_DEVLIST(ctcu_devs, "ctcu");
+>   
+>   #define CTCU_ATID_REG_BIT(traceid)	(traceid % 32)
+>   #define CTCU_ATID_REG_SIZE		0x10
+> +#define CTCU_ETR0_IRQCTRL               0x6c
+> +#define CTCU_ETR1_IRQCTRL               0x70
+>   #define CTCU_ETR0_ATID0			0xf8
+>   #define CTCU_ETR1_ATID0			0x108
+>   
+>   static const struct ctcu_etr_config sa8775p_etr_cfgs[] = {
+>   	{
+> -		.atid_offset	= CTCU_ETR0_ATID0,
+> -		.port_num	= 0,
+> +		.atid_offset		= CTCU_ETR0_ATID0,
+> +		.irq_ctrl_offset	= CTCU_ETR0_IRQCTRL,
+> +		.port_num		= 0,
+>   	},
+>   	{
+> -		.atid_offset	= CTCU_ETR1_ATID0,
+> -		.port_num	= 1,
+> +		.atid_offset		= CTCU_ETR1_ATID0,
+> +		.irq_ctrl_offset	= CTCU_ETR1_IRQCTRL,
+> +		.port_num		= 1,
+>   	},
+>   };
+>   
+> @@ -64,6 +69,88 @@ static const struct ctcu_config sa8775p_cfgs = {
+>   	.num_etr_config	= ARRAY_SIZE(sa8775p_etr_cfgs),
+>   };
+>   
+> +void ctcu_program_register(struct ctcu_drvdata *drvdata, u32 val, u32 offset)
+> +{
+> +	CS_UNLOCK(drvdata->base);
+> +	ctcu_writel(drvdata, val, offset);
+> +	CS_LOCK(drvdata->base);
+> +}
+> +
+> +static ssize_t irq_threshold_show(struct device *dev,
+> +				  struct device_attribute *attr,
+> +				  char *buf)
+> +{
+> +	struct ctcu_byte_cntr_irq_attribute *irq_attr =
+> +		container_of(attr, struct ctcu_byte_cntr_irq_attribute, attr);
+> +	struct ctcu_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> +	u8 port = irq_attr->port;
+> +
+> +	if (!drvdata->byte_cntr_data[port].irq_ctrl_offset)
+> +		return -EINVAL;
+> +
+> +	return sysfs_emit(buf, "%u\n",
+> +			(unsigned int)drvdata->byte_cntr_data[port].thresh_val);
+> +}
+> +
+> +static ssize_t irq_threshold_store(struct device *dev,
+> +				   struct device_attribute *attr,
+> +				   const char *buf,
+> +				   size_t size)
+> +{
+> +	struct ctcu_byte_cntr_irq_attribute *irq_attr =
+> +		container_of(attr, struct ctcu_byte_cntr_irq_attribute, attr);
+> +	struct ctcu_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> +	u8 port = irq_attr->port;
+> +	unsigned long val;
+> +
+> +	if (kstrtoul(buf, 0, &val))
+> +		return -EINVAL;
+> +
+> +	/* Threshold 0 disables the interruption. */
+> +	guard(raw_spinlock_irqsave)(&drvdata->spin_lock);
+> +	/* A small threshold will result in a large number of interruptions */
+> +	if (val && val < SZ_4K)
+> +		return -EINVAL;
+> +
+> +	if (drvdata->byte_cntr_data[port].irq_ctrl_offset)
+> +		drvdata->byte_cntr_data[port].thresh_val = val;
+> +
+> +	return size;
+> +}
+> +
+> +static umode_t irq_threshold_is_visible(struct kobject *kobj,
+> +					struct attribute *attr, int n)
+> +{
+> +	struct device_attribute *dev_attr =
+> +		container_of(attr, struct device_attribute, attr);
+> +	struct ctcu_byte_cntr_irq_attribute *irq_attr =
+> +		container_of(dev_attr, struct ctcu_byte_cntr_irq_attribute, attr);
+> +	struct device *dev = kobj_to_dev(kobj);
+> +	struct ctcu_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> +	u8 port = irq_attr->port;
+> +
+> +	if (drvdata && drvdata->byte_cntr_data[port].irq_ctrl_offset)
+> +		return attr->mode;
+> +
+> +	return 0;
+> +}
+> +
+> +static struct attribute *ctcu_attrs[] = {
+> +	ctcu_byte_cntr_irq_rw(0),
+> +	ctcu_byte_cntr_irq_rw(1),
+> +	NULL,
+> +};
+> +
+> +static struct attribute_group ctcu_attr_grp = {
+> +	.attrs = ctcu_attrs,
+> +	.is_visible = irq_threshold_is_visible,
+> +};
+> +
+> +static const struct attribute_group *ctcu_attr_grps[] = {
+> +	&ctcu_attr_grp,
+> +	NULL,
+> +};
+> +
+>   static void ctcu_program_atid_register(struct ctcu_drvdata *drvdata, u32 reg_offset,
+>   				       u8 bit, bool enable)
+>   {
+> @@ -142,11 +229,15 @@ static int ctcu_set_etr_traceid(struct coresight_device *csdev, struct coresight
+>   static int ctcu_enable(struct coresight_device *csdev, enum cs_mode mode,
+>   		       struct coresight_path *path)
+>   {
+> +	ctcu_byte_cntr_start(csdev, path);
+> +
+>   	return ctcu_set_etr_traceid(csdev, path, true);
+>   }
+>   
+>   static int ctcu_disable(struct coresight_device *csdev, struct coresight_path *path)
+>   {
+> +	ctcu_byte_cntr_stop(csdev, path);
+> +
+>   	return ctcu_set_etr_traceid(csdev, path, false);
+>   }
+>   
+> @@ -197,7 +288,10 @@ static int ctcu_probe(struct platform_device *pdev)
+>   			for (i = 0; i < cfgs->num_etr_config; i++) {
+>   				etr_cfg = &cfgs->etr_cfgs[i];
+>   				drvdata->atid_offset[i] = etr_cfg->atid_offset;
+> +				drvdata->byte_cntr_data[i].irq_ctrl_offset =
+> +					etr_cfg->irq_ctrl_offset;
+>   			}
+> +			ctcu_byte_cntr_init(dev, drvdata, cfgs->num_etr_config);
+>   		}
+>   	}
+>   
+> @@ -209,6 +303,7 @@ static int ctcu_probe(struct platform_device *pdev)
+>   	desc.subtype.helper_subtype = CORESIGHT_DEV_SUBTYPE_HELPER_CTCU;
+>   	desc.pdata = pdata;
+>   	desc.dev = dev;
+> +	desc.groups = ctcu_attr_grps;
+>   	desc.ops = &ctcu_ops;
+>   	desc.access = CSDEV_ACCESS_IOMEM(base);
+>   
+> diff --git a/drivers/hwtracing/coresight/coresight-ctcu.h b/drivers/hwtracing/coresight/coresight-ctcu.h
+> index e9594c38dd91..bc833482c8bc 100644
+> --- a/drivers/hwtracing/coresight/coresight-ctcu.h
+> +++ b/drivers/hwtracing/coresight/coresight-ctcu.h
+> @@ -5,19 +5,26 @@
+>   
+>   #ifndef _CORESIGHT_CTCU_H
+>   #define _CORESIGHT_CTCU_H
+> +
+> +#include <linux/time.h>
+>   #include "coresight-trace-id.h"
+>   
+>   /* Maximum number of supported ETR devices for a single CTCU. */
+>   #define ETR_MAX_NUM	2
+>   
+> +#define BYTE_CNTR_TIMEOUT	(5 * HZ)
+> +
+>   /**
+>    * struct ctcu_etr_config
+>    * @atid_offset:	offset to the ATID0 Register.
+> - * @port_num:		in-port number of CTCU device that connected to ETR.
+> + * @port_num:		in-port number of the CTCU device that connected to ETR.
+> + * @irq_ctrl_offset:    offset to the BYTECNTRVAL register.
+> + * @irq_name:           IRQ name in dt node.
+>    */
+>   struct ctcu_etr_config {
+>   	const u32 atid_offset;
+>   	const u32 port_num;
+> +	const u32 irq_ctrl_offset;
+>   };
+>   
+>   struct ctcu_config {
+> @@ -25,15 +32,69 @@ struct ctcu_config {
+>   	int num_etr_config;
+>   };
+>   
+> -struct ctcu_drvdata {
+> -	void __iomem		*base;
+> -	struct clk		*apb_clk;
+> -	struct device		*dev;
+> -	struct coresight_device	*csdev;
+> +/**
+> + * struct ctcu_byte_cntr
+> + * @enable:		indicates that byte_cntr function is enabled or not.
+> + * @reading:		indicates that byte-cntr reading is started.
+> + * @reading_buf:	indicates that byte-cntr is reading data from the buffer.
+> + * @thresh_val:		threshold to trigger a interruption.
+> + * @total_size:		total size of transferred data.
+> + * @irq:		allocated number of the IRQ.
+> + * @irq_cnt:		IRQ count number for triggered interruptions.
+> + * @wq:			waitqueue for reading data from ETR buffer.
+> + * @spin_lock:		spinlock of byte_cntr_data.
+> + * @irq_ctrl_offset:	offset to the BYTECNTVAL Register.
+> + */
+> +struct ctcu_byte_cntr {
+> +	bool			enable;
+> +	bool                    reading;
+> +	bool			reading_buf;
+> +	u32			thresh_val;
+> +	u64			total_size;
+> +	int			irq;
+> +	atomic_t		irq_cnt;
+> +	wait_queue_head_t	wq;
+>   	raw_spinlock_t		spin_lock;
+> -	u32			atid_offset[ETR_MAX_NUM];
+> +	u32			irq_ctrl_offset;
+> +};
+> +
+> +struct ctcu_drvdata {
+> +	void __iomem			*base;
+> +	struct clk			*apb_clk;
+> +	struct device			*dev;
+> +	struct coresight_device		*csdev;
+> +	struct ctcu_byte_cntr		byte_cntr_data[ETR_MAX_NUM];
+> +	raw_spinlock_t			spin_lock;
+> +	u32				atid_offset[ETR_MAX_NUM];
+>   	/* refcnt for each traceid of each sink */
+> -	u8			traceid_refcnt[ETR_MAX_NUM][CORESIGHT_TRACE_ID_RES_TOP];
+> +	u8				traceid_refcnt[ETR_MAX_NUM][CORESIGHT_TRACE_ID_RES_TOP];
+> +	const struct tmc_sysfs_ops	*byte_cntr_sysfs_ops;
+>   };
+>   
+> +/**
+> + * struct ctcu_irq_thresh_attribute
+> + * @attr:	The device attribute.
+> + * @idx:	port number.
+> + */
+> +struct ctcu_byte_cntr_irq_attribute {
+> +	struct device_attribute	attr;
+> +	u8			port;
+> +};
+> +
+> +#define ctcu_byte_cntr_irq_rw(port)					\
+> +	(&((struct ctcu_byte_cntr_irq_attribute[]) {			\
+> +	   {								\
+> +		__ATTR(irq_threshold##port, 0644, irq_threshold_show,	\
+> +		irq_threshold_store),					\
+> +		port,							\
+> +	   }								\
+> +	})[0].attr.attr)
+> +
+> +void ctcu_program_register(struct ctcu_drvdata *drvdata, u32 val, u32 offset);
+> +
+> +/* Byte-cntr functions */
+> +void ctcu_byte_cntr_start(struct coresight_device *csdev, struct coresight_path *path);
+> +void ctcu_byte_cntr_stop(struct coresight_device *csdev, struct coresight_path *path);
+> +void ctcu_byte_cntr_init(struct device *dev, struct ctcu_drvdata *drvdata, int port_num);
+> +
+>   #endif
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> index 32353980964a..83514966df5a 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> @@ -1187,6 +1187,10 @@ ssize_t tmc_etr_get_sysfs_trace(struct tmc_drvdata *drvdata,
+>   	ssize_t actual = len;
+>   	struct etr_buf *etr_buf = drvdata->sysfs_buf;
+>   
+> +	/* Reading the buffer from the buf_node if it exists*/
+> +	if (drvdata->reading_node)
+> +		etr_buf = drvdata->reading_node->sysfs_buf;
+> +
+>   	if (pos + actual > etr_buf->len)
+>   		actual = etr_buf->len - pos;
+>   	if (actual <= 0)
+> @@ -1250,6 +1254,20 @@ static void __tmc_etr_disable_hw(struct tmc_drvdata *drvdata)
+>   
+>   }
+>   
+> +/**
+> + * tmc_etr_enable_disable_hw - enable/disable the ETR hw.
+> + * @drvdata:	drvdata of the TMC device.
+> + * @enable:	indicates enable/disable.
+> + */
+> +void tmc_etr_enable_disable_hw(struct tmc_drvdata *drvdata, bool enable)
+> +{
+> +	if (enable)
+> +		__tmc_etr_enable_hw(drvdata);
+> +	else
+> +		__tmc_etr_disable_hw(drvdata);
+> +}
+> +EXPORT_SYMBOL_GPL(tmc_etr_enable_disable_hw);
+> +
+>   void tmc_etr_disable_hw(struct tmc_drvdata *drvdata)
+>   {
+>   	__tmc_etr_disable_hw(drvdata);
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
+> index 27dd72065c60..d60c70530c8a 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc.h
+> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
+> @@ -482,5 +482,6 @@ struct etr_buf *tmc_etr_get_buffer(struct coresight_device *csdev,
+>   extern const struct attribute_group coresight_etr_group;
+>   void tmc_clean_etr_buf_list(struct tmc_drvdata *drvdata);
+>   int tmc_create_etr_buf_list(struct tmc_drvdata *drvdata, int num_nodes);
+> +void tmc_etr_enable_disable_hw(struct tmc_drvdata *drvdata, bool enable);
+>   
+>   #endif
+> 
 
 
