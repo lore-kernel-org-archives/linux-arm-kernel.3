@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D358E67A8F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 07:30:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFD6CE67A8D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 07:30:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fgGK+vBDhQu7f18aXnBGn/NVn8kLUPrDOIZh/fi2Pvk=; b=4N92EGzYgJaiAiBLyteZbk0wHV
-	chG8jWUAvcziUJ0VPKzbHACErAJtiNPze3n/BuO0T9pLa2XCZTv1Bq2eU6gfpTttUUFzxypL3rYB4
-	FHeC5WcS1dztsyzKFHc5KTNZP4LEcxZtUPBdkDew9eozXJ86i5YQc0K7boos9P+pvfqMAaDomjn3N
-	dyslTCY4tjCKxqpCW/GnLXKTkmH24bwnJVswIPFX5s0BQ6wpv2Bw8zTnAYt9C3wks7uwYdmTxrmw2
-	yyTjd7f4bpzWNtK9J3cbGzHpsYR29VWwxGCtT7vtB9uk4Lczd02K2H5r5WOzMFtVB1dwlPQhYqJhX
-	ED/GzFlA==;
+	bh=Wr2baW9Tg6QswMVJtRYTr/gGNMGvzf+M+QQS/nmpcQQ=; b=15lFeRn0UQ3zce7NMx8VRiKpho
+	xu8O3vODxXWwLvpHNJYvIk4KSuRSohA3yESXNp9GPY8lI0CMHJ9UhzsAI0frK2GYIn19iqUdMLRBZ
+	AUAdS1AS7Y7mFfAMdr2sXiW01vBzu3I9anvqzrTMQYR9xe6JX39SE9VVvrJ+nsg9eZngE/V1A/2t3
+	arKIQQv2B+ZqBES3OO5MSaPxSzl+3vE48FH2lhauCJb7dh1OU8+PBEG1+R2degPa9M6tCXzRYaRoZ
+	zBqxHQp9HJXdZd6e47NKDE5djJbr6j9ftvaoWN+2mImuLY+eVU1VfQRyHx3DLpW/QuoWX+A7d+7qg
+	FE8aKC1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxKCY-0000000Efwr-1XUN;
-	Tue, 03 Mar 2026 07:29:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vxKCa-0000000EfyX-2nR4;
+	Tue, 03 Mar 2026 07:29:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxKCX-0000000Efva-0UUi
+	id 1vxKCY-0000000Efx3-3dYJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 07:29:53 +0000
+	Tue, 03 Mar 2026 07:29:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8E2BB60128;
+	by tor.source.kernel.org (Postfix) with ESMTP id 4DC1360126;
+	Tue,  3 Mar 2026 07:29:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8E37C2BCAF;
 	Tue,  3 Mar 2026 07:29:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7A8FC19425;
-	Tue,  3 Mar 2026 07:29:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772522992;
-	bh=9p7mEMFwI0uT2Kge54+JeVOVj4NaXv5pJH3iDDElDm4=;
+	s=k20201202; t=1772522994;
+	bh=iXGcciF5FWuc8KXZydCTrE3B2rTksJ1Sr2bCyRyg7Og=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=VMJvEQo9q8s0aoP7cBW2C0R+1frCC1yfEOUcUEEMo+LFPbj6e44M4jR92vNnlBlrk
-	 TgejCB8tYMuU7c05BLy0qVee6TdGCYMPf0CW0sdkcGZ2Mr5h3Snx7Gvz6lQaef3aGF
-	 NhbZx/v/6ngIYrOp6plgETyXHkK0MeTr5aDn1iWW0cMsB4Gt6I/o3IUJTTFyWvWOWM
-	 N7b/SKQ7HaKWIP1u2t+uDKxiLEd0QVAm1+ul8j2LEbBlpkjOHJ7zj6yLXFkxmeBIuT
-	 34d/guLv0NZl4M5b1OD5GFBQJ4C43MMCJXUnqzix4BVvjWREDLW+kQatL9TfQBpwjG
-	 SsYEhIJLchMCg==
+	b=SoNRiSISC8Xsss5ygIcLuYRHo6xU+6awwLpq2j3vW+7eSHSyrG011DVBv738oxq7y
+	 Akbklg5wEWIFRiZg2v5N6NgDIcVd6BwzaizHHxXg4h18+/lfdwU3dn/OHDS9Meq2Xb
+	 PSh3CIQ6mjTp+f9c/vLS7jOiC5jBHxDrK2T8DrS6+vtueHtkAN7kxJ4JBXMoxAfLXs
+	 P8Ws1i1WMbGzNDajS8VMXr3pJBULVHV+e8nEVp/J6eG/eiYuTHA/WghGbcmlXyROYI
+	 1qBr6Xw4v8z3c7cFFzF23qVsJgWzODIV+Q7kQA05VX/wrSsZxU+EHkvwcrahd9OQ6p
+	 zlb/l1/ismTeQ==
 From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 03 Mar 2026 08:29:38 +0100
-Subject: [PATCH v2 6/8] ARM: dts: Add a Verbatim Gigabit NAS DTS
+Date: Tue, 03 Mar 2026 08:29:39 +0100
+Subject: [PATCH v2 7/8] ARM: dts: Add a Raidsonic IB-4210-B DTS
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260303-gemini-dts-fixes-v2-6-5b92ced841ce@kernel.org>
+Message-Id: <20260303-gemini-dts-fixes-v2-7-5b92ced841ce@kernel.org>
 References: <20260303-gemini-dts-fixes-v2-0-5b92ced841ce@kernel.org>
 In-Reply-To: <20260303-gemini-dts-fixes-v2-0-5b92ced841ce@kernel.org>
 To: Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
@@ -71,53 +71,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds a device tree for the Verbatim S08V1901-D1 NAS
-which also has the product names "Gigabit Network Hard Drive"
-"Gigabit NAS" and maybe other names.
+This adds a device tree for the Raidsonic IB-4210-B NAS, a slightly
+under-powered version of IB-4220-B with half the memory and
+the cheaper version of the SoC.
 
 Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- arch/arm/boot/dts/gemini/Makefile                  |   1 +
- .../dts/gemini/gemini-verbatim-s08v1901-d1.dts     | 225 +++++++++++++++++++++
- 2 files changed, 226 insertions(+)
+ arch/arm/boot/dts/gemini/Makefile            |   1 +
+ arch/arm/boot/dts/gemini/gemini-nas4210b.dts | 205 +++++++++++++++++++++++++++
+ 2 files changed, 206 insertions(+)
 
 diff --git a/arch/arm/boot/dts/gemini/Makefile b/arch/arm/boot/dts/gemini/Makefile
-index f9f63ce3eb49..d5d32f02e232 100644
+index d5d32f02e232..4722fb1bac49 100644
 --- a/arch/arm/boot/dts/gemini/Makefile
 +++ b/arch/arm/boot/dts/gemini/Makefile
-@@ -8,5 +8,6 @@ dtb-$(CONFIG_ARCH_GEMINI) += \
- 	gemini-sl93512r.dtb \
- 	gemini-sq201.dtb \
- 	gemini-ssi1328.dtb \
-+	gemini-verbatim-s08v1901-d1.dtb \
- 	gemini-wbd111.dtb \
- 	gemini-wbd222.dtb
-diff --git a/arch/arm/boot/dts/gemini/gemini-verbatim-s08v1901-d1.dts b/arch/arm/boot/dts/gemini/gemini-verbatim-s08v1901-d1.dts
+@@ -2,6 +2,7 @@
+ dtb-$(CONFIG_ARCH_GEMINI) += \
+ 	gemini-dlink-dir-685.dtb \
+ 	gemini-dlink-dns-313.dtb \
++	gemini-nas4210b.dtb \
+ 	gemini-nas4220b.dtb \
+ 	gemini-ns2502.dtb \
+ 	gemini-rut1xx.dtb \
+diff --git a/arch/arm/boot/dts/gemini/gemini-nas4210b.dts b/arch/arm/boot/dts/gemini/gemini-nas4210b.dts
 new file mode 100644
-index 000000000000..2a689d276863
+index 000000000000..8bec57c8b7b1
 --- /dev/null
-+++ b/arch/arm/boot/dts/gemini/gemini-verbatim-s08v1901-d1.dts
-@@ -0,0 +1,225 @@
++++ b/arch/arm/boot/dts/gemini/gemini-nas4210b.dts
+@@ -0,0 +1,205 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * Device Tree file for the Verbatim S08V1901-D1
-+ * on product packaging called "Verbatim Gigabit Ethernet Hard Drive"
++ * Device Tree file for the Gemini-based Raidsonic NAS IB-4210-B
++ * Based on the NAS Forum experiments by user "CptSpock".
 + */
 +
 +/dts-v1/;
 +
 +#include "gemini.dtsi"
-+#include <dt-bindings/leds/common.h>
 +#include <dt-bindings/input/input.h>
 +
 +/ {
-+	model = "Verbatim Gigabit Ethernet Hard Drive S08V1901-D1";
-+	compatible = "verbatim,s08v1901-d1", "cortina,gemini";
++	model = "Raidsonic NAS IB-4210-B";
++	compatible = "raidsonic,ib-4210-b", "cortina,gemini";
 +	#address-cells = <1>;
 +	#size-cells = <1>;
 +
-+	memory@0 {
-+		/* 64MB SDRAM in 2 x Hynix HY5DU561622ETP-D43 */
++	memory@0 { /* 64 MB */
 +		device_type = "memory";
 +		reg = <0x00000000 0x4000000>;
 +	};
@@ -130,82 +129,60 @@ index 000000000000..2a689d276863
 +	gpio_keys {
 +		compatible = "gpio-keys";
 +
-+		button-reset {
-+			debounce-interval = <50>;
++		button-setup {
++			debounce-interval = <100>;
++			wakeup-source;
++			linux,code = <KEY_SETUP>;
++			label = "Backup button";
++			/* Conflict with TVC */
++			gpios = <&gpio1 29 GPIO_ACTIVE_LOW>;
++		};
++		button-restart {
++			debounce-interval = <100>;
 +			wakeup-source;
 +			linux,code = <KEY_RESTART>;
-+			label = "reset";
++			label = "Softreset button";
++			/* Conflict with TVC */
 +			gpios = <&gpio1 31 GPIO_ACTIVE_LOW>;
 +		};
 +	};
 +
 +	leds {
 +		compatible = "gpio-leds";
-+		led-green-harddisk {
-+			function = LED_FUNCTION_DISK_ACTIVITY;
-+			color = <LED_COLOR_ID_GREEN>;
-+			gpios = <&gpio0 1 GPIO_ACTIVE_LOW>;
-+			default-state = "off";
++		led-orange-hdd {
++			label = "nas4220b:orange:hdd";
++			/* Conflict with TVC */
++			gpios = <&gpio1 28 GPIO_ACTIVE_HIGH>;
++			default-state = "on";
 +			linux,default-trigger = "disk-activity";
++		};
++		led-green-os {
++			label = "nas4220b:green:os";
++			/* Conflict with TVC */
++			gpios = <&gpio1 30 GPIO_ACTIVE_HIGH>;
++			default-state = "on";
++			linux,default-trigger = "heartbeat";
 +		};
 +	};
 +
-+	/*
-+	 * Fan control candidates: gpio0 10, gpio1 28
-+	 */
-+
 +	mdio0: mdio {
 +		compatible = "virtual,mdio-gpio";
-+		/* Uses MDC and MDIO */
 +		gpios = <&gpio0 22 GPIO_ACTIVE_HIGH>, /* MDC */
 +			<&gpio0 21 GPIO_ACTIVE_HIGH>; /* MDIO */
 +		#address-cells = <1>;
 +		#size-cells = <0>;
 +
-+		/* This is a Realtek RTL8211CL ethernet PHY */
++		/* Realtek RTL8211B */
 +		phy0: ethernet-phy@1 {
 +			reg = <1>;
-+		};
-+	};
-+
-+	/*
-+	 * I haven't found a way to control the fan, it appears to be
-+	 * always on.
-+	 */
-+	thermal-zones {
-+		chassis-thermal {
-+			/* Poll every 20 seconds */
-+			polling-delay = <20000>;
-+			/* Poll every 2nd second when cooling */
-+			polling-delay-passive = <2000>;
-+			/*  Use the thermal sensor in the hard drive */
-+			thermal-sensors = <&drive0>;
-+
-+			/* Tripping points from the fan.script in the rootfs */
-+			trips {
-+				alert: chassis-alert {
-+					/* At 43 degrees turn on the fan */
-+					temperature = <43000>;
-+					hysteresis = <3000>;
-+					type = "active";
-+				};
-+				crit: chassis-crit {
-+					/* Just shut down at 60 degrees */
-+					temperature = <60000>;
-+					hysteresis = <2000>;
-+					type = "critical";
-+				};
-+			};
++			device_type = "ethernet-phy";
 +		};
 +	};
 +
 +	soc {
 +		flash@30000000 {
-+			/*
-+			 * This is a Spansion S29GL128P11TFI01 852FB245 A
-+			 * 128Mbit (16MB) Flash memory.
-+			 */
 +			status = "okay";
++			/* 16MB of flash */
 +			reg = <0x30000000 0x01000000>;
 +
 +			partitions {
@@ -217,23 +194,19 @@ index 000000000000..2a689d276863
 +
 +		syscon: syscon@40000000 {
 +			pinctrl {
-+				/*
-+				 * gpio0agrp cover line 0-4 as line 1 is used for the LED
-+				 * gpio0hgrp cover line 21, 22 used by MDIO for Marvell PHY
-+				 */
 +				gpio0_default_pins: pinctrl-gpio0 {
 +					mux {
 +						function = "gpio0";
-+						groups = "gpio0agrp", "gpio0hgrp";
++						groups =
++						"gpio0egrp",
++						/* Used by MDIO */
++						"gpio0igrp";
 +					};
 +				};
 +				gpio1_default_pins: pinctrl-gpio1 {
-+					/*
-+					 * Free up the TVC pins at GPIO1 offset 28,29,30,31
-+					 * line 31 is used for reset key
-+					 */
 +					mux {
 +						function = "gpio1";
++						/* Lines 28-31 used by LEDs and buttons */
 +						groups = "gpio1dgrp";
 +					};
 +				};
@@ -242,36 +215,50 @@ index 000000000000..2a689d276863
 +						function = "gmii";
 +						groups = "gmii_gmac0_grp";
 +					};
-+					/* TODO: investigate vendor registers on boot */
 +					conf0 {
-+						pins = "V8 GMAC0 RXDV";
++						pins = "R8 GMAC0 RXDV", "U11 GMAC1 RXDV";
 +						skew-delay = <0>;
 +					};
 +					conf1 {
-+						pins = "Y7 GMAC0 RXC";
-+						skew-delay = <15>;
-+					};
-+					conf2 {
-+						pins = "T8 GMAC0 TXEN";
-+						skew-delay = <7>;
-+					};
-+					conf3 {
-+						pins = "U8 GMAC0 TXC";
++						pins = "T8 GMAC0 RXC";
 +						skew-delay = <10>;
 +					};
-+					conf4 {
-+						/* The data lines all have default skew */
-+						pins = "W8 GMAC0 RXD0", "V9 GMAC0 RXD1",
-+						       "Y8 GMAC0 RXD2", "U9 GMAC0 RXD3",
-+						       "T7 GMAC0 TXD0", "U6 GMAC0 TXD1",
-+						       "V7 GMAC0 TXD2", "U7 GMAC0 TXD3";
++					conf2 {
++						pins = "T11 GMAC1 RXC";
++						skew-delay = <15>;
++					};
++					conf3 {
++						pins = "P8 GMAC0 TXEN", "V11 GMAC1 TXEN";
 +						skew-delay = <7>;
++					};
++					conf4 {
++						pins = "V7 GMAC0 TXC", "P10 GMAC1 TXC";
++						skew-delay = <10>;
++					};
++					conf5 {
++						/* The data lines all have default skew */
++						pins = "U8 GMAC0 RXD0", "V8 GMAC0 RXD1",
++						       "P9 GMAC0 RXD2", "R9 GMAC0 RXD3",
++						       "R11 GMAC1 RXD0", "P11 GMAC1 RXD1",
++						       "V12 GMAC1 RXD2", "U12 GMAC1 RXD3",
++						       "R10 GMAC1 TXD0", "T10 GMAC1 TXD1",
++						       "U10 GMAC1 TXD2", "V10 GMAC1 TXD3";
++						skew-delay = <7>;
++					};
++					conf6 {
++						pins = "U7 GMAC0 TXD0", "T7 GMAC0 TXD1",
++						       "R7 GMAC0 TXD2", "P7 GMAC0 TXD3";
++						skew-delay = <5>;
++					};
++					/* Set up drive strength on GMAC0 to 16 mA */
++					conf7 {
++						groups = "gmii_gmac0_grp";
++						drive-strength = <16>;
 +					};
 +				};
 +			};
 +		};
 +
-+		/* Both interfaces brought out on SATA connectors */
 +		sata: sata@46000000 {
 +			cortina,gemini-ata-muxmode = <0>;
 +			cortina,gemini-enable-sata-bridge;
@@ -295,19 +282,13 @@ index 000000000000..2a689d276863
 +				phy-mode = "rgmii";
 +				phy-handle = <&phy0>;
 +			};
++			ethernet-port@1 {
++				/* Not used in this platform */
++			};
 +		};
 +
 +		ide@63000000 {
 +			status = "okay";
-+			/*
-+			 * This drive may have a temperature sensor with a
-+			 * thermal zone we can use for thermal control of the
-+			 * chassis temperature using the fan.
-+			 */
-+			drive0: ide-port@0 {
-+				reg = <0>;
-+				#thermal-sensor-cells = <0>;
-+			};
 +		};
 +
 +		ide@63400000 {
