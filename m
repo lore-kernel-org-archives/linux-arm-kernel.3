@@ -4,75 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00201EDEBF5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 21:01:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63C35EDEBF0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 21:01:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VYCoMox874UkG41AFwcqLA/NfPlaOlGxygnVG+NrNEI=; b=jteVeDoiVLKYtPfgTOmMHaxTGQ
-	/B4rwcLrNYBYjyvMAJ2724HqyYhBWLWjrNVzptfSLv0ZTpAOBbHrV3AWuVu03mZJT938xGTFpLFVn
-	QQzfp0zUT8YqKbRnfMiM4167K5eBj2OLM9Yl7qS6TPiWbDlEua1JvXmP79hkCrNSbL6jwmSo9kPGC
-	8CDgqE4nfJTSr84tPcXIe7sPOHe7yBkf4Esr1N1A/mWfAsODxZ3OpKP82EfiPBJ1jmtWNvsJHOpDP
-	op47PeGwwnvJRf4qxIw65R4M2WMRSj4sXkCh0qoP0LKCH+OdwEd2HD6CqQ+jOSoQry0V5hFpvU3me
-	LHmaNESw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RUhLRAvy5gTHbtCFY778UgEyKl5bwdCfMR/gJ9Hus64=; b=Dh13JbSZhoi1SAllV0BK1WKS2W
+	t3ZjjdVc8J6wc4fpSRU17cc2dAMwGrIpiKQH6LzeUOEcz6npb2h214dtvIpcRsR9kFUR+Hz49gpls
+	BULddhSTMzOPDiy7NFv3c4zoLaaJ6q+rxTevqJ/txEpn+TPQKPvA9NrEICiRSetdxgmVJbfif4p8W
+	5cD8Y1O4MsaBM55v4EHAkx0c1adV3AAlvPGPPRvejtlSLxL9qUIvJKDLYBIkopp70y8BxZ7bYXi+X
+	UfSSqbRa5ixCH5o/csEi+OqiVn0cjfDBZ2pE4PVsIM/bGHsv2zMUFllKI96ahqSO5LOM2U2vTs8Te
+	Iq33huZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxWrY-0000000FwFv-14mG;
-	Tue, 03 Mar 2026 21:01:04 +0000
-Received: from terminus.zytor.com ([2607:7c80:54:3::136] helo=mail.zytor.com)
+	id 1vxWsD-0000000FwL2-3OS8;
+	Tue, 03 Mar 2026 21:01:45 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxWrV-0000000FwEp-3Ybp
+	id 1vxWsB-0000000FwKQ-3dIs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 21:01:03 +0000
-Received: from ehlo.thunderbird.net (c-76-133-66-138.hsd1.ca.comcast.net [76.133.66.138])
-	(authenticated bits=0)
-	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 623L07cW3276874
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
-	Tue, 3 Mar 2026 13:00:08 -0800
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 623L07cW3276874
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
-	s=2026022301; t=1772571609;
-	bh=VYCoMox874UkG41AFwcqLA/NfPlaOlGxygnVG+NrNEI=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=J04tWHXJRQ4G1vgUJxAr5RbvTbGLR/cHWVslG2ysvgZVqum75IEoDC6dtGc3RlEKN
-	 gUgGPOAd9MXe8CpG/crlLctiNQxJBMOT+cXYXjrFtYd/ntsm2/P8UIzdSo2DMS6ark
-	 Vu3+lFth/GOPA8muhWjcE1ynqs1UpAoaFJpUajmj+BiMnuK0U4mSRCtSZ1GIIeuvIa
-	 mZ97PzkWn/kLprWX0cl5Mi4+xj7F5yQHjWd+WIjcipqFzUiIDQhiPDGeAseJOqICmR
-	 WDrvasLJ1NsDoRQE3mNCnwQHbwWCc38WW8I2ZcCDD1Zk0XtigDVyZiABIDdAPpUE/W
-	 EQp9NarHAcRQQ==
-Date: Tue, 03 Mar 2026 13:00:02 -0800
-From: "H. Peter Anvin" <hpa@zytor.com>
-To: Arnd Bergmann <arnd@arndb.de>,
-        =?ISO-8859-1?Q?Thomas_Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
-CC: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-        Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-        Russell King <linux@armlinux.org.uk>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        Christophe Leroy <chleroy@kernel.org>,
-        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-        Vincenzo Frascino <vincenzo.frascino@arm.com>,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org
-Subject: Re: [PATCH 1/7] x86/vdso: Respect COMPAT_32BIT_TIME
-User-Agent: K-9 Mail for Android
-In-Reply-To: <2b1ac7b9-fcc8-4aa3-a0ad-eb37e4bce030@app.fastmail.com>
-References: <20260227-vdso-compat_32bit_time-v1-0-3f0286a7bac3@linutronix.de> <20260227-vdso-compat_32bit_time-v1-1-3f0286a7bac3@linutronix.de> <c29f5e70-bd17-4e1b-a005-5a3282e70075@app.fastmail.com> <03cd1e21-a2f2-46a1-a674-cbaef9712016@app.fastmail.com> <20260227103226-cc3bb32c-0107-4c09-b81a-ca33ea03ad5c@linutronix.de> <49b7c9f9-198a-49f7-880b-6ae74d7bd985@zytor.com> <2b1ac7b9-fcc8-4aa3-a0ad-eb37e4bce030@app.fastmail.com>
-Message-ID: <56591FD5-0DD0-4117-BC7B-4565E3F6512E@zytor.com>
+	Tue, 03 Mar 2026 21:01:45 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-48371bb515eso92322585e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 13:01:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772571702; x=1773176502; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=RUhLRAvy5gTHbtCFY778UgEyKl5bwdCfMR/gJ9Hus64=;
+        b=C1rAyxiAIpOuicF5NMYAlVLXApWSIK9dQ+IY9ST22yRnv1TRDjia4OhwzoanYRaT+1
+         gdoIwYZ2kBEVVLu4owCx1trSCnsF/c5ctqFt9QXw+JRA3UIEfuJyGTTlWCt0O2kitjSW
+         Dv/vs/K2g9Kr08JO/lRczWYmc//GyW0S2n1sOlznxq52C1hzZGMX/fWdndFYlmQA056F
+         OuWDpLpUUCwFjIniLCSBxbwlCViym/fXM4UNqimqj4ZlhICeO0J0OxikHrhHkB5j1qbc
+         vjCKUcii1H73E06ttBR+iFscnAv+izzXCz1cUfgf3bR1esj48gYXFVEX1kIqb1JXksn1
+         vCrA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772571702; x=1773176502;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RUhLRAvy5gTHbtCFY778UgEyKl5bwdCfMR/gJ9Hus64=;
+        b=MGDCHZ5lgMmTEQ2D/Z899qeVx9YM6YuJF3ReYiorna/JWxSHsGFGuSkK3HLn63if3V
+         Q79tSWsZgjc2SmcXItdGnby0ov8Ldwf4O0EkP8+kA89uqscFIlxFbZX9iPi38/KJRU5z
+         g+ihTGR7fZKE3whwoQZoKB3OsJAgBCtlsi7WUam5Cxq7KO8ZFW5YzPAIYN6UWZlgGeL/
+         YaQipQEdSvJRCgJk88jMsNyFS4vWnWKKnDctqKjXEPKcftZnlB1V5329qidK6MiUf5XG
+         M6DFgxld1Mo/afF13UMBGa7AegoIngUILUGC4P+07oek3Uf7HGHL/vyPo43WQ+ZF2gPw
+         61BA==
+X-Forwarded-Encrypted: i=1; AJvYcCVniVeTtOcft7+gmLq2Vd3WDLi3rmHrqU/9OKKg1X+FvTN5q/y9waSuCouh62zePlOZR6UdMKyLN7eTEbHG38eU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZ8ESk1+YlYZErlzFc2aU4sSf5NEAilhQVyAxfvn5zLAraLqNS
+	vbzFRuPwFg65aH9VYlLYKCaUHWYoeZwUWt3GlqaW4QjTvai2/nOVLDJB
+X-Gm-Gg: ATEYQzzEniahXMvTJg/7Oj+DBVZ+8maLFjet1JDJTxSgbfHPzfgp9uz+OA2GRb5qUgV
+	KoFQHqvnUtfPY1a4XIzUZhc03aelOXw+nAbb52C8NmRQHeO5CfWAgPpgIv9Fszs1pW2Y7Ahedgc
+	IGHPXB7+FG3VzhYAuS8gj968i050br2dpwpkkwwecK7koeKBpe+OvIW5P3ZhrLUz2tZxHSZbyCB
+	kRGGlL+iAEhORbD3OB57ZKbwYeDDVRHqnPO3bOTp0E19BATQWb4o4dPsYQSOfu8zqdupAqfkamh
+	gCBMpNq1sizJxM9Jn6e8FLmSP1j0uHsbTAuldDl+T5rV6XsUrWrBsPSGV6rFnI0CUBD+ge4/WwT
+	e2PctYtg6v7Xg0eVQQDcHyPPjMRzxgntycqozl2lsGGhML6qRZb4GHcv/cIZ8+nhL45Nnwnh3Ee
+	a8zshWWv+EWgu0Si1bVHQPkPcpjR/1ouonDEfDKNPPSqra57UUdOUgUgo+MmqmyxRjUVp/gK0rK
+	Ow0VXNp2GnqpKCZXuqB6/ffB5I=
+X-Received: by 2002:a05:600c:4f8b:b0:477:af8d:203a with SMTP id 5b1f17b1804b1-483c9c205a6mr306337205e9.27.1772571701881;
+        Tue, 03 Mar 2026 13:01:41 -0800 (PST)
+Received: from emanueleg-nb.corp.toradex.int (93-34-120-147.ip49.fastwebnet.it. [93.34.120.147])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4851884224fsm3155035e9.4.2026.03.03.13.01.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Mar 2026 13:01:41 -0800 (PST)
+From: Emanuele Ghidoli <ghidoliemanuele@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] arm64: dts: freescale: imx95-toradex-smarc: Support Cortex M7
+Date: Tue,  3 Mar 2026 22:01:07 +0100
+Message-ID: <20260303210125.1781197-1-ghidoliemanuele@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_130101_890674_3276974B 
-X-CRM114-Status: GOOD (  17.53  )
+X-CRM114-CacheID: sfid-20260303_130143_920767_B5C373A2 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,51 +105,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On March 3, 2026 12:50:33 PM PST, Arnd Bergmann <arnd@arndb=2Ede> wrote:
->On Tue, Mar 3, 2026, at 19:11, H=2E Peter Anvin wrote:
->> On 2026-02-27 01:34, Thomas Wei=C3=9Fschuh wrote:
->>>>>
->>>> The thing about gettimeofday() and time() is that they don't have
->>>> a 64-bit version and libc implementations are expected to call
->>>> clock_gettime() instead=2E The result was that there was never a
->>>> patch to turn the off either=2E
->>>=20
->>> gettimeofday() is currently the only way to get the timezone of the ke=
-rnel=2E
->>> But I guess this is a legacy thing anyways=2E If you say we should dro=
-p it,
->>> let's drop it=2E
->>>=20
->>
->> The time zone in the kernel has never worked anyway, as it would requir=
-e the
->> kernel to contain at least the forward portion of the zoneinfo/tzdata t=
-able in
->> order to actually work correctly=2E The only plausible use of it would =
-be for
->> local time-based filesystems like FAT, but I don't think we bother=2E
->>
->> A bigger question is whether or not we should omit these from the vDSO
->> completely (potentially causing link failures) or replace them with stu=
-bs
->> returning -ENOSYS=2E
->
->I see no harm in keeping gettimeofday() in the vdso when
->COMPAT_32BIT_TIME is turned on, as existing code will call it
->no matter whether it's in the vdso or the syscall=2E
->
->Equally, I see no point in having either version of
->gettimeofday() or settimeofday() when COMPAT_32BIT_TIME is
->disabled, as clearly anything calling it would pass incorrect
->data for times past 2038=2E
->
->Neither glibc nor musl support actually returning the kernel
->timezone to callers of gettimeofday in modern versions that
->support time64 syscalls=2E
->
->      Arnd
->
+From: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
 
-That wasn't the point=2E The point was what kind of error behavior we want=
-=2E
+Enable Cortex M7, the vring nodes, a mailbox and reserve DDR memory for
+the M7. The remoteproc framework is so capable to load and run the M7
+firmware.
+
+Signed-off-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
+---
+Changes in v2:
+- Use necessary node names (rsc-table, vdev*)
+
+v1: https://lore.kernel.org/lkml/20260303121324.1576841-1-ghidoliemanuele@gmail.com/
+
+ .../dts/freescale/imx95-toradex-smarc.dtsi    | 50 +++++++++++++++++++
+ 1 file changed, 50 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
+index 5932ba238a8a..748fd7d9e7e0 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
+@@ -42,6 +42,16 @@ clk_serdes_eth_ref: clock-eth-ref {
+ 		enable-gpios = <&som_gpio_expander_1 13 GPIO_ACTIVE_HIGH>;
+ 	};
+ 
++	cm7: remoteproc-cm7 {
++		compatible = "fsl,imx95-cm7";
++		mbox-names = "tx", "rx", "rxdb";
++		mboxes = <&mu7 0 1
++			  &mu7 1 1
++			  &mu7 3 1>;
++		memory-region = <&vdevbuffer>, <&vdev0vring0>, <&vdev0vring1>,
++				<&vdev1vring0>, <&vdev1vring1>, <&rsc_table>, <&m7_reserved>;
++	};
++
+ 	connector {
+ 		compatible = "gpio-usb-b-connector", "usb-b-connector";
+ 		/* SMARC P64 - USB0_OTG_ID */
+@@ -156,6 +166,42 @@ linux_cma: linux,cma {
+ 			alloc-ranges = <0 0x80000000 0 0x7f000000>;
+ 			linux,cma-default;
+ 		};
++
++		m7_reserved: memory@80000000 {
++			reg = <0 0x80000000 0 0x1000000>;
++			no-map;
++		};
++
++		rsc_table: rsc-table@88220000 {
++			reg = <0 0x88220000 0 0x1000>;
++			no-map;
++		};
++
++		vdev0vring0: vdev0vring0@88000000 {
++			reg = <0 0x88000000 0 0x8000>;
++			no-map;
++		};
++
++		vdev0vring1: vdev0vring1@88008000 {
++			reg = <0 0x88008000 0 0x8000>;
++			no-map;
++		};
++
++		vdev1vring0: vdev1vring0@88010000 {
++			reg = <0 0x88010000 0 0x8000>;
++			no-map;
++		};
++
++		vdev1vring1: vdev1vring1@88018000 {
++			reg = <0 0x88018000 0 0x8000>;
++			no-map;
++		};
++
++		vdevbuffer: vdevbuffer@88020000 {
++			compatible = "shared-dma-pool";
++			reg = <0 0x88020000 0 0x100000>;
++			no-map;
++		};
+ 	};
+ };
+ 
+@@ -572,6 +618,10 @@ &lpuart3 {
+ 	pinctrl-0 = <&pinctrl_uart3>;
+ };
+ 
++&mu7 {
++	status = "okay";
++};
++
+ /* SMARC MDIO, shared between all ethernet ports */
+ &netc_emdio {
+ 	pinctrl-names = "default";
+-- 
+2.43.0
+
 
