@@ -4,56 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B35C2EC143B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 13:13:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76DE9EC1430
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 13:14:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lbOReU/Qrt+NIBJEEbqoIset+uAbt9VrkEKkfMdPqog=; b=HtzwrbfyvR4No6UL5ETnyD+lgL
-	5wNhF1stziUW3LFGcStM5nlQCzx6Ph1V6n+XCu4rNAKYmvmfuAHkglgAgRf2y+M5n7zKLve45Z0qM
-	DYsvaUUWhBP3Wzf0gHPfiybwaECnBejifoO77PeD1vjVSrAA6UjPP9WYWjLr+Yd6LoB9fjP9icfny
-	tCYN1s6VmOY8dlZURhxHyS3fQveiGXIY9wHbu7C6YjWk3/ggpZcz2ipMDWa9EYrWHbSvwBPpvw6XH
-	xK63sMuNsyHdfwP9H/u5aOpg0ZHq8WAS3Fe9C7P3MRFSmkLZT+gxQy8HOLvF99sDLk6LgzAZf8xaO
-	bO/0lxWQ==;
+	bh=nYNqC4gE/9ZyBirmGF0MQd2JkubQOIbw1MmGOpt5yrM=; b=NKsKYpPapTJBK4JMwCo6sRb9z/
+	VWy+CnlHuIcMa/0tgq8BsMHFiX2KIC03lofJQdpovAUlY/mzhofTXd1GHwmHQSreLG5X8zeEWFqjw
+	NCUvVOln8VTs7ZZfh13ejeoAqGmUo8ahX5RrvXE7q6NKL5sRyWwhqNqxdloeiE8ZorTElgvZoqliS
+	2aQa71proiR4V0pU2NHafrnPOZFY78fwaJh57ph69cyMvL1RZHpJFlNOkrPbgvYA7B+rN0Cx24MQ7
+	1oh8PH7X+uf0LKx4zXmNPB9rZGhH+mvVfDaUkGSzjThCsurHOstMZQHwDJKwQGvQUqN9M9vmu9loH
+	MYkiG4Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxPYe-0000000FCTV-2N7G;
-	Tue, 03 Mar 2026 13:13:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxPYc-0000000FCT7-3dPb
+	id 1vxPZY-0000000FCc9-1paX;
+	Tue, 03 Mar 2026 13:14:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxPZW-0000000FCbm-26RN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 13:13:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 584FA497;
-	Tue,  3 Mar 2026 05:12:52 -0800 (PST)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C1D613F73B;
-	Tue,  3 Mar 2026 05:12:56 -0800 (PST)
-Date: Tue, 3 Mar 2026 13:12:50 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	James Morse <james.morse@arm.com>, Mark Brown <broonie@kernel.org>,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH 1/4] arm64: tlb: Use __tlbi_sync_s1ish_kernel() for
- kernel TLB maintenance
-Message-ID: <aabeUlR3QcBg7GmM@J2N7QTR9R3.cambridge.arm.com>
-References: <20260302165801.3014607-1-catalin.marinas@arm.com>
- <20260302165801.3014607-2-catalin.marinas@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260302165801.3014607-2-catalin.marinas@arm.com>
+	Tue, 03 Mar 2026 13:13:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3508E40569;
+	Tue,  3 Mar 2026 13:13:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 092B1C19422;
+	Tue,  3 Mar 2026 13:13:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772543638;
+	bh=L9fZcSbzLb4ZXzGb1Dnc1jBjm9UNtWSEuqn+gRjJ8Yg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=S9qgjQMGFeVQjp71yZR84ErWRDVMMsuMCK6JYPZMv+kv6e753uHyZnsgiRqQjg1Us
+	 VFJRInq3NKGpKZC46jdtV9x4NSShNwQgn1pSaV8dQjMOBN3fOljicaQTFvE6USrViP
+	 cdLyt8OCpaEnjaaLaeq05D2LbClZbKOfDJCZGdwY8uyGJD6eWGpi1sTj4zpFJq8hZ0
+	 Ai7BJ9tJuCmVjAoDHWVbKnKUDkJo4xBW+G9LFCnEBnVRB36t0A6+KD2BT+2gMZsxRG
+	 Kc6jqSvzW54PiUMryuEbPmwmmgnj5Msa15ZJCiH/wVGwprUldYaH6d6Mqchd5DBrxE
+	 YX+xkT97BnOUg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vxPZT-0000000FdJt-3Uin;
+	Tue, 03 Mar 2026 13:13:55 +0000
+Date: Tue, 03 Mar 2026 13:13:55 +0000
+Message-ID: <86fr6h838s.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Steven Price <steven.price@arm.com>,
+	kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>
+Subject: Re: [PATCH v12 06/46] arm64: RMI: Define the user ABI
+In-Reply-To: <9d702666-72a8-43e4-8ab3-548d8154a529@arm.com>
+References: <20251217101125.91098-1-steven.price@arm.com>
+	<20251217101125.91098-7-steven.price@arm.com>
+	<86tsuy8g0u.wl-maz@kernel.org>
+	<33053e22-6cc6-4d55-bc7f-01f873a15d28@arm.com>
+	<9d702666-72a8-43e4-8ab3-548d8154a529@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: suzuki.poulose@arm.com, steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_051303_023538_F034D4D5 
-X-CRM114-Status: GOOD (  21.68  )
+X-CRM114-CacheID: sfid-20260303_051358_585442_4677545D 
+X-CRM114-Status: GOOD (  43.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,106 +108,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Catalin,
-
-On Mon, Mar 02, 2026 at 04:57:54PM +0000, Catalin Marinas wrote:
-> Add __tlbi_sync_s1ish_kernel() similar to __tlbi_sync_s1ish() and use it
-> for kernel TLB maintenance. Also use this function in flush_tlb_all()
-> which is only used in relation to kernel mappings. Subsequent patches
-> can differentiate between workarounds that apply to user only or both
-> user and kernel.
+On Mon, 02 Mar 2026 17:13:41 +0000,
+Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
 > 
-> Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-
-This looks fine to me. I have one minor comment/naming nit below, but
-this looks functionally correct, and I'm happy to spin a follow-up for
-that.
-
-With or without the changes below:
-
-Acked-by: Mark Rutland <mark.rutland@arm.com>
-
-> ---
->  arch/arm64/include/asm/tlbflush.h | 12 +++++++++---
->  1 file changed, 9 insertions(+), 3 deletions(-)
+> On 02/03/2026 15:23, Steven Price wrote:
+> > Hi Marc,
+> > 
+> > On 02/03/2026 14:25, Marc Zyngier wrote:
+> >> On Wed, 17 Dec 2025 10:10:43 +0000,
+> >> Steven Price <steven.price@arm.com> wrote:
+> >>> 
+> >>> There is one CAP which identified the presence of CCA, and two ioctls.
+> >>> One ioctl is used to populate memory and the other is used when user
+> >>> space is providing the PSCI implementation to identify the target of the
+> >>> operation.
+> >>> 
+> >>> Signed-off-by: Steven Price <steven.price@arm.com>
+> >>> ---
+> >>> Changes since v11:
+> >>>   * Completely reworked to be more implicit. Rather than having explicit
+> >>>     CAP operations to progress the realm construction these operations
+> >>>     are done when needed (on populating and on first vCPU run).
+> >>>   * Populate and PSCI complete are promoted to proper ioctls.
+> >>> Changes since v10:
+> >>>   * Rename symbols from RME to RMI.
+> >>> Changes since v9:
+> >>>   * Improvements to documentation.
+> >>>   * Bump the magic number for KVM_CAP_ARM_RME to avoid conflicts.
+> >>> Changes since v8:
+> >>>   * Minor improvements to documentation following review.
+> >>>   * Bump the magic numbers to avoid conflicts.
+> >>> Changes since v7:
+> >>>   * Add documentation of new ioctls
+> >>>   * Bump the magic numbers to avoid conflicts
+> >>> Changes since v6:
+> >>>   * Rename some of the symbols to make their usage clearer and avoid
+> >>>     repetition.
+> >>> Changes from v5:
+> >>>   * Actually expose the new VCPU capability (KVM_ARM_VCPU_REC) by bumping
+> >>>     KVM_VCPU_MAX_FEATURES - note this also exposes KVM_ARM_VCPU_HAS_EL2!
+> >>> ---
+> >>>   Documentation/virt/kvm/api.rst | 57 ++++++++++++++++++++++++++++++++++
+> >>>   include/uapi/linux/kvm.h       | 23 ++++++++++++++
+> >>>   2 files changed, 80 insertions(+)
+> >>> 
+> >>> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+> >>> index 01a3abef8abb..2d5dc7e48954 100644
+> >>> --- a/Documentation/virt/kvm/api.rst
+> >>> +++ b/Documentation/virt/kvm/api.rst
+> >>> @@ -6517,6 +6517,54 @@ the capability to be present.
+> >>>     `flags` must currently be zero.
+> >>>   +4.144 KVM_ARM_VCPU_RMI_PSCI_COMPLETE
+> >>> +------------------------------------
+> >>> +
+> >>> +:Capability: KVM_CAP_ARM_RMI
+> >>> +:Architectures: arm64
+> >>> +:Type: vcpu ioctl
+> >>> +:Parameters: struct kvm_arm_rmi_psci_complete (in)
+> >>> +:Returns: 0 if successful, < 0 on error
+> >>> +
+> >>> +::
+> >>> +
+> >>> +  struct kvm_arm_rmi_psci_complete {
+> >>> +	__u64 target_mpidr;
+> >>> +	__u32 psci_status;
+> >>> +	__u32 padding[3];
+> >>> +  };
+> >>> +
+> >>> +Where PSCI functions are handled by user space, the RMM needs to be informed of
+> >>> +the target of the operation using `target_mpidr`, along with the status
+> >>> +(`psci_status`). The RMM v1.0 specification defines two functions that require
+> >>> +this call: PSCI_CPU_ON and PSCI_AFFINITY_INFO.
+> >>> +
+> >>> +If the kernel is handling PSCI then this is done automatically and the VMM
+> >>> +doesn't need to call this ioctl.
+> >> 
+> >> Shouldn't we make handling of PSCI mandatory for VMMs that deal with
+> >> CCA? I suspect it would simplify the implementation significantly.
+> > 
+> > What do you mean by making it "mandatory for VMMs"? If you mean PSCI is
+> > always forwarded to user space then I don't think it's going to make
+> > much difference. Patch 27 handles the PSCI changes (72 lines added), and
+> > some of that is adding this uAPI for the VMM to handle it.
+> > 
+> > Removing the functionality to allow the VMM to handle it would obviously
+> > simplify things a bit (we can drop this uAPI), but I think the desire is
+> > to push this onto user space.
+> > 
+> >> What vcpu fd does this apply to? The vcpu calling the PSCI function?
+> >> Or the target? This is pretty important for PSCI_ON. My guess is that
+> >> this is setting the return value for the caller?
+> > 
+> > Yes the fd is the vcpu calling PSCI. As you say, this is for the return
+> > value to be set correctly.
+> > 
+> >> Assuming this is indeed for the caller, why do we have a different
+> >> flow from anything else that returns a result from a hypercall?
+> > 
+> > I'm not entirely sure what you are suggesting. Do you mean why are we
+> > not just writing to the GPRS that would contain the result? The issue
+> > here is that the RMM needs to know the PA of the target REC structure -
+> > this isn't a return to the guest, but information for the RMM itself to
+> > complete the PSCI call.
+> > 
+> > Ultimately even in the case where the VMM is handling PSCI, it's
+> > actually a combination of the VMM and the RMM - with the RMM validating
+> > the responses.
+> > 
 > 
-> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-> index 1416e652612b..19be0f7bfca5 100644
-> --- a/arch/arm64/include/asm/tlbflush.h
-> +++ b/arch/arm64/include/asm/tlbflush.h
-> @@ -191,6 +191,12 @@ static inline void __tlbi_sync_s1ish(void)
->  	__repeat_tlbi_sync(vale1is, 0);
->  }
->  
-> +static inline void __tlbi_sync_s1ish_kernel(void)
-> +{
-> +	dsb(ish);
-> +	__repeat_tlbi_sync(vale1is, 0);
-> +}
-> +
->  /*
->   * Complete broadcast TLB maintenance issued by hyp code which invalidates
->   * stage 1 translation information in any translation regime.
-> @@ -299,7 +305,7 @@ static inline void flush_tlb_all(void)
->  {
->  	dsb(ishst);
->  	__tlbi(vmalle1is);
-> -	__tlbi_sync_s1ish();
-> +	__tlbi_sync_s1ish_kernel();
->  	isb();
->  }
+> More importantly, we have to make sure that the "RMI_PSCI_COMPLETE" is
+> invoked before both of the following:
+>   1. The "source" vCPU is run again
+>   2. More importantly the "target" vCPU is run.
 
-The commit message is correct that flush_tlb_all() is only used for
-kernel mappings today, via flush_tlb_kernel_range(), so this is safe.
+I don't understand why (1) is required. Once the VMM gets the request,
+the target vcpu can run, and can itself do the completion, without any
+additional userspace involvement.
 
-However, the big comment block around line 200 says:
+	M.
 
-	flush_tlb_all()
-		Invalidate the entire TLB (kernel + user) on all CPUs
-
-... and:
-
-	local_flush_tlb_all()
-		Same as flush_tlb_all(), but only applies to the calling CPU.
-
-... where the latter is used for user mappings (upon ASID overflow), so
-I think there's some risk of future confusion.
-
-To minimize the risk that flush_tlb_all() gets used for user mappings in
-future, how about we rename flush_tlb_all() => flush_tlb_kernel_all(), and
-update those comments:
-
-	flush_tlb_kernel_all()
-		Invalidate all kernel mappings on all CPUs.
-		Should not be used to invalidate user mappings.
-
-	local_flush_tlb_all()
-		Invalidate all (kernel + user) mappings on the calling CPU.
-
-Note: I chose flush_tlb_kernel_all() rather than flush_tlb_all_kernel()
-__flush_tlb_kernel_{pgtable,range}, with 'kernel' before the operation/scope.
-
-Thanks,
-Mark.
-
-> @@ -568,7 +574,7 @@ static inline void flush_tlb_kernel_range(unsigned long start, unsigned long end
->  	dsb(ishst);
->  	__flush_tlb_range_op(vaale1is, start, pages, stride, 0,
->  			     TLBI_TTL_UNKNOWN, false, lpa2_is_enabled());
-> -	__tlbi_sync_s1ish();
-> +	__tlbi_sync_s1ish_kernel();
->  	isb();
->  }
->  
-> @@ -582,7 +588,7 @@ static inline void __flush_tlb_kernel_pgtable(unsigned long kaddr)
->  
->  	dsb(ishst);
->  	__tlbi(vaae1is, addr);
-> -	__tlbi_sync_s1ish();
-> +	__tlbi_sync_s1ish_kernel();
->  	isb();
->  }
->  
+-- 
+Without deviation from the norm, progress is not possible.
 
