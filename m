@@ -4,108 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CC17EC1449
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 13:43:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D383EC1451
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 13:54:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ib0jE0UROuqHeVvr4xE90sAVXgstdGcpgb+zpFuvYw=; b=FzNCcf1TWPW5BUfmQUSnwURAN1
-	oJfiBqXRWSitrkp7wA1xd65ijViRk5fdfN+8q7ud3cCmhPB5QaH0xA936om33BV+qcoHooEOVRWnl
-	SEU/AMZh79x46BUCFI6HDaFPVIspMx5LaL/lgC4Ww+k2kloVkR1og4rEujiRPdSINofO+KhgaUwbb
-	IbftVxqyfa7itImf/7Od6QVLrGyzl73RgP9pRHbqHuecQNuo5FNf1csrZmozT92inSMeivn5CB3Q7
-	qeuh7ln7OfHIn5KMllF5m75xlipZ9AvlvnwaRqpWLwgPdFIbJav5dPBWGZhbo87CgtwC6vx246sKn
-	eCO+Ri4w==;
+	bh=+jYjup8nFi8SWoxHxSscrmbSDma+UNQ0zsPOj1Qu5o8=; b=ZBZOKykgKyJ/5I4N3GcPKE5oTp
+	HzYStp+D/ojIAJiqVTulVthTU97MKz+nz4IKdEWPVHV+IntD7y8uS/7F5M6BpRCZ/JzgjQGcHz8lC
+	/jPY35PaPQZwioO2CYflFI2uQk42jf2WkxdPTbbCJmc6EFJRK1+ei9r7zYvt6XtQp6FRehDKCE7LI
+	bOfygna/01CAjtKa9HZIhe1TDq3XtaA4zbSLsPKCemXt3HBKqvxCQk5Vz5cW9I8FXQhVj/tULBJB4
+	8IZDftNd59TIwTW7/6KWEwyuMdoPkEtt/yA7/pvYYhKP/djfAuYKkojsC/u0m0PvoYIiZb0P7tlbI
+	W8XVcjHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxQ1c-0000000FFti-46qR;
-	Tue, 03 Mar 2026 13:43:01 +0000
-Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxQ1a-0000000FFsb-28zw
+	id 1vxQCv-0000000FGfT-1RuK;
+	Tue, 03 Mar 2026 13:54:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxQCs-0000000FGex-2uKO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 13:42:59 +0000
-Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-5069df1dea8so48610901cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 05:42:58 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772545377; cv=none;
-        d=google.com; s=arc-20240605;
-        b=PW0jbpskxcpyNA7XqQ2zuknNphlp4mrM0ojZjVv/kz6fR5edgin4qxU8qJJqSju96I
-         TvEXCjg6EO+jMtKhgAmtNV+PdmOOO6G/VVXwlIHhPg5Qo7feY8MQX1aE5x4qHHSYkFMc
-         4BdixgCOuIEFlW1aufXextJCoI8y4clOZmTMyWORXQLIKUMwbDPfdmlky6dh2YJ+MnSq
-         B1J5OEPDLJ6dxdx7Hz0b+UB5A45LJf0vCYbzy8RoVMemnx96HD89fhOYhWX31mITDkOE
-         8o1ioNZRCLVs/BRY96NQeYGzH35Pw8dNeEYKemSLWNq+hrKy3PIe9BKfX3Iy08vxUAF+
-         d8hQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=2ib0jE0UROuqHeVvr4xE90sAVXgstdGcpgb+zpFuvYw=;
-        fh=wN0Wwj7xfjWDEgaupguRrkhvPLFEcmQSPNjTR5An5/Q=;
-        b=Dza5xIHpYbD0JcJpsnDKvgTLEPFYVob+y1P3xfI3dPfbJJ4VGu48rsARCQl6DI8qFn
-         Gw1z5EUehz6B9+EnAer5g6vhuViLjQ4pVOoK2+rtZjGAnV4NLnnRnNKE8XCzhOdR1qJC
-         nQPgRfc5VzvZUZoqx+TuKZXSLo2H4FFPpN7LOMP70Tq9n4IDblDnZdcIrDciJk46RREn
-         JPNRNLRX/Msw+w6tGGP7s6o7Qd+7zmveIFZnS6h8IZ4j3s9x/dxM+8vMopeZ7+vW5Dci
-         S7qCNJsMWO5T/XmPdAMoUrkxbQJ3sQEiMAZh7vBO2hi3MhJ+XR6O0IeRu9YettnX1WLT
-         YrhQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1772545377; x=1773150177; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2ib0jE0UROuqHeVvr4xE90sAVXgstdGcpgb+zpFuvYw=;
-        b=gbWJdim1iItB+IVC2RoGy2qst0hcNLDf4cDZNv06WHLmeC3c9/LdU0VuLg1gJ849OY
-         NVwMEs9ARbJ0qM2bOLav+AftSRXylYNk2XCgiA48Zic+poJynR48cRSi0h2GajISrCX0
-         QDYM+qYCHLa7wQsvdzD2ghNv86rViCE+GiTNk0QdcpJJa1936gdAxrXTIld10Pf1psf6
-         x9SRvVtGXHx7ZpwL4R2aAofpNNvyXJwq9t+n/YZIkaUjcNrv94wbm2d0WdE7X9XqkD+3
-         AAJTLvWt2PS/6bMgsG9cuONwbgz8iPE0t1/M6PR5hH0rrJf/FVK/KEs143/sAi8jJckX
-         QBOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772545377; x=1773150177;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=2ib0jE0UROuqHeVvr4xE90sAVXgstdGcpgb+zpFuvYw=;
-        b=te0M1XjSFwc1+kXqc3swQU7+T0oeqnEBgjJrJB5jxIcaqZZaY0ZuRKj5tJc0XO6plf
-         kPWmck/B9I52bTivjd+9FCePYYzb6LJpWcVD/NMvbs9dQsWjUPTzFZ3/N4qVAl/fg+Dn
-         y0bxBvd/9p7yds+VD4A8lmPfkplMs9+1pe9Yz7Ke6hNigkgnPb7YH6gJKgbKmv/vNi13
-         X87q6rtqx2xNZcMdibVqcQvmhqO6aU76DnHi56Q/QTs5AALIN9wcbDhGXPOXtS9jqbxO
-         kL4RpVBf0HOSuwWlefSMnJNQnPB5etRun9wyHrQQ4I0vzrac1tAr7Bni2t6XBaCwgtfQ
-         ueVw==
-X-Forwarded-Encrypted: i=1; AJvYcCXO43yrzlYHAuoMtvzxXjO2Sxx7wIChPhPerV3OY3qe0dsG/0+usJpwXgUsGpBlAlBhZizk2ZuvVcec8t3FsqQ+@lists.infradead.org
-X-Gm-Message-State: AOJu0YymrvK2aHmjzW6XFq/oPblO7YuIXv4zU2pEiwj5WNzZiHP3P2eu
-	BWp+dSJNiiBXFMsenuQoIQG2YxMd/+U+6QcdfKhgzpWleYtPwRh+18gk2Q8nIYrpjGZJwM+6fpH
-	NuX9LolNVP87GrPt8NBb9r0qIA8RAxZcRf/Y++pSX
-X-Gm-Gg: ATEYQzzda4yJgFLoMMm403O1GFDZHazgZO3ACqz4D825mG24cjo+ICdifsL2n0mAO/M
-	qpP7DEsqlj3Xj+ebgF1lUFIWh2yH/idEKXtcxlwPs8InANZa4bMYW/IBn4tnZeVrWlUOUF04MyS
-	x/bt6+NR3InT23LyCwG1wz1I72fS+kzZ2B3jrXgcpGIrXFpHexo8q/49vIdHEmos23X/9yJLigT
-	ceVNywNl8qakbSIj/TOM/BIR5Z9wala6MUtH/yjaGh5fsAm6g/tqD93HtUOvaauieBqqrr67Rtl
-	amn4V9xqeqA++Z7gzUzhhPMpnrxXOfVuI5l3MA==
-X-Received: by 2002:a05:622a:4d:b0:501:40af:96bf with SMTP id
- d75a77b69052e-50752989987mr225891971cf.68.1772545376634; Tue, 03 Mar 2026
- 05:42:56 -0800 (PST)
+	Tue, 03 Mar 2026 13:54:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 64DBD497;
+	Tue,  3 Mar 2026 05:54:30 -0800 (PST)
+Received: from [10.1.31.220] (XHFQ2J9959.cambridge.arm.com [10.1.31.220])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 467DB3F73B;
+	Tue,  3 Mar 2026 05:54:35 -0800 (PST)
+Message-ID: <28c7506f-a57e-4c59-b3ef-4596d8e1b11e@arm.com>
+Date: Tue, 3 Mar 2026 13:54:33 +0000
 MIME-Version: 1.0
-References: <20260226020748.1282208-1-imran.f.khan@oracle.com>
-In-Reply-To: <20260226020748.1282208-1-imran.f.khan@oracle.com>
-From: Alexander Potapenko <glider@google.com>
-Date: Tue, 3 Mar 2026 14:42:20 +0100
-X-Gm-Features: AaiRm520pyinVR1ZOFHH1Ic9lRccb4y7w9GFdFD-xIdy5G305nnhw5SJbP9BMW0
-Message-ID: <CAG_fn=XrQeLLFWuJx7XCaOKWJu+z3c_7S1mAu3HtP_dmd4xnMA@mail.gmail.com>
-Subject: Re: [PATCH] arm64: move early allocation of kfence pool after acpi
- table initialization.
-To: Imran Khan <imran.f.khan@oracle.com>
-Cc: elver@google.com, dvyukov@google.com, catalin.marinas@arm.com, 
-	will@kernel.org, kasan-dev@googlegroups.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Mark Rutland <mark.rutland@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 11/13] arm64: mm: More flags for __flush_tlb_range()
+Content-Language: en-GB
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>,
+ Dev Jain <dev.jain@arm.com>, Linu Cherian <Linu.Cherian@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260302135602.3716920-1-ryan.roberts@arm.com>
+ <20260302135602.3716920-12-ryan.roberts@arm.com>
+ <20260303095718.00001320@huawei.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20260303095718.00001320@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_054258_589602_48E45ED8 
-X-CRM114-Status: UNSURE (   9.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260303_055438_817642_A3B6C89B 
+X-CRM114-Status: GOOD (  28.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,17 +71,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 26, 2026 at 3:08=E2=80=AFAM Imran Khan <imran.f.khan@oracle.com=
-> wrote:
->
-> Currently early allocation of kfence pool (arm64_kfence_alloc_pool) happe=
-ns
-> before ACPI table parsing (acpi_boot_table_init) and hence the kfence poo=
-l
-> can overlap with area containing ACPI data.
+On 03/03/2026 09:57, Jonathan Cameron wrote:
+> On Mon, 2 Mar 2026 13:55:58 +0000
+> Ryan Roberts <ryan.roberts@arm.com> wrote:
+> 
+>> Refactor function variants with "_nosync", "_local" and "_nonotify" into
+>> a single __always_inline implementation that takes flags and rely on
+>> constant folding to select the parts that are actually needed at any
+>> given callsite, based on the provided flags.
+>>
+>> Flags all live in the tlbf_t (TLB flags) type; TLBF_NONE (0) continues
+>> to provide the strongest semantics (i.e. evict from walk cache,
+>> broadcast, synchronise and notify). Each flag reduces the strength in
+>> some way; TLBF_NONOTIFY, TLBF_NOSYNC and TLBF_NOBROADCAST are added to
+>> complement the existing TLBF_NOWALKCACHE.
+>>
+>> There are no users that require TLBF_NOBROADCAST without
+>> TLBF_NOWALKCACHE so implement that as BUILD_BUG() to avoid needing to
+>> introduce dead code for vae1 invalidations.
+>>
+>> The result is a clearer, simpler, more powerful API.
+> Hi Ryan,
+> 
+> There is one subtle change to rounding that should be called out at least.
 
-What happens if another allocation occurs before ACPI table parsing?
-Can we enforce that this is impossible?
-Shouldn't the firmware somehow tell the kernel that the future BGRT
-table should not be used?
+Thanks for the review. I'm confident that there isn't actually a change to the
+rounding here, but the responsibility has moved to the caller. See below...
+
+> 
+> Might even be worth pulling it to a precursor patch where you can add an
+> explanation of why original code was rounding to a larger value than was
+> ever needed.
+> 
+> Jonathan
+> 
+> 
+>>
+>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> 
+> 
+>>  static inline void __flush_tlb_range(struct vm_area_struct *vma,
+>> @@ -586,24 +615,9 @@ static inline void __flush_tlb_range(struct vm_area_struct *vma,
+>>  				     unsigned long stride, int tlb_level,
+>>  				     tlbf_t flags)
+>>  {
+>> -	__flush_tlb_range_nosync(vma->vm_mm, start, end, stride,
+>> -				 tlb_level, flags);
+>> -	__tlbi_sync_s1ish();
+>> -}
+>> -
+>> -static inline void local_flush_tlb_contpte(struct vm_area_struct *vma,
+>> -					   unsigned long addr)
+>> -{
+>> -	unsigned long asid;
+>> -
+>> -	addr = round_down(addr, CONT_PTE_SIZE);
+> See below.
+>> -
+>> -	dsb(nshst);
+>> -	asid = ASID(vma->vm_mm);
+>> -	__flush_s1_tlb_range_op(vale1, addr, CONT_PTES, PAGE_SIZE, asid, 3);
+>> -	mmu_notifier_arch_invalidate_secondary_tlbs(vma->vm_mm, addr,
+>> -						    addr + CONT_PTE_SIZE);
+>> -	dsb(nsh);
+>> +	start = round_down(start, stride);
+> See below.
+>> +	end = round_up(end, stride);
+>> +	__do_flush_tlb_range(vma, start, end, stride, tlb_level, flags);
+>>  }
+> 
+>>  
+>>  static inline bool __pte_flags_need_flush(ptdesc_t oldval, ptdesc_t newval)
+>> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+>> index 681f22fac52a1..3f1a3e86353de 100644
+>> --- a/arch/arm64/mm/contpte.c
+>> +++ b/arch/arm64/mm/contpte.c
+> ...
+> 
+>> @@ -641,7 +641,10 @@ int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
+>>  			__ptep_set_access_flags(vma, addr, ptep, entry, 0);
+>>  
+>>  		if (dirty)
+>> -			local_flush_tlb_contpte(vma, start_addr);
+>> +			__flush_tlb_range(vma, start_addr,
+>> +					  start_addr + CONT_PTE_SIZE,
+>> +					  PAGE_SIZE, 3,
+> 
+> This results in a different stride to round down. 
+> local_flush_tlb_contpte() did
+> addr = round_down(addr, CONT_PTE_SIZE);
+> 
+> With this call we have
+> start = round_down(start, stride); where stride is PAGE_SIZE.
+> 
+> I'm too lazy to figure out if that matters.
+
+contpte_ptep_set_access_flags() is operating on a contpte block of ptes, and as
+such, start_addr has already been rounded down to the start of the block, which
+is always bigger than (and perfectly divisible by) PAGE_SIZE.
+
+Previously, local_flush_tlb_contpte() allowed passing any VA in within the
+contpte block and the function would automatically round it down to the start of
+the block and invalidate the full block.
+
+After the change, we are explicitly passing the already aligned block;
+start_addr is already guaranteed to be at the start of the block and "start_addr
++ CONT_PTE_SIZE" is the end.
+
+So in both cases, the rounding down that is done by local_flush_tlb_contpte() /
+__flush_tlb_range() doesn't actually change the value.
+
+Thanks,
+Ryan
+
+
+> 
+> 
+>> +					  TLBF_NOWALKCACHE | TLBF_NOBROADCAST);
+>>  	} else {
+>>  		__contpte_try_unfold(vma->vm_mm, addr, ptep, orig_pte);
+>>  		__ptep_set_access_flags(vma, addr, ptep, entry, dirty);
+> 
+
 
