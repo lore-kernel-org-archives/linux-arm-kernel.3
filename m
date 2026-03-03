@@ -4,85 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D277EC0489
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 10:05:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C92EC048E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 10:06:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=F+lrtQVQWmgjYr6Xwseu/E/ekhX+nvU40jV9XwiokRw=; b=pmhm+Vvslk7KqvwuzGANzj2cFh
-	8YNP9ZRFC6Ivb7JVQVA4/IrtD8Je3KpbD09gHC0DakG/RVifZbyodgG2vh3raOO0SQCT8pnVYxTCu
-	9pTdnhZM9ebBi8XcDDbFT6QLy29/ICKLg2fmz+H3td1Q/RWdpklk8bvzaPKM6V2CsYkMr0ZyuORig
-	qnd2q+MGizr4cUDL43eetTwmZGWkIF9UO46EMqnyNizWDNT6hGMo2uYRArjmIQx6ZeN1A8MlwC73L
-	/0sGwAhqikDzpCiaCfjIQYUvwoyUCsrBz5pnHlbHjMfIVbPof73+vK3EQiNH9TSo1Kqvo7gYQZ+fy
-	7QZCWLtg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zk88C81++mThefAjrpENGh3n8w4xhZZwoUsui2RBGvs=; b=24rRM+bREvH5UZKBBOaVYZ2t38
+	gS24B4rsr7/ZvluBrSTvxA2jRepQQfROIFKw+7Ptzeav6hOJeyCNWbSp3nWyy89EehMvfohkKOgIE
+	XhDeCHmznlnnuICP631yy6aNr+vm9ySKPA2ZepUQtRYZ5sqafYM8a2dmhCXyyv6H7oIY3B+kmYvg2
+	bLbziiUzWaBwh0aswocLgKGBOEYUC05rWIiLlRsGjeyD0uFlRPXYgwcGdKg+ERQQlyY66TSGpJhs6
+	s1sZl23WJa+afTGyitezcvtUedkQojjE6fY8F8sLbYv5WN5S0eBHupkmj1X9wOTAnrcbMltu6Z+x0
+	6/ELBzWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxMdB-0000000Evb9-0qCw;
-	Tue, 03 Mar 2026 10:05:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vxMe8-0000000Evnp-1PEX;
+	Tue, 03 Mar 2026 10:06:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxMd7-0000000EvZq-2ibd;
-	Tue, 03 Mar 2026 10:05:31 +0000
+	id 1vxMe6-0000000Evml-0qZS;
+	Tue, 03 Mar 2026 10:06:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 967C940561;
-	Tue,  3 Mar 2026 10:05:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 6FCEDC116C6;
-	Tue,  3 Mar 2026 10:05:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3FB676012A;
+	Tue,  3 Mar 2026 10:06:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E4905C2BCB0;
+	Tue,  3 Mar 2026 10:06:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772532327;
-	bh=9dJ8qLLYIZAO2CG6AxPuvLdbo0/KEzaLIw6AaTJMJd4=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=tNqIhFGyv+8lZVoVDvwE8QvojLMCyfL2tmt84dEhbczmoEsco9rI+RloW/K61AoPY
-	 6sf8b+59/9p6RLFKXl07xEJFLWUKPWBHUY9I0KSJ/Gy9CII0tdTm6BFSIrSqeifhfE
-	 mOxZjcTAml3uhF+Hm+Ypjmvh8IKDOF+obV8bdNbWlrYziyaK3Zp4BGmzFb+LdWHLGu
-	 u+jmEtA579IQ+hwWvWRaqQhgMqBL5HBtT2UaY4JqCZrnHkYqhrK0k99fBo16gRHDv+
-	 p2zxJQOxQhCYbck+uGo/726uW4MMoBz9k8jgyNZrx9q0t4AyD+DQCEDPyHAGbex55s
-	 H8IXvpS+PjfmQ==
+	s=k20201202; t=1772532388;
+	bh=dmYhvJWltKPlnfSCZp2xF0fuBjC8r/ExyToKNbYqzIg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=GaCu4tr4gHStrYmUr3vpeilOFdpP/e11urbg7vsICcdResCJ312luR7rjX8JOHmND
+	 Ii8g2UbIZaXjLyWatOAqesMtCBmg++cCxfmBwlD+V7P4gYRA085bTnTocyvZk3ZBRY
+	 SeNZUDGz5cHOU6zyHqwH1MYj7QtSOy3kUChbpskXqHP4KAb0d7JfM2RrCqYDwCX6Ut
+	 sEjRdEALm44/2IHwMXcGoZkrvRs1gA5W3vmKFgd/xGnFeb/+lEyHsZY6x133QzyokK
+	 HfsufFlQv9ZjohU6KE2IAdWRkvdnJQoEsLtTcMfcSSfDEovQSoSCv311kR9RCv4wLA
+	 my5x/iv5e6OWw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 63220EC048B;
-	Tue,  3 Mar 2026 10:05:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CF9ABEC0489;
+	Tue,  3 Mar 2026 10:06:28 +0000 (UTC)
 From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Tue, 03 Mar 2026 10:05:24 +0000
-Subject: [PATCH] dt-bindings: serial: amlogic,meson-uart: Add compatible
- string for A9
+Date: Tue, 03 Mar 2026 10:06:25 +0000
+Subject: [PATCH v3 1/2] dt-bindings: arm: amlogic: add A311Y3 support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260303-serial-binding-v1-1-c3df2a8f6fa3@amlogic.com>
-X-B4-Tracking: v=1; b=H4sIAGOypmkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDYwNjXZD6xBzdpMy8lMy8dN20FEtDEwsTE3NDczMloKaCotS0zAqwgdG
- xtbUAB4QGzmAAAAA=
-X-Change-ID: 20260303-serial-binding-fd9148447176
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+Message-Id: <20260303-a9-baisc-dts-v3-1-4bf21001f05c@amlogic.com>
+References: <20260303-a9-baisc-dts-v3-0-4bf21001f05c@amlogic.com>
+In-Reply-To: <20260303-a9-baisc-dts-v3-0-4bf21001f05c@amlogic.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
- Xianwei Zhao <xianwei.zhao@amlogic.com>
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772532325; l=1431;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772532387; l=1053;
  i=xianwei.zhao@amlogic.com; s=20251216; h=from:subject:message-id;
- bh=9mURwWMNKHKPj5DQwkxO2/oc3KhRCoTzoGeBobWkQYM=;
- b=JymmJL57wfD3WRuexnCQrwj4gWarkh2+sQtMISQ+nJ1d184MWywv+CAUTFEJ+63gky+C2/16m
- Q8gP9fwsZgFDGeltyP3ZIJJ6/77WPI0Z0i/jNaphv5N1Ab//xjCNCEa
+ bh=SsR9Sz9BWoMX3UnJeit5aTZNxRC651zrkqb0PjHBQcE=;
+ b=NFoRKmD3u6sSIm7NWn9KHotS0WxQi1TGq80Xn2VsUKbbuGLGd2AE0zC3w6hhi8VgBr20TiT53
+ c7tDv5UZdz9AX2li3cdUvptGm6qqwWQ86piLrNv2C6uGN6g5focMtpt
 X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
  pk=dWwxtWCxC6FHRurOmxEtr34SuBYU+WJowV/ZmRJ7H+k=
 X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20251216 with
  auth_id=578
 X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_020529_753782_52A581B1 
-X-CRM114-Status: UNSURE (   8.62  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,42 +92,36 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-Amlogic A9 SoCs uses the same UART controller as S4 SoCs.
-There is no need for an extra compatible line in the driver,
-but add A9 compatible line for documentation.
+Add bindings for the Amlogic BY401 board, using A311Y3 Soc from
+Amlogic A9 family chip.
 
 Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 ---
-This patch is from the submission below(patch 2/3).
-https://lore.kernel.org/all/20260205-a9-baisc-dts-v1-0-1212b46f95a7@amlogic.com/
+ Documentation/devicetree/bindings/arm/amlogic.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-It is just sent again separately since it goes via the tty tree
----
- Documentation/devicetree/bindings/serial/amlogic,meson-uart.yaml | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/Documentation/devicetree/bindings/serial/amlogic,meson-uart.yaml b/Documentation/devicetree/bindings/serial/amlogic,meson-uart.yaml
-index d8ad1bb6172d..a2702319685d 100644
---- a/Documentation/devicetree/bindings/serial/amlogic,meson-uart.yaml
-+++ b/Documentation/devicetree/bindings/serial/amlogic,meson-uart.yaml
-@@ -56,6 +56,7 @@ properties:
+diff --git a/Documentation/devicetree/bindings/arm/amlogic.yaml b/Documentation/devicetree/bindings/arm/amlogic.yaml
+index a885278bc4e2..9f73a0054fb2 100644
+--- a/Documentation/devicetree/bindings/arm/amlogic.yaml
++++ b/Documentation/devicetree/bindings/arm/amlogic.yaml
+@@ -234,6 +234,12 @@ properties:
+               - amlogic,av400
+           - const: amlogic,a5
+ 
++      - description: Boards with the Amlogic A9 A311Y3 SoC
++        items:
++          - enum:
++              - amlogic,by401
++          - const: amlogic,a9
++
+       - description: Boards with the Amlogic C3 C302X/C308L SoC
          items:
            - enum:
-               - amlogic,a4-uart
-+              - amlogic,a9-uart
-               - amlogic,s6-uart
-               - amlogic,s7-uart
-               - amlogic,s7d-uart
 
----
-base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-change-id: 20260303-serial-binding-fd9148447176
-
-Best regards,
 -- 
-Xianwei Zhao <xianwei.zhao@amlogic.com>
+2.52.0
 
 
 
