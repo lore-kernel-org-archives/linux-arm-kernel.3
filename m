@@ -4,130 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C0E1EC145E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 15:00:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41916EC145E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 15:02:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LEkQ9dNY1XnxCyA9bBuiMFcOlaPpCMruxRKUrc6o1t8=; b=sAnxMqrXaLsYG/Q43/X2YluO94
-	s75FfkSxG9nU7OIszuajWD8j8G3Hab91QUTcliqSd2qP6LdkNwvWEFZc/xZ4CTCBIkQbKxOTw+Yya
-	/ukrAUL0i4VUthvLo++nIoPzU5X25t614WnuAjiyYpADcZeP1emii13kpt77T3X+Wp3Y5uO+cpiiD
-	TH5pOG+qWiuQxl55jjfcSiBJqp59zdKBURrCSTxZaqZRgNkNNx5bvTe8uc/dpCrR92fd55RCESmu5
-	JCNzmO2DmfshNMq6+RsdTGcMQ4kLgZ7LDjhRvun3NAKsGkxAD0cq1AoOEqyG1vPcwWVPUw/CAAxxH
-	CqH7K3hg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s4uzlb6+hHaPlr/Yshxvd75jEvsk+bpxsI3ICC2PcsQ=; b=JBR82YLBIx5DaFTlqHHfze/ZoG
+	Pa7z43uqGWU40j7tt+bwYdPeosZUXfR8pQUM+OgRbTsJfo+Aade/im+ffAE4TMAGh3+noPVVd7PVZ
+	FVE5Njp0HzHmEEPORAqzNBUjA62l1k9l88JgvzwuAHoIUiP/FdBxQoGyzs7OVuCBApu1Yd5fvltkC
+	IJ/XEk54C3WqSj+VgrmkIEUOx+35P9T6D1IFswrHBwoCFX+3Q8Wp4zOrrDP8+PCASq9lOrdv/yVyF
+	o1pSiS4KLp0i9NrzOTRWwKtva5EBvA1sNdxdUsDCQ5fE4j3MHdxlmEhLwbKfTLaOi8O2qMPUk9KSt
+	Jvge1QMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxRED-0000000FNGs-2Z7K;
-	Tue, 03 Mar 2026 15:00:05 +0000
-Received: from mail-swedensouthazon11022135.outbound.protection.outlook.com ([52.101.77.135] helo=MM0P280CU010.outbound.protection.outlook.com)
+	id 1vxRGe-0000000FNVR-3Hkh;
+	Tue, 03 Mar 2026 15:02:36 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxREA-0000000FNF2-3Ez8
+	id 1vxRGa-0000000FNUc-3myC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 15:00:04 +0000
+	Tue, 03 Mar 2026 15:02:34 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=K5TnNiD8Lg5jEjWrohOar4qJS2DtMmP+jVuggC5xFFwvrt6VqPAunfh43y+DatSds/+gex9vh/dEMfhOMSreCuNKwdv/4VgrnsOWJxVt+4QEo8oif4GcCFEkEn6Cq0XhjpZF6/Yza3yI5Xi7uWhLLX9/9KMdDvG56WLwji1gWwtOdOUGCcw//NbEDpv98/L1cStI+gwqXjkBDc7HELO38Cd5fHLsshhk5i0BZM5nTN5R3Zg9beQGR/vguTR1c6gby2hMqA5aLLodJA4rK5T1dxhN2BcjpFMTOMduBdKW7eJOBX9igyJqqRk/9vx3beGAKViK997pxvZ0ChtbAcuL9g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=s4uzlb6+hHaPlr/Yshxvd75jEvsk+bpxsI3ICC2PcsQ=;
+ b=SpT3l+E549MK1xttmFMnOoWRpm6lrWDnNuDr6HRRm2gso3YZcRHtfKpzI+8uQNRf4FNlyh9as4pqyGFYnA6r4Etuv1n0NuSrTZGZ9fHX3LQDq/y/HQaTjnujj5Bmi3vaBicRooUalFLiToY1e87+ibGbmCX10Jv9HnzDRTMjgejZfqGVT+MRHMND9tkvCWjMlaBCov3MWtN64GTZLdTrCXcnu+4R+E/wVBgtAW59GZ7zsuIq94SBczh9AjZjm+EhM+x2WnigiYLGOR+sNJohdrOb48WpEzzclVfek8TZ3TR5388e70J4jX/6zEabFev1igLajgOYLBMPdWCTYHnqpQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=s4uzlb6+hHaPlr/Yshxvd75jEvsk+bpxsI3ICC2PcsQ=;
+ b=YQPrgcqkmoJjKvDLISs9FKh1fIILSfDHdB1fxh0jQ5QZIy7ZRaWiHYpbRUEe5D86yGW3Lkm0kBpFDvR7xdBuQrKq4Q7F4MpkS81LltqkqpJmfp229tYaG80UzGs6RLwZcUiWpXW93nusKdxTViozwJGpbIGTBRux2lOdhJbb9GQ=
+Received: from DUZPR01CA0049.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:469::9) by VI1PR08MB5325.eurprd08.prod.outlook.com
+ (2603:10a6:803:13e::17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Tue, 3 Mar
+ 2026 15:02:22 +0000
+Received: from DB1PEPF000509E8.eurprd03.prod.outlook.com
+ (2603:10a6:10:469:cafe::58) by DUZPR01CA0049.outlook.office365.com
+ (2603:10a6:10:469::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9654.22 via Frontend Transport; Tue,
+ 3 Mar 2026 15:02:20 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DB1PEPF000509E8.mail.protection.outlook.com (10.167.242.58) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.12
+ via Frontend Transport; Tue, 3 Mar 2026 15:02:22 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YARZWhoneTn5G0z2d7QWFevsOvedO0vf9LNhsu7Hma95sgBMorT89uCcj9skNKQ8gjpa15CRiFUH5tFavBQmlqdbYVQ7eitaVpYtENOg3LmcU+eHzBcFV2934orOTPOV+l7oBb6RUThtkJhbm92YlWybfdocctJdM26bVdpL9gbYymG/txWiHxFkKmDNy4+sFEarWnZLqRGIScO3CDR+4x17z6FtdFmeY4DXja5AQMh0sKTLChopZvUAwJ64mhn2HfMjex1kJqorDcmreltDfjOb/x1qvj7ji7BcU22hsa+8IJm7nZAupBpTqm5Suon9DD0YtA4C+9/FYtuKgUHyPA==
+ b=InVhnKRWR6EeVegGsPqwC7H36crhozTN1GDDPFCzeGs0xAIuvHxNjZPoZ1SLJjTcqqbtQpi+BezaN3q7KcYU4MAlfRLVLg0fnOUMCe57LZOqEcejzYp9qoz6qiUPEJfgQzmUcHORNw6P2uuuXET1uR5X/O+LzpEHv3/uPIsfcPNNqrZPXJ8mUUiDe3UYF9bDlPqE4C2bmVi8McC6TaRChK07bVD1bZd7co41+TG85LkluRRVWlQtQnXD+WvFJ4lJDqpC7KjTUrX8pMyK3eAbWS2tZzB5kxTErmgIDBH7gyUkEZXmghu/gzSa2E7b4gFi+RgXH9BoXp8dLKXECj/Uaw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LEkQ9dNY1XnxCyA9bBuiMFcOlaPpCMruxRKUrc6o1t8=;
- b=yq9h7wU061yUOI3s+PcJFouT+I3dnYHhNtULJMz0tT+qWtHWv0QlXotPp7n/pODulNKrr6ZmyaugMCORNHbjz8U/BHP3rx80Q4etFA6BTD5z4eBrOLdZ8XBL9HTCER6bfGteXPzwJIOZfEItqbNtTJUTdR1uCqa3FA0VyxR4tzthbldzJrhAAuT7X/i4hvAQyoSCo3XV0kB5yMRqu8sWrez3Puk53kTXMh83yAfQQA0CcxDUHygxbBJmLMWZqh2HBbxqRf4Ly0gu/NwQagEvDshFDSHlCsjnxhFwWAsWCLxobArzxzbOzzbfYvPtVCE3YahYpLiOkUDJQcpB4UiXhg==
+ bh=s4uzlb6+hHaPlr/Yshxvd75jEvsk+bpxsI3ICC2PcsQ=;
+ b=XnwRKWldjvJ5VmHdBoTsr+q3ywhTSN7xQRX6yMjXx1DKC6u4hCr+NCh05xJ3urstrGDcFlgjniER1H4yw8o0NLwCiYzEGQUffdAUVePBxFDFkYvnTlH0r3P1QkefnaaRSlF59QdhYUERQvtGKYYM8bkIiPl2otnwBV8grEwtZgnlCRRFUhkt9D+HFz/6lHHl1Y/FcCpLObb6HXM22cFVW1hLxJAplHAtVHwMnreoqVKL4bSJwC7HV/XwzXz/97oB6ZqumGF1pywxxJy02KB1tbrhm1l3m5xI+KGjYI7bUxdOtVdMkReIE/1IFIhB1QDVEdNzqZ74vzZbiwnqiGySxw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=guidelinegeo.com; dmarc=pass action=none
- header.from=guidelinegeo.com; dkim=pass header.d=guidelinegeo.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=guidelinegeo.com;
- s=selector1;
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LEkQ9dNY1XnxCyA9bBuiMFcOlaPpCMruxRKUrc6o1t8=;
- b=c4idO/cuDAtkfktx/SlofPKvMk1oD59t0mHdYPDrgIT2pzqPlRMHpMcY1o37IdPPPNcfCC1gATrOapGSCOMo1G6UIjaC2uOnpo9j8Cn2oSzy907Ii8BAFK4KsHJSP436W0Hfzjt1CwS3+UeKGDApxqOeqrw3G8TEcs/Jmdgk298=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=guidelinegeo.com;
-Received: from GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM (2603:10a6:150:14::9) by
- GVZP280MB0329.SWEP280.PROD.OUTLOOK.COM (2603:10a6:150:44::11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9654.22; Tue, 3 Mar 2026 14:59:51 +0000
-Received: from GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM
- ([fe80::5a42:b24d:f94f:a5ec]) by GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM
- ([fe80::5a42:b24d:f94f:a5ec%3]) with mapi id 15.20.9654.022; Tue, 3 Mar 2026
- 14:59:52 +0000
-From: Christofer Jonason <christofer.jonason@guidelinegeo.com>
-To: jic23@kernel.org
-Cc: lars@metafoo.de,
-	dlechner@baylibre.com,
-	nuno.sa@analog.com,
-	andy@kernel.org,
-	michal.simek@amd.com,
-	victor.jonsson@guidelinegeo.com,
-	linux-iio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Christofer Jonason <christofer.jonason@guidelinegeo.com>
-Subject: [PATCH] iio: adc: xilinx-xadc: Fix sequencer mode in postdisable for dual mux
-Date: Tue,  3 Mar 2026 15:58:43 +0100
-Message-ID: <20260303145843.1712811-1-christofer.jonason@guidelinegeo.com>
-X-Mailer: git-send-email 2.47.3
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: GV3P280CA0045.SWEP280.PROD.OUTLOOK.COM
- (2603:10a6:150:9::18) To GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM
- (2603:10a6:150:14::9)
+ bh=s4uzlb6+hHaPlr/Yshxvd75jEvsk+bpxsI3ICC2PcsQ=;
+ b=YQPrgcqkmoJjKvDLISs9FKh1fIILSfDHdB1fxh0jQ5QZIy7ZRaWiHYpbRUEe5D86yGW3Lkm0kBpFDvR7xdBuQrKq4Q7F4MpkS81LltqkqpJmfp229tYaG80UzGs6RLwZcUiWpXW93nusKdxTViozwJGpbIGTBRux2lOdhJbb9GQ=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from DU4PR08MB11769.eurprd08.prod.outlook.com (2603:10a6:10:644::21)
+ by GV1PR08MB8179.eurprd08.prod.outlook.com (2603:10a6:150:91::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Tue, 3 Mar
+ 2026 15:01:14 +0000
+Received: from DU4PR08MB11769.eurprd08.prod.outlook.com
+ ([fe80::d424:cd62:81a8:490f]) by DU4PR08MB11769.eurprd08.prod.outlook.com
+ ([fe80::d424:cd62:81a8:490f%6]) with mapi id 15.20.9654.020; Tue, 3 Mar 2026
+ 15:01:14 +0000
+Message-ID: <b5c6c62e-ce3a-4fd0-8c9d-b51b7cab3802@arm.com>
+Date: Tue, 3 Mar 2026 15:01:13 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] KVM: arm64: Disable SPE Profiling Buffer when
+ running in guest context
+To: Will Deacon <will@kernel.org>
+Cc: kvmarm@lists.linux.dev, mark.rutland@arm.com,
+ linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oupton@kernel.org>, James Clark <james.clark@linaro.org>,
+ Leo Yan <leo.yan@arm.com>, Fuad Tabba <tabba@google.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>, Yabin Cui <yabinc@google.com>
+References: <20260227212136.7660-1-will@kernel.org>
+ <20260227212136.7660-3-will@kernel.org>
+ <b6f0b0c8-c2a6-4b61-a0cc-482450c092f5@arm.com>
+ <aabylhEFnTUR0WTy@willie-the-truck>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <aabylhEFnTUR0WTy@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PR1P264CA0055.FRAP264.PROD.OUTLOOK.COM
+ (2603:10a6:102:2ca::11) To DU4PR08MB11769.eurprd08.prod.outlook.com
+ (2603:10a6:10:644::21)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV3P280MB0065:EE_|GVZP280MB0329:EE_
-X-MS-Office365-Filtering-Correlation-Id: 71c1248c-b6ff-4b45-592f-08de79358642
+X-MS-TrafficTypeDiagnostic: DU4PR08MB11769:EE_|GV1PR08MB8179:EE_|DB1PEPF000509E8:EE_|VI1PR08MB5325:EE_
+X-MS-Office365-Filtering-Correlation-Id: 68c77ebb-a51f-4857-e86d-08de7935df94
+x-checkrecipientrouted: true
+NoDisclaimer: true
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: pgcoMLFaHCdpyU5+PN2RjXwgU3AnmOja4LRVYM1rdDWOczDYAUzEdNdUlGAoXsXlBuQLPi9zTaIWx7VSl9KatoKXhNQTE+8hxicJdg6aENhGrXOnSCUMjey/4tYvxIl/P92hEDKXeVRT0CE6+079ADU246lOmzMaPWBL5Rv3EVs+i+Ex2Jj2/5fUYbmstV3WzziMWFQMyqR+FeQBoT5qgiBtjLnCl79m+2SPducrY3MVf+oIwkW9u7grXfUajPgNpiOnVw+5mHiWA2w8xBnuZyYbtj+jrN4wapYR5UBPTyEgCACFKUFS98qqutjVa0M2/qbSyo+0gqvmcZ6PhHPNqBkhEyfrdjEy6J8GfzuEmqETzdgqw7uvbBKYDu6vNebdmQYrzcBKj9V2crPQxs2PXBv7YvoMMvqJga8JC8PGIaeuwV4wW/SvYPLC4Rnl+zL1pk1mKRFjptO5J7WeVIURmpI0C1pxMj5ZsFvHvjWT1QrW90SGKeC7Ibbi8FKbHBHPShJ8PHR7m01PdE7sJsXypRL6+GQB0jdc1oMEYqqeWZAsRu4FQR/Xq7Yx8u1noLskMsGXCkzeFUTujMmk1tbBOSoHxxeFY04DwCKB9/vmuetSjbA1ISf2BwrxyJWx/yjC8TFLS9beA7nC+lAYURqhsCfPkPQCcbpUOXCgr3+Jhk3u73egMfDBLNp2WbGzYX5MJXasCJT9bynXUyIcH4MU33rZSROs+4DnC/2xwr4aR4svRgq6ICQ38G5Z2cZkwTY4KxD6zyZjToc6MOl5Ti1G8p0koV4dbNC5MOZCqdDuXDI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info-Original: 52KJ4LFJ578NKJ5aynV6UND+adHyCC0rFkxF4Hwnnu4FBOeMEcKJcCbQ5pTr3BpL8SUsPjxwsSJFt3ODKuRSX3Jz3lti8v9ve7nlRh2o0Qf0Y3t6nhig6V1WrM43CmIgW0wCr3+maa2mlEowGPNlYVdI1V7aSlRkE+vjDu2gzDuFUAp45yasVZe9qS4PRRQ4l4U0iFq85NG0RbiLwFrQWE8ch3A7VQsY9WCFNEfTBQp0tiHRI+Poalae+c9jQEm+KkwUOvY/QbRfkbD6NV50urFZYeEMkIe02mqvCILGTibCnzObyFh9WPWmF8DVFs58Oej2R5jTtMjpeeXJo2dZnA2NSDbU8fiFotY1ZcJdtxvQpKCqe/dIm7k7rMaA7kBrzEkgBv28g+V9jAxwKEJn/ye7O9TUuEnPv6UfC+8pu3VkAPlOU5p3yW50XzOm5tkgrZq5wP7bZuFdkArz0Vvu3N3i+ZBPYzMfvV1mjtulJYq0OwpA/dvH4//Tc9AzbYG+Ea7RbeWT/txQWO1KSrpQn8Vra75gZgQNyex4iO2QVO2LT5phRgN7jroUK01cdWcW62DW5VGB5472PXObnfsOYdtzy/8XBiiPc2btxdxaWTCs4gyZW+sd9gY6o/KKBTY2tqcYNhzKVuTQEb6B2pPvjoNmPbaxN/zIu+tqjjEGeymRlK9KNPlX+5f48NZRugT37GsUO2VoaXPnCQHVngvDgbEE1aTCyrD5H2mrlJZdDn4=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR08MB11769.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: JgdST2qjxI6+B7D/i1NGOo+q0PqZogDQBQ1S0U4HHPiAFWqllNnZvKvWJhCjACfkamF2JZIo4GxnXRzhb5GmiHf2gPLZM1sIbqBjaGxMUd/pnHZsF0lhqQ5iiNp0jmy49jzsxsW20VdpJ6O3zKT2Kl6qmISUQ1Md7tg3cbi+7EmYNk7qosIRd5mRfhCDMNhIxBO+WlhGkt2ogDUd2SrZY5zq/neZsdTfnxwsOQdY82sAl4n1a4S/QSVXzb9qjhkuD7X3r5I5Gw6n75VCwfHb5faHSxKYXwhVY5uI4X9l3xKQWr3G9kzzPFfkFxUbW93vqmOw63YDa54lEslYyEvLFw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB8179
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF000509E8.eurprd03.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: edb1c84c-f7e7-48e6-68cc-08de7935b6ff
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|376014|35042699022|14060799003|1800799024;
+X-Microsoft-Antispam-Message-Info: fhuNxTcvCHTIoclN88P2q0JaeHBWQRcRMLjlMq+PLHN6hbT4cZ9boDC6GSGi8toBvu2OdwvPBYj1MZlfJ/802lQV0ZtOQALcy6aBBat+O44XTweDkl4va29oQdyCzELAufEOm+T5oJ+KBHD0Ut9y/VPSb8V5F0jcFe5717vtyh32ITq7ylkJBif959rH/uXmEKYiXZLRgLacgnIm8pHuSkeZTqIVb7f1XCDhZ33tsd+r2aSQKoeuf/WYpF1rmkFf5gFz51yJndLEWrlh+UAeXQ2ZHlpxCt1isivyxraEIQjp6RpsBCLEfoVwGfh/kMnN0uEaHgErzvQCLNzdfUf3vDxhQPchOzwkHvxeTjHrio6oVGvGIQG7auNCNWWUQC751SfPlrVPnAzKodOUzqJLPVP6GJ7Cwds0npj5zuAXm4LbKIc6bWg9dxhoHGQvnz101JF10Hbozrf5xRtNZXtQ4Y92aNdHRWNSIETzpqmtV9LPGjQrOy2T6vCucDKLKB1hEO3geJbBsXiDJWWAuezRY+O7WRb+4muI2eK2fBWHOxAtAyakBA/m7dgIopWMzkeEsr6+1VQkFRK1uMkZlkD/0jyB058+Wmkj2la4zrs1f4qvjRImK9KiPJtwq97/FhvOCeoJqPFrOuLSNUVKCJwhbeId18VL+p/x9gjcWFNH016MLWu75ZzsEL2UpuOXm8XN+cJyNDc+Vr3ZKecZEJ5rH6h7gxOUG2UdStUxulJ9I4TEfQXLaaMNMISTgQ6YELjo39eWxQSuqj6NPBLrMPvYcUPqQyWDYWGffKkULakSnHGDBcLFlGSIEFdqYG38foJL9dmKcTvJVJE/7dm2LJuWBA==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(376014)(35042699022)(14060799003)(1800799024);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JldqWuT3obxtRf9kDopme8nUXQiBZjLqPooMbxwUhfC9hnMBV6cIzRjmZYFa?=
- =?us-ascii?Q?0Ehvbzl1C/GHzsaBIeHbzKAq6BgD7JkRzDmD8BvwnhHhzbhEIm37TQJ1SqVI?=
- =?us-ascii?Q?HW00vvs6OPVVR8oYNpw9VLG457gDPDrc/tX+NUwoe7R0BF95JCe6hhsTSz1X?=
- =?us-ascii?Q?XZrcgzkFbafHe6KHuj0/HOFQCUqXFJdpoIyjUuEYlo7T85IkVDuPa+hr/aP1?=
- =?us-ascii?Q?gKGtoiOkZaNM6DuJxv2wUq4qCIGFWJcjizgyPPGaCK4yQ9yBBPN+/XRnEHb7?=
- =?us-ascii?Q?dCBbUbx8VP+jB/BnDfl996h1IgEfILDyRaTAPKs2x6T+yy4MvprrjRv+DY1x?=
- =?us-ascii?Q?knYBiSojxGgH8u1RLgV5tgiQ/9c9EREac4efFijijB5bYypXrAdPhdgjsMA8?=
- =?us-ascii?Q?34MmTjniygLfQ9Fgd289dc1B4Dmce60oBjFoV1HoCF+vfXCKZjwvK7EAmz/F?=
- =?us-ascii?Q?A/+HcEo7jEPb9KeR9Gya3eGS186oUFFGK9WoQRJCtblElPDCY8OQFdUgz1/Y?=
- =?us-ascii?Q?93+gfmLGh4AS+3x2KV5wXBbbm6nO8oT9zAnT4myJkcFnMEVq7NpGYT6jhWwy?=
- =?us-ascii?Q?sM4XSTjGJ8JoCIrNIk4oUUS9Og2kRUZoFW45dAHFdRhOh64ETJtn61jMXQd3?=
- =?us-ascii?Q?OwV6AftpPRLTPt3kgCqg3A47f6IbRfi90aEg7B+3U7XfMniZM7IK8kqeMFw+?=
- =?us-ascii?Q?Zqy5Ij0BZMiW1WC8ldjVdcw4hQQomaoVHWYr3kEzP8DdmvPlGP5s9MtpRPQE?=
- =?us-ascii?Q?FAo0uplRSdiQgpslVd3cj+h5WriVMzvlRgXqX+0qfqurwVsuXo1pm9l796NH?=
- =?us-ascii?Q?Xe1k8tgI4DwtCoKb2LaMmAHPN7r8HVMQr+UKj/hbVGgLwkceU2grfAMYa6fi?=
- =?us-ascii?Q?mzlpMo7y2wtUjPlDHHGyI85w63LSHxXW8VTZRoTaJkO++Fj0VgU7M47wl/0f?=
- =?us-ascii?Q?gV98j5NqpcKAaV5BUCLkfFDhsoIYNPHYqj1dzdWYW63Tu1447hWTGDfVm2oi?=
- =?us-ascii?Q?Px4JLCYiBiZ0jcNKrWmjh6uaQkbivf/4bwquFE84xQVGRg9FChZ7d9nA5+S+?=
- =?us-ascii?Q?a3wdObIjpPT8CmnrBK0VD44xosy0tE30Qhj60r3Yo2MYJV+bbrIVDicZJB4B?=
- =?us-ascii?Q?ou/08oqDQIrlp2HqaE49e0r0QzDOmIp4qxh1x83NuYWYMp9ntdukLFIU/DFW?=
- =?us-ascii?Q?QeE2yj63wKdmlJYWZ2ze4s+F5jLEaUBcpQVS9QXWI9eCwkIS8r0SRPkjn419?=
- =?us-ascii?Q?l6Wpg6oUzkkG11gxlKObSF6ULfk/1H/HjtOOSn30zJJdO2gUUdTrMxJ9qcMd?=
- =?us-ascii?Q?UnK7B5Q46wWrMuNjviwyhEtu7snX7j9FIU8L7rt+fO0ZTNE66kAaVEe3+wCU?=
- =?us-ascii?Q?DsUHHUlstmZYOG0C6h5i10yHEGrdneIqvxkfD8Q1fgKr4wTExe4gHKefUAKV?=
- =?us-ascii?Q?eQWLU7LbJbN4v8iW2bx+wIZm1ThOIwQfZu2Vszh6ZsdBHnfUz9AUk+btB9mq?=
- =?us-ascii?Q?1xj845kKcIhvRvelXKlhhg/kkb4mGwNgTcm4JUMUTkJYfP0hq48v5+y1/z6q?=
- =?us-ascii?Q?LjFePdlGygp3sOgNoRxS31l87f+lmYasduyOY1bpTG3kWUJtZRdiH/V30oSl?=
- =?us-ascii?Q?sHKnn9+xYQ90QzswMeKTxut0bUze3FHXD6yf9PtPwdvBV8Rep5SRvaHF6T6i?=
- =?us-ascii?Q?ewVHv2Jst6+KoJzHWQgiWJAXGMOe/7+JIalbc6f4qrGB12fH3ASrbUY6pDGf?=
- =?us-ascii?Q?0RoXCgjdH8Ib+MFKLvKzJonOVcjTIIW6UCRnbdSNuF+26LyxM36i?=
-X-OriginatorOrg: guidelinegeo.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 71c1248c-b6ff-4b45-592f-08de79358642
-X-MS-Exchange-CrossTenant-AuthSource: GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2026 14:59:52.7302
+X-MS-Exchange-AntiSpam-MessageData-0: xjfbg1Yy/iYYwtvd83QP/Vk6Hocsiv/I1Ary/USeBSBYiNUFps9tcYb291qUvUTFsCKvnYrWwronXu7aM+W+POFvYJM6/8qwZ3vTZcULs4fXFPVIbnYtWJ4nRldGqH1S29BQ70XiT2L5bnGHLOG7giBSbEXSL3e41hYKYwpIqxapCsOswAAxc1ukoMhd4/grxN3J7j5w8O8o7Qrm03q0jVS7JxVzbMFKCkxOgs3BBifMBbMiaAVbsycAXyOojETomiuDQOHNw5FzkUcDxDOeAEU+foMUJEKzQx/qJWDrEG/saOX5/Zo/TtCyqsaA+rRYsp2cjlRlYwJu/UWaSBHwT/OloJjlvenab6nCuIGq0/5BeHIOgUqUFfzsj1ugrrBAFqYUWFS4pTfutXcsI/DWTzduCPJ5QHGOUxCwwz9qQPIKWAzJ1zYaRRnrZOoWAKLS
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2026 15:02:22.3472
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: f3403a73-63c2-4dc7-b628-287972076881
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Y2eKDNpluZ1fBE/UJsPEODq1acfbTJWt2B6MEEex8NAKg79YyzWln6r3rG2pDyRAFBPRVgy1Y1xFQRMDYrHKoDjwGO9w2kH4JHWGHVdViYBFenpqtBXhFPPcy2WfvoPl
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVZP280MB0329
+X-MS-Exchange-CrossTenant-Network-Message-Id: 68c77ebb-a51f-4857-e86d-08de7935df94
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509E8.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR08MB5325
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_070002_831014_0FCD8250 
-X-CRM114-Status: GOOD (  13.71  )
+X-CRM114-CacheID: sfid-20260303_070233_116963_2A5E220D 
+X-CRM114-Status: GOOD (  22.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,67 +160,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-xadc_postdisable() unconditionally sets the sequencer to continuous
-mode. For dual external multiplexer configurations this is incorrect:
-simultaneous sampling mode is required so that ADC-A samples through
-the mux on VAUX[0-7] while ADC-B simultaneously samples through the
-mux on VAUX[8-15]. In continuous mode only ADC-A is active, so
-VAUX[8-15] channels return incorrect data.
+On 03/03/2026 14:39, Will Deacon wrote:
+> On Tue, Mar 03, 2026 at 09:48:06AM +0000, Suzuki K Poulose wrote:
+>> On 27/02/2026 21:21, Will Deacon wrote:
+>>> diff --git a/arch/arm64/kvm/hyp/nvhe/debug-sr.c b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+>>> index 3dbdee1148d3..75158a9cd06a 100644
+>>> --- a/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+>>> +++ b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+>>> @@ -14,20 +14,20 @@
+>>>    #include <asm/kvm_hyp.h>
+>>>    #include <asm/kvm_mmu.h>
+>>> -static void __debug_save_spe(u64 *pmscr_el1)
+>>> +static void __debug_save_spe(void)
+>>>    {
+>>> -	u64 reg;
+>>> +	u64 *pmscr_el1, *pmblimitr_el1;
+>>> -	/* Clear pmscr in case of early return */
+>>> -	*pmscr_el1 = 0;
+>>> +	pmscr_el1 = host_data_ptr(host_debug_state.pmscr_el1);
+>>> +	pmblimitr_el1 = host_data_ptr(host_debug_state.pmblimitr_el1);
+>>>    	/*
+>>>    	 * At this point, we know that this CPU implements
+>>>    	 * SPE and is available to the host.
+>>>    	 * Check if the host is actually using it ?
+>>>    	 */
+>>> -	reg = read_sysreg_s(SYS_PMBLIMITR_EL1);
+>>> -	if (!(reg & BIT(PMBLIMITR_EL1_E_SHIFT)))
+>>> +	*pmblimitr_el1 = read_sysreg_s(SYS_PMBLIMITR_EL1);
+>>> +	if (!(*pmblimitr_el1 & BIT(PMBLIMITR_EL1_E_SHIFT)))
+>>>    		return;
+>>>    	/* Yes; save the control register and disable data generation */
+>>> @@ -37,18 +37,29 @@ static void __debug_save_spe(u64 *pmscr_el1)
+>>>    	/* Now drain all buffered data to memory */
+>>>    	psb_csync();
+>>> +	dsb(nsh);
+>>> +
+>>> +	/* And disable the profiling buffer */
+>>> +	write_sysreg_s(0, SYS_PMBLIMITR_EL1);
+>>> +	isb();
+>>>    }
+>>> -static void __debug_restore_spe(u64 pmscr_el1)
+>>> +static void __debug_restore_spe(void)
+>>>    {
+>>> -	if (!pmscr_el1)
+>>> +	u64 pmblimitr_el1 = *host_data_ptr(host_debug_state.pmblimitr_el1);
+>>> +
+>>> +	if (!(pmblimitr_el1 & BIT(PMBLIMITR_EL1_E_SHIFT)))
+>>>    		return;
+>>>    	/* The host page table is installed, but not yet synchronised */
+>>>    	isb();
+>>
+>> minor nit: This seems buried deep down in a helper (with no context of what
+>> else could have happened since the host context has been restored)
+>> and for now it looks correct,  but is prone to inadvertent changes
+>> causing issues or making this obsolete. With the isb() following LIMITR,
+>> wouldn't that be  sufficient ?
+> 
+> I'm just inherting this from the existing upstream code -- see the isb()
+> in the existing implementation of __debug_restore_spe().
 
-Since postdisable is also called from xadc_probe() to set the initial
-idle state, the wrong sequencer mode is active from the moment the
-driver loads.
+Of course, it was. I should have added "not from your change".
 
-The preenable path already uses xadc_get_seq_mode() which returns
-SIMULTANEOUS for dual mux. Fix postdisable to do the same.
 
-Fixes: bdc8cda1d010 ("iio:adc: Add Xilinx XADC driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Christofer Jonason <christofer.jonason@guidelinegeo.com>
----
- drivers/iio/adc/xilinx-xadc-core.c | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
+Now we have:
 
-diff --git a/drivers/iio/adc/xilinx-xadc-core.c b/drivers/iio/adc/xilinx-xadc-core.c
-index e257c1b94..89d435d72 100644
---- a/drivers/iio/adc/xilinx-xadc-core.c
-+++ b/drivers/iio/adc/xilinx-xadc-core.c
-@@ -817,6 +817,7 @@ static int xadc_postdisable(struct iio_dev *indio_dev)
- {
- 	struct xadc *xadc = iio_priv(indio_dev);
- 	unsigned long scan_mask;
-+	int seq_mode;
- 	int ret;
- 	int i;
- 
-@@ -824,6 +825,12 @@ static int xadc_postdisable(struct iio_dev *indio_dev)
- 	for (i = 0; i < indio_dev->num_channels; i++)
- 		scan_mask |= BIT(indio_dev->channels[i].scan_index);
- 
-+	/*
-+	 * Use the correct sequencer mode for the idle state: simultaneous
-+	 * mode for dual external mux configurations, continuous otherwise.
-+	 */
-+	seq_mode = xadc_get_seq_mode(xadc, scan_mask);
-+
- 	/* Enable all channels and calibration */
- 	ret = xadc_write_adc_reg(xadc, XADC_REG_SEQ(0), scan_mask & 0xffff);
- 	if (ret)
-@@ -834,11 +841,11 @@ static int xadc_postdisable(struct iio_dev *indio_dev)
- 		return ret;
- 
- 	ret = xadc_update_adc_reg(xadc, XADC_REG_CONF1, XADC_CONF1_SEQ_MASK,
--		XADC_CONF1_SEQ_CONTINUOUS);
-+		seq_mode);
- 	if (ret)
- 		return ret;
- 
--	return xadc_power_adc_b(xadc, XADC_CONF1_SEQ_CONTINUOUS);
-+	return xadc_power_adc_b(xadc, seq_mode);
- }
- 
- static int xadc_preenable(struct iio_dev *indio_dev)
--- 
-2.47.3
+__kvm_vcpu_run () {
+
+   ..guest_exit..
+
+//load_host_stage2() if required -> pkvm.
+
+__sysreg_restore_state_nvhe() -> __sysreg_restore_el1_state () #- we 
+restore "host MMU context" here
+
+  ...
+__debug_restore_host_buffers_nvhe() -> __debug_restore_spe(); #issue isb 
+here to sync the  host context
+
+}
+
+and the isb() is placed in the spe restore code. All of this is correct
+and I do understand why it is there. My comment was, this is not easily
+relatable and prone to errors with inadvertent changes (e.g., moving the
+spe around etc). But I agree that we can avoid the unconditional
+overhead over the code readability.
+
+Cheers
+Suzuki
+
+> 
+> The isb() is needed to ensure that SPE can't start making out-of-context
+> translation table walks (which can occur once PMBLIMITR_EL1.E is set)
+> before the stage-2 MMU is restored back to the host configuration (e.g.
+> by clearing HCR_EL2.VM for nVHE or by restoring VTCR and VTTBR for
+> pKVM). We want to predicate it on SPE being enabled, otherwise it's
+> unconditional overhead, so I don't think we can move it.
+> 
+> Will
 
 
