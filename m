@@ -4,71 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A1CAEDA68D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 16:33:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45504EDA68D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 16:34:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	Content-Type:Content-Transfer-Encoding:In-Reply-To:From:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JvN6j8wU9zM77atlq+FD8qGOACA5TsD/SoRj5ZTahzg=; b=4+yriGdmw2YkFz
-	0lSQFQM1ejAQ9Pu6jiNzp/ZIlhivd8HkydwE1ly5Ku0wRXMwegoSblXShKz13qMxxj2AfFTetCAsW
-	njnosGmeUXCG/+8RZJ+dTmc/AogJRUGmvRBkoVKKn+a7743pcgp2zzi3a5fl8YdI/r+NsEl/Yr7P/
-	/sur1oGpHzUPmr7+eqYpqzJUsTCa0rwDJ3nMOClK5aadNx904oz0aHl49Q8tPP867zCyRpEQKUCVa
-	DMnFbNS8G92AhL/tT/DT6jywHi5kk88BD7WBpZ5UBptCsLizUDr/x79o6LgRfDReYQ2GTA6e4w5Wi
-	aUNGEHjZtmEbCfvzwPkw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OInpfxdiwHy6VQDY2/Hp0QyT65G097CPkyEA74gq5QQ=; b=QSUmhYzE4Fx1ctw4f9D9UH/ujW
+	HQY3nVgYj6ZR5xRoICaCCyLVpvbnPWse4FHfIQxmRy0iuz2Wsd86KAHd2h0OFb3Nds+7ZFR/2EbSg
+	MdCVF2ZVhUquRs5piWS4XsQoo3K8+Czbt7eLCzmxWWH2j3i54UJ/eJ/ZoSgnY6Bkcxy1qf8Enx9If
+	hjuy/18Kmbg2QovuiQHAO8iqaXT04rLK2QBRulcSThaFNLr5s4SJpufMwgmirbkQeepfIQ0Ww2Zqb
+	8Ssl+PLOOsG+W+sjoMUur9N5SHXNVWM9OSwubxmfpDoA9bWnIHUsm2ONe38FFVIlyyY5/VgdcLlHL
+	oPkQg2Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSgv-0000000FZzc-24Jk;
-	Tue, 03 Mar 2026 16:33:49 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1vxShf-0000000FaBB-3bql;
+	Tue, 03 Mar 2026 16:34:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSgs-0000000FZxG-0yeF
+	id 1vxShe-0000000FaAm-2KEB
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 03 Mar 2026 16:34:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=OInpfxdiwHy6VQDY2/Hp0QyT65G097CPkyEA74gq5QQ=; b=p4P4Wd7QIHjM4foHcknjdtcv66
+	XcAwHlWvjWoFqAdR3mLglF8iUXV2Kt2x63Ef105WvHcShyoGL0SQGzOYcgo8kgWYhj91bCBMn1bn2
+	VzF7MmcVNWDkjTpcFjHs0nQGxpPoDObSgWzg/lLnmzgMhaJPt+R272luygLIB4L1ozmwB3Tf8jDkE
+	rj9+jjcwg3KJ3cmi/3flxysIohCh8zpYeY4A8E/k2DRbFK8g9vDCXC+qciyMiNgyUOoZjriXiP2vO
+	QFIlIUm6eZ0SylVatghBwwOhXNGrutpxvlYamDPDzwYlm6ozNGY2vPDIwxiJVCFZDNtsDVnJwR2Kt
+	37npdmXg==;
+Received: from mail-ot1-x32d.google.com ([2607:f8b0:4864:20::32d])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxShZ-00000002ueZ-30Se
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 16:33:48 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260303163340euoutp02c4635f7ed5f19d02d4a03bc0894b3068~ZYfIXP3_J3106731067euoutp02P
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Mar 2026 16:33:40 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260303163340euoutp02c4635f7ed5f19d02d4a03bc0894b3068~ZYfIXP3_J3106731067euoutp02P
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1772555620;
-	bh=JvN6j8wU9zM77atlq+FD8qGOACA5TsD/SoRj5ZTahzg=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=YUe+Za49ig+DGc1U0Fb2742N3pNwHgR+kQozsfTPu6ds6K4p4TNzjKQ6thGpoOcZ6
-	 Tbqspbs3cmIXNcgU1mZf/q1SjpPj9q35zhS0pzx0QXptI2B5VGk0YX4+e3Nx9pL3Hy
-	 mEq6adR56QF2Q2EnQl5fd7H2AYoQHuIs6es6YtpM=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260303163340eucas1p198411742f93caae84e07182e4c58ee55~ZYfH5vbBl1139311393eucas1p1W;
-	Tue,  3 Mar 2026 16:33:40 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260303163338eusmtip1e4021c2cdb48747497661a6110830024~ZYfF5s5260803808038eusmtip1R;
-	Tue,  3 Mar 2026 16:33:38 +0000 (GMT)
-Message-ID: <3ece80c7-697e-4d46-a6f8-49c07b0117a1@samsung.com>
-Date: Tue, 3 Mar 2026 17:33:37 +0100
+	Tue, 03 Mar 2026 16:34:33 +0000
+Received: by mail-ot1-x32d.google.com with SMTP id 46e09a7af769-7d596ab0917so3592680a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 08:34:28 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772555667; cv=none;
+        d=google.com; s=arc-20240605;
+        b=EhnD9PW0EVctKT1AJUiV1xPwbMCtPxGZwJCySUipXanwUpOxpWIDNuJPyxXdoF25za
+         M6e9QeAXEP/Fcqwm6zXQxZyeOSuoou1qzYDvND6qhLXjlWSf7buIlYSA6bKHMkTwnBT0
+         mXHqgHT47yblTmcaKVBglmHgc/9LGy2SEc4Mafef5+MIqWHmuDU8BQkHpTO8GN63x/9J
+         hONrqBW9Uc8tHrjEavFNwb3fYaZQbU33e8bYbekK1bIM7TKnyqB1+sgI2qeB6wh46MS2
+         4P8+807KFsmYGCqZ9Ikrp82nmBQcnu2adNKC6PR/ujUAE95dy3EPq29Yl4P8ffLIVd/o
+         R8YQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=OInpfxdiwHy6VQDY2/Hp0QyT65G097CPkyEA74gq5QQ=;
+        fh=bQj0syIerxpI5Dd6gNYkQk1s4VIE1KOnJUSAe4FOBzo=;
+        b=arblDeOpcjtBFCp6H+OJVVirBF28JkvfH5e6QaeofovkRbnJjuGWYAZX06aad5Q4Lm
+         iqHAtajy/PSjpKV3DJYY1PjmKQTvTnuqD3WBIX1gp/iiERYs8U9eqfDe3VDVWYOhDPcI
+         0q2yZM1gJosBK8w8D81GAoIe/cbA0Us5Hz1hBqC1fkw857nG3Kc3lFH13NAIL7SOCmFl
+         t4K4ty7U5Cp/uDZ+hyMaHMyBc159FV6SAjRP6eGpi1qRQjTur9TNU+NjZvM3wAKgSO6n
+         ZSTW69susmxlr/nMMocY+LRgHSo7myzVU5ez2rrVFdox36fkUaAVMmWu837KeHS8F81P
+         Exwg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gateworks.com; s=google; t=1772555667; x=1773160467; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OInpfxdiwHy6VQDY2/Hp0QyT65G097CPkyEA74gq5QQ=;
+        b=KkbhAa21kbqAf+BRI8rwoG7ZIzSmig5jMfZQ8u13FKjFb9ZpPXr9/izJpEaQHzpRgn
+         E73URw+goqf1/MjUDHPWr4qMaWJ0Z9sWVhPx86lmYljBasG1sLZlBJ3ZzstPHWlg8TYV
+         Wgj6gJaB4pklaaKOtfUDv/gic1QCHpUQ/En9RX9H6SAXLgNg5rfGSgqYQNYMuazB59Et
+         7x/7SKwH2S0mJC+aW/RBOEExO1WcYtuqnMfHEr7CWc/zgxdVPYqqScl6fTUUPxEgBGNi
+         KJmLvRCq5KNzM6cuSey/cavtBG4FfLLOqgBMcmemoRqmG2X+q80vGCRx2Q1Semp7KocP
+         FXcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772555667; x=1773160467;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=OInpfxdiwHy6VQDY2/Hp0QyT65G097CPkyEA74gq5QQ=;
+        b=m4p33Kk5InBSDkwOECH4RX0q3XKKXkI360KhIJCly1kCBIy3pJntKzC5rO1cwNqDdQ
+         xEjs93I2ZVDBE9LoWMX9jxFI1NiwgrBRb8XpHexcWChyQ9M8AxvVV6vWZsl4FtIu6U09
+         m6/6Hxgz+O0VOV9CtZf1SKkefTu2PFfXgMO32S3ByG++sAVqQsx/I1QbwW1L19XIiJzR
+         3y8grBSF6rXNpqs8iALdulHq+0r+tJP29vWeEgmETMFWD7OdqKnwgVfFyXP8WdnFnOcg
+         01Q/2A1G+1EqKHcGv1hXQeBqtbZ4vqWy9dkvZ3Da9hCW5MNEdPLMrLzdtmTUklMe8QEN
+         o4lQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWzqwNBSWk15eRR0GbohQ2YJaby9z5Qnj4n34swzvj1axOi1iikwivZpgcOtJ1CLuaqnnC+JWwaz9wzaCPV8lTH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6Nf7ZZpmkbQeA18tKL3Fwv6T2hvP76Q+Kw9899SLPOg1eKJ71
+	qbtjXM6SBR9tT8AtFo8qAlUU+2bvSrcE5iB0Yq+e0OvKAo6j34KxX1PfpGKWrNsN6f1WcrjiByr
+	ZEmli97N1bdLYalxjvB/38gDO+OpHfjyoDuVXmkGILQ==
+X-Gm-Gg: ATEYQzzW+Jcp1jjwynhp72nutklMpivseb0WVgKyOS/wj2AUJ+AuOXRCzfgBVjUScs0
+	JNV1p89rEoDdatkN3l+aZqLxhmDrLA441JwwD4CCQ41jQR5KEQ4dZZQEoWWaEd6auZ9RZd5FDK3
+	AAZjczdRPP15xH6h2m4UpZcROcr6BocjCBbekALW1Ab24HthTfMbX4/w6MXqLNGh67+X5Ixd1/K
+	Ge/qjdMf61LX4NHYFx9Zpn85q2GHk4EhPcpAGh35GhBoh9mtH15qSPy7MbWZrMBREOCTe6/B2s0
+	wi9sMkA=
+X-Received: by 2002:a05:6830:6e54:b0:7d4:8c9d:dd2b with SMTP id
+ 46e09a7af769-7d5be1fc888mr1174689a34.0.1772555666720; Tue, 03 Mar 2026
+ 08:34:26 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v3 0/5] dma-mapping: arm64: support batched cache sync
-To: Barry Song <21cnbao@gmail.com>, catalin.marinas@arm.com,
-	robin.murphy@arm.com, will@kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20260228221125.59863-1-21cnbao@gmail.com>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260303163340eucas1p198411742f93caae84e07182e4c58ee55
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260228221143eucas1p12a276d4216b6ce0f3c374b093f73acd5
-X-EPHeader: CA
-X-CMS-RootMailID: 20260228221143eucas1p12a276d4216b6ce0f3c374b093f73acd5
-References: <CGME20260228221143eucas1p12a276d4216b6ce0f3c374b093f73acd5@eucas1p1.samsung.com>
-	<20260228221125.59863-1-21cnbao@gmail.com>
+References: <23024521.EfDdHjke4D@steina-w>
+In-Reply-To: <23024521.EfDdHjke4D@steina-w>
+From: Tim Harvey <tharvey@gateworks.com>
+Date: Tue, 3 Mar 2026 08:34:14 -0800
+X-Gm-Features: AaiRm50Px49HlJBebz525BmL7mRczLSo_5VnSZhLsGQrektayrJby8PDCB-XxsA
+Message-ID: <CAJ+vNU1m6Uw8GrXO5+o6UGRUwcXrVJJ0BSUF4rrqLN+RsL6Mrw@mail.gmail.com>
+Subject: Re: i.MX8M Plus PCIe link regression
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	imx@lists.linux.dev, Richard Zhu <hongxing.zhu@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_083346_817541_AA32AA7A 
-X-CRM114-Status: GOOD (  24.32  )
+X-CRM114-CacheID: sfid-20260303_163430_120238_5831C24D 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,116 +128,94 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Juergen Gross <jgross@suse.com>, Barry Song <baohua@kernel.org>, Stefano Stabellini <sstabellini@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, Leon Romanovsky <leon@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>, Marc Zyngier <maz@kernel.org>, Joerg Roedel <joro@8bytes.org>, linux-kernel@vger.kernel.org, Tangquan Zheng <zhengtangquan@oppo.com>, Xueyuan Chen <xueyuan.chen21@gmail.com>, Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>, Suren Baghdasaryan <surenb@google.com>, Ard Biesheuvel <ardb@kernel.org>, Huacai Zhou <zhouhuacai@oppo.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28.02.2026 23:11, Barry Song wrote:
-> From: Barry Song <baohua@kernel.org>
+On Tue, Mar 3, 2026 at 4:38=E2=80=AFAM Alexander Stein
+<alexander.stein@ew.tq-group.com> wrote:
 >
-> Many embedded ARM64 SoCs still lack hardware cache coherency support, which
-> causes DMA mapping operations to appear as hotspots in on-CPU flame graphs.
+> Hi,
 >
-> For an SG list with *nents* entries, the current dma_map/unmap_sg() and DMA
-> sync APIs perform cache maintenance one entry at a time. After each entry,
-> the implementation synchronously waits for the corresponding region’s
-> D-cache operations to complete. On architectures like arm64, efficiency can
-> be improved by issuing all entries’ operations first and then performing a
-> single batched wait for completion.
+> these days I noticed that there is a PCIe link regression on my i.MX8MP
+> platform (TQMa8MPxL) running next-20260227.
+> I could bisect it back to commit 9c03e30e3ade3 ("PCI: imx6: Skip link up
+> workaround for newer platforms"). I always get the following errors:
 >
-> Tangquan's results show that batched synchronization can reduce
-> dma_map_sg() time by 64.61% and dma_unmap_sg() time by 66.60% on an MTK
-> phone platform (MediaTek Dimensity 9500). The tests were performed by
-> pinning the task to CPU7 and fixing the CPU frequency at 2.6 GHz,
-> running dma_map_sg() and dma_unmap_sg() on 10 MB buffers (10 MB / 4 KB
-> sg entries per buffer) for 200 iterations and then averaging the
-> results.
+> imx6q-pcie 33800000.pcie: Link failed to come up. LTSSM: CFG_LINKWD_START
+> imx6q-pcie 33800000.pcie: probe with driver imx6q-pcie failed with error =
+-110
 >
-> Thanks to Xueyuan for volunteering to take on the testing tasks. He
-> put significant effort into validating paths such as IOVA link/unlink
-> and SWIOTLB on RK3588 boards with NVMe.
+> Connected is a Gen1 PCIe -> Ethernet adapter. Interestingly a Gen2 device=
+ is
+> detected without issues.
+>
+> Reverting 3c96a61dd2e098dda8dcac3dce3d38a3c87afbfc and
+> b9a8d28ebbf118bb3eac953f4a37abbd341257ab "fixes" my platform, both Gen 1 =
+and
+> Gen 2 devices are detect. Commit 3c96a61dd2e098dda8dcac3dce3d38a3c87afbfc=
+ is only
+> required for conflict free revert.
+>
+> Here is a summary with outputs:
+> Gen 1 device
+> > 00:00.0 PCI bridge: Synopsys, Inc. DWC_usb3 / PCIe bridge (rev 01)
+> > 01:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd.
+> > RTL8111/8168/8211/8411 PCI Express Gigabit Ethernet Controller (rev 01)
+>
+> Gen 2 device
+> > 00:00.0 PCI bridge: Synopsys, Inc. DWC_usb3 / PCIe bridge (rev 01)
+> > 01:00.0 SATA controller: Marvell Technology Group Ltd. 88SE9128 PCIe SA=
+TA 6
+> > Gb/s RAID controller (rev 20)
+>
+> output of "dmesg | grep imx6q-pcie". Common part for all tests:
+> > imx6q-pcie 33800000.pcie: host bridge /soc@0/pcie@33800000 ranges:
+> > imx6q-pcie 33800000.pcie:       IO 0x001ff80000..0x001ff8ffff ->
+> > 0x0000000000
+> > imx6q-pcie 33800000.pcie:      MEM 0x0018000000..0x001fefffff ->
+> > 0x0018000000
+> > imx6q-pcie 33800000.pcie: config reg[1] 0x1ff00000 =3D=3D cpu 0x1ff0000=
+0
+> > imx6q-pcie 33800000.pcie: iATU: unroll T, 4 ob, 4 ib, align 64K, limit =
+16G
+>
+> next-20260227
+> Gen 1
+> > imx6q-pcie 33800000.pcie: Link failed to come up. LTSSM: CFG_LINKWD_STA=
+RT
+> > imx6q-pcie 33800000.pcie: probe with driver imx6q-pcie failed with erro=
+r -110
+>
+> Gen 2
+> > imx6q-pcie 33800000.pcie: PCIe Gen.2 x1 link up
+> > imx6q-pcie 33800000.pcie: PCI host bridge to bus 0000:00
+>
+> next-20260227 + reverts
+> Gen 1
+> > imx6q-pcie 33800000.pcie: PCIe Gen.1 x1 link up
+> > imx6q-pcie 33800000.pcie: PCIe Gen.1 x1 link up
+> > imx6q-pcie 33800000.pcie: PCI host bridge to bus 0000:00
+>
+> Gen 2
+> > imx6q-pcie 33800000.pcie: PCIe Gen.1 x1 link up
+> > imx6q-pcie 33800000.pcie: PCIe Gen.2 x1 link up
+> > imx6q-pcie 33800000.pcie: PCI host bridge to bus 0000:00
+>
+> What can we do here? I'm wondering why Gen 2 trains correctly, while Gen =
+1
+> doesn't.
+>
+> Best regards,
+> Alexander
 
-Catalin, Will, I would like to merge this to dma-mapping tree, give Your 
-ack or comment if You are okay with ARM64 related parts.
+Hi Alexander,
 
+Does your link partner perhaps suffer from some errata?
 
-> v3:
->   * Fold patches 5/8, 7/8, and 8/8 into patch 4/8 as suggested by Leon,
->     reducing the series from 8 patches to 5;
->   * Fix the SWIOTLB path by ensuring a sync is issued before memcpy;
->   * Add ARCH_HAS_BATCHED_DMA_SYNC Kconfig as suggested by Leon;
->   * Collect Reviewed-by tags from Leon and Juergen. Leon's tag is not
->     added to patch 4 since it has changed significantly since v2 and
->     requires re-review;
->   * Rename some asm macros and functions as suggested by Will;
->   * Add Xueyuan's Tested-by. His help is greatly appreciated!
->   v2 link:
->   https://lore.kernel.org/lkml/20251226225254.46197-1-21cnbao@gmail.com/
->
-> v2:
->   * Refine a large amount of arm64 asm code based on feedback from
->     Robin, thanks!
->   * Drop batch_add APIs and always use arch_sync_dma_for_* + flush,
->     even for a single buffer, based on Leon’s suggestion, thanks!
->   * Refine a large amount of code based on feedback from Leon, thanks!
->   * Also add batch support for iommu_dma_sync_sg_for_{cpu,device}
-> v1 link:
->   https://lore.kernel.org/lkml/20251219053658.84978-1-21cnbao@gmail.com/
->
-> v1, diff with RFC:
->   * Drop a large number of #ifdef/#else/#endif blocks based on feedback
->     from Catalin and Marek, thanks!
->   * Also add batched iova link/unlink support, marked as RFC since I lack
->     the required hardware. This was suggested by Marek, thanks!
-> RFC link:
->   https://lore.kernel.org/lkml/20251029023115.22809-1-21cnbao@gmail.com/
->
-> Barry Song (5):
->    arm64: Provide dcache_by_myline_op_nosync helper
->    arm64: Provide dcache_clean_poc_nosync helper
->    arm64: Provide dcache_inval_poc_nosync helper
->    dma-mapping: Separate DMA sync issuing and completion waiting
->    dma-mapping: Support batch mode for dma_direct_{map,unmap}_sg
->
->   arch/arm64/Kconfig                  |  1 +
->   arch/arm64/include/asm/assembler.h  | 25 ++++++++++---
->   arch/arm64/include/asm/cache.h      |  5 +++
->   arch/arm64/include/asm/cacheflush.h |  2 +
->   arch/arm64/kernel/relocate_kernel.S |  3 +-
->   arch/arm64/mm/cache.S               | 57 +++++++++++++++++++++++------
->   arch/arm64/mm/dma-mapping.c         |  4 +-
->   drivers/iommu/dma-iommu.c           | 35 ++++++++++++++----
->   drivers/xen/swiotlb-xen.c           | 24 ++++++++----
->   include/linux/dma-map-ops.h         |  6 +++
->   kernel/dma/Kconfig                  |  3 ++
->   kernel/dma/direct.c                 | 23 +++++++++---
->   kernel/dma/direct.h                 | 21 ++++++++---
->   kernel/dma/mapping.c                |  6 +--
->   kernel/dma/swiotlb.c                |  7 +++-
->   15 files changed, 171 insertions(+), 51 deletions(-)
->
-> Cc: Leon Romanovsky <leon@kernel.org>
-> Cc: Marek Szyprowski <m.szyprowski@samsung.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Suren Baghdasaryan <surenb@google.com>
-> Cc: Robin Murphy <robin.murphy@arm.com>
-> Cc: Joerg Roedel <joro@8bytes.org>
-> Cc: Juergen Gross <jgross@suse.com>
-> Cc: Stefano Stabellini <sstabellini@kernel.org>
-> Cc: Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
-> Cc: Tangquan Zheng <zhengtangquan@oppo.com>
-> Cc: Huacai Zhou <zhouhuacai@oppo.com>
-> Cc: Xueyuan Chen <xueyuan.chen21@gmail.com>
+Ironically I have had PCI link issues that required the patch you are
+needing to revert on IMX8MP with specific switches.
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+Best Regards,
 
+Tim
 
