@@ -4,103 +4,165 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35779EC1438
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 13:23:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 617C7EC1444
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 13:28:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P/KXJvU/AAYNqQHp5ebH3wq5fKE6yFx6Fm3sAczFSPc=; b=3uWXCPb9CkxJocienxavSFDPvz
-	1/j2VAPZ+xcs4ECLHajFCN3yloHXP1Pv9RIy+NKvoyXEogVcqf1A2xVJNJ6DjSNVAyt4eHaSUg8jU
-	1iWxn8zNUC4nXCXeNrsQfeSKwQYtyGjsephHHwJ/PFHOrG9qnvRYt7R3phyMOfYJQq9XEUJv0whuc
-	4sUIl39mibGA52rjrutrMStjFU6FUuHhWzYC9GYcl2nX9dV6Z2aGe/9PU5acz3KBRhnobEZw5gL55
-	uJQqRuTmUiZXtMI6HYEpxom7mEmfMWMmPO1AauUdGEV026vud+XIviIbmrlRN7xPTaiColnBtAJZm
-	2tezH/vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4iwPEMpRirm7pIit9/49c42AHreC0mLnTl1pBAVKMp8=; b=D8OYQTEIYQzQHjybwBlDKxu4ZU
+	7LD/CUTEUDeout6i1UkKQd4m8Ta7N1q0ulKjMdGGPaDk1NeopzH4utGfEKWZ0qDFzUaSh4+oD06Bs
+	cxHdY1WGrjXb0s/93YbVIoxDnxUwQY3gV/WsI+5yEIGHtM85K0x0xvAe2204ftPbkmRj5bR5jdFVQ
+	n2d9EnEV0p9j69ZODhtFMZ/Xy5/k0uSoW8+g7z3zpPJy89smAor3ZaMyVg6en2wJyUWjRxXZKDHBi
+	qRA1mo76IGFRwZ2eveUP+desvsgHPeizUa1THBWPzIzFMPtP07fRKtBbT9sGJkb5hSBzzcpzU4e/z
+	QyNjkyOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxPiv-0000000FDJm-41a0;
-	Tue, 03 Mar 2026 13:23:41 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1vxPnt-0000000FE9l-3DGI;
+	Tue, 03 Mar 2026 13:28:49 +0000
+Received: from mail-northeuropeazon11012024.outbound.protection.outlook.com ([52.101.66.24] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxPis-0000000FDEn-0abs
+	id 1vxPnr-0000000FE9D-1eFk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 13:23:39 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-389fad34e2eso91965951fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 05:23:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1772544216; x=1773149016; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=P/KXJvU/AAYNqQHp5ebH3wq5fKE6yFx6Fm3sAczFSPc=;
-        b=RS8l/pVXuXOfkzjM7wC23DTbLcvzC+MgKeerfur3/8qtuYqCkyupRpGV/Jw1/FVkDi
-         VXP11yx+GtzhKrcTkrkq9S4ook2n4V/c4gzmXGFbDQ17HPeOlT7m0dozqn6OH2ijXMmk
-         w8f77HwlYaKK9z60SXjH1hO8m5J5rb5wUngFqQqukLEWwWB5F0BaUk9UE1fkdgv4HjRA
-         P83oIY9lpwDaObzW+xgsjJpX6rAbIHfmPxYwP2RHuFd4Y3vUcWu95KFJDOuNoqMuJd/5
-         xzIOsaFz39nL1FaIVtt0wTbOf6h0vITdxrlZkTQvEF2SY9d+LpS7GJ/uBdW1Ukwti259
-         lGAA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772544216; x=1773149016;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=P/KXJvU/AAYNqQHp5ebH3wq5fKE6yFx6Fm3sAczFSPc=;
-        b=GEMS1UwubrQn4+/woBtaRTm4pvoUWyiSE9l+tIO8cDxQ3ybCb5+qm5iHtckPt5zJoC
-         KxoHH9DjsX29F/hdFO1Lm1yDbWkn8wStvxnsOnWb/EPI2Aychj8fHyVh6dCUMhRCYxtY
-         Ipz21OCN4KB1ryezKVvuZnrYow4rcsinSAuEQQmWqCO8KhWoCCRJ4zEniSBfdCujKQIc
-         a50HTAzqCmGt45AkrouxxgnIbW+MAi95xfwVAn4AtSJHkP2PRHFmNv2Z3ksgmADJ0KUn
-         YD5DK2QspJSrfXaPM1gktOzbA7/x5keQHnkF7vdoldI75vFvW1tI50SeqzCa26fh6sBs
-         DNbw==
-X-Forwarded-Encrypted: i=1; AJvYcCX4LvVz+6kBmwYTky6ZIo1EByVm533zNmjoLOOiZlgtseUOGGT6lvanGdXSmH/vfEK2AEQDtZH55VvosXDHLNW4@lists.infradead.org
-X-Gm-Message-State: AOJu0YybWQU4BcHg5sn8g9PVqhbmFzHRloQ9X6DcL6Lmggv3dkoTLq6N
-	znRgc8ZGXhoG7KmJ+nI9wYNmSi6uxbEFNa5uE4FbA0Bej5OnK0YCK7yP9qcthV74uwU=
-X-Gm-Gg: ATEYQzx0USriQvsjARCHcYO2pM98RVYnMsiXbCPFcVZ6XeUXv777lbJBjhKwdIdStUD
-	zUASFjX73yACwhRQ7Uk5Jt4nbn2/ZmSPChZ9cxdAFJKo2nTkmCbfvwpJ+4d0RHgAcoAxUXQCqi/
-	fZXiO42MQCiZpHxtOnV2wiaxHqkF/7Mol81xZIAyvLgtG7Ovbak9BhUIPfpIwVXx11/Jqh/0fXY
-	dmROjREeholyHUSUtPTC6fIMvhxXHo72DqQjJU3lzDTKWl7qT4QcDNncqzq1SNbS6JaBwKOPboD
-	30LBElyuTEFOYbu1gp4TXAgcsANGAi3ZgvkssiALBYzkuwgtZbC+OSueMgNPznmdOdnc+qEq3LE
-	aJIpM8QIRRqbrHoCzQucyu1BurRdXXBOGNl1vikhFl1v11e0VTBm3pfrYT7Ag/VSD+Mdxmqeq2M
-	nltA+q4EryK/hPJvsmokTHy2tfxGw+R2Ibe3hdXALlzlAdr/fWPbGGUlBbEyvpSrJE/9DCFNvO
-X-Received: by 2002:a2e:be8b:0:b0:387:197d:207a with SMTP id 38308e7fff4ca-389ff15e1c7mr126006401fa.26.1772544215824;
-        Tue, 03 Mar 2026 05:23:35 -0800 (PST)
-Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a1235811e3sm587866e87.29.2026.03.03.05.23.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Mar 2026 05:23:35 -0800 (PST)
-From: Ulf Hansson <ulf.hansson@linaro.org>
-To: Saravana Kannan <saravanak@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-pm@vger.kernel.org
-Cc: Kevin Hilman <khilman@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Abel Vesa <abel.vesa@oss.qualcomm.com>,
-	Peng Fan <peng.fan@oss.nxp.com>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Maulik Shah <maulik.shah@oss.qualcomm.com>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 9/9] pmdomain: renesas: rmobile-sysc: Drop GENPD_FLAG_NO_STAY_ON
-Date: Tue,  3 Mar 2026 14:22:55 +0100
-Message-ID: <20260303132305.438657-10-ulf.hansson@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260303132305.438657-1-ulf.hansson@linaro.org>
-References: <20260303132305.438657-1-ulf.hansson@linaro.org>
-MIME-Version: 1.0
+	Tue, 03 Mar 2026 13:28:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EJZDsRV3hJks4kWkx/zaJXG7S/c4I5Enm1iXy8OGIs6vFTiDJq8kxGn1i33UFshT86vvO4SHd5S0nlJiLTo0krYtnETHm51KOHdlFWguVAphJ8JpWXg6/Au/oGn8ywcof7ISUFLXxTaUedXrhwDvWB+j0akB5xgR3ohQYkPIHNgrE5zqN5b9tDn3+2LqeZXd7G7jGK2PVoNH81TraRDZ7svvRgbOV/m2fQmwKN6BxHlcWWLYZ6GmqYbimZhynQ9qLPKUmouyFr4Lp3rEJpyvooGurJyPdAQGMem0RFGcW2/VeBOOAHqEicbZ4r9bnpnWvV2BCzUX/uLeGKH/BCIiRg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4iwPEMpRirm7pIit9/49c42AHreC0mLnTl1pBAVKMp8=;
+ b=aVTXmNSrU7T/g7gJOjky3DWAdArYCiI+RBAJkNzJgJ6ROCh2IaiGAuXleUjGW8DaqDsUxfE+72uvG1wei8PPO0kiGVkTZz5dn7cvixNJq6GvfeQdCjKr5o0LiB2sui1HH+TYLQ3P7LdGCp1ZoyNBb7r0tkBLdaII2r+DcNwWvPHDMtcmBFOM6iPSHKFOjmE52D7ZwXQy9TD773TtfHVrrb9RPRsWVKpaqCm4gSHe825CsNC67sYW3Fd3lYyOP83v5X1SNDGAU4j/h/Kt8THSo1tBzwpyaOTHKVN1kgzGmsNrNIQ3tlRbtWAzTVrGITrQdCwlR/gwxANwpNnpxqXAqg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4iwPEMpRirm7pIit9/49c42AHreC0mLnTl1pBAVKMp8=;
+ b=dfhFEIOXtRwT20QDS8E0to6kL06FurhF7VJuQC7eVG88EJvlIwreAzEKn6Na6o2exryo4vCBjMV2cYA/JVK/Fwc7s9vOkG43QT7s4ag09XK586iQPUX7LS2Fn6aAdCDqUEHW18AM2E5ULn6n+T0XZ9Jn96YUtvfQ+xJEJbtCFXPR2m6WtBxE5qdNcpG9yLY2XH2DeDCD86FUvnm8pX7n7oDpSOCFGqjYumF25oaJkq60LCYrFW6EpejAPTZZ1vWg13n2slbLDNGrJFxIguF1kyi68iRUWVX8nsySWEc9YmUvFKawO3nwKToC535MdtTz/88EBTazXFqEFH7QyEh69g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV4PR04MB11308.eurprd04.prod.outlook.com
+ (2603:10a6:150:297::19) by DU4PR04MB11771.eurprd04.prod.outlook.com
+ (2603:10a6:10:624::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Tue, 3 Mar
+ 2026 13:28:39 +0000
+Received: from GV4PR04MB11308.eurprd04.prod.outlook.com
+ ([fe80::b043:b2d1:9a94:1891]) by GV4PR04MB11308.eurprd04.prod.outlook.com
+ ([fe80::b043:b2d1:9a94:1891%5]) with mapi id 15.20.9654.013; Tue, 3 Mar 2026
+ 13:28:39 +0000
+Message-ID: <fca0541b-0b05-4231-98da-06027aefd9c0@oss.nxp.com>
+Date: Tue, 3 Mar 2026 15:28:34 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 01/10] dt-bindings: mfd: add support for the NXP SIUL2
+ module
+Content-Language: en-GB
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>,
+ Arnd Bergmann <arnd@arndb.de>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
+ Larisa Grigore <larisa.grigore@nxp.com>, Lee Jones <lee@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>,
+ Jacky Bai <ping.bai@nxp.com>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Alberto Ruiz <aruizrui@redhat.com>, Christophe Lizzi <clizzi@redhat.com>,
+ devicetree@vger.kernel.org, Enric Balletbo <eballetb@redhat.com>,
+ Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ "Vincent Guittot devicetree @ vger . kernel . org"
+ <vincent.guittot@linaro.org>, Rob Herring <robh@kernel.org>
+References: <20260120115923.3463866-1-khristineandreea.barbulescu@oss.nxp.com>
+ <20260120115923.3463866-2-khristineandreea.barbulescu@oss.nxp.com>
+ <20260121021913.GA1704619-robh@kernel.org>
+ <e956750b-0333-4465-b37e-5f460b5e092f@oss.nxp.com>
+ <edc3a63a-8117-476f-9582-97ae31fefa96@kernel.org>
+ <7d200097-51bc-4404-be8b-f536d0ecfc25@oss.nxp.com>
+ <21531cdd-5ab9-493e-a722-61b98117e2c4@kernel.org>
+ <22a5a072-847e-4cfd-8abd-e37163f73265@oss.nxp.com>
+ <fe755e85-1558-4272-bdd4-af7a2038ab1f@kernel.org>
+ <ba6140bf-237e-4099-af0c-ee404c1719cd@oss.nxp.com>
+From: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
+In-Reply-To: <ba6140bf-237e-4099-af0c-ee404c1719cd@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: AS4P190CA0059.EURP190.PROD.OUTLOOK.COM
+ (2603:10a6:20b:656::26) To GV4PR04MB11308.eurprd04.prod.outlook.com
+ (2603:10a6:150:297::19)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV4PR04MB11308:EE_|DU4PR04MB11771:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5a5684db-14a7-4732-0f79-08de7928c7ed
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|19092799006;
+X-Microsoft-Antispam-Message-Info: mt9H15WXygaQ2YVRpx5ch+EnTeBzTAZcMdS2rJYN3YjwL7vpemuekkq1+bkc+3kekWRu8kbUPD9n7ze+btv6zbeXZOYmpO4e+I/1alrIvXQu27PhL5hidp9Z80244Oo1fsui9WlHgWMks913tYoasjpbVQMpdxst9EO1yAtydGi9XX2sOUiPii7NzmKmgxJD4D8UkqdZfHDvLl50g21ZgyjNdhUD29t+8e9jhUQYX8Wx1ggMwPX29Js30uXgi+8HEFMWXmLEzS7s7G9FWMRBNLQEN2pkV+CtJXy1dJm+cjPko8npIYB63+dzfwTDVnt9SPGw0PGWBe8hHbvzS08BBleHQGOK8Y950kshQOwhEs0ywxrHcAr2OGWQ97PAvA3OWsUuFO3LlSa1l4BQQd8mivEjnsNKxchh2BkPH1x/HevZ7AuAVg2kI/W5TmKiNO3oFm0Pi+UhARecEHlXLMdav8ziIoCF/EgjhzFRFFgbP/HEDh06/Ge65cnbQ9dxr0ymrNyCeparImU3pLqkPRlXMdVw1LLxNEaqYuKANYovnndcRPWwhDfM3lM0eDVrG7CensLLVj/St1AqTj7a4hhYwYKZJUu1TmjzGMgZ93c2a8o2Yw3vv1WHyAR5VzaMLqLqNpBF/B/SWEBCnwOGHKXvBCGTLrkrsfqtk2hjQMRSyxteheCmr3R2UMp2jvk6g8kx
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV4PR04MB11308.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(19092799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TXl5dUhoVEhlWmVmMEdIUjMydTVzRWxQcTdPcjREMHpxR0R0aFBERnEvR0d1?=
+ =?utf-8?B?WkpldGNBTEwxQVBmTHVjSE9EbGNsWWRLNGRMaW1kZXhUblFHZEViMjVOOHRT?=
+ =?utf-8?B?SmRjS0Z3dWMvcVhpa1pSNFA5TzArWFo5Z200WUl0eGJaeTZaa1A0TEwvNXRm?=
+ =?utf-8?B?eUphbjlGTndRK1NYYkFhcTJPT1cyNWhHREswOCsrdURDRXN0UlRWdWhnTEsx?=
+ =?utf-8?B?WlJJdWQ5TWhXeXBCRWxXMExteHR3UVhqNU1SUk9sUjMrQUZRVDMrVkVvc0Zo?=
+ =?utf-8?B?eXpHZUVpREVnY2JtUWJRRjhMMFpaRUhyL2NFT3VWM0dyN3JIMCtwSHdTaUVs?=
+ =?utf-8?B?YjFwSWpJak5pN0tQbjU4aC9LdWprbkc1NW9RZkVrUHR2UFh6U0N2RGZ1S3Fn?=
+ =?utf-8?B?S0xGY0k3SjhzZ2ZrbTBUZHhVRjBNTWxLS3NnSTAzeUFIaHR2SitVUnRwdGVr?=
+ =?utf-8?B?UGx0T3c2cURMdUt3QmNKNFhWQ3lRR3BhRWthM1RZekt5R1VtdVQwaGd6Zjhk?=
+ =?utf-8?B?c2h1U1dkQTdnVXZneFlUbXRVUWQzUXJuMXJUT2tuU2NEbkMyeEdWY3lhSnYv?=
+ =?utf-8?B?L1BDQ0lhdVNMVGJ0eS9janhSVmZTN0ZVTlNodkpMckR2MU81QTdqc1RxV2Vl?=
+ =?utf-8?B?c29HdDc2dDJFNWJEN2Y5bXIvS3FLcXpoYnNva1lSZFBiRHNXRXNLMVZBQUJH?=
+ =?utf-8?B?eHh5cjkvR0ZHWVpwNWYwSHZ0YUI0cmwrdDArdFNxNWN3Tk4vN0dwQ1lLOHgz?=
+ =?utf-8?B?dEtWWlpoWXQvdHRWbmNjMUYrOVByZGZUZ0xxV2wwODd3cjYrYW1Qc1VlVWdR?=
+ =?utf-8?B?RWhMTVZtSkRrdFA5Ym9UUmZYc0l3YStRS3RTM0VjR0lnRDd0RjJOaDRMRnQ1?=
+ =?utf-8?B?eEdOZTZpYVpVUFgxMmNnMHBYTThqZCtWWlhvaDZvbUR4NXJadFZNRE4rNDFQ?=
+ =?utf-8?B?L0dPb0wzekxxeldOQ1QwenF3cEhob2lBbk1hRmF1UGJsdGduN29iNXBSR2FI?=
+ =?utf-8?B?OW1yUzlLK0lub09jRmZnREhDeEM1Yk9lRVQxTzA1d1hBd1VTWjFBZlhTem5i?=
+ =?utf-8?B?N1dhaC9oeWVpUmlqYUMzTVYxUDVVZTJmd2d5Nm1lYkZZTXVqSGRodzMrQ3hp?=
+ =?utf-8?B?aFk4UUI4OEtibWViYkxVRHpoUkdOYTU4NEltTG1ybjJLWUphQkJjcUFWUzFs?=
+ =?utf-8?B?bm9pWXhGVmpuSFNxZWVvZmpPMFZuSzVmdWpveGZLQ01vNGp1Q1BNSjFZcGda?=
+ =?utf-8?B?WUp4TUp1Ry9LZE85WVYxa0pNdnZGT1pPejFXaEJDRU53YmdMcnNpeWRaZHJG?=
+ =?utf-8?B?ZGFsUDQ2eEg1bXl3VVJaOXd4d3dlSGJIZ1krNmdiMmIrczljdXZoZlN5YlNL?=
+ =?utf-8?B?MUxycm5SKzUxd3lrVGNYUktkZVk0dFZRSFYzSjJpNk9EaXliYUhUK1F5NHpH?=
+ =?utf-8?B?Nnl2ZU9UeDRQZ3FTMlp3bUhmazBIZE1Pa0RmU1RWRzAvaUJoWE1EWktTSDFq?=
+ =?utf-8?B?VS90NDN2a0E3bkpoc0ZocjE0Y2lyc25nZnMyN2pjS1JFTXlyVXZaQ29xenJ3?=
+ =?utf-8?B?cW5NQXU3OGdxN3lLcXR4Zk5hVklLUlVGTXRBR0pNZ2gzQnByMXZURm1Tb3cr?=
+ =?utf-8?B?WjNwbldLV2tEZFBWRXhLemlZL2I5U0JPSzA2Q3czMkQvcEhKMklabFNIQnBE?=
+ =?utf-8?B?dThHSkE4L01RT0NzNUw4VGhIVCtpYTE4eWhoeFBlVDA5UThHc25DcEtDbm1C?=
+ =?utf-8?B?ZitYeGZiVzQ0NDlxYWl5a2UxOFI0cWp5a3M2dTJPMFdLUWg0NnNpVVBDYUxw?=
+ =?utf-8?B?dVlUUDl6Zm9UZ09wR1BTeUMvYys5bllBc0lLUGI2YWtWb2NqMkgzcDNSSk1Y?=
+ =?utf-8?B?V1dTTXhVSVRXeXlvRlc2a0RpWHdFNjBFSTdzR1c4SkhaeTBCVkhhV1ZtZDRs?=
+ =?utf-8?B?OEdaalVTS3IxOXhBcFc3Z1g3dVRSY3pYTG9zSzdGcmRQdkxwLys5NTdTMi91?=
+ =?utf-8?B?eW1tTnI5MXpKRFNuVlR2TVNPU3NpR0EzOVkySEdHZ3czTS8wNTBzT092eHZK?=
+ =?utf-8?B?dmROb3FDUmxic0ZBN0pWOGcvT2NBaVVaQ0crQjlDaXVpVEwwYjhwWEdzemhQ?=
+ =?utf-8?B?b3IwRW83R1NITWNNdGlUMVNoeTg4SHVDSUk4V2szVGk4ZUJ1bkxOb0lnbGx2?=
+ =?utf-8?B?eGVrb2dKMmpMNXlYbUF0aGM2MUF4RytlNjBXbS8xVTFoWFFsU0V1UG9CSThF?=
+ =?utf-8?B?d2RMMUhXS3Y3cmk4YWd2dGZ6S3hlVzBlVnFBNDVqbUtVNlEybkF3ajJZMzJx?=
+ =?utf-8?B?SDJpRmgzcTU2NUVmZ0djc09zQ2pVU0FneWpmLzFTa001aWV1dFcwZTNkVnFB?=
+ =?utf-8?Q?avszBtVmIh3LOOx4=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5a5684db-14a7-4732-0f79-08de7928c7ed
+X-MS-Exchange-CrossTenant-AuthSource: GV4PR04MB11308.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2026 13:28:39.5360
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: obgc1PecZMB7je7UeSj++/s+JqQrNCOAEWD3dF47MDZ59H8wGj1M47mexwYwky6/E/n8KhpYKHIQ5Iu6vILMXE28j6CRGBxL/yOiBvof3FY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11771
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_052338_196592_3CAE992D 
-X-CRM114-Status: GOOD (  11.43  )
+X-CRM114-CacheID: sfid-20260303_052847_460848_B5679BA9 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,30 +177,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Due to the new fine grained sync_state support for onecell genpd provider
-drivers, we should no longer need use the legacy behaviour. Therefore,
-let's drop GENPD_FLAG_NO_STAY_ON.
+Hi Krzysztof & Arnd,
 
-Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
----
- drivers/pmdomain/renesas/rmobile-sysc.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+On 2/25/2026 11:40 AM, Ghennadi Procopciuc wrote:
 
-diff --git a/drivers/pmdomain/renesas/rmobile-sysc.c b/drivers/pmdomain/renesas/rmobile-sysc.c
-index 93103ff33d6e..e36f5d763c91 100644
---- a/drivers/pmdomain/renesas/rmobile-sysc.c
-+++ b/drivers/pmdomain/renesas/rmobile-sysc.c
-@@ -100,8 +100,7 @@ static void rmobile_init_pm_domain(struct rmobile_pm_domain *rmobile_pd)
- 	struct generic_pm_domain *genpd = &rmobile_pd->genpd;
- 	struct dev_power_governor *gov = rmobile_pd->gov;
- 
--	genpd->flags |= GENPD_FLAG_PM_CLK | GENPD_FLAG_ACTIVE_WAKEUP |
--		GENPD_FLAG_NO_STAY_ON;
-+	genpd->flags |= GENPD_FLAG_PM_CLK | GENPD_FLAG_ACTIVE_WAKEUP;
- 	genpd->attach_dev = cpg_mstp_attach_dev;
- 	genpd->detach_dev = cpg_mstp_detach_dev;
- 
+[ ...]
+
+> Hi Krzysztof & Arnd,
+> 
+> I still believe that nvmem is a suitable and accurate mechanism for
+> describing SoC‑specific identification information, as originally
+> proposed in [0], assuming the necessary adjustments are made.
+> 
+> More specifically, instead of modeling software-defined cells, the nvmem
+> layout would describe the actual hardware registers backing this
+> information. One advantage of this approach is that consumer nodes (for
+> example PCIe, Ethernet, or other IPs that need SoC identification data)
+> can reference these registers using the standard nvmem-cells /
+> nvmem-cell-names mechanism, without introducing custom, per-subsystem
+> bindings.
+> 
+> Looking at the nvmem binding documentation [1], it appears that
+> individual fields of identification registers (similar to MIDR) could,
+> in principle, be exposed using a bits property, for example:
+> 
+> family_letter@4009c004 {
+>   reg = <0x4009c004 0x4>;
+>   bits = <31 26>;
+> };
+> 
+> That said, an alternative (and arguably more common) approach is to
+> expose entire registers as fixed-layout cells, and let consumers decode
+> bitfields in software. Below is an example of how this would look when
+> embedded in the existing SIUL2 node, without relying on per-field bits
+> properties:
+> 
+
+[...]
+
+> [0]
+> https://lore.kernel.org/all/20250710142038.1986052-2-andrei.stefanescu@oss.nxp.com/
+> [1]
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/nvmem/nvmem.yaml#n82
+> 
+
+Are you comfortable with this proposal?
+
+I'm asking because it was initially considered a viable option, but the
+discussion later shifted to the fact that the nvmem cells were
+fabricated and did not accurately describe the underlying hardware.
+
 -- 
-2.43.0
-
+Regards,
+Ghennadi
 
