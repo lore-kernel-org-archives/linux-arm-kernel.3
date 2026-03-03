@@ -4,58 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F90AEC1430
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 13:09:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0882FEC143A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 13:11:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5vBZ5PJkHESyCV5e9xRXiXDPbMqR05XBHLWI721cqeg=; b=gnSU9Aa6f7tJQtJpC1vLQMAA48
-	gYH7vww/OYT3BFJGOEVLNwFJuqVblINsGbOOIURMbuQ1cpOuaij7jr+8xo1Rqq0eS3Gd765K9iKI0
-	98TKgE6vmODcQPUDHvcHAoHvemt6I8xYRAuFn+TiE9/JR6kcDFv/kjem6+7EMw/R6GjAltI4rls9V
-	nOtEatPLXg9PKbbbJZmGDWsbtrUB8RO1jG+abxQdXSC98kM8ETdJG8uZE6fPe79PjqPuBjkc0hl1U
-	aDPZCjeCt3ivtCoGZL/JZJf002TEReLxxU1PsZC4h4/QmaPH/htBvsEkwacQ3c1M2946eF8LUBpvn
-	baSMcBnw==;
+	bh=PlK3pbdvChXpN/xsv0JP5MnG+UmweuCF6+WR/Dq5558=; b=OFbUsXJeR+KXhVZ/p6vJswG39I
+	jytzKbrI9h/+tW6CaSmyDQwXVQxXoAdGhQj0iVXVlZ+XjSonjGjoa9ccZ3LAzmqsHvsD4dFdEM9fm
+	ueRS+5odd3MmnAdc3hn6O9XZ+flX6aldIxWsnoNqpQNvqkuCrZ60K29nVpn6miG0tzXzW6tY3JkNn
+	U5SGs45KzEXRlzOviADhIM0PsXNTzVaJmcRDMHgO3ZpsQuMB5/V9GDGgzJHnXjbPI0nvI9uOeJVWl
+	9Pygjgut68hAJONPXI7DNpW5+2VxzrmngIylZcxLcOayp434KpqYGd/iMmQ86Jf8QENQFqwuPjvH3
+	F4JhRq7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxPUf-0000000FC7G-0zjI;
-	Tue, 03 Mar 2026 13:08:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxPUc-0000000FC6m-1cAk
+	id 1vxPWs-0000000FCGi-3DIO;
+	Tue, 03 Mar 2026 13:11:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxPWq-0000000FCGH-1QWa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 13:08:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 02975497;
-	Tue,  3 Mar 2026 05:08:47 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BA2673F73B;
-	Tue,  3 Mar 2026 05:08:49 -0800 (PST)
-Date: Tue, 3 Mar 2026 13:08:46 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, sudeep.holla@arm.com,
-	philip.radford@arm.com, james.quinlan@broadcom.com,
-	f.fainelli@gmail.com, vincent.guittot@linaro.org,
-	etienne.carriere@foss.st.com, peng.fan@oss.nxp.com,
-	michal.simek@amd.com, dan.carpenter@linaro.org,
-	kuninori.morimoto.gx@renesas.com, marek.vasut+renesas@gmail.com
-Subject: Re: [PATCH 00/11] SCMI Clock rates discovery rework
-Message-ID: <aabdXvaSlu1EDgG4@pluto>
-References: <20260227153225.2778358-1-cristian.marussi@arm.com>
- <CAMuHMdW9dtAnT2E103kp1zK=LJrER7k1ib8_WPk5aorPRw80uQ@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMuHMdW9dtAnT2E103kp1zK=LJrER7k1ib8_WPk5aorPRw80uQ@mail.gmail.com>
+	Tue, 03 Mar 2026 13:11:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 989584367C;
+	Tue,  3 Mar 2026 13:11:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CCEEC116C6;
+	Tue,  3 Mar 2026 13:11:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772543471;
+	bh=4BMCfMG0xmMJRazWkyzqMGnmOOaf03oyyGgCFv2NmSY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=QC7mxPU8AQ9uRmeIfF3qdq8rHzsmSVgzhDtDE7gQyaqENSOIyAiGVyfXv2BcGJCzC
+	 XzI7AFpCah0vaLAbdbkuEiV7s+nGGtX3MQDvSBOnYXCIydCwE9xx5hAx+peM6mYgzE
+	 j9lMpEtdEOo68s2PgCFKizAgpUOwdoIpZZEOnbEmfpB1Ty36amVT3L0CKftdK9bjbj
+	 gl1NKx+6uwT9bsrO5nFnVpugzAKv1HLzbjtPxAGBqljbQRK6OJWvEJcqI4VNUV9P5C
+	 5Mh7K4nJyOt4ofs0Ieg5Di3GlmUmt031nPYOQKpWh/mEwFo7t4QOhseDCbsFZlDNGd
+	 gN5o1l1YpX2eg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vxPWm-0000000FdFB-3a8B;
+	Tue, 03 Mar 2026 13:11:09 +0000
+Date: Tue, 03 Mar 2026 13:11:08 +0000
+Message-ID: <86h5qx83df.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu
+ <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>
+Subject: Re: [PATCH v12 06/46] arm64: RMI: Define the user ABI
+In-Reply-To: <33053e22-6cc6-4d55-bc7f-01f873a15d28@arm.com>
+References: <20251217101125.91098-1-steven.price@arm.com>
+	<20251217101125.91098-7-steven.price@arm.com>
+	<86tsuy8g0u.wl-maz@kernel.org>
+	<33053e22-6cc6-4d55-bc7f-01f873a15d28@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_050854_473712_A0F89C8A 
-X-CRM114-Status: GOOD (  26.97  )
+X-CRM114-CacheID: sfid-20260303_051112_440534_721A147B 
+X-CRM114-Status: GOOD (  48.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,69 +108,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 02, 2026 at 02:25:00PM +0100, Geert Uytterhoeven wrote:
-> Hi Cristian,
+On Mon, 02 Mar 2026 15:23:44 +0000,
+Steven Price <steven.price@arm.com> wrote:
 > 
-> Thanks for your series!
+> Hi Marc,
 > 
-> On Fri, 27 Feb 2026 at 16:33, Cristian Marussi <cristian.marussi@arm.com> wrote:
-> > it was a known limitation, in the SCMI Clock protocol support, the lack of
-> > dynamic allocation around per-clock rates discovery: fixed size statically
-> > per-clock rates arrays did not scale and was increasingly a waste of memory
-> > (see [1]).
-> >
-> > This series aim at solving this in successive steps:
-> >
-> >  - simplify and reduce to the minimum possible the rates data info exposed
-> >    to the SCMI driver by scmi_clock_info
-> >  - move away from static fixed allocation of per-clock rates arrays in
-> >    favour of a completely dynamic runtime allocation: just allocate what
-> >    is needed based on the effectively discovered
-> >
-> > This is done in patches 1-6.
-> >
-> > A further bigger optimization suggested in a past series [1] by Etienne
+> On 02/03/2026 14:25, Marc Zyngier wrote:
+> > On Wed, 17 Dec 2025 10:10:43 +0000,
+> > Steven Price <steven.price@arm.com> wrote:
+> >>
+> >> There is one CAP which identified the presence of CCA, and two ioctls.
+> >> One ioctl is used to populate memory and the other is used when user
+> >> space is providing the PSCI implementation to identify the target of the
+> >> operation.
+> >>
+> >> Signed-off-by: Steven Price <steven.price@arm.com>
+> >> ---
+> >> Changes since v11:
+> >>  * Completely reworked to be more implicit. Rather than having explicit
+> >>    CAP operations to progress the realm construction these operations
+> >>    are done when needed (on populating and on first vCPU run).
+> >>  * Populate and PSCI complete are promoted to proper ioctls.
+> >> Changes since v10:
+> >>  * Rename symbols from RME to RMI.
+> >> Changes since v9:
+> >>  * Improvements to documentation.
+> >>  * Bump the magic number for KVM_CAP_ARM_RME to avoid conflicts.
+> >> Changes since v8:
+> >>  * Minor improvements to documentation following review.
+> >>  * Bump the magic numbers to avoid conflicts.
+> >> Changes since v7:
+> >>  * Add documentation of new ioctls
+> >>  * Bump the magic numbers to avoid conflicts
+> >> Changes since v6:
+> >>  * Rename some of the symbols to make their usage clearer and avoid
+> >>    repetition.
+> >> Changes from v5:
+> >>  * Actually expose the new VCPU capability (KVM_ARM_VCPU_REC) by bumping
+> >>    KVM_VCPU_MAX_FEATURES - note this also exposes KVM_ARM_VCPU_HAS_EL2!
+> >> ---
+> >>  Documentation/virt/kvm/api.rst | 57 ++++++++++++++++++++++++++++++++++
+> >>  include/uapi/linux/kvm.h       | 23 ++++++++++++++
+> >>  2 files changed, 80 insertions(+)
+> >>
+> >> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+> >> index 01a3abef8abb..2d5dc7e48954 100644
+> >> --- a/Documentation/virt/kvm/api.rst
+> >> +++ b/Documentation/virt/kvm/api.rst
+> >> @@ -6517,6 +6517,54 @@ the capability to be present.
+> >>  
+> >>  `flags` must currently be zero.
+> >>  
+> >> +4.144 KVM_ARM_VCPU_RMI_PSCI_COMPLETE
+> >> +------------------------------------
+> >> +
+> >> +:Capability: KVM_CAP_ARM_RMI
+> >> +:Architectures: arm64
+> >> +:Type: vcpu ioctl
+> >> +:Parameters: struct kvm_arm_rmi_psci_complete (in)
+> >> +:Returns: 0 if successful, < 0 on error
+> >> +
+> >> +::
+> >> +
+> >> +  struct kvm_arm_rmi_psci_complete {
+> >> +	__u64 target_mpidr;
+> >> +	__u32 psci_status;
+> >> +	__u32 padding[3];
+> >> +  };
+> >> +
+> >> +Where PSCI functions are handled by user space, the RMM needs to be informed of
+> >> +the target of the operation using `target_mpidr`, along with the status
+> >> +(`psci_status`). The RMM v1.0 specification defines two functions that require
+> >> +this call: PSCI_CPU_ON and PSCI_AFFINITY_INFO.
+> >> +
+> >> +If the kernel is handling PSCI then this is done automatically and the VMM
+> >> +doesn't need to call this ioctl.
+> > 
+> > Shouldn't we make handling of PSCI mandatory for VMMs that deal with
+> > CCA? I suspect it would simplify the implementation significantly.
 > 
-> s/[1]/[2]/
-> 
-> > would be, whenever allowed by the spec, to limit upfront the number of
-> > queries in order to simply retrieve min and max rate, that are indeed the
-> > only rates needed by the CLK SCMI driver.
-> >
-> > The approach proposed in [1] was open coding and duplicating some of the
-> 
-> What does [1] refer to?
+> What do you mean by making it "mandatory for VMMs"? If you mean PSCI is
+> always forwarded to user space then I don't think it's going to make
+> much difference. Patch 27 handles the PSCI changes (72 lines added), and
+> some of that is adding this uAPI for the VMM to handle it.
+>
+> Removing the functionality to allow the VMM to handle it would obviously
+> simplify things a bit (we can drop this uAPI), but I think the desire is
+> to push this onto user space.
 
-I messed up the refs..of course...it was just a reference to your thread
-where the number of rates where staticallty raised to 64.
+And that's what I'm asking for. I do not want this to be optional. CCA
+should implies PSCI in userspace, and that's it.
 
 > 
-> > functionalities already provided by SCMI iterators, though.
-> >
-> > Patch 7-10 implement such optimization instead by:
-> >
-> >  - reworking core SCMI iterators to support bound enumerations
-> >  - use such new bound iterators to perform the minimum number of queries
-> >    in order to ony retrieve min an max rate
-> >
-> > As a final result now the rates enumeration triggered by the CLK SCMI
-> > driver, while still allocating for all the existent rates, miminize the
-> > number of SCMI CLK_DESCRIBE_RATE messages needed to obtain min and max.
-> >
-> > Finally, patch 11 introduces a new clock protocol operation to be able to
-> > trigger anytime on demand a full enumeration and obtain the full list of
-> > rates when needed, not only min/max: this latter method is really only used
-> > currently by some dowstream SCMI Test driver of mine.
-> >
-> > Based on v7.0-rc1.
-> >
-> > Tested on JUNO and an emulated environment.
+> > What vcpu fd does this apply to? The vcpu calling the PSCI function?
+> > Or the target? This is pretty important for PSCI_ON. My guess is that
+> > this is setting the return value for the caller?
 > 
-> Thank you, this removes the need for increasing SCMI_MAX_NUM_RATES on
-> R-Car X5H, while decreasing memory usage.
-> Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> 
+> Yes the fd is the vcpu calling PSCI. As you say, this is for the return
+> value to be set correctly.
 
-Thanks for testing in the real world !
-Cristian
+Another question is why do we need the ioctl at all? Why can't it be
+done on the first run of the target vcpu? If no PSCI call was issued
+to run it, then the run fails.
+
+> 
+> > Assuming this is indeed for the caller, why do we have a different
+> > flow from anything else that returns a result from a hypercall?
+> 
+> I'm not entirely sure what you are suggesting. Do you mean why are we
+> not just writing to the GPRS that would contain the result? The issue
+> here is that the RMM needs to know the PA of the target REC structure -
+> this isn't a return to the guest, but information for the RMM itself to
+> complete the PSCI call.
+
+PSCI is a SMC call. SMC calls are routed to userspace as such. For odd
+reasons, the RMM treats PSCI differently from any other SMC call.
+
+That seems a very bizarre behaviour to me.
+
+> 
+> Ultimately even in the case where the VMM is handling PSCI, it's
+> actually a combination of the VMM and the RMM - with the RMM validating
+> the responses.
+
+I don't see why PSCI is singled out here, irrespective of the tracking
+that the RMM wants to do.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
