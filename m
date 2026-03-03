@@ -4,100 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2F0BEC0461
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 09:11:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A95EC0463
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 09:12:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5ieqeIgWXtsJGqN9iYbh1K+fW5zi5u0kpmcIzoP8Jzk=; b=Y4dbFK7B8KdrXNR5+Q8bLKID5v
-	9LtVPjNYobrYWYE0ta3klpJz+Y4FRStqskZoH0f2O8T6w8kR21RRkQAlXb7cZDxDQgFwO4uosFNTg
-	/KX2c12GCLqrgSH04S1lc0NNccabYwoatzNBWURafFcPPiS7LrIq1KDoi0Q5JkS0Z6U2cgCg6JhwR
-	aDSo0tQsnEmL8C+cfeyg2d3xZoJ7G0GTedenLpacugGIv1deJILP78td9kUOTNnVZfuKGPoQ4vGnd
-	mQ/zxAFlddlVbUl/tEE1N/Pfr67e0DhdeA+FeaYevVmepbYr0UQy+SP/VlsbBitSU+vD6EncWXdnr
-	HqqfAwHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4hy9xICo1EPoOGuMUjTJL88qGfqc1hJzlCloLKGWnZI=; b=1Q41htR6k+B3/W1Vz6Pnrwp3xO
+	CMZrmKOGN+1+nz/JOsqBwCQHnCvEZ1OHHF4CrQ20lj4qQKNcFhXKjy8t3ubI1MMbvRFdVP3qde7by
+	SVfBYASDksM0yGrXNeayAMDl8wMIvMtuPhsH6PhXCdPHR4lPygu0kv2wP9NBmqW7Go6Z3rni7++Mp
+	/TWDgm44QvULK8upM+3pYHVLkmgRN5lpIQFA1WdC77Z2QqkopJHRyfq6v6VqiXcNPuID3BfKwEc2A
+	icHiHRo4xc5YBfD0E+JI58sxS7B/mizHiLuj8w0ZFK76rfenEQfRqnHJazgugLo4ADPqO/o+a5zZy
+	+u5SWjng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxLmR-0000000EqGR-0xM0;
-	Tue, 03 Mar 2026 09:11:03 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1vxLng-0000000EqO3-3mkK;
+	Tue, 03 Mar 2026 09:12:20 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxLmP-0000000EqFu-0Ge3
+	id 1vxLnd-0000000EqN9-2Gf5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 09:11:02 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-827390e8a3cso3512797b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 01:11:00 -0800 (PST)
+	Tue, 03 Mar 2026 09:12:19 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4837f27cf2dso48066055e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 01:12:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772529059; x=1773133859; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1772529135; x=1773133935; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=5ieqeIgWXtsJGqN9iYbh1K+fW5zi5u0kpmcIzoP8Jzk=;
-        b=UB7rZKd0nrgVA1/jrHkiysGRIHUybEPQvNMcs8bcOESHI7ys0PSmHH8w6G81TjTI5V
-         Mm7a4APIvSncbrsDi530AI3gHmUYv/0mMUYBNgE6wSiPfXrmmgUYtdT7V4QKwbFJCxFn
-         jCF9RoB89Uz8t35ycfDaXpGtn5dMglee8j/8GLrQ6z1w1uH2Rer8OUMLv1c+Wndncr2D
-         LGBHNNt4UnFOWJThU/+WvmMXZ543kp6MRzt69h+2hdH+voC+4piLsMpCkNITy9/o/G7g
-         XLlmHvUtqHv+ys0qLmFVtycG+pBan0UzcRcRoJOCRGZkAJCTXlYw2mgTSM3mrw2uiBBI
-         uWWw==
+        bh=4hy9xICo1EPoOGuMUjTJL88qGfqc1hJzlCloLKGWnZI=;
+        b=d9Q2s3elOXsLJT/Y0sreTUJd9SijpueosTJalBQuZVgKf6rQrsEDGQi6s7CWE7K1XS
+         MA+J/x9lFfxnw2HDPKtB3UyKkRV9V1/8+x6gSH3qVOvCAHKxZNaFf7fxsKghN2ti30AQ
+         O4OZrbgJh+eQAMK4EEIb5JTVNU68QOy9rOAS4eulrxBCSudsFcwG4mCT/QSmg81V5Mm5
+         8MOgRkNBm7MFuS2zFkgWY4JrICrXd0SKGxBdkTpvrXt8Ugx57jqaP/yajRhCBpr0BYZZ
+         3kKY8XxjEe4gG2j+B79j3tftkiYqxd5vwonwXQBhHUUwSLFD9W/ydGbblrEacIDQ5kep
+         4sTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772529059; x=1773133859;
+        d=1e100.net; s=20230601; t=1772529135; x=1773133935;
         h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=5ieqeIgWXtsJGqN9iYbh1K+fW5zi5u0kpmcIzoP8Jzk=;
-        b=VLrMFn3vuriSfMZNifj15cOkQdfyx6tGVOwEcQYD2y8EVLWHkJ+KfWrJfLp925T8hU
-         GVQX/OTEUQWhcJX9R+GvLIpRe/lmgHMlDkW9AwnQjR2//JxtypQCQU8/dyASUgtSeAom
-         xm09Xq8mjXD2UUEwH624Tzo4ikH0u6IiSYeMAqlDh4sHuPQS0EikuK55vgVwGhLz/Zjq
-         kZRfQMnDzjkmZeXXsPauLkHv78thNt5cdTSSpIhSx2WV93eZkVQGVcYlZqUpfQE2qEV3
-         GpydDugZJzt+1zRsVqMPlxKvxPZmMX6Qn/teJHzDjExRRZSKKLl49kNSEub+KxANQBlC
-         O40g==
-X-Forwarded-Encrypted: i=1; AJvYcCWypQdLvWOChah+4HgSIKo4eZqwXuEp129ibcH/MMS/j0Yk2BSSWelPghm4YPRagmDNsXSbSVjeE+yvAsDAN7NS@lists.infradead.org
-X-Gm-Message-State: AOJu0YyhMrRiN1PDfbHYe2kNsTox1vUtrn3eRO2HV3fTaz2P7IZ7D3RC
-	t1zZBohox8lfZWCofragpSpgBmqdMcMnAw/8npZud1bGCHyHUq3olLY/OPQmLexx
-X-Gm-Gg: ATEYQzznBoX2+wuXUy/MSmlqsWDt2QgsZOvOcr84nbfj1Prq30K3balmBQyh2zXfGAB
-	6buvSVSVTVhhsl2VTmA9wGADJyjxFk/yAkWThxgriCU7aAvKgfugBuxmRE25ueC78fbcWgh5poj
-	OdKTdQrjaYmESlLlWJG8WGI0etoLCoffQFGV8q+9pLfp0qoOm2mWT4fDE4m7cKxlGuqZJ2ccbIG
-	tyEekWpzqmaFqo90/Mx/lwPWAc7lcGpCs2v1qcugw7ccXJd5FNlUml8BnZvZwVyAqSV4ihKbNw0
-	LJvjNBPBwsvrN6IvlZo5z36Pn+lBCox+9i459kr28daiRFGiad3D5oUP3MgXTg8rQMmCpwM8O7L
-	XYnBlV8hiaziGgF0BJnUHn17QWUtj4yNkSCylQiVkBbzBwpElr7vzvEZNz4KXyb0RNVJMTwy/kL
-	KhgbRtPjMGpboBXTGviAuyh8g6yGbTMyREkJE4U4JvxIYrRbIk8ogkQvzK0mwYFb2WRUp6E3q8v
-	dO0LqEnTkynzLyyVCRbMpNSTSYHNkud5XxQhvqW3NxkUL2T1bfpSDH8bY6lHQpM8wiitkpXjU21
-	E+o=
-X-Received: by 2002:a05:6a00:1ad4:b0:825:2927:3aa6 with SMTP id d2e1a72fcca58-8295d82a9abmr1551612b3a.14.1772529059400;
-        Tue, 03 Mar 2026 01:10:59 -0800 (PST)
-Received: from setsuna.localnet ([2403:581e:d87e:0:fc2d:ed31:e80e:412d])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82739db4955sm16000114b3a.29.2026.03.03.01.10.52
+        bh=4hy9xICo1EPoOGuMUjTJL88qGfqc1hJzlCloLKGWnZI=;
+        b=gsFLuCstLIo3c5WSTzaQd83BrNnumCzAVxfK9bQDT62BeorI3IJ/6Hz60D8TALsrnd
+         EWLjWJWkjgj3aST1iygMGguHhFrAeiRBluMiGkOxmm0IYDCRgwnDqiLNRTNC/fGBjUWu
+         0AZuoSN+SCQoMhlQRjOQdhZvgm4uaY+ZfmAHbYb7op4lrW1Aa4uyB7EKfm//YdPB+pCW
+         DaGC/1WxARl15JaaCsv38Wyqs4PyikJ4XDnX7NLZumV53LKfIvsUgYq3Y3wOGf/Om/Pf
+         HxUIVFporDu1yCC4KSNh0mu1ORm3Ke2aY00z3Gau+QxHdJp57Gxp4pHp4CuivCcH+48Z
+         jR7A==
+X-Forwarded-Encrypted: i=1; AJvYcCUIHna0geQxi+VoYcEFIE0c5LSXv+Sq/PEqUcR2R5F3hWSHPwM0oWOLMAlavSJisrcfVpXjwgBxCPBODZi4/JwO@lists.infradead.org
+X-Gm-Message-State: AOJu0YzV/Z/JhIgx1B9WXxnoAEkJhmBIcF4WD3nYqjtrRb/m9qPQy8N7
+	03x9jh4mOZQ566Ep+re/cB1dT5kUFn/OKuh5U8TCAXMqes652NfTz5Rd
+X-Gm-Gg: ATEYQzxoZe6Wi5YtNn5nPg31RagCDLaE9QQYImHKX7xoSkjgzoF44cC6JjEbQD4KnIu
+	a8rFLPkX+J1v/i764UCUOgocdsoHwuNRiYWIRJTcHj3vVMjN0VgtkyfnnC3lNNH7LLEo+Jpx8Kx
+	fjlkGZpM2w0cy6Fz+Z8hR2Xwdos/HTx9yBa+eFsMi5bbYAdWHAo+rlyRjxvC/qLt8kf3oglSHeI
+	YjJJyn0sY0JANweqhMs3RHU529AAY2jMFlIDfHTowATDwjbA7lRZwHgj2OD2FNvjnJRjNmci6lt
+	hBRtUPEa0yky7FEc8bJiq3R7RM0CuSSUL23nz1ERjrCdCl4CCPc3JN8ankOBCm55NJgEmixjUXC
+	3MI4JCDl9km6ysxlH49+31LiSLMElvkOLVr6NZ8IM2uSH/TOKadpt8NUPE6l/zItFgJi0ekiusY
+	I3lzfB7n8EONsiSb/dgtZmcLf0qibE8+bRGUJOUuNE1OvZEZKCw32c0yD7r2u+4ElS
+X-Received: by 2002:a05:600c:3542:b0:480:1e8f:d15f with SMTP id 5b1f17b1804b1-483c9bc5596mr280473755e9.2.1772529134880;
+        Tue, 03 Mar 2026 01:12:14 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48512692c14sm13045615e9.7.2026.03.03.01.12.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Mar 2026 01:10:59 -0800 (PST)
-From: James Calligeros <jcalligeros99@gmail.com>
-To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Shengjiu Wang <shengjiu.wang@nxp.com>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
- Baojun Xu <baojun.xu@ti.com>, Frank Li <Frank.Li@nxp.com>,
- linux-sound@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- asahi@lists.linux.dev
-Subject: Re: [PATCH v3 5/7] ASoC: soc-dai: add common operation to set TDM idle mode
-Date: Tue, 03 Mar 2026 19:10:49 +1000
-Message-ID: <4716405.LvFx2qVVIh@setsuna>
-In-Reply-To: <877brtacgp.wl-kuninori.morimoto.gx@renesas.com>
-References: <20260301-tdm-idle-slots-v3-0-c6ac5351489a@gmail.com>
- <20260301-tdm-idle-slots-v3-5-c6ac5351489a@gmail.com>
- <877brtacgp.wl-kuninori.morimoto.gx@renesas.com>
+        Tue, 03 Mar 2026 01:12:14 -0800 (PST)
+Date: Tue, 3 Mar 2026 09:12:12 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>, Andre Almeida
+ <andrealmeid@igalia.com>, Andrew Cooper <andrew.cooper3@citrix.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>, Christian Brauner
+ <brauner@kernel.org>, Darren Hart <dvhart@infradead.org>, Davidlohr Bueso
+ <dave@stgolabs.net>, Heiko Carstens <hca@linux.ibm.com>, Jan Kara
+ <jack@suse.cz>, Julia Lawall <Julia.Lawall@inria.fr>, Linus Torvalds
+ <torvalds@linux-foundation.org>, linux-arm-kernel@lists.infradead.org,
+ linux-fsdevel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, LKML
+ <linux-kernel@vger.kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Michael Ellerman
+ <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Nicolas Palix
+ <nicolas.palix@imag.fr>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <pjw@kernel.org>, Peter Zijlstra <peterz@infradead.org>, Russell King
+ <linux@armlinux.org.uk>, Sven Schnelle <svens@linux.ibm.com>, Thomas
+ Gleixner <tglx@linutronix.de>, x86@kernel.org, Kees Cook <kees@kernel.org>,
+ akpm@linux-foundation.org
+Subject: Re: [PATCH v2 4/5] uaccess: Disable -Wshadow in
+ __scoped_user_access()
+Message-ID: <20260303091212.620241c8@pumpkin>
+In-Reply-To: <e54368a9-9118-476d-b999-bcd60847f0ce@kernel.org>
+References: <20260302132755.1475451-1-david.laight.linux@gmail.com>
+	<20260302132755.1475451-5-david.laight.linux@gmail.com>
+	<e54368a9-9118-476d-b999-bcd60847f0ce@kernel.org>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_011101_111589_DD49F5B3 
-X-CRM114-Status: GOOD (  18.55  )
+X-CRM114-CacheID: sfid-20260303_011217_595225_B68A3724 
+X-CRM114-Status: GOOD (  14.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,44 +117,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kuniori,
+On Mon, 2 Mar 2026 16:00:26 +0100
+"Christophe Leroy (CS GROUP)" <chleroy@kernel.org> wrote:
 
-On Tuesday, 3 March 2026 12:11:50=E2=80=AFpm Australian Eastern Standard Ti=
-me Kuninori=20
-Morimoto wrote:
-> > +int snd_soc_dai_set_tdm_idle(struct snd_soc_dai *dai,
-> > +			     unsigned int tx_mask, unsigned int rx_mask,
-> > +			     int tx_mode, int rx_mode);
+> Le 02/03/2026 =C3=A0 14:27, david.laight.linux@gmail.com a =C3=A9crit=C2=
+=A0:
+> > From: David Laight <david.laight.linux@gmail.com>
+> >=20
+> > -Wshadow is enabled by W=3D2 builds and __scoped_user_access() quite
+> > deliberately creates a 'const' shadow of the 'user' address that
+> > references a 'guard page' when the application passes a kernel pointer.
+> >=20
+> > Signed-off-by: David Laight <david.laight.linux@gmail.com> =20
 >=20
-> Do we need "rx_mode" ?
-> Only "tx_mode" is enough if my understanding was correct.
+> There is a problem with this patch:
 
-=46or our (Asahi) purposes yes, we only require TX. However, TAS2770 also
-has a bus keeper on SDIN, and I suspect other hardware may too. Rather than
-break the API later on should the need to configure this arise,
-I decided to add the capability now. I am happy to get rid of it if
-we think it is superfluous at this time though.
+(badly line-wrapped errors deleted)
 
-> This patch-set adds new snd_soc_dai_set_tdm_idle(), but no one is calling
-> it. Who use it ??
+It seems to need gcc 12.
+(So Linus is in luck.)
 
-Currently no one in tree consumes this API, and it is likely that no one wi=
-ll
-until we submit our platform driver. See the linked resources in the cover
-letter for more details.
+Prior to gcc 12 the #pragma generated by _Pragma() act as the
+controlled statement of the for () loop.
 
-In the interests of transparency, I don't expect to have the
-platform driver ready for submission any time soon; it is a bit of a mess
-and given that I did not write most of it I still need to wrap my head
-around why certain decisions were made during its design. However, we
-are 100% committed to getting it merged at some point.
+Trying to put the _Pragma() inside the for statement doesn't work at all.
 
-If you would prefer I can resubmit this series along with the driver
-once it is ready, so that there is an example consumer for the API.
-
-Regards,
-
-James Calligeros
-
-
+	David
 
