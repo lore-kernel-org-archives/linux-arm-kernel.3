@@ -4,94 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5607EC1459
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 14:36:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 057E3EC1459
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 14:37:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=laF7zermc4sdeHf1JkHzj4Z+paPpjGHceYcZO9orxLg=; b=ncklid8sngDl7XIlsUCGyWZs8T
-	thJrZ0ktWxUl8zLAvqFCfVjAkMdgR6X3eydVIn2ddlxR7H/FGry0rcvBPRRzaintHk4x6wxH8ArYH
-	NaeleRi5EbAFazbV59zeHaXYEprJ73G4Okl5+AvgCqEM90NHY08FtnfgAb4SFPMq6hJGa42wCnfO+
-	RZZrPFhKOgoABkoKSCZVkOXT97NnADaOt1zaY/eBHXWibN0sN00e5KCh36OQixMUU2fQZPkDwzGbm
-	eXA/FC/MEyDWJnTqa2s/46W8gCxtvxA0HtdWgvUo1lOBCAfxEKCK9FXU/3xyuWgiLKpYZwU2OFhws
-	vfZPhk9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mV12oqx36NxS2Iu/kn/WJFFlkK5zLro1Wfyx/TwCub4=; b=CXVgsd0kFGkQiux3Gwm1qdH9MC
+	QlfxfLVFHerPOTxtOHGNxAbRfvHkf5YluC00QPKXdfx4ESYEDYaGfKWCVVVtM1Z719uTLaD3HugPQ
+	Xg/5epXnoixiVAa9ttDbWXYtg3ty+fUF64rYco450Lq4QO35ADgi+EqpT3yoRgdNeb3KKlbYjcd5V
+	ukuR8TL9qZRJRyc/JFO8It3vzDe62Rxv52ZDxqNt/AWhcwn/nO+ZXtspXTVaveNUkuE8YMSpmtHc1
+	lk1D2WXEvvoSpdxHPk1W9sRtu+77Rrtqpos6tVO/caD8D46e4UkCGKHlU8GmpW9dbokTTkvSZRecy
+	9GWtKYPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxQrF-0000000FKwp-3rWF;
-	Tue, 03 Mar 2026 14:36:21 +0000
-Received: from mx-relay25-hz2.antispameurope.com ([94.100.136.225])
+	id 1vxQrz-0000000FL22-14CK;
+	Tue, 03 Mar 2026 14:37:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxQrC-0000000FKw7-0ncG
+	id 1vxQrw-0000000FL1a-189C
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 14:36:21 +0000
-ARC-Authentication-Results: i=1; mx-gate25-hz2.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com
- smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
- header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=laF7zermc4sdeHf1JkHzj4Z+paPpjGHceYcZO9orxLg=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1772548562;
- b=kmrq8JejRODtIPkieCQ+gzDoaGgeBU7tT7yz+v8th5kRqxctctZ+HBseusws9srUPqm1ryTb
- FPoPulsIbHz8YzhXWpFhYPNLLBOvYm15nNG44vJ+X6GFsldcPu9ppgj7HE1l/gBhLXHxdrSDiLC
- tZjJupme+6k+M9st4sHGCz3ITNyr6IHqNiIzSLhk+eeR0RAUP3/C7eYbMnDWNQyuIbw/nGLp43W
- JLANgqBpUWrLDmCJNlwKxZZ871IwmK/Oy1sjImJGACciHJMREAzv/R3lR9qBc75+EDUOXPaz0Qe
- DIcdg1sW9R4OhMHKtW2NYS4B17QXkNhdyd+BD9t4A38pQ==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1772548562;
- b=dMaAc8PKn3+HkCWkk3eRZXheEGevrrrwxSNYscAvmE8n9BM4Ehl1ynNuW62Tg6WdP4yjsz5+
- quJ+S4EYZT4zYSLqDKcu0w7LLK2Hs121RYnOw7sdmdGbuJGxGFjCrTOk/mWGK4Eic0KEYzW2a8X
- vyFFmDU68S8Or/gtJUje3QQ+SQI9AIteHIi99myvDBJc5qOUl72+/SPWwNG6+61Pw0FSJBAFZ/F
- VeqdRRBnyewPXlpP/xE9ULWFE0QXrxEMSeuE74s0ZsMHdW+UgMtlsLsVx8uS06ygQ4omoXEWUqU
- zfMxa979UluaSKeiSqWyYvvzj8meG+oSNe3uR7Cmjt3nA==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay25-hz2.antispameurope.com;
- Tue, 03 Mar 2026 15:36:02 +0100
-Received: from [10.123.75.134] (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: max.merchel@ew.tq-group.com)
-	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id C66D6CC0E07;
-	Tue,  3 Mar 2026 15:35:53 +0100 (CET)
-Message-ID: <212cb095-43d4-472d-b09f-4ab97e0a33fb@ew.tq-group.com>
-Date: Tue, 3 Mar 2026 15:35:53 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: tqmlx2160a: correct spelling of TQ-Systems
-To: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux@ew.tq-group.com, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260218132426.32293-1-Max.Merchel@ew.tq-group.com>
-Content-Language: en-US
-From: Max Merchel <max.merchel@ew.tq-group.com>
-In-Reply-To: <20260218132426.32293-1-Max.Merchel@ew.tq-group.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-cloud-security-sender: max.merchel@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: max.merchel@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay25-hz2.antispameurope.com with 4fQJJB2M2dzvgBK
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 4b8766b24472e039a6ad55c712e16e46
-X-cloud-security: scantime:1.792
-DKIM-Signature: a=rsa-sha256;
- bh=laF7zermc4sdeHf1JkHzj4Z+paPpjGHceYcZO9orxLg=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1772548561; v=1;
- b=WgAAZg9eK7FUK3U5FN5+d7wLJhaKktNWWDWzQj2KD40p1dLnnatCxbfTAUoQjMpprNhvwv7Q
- 6p4Y+6RdN++pUgWSEjIRfxYU+ev50vPvs87TdCZpC6D7N9PHDvt9mqm96mQi64lBT+e9ndNh3V/
- IOyanAsYmeWIIhBPMOwcEbtudP30/SEcy33/n8tBi4TPbn4Oaqg5o3gv9U91aTSDP96Z1HmK/rL
- y+LXfYlgRNMt0q+0YeZWNpVNY5sl9C5DaqM0yN4T0Q+z9wzm1RyfUL3CcXHJisWsrfm66/iKjRV
- PaLP4Ht0CzcO/p0jxxhGJmdIbtXJcBaMTR7vNmiBcbN7w==
+	Tue, 03 Mar 2026 14:37:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 89DCC43FC4;
+	Tue,  3 Mar 2026 14:37:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62312C116C6;
+	Tue,  3 Mar 2026 14:37:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772548623;
+	bh=m/46LDof3LqadCUxR8EzTO5Nf7CZ0A3+ar1RNvzBB9o=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=RhIGlnExbvHqjrKvCOMAYKyPDILck1mHKuxKeTG/9P6sPpSNVQ6cVGSbL7lVk0eE2
+	 9UBoGOLIEh5qWL6s/JISGlQp4mz2iB1ITIS/uvl3pIwQGYg5ONc4wXsEBwsSEjDkaf
+	 HiozHmY/lH7MsUI5MKc3IsX58h9FjCaE+SHWEu7RxOJ7OYKS+ZT2t+QKfnIbgpP1mi
+	 Z6PxJHzw0gydgaJntW4yn9TDSF7osodkzkreMS3Hwm87DShNUjUQGxPNJEoNYQmCKg
+	 DutUnLfDX3IAkSu/QqMQWjQxTmao9OnlpFNO4lH+y/+Py6hImTNQ1TZaVemn0rovDS
+	 KiNaUBc0WC6sQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vxQrs-0000000FfAT-4AND;
+	Tue, 03 Mar 2026 14:37:01 +0000
+Date: Tue, 03 Mar 2026 14:37:00 +0000
+Message-ID: <86ecm17zeb.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Steven Price <steven.price@arm.com>,
+	kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei
+ <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>
+Subject: Re: [PATCH v12 06/46] arm64: RMI: Define the user ABI
+In-Reply-To: <d87ee902-3b5e-4cf9-8b97-d83f8da02a5a@arm.com>
+References: <20251217101125.91098-1-steven.price@arm.com>
+	<20251217101125.91098-7-steven.price@arm.com>
+	<86tsuy8g0u.wl-maz@kernel.org>
+	<33053e22-6cc6-4d55-bc7f-01f873a15d28@arm.com>
+	<9d702666-72a8-43e4-8ab3-548d8154a529@arm.com>
+	<86fr6h838s.wl-maz@kernel.org>
+	<d87ee902-3b5e-4cf9-8b97-d83f8da02a5a@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: suzuki.poulose@arm.com, steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_063618_385663_BF1E9A2A 
-X-CRM114-Status: GOOD (  16.11  )
+X-CRM114-CacheID: sfid-20260303_063704_350293_1FB271D4 
+X-CRM114-Status: GOOD (  23.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,40 +111,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-Am 18.02.26 um 14:24 schrieb Max Merchel:
-> TQ-Systems is written with a hyphen. Correct the spelling.
-> While at it, remove "GmbH", as the legal form of the company omitted
-> in the model name of other TQ-Systems hardware as well.
+On Tue, 03 Mar 2026 14:23:08 +0000,
+Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
 > 
-> Signed-off-by: Max Merchel <Max.Merchel@ew.tq-group.com>
-> ---
->   .../boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a.dts     | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
+> On 03/03/2026 13:13, Marc Zyngier wrote:
+> > On Mon, 02 Mar 2026 17:13:41 +0000,
+> > Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+> >> 
+> >> More importantly, we have to make sure that the "RMI_PSCI_COMPLETE" is
+> >> invoked before both of the following:
+> >>    1. The "source" vCPU is run again
+> >>    2. More importantly the "target" vCPU is run.
+> > 
+> > I don't understand why (1) is required. Once the VMM gets the request,
 > 
-> diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a.dts b/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a.dts
-> index f6a4f8d54301..48b23f474fbf 100644
-> --- a/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a.dts
-> +++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a.dts
-> @@ -14,7 +14,7 @@
->   #include "fsl-lx2160a-tqmlx2160a.dtsi"
->   
->   / {
-> -	model = "TQ Systems GmbH MBLX2160A Starterkit";
-> +	model = "TQ-Systems MBLX2160A Starterkit";
->   	compatible = "tq,lx2160a-tqmlx2160a-mblx2160a", "tq,lx2160a-tqmlx2160a",
->   		     "fsl,lx2160a";
->   
+> The underlying issue is, the RMM doesn't have the VCPU object for the
+> "target" VCPU, to make the book keeping. Also, please note that for  a
+> Realm, PSCI is emulated by the "RMM". Host is obviously notified of the
+> "PSCI" changes via EXIT_PSCI (note, it is not SMCCC exit)
+>  so that it can be in sync with the real state. And does have a say in
+>  CPU_ON. So, before we return to running the "source" CPU,
+> Host must provide the target VCPU object and its consent (via
+> psci_status) to the RMM. This allows the RMM to emulate the PSCI
+> request correctly and also at the same time keep its book keeping
+> in tact (i.e., marking the Target VCPU as runnable or not).
+> 
+> When a "source" VCPU exits to the host with a PSCI_EXIT, the RMM
+> marks the source VCPU has a pending PSCI operation, and
+> RMI_PSCI_COMPLETE request ticks that off, making it runnable again.
 
-Any feedback to this?
+Sure. What I don't get is what this has to happen on the source vcpu
+thread. The RMM has absolutely no clue about that, and there should be
+no impediment to letting the target vcpu do it as it starts.
+
+Even better, you should be able to do that on the first thread that
+reenters the guest, completely removing any RMM knowledge from the
+PSCI handling in userspace.
+
+If you can't do that, then please consider fixing the RMM to allow it.
+
+Thanks,
+
+	M.
 
 -- 
-Best regards,
-Max
-
-TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht München, HRB 105018
-Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
+Without deviation from the norm, progress is not possible.
 
