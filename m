@@ -4,119 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A1F3E67A8D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 08:15:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC163E67A8D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 08:16:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=db+GRx+Q0XyvQJnHDE30itTeiVo7TcZ1LId1+iWopUE=; b=5F0hUvyikKN+0ixj9h0xNWf/5d
-	YG65tN6ZX9W06G/PIGnYob6jfWGuGc/JspSGWG7JxOc7Nqn4Z5wu36YKMH4xr8J5/Oyw/oNaP2GlR
-	S4hauYR4agEXCa7pL5PuLbc9S+6l3+B8c9Ot6RXIVOaxFsx5s9CdZVqg280T027dEtvRxvRMYHNNQ
-	mvNW98QLA0MN/O3YjUdqlFcuON+xNGa1N3t8tvR2BtYLa0Mq5tojBjkFC1AL6R4zm5+7lmA8utbfL
-	JtpELyN3xD2+dwEh5gdu/PF6T3GiuyPKqfRSz4gGjXftuomdGcaNbal8WksaxnXhOjTgopqiMHWfZ
-	r33kajcA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TOoaOEZuNJH/wFIt6h7FeWwE1+oo5QuN+aJxkWYzY4s=; b=e4XAJBiEpMoV3Z4lb+UxsCyFQh
+	BQycH+epjnBaICOpuTYpBMaRV86fcsPMAbIhGK7OFMXgsq4LLDhfY6abomxOoGROrMM6W5Q1+03vp
+	FctJKEiVG2TvXKS6lzJsBgso21J4kfiJsu1rIsbUwl5MW4rw2wN6VGKxLa7GCyLfU0kyq1Ovu03ja
+	tWDu+jx3v2bHryGnn4DUSfQTB9QWoEI0DcMxlcpu/SoBHx48ac4ig+zKVbxkweFJXlf5/O1YrhPkt
+	7hgSDRAKbEnT3IVCKqoPzK0b7I7WsOeHmFrTazInJmkovdrnO3YHpsbhjaawRxQ56Wvvi/zBZI/2H
+	mO3OOWBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxKuh-0000000ElYO-1TRF;
-	Tue, 03 Mar 2026 08:15:31 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1vxKv5-0000000EleQ-3oqe;
+	Tue, 03 Mar 2026 08:15:55 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxKuf-0000000ElXG-1G18
+	id 1vxKv4-0000000Eldf-0nfk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 08:15:30 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4834826e5a0so61296275e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 00:15:28 -0800 (PST)
+	Tue, 03 Mar 2026 08:15:55 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-c70ef340a02so3084412a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 00:15:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1772525727; x=1773130527; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=db+GRx+Q0XyvQJnHDE30itTeiVo7TcZ1LId1+iWopUE=;
-        b=moEKO10MoUXWZQLbFJqY6tk5SZMYHbalGfPrXq/znYjXUKvej0/wGR9k7ORVcIveSe
-         M2/2LbGUHCxdmjR3woTn31kCZLg58rGbqHGve08+n38169h3LekL4zsBKD9a06PzWV/D
-         M0AbQ+hf3uI6MsGiwwiAiMP1lYafJ2ly8O+ZN7DWhyB+m4S9qZDSlZ7CTS4sI149wbI8
-         BzgwP0nLkRO4VZEbEU159gUyYLlIOfJt5MCCawDYX5XxQDYm4+tpMOU4cfABk59QVb4D
-         7tDAWprSt/AXr9P9/vBIb8LuTqFML88RPrJyRUJrfSflCbs0k5/vdOhVLTt2yVZxz3hy
-         MOhQ==
+        d=gmail.com; s=20230601; t=1772525753; x=1773130553; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=TOoaOEZuNJH/wFIt6h7FeWwE1+oo5QuN+aJxkWYzY4s=;
+        b=Orhgcxp65xFdYkIy6e3TI/B+gKr+KZvpw4x6qjSoiyrTY9U1hcrsJHLycCLly/aUwB
+         yyQy1MAbfT6rCX6e7jYu3RB4gV16eU1dMBKuFZkM9KEulgfLtJWAb2x3jpsIBGOvIHjc
+         M2NsSqaHkfVX6DCLL2gWJLlUo731BMU/yeNlQGU1Ua3QXJyYJVGh7h/jLNyGcaygyWpf
+         gm7JsoXVX8FZ3lTc0D8+rz0YMIQQxhIcWZ3/uTA7a3Mg1AQedVgkxLtYFK6z2GNuN/Hc
+         Zro8/tBxkpMMKhBQCrSSoNGdmcmdHkWXDvJnPNF5s7UUGSB3jX4tCO8PDNg9A/sOnPrm
+         IBPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772525727; x=1773130527;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=db+GRx+Q0XyvQJnHDE30itTeiVo7TcZ1LId1+iWopUE=;
-        b=a+iPaKnLt7H9mCsEkwyeVqOlN4P3SZZ8LjOvXYfbQfQR4BaHLqha3iZMPVgtA2+J/J
-         76bBtaLbcUiF7L93/6ZR/h78Vy+MVIvnrM5XYqzqjd+uv1KikomOEuiVkpHKRiAzPgdr
-         9zPUL24YX1i4mLI9chd8fhab2KQu04edYBixhgiNk332WZ71ioGRdxdhu/Gf5fTMr8Cr
-         E8MZfkOdJsgGeH6KNXkaHNXf5eodrmmr0xKTXONEi2xsPFy1O2p7wd8TEWwzd55JSwQl
-         XNmHboycQcP1NtYa9WyiQrMNi0BDltYrwA4Y6e/YWKre1SPMdeVjQF+/yosjE/APWRX9
-         HwFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVmluwf6/IPuHh4kCD/88Qemv83wWr1NXtZv2/oGNPLnGU9W0m8M553yxC/ejURZ47AO7PUHx3F9/unROBc1wMo@lists.infradead.org
-X-Gm-Message-State: AOJu0YyoRUVJSKve7tPxwcg5I7GOFcmE8KyVvK7Q5RWYAldXwRCJbxV2
-	bIthMDaTEGwx8nbWRMJpUaWiOQyeiDO+d1I91cFpStJfKOqqHuBXxlV/Mtk62c9Namc=
-X-Gm-Gg: ATEYQzxmPAE34XBWyxE8z1dkhQ+2k1pEQJ9w6mJUs3W3lMrGaD/mNQxnM+DQuWl/EWp
-	b9tQtR0IhxN5LOYVM4Q+E5XxihGyGwrHNhLqQJac1Q/mVKaG6xBBCDGAp5CnaC446PdU18RIpiv
-	NBzobEEO3u4n7PAmVvtl3r4A9h6uJFsdEgjKJ+B2IG/D7KRhS/IqVR96zVgHFyTW9VRQedZ/OVs
-	t5hFk30+tx1VXDUsV6LSV1s/rpZj9k36yZpoUU2qsccHswn48BwVXodxPSGLgWn7f0ZQhAdOuXo
-	LWDGQJweAqbgufrH7YrXXcee7oOsbUBtpb1D4s00SAKyALMoijGmOZmjz0uj2jN9iV5Ps6g+ojD
-	+y4gNQDGBCyl5EmXetAGD30hV7kvldRkPABkI236DKXeCjg8r5vG0ipkvOJgI+l+sSab0Atl13d
-	RjXmROHBJjmJRGqq43lx00kwtL85ZDewTfC/TucuB7/Haj5JLb9yDQihOr3+ODDuxVo0e2MxRO6
-	Q5e
-X-Received: by 2002:a05:600c:3108:b0:483:887:59b0 with SMTP id 5b1f17b1804b1-483c9c1cd2bmr287609705e9.35.1772525727199;
-        Tue, 03 Mar 2026 00:15:27 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:106d:1080:e6ec:89fb:a99:3d23? ([2a01:e0a:106d:1080:e6ec:89fb:a99:3d23])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483bd765604sm398884355e9.15.2026.03.03.00.15.26
+        d=1e100.net; s=20230601; t=1772525753; x=1773130553;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=TOoaOEZuNJH/wFIt6h7FeWwE1+oo5QuN+aJxkWYzY4s=;
+        b=ZmOzdWOqZcNgZDmULlG5d5094c0Uhw1n64L/1XZiKWxu6pTFTyL4285weCo02EYRoL
+         lbCWz/Nv+y4vzycfAvhcXNpt1tbQKItvaurjXVJqmRGxi3T+925IghsRrOktEQaUr6G0
+         5TIjcY6pxiDC3UNi4c2aaaWRuQlIpjZCHk+qhUQKY3RhK/SGX9G4eHGdkr/JIRkAlvC+
+         Ab5i9aV5mjZ2TB+5HpwVNVJben4EgZ8ZtU2TtMxunVW4DWjmRzyyh2aArzcjSb2z7al2
+         38+7PUU1ByUOqfCcZbX0uFKhjWy2L1XJno8o0h+0C29fUpxwVYm9J+wx0PWDeNSWmQD5
+         MkxQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXe0ct8WcW4YoUrCG32yifJC+9/FI03iuHbzsHZbhr3vg5rt5xnqoyZMrZRu/zzw3guozRZ3FOuw2JorCceq/a/@lists.infradead.org
+X-Gm-Message-State: AOJu0YyG5ld5u/2cw2m9SUrBpbVqR+y0ilgMFemik1El2qekpgOo2P+x
+	47QrP/PKsIvgWOSm51Xjf4oe3O4+mbKGjXgkECxQdoSOcOW5lUwTnVd5
+X-Gm-Gg: ATEYQzyved+OeTY57Rfo9/XsNlnu10sFmYF26xiokAP1EhvQX9sQFBF1jORrbmQYL8a
+	OlZ/6kJnO6rJTw4z/QU+AiFpHrnSVbcfO7ZdaSuYauNOePPAMbjiyvvKIu3hYAB59C2Q6xz+EES
+	QdlU09jzUw5fuk4hwe4dlNyZb+y5ZNycN/u2rAJ/X08/V+IV8fN7V+wuqHKuoQ/ljDvscrOfqOx
+	qo1jENmh+mVNlwbze8BUbcVKMGSU4Rxs4IJ3tUJ8cO9cJsp9DvitRRoIN7IUOpqDSIgKoXsYdXT
+	mQqs6IbGwvqwMIUNZNvNmOtnH8rGE4mhsddJhiEKFqUf1zOJEfogbFUYIRyWwY2nJ/colwfx9TL
+	rJBcLzEznip+Fi+ficPZaa2GOzkzwmvosEUr37o9rFIQfNVTA4zzrd+cO6kntGEZw3GlrRgRsBY
+	nZE82JDf+qtAiwbYb1fSwofiX1bwVX3mz7U+npncSrhXQp0uAgZWDRZm8WHXTwzK7DkKVia33Dw
+	Jll
+X-Received: by 2002:a17:90b:4b50:b0:354:a662:47ff with SMTP id 98e67ed59e1d1-35965d188d6mr12983648a91.35.1772525752831;
+        Tue, 03 Mar 2026 00:15:52 -0800 (PST)
+Received: from [192.168.0.101] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3599c408296sm1377885a91.5.2026.03.03.00.15.49
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 03 Mar 2026 00:15:26 -0800 (PST)
-Message-ID: <8ee9c9b9-dabd-419f-9141-c5aafb9f9152@linaro.org>
-Date: Tue, 3 Mar 2026 09:15:26 +0100
+        Tue, 03 Mar 2026 00:15:52 -0800 (PST)
+Message-ID: <b69d5393-f122-44e9-96d9-342f458c3487@gmail.com>
+Date: Tue, 3 Mar 2026 16:15:44 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: neil.armstrong@linaro.org
-Subject: Re: [PATCH] arm64: dts: amlogic: meson-gxl-s905d-phicomm-n1: add
- bluetooth node
-To: Jun Yan <jerrysteve1101@gmail.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
-Cc: martin.blumenstingl@googlemail.com, jbrunet@baylibre.com,
- khilman@baylibre.com, conor+dt@kernel.org, krzk+dt@kernel.org,
- robh@kernel.org, yangxuan8282@gmail.com
-References: <20260213073810.552341-1-jerrysteve1101@gmail.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20260213073810.552341-1-jerrysteve1101@gmail.com>
+Subject: Re: [PATCH v2 3/3] drm/nuvoton: add MA35D1 display controller driver
+To: Icenowy Zheng <uwu@icenowy.me>, airlied@gmail.com, simona@ffwll.ch,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com,
+ linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260129040532.382693-1-a0987203069@gmail.com>
+ <20260129040532.382693-4-a0987203069@gmail.com>
+ <8806eaf82fbef4cd51bb4e4bb44d60894b3504b4.camel@icenowy.me>
+ <f556ef68-dac3-4652-ac21-ea4bbb4e912c@gmail.com>
+ <9cccf8cd84b394f66b85e2af3bef0a3ecd154747.camel@icenowy.me>
+Content-Language: en-US
+From: Joey Lu <a0987203069@gmail.com>
+In-Reply-To: <9cccf8cd84b394f66b85e2af3bef0a3ecd154747.camel@icenowy.me>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_001529_390008_C7049DDA 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20260303_001554_234750_62604188 
+X-CRM114-Status: GOOD (  19.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,50 +106,82 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/13/26 08:38, Jun Yan wrote:
-> The Phicomm N1 uses a CY43455 (BCM43438) module with its Bluetooth
-> interface connected to uart_A.
-> 
-> Add the required device tree node to enable proper functionality.
-> 
-> Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
-> ---
->   .../dts/amlogic/meson-gxl-s905d-phicomm-n1.dts    | 15 +++++++++++++++
->   1 file changed, 15 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-phicomm-n1.dts b/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-phicomm-n1.dts
-> index 393d3cb33b9e..dea3a60e8527 100644
-> --- a/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-phicomm-n1.dts
-> +++ b/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-phicomm-n1.dts
-> @@ -30,6 +30,21 @@ &cvbs_vdac_port {
->   	status = "disabled";
->   };
->   
-> +&uart_A {
-> +	status = "okay";
-> +	pinctrl-0 = <&uart_a_pins>, <&uart_a_cts_rts_pins>;
-> +	pinctrl-names = "default";
-> +	uart-has-rtscts;
-> +
-> +	bluetooth {
-> +		compatible = "brcm,bcm43438-bt";
-> +		shutdown-gpios = <&gpio GPIOX_17 GPIO_ACTIVE_HIGH>;
-> +		max-speed = <2000000>;
-> +		clocks = <&wifi32k>;
-> +		clock-names = "lpo";
-> +	};
-> +};
-> +
->   &usb {
->   	dr_mode = "host";
->   };
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+On 2/10/2026 8:02 PM, Icenowy Zheng wrote:
+> 在 2026-02-09星期一的 16:45 +0800，Joey Lu写道：
+>> On 2/6/2026 11:09 PM, Icenowy Zheng wrote:
+>>> 在 2026-01-29星期四的 12:05 +0800，Joey Lu写道：
+>>>> ========== 8< ============
+>>>> +#endif
+>>>> diff --git a/drivers/gpu/drm/nuvoton/ma35_regs.h
+>>>> b/drivers/gpu/drm/nuvoton/ma35_regs.h
+>>>> new file mode 100644
+>>>> index 000000000000..0f4a7a13e7d8
+>>>> --- /dev/null
+>>>> +++ b/drivers/gpu/drm/nuvoton/ma35_regs.h
+>>>> @@ -0,0 +1,88 @@
+>>>> +/* SPDX-License-Identifier: GPL-2.0+ */
+>>>> +/*
+>>>> + * Nuvoton DRM driver
+>>>> + *
+>>>> + * Copyright (C) 2026 Nuvoton Technology Corp.
+>>>> + *
+>>>> + * Author: Joey Lu <a0987203069@gmail.com>
+>>>> + */
+>>>> +
+>>>> +#ifndef _MA35_REGS_H_
+>>>> +#define _MA35_REGS_H_
+>>>> +
+>>>> +#define MA35_FRAMEBUFFER_CONFIG                   0x1518
+>>> Please check my Verisilicon DC8200 driver, which is already part of
+>>> drm-misc-next now.
+>>>
+>>> The display controller here seems to be a earlier one from
+>>> Verisilicon.it looks like a DC8000, or maybe a more earlier one?
+>> The DCU is a Vivante DCUltra IP rather than a DC8000 series.
+>>
+>> It's an earlier generation display controller and was customized for
+>> Nuvoton, so it doesn't have a public model ID.
+>>
+>> Because of that lineage, parts of the register layout and
+>> functionality
+>> remain similar to older DC IPs.
+> The kernel seems to dislike different drivers for similar IPs.
+>
+>> Please refer to MA35D1 datasheet for more details.
+> I checked it, and the register definitions looks compatible with DC8000
+> registers at [1]. However no identification information is shown in the
+> manual.
+>
+> I may get a MA35D1 board after the Lunar New Year (although it looks a
+> little expensive), is it easy to bring up mainline kernal on arbitary
+> MA35D1 boards?
+>
+> [1]
+> https://github.com/milkv-megrez/rockos-u-boot/blob/c9221cf2fa77d39c0b241ab4b030c708e7ebe279/drivers/video/eswin/eswin_dc_reg.h
+Our team is actively working on upstreaming support for MA35D1. It is 
+possible to bring up the mainline kernel on arbitrary MA35D1 boards, but 
+for the best experience I strongly recommend using our Buildroot[1] or 
+Yocto[2] tooling available on the official GitHub. These provide 
+board-specific configurations and greatly simplify the process.
 
-Thanks,
-Neil
+If you decide to get an MA35D1 board yourself, our Buildroot/Yocto setup 
+will help you get started quickly and ensure you have the right patches 
+and configurations in place.
+
+Currently, the mainline kernel version is 6.6, which is sufficient for 
+checking registers and basic functionality. For more complete feature 
+support, our Buildroot/Yocto tooling remains the recommended path.
+
+[1] https://github.com/OpenNuvoton/buildroot_2024
+
+[2] https://github.com/OpenNuvoton/MA35D1_yocto-v5.0
+
+Best regards,
+
+Joey
+
 
