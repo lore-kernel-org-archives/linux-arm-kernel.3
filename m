@@ -4,67 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81DB3EDA697
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 16:03:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69D05EDA68D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 16:10:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9a9MHHDvAS4GuJXkWSu8F0H8VmKDgo/AZP3thGDlWj4=; b=fpNDqzortauO4a21vlSunVuQi6
-	m/9Ok/Ux7pg53YyaSeCaxw1ENwunPUBr3qj2ZswsxYM70vMJvddzSKVTmdcPkwf+w2E9pckl7t4ct
-	tnBFcyI0Zc71TWk2+f0AHzLeWfFLNLfbQ4mXRdXrzEnrUAFcWE8vZP2tsbNvilziJO+WC6Azs3Ilt
-	lwJZqcSN2vb2atSFKpwh61lCXwhnzKtCdYE5Fag5SYDz7QmxiimaqUwXpimcOPwFOGbbIN/0L7gst
-	KA+UeTEZvuaEGcYA/m3mXFC2BVRP2OSV8tPulBS1eDo2V5aWVOdKxSA3NCxVH+cwwchhMc9ADtguo
-	a8aQh9zw==;
+	bh=uZhefinet/rBeeE1EfXYvWsIsVUahRvR5lid/N+Qkvg=; b=fe3iZwp+rxm3ZeWLXoZ+Ll+nqe
+	Q6CyofiHGBfk8Zef7dBPR9Rb4w3ZeZ8lXRvtUTuDUvrLYqh6BIGULKpNGK+VRaVWDp0/HR/dbGsjN
+	8d5m9PlHxoZukww+8Z5Nwlld9zGukBRowmEDBOeQGNLmr63Z9rr7brMzb+YnlvfclfEnbrrMtW5bm
+	Ta4WSNpbM0oqxEJuUrqpcFrJh+XT1exqb3UNn0Hz6zVB/4538Xfpa5+tXmPgfhcLhgm0ohpJfeDJY
+	s98QF8OvgCshnelJre4gIbw2SygFxvQqZnZDtYda881ae73USf4BVmlidTnsJFGyuyF8j6sND+NJF
+	rwMF4kDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSDA-0000000FVPC-0X7Y;
-	Tue, 03 Mar 2026 16:03:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSD7-0000000FVOR-2Ed2
+	id 1vxSKG-0000000FWyj-27tf;
+	Tue, 03 Mar 2026 16:10:24 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxSKD-0000000FWxw-2PGM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 16:03:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6C1FF339;
-	Tue,  3 Mar 2026 08:02:52 -0800 (PST)
-Received: from [10.57.66.27] (unknown [10.57.66.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 67C6E3F694;
-	Tue,  3 Mar 2026 08:02:55 -0800 (PST)
-Message-ID: <37b79d98-10e5-4beb-b95c-783d41050eae@arm.com>
-Date: Tue, 3 Mar 2026 16:02:53 +0000
+	Tue, 03 Mar 2026 16:10:23 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-824ba8f0acaso2979579b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 08:10:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772554220; x=1773159020; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uZhefinet/rBeeE1EfXYvWsIsVUahRvR5lid/N+Qkvg=;
+        b=JH5uX9B7nRDvRFoxVZjjDqHamWnXBzLd6jh/Et8dc4Zon709cvRnfX1ljPb35kO67g
+         tQ8VvekkwPDuZd6RpvK5uZEQexOIcwj7LCUxvPRpzJOqn+1ikKgpfcalF+eL3jb3qcCf
+         LSVuxAinG/6eM5dLPMv9qpBxTaiPzsGJkvZG/lmyMQ+NPlUtrg1S5a6lwNjYLvUh2nqq
+         Uii1MoY1KCn3SG6qnl5O13yRx4p0R0ZQwwq4bNSvVeysXVkKtZvLo2+KyOzlbWSm4heY
+         mqryLQ19cmyCTwLi2xA6xwt3WkzNWdWLIsjgUm/DK83IsTYHjJQf9Pz7XkThMaygS5c7
+         SJQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772554220; x=1773159020;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=uZhefinet/rBeeE1EfXYvWsIsVUahRvR5lid/N+Qkvg=;
+        b=PcqV6oB/OkjxfycIk2abwxz6B000M3DxwuQzQHyUMUnSb2bT0fctYRXohR9m4YXnop
+         IjNmoEKV1wHsx2w/lU+REQsuK91x+ebRn//bN1gaVDSmsXqgVqP+Dxt+W0t9jPGduDh0
+         i1jt0Z5fHH4+haio+WCLuWpKAnicH3eZ9V2R26MwX0kq1r7Ob/XgpRn/2Z2BS08NjOF1
+         GhBWSwWgHT1QAhPPc1v2XWrLHf/9Uxlt3zylI6hDxGMPp/0uLn9dSTA8f3rHFXEb4Y4w
+         NQbdZ1G+jk3IKYIyzctNPZoRkgbjxPvrv82aiqu9EL9akvc8E8j1dB7nip2YojAhnEPQ
+         6AIQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVmzI6Il151/vsOARhSLqaSLbfmKehqHVDMwuJlQCAaR2gtEBQ8zEbGdG+zllQ9Iwn8QbfsBG4ljcIhANGJEfA7@lists.infradead.org
+X-Gm-Message-State: AOJu0YzwPYhqidN7A9ULxM4ZyMQPk+REj5y5bgAv/yud2ENeGsUGOXb/
+	QL+6YOMNlEYbmY5PB17PN9G1vlB/whBZtBdmIuMbvQ4IWzj439ehZCGE
+X-Gm-Gg: ATEYQzyMSYyrrBXxINb4Ce5uj2yeVljhM+K7UlOB5t6S395vik3TG8MKUCm357ARPiD
+	3J9uEbUWrIQzNh0hw6HuiqWFbVdljZ5zE7rPdp3jnhrCahI09F+krQ4jBO75u4/+kXpei0RqxUE
+	BjZRga48iaVrMC3uEshFBqxouleI6qQPmVW2w6sTA9tTiKj5EeVEy/Yb8V7l9m/MDApoLHf8TNm
+	casrCv/9SSjRSzXf6/35LbffyV8HJ/+yVJr8kBF73fH52m0/8Hh0k2AdiTRMJv4S4jfkxN2aMKg
+	zbYIYlmgZb96n508N+9BI2I/LrSUvcnYvIgRt5xadzwZFvePYS2iDHWl9Q593hFDTAdWkiCv0hG
+	a9ZoztL/Xw5kYiBqUdaWr20DjjiHOADcNxBz18iKVSK+FXjCUeL3mHiBygCcXRguwkLZ9PSdvqb
+	5On4RfgwjOQ5BY0RFq8Xw3TpU6jVgX2VphjGaVrVPEvocUJwYkZ1p+lTky/Kmn1htdjCyJYEQYh
+	hTPqkTzvogggGkA/f7B0Q==
+X-Received: by 2002:a05:6a00:349b:b0:827:3ff6:fb81 with SMTP id d2e1a72fcca58-8274da0a64emr13677770b3a.52.1772554220355;
+        Tue, 03 Mar 2026 08:10:20 -0800 (PST)
+Received: from nickhuang.. (2001-b400-e257-9d22-3605-837f-cd5c-9967.emome-ip6.hinet.net. [2001:b400:e257:9d22:3605:837f:cd5c:9967])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82739ff372fsm16359886b3a.31.2026.03.03.08.10.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Mar 2026 08:10:19 -0800 (PST)
+From: Nick Huang <sef1548@gmail.com>
+To: "Maciej W. Rozycki" <macro@orcam.me.uk>
+Cc: linux@armlinux.org.uk,
+	davidgow@google.com,
+	dongsheng.yang@linux.dev,
+	dory85109@gmail.com,
+	ebiggers@kernel.org,
+	idryomov@gmail.com,
+	jlayton@kernel.org,
+	john.g.garry@oracle.com,
+	namhyung@kernel.org,
+	robh@kernel.org,
+	kusogame68@gmail.com,
+	wdhh6@aliyun.com,
+	wqu@suse.com,
+	yot4106@gmail.com,
+	likerockman102@hotmail.com,
+	squid@squidspirit.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] arm: Replace ASSEMBLY with ASSEMBLER in uapi headers
+Date: Tue,  3 Mar 2026 16:10:08 +0000
+Message-ID: <20260303161012.2983-1-sef1548@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <alpine.DEB.2.21.2603011816460.44093@angie.orcam.me.uk>
+References: <alpine.DEB.2.21.2603011816460.44093@angie.orcam.me.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 06/46] arm64: RMI: Define the user ABI
-Content-Language: en-GB
-To: Marc Zyngier <maz@kernel.org>
-Cc: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>
-References: <20251217101125.91098-1-steven.price@arm.com>
- <20251217101125.91098-7-steven.price@arm.com> <86tsuy8g0u.wl-maz@kernel.org>
- <33053e22-6cc6-4d55-bc7f-01f873a15d28@arm.com>
- <9d702666-72a8-43e4-8ab3-548d8154a529@arm.com> <86fr6h838s.wl-maz@kernel.org>
- <d87ee902-3b5e-4cf9-8b97-d83f8da02a5a@arm.com> <86ecm17zeb.wl-maz@kernel.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <86ecm17zeb.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_080301_974200_9E0406AE 
-X-CRM114-Status: GOOD (  21.26  )
+X-CRM114-CacheID: sfid-20260303_081021_618699_5A105DF3 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,70 +115,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/03/2026 14:37, Marc Zyngier wrote:
-> On Tue, 03 Mar 2026 14:23:08 +0000,
-> Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
->>
->> On 03/03/2026 13:13, Marc Zyngier wrote:
->>> On Mon, 02 Mar 2026 17:13:41 +0000,
->>> Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
->>>>
->>>> More importantly, we have to make sure that the "RMI_PSCI_COMPLETE" is
->>>> invoked before both of the following:
->>>>     1. The "source" vCPU is run again
->>>>     2. More importantly the "target" vCPU is run.
->>>
->>> I don't understand why (1) is required. Once the VMM gets the request,
->>
->> The underlying issue is, the RMM doesn't have the VCPU object for the
->> "target" VCPU, to make the book keeping. Also, please note that for  a
->> Realm, PSCI is emulated by the "RMM". Host is obviously notified of the
->> "PSCI" changes via EXIT_PSCI (note, it is not SMCCC exit)
->>   so that it can be in sync with the real state. And does have a say in
->>   CPU_ON. So, before we return to running the "source" CPU,
->> Host must provide the target VCPU object and its consent (via
->> psci_status) to the RMM. This allows the RMM to emulate the PSCI
->> request correctly and also at the same time keep its book keeping
->> in tact (i.e., marking the Target VCPU as runnable or not).
->>
->> When a "source" VCPU exits to the host with a PSCI_EXIT, the RMM
->> marks the source VCPU has a pending PSCI operation, and
->> RMI_PSCI_COMPLETE request ticks that off, making it runnable again.
-> 
-> Sure. What I don't get is what this has to happen on the source vcpu
-> thread. The RMM has absolutely no clue about that, and there should be
-> no impediment to letting the target vcpu do it as it starts.
+On Sun, 1 Mar 2026, Maciej W. Rozycki wrote:
 
-Because, the RMM wants to make that the state is consistent. i.e,
-Host cannot lie to the "source" VCPU and RMM (e.g., CPU_ON denied) and
-then run the "target" VCPU.
+> It seems to whom?  Have you got a reference to a discussion with libc
+> maintainers where the consensus has been that support for older compilers
+> can be dropped?  Why does it remain in the GNU C library?
 
-In other words, the response to the CPU_ON must be recorded by the RMM
-in the target VCPU state, to make sure the target VCPU state is
-consistent with the response.
+I have now consulted the glibc maintainers directly on this question.
+The thread is available here:
 
-The only way to fix this would be RMM keeping track of "mpidr" to REC
-object mapping (VCPU object), which impacts the scalability. With that
-in place, RMM can update the target VCPU state from the return of the
-REC_ENTER after a PSCI_EXIT.
+  https://inbox.sourceware.org/libc-alpha/mvm342hx8tf.fsf@suse.de/
 
-That said, will explore the options to address this
+Andreas Schwab (SUSE Labs) responded:
 
-Thanks
-Suzuki
+  "Since the compiler will define __ASSEMBLER__ automatically when
+   preprocessing assembler-with-cpp files, there is no need to change
+   anything on the glibc side.  The places that define __ASSEMBLY__ for
+   that purpose will just become redundant."
 
-> 
-> Even better, you should be able to do that on the first thread that
-> reenters the guest, completely removing any RMM knowledge from the
-> PSCI handling in userspace.
-> 
-> If you can't do that, then please consider fixing the RMM to allow it.
-> 
-> Thanks,
-> 
-> 	M.
-> 
-
-
-
+Best regards,
+Nick Huang <sef1548@gmail.com>
 
