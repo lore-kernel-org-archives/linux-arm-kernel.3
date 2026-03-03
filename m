@@ -4,78 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BA63EC0460
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 09:02:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2F0BEC0461
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 09:11:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IJNlv8R6cZKXjL4l+PbkPgdf1L56XfT5lWaXnTIbLbg=; b=yN7eLYiLHGE1WqVMBnaB4IOOnL
-	mClsQqExNiIheZ1JOb2sDgRwhkKaeb/Mdql0+S+5xFBQw2JPb6VzTHcXKRC/uuKNBt71XddCd1o/u
-	/2bksMjWBbR5q+2jC2gSATiadOMdcN5nq+hwH7tR98Uf3EggmsLgPztYNyxSgPEpofFRoyuA2ujOn
-	/YMfPR+g/5lR0ACGJu+x6skxFxyPrn1YDKGrj1xJFzjNak5ZFeg0i7U5LkwPFIXUZsTl98cIteR2r
-	77NYjGvhBqA1qrc15o6ywaOMMFVAbOa8zvsZmpgLr/gjB5VZ+K0C43/Rjrw7nK/IV0tmj4Oafk2qs
-	sK+7pX8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5ieqeIgWXtsJGqN9iYbh1K+fW5zi5u0kpmcIzoP8Jzk=; b=Y4dbFK7B8KdrXNR5+Q8bLKID5v
+	9LtVPjNYobrYWYE0ta3klpJz+Y4FRStqskZoH0f2O8T6w8kR21RRkQAlXb7cZDxDQgFwO4uosFNTg
+	/KX2c12GCLqrgSH04S1lc0NNccabYwoatzNBWURafFcPPiS7LrIq1KDoi0Q5JkS0Z6U2cgCg6JhwR
+	aDSo0tQsnEmL8C+cfeyg2d3xZoJ7G0GTedenLpacugGIv1deJILP78td9kUOTNnVZfuKGPoQ4vGnd
+	mQ/zxAFlddlVbUl/tEE1N/Pfr67e0DhdeA+FeaYevVmepbYr0UQy+SP/VlsbBitSU+vD6EncWXdnr
+	HqqfAwHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxLeC-0000000EpsK-1oH0;
-	Tue, 03 Mar 2026 09:02:32 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1vxLmR-0000000EqGR-0xM0;
+	Tue, 03 Mar 2026 09:11:03 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxLe6-0000000EpqD-22Jf
+	id 1vxLmP-0000000EqFu-0Ge3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 09:02:31 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260303090219euoutp0153d4e710984271d6c0654fc7a37df1b7~ZSVDHwfNZ1841618416euoutp01i
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Mar 2026 09:02:19 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260303090219euoutp0153d4e710984271d6c0654fc7a37df1b7~ZSVDHwfNZ1841618416euoutp01i
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1772528539;
-	bh=IJNlv8R6cZKXjL4l+PbkPgdf1L56XfT5lWaXnTIbLbg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=axM3jgiPiarTcnfNPfN00RCJmZPnJsMecJ+ZtsDwfEMzuXp/5QSgcarEoZMiOA5w/
-	 2NYj2nteNHTYxJzp/ClSoCzs6eF4IxxhPBLRH5c8GeEOovXOHViSxe6U3eRxZlTEPQ
-	 5+DBdOGL8bt27U+09haJ2YrzwocvTXVAP106F4HQ=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260303090219eucas1p1711b5b0f0e8ae56bc421ad8f6e5bf365~ZSVCoyKyt2751827518eucas1p1V;
-	Tue,  3 Mar 2026 09:02:19 +0000 (GMT)
-Received: from AMDC4515.digital.local (unknown [106.120.51.28]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260303090218eusmtip1b7cadd576d57e165c9f1292f8d94b5a8~ZSVB_eFnx1199911999eusmtip1c;
-	Tue,  3 Mar 2026 09:02:18 +0000 (GMT)
-From: Mateusz Majewski <m.majewski2@samsung.com>
-To: Alexey Klimov <alexey.klimov@linaro.org>
-Cc: Mateusz Majewski <m.majewski2@samsung.com>,
-	linux-samsung-soc@vger.kernel.org, linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Bartlomiej Zolnierkiewicz
-	<bzolnier@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>, "Rafael J.
- Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, Rob
-	Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Alim Akhtar
-	<alim.akhtar@samsung.com>, Sam Protsenko <semen.protsenko@linaro.org>, Anand
-	Moon <linux.amoon@gmail.com>, Marek Szyprowski <m.szyprowski@samsung.com>
-Subject: Re: [PATCH v4 0/7] Add initial Exynos850 support to the thermal
- driver
-Date: Tue,  3 Mar 2026 10:02:09 +0100
-Message-ID: <20260303090211.673143-1-m.majewski2@samsung.com>
-X-Mailer: git-send-email 2.51.2
-In-Reply-To: <DGIAUIFPUHN8.35B5MNEUK1JW5@linaro.org>
+	Tue, 03 Mar 2026 09:11:02 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-827390e8a3cso3512797b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 01:11:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772529059; x=1773133859; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5ieqeIgWXtsJGqN9iYbh1K+fW5zi5u0kpmcIzoP8Jzk=;
+        b=UB7rZKd0nrgVA1/jrHkiysGRIHUybEPQvNMcs8bcOESHI7ys0PSmHH8w6G81TjTI5V
+         Mm7a4APIvSncbrsDi530AI3gHmUYv/0mMUYBNgE6wSiPfXrmmgUYtdT7V4QKwbFJCxFn
+         jCF9RoB89Uz8t35ycfDaXpGtn5dMglee8j/8GLrQ6z1w1uH2Rer8OUMLv1c+Wndncr2D
+         LGBHNNt4UnFOWJThU/+WvmMXZ543kp6MRzt69h+2hdH+voC+4piLsMpCkNITy9/o/G7g
+         XLlmHvUtqHv+ys0qLmFVtycG+pBan0UzcRcRoJOCRGZkAJCTXlYw2mgTSM3mrw2uiBBI
+         uWWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772529059; x=1773133859;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=5ieqeIgWXtsJGqN9iYbh1K+fW5zi5u0kpmcIzoP8Jzk=;
+        b=VLrMFn3vuriSfMZNifj15cOkQdfyx6tGVOwEcQYD2y8EVLWHkJ+KfWrJfLp925T8hU
+         GVQX/OTEUQWhcJX9R+GvLIpRe/lmgHMlDkW9AwnQjR2//JxtypQCQU8/dyASUgtSeAom
+         xm09Xq8mjXD2UUEwH624Tzo4ikH0u6IiSYeMAqlDh4sHuPQS0EikuK55vgVwGhLz/Zjq
+         kZRfQMnDzjkmZeXXsPauLkHv78thNt5cdTSSpIhSx2WV93eZkVQGVcYlZqUpfQE2qEV3
+         GpydDugZJzt+1zRsVqMPlxKvxPZmMX6Qn/teJHzDjExRRZSKKLl49kNSEub+KxANQBlC
+         O40g==
+X-Forwarded-Encrypted: i=1; AJvYcCWypQdLvWOChah+4HgSIKo4eZqwXuEp129ibcH/MMS/j0Yk2BSSWelPghm4YPRagmDNsXSbSVjeE+yvAsDAN7NS@lists.infradead.org
+X-Gm-Message-State: AOJu0YyhMrRiN1PDfbHYe2kNsTox1vUtrn3eRO2HV3fTaz2P7IZ7D3RC
+	t1zZBohox8lfZWCofragpSpgBmqdMcMnAw/8npZud1bGCHyHUq3olLY/OPQmLexx
+X-Gm-Gg: ATEYQzznBoX2+wuXUy/MSmlqsWDt2QgsZOvOcr84nbfj1Prq30K3balmBQyh2zXfGAB
+	6buvSVSVTVhhsl2VTmA9wGADJyjxFk/yAkWThxgriCU7aAvKgfugBuxmRE25ueC78fbcWgh5poj
+	OdKTdQrjaYmESlLlWJG8WGI0etoLCoffQFGV8q+9pLfp0qoOm2mWT4fDE4m7cKxlGuqZJ2ccbIG
+	tyEekWpzqmaFqo90/Mx/lwPWAc7lcGpCs2v1qcugw7ccXJd5FNlUml8BnZvZwVyAqSV4ihKbNw0
+	LJvjNBPBwsvrN6IvlZo5z36Pn+lBCox+9i459kr28daiRFGiad3D5oUP3MgXTg8rQMmCpwM8O7L
+	XYnBlV8hiaziGgF0BJnUHn17QWUtj4yNkSCylQiVkBbzBwpElr7vzvEZNz4KXyb0RNVJMTwy/kL
+	KhgbRtPjMGpboBXTGviAuyh8g6yGbTMyREkJE4U4JvxIYrRbIk8ogkQvzK0mwYFb2WRUp6E3q8v
+	dO0LqEnTkynzLyyVCRbMpNSTSYHNkud5XxQhvqW3NxkUL2T1bfpSDH8bY6lHQpM8wiitkpXjU21
+	E+o=
+X-Received: by 2002:a05:6a00:1ad4:b0:825:2927:3aa6 with SMTP id d2e1a72fcca58-8295d82a9abmr1551612b3a.14.1772529059400;
+        Tue, 03 Mar 2026 01:10:59 -0800 (PST)
+Received: from setsuna.localnet ([2403:581e:d87e:0:fc2d:ed31:e80e:412d])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82739db4955sm16000114b3a.29.2026.03.03.01.10.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Mar 2026 01:10:59 -0800 (PST)
+From: James Calligeros <jcalligeros99@gmail.com>
+To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Shengjiu Wang <shengjiu.wang@nxp.com>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
+ Baojun Xu <baojun.xu@ti.com>, Frank Li <Frank.Li@nxp.com>,
+ linux-sound@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ asahi@lists.linux.dev
+Subject: Re: [PATCH v3 5/7] ASoC: soc-dai: add common operation to set TDM idle mode
+Date: Tue, 03 Mar 2026 19:10:49 +1000
+Message-ID: <4716405.LvFx2qVVIh@setsuna>
+In-Reply-To: <877brtacgp.wl-kuninori.morimoto.gx@renesas.com>
+References: <20260301-tdm-idle-slots-v3-0-c6ac5351489a@gmail.com>
+ <20260301-tdm-idle-slots-v3-5-c6ac5351489a@gmail.com>
+ <877brtacgp.wl-kuninori.morimoto.gx@renesas.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260303090219eucas1p1711b5b0f0e8ae56bc421ad8f6e5bf365
-X-Msg-Generator: CA
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260303090219eucas1p1711b5b0f0e8ae56bc421ad8f6e5bf365
-X-EPHeader: CA
-X-CMS-RootMailID: 20260303090219eucas1p1711b5b0f0e8ae56bc421ad8f6e5bf365
-References: <CGME20260303090219eucas1p1711b5b0f0e8ae56bc421ad8f6e5bf365@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_010227_881548_5B838754 
-X-CRM114-Status: GOOD (  19.64  )
+X-CRM114-CacheID: sfid-20260303_011101_111589_DD49F5B3 
+X-CRM114-Status: GOOD (  18.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,40 +112,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello and sorry for missing your mail, thankfully Marek pointed it out
-to me.
+Hi Kuniori,
 
-> I applied the whole series locally, it applies fine on 6.19 but I didn't
-> check linux-next; and tested it on Exynos850 E850-96 board with the
-> following DT node:
-> 
-> tmuctrl_0: tmu@10070000 {
->     compatible = "samsung,exynos850-tmu";
->     reg = <0x10070000 0x800>;
->     interrupts = <GIC_SPI 226 IRQ_TYPE_LEVEL_HIGH>;
->     clocks = <&cmu_peri CLK_GOUT_BUSIF_TMU_PCLK>;
->     clock-names = "tmu_apbif";
->     #thermal-sensor-cells = <0>;
-> };
-> 
-> and thermal zones as you mentioned way back. It works just fine.
-> Temp goes up to 48 C with a loaded CPUs and settles at 36-37C when idle.
-> 
-> So for the whole series:
-> Tested-by: Alexey Klimov <alexey.klimov@linaro.org>
+On Tuesday, 3 March 2026 12:11:50=E2=80=AFpm Australian Eastern Standard Ti=
+me Kuninori=20
+Morimoto wrote:
+> > +int snd_soc_dai_set_tdm_idle(struct snd_soc_dai *dai,
+> > +			     unsigned int tx_mask, unsigned int rx_mask,
+> > +			     int tx_mode, int rx_mode);
+>=20
+> Do we need "rx_mode" ?
+> Only "tx_mode" is enough if my understanding was correct.
 
-Thank you!
+=46or our (Asahi) purposes yes, we only require TX. However, TAS2770 also
+has a bus keeper on SDIN, and I suspect other hardware may too. Rather than
+break the API later on should the need to configure this arise,
+I decided to add the capability now. I am happy to get rid of it if
+we think it is superfluous at this time though.
 
-> However, do you have plans to update it or re-submit?
-> Or any other plans working on it?
+> This patch-set adds new snd_soc_dai_set_tdm_idle(), but no one is calling
+> it. Who use it ??
 
-Honestly not sure. If any other patches are merged that conflict with
-this series, I definitely can resolve the commits (for now it applies
-just fine to next-20260227, though I haven't compiled the result yet).
-Correct me if I am wrong, but I don't recall anything to be done in this
-series otherwise. If there is interest in this series, I can retest this
-on the other boards and re-submit this later this week.
+Currently no one in tree consumes this API, and it is likely that no one wi=
+ll
+until we submit our platform driver. See the linked resources in the cover
+letter for more details.
 
-Kind regards,
-Mateusz Majewski
+In the interests of transparency, I don't expect to have the
+platform driver ready for submission any time soon; it is a bit of a mess
+and given that I did not write most of it I still need to wrap my head
+around why certain decisions were made during its design. However, we
+are 100% committed to getting it merged at some point.
+
+If you would prefer I can resubmit this series along with the driver
+once it is ready, so that there is an example consumer for the API.
+
+Regards,
+
+James Calligeros
+
+
 
