@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 827EBEC1438
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 13:23:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2651EC143E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 13:23:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=H74/YoTLDFTCdfk0PaElicwo3G9NiezT55+TiFByfrU=; b=o31BBChL0PY2dbYKm3ogFnYufd
-	EVAESpujgnbeHDUkTNC+kHLx4w39hT+YSbGg0wpCC9L/g1xUfb36GK5k8EdQNF1h2KpTELENXYZhN
-	4YzGBQ+IW1RBG+FybGeMa/cWHuf+dHJAXy9ucdAlfAP9tnawGtqmk0WYp1xGsmoxRWr1qBFQ9Q0md
-	c6CZBcD+noEn4PifOHYo/bQFSJN7bFj9QorgXjRLyCBE42N9OgT8yFlG+zK1Kjwta7g3luPLvMUa6
-	KxFOtCvlA84qkjnt/gtgmH/12aFyCsS0ZA193zVTqb/5E8jtqQEvPEPX3L6sxufrnz6Lk2uoc38Tw
-	Q5W7S6OQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7NdMfo9Xg2r6aJvOcLQwOOsrACKCVOknll0GbpvMaoA=; b=nX8vq8yRPZlGr/qRKiN0mPrPZ+
+	GY1LL8nDzsCNIPhq053CY6D0s+EVUsfKJnpmS2pfkO91G0ipuuYSuDs4vVRd+eoT1tk4xrzwACGdl
+	IcjwBqrHMq+iRntmr0f33npCxEwZKQ7YIH2L8awzjeAwTjOmqhCna1QUiREs6D3SK6nLXY51roStT
+	5aqvIW+xR5KYAU4cLWysXvYYFr5wK/Fhemc8YL8zzYVaxlNgW++hNZLXpJMi9XJIlMLCKBzT/h1gG
+	IL2Mwe01UANk2VFL7NUReJ5/LbELv9zIXlchxb+MMc2iH2zuJm4Lj1hOsh+18enIhnbSiwEj6SpL2
+	hp49+nVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxPik-0000000FD98-24LZ;
-	Tue, 03 Mar 2026 13:23:30 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1vxPip-0000000FDDO-2koi;
+	Tue, 03 Mar 2026 13:23:35 +0000
+Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxPii-0000000FD8D-060m
+	id 1vxPim-0000000FD9o-44hp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 13:23:29 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-38706f96202so70190121fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 05:23:26 -0800 (PST)
+	Tue, 03 Mar 2026 13:23:34 +0000
+Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-389f933034cso76418631fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 05:23:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1772544205; x=1773149005; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=H74/YoTLDFTCdfk0PaElicwo3G9NiezT55+TiFByfrU=;
-        b=J2LX/m+6MbIx5VlERF5ae0BpGTLiWkDKaP/iW/NDYq5iboD8JWiFL6InMnjR4D4Wab
-         vKcDQENAvGJsgX8cYXg0F3qU6mWiY0PKYWfPTMOQEB6UVOQUsqXR58jY2dmr3td/p+nE
-         4KcRyqiIhAt90fzn19yNiciU8kEAatfvoxgqLWztJCytKce/Vj9dgV8nd+m1wq41peis
-         z0AeVhP1aMPVxKy2bvQ7gbty2d8h1jLcTK3OxaX145/U0WN2JJdyMl6JkCFOkIAIu7NP
-         9K4gVQ+kFcxxWpsrfrmRX7wf2Ap33xf+k0rCpjfwWUYBmFjRSxUB0BWDQx5MuQRrY/pR
-         DOUw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772544205; x=1773149005;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1772544211; x=1773149011; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=H74/YoTLDFTCdfk0PaElicwo3G9NiezT55+TiFByfrU=;
-        b=n1EvTIlJI7oOPoPCNCFWQr/2r+cE3vYHvYGeOzMshAGKSDo2fkFzvit7y/DRAe7oxG
-         TAKqfKvLg3/gn2jwS+xkV+J8G8c/1mYxsTK2/GBxhrDIuAtcxDieCZt/vJBzb2GVLklS
-         2WHotUopYGY9RK9Nu2ZM+zX4mu8YhWWca9mCUSmF7vaGRLyorc4eUvbKbGVEQDDlyHTq
-         tZ48Qoi1yU2xFOeH3NlRjIxvfaY6HumLPmDf3fULiPY7Sq1i7X0gHIa9BmUtc2L2cZwL
-         bZ8S5tt1HY9CGMOSRZgDKSV4VTp0zOic0L6p9VA8S1RDkRkZGh9HeoEFa1p3DcrBolzP
-         aX4w==
-X-Forwarded-Encrypted: i=1; AJvYcCWPaql5fL9ZB8e6hhFYC7FdnWhUdcxEgEyTpxvci1Bj3U42UU10JsSM2gRCw7Dq9YwKF0EtgXe1q29cDEwUgAZU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmSoXIjaGWeK2EeGFD1S4qNn0Q0M9Gnql6wtn6ZuLaXbWvwhhI
-	RO/2OBq0viJaf3eeitVn/rLZ3UViIRX/rCyBceZuM47HvyCk5V14qI9F7KwAEx5JGiA=
-X-Gm-Gg: ATEYQzws+sALs1jh8aW2CXOPJFvKS+ARnGsapyNGOfAuuhp9bqmpjOiUKKgZCfBH6yy
-	qG0KxQDNc4oeR/CsN1RMnQRLvrZ7q1UZ0+nv8fox+7TUt9WJ27bDZoaWmhFulSFZ6Ke8Hkslv3i
-	sNx7grdEXfunYBhKHV4XqqGvCPy6ggmgBJj2x+ZPyBNqcz91zJXP49586ItmyJoSGW5RO3AsXzt
-	isJ8SInd73f/kG0WTpE6nNpTLZqKIVxpfIVfPbg1tOl8yDrwFaad8nWdws1RkyUGQMM6OK3JrKQ
-	NwPy2Gp5u04PBLEFlT+8Ji9fqMw0DyD7UClVHaJpuMnwNU6em51IxMjn/O9FXeLgziid8CNMqFB
-	1heXBAsWJNWoFSctopaaoSn7yIgTm2cIk6MkFyss4d+KUVj0gs7wBbJnxRpSzdVgKcSz5Fvr+hf
-	5cJgcIquhxrO0RIrh6sReS2AVRKilqt3P0A2FpPlnEK+y+gLiDTR4TJbUTUmli8lsV9orNyv1b
-X-Received: by 2002:a05:651c:2123:b0:382:4d6b:993b with SMTP id 38308e7fff4ca-389ff365a4bmr120386311fa.35.1772544204835;
-        Tue, 03 Mar 2026 05:23:24 -0800 (PST)
+        bh=7NdMfo9Xg2r6aJvOcLQwOOsrACKCVOknll0GbpvMaoA=;
+        b=jvDVLjYNPz3+yikHH3FvjzC9s41aY1bol4rqWKxi4rVGoqP7tglSK+SpgRhjJ7ShbK
+         X3NYG+SkyKnxTqFNmVS613DRikmCwbhrTJsr8xpExEZctEg3dEtO99rfqeKPHUHNYMPa
+         q8sMCXdXYZW8RBXhGLM5IZsfYoutsEM7h9bnp71NKyfG/W3vwDVueGu/3Hy6RXzfzLLu
+         NGpO95L+ZCUmd7k4vKwZnEOEnbjbk8fLXzvhtd0dLs5xNrPD7RxrcGAqC3ek45zE9VX1
+         wOuofaFO04Rqbkl2PTfM+3aXca+PwoaqF6Ye1ZgD0Mbl/QS8hpTtAJBzOxlivgBFK2Ia
+         tOQQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772544211; x=1773149011;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=7NdMfo9Xg2r6aJvOcLQwOOsrACKCVOknll0GbpvMaoA=;
+        b=kGUhl3l7wM2+FR0oqUv6OajQ7wNAGUDaECeQYinPvrXx8hwBIe0zyK56zl+y/UaLVa
+         B1KBASGGJiMT3bADDZhVQlINDyWJA9vkzrWI+vbomja6eKBi8Vhbr1mwZhZcqvAcpTJi
+         AOoWMCAym47eGEZ1AG7IJEwpaPFZWlqRlN6fDzAjCcBurtMYQKVmlTk7y8S13izWSDzA
+         hW5SEWcEnyEGl6zFAR7YZ3NNLaypkzofLQnIuG1zXtvVbmBAgfURV7QcPdKNyUCOSkHD
+         CBQFc5fKbTyKETg+TQBgDu3J1SAGHA/bZI2/JyMF5lqv6BVcC4CENbi7ICQhbNf0AWgd
+         oWPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWmUOIMuyn4atyNx81D1uBQhloV/48bx0e1Fv5lbp2MbZXbd0oBODSAz06d7WmJ3Gm1tIn4+wDFVKjXBOYWLqTc@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJdyY0D9Pf2zftSDpRBT+qu6frkrF/ApKMbycYGPFNfjWqep+E
+	/JDkIdVvEMgXkR1QVRCnC10/TcK5BK2xd9lc4zrmXj2XttOUhbwhvkAm8WAj59IPr30=
+X-Gm-Gg: ATEYQzwxLToq1Yh+E2hOjH8KblHfD8rM94+9b2lpckK9CB1EW1xTIG/13n93shULgp6
+	GrBle4cEyoC0q4I3dQb3krD1ochQvUvXIyegN8+DwUZW8rJvskshouluLq6G8y1Gw+aAi9h6VC3
+	K48SgGWkWy+D225PwL3aiZqb0Va5R9ErtFOS+DZpzATO3JJTz70v5EsagLO/YU70f8Een1kbKHI
+	CSJmd8HRpx9nUIU0w14/H/rgkeU/m38NZapFlzKo/7xiWKMEi3XAnAIw5OfkCsgMxx4QTck2dnr
+	wB36ywdBYidcHcjtfGRMbmQlAoYMTIJQ3ZZxUl25YNXDUG7704brxke2+DmCNTpI3BFx88jJ+3w
+	qKEk4tWk6ZJKFWCWLakM3zfrQg8qZyyIGwaUNfcq5OhkF91KRfvLEagHNq/YmRLeTkTi+A3IrSg
+	zRi8BbYyaviR/3vQ1x0loAEJx0tOf+B9JKINhfP3RMvneH0ozdAEaRk9nivG93BRm7gvz0AazS2
+	yq3F+LCOnE=
+X-Received: by 2002:a05:651c:552:b0:37c:c84a:99b9 with SMTP id 38308e7fff4ca-389ff34ecc7mr108930621fa.24.1772544210984;
+        Tue, 03 Mar 2026 05:23:30 -0800 (PST)
 Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a1235811e3sm587866e87.29.2026.03.03.05.23.23
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a1235811e3sm587866e87.29.2026.03.03.05.23.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Mar 2026 05:23:24 -0800 (PST)
+        Tue, 03 Mar 2026 05:23:30 -0800 (PST)
 From: Ulf Hansson <ulf.hansson@linaro.org>
 To: Saravana Kannan <saravanak@kernel.org>,
 	"Rafael J . Wysocki" <rafael@kernel.org>,
@@ -89,15 +91,17 @@ Cc: Kevin Hilman <khilman@baylibre.com>,
 	Ulf Hansson <ulf.hansson@linaro.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/9] driver core / pmdomain: Add support for fined grained sync_state
-Date: Tue,  3 Mar 2026 14:22:46 +0100
-Message-ID: <20260303132305.438657-1-ulf.hansson@linaro.org>
+Subject: [PATCH 5/9] pmdomain: core: Extend fine grained sync_state to more onecell providers
+Date: Tue,  3 Mar 2026 14:22:51 +0100
+Message-ID: <20260303132305.438657-6-ulf.hansson@linaro.org>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260303132305.438657-1-ulf.hansson@linaro.org>
+References: <20260303132305.438657-1-ulf.hansson@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_052328_103813_3EEFDB8D 
-X-CRM114-Status: GOOD (  12.34  )
+X-CRM114-CacheID: sfid-20260303_052333_042066_CB66C233 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,57 +116,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since the introduction [1] of the common sync_state support for pmdomains
-(genpd), we have encountered a lot of various interesting problems. In most
-cases the new behaviour of genpd triggered some weird platform specific bugs.
+A onecell power domain provider driver that we can assign a common
+->sync_state() callback for, should be able to benefit from the improved
+fine grained sync_state support in genpd. Therefore, let's also assign the
+->queue_sync_state() callback for these types of provider drivers.
 
-That said, in LPC in Tokyo me and Saravana hosted a session to walk through the
-remaining limitations that we have found for genpd's sync state support. In
-particular, we discussed the problems we have for the so-called onecell power
-domain providers, where a single provider typically provides multiple
-independent power domains, all with their own set of consumers.
+Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+---
+ drivers/pmdomain/core.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-In these cases, the generic sync_state mechanism with fw_devlink isn't fine
-grained enough, as we end up waiting for all consumers for all power domains
-before the ->sync_callback gets called for the supplier/provider. In other
-words, we may end up keeping unused power domains powered-on, for no good
-reasons.
-
-The series intends to fix this problem. Please have a look at the commit
-messages for more details.
-
-Please help review and test!
-
-Kind regards
-Ulf Hansson
-
-[1]
-https://lore.kernel.org/all/20250701114733.636510-1-ulf.hansson@linaro.org/
-
-
-Ulf Hansson (9):
-  driver core: Enable suppliers to implement fine grained sync_state
-    support
-  driver core: Add dev_set_drv_queue_sync_state()
-  pmdomain: core: Move genpd_get_from_provider()
-  pmdomain: core: Add initial fine grained sync_state support
-  pmdomain: core: Extend fine grained sync_state to more onecell
-    providers
-  pmdomain: core: Export a common function for ->queue_sync_state()
-  pmdomain: renesas: rcar-gen4-sysc: Drop GENPD_FLAG_NO_STAY_ON
-  pmdomain: renesas: rcar-sysc: Drop GENPD_FLAG_NO_STAY_ON
-  pmdomain: renesas: rmobile-sysc: Drop GENPD_FLAG_NO_STAY_ON
-
- drivers/base/core.c                       |   7 +-
- drivers/pmdomain/core.c                   | 208 ++++++++++++++++++----
- drivers/pmdomain/renesas/rcar-gen4-sysc.c |   1 -
- drivers/pmdomain/renesas/rcar-sysc.c      |   1 -
- drivers/pmdomain/renesas/rmobile-sysc.c   |   3 +-
- include/linux/device.h                    |  12 ++
- include/linux/device/driver.h             |   7 +
- include/linux/pm_domain.h                 |   3 +
- 8 files changed, 200 insertions(+), 42 deletions(-)
-
+diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
+index 53401db2a386..e0b9dd15a949 100644
+--- a/drivers/pmdomain/core.c
++++ b/drivers/pmdomain/core.c
+@@ -2921,10 +2921,12 @@ int of_genpd_add_provider_onecell(struct device_node *np,
+ 
+ 	fwnode = of_fwnode_handle(np);
+ 	dev = get_dev_from_fwnode(fwnode);
+-	if (!dev)
++	if (!dev) {
+ 		sync_state = true;
+-	else
++	} else if (!dev_has_sync_state(dev)) {
+ 		dev_set_drv_sync_state(dev, genpd_sync_state);
++		dev_set_drv_queue_sync_state(dev, genpd_queue_sync_state);
++	}
+ 
+ 	put_device(dev);
+ 
 -- 
 2.43.0
 
