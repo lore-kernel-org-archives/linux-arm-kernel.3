@@ -4,140 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE22AEC1421
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 12:29:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8347FEC1430
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 12:38:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+UFaVOOEMjvopJDZvAVmSn/0K5xprbHB0u9j+BhT9u8=; b=YRpqlRBpRMLmoUfLDlKzwqhb8b
-	xJ+006v5+DSzBhjutQSdsYDH2pnvzhiOv1HTdwR9RQ7YJH2i894sIJvH5VRHCdRJfPq74RHk/QmYo
-	vmpn2gpHGTzx5ulZj5WSl3ECjvSvUqMrX7KYlHGe9BU4SfCvgEK3w8FZdKrhFvi+IDMgoEGxzDgp9
-	EbWcpW5GSGHNLA2XSgfDj0oRqZheEpK4XfmTu23nVvgrfVxAJJugq0Z4VUdMJLVylDSRjZIbsOHpn
-	PJAGn+Mpda5gzQ8oNk1jbBlCjaiqWujNdAQzQwp+OdPrxUS14PQDd0QTB3ZIrgjHWJgj6Zu+jcF1j
-	BuTdHYaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lWwoqo46Zr/3jyyKrQqeEXquRAWf+PTNX5MMsSlQxIA=; b=PI9ba4h3+kigvC
+	Gw0E9dbeby9AMm7gvHF2VB8SfRBBTiUxr7m5YJlbOY5QtDplVr/BjlBzTUHxdXk3bxNebMdjgr86a
+	W/d6Okl1pZjPj+4vRmTjJy91Fpu/A92QTOEEjeYpc+14jCAYZBCvFXFK/XcIX1NzGKORIaa+vEiQH
+	RIFbviWFpLwQdeV272MSoIrU2G+qz6Zv+xzvuKGPMl/JYelBqOjbQR6KQ4po/0fz6oSvDKaQx6w7p
+	vFjW5cb5v9UqScPhrNwa4+dVNtRqxvwRo39buopnLaFGsdonrVpgCJ0wV2fiE150QJ3zBg1N9skjI
+	x1huCFbncUGdp8R8VZGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxOse-0000000F9Lz-0FOf;
-	Tue, 03 Mar 2026 12:29:40 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vxP1G-0000000F9lv-2q3w;
+	Tue, 03 Mar 2026 12:38:34 +0000
+Received: from mx-relay100-hz2.antispameurope.com ([94.100.136.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxOsc-0000000F9Lf-14Er
+	id 1vxP1B-0000000F9l5-0Czb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 12:29:39 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6239n75A2630006
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 3 Mar 2026 12:29:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	+UFaVOOEMjvopJDZvAVmSn/0K5xprbHB0u9j+BhT9u8=; b=lK2W9hqlq9NQpHKO
-	j6+PqyxsfrTcNUVrmSY/G7pZ0R0VxkHi16XgNJ8z7HVEOS0UEnUyMj79ruuw1Nyr
-	jKzO4sUgKF1vdtUE3K1g++/V4rIYesG+LrMjj5UrVXD4oT25YAgoIpbkp/i+P1nK
-	O4+hmxmVCikWkzFLRucws+OGH9ZfjLblKT0Mu3gQERlqtylqCeIj6nqUriHdb/AW
-	TxiEgAZre8s6ebCYXm4/WMYipDkqy0OFnNnyG6X2iTapPvqaDyEFtoGsfd0YMltd
-	C9GEwhY+6ZkGqtGvtxOuDo5F+4Xi3e1R0LsaJA7+s2J/zaVLF7D0tqf35DXf78hR
-	cvi3Hg==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cnhx5ashf-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 12:29:37 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8cb52a9c0eeso4329164985a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 04:29:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1772540976; x=1773145776; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+UFaVOOEMjvopJDZvAVmSn/0K5xprbHB0u9j+BhT9u8=;
-        b=HqW41rm+zFldR1g2DAh4sfb46iCcvOvDT4BPxSB8n1U+DGOXRFcLEAI60cdy7Nx6Zl
-         UY0Ff1+emSyBcs+h6xJHKsXdxLXV48YPiT7JDigVbjalSY0Tk+tRaIGMS7OCilsZ6bd5
-         pTtzKnHU7Vmdlh0tVSlrpsBGlfFfRm6b53vxIgTk6ALjXGa8MRla1TNR6pb+fi7Kj8ne
-         D5gzBktSnvti+Uwab1jBA1zYRboaDq1wXBaJq2V5gvZOzRmBrY7aEDgRFfd7ro+whb2Z
-         qr7qmTGAhXekCk3eB2fd7a8oLM/yAvS/v0HlMPmxr8DU4TawSctfjHuXssW7gqEeIRC8
-         p/bg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772540976; x=1773145776;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=+UFaVOOEMjvopJDZvAVmSn/0K5xprbHB0u9j+BhT9u8=;
-        b=xDwuahcyjrkARGQi2CzllMETH0T+bD6xAnilCZHt8GSmiOI+Z5x8d0/mMkvD8BGCxO
-         cPCbYkyl3hog33ueJ5EuoH+QSM6X28x/EZYnuj3inLNDR7LuWckjfh01ox9M09VX9xbh
-         xduAx+V2HteJZDwi8VGfcRwnlAbjU94EFLKRD4Z9wBFFEqU8V+eHS0yJeqHher1bwwXN
-         kIHcdrofly/70eROthFPY93btabD2CjTvUvH4Zt1G4bAAO8DvarT/1VP1plFnFktna60
-         +E3qqurZbRWnswLsCgB82C66vI20Qm3h1nzO3D3ZnV2Ed3AeC9WHzBMYtIMkWRqHDlnd
-         UVCQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVVaPzLXv22GVY9C9ldyNR0eKciFbpi7khgMj4WBDHplQnv3o+Uyq1QImKkSSc1jqv5WszL1QN0CBox1wiauUFJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFrf7l+wwjIkL/ocyHELqZgUhjwMT7g+bMBwAHQ4LxLYcZdU5o
-	h2u+rjqGepof4PUyeT6/U2tIU68IkUklPCq2BAgXfe/6o4nV2PRwm6KofiltYz4xxykqys9gWhM
-	NmYzOCeAfhWiW8r/9aixzxYgIeEngS0WCp2o60GewHIWFSRJALqsYI/Cr8I+gHCzd2pnwRVPql6
-	sdAA==
-X-Gm-Gg: ATEYQzx+nb4+R+1srJQTlQ5p+TdVrbFeTt64g9JOlbDrp2QgEMyuNlGtuKT5W5uJXJk
-	QcZ2FdJM9UZrD3eGEQF+kRZ5gCFB/w6Qz9P1PPQCSCUMizkaIQEZgUI6D9uegiN2iXdOjh3Xde+
-	vSWh3cc5C0An7lnNgYLzdNQp/wtlFRXewy8w6oKi058EkNyg0f5rOMuwNnsdfPXXHL4OUwQ9DQh
-	zTmfQ8R6vKlL7IxODqm60tQXVscuP4bHGGCi1X/9U9ajqoQRVeDEMZNXs7zSZKgvoT+OEdPPU8j
-	dM8ja1eoFnlP0KA2+JE+B5/MyFY0DIvGMhbg9VyLurrRjC9pmQFN8irXj1xxKJGv5NsvHjCNJIO
-	Is2Fprz9TRpqs7yhC2XD+eHfPnhMMdQ==
-X-Received: by 2002:a05:620a:444b:b0:8cb:4d9b:6b4d with SMTP id af79cd13be357-8cbc8d6f180mr1874331385a.10.1772540976314;
-        Tue, 03 Mar 2026 04:29:36 -0800 (PST)
-X-Received: by 2002:a05:620a:444b:b0:8cb:4d9b:6b4d with SMTP id af79cd13be357-8cbc8d6f180mr1874327885a.10.1772540975729;
-        Tue, 03 Mar 2026 04:29:35 -0800 (PST)
-Received: from hackbox.lan ([86.121.162.109])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483bd750701sm498035965e9.11.2026.03.03.04.29.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Mar 2026 04:29:35 -0800 (PST)
-From: Abel Vesa <abel.vesa@oss.qualcomm.com>
-To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>
-Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: (subset) [PATCH v3 0/3] ARM: dts: imx6: cleanup imx6/7 CCM related CHECK_DTBS warnings
-Date: Tue,  3 Mar 2026 14:29:25 +0200
-Message-ID: <177254093027.989057.8587839568838242001.b4-ty@oss.qualcomm.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20260121-ccm_dts-v3-0-820ce9b5fa38@nxp.com>
-References: <20260121-ccm_dts-v3-0-820ce9b5fa38@nxp.com>
+	Tue, 03 Mar 2026 12:38:32 +0000
+ARC-Authentication-Results: i=1; mx-gate100-hz2.hornetsecurity.com 1;
+ spf=pass reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com
+ smtp.helo=hmail-p-smtp01-out04-hz1.hornetsecurity.com; dmarc=pass
+ header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=lWwoqo46Zr/3jyyKrQqeEXquRAWf+PTNX5MMsSlQxIA=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1772541499;
+ b=p4eeD65/HSwYMHduCVhmeQ6NDme/xl8fAKKEuhMwa94eyGmiFvEFqy+Gh/7LHeeIyA/U1GjZ
+ 6n/37Ea+DwDWZYeSm9veUSuxdziIW0ICAUmmmY50elquQVPE9Iyw0GIQ/MKaS0gsm7+xO8aHl2i
+ TqaF43ph9TM9ae70O9kFnV3ZOnJLvxqccU5KEsn4SwslLnVE60lBGBewNf01821bGHYFBbXACJn
+ H5OQgXbUft4fpqBHkbz3lYSsVFys/FdHZm1xehvobK6ybz0bP3u7JR3Etvvx3o7byJopKG5YIvA
+ KBYTnOC1GRoOVTdGHM0mIVKoHJMXnu8crMzeYgXzPpYrw==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1772541499;
+ b=m06zhksKEvskTUbNkSB6w+m2k70nVtpmVy0Rusutt+V97ZGInP3wPAWTpTKJ41McU9NkFz5m
+ G5roaEXwssj/9X53o7qT/Zm63aaZrp3ejvWSBPs20eJHoNGSszMjm3glbpWBXN/5oZNi3zYE6dl
+ cScniysgljueU5z0rP+EmfyTovHe/b6qt7uJ7rapjo1z8xskPqI2xCPn1wq8qQmtlgHOk5n9eFa
+ Ryj+EUOO5fsJpYN4u7KAzGESkOBCPvgsCmjz7V3Bs+bmKiWb8eI0ZWXYyKyNUUfkIEo37Hg3mYv
+ PF+pHL2VjkN+z8QoODGZWTNnUKM6tJ9rutSIbZbRdGTJg==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay100-hz2.antispameurope.com;
+ Tue, 03 Mar 2026 13:38:19 +0100
+Received: from steina-w.localnet (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: alexander.stein@ew.tq-group.com)
+	by hmail-p-smtp01-out04-hz1.hornetsecurity.com (Postfix) with ESMTPSA id AA64E220B43;
+	Tue,  3 Mar 2026 13:38:13 +0100 (CET)
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev, Richard Zhu <hongxing.zhu@nxp.com>
+Subject: i.MX8M Plus PCIe link regression
+Date: Tue, 03 Mar 2026 13:38:13 +0100
+Message-ID: <23024521.EfDdHjke4D@steina-w>
+Organization: TQ-Systems GmbH
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzAzMDA5NyBTYWx0ZWRfX5kgdd5abH1gF
- svXc5mSJeKadfkrN0Qurg6sUQYuZuSkhT6ANzI853ks8zGPpRZ+jG0cV+V92Bn2Q89qWc2bhD+F
- BCO0+N7etVcgB4CIoBKllcdjtinvLTkPaGIrL1AZB55a706HMuCiDjypH0rgf2L8RZUzPOzfbSh
- x+OLzT4EmWKltoTyj3HiiypMNcIizdI9cQ6lE+s2P/yDAvQQhnOQitLuqvL26EHhQGGCaqIVyYE
- llTNVgC8tzPW1k45rXQudHmEHfLQGcr5FUAvsxS3jI6wyGNx1B+HbafcCN3hU/kDUAcQE9tShwh
- RltSEKpsKo0JGk5z3KR5EHykTwWAtHRJQ1+d95+H5nZOqAd3J2oKLfXWQYp2771XxI1olusj0Jy
- QQeaVfn9NH9d3TGyaccFD7uberFiLSd+I1/j+1QsUy9nhVZEAYck0YMPUfjNv8NRVtbMHeS3l/j
- SNij6OTFsiMjMHjMDVQ==
-X-Authority-Analysis: v=2.4 cv=T9CBjvKQ c=1 sm=1 tr=0 ts=69a6d431 cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=oauzzCmhM186DRC0Y2yWPg==:17
- a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=EUspDBNiAAAA:8 a=HS7iJHYFZOvZgwlv4tsA:9 a=QEXdDO2ut3YA:10
- a=bTQJ7kPSJx9SKPbeHEYW:22
-X-Proofpoint-GUID: cmK7x24skfp7RUgSgQUpf7wJhOfH0Ugg
-X-Proofpoint-ORIG-GUID: cmK7x24skfp7RUgSgQUpf7wJhOfH0Ugg
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-02_05,2026-03-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 adultscore=0 spamscore=0 lowpriorityscore=0 bulkscore=0
- priorityscore=1501 clxscore=1015 suspectscore=0 malwarescore=0
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2602130000
- definitions=main-2603030097
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-cloud-security-sender: alexander.stein@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay100-hz2.antispameurope.com with 4fQFhP74nLz3PJhp
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: 850274fae2b2e7370f7fd9100b832d79
+X-cloud-security: scantime:1.471
+DKIM-Signature: a=rsa-sha256;
+ bh=lWwoqo46Zr/3jyyKrQqeEXquRAWf+PTNX5MMsSlQxIA=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1772541499; v=1;
+ b=k+1YqcNUWljzjdCJJY24N2/ntiX6+E0vhWCSP+Yj+OYwe2c5Dmjm+cmFxqPCBtepYdeXdRet
+ I3SsJfPME50EXM8p+RXl7tzaw3EqAY4yrtnEvqmL4cbTb/grAnniCp5kShA1ubrYz2MZBcW22v/
+ BeapG4LAHnYUTtPVGDeAVgTl0Pfu6sKJApRaDv80ij3QmyELCviFjB9qeDMSLQ5/9iJO8zbCSxA
+ zY5kAR5TB3eJsZEWbiPw4Pl3nGBuo7lbekLzhcVHhMZbunQU9xquQpODfiBrVR5hCtYYtZ8ax3M
+ EGz5D9HnGvwQnbEBQ5HfpkVCqZYX/KIMyMkvn9HpHsdiA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_042938_415472_CEA02DA0 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20260303_043829_394873_57B3B6C3 
+X-CRM114-Status: UNSURE (   8.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,18 +102,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-On Wed, 21 Jan 2026 13:04:14 -0500, Frank Li wrote:
-> cleanup imx6/7 CCM related CHECK_DTBS warnings
-> 
-> 
+these days I noticed that there is a PCIe link regression on my i.MX8MP
+platform (TQMa8MPxL) running next-20260227.
+I could bisect it back to commit 9c03e30e3ade3 ("PCI: imx6: Skip link up=20
+workaround for newer platforms"). I always get the following errors:
 
-Applied, thanks!
+imx6q-pcie 33800000.pcie: Link failed to come up. LTSSM: CFG_LINKWD_START
+imx6q-pcie 33800000.pcie: probe with driver imx6q-pcie failed with error -1=
+10
 
-[1/3] dt-bindings: clock: imx6q[ul]-clock: add optional clock enet[1]_ref_pad
-      commit: 51ac0f4b6d5f4965153d8c39644ecfb228480396
+Connected is a Gen1 PCIe -> Ethernet adapter. Interestingly a Gen2 device is
+detected without issues.
+
+Reverting 3c96a61dd2e098dda8dcac3dce3d38a3c87afbfc and
+b9a8d28ebbf118bb3eac953f4a37abbd341257ab "fixes" my platform, both Gen 1 and
+Gen 2 devices are detect. Commit 3c96a61dd2e098dda8dcac3dce3d38a3c87afbfc i=
+s only
+required for conflict free revert.
+
+Here is a summary with outputs:
+Gen 1 device
+> 00:00.0 PCI bridge: Synopsys, Inc. DWC_usb3 / PCIe bridge (rev 01)
+> 01:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd.
+> RTL8111/8168/8211/8411 PCI Express Gigabit Ethernet Controller (rev 01)
+
+Gen 2 device
+> 00:00.0 PCI bridge: Synopsys, Inc. DWC_usb3 / PCIe bridge (rev 01)
+> 01:00.0 SATA controller: Marvell Technology Group Ltd. 88SE9128 PCIe SATA=
+ 6
+> Gb/s RAID controller (rev 20)
+
+output of "dmesg | grep imx6q-pcie". Common part for all tests:
+> imx6q-pcie 33800000.pcie: host bridge /soc@0/pcie@33800000 ranges:
+> imx6q-pcie 33800000.pcie:       IO 0x001ff80000..0x001ff8ffff ->
+> 0x0000000000
+> imx6q-pcie 33800000.pcie:      MEM 0x0018000000..0x001fefffff ->
+> 0x0018000000
+> imx6q-pcie 33800000.pcie: config reg[1] 0x1ff00000 =3D=3D cpu 0x1ff00000
+> imx6q-pcie 33800000.pcie: iATU: unroll T, 4 ob, 4 ib, align 64K, limit 16G
+
+next-20260227
+Gen 1
+> imx6q-pcie 33800000.pcie: Link failed to come up. LTSSM: CFG_LINKWD_START
+> imx6q-pcie 33800000.pcie: probe with driver imx6q-pcie failed with error =
+=2D110
+
+Gen 2
+> imx6q-pcie 33800000.pcie: PCIe Gen.2 x1 link up
+> imx6q-pcie 33800000.pcie: PCI host bridge to bus 0000:00
+
+next-20260227 + reverts
+Gen 1
+> imx6q-pcie 33800000.pcie: PCIe Gen.1 x1 link up
+> imx6q-pcie 33800000.pcie: PCIe Gen.1 x1 link up
+> imx6q-pcie 33800000.pcie: PCI host bridge to bus 0000:00
+
+Gen 2
+> imx6q-pcie 33800000.pcie: PCIe Gen.1 x1 link up
+> imx6q-pcie 33800000.pcie: PCIe Gen.2 x1 link up
+> imx6q-pcie 33800000.pcie: PCI host bridge to bus 0000:00
+
+What can we do here? I'm wondering why Gen 2 trains correctly, while Gen 1
+doesn't.
 
 Best regards,
--- 
-Abel Vesa <abel.vesa@oss.qualcomm.com>
+Alexander
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
+
 
