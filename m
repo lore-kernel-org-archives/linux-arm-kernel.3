@@ -4,165 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 617C7EC1444
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 13:28:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B9E8EC1448
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 13:35:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4iwPEMpRirm7pIit9/49c42AHreC0mLnTl1pBAVKMp8=; b=D8OYQTEIYQzQHjybwBlDKxu4ZU
-	7LD/CUTEUDeout6i1UkKQd4m8Ta7N1q0ulKjMdGGPaDk1NeopzH4utGfEKWZ0qDFzUaSh4+oD06Bs
-	cxHdY1WGrjXb0s/93YbVIoxDnxUwQY3gV/WsI+5yEIGHtM85K0x0xvAe2204ftPbkmRj5bR5jdFVQ
-	n2d9EnEV0p9j69ZODhtFMZ/Xy5/k0uSoW8+g7z3zpPJy89smAor3ZaMyVg6en2wJyUWjRxXZKDHBi
-	qRA1mo76IGFRwZ2eveUP+desvsgHPeizUa1THBWPzIzFMPtP07fRKtBbT9sGJkb5hSBzzcpzU4e/z
-	QyNjkyOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QGy/E4UBIic+cPz6GEWWBR4zmrIcm4Cm3TduTEYXOBk=; b=E9Z8qGS9k1LGaQtHoG5QEKKSmL
+	kh5cqBCJmVgAUwxw/EnJmU7iRre54RG36mOopy+sXKQko5UB9Ou4w/JpqaatKT2aahlg98zuPcjFK
+	jpbHpA1Y3bLbGvP986cKkj38FDFfb4tY+Nnx0MOrjnlHSkk9MmTl7If+Gpc5Vw8TD4ISb4pM1seWT
+	FfG0MEHml1cpYxfXMZFJgEoJct9iF3sMJoc4jkAl+mMiCfhYYfimf6f66X9Hm6JW9FAtGyko0gIih
+	85X9X67ImKSzi6wr1GvLdJK2+oB4XX37AQswM2cucGuLHzOj4KHqiOzBKc3/dIgT8hSJWr4oxdCM7
+	gMFBY2yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxPnt-0000000FE9l-3DGI;
-	Tue, 03 Mar 2026 13:28:49 +0000
-Received: from mail-northeuropeazon11012024.outbound.protection.outlook.com ([52.101.66.24] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1vxPu3-0000000FEa2-0MDE;
+	Tue, 03 Mar 2026 13:35:11 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxPnr-0000000FE9D-1eFk
+	id 1vxPu0-0000000FEYp-3XF6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 13:28:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EJZDsRV3hJks4kWkx/zaJXG7S/c4I5Enm1iXy8OGIs6vFTiDJq8kxGn1i33UFshT86vvO4SHd5S0nlJiLTo0krYtnETHm51KOHdlFWguVAphJ8JpWXg6/Au/oGn8ywcof7ISUFLXxTaUedXrhwDvWB+j0akB5xgR3ohQYkPIHNgrE5zqN5b9tDn3+2LqeZXd7G7jGK2PVoNH81TraRDZ7svvRgbOV/m2fQmwKN6BxHlcWWLYZ6GmqYbimZhynQ9qLPKUmouyFr4Lp3rEJpyvooGurJyPdAQGMem0RFGcW2/VeBOOAHqEicbZ4r9bnpnWvV2BCzUX/uLeGKH/BCIiRg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4iwPEMpRirm7pIit9/49c42AHreC0mLnTl1pBAVKMp8=;
- b=aVTXmNSrU7T/g7gJOjky3DWAdArYCiI+RBAJkNzJgJ6ROCh2IaiGAuXleUjGW8DaqDsUxfE+72uvG1wei8PPO0kiGVkTZz5dn7cvixNJq6GvfeQdCjKr5o0LiB2sui1HH+TYLQ3P7LdGCp1ZoyNBb7r0tkBLdaII2r+DcNwWvPHDMtcmBFOM6iPSHKFOjmE52D7ZwXQy9TD773TtfHVrrb9RPRsWVKpaqCm4gSHe825CsNC67sYW3Fd3lYyOP83v5X1SNDGAU4j/h/Kt8THSo1tBzwpyaOTHKVN1kgzGmsNrNIQ3tlRbtWAzTVrGITrQdCwlR/gwxANwpNnpxqXAqg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4iwPEMpRirm7pIit9/49c42AHreC0mLnTl1pBAVKMp8=;
- b=dfhFEIOXtRwT20QDS8E0to6kL06FurhF7VJuQC7eVG88EJvlIwreAzEKn6Na6o2exryo4vCBjMV2cYA/JVK/Fwc7s9vOkG43QT7s4ag09XK586iQPUX7LS2Fn6aAdCDqUEHW18AM2E5ULn6n+T0XZ9Jn96YUtvfQ+xJEJbtCFXPR2m6WtBxE5qdNcpG9yLY2XH2DeDCD86FUvnm8pX7n7oDpSOCFGqjYumF25oaJkq60LCYrFW6EpejAPTZZ1vWg13n2slbLDNGrJFxIguF1kyi68iRUWVX8nsySWEc9YmUvFKawO3nwKToC535MdtTz/88EBTazXFqEFH7QyEh69g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV4PR04MB11308.eurprd04.prod.outlook.com
- (2603:10a6:150:297::19) by DU4PR04MB11771.eurprd04.prod.outlook.com
- (2603:10a6:10:624::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Tue, 3 Mar
- 2026 13:28:39 +0000
-Received: from GV4PR04MB11308.eurprd04.prod.outlook.com
- ([fe80::b043:b2d1:9a94:1891]) by GV4PR04MB11308.eurprd04.prod.outlook.com
- ([fe80::b043:b2d1:9a94:1891%5]) with mapi id 15.20.9654.013; Tue, 3 Mar 2026
- 13:28:39 +0000
-Message-ID: <fca0541b-0b05-4231-98da-06027aefd9c0@oss.nxp.com>
-Date: Tue, 3 Mar 2026 15:28:34 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 01/10] dt-bindings: mfd: add support for the NXP SIUL2
- module
-Content-Language: en-GB
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>,
- Arnd Bergmann <arnd@arndb.de>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>,
- Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
- Larisa Grigore <larisa.grigore@nxp.com>, Lee Jones <lee@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>,
- Jacky Bai <ping.bai@nxp.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Alberto Ruiz <aruizrui@redhat.com>, Christophe Lizzi <clizzi@redhat.com>,
- devicetree@vger.kernel.org, Enric Balletbo <eballetb@redhat.com>,
- Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- "Vincent Guittot devicetree @ vger . kernel . org"
- <vincent.guittot@linaro.org>, Rob Herring <robh@kernel.org>
-References: <20260120115923.3463866-1-khristineandreea.barbulescu@oss.nxp.com>
- <20260120115923.3463866-2-khristineandreea.barbulescu@oss.nxp.com>
- <20260121021913.GA1704619-robh@kernel.org>
- <e956750b-0333-4465-b37e-5f460b5e092f@oss.nxp.com>
- <edc3a63a-8117-476f-9582-97ae31fefa96@kernel.org>
- <7d200097-51bc-4404-be8b-f536d0ecfc25@oss.nxp.com>
- <21531cdd-5ab9-493e-a722-61b98117e2c4@kernel.org>
- <22a5a072-847e-4cfd-8abd-e37163f73265@oss.nxp.com>
- <fe755e85-1558-4272-bdd4-af7a2038ab1f@kernel.org>
- <ba6140bf-237e-4099-af0c-ee404c1719cd@oss.nxp.com>
-From: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
-In-Reply-To: <ba6140bf-237e-4099-af0c-ee404c1719cd@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AS4P190CA0059.EURP190.PROD.OUTLOOK.COM
- (2603:10a6:20b:656::26) To GV4PR04MB11308.eurprd04.prod.outlook.com
- (2603:10a6:150:297::19)
+	Tue, 03 Mar 2026 13:35:10 +0000
+Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9DC4FDA8;
+	Tue,  3 Mar 2026 14:34:00 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1772544841;
+	bh=qiixVTPOLQXDJhseAUgvp1H7XIbHHcDxwhmUtbPRUKk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=UrQ6q8WMWgSWNPxeq4AXO4RBvNS+ouRM5hBf+SUNQpkdlFU9eqVmzh2O/9OhOaq1N
+	 iPwSAsl7/d+RE93cB1N0kAiQzLzzE49M4IWhQ0KgDve/M/tEqjNy3ZK2HF7Hq2R4Ln
+	 JxQVKtmybtcQmG+lJVAgWjJeg30OLtsepgO8mFDY=
+Message-ID: <572259d4-661a-4813-b367-44d24f7294aa@ideasonboard.com>
+Date: Tue, 3 Mar 2026 15:34:59 +0200
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV4PR04MB11308:EE_|DU4PR04MB11771:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5a5684db-14a7-4732-0f79-08de7928c7ed
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|19092799006;
-X-Microsoft-Antispam-Message-Info: mt9H15WXygaQ2YVRpx5ch+EnTeBzTAZcMdS2rJYN3YjwL7vpemuekkq1+bkc+3kekWRu8kbUPD9n7ze+btv6zbeXZOYmpO4e+I/1alrIvXQu27PhL5hidp9Z80244Oo1fsui9WlHgWMks913tYoasjpbVQMpdxst9EO1yAtydGi9XX2sOUiPii7NzmKmgxJD4D8UkqdZfHDvLl50g21ZgyjNdhUD29t+8e9jhUQYX8Wx1ggMwPX29Js30uXgi+8HEFMWXmLEzS7s7G9FWMRBNLQEN2pkV+CtJXy1dJm+cjPko8npIYB63+dzfwTDVnt9SPGw0PGWBe8hHbvzS08BBleHQGOK8Y950kshQOwhEs0ywxrHcAr2OGWQ97PAvA3OWsUuFO3LlSa1l4BQQd8mivEjnsNKxchh2BkPH1x/HevZ7AuAVg2kI/W5TmKiNO3oFm0Pi+UhARecEHlXLMdav8ziIoCF/EgjhzFRFFgbP/HEDh06/Ge65cnbQ9dxr0ymrNyCeparImU3pLqkPRlXMdVw1LLxNEaqYuKANYovnndcRPWwhDfM3lM0eDVrG7CensLLVj/St1AqTj7a4hhYwYKZJUu1TmjzGMgZ93c2a8o2Yw3vv1WHyAR5VzaMLqLqNpBF/B/SWEBCnwOGHKXvBCGTLrkrsfqtk2hjQMRSyxteheCmr3R2UMp2jvk6g8kx
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV4PR04MB11308.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(19092799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TXl5dUhoVEhlWmVmMEdIUjMydTVzRWxQcTdPcjREMHpxR0R0aFBERnEvR0d1?=
- =?utf-8?B?WkpldGNBTEwxQVBmTHVjSE9EbGNsWWRLNGRMaW1kZXhUblFHZEViMjVOOHRT?=
- =?utf-8?B?SmRjS0Z3dWMvcVhpa1pSNFA5TzArWFo5Z200WUl0eGJaeTZaa1A0TEwvNXRm?=
- =?utf-8?B?eUphbjlGTndRK1NYYkFhcTJPT1cyNWhHREswOCsrdURDRXN0UlRWdWhnTEsx?=
- =?utf-8?B?WlJJdWQ5TWhXeXBCRWxXMExteHR3UVhqNU1SUk9sUjMrQUZRVDMrVkVvc0Zo?=
- =?utf-8?B?eXpHZUVpREVnY2JtUWJRRjhMMFpaRUhyL2NFT3VWM0dyN3JIMCtwSHdTaUVs?=
- =?utf-8?B?YjFwSWpJak5pN0tQbjU4aC9LdWprbkc1NW9RZkVrUHR2UFh6U0N2RGZ1S3Fn?=
- =?utf-8?B?S0xGY0k3SjhzZ2ZrbTBUZHhVRjBNTWxLS3NnSTAzeUFIaHR2SitVUnRwdGVr?=
- =?utf-8?B?UGx0T3c2cURMdUt3QmNKNFhWQ3lRR3BhRWthM1RZekt5R1VtdVQwaGd6Zjhk?=
- =?utf-8?B?c2h1U1dkQTdnVXZneFlUbXRVUWQzUXJuMXJUT2tuU2NEbkMyeEdWY3lhSnYv?=
- =?utf-8?B?L1BDQ0lhdVNMVGJ0eS9janhSVmZTN0ZVTlNodkpMckR2MU81QTdqc1RxV2Vl?=
- =?utf-8?B?c29HdDc2dDJFNWJEN2Y5bXIvS3FLcXpoYnNva1lSZFBiRHNXRXNLMVZBQUJH?=
- =?utf-8?B?eHh5cjkvR0ZHWVpwNWYwSHZ0YUI0cmwrdDArdFNxNWN3Tk4vN0dwQ1lLOHgz?=
- =?utf-8?B?dEtWWlpoWXQvdHRWbmNjMUYrOVByZGZUZ0xxV2wwODd3cjYrYW1Qc1VlVWdR?=
- =?utf-8?B?RWhMTVZtSkRrdFA5Ym9UUmZYc0l3YStRS3RTM0VjR0lnRDd0RjJOaDRMRnQ1?=
- =?utf-8?B?eEdOZTZpYVpVUFgxMmNnMHBYTThqZCtWWlhvaDZvbUR4NXJadFZNRE4rNDFQ?=
- =?utf-8?B?L0dPb0wzekxxeldOQ1QwenF3cEhob2lBbk1hRmF1UGJsdGduN29iNXBSR2FI?=
- =?utf-8?B?OW1yUzlLK0lub09jRmZnREhDeEM1Yk9lRVQxTzA1d1hBd1VTWjFBZlhTem5i?=
- =?utf-8?B?N1dhaC9oeWVpUmlqYUMzTVYxUDVVZTJmd2d5Nm1lYkZZTXVqSGRodzMrQ3hp?=
- =?utf-8?B?aFk4UUI4OEtibWViYkxVRHpoUkdOYTU4NEltTG1ybjJLWUphQkJjcUFWUzFs?=
- =?utf-8?B?bm9pWXhGVmpuSFNxZWVvZmpPMFZuSzVmdWpveGZLQ01vNGp1Q1BNSjFZcGda?=
- =?utf-8?B?WUp4TUp1Ry9LZE85WVYxa0pNdnZGT1pPejFXaEJDRU53YmdMcnNpeWRaZHJG?=
- =?utf-8?B?ZGFsUDQ2eEg1bXl3VVJaOXd4d3dlSGJIZ1krNmdiMmIrczljdXZoZlN5YlNL?=
- =?utf-8?B?MUxycm5SKzUxd3lrVGNYUktkZVk0dFZRSFYzSjJpNk9EaXliYUhUK1F5NHpH?=
- =?utf-8?B?Nnl2ZU9UeDRQZ3FTMlp3bUhmazBIZE1Pa0RmU1RWRzAvaUJoWE1EWktTSDFq?=
- =?utf-8?B?VS90NDN2a0E3bkpoc0ZocjE0Y2lyc25nZnMyN2pjS1JFTXlyVXZaQ29xenJ3?=
- =?utf-8?B?cW5NQXU3OGdxN3lLcXR4Zk5hVklLUlVGTXRBR0pNZ2gzQnByMXZURm1Tb3cr?=
- =?utf-8?B?WjNwbldLV2tEZFBWRXhLemlZL2I5U0JPSzA2Q3czMkQvcEhKMklabFNIQnBE?=
- =?utf-8?B?dThHSkE4L01RT0NzNUw4VGhIVCtpYTE4eWhoeFBlVDA5UThHc25DcEtDbm1C?=
- =?utf-8?B?ZitYeGZiVzQ0NDlxYWl5a2UxOFI0cWp5a3M2dTJPMFdLUWg0NnNpVVBDYUxw?=
- =?utf-8?B?dVlUUDl6Zm9UZ09wR1BTeUMvYys5bllBc0lLUGI2YWtWb2NqMkgzcDNSSk1Y?=
- =?utf-8?B?V1dTTXhVSVRXeXlvRlc2a0RpWHdFNjBFSTdzR1c4SkhaeTBCVkhhV1ZtZDRs?=
- =?utf-8?B?OEdaalVTS3IxOXhBcFc3Z1g3dVRSY3pYTG9zSzdGcmRQdkxwLys5NTdTMi91?=
- =?utf-8?B?eW1tTnI5MXpKRFNuVlR2TVNPU3NpR0EzOVkySEdHZ3czTS8wNTBzT092eHZK?=
- =?utf-8?B?dmROb3FDUmxic0ZBN0pWOGcvT2NBaVVaQ0crQjlDaXVpVEwwYjhwWEdzemhQ?=
- =?utf-8?B?b3IwRW83R1NITWNNdGlUMVNoeTg4SHVDSUk4V2szVGk4ZUJ1bkxOb0lnbGx2?=
- =?utf-8?B?eGVrb2dKMmpMNXlYbUF0aGM2MUF4RytlNjBXbS8xVTFoWFFsU0V1UG9CSThF?=
- =?utf-8?B?d2RMMUhXS3Y3cmk4YWd2dGZ6S3hlVzBlVnFBNDVqbUtVNlEybkF3ajJZMzJx?=
- =?utf-8?B?SDJpRmgzcTU2NUVmZ0djc09zQ2pVU0FneWpmLzFTa001aWV1dFcwZTNkVnFB?=
- =?utf-8?Q?avszBtVmIh3LOOx4=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5a5684db-14a7-4732-0f79-08de7928c7ed
-X-MS-Exchange-CrossTenant-AuthSource: GV4PR04MB11308.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2026 13:28:39.5360
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: obgc1PecZMB7je7UeSj++/s+JqQrNCOAEWD3dF47MDZ59H8wGj1M47mexwYwky6/E/n8KhpYKHIQ5Iu6vILMXE28j6CRGBxL/yOiBvof3FY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11771
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 00/11] drm: Add new pixel formats for Xilinx Zynqmp
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Pekka Paalanen <ppaalanen@gmail.com>,
+ Pekka Paalanen <pekka.paalanen@collabora.com>,
+ Dmitry Baryshkov <lumag@kernel.org>,
+ Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
+ Vishal Sagar <vishal.sagar@amd.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Michal Simek <michal.simek@amd.com>
+References: <20260128-xilinx-formats-v8-0-9ea8adb70269@ideasonboard.com>
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Content-Language: en-US
+Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <20260128-xilinx-formats-v8-0-9ea8adb70269@ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_052847_460848_B5679BA9 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20260303_053509_047968_1CC0C61F 
+X-CRM114-Status: GOOD (  44.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,57 +122,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof & Arnd,
+Hi Maarten, Maxime, Thomas,
 
-On 2/25/2026 11:40 AM, Ghennadi Procopciuc wrote:
+We've got multiple R-b's for all of the patches. Can this be merged? Or
+give an ack for the fourcc ones and I can push via drm-misc.
 
-[ ...]
+ Tomi
 
-> Hi Krzysztof & Arnd,
+On 28/01/2026 19:25, Tomi Valkeinen wrote:
+> Add new DRM pixel formats and add support for those in the Xilinx zynqmp
+> display driver.
 > 
-> I still believe that nvmem is a suitable and accurate mechanism for
-> describing SoC‑specific identification information, as originally
-> proposed in [0], assuming the necessary adjustments are made.
+> All other formats except XVUY2101010 are already supported in upstream
+> gstreamer, but gstreamer's kmssink does not have the support yet, as it
+> obviously cannot support the formats without kernel having the formats.
 > 
-> More specifically, instead of modeling software-defined cells, the nvmem
-> layout would describe the actual hardware registers backing this
-> information. One advantage of this approach is that consumer nodes (for
-> example PCIe, Ethernet, or other IPs that need SoC identification data)
-> can reference these registers using the standard nvmem-cells /
-> nvmem-cell-names mechanism, without introducing custom, per-subsystem
-> bindings.
+> Xilinx has support for these formats in their BSP kernel, and Xilinx has
+> a branch here, adding the support to gstreamer kmssink:
 > 
-> Looking at the nvmem binding documentation [1], it appears that
-> individual fields of identification registers (similar to MIDR) could,
-> in principle, be exposed using a bits property, for example:
+> https://github.com/Xilinx/gst-plugins-bad.git xlnx-rebase-v1.18.5
 > 
-> family_letter@4009c004 {
->   reg = <0x4009c004 0x4>;
->   bits = <31 26>;
-> };
+> New formats added:
 > 
-> That said, an alternative (and arguably more common) approach is to
-> expose entire registers as fixed-layout cells, and let consumers decode
-> bitfields in software. Below is an example of how this would look when
-> embedded in the existing SIUL2 node, without relying on per-field bits
-> properties:
+> DRM_FORMAT_Y8
+> - 8-bit Y-only
+> - fourcc: "GREY"
+> - gstreamer: GRAY8
 > 
+> DRM_FORMAT_Y10_P32
+> - 10-bit Y-only, three pixels packed into 32-bits
+> - fourcc: "YPA4"
+> - gstreamer: GRAY10_LE32
+> 
+> DRM_FORMAT_XV15
+> - Like NV12, but with 10-bit components
+> - fourcc: "XV15"
+> - gstreamer: NV12_10LE32
+> 
+> DRM_FORMAT_XV20
+> - Like NV16, but with 10-bit components
+> - fourcc: "XV20"
+> - gstreamer: NV16_10LE32
+> 
+> DRM_FORMAT_X403
+> - 10-bit planar 4:4:4, with three samples packed into 32-bits
+> - fourcc: "X403"
+> - gstreamer: Y444_10LE32
+> 
+> XVUY2101010
+> - 10-bit 4:4:4, one pixel in 32 bits
+> - fourcc: "XY30"
+> 
+> Some notes:
+> 
+> I know the 8-bit greyscale format has been discussed before, and the
+> guidance was to use DRM_FORMAT_R8. While I'm not totally against that, I
+> would argue that adding DRM_FORMAT_Y8 makes sense, as:
+> 
+> 1) We can mark it as 'is_yuv' in the drm_format_info, and this can help
+>    the drivers handle e.g. full/limited range. Probably some hardware
+>    handles grayscale as a value used for all RGB components, in which case
+>    R8 makes sense, but when the hardware handles the Y-only pixels as YCbCr,
+>    where Cb and Cr are "neutral", it makes more sense to consider the
+>    format as an YUV format rather than RGB.
+> 
+> 2) We can have the same fourcc as in v4l2. While not strictly necessary,
+>    it's a constant source of confusion when the fourccs differ.
+> 
+> 3) It (possibly) makes more sense for the user to use Y8/GREY format
+>    instead of R8, as, in my experience, the documentation usually refers
+>    to gray(scale) format or Y-only format.
+> 
+> As we add new Y-only formats, it makes sense to have similar terms, so
+> we need to adjust the Y10_P32 format name accordingly.
+> 
+> I have made some adjustments to the formats compared to the Xilinx's
+> branch. E.g. The DRM_FORMAT_Y10_P32 format in Xilinx's kmssink uses
+> fourcc "Y10 ", and DRM_FORMAT_Y10. I didn't like those, as the format is
+> a packed format, three 10-bit pixels in a 32-bit container, and I think
+> Y10 means a 10-bit pixel in a 16-bit container.
+> 
+> Generally speaking, if someone has good ideas for the format define
+> names or fourccs, speak up, as it's not easy to invent good names =).
+> That said, keeping them the same as in the Xilinx trees will, of course,
+> be slightly easier for the users of Xilinx platforms.
+> 
+> I made WIP additions to modetest to support most of these formats,
+> partially based on Xilinx's code:
+> 
+> https://github.com/tomba/libdrm.git xilinx
+> 
+> A few thoughts about that:
+> 
+> modetest uses bo_create_dumb(), and as highlighted in recent discussions
+> in the kernel list [1], dumb buffers are only for RGB formats. They may
+> work for non-RGB formats, but that's platform specific. None of the
+> formats I add here are RGB formats. Do we want to go this way with
+> modetest?
+> 
+> I also feel that the current structure of modetest is not well suited to
+> more complicated formats. Both the buffer allocation is a bit more
+> difficult (see "Add virtual_width and pixels_per_container"), and the
+> drawing is complicated (see, e.g., "Add support for DRM_FORMAT_XV15 &
+> DRM_FORMAT_XV20").
+> 
+> I have recently added support for these Xilinx formats to both kms++ [2] and
+> pykms/pixutils [3][4] (WIP), and it's not been easy... But I have to say I
+> think I like the template based version in kms++. That won't work in
+> modetest, of course, but a non-templated version might be implementable,
+> but probably much slower.
+> 
+> In any case, I slighly feel it's not worth merging the modetest patches
+> I have for these formats: they complicate the code quite a bit, break
+> the RGB-only rule, and I'm not sure if there really are (m)any users. If
+> we want to add support to modetest, I think a bigger rewrite of the test
+> pattern code might be in order.
+> 
+> [1] https://lore.kernel.org/all/20250109150310.219442-26-tzimmermann%40suse.de/
+> [2] git@github.com:tomba/kmsxx.git xilinx
+> [3] git@github.com:tomba/pykms.git xilinx
+> [4] git@github.com:tomba/pixutils.git xilinx
+> 
+> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+> ---
+> Changes in v8:
+> - Expand the "drm/fourcc: Add DRM_FORMAT_Y8" commit description to
+>   explain the rationale
+> - Add comment to "drm: xlnx: zynqmp: Add support for Y8 and Y10_P32"
+>   explainig the Y-only matrix
+> - Remove extra blank line
+> - Link to v7: https://lore.kernel.org/r/20251201-xilinx-formats-v7-0-1e1558adfefc@ideasonboard.com
+> 
+> Changes in v7:
+> - Added Reviewed-bys
+> - Rebased on v6.18
+> - Link to v6: https://lore.kernel.org/r/20251001-xilinx-formats-v6-0-014b076b542a@ideasonboard.com
+> 
+> Changes in v6:
+> - Added tags for reviews
+> - Rebased on v6.17
+> - Link to v5: https://lore.kernel.org/r/20250425-xilinx-formats-v5-0-c74263231630@ideasonboard.com
+> 
+> Changes in v5:
+> - Add comment about Y-only formats, clarifying how the display pipeline
+>   handles them (they're handled as YCbCr, with Cb and Cr as "neutral")
+> - Clarify X403 format in the patch description
+> - Set unused Y-only CSC offsets to 0 (instead of 0x1800).
+> - Add R-bs
+> - Link to v4: https://lore.kernel.org/r/20250326-xilinx-formats-v4-0-322a300c6d72@ideasonboard.com
+> 
+> Changes in v4:
+> - Reformat the drm_format_info entries a bit
+> - Calculate block size only once in drm_format_info_bpp()
+> - Declare local variables in separate lines
+> - Add review tags
+> - Fix commit message referring to Y10_LE32 (should be Y10_P32)
+> - Link to v3: https://lore.kernel.org/r/20250212-xilinx-formats-v3-0-90d0fe106995@ideasonboard.com
+> 
+> Changes in v3:
+> - Drop "drm: xlnx: zynqmp: Fix max dma segment size". It is already
+>   pushed.
+> - Add XVUY2101010 format.
+> - Rename DRM_FORMAT_Y10_LE32 to DRM_FORMAT_Y10_P32.
+> - Link to v2: https://lore.kernel.org/r/20250115-xilinx-formats-v2-0-160327ca652a@ideasonboard.com
+> 
+> Changes in v2:
+> - I noticed V4L2 already has fourcc Y10P, referring to MIPI-style packed
+>   Y10 format. So I changed Y10_LE32 fourcc to YPA4. If logic has any
+>   relevance here, P means packed, A means 10, 4 means "in 4 bytes".
+> - Added tags to "Fix max dma segment size" patch
+> - Updated description for "Add warning for bad bpp"
+> - Link to v1: https://lore.kernel.org/r/20241204-xilinx-formats-v1-0-0bf2c5147db1@ideasonboard.com
+> 
+> ---
+> Tomi Valkeinen (11):
+>       drm/fourcc: Add warning for bad bpp
+>       drm/fourcc: Add DRM_FORMAT_XV15/XV20
+>       drm/fourcc: Add DRM_FORMAT_Y8
+>       drm/fourcc: Add DRM_FORMAT_Y10_P32
+>       drm/fourcc: Add DRM_FORMAT_X403
+>       drm/fourcc: Add DRM_FORMAT_XVUY2101010
+>       drm: xlnx: zynqmp: Use drm helpers when calculating buffer sizes
+>       drm: xlnx: zynqmp: Add support for XV15 & XV20
+>       drm: xlnx: zynqmp: Add support for Y8 and Y10_P32
+>       drm: xlnx: zynqmp: Add support for X403
+>       drm: xlnx: zynqmp: Add support for XVUY2101010
+> 
+>  drivers/gpu/drm/drm_fourcc.c       | 28 +++++++++++++++++--
+>  drivers/gpu/drm/xlnx/zynqmp_disp.c | 56 +++++++++++++++++++++++++++++++++++---
+>  include/uapi/drm/drm_fourcc.h      | 28 +++++++++++++++++++
+>  3 files changed, 105 insertions(+), 7 deletions(-)
+> ---
+> base-commit: 7d0a66e4bb9081d75c82ec4957c50034cb0ea449
+> change-id: 20241120-xilinx-formats-f71901621833
+> 
+> Best regards,
 
-[...]
-
-> [0]
-> https://lore.kernel.org/all/20250710142038.1986052-2-andrei.stefanescu@oss.nxp.com/
-> [1]
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/nvmem/nvmem.yaml#n82
-> 
-
-Are you comfortable with this proposal?
-
-I'm asking because it was initially considered a viable option, but the
-discussion later shifted to the fact that the nvmem cells were
-fabricated and did not accurately describe the underlying hardware.
-
--- 
-Regards,
-Ghennadi
 
