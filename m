@@ -4,152 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E525DEC047D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 09:28:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90E9CEC047E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 09:29:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
 	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p2W3F7AANwfXVDP1pQXJZrXkVatr0nzlXFJJ8dLa0uU=; b=OgknPmF56LNcJWN/HAbZVRXvL3
-	qk8L8RpPQ6UZndq0SSsBLxHnZkMcvOvyhGHqixBi/haU8znWGMkv3gXqjpnzSvfiLwL21D5obSofw
-	zDglFg4BEQ2dJF20OH+4snpAeoAbSBrM1dRPRfuE1YjbJ2cIP1sCQziDL5/d8Ui8avp75TZ/IdAaJ
-	/TnNH8Fd1LX5XzjeH4pGq+p+2eP7Ehf0pb3U73Dvw0PqiU5ANKXuz+kjmOmSn3I4YSY4tPUwTdy79
-	4M8QFIGpboahxjOcIJ6F+rEtLZPQHN88gBZFExa4nE2vV/e71Yj4aa2lImJWSOy5IjjkJahgJ4TF+
-	z/l6FPEA==;
+	bh=ltDRCL/5gTj+rBckPqHy3rwimMZ56bFtCO66iYma3Ww=; b=Sro7AACx/WF76tN8A3AzBf94Li
+	0/2arbvOQucUf26RtFgjDqsmULTDA6RfRLHKMJgXlTEH/90uDwqswq184FMMDrqZjc0yIapp6I4jO
+	GtwYrZfBBsGhhCd9l6oYppPJIeFHVgeGmxdx1ewCXnffqp5envUMef6SHypfNmoEErXyaPN9ATk2w
+	W3HEIvNrCxq8ar+K55TCXzPuXDtraBvhimfy7Q7+KEOzgQ7sDZDjgbcDvlj0K7ezKvaxAAVPbpXT5
+	WU7S+dNy/jVZ9wxhof5j2njFAOdI6p8pA1AA7dLTGmjcsa/P5tqguVKiqHr871ndmvWNZYoetgv1s
+	MZik4nPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxM2i-0000000EsNO-2t1a;
-	Tue, 03 Mar 2026 09:27:56 +0000
-Received: from mail-westeuropeazon11013059.outbound.protection.outlook.com ([52.101.72.59] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1vxM4F-0000000EsWj-3ry8;
+	Tue, 03 Mar 2026 09:29:27 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxM2g-0000000EsMl-0J6H
+	id 1vxM49-0000000EsVw-40K2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 09:27:51 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=RKkHh1zn/wWQzvY6S8Tl4+mu8+q4oyVSsHPtRexIjEJvnNi5oxMKESPVFrflWtc4So53BGIQLddoe1u23Pia5hDwYBjFxNcxR2dmR3ac7N97Krten2M68r9FwVaDrXrZJyiNmDVaoWUZNxC824vzhKEDWJ67MFU7jwMMjlxHhtSrtqF1JgXClQFQz7AIYXLZwG3zLfNPqdXoPO9b/PxAe7N9sCQRC7Ns0gKEJWo0/KUS9j8wj5DKd75ejcXs4Bbl2TmQF3vNlrr7OyeDehRYi1Tj/Ktnrtzc6jBzWMONBHF59AGx+ql5iKQsMKbhm9JQtTSaXVJfgQqp5GJSYdm+Sw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=p2W3F7AANwfXVDP1pQXJZrXkVatr0nzlXFJJ8dLa0uU=;
- b=E2MQ3/WLz3IQGnKlRpicjEwz095ir+DGsm05kgBDmjqAyBgyKM7DLYP+k73Zj1AmBRLBXgsTRIBpQkyIij5q4LXFqBiG2ruFFhAI213hWxcNo+pMF0yemy8JF4JeCOPmiunkbVURcwhPtMiJASQ2PYu8obuGiVda0V6knqLLO/xt+bS6K7T+cTwEaFBLzo2nxiv0L+aIgmNiOSNNEtd9WEbKruCP3k2Hjswg30QiOM9qgIoC0rTSiPutdSyuQRzo0lDQMez6R+8eHUgLyM9sf5CEsDFCbuL9QbqZ3zvyonWg1jiKN1p02+anWamFgdTlu+oFIjl2GUwV74tW0B24vA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=p2W3F7AANwfXVDP1pQXJZrXkVatr0nzlXFJJ8dLa0uU=;
- b=sCJXW1tRL4FfQD0r6BNuIZL+hZo50pkLKXXSNNxRCV23/13/RoW/6GeqpypmWCjv4Ips0hGJQ4TT3wIEKuffhnUaD/msYsjb1Wj9VSHyatOVthqH5p2MHCj4CAtW6yjmYFkE6D2yMEk+KwvzsjWyb2RkRD0lvvjiyBT3hxF7UMg=
-Received: from DUZPR01CA0162.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4bd::10) by PAWPR08MB9805.eurprd08.prod.outlook.com
- (2603:10a6:102:2e6::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.18; Tue, 3 Mar
- 2026 09:27:39 +0000
-Received: from DB1PEPF000509FB.eurprd03.prod.outlook.com
- (2603:10a6:10:4bd:cafe::12) by DUZPR01CA0162.outlook.office365.com
- (2603:10a6:10:4bd::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9654.22 via Frontend Transport; Tue,
- 3 Mar 2026 09:27:39 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB1PEPF000509FB.mail.protection.outlook.com (10.167.242.37) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.12
- via Frontend Transport; Tue, 3 Mar 2026 09:27:39 +0000
+	Tue, 03 Mar 2026 09:29:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1772530162; x=1804066162;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=wj79aqywq18NKndx/+iSkSZtSRlVGchwZUSkE/Ipz30=;
+  b=XChLfG5RVQCaetuZuwxCOUUk53an5t/KsNUAAU9nrDu48+2mAR8FRQgP
+   ebRbvseuUutWXCs7go33ZmsTtzMwtydDcv9gXxm69mR+k+dalGVoLYqza
+   cAstUW5RzvgodQxg8kmFBojsZjAzqQf1ig4IEHm8WoL+G0mJxtBR89Kld
+   eqh4ZgKU3ui55zGDeWezlWq+6iGRuCXkiUirvBZbwR9oqK+7UA38hU8+U
+   Npnu+S+Ft+0l6c90XPg11fU8a8o7j7dczoB2Hf3N/vbhuw5RLQjQ5K7Qi
+   SMQtaGgDGVV3+bwFE/JPfZnPVqjjnGOKpwkwrIB+nxJ4GnW7le5ddve2j
+   w==;
+X-CSE-ConnectionGUID: rA5mG2dCS5CJlB/ETnoROg==
+X-CSE-MsgGUID: 9wmQ6LzTQKeJoXczIz/TNQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11717"; a="84195690"
+X-IronPort-AV: E=Sophos;i="6.21,321,1763452800"; 
+   d="scan'208";a="84195690"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Mar 2026 01:29:17 -0800
+X-CSE-ConnectionGUID: OxRy1q11Tyev89AxQTm+dA==
+X-CSE-MsgGUID: 3Xr6ZBPdS4KOFfgMnq1E1g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,321,1763452800"; 
+   d="scan'208";a="248432028"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by orviesa002.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Mar 2026 01:29:17 -0800
+Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Tue, 3 Mar 2026 01:29:16 -0800
+Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37 via Frontend Transport; Tue, 3 Mar 2026 01:29:16 -0800
+Received: from PH7PR06CU001.outbound.protection.outlook.com (52.101.201.35) by
+ edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Tue, 3 Mar 2026 01:29:16 -0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HKJt69QIBgLhV+GmZCNxwdfC/SM47fpsWBz/9S93albAgfTzT3/tEWCRAsV1fPzJrpewen1wL7i20r5Xu3UyNy1t4O3mT/ELhmdtGr31hxw8pDpxxNfNX5hvi/2huR9YeLnqVX9X4ZsvYU3tqRezHtamYsl5kek2UEgdGyX5Np8my/G1TgkhJ1KFOvS2doMTNeNlBfvaS0tvg5fvjJI45UnyaF3NCjFPFU+TdCodOdrzDU5GMfPu3Yzt+hkChAVTyNMdh/J/kZmB81UrX5Bv+K54fyN8eSP+tAqrFCzeiwmfP0AXmpp3h1vdP15UrtgkmFuryIa08K80EO/JpyfpLg==
+ b=tgwdTixQoKMP0BbT3AVwe7MJFrp+1h4dedQ4J53A3aFMA09ZwuHTJmwqoh+z2SdQxL3TeJAZgJ7YyViO2HYbkcOfBf7PCeHZq++8uVBAglHk72Ly5R3b6P/l58Rjp7Ag7kplRJMgUm5qgD0icORO72SYQVdXb/uNKJB7hn7NflO431mytoaKK/JewLC8kkETyxaRr8eetVYuQeVsPQTPeNBEkqO704kCn42RBb3KfCqcZqbSsbbk3gyTIwwaGtri2sJpVhCCHKyLvMI9V1sQSx5rjoQRWnDc7fG2e2M40I8fX0IEtngV58AwqFT/fOD8JTSoaFMXLmCf+I2mBbfNzA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=p2W3F7AANwfXVDP1pQXJZrXkVatr0nzlXFJJ8dLa0uU=;
- b=rNV78euD9JpoSntL2kRnq4KAAeaTeqxc8RLRaiT4HHZkv4vAHGbEBO0r7CfRfhaAQIziBJnSKumqlaLFM1lyMI4+xrhT5EYfL0raJvZCB+/lNMMR5HCD68TBcx9cfDh/df2DeyjBZep50bzGBqqtepWGv6h6ud66r0/Az93cpULaXeRdqNZqHm7RtkMvnSkFNe2cm/PUommAoYczS51VH3DuhxvGrth7gdZHdVajN2I3/lcsVUnZEop2G6YP3TQIifflaXlntzwtlxJEDKzMxwNwlgI6OFAd/4mabQWc/fXFog8vBaDchdUyH2cgWPXfW6dqSrFpOpl9woxtyFpTKQ==
+ bh=ltDRCL/5gTj+rBckPqHy3rwimMZ56bFtCO66iYma3Ww=;
+ b=tvAERKNMRZHe6hZt8C/xFAcTC+0CWQIIX1cLJowk0lmdkEwb7RnQZ7bWZ4KRWTOjTnBN1H7cvxxEdTT+tafCUC3GTbj1KewtWnC3DYI4mGCnTA+eOkQ6fWUeprCkTJuKrxBdqWfCoSE2iN6I0gFwBYvJmwkW9UpYZL6tAr+VOlU/pqE/WaN6uaYiSxqY1SetROZlcMinUkZc+N/aBlcTz9ofIFq1gCEiRtcsObLiOk8Qn/4uv6MAc5Em/wT50cza5B75WW2W1ih6ROZGC4h0dEvGWZXhaU2KeGzZ8BI68vR++fMljIdoXo07kzh1AjhiqVgKpIcMkIOuXLkGAz1AmA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=p2W3F7AANwfXVDP1pQXJZrXkVatr0nzlXFJJ8dLa0uU=;
- b=sCJXW1tRL4FfQD0r6BNuIZL+hZo50pkLKXXSNNxRCV23/13/RoW/6GeqpypmWCjv4Ips0hGJQ4TT3wIEKuffhnUaD/msYsjb1Wj9VSHyatOVthqH5p2MHCj4CAtW6yjmYFkE6D2yMEk+KwvzsjWyb2RkRD0lvvjiyBT3hxF7UMg=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from DU4PR08MB11769.eurprd08.prod.outlook.com (2603:10a6:10:644::21)
- by PA6PR08MB10782.eurprd08.prod.outlook.com (2603:10a6:102:3d0::12) with
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
+ by BL1PR11MB6052.namprd11.prod.outlook.com (2603:10b6:208:394::16) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.18; Tue, 3 Mar
- 2026 09:26:33 +0000
-Received: from DU4PR08MB11769.eurprd08.prod.outlook.com
- ([fe80::d424:cd62:81a8:490f]) by DU4PR08MB11769.eurprd08.prod.outlook.com
- ([fe80::d424:cd62:81a8:490f%6]) with mapi id 15.20.9654.020; Tue, 3 Mar 2026
- 09:26:32 +0000
-Message-ID: <ec27e294-0bee-474a-a15b-6be20ee10cd4@arm.com>
-Date: Tue, 3 Mar 2026 09:26:31 +0000
+ 2026 09:29:13 +0000
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::2c4e:e92a:4fa:a456]) by IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::2c4e:e92a:4fa:a456%6]) with mapi id 15.20.9654.020; Tue, 3 Mar 2026
+ 09:29:13 +0000
+Message-ID: <eb7f3122-7792-4cd1-929d-d181fc23359d@intel.com>
+Date: Tue, 3 Mar 2026 11:29:08 +0200
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 27/46] KVM: arm64: Handle Realm PSCI requests
-To: Marc Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>
-References: <20251217101125.91098-1-steven.price@arm.com>
- <20251217101125.91098-28-steven.price@arm.com> <86pl5m89ub.wl-maz@kernel.org>
+Subject: Re: [EXT] Re: [PATCH 0/4] mmc: sdhci-esdhc-imx: add 1-bit bus width
+ support
+To: Luke Wang <ziniu.wang_1@nxp.com>, "ulf.hansson@linaro.org"
+	<ulf.hansson@linaro.org>, Bough Chen <haibo.chen@nxp.com>
+CC: Frank Li <frank.li@nxp.com>, "s.hauer@pengutronix.de"
+	<s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-mmc@vger.kernel.org"
+	<linux-mmc@vger.kernel.org>, dl-S32 <S32@nxp.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+References: <20260302080057.974102-1-ziniu.wang_1@nxp.com>
+ <6c7cadff-f078-4b02-97c5-b7f0635501c6@intel.com>
+ <DU2PR04MB8567C32F1ECAA3AF45D4DA79ED7FA@DU2PR04MB8567.eurprd04.prod.outlook.com>
 Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <86pl5m89ub.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Adrian Hunter <adrian.hunter@intel.com>
+Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
+ 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
+ 4, Domiciled in Helsinki
+In-Reply-To: <DU2PR04MB8567C32F1ECAA3AF45D4DA79ED7FA@DU2PR04MB8567.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PA7P264CA0458.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:102:398::15) To DU4PR08MB11769.eurprd08.prod.outlook.com
- (2603:10a6:10:644::21)
+X-ClientProxiedBy: DUZPR01CA0007.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:3c3::11) To IA1PR11MB7198.namprd11.prod.outlook.com
+ (2603:10b6:208:419::15)
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: DU4PR08MB11769:EE_|PA6PR08MB10782:EE_|DB1PEPF000509FB:EE_|PAWPR08MB9805:EE_
-X-MS-Office365-Filtering-Correlation-Id: 65fc0ce4-d296-4eeb-720e-08de79071d0f
-x-checkrecipientrouted: true
-NoDisclaimer: true
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|BL1PR11MB6052:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3c7870bc-df99-4882-624a-08de790754e5
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info-Original: ySJ4q5Na58OiWjXasI0Kt+HJEW81x3fs2qB+g3v94XtUPvWCd4bhGLKbU51WpZeSAPGLCvNC4xLL5rxivWhWEAcMyqiWKOpbgge4H5WxkoNdEZgl7FOiE/l+2v3cLDSN1Cc+hywmSyhq3F0vGsrJSz5rRyVKhxfbVgxPh5aGr0HgbGHx7YSynpRzr59PLhGlzuGHwg+4vlG/Xh44WGD7q8fLT9Y7Jo8oCvZg2m1mw9E8y5UlBjp0bGZO2PWA8sT6LVR5RetQIeoDhw8upl4meFNoxjAUdUWoyzRky5pnjYYN8EUDolmLOzm0ThZQ0TEfAQTF/INrw5s3RaJSrhA7b+DM1O6/02TIxejHdcanTLX/yOuJDqz4UjhJi8JECJEYS0lie3pxPARCQKTs44I1iqzBJWi6DRjXTTyKJbHQ69XJ5fgBwCFeiE/4aMTTnzvqJx8L/0kiHTlShoQw/Ef2SJPTQlmsPL2hBNbxcK5puqM+LSyHIW1hXJU5hILaoTdAVVN2j4Bt0VCCjFAc29nBddsuhlubQqdW4uRs7s0PTpnkduRIJuWSKChfNMlMacvOxDd17t9xkfwD7Uzsrs6qE/P2os+Vve38MN56j7LP/53FSQDDJEBmxO80AZofZE9Fy6ryqg4bQk5qL+YCBHP21f1YiqIObdsIDWPQdMA2iZcQvJDCLMSX2VkF9Lj/Yu7uAdZ3RrQ7RXTMc0LF974zbJQrWSVqN5F6AWTKEIIQ3yw=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR08MB11769.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA6PR08MB10782
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF000509FB.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 0946886e-2ca1-4197-b886-08de7906f572
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|14060799003|35042699022|376014|1800799024|7416014|36860700013;
-X-Microsoft-Antispam-Message-Info: C4EpFPcgBMK4BNup9Nllkdmno1WMOvpsKX3Z5p1vShQmvaViz6Rt6hf4m6uuBKc7+5obrcE7MhlPRhHVsxFXNJ5APZYjDmC7/quhR/XZ4ncq4mZdBb2pYW54L1M6pguEv3UkmLU7dSLd8E/XDFbNdta+weVgRBvVv0oeziOPst6bVXsglFVgBCgQZvEiXe0irTwaeyTAh5RK+BC4r/Z7hQXI7CslZtX8L/7X2GhF6gMb51ib/Z7GZOLQOgpZG5x6jdzs+fGowbbd3zdu984drbPWHW7gkrA07Pn3ZtWZW8mIvgnX8CAtkseTRxgM0RQAjWjRWojT2eBMnwVwo4NvDDYuhl7g/Ms8M3YfPBdbVeAPG9QwNiOVc29d6Pz5xnbzDuxOPukBKydQUfckISEAUB2Xtp57E8ofm721KXTWGoFi32rx7X94/5CNugcf5x5+lzVXlx2a/KVZhLzEyUKQLAF4DchlU6IpamZ5pZuN+rfuVjHqfXZAPoKxuX3C8twvR+qTES+JJFRnamxXYIGIO5daF2hJw1En8ZSk3EsNKeTpNimizEx8+Z6CHam9J8SRadQb7siouI+JSmsqVwKUz3OL4rR6UNfd705QU8XLzSUT89iipWRRkOIIOyNbYJmY4t7Krkt3Dh4QF0Dtlbf+3p6IbY56MnpRBqwWG7Pp19owN6ZnTQawjNqtkQXv1UgzB9fNIDYGcZLQf4QpQjPZPUQd0o+bp0hkQjLP6T0a+qk8X1TU8hK3REmReNnJm8CWtqlaLbaksrB0kdh20/MHtIdpbTFoYieRsz4PME5a4h7cIGigTRQ6TNs92GucULRSILJIK4X4zE40RD+dokH9vw==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(14060799003)(35042699022)(376014)(1800799024)(7416014)(36860700013);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: jIr5metqLoRF829QVURhz7nzxgPQVamnDfMezuh8/sDOq+sF4atWAD8XldjfUfj8qi2nAOi3v3BI/ONSnaj7YAf+MUQBwBo/J6PUzYfItNYoc1SmQJDAH/ow6oFNaOY2fbCOZv9GO+5ncJHOIlQO0iH/M5nVl05dGbuVgci9Kpd76sh6MQNh4cI+qbGrMtsR9foeDD1+jOmKFmhgH17gZSulerfUlWlsAkRJTHHH5Wigg9vVvqQ/co8+68zGL8heR0aZhyu9HCAZLAxBzltipaIhuqaGikTJOdS2jXFahBQ4sfzEgGpiV5/yyxOfOll5SMiyYD1kcOS+M6hrMnuTVlLD59OfpKO31zJG66ZKG53jYEhWjiFbFMJwZ9f0Ow7D2W0NAdVN9e90yiBoNidjYZDfjbzcWkVYfrJwtguiNgECzsdMLZLNGD881fnKd/HEIIUlSt2SPjNQv/ikTubpEkI+RR4Z/Z7st/IWmg/l0dGxB2kY8Ez1UyjFCYYagk692r49YiYeFjzC1aCC9yZkRyeHvVe43vxcdzD8kqJg2WPOUyL+TwNovkzhtExk6kdO7WMycUflzI3vnOOTItp6y6/YjjU/5/tyTjEZe3Jqq2ueZ3F5aDQ4jkUcIZCM9zWXhl9CLZssWsko6u8/jOFcY7hq9KS3nxk293+C9tydqgNBj77eL19XtTQJD+dyeQrol3BJIV4rXMZwUawX01kAdSsYWCSDa+vxBh6P7F5B2nQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: /RL5KmztYlq/om9cK2U7lzorDsmg3CqyKnnEeQ225ijHeiNbJU0zu15QQfDxRY+ExGbMsH9BIen7h9gPyrb+S3aVPHXqs9H866ook6HyyoZGx32FqmO52AoWZxDMrhf4Z0RLxbKhYTvdXmh1baXWqDij/hCInU4agoCqL3QiYCWVtOxP4mnYj09TgrFMZsVSsTYvlL2E39a7bb+lQF6ZELq/Auhjqr11Op7nno/B4cGhNVptqD/CH2oDJVaa8lqbWQKYGThwMz3g/nwiXRx063N+eNBYIY5/xQX0z6ZnVSRDRUy21OnhgZXFlmUIVriNI5pppb8iMVzFfRvrgzMniLHWsJcazznt2vJJUG7lD5YdEdxIQLEBBcCx3kfeUXUc9HHO4u+AK8owqWjUpf3TK0ZVUjOjbuAbUFu8CBHzX3NhAEI3KORe72sUxI6RJKcD
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2026 09:27:39.1395
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?STYvc2pFMGJXOElUSVMzSWw4eUI3a0pJYmpUY1Vsd2NBOFZpeW5kUGtHc09l?=
+ =?utf-8?B?cFU0V21CTGd3SWdxeGZaT0xUQ1lyV2IvTVNQREFNWkQ3ZEVZUno4SW5yZ05B?=
+ =?utf-8?B?RW9qQU1hZHgya1VFdnJxdzZUVUxpUlZnVVBubXZyZldCUVNsRUt0cS9zUG16?=
+ =?utf-8?B?MCtVakdkTWlVSVI5b0p4MUJHYVRBT0lVOWEvQkZ3OVlLQW5WR0Fqa3l1allM?=
+ =?utf-8?B?OWZtcnVjakt3SUhzckR4RS9seG54QXJCa1hlRUVhQTYrbTQxblpPSHdOWlZL?=
+ =?utf-8?B?SEVQbFNTcVJUWW9aOUhOSEhqOFpKcUhteSsrZWEwOVBZbHl0ZWw0OU1zejU4?=
+ =?utf-8?B?RklET1JpaThYUTZORVVFSU9VOTNXb29VNDRYemlJaEtKL2J6dDVJNkJvazZs?=
+ =?utf-8?B?MXVrdUhTN0NKM0NHZVR3OE1RVFQ4eHVGVnVDZWtmNkFVSERyY21vUHB6Q1Ax?=
+ =?utf-8?B?VnNGNjc4UXoyallRdG1Jb0I1RjVMTWVLQ2tUWHhGbFY2UnlUbkxCYWFEaFNt?=
+ =?utf-8?B?aXRGeTc2KzRsWjN6YkpFQVIxaXdiV0xlMzJUV1MzYVpaZXBXYVVJL1hONzEv?=
+ =?utf-8?B?YW1mNUtlV1AzTk1WNjVlcFl0M2Q5UVE4bjl2UHRPcFBGTEhWVjUwTld4UkI1?=
+ =?utf-8?B?anNJV0pSZGdwWmVhdmkxU0FacmtReXhsYWRHMlVWWlcwWm8vQ3RXQWdUUTBV?=
+ =?utf-8?B?dFJVYVdYN3hHRUtRMUpFQnBSSFpWN0U4OXI5ZlRBUSt5R1dlc1M5NnNBd0dr?=
+ =?utf-8?B?K3ZWL0I4UE5XT3NrMEp5Q1F4eEZnaUVHTUtOZjFxcU1MekhmWUpSS2t1cm1Z?=
+ =?utf-8?B?Wkk2aVZuTEwrdFdoNHlUQzFiMUN2a3JZVzQyekMyVFR0WXJQTmhiVElUNDNa?=
+ =?utf-8?B?bzhtN2p2ZzZwWmU0a3JxYjRGdUUzemFnRXZhWXhZekJsckdtZVAxbDVTbUhP?=
+ =?utf-8?B?QjhEdkJ3YlJvZFFBSlFLMHk0Wmk4eW8xN1lSUnlTNHc3TTl1a0xvQTgwdzgx?=
+ =?utf-8?B?OFdaL2w4T3pqWWpCNlkyY2UvUGNhcFJvSHNZUFJvd3RUU1VMbWNCSEdKR3RR?=
+ =?utf-8?B?emprNitiQzlKYnJUaThhRkozWkZoSmRsTUpCdmdwSUE3eU9qWTBEN3BTUmEv?=
+ =?utf-8?B?dE52N1N2T0dqMkJ0Zzl5TmN1dmw5RExCOElUVHVJUjh1M1JHUnV4OGcvS01n?=
+ =?utf-8?B?TVN1VG93TUNPZTh3Qno1R1p0bUJTVE9LR284b05LUG1QWGh1VFh2QklhQ3dG?=
+ =?utf-8?B?WGNJQmtEdlR2TVZaRSswNWVzbmRET0lHNVV4MVdQdENFZ3NKYjlHQzA3NCt6?=
+ =?utf-8?B?MFJrQjl2a2hubmh3Wm8xL0pBZUl2Mmx3Ym5meWlDVGY1T25HT3lWNXFOU2Np?=
+ =?utf-8?B?Tks0TTdQSys2UW01VU9IaEpQdnRKTms5d3BjTUFpZzY4KzhFclUrM3d3Wjl1?=
+ =?utf-8?B?WnduYVE0dXdqaEw2NnU3bDhGT25aWUhDa2crTlVYcmx5bnE1cGZXdGFGdTRB?=
+ =?utf-8?B?MlMyR2VkNHJ3OWFBRmFlZjg5VzZkaHByQi8yZWtZeVR6VDVoVlMwOENKNE1P?=
+ =?utf-8?B?VmhwelE1c05ibmozWTl5MmIzWk95cGJkTVpYSy91NW5aMlBSZFZZNDNRK2do?=
+ =?utf-8?B?QnBmWkdjT0ovdnluSlBuRzVhN3MxRGJVdU1pWmdhR0ozWSsrTnRENVZ0NjJv?=
+ =?utf-8?B?amg0N0pGeGh3aDRCSzVxMTBzb3VwNnJPRzVTVzRmZGxWWE9IWU9OOFUvb3hP?=
+ =?utf-8?B?cHdFcFV3N3h2V2FMd29NQXlvOWc2NTlJaU03V0E1d2w3Rm93N1VhZUVGSXBE?=
+ =?utf-8?B?VkJUVEdQNW5QZnZNcUVBTUpUajdUemN0ZHp3dG9ZVlRsT1FBN2JDVmc3OVBx?=
+ =?utf-8?B?c3owK3kxdWtpZ2NuVTJCRW8zK21EZGd1QlBzNEVGVmlBUXhSMHhydkdJeTlI?=
+ =?utf-8?B?d0ZhNGlveFBzZU1aWUZwWER0RktURHZ3dk9kMS9ybVdudW55MHFDQ1EvT1Mw?=
+ =?utf-8?B?cXowSU5xa2VaSmZUbGNXZlZ3WFh6NUJraVJGMzQrQUFsUFd4YVQ1Yk5VK0tt?=
+ =?utf-8?B?aStaZGwrb24wNjFOTHM3QmlaZi9GSFZCTHgyb3EzQ3dkMktMR3hUVXRMSFV6?=
+ =?utf-8?B?c09kc243V1JTdTFyYzJETGt5clNLY2RGL2lGbW1DeUUxQnpsMkpiSzVkNHI4?=
+ =?utf-8?B?QnlwVnFuVUhENVlhcG9ZVndDbjhtdkpyR1luSisrUVBWcjUwR2swRmp4ZGpo?=
+ =?utf-8?B?MDRZYU1uNElsaUFwanE4K3J2MzRGTHkvdk1GaG90SUpzSFVxQUNraEc1TUhl?=
+ =?utf-8?B?Z3IwWjdHNTdPVTcraUxYSm5BUStkVVhRKy9vdi9zZGRIck1NcURPM2pEOHBj?=
+ =?utf-8?Q?P1e3ois8EGVig1gU=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3c7870bc-df99-4882-624a-08de790754e5
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2026 09:29:13.2509
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 65fc0ce4-d296-4eeb-720e-08de79071d0f
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509FB.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR08MB9805
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: s59nnUjLqxaMN8Nv2mqL20ts+SChWy2ZItxEqR9/3lccFLKu9s15yqBkm9voZUKtGpCjlTUPmAofYoD16SC28w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR11MB6052
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_012750_302186_20128C39 
-X-CRM114-Status: GOOD (  21.92  )
+X-CRM114-CacheID: sfid-20260303_012922_017575_73C601E5 
+X-CRM114-Status: GOOD (  21.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,125 +194,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/03/2026 16:39, Marc Zyngier wrote:
-> On Wed, 17 Dec 2025 10:11:04 +0000,
-> Steven Price <steven.price@arm.com> wrote:
->>
->> The RMM needs to be informed of the target REC when a PSCI call is made
->> with an MPIDR argument. Expose an ioctl to the userspace in case the PSCI
->> is handled by it.
->>
->> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> Reviewed-by: Gavin Shan <gshan@redhat.com>
->> ---
->> Changes since v11:
->>   * RMM->RMI renaming.
->> Changes since v6:
->>   * Use vcpu_is_rec() rather than kvm_is_realm(vcpu->kvm).
->>   * Minor renaming/formatting fixes.
->> ---
->>   arch/arm64/include/asm/kvm_rmi.h |  3 +++
->>   arch/arm64/kvm/arm.c             | 25 +++++++++++++++++++++++++
->>   arch/arm64/kvm/psci.c            | 30 ++++++++++++++++++++++++++++++
->>   arch/arm64/kvm/rmi.c             | 14 ++++++++++++++
->>   4 files changed, 72 insertions(+)
->>
->> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
->> index bfe6428eaf16..77da297ca09d 100644
->> --- a/arch/arm64/include/asm/kvm_rmi.h
->> +++ b/arch/arm64/include/asm/kvm_rmi.h
->> @@ -118,6 +118,9 @@ int realm_map_non_secure(struct realm *realm,
->>   			 kvm_pfn_t pfn,
->>   			 unsigned long size,
->>   			 struct kvm_mmu_memory_cache *memcache);
->> +int realm_psci_complete(struct kvm_vcpu *source,
->> +			struct kvm_vcpu *target,
->> +			unsigned long status);
->>   
->>   static inline bool kvm_realm_is_private_address(struct realm *realm,
->>   						unsigned long addr)
->> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->> index 06070bc47ee3..fb04d032504e 100644
->> --- a/arch/arm64/kvm/arm.c
->> +++ b/arch/arm64/kvm/arm.c
->> @@ -1797,6 +1797,22 @@ static int kvm_arm_vcpu_set_events(struct kvm_vcpu *vcpu,
->>   	return __kvm_arm_vcpu_set_events(vcpu, events);
->>   }
->>   
->> +static int kvm_arm_vcpu_rmi_psci_complete(struct kvm_vcpu *vcpu,
->> +					  struct kvm_arm_rmi_psci_complete *arg)
->> +{
->> +	struct kvm_vcpu *target = kvm_mpidr_to_vcpu(vcpu->kvm, arg->target_mpidr);
->> +
->> +	if (!target)
->> +		return -EINVAL;
->> +
->> +	/*
->> +	 * RMM v1.0 only supports PSCI_RET_SUCCESS or PSCI_RET_DENIED
->> +	 * for the status. But, let us leave it to the RMM to filter
->> +	 * for making this future proof.
->> +	 */
->> +	return realm_psci_complete(vcpu, target, arg->psci_status);
->> +}
->> +
->>   long kvm_arch_vcpu_ioctl(struct file *filp,
->>   			 unsigned int ioctl, unsigned long arg)
->>   {
->> @@ -1925,6 +1941,15 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
->>   
->>   		return kvm_arm_vcpu_finalize(vcpu, what);
->>   	}
->> +	case KVM_ARM_VCPU_RMI_PSCI_COMPLETE: {
->> +		struct kvm_arm_rmi_psci_complete req;
->> +
->> +		if (!vcpu_is_rec(vcpu))
->> +			return -EPERM;
+On 03/03/2026 05:39, Luke Wang wrote:
 > 
-> Same remark as for the other ioctl: EPERM is not quite describing the
-> problem.
 > 
->> +		if (copy_from_user(&req, argp, sizeof(req)))
->> +			return -EFAULT;
->> +		return kvm_arm_vcpu_rmi_psci_complete(vcpu, &req);
->> +	}
->>   	default:
->>   		r = -EINVAL;
->>   	}
->> diff --git a/arch/arm64/kvm/psci.c b/arch/arm64/kvm/psci.c
->> index 3b5dbe9a0a0e..a68f3c1878a5 100644
->> --- a/arch/arm64/kvm/psci.c
->> +++ b/arch/arm64/kvm/psci.c
->> @@ -103,6 +103,12 @@ static unsigned long kvm_psci_vcpu_on(struct kvm_vcpu *source_vcpu)
->>   
->>   	reset_state->reset = true;
->>   	kvm_make_request(KVM_REQ_VCPU_RESET, vcpu);
->> +	/*
->> +	 * Make sure we issue PSCI_COMPLETE before the VCPU can be
->> +	 * scheduled.
->> +	 */
->> +	if (vcpu_is_rec(vcpu))
->> +		realm_psci_complete(source_vcpu, vcpu, PSCI_RET_SUCCESS);
+>> -----Original Message-----
+>> From: Adrian Hunter <adrian.hunter@intel.com>
+>> Sent: Monday, March 2, 2026 9:45 PM
+>> To: Luke Wang <ziniu.wang_1@nxp.com>; ulf.hansson@linaro.org; Bough
+>> Chen <haibo.chen@nxp.com>
+>> Cc: Frank Li <frank.li@nxp.com>; s.hauer@pengutronix.de;
+>> kernel@pengutronix.de; festevam@gmail.com; imx@lists.linux.dev; linux-
+>> mmc@vger.kernel.org; dl-S32 <S32@nxp.com>; linux-arm-
+>> kernel@lists.infradead.org; linux-kernel@vger.kernel.org
+>> Subject: [EXT] Re: [PATCH 0/4] mmc: sdhci-esdhc-imx: add 1-bit bus width
+>> support
 >>
+>> Caution: This is an external email. Please take care when clicking links or
+>> opening attachments. When in doubt, report the message using the 'Report
+>> this email' button
+>>
+>>
+>> On 02/03/2026 10:00, ziniu.wang_1@nxp.com wrote:
+>>> From: Luke Wang <ziniu.wang_1@nxp.com>
+>>>
+>>> This series adds 1-bit bus width support for sdhci-esdhc-imx driver.
+>>>
+>>> Currently sdhci-esdhc-imx doesn't support 1-bit width because it
+>>> doesn't call sdhci_get_property() to parse "bus-width = <1>" and
+>>> set SDHCI_QUIRK_FORCE_1_BIT_DATA quirk.
+>>>
+>>> After adding sdhci_get_property(), another issue is exposed:
+>>> mmc_select_hs200() returns 0 without switching when 1-bit bus is
+>>> used, causing mmc_select_timing() to skip mmc_select_hs(). This
+>>> leaves eMMC in legacy mode (26MHz) instead of High Speed (52MHz).
+>>
+>> How do you end up with incompatible caps?  If sdhci is adding
+>> them, then maybe stop that instead of removing them later?
 > 
-> I really think in-kernel PSCI should be for NS VMs only. The whole
-> reason for moving to userspace support was to stop adding features to
-> an already complex infrastructure, and CCA is exactly the sort of
-> things we want userspace to deal with.
+> The incompatible caps come from sdhci_setup_host() in sdhci.c, where
+> UHS/DDR/HS200/HS400 caps are added based on hardware capability registers
+> without checking bus width.
+> 
+> I can add bus width check directly in the condition, like:
+> 
+>     /* Any UHS-I mode in caps implies SDR12 and SDR25 support. */
+> +   /* UHS modes require at least 4-bit bus width */
+> -   if (host->caps1 & (SDHCI_SUPPORT_SDR104 | SDHCI_SUPPORT_SDR50 |
+> -                      SDHCI_SUPPORT_DDR50))
+> +   if ((mmc->caps & MMC_CAP_4_BIT_DATA) &&
+> +       (host->caps1 & (SDHCI_SUPPORT_SDR104 | SDHCI_SUPPORT_SDR50 |
+> +                       SDHCI_SUPPORT_DDR50)))
+>         mmc->caps |= MMC_CAP_UHS_SDR12 | MMC_CAP_UHS_SDR25;
+> 
+> Similar changes for SDR104/HS200/DDR50/HS400 settings.
+> 
+> Is this the right approach?
 
-Agreed. How would you like us to enforce this ? Should we always exit
-to the VMM, even if it hasn't requested the handling ? (I guess it is
-fine and in the worst case VMM could exit, it being buggy)
+I think SDHCI_QUIRK_FORCE_1_BIT_DATA should override the hardware
+capabilities, similar to SDHCI_QUIRK2_NO_1_8_V.  So something like:
 
-Cheers
-Suzuki
+diff --git a/drivers/mmc/host/sdhci.c b/drivers/mmc/host/sdhci.c
+index b1a3cd574c84..605be55f8d2d 100644
+--- a/drivers/mmc/host/sdhci.c
++++ b/drivers/mmc/host/sdhci.c
+@@ -4539,8 +4539,15 @@ int sdhci_setup_host(struct sdhci_host *host)
+ 	 * their platform code before calling sdhci_add_host(), and we
+ 	 * won't assume 8-bit width for hosts without that CAP.
+ 	 */
+-	if (!(host->quirks & SDHCI_QUIRK_FORCE_1_BIT_DATA))
++	if (host->quirks & SDHCI_QUIRK_FORCE_1_BIT_DATA) {
++		host->caps1 &= ~(SDHCI_SUPPORT_SDR104 | SDHCI_SUPPORT_SDR50 | SDHCI_SUPPORT_DDR50);
++		if (host->quirks2 & SDHCI_QUIRK2_CAPS_BIT63_FOR_HS400)
++			host->caps1 &= ~SDHCI_SUPPORT_HS400;
++		mmc->caps2 &= ~(MMC_CAP2_HS200 | MMC_CAP2_HS400 | MMC_CAP2_HS400_ES);
++		mmc->caps &= ~(MMC_CAP_DDR | MMC_CAP_UHS);
++	} else {
+ 		mmc->caps |= MMC_CAP_4_BIT_DATA;
++	}
+ 
+ 	if (host->quirks2 & SDHCI_QUIRK2_HOST_NO_CMD23)
+ 		mmc->caps &= ~MMC_CAP_CMD23;
 
 
 > 
 > Thanks,
+> Luke
 > 
-> 	M.
+>>
+>>>
+>>> Fix by dropping incompatible UHS/DDR/HS200/HS400 caps in
+>>> mmc_validate_host_caps() for 1-bit width, and clean up duplicate
+>>> code now handled by common framework.
+>>>
+>>> Luke Wang (4):
+>>>   mmc: core: fix timing selection for 1-bit bus width
+>>>   mmc: sdhci-esdhc-imx: add 1-bit bus width support
+>>>   mmc: sdhci-esdhc-imx: remove duplicate HS400 bus width validation
+>>>   mmc: sdhci-pltfm: remove duplicate DTS property parsing
+>>>
+>>>  drivers/mmc/core/host.c            | 19 ++++++++++++++-----
+>>>  drivers/mmc/host/sdhci-esdhc-imx.c |  6 +-----
+>>>  drivers/mmc/host/sdhci-pltfm.c     |  7 -------
+>>>  3 files changed, 15 insertions(+), 17 deletions(-)
+>>>
 > 
 
 
