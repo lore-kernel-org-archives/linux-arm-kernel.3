@@ -4,128 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DD19EDEBE0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 18:40:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9865EEDEBE5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 18:49:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i0kmCJMSGIvUOzhTIff6KcMV9QnY2cagi4V2X8P5nsc=; b=jargA+3gmX1VzvIt1cmBHMixmQ
-	BMcoD3bAmmpGDHXlYY4jGsgHXXXaUlVq2pmldy78fkBV1yyga93ZjIwYAAuRYODHa7Gd5woiAALtX
-	bzLwnBmtqODeP4Vjbpx47irI1hZLywA5DY1o+P7i3EAfqTuW9Tu6H89uVnRx1frSHccvEUp7SykQc
-	x1/uBtYoXSdMFDsyU+vEoMV/uRpvjH/SXTeplbO82WeBSeCSXGCpYVpeTVJIBRr8M9nWjG6e9CmTN
-	4uWF6YDWm5BRyN+7IeQugo+f2e+iUsIan9I89NNnAPt5n7MSCUueCQ0EAZE+0UU/MoMOKIiEVg7lF
-	yLCmpfOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kHoeNHBU4SAsrowWddpQpzJZiTVo3u6cGPxeDthfjXQ=; b=Qxpmx4jnkEcp2I1JTM6Fc9gZ6F
+	b2PVncSzr1VKVh8V/BHkJsE+yskLGaroMXyGu7J1qa614OAb6WZbkNP7f5ij6HALLKvjPXsbIZ7NS
+	8s1YJq+CuV2JNn++ncfdH22SNaOVy+YwBneW7b81mtTyQbWXMzp7tqhBfxnkzF8XGwwQTAl2qoW4u
+	X6xjhbyp1aSz58n2EarhfumTIlTKFRE+hWFzs7uWCLb48S/rnYDeIQnSx0GuzTyD4WzKCtk7mG5Fx
+	EhDKddk3LYEXWV5E/gcurpfSoSJETpgj6npAot3RjaeZkzhVDx6DqCYjxRSDhG/M1lQHZQjup56BK
+	HOWUbbvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxUfN-0000000FijW-0mEU;
-	Tue, 03 Mar 2026 18:40:21 +0000
-Received: from mail-westus2azon11012067.outbound.protection.outlook.com ([52.101.48.67] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1vxUo9-0000000Fj6W-1q1G;
+	Tue, 03 Mar 2026 18:49:25 +0000
+Received: from mx4.wp.pl ([212.77.101.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxUfL-0000000Fij7-0xRg
+	id 1vxUo7-0000000Fj69-15Rl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 18:40:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gxaZ/qxJVYgx4gsHPCQTMUfkakjubJ7UatyWvzW8aPEczUMcpRh3BPI00BZ6+hO1s8r2D/iu9M8miDZZnrAezGcfWUIz+EyQ+uEcvAGo5+bMDJP3me+StvdK/3SOE8P8gudekx6pYab7G/OOLN56JDjgIMnQa3oqoxSuuXADfeRAPh9qeorRCZYZCdvnHRkdmLn3UKvvrLK6CQ4g5WPu09GZuRbRwNTDxUhlphoL/iobwmFbnNbr++CmQLjnZsOgK1d5NHuuoASD9g5i691AYFq8A+LU6M8ZjIvxJVDGBYGW+IzFTqpN9XKxZFVdgie1WLROCpUYaBlHuKFil52rpA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=i0kmCJMSGIvUOzhTIff6KcMV9QnY2cagi4V2X8P5nsc=;
- b=DQIiFFlZvU6OW7B5bzRGIBckT/U2Bv1oaArRH1BbuYtamwwmsH6bIAazyxBqGQ3CRGNDRYxbe+GXBlj/TbqBODGwtnsfHCT1NESRv9YZmwym12ZjPtfdeA9a7TgRVKhFWkBZKRbz2TlPymV1xFbZfV4Dze8oZdI7IZ1P92Tzfo+H6cOvVYzM+N0Dr0vK1Jt6yBdlq55DjwCwriF16kwe1u0jPdbaJUnFDQDzvIr6iULEykbqJss0BsIJJFYlvnU2uc/U1ZeFtIb7Kd9h+33JPc9JCG603GwCyeWMvpnUszHfgXSOP2XX7xHWKuq2Wu8oWrO/ZsWTW4IHi5Z4yQ4QpA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=i0kmCJMSGIvUOzhTIff6KcMV9QnY2cagi4V2X8P5nsc=;
- b=apf0YQzLqFQkoOq0XptD62sE+et8KoOsyd4j1n6WScqyRDEJ1EYJhn7/9B/nu8l5R/HWE3Fx6OTTigvZlhQHTeui0GVAX86898TmeHhIYQSVxx8gMFkbkBmILXYRIPYW77x1A6XlXYen7+1szO6LPMH3T+FTxTQg2wXIAgx56smkz3hygpNTSmEnyTaMMY85JKbQBJxJ5poVF2NeFyv1eCn+g7zEGdn00DKPWvsdCmbbGdtvLz0/KNuRSFwGnJK5lBMGQ5Gc5GqF3VIplLpbRxQ69J40f6Hi9lZehI1YP2+Z9iTKHkXJLEf7EFQNHJMRxICcX4Iqjnd8kexmUkDq2g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS0PR12MB6559.namprd12.prod.outlook.com (2603:10b6:8:d1::6) by
- CH3PR12MB7713.namprd12.prod.outlook.com (2603:10b6:610:14d::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.20; Tue, 3 Mar
- 2026 18:40:02 +0000
-Received: from DS0PR12MB6559.namprd12.prod.outlook.com
- ([fe80::3f99:f532:cf6b:ea46]) by DS0PR12MB6559.namprd12.prod.outlook.com
- ([fe80::3f99:f532:cf6b:ea46%4]) with mapi id 15.20.9654.022; Tue, 3 Mar 2026
- 18:40:02 +0000
-Date: Tue, 3 Mar 2026 10:40:00 -0800
-From: Piotr Jaroszynski <pjaroszynski@nvidia.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Will Deacon <will@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, 
-	Alistair Popple <apopple@nvidia.com>, Jason Gunthorpe <jgg@nvidia.com>, 
-	John Hubbard <jhubbard@nvidia.com>, Zi Yan <ziy@nvidia.com>, Breno Leitao <leitao@debian.org>, 
-	stable@vger.kernel.org
-Subject: Re: [PATCH] arm64: contpte: fix set_access_flags() no-op check for
- SMMU/ATS faults
-Message-ID: <aacohVRfAK46lOjo@box>
-References: <20260303063751.2531716-1-pjaroszynski@nvidia.com>
- <0a10ea33-937a-4294-b9a1-9323c706434d@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0a10ea33-937a-4294-b9a1-9323c706434d@arm.com>
-X-ClientProxiedBy: SJ0PR05CA0205.namprd05.prod.outlook.com
- (2603:10b6:a03:330::30) To DS0PR12MB6559.namprd12.prod.outlook.com
- (2603:10b6:8:d1::6)
+	Tue, 03 Mar 2026 18:49:24 +0000
+Received: (wp-smtpd smtp.wp.pl 19649 invoked from network); 3 Mar 2026 19:49:18 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
+          t=1772563758; bh=kHoeNHBU4SAsrowWddpQpzJZiTVo3u6cGPxeDthfjXQ=;
+          h=From:To:Cc:Subject;
+          b=NUSKbIDDXmT8B6p/S75oQRD3a8MSfa9OgnbQJh+g52BBjsifANegaEWnEvP1/dVJd
+           DOQdym4jqsfkWesmMxn3cHp1WaSd2ZCvt0D9jQfIaRyJ8DTPj0+uCFnueFPJumsw6/
+           E5Oyp5rhpmQkhFw4NDwtxT8nHPyv/OMwHrfB1XGElKN6ljiDBEf2Q7DT9eSVNG9vnA
+           pDyZ73YEHHbyBvvY1pmCxeg0dIRqib9b/HtqDEcvKTrm38QAblepFZP2JWwkiO+Mo+
+           Oc2hxvfjs+oLlfMTdYlE+PAFVyuyLWy8QzMKYmPNGCUOaNBfwI0OvzitJNqKh8ESTf
+           vfL1AjU2UWBLQ==
+Received: from 83.24.116.171.ipv4.supernova.orange.pl (HELO laptop-olek.lan) (olek2@wp.pl@[83.24.116.171])
+          (envelope-sender <olek2@wp.pl>)
+          by smtp.wp.pl (WP-SMTPD) with TLS_AES_256_GCM_SHA384 encrypted SMTP
+          for <herbert@gondor.apana.org.au>; 3 Mar 2026 19:49:18 +0100
+From: Aleksander Jan Bajkowski <olek2@wp.pl>
+To: herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	linux-crypto@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Aleksander Jan Bajkowski <olek2@wp.pl>
+Subject: [PATCH v4] crypto: testmgr - Add test vectors for authenc(hmac(md5),cbc(aes))
+Date: Tue,  3 Mar 2026 19:48:44 +0100
+Message-ID: <20260303184916.69132-1-olek2@wp.pl>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR12MB6559:EE_|CH3PR12MB7713:EE_
-X-MS-Office365-Filtering-Correlation-Id: c9484dfa-0c78-49ce-6448-08de7954478e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: BosTtGqVqQtAUQAKQYda5vD33EBm7kW5kcodZVXVKzc0BjtL1dWOzvjjGD41OTQlzkhhxV45/yInIYDUJ2KztAmeSr6znk2rLf1SjjlNsuk9PJ+lfAAVrgyFlzecjGz+g7EY6BeQ7Uy3kuEiqe63MSzcOezyRs3X4UB3prmj5ZeGE+02jJDFsfEwsvxLXCxDe1rXojfevyiITtd9i/klskzz4ZGyjvJsgMY5xCynXbRkf04CDbf7dQx8iG3B+kQgdgBp3PNrPCglS568A8YAd1PcoU6R0rVaTrbHe+J7CRtfKgJmcvJHd0iPNxoxBUz6j0B0mXHZYKEQ9KiRJZMXmF/Izq1zp/4qaAlFa6faC8x+9ZEorWFCYFBHpV4CJKxM+cYMCa/KCIuz3s2zKrAzAVucwHd4dD3u/EJlubN6H4fTxTOmzTaP5wRoDIxGpt7t1pzeMyHn/8CspNQoqYTM5w8ULrkEGzml9Fn1CbfrsbT3Y9sqcVwSXQ8Vcrl6Kd1qdglrMtIWIiywGM+nh5pOFiCjd82PwueZTbvgI6G686hXRnxm2exzIEfnl9UkVdu2QNsp8oNoZ6fygmea5mtVn5tG3/3Sas1NsbPr04n77jwhYHxwKo1kTyiZ6yN6+Hky/Kznb2S9t/Bv+mPCqGfhhKr7ETlF7ysuMfqzq4KPf4QEi0ZxDBSkPISUVekCsbeNVFBTqPBlP//akrhcG89q+n88XoiTreN7sI3eciORkwc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB6559.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9A7XCsfi/+4j2QRVU+3OSycnPkNzVuIdwYs/rkYSVh4hb4J/WwvJyZK8ONX8?=
- =?us-ascii?Q?Oxwi72Bk07o9dCRycj7CNpgDxkOAPpFHOo0cCneuNEC3T/cbF9inH24CpR9L?=
- =?us-ascii?Q?/yyPnQq8/ilnTpWdq97M3Y5TtCVmmNlJR0gRFBAN7Q81ZHGfx7m6utJ7dnsR?=
- =?us-ascii?Q?TgReZ44fuL/wNntbDY1fIhpmZHqSY//JBzceZSsA30ibFva/Q+PIokZZmoQC?=
- =?us-ascii?Q?fFKBYoViqX6MjVO6ZySNFJxkRJ8UrnhFiGxde00lAHBZsqJGG2Kp9tM701st?=
- =?us-ascii?Q?ypxFSJdPn2Ill+Ei95wIvtjaFYARpLoOraeYbbRWPcLF4GRJ4HBKOlxQGSS3?=
- =?us-ascii?Q?tNU/KVL+Wu+H2/J8ViJA4v1hQwaax66QzVbS9qCOO3p+KCit50uPhztFx9Zq?=
- =?us-ascii?Q?M+NsT5rzt2oxkYzK6wPwK+cwgEH32JBMcXLjmGLnK54CF7rl/mEyyc0aseKj?=
- =?us-ascii?Q?1id4YU12QJvyrNkS514DgwCNg4lRCBlrcUVB8DkMLqvETsrGcEZBzbtH8i5L?=
- =?us-ascii?Q?wIfDqPcg/naHUuPzQk3Pq+KxgTyp4S2TvMr8huotw8tLPjmKkvZxeB7XrI+T?=
- =?us-ascii?Q?6WlxD7eTmDbIDrL4HHwb/FvjA29+631SBu1cE0wgtYdWX8WlvHF/S+Aftj0n?=
- =?us-ascii?Q?IvlbGdvehzUUmJlsvJNMfbLoMwBiUDNlkqiLbn8aqmw0HrAikNgQKYEskg9t?=
- =?us-ascii?Q?Nli9G4y/aHA3Nv8P7IBjG8at/9jIcC8P5tSyODMrZpzgji2uQIfy9nFrK1Np?=
- =?us-ascii?Q?+lRf5VJVAn6hLKNBTTT1LbRrTndHAej1iI1S3obYBMbKyb11fkm7nq5l+FiP?=
- =?us-ascii?Q?EfxoqBChEVOFDUNWeXLEO0aA0wjoeGSyrhLcC9UHOCi/uhrRmXXKloctlNSP?=
- =?us-ascii?Q?iW0JxhVIjFEXQv5kUc2f8TnGSivnw+ExU5XIg13ohhGqBdsKSuZbU9T2L5I2?=
- =?us-ascii?Q?WgubbbOgTvE3liDELteo9/80OIQ0VB6ZuRt0PM6MG8ov50MR/ZUiLjsdrlJD?=
- =?us-ascii?Q?IDdNeKgrt70xkDhOkOLfhjPZ/TuYhagjkMo9On3TOeA/6CxHIPlY7XVDFOux?=
- =?us-ascii?Q?vB90D37wrq0mzLB+Zb1InrmW18j0YxwFjy/ZKoltsPlTUu/TAGOCebJIp4L6?=
- =?us-ascii?Q?pkue7m1omXkoePuq+EpNTmV4W3KazkxU7/PAqqnXBXnQe3g3KJRaWfz1C4Bg?=
- =?us-ascii?Q?j0t8fFMmECnOJ2CKVrvlpk91sR63LkBkwEo1Z/tgnIATwcXwRijbIJS2s2mf?=
- =?us-ascii?Q?6k/km3px67EC3+cIiI8Gi+OpGWtuuMCsXh5lfodov8efLCDPSJsoAcmluy4f?=
- =?us-ascii?Q?2SYeCqdSq6kypmnczeStgjGCjKOHIaOJEDqVQcXKRVILnPvGlyjfiq+czYij?=
- =?us-ascii?Q?QZn9jrRG9tjCofI60nMn1FSAQvxJc3tvDWkGpzE5771lyHV43n0CMWjyrsqq?=
- =?us-ascii?Q?GTMVrSqTk4SUN/+cSlv59VxNMIliuoW5hXcIniX30x6Fix3D3ofOMqz5yDQF?=
- =?us-ascii?Q?ZEdZSSUtH+Hc+NlKS6EjqQToCG8UnguUr0zadLQ6hLThomzGdVH40NxlH02o?=
- =?us-ascii?Q?b7IMIViC3c8eLHMOcXhiZ9CmyIy/Yq2MSO0RTLWm5lV8rdShyFmYVhWpFR5e?=
- =?us-ascii?Q?U4EWWHtzFlyger5QGJ8WsG2S9JX1gfC7B5hyMN0JSYaRDT5b17+yd213s3Ty?=
- =?us-ascii?Q?hrazNablXvhoZZKWmxzt4M+4SXgc+w4qkRdlFQAX0arrAODzzyKfeWM9ppCZ?=
- =?us-ascii?Q?CLLZ/nU40zK8UIIqL7sjqdabF0qwYEM=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c9484dfa-0c78-49ce-6448-08de7954478e
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB6559.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2026 18:40:02.2778
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +9baL3edZ+y1+Dg3naCoF3LdwZ0jjgphi2EXqmId6dqlHABgImRo01gTdLXK/b3xn9sO1scUlhB3W3faHl4jTg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7713
+Content-Transfer-Encoding: 8bit
+X-WP-DKIM-Status: good (id: wp.pl)                                                      
+X-WP-MailID: abf5e6b110d1b4f2a3fa44b01cfca615
+X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
+X-WP-SPAM: NO 0000009 [QMMh]                               
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_104019_303879_3E5AD654 
-X-CRM114-Status: GOOD (  48.18  )
+X-CRM114-CacheID: sfid-20260303_104923_462383_9E33446A 
+X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,168 +79,309 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 03, 2026 at 08:38:23AM +0000, Ryan Roberts wrote:
-> On 03/03/2026 06:37, Piotr Jaroszynski wrote:
-> > contpte_ptep_set_access_flags() compared the gathered ptep_get() value
-> > against the requested entry to detect no-ops. ptep_get() ORs AF/dirty
-> > from all sub-PTEs in the CONT block, so a dirty sibling can make the
-> > target appear already-dirty. When the gathered value matches entry, the
-> > function returns 0 even though the target sub-PTE still has PTE_RDONLY
-> > set in hardware.
-> > 
-> > For CPU page-table walks this is benign: with FEAT_HAFDBS the hardware
-> > may set AF/dirty on any sub-PTE and the CPU TLB treats the gathered
-> > result as authoritative for the entire range. But an SMMU without HTTU
-> > (or with HA/HD disabled in CD.TCR) evaluates each descriptor
-> > individually and will keep raising F_PERMISSION on the unchanged target
-> > sub-PTE, causing an infinite fault loop.
-> 
-> Ouch; thanks for the fix!
-> 
-> > 
-> > Gathering can therefore cause false no-ops when only a sibling has been
-> > updated:
-> >  - write faults: target still has PTE_RDONLY (needs PTE_RDONLY cleared)
-> >  - read faults:  target still lacks PTE_AF
-> > 
-> > Fix by checking all sub-PTEs' access flags individually (not via the
-> > gathered view) before returning no-op, and use the raw target PTE for
-> > the write-bit unfold decision. The access-flag mask matches the one
-> > used by __ptep_set_access_flags().
-> > 
-> > Per Arm ARM (DDI 0487) D8.7.1 ("The Contiguous bit"), any sub-PTE in a CONT
-> > range may become the effective cached translation and software must
-> > maintain consistent attributes across the range.
-> > 
-> > Fixes: 4602e5757bcc ("arm64/mm: wire up PTE_CONT for user mappings")
-> > 
-> 
-> nit: there shouldn't be whitespace here.
-> 
-> > Reviewed-by: Alistair Popple <apopple@nvidia.com>
-> > Cc: Ryan Roberts <ryan.roberts@arm.com>
-> > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > Cc: Will Deacon <will@kernel.org>
-> > Cc: Jason Gunthorpe <jgg@nvidia.com>
-> > Cc: John Hubbard <jhubbard@nvidia.com>
-> > Cc: Zi Yan <ziy@nvidia.com>
-> > Cc: Breno Leitao <leitao@debian.org>
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Piotr Jaroszynski <pjaroszynski@nvidia.com>
-> 
-> This fix looks good to me:
-> 
-> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Test vectors were generated starting from existing CBC(AES) test vectors
+(RFC3602, NIST SP800-38A) and adding HMAC(MD5) computed with Python
+script. Then, the results were double-checked on Mediatek MT7981 (safexcel)
+and NXP P2020 (talitos). Both platforms pass self-tests.
 
-Thanks!
+Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
+---
+v4:
+- rename aes-generic -> aes-lib
+v3:
+- correct sha384 -> md5 in description
+v2:
+- rebase and resolve conflicts
+---
+ crypto/testmgr.c |   7 ++
+ crypto/testmgr.h | 255 +++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 262 insertions(+)
 
-> 
-> 
-> > ---
-> >  arch/arm64/mm/contpte.c | 47 +++++++++++++++++++++++++++++++++++++----
-> >  1 file changed, 43 insertions(+), 4 deletions(-)
-> > 
-> > diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-> > index bcac4f55f9c1..9868bfe4607c 100644
-> > --- a/arch/arm64/mm/contpte.c
-> > +++ b/arch/arm64/mm/contpte.c
-> > @@ -390,6 +390,23 @@ void contpte_clear_young_dirty_ptes(struct vm_area_struct *vma,
-> >  }
-> >  EXPORT_SYMBOL_GPL(contpte_clear_young_dirty_ptes);
-> >  
-> > +static bool contpte_all_subptes_match_access_flags(pte_t *ptep, pte_t entry)
-> > +{
-> > +	pte_t *cont_ptep = contpte_align_down(ptep);
-> > +	const pteval_t access_mask = PTE_RDONLY | PTE_AF | PTE_WRITE | PTE_DIRTY;
-> > +	pteval_t entry_access = pte_val(entry) & access_mask;
-> > +	int i;
-> > +
-> > +	for (i = 0; i < CONT_PTES; i++) {
-> > +		pteval_t pte_access = pte_val(__ptep_get(cont_ptep + i)) & access_mask;
-> > +
-> > +		if (pte_access != entry_access)
-> > +			return false;
-> > +	}
-> 
-> There are 2 forms of "dirty"; HW and SW. Here you are testing that all ptes in
-> the contpte block have the same form of dirty, which I think is the correct
-> thing to do. You could relax to just test that every pte has one of the forms of
-> dirty, But in that case, if a pte is sw-dirty but not hw-dirty, then the
-> PTE_RDONLY bit remains set and the SMMU will fault, I think?
+diff --git a/crypto/testmgr.c b/crypto/testmgr.c
+index 8e92971b13ec..8047bae1ae9b 100644
+--- a/crypto/testmgr.c
++++ b/crypto/testmgr.c
+@@ -4079,6 +4079,13 @@ static const struct alg_test_desc alg_test_descs[] = {
+ 		.suite = {
+ 			.aead = __VECS(aegis128_tv_template)
+ 		}
++	}, {
++		.alg = "authenc(hmac(md5),cbc(aes))",
++		.generic_driver = "authenc(hmac-md5-lib,cbc(aes-lib))",
++		.test = alg_test_aead,
++		.suite = {
++			.aead = __VECS(hmac_md5_aes_cbc_tv_temp)
++		}
+ 	}, {
+ 		.alg = "authenc(hmac(md5),cbc(des))",
+ 		.generic_driver = "authenc(hmac-md5-lib,cbc(des-generic))",
+diff --git a/crypto/testmgr.h b/crypto/testmgr.h
+index 94727397988a..c0d614c89531 100644
+--- a/crypto/testmgr.h
++++ b/crypto/testmgr.h
+@@ -14562,6 +14562,261 @@ static const struct cipher_testvec aes_cbc_tv_template[] = {
+ 	},
+ };
+ 
++static const struct aead_testvec hmac_md5_aes_cbc_tv_temp[] = {
++	{ /* RFC 3602 Case 1 */
++#ifdef __LITTLE_ENDIAN
++		.key    = "\x08\x00"		/* rta length */
++			  "\x01\x00"		/* rta type */
++#else
++		.key    = "\x00\x08"		/* rta length */
++			  "\x00\x01"		/* rta type */
++#endif
++			  "\x00\x00\x00\x10"	/* enc key length */
++			  "\x00\x00\x00\x00\x00\x00\x00\x00"
++			  "\x00\x00\x00\x00\x00\x00\x00\x00"
++			  "\x06\xa9\x21\x40\x36\xb8\xa1\x5b"
++			  "\x51\x2e\x03\xd5\x34\x12\x00\x06",
++		.klen   = 8 + 16 + 16,
++		.iv     = "\x3d\xaf\xba\x42\x9d\x9e\xb4\x30"
++			  "\xb4\x22\xda\x80\x2c\x9f\xac\x41",
++		.assoc	= "\x3d\xaf\xba\x42\x9d\x9e\xb4\x30"
++			  "\xb4\x22\xda\x80\x2c\x9f\xac\x41",
++		.alen	= 16,
++		.ptext	= "Single block msg",
++		.plen	= 16,
++		.ctext	= "\xe3\x53\x77\x9c\x10\x79\xae\xb8"
++			  "\x27\x08\x94\x2d\xbe\x77\x18\x1a"
++			  "\x22\x10\xf2\x25\x7f\xe9\x0d\x92"
++			  "\xfc\x00\x55\xb1\xd0\xb5\x3a\x74",
++		.clen	= 16 + 16,
++	}, { /* RFC 3602 Case 2 */
++#ifdef __LITTLE_ENDIAN
++		.key    = "\x08\x00"		/* rta length */
++			  "\x01\x00"		/* rta type */
++#else
++		.key    = "\x00\x08"		/* rta length */
++			  "\x00\x01"		/* rta type */
++#endif
++			  "\x00\x00\x00\x10"	/* enc key length */
++			  "\x20\x21\x22\x23\x24\x25\x26\x27"
++			  "\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f"
++			  "\xc2\x86\x69\x6d\x88\x7c\x9a\xa0"
++			  "\x61\x1b\xbb\x3e\x20\x25\xa4\x5a",
++		.klen   = 8 + 16 + 16,
++		.iv     = "\x56\x2e\x17\x99\x6d\x09\x3d\x28"
++			  "\xdd\xb3\xba\x69\x5a\x2e\x6f\x58",
++		.assoc	= "\x56\x2e\x17\x99\x6d\x09\x3d\x28"
++			  "\xdd\xb3\xba\x69\x5a\x2e\x6f\x58",
++		.alen	= 16,
++		.ptext	= "\x00\x01\x02\x03\x04\x05\x06\x07"
++			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f"
++			  "\x10\x11\x12\x13\x14\x15\x16\x17"
++			  "\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f",
++		.plen	= 32,
++		.ctext	= "\xd2\x96\xcd\x94\xc2\xcc\xcf\x8a"
++			  "\x3a\x86\x30\x28\xb5\xe1\xdc\x0a"
++			  "\x75\x86\x60\x2d\x25\x3c\xff\xf9"
++			  "\x1b\x82\x66\xbe\xa6\xd6\x1a\xb1"
++			  "\x31\xef\xd1\x5e\x2d\x83\xde\x59"
++			  "\x5c\x63\x6c\xd6\x6e\x96\x8c\x5b",
++		.clen	= 32 + 16,
++	}, { /* RFC 3602 Case 3 */
++#ifdef __LITTLE_ENDIAN
++		.key    = "\x08\x00"		/* rta length */
++			  "\x01\x00"            /* rta type */
++#else
++		.key    = "\x00\x08"		/* rta length */
++			  "\x00\x01"		/* rta type */
++#endif
++			  "\x00\x00\x00\x10"	/* enc key length */
++			  "\x11\x22\x33\x44\x55\x66\x77\x88"
++			  "\x99\xaa\xbb\xcc\xdd\xee\xff\x11"
++			  "\x6c\x3e\xa0\x47\x76\x30\xce\x21"
++			  "\xa2\xce\x33\x4a\xa7\x46\xc2\xcd",
++		.klen   = 8 + 16 + 16,
++		.iv     = "\xc7\x82\xdc\x4c\x09\x8c\x66\xcb"
++			  "\xd9\xcd\x27\xd8\x25\x68\x2c\x81",
++		.assoc	= "\xc7\x82\xdc\x4c\x09\x8c\x66\xcb"
++			  "\xd9\xcd\x27\xd8\x25\x68\x2c\x81",
++		.alen	= 16,
++		.ptext	= "This is a 48-byte message (exactly 3 AES blocks)",
++		.plen	= 48,
++		.ctext	= "\xd0\xa0\x2b\x38\x36\x45\x17\x53"
++			  "\xd4\x93\x66\x5d\x33\xf0\xe8\x86"
++			  "\x2d\xea\x54\xcd\xb2\x93\xab\xc7"
++			  "\x50\x69\x39\x27\x67\x72\xf8\xd5"
++			  "\x02\x1c\x19\x21\x6b\xad\x52\x5c"
++			  "\x85\x79\x69\x5d\x83\xba\x26\x84"
++			  "\xa1\x9e\xc5\x65\x43\xc5\x51\x70"
++			  "\xb5\xc8\x38\xce\xbb\x3b\xc6\x0f",
++		.clen	= 48 + 16,
++	}, { /* RFC 3602 Case 4 */
++#ifdef __LITTLE_ENDIAN
++		.key    = "\x08\x00"		/* rta length */
++			  "\x01\x00"		/* rta type */
++#else
++		.key    = "\x00\x08"		/* rta length */
++			  "\x00\x01"            /* rta type */
++#endif
++			  "\x00\x00\x00\x10"	/* enc key length */
++			  "\x11\x22\x33\x44\x55\x66\x77\x88"
++			  "\x99\xaa\xbb\xcc\xdd\xee\xff\x11"
++			  "\x56\xe4\x7a\x38\xc5\x59\x89\x74"
++			  "\xbc\x46\x90\x3d\xba\x29\x03\x49",
++		.klen   = 8 + 16 + 16,
++		.iv     = "\x8c\xe8\x2e\xef\xbe\xa0\xda\x3c"
++			  "\x44\x69\x9e\xd7\xdb\x51\xb7\xd9",
++		.assoc	= "\x8c\xe8\x2e\xef\xbe\xa0\xda\x3c"
++			  "\x44\x69\x9e\xd7\xdb\x51\xb7\xd9",
++		.alen	= 16,
++		.ptext	= "\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7"
++			  "\xa8\xa9\xaa\xab\xac\xad\xae\xaf"
++			  "\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7"
++			  "\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf"
++			  "\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7"
++			  "\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf"
++			  "\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7"
++			  "\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf",
++		.plen	= 64,
++		.ctext	= "\xc3\x0e\x32\xff\xed\xc0\x77\x4e"
++			  "\x6a\xff\x6a\xf0\x86\x9f\x71\xaa"
++			  "\x0f\x3a\xf0\x7a\x9a\x31\xa9\xc6"
++			  "\x84\xdb\x20\x7e\xb0\xef\x8e\x4e"
++			  "\x35\x90\x7a\xa6\x32\xc3\xff\xdf"
++			  "\x86\x8b\xb7\xb2\x9d\x3d\x46\xad"
++			  "\x83\xce\x9f\x9a\x10\x2e\xe9\x9d"
++			  "\x49\xa5\x3e\x87\xf4\xc3\xda\x55"
++			  "\x19\x90\xcc\x2c\x6d\x76\x0f\xd6"
++			  "\x6c\x54\x09\xb1\x3e\x98\x0c\x11",
++		.clen	= 64 + 16,
++	}, { /* RFC 3602 Case 5 */
++#ifdef __LITTLE_ENDIAN
++		.key    = "\x08\x00"		/* rta length */
++			  "\x01\x00"            /* rta type */
++#else
++		.key    = "\x00\x08"		/* rta length */
++			  "\x00\x01"            /* rta type */
++#endif
++			  "\x00\x00\x00\x10"	/* enc key length */
++			  "\x11\x22\x33\x44\x55\x66\x77\x88"
++			  "\x99\xaa\xbb\xcc\xdd\xee\xff\x11"
++			  "\x90\xd3\x82\xb4\x10\xee\xba\x7a"
++			  "\xd9\x38\xc4\x6c\xec\x1a\x82\xbf",
++		.klen   = 8 + 16 + 16,
++		.iv     = "\xe9\x6e\x8c\x08\xab\x46\x57\x63"
++			  "\xfd\x09\x8d\x45\xdd\x3f\xf8\x93",
++		.assoc  = "\x00\x00\x43\x21\x00\x00\x00\x01"
++			  "\xe9\x6e\x8c\x08\xab\x46\x57\x63"
++			  "\xfd\x09\x8d\x45\xdd\x3f\xf8\x93",
++		.alen   = 24,
++		.ptext	= "\x08\x00\x0e\xbd\xa7\x0a\x00\x00"
++			  "\x8e\x9c\x08\x3d\xb9\x5b\x07\x00"
++			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f"
++			  "\x10\x11\x12\x13\x14\x15\x16\x17"
++			  "\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f"
++			  "\x20\x21\x22\x23\x24\x25\x26\x27"
++			  "\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f"
++			  "\x30\x31\x32\x33\x34\x35\x36\x37"
++			  "\x01\x02\x03\x04\x05\x06\x07\x08"
++			  "\x09\x0a\x0b\x0c\x0d\x0e\x0e\x01",
++		.plen	= 80,
++		.ctext	= "\xf6\x63\xc2\x5d\x32\x5c\x18\xc6"
++			  "\xa9\x45\x3e\x19\x4e\x12\x08\x49"
++			  "\xa4\x87\x0b\x66\xcc\x6b\x99\x65"
++			  "\x33\x00\x13\xb4\x89\x8d\xc8\x56"
++			  "\xa4\x69\x9e\x52\x3a\x55\xdb\x08"
++			  "\x0b\x59\xec\x3a\x8e\x4b\x7e\x52"
++			  "\x77\x5b\x07\xd1\xdb\x34\xed\x9c"
++			  "\x53\x8a\xb5\x0c\x55\x1b\x87\x4a"
++			  "\xa2\x69\xad\xd0\x47\xad\x2d\x59"
++			  "\x13\xac\x19\xb7\xcf\xba\xd4\xa6"
++			  "\x9f\x6f\xa4\x85\x28\xf1\xc9\xea"
++			  "\xe1\xd0\x7d\x30\x4a\xd0\x81\x12",
++		.clen	= 80 + 16,
++	}, { /* NIST SP800-38A F.2.3 CBC-AES192.Encrypt */
++#ifdef __LITTLE_ENDIAN
++		.key    = "\x08\x00"            /* rta length */
++			  "\x01\x00"		/* rta type */
++#else
++		.key    = "\x00\x08"		/* rta length */
++			  "\x00\x01"            /* rta type */
++#endif
++			  "\x00\x00\x00\x18"	/* enc key length */
++			  "\x11\x22\x33\x44\x55\x66\x77\x88"
++			  "\x99\xaa\xbb\xcc\xdd\xee\xff\x11"
++			  "\x8e\x73\xb0\xf7\xda\x0e\x64\x52"
++			  "\xc8\x10\xf3\x2b\x80\x90\x79\xe5"
++			  "\x62\xf8\xea\xd2\x52\x2c\x6b\x7b",
++		.klen   = 8 + 16 + 24,
++		.iv     = "\x00\x01\x02\x03\x04\x05\x06\x07"
++			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f",
++		.assoc	= "\x00\x01\x02\x03\x04\x05\x06\x07"
++			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f",
++		.alen	= 16,
++		.ptext	= "\x6b\xc1\xbe\xe2\x2e\x40\x9f\x96"
++			  "\xe9\x3d\x7e\x11\x73\x93\x17\x2a"
++			  "\xae\x2d\x8a\x57\x1e\x03\xac\x9c"
++			  "\x9e\xb7\x6f\xac\x45\xaf\x8e\x51"
++			  "\x30\xc8\x1c\x46\xa3\x5c\xe4\x11"
++			  "\xe5\xfb\xc1\x19\x1a\x0a\x52\xef"
++			  "\xf6\x9f\x24\x45\xdf\x4f\x9b\x17"
++			  "\xad\x2b\x41\x7b\xe6\x6c\x37\x10",
++		.plen	= 64,
++		.ctext	= "\x4f\x02\x1d\xb2\x43\xbc\x63\x3d"
++			  "\x71\x78\x18\x3a\x9f\xa0\x71\xe8"
++			  "\xb4\xd9\xad\xa9\xad\x7d\xed\xf4"
++			  "\xe5\xe7\x38\x76\x3f\x69\x14\x5a"
++			  "\x57\x1b\x24\x20\x12\xfb\x7a\xe0"
++			  "\x7f\xa9\xba\xac\x3d\xf1\x02\xe0"
++			  "\x08\xb0\xe2\x79\x88\x59\x88\x81"
++			  "\xd9\x20\xa9\xe6\x4f\x56\x15\xcd"
++			  "\xc3\x46\xe5\x2c\x07\x27\x50\xca"
++			  "\x50\x4a\x83\x5f\x72\xd9\x76\x8d",
++		.clen	= 64 + 16,
++	}, { /* NIST SP800-38A F.2.5 CBC-AES256.Encrypt */
++#ifdef __LITTLE_ENDIAN
++		.key    = "\x08\x00"		/* rta length */
++			  "\x01\x00"		/* rta type */
++#else
++		.key    = "\x00\x08"		/* rta length */
++			  "\x00\x01"            /* rta type */
++#endif
++			  "\x00\x00\x00\x20"	/* enc key length */
++			  "\x11\x22\x33\x44\x55\x66\x77\x88"
++			  "\x99\xaa\xbb\xcc\xdd\xee\xff\x11"
++			  "\x60\x3d\xeb\x10\x15\xca\x71\xbe"
++			  "\x2b\x73\xae\xf0\x85\x7d\x77\x81"
++			  "\x1f\x35\x2c\x07\x3b\x61\x08\xd7"
++			  "\x2d\x98\x10\xa3\x09\x14\xdf\xf4",
++		.klen   = 8 + 16 + 32,
++		.iv     = "\x00\x01\x02\x03\x04\x05\x06\x07"
++			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f",
++		.assoc	= "\x00\x01\x02\x03\x04\x05\x06\x07"
++			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f",
++		.alen	= 16,
++		.ptext	= "\x6b\xc1\xbe\xe2\x2e\x40\x9f\x96"
++			  "\xe9\x3d\x7e\x11\x73\x93\x17\x2a"
++			  "\xae\x2d\x8a\x57\x1e\x03\xac\x9c"
++			  "\x9e\xb7\x6f\xac\x45\xaf\x8e\x51"
++			  "\x30\xc8\x1c\x46\xa3\x5c\xe4\x11"
++			  "\xe5\xfb\xc1\x19\x1a\x0a\x52\xef"
++			  "\xf6\x9f\x24\x45\xdf\x4f\x9b\x17"
++			  "\xad\x2b\x41\x7b\xe6\x6c\x37\x10",
++		.plen	= 64,
++		.ctext	= "\xf5\x8c\x4c\x04\xd6\xe5\xf1\xba"
++			  "\x77\x9e\xab\xfb\x5f\x7b\xfb\xd6"
++			  "\x9c\xfc\x4e\x96\x7e\xdb\x80\x8d"
++			  "\x67\x9f\x77\x7b\xc6\x70\x2c\x7d"
++			  "\x39\xf2\x33\x69\xa9\xd9\xba\xcf"
++			  "\xa5\x30\xe2\x63\x04\x23\x14\x61"
++			  "\xb2\xeb\x05\xe2\xc3\x9b\xe9\xfc"
++			  "\xda\x6c\x19\x07\x8c\x6a\x9d\x1b"
++			  "\x59\x62\x06\x71\x57\xdf\x18\x15"
++			  "\x32\x02\xfa\xce\x2c\xd2\x1a\x8d",
++		.clen	= 64 + 16,
++	},
++};
++
+ static const struct aead_testvec hmac_md5_ecb_cipher_null_tv_template[] = {
+ 	{ /* Input data from RFC 2410 Case 1 */
+ #ifdef __LITTLE_ENDIAN
+-- 
+2.47.3
 
-Yes, for SMMU we need to make sure the HW-dirty state is correct or it
-will keep faulting. And while we are doing it, it makes sense to just
-update all the bits to be consistent.
-
-> 
-> If my reasoning is correct, then I think arm64 hugetlb has a similar bug; See
-> __cont_access_flags_changed(), which just checks for any form of dirty. So I
-> guess hugetlb is buggy in the same way and should be fixed to use this more
-> stringent approach?
-
-Given sw-dirty is managed by sw, is it correct for sw to ever create a
-PTE that's sw-dirty but not hw-dirty? If not, then I think it will still
-work fine for the SMMU case as sw-dirty implies hw-dirty, and if it's
-missing then we will set both. But for thoroughness it could make sense
-to be stricter and add some comments there as it does feel a little
-fragile. I'm very new to this area though so probably best for others to
-comment and tackle this.
-
-Thanks,
-Piotr
-
-
-> 
-> Thanks,
-> Ryan
-> 
-> > +
-> > +	return true;
-> > +}
-> > +
-> >  int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
-> >  					unsigned long addr, pte_t *ptep,
-> >  					pte_t entry, int dirty)
-> > @@ -399,13 +416,35 @@ int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
-> >  	int i;
-> >  
-> >  	/*
-> > -	 * Gather the access/dirty bits for the contiguous range. If nothing has
-> > -	 * changed, its a noop.
-> > +	 * Check whether all sub-PTEs in the CONT block already have the
-> > +	 * requested access flags, using raw per-PTE values rather than the
-> > +	 * gathered ptep_get() view.
-> > +	 *
-> > +	 * ptep_get() gathers AF/dirty state across the whole CONT block,
-> > +	 * which is correct for CPU TLB semantics: with FEAT_HAFDBS the
-> > +	 * hardware may set AF/dirty on any sub-PTE and the CPU TLB treats
-> > +	 * the gathered result as authoritative for the entire range. But an
-> > +	 * SMMU without HTTU (or with HA/HD disabled in CD.TCR) evaluates
-> > +	 * each descriptor individually and will keep faulting on the target
-> > +	 * sub-PTE if its flags haven't actually been updated. Gathering can
-> > +	 * therefore cause false no-ops when only a sibling has been updated:
-> > +	 *  - write faults: target still has PTE_RDONLY (needs PTE_RDONLY cleared)
-> > +	 *  - read faults:  target still lacks PTE_AF
-> > +	 *
-> > +	 * Per Arm ARM (DDI 0487) D8.7.1, any sub-PTE in a CONT range may
-> > +	 * become the effective cached translation, so all entries must have
-> > +	 * consistent attributes. Check the full CONT block before returning
-> > +	 * no-op, and when any sub-PTE mismatches, proceed to update the whole
-> > +	 * range.
-> >  	 */
-> > -	orig_pte = pte_mknoncont(ptep_get(ptep));
-> > -	if (pte_val(orig_pte) == pte_val(entry))
-> > +	if (contpte_all_subptes_match_access_flags(ptep, entry))
-> >  		return 0;
-> >  
-> > +	/*
-> > +	 * Use raw target pte (not gathered) for write-bit unfold decision.
-> > +	 */
-> > +	orig_pte = pte_mknoncont(__ptep_get(ptep));
-> > +
-> >  	/*
-> >  	 * We can fix up access/dirty bits without having to unfold the contig
-> >  	 * range. But if the write bit is changing, we must unfold.
-> 
-> 
 
