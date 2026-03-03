@@ -4,68 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E99E4EC048A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 10:06:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA096E67A9B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 10:13:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WlUg3Te/AhD2ZgKJGej/M7jgoNK8OIQpEGNkEyuig6c=; b=FugwA2zrj7HBTxV6oK9tn8+JBT
-	v4B++uVVjWJHch5kxhosxLcfIjiHYdYg/c0cKOKKxnEH5BFXuyXkNxn0LvVTwETc+GymaFDGPMgjZ
-	Cie7H4G4LPbl2eFPQLou0vBX+E9UokQo7VJi5CoXSR6lC2iHTGT8Qd1j6LghL4P24Xyi3IDJbOniY
-	sghYssJylqo3sMCmSuzMscX8ocSF8O8LuClKU3BBdc4f46wd/b0F7nHerJIUz38OhKDix67grL3Qi
-	8tzQdH9CjqKZAMo2Ubhsv8r6xLY8OLKUVnZPHPSDjD2zSuwjA31Jx6wpDlZRYijdbkp+uIWRfNOy4
-	JJYECXRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4028qTCJqDSLAIj2hVOnoJ50yWM86IojyWcEZbGMr+I=; b=JmcUr9IDruC+lM6pws6kpQJc43
+	Zx4Jnw+StDfViOspQRIRYdfsCyDoadGco5GQ+7imG9QHE7SPoblhHK5B2YWJCIv3E5HC+Jw5flxVr
+	X79Dms/ghj8HchSRlhN0itPBEvLAnbGDOwGR/qfU/IPk05Fl+aOV+swfRkyNIQOGv0ChGJjt0fdS9
+	pFB6vPO0a0oP4AnhcAM0X0+6XlVSS2BRsCoP1Pn0X+pDA1W5Mj6s9XIK2JxioLeP+OttA9e3huXDy
+	MvLEWzzd+ja7xPK1gvVg6bHYaYUUre3CREY7kvedru0h+uUozHnZSYAgRUQRG7uxm6Vd50dDlYujU
+	fm7eqIRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxMeC-0000000Evsb-3PVk;
-	Tue, 03 Mar 2026 10:06:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vxMl7-0000000EwmT-2qs4;
+	Tue, 03 Mar 2026 10:13:45 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxMe9-0000000EvoI-0oQZ
+	id 1vxMl4-0000000Ewlx-2KAI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 10:06:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 75D0444388;
-	Tue,  3 Mar 2026 10:06:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0904FC2BCAF;
-	Tue,  3 Mar 2026 10:06:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772532392;
-	bh=Av6u6btJD8+jQWYCeDNUAFulpZzXi0zl5Rs5VlxxWtI=;
-	h=From:Date:Subject:To:Cc:From;
-	b=ELuZYJaEIZb+5FqIPc54jh2cALV2s6QygkvaWTSmWxCwMnUmZRX79HX0Ny0yB3e7W
-	 QLK33t7bNtFWIZM5zxK2Dkxc9MnoHjAatxkZ6tkRXJlM42NZ0AXtXySA8A8Cc6T28K
-	 iXrJMafG/UldZFfuwUcX9l/hVXhkmW2sYvU6kAHM9huBUUqYrvMLFTbf674yh5KfZR
-	 cmTYC1C6jMvzxt2W3Uf7/aqQ0SU448huNWZyF8r/FZaaoAg96G16/5p/E3KjpYsnnS
-	 SA8blkaqfQRYE7aBa5wPLr6UfFfx/MuzAM3KmiUryW0Csh5/4/DAizB3XFTDbJgeiD
-	 idgEnABvuDmPg==
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 03 Mar 2026 11:06:13 +0100
-Subject: [PATCH] arm64: Implement clear_pages()
+	Tue, 03 Mar 2026 10:13:43 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vxMkl-0001RA-VG; Tue, 03 Mar 2026 11:13:23 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vxMkj-003Wua-0a;
+	Tue, 03 Mar 2026 11:13:22 +0100
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vxMkk-0000000G2Od-1b45;
+	Tue, 03 Mar 2026 11:13:22 +0100
+Date: Tue, 3 Mar 2026 11:13:22 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, luca.ceresoli@bootlin.com, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, frank.li@nxp.com
+Subject: Re: [PATCH v10 2/3] drm/bridge: imx: Add i.MX93 parallel display
+ format configuration support
+Message-ID: <2mbaz4jixv3h5ofvaneoe7muwr7snvwzs6lulorj4yul6arglt@ac5kzsx7zw4c>
+References: <20260302-v6-18-topic-imx93-parallel-display-v10-0-634fe2778c7a@pengutronix.de>
+ <20260302-v6-18-topic-imx93-parallel-display-v10-2-634fe2778c7a@pengutronix.de>
+ <d97a9c0c-bdda-466a-8131-73799cdb20cd@nxp.com>
+ <jyawx2cllg2jecdvx6bdfv4qiinfiwb6cuuwdhditpr2g2evee@qiox37ahgczd>
+ <edc74093-abe3-4782-8e81-afd87222c146@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260303-aarch64-clear-pages-v1-1-ad0c3ee9a555@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MzQpAUBBA4VfRrE0xfopXkcUYgymhuSV18+5ul
- t/inAhB3TRAn0VwvS3YeSSUeQay8bEq2pwMVFBbUEnI7LK1Ncqu7HjxqgG5rjohaRqaJkjl5br
- Y81+H8X0/tR9XmGUAAAA=
-X-Change-ID: 20260212-aarch64-clear-pages-a439c2c552bb
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
- Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, Ryan Roberts <ryan.roberts@arm.com>, 
- Ankur Arora <ankur.a.arora@oracle.com>, 
- David Hildenbrand <david@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- James Clark <james.clark2@arm.com>, Linus Walleij <linusw@kernel.org>
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <edc74093-abe3-4782-8e81-afd87222c146@nxp.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_020633_278025_266287CD 
-X-CRM114-Status: GOOD (  17.28  )
+X-CRM114-CacheID: sfid-20260303_021342_596831_F0FE7F72 
+X-CRM114-Status: GOOD (  37.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,195 +90,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A recent patch introduced clear_pages() and made it possible to
-provide assembly optimizations like for clear_page().
+On 26-03-03, Liu Ying wrote:
+> On Tue, Mar 03, 2026 at 09:05:43AM +0100, Marco Felsch wrote:
+> > On 26-03-03, Liu Ying wrote:
+> >> On Mon, Mar 02, 2026 at 05:10:41PM +0100, Marco Felsch wrote:
+> >>> From: Liu Ying <victor.liu@nxp.com>
+> >>>
+> >>> NXP i.MX93 mediamix blk-ctrl contains one DISPLAY_MUX register which
+> >>> configures parallel display format by using the "PARALLEL_DISP_FORMAT"
+> >>> field. Add a DRM bridge driver to support the display format configuration.
+> >>>
+> >>> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> >>> [m.felsch@pengutronix.de: port to v7.0-rc1]
+> >>> [m.felsch@pengutronix.de: add review feedback (Alexander)]
+> >>> [m.felsch@pengutronix.de: fix to short Kconfig description (checkpath)]
+> >>> [m.felsch@pengutronix.de: use "GPL" instead of "GPL v2" (checkpatch)]
+> >>> [m.felsch@pengutronix.de: add bus-width support]
+> >>> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> >>> ---
+> >>>  drivers/gpu/drm/bridge/imx/Kconfig      |  11 ++
+> >>>  drivers/gpu/drm/bridge/imx/Makefile     |   1 +
+> >>>  drivers/gpu/drm/bridge/imx/imx93-pdfc.c | 225 ++++++++++++++++++++++++++++++++
+> >>>  3 files changed, 237 insertions(+)
+> >>>
+> >>
+> >> [...]
+> >>
+> >>> +static bool imx93_pdfc_bus_output_fmt_supported(const  u32 fmt)
+> >>
+> >> As I mentioned in v9, can you drop const?
+> >> I don't think const is needed.
+> > 
+> > It makes sense to spot failures early. Albeit this function is very
+> > small, the fmt shouldn't be changed and therefore needs to be const.
+> 
+> If fmt is a pointer, then I think it makes sense to keep const.
+> Otherwise, it looks a bit over engineered to have const, since this
+> function is really small and no one would try to change fmt.
 
-This augments the existing clear_page() optimization in arm64
-to accept any number of pages the following way:
+I'm aware that this is a copy of the output_cfg.format value. Would it
+be a non const value you could mess with it and return the wrong value
+afterwards. Keeping it const avoids this. Not sure why a 'const' is
+worth the discussion :/
 
-- Make clear_page() a static inline special case of clear_pages()
+> > I forgot to add the double space fix though, thanks.
+> > 
+> >>> +{
+> >>> +	int i;
+> >>> +
+> >>> +	for (i = 0; i < ARRAY_SIZE(imx93_pdfc_bus_output_fmts); i++) {
+> >>> +		if (imx93_pdfc_bus_output_fmts[i] == fmt)
+> >>> +			return true;
+> >>> +	}
+> >>> +
+> >>> +	return false;
+> >>> +}
+> 
+> [...]
+> 
+> >>> +static int imx93_pdfc_bridge_atomic_check(struct drm_bridge *bridge,
+> >>> +					  struct drm_bridge_state *bridge_state,
+> >>> +					  struct drm_crtc_state *crtc_state,
+> >>> +					  struct drm_connector_state *conn_state)
+> >>> +{
+> >>> +	struct imx93_pdfc *pdfc = bridge_to_imx93_pdfc(bridge);
+> >>> +	const u32 format = bridge_state->output_bus_cfg.format;
+> >>
+> >> Can you drop const?
+> > 
+> > No because this function is not supposed to change the format. The
+> > function documentation says: this function can alter the bus_cfg.flags
+> > bit _not_ the format.
+> 
+> The local variable format is not a pointer, so literally the value of
+> bridge_state->output_bus_cfg.format cannot be changed through format,
+> which follows the documentation.  So, I think const could be dropped.
 
-- Implement clear_pages() as a static inline that just calculate
-  the number of total bytes in the page set and passes this number
-  to the assembly routine clear_pages_asm.
+Same here, I'm aware that this is not the pointer value but it holds a
+copy of the value. Any adaptions made to the copy will fail, any
+assignment of a const value to a non const value will prints at least a
+warning to show that something is wrong within this function. Only a
+direct bridge_state->output_bus_cfg.format assigned would cause no
+compiler error/warning, fingers crossed that this will not happen.
 
-- The old clear_pages assembly is rewritten to clear_pages_asm
-  which will take a start address (at an even page) and a number
-  of bytes to clear from that address.
+I'm not sure why the 'const' is such a big problem in your oppinion.
+Everything works just fine and we've done everything in our power to
+avoid a wrong function behavior.
 
-This is similar to the optimization provided for x86.
+Regards,
+  Marco
 
-Performance improvements:
 
-The baseline is the current v7.0-rc1 which calls the existing
-clear_page() assembly optimization in a loop, see <linux/mm.h>.
-Any improvements are about avoiding the outer loop, in most cases
-the clearing will be linear and the savings will be small and
-only noticeable on really big clearing operations.
+> 
+> > 
+> > Regards,
+> >   Marco
+> > 
+> > 
+> > 
+> >>
+> >> -- 
+> >> Regards,
+> >> Liu Ying
+> >>
+> > 
+> 
+> -- 
+> Regards,
+> Liu Ying
+> 
 
-We boot the kernel with cmdline like this:
-"default_hugepagesz=1G hugepagesz=1G hugepages=32" to make sure
-we have ample hugepages. This was then tested with the same
-cmdline as the original series:
-
-perf bench mem mmap -p 1GB -f demand -s 32GB -l 5
-
-The first run was discarded as the memory hierarchy is cold on
-the first run. Then I ran the above command 5 times and averaged
-the throughput, which sees a small but consistent improvement in
-the throughput:
-
-On QEMU:
-
-Before this patch:     After this patch:
-2.38 GB/s              2.41 GB/s
-
-On hardware Radxa Orion O6 we see this on *some* cores and no
-change on others:
-
-Before this patch:     After this patch:
-43.3 GB/s              45.3 GB/s
-
-There is a small but consistent improvement in throughput, as
-expected.
-
-Tested-by: James Clark <james.clark2@arm.com>
-Signed-off-by: Linus Walleij <linusw@kernel.org>
----
- arch/arm64/include/asm/page.h                  | 13 ++++++++++++-
- arch/arm64/kernel/image-vars.h                 |  2 +-
- arch/arm64/kvm/hyp/nvhe/Makefile               |  2 +-
- arch/arm64/lib/Makefile                        |  2 +-
- arch/arm64/lib/{clear_page.S => clear_pages.S} | 18 +++++++++---------
- 5 files changed, 24 insertions(+), 13 deletions(-)
-
-diff --git a/arch/arm64/include/asm/page.h b/arch/arm64/include/asm/page.h
-index b39cc1127e1f..916a3e7c9a19 100644
---- a/arch/arm64/include/asm/page.h
-+++ b/arch/arm64/include/asm/page.h
-@@ -20,7 +20,18 @@ struct page;
- struct vm_area_struct;
- 
- extern void copy_page(void *to, const void *from);
--extern void clear_page(void *to);
-+extern void clear_pages_asm(void *addr, unsigned int nbytes);
-+
-+static inline void clear_pages(void *addr, unsigned int npages)
-+{
-+	clear_pages_asm(addr, npages * PAGE_SIZE);
-+}
-+#define clear_pages clear_pages
-+
-+static inline void clear_page(void *addr)
-+{
-+	clear_pages(addr, 1);
-+}
- 
- void copy_user_highpage(struct page *to, struct page *from,
- 			unsigned long vaddr, struct vm_area_struct *vma);
-diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
-index d7b0d12b1015..61232f9e1e68 100644
---- a/arch/arm64/kernel/image-vars.h
-+++ b/arch/arm64/kernel/image-vars.h
-@@ -117,7 +117,7 @@ KVM_NVHE_ALIAS(__start___kvm_ex_table);
- KVM_NVHE_ALIAS(__stop___kvm_ex_table);
- 
- /* Position-independent library routines */
--KVM_NVHE_ALIAS_HYP(clear_page, __pi_clear_page);
-+KVM_NVHE_ALIAS_HYP(clear_pages, __pi_clear_pages);
- KVM_NVHE_ALIAS_HYP(copy_page, __pi_copy_page);
- KVM_NVHE_ALIAS_HYP(memcpy, __pi_memcpy);
- KVM_NVHE_ALIAS_HYP(memset, __pi_memset);
-diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
-index a244ec25f8c5..f857dac82a88 100644
---- a/arch/arm64/kvm/hyp/nvhe/Makefile
-+++ b/arch/arm64/kvm/hyp/nvhe/Makefile
-@@ -17,7 +17,7 @@ ccflags-y += -fno-stack-protector	\
- hostprogs := gen-hyprel
- HOST_EXTRACFLAGS += -I$(objtree)/include
- 
--lib-objs := clear_page.o copy_page.o memcpy.o memset.o
-+lib-objs := clear_pages.o copy_page.o memcpy.o memset.o
- lib-objs := $(addprefix ../../../lib/, $(lib-objs))
- 
- CFLAGS_switch.nvhe.o += -Wno-override-init
-diff --git a/arch/arm64/lib/Makefile b/arch/arm64/lib/Makefile
-index 633e5223d944..86995e2e0807 100644
---- a/arch/arm64/lib/Makefile
-+++ b/arch/arm64/lib/Makefile
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0
- lib-y		:= clear_user.o delay.o copy_from_user.o		\
- 		   copy_to_user.o copy_page.o				\
--		   clear_page.o csum.o insn.o memchr.o memcpy.o		\
-+		   clear_pages.o csum.o insn.o memchr.o memcpy.o	\
- 		   memset.o memcmp.o strcmp.o strncmp.o strlen.o	\
- 		   strnlen.o strchr.o strrchr.o tishift.o
- 
-diff --git a/arch/arm64/lib/clear_page.S b/arch/arm64/lib/clear_pages.S
-similarity index 70%
-rename from arch/arm64/lib/clear_page.S
-rename to arch/arm64/lib/clear_pages.S
-index bd6f7d5eb6eb..2d3043c13791 100644
---- a/arch/arm64/lib/clear_page.S
-+++ b/arch/arm64/lib/clear_pages.S
-@@ -12,22 +12,22 @@
-  * Clear page @dest
-  *
-  * Parameters:
-- *	x0 - dest
-+ *	x0 - dest - should be start of a page
-+ *	x1 - number of bytes to clear, should be a multiple of PAGE_SIZE
-  */
--SYM_FUNC_START(__pi_clear_page)
-+SYM_FUNC_START(__pi_clear_pages)
- #ifdef CONFIG_AS_HAS_MOPS
- 	.arch_extension mops
- alternative_if_not ARM64_HAS_MOPS
- 	b	.Lno_mops
- alternative_else_nop_endif
--
--	mov	x1, #PAGE_SIZE
- 	setpn	[x0]!, x1!, xzr
- 	setmn	[x0]!, x1!, xzr
- 	seten	[x0]!, x1!, xzr
- 	ret
- .Lno_mops:
- #endif
-+	add	x4, x0, x1	/* Find the end */
- 	mrs	x1, dczid_el0
- 	tbnz	x1, #4, 2f	/* Branch if DC ZVA is prohibited */
- 	and	w1, w1, #0xf
-@@ -36,7 +36,7 @@ alternative_else_nop_endif
- 
- 1:	dc	zva, x0
- 	add	x0, x0, x1
--	tst	x0, #(PAGE_SIZE - 1)
-+	cmp	x0, x4
- 	b.ne	1b
- 	ret
- 
-@@ -45,9 +45,9 @@ alternative_else_nop_endif
- 	stnp	xzr, xzr, [x0, #32]
- 	stnp	xzr, xzr, [x0, #48]
- 	add	x0, x0, #64
--	tst	x0, #(PAGE_SIZE - 1)
-+	cmp	x0, x4
- 	b.ne	2b
- 	ret
--SYM_FUNC_END(__pi_clear_page)
--SYM_FUNC_ALIAS(clear_page, __pi_clear_page)
--EXPORT_SYMBOL(clear_page)
-+SYM_FUNC_END(__pi_clear_pages)
-+SYM_FUNC_ALIAS(clear_pages_asm, __pi_clear_pages)
-+EXPORT_SYMBOL(clear_pages_asm)
-
----
-base-commit: dbe60c40b86ec4a1168552398b3b64c14c38b2d7
-change-id: 20260212-aarch64-clear-pages-a439c2c552bb
-
-Best regards,
 -- 
-Linus Walleij <linusw@kernel.org>
+#gernperDu 
+#CallMeByMyFirstName
 
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
