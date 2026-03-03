@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51BEEEC1438
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 12:42:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79EF8EC1438
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 12:44:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AG0+Lt9MpUpi2D8c6oPsdwA3dikbVgdNbMqMfjrP04U=; b=nNlE17f9Q+4QQ48l0FwXqHS/Ol
-	RIZJLdW/13qPYuQwEOHLwhxsaSe68rGBCN0T58PnFA/ak+O0jK8L1EiOZUOYUnp7/cPdeDpEs4i9p
-	0SzLuc+8Uf9N0V4wiTfUzVLK+FF5WY4fD0hPrjJbuQQiOeks2wpSATluycuTiSrCVZ2bh5ARE/QHo
-	JC+A8Jh6sI1VblEH31yGhwJ4oE2Ktzru5CQ44GC7+sODRxjQD6Evz0ZsVlBr+lBJGh6Y6TDUF0mK5
-	Ispx/zMBYq4ld6sCgDu/SjhjRtStjdmQOA2fJD5G1eICkh19T+O+hqITDQs9ZVq56I1xlEiGQiIXs
-	1Nx7Tx+w==;
+	bh=luDZBHiUhkBAz+mUksD4Qwqf81/zGcNtk0iuKrPZxiw=; b=BSqgQNpfJsaX9AfDK5Wu61VK5h
+	Hb4ee+Wwzmn/GBJ8G3Igo9zmidpMci0mmt6brQqf0ZHkkT2kuzEqftUPHY2+MVDidXV31RNa4LoIR
+	LLXgtfWEzhef/0ALQr/4B2MAm4nl96AeflxWjr3jc5Zu+RViQUwk0s7UDGr1mATLlKOzoSjRofcEr
+	4+/hObtttD/Ft+nmcyuMlRFcxG++y4a+Ye1zpM3mJ8LQB2vcrxrHau2AyQzZM43St5eW6Zny6TUsm
+	cDoSBY9ijj4/8VeapBW4kBm7MceRMNTKZiqAyXOga020zcHBGcjOrjTEPaElYEcPVgzIamxsJwcCf
+	H2SSoaew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxP4o-0000000FADh-14iK;
-	Tue, 03 Mar 2026 12:42:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxP4l-0000000FACM-1hWi
+	id 1vxP6k-0000000FAVi-3BZy;
+	Tue, 03 Mar 2026 12:44:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxP6j-0000000FAVY-3KKo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 12:42:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B90FA497;
-	Tue,  3 Mar 2026 04:42:03 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 548D83F7BD;
-	Tue,  3 Mar 2026 04:42:06 -0800 (PST)
-Date: Tue, 3 Mar 2026 12:42:03 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, sudeep.holla@arm.com,
-	philip.radford@arm.com, james.quinlan@broadcom.com,
-	f.fainelli@gmail.com, vincent.guittot@linaro.org,
-	etienne.carriere@foss.st.com, peng.fan@oss.nxp.com,
-	michal.simek@amd.com, dan.carpenter@linaro.org,
-	geert+renesas@glider.be, kuninori.morimoto.gx@renesas.com,
-	marek.vasut+renesas@gmail.com
-Subject: Re: [PATCH 03/11] firmware: arm_scmi: Simplify clock rates exposed
- interface
-Message-ID: <aabXG1klJr7Qkpic@pluto>
-References: <20260227153225.2778358-1-cristian.marussi@arm.com>
- <20260227153225.2778358-4-cristian.marussi@arm.com>
- <CAMuHMdW7e45rc5VmHQV5GxzMvJ3r6=04sWOoFsu4JJPAqDUiJA@mail.gmail.com>
- <CAMuHMdVwVsYxsQj+du-uEN77H6UHDVFO4T6-_7VJ0E4Pfa=sSg@mail.gmail.com>
+	Tue, 03 Mar 2026 12:44:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DCFB460127;
+	Tue,  3 Mar 2026 12:44:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C386C116C6;
+	Tue,  3 Mar 2026 12:44:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772541852;
+	bh=iuHQZypN1F8oLq3wK8SXVV26gJ3eiQfBBD/nb3c0/Xk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GqJa55LG1GFSjzlxVfvDZ4AMc1PqFrnVBbQiMR8Oxv/bSAQSNdsEw1rpByjm7gCE9
+	 EbaKQlgWhPqIqpu7gLP/wC5/FS9yTLxuYMJqPPtQjS+o+aZhOwQ7N3fmRXMhX9FVAY
+	 /vY2m4307N67zkxQy9NBseMSMa8YtmLvpRSk+zEeFc4uHPThToNohb0dS+qhnBD1uM
+	 NVr9K4jEV15ZNfOKm8+emBOouNZ6y/naCeDM3bF+7Hwj3qoXfQsauC9J91ck7zTrwr
+	 BrZFS+f1yCpxNwEGJO/479AjfHBjLzGHjERVl6zsEvbBIwHbQ3l9QZ9AcJc3QgkLLc
+	 D1A9JImGuZ2ug==
+Date: Tue, 3 Mar 2026 18:13:56 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	"David S. Miller" <davem@davemloft.net>, Udit Tiwari <quic_utiwari@quicinc.com>, 
+	Daniel Perez-Zoghbi <dperezzo@quicinc.com>, Md Sadre Alam <mdalam@qti.qualcomm.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Peter Ujfalusi <peter.ujfalusi@gmail.com>, 
+	Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>, dmaengine@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, brgl@kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Bjorn Andersson <andersson@kernel.org>
+Subject: Re: [PATCH RFC v11 00/12] crypto/dmaengine: qce: introduce BAM
+ locking and use DMA for register I/O
+Message-ID: <scr5qvxa7f7k22pms4c6k5gwiky7lhssrw6qryfngexlek44g2@rayinnnwqgbt>
+References: <20260302-qcom-qce-cmd-descr-v11-0-4bf1f5db4802@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <CAMuHMdVwVsYxsQj+du-uEN77H6UHDVFO4T6-_7VJ0E4Pfa=sSg@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_044211_499588_97E4E265 
-X-CRM114-Status: GOOD (  19.14  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260302-qcom-qce-cmd-descr-v11-0-4bf1f5db4802@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,66 +78,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 02, 2026 at 02:09:14PM +0100, Geert Uytterhoeven wrote:
-> Hi Cristian,
+On Mon, Mar 02, 2026 at 04:57:13PM +0100, Bartosz Golaszewski wrote:
+> NOTE: Please note that even though this is version 11, I changed the
+> prefix to RFC as this is an entirely new approach resulting from
+> discussions under v9. I AM AWARE of the existing memory leaks in the
+> last patch of this series - I'm sending it because I want to first
+> discuss the approach and get a green light from Vinod as well as Mani
+> and Bjorn. Especially when it comes to communicating the address for the
+> dummy rights from the client to the BAM driver.
+> /NOTE
 > 
-> On Mon, 2 Mar 2026 at 13:48, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > On Fri, 27 Feb 2026 at 16:33, Cristian Marussi <cristian.marussi@arm.com> wrote:
-> > > Move needlessly exposed fields away from scmi_clock_info into the new
-> > > internal struct scmi_clock_desc while keeping exposed only the two new
-> > > min_rate and max_rate fields for each clock.
-> > >
-> > > No functional change.
-> > >
-> > > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-> >
-> > > --- a/drivers/firmware/arm_scmi/clock.c
-> > > +++ b/drivers/firmware/arm_scmi/clock.c
-> > > @@ -157,13 +157,27 @@ struct scmi_clock_rate_notify_payld {
-> > >         __le32 rate_high;
-> > >  };
-> > >
-> > > +struct scmi_clock_desc {
-> > > +       u32 id;
-> > > +       bool rate_discrete;
-> > > +       unsigned int num_rates;
-> > > +       u64 rates[SCMI_MAX_NUM_RATES];
-> > > +#define        RATE_MIN        0
-> > > +#define        RATE_MAX        1
-> > > +#define        RATE_STEP       2
-> >
-> > Any specific reason you are not using a union here, like in
-> > scmi_clock_info?
-> 
-> Ah, "[PATCH 06/11] firmware: arm_scmi: Make clock rates allocation
-> dynamic" answers that.
-> 
-> >
-> > > +       struct scmi_clock_info info;
-> > > +};
-> >
-> > > --- a/include/linux/scmi_protocol.h
-> > > +++ b/include/linux/scmi_protocol.h
-> > > @@ -51,6 +51,8 @@ struct scmi_clock_info {
-> > >         bool rate_ctrl_forbidden;
-> > >         bool parent_ctrl_forbidden;
-> > >         bool extended_config;
-> > > +       u64 min_rate;
-> > > +       u64 max_rate;
-> > >         union {
-> > >                 struct {
-> > >                         int num_rates;
-> >
-> > You patch description read like the actual rates would be moved
-> > from scmi_clock_info to scmi_clock_desc, i.e. _removed_ here?
-> 
-> And these members are actually removed in "[PATCH 05/11] firmware:
-> arm_scmi: Drop unused clock rate interfaces".  Please reflect that in
-> this patch description.
+> Currently the QCE crypto driver accesses the crypto engine registers
+> directly via CPU. Trust Zone may perform crypto operations simultaneously
+> resulting in a race condition. To remedy that, let's introduce support
+> for BAM locking/unlocking to the driver. The BAM driver will now wrap
+> any existing issued descriptor chains with additional descriptors
+> performing the locking when the client starts the transaction
+> (dmaengine_issue_pending()). The client wanting to profit from locking
+> needs to switch to performing register I/O over DMA and communicate the
+> address to which to perform the dummy writes via a call to
+> dmaengine_slave_config().
 > 
 
-Ok I will better explain.
+Thanks for moving the LOCK/UNLOCK bits out of client to the BAM driver. It looks
+neat now. I understand the limitation that for LOCK/UNLOCK, BAM needs to perform
+a dummy write to an address in the client register space. So in this case, you
+can also use the previous metadata approach to pass the scratchpad register to
+the BAM driver from clients. The BAM driver can use this register to perform
+LOCK/UNLOCK.
 
-Thanks,
-Cristian
+It may sound like I'm suggesting a part of your previous design, but it fits the
+design more cleanly IMO. The BAM performs LOCK/UNLOCK on its own, but it gets
+the scratchpad register address from the clients through the metadata once.
+
+It is very unfortunate that the IP doesn't accept '0' address for LOCK/UNLOCK or
+some of them cannot append LOCK/UNLOCK to the actual CMD descriptors passed from
+the clients. These would've made the code/design even more cleaner.
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
