@@ -4,132 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01CECEDA68F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76893EDA693
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 15:54:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8KB7SJJedz0ghcFBRh7YECjx/G/N+4yd9t91ilfrEq4=; b=MzSoGfR9qw/Z+cuDhF5i/MkNvG
-	0+gKD4z4hYx3D0zTr6E1hsymeZU478HBg1fuUdMlYLNL4fbI056apKGFjl0gsLqzxrb6issfYHtgX
-	Yzu9KHiR8wL/86xGF/qemcReiN0CrAXHvpwo43llRb7xTTNVNNuiiUHVuQTocRbAGMsSCFJZYwrxU
-	7zjx3G7UgTq6Nf4SoQimnND/hMhoyRUnPSwOtZI7/ENrbE52B1W1U9CnY405OdPEx6uJ41K6R4R1n
-	IKaMnfg5F3RQeoN7IMpFfTAbK9PAa4hiG8Fhd1NFP9xK3tTHNRzxc17xU/oSxG37mrqTX3t9DSIFS
-	SewRyfsw==;
+	bh=nrlOvzCEmLHPByoM1wEbIwSH7o8987pfYZd+vBuSlTc=; b=syvit0vhmqYO6XDVFlw9ck5xM1
+	Co72KvfTlTWrTlwM9gQDu/Y9HZJLAeoOdOAwHcgg5IfLyGTIJ37FwtDv1sPyHS39a3epSURaNts0E
+	1dC8QI2RncWol9TzOlnDO6swt1yUAoAGycdgh9I+sMEQIvP+pF8dVUOROGFY7vwpGF6LcAhyXYAks
+	2nr0RvSf5mhouf8v4g9iyNpjLfU4wlQHdVgp6aF41sNrepBWDoKVn3UgdQ1blJrBww/WD1zPEWI7c
+	3A7U3lohS/ASOH8qU79DH0kLdZy4ufwgatqF826+WrfQF191pXCKPLoMvmOVqZDIzUa8ATKAAOGc7
+	Co7ZmBFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxS51-0000000FTso-3P3P;
+	id 1vxS51-0000000FTsL-1wqR;
 	Tue, 03 Mar 2026 15:54:39 +0000
-Received: from mail-westeuropeazon11011012.outbound.protection.outlook.com ([52.101.70.12] helo=AS8PR04CU009.outbound.protection.outlook.com)
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxS4z-0000000FTW6-2XdZ
+	id 1vxS4z-0000000FTpg-2lHa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 15:54:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wziwGCVFxIUJbIsxMc3JceWbcmHrfyXgxhwBekSPaWG+YhBvi8oihbPOmPXHUaHPA1JAp1+totAX5bYACoViUGHkUKlVrZhiHRuRKtvZ159rY+v6xHchAhYth6CPEQj/dF6CiQ78a9vEF3IH7qjYh6ioCRR9Le/0Oj8ZUHAQY654Pqxy/GoyNwJsVQvKQ5QzGu8ybeiT2Ro+VlEmYGhhmajQlawWlb502+atw9IkDoeWR61zRySIJn1CYpxbhPXOI7/MUNnz2zYdkSdZBRQZMCYTnTEJ1yvRaIQ9eybuTBRMkmZALauCqpq+uFHF021X7km/Kz+K4CTsQX06QoInaw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8KB7SJJedz0ghcFBRh7YECjx/G/N+4yd9t91ilfrEq4=;
- b=BE+f2VNtW/80TYr4aei/ygkrrmln7PB/5D6sAni+lzbKFC5TSJ5ti5HuKIvtUKRYUF4NKLRzoN/usXAsZkEFS52a73pgGkmLPFeq9WaHhTrFdzczGFhCEBnrRzWWDisOaaXAfaEYKlieIIA5ld31Dbzr7KvPker3Yk5QOb4JX2nVilLNfhGxcJ+GP2YIBpx6vyqZOAkWrOinhZZgTulgW2PE382W3u3VpOk/FefiDzSUX5nqL/brm6N/UXea2JnAhoAjSKpx5ASXi9sYiWjQB1sa1Lg2PLDcBZ81Ws06Zo3xO1N6FQqnxryNU3/YXNze1GZ2UlZkxiphyHr7RQbffQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8KB7SJJedz0ghcFBRh7YECjx/G/N+4yd9t91ilfrEq4=;
- b=dy2ABM78jTu8qw7gcu80IF3GPfQyFy1NO9xoPaneRagZa74AlZASfoThevO/snmI8a2qvxSWGKZUtSrcamhDOVWPV9vubbgLwPoeUOFWv9jvlXukkAB076ST1c81McphLG/c5EM+k2DG39PHPSBZ3HEhmShNhEvTFcxyTo74HWkWnWiQWW5i6EaqC46wVYW0fs+6PlpyC/JwxbWLTsVJmv5jt4iPOmvU1iy/PhzCuQzpD/c53ufiZ2+aoa8Rhngozduag9nw26/J++cvhQwh1sampwDAzUVhZTcNnrQsjc84D6Ow1x0Qz8g/pR+6PXn3sJBB9fTDfD8PBOekLWkRgw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by AM8PR04MB8019.eurprd04.prod.outlook.com (2603:10a6:20b:24b::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Tue, 3 Mar
- 2026 15:53:54 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9654.020; Tue, 3 Mar 2026
- 15:53:54 +0000
-Date: Tue, 3 Mar 2026 10:53:46 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Stefan Eichenberger <eichest@gmail.com>,
-	Carlos Song <carlos.song@nxp.com>
-Cc: o.rempel@pengutronix.de, kernel@pengutronix.de, andi.shyti@kernel.org,
-	s.hauer@pengutronix.de, festevam@gmail.com,
-	stefan.eichenberger@toradex.com, francesco.dolcini@toradex.com,
-	linux-i2c@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v1 2/2] i2c: imx: ensure no clock is generated after last
- read
-Message-ID: <aacECsJ6O8QjHsUa@lizhi-Precision-Tower-5810>
-References: <20260218150940.131354-1-eichest@gmail.com>
- <20260218150940.131354-3-eichest@gmail.com>
- <aZXoTGK_v3L4pc-E@lizhi-Precision-Tower-5810>
- <aZXq4gn4xhInQQlq@eichest-laptop>
- <aaamYByn9dZEIBWb@eichest-laptop>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aaamYByn9dZEIBWb@eichest-laptop>
-X-ClientProxiedBy: PH8P220CA0060.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:2d9::16) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AM8PR04MB8019:EE_
-X-MS-Office365-Filtering-Correlation-Id: b35e202a-ea50-4180-a0cc-08de793d122d
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|52116014|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: TCqvdkXZ82wIocqAMD2WapyfcyDobK1f2Gd+1hEdKG/5nkSeKdxcadaw87UTEBmmaixgBfmVtf3W0CWIiYHzKRiwAJWmypcibtLF10hNK2oKq1Zu4PSM/Vx1ZF9gncB7Z24INGq3evzy9EgWvfUKBF76fwVFp6h3ViIXpIRq5hY6pAOIY7y+3T08qtpKb3jJREqt+EyUAALWNhZLAsZmf8iUYMWPqOybqzbYoALPlSqnHwcWuBeytpv+uNhqHRw9gZ06J9B9xNMrdeVkrr5jTwJyp+PmyQEXl8turd6eGzSo9SrNfScx6N6HJ1Mo7eOmXc0GUWD88WI3ivXQtEOTyzHTzzdJbBK0N52en/OiK9aiVH7usuEyiBr/OqVsLQYNpb6r0Z0wfjX6GEoEkoNAGP0IN782BCupxsETn+fCcGIZAmw9und9jLXJqF0t6OkJUbLGq2YVvifHIzOoZusWXXCo+Z4//jBFLth8NUmLHtVtZgNU/rD8XtP3yeiZ4rhtqsUyETd8WlXj5YqcnuJr1E9rcT08KLnAQjNrUu1PkPqvl/KM9sMafmKB8KOcB61YomNttQFlcfSj51rjij1xqJ7Ask76gTu5tsWULIbviT4ql0qzTHwsHZY+k+C/fEj+GSJQjgClWfIr2oWjSChMPry8c7HvNts9UFTizTk+V/C2oq3LKmlqYHZvSR8jOYm/6ubk1BHNjVcE4MQcCL6S4d7oGpCXjozEXh+G3151cxykcIMuxsIPMHfMd+T5MhEP
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(52116014)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?N5s0zifpi0l5aqucLgK3JX6f1d1KNh8JtwSrZbn1Aam9ZZfkq0gXFY6Atvec?=
- =?us-ascii?Q?6o8BrbiLYn0a9GYunutAWNyLRQL9U82GDM/Oko7TWK3DagRPlmMMJ8YW8qmT?=
- =?us-ascii?Q?x4QC99N/CHtpoSMimN36BmElt1fLl/asRVc2enipPozlgXfx+X2Ka4SDcSgp?=
- =?us-ascii?Q?klWAe4i3jTedLcrp6irAL1mYnMIcvF28OZcSugYiIo58lKK6gOcoXTBf0jWz?=
- =?us-ascii?Q?HA39BPpYdqWg0EGgWCURy0e+smT5m8dGSW3Y43R8eZ9Sb/19vZjhyt3NX/vV?=
- =?us-ascii?Q?athOHpA0XLDYIJZRwwlolRm+A7DROvCGMFAnIGXPA4H609WDGGFaKhsElXXA?=
- =?us-ascii?Q?9pi13a9xtds0NGnCu1z5ziun4iUO7sE+mykOBV91jE8vRPMnL4T6yRwlJkqk?=
- =?us-ascii?Q?3WnS1/hiMpfNfME/jLO3rPycWHKR6IYa+GrEbdtOpuPpksEFDl+Ts3u82HmY?=
- =?us-ascii?Q?IiDgWf+Z1cf24AW5Vcfr4tJrk5RNko0BHOmLgyrG6kkNc5rvy7uJBdLes0hi?=
- =?us-ascii?Q?w88w0OMnKynoGr8knCFLo3nj5sl73WVqoh+tGlmHoqeNKJ9yYwpUXX6bqi/e?=
- =?us-ascii?Q?c2vQOvlLBkw3/xy4wDvuHFNHUV5D0davPtnhxHPwvENYvw420bh+CSTizwXr?=
- =?us-ascii?Q?ptWkiVhwdAN29Spx3xKREdT/yybV5IZKSeyaP0KxNYlie2XgYHdt+gZNWyKN?=
- =?us-ascii?Q?4TBxme1uIGecPMEhLofF1UBxjnLHBthkZQeFwquhevFJ9YH/F/Y8T3xk05+1?=
- =?us-ascii?Q?d4s8t6Wmoy6CHQsCGYp1aIChE3VRX9Q8kTz1oLxWLQZNRm2T0kqFUh27EiZW?=
- =?us-ascii?Q?sZyPy6OnGGnOfTF1RjhCLwvFSaDuMXdaaKVHrapwJJDmQ4KqIY7KzqNsH5+k?=
- =?us-ascii?Q?cTkD/8u603DS+IA/Oo3/mtSWf3pjfyWZAlK+0HylsHAH6CExbaWVY8j3p4j7?=
- =?us-ascii?Q?9M5dkJvnNss6trJTKEe18EmkBBUgRDls76Jvf3mRcTk1ZQtOgGUawB/8MFuR?=
- =?us-ascii?Q?MBc2o4whAjcXf+jmY7A6tm7RMUSkaPUoZB8iKeWGezUq/Jvcg7RIiYzoMi2N?=
- =?us-ascii?Q?nh3vpq7TBq5W/Wf7k7xVXAITWfc85He2ZN0qDfvaWrHlRwRynCfSH2eDyEpv?=
- =?us-ascii?Q?stHTjz83vAiXCBUt+16T6xlgBdzVkQGzQiEA5/j3LMP06NACLecx3k+iXhXm?=
- =?us-ascii?Q?EzG0Nc96N0/spm0A3cblRMl/wMVYZgnSSDBOIyYpa1NMceH5AsheOgpvFk/X?=
- =?us-ascii?Q?RvxriSaM1C4/TDo3iYpuwOxgO+kTiSH8ya6PjP51ZfwhbLt96Pyzi1loTutl?=
- =?us-ascii?Q?I16T+BV2AfbFm5EUSknn7iNu5A6U+DWBg4Dm/SbrAyRbCs/9JN+WgNmKHKo7?=
- =?us-ascii?Q?SjdV2uYAV3NA00tMa0DqMjNl7Z92UgJeuyeEspCVcUVcJENlpyABKhRPaLOo?=
- =?us-ascii?Q?uPVQHC839c0CAAOyVuB62FHdyQN2FEI4WvXe5FWjwJUlFn+HWHEoPr376f+F?=
- =?us-ascii?Q?p4JqAl8wP3hSWj1dOWBCQK7ksReXaKy6/18QN9iBhVLB50pSuiuZ/APxU74g?=
- =?us-ascii?Q?hvwKp32yh2bsvOxjp9YIuBcsaFEO/o9WSCvNX/oXAqcFfo9tVfsgBG1mC62J?=
- =?us-ascii?Q?UFf4IH+om2bplzbnauf3frsbr9O48ANnkr6H2JDQekHeaFvaQ8unogzgsNhe?=
- =?us-ascii?Q?9dfySMp1Mxezugg1xvhe7O6Qk1YM3h4zoJi0sgygWaPKOuPq?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b35e202a-ea50-4180-a0cc-08de793d122d
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2026 15:53:53.9431
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: urbmlsMV/srGZ/a/zk6Ebidz80BJERXS0jwbvMi1t95kd7r95VMk3Y5befM9QUk1KtueUp5YjhJDGPowTluHtQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB8019
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_075437_652502_DE615699 
-X-CRM114-Status: GOOD (  20.92  )
+	Tue, 03 Mar 2026 15:54:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A0BC1600AE;
+	Tue,  3 Mar 2026 15:54:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FD3EC116C6;
+	Tue,  3 Mar 2026 15:54:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772553276;
+	bh=TGmZI4OHu6X3hdFVkQgFuNn6YSaOlqILJxc5Y6vn/8M=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=UGdXA+IiU/6rlC3VdfBfeBXwJZoYYNW/MTSviqSHhYi4ZUVnPBFFtXUiIflqHsXoh
+	 fa0ZRJ4H11e55Y1FeG7Fh6Bv5LOzjIGKP39KroO7K2tsDy9OzsslGicgz8+9hHQ4f+
+	 3/ORLbifRPB7fMILBLkO1oXUs7wF65WHmyXamUUeDkPsIaRNasw9KuRFtHoBtL0mQb
+	 ATPixK1K1QSzCqd2/TQhX6C0tAo0tkdQqwGm1Kw2hEsr1rhdDFvTM/3N0ZVbkOum1b
+	 Qptztcg8WpJpO1avNuBNmToPoPA04qDTB871hODjymfp4IA5NhJDY9kEf8cIr1RY6R
+	 0ZdiUjfyl3rXw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vxS4v-0000000FhF6-3588;
+	Tue, 03 Mar 2026 15:54:33 +0000
+Date: Tue, 03 Mar 2026 15:54:33 +0000
+Message-ID: <86a4wo9adi.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly
+	<Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>,
+	"jonathan.cameron@huawei.com"
+	<jonathan.cameron@huawei.com>
+Subject: Re: [PATCH v5 10/36] KVM: arm64: gic-v5: Sanitize ID_AA64PFR2_EL1.GCIE
+In-Reply-To: <20260226155515.1164292-11-sascha.bischoff@arm.com>
+References: <20260226155515.1164292-1-sascha.bischoff@arm.com>
+	<20260226155515.1164292-11-sascha.bischoff@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com, jonathan.cameron@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,38 +96,268 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 03, 2026 at 10:14:08AM +0100, Stefan Eichenberger wrote:
-> Hi Frank,
->
-> On Wed, Feb 18, 2026 at 05:37:54PM +0100, Stefan Eichenberger wrote:
-> > Hi Frank,
-> >
-> > On Wed, Feb 18, 2026 at 11:26:52AM -0500, Frank Li wrote:
-> > > On Wed, Feb 18, 2026 at 04:08:50PM +0100, Stefan Eichenberger wrote:
-> > > > From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
-> > > >
-> > > > When reading from the I2DR register, right after releasing the bus by
-> > > > clearing MSTA and MTX, the I2C controller might still generate an
-> > > > additional clock cycle which can cause devices to misbehave. Ensure to
-> > >
-> > > Do you means SCL have additional toggle? You capture waveform?
-> > >
-> >
-> > Yes exactly. We were able to capture the waveform when the issue
-> > happens. It doesn't always happen though, it depends on how much time
-> > passes between clearing MSTA and MTX and reading from I2DR.
-> >
-> > If you want to see the waveform, I uploaded it to our server:
-> > https://share.toradex.com/dwnhcrl6b9toib6
-> > You can see the additional clock at the right end, after "0x17 + NAK".
->
-> Have you had a chance to look at the waveform? Do you have any concerns
-> about the proposed solution?
+On Thu, 26 Feb 2026 15:58:00 +0000,
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+> 
+> Add in a sanitization function for ID_AA64PFR2_EL1, preserving the
+> already-present behaviour for the FPMR, MTEFAR, and MTESTOREONLY
+> fields. Add sanitisation for the GCIE field, which is set to IMP if
+> the host supports a GICv5 guest and NI, otherwise.
+> 
+> Extend the sanitisation that takes place in kvm_vgic_create() to zero
+> the ID_AA64PFR2.GCIE field when a non-GICv5 GIC is created. More
+> importantly, move this sanitisation to a separate function,
+> kvm_vgic_finalize_sysregs(), and call it from kvm_finalize_sys_regs().
+> 
+> We are required to finalize the GIC and GCIE fields a second time in
+> kvm_finalize_sys_regs() due to how QEMU blindly reads out then
+> verbatim restores the system register state. This avoids the issue
+> where both the GCIE and GIC features are marked as present (an
+> architecturally invalid combination), and hence guests fall over. See
+> the comment in kvm_finalize_sys_regs() for more details.
+> 
+> Overall, the following happens:
+> 
+> * Before an irqchip is created, FEAT_GCIE is presented if the host
+>   supports GICv5-based guests.
+> * Once an irqchip is created, all other supported irqchips are hidden
+>   from the guest; system register state reflects the guest's irqchip.
+> * Userspace is allowed to set invalid irqchip feature combinations in
+>   the system registers, but...
+> * ...invalid combinations are removed a second time prior to the first
+>   run of the guest, and things hopefully just work.
+> 
+> All of this extra work is required to make sure that "legacy" GICv3
+> guests based on QEMU transparently work on compatible GICv5 hosts
+> without modification.
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> ---
+>  arch/arm64/kvm/sys_regs.c       | 70 +++++++++++++++++++++++++++++----
+>  arch/arm64/kvm/vgic/vgic-init.c | 43 +++++++++++++-------
+>  include/kvm/arm_vgic.h          |  1 +
+>  3 files changed, 92 insertions(+), 22 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 11e75f2522f95..1039150716d43 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -1758,6 +1758,7 @@ static u8 pmuver_to_perfmon(u8 pmuver)
+>  
+>  static u64 sanitise_id_aa64pfr0_el1(const struct kvm_vcpu *vcpu, u64 val);
+>  static u64 sanitise_id_aa64pfr1_el1(const struct kvm_vcpu *vcpu, u64 val);
+> +static u64 sanitise_id_aa64pfr2_el1(const struct kvm_vcpu *vcpu, u64 val);
+>  static u64 sanitise_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val);
+>  
+>  /* Read a sanitised cpufeature ID register by sys_reg_desc */
+> @@ -1783,10 +1784,7 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
+>  		val = sanitise_id_aa64pfr1_el1(vcpu, val);
+>  		break;
+>  	case SYS_ID_AA64PFR2_EL1:
+> -		val &= ID_AA64PFR2_EL1_FPMR |
+> -			(kvm_has_mte(vcpu->kvm) ?
+> -			 ID_AA64PFR2_EL1_MTEFAR | ID_AA64PFR2_EL1_MTESTOREONLY :
+> -			 0);
+> +		val = sanitise_id_aa64pfr2_el1(vcpu, val);
+>  		break;
+>  	case SYS_ID_AA64ISAR1_EL1:
+>  		if (!vcpu_has_ptrauth(vcpu))
+> @@ -2024,6 +2022,23 @@ static u64 sanitise_id_aa64pfr1_el1(const struct kvm_vcpu *vcpu, u64 val)
+>  	return val;
+>  }
+>  
+> +static u64 sanitise_id_aa64pfr2_el1(const struct kvm_vcpu *vcpu, u64 val)
+> +{
+> +	val &= ID_AA64PFR2_EL1_FPMR |
+> +	       ID_AA64PFR2_EL1_MTEFAR |
+> +	       ID_AA64PFR2_EL1_MTESTOREONLY;
+> +
+> +	if (!kvm_has_mte(vcpu->kvm)) {
+> +		val &= ~ID_AA64PFR2_EL1_MTEFAR;
+> +		val &= ~ID_AA64PFR2_EL1_MTESTOREONLY;
+> +	}
+> +
+> +	if (vgic_host_has_gicv5())
+> +		val |= SYS_FIELD_PREP_ENUM(ID_AA64PFR2_EL1, GCIE, IMP);
+> +
+> +	return val;
+> +}
+> +
+>  static u64 sanitise_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
+>  {
+>  	val = ID_REG_LIMIT_FIELD_ENUM(val, ID_AA64DFR0_EL1, DebugVer, V8P8);
+> @@ -2213,6 +2228,12 @@ static int set_id_aa64pfr1_el1(struct kvm_vcpu *vcpu,
+>  	return set_id_reg(vcpu, rd, user_val);
+>  }
+>  
+> +static int set_id_aa64pfr2_el1(struct kvm_vcpu *vcpu,
+> +			       const struct sys_reg_desc *rd, u64 user_val)
+> +{
+> +	return set_id_reg(vcpu, rd, user_val);
+> +}
+> +
+>  /*
+>   * Allow userspace to de-feature a stage-2 translation granule but prevent it
+>   * from claiming the impossible.
+> @@ -3194,10 +3215,11 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+>  				       ID_AA64PFR1_EL1_RES0 |
+>  				       ID_AA64PFR1_EL1_MPAM_frac |
+>  				       ID_AA64PFR1_EL1_MTE)),
+> -	ID_WRITABLE(ID_AA64PFR2_EL1,
+> -		    ID_AA64PFR2_EL1_FPMR |
+> -		    ID_AA64PFR2_EL1_MTEFAR |
+> -		    ID_AA64PFR2_EL1_MTESTOREONLY),
+> +	ID_FILTERED(ID_AA64PFR2_EL1, id_aa64pfr2_el1,
+> +		    ~(ID_AA64PFR2_EL1_FPMR |
+> +		      ID_AA64PFR2_EL1_MTEFAR |
+> +		      ID_AA64PFR2_EL1_MTESTOREONLY |
+> +		      ID_AA64PFR2_EL1_GCIE)),
+>  	ID_UNALLOCATED(4,3),
+>  	ID_WRITABLE(ID_AA64ZFR0_EL1, ~ID_AA64ZFR0_EL1_RES0),
+>  	ID_HIDDEN(ID_AA64SMFR0_EL1),
+> @@ -5668,8 +5690,40 @@ int kvm_finalize_sys_regs(struct kvm_vcpu *vcpu)
+>  
+>  		val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64PFR0_EL1) & ~ID_AA64PFR0_EL1_GIC;
+>  		kvm_set_vm_id_reg(kvm, SYS_ID_AA64PFR0_EL1, val);
+> +		val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64PFR2_EL1) & ~ID_AA64PFR2_EL1_GCIE;
+> +		kvm_set_vm_id_reg(kvm, SYS_ID_AA64PFR2_EL1, val);
+>  		val = kvm_read_vm_id_reg(kvm, SYS_ID_PFR1_EL1) & ~ID_PFR1_EL1_GIC;
+>  		kvm_set_vm_id_reg(kvm, SYS_ID_PFR1_EL1, val);
+> +	} else {
+> +		/*
+> +		 * Certain userspace software - QEMU - samples the system
+> +		 * register state without creating an irqchip, then blindly
+> +		 * restores the state prior to running the final guest. This
+> +		 * means that it restores the virtualization & emulation
+> +		 * capabilities of the host system, rather than something that
+> +		 * reflects the final guest state. Moreover, it checks that the
+> +		 * state was "correctly" restored (i.e., verbatim), bailing if
+> +		 * it isn't, so masking off invalid state isn't an option.
+> +		 *
+> +		 * On GICv5 hardware that supports FEAT_GCIE_LEGACY we can run
+> +		 * both GICv3- and GICv5-based guests. Therefore, we initially
+> +		 * present both ID_AA64PFR0.GIC and ID_AA64PFR2.GCIE as IMP to
+> +		 * reflect that userspace can create EITHER a vGICv3 or a
+> +		 * vGICv5. This is an architecturally invalid combination, of
+> +		 * course. Once an in-kernel GIC is created, the sysreg state is
+> +		 * updated to reflect the actual, valid configuration.
+> +		 *
+> +		 * Setting both the GIC and GCIE features to IMP unsurprisingly
+> +		 * results in guests falling over, and hence we need to fix up
+> +		 * this mess in KVM. Before running for the first time we yet
+> +		 * again ensure that the GIC and GCIE fields accurately reflect
+> +		 * the actual hardware the guest should see.
+> +		 *
+> +		 * This hack allows legacy QEMU-based GICv3 guests to run
+> +		 * unmodified on compatible GICv5 hosts, and avoids the inverse
+> +		 * problem for GICv5-based guests in the future.
+> +		 */
+> +		kvm_vgic_finalize_sysregs(kvm);
 
-I am fine. Add carlos, who did many work about I2C.
+An alternative to this sorry hack would be to have a separate view of
+the idregs for luserspace to get whatever expected. But you then need
+to invalidate that copy at some point so that you can migrate the
+guest safely, and you'd probably end-up doing a similar thing.
 
-Frank
->
-> Best regards,
-> Stefan
+I appreciate that you are doing this for the sake of preserving SW
+compatibility, but do you foresee a way out of this mess that does not
+involve asking the QEMU folks to fix their stuff? I don't think we can
+paper over their over-simplistic design forever.
+
+>  	}
+>  
+>  	if (vcpu_has_nv(vcpu)) {
+> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+> index 9b3091ad868cf..d1db384698238 100644
+> --- a/arch/arm64/kvm/vgic/vgic-init.c
+> +++ b/arch/arm64/kvm/vgic/vgic-init.c
+> @@ -71,7 +71,6 @@ static int vgic_allocate_private_irqs_locked(struct kvm_vcpu *vcpu, u32 type);
+>  int kvm_vgic_create(struct kvm *kvm, u32 type)
+>  {
+>  	struct kvm_vcpu *vcpu;
+> -	u64 aa64pfr0, pfr1;
+>  	unsigned long i;
+>  	int ret;
+>  
+> @@ -162,19 +161,11 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
+>  
+>  	kvm->arch.vgic.vgic_dist_base = VGIC_ADDR_UNDEF;
+>  
+> -	aa64pfr0 = kvm_read_vm_id_reg(kvm, SYS_ID_AA64PFR0_EL1) & ~ID_AA64PFR0_EL1_GIC;
+> -	pfr1 = kvm_read_vm_id_reg(kvm, SYS_ID_PFR1_EL1) & ~ID_PFR1_EL1_GIC;
+> -
+> -	if (type == KVM_DEV_TYPE_ARM_VGIC_V2) {
+> -		kvm->arch.vgic.vgic_cpu_base = VGIC_ADDR_UNDEF;
+> -	} else {
+> -		INIT_LIST_HEAD(&kvm->arch.vgic.rd_regions);
+> -		aa64pfr0 |= SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, GIC, IMP);
+> -		pfr1 |= SYS_FIELD_PREP_ENUM(ID_PFR1_EL1, GIC, GICv3);
+> -	}
+> -
+> -	kvm_set_vm_id_reg(kvm, SYS_ID_AA64PFR0_EL1, aa64pfr0);
+> -	kvm_set_vm_id_reg(kvm, SYS_ID_PFR1_EL1, pfr1);
+> +	/*
+> +	 * We've now created the GIC. Update the system register state
+> +	 * to accurately reflect what we've created.
+> +	 */
+> +	kvm_vgic_finalize_sysregs(kvm);
+
+As pointed out f2f, this will conflict with the patch posted at
+https://patch.msgid.link/20260228164559.936268-1-maz@kernel.org
+
+>  
+>  	if (type == KVM_DEV_TYPE_ARM_VGIC_V3)
+>  		kvm->arch.vgic.nassgicap = system_supports_direct_sgis();
+> @@ -617,6 +608,30 @@ int kvm_vgic_map_resources(struct kvm *kvm)
+>  	return ret;
+>  }
+>  
+> +void kvm_vgic_finalize_sysregs(struct kvm *kvm)
+
+nit: could you rename this to kvm_vgic_finalize_idregs()?
+
+> +{
+> +	u32 type = kvm->arch.vgic.vgic_model;
+> +	u64 aa64pfr0, aa64pfr2, pfr1;
+> +
+> +	aa64pfr0 = kvm_read_vm_id_reg(kvm, SYS_ID_AA64PFR0_EL1) & ~ID_AA64PFR0_EL1_GIC;
+> +	aa64pfr2 = kvm_read_vm_id_reg(kvm, SYS_ID_AA64PFR2_EL1) & ~ID_AA64PFR2_EL1_GCIE;
+> +	pfr1 = kvm_read_vm_id_reg(kvm, SYS_ID_PFR1_EL1) & ~ID_PFR1_EL1_GIC;
+> +
+> +	if (type == KVM_DEV_TYPE_ARM_VGIC_V2) {
+> +		kvm->arch.vgic.vgic_cpu_base = VGIC_ADDR_UNDEF;
+> +	} else if (type == KVM_DEV_TYPE_ARM_VGIC_V3) {
+> +		INIT_LIST_HEAD(&kvm->arch.vgic.rd_regions);
+> +		aa64pfr0 |= SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, GIC, IMP);
+> +		pfr1 |= SYS_FIELD_PREP_ENUM(ID_PFR1_EL1, GIC, GICv3);
+> +	} else {
+> +		aa64pfr2 |= SYS_FIELD_PREP_ENUM(ID_AA64PFR2_EL1, GCIE, IMP);
+> +	}
+
+I'd rather see this written as:
+
+	switch (kvm->arch.vgic.vgic_model) {
+	case KVM_DEV_TYPE_ARM_VGIC_V2:
+		kvm->arch.vgic.vgic_cpu_base = VGIC_ADDR_UNDEF;
+		break;
+	case KVM_DEV_TYPE_ARM_VGIC_V3:
+		INIT_LIST_HEAD(&kvm->arch.vgic.rd_regions);
+		aa64pfr0 |= SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, GIC, IMP);
+		pfr1 |= SYS_FIELD_PREP_ENUM(ID_PFR1_EL1, GIC, GICv3);
+		break;
+	case KVM_DEV_TYPE_ARM_VGIC_V5:
+		aa64pfr2 |= SYS_FIELD_PREP_ENUM(ID_AA64PFR2_EL1, GCIE, IMP);
+		break;
+	default:
+		WARN_ONCE(1, "WTF???\n");
+	}
+
+which I find more readable than the if/else cascade.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
