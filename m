@@ -4,129 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CEC9EDA68D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 15:38:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C29DEDA68E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 15:45:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Le6gD0rzzfa10BAOgirSBAxEA2aR/+WU/FoU/rMi0lc=; b=JXL5/tdfMNRtVZ+ZXBBQuC5nye
-	E3gZY8WzarPlzfd/Ao8HWbaix/Z2ayY4FMyYqzscIjfeQKlXzOHJvP/LzfEzK2jaBhz3G45U/kpQg
-	FzIbB4mF24+MvQldp1E57IFREA/iyuHhIqtgq1ow22cTgf/YN8QpyrzReTHmimb2IdFq/bLQfIOuJ
-	gpWKCv16Wc43dTbvltL8MgkpXRWQCMHOY1JLYT/Bq7jWofqjz5bBs04pEF4lxocYeY0bdsrA10sHq
-	7cQK9UwbpAtgd/jm2McYQogfo+t1VpSMuhfQWRTbSCrXGf55tywttR4gjB55+rO0W1ZBneTyj3J5c
-	fdzSNuYQ==;
+	bh=yeiMrjlYgT8Sq2sT0++e4byZu4zYjMPFIcXYU5H2Ipg=; b=Qw1ZgQg86iO5jDU89QkVVFUjeA
+	2BkeThfpZNZVys+uE2hotlAcUOe109rxr9gdRcAI9Ht/+1HAvx4x8sBTXfaYFQw1hJkIO2PSXvPkI
+	TwW5GSK72Yhha6lH9VgKSQe+evOc/GomF/fDzhHIIP4GQk/PqEcdgbDqb+gP2dTZVAqyWe3v7nb0h
+	34+I3RmYHWYL1Yy4R4txqshwa67uDfdIKGSWApnuHxoOsTp+01KTdRlmz8aVhpM+rVYHdoWy98E7I
+	p6JvT83M3sHlg3teBR5BbC+sNv+XJ8iDewBsJ6bWq6igybh8NEAbs1v9z8RKgJt3RfNR+skBRiRPo
+	WVsPRpIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxRpO-0000000FRVF-45a9;
-	Tue, 03 Mar 2026 15:38:31 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxRpM-0000000FRUr-0VXS
+	id 1vxRw4-0000000FS0c-37jO;
+	Tue, 03 Mar 2026 15:45:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxRw2-0000000FRzo-1AO3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 15:38:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sYVqzPMFmqVThdOqiDO9MdHkuYkT/TmrZHtiYGEb+WcWzwPMKiHDoNMEBwHiWyII7oY/UTzzCQNvua6YjOCm7sd1T6hOK3t/85ig/4stUQBIRZAmJDqvzEnm7coKcKlwRS6+t/CPiV2ii9B/e3AJp0aAWkGh8T9t0G0cro7RY5NQDWaHkI+Pf/71pkmSRtlaAGVxabmK0eXaXxKlIIMQGODhJc7oesDfgu7QRvFg8A0imQt6ldm6/J9Dt/EsxMlD+76hgoyYh9QqaMdYTzijznxwu3ce+F5Hx+g2eXM029sqdjmdWaiMBDYeI61NOd1QEUM2ACMaVVsud74QMcuzZg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Le6gD0rzzfa10BAOgirSBAxEA2aR/+WU/FoU/rMi0lc=;
- b=PSqXx1/RhEnCUsfJigQbd74PsVMOKUtpF6tj5dbMd9/cvmqMvm0ZeZoyEErE3gEo31KBCmLgQDxnAIk6wg8EZyd7U6L8eUohfuVyxn7fFk1aJjyacTy/zIWDmyMHyN/HwvJxfukUIQIGqXRhb5NVf0PN/+sJtt5tWfXOO7ULdlSFhW7kP3WV2O7N0Ql1JkS0e1/BM2IhMQ57w2sGF5p2bR32UnFz2cX7G5kmq+kfN6zI6cKXhqOq6JuPWd8bqKaaHdgcFknQqrEZRqDJOEcR9kWJ0bl+j5uMr5/dfReBjzCNiaYGv3unMgOaE20+xYuaydN27nElNgRvnFbHDtJI0A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Le6gD0rzzfa10BAOgirSBAxEA2aR/+WU/FoU/rMi0lc=;
- b=f8t8RqVSOimCuJzyxRAdUzevu+mRyVGZMmbvDi21Na0W1Dw0muqCJaIgb9U1uBomZp1xXEtySxFLfeC3nmKJvsDX+KLpgLJrROzrVonXhLd4yOjmQTKLTbmWNhhCjr1hOC74COjM73zYF1nYkU45NbdS7OB5mb9DgKnnc5sqZzAh34nZfRoFODvk9gPAAhaj1GHCOWEMVXkC32kSZWZHrH3nBMSXVfXnqjCZnJO9Fpp60SKZyuccACYbXmrWLFs0v6tQxwgxbAaLG7lqauwaZd39bGwP92OOJTFGABfAXb1824DEGDeDu3g7Z6Z+EHba1WEEHCboj3s5Yn2vdpYLEA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by PA6PR04MB11988.eurprd04.prod.outlook.com (2603:10a6:102:51c::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Tue, 3 Mar
- 2026 15:38:23 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9654.020; Tue, 3 Mar 2026
- 15:38:23 +0000
-Date: Tue, 3 Mar 2026 10:38:09 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Emanuele Ghidoli <ghidoliemanuele@gmail.com>, peng.fan@oss.nxp.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] arm64: dts: freescale: imx95-toradex-smarc: Support
- Cortex M7
-Message-ID: <aacAYYuPkqgV3QYu@lizhi-Precision-Tower-5810>
-References: <20260303121324.1576841-1-ghidoliemanuele@gmail.com>
+	Tue, 03 Mar 2026 15:45:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 201F4339;
+	Tue,  3 Mar 2026 07:45:14 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6EE8F3F73B;
+	Tue,  3 Mar 2026 07:45:18 -0800 (PST)
+Date: Tue, 3 Mar 2026 15:45:15 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Ankur Arora <ankur.a.arora@oracle.com>,
+	David Hildenbrand <david@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	James Clark <james.clark2@arm.com>
+Subject: Re: [PATCH] arm64: Implement clear_pages()
+Message-ID: <aacCCwgvo2J8CCEI@arm.com>
+References: <20260303-aarch64-clear-pages-v1-1-ad0c3ee9a555@kernel.org>
+ <aab0SvA0dU0R0pnl@willie-the-truck>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260303121324.1576841-1-ghidoliemanuele@gmail.com>
-X-ClientProxiedBy: PH7P221CA0030.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:32a::35) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA6PR04MB11988:EE_
-X-MS-Office365-Filtering-Correlation-Id: 07e420df-0aa2-49a4-caa3-08de793ae7a1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|19092799006|376014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: Y4TM8C/AuIsfi8C+SYMC/ZQW495/VBnymKAOPs7dXwy8rWKfF2gZEnK2008B0E4lA7cKbVUMc+RyD7sYMzkQy/4cR2EMe2m/fTx2yiexcTf3Fwng5FYh70UTv2d7qr4EKYqnFNMpSMuMr/XwQwx6C0WnWv6CHkaRcxcQtqOlEcomWurzfeBaeRNvflKLWeu8sVmSI8J9ElMJs8pIGu81EmSdPgTEv3PIs2SRPAyz+UZHLcxFOkDt7Qy9Rjts+3tMpGFfbTMDPE3zf4yBhxFLCEjbTwx9WYFj5xzd5OzrEl9UEwViz71mcIZ1LETyqwHHjZhKGBLnv1v58/ugWbMOJT9c7XXDZ2U/ks6wbp4tIGUIXT2JLkSRKLN4XDI8koLKYKcYqXtyO6vY7Tr/twP2XD5t289yHHliS0XQUh+0Jxkbm5eFO/I5SFF28OpBPD41usVG92dJ2Q+ydB39hJDiPU0J+cXQV65s/lJDtzxzAUpXjlEEhiKTTlsNqwhBau3lS33+txTIH3Lr9rnxafJ+y00c//3i660F7R8xyNhVmqD901uuVgVVFKHvtrl1F/fuhgGMlIYeGpPyAqDR6oDbYfkQ6FxvUuXHRuLzVRIuYerSgVupX/6O+C33SWDTMT+aJZOruHrO82d7LjjC3KRnbakFZsE2ooeD4/vTOHamx99XAZV3ZPjM2ez38s7tr2ysPPi+Z+sXp0EM59OowTVGe3Q2OnEr6FCu2sXbY1wxoqP2Y4VawnnOFozxi/Iwt2PuU/oRI6Dhs7hfdA0766Lt8Zb4C5GLCPuhR1W6vMogA0Y=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(19092799006)(376014)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6413PWUy4mBr85UUTRuw3XYh0m0auirFY1DvPMryK2GdULyMOdBaJR3Xz3qS?=
- =?us-ascii?Q?t9gN0rB6qVrnUMEVAY97qrZqqtUbNHW1KvlRTmq0w/9Pp+gbaX/7tUxLsCwS?=
- =?us-ascii?Q?2z3HZJ61Y+67cLazi0iRaKuLjU4WlpX/GWi5QnhCIX+thIjBiU7wMMJgs32/?=
- =?us-ascii?Q?IJ5KaFxU1O0D5nvngDNpPmdMqVPBWuiIyu2IAlKawPPz1yuPYNSGXV/IrxmB?=
- =?us-ascii?Q?tWWjR+JE028+iiOdsY4/GAJWfVjzBNIlRpNb9lLsbMI3H5ftGjc9OeUm/Q+o?=
- =?us-ascii?Q?a7q+BDDc2/LVQEix7teZ32pRshLEDoqSqtYbre6oNjJJ0LQsI9arhbhIlIaT?=
- =?us-ascii?Q?kkN+HGJMrMHFS7HAvQ3T5fp7OeeSiG5eBHU+nnUd0/lw19nEU3Ep2ZpSLH2u?=
- =?us-ascii?Q?ALfVG212umojRpZpTIC6xPDUQT5iCSUCQ3gumxjLVdrSKmz07MREdn/P8K5S?=
- =?us-ascii?Q?wB21LW4z6mnDKJREYW6c/X9BRgCjNShOnFOj+uhPqLbkj27p7P1aTMgKcAFg?=
- =?us-ascii?Q?+zqa48WSbSQXCLF7JKyE2LiD8Ckm4fWNpCdMe7qNspkdvBS460n1s6EGbupB?=
- =?us-ascii?Q?iHeFq99Tt9epeAXxw7wJFBt0SqrYuUh04sW9Y6kC1q5PqYlmkLFW7gH8NW4+?=
- =?us-ascii?Q?EIln7UL0raJIH2ZtWH0pAjCfDFMTNoJePqqZnFc9YXpSK7J6MVFnbvNyh49g?=
- =?us-ascii?Q?90PhGeCIJnanL76sxonE1Sd0iE1u6T7wupyg99H49pUfZTC777KPmhvjt5fY?=
- =?us-ascii?Q?Kcn6eb8zlLoS9FwnmizZkMUurzxUJkdLAF7WwB92bs3YVwvL+Ztec6GHddzV?=
- =?us-ascii?Q?DAuXnf/mWG/PcgF31xMEei35RuhshpVrqHdTVFa3g49d5cagwyGxnuCasKfS?=
- =?us-ascii?Q?3tOIrzfcPbR7iEyEcQV9TkilHOKXQbo1ZiNSVzTtLBq/rqdJ8xTGAcHw7veg?=
- =?us-ascii?Q?4ZxrVUj6V2oQkx2TPmWXsD0V7Zg+PlMPAk2OeEZsNOw8/rCdg4xygDbJiNv6?=
- =?us-ascii?Q?AwXOnJx+ql95Xz6JuU0t6jwGDM6J16rc2mIpH4Zb6oympThtbjCA0R+KK0wF?=
- =?us-ascii?Q?4F9uVk17q8Qk2S/WEmKvSNy70oFA/O2tnYILULGcrGY4/Q0gxFn6Fn2ArHb5?=
- =?us-ascii?Q?tzIBXV/56OWSTvhBB+OfNAcbLZPeLTzAvyFKW4h2Az5Wpy7H3SHBVrwEF2tl?=
- =?us-ascii?Q?evKCdvwEYOv/ecS/sihGpstNncSL0Bm4DMIiZSRgahn7J3JvGo0GwD4K0WS1?=
- =?us-ascii?Q?cJU91YB+eNMC9T4ut39OubtZkBGJD8NtUB9Xnwibe2Dy7OxA773ju2/LflZ+?=
- =?us-ascii?Q?/nhf6xNgUyhRNe+NaD8KJ+Ubd1QmMlTxR6YfoHsI467icDChieMul3wodZkA?=
- =?us-ascii?Q?qoWZsTcrLpyoTcjbffw6eBjcVZsmnSH4NZ3ePFnL/3tk1796dSpoOIh4/Iw0?=
- =?us-ascii?Q?Iz0HETIOE5gjk0c2g3Jmp0OCJm31+s/XLdnSdK4aV7kWtliJWay566emCNFm?=
- =?us-ascii?Q?H2fex49iZ8/aoLKvJSUwrMSGN8dwslCxILAh3Y1/OHQm4V0hnoW8g0EzqzsY?=
- =?us-ascii?Q?AYn/WQeJwNcSUNd1tXzmzpLRGfW88C9ftbIwXuzHMJbni/wcFzDinAu93sip?=
- =?us-ascii?Q?koa5nmj1jS9M5XXyMlVtVpL7/C8yLLbFXT5++HJSYnetJ5Qte4wmWPL0sezY?=
- =?us-ascii?Q?sgvvS/idB0vdaX15aH+Rflu5Fo0rAdAvhbB2SwH3KWIOyxAIT5h7dtzBI4Vc?=
- =?us-ascii?Q?Z1F5pfN62w=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 07e420df-0aa2-49a4-caa3-08de793ae7a1
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2026 15:38:23.6153
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3qtwQpYDUGCukXqGEPb4+56l+xa7rrMGCKd5CD2jevxSRn3yfO8nzbxh++exLRiFBGtjq0oaa+TF48I4PRI+1g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA6PR04MB11988
+In-Reply-To: <aab0SvA0dU0R0pnl@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_073828_172392_402BF4A2 
-X-CRM114-Status: GOOD (  17.03  )
+X-CRM114-CacheID: sfid-20260303_074522_365054_E16EC1F5 
+X-CRM114-Status: GOOD (  22.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,102 +70,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 03, 2026 at 01:13:06PM +0100, Emanuele Ghidoli wrote:
-> From: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
->
-> Enable Cortex M7, the vring nodes, a mailbox and reserve DDR memory for
-> the M7. The remoteproc framework is so capable to load and run the M7
-> firmware.
->
-> Signed-off-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
-> ---
->  .../dts/freescale/imx95-toradex-smarc.dtsi    | 50 +++++++++++++++++++
->  1 file changed, 50 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
-> index 5932ba238a8a..77c4a6dee098 100644
-> --- a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
-> @@ -42,6 +42,16 @@ clk_serdes_eth_ref: clock-eth-ref {
->  		enable-gpios = <&som_gpio_expander_1 13 GPIO_ACTIVE_HIGH>;
->  	};
->
-> +	cm7: remoteproc-cm7 {
-> +		compatible = "fsl,imx95-cm7";
-> +		mbox-names = "tx", "rx", "rxdb";
-> +		mboxes = <&mu7 0 1
-> +			  &mu7 1 1
-> +			  &mu7 3 1>;
-> +		memory-region = <&vdevbuffer>, <&vdev0vring0>, <&vdev0vring1>,
-> +				<&vdev1vring0>, <&vdev1vring1>, <&rsc_table>, <&m7_reserved>;
-> +	};
-> +
->  	connector {
->  		compatible = "gpio-usb-b-connector", "usb-b-connector";
->  		/* SMARC P64 - USB0_OTG_ID */
-> @@ -156,6 +166,42 @@ linux_cma: linux,cma {
->  			alloc-ranges = <0 0x80000000 0 0x7f000000>;
->  			linux,cma-default;
->  		};
-> +
-> +		m7_reserved: memory@80000000 {
-> +			reg = <0 0x80000000 0 0x1000000>;
-> +			no-map;
-> +		};
-> +
-> +		rsc_table: memory@88220000 {
+On Tue, Mar 03, 2026 at 02:46:34PM +0000, Will Deacon wrote:
+> On Tue, Mar 03, 2026 at 11:06:13AM +0100, Linus Walleij wrote:
+> > On QEMU:
+> > 
+> > Before this patch:     After this patch:
+> > 2.38 GB/s              2.41 GB/s
+> 
+> I really don't think we should pay attention to performance under QEMU
+> as it doesn't necessarily have any correlation with real hardware.
 
-I remember driver use hardcode rsc-table, I suggest fan pan to update
-driver to support memory-region-names to avoid use hidden ABI.
+I agree.
 
-Fan peng, what's current status?
+> > diff --git a/arch/arm64/include/asm/page.h b/arch/arm64/include/asm/page.h
+> > index b39cc1127e1f..916a3e7c9a19 100644
+> > --- a/arch/arm64/include/asm/page.h
+> > +++ b/arch/arm64/include/asm/page.h
+> > @@ -20,7 +20,18 @@ struct page;
+> >  struct vm_area_struct;
+> >  
+> >  extern void copy_page(void *to, const void *from);
+> > -extern void clear_page(void *to);
+> > +extern void clear_pages_asm(void *addr, unsigned int nbytes);
+> > +
+> > +static inline void clear_pages(void *addr, unsigned int npages)
+> > +{
+> > +	clear_pages_asm(addr, npages * PAGE_SIZE);
+> > +}
+> > +#define clear_pages clear_pages
+> 
+> Hmm. From what I can tell, this just turns a branch in C code into a
+> branch in assembly, so it's hard to correlate that meaningfully with
+> the performance improvement you see.
+> 
+> If we have CPUs that are this sensitive to branches, perhaps we'd be
+> better off taking the opposite approach and moving more code into C
+> so that the compiler can optimise the control flow for us?
 
-Frank
+I think it's more than the loop branch - the whole DCZID_EL0 read to
+decide whether to use DC ZVA or STNP. I wonder why we didn't do that
+with an alternative than always read the sysreg.
 
-> +			reg = <0 0x88220000 0 0x1000>;
-> +			no-map;
-> +		};
-> +
-> +		vdev0vring0: memory@88000000 {
-> +			reg = <0 0x88000000 0 0x8000>;
-> +			no-map;
-> +		};
-> +
-> +		vdev0vring1: memory@88008000 {
-> +			reg = <0 0x88008000 0 0x8000>;
-> +			no-map;
-> +		};
-> +
-> +		vdev1vring0: memory@88010000 {
-> +			reg = <0 0x88010000 0 0x8000>;
-> +			no-map;
-> +		};
-> +
-> +		vdev1vring1: memory@88018000 {
-> +			reg = <0 0x88018000 0 0x8000>;
-> +			no-map;
-> +		};
-> +
-> +		vdevbuffer: memory@88020000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0 0x88020000 0 0x100000>;
-> +			no-map;
-> +		};
->  	};
->  };
->
-> @@ -572,6 +618,10 @@ &lpuart3 {
->  	pinctrl-0 = <&pinctrl_uart3>;
->  };
->
-> +&mu7 {
-> +	status = "okay";
-> +};
-> +
->  /* SMARC MDIO, shared between all ethernet ports */
->  &netc_emdio {
->  	pinctrl-names = "default";
-> --
-> 2.43.0
->
+That said, I wouldn't mind rewriting this in C if the numbers don't get
+worse. It is a bit more involved if we keep the DC ZVA use, though with
+alternatives maybe not that bad (mte_set_mem_tag_range() is an example
+of doing something similar in C but for clear page we don't need to deal
+with unaligned boundaries).
+
+-- 
+Catalin
 
