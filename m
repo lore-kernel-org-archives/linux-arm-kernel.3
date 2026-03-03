@@ -4,81 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D8CCEDEBEB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 19:25:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4596AEDEBEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 19:31:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=rfPAKWEtw8zmZbqPjIWo/aIHcdBDOAhNL5ZEVidE4p0=; b=JiZsocDJzmClK+
-	6HzTfjomwqxobXJ8m3SMDk3wMo7zS/Hut4xz1LOyGMQgU4rC/PJSMtRe0IbmkW5sd9z9kCRlgllX7
-	ie4BEiJFcdDZU8ldv8A4l9c+kWCBLaOjgDQilBHD2f3QsalPi2ZV45arDkrPFuKt7LLBekVGiQmu5
-	soZedGTUbze8UDRUedcTCgaqt/Tspbvve7bTkEcj7uz9ft9mWDCxI7zFv4F44ptbWLyhArzsNkaVX
-	soFei2YgaW/oKunmOp8g6qw9K9ZnKiwLvQEe7p7QX7+zBVtzTQLBA+/n0SHN++2x+u8g5NsVyxjTr
-	WGoooCIyV+85OO1gSJnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LvaEYI1DkC3gG8HSqLFIO8B3jdRzN35AWnw6uUmoiyo=; b=ssgaGHpm37l/2uEt12zOdjcHDg
+	JhBAaWPgqvfeS6bCVKj7Q7pvFKlsXPic2znjjxjpDPWTHN9NlaPH+rWciKymlTV1eQ36X/q0EJksn
+	dzDzpoxeqz6qioEDlR8Vg+U+0lxNm6eFyXOn6Trv88pRwdoMGu+wjy7u+xfkx5egwiv0WvnV1grIw
+	CxvPZ6T7kkguqcSF2GYFS9GnB7z/MQs0aTSAfq8suiHah7a3rKsB4Pn2QbboatxazMYCHgsrrje/7
+	pRtrXUgMEAveabSQrRFrheksPbLFTuNDuxFmVGIC1BSK4UWqikYB5K85XTsOjqJGDoVv3azDJyZA+
+	JAu4zpgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxVMV-0000000Fmee-2HLB;
-	Tue, 03 Mar 2026 19:24:55 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vxVSz-0000000FnaV-2Uua;
+	Tue, 03 Mar 2026 19:31:37 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxVMR-0000000Fmd0-3wlh;
-	Tue, 03 Mar 2026 19:24:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1772565888;
-	bh=dtIiUDlss3QK5iC/FpbPGRm8q1fUo2OdFnyI1yPLxXA=;
-	h=From:Subject:Date:To:Cc:From;
-	b=NewCSqQaAGpNLo1qTDgcEFSTVWpPuF4EgfRHiM1OLKPdGefk+phe86G9892sWdeJ7
-	 y/ZZc57I2MzpSfURAtoUYy1nUiAODiHhyP+56kvLeLyBlld2T+VMkqAgyZMqxWW0gc
-	 TbYJVp/vD8tLBx9DiuwjF8VRiPcoq6D3n0YaS56B+ZkYJVx64G5ScjHC/P7Qr73fgM
-	 MEAuqH+Lr9zEnHw6b4urMB87DYiPLZdTjOTEnxVEKuyGCwt0hVygcMTwRW1bEJkwA0
-	 GNhLvn6Sy49oI2ZSuajnR1YX6JK0GpxOPLmNMjSmsHUsBTi8y0dw1vd2Fy/MQYkTk9
-	 /0JpQbjmO9oAQ==
-Received: from localhost (unknown [86.123.23.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id BB92317E0959;
-	Tue,  3 Mar 2026 20:24:48 +0100 (CET)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Subject: [PATCH v8 0/4] Introduce BACKGROUND_COLOR DRM CRTC property
-Date: Tue, 03 Mar 2026 21:24:16 +0200
-Message-Id: <20260303-rk3588-bgcolor-v8-0-fee377037ad1@collabora.com>
+	id 1vxVSu-0000000FnZq-42db
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Mar 2026 19:31:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=from:to:cc:subject:date:message-id
+	:mime-version:content-transfer-encoding; s=k1; bh=LvaEYI1DkC3gG8
+	HSqLFIO8B3jdRzN35AWnw6uUmoiyo=; b=SZ59QVo9Z5/LC1KfkTHdINIkg4qQIh
+	rrARNwidjwPh4FKHOt0EL84P2O15m3+cCEZk6b8gT8MOaaJRfGsLvgDIR0LQ0Q2i
+	IizIk//hhKHAKMRpvRMgiGd/fPGi8Ro4+e1jpL3y18MzVBYvCgHDLFLg46wp3WqG
+	u5yTUg2nxeqjszTbODaculaZYCl99Bk8pSnyYDUp3UAhdUFw4stnLjBrnCY2T07l
+	Brbf3ZVbrD0FXw1J0oO27SJHkbAfIvGkeSpFFEoCBZn/8P4M9MvOIRGh5ko0C9ng
+	Cu7IHYKRvVYo5KM7IuoMnQC61BW1ILt1pDlLhg/PWyTKX/tsJn/rLmBg==
+Received: (qmail 430333 invoked from network); 3 Mar 2026 20:31:25 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 3 Mar 2026 20:31:25 +0100
+X-UD-Smtp-Session: l3s3148p1@m8u8vyNM4qcujnu+
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: linux-renesas-soc@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Antonio Borneo <antonio.borneo@foss.st.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Boqun Feng <boqun@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	driver-core@lists.linux.dev,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Lee Jones <lee@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	linux-iio@vger.kernel.org,
+	linux-omap@vger.kernel.org,
+	linux-remoteproc@vger.kernel.org,
+	linux-spi@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev,
+	Mark Brown <broonie@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Waiman Long <longman@redhat.com>,
+	Wilken Gottwalt <wilken.gottwalt@posteo.net>,
+	Will Deacon <will@kernel.org>
+Subject: [PATCH v3 00/15] hwspinlock: move device alloc into core and refactor includes
+Date: Tue,  3 Mar 2026 20:25:52 +0100
+Message-ID: <20260303192600.7224-17-wsa+renesas@sang-engineering.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23QwU7DMAwG4FeZcqYodusm4cR7IA6uk2wRY0Upq
- kBT3510CIpIj79lf/rlq5pCTmFSD4erymFOUxovJdi7g5ITX46hSb5khRpJW3RNfmnJ2mY4yng
- ecyPAZnBM2gyiytFbDjF93MCn55JPaXof8+fNn2GdflNO439qhkY30TvjowNvXXws8zMPY+Z7G
- V/Vys34S4CGtiKwEEgirQU9sJU9ot0IAFsRbSEYRZx2HdrAe0S3EQjVT+ZubREjAJrAhsweQT9
- Er8taRVAhBiRm20OLAHtE/5eoW/SFEKBoiLjTRHuE2QjUXUWYQhjrwWsQEq5aLMvyBSQ/b+xCA
- gAA
-X-Change-ID: 20250829-rk3588-bgcolor-c1a7b9a507bc
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Louis Chauvet <louis.chauvet@bootlin.com>, 
- Haneen Mohammed <hamohammed.sa@gmail.com>, 
- Melissa Wen <melissa.srw@gmail.com>, 
- Jani Nikula <jani.nikula@linux.intel.com>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Robert Mader <robert.mader@collabora.com>, kernel@collabora.com, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
- Diederik de Haas <diederik@cknow-tech.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Matt Roper <matthew.d.roper@intel.com>, Andy Yan <andyshrk@163.com>
-X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_112452_145465_3123D7E1 
-X-CRM114-Status: GOOD (  20.62  )
+X-CRM114-CacheID: sfid-20260303_113133_871357_C197166B 
+X-CRM114-Status: GOOD (  19.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,231 +109,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some display controllers can be hardware-configured to present non-black
-colors for pixels which are not covered by any plane (or are exposed
-through transparent regions of higher planes).
+Changes since RFC v2:
 
-The 1st patch of the series provides DIV_ROUND_CLOSEST() to uapi, as a
-prerequisite to the 2nd patch introducing the BACKGROUND_COLOR DRM
-property that can be attached to a CRTC via a dedicated helper function.
-A 64-bit ARGB color value format is also defined and can be manipulated
-with the help of a few utility macros.
+* u8500 and platform_data removal included in this series to make the
+  dependency crystal clear
+* fixed a build failure when adding the callback (Thanks, Sergey!)
+  This series passes now my improved buildscripts. Buildbots are
+  happy, too.
+* mention why "Contact:" information was dropped (Thanks, Andy!)
+* small changes to commit messages
+* added tags (Thanks, everyone!)
+* dropped RFC status
+* rebased to 7.0-rc2
 
-Note this is a reworked version of the patch [1] submitted (many) years
-ago by Matt Roper.  The main changes are:
+My ultimate goal is to allow hwspinlock provider drivers outside of the
+subsystem directory. It turned out that a simple split of the headers
+files into a public provider and a public consumer header file is not
+enough because core internal structure need to stay hidden. Even more,
+their opaqueness could and should even be increased. That would also
+allow the core to handle the de-/allocation of the hwspinlock device
+itself.
 
-* Renamed DRM_ARGB_<COMP>() to DRM_ARGB64_GET<C>_BPC() while providing
-  convenience wrappers to extract all 16 bits of a specific color via
-  DRM_ARGB64_GET<C>()
-* Replaced drm_argb() function with DRM_ARGB64_PREP_BPC() macro, to
-  improve uAPI consistency and readability; additionally fixed a bug in
-  case of using bpc < 16: the unused least-significant bits of a given
-  component in the output value would contain the unused
-  most-significant bits of the following component in the input value,
-  instead of being set to 0
-* Replaced GENMASK_ULL(63, 0) with U64_MAX when calling
-  drm_property_create_range() to create the BACKGROUND_COLOR property
-* Moved crtc_state->bgcolor initialization from
-  __drm_atomic_helper_crtc_reset() to
-  __drm_atomic_helper_crtc_state_reset()
-* Replaced '*bgcolor*' occurrences to '*background_color*' for
-  consistency with the actual property name in both storage field and
-  helper functions names
+This series does all that. Patches 1-2 remove the meanwhile unused
+platform_data. Patches 3-9 abstract access to internal
+structures away using helpers. Patch 10 then moves hwspinlock device
+handling to the core, simplifying drivers. The remaining patches
+refactor the headers until the internal one is gone and the public ones
+are divided into provider and consumer parts. More details are given in
+the patch descriptions.
 
-The subsequent patches add background color support to VKMS and the VOP2
-display controller used in the RK3568, RK3576, and RK3588 Rockchip SoC
-families.
+One note about using a callback to initialize hwspinlock priv: I also
+experimented with a dedicated 'set_priv' helper function. It felt a bit
+clumsy to me. Drivers would need to save the 'bank' pointer again and
+iterate over it. Because most drivers will only have a simple callback
+anyhow, it looked leaner to me.
 
-The validation has been done using a dedicated IGT test [2] - see the
-reported results below.
+This series has been tested on a Renesas SparrowHawk board (R-Car V4H)
+with a yet-to-be-upstreamed hwspinlock driver for the MFIS IP core. A
+branch can be found here (the MFIS driver is still WIP):
 
-On the userland side, a Weston merge request [3] is available, providing
-support for the BACKGROUND_COLOR CRTC property to the DRM backend.  It
-relies on the already existing background-color setting in weston.ini:
+git://git.kernel.org/pub/scm/linux/kernel/git/wsa/linux.git renesas/hwspinlock/refactor-alloc-buildtest
 
-  [shell]
-  background-color=0xAARRGGBB
+Happy hacking,
 
-[1] https://lore.kernel.org/all/20190930224707.14904-2-matthew.d.roper@intel.com/
-[2] https://lore.kernel.org/all/20251219-crtc-bgcolor-v3-1-31b589911588@collabora.com/
-[3] https://gitlab.freedesktop.org/wayland/weston/-/merge_requests/1845
+   Wolfram
 
-IGT kms_crtc_background_color test results
-==========================================
 
-* VKMS
+Wolfram Sang (15):
+  hwspinlock: u8500: delete driver
+  hwspinlock: remove now unused pdata from header file
+  hwspinlock: add helpers to retrieve core data
+  hwspinlock: add callback to fill private data of a hwspinlock
+  hwspinlock: omap: use new callback to initialize hwspinlock priv
+  hwspinlock: qcom: use new callback to initialize hwspinlock priv
+  hwspinlock: sprd: use new callback to initialize hwspinlock priv
+  hwspinlock: stm32: use new callback to initialize hwspinlock priv
+  hwspinlock: sun6i: use new callback to initialize hwspinlock priv
+  hwspinlock: handle hwspinlock device allocation in the core
+  hwspinlock: move entries from internal to public header
+  hwspinlock: remove internal header
+  hwspinlock: sort include and update copyright
+  hwspinlock: refactor provider.h from public header
+  hwspinlock/treewide: refactor consumer.h from public header
 
-virtme-ng$ IGT_FORCE_DRIVER=vkms build/tests/kms_crtc_background_color
+ Documentation/locking/hwspinlock.rst          |   2 +-
+ MAINTAINERS                                   |   3 +-
+ drivers/base/regmap/regmap.c                  |   2 +-
+ drivers/hwspinlock/Kconfig                    |  10 --
+ drivers/hwspinlock/Makefile                   |   1 -
+ drivers/hwspinlock/hwspinlock_core.c          | 129 +++++++++++----
+ drivers/hwspinlock/hwspinlock_internal.h      |  72 --------
+ drivers/hwspinlock/omap_hwspinlock.c          |  29 ++--
+ drivers/hwspinlock/qcom_hwspinlock.c          |  69 ++++----
+ drivers/hwspinlock/sprd_hwspinlock.c          |  41 ++---
+ drivers/hwspinlock/stm32_hwspinlock.c         |  28 ++--
+ drivers/hwspinlock/sun6i_hwspinlock.c         |  38 ++---
+ drivers/hwspinlock/u8500_hsem.c               | 155 ------------------
+ drivers/iio/adc/sc27xx_adc.c                  |   2 +-
+ drivers/irqchip/irq-stm32mp-exti.c            |   2 +-
+ drivers/mfd/syscon.c                          |   2 +-
+ drivers/nvmem/sc27xx-efuse.c                  |   2 +-
+ drivers/nvmem/sprd-efuse.c                    |   2 +-
+ drivers/pinctrl/stm32/pinctrl-stm32.c         |   2 +-
+ drivers/soc/qcom/smem.c                       |   2 +-
+ drivers/spi/spi-sprd-adi.c                    |   2 +-
+ .../{hwspinlock.h => hwspinlock/consumer.h}   |  57 +------
+ include/linux/hwspinlock/provider.h           |  60 +++++++
+ 23 files changed, 268 insertions(+), 444 deletions(-)
+ delete mode 100644 drivers/hwspinlock/hwspinlock_internal.h
+ delete mode 100644 drivers/hwspinlock/u8500_hsem.c
+ rename include/linux/{hwspinlock.h => hwspinlock/consumer.h} (87%)
+ create mode 100644 include/linux/hwspinlock/provider.h
 
-IGT-Version: 2.3-g6b07138e8 (x86_64) (Linux: 6.19.0-rc1-virtme x86_64)
-Using IGT_SRANDOM=1766149634 for randomisation
-Opened device: /dev/dri/card0
-Starting subtest: background-color-red
-Starting dynamic subtest: pipe-A-Virtual-1
-Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.071s)
-Subtest background-color-red: SUCCESS (0.073s)
-Starting subtest: background-color-green
-Starting dynamic subtest: pipe-A-Virtual-1
-Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.074s)
-Subtest background-color-green: SUCCESS (0.074s)
-Starting subtest: background-color-blue
-Starting dynamic subtest: pipe-A-Virtual-1
-Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.074s)
-Subtest background-color-blue: SUCCESS (0.074s)
-Starting subtest: background-color-yellow
-Starting dynamic subtest: pipe-A-Virtual-1
-Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.072s)
-Subtest background-color-yellow: SUCCESS (0.073s)
-Starting subtest: background-color-purple
-Starting dynamic subtest: pipe-A-Virtual-1
-Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.072s)
-Subtest background-color-purple: SUCCESS (0.074s)
-Starting subtest: background-color-cyan
-Starting dynamic subtest: pipe-A-Virtual-1
-Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.074s)
-Subtest background-color-cyan: SUCCESS (0.074s)
-Starting subtest: background-color-black
-Starting dynamic subtest: pipe-A-Virtual-1
-Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.072s)
-Subtest background-color-black: SUCCESS (0.072s)
-Starting subtest: background-color-white
-Starting dynamic subtest: pipe-A-Virtual-1
-Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.073s)
-Subtest background-color-white: SUCCESS (0.074s)
-
-* Radxa ROCK 5B (RK3588)
-
-rock5b$ build/tests/kms_crtc_background_color --device drm:/dev/dri/card1
-
-IGT-Version: 2.2-g3e4ec308e (aarch64) (Linux: 6.18.0-rc1 aarch64)
-Using IGT_SRANDOM=1762774806 for randomisation
-Opened device: /dev/dri/card1
-Starting subtest: background-color-red
-Starting dynamic subtest: pipe-C-DP-1
-Dynamic subtest pipe-C-DP-1: SUCCESS (0.491s)
-Subtest background-color-red: SUCCESS (0.493s)
-Starting subtest: background-color-green
-Starting dynamic subtest: pipe-C-DP-1
-Dynamic subtest pipe-C-DP-1: SUCCESS (0.533s)
-Subtest background-color-green: SUCCESS (0.535s)
-Starting subtest: background-color-blue
-Starting dynamic subtest: pipe-C-DP-1
-Dynamic subtest pipe-C-DP-1: SUCCESS (0.541s)
-Subtest background-color-blue: SUCCESS (0.544s)
-Starting subtest: background-color-yellow
-Starting dynamic subtest: pipe-C-DP-1
-Dynamic subtest pipe-C-DP-1: SUCCESS (0.535s)
-Subtest background-color-yellow: SUCCESS (0.537s)
-Starting subtest: background-color-purple
-Starting dynamic subtest: pipe-C-DP-1
-Dynamic subtest pipe-C-DP-1: SUCCESS (0.536s)
-Subtest background-color-purple: SUCCESS (0.538s)
-Starting subtest: background-color-cyan
-Starting dynamic subtest: pipe-C-DP-1
-Dynamic subtest pipe-C-DP-1: SUCCESS (0.539s)
-Subtest background-color-cyan: SUCCESS (0.541s)
-Starting subtest: background-color-black
-Starting dynamic subtest: pipe-C-DP-1
-(kms_crtc_background_color:744) igt_pipe_crc-WARNING: Warning on condition all_zero in function crc_sanity_checks, file ../lib/igt_pipe_crc.c:475
-(kms_crtc_background_color:744) igt_pipe_crc-WARNING: Suspicious CRC: All values are 0.
-(kms_crtc_background_color:744) igt_pipe_crc-WARNING: Warning on condition all_zero in function crc_sanity_checks, file ../lib/igt_pipe_crc.c:475
-(kms_crtc_background_color:744) igt_pipe_crc-WARNING: Suspicious CRC: All values are 0.
-Dynamic subtest pipe-C-DP-1: SUCCESS (0.535s)
-Subtest background-color-black: SUCCESS (0.537s)
-Starting subtest: background-color-white
-Starting dynamic subtest: pipe-C-DP-1
-Dynamic subtest pipe-C-DP-1: SUCCESS (0.540s)
-Subtest background-color-white: SUCCESS (0.542s)
-
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
-Changes in v8:
-- Collected R-b tags from Louis Chauvet and Andy Yan
-- Handled unsupported alpha-blending with background color in
-  vop2_plane_atomic_check()
-- Rebased series onto the very recent drm-misc-next
-- Link to v7: https://lore.kernel.org/r/20260204-rk3588-bgcolor-v7-0-78d1d01c5ca1@collabora.com
-
-Changes in v7:
-- Consistently put "({" on a separate line for all macro definitions
-  (Andy Shevchenko)
-- Rebased series onto latest drm-misc-next
-- Link to v6: https://lore.kernel.org/r/20260129-rk3588-bgcolor-v6-0-c15f755a4055@collabora.com
-
-Changes in v6:
-- Collected Acked-by & Reviewed-by tags from Andy S & Angelo
-- Handled feedback from Andy Shevchenko
-  * Fixed up styling for __KERNEL_DIV_ROUND_CLOSEST() macro
-  * Made use of __GENMASK() helper in __DRM_ARGB64_PREP*() and
-    __DRM_ARGB64_GET*() definitions
-  * Introduced DRM_ARGB64_GET*_BPCS() as an alternative for
-    DRM_ARGB64_GET*_BPC() to help when performance is more important
-    than accuracy, e.g. used it along with FIELD_MODIFY() in the vop2
-    related patch to simplify a bit the bgcolor operations
-- Link to v5: https://lore.kernel.org/r/20260127-rk3588-bgcolor-v5-0-b25aa8613211@collabora.com
-
-Changes in v5:
-- Collected Reviewed-by & Tested-by tags from Nícolas & Diederik
-- Dumped background_color prop value in drm_atomic_crtc_print_state()
-  and updated comment in drm_crtc_state (Nícolas)
-- Documented the reasons of not using the DRM_ARGB64_GET*_BPC() helpers
-  in vop2 related patch (Nícolas)
-- Rebased series onto latest drm-misc-next
-- Link to v4: https://lore.kernel.org/r/20251219-rk3588-bgcolor-v4-0-2ff1127ea757@collabora.com
-
-Changes in v4:
-- Switched to simple bit-shifting approach when performing the bpc
-  conversion in the vop2 driver, to avoid the expensive division since
-  we shouldn't be concerned anymore about the precision (Chaoyi)
-- Rebased series onto latest drm-misc-next
-- Link to v3: https://lore.kernel.org/r/20251118-rk3588-bgcolor-v3-0-a2cc909428ea@collabora.com
-
-Changes in v3:
-- Added new patches:
-  * uapi: Provide DIV_ROUND_CLOSEST()
-  * drm/vkms: Support setting custom background color
-- Improved DRM_ARGB64_{PREP|GET}*() helpers by using a conversion ratio
-  for better color approximation when dealing with less than 16 bits of
-  precision
-- Mentioned the IGT test in the cover letter while documenting the
-  validation results; also dropped references to the now useless
-  modetest wrapper script and its generated report
-- Rebased series onto latest drm-misc-next
-- Link to v2: https://lore.kernel.org/r/20251013-rk3588-bgcolor-v2-0-25cc3810ba8c@collabora.com
-
-Changes in v2:
-- Improved uAPI consistency and readability by introducing
-  DRM_ARGB64_PREP*() and DRM_ARGB64_GET*() helper macros
-- Updated several code comment sections
-- Referenced the counterpart Weston support in the cover letter
-- Rebased series onto v6.18-rc1
-- Link to v1: https://lore.kernel.org/r/20250902-rk3588-bgcolor-v1-0-fd97df91d89f@collabora.com
-
----
-Cristian Ciocaltea (4):
-      uapi: Provide DIV_ROUND_CLOSEST()
-      drm: Add CRTC background color property
-      drm/vkms: Support setting custom background color
-      drm/rockchip: vop2: Support setting custom background color
-
- drivers/gpu/drm/drm_atomic.c                 |  1 +
- drivers/gpu/drm/drm_atomic_state_helper.c    |  1 +
- drivers/gpu/drm/drm_atomic_uapi.c            |  4 ++
- drivers/gpu/drm/drm_blend.c                  | 39 ++++++++++++--
- drivers/gpu/drm/drm_mode_config.c            |  6 +++
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 24 ++++++++-
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  4 ++
- drivers/gpu/drm/vkms/vkms_composer.c         | 10 +++-
- drivers/gpu/drm/vkms/vkms_crtc.c             |  3 ++
- include/drm/drm_blend.h                      |  4 +-
- include/drm/drm_crtc.h                       | 12 +++++
- include/drm/drm_mode_config.h                |  5 ++
- include/linux/math.h                         | 18 +------
- include/uapi/drm/drm_mode.h                  | 80 ++++++++++++++++++++++++++++
- include/uapi/linux/const.h                   | 18 +++++++
- 15 files changed, 204 insertions(+), 25 deletions(-)
----
-base-commit: fca11428425e92bf21d4a7f5865708c5e64430e4
-change-id: 20250829-rk3588-bgcolor-c1a7b9a507bc
+-- 
+2.51.0
 
 
