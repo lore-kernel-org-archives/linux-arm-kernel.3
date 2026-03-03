@@ -4,140 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDC13EDEBE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 19:12:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC05EDEBE6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 19:25:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qBlya9OxhpnOgd9HUk8VmO/UTZ6qEYrdSZMzcbErs+k=; b=Fz3eqnUbNQrk+d1gCZjH76ZCbz
-	UPwO9ICW0pRMLNoWlE9pCw4mzzYulL+8HywBEfogLlTd95LszSHlZWirLIsOHYyGmjFuH4LXmWWPo
-	dbpm9f2cIkVw7y5AOPWe8MZ2s+rpmD6Xi0i8xSJ3xaeHMN2ZDq8jmRshXkQPBVx+6G751H9M36k9P
-	MZZ0pYy5m8rSYkEQl+FkrpTun4SiJXtuQU6Yzb/awIhOuEf41jsR9wu93Tvyz1nMJ1xIXEK5lBhKD
-	PiYMifYpxycqJwE7cd2tr50WIVNFo1i5+sRowOf7NXQhE8eb4XU4V3cNs6GDjmzn8wZomx/Ay8Ndq
-	xStj8S+w==;
+	bh=nW00FZO4zTIM3ix7TBNI1AHWYdDvd3wlp3ueF2QqLfc=; b=H70OoBbnepMIrwk9PciVjpBl/j
+	lqdgLYDjawIC8jZs7aGyqBum+a03kcgy+mBil73N00D0LDrH+gHzadouz+MUh5fHmz9S1heSBzbfK
+	cMSBuJdVJRSVFEC4t5RWR9coTbG4Ye9TUsVYeKe7KpFDu7eaSnD8Q+gGT2z04gsRm8+24/DdLXnCU
+	xguMDzAV1sjtfQ1PAsr6TFaqO4u1tRnkAhw0LwXKSDgL2BiGr1iXniockreI/0fLErrv6t+6Z+EaR
+	1Av3ZE1p9Y7T7Y3TF4iblg9QuijcWzSi2tvf2AEK1XwwcBOAs9y0NTFBYRWShUQnAZ3jOLlf7KcXL
+	NqLyzGlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxVAQ-0000000Flcr-1qKx;
-	Tue, 03 Mar 2026 19:12:26 +0000
-Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1vxVMU-0000000FmeI-43Ap;
+	Tue, 03 Mar 2026 19:24:54 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxVAN-0000000FlcU-2pQx
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 19:12:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iC23MJt2EZIp+ncOWrIyOwSGcFg4HjIjrq0aqnstBd+WoT4m3O7aOrNTkxB0Gfljv6yZ4IHOjaLbn8H20nusTwevrZDR4qDDzHvqLXSkyaQsbS0KDolKwjWBNBYELYcQFXKQXl+BZoeHINa9XCvE8tMcdeWEv4ULepDlrRFdXkcIYAOE0TZOpw0hwiR8q6fyhrjqSrty9ZeKdOFmngpZNFHYrheSf+TfebhuxHJ/z7XrGWzfcM5so0iL9DMokxMqHAQMgki76XxkiGXiX8GUD9JPKT26vcnVJ7A7WJfaLcGdgP1UA3wqF3fsfjl9K527GKyy8rxmhiuIgGWLZjuu4g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qBlya9OxhpnOgd9HUk8VmO/UTZ6qEYrdSZMzcbErs+k=;
- b=bvd6Bs1a88cek1D+6Fa8GvP6YR6KKML00+uh72ZqbIC/pK9sec+xSJ+NHswvx2Fm6jW7fsGfk2iJ8275d6ktVX7/lL8IDeluLZMBI4Dy3Pz1S+3WkicscRB+5scpApC6bgcXT6mlwm3BYyzNYPKs1gtmX+jML9H7YKX6mQTHpB90NPJP3Ql6Kv+KW0MF43y5+IYBfrJIsTZvCWuTWe/+yy5Y2X74AN9KfTc2DY8tkzGgShxfqlml8F6mymNVnAxpfb6n62xMggAsg3q1hZfMscunr2TcR5em93/SAoC1XP+TNrHwUEyuQ3ZcOvRpEBO6HxKk63TQ9geSqSPoxcUOtg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qBlya9OxhpnOgd9HUk8VmO/UTZ6qEYrdSZMzcbErs+k=;
- b=uABAHe8IeSdUp7KOmff7ncpStnom4r3JwfNPWrD2oQRp84Meh75ChJEHk273gnKvf5QC3n+A7JYKia8gdRIQSL1co5JOZglp5S0lX+3LI2tkPnUfSGiqufUeo0Lp9U8QDx71BsGi/D/NwvNygF+JUVCz4HrNXi+hPF14Nl+ULEnU47XW7u4N04kxgmbPgFmsJnRWFixBfcZ5+Bmf792kMERROQ2dEXiaTL9PhiDGzkJsSuZeHt5yJ0fctkNd8BibC2RA46zbj1OTnVEoAB+uL/jukQzpX7pZ/JnOcvm1ID7pPH2x6nE2hMsSchFj1klkcJIwaij6PadSQp+GdHPStw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by IA4PR12MB9763.namprd12.prod.outlook.com (2603:10b6:208:55a::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Tue, 3 Mar
- 2026 19:12:19 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9654.022; Tue, 3 Mar 2026
- 19:12:19 +0000
-Date: Tue, 3 Mar 2026 15:12:17 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Piotr Jaroszynski <pjaroszynski@nvidia.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	Alistair Popple <apopple@nvidia.com>,
-	John Hubbard <jhubbard@nvidia.com>, Zi Yan <ziy@nvidia.com>,
-	Breno Leitao <leitao@debian.org>, stable@vger.kernel.org
-Subject: Re: [PATCH] arm64: contpte: fix set_access_flags() no-op check for
- SMMU/ATS faults
-Message-ID: <20260303191217.GD972761@nvidia.com>
-References: <20260303063751.2531716-1-pjaroszynski@nvidia.com>
- <0a10ea33-937a-4294-b9a1-9323c706434d@arm.com>
- <aacohVRfAK46lOjo@box>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aacohVRfAK46lOjo@box>
-X-ClientProxiedBy: MN2PR10CA0019.namprd10.prod.outlook.com
- (2603:10b6:208:120::32) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	id 1vxVMS-0000000Fmd1-0FJt;
+	Tue, 03 Mar 2026 19:24:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1772565889;
+	bh=xeVIe8cmrntR0enuK392UB2SXROYBNmtYamPiBlWwyw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=hDTgpViRIzjWpaz1Mps9ZjamKCPPNQHP0C88T3U0lWKkoj9BA8x1d3Rajzzdr3Lvl
+	 LkhuzDgvqNhUgpOmmK9kxRLhJpybSLauyctDOMNvEP3LdphzPkiHfvHv0l9EOfL9q0
+	 z9iHtlv6l236IN/NSmesqHI9VEYLYuhX90Ocu4beSlF9BexmHg29ncS986NLQcBOLx
+	 +d4uvye0w6FzKiM8S56yQjxiQU1l4yNcrI1+nF81YSnVDuctygRNwfyyv7hC/GrkBQ
+	 eszX/23EeXOgdt+bj63HRn5UlZhnXw63izI3VR69LgFknCzdyxRlu3fTSjwuEEpJXB
+	 RqLxk9vtr04uQ==
+Received: from localhost (unknown [86.123.23.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B0A7417E0EB2;
+	Tue,  3 Mar 2026 20:24:49 +0100 (CET)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Tue, 03 Mar 2026 21:24:17 +0200
+Subject: [PATCH v8 1/4] uapi: Provide DIV_ROUND_CLOSEST()
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|IA4PR12MB9763:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5901998c-87c4-4378-8add-08de7958c9f8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016;
-X-Microsoft-Antispam-Message-Info: mTHXT/WsbNdjMMfW6FS1D6eGjaVeIXfqjEpJ5zDfdkteXneqrJKKUdJqmSY29tSXKiop6srSCs4oqieXZP/gyNA5f0S24DqTXN+GPDMGmmJbIg+fU+YiKW0BfLwj2f6VbdGx60zjO8TrxogaGAnbqO5cE7Grfsc+U1PScDUcKBH1SCkyjY+TpJFFUUjkSWZk+iMgtU1aeWNRMDlKQpNYjJfUVaslP9hRDqLiXe4uAm/6j7RkTijO4ECJtAnzgqi4Gm+nnRriCw5j/MZ3inEij5pUVe9BFH/LOOXntdFHNCL8ZSBNIF3Vgzp5JM6BJJMk8mhWGMySfMOUFz/CI85kisZJXHI8vpNHya/AHbK2ra9lITZQpNtiL18Zy7DJejsdJE7e2FCwKAvluBkaZp8b/tG4MuFVUarVIFcl2Web1EVdh3kn3A+L/gasv3aCjwvfeB6nbQNnnOpNZOjYc7cq4SEM70m5TXXC7F7Os6aOgXl2k2FU/S6a3n2FM3FSQoVrANyPNGb5CoCJLDFBoe0LT/feFeLjtUZ7xueSYaR+6OEA568GbwOx/C4KV+GCaavfW36AQwmbTFyX4KTNNLzEjJ+RIihoFlFx0TE9lZTyilUumHkLP64JRwx+0SC+81Fu6i+211PtL2/MFCDEUMW+MC4Vcha3GO9I6HYaFrrVAZat4IYm8ozaAlzvzreFePXfwTnoy9nfWYX4KVrk9mOr/JjKKkm6J6LzvKFL+0F/uGc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bVpHTk9nVmxYcGRrU2wvb1lXRnZFQzFjUWY3UW9ob2tmWlpNa2VGN3JuRVlY?=
- =?utf-8?B?RGU0NzVjMThBelhCdkNnZVRadEVvczhKR2d1VTdBN1lhLzdhN3BuSWFDeW1U?=
- =?utf-8?B?QmVBMnhMWHFEMlo0dnRmcDBsakdHVVZZTVJlVkl1UXBNRkJJelV5MVBKK0VC?=
- =?utf-8?B?SUpPMjlhbFlWOHNZcEhhUnd6YnBQUTAwa2V3a0VSSGZNWmtEY3dEVzJWNW50?=
- =?utf-8?B?SU54cU5GQzd2dVBPUG8zeXBtbWRjYnJZWVE4LytJOGVVMndBeHRhSTc5N3Vx?=
- =?utf-8?B?RW5VcnlXOHhjbDM0RXZrbXFyRTVDTWRWcWIzSFZ2WVA3Zm8zZkxVRXdacGQw?=
- =?utf-8?B?S05PWWxHR3F5b3dtdXZ0dXRLQUJMdGo5RlRyUkV4djZHK25kMDY4TW1ZTldn?=
- =?utf-8?B?TzdMN1BBbDRHN285dFdSejRDVHJVdWp5aHRBdTZsUXE2Ry9SK2JLMENoN29l?=
- =?utf-8?B?RWNWYkZlTTBsSUpNbkRuSkxWTlArVEIrS2VpbDlkYVJPelhmNjFhWG93Mk02?=
- =?utf-8?B?SjYzT3crYlRzc2huR3M2VTlYK1B6K01LNmpKTVB4T2xkMVlCYUtaRnd2a241?=
- =?utf-8?B?NTErUmhuZkhpMVVTQ1c3TC82VXBPTFNuNGppK00vbXFzaU5vOXlmMXBybysr?=
- =?utf-8?B?ckR0QzdXcDNRcGZocGV0RWpBUlZiaUVsZGdDQksySktlRXpUMmVCM3FMR3Rv?=
- =?utf-8?B?SmR0UmppTDFiRjQvaHR3djVBaVdMNWVKUHhJaWNsdGVHRzk4OE5aNFpCZUYx?=
- =?utf-8?B?Vy92a3NkWEZ0R2huUDBpSlErSTRKcWw2azZWbVRZQWNDSmFqRjA4bHJrekg1?=
- =?utf-8?B?b3BpOFI1cjl6UndpalpnQ0tGL3gzVlBtdllFcnBLWm13RU9RbGtlenUwRW1N?=
- =?utf-8?B?bG1SeWhEUldmZ3JBTVcyc29jSjJqbUN3ekRLMTl0bTQveGdrMENxVHJuRUNK?=
- =?utf-8?B?R2RCQm5FVHljTHpSaEdVUUpWcktFa2hhNWdHN2gvUXhWRDZxRHNRWXN5eU9D?=
- =?utf-8?B?Yjc4UVRHempHUGloSnRLUW5mZStob0VkUGZXSmwrSzVxMStKRFhxSDU2eUhi?=
- =?utf-8?B?MmwrS1dlcUhGWGpuT1ZrOUkvUDVveTA3MTJGQmhNem5ueTVoR1dKdW0yVXhr?=
- =?utf-8?B?M2lFMVVzVzcxR1VXNklJYUE2MmcrdXNlRHk1R2tBdlpzYzRDYTdrWXlvS1lz?=
- =?utf-8?B?c2JHcXY4VnUxWmdHbXB0VzBOeS9tdGFQMDk0bDFBU2ZkckFVTUxHUm1nOEpn?=
- =?utf-8?B?SWpwOGMxSVBMK2pHOC9ucmU4TTdOY0hyWTd1dHVFa0JmV0dZYjEzdXpLL25V?=
- =?utf-8?B?L2hWL0JCd0g0REFHYVRUNEZ6Umo5WVdVSTEzMmVJN25JRlZZWW1US3ZjZjNK?=
- =?utf-8?B?bG5LQWEwNCtGV3BURmZSRjBUQ015cnFBRmtzQXk1Y3ZDYUY5WDR2akwxbzJ3?=
- =?utf-8?B?Nm4zRE4rWGxPMmJsR0tvSERqay9LOERwM21PY1ZDMkZsZEpldk5IbzdGU0ZZ?=
- =?utf-8?B?UnBtcWFNa2NRMjlFUWhTTXlYRFh5V1laWHZvaXBmcERSbE02TVJJOExtMERu?=
- =?utf-8?B?Um9YcnJQVEFsYitsbjA0VCs4VG52WnZRWUZ0WVhhMUdHNUJGMEpqOWVidjFo?=
- =?utf-8?B?M01FQ09xS2wyRTduRlN2SHg0a2haR1ljU21HYlNZdkNYMVQxdk40MzRaaVZU?=
- =?utf-8?B?WlZkdUFUSVdZVG55T2tBTDA0dEJzSm83K2xWMGJlb2VkOXhhMWsxSC9VeXBU?=
- =?utf-8?B?RVpybk1PL0NvTnFIb280cWJMdVRaU3EzbG9sUlN6Y3dxdU52TGF4clB0Z29u?=
- =?utf-8?B?bmgwN1BYcU9VVkVrbm05M2VyVmRWZ3hNY1lUOGRFajVKNWlMblZOSGg5Nm54?=
- =?utf-8?B?YTBpS0xKZUhvdHlueUhFRFZFRTZFZ2xrVElleCtQRFIvM0NZWndMM1dBL05W?=
- =?utf-8?B?bGVtc3pOWFVzajJjNDh3a2NjNzFDMmxZQTRnamhLUitKYXZ1dWhsVE53VGVU?=
- =?utf-8?B?SXNnNUhCbHowa1JoNHV3U1ZhYzhSdWtTR2xyNXQ5WnAvamV3NGJkdDVrQ09l?=
- =?utf-8?B?bkpCOTZYWXZWelBCWUx0TW84dmNCMzRRblYwTW92V0dQSDQyOGxiZDJrNEd4?=
- =?utf-8?B?RDg0TysxQnBtcWdCWFdlUjlhQzA1LzVjU1lZc0oxMXd1RGtaVU5Id2NsY0VS?=
- =?utf-8?B?aDJHUndJdEN3WE1FT0IyeHpCUlF1b0h1ejdTcE9VSkxreCt2MXlMa3RsdUZI?=
- =?utf-8?B?YnZrTzgyNDNKZ2hyUWw4WjVHNjBGSkZMNkJDdmFiZ3E3bnN5N3d5MDhFYjJq?=
- =?utf-8?B?Ri9TRzkwSGozWlJjSzRvaGdjZ2hJbFpjRWdYdUVVRzhKdU5mS1lCdz09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5901998c-87c4-4378-8add-08de7958c9f8
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2026 19:12:18.9873
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MqLr079Tx61bMyFaKoyRszOLMRH7P7yq6CeU7x27ZmfAom8kNl+xJnWszVYr4fkH
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA4PR12MB9763
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260303-rk3588-bgcolor-v8-1-fee377037ad1@collabora.com>
+References: <20260303-rk3588-bgcolor-v8-0-fee377037ad1@collabora.com>
+In-Reply-To: <20260303-rk3588-bgcolor-v8-0-fee377037ad1@collabora.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Haneen Mohammed <hamohammed.sa@gmail.com>, 
+ Melissa Wen <melissa.srw@gmail.com>, 
+ Jani Nikula <jani.nikula@linux.intel.com>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Robert Mader <robert.mader@collabora.com>, kernel@collabora.com, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
+ Diederik de Haas <diederik@cknow-tech.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_111223_780540_F32B66B4 
-X-CRM114-Status: GOOD (  28.03  )
+X-CRM114-CacheID: sfid-20260303_112452_268433_07D72CE0 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,227 +87,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 03, 2026 at 10:40:00AM -0800, Piotr Jaroszynski wrote:
+Currently DIV_ROUND_CLOSEST() is only available for the kernel via
+include/linux/math.h.
 
-> > If my reasoning is correct, then I think arm64 hugetlb has a similar bug; See
-> > __cont_access_flags_changed(), which just checks for any form of dirty. So I
-> > guess hugetlb is buggy in the same way and should be fixed to use this more
-> > stringent approach?
-> 
-> Given sw-dirty is managed by sw, is it correct for sw to ever create a
-> PTE that's sw-dirty but not hw-dirty? If not, then I think it will still
-> work fine for the SMMU case as sw-dirty implies hw-dirty, and if it's
-> missing then we will set both. But for thoroughness it could make sense
-> to be stricter and add some comments there as it does feel a little
-> fragile. I'm very new to this area though so probably best for others to
-> comment and tackle this.
+Expose it to userland as well by adding __KERNEL_DIV_ROUND_CLOSEST() as
+a common definition in uapi.
 
-I also am not so familiar with SW dirty, but the big thing to be
-sensitive to here is that the CPU can get by with setting something as
-RDONLY | DBM and the CPU will flip off RDONLY without issue, so you
-might not notice it.
+Additionally, ensure it allows building ISO C applications by switching
+from the 'typeof' GNU extension to the ISO-friendly __typeof__.
 
-But if handle_mm_fault() is called on something RDONLY|DBM it *MUST*
-clear the RDONLY for all CONT entries, or fail the fault. Otherwise
-the SMMU SVA explodes.
+Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+Tested-by: Diederik de Haas <diederik@cknow-tech.com>
+Acked-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ include/linux/math.h       | 18 +-----------------
+ include/uapi/linux/const.h | 18 ++++++++++++++++++
+ 2 files changed, 19 insertions(+), 17 deletions(-)
 
-However, I agree the __cont_access_flags_changed() looks concerning.
-
-I spent a few AI $$ to cross check this and it echo's Ryan's concern
-but did not find a specific counter-example where PTE_WRITE |
-PTE_DIRTY | PTE_RDONLY can happen for hugetlb. I don't really trust
-this negative result, so I'm inclined to agree it should be made more
-robust. I like the look of the patch (below) it proposed too.
-
-AI ramblings:
-PROMPT:
-Review 20260303063751.2531716-1-pjaroszynski@nvidia.com.mbx and focus
-on __cont_access_flags_changed(), huge_ptep_set_access_flags(),
-hugetlb_fault(). Does it have the same issue as this patch is fixing,
-considering the following additional note:
-
-A big thing to be sensitive to here is that the CPU can get by with
-setting something as RDONLY | DBM and the CPU will flip off RDONLY
-without issue, so you might not notice it.
-
-But if handle_mm_fault() is called on something RDONLY|DBM it *MUST*
-clear the RDONLY for all CONT entries, or fail the fault.
-====
-
-Analysis: Does hugetlb __cont_access_flags_changed() have the same bug as the contpte patch?
-
-The contpte bug (what the patch fixes)
-
-The old contpte_ptep_set_access_flags() (contpte.c:614) used ptep_get()
-which gathers AF/dirty from ALL sub-PTEs via OR, then compared the
-gathered result against entry:
-
-    // OLD (buggy):
-    orig_pte = pte_mknoncont(ptep_get(ptep));   // gathers across all sub-PTEs!
-    if (pte_val(orig_pte) == pte_val(entry))
-        return 0;
-
-A dirty sibling makes the gathered PTE look already-dirty, even though
-the target sub-PTE still has PTE_RDONLY in hardware. False no-op → SMMU
-infinite fault loop.
-
-The fix replaces this with contpte_all_subptes_match_access_flags()
-which checks each sub-PTE’s raw bit values
-(PTE_RDONLY | PTE_AF | PTE_WRITE | PTE_DIRTY).
-
-The hugetlb code
-
-__cont_access_flags_changed() (hugetlbpage.c:400-418) does NOT use
-gathering for the no-op check – it reads each sub-PTE individually via
-__ptep_get():
-
-    for (i = 0; i < ncontig; i++) {
-        pte_t orig_pte = __ptep_get(ptep + i);
-        if (pte_dirty(pte) != pte_dirty(orig_pte))
-            return 1;
-        if (pte_young(pte) != pte_young(orig_pte))
-            return 1;
-    }
-
-So it does NOT have the exact same gathering-based false no-op bug.
-
-But it does have a weaker form of the same conceptual problem
-
-The check uses pte_dirty() which is:
-
-    #define pte_hw_dirty(pte)  (pte_write(pte) && !pte_rdonly(pte))
-    #define pte_sw_dirty(pte)  (!!(pte_val(pte) & PTE_DIRTY))
-    #define pte_dirty(pte)     (pte_sw_dirty(pte) || pte_hw_dirty(pte))
-
-It abstracts over HW-dirty and SW-dirty. It does NOT check PTE_RDONLY
-directly.
-
-If a sub-PTE were in the state PTE_WRITE | PTE_DIRTY | PTE_RDONLY
-(SW-dirty but HW-readonly), then pte_dirty() returns true (via
-sw_dirty), and the check would say “no change needed” – but PTE_RDONLY
-is still set in hardware, which the SMMU would fault on.
-
-The contpte fix’s contpte_all_subptes_match_access_flags() would catch
-this because it compares the raw PTE_RDONLY bit directly.
-
-Does PTE_WRITE | PTE_DIRTY | PTE_RDONLY actually occur?
-=======================================================
-
-Looking at all the arm64 PTE manipulation functions:
-
--   pte_mkdirty(): sets PTE_DIRTY AND clears PTE_RDONLY (if writable)
--   pte_mkwrite_novma(): sets PTE_WRITE, clears PTE_RDONLY if PTE_DIRTY
--   pte_wrprotect(): saves HW dirty to SW dirty, sets PTE_RDONLY, clears
-    PTE_WRITE
--   pte_mkclean(): clears PTE_DIRTY, sets PTE_RDONLY
--   HAFDBS: can only CLEAR PTE_RDONLY, never set it
-
-None of these create PTE_DIRTY | PTE_WRITE | PTE_RDONLY. The invariant
-holds: for writable pages, PTE_DIRTY => !PTE_RDONLY.
-
-Tracing the RDONLY|DBM scenario through hugetlb_fault()
-
-For the specific scenario: all sub-PTEs are PTE_WRITE | PTE_RDONLY
-(RDONLY|DBM, clean writable), and handle_mm_fault() is called:
-
-1.  huge_ptep_get() gathers – no dirty siblings, so vmf.orig_pte =
-    PTE_WRITE | PTE_RDONLY | PTE_AF
-2.  huge_pte_mkdirty() sets PTE_DIRTY, clears PTE_RDONLY
-3.  entry = PTE_WRITE | PTE_DIRTY | !PTE_RDONLY | PTE_AF
-4.  __cont_access_flags_changed():
-    -   All sub-PTEs: PTE_WRITE | PTE_RDONLY | PTE_AF
-    -   pte_dirty(entry) = true, pte_dirty(sub) = false (RDONLY set, no
-        PTE_DIRTY)
-    -   Mismatch detected -> returns 1 -> BBM proceeds
-5.  BBM rewrites ALL PTEs with
-    PTE_WRITE | PTE_DIRTY | !PTE_RDONLY | PTE_AF
-6.  RDONLY cleared for all entries. Correct.
-
-With some siblings HW-dirtied by CPU (e.g., PTE #3 has !PTE_RDONLY):
-
-1.  huge_ptep_get() gathers: sees HW-dirty sibling, calls pte_mkdirty()
-    on gathered
-2.  entry = PTE_WRITE | PTE_DIRTY | !PTE_RDONLY | PTE_AF
-3.  __cont_access_flags_changed():
-    -   PTE #3 (!PTE_RDONLY): pte_dirty() = true -> match
-    -   PTE #0 (PTE_RDONLY): pte_dirty() = false -> mismatch -> returns
-        1
-4.  BBM proceeds. All PTEs rewritten. Correct.
-
-With ALL siblings HW-dirtied by CPU:
-
-1.  All sub-PTEs: PTE_WRITE | !PTE_RDONLY | PTE_AF (all HW dirty)
-2.  entry: PTE_WRITE | PTE_DIRTY | !PTE_RDONLY | PTE_AF
-3.  __cont_access_flags_changed(): all pte_dirty() match -> returns 0
-    (no-op)
-4.  But RDONLY is already clear on all PTEs, so SMMU won’t fault.
-    Correct.
-
-Conclusion
-==========
-
-The hugetlb code does NOT have the same bug in the sense that it doesn’t
-produce false no-ops with current code. The key difference is
-__cont_access_flags_changed() checks each sub-PTE individually, not a
-gathered view.
-
-However, Ryan Roberts’ observation is valid:
-__cont_access_flags_changed() has a latent weakness. It relies on the
-invariant PTE_DIRTY => !PTE_RDONLY (for writable pages) rather than
-checking PTE_RDONLY directly. If this invariant were ever violated
-(e.g., by a future code change), the no-op check could falsely pass,
-leaving RDONLY set in hardware and causing SMMU fault loops. The contpte
-fix’s approach of checking raw bit values is more robust and should be
-adopted by the hugetlb code as a defense-in-depth measure.
-
-The recommended fix for hugetlb: replace the pte_dirty()/pte_young()
-checks in __cont_access_flags_changed() with a raw-bitmask comparison
-similar to contpte_all_subptes_match_access_flags(), using the mask
-PTE_RDONLY | PTE_AF | PTE_WRITE | PTE_DIRTY.
-
-diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-index a42c05cf564082..34e091b398123e 100644
---- a/arch/arm64/mm/hugetlbpage.c
-+++ b/arch/arm64/mm/hugetlbpage.c
-@@ -389,28 +389,24 @@ pte_t huge_ptep_get_and_clear(struct mm_struct *mm, unsigned long addr,
- }
+diff --git a/include/linux/math.h b/include/linux/math.h
+index 6dc1d1d32fbc..1e8fb3efbc8c 100644
+--- a/include/linux/math.h
++++ b/include/linux/math.h
+@@ -89,23 +89,7 @@
+ }							\
+ )
  
+-/*
+- * Divide positive or negative dividend by positive or negative divisor
+- * and round to closest integer. Result is undefined for negative
+- * divisors if the dividend variable type is unsigned and for negative
+- * dividends if the divisor variable type is unsigned.
+- */
+-#define DIV_ROUND_CLOSEST(x, divisor)(			\
+-{							\
+-	typeof(x) __x = x;				\
+-	typeof(divisor) __d = divisor;			\
+-	(((typeof(x))-1) > 0 ||				\
+-	 ((typeof(divisor))-1) > 0 ||			\
+-	 (((__x) > 0) == ((__d) > 0))) ?		\
+-		(((__x) + ((__d) / 2)) / (__d)) :	\
+-		(((__x) - ((__d) / 2)) / (__d));	\
+-}							\
+-)
++#define DIV_ROUND_CLOSEST __KERNEL_DIV_ROUND_CLOSEST
  /*
-- * huge_ptep_set_access_flags will update access flags (dirty, accesssed)
-+ * huge_ptep_set_access_flags will update access flags (dirty, accessed)
-  * and write permission.
-  *
-- * For a contiguous huge pte range we need to check whether or not write
-- * permission has to change only on the first pte in the set. Then for
-- * all the contiguous ptes we need to check whether or not there is a
-- * discrepancy between dirty or young.
-+ * Check all sub-PTEs' raw access flag bits rather than using the abstracted
-+ * pte_dirty()/pte_young() helpers which conflate HW-dirty and SW-dirty.
-+ * This ensures PTE_RDONLY is checked directly: a sub-PTE that is SW-dirty
-+ * (PTE_DIRTY set) but still has PTE_RDONLY would be missed by pte_dirty()
-+ * but will cause an SMMU without HTTU to keep faulting.  The access flag
-+ * mask matches the one used by __ptep_set_access_flags().
-  */
- static int __cont_access_flags_changed(pte_t *ptep, pte_t pte, int ncontig)
- {
-+	const pteval_t access_mask = PTE_RDONLY | PTE_AF | PTE_WRITE | PTE_DIRTY;
-+	pteval_t pte_access = pte_val(pte) & access_mask;
- 	int i;
+  * Same as above but for u64 dividends. divisor must be a 32-bit
+  * number.
+diff --git a/include/uapi/linux/const.h b/include/uapi/linux/const.h
+index b8f629ef135f..565f309b9df8 100644
+--- a/include/uapi/linux/const.h
++++ b/include/uapi/linux/const.h
+@@ -50,4 +50,22 @@
  
--	if (pte_write(pte) != pte_write(__ptep_get(ptep)))
--		return 1;
--
- 	for (i = 0; i < ncontig; i++) {
--		pte_t orig_pte = __ptep_get(ptep + i);
--
--		if (pte_dirty(pte) != pte_dirty(orig_pte))
--			return 1;
--
--		if (pte_young(pte) != pte_young(orig_pte))
-+		if ((pte_val(__ptep_get(ptep + i)) & access_mask) != pte_access)
- 			return 1;
- 	}
+ #define __KERNEL_DIV_ROUND_UP(n, d) (((n) + (d) - 1) / (d))
  
++/*
++ * Divide positive or negative dividend by positive or negative divisor
++ * and round to closest integer. Result is undefined for negative
++ * divisors if the dividend variable type is unsigned and for negative
++ * dividends if the divisor variable type is unsigned.
++ */
++#define __KERNEL_DIV_ROUND_CLOSEST(x, divisor)		\
++({							\
++	__typeof__(x) __x = x;				\
++	__typeof__(divisor) __d = divisor;		\
++							\
++	(((__typeof__(x))-1) > 0 ||			\
++	 ((__typeof__(divisor))-1) > 0 ||		\
++	 (((__x) > 0) == ((__d) > 0))) ?		\
++		(((__x) + ((__d) / 2)) / (__d)) :	\
++		(((__x) - ((__d) / 2)) / (__d));	\
++})
++
+ #endif /* _UAPI_LINUX_CONST_H */
 
-Jason
+-- 
+2.52.0
+
 
