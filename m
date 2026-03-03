@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1A4FEDA68D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 16:02:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81DB3EDA697
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 16:03:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+yfdLkGixRhXtSYvCCw2nsJPyM/ZSiUn7Y4tY6Thixk=; b=G6wpuc9urJgJ4Pqiq78H8gmKED
-	eUeLWoVq85bc33vTr3Z7ydHFkAP+4ONquS+yAsGvkLmfwrhxrtAyhG5Z+sdKBqfVTFuORpado7QoU
-	RI6BpbYssamLq3kTD51T8hnzdwsfQLragn33aNPNaf9ltXNz/UiHAucWNxJsDp3e6RmjEETRhlAyl
-	76y0WoXnj+JEP07Zp3UZ2uOlc5SkZb6Fqqrye7VtufFSYryCaJzWMM08oN3umSRZiGm0BLCudUJj4
-	EnNvuhTO1QpJiKEQe3yiKdMb2puk4hrr1VLHmsaswj0HXN8EguCDbs+Nd1h/nDdpgDylNkJu3q2e3
-	0oU4HcKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9a9MHHDvAS4GuJXkWSu8F0H8VmKDgo/AZP3thGDlWj4=; b=fpNDqzortauO4a21vlSunVuQi6
+	m/9Ok/Ux7pg53YyaSeCaxw1ENwunPUBr3qj2ZswsxYM70vMJvddzSKVTmdcPkwf+w2E9pckl7t4ct
+	tnBFcyI0Zc71TWk2+f0AHzLeWfFLNLfbQ4mXRdXrzEnrUAFcWE8vZP2tsbNvilziJO+WC6Azs3Ilt
+	lwJZqcSN2vb2atSFKpwh61lCXwhnzKtCdYE5Fag5SYDz7QmxiimaqUwXpimcOPwFOGbbIN/0L7gst
+	KA+UeTEZvuaEGcYA/m3mXFC2BVRP2OSV8tPulBS1eDo2V5aWVOdKxSA3NCxVH+cwwchhMc9ADtguo
+	a8aQh9zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSCo-0000000FVKb-35qI;
-	Tue, 03 Mar 2026 16:02:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSCm-0000000FVK1-1h5c
+	id 1vxSDA-0000000FVPC-0X7Y;
+	Tue, 03 Mar 2026 16:03:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxSD7-0000000FVOR-2Ed2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 16:02:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C24DD4150F;
-	Tue,  3 Mar 2026 16:02:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99EAFC116C6;
-	Tue,  3 Mar 2026 16:02:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772553759;
-	bh=9GTxoPFm60nrBf/Iq0cAmUqQnqTieulX7wXH71jwZSI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=AnTRyR/quwr3kHVi1iQrT4FoxLDBThUmIJRsNcJH4vKLpYlxzY+XYJB9BQcr22+d4
-	 1PNJZRkeE+o/N+AlPawrGz3RY9KXOBLIDEx8AH4X/G2JIWhj8xhNrKroHY8tCSbj/L
-	 +6d9BzuvAQjh3sIYZDDcKAzQI1fPh8xK+In7aIiIMn/oIxY2TmeHQTzByPFiMjqOYE
-	 moP+eT899HVESHWPOTnZ1Qn43jmEq13zxTdL2hRE8LKgiIIDLw0ESiGGg+7FU0ADmK
-	 tJXq06s5qA5GUV5w3Kk/BoiPcuaIQZWkdTUIVGII2NIbomV1YtG/KYkPVKRRu7DgH5
-	 cMVYc2u28FH8g==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vxSCj-0000000FhU2-19fZ;
-	Tue, 03 Mar 2026 16:02:37 +0000
-Date: Tue, 03 Mar 2026 16:02:36 +0000
-Message-ID: <868qc89a03.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly
-	<Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>,
-	"jonathan.cameron@huawei.com"
-	<jonathan.cameron@huawei.com>
-Subject: Re: [PATCH v5 12/36] KVM: arm64: gic-v5: Add emulation for ICC_IAFFIDR_EL1 accesses
-In-Reply-To: <20260226155515.1164292-13-sascha.bischoff@arm.com>
-References: <20260226155515.1164292-1-sascha.bischoff@arm.com>
-	<20260226155515.1164292-13-sascha.bischoff@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com, jonathan.cameron@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 03 Mar 2026 16:03:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6C1FF339;
+	Tue,  3 Mar 2026 08:02:52 -0800 (PST)
+Received: from [10.57.66.27] (unknown [10.57.66.27])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 67C6E3F694;
+	Tue,  3 Mar 2026 08:02:55 -0800 (PST)
+Message-ID: <37b79d98-10e5-4beb-b95c-783d41050eae@arm.com>
+Date: Tue, 3 Mar 2026 16:02:53 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 06/46] arm64: RMI: Define the user ABI
+Content-Language: en-GB
+To: Marc Zyngier <maz@kernel.org>
+Cc: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>
+References: <20251217101125.91098-1-steven.price@arm.com>
+ <20251217101125.91098-7-steven.price@arm.com> <86tsuy8g0u.wl-maz@kernel.org>
+ <33053e22-6cc6-4d55-bc7f-01f873a15d28@arm.com>
+ <9d702666-72a8-43e4-8ab3-548d8154a529@arm.com> <86fr6h838s.wl-maz@kernel.org>
+ <d87ee902-3b5e-4cf9-8b97-d83f8da02a5a@arm.com> <86ecm17zeb.wl-maz@kernel.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <86ecm17zeb.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_080240_484537_3F8C95D3 
-X-CRM114-Status: GOOD (  27.77  )
+X-CRM114-CacheID: sfid-20260303_080301_974200_9E0406AE 
+X-CRM114-Status: GOOD (  21.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,84 +79,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 26 Feb 2026 15:58:31 +0000,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+On 03/03/2026 14:37, Marc Zyngier wrote:
+> On Tue, 03 Mar 2026 14:23:08 +0000,
+> Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+>>
+>> On 03/03/2026 13:13, Marc Zyngier wrote:
+>>> On Mon, 02 Mar 2026 17:13:41 +0000,
+>>> Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+>>>>
+>>>> More importantly, we have to make sure that the "RMI_PSCI_COMPLETE" is
+>>>> invoked before both of the following:
+>>>>     1. The "source" vCPU is run again
+>>>>     2. More importantly the "target" vCPU is run.
+>>>
+>>> I don't understand why (1) is required. Once the VMM gets the request,
+>>
+>> The underlying issue is, the RMM doesn't have the VCPU object for the
+>> "target" VCPU, to make the book keeping. Also, please note that for  a
+>> Realm, PSCI is emulated by the "RMM". Host is obviously notified of the
+>> "PSCI" changes via EXIT_PSCI (note, it is not SMCCC exit)
+>>   so that it can be in sync with the real state. And does have a say in
+>>   CPU_ON. So, before we return to running the "source" CPU,
+>> Host must provide the target VCPU object and its consent (via
+>> psci_status) to the RMM. This allows the RMM to emulate the PSCI
+>> request correctly and also at the same time keep its book keeping
+>> in tact (i.e., marking the Target VCPU as runnable or not).
+>>
+>> When a "source" VCPU exits to the host with a PSCI_EXIT, the RMM
+>> marks the source VCPU has a pending PSCI operation, and
+>> RMI_PSCI_COMPLETE request ticks that off, making it runnable again.
 > 
-> GICv5 doesn't provide an ICV_IAFFIDR_EL1 or ICH_IAFFIDR_EL2 for
-> providing the IAFFID to the guest. A guest access to the
-> ICC_IAFFIDR_EL1 must therefore be trapped and emulated to avoid the
-> guest accessing the host's ICC_IAFFIDR_EL1.
+> Sure. What I don't get is what this has to happen on the source vcpu
+> thread. The RMM has absolutely no clue about that, and there should be
+> no impediment to letting the target vcpu do it as it starts.
+
+Because, the RMM wants to make that the state is consistent. i.e,
+Host cannot lie to the "source" VCPU and RMM (e.g., CPU_ON denied) and
+then run the "target" VCPU.
+
+In other words, the response to the CPU_ON must be recorded by the RMM
+in the target VCPU state, to make sure the target VCPU state is
+consistent with the response.
+
+The only way to fix this would be RMM keeping track of "mpidr" to REC
+object mapping (VCPU object), which impacts the scalability. With that
+in place, RMM can update the target VCPU state from the return of the
+REC_ENTER after a PSCI_EXIT.
+
+That said, will explore the options to address this
+
+Thanks
+Suzuki
+
 > 
-> The virtual IAFFID is provided to the guest when it reads
-> ICC_IAFFIDR_EL1 (which always traps back to the hypervisor). Writes are
-> rightly ignored. KVM treats the GICv5 VPEID, the virtual IAFFID, and
-> the vcpu_id as the same, and so the vcpu_id is returned.
+> Even better, you should be able to do that on the first thread that
+> reenters the guest, completely removing any RMM knowledge from the
+> PSCI handling in userspace.
 > 
-> The trapping for the ICC_IAFFIDR_EL1 is always enabled when in a guest
-> context.
+> If you can't do that, then please consider fixing the RMM to allow it.
 > 
-> Co-authored-by: Timothy Hayes <timothy.hayes@arm.com>
-> Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  arch/arm64/kvm/config.c    | 10 +++++++++-
->  arch/arm64/kvm/sys_regs.c  | 19 +++++++++++++++++++
->  arch/arm64/kvm/vgic/vgic.h |  5 +++++
->  3 files changed, 33 insertions(+), 1 deletion(-)
+> Thanks,
 > 
-> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-> index e4ec1bda8dfcb..bac5f49fdbdef 100644
-> --- a/arch/arm64/kvm/config.c
-> +++ b/arch/arm64/kvm/config.c
-> @@ -1684,6 +1684,14 @@ static void __compute_hdfgwtr(struct kvm_vcpu *vcpu)
->  		*vcpu_fgt(vcpu, HDFGWTR_EL2) |= HDFGWTR_EL2_MDSCR_EL1;
->  }
->  
-> +static void __compute_ich_hfgrtr(struct kvm_vcpu *vcpu)
-> +{
-> +	__compute_fgt(vcpu, ICH_HFGRTR_EL2);
-> +
-> +	/* ICC_IAFFIDR_EL1 *always* needs to be trapped when running a guest */
-> +	*vcpu_fgt(vcpu, ICH_HFGRTR_EL2) &= ~ICH_HFGRTR_EL2_ICC_IAFFIDR_EL1;
-> +}
-> +
->  void kvm_vcpu_load_fgt(struct kvm_vcpu *vcpu)
->  {
->  	if (!cpus_have_final_cap(ARM64_HAS_FGT))
-> @@ -1705,7 +1713,7 @@ void kvm_vcpu_load_fgt(struct kvm_vcpu *vcpu)
->  	}
->  
->  	if (cpus_have_final_cap(ARM64_HAS_GICV5_CPUIF)) {
-> -		__compute_fgt(vcpu, ICH_HFGRTR_EL2);
-> +		__compute_ich_hfgrtr(vcpu);
->  		__compute_fgt(vcpu, ICH_HFGWTR_EL2);
->  		__compute_fgt(vcpu, ICH_HFGITR_EL2);
->  	}
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index b8b86f5e1adc1..384824e875603 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -681,6 +681,24 @@ static bool access_gic_dir(struct kvm_vcpu *vcpu,
->  	return true;
->  }
->  
-> +static bool access_gicv5_iaffid(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
-> +				const struct sys_reg_desc *r)
-> +{
-> +	if (!kvm_has_gicv5(vcpu->kvm))
-> +		return undef_access(vcpu, p, r);
+> 	M.
+> 
 
-Do we really need this? If the guest doesn't have FEAT_GCIE, then we
-should have an FGU bit set for any FGT bit that control a GCIE
-register, and that register should UNDEF at the point of triaging the
-trap, and never reach this handler.
 
-If it doesn't, we have bigger problems, and we should address them.
 
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
