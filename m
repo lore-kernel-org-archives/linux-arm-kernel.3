@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6848EDEBEE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1877DEDEBED
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 19:39:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hpAqgqnxsYIXlo7xalO5qgaLwP1g0ilpL3ajza9+KEE=; b=bT7pc2Z1SZtogewsZRywa9M69E
-	z+VqPOe9BkOcctB4NZuV9ss69qpQdOZNwV4OM9iliaSaiCTvgdA5zD2FzM2wosDmjcmSD+urjhL27
-	mWy79shV6K5ylmSo2nJ4rZ6cBFJddX/xsy/qZMvIK7Gjvg7pRFynBs+SxLYydghaWdXuQM8qx40QF
-	pNbV3JIIktxPBGt9s/3FSuafLG3KoK+ErO47TcJp3QHqsdFZN3uzGhIGgIfgytu9gATJ3eleO/zKx
-	cePMSz1OqdqaG52JdU9npGbfYm5LOVLVlkRm2pPCQlwlN/F8yRg+Sf4y6HNVaTzLZcrha677zjYtK
-	lClFA2Ug==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BB0QVBpGQ94Lw9CGC203QszMp5Otiswv82HpkthV6hY=; b=ZsxIu+tTN2HyKOjOg2LMvgTyr6
+	NKUZLA7+/zSz4ILr9uSOxuViwxUyHHFht/25fhIwxp2YCljBWXX6OUJnplXIshF7cDxo3FfnpXS7p
+	CbAwyLLnIpXMVHRdBeRJBoCbNe5zdW+0GLXpKsMKc5u6TYonRjlb62YPEzMoQG2Y6G7nWj/3RVkc6
+	WCbbfPRPr5vDmn+iW7o25qSI21wxdW8hPDWs00amiTbEi+awigY6TNZq0wtQms5cpK3KNNN0aoWC5
+	rq8t82lxBmdvZArlMkyypOQ7XdpxBi6SHFFw+FF6E+V4itdEwkdAAkXfGl23ddpx8hsWbWB/lBu0l
+	SzJlxPiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxVaM-0000000FotR-3rbQ;
-	Tue, 03 Mar 2026 19:39:14 +0000
-Received: from mail-vs1-xe33.google.com ([2607:f8b0:4864:20::e33])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxVaK-0000000Forx-3diS
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vxVaL-0000000Fosk-1jpn;
 	Tue, 03 Mar 2026 19:39:13 +0000
-Received: by mail-vs1-xe33.google.com with SMTP id ada2fe7eead31-5ff9ef0a426so160419137.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 11:39:12 -0800 (PST)
+Received: from mail-vk1-xa29.google.com ([2607:f8b0:4864:20::a29])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxVaI-0000000Foqo-061A
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Mar 2026 19:39:12 +0000
+Received: by mail-vk1-xa29.google.com with SMTP id 71dfb90a1353d-56a8da2faf4so4944851e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 11:39:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772566751; x=1773171551; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hpAqgqnxsYIXlo7xalO5qgaLwP1g0ilpL3ajza9+KEE=;
-        b=AcHoe5Vpw1KRX9iakLVy0yZRAKtIH2QLLE8F0v80vN7wqX83xe+dTCU5PHHj6yHlvQ
-         sh0RZwssynRH4p6LUu36OzrhZ2dnF1DDVkWvkaKO8KrWDlL46pd7OyjnZCEnSwwHB8Ho
-         Igl2Ir3H/ytroF27mlMfS3yiZ8BomZbE9YZTM88KrcRl6zsOT3tGSxb052fuwR5QPWFq
-         BA5XiQoLt4lTsJFtk+8pTaZ98cLppNWBNdqLsaW43go41jkaKMOeoNT6z/ZEyIM0w1WL
-         tNbOlWMt3F1DW8zo+xuYwPckOjRLQvRmjow+9L4Rn4ynmtUe2R1G75PWJZOilhG65DRh
-         0hgQ==
+        d=gmail.com; s=20230601; t=1772566748; x=1773171548; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=BB0QVBpGQ94Lw9CGC203QszMp5Otiswv82HpkthV6hY=;
+        b=JkEWeqVdu8qS+xKVS037MCU5Mjylo8LZl0EGXsSV2/bvsnJ5lwsh1R8cmRTuZpnSVD
+         zV7oinHMZx6C0/NzRGdwebktBoAWpe4rdnF3akV94Qqhh3oGZ0jJl8PVsIMigsOFmF4u
+         /9Eo+S4C7C/tMbVGOj+iDPoIP3FHmwxOjXZCKmjbI4lHof/8AhEXgyUpxqVeB/YMsmz1
+         9yzJk9eg9MsC5uJkIf/CqKUzYJEMoILxWWjeYyDgK+GxWEwA620tBlR7glhqZG//83sq
+         +FWuVsphHH+cWDBTsmVZSpA5qLQMTanqz79aWfGGq4rkVAnky7aBwtsINSvunPwL2PTX
+         1kIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772566751; x=1773171551;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=hpAqgqnxsYIXlo7xalO5qgaLwP1g0ilpL3ajza9+KEE=;
-        b=Inzpc4DYAaKyV9ngj0SGV9UdSc8topeo+0yPdjzDYm49hicP3vvF3AVR3EOnP53j0z
-         A7KkISkEpIrfoWRc0mffZ408TBqTIcIZXDR+6cuV2AcSNwJi9KwPwK69ntk+BdFlK2g+
-         kjWF3oL2VoqltSTMYm7NAk0mnaB1CpTAD7CmIynmKlW388+/h79+ZU8nGAShpmpCmpCB
-         8RsIfg3ooiKlZASMwcefHDRUUzu2HB0IAWQ8zYpVzLPDAVDb90x03S/hVLqM285lMCRl
-         9V/RK3Kuz+yqyDuw8p8yeSHrlbtyjIBA9K1kPeTVt/6NVKC7ALFI150O5N96m8JF2BDk
-         x40w==
-X-Forwarded-Encrypted: i=1; AJvYcCUIljtynGqEBEH2DpGl8guUCENZ+GDkRGtFaV3omf4BG3kIvwJZVT4LmIkYduySz3AuDosHqubOCYqFKYv6frL1@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQsgbbmM5UIOK8kKWRbxv4wr/VW+2t2093ex5FsQLvUXo+JKvD
-	smR+nvQQYuq0ZrYAnuwX2l+dm7egDPBQnBZFV40hB5emHIbR4qo16t9E
-X-Gm-Gg: ATEYQzzh1ecT0eYdZpT1tFscQ70GnsXmVnzIrJAGc/R+3f/OykZpnK9RutuuGK/Fwu0
-	JPzusnFiiVAJ7RnZ+EPQpftLM4QqwLkc9t8TRHSQIPDTC0jXyBUshpEXeGMTx7nPKPn42oBnXuA
-	yb+mihT36YQs1mLwGEjtRoW/2Ni2OrxHLwfzmT8pgY2t93tdr8V4rKi2Bd2SNX0QjJ4MWAH28zB
-	zFVkhz05Je9XSQ+qIQdI/lJeP3ytPQ25DCmfyEYckHi6x7YIPFxb13ChNeb6+uqSdSEJWasGATZ
-	x/3tEXLdFA32jUO2DUGPEkf7IzfZ/sbiMxkd54UXfWjV5t9GzgqJ/g3VjIk09Xza7mZ+urAkNzq
-	Mf3Ft3vHbymvnJGDEOe8RW7Teo748lHC/QuTX8gCHriP5GAkFVRrhuv8T0PFg1nIp5Qe1baqMFn
-	iqOMKdycJts91tJKUHSfJwaFbxaMA0hJqUctoDxFu8JdDX17X4hdl3SbInF9KMbF0VZTAA
-X-Received: by 2002:a05:6102:1610:b0:5ed:675:e355 with SMTP id ada2fe7eead31-5ff3250f641mr6894908137.27.1772566751414;
-        Tue, 03 Mar 2026 11:39:11 -0800 (PST)
+        d=1e100.net; s=20230601; t=1772566748; x=1773171548;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BB0QVBpGQ94Lw9CGC203QszMp5Otiswv82HpkthV6hY=;
+        b=PMK6KP1QkyWEdkjkXTsborOvFzPaDjraLjbujbUtQtqsCZ0iUZsbzSspKWORFtv6St
+         3H8qyKku+uxukE2jaXxjkIV8SfWjTXoKs5+MKkrz9XZyCXVA43gbIGtuwVTeTkCYg5gv
+         uLNHPXznJwoQyBcA5edO1HcDWIJMlBqxW+Qz0iVOONAbQHHyH0IPr49X2y2FSC6rcfWk
+         bjuY5KpOmMnoaB4DY0NwdvzaGOjkmzfa2CzxJDfDmCxujEqWhYadDhKRm2RIffs0xTC7
+         aIKyRjtirw7KMfO14Ye7B7yRKLexu7X5zesc/1zYUGcrSoDN0/R6iMiozbJmJI6KUeYD
+         7X1A==
+X-Forwarded-Encrypted: i=1; AJvYcCUSRRSxmiKj7CNZP4EYUMYdGULpKb8h0uQhGQCulE5ledKB8E6RyH0Qnwv7DUbpVDXFb067awAte4dzjKa1YeUo@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2nfr4lPkP9zP/2BhmiSSqgtDRXSh8sLErfx4e3xSGKdCkvlQO
+	QmheiL1XffUkYwxDLid+3fas9VUq3ekFt2u2qo91faazE4wE2hHEKlqFumnO4w==
+X-Gm-Gg: ATEYQzzWljflUPiqlLWXbHh5HNybJ+AtUjmbIGXEsA2M7va30rqsY6iauRemCHdp3uC
+	fWYAvF/EsIzG3YoXTz+7+S3kFo0C5q+TCTLf6u6hSuHjldpCC0MRwiW+xntqHb3bwbJ50SoOBFC
+	6RvEGvwSaFdO4wK6ipY6wkGrhloQthLR164h8fCmUnuQKh0pyjFXaV1cpwobLhhvFqCSZNsiCIK
+	GKWLE8pabHT+fdmLZran56WWGnu6HXyGEkGjnYpuxNW8yhYbYyPaPls3RHi8Llx2G8xc+jmMkjY
+	7P8Gm6MiBhhRhw5y5wbZS7+BHUWY1UmJFG4xO1dAfmfVLtLINnnd51IhoJMc8/YavKbbmcGhDfu
+	Stcce6s98Wqxu/SMycK8X9fd6FbxUHg9vybQnvBTFRRpOaDO2wFad6X8KsSxVM98soKR/ixoHJs
+	q0wHdWOrxWXc8Vtf1JC2eYMsGZy4HARj6dCPehpXgJ68pxctqh3X0rUeZkVt/zPMksZdUw
+X-Received: by 2002:a05:6102:304d:b0:5fc:2b29:afee with SMTP id ada2fe7eead31-5ff3237e661mr8739890137.18.1772566748110;
+        Tue, 03 Mar 2026 11:39:08 -0800 (PST)
 Received: from fabio-Precision-3551.. ([2804:1b3:a802:8875:499e:12bf:3287:5753])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5ff1e7af30asm17780456137.3.2026.03.03.11.39.08
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5ff1e7af30asm17780456137.3.2026.03.03.11.39.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Mar 2026 11:39:11 -0800 (PST)
+        Tue, 03 Mar 2026 11:39:07 -0800 (PST)
 From: Fabio Estevam <festevam@gmail.com>
 To: heiko@sntech.de
 Cc: robh@kernel.org,
@@ -79,17 +78,15 @@ Cc: robh@kernel.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH 2/3] ARM: dts: rockchip: Improve the RTC description on rk3288-firefly-reload
-Date: Tue,  3 Mar 2026 16:38:54 -0300
-Message-Id: <20260303193855.828892-2-festevam@gmail.com>
+Subject: [PATCH 1/3] ARM: dts: rockchip: Describe the touchscreen interrupt on rk3288-phycore-rdk
+Date: Tue,  3 Mar 2026 16:38:53 -0300
+Message-Id: <20260303193855.828892-1-festevam@gmail.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260303193855.828892-1-festevam@gmail.com>
-References: <20260303193855.828892-1-festevam@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_113912_915262_D384908A 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20260303_113910_066662_7D6DD88B 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,37 +101,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Node names should be generic, so use 'rtc'.
+According to the phyCORE - RK3288 Hardware Manual, GPIO5_B4 corresponds to
+the touchscreen interrupt line:
 
-Remove 'clock-frequency' as is not a valid property.
+https://www.phytec.eu/fileadmin/legacy/downloads/Manuals/L-826e_1.pdf
 
-This fixes the following dt-schema warnings:
+Describe it to improve the devicetree representation.
 
-'hym8563@51' does not match '^rtc(@.*|-([0-9]|[1-9][0-9]+))?$'
-Unevaluated properties are not allowed ('clock-frequency' was unexpected)
+This fixes the following dt-schema warning:
+
+	'interrupts' is a required property
+	'interrupts-extended' is a required property
 
 Signed-off-by: Fabio Estevam <festevam@gmail.com>
 ---
- arch/arm/boot/dts/rockchip/rk3288-firefly-reload.dts | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ arch/arm/boot/dts/rockchip/rk3288-phycore-rdk.dts | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm/boot/dts/rockchip/rk3288-firefly-reload.dts b/arch/arm/boot/dts/rockchip/rk3288-firefly-reload.dts
-index a55270672732..8b491b002992 100644
---- a/arch/arm/boot/dts/rockchip/rk3288-firefly-reload.dts
-+++ b/arch/arm/boot/dts/rockchip/rk3288-firefly-reload.dts
-@@ -197,11 +197,10 @@ &hdmi {
- };
+diff --git a/arch/arm/boot/dts/rockchip/rk3288-phycore-rdk.dts b/arch/arm/boot/dts/rockchip/rk3288-phycore-rdk.dts
+index a878a2632de0..fb2f585caba2 100644
+--- a/arch/arm/boot/dts/rockchip/rk3288-phycore-rdk.dts
++++ b/arch/arm/boot/dts/rockchip/rk3288-phycore-rdk.dts
+@@ -86,6 +86,10 @@ &i2c1 {
+ 	touchscreen@44 {
+ 		compatible = "st,stmpe811";
+ 		reg = <0x44>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&ts_irq_pin>;
++		interrupt-parent = <&gpio5>;
++		interrupts = <RK_PB4 IRQ_TYPE_EDGE_FALLING>;
+ 	};
  
- &i2c0 {
--	hym8563: hym8563@51 {
-+	hym8563: rtc@51 {
- 		compatible = "haoyu,hym8563";
- 		reg = <0x51>;
- 		#clock-cells = <0>;
--		clock-frequency = <32768>;
- 		clock-output-names = "xin32k";
- 		interrupt-parent = <&gpio7>;
- 		interrupts = <RK_PA4 IRQ_TYPE_EDGE_FALLING>;
+ 	adc@64 {
+@@ -199,7 +203,7 @@ sdmmc_pwr: sdmmc-pwr {
+ 
+ 	touchscreen {
+ 		ts_irq_pin: ts-irq-pin {
+-			rockchip,pins = <5 RK_PB7 RK_FUNC_GPIO &pcfg_pull_none>;
++			rockchip,pins = <5 RK_PB4 RK_FUNC_GPIO &pcfg_pull_up>;
+ 		};
+ 	};
+ 
 -- 
 2.34.1
 
