@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2FDAEDA694
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 16:29:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75DE5EDA694
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 16:33:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vxEKFs0jFuv6u4VJhIGhmJsnyai2CUMCJeV8dWAXHLQ=; b=yMcZHat/xjcktwWvOwQhxI7skb
-	eLtSW+Hoawyd/t3pJQ3iW+gM1ZoqcoAe+OkJPu4lL2LiFn7Ed6ZjpNrtJnXhKjSHWiwH4J9FX5wcI
-	G4Ve7jpgeAPo+nw+nNRgELMVz0+5o1oZvDbQGmPpU25pe06hshizITNcoQyfUmTgUe75bKwvWkAYG
-	6i9/Juvz65k+08JjWH+CUP+z0Mx80DPwi1b0qU9H4+6XrA9QA35tyVzyutPv/gh8gcKr5xFssg4p/
-	jjfDrH/MWoCkU73tqWXwiflXBro9YVV+KnYrRerbDbhyxy8aZLQgI6fo2Ox3lgn1894XH8cQHX/xt
-	UY89vg6Q==;
+	bh=vZky70cPCsF/OtXMPUqmQX6gAcHFHvoOsWrFCSkcEvs=; b=lSATy4J12EDO0ugl4qbwtFjSqP
+	XLM6DcARq/IOwQflOLDotcNEvbduOJIlsrCCvIZYWIpBnk0w74Frl69r1l9022dnCQ7690Cau5Iaz
+	M6Gi3lqnsmjsAZasGkmzihgNqWH1rd2gBx6j/H+ap0ESnvkUaYr5ChxAB9XDCIrT9XiIE9IYc1EvR
+	nyXgAQX5SSfL0tqjx77HwjCFCxx9OJgAMof5+neGQaHn+Li0rIqDG7/aPz47bMZCgpRW6tDTC6sid
+	EwjCqTWG+e3VaKzQhLzJd8eru2gpTa9W0CdAGWhK8fy85grtemSlupvWjwBPqNSUrYumvMaDF8X6O
+	iDCjcMmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxScv-0000000FZCM-2thh;
-	Tue, 03 Mar 2026 16:29:41 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxScr-0000000FZBc-3dxv
+	id 1vxSgk-0000000FZwM-2uC6;
+	Tue, 03 Mar 2026 16:33:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxSgi-0000000FZvM-1UNW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 16:29:40 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 272F34E42503;
-	Tue,  3 Mar 2026 16:29:33 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E066A5FF29;
-	Tue,  3 Mar 2026 16:29:32 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 28AAD1036875A;
-	Tue,  3 Mar 2026 17:29:27 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1772555372; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=vxEKFs0jFuv6u4VJhIGhmJsnyai2CUMCJeV8dWAXHLQ=;
-	b=V9g/OBGJCkYKEquzv3iFqY58vCKodgkgdEE4Ye5HIsVuNVKWXt1iFth0miD4iIVc0YHGtO
-	brqiAKR1unqtUd2Q91a1TY6oPHhcABPV8oYKEecCUCMuscYngy6FuCADq8cERfoICZ85SM
-	dKH+MXepzfk3oHg8lT1Oa2Kbi8+x5kzTb1YPrazrOW4pDLmLupuCHPthNb2Y8VL0KrbyoG
-	utiwSpqnjv9m+EQZN7AB1RdauZtz/aWqsrOROc8aI8pdu+reKnTdYGZvab1vWW3O5dfA+o
-	g2V6dgiwyplXYdrynyXAKSWQEPWAd3XmPl1PZ5WKdkQtg/LhmMJxFudAR3jHgA==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+	Tue, 03 Mar 2026 16:33:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 91B8A339;
+	Tue,  3 Mar 2026 08:33:28 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5702B3F694;
+	Tue,  3 Mar 2026 08:33:30 -0800 (PST)
+Message-ID: <fd0cf579-77c4-4a76-bc8e-b19bb7988155@arm.com>
+Date: Tue, 3 Mar 2026 16:33:23 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 12/41] KVM: arm64: Use kernel-space partid
+ configuration for hypercalls
+To: Marc Zyngier <maz@kernel.org>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
+ jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, oupton@kernel.org, joey.gouly@arm.com,
+ suzuki.poulose@arm.com, kvmarm@lists.linux.dev, zengheng4@huawei.com,
+ linux-doc@vger.kernel.org, Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+References: <20260224175720.2663924-1-ben.horgan@arm.com>
+ <20260224175720.2663924-13-ben.horgan@arm.com> <86jyvu85dj.wl-maz@kernel.org>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <86jyvu85dj.wl-maz@kernel.org>
 Content-Type: text/plain; charset=UTF-8
-Date: Tue, 03 Mar 2026 17:29:27 +0100
-Message-Id: <DGTAFQ1WX43H.2R6R1RS5F09Q7@bootlin.com>
-Subject: Re: [PATCH bpf-next v5 0/5] emit ENDBR/BTI instructions for
- indirect jump targets
-Cc: "Alexei Starovoitov" <ast@kernel.org>, "Daniel Borkmann"
- <daniel@iogearbox.net>, "Andrii Nakryiko" <andrii@kernel.org>, "Martin
- KaFai Lau" <martin.lau@linux.dev>, "Eduard Zingerman" <eddyz87@gmail.com>,
- "Yonghong Song" <yonghong.song@linux.dev>, "Puranjay Mohan"
- <puranjay@kernel.org>, "Anton Protopopov" <a.s.protopopov@gmail.com>
-From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-To: "Xu Kuohai" <xukuohai@huaweicloud.com>, <bpf@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260302102726.1126019-1-xukuohai@huaweicloud.com>
-In-Reply-To: <20260302102726.1126019-1-xukuohai@huaweicloud.com>
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_082938_266037_16C2F758 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20260303_083336_510859_42CE07A4 
+X-CRM114-Status: GOOD (  29.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,89 +77,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Xu,
+Hi Marc,
 
-On Mon Mar 2, 2026 at 11:27 AM CET, Xu Kuohai wrote:
-> On x86 CPUs with CET/IBT and arm64 CPUs with BTI, missing landing pad ins=
-tructions
-> at indirect jump targets triggers kernel panic. So emit ENDBR instruction=
-s for
-> indirect jump targets on x86 and BTI on arm64. Indirect jump targets are =
-identified
-> based on the insn_aux_data created by the verifier.
->
-> v5:
-> - Switch to pass env to JIT directly to get rid of coping private insn_au=
-x_data for
->   each prog
+On 3/2/26 18:15, Marc Zyngier wrote:
+> On Tue, 24 Feb 2026 17:56:51 +0000,
+> Ben Horgan <ben.horgan@arm.com> wrote:
+>>
+>> On nVHE systems whether or not MPAM is enabled, EL2 continues to use
+>> partid-0 for hypercalls, even when the host may have configured its kernel
+>> threads to use a different partid. 0 may have been assigned to another
+>> task. Copy the EL1 MPAM register to EL2. This ensures hypercalls use the
+>> same partid as the kernel thread does on the host.
+>>
+>> Tested-by: Gavin Shan <gshan@redhat.com>
+>> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+>> Tested-by: Peter Newman <peternewman@google.com>
+>> Tested-by: Zeng Heng <zengheng4@huawei.com>
+>> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+>> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+>> ---
+>> Changes since v2:
+>> Use mask
+>> Use read_sysreg_el1 to cope with hvhe
+>>
+>> Changes since v3:
+>> Set MPAM2_EL2.MPAMEN to 1 as we rely on that before and after
+>> ---
+>>  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 9 +++++++++
+>>  1 file changed, 9 insertions(+)
+>>
+>> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+>> index e7790097db93..80e71eeddc03 100644
+>> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+>> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+>> @@ -638,6 +638,15 @@ static void handle_host_hcall(struct kvm_cpu_context *host_ctxt)
+>>  	unsigned long hcall_min = 0;
+>>  	hcall_t hfn;
+>>  
+>> +	if (system_supports_mpam()) {
+>> +		u64 mask = MPAM1_EL1_PARTID_D | MPAM1_EL1_PARTID_I |
+>> +			MPAM1_EL1_PMG_D | MPAM1_EL1_PMG_I;
+>> +		u64 val = MPAM2_EL2_MPAMEN | (read_sysreg_el1(SYS_MPAM1) & mask);
+>> +
+>> +		write_sysreg_s(val, SYS_MPAM2_EL2);
+>> +		isb();
+>> +	}
+>> +
+>>  	/*
+>>  	 * If pKVM has been initialised then reject any calls to the
+>>  	 * early "privileged" hypercalls. Note that we cannot reject
+> 
+> It is extremely debatable whether this is desirable:
+> 
+> - pKVM really shouldn't be influenced by what the host does, which
+>   means reserving PARTIDs and indirecting what the host sees. This can
+>   be deferred until pKVM is actually useful upstream.
+> 
+> - repeatedly hammering that register plus an ISB on the hot path of a
+>   hypercall is a sure way to make things worse than they should be,
+>   and that should be fixed now.
 
-Nice, thanks for this. As discussed in [1], I'm planning to reuse this
-in my KASAN work to pass info to JIT comp about ldx/stx instructions
-(especially, whether those insn are accessing prog stack or elsewhere).
-So far I've been using a small POC aiming to do the same kind of thing,
-but your series made me aware of a few points I missed, like the offset
-induced by constant blinding. I'll keep my work rebased on top of your
-series, and track it until it is merged.
+Would a read modify write be preferable?
 
-Thanks
+> 
+> Do you really expect the EL1 settings to change on a regular basis? If
 
-Alexis
+The MPAM EL1 partid/pmg configuration is kept in sync with the MPAM EL0
+partid/pmg configuration (see mpam_thread_switch() in patch 4) which
+means that the EL1 configuration will change whenever the user changes
+the EL0 configuration.
 
-[1] https://lore.kernel.org/bpf/CAADnVQLX7RSnOqQuU32Cgq-e0MVqyeNrtCQSBbk0W2=
-xGkE-ZNw@mail.gmail.com/
+> so, I'd rather you use a specific host hypercall, or even a trap to
+> propagate the EL1 configuration. If not, just set it as part of the
 
-> v4: https://lore.kernel.org/all/20260114093914.2403982-1-xukuohai@huaweic=
-loud.com/
-> - Switch to the approach proposed by Eduard, using insn_aux_data to inden=
-tify indirect
->   jump targets, and emit ENDBR on x86
->
-> v3: https://lore.kernel.org/bpf/20251227081033.240336-1-xukuohai@huaweicl=
-oud.com/
-> - Get rid of unnecessary enum definition (Yonghong Song, Anton Protopopov=
-)
->
-> v2: https://lore.kernel.org/bpf/20251223085447.139301-1-xukuohai@huaweicl=
-oud.com/
-> - Exclude instruction arrays not used for indirect jumps (Anton Protopopo=
-v)
->
-> v1: https://lore.kernel.org/bpf/20251127140318.3944249-1-xukuohai@huaweic=
-loud.com/
->
-> Xu Kuohai (5):
->   bpf: Move JIT for single-subprog programs to verifier
->   bpf: Pass bpf_verifier_env to jit
->   bpf: Add helper to detect indirect jump targets
->   bpf, x86: Emit ENDBR for indirect jump targets
->   bpf, arm64: Emit BTI for indirect jump target
->
->  arch/arc/net/bpf_jit_core.c      | 19 +++----
->  arch/arm/net/bpf_jit_32.c        |  4 +-
->  arch/arm64/net/bpf_jit_comp.c    | 21 ++++----
->  arch/loongarch/net/bpf_jit.c     |  4 +-
->  arch/mips/net/bpf_jit_comp.c     |  4 +-
->  arch/parisc/net/bpf_jit_core.c   |  4 +-
->  arch/powerpc/net/bpf_jit_comp.c  |  4 +-
->  arch/riscv/net/bpf_jit_core.c    |  4 +-
->  arch/s390/net/bpf_jit_comp.c     |  4 +-
->  arch/sparc/net/bpf_jit_comp_64.c |  4 +-
->  arch/x86/net/bpf_jit_comp.c      | 25 +++++----
->  arch/x86/net/bpf_jit_comp32.c    |  4 +-
->  include/linux/bpf.h              |  2 +
->  include/linux/bpf_verifier.h     | 10 ++--
->  include/linux/filter.h           |  6 ++-
->  kernel/bpf/core.c                | 93 ++++++++++++++++++++++++--------
->  kernel/bpf/syscall.c             |  2 +-
->  kernel/bpf/verifier.c            | 22 ++++++--
->  18 files changed, 157 insertions(+), 79 deletions(-)
+I think this ends up trapping context switch which doesn't seem any more
+desirable.
 
+> KVM init and be done with it.
 
+If we just forego this patch then the MPAM configuration for el2 as
+initially configured, partid=0, pmg=0 would be used. This is also the
+default for requestors that aren't MPAM aware or unconfigured, like
+trusted firmware, its, gpu. VHE mode (required from 8.1?) should be
+available in any platform that has MPAM (introduced in 8.4, back
+portable to 8.3) and so using nvhe with MPAM seems unlikely and the
+amount of data should be small enough. That leaves pKVM for which,
+perhaps, doing nothing is also the correct answer.
 
+What do you think? Drop, read modify write, or something else?
 
---=20
-Alexis Lothor=C3=A9, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+> 
+> Thanks,
+> 
+> 	M.
+> 
+
+Thanks,
+
+Ben
 
 
