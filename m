@@ -4,55 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 026E7EC1429
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 10:50:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61B2EEC142A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 10:51:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6kDgpKSS2QylL8x43v99oq+aTp8CNuG7tgNvfL68fYE=; b=3bmiK9dXdQKnPz++CZx0EE3knW
-	i9/RWqszA4EicBhzkvJMI3LjGw+/RUZqKYRya9XSBOsbAFG5ZqVkQngRX80KSH5tqhqqqxYic7ImC
-	KO4pyrOddw9W5btySaPA34Vh/rhv2PkEUQtcofHrpPJJ1/5pOXkRqfcuk0aqKgMOHtUfiC0GRV5Tw
-	FSEqHFNEi9hxJi0Uk40tNgKosAOVfxvZwTc5ebne51SXxcDXK+es9+C7KiqYZgJV6OY+i3E86f9u6
-	2GlwaCSbrqV9BVcn1jKnXWjOnVPlwqv6jbk12BIXPvMoj8Sxowa40nBtycmDGqHe/P9WiVLElcdq4
-	K2DDWLNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=g3SE8o2QxCYBZuJ6zYQoYbch5/wwuKdRU0VaDoGflE8=; b=lt3KpuPl6pe9IQGcmNZrU/sm2b
+	dez+S/qntzodSXe5N1LKXL+T9RNoaxV1eOs3ix8SbaDk5QlXES9vsvEjOJTFZF6YXY43JGkynzN+c
+	T0jbAPBi5IH8WivjI8K5QYrX2auc9NDpBw0NiWL1Ng8pyvopT9ihE14HawJD5zuTGBk8WzQLrp8wH
+	/OSnpGwdb76VMoKICgpvhHff34Ku0r+MuTzLb+8K8h56Knx1tRHCZRDnZpEiu2TxplX2VeZe+5GOw
+	Cv2E5GH4W2sgjNUZeiPH4cSjwynRhYSDaPOjeMKNZcbl5LOAUXJDi47u25Vx2dH8J84uzAIIByJb6
+	LQZ+4/8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxNKv-0000000F0DT-2vWJ;
-	Tue, 03 Mar 2026 10:50:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxNKt-0000000F0Cj-07Fn
+	id 1vxNLQ-0000000F0LF-2Qf3;
+	Tue, 03 Mar 2026 10:51:16 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxNLO-0000000F0KG-1mCs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 10:50:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AF577497;
-	Tue,  3 Mar 2026 02:50:33 -0800 (PST)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 25DF53F7BD;
-	Tue,  3 Mar 2026 02:50:39 -0800 (PST)
-Date: Tue, 3 Mar 2026 10:50:36 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Josh Law <hlcj1234567@gmail.com>
-Cc: Christoph Hellwig <hch@infradead.org>, Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Josh Law <objecting@objecting.org>
-Subject: Re: [PATCH 1/2] arm64: lib: xor-neon: remove redundant filename
- comment
-Message-ID: <aaa8_DhVHZfGBBS7@arm.com>
-References: <20260301152820.2589291-1-objecting@objecting.org>
- <aaWWBned-T74lsXl@infradead.org>
- <71ef2e5a-1c6c-42df-9aac-17185bf92ad3@gmail.com>
+	Tue, 03 Mar 2026 10:51:15 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-483487335c2so45856835e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 02:51:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772535072; x=1773139872; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=g3SE8o2QxCYBZuJ6zYQoYbch5/wwuKdRU0VaDoGflE8=;
+        b=ar4J4Eni3iC6JL7zVX7MPYQuVL9cyxgyJ7r/zJ5gwd+KghBqLhSGy3riaEcgv93T6n
+         BXIsl/Topl+96eE1vj8QZC4wxTFdTzP2JmAc95D4mcHVJ85aXHM1Cdg/v0KYHC0M/tV4
+         zA/fB1BrVMDmFTvni3JqB50Mf3mkSpoWJSxkL3mqoi0wNj8ATqp68LB4LcGTau6iTQYA
+         e8SlBd5NdGiU9KJn8A2N2ejzk9vIY5Qt6ssJoVTu6iuIPhZo+3jr7wyCtnGx516VCm7J
+         PX81XhfwHMSHUHKpDmh4Kz6Cn644TGCB5R9o0OZSwBVX0Wy5eEYAZhfTDsOjC3TKE6pY
+         cmBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772535072; x=1773139872;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=g3SE8o2QxCYBZuJ6zYQoYbch5/wwuKdRU0VaDoGflE8=;
+        b=iDev3Z3jRengOnV5NhKnZgT4XYg6RI6IxD/xxurNbkoxCtdqag/rWv5f09G+jT6JM0
+         EpNGCicHQSFYNRuQFoED3SKuzNWivzG1SWiCV+Krjojd2tjQtYzhaXGD7A2JYfrFKans
+         tQNkq5pHV72SxdGwIEKqzbUVSdUMuQZYh3PGJ4n6AtRny12c9fyJPs5dJDMqfoIVcPEm
+         PgBBLS96cIdkPm7EQ6TwtC+63O6oVNqXdVeLXPKEGPzjFq1slqRzAhT0cw3BLbqAuDmk
+         oaqqIM2qwa2za33UaKrW4LAgDIweE2aoSp/X171loP45PQgHpvRzqLz/2ZEcErDG6TCD
+         NLLw==
+X-Forwarded-Encrypted: i=1; AJvYcCWBXdIH9YKcQguJGpQzeqRgrpiaKmdnLpoq0v2BL8me/zMviIrq7zxs+VtVE9bSljIjV8uT0hh3g6Q2c1zWGOON@lists.infradead.org
+X-Gm-Message-State: AOJu0YzvxpFZvWifPJCYSkruSvS4VwiltktYnZG+hZ2RkLHj+pU8ymy/
+	k53Z2u6Q/MdyGKMHN9GyXyw20vwXQilNJotLOFcPa3/fc8Bl6Pyc3VMQ
+X-Gm-Gg: ATEYQzx8dE1Wv4qzuX8leGbIi6h5XEXyJoFJYOW1vCXwS2J2nBBjXebrrN/aGX/6Sr6
+	JhOk1I5aWMHrS5fx/l8OCVjhmdlwnJf//Up/mCJKvDpPoAfW22p9iPHM5rW1JkSlwl0xB44PFUm
+	X1P6aj2EXdtfy4sPICzK1Rrmx7j+SyOpQuW1QQVpR2rl6aNywTInehOdtTBmc0j1yIGmMtKVPZ8
+	c9qxcXPdHs2RoG/fQUbJ7Mn29dWj0huaNVFTBWN+WCziZzDZwLOsBxx2vaGFsZJkeihZA1sqMZu
+	hFsWysWiYTKTOUNvucJ/7udqeXY1cTHaeUqqH6jUQKQUkP1Ehm1tfDmNKiIZQCPa6B9zuqw6fI5
+	iULIt2C1D8anOTUSfQE5csiGP8ZR5wDwcWpmj7EMhF0XH2B49OhPiSbYl49E4YCer52mUUDKlKw
+	opOaxBQSKscacGkbO0st3ZED8eYlQfU6Kd3iutkQYywVI26x2Cjv8B7LSyEwLmzL5xSGokxGEPY
+	dQqa9XJp7nNZ5LPrB+LlnclPJa45F8qCyx6ECA=
+X-Received: by 2002:a05:600c:8b84:b0:479:2f95:5179 with SMTP id 5b1f17b1804b1-483c9bb1adbmr270868955e9.15.1772535072145;
+        Tue, 03 Mar 2026 02:51:12 -0800 (PST)
+Received: from Lord-Beerus.station (net-188-152-100-94.cust.dsl.teletu.it. [188.152.100.94])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483c3b3474dsm318916045e9.1.2026.03.03.02.51.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Mar 2026 02:51:11 -0800 (PST)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Markus Niebel <Markus.Niebel@tq-group.com>,
+	Matthias Schiffer <matthias.schiffer@tq-group.com>,
+	Yannic Moog <y.moog@phytec.de>,
+	Josua Mayer <josua@solid-run.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Primoz Fiser <primoz.fiser@norik.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v3 0/3] Add support for Variscite DART-MX91 and Sonata board
+Date: Tue,  3 Mar 2026 11:50:36 +0100
+Message-ID: <cover.1772534362.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <71ef2e5a-1c6c-42df-9aac-17185bf92ad3@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_025043_106475_1B8AB13B 
-X-CRM114-Status: GOOD (  16.16  )
+X-CRM114-CacheID: sfid-20260303_025114_479092_9F354400 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,28 +116,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 02, 2026 at 04:01:45PM +0000, Josh Law wrote:
-> 2 Mar 2026 13:52:07 Christoph Hellwig <hch@infradead.org>:
-> > On Sun, Mar 01, 2026 at 03:28:19PM +0000, Josh Law wrote:
-> >> The filename in the header comment is redundant and not recommended
-> >> by Linux kernel coding style.
-> >
-> > I have a pretty big series pending that changes this file in
-> > meaninful ways.  But even without that please never send standalone
-> > patches for trivial cleanups like this, only do them if you have to
-> > touch the code for another reason anyway.
-> 
-> Hello Cristoph, I am sorry, again
-> Since I am new to Linux kernel development
-> I sometimes make mistakes, it's normal.
-> Patch 2 should be more relevant, all of those I got under checkpatch.pl
+This patch series adds support for the Variscite DART-MX91 system on
+module and the Sonata carrier board.
 
-Patch 2 is not relevant either. Unnecessary change that will make things
-harder to backport, conflict with other changes.
+The series includes:
+- Device tree bindings documentation for both SOM and carrier board
+- SOM device tree with on-module peripherals
+- Sonata carrier board device tree with board-specific features
 
-Please don't run checkpatch.pl on existing code, only on new patches
-before they are upstreamed.
+The implementation follows the standard SOM + carrier board pattern
+where the SOM dtsi contains only peripherals mounted on the module,
+while carrier-specific interfaces are enabled in the board dts.
 
+v2->v3:
+ - Rebased the series to fix DTS apply issues.
+
+v1->v2:
+ - Ordering by hex and node name.
+
+Stefano Radaelli (3):
+  dt-bindings: arm: fsl: add Variscite DART-MX91 Boards
+  arm64: dts: freescale: Add support for Variscite DART-MX91
+  arm64: dts: imx91-var-dart: Add support for Variscite Sonata board
+
+ .../devicetree/bindings/arm/fsl.yaml          |   6 +
+ arch/arm64/boot/dts/freescale/Makefile        |   1 +
+ .../dts/freescale/imx91-var-dart-sonata.dts   | 498 ++++++++++++++++++
+ .../boot/dts/freescale/imx91-var-dart.dtsi    | 468 ++++++++++++++++
+ 4 files changed, 973 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91-var-dart-sonata.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi
+
+
+base-commit: a251f9ed77f01f16adaaa1b3d2f568fc1b5acbfd
 -- 
-Catalin
+2.47.3
+
 
