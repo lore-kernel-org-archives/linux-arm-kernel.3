@@ -4,92 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0244DEDEBEC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 19:39:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3EE2EDEBED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 19:39:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZSARJ2xr5zNTwzjTW4AFghqGY8Sq94Dgx3SRmBpQfjE=; b=xH6LlqF/NAWNAeUzZR7a3Yvnlv
-	qp2EqJWwNBIZ+xRrg+55yiZdku8FoB985oZG6kMR4Vl867BKASDaysiCfCqdS5BAslByU+pJ9kvrr
-	Kv742dX350Mj8teau30ElKoyuIWBPk+FUi3/2KXIHaLu2Mh2xNF08yFc/y+kJ8nwv9wBT2jQ8FGEO
-	kU417Hh0VklUOnTUlohjHoj7v8bbo9wLGf9CJu15wFOv7GloOM1n3Z9LNTwSYHQNuS/t0TYDHkX+s
-	ZMQbTVD3ab5jfufXbSa6ILyy5ZQyjot9ayAJCXhalGBI0Xtu4kmQGzDwcuMM6Q0A5Xp+rakqDxkt8
-	plLVASDw==;
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=V/WjAJijWZg2nQnR0Dw6GKJGN7hld0EpcPy+hJO8Aew=; b=nmKT7DUfcYYtk5HR5v8mjZeRw+
+	zr/+eQ/ND//uhoApr1pfmpYenQzqPGDK61NrC2Deo9txveFGfqQAYD7QUFU/LguiFnj7scxyDZD17
+	TctBJxkmnFdkvcJ5zYX9/lcYlF1KgOgPaBsGmuXDGic0bDFO71DSJi0ibS1wW80Rikt8ppBsl6CKm
+	qRUfH5H+ZYj3gyhzW+rrGofZ5Iq1DyID3e5sIISu4vpXcw/OSVEp0KRATt5ZaPmEoOG7pCC+/78AQ
+	+7KwGlpwON41akBewyn1aGgpuIMl+U2U+Sb1/XJXAZyztA/ATQYnYwF8zJpGWyohrQtoB+pCFbpao
+	MdbnPBFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxVaQ-0000000Fowz-1u3I;
-	Tue, 03 Mar 2026 19:39:18 +0000
-Received: from mail-vk1-xa2d.google.com ([2607:f8b0:4864:20::a2d])
+	id 1vxVac-0000000Fp47-04K0;
+	Tue, 03 Mar 2026 19:39:30 +0000
+Received: from mx3.wp.pl ([212.77.101.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxVaO-0000000FouL-15z3
+	id 1vxVaZ-0000000Fp1a-29Kj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 19:39:17 +0000
-Received: by mail-vk1-xa2d.google.com with SMTP id 71dfb90a1353d-56a87098868so2177230e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 11:39:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772566755; x=1773171555; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZSARJ2xr5zNTwzjTW4AFghqGY8Sq94Dgx3SRmBpQfjE=;
-        b=e6iPwnzlruXjH2nXASfxHMM/dZmv7TLYLJbGcgcf6yT1fOBJpjBOk6S8YSJPHQ8wP3
-         2bxlMxKNXhA8d2WQxKmkTB7D4BO6EHbStSTuhHKR6MmcrVXHG2jcPmd5HI5FoapzsWRl
-         ojRO57gxWngmtAIiv/i5C/7bLIw2SC4MPAKX1iiFg6SbQUW9TDORCuVmaNmM5K+u3PQ7
-         t8+wU+Z8aKfg79UmwHLrYXdVGABr25eigDYoAkpAE0vpL/4Du60EWrGYreebWiXfuCZd
-         jyK/aDkxawhrGSZwRgb52o2kiC4X+lyuvKIW+GphYwEkAI8Yd+p9Xa5GQl0Zz5xpaiOW
-         +oFg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772566755; x=1773171555;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ZSARJ2xr5zNTwzjTW4AFghqGY8Sq94Dgx3SRmBpQfjE=;
-        b=Vy7TrJVWvAh8b/2Fo7uowNMnlSRB38fzKBXRPEGUCOR1oPEwB5dfJ2YBNlkpjADfh6
-         4WDf0pMWu9gqKkKSYfl8Xr09HucwUvD5SBPZJjza1eMb6imzgASecdWAB4kQ7iwb8I41
-         67bLCkRIt78eprlPqdbUnLPYmPENYA59r/YUs4R1qKeFw62sx/3avSWuu/244Wxm4NW1
-         8GPliXLkk4HS9BAWrGROZjoIc2gUUMl8NIbEMmwFjThCHNioVWuqdWWIYCWwTpqslVjF
-         jPyQZ2bSq6f9DDdB8z0cLkJmQJtqCeqEOTFz9RWjomb5WrHWUeuWL/zt96l0KRANdjON
-         nWAA==
-X-Forwarded-Encrypted: i=1; AJvYcCVj1NYtmmOVk74PMjvjbE8ufEct9eoxPZdgluSXl6l6LlD+z5XCcRN8TMGtjDUC0agnQ6TET7O8DAn0imCXPPpq@lists.infradead.org
-X-Gm-Message-State: AOJu0YwN0cbDdNNPAFyiWs9GqDuYM3V97huohU0EgEN65jlxt5sI51dO
-	uy4hIZOiRdxo8EBd/BOvMq7K1Bl9T69KdQ83BImq/USP/KZJLW3cYEpm
-X-Gm-Gg: ATEYQzzLdowSRMPPTeXt4eB68ikBcvAPGJs3BioxZAiUnQK7PtZg5TeDQb2r/COa1EH
-	ptGtrqI4FbuMAk0XxF3OulsAzseq1XPFmAY6s4oZvfZz2fdWRRzQBX3UNePrOSzkNQAg9xGIfl1
-	kmwQPaXzk8CXBVPptnEpW8DE7xB7xjs9SMKVTcsQPsjQjAeKtpV7Ck52RdKcTVxDXgGTrGTPG59
-	oeEbTB1h4gnIBl3Q2hFm6OlVgopdsvTjrNhYB2dpmrTGUMpmjA+Ayaa9Lkxfj4VHYd4s6LJVHqk
-	dcpRjq2snmBeXIyQcn835OzAfvpE5B43aqgas2bK4YZo6suTvv77VG6z1BAmoZUtV8YS72DtoDQ
-	4owiA1Ltsc6jxP9hJjI3soiB7i3ndCovLWjc6Y8zNiN0fqbUGztlOVH+MxuyGL7XXn9IBWr9Zbi
-	BGgLE8BYLOrCwd0crZuLgXPhVZPzZbbJgrcuhwezIJi0UPwMpcRWT5dyyMpQ9qhxF0VsQu
-X-Received: by 2002:a05:6102:c09:b0:5f5:402b:7ee3 with SMTP id ada2fe7eead31-5ff3232ba39mr5986835137.14.1772566754755;
-        Tue, 03 Mar 2026 11:39:14 -0800 (PST)
-Received: from fabio-Precision-3551.. ([2804:1b3:a802:8875:499e:12bf:3287:5753])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5ff1e7af30asm17780456137.3.2026.03.03.11.39.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Mar 2026 11:39:14 -0800 (PST)
-From: Fabio Estevam <festevam@gmail.com>
-To: heiko@sntech.de
-Cc: robh@kernel.org,
+	Tue, 03 Mar 2026 19:39:29 +0000
+Received: (wp-smtpd smtp.wp.pl 25368 invoked from network); 3 Mar 2026 20:39:25 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
+          t=1772566765; bh=V/WjAJijWZg2nQnR0Dw6GKJGN7hld0EpcPy+hJO8Aew=;
+          h=From:To:Subject;
+          b=cCbwc53bfA0nWMP4mTTDmQjVclbq/fKeM2VkCXwVjVgMXVSDM3Siu/ZCVv61wNwLp
+           IED2or1NJMjdaTJhiCjeJ0r7PbNadT0IUfrMK5YJoP3J+IHeWWI4BRXotnH30sRRFq
+           Y7EM69d14LjklIRi3tjR8EbuK+i0Mc9I0RCyJSH/gf5WHDwl82PwP3/XT46mkMghmu
+           4sre4mP/K3gzTZxcbrLxv03TrU4dQP2JPIksbJID5EPTf/6o5Dng4ObuB9zgKbl0F+
+           C6Ya+ifdF78ZIKi1jLlLM9XPOABg/SeaS56CPXpedOylWVV2SGcONX279dKKjw+qYG
+           rLTkNwRAxqXyg==
+Received: from 83.24.116.171.ipv4.supernova.orange.pl (HELO laptop-olek.lan) (olek2@wp.pl@[83.24.116.171])
+          (envelope-sender <olek2@wp.pl>)
+          by smtp.wp.pl (WP-SMTPD) with TLS_AES_256_GCM_SHA384 encrypted SMTP
+          for <ansuelsmth@gmail.com>; 3 Mar 2026 20:39:25 +0100
+From: Aleksander Jan Bajkowski <olek2@wp.pl>
+To: ansuelsmth@gmail.com,
+	herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	robh@kernel.org,
 	krzk+dt@kernel.org,
 	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
+	lorenzo@kernel.org,
+	olek2@wp.pl,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH 3/3] ARM: dts: rockchip: Improve GMAC description n RK3288 boards
-Date: Tue,  3 Mar 2026 16:38:55 -0300
-Message-Id: <20260303193855.828892-3-festevam@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260303193855.828892-1-festevam@gmail.com>
-References: <20260303193855.828892-1-festevam@gmail.com>
+	linux-mediatek@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/2] dt-bindings: crypto: eip93: add clock gate and reset line
+Date: Tue,  3 Mar 2026 20:39:17 +0100
+Message-ID: <20260303193923.85242-1-olek2@wp.pl>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-WP-MailID: bc4a4ec882821cb528a87e98cbf1d0e6
+X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
+X-WP-SPAM: NO 0000009 [0epB]                               
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_113916_309226_D3CB68F3 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20260303_113928_201491_51D91457 
+X-CRM114-Status: UNSURE (   7.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,51 +84,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to rockchip-dwmac.yaml, the mdio node should be 'mdio0' and
-'wakeup-source' is not a valid property.
+Add the clock gate and reset line, both of which are available
+on the Airoha AN7581. Both properties are optional.
 
-Change it accordingly.
-
-This fixes the following dt-schema warning: 
-
-Unevaluated properties are not allowed ('mdio0', 'wakeup-source'\
-were unexpected)
-
-Signed-off-by: Fabio Estevam <festevam@gmail.com>
+Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
 ---
- arch/arm/boot/dts/rockchip/rk3288-phycore-som.dtsi  | 2 +-
- arch/arm/boot/dts/rockchip/rk3288-veyron-fievel.dts | 3 +--
- 2 files changed, 2 insertions(+), 3 deletions(-)
+ .../crypto/inside-secure,safexcel-eip93.yaml         | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/arch/arm/boot/dts/rockchip/rk3288-phycore-som.dtsi b/arch/arm/boot/dts/rockchip/rk3288-phycore-som.dtsi
-index 12ab10c4adde..0816e388852f 100644
---- a/arch/arm/boot/dts/rockchip/rk3288-phycore-som.dtsi
-+++ b/arch/arm/boot/dts/rockchip/rk3288-phycore-som.dtsi
-@@ -100,7 +100,7 @@ &gmac {
- 	tx_delay = <0x0>;
- 	rx_delay = <0x0>;
+diff --git a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
+index 997bf9717f9e..058454b679b4 100644
+--- a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
++++ b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
+@@ -48,6 +48,12 @@ properties:
+   interrupts:
+     maxItems: 1
  
--	mdio0 {
-+	mdio {
- 		compatible = "snps,dwmac-mdio";
- 		#address-cells = <1>;
- 		#size-cells = <0>;
-diff --git a/arch/arm/boot/dts/rockchip/rk3288-veyron-fievel.dts b/arch/arm/boot/dts/rockchip/rk3288-veyron-fievel.dts
-index 26817848c154..3da105060302 100644
---- a/arch/arm/boot/dts/rockchip/rk3288-veyron-fievel.dts
-+++ b/arch/arm/boot/dts/rockchip/rk3288-veyron-fievel.dts
-@@ -98,9 +98,8 @@ &gmac {
- 	snps,reset-gpio = <&gpio4 RK_PB0 0>;
- 	snps,reset-active-low;
- 	snps,reset-delays-us = <0 10000 30000>;
--	wakeup-source;
++  clocks:
++    maxItems: 1
++
++  resets:
++    maxItems: 1
++
+ required:
+   - compatible
+   - reg
+@@ -57,11 +63,17 @@ additionalProperties: false
  
--	mdio0 {
-+	mdio {
- 		compatible = "snps,dwmac-mdio";
- 		#address-cells = <1>;
- 		#size-cells = <0>;
+ examples:
+   - |
++    #include <dt-bindings/clock/en7523-clk.h>
+     #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/reset/airoha,en7581-reset.h>
+ 
+     crypto@1e004000 {
+       compatible = "airoha,en7581-eip93", "inside-secure,safexcel-eip93ies";
+       reg = <0x1fb70000 0x1000>;
+ 
++      clocks = <&scuclk EN7523_CLK_CRYPTO>;
++
+       interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
++
++      resets = <&scuclk EN7581_CRYPTO_RST>;
+     };
 -- 
-2.34.1
+2.47.3
 
 
