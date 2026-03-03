@@ -4,59 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DAF0E67A8F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 07:30:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E644E67A92
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 07:49:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KkDQW3m0uYKl6XM+u9Qvt0127CCDv/2l0Mb6sOEBzz0=; b=FDLNYgH6b/ZkMB1PkKRBNigIdF
-	7wgERaNhjNXVUGwd7zIeSPbgO9IU+fddVym89aLRaxZUlv6djPa5uwbexmyJL+rIfIntkEC9x3++F
-	yV7vHyKOHgCBq4/cA+occZ3atHYPh2T6FEmDN0qa6cF2x1lL10zM+6Ya32w74TpIVSnEXeygasptl
-	qbpN0e14JxGn6M1r+pZfU3WfamC6zlLZsdyns73GLdH+QSsYpBUfe2nyCJcmV15T9+fdTdTDny7mT
-	GyFm8kXdDm2sA29GEMbV6LK08lWIVNdJR9DfYcSu6Bahbrm+oaA9o0/nMEmf51dyJDFNNMM9UuoHG
-	f9xfC7Rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JHI++TRu8xuKyPHaOzeFc0Do3F2vUtpRFtx7ohR+3R8=; b=K2r5TdhxpTXl0f77sJflaZSxU7
+	0BpXEuyfCMzpPxRdCRXQDYuPGvp3V7p5CO0TsYfqXl7HthumbuzbHrTeWZpjo6nHkh8es+N1B784Z
+	iUQxiREnNaQCwaTixOrXkciliNi6ZWbIT1E2jO1uQSQSjRI8fAF8Eza888O0JgziWkO3DqDjNAi/r
+	tAeBg2jbSG7F22qfNDWvhpGs8JS8pOgVPP1bM6QWODNXlVRyh3F4VHK5jXYEZCCN9P2CcpkS5pVAn
+	8si2E++pxY/u5k6SlljPlURzjujwniNO3GopfJdLlpklffzR3FlS4aM3clWPsTzE6cHqtd22gqvCc
+	Nab3gTUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxKCb-0000000Eg0H-4B9h;
-	Tue, 03 Mar 2026 07:29:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vxKVS-0000000EjPF-0z7z;
+	Tue, 03 Mar 2026 07:49:26 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxKCa-0000000EfyD-2WUl
+	id 1vxKVL-0000000EjOC-3X9n
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 07:29:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0EFF9600AE;
-	Tue,  3 Mar 2026 07:29:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B0E6C19425;
-	Tue,  3 Mar 2026 07:29:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772522995;
-	bh=kldkEUcsu7/3naZKUYV+6QtB1p++L0wVmQijmSfs19A=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=pq+wJ078AZyFAtOCZvMkU5f2xi1vdEps0XMpkZlgLdx2tKFMbFXl4/yhOqbzjTSKS
-	 XL2jZTPEwrQsYPzPg9e8X6zofKicPWI9ALYwxLigb4i0ncpAu2AnsJZle/Dt8ZBMHD
-	 VvY4zUS0u0YBW8aIqx2TOFTzYPuafwmqDNIH2Uw0RA0PJAp5tq4Aa4ajNL/0dI+nZT
-	 UKN4a2dAiVsVCC4gJvIivw5kiKkdpmfFBCB9ObiyK6tu6mE/M7X+6v8WJkUsu7vtw1
-	 NiH+SkKkRRWqetl5ofWl3NDPpH1jXG1BDBm4N4Ka615ot2y1aPYWP1Bf+zuOvcAecf
-	 kbyTq+bc3744A==
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 03 Mar 2026 08:29:40 +0100
-Subject: [PATCH v2 8/8] ARM: dts: gemini: Correct the RUT1xx
+	Tue, 03 Mar 2026 07:49:25 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vxKUr-0003Gv-F9; Tue, 03 Mar 2026 08:48:49 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vxKUm-003VlA-33;
+	Tue, 03 Mar 2026 08:48:46 +0100
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vxKUo-0000000FzBo-0f4B;
+	Tue, 03 Mar 2026 08:48:46 +0100
+Date: Tue, 3 Mar 2026 08:48:46 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, luca.ceresoli@bootlin.com, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, frank.li@nxp.com
+Subject: Re: [PATCH v10 0/3] Add i.MX91/93 parallel display support
+Message-ID: <zadnfoqhwtlizn4jadtydmbkcd7qweckzx7kwj4kgzhqvutfbr@nghac4fqgzp7>
+References: <20260302-v6-18-topic-imx93-parallel-display-v10-0-634fe2778c7a@pengutronix.de>
+ <522ab537-1460-4eea-b992-e27df85805bd@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260303-gemini-dts-fixes-v2-8-5b92ced841ce@kernel.org>
-References: <20260303-gemini-dts-fixes-v2-0-5b92ced841ce@kernel.org>
-In-Reply-To: <20260303-gemini-dts-fixes-v2-0-5b92ced841ce@kernel.org>
-To: Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- Linus Walleij <linusw@kernel.org>
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <522ab537-1460-4eea-b992-e27df85805bd@nxp.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260302_234919_887215_4D2FB789 
+X-CRM114-Status: GOOD (  32.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,65 +86,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix two problems with the RUT1xx device tree:
-- The memory is 32MB not 128MB
-- The console is 19200 BPS
-- Activate the PCI
-- Disable the unused USB ports
+On 26-03-03, Liu Ying wrote:
+> On Mon, Mar 02, 2026 at 05:10:39PM +0100, Marco Felsch wrote:
+> > Hi,
+> 
+> Hi Marco,
+> 
+> Since Frank Li is a new "ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" maintainer,
+> you should copy him.  I'm Cc'ing him here.
 
-Signed-off-by: Linus Walleij <linusw@kernel.org>
----
- arch/arm/boot/dts/gemini/gemini-rut1xx.dts | 18 +++++++-----------
- 1 file changed, 7 insertions(+), 11 deletions(-)
+I forgot to run b4 'auto-cc' again since all the maintainers were in
+place, but you're right. Thanks for adding him.
 
-diff --git a/arch/arm/boot/dts/gemini/gemini-rut1xx.dts b/arch/arm/boot/dts/gemini/gemini-rut1xx.dts
-index 0ebda4efd9d0..4bdf86bd7c23 100644
---- a/arch/arm/boot/dts/gemini/gemini-rut1xx.dts
-+++ b/arch/arm/boot/dts/gemini/gemini-rut1xx.dts
-@@ -14,13 +14,13 @@ / {
- 	#address-cells = <1>;
- 	#size-cells = <1>;
- 
--	memory@0 { /* 128 MB */
-+	memory@0 { /* 32 MB */
- 		device_type = "memory";
--		reg = <0x00000000 0x8000000>;
-+		reg = <0x00000000 0x2000000>;
- 	};
- 
- 	chosen {
--		bootargs = "console=ttyS0,115200n8";
-+		bootargs = "console=ttyS0,19200n8";
- 		stdout-path = &uart0;
- 	};
- 
-@@ -113,6 +113,10 @@ gpio1: gpio@4e000000 {
- 			pinctrl-0 = <&gpio1_default_pins>;
- 		};
- 
-+		pci@50000000 {
-+			status = "okay";
-+		};
-+
- 		ethernet@60000000 {
- 			status = "okay";
- 
-@@ -124,13 +128,5 @@ ethernet-port@1 {
- 				/* Not used in this platform */
- 			};
- 		};
--
--		usb@68000000 {
--			status = "okay";
--		};
--
--		usb@69000000 {
--			status = "okay";
--		};
- 	};
- };
+Regards,
+  Marco
+
+
+> > this patchset adds the driver, dt-bindings and dt integration required
+> > to drive a parallel display on the i.MX93.
+> > 
+> > Since the i.MX91 register layout equals the one from the i.MX93, I added
+> > the support for both but tested only the i.MX93 case.
+> > 
+> > This patchset depends on:
+> >  - https://lore.kernel.org/all/20251201-v6-18-topic-imx93-blkctrl-v1-0-b57a72e60105@pengutronix.de/
+> > 
+> > @Conor Dooley
+> > I dropped your r-b tag since I added the 'bus-width' property.
+> > 
+> > Regards,
+> >   Marco
+> > 
+> > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> > ---
+> > Changes in v10:
+> > - Link to v9: https://lore.kernel.org/r/20260115-v6-18-topic-imx93-parallel-display-v9-0-2c5051e4b144@pengutronix.de
+> > - Add MEDIA_BUS_FMT_FIXED (Liu)
+> > - Drop next_bridge from driver struct and use bridge.next_bridge (Liu)
+> > - Drop linux/of_address.h include (Liu)
+> > - imx93-pdfc: drop bridge.driver_private usage++ (Liu)
+> > - Make use of kmalloc_obj() (Liu)
+> > 
+> > Changes in v9:
+> > - Link to v8: https://lore.kernel.org/r/20260113-v6-18-topic-imx93-parallel-display-v8-0-4abccdc473a5@pengutronix.de
+> > - dt-bindings: drop unncessary changes (Frank)
+> > - imx93-pdfc: drop bridge.driver_private usage (Luca)
+> > - Kconfig: Adapt Kconfig symbol and prompt (Luca)
+> > 
+> > Changes in v8:
+> > - Link to v7: https://lore.kernel.org/r/20251202-v6-18-topic-imx93-parallel-display-v7-0-2cce31d64608@pengutronix.de
+> > - dt-bindings: add nxp,imx91-pdfc compatible (Liu)
+> > - dt-bindings: use video-interfaces.yaml# (Liu)
+> > - dt-bindings: s/data lanes/data lines/ (Liu)
+> > - dt-bindings: drop 'reg' poperty
+> > - dt-bindings: drop #address-cells, #size-cells
+> > - imx93-pdfc: drop drm/drm_print.h include (Liu)
+> > - imx93-pdfc: s/exist/exists/ (Liu)
+> > - imx93-pdfc: drop MEDIA_BUS_FMT_FIXED from imx93_pdfc_bus_output_fmts
+> > - imx93-pdfc: imx93_pdfc_bus_output_fmt_supported: make fmt const
+> > - imx93-pdfc: Rework input-fmt selection to always fallback to a sane
+> >               default.
+> > - imx93-pdfc: imx93_pdfc_bridge_atomic_check: make use of
+> > 	      imx93_pdfc_bus_output_fmt_supported() 
+> > - imx93-pdfc: drop 'reg' dt-property usage
+> > - imx93-pdfc: imx93_pdfc_bridge_probe: pass -1 for endpoint reg value (Liu)
+> > 
+> > Changes in v7:
+> > - Link to v6: https://lore.kernel.org/r/20251201-v6-18-topic-imx93-parallel-display-v6-0-7b056e1e5b1e@pengutronix.de
+> > - Add missing bits.h and bitfield.h headers (lkp)
+> > 
+> > Changes in v6:
+> > - Link to v5: https://lore.kernel.org/all/20250304082434.834031-1-victor.liu@nxp.com/
+> > - Add bus-width support
+> > - rebase onto v6.18-rc1
+> > - add review feedback (Alexander)
+> > - driver license "GPL v2" -> "GPL" (checkpatch)
+> > - make use of reg of-property
+> > - fix to short Kconfig description (checkpath)
+> > - add OF integration
+> > 
+> > ---
+> > Liu Ying (2):
+> >       dt-bindings: soc: imx93-media-blk-ctrl: Add PDFC subnode to schema and example
+> 
+> This one and ...
+> 
+> >       drm/bridge: imx: Add i.MX93 parallel display format configuration support
+> > 
+> > Marco Felsch (1):
+> >       arm64: dts: imx93: Add parallel display output nodes
+> 
+> ... this one in v9 were applied by Frank, so you should no longer send them.
+> 
+> > 
+> >  .../bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml |  78 +++++++
+> >  arch/arm64/boot/dts/freescale/imx91_93_common.dtsi |  54 +++++
+> >  arch/arm64/boot/dts/freescale/imx93.dtsi           |  12 ++
+> >  drivers/gpu/drm/bridge/imx/Kconfig                 |  11 +
+> >  drivers/gpu/drm/bridge/imx/Makefile                |   1 +
+> >  drivers/gpu/drm/bridge/imx/imx93-pdfc.c            | 225 +++++++++++++++++++++
+> >  6 files changed, 381 insertions(+)
+> > ---
+> > base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+> > change-id: 20251201-v6-18-topic-imx93-parallel-display-95f9234bf6cc
+> > 
+> > Best regards,
+> 
+> -- 
+> Regards,
+> Liu Ying
+> 
 
 -- 
-2.53.0
+#gernperDu 
+#CallMeByMyFirstName
 
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
