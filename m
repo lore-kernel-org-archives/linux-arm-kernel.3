@@ -4,131 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C627E67A6B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 06:38:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CF39E67A70
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 06:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YBPk6eDzTBhM7ulfxDVm3TcPKNGl/d88q6gYotxeH/U=; b=lMXlZKuY2Cbaza3V9tGedcwHU7
-	ag+PLTvlOSjB/9RLlgOjm8jbZFdqt2iNqk/3TfqHbc5u1P4tkeURxU00Hftj5HqvnTuAuIYKV2otc
-	L1QlQ8AkkhubtH4GQAzRyGWexsBukYv1p9lTyGBy+4H0N2QVb6nFoNQsDTH7kF3Ajny/wRt5wgzK0
-	rZRxKlOv9PuQJBhR5NMURU5K+zXuAcDGf/RF00K1qOKqArJViw/CgmmLgr/dS+zcde58gE6ypkdTP
-	uW0tnFnOYrLak1blZaV5o/Brj0Z9LOGzvUfCit4TeaOR+YMZnol0Z0hz/OhhtUn1N+43UNBgOAbdg
-	soOqyQTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3Pd1IHZrTY03dZ7O5xKLgyJKeO2qrgel3KP5ZUCWbs8=; b=upH+Lq7gYv62ZOUVSuD0VD8mt+
+	trGCr9Moc+orCnX/eq69IjjFYIgEc29X9lCkheYsbwFg0UZcswPkpllsJib3dfuIU+u8dp2RzNtpe
+	uD31YgbKprPn3quwMlTKrnDBV2Vr9fwLTDklQKvN3XYPGZRWU74JhDyO3pT0mPIpwFUjnehO25R9b
+	ZQ2r5/6STk0Z8Q1yS0PVuTgEOzOvokmLnImqV7Hbri8PtHlNVxaKpZvlM3rvJocZTOqStYORQsdeE
+	W00hAiF66cPOt1ZhMo/tmQorDoQGevkT9j3eWcIU4h6a3644qeHgaVxmnyu0ZVjOHLI4urez+wIpe
+	6P72Abhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxJP7-0000000EcaD-0CCP;
-	Tue, 03 Mar 2026 06:38:49 +0000
-Received: from mail-southcentralusazon11011004.outbound.protection.outlook.com ([40.93.194.4] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1vxJUK-0000000EcqE-1jTT;
+	Tue, 03 Mar 2026 06:44:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxJP1-0000000EcZq-4C7C
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 06:38:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XpMqAb8ZNCNdy2/HVmV3Ks5Kr1GDXiFgQaFd0RzcmFqvQAsMOqVenKxXBePPuM+gF0AUzg54UiDEuFj06U9Of6ry4wtfbSdKEGEtcDdhusyajlXlGBf4GEnPAyqHQnwV+EVYkCvRJjBtzRuhXwan5bQQq6liRQBiQlmXnz7up+beomZQiCJNR3aGal9xWnysAlHm0de5WjJax6BN87UNKAP9HC+WtpEIiSAoSy6xr0GFTNtWLCZ63VHmNaN5iSdE1rTirk7eyVsTRhJu1dVCd0bFhUKKx4BBaXHIu/xpzNaJszYq+l6TpXluV1rtPN/mRlkWlFVGn9lPUwsjkWnvrA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YBPk6eDzTBhM7ulfxDVm3TcPKNGl/d88q6gYotxeH/U=;
- b=qZ6cbEmwtVM0XWcqzdOiM1ZCc28pJ1WwSm8mdpEDgSwg7kMduWn3FBAKf1XN7ssaVqzy2WoD1gVi/8tkn4vgAa0I69a3ye6Bz9PTXEZ8qcscjoZSVmpCCG68fACA97ZDUpVo2dHwIhq7H0IGNwYpUOJny0c8dNCPtzvMi0njRbrdiL8ZVR6Rv8usH6Vrfyk1LKmqXiAm55Xm/7NUGkaLTwpL8Vv0L3I0f6u5uGG+beBatF7rhIbyYIJkBMIrBsDMLY+VZwKhvq/bHIyjwBfyQUs87wo5JVOTw8TVwUwXd8V9yGmmEmDICndUJSwGUalkor9L+Cc6OETOp3zz50OM4Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YBPk6eDzTBhM7ulfxDVm3TcPKNGl/d88q6gYotxeH/U=;
- b=kAtipMwlcF15tZ40Rx4sqvwusTNCyx/CTaPLu5ppviyd3PYFjJYh3HkU7S/9zg1BkU5pOHm0K4K4NXNUqu0WNzx1lhlkOQDQtZ00Odd8vLTFJfdtymn1pjC0njkr7KhjBHz34/5W7gTnp02p0DdZuHMKZQCEmF5el6oI8i2ry4f7Gfd4vDGSxHVubTJ0uud+vJu7VyY/lni+w+EgvPT81vAqEozNNLZ1EWcmIfYpY+IQEVUse6urzZc7jVFR+L60bzRfccQadzWPYUET08rC0lnZBBhMlcq4LMCYQECZV84lovJasj+AL+wler2AOAyR6UiZzYYQUxQogL+ioOYavw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS0PR12MB6559.namprd12.prod.outlook.com (2603:10b6:8:d1::6) by
- IA1PR12MB8191.namprd12.prod.outlook.com (2603:10b6:208:3f3::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Tue, 3 Mar
- 2026 06:38:37 +0000
-Received: from DS0PR12MB6559.namprd12.prod.outlook.com
- ([fe80::3f99:f532:cf6b:ea46]) by DS0PR12MB6559.namprd12.prod.outlook.com
- ([fe80::3f99:f532:cf6b:ea46%4]) with mapi id 15.20.9654.020; Tue, 3 Mar 2026
- 06:38:37 +0000
-From: Piotr Jaroszynski <pjaroszynski@nvidia.com>
-To: Ryan Roberts <ryan.roberts@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org
-Cc: Piotr Jaroszynski <pjaroszynski@nvidia.com>,
-	Alistair Popple <apopple@nvidia.com>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	John Hubbard <jhubbard@nvidia.com>,
-	Zi Yan <ziy@nvidia.com>,
-	Breno Leitao <leitao@debian.org>,
-	stable@vger.kernel.org
-Subject: [PATCH] arm64: contpte: fix set_access_flags() no-op check for SMMU/ATS faults
-Date: Mon,  2 Mar 2026 22:37:51 -0800
-Message-Id: <20260303063751.2531716-1-pjaroszynski@nvidia.com>
-X-Mailer: git-send-email 2.22.1.7.gac84d6e93c.dirty
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SJ0PR03CA0264.namprd03.prod.outlook.com
- (2603:10b6:a03:3a0::29) To DS0PR12MB6559.namprd12.prod.outlook.com
- (2603:10b6:8:d1::6)
+	id 1vxJUH-0000000Ecou-2fan;
+	Tue, 03 Mar 2026 06:44:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A6BF7442C1;
+	Tue,  3 Mar 2026 06:44:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03677C116C6;
+	Tue,  3 Mar 2026 06:44:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772520247;
+	bh=9zYNNRI2Q7A4txbtHEUZ0XbB7KUSfcEmFITlL2iLQ38=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rBUe/JSu+08xGAhX5bdw/+KOyZFqyiSky5ZMFVDFKo+6sJMzrQSXiE+oMLTrl9Q8W
+	 qy9xj2q9RW1aoPlGTSlpMDhWcYQGkm14UiNz7v8ccYAQlpxD/GY0c1vnTJhKrP4vHJ
+	 uPyuRyVh7++255oup1e00jxcf//n0J0aBkqSj+VjuR+HyZhKWzvq2FmWMi6dUGJ4Vt
+	 ydyyIpDaF4teM/y4iRgYung1XVvT1sJ7jTrrLrW98NC3YoB6J5YnrqfAzJSFQzMaRV
+	 IvAhF4251bSn9/PjiBxI0u5oTpM4F2MbyL0PSH9gmmP3FauLNXm/1NKAHGIbGNWJA2
+	 s944xsSdpcAlw==
+Date: Tue, 3 Mar 2026 07:44:05 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Aleksander Jan Bajkowski <olek2@wp.pl>
+Cc: herbert@gondor.apana.org.au, davem@davemloft.net, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, atenart@kernel.org, linux-crypto@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: crypto: inside-secure,safexcel: add
+ compatible for MT7981
+Message-ID: <20260303-brainy-dalmatian-of-proficiency-adbc3b@quoll>
+References: <20260302230100.70240-1-olek2@wp.pl>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR12MB6559:EE_|IA1PR12MB8191:EE_
-X-MS-Office365-Filtering-Correlation-Id: 341b95d6-72e7-4bcf-0e31-08de78ef7fe1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: hRnq2L3Zv/So91JCmazmCFOFMfuXkLY6GiVs5bdthmfTAl2VjHqe4EzsJtPEyDBIwJWUnsxF//SobzpxkK6TvgMQukPTGDX/bUMBeqRug6FR94GuFw862TfXQ5859tGR3ynTC2bRJGY7CZXZ1da3x189iugRPCcvXSEDq8ISkTnJHfXQMqR7ixIXtrQwSI+FtDFUV2KYezhDMxJB0qCt+TzTZMX02/9VbGgWtzJZgjIQ9zMoX/YzHq5efdXYSe/zcu0CU5RC8Wy2Mdbnm73vK1zbjqvwh01uF/152nWGc+KKH+q9n6rLI/S4huUwiM4oeehDHcm3EoKOaq/w1wqdLt5UTmvXYKfdK8Vdr1uf/Rj9pkUniOFwHJqyEBf7D80jXZVX9kwSrxlEXr5+ibDyoX2lSYNr1+ux/CuckColV87CyJKkawYfpVWw3FNT1MSLjfiUvz8kl62Y6PzUL9ejU3VRZki7ucHmHXwzzYgpuBASkXX4XobMILwCPiDtxd55SjRsrhWESNdgZPZYHsgWfFECxdS1PG9yYhgqbGfmuk+WF3xEicxjx6wOpCYcI1zweaYkabyBmanoVfPs4PNg9QX2zJBh/CyRKNf6Fs+u/CdwlwUUCX3Mclx3GHdJ/DNP2/mZUe1kxD9EoVNRdYXknFXcF5rV5KjajlYqgMync8DKqBPS0UwL2hdcQko0K1sNy5x7thSGrBd3houwQq/KtpT01cov0ON47wfcuOwxxPg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB6559.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JKGwG7P5aEPT5uDBFEwiwUN8LFUklBQ7SgJodYIQ9tMMHTyldBPHIacreKAY?=
- =?us-ascii?Q?6BEM+oAxZGkRCPHrDQjtkOqZVOeQtSqDB19vDIvkcV8Ndc3TNYZffsJquI8X?=
- =?us-ascii?Q?uCznrLF74Uc2HeHlh6UNyfu0mmhnw6B5M58kojam3rs+DPygXpHQ90lQ90sm?=
- =?us-ascii?Q?YK0gkLEcobqTJhNA3VEzFS+GqJcMdD+cVGwr0MBNJwwsskFOamPNZvBcr95v?=
- =?us-ascii?Q?YDFFtwKc3adKTmrSyxJK816s/W3NyDjdGN/isyak0o0tLoLVCzuU7I16U6Uc?=
- =?us-ascii?Q?rG0pd8HeqfSXJKxRzb7zpOww4udwIVp0S4QHNZhZxhlOjY5xIX8ImnRu7Mja?=
- =?us-ascii?Q?6Ql+HSxLsIN0gBudEr3dZVFz5TCq9TQsVd+z9fQflfLc4UKnKxI6KCQcghTH?=
- =?us-ascii?Q?l4s112nHWP4UEpVZdwjcVRKM4x8ZSBSaMR3d2bMOqkL1GEUrH5K6lFYVr/Y+?=
- =?us-ascii?Q?DxOq8ljEeJwi6Yz0HDQ+WinvlsMz3Ww+gaYgU1ZC8AvR55cJ0VwTzurCEv3+?=
- =?us-ascii?Q?G5+dMr43n1Xnvq+MBhEXTE2yTuShcZ+zu1FsNCXwblYnVqhFqtoRYYsqBqRF?=
- =?us-ascii?Q?Iga3l2PBQPJIx5AzfEBlyJ8ImyWJavE8EIHRQpueMKQRm7wDwaLDxgi815XF?=
- =?us-ascii?Q?yyyucdoF64sypz3Ds9DLmQtAg0AJ97w8t3a0Gew3heqGex93TDkhw2CpMuJn?=
- =?us-ascii?Q?BwtL/eIEnDjmorfreZRKhC/qbMJzt+/XIZ0PO1NoizSz2a4JYAJNmzs2DUjP?=
- =?us-ascii?Q?RYd2jO3JI0WiEmJ4g68Q/GzdWqFCAyUOLSZGbffEjYzdJEUaqaQhmy/oHb9P?=
- =?us-ascii?Q?hECnnRgrwsVBuSoX1RvqhhyDu7gT+nPzxzEDxPtKx1Y1XD4ygwPbcWOvVbRq?=
- =?us-ascii?Q?jx/Q935W7nFHDM1cDPWHeYCP+MfNbKA+T2HvrUlX5mLCVz8SUyK6RSOTuQmn?=
- =?us-ascii?Q?zG78UBrR6OyW2qmaf3B/22Isg6iH+Zb2WZUhHBJvt7+dJeZMIobSgU254Fq4?=
- =?us-ascii?Q?B3knqrJCCPhmGaO/nYeJAvTxzI1NSgyteX5qWvm/GWlRtbQweAAsPlfAWtC1?=
- =?us-ascii?Q?Wolaqd5q0ESyiqFf+EnLW8/GXrIVpDPOqR+y9VlxhnfOvgJsgmEALfiuL5Y4?=
- =?us-ascii?Q?vjSTx594sSAsA4lcV+SrhwZ367VKZf77my6D9hiA/E2u7u6S7UusQBO1XLIN?=
- =?us-ascii?Q?KOB1WOJJCfjP+92GPVhVcfEwp7uCMlWyQxrzDjttK50hdXtAKx0Hd1Bd8JIs?=
- =?us-ascii?Q?aO00IZNDC0Y6ZVES2bC/6JO+W5t0F6hbj2gOXDtvy8B2BuDx4yHWd+yzlb7s?=
- =?us-ascii?Q?s3CkFGgrmFAe+Pi/YSxSblzpPjTYTVH8FRdhgfMm8hiFPHySSfzIfAcGz8YG?=
- =?us-ascii?Q?TV9YEMrA5ntMMsm1dHipJxxEnEskPMM31UYpNSbL4bMFHgAgnf93JV3UeMcL?=
- =?us-ascii?Q?oALzCoWIGg/HPJH6obrfetdYYodAE+WZyOhol90y3ywCa4JuHkT2QF3mCTL5?=
- =?us-ascii?Q?qsdTdUa0b5rv67C9FwRUEFH1W/qa4zJ0U33Ajzc5LQGzRWCCdXdrsIREvHz6?=
- =?us-ascii?Q?K2WpjgQ8ZxvUGhq4ppYiomb6uFxHhHhOFoA6bAHOaybKm/RlfbJw8TzW8z8/?=
- =?us-ascii?Q?R8BudKdYO/NCdUkvZeDHxGa1VhjXaFX0v29h3wUwWSOcZUzSoJ0oonosq+c1?=
- =?us-ascii?Q?sYQGiLy7Pk+8Zr+FEbnZMxlFxTLPl5QVSOmzn4LyNHzdLCHWBndY8IWItVn/?=
- =?us-ascii?Q?HfCBTni+fgfHuGjRKNsqdAQFGkl1ycg=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 341b95d6-72e7-4bcf-0e31-08de78ef7fe1
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB6559.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2026 06:38:37.2411
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: wxDf6Q3rKApRsRRzvHVVahIfF7iF6XoWfmW9SGVQIIGFAT2pjnR3tznXXoAqYz9JxwN5WbPryJgaUZwgrgEcUA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8191
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260302230100.70240-1-olek2@wp.pl>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_223844_053985_85002AC6 
-X-CRM114-Status: GOOD (  19.83  )
+X-CRM114-CacheID: sfid-20260302_224409_694978_119527B6 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,119 +74,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-contpte_ptep_set_access_flags() compared the gathered ptep_get() value
-against the requested entry to detect no-ops. ptep_get() ORs AF/dirty
-from all sub-PTEs in the CONT block, so a dirty sibling can make the
-target appear already-dirty. When the gathered value matches entry, the
-function returns 0 even though the target sub-PTE still has PTE_RDONLY
-set in hardware.
+On Tue, Mar 03, 2026 at 12:00:38AM +0100, Aleksander Jan Bajkowski wrote:
+> The MT7981 as well as the MT7986 have a built-in EIP-97 crypto accelerator.
+> This commit adds a compatible string for MT7981.
+> 
+> Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
+> ---
+> v2:
+> - just add compatible strings
+> ---
+>  .../devicetree/bindings/crypto/inside-secure,safexcel.yaml  | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel.yaml b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel.yaml
+> index 3dc6c5f89d32..6c797b7ce603 100644
+> --- a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel.yaml
+> +++ b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel.yaml
+> @@ -18,6 +18,7 @@ properties:
+>        - items:
+>            - enum:
+>                - marvell,armada-3700-crypto
+> +              - mediatek,mt7981-crypto
+>                - mediatek,mt7986-crypto
+>            - const: inside-secure,safexcel-eip97ies
+>        - const: inside-secure,safexcel-eip197b
+> @@ -80,7 +81,10 @@ allOf:
+>          compatible:
+>            not:
+>              contains:
+> -              const: mediatek,mt7986-crypto
+> +              oneOf:
 
-For CPU page-table walks this is benign: with FEAT_HAFDBS the hardware
-may set AF/dirty on any sub-PTE and the CPU TLB treats the gathered
-result as authoritative for the entire range. But an SMMU without HTTU
-(or with HA/HD disabled in CD.TCR) evaluates each descriptor
-individually and will keep raising F_PERMISSION on the unchanged target
-sub-PTE, causing an infinite fault loop.
+Drop oneOf, you have only one enum there. This is just enum directly.
 
-Gathering can therefore cause false no-ops when only a sibling has been
-updated:
- - write faults: target still has PTE_RDONLY (needs PTE_RDONLY cleared)
- - read faults:  target still lacks PTE_AF
-
-Fix by checking all sub-PTEs' access flags individually (not via the
-gathered view) before returning no-op, and use the raw target PTE for
-the write-bit unfold decision. The access-flag mask matches the one
-used by __ptep_set_access_flags().
-
-Per Arm ARM (DDI 0487) D8.7.1 ("The Contiguous bit"), any sub-PTE in a CONT
-range may become the effective cached translation and software must
-maintain consistent attributes across the range.
-
-Fixes: 4602e5757bcc ("arm64/mm: wire up PTE_CONT for user mappings")
-
-Reviewed-by: Alistair Popple <apopple@nvidia.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Jason Gunthorpe <jgg@nvidia.com>
-Cc: John Hubbard <jhubbard@nvidia.com>
-Cc: Zi Yan <ziy@nvidia.com>
-Cc: Breno Leitao <leitao@debian.org>
-Cc: stable@vger.kernel.org
-Signed-off-by: Piotr Jaroszynski <pjaroszynski@nvidia.com>
----
- arch/arm64/mm/contpte.c | 47 +++++++++++++++++++++++++++++++++++++----
- 1 file changed, 43 insertions(+), 4 deletions(-)
-
-diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-index bcac4f55f9c1..9868bfe4607c 100644
---- a/arch/arm64/mm/contpte.c
-+++ b/arch/arm64/mm/contpte.c
-@@ -390,6 +390,23 @@ void contpte_clear_young_dirty_ptes(struct vm_area_struct *vma,
- }
- EXPORT_SYMBOL_GPL(contpte_clear_young_dirty_ptes);
- 
-+static bool contpte_all_subptes_match_access_flags(pte_t *ptep, pte_t entry)
-+{
-+	pte_t *cont_ptep = contpte_align_down(ptep);
-+	const pteval_t access_mask = PTE_RDONLY | PTE_AF | PTE_WRITE | PTE_DIRTY;
-+	pteval_t entry_access = pte_val(entry) & access_mask;
-+	int i;
-+
-+	for (i = 0; i < CONT_PTES; i++) {
-+		pteval_t pte_access = pte_val(__ptep_get(cont_ptep + i)) & access_mask;
-+
-+		if (pte_access != entry_access)
-+			return false;
-+	}
-+
-+	return true;
-+}
-+
- int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
- 					unsigned long addr, pte_t *ptep,
- 					pte_t entry, int dirty)
-@@ -399,13 +416,35 @@ int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
- 	int i;
- 
- 	/*
--	 * Gather the access/dirty bits for the contiguous range. If nothing has
--	 * changed, its a noop.
-+	 * Check whether all sub-PTEs in the CONT block already have the
-+	 * requested access flags, using raw per-PTE values rather than the
-+	 * gathered ptep_get() view.
-+	 *
-+	 * ptep_get() gathers AF/dirty state across the whole CONT block,
-+	 * which is correct for CPU TLB semantics: with FEAT_HAFDBS the
-+	 * hardware may set AF/dirty on any sub-PTE and the CPU TLB treats
-+	 * the gathered result as authoritative for the entire range. But an
-+	 * SMMU without HTTU (or with HA/HD disabled in CD.TCR) evaluates
-+	 * each descriptor individually and will keep faulting on the target
-+	 * sub-PTE if its flags haven't actually been updated. Gathering can
-+	 * therefore cause false no-ops when only a sibling has been updated:
-+	 *  - write faults: target still has PTE_RDONLY (needs PTE_RDONLY cleared)
-+	 *  - read faults:  target still lacks PTE_AF
-+	 *
-+	 * Per Arm ARM (DDI 0487) D8.7.1, any sub-PTE in a CONT range may
-+	 * become the effective cached translation, so all entries must have
-+	 * consistent attributes. Check the full CONT block before returning
-+	 * no-op, and when any sub-PTE mismatches, proceed to update the whole
-+	 * range.
- 	 */
--	orig_pte = pte_mknoncont(ptep_get(ptep));
--	if (pte_val(orig_pte) == pte_val(entry))
-+	if (contpte_all_subptes_match_access_flags(ptep, entry))
- 		return 0;
- 
-+	/*
-+	 * Use raw target pte (not gathered) for write-bit unfold decision.
-+	 */
-+	orig_pte = pte_mknoncont(__ptep_get(ptep));
-+
- 	/*
- 	 * We can fix up access/dirty bits without having to unfold the contig
- 	 * range. But if the write bit is changing, we must unfold.
--- 
-2.22.1.7.gac84d6e93c.dirty
+Best regards,
+Krzysztof
 
 
