@@ -4,58 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BDBCEDEBE3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 18:33:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18645EDEBE0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 18:38:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fL5UFrL2W3+bvnt+QizNUFI8jkJeM7tmhDPm4dGyWOk=; b=aPAPL4XYu6ApyZkeFdef+HCSn7
-	DH+aOfVK4IwCaTvxfhWUYCzOn2rhtG6PT9Ui+mNCDigCmI8rLDHAaaHY0pIRXoPc5Cmb5zZpx+d40
-	cZ6Wn6+gPWP9gJ8wNzwt4Qflih+ZQ0CYhT+l2qKi4V3BkQdwHM4DKQmKcwlu0B1uHqP0qCQWhuRZo
-	Q8yimqLZVP81QLRYfqhARJRLdUMnMVvj8XZFTWM93/V0Rp1vHO1qi1kUAN1aeMUVTL2iZyE/bG/Fg
-	meDEXsl1shkXoeJCgppxr78DD66EUJhXg1jCAkW+qg4j6Mftem+78XZUWiJZ0HYCCmns73lOoPtiW
-	72YF5EgA==;
+	bh=zWbdBUMEXH4g8LJKj8OiXeXSCrn4OD1jl9QXgu59+fk=; b=aoVpO69lBO97iS1xmRuBq9K4Rf
+	/dYDJ6aL+xfjij4cr0cJJLlxYDlIl7AkKvLl+WPKI3JzvpAanDIMvhOLjcNmpDifWQP7f4ih5Ndb6
+	N7mZ6nydqxYEqoURoCXk2Gj6QAiICKAM2vV81FldjgAbp2ZKDYeVpUUEXJmdxXiH3qlvYxvw0n3V5
+	R+PXLaVKMH9lJXP7tO3ESTq+QtZoGf/Nu9wcc0AXsi6nu7IrknGxsGRMF5QHZI8vmXcL13DJ2PYNd
+	Tu0bcD0ApmXcsm4jeMtt3vazDTSMTCksA/nRfd6T5VIS1VPEZ452ZAfd6oSxYDGPD61g12taPUDMn
+	4u8cUsNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxUYs-0000000FiMu-0Nbe;
-	Tue, 03 Mar 2026 18:33:38 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vxUdc-0000000FibQ-3K0M;
+	Tue, 03 Mar 2026 18:38:32 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxUYq-0000000FiMn-3TZ5
+	id 1vxUda-0000000Fiaz-08YE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 18:33:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D9A7E60018;
-	Tue,  3 Mar 2026 18:33:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E46D0C116C6;
-	Tue,  3 Mar 2026 18:33:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772562815;
-	bh=1XuQcbjSVCUirvk12dolMLOBmrih8eIf7Wn8Zaw4luc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ND6pc2ZI9dCr8y35thKLLe1n03D75jTHm8LHrp2tPH9Ij32qeLq7O44XWO2zO2HEX
-	 mmz7YGPrWwXlEQ2dosIuV1vjS0j4R3p0n2RSWRreWyozJ6V5o+I2izYVEPP+vOy/9k
-	 +EZSmtYVF4GNSeGfKQGGGn/lKDapuPbAfrKuC8GO114moYRBg29hhfRUFkFRHmGcGD
-	 VzAUA1RXbIBUq7asEhDVcRSrYv0iGXCFMnlnARZQK7KHpRq16h4SaSYcoGDnFozYIA
-	 5li08ot6ehSrgm/AzV7Jw5gn+XNHzLFsJ5nmrtBUOGrPkB7vjAGBE0pEN7gI+m5YcX
-	 DQP8TwRbWO6XA==
-Date: Tue, 3 Mar 2026 18:33:29 +0000
-From: Conor Dooley <conor@kernel.org>
-To: "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
-Subject: Re: [PATCH 2/6] dt-bindings: remoteproc: k3-r5f: Add
- memory-region-names
-Message-ID: <20260303-payphone-pancake-b6068c545bc3@spud>
-References: <20260303-topic-am62a-ioddr-dt-v6-19-v1-0-12fe72bb40d2@baylibre.com>
- <20260303-topic-am62a-ioddr-dt-v6-19-v1-2-12fe72bb40d2@baylibre.com>
- <20260303-hesitate-preoccupy-5e311cbd3e58@spud>
+	Tue, 03 Mar 2026 18:38:31 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4806f3fc50bso64086355e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 10:38:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772563108; x=1773167908; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zWbdBUMEXH4g8LJKj8OiXeXSCrn4OD1jl9QXgu59+fk=;
+        b=VOxwRhHo6lgB1CsKc04n5aWTCOob/iqXryeFia8257Td8PATbufj8vRsH67G6gQEkh
+         oRBqA80tVF4YRI1qzo5xRgYUWYoWXmjUladDGqWT9DL+AWN03HVHoRrJKhTUu25HRxgg
+         7i3yhMsNQDh5XFTElk0UunjSuwdlBX0h03CrBZsyBwS/MW/kly+LAZwXuN1uhGXZunbf
+         21/U547TZvTt/IHdqFWpCelpxjuQ81SXbRKLQiMqgu4i8P6blGoTAqnnbR4l1Un2uhc8
+         OForDJl8R0Nx3QqHfsol2EkNZgr5l+FA7dTTzJZFcyAfDUfvtvPLtoCm+FY+YZLciP4W
+         u8BQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772563108; x=1773167908;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=zWbdBUMEXH4g8LJKj8OiXeXSCrn4OD1jl9QXgu59+fk=;
+        b=bcPPRbAohSejZOwgPzJi+AdR/fJGacm4vIBPML8MsHz30FCB+JyvjP/Bn+uCBSvVw7
+         RPvn6g8GHP19QmHZI/3L7pb/kSl/t7nlcU7VdPg+382w16mS+Tv4WoGpkNhl2XtpDucm
+         Y9qafX2Aj6lTiyYektljOpfBMdx4/PKRYehqZDQw21ZHkkaQGhtdaPW1h+phitBNT0hr
+         kGifUKvcUtgWMf9o/npiVE83sE5po1lsOyHvx9bkL0RU6P3nFW5OWh5psgZK3UwQU+VQ
+         E0iFMRfZAX18qODaZKBVOeonEIfZwWSBw6Hvty4PEvtuY0FFjp3uIZWj3Ts7UVvsSQDE
+         rvpw==
+X-Forwarded-Encrypted: i=1; AJvYcCUCEjJkE+v/vHpo7G0Rw3fZ5vt+4Avyjtrc4R1pozEtOhgLlGdd31YpJimcnJCZIra+nY1Rua+rehAV7An9XT28@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcVYWx7AnYrQyq3iulvRMzHYQFYMo9XjYgx8WfeBbaIBvnjIK4
+	mcjaY0X3AB6DNwa4h8YX8Kw1pXFMbgAOxnL9pn8thlEEUZC443gpzFLe
+X-Gm-Gg: ATEYQzz6ivfZxDPEP1lcNvWv+ln3tOY1hXQk8Hetx9bez84T0KaBX1Se4/2n9SxAu+I
+	PqSNAsjnigpnT+fchrO+VfXm+Mvv0+X8H8xPYuAhfESeXCIQQh89+Rq8WyK6U26uL9HGCve/dVK
+	BgUIWAbmefG14c4cQOUv4G/XopgtsT8b/eCJJc8udQEXbISM2bwYZR0N+SqfPf+d/mAe+pyEBmg
+	X7sdjb9hpdL3VAA1NHcnd3pFW18di3KTlPJ7zDLq71pmNB2vCy3yRAarbd2mhwVlFfRXM0hXR3c
+	4mrtqz8HideKj86RlTxlbUSFUItFBfY7EIcadE3Dodt/gSwEKh4lhVPRxfYn5jg2p2/D5WjR19x
+	RrQWzYi1cb5ms7AbkwaikHpv+TWS2D0LsQR3lxucr7D3ADaBQKlEof1+aRBxmVrrFYBH/ewf+bQ
+	RfmecpOZPbMX1silGrYlw1p3EuyqSkcG3ZOaPTmZWA/wuTJq2cP15KlD+LJsGmeOkf9ZvuZT6Te
+	uzvao94YPIsvpyUajY=
+X-Received: by 2002:a05:600c:1e85:b0:47d:3ffa:5f03 with SMTP id 5b1f17b1804b1-483c9bbbe23mr300242825e9.21.1772563107874;
+        Tue, 03 Mar 2026 10:38:27 -0800 (PST)
+Received: from jernej-laptop.localnet (86-58-126-118.dynamic.telemach.net. [86.58.126.118])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483c3b841absm409737345e9.13.2026.03.03.10.38.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Mar 2026 10:38:27 -0800 (PST)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, Jun Yan <jerrysteve1101@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org,
+ samuel@sholland.org, mripard@kernel.org, andre.przywara@arm.com,
+ Jun Yan <jerrysteve1101@gmail.com>
+Subject: Re: [PATCH v3 3/3] arm64: dts: allwinner: h6: Add TaiqiCat (TQC) A01 support
+Date: Tue, 03 Mar 2026 19:38:26 +0100
+Message-ID: <5969847.DvuYhMxLoT@jernej-laptop>
+In-Reply-To: <20260302020956.96424-4-jerrysteve1101@gmail.com>
+References: <20260302020956.96424-1-jerrysteve1101@gmail.com>
+ <20260302020956.96424-4-jerrysteve1101@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="6LVnSUhtxOpmWqK3"
-Content-Disposition: inline
-In-Reply-To: <20260303-hesitate-preoccupy-5e311cbd3e58@spud>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260303_103830_112265_99F41B00 
+X-CRM114-Status: GOOD (  20.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,90 +99,107 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Nishanth Menon <nm@ti.com>, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>, Mathieu Poirier <mathieu.poirier@linaro.org>, Dhruva Gole <d-gole@ti.com>, Akashdeep Kaur <a-kaur@ti.com>, Kevin Hilman <khilman@baylibre.com>, Bjorn Andersson <andersson@kernel.org>, linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, Kendall Willis <k-willis@ti.com>, devicetree@vger.kernel.org, Vishal Mahaveer <vishalm@ti.com>, Sebin Francis <sebin.francis@ti.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Tero Kristo <kristo@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---6LVnSUhtxOpmWqK3
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Mar 03, 2026 at 06:31:56PM +0000, Conor Dooley wrote:
-> On Tue, Mar 03, 2026 at 04:13:00PM +0100, Markus Schneider-Pargmann (TI) =
-wrote:
-> > Add names to the memory-region-names for easier idenfitication of memory
-> > regions.
-> >=20
-> > Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
-> > ---
-> >  .../bindings/remoteproc/ti,k3-r5f-rproc.yaml          | 19 +++++++++++=
-++++++++
-> >  1 file changed, 19 insertions(+)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rpr=
-oc.yaml b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
-> > index 6aadc61e20f9f4c27f5b9c87ab2025a02776c5de..76ef23afe8c9f7f155dfec7=
-fcabc7c60b8b286c6 100644
-> > --- a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
-> > +++ b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
-> > @@ -182,6 +182,25 @@ patternProperties:
-> >            - description: DM RM/PM trace and firmware code/data
-> >          additionalItems: true
-> > =20
-> > +      memory-region-names:
-> > +        description: |
-> > +          Optional names for the memory regions specified in the memor=
-y-region
+Dne ponedeljek, 2. marec 2026 ob 03:09:56 Srednjeevropski standardni =C4=8D=
+as je Jun Yan napisal(a):
+> TaiqiCat (TQC) A01 is a set-top box powered by an Allwinner H6 SoC,
+> equipped with an AXP305 PMIC, 1GB LPDDR3 RAM, 8GB eMMC, an AP6212
+> WiFi/BT combo module, one 100M Ethernet port, one USB 3.0 Type-A port,
+> one USB 2.0 Type-A port, one Micro USB port, HDMI, SPDIF, Micro-SD, and
+> infrared input.
 >=20
-> Is this really optional? Shouldn't it be made mandatory so that it is
-> easy to tell the difference between the two configurations?
-
-Actually, so that you can tell at all, since it looks like anything from
-2 to 8 regions is permitted (which this prop doesn't account for I guess,
-only allowing 2 or 6 regions).
-
+> It was released by Ultrapower(UQSoft) as a blockchain-based terminal and =
+is
+> now discontinued and no longer supported.
 >=20
-> > +          property.
-> > +        oneOf:
-> > +          - description: Basic configuration with DMA and firmware reg=
-ions
-> > +            items:
-> > +              - const: dma
-> > +              - const: firmware
-> > +
-> > +          - description: Extended LPM configuration with split memory =
-regions
-> > +            items:
-> > +              - const: dma
-> > +              - const: ipc
-> > +              - const: lpm-stub
-> > +              - const: lpm-metadata
-> > +              - const: lpm-context
-> > +              - const: dm-firmware
-> > +
-> >  # Optional properties:
-> >  # --------------------
-> >  # The following properties are optional properties for each of the R5F=
- cores:
-> >=20
-> > --=20
-> > 2.51.0
-> >=20
+>   https://web.archive.org/web/20190409213228/https://tq.ultrapower.com.cn=
+/product.html
+>=20
+> Hardware schematics are not available at this time; however, the
+> dts from the vendor firmware is provided for reference [1].
+>=20
+> Based on the PCB silkscreen marking "AZW-KT02 2.0", the ODM/OEM
+> can be confirmed as AZW, and the overall hardware circuit design
+> is highly similar to the Beelink GS1.
+>=20
+> Tested, works:
+> - debug UART
+> - status LED
+> - USB 3.0 Type-A port
+> - USB 2.0 Type-A port
+> - Micro USB port (Host)
+> - MicroSD
+> - eMMC
+> - WiFi/Bluetooth
+> - HDMI video output
+>=20
+> Does not work:
+> - Ethernet (requires AC200 MFD/EPHY driver)
+> - HDMI audio
+>=20
+> Untested:
+> - SPDIF
+> - IR receiver
+>=20
+> [1] https://archive.org/download/tqc-a01-stock-fw/tqc-a01-stock-fw.dts
+>=20
+> Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
+> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+> ---
+>  arch/arm64/boot/dts/allwinner/Makefile        |   1 +
+>  .../dts/allwinner/sun50i-h6-taiqicat-a01.dts  | 361 ++++++++++++++++++
+>  2 files changed, 362 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-h6-taiqicat-a01.=
+dts
+>=20
+> diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts=
+/allwinner/Makefile
+> index 2edfa7bf4ab3..d116864b6c2b 100644
+> --- a/arch/arm64/boot/dts/allwinner/Makefile
+> +++ b/arch/arm64/boot/dts/allwinner/Makefile
+> @@ -38,6 +38,7 @@ dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-orangepi-lite2.=
+dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-orangepi-one-plus.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-pine-h64.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-pine-h64-model-b.dtb
+> +dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-taiqicat-a01.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-tanix-tx6.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-tanix-tx6-mini.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h313-tanix-tx1.dtb
+> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h6-taiqicat-a01.dts b/a=
+rch/arm64/boot/dts/allwinner/sun50i-h6-taiqicat-a01.dts
+> new file mode 100644
+> index 000000000000..3138292abb45
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/allwinner/sun50i-h6-taiqicat-a01.dts
+> @@ -0,0 +1,361 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +// Copyright (C) 2026 Jun Yan <jerrysteve1101@gmail.com>
+> +
+> +/dts-v1/;
+> +
+> +#include "sun50i-h6.dtsi"
+> +#include "sun50i-h6-cpu-opp.dtsi"
+> +#include "sun50i-h6-gpu-opp.dtsi"
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +
+> +/ {
+> +	model =3D "TaiqiCat (TQC) A01";
+> +	compatible =3D "ultrapower,taiqicat-a01", "allwinner,sun50i-h6";
+> +
+> +	aliases {
+> +		ethernet0 =3D &sdio_wifi;
+
+Wifi has alias ethernet1 on H6.
+
+Other that that, it looks good. With that fixed:
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+
+Best regards,
+Jernej
 
 
-
---6LVnSUhtxOpmWqK3
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaacpeQAKCRB4tDGHoIJi
-0qvUAQDIPlBc+EDtI2V6+OdRXC2bz2e37Ro7IrXPjURmTTJnvwD/WCeUVsN2+kzS
-aOee9x9jSExmzCwrrOKhv5ctzekeoQE=
-=l+Px
------END PGP SIGNATURE-----
-
---6LVnSUhtxOpmWqK3--
 
