@@ -4,64 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49D59EC1459
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 14:46:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 801CBE67A72
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 14:56:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hbaDA7zodNsC03m2YRT/5186yF34iRBmBDfxrNm/kgc=; b=F3tjDQBD/q+zRQcE3SHnqI2O/r
-	B6a4f4b8AcB2lAyLlRT8ZbpvWAmvSME8Ak+h0gvs8/m4mczTBxmMlUXIpow3NvhpuJwsZi5TjngiB
-	n9kIdQ+IqRqvU1RZoz4eMNGYSIO40DU1oGUnsimTp3t+LRJUwuG498V3W0QtZrzthh7GxEfTwAe4l
-	oAoNQwC1A25L/EHNVHoMy9FOrU3fU/IVyhckPoMp2OwLc9JBuyCWXvAHUiNncMRfdpZHApkAm3wfZ
-	vyGUrtEFcBvl6OhCb+mdj3erqb+wWnHU3rNmaGxJZPBAyljnEEvMqDP3jqaYSx7sxWpx+cdwtbaIB
-	Jsncz0Xw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:
+	Content-Transfer-Encoding:Content-Type:Mime-Version:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=cTIgmgb/ImQ+v4+VhZg8vRmsZhPrw5oDndGDTm3rYyU=; b=cr1RE66VcZfD0h
+	rG/vLix+9gVUtdp2RyNVzzLQZjDEYpcURVO6oqFIcm88HL1yguYp8Aot6nt7PvXsaepHZuFhXJxRK
+	FC+oc9lbpGFqb+FuIFNpJvBTuEsJzk0lLs+DIlrSC5YyzA/+vEfpZr8C1xHZoAtNmzVY7xHqBD7YP
+	DLLS4HC1tWOnSqWNUaSrUeblSnuQc2qe7hf7FMNusIan9IoZ1lkXiZEIpxlK6n2IhFyAcGxCJRFKA
+	oNB2F1oGk3H1xWNzTdFN8qRTOCc3+xKfEfNx9XlfclhSBBUQf+tFkZw0kbCaJF7EKkcT2WUYEAynE
+	1EGRSuJXewa0UuFv9u1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxR1I-0000000FM59-1J6R;
-	Tue, 03 Mar 2026 14:46:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vxRAY-0000000FMZH-2Uik;
+	Tue, 03 Mar 2026 14:56:18 +0000
+Received: from mail.hugovil.com ([162.243.120.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxR1G-0000000FM51-0Alb
+	id 1vxRAV-0000000FMYr-1sK7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 14:46:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 26EAA60134;
-	Tue,  3 Mar 2026 14:46:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EEDDC116C6;
-	Tue,  3 Mar 2026 14:46:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772549200;
-	bh=5N3GIFyMf7g9ROpn76FZcGfVAbZybQizP11Q7edG8BA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jYQdEcajuovMGbp7zLlWU24vyzuFu163Dk/b/w2hBQNzbwVl3CCH7IKa2n4FVpoUf
-	 l8g8CVUh+73us28YeyLMKEXrQzNZXHiCN2rS0/sj6WXhsuzNbAbDJYK1LSI1z2ncCB
-	 iGuWghWscUcydVVNGajp+0vaabtOSW3F3P213x4F+CUlm8Pg5EBsNafWOCb4FEcNWO
-	 +OvnZUSRRBt745+4fpnZFLY7Ripo0TIjxujxJkO5pwwitT6JGocq+llQAgsJ+zqzFt
-	 syN0yXKMSfj/ADx/HaRGAYgrZGiWTSQAK6I8HxUPUTQfK2QJtzxQ7pWo2r2XSxvc06
-	 FZbKxVKaX+k+Q==
-Date: Tue, 3 Mar 2026 14:46:34 +0000
-From: Will Deacon <will@kernel.org>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Ankur Arora <ankur.a.arora@oracle.com>,
-	David Hildenbrand <david@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	James Clark <james.clark2@arm.com>
-Subject: Re: [PATCH] arm64: Implement clear_pages()
-Message-ID: <aab0SvA0dU0R0pnl@willie-the-truck>
-References: <20260303-aarch64-clear-pages-v1-1-ad0c3ee9a555@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260303-aarch64-clear-pages-v1-1-ad0c3ee9a555@kernel.org>
+	Tue, 03 Mar 2026 14:56:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
+	; s=x; h=Subject:Content-Transfer-Encoding:Mime-Version:Message-Id:Cc:To:From
+	:Date:subject:date:message-id:reply-to;
+	bh=cTIgmgb/ImQ+v4+VhZg8vRmsZhPrw5oDndGDTm3rYyU=; b=Dj6VtwQ/vo5l9HiQZuUUD75aA3
+	Vh/txUhdj0g+wsjdCXC/Kiz35j6z4cLxYbwnDvT5NZAH6DyyTFFxF1B7t+uW8+XBJROxShyx50ZTa
+	JwGmkaHJkyrGMQqcsBuxBVRtgxrtxOC9bT60v4kp233ssO1FI4Zwd25niUMiNVzbsTvs=;
+Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168]:38300 helo=pettiford.lan)
+	by mail.hugovil.com with esmtpa (Exim 4.92)
+	(envelope-from <hugo@hugovil.com>)
+	id 1vxR9q-0000YP-RN; Tue, 03 Mar 2026 09:55:35 -0500
+Date: Tue, 3 Mar 2026 09:55:33 -0500
+From: Hugo Villeneuve <hugo@hugovil.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, airlied@gmail.com, simona@ffwll.ch,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, shawnguo@kernel.org,
+ laurent.pinchart+renesas@ideasonboard.com, antonin.godard@bootlin.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, Hugo Villeneuve
+ <hvilleneuve@dimonoff.com>
+Message-Id: <20260303095533.1c6dff174f6c9d162d3e3303@hugovil.com>
+In-Reply-To: <20260303-rational-thundering-firefly-9dcaa9@quoll>
+References: <20260302190953.669325-1-hugo@hugovil.com>
+	<20260302190953.669325-5-hugo@hugovil.com>
+	<20260303-rational-thundering-firefly-9dcaa9@quoll>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 70.80.174.168
+X-SA-Exim-Mail-From: hugo@hugovil.com
+Subject: Re: [PATCH 04/14] dt-bindings: arm: fsl: change incorrect
+ VAR-SOM-6UL model name
+X-SA-Exim-Version: 4.2.1 (built Wed, 08 May 2019 21:11:16 +0000)
+X-SA-Exim-Scanned: Yes (on mail.hugovil.com)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260303_065615_612530_6F89B998 
+X-CRM114-Status: GOOD (  22.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,96 +84,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 03, 2026 at 11:06:13AM +0100, Linus Walleij wrote:
-> A recent patch introduced clear_pages() and made it possible to
-> provide assembly optimizations like for clear_page().
-> 
-> This augments the existing clear_page() optimization in arm64
-> to accept any number of pages the following way:
-> 
-> - Make clear_page() a static inline special case of clear_pages()
-> 
-> - Implement clear_pages() as a static inline that just calculate
->   the number of total bytes in the page set and passes this number
->   to the assembly routine clear_pages_asm.
-> 
-> - The old clear_pages assembly is rewritten to clear_pages_asm
->   which will take a start address (at an even page) and a number
->   of bytes to clear from that address.
-> 
-> This is similar to the optimization provided for x86.
-> 
-> Performance improvements:
-> 
-> The baseline is the current v7.0-rc1 which calls the existing
-> clear_page() assembly optimization in a loop, see <linux/mm.h>.
-> Any improvements are about avoiding the outer loop, in most cases
-> the clearing will be linear and the savings will be small and
-> only noticeable on really big clearing operations.
-> 
-> We boot the kernel with cmdline like this:
-> "default_hugepagesz=1G hugepagesz=1G hugepages=32" to make sure
-> we have ample hugepages. This was then tested with the same
-> cmdline as the original series:
-> 
-> perf bench mem mmap -p 1GB -f demand -s 32GB -l 5
-> 
-> The first run was discarded as the memory hierarchy is cold on
-> the first run. Then I ran the above command 5 times and averaged
-> the throughput, which sees a small but consistent improvement in
-> the throughput:
-> 
-> On QEMU:
-> 
-> Before this patch:     After this patch:
-> 2.38 GB/s              2.41 GB/s
+Hi Krzysztof,
 
-I really don't think we should pay attention to performance under QEMU
-as it doesn't necessarily have any correlation with real hardware.
+On Tue, 3 Mar 2026 08:10:51 +0100
+Krzysztof Kozlowski <krzk@kernel.org> wrote:
 
-> On hardware Radxa Orion O6 we see this on *some* cores and no
-> change on others:
+> On Mon, Mar 02, 2026 at 02:03:40PM -0500, Hugo Villeneuve wrote:
+> > From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+> > 
+> > There is no Variscite module named VAR-SOM-MX6UL.
 > 
-> Before this patch:     After this patch:
-> 43.3 GB/s              45.3 GB/s
-> 
-> There is a small but consistent improvement in throughput, as
-> expected.
-> 
-> Tested-by: James Clark <james.clark2@arm.com>
-> Signed-off-by: Linus Walleij <linusw@kernel.org>
-> ---
->  arch/arm64/include/asm/page.h                  | 13 ++++++++++++-
->  arch/arm64/kernel/image-vars.h                 |  2 +-
->  arch/arm64/kvm/hyp/nvhe/Makefile               |  2 +-
->  arch/arm64/lib/Makefile                        |  2 +-
->  arch/arm64/lib/{clear_page.S => clear_pages.S} | 18 +++++++++---------
->  5 files changed, 24 insertions(+), 13 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/page.h b/arch/arm64/include/asm/page.h
-> index b39cc1127e1f..916a3e7c9a19 100644
-> --- a/arch/arm64/include/asm/page.h
-> +++ b/arch/arm64/include/asm/page.h
-> @@ -20,7 +20,18 @@ struct page;
->  struct vm_area_struct;
->  
->  extern void copy_page(void *to, const void *from);
-> -extern void clear_page(void *to);
-> +extern void clear_pages_asm(void *addr, unsigned int nbytes);
-> +
-> +static inline void clear_pages(void *addr, unsigned int npages)
-> +{
-> +	clear_pages_asm(addr, npages * PAGE_SIZE);
-> +}
-> +#define clear_pages clear_pages
+> VAR-SOM-MX6? And there is.
+> https://dev.variscite.com/var-som-mx6/
 
-Hmm. From what I can tell, this just turns a branch in C code into a
-branch in assembly, so it's hard to correlate that meaningfully with
-the performance improvement you see.
+Ok,
+I was confused by the "const: variscite,var-som-imx6ul" and thought the
+description was not matching.
 
-If we have CPUs that are this sensitive to branches, perhaps we'd be
-better off taking the opposite approach and moving more code into C
-so that the compiler can optimise the control flow for us?
+But there is still no module named "VAR-SOM-MX6UL", but "VAR-SOM-MX6",
+with different CPU variants like UL, ULL, etc. So I will modify the
+patch to reflect that.
 
-Will
+In fact, I will modify the description to reflect that it supports both
+VAR-SOM-MX6 and VAR-SOM-6UL modules.
+
+
+> 
+> > 
+> > The official name from the manufacturer is VAR-SOM-6UL.
+> > 
+> > Change SOM model name to VAR-SOM-6UL to reduce confusion.
+> 
+> That's just one paragraph. Please write concise commit msgs so reading
+> them will be fast and easy.
+
+Ok, no problem.
+
+
+> 
+> Not a sentence.
+> 
+> By a sentence.
+> 
+> In multiple steps.
+> 
+> > 
+> > Signed-off-by: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+> > ---
+> >  Documentation/devicetree/bindings/arm/fsl.yaml | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+> > index 5716d701292cf..99dc1b3f1ba92 100644
+> > --- a/Documentation/devicetree/bindings/arm/fsl.yaml
+> > +++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+> > @@ -688,7 +688,7 @@ properties:
+> >            - const: phytec,imx6ul-pcl063   # PHYTEC phyCORE-i.MX 6UL
+> >            - const: fsl,imx6ul
+> >  
+> > -      - description: i.MX6UL Variscite VAR-SOM-MX6 Boards
+> > +      - description: i.MX6UL Variscite VAR-SOM-6UL Boards
+> >          items:
+> >            - const: variscite,mx6ulconcerto
+> >            - const: variscite,var-som-imx6ul
+> > -- 
+> > 2.47.3
+> > 
+> 
+
+
+-- 
+Hugo Villeneuve
 
