@@ -4,139 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D7F7E67A6F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 06:46:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 108ACE67A6B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 06:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pLkcqLpQHcqMNjhk+47E+ZmkyYQBW6NuVr0G8dpZnZE=; b=yHsV2f7N6RXBejSP/6cV8PA1jq
-	iRoemk0dZzptmHeME2WYeVNNBLQk7uLvodyDQtKakscUhWOYrpypqVVjKERbbj/dFmhfRKOTjc1y7
-	pRZNzIND36fEHGvO3ELBMzsaEthUMVOezYUVPOhoA1koByZM7TxQ9fKBqUX+jG0EfKNuEUGzeSpI2
-	c9uehD/lKks1r2Mcq9V0sj3hB+JyqEnOKKb5RPM8RQuAasCtSBgGCzFMEvTivQbee9+OqEvsnwd1/
-	/VaBeyOdbxeVHjRy71ncTaBGfXBjtAaDyBVuBxfjr6RA554mEvAEmS7jh11Fiqb1/ua6aFyOHsVK7
-	NBfAzUqQ==;
+	bh=0UvG7nUraMWXSNpbZhK8IBZM+wG0yS64UoslEqw21pY=; b=PPTS1KlB1dn8GRTrYMDEWSSEa9
+	YZcJmhCL1u/FrQ+3Fn79WDCuko1FcYlONgGH8S+TB748ORIRc1afx4bjYyiC54kMJt7zd/yByDblC
+	VtnVKnlUKRsMgZfF4ez6fxXcBF59yut9qjwrRBQipD88IS2sSQN7DDkyhc80tDzupPidh/a8MW7T+
+	QYw+PF9B4jRHmIrWWMnLJFWrpcwZ9z6dxk6hYrY6I/Sa39DQfs2cGe+ibesU+vgDcr+9NINXfU8Zr
+	mRORWaHTJ+d+E8AY9Ho4MWrv6cU7PD1kzI5uQi5vOOdpqJ64SiTnNzC6ZMjunasz1YO+BH3yATntl
+	ZnwAaHzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxJWr-0000000Ed89-2v7Y;
-	Tue, 03 Mar 2026 06:46:49 +0000
-Received: from mail-southcentralusazon11012015.outbound.protection.outlook.com ([40.93.195.15] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1vxJbs-0000000EdLI-29Iy;
+	Tue, 03 Mar 2026 06:52:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxJWo-0000000Ed7j-0Vhu
+	id 1vxJbp-0000000EdKy-45Cc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 06:46:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gH3KzaEH8xbDbCis5fqQrXo4eOugaXJ0cmPGvUv4P9L9mrFAxyMtmKnSqvbyzj7p6ho9cijOJu91HDOrGpbR71h5eOtR083p2UBLkLGv2C5hlCJJSee3HP0K/fEaUjNDKLGExWavYRuj9I2fsvJtLy9jni89zRlZyAbelPdW+tuGnehfN3li4c5JmbF5L3LKg9jsMwI3YTakYNKEFAvdS2aY+I3iBIB9Ykn+B9qRUSv53TBy39RHyvS1u1L0vjAobM1Iihl71PU4Bqv/4pPqxurs6skaaykInjjI+qAqWXz1eawlTV4WXFrVa6YG8sh6pg6ZOmfhPip+LpG0eCQHwA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pLkcqLpQHcqMNjhk+47E+ZmkyYQBW6NuVr0G8dpZnZE=;
- b=IxyK6Zjn8hScC5frCTvkBYliS2rOWT7z8PIbxE1syvTVnxOIW/rIHns+o+qmzlLpNT3ruGMsixbXXp3f9FFvjsC92zHJIIq0nOUIEcDyM2NxNyj05fHYj5VcgUe0LDuyX1zNau5lfizcdjwsU2tJT4m8xapBZP+Mf1pp3EC1Rbkup4tBc/Bs4yZQHCjs5j/uSNWEGWrOaKqqCTgL/ZxI2DjH61niReZf9AVERYO+lWtKHLWiELyOEtHkBNsmkTPC3MqZbzqybxvdE2/nTv50oXAm54nUuLRkzmNcgZ11kQAJ+nSzo6PVST3XbAwS1s9xHr3UuwKR8+iCIP0exQ/Fmg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pLkcqLpQHcqMNjhk+47E+ZmkyYQBW6NuVr0G8dpZnZE=;
- b=5hcMhOYj3IqEGH15yHk36KNgMfdGqOgV1GocBEDyKxex9qE8AWFlZhIa/8EXa96mN4rJ2oZwOrEMufiCTh+b/HT28M+xmhVuTSaaRiGQuVjuvqaW88monL6ejkW4pkP7432KNoom5lOrlzN9vh3a3YELFohMsu2B12cM5BsCp/U=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CH2PR12MB9544.namprd12.prod.outlook.com (2603:10b6:610:280::19)
- by DS0PR12MB8455.namprd12.prod.outlook.com (2603:10b6:8:158::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Tue, 3 Mar
- 2026 06:46:36 +0000
-Received: from CH2PR12MB9544.namprd12.prod.outlook.com
- ([fe80::83e8:3732:1f8b:269d]) by CH2PR12MB9544.namprd12.prod.outlook.com
- ([fe80::83e8:3732:1f8b:269d%4]) with mapi id 15.20.9654.022; Tue, 3 Mar 2026
- 06:46:36 +0000
-Message-ID: <98bc3a1e-27dc-4b05-a949-d8830cc552d1@amd.com>
-Date: Tue, 3 Mar 2026 12:16:27 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] dt-bindings: dmaengine: xlnx,axi-dma: Convert bindings
- into yaml
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: vkoul@kernel.org, Frank.Li@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, michal.simek@amd.com,
- radhey.shyam.pandey@amd.com, git@amd.com, dmaengine@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260225050521.160724-1-abin.joseph@amd.com>
- <20260225-cerise-oryx-of-pluck-8e2f30@quoll>
-Content-Language: en-US
-From: "Joseph, Abin" <Abin.Joseph@amd.com>
-In-Reply-To: <20260225-cerise-oryx-of-pluck-8e2f30@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MA1PR01CA0171.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:d::17) To CH2PR12MB9544.namprd12.prod.outlook.com
- (2603:10b6:610:280::19)
+	Tue, 03 Mar 2026 06:51:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1607442E20;
+	Tue,  3 Mar 2026 06:51:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64ED1C116C6;
+	Tue,  3 Mar 2026 06:51:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772520717;
+	bh=C5He0Shh3Nc4LenLLbkryUeH2KhCx1b+RL5r+ILGntE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=s7/Ye/30R2BX84QSrXsrPSwHTwm/VH++iQcZdGJGGxVnIt2PNR3ZGtyyZPxhheXxX
+	 WYdAJtiq/OqUaItEyUT2Mmj9OmRiJmD8Vy9HlYJoCU9FZVvAKYFDh7RULL71tBOdn5
+	 mZMpW4yfmv3N+cH419L/vsyODjFxVFXgeedLZoqr4Nyt3zvN3XkDo1uxNSCsE225eZ
+	 tgoLmp/vY/wlbumZ3ucP7QybJgZhXtNNuIp32XWXRr0ITtNv4JB5iwleVf33hnAnwI
+	 saWE1uzRBcVeShX4U7Y/C2ZtzmyewovFJnQPSwiL8Jas/Vfq5mm7ikWxYr/AzNbHHe
+	 ixkJzWCjAu2Sg==
+Date: Tue, 3 Mar 2026 07:51:54 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Hugo Villeneuve <hugo@hugovil.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org, 
+	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, airlied@gmail.com, 
+	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+	tzimmermann@suse.de, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, shawnguo@kernel.org, laurent.pinchart+renesas@ideasonboard.com, 
+	antonin.godard@bootlin.com, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>
+Subject: Re: [PATCH 05/14] dt-bindings: arm: fsl: add
+ variscite,var-som-imx6ull
+Message-ID: <20260303-hospitable-cordial-smilodon-af6300@quoll>
+References: <20260302190953.669325-1-hugo@hugovil.com>
+ <20260302190953.669325-6-hugo@hugovil.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PR12MB9544:EE_|DS0PR12MB8455:EE_
-X-MS-Office365-Filtering-Correlation-Id: 98da0fa7-33ff-4bdd-fb0f-08de78f09d27
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
-X-Microsoft-Antispam-Message-Info: sKfb/oHapT7CDejFgSHm0oPXf8ZEEY081AtsGWZD/vDiqw4n4yR7SXPRNCo+FsF8qBHuHkNH6KDUs+TJBYa+mxtpyeDt1h2fVzEgDOfFgPpf0HpwYGRVZZK8Qvr0Jyxh/A0iJhT/DFWYT6K618B6bSn8EO5bKoz4FA0bQW5w3sfV5CTVz/5vsqPOYi2oIWc9IBB5eL38PyLPPw1pcejQ4wgHPCCuVsiwdQ+AmrNyH/SDUH0XwxMSwNF0YrKdNzm91LAastOncFnDr3GlaM9E0cGmABucBzDxgcaRx3oiYIoN6WAUjjLCTS+UMG/DWNLb5vTjm100zCcL7LdZQ8cPyforG3QrBAiEEp303ZmAiQTVSz0obY5wvriSonNCNLfaC7zqSxUdxRPXvJyJy4LbE7T3Abu3RdtKBoMcJ+emnY/MAc6nZB3QKosOu7xMsMk8yQbFydRwlcXE6pdl6qREWu44zmohzTBiBTSkFThXSdB+hVky459TPHF26de342Jysoe9N8w/WODVY7ultMek12CggQM9Pc19b4D7FP9gw7pyRHeLZSmM8ura6K2Xwm7LrStZ5KRFXm9S24aDkSJ1CVnk90d74puhu6xHkbqMSP0SzZz8C5Y8KKKWbLjznteTZE+3u5IaWtWNGNCU1ozoiJergCWPs8nMbqRXXHDtdVfrunxGwz3/zs/+hn4X+bw7WXWMZT6jXlROgbXRRXiwMBfII3cC2a2DRpXZxKA5il4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH2PR12MB9544.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aTc1anBhLzVnS1Y2WkhCdkFVeXRqMG9ZeWlmZStpNThRMXg2R3ZqRzY4RDRX?=
- =?utf-8?B?MW5EdStJVmhxWDdlVDZxSW5ITmVrNVRvZTYxcnRtZDZYNS84d1hLT09EUWh1?=
- =?utf-8?B?OHFkbThEQVRpcEJkVGs5QzRBam1DNVFzZ1VMNk1rR2c1blRZL3RMeFp1T0Nh?=
- =?utf-8?B?WkdVTjN0QXd5S1pPNUtVbnBiNk1MQVJOTkRFdkF2REJnUmoxbGhZN1o4ZXV6?=
- =?utf-8?B?emlHRFhQM2hmenZob2F5eC95YWMzKzh4Q1pNMGlZakh2elhHNTh0ZzlUVDc4?=
- =?utf-8?B?QUFOOVBVKzBNZ1EzcGxjZFpwSERBbUlWRDFwNFc2d3lCMlRMZHlTemJ3ZUhl?=
- =?utf-8?B?aVRtNmNYTFllL204RFJRaEh2a0dzY0VLaXhCNzl2NkVhWUxhSkNFUk9pT3NF?=
- =?utf-8?B?M1FZNU1YWE42eGYvR2laeGRzcHl4bjRVM2VpZDdkT20rRVcrRXdwdzBhU1NY?=
- =?utf-8?B?emNvMkYxY2dETFBiRjc2YmxXTVhFVXRNV1JiTTQxY3FjUUFqN0NiZE1iY0FR?=
- =?utf-8?B?TEl0bGQwUnp5VEo2WW80M1M4QmxjMHpjYjZWd2k1Tko3N2sxSXF1aENSaE1W?=
- =?utf-8?B?dVZGbGkrbjRSOE9CNUJRNHdCV2l2ZjhyK0lQSUx4R2lLWlluOEVwREpBUjB1?=
- =?utf-8?B?a2dCb0xpeCtGWUNvNTR2eHQyenV1OVZud3B1YnR2NnBQcURtbndzcllkTy9j?=
- =?utf-8?B?MC8yRkZCVVRrZUgxU2lrKzlGVnZOTDRyU20wak8yM3o3TFZRWEhoU1BDM1RK?=
- =?utf-8?B?b1lVU2taa0oyWTMzQUY4eTlkZ1lpSFdUVlN5VmY3V3VMNlhNQVVqKzRzWVBN?=
- =?utf-8?B?b1Z1TVJiemtBN3ZIaGh2N0F5RFFoLzk2R3FMK3VtaE1Kb0NmUHRaUjRWb0RT?=
- =?utf-8?B?Q2J1Z21wMG5MSzNCQm8yd2xFYjRnZVZhZGFzK0dVcVQzVFFOc1NDYjlESVVT?=
- =?utf-8?B?Q1BKcTE3OTFpejQvY1R3bWdwQmpKT1FPMmlZWmdvOHNjQm1pTlBGOTNTVHBL?=
- =?utf-8?B?UkkxdjZvZTRqRm4zeHJKSHBObzMyMmVPK0k0UjBzdjhOb3c2OG00c1RJZ2Ev?=
- =?utf-8?B?eThXeUV4UmpKZFA4Z0cxalBRUEx5ZXZ5cklHU2hSZkpKMlE2U29lN01UbEox?=
- =?utf-8?B?eU1YeDZ6Y04zd05kR2M3ZDFPaXpKQnJraHpGWklKQ2tkZFhwNmd0SnppS1hM?=
- =?utf-8?B?dldIYlAxa0dITUhuRzk1VDFjU2w2MG00eUdEZzN4WDl0N3FuK2ExcHdreFk1?=
- =?utf-8?B?OGtsMFg5Skt0c3A0ZGV1S3NMZmwrL3pxY09rSFhEYTJwcHZwbHlSVDBiS2s0?=
- =?utf-8?B?ODRrdDhycUhjY2o1SkdRakR3a016WjdNeUNDaWVCTVBkNllGN3JTbHlaMDBk?=
- =?utf-8?B?UzNTQkhlTEZudnJLdDFYSFRDMDQ2QzhkNnJRK3UxODhsOHNIaXYzclh5OEha?=
- =?utf-8?B?SVFlTlNZNkpVUXIzUlQzZVI4MUJsMmMrZjUyLy9RbUJseHVpTTgrNlZLa0Jy?=
- =?utf-8?B?SmtkbXBFNE1GQTFLU0xGaXFzc1d2K2R2MDhhYXErWmxlVkY5TjNNZExLcEx0?=
- =?utf-8?B?Mk1rbDQyR0dTTDFFV04vWDZKTDdqQWJoWWhRcjNTczM3c0Z6QkR3OHRGM3ZK?=
- =?utf-8?B?ZmcwR0FuUStob29rTVRRdm1PdFpSdk8rZDZIem53YkJoRzRteXBITXZrMG9T?=
- =?utf-8?B?MlJFRGFYdDdGT05vcC9FUkRWcXlrQjRYMFQva2JQclM0VkV5ZmhrTWlhaEt4?=
- =?utf-8?B?MG5nVzZiY3UxVDZxWTBMWTFnRmNCYTRIb25Pd3R4OGR6UHRwSGN6c0hUM3NS?=
- =?utf-8?B?dXRyWjVrTng5bDF0YzM2TklDbEsvRFllLzdvWjk5elcraFcyUjJkSjhZS2Jl?=
- =?utf-8?B?WHBzZEorNkNaSGJXUTVlUVhuSFZsVFB2NVAzOHE0UVlNbVArQTFuT3FRVG1H?=
- =?utf-8?B?UjBGYno2R3VLRzRtc3dKNFZXenFTeG56YzdKNE9XT1ppSzBsNzkxT1I5NE9S?=
- =?utf-8?B?aGFzajRhakI2ZEltd3BiTGZuSjhJdDkxK0lZaHMvKzJJWEFVdDlvREc2TmJy?=
- =?utf-8?B?YUZQQnM2UFIzYyt3cW1LL3ltcFlFL3NvalorbFI5a1NLdE1ZUVlDOG5hdnRG?=
- =?utf-8?B?SWJXYis2ZExhc3FkRFZIV2RmWldyMUYva0Z3cWVTUWRoeFdQckdhaTV1bWlw?=
- =?utf-8?B?eGY1M0tkNGJ2TzY0VDloTmJCeDVKbGY2NnBiOUUrTUVRTFlVRDFROGhBV1BU?=
- =?utf-8?B?SFQyeHdoNmVmUnlnYW5Eb3VGSEdNbTJPcVhFK2ZJVjVKby9Oa0ZyaTlWUHRw?=
- =?utf-8?Q?AjqiuGnePe5DZZpP+p?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 98da0fa7-33ff-4bdd-fb0f-08de78f09d27
-X-MS-Exchange-CrossTenant-AuthSource: CH2PR12MB9544.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2026 06:46:35.9360
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: iZdlnOzpOD5CjTB1APn7EcowxhiMpwdtvSUFFPfNZ1JJgXULSLVw1qBBJJ30Y9vG
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8455
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260302190953.669325-6-hugo@hugovil.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_224646_217170_764185FC 
-X-CRM114-Status: GOOD (  23.83  )
+X-CRM114-CacheID: sfid-20260302_225158_038210_CC0E8548 
+X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,387 +81,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-Hi Krzysztof,
-
-
-On 2/25/2026 3:52 PM, Krzysztof Kozlowski wrote:
-> Caution: This message originated from an External Source. Use proper caution when opening attachments, clicking links, or responding.
+On Mon, Mar 02, 2026 at 02:03:41PM -0500, Hugo Villeneuve wrote:
+> From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
 > 
+> Add support for the imx6ull CPU variant of the Variscite concerto
+> board evaluation kit with a VAR-SOM-6UL.
 > 
-> On Wed, Feb 25, 2026 at 10:35:21AM +0530, Abin Joseph wrote:
->> Convert the bindings document for Xilinx DMA from txt to yaml.
->> No changes to existing binding description.
->>
->> Signed-off-by: Abin Joseph <abin.joseph@amd.com>
->> ---
->>
->> v2:
->> -> Add examples for each compatible
-> 
-> No, why? We did not ask for that and (see writing schema) we ask for one
-> example, more only if they are different.
-> 
+> Signed-off-by: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+> ---
+>  Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
+>  1 file changed, 6 insertions(+)
 
-Sorry about that, my mistake.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Based on Frank Li’s comment,
-[the YAML schema example should use only one of the compatible strings.]
-
-I misunderstood this and thought we needed
-to add examples for each compatible.
-
-I’ll fix this and update it correctly in the next revision.
-
-
-> 
-> ...
-> 
-> 
->> +properties:
->> +  compatible:
->> +    enum:
->> +      - xlnx,axi-cdma-1.00.a
->> +      - xlnx,axi-dma-1.00.a
->> +      - xlnx,axi-mcdma-1.00.a
->> +      - xlnx,axi-vdma-1.00.a
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  "#dma-cells":
->> +    const: 1
->> +
->> +  "#address-cells":
->> +    const: 1
->> +
->> +  "#size-cells":
->> +    const: 1
->> +
->> +  interrupts:
->> +    items:
->> +      - description: Interrupt for single channel (MM2S or S2MM)
->> +      - description: Interrupt for dual channel configuration
->> +    minItems: 1
->> +    description:
->> +      Interrupt lines for the DMA controller. Only used when
->> +      xlnx,axistream-connected is present (DMA connected to AXI Stream
->> +      IP). When child dma-channel nodes are present, interrupts are
->> +      specified in the child nodes instead.
->> +
->> +  clocks:
->> +    minItems: 1
->> +    maxItems: 5
->> +
->> +  clock-names:
->> +    minItems: 1
->> +    maxItems: 5
->> +
->> +  dma-ranges: true
->> +
->> +  xlnx,addrwidth:
->> +    $ref: /schemas/types.yaml#/definitions/uint32
->> +    enum: [32, 64]
->> +    description: The DMA addressing size in bits.
->> +
->> +  xlnx,num-fstores:
->> +    $ref: /schemas/types.yaml#/definitions/uint32
->> +    minimum: 1
->> +    maximum: 32
->> +    description: Should be the number of framebuffers as configured in h/w.
->> +
->> +  xlnx,flush-fsync:
->> +    type: boolean
->> +    description: Tells which channel to Flush on Frame sync.
->> +
->> +  xlnx,sg-length-width:
->> +    $ref: /schemas/types.yaml#/definitions/uint32
->> +    minimum: 8
->> +    maximum: 26
->> +    default: 23
->> +    description:
->> +      Width in bits of the length register as configured in hardware.
->> +
->> +  xlnx,irq-delay:
->> +    $ref: /schemas/types.yaml#/definitions/uint32
->> +    minimum: 0
->> +    maximum: 255
->> +    description:
->> +      Tells the interrupt delay timeout value. Valid range is from 0-255.
->> +      Setting this value to zero disables the delay timer interrupt.
->> +      1 timeout interval = 125 * clock period of SG clock.
->> +
->> +  xlnx,axistream-connected:
->> +    type: boolean
->> +    description: Tells whether DMA is connected to AXI stream IP.
->> +
->> +patternProperties:
->> +  "^dma-channel(-mm2s|-s2mm)?$":
->> +    type: object
->> +    description:
->> +      Should have at least one channel and can have up to two channels per
->> +      device. This node specifies the properties of each DMA channel.
->> +
->> +    properties:
->> +      compatible:
->> +        enum:
->> +          - xlnx,axi-vdma-mm2s-channel
->> +          - xlnx,axi-vdma-s2mm-channel
->> +          - xlnx,axi-cdma-channel
->> +          - xlnx,axi-dma-mm2s-channel
->> +          - xlnx,axi-dma-s2mm-channel
->> +
->> +      interrupts:
->> +        maxItems: 1
->> +
->> +      xlnx,datawidth:
->> +        $ref: /schemas/types.yaml#/definitions/uint32
->> +        enum: [32, 64, 128, 256, 512, 1024]
->> +        description: Should contain the stream data width, take values {32,64...1024}.
->> +
->> +      xlnx,include-dre:
->> +        type: boolean
->> +        description: Tells hardware is configured for Data Realignment Engine.
->> +
->> +      xlnx,genlock-mode:
->> +        type: boolean
->> +        description: Tells Genlock synchronization is enabled/disabled in hardware.
->> +
->> +      xlnx,enable-vert-flip:
->> +        type: boolean
->> +        description:
->> +          Tells vertical flip is enabled/disabled in hardware(S2MM path).
->> +
->> +      dma-channels:
->> +        $ref: /schemas/types.yaml#/definitions/uint32
->> +        description: Number of dma channels in child node.
->> +
->> +    required:
->> +      - compatible
->> +      - interrupts
->> +      - xlnx,datawidth
->> +
->> +    additionalProperties: false
->> +
->> +allOf:
->> +  - $ref: ../dma-controller.yaml#
->> +
->> +  - if:
->> +      properties:
->> +        compatible:
->> +          contains:
->> +            const: xlnx,axi-vdma-1.00.a
->> +    then:
->> +      properties:
->> +        clock-names:
->> +          contains:
->> +            const: s_axi_lite_aclk
-> 
-> This is REALLY unexpected syntax. You are supposed to have strictly
-> ordered list - why do you need need it to be so flexible? And if element
-> is required it should be the first item. There is no single DTS even
-> mentioning it!
-
-
-I will fix this syntax
-
-> 
->> +          items:
->> +            enum:
->> +              - s_axi_lite_aclk
->> +              - m_axi_mm2s_aclk
->> +              - m_axi_s2mm_aclk
->> +              - m_axis_mm2s_aclk
->> +              - s_axis_s2mm_aclk
->> +          minItems: 1
->> +          maxItems: 5
->> +      patternProperties:
->> +        "^dma-channel(-mm2s|-s2mm)?$":
->> +          properties:
->> +            compatible:
->> +              enum:
->> +                - xlnx,axi-vdma-mm2s-channel
->> +                - xlnx,axi-vdma-s2mm-channel
->> +      required:
->> +        - xlnx,num-fstores
->> +
->> +  - if:
->> +      properties:
->> +        compatible:
->> +          contains:
->> +            const: xlnx,axi-cdma-1.00.a
->> +    then:
->> +      properties:
->> +        clock-names:
->> +          items:
->> +            - const: s_axi_lite_aclk
->> +            - const: m_axi_aclk
->> +      patternProperties:
->> +        "^dma-channel(-mm2s|-s2mm)?$":
->> +          properties:
->> +            compatible:
->> +              enum:
->> +                - xlnx,axi-cdma-channel
->> +
->> +  - if:
->> +      properties:
->> +        compatible:
->> +          contains:
->> +            enum:
->> +              - xlnx,axi-dma-1.00.a
->> +              - xlnx,axi-mcdma-1.00.a
->> +    then:
->> +      properties:
->> +        clock-names:
->> +          contains:
->> +            const: s_axi_lite_aclk
-> 
-> Why do you need this?
-> 
->> +          items:
->> +            enum:
->> +              - s_axi_lite_aclk
->> +              - m_axi_mm2s_aclk
->> +              - m_axi_s2mm_aclk
->> +              - m_axi_sg_aclk
-> 
-> Why this cannot be ordered list like we expect (see writing bindings)?
-> 
-
-sure will do it.
-
-> 
->> +          minItems: 1
->> +          maxItems: 4
->> +      patternProperties:
->> +        "^dma-channel(-mm2s|-s2mm)?(@[0-9a-f]+)?$":
->> +          properties:
->> +            compatible:
->> +              enum:
->> +                - xlnx,axi-dma-mm2s-channel
->> +                - xlnx,axi-dma-s2mm-channel
->> +
->> +  - if:
->> +      properties:
->> +        compatible:
->> +          contains:
->> +            enum:
->> +              - xlnx,axi-cdma-1.00.a
->> +              - xlnx,axi-mcdma-1.00.a
->> +              - xlnx,axi-dma-1.00.a
->> +    then:
->> +      properties:
->> +        interrupts: false
-> 
-> Why interrupts are flexible in other case?
-> 
-> This should be probably squashed in each of previous if:then:.
-
-I will squash the interrupt constraints into each if:then: block as 
-suggested.
-
-For VDMA and CDMA, interrupts are always in child nodes regardless of
-axistream-connected, so I'll add "interrupts: false" to their respective 
-blocks.
-
-For AXI DMA and MCDMA:
-- When xlnx,axistream-connected is present: interrupts are at parent level
-- When not connected to AXI stream: interrupts are in child nodes
-
-Since the current schema already allows both parent and child node 
-interrupts
-for DMA/MCDMA (flexible behavior), I won't add "interrupts: false" to their
-block, which correctly permits both configurations.
-
-I will fix this in the next version.
-
-
-> 
-> 
->> +
->> +required:
->> +  - "#dma-cells"
->> +  - reg
->> +  - xlnx,addrwidth
->> +  - dma-ranges
->> +  - clocks
->> +  - clock-names
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
->> +
->> +    dma-controller@40030000 {
->> +        compatible = "xlnx,axi-vdma-1.00.a";
->> +        #dma-cells = <1>;
->> +        #address-cells = <1>;
->> +        #size-cells = <1>;
->> +        reg = <0x40030000 0x10000>;
->> +        dma-ranges = <0x0 0x0 0x40000000>;
->> +        xlnx,num-fstores = <8>;
->> +        xlnx,flush-fsync;
->> +        xlnx,addrwidth = <32>;
->> +        clocks = <&clk 0>, <&clk 1>, <&clk 2>, <&clk 3>, <&clk 4>;
->> +        clock-names = "s_axi_lite_aclk", "m_axi_mm2s_aclk",
->> +                      "m_axi_s2mm_aclk", "m_axis_mm2s_aclk",
->> +                      "s_axis_s2mm_aclk";
->> +
->> +        dma-channel-mm2s {
->> +            compatible = "xlnx,axi-vdma-mm2s-channel";
->> +            interrupts = <GIC_SPI 54 IRQ_TYPE_LEVEL_HIGH>;
->> +            xlnx,datawidth = <64>;
->> +        };
->> +
->> +        dma-channel-s2mm {
->> +            compatible = "xlnx,axi-vdma-s2mm-channel";
->> +            interrupts = <GIC_SPI 53 IRQ_TYPE_LEVEL_HIGH>;
->> +            xlnx,datawidth = <64>;
->> +        };
->> +    };
->> +
->> +  - |
->> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
->> +
->> +    dma-controller@a4030000 {
->> +        compatible = "xlnx,axi-dma-1.00.a";
->> +        #dma-cells = <1>;
->> +        #address-cells = <1>;
->> +        #size-cells = <1>;
->> +        reg = <0xa4030000 0x10000>;
->> +        dma-ranges = <0x0 0x0 0x40000000>;
->> +        xlnx,addrwidth = <32>;
->> +        xlnx,sg-length-width = <14>;
->> +        clocks = <&clk 0>, <&clk 1>, <&clk 2>, <&clk 3>;
->> +        clock-names = "s_axi_lite_aclk", "m_axi_mm2s_aclk",
->> +                      "m_axi_s2mm_aclk", "m_axi_sg_aclk";
->> +
->> +        dma-channel-mm2s {
->> +            compatible = "xlnx,axi-dma-mm2s-channel";
->> +            interrupts = <GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>;
->> +            xlnx,datawidth = <64>;
->> +            xlnx,include-dre;
->> +        };
->> +
->> +        dma-channel-s2mm {
->> +            compatible = "xlnx,axi-dma-s2mm-channel";
->> +            interrupts = <GIC_SPI 87 IRQ_TYPE_LEVEL_HIGH>;
->> +            xlnx,datawidth = <64>;
->> +            xlnx,include-dre;
->> +        };
->> +    };
->> +
-> 
-> Drop all examples past this point.
-
-sure, thanks
-
-Abin Joseph
-
-> 
-> Best regards,
-> Krzysztof
-> 
+Best regards,
+Krzysztof
 
 
