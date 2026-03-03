@@ -4,65 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B28C0EDEBF0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 20:20:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8718EDEBF6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 20:51:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=g2z52IdWgskYeOiZeBZcRxQieKJEbjxt8gRN0ppFkwA=; b=YUCILICWpmqZ08gio09ojRi15D
-	78A8EbIbmkU3UqYEAYe3wwj0uuNxzoLdV+nulH3wckr+YLCyDqxEQwBqphbBT/YGlkD2GX43XlshI
-	5Dmg+g1eung8CgULUPYihxWjW/Ycn00qXpBq+HJ3GSyK0c3IS/umkWDWVtsCVc/OeWHHMkwAeg6RL
-	okhujjf4USD9FfpfxmwOvIpCwxetHIhbTv8DkQ8ewuoT92IjGyt3UGBVjcOwyMsf3s8gvATpxfXpa
-	n4GKNgnAJvYv2/RtJqV8qoST+KYlTztOneUE5C1vSLnFXd/TZLdTtj8Wqme6JuvnVfGD7MwQfM/BY
-	3j2rLCAw==;
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W4+9AyMIj1WDxYgl7TvopUa7BgXQ+cJMbbNJ/Z/1ir4=; b=386O7lAiUrdhTJ0vMeY4HzeLRm
+	MDL5XSdh4hYV+lr7fksKqWHfD8MAAiurqVXFeKfjSAx8vyuKKzdwtmJvqkjSXqWlG3tnCf1sZ1Rac
+	Fy9D6XwQwQPjgCnjIcIS0KSYnAmwkPO2VKmMvPV3ls2NHLcmCtU6PJmlSIjrKV9qG4ce+1K8Gx7CH
+	JmsCSiLaT0pGZvtOFs3Z2dwhdalVdZaf5dg+a/yMbIAX3GORi6/4p8Wr/rX4QxTXP+NKjrJXgHwP5
+	gkbYtsWoNqZYQEtT9hxslcF8OSImH1MrsZCBXaYLXHNxpGb3icluEECSy1Xifjk6tZxmeVmn8jJNg
+	VMGvGUMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxWEC-0000000FuCb-1syK;
-	Tue, 03 Mar 2026 20:20:24 +0000
-Received: from mxout1.routing.net ([2a03:2900:1:a::a])
+	id 1vxWi1-0000000FvfN-3oKt;
+	Tue, 03 Mar 2026 20:51:13 +0000
+Received: from fout-b2-smtp.messagingengine.com ([202.12.124.145])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxWE9-0000000FuBu-348w;
-	Tue, 03 Mar 2026 20:20:23 +0000
-Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout1.routing.net (Postfix) with ESMTP id 8087F40252;
-	Tue,  3 Mar 2026 20:20:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=routing; t=1772569215;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=g2z52IdWgskYeOiZeBZcRxQieKJEbjxt8gRN0ppFkwA=;
-	b=Rvv/wlB1CnEwf/0AyjW5t6+vkFmi+9s7wkdl0DK/lAvOmmMIdJ1y/b7APPZHp8TaEOkD/M
-	oOUNXAt1mVvA1Rp9JmgRuBm3bycdnlds/+5HlnHbhpm3BH18h7VuLbWfk6WqSqsQc/WZFS
-	R6qVRWnNbJjZiQtIWQZTkZ3AUBPboLc=
-Received: from frank-u24.. (fttx-pool-217.61.147.65.bambit.de [217.61.147.65])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 4F9A91226DC;
-	Tue,  3 Mar 2026 20:20:15 +0000 (UTC)
-From: Frank Wunderlich <linux@fw-web.de>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Frank Wunderlich <frank-w@public-files.de>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Daniel Golle <daniel@makrotopia.org>,
-	Andrew LaMarche <andrewjlamarche@gmail.com>
-Subject: [PATCH] arm64: dts: mediatek: mt7988a-bpi-r4pro: rename mgmt port to lan5
-Date: Tue,  3 Mar 2026 21:20:06 +0100
-Message-ID: <20260303202006.37515-1-linux@fw-web.de>
-X-Mailer: git-send-email 2.43.0
+	id 1vxWhy-0000000Fvek-3BBC
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Mar 2026 20:51:12 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id 4CC3D1D00091;
+	Tue,  3 Mar 2026 15:51:06 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Tue, 03 Mar 2026 15:51:07 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1772571066;
+	 x=1772657466; bh=W4+9AyMIj1WDxYgl7TvopUa7BgXQ+cJMbbNJ/Z/1ir4=; b=
+	pLDSmkoGAjS8lnVtR1khysjif4VTY5cRWo9PIxyDJiT28SEFPnk1yXN58zkVxEMh
+	GFW1phu55AtGZbKUNoh3VcX9JTNkCzW7xIACqKccu9Yi2xgImIbaihihSab3Ybcy
+	ZvzdJ9KnUtHX1L96Lz7VaETXaw0WUeq2GiwLcE6rz6wfW+eI9zJX585FXdCVD7tl
+	X/ZMK3WFoNbmP0JCWCs6+hhgv/UQvUhqfxQhQnXjEDrZ2LaRSAzKVL24K3PzJhIn
+	rqjjxOu2ekH2xWndLoEQtcbD8+ZX+k3wfPuxfVMI3M5Nh4HTdK7tar6AT4OhAaVE
+	NNHUNEpsd4v5NMVnDGl1cw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1772571066; x=
+	1772657466; bh=W4+9AyMIj1WDxYgl7TvopUa7BgXQ+cJMbbNJ/Z/1ir4=; b=Y
+	TVlBjzRPOIJet/lh3awFNLl+wSE9XarGY7dyctHiw5tGwZ6LRJ3BrauySyy4mzo0
+	b0+dmt15Vi2YI3e9F9TlBU30QCqEG5DY1aVhkCoxyCw1e9CyBFJ1RYuMAgn+NGDb
+	6jVVcHqBihXYHtfSXv2h/C0REEUlC4kpEOGjzIHLx3Pd90Iw46MOeQyLcV/cFl+E
+	5dZqAzFlk60ZLRCJhmu+gRhtmD+V3HzFy3GlHl8IKJ69OzkPyaZFRzxeRWMWHXa3
+	0ck/5T/lVenCbLgUVMTqHhaKndC/nJbyDoy1H5u/Y2BPqio99jPYioYRMJHI3mjS
+	S58LoC5QRY0ZI/dbjZyuQ==
+X-ME-Sender: <xms:t0mnaTNMr7HRS--AuI8r-Sjs0TE5jFMLYGjK3yJPu0GcoqGNF90Dww>
+    <xme:t0mnaYwXrHoghs8YGSaKStp_jMggeks5AVkqXKoty1d9tlJzn8unKKfyiC4rOp_Hx
+    1VCQixKCnYpCwvpJMpvifb4MBADS_tOIRySc2OTiVe2hw8vnsMqbhs>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvieduiedtucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdejnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhepvdfhvdekueduveffffetgfdvveefvdelhedvvdegjedvfeehtdeggeevheefleej
+    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
+    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepvddupdhmohguvgepshhmthhpohhu
+    thdprhgtphhtthhopegsphesrghlihgvnhekrdguvgdprhgtphhtthhopehtshgsohhgvg
+    hnugesrghlphhhrgdrfhhrrghnkhgvnhdruggvpdhrtghpthhtoheptggrthgrlhhinhdr
+    mhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopehvihhntggvnhiiohdrfhhrrg
+    hstghinhhosegrrhhmrdgtohhmpdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhig
+    rdhorhhgrdhukhdprhgtphhtthhopehmphgvsegvlhhlvghrmhgrnhdrihgurdgruhdprh
+    gtphhtthhopehnphhighhgihhnsehgmhgrihhlrdgtohhmpdhrtghpthhtoheptghhlhgv
+    rhhohieskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhuthhosehkvghrnhgvlhdroh
+    hrgh
+X-ME-Proxy: <xmx:uEmnaTovlr41bMOoG-myb6wYD6yoZjgMxJaD4C1IsznfOvQliSGM7A>
+    <xmx:uEmnaZPe6a9Yagzc6v8dA-19Wn_ba6NmwvRIUy5a__y8EQwCklW78Q>
+    <xmx:uEmnaQNzCnwjn_-woKHF5KKnpyufa8dxgdgTmaQq9JlXYt8CehqaaQ>
+    <xmx:uEmnab2d3NaeSyTEJISJaVuDlDdHY35r82elxjQMDUg6M0f0aHZDjQ>
+    <xmx:ukmnaaN0mkEav7UlHMX3vyXNihfd1xX8twV1ttpCy-ygb33aiA8wnMPB>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id E3624700065; Tue,  3 Mar 2026 15:51:03 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-ThreadId: ARwL1vy566MZ
+Date: Tue, 03 Mar 2026 21:50:33 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "H. Peter Anvin" <hpa@zytor.com>,
+ =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+Cc: "Andy Lutomirski" <luto@kernel.org>, "Thomas Gleixner" <tglx@kernel.org>,
+ "Ingo Molnar" <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "Russell King" <linux@armlinux.org.uk>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
+ "Madhavan Srinivasan" <maddy@linux.ibm.com>,
+ "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Nicholas Piggin" <npiggin@gmail.com>,
+ "Christophe Leroy" <chleroy@kernel.org>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "Vincenzo Frascino" <vincenzo.frascino@arm.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org
+Message-Id: <2b1ac7b9-fcc8-4aa3-a0ad-eb37e4bce030@app.fastmail.com>
+In-Reply-To: <49b7c9f9-198a-49f7-880b-6ae74d7bd985@zytor.com>
+References: <20260227-vdso-compat_32bit_time-v1-0-3f0286a7bac3@linutronix.de>
+ <20260227-vdso-compat_32bit_time-v1-1-3f0286a7bac3@linutronix.de>
+ <c29f5e70-bd17-4e1b-a005-5a3282e70075@app.fastmail.com>
+ <03cd1e21-a2f2-46a1-a674-cbaef9712016@app.fastmail.com>
+ <20260227103226-cc3bb32c-0107-4c09-b81a-ca33ea03ad5c@linutronix.de>
+ <49b7c9f9-198a-49f7-880b-6ae74d7bd985@zytor.com>
+Subject: Re: [PATCH 1/7] x86/vdso: Respect COMPAT_32BIT_TIME
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_122021_958165_774ABD49 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20260303_125111_093537_F9DC400F 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,32 +131,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Wunderlich <frank-w@public-files.de>
+On Tue, Mar 3, 2026, at 19:11, H. Peter Anvin wrote:
+> On 2026-02-27 01:34, Thomas Wei=C3=9Fschuh wrote:
+>>>>
+>>> The thing about gettimeofday() and time() is that they don't have
+>>> a 64-bit version and libc implementations are expected to call
+>>> clock_gettime() instead. The result was that there was never a
+>>> patch to turn the off either.
+>>=20
+>> gettimeofday() is currently the only way to get the timezone of the k=
+ernel.
+>> But I guess this is a legacy thing anyways. If you say we should drop=
+ it,
+>> let's drop it.
+>>=20
+>
+> The time zone in the kernel has never worked anyway, as it would requi=
+re the
+> kernel to contain at least the forward portion of the zoneinfo/tzdata =
+table in
+> order to actually work correctly. The only plausible use of it would b=
+e for
+> local time-based filesystems like FAT, but I don't think we bother.
+>
+> A bigger question is whether or not we should omit these from the vDSO
+> completely (potentially causing link failures) or replace them with st=
+ubs
+> returning -ENOSYS.
 
-It turns out that the label mgmt confuses users and now official case is
-released where the port is labeled with number 5. So just rename it to
-lan5 to follow naming convension (lan1-4 from mxl switch and lan6 for lan-
-combo).
+I see no harm in keeping gettimeofday() in the vdso when
+COMPAT_32BIT_TIME is turned on, as existing code will call it
+no matter whether it's in the vdso or the syscall.
 
-Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
----
- arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Equally, I see no point in having either version of
+gettimeofday() or settimeofday() when COMPAT_32BIT_TIME is
+disabled, as clearly anything calling it would pass incorrect
+data for times past 2038.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi
-index a48132f09411..1175ee156cb3 100644
---- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi
-@@ -207,7 +207,7 @@ &gsw_phy0_led0 {
- };
- 
- &gsw_port0 {
--	label = "mgmt";
-+	label = "lan5";
- };
- 
- /* R4Pro has only port 0 connected, so disable the others */
--- 
-2.43.0
+Neither glibc nor musl support actually returning the kernel
+timezone to callers of gettimeofday in modern versions that
+support time64 syscalls.
 
+      Arnd
 
