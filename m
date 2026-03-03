@@ -4,68 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF70FE67A9E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 14:59:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C0E1EC145E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 15:00:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IvXTKeqVOgZ+sK5zQ1X9KsU/+o3InYgX5va6yVt0LaU=; b=mBnfb8/w1MJDbdp2beDq9jbtIp
-	Z59/KzbEKmaObgbZaxATlZ5X5kr9INNrL4en+z2MO4zv7o+FYU5pAI6kl4YtX23oAgKUlSdxl2UYj
-	5Uq8jN/a7ePOtHCz/LXzPPNQmcJ3kZE2GFzBtfJo9Lv3iLnrAphpzceeUt8bHJpPPMZqyrTIkK6eK
-	z9KRwFFAsqK62Uv4rvIfY3kB5P3oTjQnOQDhcGZUSL34axxatupvDEV31iN7LqJ8IZXUEA8mwBRMZ
-	Z9GdxwcwO8/7DzzxZSuidKSoXVypyJmkoTRzzDE9ieP8BxEUbSJs8T1qI9OG0KwWf/xf9bKN2kn+0
-	ZAgcRdCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LEkQ9dNY1XnxCyA9bBuiMFcOlaPpCMruxRKUrc6o1t8=; b=sAnxMqrXaLsYG/Q43/X2YluO94
+	s75FfkSxG9nU7OIszuajWD8j8G3Hab91QUTcliqSd2qP6LdkNwvWEFZc/xZ4CTCBIkQbKxOTw+Yya
+	/ukrAUL0i4VUthvLo++nIoPzU5X25t614WnuAjiyYpADcZeP1emii13kpt77T3X+Wp3Y5uO+cpiiD
+	TH5pOG+qWiuQxl55jjfcSiBJqp59zdKBURrCSTxZaqZRgNkNNx5bvTe8uc/dpCrR92fd55RCESmu5
+	JCNzmO2DmfshNMq6+RsdTGcMQ4kLgZ7LDjhRvun3NAKsGkxAD0cq1AoOEqyG1vPcwWVPUw/CAAxxH
+	CqH7K3hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxRDG-0000000FMxB-13oK;
-	Tue, 03 Mar 2026 14:59:06 +0000
-Received: from relmlor2.renesas.com ([210.160.252.172] helo=relmlie6.idc.renesas.com)
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxRDD-0000000FMvn-3dzH
+	id 1vxRED-0000000FNGs-2Z7K;
+	Tue, 03 Mar 2026 15:00:05 +0000
+Received: from mail-swedensouthazon11022135.outbound.protection.outlook.com ([52.101.77.135] helo=MM0P280CU010.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxREA-0000000FNF2-3Ez8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 14:59:05 +0000
-X-CSE-ConnectionGUID: u7EqF9WKTXKRYtkXA6aSNg==
-X-CSE-MsgGUID: PBIVzJ5sQzuJRrMv6FCszg==
-Received: from unknown (HELO relmlir5.idc.renesas.com) ([10.200.68.151])
-  by relmlie6.idc.renesas.com with ESMTP; 03 Mar 2026 23:59:02 +0900
-Received: from vm01.adwin.renesas.com (unknown [10.226.92.15])
-	by relmlir5.idc.renesas.com (Postfix) with ESMTP id ABA92401006A;
-	Tue,  3 Mar 2026 23:58:56 +0900 (JST)
-From: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-To: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	linux@armlinux.org.uk,
-	rmk+kernel@armlinux.org.uk,
-	maxime.chevallier@bootlin.com,
-	boon.khai.ng@altera.com,
-	rohan.g.thomas@altera.com,
-	vladimir.oltean@nxp.com,
-	hayashi.kunihiko@socionext.com,
-	boon.leong.ong@intel.com,
-	kim.tatt.chuah@intel.com
-Cc: netdev@vger.kernel.org,
+	Tue, 03 Mar 2026 15:00:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YARZWhoneTn5G0z2d7QWFevsOvedO0vf9LNhsu7Hma95sgBMorT89uCcj9skNKQ8gjpa15CRiFUH5tFavBQmlqdbYVQ7eitaVpYtENOg3LmcU+eHzBcFV2934orOTPOV+l7oBb6RUThtkJhbm92YlWybfdocctJdM26bVdpL9gbYymG/txWiHxFkKmDNy4+sFEarWnZLqRGIScO3CDR+4x17z6FtdFmeY4DXja5AQMh0sKTLChopZvUAwJ64mhn2HfMjex1kJqorDcmreltDfjOb/x1qvj7ji7BcU22hsa+8IJm7nZAupBpTqm5Suon9DD0YtA4C+9/FYtuKgUHyPA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LEkQ9dNY1XnxCyA9bBuiMFcOlaPpCMruxRKUrc6o1t8=;
+ b=yq9h7wU061yUOI3s+PcJFouT+I3dnYHhNtULJMz0tT+qWtHWv0QlXotPp7n/pODulNKrr6ZmyaugMCORNHbjz8U/BHP3rx80Q4etFA6BTD5z4eBrOLdZ8XBL9HTCER6bfGteXPzwJIOZfEItqbNtTJUTdR1uCqa3FA0VyxR4tzthbldzJrhAAuT7X/i4hvAQyoSCo3XV0kB5yMRqu8sWrez3Puk53kTXMh83yAfQQA0CcxDUHygxbBJmLMWZqh2HBbxqRf4Ly0gu/NwQagEvDshFDSHlCsjnxhFwWAsWCLxobArzxzbOzzbfYvPtVCE3YahYpLiOkUDJQcpB4UiXhg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=guidelinegeo.com; dmarc=pass action=none
+ header.from=guidelinegeo.com; dkim=pass header.d=guidelinegeo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=guidelinegeo.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LEkQ9dNY1XnxCyA9bBuiMFcOlaPpCMruxRKUrc6o1t8=;
+ b=c4idO/cuDAtkfktx/SlofPKvMk1oD59t0mHdYPDrgIT2pzqPlRMHpMcY1o37IdPPPNcfCC1gATrOapGSCOMo1G6UIjaC2uOnpo9j8Cn2oSzy907Ii8BAFK4KsHJSP436W0Hfzjt1CwS3+UeKGDApxqOeqrw3G8TEcs/Jmdgk298=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=guidelinegeo.com;
+Received: from GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM (2603:10a6:150:14::9) by
+ GVZP280MB0329.SWEP280.PROD.OUTLOOK.COM (2603:10a6:150:44::11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9654.22; Tue, 3 Mar 2026 14:59:51 +0000
+Received: from GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM
+ ([fe80::5a42:b24d:f94f:a5ec]) by GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM
+ ([fe80::5a42:b24d:f94f:a5ec%3]) with mapi id 15.20.9654.022; Tue, 3 Mar 2026
+ 14:59:52 +0000
+From: Christofer Jonason <christofer.jonason@guidelinegeo.com>
+To: jic23@kernel.org
+Cc: lars@metafoo.de,
+	dlechner@baylibre.com,
+	nuno.sa@analog.com,
+	andy@kernel.org,
+	michal.simek@amd.com,
+	victor.jonsson@guidelinegeo.com,
+	linux-iio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v3 4/4] net: stmmac: Defer VLAN HW configuration when interface is down
-Date: Tue,  3 Mar 2026 14:58:28 +0000
-Message-ID: <20260303145828.7845-5-ovidiu.panait.rb@renesas.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260303145828.7845-1-ovidiu.panait.rb@renesas.com>
-References: <20260303145828.7845-1-ovidiu.panait.rb@renesas.com>
-MIME-Version: 1.0
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Christofer Jonason <christofer.jonason@guidelinegeo.com>
+Subject: [PATCH] iio: adc: xilinx-xadc: Fix sequencer mode in postdisable for dual mux
+Date: Tue,  3 Mar 2026 15:58:43 +0100
+Message-ID: <20260303145843.1712811-1-christofer.jonason@guidelinegeo.com>
+X-Mailer: git-send-email 2.47.3
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: GV3P280CA0045.SWEP280.PROD.OUTLOOK.COM
+ (2603:10a6:150:9::18) To GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM
+ (2603:10a6:150:14::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV3P280MB0065:EE_|GVZP280MB0329:EE_
+X-MS-Office365-Filtering-Correlation-Id: 71c1248c-b6ff-4b45-592f-08de79358642
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: pgcoMLFaHCdpyU5+PN2RjXwgU3AnmOja4LRVYM1rdDWOczDYAUzEdNdUlGAoXsXlBuQLPi9zTaIWx7VSl9KatoKXhNQTE+8hxicJdg6aENhGrXOnSCUMjey/4tYvxIl/P92hEDKXeVRT0CE6+079ADU246lOmzMaPWBL5Rv3EVs+i+Ex2Jj2/5fUYbmstV3WzziMWFQMyqR+FeQBoT5qgiBtjLnCl79m+2SPducrY3MVf+oIwkW9u7grXfUajPgNpiOnVw+5mHiWA2w8xBnuZyYbtj+jrN4wapYR5UBPTyEgCACFKUFS98qqutjVa0M2/qbSyo+0gqvmcZ6PhHPNqBkhEyfrdjEy6J8GfzuEmqETzdgqw7uvbBKYDu6vNebdmQYrzcBKj9V2crPQxs2PXBv7YvoMMvqJga8JC8PGIaeuwV4wW/SvYPLC4Rnl+zL1pk1mKRFjptO5J7WeVIURmpI0C1pxMj5ZsFvHvjWT1QrW90SGKeC7Ibbi8FKbHBHPShJ8PHR7m01PdE7sJsXypRL6+GQB0jdc1oMEYqqeWZAsRu4FQR/Xq7Yx8u1noLskMsGXCkzeFUTujMmk1tbBOSoHxxeFY04DwCKB9/vmuetSjbA1ISf2BwrxyJWx/yjC8TFLS9beA7nC+lAYURqhsCfPkPQCcbpUOXCgr3+Jhk3u73egMfDBLNp2WbGzYX5MJXasCJT9bynXUyIcH4MU33rZSROs+4DnC/2xwr4aR4svRgq6ICQ38G5Z2cZkwTY4KxD6zyZjToc6MOl5Ti1G8p0koV4dbNC5MOZCqdDuXDI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JldqWuT3obxtRf9kDopme8nUXQiBZjLqPooMbxwUhfC9hnMBV6cIzRjmZYFa?=
+ =?us-ascii?Q?0Ehvbzl1C/GHzsaBIeHbzKAq6BgD7JkRzDmD8BvwnhHhzbhEIm37TQJ1SqVI?=
+ =?us-ascii?Q?HW00vvs6OPVVR8oYNpw9VLG457gDPDrc/tX+NUwoe7R0BF95JCe6hhsTSz1X?=
+ =?us-ascii?Q?XZrcgzkFbafHe6KHuj0/HOFQCUqXFJdpoIyjUuEYlo7T85IkVDuPa+hr/aP1?=
+ =?us-ascii?Q?gKGtoiOkZaNM6DuJxv2wUq4qCIGFWJcjizgyPPGaCK4yQ9yBBPN+/XRnEHb7?=
+ =?us-ascii?Q?dCBbUbx8VP+jB/BnDfl996h1IgEfILDyRaTAPKs2x6T+yy4MvprrjRv+DY1x?=
+ =?us-ascii?Q?knYBiSojxGgH8u1RLgV5tgiQ/9c9EREac4efFijijB5bYypXrAdPhdgjsMA8?=
+ =?us-ascii?Q?34MmTjniygLfQ9Fgd289dc1B4Dmce60oBjFoV1HoCF+vfXCKZjwvK7EAmz/F?=
+ =?us-ascii?Q?A/+HcEo7jEPb9KeR9Gya3eGS186oUFFGK9WoQRJCtblElPDCY8OQFdUgz1/Y?=
+ =?us-ascii?Q?93+gfmLGh4AS+3x2KV5wXBbbm6nO8oT9zAnT4myJkcFnMEVq7NpGYT6jhWwy?=
+ =?us-ascii?Q?sM4XSTjGJ8JoCIrNIk4oUUS9Og2kRUZoFW45dAHFdRhOh64ETJtn61jMXQd3?=
+ =?us-ascii?Q?OwV6AftpPRLTPt3kgCqg3A47f6IbRfi90aEg7B+3U7XfMniZM7IK8kqeMFw+?=
+ =?us-ascii?Q?Zqy5Ij0BZMiW1WC8ldjVdcw4hQQomaoVHWYr3kEzP8DdmvPlGP5s9MtpRPQE?=
+ =?us-ascii?Q?FAo0uplRSdiQgpslVd3cj+h5WriVMzvlRgXqX+0qfqurwVsuXo1pm9l796NH?=
+ =?us-ascii?Q?Xe1k8tgI4DwtCoKb2LaMmAHPN7r8HVMQr+UKj/hbVGgLwkceU2grfAMYa6fi?=
+ =?us-ascii?Q?mzlpMo7y2wtUjPlDHHGyI85w63LSHxXW8VTZRoTaJkO++Fj0VgU7M47wl/0f?=
+ =?us-ascii?Q?gV98j5NqpcKAaV5BUCLkfFDhsoIYNPHYqj1dzdWYW63Tu1447hWTGDfVm2oi?=
+ =?us-ascii?Q?Px4JLCYiBiZ0jcNKrWmjh6uaQkbivf/4bwquFE84xQVGRg9FChZ7d9nA5+S+?=
+ =?us-ascii?Q?a3wdObIjpPT8CmnrBK0VD44xosy0tE30Qhj60r3Yo2MYJV+bbrIVDicZJB4B?=
+ =?us-ascii?Q?ou/08oqDQIrlp2HqaE49e0r0QzDOmIp4qxh1x83NuYWYMp9ntdukLFIU/DFW?=
+ =?us-ascii?Q?QeE2yj63wKdmlJYWZ2ze4s+F5jLEaUBcpQVS9QXWI9eCwkIS8r0SRPkjn419?=
+ =?us-ascii?Q?l6Wpg6oUzkkG11gxlKObSF6ULfk/1H/HjtOOSn30zJJdO2gUUdTrMxJ9qcMd?=
+ =?us-ascii?Q?UnK7B5Q46wWrMuNjviwyhEtu7snX7j9FIU8L7rt+fO0ZTNE66kAaVEe3+wCU?=
+ =?us-ascii?Q?DsUHHUlstmZYOG0C6h5i10yHEGrdneIqvxkfD8Q1fgKr4wTExe4gHKefUAKV?=
+ =?us-ascii?Q?eQWLU7LbJbN4v8iW2bx+wIZm1ThOIwQfZu2Vszh6ZsdBHnfUz9AUk+btB9mq?=
+ =?us-ascii?Q?1xj845kKcIhvRvelXKlhhg/kkb4mGwNgTcm4JUMUTkJYfP0hq48v5+y1/z6q?=
+ =?us-ascii?Q?LjFePdlGygp3sOgNoRxS31l87f+lmYasduyOY1bpTG3kWUJtZRdiH/V30oSl?=
+ =?us-ascii?Q?sHKnn9+xYQ90QzswMeKTxut0bUze3FHXD6yf9PtPwdvBV8Rep5SRvaHF6T6i?=
+ =?us-ascii?Q?ewVHv2Jst6+KoJzHWQgiWJAXGMOe/7+JIalbc6f4qrGB12fH3ASrbUY6pDGf?=
+ =?us-ascii?Q?0RoXCgjdH8Ib+MFKLvKzJonOVcjTIIW6UCRnbdSNuF+26LyxM36i?=
+X-OriginatorOrg: guidelinegeo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 71c1248c-b6ff-4b45-592f-08de79358642
+X-MS-Exchange-CrossTenant-AuthSource: GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2026 14:59:52.7302
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: f3403a73-63c2-4dc7-b628-287972076881
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Y2eKDNpluZ1fBE/UJsPEODq1acfbTJWt2B6MEEex8NAKg79YyzWln6r3rG2pDyRAFBPRVgy1Y1xFQRMDYrHKoDjwGO9w2kH4JHWGHVdViYBFenpqtBXhFPPcy2WfvoPl
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVZP280MB0329
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_065904_025076_434B2797 
-X-CRM114-Status: GOOD (  17.50  )
+X-CRM114-CacheID: sfid-20260303_070002_831014_0FCD8250 
+X-CRM114-Status: GOOD (  13.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,154 +142,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-VLAN register accesses on the MAC side require the PHY RX clock to be
-active. When the network interface is down, the PHY is suspended and
-the RX clock is unavailable, causing VLAN operations to fail with
-timeouts.
+xadc_postdisable() unconditionally sets the sequencer to continuous
+mode. For dual external multiplexer configurations this is incorrect:
+simultaneous sampling mode is required so that ADC-A samples through
+the mux on VAUX[0-7] while ADC-B simultaneously samples through the
+mux on VAUX[8-15]. In continuous mode only ADC-A is active, so
+VAUX[8-15] channels return incorrect data.
 
-The VLAN core automatically removes VID 0 after the interface goes down
-and re-adds it when it comes back up, so these timeouts happen during
-normal interface down/up:
+Since postdisable is also called from xadc_probe() to set the initial
+idle state, the wrong sequencer mode is active from the moment the
+driver loads.
 
-    # ip link set end1 down
-    renesas-gbeth 15c40000.ethernet end1: Timeout accessing MAC_VLAN_Tag_Filter
-    renesas-gbeth 15c40000.ethernet end1: failed to kill vid 0081/0
+The preenable path already uses xadc_get_seq_mode() which returns
+SIMULTANEOUS for dual mux. Fix postdisable to do the same.
 
-Adding VLANs while the interface is down also fails:
-
-    # ip link add link end1 name end1.10 type vlan id 10
-    renesas-gbeth 15c40000.ethernet end1: Timeout accessing MAC_VLAN_Tag_Filter
-    RTNETLINK answers: Device or resource busy
-
-To fix this, check if the interface is up before accessing VLAN registers.
-The software state is always kept up to date regardless of interface state.
-
-When the interface is brought up, stmmac_vlan_restore() is called
-to write the VLAN state to hardware.
-
-Fixes: ed64639bc1e0 ("net: stmmac: Add support for VLAN Rx filtering")
-Signed-off-by: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+Fixes: bdc8cda1d010 ("iio:adc: Add Xilinx XADC driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Christofer Jonason <christofer.jonason@guidelinegeo.com>
 ---
-v3 changes:
-- Dropped the 'write_hw' approach to avoid passing attributes around.
-  Instead, netif_running() checks were added directly on the VLAN paths.
+ drivers/iio/adc/xilinx-xadc-core.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
-v2 changes:
-- Split this commit - added a new commit (3/5) which fixes VLAN
-  restore on resume and open paths.
-- Dropped phylink_rx_clk_stop_block()/unblock() calls around VLAN restore.
-
- .../net/ethernet/stmicro/stmmac/stmmac_main.c |  3 ++
- .../net/ethernet/stmicro/stmmac/stmmac_vlan.c | 42 ++++++++++---------
- 2 files changed, 26 insertions(+), 19 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index a8fb091d7b5d..536d513bdad5 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -6774,6 +6774,9 @@ static int stmmac_vlan_update(struct stmmac_priv *priv, bool is_double)
- 		hash = 0;
- 	}
- 
-+	if (!netif_running(priv->dev))
-+		return 0;
-+
- 	return stmmac_update_vlan_hash(priv, priv->hw, hash, pmatch, is_double);
- }
- 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-index fcc34867405e..e24efe3bfedb 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-@@ -76,7 +76,9 @@ static int vlan_add_hw_rx_fltr(struct net_device *dev,
- 		}
- 
- 		hw->vlan_filter[0] = vid;
--		vlan_write_single(dev, vid);
-+
-+		if (netif_running(dev))
-+			vlan_write_single(dev, vid);
- 
- 		return 0;
- 	}
-@@ -97,12 +99,15 @@ static int vlan_add_hw_rx_fltr(struct net_device *dev,
- 		return -EPERM;
- 	}
- 
--	ret = vlan_write_filter(dev, hw, index, val);
-+	if (netif_running(dev)) {
-+		ret = vlan_write_filter(dev, hw, index, val);
-+		if (ret)
-+			return ret;
-+	}
- 
--	if (!ret)
--		hw->vlan_filter[index] = val;
-+	hw->vlan_filter[index] = val;
- 
--	return ret;
-+	return 0;
- }
- 
- static int vlan_del_hw_rx_fltr(struct net_device *dev,
-@@ -115,7 +120,9 @@ static int vlan_del_hw_rx_fltr(struct net_device *dev,
- 	if (hw->num_vlan == 1) {
- 		if ((hw->vlan_filter[0] & VLAN_TAG_VID) == vid) {
- 			hw->vlan_filter[0] = 0;
--			vlan_write_single(dev, 0);
-+
-+			if (netif_running(dev))
-+				vlan_write_single(dev, 0);
- 		}
- 		return 0;
- 	}
-@@ -124,22 +131,23 @@ static int vlan_del_hw_rx_fltr(struct net_device *dev,
- 	for (i = 0; i < hw->num_vlan; i++) {
- 		if ((hw->vlan_filter[i] & VLAN_TAG_DATA_VEN) &&
- 		    ((hw->vlan_filter[i] & VLAN_TAG_DATA_VID) == vid)) {
--			ret = vlan_write_filter(dev, hw, i, 0);
- 
--			if (!ret)
--				hw->vlan_filter[i] = 0;
--			else
--				return ret;
-+			if (netif_running(dev)) {
-+				ret = vlan_write_filter(dev, hw, i, 0);
-+				if (ret)
-+					return ret;
-+			}
-+
-+			hw->vlan_filter[i] = 0;
- 		}
- 	}
- 
--	return ret;
-+	return 0;
- }
- 
- static void vlan_restore_hw_rx_fltr(struct net_device *dev,
- 				    struct mac_device_info *hw)
+diff --git a/drivers/iio/adc/xilinx-xadc-core.c b/drivers/iio/adc/xilinx-xadc-core.c
+index e257c1b94..89d435d72 100644
+--- a/drivers/iio/adc/xilinx-xadc-core.c
++++ b/drivers/iio/adc/xilinx-xadc-core.c
+@@ -817,6 +817,7 @@ static int xadc_postdisable(struct iio_dev *indio_dev)
  {
--	u32 val;
+ 	struct xadc *xadc = iio_priv(indio_dev);
+ 	unsigned long scan_mask;
++	int seq_mode;
+ 	int ret;
  	int i;
  
- 	/* Single Rx VLAN Filter */
-@@ -149,12 +157,8 @@ static void vlan_restore_hw_rx_fltr(struct net_device *dev,
- 	}
+@@ -824,6 +825,12 @@ static int xadc_postdisable(struct iio_dev *indio_dev)
+ 	for (i = 0; i < indio_dev->num_channels; i++)
+ 		scan_mask |= BIT(indio_dev->channels[i].scan_index);
  
- 	/* Extended Rx VLAN Filter Enable */
--	for (i = 0; i < hw->num_vlan; i++) {
--		if (hw->vlan_filter[i] & VLAN_TAG_DATA_VEN) {
--			val = hw->vlan_filter[i];
--			vlan_write_filter(dev, hw, i, val);
--		}
--	}
-+	for (i = 0; i < hw->num_vlan; i++)
-+		vlan_write_filter(dev, hw, i, hw->vlan_filter[i]);
++	/*
++	 * Use the correct sequencer mode for the idle state: simultaneous
++	 * mode for dual external mux configurations, continuous otherwise.
++	 */
++	seq_mode = xadc_get_seq_mode(xadc, scan_mask);
++
+ 	/* Enable all channels and calibration */
+ 	ret = xadc_write_adc_reg(xadc, XADC_REG_SEQ(0), scan_mask & 0xffff);
+ 	if (ret)
+@@ -834,11 +841,11 @@ static int xadc_postdisable(struct iio_dev *indio_dev)
+ 		return ret;
+ 
+ 	ret = xadc_update_adc_reg(xadc, XADC_REG_CONF1, XADC_CONF1_SEQ_MASK,
+-		XADC_CONF1_SEQ_CONTINUOUS);
++		seq_mode);
+ 	if (ret)
+ 		return ret;
+ 
+-	return xadc_power_adc_b(xadc, XADC_CONF1_SEQ_CONTINUOUS);
++	return xadc_power_adc_b(xadc, seq_mode);
  }
  
- static void vlan_update_hash(struct mac_device_info *hw, u32 hash,
+ static int xadc_preenable(struct iio_dev *indio_dev)
 -- 
-2.51.0
+2.47.3
 
 
