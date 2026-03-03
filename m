@@ -4,50 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF0C2EC0463
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 09:42:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 318C8EC0480
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 09:42:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
 	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2S2u2MYDv39cuTkdT7rvNWL6/ujGlEoYexvzBfQ5Dqc=; b=fnxYC/73U0m1B9anVASkSqLQHE
-	jreDddlhUIkYD1jCk+5F9OFq8l1cf2KqXAEWPqRT7iPkq4LujykcrqYdIxrhw30Psq+Pxzeo3opAC
-	QBrqgz70r2aXm064awjEUK1TM5uInaAZkc6Rfhnxpz0LTPY7IrpIaQOoBPmw2xl3Thysf6Zt4AOaa
-	lvcJFLh3XNCvN+KELALhQ4TtlO505zBQIY5Am7ZmL8cPVoxZdRZsjpcOxrmHxRfAvkQq4SXU3Drhq
-	86A9cDvwYReLD2zPeVODzzhT2A9qvtytdVUfiYZmVAaZ4WZ2EsJzq7/I+IbIlpxMOZ4wCPaVb0LOw
-	4m58hxww==;
+	bh=8VqdSiLdqihQlbAtlaHr1NspuDH4FWX3VxbhCxMkVSw=; b=NyJwtCprG4UTYlDcUuc+CM4zLa
+	QfhvGptQPHP635YG/Pi90tvLTZcdsrAPWdJuX36i5Dvf1NUtUamsYt7FntNCQLgzpj6fPv5/W/RUG
+	PqCLt60dgBfeSPSU1miPfclYEiFcmtDDQKxAoGUyj6AF+ofB91CnHaw45z19lLJ7NOpS3AfxnDOm3
+	psXFwT1p/ZQ4djx7F0w2oVa4jnXgZPyjRrFPy2XYdyrt6/a1bMr+2wP/+cVk3mJCfjuX6sHwFDMRY
+	4ixjLKBKf+Vv7yfqAXts8SNvQasWl3wx4XwYXKh75FtY/7LFnFgKdO195PoFnmYzE9YUA5apFpNyk
+	vIBsjG/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxMGz-0000000EtOE-0GHH;
+	id 1vxMGz-0000000EtOf-1eeA;
 	Tue, 03 Mar 2026 09:42:37 +0000
 Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxMGv-0000000EtJ9-31Z1;
+	id 1vxMGv-0000000EtJ8-49gu
+	for linux-arm-kernel@lists.infradead.org;
 	Tue, 03 Mar 2026 09:42:35 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id A9376C40FAB;
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 983B2C40FA9;
 	Tue,  3 Mar 2026 09:42:47 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 0A62E5FF87;
-	Tue,  3 Mar 2026 09:42:30 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 52DA110369680;
-	Tue,  3 Mar 2026 10:42:23 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id F11E85FF29;
+	Tue,  3 Mar 2026 09:42:29 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 165681036968D;
+	Tue,  3 Mar 2026 10:42:18 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1772530947; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1772530946; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=2S2u2MYDv39cuTkdT7rvNWL6/ujGlEoYexvzBfQ5Dqc=;
-	b=umJXEb9sPKF1Gx/SzlO0et4KWgKLbhO2WC3t2XLnWDDWaWTNIigJIMAyEpxJVMmhunEA1q
-	BpXL1iyJBZwpG8tlHCwjw5xxwaJ+z9EF1SOuCHH4rKo5l3+uGtxw745utO9lXFapGb1GG+
-	2A14hN0670lvqkfIxHSZZUqLvmZeblUtKHopt6+NxgvlsUbrQE3Xii0NoHa41XcPVvZi6d
-	8h2EPuYP0OnIjwR8Dko3TnRH65K3mIQ8ygyIyTTAC2PwDfm8Q9sEOsaffaUxAwGJFFvAtZ
-	yKQauJURV0gzEI/Qnns6VbkFJIMr9xO/aBadLSPjcy3dKmKvk49Ws433Cni2Gg==
+	bh=8VqdSiLdqihQlbAtlaHr1NspuDH4FWX3VxbhCxMkVSw=;
+	b=Q4yN03iaCyv/eV6BAbQKagJi/sG1eDx8Wk6XLx0lSZrymBDDPXno5pN1Vo4oMkcWHpxMC+
+	H/A6aU6BriokmFMb16Ol5ITx1snr1WlTlj2XAva17n1/Te5SJcB1R6sHPg86lUuKx8Di4S
+	yt27W16DPPZv6M8K+wUKPV9FbyCnrs6esZbGvVxHY4wmNNs3xC/VYu7j3KsBriqrBC9PYQ
+	RlRugbk+ji2iX7TLEaAD1qmGRqlPz8Euzhe8PXqis52T06pD5qBkNdPE2f4NuMrp+mCnw+
+	u5sxz0Ek4zAb51JLymcBcoZZHiZGCo2jBkhp53f1fX62tg7+hQaGiTyhiphHwQ==
 Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Date: Tue, 03 Mar 2026 10:42:22 +0100
-Message-Id: <DGT1S1RANKZB.2EQQ0Z8HXBFAC@bootlin.com>
+Date: Tue, 03 Mar 2026 10:42:18 +0100
+Message-Id: <DGT1RZRC2HD6.1LRG837BCF1UH@bootlin.com>
+Subject: Re: [PATCH v9 06/15] drm/bridge: analogix_dp: Remove redundant
+ &analogix_dp_plat_data.skip_connector
 Cc: <Laurent.pinchart@ideasonboard.com>, <jonas@kwiboo.se>,
  <jernej.skrabec@gmail.com>, <maarten.lankhorst@linux.intel.com>,
  <mripard@kernel.org>, <tzimmermann@suse.de>, <airlied@gmail.com>,
@@ -65,16 +68,14 @@ Cc: <Laurent.pinchart@ideasonboard.com>, <jonas@kwiboo.se>,
 To: "Damon Ding" <damon.ding@rock-chips.com>, <andrzej.hajda@intel.com>,
  <neil.armstrong@linaro.org>, <rfoss@kernel.org>
 From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v9 08/15] drm/bridge: analogix_dp: Remove unused
- &analogix_dp_plat_data.get_modes()
 X-Mailer: aerc 0.20.1
 References: <20260210071225.2566099-1-damon.ding@rock-chips.com>
- <20260210071225.2566099-9-damon.ding@rock-chips.com>
-In-Reply-To: <20260210071225.2566099-9-damon.ding@rock-chips.com>
+ <20260210071225.2566099-7-damon.ding@rock-chips.com>
+In-Reply-To: <20260210071225.2566099-7-damon.ding@rock-chips.com>
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_014233_974094_DFB933A3 
-X-CRM114-Status: UNSURE (   5.97  )
+X-CRM114-CacheID: sfid-20260303_014234_246881_901B8D3F 
+X-CRM114-Status: UNSURE (   6.61  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,8 +92,8 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On Tue Feb 10, 2026 at 8:12 AM CET, Damon Ding wrote:
-> The callback &analogix_dp_plat_data.get_modes() is not implemented
-> by either Rockchip side or Exynos side.
+> The &analogix_dp_plat_data.skip_connector related check can be replaced
+> by &analogix_dp_plat_data.bridge.
 >
 > Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 > Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
