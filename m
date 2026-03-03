@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 261FFE67A9C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 08:57:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CF04E67A9B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 09:01:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qQVdpyAxGlM1YPV7PDeEkdjRnKKAH4t4mzPE5RmFxrM=; b=ykWuJrGwyzrlbhnDg5CJ+MSSnh
-	/GIPC5fhdjGLtiGVRKt7tWvzzPrHWCbliVF6fP0m8MjYLhfUXPDAgKWxASakL1/NFZTANaEDolRG6
-	Ir5QCN8Lm1KVUKnaAuSHHKklLIhgJ0EvsVMN+Fv7iRpQfESACec2FUZS2vFIsdvDygzJ3EY6m7e2C
-	6WLVWJ/jRgh13BHDp2GORoO7nI6IeRFSevCQJWxctMbWTbodcPaY5pj0IwmUJghmNWGJBhYR+XN2a
-	LF4aGp9m2x7mAhPjNGSDhwFGLdivO9A6TPp96DZQzsPK+uiTYV6lAVYDn/wSMuL9HYopTyRS8NwC0
-	YPK90Rtw==;
+	bh=hAmgGPSYsj6mBhFgQ4TVKIloeXzWPIr90l9O3rgeS6A=; b=iqijCm1C2I6FYzkVey2/T2LKYj
+	NeO8mA2tXs6qSfK6rYMY8/+bI+0rv1fh6uVzqBIVSlfN/5rKZ0tAgFJCwhb0M9CPhKGSsPfgAWCsa
+	PvhzlmIWf5xFpAGfIS54NpP8WlMfMPdFE8nARoZ2mKKIYEqpGc4PqExLaDKZgshb37GputzjLi4xD
+	ruQIHhN7JNre7nK5mYgcDBbVlt8hLSB6tg/3EAWam58e8XH35Qdc5NaPT/5uSg5rSOBEoeUU1EMCM
+	tHF7XtLGLMxpoyE1Tk+zOVCUsNyt0a3lLJ7vmMoJreRwib3jLi3X73gYuMxyAJMro8EFWQdiarUAj
+	12bEyoEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxLZO-0000000EpPc-2hwm;
-	Tue, 03 Mar 2026 08:57:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vxLci-0000000EpeI-0p3y;
+	Tue, 03 Mar 2026 09:01:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxLZM-0000000EpPH-2tNW
+	id 1vxLcb-0000000Epdi-3aU5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 08:57:33 +0000
+	Tue, 03 Mar 2026 09:00:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 03D5A43EBE;
-	Tue,  3 Mar 2026 08:57:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8EC8C116C6;
-	Tue,  3 Mar 2026 08:57:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 269D243335;
+	Tue,  3 Mar 2026 09:00:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1713C116C6;
+	Tue,  3 Mar 2026 09:00:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772528251;
-	bh=9iVkSiANjtujwUTPjMcA7Zj0OXuBBdA6W+TyRsKkQnY=;
+	s=k20201202; t=1772528453;
+	bh=3dVrtbk4cGUF1pWmZh+6baPm+xvADcchrMO5vTV2IvE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=O5hEK57Ei8XjMvC7hpqZ/a01ted5za1wlZJWLHFpSnEkGrdR8c7fp5LPt7AlzdGmB
-	 o7yVyqgFloJBFvX+xCgz8g/RR59cHBa4bwr+RT2DtN5nSgqQCiCKWwngsrB018JcFZ
-	 i6VS12Vyx1rS8VbQajaLcmD+cKS2QiKEjFf/n366wr4Rh5HWgNmpLT68fbQ4dbF/yW
-	 CPRh48YwWwx7IxSybdWZSYnvvIf6xcXbKrab5qJk57ofvT8cqm7ot4HtZI53Vrufe2
-	 wm3Vhlnl3P0ZHwIiJGi4LRdtKmMPAYFaD2BCxl5xlejc2RaDfQGDFIEZFFnydTzVAP
-	 a5e0zcLHMVIrg==
-Message-ID: <e2f163d0-db70-4484-b8a3-48e1a347288f@kernel.org>
-Date: Tue, 3 Mar 2026 09:57:23 +0100
+	b=ccnNdfoJ5l+jc5QqQZQ2k0gHRvVY+IvHBiVv77pmPxkvbGv1cDMPgODVvy8IYbq3y
+	 HsmtdmRbBWVGoVLp0+JZ6vq8ImAdepWoGX49zoXrDhEl9sE59TNSZyTvfbTn83g1UA
+	 6ly0Nu+su+M+7zKfFuBHxd1vGp0hMCdKGnZMk1lyE3YyLSgz5IeNkRL8I/hi164drR
+	 xt/jXBwfAD9PerGPUWZrumQHMA028QFDQfXBwa9G9PjQcOzA6uShTxuQ8jsTxQGMwk
+	 3si5ZOHuIkj5xpHufNWARGA28uRH6+COtQCpM4dWRsfMJEf0S2i+dp1k6vzUdaI1IT
+	 OKQccE+kZayGQ==
+Message-ID: <05e6034d-3493-4961-a97d-a80fff78289b@kernel.org>
+Date: Tue, 3 Mar 2026 10:00:49 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/6] mm: support batched checking of the young flag for
- MGLRU
-To: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org
-Cc: catalin.marinas@arm.com, will@kernel.org, lorenzo.stoakes@oracle.com,
- ryan.roberts@arm.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
- rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
- harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
- baohua@kernel.org, dev.jain@arm.com, axelrasmussen@google.com,
- yuanchu@google.com, weixugc@google.com, hannes@cmpxchg.org,
- zhengqi.arch@bytedance.com, shakeel.butt@linux.dev, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1772185080.git.baolin.wang@linux.alibaba.com>
- <f84233f95f209d59c3bc9c72a757af09337f0d40.1772185080.git.baolin.wang@linux.alibaba.com>
- <7f2973f0-0a34-4e4f-8ed6-13c531f77453@kernel.org>
- <3701c315-b19c-4c87-aff3-cc76e1009a43@linux.alibaba.com>
+Subject: Re: [PATCH V3 2/2] arm64/mm: Reject memory removal that splits a
+ kernel leaf mapping
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: mark.rutland@arm.com, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Yang Shi <yang@os.amperecomputing.com>, Christoph Lameter <cl@gentwo.org>,
+ linux-kernel@vger.kernel.org
+References: <20260224062423.972404-1-anshuman.khandual@arm.com>
+ <20260224062423.972404-3-anshuman.khandual@arm.com>
+ <6eee7f14-c3f2-4e16-b713-65c2ea141457@kernel.org>
+ <2d07e814-a7a3-4cec-8a59-158420bde1f2@arm.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -107,12 +104,12 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <3701c315-b19c-4c87-aff3-cc76e1009a43@linux.alibaba.com>
+In-Reply-To: <2d07e814-a7a3-4cec-8a59-158420bde1f2@arm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_005732_766032_CC70870D 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20260303_010053_983941_25E2C080 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,24 +124,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->>                  unsigned long pfn;
->>                  struct folio *folio;
->> -               pte_t ptent = ptep_get(pte + i);
->> +               pte_t ptent = ptep_get(pte);
->>   +               nr = 1;
->>                  total++;
->>                  walk->mm_stats[MM_LEAF_TOTAL]++;
->>   @@ -3533,7 +3534,16 @@ static bool walk_pte_range(pmd_t *pmd,
->> unsigned long start, unsigned long end,
->>                  if (!folio)
->>                          continue;
+>> I can understand the desire for this check, but I am confused about Fixes:
 > 
-> Thanks for the code. I considered simplifying the logic this way, but
-> this logic would be incorrect. Because the 'start' can be updated by the
-> get_next_vma() below, when we goto restart, we will get a new 'i' value
-> by 'pte_index(start)', so I kept the 'i' variable.
+> Probably nothing is broken now I guess but the original memory hot remove
+> patch should have taken care of this scenario. Although don't have strong
+> opinions either way. We could drop both "Fixes" and "Closes" tags here if
+> that is preferred.
+> 
 
-You're right, that's some horrible, horrible code.
+We tend to only tag actual fixes. If we consider this a possible fix, we
+should ask ourselves whether this would be stable material.
+
+...
+
+>>> +		return false;
+>>> +
+>>> +	pgdp = pgd_offset_k(addr);
+>>> +	pgd = pgdp_get(pgdp);
+>>> +	if (!pgd_present(pgd))
+>>> +		return false;
+>>
+>> How could we end up with non-present areas in a range we hotplugged earlier?
+> 
+> We might not in reality but in order to be sure just an additional protection.
+
+I'm rather wondering if this would indicate a real bug somewhere else
+that we would silently swallow.
+
+Anyhow, no real preference from my side, just something I considered weird.
+
+[...]
+
+>>> +
+>>> +static bool can_unmap_without_split(unsigned long pfn, unsigned long nr_pages)
+>>> +{
+>>> +	unsigned long phys_start, phys_end, size, start, end;
+>>> +
+>>> +	phys_start = PFN_PHYS(pfn);
+>>> +	phys_end = phys_start + nr_pages * PAGE_SIZE;
+>>> +
+>>> +	/*
+>>> +	 * PFN range's linear map edges are leaf entry aligned
+>>> +	 */
+>>> +	start = __phys_to_virt(phys_start);
+>>> +	end =  __phys_to_virt(phys_end);
+>>> +	if (addr_splits_kernel_leaf(start) || addr_splits_kernel_leaf(end)) {
+>>> +		pr_warn("[%lx %lx] splits a leaf entry in linear map\n",
+>>> +			phys_start, phys_end);
+>>> +		return false;
+>>> +	}
+>>> +
+>>> +	/*
+>>> +	 * PFN range's vmemmap edges are leaf entry aligned
+>>> +	 */
+>>> +	size = nr_pages * sizeof(struct page);
+>>> +	start = (unsigned long)pfn_to_page(pfn);
+>>> +	end = start + size;
+>>
+>> As arm64 cannot be used with CONFIG_SPARSEMEM (only with
+>> CONFIG_SPARSEMEM_VMEMMAP, as it sets SPARSEMEM_VMEMMAP_ENABLE),
+>> I think you can just do
+
+Just to clarify:
+
+What I meant here is: with CONFIG_SPARSEMEM but without
+CONFIG_SPARSEMEM_VMEMMAP.
+
 
 -- 
 Cheers,
