@@ -4,98 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A6B7EC1457
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 14:07:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CB87EC144C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 14:11:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JK04DfYDUn29INZwXkb5rXnTNjANnquguAbMKUw0crg=; b=tKYfGW7/9AVwuVH+5+5t/CvVsC
-	j55HitawNTcLvt1QuxBF/6jPXXsuOCNFy3P8AZoju3Xxi83OYtBmkwia3pkYqtwZxlmT14ALcUoZz
-	XXxvOXLrM8v41snXNt55ivIrHzYtD6Z9NcQif06PyBUH67jMm46rI5NA4VW/E25NvnMl7sRI2fW2C
-	89FB79mULPqXL9a3nYG9lfjK2tlq6Vl566+W0pj04xsXbD7fXL0nzaWSdDrXwCRCh7pX7vPMvnZ6E
-	uuZ83VuoapLJjwt+2kEfsvrD49HZTHASLiM6XIB/Op+RsABJ7LzpZpLw8dCfxVOSuwM6K8A1J3EVi
-	mnTCp2uA==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LDI8gaMRhpGo8XxdfnNqCFgBVoK7PI9vZ739PbbHjyE=; b=tPKyCnZfOWbC+0ZUNhlxgFChbd
+	g5B1xBTGbCPdNII96l/iRE33OzxFXaQwU2q3d27ionA+nVB/hB4vTaLW91OQQqtIUUOR2lq6kCzMf
+	+22O5kMynaGz7CUie8orJ0zXLSncZLAWPBhlRjDMDMikMUzaqiZrvK5JVC0L3u8P6ILjfzcnCtvgi
+	BMPrq9pLaJtEOjN0E0FwNqZ31/HCHUsQFJT6B9VqiDeXuDX9yFtBL5CvyKA6sDb0z6weitmMAZroI
+	YXZqs6mBKOIG5BpNIauaJQv3XWabN9LkjgV1l/DJI5N24k8xP49MDUEAaT+SuN2WWkk17+43zJGEh
+	Zos6Q+sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxQPM-0000000FHrH-0qBV;
-	Tue, 03 Mar 2026 14:07:32 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1vxQTK-0000000FIAS-0JRE;
+	Tue, 03 Mar 2026 14:11:38 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxQPI-0000000FHqn-3Lfb;
-	Tue, 03 Mar 2026 14:07:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=JK04DfYDUn29INZwXkb5rXnTNjANnquguAbMKUw0crg=; b=QW61qsVixbdKRVTtd3Rdjth0e2
-	QNsfH+rOJhyozXadkRqaw9Ndh11iuNLAU6bj4N6Bxq4fIJuD0sDFLyh2GYBnvJcuTH7p6MHIEBuH1
-	nVz4qrLjm+RKta+sVI/EIOnbkH6HR8GKptGZX7nxGG424LywDLlyl/KFGmQQKWskPyuVpFlnYXWK1
-	Effz6PJFwqwzYui+X8f9lQdi3FvlIXSvLSMrKj5VDX2t3YPWAIaSLZNtFWcyPMGjqv3zpnOs8QKuA
-	iPWoXkEDQTNoggjAEXsZneqXJpB8luTPJdpFQWKkQr23TGZAGBy72G1O6f+hSBuOVjuwZVrCHPEeM
-	UKSP1YuQ==;
-Received: from gwsc.sc.usp.br ([143.107.225.16] helo=[172.24.62.248])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
-	id 1vxQP4-008Txp-1x; Tue, 03 Mar 2026 15:07:14 +0100
-Message-ID: <467f5b16-05b2-47ce-b68b-6009a247be45@igalia.com>
-Date: Tue, 3 Mar 2026 11:07:06 -0300
+	id 1vxQTH-0000000FI9c-48PQ;
+	Tue, 03 Mar 2026 14:11:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1772547092;
+	bh=4Fs2LOLFj3vFatS1R2AiwItYeScasVwwFnu5VG+0qtQ=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=NgOhU4mFBjwD/qYrXg3iGt9pKCVGWn15p5dEAT+3Lgx0UmaLEzggspRGZ1W23jWrW
+	 9VXFQ+JaKEbfiCZ6ic2Tou4Rir/8GOLEz4c2sik8bx/ggyW5GYcim6KgqjtY0atlxG
+	 VpANOEQhFtr9QJPynLmuPVjekpK4NY+8BZi0YJ9VsMtqn3TOXOw3QKfCEKIlShI+Lb
+	 VNx72g/fVn0qQclTYDF6G7QFvhLq6sm6YFKzHzpXj7J3GIrkc2XUZNLUbo6yUOejrq
+	 6pAyxGpil/evTvkvPs1Y1C9/NDCzVmCImimSU85m/q7K2wWD5rCI0mYQlftITamW0H
+	 0/vZJsqKAyIDw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6F45317E0EA3;
+	Tue,  3 Mar 2026 15:11:32 +0100 (CET)
+Message-ID: <97d053db-83e2-4ac5-b423-2b0174e3229e@collabora.com>
+Date: Tue, 3 Mar 2026 15:11:32 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 3/6] pmdomain: bcm: bcm2835-power: Increase ASB control
- timeout
-To: Stefan Wahren <wahrenst@gmx.net>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Maxime Ripard <mripard@kernel.org>, Melissa Wen <mwen@igalia.com>,
- Iago Toral Quiroga <itoral@igalia.com>,
- Chema Casanova <jmcasanova@igalia.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
-References: <20260218-v3d-power-management-v6-0-40683fd39865@igalia.com>
- <20260218-v3d-power-management-v6-3-40683fd39865@igalia.com>
- <1028109e-3b74-49fc-becb-4eca2f6bdda3@gmx.net>
-From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+Subject: Re: [PATCH v2 1/2] dt-bindings: crypto: inside-secure,safexcel: add
+ compatible for MT7981
+To: Aleksander Jan Bajkowski <olek2@wp.pl>, herbert@gondor.apana.org.au,
+ davem@davemloft.net, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, matthias.bgg@gmail.com, atenart@kernel.org,
+ linux-crypto@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20260302230100.70240-1-olek2@wp.pl>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-Autocrypt: addr=mcanal@igalia.com; keydata=
- xsBNBGcCwywBCADgTji02Sv9zjHo26LXKdCaumcSWglfnJ93rwOCNkHfPIBll85LL9G0J7H8
- /PmEL9y0LPo9/B3fhIpbD8VhSy9Sqz8qVl1oeqSe/rh3M+GceZbFUPpMSk5pNY9wr5raZ63d
- gJc1cs8XBhuj1EzeE8qbP6JAmsL+NMEmtkkNPfjhX14yqzHDVSqmAFEsh4Vmw6oaTMXvwQ40
- SkFjtl3sr20y07cJMDe++tFet2fsfKqQNxwiGBZJsjEMO2T+mW7DuV2pKHr9aifWjABY5EPw
- G7qbrh+hXgfT+njAVg5+BcLz7w9Ju/7iwDMiIY1hx64Ogrpwykj9bXav35GKobicCAwHABEB
- AAHNIE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+wsCRBBMBCAA7FiEE+ORdfQEW
- dwcppnfRP/MOinaI+qoFAmcCwywCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQ
- P/MOinaI+qoUBQgAqz2gzUP7K3EBI24+a5FwFlruQGtim85GAJZXToBtzsfGLLVUSCL3aF/5
- O335Bh6ViSBgxmowIwVJlS/e+L95CkTGzIIMHgyUZfNefR2L3aZA6cgc9z8cfow62Wu8eXnq
- GM/+WWvrFQb/dBKKuohfBlpThqDWXxhozazCcJYYHradIuOM8zyMtCLDYwPW7Vqmewa+w994
- 7Lo4CgOhUXVI2jJSBq3sgHEPxiUBOGxvOt1YBg7H9C37BeZYZxFmU8vh7fbOsvhx7Aqu5xV7
- FG+1ZMfDkv+PixCuGtR5yPPaqU2XdjDC/9mlRWWQTPzg74RLEw5sz/tIHQPPm6ROCACFls7A
- TQRnAsMsAQgAxTU8dnqzK6vgODTCW2A6SAzcvKztxae4YjRwN1SuGhJR2isJgQHoOH6oCItW
- Xc1CGAWnci6doh1DJvbbB7uvkQlbeNxeIz0OzHSiB+pb1ssuT31Hz6QZFbX4q+crregPIhr+
- 0xeDi6Mtu+paYprI7USGFFjDUvJUf36kK0yuF2XUOBlF0beCQ7Jhc+UoI9Akmvl4sHUrZJzX
- LMeajARnSBXTcig6h6/NFVkr1mi1uuZfIRNCkxCE8QRYebZLSWxBVr3h7dtOUkq2CzL2kRCK
- T2rKkmYrvBJTqSvfK3Ba7QrDg3szEe+fENpL3gHtH6h/XQF92EOulm5S5o0I+ceREwARAQAB
- wsB2BBgBCAAgFiEE+ORdfQEWdwcppnfRP/MOinaI+qoFAmcCwywCGwwACgkQP/MOinaI+qpI
- zQf+NAcNDBXWHGA3lgvYvOU31+ik9bb30xZ7IqK9MIi6TpZqL7cxNwZ+FAK2GbUWhy+/gPkX
- it2gCAJsjo/QEKJi7Zh8IgHN+jfim942QZOkU+p/YEcvqBvXa0zqW0sYfyAxkrf/OZfTnNNE
- Tr+uBKNaQGO2vkn5AX5l8zMl9LCH3/Ieaboni35qEhoD/aM0Kpf93PhCvJGbD4n1DnRhrxm1
- uEdQ6HUjWghEjC+Jh9xUvJco2tUTepw4OwuPxOvtuPTUa1kgixYyG1Jck/67reJzMigeuYFt
- raV3P8t/6cmtawVjurhnCDuURyhUrjpRhgFp+lW8OGr6pepHol/WFIOQEg==
-In-Reply-To: <1028109e-3b74-49fc-becb-4eca2f6bdda3@gmx.net>
+In-Reply-To: <20260302230100.70240-1-olek2@wp.pl>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_060729_163319_E2D602A3 
-X-CRM114-Status: GOOD (  21.22  )
+X-CRM114-CacheID: sfid-20260303_061136_188663_3DD6D2A3 
+X-CRM114-Status: UNSURE (   5.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,80 +79,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
-
-On 02/03/26 19:43, Stefan Wahren wrote:
-> Hi Maíra,
+Il 03/03/26 00:00, Aleksander Jan Bajkowski ha scritto:
+> The MT7981 as well as the MT7986 have a built-in EIP-97 crypto accelerator.
+> This commit adds a compatible string for MT7981.
 > 
-> Am 18.02.26 um 21:45 schrieb Maíra Canal:
->> The bcm2835_asb_control() function uses a tight polling loop to wait
->> for the ASB bridge to acknowledge a request. During intensive workloads,
->> this handshake intermittently fails for V3D's master ASB on BCM2711,
->> resulting in "Failed to disable ASB master for v3d" errors during
->> runtime PM suspend. As a consequence, the failed power-off leaves V3D in
->> a broken state, leading to bus faults or system hangs on later accesses.
->>
->> As the timeout is insufficient in some scenarios, increase the polling
->> timeout from 1us to 5us, which is still negligible in the context of a
->> power domain transition. Also, move the start timestamp to after the
->> MMIO write, as the write latency is counted against the timeout,
->> reducing the effective wait time for the hardware to respond.
-> so this bug has been discovered by this series and doesn't need to 
-> backported?
+> Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
 
-I only found out about this bug when I was testing this series, but it's
-quite possible that this issue also happened in other scenarios.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-> I remember complete system freezes during suspend to idle causes by V3D 
-> on Raspberry CM4 [1]. But I never had the time to investigate further.
-> 
-> Regardless, this patch is
-> Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
-
-Thanks for the review! Ulf, considering Stefan's comment, I'd appreciate
-if you could pick this patch and add the stable tag. Thanks.
-
-Best regards,
-- Maíra
-
-> 
-> Thanks
-> 
-> [1] - https://github.com/lategoodbye/linux-dev/ 
-> commit/6af3f79da5b5a41b37aefa6abe3d368c9ef09805
->>
->> Signed-off-by: Maíra Canal <mcanal@igalia.com>
->> ---
->>   drivers/pmdomain/bcm/bcm2835-power.c | 5 ++---
->>   1 file changed, 2 insertions(+), 3 deletions(-)
->>
->> diff --git a/drivers/pmdomain/bcm/bcm2835-power.c b/drivers/pmdomain/ 
->> bcm/bcm2835-power.c
->> index 
->> 1d29addfe036348e82293693b4059e504bb25575..7b9eea10a24e26835deeca84c60ccb616b99a508 100644
->> --- a/drivers/pmdomain/bcm/bcm2835-power.c
->> +++ b/drivers/pmdomain/bcm/bcm2835-power.c
->> @@ -166,8 +166,6 @@ static int bcm2835_asb_control(struct 
->> bcm2835_power *power, u32 reg, bool enable
->>           break;
->>       }
->> -    start = ktime_get_ns();
->> -
->>       /* Enable the module's async AXI bridges. */
->>       if (enable) {
->>           val = readl(base + reg) & ~ASB_REQ_STOP;
->> @@ -176,9 +174,10 @@ static int bcm2835_asb_control(struct 
->> bcm2835_power *power, u32 reg, bool enable
->>       }
->>       writel(PM_PASSWORD | val, base + reg);
->> +    start = ktime_get_ns();
->>       while (!!(readl(base + reg) & ASB_ACK) == enable) {
->>           cpu_relax();
->> -        if (ktime_get_ns() - start >= 1000)
->> +        if (ktime_get_ns() - start >= 5000)
->>               return -ETIMEDOUT;
->>       }
->>
-> 
 
 
