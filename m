@@ -4,57 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32BBEEC1433
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 11:50:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3CC1EC1433
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 11:58:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/yFQzPWxWD8SZo1R13b5VBNZ37K8FLxNcnHAuoclt1I=; b=20uAeoDyKuYXQsEvgXfPHm7fAP
-	obZq0Ur6O9OGiNy6Yro861/WFrjiiW1tFWq6SLMVJVVOAcBo5isRQgf6u++/uXyZWsIJ16iT4aGe3
-	KNIO5XAkDTycnXUuVZJQCvjW0I6b42Lt9b5BE8OOw2BlQOrborU6uyuVQRLFso8C0O3d7BOuJO8PJ
-	O31nLTfmM24+s54HieKkslnKLYZDBtTR3+vxZxzeocoA4CMdWTKu8IFIo3iu4b4Pn3rFSJUSsnKPB
-	kJcrtyvZ62X7SopHxYKIPLy7X5IbpXdnrx9+kHrI3K4Jg2+RjY3EH7ZJcTbMiTslYgWeVSfEO0dU3
-	/UnGHz/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=a+aiHDCu9PmrUI+7fcpYIkd7HMwZLJ6c7k9ZHHUYCpA=; b=mYVgHD+6KAdYzFvG6SgWIfppue
+	07NidyzVgaSw60ZNtoPSKp7VASjGTt3BjraHs6P2iQquj8zz2YYvR77TUopgAeGNQIfJIFvfIlJKO
+	LbGohe/74uGkHmjEw9f/1JoBpMj6b7OoK4Kw92LdKN4WLa339VT/EKW+bhSDTWihGGMvgB0K6ma7r
+	0xAp9eftNcReTJhvdXapiPB2DdXOdWgAWNGJCAL4Vo2CZupZfKluA9OjLLnqdcLI43CLHsB4dfVst
+	TfaBG0E3hwc46+JjKElMTNVfLw06rYHNarOTqK8qHngcoYVlz9xaM7GCHjCf2mPH1pJ6e8r8PTevd
+	7FJaiaGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxOGm-0000000F6fU-1Y1k;
-	Tue, 03 Mar 2026 11:50:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vxOOO-0000000F7I5-0C6K;
+	Tue, 03 Mar 2026 11:58:24 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxOGl-0000000F6f4-2m9c
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 11:50:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1E98F60123;
-	Tue,  3 Mar 2026 11:50:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0055C116C6;
-	Tue,  3 Mar 2026 11:50:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772538630;
-	bh=/yFQzPWxWD8SZo1R13b5VBNZ37K8FLxNcnHAuoclt1I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=X70iLpDIr5Vgz9Vd23ISXBzBHDiVrVZG5nJVZQRP9Cwjw/9L+ctt2CyUXi5tm31xF
-	 mH3IfHN/2WnYbOkJdzZpaiz17pEamy2n4SpRI4Ke7EJ81D8TQSj0vEDuwdmUrT76HB
-	 QdNdfUzy5Oht+G5wBF5rfZ7SGBncyw570v2T7+Uz/JNhrbJtlp+14Dw/mdRsuAmPbn
-	 oQMJNYELmbE9r+vet/7UxjcLCwOSZ9hDjoTcPd2EPod+ZHHK9UvqctvdTb+PLnzZnU
-	 JG0WgzH9jdl4Y74/HkVCOl3H1ApY9AFNcMwaSNuI1LMtpm2KS5Ob8OeDdklkfLe4xf
-	 yJhzPzWO+ZXfg==
-Date: Tue, 3 Mar 2026 11:50:26 +0000
-From: Will Deacon <will@kernel.org>
-To: Josh Law <hlcj1234567@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Josh Law <objecting@objecting.org>
-Subject: Re: [PATCH 1/4] arm64: errata: Fix missing space after comma
-Message-ID: <aabLAu4KVCuYDhBj@willie-the-truck>
-References: <20260301003407.2493781-1-objecting@objecting.org>
+	id 1vxOOK-0000000F7Hi-3Qe6;
+	Tue, 03 Mar 2026 11:58:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1772539097;
+	bh=aODRgbbjQIg8M73gNMETnXa7r/KLRoXLOm+tPuOfZPg=;
+	h=From:Date:Subject:To:Cc:From;
+	b=ctoNr/v9Re7nFK0WqnA/WyHeUitF2jx6LlM9JXwgMuNA+uMvU/jxUxAz9pdjoqkN7
+	 uWHg3qqsgyH5AJ9q1AZgJfU8gfJdeKU/fuF1MY3CsSAGfO1GbupECf1i4qSLASJqlb
+	 YYscBZd9yWiyci5hUD1TBt13WKpzut+0vl4bEpqjL3NVpPo0habFYDQpkn8a1QHXzg
+	 ytrO2Zdx3UDMp2n44xooSSGEH4C9p/nEPUJGt95/9jnk3mgrCZ/ij3t4Nko7yJl9fr
+	 Zk+RxeK3e/cyoz1vEIWLZCIpUtHhg+dsA112PIt/RSFIMTd6+SkcXM8pjUkxZ4aNXF
+	 FVAQNMVhb1/Qg==
+Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A340D17E0454;
+	Tue,  3 Mar 2026 12:58:16 +0100 (CET)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Tue, 03 Mar 2026 12:58:05 +0100
+Subject: [PATCH] dt-bindings: arm: mediatek: audsys: fix formatting issues
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260301003407.2493781-1-objecting@objecting.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260303-mtk-audsys-dtbinding-check-warnings-v1-1-e4e1b62f060e@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXNQQ6CMBCF4auQWTumtIlGrmJYDO0IE0LRTkEN4
+ e42svze4v0bKCdhhabaIPEqKnMsqE8V+IFizyihGKyxF+OMwymPSEvQr2LIncQgsUc/sB/xTSk
+ WKVJNN8umI1dbKE/PxA/5/Cv39nDi11Ji+RihI2X08zRJbqr1ejaYvIV2338WB6WzoQAAAA==
+X-Change-ID: 20260303-mtk-audsys-dtbinding-check-warnings-a1a92e0ba312
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Eugen Hristev <eugen.hristev@linaro.org>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772539096; l=2932;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=aODRgbbjQIg8M73gNMETnXa7r/KLRoXLOm+tPuOfZPg=;
+ b=RKhLJsRCHhqkx4Pswn7tNHxP8qIGxM0Xo5xl48hxS+sW6xU52EWeNQe4iGjV6cENkJyVHwvcI
+ iW0SClS9hcnCpwozd4yQoWGrPiqHo0o2VLYcunQN9NV4Ase8EXknNsY
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260303_035821_055725_1AE59452 
+X-CRM114-Status: UNSURE (   7.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,18 +89,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 01, 2026 at 12:34:04AM +0000, Josh Law wrote:
-> Signed-off-by: Josh Law <objecting@objecting.org>
+Fix indentation and drop duplicate newline to resolve the following
+'make dt_binding_check' warnings:
+```
+./Documentation/devicetree/bindings/arm/mediatek/mediatek,audsys.yaml:52:2:
+  [warning] wrong indentation: expected 2 but found 1 (indentation)
+./Documentation/devicetree/bindings/arm/mediatek/mediatek,audsys.yaml:84:1:
+  [warning] too many blank lines (2 > 1) (empty-lines)
+```
 
-We don't tend to take patches without commit messages. Please read
-Documentation/process/submitting-patches.rst, have a look at the git log
-to see what other patches look like, include a cover letter when sending
-multiple patches at once and also bear in mind that purely cosmetic
-changes such as these are often considered as "churn" and consequently
-ignored.
+Fixes: a8e3d66ff5c0 ("dt-bindings: arm: mediatek: audsys: Support mt8192-audsys variant")
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+ .../bindings/arm/mediatek/mediatek,audsys.yaml     | 63 +++++++++++-----------
+ 1 file changed, 31 insertions(+), 32 deletions(-)
 
-You probably also need to fix your mail setup so that the author and
-the SoB line match.
+diff --git a/Documentation/devicetree/bindings/arm/mediatek/mediatek,audsys.yaml b/Documentation/devicetree/bindings/arm/mediatek/mediatek,audsys.yaml
+index 09a6c16e7e8299c5a271df24f18f7a585046a7c9..9aa39b002361d9f6fbaacae5823b3a811a0043ca 100644
+--- a/Documentation/devicetree/bindings/arm/mediatek/mediatek,audsys.yaml
++++ b/Documentation/devicetree/bindings/arm/mediatek/mediatek,audsys.yaml
+@@ -49,38 +49,37 @@ required:
+   - '#clock-cells'
+ 
+ allOf:
+- - if:
+-     properties:
+-       compatible:
+-         contains:
+-           enum:
+-             - mediatek,mt2701-audsys
+-             - mediatek,mt7622-audsys
+-   then:
+-     properties:
+-       audio-controller:
+-         $ref: /schemas/sound/mediatek,mt2701-audio.yaml#
+-
+- - if:
+-     properties:
+-       compatible:
+-         contains:
+-           const: mediatek,mt8183-audiosys
+-   then:
+-     properties:
+-       audio-controller:
+-         $ref: /schemas/sound/mediatek,mt8183-audio.yaml#
+-
+- - if:
+-     properties:
+-       compatible:
+-         contains:
+-           const: mediatek,mt8192-audsys
+-   then:
+-     properties:
+-       audio-controller:
+-         $ref: /schemas/sound/mt8192-afe-pcm.yaml#
+-
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - mediatek,mt2701-audsys
++              - mediatek,mt7622-audsys
++    then:
++      properties:
++        audio-controller:
++          $ref: /schemas/sound/mediatek,mt2701-audio.yaml#
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: mediatek,mt8183-audiosys
++    then:
++      properties:
++        audio-controller:
++          $ref: /schemas/sound/mediatek,mt8183-audio.yaml#
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: mediatek,mt8192-audsys
++    then:
++      properties:
++        audio-controller:
++          $ref: /schemas/sound/mt8192-afe-pcm.yaml#
+ 
+ additionalProperties: false
+ 
 
-Will
+---
+base-commit: 9fad1d148df6f36105159c2503d0ecb1397bc89a
+change-id: 20260303-mtk-audsys-dtbinding-check-warnings-a1a92e0ba312
+
+Best regards,
+-- 
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+
 
