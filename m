@@ -4,107 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1B1FEC142B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 10:51:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C70B4EC1430
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 11:41:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=utqkl3kYVvYwYw2ZD5zaK5rhlUkPadO8PwS5ynzz0Ms=; b=UXS6LEdOtTLQzBU2+eL/NDPykl
-	wKvioxC9QgDRUCRGIST1htauyCtwZ53PXOTlK0Sm5+5LkuI3Vj65j4ZCszIEvbF/VqiURXOJvYni5
-	qDT+1GUXnw4dooIMhjfuSvvZowbSF72MEj+Yt+MShkgmtQflMV7NW4AwcbigrD4fkzdZ8pl0rXN2Z
-	EWxR2xbjr3QUtMAC9PzPCbnjnLQJYQNtvFVjlpLebPX3beRedCEAFUW1or6soHXBYdXI3GGOvPrhB
-	d+0+DsF8B0d5beMFmCEc+OFwfh5Rxy0uBH3Gek+UiE/yyAGfU4EDr6L1CRAh7DrqLs7w6IMk1pKZS
-	lMEGuJ+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tmw4aNujkX9BabVJBQBxJVPp+BDH2CLIv3VPUR+8DAQ=; b=XFIodkveZzsxXBxbp0A68gJGPU
+	ZF83RDWLtVI2eFv2NWlo3DhznEv0LHis5laBpAaeWoojUrlLvyRcV8UTaTYN1JUA7H0JwBvM54nki
+	8Wm64T/3Dnq28Ly1V1vs5WKZG5YSrS4Odxo1S51r5vv4aBAJKYe3OO0lSx5FG+spO61pGuqOimFRg
+	PkOUXZCYlYwFzqz22B6olr91twXs6gnpKxTMK8xirDDo8voQP7w4Glu45g9VEcckUFwE4ivFL7EgK
+	/T6Zl4S7Kf24zTvars1zMG18JvOxKGE2k1ONWIljNRa6oyOH9zv+6W6rDPJZYNl2OWsI3Lwm+VGvH
+	eZ0VGSwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxNLW-0000000F0Oz-0qV9;
-	Tue, 03 Mar 2026 10:51:22 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1vxO8C-0000000F5iH-39E1;
+	Tue, 03 Mar 2026 11:41:40 +0000
+Received: from mail-westus3azon11012022.outbound.protection.outlook.com ([40.107.209.22] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxNLT-0000000F0Ly-0gGU
+	id 1vxO89-0000000F5hX-3aLQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 10:51:20 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-48372efa020so48064975e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 02:51:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772535077; x=1773139877; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=utqkl3kYVvYwYw2ZD5zaK5rhlUkPadO8PwS5ynzz0Ms=;
-        b=OVjIA+g15TCsgnSM3yyVH9zqykv3QL/gV/xMzlCUc8xrOG8clIc0hB6RmfSNDvJ4QX
-         1p54eyGuQSv8vEyTihOC+dL/HtD2+VAxABl/f1Y/OAm/6AhNJX8Mw9v654xLk1KgbxDD
-         PuO0fMgRe0kac0H8d16KmutgIWXhva1gPKcy8UUBHhweykY1jhpjihByG0KeY+F4cKbu
-         O+d38NyGLJ2CGfkSlBLTjbma/04VIHDklhfCqNCbXddiYMIlvtWjxvwK5U5gjToKcpeM
-         Ec1s+Kgk/iF2wkOmx+2HGBodmVTn7If/kBmIkqVTc0x/2Z3Mplpp+zkh1qklYKaMyMbg
-         MYzg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772535077; x=1773139877;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=utqkl3kYVvYwYw2ZD5zaK5rhlUkPadO8PwS5ynzz0Ms=;
-        b=B77dbPjSqJg0y64PnQRwrLm8gIZs3eUNz1TsngutKAG18ZykXUtDLjQwQooYdXWdhh
-         SXwDNp+KoIE2q0qtvcECPtpvKNtGWmJqcrYPwz7sZn4B2FiDWIEDAzqSAwHWzn7efyhZ
-         FPMfdif0nLGSnIb28F4Ca9F6ysr7tsR/wYOAOr0gTF+ddDZhi9x33h0rCYhv1Lu4qUks
-         Yb83S4FfUB+RfS8hqx0iWsZxWSx4t+DCrER6Oe4XwIq4+q9iUCCfA0D49gJ7TedzCt7q
-         y0QuAjuQBOlpV2hWY/6NeflymicRT8il+1++QF8j1FfrMAB8wFYsHWpcPsQHJa4R8Klj
-         gFeg==
-X-Forwarded-Encrypted: i=1; AJvYcCXNuRyDIcIK8ZDScDx0fuQRTQY0fKBjc8KE6su1lZtdBq/46NLYMeEs+oVz3aZCBhZtJmOFH2SC1l4cN5gymc4H@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7PF1z6hR042GWHYBt0K7atIRUFBwML3jMvBQMe0WIvAp3pxB5
-	4340acfsB2Ckdmr62ZXgh0zoF6QjrSWiY0Sfi0FowsOeAxKYlq4bNbyO
-X-Gm-Gg: ATEYQzzKGhXVmcfzee2TJpQLKoDjnshH8S6vDJBWY9DJyxmD/WVn2WXr2OCtLLJnpPg
-	h38ytutcq5oHeC2tivjktUM8Li6jMxg0qqE+fIIxnZLgTCdsOZML5ps6KcYbNS1ZV7uLRKvrBGm
-	DEv5YMy+rTt4LiGckYNaFkC7rD7miyCUUtmHJNFBxtsyi/+U5/X24CstuDLKWuCzwLkuaWh6106
-	cuDnHxLQV6jovFRv0grTLHBUKgk6paOeX+9eTeBp2c1c2hN07ypT16BgIvXtKEI9cARwCx7iKHk
-	Co+onOiDmVaGqBhDpNFYLJFsf7/e44MWMqv/DebD9DLdcQOX7jfSqCYxru+nC05T+sbpDNMre2G
-	DJ/3TM5vADwvtTFLhCclUGFWtmzHLi2fHdPNZuavWIkQLrnIPliozOlQsXABrv4gdqkPAAoxYTq
-	71dN3tXoApIArfC6xycl5vBrrGuM7ho/+JeSnXPo0XoMSTa/vkP+v/PeVPN86Q9ULgrnsltrRRp
-	1Rtol3BJ7U65Xu3Ss2tpsSBvdjFo1zpQ+ZVVOE=
-X-Received: by 2002:a05:600c:1f06:b0:47d:586e:2fea with SMTP id 5b1f17b1804b1-483c9bc557fmr276744345e9.15.1772535077002;
-        Tue, 03 Mar 2026 02:51:17 -0800 (PST)
-Received: from Lord-Beerus.station (net-188-152-100-94.cust.dsl.teletu.it. [188.152.100.94])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483c3b3474dsm318916045e9.1.2026.03.03.02.51.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Mar 2026 02:51:16 -0800 (PST)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev
-Cc: pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Markus Niebel <Markus.Niebel@tq-group.com>,
-	Matthias Schiffer <matthias.schiffer@tq-group.com>,
-	Yannic Moog <y.moog@phytec.de>,
-	Josua Mayer <josua@solid-run.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Primoz Fiser <primoz.fiser@norik.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 3/3] arm64: dts: imx91-var-dart: Add support for Variscite Sonata board
-Date: Tue,  3 Mar 2026 11:50:39 +0100
-Message-ID: <aec58b97aecd317e1fe274afc2844334feb9b9ab.1772534362.git.stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1772534362.git.stefano.r@variscite.com>
-References: <cover.1772534362.git.stefano.r@variscite.com>
+	Tue, 03 Mar 2026 11:41:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MbD5AkjTnfzg7Hlhuvk6GGtkUNba3bemRJOCFEeoeZjgJlvhX7Fbg/g907TFce2kYQcktvHOu+aSIc648Oa1LiqYN7RGwfgZlTZNM+EfviWyc1KB5CHQuZjrWqixmnRf7wB9IzM0rJ/UQ6YXKqUh1YZUwsawdVu4rFxVkB3fZtFCAKVWYcpdrV59KhW3V+KG6FtyUr/RbxmEpyKtewUvRb7EaA6HEBdrUpAR+SUuFAKtaibb/ok2GLmN1tRMubNDaYZDyv9rw+vixW3qX0YyDZW5i8LpdDECqGBA9VlumIWO9vtkJ/IqTf4uCv5QKIwK8pDB8m4LMhFEe1Ye53AiEQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tmw4aNujkX9BabVJBQBxJVPp+BDH2CLIv3VPUR+8DAQ=;
+ b=whvs/IyzXNgf7yUe+T379XcFhMXOkCah6/vXNXypph3IpKXVO9lKy7Enhy5YSbYiRNDD9/dB4+HLjO/41nmIwf9fD5eq0d8spSqzwNJ+4ClWik6R+fbW6vz7SVwwxXxMOYLtT1ADQDNH14ZM67JSAhTnIj4aHtLM9UqyU+PmQP2EimJeAuePEKnwjZSwtaFkgFxdQoil2sjfTAVY4tSyKpmGn6Pbn634KKFAMGpRFeawE3i4ouEdR7hY+PWSGWAr0WeEySioKGwthaRVXUkXIY8aRe2NculSFdFplOwi3PQx/Nj3H4EetqRDhLWqJws5UDeOvNAc/FA4B6MCPfFyAQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tmw4aNujkX9BabVJBQBxJVPp+BDH2CLIv3VPUR+8DAQ=;
+ b=4NBWk8sDr5ZCkqZsC8Bb0IeKR2NA6HxKkaotjj/C3vqMshkjZr5y4gtkti6fT3k/G0tCCJ8Bl3w9bpVcl9rhRd0UYw0jSwPtryARWtRNLvq1W1YESKg+KmpyGiPJJ6SiTXoPeyknkf2bjFjsBEBgIbirhC13oRUgCpuetjXj4D8=
+Received: from SJ0PR13CA0120.namprd13.prod.outlook.com (2603:10b6:a03:2c5::35)
+ by PH0PR12MB7983.namprd12.prod.outlook.com (2603:10b6:510:28e::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.21; Tue, 3 Mar
+ 2026 11:41:30 +0000
+Received: from SJ1PEPF00002321.namprd03.prod.outlook.com
+ (2603:10b6:a03:2c5:cafe::6) by SJ0PR13CA0120.outlook.office365.com
+ (2603:10b6:a03:2c5::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9654.21 via Frontend Transport; Tue,
+ 3 Mar 2026 11:41:30 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ SJ1PEPF00002321.mail.protection.outlook.com (10.167.242.91) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9654.16 via Frontend Transport; Tue, 3 Mar 2026 11:41:30 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 3 Mar
+ 2026 05:41:28 -0600
+Received: from xhdharinit40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Tue, 3 Mar 2026 05:41:25 -0600
+From: Abin Joseph <abin.joseph@amd.com>
+To: <vkoul@kernel.org>, <Frank.Li@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <michal.simek@amd.com>,
+	<radhey.shyam.pandey@amd.com>
+CC: <git@amd.com>, <abin.joseph@amd.com>, <dmaengine@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH v3] dt-bindings: dma: xlnx,axi-dma: Convert to DT schema
+Date: Tue, 3 Mar 2026 17:11:24 +0530
+Message-ID: <20260303114125.899850-1-abin.joseph@amd.com>
+X-Mailer: git-send-email 2.49.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002321:EE_|PH0PR12MB7983:EE_
+X-MS-Office365-Filtering-Correlation-Id: a29ee0c2-a3fd-45b0-3929-08de7919d01e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|36860700013|13003099007;
+X-Microsoft-Antispam-Message-Info: vdYvXYaZEdIxsUXB+K3QO/XOLh25bq+kiERS3RqvJvX9BwTlh3Y+Jwv90SY90PC2eGEtdgL6rt6jaCZwLconCg8hsP8gPm8l9QJwD4A6o/WEEs0QGKK1KxEntRKBxwCD1WK/7rMQWHhjx+iwAi5NhlLpyvaDCBa+bhnWFSi9fUIMGvvRgsDWCJ2rDGQVhwBCZEIPXahQr5WN/WH0e6RZqxiwypo3WcejCv1SNvS3FkcxiQwJOUqpruaiCEyTevFq4kFyiYU5GSUSvPKZidjrVzxSUA83QKt5+vmBQbJPT3NziE3qrL+UIztMViOm6+5cDvmk9MRevh2V68reXWL7YhsWlk+gz2C6uYTeoElIoWbSg06AhI2ucM/ZGzoRTaSZ6fFV+Wlaxn4bUqio599CGUPNLN5eCAVpk/Mooq1W5l3uK50Rfykx4Q+cDEDoAgSchDHhMSrB5Lcxl9RNp0NXp1PtaGqy0fgef1Vr9zlsMguiWhhlc1XCMGfPz6BCwP1Acz2AvC4cAUQtFLG+mAJqbsdbGKJLIM1YCm8ZXyFEESx1qXhCjTQcPOc1kdp2TW7p/MtGnYyOlMhoI3cLc7fyyHkPUUcaTgcOhUomAa/t5jzxzSkbcGbuurPBU3HkbMgs+hHlXB8zSHJgHAK0/KCWkp+xqIfDQDnPf/nsZBR/YUbwnPZh4goGA56QbXbEN4qOFClg1kMf1NQ6gvjnQUyIkDvczQduZEwz8dvgq9tLrW1SfCb0CGVsTVrHwR3VVFe2rnG+BF46IZAk2dIjrfa7vniKDy1Xzdy/BgZ6VkW2Z9RkzLkmMtJf3XZ65KBO37NyuOqOR5lCtGooxbaQtj5LsQ==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(36860700013)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: +hkTygtLxflLdN53s8/isjDlWydgzLlxKyno4iquXmUuX0qlhq6KQBWmHUZko3hEf/RBRtkMbxAMyCokAdp7g8vt4taYRAgYu08lYWJW51r9c3otC/JxOHzC/upoyosX0XTs3Ew/xUZC8a0okBbS5f23brqyxLYbwfS8RZ/iJk57yqLdwgG6VsooKWdtU1BRRkogLU9aeh0e6fCY5eFyx8I8ofOCmMWs1cYKMqCBS45YTYNIPwSqS1eIINfmZ9zmSSr6m6JJduKEVButhP7QBsWV5erUuiwj/7fFFc9RdABxFaOPpmApI9VT3K/C3SkeTpRF6DfAgpSjjh7aIhBnd9SkmqKBH9WBy2GwDZivOYApluykRwuAEtOHXQSG/02/nTTBw3yjpAgx+pxuvw4y5v9k3f/AyKYEOmRFAM0FMxePBP0OdU3cLxzT+YrSYvVs
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2026 11:41:30.4641
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a29ee0c2-a3fd-45b0-3929-08de7919d01e
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002321.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB7983
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_025119_357560_8003CAE1 
-X-CRM114-Status: GOOD (  18.58  )
+X-CRM114-CacheID: sfid-20260303_034137_969443_6B789697 
+X-CRM114-Status: GOOD (  24.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,551 +121,461 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefano Radaelli <stefano.r@variscite.com>
+Convert the bindings document for Xilinx DMA.
+No changes to existing binding description.
 
-Add device tree support for the Variscite Sonata carrier board with
-the DART-MX91 system on module.
-
-The Sonata board includes
-- uSD Card support
-- USB ports and OTG
-- Additional Gigabit Ethernet interface
-- Uart interfaces
-- GPIO Expanders
-- RTC module
-- TPM module
-
-Link: https://variscite.com/carrier-boards/sonata-board/
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+Signed-off-by: Abin Joseph <abin.joseph@amd.com>
 ---
-v2->v3:
- - Rebased the series to fix DTS apply issues.
 
-v1->v2:
- - Ordering by hex and node name.
+v3:
+-> Update the subject heading
+-> Remove examples for cdma and mcdma
+-> Fix the syntax issue for the clocks
+-> Squash the interrupt use case for axistream
+connected cases.
+-> Reorder the list as per the writing bindings
 
- arch/arm64/boot/dts/freescale/Makefile        |   1 +
- .../dts/freescale/imx91-var-dart-sonata.dts   | 498 ++++++++++++++++++
- 2 files changed, 499 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx91-var-dart-sonata.dts
+v2:
+-> Add examples for each compatible
+-> Remove the note added
+-> Use 'enum' rather than 'anyOf' and 'const'
+-> Wrap 80 char per line for descriptions
+-> Add dma-controller yaml reference 
+-> Add -| for paragraph separation
+->Remove labels from the examples
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index e0738525d37e..8ee7d41a367d 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -411,6 +411,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx91-11x11-frdm.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx91-11x11-frdm-s.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx91-phyboard-segin.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx91-tqma9131-mba91xxca.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx91-var-dart-sonata.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-9x9-qsb.dtb
- 
- imx93-9x9-qsb-can1-dtbs += imx93-9x9-qsb.dtb imx93-9x9-qsb-can1.dtbo
-diff --git a/arch/arm64/boot/dts/freescale/imx91-var-dart-sonata.dts b/arch/arm64/boot/dts/freescale/imx91-var-dart-sonata.dts
+---
+ .../bindings/dma/xilinx/xilinx_dma.txt        | 111 -------
+ .../bindings/dma/xilinx/xlnx,axi-dma.yaml     | 301 ++++++++++++++++++
+ 2 files changed, 301 insertions(+), 111 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/dma/xilinx/xilinx_dma.txt
+ create mode 100644 Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
+
+diff --git a/Documentation/devicetree/bindings/dma/xilinx/xilinx_dma.txt b/Documentation/devicetree/bindings/dma/xilinx/xilinx_dma.txt
+deleted file mode 100644
+index b567107270cb..000000000000
+--- a/Documentation/devicetree/bindings/dma/xilinx/xilinx_dma.txt
++++ /dev/null
+@@ -1,111 +0,0 @@
+-Xilinx AXI VDMA engine, it does transfers between memory and video devices.
+-It can be configured to have one channel or two channels. If configured
+-as two channels, one is to transmit to the video device and another is
+-to receive from the video device.
+-
+-Xilinx AXI DMA engine, it does transfers between memory and AXI4 stream
+-target devices. It can be configured to have one channel or two channels.
+-If configured as two channels, one is to transmit to the device and another
+-is to receive from the device.
+-
+-Xilinx AXI CDMA engine, it does transfers between memory-mapped source
+-address and a memory-mapped destination address.
+-
+-Xilinx AXI MCDMA engine, it does transfer between memory and AXI4 stream
+-target devices. It can be configured to have up to 16 independent transmit
+-and receive channels.
+-
+-Required properties:
+-- compatible: Should be one of-
+-		"xlnx,axi-vdma-1.00.a"
+-		"xlnx,axi-dma-1.00.a"
+-		"xlnx,axi-cdma-1.00.a"
+-		"xlnx,axi-mcdma-1.00.a"
+-- #dma-cells: Should be <1>, see "dmas" property below
+-- reg: Should contain VDMA registers location and length.
+-- xlnx,addrwidth: Should be the vdma addressing size in bits(ex: 32 bits).
+-- dma-ranges: Should be as the following <dma_addr cpu_addr max_len>.
+-- dma-channel child node: Should have at least one channel and can have up to
+-	two channels per device. This node specifies the properties of each
+-	DMA channel (see child node properties below).
+-- clocks: Input clock specifier. Refer to common clock bindings.
+-- clock-names: List of input clocks
+-	For VDMA:
+-	Required elements: "s_axi_lite_aclk"
+-	Optional elements: "m_axi_mm2s_aclk" "m_axi_s2mm_aclk",
+-			   "m_axis_mm2s_aclk", "s_axis_s2mm_aclk"
+-	For CDMA:
+-	Required elements: "s_axi_lite_aclk", "m_axi_aclk"
+-	For AXIDMA and MCDMA:
+-	Required elements: "s_axi_lite_aclk"
+-	Optional elements: "m_axi_mm2s_aclk", "m_axi_s2mm_aclk",
+-			   "m_axi_sg_aclk"
+-
+-Required properties for VDMA:
+-- xlnx,num-fstores: Should be the number of framebuffers as configured in h/w.
+-
+-Optional properties for AXI DMA and MCDMA:
+-- xlnx,sg-length-width: Should be set to the width in bits of the length
+-	register as configured in h/w. Takes values {8...26}. If the property
+-	is missing or invalid then the default value 23 is used. This is the
+-	maximum value that is supported by all IP versions.
+-
+-Optional properties for AXI DMA:
+-- xlnx,axistream-connected: Tells whether DMA is connected to AXI stream IP.
+-- xlnx,irq-delay: Tells the interrupt delay timeout value. Valid range is from
+-	0-255. Setting this value to zero disables the delay timer interrupt.
+-	1 timeout interval = 125 * clock period of SG clock.
+-Optional properties for VDMA:
+-- xlnx,flush-fsync: Tells which channel to Flush on Frame sync.
+-	It takes following values:
+-	{1}, flush both channels
+-	{2}, flush mm2s channel
+-	{3}, flush s2mm channel
+-
+-Required child node properties:
+-- compatible:
+-	For VDMA: It should be either "xlnx,axi-vdma-mm2s-channel" or
+-	"xlnx,axi-vdma-s2mm-channel".
+-	For CDMA: It should be "xlnx,axi-cdma-channel".
+-	For AXIDMA and MCDMA: It should be either "xlnx,axi-dma-mm2s-channel"
+-	or "xlnx,axi-dma-s2mm-channel".
+-- interrupts: Should contain per channel VDMA interrupts.
+-- xlnx,datawidth: Should contain the stream data width, take values
+-	{32,64...1024}.
+-
+-Optional child node properties:
+-- xlnx,include-dre: Tells hardware is configured for Data
+-	Realignment Engine.
+-Optional child node properties for VDMA:
+-- xlnx,genlock-mode: Tells Genlock synchronization is
+-	enabled/disabled in hardware.
+-- xlnx,enable-vert-flip: Tells vertical flip is
+-	enabled/disabled in hardware(S2MM path).
+-Optional child node properties for MCDMA:
+-- dma-channels: Number of dma channels in child node.
+-
+-Example:
+-++++++++
+-
+-axi_vdma_0: axivdma@40030000 {
+-	compatible = "xlnx,axi-vdma-1.00.a";
+-	#dma_cells = <1>;
+-	reg = < 0x40030000 0x10000 >;
+-	dma-ranges = <0x00000000 0x00000000 0x40000000>;
+-	xlnx,num-fstores = <0x8>;
+-	xlnx,flush-fsync = <0x1>;
+-	xlnx,addrwidth = <0x20>;
+-	clocks = <&clk 0>, <&clk 1>, <&clk 2>, <&clk 3>, <&clk 4>;
+-	clock-names = "s_axi_lite_aclk", "m_axi_mm2s_aclk", "m_axi_s2mm_aclk",
+-		      "m_axis_mm2s_aclk", "s_axis_s2mm_aclk";
+-	dma-channel@40030000 {
+-		compatible = "xlnx,axi-vdma-mm2s-channel";
+-		interrupts = < 0 54 4 >;
+-		xlnx,datawidth = <0x40>;
+-	} ;
+-	dma-channel@40030030 {
+-		compatible = "xlnx,axi-vdma-s2mm-channel";
+-		interrupts = < 0 53 4 >;
+-		xlnx,datawidth = <0x40>;
+-	} ;
+-} ;
+diff --git a/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml b/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
 new file mode 100644
-index 000000000000..b3c74feaf644
+index 000000000000..d87b595f31ec
 --- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx91-var-dart-sonata.dts
-@@ -0,0 +1,498 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Variscite Sonata carrier board for DART-MX91
-+ *
-+ * Link: https://variscite.com/carrier-boards/sonata-board/
-+ *
-+ * Copyright (C) 2025 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
++++ b/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
+@@ -0,0 +1,301 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/dma/xilinx/xlnx,axi-dma.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+/dts-v1/;
++title: Xilinx AXI VDMA, DMA, CDMA and MCDMA IP
 +
-+#include "imx91-var-dart.dtsi"
++maintainers:
++  - Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
++  - Abin Joseph <abin.joseph@amd.com>
 +
-+/ {
-+	model = "Variscite DART-MX91 on Sonata-Board";
-+	compatible = "variscite,var-dart-mx91-sonata",
-+		     "variscite,var-dart-mx91",
-+		     "fsl,imx91";
++description: |
++  Xilinx AXI VDMA engine, it does transfers between memory and video devices.
++  It can be configured to have one channel or two channels. If configured
++  as two channels, one is to transmit to the video device and another is
++  to receive from the video device.
 +
-+	aliases {
-+		ethernet0 = &eqos;
-+		ethernet1 = &fec;
-+		gpio0 = &gpio1;
-+		gpio1 = &gpio2;
-+		gpio2 = &gpio3;
-+		i2c0 = &lpi2c1;
-+		i2c1 = &lpi2c2;
-+		i2c2 = &lpi2c3;
-+		mmc0 = &usdhc1;
-+		mmc1 = &usdhc2;
-+		serial0 = &lpuart1;
-+		serial1 = &lpuart2;
-+		serial2 = &lpuart3;
-+		serial3 = &lpuart4;
-+		serial4 = &lpuart5;
-+		serial5 = &lpuart6;
-+	};
++  Xilinx AXI DMA engine, it does transfers between memory and AXI4 stream
++  target devices. It can be configured to have one channel or two channels.
++  If configured as two channels, one is to transmit to the device and another
++  is to receive from the device.
 +
-+	chosen {
-+		stdout-path = &lpuart1;
-+	};
++  Xilinx AXI CDMA engine, it does transfers between memory-mapped source
++  address and a memory-mapped destination address.
 +
-+	gpio-keys {
-+		compatible = "gpio-keys";
++  Xilinx AXI MCDMA engine, it does transfer between memory and AXI4 stream
++  target devices. It can be configured to have up to 16 independent transmit
++  and receive channels.
 +
-+		button-home {
-+			label = "Home";
-+			linux,code = <KEY_HOME>;
-+			gpios = <&pca6408_1 4 GPIO_ACTIVE_LOW>;
-+			wakeup-source;
-+		};
++properties:
++  compatible:
++    enum:
++      - xlnx,axi-cdma-1.00.a
++      - xlnx,axi-dma-1.00.a
++      - xlnx,axi-mcdma-1.00.a
++      - xlnx,axi-vdma-1.00.a
 +
-+		button-up {
-+			label = "Up";
-+			linux,code = <KEY_UP>;
-+			gpios = <&pca6408_1 5 GPIO_ACTIVE_LOW>;
-+			wakeup-source;
-+		};
++  reg:
++    maxItems: 1
 +
-+		button-down {
-+			label = "Down";
-+			linux,code = <KEY_DOWN>;
-+			gpios = <&pca6408_1 6 GPIO_ACTIVE_LOW>;
-+			wakeup-source;
-+		};
++  "#dma-cells":
++    const: 1
 +
-+		button-back {
-+			label = "Back";
-+			linux,code = <KEY_BACK>;
-+			gpios = <&pca6408_1 7 GPIO_ACTIVE_LOW>;
-+			wakeup-source;
-+		};
-+	};
++  "#address-cells":
++    const: 1
 +
-+	gpio-leds {
-+		compatible = "gpio-leds";
++  "#size-cells":
++    const: 1
 +
-+		led-emmc {
-+			label = "eMMC";
-+			gpios = <&pca6408_2 7 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "mmc0";
-+		};
-+	};
++  interrupts:
++    items:
++      - description: Interrupt for single channel (MM2S or S2MM)
++      - description: Interrupt for dual channel configuration
++    minItems: 1
++    description:
++      Interrupt lines for the DMA controller. Only used when
++      xlnx,axistream-connected is present (DMA connected to AXI Stream
++      IP). When child dma-channel nodes are present, interrupts are
++      specified in the child nodes instead.
 +
-+	reg_vref_1v8: regulator-adc-vref {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vref_1v8";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+	};
++  clocks:
++    minItems: 1
++    maxItems: 5
 +
-+	reg_usdhc2_vmmc: regulator-vmmc-usdhc2 {
-+		compatible = "regulator-fixed";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_reg_usdhc2_vmmc>;
-+		regulator-name = "VDD_SD2_3V3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpio = <&gpio4 28 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+		off-on-delay-us = <20000>;
-+	};
++  clock-names:
++    minItems: 1
++    maxItems: 5
 +
-+	reserved-memory {
-+		ranges;
-+		#address-cells = <2>;
-+		#size-cells = <2>;
++  dma-ranges: true
 +
-+		linux,cma {
-+			compatible = "shared-dma-pool";
-+			alloc-ranges = <0 0x80000000 0 0x40000000>;
-+			reusable;
-+			size = <0 0x10000000>;
-+			linux,cma-default;
-+		};
-+	};
-+};
++  xlnx,addrwidth:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    enum: [32, 64]
++    description: The DMA addressing size in bits.
 +
-+&adc1 {
-+	vref-supply = <&reg_vref_1v8>;
-+	status = "okay";
-+};
++  xlnx,num-fstores:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    minimum: 1
++    maximum: 32
++    description: Should be the number of framebuffers as configured in h/w.
 +
-+/* Use external instead of internal RTC */
-+&bbnsm_rtc {
-+	status = "disabled";
-+};
++  xlnx,flush-fsync:
++    type: boolean
++    description: Tells which channel to Flush on Frame sync.
 +
-+&eqos {
-+	mdio {
-+		ethphy1: ethernet-phy@1 {
-+			compatible = "ethernet-phy-ieee802.3-c22";
-+			reg = <1>;
-+			reset-gpios = <&pca6408_2 0 GPIO_ACTIVE_LOW>;
-+			reset-assert-us = <15000>;
-+			reset-deassert-us = <100000>;
++  xlnx,sg-length-width:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    minimum: 8
++    maximum: 26
++    default: 23
++    description:
++      Width in bits of the length register as configured in hardware.
 +
-+			leds {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
++  xlnx,irq-delay:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    minimum: 0
++    maximum: 255
++    description:
++      Tells the interrupt delay timeout value. Valid range is from 0-255.
++      Setting this value to zero disables the delay timer interrupt.
++      1 timeout interval = 125 * clock period of SG clock.
 +
-+				led@0 {
-+					reg = <0>;
-+					color = <LED_COLOR_ID_YELLOW>;
-+					function = LED_FUNCTION_LAN;
-+					linux,default-trigger = "netdev";
-+				};
++  xlnx,axistream-connected:
++    type: boolean
++    description: Tells whether DMA is connected to AXI stream IP.
 +
-+				led@1 {
-+					reg = <1>;
-+					color = <LED_COLOR_ID_GREEN>;
-+					function = LED_FUNCTION_LAN;
-+					linux,default-trigger = "netdev";
-+				};
-+			};
-+		};
-+	};
-+};
++patternProperties:
++  "^dma-channel(-mm2s|-s2mm)?$":
++    type: object
++    description:
++      Should have at least one channel and can have up to two channels per
++      device. This node specifies the properties of each DMA channel.
 +
-+&fec {
-+	pinctrl-names = "default", "sleep";
-+	pinctrl-0 = <&pinctrl_fec>;
-+	pinctrl-1 = <&pinctrl_fec_sleep>;
-+	/*
-+	 * The required RGMII TX and RX 2ns delays are implemented directly
-+	 * in hardware via passive delay elements on the SOM PCB.
-+	 * No delay configuration is needed in software via PHY driver.
-+	 */
-+	phy-mode = "rgmii";
-+	phy-handle = <&ethphy1>;
-+	status = "okay";
-+};
++    properties:
++      compatible:
++        enum:
++          - xlnx,axi-vdma-mm2s-channel
++          - xlnx,axi-vdma-s2mm-channel
++          - xlnx,axi-cdma-channel
++          - xlnx,axi-dma-mm2s-channel
++          - xlnx,axi-dma-s2mm-channel
 +
-+&flexcan1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_flexcan1>;
-+	status = "okay";
-+};
++      interrupts:
++        maxItems: 1
 +
-+&lpi2c1 {
-+	clock-frequency = <400000>;
-+	pinctrl-names = "default", "sleep", "gpio";
-+	pinctrl-0 = <&pinctrl_lpi2c1>;
-+	pinctrl-1 = <&pinctrl_lpi2c1_gpio>;
-+	pinctrl-2 = <&pinctrl_lpi2c1_gpio>;
-+	scl-gpios = <&gpio1 0 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	sda-gpios = <&gpio1 1 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	status = "okay";
++      xlnx,datawidth:
++        $ref: /schemas/types.yaml#/definitions/uint32
++        enum: [32, 64, 128, 256, 512, 1024]
++        description: Should contain the stream data width, take values {32,64...1024}.
 +
-+	pca6408_1: gpio@20 {
-+		compatible = "nxp,pcal6408";
-+		reg = <0x20>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <10 IRQ_TYPE_LEVEL_LOW>;
-+	};
++      xlnx,include-dre:
++        type: boolean
++        description: Tells hardware is configured for Data Realignment Engine.
 +
-+	pca6408_2: gpio@21 {
-+		compatible = "nxp,pcal6408";
-+		reg = <0x21>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <10 IRQ_TYPE_LEVEL_LOW>;
-+	};
++      xlnx,genlock-mode:
++        type: boolean
++        description: Tells Genlock synchronization is enabled/disabled in hardware.
 +
-+	pca9534: gpio@22 {
-+		compatible = "nxp,pca9534";
-+		reg = <0x22>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <10 IRQ_TYPE_LEVEL_LOW>;
-+	};
++      xlnx,enable-vert-flip:
++        type: boolean
++        description:
++          Tells vertical flip is enabled/disabled in hardware(S2MM path).
 +
-+	st33ktpm2xi2c: tpm@2e {
-+		compatible = "st,st33ktpm2xi2c", "tcg,tpm-tis-i2c";
-+		reg = <0x2e>;
-+	};
++      dma-channels:
++        $ref: /schemas/types.yaml#/definitions/uint32
++        description: Number of dma channels in child node.
 +
-+	/* Capacitive touch controller */
-+	ft5x06_ts: touchscreen@38 {
-+		compatible = "edt,edt-ft5206";
-+		reg = <0x38>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_captouch>;
-+		reset-gpios = <&pca6408_2 4 GPIO_ACTIVE_LOW>;
-+		interrupt-parent = <&gpio3>;
-+		interrupts = <27 IRQ_TYPE_EDGE_FALLING>;
-+		touchscreen-size-x = <800>;
-+		touchscreen-size-y = <480>;
-+		touchscreen-inverted-x;
-+		touchscreen-inverted-y;
-+		wakeup-source;
-+	};
++    required:
++      - compatible
++      - interrupts
++      - xlnx,datawidth
 +
-+	/* USB Type-C Controller */
-+	typec@3d {
-+		compatible = "nxp,ptn5150";
-+		reg = <0x3d>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_extcon>;
-+		interrupt-parent = <&gpio4>;
-+		interrupts = <29 IRQ_TYPE_LEVEL_HIGH>;
++    additionalProperties: false
 +
-+		port {
-+			typec1_dr_sw: endpoint {
-+				remote-endpoint = <&usb1_drd_sw>;
-+			};
-+		};
-+	};
++allOf:
++  - $ref: ../dma-controller.yaml#
 +
-+	rtc@68 {
-+		compatible = "dallas,ds1337";
-+		reg = <0x68>;
-+	};
-+};
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: xlnx,axi-vdma-1.00.a
++    then:
++      properties:
++        clock-names:
++          items:
++            - const: s_axi_lite_aclk
++            - const: m_axi_mm2s_aclk
++            - const: m_axi_s2mm_aclk
++            - const: m_axis_mm2s_aclk
++            - const: s_axis_s2mm_aclk
++          minItems: 1
++          maxItems: 5
++        interrupts: false
++      patternProperties:
++        "^dma-channel(-mm2s|-s2mm)?$":
++          properties:
++            compatible:
++              enum:
++                - xlnx,axi-vdma-mm2s-channel
++                - xlnx,axi-vdma-s2mm-channel
++      required:
++        - xlnx,num-fstores
 +
-+/* Console (J10) */
-+&lpuart1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart1>;
-+	status = "okay";
-+};
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: xlnx,axi-cdma-1.00.a
++    then:
++      properties:
++        clock-names:
++          items:
++            - const: s_axi_lite_aclk
++            - const: m_axi_aclk
++        interrupts: false
++      patternProperties:
++        "^dma-channel(-mm2s|-s2mm)?$":
++          properties:
++            compatible:
++              enum:
++                - xlnx,axi-cdma-channel
 +
-+/* Header (J12.4, J12.6) */
-+&lpuart6 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart6>;
-+	status = "okay";
-+};
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - xlnx,axi-dma-1.00.a
++              - xlnx,axi-mcdma-1.00.a
++    then:
++      properties:
++        clock-names:
++          items:
++            - const: s_axi_lite_aclk
++            - const: m_axi_mm2s_aclk
++            - const: m_axi_s2mm_aclk
++            - const: m_axi_sg_aclk
++          minItems: 1
++          maxItems: 4
++      patternProperties:
++        "^dma-channel(-mm2s|-s2mm)?(@[0-9a-f]+)?$":
++          properties:
++            compatible:
++              enum:
++                - xlnx,axi-dma-mm2s-channel
++                - xlnx,axi-dma-s2mm-channel
 +
-+&usbotg1 {
-+	dr_mode = "otg";
-+	hnp-disable;
-+	srp-disable;
-+	adp-disable;
-+	usb-role-switch;
-+	disable-over-current;
-+	samsung,picophy-pre-emp-curr-control = <3>;
-+	samsung,picophy-dc-vol-level-adjust = <7>;
-+	status = "okay";
++required:
++  - "#dma-cells"
++  - reg
++  - xlnx,addrwidth
++  - dma-ranges
++  - clocks
++  - clock-names
 +
-+	port {
-+		usb1_drd_sw: endpoint {
-+			remote-endpoint = <&typec1_dr_sw>;
-+		};
-+	};
-+};
++additionalProperties: false
 +
-+&usbotg2 {
-+	disable-over-current;
-+	dr_mode = "host";
-+	status = "okay";
-+};
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
 +
-+/* SD */
-+&usdhc2 {
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
-+	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-3 = <&pinctrl_usdhc2_sleep>, <&pinctrl_usdhc2_gpio_sleep>;
-+	cd-gpios = <&gpio3 0 GPIO_ACTIVE_LOW>;
-+	vmmc-supply = <&reg_usdhc2_vmmc>;
-+	bus-width = <4>;
-+	no-sdio;
-+	no-mmc;
-+	status = "okay";
-+};
++    dma-controller@40030000 {
++        compatible = "xlnx,axi-vdma-1.00.a";
++        #dma-cells = <1>;
++        #address-cells = <1>;
++        #size-cells = <1>;
++        reg = <0x40030000 0x10000>;
++        dma-ranges = <0x0 0x0 0x40000000>;
++        xlnx,num-fstores = <8>;
++        xlnx,flush-fsync;
++        xlnx,addrwidth = <32>;
++        clocks = <&clk 0>, <&clk 1>, <&clk 2>, <&clk 3>, <&clk 4>;
++        clock-names = "s_axi_lite_aclk", "m_axi_mm2s_aclk",
++                      "m_axi_s2mm_aclk", "m_axis_mm2s_aclk",
++                      "s_axis_s2mm_aclk";
 +
-+&iomuxc {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_hog>;
++        dma-channel-mm2s {
++            compatible = "xlnx,axi-vdma-mm2s-channel";
++            interrupts = <GIC_SPI 54 IRQ_TYPE_LEVEL_HIGH>;
++            xlnx,datawidth = <64>;
++        };
 +
-+	pinctrl_hog: hoggrp {
-+		fsl,pins = <
-+			/* GPIO Expanders shared IRQ */
-+			MX91_PAD_PDM_BIT_STREAM1__GPIO1_IO10            0x31e
-+		>;
-+	};
++        dma-channel-s2mm {
++            compatible = "xlnx,axi-vdma-s2mm-channel";
++            interrupts = <GIC_SPI 53 IRQ_TYPE_LEVEL_HIGH>;
++            xlnx,datawidth = <64>;
++        };
++    };
 +
-+	pinctrl_captouch: captouchgrp {
-+		fsl,pins = <
-+			MX91_PAD_CCM_CLKO2__GPIO3_IO27			0x31e
-+		>;
-+	};
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
 +
-+	pinctrl_extcon: extcongrp {
-+		fsl,pins = <
-+			MX91_PAD_CCM_CLKO4__GPIO4_IO29			0x31e
-+		>;
-+	};
++    dma-controller@a4030000 {
++        compatible = "xlnx,axi-dma-1.00.a";
++        #dma-cells = <1>;
++        #address-cells = <1>;
++        #size-cells = <1>;
++        reg = <0xa4030000 0x10000>;
++        dma-ranges = <0x0 0x0 0x40000000>;
++        xlnx,addrwidth = <32>;
++        xlnx,sg-length-width = <14>;
++        clocks = <&clk 0>, <&clk 1>, <&clk 2>, <&clk 3>;
++        clock-names = "s_axi_lite_aclk", "m_axi_mm2s_aclk",
++                      "m_axi_s2mm_aclk", "m_axi_sg_aclk";
 +
-+	pinctrl_fec: fecgrp {
-+		fsl,pins = <
-+			MX91_PAD_ENET2_RD0__ENET2_RGMII_RD0             0x57e
-+			MX91_PAD_ENET2_RD1__ENET2_RGMII_RD1             0x57e
-+			MX91_PAD_ENET2_RD2__ENET2_RGMII_RD2             0x57e
-+			MX91_PAD_ENET2_RD3__ENET2_RGMII_RD3             0x37e
-+			MX91_PAD_ENET2_RXC__ENET2_RGMII_RXC             0x5fe
-+			MX91_PAD_ENET2_RX_CTL__ENET2_RGMII_RX_CTL       0x57e
-+			MX91_PAD_ENET2_TD0__ENET2_RGMII_TD0             0x57e
-+			MX91_PAD_ENET2_TD1__ENET2_RGMII_TD1             0x57e
-+			MX91_PAD_ENET2_TD2__ENET2_RGMII_TD2             0x57e
-+			MX91_PAD_ENET2_TD3__ENET2_RGMII_TD3             0x57e
-+			MX91_PAD_ENET2_TXC__ENET2_RGMII_TXC             0x5fe
-+			MX91_PAD_ENET2_TX_CTL__ENET2_RGMII_TX_CTL       0x57e
-+		>;
-+	};
++        dma-channel-mm2s {
++            compatible = "xlnx,axi-dma-mm2s-channel";
++            interrupts = <GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>;
++            xlnx,datawidth = <64>;
++            xlnx,include-dre;
++        };
 +
-+	pinctrl_fec_sleep: fecsleepgrp {
-+		fsl,pins = <
-+			MX91_PAD_ENET2_RD0__GPIO4_IO24                  0x51e
-+			MX91_PAD_ENET2_RD1__GPIO4_IO25                  0x51e
-+			MX91_PAD_ENET2_RD2__GPIO4_IO26                  0x51e
-+			MX91_PAD_ENET2_RD3__GPIO4_IO27                  0x31e
-+			MX91_PAD_ENET2_RXC__GPIO4_IO23                  0x51e
-+			MX91_PAD_ENET2_RX_CTL__GPIO4_IO22               0x51e
-+			MX91_PAD_ENET2_TD0__GPIO4_IO19                  0x51e
-+			MX91_PAD_ENET2_TD1__GPIO4_IO18                  0x51e
-+			MX91_PAD_ENET2_TD2__GPIO4_IO17                  0x51e
-+			MX91_PAD_ENET2_TD3__GPIO4_IO16                  0x51e
-+			MX91_PAD_ENET2_TXC__GPIO4_IO21                  0x51e
-+			MX91_PAD_ENET2_TX_CTL__GPIO4_IO20               0x51e
-+		>;
-+	};
-+
-+	pinctrl_flexcan1: flexcan1grp {
-+		fsl,pins = <
-+			MX91_PAD_PDM_CLK__CAN1_TX			0x139e
-+			MX91_PAD_PDM_BIT_STREAM0__CAN1_RX		0x139e
-+		>;
-+	};
-+
-+	pinctrl_lpi2c1: lpi2c1grp {
-+		fsl,pins = <
-+			MX91_PAD_I2C1_SCL__LPI2C1_SCL			0x40000b9e
-+			MX91_PAD_I2C1_SDA__LPI2C1_SDA			0x40000b9e
-+		>;
-+	};
-+
-+	pinctrl_lpi2c1_gpio: lpi2c1-gpiogrp {
-+		fsl,pins = <
-+			MX91_PAD_I2C1_SCL__GPIO1_IO0			0x31e
-+			MX91_PAD_I2C1_SDA__GPIO1_IO1			0x31e
-+		>;
-+	};
-+
-+	pinctrl_lpi2c7: lpi2c7grp {
-+		fsl,pins = <
-+			MX91_PAD_GPIO_IO07__LPI2C7_SCL			0x40000b9e
-+			MX91_PAD_GPIO_IO06__LPI2C7_SDA			0x40000b9e
-+		>;
-+	};
-+
-+	pinctrl_lpi2c7_gpio: lpi2c7-gpiogrp {
-+		fsl,pins = <
-+			MX91_PAD_GPIO_IO07__GPIO2_IO7			0x31e
-+			MX91_PAD_GPIO_IO06__GPIO2_IO6			0x31e
-+		>;
-+	};
-+
-+	pinctrl_reg_usdhc2_vmmc: regusdhc2vmmcgrp {
-+		fsl,pins = <
-+			MX91_PAD_CCM_CLKO3__GPIO4_IO28			0x31e
-+		>;
-+	};
-+
-+	pinctrl_rtc: rtcgrp {
-+		fsl,pins = <
-+			MX91_PAD_GPIO_IO02__GPIO2_IO2			0x31e
-+		>;
-+	};
-+
-+	pinctrl_uart1: uart1grp {
-+		fsl,pins = <
-+			MX91_PAD_UART1_RXD__LPUART1_RX			0x31e
-+			MX91_PAD_UART1_TXD__LPUART1_TX			0x31e
-+		>;
-+	};
-+
-+	pinctrl_uart6: uart6grp {
-+		fsl,pins = <
-+			MX91_PAD_GPIO_IO05__LPUART6_RX			0x31e
-+			MX91_PAD_GPIO_IO04__LPUART6_TX			0x31e
-+		>;
-+	};
-+
-+	pinctrl_uart7: uart7grp {
-+		fsl,pins = <
-+			MX91_PAD_GPIO_IO09__LPUART7_RX			0x31e
-+			MX91_PAD_GPIO_IO08__LPUART7_TX			0x31e
-+		>;
-+	};
-+
-+	pinctrl_usdhc2: usdhc2grp {
-+		fsl,pins = <
-+			MX91_PAD_SD2_CLK__USDHC2_CLK			0x1582
-+			MX91_PAD_SD2_CMD__USDHC2_CMD			0x1382
-+			MX91_PAD_SD2_DATA0__USDHC2_DATA0		0x1382
-+			MX91_PAD_SD2_DATA1__USDHC2_DATA1		0x1382
-+			MX91_PAD_SD2_DATA2__USDHC2_DATA2		0x1382
-+			MX91_PAD_SD2_DATA3__USDHC2_DATA3		0x1382
-+			MX91_PAD_SD2_VSELECT__USDHC2_VSELECT		0x51e
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
-+		fsl,pins = <
-+			MX91_PAD_SD2_CLK__USDHC2_CLK			0x158e
-+			MX91_PAD_SD2_CMD__USDHC2_CMD			0x138e
-+			MX91_PAD_SD2_DATA0__USDHC2_DATA0		0x138e
-+			MX91_PAD_SD2_DATA1__USDHC2_DATA1		0x138e
-+			MX91_PAD_SD2_DATA2__USDHC2_DATA2		0x138e
-+			MX91_PAD_SD2_DATA3__USDHC2_DATA3		0x138e
-+			MX91_PAD_SD2_VSELECT__USDHC2_VSELECT		0x51e
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
-+		fsl,pins = <
-+			MX91_PAD_SD2_CLK__USDHC2_CLK			0x15fe
-+			MX91_PAD_SD2_CMD__USDHC2_CMD			0x13fe
-+			MX91_PAD_SD2_DATA0__USDHC2_DATA0		0x13fe
-+			MX91_PAD_SD2_DATA1__USDHC2_DATA1		0x13fe
-+			MX91_PAD_SD2_DATA2__USDHC2_DATA2		0x13fe
-+			MX91_PAD_SD2_DATA3__USDHC2_DATA3		0x13fe
-+			MX91_PAD_SD2_VSELECT__USDHC2_VSELECT		0x51e
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_sleep: usdhc2sleepgrp {
-+		fsl,pins = <
-+			MX91_PAD_SD2_CLK__GPIO3_IO1			0x51e
-+			MX91_PAD_SD2_CMD__GPIO3_IO2			0x51e
-+			MX91_PAD_SD2_DATA0__GPIO3_IO3			0x51e
-+			MX91_PAD_SD2_DATA1__GPIO3_IO4			0x51e
-+			MX91_PAD_SD2_DATA2__GPIO3_IO5			0x51e
-+			MX91_PAD_SD2_DATA3__GPIO3_IO6			0x51e
-+			MX91_PAD_SD2_VSELECT__GPIO3_IO19		0x51e
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_gpio: usdhc2gpiogrp {
-+		fsl,pins = <
-+			MX91_PAD_SD2_CD_B__GPIO3_IO0			0x31e
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_gpio_sleep: usdhc2gpiosleepgrp {
-+		fsl,pins = <
-+			MX91_PAD_SD2_CD_B__GPIO3_IO0			0x51e
-+		>;
-+	};
-+};
++        dma-channel-s2mm {
++            compatible = "xlnx,axi-dma-s2mm-channel";
++            interrupts = <GIC_SPI 87 IRQ_TYPE_LEVEL_HIGH>;
++            xlnx,datawidth = <64>;
++            xlnx,include-dre;
++        };
++    };
 -- 
-2.47.3
+2.49.1
 
 
