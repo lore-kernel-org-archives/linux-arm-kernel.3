@@ -4,103 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69D05EDA68D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 16:10:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A488DEDA694
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 16:23:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uZhefinet/rBeeE1EfXYvWsIsVUahRvR5lid/N+Qkvg=; b=fe3iZwp+rxm3ZeWLXoZ+Ll+nqe
-	Q6CyofiHGBfk8Zef7dBPR9Rb4w3ZeZ8lXRvtUTuDUvrLYqh6BIGULKpNGK+VRaVWDp0/HR/dbGsjN
-	8d5m9PlHxoZukww+8Z5Nwlld9zGukBRowmEDBOeQGNLmr63Z9rr7brMzb+YnlvfclfEnbrrMtW5bm
-	Ta4WSNpbM0oqxEJuUrqpcFrJh+XT1exqb3UNn0Hz6zVB/4538Xfpa5+tXmPgfhcLhgm0ohpJfeDJY
-	s98QF8OvgCshnelJre4gIbw2SygFxvQqZnZDtYda881ae73USf4BVmlidTnsJFGyuyF8j6sND+NJF
-	rwMF4kDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:
+	Content-Transfer-Encoding:Content-Type:Mime-Version:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=dIABMziNLvW0jGN8kMlgpZrAq89Imgr046x+DRl4Rp0=; b=CyeAg01q47osDI
+	GqWLp4ikQ74F9sd689hzNcVuYHzOr9IN03t7MM04VwXbTOkQzBLu8RPx8E2HdT8vOsay6YpXNWqVk
+	PYM+91mLdCGzb/m5KGMM2iozV42eIRRyE8sCQuQIbFuViabXNXOZN3STFehI7hurqvHuC18/Y63Kf
+	IsTasN0z+9wuJFN5GaLZVAtzwlTI8EhPcbqDrfuS2Jpy1/DNodpuk8Ml2+1k4Jyd+78ocDyY6Jzx6
+	GP0+kaFF4a5RE+uh9sYITlqdg5HJbXnmpqYSfekdZHMPhoRDw6deOWD1Yv4bgPkRTxuonwQFTR/gg
+	x6ygNbHPlHuj7qf1P9Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSKG-0000000FWyj-27tf;
-	Tue, 03 Mar 2026 16:10:24 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1vxSWd-0000000FYSB-1vmp;
+	Tue, 03 Mar 2026 16:23:11 +0000
+Received: from mail.hugovil.com ([162.243.120.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSKD-0000000FWxw-2PGM
+	id 1vxSWb-0000000FYRR-0rie
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 16:10:23 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-824ba8f0acaso2979579b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 08:10:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772554220; x=1773159020; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uZhefinet/rBeeE1EfXYvWsIsVUahRvR5lid/N+Qkvg=;
-        b=JH5uX9B7nRDvRFoxVZjjDqHamWnXBzLd6jh/Et8dc4Zon709cvRnfX1ljPb35kO67g
-         tQ8VvekkwPDuZd6RpvK5uZEQexOIcwj7LCUxvPRpzJOqn+1ikKgpfcalF+eL3jb3qcCf
-         LSVuxAinG/6eM5dLPMv9qpBxTaiPzsGJkvZG/lmyMQ+NPlUtrg1S5a6lwNjYLvUh2nqq
-         Uii1MoY1KCn3SG6qnl5O13yRx4p0R0ZQwwq4bNSvVeysXVkKtZvLo2+KyOzlbWSm4heY
-         mqryLQ19cmyCTwLi2xA6xwt3WkzNWdWLIsjgUm/DK83IsTYHjJQf9Pz7XkThMaygS5c7
-         SJQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772554220; x=1773159020;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=uZhefinet/rBeeE1EfXYvWsIsVUahRvR5lid/N+Qkvg=;
-        b=PcqV6oB/OkjxfycIk2abwxz6B000M3DxwuQzQHyUMUnSb2bT0fctYRXohR9m4YXnop
-         IjNmoEKV1wHsx2w/lU+REQsuK91x+ebRn//bN1gaVDSmsXqgVqP+Dxt+W0t9jPGduDh0
-         i1jt0Z5fHH4+haio+WCLuWpKAnicH3eZ9V2R26MwX0kq1r7Ob/XgpRn/2Z2BS08NjOF1
-         GhBWSwWgHT1QAhPPc1v2XWrLHf/9Uxlt3zylI6hDxGMPp/0uLn9dSTA8f3rHFXEb4Y4w
-         NQbdZ1G+jk3IKYIyzctNPZoRkgbjxPvrv82aiqu9EL9akvc8E8j1dB7nip2YojAhnEPQ
-         6AIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVmzI6Il151/vsOARhSLqaSLbfmKehqHVDMwuJlQCAaR2gtEBQ8zEbGdG+zllQ9Iwn8QbfsBG4ljcIhANGJEfA7@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwPYhqidN7A9ULxM4ZyMQPk+REj5y5bgAv/yud2ENeGsUGOXb/
-	QL+6YOMNlEYbmY5PB17PN9G1vlB/whBZtBdmIuMbvQ4IWzj439ehZCGE
-X-Gm-Gg: ATEYQzyMSYyrrBXxINb4Ce5uj2yeVljhM+K7UlOB5t6S395vik3TG8MKUCm357ARPiD
-	3J9uEbUWrIQzNh0hw6HuiqWFbVdljZ5zE7rPdp3jnhrCahI09F+krQ4jBO75u4/+kXpei0RqxUE
-	BjZRga48iaVrMC3uEshFBqxouleI6qQPmVW2w6sTA9tTiKj5EeVEy/Yb8V7l9m/MDApoLHf8TNm
-	casrCv/9SSjRSzXf6/35LbffyV8HJ/+yVJr8kBF73fH52m0/8Hh0k2AdiTRMJv4S4jfkxN2aMKg
-	zbYIYlmgZb96n508N+9BI2I/LrSUvcnYvIgRt5xadzwZFvePYS2iDHWl9Q593hFDTAdWkiCv0hG
-	a9ZoztL/Xw5kYiBqUdaWr20DjjiHOADcNxBz18iKVSK+FXjCUeL3mHiBygCcXRguwkLZ9PSdvqb
-	5On4RfgwjOQ5BY0RFq8Xw3TpU6jVgX2VphjGaVrVPEvocUJwYkZ1p+lTky/Kmn1htdjCyJYEQYh
-	hTPqkTzvogggGkA/f7B0Q==
-X-Received: by 2002:a05:6a00:349b:b0:827:3ff6:fb81 with SMTP id d2e1a72fcca58-8274da0a64emr13677770b3a.52.1772554220355;
-        Tue, 03 Mar 2026 08:10:20 -0800 (PST)
-Received: from nickhuang.. (2001-b400-e257-9d22-3605-837f-cd5c-9967.emome-ip6.hinet.net. [2001:b400:e257:9d22:3605:837f:cd5c:9967])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82739ff372fsm16359886b3a.31.2026.03.03.08.10.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Mar 2026 08:10:19 -0800 (PST)
-From: Nick Huang <sef1548@gmail.com>
-To: "Maciej W. Rozycki" <macro@orcam.me.uk>
-Cc: linux@armlinux.org.uk,
-	davidgow@google.com,
-	dongsheng.yang@linux.dev,
-	dory85109@gmail.com,
-	ebiggers@kernel.org,
-	idryomov@gmail.com,
-	jlayton@kernel.org,
-	john.g.garry@oracle.com,
-	namhyung@kernel.org,
-	robh@kernel.org,
-	kusogame68@gmail.com,
-	wdhh6@aliyun.com,
-	wqu@suse.com,
-	yot4106@gmail.com,
-	likerockman102@hotmail.com,
-	squid@squidspirit.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] arm: Replace ASSEMBLY with ASSEMBLER in uapi headers
-Date: Tue,  3 Mar 2026 16:10:08 +0000
-Message-ID: <20260303161012.2983-1-sef1548@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <alpine.DEB.2.21.2603011816460.44093@angie.orcam.me.uk>
-References: <alpine.DEB.2.21.2603011816460.44093@angie.orcam.me.uk>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Tue, 03 Mar 2026 16:23:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
+	; s=x; h=Subject:Content-Transfer-Encoding:Mime-Version:Message-Id:Cc:To:From
+	:Date:subject:date:message-id:reply-to;
+	bh=dIABMziNLvW0jGN8kMlgpZrAq89Imgr046x+DRl4Rp0=; b=pg6KN0dJ5ZW2AM6cCDdSSbnuh8
+	PhW6AkE7BgkA004hNmbRR18mGBAQhSx99q5o9AAXWurQ7v8cqZw4Sy816/wAn7HandtGwvps2gs9f
+	Rqcam9kTr/6hJ0oAXcGwT8kAE04C11Py+CCOXtzokRwkAzZE0Z/Vid+3hcaJR9LmbvjM=;
+Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168]:35704 helo=pettiford.lan)
+	by mail.hugovil.com with esmtpa (Exim 4.92)
+	(envelope-from <hugo@hugovil.com>)
+	id 1vxSWF-0003Ms-A8; Tue, 03 Mar 2026 11:22:47 -0500
+Date: Tue, 3 Mar 2026 11:22:46 -0500
+From: Hugo Villeneuve <hugo@hugovil.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, airlied@gmail.com, simona@ffwll.ch,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, shawnguo@kernel.org,
+ laurent.pinchart+renesas@ideasonboard.com, antonin.godard@bootlin.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, Hugo Villeneuve
+ <hvilleneuve@dimonoff.com>
+Message-Id: <20260303112246.0bd6238aba7489b6de499299@hugovil.com>
+In-Reply-To: <920740e1-5bbb-4632-a62d-325715cd8043@kernel.org>
+References: <20260302190953.669325-1-hugo@hugovil.com>
+	<20260302190953.669325-5-hugo@hugovil.com>
+	<20260303-rational-thundering-firefly-9dcaa9@quoll>
+	<20260303095533.1c6dff174f6c9d162d3e3303@hugovil.com>
+	<920740e1-5bbb-4632-a62d-325715cd8043@kernel.org>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 70.80.174.168
+X-SA-Exim-Mail-From: hugo@hugovil.com
+Subject: Re: [PATCH 04/14] dt-bindings: arm: fsl: change incorrect
+ VAR-SOM-6UL model name
+X-SA-Exim-Version: 4.2.1 (built Wed, 08 May 2019 21:11:16 +0000)
+X-SA-Exim-Scanned: Yes (on mail.hugovil.com)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_081021_618699_5A105DF3 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20260303_082309_342033_EDF107E8 
+X-CRM114-Status: GOOD (  24.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,24 +86,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 1 Mar 2026, Maciej W. Rozycki wrote:
+Hi Krzysztof,
 
-> It seems to whom?  Have you got a reference to a discussion with libc
-> maintainers where the consensus has been that support for older compilers
-> can be dropped?  Why does it remain in the GNU C library?
+On Tue, 3 Mar 2026 16:19:54 +0100
+Krzysztof Kozlowski <krzk@kernel.org> wrote:
 
-I have now consulted the glibc maintainers directly on this question.
-The thread is available here:
+> On 03/03/2026 15:55, Hugo Villeneuve wrote:
+> > Hi Krzysztof,
+> > 
+> > On Tue, 3 Mar 2026 08:10:51 +0100
+> > Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> > 
+> >> On Mon, Mar 02, 2026 at 02:03:40PM -0500, Hugo Villeneuve wrote:
+> >>> From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+> >>>
+> >>> There is no Variscite module named VAR-SOM-MX6UL.
+> >>
+> >> VAR-SOM-MX6? And there is.
+> >> https://dev.variscite.com/var-som-mx6/
+> > 
+> > Ok,
+> > I was confused by the "const: variscite,var-som-imx6ul" and thought the
+> > description was not matching.
+> > 
+> > But there is still no module named "VAR-SOM-MX6UL", but "VAR-SOM-MX6",
+> > with different CPU variants like UL, ULL, etc. So I will modify the
+> > patch to reflect that.
+> 
+> I don't understand what you want to reflect/modify.
+> 
+> Description says: VAR-SOM-MX6
+> My link says: VAR-SOM-MX6
+> 
+> What is incorrect?
 
-  https://inbox.sourceware.org/libc-alpha/mvm342hx8tf.fsf@suse.de/
+VAR-SOM-MX6 is ok, like your link shows, but not VAR-SOM-MX6UL.
 
-Andreas Schwab (SUSE Labs) responded:
+If someone looks at VAR-SOM-MX6UL, they may think that the "MX6" part
+refers to the VAR-SOM-MX6, or they may think that the "6UL" part refers
+to the VAR-SOM-6UL, and it can be extremely confusing. This was my
+understanding at first, and the reason why I submitted this patch.
 
-  "Since the compiler will define __ASSEMBLER__ automatically when
-   preprocessing assembler-with-cpp files, there is no need to change
-   anything on the glibc side.  The places that define __ASSEMBLY__ for
-   that purpose will just become redundant."
+If you look at the associated board entry in the binding, it says
+"const: variscite,mx6ulconcerto" but the VAR-SOM-MX6 doesn't use
+the concerto board. It uses a board named "VAR-MX6CustomBoard":
 
-Best regards,
-Nick Huang <sef1548@gmail.com>
+https://variscite.com/wp-content/uploads/2017/12/VAR-MX6CustomBoard-Datasheet.pdf
+
+The VAR-SOM-6UL uses the concerto board:
+
+https://variscite.com/wp-content/uploads/2019/07/Concerto-Board_Datasheet.pdf
+
+So the description in the binding "i.MX6UL Variscite VAR-SOM-MX6 Boards"
+is wrong, and needs to be replaced with VAR-SOM-6UL.
+
+By the way, support for the VAR-SOM-MX6 is provided by this binding entry:
+   - description: i.MX6Q Variscite VAR-SOM-MX6 Boards
+    items:
+      - const: variscite,mx6customboard
+      - const: variscite,var-som-imx6q
+      - const: fsl,imx6q
+
+
+> > 
+> > In fact, I will modify the description to reflect that it supports both
+> > VAR-SOM-MX6 and VAR-SOM-6UL modules.
+> 
+> Are you sure that it does?
+
+With my new research, as explained above, this is not the case. I will
+modify the description to reflect that it supports VAR-SOM-6UL modules only.
+
+-- 
+Hugo Villeneuve
 
