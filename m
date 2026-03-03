@@ -4,145 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31A4CEB3650
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 02:19:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0A97EB3653
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 02:28:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3PU7AodaWwrGsUF212+xDbfz9qG8uN6XX8BHZff5tjs=; b=r4b8i0TqNZ9hPaf2tpXT7oR6Bb
-	Z/TD1WIW+7L8ecE4D1wuMqjc7kAIYEuTE2MrwS7Y3pPNIFgZbZjGq7Nyf7cORyeclC0T+/jSnmh12
-	DCSwyuNiMyNLvca8oiP3TqzqGABFh6bfGZvhJB+XY9/aMZrIyv1sI7OEif5y5+QnqImW8SB4EY8Rj
-	RcSc8nRpwpKRujOm4u5Dq/zGaZTS2j75SNN/LIW7iJjbJMj2ER6Rf1eZ9bDCxZr6D8cGAilzn+Pkp
-	yz1ZIHwEXg+1U+NbG1Z+ki1jiJoXUiJ8ly7+Vng44jYyRtzdJHcX6vDcNkExStOkzWw7bsWu0obFH
-	WlZnlVWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tgUfkH8Jf4BmOrltEe3NXn+QxpyOiSac+yGn95e0stU=; b=OAuR+jhSKD4i9kmS9h8YG5J4BV
+	sXa5KZRzboK8UrHRNffASwuDHdhkqo6edOdksjVwIm/JGEyf7PqjwS0Q/o/cZwGBGf/Njy4Wj0EGd
+	2VB1jSYhyLVDHcDNpxmtR5S88wcAPeMVuJ1aFygLmztCLYb9D+1EFiyC+vbSbt4c2HFR99aBCR/oK
+	DiHs34gdqeKWsZ6r2T9vWuTZJJgp3j5aSTAFXxH7bHXh3O+a7YHCRIbHZWMmHMqGUBilKIMzPoCox
+	MdTSoVqNnmdl+hYtBqI/Avvcb+lE/IF7doXsxsxb/zlAK4ZT3VIoPfco4RSfCP4abD7k4LDtKGR3x
+	z4d9Mpww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxFLs-0000000EONm-2lje;
-	Tue, 03 Mar 2026 02:19:12 +0000
-Received: from mail-japaneastazon11022085.outbound.protection.outlook.com ([52.101.126.85] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1vxFV6-0000000EOsI-1Tcc;
+	Tue, 03 Mar 2026 02:28:44 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxFLq-0000000EON6-0bom;
-	Tue, 03 Mar 2026 02:19:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PUPNijXuBzSayp7/SxGuNG7Z3o82SE0XxSxa/lHy4xQe1AGK7Syk6hnU9fLn/wQKworUvLrBtHGcJ8L/048kyYEi90RMKR5yG4Wj1VtO3Hn6XBpwKWMYK4A/XJQk2NiWfQS6xV31ovo0XHX0HMdbcVqfOJxfzqIEwtNHJrxBNFzJVKJ4HkF3D0Zi5UmLwZEuc0w8Obzi/QqgrXuEYW87ZIFuvls7ToPWH3upghzwiymb1bUmv8snr4++nGEod0oiiI840N+yZh2ceQFYgtt9hpSyQ94ZV2Op+4ytBMbjH+dlcBCMvqjEixRsyzDAQtQUhvCesVmgUH8zXKHBxNjRQw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3PU7AodaWwrGsUF212+xDbfz9qG8uN6XX8BHZff5tjs=;
- b=JTFivDP/T0804ESvczo6W1r0jqn2mOjkN6W+w44WVBRpk4dDbOoPT+/skCV+n/5QDScZL6cpcmxcn15w1+GKJRw59ppGjN8TRqju1gN9ZczQADFcdRUyKUeYaQlS6/4DU3Yrsm6licB3B9z5pZOHOgGf6xLV2DSjxcVKgNuVif3rEELnw2U1LFIzMh8YIs5INYwyNnQM/nxch/xhECYRWUxak9WtM7vtHyCotAk8LCN3GXejMoTHQ8WkahORdlrNRRQhuDxD4k7A2yMiKG5QJbiW/VGei+O6keuGgT7e0x7yNCZAXM3Hort1myC+0IDx863xndaOpMWSVGm0BIeXGA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3PU7AodaWwrGsUF212+xDbfz9qG8uN6XX8BHZff5tjs=;
- b=Zg8dhho1YgdwVavJaYLmiZ5dtYUOnMpzFokQ2Q4zmGvJKdv1h2vKaLVkuBgU8o3W3Swgx8YCmDwFPzMDJ0IQGjjzpXiqu6VEw0nYUoHTrghE/Wbmev8/nrmz4nZ0h0B5iEsfNvioSiXBliC7kYutOWir4/MTqgOjRjb6GethCE9zxIsrryiJnk/YgW1rljsrFxiw/1jIQ3Zu+lFenPqF3Fer/s2WtHQPQN+HZqd0Ojgq/HS7F6iaUVRxWjzeR7lrVny9iOwTVCP48nBm5ydb1pWeMpnOQMuD6J3+I3KmH7jZdufdnF7TbW6Z2os3qMNx/BRxgn4CAWUHn0aYAHW0Pw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from TYZPR03MB6896.apcprd03.prod.outlook.com (2603:1096:400:289::14)
- by SEZPR03MB7513.apcprd03.prod.outlook.com (2603:1096:101:130::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.21; Tue, 3 Mar
- 2026 02:19:02 +0000
-Received: from TYZPR03MB6896.apcprd03.prod.outlook.com
- ([fe80::78d4:9dee:2e32:d1e4]) by TYZPR03MB6896.apcprd03.prod.outlook.com
- ([fe80::78d4:9dee:2e32:d1e4%6]) with mapi id 15.20.9654.020; Tue, 3 Mar 2026
- 02:19:01 +0000
-Message-ID: <7a3d7837-7862-401e-9b07-83eb862de619@amlogic.com>
-Date: Tue, 3 Mar 2026 10:18:50 +0800
+	id 1vxFV2-0000000EOqp-3Ccw
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Mar 2026 02:28:43 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.177])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4fQ08J2G2czYQtwp
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Mar 2026 10:28:00 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id 7B63C4058D
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Mar 2026 10:28:33 +0800 (CST)
+Received: from [10.67.111.192] (unknown [10.67.111.192])
+	by APP4 (Coremail) with SMTP id gCh0CgAniPhQR6ZpdniDJQ--.4204S2;
+	Tue, 03 Mar 2026 10:28:33 +0800 (CST)
+Message-ID: <770fef28-efd7-4bcb-aa11-33ab22cc9841@huaweicloud.com>
+Date: Tue, 3 Mar 2026 10:28:32 +0800
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] dt-bindings: serial: amlogic,meson-uart: Add
- compatible string for A9
+Subject: Re: [PATCH bpf-next v5 1/5] bpf: Move JIT for single-subprog programs
+ to verifier
 Content-Language: en-US
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org
-References: <20260228-a9-baisc-dts-v2-0-47489d5cc1a8@amlogic.com>
- <20260228-a9-baisc-dts-v2-2-47489d5cc1a8@amlogic.com>
- <88ea9b0a-1eb1-4273-98d6-b0283e1af6eb@oss.qualcomm.com>
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
-In-Reply-To: <88ea9b0a-1eb1-4273-98d6-b0283e1af6eb@oss.qualcomm.com>
+To: bot+bpf-ci@kernel.org, xukuohai@huaweicloud.com, bpf@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
+ martin.lau@linux.dev, eddyz87@gmail.com, yonghong.song@linux.dev,
+ puranjay@kernel.org, a.s.protopopov@gmail.com, martin.lau@kernel.org,
+ clm@meta.com, ihor.solodrai@linux.dev
+References: <20260302102726.1126019-2-xukuohai@huaweicloud.com>
+ <cae8a7cfe54f2f1f66bde10df2026eb2c1076998bef9e483b513abd3bb5722c3@mail.kernel.org>
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+In-Reply-To: <cae8a7cfe54f2f1f66bde10df2026eb2c1076998bef9e483b513abd3bb5722c3@mail.kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SG2PR04CA0178.apcprd04.prod.outlook.com
- (2603:1096:4:14::16) To TYZPR03MB6896.apcprd03.prod.outlook.com
- (2603:1096:400:289::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYZPR03MB6896:EE_|SEZPR03MB7513:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6d5341e6-1028-40b4-be72-08de78cb3b94
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|921020|7053199007;
-X-Microsoft-Antispam-Message-Info: 5lVqOFuqjBskqPFvgVrETKiAjv4ppgAt/yVWEINTHLbMCdLe5pjMVmwiCKHPmORO9dQ5G0eYkuj6ZG1T/S7bUxX4H4fix5aMO0XgziZimsuOPair7dcfPxr73JHG2Vfqkk/hX0qib+uaR0qnXnbK5ePr0YptEUH7zg8yJxvO01tizxkWR5GJyiFJNt1ne3mzK6ClE3IBTKxXtWrW7FDWoEEDrl6RG3s3bla9FLvtG2Ar0f2B1AoxGOtfESxkbGiFJuSXuHJanQhgB10JM3ZjwHSAku+Q5vteH4zWxoskl1muKvYUAOZUNsL20O+aojQk1J3xqRaRIJi5C7GxWdQgXQLOR7hYNeW9TM8dEykl7gqR5eI0uxfwPRAphB+VCTaS7KgJKmpPleahCXFxzfQwlTAFXSOlbgDUpUH4IpRNAEk7b49ULz0s16SaYwXLSqGaa+jsdxAEdPr4HTFF+/tCkjLMC3Oz5ka7CP4ZJO9fiuCB8oB3JJctbSc0XWb8leJt4G0aupce5O8BR/exRce0+hLY3wUvWjkkkthLkTIbdXcRJdwd9prTLJOVbUvdhDbwlN9z2T6RXLqh3fhiJOx8gNjAeF222iyCKLT9llzbNsIloL+bQDg0R241BR4+85Fw5VGR51Ju6wGcXae/mYGynoJWIO0AzgM2iaXoXqv+3dfou535s0W1APZVMpXXA/JLux4NYlcdb+f7v/BogaOzYvu981h81WlyFfTNnywQnXofLW9bkCdflF/dzmNAO09Ip25+DgL/PIZxucAhxoF/eA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6896.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(921020)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VE5PTjJkZFRKdHlxQjFMOW1WSllPUjFXTlpOZmdiVk1adXNOSnVqQnZtL2M0?=
- =?utf-8?B?MVpqa2V0NDlUWEpuRU0yd2FuYkVsd0FUSURtbEhldHlaNFB5amR5b29qeUNy?=
- =?utf-8?B?MUZXbEk2NHJsaXBtNk0rN3EvVlRHOTNNMUFIVmM1ck1kQ21mOGIxRS84NHZu?=
- =?utf-8?B?ZG1LYjdkSE82dnVlUEhCRStwVVhGTW9lVEU4ZnV1ZkxRVk5RcjR0OVY5T01v?=
- =?utf-8?B?RHlNeCs5bzdQMUJsN1BGZlYyeW8rNE1rczlNbm1QWllZeHEyU05CMW5QYXpv?=
- =?utf-8?B?cXlqV2RtbXBMTVk3RW1LZnJ5SmMwQkNZbFpOeExYMlFsOEZzYjgzZUtzRjFJ?=
- =?utf-8?B?aVZhZlFDV09MSUF0QlpoWGNhSHRtZ3pqdEZ0RldGRC9PT2U0UFhaTElqSlZF?=
- =?utf-8?B?WjlWWWQ3dlZ2ajNjRlJxN1FNWjZ1MWcrOGFrRi9qTytJM25idk9TUnhuSVk5?=
- =?utf-8?B?Qm1MMVlrY1pMWmRmRDNCeFZZVWFsNkZUU1ZDTEpIMzRZVVl6Tk1TMWYwQzJT?=
- =?utf-8?B?WkxLSXNqWlNyYWMwMWJrMHRydm1RelpwM3o0enE4ZlZ1WGZUZ0t6R3l2Y2FB?=
- =?utf-8?B?MTRBVjhtKzV4QzE4bUl4M002TmdkVG1OWERnQk9uR3FYUFQzdHd6N3hTQkRZ?=
- =?utf-8?B?dEZkMHR5RkxDTktnK3FGc2lYT284UnptTW5EZitud1czWDJJLzFyNHc5Z1p1?=
- =?utf-8?B?YzMwRUVmd3hZaWNwNUZXZmUvSHVUT2dFbXdFWmRLM2dtbm1taFhWdUEvanpJ?=
- =?utf-8?B?SnQ0UDdFY1oxZkJCWjlQYjhkYVZOTUZiMzJwMEdkbVNaSkc4VFU4TmNRWEhq?=
- =?utf-8?B?c1VtdkMyWlBHTXhjeVdOLzZnOE01Mnl4VXlSTHZtSzczV2xJeDNMNmRkS3lY?=
- =?utf-8?B?dDJybitEVTZqY2xvNStmSjBJaUk0WnZHaTRFWmxYVVJaNFo2WWVaaWIwczVZ?=
- =?utf-8?B?WCt6TXNYVGFYZXB4UCtQQnhQSnR1V3I1K1BxZjVHUHR1SGIzcFB6K1V1cWg3?=
- =?utf-8?B?cHpxNk1tdTFNcmlNcE9LN1AzS3o3QmVkNWowd3d0akE0ZGVJQm5helc1THJI?=
- =?utf-8?B?Z2U2Q0RuZ0U2b2pBbXBoZVJZMVhaVzJHMmc1L25sMDNKWVZrNktpMWdWV0JT?=
- =?utf-8?B?THFmaytZWnpvZWhaSVpXTU5tQ1g2WEJJM05GRmduWmxHTEtCdzVjaCtodC9l?=
- =?utf-8?B?YlFhK0hSTE9FTjZ4M0c2RW5mWHNrVFNNZjdZN3ZCT1RqLzhOa1JRaWlwZVRt?=
- =?utf-8?B?bjFWMlZoY2JlQ2w2ZmVsR095b25sa3BGejlkdHhtbERFK0dTS3kwUDM1NlNn?=
- =?utf-8?B?ZURKcGtDUzBNTXRUNDBOaXVITlJ6Tk1sbTU1cCtFZXhGS0plMW9JMkliWUtv?=
- =?utf-8?B?SjE2MVM5WVdscjdPdk1mS0xzTUhSQld5RUJRYm1TVmlaTGhKVkI3RkJhTmM1?=
- =?utf-8?B?YWo3ZTVwNXJidnoyVlE3TlpWYUxtbkhmbmlYRWxhTGRkSEZTZUUwMithb20w?=
- =?utf-8?B?UDArSE04NUZPQWRrK3pQaFMzNHFBN08yWW9RcmFYTDBTQytyRGFGdTNXOGFq?=
- =?utf-8?B?ZVdLQXdwbFpLVmdwVkNqb3BFd2RQSnZPMk0wdS8wUEpZMGErODV0SzRaejA4?=
- =?utf-8?B?eTd1dXh5STd0YmRNWG1oWjZSc254aHdYRkJGTnJ2TExMNHV1T1JzWHpwaVFl?=
- =?utf-8?B?NC9wOXczVHpkMmVVRHpNWjY1eGVqWG9tTzNxa1NUV0xoNUJPN0xVbGtRZk42?=
- =?utf-8?B?cElmY1BvVEU4czFxWTJvWkV2eXozR25HUzJBVlZCbU0xVHM1MkRuN2xWVERP?=
- =?utf-8?B?MU9nMXltckJ1ZUQyYXB5dDZXOUFIU1VJV1hRNU5aUGhqQXBOeTNQc20zMVBz?=
- =?utf-8?B?bTcydStGRFdEcExDbTVNeVFCbWlaZmRwSXVoVEdyMFdQM2pvWWhLRjRVaUNK?=
- =?utf-8?B?aE8vWHJaNmNMcVB6Ry9HbHgrdkpTMksyNUdRZjZza1Vwb2FpQ21mVnNsV3Yz?=
- =?utf-8?B?K24zZ085R3VXMFFyTmFPZ256ZDNQK3B5N0g1NzFlekNqWjhsU2NrdlZHMXBG?=
- =?utf-8?B?WjdTYmR1VS85VitqTTVyWkUzM2RkekdVWm44bFNhVjVqeE1tQmUrMVpKaGk1?=
- =?utf-8?B?OEdYTkw5eTdza01qWmp2SlVMb0lsWmltVGl4dVVWZ0lFMWpQd00xSjhSalhP?=
- =?utf-8?B?TXdsT2VMYndxSmRveVB0UFdNTk9rbmVzR3lJdHFBcDBGN0o0ZUhaNnVvMU9y?=
- =?utf-8?B?V3VNS1pWQmgvaGZxSHlKeWw0ai8wL1B6eEtXTmxWd1B6cElIZUVaOFNZTitk?=
- =?utf-8?B?TE1KWGRhUzdsLzFLU2lzSEVGVi83YkhpMDl4aDhJN2p1dlpQQWcrQT09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6d5341e6-1028-40b4-be72-08de78cb3b94
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6896.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2026 02:19:00.9202
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: d6hPg4ys6B1hwHxw1c5S3mHaqXX2OiVr9bjqDCjK8qgd36fn/8iAH8OHurxIkh6USN6h5YOYTqyWMyquJIXfElyJ0ggLm9YWv9RAu71Deew=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB7513
+X-CM-TRANSID: gCh0CgAniPhQR6ZpdniDJQ--.4204S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxCFyrCry3Jr15ZFyDtrWrXwb_yoW5AFykpa
+	s7KFWDCr4UGr1DtwnFyFWDZaySqa1rG3y7G3Z8JFWI9rnYgrnYgFW0ga1jgF90yr1Ykwsa
+	va1jvrWqqr15ZFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvE14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvEwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka
+	0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7
+	v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF
+	1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIx
+	AIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI
+	42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWI
+	evJa73UjIFyTuYvjfUonmRUUUUU
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_181910_199859_C6FAEB3E 
-X-CRM114-Status: UNSURE (   8.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260302_182841_166975_55CB0233 
+X-CRM114-Status: GOOD (  19.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,25 +90,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
-    Sorry, I misunderstood before. I will send this submission 
-separately and independently later.
+On 3/2/2026 6:46 PM, bot+bpf-ci@kernel.org wrote:
+>> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+>> index fc4ccd1de569..ab2bc0850770 100644
+>> --- a/kernel/bpf/verifier.c
+>> +++ b/kernel/bpf/verifier.c
+>> @@ -26086,6 +26086,11 @@ int bpf_check(struct bpf_prog **prog, union bpf_attr *attr, bpfptr_t uattr, __u3
+>>   		convert_pseudo_ld_imm64(env);
+>>   	}
+>>
+>> +	/* constants blinding in the JIT may increase prog->len */
+>> +	len = env->prog->len;
+>> +	if (env->subprog_cnt == 1)
+>> +		env->prog = bpf_prog_select_jit(env->prog, &ret);
+>> +
+>>   	adjust_btf_func(env);
+>>
+>>   err_release_maps:
+> 
+> [ ... ]
+> 
+>> @@ -26111,7 +26116,7 @@ int bpf_check(struct bpf_prog **prog, union bpf_attr *attr, bpfptr_t uattr, __u3
+>>   err_unlock:
+>>   	if (!is_priv)
+>>   		mutex_unlock(&bpf_verifier_lock);
+>> -	clear_insn_aux_data(env, 0, env->prog->len);
+>> +	clear_insn_aux_data(env, 0, len);
+>>   	vfree(env->insn_aux_data);
+> 
+> Can the len variable be stale when reaching clear_insn_aux_data()
+> through an error path?
+> 
+> At the top of bpf_check(), len is first assigned as:
+> 
+>      len = (*prog)->len;
+> 
+> This original value is used to allocate insn_aux_data. Later,
+> instruction rewriting passes like convert_ctx_accesses() and
+> do_misc_fixups() can change env->prog->len and resize
+> insn_aux_data to match via bpf_patch_insn_data().
+> 
+> The second assignment added by this patch:
+> 
+>      len = env->prog->len;
+> 
+> is only reached on the success path, after all instruction
+> rewriting and after the maps/btfs allocation. If an error occurs
+> between the rewriting passes and this reassignment, for example
+> bpf_vlog_finalize() returning an error, copy_to_bpfptr_offset()
+> failing, or kmalloc for used_maps/used_btfs failing, the code
+> jumps to err_release_maps and eventually reaches
+> clear_insn_aux_data(env, 0, len) with the original program length
+> rather than the current post-rewriting length.
+> 
+> If rewriting increased env->prog->len (the common case for
+> programs with context accesses), the iteration stops short of
+> the actual insn_aux_data size, potentially leaking jt fields in
+> the unvisited entries.
+> 
 
-On 2026/2/28 17:50, Krzysztof Kozlowski wrote:
-> On 28/02/2026 08:56, Xianwei Zhao via B4 Relay wrote:
->> From: Xianwei Zhao<xianwei.zhao@amlogic.com>
->>
->> Amlogic A9 SoCs uses the same UART controller as S4 SoCs.
->> There is no need for an extra compatible line in the driver,
->> but add A9 compatible line for documentation.
->>
->> Reviewed-by: Martin Blumenstingl<martin.blumenstingl@googlemail.com>
->> Acked-by: Krzysztof Kozlowski<krzysztof.kozlowski@oss.qualcomm.com>
->> Signed-off-by: Xianwei Zhao<xianwei.zhao@amlogic.com>
-> Really, so just just ignored my feedback?
+Right, len is stale in the error path. I'll fix it in the next version.
+
 > 
-> Shall I NAK your patches so you will respond and implement it?
+> ---
+> AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+> See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
 > 
-> Best regards,
-> Krzysztof
+> CI run summary: https://github.com/kernel-patches/bpf/actions/runs/22571297111
+> 
+> AI-authorship-score: low
+> AI-authorship-explanation: Standard kernel refactoring by a known BPF contributor with non-native English patterns in the commit message.
+> issues-found: 1
+> issue-severity-score: low
+> issue-severity-explanation: Stale len variable in bpf_check error paths can cause insn_aux_data jt field memory leaks when instruction rewriting changed prog->len before an error between rewriting and the len reassignment.
+
 
