@@ -4,84 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E87AEB3641
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 00:44:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21938EB3647
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 00:57:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9uY6r/CRTgiHhL2OQrx3GLqhCDAw3RLkVhh2o2P83uE=; b=R+VcVBlRTMjU/IecGxZDXohpB5
-	rtEsCnPm64c0LxtGwRUtFbyLnU0ypvmwMWhzqt/9eFNc4mM3QGLwPWAyBpC+qlMH9sA0e6KGtlvVy
-	UQ3aykySx9ehxN4q3Mu/k6Z3Y79v2YNkJPkAb6+OURgrDsQOS/8FFnFlGL/xkrvW+3FdmblcAbb6E
-	xFXnN9Wjal2rHe31IuT7gUXOxXuo+m17JmrwZblqVqgs1PmCbmlmpwx3UZHgafQ/cg6oBUEItWTQ9
-	S9q50LLadpEDSS46Oyiz12so7gW+//OxvzaADCJGF4zOsofq6lDKEuj+a3OnhKpQVZn03vYi0qmyl
-	GMP2GLdw==;
+	bh=+DbRpP4pGqX3L3KGnHSAdJ16AaJ96EbWxB7jPQsFqMQ=; b=Ye2UUqM2SDGFGEWJOQnVP2Eyg4
+	FicSi0ic7MTGhFDLH2o/8sTrdbR3dSekBY724h9G1DmY7hho0PpBiJ/f7uQv8iuNl6EKu5odaGwGZ
+	o5VcN6QnflK1phUgO/jNa5JG+BqxRmxpSR5jZs/Zlrb1V0ZLUmto4q38XwPjLWI1UZX5W/9OCiMv1
+	TyPIRTYJzcb70s+34gRobRjDwXeAlRiPTWxLSHGgWnjjW8EqJhwPW8XAd2AW+pUdorf9b2y2yIF0r
+	LMWZKcOVGTsQ5VdvLlyXxb8AM3t0vgF+7ntD2VIqDGrp90fuML2tkbVA4d8NyL+m+xlpqRW7x3Ar3
+	2E5aej6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxDsQ-0000000EHUR-3gQK;
-	Tue, 03 Mar 2026 00:44:42 +0000
-Received: from mail-m9327.xmail.ntesmail.com ([103.126.93.27])
+	id 1vxE4k-0000000EIGW-2NSU;
+	Tue, 03 Mar 2026 00:57:26 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxDsM-0000000EHTN-1eNY;
-	Tue, 03 Mar 2026 00:44:41 +0000
-Received: from [172.16.12.51] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 358184f95;
-	Tue, 3 Mar 2026 08:44:25 +0800 (GMT+08:00)
-Message-ID: <601a8b51-7411-429d-91a1-0633cabce9ee@rock-chips.com>
-Date: Tue, 3 Mar 2026 08:44:23 +0800
+	id 1vxE4h-0000000EIG4-2nrG
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Mar 2026 00:57:25 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2ad617d5b80so32293365ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 16:57:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772499442; x=1773104242; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=+DbRpP4pGqX3L3KGnHSAdJ16AaJ96EbWxB7jPQsFqMQ=;
+        b=YZss9gBUBoCVIcg/So3IWaktOmY7EjsEDVeOfGqcaKQFZefyPiKfZVMdhCS6jelxFC
+         jpnbyAQ9HSPXiw9qExeh5z+6GcB0HcMtDn4Nn4u8gqDqJ2LJVAjVRsuM4/QpTWecMgxz
+         ZvGYOeeZS/qD0bRMUHccRGvnuhrTNGwxmfn9DUwk9t6WKMEMvjaDlNJZdMIw9lvOVDbN
+         7nZRfGK+/4JCWg9I2mZCDyXbUzfeYNEHXohygl6eGuYwFG5OHaMzVsrjkcVkceUoFDJs
+         C87H2fhCmsS6jTKBWBCyaQRd6oi4f4Ftoo9uRWtEISlCitjEY4HhEB3k4VzUtjI+xSbO
+         wZAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772499442; x=1773104242;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+DbRpP4pGqX3L3KGnHSAdJ16AaJ96EbWxB7jPQsFqMQ=;
+        b=fWj0zvZYTZZ36FVr3TyDAcDfJuuutq4484NMoqTMnoyL0bGWSvWeTbGBw7kQutcZJK
+         iycAj7AOa7eMpe0Tir+VQ/VeM+rFXxC0eFRHXMcLyP+Xen7HnMZXOPbY1j3D1dn80e8a
+         hVFuaYBe1I1BmRtOQYuF6+TKfUYbsaN47nYOZ1xSKb3eDcduKAzzb7vOFicGIA1XKrEI
+         +KOjJN+r1ZntXPzHz/+hqHTxnIRsVotXqbEjLiTBuhc1Ln6hBw0W8my+ekX8EXQU4OAN
+         Ao7wxmrj+fJep5zBf/woH+HzrHm26bK5EUprEeSGnENjpM9loulUdOW+ZXxbk+MD2h07
+         at0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVwPIR+4Ie4VBPwV3E0BRJRQqsKhJDU++di3e3U8ayar4NhY1GN9RJi179vr6nADTzA5F9S6noiIjnrEoQV4Vll@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtH8SePFe0+sLB6hQK6mByNPyaU4jZQUePI1yV3j9/lq5h8jWD
+	FAl5opPCiXTbUwYOKTtE/V9aJUXNeeXp6vAP0s1x+v2d6lgdxupFmePc
+X-Gm-Gg: ATEYQzyraXwe2imKKd3v+F0havaf3IBRabsuXs/sob9OyWIVU1N87tAame86BeXU4p5
+	q2toG+ymME3Kdlub5tHHBLF5Q/a6qYRWKtw+P+5VJeM54yjVTqhCINvCzrjQ6pwuFAz5mS6kZE0
+	4ID0E1U7g2nS9ffHlkVXoJPcfNZ0uXeqYWpWh6cwAJEb1jGzJD/qngt0RtN/ITVAyTppIJT/tnw
+	RAijijQZ4nqSHvOkfF65PZ4uoy9iLdQRJhr+1wg7B7idKaBlRqbbHKP0uS28+MPHi89SZ6Kh6g0
+	Op/0ES1cwClSwGy6yC+1BDFRRnkSvWgCr+ugS79UPABln8PzlMsUIPNkH7wXJisUpKDd0fka+Jc
+	8NcUpegKa9B8sXI6ajRVywcJ9UVSkwNkZCc/+HT+v38P6e3Gs6fvGYe131cmfVPuCuFJ6XyuPie
+	w0noE8qRGpa4iTpUNPCBdgAxi2QnuhYEtBeDVr2hwYQ30LFuFVdkl2uZ6bLWz/S9iJj+/T96c=
+X-Received: by 2002:a17:902:d484:b0:29e:c2de:4ad with SMTP id d9443c01a7336-2ae2e42233dmr126907975ad.24.1772499442458;
+        Mon, 02 Mar 2026 16:57:22 -0800 (PST)
+Received: from [172.19.1.48] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2adfb5b22fesm207547505ad.2.2026.03.02.16.57.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 02 Mar 2026 16:57:22 -0800 (PST)
+Message-ID: <1a6cbd56-2e07-42e0-b7e7-959fa2bf6315@gmail.com>
+Date: Tue, 3 Mar 2026 08:57:18 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 7/9] drm/rockchip: cdn-dp: Add multiple bridges to
- support PHY port selection
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Peter Chen <hzpeterchen@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>,
- Yubing Zhang <yubing.zhang@rock-chips.com>,
- Frank Wang <frank.wang@rock-chips.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Amit Sunil Dhamne <amitsd@google.com>,
- Chaoyi Chen <chaoyi.chen@rock-chips.com>, Dragan Simic <dsimic@manjaro.org>,
- Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>,
- Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-References: <20260119073100.143-1-kernel@airkyi.com>
- <20260119073100.143-8-kernel@airkyi.com>
- <DGSHIQOB2YTB.1559SD1YLGT7P@bootlin.com>
+Subject: Re: [PATCH 1/3] dt-bindings: i2c: nuvoton,ma35d1-i2c: Add MA35D1 I2C
+ controller
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: andi.shyti@kernel.org, ychuang3@nuvoton.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, linux-i2c@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260302020822.13936-1-zychennvt@gmail.com>
+ <20260302020822.13936-2-zychennvt@gmail.com>
+ <20260302-agile-mighty-cassowary-ed972e@quoll>
 Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <DGSHIQOB2YTB.1559SD1YLGT7P@bootlin.com>
+From: zychen <zychennvt@gmail.com>
+In-Reply-To: <20260302-agile-mighty-cassowary-ed972e@quoll>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9cb1273e3503abkunmaa7511f4175e64f
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ08ZQlYeTxhOTk1MHRlMQ0tWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpPSE
-	xVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=BErukP3PZLfd7iPLOHE1OrYRIoZtk8n+dgovKUYRJpsxSUOlDRe6bpmSXvw3Li5WLEIsAPXsUrBFxngxxrcMYnwCuN6xofRjSW3hTjSL8pbrVT0NyYVwQb7xw+eo4KDlSt+W57bbknfkB/lpXUMBMA4S0EkMQZVd/YI/KC7H1gk=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=9uY6r/CRTgiHhL2OQrx3GLqhCDAw3RLkVhh2o2P83uE=;
-	h=date:mime-version:subject:message-id:from;
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_164439_078685_F06E7520 
-X-CRM114-Status: GOOD (  36.04  )
+X-CRM114-CacheID: sfid-20260302_165723_711564_F2217390 
+X-CRM114-Status: GOOD (  18.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,524 +105,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Luca,
 
-On 3/3/2026 1:49 AM, Luca Ceresoli wrote:
-> On Mon Jan 19, 2026 at 8:30 AM CET, Chaoyi Chen wrote:
->> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+
+Krzysztof Kozlowski 於 2026/3/2 下午 03:20 寫道:
+> On Mon, Mar 02, 2026 at 02:08:20AM +0000, Zi-Yu Chen wrote:
+>> Add device tree binding documentation for the I2C controller
+>> found in the Nuvoton MA35D1 SoC.
 >>
->> The RK3399 has two USB/DP combo PHY and one CDN-DP controller. And
->> the CDN-DP can be switched to output to one of the PHYs. If both ports
->> are plugged into DP, DP will select the first port for output.
->>
->> This patch adds support for multiple bridges, enabling users to flexibly
->> select the output port. For each PHY port, a separate encoder and bridge
->> are registered.
->>
->> The change is based on the DRM AUX HPD bridge, rather than the
->> extcon approach. This requires the DT to correctly describe the
->> connections between the first bridge in bridge chain and DP
->> controller. For example, the bridge chain may be like this:
->>
->> PHY aux birdge -> fsa4480 analog audio switch bridge ->
->> onnn,nb7vpq904m USB reminder bridge -> USB-C controller AUX HPD bridge
->>
->> In this case, the connection relationships among the PHY aux bridge
->> and the DP contorller need to be described in DT.
->>
->> In addition, the cdn_dp_parse_next_bridge_dt() will parses it and
->> determines whether to register one or two bridges.
->>
->> Since there is only one DP controller, only one of the PHY ports can
->> output at a time. The key is how to switch between different PHYs,
->> which is handled by cdn_dp_switch_port() and cdn_dp_enable().
->>
->> There are two cases:
->>
->> 1. Neither bridge is enabled. In this case, both bridges can
->> independently read the EDID, and the PHY port may switch before
->> reading the EDID.
->>
->> 2. One bridge is already enabled. In this case, other bridges are not
->> allowed to read the EDID. So we will try to return the cached EDID.
->>
->> Since the scenario of two ports plug in at the same time is rare,
->> I don't have a board which support two TypeC connector to test this.
->> Therefore, I tested forced switching on a single PHY port, as well as
->> output using a fake PHY port alongside a real PHY port.
->>
->> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>> Signed-off-by: Zi-Yu Chen <zychennvt@gmail.com>
 >> ---
+>>  .../bindings/i2c/nuvoton,ma35d1-i2c.yaml      | 65 +++++++++++++++++++
+>>  1 file changed, 65 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/i2c/nuvoton,ma35d1-i2c.yaml
 >>
->> (no changes since v11)
->>
->> Changes in v10:
->> - Fix refcount usage of drm_bridge.
->> - Remove unused cdn_dp_next_bridge type.
->>
->> Changes in v9:
->> - Select DRM_AUX_HPD_BRIDGE when using DP driver.
->>
->> (no changes since v7)
->>
->> Changes in v6:
->> - Rename some variable names.
->> - Attach the DP bridge to the next bridge.
->>
->> Changes in v5:
->> - By parsing the HPD bridge chain, set the connector's of_node to the
->> of_node corresponding to the USB-C connector.
->> - Return EDID cache when other port is already enabled.
->> ---
->>
->>  drivers/gpu/drm/rockchip/Kconfig       |   1 +
->>  drivers/gpu/drm/rockchip/cdn-dp-core.c | 325 ++++++++++++++++++++-----
->>  drivers/gpu/drm/rockchip/cdn-dp-core.h |  18 +-
->>  3 files changed, 287 insertions(+), 57 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/rockchip/Kconfig b/drivers/gpu/drm/rockchip/Kconfig
->> index b7b025814e72..10d9f29a3d44 100644
->> --- a/drivers/gpu/drm/rockchip/Kconfig
->> +++ b/drivers/gpu/drm/rockchip/Kconfig
->> @@ -56,6 +56,7 @@ config ROCKCHIP_CDN_DP
->>  	select DRM_DISPLAY_HELPER
->>  	select DRM_BRIDGE_CONNECTOR
->>  	select DRM_DISPLAY_DP_HELPER
->> +	select DRM_AUX_HPD_BRIDGE
->>  	help
->>  	  This selects support for Rockchip SoC specific extensions
->>  	  for the cdn DP driver. If you want to enable Dp on
->> diff --git a/drivers/gpu/drm/rockchip/cdn-dp-core.c b/drivers/gpu/drm/rockchip/cdn-dp-core.c
->> index 1e27301584a4..0bc3d248c266 100644
->> --- a/drivers/gpu/drm/rockchip/cdn-dp-core.c
->> +++ b/drivers/gpu/drm/rockchip/cdn-dp-core.c
->> @@ -27,16 +27,17 @@
->>  #include "cdn-dp-core.h"
->>  #include "cdn-dp-reg.h"
->>
->> -static inline struct cdn_dp_device *bridge_to_dp(struct drm_bridge *bridge)
->> +static int cdn_dp_switch_port(struct cdn_dp_device *dp, struct cdn_dp_port *prev_port,
->> +			      struct cdn_dp_port *port);
+>> diff --git a/Documentation/devicetree/bindings/i2c/nuvoton,ma35d1-i2c.yaml b/Documentation/devicetree/bindings/i2c/nuvoton,ma35d1-i2c.yaml
+>> new file mode 100644
+>> index 000000000000..fa8b01e2c5b1
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/i2c/nuvoton,ma35d1-i2c.yaml
+>> @@ -0,0 +1,65 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/i2c/nuvoton,ma35d1-i2c.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 >> +
->> +static inline struct cdn_dp_bridge *bridge_to_dp_bridge(struct drm_bridge *bridge)
->>  {
->> -	return container_of(bridge, struct cdn_dp_device, bridge);
->> +	return container_of(bridge, struct cdn_dp_bridge, bridge);
->>  }
->>
->> -static inline struct cdn_dp_device *encoder_to_dp(struct drm_encoder *encoder)
->> +static inline struct cdn_dp_device *bridge_to_dp(struct drm_bridge *bridge)
->>  {
->> -	struct rockchip_encoder *rkencoder = to_rockchip_encoder(encoder);
->> -
->> -	return container_of(rkencoder, struct cdn_dp_device, encoder);
->> +	return bridge_to_dp_bridge(bridge)->parent;
->>  }
->>
->>  #define GRF_SOC_CON9		0x6224
->> @@ -191,14 +192,27 @@ static int cdn_dp_get_sink_count(struct cdn_dp_device *dp, u8 *sink_count)
->>  static struct cdn_dp_port *cdn_dp_connected_port(struct cdn_dp_device *dp)
->>  {
->>  	struct cdn_dp_port *port;
->> -	int i, lanes;
->> +	int i, lanes[MAX_PHY];
->>
->>  	for (i = 0; i < dp->ports; i++) {
->>  		port = dp->port[i];
->> -		lanes = cdn_dp_get_port_lanes(port);
->> -		if (lanes)
->> +		lanes[i] = cdn_dp_get_port_lanes(port);
->> +		if (!dp->next_bridge_valid)
->>  			return port;
->>  	}
+>> +title: Nuvoton MA35D1 I2C Controller
 >> +
->> +	if (dp->next_bridge_valid) {
->> +		/* If more than one port is available, pick the last active port */
->> +		if (dp->active_port > 0 && lanes[dp->active_port])
->> +			return dp->port[dp->active_port];
+>> +maintainers:
+>> +  - Zi-Yu Chen <zychennvt@gmail.com>
 >> +
->> +		/* If the last active port is not available, pick an available port in order */
->> +		for (i = 0; i < dp->bridge_count; i++) {
->> +			if (lanes[i])
->> +				return dp->port[i];
->> +		}
->> +	}
->> +
->>  	return NULL;
->>  }
->>
->> @@ -253,12 +267,45 @@ static const struct drm_edid *
->>  cdn_dp_bridge_edid_read(struct drm_bridge *bridge, struct drm_connector *connector)
->>  {
->>  	struct cdn_dp_device *dp = bridge_to_dp(bridge);
->> -	const struct drm_edid *drm_edid;
->> +	struct cdn_dp_bridge *dp_bridge = bridge_to_dp_bridge(bridge);
->> +	struct cdn_dp_port *port = dp->port[dp_bridge->id];
->> +	struct cdn_dp_port *prev_port;
->> +	const struct drm_edid *drm_edid = NULL;
->> +	int i, ret;
->>
->>  	mutex_lock(&dp->lock);
->> +
->> +	/* More than one port is available */
->> +	if (dp->bridge_count > 1 && !port->phy_enabled) {
->> +		for (i = 0; i < dp->bridge_count; i++) {
->> +			/* Another port already enable */
->> +			if (dp->bridge_list[i] != dp_bridge && dp->bridge_list[i]->enabled)
->> +				goto get_cache;
->> +			/* Find already enabled port */
->> +			if (dp->port[i]->phy_enabled)
->> +				prev_port = dp->port[i];
->> +		}
->> +
->> +		/* Switch to current port */
->> +		if (prev_port) {
->> +			ret = cdn_dp_switch_port(dp, prev_port, port);
->> +			if (ret)
->> +				goto get_cache;
->> +		}
->> +	}
->> +
->>  	drm_edid = drm_edid_read_custom(connector, cdn_dp_get_edid_block, dp);
->> +	/* replace edid cache */
->> +	if (dp->edid_cache[dp_bridge->id])
->> +		drm_edid_free(dp->edid_cache[dp_bridge->id]);
->> +	dp->edid_cache[dp_bridge->id] = drm_edid_dup(drm_edid);
->> +
->>  	mutex_unlock(&dp->lock);
->> +	return drm_edid;
->>
->> +get_cache:
->> +	drm_edid = drm_edid_dup(dp->edid_cache[dp_bridge->id]);
->> +	mutex_unlock(&dp->lock);
->>  	return drm_edid;
->>  }
->>
->> @@ -267,12 +314,13 @@ cdn_dp_bridge_mode_valid(struct drm_bridge *bridge,
->>  			 const struct drm_display_info *display_info,
->>  			 const struct drm_display_mode *mode)
->>  {
->> +	struct cdn_dp_bridge *dp_bridge = bridge_to_dp_bridge(bridge);
->>  	struct cdn_dp_device *dp = bridge_to_dp(bridge);
->>  	u32 requested, actual, rate, sink_max, source_max = 0;
->>  	u8 lanes, bpc;
->>
->>  	/* If DP is disconnected, every mode is invalid */
->> -	if (!dp->connected)
->> +	if (!dp_bridge->connected || !dp->connected)
->>  		return MODE_BAD;
->>
->>  	switch (display_info->bpc) {
->> @@ -550,6 +598,54 @@ static bool cdn_dp_check_link_status(struct cdn_dp_device *dp)
->>  	return drm_dp_channel_eq_ok(link_status, min(port->lanes, sink_lanes));
->>  }
->>
->> +static int cdn_dp_switch_port(struct cdn_dp_device *dp, struct cdn_dp_port *prev_port,
->> +			      struct cdn_dp_port *port)
->> +{
->> +	int ret;
->> +
->> +	if (dp->active)
->> +		return 0;
->> +
->> +	ret = cdn_dp_disable_phy(dp, prev_port);
->> +	if (ret)
->> +		goto out;
->> +	ret = cdn_dp_enable_phy(dp, port);
->> +	if (ret)
->> +		goto out;
->> +
->> +	ret = cdn_dp_get_sink_capability(dp);
->> +	if (ret) {
->> +		cdn_dp_disable_phy(dp, port);
->> +		goto out;
->> +	}
->> +
->> +	dp->active = true;
->> +	dp->lanes = port->lanes;
->> +
->> +	if (!cdn_dp_check_link_status(dp)) {
->> +		dev_info(dp->dev, "Connected with sink; re-train link\n");
->> +
->> +		ret = cdn_dp_train_link(dp);
->> +		if (ret) {
->> +			dev_err(dp->dev, "Training link failed: %d\n", ret);
->> +			goto out;
->> +		}
->> +
->> +		ret = cdn_dp_set_video_status(dp, CONTROL_VIDEO_IDLE);
->> +		if (ret) {
->> +			dev_err(dp->dev, "Failed to idle video %d\n", ret);
->> +			goto out;
->> +		}
->> +
->> +		ret = cdn_dp_config_video(dp);
->> +		if (ret)
->> +			dev_err(dp->dev, "Failed to configure video: %d\n", ret);
->> +	}
->> +
->> +out:
->> +	return ret;
->> +}
->> +
->>  static void cdn_dp_display_info_update(struct cdn_dp_device *dp,
->>  				       struct drm_display_info *display_info)
->>  {
->> @@ -571,6 +667,7 @@ static void cdn_dp_display_info_update(struct cdn_dp_device *dp,
->>  static void cdn_dp_bridge_atomic_enable(struct drm_bridge *bridge, struct drm_atomic_state *state)
->>  {
->>  	struct cdn_dp_device *dp = bridge_to_dp(bridge);
->> +	struct cdn_dp_bridge *dp_bridge = bridge_to_dp_bridge(bridge);
->>  	struct drm_connector *connector;
->>  	int ret, val;
->>
->> @@ -580,7 +677,7 @@ static void cdn_dp_bridge_atomic_enable(struct drm_bridge *bridge, struct drm_at
->>
->>  	cdn_dp_display_info_update(dp, &connector->display_info);
->>
->> -	ret = drm_of_encoder_active_endpoint_id(dp->dev->of_node, &dp->encoder.encoder);
->> +	ret = drm_of_encoder_active_endpoint_id(dp->dev->of_node, &dp_bridge->encoder.encoder);
->>  	if (ret < 0) {
->>  		DRM_DEV_ERROR(dp->dev, "Could not get vop id, %d", ret);
->>  		return;
->> @@ -599,6 +696,9 @@ static void cdn_dp_bridge_atomic_enable(struct drm_bridge *bridge, struct drm_at
->>
->>  	mutex_lock(&dp->lock);
->>
->> +	if (dp->next_bridge_valid)
->> +		dp->active_port = dp_bridge->id;
->> +
->>  	ret = cdn_dp_enable(dp);
->>  	if (ret) {
->>  		DRM_DEV_ERROR(dp->dev, "Failed to enable bridge %d\n",
->> @@ -631,6 +731,7 @@ static void cdn_dp_bridge_atomic_enable(struct drm_bridge *bridge, struct drm_at
->>  		goto out;
->>  	}
->>
->> +	dp_bridge->enabled = true;
->>  out:
->>  	mutex_unlock(&dp->lock);
->>  }
->> @@ -638,9 +739,11 @@ static void cdn_dp_bridge_atomic_enable(struct drm_bridge *bridge, struct drm_at
->>  static void cdn_dp_bridge_atomic_disable(struct drm_bridge *bridge, struct drm_atomic_state *state)
->>  {
->>  	struct cdn_dp_device *dp = bridge_to_dp(bridge);
->> +	struct cdn_dp_bridge *dp_bridge = bridge_to_dp_bridge(bridge);
->>  	int ret;
->>
->>  	mutex_lock(&dp->lock);
->> +	dp_bridge->enabled = false;
->>
->>  	if (dp->active) {
->>  		ret = cdn_dp_disable(dp);
->> @@ -827,6 +930,16 @@ static int cdn_dp_audio_mute_stream(struct drm_bridge *bridge,
->>  	return ret;
->>  }
->>
->> +static void cdn_dp_bridge_hpd_notify(struct drm_bridge *bridge,
->> +			   enum drm_connector_status status)
->> +{
->> +	struct cdn_dp_bridge *dp_bridge = bridge_to_dp_bridge(bridge);
->> +	struct cdn_dp_device *dp = bridge_to_dp(bridge);
->> +
->> +	dp->bridge_list[dp_bridge->id]->connected = status == connector_status_connected;
->> +	schedule_work(&dp->event_work);
->> +}
->> +
->>  static const struct drm_bridge_funcs cdn_dp_bridge_funcs = {
->>  	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
->>  	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
->> @@ -837,6 +950,7 @@ static const struct drm_bridge_funcs cdn_dp_bridge_funcs = {
->>  	.atomic_disable = cdn_dp_bridge_atomic_disable,
->>  	.mode_valid = cdn_dp_bridge_mode_valid,
->>  	.mode_set = cdn_dp_bridge_mode_set,
->> +	.hpd_notify = cdn_dp_bridge_hpd_notify,
->>
->>  	.dp_audio_prepare = cdn_dp_audio_prepare,
->>  	.dp_audio_mute_stream = cdn_dp_audio_mute_stream,
->> @@ -885,7 +999,8 @@ static void cdn_dp_pd_event_work(struct work_struct *work)
->>  {
->>  	struct cdn_dp_device *dp = container_of(work, struct cdn_dp_device,
->>  						event_work);
->> -	int ret;
->> +	bool connected;
->> +	int i, ret;
->>
->>  	mutex_lock(&dp->lock);
->>
->> @@ -944,9 +1059,12 @@ static void cdn_dp_pd_event_work(struct work_struct *work)
->>
->>  out:
->>  	mutex_unlock(&dp->lock);
->> -	drm_bridge_hpd_notify(&dp->bridge,
->> -			      dp->connected ? connector_status_connected
->> -					    : connector_status_disconnected);
->> +	for (i = 0; i < dp->bridge_count; i++) {
->> +		connected = dp->connected && dp->bridge_list[i]->connected;
->> +		drm_bridge_hpd_notify(&dp->bridge_list[i]->bridge,
->> +				      connected ? connector_status_connected
->> +						: connector_status_disconnected);
->> +	}
->>  }
->>
->>  static int cdn_dp_pd_event(struct notifier_block *nb,
->> @@ -966,28 +1084,16 @@ static int cdn_dp_pd_event(struct notifier_block *nb,
->>  	return NOTIFY_DONE;
->>  }
->>
->> -static int cdn_dp_bind(struct device *dev, struct device *master, void *data)
->> +static int cdn_bridge_add(struct device *dev,
->> +			  struct drm_bridge *bridge,
->> +			  struct drm_bridge *next_bridge,
->> +			  struct drm_encoder *encoder)
->>  {
->>  	struct cdn_dp_device *dp = dev_get_drvdata(dev);
->> -	struct drm_encoder *encoder;
->> +	struct drm_device *drm_dev = dp->drm_dev;
->> +	struct drm_bridge *last_bridge __free(drm_bridge_put) = NULL;
->>  	struct drm_connector *connector;
->> -	struct cdn_dp_port *port;
->> -	struct drm_device *drm_dev = data;
->> -	int ret, i;
->> -
->> -	ret = cdn_dp_parse_dt(dp);
->> -	if (ret < 0)
->> -		return ret;
->> -
->> -	dp->drm_dev = drm_dev;
->> -	dp->connected = false;
->> -	dp->active = false;
->> -	dp->active_port = -1;
->> -	dp->fw_loaded = false;
->> -
->> -	INIT_WORK(&dp->event_work, cdn_dp_pd_event_work);
->> -
->> -	encoder = &dp->encoder.encoder;
->> +	int ret;
->>
->>  	encoder->possible_crtcs = drm_of_find_possible_crtcs(drm_dev,
->>  							     dev->of_node);
->> @@ -1002,26 +1108,35 @@ static int cdn_dp_bind(struct device *dev, struct device *master, void *data)
->>
->>  	drm_encoder_helper_add(encoder, &cdn_dp_encoder_helper_funcs);
->>
->> -	dp->bridge.ops =
->> -			DRM_BRIDGE_OP_DETECT |
->> -			DRM_BRIDGE_OP_EDID |
->> -			DRM_BRIDGE_OP_HPD |
->> -			DRM_BRIDGE_OP_DP_AUDIO;
->> -	dp->bridge.of_node = dp->dev->of_node;
->> -	dp->bridge.type = DRM_MODE_CONNECTOR_DisplayPort;
->> -	dp->bridge.hdmi_audio_dev = dp->dev;
->> -	dp->bridge.hdmi_audio_max_i2s_playback_channels = 8;
->> -	dp->bridge.hdmi_audio_spdif_playback = 1;
->> -	dp->bridge.hdmi_audio_dai_port = -1;
->> -
->> -	ret = devm_drm_bridge_add(dev, &dp->bridge);
->> +	bridge->ops =
->> +		DRM_BRIDGE_OP_DETECT |
->> +		DRM_BRIDGE_OP_EDID |
->> +		DRM_BRIDGE_OP_HPD |
->> +		DRM_BRIDGE_OP_DP_AUDIO;
->> +	bridge->of_node = dp->dev->of_node;
->> +	bridge->type = DRM_MODE_CONNECTOR_DisplayPort;
->> +	bridge->hdmi_audio_dev = dp->dev;
->> +	bridge->hdmi_audio_max_i2s_playback_channels = 8;
->> +	bridge->hdmi_audio_spdif_playback = 1;
->> +	bridge->hdmi_audio_dai_port = -1;
->> +
->> +	ret = devm_drm_bridge_add(dev, bridge);
->>  	if (ret)
->>  		return ret;
->>
->> -	ret = drm_bridge_attach(encoder, &dp->bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
->> +	ret = drm_bridge_attach(encoder, bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
->>  	if (ret)
->>  		return ret;
->>
->> +	if (next_bridge) {
->> +		ret = drm_bridge_attach(encoder, next_bridge, bridge,
->> +					DRM_BRIDGE_ATTACH_NO_CONNECTOR);
->> +		if (ret)
->> +			return ret;
->> +
->> +		last_bridge = drm_bridge_chain_get_last_bridge(bridge->encoder);
->> +	}
->> +
->>  	connector = drm_bridge_connector_init(drm_dev, encoder);
->>  	if (IS_ERR(connector)) {
->>  		ret = PTR_ERR(connector);
->> @@ -1029,8 +1144,100 @@ static int cdn_dp_bind(struct device *dev, struct device *master, void *data)
->>  		return ret;
->>  	}
->>
->> +	if (last_bridge)
->> +		connector->fwnode = fwnode_handle_get(of_fwnode_handle(last_bridge->of_node));
->> +
->>  	drm_connector_attach_encoder(connector, encoder);
->>
->> +	return 0;
->> +}
->> +
->> +static int cdn_dp_parse_next_bridge_dt(struct cdn_dp_device *dp)
->> +{
->> +	struct device_node *np = dp->dev->of_node;
->> +	struct device_node *port __free(device_node) = of_graph_get_port_by_id(np, 1);
->> +	struct drm_bridge *bridge;
->> +	int count = 0;
->> +	int ret = 0;
->> +	int i;
->> +
->> +	/* If device use extcon, do not use hpd bridge */
->> +	for (i = 0; i < dp->ports; i++) {
->> +		if (dp->port[i]->extcon) {
->> +			dp->bridge_count = 1;
->> +			return 0;
->> +		}
->> +	}
->> +
->> +	/* One endpoint may correspond to one next bridge. */
->> +	for_each_of_graph_port_endpoint(port, dp_ep) {
->> +		struct device_node *next_bridge_node __free(device_node) =
->> +			of_graph_get_remote_port_parent(dp_ep);
->> +
->> +		bridge = of_drm_find_bridge(next_bridge_node);
->> +		if (!bridge) {
->> +			ret = -EPROBE_DEFER;
->> +			goto out;
->> +		}
->> +
->> +		drm_bridge_get(bridge);
->> +		dp->next_bridge_valid = true;
->> +		dp->next_bridge_list[count] = bridge;
+>> +description: |
 > 
-> Correct, but the drm_bridge_get() slightly far away from the assignement is
-> a bit misleading. I hadn't seen it initially so I suspected a missing get.
+> Do not need '|' unless you need to preserve formatting.
+will fix in v2.
 > 
-> I suggest to do it in a single statement, for clarity:
+>> +  The Nuvoton MA35D1 I2C controller supports master mode and optional
+>> +  slave mode operation. The controller is configured via Device Tree
 > 
-> 		dp->next_bridge_list[count] = bridgedrm_bridge_get(bridge);
->
+> Use modern naming, not master/slave.
+> 
+>> +  and supports interrupt-driven I2C transfers.
+> 
+> Drop "The controller is configured via Device Tree", because it is
+> completely irrelevant. Why telling in DT binding that you use DT? Can
+> you use ACPI here?
+> 
+> And with dropping this it could be one simple sentence.
+> 
+Acknowledged. I plan to simplify the description in v2 as follows:
 
-I think the bridgedrm_bridge_get here seems to be a typo?
-
-Anyway, thank you very much for your efforts on the bridge lifetime.
-I will fix this in the next version :)
-
-> With that changed, at least for the bridge lifetime aspects, you can add to
-> the next version my:
+'The Nuvoton MA35D1 I2C controller supports controller and optional target mode.'
+> With these changes:
 > 
->  Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 > 
-> Luca
+> Best regards,
+> Krzysztof
 > 
-> --
-> Luca Ceresoli, Bootlin
-> Embedded Linux and Kernel engineering
-> https://bootlin.com
-> 
-
--- 
-Best, 
-Chaoyi
+Thanks!
 
