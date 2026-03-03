@@ -4,93 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5070EC0485
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 10:16:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7506CEA4E18
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 10:22:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hV7pmbruCuv2YT3GXeR/WB6MvDM5iYmpBJg+CzfkEy0=; b=Vop1AmdjZ1txLfQX+aZR+Iymfh
-	zcSDdbLClP/jKu2EILdanGUAmOwZay9A5uwuCPDIhf2olFdhSZ3JKXA1zNu0fv7LiI4zVUAcwjqFu
-	wOEwTpjnhS74nhvADA1Bl5z70rKDvoZoTw8W5P3X1EA8BeKt2rzO5lfnn9fSLgeyhgDvqTpd4J95X
-	kwoTGeHFxpHyLoV0T4H5Gjb1Wbu0nNj/yj6lk4WUzPRNldKiqPFl0afbg4QAEGth0XIazDYyh7d8W
-	yJ87UNBeFdXhZ200WZ2iB/hjJPqGe311/89F6GJjcrpOamh4DY/+r4r6ArH9QJ/yqrmErwKiCrryq
-	/DQGoPww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cQst+PSOV/+vNa7AIa+9u6jBKddkoF+Y1hVwXQIv8B0=; b=0MAw5TeBvaR63O28RMN71CBzMt
+	Y4VokFp/A0IEV2UxGwcnY21bxoEeuL7krq5glhvBkjIw+7mhD2cQXsCtJOUvGyI1q5JZGXcFuhbN2
+	QWg7uabxSC2phb2k1BrCCEPQTIP2QcR2sUDEsaYjuegkGI6gYsmWZsmDVw5S8J1xQVwXj/6lCHnST
+	JrWpXbh5DgixrdScDjkc9pCPuJm0bWVklwdDmeWFWddn9iGyDbbl3I7MOVi96eDFXKr2FgrUmuoUY
+	BaN94LITsElJPUeQTtQoR9HDZTk5Yw5CQ0t9L+NO4V4NmKX3bE79prEw0LJMFj0fxWZXcjoWs5J69
+	/6IbkDBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxMnV-0000000EwyT-0nvp;
-	Tue, 03 Mar 2026 10:16:13 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vxMtw-0000000ExGh-08gj;
+	Tue, 03 Mar 2026 10:22:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxMnT-0000000Ewxw-2V5n;
-	Tue, 03 Mar 2026 10:16:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1772532960; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Ld3WEFmDwMm4C8fsVqUW9jEYfexkJC1pErlxbI/bd/u9wIjtVtvEVj8KmR0gRsm98qMtTP6QY8zJumJp5cYAbNZWQ35InHNDLhk/8GhbAljJwLPwqVX4HhwIgZCxfoTb6rKos4yI3CDdMlV0qY8RELcbxWOIMcCzdIgBitH8UZQ=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1772532960; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=hV7pmbruCuv2YT3GXeR/WB6MvDM5iYmpBJg+CzfkEy0=; 
-	b=JtfUa7LseAVWU3UlSAtrwverfSpUtmpCjPEyafLJjiAK3vZ00o/14AaNVB0IC70ImJhgp7ji1aDL4FQEazN6WfPdPiJdPZoBhN524W9lLhn7hANpCraR/BdYv3XF6P96rXwCvpIsHE6aZPmY1cRXTN3ltHcCNeu19Hcogp4glyY=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772532960;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=hV7pmbruCuv2YT3GXeR/WB6MvDM5iYmpBJg+CzfkEy0=;
-	b=F5qPoP+y66wlCndzg6MYVKVtavNrhdcVXA/icpMvQ4iG7XzaZ+AdmtKjIhnioEfD
-	CCg27jDedafjWLNPBfBCXN9pwPOraOvLcdYQVMKXZobzVBaGUxoDNoAY8wYQgSKj33g
-	tDgvFKaUVkCZ8FpdhOGOEpFy3i1HslBStZudJQac=
-Received: by mx.zohomail.com with SMTPS id 1772532958810282.7970747621265;
-	Tue, 3 Mar 2026 02:15:58 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: "chu.stanley@gmail.com" <chu.stanley@gmail.com>,
- "robh@kernel.org" <robh@kernel.org>,
- Chunfeng Yun =?UTF-8?B?KOS6keaYpeWzsCk=?= <Chunfeng.Yun@mediatek.com>,
- "kishon@kernel.org" <kishon@kernel.org>,
- "James.Bottomley@HansenPartnership.com"
- <James.Bottomley@hansenpartnership.com>,
- "bvanassche@acm.org" <bvanassche@acm.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Chaotian Jing =?UTF-8?B?KOS6leacneWkqSk=?= <Chaotian.Jing@mediatek.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "lgirdwood@gmail.com" <lgirdwood@gmail.com>,
- "vkoul@kernel.org" <vkoul@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
- "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "avri.altman@wdc.com" <avri.altman@wdc.com>,
- "broonie@kernel.org" <broonie@kernel.org>,
- "martin.petersen@oracle.com" <martin.petersen@oracle.com>,
- Peter Wang =?UTF-8?B?KOeOi+S/oeWPiyk=?= <peter.wang@mediatek.com>
-Cc: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- "kernel@collabora.com" <kernel@collabora.com>
-Subject: Re: [PATCH v7 20/23] scsi: ufs: mediatek: Back up idle timer in per-instance
- struct
-Date: Tue, 03 Mar 2026 11:15:51 +0100
-Message-ID: <3072176.mvXUDI8C0e@workhorse>
-In-Reply-To: <0bef3e1592e64f74e6a6fd8ef59129ac71b307e4.camel@mediatek.com>
-References: <20260216-mt8196-ufs-v7-0-b5f2907c6da7@collabora.com>
- <48e8f40b-f5f3-42b5-a97b-7a25d1dc0fb8@collabora.com>
- <0bef3e1592e64f74e6a6fd8ef59129ac71b307e4.camel@mediatek.com>
+	id 1vxMtt-0000000ExGR-3xd2;
+	Tue, 03 Mar 2026 10:22:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=cQst+PSOV/+vNa7AIa+9u6jBKddkoF+Y1hVwXQIv8B0=; b=n3dZti6Jeh596zuvjgaB4UqdOU
+	bVXr1jRGzjGnFKmHpVqH/fTweV9aehP24DyvUX5ab12aou5Y5Ff5Hgo8IgNqq1t0W6/uU3/xeqfaJ
+	5Pl3ypEImlpBu1sY9by8fNgr6TUBt+0rVkUuz502bZ5TF/PSNNZOwl/mR6kuRctLoyxU0CwZONEax
+	4Q89dqFMZgXZe6wIfk4ceKtFM3Yo0RD4jAEbmyz0e5BThNoTshilJw5p+qa7iBUMMabXvmTgBwEHm
+	qckf5zqn97c+H1NDBO3Or0b9EfV88kUPye7Jkz06304smXxYnH1qiF+7sEl5BlSudNfikxG/7fEmP
+	lPtlhJIw==;
+Received: from mout.web.de ([212.227.17.12])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxMtp-000000026Tn-3uZw;
+	Tue, 03 Mar 2026 10:22:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1772533344; x=1773138144; i=markus.elfring@web.de;
+	bh=cQst+PSOV/+vNa7AIa+9u6jBKddkoF+Y1hVwXQIv8B0=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=bJ0dKuac2Zj/y1ysNiPEPkZX28t6flUPArmQxQArMoV+2uv6JLWmqO2P3CtoiRUX
+	 oTTbOFQIKPV4eiDJa+731pwHaTa5KnngtqsC06kle4wz4zQ6zn4gSCrXONo8hkmvF
+	 cbR9Xz1eAO2jzd0jhvQvWNqNO4mOYqp8gQmF744Dp88o8+6SOCt+4tvP6IBXxbodc
+	 RxT4tIPEYzANFfJuXZtY97j2nhag1hL0nHH6UujdDgfnGOcqQQ+FVBZOttYY22GtN
+	 BEXJYEfp5q218x1L4ijSfiRsesJegseC/Xp61W5sok7gvuq8jlDwtQ5QJ1868Q7Iq
+	 v60H3TMsEiixhZRv4w==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1N79N8-1vcM042M72-013J3L; Tue, 03
+ Mar 2026 11:22:24 +0100
+Message-ID: <11b010bd-3435-4e78-bfcc-4bbc13106429@web.de>
+Date: Tue, 3 Mar 2026 11:22:18 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+To: Chun-Hung Wu <chun-hung.wu@mediatek.com>,
+ Walter Chang <walter.chang@mediatek.com>,
+ Zhipeng Wang <zhipeng.wang_1@nxp.com>, linux-mediatek@lists.infradead.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ kernel@pengutronix.de
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ Alexandre Mergnat <amergnat@baylibre.com>,
+ Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>,
+ Jindong Yue <jindong.yue@nxp.com>, John Stultz <jstultz@google.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Richard Liu
+ <xuegang.liu@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>, Thomas Gleixner <tglx@kernel.org>
+References: <20260119095511.3030739-4-zhipeng.wang_1@nxp.com>
+Subject: Re: [PATCH v2 3/4] clocksource/drivers/timer-mediatek: Make
+ timer-mediatek become loadable module
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20260119095511.3030739-4-zhipeng.wang_1@nxp.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+X-Provags-ID: V03:K1:aYut6SNpFH3u9i+TdmBskbprmbJGoCn7YPSgqI8npb+W9tqMPs5
+ qwAY5huDYPiwt6IZovA33pZN9T/vQeR5ThmUhWUBkOTUqfirMVcDJ/+gA/9RoxIl0YvsUjb
+ 2DeRjGdmA7CxRcvXRdQFWxixHXJtcqeHsdNxVHN1aqwqGD1fG9lur2l4M0x4z5pETW7XomR
+ WneiPGXsgmW+eGv39GxWQ==
+UI-OutboundReport: notjunk:1;M01:P0:duAUeuz/2+s=;/uPyBeUCY5kCDowLloTnNl3fY47 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 eJ0iZtUXCCFKsz90yxCQvcv4fQn+u
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_021611_689149_0428CD6A 
-X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-CacheID: sfid-20260303_102246_271107_70099E13 
+X-CRM114-Status: UNSURE (   5.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,27 +107,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tuesday, 3 March 2026 09:01:14 Central European Standard Time Peter Wang=
- (=E7=8E=8B=E4=BF=A1=E5=8F=8B) wrote:
-> On Thu, 2026-02-26 at 11:36 +0100, AngeloGioacchino Del Regno wrote:
-> >=20
-> > Okay, does "saved_auto_hibern8_idle_tmr" sound good for you instead?
-> >=20
-> > Regards,
-> > Angelo
-> >=20
-> >=20
->=20
-> Hi AngeloGioacchino,
->=20
-> I=E2=80=99m fine with saved_auto_hibern8_idle_tmr, but it is more=20
-> verbose compared to saved_ahit.
->=20
-> Thanks
-> Peter
->=20
+> Make the timer-mediatek driver which can register
+> an always-on timer as tick_broadcast_device on
+> MediaTek SoCs become loadable module in GKI.
 
-Yeah no I won't change this, this is pointless bikeshedding.
+* You may occasionally put more than 49 characters into text lines
+  of such a change description.
+  https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/=
+Documentation/process/submitting-patches.rst?h=3Dv7.0-rc2#n659
+
+* Would a summary phrase like =E2=80=9CConvert timer-mediatek to a loadabl=
+e module=E2=80=9D
+  be more appropriate?
 
 
+Regards,
+Markus
 
