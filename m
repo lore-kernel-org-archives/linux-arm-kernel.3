@@ -4,95 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8839EEC143A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 13:04:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F90AEC1430
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 13:09:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ujJjOXwp1B00CXBJxDSR0PozV3hdAFObj5OsSe0vKOg=; b=tz0Rb6wYS9nbDx6+DQWNQWE2T9
-	z/stnNJcR8xIxbnZJftIWzHxKMXLhwjklA5DrGeem97cH7N1SqHTIPJTX7nyYb9vlE7o15jllETwd
-	zzeEfdGPrERuROzjo3ukxsjER4G4CRjlDPndB6UdJyJU33fncwODMn36H5pgPquBZWkFbAr01CgQi
-	GnAO7xUIrigS0i0mRoCRSxNSKRnp4j8AIFEPRd4q03+Zf9ulSXQVzTd1LyRIFBTWulem6+xr9P52P
-	ZwKJSzkDDDfgJLRcHMQ2RmK4vXjBGX989JvpzX/0F/ghSSfGaPCjAWJES9y4wBCADLsSUQoC98ulF
-	NYzD7PcA==;
+	bh=5vBZ5PJkHESyCV5e9xRXiXDPbMqR05XBHLWI721cqeg=; b=gnSU9Aa6f7tJQtJpC1vLQMAA48
+	gYH7vww/OYT3BFJGOEVLNwFJuqVblINsGbOOIURMbuQ1cpOuaij7jr+8xo1Rqq0eS3Gd765K9iKI0
+	98TKgE6vmODcQPUDHvcHAoHvemt6I8xYRAuFn+TiE9/JR6kcDFv/kjem6+7EMw/R6GjAltI4rls9V
+	nOtEatPLXg9PKbbbJZmGDWsbtrUB8RO1jG+abxQdXSC98kM8ETdJG8uZE6fPe79PjqPuBjkc0hl1U
+	aDPZCjeCt3ivtCoGZL/JZJf002TEReLxxU1PsZC4h4/QmaPH/htBvsEkwacQ3c1M2946eF8LUBpvn
+	baSMcBnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxPQi-0000000FBsV-0PdM;
-	Tue, 03 Mar 2026 13:04:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxPQg-0000000FBs8-0eqJ
+	id 1vxPUf-0000000FC7G-0zjI;
+	Tue, 03 Mar 2026 13:08:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxPUc-0000000FC6m-1cAk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 13:04:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D6A7340A2B;
-	Tue,  3 Mar 2026 13:04:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAD39C116C6;
-	Tue,  3 Mar 2026 13:04:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772543088;
-	bh=IG6eXMcFbpNcVG8M+Dn2WriZnMl877owaXZzF3mype0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=La3SdtatLBf9Taf20cBF0nQnwSNfJ4syGQDs1/zNPKFs7urUL4aVtwClyNJ4rwZ+k
-	 dI2Y0vxzaO2BfBICJbg6NwDGKIm6tH2dgBl+IpdASu/sDuqJOMI6URcuGFX5fxUpu0
-	 4mji7MordsO+8QJ31TWo1lAGt17Io86AptrK0JjortA5OGTaEbmYJH//uHGADTu1Qj
-	 9c30aRw5mqjPWhvrzvPx9EgC4dgM+qMK3/fn7kWBIALsvZZO2yTXqG13pu7Qcfi9sM
-	 EGuLorjTBZt5LzZe4M1MP9UbI9YVuez4NCGsPDWPnpUeXY6BaorjI9PgDrbw/gnz4u
-	 gc8iiKnNtg9Uw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vxPQc-0000000Fd5P-0pn9;
-	Tue, 03 Mar 2026 13:04:46 +0000
-Date: Tue, 03 Mar 2026 13:04:45 +0000
-Message-ID: <86ikbd83o2.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Steven Price <steven.price@arm.com>,
-	kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>
-Subject: Re: [PATCH v12 27/46] KVM: arm64: Handle Realm PSCI requests
-In-Reply-To: <ec27e294-0bee-474a-a15b-6be20ee10cd4@arm.com>
-References: <20251217101125.91098-1-steven.price@arm.com>
-	<20251217101125.91098-28-steven.price@arm.com>
-	<86pl5m89ub.wl-maz@kernel.org>
-	<ec27e294-0bee-474a-a15b-6be20ee10cd4@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: suzuki.poulose@arm.com, steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 03 Mar 2026 13:08:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 02975497;
+	Tue,  3 Mar 2026 05:08:47 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BA2673F73B;
+	Tue,  3 Mar 2026 05:08:49 -0800 (PST)
+Date: Tue, 3 Mar 2026 13:08:46 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, sudeep.holla@arm.com,
+	philip.radford@arm.com, james.quinlan@broadcom.com,
+	f.fainelli@gmail.com, vincent.guittot@linaro.org,
+	etienne.carriere@foss.st.com, peng.fan@oss.nxp.com,
+	michal.simek@amd.com, dan.carpenter@linaro.org,
+	kuninori.morimoto.gx@renesas.com, marek.vasut+renesas@gmail.com
+Subject: Re: [PATCH 00/11] SCMI Clock rates discovery rework
+Message-ID: <aabdXvaSlu1EDgG4@pluto>
+References: <20260227153225.2778358-1-cristian.marussi@arm.com>
+ <CAMuHMdW9dtAnT2E103kp1zK=LJrER7k1ib8_WPk5aorPRw80uQ@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdW9dtAnT2E103kp1zK=LJrER7k1ib8_WPk5aorPRw80uQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_050450_268120_0770B8C5 
-X-CRM114-Status: GOOD (  36.73  )
+X-CRM114-CacheID: sfid-20260303_050854_473712_A0F89C8A 
+X-CRM114-Status: GOOD (  26.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,129 +70,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 03 Mar 2026 09:26:31 +0000,
-Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+On Mon, Mar 02, 2026 at 02:25:00PM +0100, Geert Uytterhoeven wrote:
+> Hi Cristian,
 > 
-> On 02/03/2026 16:39, Marc Zyngier wrote:
-> > On Wed, 17 Dec 2025 10:11:04 +0000,
-> > Steven Price <steven.price@arm.com> wrote:
-> >> 
-> >> The RMM needs to be informed of the target REC when a PSCI call is made
-> >> with an MPIDR argument. Expose an ioctl to the userspace in case the PSCI
-> >> is handled by it.
-> >> 
-> >> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> >> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> >> Signed-off-by: Steven Price <steven.price@arm.com>
-> >> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> >> ---
-> >> Changes since v11:
-> >>   * RMM->RMI renaming.
-> >> Changes since v6:
-> >>   * Use vcpu_is_rec() rather than kvm_is_realm(vcpu->kvm).
-> >>   * Minor renaming/formatting fixes.
-> >> ---
-> >>   arch/arm64/include/asm/kvm_rmi.h |  3 +++
-> >>   arch/arm64/kvm/arm.c             | 25 +++++++++++++++++++++++++
-> >>   arch/arm64/kvm/psci.c            | 30 ++++++++++++++++++++++++++++++
-> >>   arch/arm64/kvm/rmi.c             | 14 ++++++++++++++
-> >>   4 files changed, 72 insertions(+)
-> >> 
-> >> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
-> >> index bfe6428eaf16..77da297ca09d 100644
-> >> --- a/arch/arm64/include/asm/kvm_rmi.h
-> >> +++ b/arch/arm64/include/asm/kvm_rmi.h
-> >> @@ -118,6 +118,9 @@ int realm_map_non_secure(struct realm *realm,
-> >>   			 kvm_pfn_t pfn,
-> >>   			 unsigned long size,
-> >>   			 struct kvm_mmu_memory_cache *memcache);
-> >> +int realm_psci_complete(struct kvm_vcpu *source,
-> >> +			struct kvm_vcpu *target,
-> >> +			unsigned long status);
-> >>     static inline bool kvm_realm_is_private_address(struct realm
-> >> *realm,
-> >>   						unsigned long addr)
-> >> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> >> index 06070bc47ee3..fb04d032504e 100644
-> >> --- a/arch/arm64/kvm/arm.c
-> >> +++ b/arch/arm64/kvm/arm.c
-> >> @@ -1797,6 +1797,22 @@ static int kvm_arm_vcpu_set_events(struct kvm_vcpu *vcpu,
-> >>   	return __kvm_arm_vcpu_set_events(vcpu, events);
-> >>   }
-> >>   +static int kvm_arm_vcpu_rmi_psci_complete(struct kvm_vcpu *vcpu,
-> >> +					  struct kvm_arm_rmi_psci_complete *arg)
-> >> +{
-> >> +	struct kvm_vcpu *target = kvm_mpidr_to_vcpu(vcpu->kvm, arg->target_mpidr);
-> >> +
-> >> +	if (!target)
-> >> +		return -EINVAL;
-> >> +
-> >> +	/*
-> >> +	 * RMM v1.0 only supports PSCI_RET_SUCCESS or PSCI_RET_DENIED
-> >> +	 * for the status. But, let us leave it to the RMM to filter
-> >> +	 * for making this future proof.
-> >> +	 */
-> >> +	return realm_psci_complete(vcpu, target, arg->psci_status);
-> >> +}
-> >> +
-> >>   long kvm_arch_vcpu_ioctl(struct file *filp,
-> >>   			 unsigned int ioctl, unsigned long arg)
-> >>   {
-> >> @@ -1925,6 +1941,15 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
-> >>     		return kvm_arm_vcpu_finalize(vcpu, what);
-> >>   	}
-> >> +	case KVM_ARM_VCPU_RMI_PSCI_COMPLETE: {
-> >> +		struct kvm_arm_rmi_psci_complete req;
-> >> +
-> >> +		if (!vcpu_is_rec(vcpu))
-> >> +			return -EPERM;
-> > 
-> > Same remark as for the other ioctl: EPERM is not quite describing the
-> > problem.
-> > 
-> >> +		if (copy_from_user(&req, argp, sizeof(req)))
-> >> +			return -EFAULT;
-> >> +		return kvm_arm_vcpu_rmi_psci_complete(vcpu, &req);
-> >> +	}
-> >>   	default:
-> >>   		r = -EINVAL;
-> >>   	}
-> >> diff --git a/arch/arm64/kvm/psci.c b/arch/arm64/kvm/psci.c
-> >> index 3b5dbe9a0a0e..a68f3c1878a5 100644
-> >> --- a/arch/arm64/kvm/psci.c
-> >> +++ b/arch/arm64/kvm/psci.c
-> >> @@ -103,6 +103,12 @@ static unsigned long kvm_psci_vcpu_on(struct kvm_vcpu *source_vcpu)
-> >>     	reset_state->reset = true;
-> >>   	kvm_make_request(KVM_REQ_VCPU_RESET, vcpu);
-> >> +	/*
-> >> +	 * Make sure we issue PSCI_COMPLETE before the VCPU can be
-> >> +	 * scheduled.
-> >> +	 */
-> >> +	if (vcpu_is_rec(vcpu))
-> >> +		realm_psci_complete(source_vcpu, vcpu, PSCI_RET_SUCCESS);
-> >> 
-> > 
-> > I really think in-kernel PSCI should be for NS VMs only. The whole
-> > reason for moving to userspace support was to stop adding features to
-> > an already complex infrastructure, and CCA is exactly the sort of
-> > things we want userspace to deal with.
+> Thanks for your series!
 > 
-> Agreed. How would you like us to enforce this ? Should we always exit
-> to the VMM, even if it hasn't requested the handling ? (I guess it is
-> fine and in the worst case VMM could exit, it being buggy)
+> On Fri, 27 Feb 2026 at 16:33, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> > it was a known limitation, in the SCMI Clock protocol support, the lack of
+> > dynamic allocation around per-clock rates discovery: fixed size statically
+> > per-clock rates arrays did not scale and was increasingly a waste of memory
+> > (see [1]).
+> >
+> > This series aim at solving this in successive steps:
+> >
+> >  - simplify and reduce to the minimum possible the rates data info exposed
+> >    to the SCMI driver by scmi_clock_info
+> >  - move away from static fixed allocation of per-clock rates arrays in
+> >    favour of a completely dynamic runtime allocation: just allocate what
+> >    is needed based on the effectively discovered
+> >
+> > This is done in patches 1-6.
+> >
+> > A further bigger optimization suggested in a past series [1] by Etienne
+> 
+> s/[1]/[2]/
+> 
+> > would be, whenever allowed by the spec, to limit upfront the number of
+> > queries in order to simply retrieve min and max rate, that are indeed the
+> > only rates needed by the CLK SCMI driver.
+> >
+> > The approach proposed in [1] was open coding and duplicating some of the
+> 
+> What does [1] refer to?
 
-My current train of though is that a CCA VM always routes PSCI to
-userspace, no configuration needed. That's part of the contract.
+I messed up the refs..of course...it was just a reference to your thread
+where the number of rates where staticallty raised to 64.
 
-Now, I'm pretty sure we should *also* get rid of the ioctl that
-establishes the relationship between MPIDR and REC. I can't see why
-this can't be done at the point where the vcpu runs for the first
-time, just like this is done for the first CPU.
+> 
+> > functionalities already provided by SCMI iterators, though.
+> >
+> > Patch 7-10 implement such optimization instead by:
+> >
+> >  - reworking core SCMI iterators to support bound enumerations
+> >  - use such new bound iterators to perform the minimum number of queries
+> >    in order to ony retrieve min an max rate
+> >
+> > As a final result now the rates enumeration triggered by the CLK SCMI
+> > driver, while still allocating for all the existent rates, miminize the
+> > number of SCMI CLK_DESCRIBE_RATE messages needed to obtain min and max.
+> >
+> > Finally, patch 11 introduces a new clock protocol operation to be able to
+> > trigger anytime on demand a full enumeration and obtain the full list of
+> > rates when needed, not only min/max: this latter method is really only used
+> > currently by some dowstream SCMI Test driver of mine.
+> >
+> > Based on v7.0-rc1.
+> >
+> > Tested on JUNO and an emulated environment.
+> 
+> Thank you, this removes the need for increasing SCMI_MAX_NUM_RATES on
+> R-Car X5H, while decreasing memory usage.
+> Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> 
 
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Thanks for testing in the real world !
+Cristian
 
