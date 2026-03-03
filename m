@@ -4,57 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B117EB3657
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 01:38:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75F07EB3649
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 01:38:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3fC2Nn5X8P5yOSNUsWpqsLgYAZejIiStJ/Lna0+JNLY=; b=g0pCTVTmutuG4M
-	6u9ZFbqjbOekZF0xcR3NkWqTpd2KJNNmEeiSKbYZjh3cqxYqLNsjPvAOZX6rWfMS+JKuftzhax2gm
-	iJyOYdXIVeeWNiBkuKu8I6fwpw5eZM+M73Nlv6vNFj+4uoWyHOzTYwWo+tIT3zcAKdJvHUovA5YN+
-	KFdTnm6uIWV/EBtcjTu6AD3gamVIQXTV0UnU4weSXjmjoC/OISGWZfMvJwq5l2CCTlHmNGLnFXaHr
-	yvskpXspHjhtmBn5GBBDNnEt/vV1cPfSnVfuLHeXQqd+6L6mtBThqarlZ5gMtXAG+cCp4qLnAKoOR
-	JeZphTcR2yNsXnQ1M5dQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bR4oh9qzxKicKPpFw5srJS4xd7x9JBEgoXfp3s0OWIk=; b=uSBXdh1O9vlOm74mzWEL+dTZo5
+	/LfQfUh8eRqbzqJnKfJeDd/IIwJYCHXPRZq18PSaQSIwYliYSFl+brdgYXpLLowjanDpljos3WSR6
+	Ph3fSU492JJJYaITay4ymLFv68x622VrWYybNCdS5oHhNb5C7B9mW1P6LOjIBlDwxdcfjiGppHOZ6
+	zehNpVoxcKBidqlHkUMIfuJ+4NeGFVFT/sG0MG3XjFoL8ItMsjyhVsSZDBDgjP8tzRvog6f/Faf7k
+	tWJWh1r3gWCRuYMmZqotUJfi3AgD7MWt5KVu6bsq1FpxMOWlY40gu8iDHHeXjCjJW0rVLndnJ0g3W
+	G1IY8ZUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxEiU-0000000EM08-0wph;
-	Tue, 03 Mar 2026 01:38:30 +0000
+	id 1vxEiV-0000000EM17-1HvE;
+	Tue, 03 Mar 2026 01:38:31 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxEiR-0000000ELww-00UY;
-	Tue, 03 Mar 2026 01:38:28 +0000
+	id 1vxEiS-0000000ELxi-0PyK;
+	Tue, 03 Mar 2026 01:38:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1772501903;
-	bh=EZTrxedXe6o3XmZTgm35uvahJZuUTXRHnJiL8Eab/c8=;
-	h=From:Subject:Date:To:Cc:From;
-	b=aPXBXjm69fSWglULn5pOeOS61J3dU/oMPMSCuK6efFy/ZTfx+v7GmzEK+3R6rfHYH
-	 cYbQXF8XRlZTVDOrbpot/EuHGBg/uAsY67eIyPj6EybAQNo7D07hFo9wUJMIM1OpYc
-	 rHaLkK2NwCx5J4kSdl3Cks7o3r2ZszRDIs5eWwJVbKLuBRKnnGl8/JoFy2UrBLUkQa
-	 0pSQl84t3JirL9wPOgXl1A4xkNyGaObM7+YNjKhMeQcWOPXvbvW3/9naArOe6Pt0lC
-	 f+5FrLiqZJuglZKDHCxQqbF2rCOMdXfpZ0USX7C97vwCuv9FqnkChE66BR0mJrQRLw
-	 N3S9YGzd+SouQ==
+	s=mail; t=1772501906;
+	bh=RlXgUeG6ILKXHZT+XMRADRMmrFnvGfSMeH4tJx9lZbU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=FRoqzzqY+aSZoO/W1lwklPn+Y6BtVnwboznO7KPMyVVTdGaEXP7nA3UBsEewbVSJ0
+	 Q3PEOrNwMteSWWLEBsLWCDeE7htWd2U8IqS/3L2KQU8xc+n5bn80Q7Ji9cSjQMdn/A
+	 UTAJdRqFpqmJOUhWXnDVmT2MLdMsBmE/ZByR8P13bmQm5+dm/al6alP0tJlgTRg35n
+	 03NABPqogFfKj7tNhUC5uQLpC8mCpNocYT8XyQK7dCWPNtZluoezHM/X1I/rNpGZFB
+	 HfL/ciQtf/epNh5LOzfAusWUn2e1tCzeWFBBWA9BFdp2NEIWN43hvz3LUqpd8zh97u
+	 aWOMf+vnE7IOw==
 Received: from localhost (unknown [86.123.23.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 973D917E0EA0;
-	Tue,  3 Mar 2026 02:38:23 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 19B5517E129E;
+	Tue,  3 Mar 2026 02:38:26 +0100 (CET)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Subject: [PATCH v4 0/4] Add HDMI 2.0 support to DW HDMI QP TX
-Date: Tue, 03 Mar 2026 03:38:06 +0200
-Message-Id: <20260303-dw-hdmi-qp-scramb-v4-0-317d3b8bd219@collabora.com>
+Date: Tue, 03 Mar 2026 03:38:09 +0200
+Subject: [PATCH v4 3/4] drm/bridge: dw-hdmi-qp: Add high TMDS clock ratio
+ and scrambling support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33PSwrCMBCA4auUrI1kkj5deQ9xkUxSG2hNTSQqp
- Xc3LQgixeU/MN8wEwnGWxPIIZuIN9EG664p8l1GsJPXi6FWpyac8QI4E1Q/aKcHS28jDejloCh
- qpWtVVIhtQ9Le6E1rn6t5OqfubLg7/1pPRFim/7QIlNFalK2pcgaybI7o+l4q5+Ue3UAWMfKPU
- jKATYUnRZpKcSxqzXO9pYhvpdlSRFLScyVAJViL8KvM8/wGnHZTAEIBAAA=
-X-Change-ID: 20251203-dw-hdmi-qp-scramb-cdbd8b57ccf9
+Message-Id: <20260303-dw-hdmi-qp-scramb-v4-3-317d3b8bd219@collabora.com>
+References: <20260303-dw-hdmi-qp-scramb-v4-0-317d3b8bd219@collabora.com>
+In-Reply-To: <20260303-dw-hdmi-qp-scramb-v4-0-317d3b8bd219@collabora.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
  Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
  Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
@@ -72,8 +70,8 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  Maud Spierings <maud_spierings@hotmail.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_173827_221043_C4C75785 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20260302_173828_303658_38D4F17E 
+X-CRM114-Status: GOOD (  23.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,52 +86,295 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series provides the missing support for high TMDS clock ratio
-and scrambling to DW HDMI QP TX library, required for handling HDMI 2.0
-display modes on RK3576 & RK3588 SoCs.
+Add support for HDMI 2.0 display modes, e.g. 4K@60Hz, by permitting TMDS
+character rates above the 340 MHz limit of HDMI 1.4b.
 
-In order to allow addressing the SCDC status lost on sink disconnects,
-it adds an atomic variant of the drm_bridge_funcs.detect() callback and
-a new drm_bridge_detect_ctx() helper, which is further used in
-drm_bridge_connector to switch to using the ->detect_ctx() hook.
+Hence, provide the required SCDC management, including the high TMDS
+clock ratio and scrambling setup, and filter out the HDMI 2.1 modes.
 
-Furthermore, it optimizes HPD event handling in dw_hdmi_qp Rockchip
-platform driver to run the detect cycle on the affected connector only.
-
+Tested-by: Diederik de Haas <diederik@cknow-tech.com>
+Tested-by: Maud Spierings <maud_spierings@hotmail.com>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
-Changes in v4:
-- Fixed conflicts while rebasing onto latest drm-misc-next
-- Link to v3: https://lore.kernel.org/r/20260119-dw-hdmi-qp-scramb-v3-0-bd8611730fc1@collabora.com
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 167 ++++++++++++++++++++++++---
+ 1 file changed, 150 insertions(+), 17 deletions(-)
 
-Changes in v3:
-- Used drm_bridge_helper_reset_crtc() helper to reset the display
-  pipeline and got rid of some boilerplate code (Maxime)
-- Rebased onto latest drm-misc-next
-- Link to v2: https://lore.kernel.org/r/20260113-dw-hdmi-qp-scramb-v2-0-ae7b2c58d24d@collabora.com
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+index d649a1cf07f5..e40f16a364ed 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+@@ -2,6 +2,7 @@
+ /*
+  * Copyright (c) 2021-2022 Rockchip Electronics Co., Ltd.
+  * Copyright (c) 2024 Collabora Ltd.
++ * Copyright (c) 2025 Amazon.com, Inc. or its affiliates.
+  *
+  * Author: Algea Cao <algea.cao@rock-chips.com>
+  * Author: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+@@ -21,9 +22,11 @@
+ #include <drm/display/drm_hdmi_helper.h>
+ #include <drm/display/drm_hdmi_cec_helper.h>
+ #include <drm/display/drm_hdmi_state_helper.h>
++#include <drm/display/drm_scdc_helper.h>
+ #include <drm/drm_atomic.h>
+ #include <drm/drm_atomic_helper.h>
+ #include <drm/drm_bridge.h>
++#include <drm/drm_bridge_helper.h>
+ #include <drm/drm_connector.h>
+ #include <drm/drm_edid.h>
+ #include <drm/drm_modes.h>
+@@ -39,8 +42,10 @@
+ #define DDC_SEGMENT_ADDR	0x30
+ 
+ #define HDMI14_MAX_TMDSCLK	340000000
++#define HDMI20_MAX_TMDSRATE	600000000
+ 
+-#define SCRAMB_POLL_DELAY_MS	3000
++#define SCDC_MIN_SOURCE_VERSION	0x1
++#define SCRAMB_POLL_DELAY_MS	5000
+ 
+ /*
+  * Unless otherwise noted, entries in this table are 100% optimization.
+@@ -164,6 +169,11 @@ struct dw_hdmi_qp {
+ 	} phy;
+ 
+ 	unsigned long ref_clk_rate;
++
++	struct drm_connector *curr_conn;
++	struct delayed_work scramb_work;
++	bool scramb_enabled;
++
+ 	struct regmap *regm;
+ 	int main_irq;
+ 
+@@ -749,28 +759,98 @@ static struct i2c_adapter *dw_hdmi_qp_i2c_adapter(struct dw_hdmi_qp *hdmi)
+ 	return adap;
+ }
+ 
++static bool dw_hdmi_qp_supports_scrambling(struct drm_display_info *display)
++{
++	if (!display->is_hdmi)
++		return false;
++
++	return display->hdmi.scdc.supported &&
++		display->hdmi.scdc.scrambling.supported;
++}
++
++static void dw_hdmi_qp_set_scramb(struct dw_hdmi_qp *hdmi)
++{
++	dev_dbg(hdmi->dev, "set scrambling\n");
++
++	drm_scdc_set_high_tmds_clock_ratio(hdmi->curr_conn, true);
++	drm_scdc_set_scrambling(hdmi->curr_conn, true);
++
++	schedule_delayed_work(&hdmi->scramb_work,
++			      msecs_to_jiffies(SCRAMB_POLL_DELAY_MS));
++}
++
++static void dw_hdmi_qp_scramb_work(struct work_struct *work)
++{
++	struct dw_hdmi_qp *hdmi = container_of(to_delayed_work(work),
++					       struct dw_hdmi_qp,
++					       scramb_work);
++	if (!drm_scdc_get_scrambling_status(hdmi->curr_conn))
++		dw_hdmi_qp_set_scramb(hdmi);
++}
++
++static void dw_hdmi_qp_enable_scramb(struct dw_hdmi_qp *hdmi)
++{
++	u8 ver;
++
++	if (!dw_hdmi_qp_supports_scrambling(&hdmi->curr_conn->display_info))
++		return;
++
++	drm_scdc_readb(hdmi->bridge.ddc, SCDC_SINK_VERSION, &ver);
++	drm_scdc_writeb(hdmi->bridge.ddc, SCDC_SOURCE_VERSION,
++			min_t(u8, ver, SCDC_MIN_SOURCE_VERSION));
++
++	dw_hdmi_qp_set_scramb(hdmi);
++	dw_hdmi_qp_write(hdmi, 1, SCRAMB_CONFIG0);
++
++	hdmi->scramb_enabled = true;
++
++	/* Wait at least 1 ms before resuming TMDS transmission */
++	usleep_range(1000, 5000);
++}
++
++static void dw_hdmi_qp_disable_scramb(struct dw_hdmi_qp *hdmi)
++{
++	if (!hdmi->scramb_enabled)
++		return;
++
++	dev_dbg(hdmi->dev, "disable scrambling\n");
++
++	hdmi->scramb_enabled = false;
++	cancel_delayed_work_sync(&hdmi->scramb_work);
++
++	dw_hdmi_qp_write(hdmi, 0, SCRAMB_CONFIG0);
++
++	if (hdmi->curr_conn->status == connector_status_connected) {
++		drm_scdc_set_scrambling(hdmi->curr_conn, false);
++		drm_scdc_set_high_tmds_clock_ratio(hdmi->curr_conn, false);
++	}
++}
++
+ static void dw_hdmi_qp_bridge_atomic_enable(struct drm_bridge *bridge,
+ 					    struct drm_atomic_state *state)
+ {
+ 	struct dw_hdmi_qp *hdmi = bridge->driver_private;
+ 	struct drm_connector_state *conn_state;
+-	struct drm_connector *connector;
+ 	unsigned int op_mode;
+ 
+-	connector = drm_atomic_get_new_connector_for_encoder(state, bridge->encoder);
+-	if (WARN_ON(!connector))
++	hdmi->curr_conn = drm_atomic_get_new_connector_for_encoder(state,
++								   bridge->encoder);
++	if (WARN_ON(!hdmi->curr_conn))
+ 		return;
+ 
+-	conn_state = drm_atomic_get_new_connector_state(state, connector);
++	conn_state = drm_atomic_get_new_connector_state(state, hdmi->curr_conn);
+ 	if (WARN_ON(!conn_state))
+ 		return;
+ 
+-	if (connector->display_info.is_hdmi) {
++	if (hdmi->curr_conn->display_info.is_hdmi) {
+ 		dev_dbg(hdmi->dev, "%s mode=HDMI %s rate=%llu bpc=%u\n", __func__,
+ 			drm_hdmi_connector_get_output_format_name(conn_state->hdmi.output_format),
+ 			conn_state->hdmi.tmds_char_rate, conn_state->hdmi.output_bpc);
+ 		op_mode = 0;
+ 		hdmi->tmds_char_rate = conn_state->hdmi.tmds_char_rate;
++
++		if (conn_state->hdmi.tmds_char_rate > HDMI14_MAX_TMDSCLK)
++			dw_hdmi_qp_enable_scramb(hdmi);
+ 	} else {
+ 		dev_dbg(hdmi->dev, "%s mode=DVI\n", __func__);
+ 		op_mode = OPMODE_DVI;
+@@ -781,7 +861,7 @@ static void dw_hdmi_qp_bridge_atomic_enable(struct drm_bridge *bridge,
+ 	dw_hdmi_qp_mod(hdmi, HDCP2_BYPASS, HDCP2_BYPASS, HDCP2LOGIC_CONFIG0);
+ 	dw_hdmi_qp_mod(hdmi, op_mode, OPMODE_DVI, LINK_CONFIG0);
+ 
+-	drm_atomic_helper_connector_hdmi_update_infoframes(connector, state);
++	drm_atomic_helper_connector_hdmi_update_infoframes(hdmi->curr_conn, state);
+ }
+ 
+ static void dw_hdmi_qp_bridge_atomic_disable(struct drm_bridge *bridge,
+@@ -791,13 +871,56 @@ static void dw_hdmi_qp_bridge_atomic_disable(struct drm_bridge *bridge,
+ 
+ 	hdmi->tmds_char_rate = 0;
+ 
++	dw_hdmi_qp_disable_scramb(hdmi);
++
++	hdmi->curr_conn = NULL;
+ 	hdmi->phy.ops->disable(hdmi, hdmi->phy.data);
+ }
+ 
+-static enum drm_connector_status
+-dw_hdmi_qp_bridge_detect(struct drm_bridge *bridge, struct drm_connector *connector)
++static int dw_hdmi_qp_reset_crtc(struct dw_hdmi_qp *hdmi,
++				 struct drm_connector *connector,
++				 struct drm_modeset_acquire_ctx *ctx)
++{
++	u8 config;
++	int ret;
++
++	ret = drm_scdc_readb(hdmi->bridge.ddc, SCDC_TMDS_CONFIG, &config);
++	if (ret < 0) {
++		dev_err(hdmi->dev, "Failed to read TMDS config: %d\n", ret);
++		return ret;
++	}
++
++	if (!!(config & SCDC_SCRAMBLING_ENABLE) == hdmi->scramb_enabled)
++		return 0;
++
++	drm_atomic_helper_connector_hdmi_hotplug(connector,
++						 connector_status_connected);
++	/*
++	 * Conform to HDMI 2.0 spec by ensuring scrambled data is not sent
++	 * before configuring the sink scrambling, as well as suspending any
++	 * TMDS transmission while changing the TMDS clock rate in the sink.
++	 */
++
++	dev_dbg(hdmi->dev, "resetting crtc\n");
++
++retry:
++	ret = drm_bridge_helper_reset_crtc(&hdmi->bridge, ctx);
++	if (ret == -EDEADLK) {
++		drm_modeset_backoff(ctx);
++		goto retry;
++	} else if (ret) {
++		dev_err(hdmi->dev, "Failed to reset crtc: %d\n", ret);
++	}
++
++	return ret;
++}
++
++static int dw_hdmi_qp_bridge_detect(struct drm_bridge *bridge,
++				    struct drm_connector *connector,
++				    struct drm_modeset_acquire_ctx *ctx)
+ {
+ 	struct dw_hdmi_qp *hdmi = bridge->driver_private;
++	enum drm_connector_status status;
+ 	const struct drm_edid *drm_edid;
+ 
+ 	if (hdmi->no_hpd) {
+@@ -808,7 +931,15 @@ dw_hdmi_qp_bridge_detect(struct drm_bridge *bridge, struct drm_connector *connec
+ 			return connector_status_disconnected;
+ 	}
+ 
+-	return hdmi->phy.ops->read_hpd(hdmi, hdmi->phy.data);
++	status = hdmi->phy.ops->read_hpd(hdmi, hdmi->phy.data);
++
++	dev_dbg(hdmi->dev, "%s status=%d scramb=%d\n", __func__,
++		status, hdmi->scramb_enabled);
++
++	if (status == connector_status_connected && hdmi->scramb_enabled)
++		dw_hdmi_qp_reset_crtc(hdmi, connector, ctx);
++
++	return status;
+ }
+ 
+ static const struct drm_edid *
+@@ -832,12 +963,12 @@ dw_hdmi_qp_bridge_tmds_char_rate_valid(const struct drm_bridge *bridge,
+ {
+ 	struct dw_hdmi_qp *hdmi = bridge->driver_private;
+ 
+-	/*
+-	 * TODO: when hdmi->no_hpd is 1 we must not support modes that
+-	 * require scrambling, including every mode with a clock above
+-	 * HDMI14_MAX_TMDSCLK.
+-	 */
+-	if (rate > HDMI14_MAX_TMDSCLK) {
++	if (hdmi->no_hpd && rate > HDMI14_MAX_TMDSCLK) {
++		dev_dbg(hdmi->dev, "Unsupported TMDS char rate in no_hpd mode: %lld\n", rate);
++		return MODE_CLOCK_HIGH;
++	}
++
++	if (rate > HDMI20_MAX_TMDSRATE) {
+ 		dev_dbg(hdmi->dev, "Unsupported TMDS char rate: %lld\n", rate);
+ 		return MODE_CLOCK_HIGH;
+ 	}
+@@ -1197,7 +1328,7 @@ static const struct drm_bridge_funcs dw_hdmi_qp_bridge_funcs = {
+ 	.atomic_reset = drm_atomic_helper_bridge_reset,
+ 	.atomic_enable = dw_hdmi_qp_bridge_atomic_enable,
+ 	.atomic_disable = dw_hdmi_qp_bridge_atomic_disable,
+-	.detect = dw_hdmi_qp_bridge_detect,
++	.detect_ctx = dw_hdmi_qp_bridge_detect,
+ 	.edid_read = dw_hdmi_qp_bridge_edid_read,
+ 	.hdmi_tmds_char_rate_valid = dw_hdmi_qp_bridge_tmds_char_rate_valid,
+ 	.hdmi_clear_avi_infoframe = dw_hdmi_qp_bridge_clear_avi_infoframe,
+@@ -1287,6 +1418,8 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
+ 	if (IS_ERR(hdmi))
+ 		return ERR_CAST(hdmi);
+ 
++	INIT_DELAYED_WORK(&hdmi->scramb_work, dw_hdmi_qp_scramb_work);
++
+ 	hdmi->dev = dev;
+ 
+ 	regs = devm_platform_ioremap_resource(pdev, 0);
 
-Changes in v2:
-- Collected Tested-by tags from Diederik and Maud
-- Rebased onto latest drm-misc-next
-- Ensured the recently introduced 'no-hpd' support for dealing with
-  unconnected/repurposed/broken HPD pin is limited to HDMI 1.4 rates
-- Link to v1: https://lore.kernel.org/r/20251203-dw-hdmi-qp-scramb-v1-0-836fe7401a69@collabora.com
-
----
-Cristian Ciocaltea (4):
-      drm/bridge: Add ->detect_ctx hook and drm_bridge_detect_ctx()
-      drm/bridge-connector: Switch to using ->detect_ctx hook
-      drm/bridge: dw-hdmi-qp: Add high TMDS clock ratio and scrambling support
-      drm/rockchip: dw_hdmi_qp: Do not send HPD events for all connectors
-
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c   | 167 ++++++++++++++++++++++---
- drivers/gpu/drm/display/drm_bridge_connector.c |  73 +++++------
- drivers/gpu/drm/drm_bridge.c                   |  58 +++++++++
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c |  44 +++----
- include/drm/drm_bridge.h                       |  30 +++++
- 5 files changed, 296 insertions(+), 76 deletions(-)
----
-base-commit: 0dd7a23da214279cfb77b0eb03c38614867524d7
-change-id: 20251203-dw-hdmi-qp-scramb-cdbd8b57ccf9
+-- 
+2.52.0
 
 
