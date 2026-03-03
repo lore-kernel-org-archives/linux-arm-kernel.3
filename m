@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFD6CE67A8D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 07:30:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DAF0E67A8F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 07:30:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wr2baW9Tg6QswMVJtRYTr/gGNMGvzf+M+QQS/nmpcQQ=; b=15lFeRn0UQ3zce7NMx8VRiKpho
-	xu8O3vODxXWwLvpHNJYvIk4KSuRSohA3yESXNp9GPY8lI0CMHJ9UhzsAI0frK2GYIn19iqUdMLRBZ
-	AUAdS1AS7Y7mFfAMdr2sXiW01vBzu3I9anvqzrTMQYR9xe6JX39SE9VVvrJ+nsg9eZngE/V1A/2t3
-	arKIQQv2B+ZqBES3OO5MSaPxSzl+3vE48FH2lhauCJb7dh1OU8+PBEG1+R2degPa9M6tCXzRYaRoZ
-	zBqxHQp9HJXdZd6e47NKDE5djJbr6j9ftvaoWN+2mImuLY+eVU1VfQRyHx3DLpW/QuoWX+A7d+7qg
-	FE8aKC1w==;
+	bh=KkDQW3m0uYKl6XM+u9Qvt0127CCDv/2l0Mb6sOEBzz0=; b=FDLNYgH6b/ZkMB1PkKRBNigIdF
+	7wgERaNhjNXVUGwd7zIeSPbgO9IU+fddVym89aLRaxZUlv6djPa5uwbexmyJL+rIfIntkEC9x3++F
+	yV7vHyKOHgCBq4/cA+occZ3atHYPh2T6FEmDN0qa6cF2x1lL10zM+6Ya32w74TpIVSnEXeygasptl
+	qbpN0e14JxGn6M1r+pZfU3WfamC6zlLZsdyns73GLdH+QSsYpBUfe2nyCJcmV15T9+fdTdTDny7mT
+	GyFm8kXdDm2sA29GEMbV6LK08lWIVNdJR9DfYcSu6Bahbrm+oaA9o0/nMEmf51dyJDFNNMM9UuoHG
+	f9xfC7Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxKCa-0000000EfyX-2nR4;
-	Tue, 03 Mar 2026 07:29:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vxKCb-0000000Eg0H-4B9h;
+	Tue, 03 Mar 2026 07:29:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxKCY-0000000Efx3-3dYJ
+	id 1vxKCa-0000000EfyD-2WUl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 07:29:54 +0000
+	Tue, 03 Mar 2026 07:29:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4DC1360126;
+	by tor.source.kernel.org (Postfix) with ESMTP id 0EFF9600AE;
+	Tue,  3 Mar 2026 07:29:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B0E6C19425;
 	Tue,  3 Mar 2026 07:29:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8E37C2BCAF;
-	Tue,  3 Mar 2026 07:29:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772522994;
-	bh=iXGcciF5FWuc8KXZydCTrE3B2rTksJ1Sr2bCyRyg7Og=;
+	s=k20201202; t=1772522995;
+	bh=kldkEUcsu7/3naZKUYV+6QtB1p++L0wVmQijmSfs19A=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=SoNRiSISC8Xsss5ygIcLuYRHo6xU+6awwLpq2j3vW+7eSHSyrG011DVBv738oxq7y
-	 Akbklg5wEWIFRiZg2v5N6NgDIcVd6BwzaizHHxXg4h18+/lfdwU3dn/OHDS9Meq2Xb
-	 PSh3CIQ6mjTp+f9c/vLS7jOiC5jBHxDrK2T8DrS6+vtueHtkAN7kxJ4JBXMoxAfLXs
-	 P8Ws1i1WMbGzNDajS8VMXr3pJBULVHV+e8nEVp/J6eG/eiYuTHA/WghGbcmlXyROYI
-	 1qBr6Xw4v8z3c7cFFzF23qVsJgWzODIV+Q7kQA05VX/wrSsZxU+EHkvwcrahd9OQ6p
-	 zlb/l1/ismTeQ==
+	b=pq+wJ078AZyFAtOCZvMkU5f2xi1vdEps0XMpkZlgLdx2tKFMbFXl4/yhOqbzjTSKS
+	 XL2jZTPEwrQsYPzPg9e8X6zofKicPWI9ALYwxLigb4i0ncpAu2AnsJZle/Dt8ZBMHD
+	 VvY4zUS0u0YBW8aIqx2TOFTzYPuafwmqDNIH2Uw0RA0PJAp5tq4Aa4ajNL/0dI+nZT
+	 UKN4a2dAiVsVCC4gJvIivw5kiKkdpmfFBCB9ObiyK6tu6mE/M7X+6v8WJkUsu7vtw1
+	 NiH+SkKkRRWqetl5ofWl3NDPpH1jXG1BDBm4N4Ka615ot2y1aPYWP1Bf+zuOvcAecf
+	 kbyTq+bc3744A==
 From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 03 Mar 2026 08:29:39 +0100
-Subject: [PATCH v2 7/8] ARM: dts: Add a Raidsonic IB-4210-B DTS
+Date: Tue, 03 Mar 2026 08:29:40 +0100
+Subject: [PATCH v2 8/8] ARM: dts: gemini: Correct the RUT1xx
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260303-gemini-dts-fixes-v2-7-5b92ced841ce@kernel.org>
+Message-Id: <20260303-gemini-dts-fixes-v2-8-5b92ced841ce@kernel.org>
 References: <20260303-gemini-dts-fixes-v2-0-5b92ced841ce@kernel.org>
 In-Reply-To: <20260303-gemini-dts-fixes-v2-0-5b92ced841ce@kernel.org>
 To: Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
@@ -71,239 +71,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds a device tree for the Raidsonic IB-4210-B NAS, a slightly
-under-powered version of IB-4220-B with half the memory and
-the cheaper version of the SoC.
+Fix two problems with the RUT1xx device tree:
+- The memory is 32MB not 128MB
+- The console is 19200 BPS
+- Activate the PCI
+- Disable the unused USB ports
 
 Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- arch/arm/boot/dts/gemini/Makefile            |   1 +
- arch/arm/boot/dts/gemini/gemini-nas4210b.dts | 205 +++++++++++++++++++++++++++
- 2 files changed, 206 insertions(+)
+ arch/arm/boot/dts/gemini/gemini-rut1xx.dts | 18 +++++++-----------
+ 1 file changed, 7 insertions(+), 11 deletions(-)
 
-diff --git a/arch/arm/boot/dts/gemini/Makefile b/arch/arm/boot/dts/gemini/Makefile
-index d5d32f02e232..4722fb1bac49 100644
---- a/arch/arm/boot/dts/gemini/Makefile
-+++ b/arch/arm/boot/dts/gemini/Makefile
-@@ -2,6 +2,7 @@
- dtb-$(CONFIG_ARCH_GEMINI) += \
- 	gemini-dlink-dir-685.dtb \
- 	gemini-dlink-dns-313.dtb \
-+	gemini-nas4210b.dtb \
- 	gemini-nas4220b.dtb \
- 	gemini-ns2502.dtb \
- 	gemini-rut1xx.dtb \
-diff --git a/arch/arm/boot/dts/gemini/gemini-nas4210b.dts b/arch/arm/boot/dts/gemini/gemini-nas4210b.dts
-new file mode 100644
-index 000000000000..8bec57c8b7b1
---- /dev/null
-+++ b/arch/arm/boot/dts/gemini/gemini-nas4210b.dts
-@@ -0,0 +1,205 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Device Tree file for the Gemini-based Raidsonic NAS IB-4210-B
-+ * Based on the NAS Forum experiments by user "CptSpock".
-+ */
-+
-+/dts-v1/;
-+
-+#include "gemini.dtsi"
-+#include <dt-bindings/input/input.h>
-+
-+/ {
-+	model = "Raidsonic NAS IB-4210-B";
-+	compatible = "raidsonic,ib-4210-b", "cortina,gemini";
-+	#address-cells = <1>;
-+	#size-cells = <1>;
-+
-+	memory@0 { /* 64 MB */
-+		device_type = "memory";
-+		reg = <0x00000000 0x4000000>;
-+	};
-+
-+	chosen {
-+		bootargs = "console=ttyS0,19200n8 root=/dev/sda1 rw rootwait";
-+		stdout-path = &uart0;
-+	};
-+
-+	gpio_keys {
-+		compatible = "gpio-keys";
-+
-+		button-setup {
-+			debounce-interval = <100>;
-+			wakeup-source;
-+			linux,code = <KEY_SETUP>;
-+			label = "Backup button";
-+			/* Conflict with TVC */
-+			gpios = <&gpio1 29 GPIO_ACTIVE_LOW>;
-+		};
-+		button-restart {
-+			debounce-interval = <100>;
-+			wakeup-source;
-+			linux,code = <KEY_RESTART>;
-+			label = "Softreset button";
-+			/* Conflict with TVC */
-+			gpios = <&gpio1 31 GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+		led-orange-hdd {
-+			label = "nas4220b:orange:hdd";
-+			/* Conflict with TVC */
-+			gpios = <&gpio1 28 GPIO_ACTIVE_HIGH>;
-+			default-state = "on";
-+			linux,default-trigger = "disk-activity";
-+		};
-+		led-green-os {
-+			label = "nas4220b:green:os";
-+			/* Conflict with TVC */
-+			gpios = <&gpio1 30 GPIO_ACTIVE_HIGH>;
-+			default-state = "on";
-+			linux,default-trigger = "heartbeat";
-+		};
-+	};
-+
-+	mdio0: mdio {
-+		compatible = "virtual,mdio-gpio";
-+		gpios = <&gpio0 22 GPIO_ACTIVE_HIGH>, /* MDC */
-+			<&gpio0 21 GPIO_ACTIVE_HIGH>; /* MDIO */
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* Realtek RTL8211B */
-+		phy0: ethernet-phy@1 {
-+			reg = <1>;
-+			device_type = "ethernet-phy";
-+		};
-+	};
-+
-+	soc {
-+		flash@30000000 {
-+			status = "okay";
-+			/* 16MB of flash */
-+			reg = <0x30000000 0x01000000>;
-+
-+			partitions {
-+				compatible = "redboot-fis";
-+				/* Eraseblock at 0xfe0000 */
-+				fis-index-block = <0x7f>;
-+			};
-+		};
-+
-+		syscon: syscon@40000000 {
-+			pinctrl {
-+				gpio0_default_pins: pinctrl-gpio0 {
-+					mux {
-+						function = "gpio0";
-+						groups =
-+						"gpio0egrp",
-+						/* Used by MDIO */
-+						"gpio0igrp";
-+					};
-+				};
-+				gpio1_default_pins: pinctrl-gpio1 {
-+					mux {
-+						function = "gpio1";
-+						/* Lines 28-31 used by LEDs and buttons */
-+						groups = "gpio1dgrp";
-+					};
-+				};
-+				pinctrl-gmii {
-+					mux {
-+						function = "gmii";
-+						groups = "gmii_gmac0_grp";
-+					};
-+					conf0 {
-+						pins = "R8 GMAC0 RXDV", "U11 GMAC1 RXDV";
-+						skew-delay = <0>;
-+					};
-+					conf1 {
-+						pins = "T8 GMAC0 RXC";
-+						skew-delay = <10>;
-+					};
-+					conf2 {
-+						pins = "T11 GMAC1 RXC";
-+						skew-delay = <15>;
-+					};
-+					conf3 {
-+						pins = "P8 GMAC0 TXEN", "V11 GMAC1 TXEN";
-+						skew-delay = <7>;
-+					};
-+					conf4 {
-+						pins = "V7 GMAC0 TXC", "P10 GMAC1 TXC";
-+						skew-delay = <10>;
-+					};
-+					conf5 {
-+						/* The data lines all have default skew */
-+						pins = "U8 GMAC0 RXD0", "V8 GMAC0 RXD1",
-+						       "P9 GMAC0 RXD2", "R9 GMAC0 RXD3",
-+						       "R11 GMAC1 RXD0", "P11 GMAC1 RXD1",
-+						       "V12 GMAC1 RXD2", "U12 GMAC1 RXD3",
-+						       "R10 GMAC1 TXD0", "T10 GMAC1 TXD1",
-+						       "U10 GMAC1 TXD2", "V10 GMAC1 TXD3";
-+						skew-delay = <7>;
-+					};
-+					conf6 {
-+						pins = "U7 GMAC0 TXD0", "T7 GMAC0 TXD1",
-+						       "R7 GMAC0 TXD2", "P7 GMAC0 TXD3";
-+						skew-delay = <5>;
-+					};
-+					/* Set up drive strength on GMAC0 to 16 mA */
-+					conf7 {
-+						groups = "gmii_gmac0_grp";
-+						drive-strength = <16>;
-+					};
-+				};
-+			};
-+		};
-+
-+		sata: sata@46000000 {
-+			cortina,gemini-ata-muxmode = <0>;
-+			cortina,gemini-enable-sata-bridge;
+diff --git a/arch/arm/boot/dts/gemini/gemini-rut1xx.dts b/arch/arm/boot/dts/gemini/gemini-rut1xx.dts
+index 0ebda4efd9d0..4bdf86bd7c23 100644
+--- a/arch/arm/boot/dts/gemini/gemini-rut1xx.dts
++++ b/arch/arm/boot/dts/gemini/gemini-rut1xx.dts
+@@ -14,13 +14,13 @@ / {
+ 	#address-cells = <1>;
+ 	#size-cells = <1>;
+ 
+-	memory@0 { /* 128 MB */
++	memory@0 { /* 32 MB */
+ 		device_type = "memory";
+-		reg = <0x00000000 0x8000000>;
++		reg = <0x00000000 0x2000000>;
+ 	};
+ 
+ 	chosen {
+-		bootargs = "console=ttyS0,115200n8";
++		bootargs = "console=ttyS0,19200n8";
+ 		stdout-path = &uart0;
+ 	};
+ 
+@@ -113,6 +113,10 @@ gpio1: gpio@4e000000 {
+ 			pinctrl-0 = <&gpio1_default_pins>;
+ 		};
+ 
++		pci@50000000 {
 +			status = "okay";
 +		};
 +
-+		gpio0: gpio@4d000000 {
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&gpio0_default_pins>;
-+		};
-+
-+		gpio1: gpio@4e000000 {
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&gpio1_default_pins>;
-+		};
-+
-+		ethernet@60000000 {
-+			status = "okay";
-+
-+			ethernet-port@0 {
-+				phy-mode = "rgmii";
-+				phy-handle = <&phy0>;
-+			};
-+			ethernet-port@1 {
-+				/* Not used in this platform */
-+			};
-+		};
-+
-+		ide@63000000 {
-+			status = "okay";
-+		};
-+
-+		ide@63400000 {
-+			status = "okay";
-+		};
-+
-+		usb@68000000 {
-+			status = "okay";
-+		};
-+
-+		usb@69000000 {
-+			status = "okay";
-+		};
-+	};
-+};
+ 		ethernet@60000000 {
+ 			status = "okay";
+ 
+@@ -124,13 +128,5 @@ ethernet-port@1 {
+ 				/* Not used in this platform */
+ 			};
+ 		};
+-
+-		usb@68000000 {
+-			status = "okay";
+-		};
+-
+-		usb@69000000 {
+-			status = "okay";
+-		};
+ 	};
+ };
 
 -- 
 2.53.0
