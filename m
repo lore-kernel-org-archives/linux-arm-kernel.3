@@ -4,99 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 057E3EC1459
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 14:37:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE7C5EC145E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 14:38:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mV12oqx36NxS2Iu/kn/WJFFlkK5zLro1Wfyx/TwCub4=; b=CXVgsd0kFGkQiux3Gwm1qdH9MC
-	QlfxfLVFHerPOTxtOHGNxAbRfvHkf5YluC00QPKXdfx4ESYEDYaGfKWCVVVtM1Z719uTLaD3HugPQ
-	Xg/5epXnoixiVAa9ttDbWXYtg3ty+fUF64rYco450Lq4QO35ADgi+EqpT3yoRgdNeb3KKlbYjcd5V
-	ukuR8TL9qZRJRyc/JFO8It3vzDe62Rxv52ZDxqNt/AWhcwn/nO+ZXtspXTVaveNUkuE8YMSpmtHc1
-	lk1D2WXEvvoSpdxHPk1W9sRtu+77Rrtqpos6tVO/caD8D46e4UkCGKHlU8GmpW9dbokTTkvSZRecy
-	9GWtKYPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BtZl4GKtGgoXKB3Ht+zrsFdv8HOLRY0L6GMQM5yR7QM=; b=CYVuhb/10bvY9qg8fU7jzc2Qp4
+	NMuBQ3cokcPMGBb2amG62nTekw8+gjvinFy6x48BM8N9lAj/W9lsTz6YutLzn/wqurDnW/3gnahkD
+	ZRV4xuCuucvt8GKx4RNYZpM8V37SnBHCOzoSL14JqeRN7tCNf1OslAPiTjipi9RUru4bfjarahIh0
+	QAuD6UwkGJZwppWkXVQOpr5L8mo9pDpovPluvI6bjUg1BgrW5qEyxC/ema4pxmwokccYSnshV5OF6
+	UiftPstOZudOPilKcQljLpySvJThG6AbGOwHLuBixc1nezqu9qbEkOS22xKTOIT2+QO17zqNyC0Rs
+	Xvcw3LGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxQrz-0000000FL22-14CK;
-	Tue, 03 Mar 2026 14:37:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vxQsp-0000000FL9p-2eEI;
+	Tue, 03 Mar 2026 14:37:59 +0000
+Received: from mx-relay90-hz2.antispameurope.com ([94.100.136.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxQrw-0000000FL1a-189C
+	id 1vxQsm-0000000FL8o-2oP4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 14:37:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 89DCC43FC4;
-	Tue,  3 Mar 2026 14:37:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62312C116C6;
-	Tue,  3 Mar 2026 14:37:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772548623;
-	bh=m/46LDof3LqadCUxR8EzTO5Nf7CZ0A3+ar1RNvzBB9o=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=RhIGlnExbvHqjrKvCOMAYKyPDILck1mHKuxKeTG/9P6sPpSNVQ6cVGSbL7lVk0eE2
-	 9UBoGOLIEh5qWL6s/JISGlQp4mz2iB1ITIS/uvl3pIwQGYg5ONc4wXsEBwsSEjDkaf
-	 HiozHmY/lH7MsUI5MKc3IsX58h9FjCaE+SHWEu7RxOJ7OYKS+ZT2t+QKfnIbgpP1mi
-	 Z6PxJHzw0gydgaJntW4yn9TDSF7osodkzkreMS3Hwm87DShNUjUQGxPNJEoNYQmCKg
-	 DutUnLfDX3IAkSu/QqMQWjQxTmao9OnlpFNO4lH+y/+Py6hImTNQ1TZaVemn0rovDS
-	 KiNaUBc0WC6sQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vxQrs-0000000FfAT-4AND;
-	Tue, 03 Mar 2026 14:37:01 +0000
-Date: Tue, 03 Mar 2026 14:37:00 +0000
-Message-ID: <86ecm17zeb.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Steven Price <steven.price@arm.com>,
-	kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei
- <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>
-Subject: Re: [PATCH v12 06/46] arm64: RMI: Define the user ABI
-In-Reply-To: <d87ee902-3b5e-4cf9-8b97-d83f8da02a5a@arm.com>
-References: <20251217101125.91098-1-steven.price@arm.com>
-	<20251217101125.91098-7-steven.price@arm.com>
-	<86tsuy8g0u.wl-maz@kernel.org>
-	<33053e22-6cc6-4d55-bc7f-01f873a15d28@arm.com>
-	<9d702666-72a8-43e4-8ab3-548d8154a529@arm.com>
-	<86fr6h838s.wl-maz@kernel.org>
-	<d87ee902-3b5e-4cf9-8b97-d83f8da02a5a@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: suzuki.poulose@arm.com, steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 03 Mar 2026 14:37:58 +0000
+ARC-Authentication-Results: i=1; mx-gate90-hz2.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out01-hz1.hornetsecurity.com;
+ dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=BtZl4GKtGgoXKB3Ht+zrsFdv8HOLRY0L6GMQM5yR7QM=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1772548670;
+ b=Yc2nRzkwlITttjn1KC8wV4drinUPKIUteDCfGJR7uLKtKo5cgAHmI7pge6gTPCJu2+b9GVdm
+ /iVhkKamT6k03sdTT4lAWXeKg/GgqU9Yk4z5TUTsUOZIPOhArP0550QRmsHcfGrSc991hQGt3n2
+ v28q4U5e/amiIoSWd6OiXvuovH37ddiMya1b/55HMTUYuBPoOp6JoQqODzoS96/WIh2QhNJCjbn
+ FT2v+09yK67/0OWeOxhVmKsIdL/KtRRkF17Vb8k7PJ2bEoi/uIn2crEhgc6nnuT0CdtKo9eWZEv
+ 1orfvIwK7/xlhz4OcDQthER0EKUJEQc4pM3qI69GujDcQ==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1772548670;
+ b=W3xbbENrjcTNEvX/n1R0m4VWoEtw24rcGhl4SWzSQ4MsKymWWjBiPFCRQy8DAcpxTey/BeGs
+ oOqvPuHsAuxlywa+ZWo4/Xa5hL/4AQsRLGcSJs38Wus3i7b1LaHAwJs1uobWLdQdfOXH3Dg93Zb
+ MySRyjQhErnNPdY8b+dpjCHBBwxosO0WmjLMGmSZMFSOAqauApZbuRG2jZSpep/WpDqXjWnwcT3
+ 2wsMb41r5IIvPNnQMJEam3j0FrXy2PTwPSjjTCbvr2htdK7QYkvfGz0IXlv2DfyTgabkIy1Y97J
+ Uak7eDHuFi5AtRHlIlAGGSCZlDF33YSUs4QStZhHev2JQ==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay90-hz2.antispameurope.com;
+ Tue, 03 Mar 2026 15:37:50 +0100
+Received: from [10.123.75.134] (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: max.merchel@ew.tq-group.com)
+	by smtp-out01-hz1.hornetsecurity.com (Postfix) with ESMTPSA id DFBB7A4079E;
+	Tue,  3 Mar 2026 15:37:40 +0100 (CET)
+Message-ID: <113446c6-3b1c-457d-a29b-682cdc9e5577@ew.tq-group.com>
+Date: Tue, 3 Mar 2026 15:37:40 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/4] ARM: dts: TQMa6: modify for use in bootloaders
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux@ew.tq-group.com, devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260220143008.186851-1-Max.Merchel@ew.tq-group.com>
+Content-Language: en-US
+From: Max Merchel <max.merchel@ew.tq-group.com>
+In-Reply-To: <20260220143008.186851-1-Max.Merchel@ew.tq-group.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-cloud-security-sender: max.merchel@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: max.merchel@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay90-hz2.antispameurope.com with 4fQJLF4WpFzX1Yg
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: 9fd46e5f27eaa805456295327e3d5223
+X-cloud-security: scantime:1.206
+DKIM-Signature: a=rsa-sha256;
+ bh=BtZl4GKtGgoXKB3Ht+zrsFdv8HOLRY0L6GMQM5yR7QM=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1772548670; v=1;
+ b=XF30V0zp8btvnn/filrhFOF82QZxubzajibzevz+w3fm6NGjykBT0gcpw6IwFVoH7fldU/8z
+ Ujjlzk+uAJLBIPeNlA2n7s2/FG6035Qho3mhecz2lPr6sjDMR8sPpz6aUswDckFdw2dNYD4nxnk
+ /DcFUwGmf6ajqezYsEh22GQAWTW0BU20t2OuyhQu1QKIYj0k8LDc0RCoJtPVilLKXfGNc2UQJm1
+ JqOjFUxMiPvZoctYQDaYVHyRtgnIv0wWH44K2WeCQBV9K8sqJgtg4EVl8TS7UWt3sRcyRBEx/Ch
+ hEGkXv2N+4HFkPdhzoMQXMx8DhUwMvwoG8qSASOBCKtJw==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_063704_350293_1FB271D4 
-X-CRM114-Status: GOOD (  23.97  )
+X-CRM114-CacheID: sfid-20260303_063756_857382_F386C7A6 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,49 +108,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 03 Mar 2026 14:23:08 +0000,
-Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+
+Am 20.02.26 um 15:30 schrieb Max Merchel:
+> This series contains modifications for using Linux device trees
+> in bootloaders. Changes from U-Boot bootloader are incorporated
+> directly into the Linux device trees.
 > 
-> On 03/03/2026 13:13, Marc Zyngier wrote:
-> > On Mon, 02 Mar 2026 17:13:41 +0000,
-> > Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
-> >> 
-> >> More importantly, we have to make sure that the "RMI_PSCI_COMPLETE" is
-> >> invoked before both of the following:
-> >>    1. The "source" vCPU is run again
-> >>    2. More importantly the "target" vCPU is run.
-> > 
-> > I don't understand why (1) is required. Once the VMM gets the request,
+> Changes in v2:
+> Improved commit messages for commits that add boot-phase properties.
 > 
-> The underlying issue is, the RMM doesn't have the VCPU object for the
-> "target" VCPU, to make the book keeping. Also, please note that for  a
-> Realm, PSCI is emulated by the "RMM". Host is obviously notified of the
-> "PSCI" changes via EXIT_PSCI (note, it is not SMCCC exit)
->  so that it can be in sync with the real state. And does have a say in
->  CPU_ON. So, before we return to running the "source" CPU,
-> Host must provide the target VCPU object and its consent (via
-> psci_status) to the RMM. This allows the RMM to emulate the PSCI
-> request correctly and also at the same time keep its book keeping
-> in tact (i.e., marking the Target VCPU as runnable or not).
+> Max Merchel (4):
+>    ARM: dts: imx6qdl-tqma6: add missing labels
+>    ARM: dts: imx6qdl: add boot phase properties
+>    ARM: dts: imx6qdl-tqma6: add boot phase properties
+>    ARM: dts: imx6qdl-mba6: add boot phase properties
 > 
-> When a "source" VCPU exits to the host with a PSCI_EXIT, the RMM
-> marks the source VCPU has a pending PSCI operation, and
-> RMI_PSCI_COMPLETE request ticks that off, making it runnable again.
+>   arch/arm/boot/dts/nxp/imx/imx6qdl-mba6.dtsi   | 12 ++++++++++++
+>   arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6.dtsi  | 11 +++++++++++
+>   arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6a.dtsi |  5 +++--
+>   arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6b.dtsi |  6 ++++--
+>   arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi        |  6 ++++++
+>   5 files changed, 36 insertions(+), 4 deletions(-)
+> 
 
-Sure. What I don't get is what this has to happen on the source vcpu
-thread. The RMM has absolutely no clue about that, and there should be
-no impediment to letting the target vcpu do it as it starts.
-
-Even better, you should be able to do that on the first thread that
-reenters the guest, completely removing any RMM knowledge from the
-PSCI handling in userspace.
-
-If you can't do that, then please consider fixing the RMM to allow it.
-
-Thanks,
-
-	M.
+Any further feedback on this?
 
 -- 
-Without deviation from the norm, progress is not possible.
+Best regards,
+Max
+
+TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht München, HRB 105018
+Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
 
