@@ -4,97 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC163E67A8D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 08:16:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F40E67A96
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 08:38:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TOoaOEZuNJH/wFIt6h7FeWwE1+oo5QuN+aJxkWYzY4s=; b=e4XAJBiEpMoV3Z4lb+UxsCyFQh
-	BQycH+epjnBaICOpuTYpBMaRV86fcsPMAbIhGK7OFMXgsq4LLDhfY6abomxOoGROrMM6W5Q1+03vp
-	FctJKEiVG2TvXKS6lzJsBgso21J4kfiJsu1rIsbUwl5MW4rw2wN6VGKxLa7GCyLfU0kyq1Ovu03ja
-	tWDu+jx3v2bHryGnn4DUSfQTB9QWoEI0DcMxlcpu/SoBHx48ac4ig+zKVbxkweFJXlf5/O1YrhPkt
-	7hgSDRAKbEnT3IVCKqoPzK0b7I7WsOeHmFrTazInJmkovdrnO3YHpsbhjaawRxQ56Wvvi/zBZI/2H
-	mO3OOWBw==;
+	bh=2M/RYer8VqSFpIScaGLnqlWvdg8+Nw01gnVuCu5eeO8=; b=vebrlW0vaLuJEMih/FMbq9UshV
+	JPVpChIP6uHAdta7/7FFL5kMf4QKRX/CVkc3Fuf+MiTr56aCIaT864/nwR+CTla0QDZmstaZDCj6u
+	S8hkIZL8eeN6VfZ2zse/GnQEVl9RR5ZTmfSZDSf/aWsIuOjX7eGPG/JyZ2mIVs/yDtvu5jsTYh3Dv
+	Ew0v7Es4YCKao0rC60aLzOPlBJMjeDLd0tlk3hsxFp4WWp6CwNtPskGNQIkDf4B/MgMamgpN7+xnj
+	e4Jwk/TSzCYxKDH/zMhAsOfrTmsyVz2YsnNOWN7l94LvsTQe5zFTq6Al+ju2OLQ0aameCtpdnihf0
+	Cu/0NGPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxKv5-0000000EleQ-3oqe;
-	Tue, 03 Mar 2026 08:15:55 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxKv4-0000000Eldf-0nfk
+	id 1vxLGw-0000000Emzg-20OE;
+	Tue, 03 Mar 2026 08:38:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxLGu-0000000EmzK-0nmU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 08:15:55 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-c70ef340a02so3084412a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 00:15:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772525753; x=1773130553; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=TOoaOEZuNJH/wFIt6h7FeWwE1+oo5QuN+aJxkWYzY4s=;
-        b=Orhgcxp65xFdYkIy6e3TI/B+gKr+KZvpw4x6qjSoiyrTY9U1hcrsJHLycCLly/aUwB
-         yyQy1MAbfT6rCX6e7jYu3RB4gV16eU1dMBKuFZkM9KEulgfLtJWAb2x3jpsIBGOvIHjc
-         M2NsSqaHkfVX6DCLL2gWJLlUo731BMU/yeNlQGU1Ua3QXJyYJVGh7h/jLNyGcaygyWpf
-         gm7JsoXVX8FZ3lTc0D8+rz0YMIQQxhIcWZ3/uTA7a3Mg1AQedVgkxLtYFK6z2GNuN/Hc
-         Zro8/tBxkpMMKhBQCrSSoNGdmcmdHkWXDvJnPNF5s7UUGSB3jX4tCO8PDNg9A/sOnPrm
-         IBPQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772525753; x=1773130553;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TOoaOEZuNJH/wFIt6h7FeWwE1+oo5QuN+aJxkWYzY4s=;
-        b=ZmOzdWOqZcNgZDmULlG5d5094c0Uhw1n64L/1XZiKWxu6pTFTyL4285weCo02EYRoL
-         lbCWz/Nv+y4vzycfAvhcXNpt1tbQKItvaurjXVJqmRGxi3T+925IghsRrOktEQaUr6G0
-         5TIjcY6pxiDC3UNi4c2aaaWRuQlIpjZCHk+qhUQKY3RhK/SGX9G4eHGdkr/JIRkAlvC+
-         Ab5i9aV5mjZ2TB+5HpwVNVJben4EgZ8ZtU2TtMxunVW4DWjmRzyyh2aArzcjSb2z7al2
-         38+7PUU1ByUOqfCcZbX0uFKhjWy2L1XJno8o0h+0C29fUpxwVYm9J+wx0PWDeNSWmQD5
-         MkxQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXe0ct8WcW4YoUrCG32yifJC+9/FI03iuHbzsHZbhr3vg5rt5xnqoyZMrZRu/zzw3guozRZ3FOuw2JorCceq/a/@lists.infradead.org
-X-Gm-Message-State: AOJu0YyG5ld5u/2cw2m9SUrBpbVqR+y0ilgMFemik1El2qekpgOo2P+x
-	47QrP/PKsIvgWOSm51Xjf4oe3O4+mbKGjXgkECxQdoSOcOW5lUwTnVd5
-X-Gm-Gg: ATEYQzyved+OeTY57Rfo9/XsNlnu10sFmYF26xiokAP1EhvQX9sQFBF1jORrbmQYL8a
-	OlZ/6kJnO6rJTw4z/QU+AiFpHrnSVbcfO7ZdaSuYauNOePPAMbjiyvvKIu3hYAB59C2Q6xz+EES
-	QdlU09jzUw5fuk4hwe4dlNyZb+y5ZNycN/u2rAJ/X08/V+IV8fN7V+wuqHKuoQ/ljDvscrOfqOx
-	qo1jENmh+mVNlwbze8BUbcVKMGSU4Rxs4IJ3tUJ8cO9cJsp9DvitRRoIN7IUOpqDSIgKoXsYdXT
-	mQqs6IbGwvqwMIUNZNvNmOtnH8rGE4mhsddJhiEKFqUf1zOJEfogbFUYIRyWwY2nJ/colwfx9TL
-	rJBcLzEznip+Fi+ficPZaa2GOzkzwmvosEUr37o9rFIQfNVTA4zzrd+cO6kntGEZw3GlrRgRsBY
-	nZE82JDf+qtAiwbYb1fSwofiX1bwVX3mz7U+npncSrhXQp0uAgZWDRZm8WHXTwzK7DkKVia33Dw
-	Jll
-X-Received: by 2002:a17:90b:4b50:b0:354:a662:47ff with SMTP id 98e67ed59e1d1-35965d188d6mr12983648a91.35.1772525752831;
-        Tue, 03 Mar 2026 00:15:52 -0800 (PST)
-Received: from [192.168.0.101] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3599c408296sm1377885a91.5.2026.03.03.00.15.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 03 Mar 2026 00:15:52 -0800 (PST)
-Message-ID: <b69d5393-f122-44e9-96d9-342f458c3487@gmail.com>
-Date: Tue, 3 Mar 2026 16:15:44 +0800
+	Tue, 03 Mar 2026 08:38:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 09E9A497;
+	Tue,  3 Mar 2026 00:38:20 -0800 (PST)
+Received: from [10.57.81.89] (unknown [10.57.81.89])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8222E3F7BD;
+	Tue,  3 Mar 2026 00:38:24 -0800 (PST)
+Message-ID: <0a10ea33-937a-4294-b9a1-9323c706434d@arm.com>
+Date: Tue, 3 Mar 2026 08:38:23 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] drm/nuvoton: add MA35D1 display controller driver
-To: Icenowy Zheng <uwu@icenowy.me>, airlied@gmail.com, simona@ffwll.ch,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com,
- linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260129040532.382693-1-a0987203069@gmail.com>
- <20260129040532.382693-4-a0987203069@gmail.com>
- <8806eaf82fbef4cd51bb4e4bb44d60894b3504b4.camel@icenowy.me>
- <f556ef68-dac3-4652-ac21-ea4bbb4e912c@gmail.com>
- <9cccf8cd84b394f66b85e2af3bef0a3ecd154747.camel@icenowy.me>
-Content-Language: en-US
-From: Joey Lu <a0987203069@gmail.com>
-In-Reply-To: <9cccf8cd84b394f66b85e2af3bef0a3ecd154747.camel@icenowy.me>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH] arm64: contpte: fix set_access_flags() no-op check for
+ SMMU/ATS faults
+Content-Language: en-GB
+To: Piotr Jaroszynski <pjaroszynski@nvidia.com>, Will Deacon
+ <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
+Cc: Alistair Popple <apopple@nvidia.com>, Jason Gunthorpe <jgg@nvidia.com>,
+ John Hubbard <jhubbard@nvidia.com>, Zi Yan <ziy@nvidia.com>,
+ Breno Leitao <leitao@debian.org>, stable@vger.kernel.org
+References: <20260303063751.2531716-1-pjaroszynski@nvidia.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20260303063751.2531716-1-pjaroszynski@nvidia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_001554_234750_62604188 
-X-CRM114-Status: GOOD (  19.86  )
+X-CRM114-CacheID: sfid-20260303_003828_336431_11E303FE 
+X-CRM114-Status: GOOD (  34.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,79 +68,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 03/03/2026 06:37, Piotr Jaroszynski wrote:
+> contpte_ptep_set_access_flags() compared the gathered ptep_get() value
+> against the requested entry to detect no-ops. ptep_get() ORs AF/dirty
+> from all sub-PTEs in the CONT block, so a dirty sibling can make the
+> target appear already-dirty. When the gathered value matches entry, the
+> function returns 0 even though the target sub-PTE still has PTE_RDONLY
+> set in hardware.
+> 
+> For CPU page-table walks this is benign: with FEAT_HAFDBS the hardware
+> may set AF/dirty on any sub-PTE and the CPU TLB treats the gathered
+> result as authoritative for the entire range. But an SMMU without HTTU
+> (or with HA/HD disabled in CD.TCR) evaluates each descriptor
+> individually and will keep raising F_PERMISSION on the unchanged target
+> sub-PTE, causing an infinite fault loop.
 
-On 2/10/2026 8:02 PM, Icenowy Zheng wrote:
-> 在 2026-02-09星期一的 16:45 +0800，Joey Lu写道：
->> On 2/6/2026 11:09 PM, Icenowy Zheng wrote:
->>> 在 2026-01-29星期四的 12:05 +0800，Joey Lu写道：
->>>> ========== 8< ============
->>>> +#endif
->>>> diff --git a/drivers/gpu/drm/nuvoton/ma35_regs.h
->>>> b/drivers/gpu/drm/nuvoton/ma35_regs.h
->>>> new file mode 100644
->>>> index 000000000000..0f4a7a13e7d8
->>>> --- /dev/null
->>>> +++ b/drivers/gpu/drm/nuvoton/ma35_regs.h
->>>> @@ -0,0 +1,88 @@
->>>> +/* SPDX-License-Identifier: GPL-2.0+ */
->>>> +/*
->>>> + * Nuvoton DRM driver
->>>> + *
->>>> + * Copyright (C) 2026 Nuvoton Technology Corp.
->>>> + *
->>>> + * Author: Joey Lu <a0987203069@gmail.com>
->>>> + */
->>>> +
->>>> +#ifndef _MA35_REGS_H_
->>>> +#define _MA35_REGS_H_
->>>> +
->>>> +#define MA35_FRAMEBUFFER_CONFIG                   0x1518
->>> Please check my Verisilicon DC8200 driver, which is already part of
->>> drm-misc-next now.
->>>
->>> The display controller here seems to be a earlier one from
->>> Verisilicon.it looks like a DC8000, or maybe a more earlier one?
->> The DCU is a Vivante DCUltra IP rather than a DC8000 series.
->>
->> It's an earlier generation display controller and was customized for
->> Nuvoton, so it doesn't have a public model ID.
->>
->> Because of that lineage, parts of the register layout and
->> functionality
->> remain similar to older DC IPs.
-> The kernel seems to dislike different drivers for similar IPs.
->
->> Please refer to MA35D1 datasheet for more details.
-> I checked it, and the register definitions looks compatible with DC8000
-> registers at [1]. However no identification information is shown in the
-> manual.
->
-> I may get a MA35D1 board after the Lunar New Year (although it looks a
-> little expensive), is it easy to bring up mainline kernal on arbitary
-> MA35D1 boards?
->
-> [1]
-> https://github.com/milkv-megrez/rockos-u-boot/blob/c9221cf2fa77d39c0b241ab4b030c708e7ebe279/drivers/video/eswin/eswin_dc_reg.h
-Our team is actively working on upstreaming support for MA35D1. It is 
-possible to bring up the mainline kernel on arbitrary MA35D1 boards, but 
-for the best experience I strongly recommend using our Buildroot[1] or 
-Yocto[2] tooling available on the official GitHub. These provide 
-board-specific configurations and greatly simplify the process.
+Ouch; thanks for the fix!
 
-If you decide to get an MA35D1 board yourself, our Buildroot/Yocto setup 
-will help you get started quickly and ensure you have the right patches 
-and configurations in place.
+> 
+> Gathering can therefore cause false no-ops when only a sibling has been
+> updated:
+>  - write faults: target still has PTE_RDONLY (needs PTE_RDONLY cleared)
+>  - read faults:  target still lacks PTE_AF
+> 
+> Fix by checking all sub-PTEs' access flags individually (not via the
+> gathered view) before returning no-op, and use the raw target PTE for
+> the write-bit unfold decision. The access-flag mask matches the one
+> used by __ptep_set_access_flags().
+> 
+> Per Arm ARM (DDI 0487) D8.7.1 ("The Contiguous bit"), any sub-PTE in a CONT
+> range may become the effective cached translation and software must
+> maintain consistent attributes across the range.
+> 
+> Fixes: 4602e5757bcc ("arm64/mm: wire up PTE_CONT for user mappings")
+> 
 
-Currently, the mainline kernel version is 6.6, which is sufficient for 
-checking registers and basic functionality. For more complete feature 
-support, our Buildroot/Yocto tooling remains the recommended path.
+nit: there shouldn't be whitespace here.
 
-[1] https://github.com/OpenNuvoton/buildroot_2024
+> Reviewed-by: Alistair Popple <apopple@nvidia.com>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Jason Gunthorpe <jgg@nvidia.com>
+> Cc: John Hubbard <jhubbard@nvidia.com>
+> Cc: Zi Yan <ziy@nvidia.com>
+> Cc: Breno Leitao <leitao@debian.org>
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Piotr Jaroszynski <pjaroszynski@nvidia.com>
 
-[2] https://github.com/OpenNuvoton/MA35D1_yocto-v5.0
+This fix looks good to me:
 
-Best regards,
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
 
-Joey
+
+> ---
+>  arch/arm64/mm/contpte.c | 47 +++++++++++++++++++++++++++++++++++++----
+>  1 file changed, 43 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+> index bcac4f55f9c1..9868bfe4607c 100644
+> --- a/arch/arm64/mm/contpte.c
+> +++ b/arch/arm64/mm/contpte.c
+> @@ -390,6 +390,23 @@ void contpte_clear_young_dirty_ptes(struct vm_area_struct *vma,
+>  }
+>  EXPORT_SYMBOL_GPL(contpte_clear_young_dirty_ptes);
+>  
+> +static bool contpte_all_subptes_match_access_flags(pte_t *ptep, pte_t entry)
+> +{
+> +	pte_t *cont_ptep = contpte_align_down(ptep);
+> +	const pteval_t access_mask = PTE_RDONLY | PTE_AF | PTE_WRITE | PTE_DIRTY;
+> +	pteval_t entry_access = pte_val(entry) & access_mask;
+> +	int i;
+> +
+> +	for (i = 0; i < CONT_PTES; i++) {
+> +		pteval_t pte_access = pte_val(__ptep_get(cont_ptep + i)) & access_mask;
+> +
+> +		if (pte_access != entry_access)
+> +			return false;
+> +	}
+
+There are 2 forms of "dirty"; HW and SW. Here you are testing that all ptes in
+the contpte block have the same form of dirty, which I think is the correct
+thing to do. You could relax to just test that every pte has one of the forms of
+dirty, But in that case, if a pte is sw-dirty but not hw-dirty, then the
+PTE_RDONLY bit remains set and the SMMU will fault, I think?
+
+If my reasoning is correct, then I think arm64 hugetlb has a similar bug; See
+__cont_access_flags_changed(), which just checks for any form of dirty. So I
+guess hugetlb is buggy in the same way and should be fixed to use this more
+stringent approach?
+
+Thanks,
+Ryan
+
+> +
+> +	return true;
+> +}
+> +
+>  int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
+>  					unsigned long addr, pte_t *ptep,
+>  					pte_t entry, int dirty)
+> @@ -399,13 +416,35 @@ int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
+>  	int i;
+>  
+>  	/*
+> -	 * Gather the access/dirty bits for the contiguous range. If nothing has
+> -	 * changed, its a noop.
+> +	 * Check whether all sub-PTEs in the CONT block already have the
+> +	 * requested access flags, using raw per-PTE values rather than the
+> +	 * gathered ptep_get() view.
+> +	 *
+> +	 * ptep_get() gathers AF/dirty state across the whole CONT block,
+> +	 * which is correct for CPU TLB semantics: with FEAT_HAFDBS the
+> +	 * hardware may set AF/dirty on any sub-PTE and the CPU TLB treats
+> +	 * the gathered result as authoritative for the entire range. But an
+> +	 * SMMU without HTTU (or with HA/HD disabled in CD.TCR) evaluates
+> +	 * each descriptor individually and will keep faulting on the target
+> +	 * sub-PTE if its flags haven't actually been updated. Gathering can
+> +	 * therefore cause false no-ops when only a sibling has been updated:
+> +	 *  - write faults: target still has PTE_RDONLY (needs PTE_RDONLY cleared)
+> +	 *  - read faults:  target still lacks PTE_AF
+> +	 *
+> +	 * Per Arm ARM (DDI 0487) D8.7.1, any sub-PTE in a CONT range may
+> +	 * become the effective cached translation, so all entries must have
+> +	 * consistent attributes. Check the full CONT block before returning
+> +	 * no-op, and when any sub-PTE mismatches, proceed to update the whole
+> +	 * range.
+>  	 */
+> -	orig_pte = pte_mknoncont(ptep_get(ptep));
+> -	if (pte_val(orig_pte) == pte_val(entry))
+> +	if (contpte_all_subptes_match_access_flags(ptep, entry))
+>  		return 0;
+>  
+> +	/*
+> +	 * Use raw target pte (not gathered) for write-bit unfold decision.
+> +	 */
+> +	orig_pte = pte_mknoncont(__ptep_get(ptep));
+> +
+>  	/*
+>  	 * We can fix up access/dirty bits without having to unfold the contig
+>  	 * range. But if the write bit is changing, we must unfold.
 
 
