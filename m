@@ -4,142 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B7A9EDA687
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 15:45:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62DEDEDA68E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 15:45:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jtM2QplO+vl5viYUDdbza0mOYEyr7pEenNEHjQ9mc+A=; b=PINhf9oEjFzqU7ZbGEbX1sb7y2
-	s5lwMeirjaNEGYZDYcx20iTuBjNA2QoOjTXqxjvbk3QP8tAqvzQDqAXASYCe5qmgLsukXTE8i7tUz
-	i2vBJQm2IybGhgXFQ5GXJKDMjHjDrcQCOYL40uPboNSszTk6ZargYaznXK6oAGbrg6TGJ3ALDKcjr
-	LLLXvRGIsipwstp5+2SiVKJx9dqDD7NnabKH0/Mnx08DmObpk8zM7OsVRqJ2qDHaaIY/Dy65tXaKw
-	3a6FecXsidYJ3+8QMT2jYzXmH0o4nl6EZVEOI3W5eudqAR/Uajc7owG7XAXGiShldKDMhW1FmnNad
-	ddUQ3YQQ==;
+	bh=mWtnwgsWY+aXWMpSDD7oYksPIe7RPtQw+HrZTw9fzmo=; b=Z1VBIvOxIaxFIsDexum/m+SKJ0
+	6/kqijnrd8aMlDa5b++QwfydUL9RLBNVZmid1oM7dwjb0qtI2+0dss+dgh4lB+jXdwhmGi3uuknU2
+	fSG89PNALlasHPjmBWCvs8dEtA6pMKBzfBAQkgFhmqDDwZN1nPgc9ryycsh1tXzyRItd3tpVX8SLX
+	sDNF/UuvAzZf4Of9gnxRPAqMM9xu9eJJtkftKXtD1FM9EFqDu22Kt/weLMJ2EOlyRFG2XvP1dhwY5
+	SWAzVmQbCRPl4NfJiC1oVBWSHk/zd6Deunj/yz7pswzZMo/+1LhtQtpQjQOBSzXTvvrgTRnrIPRCt
+	6KVvnQag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxRw5-0000000FS0g-06Dt;
+	id 1vxRw5-0000000FS0k-1Kle;
 	Tue, 03 Mar 2026 15:45:25 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxRw2-0000000FRzn-3Pa8
+	id 1vxRw4-0000000FS0M-0not
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 03 Mar 2026 15:45:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=G/8hpFYEeW562tn1yPHq7jk3N1WxtZGyak6mcwyzKLzRP6v680WXwmexN9/9f00sOs8E2PVAAi2U3AzZY2smWxTEZXwx8c2GTaSW4E1JibYnNQumFtoJsDNwPwlH0FMJfZATObPdX0MZxDCRUpTcsLZRhHkzmZI8WsXG5N5wJ8qEgX6Qcnnao7FELlvX6r0rRjr8PYEZmV9TcSCZS67j4Y9oycTnLtsRy80ce5EhSmJ3mFoH2cUYTLHeFP7oKTtMmLQp18XnU3HzFgz7U4qGS9R+5mEV9tSN56DmBTPdqKA6NqBBOEumWLTPqCiq8CpAPCmD34Qrr3qUnzC43/IvcA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jtM2QplO+vl5viYUDdbza0mOYEyr7pEenNEHjQ9mc+A=;
- b=S0tINUCGZwSZDJqLVto+Aa8+YmjtBBShev2Vs/koaCWbf1f2BRolWYziLyy0IC1JAmHJiIds+W55OO1YSoXBnuddTm1xq0p657Kx2Sfi3DA8zwpAHPj7C9igiJozS7lHXTx40w6gk6OBqBTF/KOfcuI4vicDvYSNPyxFCPHnc7yQSM6+X+dwZoMDzTF1d8A4ibA0FaT+76nR48FlTtMYwcDDtsl2oij7ugqe4yLoaxLg8P+oDNAU4MkSTOmhsuylr3RkDATC0wKdSnM/oZgd/jOOCSvJRtEkO03o0jSld69r+EU3Sh0DjaeuZecaLk93Hz0P3H9UJ2+osbACecyfvA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jtM2QplO+vl5viYUDdbza0mOYEyr7pEenNEHjQ9mc+A=;
- b=jtEuK9gi7/hoG5RZTrz5O7kQ7eCOdWtXBKm61Jou99xXPhuRfYP39ttc6Km9WznzUUZ+CeQ7TM6MYOQSjy48F4NOZ1ua0y9D68YBj45WctTa1gbiqbfjgqgeQg3O5nA/B+X/0ikyPqrCdZshnBvaz6Mry8P52hJh07xvR7W9X0XC8J8aaYXy0O4m9nd0SgIhflC+/nXIxpgFluj0UZ+TLC7rmq6vDsllXCtEQKQu5peeuJbNzTfxFeG6FiUzZk1OOX0z4tO8eSpN6mWARt8f2PocKnk5PsqEPFsAbcMG+xkBQcAiwLqdjrB+fPbYZD4A2iARl6SXC9IFHRRNPn82SQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by AM8PR04MB7267.eurprd04.prod.outlook.com (2603:10a6:20b:1df::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Tue, 3 Mar
- 2026 15:45:18 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9654.020; Tue, 3 Mar 2026
- 15:45:18 +0000
-Date: Tue, 3 Mar 2026 10:45:08 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	Liu Ying <victor.liu@nxp.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	luca.ceresoli@bootlin.com, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v11 3/3] arm64: dts: imx93: Add parallel display output
- nodes
-Message-ID: <aacCBGRAd6JbktHU@lizhi-Precision-Tower-5810>
-References: <20260303-v6-18-topic-imx93-parallel-display-v11-0-1b03733c8461@pengutronix.de>
- <20260303-v6-18-topic-imx93-parallel-display-v11-3-1b03733c8461@pengutronix.de>
- <tyqgkbmkmenkdqdptb3baeizmvsdoyfjnaudlpb4jnz4py7cpb@oy64pijka2yz>
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 453FC60053;
+	Tue,  3 Mar 2026 15:45:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D603C116C6;
+	Tue,  3 Mar 2026 15:45:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772552723;
+	bh=NUOXljTmyEDWmFoNWuqeCGEceTr+9T1FfZUnN2JoicQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=inPxIq+4LXTnLQcAVhY1kUwBow604IPD6/gzLaYafeWUMzEc+5rjaTvs7wwxzw/K/
+	 sWeyKo8hHuXaE0K05ZHO1PBj7S8eFKNnpX3t9ttA/HqDFu0GqHdSNoaT+Q7r8MzWbU
+	 MKAyyVPoIPSBR9NOhs+iBqIbZDH3ir95p2/Fb/KezvNYWWjUMOXtyjNwBAQdW0kxdi
+	 pXvnbxWoK6pWg9KigG7uHSDom3kJvrDHf68hVVbcaNizQ89jq9wk9j2ln3bAxBql8x
+	 SKRTj0LfQNMSpZvWv3+qeY+TLtRgs+gzkkA0yNwBUpWPx5+4PdAIyB/aLdRfvIY9qP
+	 7ButtyUJ4xZoA==
+Date: Tue, 3 Mar 2026 15:45:16 +0000
+From: Will Deacon <will@kernel.org>
+To: Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH v2 07/35] KVM: arm64: Remove is_protected_kvm_enabled()
+ checks from hypercalls
+Message-ID: <aacCDMhYJLMWVaIQ@willie-the-truck>
+References: <20260119124629.2563-1-will@kernel.org>
+ <20260119124629.2563-8-will@kernel.org>
+ <aYtGWwcVrDQeGCma@raptor>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <tyqgkbmkmenkdqdptb3baeizmvsdoyfjnaudlpb4jnz4py7cpb@oy64pijka2yz>
-X-ClientProxiedBy: PH8PR22CA0019.namprd22.prod.outlook.com
- (2603:10b6:510:2d1::28) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AM8PR04MB7267:EE_
-X-MS-Office365-Filtering-Correlation-Id: 93eee611-899e-4a41-9db4-08de793bde8f
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|52116014|7416014|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: oXBuikVTexvvQQCmZNl8+dxfde8thz+1N58dGcE8LRi1x8T8l1o8TR2MHwFGK9KBDvwLfRlQoBU5ULh+20wehp6x0amPWLc4ikbPZLwl4MV3yCzE5zHFfeUusnG0erHGXCD7mwCxZwgWKZwbgcsadCs3kFic9RkMkPHnIZ5esFLe62cZ7YPoc9E1UTzPbypjBZsann55PT0DuuswAIUDQ0EV/WAwpUyLWebmN+t99988jmOhd0N43ihJCGeiMdC69HLNeLc0+eWTp5ysf1VOvuQR2ZLqHErFQTCQJT9Q1pf2HNcOEUykz0m+zrVUDfJN6bPAq65Zz3KdKjeQPGrxBLvuSipGiXsAe0Zc7jpSV4aTk5qTBI38jEcz6BAwzN+KyA3MvP+h0VFph/NgihgIADoIfuRxlqcfmC9pENPIln7eeVMfR+kYyy0wnSbs/L3KIo9ASS8eRzca/mQbNkL00CBiTf2jPbso1RUgAtcikdPJsCaxiI33ihMThI7YI0jr9jklslUSx2809Sy1narlJ5AP03JU5LTBSP9kBVq78GB+JHkbu8Bbreq/w5ivwTw0D21mTSzUQM4cpALWIIqtiOxrqa5yrs77IaQuDes1BYY6qmFRA0pfYSKBaQwfKszdLQpPneqZI52j+IPWBugdQlRjtpQYdCgysYy4Jc+tLR689C6DPKSOZ4L4Ad8MegMlxBTGcEnJF9+GPknwykz18XwmSZH55cOewnL1GNJt+Os=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(52116014)(7416014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6qzLW1lIFZubL9fI7XhVY1FkHbOMn2SM9d5BEs8azlo0zqZ2NuGv0JmS0pJ/?=
- =?us-ascii?Q?m4hHSGRbhpfmeX2/l3lq1adUqJfLzMiub7iDaAKT5H0EpwQQdrD1Y5j12RwB?=
- =?us-ascii?Q?r0wCkJIJSZtRFivOm+XlR0I1G4kEoc6OJzC255sCz8LEE1C5t6DGFpEmVNlf?=
- =?us-ascii?Q?y3bYbGMP8sR+pQAS8S+7bgfnpWkJNFun/hQwUOPYte2iotgLdk4cDSHmU8UP?=
- =?us-ascii?Q?Ru5Wwtd2QrWCkTXzji9tEMwaVihgvceHvUUNXK9Hvx1c3gNtb/q2y+AUFdWq?=
- =?us-ascii?Q?ELGFvuXclpdNIoZiVWYzG8UDrmb9NWi75ItbAdV5+WQB6rhivHyaZZZEA1G0?=
- =?us-ascii?Q?NhlsyVPpsWLMju4l91oJyLhmIxkKrHVT6GDzjiCTpwvRgVHU4MBwnCO1bR1o?=
- =?us-ascii?Q?5WSy/OMSIyWXdFEow5WMxdAwQJOjLSMSuSx8N3nBOXR3Sygf2blCzlo1/v/r?=
- =?us-ascii?Q?KO8zDXFuDrKK3Xc0wdxdZl0AYsmYbCWWltSNmAqVe7jDIehqfMMDEL9tVFHF?=
- =?us-ascii?Q?g+o4AO0LEG06rqXju0JoRc4cEV7oXxPxDWVHXkD4zk6CUgKh5VsRGigupszP?=
- =?us-ascii?Q?wgERSbhu6/YTSFrLUUyM0mwwNb6X8ta/WeD8/nne/qw8TAlZFiibnH9SY47O?=
- =?us-ascii?Q?LGx38A/e/39UEFFLEqUp21qhCWrBdzSdcE4SBRfAqi7jHZXod7cd2wYR311x?=
- =?us-ascii?Q?O8FAIyE0L7RlkFWDCJLQpONSVMPshlgyG0WTg/NKGuF2w5V7Wpi34esDeBZI?=
- =?us-ascii?Q?+HG8hug4YEBbpuEVhhNOp8k2Z6gmBifAVGZ6VeKLbbGjcjM+k4hp15hl5UA/?=
- =?us-ascii?Q?4Cgx/2EPS0kSEn2In0SbukYeqKMMUcZop9NNz7pVhUYsLuUcJ0DX+1PMo02c?=
- =?us-ascii?Q?nQDzE+i+7SHS1RbfhD8FbzafZweuFuQnohCqIdqRafIkD1bVfqU93tZrdpAU?=
- =?us-ascii?Q?LH9J8z7Kp3Iw/ClHdWRzY8I1ZY3XV0A0+HwkKIPk2MYjlOBlKAm2JMxRLcRI?=
- =?us-ascii?Q?9uTifnwBlt1FMpyQHghRvEzwTD+P9Lja05tQoTzictFEUlwbkdEQAtePMdL9?=
- =?us-ascii?Q?7a2AWKG6wd1eJWmePCq7LBpvhXlnw8xxAHh5h81UmR5ZJSU98iHsWcd1OQOP?=
- =?us-ascii?Q?ikSHiTCmnaxmXJ5gZ8o2cN+V02BLZSVMe7gDq5rrNAqP2O5Gd1156fOqLeqx?=
- =?us-ascii?Q?lxDkfW7iNjm4/cVC2BvKLQ03wlllgCf2KknEpbc2ULqmojzcWXEZRXd4wHsq?=
- =?us-ascii?Q?mnQg8b/RdOXfCOUY3M4B/uM0G6bwFGibaHiNI/jjElTM8UlgVWZs0lG0ffF3?=
- =?us-ascii?Q?uKea1OpAnxQMgZhQZZsfsE/k83HTcsjp7pK/pWq6m3EUXV/tccpZrzmkBYwp?=
- =?us-ascii?Q?l7qta0AiX9b2SWZ9317Jf1d+0IJuWcXiN43bh7+jXfMa+GU3IJG2YoDjBw5j?=
- =?us-ascii?Q?4uEF6pWnDq2STYz/k1Woo7IK5Kp7DiWLnULvzL8x0omkADSupDVV/9VRT7mM?=
- =?us-ascii?Q?oVBL1udLotUOaGzJv8yW1BezNg9kWKMw0Utf25rgnLq0j0Vwb5pf9/h9pzTQ?=
- =?us-ascii?Q?x6/aENFA2u5MsurnKRlwsSAVUMq/7g0hgHiVid3fp0vLnqf0m8DvNttKsjom?=
- =?us-ascii?Q?0bSR2W3rnHb0TlRjWIXYHLaD4Zg6Lq9O2akNIfQ/Q6K404XXhd8hkP6G7JQq?=
- =?us-ascii?Q?hZUKyaLAwqfDP1HI+Ii5Y13f1tIYC2e7NxFTfL4uYflC22uK?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 93eee611-899e-4a41-9db4-08de793bde8f
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2026 15:45:17.8663
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JptHc/1ifipfRoAMr3T5B1CyamrXwfwbaHSLDWVRaJ9GTzGbzRofqVojWq7N32RSyGQfcsc/um6zo2jeDjs8+w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7267
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_074522_857153_08D8DCC0 
-X-CRM114-Status: GOOD (  26.51  )
+In-Reply-To: <aYtGWwcVrDQeGCma@raptor>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,150 +78,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 03, 2026 at 11:42:08AM +0100, Marco Felsch wrote:
-> Hi Frank,
->
-> On 26-03-03, Marco Felsch wrote:
-> > Add required OF nodes to support the i.MX93 parallel output (DPI) path.
-> >
-> > On the i.MX93 a single LCDIF is connected to three bridges: DPI, LVDS
-> > LDB and the MIPI-DSI whereas the i.MX91 support only the DPI bridge.
-> >
-> > Map endpoint@0 as DPI bridge output since the i.MX93 TRM (Figure 485.
-> > MEDIAMIX block diagram) doesn't mention any port-number <-> bridge
-> > combination.
-> >
-> > Set the MEDIA-AXI and MEDIA-APB clocks to the overdrive (OD) values
-> > since the i.MX93 and i.MX91 use the overdrive (OD) clk settings per
-> > default.
-> >
-> > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
->
-> Please ignore this particular patch since you already applied this one.
+Hi Alex,
 
-You can skip these when you post new version. post delta if need update,
-I can squash to previous patch as need.
+Thanks for having a look.
 
->
-> Next time we should align the apply with the rest of the patch series if
-> dt-bindings and driver behaviors are involved. In such case the final
-> integration patch should be merged at the end and not at the beginning
-> :)
-
-You request apply at :)
-https://lore.kernel.org/all/fl2br7rtcjrjj2uqxva7ai3xbvjwrrbbl2ruaoqolrccr2rd5p@z33qfx7dpavf/
-
-Frank
->
-> Thanks,
->   Marco
->
+On Tue, Feb 10, 2026 at 02:53:15PM +0000, Alexandru Elisei wrote:
+> On Mon, Jan 19, 2026 at 12:46:00PM +0000, Will Deacon wrote:
+> > When pKVM is not enabled, the host shouldn't issue pKVM-specific
+> > hypercalls and so there's no point checking for this in the pKVM
+> > hypercall handlers.
+> > 
+> > Remove the redundant is_protected_kvm_enabled() checks from each
+> > hypercall and instead rejig the hypercall table so that the
+> > pKVM-specific hypercalls are unreachable when pKVM is not being used.
+> > 
+> > Reviewed-by: Quentin Perret <qperret@google.com>
+> > Signed-off-by: Will Deacon <will@kernel.org>
 > > ---
-> >  arch/arm64/boot/dts/freescale/imx91_93_common.dtsi | 54 ++++++++++++++++++++++
-> >  arch/arm64/boot/dts/freescale/imx93.dtsi           | 12 +++++
-> >  2 files changed, 66 insertions(+)
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi b/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
-> > index 7958cef353766a430df5e626ff2403dc05a974b1..5a8813df6bc993d559fb0b20fc742a106bfe6315 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
-> > +++ b/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
-> > @@ -1122,8 +1122,62 @@ media_blk_ctrl: system-controller@4ac10000 {
-> >  				 <&clk IMX93_CLK_MIPI_DSI_GATE>;
-> >  			clock-names = "apb", "axi", "nic", "disp", "cam",
-> >  				      "pxp", "lcdif", "isi", "csi", "dsi";
-> > +			assigned-clocks = <&clk IMX93_CLK_MEDIA_AXI>,
-> > +					  <&clk IMX93_CLK_MEDIA_APB>,
-> > +					  <&clk IMX93_CLK_MEDIA_DISP_PIX>;
-> > +			assigned-clock-parents = <&clk IMX93_CLK_SYS_PLL_PFD1>,
-> > +						 <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>,
-> > +						 <&clk IMX93_CLK_VIDEO_PLL>;
-> > +			assigned-clock-rates = <400000000>, <133333333>;
-> >  			#power-domain-cells = <1>;
-> >  			status = "disabled";
-> > +
-> > +			dpi_bridge: dpi-bridge {
-> > +				compatible = "nxp,imx93-pdfc";
-> > +				status = "disabled";
-> > +
-> > +				ports {
-> > +					#address-cells = <1>;
-> > +					#size-cells = <0>;
-> > +
-> > +					port@0 {
-> > +						reg = <0>;
-> > +
-> > +						dpi_from_lcdif: endpoint {
-> > +							remote-endpoint = <&lcdif_to_dpi>;
-> > +						};
-> > +					};
-> > +
-> > +					port@1 {
-> > +						reg = <1>;
-> > +
-> > +						dpi_to_panel: endpoint {
-> > +						};
-> > +					};
-> > +				};
-> > +			};
-> > +		};
-> > +
-> > +		lcdif: display-controller@4ae30000 {
-> > +			compatible = "fsl,imx93-lcdif";
-> > +			reg = <0x4ae30000 0x23c>;
-> > +			interrupts = <GIC_SPI 176 IRQ_TYPE_LEVEL_HIGH>;
-> > +			clocks = <&clk IMX93_CLK_MEDIA_DISP_PIX>,
-> > +				 <&clk IMX93_CLK_LCDIF_GATE>,
-> > +				 <&clk IMX93_CLK_MEDIA_AXI>;
-> > +			clock-names = "pix", "axi", "disp_axi";
-> > +			power-domains = <&media_blk_ctrl IMX93_MEDIABLK_PD_LCDIF>;
-> > +			status = "disabled";
-> > +
-> > +			port {
-> > +				#address-cells = <1>;
-> > +				#size-cells = <0>;
-> > +
-> > +				lcdif_to_dpi: endpoint@0 {
-> > +					reg = <0>;
-> > +					remote-endpoint = <&dpi_from_lcdif>;
-> > +				};
-> > +			};
-> >  		};
-> >
-> >  		usbotg1: usb@4c100000 {
-> > diff --git a/arch/arm64/boot/dts/freescale/imx93.dtsi b/arch/arm64/boot/dts/freescale/imx93.dtsi
-> > index 7b27012dfcb564650882dc8c40e836e797b2fda1..5436b48b30e89eb1f939b398ce1bf105abe7e34b 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx93.dtsi
-> > +++ b/arch/arm64/boot/dts/freescale/imx93.dtsi
-> > @@ -150,6 +150,18 @@ l3_cache: l3-cache {
-> >  	};
-> >  };
-> >
-> > +&lcdif {
-> > +	port {
-> > +		lcdif_to_ldb: endpoint@1 {
-> > +			reg = <1>;
-> > +		};
-> > +
-> > +		lcdif_to_dsi: endpoint@2 {
-> > +			reg = <2>;
-> > +		};
-> > +	};
-> > +};
-> > +
-> >  &src {
-> >  	mlmix: power-domain@44461800 {
-> >  		compatible = "fsl,imx93-src-slice";
-> >
-> > --
-> > 2.47.3
-> >
+> >  arch/arm64/include/asm/kvm_asm.h   | 20 ++++++----
+> >  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 63 ++++++++++--------------------
+> >  2 files changed, 32 insertions(+), 51 deletions(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> > index a1ad12c72ebf..2076005e9253 100644
+> > --- a/arch/arm64/include/asm/kvm_asm.h
+> > +++ b/arch/arm64/include/asm/kvm_asm.h
+> > @@ -60,16 +60,9 @@ enum __kvm_host_smccc_func {
+> >  	__KVM_HOST_SMCCC_FUNC___vgic_v3_init_lrs,
+> >  	__KVM_HOST_SMCCC_FUNC___vgic_v3_get_gic_config,
+> >  	__KVM_HOST_SMCCC_FUNC___pkvm_prot_finalize,
+> > +	__KVM_HOST_SMCCC_FUNC_MIN_PKVM = __KVM_HOST_SMCCC_FUNC___pkvm_prot_finalize,
+> >  
+> >  	/* Hypercalls available after pKVM finalisation */
+> 
+> This comment should be removed, I think the functions that follow, up to
+> and including __KVM_HOST_SMCCC_FUNC_MAX_NO_PKVM, are also available with
+> kvm-arm.mode=nvhe.
 >
-> --
-> #gernperDu
-> #CallMeByMyFirstName
->
-> Pengutronix e.K.                           |                             |
-> Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
+> If you agree that the comment should be removed, maybe a different name for
+> the define above would be more appropriate, one that does not imply pkvm?
+
+I'd rather keep the comment, as it delimits the blocks of hypercalls and
+is informative for the case when pKVM is enabled.
+
+I suppose we could reword it like:
+
+
+diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+index c4246c34509a..6c79f7504d80 100644
+--- a/arch/arm64/include/asm/kvm_asm.h
++++ b/arch/arm64/include/asm/kvm_asm.h
+@@ -51,7 +51,7 @@
+ #include <linux/mm.h>
+ 
+ enum __kvm_host_smccc_func {
+-       /* Hypercalls available only prior to pKVM finalisation */
++       /* Hypercalls that are unavailable once pKVM has finalised. */
+        /* __KVM_HOST_SMCCC_FUNC___kvm_hyp_init */
+        __KVM_HOST_SMCCC_FUNC___pkvm_init = __KVM_HOST_SMCCC_FUNC___kvm_hyp_init + 1,
+        __KVM_HOST_SMCCC_FUNC___pkvm_create_private_mapping,
+@@ -62,7 +62,7 @@ enum __kvm_host_smccc_func {
+        __KVM_HOST_SMCCC_FUNC___pkvm_prot_finalize,
+        __KVM_HOST_SMCCC_FUNC_MIN_PKVM = __KVM_HOST_SMCCC_FUNC___pkvm_prot_finalize,
+ 
+-       /* Hypercalls available after pKVM finalisation */
++       /* Hypercalls that are always available and common to [nh]VHE/pKVM. */
+        __KVM_HOST_SMCCC_FUNC___kvm_adjust_pc,
+        __KVM_HOST_SMCCC_FUNC___kvm_vcpu_run,
+        __KVM_HOST_SMCCC_FUNC___kvm_flush_vm_context,
+@@ -76,7 +76,7 @@ enum __kvm_host_smccc_func {
+        __KVM_HOST_SMCCC_FUNC___vgic_v3_restore_vmcr_aprs,
+        __KVM_HOST_SMCCC_FUNC_MAX_NO_PKVM = __KVM_HOST_SMCCC_FUNC___vgic_v3_restore_vmcr_aprs,
+ 
+-       /* Hypercalls available only when pKVM has finalised */
++       /* Hypercalls that are available only when pKVM has finalised. */
+        __KVM_HOST_SMCCC_FUNC___pkvm_host_share_hyp,
+        __KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_hyp,
+        __KVM_HOST_SMCCC_FUNC___pkvm_host_donate_guest,
+
+
+WDYT?
+
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > index a7c689152f68..eb5cfe32b2c9 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > @@ -169,9 +169,6 @@ static void handle___pkvm_vcpu_load(struct kvm_cpu_context *host_ctxt)
+> >  	DECLARE_REG(u64, hcr_el2, host_ctxt, 3);
+> >  	struct pkvm_hyp_vcpu *hyp_vcpu;
+> >  
+> > -	if (!is_protected_kvm_enabled())
+> > -		return;
+> > -
+> >  	hyp_vcpu = pkvm_load_hyp_vcpu(handle, vcpu_idx);
+> >  	if (!hyp_vcpu)
+> >  		return;
+> 
+> I've always wondered about this. For some hypercalls, all the handler does is
+> marshal the arguments for the actual function (for example,
+> handle___kvm_adjust_pc() -> __kvm_adjust_pc()), but for others, like this one,
+> the handler also has extra checks before calling the actual function.  Would you
+> mind explaining what the rationale is?
+
+Basically, any hypercall available post-pKVM finalisation needs to check
+all pointer arguments that it takes. It's best to do this in the early
+handler so that the backend code can just operate on a safe pointer
+(either because the underlying memory has been pinned or because it's
+been repainted to point at a hypervisor-managed data structure). That
+also allows us to share a bunch of code (e.g. __kvm_vcpu_run()) with
+nVHE.
+
+The reason handle___kvm_adjust_pc() doesn't do this is simply because
+this series focusses purely on the guest memory side of things; once
+we've got that, then we can work on hardening the vCPU/VM structures and
+these hypercalls will get tightened up by that work. In fact, that
+specific hypercall will do _nothing_ for a protected VM!
+
+Will
 
