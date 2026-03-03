@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC05EDEBE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 19:25:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56B3EEDEBEC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 19:25:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nW00FZO4zTIM3ix7TBNI1AHWYdDvd3wlp3ueF2QqLfc=; b=H70OoBbnepMIrwk9PciVjpBl/j
-	lqdgLYDjawIC8jZs7aGyqBum+a03kcgy+mBil73N00D0LDrH+gHzadouz+MUh5fHmz9S1heSBzbfK
-	cMSBuJdVJRSVFEC4t5RWR9coTbG4Ye9TUsVYeKe7KpFDu7eaSnD8Q+gGT2z04gsRm8+24/DdLXnCU
-	xguMDzAV1sjtfQ1PAsr6TFaqO4u1tRnkAhw0LwXKSDgL2BiGr1iXniockreI/0fLErrv6t+6Z+EaR
-	1Av3ZE1p9Y7T7Y3TF4iblg9QuijcWzSi2tvf2AEK1XwwcBOAs9y0NTFBYRWShUQnAZ3jOLlf7KcXL
-	NqLyzGlQ==;
+	bh=lK6+jFlw/cieeHzAP2w3E16xjcbowhTo2R1LC1mAhtg=; b=T47vPsY+gdRCk16Fhl9m7YKC7U
+	M+NU0m0fEm7mPu9cnm2didA03U/yeYvGbSQsNlIZ7hfErPHcj25WaFz0CsFj8rSilRBBNwfm23OX0
+	o+jpKubbNgdQIohAA/wj8PCtPFNrICXUCzoF8/AwzD5VovA4g3zqT6+KCSdxbJ+HttCa/uJGeVwYL
+	D9CdsD/pJNSdDGzvMvejAEculSnph7cR7CYJfhlKZFkkM4sGTCDPwrRhad/i4vp6ma9kyE+MMrGfS
+	UFpnpdTX+9/95X0GXtN8uP/FM9XowNyOHp+HogWRvYlEvdW3Uko+isQVurfjNjPV7WxfpwNxFyRy9
+	7GCxPV1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxVMU-0000000FmeI-43Ap;
-	Tue, 03 Mar 2026 19:24:54 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vxVMX-0000000Fmfc-0uq3;
+	Tue, 03 Mar 2026 19:24:57 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxVMS-0000000Fmd1-0FJt;
-	Tue, 03 Mar 2026 19:24:53 +0000
+	id 1vxVMU-0000000FmdY-1NAS;
+	Tue, 03 Mar 2026 19:24:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1772565889;
-	bh=xeVIe8cmrntR0enuK392UB2SXROYBNmtYamPiBlWwyw=;
+	s=mail; t=1772565891;
+	bh=ObnLGgpAvxvftcOTxiIiuCKnlmTs5dcqu1LLAjcfrVY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=hDTgpViRIzjWpaz1Mps9ZjamKCPPNQHP0C88T3U0lWKkoj9BA8x1d3Rajzzdr3Lvl
-	 LkhuzDgvqNhUgpOmmK9kxRLhJpybSLauyctDOMNvEP3LdphzPkiHfvHv0l9EOfL9q0
-	 z9iHtlv6l236IN/NSmesqHI9VEYLYuhX90Ocu4beSlF9BexmHg29ncS986NLQcBOLx
-	 +d4uvye0w6FzKiM8S56yQjxiQU1l4yNcrI1+nF81YSnVDuctygRNwfyyv7hC/GrkBQ
-	 eszX/23EeXOgdt+bj63HRn5UlZhnXw63izI3VR69LgFknCzdyxRlu3fTSjwuEEpJXB
-	 RqLxk9vtr04uQ==
+	b=PPx1q1yQE8jGykpanZWq/6V1OK/sJ8v5PBQxDMT6QBrvnh/m2/PdnhvXYa1Kg8G9E
+	 wh9JJhkngnJzf/CakR6Js/drx6RpiuXbE0Hip1xnE2EM26cIzvYJjdpIeFMBpaFCPe
+	 EcOZU+W1ggkFVklS/+unnB9h9SZoaAd5rYM24cfnKSKfNsBi4RLt9DRbb5eBKQcHu7
+	 Y6SGUfj+ZiSHGBudScfAs8r6Ml+V+mEtdJaCxZvnZ3zqcjx+of6/9yRXR2eNvyatca
+	 JrFgstieDSt3oTr//9ekEsXpK7n3McRU7F4UvG53JHLfUCsj1aORFAno/RUK3vtftC
+	 oQIqft3qM4ugQ==
 Received: from localhost (unknown [86.123.23.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B0A7417E0EB2;
-	Tue,  3 Mar 2026 20:24:49 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7AD1517E0EA3;
+	Tue,  3 Mar 2026 20:24:51 +0100 (CET)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 03 Mar 2026 21:24:17 +0200
-Subject: [PATCH v8 1/4] uapi: Provide DIV_ROUND_CLOSEST()
+Date: Tue, 03 Mar 2026 21:24:19 +0200
+Subject: [PATCH v8 3/4] drm/vkms: Support setting custom background color
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260303-rk3588-bgcolor-v8-1-fee377037ad1@collabora.com>
+Message-Id: <20260303-rk3588-bgcolor-v8-3-fee377037ad1@collabora.com>
 References: <20260303-rk3588-bgcolor-v8-0-fee377037ad1@collabora.com>
 In-Reply-To: <20260303-rk3588-bgcolor-v8-0-fee377037ad1@collabora.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -67,12 +67,11 @@ Cc: Robert Mader <robert.mader@collabora.com>, kernel@collabora.com,
  dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
- Diederik de Haas <diederik@cknow-tech.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+ Diederik de Haas <diederik@cknow-tech.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_112452_268433_07D72CE0 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20260303_112454_511171_33EF0F45 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,81 +86,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently DIV_ROUND_CLOSEST() is only available for the kernel via
-include/linux/math.h.
+Make use of the BACKGROUND_COLOR CRTC property when filling the
+background during blending.  It already defaults to solid black.
 
-Expose it to userland as well by adding __KERNEL_DIV_ROUND_CLOSEST() as
-a common definition in uapi.
+Since the internal representation of the pixel color in VKMS relies on
+16 bits of precision, use the newly introduced DRM_ARGB64_GET{R|G|B}()
+helpers to access the individual components of the background color
+property, which is compliant with DRM_FORMAT_ARGB16161616.
 
-Additionally, ensure it allows building ISO C applications by switching
-from the 'typeof' GNU extension to the ISO-friendly __typeof__.
+It's worth noting the alpha component is ignored, hence non-opaque
+background colors are not supported.
 
 Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 Tested-by: Diederik de Haas <diederik@cknow-tech.com>
-Acked-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- include/linux/math.h       | 18 +-----------------
- include/uapi/linux/const.h | 18 ++++++++++++++++++
- 2 files changed, 19 insertions(+), 17 deletions(-)
+ drivers/gpu/drm/vkms/vkms_composer.c | 10 ++++++++--
+ drivers/gpu/drm/vkms/vkms_crtc.c     |  3 +++
+ 2 files changed, 11 insertions(+), 2 deletions(-)
 
-diff --git a/include/linux/math.h b/include/linux/math.h
-index 6dc1d1d32fbc..1e8fb3efbc8c 100644
---- a/include/linux/math.h
-+++ b/include/linux/math.h
-@@ -89,23 +89,7 @@
- }							\
- )
- 
--/*
-- * Divide positive or negative dividend by positive or negative divisor
-- * and round to closest integer. Result is undefined for negative
-- * divisors if the dividend variable type is unsigned and for negative
-- * dividends if the divisor variable type is unsigned.
-- */
--#define DIV_ROUND_CLOSEST(x, divisor)(			\
--{							\
--	typeof(x) __x = x;				\
--	typeof(divisor) __d = divisor;			\
--	(((typeof(x))-1) > 0 ||				\
--	 ((typeof(divisor))-1) > 0 ||			\
--	 (((__x) > 0) == ((__d) > 0))) ?		\
--		(((__x) + ((__d) / 2)) / (__d)) :	\
--		(((__x) - ((__d) / 2)) / (__d));	\
--}							\
--)
-+#define DIV_ROUND_CLOSEST __KERNEL_DIV_ROUND_CLOSEST
- /*
-  * Same as above but for u64 dividends. divisor must be a 32-bit
-  * number.
-diff --git a/include/uapi/linux/const.h b/include/uapi/linux/const.h
-index b8f629ef135f..565f309b9df8 100644
---- a/include/uapi/linux/const.h
-+++ b/include/uapi/linux/const.h
-@@ -50,4 +50,22 @@
- 
- #define __KERNEL_DIV_ROUND_UP(n, d) (((n) + (d) - 1) / (d))
- 
-+/*
-+ * Divide positive or negative dividend by positive or negative divisor
-+ * and round to closest integer. Result is undefined for negative
-+ * divisors if the dividend variable type is unsigned and for negative
-+ * dividends if the divisor variable type is unsigned.
-+ */
-+#define __KERNEL_DIV_ROUND_CLOSEST(x, divisor)		\
-+({							\
-+	__typeof__(x) __x = x;				\
-+	__typeof__(divisor) __d = divisor;		\
-+							\
-+	(((__typeof__(x))-1) > 0 ||			\
-+	 ((__typeof__(divisor))-1) > 0 ||		\
-+	 (((__x) > 0) == ((__d) > 0))) ?		\
-+		(((__x) + ((__d) / 2)) / (__d)) :	\
-+		(((__x) - ((__d) / 2)) / (__d));	\
-+})
+diff --git a/drivers/gpu/drm/vkms/vkms_composer.c b/drivers/gpu/drm/vkms/vkms_composer.c
+index cd85de4ffd03..83d217085ad0 100644
+--- a/drivers/gpu/drm/vkms/vkms_composer.c
++++ b/drivers/gpu/drm/vkms/vkms_composer.c
+@@ -475,8 +475,14 @@ static void blend(struct vkms_writeback_job *wb,
+ {
+ 	struct vkms_plane_state **plane = crtc_state->active_planes;
+ 	u32 n_active_planes = crtc_state->num_active_planes;
+-
+-	const struct pixel_argb_u16 background_color = { .a = 0xffff };
++	u64 bgcolor = crtc_state->base.background_color;
 +
- #endif /* _UAPI_LINUX_CONST_H */
++	const struct pixel_argb_u16 background_color = {
++		.a = 0xffff,
++		.r = DRM_ARGB64_GETR(bgcolor),
++		.g = DRM_ARGB64_GETG(bgcolor),
++		.b = DRM_ARGB64_GETB(bgcolor),
++	};
+ 
+ 	int crtc_y_limit = crtc_state->base.mode.vdisplay;
+ 	int crtc_x_limit = crtc_state->base.mode.hdisplay;
+diff --git a/drivers/gpu/drm/vkms/vkms_crtc.c b/drivers/gpu/drm/vkms/vkms_crtc.c
+index ba2ff353e1a9..35ddc553a5e6 100644
+--- a/drivers/gpu/drm/vkms/vkms_crtc.c
++++ b/drivers/gpu/drm/vkms/vkms_crtc.c
+@@ -4,6 +4,7 @@
+ 
+ #include <drm/drm_atomic.h>
+ #include <drm/drm_atomic_helper.h>
++#include <drm/drm_blend.h>
+ #include <drm/drm_managed.h>
+ #include <drm/drm_print.h>
+ #include <drm/drm_probe_helper.h>
+@@ -227,6 +228,8 @@ struct vkms_output *vkms_crtc_init(struct drm_device *dev, struct drm_plane *pri
+ 
+ 	drm_crtc_enable_color_mgmt(crtc, 0, false, VKMS_LUT_SIZE);
+ 
++	drm_crtc_attach_background_color_property(crtc);
++
+ 	spin_lock_init(&vkms_out->lock);
+ 	spin_lock_init(&vkms_out->composer_lock);
+ 
 
 -- 
 2.52.0
