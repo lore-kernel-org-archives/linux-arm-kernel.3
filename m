@@ -4,154 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E66A8EC1451
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 14:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D43D7EC1451
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 14:25:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ERtLLnajr8gGkYvOi3J74mDYNyBnQJ3+K9Ro07OFa0w=; b=XlEKkmjz6n784rf+8+JPMLq37C
-	4QNulSgbkwaxBFKsMA0dBNgCLorej/dF4G/OZF4elwVaHpXRXDAGBQcBqwNFj8v3rrHSi/+TFq52I
-	EtefHcEmYJgnLSW0f6Ne70BcFzsn8vQjYam3VDdYpOMca0uQgp3Tkl9rHO0CX8N5dJRBrnxtq6wmI
-	aWz2saPrZPXdjnSo/a44HkKboTcMG8d4yYnrrZwCuuJe4dGcMhjFZcANNfEdcHaj6DeCX8DDZqDhb
-	0375IzjcO8TV/zu/F9Q0Mh61aLtdmBFAS962gE1YGARyU59DOQz6eBPpzBkEXLg9kJDw7p0wkHCiv
-	GtXdzL7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c/CfIfXWFFMybwcWawNA33L/UyTFgFLiRUjQhmp0KQE=; b=mLCY6AxzMTvYL8LYbR3LeCyqQF
+	xEBSYkVdcGODHpA306fdHuE4K+UanKI4lmOQ3tyy5EVi3JSp/aOGK03JWdstotY+s9eTXuEpKm10G
+	TTeLsxSLm9E/7caz4HE54dni4NTdzO+ZCZxYwA2Mg6R0HJz3GXgZ386W1t24rZmd5RdmjZxZlnr+z
+	huHwqNRg0hmYHLdNB6noxVI1LzVYTElNrNDaxAktasSABO29BYlncpvW/s4+rMeAnpdYL1h58DImy
+	QFiYEwGEsINHfyuJWpVw60q5LhbGrs5CVx0l//Z/nRwTf/ExRN8vCRa/2vhVIlwxg8hB5aQpzgCVz
+	0NDuzXtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxQfl-0000000FKBI-1hhM;
-	Tue, 03 Mar 2026 14:24:29 +0000
-Received: from mail-westeuropeazon11010000.outbound.protection.outlook.com ([52.101.69.0] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1vxQgJ-0000000FKHX-1OPF;
+	Tue, 03 Mar 2026 14:25:03 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxQfi-0000000FKAV-3xKe
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 14:24:28 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=dp4rTrErntM1JtRCEQrAoyKRtfDWcOTWyLgpNKGOVFkeiiIYVYwqThVvqbJqQKgiBw76eIn/iZIGChfGZJpAIzhG+tXwVjVoU7kLgwYjzyv6MblnFnmMwpZs6IVpll1Ud9Yyvohs4A7tYH07G1gmoPm9tlNRZ5GUXs+TJXtjCJ8XdF+gEaf9lBJFep30hnW1z5vzm6MSAiVF14SZf+0RglijV91uy6aDJBkrehwdO+zMg9AuUZWgPen94TBLapdVU7yaEd3Cj6Y/KO2061qPp6q3X9rZju5IPzow49inWUvMYsRxLNW5VFZHte68n/icdIY5ZdiCcOmnj1FAWP+n9A==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ERtLLnajr8gGkYvOi3J74mDYNyBnQJ3+K9Ro07OFa0w=;
- b=yWQaRVf0QfzNIagOg5J2g2rV2Imd91K5PcLKspZu9FbTysZBaujkW7agPwDfZvMT2r56FNkIK3Ja9ijliXzooWytmaVS4oiNDVFKd/TDN5ICZh4m4nT6mMtoeqkR1vMdGRW7FllXciqgf9oUGtQBCr5uU8bOqq2yL+9totBWKcd757yzwTXURQGRdbvy3gdm8CgXRYMeANEY0qYjZNO04m48pqVmziy8tHWgsdD99n5495bF/6ZsziegGCHqt6fgY5xSzLxQ9md6HiFXIbe1l5X5mquT4UXejJiC192gMhmtdmqrm6gPh3FT0xFRLszM+RngcoaSvVutM91Gg54PKw==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ERtLLnajr8gGkYvOi3J74mDYNyBnQJ3+K9Ro07OFa0w=;
- b=l5qMwXHcaHMGKLXIp5llpbuIM348EiggDgq1gDoI4LPhQcKetAX/Zk2yZ8MLz/s3aOwvFqw0pSYtC56PFxq2DsvQPoXMdyztbeSXhBt0HTJyb3S7gs0Z/GCO7uh3oBRXoUY+g6lmz/ZEACJ/nubDfQBue6S3ONPoCw39G0yYzw8=
-Received: from DU7P195CA0004.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:54d::34)
- by FRZPR08MB10950.eurprd08.prod.outlook.com (2603:10a6:d10:135::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Tue, 3 Mar
- 2026 14:24:17 +0000
-Received: from DB5PEPF00014B9B.eurprd02.prod.outlook.com
- (2603:10a6:10:54d:cafe::7f) by DU7P195CA0004.outlook.office365.com
- (2603:10a6:10:54d::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9654.22 via Frontend Transport; Tue,
- 3 Mar 2026 14:24:13 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB5PEPF00014B9B.mail.protection.outlook.com (10.167.8.168) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9654.16
- via Frontend Transport; Tue, 3 Mar 2026 14:24:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=S4xDYV1O27MRF53EKbMW/zAR6yMZg7VuD+unX8+thDMpavfBLOk2D/AEAujf/O3UrsnvtzZlepEYdpOVZghSf49oJY6CS+Cra/0AtJa/i1I74UHDru5eb9eS0WzDmrncXL4Kt5AVNdOUmh+UAT11J5dUG8CedDvsmcCG32F+UZvI/n67OBB3S58DzrdN3H5yQY9Tn4tNk23Bu8CU9onu4w6xWmwEapSX7BrXNTsJ2KOjvr7BFHtRk5+eUmYzQmQfhLjs5T4evC/W1UxS6KXwts7Ue17B3Dx9VXxXnrcL7oKXbE8m1uq8S0vAWlLc76ne/6l4uW72nXXUFZmPMslKzA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ERtLLnajr8gGkYvOi3J74mDYNyBnQJ3+K9Ro07OFa0w=;
- b=qkZLNLoIk3v9bDQ/JG9TPYnQ209lKSaCSiCKTN7IqEDBP/elszHDW7ijCBOnkOedAUsn1WxoAgdihSCu7aTueMXwPsYwkS49crG2W+QraDLoISlg81b05c92DUjugTACtbStaSv/Yb0y6lDCFAOKG5WO0wcCje6wBWen6ZXOX6J7BipEAYNnyryPwT9dz3KFQpRblJqyyT8lhMUfoZwfcCDZH4weB6s/Ef6hhVtQSalbNo3/uK8kW8IMJa2BbDv2wWA3tms7Ak01zoytM5uFfajcdetTuAMMCdUEWdCh0Ve31UoLB46aWVsOIQ8STdBMCO+gMRdKqioCwODdKinmdw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ERtLLnajr8gGkYvOi3J74mDYNyBnQJ3+K9Ro07OFa0w=;
- b=l5qMwXHcaHMGKLXIp5llpbuIM348EiggDgq1gDoI4LPhQcKetAX/Zk2yZ8MLz/s3aOwvFqw0pSYtC56PFxq2DsvQPoXMdyztbeSXhBt0HTJyb3S7gs0Z/GCO7uh3oBRXoUY+g6lmz/ZEACJ/nubDfQBue6S3ONPoCw39G0yYzw8=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from DU4PR08MB11769.eurprd08.prod.outlook.com (2603:10a6:10:644::21)
- by DB9PR08MB9587.eurprd08.prod.outlook.com (2603:10a6:10:461::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Tue, 3 Mar
- 2026 14:23:10 +0000
-Received: from DU4PR08MB11769.eurprd08.prod.outlook.com
- ([fe80::d424:cd62:81a8:490f]) by DU4PR08MB11769.eurprd08.prod.outlook.com
- ([fe80::d424:cd62:81a8:490f%6]) with mapi id 15.20.9654.020; Tue, 3 Mar 2026
- 14:23:10 +0000
-Message-ID: <d87ee902-3b5e-4cf9-8b97-d83f8da02a5a@arm.com>
-Date: Tue, 3 Mar 2026 14:23:08 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 06/46] arm64: RMI: Define the user ABI
-To: Marc Zyngier <maz@kernel.org>
-Cc: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>
-References: <20251217101125.91098-1-steven.price@arm.com>
- <20251217101125.91098-7-steven.price@arm.com> <86tsuy8g0u.wl-maz@kernel.org>
- <33053e22-6cc6-4d55-bc7f-01f873a15d28@arm.com>
- <9d702666-72a8-43e4-8ab3-548d8154a529@arm.com> <86fr6h838s.wl-maz@kernel.org>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <86fr6h838s.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PAZP264CA0016.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:102:21::21) To DU4PR08MB11769.eurprd08.prod.outlook.com
- (2603:10a6:10:644::21)
+	id 1vxQgG-0000000FKGC-170I;
+	Tue, 03 Mar 2026 14:25:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1772547897;
+	bh=Wuu0sJNWhS9l8RA8loMZGodMF057v2ZgnGI93IEHQH8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=LAKKkoLBDxV7fhvW7PQbnxmgd+EEhNbbiZhMIXv3zudJUMUxwzojDI/8vl/gjIRCK
+	 KTmBe+bwNOUd+Ap3ntDXb6MR3sYa0QS1x4Rfrcaus8KXPpNZyuZBpGP57Lko1P3Apa
+	 kqSWmH0N8k4nBRk5D4HweaGTGLd6BWvRpz6Fql7yjdVunGI6CImaNvJy8N25cQomuP
+	 R41mlxjoa+SyjZUuGm6bDkLHGNq3kmBR+ah7mAjmIo240KUIhymLkTBzLEb1vUGbhH
+	 7ljpQVo4NITw7KjLe1XNtCV0B/gtkI6y1YevzWozsQVp4w/Ms1K/F4nxlXkgOez76G
+	 7sMaw+DhRA53g==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D4A9D17E03E5;
+	Tue,  3 Mar 2026 15:24:56 +0100 (CET)
+Message-ID: <4b318ffd-13cb-435c-af1a-2896d0e6cadb@collabora.com>
+Date: Tue, 3 Mar 2026 15:24:56 +0100
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: DU4PR08MB11769:EE_|DB9PR08MB9587:EE_|DB5PEPF00014B9B:EE_|FRZPR08MB10950:EE_
-X-MS-Office365-Filtering-Correlation-Id: a9ad1ac5-a5ab-41a8-3b67-08de79308d5b
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info-Original: RiFGBWsR/iaCDsUs/LlcvIH3Af3Sb4mjJtwXt8vtkJbhtRk8S5G28CFFWIZIjV/jwHEn4aYty8JPlkNtbYnPJKvoftFnf4YJeAWgp7EVzPcf0j/8y1cfxmjR4vKryQxkTVDslUWDCUK0i8sRz1FkXKVCnm+rGphgjEw9mYTpv8dXRJYT3Qs0BSdSk0sTYmyJ4bvBg5O4wsXZPsFtr2gS+DgB+V7t6zw7GA0DQTcSEa5i+sKZ8qmIhf+elxSMr3tnC5Sk1CIG46IBu/WczMDx6rPZQhp/Ey9fZT3s2Vlf8FOPGLuiNjw7WMnskW7sUrErGdB9dhahA7YCPGNP43u4ZHBM3EP/7b8oD88UTvkoNv6DrhFimjelTgkGNIqY01fBSRAT2vuNsoCWrW5EwUrJjkLso0wERKzgvDrevcGMuHu713X9SVZSeDEZcackxgYh6KpPN7OIdRMJjenMyeltnlXdVY6EYRvAxcI+WqaRI4hEBzgIlnG7cjO0S28Oz0tOJWKQSwQaWdFHuOe34LP8L/ArgBnLlCbvrs+7ebPjZo+8hj0VFbNcZ9eKknO4rg3dbrhkxLkWfY5F6Fx6NiAiCn87/IKYCHofX5wAz6HD2iPg02AzFe0GHVP+5le6Yf5Lnjv/j7UWewKEbAiJOZi4czILeAGT9gwFmUYCZNfQk0R0vIaeXvo81uOCoQ0ujf6Ie01m9dxc3kUPMZcNLcHKf19jHLzvJblPXsoV94Xt9Ms=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR08MB11769.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB9587
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB5PEPF00014B9B.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: d56096fa-aabf-450e-0e25-08de79306550
-X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|1800799024|35042699022|82310400026|376014|36860700013|7416014;
-X-Microsoft-Antispam-Message-Info: XYFmnE8i3hu8Tt7mZSXTDuCaH1y0zUQGH00gulKWA7+9fM6JWWz8VtPpe4yQgeDv5nCyBQM5IONdFeYb1Q+P3/Lago+gmASU0MiuMyj4F04iBwxYdRrJqVmV9YG4hHZoQ13y14oGJzpzZwG6rB9pMYq3dBtx/ROdgZXvhDPpsUXAetoepu6tZh6qv8oC2flXRTZv/y2PCOSo1drf22qYOOupW3RLUVKCjUUPXyYkzKuaj+UGTYmqIYdE5ZRYJJm3Ao5xPRcl74qKXe+C9bl2miWtiPK7KbJDIn2xPJRi6om36lBCRCYIykjNnWhzkQlMieSWt5VuTipNsuwIRiLtfgN3adMdG4a6qcUwe+DWIk+tn8UZNI29naR9yJumrWWyvTEv6cXZa9JnQKKkFtH69sr63kfts+24Fb4YyGx1zsv/Y4BYP8JE1xUz9h2NcUh7oI77i2k2307jiVOM+0D+fPsYB6wzmQCkQpRw7WxjM70c/cc1ZD0/I82lTZ6SotuIsn71JPs8nAte0g/ox7w0E3TwBeGl4aSBorEBMebHIhf7vCAdn4Tj8NdSv3ryuR7MzUkyZN4WA6PvtisDSyhuQrAnGh8WwLmx+jQEj+6B/oB1pnZoG8BCgd3oyquKnpNq8FW3KLb4z2xixH9eMHz5v6Onl2ED/gD+q3aVPc+iBAzK+h3wXCotuldPGS+i73IkyNMwG90iOVpcR4cmAe9voISh460+TQDqrL5IsE1lwWQtbtD/sIw43bCDqFIU7rGeFWPEmlnIPDBS2XAIZqWls50FUYrrSWsWrh1dEz6eDqdHp5bHQf9p7RdqB5Bx20iqLnzRbZYBIR2N+tYQpY+LhQ==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(1800799024)(35042699022)(82310400026)(376014)(36860700013)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: IXqL2Z++UKoe3TkCnjB+86/+1WOdYzmr1W+etsAoZcPVPHsRpM1+1maFBXuxUnJhDE6yWFsSEqpDMIbzb+S1+tlznR7p+Y4SiUHbg03DgzYQP0K4qtTTYCxq2t7kg0NUf/Vhcu85dLTYEVWIl4421275r6N9tlKEcpNP8wbkjK1UDiZd2zEd2Z6yDVWDVTeVOE3y1LfQMopJ0xUDeevboQVOFH/+H4kmWrJhAF2v9CU93krIBsuPO+UMXDxzPRDPVimX9jLlrkOvYjWmOhhN6YBZMIW6S/rsn6rMuQk6Ghfn6dS67D0WL/6nh3+kCW3vVm1ffAVVt8TdV2bMU1xKrFyyH0RQ2MxFanM4VnrVrEK0mF3rWBvv+vvt5NU84aBjSDjm2CeIBE0N2Mup4/r3rbtjEuuQx7YewZ7cHpZ+7tj99NFLg3C6xV2vNMIrRIk+
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2026 14:24:16.9068
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a9ad1ac5-a5ab-41a8-3b67-08de79308d5b
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B9B.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRZPR08MB10950
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 5/6] drm/mediatek: dsi: Add compatible for mt8167-dsi
+To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
+ "l.scorcia@gmail.com" <l.scorcia@gmail.com>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>
+Cc: "robh@kernel.org" <robh@kernel.org>,
+ =?UTF-8?B?Q2h1bmZlbmcgWXVuICjkupHmmKXls7Ap?= <Chunfeng.Yun@mediatek.com>,
+ "simona@ffwll.ch" <simona@ffwll.ch>,
+ "tzimmermann@suse.de" <tzimmermann@suse.de>,
+ "mripard@kernel.org" <mripard@kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
+ "vkoul@kernel.org" <vkoul@kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "airlied@gmail.com" <airlied@gmail.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>
+References: <cover.1771863641.git.l.scorcia@gmail.com>
+ <2fbf179c03c61f527e2583f9df4f97f6aaf3297a.1771863641.git.l.scorcia@gmail.com>
+ <bc064717108de5ea1a8c98937bb03fd00794682c.camel@mediatek.com>
+ <CAORyz2Ki5aPNbcY5-_mRwFgwT46VN_pRV2iP7z7x3snzrbKz=g@mail.gmail.com>
+ <dcb797934bdb4467037559ee5e91bee0a568c03a.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <dcb797934bdb4467037559ee5e91bee0a568c03a.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_062427_275837_246A3937 
-X-CRM114-Status: GOOD (  19.39  )
+X-CRM114-CacheID: sfid-20260303_062500_453557_AADD6C08 
+X-CRM114-Status: GOOD (  25.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,144 +98,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/03/2026 13:13, Marc Zyngier wrote:
-> On Mon, 02 Mar 2026 17:13:41 +0000,
-> Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+Il 03/03/26 08:56, CK Hu (胡俊光) ha scritto:
+> On Wed, 2026-02-25 at 09:15 +0100, Luca Leonardo Scorcia wrote:
+>> External email : Please do not click links or open attachments until you have verified the sender or the content.
 >>
->> On 02/03/2026 15:23, Steven Price wrote:
->>> Hi Marc,
+>>
+>>>> The mt8167 DSI controller is fully compatible with the one found in
+>>>> mt2701. Device tree documentation is already present upstream.
 >>>
->>> On 02/03/2026 14:25, Marc Zyngier wrote:
->>>> On Wed, 17 Dec 2025 10:10:43 +0000,
->>>> Steven Price <steven.price@arm.com> wrote:
->>>>>
->>>>> There is one CAP which identified the presence of CCA, and two ioctls.
->>>>> One ioctl is used to populate memory and the other is used when user
->>>>> space is providing the PSCI implementation to identify the target of the
->>>>> operation.
->>>>>
->>>>> Signed-off-by: Steven Price <steven.price@arm.com>
->>>>> ---
->>>>> Changes since v11:
->>>>>    * Completely reworked to be more implicit. Rather than having explicit
->>>>>      CAP operations to progress the realm construction these operations
->>>>>      are done when needed (on populating and on first vCPU run).
->>>>>    * Populate and PSCI complete are promoted to proper ioctls.
->>>>> Changes since v10:
->>>>>    * Rename symbols from RME to RMI.
->>>>> Changes since v9:
->>>>>    * Improvements to documentation.
->>>>>    * Bump the magic number for KVM_CAP_ARM_RME to avoid conflicts.
->>>>> Changes since v8:
->>>>>    * Minor improvements to documentation following review.
->>>>>    * Bump the magic numbers to avoid conflicts.
->>>>> Changes since v7:
->>>>>    * Add documentation of new ioctls
->>>>>    * Bump the magic numbers to avoid conflicts
->>>>> Changes since v6:
->>>>>    * Rename some of the symbols to make their usage clearer and avoid
->>>>>      repetition.
->>>>> Changes from v5:
->>>>>    * Actually expose the new VCPU capability (KVM_ARM_VCPU_REC) by bumping
->>>>>      KVM_VCPU_MAX_FEATURES - note this also exposes KVM_ARM_VCPU_HAS_EL2!
->>>>> ---
->>>>>    Documentation/virt/kvm/api.rst | 57 ++++++++++++++++++++++++++++++++++
->>>>>    include/uapi/linux/kvm.h       | 23 ++++++++++++++
->>>>>    2 files changed, 80 insertions(+)
->>>>>
->>>>> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
->>>>> index 01a3abef8abb..2d5dc7e48954 100644
->>>>> --- a/Documentation/virt/kvm/api.rst
->>>>> +++ b/Documentation/virt/kvm/api.rst
->>>>> @@ -6517,6 +6517,54 @@ the capability to be present.
->>>>>      `flags` must currently be zero.
->>>>>    +4.144 KVM_ARM_VCPU_RMI_PSCI_COMPLETE
->>>>> +------------------------------------
->>>>> +
->>>>> +:Capability: KVM_CAP_ARM_RMI
->>>>> +:Architectures: arm64
->>>>> +:Type: vcpu ioctl
->>>>> +:Parameters: struct kvm_arm_rmi_psci_complete (in)
->>>>> +:Returns: 0 if successful, < 0 on error
->>>>> +
->>>>> +::
->>>>> +
->>>>> +  struct kvm_arm_rmi_psci_complete {
->>>>> +	__u64 target_mpidr;
->>>>> +	__u32 psci_status;
->>>>> +	__u32 padding[3];
->>>>> +  };
->>>>> +
->>>>> +Where PSCI functions are handled by user space, the RMM needs to be informed of
->>>>> +the target of the operation using `target_mpidr`, along with the status
->>>>> +(`psci_status`). The RMM v1.0 specification defines two functions that require
->>>>> +this call: PSCI_CPU_ON and PSCI_AFFINITY_INFO.
->>>>> +
->>>>> +If the kernel is handling PSCI then this is done automatically and the VMM
->>>>> +doesn't need to call this ioctl.
+>>> If mt8167 DSI is fully compatible with mt2701 DSI, I think the binding document and device tree should be modified.
+>>> In device tree,
+>>>
+>>>      compatible = "mediatek,mt8167-dsi", "mediatek,mt2701-dsi";
+>>>
+>>> And this patch is not necessary.
+>>
+>> Hi, if I understand your review correctly that's what v2 [1] of this
+>> patch did, but the change was rejected during review.
+>>
+>> As far as I can see there is no win-win solution here. This tricky
+>> situation derives from the fact that in last year's submissions the
+>> change was only partially merged - the bindings went upstream while
+>> the driver did not, and now we have to work around this. In v3 I tried
+>> to address the issue by actually implementing what the binding
+>> document says.
+>> I'll be happy to resubmit v4 but I need to know what's the consensus here.
+> 
+> You mean Krzysztof's comment?
+> He has two comment.
+> The first is 'remove'. You actually not remove "mediatek,mt8167-dsi". You change it.
+> The second is about fallback. I'm also not sure why he says it's NAK. Also a bad wording?
+> After Angelo's comment, Krzysztof does not response.
+> I also do not know what Krzysztof think.
+> I agree with Angelo. Single "mediatek,mt8167-dsi" does not reflect the hardware compatible but fallback does.
+> Maybe describe more information (hardware) to Krzysztof, and ask what's the better way to do.
+> 
+
+First of all: I would be happy with having
+
+compatible = "mediatek,mt8167-dsi", "mediatek,mt2701-dsi";
+
+in the devicetree, and to drop this patch - but that's not possible, check below.
+
+The problem that Krzysztof was raising is that the bindings currently define
+the "mediatek,mt8167-dsi" as single compatible with no fallback, and removing
+it would break the ABI (as the bindings are not used only for Linux, but also
+for bootloaders).
+
+Even though I can try my best to convince him, this is a real problem: mistakes
+were made in the past, and the only way to get the mt8167-dsi supported right
+now is to, unfortunately, add the compatible in mtk_dsi.c.
+
+I don't like that, and I see that you (CK) don't as well, but that's the result
+of past mistakes... and apparently we can't do anything about this if not to
+*uselessly clutter the driver* with that.
+
+So, that said...
+
+I'm sad to say that this patch is the only way to get this SoC probed by mtk_dsi
+and that there's no other way around it, because the bindings maintainers are
+forbidding us from removing the bad compatible (which was *never* used anyway)
+from there and making it right with allowing it only under 2701 fallback.
+
+I'm moving krzk to the To: field of this email in hope to get back a reply that
+sounds like "you misunderstood me, you can do it", but I'm not positive about this.
+
+Krzysztof, please confirm or deny what I said.
+
+Regards,
+Angelo
+
+
+> Regards,
+> CK
+> 
+>>
+>> Thanks!
+>>
+>> [1] https://urldefense.com/v3/__https://patchwork.kernel.org/project/linux-mediatek/patch/ff920a7cc94f2b0c03d4bb55142030fded30d07c.1771258407.git.l.scorcia@gmail.com/__;!!CTRNKA9wMg0ARbw!lIBnCRkybM1oxoARb70JlLMPlXHKqW9dwSmVqXGsvj3LE9hsWuINkPgtrlr8Jl8-atOvzYoMjtavHOr3$
+>>
 >>>>
->>>> Shouldn't we make handling of PSCI mandatory for VMMs that deal with
->>>> CCA? I suspect it would simplify the implementation significantly.
->>>
->>> What do you mean by making it "mandatory for VMMs"? If you mean PSCI is
->>> always forwarded to user space then I don't think it's going to make
->>> much difference. Patch 27 handles the PSCI changes (72 lines added), and
->>> some of that is adding this uAPI for the VMM to handle it.
->>>
->>> Removing the functionality to allow the VMM to handle it would obviously
->>> simplify things a bit (we can drop this uAPI), but I think the desire is
->>> to push this onto user space.
->>>
->>>> What vcpu fd does this apply to? The vcpu calling the PSCI function?
->>>> Or the target? This is pretty important for PSCI_ON. My guess is that
->>>> this is setting the return value for the caller?
->>>
->>> Yes the fd is the vcpu calling PSCI. As you say, this is for the return
->>> value to be set correctly.
->>>
->>>> Assuming this is indeed for the caller, why do we have a different
->>>> flow from anything else that returns a result from a hypercall?
->>>
->>> I'm not entirely sure what you are suggesting. Do you mean why are we
->>> not just writing to the GPRS that would contain the result? The issue
->>> here is that the RMM needs to know the PA of the target REC structure -
->>> this isn't a return to the guest, but information for the RMM itself to
->>> complete the PSCI call.
->>>
->>> Ultimately even in the case where the VMM is handling PSCI, it's
->>> actually a combination of the VMM and the RMM - with the RMM validating
->>> the responses.
->>>
->>
->> More importantly, we have to make sure that the "RMI_PSCI_COMPLETE" is
->> invoked before both of the following:
->>    1. The "source" vCPU is run again
->>    2. More importantly the "target" vCPU is run.
+>>>> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+>>>> ---
+>>>>   drivers/gpu/drm/mediatek/mtk_dsi.c | 1 +
+>>>>   1 file changed, 1 insertion(+)
+>>>>
+>>>> diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
+>>>> index af4871de9e4c..ad10e86b161d 100644
+>>>> --- a/drivers/gpu/drm/mediatek/mtk_dsi.c
+>>>> +++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+>>>> @@ -1301,6 +1301,7 @@ static const struct mtk_dsi_driver_data mt8188_dsi_driver_data = {
+>>>>
+>>>>   static const struct of_device_id mtk_dsi_of_match[] = {
+>>>>          { .compatible = "mediatek,mt2701-dsi", .data = &mt2701_dsi_driver_data },
+>>>> +       { .compatible = "mediatek,mt8167-dsi", .data = &mt2701_dsi_driver_data },
+>>>>          { .compatible = "mediatek,mt8173-dsi", .data = &mt8173_dsi_driver_data },
+>>>>          { .compatible = "mediatek,mt8183-dsi", .data = &mt8183_dsi_driver_data },
+>>>>          { .compatible = "mediatek,mt8186-dsi", .data = &mt8186_dsi_driver_data },
+>>>> --
+>>>> 2.43.0
+>>>>
+>>>>
+>> --
+>> Luca Leonardo Scorcia
+>> l.scorcia@gmail.com
 > 
-> I don't understand why (1) is required. Once the VMM gets the request,
 
-The underlying issue is, the RMM doesn't have the VCPU object for the
-"target" VCPU, to make the book keeping. Also, please note that for  a
-Realm, PSCI is emulated by the "RMM". Host is obviously notified of the
-"PSCI" changes via EXIT_PSCI (note, it is not SMCCC exit)
-  so that it can be in sync with the real state. And does have a say in
-  CPU_ON. So, before we return to running the "source" CPU,
-Host must provide the target VCPU object and its consent (via
-psci_status) to the RMM. This allows the RMM to emulate the PSCI
-request correctly and also at the same time keep its book keeping
-in tact (i.e., marking the Target VCPU as runnable or not).
-
-When a "source" VCPU exits to the host with a PSCI_EXIT, the RMM
-marks the source VCPU has a pending PSCI operation, and
-RMI_PSCI_COMPLETE request ticks that off, making it runnable again.
-
-
-Suzuki
-
-> the target vcpu can run, and can itself do the completion, without any
-> additional userspace involvement.
-> 
-> 	M.
-> 
 
 
