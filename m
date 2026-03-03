@@ -4,96 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0882FEC143A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 13:11:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EF26EC143A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 13:11:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PlK3pbdvChXpN/xsv0JP5MnG+UmweuCF6+WR/Dq5558=; b=OFbUsXJeR+KXhVZ/p6vJswG39I
-	jytzKbrI9h/+tW6CaSmyDQwXVQxXoAdGhQj0iVXVlZ+XjSonjGjoa9ccZ3LAzmqsHvsD4dFdEM9fm
-	ueRS+5odd3MmnAdc3hn6O9XZ+flX6aldIxWsnoNqpQNvqkuCrZ60K29nVpn6miG0tzXzW6tY3JkNn
-	U5SGs45KzEXRlzOviADhIM0PsXNTzVaJmcRDMHgO3ZpsQuMB5/V9GDGgzJHnXjbPI0nvI9uOeJVWl
-	9Pygjgut68hAJONPXI7DNpW5+2VxzrmngIylZcxLcOayp434KpqYGd/iMmQ86Jf8QENQFqwuPjvH3
-	F4JhRq7g==;
+	bh=snhnMYJDQkat9qXJwHdTGT4j0E3K9+24fQ/tGb/FHwE=; b=yfDtvsC4id9phQObXFK/tlOuEM
+	UZDjqPe9mQ31lI/6nXW7FAeyxc09Y/Xe2gd7XgKVk0BcB1OpO2dcUfXDBIFNWVUgfkWx3mKNvFNsg
+	w/X2HD+/Xr2XI1xwjX3Xou4pvJT4diYUVwpclLczfcxATLRsP4VEOYIpya4EHHPk8+rgBD2pebUQV
+	3CkOCadwDso5ezMCCaLbIVex9oQCNqMmOetAu4dUGcYtEb8W9NHS3L5jAOF+WgCBQ/tORh/Et2RCt
+	8018kU8WgqXHabwakKl6aGcQtQalHQXuF1HdaeJ6reIwa831fNHRcvH8fvMNDyv1YJ1w0P6rkMJzU
+	xU08rHWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxPWs-0000000FCGi-3DIO;
-	Tue, 03 Mar 2026 13:11:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vxPXO-0000000FCJt-0jVX;
+	Tue, 03 Mar 2026 13:11:46 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxPWq-0000000FCGH-1QWa
+	id 1vxPXK-0000000FCJ4-2x8F
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 13:11:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 989584367C;
-	Tue,  3 Mar 2026 13:11:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CCEEC116C6;
-	Tue,  3 Mar 2026 13:11:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772543471;
-	bh=4BMCfMG0xmMJRazWkyzqMGnmOOaf03oyyGgCFv2NmSY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=QC7mxPU8AQ9uRmeIfF3qdq8rHzsmSVgzhDtDE7gQyaqENSOIyAiGVyfXv2BcGJCzC
-	 XzI7AFpCah0vaLAbdbkuEiV7s+nGGtX3MQDvSBOnYXCIydCwE9xx5hAx+peM6mYgzE
-	 j9lMpEtdEOo68s2PgCFKizAgpUOwdoIpZZEOnbEmfpB1Ty36amVT3L0CKftdK9bjbj
-	 gl1NKx+6uwT9bsrO5nFnVpugzAKv1HLzbjtPxAGBqljbQRK6OJWvEJcqI4VNUV9P5C
-	 5Mh7K4nJyOt4ofs0Ieg5Di3GlmUmt031nPYOQKpWh/mEwFo7t4QOhseDCbsFZlDNGd
-	 gN5o1l1YpX2eg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vxPWm-0000000FdFB-3a8B;
-	Tue, 03 Mar 2026 13:11:09 +0000
-Date: Tue, 03 Mar 2026 13:11:08 +0000
-Message-ID: <86h5qx83df.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu
- <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>
-Subject: Re: [PATCH v12 06/46] arm64: RMI: Define the user ABI
-In-Reply-To: <33053e22-6cc6-4d55-bc7f-01f873a15d28@arm.com>
-References: <20251217101125.91098-1-steven.price@arm.com>
-	<20251217101125.91098-7-steven.price@arm.com>
-	<86tsuy8g0u.wl-maz@kernel.org>
-	<33053e22-6cc6-4d55-bc7f-01f873a15d28@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 03 Mar 2026 13:11:43 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6239n8WT2630018
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 3 Mar 2026 13:11:41 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=snhnMYJDQkat9qXJwHdTGT4j
+	0E3K9+24fQ/tGb/FHwE=; b=kalYhP+Ltoz84W/vWpoW3Ii5QCbGAfW/QxzwlkqT
+	0llIux2NAdG/Lf8YjRtWyP/7DsUZFv6+ZMDvvxiJ0wWmFChR/GLxvaoAF4QGzyfw
+	wQ6oHsOsCh12Tpt97Y4wG85YP4Kqgci4U0wLYuYK6hjj6OXSWDLHuJPTOFZlbody
+	YUzJ/gifjsdCS9xx0Kmh1fSVttTEpFYg0nfI+BGjuuCZczSHt/UBePVHf9zEfr2y
+	pCqIAH43GGnudV9Qt4k4gwLtYbZZVZZnxRpP+O5ZUItZK2NAp4ctxtooDyGisZj+
+	bG2C2oPJNe3bnh9Sq/g7kCRnM69I1vrwVnEfAOTUtV7d9g==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cnhx5awbr-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 13:11:41 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8c881d0c617so3581165785a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 05:11:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1772543501; x=1773148301; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=snhnMYJDQkat9qXJwHdTGT4j0E3K9+24fQ/tGb/FHwE=;
+        b=F05nQNBXjMenrOPNgJISp/8/fuQ+Gh2UZsEWI8ipdM5amOsKyNvLmuFvtYXJLGuXUr
+         MdEEMXgZSN7Z36ZLQIdSrdpW1B2T7oN/SXSkryFBhjUAET7itdNrSldLE1Ox6bTgqcpx
+         sM8nrSlmRPCK2bF/atvXDfV5xyXlv/BQrOKrk6PTd8BQAvU/Ayt0tLsBjq+FftxtwXds
+         o/xz/7TdRfdLdpY3e1XhFVNJMyJyDoE6ypjtqdoqIb3NTD0jFMXdP1xlPHYE9uqJhzS6
+         OM8X/pmzdFrkza0i14tnlM5nju5FwFJky3DuhrwEL7JnFrIi2pD+9klC8zwHu4n3uKln
+         z4MA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772543501; x=1773148301;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=snhnMYJDQkat9qXJwHdTGT4j0E3K9+24fQ/tGb/FHwE=;
+        b=nBSL2iALPJecVYSMYDJYpDMq9Iu1nPInaa5itsAZ4K7A5Ufnjf0qDonHZfuXtGsSM9
+         bznuVqsmD0/V9kgh0wtqrwmrFqgmlKRgS+GI4HP5Uxl7K/2UCOUU2x0J/VnR9LIxMw2k
+         cbiQW40pEEvY865WNFdD/v2tEvxf51VQwynKxyX3a/XmHx5vyjVH5nb3Bg8ClVSQmxcN
+         NMHJ9QQKyG5BE9ngOaYxHDNsWSCei2Pyk44xINHj4K9HFalWW6gYSflT3MbavX0cS00i
+         db+8CIWdcO+8wYCaNUCVfPJptsx93/L1p88vcFREsP8eDrXQSyxQrIOF5aVsPKKPFwl9
+         qRyg==
+X-Forwarded-Encrypted: i=1; AJvYcCULBOeRqu1vgCzagyyHhaKwj2BAaK41pvzfUpLByo5dBd75KfjTbk7+mQ2V7zM49IunDSssr8IwFPyW/ExcwHyv@lists.infradead.org
+X-Gm-Message-State: AOJu0YxukkfMl+UKppycSLwcoG/QaPWSCQHrNBIu21SQ+vyZtKfawNS4
+	whjfGMG9HkM06Ud9Xnkp18cTdYGoulshthtAiLjCwSg/HzwXUVGAPXohvq8vlgFojqHnNmVYWAw
+	vZCzbBHPnVo9mtaEZryoNzW62yORGgBKss8ezYm+z2a1vSmPGYGKHyUr0q4OBHDPYRY4FzYkAU8
+	uSgA==
+X-Gm-Gg: ATEYQzy+uYF+ALwZ4S/CY/Qv2aXnzkFW2a/pemzHdEIo6nEuEMaY/zpEBr4ZDeGSvoA
+	IxL2mIf0ghzabCN9npqpRtVAKZ9C1I3r1W3rWxNkErHFDh/wGYf8BDOSC1MEkJRwmRGcofy5zMv
+	dwLRK2Ua6qAcwtFuKvCNP0eKQUWiBd5NldTudrlDWW/cU+NtEmD1K9a4gENgp/0RRyojWCDUKaA
+	QdpChTOWfHLMx/hF4E/ey7E50kxPcMl7+yCeE0WZp5USvj4iJ+eQ9fkMwMWpXxmGqYl7j5owyaA
+	fG7v30pjDj5eu8ySbTTu/T7v4lXiHBG7aRfoRaCoSh9SKjtgw7pXkGszgsMIGgAfu8lHiHdo1hr
+	SIWeMXgKYbDn+06cw50F2Acxe7Cprxr09sYUd
+X-Received: by 2002:a05:620a:1706:b0:8ca:2cf9:819d with SMTP id af79cd13be357-8cbc8d9a85amr2048340585a.26.1772543500777;
+        Tue, 03 Mar 2026 05:11:40 -0800 (PST)
+X-Received: by 2002:a05:620a:1706:b0:8ca:2cf9:819d with SMTP id af79cd13be357-8cbc8d9a85amr2048333885a.26.1772543500109;
+        Tue, 03 Mar 2026 05:11:40 -0800 (PST)
+Received: from oss.qualcomm.com ([86.121.162.109])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-485126563ebsm16384845e9.1.2026.03.03.05.11.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Mar 2026 05:11:38 -0800 (PST)
+Date: Tue, 3 Mar 2026 15:11:36 +0200
+From: Abel Vesa <abel.vesa@oss.qualcomm.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org,
+        imx@lists.linux.dev, devicetree@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v3 0/3] ARM: dts: imx6: cleanup imx6/7 CCM related
+ CHECK_DTBS warnings
+Message-ID: <56f6t2u5peqndhfwxubvhcksusrgkxpqd5woz3i46gpl3q7vc2@5ykg5q6acn5a>
+References: <20260121-ccm_dts-v3-0-820ce9b5fa38@nxp.com>
+ <aaYKUC7pWjS1Xnpd@lizhi-Precision-Tower-5810>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aaYKUC7pWjS1Xnpd@lizhi-Precision-Tower-5810>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzAzMDEwNCBTYWx0ZWRfX2YYJDwO5KwB2
+ GoLM5TS4Wf6iyRv4RQXDxWMePBQJDzFEpVgca5od0YUvtf18/C5TFNcOPoUPJgPKB4tI0hIxGd6
+ eH5Pfg/s1AopbqoH6nJWteIHWitFcXAvYSRAwVlsQ3s0HUkIBR97iHR+EcGl3L6Ti/v5m4kBFzk
+ PNWTuHjKWiI7p9SB31VdVNF34EWW9V74D2xiDNZjUo0aT5aU21DgdZFFBujPolH7wPYpu5fs1fM
+ +nrK7jxzba3Dvj/FxL8h6QOGu5Mq9SN1K4ZfmZKorLVixUBPHZqYLEQvR3VQ9kH9oqWMKkUdPuY
+ tApvPBbDHdr41YGV293gbC9l7iUdMe7QHhjpfZ5BQbLNOY+lpXRvk8LswOl9+hOw9wAgN/VSpqC
+ fTTXL/lfugYGJFY6qErLu+hS1WqnoKyLX+5y/uAYOa4bshB/O+nqsBgE91GeG+YtmdOx4RzNe6U
+ b2bHbERErkpeuuzOZug==
+X-Authority-Analysis: v=2.4 cv=T9CBjvKQ c=1 sm=1 tr=0 ts=69a6de0d cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=oauzzCmhM186DRC0Y2yWPg==:17
+ a=kj9zAlcOel0A:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=8AirrxEcAAAA:8 a=poxx6UPob8T2UUUd9QAA:9 a=CjuIK1q_8ugA:10
+ a=NFOGd7dJGGMPyQGDc5-O:22 a=ST-jHhOKWsTCqRlWije3:22
+X-Proofpoint-GUID: uydfo0unWnVRpTYPFVxtfOTo95r5nB8q
+X-Proofpoint-ORIG-GUID: uydfo0unWnVRpTYPFVxtfOTo95r5nB8q
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-02_05,2026-03-03_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 adultscore=0 spamscore=0 lowpriorityscore=0 bulkscore=0
+ priorityscore=1501 clxscore=1015 suspectscore=0 malwarescore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2602130000
+ definitions=main-2603030104
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_051112_440534_721A147B 
-X-CRM114-Status: GOOD (  48.07  )
+X-CRM114-CacheID: sfid-20260303_051142_862223_3E80BB84 
+X-CRM114-Status: GOOD (  14.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,134 +152,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 02 Mar 2026 15:23:44 +0000,
-Steven Price <steven.price@arm.com> wrote:
+On 26-03-02 17:08:16, Frank Li wrote:
+> On Wed, Jan 21, 2026 at 01:04:14PM -0500, Frank Li wrote:
+> > cleanup imx6/7 CCM related CHECK_DTBS warnings
+> >
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
 > 
-> Hi Marc,
+> Abel Vesa:
 > 
-> On 02/03/2026 14:25, Marc Zyngier wrote:
-> > On Wed, 17 Dec 2025 10:10:43 +0000,
-> > Steven Price <steven.price@arm.com> wrote:
-> >>
-> >> There is one CAP which identified the presence of CCA, and two ioctls.
-> >> One ioctl is used to populate memory and the other is used when user
-> >> space is providing the PSCI implementation to identify the target of the
-> >> operation.
-> >>
-> >> Signed-off-by: Steven Price <steven.price@arm.com>
-> >> ---
-> >> Changes since v11:
-> >>  * Completely reworked to be more implicit. Rather than having explicit
-> >>    CAP operations to progress the realm construction these operations
-> >>    are done when needed (on populating and on first vCPU run).
-> >>  * Populate and PSCI complete are promoted to proper ioctls.
-> >> Changes since v10:
-> >>  * Rename symbols from RME to RMI.
-> >> Changes since v9:
-> >>  * Improvements to documentation.
-> >>  * Bump the magic number for KVM_CAP_ARM_RME to avoid conflicts.
-> >> Changes since v8:
-> >>  * Minor improvements to documentation following review.
-> >>  * Bump the magic numbers to avoid conflicts.
-> >> Changes since v7:
-> >>  * Add documentation of new ioctls
-> >>  * Bump the magic numbers to avoid conflicts
-> >> Changes since v6:
-> >>  * Rename some of the symbols to make their usage clearer and avoid
-> >>    repetition.
-> >> Changes from v5:
-> >>  * Actually expose the new VCPU capability (KVM_ARM_VCPU_REC) by bumping
-> >>    KVM_VCPU_MAX_FEATURES - note this also exposes KVM_ARM_VCPU_HAS_EL2!
-> >> ---
-> >>  Documentation/virt/kvm/api.rst | 57 ++++++++++++++++++++++++++++++++++
-> >>  include/uapi/linux/kvm.h       | 23 ++++++++++++++
-> >>  2 files changed, 80 insertions(+)
-> >>
-> >> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> >> index 01a3abef8abb..2d5dc7e48954 100644
-> >> --- a/Documentation/virt/kvm/api.rst
-> >> +++ b/Documentation/virt/kvm/api.rst
-> >> @@ -6517,6 +6517,54 @@ the capability to be present.
-> >>  
-> >>  `flags` must currently be zero.
-> >>  
-> >> +4.144 KVM_ARM_VCPU_RMI_PSCI_COMPLETE
-> >> +------------------------------------
-> >> +
-> >> +:Capability: KVM_CAP_ARM_RMI
-> >> +:Architectures: arm64
-> >> +:Type: vcpu ioctl
-> >> +:Parameters: struct kvm_arm_rmi_psci_complete (in)
-> >> +:Returns: 0 if successful, < 0 on error
-> >> +
-> >> +::
-> >> +
-> >> +  struct kvm_arm_rmi_psci_complete {
-> >> +	__u64 target_mpidr;
-> >> +	__u32 psci_status;
-> >> +	__u32 padding[3];
-> >> +  };
-> >> +
-> >> +Where PSCI functions are handled by user space, the RMM needs to be informed of
-> >> +the target of the operation using `target_mpidr`, along with the status
-> >> +(`psci_status`). The RMM v1.0 specification defines two functions that require
-> >> +this call: PSCI_CPU_ON and PSCI_AFFINITY_INFO.
-> >> +
-> >> +If the kernel is handling PSCI then this is done automatically and the VMM
-> >> +doesn't need to call this ioctl.
-> > 
-> > Shouldn't we make handling of PSCI mandatory for VMMs that deal with
-> > CCA? I suspect it would simplify the implementation significantly.
-> 
-> What do you mean by making it "mandatory for VMMs"? If you mean PSCI is
-> always forwarded to user space then I don't think it's going to make
-> much difference. Patch 27 handles the PSCI changes (72 lines added), and
-> some of that is adding this uAPI for the VMM to handle it.
->
-> Removing the functionality to allow the VMM to handle it would obviously
-> simplify things a bit (we can drop this uAPI), but I think the desire is
-> to push this onto user space.
+> 	Can you help pick binding part?  So I can start pick dts part.
 
-And that's what I'm asking for. I do not want this to be optional. CCA
-should implies PSCI in userspace, and that's it.
+Done.
 
-> 
-> > What vcpu fd does this apply to? The vcpu calling the PSCI function?
-> > Or the target? This is pretty important for PSCI_ON. My guess is that
-> > this is setting the return value for the caller?
-> 
-> Yes the fd is the vcpu calling PSCI. As you say, this is for the return
-> value to be set correctly.
-
-Another question is why do we need the ioctl at all? Why can't it be
-done on the first run of the target vcpu? If no PSCI call was issued
-to run it, then the run fails.
-
-> 
-> > Assuming this is indeed for the caller, why do we have a different
-> > flow from anything else that returns a result from a hypercall?
-> 
-> I'm not entirely sure what you are suggesting. Do you mean why are we
-> not just writing to the GPRS that would contain the result? The issue
-> here is that the RMM needs to know the PA of the target REC structure -
-> this isn't a return to the guest, but information for the RMM itself to
-> complete the PSCI call.
-
-PSCI is a SMC call. SMC calls are routed to userspace as such. For odd
-reasons, the RMM treats PSCI differently from any other SMC call.
-
-That seems a very bizarre behaviour to me.
-
-> 
-> Ultimately even in the case where the VMM is handling PSCI, it's
-> actually a combination of the VMM and the RMM - with the RMM validating
-> the responses.
-
-I don't see why PSCI is singled out here, irrespective of the tracking
-that the RMM wants to do.
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Thanks.
 
