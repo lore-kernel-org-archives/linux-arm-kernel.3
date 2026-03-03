@@ -4,130 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFB86EC1430
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 12:45:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99EA3EC1438
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 12:47:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b0+EyePJigODkQCX0fGeJySIjStyI5vrn7wuW0Uzxuk=; b=PrGwTf3WiafVfuqoeyz3/lbUdZ
-	C4cI4ZEYChxNJepp+LqV96E4cCZFvLYQmpLkU1t58RBBM0Cd0lf/hYoPw3OMYJOaXaJNPtAD+MTrx
-	UTIdJ15zOA+zf/A5L7Gfe/ks3Oe2VrwAjstdvWTVbzG6IXvWalrla4TyCrT4h3xYtGnwkng2sKyft
-	La6eMJWEOh+6MuT6rc2B7BvmzZHE2XDYpH2lWZl1Ww4nGw1L+FeE6zq374El/tu64EuLA56aLDC9W
-	y7vQDKteR6XZQNowHGFsh4G8TYtByw36P56UvEGn4Sj1+Cv9Def1H8nEesJmX0+ZlWt+88qPSrleL
-	qJheYYgQ==;
+	bh=syLan8LhOxbWhk+33TuSvh9jZMGJJdoc+18Ns/n4+yo=; b=Hl8CxIG2xnAT7v6dqA9fZsafei
+	zOoGFdI4ZGnp0YtFxn5AQ4Snk6p3ZhNMXM3msYmk6reG1lRpeG+cc/+FdUWsOy367GgmfXgP06N1I
+	MNQAQDjBYLpMpGRcUdNfI7W0RBMYPszz0iVVQcjeHJaaEfqql6NdGBDewpbZ1j1fUlYk5PyeOKrju
+	gzF8QN1X8bgcCj6VrkkXXc4A4vmAY/h6fY+wVMP2/tsFRGfQY/BUL1igEOU8msD5/A+plv8JOSbtL
+	xjcqwGar8kyqEPxhDt0k0at8/5deTmhaXbykIsyQafVEaTgawzbxKb2t9jHPg2AW6qsst0UEbD0Tf
+	sq2QtU5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxP8D-0000000FAeK-0sr4;
-	Tue, 03 Mar 2026 12:45:45 +0000
-Received: from mail-northcentralusazon11010015.outbound.protection.outlook.com ([52.101.193.15] helo=CH1PR05CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxP8A-0000000FAdX-2Olv
+	id 1vxP9Q-0000000FAlh-2YUV;
+	Tue, 03 Mar 2026 12:47:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxP9O-0000000FAkh-3LUW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 12:45:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=heqh0n7uV51CYE4xQwwKpAU252aNQcXrXulVsBCAyV1mA1Cw29XoDkyu8pVCKVRAFP8SOcVNvdEyrwxhRS/H5ReGQsj4CVlT4Z/Lk7cpN6WQRWdhy+BKiswGbe7n3yDPINji3IiXdlLkoMHbaNP+kX1xxE65quXzp/ofrZGl17t/ddnwGOoBNHR0huxIIeKyR7e95o8bHe5OC1CqFf1aYi+U8jLyA2I018N7kS8cZBstvR5edvQ6uYO99+nDpLKyjnkA+Gbmc4vcAFfB4HOGWmuQcTSN5tNhSfJ2q5CHbIPQkzqaaEuU9IBqVEgiId3b5At/a2Ar7f2ypmTcqZkJQA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=b0+EyePJigODkQCX0fGeJySIjStyI5vrn7wuW0Uzxuk=;
- b=TeUtbclmynPSF/aGOYPIVLEg0uNtK8D9iYr+A362wl0zwfakMdk8uWfNqTKCJ5U7GTHDfvclvINPDg0T837OH16KXpV+B7dch5zBCA26ZICWZ7VEN35VUbTlUmuzTFLyyt9dZcZbLoUPp7FvRC7J/F864KQrAZUsxbnrLcc2ZCF/xQI4sim8m18/HcWHdwK/RcPu4wgA+Wv7C/jTlPuZxxfglEpdxxdm+FAKyF7E8MEgNgmbqZpG2xl4SH2jmeZsoMNXFQtHyPPlO47EKh5AHPrKLeDNfwWGoKFNh3rTGSL/2oBFJRV0M/Vw9xYDqE466XgtC73huaDPuUzo1qqJig==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=b0+EyePJigODkQCX0fGeJySIjStyI5vrn7wuW0Uzxuk=;
- b=Az/eksttVohjSIo5OA5EE6gGXDh0I0tpQxKJQMgTtlPrEO9UjdulY6DmB8pFbJ/fiOLPgYz5tqSmlnPMtcGHgtBcS/ze2mFHhh/OUHGuKx3F1rizqyrpoCBRwsfOZOFvst5By3ewGosLqzaA04+We15heAsNuaocbBYR3FAxB8lVEyy6ZubqewoywWd4+LpE0YowG0YtqdM0UgSI5SvoRepKuUJJDtWd7knkPFVGsYdqveZKVNNDK/CQOVy6FlMs29HEHXUq0eYQMdtJ6/ebBX0FBZp1r1ORMW42TjCkdHSVGvDOI/+0tPUkvWRvfCVY6ul1JfxZu4eW9cJ0oSMZsw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by SA1PR12MB7271.namprd12.prod.outlook.com (2603:10b6:806:2b8::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.16; Tue, 3 Mar
- 2026 12:45:34 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9654.022; Tue, 3 Mar 2026
- 12:45:34 +0000
-Date: Tue, 3 Mar 2026 08:45:33 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: James Houghton <jthoughton@google.com>
-Cc: Piotr Jaroszynski <pjaroszynski@nvidia.com>,
-	Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	Alistair Popple <apopple@nvidia.com>,
-	John Hubbard <jhubbard@nvidia.com>, Zi Yan <ziy@nvidia.com>,
-	Breno Leitao <leitao@debian.org>, stable@vger.kernel.org
-Subject: Re: [PATCH] arm64: contpte: fix set_access_flags() no-op check for
- SMMU/ATS faults
-Message-ID: <20260303124533.GA972761@nvidia.com>
-References: <20260303063751.2531716-1-pjaroszynski@nvidia.com>
- <CADrL8HXaTz-TS9rYiQkZ6NoRWhHm0t4Tv0t=TtDXS4purLnDJg@mail.gmail.com>
+	Tue, 03 Mar 2026 12:47:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 23655497;
+	Tue,  3 Mar 2026 04:46:51 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B08AA3F7BD;
+	Tue,  3 Mar 2026 04:46:53 -0800 (PST)
+Date: Tue, 3 Mar 2026 12:46:50 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, sudeep.holla@arm.com,
+	philip.radford@arm.com, james.quinlan@broadcom.com,
+	f.fainelli@gmail.com, vincent.guittot@linaro.org,
+	etienne.carriere@foss.st.com, peng.fan@oss.nxp.com,
+	michal.simek@amd.com, dan.carpenter@linaro.org,
+	geert+renesas@glider.be, kuninori.morimoto.gx@renesas.com,
+	marek.vasut+renesas@gmail.com
+Subject: Re: [PATCH 01/11] firmware: arm_scmi: Add clock determine_rate
+ operation
+Message-ID: <aabYOiZvYYOypV0A@pluto>
+References: <20260227153225.2778358-1-cristian.marussi@arm.com>
+ <20260227153225.2778358-2-cristian.marussi@arm.com>
+ <CAMuHMdUZjZvhifzh0W2wbMZf2DYgZjO=gXepsS2nQtSG0weCag@mail.gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CADrL8HXaTz-TS9rYiQkZ6NoRWhHm0t4Tv0t=TtDXS4purLnDJg@mail.gmail.com>
-X-ClientProxiedBy: BL1P223CA0044.NAMP223.PROD.OUTLOOK.COM
- (2603:10b6:208:5b6::17) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SA1PR12MB7271:EE_
-X-MS-Office365-Filtering-Correlation-Id: c543519c-bc9d-411a-aad8-08de7922c2f0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: tRx0n676EuXLC/NbCyBMEKl51emlF1LR/AAwcGVLl0egtzwca/EbWq0LU89OmZGhWb9XjBTA0Zv/nuPDyzwAZCK9zPLRUxgt1kYXTXPO0wgFVS9zgcWpYwJbSuzzCcZjdbzYuTq66GVpqnIB6aVRYLgCrex9oHkpX5kUDvImwVqiNgKvCeVQ0GME4t1TnFBz5po+Skm+S4ZK0ujDHdoSap3o3eXJHhdTdih6unEaHUXQ+AY+IWoPLlALivOsWyIew2cvRKHv31kEkf75qfG+eJ+Ty93vxGs7zed5nQHtyoXVNsQlP4jrr602NFO/TV3pO8rB9RA1lBsjPuaTfRrkXb5Lj7HSTvlKLuOY13UI02E9FboSFIxwEKylYFkwhQjVQfNNH4siLc/eMv9D24nrgNZjxEcQYfWPnfhbYQs+nswtQjGnYpQqvSALNZLM5u/aUWYd8Q/3EFi7jEtz36eodf/AGi9cRtP2ZPQlAgp4iFiB2iNCOf0VWp447m4AehCghlhjDqD2DZEf0xdIsv6zsPKe19Oo/wo7EEHq+SP5F5z3N8RMzyyCIw5wxOIpg1xL2FSilbiI9igXqJ8aZYnwewMOkNHjuaadI18CGiYuL24EBhOId1a+yzj87p/zqNSw73ivKA3WxBVCo3NkPsOFGTnIbvy6FtlHKJKpsYSdeuKq8KGv8DWAuCQ9/vLkRWPMiBsXIhOXgHGAQFrpdGt/7ILWE7X6tmYOK5zoi1uJTWs=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Zw906pUMEcMxm0DMnLPRCWicrl2r/TItvInbdoE8rlO+FAVIVa3axc0WYI/4?=
- =?us-ascii?Q?tvNlIG9PuafM8Y+hIv7AW/x7vtVIeuS/WpyzCYqCvhRGjwl8u0NIcDwoGB26?=
- =?us-ascii?Q?gH3tpmryLOiYZk+VBG0w2DzhHYP2TUNuMQK/NL6bE2Q4qLR1DTHuEl25QMm6?=
- =?us-ascii?Q?W55KDv7LMTxPCINqHfH2j/f7nP8H4ZLSW6uatSM1d1hOi3HDE9XRBKYTg3ap?=
- =?us-ascii?Q?mCGQqVPU+N19RJ5izbSHyaoE+9ioas9jKV4bDVyiilQ6R2+70Qnxz1CmBIan?=
- =?us-ascii?Q?j4djIJFcmK1hirslSNy3e1MMIEuHjzmI26tL+cbuhIViBWtm1ZhL+QNybpwm?=
- =?us-ascii?Q?XJVl6AV763LUHf9NyWHnFbz5bB9MN4g7T2jJf4S7zF5DgGeqW2c/3AL04JJT?=
- =?us-ascii?Q?uC/oRPdEfEZ7EDPYWu2QZnLoLrqHTeovpWiB+GCbiQrYWRLYjWRkesKO4+fR?=
- =?us-ascii?Q?3VAqGIiimltU/shwbz2HqdK/qGe5B9A0m7rqYLU8xefeMkvGUv4rh/h985b4?=
- =?us-ascii?Q?frlSmKtTHDhMZUFkpxRjeFvkDov/+KeLYnhvutT0BeN1YFlBoXFMDHe6EclM?=
- =?us-ascii?Q?OUv+L/aJJDBb6+hWOVzEp4oErRHSt4riRoV7HlFF8FS1Fb3buYaaYZdtqVoz?=
- =?us-ascii?Q?OVEZDbmsi4vEzSLZCKhDqEHiOBHwcKaG3NscQHAHLYgQqkOFzSOjn6YiyzJw?=
- =?us-ascii?Q?CozcwmAhLJNRixgTCAQAt0D9mVE2zJ8kYhJYMMv/9MJiDotCLikRlmkUD0sH?=
- =?us-ascii?Q?TZip4/lafo09bdvN/ZGAmtQCSEc015oYMp9sLlCbfgtNJYW8lH58U/vrNcWu?=
- =?us-ascii?Q?GoSl76CHcVePSQTSLJSPOwlkoo9XNNThL7kgFJjuJGNR2pnEsbaYav+WP5ld?=
- =?us-ascii?Q?aJiV5S9tAUZ4Zmq7m0TCGqiscjvBD5+Rf7Q3WqRfvNtn5MiDQD3tkqJ3+T/q?=
- =?us-ascii?Q?G41mxYgEDQQ0GRTjAq7FeDVmP0P746m+MNTzn6r/v0WA7zLg3r5N09QneMaZ?=
- =?us-ascii?Q?XNvGlAVr3mOmMPSsmTuOhwptCaFd69rR96L7GQG1X5qkxqAzGv5Wwqb7z8TP?=
- =?us-ascii?Q?ZbP0aCPoNuRK5o0jo6BywVfCoLCEPxkwee4fM62XUgOt3sXeeozj0Yv6qYKs?=
- =?us-ascii?Q?LTHbQ3BVR55GiYdiEDAOaZCNVQRMq+okCuzctJJFuaP2IDPAQP3cZ96rQ4cj?=
- =?us-ascii?Q?gvLKozcdCRIhsMNDth0CpnZJPnOPuYc3AxX1dla3/V39xXHFSYVLKxxx94ch?=
- =?us-ascii?Q?yaf0IZtyX2ed+iIJLKZCjGppxWjY8S4gASnZOrmwNX8HSK27Uaux6hdUs/GZ?=
- =?us-ascii?Q?8ZsgBxGUEKISBNr7uk83h5+NG+d7H9L20FItc+k1wJfcpr0plZe9Ge+DJOcH?=
- =?us-ascii?Q?tBf7Zqw268KmixAcT6VZxB/x78hMwZR5JgW3y0g27aQtNUuFZVVn1gHUx0Gt?=
- =?us-ascii?Q?XMy5ksYePbqofqEXFbVbGYBysf/B5HSO8zE6LKbVsJ59r9HmPHlJk/xHiTYZ?=
- =?us-ascii?Q?YTxDnGucCoYO8Fmg8myvqludGsipsROLdRt/0a4rc9KooRF0PoC2NseS73LL?=
- =?us-ascii?Q?NUdRC+nd9YjrMI+bTAVJqDz4TiER7I7yyuHRnbJr+Z48/AKe4p4IHJqEjCCf?=
- =?us-ascii?Q?YrWrq4EuPZ3iganDgr27RY53al1641dTEYWbSZhb3DCmvyitGAfTruUx0/4g?=
- =?us-ascii?Q?tWfXWvk3tkrLSRzQqRLEMWG8JlkWFWDfGzYtcxKN24u2McL6sBxZG5bh7kwP?=
- =?us-ascii?Q?0Q/4XVVzwQ=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c543519c-bc9d-411a-aad8-08de7922c2f0
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2026 12:45:34.1200
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jkDQhm+eNDHeEoaBDNe26YFIr3SDrQZqRJP3E/T3vcWtelmz/VrGnAerPMRBMC3B
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB7271
+In-Reply-To: <CAMuHMdUZjZvhifzh0W2wbMZf2DYgZjO=gXepsS2nQtSG0weCag@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_044542_614080_6C632745 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20260303_044658_957151_4924E0DE 
+X-CRM114-Status: GOOD (  25.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,37 +73,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 02, 2026 at 11:19:46PM -0800, James Houghton wrote:
+On Mon, Mar 02, 2026 at 01:37:00PM +0100, Geert Uytterhoeven wrote:
+> Hi Cristian,
+> 
+> On Fri, 27 Feb 2026 at 16:33, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> > Add a clock operation to help determining the effective rate, closest to
+> > the required one, that a specific clock can support.
+> >
+> > Calculation is currently performed kernel side and the logic is taken
+> > directly from the SCMI Clock driver: embedding the determinate rate logic
+> > in the protocol layer enables semplifications in the SCMI Clock protocol
+> > interface and  will more easily accommodate further evolutions where such
+> > determine_rate logic into is optionally delegated to the platform SCMI
+> > server.
+> >
+> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> 
+> Thanks for your patch!
 
-> This is similar (sort of) to a HugeTLB page fault loop I stumbled upon
-> a while ago[1]. (I wonder if there have been more cases like this.)
+Hi,
 
-We spent some time here looking at what the ARM spec requires, and
-what kinds of HW implementations are possible..
+thanks for having a look.
 
-I think the consensus is that SW must never write individual CONT PTEs
-that are different from each other.
+> 
+> > --- a/drivers/firmware/arm_scmi/clock.c
+> > +++ b/drivers/firmware/arm_scmi/clock.c
+> > @@ -624,6 +625,46 @@ static int scmi_clock_rate_set(const struct scmi_protocol_handle *ph,
+> >         return ret;
+> >  }
+> >
+> > +static int scmi_clock_determine_rate(const struct scmi_protocol_handle *ph,
+> > +                                    u32 clk_id, unsigned long *rate)
+> > +{
+> > +       u64 fmin, fmax, ftmp;
+> > +       struct scmi_clock_info *clk;
+> > +       struct clock_info *ci = ph->get_priv(ph);
+> > +
+> > +       if (!rate)
+> > +               return -EINVAL;
+> > +
+> > +       clk = scmi_clock_domain_lookup(ci, clk_id);
+> > +       if (IS_ERR(clk))
+> > +               return PTR_ERR(clk);
+> > +
+> > +       /*
+> > +        * If we can't figure out what rate it will be, so just return the
+> > +        * rate back to the caller.
+> > +        */
+> > +       if (clk->rate_discrete)
+> > +               return 0;
+> > +
+> > +       fmin = clk->range.min_rate;
+> > +       fmax = clk->range.max_rate;
+> > +       if (*rate <= fmin) {
+> > +               *rate = fmin;
+> > +               return 0;
+> > +       } else if (*rate >= fmax) {
+> > +               *rate = fmax;
+> > +               return 0;
+> > +       }
+> > +
+> > +       ftmp = *rate - fmin;
+> > +       ftmp += clk->range.step_size - 1; /* to round up */
+> > +       do_div(ftmp, clk->range.step_size);
+> 
+> step_size is u64, while do_div() truncates it to 32-bit.
 
-For example, a possible HW implementation could fetch a cache line of
-PTEs, see the CONT bit at the VA's PTE, and then always select the
-first PTE in the cache line to load the TLB.
+Yes, as pointed out also by other reviewers, there are pre-existent bugs
+probably in this rounding...this patch was meant only to move the logic
+away from the CLK SCMI driver into the SCMI Clock protocol layer since
+it enables a few simplification...
 
-Alternatively HW could just always load the PTE from the VA that is
-faulting.
+In the next V2, I will fix rounding errors by adding a dedicated Fix on
+top of the original code, before this 'relocation', so as to make the
+backport easier and move the fixed code.
 
-Since ARM ARM doesn't restrict this, SW must assume both possibilities
-and that means it must synchronize all PTEs since it cannot predict
-which PTE will be loaded by HW.
-
-DBM will only write to a single PTE, which means HW can create
-inconsistent PTEs. However if SW is fixing a fault, especially for
-different walker IP (SMMU vs CPU), then it must restore the
-synchronization since the PTE selection of one walker may not be
-compatible with the HW update of the other.
-
-Thus, I think any place where SW is creating inconsistent PTEs, or
-leaving PTEs inconsistent after a fault is a bug.. We found a Rule
-statement that seemed to require this as well.
-
-Jason
+Thanks,
+Cristian
 
