@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B753EDEBEB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 19:32:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9234CEDEBEC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 19:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ebCf8IAGgl2B/372c2QLceVUsgeqo2XZMEmzfMHhLb4=; b=ehnsaXa8gVocDZf9U38PnAaPv3
-	bU/wJDY3T0mSCGuycAIi2SahtpFgtlbO7HQoEK54PKmLZ/QLHAQLJLlgwRLZBZgnVabDlwTRSuRvb
-	mjf1gj6zdWRbMhC39G8BBnClUOktrxXG61e3kPAb1tlahSszcLSHa7dRLidhGD1vnNjOWcl4Rttje
-	X4b4rNC7UwyVwHga1mVpnOc/SD1nI0jiZ4t694wJZYWUQTcR6izYiu5B7+x7Bhk/bT8mLDByoHswo
-	hzcpYtqQJ4ELSBgI/ULPHOFhi3Bs3h1aCmG9H6/DOb/8D3qbVwIPwBMVxy0x3ex3+5vOdomfVbInz
-	ueHJE/vg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KMGjuveVK/0VdEZtEB1srp5B3GwLURnt2HUgyVzfB/s=; b=E5X4EVMzPmIHmgxc7NqQ2Ii0Ow
+	trMOCeJM1YG2OqCth+x70CHA0Tr5fnYKQTn07vd2BmtpZ27UHHo7PlnHC9MhI07QpXpzQeEly7KLC
+	DFOEvqno5KQAWkOmzQsYe64HmWmr+djG4R1CCHlTm8HzK09BGsvMm6MNOq++zHtJkvDGZYqT3kUzq
+	6eog1ba6+YldmQ1uWCtShgPTsC0W0NAxjyBGwilN42N1tx0Sf0w+bpIK816aqa2v6kMGr9/5qM0pH
+	62CfNtoO8RDXDbZ90MxN+SqQDfCSjg9WEx51M/Ymp6DSQXH+nB3rtM1jQjWYGaU1j4nNJTDrmaq15
+	kmI6d4Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxVTM-0000000FnlC-0VrP;
-	Tue, 03 Mar 2026 19:32:00 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1vxVTN-0000000FnmU-28ph;
+	Tue, 03 Mar 2026 19:32:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxVTJ-0000000FnhL-2YVY
+	id 1vxVTL-0000000FnjH-26jx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 19:31:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=from:to:cc:subject:date:message-id
-	:in-reply-to:references:mime-version:content-transfer-encoding;
-	 s=k1; bh=ebCf8IAGgl2B/372c2QLceVUsgeqo2XZMEmzfMHhLb4=; b=ZCRzfe
-	Az7BcOskJ6h86VIh1046EhU39Q6BylqcF7SEkWEEJJ6CFJ6YGnLX2IqQkZ6qEswZ
-	DKKeGO4oq9nFoVboml56z7f+JYDLktlvl4SpPxlo3m3Z8SI91Af0jx78CZiUGMT3
-	XhZSeojpBLgoJV8V0MJt/llzR73GNjwN3e5PUA7atk3HxZpGbLhKeK/gQs3CT2om
-	P36tQsJYVCWL7f9t0onpDB/9kAhFSfZ3tf+l4T6obksXSYBvXEzmGPMBgh+1HyoG
-	814gsvHJByGHfIR1NX0gDzQ7r+RPoBM2VVfakGxbWmCHFWhGWGZQ1eQaELeuxAl4
-	XAAmhun4SUMm7IAA==
-Received: (qmail 430669 invoked from network); 3 Mar 2026 20:31:36 +0100
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 3 Mar 2026 20:31:36 +0100
-X-UD-Smtp-Session: l3s3148p1@LwdrwCNMbpEujnu+
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: linux-renesas-soc@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Tue, 03 Mar 2026 19:32:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 755DC444B8;
+	Tue,  3 Mar 2026 19:31:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAD2DC2BCB2;
+	Tue,  3 Mar 2026 19:31:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772566318;
+	bh=i9EZozHW8XRAVLe8EAr2xfM/6NutGAKezx67stLre7Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LBMtiYqdzTeup8FJVWXxT6ukyG6zRobBUe/9Mx8IhAhFrfRxHAAIym3RpikfeMD8m
+	 v+A2VcjZ21cSREjyMLdsu4gGu0wL0kRMhC4IlX1qyyeULlbBGl5uw6UGuBBquOolxm
+	 Row+8ruBmAX+JL+HmOC80eEVQkVtrtMP8DP02cDIuI7a5crnsN/KD8SglZtR0sV8T2
+	 FSzBQStrg4lKjjyetLh5Js0XceJBji3eyotTabSoV8O5Bg2+oeRAjkkb6HQGmyyYd8
+	 IiX+5wsaOMUgS37UEGItnTYawAACGA3cYTgx4ebBRCK2MxWOXqEBOSJPb1mhDQEhyr
+	 p8K4qxyCPAlBg==
+Date: Tue, 3 Mar 2026 11:31:02 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: Christoph Hellwig <hch@infradead.org>
+Cc: Joachim Vandersmissen <git@jvdsn.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Wilken Gottwalt <wilken.gottwalt@posteo.net>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	linux-remoteproc@vger.kernel.org,
-	linux-omap@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev
-Subject: [PATCH v3 10/15] hwspinlock: handle hwspinlock device allocation in the core
-Date: Tue,  3 Mar 2026 20:26:02 +0100
-Message-ID: <20260303192600.7224-27-wsa+renesas@sang-engineering.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260303192600.7224-17-wsa+renesas@sang-engineering.com>
-References: <20260303192600.7224-17-wsa+renesas@sang-engineering.com>
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	dm-devel@lists.linux.dev
+Subject: Re: [PATCH] crypto: testmgr - block Crypto API xxhash64 in FIPS mode
+Message-ID: <20260303193102.GA2846@sol>
+References: <20260303060509.246038-1-git@jvdsn.com>
+ <aab5ptuamQ7d_tTi@infradead.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aab5ptuamQ7d_tTi@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_113157_938564_F443BE8B 
-X-CRM114-Status: GOOD (  26.03  )
+X-CRM114-CacheID: sfid-20260303_113159_575520_A895FDB3 
+X-CRM114-Status: GOOD (  20.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,374 +79,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Providers have been refactored to avoid using core internal structures.
-As a result, they do not need to allocate the hwspinlock device on their
-own anymore because they can access everything they need with helpers.
+[+Cc dm-devel@lists.linux.dev]
 
-So, the allocation is moved to the core. As a result, the registering
-functions now return a pointer to the (soon) opaque hwspinlock device
-which may be needed for unregistering only.
+On Tue, Mar 03, 2026 at 07:09:26AM -0800, Christoph Hellwig wrote:
+> On Tue, Mar 03, 2026 at 12:05:09AM -0600, Joachim Vandersmissen wrote:
+> > xxhash64 is not a cryptographic hash algorithm, but is offered in the
+> > same API (shash) as actual cryptographic hash algorithms such as
+> > SHA-256. The Cryptographic Module Validation Program (CMVP), managing
+> > FIPS certification, believes that this could cause confusion. xxhash64
+> > must therefore be blocked in FIPS mode.
+> > 
+> > The only usage of xxhash64 in the kernel is btrfs. Commit fe11ac191ce0
+> > ("btrfs: switch to library APIs for checksums") recently modified the
+> > btrfs code to use the lib/crypto API, avoiding the Kernel Cryptographic
+> > API. Consequently, the removal of xxhash64 from the Crypto API in FIPS
+> > mode should now have no impact on btrfs usage.
+> 
+> It sounds like xxhash should be removed the crypto API entirely.
+> There's no user of it, it's not crypto, and doing xxhash through
+> the userspace crypto API socket is so stupid that I doubt anyone
+> attempted it.
 
-Because the argument list of the registering functions is changed, all
-users are changed here as well.
+dm-integrity, which uses crypto_shash and accepts arbitrary hash
+algorithm strings from userspace, might be relying on "xxhash64" being
+supported in crypto_shash.  The integritysetup man page specifically
+mentions xxhash64:
 
-Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
----
- drivers/hwspinlock/hwspinlock_core.c  | 48 +++++++++++++++------------
- drivers/hwspinlock/omap_hwspinlock.c  | 10 ++----
- drivers/hwspinlock/qcom_hwspinlock.c  | 11 ++----
- drivers/hwspinlock/sprd_hwspinlock.c  | 17 ++++------
- drivers/hwspinlock/stm32_hwspinlock.c |  7 ++--
- drivers/hwspinlock/sun6i_hwspinlock.c | 12 ++-----
- include/linux/hwspinlock.h            | 17 ++++++----
- 7 files changed, 52 insertions(+), 70 deletions(-)
+     --integrity, -I algorithm
+         Use  internal  integrity  calculation (standalone mode). The integrity
+         algorithm can be CRC (crc32c/crc32), a non-cryptographic hash function
+         (xxhash64) or a hash function (sha1, sha256).
 
-diff --git a/drivers/hwspinlock/hwspinlock_core.c b/drivers/hwspinlock/hwspinlock_core.c
-index afe1e7ce2829..a7610ba755b4 100644
---- a/drivers/hwspinlock/hwspinlock_core.c
-+++ b/drivers/hwspinlock/hwspinlock_core.c
-@@ -21,6 +21,7 @@
- #include <linux/pm_runtime.h>
- #include <linux/mutex.h>
- #include <linux/of.h>
-+#include <linux/slab.h>
- 
- #include "hwspinlock_internal.h"
- 
-@@ -502,7 +503,6 @@ static struct hwspinlock *hwspin_lock_unregister_single(unsigned int id)
- 
- /**
-  * hwspin_lock_register() - register a new hw spinlock device
-- * @bank: the hwspinlock device, which usually provides numerous hw locks
-  * @dev: the backing device
-  * @ops: hwspinlock handlers for this device
-  * @base_id: id of the first hardware spinlock in this bank
-@@ -514,21 +514,25 @@ static struct hwspinlock *hwspin_lock_unregister_single(unsigned int id)
-  *
-  * Should be called from a process context (might sleep)
-  *
-- * Returns: %0 on success, or an appropriate error code on failure
-+ * Returns: a pointer to the device (needed for unregistering), or an
-+ * appropriate error pointer on failure
-  */
--int hwspin_lock_register(struct hwspinlock_device *bank, struct device *dev,
--		const struct hwspinlock_ops *ops, int base_id, int num_locks,
--		void *init_data)
-+struct hwspinlock_device *hwspin_lock_register(struct device *dev, const struct hwspinlock_ops *ops,
-+					       int base_id, int num_locks, void *init_data)
- {
-+	struct hwspinlock_device *bank;
- 	struct hwspinlock *hwlock;
- 	int ret, i;
- 
--	if (!bank || !ops || !dev || !num_locks || !ops->trylock ||
--							!ops->unlock) {
-+	if (!ops || !dev || !num_locks || !ops->trylock || !ops->unlock) {
- 		pr_err("invalid parameters\n");
--		return -EINVAL;
-+		return ERR_PTR(-EINVAL);
- 	}
- 
-+	bank = kzalloc(struct_size(bank, lock, num_locks), GFP_KERNEL);
-+	if (!bank)
-+		return ERR_PTR(-ENOMEM);
-+
- 	bank->dev = dev;
- 	bank->ops = ops;
- 	bank->base_id = base_id;
-@@ -553,12 +557,13 @@ int hwspin_lock_register(struct hwspinlock_device *bank, struct device *dev,
- 			goto reg_failed;
- 	}
- 
--	return 0;
-+	return bank;
- 
- reg_failed:
- 	while (--i >= 0)
- 		hwspin_lock_unregister_single(base_id + i);
--	return ret;
-+	kfree(bank);
-+	return ERR_PTR(ret);
- }
- EXPORT_SYMBOL_GPL(hwspin_lock_register);
- 
-@@ -589,6 +594,8 @@ int hwspin_lock_unregister(struct hwspinlock_device *bank)
- 		WARN_ON(tmp != hwlock);
- 	}
- 
-+	kfree(bank);
-+
- 	return 0;
- }
- EXPORT_SYMBOL_GPL(hwspin_lock_unregister);
-@@ -639,7 +646,6 @@ EXPORT_SYMBOL_GPL(devm_hwspin_lock_unregister);
-  * devm_hwspin_lock_register() - register a new hw spinlock device for
-  *				 a managed device
-  * @dev: the backing device
-- * @bank: the hwspinlock device, which usually provides numerous hw locks
-  * @ops: hwspinlock handlers for this device
-  * @base_id: id of the first hardware spinlock in this bank
-  * @num_locks: number of hwspinlocks provided by this device
-@@ -650,29 +656,27 @@ EXPORT_SYMBOL_GPL(devm_hwspin_lock_unregister);
-  *
-  * Should be called from a process context (might sleep)
-  *
-- * Returns: %0 on success, or an appropriate error code on failure
-+ * Returns: a pointer to the device (usable for unregistering), or an
-+ * appropriate error pointer on failure
-  */
--int devm_hwspin_lock_register(struct device *dev,
--			      struct hwspinlock_device *bank,
--			      const struct hwspinlock_ops *ops,
--			      int base_id, int num_locks, void *init_data)
-+struct hwspinlock_device *devm_hwspin_lock_register(struct device *dev, const struct hwspinlock_ops *ops,
-+						    int base_id, int num_locks, void *init_data)
- {
--	struct hwspinlock_device **ptr;
--	int ret;
-+	struct hwspinlock_device **ptr, *bank;
- 
- 	ptr = devres_alloc(devm_hwspin_lock_unreg, sizeof(*ptr), GFP_KERNEL);
- 	if (!ptr)
--		return -ENOMEM;
-+		return ERR_PTR(-ENOMEM);
- 
--	ret = hwspin_lock_register(bank, dev, ops, base_id, num_locks, init_data);
--	if (!ret) {
-+	bank = hwspin_lock_register(dev, ops, base_id, num_locks, init_data);
-+	if (!IS_ERR(bank)) {
- 		*ptr = bank;
- 		devres_add(dev, ptr);
- 	} else {
- 		devres_free(ptr);
- 	}
- 
--	return ret;
-+	return bank;
- }
- EXPORT_SYMBOL_GPL(devm_hwspin_lock_register);
- 
-diff --git a/drivers/hwspinlock/omap_hwspinlock.c b/drivers/hwspinlock/omap_hwspinlock.c
-index 9a9cb3692348..f1ff6406db46 100644
---- a/drivers/hwspinlock/omap_hwspinlock.c
-+++ b/drivers/hwspinlock/omap_hwspinlock.c
-@@ -82,7 +82,6 @@ static const struct hwspinlock_ops omap_hwspinlock_ops = {
- 
- static int omap_hwspinlock_probe(struct platform_device *pdev)
- {
--	struct hwspinlock_device *bank;
- 	void __iomem *io_base;
- 	int num_locks, i, ret;
- 	/* Only a single hwspinlock block device is supported */
-@@ -119,13 +118,8 @@ static int omap_hwspinlock_probe(struct platform_device *pdev)
- 
- 	num_locks = i * 32; /* actual number of locks in this device */
- 
--	bank = devm_kzalloc(&pdev->dev, struct_size(bank, lock, num_locks),
--			    GFP_KERNEL);
--	if (!bank)
--		return -ENOMEM;
--
--	return devm_hwspin_lock_register(&pdev->dev, bank, &omap_hwspinlock_ops,
--					 base_id, num_locks, io_base + LOCK_BASE_OFFSET);
-+	return devm_hwspin_lock_register_errno(&pdev->dev, &omap_hwspinlock_ops, base_id,
-+					       num_locks, io_base + LOCK_BASE_OFFSET);
- }
- 
- static const struct of_device_id omap_hwspinlock_of_match[] = {
-diff --git a/drivers/hwspinlock/qcom_hwspinlock.c b/drivers/hwspinlock/qcom_hwspinlock.c
-index 73b280988109..e2836d6728e8 100644
---- a/drivers/hwspinlock/qcom_hwspinlock.c
-+++ b/drivers/hwspinlock/qcom_hwspinlock.c
-@@ -223,9 +223,7 @@ static struct regmap *qcom_hwspinlock_probe_mmio(struct platform_device *pdev,
- static int qcom_hwspinlock_probe(struct platform_device *pdev)
- {
- 	struct qcom_hwspinlock_priv_init_data init;
--	struct hwspinlock_device *bank;
- 	struct regmap *regmap;
--	size_t array_size;
- 
- 	regmap = qcom_hwspinlock_probe_syscon(pdev, &init.base, &init.stride);
- 	if (IS_ERR(regmap) && PTR_ERR(regmap) == -ENODEV)
-@@ -234,16 +232,11 @@ static int qcom_hwspinlock_probe(struct platform_device *pdev)
- 	if (IS_ERR(regmap))
- 		return PTR_ERR(regmap);
- 
--	array_size = QCOM_MUTEX_NUM_LOCKS * sizeof(struct hwspinlock);
--	bank = devm_kzalloc(&pdev->dev, sizeof(*bank) + array_size, GFP_KERNEL);
--	if (!bank)
--		return -ENOMEM;
--
- 	init.dev = &pdev->dev;
- 	init.regmap = regmap;
- 
--	return devm_hwspin_lock_register(&pdev->dev, bank, &qcom_hwspinlock_ops,
--					 0, QCOM_MUTEX_NUM_LOCKS, &init);
-+	return devm_hwspin_lock_register_errno(&pdev->dev, &qcom_hwspinlock_ops,
-+					       0, QCOM_MUTEX_NUM_LOCKS, &init);
- }
- 
- static struct platform_driver qcom_hwspinlock_driver = {
-diff --git a/drivers/hwspinlock/sprd_hwspinlock.c b/drivers/hwspinlock/sprd_hwspinlock.c
-index c19b680d5fdf..95b254e9b6a0 100644
---- a/drivers/hwspinlock/sprd_hwspinlock.c
-+++ b/drivers/hwspinlock/sprd_hwspinlock.c
-@@ -33,15 +33,14 @@
- struct sprd_hwspinlock_dev {
- 	void __iomem *base;
- 	struct clk *clk;
--	struct hwspinlock_device bank;
- };
- 
- /* try to lock the hardware spinlock */
- static int sprd_hwspinlock_trylock(struct hwspinlock *lock)
- {
--	struct sprd_hwspinlock_dev *sprd_hwlock =
--		dev_get_drvdata(hwspin_lock_get_dev(lock));
- 	void __iomem *addr = hwspin_lock_get_priv(lock);
-+	struct device *dev = hwspin_lock_get_dev(lock);
-+	struct sprd_hwspinlock_dev *sprd_hwlock = dev_get_drvdata(dev);
- 	int user_id, lock_id;
- 
- 	if (!readl(addr))
-@@ -50,8 +49,7 @@ static int sprd_hwspinlock_trylock(struct hwspinlock *lock)
- 	lock_id = hwlock_to_id(lock);
- 	/* get the hardware spinlock master/user id */
- 	user_id = readl(sprd_hwlock->base + HWSPINLOCK_MASTERID(lock_id));
--	dev_warn(sprd_hwlock->bank.dev,
--		 "hwspinlock [%d] lock failed and master/user id = %d!\n",
-+	dev_warn(dev, "hwspinlock [%d] lock failed and master/user id = %d!\n",
- 		 lock_id, user_id);
- 	return 0;
- }
-@@ -99,9 +97,7 @@ static int sprd_hwspinlock_probe(struct platform_device *pdev)
- 	if (!pdev->dev.of_node)
- 		return -ENODEV;
- 
--	sprd_hwlock = devm_kzalloc(&pdev->dev,
--				   struct_size(sprd_hwlock, bank.lock, SPRD_HWLOCKS_NUM),
--				   GFP_KERNEL);
-+	sprd_hwlock = devm_kzalloc(&pdev->dev, sizeof(*sprd_hwlock), GFP_KERNEL);
- 	if (!sprd_hwlock)
- 		return -ENOMEM;
- 
-@@ -132,9 +128,8 @@ static int sprd_hwspinlock_probe(struct platform_device *pdev)
- 
- 	platform_set_drvdata(pdev, sprd_hwlock);
- 
--	return devm_hwspin_lock_register(&pdev->dev, &sprd_hwlock->bank,
--					 &sprd_hwspinlock_ops, 0,
--					 SPRD_HWLOCKS_NUM, sprd_hwlock->base);
-+	return devm_hwspin_lock_register_errno(&pdev->dev, &sprd_hwspinlock_ops, 0,
-+					       SPRD_HWLOCKS_NUM, sprd_hwlock->base);
- }
- 
- static const struct of_device_id sprd_hwspinlock_of_match[] = {
-diff --git a/drivers/hwspinlock/stm32_hwspinlock.c b/drivers/hwspinlock/stm32_hwspinlock.c
-index 02db950c9450..a966e967dcdb 100644
---- a/drivers/hwspinlock/stm32_hwspinlock.c
-+++ b/drivers/hwspinlock/stm32_hwspinlock.c
-@@ -22,7 +22,6 @@
- 
- struct stm32_hwspinlock {
- 	struct clk *clk;
--	struct hwspinlock_device bank;
- };
- 
- static int stm32_hwspinlock_trylock(struct hwspinlock *lock)
-@@ -87,7 +86,7 @@ static int stm32_hwspinlock_probe(struct platform_device *pdev)
- 	if (IS_ERR(io_base))
- 		return PTR_ERR(io_base);
- 
--	hw = devm_kzalloc(dev, struct_size(hw, bank.lock, STM32_MUTEX_NUM_LOCKS), GFP_KERNEL);
-+	hw = devm_kzalloc(dev, sizeof(*hw), GFP_KERNEL);
- 	if (!hw)
- 		return -ENOMEM;
- 
-@@ -114,8 +113,8 @@ static int stm32_hwspinlock_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
--	ret = devm_hwspin_lock_register(dev, &hw->bank, &stm32_hwspinlock_ops,
--					0, STM32_MUTEX_NUM_LOCKS, io_base);
-+	ret = devm_hwspin_lock_register_errno(dev, &stm32_hwspinlock_ops,
-+					      0, STM32_MUTEX_NUM_LOCKS, io_base);
- 
- 	if (ret)
- 		dev_err(dev, "Failed to register hwspinlock\n");
-diff --git a/drivers/hwspinlock/sun6i_hwspinlock.c b/drivers/hwspinlock/sun6i_hwspinlock.c
-index 7d0c639c0e82..8e17deb503c7 100644
---- a/drivers/hwspinlock/sun6i_hwspinlock.c
-+++ b/drivers/hwspinlock/sun6i_hwspinlock.c
-@@ -27,7 +27,6 @@
- #define SPINLOCK_NOTTAKEN	0
- 
- struct sun6i_hwspinlock_data {
--	struct hwspinlock_device *bank;
- 	struct reset_control *reset;
- 	struct clk *ahb_clk;
- 	struct dentry *debugfs;
-@@ -161,13 +160,6 @@ static int sun6i_hwspinlock_probe(struct platform_device *pdev)
- 		goto bank_fail;
- 	}
- 
--	priv->bank = devm_kzalloc(&pdev->dev, struct_size(priv->bank, lock, priv->nlocks),
--				  GFP_KERNEL);
--	if (!priv->bank) {
--		err = -ENOMEM;
--		goto bank_fail;
--	}
--
- 	/* failure of debugfs is considered non-fatal */
- 	sun6i_hwspinlock_debugfs_init(priv);
- 	if (IS_ERR(priv->debugfs))
-@@ -179,8 +171,8 @@ static int sun6i_hwspinlock_probe(struct platform_device *pdev)
- 		goto bank_fail;
- 	}
- 
--	return devm_hwspin_lock_register(&pdev->dev, priv->bank, &sun6i_hwspinlock_ops,
--					 SPINLOCK_BASE_ID, priv->nlocks, io_base + SPINLOCK_LOCK_REGN);
-+	return devm_hwspin_lock_register_errno(&pdev->dev, &sun6i_hwspinlock_ops, SPINLOCK_BASE_ID,
-+					       priv->nlocks, io_base + SPINLOCK_LOCK_REGN);
- 
- bank_fail:
- 	clk_disable_unprepare(priv->ahb_clk);
-diff --git a/include/linux/hwspinlock.h b/include/linux/hwspinlock.h
-index 094a6d0d39d6..58733cda7a9a 100644
---- a/include/linux/hwspinlock.h
-+++ b/include/linux/hwspinlock.h
-@@ -29,8 +29,8 @@ struct hwspinlock_ops;
- 
- void *hwspin_lock_get_priv(struct hwspinlock *hwlock);
- struct device *hwspin_lock_get_dev(struct hwspinlock *hwlock);
--int hwspin_lock_register(struct hwspinlock_device *bank, struct device *dev,
--		const struct hwspinlock_ops *ops, int base_id, int num_locks, void *init_data);
-+struct hwspinlock_device *hwspin_lock_register(struct device *dev, const struct hwspinlock_ops *ops,
-+					       int base_id, int num_locks, void *init_data);
- int hwspin_lock_unregister(struct hwspinlock_device *bank);
- struct hwspinlock *hwspin_lock_request_specific(unsigned int id);
- int hwspin_lock_free(struct hwspinlock *hwlock);
-@@ -46,10 +46,15 @@ struct hwspinlock *devm_hwspin_lock_request_specific(struct device *dev,
- 						     unsigned int id);
- int devm_hwspin_lock_unregister(struct device *dev,
- 				struct hwspinlock_device *bank);
--int devm_hwspin_lock_register(struct device *dev,
--			      struct hwspinlock_device *bank,
--			      const struct hwspinlock_ops *ops,
--			      int base_id, int num_locks, void *init_data);
-+struct hwspinlock_device *devm_hwspin_lock_register(struct device *dev, const struct hwspinlock_ops *ops,
-+						    int base_id, int num_locks, void *init_data);
-+
-+static inline int devm_hwspin_lock_register_errno(struct device *dev,
-+						  const struct hwspinlock_ops *ops,
-+						  int base_id, int num_locks, void *init_data)
-+{
-+	return PTR_ERR_OR_ZERO(devm_hwspin_lock_register(dev, ops, base_id, num_locks, init_data));
-+}
- 
- #else /* !CONFIG_HWSPINLOCK */
- 
--- 
-2.51.0
+         For HMAC (hmac-sha256), you must specify  an  integrity  key  and  its
+         size.
 
+Maybe the device-mapper maintainers have some insight into whether
+anyone is actually using xxhash64 with dm-integrity.
+
+If yes, then dm-integrity could still switch to using the library API
+for it.  dm-integrity would just need to gain some helper functions that
+call either the xxhash64 library or crypto_shash depending on the
+configured algorithm.  If the full set of algorithms being used can be
+determined, then dm-integrity could even switch to the library APIs
+entirely, like many other kernel subsystems such as btrfs have.
+
+- Eric
 
