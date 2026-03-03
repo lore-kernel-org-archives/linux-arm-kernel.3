@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B66F2EC144C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 14:11:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 081B4EC1458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 14:13:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1SYlSKwxcdOuQwmCrvmPZXFJiFDHkc6g7d5W68uypmY=; b=EP6AefuL0N4UacBfd7hys2ltiV
-	PgYmMJKnBqhxsQo54MagktLXYf9CGkjQGGBJS+rYV6Pew5b8cpFKqX2HAilQssZa6OhFJqhxCOjD6
-	IOM8dM3sqnY6REIcCsyFjtjcqAk1Ykdinp3a3+lU8v88zvYV8N+3uUb8Gg/3LvbQcWQZtf05K3Ntp
-	mOQn/tKBhrUhS0n6rLkGaBmk6dcx4vHdrPbURZThqD/ehTviFcEN+bSAc4dpfGdkdEfJZHt3ZvICq
-	Oi6u92ROEcka3ZhPAqwFIt2kQDUph8vKcQEZQgcPW4WT+U033MJrs21vp7Y3m1yzZ9Si9h3t3tsXl
-	ChWe/gpQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8j6AI21MZvaeimRNQiVXBgb+npF++NlMmLHZtlK5Se0=; b=FAMS/z/kvlAsgI+SBDauir3M93
+	+cvQKS0bN7ZZwlLqH1btPkYmslPobnCDeFKInYQ//P9sr2k05RGOQ00kHYHpnAbznGcBg02NuGkbp
+	Pe8Nun0oCXuZd3T36dpGp97I7OLCIkNN8Bq/FfkD4+0Sp0aMlZTX+5yepdT2JdTUp3GrC+kMdJVtA
+	4fedzOkM79Y1T36nU8wXXGb/6bszHgMQIpYClDW9JS9TvsA3OVhTZCyRizpbQo4kRTVFuhO5YVewF
+	flIvj7IoA7wFjAKiF3A7vJDiL5Sw0ciuZ9Dj9yR1XMOaldQ4mkKykur23l3rBx/y8PzcoAkFDGjEa
+	4p5e3nVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxQTQ-0000000FICm-3Dt9;
-	Tue, 03 Mar 2026 14:11:44 +0000
+	id 1vxQUc-0000000FIR0-0OpM;
+	Tue, 03 Mar 2026 14:12:58 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxQTO-0000000FI9a-1btj;
-	Tue, 03 Mar 2026 14:11:43 +0000
+	id 1vxQUZ-0000000FIQY-0Wd6;
+	Tue, 03 Mar 2026 14:12:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1772547092;
-	bh=gqpj5LlBtH7M/NHlGkNd2PMy/VhJqn7LsUBN9beRTb4=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=iUOMBAPQf6QqMV9DwdlzOU9GODujSmrfgGXt3SXGgKc6ACzhdl4NDmaZ2XvuGWlfY
-	 bD4M/LphRvhi9kXNjP4XEGjBoMcBItv9gqxKL97RQpzz512UfkhcQEHMPalaiGifKQ
-	 IPgFCQpz2SPr5P5HV1emJvF6upCqj0XLAEU3Fh9dCSr0U24SywxCQU7I2WurUU1eA5
-	 Itw5UyILKvlny34u/Cy4/PcOYJU+CpJbm/43e6qvzm+LVzbprt5yrS0PXhtK49OG0H
-	 jKo+53AN9zN542I5m2yYObS49Q48NNrIPvoB8DnN/FCncbEpjHzQabVY50+3Cr6dEW
-	 8t1ugUpQk07QA==
+	s=mail; t=1772547173;
+	bh=I1RcmXzbZMBrvUOvOt+mIG2zd3hNEJtpd9z3pYneLCU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=UDHVu/Fjr+fk4c6bX+qQg8zJqvbVYEATwZlstMqA7VCjpgNMmGNSxYMwxR37rbM5l
+	 bmvb63r9bm9DeTE/SgNX2YvHp8Bny07/E4cHgbw1Z2vVu6ryVTO0DLxkUmYsDmmylU
+	 saCIuMIloFvRm3Etr/9RjSq9dDKD1dvd/dFvZ+r6+cP8KA7EaNjoyz6EdloDgN1NzK
+	 +5TcPMzkII2plQxzUUdfPJycQuxQwrFTKP+zlD2MntzudUaOFZcR96FceLq2ZBMEBt
+	 luNDUcnQO2iQVrJVXta2BM3XfKfjWsiWYeIK1rEWemZxQcvEkEm0hgf69qu80kwjks
+	 7+084pw1iPJ0A==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B4D1617E03E5;
-	Tue,  3 Mar 2026 15:11:31 +0100 (CET)
-Message-ID: <5b384601-cb49-4f69-8df7-f751c947c336@collabora.com>
-Date: Tue, 3 Mar 2026 15:11:31 +0100
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id DC2F617E03E5;
+	Tue,  3 Mar 2026 15:12:52 +0100 (CET)
+Message-ID: <f5290ec5-2c54-41cd-b926-44964499fb7b@collabora.com>
+Date: Tue, 3 Mar 2026 15:12:52 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: dts: mediatek: add crypto offload support
- on MT7981
-To: Aleksander Jan Bajkowski <olek2@wp.pl>, herbert@gondor.apana.org.au,
- davem@davemloft.net, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, matthias.bgg@gmail.com, atenart@kernel.org,
- linux-crypto@vger.kernel.org, devicetree@vger.kernel.org,
+Subject: Re: [PATCH] dt-bindings: arm: mediatek: audsys: fix formatting issues
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Eugen Hristev <eugen.hristev@linaro.org>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org
-References: <20260302230100.70240-1-olek2@wp.pl>
- <20260302230100.70240-2-olek2@wp.pl>
+References: <20260303-mtk-audsys-dtbinding-check-warnings-v1-1-e4e1b62f060e@collabora.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20260302230100.70240-2-olek2@wp.pl>
+In-Reply-To: <20260303-mtk-audsys-dtbinding-check-warnings-v1-1-e4e1b62f060e@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_061142_574286_E7F99B49 
-X-CRM114-Status: UNSURE (   6.82  )
+X-CRM114-CacheID: sfid-20260303_061255_321043_6DA74DBC 
+X-CRM114-Status: UNSURE (   6.33  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,11 +79,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 03/03/26 00:00, Aleksander Jan Bajkowski ha scritto:
-> The MT7981 as well as the MT7986 have a built-in EIP-97 crypto accelerator.
-> This commit adds the missing entry in the dts.
+Il 03/03/26 12:58, Louis-Alexis Eyraud ha scritto:
+> Fix indentation and drop duplicate newline to resolve the following
+> 'make dt_binding_check' warnings:
+> ```
+> ./Documentation/devicetree/bindings/arm/mediatek/mediatek,audsys.yaml:52:2:
+>    [warning] wrong indentation: expected 2 but found 1 (indentation)
+> ./Documentation/devicetree/bindings/arm/mediatek/mediatek,audsys.yaml:84:1:
+>    [warning] too many blank lines (2 > 1) (empty-lines)
+> ```
 > 
-> Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
+> Fixes: a8e3d66ff5c0 ("dt-bindings: arm: mediatek: audsys: Support mt8192-audsys variant")
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
