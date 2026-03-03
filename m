@@ -4,78 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1B50EC0480
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 09:54:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D24F3EC0480
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 09:57:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D4B+fqv1Q4afrFn9HAZJqj6Nm/zmdWDCD9AzHRpLCIw=; b=PsSeX1B4kBqkv8C6C0+H9DetuO
-	EekVBLH9Qi81bGJmfDjqXsfoCtrdr/1RLKqVEdLp6s8wX8kxIl0WnWSLNKfRi7mMZVMsVjfJWzxrN
-	IEci7DXEpQsRL0+YT3KSMOcvjGUWhkuvDN6Q1tjMj4Zh3Nifmv0gn+5fQF/nXUL8SUf4OsTWuRWTp
-	mEccFmlMk39iiPkvuZX7msgIr0NVKmtGMAQEvNerrL8eDNCcIXS99Lu5KX5Bjk4WN/JFSgL0YGMTk
-	RFFUeZsS7iELPluwNo39fT3+EdrqqWWuMPq4IM8wCtEyKglLHhHHv1TL4FrU3wv2H67OFRyMT7RRH
-	fd7njl6A==;
+	bh=b6WzQuT/ywf2VJayMRdaH0qj4NoL8SKxQZkqSuaYQr8=; b=21RKO2kpCGfciKKnw4kBaQwG+h
+	Z5ZMIXBCZCbz60F3ZaPb4pbHEvkj7h/pW/AouVZw0pdo7O8XgzQsmLiUTRiESP1UxTH5mRyeCA30w
+	d6JvYeDwxN5rqhYyOREumMSd41qMbeWDRJSqWm7PMkNCzUUf7thwIzO0iEixvfT9gvaS7p7grCBXj
+	2go9aPS0O6NaAPI42sz/ceucNpxpZ1LILAJxwLhUnkQKLr3wwFyo+tonVXUoEFU38OvE4CzVZF8bL
+	+7i0czaZHt8tdWYpYslXYIEq4mMJwBwflfOIpPZPnDIqgrKMeJnkEjaFCp9MkQtfcAS+0WQP5UxRZ
+	SfOm0edw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxMSM-0000000EunI-3UNj;
-	Tue, 03 Mar 2026 09:54:22 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vxMVR-0000000Ev78-43HK;
+	Tue, 03 Mar 2026 09:57:33 +0000
+Received: from sinmsgout03.his.huawei.com ([119.8.177.38])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxMSJ-0000000Euln-06Fp
+	id 1vxMVP-0000000Ev67-0Pd4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 09:54:21 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id B233C1A22B4;
-	Tue,  3 Mar 2026 09:54:16 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 7E5205FF29;
-	Tue,  3 Mar 2026 09:54:16 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A0481103695F3;
-	Tue,  3 Mar 2026 10:54:03 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1772531654; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=D4B+fqv1Q4afrFn9HAZJqj6Nm/zmdWDCD9AzHRpLCIw=;
-	b=yHIp9qbLWNRM7L5uL0cVbKgUvYxtLjY07FFZee+XHhU87qlGyOf/Wl0Jl0SmOlQo9Xj4O8
-	JrpFG1OpxJpXIyrPSPKvXXMdy8oJi2/NfP9MfAuFTTCqRINrXOE+WvebbLJSDNkCIAfTQm
-	CIV5U72GuO05+L8eUIjWkdTHnSuMyMBPogbwauxcOoslNwkxh2yY9kYxEl9M+2zXM3Z4tL
-	KcypOlo6T5fTDAfdPd3PR2IaImE8gF1mH6TDjRJdZvd/o0rQPy9GTQU/h/9bTeXrdGzGby
-	sP1FFCi3BGPc9xts2phfbOFkqwsKMg/DDdbgwn4vyExKtFojI9gRWU6xa8ca0Q==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 03 Mar 2026 10:54:03 +0100
-Message-Id: <DGT20ZJ3Q4WP.3OTQJYWGSYGUD@bootlin.com>
-Subject: Re: [PATCH v9 10/15] drm/bridge: analogix_dp: Add new API
- analogix_dp_finish_probe()
-Cc: <Laurent.pinchart@ideasonboard.com>, <jonas@kwiboo.se>,
- <jernej.skrabec@gmail.com>, <maarten.lankhorst@linux.intel.com>,
- <mripard@kernel.org>, <tzimmermann@suse.de>, <airlied@gmail.com>,
- <simona@ffwll.ch>, <shawnguo@kernel.org>, <s.hauer@pengutronix.de>,
- <kernel@pengutronix.de>, <festevam@gmail.com>, <inki.dae@samsung.com>,
- <sw0312.kim@samsung.com>, <kyungmin.park@samsung.com>, <krzk@kernel.org>,
- <alim.akhtar@samsung.com>, <jingoohan1@gmail.com>,
- <p.zabel@pengutronix.de>, <hjc@rock-chips.com>, <heiko@sntech.de>,
- <andy.yan@rock-chips.com>, <dmitry.baryshkov@oss.qualcomm.com>,
- <dianders@chromium.org>, <m.szyprowski@samsung.com>,
- <jani.nikula@intel.com>, <linux-kernel@vger.kernel.org>,
- <dri-devel@lists.freedesktop.org>, <imx@lists.linux.dev>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-samsung-soc@vger.kernel.org>, <linux-rockchip@lists.infradead.org>
-To: "Damon Ding" <damon.ding@rock-chips.com>, <andrzej.hajda@intel.com>,
- <neil.armstrong@linaro.org>, <rfoss@kernel.org>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.20.1
-References: <20260210071225.2566099-1-damon.ding@rock-chips.com>
- <20260210071225.2566099-11-damon.ding@rock-chips.com>
-In-Reply-To: <20260210071225.2566099-11-damon.ding@rock-chips.com>
-X-Last-TLS-Session-Version: TLSv1.3
+	Tue, 03 Mar 2026 09:57:33 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=b6WzQuT/ywf2VJayMRdaH0qj4NoL8SKxQZkqSuaYQr8=;
+	b=vtMMOZpY2BgK9CHKOV1XD6roFa6JcJHJt0/lx8Ie/XUrTfU6c5qh2KRkwDmV7TIjXbzMEjTIw
+	9EplnZOzDSwooaTP3aljgPzGBAt/sNZhsElpzqpC0eK0j7AGfhCz3YCdV8SQgSCb/sirgMkRc68
+	7EMbtJoyxsjv/hETEOwr3X0=
+Received: from frasgout.his.huawei.com (unknown [172.18.146.32])
+	by sinmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4fQB3521XqzN168;
+	Tue,  3 Mar 2026 17:54:09 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.18.224.150])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fQB5l5cw0zHnGhy;
+	Tue,  3 Mar 2026 17:56:27 +0800 (CST)
+Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4F5D54056B;
+	Tue,  3 Mar 2026 17:57:21 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
+ (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 3 Mar
+ 2026 09:57:20 +0000
+Date: Tue, 3 Mar 2026 09:57:18 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+CC: Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, Catalin
+ Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, Linus
+ Torvalds <torvalds@linux-foundation.org>, Oliver Upton
+	<oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, "Dev Jain"
+	<dev.jain@arm.com>, Linu Cherian <Linu.Cherian@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 11/13] arm64: mm: More flags for __flush_tlb_range()
+Message-ID: <20260303095718.00001320@huawei.com>
+In-Reply-To: <20260302135602.3716920-12-ryan.roberts@arm.com>
+References: <20260302135602.3716920-1-ryan.roberts@arm.com>
+	<20260302135602.3716920-12-ryan.roberts@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+MIME-Version: 1.0
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml500009.china.huawei.com (7.191.174.84) To
+ dubpeml500005.china.huawei.com (7.214.145.207)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_015419_214019_C18F5B22 
-X-CRM114-Status: GOOD (  22.82  )
+X-CRM114-CacheID: sfid-20260303_015731_819196_91E918C7 
+X-CRM114-Status: GOOD (  21.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,123 +85,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Damon,
+On Mon, 2 Mar 2026 13:55:58 +0000
+Ryan Roberts <ryan.roberts@arm.com> wrote:
 
-On Tue Feb 10, 2026 at 8:12 AM CET, Damon Ding wrote:
-> Since the panel/bridge should logically be positioned behind the
-> Analogix bridge in the display pipeline, it makes sense to handle
-> the panel/bridge parsing on the Analogix side. Therefore, we add
-> a new API analogix_dp_finish_probe(), which combines the panel/bridge
-> parsing with component addition, to do it.
->
-> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> Tested-by: Heiko Stuebner <heiko@sntech.de> (on rk3588)
+> Refactor function variants with "_nosync", "_local" and "_nonotify" into
+> a single __always_inline implementation that takes flags and rely on
+> constant folding to select the parts that are actually needed at any
+> given callsite, based on the provided flags.
+> 
+> Flags all live in the tlbf_t (TLB flags) type; TLBF_NONE (0) continues
+> to provide the strongest semantics (i.e. evict from walk cache,
+> broadcast, synchronise and notify). Each flag reduces the strength in
+> some way; TLBF_NONOTIFY, TLBF_NOSYNC and TLBF_NOBROADCAST are added to
+> complement the existing TLBF_NOWALKCACHE.
+> 
+> There are no users that require TLBF_NOBROADCAST without
+> TLBF_NOWALKCACHE so implement that as BUILD_BUG() to avoid needing to
+> introduce dead code for vae1 invalidations.
+> 
+> The result is a clearer, simpler, more powerful API.
+Hi Ryan,
 
+There is one subtle change to rounding that should be called out at least.
+
+Might even be worth pulling it to a precursor patch where you can add an
+explanation of why original code was rounding to a larger value than was
+ever needed.
+
+Jonathan
+
+
+> 
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+
+
+>  static inline void __flush_tlb_range(struct vm_area_struct *vma,
+> @@ -586,24 +615,9 @@ static inline void __flush_tlb_range(struct vm_area_struct *vma,
+>  				     unsigned long stride, int tlb_level,
+>  				     tlbf_t flags)
+>  {
+> -	__flush_tlb_range_nosync(vma->vm_mm, start, end, stride,
+> -				 tlb_level, flags);
+> -	__tlbi_sync_s1ish();
+> -}
+> -
+> -static inline void local_flush_tlb_contpte(struct vm_area_struct *vma,
+> -					   unsigned long addr)
+> -{
+> -	unsigned long asid;
+> -
+> -	addr = round_down(addr, CONT_PTE_SIZE);
+See below.
+> -
+> -	dsb(nshst);
+> -	asid = ASID(vma->vm_mm);
+> -	__flush_s1_tlb_range_op(vale1, addr, CONT_PTES, PAGE_SIZE, asid, 3);
+> -	mmu_notifier_arch_invalidate_secondary_tlbs(vma->vm_mm, addr,
+> -						    addr + CONT_PTE_SIZE);
+> -	dsb(nsh);
+> +	start = round_down(start, stride);
+See below.
+> +	end = round_up(end, stride);
+> +	__do_flush_tlb_range(vma, start, end, stride, tlb_level, flags);
+>  }
+
+>  
+>  static inline bool __pte_flags_need_flush(ptdesc_t oldval, ptdesc_t newval)
+> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+> index 681f22fac52a1..3f1a3e86353de 100644
+> --- a/arch/arm64/mm/contpte.c
+> +++ b/arch/arm64/mm/contpte.c
 ...
 
-> @@ -1581,6 +1583,52 @@ struct drm_dp_aux *analogix_dp_get_aux(struct anal=
-ogix_dp_device *dp)
->  }
->  EXPORT_SYMBOL_GPL(analogix_dp_get_aux);
->
-> +static int analogix_dp_aux_done_probing(struct drm_dp_aux *aux)
-> +{
-> +	struct analogix_dp_device *dp =3D to_dp(aux);
-> +	struct analogix_dp_plat_data *plat_data =3D dp->plat_data;
-> +	int port =3D plat_data->dev_type =3D=3D EXYNOS_DP ? 0 : 1;
-> +	int ret;
-> +
-> +	/*
-> +	 * If drm_of_find_panel_or_bridge() returns -ENODEV, there may be no va=
-lid panel
-> +	 * or bridge nodes. The driver should go on for the driver-free bridge =
-or the DP
-> +	 * mode applications.
-> +	 */
-> +	ret =3D drm_of_find_panel_or_bridge(dp->dev->of_node, port, 0,
-> +					  &plat_data->panel, &plat_data->next_bridge);
-> +	if (ret && ret !=3D -ENODEV)
-> +		return ret;
-> +
-> +	return component_add(dp->dev, plat_data->ops);
-> +}
-> +
-> +int analogix_dp_finish_probe(struct analogix_dp_device *dp)
-> +{
-> +	int ret;
-> +
-> +	ret =3D devm_of_dp_aux_populate_bus(&dp->aux, analogix_dp_aux_done_prob=
-ing);
-> +	if (ret) {
-> +		/*
-> +		 * If devm_of_dp_aux_populate_bus() returns -ENODEV, the done_probing(=
-) will
-> +		 * not be called because there are no EP devices. Then the callback fu=
-nction
-> +		 * analogix_dp_aux_done_probing() will be called directly in order to =
-support
-> +		 * the other valid DT configurations.
-> +		 *
-> +		 * NOTE: The devm_of_dp_aux_populate_bus() is allowed to return -EPROB=
-E_DEFER.
+> @@ -641,7 +641,10 @@ int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
+>  			__ptep_set_access_flags(vma, addr, ptep, entry, 0);
+>  
+>  		if (dirty)
+> -			local_flush_tlb_contpte(vma, start_addr);
+> +			__flush_tlb_range(vma, start_addr,
+> +					  start_addr + CONT_PTE_SIZE,
+> +					  PAGE_SIZE, 3,
 
-Uhm, if it is allowed to return -EPROBE_DEFER...
+This results in a different stride to round down. 
+local_flush_tlb_contpte() did
+addr = round_down(addr, CONT_PTE_SIZE);
 
-> +		 */
-> +		if (ret !=3D -ENODEV) {
-> +			dev_err(dp->dev, "failed to populate aux bus\n");
-> +			return ret;
-> +		}
+With this call we have
+start = round_down(start, stride); where stride is PAGE_SIZE.
 
-...then you shouldn't dev_err() when -EPROBE_DEFER is returned.
+I'm too lazy to figure out if that matters.
 
-Either use dev_err_probe() (which would also simplify your code) or check
-for if (ret !=3D -ENODEV && ret !=3D -EPROBE_DEFER).
 
-> +
-> +		return analogix_dp_aux_done_probing(&dp->aux);
-> +	}
-> +
-> +	return 0;
-> +}
-> +EXPORT_SYMBOL_GPL(analogix_dp_finish_probe);
-> +
->  MODULE_AUTHOR("Jingoo Han <jg1.han@samsung.com>");
->  MODULE_DESCRIPTION("Analogix DP Core Driver");
->  MODULE_LICENSE("GPL v2");
-> diff --git a/include/drm/bridge/analogix_dp.h b/include/drm/bridge/analog=
-ix_dp.h
-> index 3428ffff24c5..bae969dec63a 100644
-> --- a/include/drm/bridge/analogix_dp.h
-> +++ b/include/drm/bridge/analogix_dp.h
-> @@ -30,6 +30,7 @@ struct analogix_dp_plat_data {
->  	struct drm_bridge *next_bridge;
->  	struct drm_encoder *encoder;
->  	struct drm_connector *connector;
-> +	const struct component_ops *ops;
+> +					  TLBF_NOWALKCACHE | TLBF_NOBROADCAST);
+>  	} else {
+>  		__contpte_try_unfold(vma->vm_mm, addr, ptep, orig_pte);
+>  		__ptep_set_access_flags(vma, addr, ptep, entry, dirty);
 
-Is adding a new stored field a good idea? Can it be instead passed as an
-argument to analogix_dp_finish_probe()?
-
-Note I don't have a strong opinion here, just the added struct field seems
-overkill for being used just once.
-
-> @@ -49,5 +50,6 @@ int analogix_dp_stop_crc(struct drm_connector *connecto=
-r);
->
->  struct analogix_dp_plat_data *analogix_dp_aux_to_plat_data(struct drm_dp=
-_aux *aux);
->  struct drm_dp_aux *analogix_dp_get_aux(struct analogix_dp_device *dp);
-> +int analogix_dp_finish_probe(struct analogix_dp_device *dp);
->
->  #endif /* _ANALOGIX_DP_H_ */
-
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
