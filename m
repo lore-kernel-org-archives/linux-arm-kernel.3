@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBCE8EDA6BE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 17:39:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95C0AEDA6BE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 17:40:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ufIzwaNjj0ilI3qaPmP9e1Hi0EpUA2HQbbQRITslibI=; b=23maU7dL3FiUu3VwXUPr8JrTAU
-	uJKSuYk+n+SZfckHH0aNmcVBE2j5EW7UL7Dk4iy7qy17O6eeSTDX4Ho1RQjidhqSdTKG2yCQc5hw3
-	JiXYCOuoi3NhUEGJticbjNdbxqpCABuQn8UDddlF/6rxpm846v8Jx3D2nZn0uhgPTIiVy/Qky7Vbz
-	t+ob56RrR9geU4q1Y+wu5G76pWiEpC2dB9+w+NZ9JmxskSiyS+auBVX1rdJo7I1lxWwv2KzAPQ0IP
-	jeGrIR8e5gB95RzUyBitOH39l+rr0kD64zyve/ZoR7U21wfCD1x8Py/WNGd2RTgqb6cq7BuV2mFNT
-	hn/xARLQ==;
+	bh=3gh6OPP1SfbtM4zzcnmhkoH258hG46mk6Jg8fqb3lEc=; b=epFA9QercMTlsOGSLIOMMOPZhX
+	Yt8OCB0f3wjegy68D9PTwIg92h3pCRRY9bAdNmrG7eyCedwtgljlAbGubuNrwuNG/0TzuF9wPbGPh
+	AxFH+bIILScuBs++KzIT2iEtLMFqb250mdhvy8Nwpxv3gjpSBLU8v+AODJXzuY3SvZonf7gfF17F+
+	iaH0uLKzrkZj4E3iuvMz2v3AyyClFHwvGQ+tHEovA6vnnSuXgm5KYpCPz/RMLgFdsse1VGQ8y17iT
+	uxpDI49gyPxQnqPaUrziBHt5lcLBS8oTK1pRAyuc5Mn3KGLKUemqtx8cPrqBqo4RN7U4LEnNGtc/W
+	5UahQyJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxTi8-0000000FfLT-1NQi;
-	Tue, 03 Mar 2026 17:39:08 +0000
-Received: from mout02.posteo.de ([185.67.36.66])
+	id 1vxTj3-0000000FfTS-3BjP;
+	Tue, 03 Mar 2026 17:40:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxTi4-0000000FfKg-36DZ
+	id 1vxTj2-0000000FfTF-2ywa
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 03 Mar 2026 17:40:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=3gh6OPP1SfbtM4zzcnmhkoH258hG46mk6Jg8fqb3lEc=; b=GdsDj8UXslmGnYuXB5clpeDqkk
+	oxR6uVkodHNCEu2UIo+K7/jUrwB7B2N95P+aEKtYEOlf5FyP2WLrY4f5EPpYYpC+cpMcwpG6Zw4Ia
+	xnfsLXCby9NdPoa+Qt73+5WH+mZYG+tiITSzTZVtVGtcORu6zvZYebi4eT6n0g6WPdtycgid+lG+l
+	u/qqlWjwUwjZBhpynGUudhRYVfvzBXx57AkFxgRBvIJDLlKN+tJwUwuoJSckz5MUX1031SpdTYaTn
+	/ohntOyZw1AoOKMWYkRXjU+bxTZjUUbxl4+YlTwHInVcpMc6J3vYS9F95rxIZBK1OsznZbTaIep8q
+	euM7EJ1w==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxTiz-000000031vj-1X6t
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 17:39:06 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id 39A3C240101
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Mar 2026 18:38:59 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net; s=2017;
-	t=1772559539; bh=ufIzwaNjj0ilI3qaPmP9e1Hi0EpUA2HQbbQRITslibI=;
-	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version:Content-Type:
-	 From;
-	b=IzF2HjsZLnjvVVlGH1V4oNNmGGMvU9WpKmKO+i9W9S5AQyqIpGYYkYw/tifS5V93Q
-	 0jpDsEnd40W30TmJ35wAuoH403RVpg/RowDbPVb805Ct9hZb+tnnA7beSEnUrpFKdd
-	 d2lnLm9Fwai7cZD0hJ2e89I02kCRIQ9hTQgM/eYiPYT2PFYWLnZNtU7xItNvtGerP0
-	 1PSg2x3z2IncAFLubvrVGwt+uWxKrGdS4n6Wfjyl6x59hMHe/gX9H+tMtVqICr1ZeN
-	 ApO5G9g79SEKpo2BIHtoumrqK+VBZXLvWe0D6uLNW1np0ChnrP1YsUa9mciHsgboZo
-	 GIWDHIGimd6Cg==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4fQNMN5rPmz9rxL;
-	Tue,  3 Mar 2026 18:38:56 +0100 (CET)
-From: Charalampos Mitrodimas <charmitro@posteo.net>
-To: david@ixit.cz
-Cc: Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
- <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Heiko Stuebner
- <heiko@sntech.de>,  Martin Filla <freebsd@sysctl.cz>,
-  devicetree@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
-  linux-rockchip@lists.infradead.org,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] arm64: dts: rockchip: Use reference PCIe clock
- generator for BPI-R2-Pro
-In-Reply-To: <20260303-rk3568-bri-r2-pro-fix-pcie-v2-2-04665e55d5a8@ixit.cz>
-References: <20260303-rk3568-bri-r2-pro-fix-pcie-v2-0-04665e55d5a8@ixit.cz>
-	<20260303-rk3568-bri-r2-pro-fix-pcie-v2-2-04665e55d5a8@ixit.cz>
-Date: Tue, 03 Mar 2026 17:38:58 +0000
-Message-ID: <87fr6gn780.fsf@posteo.net>
+	Tue, 03 Mar 2026 17:40:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7B85C339;
+	Tue,  3 Mar 2026 09:39:52 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5EB383F73B;
+	Tue,  3 Mar 2026 09:39:58 -0800 (PST)
+Date: Tue, 3 Mar 2026 17:39:56 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: kvmarm@lists.linux.dev, mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Yabin Cui <yabinc@google.com>
+Subject: Re: [PATCH v2 1/3] KVM: arm64: Disable TRBE Trace Buffer Unit when
+ running in guest context
+Message-ID: <20260303173956.GI1098637@e132581.arm.com>
+References: <20260227212136.7660-1-will@kernel.org>
+ <20260227212136.7660-2-will@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260227212136.7660-2-will@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_093905_057760_5F68B606 
-X-CRM114-Status: GOOD (  19.31  )
+X-CRM114-CacheID: sfid-20260303_174001_613498_34D4BDDD 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,142 +85,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org> writes:
+On Fri, Feb 27, 2026 at 09:21:33PM +0000, Will Deacon wrote:
+> The nVHE world-switch code relies on zeroing TRFCR_EL1 to disable trace
+> generation in guest context when self-hosted TRBE is in use by the host.
+> 
+> Per D3.2.1 ("Controls to prohibit trace at Exception levels"), clearing
+> TRFCR_EL1 means that trace generation is prohibited at EL1 and EL0 but
+> per R_YCHKJ the Trace Buffer Unit will still be enabled if
+> TRBLIMITR_EL1.E is set. R_SJFRQ goes on to state that, when enabled, the
+> Trace Buffer Unit can perform address translation for the "owning
+> exception level" even when it is out of context.
+> 
+> Consequently, we can end up in a state where TRBE performs speculative
+> page-table walks for a host VA/IPA in guest/hypervisor context depending
+> on the value of MDCR_EL2.E2TB, which changes over world-switch. The
+> potential result appears to be a heady mixture of SErrors, data
+> corruption and hardware lockups.
+> 
+> Extend the TRBE world-switch code to clear TRBLIMITR_EL1.E after
+> draining the buffer, restoring the register on return to the host. This
+> unfortunately means we need to tackle CPU errata #2064142 and #2038923
+> which add additional synchronisation requirements around manipulations
+> of the limit register. Hopefully this doesn't need to be fast.
+> 
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Oliver Upton <oupton@kernel.org>
+> Cc: James Clark <james.clark@linaro.org>
+> Cc: Leo Yan <leo.yan@arm.com>
+> Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Cc: Fuad Tabba <tabba@google.com>
+> Cc: Alexandru Elisei <alexandru.elisei@arm.com>
+> Fixes: a1319260bf62 ("arm64: KVM: Enable access to TRBE support for host")
+> Signed-off-by: Will Deacon <will@kernel.org>
 
-> From: David Heidelberg <david@ixit.cz>
->
-> Describe properly PCIe clock, which allows us correct the
-> toplogy (removing the vcc3v3-{minipcie,ngff} dependency on pi6c as
-> supply) and adding the clock dependency in the PCIe nodes.
->
-> Suggested-by: Heiko Stuebner <heiko@sntech.de>
-> Tested-by: Martin Filla <freebsd@sysctl.cz>
-> Signed-off-by: David Heidelberg <david@ixit.cz>
-> ---
->  arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts | 45 +++++++++++++++-------
->  1 file changed, 31 insertions(+), 14 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts b/arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts
-> index d02b82c5f979a..a071cb67579c4 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts
-> @@ -120,18 +120,13 @@ pcie_refclk_gen: pcie-refclk-gen-clock {
->  		clock-frequency = <100000000>;
->  	};
->  
-> -	vcc3v3_pi6c_05: regulator-vcc3v3-pi6c-05 {
-> -		compatible = "regulator-fixed";
-> -		regulator-name = "vcc3v3_pcie";
-> -		regulator-min-microvolt = <3300000>;
-> -		regulator-max-microvolt = <3300000>;
-> -		enable-active-high;
-> -		gpios = <&gpio0 RK_PD4 GPIO_ACTIVE_HIGH>;
-> -		startup-delay-us = <200000>;
-> -		vin-supply = <&vcc5v0_sys>;
-> +	pcie_refclk: pcie-refclk-clock {
-> +		compatible = "gpio-gate-clock";
-> +		clocks = <&pcie_refclk_gen>;
-> +		#clock-cells = <0>;
-> +		enable-gpios = <&gpio0 RK_PD4 GPIO_ACTIVE_HIGH>;
->  	};
->  
-> -	/* actually fed by vcc3v3_sys, dependent on pi6c clock generator */
->  	vcc3v3_minipcie: regulator-vcc3v3-minipcie {
->  		compatible = "regulator-fixed";
->  		regulator-name = "vcc3v3_minipcie";
-> @@ -142,10 +137,9 @@ vcc3v3_minipcie: regulator-vcc3v3-minipcie {
->  		pinctrl-names = "default";
->  		pinctrl-0 = <&minipcie_enable_h>;
->  		startup-delay-us = <50000>;
-> -		vin-supply = <&vcc3v3_pi6c_05>;
-> +		vin-supply = <&vcc3v3_sys>;
->  	};
->  
-> -	/* actually fed by vcc3v3_sys, dependent on pi6c clock generator */
->  	vcc3v3_ngff: regulator-vcc3v3-ngff {
->  		compatible = "regulator-fixed";
->  		regulator-name = "vcc3v3_ngff";
-> @@ -156,7 +150,7 @@ vcc3v3_ngff: regulator-vcc3v3-ngff {
->  		pinctrl-names = "default";
->  		pinctrl-0 = <&ngffpcie_enable_h>;
->  		startup-delay-us = <50000>;
-> -		vin-supply = <&vcc3v3_pi6c_05>;
-> +		vin-supply = <&vcc3v3_sys>;
->  	};
->  
->  	vcc5v0_usb: regulator-vcc5v0-usb {
-> @@ -586,12 +580,23 @@ rgmii_phy1: ethernet-phy@0 {
->  
->  &pcie30phy {
->  	data-lanes = <1 2>;
-> -	phy-supply = <&vcc3v3_pi6c_05>;
-> +
->  	status = "okay";
->  };
->  
->  &pcie3x1 {
->  	/* M.2 slot */
-> +	/*
-> +	 * The board has a gpio-controlled "pcie_refclk" generator,
-> +	 * so add it to the list of clocks.
-> +	 */
-> +	clocks = <&cru ACLK_PCIE30X1_MST>, <&cru ACLK_PCIE30X1_SLV>,
-> +		 <&cru ACLK_PCIE30X1_DBI>, <&cru PCLK_PCIE30X1>,
-> +		 <&cru CLK_PCIE30X1_AUX_NDFT>,
-> +		 <&pcie_refclk>;
-> +	clock-names = "aclk_mst", "aclk_slv",
-> +		      "aclk_dbi", "pclk", "aux",
-> +		      "ref";
+I tested this on my Orion6 board in nVHE mode (kvm-arm.mode=nvhe).
 
-Hi,
+I launched a VM with several threads running sleep 0.1 in a loop inside
+the VM shell.  Then, I collected TRBE trace data on the host side:
 
-The DT binding in rockchip-dw-pcie-common.yaml defines clock-names as a
-positional array:
+  $ perf record -e cs_etm// -a -- sleep 100
+  [ perf record: Woken up 74 times to write data ]
+  Warning:
+  Processed 4798137 events and lost 4 chunks!
 
-    items:
-      - const: aclk_mst
-      - const: aclk_slv
-      - const: aclk_dbi
-      - const: pclk
-      - const: aux
-      - const: pipe   <-- position 5
-      - const: ref    <-- position 6
+  Check IO/CPU overload!
 
-With "ref" at position 5, this would fail dtbs_check because the schema
-expects "pipe" there.
+  Warning:
+  Processed 9608 samples and lost 100.00%!
 
-Other boards that include the ref clock (rk3588-rock-5-itx,
-rk3588-jaguar) include "pipe" at position 5 and "ref" at position 6. The
-rk3568 has CLK_PCIE30X1_PIPE_DFT available in the CRU header.
+  Failed to open /proc/schedstat
+  [ perf record: Captured and wrote 42401.333 MB perf.data ]
 
-Should the pipe clock be included before ref to match the binding
-schema?
-
->  	num-lanes = <1>;
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&ngffpcie_reset_h>;
-> @@ -602,6 +607,18 @@ &pcie3x1 {
->  
->  &pcie3x2 {
->  	/* mPCIe slot */
-> +	/*
-> +	 * The board has a gpio-controlled "pcie_refclk" generator,
-> +	 * so add it to the list of clocks.
-> +	 */
-> +	clocks = <&cru ACLK_PCIE30X2_MST>, <&cru ACLK_PCIE30X2_SLV>,
-> +		 <&cru ACLK_PCIE30X2_DBI>, <&cru PCLK_PCIE30X2>,
-> +		 <&cru CLK_PCIE30X2_AUX_NDFT>,
-> +		 <&pcie_refclk>;
-> +	clock-names = "aclk_mst", "aclk_slv",
-> +		      "aclk_dbi", "pclk", "aux",
-> +		      "ref";
-> +
-
-Same clock-names ordering issue I believe here for pci3c2, with
-CLK_PCIE30X2_PIPE_DFT available.
-
-
->  	num-lanes = <1>;
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&minipcie_reset_h>;
+Tested-by: Leo Yan <leo.yan@arm.com>
 
