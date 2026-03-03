@@ -4,81 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57B73EDEBE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 19:11:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDC13EDEBE6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 19:12:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K0no2injFDHLVnfrCxmhoW8zcILT+gNWAee+yl4dH+g=; b=iKHZUcVcz0SjX8bqvKScOJOYmu
-	JTBkveVHeKTDRxLPoW0KmQnLZlF2eRg5HZjS2q5eGKLhJyggRnCmBJ6OhvvB2FCjCejtKF4TTEsv8
-	UBLVaGnX04KRC7qHo4OQjmEi7aY3Nkt3e0ymVlozQcaRquyxh/P6eBlmlATYvR++ve3gF+A6GxTh1
-	PHncWfMOVeQ69yRaVIUvo10BHfvujwUkM9XzCeH5N8V0TwnqyGN6XLLhcQkRXLSZ/vcConLoJB89X
-	9GuzrXkInSYEheaxErs7iqTE9WNENof/5qOjPlUGScWxbT48bCAZJ/fqFksLRad9HVcjjbJz3tPSG
-	1YK5XsPw==;
+	bh=qBlya9OxhpnOgd9HUk8VmO/UTZ6qEYrdSZMzcbErs+k=; b=Fz3eqnUbNQrk+d1gCZjH76ZCbz
+	UPwO9ICW0pRMLNoWlE9pCw4mzzYulL+8HywBEfogLlTd95LszSHlZWirLIsOHYyGmjFuH4LXmWWPo
+	dbpm9f2cIkVw7y5AOPWe8MZ2s+rpmD6Xi0i8xSJ3xaeHMN2ZDq8jmRshXkQPBVx+6G751H9M36k9P
+	MZZ0pYy5m8rSYkEQl+FkrpTun4SiJXtuQU6Yzb/awIhOuEf41jsR9wu93Tvyz1nMJ1xIXEK5lBhKD
+	PiYMifYpxycqJwE7cd2tr50WIVNFo1i5+sRowOf7NXQhE8eb4XU4V3cNs6GDjmzn8wZomx/Ay8Ndq
+	xStj8S+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxV9E-0000000FlFt-0DIM;
-	Tue, 03 Mar 2026 19:11:12 +0000
-Received: from mail.cjdns.fr ([5.135.140.105])
+	id 1vxVAQ-0000000Flcr-1qKx;
+	Tue, 03 Mar 2026 19:12:26 +0000
+Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxV9A-0000000Fl95-1nU7;
-	Tue, 03 Mar 2026 19:11:10 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 23B5F20DC57;
-	Tue,  3 Mar 2026 20:11:02 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
-	t=1772565064; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=K0no2injFDHLVnfrCxmhoW8zcILT+gNWAee+yl4dH+g=;
-	b=bRsYtwyu5VOOa4UQxgN/usRqhBSbS3J6drtmNGBxPTeANU5YzXDljSFJJ8rLS8OpMbDtNK
-	oS76OoD2SqpVQWjBcgnyRqarWGk7adiHEP16ZsNH2XKgDXJ/P4A+O3ldqKi1TM/9FA7+Sh
-	SdpLD45P/mk9GBRl0Wvf6bNGIMi8hlfI+nzl6iJPkcgX8Y90/0mdvwdJNmSxH/5+cljoR6
-	gw9Nf7DGaOxctHbNWfHHavjgmD92r4dLX96wCwvC6u+A95NjzAKY71BsFaGoZhCf8cwJSS
-	xDgvGZVK8eYH+D1ZbQ63Q4cTarjv9cMBKy5Q/0CiKRGuIqtiHFnCXD8CFG12IA==
-From: Caleb James DeLisle <cjd@cjdns.fr>
-To: linux-mips@vger.kernel.org
-Cc: naseefkm@gmail.com,
-	mturquette@baylibre.com,
-	sboyd@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	cjd@cjdns.fr,
-	tsbogend@alpha.franken.de,
-	ryder.lee@mediatek.com,
-	jianjun.wang@mediatek.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	bhelgaas@google.com,
-	vkoul@kernel.org,
-	neil.armstrong@linaro.org,
-	p.zabel@pengutronix.de,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	nbd@nbd.name,
-	ansuelsmth@gmail.com,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-phy@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 8/8] mips: dts: Add PCIe to EcoNet EN751221
-Date: Tue,  3 Mar 2026 19:09:48 +0000
-Message-Id: <20260303190948.694783-9-cjd@cjdns.fr>
-In-Reply-To: <20260303190948.694783-1-cjd@cjdns.fr>
-References: <20260303190948.694783-1-cjd@cjdns.fr>
-MIME-Version: 1.0
+	id 1vxVAN-0000000FlcU-2pQx
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Mar 2026 19:12:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iC23MJt2EZIp+ncOWrIyOwSGcFg4HjIjrq0aqnstBd+WoT4m3O7aOrNTkxB0Gfljv6yZ4IHOjaLbn8H20nusTwevrZDR4qDDzHvqLXSkyaQsbS0KDolKwjWBNBYELYcQFXKQXl+BZoeHINa9XCvE8tMcdeWEv4ULepDlrRFdXkcIYAOE0TZOpw0hwiR8q6fyhrjqSrty9ZeKdOFmngpZNFHYrheSf+TfebhuxHJ/z7XrGWzfcM5so0iL9DMokxMqHAQMgki76XxkiGXiX8GUD9JPKT26vcnVJ7A7WJfaLcGdgP1UA3wqF3fsfjl9K527GKyy8rxmhiuIgGWLZjuu4g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qBlya9OxhpnOgd9HUk8VmO/UTZ6qEYrdSZMzcbErs+k=;
+ b=bvd6Bs1a88cek1D+6Fa8GvP6YR6KKML00+uh72ZqbIC/pK9sec+xSJ+NHswvx2Fm6jW7fsGfk2iJ8275d6ktVX7/lL8IDeluLZMBI4Dy3Pz1S+3WkicscRB+5scpApC6bgcXT6mlwm3BYyzNYPKs1gtmX+jML9H7YKX6mQTHpB90NPJP3Ql6Kv+KW0MF43y5+IYBfrJIsTZvCWuTWe/+yy5Y2X74AN9KfTc2DY8tkzGgShxfqlml8F6mymNVnAxpfb6n62xMggAsg3q1hZfMscunr2TcR5em93/SAoC1XP+TNrHwUEyuQ3ZcOvRpEBO6HxKk63TQ9geSqSPoxcUOtg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qBlya9OxhpnOgd9HUk8VmO/UTZ6qEYrdSZMzcbErs+k=;
+ b=uABAHe8IeSdUp7KOmff7ncpStnom4r3JwfNPWrD2oQRp84Meh75ChJEHk273gnKvf5QC3n+A7JYKia8gdRIQSL1co5JOZglp5S0lX+3LI2tkPnUfSGiqufUeo0Lp9U8QDx71BsGi/D/NwvNygF+JUVCz4HrNXi+hPF14Nl+ULEnU47XW7u4N04kxgmbPgFmsJnRWFixBfcZ5+Bmf792kMERROQ2dEXiaTL9PhiDGzkJsSuZeHt5yJ0fctkNd8BibC2RA46zbj1OTnVEoAB+uL/jukQzpX7pZ/JnOcvm1ID7pPH2x6nE2hMsSchFj1klkcJIwaij6PadSQp+GdHPStw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by IA4PR12MB9763.namprd12.prod.outlook.com (2603:10b6:208:55a::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Tue, 3 Mar
+ 2026 19:12:19 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9654.022; Tue, 3 Mar 2026
+ 19:12:19 +0000
+Date: Tue, 3 Mar 2026 15:12:17 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Piotr Jaroszynski <pjaroszynski@nvidia.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	Alistair Popple <apopple@nvidia.com>,
+	John Hubbard <jhubbard@nvidia.com>, Zi Yan <ziy@nvidia.com>,
+	Breno Leitao <leitao@debian.org>, stable@vger.kernel.org
+Subject: Re: [PATCH] arm64: contpte: fix set_access_flags() no-op check for
+ SMMU/ATS faults
+Message-ID: <20260303191217.GD972761@nvidia.com>
+References: <20260303063751.2531716-1-pjaroszynski@nvidia.com>
+ <0a10ea33-937a-4294-b9a1-9323c706434d@arm.com>
+ <aacohVRfAK46lOjo@box>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+In-Reply-To: <aacohVRfAK46lOjo@box>
+X-ClientProxiedBy: MN2PR10CA0019.namprd10.prod.outlook.com
+ (2603:10b6:208:120::32) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|IA4PR12MB9763:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5901998c-87c4-4378-8add-08de7958c9f8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016;
+X-Microsoft-Antispam-Message-Info: mTHXT/WsbNdjMMfW6FS1D6eGjaVeIXfqjEpJ5zDfdkteXneqrJKKUdJqmSY29tSXKiop6srSCs4oqieXZP/gyNA5f0S24DqTXN+GPDMGmmJbIg+fU+YiKW0BfLwj2f6VbdGx60zjO8TrxogaGAnbqO5cE7Grfsc+U1PScDUcKBH1SCkyjY+TpJFFUUjkSWZk+iMgtU1aeWNRMDlKQpNYjJfUVaslP9hRDqLiXe4uAm/6j7RkTijO4ECJtAnzgqi4Gm+nnRriCw5j/MZ3inEij5pUVe9BFH/LOOXntdFHNCL8ZSBNIF3Vgzp5JM6BJJMk8mhWGMySfMOUFz/CI85kisZJXHI8vpNHya/AHbK2ra9lITZQpNtiL18Zy7DJejsdJE7e2FCwKAvluBkaZp8b/tG4MuFVUarVIFcl2Web1EVdh3kn3A+L/gasv3aCjwvfeB6nbQNnnOpNZOjYc7cq4SEM70m5TXXC7F7Os6aOgXl2k2FU/S6a3n2FM3FSQoVrANyPNGb5CoCJLDFBoe0LT/feFeLjtUZ7xueSYaR+6OEA568GbwOx/C4KV+GCaavfW36AQwmbTFyX4KTNNLzEjJ+RIihoFlFx0TE9lZTyilUumHkLP64JRwx+0SC+81Fu6i+211PtL2/MFCDEUMW+MC4Vcha3GO9I6HYaFrrVAZat4IYm8ozaAlzvzreFePXfwTnoy9nfWYX4KVrk9mOr/JjKKkm6J6LzvKFL+0F/uGc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bVpHTk9nVmxYcGRrU2wvb1lXRnZFQzFjUWY3UW9ob2tmWlpNa2VGN3JuRVlY?=
+ =?utf-8?B?RGU0NzVjMThBelhCdkNnZVRadEVvczhKR2d1VTdBN1lhLzdhN3BuSWFDeW1U?=
+ =?utf-8?B?QmVBMnhMWHFEMlo0dnRmcDBsakdHVVZZTVJlVkl1UXBNRkJJelV5MVBKK0VC?=
+ =?utf-8?B?SUpPMjlhbFlWOHNZcEhhUnd6YnBQUTAwa2V3a0VSSGZNWmtEY3dEVzJWNW50?=
+ =?utf-8?B?SU54cU5GQzd2dVBPUG8zeXBtbWRjYnJZWVE4LytJOGVVMndBeHRhSTc5N3Vx?=
+ =?utf-8?B?RW5VcnlXOHhjbDM0RXZrbXFyRTVDTWRWcWIzSFZ2WVA3Zm8zZkxVRXdacGQw?=
+ =?utf-8?B?S05PWWxHR3F5b3dtdXZ0dXRLQUJMdGo5RlRyUkV4djZHK25kMDY4TW1ZTldn?=
+ =?utf-8?B?TzdMN1BBbDRHN285dFdSejRDVHJVdWp5aHRBdTZsUXE2Ry9SK2JLMENoN29l?=
+ =?utf-8?B?RWNWYkZlTTBsSUpNbkRuSkxWTlArVEIrS2VpbDlkYVJPelhmNjFhWG93Mk02?=
+ =?utf-8?B?SjYzT3crYlRzc2huR3M2VTlYK1B6K01LNmpKTVB4T2xkMVlCYUtaRnd2a241?=
+ =?utf-8?B?NTErUmhuZkhpMVVTQ1c3TC82VXBPTFNuNGppK00vbXFzaU5vOXlmMXBybysr?=
+ =?utf-8?B?ckR0QzdXcDNRcGZocGV0RWpBUlZiaUVsZGdDQksySktlRXpUMmVCM3FMR3Rv?=
+ =?utf-8?B?SmR0UmppTDFiRjQvaHR3djVBaVdMNWVKUHhJaWNsdGVHRzk4OE5aNFpCZUYx?=
+ =?utf-8?B?Vy92a3NkWEZ0R2huUDBpSlErSTRKcWw2azZWbVRZQWNDSmFqRjA4bHJrekg1?=
+ =?utf-8?B?b3BpOFI1cjl6UndpalpnQ0tGL3gzVlBtdllFcnBLWm13RU9RbGtlenUwRW1N?=
+ =?utf-8?B?bG1SeWhEUldmZ3JBTVcyc29jSjJqbUN3ekRLMTl0bTQveGdrMENxVHJuRUNK?=
+ =?utf-8?B?R2RCQm5FVHljTHpSaEdVUUpWcktFa2hhNWdHN2gvUXhWRDZxRHNRWXN5eU9D?=
+ =?utf-8?B?Yjc4UVRHempHUGloSnRLUW5mZStob0VkUGZXSmwrSzVxMStKRFhxSDU2eUhi?=
+ =?utf-8?B?MmwrS1dlcUhGWGpuT1ZrOUkvUDVveTA3MTJGQmhNem5ueTVoR1dKdW0yVXhr?=
+ =?utf-8?B?M2lFMVVzVzcxR1VXNklJYUE2MmcrdXNlRHk1R2tBdlpzYzRDYTdrWXlvS1lz?=
+ =?utf-8?B?c2JHcXY4VnUxWmdHbXB0VzBOeS9tdGFQMDk0bDFBU2ZkckFVTUxHUm1nOEpn?=
+ =?utf-8?B?SWpwOGMxSVBMK2pHOC9ucmU4TTdOY0hyWTd1dHVFa0JmV0dZYjEzdXpLL25V?=
+ =?utf-8?B?L2hWL0JCd0g0REFHYVRUNEZ6Umo5WVdVSTEzMmVJN25JRlZZWW1US3ZjZjNK?=
+ =?utf-8?B?bG5LQWEwNCtGV3BURmZSRjBUQ015cnFBRmtzQXk1Y3ZDYUY5WDR2akwxbzJ3?=
+ =?utf-8?B?Nm4zRE4rWGxPMmJsR0tvSERqay9LOERwM21PY1ZDMkZsZEpldk5IbzdGU0ZZ?=
+ =?utf-8?B?UnBtcWFNa2NRMjlFUWhTTXlYRFh5V1laWHZvaXBmcERSbE02TVJJOExtMERu?=
+ =?utf-8?B?Um9YcnJQVEFsYitsbjA0VCs4VG52WnZRWUZ0WVhhMUdHNUJGMEpqOWVidjFo?=
+ =?utf-8?B?M01FQ09xS2wyRTduRlN2SHg0a2haR1ljU21HYlNZdkNYMVQxdk40MzRaaVZU?=
+ =?utf-8?B?WlZkdUFUSVdZVG55T2tBTDA0dEJzSm83K2xWMGJlb2VkOXhhMWsxSC9VeXBU?=
+ =?utf-8?B?RVpybk1PL0NvTnFIb280cWJMdVRaU3EzbG9sUlN6Y3dxdU52TGF4clB0Z29u?=
+ =?utf-8?B?bmgwN1BYcU9VVkVrbm05M2VyVmRWZ3hNY1lUOGRFajVKNWlMblZOSGg5Nm54?=
+ =?utf-8?B?YTBpS0xKZUhvdHlueUhFRFZFRTZFZ2xrVElleCtQRFIvM0NZWndMM1dBL05W?=
+ =?utf-8?B?bGVtc3pOWFVzajJjNDh3a2NjNzFDMmxZQTRnamhLUitKYXZ1dWhsVE53VGVU?=
+ =?utf-8?B?SXNnNUhCbHowa1JoNHV3U1ZhYzhSdWtTR2xyNXQ5WnAvamV3NGJkdDVrQ09l?=
+ =?utf-8?B?bkpCOTZYWXZWelBCWUx0TW84dmNCMzRRblYwTW92V0dQSDQyOGxiZDJrNEd4?=
+ =?utf-8?B?RDg0TysxQnBtcWdCWFdlUjlhQzA1LzVjU1lZc0oxMXd1RGtaVU5Id2NsY0VS?=
+ =?utf-8?B?aDJHUndJdEN3WE1FT0IyeHpCUlF1b0h1ejdTcE9VSkxreCt2MXlMa3RsdUZI?=
+ =?utf-8?B?YnZrTzgyNDNKZ2hyUWw4WjVHNjBGSkZMNkJDdmFiZ3E3bnN5N3d5MDhFYjJq?=
+ =?utf-8?B?Ri9TRzkwSGozWlJjSzRvaGdjZ2hJbFpjRWdYdUVVRzhKdU5mS1lCdz09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5901998c-87c4-4378-8add-08de7958c9f8
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2026 19:12:18.9873
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MqLr079Tx61bMyFaKoyRszOLMRH7P7yq6CeU7x27ZmfAom8kNl+xJnWszVYr4fkH
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA4PR12MB9763
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_111108_935978_17D877E5 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260303_111223_780540_F32B66B4 
+X-CRM114-Status: GOOD (  28.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,199 +152,227 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add PCIe based on EN7528 PCIe driver, also add two MT76 wifi devices
-to SmartFiber XP8421-B.
+On Tue, Mar 03, 2026 at 10:40:00AM -0800, Piotr Jaroszynski wrote:
 
-Signed-off-by: Caleb James DeLisle <cjd@cjdns.fr>
----
- arch/mips/boot/dts/econet/en751221.dtsi       | 114 ++++++++++++++++++
- .../econet/en751221_smartfiber_xp8421-b.dts   |  21 ++++
- arch/mips/econet/Kconfig                      |   2 +
- 3 files changed, 137 insertions(+)
+> > If my reasoning is correct, then I think arm64 hugetlb has a similar bug; See
+> > __cont_access_flags_changed(), which just checks for any form of dirty. So I
+> > guess hugetlb is buggy in the same way and should be fixed to use this more
+> > stringent approach?
+> 
+> Given sw-dirty is managed by sw, is it correct for sw to ever create a
+> PTE that's sw-dirty but not hw-dirty? If not, then I think it will still
+> work fine for the SMMU case as sw-dirty implies hw-dirty, and if it's
+> missing then we will set both. But for thoroughness it could make sense
+> to be stricter and add some comments there as it does feel a little
+> fragile. I'm very new to this area though so probably best for others to
+> comment and tackle this.
 
-diff --git a/arch/mips/boot/dts/econet/en751221.dtsi b/arch/mips/boot/dts/econet/en751221.dtsi
-index 2abeef5b744a..5568486ad8b5 100644
---- a/arch/mips/boot/dts/econet/en751221.dtsi
-+++ b/arch/mips/boot/dts/econet/en751221.dtsi
-@@ -1,6 +1,8 @@
- // SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
- /dts-v1/;
- 
-+#include <dt-bindings/clock/econet,en751221-scu.h>
-+
- / {
- 	compatible = "econet,en751221";
- 	#address-cells = <1>;
-@@ -30,6 +32,30 @@ cpuintc: interrupt-controller {
- 		#interrupt-cells = <1>;
- 	};
- 
-+	chip_scu: syscon@1fa20000 {
-+		compatible = "econet,en751221-chip-scu", "syscon";
-+		reg = <0x1fa20000 0x388>;
-+	};
-+
-+	pcie_phy1: pcie-phy@1fac0000 {
-+		compatible = "econet,en751221-pcie-phy1";
-+		reg = <0x1fac0000 0x1000>;
-+		#phy-cells = <0>;
-+	};
-+
-+	pcie_phy0: pcie-phy@1faf2000 {
-+		compatible = "econet,en751221-pcie-phy0";
-+		reg = <0x1faf2000 0x1000>;
-+		#phy-cells = <0>;
-+	};
-+
-+	scuclk: clock-controller@1fb00000 {
-+		compatible = "econet,en751221-scu", "syscon";
-+		reg = <0x1fb00000 0x970>;
-+		#clock-cells = <1>;
-+		#reset-cells = <1>;
-+	};
-+
- 	intc: interrupt-controller@1fb40000 {
- 		compatible = "econet,en751221-intc";
- 		reg = <0x1fb40000 0x100>;
-@@ -41,6 +67,94 @@ intc: interrupt-controller@1fb40000 {
- 		econet,shadow-interrupts = <7 2>, <8 3>, <13 12>, <30 29>;
- 	};
- 
-+	pciecfg: pciecfg@1fb80000 {
-+		compatible = "mediatek,generic-pciecfg", "syscon";
-+		reg = <0x1fb80000 0x1000>;
-+	};
-+
-+	pcie0: pcie@1fb81000 {
-+		compatible = "econet,en7528-pcie";
-+		device_type = "pci";
-+		reg = <0x1fb81000 0x1000>;
-+		reg-names = "port0";
-+		linux,pci-domain = <0>;
-+		#address-cells = <3>;
-+		#size-cells = <2>;
-+		interrupt-parent = <&intc>;
-+		interrupts = <23>;
-+		interrupt-names = "pcie_irq";
-+		clocks = <&scuclk EN751221_CLK_PCIE>;
-+		clock-names = "sys_ck0";
-+		phys = <&pcie_phy0>;
-+		phy-names = "pcie-phy0";
-+		bus-range = <0x00 0xff>;
-+		ranges = <0x01000000 0 0x00000000 0x1f600000 0 0x00008000>,
-+			 <0x82000000 0 0x20000000 0x20000000 0 0x08000000>;
-+		status = "disabled";
-+
-+		#interrupt-cells = <1>;
-+		interrupt-map-mask = <0 0 0 7>;
-+		interrupt-map = <0 0 0 1 &pcie_intc0 0>,
-+				<0 0 0 2 &pcie_intc0 1>,
-+				<0 0 0 3 &pcie_intc0 2>,
-+				<0 0 0 4 &pcie_intc0 3>;
-+
-+		pcie_intc0: interrupt-controller {
-+			interrupt-controller;
-+			#address-cells = <0>;
-+			#interrupt-cells = <1>;
-+		};
-+
-+		slot0: pcie@0,0 {
-+			reg = <0x0000 0 0 0 0>;
-+			device_type = "pci";
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			ranges;
-+		};
-+	};
-+
-+	pcie1: pcie@1fb83000 {
-+		compatible = "econet,en7528-pcie";
-+		device_type = "pci";
-+		reg = <0x1fb83000 0x1000>;
-+		reg-names = "port1";
-+		linux,pci-domain = <1>;
-+		#address-cells = <3>;
-+		#size-cells = <2>;
-+		interrupt-parent = <&intc>;
-+		interrupts = <24>;
-+		interrupt-names = "pcie_irq";
-+		clocks = <&scuclk EN751221_CLK_PCIE>;
-+		clock-names = "sys_ck1";
-+		phys = <&pcie_phy1>;
-+		phy-names = "pcie-phy1";
-+		bus-range = <0x00 0xff>;
-+		ranges = <0x81000000 0 0x00000000 0x1f608000 0 0x00008000>,
-+			 <0x82000000 0 0x28000000 0x28000000 0 0x08000000>;
-+		status = "disabled";
-+
-+		#interrupt-cells = <1>;
-+		interrupt-map-mask = <0 0 0 7>;
-+		interrupt-map = <0 0 0 1 &pcie_intc1 0>,
-+				<0 0 0 2 &pcie_intc1 1>,
-+				<0 0 0 3 &pcie_intc1 2>,
-+				<0 0 0 4 &pcie_intc1 3>;
-+
-+		pcie_intc1: interrupt-controller {
-+			interrupt-controller;
-+			#address-cells = <0>;
-+			#interrupt-cells = <1>;
-+		};
-+
-+		slot1: pcie@1,0 {
-+			reg = <0x0800 0 0 0 0>;
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			ranges;
-+		};
-+	};
-+
- 	uart: serial@1fbf0000 {
- 		compatible = "ns16550";
- 		reg = <0x1fbf0000 0x30>;
-diff --git a/arch/mips/boot/dts/econet/en751221_smartfiber_xp8421-b.dts b/arch/mips/boot/dts/econet/en751221_smartfiber_xp8421-b.dts
-index 8223c5bce67f..c633bf73add6 100644
---- a/arch/mips/boot/dts/econet/en751221_smartfiber_xp8421-b.dts
-+++ b/arch/mips/boot/dts/econet/en751221_smartfiber_xp8421-b.dts
-@@ -17,3 +17,24 @@ chosen {
- 		linux,usable-memory-range = <0x00020000 0x1bfe0000>;
- 	};
- };
-+
-+&pcie0 {
-+	status = "okay";
-+};
-+&slot0 {
-+	wifi@0,0 {
-+		/* MT7612E */
-+		compatible = "mediatek,mt76";
-+		reg = <0x0000 0 0 0 0>;
-+	};
-+};
-+&pcie1 {
-+	status = "okay";
-+};
-+&slot1 {
-+	wifi@0,0 {
-+		/* MT7592 */
-+		compatible = "mediatek,mt76";
-+		reg = <0x0000 0 0 0 0>;
-+	};
-+};
-diff --git a/arch/mips/econet/Kconfig b/arch/mips/econet/Kconfig
-index fd69884cc9a8..b37b9d25d5a4 100644
---- a/arch/mips/econet/Kconfig
-+++ b/arch/mips/econet/Kconfig
-@@ -13,7 +13,9 @@ choice
- 		bool "EN751221 family"
- 		select COMMON_CLK
- 		select ECONET_EN751221_INTC
-+		select HAVE_PCI
- 		select IRQ_MIPS_CPU
-+		select PCI_DRIVERS_GENERIC
- 		select SMP
- 		select SMP_UP
- 		select SYS_SUPPORTS_SMP
--- 
-2.39.5
+I also am not so familiar with SW dirty, but the big thing to be
+sensitive to here is that the CPU can get by with setting something as
+RDONLY | DBM and the CPU will flip off RDONLY without issue, so you
+might not notice it.
 
+But if handle_mm_fault() is called on something RDONLY|DBM it *MUST*
+clear the RDONLY for all CONT entries, or fail the fault. Otherwise
+the SMMU SVA explodes.
+
+However, I agree the __cont_access_flags_changed() looks concerning.
+
+I spent a few AI $$ to cross check this and it echo's Ryan's concern
+but did not find a specific counter-example where PTE_WRITE |
+PTE_DIRTY | PTE_RDONLY can happen for hugetlb. I don't really trust
+this negative result, so I'm inclined to agree it should be made more
+robust. I like the look of the patch (below) it proposed too.
+
+AI ramblings:
+PROMPT:
+Review 20260303063751.2531716-1-pjaroszynski@nvidia.com.mbx and focus
+on __cont_access_flags_changed(), huge_ptep_set_access_flags(),
+hugetlb_fault(). Does it have the same issue as this patch is fixing,
+considering the following additional note:
+
+A big thing to be sensitive to here is that the CPU can get by with
+setting something as RDONLY | DBM and the CPU will flip off RDONLY
+without issue, so you might not notice it.
+
+But if handle_mm_fault() is called on something RDONLY|DBM it *MUST*
+clear the RDONLY for all CONT entries, or fail the fault.
+====
+
+Analysis: Does hugetlb __cont_access_flags_changed() have the same bug as the contpte patch?
+
+The contpte bug (what the patch fixes)
+
+The old contpte_ptep_set_access_flags() (contpte.c:614) used ptep_get()
+which gathers AF/dirty from ALL sub-PTEs via OR, then compared the
+gathered result against entry:
+
+    // OLD (buggy):
+    orig_pte = pte_mknoncont(ptep_get(ptep));   // gathers across all sub-PTEs!
+    if (pte_val(orig_pte) == pte_val(entry))
+        return 0;
+
+A dirty sibling makes the gathered PTE look already-dirty, even though
+the target sub-PTE still has PTE_RDONLY in hardware. False no-op → SMMU
+infinite fault loop.
+
+The fix replaces this with contpte_all_subptes_match_access_flags()
+which checks each sub-PTE’s raw bit values
+(PTE_RDONLY | PTE_AF | PTE_WRITE | PTE_DIRTY).
+
+The hugetlb code
+
+__cont_access_flags_changed() (hugetlbpage.c:400-418) does NOT use
+gathering for the no-op check – it reads each sub-PTE individually via
+__ptep_get():
+
+    for (i = 0; i < ncontig; i++) {
+        pte_t orig_pte = __ptep_get(ptep + i);
+        if (pte_dirty(pte) != pte_dirty(orig_pte))
+            return 1;
+        if (pte_young(pte) != pte_young(orig_pte))
+            return 1;
+    }
+
+So it does NOT have the exact same gathering-based false no-op bug.
+
+But it does have a weaker form of the same conceptual problem
+
+The check uses pte_dirty() which is:
+
+    #define pte_hw_dirty(pte)  (pte_write(pte) && !pte_rdonly(pte))
+    #define pte_sw_dirty(pte)  (!!(pte_val(pte) & PTE_DIRTY))
+    #define pte_dirty(pte)     (pte_sw_dirty(pte) || pte_hw_dirty(pte))
+
+It abstracts over HW-dirty and SW-dirty. It does NOT check PTE_RDONLY
+directly.
+
+If a sub-PTE were in the state PTE_WRITE | PTE_DIRTY | PTE_RDONLY
+(SW-dirty but HW-readonly), then pte_dirty() returns true (via
+sw_dirty), and the check would say “no change needed” – but PTE_RDONLY
+is still set in hardware, which the SMMU would fault on.
+
+The contpte fix’s contpte_all_subptes_match_access_flags() would catch
+this because it compares the raw PTE_RDONLY bit directly.
+
+Does PTE_WRITE | PTE_DIRTY | PTE_RDONLY actually occur?
+=======================================================
+
+Looking at all the arm64 PTE manipulation functions:
+
+-   pte_mkdirty(): sets PTE_DIRTY AND clears PTE_RDONLY (if writable)
+-   pte_mkwrite_novma(): sets PTE_WRITE, clears PTE_RDONLY if PTE_DIRTY
+-   pte_wrprotect(): saves HW dirty to SW dirty, sets PTE_RDONLY, clears
+    PTE_WRITE
+-   pte_mkclean(): clears PTE_DIRTY, sets PTE_RDONLY
+-   HAFDBS: can only CLEAR PTE_RDONLY, never set it
+
+None of these create PTE_DIRTY | PTE_WRITE | PTE_RDONLY. The invariant
+holds: for writable pages, PTE_DIRTY => !PTE_RDONLY.
+
+Tracing the RDONLY|DBM scenario through hugetlb_fault()
+
+For the specific scenario: all sub-PTEs are PTE_WRITE | PTE_RDONLY
+(RDONLY|DBM, clean writable), and handle_mm_fault() is called:
+
+1.  huge_ptep_get() gathers – no dirty siblings, so vmf.orig_pte =
+    PTE_WRITE | PTE_RDONLY | PTE_AF
+2.  huge_pte_mkdirty() sets PTE_DIRTY, clears PTE_RDONLY
+3.  entry = PTE_WRITE | PTE_DIRTY | !PTE_RDONLY | PTE_AF
+4.  __cont_access_flags_changed():
+    -   All sub-PTEs: PTE_WRITE | PTE_RDONLY | PTE_AF
+    -   pte_dirty(entry) = true, pte_dirty(sub) = false (RDONLY set, no
+        PTE_DIRTY)
+    -   Mismatch detected -> returns 1 -> BBM proceeds
+5.  BBM rewrites ALL PTEs with
+    PTE_WRITE | PTE_DIRTY | !PTE_RDONLY | PTE_AF
+6.  RDONLY cleared for all entries. Correct.
+
+With some siblings HW-dirtied by CPU (e.g., PTE #3 has !PTE_RDONLY):
+
+1.  huge_ptep_get() gathers: sees HW-dirty sibling, calls pte_mkdirty()
+    on gathered
+2.  entry = PTE_WRITE | PTE_DIRTY | !PTE_RDONLY | PTE_AF
+3.  __cont_access_flags_changed():
+    -   PTE #3 (!PTE_RDONLY): pte_dirty() = true -> match
+    -   PTE #0 (PTE_RDONLY): pte_dirty() = false -> mismatch -> returns
+        1
+4.  BBM proceeds. All PTEs rewritten. Correct.
+
+With ALL siblings HW-dirtied by CPU:
+
+1.  All sub-PTEs: PTE_WRITE | !PTE_RDONLY | PTE_AF (all HW dirty)
+2.  entry: PTE_WRITE | PTE_DIRTY | !PTE_RDONLY | PTE_AF
+3.  __cont_access_flags_changed(): all pte_dirty() match -> returns 0
+    (no-op)
+4.  But RDONLY is already clear on all PTEs, so SMMU won’t fault.
+    Correct.
+
+Conclusion
+==========
+
+The hugetlb code does NOT have the same bug in the sense that it doesn’t
+produce false no-ops with current code. The key difference is
+__cont_access_flags_changed() checks each sub-PTE individually, not a
+gathered view.
+
+However, Ryan Roberts’ observation is valid:
+__cont_access_flags_changed() has a latent weakness. It relies on the
+invariant PTE_DIRTY => !PTE_RDONLY (for writable pages) rather than
+checking PTE_RDONLY directly. If this invariant were ever violated
+(e.g., by a future code change), the no-op check could falsely pass,
+leaving RDONLY set in hardware and causing SMMU fault loops. The contpte
+fix’s approach of checking raw bit values is more robust and should be
+adopted by the hugetlb code as a defense-in-depth measure.
+
+The recommended fix for hugetlb: replace the pte_dirty()/pte_young()
+checks in __cont_access_flags_changed() with a raw-bitmask comparison
+similar to contpte_all_subptes_match_access_flags(), using the mask
+PTE_RDONLY | PTE_AF | PTE_WRITE | PTE_DIRTY.
+
+diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+index a42c05cf564082..34e091b398123e 100644
+--- a/arch/arm64/mm/hugetlbpage.c
++++ b/arch/arm64/mm/hugetlbpage.c
+@@ -389,28 +389,24 @@ pte_t huge_ptep_get_and_clear(struct mm_struct *mm, unsigned long addr,
+ }
+ 
+ /*
+- * huge_ptep_set_access_flags will update access flags (dirty, accesssed)
++ * huge_ptep_set_access_flags will update access flags (dirty, accessed)
+  * and write permission.
+  *
+- * For a contiguous huge pte range we need to check whether or not write
+- * permission has to change only on the first pte in the set. Then for
+- * all the contiguous ptes we need to check whether or not there is a
+- * discrepancy between dirty or young.
++ * Check all sub-PTEs' raw access flag bits rather than using the abstracted
++ * pte_dirty()/pte_young() helpers which conflate HW-dirty and SW-dirty.
++ * This ensures PTE_RDONLY is checked directly: a sub-PTE that is SW-dirty
++ * (PTE_DIRTY set) but still has PTE_RDONLY would be missed by pte_dirty()
++ * but will cause an SMMU without HTTU to keep faulting.  The access flag
++ * mask matches the one used by __ptep_set_access_flags().
+  */
+ static int __cont_access_flags_changed(pte_t *ptep, pte_t pte, int ncontig)
+ {
++	const pteval_t access_mask = PTE_RDONLY | PTE_AF | PTE_WRITE | PTE_DIRTY;
++	pteval_t pte_access = pte_val(pte) & access_mask;
+ 	int i;
+ 
+-	if (pte_write(pte) != pte_write(__ptep_get(ptep)))
+-		return 1;
+-
+ 	for (i = 0; i < ncontig; i++) {
+-		pte_t orig_pte = __ptep_get(ptep + i);
+-
+-		if (pte_dirty(pte) != pte_dirty(orig_pte))
+-			return 1;
+-
+-		if (pte_young(pte) != pte_young(orig_pte))
++		if ((pte_val(__ptep_get(ptep + i)) & access_mask) != pte_access)
+ 			return 1;
+ 	}
+ 
+
+Jason
 
