@@ -4,90 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18645EDEBE0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 18:38:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DD19EDEBE0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 18:40:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zWbdBUMEXH4g8LJKj8OiXeXSCrn4OD1jl9QXgu59+fk=; b=aoVpO69lBO97iS1xmRuBq9K4Rf
-	/dYDJ6aL+xfjij4cr0cJJLlxYDlIl7AkKvLl+WPKI3JzvpAanDIMvhOLjcNmpDifWQP7f4ih5Ndb6
-	N7mZ6nydqxYEqoURoCXk2Gj6QAiICKAM2vV81FldjgAbp2ZKDYeVpUUEXJmdxXiH3qlvYxvw0n3V5
-	R+PXLaVKMH9lJXP7tO3ESTq+QtZoGf/Nu9wcc0AXsi6nu7IrknGxsGRMF5QHZI8vmXcL13DJ2PYNd
-	Tu0bcD0ApmXcsm4jeMtt3vazDTSMTCksA/nRfd6T5VIS1VPEZ452ZAfd6oSxYDGPD61g12taPUDMn
-	4u8cUsNQ==;
+	bh=i0kmCJMSGIvUOzhTIff6KcMV9QnY2cagi4V2X8P5nsc=; b=jargA+3gmX1VzvIt1cmBHMixmQ
+	BMcoD3bAmmpGDHXlYY4jGsgHXXXaUlVq2pmldy78fkBV1yyga93ZjIwYAAuRYODHa7Gd5woiAALtX
+	bzLwnBmtqODeP4Vjbpx47irI1hZLywA5DY1o+P7i3EAfqTuW9Tu6H89uVnRx1frSHccvEUp7SykQc
+	x1/uBtYoXSdMFDsyU+vEoMV/uRpvjH/SXTeplbO82WeBSeCSXGCpYVpeTVJIBRr8M9nWjG6e9CmTN
+	4uWF6YDWm5BRyN+7IeQugo+f2e+iUsIan9I89NNnAPt5n7MSCUueCQ0EAZE+0UU/MoMOKIiEVg7lF
+	yLCmpfOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxUdc-0000000FibQ-3K0M;
-	Tue, 03 Mar 2026 18:38:32 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1vxUfN-0000000FijW-0mEU;
+	Tue, 03 Mar 2026 18:40:21 +0000
+Received: from mail-westus2azon11012067.outbound.protection.outlook.com ([52.101.48.67] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxUda-0000000Fiaz-08YE
+	id 1vxUfL-0000000Fij7-0xRg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 18:38:31 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4806f3fc50bso64086355e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 10:38:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772563108; x=1773167908; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zWbdBUMEXH4g8LJKj8OiXeXSCrn4OD1jl9QXgu59+fk=;
-        b=VOxwRhHo6lgB1CsKc04n5aWTCOob/iqXryeFia8257Td8PATbufj8vRsH67G6gQEkh
-         oRBqA80tVF4YRI1qzo5xRgYUWYoWXmjUladDGqWT9DL+AWN03HVHoRrJKhTUu25HRxgg
-         7i3yhMsNQDh5XFTElk0UunjSuwdlBX0h03CrBZsyBwS/MW/kly+LAZwXuN1uhGXZunbf
-         21/U547TZvTt/IHdqFWpCelpxjuQ81SXbRKLQiMqgu4i8P6blGoTAqnnbR4l1Un2uhc8
-         OForDJl8R0Nx3QqHfsol2EkNZgr5l+FA7dTTzJZFcyAfDUfvtvPLtoCm+FY+YZLciP4W
-         u8BQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772563108; x=1773167908;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=zWbdBUMEXH4g8LJKj8OiXeXSCrn4OD1jl9QXgu59+fk=;
-        b=bcPPRbAohSejZOwgPzJi+AdR/fJGacm4vIBPML8MsHz30FCB+JyvjP/Bn+uCBSvVw7
-         RPvn6g8GHP19QmHZI/3L7pb/kSl/t7nlcU7VdPg+382w16mS+Tv4WoGpkNhl2XtpDucm
-         Y9qafX2Aj6lTiyYektljOpfBMdx4/PKRYehqZDQw21ZHkkaQGhtdaPW1h+phitBNT0hr
-         kGifUKvcUtgWMf9o/npiVE83sE5po1lsOyHvx9bkL0RU6P3nFW5OWh5psgZK3UwQU+VQ
-         E0iFMRfZAX18qODaZKBVOeonEIfZwWSBw6Hvty4PEvtuY0FFjp3uIZWj3Ts7UVvsSQDE
-         rvpw==
-X-Forwarded-Encrypted: i=1; AJvYcCUCEjJkE+v/vHpo7G0Rw3fZ5vt+4Avyjtrc4R1pozEtOhgLlGdd31YpJimcnJCZIra+nY1Rua+rehAV7An9XT28@lists.infradead.org
-X-Gm-Message-State: AOJu0YxcVYWx7AnYrQyq3iulvRMzHYQFYMo9XjYgx8WfeBbaIBvnjIK4
-	mcjaY0X3AB6DNwa4h8YX8Kw1pXFMbgAOxnL9pn8thlEEUZC443gpzFLe
-X-Gm-Gg: ATEYQzz6ivfZxDPEP1lcNvWv+ln3tOY1hXQk8Hetx9bez84T0KaBX1Se4/2n9SxAu+I
-	PqSNAsjnigpnT+fchrO+VfXm+Mvv0+X8H8xPYuAhfESeXCIQQh89+Rq8WyK6U26uL9HGCve/dVK
-	BgUIWAbmefG14c4cQOUv4G/XopgtsT8b/eCJJc8udQEXbISM2bwYZR0N+SqfPf+d/mAe+pyEBmg
-	X7sdjb9hpdL3VAA1NHcnd3pFW18di3KTlPJ7zDLq71pmNB2vCy3yRAarbd2mhwVlFfRXM0hXR3c
-	4mrtqz8HideKj86RlTxlbUSFUItFBfY7EIcadE3Dodt/gSwEKh4lhVPRxfYn5jg2p2/D5WjR19x
-	RrQWzYi1cb5ms7AbkwaikHpv+TWS2D0LsQR3lxucr7D3ADaBQKlEof1+aRBxmVrrFYBH/ewf+bQ
-	RfmecpOZPbMX1silGrYlw1p3EuyqSkcG3ZOaPTmZWA/wuTJq2cP15KlD+LJsGmeOkf9ZvuZT6Te
-	uzvao94YPIsvpyUajY=
-X-Received: by 2002:a05:600c:1e85:b0:47d:3ffa:5f03 with SMTP id 5b1f17b1804b1-483c9bbbe23mr300242825e9.21.1772563107874;
-        Tue, 03 Mar 2026 10:38:27 -0800 (PST)
-Received: from jernej-laptop.localnet (86-58-126-118.dynamic.telemach.net. [86.58.126.118])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483c3b841absm409737345e9.13.2026.03.03.10.38.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Mar 2026 10:38:27 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, Jun Yan <jerrysteve1101@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org,
- samuel@sholland.org, mripard@kernel.org, andre.przywara@arm.com,
- Jun Yan <jerrysteve1101@gmail.com>
-Subject: Re: [PATCH v3 3/3] arm64: dts: allwinner: h6: Add TaiqiCat (TQC) A01 support
-Date: Tue, 03 Mar 2026 19:38:26 +0100
-Message-ID: <5969847.DvuYhMxLoT@jernej-laptop>
-In-Reply-To: <20260302020956.96424-4-jerrysteve1101@gmail.com>
-References: <20260302020956.96424-1-jerrysteve1101@gmail.com>
- <20260302020956.96424-4-jerrysteve1101@gmail.com>
+	Tue, 03 Mar 2026 18:40:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gxaZ/qxJVYgx4gsHPCQTMUfkakjubJ7UatyWvzW8aPEczUMcpRh3BPI00BZ6+hO1s8r2D/iu9M8miDZZnrAezGcfWUIz+EyQ+uEcvAGo5+bMDJP3me+StvdK/3SOE8P8gudekx6pYab7G/OOLN56JDjgIMnQa3oqoxSuuXADfeRAPh9qeorRCZYZCdvnHRkdmLn3UKvvrLK6CQ4g5WPu09GZuRbRwNTDxUhlphoL/iobwmFbnNbr++CmQLjnZsOgK1d5NHuuoASD9g5i691AYFq8A+LU6M8ZjIvxJVDGBYGW+IzFTqpN9XKxZFVdgie1WLROCpUYaBlHuKFil52rpA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=i0kmCJMSGIvUOzhTIff6KcMV9QnY2cagi4V2X8P5nsc=;
+ b=DQIiFFlZvU6OW7B5bzRGIBckT/U2Bv1oaArRH1BbuYtamwwmsH6bIAazyxBqGQ3CRGNDRYxbe+GXBlj/TbqBODGwtnsfHCT1NESRv9YZmwym12ZjPtfdeA9a7TgRVKhFWkBZKRbz2TlPymV1xFbZfV4Dze8oZdI7IZ1P92Tzfo+H6cOvVYzM+N0Dr0vK1Jt6yBdlq55DjwCwriF16kwe1u0jPdbaJUnFDQDzvIr6iULEykbqJss0BsIJJFYlvnU2uc/U1ZeFtIb7Kd9h+33JPc9JCG603GwCyeWMvpnUszHfgXSOP2XX7xHWKuq2Wu8oWrO/ZsWTW4IHi5Z4yQ4QpA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=i0kmCJMSGIvUOzhTIff6KcMV9QnY2cagi4V2X8P5nsc=;
+ b=apf0YQzLqFQkoOq0XptD62sE+et8KoOsyd4j1n6WScqyRDEJ1EYJhn7/9B/nu8l5R/HWE3Fx6OTTigvZlhQHTeui0GVAX86898TmeHhIYQSVxx8gMFkbkBmILXYRIPYW77x1A6XlXYen7+1szO6LPMH3T+FTxTQg2wXIAgx56smkz3hygpNTSmEnyTaMMY85JKbQBJxJ5poVF2NeFyv1eCn+g7zEGdn00DKPWvsdCmbbGdtvLz0/KNuRSFwGnJK5lBMGQ5Gc5GqF3VIplLpbRxQ69J40f6Hi9lZehI1YP2+Z9iTKHkXJLEf7EFQNHJMRxICcX4Iqjnd8kexmUkDq2g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB6559.namprd12.prod.outlook.com (2603:10b6:8:d1::6) by
+ CH3PR12MB7713.namprd12.prod.outlook.com (2603:10b6:610:14d::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.20; Tue, 3 Mar
+ 2026 18:40:02 +0000
+Received: from DS0PR12MB6559.namprd12.prod.outlook.com
+ ([fe80::3f99:f532:cf6b:ea46]) by DS0PR12MB6559.namprd12.prod.outlook.com
+ ([fe80::3f99:f532:cf6b:ea46%4]) with mapi id 15.20.9654.022; Tue, 3 Mar 2026
+ 18:40:02 +0000
+Date: Tue, 3 Mar 2026 10:40:00 -0800
+From: Piotr Jaroszynski <pjaroszynski@nvidia.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, 
+	Alistair Popple <apopple@nvidia.com>, Jason Gunthorpe <jgg@nvidia.com>, 
+	John Hubbard <jhubbard@nvidia.com>, Zi Yan <ziy@nvidia.com>, Breno Leitao <leitao@debian.org>, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH] arm64: contpte: fix set_access_flags() no-op check for
+ SMMU/ATS faults
+Message-ID: <aacohVRfAK46lOjo@box>
+References: <20260303063751.2531716-1-pjaroszynski@nvidia.com>
+ <0a10ea33-937a-4294-b9a1-9323c706434d@arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0a10ea33-937a-4294-b9a1-9323c706434d@arm.com>
+X-ClientProxiedBy: SJ0PR05CA0205.namprd05.prod.outlook.com
+ (2603:10b6:a03:330::30) To DS0PR12MB6559.namprd12.prod.outlook.com
+ (2603:10b6:8:d1::6)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB6559:EE_|CH3PR12MB7713:EE_
+X-MS-Office365-Filtering-Correlation-Id: c9484dfa-0c78-49ce-6448-08de7954478e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: BosTtGqVqQtAUQAKQYda5vD33EBm7kW5kcodZVXVKzc0BjtL1dWOzvjjGD41OTQlzkhhxV45/yInIYDUJ2KztAmeSr6znk2rLf1SjjlNsuk9PJ+lfAAVrgyFlzecjGz+g7EY6BeQ7Uy3kuEiqe63MSzcOezyRs3X4UB3prmj5ZeGE+02jJDFsfEwsvxLXCxDe1rXojfevyiITtd9i/klskzz4ZGyjvJsgMY5xCynXbRkf04CDbf7dQx8iG3B+kQgdgBp3PNrPCglS568A8YAd1PcoU6R0rVaTrbHe+J7CRtfKgJmcvJHd0iPNxoxBUz6j0B0mXHZYKEQ9KiRJZMXmF/Izq1zp/4qaAlFa6faC8x+9ZEorWFCYFBHpV4CJKxM+cYMCa/KCIuz3s2zKrAzAVucwHd4dD3u/EJlubN6H4fTxTOmzTaP5wRoDIxGpt7t1pzeMyHn/8CspNQoqYTM5w8ULrkEGzml9Fn1CbfrsbT3Y9sqcVwSXQ8Vcrl6Kd1qdglrMtIWIiywGM+nh5pOFiCjd82PwueZTbvgI6G686hXRnxm2exzIEfnl9UkVdu2QNsp8oNoZ6fygmea5mtVn5tG3/3Sas1NsbPr04n77jwhYHxwKo1kTyiZ6yN6+Hky/Kznb2S9t/Bv+mPCqGfhhKr7ETlF7ysuMfqzq4KPf4QEi0ZxDBSkPISUVekCsbeNVFBTqPBlP//akrhcG89q+n88XoiTreN7sI3eciORkwc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB6559.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9A7XCsfi/+4j2QRVU+3OSycnPkNzVuIdwYs/rkYSVh4hb4J/WwvJyZK8ONX8?=
+ =?us-ascii?Q?Oxwi72Bk07o9dCRycj7CNpgDxkOAPpFHOo0cCneuNEC3T/cbF9inH24CpR9L?=
+ =?us-ascii?Q?/yyPnQq8/ilnTpWdq97M3Y5TtCVmmNlJR0gRFBAN7Q81ZHGfx7m6utJ7dnsR?=
+ =?us-ascii?Q?TgReZ44fuL/wNntbDY1fIhpmZHqSY//JBzceZSsA30ibFva/Q+PIokZZmoQC?=
+ =?us-ascii?Q?fFKBYoViqX6MjVO6ZySNFJxkRJ8UrnhFiGxde00lAHBZsqJGG2Kp9tM701st?=
+ =?us-ascii?Q?ypxFSJdPn2Ill+Ei95wIvtjaFYARpLoOraeYbbRWPcLF4GRJ4HBKOlxQGSS3?=
+ =?us-ascii?Q?tNU/KVL+Wu+H2/J8ViJA4v1hQwaax66QzVbS9qCOO3p+KCit50uPhztFx9Zq?=
+ =?us-ascii?Q?M+NsT5rzt2oxkYzK6wPwK+cwgEH32JBMcXLjmGLnK54CF7rl/mEyyc0aseKj?=
+ =?us-ascii?Q?1id4YU12QJvyrNkS514DgwCNg4lRCBlrcUVB8DkMLqvETsrGcEZBzbtH8i5L?=
+ =?us-ascii?Q?wIfDqPcg/naHUuPzQk3Pq+KxgTyp4S2TvMr8huotw8tLPjmKkvZxeB7XrI+T?=
+ =?us-ascii?Q?6WlxD7eTmDbIDrL4HHwb/FvjA29+631SBu1cE0wgtYdWX8WlvHF/S+Aftj0n?=
+ =?us-ascii?Q?IvlbGdvehzUUmJlsvJNMfbLoMwBiUDNlkqiLbn8aqmw0HrAikNgQKYEskg9t?=
+ =?us-ascii?Q?Nli9G4y/aHA3Nv8P7IBjG8at/9jIcC8P5tSyODMrZpzgji2uQIfy9nFrK1Np?=
+ =?us-ascii?Q?+lRf5VJVAn6hLKNBTTT1LbRrTndHAej1iI1S3obYBMbKyb11fkm7nq5l+FiP?=
+ =?us-ascii?Q?EfxoqBChEVOFDUNWeXLEO0aA0wjoeGSyrhLcC9UHOCi/uhrRmXXKloctlNSP?=
+ =?us-ascii?Q?iW0JxhVIjFEXQv5kUc2f8TnGSivnw+ExU5XIg13ohhGqBdsKSuZbU9T2L5I2?=
+ =?us-ascii?Q?WgubbbOgTvE3liDELteo9/80OIQ0VB6ZuRt0PM6MG8ov50MR/ZUiLjsdrlJD?=
+ =?us-ascii?Q?IDdNeKgrt70xkDhOkOLfhjPZ/TuYhagjkMo9On3TOeA/6CxHIPlY7XVDFOux?=
+ =?us-ascii?Q?vB90D37wrq0mzLB+Zb1InrmW18j0YxwFjy/ZKoltsPlTUu/TAGOCebJIp4L6?=
+ =?us-ascii?Q?pkue7m1omXkoePuq+EpNTmV4W3KazkxU7/PAqqnXBXnQe3g3KJRaWfz1C4Bg?=
+ =?us-ascii?Q?j0t8fFMmECnOJ2CKVrvlpk91sR63LkBkwEo1Z/tgnIATwcXwRijbIJS2s2mf?=
+ =?us-ascii?Q?6k/km3px67EC3+cIiI8Gi+OpGWtuuMCsXh5lfodov8efLCDPSJsoAcmluy4f?=
+ =?us-ascii?Q?2SYeCqdSq6kypmnczeStgjGCjKOHIaOJEDqVQcXKRVILnPvGlyjfiq+czYij?=
+ =?us-ascii?Q?QZn9jrRG9tjCofI60nMn1FSAQvxJc3tvDWkGpzE5771lyHV43n0CMWjyrsqq?=
+ =?us-ascii?Q?GTMVrSqTk4SUN/+cSlv59VxNMIliuoW5hXcIniX30x6Fix3D3ofOMqz5yDQF?=
+ =?us-ascii?Q?ZEdZSSUtH+Hc+NlKS6EjqQToCG8UnguUr0zadLQ6hLThomzGdVH40NxlH02o?=
+ =?us-ascii?Q?b7IMIViC3c8eLHMOcXhiZ9CmyIy/Yq2MSO0RTLWm5lV8rdShyFmYVhWpFR5e?=
+ =?us-ascii?Q?U4EWWHtzFlyger5QGJ8WsG2S9JX1gfC7B5hyMN0JSYaRDT5b17+yd213s3Ty?=
+ =?us-ascii?Q?hrazNablXvhoZZKWmxzt4M+4SXgc+w4qkRdlFQAX0arrAODzzyKfeWM9ppCZ?=
+ =?us-ascii?Q?CLLZ/nU40zK8UIIqL7sjqdabF0qwYEM=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c9484dfa-0c78-49ce-6448-08de7954478e
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB6559.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2026 18:40:02.2778
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +9baL3edZ+y1+Dg3naCoF3LdwZ0jjgphi2EXqmId6dqlHABgImRo01gTdLXK/b3xn9sO1scUlhB3W3faHl4jTg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7713
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_103830_112265_99F41B00 
-X-CRM114-Status: GOOD (  20.09  )
+X-CRM114-CacheID: sfid-20260303_104019_303879_3E5AD654 
+X-CRM114-Status: GOOD (  48.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,104 +140,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne ponedeljek, 2. marec 2026 ob 03:09:56 Srednjeevropski standardni =C4=8D=
-as je Jun Yan napisal(a):
-> TaiqiCat (TQC) A01 is a set-top box powered by an Allwinner H6 SoC,
-> equipped with an AXP305 PMIC, 1GB LPDDR3 RAM, 8GB eMMC, an AP6212
-> WiFi/BT combo module, one 100M Ethernet port, one USB 3.0 Type-A port,
-> one USB 2.0 Type-A port, one Micro USB port, HDMI, SPDIF, Micro-SD, and
-> infrared input.
->=20
-> It was released by Ultrapower(UQSoft) as a blockchain-based terminal and =
-is
-> now discontinued and no longer supported.
->=20
->   https://web.archive.org/web/20190409213228/https://tq.ultrapower.com.cn=
-/product.html
->=20
-> Hardware schematics are not available at this time; however, the
-> dts from the vendor firmware is provided for reference [1].
->=20
-> Based on the PCB silkscreen marking "AZW-KT02 2.0", the ODM/OEM
-> can be confirmed as AZW, and the overall hardware circuit design
-> is highly similar to the Beelink GS1.
->=20
-> Tested, works:
-> - debug UART
-> - status LED
-> - USB 3.0 Type-A port
-> - USB 2.0 Type-A port
-> - Micro USB port (Host)
-> - MicroSD
-> - eMMC
-> - WiFi/Bluetooth
-> - HDMI video output
->=20
-> Does not work:
-> - Ethernet (requires AC200 MFD/EPHY driver)
-> - HDMI audio
->=20
-> Untested:
-> - SPDIF
-> - IR receiver
->=20
-> [1] https://archive.org/download/tqc-a01-stock-fw/tqc-a01-stock-fw.dts
->=20
-> Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
-> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-> ---
->  arch/arm64/boot/dts/allwinner/Makefile        |   1 +
->  .../dts/allwinner/sun50i-h6-taiqicat-a01.dts  | 361 ++++++++++++++++++
->  2 files changed, 362 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-h6-taiqicat-a01.=
-dts
->=20
-> diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts=
-/allwinner/Makefile
-> index 2edfa7bf4ab3..d116864b6c2b 100644
-> --- a/arch/arm64/boot/dts/allwinner/Makefile
-> +++ b/arch/arm64/boot/dts/allwinner/Makefile
-> @@ -38,6 +38,7 @@ dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-orangepi-lite2.=
-dtb
->  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-orangepi-one-plus.dtb
->  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-pine-h64.dtb
->  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-pine-h64-model-b.dtb
-> +dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-taiqicat-a01.dtb
->  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-tanix-tx6.dtb
->  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-tanix-tx6-mini.dtb
->  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h313-tanix-tx1.dtb
-> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h6-taiqicat-a01.dts b/a=
-rch/arm64/boot/dts/allwinner/sun50i-h6-taiqicat-a01.dts
-> new file mode 100644
-> index 000000000000..3138292abb45
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/allwinner/sun50i-h6-taiqicat-a01.dts
-> @@ -0,0 +1,361 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +// Copyright (C) 2026 Jun Yan <jerrysteve1101@gmail.com>
-> +
-> +/dts-v1/;
-> +
-> +#include "sun50i-h6.dtsi"
-> +#include "sun50i-h6-cpu-opp.dtsi"
-> +#include "sun50i-h6-gpu-opp.dtsi"
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +
-> +/ {
-> +	model =3D "TaiqiCat (TQC) A01";
-> +	compatible =3D "ultrapower,taiqicat-a01", "allwinner,sun50i-h6";
-> +
-> +	aliases {
-> +		ethernet0 =3D &sdio_wifi;
+On Tue, Mar 03, 2026 at 08:38:23AM +0000, Ryan Roberts wrote:
+> On 03/03/2026 06:37, Piotr Jaroszynski wrote:
+> > contpte_ptep_set_access_flags() compared the gathered ptep_get() value
+> > against the requested entry to detect no-ops. ptep_get() ORs AF/dirty
+> > from all sub-PTEs in the CONT block, so a dirty sibling can make the
+> > target appear already-dirty. When the gathered value matches entry, the
+> > function returns 0 even though the target sub-PTE still has PTE_RDONLY
+> > set in hardware.
+> > 
+> > For CPU page-table walks this is benign: with FEAT_HAFDBS the hardware
+> > may set AF/dirty on any sub-PTE and the CPU TLB treats the gathered
+> > result as authoritative for the entire range. But an SMMU without HTTU
+> > (or with HA/HD disabled in CD.TCR) evaluates each descriptor
+> > individually and will keep raising F_PERMISSION on the unchanged target
+> > sub-PTE, causing an infinite fault loop.
+> 
+> Ouch; thanks for the fix!
+> 
+> > 
+> > Gathering can therefore cause false no-ops when only a sibling has been
+> > updated:
+> >  - write faults: target still has PTE_RDONLY (needs PTE_RDONLY cleared)
+> >  - read faults:  target still lacks PTE_AF
+> > 
+> > Fix by checking all sub-PTEs' access flags individually (not via the
+> > gathered view) before returning no-op, and use the raw target PTE for
+> > the write-bit unfold decision. The access-flag mask matches the one
+> > used by __ptep_set_access_flags().
+> > 
+> > Per Arm ARM (DDI 0487) D8.7.1 ("The Contiguous bit"), any sub-PTE in a CONT
+> > range may become the effective cached translation and software must
+> > maintain consistent attributes across the range.
+> > 
+> > Fixes: 4602e5757bcc ("arm64/mm: wire up PTE_CONT for user mappings")
+> > 
+> 
+> nit: there shouldn't be whitespace here.
+> 
+> > Reviewed-by: Alistair Popple <apopple@nvidia.com>
+> > Cc: Ryan Roberts <ryan.roberts@arm.com>
+> > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > Cc: Will Deacon <will@kernel.org>
+> > Cc: Jason Gunthorpe <jgg@nvidia.com>
+> > Cc: John Hubbard <jhubbard@nvidia.com>
+> > Cc: Zi Yan <ziy@nvidia.com>
+> > Cc: Breno Leitao <leitao@debian.org>
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Piotr Jaroszynski <pjaroszynski@nvidia.com>
+> 
+> This fix looks good to me:
+> 
+> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
 
-Wifi has alias ethernet1 on H6.
+Thanks!
 
-Other that that, it looks good. With that fixed:
-Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+> 
+> 
+> > ---
+> >  arch/arm64/mm/contpte.c | 47 +++++++++++++++++++++++++++++++++++++----
+> >  1 file changed, 43 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+> > index bcac4f55f9c1..9868bfe4607c 100644
+> > --- a/arch/arm64/mm/contpte.c
+> > +++ b/arch/arm64/mm/contpte.c
+> > @@ -390,6 +390,23 @@ void contpte_clear_young_dirty_ptes(struct vm_area_struct *vma,
+> >  }
+> >  EXPORT_SYMBOL_GPL(contpte_clear_young_dirty_ptes);
+> >  
+> > +static bool contpte_all_subptes_match_access_flags(pte_t *ptep, pte_t entry)
+> > +{
+> > +	pte_t *cont_ptep = contpte_align_down(ptep);
+> > +	const pteval_t access_mask = PTE_RDONLY | PTE_AF | PTE_WRITE | PTE_DIRTY;
+> > +	pteval_t entry_access = pte_val(entry) & access_mask;
+> > +	int i;
+> > +
+> > +	for (i = 0; i < CONT_PTES; i++) {
+> > +		pteval_t pte_access = pte_val(__ptep_get(cont_ptep + i)) & access_mask;
+> > +
+> > +		if (pte_access != entry_access)
+> > +			return false;
+> > +	}
+> 
+> There are 2 forms of "dirty"; HW and SW. Here you are testing that all ptes in
+> the contpte block have the same form of dirty, which I think is the correct
+> thing to do. You could relax to just test that every pte has one of the forms of
+> dirty, But in that case, if a pte is sw-dirty but not hw-dirty, then the
+> PTE_RDONLY bit remains set and the SMMU will fault, I think?
 
-Best regards,
-Jernej
+Yes, for SMMU we need to make sure the HW-dirty state is correct or it
+will keep faulting. And while we are doing it, it makes sense to just
+update all the bits to be consistent.
+
+> 
+> If my reasoning is correct, then I think arm64 hugetlb has a similar bug; See
+> __cont_access_flags_changed(), which just checks for any form of dirty. So I
+> guess hugetlb is buggy in the same way and should be fixed to use this more
+> stringent approach?
+
+Given sw-dirty is managed by sw, is it correct for sw to ever create a
+PTE that's sw-dirty but not hw-dirty? If not, then I think it will still
+work fine for the SMMU case as sw-dirty implies hw-dirty, and if it's
+missing then we will set both. But for thoroughness it could make sense
+to be stricter and add some comments there as it does feel a little
+fragile. I'm very new to this area though so probably best for others to
+comment and tackle this.
+
+Thanks,
+Piotr
 
 
+> 
+> Thanks,
+> Ryan
+> 
+> > +
+> > +	return true;
+> > +}
+> > +
+> >  int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
+> >  					unsigned long addr, pte_t *ptep,
+> >  					pte_t entry, int dirty)
+> > @@ -399,13 +416,35 @@ int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
+> >  	int i;
+> >  
+> >  	/*
+> > -	 * Gather the access/dirty bits for the contiguous range. If nothing has
+> > -	 * changed, its a noop.
+> > +	 * Check whether all sub-PTEs in the CONT block already have the
+> > +	 * requested access flags, using raw per-PTE values rather than the
+> > +	 * gathered ptep_get() view.
+> > +	 *
+> > +	 * ptep_get() gathers AF/dirty state across the whole CONT block,
+> > +	 * which is correct for CPU TLB semantics: with FEAT_HAFDBS the
+> > +	 * hardware may set AF/dirty on any sub-PTE and the CPU TLB treats
+> > +	 * the gathered result as authoritative for the entire range. But an
+> > +	 * SMMU without HTTU (or with HA/HD disabled in CD.TCR) evaluates
+> > +	 * each descriptor individually and will keep faulting on the target
+> > +	 * sub-PTE if its flags haven't actually been updated. Gathering can
+> > +	 * therefore cause false no-ops when only a sibling has been updated:
+> > +	 *  - write faults: target still has PTE_RDONLY (needs PTE_RDONLY cleared)
+> > +	 *  - read faults:  target still lacks PTE_AF
+> > +	 *
+> > +	 * Per Arm ARM (DDI 0487) D8.7.1, any sub-PTE in a CONT range may
+> > +	 * become the effective cached translation, so all entries must have
+> > +	 * consistent attributes. Check the full CONT block before returning
+> > +	 * no-op, and when any sub-PTE mismatches, proceed to update the whole
+> > +	 * range.
+> >  	 */
+> > -	orig_pte = pte_mknoncont(ptep_get(ptep));
+> > -	if (pte_val(orig_pte) == pte_val(entry))
+> > +	if (contpte_all_subptes_match_access_flags(ptep, entry))
+> >  		return 0;
+> >  
+> > +	/*
+> > +	 * Use raw target pte (not gathered) for write-bit unfold decision.
+> > +	 */
+> > +	orig_pte = pte_mknoncont(__ptep_get(ptep));
+> > +
+> >  	/*
+> >  	 * We can fix up access/dirty bits without having to unfold the contig
+> >  	 * range. But if the write bit is changing, we must unfold.
+> 
+> 
 
