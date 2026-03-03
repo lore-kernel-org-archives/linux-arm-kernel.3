@@ -4,134 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADB81EDEBF5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 21:02:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64E76EDEBF0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 21:22:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u4D1pZrO4apX/1YcT4ka90xZ4bVrSBjqoNH4I5Nea2g=; b=Lj4dKuipIWLVdk5f9fg+Ci64xA
-	ALYW6X536T99qGFsaQ/NgYXI+FPaYPT8UzgbS20K7Lqtqk3fUUJ+drbm5kYTNJiHHjTTdW3PiOLJ3
-	0j9wr/51QD6/6OS2RClUa3ooftwLoOydnvcvJwyI7+8WBVHQKqaKzK7QaZ12lfEbNt3I2/kFjnPfN
-	4ejY2LIJSLHB6/KXKHEp4jKoiB+V/H6kFQr8tKWl5qDk5qFJ4gyH9Rki0+N1GmyxYWyxzOIUDG8W3
-	Cn4lQFe9zaJQj3Cs4Y2kecH3rLUU4FtZTK5oJzRkbhAl5XyHmTSpy5c/kJgAy8kU0fQSbent96ZWr
-	qfygWcRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9yh9Vp1mDD1udf796GBjMyD6lm7/DBxI3uS4QA4Rzkk=; b=Hb9/MbD1dZqaiNi9ua63IjZbe/
+	lqF3dQQyRo0eow6fM8qO36REP27rG0CukD1WCFGbnxiO4kYkj8nFbVY5MZJseZQJfHccnnQywokzu
+	H1ruBZSmMHmwAB1tN1CsssF5ijsq3BRvVHTRUkvvHRA9TH4ye3xUJUP2Iv/SnhbQDNWziAsip1/Mt
+	fUvVev/Ijb9D4wdEOQZ3tfK1WWS8LT1O4n5Ap9+shn+FrDC7QxIgnZ6P/by8jmYgQkoUyXjxHvSEE
+	qUnVDTBPlf9CvcUaivPjsM6077EdHeeQPJJDx+0mMXMTUyBVr3H8ZGjTwEf0dbqPkxfGWVuvuf4Aj
+	OodI+AbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxWtG-0000000FwvG-41Se;
-	Tue, 03 Mar 2026 21:02:50 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1vxXCQ-0000000FycZ-0tNm;
+	Tue, 03 Mar 2026 21:22:38 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxWtE-0000000Fws8-3GZn
+	id 1vxXCN-0000000Fyc8-30xd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 21:02:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=p0Ix6uAkpbHmmM2Pp3Hq/hzpA1wlLYrlwGs2ytz/G2zsSF5LnMNgOhvdkrZbJFwudMYP3LbamQMo0PyE5EPCPGIYmJW8N/2GvUWmUl69+EqpA4cbkY6yPo0lSyb/Ro5W1RK73ZipSt55pTRkjxi00C+As5boKtS/2t84hyHJCcUMrsTPcXFZ/rZomDw94R2chq6zWXhK2pCs5DdQ2nZOK0WnHfmBvSOJ89UyksL9O/YyYoUqCpDBQ3Tq+TL/DYRnhuqjNtsf5HD6zqlaHFDVoIQWkQvu7Q0mYWLt7HqJfyWGAhsKT0Gv9H4pYpTYlZKLU/XZSoG7QBhMWb/ZlcBpBQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=u4D1pZrO4apX/1YcT4ka90xZ4bVrSBjqoNH4I5Nea2g=;
- b=GWuC99ljBYF/hWG3Aoz+8WQGk7thRiocckV99zpv/kFwIQ0jLjo/rd2tHjJelmJ1tycH8541mxc5h0ZoRJIXCsoWL/6hBM5C8H6vxcbJnKfXFlyVSoc2ieWtIvCD0Brlb/s4xIR3H2NHwMmdO0Lis5mlNDnt4sgJt700N38fPbTcpghzKCu2UAFfwQTW4BDcvc853xJllXUJmdmnZHBjLXa1Ehmu9KtLKBGW8MmUQZIKuwNQDXALjlnGa33dx26Pqmrd+QOEema5ogesiyVXgaMWUsHoRDDM516NC3nNZ3tsnML+pD8BxRxFUNo5jsHok4wGBZ5ARCV4tqv+Mw5gkw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=u4D1pZrO4apX/1YcT4ka90xZ4bVrSBjqoNH4I5Nea2g=;
- b=cZxHf0/kvXEvML2VyqZGnHpdH0TpgaUioiYTYdWFsjMonj7E+e3h/UghTN12+jwKF/lFRyWGcKSdfPc2PuKkqUCjxat5d7638l3yaoIXSVY19OAUZTN3+srSV1PJTN8t+OspMd8BmYC3ScupYdk41MPlvi5MHOCJR7DMMT4iWKpTx7/Uufew4G9gPuC615tE6ztqP0oGzh5uYCmWi0IpBwMO9afdxezrPPIs6AMDWKMNQFZ+VdlVTejd3B9tdGaaFNuDloXy4490GE7thRYShg4mBo/LJgPem4ekrAMq9uHCgNZWVaiET08Gzk+QwZfkOHSV1MaAGHxMPkZp1i/DSA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by DB8PR04MB6858.eurprd04.prod.outlook.com (2603:10a6:10:113::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.20; Tue, 3 Mar
- 2026 21:02:45 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9654.020; Tue, 3 Mar 2026
- 21:02:45 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Frank Li <frank.li@nxp.com>,
-	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] arm64: dts: freescale: imx95-toradex-smarc: Support Cortex M7
-Date: Tue,  3 Mar 2026 16:01:09 -0500
-Message-ID: <20260303210131.2966214-14-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260303121324.1576841-1-ghidoliemanuele@gmail.com>
-References: <20260303121324.1576841-1-ghidoliemanuele@gmail.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SA1PR05CA0014.namprd05.prod.outlook.com
- (2603:10b6:806:2d2::23) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Tue, 03 Mar 2026 21:22:37 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vxXBs-0000S8-Bq; Tue, 03 Mar 2026 22:22:04 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vxXBo-003bpC-2q;
+	Tue, 03 Mar 2026 22:22:02 +0100
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vxXBq-0000000G9tJ-0Owv;
+	Tue, 03 Mar 2026 22:22:02 +0100
+Date: Tue, 3 Mar 2026 22:22:02 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
+	Liu Ying <victor.liu@nxp.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, luca.ceresoli@bootlin.com, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v11 2/3] drm/bridge: imx: Add i.MX93 parallel display
+ format configuration support
+Message-ID: <3dyb7wc7tg6hc4o4qocn4nft7bu3hbdpxcnv7cln2q6vkxo7bw@dtnswwyou5sp>
+References: <20260303-v6-18-topic-imx93-parallel-display-v11-2-1b03733c8461@pengutronix.de>
+ <20260303210131.2966214-2-Frank.Li@nxp.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DB8PR04MB6858:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0091ade0-d145-4a6f-1608-08de7968377f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|52116014|376014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: x3BtWige7cFcURvZTXPlQHgYVelDEvszUDAVgkzASGPSahzU0Ycx6p2eMRpCKcU+V/oJb1JJRNb8P0gsLKgczMb1Fxhd7+LU5J1iCpYPllyqCE52A9XSZFqz+tReZkQ0jwDYl5MZwbAR4p6iPNW4DKhmDuLN+7Q77GvAsv+QmkyMNoeL5g9FCpYjiSxwjQwGainVNuYa53ofO2c7lNxsIz0SSR5tfRFoGQfgdTIJ1ZwDgetW8HGy0KOU2eW6KY1Wny+FpBAk5m585T8XuTLyahMcTAF0Oh2w0ij3rn0OLIBLj0xt6tQImpRtmsRk7NCmI0w/tiVQ3zU0775ue/BLcD8HoCoa/NQiHr6lpizVPtYav43amfke8jXomNZAwWKX5GuweXY7cVS1zaH9qDGcgRH57Yg+2AALTIcVHy+IRGxt1zdOrAd8y3DfAZ4Rl8VXmkNpfPPSO97oH6Pp6MsMJNF/pny24igDAt/HdbqPd9QElFtrfyW3An/N9tneYzC/pIfzi1wqHU+AdZaHr23ti0M2/c84CZUNT2z2+w1JSHvXQHkaiVMq/M0n10zc0rYHHWAACI+4GiMwMhbjJVGbcXbr/sOodz8kKMsi9rq5oY/A8MAr6HRYcdi+xtrOvZgvQqPXEcY15PPpEQgko7KvjYBhBSjSIVFFBc/MQBX6woYd5joHfQmhM5yGzjYqxrCcUmrtpe1UQpFZJAvrpPrW5yWHCk0FTgpKBMeG0LjfOJhM0O8T00NSTyLn2dPqIsj17dqG8c2zo3H0BKDLRtBzPkW+6G2c11g46l1hDt0hO18=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(52116014)(376014)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YzxmYd1KKJuy0fr0YcY6AozN4cqAKX/4GLz19AciIiv8ACotomJCscH/PDoR?=
- =?us-ascii?Q?hnTwPpPTy90k+ao5ire5qL22wY+YIdQn3haS+VTgx5t9VOExTteDCPzHGL9E?=
- =?us-ascii?Q?tBhYch+5fFZYxwVtnhHIMJ3TR8o4NQsE55R2wp/+1Kc5q2dv7DvFv5qDw3Mc?=
- =?us-ascii?Q?rilhv4vTGB+zasT7wg4EPChBVNJx1WX3TzP+1k0ffzLD3NFdllzTt87ox4C5?=
- =?us-ascii?Q?opV/QFMPV0yjNJL0Jh1u3xGBLkVljBgH88IKYt6WIpGEdFBXoXwAMhiyyNz3?=
- =?us-ascii?Q?HRSdRS/EhhpbtvKLKH2eqpop+6RgA9RC/0MZGd5o9FJU41JLF6449eop1c3i?=
- =?us-ascii?Q?NoNKSr9WWxQvn76s8oB4/cxQ9gRjqpiM2I2fIQ5Gk07Uav/ExtA+kCrRYbec?=
- =?us-ascii?Q?3reY3q+4elW2vanmbfn8C03h2alx98y9m53U6U0yV1VRWNooY5jDvrGQuQlc?=
- =?us-ascii?Q?LPvah3aLu5R45uDnkvfp0MLZPot291NTnDwR5XoIb3RLitqSiURW6yUpyP6F?=
- =?us-ascii?Q?Uh1roZkmBY+EmeHLiNIdor4h4fvd4+wPSSc0j9f7kg+MtCOudM3KhnlJxxie?=
- =?us-ascii?Q?4aJwnZbhlIAfa1fmXtY5xxVKLgavqCqA9N89KrlWK/1sATVmtfMZhPi1BiQ2?=
- =?us-ascii?Q?j+ULSx/VreV1yyhsxCpGH3x5RbitI88fSt281boA8oNRYPpRicObyGFDMh/f?=
- =?us-ascii?Q?aZlXShiTEPSUEdyFhez9e++fxpgRWol0ycYuVawE2VsF1owHSkqXaEV6GMoF?=
- =?us-ascii?Q?8NUq/mEmSI9pIZCznHTDLGzxeknTVAIRTQVGQzwSqqqIM8z/UPrsd8PgeiFa?=
- =?us-ascii?Q?um+flqtai5eOa3JRHNQ78LQC7qtXwhtzXEKwYb69a71LpiY7ZMX+9Kc0naYh?=
- =?us-ascii?Q?RjbuE1KNFO3pB+HeCubeiyA3Am//X8mFe2AWCWq95OkD/1wxKONwfXqjKPcQ?=
- =?us-ascii?Q?oUKkH3x3LJUkZzrIR3Z6DTaGM28eBknxdJq47zmeKVp+qlF789x8O0MYk/PE?=
- =?us-ascii?Q?d3wxylJKIG+4NCRaoRhOvNGBTwMRLBgvMzGuXWRWoKMXUQpe+W16p2cffS+5?=
- =?us-ascii?Q?DQaP4uPMQfrxa3Deq+rs6iYcIkirqnF79PeAl0DfZ7D1F/wotof8aL3m52lF?=
- =?us-ascii?Q?+6KaxZnFhp44HRcQCy8FDyLDAiRLfAfQMWw8uJuGnzBdnoAqOZDuhXIZcBbI?=
- =?us-ascii?Q?pQgJtIU6sZpfARgWhc8IsBJwQ12EmP7x/v9XZTnTqY1WKWBX+JUr7kqAugEv?=
- =?us-ascii?Q?/1d98lGDiPJbr5Q2QCrCJTvmk5S+8RyYsvposSe4wbvWI2luH6U3LrXh+pbZ?=
- =?us-ascii?Q?dZqBo0l4HGE6PMKeZKVVzGfJnDR8Hy/DOI71DnJhfr2Ca7SW5P8yfauXc0nD?=
- =?us-ascii?Q?m6W4QLlXapXvgXqGbNECq+UeTTSZTxY4sIDCWcH6buB9fTR1RO+OqfBXTYN6?=
- =?us-ascii?Q?aY6YkMmGbMaRCSN733RVoPsmxcz0SgMjYWin4xfiSgE0D33HuM3HUePaXJY+?=
- =?us-ascii?Q?Jhj5Ts7jRCmqr8VctlZ26V+l+IkXpFohONmOiiVywiBiLyKV96DzWHdaGBv0?=
- =?us-ascii?Q?ZE09ZBl2bBxqdxR6SC5a4CDyVSQk09oKfEIR7xHpMIycl+Xflhg/5BNVrG2d?=
- =?us-ascii?Q?avUr7w2ytemEzQXaT9YiDYJC1iMpM0N0/7NdObUqDpZkeKfk8suapWkNMt2f?=
- =?us-ascii?Q?YdeavwuFVdR14/1A5GhxE6iA34frUEut2qgSRdaQz9JTi7bjZHxEh+r+3wXA?=
- =?us-ascii?Q?7rbXQcHqYg=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0091ade0-d145-4a6f-1608-08de7968377f
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2026 21:02:45.1078
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dn08bjiKOabFKO6oMqhzOLvLwZilQIfh4ft+iwWGJPyNcDvoU0ibhea6BgBXCAYN5YUVI7jYNxh5m3ojnZkMeA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6858
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260303210131.2966214-2-Frank.Li@nxp.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_130248_820600_2C500BE5 
-X-CRM114-Status: UNSURE (   9.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260303_132235_761118_5506E633 
+X-CRM114-Status: GOOD (  19.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,62 +87,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li (AI-BOT) <frank.li@nxp.com>
+On 26-03-03, Frank Li wrote:
+> From: Frank Li (AI-BOT) <frank.li@nxp.com>
+> 
+> AI bot review and may be useless.
 
-AI bot review and may be useless.
+Hi Frank,
 
----
+albeit I'm very open to new technology, I would appreciate it if your
+AI-BOT is used internally first till you're convinced that it reports
+real issues instead of false-positives.
 
-> +	cm7: remoteproc-cm7 {
-> +		compatible = "fsl,imx95-cm7";
-> +		mbox-names = "tx", "rx", "rxdb";
-> +		mboxes = <&mu7 0 1
-> +			  &mu7 1 1
-> +			  &mu7 3 1>;
-> +		memory-region = <&vdevbuffer>, <&vdev0vring0>, <&vdev0vring1>,
-> +				<&vdev1vring0>, <&vdev1vring1>, <&rsc_table>, <&m7_reserved>;
-> +	};
+Regards,
+  Marco
 
-Line 51 exceeds 80 columns; consider breaking memory-region into
-multiple lines for readability.
+> > +static u32 *
+> > +imx93_pdfc_bridge_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
+> > +					    struct drm_bridge_state *bridge_state,
+> > +					    struct drm_crtc_state *crtc_state,
+> > +					    struct drm_connector_state *conn_state,
+> > +					    u32 output_fmt,
+> > +					    unsigned int *num_input_fmts)
+> > +{
+> > +	struct imx93_pdfc *pdfc = bridge_to_imx93_pdfc(bridge);
+> > +	u32 *input_fmts;
+> > +
+> > +	*num_input_fmts = 0;
+> > +
+> > +	input_fmts = kmalloc_obj(*input_fmts);
+> > +	if (!input_fmts)
+> > +		return NULL;
+> 
+> Missing kfree(input_fmts) in error path if the switch statement
+> or subsequent logic fails. Consider allocating a fixed-size array
+> or using devm_kzalloc() instead.
+> 
+> > +	*num_input_fmts = 1;
+> > +
+> > +	if (!imx93_pdfc_bus_output_fmt_supported(output_fmt)) {
+> > +		dev_dbg(pdfc->dev, "No valid output bus-fmt detected, fallback to MEDIA_BUS_FMT_RGB888_1X24\n");
+> 
+> Line exceeds 80 characters (97 chars). Break into two lines.
+> 
+> > +		input_fmts[0] = MEDIA_BUS_FMT_RGB888_1X24;
+> > +		return input_fmts;
+> > +	}
+> > +
+> > +	switch (output_fmt) {
+> > +	case MEDIA_BUS_FMT_RGB888_1X24:
+> > +	case MEDIA_BUS_FMT_RGB565_1X16:
+> > +		input_fmts[0] = output_fmt;
+> > +		break;
+> > +	case MEDIA_BUS_FMT_RGB666_1X18:
+> > +	case MEDIA_BUS_FMT_FIXED:
+> > +		input_fmts[0] = MEDIA_BUS_FMT_RGB888_1X24;
+> > +		break;
+> > +	}
+> 
+> Switch statement lacks default case. Add default case to handle
+> unexpected format values explicitly.
+> 
+> > +static int imx93_pdfc_bridge_atomic_enable(struct drm_bridge *bridge,
+> > +					    struct drm_atomic_state *state)
+> > +{
+> > +	struct imx93_pdfc *pdfc = bridge_to_imx93_pdfc(bridge);
+> > +	const struct drm_bridge_state *bridge_state;
+> > +	unsigned int mask = PARALLEL_DISP_FORMAT;
+> > +	unsigned int val;
+> > +
+> > +	bridge_state = drm_atomic_get_new_bridge_state(state, bridge);
+> > +
+> > +	switch (bridge_state->output_bus_cfg.format) {
+> > +	case MEDIA_BUS_FMT_RGB888_1X24:
+> > +	case MEDIA_BUS_FMT_FIXED:
+> > +		val = FORMAT_RGB888_TO_RGB888;
+> > +		if (pdfc->phy_bus_width == 18) {
+> > +			/*
+> > +			 * Can be valid if physical bus limitation exists,
+> > +			 * therefore use dev_dbg().
+> > +			 */
+> > +			dev_dbg(pdfc->dev, "Truncate two LSBs from each color\n");
+> > +			val = FORMAT_RGB888_TO_RGB666;
+> > +		}
+> > +		break;
+> > +	case MEDIA_BUS_FMT_RGB666_1X18:
+> > +		val = FORMAT_RGB888_TO_RGB666;
+> > +		
+> 
 
----
+-- 
+#gernperDu 
+#CallMeByMyFirstName
 
-> +	m7_reserved: memory@80000000 {
-> +		reg = <0 0x80000000 0 0x1000000>;
-> +		no-map;
-> +	};
-
-Consider adding a comment explaining the 16 MB reservation size and
-purpose (firmware load address, etc.).
-
----
-
-> +	rsc_table: memory@88220000 {
-> +		reg = <0 0x88220000 0 0x1000>;
-> +		no-map;
-> +	};
-
-Consider documenting why rsc_table is placed at this specific offset
-relative to m7_reserved.
-
----
-
-> +	vdevbuffer: memory@88020000 {
-> +		compatible = "shared-dma-pool";
-> +		reg = <0 0x88020000 0 0x100000>;
-> +		no-map;
-> +	};
-
-Verify that the 1 MB vdevbuffer size is sufficient for the expected
-virtio traffic between A55 and M7.
-
----
-
-> +&mu7 {
-> +	status = "okay";
-> +};
-
-Ensure mu7 node is defined elsewhere in the base device tree; this
-patch only enables it without defining its properties.
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
