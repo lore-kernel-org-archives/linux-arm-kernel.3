@@ -4,83 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 113DBEDA697
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 15:57:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1A4FEDA68D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 16:02:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fknkIDPnX9yvUUxDQk3Uq4zMFR0+YqB9sxfzCCJ1ryE=; b=rCrE9/fafrGpKkUsy052IzNvZd
-	KqTCbQ0HLuZITqhfauaz1NyxVNYMxI3ClsQwYiwmTYtksdlY7X+Vgb5tEwOFFBOiaK+70RSm0jEXE
-	MpPYLCLkRf5oKjl471L+vWiCgXCMuV1bWJEttI9qvetGIhfc1kp2kAn9sDG5KC2xbSCFrTUDN+ILV
-	POmmBZz27O+KBJvnufBzfy1WeHkvn2MardAtwoh3kZG1E2h8vylY2AAS6b/uiluXrQ/JRH6U+1tmn
-	I8GkrWuew85fkOrwEGstlpLEa+k9BtupFHMjD21FX2LDNg9q+/DyqbRMUd2kZ+evdH1O05zRLP8XY
-	Ahze+BRg==;
+	bh=+yfdLkGixRhXtSYvCCw2nsJPyM/ZSiUn7Y4tY6Thixk=; b=G6wpuc9urJgJ4Pqiq78H8gmKED
+	eUeLWoVq85bc33vTr3Z7ydHFkAP+4ONquS+yAsGvkLmfwrhxrtAyhG5Z+sdKBqfVTFuORpado7QoU
+	RI6BpbYssamLq3kTD51T8hnzdwsfQLragn33aNPNaf9ltXNz/UiHAucWNxJsDp3e6RmjEETRhlAyl
+	76y0WoXnj+JEP07Zp3UZ2uOlc5SkZb6Fqqrye7VtufFSYryCaJzWMM08oN3umSRZiGm0BLCudUJj4
+	EnNvuhTO1QpJiKEQe3yiKdMb2puk4hrr1VLHmsaswj0HXN8EguCDbs+Nd1h/nDdpgDylNkJu3q2e3
+	0oU4HcKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxS88-0000000FUYJ-17MM;
-	Tue, 03 Mar 2026 15:57:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vxSCo-0000000FVKb-35qI;
+	Tue, 03 Mar 2026 16:02:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxS87-0000000FUY8-0mlc;
-	Tue, 03 Mar 2026 15:57:51 +0000
+	id 1vxSCm-0000000FVK1-1h5c
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Mar 2026 16:02:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 81C4E60053;
-	Tue,  3 Mar 2026 15:57:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0863FC116C6;
-	Tue,  3 Mar 2026 15:57:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C24DD4150F;
+	Tue,  3 Mar 2026 16:02:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99EAFC116C6;
+	Tue,  3 Mar 2026 16:02:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772553470;
-	bh=7wnmUVJYz31ztCiGKAzjwdnFCaEeyvoYoDHodVWWhOo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=t7Gb1CcmG3mQHFd+prxFW6iEuOe+P6JnjIxvh6iepVeRugk7VrzgXF6XTaJhoe/Qs
-	 S6yrYamuMMDh+xPCNlQ7kZi1h1LWQ3kzPZK2Ax6Rz5lDORwIJ9AZI/VIHEIqRk3eLa
-	 P/m1lno3hmNdo24vovY1c/w1olKbkkHhoJdZ+Z+1P1CmPBfTa0tpQ+j69wb5XkoYBi
-	 I2jmibQclRi+seToB5vI/R18HBWaeMj4d0Piao2pTO/gj7dFbO/Pl2oR9sgdaBcW6x
-	 sZ74UOiOemSucZb0IEztzKBPw7XFvhGBi8yjGc8aIcoqLXJZCxpr5sItUOANMLmR4j
-	 w1/j45YkWhccw==
-Received: from johan by xi.lan with local (Exim 4.98.2)
-	(envelope-from <johan@kernel.org>)
-	id 1vxS83-000000004sw-0okG;
-	Tue, 03 Mar 2026 16:57:47 +0100
-Date: Tue, 3 Mar 2026 16:57:47 +0100
-From: Johan Hovold <johan@kernel.org>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Andi Shyti <andi.shyti@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Khalil Blaiech <kblaiech@nvidia.com>,
-	Asmaa Mnebhi <asmaa@nvidia.com>, Jean Delvare <jdelvare@suse.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-actions@lists.infradead.org,
-	linux-media@vger.kernel.org
-Subject: Re: [PATCH v2 00/13] i2c: add and start using i2c_adapter-specific
- printk helpers
-Message-ID: <aacE-27iaYneKCJi@hovoldconsulting.com>
-References: <20260223-i2c-printk-helpers-v2-0-13b2a97762af@oss.qualcomm.com>
- <aaFcs1miP88QWmtH@hovoldconsulting.com>
- <aaFfEsfh0xTh0b1y@shikoro>
- <aaFsZbiLYSz_YEjw@hovoldconsulting.com>
- <CAMRc=MfcvD1nJy=zpoCkSkJq6WjyXQxFUZ4QE6vyCS+XFCn5AA@mail.gmail.com>
- <aaHI_VavZugXjVoL@hovoldconsulting.com>
- <CAMRc=MdKF29McBJ9U=qELkzf9GYV1CQpRF7U6OweDNtVzMXo7A@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMRc=MdKF29McBJ9U=qELkzf9GYV1CQpRF7U6OweDNtVzMXo7A@mail.gmail.com>
+	s=k20201202; t=1772553759;
+	bh=9GTxoPFm60nrBf/Iq0cAmUqQnqTieulX7wXH71jwZSI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=AnTRyR/quwr3kHVi1iQrT4FoxLDBThUmIJRsNcJH4vKLpYlxzY+XYJB9BQcr22+d4
+	 1PNJZRkeE+o/N+AlPawrGz3RY9KXOBLIDEx8AH4X/G2JIWhj8xhNrKroHY8tCSbj/L
+	 +6d9BzuvAQjh3sIYZDDcKAzQI1fPh8xK+In7aIiIMn/oIxY2TmeHQTzByPFiMjqOYE
+	 moP+eT899HVESHWPOTnZ1Qn43jmEq13zxTdL2hRE8LKgiIIDLw0ESiGGg+7FU0ADmK
+	 tJXq06s5qA5GUV5w3Kk/BoiPcuaIQZWkdTUIVGII2NIbomV1YtG/KYkPVKRRu7DgH5
+	 cMVYc2u28FH8g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vxSCj-0000000FhU2-19fZ;
+	Tue, 03 Mar 2026 16:02:37 +0000
+Date: Tue, 03 Mar 2026 16:02:36 +0000
+Message-ID: <868qc89a03.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly
+	<Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>,
+	"jonathan.cameron@huawei.com"
+	<jonathan.cameron@huawei.com>
+Subject: Re: [PATCH v5 12/36] KVM: arm64: gic-v5: Add emulation for ICC_IAFFIDR_EL1 accesses
+In-Reply-To: <20260226155515.1164292-13-sascha.bischoff@arm.com>
+References: <20260226155515.1164292-1-sascha.bischoff@arm.com>
+	<20260226155515.1164292-13-sascha.bischoff@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com, jonathan.cameron@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260303_080240_484537_3F8C95D3 
+X-CRM114-Status: GOOD (  27.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,161 +99,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 02, 2026 at 12:03:19PM -0600, Bartosz Golaszewski wrote:
-> On Fri, Feb 27, 2026 at 5:41 PM Johan Hovold <johan@kernel.org> wrote:
-> >
-> > On Fri, Feb 27, 2026 at 04:42:09PM +0100, Bartosz Golaszewski wrote:
-> > > On Fri, Feb 27, 2026 at 11:06 AM Johan Hovold <johan@kernel.org> wrote:
-> >
-> > > > It seems all that is needed is to decouple the struct i2c_adapter from
-> > > > the driver data and have core manage the lifetime of the former using
-> > > > the reference count of the embedded struct device.
-> >
-> > > This is a weird pattern you sometimes see where a driver allocates
-> > > something and passes the ownership to the subsystem.
-> >
-> > It's not weird at all, this is the standard way to handle this. We have
-> > these things called reference counts for a reason.
-> >
+On Thu, 26 Feb 2026 15:58:31 +0000,
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
 > 
-> I wouldn't say it's *the* standard way. There are at least several different
-> ways driver subsystems handle resource ownership. And even so: the fact that
-> something's done a lot does not make it automatically correct.
-
-It's the way the driver model works.
-
-> > > This often
-> > > causes confusion among driver authors, who logically assume that if
-> > > you allocate something, you are responsible for freeing it.Since this
-> > > is C and not Rust (where such things are tracked by the compiler), I
-> > > strongly believe we should strive to keep ownership consistent: the
-> > > driver should free resources it allocated within the bounds of the
-> > > lifetime of the device it controls. The subsystem should manage the
-> > > data it allocated - in this case the i2c adapter struct device.
-> >
-> > Drivers are responsible for dropping *their* reference, it doesn't mean
-> > that the resource is necessarily freed immediately as someone else may
-> > be holding a reference. Anyone surprised by this should not be doing
-> > kernel development.
+> GICv5 doesn't provide an ICV_IAFFIDR_EL1 or ICH_IAFFIDR_EL2 for
+> providing the IAFFID to the guest. A guest access to the
+> ICC_IAFFIDR_EL1 must therefore be trapped and emulated to avoid the
+> guest accessing the host's ICC_IAFFIDR_EL1.
 > 
-> I disagree. For some reason, you're defending a suboptimal programming
-> interface. I'm all for reference counting but mixing reference-counted data
-> with non-counted is simply not a good idea. An API should be easy to use and
-> hard to misuse. Given the amount of issues, this approach is definitely easy
-> to misuse.
+> The virtual IAFFID is provided to the guest when it reads
+> ICC_IAFFIDR_EL1 (which always traps back to the hypervisor). Writes are
+> rightly ignored. KVM treats the GICv5 VPEID, the virtual IAFFID, and
+> the vcpu_id as the same, and so the vcpu_id is returned.
 > 
-> I'm advocating for a hard split between the subsystem data (reference-counted)
-> and driver data (living from probe() until remove()). A logical struct device
-> managed entirely by the subsystem should live in a separate structure than
-> driver data and be allocated - and freed - by the subsystem module.
-
-It doesn't really matter what you think. You can't just go around
-making up new subsystem specific rules at your whim. The linux driver
-model uses reference counting and that's what developers expect to be
-used.
-
-> Let's put aside kernel code for a minute and work with an abstract C example,
-> where the equivalent of what you're proposing would look like this:
+> The trapping for the ICC_IAFFIDR_EL1 is always enabled when in a guest
+> context.
 > 
-> struct bar {
-> 	struct foo foo;
-> 	...
-> };
+> Co-authored-by: Timothy Hayes <timothy.hayes@arm.com>
+> Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> ---
+>  arch/arm64/kvm/config.c    | 10 +++++++++-
+>  arch/arm64/kvm/sys_regs.c  | 19 +++++++++++++++++++
+>  arch/arm64/kvm/vgic/vgic.h |  5 +++++
+>  3 files changed, 33 insertions(+), 1 deletion(-)
 > 
-> struct bar *bar = malloc(sizeof(*bar));
-> 
-> ret = foo_register(&bar->foo);
-> 
-> And the corresponding free() lives who knows where because foo_register()
-> automagically introduces reference counting (nevermind the need to calculate
-> where bar is in relations to foo).
+> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+> index e4ec1bda8dfcb..bac5f49fdbdef 100644
+> --- a/arch/arm64/kvm/config.c
+> +++ b/arch/arm64/kvm/config.c
+> @@ -1684,6 +1684,14 @@ static void __compute_hdfgwtr(struct kvm_vcpu *vcpu)
+>  		*vcpu_fgt(vcpu, HDFGWTR_EL2) |= HDFGWTR_EL2_MDSCR_EL1;
+>  }
+>  
+> +static void __compute_ich_hfgrtr(struct kvm_vcpu *vcpu)
+> +{
+> +	__compute_fgt(vcpu, ICH_HFGRTR_EL2);
+> +
+> +	/* ICC_IAFFIDR_EL1 *always* needs to be trapped when running a guest */
+> +	*vcpu_fgt(vcpu, ICH_HFGRTR_EL2) &= ~ICH_HFGRTR_EL2_ICC_IAFFIDR_EL1;
+> +}
+> +
+>  void kvm_vcpu_load_fgt(struct kvm_vcpu *vcpu)
+>  {
+>  	if (!cpus_have_final_cap(ARM64_HAS_FGT))
+> @@ -1705,7 +1713,7 @@ void kvm_vcpu_load_fgt(struct kvm_vcpu *vcpu)
+>  	}
+>  
+>  	if (cpus_have_final_cap(ARM64_HAS_GICV5_CPUIF)) {
+> -		__compute_fgt(vcpu, ICH_HFGRTR_EL2);
+> +		__compute_ich_hfgrtr(vcpu);
+>  		__compute_fgt(vcpu, ICH_HFGWTR_EL2);
+>  		__compute_fgt(vcpu, ICH_HFGITR_EL2);
+>  	}
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index b8b86f5e1adc1..384824e875603 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -681,6 +681,24 @@ static bool access_gic_dir(struct kvm_vcpu *vcpu,
+>  	return true;
+>  }
+>  
+> +static bool access_gicv5_iaffid(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+> +				const struct sys_reg_desc *r)
+> +{
+> +	if (!kvm_has_gicv5(vcpu->kvm))
+> +		return undef_access(vcpu, p, r);
 
-No, that's not what I'm suggesting here, but it would be compatible with
-the driver model (ever heard of struct device which works exactly like
-this?).
+Do we really need this? If the guest doesn't have FEAT_GCIE, then we
+should have an FGU bit set for any FGT bit that control a GCIE
+register, and that register should UNDEF at the point of triaging the
+trap, and never reach this handler.
 
-> I strongly believe that this makes more sense:
-> 
-> struct bar {
-> 	...
-> };
-> 
-> struct bar *bar = malloc();
-> 
-> struct foo *foo = foo_register(bar);
-> 
-> // foo is reference counted and allocated in the provider of foo_register()
-> 
-> foo_put(foo);
-> free(bar);
-> 
-> The equivalent of which is moving struct device out of struct i2c_adapter.
+If it doesn't, we have bigger problems, and we should address them.
 
-No, it's not.
+Thanks,
 
-> In fact: I would love to see i2c_adapter become a truly reference-counted
-> object detached from driver data but due to it being embedded in every bus
-> driver data structure it realistically won't happen.
+	M.
 
-And this is what I've been suggesting all along, separating the driver
-data and making the adapter reference counted.
-
-The idiomatic way to handle this is:
-
-	xyz_probe()
-	{
-		adap = i2c_adapter_alloc();
-		// initialise driver data, store pointer in adap
-		i2c_adapter_register(adap);
-	}
-
-	xyz_remove()
-	{
-		i2c_adapter_deregister(adap);
-		i2c_adapter_put(adap);
-	}
-
-Exactly where the driver data is stored is secondary, it could be memory
-allocated by core or by the driver.
-
-But the adapter is reference counted and kept around until all users are
-gone.
-
-> > > I know there are a lot of places where this is done in the kernel but
-> > > let's not introduce new ones. This is a bad pattern.
-> >
-> > No, it's not. It's literally the standard way of doing this.
-> >
-> > > But even if you decided this is the way to go, I fail to see how it
-> > > would be easier than what I'm trying to do. You would have to modify
-> > > *all* I2C bus drivers as opposed to only modifying those that access
-> > > the underlying struct device. Or am I missing something?
-> >
-> > Yes, you have to update the allocation and replace container_of() with
-> > dev_get_drvdata() but it's a straight-forward transformation that brings
-> > the i2c subsystem more in line with the driver model (unlike whatever it
-> > is you're trying to do).
-> >
-> 
-> No, it's not that simple. The .release() callback of struct device embedded
-> in struct i2c_adapter is assigned from the bus type and only calls complete()
-> (yeah, I too don't think it looks right, one would expect to see the associated
-> kfree() here, right?). It relies on the bus driver freeing the data in its
-> remove() path. That's why we wait until all references to said struct device
-> are dropped. After your proposed change, if your new release() lives in the
-> driver module, it must not be removed until all the references are dropped
-> - basically where we are now. If on the other hand, the release() callback's
-> functionality is moved into i2c-core, how would you handle the fact i2c_adapter
-> can be embedded in a larger driver data structure? Provide yet another callback
-> in i2c_adapter called from the device's .release()? Sure, can be done but I
-> doubt it's a better solution.
-
-You seem to be constructing some kind of straw man here. Obviously, the
-release function would free the memory allocated for the adapter struct.
-
-An adapter driver can free its driver data on unbind as core will
-guarantee that there are no further callbacks after the adapter has been
-deregistered.
-
-Johan
+-- 
+Without deviation from the norm, progress is not possible.
 
