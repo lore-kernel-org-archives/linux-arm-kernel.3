@@ -4,147 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE609E67A97
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 08:43:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BFBFE67A98
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 08:48:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xf4TKQNDzqWuHUGlzr5uhZtiBKuM3uW4fL3mWneyDJQ=; b=3v+p3B1xqpoRI/YybQHtE2MYko
-	NXtCxRRz5P5tAncAKoCyvKlb3Pgge/Uc/IgPX+mcsy2Nnm5MA1EYdTCHZNFOlYD/oGYb0ZVx0/Atm
-	GkqJFu5hTdzTcyhc1Z7U8uDfUds+pbeNF4dnz8ZP6DDs+lrw15/vHqBZR0p2TvkZ42EFNegJi2AmH
-	qUMDKUgqDbY84Q0HGYIVBr11tywFI4Lvslvf8iL70DzQd1K59h+MhydieZbAPu7QsBFuVHHe2U6Pb
-	8u28k6QDldEFb1Gz0iiazKJyFOCDslVTj//0QEAZ7DOyNPtX1f/UeAWJVcrP02vs4B5Ccs9lTcAtc
-	zpY/5yyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RhY/IVWIlGnHWoBKJfcIDke0G9UcJTG6BwIp/lLMPuc=; b=evp8FkoOrbU73hwkf3qXUywa5d
+	VxBHeVZL+CaKus2Zv5yq8kbCyX4fIY5g17qg1FNoUQEt6MVLR6/UNweUXq67+mOwGBLFVL8uzplPt
+	o1pPU0r9hdAAE48z24fBxiCRj+xWvJzq8au0jNkN6OHOAOuEcz8rLQ66WNiEn1fmLm5QC+49fT5aP
+	laAAX4wZzqRNVCj49dZVSkK5MTqBBj8aPQWKAx6Othkr74CfRfO7WWf5RQRFgOzaYcDa3L0E4T9ad
+	lJANkk2tItXB2FR+7TtP99OpPzd3QiZX9k+1a8azAQQYyHW93/MujtEgEoSzuXUNCXhI994EQq+LW
+	Wiw0XUqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxLLd-0000000EnEG-0LsN;
-	Tue, 03 Mar 2026 08:43:21 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vxLQO-0000000EnWW-1GhY;
+	Tue, 03 Mar 2026 08:48:16 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxLLZ-0000000EnDq-4C7X
+	id 1vxLQL-0000000EnW7-1QV3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 08:43:19 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6235V1sr2197021
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 3 Mar 2026 08:43:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Xf4TKQNDzqWuHUGlzr5uhZtiBKuM3uW4fL3mWneyDJQ=; b=B7fd91F6V74VdsCz
-	sRLq1lAOWRQjwnXsInvIxYgfjUctdiRXFbjO4H4DF//KiFWtq+UyOx9y88C/h+MF
-	ZQwxTOiykIFk1PT9B1OZIJ0oquTZ0nSfTNqnHjhQID0Cf0AWnh6xSwfsd1Fg7Kve
-	oAZB1oC/de6dJzp2+eWGBHT3pu0fliUsBRM1pZzosMg7+mxNKjzEvYNaGM0+UDFK
-	L3jlntNL23ZqP3zpI4DB2wn8hgn3DFIUyXoIz9NfyYuCEMu7TSzGY5uuErPm5j//
-	qcbpCn76i59kjeDRJgK0qZQ0VHydj+04Bchi1T2RkpivQ58NUVWFJUTwuaHFwEiy
-	dDo2hw==
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cnsjm0n5n-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 08:43:16 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-35641c14663so5616624a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 00:43:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1772527396; x=1773132196; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Xf4TKQNDzqWuHUGlzr5uhZtiBKuM3uW4fL3mWneyDJQ=;
-        b=BGBAm7ryAlFEr0OoryKz8LFtz8kgUkc48Whsz1zQ8U3+U5RfqKZBR2eAm7b5WL8TI0
-         1jGK6lxzW4nr0R8m/wWfp069pzMZBN2NjFCm8T/ulRD4hBIVnIQw2qHQPpyF6bdrclXy
-         GVM+cB+/TnItfKZi7zoh9IQMT2tqOYwDLafAaeyLzFX5+1V7HeO/imVDGWRH39PbK+lR
-         ZVeupmp4XV1WV1/6y+p+7H68wpgICuOfFTJ9QQO/0y1oVrmXJMkEtw9yaaUR3eVCSmEr
-         xNOZFfwqYKbBGfgUEG2yZ4zfDY+iGijmX1nX5p4vNvZW5XHXBxeXqS2ZgoECzrNmLUlc
-         D+IQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772527396; x=1773132196;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Xf4TKQNDzqWuHUGlzr5uhZtiBKuM3uW4fL3mWneyDJQ=;
-        b=VwVWRPDGNI0+4cP7mYnHGMZDyWgumO9c0JREkPchHBwPWTEfbENN6w3vGocMbBUq5Q
-         4DuiMw1WjMAASYjF3sO4YnXFLl4ejHnsRh8KnSjVUg/pbxytT7RwbJofjgyAsS8oAxgJ
-         G5sDgnNpsm9JIdp4wRl89qp3reeWtUt8+OqoI1nOnFIl8pESDYHzaJkWRfNnjEb1Ex8N
-         x8Kp+tdlvQnThXndZhP3UJ4T5slisERKMPuOp+p/Fw30mZeRJxunnGZMiH/OiT8eD9I5
-         0tKl5r9bx0M9e+qjsZGgq+IFBKvqUQlr41egIB0AnLsKJoBtq6JSXDViF5uTFJ2muuma
-         GqEg==
-X-Forwarded-Encrypted: i=1; AJvYcCVQmsxzSQ/03zKoOW2CpCtJSyMgfYIoaGPorc9wpmlUw9tpqxciC5XDvZwnmVGcn4suFvZ+deAJM4o+PE77pHXU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLk6HseJlNCGwO8O4YAEvGnilVHXDjtxG8wn3HdFlWdBaKxd4r
-	toTi4GxO4pSHYsS7MpDsOPn37wcwprNCaYsiAAD8/3D7x4NvgaMKi3aW5F00zK8ja+m7pdVLqZH
-	WBUoYsITQEmYRW/8s6IsiHnfnhXlznHmCfngyHZD1gVhDXZ00PPBKxg9SionTtL4bRa426A6QHz
-	XQgA==
-X-Gm-Gg: ATEYQzwl/eARkKl0gpakdM59fyDHbg2sy9of1h8f4SvNkO4cmxMLsZirimlbWIVyNre
-	oCDsakzeCUNNZQlkQwyV5dDawmVVdNPZX3cLzoF/a9hxynK6BJgLQscQv1wzLiUb1WQ7ianBEXy
-	usc/+lVW5NWC4cp1FG8Fwk3udhWXMyZFE+9Cm3d3IBTV1flaxDz5rIOed62ic+j9Wg4zkHAZQ8l
-	/w3u/9scN50JCMLD7Jt6Swg4/40tYn6muAzTZduyMMGRGNLg2F76kUdE4aqKBgXd7HBQH6LAZNr
-	eEN/ZM4FgloEy55ufqMPohAkPZ093iQZLj5FuhiMWVN3Jrma4c/H7fMP0bnQYnPP1PeCnKnTAu2
-	udGUnsGZLmYQSLkEzDeuNBaDvCFgxzUkUXuOzeqf9FUXberBJa41U/8qWnEtchzdp9mmbkaB6Wx
-	Ebob4ArwXV/uQ=
-X-Received: by 2002:a17:902:f689:b0:2ad:ba80:df62 with SMTP id d9443c01a7336-2ae2e480d5cmr170332255ad.37.1772527396044;
-        Tue, 03 Mar 2026 00:43:16 -0800 (PST)
-X-Received: by 2002:a17:902:f689:b0:2ad:ba80:df62 with SMTP id d9443c01a7336-2ae2e480d5cmr170331605ad.37.1772527395036;
-        Tue, 03 Mar 2026 00:43:15 -0800 (PST)
-Received: from [10.133.33.114] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2adfb6d24b3sm155532085ad.78.2026.03.03.00.43.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 03 Mar 2026 00:43:14 -0800 (PST)
-Message-ID: <bbf51880-7c69-423e-8f35-84f51e4db667@oss.qualcomm.com>
-Date: Tue, 3 Mar 2026 16:43:07 +0800
+	Tue, 03 Mar 2026 08:48:15 +0000
+Received: from ideasonboard.com (net-93-65-100-155.cust.vodafonedsl.it [93.65.100.155])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 6AAAD986;
+	Tue,  3 Mar 2026 09:47:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1772527626;
+	bh=8kK1pCNJVkBD644EbsB+J9DSrWpKdqlYxMh0oUoBXzA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bdJiuKDrCF4TI/dbm30OvDW4tiQ1hjP4Ko7C/vvJFS9MLLNRoJkKiutxJTKbF7zbo
+	 0ZnIpkaRnYs6E3Ve5Ve0B5hd10c7YRIGmXfvGD8iVCRj6HsV6nI7B7gdrMu3wcyDEc
+	 HWdti5b6VnyLcM6V0AwFJqLRypn+22GMWfKs5as0=
+Date: Tue, 3 Mar 2026 09:48:04 +0100
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+To: Antoine Bouyer <antoine.bouyer@nxp.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>, julien.vuillaumier@nxp.com, alexi.birlinger@nxp.com, 
+	daniel.baluta@nxp.com, peng.fan@nxp.com, frank.li@nxp.com, mchehab@kernel.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [RFC v1 01/11] media: uapi: v4l2-isp: Add v4l2 ISP extensible
+ statistics definitions
+Message-ID: <aaacMySSCCIYvW3B@zed>
+References: <20260123080938.3367348-1-antoine.bouyer@nxp.com>
+ <20260123080938.3367348-2-antoine.bouyer@nxp.com>
+ <aYIb8ZIZDfCJZEZ9@zed>
+ <71b57f1c-be22-46a2-89a2-5abae11e0436@nxp.com>
+ <aYNEtmJwnAtYitHO@zed>
+ <20260209230036.GF2405149@killaraus.ideasonboard.com>
+ <c5b5619e-d67b-4d80-8496-a5e326d239ae@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 6/8] coresight: ctcu: enable byte-cntr for TMC ETR
- devices
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
- <Mike.Leach@arm.com>, James Clark <james.clark@linaro.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org
-References: <20260223-enable-byte-cntr-for-ctcu-v13-0-9cb44178b250@oss.qualcomm.com>
- <20260223-enable-byte-cntr-for-ctcu-v13-6-9cb44178b250@oss.qualcomm.com>
-Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20260223-enable-byte-cntr-for-ctcu-v13-6-9cb44178b250@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: 5Sr84jtRZRKVh495R3WFe_WrEZuxk_x0
-X-Authority-Analysis: v=2.4 cv=GIUF0+NK c=1 sm=1 tr=0 ts=69a69f24 cx=c_pps
- a=0uOsjrqzRL749jD1oC5vDA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=EUspDBNiAAAA:8 a=_NS0HjBKCYVzgDJdXkEA:9 a=QEXdDO2ut3YA:10
- a=mQ_c8vxmzFEMiUWkPHU9:22
-X-Proofpoint-ORIG-GUID: 5Sr84jtRZRKVh495R3WFe_WrEZuxk_x0
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzAzMDA2MyBTYWx0ZWRfXxqMZsgK8bVGB
- 9mU/gtwKCWWXo028ma48VaHjprDLrQ2IC5hMM/IsdHZykaL8Dv36KF/6edrEQe0/GzFlH7Xn4Ei
- d55t93fi99VEqB1rIAzuA3PN0pL8CXjB7w0Ss9vS4pPMkLvNsoDSZgfBVQ8qaGYIIjotRVKEfuE
- yJjOhBIlw1KV4S+CzebxV+JmEcHeLNttE9fftrQqLymtopVCNhSLWsl8VSiurp2Z1J5DSZnYHUv
- x3uqS0OUKKBWqwJX0B7Z0WCUyEt4EAzhamcI0ugudYdMF4/7FCxz7z0iyW2s8tPGz1gOyGMS3dc
- 9ZliLgQ2eii8fm0cbFdUr5ivim83mBCEWyoKg/r719KzoybIpDZXLpLdBuVmENZeeGqvgrJWxmf
- bgzfQvPDa61rW6Xy0ldrHPKO3zKpiHsdbDur3PhxYKM9ofdotou05Q00BYjsPJkTRcaUNe+sfPp
- FkTH2DOvpIp9xUnKvhA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-02_05,2026-03-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 impostorscore=0 priorityscore=1501 clxscore=1015 malwarescore=0
- suspectscore=0 spamscore=0 phishscore=0 lowpriorityscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2603030063
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <c5b5619e-d67b-4d80-8496-a5e326d239ae@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_004318_084446_63850122 
-X-CRM114-Status: GOOD (  36.53  )
+X-CRM114-CacheID: sfid-20260303_004814_069574_9111B66D 
+X-CRM114-Status: GOOD (  75.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,755 +78,325 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Antoine
 
+On Mon, Mar 02, 2026 at 10:41:10AM +0100, Antoine Bouyer wrote:
+> Hi Laurent, Jacopo
+>
+> On 2/10/26 12:00 AM, Laurent Pinchart wrote:
+> >
+> >
+> > On Wed, Feb 04, 2026 at 02:14:50PM +0100, Jacopo Mondi wrote:
+> > > On Wed, Feb 04, 2026 at 12:07:41PM +0100, Antoine Bouyer wrote:
+> > > > On 2/3/26 5:15 PM, Jacopo Mondi wrote:
+> > > > > On Fri, Jan 23, 2026 at 09:09:28AM +0100, Antoine Bouyer wrote:
+> > > > > > Extend the v4l2-isp extensible format introduced for isp parameters buffer
+> > > > > > to the statistics buffer as well.
+> > > > > >
+> > > > > > Like for ISP configuration purpose, that will help supporting various ISP
+> > > > > > hardware versions reporting different statistics data with less impact on
+> > > > > > userspace.
+> > > > > >
+> > > > > > The `v4l2_isp_stats_buffer` reuses the `v4l2_isp_params_buffer` container
+> > > > > > definitions, with similar header, versions and flags. V0 and V1 versions
+> > > > >
+> > > > > Why do you need two flags ?
+> > > > >
+> > > > > Params had to introduce two because we had two drivers already
+> > > > > mainlined using the pre-v4l2-isp version of extensible params which
+> > > > > had defined their version identifier as 1 and 0 and we didn't want to
+> > > > > break existing userspace using those identifiers. So we had to accept
+> > > > > both V0 and V1 as "first version of the v4l2-isp extensible parameters
+> > > > > format".
+> > > > >
+> > > > > For stats we don't have users, so I guess we can start with V1 == 0 ?
+> > > >
+> > > > I wanted to keep it aligned with params, so that any driver/userspace can
+> > > > use the same API version value for both params and stats buffers, and limit
+> > > > headache.
+>
+> Seems this topic is not yet clarified. Should I use same version values for
+> both params and stats as in current patch ? Or use different values V1 == 0
+> as suggested ?
+>
+> From userspace perspective, I feel it would be easier to align params and
+> stats versions, so we don't need to maintain different versions for same
+> purpose; and if a new version V2 comes and is applied to both params and
+> stats buffers, then we can use same value too. What do you think ?
 
-On 2/23/2026 2:55 PM, Jie Gan wrote:
-> The byte-cntr function provided by the CTCU device is used to transfer data
-> from the ETR buffer to the userspace. An interrupt is triggered if the data
-> size exceeds the threshold set in the BYTECNTRVAL register. The interrupt
-> handler counts the number of triggered interruptions and the read function
-> will read the data from the synced ETR buffer.
-> 
-> Switching the sysfs_buf when current buffer is full or the timeout is
-> triggered and resets rrp and rwp registers after switched the buffer.
-> The synced buffer will become available for reading after the switch.
-> 
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> ---
->   .../ABI/testing/sysfs-bus-coresight-devices-ctcu   |   8 +
->   drivers/hwtracing/coresight/Makefile               |   2 +-
->   .../hwtracing/coresight/coresight-ctcu-byte-cntr.c | 367 +++++++++++++++++++++
->   drivers/hwtracing/coresight/coresight-ctcu-core.c  | 103 +++++-
->   drivers/hwtracing/coresight/coresight-ctcu.h       |  77 ++++-
->   drivers/hwtracing/coresight/coresight-tmc-etr.c    |  18 +
->   drivers/hwtracing/coresight/coresight-tmc.h        |   1 +
->   7 files changed, 563 insertions(+), 13 deletions(-)
-> 
-> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-ctcu b/Documentation/ABI/testing/sysfs-bus-coresight-devices-ctcu
-> new file mode 100644
-> index 000000000000..a58a05491f7a
-> --- /dev/null
-> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-ctcu
-> @@ -0,0 +1,8 @@
-> +What:           /sys/bus/coresight/devices/<ctcu-name>/irq_threshold[0:1]
-> +Date:           February 2026
-> +KernelVersion:  7.1
-> +Contact:        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>; Jinlong Mao <jinlong.mao@oss.qualcomm.com>; Jie Gan <jie.gan@oss.qualcomm.com>
-> +Description:
-> +		(RW) Configure the byte-cntr IRQ register for the specified ETR device
-> +		based on its port number. An interrupt is generated when the data size
-> +		exceeds the value set in the IRQ register.
-> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
-> index ab16d06783a5..821a1b06b20c 100644
-> --- a/drivers/hwtracing/coresight/Makefile
-> +++ b/drivers/hwtracing/coresight/Makefile
-> @@ -55,5 +55,5 @@ coresight-cti-y := coresight-cti-core.o	coresight-cti-platform.o \
->   obj-$(CONFIG_ULTRASOC_SMB) += ultrasoc-smb.o
->   obj-$(CONFIG_CORESIGHT_DUMMY) += coresight-dummy.o
->   obj-$(CONFIG_CORESIGHT_CTCU) += coresight-ctcu.o
-> -coresight-ctcu-y := coresight-ctcu-core.o
-> +coresight-ctcu-y := coresight-ctcu-core.o coresight-ctcu-byte-cntr.o
->   obj-$(CONFIG_CORESIGHT_KUNIT_TESTS) += coresight-kunit-tests.o
-> diff --git a/drivers/hwtracing/coresight/coresight-ctcu-byte-cntr.c b/drivers/hwtracing/coresight/coresight-ctcu-byte-cntr.c
-> new file mode 100644
-> index 000000000000..bf59e654465b
-> --- /dev/null
-> +++ b/drivers/hwtracing/coresight/coresight-ctcu-byte-cntr.c
-> @@ -0,0 +1,367 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-> + */
-> +
-> +#include <linux/coresight.h>
-> +#include <linux/device.h>
-> +#include <linux/fs.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/of_irq.h>
-> +#include <linux/uaccess.h>
-> +
-> +#include "coresight-ctcu.h"
-> +#include "coresight-priv.h"
-> +#include "coresight-tmc.h"
-> +
-> +static irqreturn_t byte_cntr_handler(int irq, void *data)
-> +{
-> +	struct ctcu_byte_cntr *byte_cntr_data = (struct ctcu_byte_cntr *)data;
-> +
-> +	atomic_inc(&byte_cntr_data->irq_cnt);
-> +	wake_up(&byte_cntr_data->wq);
-> +
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static void ctcu_reset_sysfs_buf(struct tmc_drvdata *drvdata)
-> +{
-> +	u32 sts;
-> +
-> +	CS_UNLOCK(drvdata->base);
-> +	tmc_write_rrp(drvdata, drvdata->sysfs_buf->hwaddr);
-> +	tmc_write_rwp(drvdata, drvdata->sysfs_buf->hwaddr);
-> +	sts = readl_relaxed(drvdata->base + TMC_STS) & ~TMC_STS_FULL;
-> +	writel_relaxed(sts, drvdata->base + TMC_STS);
-> +	CS_LOCK(drvdata->base);
-> +}
-> +
-> +static void ctcu_cfg_byte_cntr_reg(struct tmc_drvdata *drvdata, u32 val, u32 offset)
-> +{
-> +	struct ctcu_drvdata *ctcu_drvdata;
-> +	struct coresight_device *helper;
-> +
-> +	helper = tmc_etr_get_ctcu_device(drvdata);
-> +	if (!helper)
-> +		return;
-> +
-> +	ctcu_drvdata = dev_get_drvdata(helper->dev.parent);
-> +	/* A one value for IRQCTRL register represents 8 bytes */
-> +	ctcu_program_register(ctcu_drvdata, val / 8, offset);
-> +}
-> +
-> +static struct ctcu_byte_cntr *ctcu_get_byte_cntr_data(struct tmc_drvdata *drvdata)
-> +{
-> +	struct ctcu_byte_cntr *byte_cntr_data;
-> +	struct ctcu_drvdata *ctcu_drvdata;
-> +	struct coresight_device *helper;
-> +	int port;
-> +
-> +	helper = tmc_etr_get_ctcu_device(drvdata);
-> +	if (!helper)
-> +		return NULL;
-> +
-> +	port = coresight_get_in_port(drvdata->csdev, helper);
-> +	if (port < 0)
-> +		return NULL;
-> +
-> +	ctcu_drvdata = dev_get_drvdata(helper->dev.parent);
-> +	byte_cntr_data = &ctcu_drvdata->byte_cntr_data[port];
-> +	return byte_cntr_data;
-> +}
-> +
-> +static bool ctcu_byte_cntr_switch_buffer(struct tmc_drvdata *drvdata,
-> +					 struct ctcu_byte_cntr *byte_cntr_data)
-> +{
-> +	struct etr_buf_node *nd, *next, *curr_node, *picked_node;
-> +	struct etr_buf *curr_buf = drvdata->sysfs_buf;
-> +	bool found_free_buf = false;
-> +
-> +	if (WARN_ON(!drvdata || !byte_cntr_data))
-> +		return found_free_buf;
-> +
-> +	/* Stop the ETR before we start the switch */
-> +	if (coresight_get_mode(drvdata->csdev) != CS_MODE_DISABLED)
-> +		tmc_etr_enable_disable_hw(drvdata, false);
-> +
-> +	list_for_each_entry_safe(nd, next, &drvdata->etr_buf_list, node) {
-> +		/* curr_buf is free for next round */
-> +		if (nd->sysfs_buf == curr_buf) {
-> +			nd->is_free = true;
-> +			curr_node = nd;
-> +		}
-> +
-> +		if (!found_free_buf && nd->is_free && nd->sysfs_buf != curr_buf) {
-> +			picked_node = nd;
-> +			found_free_buf = true;
-> +		}
-> +	}
-> +
-> +	if (found_free_buf) {
-> +		curr_node->pos = 0;
-> +		drvdata->reading_node = curr_node;
-> +		drvdata->sysfs_buf = picked_node->sysfs_buf;
-> +		drvdata->etr_buf = picked_node->sysfs_buf;
-> +		picked_node->is_free = false;
-> +		/* Reset irq_cnt for next etr_buf */
-> +		atomic_set(&byte_cntr_data->irq_cnt, 0);
-> +		/* Reset rrp and rwp when the system has switched the buffer*/
-> +		ctcu_reset_sysfs_buf(drvdata);
-> +		/* Restart the ETR when we find a free buffer */
-> +		if (coresight_get_mode(drvdata->csdev) != CS_MODE_DISABLED)
-> +			tmc_etr_enable_disable_hw(drvdata, true);
-> +	}
-> +
-> +	return found_free_buf;
-> +}
-> +
-> +/*
-> + * ctcu_byte_cntr_get_data() - reads data from the deactivated and filled buffer.
-> + * The byte-cntr reading work reads data from the deactivated and filled buffer.
-> + * The read operation waits for a buffer to become available, either filled or
-> + * upon timeout, and then reads trace data from the synced buffer.
-> + */
-> +static ssize_t ctcu_byte_cntr_get_data(struct tmc_drvdata *drvdata, loff_t pos,
-> +				       size_t len, char **bufpp)
-> +{
-> +	struct etr_buf *sysfs_buf = drvdata->sysfs_buf;
-> +	struct device *dev = &drvdata->csdev->dev;
-> +	ssize_t actual, size = sysfs_buf->size;
-> +	struct ctcu_byte_cntr *byte_cntr_data;
-> +	size_t thresh_val;
-> +	atomic_t *irq_cnt;
-> +	int ret;
-> +
-> +	byte_cntr_data = ctcu_get_byte_cntr_data(drvdata);
-> +	if (!byte_cntr_data)
-> +		return -EINVAL;
-> +
-> +	thresh_val = byte_cntr_data->thresh_val;
-> +	irq_cnt = &byte_cntr_data->irq_cnt;
-> +
-> +wait_buffer:
-> +	if (!byte_cntr_data->reading_buf) {
-> +		ret = wait_event_interruptible_timeout(byte_cntr_data->wq,
-> +				((atomic_read(irq_cnt) + 1) * thresh_val >= size) ||
-> +				!byte_cntr_data->enable,
-> +				BYTE_CNTR_TIMEOUT);
-> +		if (ret < 0)
-> +			return ret;
-> +		/*
-> +		 * The current etr_buf is almost full or timeout is triggered,
-> +		 * so switch the buffer and mark the switched buffer as reading.
-> +		 */
-> +		if (byte_cntr_data->enable) {
-> +			if (!ctcu_byte_cntr_switch_buffer(drvdata, byte_cntr_data)) {
-> +				dev_err(dev, "Switch buffer failed for byte-cntr\n");
-> +				return -EINVAL;
-> +			}
-> +
-> +			byte_cntr_data->reading_buf = true;
-> +		} else {
-> +			/*
-> +			 * TMC-ETR has been disabled, so directly reads data from
-> +			 * the drvdata->sysfs_buf.
-> +			 */
-> +			actual = drvdata->sysfs_ops->get_trace_data(drvdata, pos, len, bufpp);
-> +			if (actual > 0) {
-> +				byte_cntr_data->total_size += actual;
-> +				return actual;
-> +			}
-> +
-> +			/* Exit byte-cntr reading */
-> +			return 0;
-> +		}
-> +	}
-> +
-> +	/* Check the status of current etr_buf*/
-> +	if ((atomic_read(irq_cnt) + 1) * thresh_val >= size)
-> +		/*
-> +		 * Unlikely to find a free buffer to switch, so just disable
-> +		 * the ETR for a while.
-> +		 */
-> +		if (!ctcu_byte_cntr_switch_buffer(drvdata, byte_cntr_data))
-> +			dev_warn(dev, "No available buffer to store data, disable ETR\n");
-> +
-> +	pos = drvdata->reading_node->pos;
-> +	actual = drvdata->sysfs_ops->get_trace_data(drvdata, pos, len, bufpp);
-> +	if (actual <= 0) {
-> +		/* Reset flags upon reading is finished or failed */
-> +		byte_cntr_data->reading_buf = false;
-> +		drvdata->reading_node = NULL;
-> +
-> +		/*
-> +		 * Nothing in the buffer, waiting for the next buffer
-> +		 * to be filled.
-> +		 */
-> +		if (actual == 0)
-> +			goto wait_buffer;
-> +	} else
-> +		byte_cntr_data->total_size += actual;
-> +
-> +	return actual;
-> +}
-> +
-> +static int ctcu_read_prepare_byte_cntr(struct tmc_drvdata *drvdata)
-> +{
-> +	struct ctcu_byte_cntr *byte_cntr_data;
-> +	unsigned long flags;
-> +	int ret = 0;
-> +
-> +	/* config types are set a boot time and never change */
-> +	if (WARN_ON_ONCE(drvdata->config_type != TMC_CONFIG_TYPE_ETR))
-> +		return -EINVAL;
-> +
-> +	/*
-> +	 * Byte counter reading should start only after the TMC-ETR has been
-> +	 * enabled, which implies that the sysfs_buf has already been setup
-> +	 * in drvdata.
-> +	 */
-> +	if (!drvdata->sysfs_buf)
-> +		return -EINVAL;
-> +
-> +	byte_cntr_data = ctcu_get_byte_cntr_data(drvdata);
-> +	if (!byte_cntr_data)
-> +		return -EINVAL;
-> +
-> +	/*
-> +	 * The threshold value must not exceed the buffer size.
-> +	 * A margin should be maintained between the two values to account
-> +	 * for the time gap between the interrupt and buffer switching.
-> +	 */
-> +	if (byte_cntr_data->thresh_val + SZ_16K >= drvdata->size) {
-> +		dev_err(&drvdata->csdev->dev, "The threshold value is too large\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
-> +	if (byte_cntr_data->reading) {
-> +		ret = -EBUSY;
-> +		goto out_unlock;
-> +	}
-> +
-> +	byte_cntr_data->reading = true;
-> +	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
-> +	/* Setup an available etr_buf_list for byte-cntr */
-> +	ret = tmc_create_etr_buf_list(drvdata, 2);
-> +	if (ret)
-> +		goto out;
-> +
-> +	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
-> +	atomic_set(&byte_cntr_data->irq_cnt, 0);
-> +	/* Configure the byte-cntr register to enable IRQ */
-> +	ctcu_cfg_byte_cntr_reg(drvdata, byte_cntr_data->thresh_val,
-> +			       byte_cntr_data->irq_ctrl_offset);
-> +	enable_irq_wake(byte_cntr_data->irq);
-> +	byte_cntr_data->total_size = 0;
-> +
-> +out_unlock:
-> +	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
-> +
-> +out:
-> +	return ret;
-> +}
-> +
-> +static int ctcu_read_unprepare_byte_cntr(struct tmc_drvdata *drvdata)
-> +{
-> +	struct device *dev = &drvdata->csdev->dev;
-> +	struct ctcu_byte_cntr *byte_cntr_data;
-> +	unsigned long flags;
-> +
-> +	byte_cntr_data = ctcu_get_byte_cntr_data(drvdata);
-> +	if (!byte_cntr_data)
-> +		return -EINVAL;
-> +
-> +	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
-> +	/* Configure the byte-cntr register to disable IRQ */
-> +	ctcu_cfg_byte_cntr_reg(drvdata, 0, byte_cntr_data->irq_ctrl_offset);
-> +	disable_irq_wake(byte_cntr_data->irq);
-> +	byte_cntr_data->reading = false;
-> +	byte_cntr_data->reading_buf = false;
-> +	drvdata->reading_node = NULL;
-> +	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
-> +	dev_dbg(dev, "send data total size:%llu bytes\n", byte_cntr_data->total_size);
-> +	tmc_clean_etr_buf_list(drvdata);
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct tmc_sysfs_ops byte_cntr_sysfs_ops = {
-> +	.read_prepare	= ctcu_read_prepare_byte_cntr,
-> +	.read_unprepare	= ctcu_read_unprepare_byte_cntr,
-> +	.get_trace_data	= ctcu_byte_cntr_get_data,
-> +};
-> +
-> +/* Start the byte-cntr function when the path is enabled. */
-> +void ctcu_byte_cntr_start(struct coresight_device *csdev, struct coresight_path *path)
-> +{
-> +	struct ctcu_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> +	struct coresight_device *sink = coresight_get_sink(path);
-> +	struct ctcu_byte_cntr *byte_cntr_data;
-> +	int port_num;
-> +
-> +	if (!sink)
-> +		return;
-> +
-> +	port_num = coresight_get_in_port(sink, csdev);
-> +	if (port_num < 0)
-> +		return;
-> +
-> +	byte_cntr_data = &drvdata->byte_cntr_data[port_num];
-> +	/* Don't start byte-cntr function when threshold is not set. */
-> +	if (!byte_cntr_data->thresh_val || byte_cntr_data->enable)
-> +		return;
-> +
-> +	guard(raw_spinlock_irqsave)(&byte_cntr_data->spin_lock);
-> +	byte_cntr_data->enable = true;
-> +	byte_cntr_data->reading_buf = false;
-> +}
-> +
-> +/* Stop the byte-cntr function when the path is disabled. */
-> +void ctcu_byte_cntr_stop(struct coresight_device *csdev, struct coresight_path *path)
-> +{
-> +	struct ctcu_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> +	struct coresight_device *sink = coresight_get_sink(path);
-> +	struct ctcu_byte_cntr *byte_cntr_data;
-> +	int port_num;
-> +
-> +	if (!sink || coresight_get_mode(sink) == CS_MODE_SYSFS)
-> +		return;
-> +
-> +	port_num = coresight_get_in_port(sink, csdev);
-> +	if (port_num < 0)
-> +		return;
-> +
-> +	byte_cntr_data = &drvdata->byte_cntr_data[port_num];
-> +	guard(raw_spinlock_irqsave)(&byte_cntr_data->spin_lock);
-> +	byte_cntr_data->enable = false;
-> +}
-> +
-> +void ctcu_byte_cntr_init(struct device *dev, struct ctcu_drvdata *drvdata, int etr_num)
-> +{
-> +	struct ctcu_byte_cntr *byte_cntr_data;
-> +	struct device_node *nd = dev->of_node;
-> +	int irq_num, ret, i;
-> +
-> +	drvdata->byte_cntr_sysfs_ops = &byte_cntr_sysfs_ops;
-> +	for (i = 0; i < etr_num; i++) {
-> +		byte_cntr_data = &drvdata->byte_cntr_data[i];
-> +		irq_num = of_irq_get(nd, i);
-> +		if (irq_num < 0) {
-> +			dev_err(dev, "Failed to get IRQ from DT for port%d\n", i);
-> +			continue;
-> +		}
-> +
-> +		ret = devm_request_irq(dev, irq_num, byte_cntr_handler,
-> +				       IRQF_TRIGGER_RISING | IRQF_SHARED,
-> +				       dev_name(dev), byte_cntr_data);
-> +		if (ret) {
-> +			dev_err(dev, "Failed to register IRQ for port%d\n", i);
-> +			continue;
-> +		}
-> +
-> +		byte_cntr_data->irq = irq_num;
-> +		init_waitqueue_head(&byte_cntr_data->wq);
-> +		raw_spin_lock_init(&drvdata->spin_lock);
+As the versioning is meant to identify the serialization format which
+is the same for params and stats, ideally we should have the same
+identifier both both.
 
-This is wrong here, correct:
-raw_spin_lock_init(&byte_cntr_data->spin_lock);
+However we can't simply remove enum v4l2_isp_version, to avoid
+breaking userspace. What about
 
-Sorry for the error, will fix it in next version.
+--- a/include/uapi/linux/media/v4l2-isp.h
++++ b/include/uapi/linux/media/v4l2-isp.h
+@@ -13,25 +13,33 @@
+ #include <linux/types.h>
 
-Thanks,
-Jie
+ /**
+- * enum v4l2_isp_params_version - V4L2 ISP parameters versioning
++ * enum v4l2_isp_version - V4L2 ISP serialization format versioning
+  *
+- * @V4L2_ISP_PARAMS_VERSION_V0: First version of the V4L2 ISP parameters format
+- *                             (for compatibility)
+- * @V4L2_ISP_PARAMS_VERSION_V1: First version of the V4L2 ISP parameters format
++ * @V4L2_ISP_VERSION_V0: First version of the V4L2 ISP serialization format
++ *                     (for compatibility)
++ * @V4L2_ISP_VERSION_V1: First version of the V4L2 ISP serialization format
+  *
+  * V0 and V1 are identical in order to support drivers compatible with the V4L2
+- * ISP parameters format already upstreamed which use either 0 or 1 as their
+- * versioning identifier. Both V0 and V1 refers to the first version of the
+- * V4L2 ISP parameters format.
++ * ISP format already upstreamed which use either 0 or 1 as their versioning
++ * identifier. Both V0 and V1 refers to the first version of the V4L2 ISP
++ * serialization format.
+  *
+- * Future revisions of the V4L2 ISP parameters format should start from the
++ * Future revisions of the V4L2 ISP serialization format should start from the
+  * value of 2.
+  */
+-enum v4l2_isp_params_version {
+-       V4L2_ISP_PARAMS_VERSION_V0 = 0,
+-       V4L2_ISP_PARAMS_VERSION_V1
++enum v4l2_isp_version {
++       V4L2_ISP_VERSION_V0 = 0,
++       V4L2_ISP_VERSION_V1
+ };
 
-> +	}
-> +}
-> diff --git a/drivers/hwtracing/coresight/coresight-ctcu-core.c b/drivers/hwtracing/coresight/coresight-ctcu-core.c
-> index 78be783b3cb2..0e5cadaac350 100644
-> --- a/drivers/hwtracing/coresight/coresight-ctcu-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-ctcu-core.c
-> @@ -15,6 +15,7 @@
->   #include <linux/platform_device.h>
->   #include <linux/pm_runtime.h>
->   #include <linux/slab.h>
-> +#include <linux/sizes.h>
->   
->   #include "coresight-ctcu.h"
->   #include "coresight-priv.h"
-> @@ -45,17 +46,21 @@ DEFINE_CORESIGHT_DEVLIST(ctcu_devs, "ctcu");
->   
->   #define CTCU_ATID_REG_BIT(traceid)	(traceid % 32)
->   #define CTCU_ATID_REG_SIZE		0x10
-> +#define CTCU_ETR0_IRQCTRL               0x6c
-> +#define CTCU_ETR1_IRQCTRL               0x70
->   #define CTCU_ETR0_ATID0			0xf8
->   #define CTCU_ETR1_ATID0			0x108
->   
->   static const struct ctcu_etr_config sa8775p_etr_cfgs[] = {
->   	{
-> -		.atid_offset	= CTCU_ETR0_ATID0,
-> -		.port_num	= 0,
-> +		.atid_offset		= CTCU_ETR0_ATID0,
-> +		.irq_ctrl_offset	= CTCU_ETR0_IRQCTRL,
-> +		.port_num		= 0,
->   	},
->   	{
-> -		.atid_offset	= CTCU_ETR1_ATID0,
-> -		.port_num	= 1,
-> +		.atid_offset		= CTCU_ETR1_ATID0,
-> +		.irq_ctrl_offset	= CTCU_ETR1_IRQCTRL,
-> +		.port_num		= 1,
->   	},
->   };
->   
-> @@ -64,6 +69,88 @@ static const struct ctcu_config sa8775p_cfgs = {
->   	.num_etr_config	= ARRAY_SIZE(sa8775p_etr_cfgs),
->   };
->   
-> +void ctcu_program_register(struct ctcu_drvdata *drvdata, u32 val, u32 offset)
-> +{
-> +	CS_UNLOCK(drvdata->base);
-> +	ctcu_writel(drvdata, val, offset);
-> +	CS_LOCK(drvdata->base);
-> +}
-> +
-> +static ssize_t irq_threshold_show(struct device *dev,
-> +				  struct device_attribute *attr,
-> +				  char *buf)
-> +{
-> +	struct ctcu_byte_cntr_irq_attribute *irq_attr =
-> +		container_of(attr, struct ctcu_byte_cntr_irq_attribute, attr);
-> +	struct ctcu_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +	u8 port = irq_attr->port;
-> +
-> +	if (!drvdata->byte_cntr_data[port].irq_ctrl_offset)
-> +		return -EINVAL;
-> +
-> +	return sysfs_emit(buf, "%u\n",
-> +			(unsigned int)drvdata->byte_cntr_data[port].thresh_val);
-> +}
-> +
-> +static ssize_t irq_threshold_store(struct device *dev,
-> +				   struct device_attribute *attr,
-> +				   const char *buf,
-> +				   size_t size)
-> +{
-> +	struct ctcu_byte_cntr_irq_attribute *irq_attr =
-> +		container_of(attr, struct ctcu_byte_cntr_irq_attribute, attr);
-> +	struct ctcu_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +	u8 port = irq_attr->port;
-> +	unsigned long val;
-> +
-> +	if (kstrtoul(buf, 0, &val))
-> +		return -EINVAL;
-> +
-> +	/* Threshold 0 disables the interruption. */
-> +	guard(raw_spinlock_irqsave)(&drvdata->spin_lock);
-> +	/* A small threshold will result in a large number of interruptions */
-> +	if (val && val < SZ_4K)
-> +		return -EINVAL;
-> +
-> +	if (drvdata->byte_cntr_data[port].irq_ctrl_offset)
-> +		drvdata->byte_cntr_data[port].thresh_val = val;
-> +
-> +	return size;
-> +}
-> +
-> +static umode_t irq_threshold_is_visible(struct kobject *kobj,
-> +					struct attribute *attr, int n)
-> +{
-> +	struct device_attribute *dev_attr =
-> +		container_of(attr, struct device_attribute, attr);
-> +	struct ctcu_byte_cntr_irq_attribute *irq_attr =
-> +		container_of(dev_attr, struct ctcu_byte_cntr_irq_attribute, attr);
-> +	struct device *dev = kobj_to_dev(kobj);
-> +	struct ctcu_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +	u8 port = irq_attr->port;
-> +
-> +	if (drvdata && drvdata->byte_cntr_data[port].irq_ctrl_offset)
-> +		return attr->mode;
-> +
-> +	return 0;
-> +}
-> +
-> +static struct attribute *ctcu_attrs[] = {
-> +	ctcu_byte_cntr_irq_rw(0),
-> +	ctcu_byte_cntr_irq_rw(1),
-> +	NULL,
-> +};
-> +
-> +static struct attribute_group ctcu_attr_grp = {
-> +	.attrs = ctcu_attrs,
-> +	.is_visible = irq_threshold_is_visible,
-> +};
-> +
-> +static const struct attribute_group *ctcu_attr_grps[] = {
-> +	&ctcu_attr_grp,
-> +	NULL,
-> +};
-> +
->   static void ctcu_program_atid_register(struct ctcu_drvdata *drvdata, u32 reg_offset,
->   				       u8 bit, bool enable)
->   {
-> @@ -142,11 +229,15 @@ static int ctcu_set_etr_traceid(struct coresight_device *csdev, struct coresight
->   static int ctcu_enable(struct coresight_device *csdev, enum cs_mode mode,
->   		       struct coresight_path *path)
->   {
-> +	ctcu_byte_cntr_start(csdev, path);
-> +
->   	return ctcu_set_etr_traceid(csdev, path, true);
->   }
->   
->   static int ctcu_disable(struct coresight_device *csdev, struct coresight_path *path)
->   {
-> +	ctcu_byte_cntr_stop(csdev, path);
-> +
->   	return ctcu_set_etr_traceid(csdev, path, false);
->   }
->   
-> @@ -197,7 +288,10 @@ static int ctcu_probe(struct platform_device *pdev)
->   			for (i = 0; i < cfgs->num_etr_config; i++) {
->   				etr_cfg = &cfgs->etr_cfgs[i];
->   				drvdata->atid_offset[i] = etr_cfg->atid_offset;
-> +				drvdata->byte_cntr_data[i].irq_ctrl_offset =
-> +					etr_cfg->irq_ctrl_offset;
->   			}
-> +			ctcu_byte_cntr_init(dev, drvdata, cfgs->num_etr_config);
->   		}
->   	}
->   
-> @@ -209,6 +303,7 @@ static int ctcu_probe(struct platform_device *pdev)
->   	desc.subtype.helper_subtype = CORESIGHT_DEV_SUBTYPE_HELPER_CTCU;
->   	desc.pdata = pdata;
->   	desc.dev = dev;
-> +	desc.groups = ctcu_attr_grps;
->   	desc.ops = &ctcu_ops;
->   	desc.access = CSDEV_ACCESS_IOMEM(base);
->   
-> diff --git a/drivers/hwtracing/coresight/coresight-ctcu.h b/drivers/hwtracing/coresight/coresight-ctcu.h
-> index e9594c38dd91..bc833482c8bc 100644
-> --- a/drivers/hwtracing/coresight/coresight-ctcu.h
-> +++ b/drivers/hwtracing/coresight/coresight-ctcu.h
-> @@ -5,19 +5,26 @@
->   
->   #ifndef _CORESIGHT_CTCU_H
->   #define _CORESIGHT_CTCU_H
-> +
-> +#include <linux/time.h>
->   #include "coresight-trace-id.h"
->   
->   /* Maximum number of supported ETR devices for a single CTCU. */
->   #define ETR_MAX_NUM	2
->   
-> +#define BYTE_CNTR_TIMEOUT	(5 * HZ)
-> +
->   /**
->    * struct ctcu_etr_config
->    * @atid_offset:	offset to the ATID0 Register.
-> - * @port_num:		in-port number of CTCU device that connected to ETR.
-> + * @port_num:		in-port number of the CTCU device that connected to ETR.
-> + * @irq_ctrl_offset:    offset to the BYTECNTRVAL register.
-> + * @irq_name:           IRQ name in dt node.
->    */
->   struct ctcu_etr_config {
->   	const u32 atid_offset;
->   	const u32 port_num;
-> +	const u32 irq_ctrl_offset;
->   };
->   
->   struct ctcu_config {
-> @@ -25,15 +32,69 @@ struct ctcu_config {
->   	int num_etr_config;
->   };
->   
-> -struct ctcu_drvdata {
-> -	void __iomem		*base;
-> -	struct clk		*apb_clk;
-> -	struct device		*dev;
-> -	struct coresight_device	*csdev;
-> +/**
-> + * struct ctcu_byte_cntr
-> + * @enable:		indicates that byte_cntr function is enabled or not.
-> + * @reading:		indicates that byte-cntr reading is started.
-> + * @reading_buf:	indicates that byte-cntr is reading data from the buffer.
-> + * @thresh_val:		threshold to trigger a interruption.
-> + * @total_size:		total size of transferred data.
-> + * @irq:		allocated number of the IRQ.
-> + * @irq_cnt:		IRQ count number for triggered interruptions.
-> + * @wq:			waitqueue for reading data from ETR buffer.
-> + * @spin_lock:		spinlock of byte_cntr_data.
-> + * @irq_ctrl_offset:	offset to the BYTECNTVAL Register.
-> + */
-> +struct ctcu_byte_cntr {
-> +	bool			enable;
-> +	bool                    reading;
-> +	bool			reading_buf;
-> +	u32			thresh_val;
-> +	u64			total_size;
-> +	int			irq;
-> +	atomic_t		irq_cnt;
-> +	wait_queue_head_t	wq;
->   	raw_spinlock_t		spin_lock;
-> -	u32			atid_offset[ETR_MAX_NUM];
-> +	u32			irq_ctrl_offset;
-> +};
-> +
-> +struct ctcu_drvdata {
-> +	void __iomem			*base;
-> +	struct clk			*apb_clk;
-> +	struct device			*dev;
-> +	struct coresight_device		*csdev;
-> +	struct ctcu_byte_cntr		byte_cntr_data[ETR_MAX_NUM];
-> +	raw_spinlock_t			spin_lock;
-> +	u32				atid_offset[ETR_MAX_NUM];
->   	/* refcnt for each traceid of each sink */
-> -	u8			traceid_refcnt[ETR_MAX_NUM][CORESIGHT_TRACE_ID_RES_TOP];
-> +	u8				traceid_refcnt[ETR_MAX_NUM][CORESIGHT_TRACE_ID_RES_TOP];
-> +	const struct tmc_sysfs_ops	*byte_cntr_sysfs_ops;
->   };
->   
-> +/**
-> + * struct ctcu_irq_thresh_attribute
-> + * @attr:	The device attribute.
-> + * @idx:	port number.
-> + */
-> +struct ctcu_byte_cntr_irq_attribute {
-> +	struct device_attribute	attr;
-> +	u8			port;
-> +};
-> +
-> +#define ctcu_byte_cntr_irq_rw(port)					\
-> +	(&((struct ctcu_byte_cntr_irq_attribute[]) {			\
-> +	   {								\
-> +		__ATTR(irq_threshold##port, 0644, irq_threshold_show,	\
-> +		irq_threshold_store),					\
-> +		port,							\
-> +	   }								\
-> +	})[0].attr.attr)
-> +
-> +void ctcu_program_register(struct ctcu_drvdata *drvdata, u32 val, u32 offset);
-> +
-> +/* Byte-cntr functions */
-> +void ctcu_byte_cntr_start(struct coresight_device *csdev, struct coresight_path *path);
-> +void ctcu_byte_cntr_stop(struct coresight_device *csdev, struct coresight_path *path);
-> +void ctcu_byte_cntr_init(struct device *dev, struct ctcu_drvdata *drvdata, int port_num);
-> +
->   #endif
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> index 32353980964a..83514966df5a 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> @@ -1187,6 +1187,10 @@ ssize_t tmc_etr_get_sysfs_trace(struct tmc_drvdata *drvdata,
->   	ssize_t actual = len;
->   	struct etr_buf *etr_buf = drvdata->sysfs_buf;
->   
-> +	/* Reading the buffer from the buf_node if it exists*/
-> +	if (drvdata->reading_node)
-> +		etr_buf = drvdata->reading_node->sysfs_buf;
-> +
->   	if (pos + actual > etr_buf->len)
->   		actual = etr_buf->len - pos;
->   	if (actual <= 0)
-> @@ -1250,6 +1254,20 @@ static void __tmc_etr_disable_hw(struct tmc_drvdata *drvdata)
->   
->   }
->   
-> +/**
-> + * tmc_etr_enable_disable_hw - enable/disable the ETR hw.
-> + * @drvdata:	drvdata of the TMC device.
-> + * @enable:	indicates enable/disable.
-> + */
-> +void tmc_etr_enable_disable_hw(struct tmc_drvdata *drvdata, bool enable)
-> +{
-> +	if (enable)
-> +		__tmc_etr_enable_hw(drvdata);
-> +	else
-> +		__tmc_etr_disable_hw(drvdata);
-> +}
-> +EXPORT_SYMBOL_GPL(tmc_etr_enable_disable_hw);
-> +
->   void tmc_etr_disable_hw(struct tmc_drvdata *drvdata)
->   {
->   	__tmc_etr_disable_hw(drvdata);
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
-> index 27dd72065c60..d60c70530c8a 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc.h
-> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
-> @@ -482,5 +482,6 @@ struct etr_buf *tmc_etr_get_buffer(struct coresight_device *csdev,
->   extern const struct attribute_group coresight_etr_group;
->   void tmc_clean_etr_buf_list(struct tmc_drvdata *drvdata);
->   int tmc_create_etr_buf_list(struct tmc_drvdata *drvdata, int num_nodes);
-> +void tmc_etr_enable_disable_hw(struct tmc_drvdata *drvdata, bool enable);
->   
->   #endif
-> 
++/*
++ * Compatibility with existing users of v4l2_isp_params which pre-date the
++ * introduction of v4l2_isp_stats.
++ */
++#define v4l2_isp_params_version        v4l2_isp_version
++#define V4L2_ISP_PARAMS_VERSION_V0     V4L2_ISP_VERSION_V0
++#define V4L2_ISP_PARAMS_VERSION_V1     V4L2_ISP_VERSION_V1
++
+ #define V4L2_ISP_PARAMS_FL_BLOCK_DISABLE       (1U << 0)
+ #define V4L2_ISP_PARAMS_FL_BLOCK_ENABLE                (1U << 1)
 
+> > > >
+> > > > > > are provided to match with params versions. On the other side, ENABLE and
+> > > > > > DISABLE flags are not really meaningfull for statistics purpose. So VALID
+> > > > > > and INVALID flags are introduced. Purpose is to force ISP driver to
+> > > > > > validate a statistics buffer, before it is consumed by userspace.
+> > > > >
+> > > > > Interesting. What do you mean with "validate a statistics buffer" ?
+> > > > > And if a driver has to do validation, why would it send upstream a
+> > > > > non-validated buffer ?
+> > > >
+> > > > Like for version, I wanted to keep same header structure, including flags.
+> > > > Since ENABLE/DISABLE is not relevant for statistics, I thought about using a
+> > > > "validation" flag, to force driver confirming statistics blocks are valid or
+> > > > not.
+> > >
+> > > See the question on the documentation patches.
+> > >
+> > > > If you feel it is useless, I'm fine with removing it. Should I keep a flag
+> > > > field anyway to stay aligned with params then ?
+> > >
+> > > RkISP1 has support for both "legacy" and "extensible" formats because
+> > > it has been mainline for a long time with the legacy format only. We
+> > > couldn't simply replace the existing format with the new one because
+> > > we would break existing users.
+> > >
+> > > All the other drivers that have been upstreamed with extensible only
+> > > (Amlogic C3 and Mali C55) do not expose a legacy format as there was
+> > > not prior version in mainline on which userspace might depend on.
+> > >
+> > > Unless you have very convincing reason, I would certainly drop the
+> > > legacy format and only use extensible.
+> >
+> > I agree with that, for upstream we shouldn't carry legacy formats in new
+> > drivers. I've read elsewhere in this thread that it won't cause issues,
+> > otherwise I would have recommended carrying an extra patch in the BSP
+> > kernel to implement legacy formats, and only use extensible formats
+> > upstream.
+>
+> ok. I'm fine with removing legacy format from neo driver, and keep it only
+> in downstream for some time.
+>
+
+Thank you!
+
+> >
+> > > > > > Signed-off-by: Antoine Bouyer <antoine.bouyer@nxp.com>
+> > > > > > ---
+> > > > > >    include/uapi/linux/media/v4l2-isp.h | 85 +++++++++++++++++++++++++++++
+> > > > > >    1 file changed, 85 insertions(+)
+> > > > > >
+> > > > > > diff --git a/include/uapi/linux/media/v4l2-isp.h b/include/uapi/linux/media/v4l2-isp.h
+> > > > > > index 779168f9058e..ed1279b86694 100644
+> > > > > > --- a/include/uapi/linux/media/v4l2-isp.h
+> > > > > > +++ b/include/uapi/linux/media/v4l2-isp.h
+> > > > > > @@ -99,4 +99,89 @@ struct v4l2_isp_params_buffer {
+> > > > > >         __u8 data[] __counted_by(data_size);
+> > > > > >    };
+> > > > > >
+> > > > > > +/**
+> > > > > > + * enum v4l2_isp_stats_version - V4L2 ISP statistics versioning
+> > > > > > + *
+> > > > > > + * @V4L2_ISP_STATS_VERSION_V0: First version of the V4L2 ISP statistics format
+> > > > > > + *                          (for compatibility)
+> > > > > > + * @V4L2_ISP_STATS_VERSION_V1: First version of the V4L2 ISP statistics format
+> > > > > > + *
+> > > > > > + * V0 and V1 are identical, and comply with V4l2 ISP parameters versions. So
+> > > > > > + * both V0 and V1 refers to the first version of the V4L2 ISP statistics
+> > > > > > + * format.
+> > > > > > + *
+> > > > > > + * Future revisions of the V4L2 ISP statistics format should start from the
+> > > > > > + * value of 2.
+> > > > > > + */
+> > > > > > +enum v4l2_isp_stats_version {
+> > > > > > +     V4L2_ISP_STATS_VERSION_V0 = 0,
+> > > > > > +     V4L2_ISP_STATS_VERSION_V1,
+> > > > >
+> > > > > As suggested I would make V1 == 0
+> > > > >
+> > > > > > +};
+> > > > > > +
+> > > > > > +#define V4L2_ISP_PARAMS_FL_BLOCK_VALID               (1U << 0)
+> > > > > > +#define V4L2_ISP_PARAMS_FL_BLOCK_INVALID     (1U << 1)
+> > > > > > +
+> > > > > > +/*
+> > > > > > + * Reserve the first 8 bits for V4L2_ISP_STATS_FL_* flag.
+> > > > > > + *
+> > > > > > + * Driver-specific flags should be defined as:
+> > > > > > + * #define DRIVER_SPECIFIC_FLAG0     ((1U << V4L2_ISP_STATS_FL_DRIVER_FLAGS(0))
+> > > > > > + * #define DRIVER_SPECIFIC_FLAG1     ((1U << V4L2_ISP_STATS_FL_DRIVER_FLAGS(1))
+> > > > > > + */
+> > > > > > +#define V4L2_ISP_STATS_FL_DRIVER_FLAGS(n)       ((n) + 8)
+> > > > >
+> > > > > Currently we have no users of V4L2_ISP_PARAMS_FL_DRIVER_FLAGS so we
+> > > > > could even consider making it a V4L2_ISP_FL_DRIVER_FLAGS
+> > > > >
+> > > > > Or do you think it is worth creating a new symbol ?
+> > > >
+> > > > To limit impact on potential on-going development, and future conflict,
+> > > > creating new symbol may be safer IMO. But I'm fine with using a single
+> > > > symbol if you prefer. Most probably this flag customization is not used yet
+> > > > by any driver.
+> > > >
+> > > > > > +
+> > > > > > +/**
+> > > > > > + * struct v4l2_isp_stats_block_header - V4L2 extensible statistics block header
+> > > > > > + * @type: The statistics block type (driver-specific)
+> > > > > > + * @flags: A bitmask of block flags (driver-specific)
+> > > > > > + * @size: Size (in bytes) of the statistics block, including this header
+> > > > > > + *
+> > > > > > + * This structure represents the common part of all the ISP statistics blocks.
+> > > > > > + * Each statistics block shall embed an instance of this structure type as its
+> > > > > > + * first member, followed by the block-specific statistics data.
+> > > > > > + *
+> > > > > > + * The @type field is an ISP driver-specific value that identifies the block
+> > > > > > + * type. The @size field specifies the size of the parameters block.
+> > > > > > + *
+> > > > > > + * The @flags field is a bitmask of per-block flags V4L2_STATS_ISP_FL_* and
+> > > > > > + * driver-specific flags specified by the driver header.
+> > > > > > + */
+> > > > > > +struct v4l2_isp_stats_block_header {
+> > > > > > +     __u16 type;
+> > > > > > +     __u16 flags;
+> > > > > > +     __u32 size;
+> > > > > > +} __attribute__((aligned(8)));
+> > > > > > +
+> > > > >
+> > > > > This is currently identical to v4l2_isp_params_block_header.
+> > > > >
+> > > > > Can we create a single header for both stats and params and provide a
+> > > > >
+> > > > > #define v4l2_isp_params_block_header v4l2_isp_block_header
+> > > > >
+> > > > > for maintaining compatibility with existing users ?
+> > > > >
+> > > > > Or do you expect stats and params to eventually need different headers ?
+> > > >
+> > > > Current approach is to use same structure definitions as for params. So I'm
+> > > > fine with creating a single header as suggested, and provide symbols to keep
+> > > > compatibility.
+> > > >
+> > > > > > +/**
+> > > > > > + * struct v4l2_isp_stats_buffer - V4L2 extensible statistics data
+> > > > > > + * @version: The statistics buffer version (driver-specific)
+> > > > > > + * @data_size: The statistics data effective size, excluding this header
+> > > > > > + * @data: The statistics data
+> > > > > > + *
+> > > > > > + * This structure contains the statistics information of the ISP hardware,
+> > > > > > + * serialized for userspace into a data buffer. Each statistics block is
+> > > > > > + * represented by a block-specific structure which contains a
+> > > > > > + * :c:type:`v4l2_isp_stats_block_header` entry as first member. Driver
+> > > > > > + * populates the @data buffer with statistics information of the ISP blocks it
+> > > > > > + * intends to share to userspace. As a consequence, the data buffer effective
+> > > > > > + * size changes according to the number of ISP blocks that driver intends to
+> > > > > > + * provide and is set by the driver in the @data_size field.
+> > > > > > + *
+> > > > > > + * The statistics buffer is versioned by the @version field to allow modifying
+> > > > > > + * and extending its definition. Driver shall populate the @version field to
+> > > > > > + * inform the userpsace about the version it intends to use. The userspace will
+> > > > > > + * parse and handle the @data buffer according to the data layout specific to
+> > > > > > + * the indicated version.
+> > > > > > + *
+> > > > > > + * For each ISP block that driver wants to report, a block-specific structure
+> > > > > > + * is appended to the @data buffer, one after the other without gaps in
+> > > > > > + * between. Driver shall populate the @data_size field with the effective
+> > > > > > + * size, in bytes, of the @data buffer.
+> > > > > > + */
+> > > > > > +struct v4l2_isp_stats_buffer {
+> > > > > > +     __u32 version;
+> > > > > > +     __u32 data_size;
+> > > > > > +     __u8 data[] __counted_by(data_size);
+> > > > > > +};
+> > > > > > +
+> > > > >
+> > > > > Same question. Should we introduce a struct v4l2_isp_buffer ?
+> > > >
+> > > > Yes, sounds reasonable.
+> >
+> > That seems to make sense. Once we'll have a driver using
+> > v4l2_isp_stats_buffer the structure will become ABI. If it then is an
+> > exact copy of v4l2_isp_params_buffer, it would make sense to unify them.
+> > Let's see what will happen after a few review rounds, if we end up
+> > requiring separate fields in the stats buffer header.
+>
+> ok to use same struct for both.
+>
+> >
+> > It would also be nice to implement support for extensible stats in a
+> > second driver to test the API.
+>
+> What is your preferred approach then ?
+>
+> Should I "split" v4l2_isp rework in different patchset BUT with another
+> driver using it (with userspace changes I guess). Not something I'm really
+> comfortable with since I only focused on i.MX95 isp so far. But if this is
+> the only way, that could be evaluated.
+>
+> Or should I "keep" v4l2_isp changes together with neoisp introduction ?
+
+It depends what you expect the timing for the next version of neoisp
+to be.
+
+However, to introduce new uAPI it is generally suggested to have at
+least one user, so if time aligns I would keep the two together.
+
+Thanks
+  j
+
+>
+> Thanks
+>
+> Best regards
+> Antoine
+>
+> >
+> > > > > >    #endif /* _UAPI_V4L2_ISP_H_ */
+> >
+> > --
+> > Regards,
+> >
+> > Laurent Pinchart
+>
 
