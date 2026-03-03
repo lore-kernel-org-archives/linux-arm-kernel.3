@@ -4,86 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 858BCEDEBF4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 19:52:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41D22EDEBEC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 20:00:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OfmNafyw82r8b/nILbArhutQpUUCDSZQ2+ECehHvseI=; b=JZmgM4+umUP8e1suf1ePZDvob9
-	CtDNWZiJudc0n3a/xK//oBZhrF4XJXETTVa4/fYkxjbOJcLslpj3XItWlgXSl5ZuQ1SGOtzkDmIz0
-	rkLH18Duz+q8KnEGjXCKvnKGewAbw4zEe79O8YZYHCphJAKGjEpwUWrx28fkiqLYryPiazbhMjV0Q
-	oQ4CZyAbKiZ5+OhFHwpVlNU+AAo0gpDdpXZ+QFaajkukWT3YhuoJy8PBSsOzK0E1DO/A1QSSGYYo5
-	7bjVXpUFvVhMK4SDSKiuuSrqAo83QFpmNL/GpSSLLnr3EuOD8p3Qj0LUnWdxWztDmANH1JRCgIsQu
-	BMpGQGMw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LrVCaQvW0iEI3otUrXDkdYdjfZQ36uxHWa4/LArwCVM=; b=OQPs8EXb3c983K1hg+HdNfRl/v
+	ryYiTMbyxrWGA3jG36pkX125+Og9KPZGsH/Nm2I+6NNLQiFOZt53/nznbW+3/lX/40lQj3tVLMZkd
+	SVBoaXtm4llwTknA4zX30WpUjlyQirxuySemNyKqhBdadi1iS0AgfDWWV5y6C3ejHO4e1LqNfedcg
+	uAu0gsmMpJzyYMUcv2ZgfwDrbHsywA1QDrjmaskHl5mjWqNfjUuDbol61tDYdTqUZrPBAHJEFySce
+	GvNj6sJq8LGsaQFDJKEdZIl7bjhOc+W9vwjxCvI0ywTb5TvSSJEuByOM55JU03EDxSRYDpIgojzjO
+	sJ+yxt9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxVnJ-0000000Fqht-3XXq;
-	Tue, 03 Mar 2026 19:52:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vxVul-0000000Frow-0NFL;
+	Tue, 03 Mar 2026 20:00:19 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxVnD-0000000Fqan-16N7;
-	Tue, 03 Mar 2026 19:52:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BF6014444F;
-	Tue,  3 Mar 2026 19:52:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A05BEC2BCB1;
-	Tue,  3 Mar 2026 19:52:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772567550;
-	bh=5YFZUcbTUgRm5DTNoNPFw3sTzCo45qe21WCODDGKvS0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=H50g3wSBgM1LjRrLe+T/UIcSXH7xANuYVo2Vfs8LxGm/JXP9ffECm5DhBktBs0xD1
-	 +9deEUV9qwxElksYzk4a8zemc1M2rA0R0o8p4077bWJOsDh3edbqDTl6s5DW4ryTIL
-	 8iev0NOWYU6temBQ0eA16lR2JE0v7bPPHSvZ0Z1M7bVA5xDe+to/MaaL43Dl6qL1i8
-	 z1TW0Z8heTx9DUGJdlwk5F9shjw3KACGgJ6gxWMp7bvepR5C7n/0xvtST6ergB0htd
-	 5p0kdP2caqTk8s4Q7tDvhIvFXow3+qO7F0sA+HJZvPgsnPNqvWx7RV1NHc8mM6tFB4
-	 LW/j0PK7OjpHA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 90A01EDEBEF;
-	Tue,  3 Mar 2026 19:52:30 +0000 (UTC)
-From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
-Date: Tue, 03 Mar 2026 20:52:29 +0100
-Subject: [PATCH v3 3/4] arm64: dts: rockchip: Use reference PCIe clock
- generator for BPI-R2-Pro
+	id 1vxVui-0000000FrlH-2KZ2
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Mar 2026 20:00:17 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4836f363d0dso53926185e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 12:00:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772568014; x=1773172814; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=LrVCaQvW0iEI3otUrXDkdYdjfZQ36uxHWa4/LArwCVM=;
+        b=MBJ3V9gjx9TbrQtzdbCS5Jc43FmzQS6HT6EzIA1H5PYi7wOQsBc+np8zzhW3Oj3ily
+         mvYXWQvhdtV1vNaF/sboc126mVgGItKa4+gzFkaEGn1v60BQwp96PBZ2X2PsJH2yHGMW
+         SXLzOEl6iq133PjIaJBtZZoDW9pBDuxrnkAGIKdRnOoEC3aaswKCjP+UjPOmQxzbnxfc
+         ee3UmJXKaCyUnSnoiCffbo+Jm5Po+M+o/QvDvMyJIW2QrmhG1NBpysfo7cLPjUrs3aYg
+         wg/GeZPmA1dY5UvdFS2CY+mxMymvlO91HTV1X+7tpZS/V0w2QQ0KpsF4owy5aB8DTfvf
+         +Q9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772568014; x=1773172814;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=LrVCaQvW0iEI3otUrXDkdYdjfZQ36uxHWa4/LArwCVM=;
+        b=I7uAe8Svsu46e5G0lGRku5zgXga+Q/CP5+GttFgvpoAmDf+r/pDNlfwE1gy6dYe5Gw
+         JWlWTfIxue1TDTKa0YuBBJtaRfZY0I/baCOG8b14HXc4bsLOGU2Teb/c1oNbXFh+wr8p
+         5nv2H07/rE3P3u+R7SL6FujZQxbQl6T2Y3vQAcOWgABI2/kTuyPJ7tVhGYJ4FzNChAaG
+         6iAroO9bndOR6nIGJaeanj0b6yPSAI6LQG3V9AoaVjHVFbHjkmOcPY6zMb7qU5NFfAi7
+         lVBgbBxWPVPFKd9mHZ1KSkEJXl+vwVwrWWtJRPTltboK6bbsfCTAyoiFoYXguyzKK2rh
+         Vekg==
+X-Forwarded-Encrypted: i=1; AJvYcCXjXJdiREYtSQ4I3pH76hzj6qYcvmLrC+eFxT4qulSvj4Jl1NlFQzV2JP/tLoOvr2W+tHHj/1E+SHLLDJGcdECE@lists.infradead.org
+X-Gm-Message-State: AOJu0YzrT+UngWCVQh6WIjoEw+3vAchksKB3pgEMw8H15SCBOiSS91Ej
+	W52mIVPAtsbtm3nTkwvCddMk9UW9UXoFXr5OA5QPf1LG72LhcqfcILAH
+X-Gm-Gg: ATEYQzxBaIT8dm4GeQvcu1tYeQj9l2TKnZXZgQCVn84aQcM0q8tRdsOBChcHliwwtoi
+	jU0YoioMvlzLMm9DsCXSPtgAw2qi2+2waxYx3a52uorW6EzSjMQmOsePdc2DMPqNjbYrnDrFehy
+	HzJZHrzY3T1/Vi5e76jl0tExJCYkN3/Q6nm7Mnh89CWNaxzaQLXImcaJphbNv7BeyBU6OzFFeNo
+	3SU5yvPNsxsI1hc5yX6Q8XxzUZ0mIGkKHRrWSblYEE5ej2Nrox4WJB6rIr9uzClFe5/0HUN7mM2
+	p9gNd9wH/1eInl99HQGNX4oWDvYtOZcX35cNiYKH16sg01bq+kJVNY15RXHg9XcWl4XTnKzLLOl
+	RN9eX35NiPPcCoX2mtkOnUlnLahOt6mU6ekhjinVRwHCULsnm18+251OspcTybLhric1Dt9cZ7M
+	ojEMXZSSoh6QgRBwlMob6x9H63E6VAcE0lKaEYG3mf1d/CP6+Mdpc2gQ==
+X-Received: by 2002:a05:600c:3b22:b0:477:a978:3a7b with SMTP id 5b1f17b1804b1-483c9bff7b0mr280384695e9.22.1772568013945;
+        Tue, 03 Mar 2026 12:00:13 -0800 (PST)
+Received: from Ansuel-XPS. (93-34-88-122.ip49.fastwebnet.it. [93.34.88.122])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-485133a91b1sm21667245e9.12.2026.03.03.12.00.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Mar 2026 12:00:13 -0800 (PST)
+Message-ID: <69a73dcd.7b0a0220.1ac46b.9bfc@mx.google.com>
+X-Google-Original-Message-ID: <aac9yrt6MhSXBSbO@Ansuel-XPS.>
+Date: Tue, 3 Mar 2026 21:00:10 +0100
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Aleksander Jan Bajkowski <olek2@wp.pl>
+Cc: herbert@gondor.apana.org.au, davem@davemloft.net,
+	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	lorenzo@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-crypto@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] arm64: dts: airoha: en7581: add crypto offload
+ support
+References: <20260303193923.85242-1-olek2@wp.pl>
+ <20260303193923.85242-2-olek2@wp.pl>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260303-rk3568-bri-r2-pro-fix-pcie-v3-3-af5a5207b0a1@ixit.cz>
-References: <20260303-rk3568-bri-r2-pro-fix-pcie-v3-0-af5a5207b0a1@ixit.cz>
-In-Reply-To: <20260303-rk3568-bri-r2-pro-fix-pcie-v3-0-af5a5207b0a1@ixit.cz>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Frank Wunderlich <frank-w@public-files.de>
-Cc: Martin Filla <freebsd@sysctl.cz>, 
- Charalampos Mitrodimas <charmitro@posteo.net>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, David Heidelberg <david@ixit.cz>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3580; i=david@ixit.cz;
- h=from:subject:message-id;
- bh=ErDena6uQvd0JzFK1uxs+tYPpVApCktOwvCHIp0f9fM=;
- b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBppzv8NGkEODwhzAbXCqppzfwNaLpq0XZL0mqZd
- I/ZhEoi+d6JAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCaac7/AAKCRBgAj/E00kg
- cv5LD/4qAWipALq+N7TdC2t3WCrg3REaLfx5ZbkwdflIivDNk0hv0MBM5PSkOXmM1hFF6d83DCG
- xuJ9ICz5bqUT9qOulKIzdjAWqBXO6GNT5x/eAIdWujRmITN7ik4Mj8x8KJW4go1yYecuYtfMGOG
- SHUyU5sWesQsJoM/JU/ENp2ov/fzE8/2bKjVZdmDBqrjJzfMUQFawjTwiE5+rB3Zs8fhJX2bc6D
- HzB2i6p77zRbU9iPjxCvaH39YB/X6GZbXMPIVUGvoqIiZaC55fmNCpMjJOJRiZaseuKaVwSqZzl
- /tfIvXpXSOenFcfmNeCZhEvQUYFzxp5t1BWag7/6kz9RqufdKEjKHaHwb3eDjqJSuBF1SbB9J+u
- VN9RbhHNAZ6VOvXmKwB9PkO6rM5a8Aom4wnSqA6/GrdNoT9AwhEIPjEcgm6cyXL9YkzVfMff+6x
- OhqL1rDqrJxl1qm/eU4l2UkfO03bEgL5DzEG7PxEFX8Dja1T5wmMtpFW9spl2xu5nnLyUC2mUE2
- 2b0gMPZ/vdYsym0O7jfFQtIx2A2HHsGNVNwig2t+tl66iBL23ZQys2c5gQI/N4PvOI5C3AJty8/
- R8WfdceqAaweEoIpkF1kKynWnrU1dxhJ7I6CpJGyGy8mOES99XmY9ImDREXcKRKbMXdoJtG444C
- akzUKBzT/d/NbFg==
-X-Developer-Key: i=david@ixit.cz; a=openpgp;
- fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
-X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
-X-Original-From: David Heidelberg <david@ixit.cz>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260303193923.85242-2-olek2@wp.pl>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_115231_358008_021B3848 
-X-CRM114-Status: GOOD (  11.96  )
+X-CRM114-CacheID: sfid-20260303_120016_684861_BB5A2B2C 
+X-CRM114-Status: GOOD (  16.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,121 +101,52 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: david@ixit.cz
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: David Heidelberg <david@ixit.cz>
+On Tue, Mar 03, 2026 at 08:39:18PM +0100, Aleksander Jan Bajkowski wrote:
+> Add support for the built-in cryptographic accelerator. This accelerator
+> supports 3DES, AES (128/192/256 bit), ARC4, MD5, SHA1, SHA224, and SHA256.
+> It also supports full IPSEC, SRTP and TLS offload.
+> 
+> Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
+> ---
+>  arch/arm64/boot/dts/airoha/en7581.dtsi | 12 ++++++++++++
+>  1 file changed, 12 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/airoha/en7581.dtsi b/arch/arm64/boot/dts/airoha/en7581.dtsi
+> index ff6908a76e8e..4931b704235a 100644
+> --- a/arch/arm64/boot/dts/airoha/en7581.dtsi
+> +++ b/arch/arm64/boot/dts/airoha/en7581.dtsi
+> @@ -300,6 +300,18 @@ rng@1faa1000 {
+>  			interrupts = <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
+>  		};
+>  
+> +		crypto@1e004000 {
+> +			compatible = "airoha,en7581-eip93",
+> +				"inside-secure,safexcel-eip93ies";
+> +			reg = <0x0 0x1fb70000 0x0 0x1000>;
+> +
+> +			clocks = <&scuclk EN7523_CLK_CRYPTO>;
+> +
+> +			interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
+> +
+> +			resets = <&scuclk EN7581_CRYPTO_RST>;
 
-Describe properly PCIe clock, which allows us correct the
-toplogy (removing the vcc3v3-{minipcie,ngff} dependency on pi6c as
-supply) and adding the clock dependency in the PCIe nodes.
+I guess you can drop the extra new line between clocks interrupts and resets.
 
-Suggested-by: Heiko Stuebner <heiko@sntech.de>
-Tested-by: Martin Filla <freebsd@sysctl.cz>
-Signed-off-by: David Heidelberg <david@ixit.cz>
----
- arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts | 47 +++++++++++++++-------
- 1 file changed, 33 insertions(+), 14 deletions(-)
+Does the driver supports these property tho? For example the clock is just
+enabled or tweaked to a specific frequency? Same question for resets.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts b/arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts
-index d02b82c5f979a..3cdea9456a28c 100644
---- a/arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts
-@@ -120,18 +120,13 @@ pcie_refclk_gen: pcie-refclk-gen-clock {
- 		clock-frequency = <100000000>;
- 	};
- 
--	vcc3v3_pi6c_05: regulator-vcc3v3-pi6c-05 {
--		compatible = "regulator-fixed";
--		regulator-name = "vcc3v3_pcie";
--		regulator-min-microvolt = <3300000>;
--		regulator-max-microvolt = <3300000>;
--		enable-active-high;
--		gpios = <&gpio0 RK_PD4 GPIO_ACTIVE_HIGH>;
--		startup-delay-us = <200000>;
--		vin-supply = <&vcc5v0_sys>;
-+	pcie_refclk: pcie-refclk-clock {
-+		compatible = "gpio-gate-clock";
-+		clocks = <&pcie_refclk_gen>;
-+		#clock-cells = <0>;
-+		enable-gpios = <&gpio0 RK_PD4 GPIO_ACTIVE_HIGH>;
- 	};
- 
--	/* actually fed by vcc3v3_sys, dependent on pi6c clock generator */
- 	vcc3v3_minipcie: regulator-vcc3v3-minipcie {
- 		compatible = "regulator-fixed";
- 		regulator-name = "vcc3v3_minipcie";
-@@ -142,10 +137,9 @@ vcc3v3_minipcie: regulator-vcc3v3-minipcie {
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&minipcie_enable_h>;
- 		startup-delay-us = <50000>;
--		vin-supply = <&vcc3v3_pi6c_05>;
-+		vin-supply = <&vcc3v3_sys>;
- 	};
- 
--	/* actually fed by vcc3v3_sys, dependent on pi6c clock generator */
- 	vcc3v3_ngff: regulator-vcc3v3-ngff {
- 		compatible = "regulator-fixed";
- 		regulator-name = "vcc3v3_ngff";
-@@ -156,7 +150,7 @@ vcc3v3_ngff: regulator-vcc3v3-ngff {
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&ngffpcie_enable_h>;
- 		startup-delay-us = <50000>;
--		vin-supply = <&vcc3v3_pi6c_05>;
-+		vin-supply = <&vcc3v3_sys>;
- 	};
- 
- 	vcc5v0_usb: regulator-vcc5v0-usb {
-@@ -586,12 +580,24 @@ rgmii_phy1: ethernet-phy@0 {
- 
- &pcie30phy {
- 	data-lanes = <1 2>;
--	phy-supply = <&vcc3v3_pi6c_05>;
-+
- 	status = "okay";
- };
- 
- &pcie3x1 {
- 	/* M.2 slot */
-+	/*
-+	 * The board has a gpio-controlled "pcie_refclk" generator,
-+	 * so add it to the list of clocks.
-+	 */
-+	clocks = <&cru ACLK_PCIE30X1_MST>, <&cru ACLK_PCIE30X1_SLV>,
-+		 <&cru ACLK_PCIE30X1_DBI>, <&cru PCLK_PCIE30X1>,
-+		 <&cru CLK_PCIE30X1_AUX_NDFT>,
-+		 <&cru CLK_PCIE30X1_PIPE_DFT>,
-+		 <&pcie_refclk>;
-+	clock-names = "aclk_mst", "aclk_slv",
-+		      "aclk_dbi", "pclk", "aux",
-+		      "pipe", "ref";
- 	num-lanes = <1>;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&ngffpcie_reset_h>;
-@@ -602,6 +608,19 @@ &pcie3x1 {
- 
- &pcie3x2 {
- 	/* mPCIe slot */
-+	/*
-+	 * The board has a gpio-controlled "pcie_refclk" generator,
-+	 * so add it to the list of clocks.
-+	 */
-+	clocks = <&cru ACLK_PCIE30X2_MST>, <&cru ACLK_PCIE30X2_SLV>,
-+		 <&cru ACLK_PCIE30X2_DBI>, <&cru PCLK_PCIE30X2>,
-+		 <&cru CLK_PCIE30X2_AUX_NDFT>,
-+		 <&cru CLK_PCIE30X2_PIPE_DFT>,
-+		 <&pcie_refclk>;
-+	clock-names = "aclk_mst", "aclk_slv",
-+		      "aclk_dbi", "pclk", "aux",
-+		      "pipe", "ref";
-+
- 	num-lanes = <1>;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&minipcie_reset_h>;
+> +		};
+> +
+>  		system-controller@1fbf0200 {
+>  			compatible = "airoha,en7581-gpio-sysctl", "syscon",
+>  				     "simple-mfd";
+> -- 
+> 2.47.3
+> 
 
 -- 
-2.53.0
-
-
+	Ansuel
 
