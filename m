@@ -4,73 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A39A5EB362F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 17:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCD39EDEBE2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 18:15:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8lHYvI4XaM23b/ks3cNwFoJCsC49zZtfLRl0dNWwiNs=; b=ER4Nbh5VjPZ1Cy/PzqliXIotjb
-	8/w62f8XCFyB+qcdKPcvzrYIe49OBypc9w5kvilr5buV/Lxn432FNqc4tknd+RR3Ue+FP6EVuqMOJ
-	pgAumr0Aanr3fc+U0IbLkJsXwLJ29/DsbWNQsVKMNqw0fz83yh6/Fsrs9j/ptfoXmiZTZzWi2Wj+f
-	HhVyg7qjWKWjwMtuwd0Uxrf+BDL8AuU27ASn3R3SbzYp1hnWWT32QsH5C1bTZWs2STIAEPARfxbfk
-	1IR+I/ESPvehhRQluzqYCZiGevuTk/zyLAIWoI/deGga82FeDhz/YkULAFlpRvLNFdFKQkf6pVvws
-	a5iARYXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zRSFB+Kow30kkyNQlPlB1H4dALbfz4Gh6BYXFVdhCK4=; b=GpOVnaUG0xHGYwfcAoCR6wmp1P
+	5HM0g/yofUfYfLtLo4SpOmy1QdI5xIVaujj+V9yZho0jGw/7IFjsAcHfTr9TEphzG8wy6PlYsq7iG
+	aBgSpTGBa7345FdiO+NPt6NcihLOsMyxlY+GzIcLvn4JllrX6P1bCB/zqVIHwMbnCXaVBKQdpgow9
+	VvuWcWCcUcn6ao/y9RXxPfjshLuvf2eiOD1k9e5EQGWSqjp9faco1EQMJcrGGsfmxX9WBCeZSA+gV
+	UPfUddzLnxTWqSX61jm4DOerwM6ywC+pV+pwBg82FUkHXf+ziPseY/jbwv0IZnPgjR8HPvtHI1ssU
+	Ob/FHrKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxTzR-0000000FgFp-3mzD;
-	Tue, 03 Mar 2026 17:57:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vxUHC-0000000FhCS-3UXk;
+	Tue, 03 Mar 2026 18:15:22 +0000
+Received: from ixit.cz ([185.100.197.86])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxTzQ-0000000FgFR-0jKa;
-	Tue, 03 Mar 2026 17:57:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 61E7644480;
-	Tue,  3 Mar 2026 17:56:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9F0EC116C6;
-	Tue,  3 Mar 2026 17:56:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772560619;
-	bh=bubmxG6ci0dg97xq/tbfQq56C8X+tu4E9FIby9oyRm8=;
-	h=From:Date:Subject:To:Cc:From;
-	b=FjFsNgImvwWgOpJ2x+WI4WKLDwcvsAoBvdRmmOmXg5wfa6Xz/SpFFDhVGX1xXSOB7
-	 vEIyn2NrLaw7b3hNbYwILW9MV+to40lqRd85waV0qtmRj7JpXyYZi1uLRUiDAPnK7W
-	 1gpRpD6NgRHq5jY3MO5UB8D0uGmH5nEGtSXaHomq8NbUzrz7zk3LnpV1969S3rG+ci
-	 fx8tCrN+X3AinAgFmbxHA82BtSsL9ozCzl7n6L2SOBKBlQpRh8df36NLIQA3womgI1
-	 J1aBMQjzbRsM6IR9l48CgcKRGPm9VwazZ/vT/e1MOf/FBZx8e/l4mjZznKOSbCLarh
-	 Bcs6FqlA7g44w==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Tue, 03 Mar 2026 18:56:39 +0100
-Subject: [PATCH net v2] net: ethernet: mtk_eth_soc: Reset prog ptr to
- old_prog in case of error in mtk_xdp_setup()
+	id 1vxUH8-0000000FhBx-37Ao;
+	Tue, 03 Mar 2026 18:15:20 +0000
+Received: from [IPV6:2a02:f000:10bd:e301::1d7] (unknown [IPv6:2a02:f000:10bd:e301::1d7])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by ixit.cz (Postfix) with ESMTPSA id 68CD35341816;
+	Tue, 03 Mar 2026 19:15:01 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
+	t=1772561701;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=zRSFB+Kow30kkyNQlPlB1H4dALbfz4Gh6BYXFVdhCK4=;
+	b=hQAbXY4ZflAn48ecmR/w9PncxD6iQM73aeR+ItGW2FGeaCdaYE3p0zAweg7Qpz7/ytG3yS
+	WkL5bYLQd4aKRxO5UI+yBG5jJ1xjZA46iMZF7naSJAmHQMaogdPEazlyKdh4Mol7P5ZRPs
+	YWNnr4Kka+DrEHXh9zf0Z9TejKx68Gg=
+Message-ID: <7bccfc13-de1b-4464-b97f-ee9e98a8713a@ixit.cz>
+Date: Tue, 3 Mar 2026 19:14:59 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] arm64: dts: rockchip: Use reference PCIe clock
+ generator for BPI-R2-Pro
+To: Charalampos Mitrodimas <charmitro@posteo.net>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Martin Filla <freebsd@sysctl.cz>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260303-rk3568-bri-r2-pro-fix-pcie-v2-0-04665e55d5a8@ixit.cz>
+ <20260303-rk3568-bri-r2-pro-fix-pcie-v2-2-04665e55d5a8@ixit.cz>
+ <87fr6gn780.fsf@posteo.net>
+Content-Language: en-US
+From: David Heidelberg <david@ixit.cz>
+Autocrypt: addr=david@ixit.cz; keydata=
+ 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
+In-Reply-To: <87fr6gn780.fsf@posteo.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260303-mtk-xdp-prog-ptr-fix-v2-1-97b6dbbe240f@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32NQQ6CMBBFr0Jm7RioQsGV9zAsaBmgQdtm2hAM4
- e42PYDL/37++wcEYkMBHsUBTJsJxtkUxKUAvQx2JjRjyiBK0ZRCSPzEFffRo2c3o4+Mk9lxmOp
- OdVqTVAOkqWdKOGtfYClCn+BiQnT8zVdblav/1q3CCpW8jbJuW9Xc6+dKbOl9dTxDf57nD7C5M
- /2+AAAA
-X-Change-ID: 20260227-mtk-xdp-prog-ptr-fix-af59b9cce7ba
-To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
- Jesper Dangaard Brouer <hawk@kernel.org>, 
- John Fastabend <john.fastabend@gmail.com>, 
- Stanislav Fomichev <sdf@fomichev.me>, Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Paolo Valerio <pvalerio@redhat.com>, netdev@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- bpf@vger.kernel.org
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_095700_241544_A4F9DFD9 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20260303_101518_988064_070AA729 
+X-CRM114-Status: GOOD (  19.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,56 +122,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reset eBPF program pointer to old_prog and do not decrease its ref-count
-if mtk_open routine in mtk_xdp_setup() fails.
+On 03/03/2026 18:38, Charalampos Mitrodimas wrote:
+> David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org> writes:
+> 
+>> From: David Heidelberg <david@ixit.cz>
+>>
+>> Describe properly PCIe clock, which allows us correct the
+>> toplogy (removing the vcc3v3-{minipcie,ngff} dependency on pi6c as
+>> supply) and adding the clock dependency in the PCIe nodes.
+>>
+>> Suggested-by: Heiko Stuebner <heiko@sntech.de>
+>> Tested-by: Martin Filla <freebsd@sysctl.cz>
+>> Signed-off-by: David Heidelberg <david@ixit.cz>
+>> ---
+>>   arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts | 45 +++++++++++++++-------
+>>   1 file changed, 31 insertions(+), 14 deletions(-)
+>>
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts b/arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts
+>> index d02b82c5f979a..a071cb67579c4 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts
+>> @@ -120,18 +120,13 @@ pcie_refclk_gen: pcie-refclk-gen-clock {
+>>   		clock-frequency = <100000000>;
+>>   	};
+>>   
+>> -	vcc3v3_pi6c_05: regulator-vcc3v3-pi6c-05 {
+>> -		compatible = "regulator-fixed";
+>> -		regulator-name = "vcc3v3_pcie";
+>> -		regulator-min-microvolt = <3300000>;
+>> -		regulator-max-microvolt = <3300000>;
+>> -		enable-active-high;
+>> -		gpios = <&gpio0 RK_PD4 GPIO_ACTIVE_HIGH>;
+>> -		startup-delay-us = <200000>;
+>> -		vin-supply = <&vcc5v0_sys>;
+>> +	pcie_refclk: pcie-refclk-clock {
+>> +		compatible = "gpio-gate-clock";
+>> +		clocks = <&pcie_refclk_gen>;
+>> +		#clock-cells = <0>;
+>> +		enable-gpios = <&gpio0 RK_PD4 GPIO_ACTIVE_HIGH>;
+>>   	};
+>>   
+>> -	/* actually fed by vcc3v3_sys, dependent on pi6c clock generator */
+>>   	vcc3v3_minipcie: regulator-vcc3v3-minipcie {
+>>   		compatible = "regulator-fixed";
+>>   		regulator-name = "vcc3v3_minipcie";
+>> @@ -142,10 +137,9 @@ vcc3v3_minipcie: regulator-vcc3v3-minipcie {
+>>   		pinctrl-names = "default";
+>>   		pinctrl-0 = <&minipcie_enable_h>;
+>>   		startup-delay-us = <50000>;
+>> -		vin-supply = <&vcc3v3_pi6c_05>;
+>> +		vin-supply = <&vcc3v3_sys>;
+>>   	};
+>>   
+>> -	/* actually fed by vcc3v3_sys, dependent on pi6c clock generator */
+>>   	vcc3v3_ngff: regulator-vcc3v3-ngff {
+>>   		compatible = "regulator-fixed";
+>>   		regulator-name = "vcc3v3_ngff";
+>> @@ -156,7 +150,7 @@ vcc3v3_ngff: regulator-vcc3v3-ngff {
+>>   		pinctrl-names = "default";
+>>   		pinctrl-0 = <&ngffpcie_enable_h>;
+>>   		startup-delay-us = <50000>;
+>> -		vin-supply = <&vcc3v3_pi6c_05>;
+>> +		vin-supply = <&vcc3v3_sys>;
+>>   	};
+>>   
+>>   	vcc5v0_usb: regulator-vcc5v0-usb {
+>> @@ -586,12 +580,23 @@ rgmii_phy1: ethernet-phy@0 {
+>>   
+>>   &pcie30phy {
+>>   	data-lanes = <1 2>;
+>> -	phy-supply = <&vcc3v3_pi6c_05>;
+>> +
+>>   	status = "okay";
+>>   };
+>>   
+>>   &pcie3x1 {
+>>   	/* M.2 slot */
+>> +	/*
+>> +	 * The board has a gpio-controlled "pcie_refclk" generator,
+>> +	 * so add it to the list of clocks.
+>> +	 */
+>> +	clocks = <&cru ACLK_PCIE30X1_MST>, <&cru ACLK_PCIE30X1_SLV>,
+>> +		 <&cru ACLK_PCIE30X1_DBI>, <&cru PCLK_PCIE30X1>,
+>> +		 <&cru CLK_PCIE30X1_AUX_NDFT>,
+>> +		 <&pcie_refclk>;
+>> +	clock-names = "aclk_mst", "aclk_slv",
+>> +		      "aclk_dbi", "pclk", "aux",
+>> +		      "ref";
+> 
+> Hi,
+> 
+> The DT binding in rockchip-dw-pcie-common.yaml defines clock-names as a
+> positional array:
+> 
+>      items:
+>        - const: aclk_mst
+>        - const: aclk_slv
+>        - const: aclk_dbi
+>        - const: pclk
+>        - const: aux
+>        - const: pipe   <-- position 5
+>        - const: ref    <-- position 6
+> 
+> With "ref" at position 5, this would fail dtbs_check because the schema
+> expects "pipe" there.
+> 
+> Other boards that include the ref clock (rk3588-rock-5-itx,
+> rk3588-jaguar) include "pipe" at position 5 and "ref" at position 6. The
+> rk3568 has CLK_PCIE30X1_PIPE_DFT available in the CRU header.
+> 
+> Should the pipe clock be included before ref to match the binding
+> schema?
 
-Fixes: 7c26c20da5d42 ("net: ethernet: mtk_eth_soc: add basic XDP support")
-Suggested-by: Paolo Valerio <pvalerio@redhat.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
-Changes in v2:
-- Reset prog_ptr to old_prog instead of always setting it to NULL
-- Link to v1: https://lore.kernel.org/r/20260227-mtk-xdp-prog-ptr-fix-v1-1-b73d7588b645@kernel.org
----
- drivers/net/ethernet/mediatek/mtk_eth_soc.c | 15 ++++++++++++---
- 1 file changed, 12 insertions(+), 3 deletions(-)
+Good catch, I'll put pipe  before the ref addition.
 
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-index 1060764b9f17da251a1437c4e0fb7042d14307a8..bb8ced22ca3be239ae268f042efc119c96285947 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -3770,12 +3770,21 @@ static int mtk_xdp_setup(struct net_device *dev, struct bpf_prog *prog,
- 		mtk_stop(dev);
- 
- 	old_prog = rcu_replace_pointer(eth->prog, prog, lockdep_rtnl_is_held());
-+
-+	if (netif_running(dev) && need_update) {
-+		int err;
-+
-+		err = mtk_open(dev);
-+		if (err) {
-+			rcu_assign_pointer(eth->prog, old_prog);
-+
-+			return err;
-+		}
-+	}
-+
- 	if (old_prog)
- 		bpf_prog_put(old_prog);
- 
--	if (netif_running(dev) && need_update)
--		return mtk_open(dev);
--
- 	return 0;
- }
- 
+I'll let my friend test these changes and I'll submit another version incl the pipe.
 
----
-base-commit: c69855ada28656fdd7e197b6e24cd40a04fe14d3
-change-id: 20260227-mtk-xdp-prog-ptr-fix-af59b9cce7ba
+David
 
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
-
+[...]
 
