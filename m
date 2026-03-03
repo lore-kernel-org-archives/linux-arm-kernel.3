@@ -4,111 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 889A5E67A6B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 05:57:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93CF6E67A6B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Mar 2026 06:04:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pX0VLINMz6A6FQc/U8nBqp0XlDLDKfuR77NNnYDj7+w=; b=a55lZzHOQLT/+U3w6OJd15xxv4
-	uZdSmv2CNMhaHHn8rfYCUl6374OD5vBJcsjmZFyxutunFaq+zoVBs2CgfT96D+yeKi8ptYgwIVCI3
-	VQNs+v97s83zqnOh6qvd2TUp5ZwL3Uy68haVBKOsvGbJ/85gmMU9ULkPX2raKZ152fnU/AZfxiaMr
-	8d5uu2G5WV1b5LkXDnpcgFPsNr1bvo4GH8njWnkOZ+mk7E07AxeqtllxIyTFqyjcLI5i3bZ2Zs2Cw
-	EsF+So3k+fncaAkIOR2MAhqIBU+F1M1QrxmnYyEXxNY+ZjcSdCYaSOjEspVjffKVfiBEZLOXjd2Oc
-	QHiQIO4Q==;
+	bh=LY/fRLCch2WMY1U+LqLFNZMzn9HmzfAceCungi2ykLY=; b=DGQcFgFhKANefD4ZBWO6Ywij1s
+	okA3S/+SS3EDNTjbeYmHmTjINgH/qVYWe44kMZ1eX6ynl+ihy2uOByCsliRsm2RRgXhYYMp8Mzbhw
+	rz7F4GU2wMdUsQjobdlwMFoiAefi5wcOBqjLDliIoosJ5FTxB2Bntk/HhOLresIilO9xoVL/T+tiD
+	Yrz/akM6v3AB+FoQ8Y1HmAcUvLY3OIC/2tZN8xYY95TGokZqrbPiMaDMOp7qT5jAjLX0jyYOjcgPt
+	Xfya2YN/Lmav6cmi34ofKcbjZbi6N21n2Qa4sr8H28DvrkRBAVzZa20tWbl3SixuVMq2HG9hDDGz9
+	YzzrbZXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxIlE-0000000EZr2-29VX;
-	Tue, 03 Mar 2026 05:57:36 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1vxIrX-0000000Ea9J-2Mtt;
+	Tue, 03 Mar 2026 06:04:07 +0000
+Received: from out30-130.freemail.mail.aliyun.com ([115.124.30.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxIlC-0000000EZqH-3JWW
+	id 1vxIrE-0000000Ea8K-1aEL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Mar 2026 05:57:35 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-4375d4fb4d4so3801502f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Mar 2026 21:57:34 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772517453; cv=none;
-        d=google.com; s=arc-20240605;
-        b=h80IK9CSt0DJYnPc/S/K2yapnReBDoJkypmjoennG2ZPa6s4uwiC8ZQ6ztZNRvX2+x
-         52/7HzWKZKHmPZxy8axu49921iusc3iZpGipUrBSr+HJ60HZbzaA4oeQofhIGt7NJoMW
-         fOInPjzDpnK52bZbOS5h7aukg6idMbTGmcN/IGXuZeo3Zhi9SvpJJu5MgsnDgrVEDiZi
-         9XUJvkInum/tnoD4176x0iRlwo8JobkyxYG7N17NTVr1UkDdc7tV6IsjS1w17x4fDk6R
-         9DvQxGZ948n0/Ry8utIZkKgZN2Tkd4cRnphl1IG2Slahpm046MX6kFDROPn+ZBClMIRZ
-         SCEw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=pX0VLINMz6A6FQc/U8nBqp0XlDLDKfuR77NNnYDj7+w=;
-        fh=LJD5Vg901LrRfTPHLeZ1/FBOXdvJ9mECtkPs4c/5rXQ=;
-        b=FRKhYwY3ZefaQqUdu5T8mUrHBwJicUWrE3IMYITy156msVKE9l52Ha2nX6tj+XR8S+
-         f14x66CkxuUXy0juecruAh5BOQD2RHIIpRGT8perkpDiT2u+6LW5LWDD5kL8o4IAs3wX
-         CYI1gv9wwzGngEhMG4k6/0lo7qpfBpsDjG1yosOmZewoPpTDCTl8i63CHes+29I/QcC5
-         +2UVBcUMZmpKhKXPhZIFdpfXq0VDfHvy2F26mZp46xNqotQofe7h1sAqb5z32i+UdhPg
-         duW/RNFqb9tzuj3jmC39ZnQlGIaHM4gAI+g4U9jN8OItKgY5PTsJr6pnjO2cK7N5I1zY
-         SHQA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Tue, 03 Mar 2026 06:04:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772517453; x=1773122253; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pX0VLINMz6A6FQc/U8nBqp0XlDLDKfuR77NNnYDj7+w=;
-        b=gIEyySI3qgL+LA2XM6Kb41DGddU31JBf8zL3THpuQTYZ6T7JAk3vLjmi8aotyA8z7K
-         G8sw0eTX9DSEY5aGLfQdJ8gr9Dz9ZA21hnjbwU4WUlY+xN1eMuQGc/+m6rikHHV4mQqO
-         pH9WSWB9oN1R7mb3/H0Igo6rfUPb+tU0Q+PIgesRWi2KIHFY1O4RqMyVC2VBl5MAcbjG
-         L+Lgm+9bZXX6XQO91HDQm2ue5X3gw2VhdjfqdMS/gy8P6JZQZOjK7Bneynjxk81yeJhz
-         i1bGd0oIAgPem2MWjg/sVpKaha51qEvw9D6oZJmbNWNyrXZy7XB54C7pU1UdUx4PnQc5
-         1uJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772517453; x=1773122253;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=pX0VLINMz6A6FQc/U8nBqp0XlDLDKfuR77NNnYDj7+w=;
-        b=gPqOYh3g5/qOAlgLUPv+SxIjIOKVLFmgXUJtWd3iNNVCozDAx8gN40zwrtzkGzjz8c
-         05+PlVkfHQOGKOsQFEhqPnnjPPLVSDSUjaNe4Vh/4hs8L5WwAFCXGnJJ88mldoUsaX8y
-         x84e+9yy5NuVODwh+gQh6JOMGYbk8YBeTbIRAuncxXCOKMDKbNl7gH7ue9aHKXqsC9l8
-         MnipM6lSzNyskqIZ+N6VFdSe5fBkcWdMTSYg71mBEJXzLDwScEkgtIKmA5ii15q6qqGy
-         t6owkEqSHCkjf8N/VDPrS/TySlgURgzhiBc9pPjj5I5lPhbvVms0lRVWo7Y7AwLaAuS0
-         3VGg==
-X-Forwarded-Encrypted: i=1; AJvYcCUqyr1/r+3mI37mbgMS6BnOW3eSQYdPFfizHz5SHQcAkVfmqgraKruoikfDz3ZuPhOGhmF2PtvHeMzB9PogQVsF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxt3avdUoXB9Wtzcn74S2MSjS2tutyooUzjnzcnxzddwlIf6cNC
-	QJpAWJAyTtMVaFDO4gKeKBJkoYtnxYodHXbgPQaGwUAtMaVl3i2JIxwxf71qRLP19jmW4t19vln
-	SDDZzsdM27RGEXLakIRXXCuWiOJzolwE=
-X-Gm-Gg: ATEYQzzNz26rcw9Uqp/6uQ6kqsFaks2wjsP186SxjL2RwKegIoSgk9sl9t3aK1evYFK
-	pOpPWKoH9WnYM3JblwcyGrmOwbEOrzN/8f0CbDC+cVkFY/fJmW+RDHkv1l8tSmT38llYEe0Jt/8
-	9it+IboZG1ddD7SI7t3oSmWxTH4hD9MfmfGZKeQb/bX/upF/ATuqPhAnuS7qywCREyTtRjacSVa
-	DHKFrkxVIq8AiLgqXD9DC+OV49aT6yCLEzcmVKc1C/zJu9J3imsNJBIkR3PJVEvjfKhdCjODtz2
-	LF3s2OwQAE1zwnhAmQPt01+kvi17Pvdo03Hrjs8=
-X-Received: by 2002:a05:6000:2001:b0:439:b4c9:9061 with SMTP id
- ffacd0b85a97d-439b4c99198mr13341273f8f.5.1772517452685; Mon, 02 Mar 2026
- 21:57:32 -0800 (PST)
+	d=linux.alibaba.com; s=default;
+	t=1772517818; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=LY/fRLCch2WMY1U+LqLFNZMzn9HmzfAceCungi2ykLY=;
+	b=Kns+8coiC1eiefxHRGe8kr4aBRfgIi8a7bjdBB0AtlEGJ1HONlpyh1C0dqDKTNLxHwWSRK3aFSiaqno/8m/RP6i5mv4Sxn9AHxlwalSrv7B9OEpaCkMkGDSEU5SRINrsYdNNyJcrJ5lMGhi2+U8xvPOcZFCKKHD7gZBhJ5ees2Q=
+Received: from 30.74.144.119(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0X-8iWyn_1772517815 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 03 Mar 2026 14:03:36 +0800
+Message-ID: <3701c315-b19c-4c87-aff3-cc76e1009a43@linux.alibaba.com>
+Date: Tue, 3 Mar 2026 14:03:35 +0800
 MIME-Version: 1.0
-References: <20260228205418.2944620-1-dennis@ausil.us> <20260228205418.2944620-3-dennis@ausil.us>
-In-Reply-To: <20260228205418.2944620-3-dennis@ausil.us>
-From: Jimmy Hon <honyuenkwun@gmail.com>
-Date: Mon, 2 Mar 2026 23:57:21 -0600
-X-Gm-Features: AaiRm52w2RMmTSSLdZHxtEjWYjj6N6MGUqWIzppOn89hLbAKT7zZ6KSUnyUL9Z4
-Message-ID: <CALWfF7LZV07x7zAgufE_aa58s7x6e_ODAM2LgZqjbEakDticpA@mail.gmail.com>
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Add Orange Pi 5 Pro board support
-To: dennis@ausil.us
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, FUKAUMI Naoki <naoki@radxa.com>, 
-	Hsun Lai <i@chainsx.cn>, Jonas Karlman <jonas@kwiboo.se>, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
-	John Clark <inindev@gmail.com>, Michael Opdenacker <michael.opdenacker@rootcommit.com>, 
-	Quentin Schulz <quentin.schulz@cherry.de>, Andrew Lunn <andrew@lunn.ch>, 
-	Alexey Charkov <alchark@gmail.com>, Peter Robinson <pbrobinson@gmail.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 5/6] mm: support batched checking of the young flag for
+ MGLRU
+To: "David Hildenbrand (Arm)" <david@kernel.org>, akpm@linux-foundation.org
+Cc: catalin.marinas@arm.com, will@kernel.org, lorenzo.stoakes@oracle.com,
+ ryan.roberts@arm.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
+ rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
+ harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
+ baohua@kernel.org, dev.jain@arm.com, axelrasmussen@google.com,
+ yuanchu@google.com, weixugc@google.com, hannes@cmpxchg.org,
+ zhengqi.arch@bytedance.com, shakeel.butt@linux.dev, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <cover.1772185080.git.baolin.wang@linux.alibaba.com>
+ <f84233f95f209d59c3bc9c72a757af09337f0d40.1772185080.git.baolin.wang@linux.alibaba.com>
+ <7f2973f0-0a34-4e4f-8ed6-13c531f77453@kernel.org>
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+In-Reply-To: <7f2973f0-0a34-4e4f-8ed6-13c531f77453@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_215734_842802_4C6580B1 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260302_220404_532100_0EB2926C 
+X-CRM114-Status: GOOD (  34.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,40 +74,258 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dennis,
 
-Some curiosities below,
 
-On Sat, Feb 28, 2026 at 2:54=E2=80=AFPM <dennis@ausil.us> wrote:
-<snip>
-> +
-> +       /* Pro uses gpio-leds instead; pwm0 LED is not wired up */
-> +       /delete-node/ pwm-leds;
-<snip>
-> +
-> +       gpio-leds {
-> +               compatible =3D "gpio-leds";
-> +               pinctrl-names =3D "default";
-> +               pinctrl-0 =3D <&leds_rgb>;
-> +
-> +               blue-led {
-> +                       color =3D <LED_COLOR_ID_BLUE>;
-> +                       function =3D LED_FUNCTION_STATUS;
-> +                       gpios =3D <&gpio1 RK_PC6 GPIO_ACTIVE_HIGH>;
-How come you decided gpio-leds instead of pwm-leds for this? GPIO1 C6
-is muxed with PWM15_IR_M2
-> +                       linux,default-trigger =3D "heartbeat";
-> +               };
-> +
-> +               green-led {
-> +                       color =3D <LED_COLOR_ID_GREEN>;
-> +                       function =3D LED_FUNCTION_ACTIVITY;
-> +                       gpios =3D <&gpio1 RK_PC2 GPIO_ACTIVE_HIGH>;
-How come you decided gpio-leds instead of pwm-leds for this? GPIO1 C2
-is muxed with PWM3_IR_M2.
-> +                       linux,default-trigger =3D "mmc0";
-> +               };
-> +       };
+On 3/2/26 5:57 PM, David Hildenbrand (Arm) wrote:
+> On 2/27/26 10:44, Baolin Wang wrote:
+>> Use the batched helper test_and_clear_young_ptes_notify() to check and clear
+>> the young flag to improve the performance during large folio reclamation when
+>> MGLRU is enabled.
+>>
+>> Meanwhile, we can also support batched checking the young and dirty flag
+>> when MGLRU walks the mm's pagetable to update the folios' generation
+>> counter. Since MGLRU also checks the PTE dirty bit, use folio_pte_batch_flags()
+>> with FPB_MERGE_YOUNG_DIRTY set to detect batches of PTEs for a large folio.
+>>
+>> Then we can remove the ptep_test_and_clear_young_notify() since it has
+>> no users now.
+>>
+>> Note that we also update the 'young' counter and 'mm_stats[MM_LEAF_YOUNG]' counter
+>> with the batched count in the lru_gen_look_around() and walk_pte_range(). However,
+>> the batched operations may inflate these two counters, because in a large folio not
+>> all PTEs may have been accessed. (Additionally, tracking how many PTEs have been
+>> accessed within a large folio is not very meaningful, since the mm core actually
+>> tracks access/dirty on a per-folio basis, not per page). The impact analysis is as
+>> follows:
+>>
+>> 1. The 'mm_stats[MM_LEAF_YOUNG]' counter has no functional impact and is mainly for
+>> debugging.
+>>
+>> 2. The 'young' counter is used to decide whether to place the current PMD entry into the
+>> bloom filters by suitable_to_scan() (so that next time we can check whether it has been
+>> accessed again), which may set the hash bit in the bloom filters for a PMD entry that
+>> hasn’t seen much access. However, bloom filters inherently allow some error, so this
+>> effect appears negligible.
+> 
+> 
+> Doesn't checkpatch complain about long lines in the patch description?
 
-Jimmy
+Will update the commit message.
+
+>> Reviewed-by: Rik van Riel <riel@surriel.com>
+>> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+>> ---
+> 
+> ...
+> 
+>> index a5f0a264ad56..a1b3967afe41 100644
+>> --- a/mm/internal.h
+>> +++ b/mm/internal.h
+>> @@ -1843,10 +1843,4 @@ static inline int pmdp_test_and_clear_young_notify(struct vm_area_struct *vma,
+>>   
+>>   #endif /* CONFIG_MMU_NOTIFIER */
+>>   
+>> -static inline int ptep_test_and_clear_young_notify(struct vm_area_struct *vma,
+>> -		unsigned long addr, pte_t *ptep)
+>> -{
+>> -	return test_and_clear_young_ptes_notify(vma, addr, ptep, 1);
+>> -}
+>> -
+>>   #endif	/* __MM_INTERNAL_H */
+>> diff --git a/mm/rmap.c b/mm/rmap.c
+>> index 11cc6171344f..beb423f3e8ec 100644
+>> --- a/mm/rmap.c
+>> +++ b/mm/rmap.c
+>> @@ -958,25 +958,21 @@ static bool folio_referenced_one(struct folio *folio,
+>>   			return false;
+>>   		}
+>>   
+>> +		if (pvmw.pte && folio_test_large(folio)) {
+>> +			const unsigned long end_addr = pmd_addr_end(address, vma->vm_end);
+>> +			const unsigned int max_nr = (end_addr - address) >> PAGE_SHIFT;
+>> +			pte_t pteval = ptep_get(pvmw.pte);
+>> +
+>> +			nr = folio_pte_batch(folio, pvmw.pte, pteval, max_nr);
+>> +			ptes += nr;
+> 
+> Could we move that "ptes += nr;" just before the "pra->mapcount -= nr;"?
+> 
+> Would make the whole thing look less weird (only incrementing "ptes" with large folios).
+
+OK. Sounds reasonable.
+
+>> +		}
+>> +
+>>   		if (lru_gen_enabled() && pvmw.pte) {
+>> -			if (lru_gen_look_around(&pvmw))
+>> +			if (lru_gen_look_around(&pvmw, nr))
+>>   				referenced++;
+>>   		} else if (pvmw.pte) {
+>> -			if (folio_test_large(folio)) {
+>> -				unsigned long end_addr = pmd_addr_end(address, vma->vm_end);
+>> -				unsigned int max_nr = (end_addr - address) >> PAGE_SHIFT;
+>> -				pte_t pteval = ptep_get(pvmw.pte);
+>> -
+>> -				nr = folio_pte_batch(folio, pvmw.pte,
+>> -						     pteval, max_nr);
+>> -			}
+>> -
+>> -			ptes += nr;
+>>   			if (clear_flush_young_ptes_notify(vma, address, pvmw.pte, nr))
+>>   				referenced++;
+>> -			/* Skip the batched PTEs */
+>> -			pvmw.pte += nr - 1;
+>> -			pvmw.address += (nr - 1) * PAGE_SIZE;
+>>   		} else if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE)) {
+>>   			if (pmdp_clear_flush_young_notify(vma, address,
+>>   						pvmw.pmd))
+>> @@ -995,6 +991,10 @@ static bool folio_referenced_one(struct folio *folio,
+>>   			page_vma_mapped_walk_done(&pvmw);
+>>   			break;
+>>   		}
+>> +
+>> +		/* Skip the batched PTEs */
+>> +		pvmw.pte += nr - 1;
+>> +		pvmw.address += (nr - 1) * PAGE_SIZE;
+>>   	}
+>>   
+>>   	if (referenced)
+>> diff --git a/mm/vmscan.c b/mm/vmscan.c
+>> index 0a5622420987..7457b3c06fa3 100644
+>> --- a/mm/vmscan.c
+>> +++ b/mm/vmscan.c
+>> @@ -3474,6 +3474,7 @@ static bool walk_pte_range(pmd_t *pmd, unsigned long start, unsigned long end,
+>>   	struct pglist_data *pgdat = lruvec_pgdat(walk->lruvec);
+>>   	DEFINE_MAX_SEQ(walk->lruvec);
+>>   	int gen = lru_gen_from_seq(max_seq);
+>> +	unsigned int nr;
+>>   	pmd_t pmdval;
+>>   
+>>   	pte = pte_offset_map_rw_nolock(args->mm, pmd, start & PMD_MASK, &pmdval, &ptl);
+>> @@ -3492,11 +3493,13 @@ static bool walk_pte_range(pmd_t *pmd, unsigned long start, unsigned long end,
+>>   
+>>   	lazy_mmu_mode_enable();
+>>   restart:
+>> -	for (i = pte_index(start), addr = start; addr != end; i++, addr += PAGE_SIZE) {
+>> +	for (i = pte_index(start), addr = start; addr != end; i += nr, addr += nr * PAGE_SIZE) {
+>>   		unsigned long pfn;
+>>   		struct folio *folio;
+>> -		pte_t ptent = ptep_get(pte + i);
+>> +		pte_t *cur_pte = pte + i;
+>> +		pte_t ptent = ptep_get(cur_pte);
+>>   
+>> +		nr = 1;
+> 
+> 
+> Looking at this again, we should get rid of "i" completely and instead
+> * rename pte to start_pte
+> * Add a new pte, which we increment in the loop
+> 
+> So we end up with something like
+> 
+> diff --git a/mm/vmscan.c b/mm/vmscan.c
+> index 54cf4924d223..150cbb2253b9 100644
+> --- a/mm/vmscan.c
+> +++ b/mm/vmscan.c
+> @@ -3486,9 +3486,8 @@ static void walk_update_folio(struct lru_gen_mm_walk *walk, struct folio *folio,
+>   static bool walk_pte_range(pmd_t *pmd, unsigned long start, unsigned long end,
+>                             struct mm_walk *args)
+>   {
+> -       int i;
+>          bool dirty;
+> -       pte_t *pte;
+> +       pte_t *start_pte, pte;
+>          spinlock_t *ptl;
+>          unsigned long addr;
+>          int total = 0;
+> @@ -3499,29 +3498,31 @@ static bool walk_pte_range(pmd_t *pmd, unsigned long start, unsigned long end,
+>          struct pglist_data *pgdat = lruvec_pgdat(walk->lruvec);
+>          DEFINE_MAX_SEQ(walk->lruvec);
+>          int gen = lru_gen_from_seq(max_seq);
+> +       unsigned int nr;
+>          pmd_t pmdval;
+>   
+> -       pte = pte_offset_map_rw_nolock(args->mm, pmd, start & PMD_MASK, &pmdval, &ptl);
+> -       if (!pte)
+> +       start_pte = pte_offset_map_rw_nolock(args->mm, pmd, start & PMD_MASK, &pmdval, &ptl);
+> +       if (!start_pte)
+>                  return false;
+>   
+>          if (!spin_trylock(ptl)) {
+> -               pte_unmap(pte);
+> +               pte_unmap(start_pte);
+>                  return true;
+>          }
+>   
+>          if (unlikely(!pmd_same(pmdval, pmdp_get_lockless(pmd)))) {
+> -               pte_unmap_unlock(pte, ptl);
+> +               pte_unmap_unlock(start_pte, ptl);
+>                  return false;
+>          }
+>   
+>          lazy_mmu_mode_enable();
+>   restart:
+> -       for (i = pte_index(start), addr = start; addr != end; i++, addr += PAGE_SIZE) {
+> +       for (addr = start, pte = start_pte; addr != end; addr += nr * PAGE_SIZE, pte += nr) {
+>                  unsigned long pfn;
+>                  struct folio *folio;
+> -               pte_t ptent = ptep_get(pte + i);
+> +               pte_t ptent = ptep_get(pte);
+>   
+> +               nr = 1;
+>                  total++;
+>                  walk->mm_stats[MM_LEAF_TOTAL]++;
+>   
+> @@ -3533,7 +3534,16 @@ static bool walk_pte_range(pmd_t *pmd, unsigned long start, unsigned long end,
+>                  if (!folio)
+>                          continue;
+
+Thanks for the code. I considered simplifying the logic this way, but 
+this logic would be incorrect. Because the 'start' can be updated by the 
+get_next_vma() below, when we goto restart, we will get a new 'i' value 
+by 'pte_index(start)', so I kept the 'i' variable.
+
+>>   	walk_update_folio(walk, last, gen, dirty);
+>> @@ -4166,7 +4178,7 @@ static void lru_gen_age_node(struct pglist_data *pgdat, struct scan_control *sc)
+>>    * the PTE table to the Bloom filter. This forms a feedback loop between the
+>>    * eviction and the aging.
+>>    */
+>> -bool lru_gen_look_around(struct page_vma_mapped_walk *pvmw)
+>> +bool lru_gen_look_around(struct page_vma_mapped_walk *pvmw, unsigned int nr)
+>>   {
+>>   	int i;
+>>   	bool dirty;
+>> @@ -4184,12 +4196,13 @@ bool lru_gen_look_around(struct page_vma_mapped_walk *pvmw)
+>>   	struct lruvec *lruvec;
+>>   	struct lru_gen_mm_state *mm_state;
+>>   	unsigned long max_seq;
+>> +	pte_t *cur_pte;
+>>   	int gen;
+>>   
+>>   	lockdep_assert_held(pvmw->ptl);
+>>   	VM_WARN_ON_ONCE_FOLIO(folio_test_lru(folio), folio);
+>>   
+>> -	if (!ptep_test_and_clear_young_notify(vma, addr, pte))
+>> +	if (!test_and_clear_young_ptes_notify(vma, addr, pte, nr))
+>>   		return false;
+>>   
+>>   	if (spin_is_contended(pvmw->ptl))
+>> @@ -4229,10 +4242,12 @@ bool lru_gen_look_around(struct page_vma_mapped_walk *pvmw)
+>>   
+>>   	pte -= (addr - start) / PAGE_SIZE;
+>>   
+>> -	for (i = 0, addr = start; addr != end; i++, addr += PAGE_SIZE) {
+>> +	for (i = 0, addr = start, cur_pte = pte; addr != end;
+>> +	     i += nr, cur_pte += nr, addr += nr * PAGE_SIZE) {
+>>   		unsigned long pfn;
+>> -		pte_t ptent = ptep_get(pte + i);
+>> +		pte_t ptent = ptep_get(cur_pte);
+>>   
+>> +		nr = 1;
+> 
+> Can't you just use pte and increment that, right?
+> 
+> "pte" is not used afterwards.
+
+Yes. Will do. Thanks for your comments.
 
