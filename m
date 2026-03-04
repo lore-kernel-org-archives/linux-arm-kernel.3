@@ -4,111 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01F61EDEC08
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 03:45:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EF56EDEC03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 03:54:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0ck0SxwPDcv+Zqhqz8cZVKiShWiiww33rNFdcafCJLs=; b=hoECQuSocis2YEZQOkvBgLF85A
-	oszal6PcxJjJnb+iLwC/oMd8w7wDzUdBsWlL7/UoFh6OkmfD81q0g3XeBS3+BMyWT8+mDpAqFqOk6
-	drzzkHPLozZDdClWl5IooG0GtmRbBuVBiLHFYUigJH3NvDM5T8bGlQIdSKg61wOO639AVrz1i1EWJ
-	1o4DK1BqfDUnqCXC2xzNLEtEhTFiBPZZu5PlUeCuDNRv8qMCgO4wdjWsi4jKoLDLCHJ3rY8IQb3A+
-	CtLZRCSB/jkgRO8BcH8XkPuSO9ufn40PqVD454t4suIKmIYKRVxDbwkIA4M7tIkGRx0F6ZWUr2851
-	9LeLT1yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DTSAXqXYf5EFJCbxRyDV+S9phoOJqbg6A0FL7IQ5PCg=; b=1i+HR/yTdiy1ti+H9S4wZXETNV
+	h1pdVJltM4XptZCoxxVZ7HnVBQMjyJpQjTK9+nPc9O92X182Vv83LuW1WzOh9uqSdnccEuDkkEalE
+	OblPme0qo2toGJukB+1+e3NwNT3R3yWJkrSDaB9PudtGBdx77NnTUTavwtyRqnACKdhksIXf7wc8X
+	QoPjLLngjY1aQCS+8Wv/lT7GOxFD2i4oZYe0ySHgx8uS24OoW4hGqEcadkANviHE+qtPXpJDrpwcV
+	z6KXMMlMSRNV7ni1VXSR8VPUh+i7FC9PGDPYRmoNl8RKUNoe8Cwvp1CXGO8vYFWdQcjbfwl9bOipK
+	AXGC3X3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxdBJ-0000000GOab-0vy1;
-	Wed, 04 Mar 2026 03:45:53 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1vxdJR-0000000GOvE-2usJ;
+	Wed, 04 Mar 2026 03:54:17 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxdBH-0000000GOZs-0LYi
+	id 1vxdJL-0000000GOug-0pU7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 03:45:52 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-439b7c2788dso1879439f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 19:45:50 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772595949; cv=none;
-        d=google.com; s=arc-20240605;
-        b=IspoZKAFBvIAeuqxY3MjNnWVHBPO6jXFVDjD4nQyCY8VcOWlSvpG7Q0x7Qt6OAVC3r
-         zRYEeQ9ayNBHPc2wjcsEhD7XQPr1qQyBi9pBV7D+C7V6tSEO3a8LMe4XOgF12U2a5hsU
-         eYZD8z+LVRCfzrh1vvO2QXu+J1hbO/nCdwdVvC/TS2lQOYjPb1lraxb1az6NfJrQ+yHK
-         ON6bABLtWWB6PNgP+06Tj6xjs/Xc1yoo7RdZKTY+q/ND1MZjVUzqpokPQnP6KyJ7YHMu
-         bJwSribmmDj/BWenxPFcrSvFfkFpYgYrrojOrVkioUxijTEGl6u0GAPlCw+mk05XR4Lf
-         wXNw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=0ck0SxwPDcv+Zqhqz8cZVKiShWiiww33rNFdcafCJLs=;
-        fh=NSagDjSVL8vQLzHjPSxv8AzIEd0oJ7m+IUuhoswVgAQ=;
-        b=WvMI81bZsWBbV5zAD6iOMcL2MqTAU6oMWss5he0EWRaZ0+eAvetCgHI6e92Cad6kR+
-         KbenCKFL+WYsryxoSQgn8UAn6ltlqu0sH+GHmvpRfJhTf28YluaivsYSQ3Ewe3KHbRgZ
-         JLgJpGCsx/Mu5+N20CdGlCne/tuOw7A5mtB1435yKySTGWo7Y7e4uX/fPpUh73RbHpFw
-         maT5fZ/mwpoSXgg6NyWtonUM5fX5ZuwodI+OxLOCStAmVy8cAaluw1sFHRAmSFVzXsLV
-         LEkACLu924xJnCtFzasPKn9MO656W81CdnvBPuybu6N0XfgrH62sBgZ08UQr+TZdYZGj
-         cnqQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772595949; x=1773200749; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0ck0SxwPDcv+Zqhqz8cZVKiShWiiww33rNFdcafCJLs=;
-        b=fmIg1UnY30p6424AtdjLHzjf2vm2idkPPHNkjaYnu4CskTcthrz8znblfHelSiJNlA
-         KNYggQvyos7T3qu5HptC93dngcBsZ7ygaCQt7cu51hKshwy2PY7IVVKacCOJnqCQYBWT
-         9eQ3CcTA0jsf7tit95P0goTJh+XjgtQBPPBeMTZtbN9bw5O8VLgI2SJhinTp4XRTWarD
-         k0yQXPYt+Me5IWeykfxMM7XM+SOMKTzV2UkBLpvEgYXsbLI4tl5uXNV2v/z1LsLpG+OJ
-         f3YFZ4+S7Yvx7COTQaJauXtldEowOtqF62K1fJIB/sKx5J0U8bBCe5kFgHYb4TqKvijp
-         NNJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772595949; x=1773200749;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=0ck0SxwPDcv+Zqhqz8cZVKiShWiiww33rNFdcafCJLs=;
-        b=C3wj3KhzUmHj6WRz581UDMPXVUQJkrLV6Z7FsJQ9hZ/yllrZeS1GEQ1pEAV6fiSvEt
-         qoJPrnyWrWNJt1Bgs3BsHCk/hKu2ToAqQTnM6es8tQ1Olt9v6pppXT+oI7uh6VveRFfU
-         KI1pyQ9U1Vy6q2bmG0frhcf/id77qMZ+CkeVI0VWEEqg+3WBpgAAXo5/4+PauC6bGG0x
-         CxGiPNthkB1o0Ulz2t++YK/cGJh++pXdJCCKut9Nr0kGiwz0wCYfTEfw9mPBkdq2A47n
-         MsAOZDYwD2391lVe+AO9dg9pnEIWiubdgeuNP4jf3emE4/Gl2yHxArTl6EhQx/vmph1q
-         Fy1w==
-X-Forwarded-Encrypted: i=1; AJvYcCW+EqtH4yWtD/VmOqgK9VJOZfObBensMuFBelj1+RspLMz/NNBqTYq3jQmYc/TkFhEAooHPZiCahHeAqG4yfiL9@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTNpnBf9iU+BbMUGlB/wxYUsHdIrzbW1SC8sca11Zq+dAfCY5f
-	78rQzB5x5dO4mR8tDifp7scIlFB9PcB4RdwWxlymJQWz/d2UWFsc7CMM7xR0y6fuJnvALU77NgR
-	hz5cKRmxO6eiJuoMUqDONOefuivfcAF8=
-X-Gm-Gg: ATEYQzyloqonchD2CyxbyA87QJcNbb+EoaDu5B2kQHt82Zr0d7m0OJeMHKq/6LJdiTo
-	yP7EHAXwNoy0tRuSldEOaYfP15HzhM2SGXe0Km6nHuLYS02kAopaHD/2pKYDqbwHJw5wfuSqR4k
-	HpXZ5P/RaNpLYUWXp0MHYa151iWD4lLocfs9pUUsoyw6PVHiobpEu/2MlhiTXgvQh642fV90uNB
-	sLQX7krhs0dlHhS5UU603GktbGVZVSmFD7qr893vaR0+VR7kShkIqjHgGF8v94LFKdRBbOzPlgT
-	lle0g/rGsleAazZu1x/R0xoaizZNJaAexu2KqI8=
-X-Received: by 2002:a05:6000:1acc:b0:439:ac53:a94d with SMTP id
- ffacd0b85a97d-439c80005a2mr1016259f8f.29.1772595949061; Tue, 03 Mar 2026
- 19:45:49 -0800 (PST)
+	Wed, 04 Mar 2026 03:54:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hy8eHrxW1Er1PT4aYMQwkKxxbRwFOM0OeuRkbZ9TILf0+rLB9tZalffhXSzXxgCa1rWSGHsAkVktIdyi6ZNLgRywHDlU6t6rjH5w0gsKFY6Nq7WA9bpxxIgTXfsqkPqueysSY47oLQWlnz5gOXvoM1xLGBuxe/uxO4ZUWYF5wNweJG2ROxFep5DsfrRfva/X1gf0PSBFGAL7/hrISKDUOMjayiy1ddKYmvJEAeSyDgBV2k2NV4B1pbnxbonK4Cn6riTy8qBFlSSOz7qm4OAlAyxHBs1sJBQWPWVJ1yQ7dHkIFePeVgy/jyeAxpaFDutFv/DOPyskH1NL+KPyIuXOTQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DTSAXqXYf5EFJCbxRyDV+S9phoOJqbg6A0FL7IQ5PCg=;
+ b=jzAkkV0F85gK8xNT8abl5SHT0QsqOIegXM8zY8YLMhaZq7lbCoFAGNTnwhcjByxRIHqK3rZ2Mf2ZjiHMjiDEynECdKek3fCgeZZklBfJhREMgJZSc81nMB2q03/Kag27s6pru5ryzDRSYDZaIW2GC4YuHibOJ+J7GC8XBikKamrkacg0J5r3TyA9tc3FD1q7coahunJcUb3Li2sp4mZkGTBg0ZQ6ro6tpinJIQehZCPpphTXymSdeICAThz/xKfp8RWlNudm6720lklSCaiw+nWfiHJAWeJtE61kEFAHaoq9iMBVHZ9JmF0yLs25DG4KH3HKbXJ8P9YeEZuCsqBALg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DTSAXqXYf5EFJCbxRyDV+S9phoOJqbg6A0FL7IQ5PCg=;
+ b=I8C4Et9ik6gE5B0rQZpwnHZ0V5rycedFiRJg7KyCYT1zPJaHQofYLDs9eSh1rWo92Tzj/nDN9nyI6A1w/R4fnNZTF++wYCbrUSbWRjeOyG8Mz4UBEMCLka7d87P55CS76n/YHTTQ4+D4zTmrIpNYSD+d5iAB8jvKOaG7bPhEBcJg9Js2Vk2HPT96ML5IPK3zO84lfB0C6TnjsIgF1xHtqIxpcEijmRZNyvLJT0X7PvjyqrQwcq4FDl1t98QLLcqmY672e5IpO1TD1d/nHR3v0HEZpT0GsI10wh+N54S3g3QjMdBKw4inZF/0ErIDqccp71LQEKMTotDhdW8SG7FWjQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by VI1PR04MB6976.eurprd04.prod.outlook.com (2603:10a6:803:130::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.17; Wed, 4 Mar
+ 2026 03:54:04 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9654.020; Wed, 4 Mar 2026
+ 03:54:04 +0000
+Date: Tue, 3 Mar 2026 22:53:53 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: Marco Felsch <m.felsch@pengutronix.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	luca.ceresoli@bootlin.com, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v11 2/3] drm/bridge: imx: Add i.MX93 parallel display
+ format configuration support
+Message-ID: <aaes0RIBTcgOZje9@lizhi-Precision-Tower-5810>
+References: <20260303-v6-18-topic-imx93-parallel-display-v11-2-1b03733c8461@pengutronix.de>
+ <20260303210131.2966214-2-Frank.Li@nxp.com>
+ <3dyb7wc7tg6hc4o4qocn4nft7bu3hbdpxcnv7cln2q6vkxo7bw@dtnswwyou5sp>
+ <aademaK0PpTMZ0Xk@lizhi-Precision-Tower-5810>
+ <fdcf60da-bc0b-4b99-803d-e2d1948d5633@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <fdcf60da-bc0b-4b99-803d-e2d1948d5633@nxp.com>
+X-ClientProxiedBy: SJ0PR05CA0189.namprd05.prod.outlook.com
+ (2603:10b6:a03:330::14) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-References: <20260228205418.2944620-1-dennis@ausil.us> <20260228205418.2944620-3-dennis@ausil.us>
- <CALWfF7LZV07x7zAgufE_aa58s7x6e_ODAM2LgZqjbEakDticpA@mail.gmail.com> <CAABkxwsJ2ZnytCcHEvXWzNkjwzNThoTR23FAeHJLdf4JjXJEMg@mail.gmail.com>
-In-Reply-To: <CAABkxwsJ2ZnytCcHEvXWzNkjwzNThoTR23FAeHJLdf4JjXJEMg@mail.gmail.com>
-From: Jimmy Hon <honyuenkwun@gmail.com>
-Date: Tue, 3 Mar 2026 21:45:37 -0600
-X-Gm-Features: AaiRm510_muOP2trKshqRAe1MQ9prhJ4qP0ttHmvpYHaggzE4klTOIJdcnDBxLM
-Message-ID: <CALWfF7+gdNqSgzk4uAnVRkG8vT9FwJDV46VXpb26hd7BzdaGcw@mail.gmail.com>
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Add Orange Pi 5 Pro board support
-To: Dennis Gilmore <dennis@ausil.us>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, FUKAUMI Naoki <naoki@radxa.com>, 
-	Hsun Lai <i@chainsx.cn>, Jonas Karlman <jonas@kwiboo.se>, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
-	John Clark <inindev@gmail.com>, Michael Opdenacker <michael.opdenacker@rootcommit.com>, 
-	Quentin Schulz <quentin.schulz@cherry.de>, Andrew Lunn <andrew@lunn.ch>, 
-	Alexey Charkov <alchark@gmail.com>, Peter Robinson <pbrobinson@gmail.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI1PR04MB6976:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7f0dc01d-ebd8-4e47-13cc-08de79a1adac
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|376014|366016|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: rOYQ3VPq0Z7T4y7qyDEUIArmVY8NlbP0MFcssKfYm3hZhWDZCqIe6vd098pKD/d1hc6PBm8dH1j271FWHKC2EMu8yybiH5BgT1ssdof6lYvd/u3NoESM8Pxfm/fMj2I7PDe8A3V5ShDc2q7SQHPnv6r1mTQPXyyvtjJiEBzgYE5ylNMMU+G1KYw/Ur012gZwrIdoDWJf6+sIsynj8juTBQqMfiqeE+r/lVs968c0GmrSwwcp8sOrTVrWn1MzjFyF8FslanH++0v5hhwsujyeNACZMgyCXGp1EYKgBMYq+15R7AVQ1BFWmAC7VSgwBNW6NikeRwNuNQAK0QVkSBSDSWseqEqU9ckaAfPT9zjGwjTU3FGok1mxhEKf7S+YO7xGeOtNkzllgYBuzAyOvPlm/11YZa6t6gK2vVEgfHE+82nLQCUAh4dimXxoolDyTAPinrmrkAULDbCTTry7cuTTu6FNf5O74Uq5dv/fG5qfaUof572nMDKeJDUCdKdQ1OAw7CO2v7IaFmen57OqnD7MKwb9EUWo9baAoNJY5gpMuq9cQZiIQegHygVgJmpy5IDx04BeylrKkdKFQhVDSRhksNIQBE8jNf22NDeO2nTaeHk0zHe/BzlJ/DDFfPr4rWkz13kx7CNaRogok6Qb7iA+PjW956S3CaWaeYTYcjlJiwOvtVwwUc540b4ZZXaC+Upyl+8Y1WHZjF9YeonfHRWzZocTh31iWysWsGzWvSF4L2U=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(376014)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?i5PN5wGnhe9gWNh9DFk41st+aE7RG1JIQpxbXlToDl08ZGzm3La0Fa7ncUv9?=
+ =?us-ascii?Q?UZgZlzYhQQv6KCddBDQH7f3l32DOOLKDDYQ2lljJ89hLeNgt0aRJ3ZE5zp9k?=
+ =?us-ascii?Q?ghsGlpwitH67FCwxg7GsyBeuyVVsLc83H/hmTosKrtkBPjM0H2aO4NWQT+MK?=
+ =?us-ascii?Q?SAm5BAuhh6euo7V8I1g5z1nVzgcSnbEEGO1PYtiXa5RydLZy1rE61NIHHWTN?=
+ =?us-ascii?Q?Ir48PFOZdUscKgHlW1ELKzN3s8uJ9zKAmJ1709iyMnShZakTvLHvRW4ZsJ1S?=
+ =?us-ascii?Q?FNupKSTifi1A21BYkOC6HhAHGemfugY1jC+ZiEN7ljZxZ43jXxFI3jtKubDO?=
+ =?us-ascii?Q?DJRHKX/AbyIcpYXoyDdaIWIUU7I1gj1QCtakUhVI90AvMqlOInQLB+5sPZ2R?=
+ =?us-ascii?Q?ZNgy3Et9A+MaZlibcUIQS+Pw8FxhlvFFy/tyOkftVJ2iRalvQp3k3NpEu7EQ?=
+ =?us-ascii?Q?K7SLRtY7N75Q9LxBP5zxHpPVQ5ea0RdpbZavZxljShy4J0+9X984w3UpamUM?=
+ =?us-ascii?Q?tTfYyF/wBe+mL48nwy3xJhusOK+7Ee/8Y+pZ3MsvK+21sEl1eh2cNuttDw+1?=
+ =?us-ascii?Q?T2paucDrZag69ehv0+EN8O0fB9IDzyj5t70tKXHuJO8zV/htYsXDpi67T1sG?=
+ =?us-ascii?Q?KySAyjbALyn8KbuUEwy27bCpe4jRu3pwF7zExcBXWQIJL231yP2t+uTKvT+i?=
+ =?us-ascii?Q?13pqC/VyzgZZ1CtCjTe4Hk+Z3zEAZSHe1m+scSI3n7nkb/Lh1hVO0qUYgLKI?=
+ =?us-ascii?Q?ceP/E1M0MlgI6yJIlSWh+471M7YwkheymR+oac3Roj4xz/0SBZxdK200wzM1?=
+ =?us-ascii?Q?q9pH59dqTTfkm2X3VRzxrpHMjLsVyjB3N9YRUitVKZT/PJN99zvp1uNp446n?=
+ =?us-ascii?Q?f4k+yTesU2rCPPaxOHhO6DrhbbOHJ8ADnHhOhiXK3bT6sQ04ddWM9TQex2lS?=
+ =?us-ascii?Q?QwfiV0nS1BrpjLlFuIOdMsv+qudsa+OVM9N05H1gHMkjRPj35TTL09qMAEeo?=
+ =?us-ascii?Q?rUBEs5PkpzUQ0RjGzbKajuvk6BhXGRUw+m1qtlQ0NgQ6F7pzZt5Ts2S49K61?=
+ =?us-ascii?Q?jhs9c00R6CLo+R6+fZY9srWp3PvkpVuUDQ4PihM3sonBAHl9qGFgJuyWMoHc?=
+ =?us-ascii?Q?2zlc7y2NZ/9I8/T6JfAXsZcVLlcmjMPruu/U6AUCHr6nZ+FdSl2ajhp7dY4s?=
+ =?us-ascii?Q?WuVfPPggzEKGiTnWZyWcAKbMoUHqvgLPkjej0TeGHMt1XHassJ/bcBtT+XSN?=
+ =?us-ascii?Q?8DWNurJiMhftTD/+iFMUv5SDNG+QSOAA/cM9GMeqMPXlCd4L6iiAWOwZyvGO?=
+ =?us-ascii?Q?Lbmaqc0ece/WLwCAvwfST1Eh3NQmgwLLEtYTj15q6wVxVRUnPSUp2xPRk612?=
+ =?us-ascii?Q?TFlHN+LoO+gPim9koTjytbUDg9ZsDj0od2+rZNX4mKQqmMZA6/ncozurvcy4?=
+ =?us-ascii?Q?uC4oD8Zo5I8XkkTSDiQjTQwgOP5iPr3T9D36is2OI2NRtEPA3StHveJGSOBD?=
+ =?us-ascii?Q?oUqT1oIlaNS2lCRbTS0/vtkiG1VrmEFo6OWHe/hfO/rbSgMmKY3HFVkEM8rg?=
+ =?us-ascii?Q?cOEJCzJ3OFPrZdgpCXHmkXtEpOJPOaNuPvIkoqaiFFadtgRQwAR3QnHxtPz5?=
+ =?us-ascii?Q?CGxf9YR48Sygv3GOtWw6fbL6hOHUPQCcIsCH579kttHoYJZKD03hgqn7lsht?=
+ =?us-ascii?Q?zTj6f3GxnHq7sE8CxdDEeHQX147t/RhCwAtBbfxFECPqcOmposyPcu4j52n0?=
+ =?us-ascii?Q?N35dsYJm6Q=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7f0dc01d-ebd8-4e47-13cc-08de79a1adac
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2026 03:54:04.5157
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: lYGPbRKRb9STJ5HwR55WV/Vx7F5waGJJL/xy6A53O13YWYGifpnklFxHMCj+gKKmxxIWyLEoYX3EpQzXnv5HEQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6976
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_194551_172703_4D901D95 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20260303_195411_245382_4AC46C0C 
+X-CRM114-Status: GOOD (  30.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,46 +157,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 3, 2026 at 1:43=E2=80=AFPM Dennis Gilmore <dennis@ausil.us> wro=
-te:
+On Wed, Mar 04, 2026 at 11:29:03AM +0800, Liu Ying wrote:
+> On Tue, Mar 03, 2026 at 05:20:09PM -0500, Frank Li wrote:
+> > On Tue, Mar 03, 2026 at 10:22:02PM +0100, Marco Felsch wrote:
+> >> On 26-03-03, Frank Li wrote:
+> >>> From: Frank Li (AI-BOT) <frank.li@nxp.com>
+> >>>
+> >>> AI bot review and may be useless.
+> >>
+> >> Hi Frank,
+> >>
+> >> albeit I'm very open to new technology, I would appreciate it if your
+> >> AI-BOT is used internally first till you're convinced that it reports
+> >> real issues instead of false-positives.
+> >>
+> >> Regards,
+> >>   Marco
+> >>
+> >>>> +static u32 *
+> >>>> +imx93_pdfc_bridge_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
+> >>>> +					    struct drm_bridge_state *bridge_state,
+> >>>> +					    struct drm_crtc_state *crtc_state,
+> >>>> +					    struct drm_connector_state *conn_state,
+> >>>> +					    u32 output_fmt,
+> >>>> +					    unsigned int *num_input_fmts)
+> >>>> +{
+> >>>> +	struct imx93_pdfc *pdfc = bridge_to_imx93_pdfc(bridge);
+> >>>> +	u32 *input_fmts;
+> >>>> +
+> >>>> +	*num_input_fmts = 0;
+> >>>> +
+> >>>> +	input_fmts = kmalloc_obj(*input_fmts);
+> >>>> +	if (!input_fmts)
+> >>>> +		return NULL;
+> >>>
+> >
+> >> +     input_fmts = kmalloc_obj(*input_fmts);
+> >
+> > AI:
+> >
+> > Actually, this looks incorrect. kmalloc_obj() allocates based on the type
+> > of the pointer argument. Here you're passing *input_fmts (a u32), not
+> > input_fmts (a u32 *).
 >
-> On Mon, Mar 2, 2026 at 11:57=E2=80=AFPM Jimmy Hon <honyuenkwun@gmail.com>=
- wrote:
-> >
-> > Hi Dennis,
-> >
-> > Some curiosities below,
-> >
-> > On Sat, Feb 28, 2026 at 2:54=E2=80=AFPM <dennis@ausil.us> wrote:
-> > <snip>
-> > > +
-> > > +       /* Pro uses gpio-leds instead; pwm0 LED is not wired up */
-> > > +       /delete-node/ pwm-leds;
-> > <snip>
-> > > +
-> > > +       gpio-leds {
-> > > +               compatible =3D "gpio-leds";
-> > > +               pinctrl-names =3D "default";
-> > > +               pinctrl-0 =3D <&leds_rgb>;
-> > > +
-> > > +               blue-led {
-> > > +                       color =3D <LED_COLOR_ID_BLUE>;
-> > > +                       function =3D LED_FUNCTION_STATUS;
-> > > +                       gpios =3D <&gpio1 RK_PC6 GPIO_ACTIVE_HIGH>;
-> > How come you decided gpio-leds instead of pwm-leds for this? GPIO1 C6
-> > is muxed with PWM15_IR_M2
->
-> the downstream dts uses gpio-leds  the GPIO comes from the schematic
-It should be fine to upgrade to pwm-leds when adding into mainline.
-The Orange 5 Plus did.
-In the downstream DTS, they used gpio-led for the green led
-https://github.com/orangepi-xunlong/linux-orangepi/blob/232ed4b97b65da2b7b6=
-47c4e3c496f8594b9f3f1/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.d=
-ts#L31-L36
-But in the mainline kernel, it was converted to use pwm-led.
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/a=
-rch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts?id=3D236d225e1ee72a2=
-8aa7c2b1e39894e4390bbf51c
+> This comment is false.  Per kmalloc_obj()'s kerneldoc, it's first argument
+> is "Variable or type to allocate".  In this particular case, the argument
+> should be "*input_fmts (a u32)".
 
-Jimmy
+Yes, I wrongly think it is num_input_fmts and return array point for multi
+formats, actually it is just 1 items for format.
+
+imx93_pdfc_bridge_atomic_get_input_bus_fmts() is quite likely return many
+format array especially has "s" after fmt.
+
+Frank
+
+>
+> /**
+>  * kmalloc_obj - Allocate a single instance of the given type
+>  * @VAR_OR_TYPE: Variable or type to allocate.
+>  * @GFP: GFP flags for the allocation.
+>  *
+>  * Returns: newly allocated pointer to a @VAR_OR_TYPE on success, or NULL
+>  * on failure.
+>  */
+> #define kmalloc_obj(VAR_OR_TYPE, ...) \
+>         __alloc_objs(kmalloc, default_gfp(__VA_ARGS__), typeof(VAR_OR_TYPE), 1)
+>
+> > Should be:
+> >
+> > +       input_fmts = kmalloc_array(*num_input_fmts, sizeof(*input_fmts),
+> > +                                  GFP_KERNEL);
+>
+> No.  "input_fmts = kmalloc_obj(*input_fmts);" is just fine.
+>
+> >
+> > suppose you use kmalloc_objs()
+>
+> No. We should use kmalloc_obj(), not kmalloc_objs().
+>
+> >
+> > Frank
+> >
+> >>> Missing kfree(input_fmts) in error path if the switch statement
+> >>> or subsequent logic fails. Consider allocating a fixed-size array
+> >>> or using devm_kzalloc() instead.
+> >>>
+> >>>> +	*num_input_fmts = 1;
+> >>>> +
+> >>>> +	if (!imx93_pdfc_bus_output_fmt_supported(output_fmt)) {
+> >>>> +		dev_dbg(pdfc->dev, "No valid output bus-fmt detected, fallback to MEDIA_BUS_FMT_RGB888_1X24\n");
+> >>>
+> >>> Line exceeds 80 characters (97 chars). Break into two lines.
+> >>>
+> >>>> +		input_fmts[0] = MEDIA_BUS_FMT_RGB888_1X24;
+> >>>> +		return input_fmts;
+> >>>> +	}
+> >>>> +
+> >>>> +	switch (output_fmt) {
+> >>>> +	case MEDIA_BUS_FMT_RGB888_1X24:
+> >>>> +	case MEDIA_BUS_FMT_RGB565_1X16:
+> >>>> +		input_fmts[0] = output_fmt;
+> >>>> +		break;
+> >>>> +	case MEDIA_BUS_FMT_RGB666_1X18:
+> >>>> +	case MEDIA_BUS_FMT_FIXED:
+> >>>> +		input_fmts[0] = MEDIA_BUS_FMT_RGB888_1X24;
+> >>>> +		break;
+> >>>> +	}
+> >>>
+> >>> Switch statement lacks default case. Add default case to handle
+> >>> unexpected format values explicitly.
+> >>>
+> >>>> +static int imx93_pdfc_bridge_atomic_enable(struct drm_bridge *bridge,
+> >>>> +					    struct drm_atomic_state *state)
+> >>>> +{
+> >>>> +	struct imx93_pdfc *pdfc = bridge_to_imx93_pdfc(bridge);
+> >>>> +	const struct drm_bridge_state *bridge_state;
+> >>>> +	unsigned int mask = PARALLEL_DISP_FORMAT;
+> >>>> +	unsigned int val;
+> >>>> +
+> >>>> +	bridge_state = drm_atomic_get_new_bridge_state(state, bridge);
+> >>>> +
+> >>>> +	switch (bridge_state->output_bus_cfg.format) {
+> >>>> +	case MEDIA_BUS_FMT_RGB888_1X24:
+> >>>> +	case MEDIA_BUS_FMT_FIXED:
+> >>>> +		val = FORMAT_RGB888_TO_RGB888;
+> >>>> +		if (pdfc->phy_bus_width == 18) {
+> >>>> +			/*
+> >>>> +			 * Can be valid if physical bus limitation exists,
+> >>>> +			 * therefore use dev_dbg().
+> >>>> +			 */
+> >>>> +			dev_dbg(pdfc->dev, "Truncate two LSBs from each color\n");
+> >>>> +			val = FORMAT_RGB888_TO_RGB666;
+> >>>> +		}
+> >>>> +		break;
+> >>>> +	case MEDIA_BUS_FMT_RGB666_1X18:
+> >>>> +		val = FORMAT_RGB888_TO_RGB666;
+> >>>> +
+> >>>
+> >>
+> >> --
+> >> #gernperDu
+> >> #CallMeByMyFirstName
+> >>
+> >> Pengutronix e.K.                           |                             |
+> >> Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+> >> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+> >> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
+>
+> --
+> Regards,
+> Liu Ying
 
