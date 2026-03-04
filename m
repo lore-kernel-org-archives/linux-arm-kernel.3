@@ -4,96 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D746BEFCE20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 17:11:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42C52EFCE23
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 17:11:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6+ERZG98Y+SteZfiVlR3jzzX4R2QxjyojMlsxgWSx7U=; b=g2O6i1nWSfrVRADWrxf30TR4dr
-	TMM1MN3lWOlGxfOZkQMke8p+Svwg/mSTO0lhy+pKD4tJjfFCfaQZCgiiPKHiKPPdbZvT2hhsNOqDQ
-	VNN7pYNdYEBUIKmz26LHTujSFhUTZM5Xg1o9CK+i/L59iP22+x57KuMJijcSssozYbLJ+VLThekmR
-	nnRKP+i0x/WM+TmoMmQAjQDqnmNbILVLG04jyV5YDFIwYymJvTGcBOAUC6lIdHwMYqWXE+OUNdEFd
-	sYDg4IOYNsj2dwwkLAcLg8ifnOq59AUhenz1AbgmHe8SMlTpLIFvu6Znwdo933rqDl5yR0mgWwUZ3
-	hCfrl7CA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o6o7u9p1G+WfVpU5E2lQe//dMy/XYwvYNMcfTmX8Sx0=; b=oLdANbYz37sekciRvTHr8VzBFK
+	uuzn8MeHgRsE4cSXDO+x8iVJ6oq/fsvlOXkXfjyjt2Lmqp0cpUMu80rlUJ40K5CozeN/RTUgop2Sv
+	NiH+ZQfjJcGflnPW7Nz67gNVA6Cc2yPgH8vNjgLu6JtQoip6eM7jALmF3YlxC1ZB8Zcs955iMEWAA
+	Audgw+GZoOceDPaA2IrW7Z6bwE1yTW1b5Jctzo35PLhNtRxYmr5YjvPI/ysNkSPzIcSTwXOmNyb3p
+	IwNA9EFllgodE8qjUIwFj8dDpRvpXHGgfFM4UHGTsaQ0tzp522wGh1zWhYJ26x4eZUJZUEMs0fsFA
+	vABU6wew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxpkz-000000008r9-2zrb;
-	Wed, 04 Mar 2026 17:11:33 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1vxpl4-000000008vm-1c8o;
+	Wed, 04 Mar 2026 17:11:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxpkv-000000008mM-0dPn
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 17:11:30 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-439c92a193bso860014f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 09:11:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772644287; x=1773249087; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=6+ERZG98Y+SteZfiVlR3jzzX4R2QxjyojMlsxgWSx7U=;
-        b=iRofe8kHMs7c6izuCQpDRUCPtW9OC/SZrxViZ2NP/OIsgZWpI/lmRfK9zYdb71iObw
-         4AZsQ+voZlAzuziyUU2EsgQCOJORbKexvDE44atPwnuQpD4a2Af1v617VxIs5fAk/bUn
-         AlNm1UQNJaz0ml9GFUWjm5F/6ReS6zUTyEaukCZTbInQyyr2sL/hLCxd4/14GJj03vxj
-         3JAwsKYpq532NEQNtvgVmNoITn8SVoqnPT+wXB4yKyuiT7t4hebrOuI29A24SQ+LSthz
-         stEnt2X67GjvKBuGnyvqFGWYM5z9t3fXBowmlsCIYoKntwOuAWSOVoDqhe/eG9SRy7f6
-         rsDg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772644287; x=1773249087;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6+ERZG98Y+SteZfiVlR3jzzX4R2QxjyojMlsxgWSx7U=;
-        b=ruvZex4ta3Jv5MuurwhttC7SwkmRvE0pqNL5bzSjE7/kVUineOTs3CYJ7e5Nrv/2j0
-         0SSIiigYwZCBPjQ9yCPjqB/NWH3J1s+0UehVQs0koKapWr2hy8MWHatLPUo3zgj4H3gq
-         3g4mFXa5aEyJ9v3E27mfYS5mpcf2UaFijAuNnJsBUMw2Q1FSSfOeXMJynJG1r/ZQKG25
-         ujh4t2y8yg/mOnBZeB3gsv7zETrZvc72LONl6FKnBZ04VLEkovxaYwb8Bd44fNVQrnUl
-         B+W0b9gjzhOfsO86vb67ZUHJ3oMnSsfZtkqIyT8jgqzS8KqbKsfp6ZTObA3dh7dJ+M9O
-         z6Kg==
-X-Gm-Message-State: AOJu0YxRZtQD/20GfGkGClMURM/v/TX+EkLZ0aXtPFX0mQXoqq5gO7XW
-	01k2CB21a6glotLBuZelC7sHPFxlPZHUgR+/Jb5pm+0cCf9aL1mfPDn5
-X-Gm-Gg: ATEYQzw0RJ+NXng31j5RUUATMJanPPDSevlDQkF6TtJ3g01sifyXDNcCCQ4i9VwJ9CK
-	xwYDKLgT5sGF3nSW7F45dRWKoKeo67cxf1nYUiOrjkl+SICTAPxHhW2u6/6AlukLw65kMqNjHVO
-	f9bi7UEb4F9g6QSjU/IICX6LnORc3H6c4h5Ln25bgMZFhR529zKjMtU+T/U7dcmyhEmCUqlsayu
-	mlP/XSAqV1+BbqC13/YVCnFAib++fBmrVMqyNp0JEqqGstCu5h+xEk/CcQDDM6v5lYvviwgcX8C
-	Tz3oaiFASu4g2Zas/uABqWB/yISHB6Tp35xmN+1dI/H4p8q9AF/8SM1WjAXalwHZMukwZJqPauO
-	SZwGqUSzcyVFM8+IMLndXzsYE0JyempeSYtNUhsfh2aIC6cbdJVLLmHBXa+OY7CRuEiVLC0EBT5
-	lLcJ4yk2Mz4EhzzmvnWM72T8fWQ+jwDA==
-X-Received: by 2002:a05:6000:2dc3:b0:439:bf38:16f7 with SMTP id ffacd0b85a97d-439c7f7e3aamr5793716f8f.14.1772644286733;
-        Wed, 04 Mar 2026 09:11:26 -0800 (PST)
-Received: from [127.0.1.1] ([2001:861:3007:da20:bc65:66ea:698d:4a44])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439b130abfasm27138542f8f.34.2026.03.04.09.11.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Mar 2026 09:11:25 -0800 (PST)
-From: Amin GATTOUT <amin.gattout@gmail.com>
-Date: Wed, 04 Mar 2026 18:10:42 +0100
-Subject: [PATCH] fbdev: wmt_ge_rops: use devm_platform_ioremap_resource()
+	id 1vxpl0-000000008rU-11vN;
+	Wed, 04 Mar 2026 17:11:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B130443992;
+	Wed,  4 Mar 2026 17:11:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DB1DC19425;
+	Wed,  4 Mar 2026 17:11:28 +0000 (UTC)
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Marc Zyngier <marc.zyngier@arm.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Thierry Reding <treding@nvidia.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH 4/7] arm64: dts: freescale: imx: Drop CPU masks from GICv3 PPI interrupts
+Date: Wed,  4 Mar 2026 18:11:01 +0100
+Message-ID: <74a3a79eea1af7d6373ce705118f697cfaa35d76.1772643434.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1772643434.git.geert+renesas@glider.be>
+References: <cover.1772643434.git.geert+renesas@glider.be>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260304-master-v1-1-2bfeb1b9559f@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAJFnqGkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDYwNj3dzE4pLUIl2TlKQkYxOTZMtEY0sloOKCotS0zAqwQdGxtbUAA9j
- Lt1gAAAA=
-To: Alexey Charkov <alchark@gmail.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, Helge Deller <deller@gmx.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-fbdev@vger.kernel.org, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- Thomas Zimmermann <tzimmermann@suse.de>, 
- Amin GATTOUT <amin.gattout@gmail.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772644285; l=1961;
- i=amin.gattout@gmail.com; h=from:subject:message-id;
- bh=fvm+1TuVEfBZgWEioDiGHAQkV9PHuQ2+SLQAWe7HMDg=;
- b=iKDzURGU6c9p1RaVBuYzo76POHmO10cJlkMXVJt7qWoZi/pfdEawYK9LwvspVtgF3iSrXLohY
- M5lAcaB+zeECKSvVIgxHTKrJ37eI8XvJ0JFwlCpZmwOaJkDiLWf7nBg
-X-Developer-Key: i=amin.gattout@gmail.com; a=ed25519;
- pk=C9HM6Jf5d9dPl9fnP9pM/nhMwm+c280ldqYZ0ESu3a8=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_091129_215118_A9D49C2D 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20260304_091134_379837_4642B1A8 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,67 +82,232 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace the open-coded platform_get_resource() + ioremap() pair with
-devm_platform_ioremap_resource(), which requests the memory region and
-maps it in a single call, with automatic cleanup on device removal.
+Unlike older GIC variants, the GICv3 DT bindings do not support
+specifying a CPU mask in PPI interrupt specifiers.  Drop the masks.
 
-Also reset regbase to NULL in remove() so that the single-instance
-guard in probe() works correctly if the device is re-probed.
-
-Signed-off-by: Amin GATTOUT <amin.gattout@gmail.com>
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
- drivers/video/fbdev/wmt_ge_rops.c | 18 ++++--------------
- 1 file changed, 4 insertions(+), 14 deletions(-)
+ arch/arm64/boot/dts/freescale/imx8mm.dtsi          | 11 +++++------
+ arch/arm64/boot/dts/freescale/imx8mn.dtsi          | 11 +++++------
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi          | 11 +++++------
+ arch/arm64/boot/dts/freescale/imx8ulp.dtsi         |  3 +--
+ arch/arm64/boot/dts/freescale/imx91_93_common.dtsi | 10 +++++-----
+ arch/arm64/boot/dts/freescale/imx94.dtsi           | 10 +++++-----
+ arch/arm64/boot/dts/freescale/imx95.dtsi           | 10 +++++-----
+ arch/arm64/boot/dts/freescale/imx952.dtsi          | 10 +++++-----
+ 8 files changed, 36 insertions(+), 40 deletions(-)
 
-diff --git a/drivers/video/fbdev/wmt_ge_rops.c b/drivers/video/fbdev/wmt_ge_rops.c
-index 2bd26bfb2b46..0cf78bcadfa6 100644
---- a/drivers/video/fbdev/wmt_ge_rops.c
-+++ b/drivers/video/fbdev/wmt_ge_rops.c
-@@ -148,25 +148,15 @@ EXPORT_SYMBOL_GPL(wmt_ge_sync);
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm.dtsi b/arch/arm64/boot/dts/freescale/imx8mm.dtsi
+index 9f49c0b386d31051..3331b12b9294f339 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mm.dtsi
+@@ -220,16 +220,15 @@ psci {
  
- static int wmt_ge_rops_probe(struct platform_device *pdev)
- {
--	struct resource *res;
--
--	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
--	if (res == NULL) {
--		dev_err(&pdev->dev, "no I/O memory resource defined\n");
--		return -ENODEV;
--	}
--
- 	/* Only one ROP engine is presently supported. */
- 	if (unlikely(regbase)) {
- 		WARN_ON(1);
- 		return -EBUSY;
- 	}
+ 	pmu {
+ 		compatible = "arm,cortex-a53-pmu";
+-		interrupts = <GIC_PPI 7
+-			     (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
++		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
+ 	};
  
--	regbase = ioremap(res->start, resource_size(res));
--	if (regbase == NULL) {
--		dev_err(&pdev->dev, "failed to map I/O memory\n");
--		return -EBUSY;
--	}
-+	regbase = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(regbase))
-+		return PTR_ERR(regbase);
+ 	timer {
+ 		compatible = "arm,armv8-timer";
+-		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>, /* Physical Secure */
+-			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>, /* Physical Non-Secure */
+-			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>, /* Virtual */
+-			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>; /* Hypervisor */
++		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>, /* Physical Secure */
++			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>, /* Physical Non-Secure */
++			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>, /* Virtual */
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>; /* Hypervisor */
+ 		clock-frequency = <8000000>;
+ 		arm,no-tick-in-suspend;
+ 	};
+diff --git a/arch/arm64/boot/dts/freescale/imx8mn.dtsi b/arch/arm64/boot/dts/freescale/imx8mn.dtsi
+index 3199bc0966b03905..79b169b07c4fc95d 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mn.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mn.dtsi
+@@ -215,8 +215,7 @@ clk_ext4: clock-ext4 {
  
- 	writel(1, regbase + GE_ENABLE_OFF);
- 	printk(KERN_INFO "Enabled support for WMT GE raster acceleration\n");
-@@ -176,7 +166,7 @@ static int wmt_ge_rops_probe(struct platform_device *pdev)
+ 	pmu {
+ 		compatible = "arm,cortex-a53-pmu";
+-		interrupts = <GIC_PPI 7
+-			     (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
++		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
+ 	};
  
- static void wmt_ge_rops_remove(struct platform_device *pdev)
- {
--	iounmap(regbase);
-+	regbase = NULL;
- }
+ 	psci {
+@@ -258,10 +257,10 @@ map0 {
  
- static const struct of_device_id wmt_dt_ids[] = {
-
----
-base-commit: 11439c4635edd669ae435eec308f4ab8a0804808
-change-id: 20260303-master-4dbb344c9a39
-
-Best regards,
+ 	timer {
+ 		compatible = "arm,armv8-timer";
+-		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
++		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
+ 		clock-frequency = <8000000>;
+ 		arm,no-tick-in-suspend;
+ 	};
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+index 9b2b3a9bf9e80ca8..90d7bb8f5619e50d 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+@@ -310,8 +310,7 @@ dsp_reserved: dsp@92400000 {
+ 
+ 	pmu {
+ 		compatible = "arm,cortex-a53-pmu";
+-		interrupts = <GIC_PPI 7
+-			     (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
++		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
+ 	};
+ 
+ 	psci {
+@@ -397,10 +396,10 @@ map0 {
+ 
+ 	timer {
+ 		compatible = "arm,armv8-timer";
+-		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
++		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
+ 		clock-frequency = <8000000>;
+ 		arm,no-tick-in-suspend;
+ 	};
+diff --git a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
+index 9b5d987665129e0c..1de3ad60c6aa7791 100644
+--- a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
+@@ -86,8 +86,7 @@ gic: interrupt-controller@2d400000 {
+ 	pmu {
+ 		compatible = "arm,cortex-a35-pmu";
+ 		interrupt-parent = <&gic>;
+-		interrupts = <GIC_PPI 7
+-			     (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_HIGH)>;
++		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
+ 		interrupt-affinity = <&A35_0>, <&A35_1>;
+ 	};
+ 
+diff --git a/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi b/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
+index 7958cef353766a43..aa7aaf134a2fc41d 100644
+--- a/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
+@@ -69,7 +69,7 @@ clk_ext1: clock-ext1 {
+ 
+ 	pmu {
+ 		compatible = "arm,cortex-a55-pmu";
+-		interrupts = <GIC_PPI 7 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_HIGH)>;
++		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
+ 	};
+ 
+ 	psci {
+@@ -79,10 +79,10 @@ psci {
+ 
+ 	timer {
+ 		compatible = "arm,armv8-timer";
+-		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LOW)>;
++		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
+ 		clock-frequency = <24000000>;
+ 		arm,no-tick-in-suspend;
+ 		interrupt-parent = <&gic>;
+diff --git a/arch/arm64/boot/dts/freescale/imx94.dtsi b/arch/arm64/boot/dts/freescale/imx94.dtsi
+index d2f31c8caf6eb781..4793dee2537c40d0 100644
+--- a/arch/arm64/boot/dts/freescale/imx94.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx94.dtsi
+@@ -120,7 +120,7 @@ mqs2: mqs2 {
+ 
+ 	pmu {
+ 		compatible = "arm,cortex-a55-pmu";
+-		interrupts = <GIC_PPI 7 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_HIGH)>;
++		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
+ 	};
+ 
+ 	psci {
+@@ -130,10 +130,10 @@ psci {
+ 
+ 	timer {
+ 		compatible = "arm,armv8-timer";
+-		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LOW)>;
++		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
+ 		clock-frequency = <24000000>;
+ 		interrupt-parent = <&gic>;
+ 		arm,no-tick-in-suspend;
+diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+index 55e2da094c889fc7..cc563ffa8af5229c 100644
+--- a/arch/arm64/boot/dts/freescale/imx95.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+@@ -393,7 +393,7 @@ scmi_misc: protocol@84 {
+ 
+ 	pmu {
+ 		compatible = "arm,cortex-a55-pmu";
+-		interrupts = <GIC_PPI 7 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_HIGH)>;
++		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
+ 	};
+ 
+ 	thermal_zones: thermal-zones {
+@@ -470,10 +470,10 @@ psci {
+ 
+ 	timer {
+ 		compatible = "arm,armv8-timer";
+-		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LOW)>;
++		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
+ 		clock-frequency = <24000000>;
+ 		arm,no-tick-in-suspend;
+ 		interrupt-parent = <&gic>;
+diff --git a/arch/arm64/boot/dts/freescale/imx952.dtsi b/arch/arm64/boot/dts/freescale/imx952.dtsi
+index 91fe4916ac04d1d6..3d1dc9a8d18093bf 100644
+--- a/arch/arm64/boot/dts/freescale/imx952.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx952.dtsi
+@@ -285,7 +285,7 @@ its: msi-controller@48040000 {
+ 
+ 	pmu {
+ 		compatible = "arm,cortex-a55-pmu";
+-		interrupts = <GIC_PPI 7 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_HIGH)>;
++		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
+ 	};
+ 
+ 	psci {
+@@ -295,10 +295,10 @@ psci {
+ 
+ 	timer {
+ 		compatible = "arm,armv8-timer";
+-		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LOW)>;
++		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
+ 		clock-frequency = <24000000>;
+ 		arm,no-tick-in-suspend;
+ 		interrupt-parent = <&gic>;
 -- 
-Amin GATTOUT <amin.gattout@gmail.com>
+2.43.0
 
 
