@@ -4,87 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63D39EB7EAC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 08:48:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D6A7EB7EAC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 08:49:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=R3yEO4bBe5WxEVH7suRiLaNUM3m0kjyEmV+fOL4Vhyo=; b=moLbKrKV2IovV4U+wXMB9bhNK/
-	KPJLgvYe9RRfsW25frfRz9kFISK01RA08teA6VlJXcd3eKlRpZcDLyzLdyvc0YOG1HF+lQ6TKaITP
-	sE20odCBbNPmwTCc85NKZPQj7MxJq3rZ7r6wISTryoaxPDl8tE7HFMsbjsT9nZwsayynI9ObbBK2j
-	mfbZhvlTg+ZNyT9haqcu/C9GY4y/RD1KYvOXMGHXoAsLIhyu5XywP3Q+JBIHt/6NSe0NUoTu1uk1j
-	W8jRVcUnqizp3tQDhTeNVuTf9o2QJnItI8BKhfYYeslu3HXazKNWKXBaRymv83GZcRAajKmn5pExH
-	864I0KPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X7sQm1Bi6R7xeBrWwrHPPhLvKcbYUqn6hek3B1RHnQk=; b=XRaXQh5qAuxbiGeTCeIuxqFadt
+	5chza2LHSNPFAW+Rh+huwzHtLPctjRvTYa44BqeWb+mzWAgCuYQMz0oTf95g71C48qUWwq5rt2Clb
+	OgtBKQeR8vHFZ+W3i8uO0cEVMURa1V2fOo2bbPZ5jsfmcYNgPSmSVATtAdBUGP+ZrRU8CSie83pC/
+	2CFxiJT7cfLyfrYHWdBsZ9AQ90lJNiB1wDRWbI07pcx67WUBFJD78jCE7e2pWLH9enffb25EV8Y0u
+	Q1mHFfkSSoTjpbR6w0noRdsWrp4oMFYDH308xVFyvpIKGPfUmtqRAOL93BU96CQ+tymHwv9w4noJC
+	TTQa9C1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxhtb-0000000Gm8g-1XlL;
-	Wed, 04 Mar 2026 08:47:55 +0000
+	id 1vxhuo-0000000GmG1-3CVc;
+	Wed, 04 Mar 2026 08:49:10 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxhta-0000000Gm8Z-17Ag
+	id 1vxhum-0000000GmFl-4Akq
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 04 Mar 2026 08:47:54 +0000
+	Wed, 04 Mar 2026 08:49:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Sender:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=R3yEO4bBe5WxEVH7suRiLaNUM3m0kjyEmV+fOL4Vhyo=; b=I+ZRQq71hVOWKITQO+/STfI3jp
-	dx3ay2Wn0c699M/Q/ZalNxBisiDEIihum/lL00C1wjgMrXfjY3LTSr79/ghcYpnrnDyTfOqrurZmt
-	gZg9axhYedLxhaTK3MjWQwegR/G479gISM/0RJ29A8WtRxaB/90B9O9Uk0QcG9ZSb0XifpbfpMiHW
-	N8OmLa3bonfye+x44wdV6k4dq2jjNMzgZQR6Y4C/+Y7BzLd98YAc0erCxqhM19QPdO+Or0eoBj4xn
-	ZiNppsT3GRzqmCRaboamkXwefuKZyaU21z+p0Wq1FXZpnd19up58Jnx34VVyyriblubFiBOORvJi4
-	YOlez9Dg==;
+	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description;
+	bh=X7sQm1Bi6R7xeBrWwrHPPhLvKcbYUqn6hek3B1RHnQk=; b=BWGuTsinRV9qRZShlyuWCTU/3M
+	5mJg4Nc1GYLJuzwguev9lTh7TPi/0uRPAJtvk8EMV3yLk5s/qGetDpMpSPrjIH3fTWOkgk40BeF+9
+	4eJbaJJIYaABRdDmWjUdhoZDPESrnzHMVD6RUxmdVste+C9ihV1nIrYFyMRiEaHGhvLKB3qM2PwwF
+	FTdmRw0s67CPY0VmwOR+wKZDuwqukeVdiO3AVapO1CekjZszApTJN8+lA7gMKH2Zw8owWTFQhG0GI
+	rwP6EFU57d6UUmLj+qVve9VzECDrFGy4Wy3BVAWSbm8LuSDZqti9J6j4Y4coIoXBsGh0grSU2auqp
+	vTuchu+g==;
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxhtX-00000004A9z-15Xd
+	id 1vxhuk-00000004ARZ-09m8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 08:47:53 +0000
+	Wed, 04 Mar 2026 08:49:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=R3yEO4bBe5WxEVH7suRiLaNUM3m0kjyEmV+fOL4Vhyo=; b=RQL7HIlcO587or0eFJTfqe3qxN
-	QB4xHV4oKbgXumQ3KWKvGNAlQQIHCjoiKr1kzKqN40dQoemka3vzfaCMKXLIhHiV26xEfIw9OYMZA
-	97syH3PRdGQgFqdmORM9NYSAv3XxZLUmgahw07UO9IhBeM88wesm7Jj7rvHS5o/25TNUZgP5GjzXB
-	GUruRtRiwES8/z4UZ+mtVS/PhOoFTDzhpWav1na63WCNZC0PJdjBrk5HLMean2+40K3Rtwk7TujVo
-	juNKdMYisrY83m+58imHgtUy3gDALyQzt5kRxFae3QId3CGe1nMneKSXKcd3T2A7BvvxyLDc7r50A
-	KS2EKrfg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56142)
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=X7sQm1Bi6R7xeBrWwrHPPhLvKcbYUqn6hek3B1RHnQk=; b=aGfx5mkgbG8LcQTdG6W/Wdyqok
+	dLp2iPkETsB5ndkzBuYuSb0GIfu4xdFF/YESxoFknRbExnrqAwCBTIWO/tPwfMwVosK7TGHtfb1fn
+	H8pRDTAyb2jC+j3IByJXUPai/l2yExDX/akJeDNM/Nnix0vlMxaC8a+Jxel4i/jw5Yop0q9jMqyl2
+	TnNtbuIVbY6nCmadqCq2iEfv0vSGheXq59ZzSZN9BG+fsaBNCzAFxyq2p2y+uLEjAhqRW4hFFJL9q
+	7JLReorUocvC886NjElCol+LqeWpTSpxbIg7ea124jzslody7NaK1ZAWoh9xpG/YDqmuvkjhUWRHe
+	fW7NJyzA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:58852 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vxhtL-0000000068d-3e9B;
-	Wed, 04 Mar 2026 08:47:39 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vxhtI-000000007lz-1Biy;
-	Wed, 04 Mar 2026 08:47:36 +0000
-Date: Wed, 4 Mar 2026 08:47:36 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1vxhue-00000000690-2lGh;
+	Wed, 04 Mar 2026 08:49:00 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1vxhud-0000000BqGK-3U3P;
+	Wed, 04 Mar 2026 08:48:59 +0000
+In-Reply-To: <aafxqCvJ_XY4YbWw@shell.armlinux.org.uk>
+References: <aafxqCvJ_XY4YbWw@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 To: Andrew Lunn <andrew@lunn.ch>
 Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
 	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-	netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
-	Vinod Koul <vkoul@kernel.org>
-Subject: [PATCH RFC net-next v2 0/7] net: stmmac: improve PCS support
-Message-ID: <aafxqCvJ_XY4YbWw@shell.armlinux.org.uk>
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH RFC net-next v2 1/7] net: stmmac: add BASE-X support to
+ integrated PCS
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1vxhud-0000000BqGK-3U3P@rmk-PC.armlinux.org.uk>
+Date: Wed, 04 Mar 2026 08:48:59 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_084751_384743_25ADA8C9 
-X-CRM114-Status: GOOD (  15.96  )
+X-CRM114-CacheID: sfid-20260304_084906_236386_F0298804 
+X-CRM114-Status: GOOD (  26.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,44 +104,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Resending this as the original RFC now conflicts with net-next.
+The integrated PCS supports 802.3z (BASE-X) modes when the Synopsys
+IP is coupled with an appropriate SerDes to provide the electrical
+interface. The PCS presents a TBI interface to the SerDes for this.
+Thus, the BASE-X related registers are only present when TBI mode is
+supported.
 
-This series is the next of the three part series sorting out the PCS
-support in stmmac, building on part 2, which was posted yesterday:
+dwmac-qcom-ethqos added support for using 2.5G with the integrated PCS
+by calling dwmac_ctrl_ane() directly.
 
-	net: stmmac: qcom-ethqos: further serdes reorganisation
+Add support for the following to the integrated PCS:
+- 1000BASE-X protocol unconditionally.
+- 2500BASE-X if the coupled SerDes supports 2.5G speed.
+- The above without autonegotiation.
+- If the PCS supports TBI, then optional BASE-X autonegotiation for each
+  of the above.
 
-Similar patches have been posted previously. This series does away with
-the common SerDes PHY support, instead using a flag to indicate whether
-2500Mbps mode is supported (STMMAC_FLAG_SERDES_SUPPORTS_2500M.) At this
-time, I have no plans to resurect the common SerDes PHY support - the
-generic PHY layer implementations are just too random to consider that,
-and I certainly do not want the extra work of fixing that.
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ .../net/ethernet/stmicro/stmmac/stmmac_pcs.c  | 96 ++++++++++++++++++-
+ .../net/ethernet/stmicro/stmmac/stmmac_pcs.h  |  1 +
+ include/linux/stmmac.h                        |  1 +
+ 3 files changed, 95 insertions(+), 3 deletions(-)
 
-I've also changed the last patch which prints warnings when qcom-ethqos
-changes the PCS state - this will now indicate in a readable form
-whether the ANE or SGMRAL bits have changed state, rather than having
-to refer back to the definitions in the code or the databook.
-
-I am hoping that - subject to this working for qcom-ethqos - we can
-drop this last patch in the final submission, along with the
-dwmac_ctrl_ane() and ethqos_pcs_set_inband() functions and associated
-definitions. This will also mean that stmmac will finally be driving
-the PCS correctly from a phylink point of view.
-
- drivers/net/ethernet/stmicro/stmmac/common.h       |   4 -
- .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    |   1 +
- drivers/net/ethernet/stmicro/stmmac/dwmac1000.h    |  12 +-
- .../net/ethernet/stmicro/stmmac/dwmac1000_core.c   |  11 +-
- drivers/net/ethernet/stmicro/stmmac/dwmac4.h       |  10 +-
- drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c  |  10 +-
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  |   8 +-
- drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c   | 160 +++++++++++++++++++--
- drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h   |  29 +++-
- include/linux/stmmac.h                             |   1 +
- 10 files changed, 200 insertions(+), 46 deletions(-)
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
+index 88fa359ea716..e606dfb85f94 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
+@@ -16,6 +16,27 @@
+ #define GMAC_ANE_LPA	0x0c	/* ANE link partener ability */
+ #define GMAC_TBI	0x14	/* TBI extend status */
+ 
++static unsigned int dwmac_integrated_pcs_inband_caps(struct phylink_pcs *pcs,
++						     phy_interface_t interface)
++{
++	struct stmmac_pcs *spcs = phylink_pcs_to_stmmac_pcs(pcs);
++	unsigned int ib_caps;
++
++	if (phy_interface_mode_is_8023z(interface)) {
++		ib_caps = LINK_INBAND_DISABLE;
++
++		/* If the PCS supports TBI/RTBI, then BASE-X negotiation is
++		 * supported.
++		 */
++		if (spcs->support_tbi_rtbi)
++			ib_caps |= LINK_INBAND_ENABLE;
++
++		return ib_caps;
++	}
++
++	return 0;
++}
++
+ static int dwmac_integrated_pcs_enable(struct phylink_pcs *pcs)
+ {
+ 	struct stmmac_pcs *spcs = phylink_pcs_to_stmmac_pcs(pcs);
+@@ -36,7 +57,39 @@ static void dwmac_integrated_pcs_get_state(struct phylink_pcs *pcs,
+ 					   unsigned int neg_mode,
+ 					   struct phylink_link_state *state)
+ {
+-	state->link = false;
++	struct stmmac_pcs *spcs = phylink_pcs_to_stmmac_pcs(pcs);
++	u32 status, lpa;
++
++	status = readl(spcs->base + GMAC_AN_STATUS);
++
++	if (phy_interface_mode_is_8023z(state->interface)) {
++		/* For BASE-X modes, the PCS block supports the advertisement
++		 * and link partner advertisement registers using standard
++		 * 802.3 format. The status register also has the link status
++		 * and AN complete bits in the same bit location. This will
++		 * only be used when AN is enabled.
++		 */
++		lpa = readl(spcs->base + GMAC_ANE_LPA);
++
++		phylink_mii_c22_pcs_decode_state(state, neg_mode, status, lpa);
++	} else {
++		state->link = false;
++	}
++}
++
++static int dwmac_integrated_pcs_config_aneg(struct stmmac_pcs *spcs,
++					    phy_interface_t interface,
++					    const unsigned long *advertising)
++{
++	bool changed = false;
++	u32 adv;
++
++	adv = phylink_mii_c22_pcs_encode_advertisement(interface, advertising);
++	if (readl(spcs->base + GMAC_ANE_ADV) != adv)
++		changed = true;
++	writel(adv, spcs->base + GMAC_ANE_ADV);
++
++	return changed;
+ }
+ 
+ static int dwmac_integrated_pcs_config(struct phylink_pcs *pcs,
+@@ -46,13 +99,28 @@ static int dwmac_integrated_pcs_config(struct phylink_pcs *pcs,
+ 				       bool permit_pause_to_mac)
+ {
+ 	struct stmmac_pcs *spcs = phylink_pcs_to_stmmac_pcs(pcs);
++	bool changed = false, ane = true;
++
++	/* Only configure the advertisement and allow AN in BASE-X mode if
++	 * the core supports TBI/RTBI. AN will be filtered out by via phylink
++	 * and the .pcs_inband_caps() method above.
++	 */
++	if (phy_interface_mode_is_8023z(interface) &&
++	    spcs->support_tbi_rtbi) {
++		ane = neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED;
++
++		changed = dwmac_integrated_pcs_config_aneg(spcs, interface,
++							   advertising);
++	}
+ 
+-	dwmac_ctrl_ane(spcs->base, 0, 1, spcs->priv->hw->reverse_sgmii_enable);
++	dwmac_ctrl_ane(spcs->base, 0, ane,
++		       spcs->priv->hw->reverse_sgmii_enable);
+ 
+-	return 0;
++	return changed;
+ }
+ 
+ static const struct phylink_pcs_ops dwmac_integrated_pcs_ops = {
++	.pcs_inband_caps = dwmac_integrated_pcs_inband_caps,
+ 	.pcs_enable = dwmac_integrated_pcs_enable,
+ 	.pcs_disable = dwmac_integrated_pcs_disable,
+ 	.pcs_get_state = dwmac_integrated_pcs_get_state,
+@@ -84,9 +152,18 @@ void stmmac_integrated_pcs_irq(struct stmmac_priv *priv, u32 status,
+ int stmmac_integrated_pcs_get_phy_intf_sel(struct phylink_pcs *pcs,
+ 					   phy_interface_t interface)
+ {
++	struct stmmac_pcs *spcs = phylink_pcs_to_stmmac_pcs(pcs);
++
+ 	if (interface == PHY_INTERFACE_MODE_SGMII)
+ 		return PHY_INTF_SEL_SGMII;
+ 
++	if (phy_interface_mode_is_8023z(interface)) {
++		if (spcs->support_tbi_rtbi)
++			return PHY_INTF_SEL_TBI;
++		else
++			return PHY_INTF_SEL_SGMII;
++	}
++
+ 	return -EINVAL;
+ }
+ 
+@@ -104,7 +181,20 @@ int stmmac_integrated_pcs_init(struct stmmac_priv *priv, unsigned int offset,
+ 	spcs->int_mask = int_mask;
+ 	spcs->pcs.ops = &dwmac_integrated_pcs_ops;
+ 
++	/* If the PCS supports extended status, then it supports BASE-X AN
++	 * with a TBI interface to the SerDes. Otherwise, we can support
++	 * BASE-X without AN using SGMII, which is required for qcom-ethqos.
++	 */
++	if (readl(spcs->base + GMAC_AN_STATUS) & BMSR_ESTATEN)
++		spcs->support_tbi_rtbi = true;
++
+ 	__set_bit(PHY_INTERFACE_MODE_SGMII, spcs->pcs.supported_interfaces);
++	__set_bit(PHY_INTERFACE_MODE_1000BASEX, spcs->pcs.supported_interfaces);
++
++	/* Only allow 2500BASE-X if the SerDes has support. */
++	if (priv->plat->flags & STMMAC_FLAG_SERDES_SUPPORTS_2500M)
++		__set_bit(PHY_INTERFACE_MODE_2500BASEX,
++			  spcs->pcs.supported_interfaces);
+ 
+ 	priv->integrated_pcs = spcs;
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
+index 23bbd4f10bf8..12ea87792fcb 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
+@@ -32,6 +32,7 @@ struct stmmac_pcs {
+ 	void __iomem *base;
+ 	u32 int_mask;
+ 	struct phylink_pcs pcs;
++	bool support_tbi_rtbi;
+ };
+ 
+ static inline struct stmmac_pcs *
+diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+index 2fc169c7117e..3a99c4ef420c 100644
+--- a/include/linux/stmmac.h
++++ b/include/linux/stmmac.h
+@@ -192,6 +192,7 @@ enum dwmac_core_type {
+ #define STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP	BIT(12)
+ #define STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY	BIT(13)
+ #define STMMAC_FLAG_KEEP_PREAMBLE_BEFORE_SFD	BIT(14)
++#define STMMAC_FLAG_SERDES_SUPPORTS_2500M	BIT(15)
+ 
+ struct mac_device_info;
+ 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.47.3
+
 
