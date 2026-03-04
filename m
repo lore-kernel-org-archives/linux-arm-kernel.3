@@ -4,104 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56BE3EDEC03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 02:55:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 010E0EDEBFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 02:56:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vc/mKMQHWBKWISLIX5zCISp9R0i/eqeNN9jxcO1amd4=; b=MvD+cqKqjVzUsNgwmk+rmEP5bX
-	HnBGc2r8t4V2JgdHCVsXn50hdck/vGk9i/ZwiFrPqEtfTw2ptoS2Qm8ooz4u0WdtNbqvlYMtdvIin
-	rDK7jjqBqV5Gqu2B0lALoOoJBjisoSIkQiFUyMCn3FQV90dmIjVoldfDqvw/aHNE6W7NlnOd3SBpK
-	oBlmGJRRQzXUBfgDX5Fk1d3DlLmx6Hy6O7wmnoJIZt3LKJZ6y6GdeKSPpZ4Md1FSuamUwosuhunN2
-	6bF8iUrm7QQkWktQHE9mdYz5QrYirMk2hJwchjuLJUPE8jclgXzaJQTCl/YQMjNGr8e4aX+id/PtW
-	x6+NfEKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Govvo2aHVEfuvFSgi6qC0GeE3xRLpLdcDwTkFmmAU9g=; b=NmdLms5ljzzSSDK+YWfhuGvGK7
+	q4FblNpA7XSyw+gIsHY90FEu2ZbYIM0EBhhvplW1nXqGe2h0Ln0gVfQ4s+QG3NaFUShbtWAO1OLqe
+	vlYXDYgnEZe+nwgedPJrCx3Q//+L3CO4TBCgjmoFjdON87zU/Cy9mZ379wZQ5EyN3/7gFHoCOrx4X
+	00iin6QvwW+5pO+6bdvWncktAKZHsZ8U4nB3mmYw2rgvnKTYmLvteowQhYvMeS3z38bmG4n45F9E8
+	Hx6PkYsn6JCgHlXnysVCsIT06AcGGHiZ/AaFDIbSkEtZd/HVXJEP6gpyEZRTl8BZut4r1Z1bqiCpz
+	Mtwl3xkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxcOi-0000000GKeU-0Ptf;
-	Wed, 04 Mar 2026 02:55:40 +0000
-Received: from mail-pf1-x461.google.com ([2607:f8b0:4864:20::461])
+	id 1vxcP7-0000000GKux-39VJ;
+	Wed, 04 Mar 2026 02:56:05 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxcOb-0000000GKZL-1pZ0
+	id 1vxcP1-0000000GKq5-2vPj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 02:55:39 +0000
-Received: by mail-pf1-x461.google.com with SMTP id d2e1a72fcca58-829756f3ee9so3264b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 18:55:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ausil.us; s=google; t=1772592933; x=1773197733; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vc/mKMQHWBKWISLIX5zCISp9R0i/eqeNN9jxcO1amd4=;
-        b=PZ414YcZxoO9DOSibn1nGTh39au7IHoH7HMXM9jTfzXrwv+KPfTvqelhcD7jAxrZ5b
-         5j2BYGYdyLhFJIzmBoxzOAKQov4Mp8QyTpIMoiw0qkmDTb4h+SsTCe0UusFpArPJY8Cv
-         NDmZzzC//D5lSALSMaA8/E1q0FdBJgYmNLglwUnu/KxptYmpwdUUgECB8w8HPEYQFg4j
-         0veirlAmwTzxSezzJRiOd3AlqOkh89WjTS/DvmDJIccJcSqS0pnrTgnkus956T2pi1Hx
-         HM+AMrwAn4LDYEkzLsLsSge97BVCcX126BBasTQU8o8AXkadcldlx5O+mZKlXbozdiUM
-         Fg3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772592933; x=1773197733;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=vc/mKMQHWBKWISLIX5zCISp9R0i/eqeNN9jxcO1amd4=;
-        b=GmvVrgYkG1XWGkx6ZsrmT2YfsAeiy4Cg1DgZW61A9YnE/+eI6ZEjG2BJksLqLGG8ZT
-         3vM1CjNSjOcoaXlMg+om9Xzx2JjvokEPf1T9PiLd6alNLZD5vN5zMvCu8Tpn5GpdK81e
-         mM5JD0jf4XLlU88YADdtibIxpeB2tpa3vbMZaWt0oqXZbHSSuwh7JrW+/PrQHw9gddz9
-         o7XbN4QkQMy0ChfaEQ9Xe1TyKY51sjgn3L9/4W5JM/XlVNrQCNspNIcDcovAvABwcCTM
-         pkJxS3faTz5f0rCA7D8hrEH8gGXvGclNXc8tOy9+u1+0Esxya+Rt/H3BM2/Ln6ZYSCpU
-         E5gw==
-X-Forwarded-Encrypted: i=1; AJvYcCX6dJrju1hKMHP9GZH9buTkRAoUpyi1MPkpB0qNuKXzh0fkENcbmWOEQyzXcH9QuIeWojJ+BPEiyF0MuDJuIF7F@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4ZkE/a/eZqsjXEgTGxAP+0ZoEb8id/xAUIbPu/TToyYDu2KVM
-	P8Wf1m891UjQdstKf9rlStEx3a6hewxe2Uj2dHtXlpJeIVtkAIOwZuY0OVue+8tmnwD3niRviNi
-	4niJ+BskpqAhc7aiWyWx2k/pHH7VljChLKT5n
-X-Gm-Gg: ATEYQzzSzm4BjcTcBhZJiw8LWVgB10X88jng3RsP6QuXbfgBGAndxnI6IDH19oivnzz
-	FXbl7i6z+XwoBba7KQSp9vgcRcqq2TevglDmX2TnfJjAyFZrhnVnVo4FI+kSp9Vc2XOMeBlFT3f
-	aIcqSH88MU/u5Jo5U1x1azLIiKYXdozRkiVnKp67j5xs/BHZBt1QTQOo3s8X1dvEEU3Qs4GZ4Rw
-	yTHC8lwBRSKyECiF3TUtcoLRZR/ckS1gW+JlksK9KdrBFGUTkCmVTsejd9qzCVko62iInPWewsz
-	ay2cT1Qm9YOVRGowr02aL4OeFvar9PgzkEXSGIkN4J92AZJ/iTzIpWz2xFuRjwVJey7OmVl/B6K
-	N7m2sbvaF/XtfFv2xt+OmuPZ8peKIqWrNFNURFWPcr+U2
-X-Received: by 2002:a05:6a21:7d06:b0:395:101e:9b40 with SMTP id adf61e73a8af0-3982dda4262mr500384637.1.1772592932621;
-        Tue, 03 Mar 2026 18:55:32 -0800 (PST)
-Received: from ryac.ausil.us (207-179-239-100.mtco.net. [207.179.239.100])
-        by smtp-relay.gmail.com with ESMTPS id 41be03b00d2f7-c70fa7d59b3sm1374096a12.7.2026.03.03.18.55.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Mar 2026 18:55:32 -0800 (PST)
-X-Relaying-Domain: ausil.us
-From: dennis@ausil.us
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: FUKAUMI Naoki <naoki@radxa.com>,
-	Hsun Lai <i@chainsx.cn>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	John Clark <inindev@gmail.com>,
-	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Alexey Charkov <alchark@gmail.com>,
-	Peter Robinson <pbrobinson@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Dennis Gilmore <dennis@ausil.us>
-Subject: [PATCH V2 3/3] arm64: dts: rockchip: Add Orange Pi 5 Pro board support
-Date: Tue,  3 Mar 2026 20:55:20 -0600
-Message-ID: <20260304025521.210377-4-dennis@ausil.us>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260304025521.210377-1-dennis@ausil.us>
-References: <20260304025521.210377-1-dennis@ausil.us>
+	Wed, 04 Mar 2026 02:56:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YWLKf/amXfNJwX4yhJsXoSOSOKCfJwbzd5sFOidtlsx4K+5KSUxYSvKI0DtcsDqZQqkiWKtRc1FSHEYoWWMHlprwkcbhY0ZIripyuH04iQbjhcFdf6LSdZ640IOzmFnHsLdh+VaHtRFlQA70IC6Q3qen9Dciyp+5n3SJ61iKwTe6+p4usrSX9K3RcTCjK3pLnFRvogRzAyw69W9DE6xS2GZflaUeCpGlyKz8yQIQNsrDTtHRC3ELaUnWimLfN6BAPTopXJ+E/eRt0xDn7A5mgxykEhmS4cCA5tO+K49PVMIN4rwE2OEk43CqK6tfW+qPgKvjwX/remkxiwNToX5gdw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Govvo2aHVEfuvFSgi6qC0GeE3xRLpLdcDwTkFmmAU9g=;
+ b=sjFIF3R8Icdf4lC7hwPEe6P/dv7vGpO9PLkXpwap4teplMoZXEgQ/+ppmXQfzF3IvyeAIkfDL6b+Ze03jbfs6LVt9cwCkjHUHdScUo8ypvq3seunVVxIW8w9u/V6voD1Q6U2e4xUn13WALSJ++x5Hamm4//ILgUB3JiBHpMf065nEBJJmDJAeGL8fEU5DXlt/H9nWXDvBAGegpKKLRK49hyLrHFcLTorRTVD9nNpRsWQvscjusWyzmTMlNzYUHH+OH1ZgprHAdomaW079t4XWT3TLt3ySJQdY1BDr34mSZE4VWNe+I4/Sw1PKPnFaqrVLI3t7J1RuT3xjaK0PQerhA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Govvo2aHVEfuvFSgi6qC0GeE3xRLpLdcDwTkFmmAU9g=;
+ b=MeCpXgt5+7yH4sll6ajKYPAZKmtJN56QMxFmV2oZdtDoedAeU2HiPTmFlU3DRQONqGBjv9xEqLbvN1hBBzzEbGUqgF6yf6jSudS+4PZWgJjMoTmw5bB2hZwBH1F+kJVQsNOFQD6fsY5UBOaoXrP4eCLK3Hn90xYRrL1IUvsmmtn0WEaRjTX5sQAZg65xHt0IQ/ZPRe6tdPhw1Av/UxK3KuSDGcPYcUQYHwrH2K3ZZ0UzXzSDorXnTp9U4Rkvb/LsjE91nENVWAYm2P0tQhRm2Fj8UA4LDFuJvs0RLKtZoM+4PF3lucDkMbxbqhshxFRTS6gqwIi66K6LfxHNg9hVxA==
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
+ by DB9PR04MB11535.eurprd04.prod.outlook.com (2603:10a6:10:5de::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.17; Wed, 4 Mar
+ 2026 02:55:51 +0000
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86%3]) with mapi id 15.20.9678.016; Wed, 4 Mar 2026
+ 02:55:51 +0000
+From: Hongxing Zhu <hongxing.zhu@nxp.com>
+To: Manivannan Sadhasivam <mani@kernel.org>, Alexander Stein
+	<alexander.stein@ew.tq-group.com>
+CC: "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>
+Subject: RE: i.MX8M Plus PCIe link regression
+Thread-Topic: i.MX8M Plus PCIe link regression
+Thread-Index: AQHcqwqiM5BRpSHuW02VclDUtZdi+bWdAzuAgACdDUA=
+Date: Wed, 4 Mar 2026 02:55:51 +0000
+Message-ID: <AS8PR04MB88332979F06EDE29E751BCE18C7CA@AS8PR04MB8833.eurprd04.prod.outlook.com>
+References: <23024521.EfDdHjke4D@steina-w>
+ <ac24flkmrooacnpt53swuurkbxvorbjx2yb4s3zdevqua6ddls@wjc3bcsl7zif>
+In-Reply-To: <ac24flkmrooacnpt53swuurkbxvorbjx2yb4s3zdevqua6ddls@wjc3bcsl7zif>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS8PR04MB8833:EE_|DB9PR04MB11535:EE_
+x-ms-office365-filtering-correlation-id: 96ae2e01-727a-4b54-7149-08de79998bdf
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|376014|38070700021;
+x-microsoft-antispam-message-info: 7tGjwwE0Jp5DHMwGi0geGqpNmUBq91ty5pXTPESG1+HVXn3LKF9G0vK+0pQU/2sISc6k2nLEcs/PqV8JZpOg5o36lMhVGDNgMA3oU4IbXGMPPpy3Pl8diQINX3huV/qbrOYc3AWT4om+la8Pyuv+wxajhYbrodFSZYrsOr6Sm2C1c4r/fLYLn0aJOTSdeeIK0n4+vaOJ7Shq97gmyiEfiIK6qWssVRap6UQmF9B8im/pduKiMdPYCA9MsTYgRO0CGO2SHwAsQJdg+XD1lk3tM1lptiA9qfr2LRG9MphuZ/1ApxFfD7df0pTsHK+wSSvAFVAvfXt7FbXzZmgasZIcpXm9bSvRIh6DLyDsjW/QiMzRg3FYMfbzxA7j2IrC4kEQH3rIt/4RL4ACE0YJ7+oVF17fbd+D+wzpXDruumhzV2qfjlg0A6W4qVJgbwMefg6I3NrTXBXzhFT3D660flW9Tz6zfVbpOviLxGSq0VFhEnmBCVjpSb3/90fCRXosF1aJMRHiijeEHp51OidheJPqZ94Vy/1S5WqrOT+6FVbRKEEM0DbWVI6ci2nSZA5T21n2Io/bWPcFUOEn7UaFOS1QzxtAOfj2StntAtcMpjKX64l9YIuz4074BSTngt5cTA+DVfVt9tr3AG6h7ekcK7qjm5CN2pXh0JYzneHckYYDgCYsDSCMtd5OynvQz0C38tH7XLcnWlwUCMafhn2A4GxBX+tGoiVsD67dAVJ+7qid5n19WEZiFpM1GYqfnSzJP18iZihCWwebPIor/DjInF6Cz3rD7OY/8iciZra2WzSKGtA=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(376014)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Z1pNelY1VVhQRDNQOTRybWk1K3lqVzhpM1FHMENVQVNaV2x6VXd0VTdhdk5F?=
+ =?utf-8?B?eVZrVGNHRTR2SGtYNE9vNGdRY3dhSUQyR0pMeU9sODkyK3ZCS05hYTdxZStG?=
+ =?utf-8?B?YTlzTkxRYU5wZHlmemxVMnlLdFlzQ1VsMmtpZjk3Q0QzTGl5NHNXaUdJc1BZ?=
+ =?utf-8?B?aHloT1BLc2JycHpJWFdVTUxvWUg1aUlnWFA1c1MrTWVZNXV2L0U2aDZRVVI1?=
+ =?utf-8?B?ejZiNnhxYWtzUGx5Q1VkdVUzTzk3MW9jeXNkZlFxZW11T2JQZ2VsTm5TTEVx?=
+ =?utf-8?B?ajJ0MzFLTTdodkw5ajNFVTJZaDA3Y0EvOXBVNFEzY2VzcWpISWdYNlBiWkJi?=
+ =?utf-8?B?aU5UZmVBRGZtUEw5SWZVaUhkU21neU9kZHpvWTc2Z0V5RGdidVhHVm1Nc1Rh?=
+ =?utf-8?B?SmZqRTBhMHJ3VWQ2alpKd3loZThvSkxlMWhKWFpJTkRZOW1wODJ4WlphQzZO?=
+ =?utf-8?B?UjVrQWtQaDEvSStWNkNkMm91TE5lREZBWllWSkhRMGIxMVZvU3BrU21lL3Br?=
+ =?utf-8?B?clZFMWdaK1RpSUFYSWpwUTl2NnR5cU1lMzFhYmgyN0FQL3pjcit3RG9Sd2hz?=
+ =?utf-8?B?YjZNRCt2MFRwR2JJbnhCK2l4TFVoeWtHWkp5b21YQ2N3YWs2UjNBNzMxd1JF?=
+ =?utf-8?B?ZFNKTUdvSUhhRFVKbzczUHJxcittN2taOHVsbXM3eVNHS3JZTStleEJWS2Zt?=
+ =?utf-8?B?bmFkbFFDM1E0V2RmMDRyYys1RzRvMWlkdEtrWUFIcXpsM04wVDZYZlRjd1F5?=
+ =?utf-8?B?YnF1MUhrS1NHRmc1eEI4blhLZ0xpclZEanJ0OEpxREQ3ZTBuZjBCbkNLcHFP?=
+ =?utf-8?B?ZWxyWUNvMzI3SElsb3JuL3FIdkU5U0JOWUJDU0ZnQUE0VGtxSzN4RGljNDVY?=
+ =?utf-8?B?QzdDY2RkcDlURERBTk1yd2ppNVpSSmVjMk5remNVWVBCMFljVE1BenArcjV1?=
+ =?utf-8?B?N3RRMlVMQUpqK3lEMHRnRm1WTmNFdEEvK3R4aEU3NlNsNnpnMWFiOVViM0VI?=
+ =?utf-8?B?ak9Xb2g2clN5dDFGZzJoQ3VxRU5ReHQrT0FWcG1QUHJucjVDaDZtelVmNnhx?=
+ =?utf-8?B?NTlRVEJ1ZzdKNEdud05kVER5amNMZU90M3ZtTGxOSTlpRHRjMHM0bHM1REoz?=
+ =?utf-8?B?d1FvOTNwZVdHRDd3cUFhcU55UVEwVlJ6NDQzbTEzMnY4WGs2dVlCS0xKc1gz?=
+ =?utf-8?B?RkdjRlQrV1l2Z2U0dzhUZUZwa2hpVXdzZWowNFFFUGhRazliSUQrM2gwNmU3?=
+ =?utf-8?B?Y2Y4MXUwTFlNNE1XMmU4THAvMUdGY1QxWlVVYS9YQ0xhMjF6QXdvVS9pNHVV?=
+ =?utf-8?B?MEY1Rnp5N0Jrb1RsVTQ0cDNrQWpyWHptWEppRHZSdTJrbHB1T1ZLZlMwMWZJ?=
+ =?utf-8?B?VmNmWjNXcU16VXhGNEVIVmVQaGxjcERsMEgzSTF6dXd4N2RjYkFkY1d3eFVS?=
+ =?utf-8?B?UnVROGxuUnpRM25ITHdsVi9NNUQycmZveDVIRm9ZY1NNT2xNNkhLejF6Q1d2?=
+ =?utf-8?B?Qnh4Sko0K1U2WjZiRzBuZk1kbzJQNml2QUNhT1BUdmlpMkNlL1Z1bkZ2WGdx?=
+ =?utf-8?B?Z2NPemc3NkhlMG8yMi9aRmJiYmY0dm1STmhZUHhlc1h3T0ErSVEyZFU0bWdi?=
+ =?utf-8?B?TXg5MlB0V2hBMUJKS25HVFNBZzNpS0p5eG1ibUdLVjd5c2NVSlVzTUJ5azlW?=
+ =?utf-8?B?YmhucnN5ektnbm04VmduYXExemVjSWNtaHB3RlI5OXZ5YlBLSi84MkxtK0xK?=
+ =?utf-8?B?YlVXRDJIZ3FHcFgvaFpSajhqY3FHWWFGS3NkSW1lUGo5Y2dESmFLeEx5ZHd4?=
+ =?utf-8?B?VHNlZU5aanpGdXRPNTBSMXc4ay9IY1hPMTgrV2tDVVExdmlROUxIZEhKelFN?=
+ =?utf-8?B?dEtPKy9pUzdBWjc1WDVjSFBWSW9pcXlRZWRlRXBydW1RaVNaNXFLUmZqNU0r?=
+ =?utf-8?B?RHlDOGg3a1Z0Zzl0dm1RVE9idFRCWmRBMGZiS25HMXpaVjQ1M2JrT09raHEz?=
+ =?utf-8?B?eVR3S2gxeHlrNytpdnBnUGZSYXNOM3Y4VXhoVUF5cjMzcVRSbGpLNHBJNjdi?=
+ =?utf-8?B?UC9RQUVFL1ZiZUp2UXFzN3Z3emJGMWJBQnJTR3NuSWdVbDZ0WnVJOVdIOCtF?=
+ =?utf-8?B?OGhxUTI0VkppRjE1K25acURNMVVFd2YxYTVvVTFSWVpDOXdGcjNjWkRhYTF0?=
+ =?utf-8?B?ZlpyUmRIZ1lObXF5OVprdGEzOHVYenA2WE5WWXhjK1Y0ZU4rN0M2eWs4STFL?=
+ =?utf-8?B?bU9UT2dFNUhEMkxEQndYQmhnNStodlFQSGdjMzY5WHEvalRka1Ewa1NnL3hw?=
+ =?utf-8?Q?UcbS0uKCF/Bz8Iy/9K?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 96ae2e01-727a-4b54-7149-08de79998bdf
+X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Mar 2026 02:55:51.6544
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: FtEuFHK0JdgYJKDVAbeEh7HTWBijOMMZiGCG/MBs0sR0MytDZ9Af1++2SF0ts9Hs8t4YbLon9GYPZqsjz5ohrQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB11535
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_185533_480680_4109E348 
-X-CRM114-Status: GOOD (  20.84  )
+X-CRM114-CacheID: sfid-20260303_185559_896389_19688884 
+X-CRM114-Status: GOOD (  27.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,425 +150,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dennis Gilmore <dennis@ausil.us>
-
-Add device tree for the Xunlong Orange Pi 5 Pro (RK3588S). The Pro
-differs from the base Orange Pi 5 in the following ways:
-
-- No SPI NOR flash; eMMC module slot instead, you can optionally solder
-  a SPI NOR fin place and turn off the eMMC
-- PCIe-attached NIC (pcie2x1l1) replaces the GMAC1 ethernet
-- PCIe NVMe slot (pcie2x1l2)
-- AP6256 WiFi (BCM43456) via SDIO with mmc-pwrseq
-- BCM4345C5 Bluetooth via uart9 with full RTS/CTS
-- Two-colour (blue/green) GPIO LED using modern color/function binding
-- audio is wired up differently
-
-Vendors description and links to schematics available:
-http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5-Pro.html
-
-Signed-off-by: Dennis Gilmore <dennis@ausil.us>
----
- arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../dts/rockchip/rk3588s-orangepi-5-pro.dts   | 376 ++++++++++++++++++
- 2 files changed, 377 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.dts
-
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 4d384f153c13..c99dca2ae9e7 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -214,6 +214,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-nanopi-r6c.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-odroid-m2.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-5.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-5b.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-5-pro.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-cm5-base.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-radxa-cm5-io.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-roc-pc.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.dts b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.dts
-new file mode 100644
-index 000000000000..d656328c906d
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.dts
-@@ -0,0 +1,376 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+/dts-v1/;
-+
-+#include "rk3588s-orangepi-5.dtsi"
-+
-+/ {
-+	model = "Xunlong Orange Pi 5 Pro";
-+	compatible = "xunlong,orangepi-5-pro", "rockchip,rk3588s";
-+
-+	aliases {
-+		/delete-property/ ethernet0;
-+		mmc0 = &sdhci;
-+		mmc1 = &sdmmc;
-+		mmc2 = &sdio;
-+	};
-+
-+	/* Pro uses gpio-leds instead; pwm0 LED is not wired up */
-+	/delete-node/ pwm-leds;
-+
-+	/*
-+	 * Pro uses i2s2 (i2s2m1 mux) for audio, not i2s1. Recreate the sound
-+	 * card node pointing at i2s2_2ch instead.
-+	 */
-+	/delete-node/ analog-sound;
-+
-+	analog-sound {
-+		compatible = "simple-audio-card";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&hp_detect>;
-+		simple-audio-card,bitclock-master = <&masterdai>;
-+		simple-audio-card,format = "i2s";
-+		simple-audio-card,frame-master = <&masterdai>;
-+		simple-audio-card,hp-det-gpios = <&gpio1 RK_PD5 GPIO_ACTIVE_HIGH>;
-+		simple-audio-card,mclk-fs = <256>;
-+		simple-audio-card,name = "rockchip,es8388";
-+		simple-audio-card,routing =
-+			"Headphones", "LOUT1",
-+			"Headphones", "ROUT1",
-+			"LINPUT1", "Microphone Jack",
-+			"RINPUT1", "Microphone Jack",
-+			"LINPUT2", "Onboard Microphone",
-+			"RINPUT2", "Onboard Microphone";
-+		simple-audio-card,widgets =
-+			"Microphone", "Microphone Jack",
-+			"Microphone", "Onboard Microphone",
-+			"Headphone", "Headphones";
-+
-+		simple-audio-card,cpu {
-+			sound-dai = <&i2s2_2ch>;
-+		};
-+
-+		masterdai: simple-audio-card,codec {
-+			sound-dai = <&es8388>;
-+			system-clock-frequency = <12288000>;
-+		};
-+	};
-+
-+	fan: pwm-fan {
-+		compatible = "pwm-fan";
-+		#cooling-cells = <2>;
-+		cooling-levels = <0 50 100 150 200 255>;
-+		fan-supply = <&vcc5v0_sys>;
-+		pwms = <&pwm2 0 20000000 0>;
-+	};
-+
-+	gpio-leds {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&leds_rgb>;
-+
-+		blue-led {
-+			color = <LED_COLOR_ID_BLUE>;
-+			function = LED_FUNCTION_STATUS;
-+			gpios = <&gpio1 RK_PC6 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "heartbeat";
-+		};
-+
-+		green-led {
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_ACTIVITY;
-+			gpios = <&gpio1 RK_PC2 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "mmc0";
-+		};
-+	};
-+
-+	vcc5v0_otg: regulator-vcc5v0-otg {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio0 RK_PC4 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vcc5v0_otg_en>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-name = "vcc5v0_otg";
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	sdio_pwrseq: sdio-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		clocks = <&hym8563>;
-+		clock-names = "ext_clock";
-+		post-power-on-delay-ms = <200>;
-+		reset-gpios = <&gpio0 RK_PD0 GPIO_ACTIVE_LOW>;
-+	};
-+
-+	vcc3v3_pcie20: regulator-vcc3v3-pcie20 {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio3 RK_PB7 GPIO_ACTIVE_HIGH>;
-+		regulator-boot-on;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-name = "vcc3v3_pcie20";
-+		startup-delay-us = <50000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vcc3v3_pcie_eth: regulator-vcc3v3-pcie-eth {
-+		compatible = "regulator-fixed";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-name = "vcc3v3_pcie_eth";
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+};
-+
-+/* disable gmac1 as the pro has a PCIe attached NIC */
-+&gmac1 {
-+	status = "disabled";
-+};
-+
-+/* 40-pin header pins 3/5 */
-+&i2c1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c1m4_xfer>;
-+	status = "okay";
-+};
-+
-+/*
-+ * Pro routes audio codec via i2c3 (not i2c6) and i2s2m1 (not i2s1m0).
-+ * Delete the inherited es8388 node from i2c6 and redeclare it here.
-+ */
-+/delete-node/ &es8388;
-+
-+&i2c3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c3m0_xfer>;
-+	status = "okay";
-+
-+	es8388: audio-codec@11 {
-+		compatible = "everest,es8388", "everest,es8328";
-+		reg = <0x11>;
-+		#sound-dai-cells = <0>;
-+		AVDD-supply = <&vcc_3v3_s0>;
-+		DVDD-supply = <&vcc_1v8_s0>;
-+		HPVDD-supply = <&vcc_3v3_s0>;
-+		PVDD-supply = <&vcc_3v3_s0>;
-+		assigned-clock-rates = <12288000>;
-+		assigned-clocks = <&cru I2S2_2CH_MCLKOUT>;
-+		clocks = <&cru I2S2_2CH_MCLKOUT>;
-+	};
-+};
-+
-+/* 40-pin header pins 27/28 */
-+&i2c4 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c4m3_xfer>;
-+	status = "okay";
-+};
-+
-+/*
-+ * i2s1_8ch uses i2s1m0 which occupies GPIO4_PA0 (CLKREQ#) and GPIO4_PA1
-+ * (WAKE#) needed for the NVMe M.2 slot. Disable it; audio is on i2s2_2ch.
-+ */
-+&i2s1_8ch {
-+	status = "disabled";
-+};
-+
-+/* Audio codec on i2s2, m1 mux; add mclk pin to the base pinctrl */
-+&i2s2_2ch {
-+	pinctrl-0 = <&i2s2m1_lrck &i2s2m1_mclk &i2s2m1_sclk
-+		     &i2s2m1_sdi &i2s2m1_sdo>;
-+	status = "okay";
-+};
-+
-+&package_thermal {
-+	polling-delay = <1000>;
-+
-+	cooling-maps {
-+		map0 {
-+			trip = <&package_fan0>;
-+			cooling-device = <&fan THERMAL_NO_LIMIT 1>;
-+		};
-+
-+		map1 {
-+			trip = <&package_fan1>;
-+			cooling-device = <&fan 2 THERMAL_NO_LIMIT>;
-+		};
-+	};
-+
-+	trips {
-+		package_fan0: package-fan0 {
-+			hysteresis = <2000>;
-+			temperature = <55000>;
-+			type = "active";
-+		};
-+
-+		package_fan1: package-fan1 {
-+			hysteresis = <2000>;
-+			temperature = <65000>;
-+			type = "active";
-+		};
-+	};
-+};
-+
-+/* NVMe */
-+&pcie2x1l1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pcie30x1m1_1_clkreqn &pcie30x1m1_1_waken>;
-+	reset-gpios = <&gpio4 RK_PA2 GPIO_ACTIVE_HIGH>;
-+	supports-clkreq;
-+	vpcie3v3-supply = <&vcc3v3_pcie_eth>;
-+	status = "okay";
-+};
-+
-+/* NIC */
-+&pcie2x1l2 {
-+	reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
-+	vpcie3v3-supply = <&vcc3v3_pcie20>;
-+	status = "okay";
-+};
-+
-+&pinctrl {
-+	bluetooth {
-+		bt_wake_gpio: bt-wake-pin {
-+			rockchip,pins = <0 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		bt_wake_host_irq: bt-wake-host-irq {
-+			rockchip,pins = <0 RK_PC5 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+	};
-+
-+	gpio-leds {
-+		leds_rgb: leds-rgb {
-+			rockchip,pins = <1 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>,
-+					<1 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	usb {
-+		vcc5v0_otg_en: vcc5v0-otg-en {
-+			rockchip,pins = <0 RK_PC4 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	wlan {
-+		wifi_host_wake_irq: wifi-host-wake-irq {
-+			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+	};
-+};
-+
-+/* pwm0 pin conflicts with i2c4 pin 27 Pro */
-+&pwm0 {
-+	status = "disabled";
-+};
-+
-+&pwm2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwm2m1_pins>;
-+	status = "okay";
-+};
-+
-+&sdhci {
-+	status = "okay";
-+};
-+
-+&sdio {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	cap-sdio-irq;
-+	disable-wp;
-+	keep-power-in-suspend;
-+	max-frequency = <150000000>;
-+	mmc-pwrseq = <&sdio_pwrseq>;
-+	no-mmc;
-+	no-sd;
-+	non-removable;
-+	sd-uhs-sdr104;
-+	status = "okay";
-+
-+	ap6256: wifi@1 {
-+		compatible = "brcm,bcm43456-fmac", "brcm,bcm4329-fmac";
-+		reg = <1>;
-+		interrupt-names = "host-wake";
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <RK_PA0 IRQ_TYPE_LEVEL_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&wifi_host_wake_irq>;
-+	};
-+};
-+
-+&uart9 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart9m2_xfer &uart9m2_ctsn &uart9m2_rtsn>;
-+	uart-has-rtscts;
-+	status = "okay";
-+
-+	bluetooth {
-+		compatible = "brcm,bcm4345c5";
-+		clocks = <&hym8563>;
-+		clock-names = "lpo";
-+		device-wakeup-gpios = <&gpio0 RK_PC6 GPIO_ACTIVE_HIGH>;
-+		interrupt-names = "host-wakeup";
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <RK_PC5 IRQ_TYPE_LEVEL_HIGH>;
-+		max-speed = <1500000>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&bt_wake_host_irq &bt_wake_gpio>;
-+		shutdown-gpios = <&gpio0 RK_PD5 GPIO_ACTIVE_HIGH>;
-+		vbat-supply = <&vcc_3v3_s3>;
-+		vddio-supply = <&vcc_1v8_s3>;
-+	};
-+};
-+
-+/* USB2 OTG PHY for usb_host0_xhci; phy-supply enables VBUS to USB3 Type-A port */
-+&u2phy0_otg {
-+	phy-supply = <&vcc5v0_otg>;
-+};
-+
-+/* Pro has no FUSB302; the USB-C port is power delivery only */
-+/delete-node/ &usbc0;
-+
-+/*
-+ * The Pro's USB-C port is power delivery only: no FUSB302, no data lines,
-+ * no alt-mode switching. The parent DTSI enables usbdp_phy0 (status = "okay")
-+ * and adds FUSB302 alt-mode/orientation properties; delete those here.
-+ *
-+ * dp-lane-mux = <0 1>: PHY lanes 0/1 are DP (physically routed to the
-+ * LT8711UXD DP→HDMI2 bridge), lanes 2/3 are USB3 SuperSpeed (physically
-+ * routed to the USB3 Type-A port P3). Without this property the driver
-+ * defaults to USB-only mode and places USB3 on lanes 0/1, which do not
-+ * reach the Type-A connector and makes the USB3 port non-functional.
-+ */
-+&usbdp_phy0 {
-+	rockchip,dp-lane-mux = <0 1>;
-+	/delete-property/ mode-switch;
-+	/delete-property/ orientation-switch;
-+	/delete-property/ sbu1-dc-gpios;
-+	/delete-property/ sbu2-dc-gpios;
-+	/delete-node/ port;
-+};
-+
-+/* USB3 Type-A port*/
-+&usb_host0_xhci {
-+	dr_mode = "host";
-+	/delete-property/ usb-role-switch;
-+	status = "okay";
-+	/delete-node/ port;
-+};
-+
-+/*
-+ * combphy2_psu is shared between usb_host2_xhci (USB3) and pcie2x1l1 (PCIe).
-+ * Disable USB3 so the PHY can be used for the NVMe M.2 slot.
-+ */
-+&usb_host2_xhci {
-+	status = "disabled";
-+};
--- 
-2.53.0
-
+PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBNYW5pdmFubmFuIFNhZGhhc2l2
+YW0gPG1hbmlAa2VybmVsLm9yZz4NCj4gU2VudDogMjAyNuW5tDPmnIg05pelIDA6NDINCj4gVG86
+IEhvbmd4aW5nIFpodSA8aG9uZ3hpbmcuemh1QG54cC5jb20+OyBBbGV4YW5kZXIgU3RlaW4NCj4g
+PGFsZXhhbmRlci5zdGVpbkBldy50cS1ncm91cC5jb20+DQo+IENjOiBsaW51eC1wY2lAdmdlci5r
+ZXJuZWwub3JnOyBsaW51eC1hcm0ta2VybmVsQGxpc3RzLmluZnJhZGVhZC5vcmc7DQo+IGlteEBs
+aXN0cy5saW51eC5kZXYNCj4gU3ViamVjdDogUmU6IGkuTVg4TSBQbHVzIFBDSWUgbGluayByZWdy
+ZXNzaW9uDQo+IA0KPiBPbiBUdWUsIE1hciAwMywgMjAyNiBhdCAwMTozODoxM1BNICswMTAwLCBB
+bGV4YW5kZXIgU3RlaW4gd3JvdGU6DQo+ID4gSGksDQo+ID4NCj4gPiB0aGVzZSBkYXlzIEkgbm90
+aWNlZCB0aGF0IHRoZXJlIGlzIGEgUENJZSBsaW5rIHJlZ3Jlc3Npb24gb24gbXkNCj4gPiBpLk1Y
+OE1QIHBsYXRmb3JtIChUUU1hOE1QeEwpIHJ1bm5pbmcgbmV4dC0yMDI2MDIyNy4NCj4gPiBJIGNv
+dWxkIGJpc2VjdCBpdCBiYWNrIHRvIGNvbW1pdCA5YzAzZTMwZTNhZGUzICgiUENJOiBpbXg2OiBT
+a2lwIGxpbmsNCj4gPiB1cCB3b3JrYXJvdW5kIGZvciBuZXdlciBwbGF0Zm9ybXMiKS4gSSBhbHdh
+eXMgZ2V0IHRoZSBmb2xsb3dpbmcgZXJyb3JzOg0KPiA+DQo+ID4gaW14NnEtcGNpZSAzMzgwMDAw
+MC5wY2llOiBMaW5rIGZhaWxlZCB0byBjb21lIHVwLiBMVFNTTToNCj4gPiBDRkdfTElOS1dEX1NU
+QVJUIGlteDZxLXBjaWUgMzM4MDAwMDAucGNpZTogcHJvYmUgd2l0aCBkcml2ZXINCj4gPiBpbXg2
+cS1wY2llIGZhaWxlZCB3aXRoIGVycm9yIC0xMTANCj4gPg0KPiA+IENvbm5lY3RlZCBpcyBhIEdl
+bjEgUENJZSAtPiBFdGhlcm5ldCBhZGFwdGVyLiBJbnRlcmVzdGluZ2x5IGEgR2VuMg0KPiA+IGRl
+dmljZSBpcyBkZXRlY3RlZCB3aXRob3V0IGlzc3Vlcy4NCj4gPg0KPiA+IFJldmVydGluZyAzYzk2
+YTYxZGQyZTA5OGRkYThkY2FjM2RjZTNkMzhhM2M4N2FmYmZjIGFuZA0KPiA+IGI5YThkMjhlYmJm
+MTE4YmIzZWFjOTUzZjRhMzdhYmJkMzQxMjU3YWIgImZpeGVzIiBteSBwbGF0Zm9ybSwgYm90aA0K
+PiBHZW4NCj4gPiAxIGFuZCBHZW4gMiBkZXZpY2VzIGFyZSBkZXRlY3QuIENvbW1pdA0KPiA+IDNj
+OTZhNjFkZDJlMDk4ZGRhOGRjYWMzZGNlM2QzOGEzYzg3YWZiZmMgaXMgb25seSByZXF1aXJlZCBm
+b3IgY29uZmxpY3QNCj4gZnJlZSByZXZlcnQuDQo+ID4NCj4gPiBIZXJlIGlzIGEgc3VtbWFyeSB3
+aXRoIG91dHB1dHM6DQo+ID4gR2VuIDEgZGV2aWNlDQo+ID4gPiAwMDowMC4wIFBDSSBicmlkZ2U6
+IFN5bm9wc3lzLCBJbmMuIERXQ191c2IzIC8gUENJZSBicmlkZ2UgKHJldiAwMSkNCj4gPiA+IDAx
+OjAwLjAgRXRoZXJuZXQgY29udHJvbGxlcjogUmVhbHRlayBTZW1pY29uZHVjdG9yIENvLiwgTHRk
+Lg0KPiA+ID4gUlRMODExMS84MTY4LzgyMTEvODQxMSBQQ0kgRXhwcmVzcyBHaWdhYml0IEV0aGVy
+bmV0IENvbnRyb2xsZXIgKHJldg0KPiA+ID4gMDEpDQo+ID4NCj4gPiBHZW4gMiBkZXZpY2UNCj4g
+PiA+IDAwOjAwLjAgUENJIGJyaWRnZTogU3lub3BzeXMsIEluYy4gRFdDX3VzYjMgLyBQQ0llIGJy
+aWRnZSAocmV2IDAxKQ0KPiA+ID4gMDE6MDAuMCBTQVRBIGNvbnRyb2xsZXI6IE1hcnZlbGwgVGVj
+aG5vbG9neSBHcm91cCBMdGQuIDg4U0U5MTI4IFBDSWUNCj4gPiA+IFNBVEEgNiBHYi9zIFJBSUQg
+Y29udHJvbGxlciAocmV2IDIwKQ0KPiA+DQo+ID4gb3V0cHV0IG9mICJkbWVzZyB8IGdyZXAgaW14
+NnEtcGNpZSIuIENvbW1vbiBwYXJ0IGZvciBhbGwgdGVzdHM6DQo+ID4gPiBpbXg2cS1wY2llIDMz
+ODAwMDAwLnBjaWU6IGhvc3QgYnJpZGdlIC9zb2NAMC9wY2llQDMzODAwMDAwIHJhbmdlczoNCj4g
+PiA+IGlteDZxLXBjaWUgMzM4MDAwMDAucGNpZTogICAgICAgSU8gMHgwMDFmZjgwMDAwLi4weDAw
+MWZmOGZmZmYgLT4NCj4gPiA+IDB4MDAwMDAwMDAwMA0KPiA+ID4gaW14NnEtcGNpZSAzMzgwMDAw
+MC5wY2llOiAgICAgIE1FTSAweDAwMTgwMDAwMDAuLjB4MDAxZmVmZmZmZiAtPg0KPiA+ID4gMHgw
+MDE4MDAwMDAwDQo+ID4gPiBpbXg2cS1wY2llIDMzODAwMDAwLnBjaWU6IGNvbmZpZyByZWdbMV0g
+MHgxZmYwMDAwMCA9PSBjcHUgMHgxZmYwMDAwMA0KPiA+ID4gaW14NnEtcGNpZSAzMzgwMDAwMC5w
+Y2llOiBpQVRVOiB1bnJvbGwgVCwgNCBvYiwgNCBpYiwgYWxpZ24gNjRLLA0KPiA+ID4gbGltaXQg
+MTZHDQo+ID4NCj4gPiBuZXh0LTIwMjYwMjI3DQo+ID4gR2VuIDENCj4gPiA+IGlteDZxLXBjaWUg
+MzM4MDAwMDAucGNpZTogTGluayBmYWlsZWQgdG8gY29tZSB1cC4gTFRTU006DQo+ID4gPiBDRkdf
+TElOS1dEX1NUQVJUIGlteDZxLXBjaWUgMzM4MDAwMDAucGNpZTogcHJvYmUgd2l0aCBkcml2ZXIN
+Cj4gPiA+IGlteDZxLXBjaWUgZmFpbGVkIHdpdGggZXJyb3IgLTExMA0KPiA+DQo+ID4gR2VuIDIN
+Cj4gPiA+IGlteDZxLXBjaWUgMzM4MDAwMDAucGNpZTogUENJZSBHZW4uMiB4MSBsaW5rIHVwIGlt
+eDZxLXBjaWUNCj4gPiA+IDMzODAwMDAwLnBjaWU6IFBDSSBob3N0IGJyaWRnZSB0byBidXMgMDAw
+MDowMA0KPiA+DQo+ID4gbmV4dC0yMDI2MDIyNyArIHJldmVydHMNCj4gPiBHZW4gMQ0KPiA+ID4g
+aW14NnEtcGNpZSAzMzgwMDAwMC5wY2llOiBQQ0llIEdlbi4xIHgxIGxpbmsgdXAgaW14NnEtcGNp
+ZQ0KPiA+ID4gMzM4MDAwMDAucGNpZTogUENJZSBHZW4uMSB4MSBsaW5rIHVwIGlteDZxLXBjaWUg
+MzM4MDAwMDAucGNpZTogUENJDQo+ID4gPiBob3N0IGJyaWRnZSB0byBidXMgMDAwMDowMA0KPiA+
+DQo+ID4gR2VuIDINCj4gPiA+IGlteDZxLXBjaWUgMzM4MDAwMDAucGNpZTogUENJZSBHZW4uMSB4
+MSBsaW5rIHVwIGlteDZxLXBjaWUNCj4gPiA+IDMzODAwMDAwLnBjaWU6IFBDSWUgR2VuLjIgeDEg
+bGluayB1cCBpbXg2cS1wY2llIDMzODAwMDAwLnBjaWU6IFBDSQ0KPiA+ID4gaG9zdCBicmlkZ2Ug
+dG8gYnVzIDAwMDA6MDANCj4gPg0KPiA+IFdoYXQgY2FuIHdlIGRvIGhlcmU/IEknbSB3b25kZXJp
+bmcgd2h5IEdlbiAyIHRyYWlucyBjb3JyZWN0bHksIHdoaWxlDQo+ID4gR2VuIDEgZG9lc24ndC4N
+Cj4gPg0KPiANCj4gVGhhbmtzIGZvciB0aGUgcmVwb3J0IGFuZCBzb3JyeSBmb3IgdGhlIGJyZWFr
+YWdlLiBDb21taXQgOWMwM2UzMGUzYWRlMywNCj4gbWVudGlvbnMgdGhhdCB0aGUgd29ya2Fyb3Vu
+ZCBpcyBvbmx5IG5lZWRlZCBmb3IgdGhlIGkuTVg2IHBsYXRmb3Jtcy4gU28NCj4gSSdtIG5vdCBz
+dXJlIHdoeSB0aGUgcGF0Y2ggYnJlYWtzIGkuTVg4TSBhbmQgdGhhdCB0b28gb25seSBmb3IgR2Vu
+IDENCj4gc3BlZWQuDQo+IA0KPiBBbHNvLCBiZWZvcmUgOWMwM2UzMGUzYWRlMywgTFRTU00gd2Fz
+IGFsd2F5cyBzdGFydGVkIGluIEdlbiAxLCBidXQgYXMgcGVyDQo+IHlvdXIgZmluZGluZywgb25s
+eSBHZW4gMSBkZXZpY2VzIGZhaWwgdG8gd29yay4gU28gdGhlIGNvZGUgdGlsbA0KPiBpbXhfcGNp
+ZV93YWl0X2Zvcl9zcGVlZF9jaGFuZ2UoKSBzaG91bGRuJ3QgaGF2ZSBhbiBpbXBhY3QuIE1heWJl
+IHRoZQ0KPiBpc3N1ZSBpcyBkdWUgdG8gc2tpcHBpbmcgaW14X3BjaWVfd2FpdF9mb3Jfc3BlZWRf
+Y2hhbmdlKCk/DQo+IA0KPiBSaWNoYXJkLCB0aG91Z2h0cz8NCkhpIE1haW5pOg0KUHJpb3IgdG8g
+Y2FsbGluZyBpbXhfcGNpZV93YWl0X2Zvcl9zcGVlZF9jaGFuZ2UoKSwgdGhlIFBDSWUgbGluayBt
+dXN0DQogYWxyZWFkeSBiZSBlc3RhYmxpc2hlZC4gQmVmb3JlIGNvbW1pdCA5YzAzZTMwZTNhZGUz
+LCB0aGUgc3BlZWQgY2hhbmdlDQogcHJvY2VkdXJlIHdhcyBvbmx5IGluaXRpYXRlZCBhZnRlciB0
+aGUgaW5pdGlhbCBHZW4xIGxpbmsgd2FzIHN1Y2Nlc3NmdWxseQ0KIGJyb3VnaHQgdXAuDQoNCkhp
+IEFsZXhhbmRlcjoNClNvcnJ5IGZvciB0aGUgYnJlYWthZ2UuDQpCZWZvcmUgY29tbWl0IDljMDNl
+MzBlM2FkZTMsIGkuTVg4TVAgUENJZSBmb3JjZWQgR2VuMSBsaW5rIHRyYWluaW5nDQogaW5pdGlh
+bGx5LCB0aGVuIHN3aXRjaGVkIHRvIEdlbjMgYWZ0ZXIgbGluay11cCBieSB0cmlnZ2VyaW5nIGEg
+c3BlZWQNCiBjaGFuZ2UuIEFmdGVyIGNvbW1pdCA5YzAzZTMwZTNhZGUzLCBsaW5rIHRyYWluaW5n
+IHN0YXJ0cyBkaXJlY3RseSBhdA0KIHRoZSBHZW4zIGNhcGFiaWxpdHkgbGV2ZWwuDQoNClRoZSB0
+d28gbGluayB0cmFpbmluZyBtZXRob2RzIGRpZmZlciBvbmx5IGluIHRoZSBpLk1YOE1QIFJvb3Qg
+Q29tcGxleCAoUkMpDQogbGluayBjYXBhYmlsaXR5IGNvbmZpZ3VyYXRpb24gcHJpb3IgdG8gbGlu
+ayB0cmFpbmluZzogb25lIG1ldGhvZCBmb3JjZXMNCiBHZW4xIHNwZWVkLCB3aGlsZSB0aGUgb3Ro
+ZXIgcmV0YWlucyB0aGUgZGVmYXVsdCBHZW4zIHNldHRpbmcgaW4geW91ciB0ZXN0cy4NCg0KRm9y
+dHVuYXRlbHksIEkgYWxzbyBoYXZlIGEgUlRMODE2OEUgR2lnYWJpdCBuZXR3b3JrIGNhcmQgb24g
+aGFuZC4NCkJhc2VkIG9uIHY3LjAtcmMxLCBoZXJlIGlzIHRoZSB0ZXN0cyBsb2cgb24gbXkgaS5N
+WDhNUCBFVksgYm9hcmQgYW5kIG9uZSBNLjINCktleSBFIHRvIFBDSWUgc3RhbmRhcmQgc2xvdCBl
+eGNoYW5nZSBhZGFwdG9yLg0KDQpMb2dzOg0Kcm9vdEBpbXg4bXBldms6fiMgZG1lc2cgfCBncmVw
+IHBjaQ0KWyAgICAyLjE3MjQyMF0gaW14NnEtcGNpZSAzMzgwMDAwMC5wY2llOiBob3N0IGJyaWRn
+ZSAvc29jQDAvcGNpZUAzMzgwMDAwMCByYW5nZXM6DQpbICAgIDIuMTcyNTE2XSBpbXg2cS1wY2ll
+IDMzODAwMDAwLnBjaWU6ICAgICAgIElPIDB4MDAxZmY4MDAwMC4uMHgwMDFmZjhmZmZmIC0+IDB4
+MDAwMDAwMDAwMA0KWyAgICAyLjE3MjU0NV0gaW14NnEtcGNpZSAzMzgwMDAwMC5wY2llOiAgICAg
+IE1FTSAweDAwMTgwMDAwMDAuLjB4MDAxZmVmZmZmZiAtPiAweDAwMTgwMDAwMDANClsgICAgMi4x
+NzI2MzFdIGlteDZxLXBjaWUgMzM4MDAwMDAucGNpZTogY29uZmlnIHJlZ1sxXSAweDFmZjAwMDAw
+ID09IGNwdSAweDFmZjAwMDAwDQpbICAgIDIuMzgwMDY1XSBpbXg2cS1wY2llIDMzODAwMDAwLnBj
+aWU6IGlBVFU6IHVucm9sbCBULCA0IG9iLCA0IGliLCBhbGlnbiA2NEssIGxpbWl0IDE2Rw0KWyAg
+ICAyLjU3OTYwNF0gaW14NnEtcGNpZSAzMzgwMDAwMC5wY2llOiBQQ0llIEdlbi4xIHgxIGxpbmsg
+dXANClsgICAgMi41ODAwMjBdIGlteDZxLXBjaWUgMzM4MDAwMDAucGNpZTogUENJIGhvc3QgYnJp
+ZGdlIHRvIGJ1cyAwMDAwOjAwDQo8c25pcHBlZD4NClsgICAgMi41ODM2NTNdIHBjaSAwMDAwOjAx
+OjAwLjA6IFsxMGVjOjgxNjhdIHR5cGUgMDAgY2xhc3MgMHgwMjAwMDAgUENJZSBFbmRwb2ludA0K
+WyAgICAyLjU4Mzg1OF0gcGNpIDAwMDA6MDE6MDAuMDogQkFSIDAgW2lvICAweDAwMDAtMHgwMGZm
+XQ0KWyAgICAyLjU4Mzg4NV0gcGNpIDAwMDA6MDE6MDAuMDogQkFSIDIgW21lbSAweDAwMDAwMDAw
+LTB4MDAwMDBmZmYgNjRiaXRdDQpbICAgIDIuNTgzOTAyXSBwY2kgMDAwMDowMTowMC4wOiBCQVIg
+NCBbbWVtIDB4MDAwMDAwMDAtMHgwMDAwM2ZmZiA2NGJpdCBwcmVmXQ0KWyAgICAyLjU4MzkxNF0g
+cGNpIDAwMDA6MDE6MDAuMDogUk9NIFttZW0gMHgwMDAwMDAwMC0weDAwMDFmZmZmIHByZWZdDQpb
+ICAgIDIuNTg0MjgwXSBwY2kgMDAwMDowMTowMC4wOiBzdXBwb3J0cyBEMSBEMg0KWyAgICAyLjU4
+NDMyMF0gcGNpIDAwMDA6MDE6MDAuMDogUE1FIyBzdXBwb3J0ZWQgZnJvbSBEMCBEMSBEMiBEM2hv
+dCBEM2NvbGQNClsgICAgMi41OTU2MTVdIHBjaSAwMDAwOjAxOjAwLjA6IEFTUE06IGRlZmF1bHQg
+c3RhdGVzIEwwcyBMMQ0Kcm9vdEBpbXg4bXBldms6fiMNCnJvb3RAaW14OG1wZXZrOn4jIGxzcGNp
+DQowMDowMC4wIFBDSSBicmlkZ2U6IFN5bm9wc3lzLCBJbmMuIERXQ191c2IzIC8gUENJZSBicmlk
+Z2UgKHJldiAwMSkNCjAxOjAwLjAgRXRoZXJuZXQgY29udHJvbGxlcjogUmVhbHRlayBTZW1pY29u
+ZHVjdG9yIENvLiwgTHRkLiBSVEw4MTExLzgxNjgvODIxMS84NDExIFBDSSBFeHByZXNzIEdpZ2Fi
+aXQgRXRoZXJuZXQgQ29udHJvbGxlciAocmV2IDA2KQ0KDQpCZXN0IFJlZ2FyZHMNClJpY2hhcmQN
+Cj4gDQo+IC0gTWFuaQ0KPiANCj4gLS0NCj4g4K6u4K6j4K6/4K614K6j4K+N4K6j4K6p4K+NIOCu
+muCupOCuvuCumuCuv+CuteCuruCvjQ0K
 
