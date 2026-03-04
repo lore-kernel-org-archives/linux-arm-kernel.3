@@ -4,118 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C608FD006E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 08:07:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F67DEC1425
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 08:08:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ezaKcTCwxvc8WCNj/aHK68Tu0GeEJ4didEw5cUNO9nQ=; b=2LJTVI7+fVlZGr0BGRj2G7GU0X
-	geUVQbdXD0rKpTUG0ADhzs5SolOgJwLu3FLTNeo9i7bPlUevmxsv3xQbB9uK4NbZhIX7v/VYW1v8b
-	K/b0NG0xlQgA5bayKi1fizOjQEgCYUo559OEkbTXF80HpbSX/1c6T1keM4D4AmTe7/p88nm+78Po0
-	xsAHqL4JHVj90pCglCw+KIk7iqNOpnAB0SDiRrQayAM++rZL7jHPgBquZxjk1eiVwHg1jrVPimInk
-	OGPnXYeXebiSytPeDqG5SMg4+Qhj+pR7Ek9qBIfHYWZXqR0joL0bT7LYgX+2C2Is/TZ4ofWtVIiE7
-	telCKIdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=umiDmXimKnwg21TsfCEQ72OkpzfSgk0ygJP0kl6mnKQ=; b=sb5OxOJuilQcu3g1SzFEOHKl+9
+	P1ZxmO/UCUDjLpmuUzLBULqKy6OM4V6dG3z3b2cTacVqQVSzog0CqXHyLUgaq+eIwN6LUH12JBszq
+	kpT/gC8xB/0JV1aI5xTwI9qhrB8Xek8JzZOlmXb6GfwiWOnX5KExVYuvcqmRrHzDC+Z4G+kJHR2Vv
+	iJUbf0HmysvJ+pjTA0yz1L/nYUMB+ulQME7r8rd+5fo0QY2DYT+uoORi9ALzGAQmzSz6dErrrKJkd
+	dXI2VjnEEoGkV+IwyTp5h0kdDUMbB5S4K1xKhrLpYxbHpH4ga+89GHUJWk+wXuRQLttbBVziFs3vN
+	wr/JqUBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxhGV-0000000Gghn-1L77;
-	Wed, 04 Mar 2026 08:07:31 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1vxhGv-0000000Ggro-2zZN;
+	Wed, 04 Mar 2026 08:07:57 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxhGR-0000000GgfS-0aQC
+	id 1vxhGs-0000000Ggpu-3aeB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 08:07:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UCbPMe9yUJSaBlje+MSm8kBerxW2bsBAHp+CFND2xjpdwX1thS75NZE35MYwm4ihY11Z35G4O6UK+Qhcab5+OrI0QGb9ChWOZ5LDDo+F9n8bVg19qkTM0dOwfy/Orrkd6PbbEp72wkcyevJMBXIDSn6NkT6g2eSLo7XtgEs0EBAlXF9f3ZBxWg3e09+1DgJOBJtHr4OXKGM06NoelvmuB78k3eKXHoQGcMjFKg1XUR3s8zpjyCSqpLE7yFTEB+17jwEUIL1jxgtauolm4EYdHMtbUeiyzKkTn2zxHVSmP5tiiLmN/FWME0jhno7x7nXEW1/uOeE2MCyHVjeUXZIHDQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ezaKcTCwxvc8WCNj/aHK68Tu0GeEJ4didEw5cUNO9nQ=;
- b=do4BYEydoO3rsu63s72Pvf3/HkpvC3pxLMRuCXWc+5xEeifv8cQTdIfl57EFiABGJMTICvM9I0hNL/+NcWDlAUJ0N3MnUCB7pfsaIA+o0wKvxuDRt3ZxTwxVh57/xyh+ZCNtCl9HOY2p2E+TksEKDY8GgUTA1ExyFE4jFpy2un3twHw7ek0DMUefYKQUeeI8XvDxGOv6ad+NlTqikYN1wWuq3OWfizcX9bddrAj/9oTDfJY5NBg6sv7V0woJpj+u7JqRbdIt7lsVNu/Tf668/dke/IcKcFMA9mJRO133rJVLlGu5GBGBGIil6qntvhkS23JmhrYkoZwxOdwaP3ELLQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=lists.infradead.org
- smtp.mailfrom=foss.st.com; dmarc=fail (p=none sp=none pct=100) action=none
- header.from=foss.st.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ezaKcTCwxvc8WCNj/aHK68Tu0GeEJ4didEw5cUNO9nQ=;
- b=FIFtAg+j+ZNnoyH3jRlG/IuxohYIbQy3/VvWMvg2rfproK6SnukHEFC/4WgrW/zFR3amQHGbbEi5LE1FsZTR+8W3Bvzy4ExPq11ouFhhrPc9o5SXEpEIvCgyBqSsKabsRGlXtCqNO94H+TU+Fm8JKuaCIZOlgi9jb0zEdhNB0R8fw3rLUsa48oAdq/1EYoiw+jz3mr9OnQuMn/jy+eqDIQMCqQvUXJ6KYHaBjDD6D1BeFNGkC8ZDNHWTm0x5+Gcd0iKqBtISYdYyo8YP5PwBT5euuDe3djQ+m1+DzQtKLXGezWn7/EK+fvqC2kibTy+abyFHUmRkKcAu0/UZvETrSg==
-Received: from AS4P189CA0011.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:5d7::12)
- by AS2PR10MB6349.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:550::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Wed, 4 Mar
- 2026 08:07:18 +0000
-Received: from AM4PEPF00027A6C.eurprd04.prod.outlook.com
- (2603:10a6:20b:5d7:cafe::9) by AS4P189CA0011.outlook.office365.com
- (2603:10a6:20b:5d7::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9654.22 via Frontend Transport; Wed,
- 4 Mar 2026 08:07:18 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- AM4PEPF00027A6C.mail.protection.outlook.com (10.167.16.90) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9654.16 via Frontend Transport; Wed, 4 Mar 2026 08:07:18 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Wed, 4 Mar
- 2026 09:09:40 +0100
-Received: from localhost (10.252.5.222) by STKDAG1NODE2.st.com (10.75.128.133)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Wed, 4 Mar
- 2026 09:07:17 +0100
-From: Amelie Delaunay <amelie.delaunay@foss.st.com>
-Date: Wed, 4 Mar 2026 09:06:59 +0100
-Subject: [PATCH 1/2] ARM: dts: stm32: fix misalignments in nodes of
- stm32mp151
+	Wed, 04 Mar 2026 08:07:56 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-c70f91776fcso2557680a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 00:07:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772611673; x=1773216473; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=umiDmXimKnwg21TsfCEQ72OkpzfSgk0ygJP0kl6mnKQ=;
+        b=Hx1tm/fOCgKnWvFG9+cAjZ4bvtTMwGB3hM58EkzUD8MAM7JNVst/aDCltUTTwzH/qR
+         AevlS8KRqTgN7MXsuEO5Ph8qQXgRR3s+C4roFOrDufex15p0ItAXA1jaxwgRkdojmZ9D
+         MuvpYntQiOPL2cG7djVMR4phF4dZRVfHiqdexEi+aSho66kw48Yidw2yC1XmNll4SSLz
+         XH41ee5E1m4kiZlRSPGGdsL/7l1E0HinAgoLB7XqYsK5yGJhAfsci3GRLFCIwRRLhhcH
+         mIjnX5WKvSAszES2tHqDFmTI1ZsdWm3yWUJAYbVleGUkaRUPn7yP5mE5UH7eLmpGrh3N
+         o2QQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772611673; x=1773216473;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=umiDmXimKnwg21TsfCEQ72OkpzfSgk0ygJP0kl6mnKQ=;
+        b=ngePcpb5Rq8VCPEsQ2irxpYZqUOabyNI7xT+DWdcqDBq1j0TqlObUy9fJzjdR9xeqO
+         duECnFBK/NIuQv2wl+Bslr6QJOJZenAZAnEyzyKKqaAcDxYBuZSnYKzZNmrSrBBgcnvH
+         cRVtpbQ61BKqLG0+RKbIM3/EgCxpXAmME41t735mDarCBWPAhXGhgdbhztwTaP7YSpop
+         xheyKCPFVFBdQIqurhkgiNJ7nTJ9hitv9av0mpuGNW57cAR3ysA7Jn9N5DNDDvy42e7r
+         beHWZOPyIWvUK5sbmyM1+2Het0HW3LGQjAUnwExLqJQ/U/mJ3o/kOBRNrpQfKuVJPMEF
+         BY+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXVr9zcDU7y/3g9mas465Yho9oVSnCoJOM2Pio65PkogTWc0We9tknm73bFknImP6FztmmDSmfZ6k/vfTEkovxj@lists.infradead.org
+X-Gm-Message-State: AOJu0YznPBF6X0U81z7Vcz+pEEcFDBOfwtGexueIWs6Iy06En4xXgini
+	UBtB6BlRB9mhbnfm9zZQsu1xzOFgCkXGlbc9negpBRwH3gOL/gbEzTRm
+X-Gm-Gg: ATEYQzw3+fkxOfrSia3g4VmL8/Ft0cVih07jmPdbqpCgPI0RtX3LJFYgPj/6grLjNDT
+	eD6R29Fm/uSOAmNL/AWp3s8WYUqDdu0c9ox3Dati0H8kxoVreuxmbqTdZzV1YR5yNChp1Z5el2+
+	P9Wf1czzS2D7ILuIvEs8HP2uct+MzcBjF3+WsCHY2j4/vMhxzQ3/Uzu/6YQBfskLF7xi5dhCSIq
+	x9PuBbzuVym6nVUsw2zrJ/TEldBkzo3a2JvzxvB3M+qklekpfh+nVCfb+QqX5GedOwa5fluDyLQ
+	1LjKck0jetgp+A7ncPu06JWUubEafrLrkRKqv626Wpv/VR2hJDv7YJqwjvW13L42r4j3hTneYEx
+	pfHyfNaZrRmdaDHYo4ojZgDjWheQuak/4cLI4pG3fwiZvtpqWoLZrtryIQtSy/MIZ3HxUJHf3PT
+	Lx25UoeICkwM8EA0pakVdjhrcxXPDuXO32yA==
+X-Received: by 2002:a17:902:cecf:b0:2ae:665c:8b16 with SMTP id d9443c01a7336-2ae6ab5ac69mr13854625ad.53.1772611673352;
+        Wed, 04 Mar 2026 00:07:53 -0800 (PST)
+Received: from localhost ([2001:19f0:8001:1b2d:5400:5ff:fefa:a95d])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae489c3626sm94364275ad.8.2026.03.04.00.07.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Mar 2026 00:07:52 -0800 (PST)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Yao Zi <me@ziyao.cc>,
+	Yanteng Si <siyanteng@cqsoftware.com.cn>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Shangjuan Wei <weishangjuan@eswincomputing.com>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>
+Cc: netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH net-next v7 0/3] riscv: spacemit: Add ethernet support for K3
+Date: Wed,  4 Mar 2026 16:07:17 +0800
+Message-ID: <20260304080721.1658224-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260304-mp1x_alignment_issues-v1-1-19a8013782a5@foss.st.com>
-References: <20260304-mp1x_alignment_issues-v1-0-19a8013782a5@foss.st.com>
-In-Reply-To: <20260304-mp1x_alignment_issues-v1-0-19a8013782a5@foss.st.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
-CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Amelie Delaunay <amelie.delaunay@foss.st.com>
-X-Mailer: b4 0.14.3
-X-Originating-IP: [10.252.5.222]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM4PEPF00027A6C:EE_|AS2PR10MB6349:EE_
-X-MS-Office365-Filtering-Correlation-Id: fae59708-48a5-4ae2-2bf5-08de79c50ded
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: MLYUS9yU9WfjMPqTB8zpNxuBle1FjW7NA5UfO+/hj4UTTdfQbInIZoVo9ECcr/aLOe1PtgU91poXyZp87u5wzhEpgye/btfbf7TZTEq0WUoRTqd6YdGzImkcfNylT+SJnoTEDWa074X2UunoZZwF2xA2tj2RCWr6moVtkeLIBqMOv/Bu666Rn0Ntwt4VWwDBQG6kGYcYEllVjnbjcVbIXMlMtmafrRGWro9O/PyjylXIDreJmbMqt2PkTFRIX9yGto+cN0pC0puIo4o5IgFbXHMZBcJ2NF/1peLPqmz3Vkh5oeIZWAnR+xuURZZbahMqRMOOheymClZn/DDD3w1G6/Np+kOiUvujb8J+8nCC8cqbKFTmklfLJywRP8RN0XwLD1VzVloKKl4f4ifbxeL9ESHqnZKIe+GvDWRQxVMnQngoyOmD2let82brGTDQqWKe/WSk0/cmQ+W6DPxsnKKliPIaHQZmICobQYY+YvYMiJTxhWWtnfBKizj6CaLivS6at7EiGospQgYhxVoRVElJbW9KLdGaox0PNgJ7MvKYNNkEYfoocnwLJIwCTn9fQJWiqFshCEBlZkrsuV9dRUMKaJN0RrmMHEyUrX+MkJ4QRpSo86gN1uNZ7cAAZsJj3MTpAbAgxYUxKOT7bxMDEXuPwqhOaYtn7TAPBoPh/Yn+QkNjUToGc6dKUeQ9OW07nRVShdg4aI3TeLac33ZjLcRFWIJsmJ2JTec5cgKOIb9Q8x5FbbZizlff8hurTNyXCUA7kPeqCQ4Q/3rXJzyygCLSdw==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: V1LBcNn1+WboRoRbYGxYeL3Cv4T5qDE5TlXabuhIWjh63vbCxBotdL/zdmLHwkzitJPiii4LPvNlXJvaJQ++voIrJYpuO+1WI9qP1vzMnz7CwWTVg+Mk7lTpW2AqAAdEXEiynuxbCLjjLK466O+YIqwSMEKBafgMWfdQpGzNarGJbLjhc7VhB4V8z1JzRNhfUkjoiN4kvHYVpXecckLPpi7W3RbmYSd0lzwxkij+iXQGIVJhoagdYlh6ASMii7ULP+UaofsAcYNsRlXhZldGa4lMZpzYKAyEYhLoGMvFaDOHMy0Zh2zpve1InmFR58gsy8+LtXr+c2+jqLcfPWc2Mnxa27NiT5N73ny9WAYqrr1St1L/DmauTfoczxTsNSAXLcQh/w/GAtve2gzDf7qdRiWF6FjQIexATdtE/wsnFIjvu0N6+kbXYH4ceaL/A6q7
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2026 08:07:18.1523
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: fae59708-48a5-4ae2-2bf5-08de79c50ded
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00027A6C.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR10MB6349
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_000727_196541_514E5AC6 
-X-CRM114-Status: UNSURE (   9.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260304_000754_892320_1C194926 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,83 +130,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since the ETZPC system bus was introduced, misalignments have appeared
-in some nodes moved under the etzpc parent node.
+Add initial support for ethernet controller of the Spacemit K3 SoC.
+This ethernet controller is almost a standard Synopsys DesignWare
+MAC (version 5.40a). This controller require a syscon device to
+configure some basic features, like interface type and internal delay.
 
-Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
----
- arch/arm/boot/dts/st/stm32mp151.dtsi | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+Change from v6:
+- https://lore.kernel.org/netdev/20260303010630.567674-1-inochiama@gmail.com
+patch 1:
+1. Drop the extra blank line at the last
 
-diff --git a/arch/arm/boot/dts/st/stm32mp151.dtsi b/arch/arm/boot/dts/st/stm32mp151.dtsi
-index b1b568dfd126..fd58bb700f6c 100644
---- a/arch/arm/boot/dts/st/stm32mp151.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp151.dtsi
-@@ -1083,7 +1083,7 @@ usart6: serial@44003000 {
- 				clocks = <&rcc USART6_K>;
- 				wakeup-source;
- 				dmas = <&dmamux1 71 0x400 0x15>,
--				<&dmamux1 72 0x400 0x11>;
-+				       <&dmamux1 72 0x400 0x11>;
- 				dma-names = "rx", "tx";
- 				access-controllers = <&etzpc 51>;
- 				status = "disabled";
-@@ -1095,7 +1095,7 @@ i2s1: audio-controller@44004000 {
- 				reg = <0x44004000 0x400>;
- 				interrupts = <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
- 				dmas = <&dmamux1 37 0x400 0x01>,
--				<&dmamux1 38 0x400 0x01>;
-+				       <&dmamux1 38 0x400 0x01>;
- 				dma-names = "rx", "tx";
- 				access-controllers = <&etzpc 52>;
- 				status = "disabled";
-@@ -1110,7 +1110,7 @@ spi1: spi@44004000 {
- 				clocks = <&rcc SPI1_K>;
- 				resets = <&rcc SPI1_R>;
- 				dmas = <&dmamux1 37 0x400 0x05>,
--				<&dmamux1 38 0x400 0x05>;
-+				       <&dmamux1 38 0x400 0x05>;
- 				dma-names = "rx", "tx";
- 				access-controllers = <&etzpc 52>;
- 				status = "disabled";
-@@ -1125,7 +1125,7 @@ spi4: spi@44005000 {
- 				clocks = <&rcc SPI4_K>;
- 				resets = <&rcc SPI4_R>;
- 				dmas = <&dmamux1 83 0x400 0x05>,
--				<&dmamux1 84 0x400 0x05>;
-+				       <&dmamux1 84 0x400 0x05>;
- 				dma-names = "rx", "tx";
- 				access-controllers = <&etzpc 53>;
- 				status = "disabled";
-@@ -1176,7 +1176,7 @@ timers16: timer@44007000 {
- 				clocks = <&rcc TIM16_K>;
- 				clock-names = "int";
- 				dmas = <&dmamux1 109 0x400 0x1>,
--				<&dmamux1 110 0x400 0x1>;
-+				       <&dmamux1 110 0x400 0x1>;
- 				dma-names = "ch1", "up";
- 				access-controllers = <&etzpc 55>;
- 				status = "disabled";
-@@ -1209,7 +1209,7 @@ timers17: timer@44008000 {
- 				clocks = <&rcc TIM17_K>;
- 				clock-names = "int";
- 				dmas = <&dmamux1 111 0x400 0x1>,
--				<&dmamux1 112 0x400 0x1>;
-+				       <&dmamux1 112 0x400 0x1>;
- 				dma-names = "ch1", "up";
- 				access-controllers = <&etzpc 56>;
- 				status = "disabled";
-@@ -1241,7 +1241,7 @@ spi5: spi@44009000 {
- 				clocks = <&rcc SPI5_K>;
- 				resets = <&rcc SPI5_R>;
- 				dmas = <&dmamux1 85 0x400 0x05>,
--				<&dmamux1 86 0x400 0x05>;
-+				       <&dmamux1 86 0x400 0x05>;
- 				dma-names = "rx", "tx";
- 				access-controllers = <&etzpc 57>;
- 				status = "disabled";
+Change from v5:
+- https://lore.kernel.org/netdev/20260227075718.2243818-1-inochiama@gmail.com
+patch 3:
+1. fix error from checkpatch
 
--- 
-2.43.0
+Change from v4:
+- https://lore.kernel.org/netdev/20260130022705.1059214-1-inochiama@gmail.com
+patch 1:
+1 Apply Rob's tag.
+2 Adjust clock description according to Russell's suggestion.
+patch 3:
+1. Add set_phy_intf_sel() and get_interfaces() hook, suggested by Russell.
+
+Change from v3:
+- https://lore.kernel.org/netdev/20260128072931.875041-1-inochiama@gmail.com
+patch 1:
+1. fix the uncorrect compatible string postion
+patch 3:
+1. add "CTRL_" prefix to all ctrl register definition
+2. only use delay config 0 to calculate delay code.
+3. fix typo in the comment
+
+Change from v2:
+- https://lore.kernel.org/netdev/20260121071315.940130-1-inochiama@gmail.com
+patch 1:
+1. remove not needed compatible for select
+2. drop empty line in "spacemit,apmu" properties
+3. add spacemit,apmu properties to required.
+patch 3:
+1. remove misused phy_fix_phy_mode_for_mac_delays.
+2. use local tx clock instead of the clk_tx_i in the dwmac.
+
+Change from v1:
+- https://lore.kernel.org/netdev/20260120043609.910302-1-inochiama@gmail.com
+patch 1:
+1. remove phy clock
+patch 3:
+1. improve comment and include something special about Spacmit K3 dwmac
+2. reorder the included file
+3. fix wrong delay macro used in spacemit_dwmac_set_delay.
+4. add check for maximum supported delay.
+5. use DIV_ROUND_CLOSEST to calculate best delay configuration.
+6. use assign for the ctrl register initial value.
+7. fix input when calling of_property_read_u32().
+
+Inochi Amaoto (3):
+  dt-bindings: net: Add support for Spacemit K3 dwmac
+  net: stmmac: platform: Add snps,dwmac-5.40a IP compatible string
+  net: stmmac: Add glue layer for Spacemit K3 SoC
+
+ .../devicetree/bindings/net/snps,dwmac.yaml   |   2 +
+ .../bindings/net/spacemit,k3-dwmac.yaml       | 102 ++++++++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 +
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-spacemit.c  | 228 ++++++++++++++++++
+ .../ethernet/stmicro/stmmac/stmmac_platform.c |   1 +
+ 6 files changed, 346 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
+
+--
+2.53.0
 
 
