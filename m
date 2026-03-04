@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C46C7EB7ED5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 11:47:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2353EB7ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 11:47:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2NaXXDV1tJIB0Dp9DIhsU+WPRj8uTu2ysRvhlaplcIo=; b=mG8YECjXHVvzu/Hx7993iAaGO3
-	OFguML6GaHlnFEgABuUWHuYZEvU9G5WB7TSC1rSKq8wKMcW0FOmr2pMEXHZV862mTPldCHurZrJuM
-	rxOJ4XRz3p3iitNGlfTZNOxApm9TPqzVcRBgw5CyZ9i9BHjLKCLF/9DR9kHbNMW7mCKlWlQJ3U9Qj
-	ZCMmXRxoa7QIcSVzb3kE8sXDEVN2jcmOpZdK+04k1eGW1tw1otIN5Yx+npmkfhGjyW7E5p5YbXakO
-	XqIxM+1LQCPH/p81RmyYn+JH1hQNZ/RwjVLBxNQ8CjN9OrXEl2cUNOcnkn1BwP7ZAswlptt4UIilz
-	FwFmrz7w==;
+	bh=2NaXXDV1tJIB0Dp9DIhsU+WPRj8uTu2ysRvhlaplcIo=; b=x73tgKl1ECUSczQI8BOMAD05z4
+	5t27R8nGfDILgHiIpcmkFPmrFExMoydUR8RMcH4wplZ4nxbjPYzfrkGy/eziOUZHvfIkj7J2XBvnd
+	0iQ445mqtMhPw/fMXL7H2rzedhtLnevKNS3+A1/O0RgKJFLzL1vYXQD5manS5LtdzOiVZfqaSmQRk
+	iugPvWZfpsecIg9hS/gu8tX22bTE5C0smx65YMLEQBqG//mkWgH99hDuKu+jJRq+9AAsu1jy7cpPA
+	Mf1ta+a+J0ytEhBUyFK0UA+rwAuhUlVU34zRnc4KZTwzhY/ilKI+TRXLCA3i6sAyEjcWtIliJXgGk
+	bC80s0lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxkha-0000000H87Z-2Qqs;
-	Wed, 04 Mar 2026 11:47:42 +0000
+	id 1vxkhb-0000000H87r-3hHx;
+	Wed, 04 Mar 2026 11:47:43 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxkhY-0000000H86s-3pYK
+	id 1vxkhY-0000000H86t-3pDq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 11:47:41 +0000
+	Wed, 04 Mar 2026 11:47:42 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vxkhP-0007OA-Q0; Wed, 04 Mar 2026 12:47:31 +0100
+	id 1vxkhK-0007M8-8D; Wed, 04 Mar 2026 12:47:26 +0100
 Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vxkhO-003hsl-0p;
-	Wed, 04 Mar 2026 12:47:31 +0100
+	id 1vxkhG-003hsd-0k;
+	Wed, 04 Mar 2026 12:47:23 +0100
 Received: from pza by lupine with local (Exim 4.98.2)
 	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vxkhP-000000009W6-2CCc;
-	Wed, 04 Mar 2026 12:47:31 +0100
-Message-ID: <ceb3f2715e85a922c8122229c843ca79219b4433.camel@pengutronix.de>
-Subject: Re: [PATCH 2/6] reset: intel: Use devm_register_restart_handler()
+	id 1vxkhH-000000009UQ-24il;
+	Wed, 04 Mar 2026 12:47:23 +0100
+Message-ID: <eaa90b244650a7bbc85403ad2fca6494e879cfba.camel@pengutronix.de>
+Subject: Re: [PATCH 1/6] reset: ath79: Use devm_register_restart_handler()
 From: Philipp Zabel <p.zabel@pengutronix.de>
 To: Andrew Davis <afd@ti.com>, Vladimir Zapolskiy <vz@mleia.com>, Jacky
  Huang	 <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, Qin
  Jian	 <qinjian@cqplus1.com>
 Cc: openbmc@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
 	linux-kernel@vger.kernel.org
-Date: Wed, 04 Mar 2026 12:47:31 +0100
-In-Reply-To: <20250813214138.477659-3-afd@ti.com>
+Date: Wed, 04 Mar 2026 12:47:23 +0100
+In-Reply-To: <20250813214138.477659-2-afd@ti.com>
 References: <20250813214138.477659-1-afd@ti.com>
-	 <20250813214138.477659-3-afd@ti.com>
+	 <20250813214138.477659-2-afd@ti.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.56.2-0+deb13u1 
@@ -63,8 +63,8 @@ X-SA-Exim-Mail-From: p.zabel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_034740_951968_778FCDA8 
-X-CRM114-Status: UNSURE (   7.01  )
+X-CRM114-CacheID: sfid-20260304_034740_951929_CB02DB63 
+X-CRM114-Status: UNSURE (   7.20  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
