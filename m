@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67FF3EFCE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 18:11:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8579EFCE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 18:11:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IbrHSPPxep6X+vivH1+ezOTNFT57/EKHgyG9LJdna2A=; b=oZ78oj0PUZdkr/oF6vqp6GG0Aw
-	n2ydhD9b/+jsxbB5fO1zWIdjka8kCahAOCyctS2H/97PCrd/bN3FjrmBfMIo18c3zFZnzn+93wjEO
-	F94Ctpn5D6z1hcF23TYzyeQCa5iWuG9o/ZA+qAeJ4ywM2CJ8bCQwKoRXLwHaG0tkO+iuASCg2I2hs
-	Qtr5/PyOTe2ZCapLVrULW2Xj7xzi21rZKGfWJayQdm1a853je2yhfuvZf3XaDjSoz/GkkfH14TFWL
-	nyyVfzcib2/9P7IKSBfEMfgv/CDr9Mh24XvjJj1wTe15dbib6Gql5BaOACwE6k1kaZUW6OGj3JF62
-	wbETO1wg==;
+	bh=/F7XmH5/hs11BL5Bv9gfwXPkKTxvFijq4nvY+SwIm9w=; b=ZZas+7VrOk6rAgjMQPgXimK3xA
+	LzYvfNune59wSHR/1fNfnXsWYOvAAyjohVy0PyyDp3NUZS2zFKHqB1fhaVdWSKJaajTZM+oFHNCy0
+	L48daej2tI7gm3zBJ6Y65jhl8OLgTDQLbENxAfNkWJgLokUTbesQVMjL8O7a3oxqYejv0T28Pt2Rw
+	yjcgkG1O2vnsIZkLUQAx2lzZn6Mvti7hrA2xIs4/TxQ8dV16Ly8tWJTssDsScJAGENzMbjZdHTFOb
+	4FPMFTdskM4D5C6DN3sq5kjc7Cu2BbpQYI2OJubl45mcpcLaF8ktLbVDt8vJs6thfFELh4g9scchA
+	gWQU2hVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxqhA-00000000JMH-1S4v;
-	Wed, 04 Mar 2026 18:11:40 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1vxqhD-00000000JOo-3taU;
+	Wed, 04 Mar 2026 18:11:43 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxqh8-00000000JLC-1GAm
+	id 1vxqhB-00000000JMi-05HN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 18:11:39 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-8272c559597so7158834b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 10:11:38 -0800 (PST)
+	Wed, 04 Mar 2026 18:11:42 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-82746ed8cb1so3991173b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 10:11:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772647898; x=1773252698; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1772647900; x=1773252700; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=IbrHSPPxep6X+vivH1+ezOTNFT57/EKHgyG9LJdna2A=;
-        b=Ips51icFPPsiluaIGBhc2dpzkqm5ElP0mSlJs4MHGDarssEJO0/gGhVo2yAUfzOq0x
-         EnAcAHW2JvSwmxs5cR68gO0Zi6+iBJgklnjL2sP8Dlg6CTcq0dPsGSDEb9Ah8CNVQ36+
-         i97dvpkgJFoBkKl3gnE8HqVqjN3bSdfRNhIFkP8mJ5cpCBzEBQ1vatnFSw//Kz0dUR0h
-         sk24yjIjeu/6slPZCLsvHYYIS6PnOVmDGOT0KJzMA/Rw0Z1l07ynVZkMjSzTRKV0p7Im
-         Ia7Jn8cOdVvcQ9AxR17xhaCGQU13YEWHLw3WR//EyFt+WqhpSwomMArqzSuRYX8e3Mkv
-         T0jQ==
+        bh=/F7XmH5/hs11BL5Bv9gfwXPkKTxvFijq4nvY+SwIm9w=;
+        b=VqUE1FRMQAKVZBpsEHs92R+kLUVaInRuceLucdtY4FsmyRQ+B5TfhGmtmwJxEe1je9
+         8eze+PvRe5uvyyp2zmCWpDUvBfeIo81fYodh9o5fnsHZcq0WNcPWShy0u0DHtP/iIirP
+         yw3MTJ5L+p3Up4+D6icTBRuCla6WbHfH0/AaHXGSuOnuzY2Xn/NY39AbRXXde9WXQ97+
+         2g4aFosd/UnjvxSIXLXgwaQTj1htVNy8cyG3WUeAZFSYsxNzP1y4HWDN2SRWhzF+bKrn
+         VAQj7QUDzhitnrH14MCLzk/QrpeC8GrVBFfBbYx7R8zXjXtMExS9dfxMXAjP2idwG/H3
+         +UKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772647898; x=1773252698;
+        d=1e100.net; s=20230601; t=1772647900; x=1773252700;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=IbrHSPPxep6X+vivH1+ezOTNFT57/EKHgyG9LJdna2A=;
-        b=qNTtM36A/11ZpimUTiFTCbQoMJfzVWXuftkPuVO5bvwT3JRzmOIAaBxF48t9dIalrV
-         7XRlUSJifCErrCkTZaqa23Sxs1tZDIC6JWftiivUSH7CsRjbf8JQVoX/sjpo7NkwSimZ
-         1q3hoxQ0jfDzdBXcU5BY55P82cB7Eet+C1XZQry1Lp1Fe/VX47FWeS6keA/xumdqJdkw
-         Ljg/m003f4fDpdguEfjrDY1Kg6zOvv7E3NjXO/b0G20cA4Ajd36icOfFPK0LXSB26Isr
-         96IAl4NYvLIr69Ca76YpCC4EqVz3DWd7aTEe9/rsmtzThB9pOW805tcBhJJ3wErB0lgp
-         ab9A==
-X-Forwarded-Encrypted: i=1; AJvYcCWJEcEEDgTLx0S2EPEvndOxWhcloee2LK7bo1F3Q2gArRzT08RFdbxtwT9QuMOojMEVYj7Zf+cDCPdLHTsYsjqa@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywp3X+XfcFdln1fd9djFrUyRQ8G3fPL9CUbrVqKSwtSJU0Rj5ix
-	WakP1HjVXGFuluJfUEhqhK2c6xp1VEpuxLwhIKI/Y7HgO1eCU9F5VVgt
-X-Gm-Gg: ATEYQzwsoSujI939q0vuIN4WI7h2RS3LyORxp12yY2Et6TqEmoELAqawjJn3pPUxuwS
-	9HHnt47agxeyFZRIDNtrmw/kj/sUoXiBZY3aWcm5ESm2LwZOSWvVffzlqKtYp7DjJ9qDYhmkdMX
-	5w3OhKHKIehtvFyEV3pazLByYBZRPV/qkvZyHEIPDQFOn/tO0ars5UkC4eaTL4W3Ap84Zh4Og8H
-	Wk0RfwF4g0u5nc4gy54wSpFmm5UkLN0rnXMYGZLCSErm4udR8pW1QzenIFJ3eGPhct5P3DuOg/O
-	Qk861GfQWUzKEwAupxcRedXkWN3VqKgmPv+L3KvmIr3C1GNvkQA8dlQIDV4ozW1qqtUkgOFVP9/
-	O+l/MYcy2/r/fy1G9pN2zyENTPb0OvHuqY7HyBigy/GYkuJaco1uGxXa8qxIK1LW1Grm+4RaGLd
-	XHrOXMKoCXXNzD7NEn7LrGlMsyCiOvSwk844mB2ATdLasFt8DDuR+csoQ4a3RNQtLflewrhl6mX
-	O2PqphzAPWOyuVwJg==
-X-Received: by 2002:a05:6a00:130f:b0:81e:2bca:d133 with SMTP id d2e1a72fcca58-82972b49983mr2518364b3a.24.1772647897597;
-        Wed, 04 Mar 2026 10:11:37 -0800 (PST)
+        bh=/F7XmH5/hs11BL5Bv9gfwXPkKTxvFijq4nvY+SwIm9w=;
+        b=haeSaeVsNsabNShGHgUnguJIwsWiIu01LKxX2nQQK4FwoNeHqHvgOokDD+5xZTyvX0
+         07IU9cqf6ly2A6WIA045KczYxggIHy4FRi0GHguhvyuZ4LGv0P8NDBaQ7sRqpssJEVKH
+         XI4jn4lZMdf2fSWaffoWiBYPTkdLPFUVFimIO3g8q++eGNMpp3MNXldhvIA4xuy3PIKs
+         uc5XBT01DPc/0owp/g6HIEqc8P3rHadSpDRNaDYurXVTWv5awr89Y87QHq0YHzQ8eaKc
+         VKrMbF1/tvkfruCLT7vejzZrqj7m8UE6OHKYZDMkT5uPQfTe+wAsGw1mtE/+t9Zhyat/
+         KSWw==
+X-Forwarded-Encrypted: i=1; AJvYcCVBik5UcXYiqeurZ/cQKyWE++Kj9tMu7G1gV/edeTr+lvNZP+eNqRd3AfbqwPUzpzPsChHiNRGxn1ZoIqjSCkOW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4b0WhiYa8NAKjyJAvUDz0R5v5vp83Gwbrg8rUCG4xFz9U1sh7
+	fcmpBC4hxMhDGpr8Po4qkx3YbYnDJ4J3050BJc7KgmvH2CRExLxr92at
+X-Gm-Gg: ATEYQzxHU+tQQnCslYvYr/ctaTgGEeDRbbqBDDa4s6QpHq5OcUEC2feKP8i4C+76dhz
+	DzOMvVuWuJzeMvrKBYtIrTYCCTPQGQcZJlCbuozNip64pAPASudzurJQWrxYwHgz47GU6ZBe03H
+	5MPGGlrKoklXaHhOX7tzXMevbJD/irZcR7C2tXAgKggFwkNzKaNGg7f3bRNJcIEbpOz1JksBHGF
+	AdZFgZkjoHscqWpTnSiDRQlt73i49LhnSaUiHYkn8pZyjbq6grFgoWe1TP51Exun5qkZaAIAt8I
+	GU0D5uOvQNCWPI9FWa+0fFw4EXxZqDaKQmJIPPxcwIMDdvDisO+luaQeEKiL12vhWOUsnT15rRo
+	kMW/pGtd1DWPxtZNo2vGt6DsFfXXWEJRA7zgv/LH5bo7bsLtKRF6eSpPacFjt2Q/vapK1sFqlcM
+	p8zkhElZYvocaG2oUmB8R2Be0ngOH4p720SkPu7fS5bloC1aB+W0cDZflWUo5uUKx/SQ1mS7tDU
+	c31+7U=
+X-Received: by 2002:a05:6a00:2191:b0:81f:4675:c2a6 with SMTP id d2e1a72fcca58-82972b7584amr2427606b3a.2.1772647900198;
+        Wed, 04 Mar 2026 10:11:40 -0800 (PST)
 Received: from buffalo-ssd.taila54753.ts.net (M014013071096.v4.enabler.ne.jp. [14.13.71.96])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-829713825efsm2503835b3a.51.2026.03.04.10.11.30
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-829713825efsm2503835b3a.51.2026.03.04.10.11.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Mar 2026 10:11:32 -0800 (PST)
+        Wed, 04 Mar 2026 10:11:39 -0800 (PST)
 From: Akari Tsuyukusa <akkun11.open@gmail.com>
 To: mturquette@baylibre.com,
 	sboyd@kernel.org,
@@ -80,17 +80,17 @@ Cc: linux-clk@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	Akari Tsuyukusa <akkun11.open@gmail.com>
-Subject: [PATCH 1/3] clk: mediatek: clk-mtk: Add cpumux support to common probe/remove helpers
-Date: Thu,  5 Mar 2026 03:10:22 +0900
-Message-ID: <20260304181024.738391-2-akkun11.open@gmail.com>
+Subject: [PATCH 2/3] clk: mediatek: mt6795-infracfg: Switch to common probe/remove helpers
+Date: Thu,  5 Mar 2026 03:10:23 +0900
+Message-ID: <20260304181024.738391-3-akkun11.open@gmail.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260304181024.738391-1-akkun11.open@gmail.com>
 References: <20260304181024.738391-1-akkun11.open@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_101138_344928_EDF00108 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20260304_101141_069866_B16D7A98 
+X-CRM114-Status: GOOD (  15.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,93 +105,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extend __mtk_clk_simple_probe() and __mtk_clk_simple_remove() to support
-cpumux clocks. This reduces boilerplate code in drivers for SoCs that
-require cpumux registration, such as mt6795-infracfg.
+The MT6795 infracfg driver can use the MediaTek clock framework's common
+initialization sequence. Reduce the boilerplate code by creating
+struct mtk_clk_desc and using the mtk_clk_simple_probe/remove helpers.
 
 Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
 ---
- drivers/clk/mediatek/clk-mtk.c | 18 +++++++++++++++++-
- drivers/clk/mediatek/clk-mtk.h |  2 ++
- 2 files changed, 19 insertions(+), 1 deletion(-)
+ drivers/clk/mediatek/clk-mt6795-infracfg.c | 70 ++++------------------
+ 1 file changed, 11 insertions(+), 59 deletions(-)
 
-diff --git a/drivers/clk/mediatek/clk-mtk.c b/drivers/clk/mediatek/clk-mtk.c
-index 3dfdd3a422f8..8148c21e6099 100644
---- a/drivers/clk/mediatek/clk-mtk.c
-+++ b/drivers/clk/mediatek/clk-mtk.c
-@@ -19,6 +19,7 @@
- #include "clk-mtk.h"
+diff --git a/drivers/clk/mediatek/clk-mt6795-infracfg.c b/drivers/clk/mediatek/clk-mt6795-infracfg.c
+index e4559569f5b0..6aefc577ece5 100644
+--- a/drivers/clk/mediatek/clk-mt6795-infracfg.c
++++ b/drivers/clk/mediatek/clk-mt6795-infracfg.c
+@@ -8,7 +8,6 @@
+ #include <dt-bindings/reset/mediatek,mt6795-resets.h>
+ #include <linux/module.h>
+ #include <linux/platform_device.h>
+-#include "clk-cpumux.h"
  #include "clk-gate.h"
- #include "clk-mux.h"
-+#include "clk-cpumux.h"
+ #include "clk-mtk.h"
+ #include "reset.h"
+@@ -77,74 +76,27 @@ static const struct mtk_clk_rst_desc clk_rst_desc = {
+ 	.rst_idx_map_nr = ARRAY_SIZE(infra_ao_idx_map),
+ };
  
- const struct mtk_gate_regs cg_regs_dummy = { 0, 0, 0 };
- EXPORT_SYMBOL_GPL(cg_regs_dummy);
-@@ -513,6 +514,7 @@ static int __mtk_clk_simple_probe(struct platform_device *pdev,
- 	num_clks = mcd->num_clks + mcd->num_composite_clks;
- 	num_clks += mcd->num_fixed_clks + mcd->num_factor_clks;
- 	num_clks += mcd->num_mux_clks + mcd->num_divider_clks;
-+	num_clks += mcd->num_cpumuxes;
- 
- 	clk_data = mtk_alloc_clk_data(num_clks);
- 	if (!clk_data) {
-@@ -542,6 +544,13 @@ static int __mtk_clk_simple_probe(struct platform_device *pdev,
- 			goto unregister_factors;
- 	}
- 
-+	if (mcd->cpumuxes) {
-+		r = mtk_clk_register_cpumuxes(&pdev->dev, node, mcd->cpumuxes,
-+					      mcd->num_cpumuxes, clk_data);
-+		if (r)
-+			goto unregister_muxes;
-+	}
++static const struct mtk_clk_desc infra_desc = {
++	.clks = infra_gates,
++	.num_clks = ARRAY_SIZE(infra_gates),
++	.cpumuxes = cpu_muxes,
++	.num_cpumuxes = ARRAY_SIZE(cpu_muxes),
++	.rst_desc = &clk_rst_desc,
++};
 +
- 	if (mcd->composite_clks) {
- 		/* We don't check composite_lock because it's optional */
- 		r = mtk_clk_register_composites(&pdev->dev,
-@@ -549,7 +558,7 @@ static int __mtk_clk_simple_probe(struct platform_device *pdev,
- 						mcd->num_composite_clks,
- 						base, mcd->clk_lock, clk_data);
- 		if (r)
--			goto unregister_muxes;
-+			goto unregister_cpumuxes;
- 	}
+ static const struct of_device_id of_match_clk_mt6795_infracfg[] = {
+-	{ .compatible = "mediatek,mt6795-infracfg" },
++	{ .compatible = "mediatek,mt6795-infracfg", .data = &infra_desc },
+ 	{ /* sentinel */ }
+ };
+ MODULE_DEVICE_TABLE(of, of_match_clk_mt6795_infracfg);
  
- 	if (mcd->divider_clks) {
-@@ -605,6 +614,10 @@ static int __mtk_clk_simple_probe(struct platform_device *pdev,
- 	if (mcd->composite_clks)
- 		mtk_clk_unregister_composites(mcd->composite_clks,
- 					      mcd->num_composite_clks, clk_data);
-+unregister_cpumuxes:
-+	if (mcd->cpumuxes)
-+		mtk_clk_unregister_cpumuxes(mcd->cpumuxes,
-+					    mcd->num_cpumuxes, clk_data);
- unregister_muxes:
- 	if (mcd->mux_clks)
- 		mtk_clk_unregister_muxes(mcd->mux_clks,
-@@ -643,6 +656,9 @@ static void __mtk_clk_simple_remove(struct platform_device *pdev,
- 	if (mcd->composite_clks)
- 		mtk_clk_unregister_composites(mcd->composite_clks,
- 					      mcd->num_composite_clks, clk_data);
-+	if (mcd->cpumuxes)
-+		mtk_clk_unregister_cpumuxes(mcd->cpumuxes,
-+					    mcd->num_cpumuxes, clk_data);
- 	if (mcd->mux_clks)
- 		mtk_clk_unregister_muxes(mcd->mux_clks,
- 					 mcd->num_mux_clks, clk_data);
-diff --git a/drivers/clk/mediatek/clk-mtk.h b/drivers/clk/mediatek/clk-mtk.h
-index 5417b9264e6d..02fab4b166f2 100644
---- a/drivers/clk/mediatek/clk-mtk.h
-+++ b/drivers/clk/mediatek/clk-mtk.h
-@@ -252,6 +252,8 @@ struct mtk_clk_desc {
- 	size_t num_factor_clks;
- 	const struct mtk_mux *mux_clks;
- 	size_t num_mux_clks;
-+	const struct mtk_composite *cpumuxes;
-+	size_t num_cpumuxes;
- 	const struct mtk_clk_rst_desc *rst_desc;
- 	spinlock_t *clk_lock;
- 	bool shared_io;
+-static int clk_mt6795_infracfg_probe(struct platform_device *pdev)
+-{
+-	struct clk_hw_onecell_data *clk_data;
+-	struct device_node *node = pdev->dev.of_node;
+-	void __iomem *base;
+-	int ret;
+-
+-	base = devm_platform_ioremap_resource(pdev, 0);
+-	if (IS_ERR(base))
+-		return PTR_ERR(base);
+-
+-	clk_data = mtk_alloc_clk_data(CLK_INFRA_NR_CLK);
+-	if (!clk_data)
+-		return -ENOMEM;
+-
+-	ret = mtk_register_reset_controller_with_dev(&pdev->dev, &clk_rst_desc);
+-	if (ret)
+-		goto free_clk_data;
+-
+-	ret = mtk_clk_register_gates(&pdev->dev, node, infra_gates,
+-				     ARRAY_SIZE(infra_gates), clk_data);
+-	if (ret)
+-		goto free_clk_data;
+-
+-	ret = mtk_clk_register_cpumuxes(&pdev->dev, node, cpu_muxes,
+-					ARRAY_SIZE(cpu_muxes), clk_data);
+-	if (ret)
+-		goto unregister_gates;
+-
+-	ret = of_clk_add_hw_provider(node, of_clk_hw_onecell_get, clk_data);
+-	if (ret)
+-		goto unregister_cpumuxes;
+-
+-	return 0;
+-
+-unregister_cpumuxes:
+-	mtk_clk_unregister_cpumuxes(cpu_muxes, ARRAY_SIZE(cpu_muxes), clk_data);
+-unregister_gates:
+-	mtk_clk_unregister_gates(infra_gates, ARRAY_SIZE(infra_gates), clk_data);
+-free_clk_data:
+-	mtk_free_clk_data(clk_data);
+-	return ret;
+-}
+-
+-static void clk_mt6795_infracfg_remove(struct platform_device *pdev)
+-{
+-	struct device_node *node = pdev->dev.of_node;
+-	struct clk_hw_onecell_data *clk_data = platform_get_drvdata(pdev);
+-
+-	of_clk_del_provider(node);
+-	mtk_clk_unregister_cpumuxes(cpu_muxes, ARRAY_SIZE(cpu_muxes), clk_data);
+-	mtk_clk_unregister_gates(infra_gates, ARRAY_SIZE(infra_gates), clk_data);
+-	mtk_free_clk_data(clk_data);
+-}
+-
+ static struct platform_driver clk_mt6795_infracfg_drv = {
+ 	.driver = {
+ 		.name = "clk-mt6795-infracfg",
+ 		.of_match_table = of_match_clk_mt6795_infracfg,
+ 	},
+-	.probe = clk_mt6795_infracfg_probe,
+-	.remove = clk_mt6795_infracfg_remove,
++	.probe = mtk_clk_simple_probe,
++	.remove = mtk_clk_simple_remove,
+ };
+ module_platform_driver(clk_mt6795_infracfg_drv);
+ 
 -- 
 2.52.0
 
