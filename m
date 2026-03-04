@@ -4,133 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E88DEF8FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 13:45:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7358DEF8FE5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 13:53:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p9bn0G0BpHgJ2dsfxLIhslyVs7HFs3h12V45Adash94=; b=ISGnBgH1OA53yIWjTbEQ2xMDKi
-	ADCV/SjTFjaBCnl9EjTsoMcMg37TD7rqMTUu5QmiJSkjF8zmk7Kyx+NXHhNBkaW/gwcMnF9Bw+qfN
-	snoa9RHj3KmFFCWVqN0NkzXCTFzL3Z57tOUeAnhcZ/fu58cuSkUX/lpbfKvr6EnCl3TSY/pEHOkXJ
-	Cevy/m+y6aQQoy3SubdPu1FvXuLYlvY0vuw/6kwZ+JbhGTYyjO7SnU/wLRJScR1PjX40M3bbD1Lok
-	W1vf+67CuMCqFu/3XvI231CdS3ntGnHw5CTenuKU3CUccpFb82xGClcv8QKJQYrwpvI/sfQMqnqG0
-	GlWQeruQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/wnzJ+GIMalP1Ve3ISBLEomH/NwB7XamANoBBX7s8LY=; b=Gne9y+MOkPL/vn9ZzyoPet1VSx
+	jHknxw4FOxx5L0WajOCANm0gwa27fv8INyJ+emu/vce5PXtFo99wpu5ZIA5vjXAkxWJ7xACyp6W/S
+	Nchq7SYgTpo+L2A19+3mCjfxRr/REA6XRcb7eSHZuqcA6IusVTWihNiAFsLcGMxR36Xxy8JrCwQqr
+	hlKXDQKSyX59lPn4YygTk0WccoeTcGGOCnIAMzsSz3YSUwXbuJSTIFBdSbCo9HiiZRVtK6nfYvmnF
+	CP0DCrjjg+Kt81Baj+gnzKnvmFc8czC8wOVKpX+dyfNYHgIGW7XhSNriPK5h+Y+mOaz1VN1D9OhOh
+	PDTdRb6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxmX2-0000000HGv6-3NHp;
-	Wed, 04 Mar 2026 13:44:56 +0000
-Received: from mail-westcentralusazon11013033.outbound.protection.outlook.com ([40.93.201.33] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1vxmfG-0000000HHQK-3YLp;
+	Wed, 04 Mar 2026 13:53:26 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxmX0-0000000HGuk-0Jk1
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 13:44:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Dpf2kiVLfbu6/Hx0aNdgmUZ11v03QSIEp1ys6R9rbxIG6JdH5w6o+kYgycakIKkOiuBoVcIqD1Y5Y8XLtQ7qjDtVWR/wvnf2Jh3422gwIt+PNKHheY83Er8bG5nwWDSI1JXZMZ4IIPaDAe72sXY5sDZvXqr20dsqF5ZbciQco76gOpiGcXgutHxJvtt5td0EQovaoUENN3BhgV4C9cBbPuvOaJoZ9cBZZ4/a9QqIISg5ZFBJfInYdLmTuj6JHYfF5GZ0GAPVaiB0rvG6YftGZf8dTd7rjHPen5IPEf4r/huJRbEIxuS5e0i61tJpV532kyXVNvLHpOcyMxNM295hEA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=p9bn0G0BpHgJ2dsfxLIhslyVs7HFs3h12V45Adash94=;
- b=bI6b7tTMYAzZkPsAbDvrOSjIRl2FKcIORdCyoqOZCg5QjVUoWxCLQEaxL/KbPmZHDDHph2mQ6LCwyF0LZdEfaTeD20+9mLBzBRASMpSb35fOUjCZI1UfnGHtYxN6lARaKU8GTjXzJYvWerVidsKonlYiF6qjFKgVeDTQvVxVIuamoMr9r8z06389gBg0OrtiHR5olpfocSWs+VG9a/z5q0H5J/Nh9IGsP74VIrfLmfin6OY7UqEdOVhgtyvvktwlpx6GLmpJhLRgoq+/PPBikcZaW5WKQM6PzxDJxvGJeiJbIwERGySeXk8X0rfPt2J+c23m2+tjsNhFk9EMwW7Z3g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=p9bn0G0BpHgJ2dsfxLIhslyVs7HFs3h12V45Adash94=;
- b=R7nRy7id9kwRX6eaA8UpO2RF19qPof9RDjpRGy0sxh02vegBqX4dLHDyH092Pr1ip+H3+is0PvRT4KnjRoo8judMo8r/3JQGGvFF6WIIWnM2vNxTvxPt5dkACr0ODXteTkdb23lru0WC17AvikadXNqFZc6sfu7Uk/57hDRTwDCKpxpmxe/doQh42f7IUbftperC9CdfJbo1Oi7hy9QMbqOWtfvxwauJlVovfkxoTwJRbuc8lJIpKazlu3IlNvPW+L319IC+zI/Dsd0XlK/D9ezce6Ekr8wdbudKYy5RY3n6nnjU3aWDPkyc+fFkOytTHIbbXh/ZY5qXlsDEaTU8YQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by PH8PR12MB7422.namprd12.prod.outlook.com (2603:10b6:510:22a::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Wed, 4 Mar
- 2026 13:44:47 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9654.022; Wed, 4 Mar 2026
- 13:44:47 +0000
-Date: Wed, 4 Mar 2026 09:44:45 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Piotr Jaroszynski <pjaroszynski@nvidia.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	Alistair Popple <apopple@nvidia.com>,
-	John Hubbard <jhubbard@nvidia.com>, Zi Yan <ziy@nvidia.com>,
-	Breno Leitao <leitao@debian.org>, stable@vger.kernel.org
-Subject: Re: [PATCH] arm64: contpte: fix set_access_flags() no-op check for
- SMMU/ATS faults
-Message-ID: <20260304134445.GN972761@nvidia.com>
-References: <20260303063751.2531716-1-pjaroszynski@nvidia.com>
- <0a10ea33-937a-4294-b9a1-9323c706434d@arm.com>
- <aacohVRfAK46lOjo@box>
- <20260303191217.GD972761@nvidia.com>
- <1080db49-2f83-4fec-ba73-94c6b3a8f7fa@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1080db49-2f83-4fec-ba73-94c6b3a8f7fa@arm.com>
-X-ClientProxiedBy: MN0P222CA0030.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:208:531::32) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	id 1vxmfD-0000000HHPn-2ygF;
+	Wed, 04 Mar 2026 13:53:25 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6249Kdl91455840;
+	Wed, 4 Mar 2026 13:53:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=/wnzJ+GIMalP1Ve3ISBLEomH/NwB7XamANo
+	BBX7s8LY=; b=RueWusYY/RXjgDMZAt/vFpgCfsYkQfgiWqpDd1SyXd517IZzfsH
+	tqf0FhqZo+mJxEGVxpnHSDair1zmgYt+4cvwIW1D3n7WrnlF39GJnra9qVs+bW2/
+	F6OI/ev+8O/gRlTJt6kpYmwXl6geThSMNy5eRVcU8MPKMV7wm4IrfVrhf0r9tPzS
+	YXkoLre+tMUALevd5vChi3r2USCI0OvY3QjJdo3K6mLQubkijujoTHMrdPF5D+qk
+	VDr4TSBf/R9yCFVW3qtjehIacww4ZDkVcaijJlyve9bRF4VGkjQCw1Ru6Y6kBXbd
+	8Ct+Mo0I8UZjcfLSeiOYWFaW+RkhpTc2E8g==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cpj180s19-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 04 Mar 2026 13:53:17 +0000 (GMT)
+Received: from pps.filterd (NALASPPMTA03.qualcomm.com [127.0.0.1])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 624DrG8u012138;
+	Wed, 4 Mar 2026 13:53:16 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by NALASPPMTA03.qualcomm.com (PPS) with ESMTPS id 4cpjdf26h0-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 04 Mar 2026 13:53:16 +0000
+Received: from NALASPPMTA03.qualcomm.com (NALASPPMTA03.qualcomm.com [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 624DrGoO012133;
+	Wed, 4 Mar 2026 13:53:16 GMT
+Received: from hu-devc-lv-u22-c.qualcomm.com (hu-cang-lv.qualcomm.com [10.81.25.255])
+	by NALASPPMTA03.qualcomm.com (PPS) with ESMTPS id 624DrGj2012128
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 04 Mar 2026 13:53:16 +0000
+Received: by hu-devc-lv-u22-c.qualcomm.com (Postfix, from userid 359480)
+	id 020425A7; Wed,  4 Mar 2026 05:53:15 -0800 (PST)
+From: Can Guo <can.guo@oss.qualcomm.com>
+To: avri.altman@wdc.com, bvanassche@acm.org, beanhuo@micron.com,
+        martin.petersen@oracle.com
+Cc: linux-scsi@vger.kernel.org, Can Guo <can.guo@oss.qualcomm.com>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support:Keyword:mediatek),
+        linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support:Keyword:mediatek),
+        linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support:Keyword:mediatek)
+Subject: [PATCH v2 00/11] scsi: ufs: Add TX Equalization support for UFS 5.0
+Date: Wed,  4 Mar 2026 05:53:02 -0800
+Message-Id: <20260304135313.413688-1-can.guo@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH8PR12MB7422:EE_
-X-MS-Office365-Filtering-Correlation-Id: a214ca69-7392-42d3-628c-08de79f432f7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: TyCjhN+021woCMUt/c/jkIYbKo2BrGV9rRKgRQd4DDvD6iGKOMvFhfjapjmCdA4Wtxqqducl3IxPKwZ33h97BrUIEIygI4qfeP66JSaWBFJ+rR3HT/0LEL1GFMV+yuVMZn5Aj5/3JOXdhVrV/BMM6Mf9HeJsS7DpuN+PLVgabm1zwUfsgJkoynfM2BSQGoiCcN5cLG7lxr9+X/+G/PDUGnE0m07UH6ilmIL6eNRlOlyvunhnQMEXmVGBzPkoLyqX3SmSGDkzxKMuzEZMZUu4ei62LV7+GGPsfUXPAUhESYfiQs2AuM2nuocAko5sSYE9HaLeS3Ddqa+T+n65CLNhSlW0CL1aBk7ZIuWJ9cBnP9Lxwhf+UfyH6Bd3BGu5v7jLGhEo9ZfVSnBDjTrhwb388myiSInfuR2Vw3xgt0BjEh6bgOV+tu59OHH3ntz3q1L1NrfgMY4TfW/nIYYCxnmJu+9mNq3Km2+GIbuqnGPLWkoCCRaJN4BYyduaGS1ZOoFP3SOb2vsaUNr+GFU0AmtpXs30g8PnIhrKFG6B6qZDkJiq/E1F8zUFevkY7VXePLyF3h+fYHAhXPrkuVSrOBjj5H0v6hpv84G8ZI62mLrjYb8MTCBaHUpN8MYODoh0hkGwqCXe2oWegCBwDyDvXJPge7H+WxmjqTmVvBUgollXAzEDtnPbxKktr9rzBTdoBQtEQhHWlNUfpEGaDadxzQ6UwMBdLB/Y97TDQvawp5Bbzj4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PHCtCp94ofkZUXd3gl/bv3Eb69WGkiB+SUqlKWgcmALf7NhVcL8tqtSousr6?=
- =?us-ascii?Q?1kxlgnCYANR74JhELcSNlri+4g5KHY0B8L+Us2iT2lanRF+23EiJ1paTcFfL?=
- =?us-ascii?Q?K6QkJ7keW4/lCoAdXkqcczp2pXqNVcKvPhJrGDMngMoomtUlA2udzbbSdfpX?=
- =?us-ascii?Q?PholbQpgCoc+uCjEC9KUMnUadKk5NN9fqihlQ590FAiTJYQgpAilyCJqNqZK?=
- =?us-ascii?Q?swBDg3Iza/nU3pZ3NmvVj5WXh3bU0IoZRaOyTgw5dWtVp1DeBJqfCbcJUW61?=
- =?us-ascii?Q?qiSXc2R9FJub2zhr49X3hrSc/d7RkYpHd8nluONNpMbwDEGTIIgrOBshlHnR?=
- =?us-ascii?Q?5dtRZ/WOktISs3NSKzt5nr704++PvVlQ5XrIfieTSWBFAvpTnbod5NTu9cEv?=
- =?us-ascii?Q?uY8cg/sK7Lx46XWECw7V+swmquUj9nRdYJkmKwhmimCtGfDIkafAOFRqiH9Z?=
- =?us-ascii?Q?8q3wTNtUr4JLv3nqvUwrYXHkK4wVXfs6MXjkGOitvTng7ovwua13eCnWSTcD?=
- =?us-ascii?Q?Rc6aahuQIxEAcFst0uMgMGMxWJjCeqn4iAwWEeh/iQZoEhLLresT5LKaazVZ?=
- =?us-ascii?Q?DtM2hI90uUWnI7QQPF1C4I+CENbfTOihOHW3njxz6gFVsBl+Kz5miVDknJII?=
- =?us-ascii?Q?eTCraHMC2ROV7sn8SRLyn8vAthdRfHjXs1mlELR0Yiyuvpc1ohAdKAc24WvO?=
- =?us-ascii?Q?ijd7zHDZE60gbFQhB4/N21sguP1nBO07szVnXrbunFJpgPDsWriCqgzieEcP?=
- =?us-ascii?Q?QJju7h0vkAYpJdoAEobnHcl8TQ4/kf9gWcddzXkGzwHINQfQBV4e5xZsU4jJ?=
- =?us-ascii?Q?G+nomHoHeDWk12dXH5fwWrFoXLqqBPn9KpqVtWTBraKE363aucNvSXk2XZU/?=
- =?us-ascii?Q?0crsYfBnZbSyTy9MjQO3k7ahqEk1e2mNnFis57t89DJO7zx0mG6RxublLVEm?=
- =?us-ascii?Q?tLo0E+WrwqkWEWYoPkQsZsSbqhqCpHAQCBPdF45mm23lS/u8bJv7BLZO1hWl?=
- =?us-ascii?Q?Wvvtr4MrkykANx3oQYJaVptJV+k3bhppSXZNbDeKt1JVGeqNkD75ttVcjRKi?=
- =?us-ascii?Q?E87Jr24YQA8BU9XxHxqJ9WKRAdYuSpgSZ/kSDI7A5pPfGj0WuCs8mbj1MkDu?=
- =?us-ascii?Q?8Obnku+AnMN9OR+/oHuqbM0i/LCB0HjqpKjaMlzcjFYwCGhM8W1JbSXqux66?=
- =?us-ascii?Q?G859OgsvG2mAHroNkYfdbFznxE25DuYQ5P1XescJokSUdH6buTo69KJf7I9z?=
- =?us-ascii?Q?X82I6N0yppVa/X1ioz0ZuHcD8oUhOmeGM35kbnQVr7fI6TzPE0ZR0J8fQbjM?=
- =?us-ascii?Q?ccMXmXKimydJOvDZfqMIPGS1KLxis6C9lk3c6kQDF8BXOAeGUdzFy0QU8SNr?=
- =?us-ascii?Q?MRQiLrrbQQljTXEmWZZ8wYNhrTvdSorjGpm4rkedo2+V8JtijXHPooV5fmQc?=
- =?us-ascii?Q?alh65ZJ6w/3qqlUkPED3EYhF4O6w6B3wQHu1wzdkFy9f7wkhg4T4rUe6A9c+?=
- =?us-ascii?Q?2yzDHTvtSZALtt5ORZV8JUbYkKUfuQ4v8Q3t7RRLI/lofThvFWVKYuwlHkt0?=
- =?us-ascii?Q?eZFBaC/ceX0c6m5FtTwYD2y/rp09TiGqOnNJvEBjOnSoDFhFEn90xy9i8Nq8?=
- =?us-ascii?Q?Lz8ezf8meEUXrgBV6qAw9M9XJkm8lBkTnPtN0qaSTo7XiRrCKg4Orf9fXw0D?=
- =?us-ascii?Q?FBYTi8otC5f1wIxTo/5LB0ZYhS/DTWZl6kuBkWG7QXsD0RZPCxKK/jbkzFm5?=
- =?us-ascii?Q?fvv0G05Tqw=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a214ca69-7392-42d3-628c-08de79f432f7
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2026 13:44:47.0202
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: E2YObPPYNACpZ309HAzo+gmSjqojqSTqYye39klcov3nOFqhgsW+oMM97tmaCtL5
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7422
+Content-Transfer-Encoding: 8bit
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: ZlYlTBYya6QoAIpUqD9_JcRxg0V1Jfc2
+X-Proofpoint-ORIG-GUID: ZlYlTBYya6QoAIpUqD9_JcRxg0V1Jfc2
+X-Authority-Analysis: v=2.4 cv=Ed7FgfmC c=1 sm=1 tr=0 ts=69a8394d cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=Yq5XynenixoA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=3WHJM1ZQz_JShphwDgj5:22 a=yxO-sryqdY87dfIgdzYA:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzA0MDExMSBTYWx0ZWRfX1u4tfO615+kx
+ qTadeaez7+wqkdXGVesFFjT8mWMq6fsxGm9OCjep3HjMsJX0HRkqZYzznf+yr7XvwPhk9fP1TP1
+ alo1qdy0i99+pBS7kouUWTTFDs+NldRp8srr0GOV+SlxhRjsEPZIiN5x5NnvsdwWb/lVFcsbM+9
+ y3lvxKpiM9BSwhQEJuGNTb+T4RDexoimiguY3cVBPaUjPlWxnRPHAEOV/R0lEbYJVzCg15MpyFO
+ pfyP7OzG6qqLtWJ3TymbKXPUQ8wJwZks/klbQP+waBaTq7cw8q4yjwpB6S14GUrVzxgA8UPoRGD
+ evXS3CNuNejzoHJGqTO2Lmjy/RBcF0ftnriK1rl/CiPsl5bjPrx4ypqojSvjK87LJ8b8/+zmHKb
+ ib7S+rOFZRAFzNT4luwwJNTiX3OcA0hOxUkoo3+xdTWMXlHq0viRJM3VVp1Dp9P7MxHMGPW3+fp
+ glL0Jxf+EkS7HpII0lQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-04_06,2026-03-03_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 suspectscore=0 spamscore=0 adultscore=0 lowpriorityscore=0
+ clxscore=1015 malwarescore=0 impostorscore=0 priorityscore=1501 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2603040111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_054454_116876_30AA1C95 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20260304_055323_877698_EFB50820 
+X-CRM114-Status: GOOD (  18.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,33 +116,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 04, 2026 at 12:20:31PM +0000, Ryan Roberts wrote:
-> >  static int __cont_access_flags_changed(pte_t *ptep, pte_t pte, int ncontig)
-> >  {
-> > +	const pteval_t access_mask = PTE_RDONLY | PTE_AF | PTE_WRITE | PTE_DIRTY;
-> > +	pteval_t pte_access = pte_val(pte) & access_mask;
-> >  	int i;
-> >  
-> > -	if (pte_write(pte) != pte_write(__ptep_get(ptep)))
-> > -		return 1;
-> > -
-> >  	for (i = 0; i < ncontig; i++) {
-> > -		pte_t orig_pte = __ptep_get(ptep + i);
-> > -
-> > -		if (pte_dirty(pte) != pte_dirty(orig_pte))
-> > -			return 1;
-> > -
-> > -		if (pte_young(pte) != pte_young(orig_pte))
-> > +		if ((pte_val(__ptep_get(ptep + i)) & access_mask) != pte_access)
-> >  			return 1;
-> >  	}
-> 
-> I think, based on all the above, the current version is actually not buggy. But
-> I'm only willing to go to 95% confidence :)
+Hi,
 
-If I understand it right James already found and fixed a case that
-violated the invariant right? Maybe it is wise to be robust since
-things lock up if it goes wrong.
+The UFS 5.0 standard was published today, introducing support for HS-G6
+(23.2 Gbps per lane) through the new UniPro V3.0 interconnect layer and
+M-PHY V6.0 physical layer specifications. To achieve reliable operation
+at these higher speeds, UniPro V3.0 introduces TX Equalization and
+Pre-Coding mechanisms that are essential for signal integrity.
 
-Jason
+This patch series implements TX Equalization support in the UFS core
+driver as specified in UFSHCI v5.0, along with the necessary vendor
+operations and a reference implementation for Qualcomm UFS host
+controllers.
+
+Background
+==========
+
+TX Equalization is a signal conditioning technique that compensates for
+channel impairments at high data rates (HS-G4 through HS-G6). It works
+by adjusting two key parameters:
+
+- PreShoot: Pre-emphasis applied before the main signal transition
+- DeEmphasis: De-emphasis applied after the main signal transition
+
+UniPro V3.0 defines TX Equalization Training (EQTR) procedure to
+automatically discover optimal TX Equalization settings. The EQTR
+procedure:
+
+1. Starts from the most reliable link state (HS-G1)
+2. Iterates through all possible PreShoot and DeEmphasis combinations
+3. Evaluates signal quality using Figure of Merit (FOM) measurements
+4. Selects the best settings for both host and device TX lanes
+
+For HS-G6, Pre-Coding is also introduced to further improve signal
+quality. Pre-Coding must be enabled on both transmitter and receiver
+when the RX_FOM indicates it is required.
+
+Implementation Overview
+=======================
+
+The implementation follows the UFSHCI v5.0 specification and consists of:
+
+Core Infrastructure (Patches 1-6):
+- New vops callback negotiate_pwr_mode() to allow vendors to negotiate
+  power mode parameters before applying TX Equalization settings
+- Support for HS-G6 gear enumeration
+- Complete TX EQTR procedure implementation in ufs-txeq.c
+- Debugfs interface for TX Equalization parameter inspection and manual
+  retraining
+- Module parameters for adaptive TX Equalization control
+
+Qualcomm Implementation (Patches 7-11):
+- PHY-specific configurations for TX EQTR procedure
+- Vendor-specific FOM measurement support
+- TX Equalization settings application
+- Enable TX Equalization for HW version 0x7 and onwards
+
+The implementation is designed to be vendor-agnostic, with platform-
+specific details handled through the vops callbacks. Other vendors can
+add support by implementing the three new vops:
+
+- tx_eqtr_notify(): Called before/after TX EQTR for vendor setup
+- apply_tx_eqtr_settings(): Apply vendor-specific PHY configurations
+- get_rx_fom(): Retrieve vendor-specific FOM measurements if needed
+
+Module Parameters
+=================
+
+The implementation provides several module parameters for flexibility:
+
+- use_adaptive_txeq: Enable/disable adaptive TX Equalization (default: false)
+- adaptive_txeq_gear: Minimum gear for adaptive TX EQ (default: HS-G6)
+- use_txeq_presets: Use only the 8 standard presets (default: true)
+- txeq_presets_selected[]: Select specific presets for EQTR
+
+Testing
+=======
+
+This patch series has been tested on Qualcomm platforms with UFS 5.0
+devices, validating:
+
+- Successful TX EQTR completion for HS-G6
+- Proper FOM evaluation and optimal settings selection
+- Pre-Coding enablement for HS-G6
+- Power mode changes with TX Equalization settings applied
+- Report of TX Equalization settings via debugfs entries
+- Report of TX EQTR histories via debug entries (see next section)
+- Re-training TX Equalization via debugfs entry
+
+Example of TX EQTR history
+==========================
+
+# cat /sys/kernel/debug/ufshcd/*ufshcd*/tx_eq_hs_gear6/device_tx_eqtr_record
+Device TX EQTR record summary -
+Target Power Mode: HS-G6, Rate-B
+Number of records: 1
+Last record timestamp: 11643252 us
+
+TX Lane 0 FOM - PreShoot\DeEmphasis
+\       0        1        2        3        4        5        6        7
+0      50       70       65        -        -        -        -        x
+1       x        x        x        x        x        x        x        x
+2     100       90       70        -        -        -        -        x
+3       x        x        x        x        x        x        x        x
+4      95       90        -        -        -        -        -        x
+5       -        -        -        -        -        -        -        x
+6       x        x        x        x        x        x        x        x
+7       x        x        x        x        x        x        x        x
+
+TX Lane 1 FOM - PreShoot\DeEmphasis
+\       0        1        2        3        4        5        6        7
+0      50       70       60        -        -        -        -        x
+1       x        x        x        x        x        x        x        x
+2     100       80       65        -        -        -        -        x
+3       x        x        x        x        x        x        x        x
+4      95       85        -        -        -        -        -        x
+5       -        -        -        -        -        -        -        x
+6       x        x        x        x        x        x        x        x
+7       x        x        x        x        x        x        x        x
+
+Patch Structure
+===============
+
+Patches 1-3: Preparatory changes for power mode negotiation and HS-G6
+Patch 4: Core TX Equalization and EQTR implementation
+Patches 5-6: Debugfs support for TX Equalization
+Patches 7-11: Qualcomm vendor implementation
+
+Next
+====
+
+One more series has been developed to enhance TX Equalization support,
+which will be submitted for review after this series is accepted:
+
+- Provide board specific (static) TX Equalization settings from DTS
+- Parse static TX Equalization settings from DTS if provided
+- Apply static TX Equalization settings if use_adaptive_txeq is disabled
+- Add support for UFS v5.0 attributes qTxEQGnSettings & wTxEQGnSettingsExt
+- Enable persistent storage and retrieval of optimal TX Equalization settings
+
+v1 -> v2:
+1. Incorporated Bart's comments.
+2. Fixed typos and coding styles.
+3. Added enum ufshcd_pmc_policy and use enum instead of boolen parameter.
+4. Updated TX Equalization debugfs entries structure.
+5. Extracted ufshcd_pause/resume_command_processing() in ufshcd.c.
+6. Updated sequence in Qualcomm's vops get_rx_fom() implementation.
+
+Can Guo (11):
+  scsi: ufs: core: Introduce a new ufshcd vops negotiate_pwr_mode()
+  scsi: ufs: core: Pass force_pmc to ufshcd_config_pwr_mode() as a
+    parameter
+  scsi: ufs: core: Add UFS_HS_G6 and UFS_HS_GEAR_MAX to enum
+    ufs_hs_gear_tag
+  scsi: ufs: core: Add support for TX Equalization
+  scsi: ufs: core: Add debugfs entries for TX Equalization params
+  scsi: ufs: core: Add support to retrain TX Equalization via debugfs
+  scsi: ufs: ufs-qcom: Fixup PAM-4 TX L0_L1_L2_L3 adaptation pattern
+    length
+  scsi: ufs: ufs-qcom: Implement vops tx_eqtr_notify()
+  scsi: ufs: ufs-qcom: Implement vops get_rx_fom()
+  scsi: ufs: ufs-qcom: Implement vops apply_tx_eqtr_settings()
+  scsi: ufs: ufs-qcom: Enable TX Equalization
+
+ drivers/ufs/core/Makefile          |    2 +-
+ drivers/ufs/core/ufs-debugfs.c     |  255 ++++++
+ drivers/ufs/core/ufs-txeq.c        | 1270 ++++++++++++++++++++++++++++
+ drivers/ufs/core/ufshcd-priv.h     |   57 +-
+ drivers/ufs/core/ufshcd.c          |  142 +++-
+ drivers/ufs/host/ufs-amd-versal2.c |   13 +-
+ drivers/ufs/host/ufs-exynos.c      |   44 +-
+ drivers/ufs/host/ufs-hisi.c        |   32 +-
+ drivers/ufs/host/ufs-mediatek.c    |   46 +-
+ drivers/ufs/host/ufs-qcom.c        |  625 +++++++++++++-
+ drivers/ufs/host/ufs-qcom.h        |   44 +
+ drivers/ufs/host/ufs-sprd.c        |   13 +-
+ drivers/ufs/host/ufshcd-pci.c      |   17 +-
+ include/ufs/ufshcd.h               |  145 +++-
+ include/ufs/unipro.h               |  140 ++-
+ 15 files changed, 2729 insertions(+), 116 deletions(-)
+ create mode 100644 drivers/ufs/core/ufs-txeq.c
+
+-- 
+2.34.1
+
 
