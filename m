@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ECDDEB7EB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 09:57:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E524EB7EB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 09:59:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o/J670QYTQ0TzMrMVCgmKTiKIwt4yiwKdlz7EPRMQYk=; b=nGaXUHGblU9bIoyyy5+aGE48si
-	LxlXcD00zbXwFGKldpxg2u+wa2ndJDpFpC/dUdcDRbTfSlUHruSJtcf+28m5jOoJUXpPa+Fbz9fuN
-	tRf6Qc1BhLXi7lxLNL+7ZjHaylJ4GYYuNd57jztnVSoijHHNRAMic5Lx38+9UyxXdHgtLi23JtlPF
-	YZSW5Z6qkwhG5btlX+YmmSdonUh57hxzeZK25aFVcunx1dJYH6eQCSFqr016AfokAS/u7VadyvjAP
-	X27bbXIcO7HlwUabGPyV4yjUf8XsDiqiubnQw5Lj8iIGD48fAKVaBRSK2qmNSwg4QAdxTlbX0v4bX
-	4WZ6SPyQ==;
+	bh=jO+WMNA5FIO5l4TT7PRcI+iwxq8dA48cn1PI5SmWFxo=; b=S+tkrN2S8H/mEEMYW1O0Aqep5X
+	/tBfo5xc/KpkbCldq1U2e9xdBtJlooy9mhLDtntndoxLtmNi89cT04zCZ2RQmvnorCNIrHPyJuOCG
+	09wbqs+a8MoyXY8D4XexqbmwWiM9aSvLdPPsbhW4LDNvsAGv+SCNOOhay6wpM7xXlHeQwnPnsDRj7
+	MocLkF/jWAG+fxnD1qPbJvnks/u3eBl4CqwU+JgdvuOlGeMV1NmBWYXQL1L61D5ZjRNLbj0eO6iXq
+	dVczwOoV7ApJkGWucmqkv5/3mMuf6fJi1p2XiCHenrNmDDfQ7pTvYO/MoJ0iDs6CCjwt/ssDhZVnY
+	HRZwT1aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxiys-0000000GwNu-3JTo;
-	Wed, 04 Mar 2026 09:57:26 +0000
-Received: from mail.cjdns.fr ([5.135.140.105])
+	id 1vxj0a-0000000GwZe-18KR;
+	Wed, 04 Mar 2026 09:59:12 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxiyq-0000000GwNB-3Wmm;
-	Wed, 04 Mar 2026 09:57:26 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1E31A22B11A;
-	Wed,  4 Mar 2026 10:57:14 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
-	t=1772618241; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	id 1vxj0X-0000000GwY7-1SOy
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Mar 2026 09:59:10 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 138BA1A12B1;
+	Wed,  4 Mar 2026 09:59:04 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D740A5FF5C;
+	Wed,  4 Mar 2026 09:59:03 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1F1711036977B;
+	Wed,  4 Mar 2026 10:58:54 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1772618342; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=o/J670QYTQ0TzMrMVCgmKTiKIwt4yiwKdlz7EPRMQYk=;
-	b=cx2wm9L8Zb3EarEb1qJsmYPWTNlHFiJY+3jxeLhaegWPBpxQtY2wZC5W9rTt5H0/HOPauE
-	+4Ys+WVETG2G7z/NSYQ/tEjReoXjeYpr3HdZHnJuh1uitABIvImydlAstEbZZyCyvWDlZo
-	ejk/udhin38cNVansYiTXWX0lVhNLw1e6NQjTwlyAieqM8nbuQE2cmra9CdPdLI0gNycyv
-	WXan80C5roE5RSdDw0qRiMt9vWE44HgMtK67iBe8Uzzuod79p3Fts5fsNQ1wem3zjuz5mf
-	3yw4sGrcaRPwPLUL7LDZa1S3KZBc7wyHjkJp3dm9DIh6XO1uCOpvSOSWOpM0fQ==
-Message-ID: <4806aee5-d324-4d62-a4e7-683a448a2623@cjdns.fr>
-Date: Wed, 4 Mar 2026 10:57:14 +0100
+	bh=jO+WMNA5FIO5l4TT7PRcI+iwxq8dA48cn1PI5SmWFxo=;
+	b=M9HjhNE4NX99Pp/8LSFYR614KbD7xC2Fvz0+5w/UQb3lj5scvXgEZgZw/g3bbbvit47XI0
+	exNuboXwikEw0/jPcMnLwSkN1jvnn0HFIqgN3VjXg7gf44IHRCplX2Q7YEwIkRuEBuo01Y
+	e5xTSuzEm62hTHQs+mdOXVsIG+WMaHpvDFeQrP8dPT5vSnOiggRMeQwXqj+0pUYbF9e75X
+	sVrUbac9IHSBestzh8n24rGKOf1cNXIDbZgkKktAkFyL33A0SU+g3QBccajkjHw6iAURWX
+	N4+F8hx9qk/eMVtZzgg5Nj4hzLtTF82ftug8e2uc5vaAFfeoyQM60t44fJxd5Q==
+Message-ID: <32dd938b-2693-4efb-b70b-f713fbd8fefd@bootlin.com>
+Date: Wed, 4 Mar 2026 10:58:53 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH 1/8] dt-bindings: clock, reset: Add econet EN751221
- bindings
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-mips@vger.kernel.org, naseefkm@gmail.com, mturquette@baylibre.com,
- sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- tsbogend@alpha.franken.de, ryder.lee@mediatek.com,
- jianjun.wang@mediatek.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
- mani@kernel.org, bhelgaas@google.com, vkoul@kernel.org,
- neil.armstrong@linaro.org, p.zabel@pengutronix.de, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, nbd@nbd.name, ansuelsmth@gmail.com,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260303190948.694783-1-cjd@cjdns.fr>
- <20260303190948.694783-2-cjd@cjdns.fr>
- <20260304-accomplished-helpful-orca-5d6b81@quoll>
- <7888e449-fec9-4a23-8133-ad0c9651a354@cjdns.fr>
- <419c552a-a57f-4f67-9923-5315ea43a4d9@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 2/2] net: phy: Introduce Airoha AN8801/R Gigabit
+ Ethernet PHY driver
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Russell King <linux@armlinux.org.uk>
+Cc: kevin-kw.huang@airoha.com, macpaul.lin@mediatek.com,
+ matthias.bgg@gmail.com, kernel@collabora.com, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260304-add-airoha-an8801-support-v1-0-0ae4ee5a2f9d@collabora.com>
+ <20260304-add-airoha-an8801-support-v1-2-0ae4ee5a2f9d@collabora.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Content-Language: en-US
-From: Caleb James DeLisle <cjd@cjdns.fr>
-In-Reply-To: <419c552a-a57f-4f67-9923-5315ea43a4d9@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+In-Reply-To: <20260304-add-airoha-an8801-support-v1-2-0ae4ee5a2f9d@collabora.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_015725_081868_7764328A 
-X-CRM114-Status: UNSURE (   8.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260304_015909_656400_3F9A64DF 
+X-CRM114-Status: GOOD (  24.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,38 +88,435 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Louis-Alexis
 
-On 04/03/2026 10:46, Krzysztof Kozlowski wrote:
-> On 04/03/2026 10:09, Caleb James DeLisle wrote:
->>>> +
->>>> +description:
->>>> +  The EcoNet chip-scu block provides a configuration interface for clock,
->>>> +  io-muxing and other functionalities used by multiple controllers (e.g. clock,
->>>> +  pinctrl, ecc) on EN751221 SoC.
->>>> +
->>>> +properties:
->>>> +  compatible:
->>>> +    items:
->>>> +      - const: econet,en751221-chip-scu
->>>> +      - const: syscon
->>> And it does not fit existing syscon bindings file, because ... ?
->>
->> If you're asking why it needs to be named "econet,en751221-chip-scu" and
-> No, I am asking why you cannot put it with other syscon bindings - git
-> grep syscon? What is missing here (we expect complete binding for given
-> hardware)?
+On 04/03/2026 10:35, Louis-Alexis Eyraud wrote:
+> From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> 
+> Introduce a driver for the Airoha AN8801R Series Gigabit Ethernet
+> PHY; this currently supports setting up PHY LEDs, 10/100M, 1000M
+> speeds, and Wake on LAN and PHY interrupts.
+> 
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> ---
+>  drivers/net/phy/Kconfig      |    5 +
+>  drivers/net/phy/Makefile     |    1 +
+>  drivers/net/phy/air_an8801.c | 1059 ++++++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 1065 insertions(+)
+> 
+> diff --git a/drivers/net/phy/Kconfig b/drivers/net/phy/Kconfig
+> index 7b73332a13d9520582fb45780528de4e17496f5e..53f451479509b7c11999beaf91ae08ed4ed01e86 100644
+> --- a/drivers/net/phy/Kconfig
+> +++ b/drivers/net/phy/Kconfig
+> @@ -96,6 +96,11 @@ config AS21XXX_PHY
+>  	  AS21210PB1 that all register with the PHY ID 0x7500 0x7500
+>  	  before the firmware is loaded.
+>  
+> +config AIR_AN8801_PHY
+> +	tristate "Airoha AN8801 Gigabit PHY"
+> +	help
+> +	  Currently supports the Airoha AN8801R PHY.
+> +
+>  config AIR_EN8811H_PHY
+>  	tristate "Airoha EN8811H 2.5 Gigabit PHY"
+>  	select PHY_COMMON_PROPS
+> diff --git a/drivers/net/phy/Makefile b/drivers/net/phy/Makefile
+> index 3a34917adea72d03342a8a4ef703ee5d087d229e..83516da36c9ffa4e3b077717e9fc375e38ab2ea5 100644
+> --- a/drivers/net/phy/Makefile
+> +++ b/drivers/net/phy/Makefile
+> @@ -29,6 +29,7 @@ obj-y				+= $(sfp-obj-y) $(sfp-obj-m)
+>  
+>  obj-$(CONFIG_ADIN_PHY)		+= adin.o
+>  obj-$(CONFIG_ADIN1100_PHY)	+= adin1100.o
+> +obj-$(CONFIG_AIR_AN8801_PHY)	+= air_an8801.o
+>  obj-$(CONFIG_AIR_EN8811H_PHY)   += air_en8811h.o
+>  obj-$(CONFIG_AMD_PHY)		+= amd.o
+>  obj-$(CONFIG_AMCC_QT2025_PHY)	+= qt2025.o
+> diff --git a/drivers/net/phy/air_an8801.c b/drivers/net/phy/air_an8801.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..86828c7d9716ee45832483d74f01f2764fcda408
+> --- /dev/null
+> +++ b/drivers/net/phy/air_an8801.c
+> @@ -0,0 +1,1059 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/*
+> + * Driver for the Airoha AN8801 Gigabit PHY.
+> + *
+> + * Copyright (C) 2025 Airoha Technology Corp.
+> + * Copyright (C) 2025 Collabora Ltd.
+> + *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> + */
+> +
+> +#include <linux/bitfield.h>
+> +#include <linux/bitops.h>
+> +#include <linux/delay.h>
+> +#include <linux/errno.h>
+> +#include <linux/init.h>
+> +#include <linux/netdevice.h>
+> +#include <linux/of.h>
+> +#include <linux/phy.h>
+> +
+> +#define AN8801R_PHY_ID			0xc0ff0421
+> +
+> +/* MII Registers */
+> +#define AIR_EXT_PAGE_ACCESS		0x1f
+> +#define   AIR_PHY_PAGE_STANDARD		0
+> +#define   AIR_PHY_PAGE_EXTENDED_1	1
+> +#define   AIR_PHY_PAGE_EXTENDED_4	4
+> +
+> +/* MII Registers - Airoha Page 1 */
+> +#define AN8801_EXT_REG_PHY		0x14
+> +#define   AN8801_EXT_PHY_STATUS0	GENMASK(1, 0)
+> +#define   AN8801_EXT_PHY_DOWNSHIFT_CTL	GENMASK(3, 2) /* 2 to 5 1G auto-neg attempts (0..3) */
+> +#define   AN8801_EXT_PHY_DOWNSHIFT_EN	BIT(4)
+> +#define   AN8801_EXT_PHY_CTRL0		BIT(5)
+> +#define   AN8801_EXT_PHY_STATUS1	GENMASK(8, 6)
+> +#define   AN8801_EXT_PHY_CTRL1		GENMASK(14, 9)
+> +
+> +/* MII Registers - Airoha Page 4 */
+> +#define AN8801_PBUS_ACCESS		BIT(28)
+> +#define AN8801_PBUS_EPHY_ACCESS		BIT(24)
+> +#define AN8801_PBUS_CL22_ACCESS		BIT(23)
+> +
+> +#define AIR_BPBUS_MODE			0x10
+> +#define AIR_BPBUS_WR_ADDR_HIGH		0x11
+> +#define AIR_BPBUS_WR_ADDR_LOW		0x12
+> +#define AIR_BPBUS_WR_DATA_HIGH		0x13
+> +#define AIR_BPBUS_WR_DATA_LOW		0x14
+> +#define AIR_BPBUS_RD_ADDR_HIGH		0x15
+> +#define AIR_BPBUS_RD_ADDR_LOW		0x16
+> +#define AIR_BPBUS_RD_DATA_HIGH		0x17
+> +#define AIR_BPBUS_RD_DATA_LOW		0x18
+> +
+> +/* BPBUS Registers */
+> +#define AN8801_BPBUS_REG_LED_GPIO	0x54
+> +#define AN8801_BPBUS_REG_LED_ID_SEL	0x58
+> +#define   LED_ID_GPIO_SEL(led, gpio)	((led) << ((gpio) * 3))
+> +#define AN8801_BPBUS_REG_GPIO_MODE	0x70
+> +#define AN8801_BPBUS_REG_PHY_IRQ_GPIO	0x7c
+> +#define   AN8801_PHY_IRQ_GPIO_NUM_MASK	GENMASK(19, 16)
+> +#define   AN8801_PHY_IRQ_GPIO_NUM	1
+> +
+> +#define AN8801_BPBUS_REG_CKO		0x1a4
+> +#define AN8801_CKO_OUTPUT_MODE_AUTO	3
+> +
+> +#define AN8801_BPBUS_REG_LINK_MODE	0x5054
+> +#define  AN8801_BPBUS_LINK_MODE_1000	BIT(0)
+> +
+> +#define AN8801_BPBUS_REG_BYPASS_PTP	0x21c004
+> +#define   AN8801_BYP_PTP_SGMII_TO_GPHY	BIT(8)
+> +#define   AN8801_BYP_PTP_RGMII_TO_GPHY	BIT(0)
+> +
+> +#define AN8801_BPBUS_REG_TXDLY_STEP	0x21c024
+> +#define   RGMII_DELAY_STEP_MASK		GENMASK(2, 0)
+> +#define   RGMII_TXDELAY_FORCE_MODE	BIT(24)
+> +
+> +#define AN8801_BPBUS_REG_RXDLY_STEP	0x21c02c
+> +#define   RGMII_RXDELAY_ALIGN		BIT(4)
+> +#define   RGMII_RXDELAY_FORCE_MODE	BIT(24)
+> +
+> +#define AN8801_BPBUS_REG_EFIFO_CTL(x)	(0x270004 + (0x100 * (x))) /* 0..2 */
+> +#define   AN8801_EFIFO_ALL_EN		GENMASK(7, 0)
+> +#define   AN8801_EFIFO_RX_EN		BIT(0)
+> +#define   AN8801_EFIFO_TX_EN		BIT(1)
+> +#define   AN8801_EFIFO_RX_CLK_EN	BIT(2)
+> +#define   AN8801_EFIFO_TX_CLK_EN	BIT(3)
+> +#define   AN8801_EFIFO_RX_EEE_EN	BIT(4)
+> +#define   AN8801_EFIFO_TX_EEE_EN	BIT(5)
+> +#define   AN8801_EFIFO_RX_ODD_NIBBLE_EN	BIT(6)
+> +#define   AN8801_EFIFO_TX_ODD_NIBBLE_EN	BIT(7)
+> +
+> +#define AN8801_BPBUS_REG_WOL_MAC_16_47	0x285114
+> +#define AN8801_BPBUS_REG_WOL_MAC_0_15	0x285118
+> +
+> +#define AN8801_BPBUS_REG_WAKEUP_CTL1	0x285400
+> +#define   AN8801_WOL_WAKE_MAGIC_EN	GENMASK(3, 1)
+> +
+> +#define AN8801_BPBUS_REG_WAKEUP_CTL2	0x285404
+> +#define   AN8801_WAKE_OUT_TYPE_PULSE	BIT(0) /* Set/Unset: Pulse/Static */
+> +#define   AN8801_WAKE_OUT_POLARITY_NEG	BIT(1) /* Set/Unset: Negative/Positive */
+> +#define   AN8801_WAKE_OUT_WIDTH		GENMASK(2, 3)
+> +#define    AN8801_WAKE_OUT_84MS		0
+> +#define    AN8801_WAKE_OUT_168MS	1
+> +#define    AN8801_WAKE_OUT_336MS	2
+> +#define    AN8801_WAKE_OUT_672MS	3
+> +#define   AN8801_WAKE_OUT_EN		BIT(4)
+> +#define   AN8801_PME_WAKEUP_CLR		BIT(8)
+> +
+> +#define AN8801_BPBUS_REG_WAKE_IRQ_EN	0x285700
+> +#define AN8801_BPBUS_REG_WAKE_IRQ_STS	0x285704
+> +#define   AN8801_IRQ_WAKE_LNKCHG	BIT(0) /* Wake on link change */
+> +#define   AN8801_IRQ_WAKE_UNIPKT	BIT(1) /* Wake on unicast packet */
+> +#define   AN8801_IRQ_WAKE_MULPKT	BIT(2) /* Wake on multicast packet */
+> +#define   AN8801_IRQ_WAKE_BCPKT		BIT(3) /* Wake on broadcast packet */
+> +#define   AN8801_IRQ_WAKE_MAGICPKT	BIT(4) /* Wake on magic packet */
+> +#define   AN8801_IRQ_WAKE_ALL		GENMASK(4, 0)
+> +
+> +/* MDIO_MMD_VEND1 Registers */
+> +#define AN8801_PHY_TX_PAIR_DLY_SEL_GBE	0x13
+> +#define   AN8801_PHY_PAIR_DLY_SEL_A_GBE	GENMASK(14, 12)
+> +#define   AN8801_PHY_PAIR_DLY_SEL_B_GBE	GENMASK(10, 8)
+> +#define   AN8801_PHY_PAIR_DLY_SEL_C_GBE	GENMASK(6, 4)
+> +#define   AN8801_PHY_PAIR_DLY_SEL_D_GBE	GENMASK(2, 0)
+> +#define AN8801_PHY_RXADC_CTRL		0xd8
+> +#define   AN8801_PHY_RXADC_SAMP_PHSEL_A	BIT(12)
+> +#define   AN8801_PHY_RXADC_SAMP_PHSEL_B	BIT(8)
+> +#define   AN8801_PHY_RXADC_SAMP_PHSEL_C	BIT(4)
+> +#define   AN8801_PHY_RXADC_SAMP_PHSEL_D	BIT(0)
+> +#define AN8801_PHY_RXADC_REV_0		0xd9
+> +#define   AN8801_PHY_RXADC_REV_MASK_A	GENMASK(15, 8)
+> +#define   AN8801_PHY_RXADC_REV_MASK_B	GENMASK(7, 0)
+> +#define AN8801_PHY_RXADC_REV_1		0xda
+> +#define   AN8801_PHY_RXADC_REV_MASK_C	GENMASK(15, 8)
+> +#define   AN8801_PHY_RXADC_REV_MASK_D	GENMASK(7, 0)
+> +
+> +/* MDIO_MMD_VEND2 Registers */
+> +#define LED_BCR				0x21
+> +#define   LED_BCR_MODE_MASK		GENMASK(1, 0)
+> +#define   LED_BCR_TIME_TEST		BIT(2)
+> +#define   LED_BCR_CLK_EN		BIT(3)
+> +#define   LED_BCR_EVT_ALL		BIT(4)
+> +#define   LED_BCR_EXT_CTRL		BIT(15)
+> +#define   LED_BCR_MODE_DISABLE		0
+> +#define   LED_BCR_MODE_2LED		1
+> +#define   LED_BCR_MODE_3LED_1		2
+> +#define   LED_BCR_MODE_3LED_2		3
+> +
+> +#define LED_ON_DUR			0x22
+> +#define   LED_ON_DUR_MASK		GENMASK(15, 0)
+> +
+> +#define LED_BLINK_DUR			0x23
+> +#define   LED_BLINK_DUR_MASK		GENMASK(15, 0)
+> +
+> +#define LED_ON_CTRL(i)			(0x24 + ((i) * 2))
+> +#define   LED_ON_EVT_MASK		GENMASK(6, 0)
+> +#define   LED_ON_EVT_LINK_1000M		BIT(0)
+> +#define   LED_ON_EVT_LINK_100M		BIT(1)
+> +#define   LED_ON_EVT_LINK_10M		BIT(2)
+> +#define   LED_ON_EVT_LINK_DN		BIT(3)
+> +#define   LED_ON_EVT_FDX		BIT(4)
+> +#define   LED_ON_EVT_HDX		BIT(5)
+> +#define   LED_ON_EVT_FORCE		BIT(6)
+> +#define   LED_ON_POL			BIT(14)
+> +#define   LED_ON_EN			BIT(15)
+> +
+> +#define LED_BLINK_CTRL(i)		(0x25 + ((i) * 2))
+> +#define LED_BLINK_EVT_MASK		GENMASK(9, 0)
+> +#define LED_BLINK_EVT_1000M_TX		BIT(0)
+> +#define LED_BLINK_EVT_1000M_RX		BIT(1)
+> +#define LED_BLINK_EVT_100M_TX		BIT(2)
+> +#define LED_BLINK_EVT_100M_RX		BIT(3)
+> +#define LED_BLINK_EVT_10M_TX		BIT(4)
+> +#define LED_BLINK_EVT_10M_RX		BIT(5)
+> +#define LED_BLINK_EVT_COLLISION		BIT(6)
+> +#define LED_BLINK_EVT_RX_CRC_ERR	BIT(7)
+> +#define LED_BLINK_EVT_RX_IDLE_ERR	BIT(8)
+> +#define LED_BLINK_EVT_FORCE		BIT(9)
+> +
+> +#define AN8801R_NUM_LEDS		3
+> +#define AN8801_PERIOD_SHIFT		15
+> +#define AN8801_PERIOD_UNIT		32768 /* (1 << AN8801_PERIOD_SHIFT) */
+> +#define AN8801_MAX_PERIOD_MS		2147
+> +
+> +#define LED_BLINK_DURATION_UNIT		780
+> +#define LED_BLINK_DURATION(f)		(LED_BLINK_DURATION_UNIT << (f))
+> +
+> +#define AN8801_LED_DURATION_UNIT_US	32768
+> +
+> +#define AN8801_REG_PHY_INTERNAL0	0x600
+> +#define AN8801_REG_PHY_INTERNAL1	0x601
+> +#define   AN8801_PHY_INTFUNC_MASK	GENMASK(15, 0) /* PHY internal functions */
+> +
+> +enum an8801r_led_fn {
+> +	AN8801R_LED_FN_NONE,
+> +	AN8801R_LED_FN_LINK,
+> +	AN8801R_LED_FN_ACTIVITY,
+> +	AN8801R_LED_FN_MAX,
+> +};
+> +
+> +static int an8801r_read_page(struct phy_device *phydev)
+> +{
+> +	return __phy_read(phydev, AIR_EXT_PAGE_ACCESS);
+> +}
+> +
+> +static int an8801r_write_page(struct phy_device *phydev, int page)
+> +{
+> +	return __phy_write(phydev, AIR_EXT_PAGE_ACCESS, page);
+> +}
+> +
+> +static int __air_buckpbus_reg_write(struct phy_device *phydev,
+> +				    u32 addr, u32 data)
+> +{
+> +	int ret;
+> +
+> +	addr |= AN8801_PBUS_ACCESS;
+> +
+> +	ret = __phy_write(phydev, AIR_BPBUS_MODE, MII_MMD_CTRL_ADDR);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	ret = __phy_write(phydev, AIR_BPBUS_WR_ADDR_HIGH, upper_16_bits(addr));
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	ret = __phy_write(phydev, AIR_BPBUS_WR_ADDR_LOW, lower_16_bits(addr));
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	ret = __phy_write(phydev, AIR_BPBUS_WR_DATA_HIGH, upper_16_bits(data));
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	ret = __phy_write(phydev, AIR_BPBUS_WR_DATA_LOW, lower_16_bits(data));
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	return 0;
+> +}
+> +
+> +static int __air_buckpbus_reg_read(struct phy_device *phydev,
+> +				   u32 addr, u32 *data)
+> +{
+> +	int pbus_data_l, pbus_data_h;
+> +	int ret;
+> +
+> +	addr |= AN8801_PBUS_ACCESS;
+> +
+> +	ret = __phy_write(phydev, AIR_BPBUS_MODE, MII_MMD_CTRL_ADDR);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	ret = __phy_write(phydev, AIR_BPBUS_RD_ADDR_HIGH, upper_16_bits(addr));
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	ret = __phy_write(phydev, AIR_BPBUS_RD_ADDR_LOW, lower_16_bits(addr));
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	ret = __phy_read(phydev, AIR_BPBUS_RD_DATA_HIGH);
+> +	if (pbus_data_h < 0)
+> +		return pbus_data_h;
+> +
+> +	pbus_data_l = __phy_read(phydev, AIR_BPBUS_RD_DATA_LOW);
+> +	if (pbus_data_l < 0)
+> +		return pbus_data_l;
+> +
+> +	*data = (pbus_data_h << 16) | pbus_data_l;
+> +	return 0;
+> +}
+> +
+> +static int air_buckpbus_reg_rmw(struct phy_device *phydev,
+> +				u32 addr, u32 mask, u32 set)
+> +{
+> +	u32 data_old, data_new;
+> +	int prev_page, ret;
+> +
+> +	prev_page = phy_select_page(phydev, AIR_PHY_PAGE_EXTENDED_4);
+> +	if (prev_page < 0)
+> +		return prev_page;
+> +
+> +	ret = __air_buckpbus_reg_read(phydev, addr, &data_old);
+> +	if (ret)
+> +		return phy_restore_page(phydev, prev_page, ret);
+> +
+> +	data_new = data_old & ~mask;
+> +	data_new |= set;
+> +	if (data_new != data_old)
+> +		ret = __air_buckpbus_reg_write(phydev, addr, data_new);
+> +
+> +	return phy_restore_page(phydev, prev_page, ret);
+> +}
+> +
+> +static int air_buckpbus_reg_set_bits(struct phy_device *phydev,
+> +				     u32 addr, u32 mask)
+> +{
+> +	return air_buckpbus_reg_rmw(phydev, addr, mask, mask);
+> +}
+> +
+> +static int air_buckpbus_reg_clear_bits(struct phy_device *phydev,
+> +				       u32 addr, u32 mask)
+> +{
+> +	return air_buckpbus_reg_rmw(phydev, addr, mask, 0);
+> +}
+> +
+> +static int air_buckpbus_reg_write(struct phy_device *phydev, u32 addr, u32 data)
+> +{
+> +	int prev_page, ret = 0;
+> +
+> +	prev_page = phy_select_page(phydev, AIR_PHY_PAGE_EXTENDED_4);
+> +	if (prev_page < 0)
+> +		return prev_page;
+> +
+> +	ret = __air_buckpbus_reg_write(phydev, addr, data);
+> +
+> +	return phy_restore_page(phydev, prev_page, ret);
+> +}
+> +
+> +static int air_buckpbus_reg_read(struct phy_device *phydev, u32 addr, u32 *data)
+> +{
+> +	int prev_page, ret;
+> +
+> +	prev_page = phy_select_page(phydev, AIR_PHY_PAGE_EXTENDED_4);
+> +	if (prev_page < 0)
+> +		return prev_page;
+> +
+> +	ret = __air_buckpbus_reg_read(phydev, addr, data);
+> +
+> +	return phy_restore_page(phydev, prev_page, ret);
+> +}
+These buckplus accessors look very similar to what's in the existing air_en8811h.c
+driver, any chance the code can be shared ?
 
-Ahh so mfd/bindings/syscon.yaml, that looks fine to me. Two reasons I 
-didn't do that: 1. didn't know it existed, 2. Assumed 
-arm/airoha,en7581-chip-scu.yaml was done The Best Way Possible. I'll be 
-happy to re-send using syscon.yaml
+[...]
 
-Thanks,
 
-Caleb
+> +static int an8801r_rgmii_rxdelay(struct phy_device *phydev, u16 delay_steps)
+> +{
+> +	u32 reg_val;
+> +
+> +	if (delay_steps > RGMII_DELAY_STEP_MASK)
+> +		return -EINVAL;
+> +
+> +	reg_val = delay_steps & RGMII_DELAY_STEP_MASK;
+> +	reg_val |= RGMII_RXDELAY_ALIGN;
+> +	reg_val |= RGMII_RXDELAY_FORCE_MODE;
+> +
+> +	return air_buckpbus_reg_write(phydev, AN8801_BPBUS_REG_RXDLY_STEP,
+> +				      reg_val);
+> +}
+> +
+> +static int an8801r_rgmii_txdelay(struct phy_device *phydev, u16 delay_steps)
+> +{
+> +	u32 reg_val;
+> +
+> +	if (delay_steps > RGMII_DELAY_STEP_MASK)
+> +		return -EINVAL;
+> +
+> +	reg_val = delay_steps & RGMII_DELAY_STEP_MASK;
+> +	reg_val |= RGMII_TXDELAY_FORCE_MODE;
+> +
+> +	return air_buckpbus_reg_write(phydev, AN8801_BPBUS_REG_TXDLY_STEP,
+> +				      reg_val);
+> +}
+> +
+> +static int an8801r_rgmii_delay_config(struct phy_device *phydev)
+> +{
+> +	switch (phydev->interface) {
+> +	case PHY_INTERFACE_MODE_RGMII_TXID:
+> +		return an8801r_rgmii_txdelay(phydev, 4);
+> +	case PHY_INTERFACE_MODE_RGMII_RXID:
+> +		return an8801r_rgmii_rxdelay(phydev, 0);
+> +	case PHY_INTERFACE_MODE_RGMII_ID:
+> +		return an8801r_rgmii_txdelay(phydev, 4);
+> +		return an8801r_rgmii_rxdelay(phydev, 0);
+> +	case PHY_INTERFACE_MODE_RGMII:
+> +	default:
+> +		return 0;
+> +	}
 
->
->
-> Best regards,
-> Krzysztof
+Can you elaborate on these values for the steps ? Why is it 4 for TX internal delays, but 0 for RX delays ?
+
+Maxime
 
