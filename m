@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41660EFCE37
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 20:14:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DA75EFCE41
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 20:16:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z5OgD7a1mtxqBl7W2yXZFFc9dalLVwkrCnkwlR0KQFc=; b=TSqz5ZjvesQ/BykIgKcX6Rs5W0
-	HNwWk+gU/0cwr+hM+ljr1143G9+chbDbMQIzLMw/LVkj29o9NkfcLUVbEipSbmiklHEuF1uBlyBGv
-	Etc03EFxvRaHGADy4lvo+9aRKbrPFGUtGxKQJgRsgqlmSrBOr+ACs/JkAHhK3pqt6GYobgm82HWGH
-	ovuz3rnRYs4iRgVZ5pF1jtUJvho4MYEMup/kx5RxJpzlx9ztn4vQ+U9OTeY0Ok7kpKA/HazJIaHqT
-	xt51g71iH8IT/3jR09LKAGp3dmo8VEAjpdi3wsV5bh8AzqxtFGnbSYPY+f4bIsskHm7p8In+ph1wg
-	qzIk6Yuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O5W0rWNkyqIYuvm8hc/o0jT6NtzcpJClwcC+P3CAwxA=; b=yN5qhKxQDLMj5KALUF/UQ4j0jF
+	2bCYiXkhlai5VKez/bVePK7/jPb60K7KfYZzA2rpnV4J5lymHEsDU/jWCc/gB1nvyJ1yYsYdOzF59
+	qVnp51tIZaFcSTNqyeEjRR80jhuVrPGzsfIxspAtLLtL+gPWEqJNSIHhRy4BEZBPdhcLA3/OCFbKU
+	eDG9fXuptlbyeGRQgrPvEFeAaGQjTzEMvcDKlFVZaTo+TfT/NS40Iu4eufPO5flQxOG/1i51rD1Yx
+	LBSm1AxmouWglyhVppZfusNQjzswI4lulmIj+WYKKy3xaBBjHMBHVNEqFWZ4pCTugn6FZv0Ybn1nL
+	4KwMKK6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxsbw-00000000RUb-2y3P;
-	Wed, 04 Mar 2026 20:14:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vxsdf-00000000RlV-2ucW;
+	Wed, 04 Mar 2026 20:16:11 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxsbt-00000000RU2-2unJ;
-	Wed, 04 Mar 2026 20:14:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 69FD2402F4;
-	Wed,  4 Mar 2026 20:14:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5684C4CEF7;
-	Wed,  4 Mar 2026 20:14:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772655260;
-	bh=7LbZg6skQwe1JIVxe4uIFooiyh42caVjXi8zFEyCeHA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=vOSWAYP0ASIUMPrNsRctEnLesB/qOpdMCrQy6ahbi4pLYMii7O8IIBA8F63PZsyg0
-	 ZcCnF1kj3cVmc84Vx9h9Kq96VZaMCMHxuCArllf1CYolj2oqppgnv3vXM3w6laZHlz
-	 NOtq23rucRl5IE/Bb02Fai9gX/5ewV1hAPdziT8RA9B2ev0oqJbQtiikHUnSW5L9q5
-	 Uk7uAI6xqy1wRgSUh7h36AH8oidWLE77AQilsTltHa4bvKQfckiIg6DJMG3yRydPNA
-	 OvbzcQS3k3wio6bMSaigTPS0yMDQddq1Qx4b83K8C3Iv2VNsdfZAH1Ox9lzB5Wl3zL
-	 iEzLjD3XL6GFw==
-Message-ID: <679dbfdd-9e46-4265-a01c-faf163924ec3@kernel.org>
-Date: Thu, 5 Mar 2026 05:14:14 +0900
+	id 1vxsdd-00000000Rl3-0Z6o
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Mar 2026 20:16:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=O5W0rWNkyqIYuvm8hc/o0jT6NtzcpJClwcC+P3CAwxA=; b=xYIGO1mN6A+vyyrQebHB5RDrjO
+	Cax+vH7HBHBnKH3pJLlMqu2z+9wJ1DXp15d3kAdIEQcs/+91UX7VV7fEWMrG7q/rQzEnJ1gwRC+1t
+	N7HNovYnSV6GPazhPDL+FQybwqYiogrhd9dVD54AIhVamfKzXl91omeJ5LmRa1Sv4CD0=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vxsdF-00AAfh-DA; Wed, 04 Mar 2026 21:15:45 +0100
+Date: Wed, 4 Mar 2026 21:15:45 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Po-Yu Chuang <ratbert@faraday-tech.com>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+	"taoren@meta.com" <taoren@meta.com>
+Subject: Re: =?utf-8?B?5Zue6KaGOiBbUEFUQ0ggbmV0LW5l?= =?utf-8?Q?xt?= v6 3/5]
+ net: ftgmac100: Add RGMII delay support for AST2600
+Message-ID: <8b1e64cd-b48c-43c4-a184-82a6297f273b@lunn.ch>
+References: <20260302-rgmii_delay_2600-v6-0-68319a4c4110@aspeedtech.com>
+ <20260302-rgmii_delay_2600-v6-3-68319a4c4110@aspeedtech.com>
+ <ae88d56a-04c9-4a50-af22-5e439acd59c7@lunn.ch>
+ <SEYPR06MB5134E02B840BA59CA81C21389D7CA@SEYPR06MB5134.apcprd06.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH phy-next 01/22] ata: add <linux/pm_runtime.h> where
- missing
-To: Vladimir Oltean <vladimir.oltean@nxp.com>, linux-phy@lists.infradead.org
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
- <neil.armstrong@linaro.org>, dri-devel@lists.freedesktop.org,
- freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, linux-can@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
- linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org,
- netdev@vger.kernel.org, spacemit@lists.linux.dev,
- UNGLinuxDriver@microchip.com, Niklas Cassel <cassel@kernel.org>
-References: <20260304175735.2660419-1-vladimir.oltean@nxp.com>
- <20260304175735.2660419-2-vladimir.oltean@nxp.com>
-Content-Language: en-US
-From: Damien Le Moal <dlemoal@kernel.org>
-Organization: Western Digital Research
-In-Reply-To: <20260304175735.2660419-2-vladimir.oltean@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <SEYPR06MB5134E02B840BA59CA81C21389D7CA@SEYPR06MB5134.apcprd06.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_121421_781953_4C994118 
-X-CRM114-Status: UNSURE (   6.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260304_121609_196050_DC0C1922 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,18 +85,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/5/26 02:57, Vladimir Oltean wrote:
-> It appears that libahci.c, ahci.c as well as the ahci_brcm, ahci_ceva
-> and ahci_qoriq drivers are using runtime PM operations without including
-> <linux/pm_runtime.h>. This header is somehow being indirectly provided
-> by <linux/phy/phy.h>, which would like to drop it (none of the functions
-> it exports need it).
+> > > Therefore, we calculate the delay stage from the rx-internal-delay-ps
+> > > of MAC2/3 to add 26. If the stage is equel to or bigger than 32, the
+> > > delay stage will be mask 0x1f to get the correct setting.
+> > 
+> > Please return -EINVAL. Asking for more than 7.75ns is clearly broken.
 > 
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+> ...
+> 	tx_delay_index = DIV_ROUND_CLOSEST(rgmii_tx_delay, rgmii_delay_unit);
+> 	if (tx_delay_index >= 32) {
+> 		dev_err(dev, "The %u ps of TX delay is out of range\n",
+> 			rgmii_tx_delay);
+> 		return -EINVAL;
+> 	}
+> 
+> 	rx_delay_index = DIV_ROUND_CLOSEST(rgmii_rx_delay, rgmii_delay_unit);
+> 	if (rx_delay_index >= 32) {
+> 		dev_err(dev, "The %u ps of RX delay is out of range\n",
+> 			rgmii_rx_delay);
+> 		return -EINVAL;
+> 	}
+> ...
+> 
+> These codes will calculate the ns delay to MAC delay index.
+> (rgmii_delay_unit is 250 ps on MAC2/3)
+> If set tx delay to 8 ns on MAC2 or MAC3, it will get index is 32.
+> It is over the delay configuration range, here will return -EINVAL.
 
-Acked-by: Damien Le Moal <dlemoal@kernel.org>
+So is the comment wrong? No masking is actually done?
 
--- 
-Damien Le Moal
-Western Digital Research
+   Andrew
 
