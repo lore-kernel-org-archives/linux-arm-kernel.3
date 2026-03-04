@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B334EB7EB8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 11:05:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20926EB7ED7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 11:05:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ea+wLR9q2lbjONR3mCOWnLuglHPlh1X7dNXSB4xq6Zo=; b=HPc30x6PujPFHT8N9sxTe9qqXm
-	J8PVZ7+Lxpn4J21hGekJDEBSZHA1dIGuz2Lh60UnSCbTkLEEO+ItMWtxUcwrPvu59eqXSFxn+rcE8
-	Ac63xtttULJxco4+bLujCta9vqBcthGOJyynIeCfEml9lGONyX/y9LdFKHfOk3bi5mbbkz56S6yte
-	Jsj1Mm2m8ntYdbPqCI/y6HyvMqhJJTnsWjcHmSUwWj7s1c5mxQ05j7vrYuGI7w5LuyWfXh5oUOsFS
-	vIwKlc80pEOqG0BORH2TJtl3zcvqLwuMo/g8vIJnuiC4U6az7aMixiU0gY0Qy3N5H/SbQrGoQjrz5
-	5axBOtQw==;
+	bh=AE8RG/FIdiaYMWWTcs1iYRcEAnWUFJxCWdneSa1fF9A=; b=defriFvf2q0t9Dm733VJSp59KM
+	wk/cVYPZ1cA5mv+Q6jMGpd4j8iXAjmtGcYW8UJ3yUfK4OUEghSsiXLPN2lPdVJIYoHBP5GWnwRxIh
+	JysjSt4ydtXFgWLyHfOCdFM38NC3HH259hswnkLRiC7PcxkWYLgSZWzns9M59PQcLAId4+jirJscC
+	LWP3+wpQ6e6RO3Q3GJLE1M5eEbJHMA4/r6osmEfiL01yVECRgrxgKfsWToRf2uNyBNTq3wRHjEaLR
+	SJ7/mbo+jP1LD6A+WC44VO9Rpx8yvbcG90eL78w+qQrF0v+7xxsxsLJlvAfj+NiV75L9nm5yDSwcV
+	RL85gsSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxk2s-0000000H2iG-2xq1;
-	Wed, 04 Mar 2026 11:05:38 +0000
+	id 1vxk2t-0000000H2id-00hF;
+	Wed, 04 Mar 2026 11:05:39 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxk2n-0000000H2eC-0KQB;
+	id 1vxk2n-0000000H2eb-1vKw;
 	Wed, 04 Mar 2026 11:05:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7CCAB438B6;
+	by sea.source.kernel.org (Postfix) with ESMTP id AB11344555;
 	Wed,  4 Mar 2026 11:05:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 559B4C2BC9E;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 8BA47C2BCB5;
 	Wed,  4 Mar 2026 11:05:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1772622332;
-	bh=0U86WNo0Z1KPyrYfx+eFGzAexTHQ6Omrg+jGefNkr5M=;
+	bh=NuR9llP7GHy9Y9058elFyhLur654m0mtWCISGmMQp1Y=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=tuQhPifVWB+XJqH/T2lIQJYWkOA8PvUPLTu1S/tkLu3rEQ1VbUEMfF7iKrKcZnn2C
-	 R6losqzAC+8p5OiHgIVXwbtNCisobnvT7e2fQUA0RM+U25ZsseH0OcEcXPwTBWAHEZ
-	 KeCd5UGkTq8JBdb7QYFVsuLSa2lFTLBApgZTyLMl2wyEdsDWC1RL+XILRb1+pTPG8H
-	 d+nCRyE/F7YXnFvK7FIaxcg5oZaYRYd16+Lwk3urICPUrApxeMtNqX8DpIA5pod6lD
-	 lpsNEytlv4Oj674Xhu+t9gAPBa192FQm4Rx/ebtcTHPmutsX6UPr5NvclfcZz/dILs
-	 YGw/OW68Qakxw==
+	b=tTuiBPxKxfiQ065BH62mJXQfyDpulfq+psRu1ANMMuVSbTzx3cUSTddJ/DFhLTDM4
+	 nrMhrhBRbiKnYqY6D2S/OXjHF2V7xImz5PR5ETtAzaJaSI4xo7w7V2mYYnMzQXuTP+
+	 h8gd0Y83N6pBPQXtiZoNzxReX3JGDKw777fO5tb7OE6LNV7u4hQnRfdninXvDUcqBu
+	 fjcZvVvhTf4FFLAaNd0cVMriaCXBv0GeIwzKzF2Gr1/OAEJp2gW97SJSLPfItUaoeW
+	 Xa0CVp0EVqwBmJTsDXmW3vcTWNn/PDwOoGbEyG1Z2sY5nYNFLPDJKGt5mviwRn0+Tn
+	 CuxqpS0A0BsBg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 43243EB7ECF;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 841BCEB7EB8;
 	Wed,  4 Mar 2026 11:05:32 +0000 (UTC)
 From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
-Date: Wed, 04 Mar 2026 12:05:27 +0100
-Subject: [PATCH v4 1/4] arm64: dts: rockchip: assign pipe clock to rk356x
- PCIe lanes
+Date: Wed, 04 Mar 2026 12:05:30 +0100
+Subject: [PATCH v4 4/4] arm64: dts: rockchip: Define PCIe clock pinctrl for
+ BPI-R2-Pro
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260304-rk3568-bri-r2-pro-fix-pcie-v4-1-37abd7ba29d0@ixit.cz>
+Message-Id: <20260304-rk3568-bri-r2-pro-fix-pcie-v4-4-37abd7ba29d0@ixit.cz>
 References: <20260304-rk3568-bri-r2-pro-fix-pcie-v4-0-37abd7ba29d0@ixit.cz>
 In-Reply-To: <20260304-rk3568-bri-r2-pro-fix-pcie-v4-0-37abd7ba29d0@ixit.cz>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -62,28 +62,29 @@ Cc: Martin Filla <freebsd@sysctl.cz>,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  linux-kernel@vger.kernel.org, David Heidelberg <david@ixit.cz>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2523; i=david@ixit.cz;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1430; i=david@ixit.cz;
  h=from:subject:message-id;
- bh=nJWr1cG55C7TfO8lmuP7iO4pkz7D7P5warAqQ5V7GaM=;
- b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBpqBH5+76cstljDcdJQqO27u9npzazHz0WHktMs
- RATNgGZiVSJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCaagR+QAKCRBgAj/E00kg
- ctxBD/wIdVOClRo0Xr9QvWclph7PqoDR44+VURYr41+YD/4RlyzAe/948Bu4XS2V4Ujyp+TfGH7
- Jmnd831Htg/1Y/2nOK8Jfd5Dc7QFK+pihhm7IOy3AR9g54sz7ddaAvdRGz/xa6sh2zMO2U4JZQw
- ud8Z6oJsy3xJTeS11PTH8UUTQkjcnalAqsxQQPgtD+BShRVHQEPMvplR8TDyo8VVherlOjt7jdI
- bKI09/HIOLQKDh6hG9cCStcfRZpV6CinHfNMTdPHTtDOb6LdUC0a3SIdOxXcG+nxzRoJajGFkbW
- mBuk1ijJngCropAIITQGS7d1ROhXx4+m6ehxMFrjF2NNyd4tbuSBJ1LlQZdWIrDS5kSPwTfA6Us
- pX3v3XmIe0RLgcVkxzURUWjNA96va95xQnviXhAJwiBW3S3CVJTcXxW2LCxSFQ92d+X2Zdcn0t/
- 0liNFDU1E8k2Ght8tBN5DQgB2lQgnRKDBdy7+CgEPwh0SJDtqJgauDNjiH3aQN7Cfg+UAAFl1Tq
- wEh8uNOoGXiLcrjaVjLD80e8BsCxfuXBeylgIcaW8vykJlb7mPtHenVOMUwAgeegFTND9tktZS1
- T+4wQAbotfwUYigrPhhUE7rs+0EQ8IsZnaJOTmkBRFnqyqE3HbInprZNMvOmmyu/Ybw4om9BafU
- fwqmyGml7G0cjtg==
+ bh=phK8+ZRwh/J/YxkbsoLpGT+s0IxKqlf1J/b5vaUdLh0=;
+ b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBpqBH5PO9/6ue5v3vMfwoqhAKzbGkWb5HOukqEv
+ PUg0fESJGqJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCaagR+QAKCRBgAj/E00kg
+ crOAD/9ASb2JoxmVej5rj1mI/ep6xH9GgV09wCCinkiCPRPN01eYn5FqLFzwKkg0f26RrlnLZtv
+ K7u9wfqXcUimhp36PY+v4WY8QY79h5zCTNT6teP6U1M6QVSnGs+bRjR92WT8nOuSEAY6XGzB8Rm
+ 1h4PkXpYjI2YlUJcpHfeQOZrFN5FjkGsPXVJzXjTQ3b3FEJiQCdpYvFzrWIifTFzCfirfOCFWtz
+ ajx0i1Ch5CmrpLEqnXPDnH0LgGiMDC7u7So2bn6IZBSeZL1M+u7c+0kSE1WRllq0CivYTXVfqWP
+ 0p9CJ+LO3uBdISZtHkIn92QjFgQ7do8NHfrW5xxxVIqIbCioDYMcusDEznazLL5AkfF8OnKyQTD
+ ItPvpLGbiOggufGmQ008s5GG6AQN2DhuvPteF5taxQu2bae9JHd4Cyb81fItzMNUujL6eWW6Xrc
+ HrktZuGYACmEXX5k1R3aEFjEZHyvzfVlSe2vFQ4sITivvwrMRIltEvpBPDgPKndoL7g5oZyBH0s
+ +NGGzDCEK+lZoFJV8HXEhVtfn+RaMi2U1sZncUZ7UFuDuQyZKviBRBLNpiRuMqi5RfXBLREvj+F
+ 6c+slrev30iiFaBH0UhZTKCBK/ES44VJ4tH1z5TzZNJtvefqttrOnkxhw3KzZ2j0dV2ww7OWkcp
+ xTn5goOXjzRjlOw==
 X-Developer-Key: i=david@ixit.cz; a=openpgp;
  fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
 X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
 X-Original-From: David Heidelberg <david@ixit.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_030533_179021_C28518D4 
-X-CRM114-Status: GOOD (  10.14  )
+X-CRM114-CacheID: sfid-20260304_030533_539460_9D33632B 
+X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,66 +102,42 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: David Heidelberg <david@ixit.cz>
 
-These clocks are used by PCIe lanes, but we're missing from the
-definition.
+Without configuring the PCIe clock enable pin as an output, it
+remains floating in input state. Some operating systems that rely
+on correct pin settings may fail to boot as a result.
 
-Suggested-by: Charalampos Mitrodimas <charmitro@posteo.net>
+Fixes: 86973ae0355b ("arm64: dts: rockchip: Add PCIe v3 nodes to BPI-R2-Pro")
+Reported-by: Martin Filla <freebsd@sysctl.cz> # reported by private message
+Tested-by: Martin Filla <freebsd@sysctl.cz>
 Signed-off-by: David Heidelberg <david@ixit.cz>
 ---
- arch/arm64/boot/dts/rockchip/rk3568.dtsi      | 12 ++++++++----
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi |  6 ++++--
- 2 files changed, 12 insertions(+), 6 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568.dtsi b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-index 658097ed69714..3bc653f027f1f 100644
---- a/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-@@ -155,9 +155,11 @@ pcie3x1: pcie@fe270000 {
- 		bus-range = <0x10 0x1f>;
- 		clocks = <&cru ACLK_PCIE30X1_MST>, <&cru ACLK_PCIE30X1_SLV>,
- 			 <&cru ACLK_PCIE30X1_DBI>, <&cru PCLK_PCIE30X1>,
--			 <&cru CLK_PCIE30X1_AUX_NDFT>;
-+			 <&cru CLK_PCIE30X1_AUX_NDFT>,
-+			 <&cru CLK_PCIE30X1_PIPE_DFT>;
- 		clock-names = "aclk_mst", "aclk_slv",
--			      "aclk_dbi", "pclk", "aux";
-+			      "aclk_dbi", "pclk", "aux",
-+			      "pipe";
- 		device_type = "pci";
- 		interrupts = <GIC_SPI 160 IRQ_TYPE_LEVEL_HIGH>,
- 			     <GIC_SPI 159 IRQ_TYPE_LEVEL_HIGH>,
-@@ -208,9 +210,11 @@ pcie3x2: pcie@fe280000 {
- 		bus-range = <0x20 0x2f>;
- 		clocks = <&cru ACLK_PCIE30X2_MST>, <&cru ACLK_PCIE30X2_SLV>,
- 			 <&cru ACLK_PCIE30X2_DBI>, <&cru PCLK_PCIE30X2>,
--			 <&cru CLK_PCIE30X2_AUX_NDFT>;
-+			 <&cru CLK_PCIE30X2_AUX_NDFT>,
-+			 <&cru CLK_PCIE30X2_PIPE_DFT>;
- 		clock-names = "aclk_mst", "aclk_slv",
--			      "aclk_dbi", "pclk", "aux";
-+			      "aclk_dbi", "pclk", "aux",
-+			      "pipe";
- 		device_type = "pci";
- 		interrupts = <GIC_SPI 165 IRQ_TYPE_LEVEL_HIGH>,
- 			     <GIC_SPI 164 IRQ_TYPE_LEVEL_HIGH>,
-diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-index 68b48606f6010..15741acac6274 100644
---- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-@@ -1020,9 +1020,11 @@ pcie2x1: pcie@fe260000 {
- 		bus-range = <0x0 0xf>;
- 		clocks = <&cru ACLK_PCIE20_MST>, <&cru ACLK_PCIE20_SLV>,
- 			 <&cru ACLK_PCIE20_DBI>, <&cru PCLK_PCIE20>,
--			 <&cru CLK_PCIE20_AUX_NDFT>;
-+			 <&cru CLK_PCIE20_AUX_NDFT>,
-+			 <&cru CLK_PCIE20_PIPE_DFT>;
- 		clock-names = "aclk_mst", "aclk_slv",
--			      "aclk_dbi", "pclk", "aux";
-+			      "aclk_dbi", "pclk", "aux",
-+			      "pipe";
- 		device_type = "pci";
- 		#interrupt-cells = <1>;
- 		interrupt-map-mask = <0 0 0 7>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts b/arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts
+index 3cdea9456a28c..95cf4a6236048 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts
+@@ -125,6 +125,8 @@ pcie_refclk: pcie-refclk-clock {
+ 		clocks = <&pcie_refclk_gen>;
+ 		#clock-cells = <0>;
+ 		enable-gpios = <&gpio0 RK_PD4 GPIO_ACTIVE_HIGH>;
++		pinctrl-0 = <&pcie_clkreq_h>;
++		pinctrl-names = "default";
+ 	};
+ 
+ 	vcc3v3_minipcie: regulator-vcc3v3-minipcie {
+@@ -652,6 +654,10 @@ ir_receiver_pin: ir-receiver-pin {
+ 	};
+ 
+ 	pcie {
++		pcie_clkreq_h: pcie-clkreq-h {
++			rockchip,pins = <0 RK_PD4 RK_FUNC_GPIO &pcfg_output_high>;
++		};
++
+ 		minipcie_enable_h: minipcie-enable-h {
+ 			rockchip,pins = <0 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none_drv_level_5>;
+ 		};
 
 -- 
 2.53.0
