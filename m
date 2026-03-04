@@ -4,65 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 902A6EF8FE5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 14:19:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 552F7EF8FEA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 14:21:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+b4HAUkjYgnPHxrhgsn1st6n4Vktq6dScwK1hhM1P1s=; b=mOaNT8WG3diWKg0cg1e3Q1gX3O
-	Wxyh18Lx0y7E4IcI1XIVexLMAphnrLNj6Nu0XnYuTBuVVi0DmfGjnN+91/c+UVxLM8cuP5X6fB/5k
-	d024jZBDCwD+Vr2CorZvjt7yMUKM4ESp1gGGNBCRSVXBEFfOSlkCE610V99SsG3/o0B12ItKQRsW3
-	iRicKmBS7gcsmS1+N+6sAD3bETUtociieVJn0mjnxvvZuAqgxF6KrdBbEmhp5F6zIIBGDeULvLd35
-	BMerGqK07vZVLL6+9/3gB/nroGav65+eSiUuTf0uZbYm4aLTL6g3N12tVu9GWY9blubFxrZlHGeO/
-	IfYrRdBQ==;
+	bh=jmevS114l3uvxzuybLYKhTgtUPCTzmqnGB9ubfDv3pc=; b=Q66GyGjNLXHYV1BTA1UNgIo9bp
+	QJItau5u92ptjp7FTh5nalK3TuhCEE5JzOtTNZmqFLIntAXDusAR8m1fpgwssC1fXXegqNOlChNdj
+	7su+m/YWvyNxyEfF+J83RrIViIgKQTmEfQk0NBlnF0EtOxdpfkGTTQCq2jclUsJ0PEUi+TlBFUHO2
+	PSMyfCLDBzILybV4I2igK+JdPj23Z+6AJ5OlcRp/YS8GMgS4vrQ/pIPB9UrP0pR/vvPmn8U9KwEWk
+	7YMo/SHrkfG+EEjCLEBMKnZeupMZVlukTqt7HhlkGnljyGE0S4sR1QpJUnAfW7gbSpGUEF5rTPwf/
+	oSuH0hzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxn44-0000000HNoR-2kO4;
-	Wed, 04 Mar 2026 14:19:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vxn66-0000000HO3u-3OGL;
+	Wed, 04 Mar 2026 14:21:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxn41-0000000HNng-1YDl
+	id 1vxn65-0000000HO3k-2T1z
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 14:19:03 +0000
+	Wed, 04 Mar 2026 14:21:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D297043389;
-	Wed,  4 Mar 2026 14:19:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A77A1C2BCB6;
-	Wed,  4 Mar 2026 14:18:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7F612600AD;
+	Wed,  4 Mar 2026 14:21:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CDD0C4CEF7;
+	Wed,  4 Mar 2026 14:21:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772633940;
-	bh=r+Jj++BxtL2q6btD+3HmGeqTaPfodzuDIhIecCJ5zjk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=C83yQcKOBcAmQlGeWbMm853nLAzKY8hscAlerR9g5iy1Hb/wfzX8gCASyAG6+aUmZ
-	 UTb8FGywqeb7o42fnHa/WyeYWAmTuKgPULdvDKLoCjXttsU8lOBMhJC538HzMyoZTN
-	 aIDyTmW1HMdi4uBaOGkl4IdegAtfVbNIaXLC4/PbebWnwN2bxfuG+rXlZnyRqUh8+J
-	 namDV2SJKAlZspoX+vmRBYzsvkacfP8RGCEJh9/2E9jMV0a2iNq3b9yThjpSJEvHol
-	 NmE5mAMU07fUghwRwYbHZ+Uh/IOCBy2VbT+ujW12hU/DPdDW8r+N2cAKq3DQ5UjSPI
-	 gDSO45tl2beIg==
-Date: Wed, 4 Mar 2026 19:48:46 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Alistair Francis <alistair@alistair23.me>
-Cc: Aksh Garg <a-garg7@ti.com>, linux-pci@vger.kernel.org, 
-	linux-doc@vger.kernel.org, bhelgaas@google.com, corbet@lwn.net, cassel@kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, s-vadapalli@ti.com, 
-	danishanwar@ti.com, srk@ti.com
-Subject: Re: [RFC PATCH 3/4] PCI/DOE: Add DOE mailbox support for endpoint
- functions
-Message-ID: <m7zyatomfy37j3dmvefkxr2waokhgj3qjl65fsnn7tsug3bti4@q77qhwwmauwo>
-References: <20260213123603.420941-1-a-garg7@ti.com>
- <20260213123603.420941-4-a-garg7@ti.com>
- <1907366a-e6d6-41ac-b61d-6e65e9dafe9a@alistair23.me>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <1907366a-e6d6-41ac-b61d-6e65e9dafe9a@alistair23.me>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_061901_466744_A0B3A7E0 
-X-CRM114-Status: GOOD (  46.21  )
+	s=k20201202; t=1772634068;
+	bh=boCSUpadjNJNnBd+r191VSM+8Ky/O0cRPsC0IO4saYU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=R20nAC0yeVJzK9Guh6BogLMj/jwXHQFDlA9yPMyfnX1q/UtumpUMYU2CF01AjRPGP
+	 2U3vEx0+vXRyw69akcUz2Flrf3hI7xKBzyWb+VG6fvKz20YbRUTIvF3kQsN0baG48t
+	 VXmsFdEesMZ6nbfGd/xoo/GYdwWk9FtdxGH4jTi3DgeC/O53SVbCj6bB2uelyITdlH
+	 ySN+qWm6MwpUTykI3u8L9wEmqdtvKf+4KPoiSGqdcvTzFLYSb/osf7jnBkfWdO6nMd
+	 irCDsozjCSQE+lf2aNjIe54MbadcGZUVoPhgBrkpIJqVCmwJ/+isE3tHVrEWmP8VF9
+	 s1H4D1lQIBZjg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vxn61-0000000G4PP-2uwK;
+	Wed, 04 Mar 2026 14:21:05 +0000
+Date: Wed, 04 Mar 2026 14:21:05 +0000
+Message-ID: <86zf4n7k1a.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly
+	<Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>,
+	"jonathan.cameron@huawei.com"
+	<jonathan.cameron@huawei.com>
+Subject: Re: [PATCH v5 20/36] KVM: arm64: gic-v5: Init Private IRQs (PPIs) for GICv5
+In-Reply-To: <20260226155515.1164292-21-sascha.bischoff@arm.com>
+References: <20260226155515.1164292-1-sascha.bischoff@arm.com>
+	<20260226155515.1164292-21-sascha.bischoff@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com, jonathan.cameron@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,885 +96,244 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 18, 2026 at 02:28:23PM +1000, Alistair Francis wrote:
-> On 13/2/26 22:36, Aksh Garg wrote:
-> > From: Aksh Garg <a-garg7@ti.com>
-> > 
-> > DOE (Data Object Exchange) is a standard PCIe extended capability
-> > feature introduced in the Data Object Exchange (DOE) ECN for
-> > PCIe r5.0. It provides a communication mechanism primarily used for
-> > implementing PCIe security features such as device authentication, and
-> > secure link establishment. Think of DOE as a sophisticated mailbox
-> > system built into PCIe. The root complex can send structured requests
-> > to the endpoint device through DOE mailboxes, and the endpoint device
-> > responds with appropriate data.
-> > 
-> > Add the DOE support for PCIe endpoint devices, enabling endpoint
-> > functions to process the DOE requests from the host. The implementation
-> > provides framework APIs for controller drivers to register mailboxes,
-> > protocol handler registration for different DOE data object types, and
-> > request processing with workqueues ensuring sequential handling per
-> > mailbox. The Discovery protocol is handled internally by the DOE core.
-> > 
-> > This implementation complements the existing DOE implementation for
-> > root complex in drivers/pci/doe.c.
+On Thu, 26 Feb 2026 16:00:36 +0000,
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
 > 
-> This looks good to me!
+> Initialise the private interrupts (PPIs, only) for GICv5. This means
+> that a GICv5-style intid is generated (which encodes the PPI type in
+> the top bits) instead of the 0-based index that is used for older
+> GICs.
 > 
-> I would love to see a handler implementation and integration with a driver
-> as well.
+> Additionally, set all of the GICv5 PPIs to use Level for the handling
+> mode, with the exception of the SW_PPI which uses Edge. This matches
+> the architecturally-defined set in the GICv5 specification (the CTIIRQ
+> handling mode is IMPDEF, so Level has been picked for that).
 > 
-> For SPDM the handler could even be in userspace
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> ---
+>  arch/arm64/kvm/vgic/vgic-init.c | 39 +++++++++++++++++++++++++--------
+>  1 file changed, 30 insertions(+), 9 deletions(-)
 > 
+> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+> index d1db384698238..e4a230c3857ff 100644
+> --- a/arch/arm64/kvm/vgic/vgic-init.c
+> +++ b/arch/arm64/kvm/vgic/vgic-init.c
+> @@ -254,14 +254,20 @@ static int vgic_allocate_private_irqs_locked(struct kvm_vcpu *vcpu, u32 type)
+>  {
+>  	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
+>  	int i;
+> +	u32 num_private_irqs;
 
-+1. We should not be introducing dead APIs.
+uber-nit: things look better like this:
 
-- Mani
+	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
+	u32 num_private_irqs;
+	int i;
 
-> Alistair
-> 
-> > 
-> > Co-developed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> > Signed-off-by: Aksh Garg <a-garg7@ti.com>
-> > ---
-> >   drivers/pci/Kconfig     |  14 +
-> >   drivers/pci/Makefile    |   1 +
-> >   drivers/pci/doe-ep.c    | 671 ++++++++++++++++++++++++++++++++++++++++
-> >   include/linux/pci-doe.h |  69 +++++
-> >   include/linux/pci-epc.h |   4 +
-> >   5 files changed, 759 insertions(+)
-> >   create mode 100644 drivers/pci/doe-ep.c
-> > 
-> > diff --git a/drivers/pci/Kconfig b/drivers/pci/Kconfig
-> > index e3f848ffb52a..2a57a314054c 100644
-> > --- a/drivers/pci/Kconfig
-> > +++ b/drivers/pci/Kconfig
-> > @@ -146,6 +146,20 @@ config PCI_DOE
-> >   	  Say Y here if you want be able to communicate with PCIe DOE
-> >   	  mailboxes.
-> > +config PCI_DOE_EP
-> > +	bool "PCI Endpoint Data Object Exchange (DOE) support"
-> > +	depends on PCI_ENDPOINT
-> > +	help
-> > +	  This enables support for Data Object Exchange (DOE) protocol
-> > +	  on PCI Endpoint controllers. It provides a communication
-> > +	  mechanism through mailboxes, primarily used for PCIe security
-> > +	  features.
-> > +
-> > +	  Say Y here if you want be able to communicate using PCIe DOE
-> > +	  mailboxes.
-> > +
-> > +	  If unsure, say N.
-> > +
-> >   config PCI_ECAM
-> >   	bool
-> > diff --git a/drivers/pci/Makefile b/drivers/pci/Makefile
-> > index e10cfe5a280b..66084e2ef9b2 100644
-> > --- a/drivers/pci/Makefile
-> > +++ b/drivers/pci/Makefile
-> > @@ -34,6 +34,7 @@ obj-$(CONFIG_PCI_P2PDMA)	+= p2pdma.o
-> >   obj-$(CONFIG_XEN_PCIDEV_FRONTEND) += xen-pcifront.o
-> >   obj-$(CONFIG_VGA_ARB)		+= vgaarb.o
-> >   obj-$(CONFIG_PCI_DOE)		+= doe.o
-> > +obj-$(CONFIG_PCI_DOE_EP)	+= doe-ep.o
-> >   obj-$(CONFIG_PCI_IDE)		+= ide.o
-> >   obj-$(CONFIG_PCI_TSM)		+= tsm.o
-> >   obj-$(CONFIG_PCI_DYNAMIC_OF_NODES) += of_property.o
-> > diff --git a/drivers/pci/doe-ep.c b/drivers/pci/doe-ep.c
-> > new file mode 100644
-> > index 000000000000..ff0551644f54
-> > --- /dev/null
-> > +++ b/drivers/pci/doe-ep.c
-> > @@ -0,0 +1,671 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only or MIT
-> > +/*
-> > + * Data Object Exchange for PCIe Endpoint
-> > + *	PCIe r7.0, sec 6.30 DOE
-> > + *
-> > + * Copyright (C) 2026 Texas Instruments Incorporated - https://www.ti.com
-> > + *	Aksh Garg <a-garg7@ti.com>
-> > + *	Siddharth Vadapalli <s-vadapalli@ti.com>
-> > + */
-> > +
-> > +#define dev_fmt(fmt) "DOE EP: " fmt
-> > +
-> > +#include <linux/bitfield.h>
-> > +#include <linux/completion.h>
-> > +#include <linux/device.h>
-> > +#include <linux/mutex.h>
-> > +#include <linux/pci.h>
-> > +#include <linux/pci-epc.h>
-> > +#include <linux/pci-doe.h>
-> > +#include <linux/slab.h>
-> > +#include <linux/workqueue.h>
-> > +#include <linux/xarray.h>
-> > +
-> > +/*
-> > + * Combines function number and capability offset into a unique lookup key
-> > + * for storing/retrieving DOE mailboxes in an xarray.
-> > + */
-> > +#define PCI_DOE_MB_KEY(func, offset) \
-> > +	(((unsigned long)(func) << 16) | (offset))
-> > +
-> > +/**
-> > + * struct pci_doe_protocol - DOE protocol handler entry
-> > + * @vid: Vendor ID
-> > + * @type: Protocol type
-> > + * @handler: Handler function pointer
-> > + */
-> > +struct pci_doe_protocol {
-> > +	u16 vid;
-> > +	u8 type;
-> > +	pci_doe_protocol_handler_t handler;
-> > +};
-> > +
-> > +/*
-> > + * Global registry of protocol handlers,
-> > + * holding struct pci_doe_protocol
-> > + */
-> > +static DEFINE_XARRAY_ALLOC(pci_doe_protocols);
-> > +
-> > +/* Serializes concurrent accesses to pci_doe_protocols xarray */
-> > +static DEFINE_MUTEX(protocols_mutex);
-> > +
-> > +/**
-> > + * struct pci_ep_doe_mb - State for a single DOE mailbox on EP
-> > + *
-> > + * This state is used to manage a single DOE mailbox capability on the
-> > + * endpoint side.
-> > + *
-> > + * @epc: PCI endpoint controller this mailbox belongs to
-> > + * @func_no: Physical function number of the function this mailbox belongs to
-> > + * @cap_offset: Capability offset
-> > + * @work_queue: Queue of work items
-> > + * @flags: Bit array of PCI_DOE_FLAG_* flags
-> > + */
-> > +struct pci_ep_doe_mb {
-> > +	struct pci_epc *epc;
-> > +	u8 func_no;
-> > +	u16 cap_offset;
-> > +	struct workqueue_struct *work_queue;
-> > +	unsigned long flags;
-> > +};
-> > +
-> > +/**
-> > + * struct pci_ep_doe_task - Represents a single DOE request/response task
-> > + *
-> > + * @feat: DOE feature (vendor ID and type)
-> > + * @request_pl: Request payload
-> > + * @request_pl_sz: Size of request payload in bytes
-> > + * @response_pl: Output pointer for response buffer
-> > + * @response_pl_sz: Output pointer for response size
-> > + * @task_status: Task completion status (0 on success, -errno on failure)
-> > + * @complete: Completion callback
-> > + * @private: Private data for completion
-> > + * @work: Work structure for workqueue
-> > + * @doe_mb: DOE mailbox handling this task
-> > + */
-> > +struct pci_ep_doe_task {
-> > +	struct pci_doe_feature feat;
-> > +	const void *request_pl;
-> > +	size_t request_pl_sz;
-> > +	void **response_pl;
-> > +	size_t *response_pl_sz;
-> > +	int task_status;
-> > +	void (*complete)(struct pci_ep_doe_task *task);
-> > +	void *private;
-> > +
-> > +	/* Initialized by pci_ep_doe_submit_task() */
-> > +	struct work_struct work;
-> > +	struct pci_ep_doe_mb *doe_mb;
-> > +};
-> > +
-> > +/**
-> > + * pci_ep_doe_init() - Initialize the DOE framework for a controller in EP mode
-> > + * @epc: PCI endpoint controller
-> > + *
-> > + * Initialize the DOE framework data structures. This only initializes
-> > + * the xarray that will hold the mailboxes.
-> > + *
-> > + * RETURNS: 0 on success, -errno on failure
-> > + */
-> > +int pci_ep_doe_init(struct pci_epc *epc)
-> > +{
-> > +	if (!epc)
-> > +		return -EINVAL;
-> > +
-> > +	xa_init(&epc->doe_mbs);
-> > +	return 0;
-> > +}
-> > +EXPORT_SYMBOL_GPL(pci_ep_doe_init);
-> > +
-> > +/**
-> > + * pci_ep_doe_add_mailbox() - Add a DOE mailbox for a physical function
-> > + * @epc: PCI endpoint controller
-> > + * @func_no: Physical function number
-> > + * @cap_offset: Offset of the DOE capability
-> > + *
-> > + * Create and register a DOE mailbox for the specified physical function
-> > + * and capability offset. The controller driver should call this for each
-> > + * DOE capability it finds in its config space.
-> > + *
-> > + * RETURNS: 0 on success, -errno on failure
-> > + */
-> > +int pci_ep_doe_add_mailbox(struct pci_epc *epc, u8 func_no, u16 cap_offset)
-> > +{
-> > +	struct pci_ep_doe_mb *doe_mb;
-> > +	unsigned long key;
-> > +	int ret;
-> > +
-> > +	if (!epc)
-> > +		return -EINVAL;
-> > +
-> > +	doe_mb = kzalloc(sizeof(*doe_mb), GFP_KERNEL);
-> > +	if (!doe_mb)
-> > +		return -ENOMEM;
-> > +
-> > +	doe_mb->epc = epc;
-> > +	doe_mb->func_no = func_no;
-> > +	doe_mb->cap_offset = cap_offset;
-> > +
-> > +	doe_mb->work_queue = alloc_ordered_workqueue("pci_ep_doe[%s:pf%d:offset%x]", 0,
-> > +						     dev_name(&epc->dev),
-> > +						     func_no, cap_offset);
-> > +	if (!doe_mb->work_queue) {
-> > +		dev_err(epc->dev.parent,
-> > +			"[pf%d:offset%x] failed to allocate work queue\n",
-> > +			func_no, cap_offset);
-> > +		ret = -ENOMEM;
-> > +		goto err_free;
-> > +	}
-> > +
-> > +	/* Add to xarray with composite key */
-> > +	key = PCI_DOE_MB_KEY(func_no, cap_offset);
-> > +	ret = xa_insert(&epc->doe_mbs, key, doe_mb, GFP_KERNEL);
-> > +	if (ret) {
-> > +		dev_err(epc->dev.parent,
-> > +			"[pf%d:offset%x] failed to insert mailbox: %d\n",
-> > +			func_no, cap_offset, ret);
-> > +		goto err_destroy;
-> > +	}
-> > +
-> > +	dev_dbg(epc->dev.parent,
-> > +		"DOE mailbox added: pf%d offset 0x%x\n",
-> > +		func_no, cap_offset);
-> > +
-> > +	return 0;
-> > +
-> > +err_destroy:
-> > +	destroy_workqueue(doe_mb->work_queue);
-> > +err_free:
-> > +	kfree(doe_mb);
-> > +	return ret;
-> > +}
-> > +EXPORT_SYMBOL_GPL(pci_ep_doe_add_mailbox);
-> > +
-> > +/**
-> > + * pci_ep_doe_register_protocol() - Register a protocol handler
-> > + * @vendor: Vendor ID
-> > + * @type: Protocol type
-> > + * @handler: Handler function pointer
-> > + *
-> > + * Register a protocol handler that will be called when DOE requests
-> > + * with the specified vendor ID and type are received. Protocol libraries
-> > + * should call this during module initialization.
-> > + *
-> > + * RETURNS: 0 on success, -errno on failure
-> > + */
-> > +int pci_ep_doe_register_protocol(u16 vendor, u8 type,
-> > +				 pci_doe_protocol_handler_t handler)
-> > +{
-> > +	struct pci_doe_protocol *protocol;
-> > +	unsigned long index;
-> > +	int ret;
-> > +	u32 id;
-> > +
-> > +	if (!handler)
-> > +		return -EINVAL;
-> > +
-> > +	/* Don't allow registering discovery protocol */
-> > +	if (vendor == PCI_VENDOR_ID_PCI_SIG && type == PCI_DOE_FEATURE_DISCOVERY)
-> > +		return -EINVAL;
-> > +
-> > +	mutex_lock(&protocols_mutex);
-> > +
-> > +	/* Check if already registered */
-> > +	xa_for_each(&pci_doe_protocols, index, protocol) {
-> > +		if (protocol->vid == vendor && protocol->type == type) {
-> > +			ret = -EEXIST;
-> > +			goto err;
-> > +		}
-> > +	}
-> > +
-> > +	protocol = kzalloc(sizeof(*protocol), GFP_KERNEL);
-> > +	if (!protocol) {
-> > +		ret = -ENOMEM;
-> > +		goto err;
-> > +	}
-> > +
-> > +	protocol->vid = vendor;
-> > +	protocol->type = type;
-> > +	protocol->handler = handler;
-> > +
-> > +	ret = xa_alloc(&pci_doe_protocols, &id, protocol,
-> > +		       xa_limit_32b, GFP_KERNEL);
-> > +	if (ret) {
-> > +		kfree(protocol);
-> > +		goto err;
-> > +	}
-> > +
-> > +	mutex_unlock(&protocols_mutex);
-> > +
-> > +	pr_debug("DOE EP: Registered protocol %04x:%02x at index %u\n",
-> > +		 vendor, type, id);
-> > +
-> > +	return 0;
-> > +
-> > +err:
-> > +	mutex_unlock(&protocols_mutex);
-> > +	return ret;
-> > +}
-> > +EXPORT_SYMBOL_GPL(pci_ep_doe_register_protocol);
-> > +
-> > +/**
-> > + * pci_ep_doe_unregister_protocol() - Unregister a protocol handler
-> > + * @vendor: Vendor ID
-> > + * @type: Protocol type
-> > + *
-> > + * Unregister a previously registered protocol handler. Protocol libraries
-> > + * should call this during module cleanup.
-> > + */
-> > +void pci_ep_doe_unregister_protocol(u16 vendor, u8 type)
-> > +{
-> > +	struct pci_doe_protocol *protocol;
-> > +	unsigned long index;
-> > +
-> > +	mutex_lock(&protocols_mutex);
-> > +
-> > +	/* Find and remove the protocol entry */
-> > +	xa_for_each(&pci_doe_protocols, index, protocol) {
-> > +		if (protocol->vid == vendor && protocol->type == type) {
-> > +			xa_erase(&pci_doe_protocols, index);
-> > +			kfree(protocol);
-> > +			mutex_unlock(&protocols_mutex);
-> > +			pr_debug("DOE EP: Unregistered protocol %04x:%02x\n",
-> > +				 vendor, type);
-> > +			return;
-> > +		}
-> > +	}
-> > +
-> > +	mutex_unlock(&protocols_mutex);
-> > +	pr_warn("DOE EP: Attempted to unregister non-existent protocol %04x:%02x\n",
-> > +		vendor, type);
-> > +}
-> > +EXPORT_SYMBOL_GPL(pci_ep_doe_unregister_protocol);
-> > +
-> > +/**
-> > + * pci_ep_doe_cancel_tasks() - Cancel all pending tasks
-> > + * @doe_mb: DOE mailbox
-> > + *
-> > + * Cancel all pending tasks in the mailbox. Mark the mailbox as dead
-> > + * so no new tasks can be submitted.
-> > + */
-> > +static void pci_ep_doe_cancel_tasks(struct pci_ep_doe_mb *doe_mb)
-> > +{
-> > +	if (!doe_mb)
-> > +		return;
-> > +
-> > +	/* Mark the mailbox as dead */
-> > +	set_bit(PCI_DOE_FLAG_DEAD, &doe_mb->flags);
-> > +
-> > +	/* Stop all pending work items from starting */
-> > +	set_bit(PCI_DOE_FLAG_CANCEL, &doe_mb->flags);
-> > +}
-> > +
-> > +/**
-> > + * pci_ep_doe_get_mailbox() - Get DOE mailbox by function and offset
-> > + * @epc: PCI endpoint controller
-> > + * @func_no: Physical function number
-> > + * @cap_offset: Offset of the DOE capability
-> > + *
-> > + * Internal helper to look up a DOE mailbox by its function number and
-> > + * capability offset.
-> > + *
-> > + * RETURNS: Pointer to the mailbox or NULL if not found
-> > + */
-> > +static struct pci_ep_doe_mb *pci_ep_doe_get_mailbox(struct pci_epc *epc,
-> > +						    u8 func_no, u16 cap_offset)
-> > +{
-> > +	unsigned long key;
-> > +
-> > +	if (!epc)
-> > +		return NULL;
-> > +
-> > +	key = PCI_DOE_MB_KEY(func_no, cap_offset);
-> > +	return xa_load(&epc->doe_mbs, key);
-> > +}
-> > +
-> > +/**
-> > + * pci_ep_doe_find_protocol() - Find protocol handler
-> > + * @vendor: Vendor ID
-> > + * @type: Protocol type
-> > + *
-> > + * Look up a protocol handler in the registered protocols.
-> > + *
-> > + * RETURNS: Handler function pointer or NULL if not found
-> > + */
-> > +static pci_doe_protocol_handler_t pci_ep_doe_find_protocol(u16 vendor, u8 type)
-> > +{
-> > +	pci_doe_protocol_handler_t handler = NULL;
-> > +	struct pci_doe_protocol *protocol;
-> > +	unsigned long index;
-> > +
-> > +	mutex_lock(&protocols_mutex);
-> > +
-> > +	xa_for_each(&pci_doe_protocols, index, protocol) {
-> > +		if (protocol->vid == vendor && protocol->type == type) {
-> > +			handler = protocol->handler;
-> > +			break;
-> > +		}
-> > +	}
-> > +
-> > +	mutex_unlock(&protocols_mutex);
-> > +	return handler;
-> > +}
-> > +
-> > +/**
-> > + * pci_ep_doe_handle_discovery() - Handle Discovery protocol request
-> > + * @request: Request payload
-> > + * @request_sz: Request size
-> > + * @response: Output pointer for response buffer
-> > + * @response_sz: Output pointer for response size
-> > + *
-> > + * Handle the DOE Discovery protocol. The request contains an index specifying
-> > + * which protocol to query. This function creates a response containing the
-> > + * vendor ID and protocol type for the requested index, along with the next
-> > + * index value for further discovery:
-> > + *
-> > + * - next_index = 0: Signals this is the last protocol supported
-> > + * - next_index = n (non-zero): Signals more protocols available,
-> > + *   query index n next
-> > + *
-> > + * RETURNS: 0 on success, -errno on failure
-> > + */
-> > +static int pci_ep_doe_handle_discovery(const void *request, size_t request_sz,
-> > +				       void **response, size_t *response_sz)
-> > +{
-> > +	struct pci_doe_protocol *protocol;
-> > +	u8 requested_index, next_index;
-> > +	unsigned long index;
-> > +	u8 xarray_count = 0;
-> > +	u32 *response_pl;
-> > +	u32 request_pl;
-> > +	u16 vendor;
-> > +	u8 type;
-> > +
-> > +	if (request_sz != sizeof(u32))
-> > +		return -EINVAL;
-> > +
-> > +	request_pl = *(u32 *)request;
-> > +	requested_index = FIELD_GET(PCI_DOE_DATA_OBJECT_DISC_REQ_3_INDEX, request_pl);
-> > +
-> > +	mutex_lock(&protocols_mutex);
-> > +
-> > +	/* Count protocols in xarray */
-> > +	xa_for_each(&pci_doe_protocols, index, protocol)
-> > +		xarray_count++;
-> > +
-> > +	if (requested_index > xarray_count) {
-> > +		mutex_unlock(&protocols_mutex);
-> > +		return -EINVAL;
-> > +	}
-> > +
-> > +	/* Index 0 is always Discovery protocol */
-> > +	if (requested_index == 0) {
-> > +		vendor = PCI_VENDOR_ID_PCI_SIG;
-> > +		type = PCI_DOE_FEATURE_DISCOVERY;
-> > +	} else {
-> > +		protocol = xa_load(&pci_doe_protocols, (unsigned long)(requested_index - 1));
-> > +		if (!protocol) {
-> > +			mutex_unlock(&protocols_mutex);
-> > +			return -EINVAL;
-> > +		}
-> > +		vendor = protocol->vid;
-> > +		type = protocol->type;
-> > +	}
-> > +	mutex_unlock(&protocols_mutex);
-> > +
-> > +	/* Calculate next index */
-> > +	next_index = (requested_index < xarray_count) ? requested_index + 1 : 0;
-> > +
-> > +	response_pl = kzalloc(sizeof(*response_pl), GFP_KERNEL);
-> > +	if (!response_pl)
-> > +		return -ENOMEM;
-> > +
-> > +	/* Build response */
-> > +	*response_pl = FIELD_PREP(PCI_DOE_DATA_OBJECT_DISC_RSP_3_VID, vendor) |
-> > +		       FIELD_PREP(PCI_DOE_DATA_OBJECT_DISC_RSP_3_TYPE, type) |
-> > +		       FIELD_PREP(PCI_DOE_DATA_OBJECT_DISC_RSP_3_NEXT_INDEX, next_index);
-> > +
-> > +	*response = response_pl;
-> > +	*response_sz = sizeof(*response_pl);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static void signal_task_complete(struct pci_ep_doe_task *task, int status)
-> > +{
-> > +	task->task_status = status;
-> > +	destroy_work_on_stack(&task->work);
-> > +	task->complete(task);
-> > +}
-> > +
-> > +/**
-> > + * doe_ep_task_work() - Work function for processing DOE EP tasks
-> > + * @work: Work structure
-> > + *
-> > + * Process a DOE request by calling the appropriate protocol handler.
-> > + */
-> > +static void doe_ep_task_work(struct work_struct *work)
-> > +{
-> > +	struct pci_ep_doe_task *task = container_of(work, struct pci_ep_doe_task,
-> > +						    work);
-> > +	struct pci_ep_doe_mb *doe_mb = task->doe_mb;
-> > +	pci_doe_protocol_handler_t handler;
-> > +	int rc;
-> > +
-> > +	if (test_bit(PCI_DOE_FLAG_DEAD, &doe_mb->flags)) {
-> > +		signal_task_complete(task, -EIO);
-> > +		return;
-> > +	}
-> > +
-> > +	/* Check if request was aborted */
-> > +	if (test_bit(PCI_DOE_FLAG_CANCEL, &doe_mb->flags)) {
-> > +		signal_task_complete(task, -ECANCELED);
-> > +		return;
-> > +	}
-> > +
-> > +	/* Handle Discovery protocol directly */
-> > +	if (task->feat.vid == PCI_VENDOR_ID_PCI_SIG &&
-> > +	    task->feat.type == PCI_DOE_FEATURE_DISCOVERY) {
-> > +		rc = pci_ep_doe_handle_discovery(task->request_pl,
-> > +						 task->request_pl_sz,
-> > +						 task->response_pl,
-> > +						 task->response_pl_sz);
-> > +		signal_task_complete(task, rc);
-> > +		return;
-> > +	}
-> > +
-> > +	/* Find protocol handler in xarray */
-> > +	handler = pci_ep_doe_find_protocol(task->feat.vid, task->feat.type);
-> > +	if (!handler) {
-> > +		dev_warn(doe_mb->epc->dev.parent,
-> > +			 "[%d:%x] Unsupported protocol VID=%04x TYPE=%02x\n",
-> > +			 doe_mb->func_no, doe_mb->cap_offset,
-> > +			 task->feat.vid, task->feat.type);
-> > +		signal_task_complete(task, -EOPNOTSUPP);
-> > +		return;
-> > +	}
-> > +
-> > +	/* Call protocol handler */
-> > +	rc = handler(task->request_pl, task->request_pl_sz,
-> > +		     task->response_pl, task->response_pl_sz);
-> > +
-> > +	signal_task_complete(task, rc);
-> > +}
-> > +
-> > +/**
-> > + * pci_ep_doe_submit_task() - Submit a task to be processed
-> > + * @doe_mb: DOE mailbox
-> > + * @task: Task to submit
-> > + *
-> > + * Submit a DOE task to the workqueue for processing.
-> > + * Task must be allocated on the stack.
-> > + *
-> > + * RETURNS: 0 on success, -errno on failure
-> > + */
-> > +static int pci_ep_doe_submit_task(struct pci_ep_doe_mb *doe_mb,
-> > +				  struct pci_ep_doe_task *task)
-> > +{
-> > +	if (test_bit(PCI_DOE_FLAG_DEAD, &doe_mb->flags))
-> > +		return -EIO;
-> > +
-> > +	task->doe_mb = doe_mb;
-> > +	INIT_WORK_ONSTACK(&task->work, doe_ep_task_work);
-> > +	queue_work(doe_mb->work_queue, &task->work);
-> > +	return 0;
-> > +}
-> > +
-> > +static void pci_ep_doe_task_complete(struct pci_ep_doe_task *task)
-> > +{
-> > +	complete(task->private);
-> > +}
-> > +
-> > +/**
-> > + * pci_ep_doe_process_request() - Process DOE request on endpoint
-> > + * @epc: PCI endpoint controller
-> > + * @func_no: Physical function number
-> > + * @cap_offset: DOE capability offset
-> > + * @vendor: Vendor ID from request header
-> > + * @type: Protocol type from request header
-> > + * @request: Request payload in CPU-native format
-> > + * @request_sz: Size of request payload (bytes)
-> > + * @response: Output pointer for response buffer in CPU-native format
-> > + * @response_sz: Output pointer for response size (bytes)
-> > + *
-> > + * Process a DOE request received on the endpoint. The request payload should
-> > + * not include the DOE header (vendor/type/length). The protocol handler will
-> > + * allocate the response buffer, which the caller (controller driver) must
-> > + * free after use.
-> > + *
-> > + * As per DOE specification, a mailbox processes one request at a time.
-> > + * Therefore, this function will never be called concurrently for the same
-> > + * mailbox by different callers.
-> > + *
-> > + * The caller is responsible for the conversion of the received DOE request
-> > + * with le32_to_cpu() before calling this function.
-> > + * Similarly, it is responsible for converting the response payload with
-> > + * cpu_to_le32() before sending it back over the DOE mailbox.
-> > + *
-> > + * The caller is also responsible for ensuring that the request size
-> > + * is within the limits defined by PCI_DOE_MAX_LENGTH.
-> > + *
-> > + * RETURNS: 0 on success, -errno on failure
-> > + */
-> > +int pci_ep_doe_process_request(struct pci_epc *epc, u8 func_no, u16 cap_offset,
-> > +			       u16 vendor, u8 type, const void *request,
-> > +			       size_t request_sz, void **response, size_t *response_sz)
-> > +{
-> > +	DECLARE_COMPLETION_ONSTACK(c);
-> > +	struct pci_ep_doe_mb *doe_mb;
-> > +	struct pci_ep_doe_task task = {
-> > +		.feat.vid = vendor,
-> > +		.feat.type = type,
-> > +		.request_pl = request,
-> > +		.request_pl_sz = request_sz,
-> > +		.response_pl = response,
-> > +		.response_pl_sz = response_sz,
-> > +		.complete = pci_ep_doe_task_complete,
-> > +		.private = &c,
-> > +	};
-> > +	int rc;
-> > +
-> > +	doe_mb = pci_ep_doe_get_mailbox(epc, func_no, cap_offset);
-> > +	if (!doe_mb)
-> > +		return -ENODEV;
-> > +
-> > +	rc = pci_ep_doe_submit_task(doe_mb, &task);
-> > +	if (rc)
-> > +		return rc;
-> > +
-> > +	wait_for_completion(&c);
-> > +
-> > +	return task.task_status;
-> > +}
-> > +EXPORT_SYMBOL_GPL(pci_ep_doe_process_request);
-> > +
-> > +/**
-> > + * pci_ep_doe_abort() - Abort DOE operations on a mailbox
-> > + * @epc: PCI endpoint controller
-> > + * @func_no: Physical function number
-> > + * @cap_offset: DOE capability offset
-> > + *
-> > + * Abort all queued and wait for in-flight DOE operations to complete for the
-> > + * specified mailbox. This function is called by the EP controller driver
-> > + * when the RC sets the ABORT bit in the DOE Control register.
-> > + *
-> > + * The function will:
-> > + *
-> > + * - Set CANCEL flag to prevent new requests in the queue from starting
-> > + * - Wait for the currently executing handler to complete (cannot interrupt)
-> > + * - Flush the workqueue to wait for all requests to be handled appropriately
-> > + * - Clear CANCEL flag to prepare for new requests
-> > + *
-> > + * RETURNS: 0 on success, -errno on failure
-> > + */
-> > +int pci_ep_doe_abort(struct pci_epc *epc, u8 func_no, u16 cap_offset)
-> > +{
-> > +	struct pci_ep_doe_mb *doe_mb;
-> > +
-> > +	if (!epc)
-> > +		return -EINVAL;
-> > +
-> > +	doe_mb = pci_ep_doe_get_mailbox(epc, func_no, cap_offset);
-> > +	if (!doe_mb)
-> > +		return -ENODEV;
-> > +
-> > +	/* Set CANCEL flag - worker will abort queued requests */
-> > +	set_bit(PCI_DOE_FLAG_CANCEL, &doe_mb->flags);
-> > +	flush_workqueue(doe_mb->work_queue);
-> > +
-> > +	/* Clear CANCEL flag - mailbox ready for new requests */
-> > +	clear_bit(PCI_DOE_FLAG_CANCEL, &doe_mb->flags);
-> > +
-> > +	dev_dbg(epc->dev.parent,
-> > +		"DOE mailbox aborted: PF%d offset 0x%x\n",
-> > +		func_no, cap_offset);
-> > +
-> > +	return 0;
-> > +}
-> > +EXPORT_SYMBOL_GPL(pci_ep_doe_abort);
-> > +
-> > +/**
-> > + * pci_ep_doe_destroy_mb() - Destroy a single DOE mailbox
-> > + * @doe_mb: DOE mailbox to destroy
-> > + *
-> > + * Internal function to destroy a mailbox and free its resources.
-> > + */
-> > +static void pci_ep_doe_destroy_mb(struct pci_ep_doe_mb *doe_mb)
-> > +{
-> > +	if (!doe_mb)
-> > +		return;
-> > +
-> > +	pci_ep_doe_cancel_tasks(doe_mb);
-> > +
-> > +	if (doe_mb->work_queue)
-> > +		destroy_workqueue(doe_mb->work_queue);
-> > +
-> > +	kfree(doe_mb);
-> > +}
-> > +
-> > +/**
-> > + * pci_ep_doe_destroy() - Destroy all DOE mailboxes
-> > + * @epc: PCI endpoint controller
-> > + *
-> > + * Destroy all DOE mailboxes and free associated resources.
-> > + *
-> > + * This function should be called during controller cleanup to free all
-> > + * DOE resources.
-> > + */
-> > +void pci_ep_doe_destroy(struct pci_epc *epc)
-> > +{
-> > +	struct pci_ep_doe_mb *doe_mb;
-> > +	unsigned long index;
-> > +
-> > +	if (!epc)
-> > +		return;
-> > +
-> > +	xa_for_each(&epc->doe_mbs, index, doe_mb)
-> > +		pci_ep_doe_destroy_mb(doe_mb);
-> > +
-> > +	xa_destroy(&epc->doe_mbs);
-> > +}
-> > +EXPORT_SYMBOL_GPL(pci_ep_doe_destroy);
-> > diff --git a/include/linux/pci-doe.h b/include/linux/pci-doe.h
-> > index a966626c47f9..b353c3a1aa82 100644
-> > --- a/include/linux/pci-doe.h
-> > +++ b/include/linux/pci-doe.h
-> > @@ -13,6 +13,8 @@
-> >   #ifndef LINUX_PCI_DOE_H
-> >   #define LINUX_PCI_DOE_H
-> > +#include <linux/types.h>
-> > +
-> >   /* Mailbox state flags */
-> >   #define PCI_DOE_FLAG_CANCEL		0
-> >   #define PCI_DOE_FLAG_DEAD		1
-> > @@ -24,12 +26,19 @@
-> >   #define PCI_DOE_FEATURE_CMA		1
-> >   #define PCI_DOE_FEATURE_SSESSION	2
-> > +typedef int (*pci_doe_protocol_handler_t)(const void *request,
-> > +					  size_t request_sz,
-> > +					  void **response,
-> > +					  size_t *response_sz);
-> > +
-> >   struct pci_doe_feature {
-> >   	u16 vid;
-> >   	u8 type;
-> >   };
-> >   struct pci_doe_mb;
-> > +struct pci_dev;
-> > +struct pci_epc;
-> >   #ifdef CONFIG_PCI_DOE
-> >   struct pci_doe_mb *pci_find_doe_mailbox(struct pci_dev *pdev, u16 vendor,
-> > @@ -54,4 +63,64 @@ static inline int pci_doe(struct pci_doe_mb *doe_mb, u16 vendor, u8 type,
-> >   }
-> >   #endif /* CONFIG_PCI_DOE */
-> > +#ifdef CONFIG_PCI_DOE_EP
-> > +int pci_ep_doe_init(struct pci_epc *epc);
-> > +
-> > +int pci_ep_doe_add_mailbox(struct pci_epc *epc, u8 func_no, u16 cap_offset);
-> > +
-> > +int pci_ep_doe_register_protocol(u16 vendor, u8 type,
-> > +				 pci_doe_protocol_handler_t handler);
-> > +
-> > +void pci_ep_doe_unregister_protocol(u16 vendor, u8 type);
-> > +
-> > +int pci_ep_doe_process_request(struct pci_epc *epc, u8 func_no, u16 cap_offset,
-> > +			       u16 vendor, u8 type, const void *request,
-> > +			       size_t request_sz, void **response, size_t *response_sz);
-> > +
-> > +int pci_ep_doe_abort(struct pci_epc *epc, u8 func_no, u16 cap_offset);
-> > +
-> > +void pci_ep_doe_destroy(struct pci_epc *epc);
-> > +
-> > +#else
-> > +static inline int pci_ep_doe_init(struct pci_epc *epc)
-> > +{
-> > +	return -EOPNOTSUPP;
-> > +}
-> > +
-> > +static inline int pci_ep_doe_add_mailbox(struct pci_epc *epc, u8 func_no,
-> > +					 u16 cap_offset)
-> > +{
-> > +	return -EOPNOTSUPP;
-> > +}
-> > +
-> > +static inline int pci_ep_doe_register_protocol(u16 vendor, u8 type,
-> > +					       pci_doe_protocol_handler_t handler)
-> > +{
-> > +	return -EOPNOTSUPP;
-> > +}
-> > +
-> > +static inline void pci_ep_doe_unregister_protocol(u16 vendor, u8 type)
-> > +{
-> > +}
-> > +
-> > +static inline int pci_ep_doe_process_request(struct pci_epc *epc, u8 func_no, u16 cap_offset,
-> > +					     u16 vendor, u8 type,
-> > +					     const void *request, size_t request_sz,
-> > +					     void **response, size_t *response_sz)
-> > +{
-> > +	return -EOPNOTSUPP;
-> > +}
-> > +
-> > +static inline int pci_ep_doe_abort(struct pci_epc *epc, u8 func_no,
-> > +				   u16 cap_offset)
-> > +{
-> > +	return -EOPNOTSUPP;
-> > +}
-> > +
-> > +static inline void pci_ep_doe_destroy(struct pci_epc *epc)
-> > +{
-> > +}
-> > +
-> > +#endif /* CONFIG_PCI_DOE_EP */
-> > +
-> >   #endif /* LINUX_PCI_DOE_H */
-> > diff --git a/include/linux/pci-epc.h b/include/linux/pci-epc.h
-> > index 4286bfdbfdfa..ad4de4d33da3 100644
-> > --- a/include/linux/pci-epc.h
-> > +++ b/include/linux/pci-epc.h
-> > @@ -165,6 +165,7 @@ struct pci_epc_mem {
-> >    * @domain_nr: PCI domain number of the endpoint controller
-> >    * @init_complete: flag to indicate whether the EPC initialization is complete
-> >    *                 or not
-> > + * @doe_mbs: array of DOE mailboxes (CONFIG_PCI_DOE_EP)
-> >    */
-> >   struct pci_epc {
-> >   	struct device			dev;
-> > @@ -182,6 +183,9 @@ struct pci_epc {
-> >   	unsigned long			function_num_map;
-> >   	int				domain_nr;
-> >   	bool				init_complete;
-> > +#ifdef CONFIG_PCI_DOE_EP
-> > +	struct xarray			doe_mbs;
-> > +#endif
-> >   };
-> >   /**
-> 
-> 
+I know, that's silly. I'll take my pills shortly.
+
+>  
+>  	lockdep_assert_held(&vcpu->kvm->arch.config_lock);
+>  
+>  	if (vgic_cpu->private_irqs)
+>  		return 0;
+>  
+> +	if (vgic_is_v5(vcpu->kvm))
+> +		num_private_irqs = VGIC_V5_NR_PRIVATE_IRQS;
+> +	else
+> +		num_private_irqs = VGIC_NR_PRIVATE_IRQS;
+> +
+>  	vgic_cpu->private_irqs = kzalloc_objs(struct vgic_irq,
+> -					      VGIC_NR_PRIVATE_IRQS,
+> +					      num_private_irqs,
+>  					      GFP_KERNEL_ACCOUNT);
+>  
+>  	if (!vgic_cpu->private_irqs)
+> @@ -271,22 +277,37 @@ static int vgic_allocate_private_irqs_locked(struct kvm_vcpu *vcpu, u32 type)
+>  	 * Enable and configure all SGIs to be edge-triggered and
+>  	 * configure all PPIs as level-triggered.
+>  	 */
+> -	for (i = 0; i < VGIC_NR_PRIVATE_IRQS; i++) {
+> +	for (i = 0; i < num_private_irqs; i++) {
+>  		struct vgic_irq *irq = &vgic_cpu->private_irqs[i];
+>  
+>  		INIT_LIST_HEAD(&irq->ap_list);
+>  		raw_spin_lock_init(&irq->irq_lock);
+> -		irq->intid = i;
+>  		irq->vcpu = NULL;
+>  		irq->target_vcpu = vcpu;
+>  		refcount_set(&irq->refcount, 0);
+> -		if (vgic_irq_is_sgi(i)) {
+> -			/* SGIs */
+> -			irq->enabled = 1;
+> -			irq->config = VGIC_CONFIG_EDGE;
+> +		if (!vgic_is_v5(vcpu->kvm)) {
+> +			irq->intid = i;
+> +			if (vgic_irq_is_sgi(i)) {
+> +				/* SGIs */
+> +				irq->enabled = 1;
+> +				irq->config = VGIC_CONFIG_EDGE;
+> +			} else {
+> +				/* PPIs */
+> +				irq->config = VGIC_CONFIG_LEVEL;
+> +			}
+>  		} else {
+> -			/* PPIs */
+> -			irq->config = VGIC_CONFIG_LEVEL;
+> +			irq->intid = FIELD_PREP(GICV5_HWIRQ_ID, i) |
+> +				     FIELD_PREP(GICV5_HWIRQ_TYPE,
+> +						GICV5_HWIRQ_TYPE_PPI);
+> +
+> +			/* The only Edge architected PPI is the SW_PPI */
+> +			if (i == GICV5_ARCH_PPI_SW_PPI)
+> +				irq->config = VGIC_CONFIG_EDGE;
+> +			else
+> +				irq->config = VGIC_CONFIG_LEVEL;
+> +
+> +			/* Register the GICv5-specific PPI ops */
+> +			vgic_v5_set_ppi_ops(irq);
+>  		}
+>  
+>  		switch (type) {
+
+That's another point where I'd rather have structural changes to the
+code, moving the SGI/PPI init to their own helper:
+
+diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+index 7df7b8aa77a69..0a2468fef86c6 100644
+--- a/arch/arm64/kvm/vgic/vgic-init.c
++++ b/arch/arm64/kvm/vgic/vgic-init.c
+@@ -262,6 +262,66 @@ int kvm_vgic_vcpu_nv_init(struct kvm_vcpu *vcpu)
+ 	return ret;
+ }
+ 
++static void vgic_init_private_irq(struct kvm_vcpu *vcpu, int i, u32 type)
++{
++	struct vgic_irq *irq = &vcpu->arch.vgic_cpu.private_irqs[i];
++
++	INIT_LIST_HEAD(&irq->ap_list);
++	raw_spin_lock_init(&irq->irq_lock);
++	irq->vcpu = NULL;
++	irq->target_vcpu = vcpu;
++	refcount_set(&irq->refcount, 0);
++	irq->intid = i;
++
++	/*
++	 * Enable and configure all SGIs to be edge-triggered and
++	 * configure all PPIs as level-triggered.
++	 */
++	if (vgic_irq_is_sgi(i)) {
++		/* SGIs */
++		irq->enabled = 1;
++		irq->config = VGIC_CONFIG_EDGE;
++	} else {
++		/* PPIs */
++		irq->config = VGIC_CONFIG_LEVEL;
++	}
++
++	switch (type) {
++	case KVM_DEV_TYPE_ARM_VGIC_V3:
++		irq->group = 1;
++		irq->mpidr = kvm_vcpu_get_mpidr_aff(vcpu);
++		break;
++	case KVM_DEV_TYPE_ARM_VGIC_V2:
++		irq->group = 0;
++		irq->targets = BIT(vcpu->vcpu_id);
++		break;
++	}
++}
++
++static void vgic_v5_init_private_irq(struct kvm_vcpu *vcpu, int i, u32 type)
++{
++	struct vgic_irq *irq = &vcpu->arch.vgic_cpu.private_irqs[i];
++
++	INIT_LIST_HEAD(&irq->ap_list);
++	raw_spin_lock_init(&irq->irq_lock);
++	irq->vcpu = NULL;
++	irq->target_vcpu = vcpu;
++	refcount_set(&irq->refcount, 0);
++
++	irq->intid = FIELD_PREP(GICV5_HWIRQ_ID, i) |
++		FIELD_PREP(GICV5_HWIRQ_TYPE,
++			   GICV5_HWIRQ_TYPE_PPI);
++
++	/* The only Edge architected PPI is the SW_PPI */
++	if (i == GICV5_ARCH_PPI_SW_PPI)
++		irq->config = VGIC_CONFIG_EDGE;
++	else
++		irq->config = VGIC_CONFIG_LEVEL;
++
++	/* Register the GICv5-specific PPI ops */
++	vgic_v5_set_ppi_ops(irq);
++}
++
+ static int vgic_allocate_private_irqs_locked(struct kvm_vcpu *vcpu, u32 type)
+ {
+ 	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
+@@ -285,53 +345,11 @@ static int vgic_allocate_private_irqs_locked(struct kvm_vcpu *vcpu, u32 type)
+ 	if (!vgic_cpu->private_irqs)
+ 		return -ENOMEM;
+ 
+-	/*
+-	 * Enable and configure all SGIs to be edge-triggered and
+-	 * configure all PPIs as level-triggered.
+-	 */
+ 	for (i = 0; i < num_private_irqs; i++) {
+-		struct vgic_irq *irq = &vgic_cpu->private_irqs[i];
+-
+-		INIT_LIST_HEAD(&irq->ap_list);
+-		raw_spin_lock_init(&irq->irq_lock);
+-		irq->vcpu = NULL;
+-		irq->target_vcpu = vcpu;
+-		refcount_set(&irq->refcount, 0);
+-		if (!vgic_is_v5(vcpu->kvm)) {
+-			irq->intid = i;
+-			if (vgic_irq_is_sgi(i)) {
+-				/* SGIs */
+-				irq->enabled = 1;
+-				irq->config = VGIC_CONFIG_EDGE;
+-			} else {
+-				/* PPIs */
+-				irq->config = VGIC_CONFIG_LEVEL;
+-			}
+-		} else {
+-			irq->intid = FIELD_PREP(GICV5_HWIRQ_ID, i) |
+-				     FIELD_PREP(GICV5_HWIRQ_TYPE,
+-						GICV5_HWIRQ_TYPE_PPI);
+-
+-			/* The only Edge architected PPI is the SW_PPI */
+-			if (i == GICV5_ARCH_PPI_SW_PPI)
+-				irq->config = VGIC_CONFIG_EDGE;
+-			else
+-				irq->config = VGIC_CONFIG_LEVEL;
+-
+-			/* Register the GICv5-specific PPI ops */
+-			vgic_v5_set_ppi_ops(irq);
+-		}
+-
+-		switch (type) {
+-		case KVM_DEV_TYPE_ARM_VGIC_V3:
+-			irq->group = 1;
+-			irq->mpidr = kvm_vcpu_get_mpidr_aff(vcpu);
+-			break;
+-		case KVM_DEV_TYPE_ARM_VGIC_V2:
+-			irq->group = 0;
+-			irq->targets = BIT(vcpu->vcpu_id);
+-			break;
+-		}
++		if (type == KVM_DEV_TYPE_ARM_VGIC_V5)
++			vgic_v5_init_private_irq(vcpu, i, type);
++		else
++			vgic_init_private_irq(vcpu, i, type);
+ 	}
+ 
+ 	return 0;
+
+Thanks,
+
+	M.
 
 -- 
-மணிவண்ணன் சதாசிவம்
+Without deviation from the norm, progress is not possible.
 
