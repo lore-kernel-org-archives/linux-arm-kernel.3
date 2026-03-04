@@ -4,138 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD189EFCE39
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 19:31:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C350EFCE3D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 19:35:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Jaor1i7AaHnrlCUBtuu5yj9CDGjIA3h33PiPiPYpNA=; b=OGRRRPF4YtIuYC/lQJwABTJpRo
-	8avj2YJttZWdlyySl06QBajtGlwv4U2E16VbHyOOYgb1Ft6Gf+jzEHpWEqbHPMwoAmNqSPdL2ig4h
-	bu38kHqVD5BV9Va955dYLPy8Jl7JVnF0TCFmt6ZaIpfTHJCbkAGCXrLOxdDMPxNHC5vhnBOGIUawg
-	L/0+t/s5AS4VE7AQucGzODfAzMMYCTTlBNamxJqk1ENKs4O+jwXmUbUtsJQK0F06F8S+YGjmNWGjq
-	E5d5MBq8kYCKAdVEYOCJDjLduhWqtbqzD/hUmHabnSpY0xCNeB4WO9R+iW+BOpSo9zSEC0UGF9rU2
-	Hr+pcp/g==;
+	bh=Cg8b3VUqbaKdYh3k3ySRyeTGMl5pXbzZIMHk7oalclY=; b=u2mcAc3bCM8aOYuXcSR/QghWCD
+	r+neAJxzqPOtQSledlxZ3MDa8YaF6rqzAInMqxanmi5+XgNAFnpq7S6s1AsxnivO+cywTL++2nYjZ
+	xfywETl2szwsoMntC72uWbpjaq+T/rzwb53z+Px4zrEBROpRtAwXQT6/0hsEutJQbEPgMP9OG93q1
+	Rmx/8dGawy6pQXXVqO8NGB5SFBn5ysEOjaI8GGaBoV66EbHtjkvSXKs2nKugduhdZoxRxWAmGs/qx
+	fqTB7xX2Xa4Ci8QCOlGwJMRYOz/EZWyt+X8JoOs3oqghRzccNLxsEWJdEFIT9YBvOLxChO2vNx08y
+	Jaf4R53g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxrw5-00000000PB8-3zs7;
-	Wed, 04 Mar 2026 19:31:09 +0000
+	id 1vxs0b-00000000PQF-2OTj;
+	Wed, 04 Mar 2026 19:35:49 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxrw3-00000000PAM-1uGD
+	id 1vxs0Z-00000000PPu-0sNj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 19:31:08 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 624HHEMJ3837984
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 4 Mar 2026 19:31:06 GMT
+	Wed, 04 Mar 2026 19:35:48 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 624Ci2jM1678061
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 4 Mar 2026 19:35:46 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=5Jaor1i7AaHnrlCUBtuu5yj9
-	CDGjIA3h33PiPiPYpNA=; b=B6/0HCT1giHCu1qilIWaWxAGL9TVYR0aaiE8GJJv
-	X3unB+slTHqqyJMag90tMNq2NMIe/X84h0BnqSD/dn47/hj9+OQIw0wcxrCP4CNK
-	SpvEY06u4k3LJ5ppxCuwTAgOz+PD6aEOA7LPF+AvQu052mlH+DGwRlzwzrsSM5s/
-	Jm+GZ90PNC2xXCh1NLnT106oph24aku6pZ3UHMvhYEiKecQS79i/Z68BvWqBH5Kl
-	JiaKT44IB+SE4sGNDIB5hzuiR8iQmgEVpmhAk5cHW5DPgNcOa2ShChFbiyLLinoa
-	M+XaMFfArLhc7y2Re8ZwPKTW0UST3hRoxKhRLRrfBQO6Ig==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cps0m0dh6-1
+	:references:subject:to; s=qcppdkim1; bh=Cg8b3VUqbaKdYh3k3ySRyeTG
+	Ml5pXbzZIMHk7oalclY=; b=DOJlf8bFM8TYi6OThYvb2YpxJNA+K58Yjly+IUEW
+	KrQBzOeKex2sPl5vu4eX4RVQh1dFZ+SutH2eQP/cuhUmTqRccE3zRtId/VoRjhsP
+	9zrErhdZ4u3H6vT47W18kQJoveg9SkflkJamDykk/Nzwtldm8LV0wTYJ8Psy7TeS
+	nS05bVd9MoAJhHcKJpSfN8gGwW/bhL1Bu4M7GF7rFl3w/gMzDc0tni/xgYPY04UJ
+	YBT50rjYc8CLxfE4TVSsoD1VSMqWJXZnSd2lNaGpQtgiuDXlqPwrJHLtjiMa84V+
+	OapDA6JPicDEvHIXcdfNcIr7RCMLabM8Py8UYx7VMuEBsw==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cp73hc5ww-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 19:31:06 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8c70d16d5a9so4125885285a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 11:31:06 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 19:35:46 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8c71304beb4so900729885a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 11:35:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1772652666; x=1773257466; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1772652945; x=1773257745; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5Jaor1i7AaHnrlCUBtuu5yj9CDGjIA3h33PiPiPYpNA=;
-        b=cPHZaDtthlirwVi5uH/2d9UyYlrUzOvGwKARfdT0GqTK3J1kJd2GHiC0zNNZYDEpd/
-         swyJAsTlCrBef2wwViwYY+qk6Glm2WF2eBcBd5kPZSIzQzy2pw8Jt6sfQPMT7fQ8VxqL
-         h0cXMm9IecinfKRAa5r/b31dCbslNuQAWekpzzfo80ksvVntRx8drQ28Sb8n9S9EPEsB
-         HTzEMjXblXl6Q6tt/m8M0HFJS0AOA5AkHaJ24cDO52vx8WpHo2SqOkZK8Jb5GkDNe6OI
-         2uC0VYRJlq0lWbGeBeV5Y07DNsbNXpR1xTWiA7wetMk3znOEuJ5EyHZ248XfStbwGTyO
-         lGRg==
+        bh=Cg8b3VUqbaKdYh3k3ySRyeTGMl5pXbzZIMHk7oalclY=;
+        b=eowemb5HxtdNvHvf5IbWczHVyY+ooQydpH3kDOXZ2PiP1hoj7eGP3eqeESY+MtWUSk
+         TPzO7UjBfJKV29XWwt17A45S2YKJrpySx0YqY9XN114wb9OGHaRPEtQPuqMHqS7nK6SX
+         w6Xuv9c+pDcwEYX72CSLPX+BhdvE+5B2cZJv94yzP3GgByKs3jm1YK0N9/3c/AmAi0Cd
+         ZmmkhB00GzLr2WfYACxEcUZ0I2UMf+S7dG+2qStzYGvnMRY8qODrU8JsWYmJd5RikrFb
+         CgEWz/U+UaBISnJhberh8sTFvDsAUQLUzuIViX8rfotT8TAMtHPNIiqVhzzxuzF6wZf8
+         qoNg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772652666; x=1773257466;
+        d=1e100.net; s=20230601; t=1772652945; x=1773257745;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=5Jaor1i7AaHnrlCUBtuu5yj9CDGjIA3h33PiPiPYpNA=;
-        b=wvBH+6y4xJC94/a2kKUunAKJxFSOxiDdnbhkm6wYOtLysi4y+rxj5050CMpkfiUI2t
-         Q93ZamIeRGw78UmlPf9jRNXgkIwmMPx9uzSBHPg3cLZqxHlHr6bOr2NjHynWFp7H5XW3
-         icSgfs+9TnG8bMluOB/B+Rf07p2+Y8trTZjwvtOsYMMkxHZovnr9mHKZMNNWH5k3lTdm
-         vqkCaqZaRe18MG2PxdEBVggNlMgBbIdupWRGVX9WidyOwB0Dc//9UHandfk8SyzjohFA
-         YYCQqYFqhmZr6drVszrPhCVsLe1mJQJLq8A42Bacqo0ru69Ukz2t+VtQkaNEaoZccSZm
-         B49g==
-X-Forwarded-Encrypted: i=1; AJvYcCUt6mdjE5hLM2BPAoSnQFaG/fgPCbkjkU7zxxRDJN3JGcb4kPvLelAADqsyU15jP54imQYumkF2ozkkc9G6GX9b@lists.infradead.org
-X-Gm-Message-State: AOJu0YwD3SvO6nBJ5KKbCtEt9w2g+PrBbFv/4a/0hhYZCRaBNIRpBtQp
-	C41b8rAgSBleDhAZN8lPGB0C0W/rSROMfsx+tuyfENxkP7/ApRmh0q8hh8b+zEvobAONQrJchJE
-	Bs9bAxExnoRT1jwsjsxqwUIloD5PIgAl7SLjQSsZEYiGyF1jJoNvgsdDx+1aX1BwuGIMITvoA1j
-	L25g==
-X-Gm-Gg: ATEYQzwE64paw9ppLPLY60IqNeQtVg0DHrwlZte7ifqB0PgAPRKp69fUyWcHrwDthGy
-	/O9chwZ/Mxc5P9R5BsKtgzUnZcpS8eHAWfE4q2d/4K0FBB4SSAbFEz2sg2OmG6auBwDEJAxZkw4
-	c8U7C1sGyT0/a+zeF7HxhHCPoj3QhYd9pgft4b+BRVyoKMIs+tQXNNPaCkAwvgOP5nLz+yyO3fH
-	gtl1VrDHXH8KSUXmXn62OA9x4OWk9mrm2qwF5AAzOylnfIbRY2V5DyoWeA/eN59/UvuYEc8fSiL
-	lBdkgjadwD6Q/3a5DhFXsLyZzlMk4rBPbisaIDDr+9kunlzXcn3yiP9tPP36teUCnenMSa+2Bgr
-	n0qxX8b/gAjtGSa6/Z+la9xn7q6j9
-X-Received: by 2002:a05:620a:3722:b0:8c7:b5b:cea7 with SMTP id af79cd13be357-8cd5aec67d7mr408391385a.12.1772652665621;
-        Wed, 04 Mar 2026 11:31:05 -0800 (PST)
-X-Received: by 2002:a05:620a:3722:b0:8c7:b5b:cea7 with SMTP id af79cd13be357-8cd5aec67d7mr408386285a.12.1772652665180;
-        Wed, 04 Mar 2026 11:31:05 -0800 (PST)
+        bh=Cg8b3VUqbaKdYh3k3ySRyeTGMl5pXbzZIMHk7oalclY=;
+        b=j48bEWd7HBuCUiG9+pOQXY5EixFT5LPSMKMJ9b7lXBwBh/lY92flIFVxDGad2vuVLh
+         v67Gcj3wrSNZ35SkDnxV9Fy2O2iqzWoK3cyJM9jVWaP1lxWSe1G06kk+4s2vPO3jV4mf
+         R9RYwGoR85q/TsTcaxqJsXr/EwfVv1t4cfn2cax/bzwqxo7O/2xCqjje2NNkTnRpGp+X
+         zOPNHOXpWr1LFC0O/dtRNQeO8FQ5j1XZuD00aTEtoiMqUsIf5x7U6pBAx+W+oWPP47XU
+         YkAUNj4h4NsSbo4lFf1J8gJyqkrCBLgg6yLpgy3pDcEeOY9tWv+mPKvi8DsJ0tYsl5pn
+         2uFg==
+X-Forwarded-Encrypted: i=1; AJvYcCW1WShB1Jxu60SfTERNH1O/X7JDkuh812gZRRv5UD6xApSWtKgzI9OHqOwtErPQLlOetPm9JGEd3+zxz/bgmHWL@lists.infradead.org
+X-Gm-Message-State: AOJu0YyWvKoD8DAmOLl92cA8oUooPbx+Xs6se7DUoapnaKc9LlGQtBcZ
+	29TxK+xlBA2M4jhNoOpdcI+LxZ6Z2QKgkjBd+2YGyT3c7zQ6/henWqbSbQYiTL0+heXP+dcB1Xu
+	3AVjb5RrlNMIbd4sxN0ZAE7htS5aLF9lW/+AbYmPtkiluiIHNrNGO8SH/qqYqgCG+kl8oZ2XaF0
+	1VGg==
+X-Gm-Gg: ATEYQzyNFdqj0bZaKvv+ZqFg9iEg94m2fxDHRyWZ2TM13/slnouFBwUaukAIL7/cyC8
+	a7CEhBQZkv0GNMUqs3OBeuuYk/C4MkkAOS2CD8nLSQ3GiAUiv6FoYCK+Qs9UKRESqc5q0KqaPW8
+	+VUbE78AQjgdUZQWG56f5r8Cu9/bBNTDlOJX0SAuBfs7d7/dN3M8i8eeb8i2q0XJCJliroB6J7B
+	nCholR8yz0UxJHOKsz3Cygbq32ylr4xqiOz1kEvinW4N78C4SSjR0DPTjjoG5nZtGz1Jdsbbplm
+	8n16iGD17ceTgB3HwABm/1w9G8K7HUvT04RZ0cjQQ6518ywJUyjFk73tADikKSk2daUektb5qfb
+	jKi/422xp/jBvTCLRss/Ge7pAvbOY
+X-Received: by 2002:a05:620a:d8d:b0:8c6:abc5:f15e with SMTP id af79cd13be357-8cd5afaaee4mr381210885a.67.1772652945390;
+        Wed, 04 Mar 2026 11:35:45 -0800 (PST)
+X-Received: by 2002:a05:620a:d8d:b0:8c6:abc5:f15e with SMTP id af79cd13be357-8cd5afaaee4mr381207385a.67.1772652944927;
+        Wed, 04 Mar 2026 11:35:44 -0800 (PST)
 Received: from mai.linaro.org ([2a05:6e02:1041:c10:ee0b:246c:2dae:77b9])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4851a82dac3sm43124135e9.0.2026.03.04.11.31.03
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4851884225asm71621215e9.6.2026.03.04.11.35.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Mar 2026 11:31:04 -0800 (PST)
-Date: Wed, 4 Mar 2026 20:31:01 +0100
+        Wed, 04 Mar 2026 11:35:44 -0800 (PST)
+Date: Wed, 4 Mar 2026 20:35:42 +0100
 From: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
-        Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>,
-        "open list:CLOCKSOURCE, CLOCKEVENT DRIVERS" <linux-kernel@vger.kernel.org>,
-        "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-        "open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
-        "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH 1/1] dt-bindings: timer: fsl,imxgpt: add compatible
- string fsl,imx25-epit
-Message-ID: <aaiIdS0zRPBY81aE@mai.linaro.org>
-References: <20260211214947.3705328-1-Frank.Li@nxp.com>
+To: Chen Ni <nichen@iscas.ac.cn>
+Cc: daniel.lezcano@linaro.org, tglx@kernel.org, wens@kernel.org,
+        jernej.skrabec@gmail.com, samuel@sholland.org, p.zabel@pengutronix.de,
+        mripard@kernel.org, mans@mansr.com, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH] clocksource/drivers/sun5i: Handle error returns from
+ devm_reset_control_get_optional_exclusive()
+Message-ID: <aaiJjrtVDJyFrpfw@mai.linaro.org>
+References: <20260205084037.3661261-1-nichen@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260211214947.3705328-1-Frank.Li@nxp.com>
-X-Authority-Analysis: v=2.4 cv=e6wLiKp/ c=1 sm=1 tr=0 ts=69a8887a cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+In-Reply-To: <20260205084037.3661261-1-nichen@iscas.ac.cn>
+X-Proofpoint-GUID: L_u0PQTZZ4jzvBHWlc9yhdmg9p9GafOf
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzA0MDE2MCBTYWx0ZWRfX9N1MU05Jp7ZF
+ Ll/El6sFywe+rP1NdSxN4VSh3xY4vcROIf/iw2MgRTQoJbHWiqEJul1ygUlF0VSapHSHdsZFdQe
+ EGT+nSFF2pTPexoJtPLtxQfVRTEcyfWxLLBHLLaFQ5TNToZgkZ89DThse91D6GuEQ0Yw98KsPO/
+ 4oIzTwAHwug+utBxNyxhXn+64zwtbt7sQ89BvKwOiKefBRxj74TAzi56QF51LyPM4ad7SuGIV6d
+ VLXueH7oyHKviCzgiNxYn9gSWfG54uXpQp8px7KglmTPvPkKZrmusRh2o85yiGwzRYnQFRirphP
+ OXEIdalr3yzaXXK1UCmxvYKStpvLpjUYh6mdWBoDNTODitrLDB82xkBIUUFg/er9DUk4FSSRO1m
+ THrIfdeT752/Ljo6sty/BJ7frBw4AeWn68cTr1KIJYI882UdzytTJQBdi6e/AGeWRN4nOsbnhIv
+ TriLhJ438lt2dW8iZ8A==
+X-Proofpoint-ORIG-GUID: L_u0PQTZZ4jzvBHWlc9yhdmg9p9GafOf
+X-Authority-Analysis: v=2.4 cv=BpWQAIX5 c=1 sm=1 tr=0 ts=69a88992 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
  a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=8AirrxEcAAAA:8
- a=VlEfjGrzG_qnfxHD3IEA:9 a=CjuIK1q_8ugA:10 a=PEH46H7Ffwr30OY-TuGO:22
- a=ST-jHhOKWsTCqRlWije3:22
-X-Proofpoint-ORIG-GUID: a_0R0kiQJPRW_5GH4ipZ4fdE_LFlHaWx
-X-Proofpoint-GUID: a_0R0kiQJPRW_5GH4ipZ4fdE_LFlHaWx
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzA0MDE1OSBTYWx0ZWRfX1skwBFQWNuar
- k0rbslMfFWj8QepKr4GYflHZspzRt2hNrpNW1Lil6hTkEjc6G0FfhM7jAUtnFMUjnjANEcoydck
- fEw6u1tt9keyFvdIbzaGyKLrAjrZV4nx07sUQgIG/POXO69gX2wV/fcQULJD8uPTcVUzLqJpVyW
- rw+iETO1GMbUchYXpl5Fz5dJbcy6UqwdUxeZS97LwuE7jHkZz1gY+x603UitI045veTJHwnTlUp
- ARba9FDLPQ5haq+PfbXEPQhxne0y3LR02zEEhdQ0x9yutUs0NBL8mZQXdn56Ar2zgmXWklmEVmw
- Fk6B9FikbI1vC+BlakXu+T+dXTtWpuiw6LjQG9nQyXIoRqjuxBz3VcLZigQGBaGMKSyxCZ/JzEF
- Ka2XixEjKmjhLIbVqnDXFW1U+lEi7+4SI5dmbTLBNMfUUQsKvgUGT7ZLwGkX77+99MAsH8zuno1
- w7SENhOK4ze8UMs5lnQ==
+ a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22 a=7EzGa34QA7hzBqsRmqMA:9
+ a=CjuIK1q_8ugA:10 a=IoWCM6iH3mJn3m4BftBB:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-03-04_07,2026-03-04_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 bulkscore=0 phishscore=0 lowpriorityscore=0 clxscore=1015
- spamscore=0 adultscore=0 impostorscore=0 suspectscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2603040159
+ clxscore=1015 suspectscore=0 bulkscore=0 adultscore=0 malwarescore=0
+ lowpriorityscore=0 impostorscore=0 priorityscore=1501 phishscore=0
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2602130000
+ definitions=main-2603040160
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_113107_501695_4B7BDA81 
-X-CRM114-Status: GOOD (  18.43  )
+X-CRM114-CacheID: sfid-20260304_113547_255607_FC2601FC 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,33 +143,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 11, 2026 at 04:49:47PM -0500, Frank Li wrote:
-> Add compatible string fsl,imx25-epit to fix below CHECK_DTBS warnings:
-> arch/arm/boot/dts/nxp/imx/imx25-eukrea-mbimxsd25-baseboard-dvi-svga.dtb: /soc/bus@53f00000/timer@53f94000: failed to match any schema with compatible: ['fsl,imx25-epit']
+On Thu, Feb 05, 2026 at 04:40:37PM +0800, Chen Ni wrote:
+> The devm_reset_control_get_optional_exclusive() function may return an
+> ERR_PTR in case of genuine reset control acquisition errors, not just
+> NULL which indicates the legitimate absence of an optional reset.
 > 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> Add an IS_ERR() check after the call in sun5i_timer_probe(). On error,
+> return the error code to ensure proper failure handling rather than
+> proceeding with invalid pointers.
+> 
+> Fixes: 7e5bac610d2f ("clocksource/drivers/sun5i: Convert to platform device driver")
+> Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
+> ---
 
 Applied, thanks
-
-> ---
->  Documentation/devicetree/bindings/timer/fsl,imxgpt.yaml | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/timer/fsl,imxgpt.yaml b/Documentation/devicetree/bindings/timer/fsl,imxgpt.yaml
-> index 9898dc7ea97be..6d41fb1203793 100644
-> --- a/Documentation/devicetree/bindings/timer/fsl,imxgpt.yaml
-> +++ b/Documentation/devicetree/bindings/timer/fsl,imxgpt.yaml
-> @@ -14,6 +14,7 @@ properties:
->      oneOf:
->        - const: fsl,imx1-gpt
->        - const: fsl,imx21-gpt
-> +      - const: fsl,imx25-epit
->        - items:
->            - const: fsl,imx27-gpt
->            - const: fsl,imx21-gpt
-> -- 
-> 2.43.0
-> 
-
--- 
 
