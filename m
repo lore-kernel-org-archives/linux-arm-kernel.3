@@ -4,60 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 397D7EF8FF4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 15:52:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 390ABEF8FF4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 15:55:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=em1O6aFmUsQjGt6+rXOtWdIYCu4ub+nQt3l21g/v/yQ=; b=SJBRbiI3pz/S9IiE+bYaoCkeNH
-	0+Z9Pz63Al4be7mlf4RnsbYVKFQvO3iAita3ms8na6/d95+Yz24+O+c/DjlLrLuDYsJuKyNeqOAFy
-	KAzLLJY44dNM7kODUA9Ih1Fi46dXWz2+9pM1CTVMqix1OtGA31b3xivziwttq5zEWnoWl7KIC8EoZ
-	h5uyco9ttJpuauWT6Yo3bXje8w1k4KoLsstXjT1vdq/cOzJNrks3ILzajCuUXQ/jC+7+iY6AvoucJ
-	+e9/5ATNBQZktIGqwrLh3a32Td27qOaiDGxnpjlawhTgbU27VY47mbwjwjxPEDHUxIwBCbxnS4uIF
-	LKtEKDCA==;
+	bh=HrsHUvGyx9bjwDYZj6bkrDUGZ48K6OAB9f2km2vyIg0=; b=i1D3fGyybx8wknPnTIb8iHKfzn
+	8NAZSMHRYBLesG9oFreJCbCKTOXu6tSiSwR9ivK4J4srR7RO+y2+XFjv1xbaWS0va/M+q8KuIV9Lt
+	Rxv1ngneLtrUcPivtwnqtcAhBPxq1azoTeWsJxIeDjfIb3/BAlpDLMAADX4rO8JICz5KRMMA6XTCA
+	cdrPBpUbHOKhhtnqHsy8+CsKld+XwDiaFU3mnCKJIQ/BlcyUmQoT2swyptJcTo/gDZm0x2nmpQicC
+	Nno5pQWCmyXgbmyWLwubNZZUalkRzRC59/i8+tVXY1G2ej6gBQo8LhpvJnqdQyq0ov8tFYknLk8bj
+	bZTRrjJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxoWl-000000001GN-16P1;
-	Wed, 04 Mar 2026 15:52:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vxoZQ-000000001af-2Zqx;
+	Wed, 04 Mar 2026 15:55:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxoWi-000000001Fd-3rlB
+	id 1vxoZN-000000001aE-2Ir6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 15:52:46 +0000
+	Wed, 04 Mar 2026 15:55:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7E54D43EBF;
-	Wed,  4 Mar 2026 15:52:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFEF7C4CEF7;
-	Wed,  4 Mar 2026 15:52:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 30C5941772;
+	Wed,  4 Mar 2026 15:55:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2A24C4CEF7;
+	Wed,  4 Mar 2026 15:55:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772639564;
-	bh=s8RT9aid5CaLzg2B/m21offcuElLXSv4jiHs7HriTbM=;
+	s=k20201202; t=1772639729;
+	bh=ABz42zLJsDylI4eJTmW95G8I/nLM8maLSCBDhdPGCB0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GSlJQbJ9rDrcd62FGVxRhx7FpuhX7EqvNZThhcIYs/hw/SzEIwpjOYLs7W5IahLtH
-	 iIUyOxuSe4z8QWroGeXrr0b4qXqHudZL6z7MfjPkr7gmB5SfJhrBUmgWCSloRjReAy
-	 25KMODB4AszAMnaFBkP1FT04PBLTOVKwtpcPlOamF2sy9nhH8ET+C4uPxC2soeV01p
-	 mrWaEBrWsIi3m74qGdFz0s4HInXUtAOLzZrGdwPTJH5EmIVOUmT6D+WRYmZXrPoq2s
-	 JsxrslTG20r9pBptAdOQSCKLnLPT5ippKup0Qg9v4O7jBvAkuahgou3lyog+BpAlAs
-	 8HfysDuFuCSRQ==
-Message-ID: <0d8de9b8-1e02-4873-94e3-71eb09b5104b@kernel.org>
-Date: Wed, 4 Mar 2026 16:52:40 +0100
+	b=fVyfMExttLwdhcRAkciRqEv2gfEJKIapjYgottINew3vTuCopPDCu8uVV64f/deKK
+	 Y3FKjyE1k+kOy/fah3fQjBBH8LOb2Sj1zEs7C7ehqUZerOe+d3trNjzRZcXx75Pe3H
+	 iyoZt5EdCBQQu+ma9ufm/atM+CB/Mu+hssRhkVNtXxTPgupKawbqUAwsUnqpTpJtAf
+	 F7Q8T/krrV96QvxbhOEiqa2MBXdMDjLyEaVINV8ftOTnS9L4DH9cuMLyJqaxL7EI9s
+	 NvBxqRTYA+WyyzKlC+iM/hAeYItIU/VtJmfBe/8bxJud1dgFgiS7oFZo1QgsO7n34L
+	 j0LUT9KMAidQA==
+Message-ID: <bc061b0b-448d-43d5-91c2-db2864e0f7c2@kernel.org>
+Date: Wed, 4 Mar 2026 16:55:22 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] arm64: dts: freescale: imx95-toradex-smarc: Support
- Cortex M7
-To: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
+Subject: Re: [PATCH v3 2/3] arm64: dts: freescale: Add support for Variscite
+ DART-MX91
+To: Frank Li <Frank.Li@nxp.com>, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, imx@lists.linux.dev
+Cc: pierluigi.p@variscite.com, Stefano Radaelli <stefano.r@variscite.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
  Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260303121324.1576841-1-ghidoliemanuele@gmail.com>
- <20260303210131.2966214-14-Frank.Li@nxp.com>
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+ Alexander Stein <alexander.stein@ew.tq-group.com>,
+ Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+ Markus Niebel <Markus.Niebel@tq-group.com>,
+ Matthias Schiffer <matthias.schiffer@tq-group.com>,
+ Yannic Moog <y.moog@phytec.de>, Josua Mayer <josua@solid-run.com>,
+ Francesco Dolcini <francesco.dolcini@toradex.com>,
+ Primoz Fiser <primoz.fiser@norik.com>, linux-arm-kernel@lists.infradead.org
+References: <5ab5a20c07cd0631fdecc7dba03f0ebb91dfe098.1772534362.git.stefano.r@variscite.com>
+ <20260303210131.2966214-8-Frank.Li@nxp.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,12 +109,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260303210131.2966214-14-Frank.Li@nxp.com>
+In-Reply-To: <20260303210131.2966214-8-Frank.Li@nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_075245_025896_B3110A36 
-X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-CacheID: sfid-20260304_075529_630910_9C0C028D 
+X-CRM114-Status: UNSURE (   9.11  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -129,19 +135,15 @@ On 03/03/2026 22:01, Frank Li wrote:
 > 
 > AI bot review and may be useless.
 > 
-
-..
-
-> ---
+>> +/*
+>> + * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
+>> + *
+>> + */
 > 
->> +&mu7 {
->> +	status = "okay";
->> +};
-> 
-> Ensure mu7 node is defined elsewhere in the base device tree; this
-> patch only enables it without defining its properties.
+> Copyright year is 2026, which is in the future. Should be 2024 or
+> current year.
 
-What? That's useless comment. Stop sending such feedback. It is just WRONG.
+Why are you sending such junk to public mailing lists?
 
 Best regards,
 Krzysztof
