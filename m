@@ -4,69 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22EA8EFCE4B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 22:43:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAED7EFCE4F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 22:54:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QTRJwFPz82lo9MTcnWwzqFoaufV2JfFu3G3g21W62WI=; b=RAhMs8QuGj9ZGrxpna17YTTKQO
-	ljLYWHleQ6OwqtS5X21iUozjhmssO9o6Vp923OJx9d0/Q7fQZNnxm8ByHp8hL4ls8uPkUxGhZTSU8
-	lg2dYoPtHq51s47OjQptiI66S/TAy0HNLi/2BuMHOSWs9GeP7CY2uTxhONe0SsO6zkuNao+16f8Bm
-	29UJarkUFCe2czxfxDY85qw5ZIhp9RhYGVM3Tz7oWp/AEr7RD5RalG+XBWI9B4KDfN1WBQ9fITa60
-	UyjmqrB9GR980vV7bof/AXGfN9i4BoRR2hhTpqoVeJMFihlMttzTnkytRMQ0U3bl6pU7JlivdKuI5
-	CQoRAX4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=E45rulTPCYj9cqd8INLiszMLtxCYsLMuQe08qmhBNqQ=; b=uxwTU+IajIPl9aReidjq10F+c3
+	d/YX7/l56NrK6fquFl/IT3mYNkCdlMIsSh0aOF21adWKmCUn48GpCf/hIlKis18ECy9IxnTv6poAU
+	UKZvOOHH2Ct0X8BmLNPeHJ3OXgZQoAgcR7cMl65kXc59qCyMU1OKx4DGtXIBMR+Gc/yUjOoKTlS1y
+	HCDBy+ndLVmAAXbah7dENJPTnDOr/3OzXbGre6ifBxEStHOk6aoP7jZq3uPMG3RZBwJ1FOMV9/TK+
+	EElJXj/Uonn13EtNhFqRjPsJv6MkRXNthSbNhnOZ8GckkjqYN9kQRuAcsPeHxN9C28uPgmKNX2HJo
+	amQA3VOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxuwE-00000000bVW-1RQL;
-	Wed, 04 Mar 2026 22:43:30 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vxv6N-00000000bsn-1n1e;
+	Wed, 04 Mar 2026 22:54:00 +0000
+Received: from mail-yw1-x1135.google.com ([2607:f8b0:4864:20::1135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxuwA-00000000bUj-1tgO
+	id 1vxv6L-00000000bsQ-01ay
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 22:43:28 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vxuw5-0005U1-JJ; Wed, 04 Mar 2026 23:43:21 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vxuw3-003mmA-1A;
-	Wed, 04 Mar 2026 23:43:20 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vxuw4-00000000XUD-2P6S;
-	Wed, 04 Mar 2026 23:43:20 +0100
-Date: Wed, 4 Mar 2026 23:43:20 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Franz Schnyder <fra.schnyder@gmail.com>
-Cc: ming.qian@oss.nxp.com, linux-media@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, ulf.hansson@linaro.org, 
-	benjamin.gaignard@collabora.com, kernel@pengutronix.de, sebastian.fricke@collabora.com, 
-	linux-pm@vger.kernel.org, festevam@gmail.com, s.hauer@pengutronix.de, Frank.li@nxp.com, 
-	peng.fan@nxp.com, nicolas@ndufresne.ca, regressions@lists.linux.dev, 
-	eagle.zhou@nxp.com, linux-imx@nxp.com, p.zabel@pengutronix.de, 
-	hverkuil-cisco@xs4all.nl, mchehab@kernel.org, shawnguo@kernel.org, 
-	linux-kernel@vger.kernel.org, l.stach@pengutronix.de
-Subject: Re: [REGRESSION] boot failure on imx8mp due to e0203ddf9af7
-Message-ID: <fcsge66ba6toath5g3t2yw6vxqqldn7utxq3ekrfecfuwgzjrg@ftbzb6xvarcr>
-References: <n3qmcb62tepxltoskpf7ws6yiirc2so62ia23b42rj3wlmpl67@rvkbuirx7kkp>
+	Wed, 04 Mar 2026 22:53:58 +0000
+Received: by mail-yw1-x1135.google.com with SMTP id 00721157ae682-79854193a54so73628197b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 14:53:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772664836; x=1773269636; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=E45rulTPCYj9cqd8INLiszMLtxCYsLMuQe08qmhBNqQ=;
+        b=GEgYfmXbkXwfcULNCA8FlGcZJZ2Xj0gLKSYSTAHOKXwCXqF74R4vfh/EFmObh4ep+X
+         BLczGqgKuHTICu3iPd0vBUCyeEv7GRw8oKP+BePODaIss02sntiMYfWqiiSpu27iPZnv
+         EWGD6/4P1T5DVap9Q5sKgbAGcS4OkUELueBjQNO7n3A15UG5HpEM3bC2/3JK2GtKHLsa
+         0cVGBKAbWtkfI0M3LOhEr3S/SkJgY2YMpJDu4/GprD9A9n1yKwYfAF0sXhIpobIxjaMT
+         bj7e0G22mKMfjBEubv1pSKdSrG39UDsDhH+yIIR/f3eBwTIS8iA3VPYXQFfVxSiuv2Xb
+         BZ4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772664836; x=1773269636;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=E45rulTPCYj9cqd8INLiszMLtxCYsLMuQe08qmhBNqQ=;
+        b=NS7VX3A/okex5Px1n/HqiMuepVaXg8MqIvxTCa/HGuYTtHHVw17a3woBK6LPE0zhZD
+         hNAJPt3gVfhZuM9beP/y2jZlUlCuhJHPy6jeUxMiPSklbiqSmpNtK2OZEjRUupuljpG3
+         n3npWFhMejnXKeVWCMvpubJZnoNXpV8W+Sz0rBa8n6iuxJBkGRNti1S+dY9xC9z7zLpf
+         GbGUPHkb8drIuaNY7UG97wHCEWu9f5mcgPFrIn84Y8wI2vFW/C46qqu/InSLcVjopDN0
+         x2KDuf7TdhnbfDBlY4rJdThBT0yDkoGhUYIknIY1jrH6srLBAwuPchEUuAa80oBtm0iW
+         mzgQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUImkCzUMK79cD+fhRDhkZB3+UYGe454naTU/crRgpc2VeVmhRSHXN0N4KtVtm71Dx+J0GdWEYMJscnq/xe7uap@lists.infradead.org
+X-Gm-Message-State: AOJu0YwxxNG9EBfO88sfOSPNSIviJqU+hec5HAyqJScpLhOcD2xvbBmZ
+	w09wOM0Ta9DgsUA/bLiyMLJ6Am87BjXo+V+gAHsDOgLGuSgOyMmw60Qm
+X-Gm-Gg: ATEYQzzD6Lc23JIn1G3SenytBydD+It1LMIZ3wCJOpxAuU6YUiIhdGlgVAXSpNfDqQC
+	fJtIGm5Cc3Oueo3Rvy1AW6/fFwcVf4javC06LwRjbYDkpfk9pAS3/caE5q7aKbjRRdeVQwreguv
+	Y9JXgpAEvWTYusPQXHkqnAJVEBj2EuP54bp6W6UiwYG7aagA+VHFpQ2dn0wJzVYL1C5xS1C5kbg
+	oOwSwiDLMtecYIb07gjaUaFESyuAIPvaW2g9jgsfGRMT/NuUVzX7/8uyTOdy8+OZCQZQp2YCALi
+	UI9uklfoKI8j4HlvUfSAiJ4pGfSDxS9dJswd54zqmSzVReKRi/SXTZVwws2cpdletEjt6ij7lwD
+	ybO1YRAb1bfQ1YYBI+XZ5KRSS/JcOT8zukrjYL7pDqI6dq+DbIpcN0LEWQZ4xlmFz3M2xLLFn09
+	VO0CFkamVyJY/hjOATFSP+UOlhzoSIz9zSDxF/T33dAt/qTehSI5kEjw==
+X-Received: by 2002:a05:690c:46c2:b0:798:58be:3262 with SMTP id 00721157ae682-798c6cff985mr33425647b3.62.1772664835707;
+        Wed, 04 Mar 2026 14:53:55 -0800 (PST)
+Received: from ryzen ([2601:644:8000:56f5::8bd])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-798c97f759asm9454697b3.38.2026.03.04.14.53.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Mar 2026 14:53:55 -0800 (PST)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-rtc@vger.kernel.org
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Marvell Kirkwood and Armada 370, 375, 38x,...),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] rtc: armada38x: zalloc + calloc to single allocation
+Date: Wed,  4 Mar 2026 14:53:29 -0800
+Message-ID: <20260304225329.24510-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <n3qmcb62tepxltoskpf7ws6yiirc2so62ia23b42rj3wlmpl67@rvkbuirx7kkp>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_144326_669264_A2231E6F 
-X-CRM114-Status: GOOD (  19.78  )
+X-CRM114-CacheID: sfid-20260304_145357_050314_38525439 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,121 +99,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Franz,
+Use a flexible array member to simplify allocation.
 
-On 26-03-04, Franz Schnyder wrote:
-> Hello,
-> 
-> Our iMX8MP SoMs (Verdin and Toradex SMARC) fail to boot after 
-> commit e0203ddf9af7 ("media: verisilicon: Avoid G2 bus error while decoding H.264 and HEVC").
-> On rare occasions, it's still able to boot.
-> It fails after having registered g1 VPU, probably when it tries to
-> register g2 VPU.
-> 
-> Ming: Any ideas on how to proceed here?
-> 
-> Success::
-> [    9.040517] hantro-vpu 38300000.video-codec: registered nxp,imx8mm-vpu-g1-dec as /dev/video0
-> [    9.052133] hantro-vpu 38310000.video-codec: registered nxp,imx8mq-vpu-g2-dec as /dev/video1
-> 
-> 
-> Failure with decoded stacktrace::
-> 
-> [    9.004477] hantro-vpu 38300000.video-codec: registered nxp,imx8mm-vpu-g1-dec as /dev/video0
-> [    9.027097] Unable to handle kernel paging request at virtual address ffffd9c18eb05000
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ drivers/rtc/rtc-armada38x.c | 9 ++-------
+ 1 file changed, 2 insertions(+), 7 deletions(-)
 
-This is quite a nasty bug you triggered here! I think the issue is that
-the newly added imx8mq_vpu_shared_resources[] is of type __initconst
-where as it should be __initconst_or_module. You can test this
-assumption if you switch from a module [M] build for the hantro_vpu
-driver to a builtin [x] build.
-
-Regards,
-  Marco
-
-
-> [    9.027132] Mem abort info:
-> [    9.027139]   ESR = 0x0000000096000007
-> [    9.027147]   EC = 0x25: DABT (current EL), IL = 32 bits
-> [    9.027156]   SET = 0, FnV = 0
-> [    9.027164]   EA = 0, S1PTW = 0
-> [    9.027171]   FSC = 0x07: level 3 translation fault
-> [    9.027180] Data abort info:
-> [    9.027187]   ISV = 0, ISS = 0x00000007, ISS2 = 0x00000000
-> [    9.027196]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-> [    9.027205]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-> [    9.027215] swapper pgtable: 4k pages, 48-bit VAs, pgdp=000000004924f000
-> [    9.027226] [ffffd9c18eb05000] pgd=0000000000000000, p4d=10000000496dd003, pud=1000000102e42403, pmd=100000010c33d403, pte=0000000000000000
-> [    9.027258] Internal error: Oops: 0000000096000007 [#1]  SMP
-> [    9.101669] Modules linked in: snd_soc_fsl_sai crypto_engine rng_core imx_pcm_dma authenc snd_soc_fsl_aud2htx snd_soc_fsl_utils imx8mp_interconnect libdes i
-> mx8mp_hdmi_pai evdev imx8mp_hdmi_tx aes_ce_blk dw_hdmi ghash_ce drm_display_helper snd_soc_simple_card hantro_vpu phy_fsl_imx8mq_usb libaes phy_fsl_samsung_hdm
-> i snd_soc_simple_card_utils cec phy_fsl_imx8m_pcie v4l2_vp9 imx8mp_hdmi_pvi typec fsl_imx8_ddr_perf snd_soc_imx_hdmi gf128mul samsung_dsim v4l2_h264 etnaviv ti
-> _ads1015 industrialio_triggered_buffer snd_soc_nau8822 ina2xx lm75 gpu_sched i3c lontium_lt8912b kfifo_buf governor_userspace imx_sdma flexcan imx_aipstz dwc3_
-> imx8mp imx_bus can_dev spi_nxp_fspi caam spi_imx error pwm_imx27 imx8mm_thermal nvmem_snvs_lpgpr snvs_pwrkey usb_conn_gpio gpio_keys display_connector roles lo
-> op fuse ipv6 libsha1 autofs4
-> [    9.173690] CPU: 3 UID: 0 PID: 45 Comm: kworker/u16:2 Not tainted 6.19.0+ #47 PREEMPT
-> [    9.181623] Hardware name: Toradex Verdin iMX8M Plus on Verdin Development Board (DT)
-> [    9.189462] Workqueue: events_unbound deferred_probe_work_func
-> [    9.195314] pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> [    9.202284] pc : of_find_matching_node_and_match (drivers/of/base.c:1129 drivers/of/base.c:1120 drivers/of/base.c:1187)
-> [    9.207869] lr : of_find_matching_node_and_match (drivers/of/base.c:1185)
-> [    9.213452] sp : ffff8000805dbad0
-> [    9.216771] x29: ffff8000805dbad0 x28: 0000000000000000 x27: 0000000000000000
-> [    9.223927] x26: 0000000000000000 x25: 0000000000000000 x24: ffffd9c2060d48e0
-> [    9.231078] x23: 0000000000000000 x22: ffffd9c18eb05000 x21: ffff0000ff79d7f8
-> [    9.238231] x20: 0000000000000000 x19: ffffd9c18eb05000 x18: 00000000ffffffff
-> [    9.245385] x17: ffff263ef9a67000 x16: ffffd9c2055d3d54 x15: ffff8000805db870
-> [    9.252536] x14: 0000000000000000 x13: 006365646f632d6f x12: 0000000000000001
-> [    9.259689] x11: 0000000000000003 x10: 0000000000000020 x9 : 0000000000000000
-> [    9.266842] x8 : 0000000000000020 x7 : 00000000ffffffff x6 : ffff0000c4a9d8c8
-> [    9.273995] x5 : 0000000000000014 x4 : 0000000000000000 x3 : 0000000000000001
-> [    9.281145] x2 : 0000000000000000 x1 : 0000000000000000 x0 : 0000000000000000
-> [    9.288301] Call trace:
-> [    9.290753]  of_find_matching_node_and_match (drivers/of/base.c:1129 drivers/of/base.c:1120 drivers/of/base.c:1187) (P)
-> [    9.296336] hantro_probe (./include/linux/of.h:983 drivers/media/platform/verisilicon/hantro_drv.c:1047 drivers/media/platform/verisilicon/hantro_drv.c:1225) hantro_vpu
-> [    9.301144]  platform_probe (drivers/base/platform.c:1449)
-> [    9.304815]  really_probe (drivers/base/dd.c:583 drivers/base/dd.c:661)
-> [    9.308399]  __driver_probe_device (drivers/base/dd.c:803)
-> [    9.312765]  driver_probe_device (drivers/base/dd.c:833)
-> [    9.316956]  __device_attach_driver (drivers/base/dd.c:962)
-> [    9.321415]  bus_for_each_drv (drivers/base/bus.c:500)
-> [    9.325262]  __device_attach (drivers/base/dd.c:1035)
-> [    9.329109]  device_initial_probe (drivers/base/dd.c:1088)
-> [    9.333303]  bus_probe_device (drivers/base/bus.c:576)
-> [    9.337152]  deferred_probe_work_func (drivers/base/dd.c:125 (discriminator 14))
-> [    9.341697]  process_one_work (kernel/workqueue.c:3268)
-> [    9.345719]  worker_thread (kernel/workqueue.c:3334 kernel/workqueue.c:3421)
-> [    9.349477]  kthread (kernel/kthread.c:467)
-> [    9.352716]  ret_from_fork (arch/arm64/kernel/entry.S:861)
-> [    9.356303] Code: 6b14001f 9a93d35a 1a80d294 91032273 (39400264)
-> All code
-> ========
->    0:   6b14001f        cmp     w0, w20
->    4:   9a93d35a        csel    x26, x26, x19, le
->    8:   1a80d294        csel    w20, w20, w0, le
->    c:   91032273        add     x19, x19, #0xc8
->   10:*  39400264        ldrb    w4, [x19]               <-- trapping instruction
-> 
-> Code starting with the faulting instruction
-> ===========================================
->    0:   39400264        ldrb    w4, [x19]
-> [    9.362413] ---[ end trace 0000000000000000 ]---
-> [    9.367037] note: kworker/u16:2[45] exited with irqs disabled
-> [    9.367134] note: kworker/u16:2[45] exited with preempt_count 1
-> 
-> 
-> Thanks,
-> Franz
-> 
-> 
-> 
-
+diff --git a/drivers/rtc/rtc-armada38x.c b/drivers/rtc/rtc-armada38x.c
+index 713fa0d077cd..245290ae1a8d 100644
+--- a/drivers/rtc/rtc-armada38x.c
++++ b/drivers/rtc/rtc-armada38x.c
+@@ -72,8 +72,8 @@ struct armada38x_rtc {
+ 	spinlock_t	    lock;
+ 	int		    irq;
+ 	bool		    initialized;
+-	struct value_to_freq *val_to_freq;
+ 	const struct armada38x_rtc_data *data;
++	struct value_to_freq val_to_freq[];
+ };
+ 
+ #define ALARM1	0
+@@ -490,18 +490,13 @@ static __init int armada38x_rtc_probe(struct platform_device *pdev)
+ {
+ 	struct armada38x_rtc *rtc;
+ 
+-	rtc = devm_kzalloc(&pdev->dev, sizeof(struct armada38x_rtc),
++	rtc = devm_kzalloc(&pdev->dev, struct_size(rtc, val_to_freq, SAMPLE_NR),
+ 			    GFP_KERNEL);
+ 	if (!rtc)
+ 		return -ENOMEM;
+ 
+ 	rtc->data = of_device_get_match_data(&pdev->dev);
+ 
+-	rtc->val_to_freq = devm_kcalloc(&pdev->dev, SAMPLE_NR,
+-				sizeof(struct value_to_freq), GFP_KERNEL);
+-	if (!rtc->val_to_freq)
+-		return -ENOMEM;
+-
+ 	spin_lock_init(&rtc->lock);
+ 
+ 	rtc->regs = devm_platform_ioremap_resource_byname(pdev, "rtc");
 -- 
-#gernperDu 
-#CallMeByMyFirstName
+2.53.0
 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
