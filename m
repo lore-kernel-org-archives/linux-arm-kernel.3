@@ -4,61 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D98AEEB7EAC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 08:49:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F125EB7EB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 08:49:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IJS45T4LXa5bVUI2jfMqUdvmKsps5YT2cWbQfq2oPtw=; b=y1u683m5E3XBFQgD3tB61S+Auw
-	yWy7Au8/WHuzOToj3Vf3UUBhY/6e+MJev8BAXb+UNQK2i7Ynv8pVbg1pGvSNpHRZepQ0zvTV0EgQm
-	QqCpLiFnrve6KIZecXMmJCdDcOH2FTGLYGK0ilcxQfOm8nMLTkWu28+iGap2KMy/nTBIsWR8T+rva
-	Q9g0VZ1HzoGgCxinrJRc2PqPvRM81Q+zCgPk/6vQt4Nd24hLW2iKX+98MDpjoYdV6zwp10YPSvuXv
-	6H/KyQgWaBsoTdr738C3j7wcakbsU8hITBPAJChNAVFopVDRgsu3SX7IFN70e8525vjnuJn90Ja43
-	T1w3pMQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vPHVR3a8adnghsIRMK2UT0yNdKP+/A8WHRXe+SGH6l4=; b=ymD/lo71m5TtF22WPHC9Uanvg3
+	OS3zk6Ao3QiyJoOtMGuaiWpG+Afkso4f+LRnvSbBrSiqGwy3jNIbY0hF6vR027AXZSpI+cGGWMwgq
+	NVSfaEvfF3EnBIdNlJ2yEANca+8+YE6ndVfoJ5WcHj6/VDn0bbh0q5XsLST6JKGHxWeuvkuO9n3NG
+	dbL+6+kwWNu97CWUQv7MTQX3waRrj5reAXw8io93MB0MPmptycbarfILr5zHPMnzobD3RitgC4BbN
+	L+AwFytW0ReBXf14la3v56URwARUijhu5yIRrM6/uJKQH5AzUC9hw6wK29/DVmPeBRrNgo93Qo0n/
+	EYHbI20Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxhv8-0000000GmPf-1eXn;
-	Wed, 04 Mar 2026 08:49:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxhv3-0000000GmMT-2fvz
+	id 1vxhvC-0000000GmSn-32xP;
+	Wed, 04 Mar 2026 08:49:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxhvB-0000000GmRH-0e7G
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 04 Mar 2026 08:49:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description;
+	bh=vPHVR3a8adnghsIRMK2UT0yNdKP+/A8WHRXe+SGH6l4=; b=cv2jm/GaQtusJJaQHwrWDcomTi
+	Sj7J7UwQanXXllcT3RHQ79we+tW5BDEFyrjx/S9VdWd5qOL3s45UBxX04NCOz+m+5cEXaCHlrBqJ5
+	GoEdepcRFN/h7mHp4bxbsUGu+10Yq7c82W/0o0Lf+xVn4BJn/yFtyBxIXF4P6JJjwtiuMipwWuXwr
+	LCFQV6GoPM2SURiYwfP1+S9mNE+KqA67UgmBv/LDknOqZevKlYBl0SmcMdghmfvOH/Yk1/VnWENDF
+	OIUp9s6OYQIqyQW8V1Hqie53cHFk0g57H0MD8qCsFQcygeWFMcu/Mzdnf5EFfMrhhcp4W6Eqg6RmZ
+	2R5F3WbA==;
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxhv7-00000004AXW-3zIk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 08:49:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 77349339;
-	Wed,  4 Mar 2026 00:49:17 -0800 (PST)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C377C3F7BD;
-	Wed,  4 Mar 2026 00:49:21 -0800 (PST)
-Date: Wed, 4 Mar 2026 08:49:19 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ankur Arora <ankur.a.arora@oracle.com>
-Cc: Linus Walleij <linusw@kernel.org>, Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	David Hildenbrand <david@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	James Clark <james.clark2@arm.com>
-Subject: Re: [PATCH] arm64: Implement clear_pages()
-Message-ID: <aafyD6G_Moz8tg1A@arm.com>
-References: <20260303-aarch64-clear-pages-v1-1-ad0c3ee9a555@kernel.org>
- <aab0SvA0dU0R0pnl@willie-the-truck>
- <CAD++jLnhe_k1-eU90KjOi_Aj57S53a9GJoCZ-LTE0fz-TVSqvg@mail.gmail.com>
- <87v7fcuij3.fsf@oracle.com>
+	Wed, 04 Mar 2026 08:49:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=vPHVR3a8adnghsIRMK2UT0yNdKP+/A8WHRXe+SGH6l4=; b=KTTbuHZRKMJkkR89leYpttjJ5X
+	HFKfIBg+NPuJlm409I95A6l3oRsZGphS4XazBPQQcweRo/ECzw9rPvniFGhBfxvEP9tDOk4ajC/5w
+	GiwkjMTctGAX+oC9W/YLQVk+tqBFR2vERrQv6VcmFh+M+c1AY7FLnK2Av0oJcxTejQ0Z2PD79JGF6
+	EbAy9qGSmDR4FFOwDZrrEU/lUiOrFvqlXSkjI3ZoQzDK0w4nrxEQyHJUIOHJdF0sI18OBpFZYoLaH
+	YshEvwrp5wpKDeW0KZnYvyY0IQB9/EZoPt2kCZazDSNq2xN6JJy9VynuLMQzAv5XVnbYxHGQ3AWMy
+	GkvGYrWQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:35038 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1vxhuz-000000006AF-2tWi;
+	Wed, 04 Mar 2026 08:49:21 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1vxhuy-0000000BqGj-1ZEN;
+	Wed, 04 Mar 2026 08:49:20 +0000
+In-Reply-To: <aafxqCvJ_XY4YbWw@shell.armlinux.org.uk>
+References: <aafxqCvJ_XY4YbWw@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH RFC net-next v2 5/7] net: stmmac: add support for reading
+ inband SGMII status
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <87v7fcuij3.fsf@oracle.com>
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1vxhuy-0000000BqGj-1ZEN@rmk-PC.armlinux.org.uk>
+Date: Wed, 04 Mar 2026 08:49:20 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_004926_974888_C48A78A5 
-X-CRM114-Status: GOOD (  22.99  )
+X-CRM114-CacheID: sfid-20260304_084930_352175_3FC922FC 
+X-CRM114-Status: GOOD (  17.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,55 +104,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 04, 2026 at 12:05:04AM -0800, Ankur Arora wrote:
-> Linus Walleij <linusw@kernel.org> writes:
-> > On Tue, Mar 3, 2026 at 3:46 PM Will Deacon <will@kernel.org> wrote:
-> >> If we have CPUs that are this sensitive to branches, perhaps we'd be
-> >> better off taking the opposite approach and moving more code into C
-> >> so that the compiler can optimise the control flow for us?
-> >
-> > Hm! That would be to create a default clear_page() in
-> > <linux/mm.h> and simply delete the existing lib/clear_page.S
-> > and let the default kick in.
-> >
-> > Right now every arch is implementing it custom.
-> > Maybe for no reason in some cases, I could try it!
-> >
-> > I doubt the compiler would emit this part though:
-> >
-> > #ifdef CONFIG_AS_HAS_MOPS
-> > (...)
-> > alternative_else_nop_endif
-> >         setpn   [x0]!, x1!, xzr
-> >         setmn   [x0]!, x1!, xzr
-> >         seten   [x0]!, x1!, xzr
-> >         ret
+Report the link, speed and duplex for SGMII links, read from the
+SGMII, RGMII and SMII status and control register.
 
-It won't generate it. It wouldn't be a pure C but have some inline asm.
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+rfc->v1: fix setting SGMII's link status - depend on both link status.
+v2:
+ - fill in rsgmii offset and status fields in dwmac cores
+ - rename new GMAC_RGSMIII_xxx constants to GMAC_RGSMII_xxx
+---
+ .../net/ethernet/stmicro/stmmac/dwmac1000.h   | 12 +----
+ .../ethernet/stmicro/stmmac/dwmac1000_core.c  |  2 +
+ drivers/net/ethernet/stmicro/stmmac/dwmac4.h  | 10 +---
+ .../net/ethernet/stmicro/stmmac/dwmac4_core.c |  2 +
+ .../net/ethernet/stmicro/stmmac/stmmac_pcs.c  | 46 ++++++++++++++++++-
+ .../net/ethernet/stmicro/stmmac/stmmac_pcs.h  |  4 ++
+ 6 files changed, 54 insertions(+), 22 deletions(-)
 
-Anyway, I'm fine with the .S file, I just wonder whether the DCZID_EL0
-read inside the inner loop is causing problems (not the FEAT_MOPS
-variant).
-
-> > Three instructions to clear all pages. But maybe that is not good
-> > if this is a gigabyte, and the per-page loop provides a good breather
-> > preemption point in that case, and then we just shouldn't touch
-> > anything.
-> 
-> The code in folio_zero_user (clear_contig_highpages()) takes care of
-> chunking up the clearing based on preemption model.
-> The idea being that if you are running with preempt=none or voluntary
-> then you might want to call cond_resched(), say every 32MB or so.
-> 
-> If you are running with preempt=full or preempt=lazy, then it would
-> just clear a full GB page.
-> 
-> That would need the set[mpe]n instructions to be interruptible though.
-> (Seems to me that that is true but maybe someone could confirm.)
-
-Yes, they are interruptible (the SETM). The x0, x1 register are left in
-a state that the SETM can be restarted from where it was interrupted.
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h b/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
+index 9fe639fb06bb..1de1f929d61c 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
+@@ -70,18 +70,8 @@ enum power_event {
+ #define GMAC_RGSMIIIS		0x000000d8	/* RGMII/SMII status */
+ 
+ /* SGMII/RGMII status register */
+-#define GMAC_RGSMIIIS_LNKMODE		BIT(0)
+-#define GMAC_RGSMIIIS_SPEED		GENMASK(2, 1)
+-#define GMAC_RGSMIIIS_LNKSTS		BIT(3)
+-#define GMAC_RGSMIIIS_JABTO		BIT(4)
+-#define GMAC_RGSMIIIS_FALSECARDET	BIT(5)
++#define GMAC_RSGMIIIS_MASK		GENMASK(15, 0)
+ #define GMAC_RGSMIIIS_SMIDRXS		BIT(16)
+-/* LNKMOD */
+-#define GMAC_RGSMIIIS_LNKMOD_MASK	0x1
+-/* LNKSPEED */
+-#define GMAC_RGSMIIIS_SPEED_125		0x2
+-#define GMAC_RGSMIIIS_SPEED_25		0x1
+-#define GMAC_RGSMIIIS_SPEED_2_5		0x0
+ 
+ /* GMAC Configuration defines */
+ #define GMAC_CONTROL_2K 0x08000000	/* IEEE 802.3as 2K packets */
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
+index a3ef237de1b8..31f6ac5432f2 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
+@@ -24,6 +24,8 @@
+ 
+ static const struct stmmac_pcs_info dwmac1000_pcs_info = {
+ 	.pcs_offset = GMAC_PCS_BASE,
++	.rgsmii_offset = GMAC_RGSMIIIS,
++	.rgsmii_status_mask = GMAC_RSGMIIIS_MASK,
+ 	.int_mask = GMAC_INT_DISABLE_PCSLINK | GMAC_INT_DISABLE_PCSAN,
+ };
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4.h b/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
+index d797d936aee1..ffcd036d4c02 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
+@@ -470,15 +470,7 @@ static inline u32 mtl_low_credx_base_addr(const struct dwmac4_addrs *addrs,
+ #define GMAC_PHYIF_CTRLSTATUS_TC		BIT(0)
+ #define GMAC_PHYIF_CTRLSTATUS_LUD		BIT(1)
+ #define GMAC_PHYIF_CTRLSTATUS_SMIDRXS		BIT(4)
+-#define GMAC_PHYIF_CTRLSTATUS_LNKMOD		BIT(16)
+-#define GMAC_PHYIF_CTRLSTATUS_SPEED		GENMASK(18, 17)
+-#define GMAC_PHYIF_CTRLSTATUS_LNKSTS		BIT(19)
+-#define GMAC_PHYIF_CTRLSTATUS_JABTO		BIT(20)
+-#define GMAC_PHYIF_CTRLSTATUS_FALSECARDET	BIT(21)
+-/* LNKSPEED */
+-#define GMAC_PHYIF_CTRLSTATUS_SPEED_125		0x2
+-#define GMAC_PHYIF_CTRLSTATUS_SPEED_25		0x1
+-#define GMAC_PHYIF_CTRLSTATUS_SPEED_2_5		0x0
++#define GMAC_PHYIF_CTRLSTATUS_RSGMII_MASK	GENMASK(31, 16)
+ 
+ extern const struct stmmac_dma_ops dwmac4_dma_ops;
+ extern const struct stmmac_dma_ops dwmac410_dma_ops;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
+index 7f4949229288..ced2cd98cc54 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
+@@ -24,6 +24,8 @@
+ 
+ static const struct stmmac_pcs_info dwmac4_pcs_info = {
+ 	.pcs_offset = GMAC_PCS_BASE,
++	.rgsmii_offset = GMAC_PHYIF_CONTROL_STATUS,
++	.rgsmii_status_mask = GMAC_PHYIF_CTRLSTATUS_RSGMII_MASK,
+ 	.int_mask = GMAC_INT_PCS_LINK | GMAC_INT_PCS_ANE,
+ };
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
+index 77a83e415597..ba0cf51e67f7 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
+@@ -16,6 +16,16 @@
+ #define GMAC_ANE_LPA	0x0c	/* ANE link partener ability */
+ #define GMAC_TBI	0x14	/* TBI extend status */
+ 
++/*
++ * RGSMII status bitfield definitions.
++ */
++#define GMAC_RGSMII_LNKMOD		BIT(0)
++#define GMAC_RGSMII_SPEED_MASK		GENMASK(2, 1)
++#define GMAC_RGSMII_SPEED_125		2
++#define GMAC_RGSMII_SPEED_25		1
++#define GMAC_RGSMII_SPEED_2_5		0
++#define GMAC_RGSMII_LNKSTS		BIT(3)
++
+ static unsigned int dwmac_integrated_pcs_inband_caps(struct phylink_pcs *pcs,
+ 						     phy_interface_t interface)
+ {
+@@ -58,7 +68,7 @@ static void dwmac_integrated_pcs_get_state(struct phylink_pcs *pcs,
+ 					   struct phylink_link_state *state)
+ {
+ 	struct stmmac_pcs *spcs = phylink_pcs_to_stmmac_pcs(pcs);
+-	u32 status, lpa;
++	u32 status, lpa, rgsmii;
+ 
+ 	status = readl(spcs->base + GMAC_AN_STATUS);
+ 
+@@ -73,7 +83,37 @@ static void dwmac_integrated_pcs_get_state(struct phylink_pcs *pcs,
+ 
+ 		phylink_mii_c22_pcs_decode_state(state, neg_mode, status, lpa);
+ 	} else {
+-		state->link = false;
++		rgsmii = field_get(spcs->rgsmii_status_mask,
++				   readl(spcs->rgsmii));
++
++		state->link = status & BMSR_LSTATUS &&
++			      rgsmii & GMAC_RGSMII_LNKSTS;
++
++		if (state->link && neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED) {
++			/* FIXME: fill in speed and duplex. This requires the
++			 * contents of the dwmac1000 GMAC_RGSMIIS or dwmac4
++			 * GMAC_PHYIF_CONTROL_STATUS register.
++			 */
++			state->duplex = rgsmii & GMAC_RGSMII_LNKMOD ?
++					DUPLEX_FULL : DUPLEX_HALF;
++			switch (FIELD_GET(GMAC_RGSMII_SPEED_MASK, rgsmii)) {
++			case GMAC_RGSMII_SPEED_2_5:
++				state->speed = SPEED_10;
++				break;
++
++			case GMAC_RGSMII_SPEED_25:
++				state->speed = SPEED_100;
++				break;
++
++			case GMAC_RGSMII_SPEED_125:
++				state->speed = SPEED_1000;
++				break;
++
++			default:
++				state->link = false;
++				break;
++			}
++		}
+ 	}
+ }
+ 
+@@ -178,6 +218,8 @@ int stmmac_integrated_pcs_init(struct stmmac_priv *priv,
+ 
+ 	spcs->priv = priv;
+ 	spcs->base = priv->ioaddr + pcs_info->pcs_offset;
++	spcs->rgsmii = priv->ioaddr + pcs_info->rgsmii_offset;
++	spcs->rgsmii_status_mask = pcs_info->rgsmii_status_mask;
+ 	spcs->int_mask = pcs_info->int_mask;
+ 	spcs->pcs.ops = &dwmac_integrated_pcs_ops;
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
+index f3dada71e381..b2b12d34b3dd 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
+@@ -29,12 +29,16 @@ struct stmmac_priv;
+ 
+ struct stmmac_pcs_info {
+ 	unsigned int pcs_offset;
++	unsigned int rgsmii_offset;
++	u32 rgsmii_status_mask;
+ 	u32 int_mask;
+ };
+ 
+ struct stmmac_pcs {
+ 	struct stmmac_priv *priv;
+ 	void __iomem *base;
++	void __iomem *rgsmii;
++	u32 rgsmii_status_mask;
+ 	u32 int_mask;
+ 	struct phylink_pcs pcs;
+ 	bool support_tbi_rtbi;
 -- 
-Catalin
+2.47.3
+
 
