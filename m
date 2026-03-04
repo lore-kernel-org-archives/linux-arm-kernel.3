@@ -4,64 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F6AAEF9008
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 16:59:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80F13EF9018
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 16:59:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iIAH0HlFvYRhK3NFdoszDvTJ/4GsWMWcuMlXBzXmUX0=; b=VWINREKeESFuHimFATYw2ZiGCs
-	7Seopjb+Sa+aKTf0bqI/D5ZOojVkjVveOIqj0FbfaFTXl2Ih4UIuH1FKrN3mWWSwuAEFMBZyDU0yV
-	LMXJ6PTwXoWiFAJ+1OVCqYmyLWofPc2xYUZ5UPTAbCONOTf/qu6Aj9b4XuDPLY+g8oPDsZlaqAa6H
-	v+lL+1WejwbfWAISTWNn0IqiPlUcNVmRh5/+5aoP03j29wVNw4J1Moyhb6raC72oKNm3IFBn4HzmJ
-	YE6cbFv2gcmHPavcjZygB+dKL7ph1qm0u7ZkXjOA6S+VF6+Kli6ytNcKKOGirbhQQJhqD9WkPtAWz
-	ptYWZCog==;
+	bh=pdDn6PPIkdiaW4dVbK8RH8JOlvqquJTIiM6EsTXD9sc=; b=D7kJhFFV7rbrp1eOZq8FYFKpfY
+	UMHjQUos3kSn/bngFMThDezwOmA/wiavp4S8zj3OuGzhgzeoR7oE2yjiVcL++B3rEgA5wMUljvl1X
+	rHZud/TDoFA8XY9pLnFzkw0hSp/53GoQieef4NWzuAM8rmtL+FiB99aGHZsxDVEXW0qHSahqi5YIM
+	mVbIuM9g13IomciV0pywGCs9YfFCc/pwwBQChSU65SqqAr6KZ1v9/2QDCyf4wazKzHzHWBz5/z3N5
+	Ms8k63rz3w6UiJhJWfLHs8NynCvFaaB8Nm1gGgtC19xgelycMHYy6KGFcK2uIfFu/jGQWvxiYOdGI
+	6ueKLeCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxpZ6-000000006wT-3gOc;
-	Wed, 04 Mar 2026 16:59:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vxpZ9-000000006xM-0ha5;
+	Wed, 04 Mar 2026 16:59:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxpZ4-000000006va-2vkm
+	id 1vxpZ7-000000006wO-04zo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 16:59:15 +0000
+	Wed, 04 Mar 2026 16:59:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1BCAB439D1;
+	by tor.source.kernel.org (Postfix) with ESMTP id 36C8D600AD;
+	Wed,  4 Mar 2026 16:59:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 807B6C19425;
 	Wed,  4 Mar 2026 16:59:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FA49C19425;
-	Wed,  4 Mar 2026 16:59:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772643554;
-	bh=xZa2Y+msYQnIXAIQ2pzwajkWrgpYxz5g3PV3bg0xq2g=;
+	s=k20201202; t=1772643555;
+	bh=jU1wcFlg+DOecT19yahAaCHVps8ABfwGiVyQD0SnPcI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XBVDK4eSoTCLgjbGPqEMFROw/SayvAbpJZWETDEZ+z0P/MQ8igMpS+e8ASUuv+TfR
-	 L8WmWS18NXj2d3wCRp77CPqJ4jsg4zIyC39MStuMY5X4ksMMmnYiA++Wf8W7l79kEL
-	 0et01IwP1BJLesUgai1uTRNGo9ttRptGOmg5fRErbyFYtig6rAUfJ6emp3T7RREhbP
-	 q+yoQFRzR3tOHB5mt9qLoc02N/v2aL4HUPTYn0hex7Qc1wgFdLpqIbTh+KYKOKG9Qq
-	 LCwx8+JOAyQe3I0K7+qrv+mdCKJgt+efE/wLLeIQTQoLhwNfBhXDuqYWBStbo2kl9D
-	 +dgSfZmF8yzTQ==
+	b=FW747/2WpoYzf7iQeFhfOHXGbzn+OnI9LESNKDpYJk6GyCzz66sWVbex8Ly1ny4pI
+	 L/6xJSsU0iueVTE/acobNW9nAkoJTZOeJWQp3g2RvHJAuJLAaL7GuuMHMdig+b6vzT
+	 ZpOr335az96jR1PqZBROVHUtb8sErhXqQ/woFxTaUpcg192ZBngkARLl611jdJ8qJk
+	 b/TSeHCCdPW8HP9J0idrRU3k4XF+M+ZQs/6o29wZ5AMmq+zaQjfnLPt0THpRjlwnct
+	 +cOGPyMrqbn8Y4KBY3YnxbZCt2yAmnmdKlyKKIX/gkNHGk3kFeAR2fZG/dT17HoAKw
+	 elEj9xS0OYg2w==
 From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Jisheng Zhang <jszhang@kernel.org>
 Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	kernel test robot <lkp@intel.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Christoph Hellwig <hch@lst.de>
-Subject: Re: [PATCH] arm64: Silence sparse warnings caused by the type casting in (cmp)xchg
-Date: Wed,  4 Mar 2026 16:59:03 +0000
-Message-ID: <177263468826.2651997.11372661656355895341.b4-ty@kernel.org>
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: make runtime const not usable by modules
+Date: Wed,  4 Mar 2026 16:59:04 +0000
+Message-ID: <177264083900.91802.1103243488475941960.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260227155142.1332743-1-catalin.marinas@arm.com>
-References: <20260227155142.1332743-1-catalin.marinas@arm.com>
+In-Reply-To: <20260221023847.3506-1-jszhang@kernel.org>
+References: <20260221023847.3506-1-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_085914_772226_2F2FDB20 
-X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,22 +72,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 27 Feb 2026 15:51:42 +0000, Catalin Marinas wrote:
-> The arm64 xchg/cmpxchg() wrappers cast the arguments to (unsigned long)
-> prior to invoking the static inline functions implementing the
-> operation. Some restrictive type annotations (e.g. __bitwise) lead to
-> sparse warnings like below:
-> 
-> sparse warnings: (new ones prefixed by >>)
->    fs/crypto/bio.c:67:17: sparse: sparse: cast from restricted blk_status_t
-> >> fs/crypto/bio.c:67:17: sparse: sparse: cast to restricted blk_status_t
+On Sat, 21 Feb 2026 10:38:47 +0800, Jisheng Zhang wrote:
+> Similar as commit 284922f4c563 ("x86: uaccess: don't use runtime-const
+> rewriting in modules") does, make arm64's runtime const not usable by
+> modules too, to "make sure this doesn't get forgotten the next time
+> somebody wants to do runtime constant optimizations". The reason is
+> well explained in the above commit: "The runtime-const infrastructure
+> was never designed to handle the modular case, because the constant
+> fixup is only done at boot time for core kernel code."
 > 
 > [...]
 
 Applied to arm64 (for-next/fixes), thanks!
 
-[1/1] arm64: Silence sparse warnings caused by the type casting in (cmp)xchg
-      https://git.kernel.org/arm64/c/212dd8477653
+[1/1] arm64: make runtime const not usable by modules
+      https://git.kernel.org/arm64/c/0100e495cdf0
 
 Cheers,
 -- 
