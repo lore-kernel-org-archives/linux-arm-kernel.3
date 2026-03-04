@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F09CAEF9002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 16:22:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC029EF8FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 16:22:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=23c+ROMNUk5Dd7yUKgLUSdTwchiyCsLiWmB8a96IYHQ=; b=UPtSAjovgC/Htf8FCwss0+EVXP
-	TSleqGMKnyUaMOcWLaZw1ErSHT3gcsffrNgMIzVt/w2BoFob1iVqE4gYI4MAiEj5sd2+jOGJ/Pqjk
-	FO57NXpzzg/dfsi/m8lxkuupFlgSz7AjUvwXPyNzrYvNV8D7ZtTf3sAln84v6gg+e8AxpnqtgMTTd
-	f7sI2eHj3O7seKgyVWKgePpxzQy7t3G+8dvBbuRhNaHXO1FkCfqxDcnw8xWGSV6oOZBk0Rn5+TRkX
-	yzgw8MFifj2ZIDdDPwBsk68cRyFh5ytIan0G473Ttqec3R7Qx6LVXfq/7XWwTwTGPRuueVRvI2b94
-	SxnsPzbQ==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hIPQsaRMySh/GQ9beSIags017EfvQfEs6fVmzxgycwo=; b=LN6f9xAG/sl0ZtlXBXy2og6FnI
+	mXuM4NiKxabPrM3XCxYbKy1KqefAMHlsoDiK8RyLZkZeBD4UmNAXT8ZpCIA/9Wh8C4PAS90VE62ef
+	1FUCIL0fvZtZbXgU4slA4n8UqRIEyJsbkkNMzWZXHF62qu/gEu7OrvV4twBbtf+RyUznUxggOPpZk
+	kbWpMeSF3YDSiG97EtjAeOcODCtg4vTs0z2uK5R0iZt238+t40vIPFehTNB8N5whdv6+pDMCSPc6A
+	9Pn/mK5xdQ13N17+vcFTJyoGl6Pvsqe/2lSS4ETth5RtweK+4FqBYiXLuNafZKn2wCm/ItL2MGAf4
+	KLHnQq5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxozU-00000000407-2Woo;
-	Wed, 04 Mar 2026 16:22:28 +0000
+	id 1vxozW-00000000416-3jnp;
+	Wed, 04 Mar 2026 16:22:30 +0000
 Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxozS-000000003z6-13z3
+	id 1vxozT-000000003zh-47Ex
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 16:22:27 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-483a24db6ecso79539505e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 08:22:25 -0800 (PST)
+	Wed, 04 Mar 2026 16:22:29 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4832c4621c2so75967145e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 08:22:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1772641344; x=1773246144; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=23c+ROMNUk5Dd7yUKgLUSdTwchiyCsLiWmB8a96IYHQ=;
-        b=BES33x1Bwjaq2rUkMqRUN2LGwU1yp11arMqFe7RGzGVbLR6jZ8ARJ6OGeUEMkNX77x
-         SwsSPZzh1yIfsS5TAt/w3XYeWfamRcslOlJYeiw+n1w2rt6JQlhlXnsQVqiBs28j03zl
-         6pdg+bmutcgLKgl9LWQZfHIDkEsZbRb5I3s72VP79ZvJx6E5yZNoe4CJL4BEzlsyjqHB
-         N9y9YtPWG45hplASASB+H7D5fKun9pmuHsVD/MwwQKQwd3F2YriTyPWKekXG7fdszc/l
-         pfSGbuT14WOh2n3PKmGqsQdolnF70EyQt3WffZ6X4zKuMkU+p3Yv7pDO7rrowpNPWagB
-         DC5A==
+        d=google.com; s=20230601; t=1772641346; x=1773246146; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=hIPQsaRMySh/GQ9beSIags017EfvQfEs6fVmzxgycwo=;
+        b=pvhIJLx1yp5pCjeij3lLpEQtW5R1t2dSqOxXdd08AjeXgyqN0Xt5kFUQ8G8wQYtnFe
+         UzoQLG0LlNgkq+GCorJo89vMblCUtZtv6DmO2hMyVClLM1QwYjuv4QWcBszHLHQZEUE9
+         53EbenKwXDyxdByJhX7JnqZVQ+TCMxsQ81zrosFqNGSECvqSMcT6C5M2HYET/nrZV0sm
+         /cRhZBA3ySUB02N187B2JjuKuTM2wypQ5zhJ5btNuheIE8pUd6pDcYY651zeD8V4P4OJ
+         aBMPgrb3prfw1okjOU0pjYtOf7b5ZMXD3Ii9WW/5N2FP1Rcsq/+F/a/+U9hbjG/Aw7nh
+         Ls1Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772641344; x=1773246144;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=23c+ROMNUk5Dd7yUKgLUSdTwchiyCsLiWmB8a96IYHQ=;
-        b=wTkuL97Foipej2K83GieRKAflpTC0FWlQdsZCxAL1cA0arXP3GQ7kUrjPwjedjD4V7
-         MXHO6ploEtKpImRtpFzC41S5mK8aRLqtt95NhkKRX+M6KWWyNIK9w4vyhnt+x5cETKJ/
-         XGlYWKPTKzVFftoJ/KrPtC/TQY7Pb8MF5vb5tAY5WoAp1XkrXToEAa7Oa+q4/KFUHlX4
-         SIxvwxjNaFnPVc0mnIVXIV8JwbGmPFzv1tkE/I3/whybQOYr4yn8VmfdHc+CqjEokNRP
-         BnxTsiYDnUJF8nxOVgANQ995HAbt1G1mSJTgyRnI3ZigjZ12IHAVNnseJwK4zS4zj3fJ
-         92qg==
-X-Forwarded-Encrypted: i=1; AJvYcCVCNkDUTxiYIvuGdqtmKX+H50s0VQ1Kuwy1/qPb5kClioOCuB+ZBy3cwqudgok7leUwDVY/gvtYEAmivCCxljLn@lists.infradead.org
-X-Gm-Message-State: AOJu0YzbwwT/ohhl9AuBEYRkH9TxkpPCiCfzs5kK2xkRVu/Q1PL4wiP/
-	75RYWVubrg5gLbOeKfkGcyH2d9sQ9K3q/w+qAUqbiVuI4hB05TKvxwlBBKHwmqwNL5rYQktMJc0
-	I6w==
-X-Received: from wmo14.prod.google.com ([2002:a05:600c:230e:b0:47e:dc0c:276f])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4e8a:b0:483:c35d:367f
- with SMTP id 5b1f17b1804b1-4851988a6f7mr43226855e9.21.1772641343626; Wed, 04
- Mar 2026 08:22:23 -0800 (PST)
-Date: Wed,  4 Mar 2026 16:22:20 +0000
+        d=1e100.net; s=20230601; t=1772641346; x=1773246146;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=hIPQsaRMySh/GQ9beSIags017EfvQfEs6fVmzxgycwo=;
+        b=CLHXk3kodxYv/F0gfq17HQY6OAO/MrbEYHy63gB/AESPT9BUqbeZt+cVa3OHtr4zY0
+         iUW/I3DF18Du4/knefI6ymMe7y4GbzyXJddjeqhuUfvNWEj0JIF24aa5yVbeNMkPmKCL
+         BMeJ/TchpO5j2cszP+d+ZhMk9Gr8UoIYFXaeYspOfga4n963bsF/jUhGYovQLm0pXNqP
+         npHfAIaIIGaqu/EXOkhjO/QYNUdeC1WHzGRomhj/SmwhdyW+9CoAHIVo9LYwE+U5t5G8
+         istzfm0joYSq7Xo7y1XKh1R/LUAQtxFFgWqsmtuPflHIHvRiK89XBIY15DXbsSHfgagN
+         Epfw==
+X-Forwarded-Encrypted: i=1; AJvYcCVuIT/D3ENS4pbHa4212XkJJNSK4mSia+20K7PtJFxCr8h/++kVe++Nh1XU340rUJ2Wftc6B58JtHDK3fu8v8ZX@lists.infradead.org
+X-Gm-Message-State: AOJu0YwyIMdnuJNdxctkzBtu5IUfKvUN0y//1w5KPJXWB1Wme2yBrHdE
+	OLCywJRqgO8+HlsUKkqZkbRgXISJUMtFvTZQqTFfyIoK3OwNJiQflGOoFG4HUKmk/eMgbU4t501
+	adA==
+X-Received: from wrov11.prod.google.com ([2002:adf:edcb:0:b0:439:b0ed:2aee])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:3b8b:b0:46f:c55a:5a8d
+ with SMTP id 5b1f17b1804b1-485198312a0mr43881475e9.4.1772641345799; Wed, 04
+ Mar 2026 08:22:25 -0800 (PST)
+Date: Wed,  4 Mar 2026 16:22:22 +0000
+In-Reply-To: <20260304162222.836152-1-tabba@google.com>
 Mime-Version: 1.0
+References: <20260304162222.836152-1-tabba@google.com>
 X-Mailer: git-send-email 2.53.0.473.g4a7958ca14-goog
-Message-ID: <20260304162222.836152-1-tabba@google.com>
-Subject: [PATCH v1 0/2] KVM: arm64: Fix a couple of latent bugs in user_mem_abort()
+Message-ID: <20260304162222.836152-3-tabba@google.com>
+Subject: [PATCH v1 2/2] KVM: arm64: Fix vma_shift staleness on nested hwpoison path
 From: Fuad Tabba <tabba@google.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
@@ -73,8 +75,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
 	tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_082226_303587_AAE8593A 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20260304_082228_023760_334428D6 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,48 +91,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While digging into arch/arm64/kvm/mmu.c with the intention of finally
-refactoring user_mem_abort(), I ran into a couple of latent bugs that
-we should probably fix right now before attempting any major plumbing.
+When user_mem_abort() handles a nested stage-2 fault, it truncates
+vma_pagesize to respect the guest's mapping size. However, the local
+variable vma_shift is never updated to match this new size.
 
-You might experience some deja-vu looking at the first patch. A while
-back (in 5f9466b50c1b), I fixed a struct page reference leak on an
-early error return in this exact same block. It turns out that another
-early exit was introduced later on (for exclusive/atomic faults), and it
-fell into the exact same trap of leaking the page.
+If the underlying host page turns out to be hardware poisoned,
+kvm_send_hwpoison_signal() is called with the original, larger
+vma_shift instead of the actual mapping size. This signals incorrect
+poison boundaries to userspace and breaks hugepage memory poison
+containment for nested VMs.
 
-The fact that this keeps happening really highlights how dangerous this
-"danger zone" between faulting in the PFN and taking the MMU lock has
-become. To stop playing whack-a-mole with inline `kvm_release_page_unused()`
-calls, I've routed all the early exits here to a unified `out_put_page`
-label so they are handled safely together.
+Update vma_shift to match the truncated vma_pagesize when operating
+on behalf of a nested hypervisor.
 
-The second patch addresses a staleness bug with `vma_shift` when handling
-nested stage-2 faults. We currently truncate the mapping size for the
-nested guest, but forget to update the shift, which results in us sending
-the wrong boundaries to userspace if we subsequently trip over a hardware
-poisoned page.
+Fixes: fd276e71d1e7 ("KVM: arm64: nv: Handle shadow stage 2 page faults")
+Signed-off-by: Fuad Tabba <tabba@google.com>
+---
+ arch/arm64/kvm/mmu.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Finding these issues just reinforces how fragile this 300-line function
-has become. We really need to refactor it to make the state flow easier
-to reason about. I'm currently putting together a series to do just that
-(introducing a proper fault state object), so stay tuned for an RFC on
-that front.
-
-Based on Linux 7.0-rc2.
-
-Cheers,
-/fuad
-
-Fuad Tabba (2):
-  KVM: arm64: Fix page leak in user_mem_abort() on atomic fault
-  KVM: arm64: Fix vma_shift staleness on nested hwpoison path
-
- arch/arm64/kvm/mmu.c | 14 +++++++++-----
- 1 file changed, 9 insertions(+), 5 deletions(-)
-
-
-base-commit: 11439c4635edd669ae435eec308f4ab8a0804808
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index e1d6a4f591a9..b08240e0cab1 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1751,6 +1751,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 
+ 		force_pte = (max_map_size == PAGE_SIZE);
+ 		vma_pagesize = min_t(long, vma_pagesize, max_map_size);
++		vma_shift = force_pte ? PAGE_SHIFT : __ffs(vma_pagesize);
+ 	}
+ 
+ 	/*
 -- 
 2.53.0.473.g4a7958ca14-goog
 
