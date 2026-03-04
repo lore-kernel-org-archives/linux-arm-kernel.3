@@ -4,87 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AA4CEB7EAC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 09:27:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19CB4EB7EB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 09:29:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B8T8JJBZ0+SE9QTM0SJv7wzNu2lsF1Q+RlMfDt2Ra+w=; b=ZXSoZEI3VEfTIg1KXK7zOEmgT2
-	/05qjJJTsYOhtb1qBZb7cBeHKLOvz8pSMWjUF7k2+nBT0/REVKjxM0bi9F9Nh0BAOzv/kXcyqX+M1
-	qhYGd/wGQi03WB95VJxi9kMQA7nv1CvA9faLitQzKyDDPHBftR+IMNUe9s7FpmDTyXBafVUgppwSa
-	jxhm9kRrHspoS4vmOHLlmMpwIunuguw5AJdtkpgJUkbQxjsA7Syg2Y5QQBo+N7GJgi7JN43qL2+xA
-	9Pb52miJp3D2VAfzCTjjcKBoAH7gwMjjRbbHWlj6wXo0Fmz4aeAsUlUoI7KifbfkOw763BPT227wB
-	CS2rywQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xn/i0N8EgAKuwuM15FDiV4PZjdt7rsAySJLonN4COK8=; b=No2P77z+vgNVdNaozYlr/gizlo
+	F6iPfjqqpoCDwdnBSzfBObopYbDwTdVCF9mndsdux59AZUI8rpOeTGnVwVK7PUrAJ+hfbssL4F8Ip
+	FrlfM7PKEkVqj/Q7Twt80/+5kyt+sJwY3+0dmyw83MEiqtj2c02RdM9wfXhKonTXFgkEV71UWGpAn
+	WW1S0Yc5i0cZbYPy6X2XT1Am01D3wv+DzjkS6UtUlScMmR9NWspDr5Ei4vyyWtmzFHQKDx/znUWsW
+	NGTGRZ3xOdxor0oZIIbruFEVAjBbH8n3eOoRYf/rwQyo7fey6d525mCVi+37JG5uRCtCC429+9k6D
+	LiFqQc5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxiVP-0000000Groh-1j5P;
-	Wed, 04 Mar 2026 09:26:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vxiXP-0000000Gs1M-3dmL;
+	Wed, 04 Mar 2026 09:29:03 +0000
+Received: from mail.cjdns.fr ([5.135.140.105])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxiVM-0000000GroG-3W0Z
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 09:26:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0CA2243EC9;
-	Wed,  4 Mar 2026 09:26:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB71AC19423;
-	Wed,  4 Mar 2026 09:26:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772616415;
-	bh=r5XZvzIPpyYXkEV2po6dhRbXD9dHV321uOyolq8w6BA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=hIx6dNbXR044yUGqo4HHlPUb+doojWePbMcO2pndaPnhXZ9btiIPdxxQSR8bp0zHR
-	 /x0zOx1xtqcaOpDPFBcmEU4OXsdP5VbCVjaHEFr/iWyfKPR+IZRoOQQT5QS1RQRxUm
-	 7zDfDqYLpOGYLTTee+tMF+SXr/YIwr+SdW7rw0MA3t72g7SnnOR/JC1/i4wXk7ReuE
-	 g28COv670yD/kTEsmurVrdLjg66lSJz6l1XPKbjgFVAr2OGk0+QBCLmoF543PNnP/1
-	 iZnMNknEXVvHookiFSH1uCNinkYW0JJZ45yj9BYNr2nyrfKITlK8TpHwgzzgP16IWo
-	 sSqXZjhPJ1VTQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vxiVJ-0000000FyG1-1Tdg;
-	Wed, 04 Mar 2026 09:26:53 +0000
-Date: Wed, 04 Mar 2026 09:26:52 +0000
-Message-ID: <865x7c7xnn.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly
-	<Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>,
-	"jonathan.cameron@huawei.com"
-	<jonathan.cameron@huawei.com>
-Subject: Re: [PATCH v5 15/36] KVM: arm64: gic-v5: Implement GICv5 load/put and save/restore
-In-Reply-To: <20260226155515.1164292-16-sascha.bischoff@arm.com>
-References: <20260226155515.1164292-1-sascha.bischoff@arm.com>
-	<20260226155515.1164292-16-sascha.bischoff@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com, jonathan.cameron@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1vxiXN-0000000Gs0t-0Ham;
+	Wed, 04 Mar 2026 09:29:02 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3F58322A039;
+	Wed,  4 Mar 2026 10:28:50 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
+	t=1772616537; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=xn/i0N8EgAKuwuM15FDiV4PZjdt7rsAySJLonN4COK8=;
+	b=ncHzYAwCogixHNVPZGRZuZBlCM11hw7NxKf1wlD/bw1xMbPi831jWfcgUfJU1SGpwp0cuN
+	Rx2yqoJ/z4sL4VfWI0kLPehzjMcSF8eyL5zN2dHW7EJs38wYdXg7tYbpKLoccnxYqVBrO3
+	rXGLP9iEhH2S+4/L2Q9mtYc8JR6Kj2LgowV0a0KvCrQ0sGg5HuYtoBhLpnzCb5PR0Zy+1C
+	OCqlAhCLilI7JHL3nlXFdGJZsZruj//g7V1c9fs+C4s8N7lIRnhtTNAiQCNgu8RFvY38zP
+	BtHLrE155jwkaELLPVa+tjzFSXjFq9YJJ+z2qaKnJvb8zr2xNEx4Kt/bixTrqw==
+Message-ID: <63cd305f-e76f-4ed3-bb4d-d6b1dec8c92e@cjdns.fr>
+Date: Wed, 4 Mar 2026 10:28:50 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH 3/8] dt-bindings: phy: Document PCIe PHY in EcoNet
+ EN751221 and EN7528
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-mips@vger.kernel.org, naseefkm@gmail.com, mturquette@baylibre.com,
+ sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ tsbogend@alpha.franken.de, ryder.lee@mediatek.com,
+ jianjun.wang@mediatek.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
+ mani@kernel.org, bhelgaas@google.com, vkoul@kernel.org,
+ neil.armstrong@linaro.org, p.zabel@pengutronix.de, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, nbd@nbd.name, ansuelsmth@gmail.com,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260303190948.694783-1-cjd@cjdns.fr>
+ <20260303190948.694783-4-cjd@cjdns.fr>
+ <20260304-proficient-coati-of-lightning-df2cab@quoll>
+Content-Language: en-US
+From: Caleb James DeLisle <cjd@cjdns.fr>
+In-Reply-To: <20260304-proficient-coati-of-lightning-df2cab@quoll>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_012656_917277_60B79C95 
-X-CRM114-Status: GOOD (  39.09  )
+X-CRM114-CacheID: sfid-20260304_012901_485867_CA61A50D 
+X-CRM114-Status: GOOD (  24.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,286 +81,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 26 Feb 2026 15:59:18 +0000,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
-> 
-> This change introduces GICv5 load/put. Additionally, it plumbs in
-> save/restore for:
-> 
-> * PPIs (ICH_PPI_x_EL2 regs)
-> * ICH_VMCR_EL2
-> * ICH_APR_EL2
-> * ICC_ICSR_EL1
-> 
-> A GICv5-specific enable bit is added to struct vgic_vmcr as this
-> differs from previous GICs. On GICv5-native systems, the VMCR only
-> contains the enable bit (driven by the guest via ICC_CR0_EL1.EN) and
-> the priority mask (PCR).
-> 
-> A struct gicv5_vpe is also introduced. This currently only contains a
-> single field - bool resident - which is used to track if a VPE is
-> currently running or not, and is used to avoid a case of double load
-> or double put on the WFI path for a vCPU. This struct will be extended
-> as additional GICv5 support is merged, specifically for VPE doorbells.
-> 
-> Co-authored-by: Timothy Hayes <timothy.hayes@arm.com>
-> Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/switch.c   | 12 +++++
->  arch/arm64/kvm/vgic/vgic-mmio.c    | 28 +++++++----
->  arch/arm64/kvm/vgic/vgic-v5.c      | 74 ++++++++++++++++++++++++++++++
->  arch/arm64/kvm/vgic/vgic.c         | 32 ++++++++-----
->  arch/arm64/kvm/vgic/vgic.h         |  7 +++
->  include/kvm/arm_vgic.h             |  2 +
->  include/linux/irqchip/arm-gic-v5.h |  5 ++
->  7 files changed, 141 insertions(+), 19 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
-> index b41485ce295ab..a88da302b6d08 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/switch.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-> @@ -113,6 +113,12 @@ static void __deactivate_traps(struct kvm_vcpu *vcpu)
->  /* Save VGICv3 state on non-VHE systems */
->  static void __hyp_vgic_save_state(struct kvm_vcpu *vcpu)
->  {
-> +	if (vgic_is_v5(kern_hyp_va(vcpu->kvm))) {
-> +		__vgic_v5_save_state(&vcpu->arch.vgic_cpu.vgic_v5);
-> +		__vgic_v5_save_ppi_state(&vcpu->arch.vgic_cpu.vgic_v5);
-> +		return;
-> +	}
-> +
->  	if (static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif)) {
->  		__vgic_v3_save_state(&vcpu->arch.vgic_cpu.vgic_v3);
->  		__vgic_v3_deactivate_traps(&vcpu->arch.vgic_cpu.vgic_v3);
-> @@ -122,6 +128,12 @@ static void __hyp_vgic_save_state(struct kvm_vcpu *vcpu)
->  /* Restore VGICv3 state on non-VHE systems */
->  static void __hyp_vgic_restore_state(struct kvm_vcpu *vcpu)
->  {
-> +	if (vgic_is_v5(kern_hyp_va(vcpu->kvm))) {
-> +		__vgic_v5_restore_state(&vcpu->arch.vgic_cpu.vgic_v5);
-> +		__vgic_v5_restore_ppi_state(&vcpu->arch.vgic_cpu.vgic_v5);
-> +		return;
-> +	}
-> +
->  	if (static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif)) {
->  		__vgic_v3_activate_traps(&vcpu->arch.vgic_cpu.vgic_v3);
->  		__vgic_v3_restore_state(&vcpu->arch.vgic_cpu.vgic_v3);
-> diff --git a/arch/arm64/kvm/vgic/vgic-mmio.c b/arch/arm64/kvm/vgic/vgic-mmio.c
-> index a573b1f0c6cbe..675c2844f5e5c 100644
-> --- a/arch/arm64/kvm/vgic/vgic-mmio.c
-> +++ b/arch/arm64/kvm/vgic/vgic-mmio.c
-> @@ -842,18 +842,30 @@ vgic_find_mmio_region(const struct vgic_register_region *regions,
->  
->  void vgic_set_vmcr(struct kvm_vcpu *vcpu, struct vgic_vmcr *vmcr)
->  {
-> -	if (kvm_vgic_global_state.type == VGIC_V2)
-> -		vgic_v2_set_vmcr(vcpu, vmcr);
-> -	else
-> -		vgic_v3_set_vmcr(vcpu, vmcr);
-> +	const struct vgic_dist *dist = &vcpu->kvm->arch.vgic;
-> +
-> +	if (dist->vgic_model == KVM_DEV_TYPE_ARM_VGIC_V5) {
-> +		vgic_v5_set_vmcr(vcpu, vmcr);
-> +	} else {
-> +		if (kvm_vgic_global_state.type == VGIC_V2)
-> +			vgic_v2_set_vmcr(vcpu, vmcr);
-> +		else
-> +			vgic_v3_set_vmcr(vcpu, vmcr);
-> +	}
 
-This looks rather ugly, and doesn't make use of the helpers you
-introduced in patch #1. How about:
+On 04/03/2026 09:44, Krzysztof Kozlowski wrote:
+> On Tue, Mar 03, 2026 at 07:09:43PM +0000, Caleb James DeLisle wrote:
+>> EN751221 and EN7528 SoCs have two PCIe slots, and each one has a
+>> PHY which behaves slightly differently because one slot is Gen1/Gen2
+>> while the other is Gen1 only.
+>>
+>> Signed-off-by: Caleb James DeLisle <cjd@cjdns.fr>
+>> ---
+>>   .../phy/econet,en751221-pcie-phy.yaml         | 57 +++++++++++++++++++
+> Why are you mixing multiple subsystems in the same patchset? That's
+> like three or four different ones. Don't, just make it difficult to
+> apply pieces and understand the dependencies.
 
-	switch (dist->vgic_model) {
-	case KVM_DEV_TYPE_ARM_VGIC_V5:
-		vgic_v5_set_vmcr(vcpu, vmcr);
-		break;
-	case KVM_DEV_TYPE_ARM_VGIC_V3:
-		vgic_v3_set_vmcr(vcpu, vmcr);
-		break;
-	case KVM_DEV_TYPE_ARM_VGIC_V2:
-		if (static_branch_likely(&kvm_vgic_global_state.gicv3_cpuif))
-			vgic_v3_set_vmcr(vcpu, vmcr);
-		else
-			vgic_v2_set_vmcr(vcpu, vmcr);
-		break;
-	default:
-		BUG();
-	}
 
-Yes, the handling of v3 is a bit redundant, but I find it overall more
-readable.
+Please pardon my ignorance, I was under the impression that a patch 
+should be specific to a subsystem but a patchset should accomplish a 
+goal and avoid introducing unused code. In this case the goal is PCIe 
+support. If you prefer it, I can resend as a PHY patchset and a CLK 
+patchset, and then after those are merged, send the PCIe patchset to use 
+them.
 
->  }
->  
->  void vgic_get_vmcr(struct kvm_vcpu *vcpu, struct vgic_vmcr *vmcr)
->  {
-> -	if (kvm_vgic_global_state.type == VGIC_V2)
-> -		vgic_v2_get_vmcr(vcpu, vmcr);
-> -	else
-> -		vgic_v3_get_vmcr(vcpu, vmcr);
-> +	const struct vgic_dist *dist = &vcpu->kvm->arch.vgic;
-> +
-> +	if (dist->vgic_model == KVM_DEV_TYPE_ARM_VGIC_V5) {
-> +		vgic_v5_get_vmcr(vcpu, vmcr);
-> +	} else {
-> +		if (kvm_vgic_global_state.type == VGIC_V2)
-> +			vgic_v2_get_vmcr(vcpu, vmcr);
-> +		else
-> +			vgic_v3_get_vmcr(vcpu, vmcr);
-> +	}
->  }
->  
->  /*
-> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-> index 2c51b9ba4f118..5b35c756887a9 100644
-> --- a/arch/arm64/kvm/vgic/vgic-v5.c
-> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
-> @@ -85,3 +85,77 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
->  
->  	return 0;
->  }
-> +
-> +void vgic_v5_load(struct kvm_vcpu *vcpu)
-> +{
-> +	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
-> +
-> +	/*
-> +	 * On the WFI path, vgic_load is called a second time. The first is when
-> +	 * scheduling in the vcpu thread again, and the second is when leaving
-> +	 * WFI. Skip the second instance as it serves no purpose and just
-> +	 * restores the same state again.
-> +	 */
-> +	if (READ_ONCE(cpu_if->gicv5_vpe.resident))
-> +		return;
 
-I'm perplex. What is READ_ONCE()/WRITE_ONCE() guaranteeing?
+>
+>>   MAINTAINERS                                   |  6 ++
+>>   2 files changed, 63 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/phy/econet,en751221-pcie-phy.yaml
+>>
+>> diff --git a/Documentation/devicetree/bindings/phy/econet,en751221-pcie-phy.yaml b/Documentation/devicetree/bindings/phy/econet,en751221-pcie-phy.yaml
+>> new file mode 100644
+>> index 000000000000..8e1d3c791c6e
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/phy/econet,en751221-pcie-phy.yaml
+>> @@ -0,0 +1,57 @@
+>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/phy/econet,en751221-pcie-phy.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: EcoNet PCI-Express PHY for EcoNet EN751221 and EN7528
+>> +
+>> +maintainers:
+>> +  - Caleb James DeLisle <cjd@cjdns.fr>
+>> +
+>> +description:
+>> +  The PCIe PHY supports physical layer functionality for PCIe Gen1 and
+>> +  Gen1/Gen2 ports. On these SoCs, port 0 is a Gen1-only port while
+>> +  port 1 is Gen1/Gen2 capable.
+>> +
+>> +properties:
+>> +  compatible:
+>> +    enum:
+>> +      - econet,en751221-pcie-phy0
+>> +      - econet,en751221-pcie-phy1
+> What is the difference between phy0 and phy1? This must be explicitly
+> explained in the description.
+>
+> If phy1 means "port 1" (although first sentence disagrees, because it
+> says that THE SAME phy supports two ports), then the names aren't -gen1
+> and -gen2? Or what are other differences?
 
-> +
-> +	kvm_call_hyp(__vgic_v5_restore_vmcr_apr, cpu_if);
-> +
-> +	WRITE_ONCE(cpu_if->gicv5_vpe.resident, true);
-> +}
-> +
-> +void vgic_v5_put(struct kvm_vcpu *vcpu)
-> +{
-> +	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
-> +
-> +	/*
-> +	 * Do nothing if we're not resident. This can happen in the WFI path
-> +	 * where we do a vgic_put in the WFI path and again later when
-> +	 * descheduling the thread. We risk losing VMCR state if we sync it
-> +	 * twice, so instead return early in this case.
-> +	 */
-> +	if (!READ_ONCE(cpu_if->gicv5_vpe.resident))
-> +		return;
-> +
-> +	kvm_call_hyp(__vgic_v5_save_apr, cpu_if);
-> +
-> +	WRITE_ONCE(cpu_if->gicv5_vpe.resident, false);
-> +}
-> +
-> +void vgic_v5_get_vmcr(struct kvm_vcpu *vcpu, struct vgic_vmcr *vmcrp)
-> +{
-> +	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
-> +	u64 vmcr = cpu_if->vgic_vmcr;
-> +
-> +	vmcrp->en = FIELD_GET(FEAT_GCIE_ICH_VMCR_EL2_EN, vmcr);
-> +	vmcrp->pmr = FIELD_GET(FEAT_GCIE_ICH_VMCR_EL2_VPMR, vmcr);
-> +}
-> +
-> +void vgic_v5_set_vmcr(struct kvm_vcpu *vcpu, struct vgic_vmcr *vmcrp)
-> +{
-> +	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
-> +	u64 vmcr;
-> +
-> +	vmcr = FIELD_PREP(FEAT_GCIE_ICH_VMCR_EL2_VPMR, vmcrp->pmr) |
-> +	       FIELD_PREP(FEAT_GCIE_ICH_VMCR_EL2_EN, vmcrp->en);
-> +
-> +	cpu_if->vgic_vmcr = vmcr;
-> +}
-> +
-> +void vgic_v5_restore_state(struct kvm_vcpu *vcpu)
-> +{
-> +	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
-> +
-> +	__vgic_v5_restore_state(cpu_if);
-> +	kvm_call_hyp(__vgic_v5_restore_ppi_state, cpu_if);
-> +	dsb(sy);
-> +}
-> +
-> +void vgic_v5_save_state(struct kvm_vcpu *vcpu)
-> +{
-> +	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
-> +
-> +	__vgic_v5_save_state(cpu_if);
-> +	kvm_call_hyp(__vgic_v5_save_ppi_state, cpu_if);
-> +	dsb(sy);
-> +}
-> diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-> index 2c0e8803342e2..1005ff5f36235 100644
-> --- a/arch/arm64/kvm/vgic/vgic.c
-> +++ b/arch/arm64/kvm/vgic/vgic.c
-> @@ -996,7 +996,9 @@ static inline bool can_access_vgic_from_kernel(void)
->  
->  static inline void vgic_save_state(struct kvm_vcpu *vcpu)
->  {
-> -	if (!static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif))
-> +	if (vgic_is_v5(vcpu->kvm))
-> +		vgic_v5_save_state(vcpu);
-> +	else if (!static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif))
->  		vgic_v2_save_state(vcpu);
->  	else
->  		__vgic_v3_save_state(&vcpu->arch.vgic_cpu.vgic_v3);
-> @@ -1005,14 +1007,16 @@ static inline void vgic_save_state(struct kvm_vcpu *vcpu)
->  /* Sync back the hardware VGIC state into our emulation after a guest's run. */
->  void kvm_vgic_sync_hwstate(struct kvm_vcpu *vcpu)
->  {
-> -	/* If nesting, emulate the HW effect from L0 to L1 */
-> -	if (vgic_state_is_nested(vcpu)) {
-> -		vgic_v3_sync_nested(vcpu);
-> -		return;
-> -	}
-> +	if (!vgic_is_v5(vcpu->kvm)) {
 
-This should directly check for v3. Even once we add v5 support to NV,
-I don't expect the code to be common at all.
+In practice, port0 is gen1 only and port1 is gen1/2. But I suppose it 
+makes sense to specify them as gen1 and gen2, so that fact is documented 
+in the DT.
 
-> +		/* If nesting, emulate the HW effect from L0 to L1 */
-> +		if (vgic_state_is_nested(vcpu)) {
-> +			vgic_v3_sync_nested(vcpu);
-> +			return;
-> +		}
->  
-> -	if (vcpu_has_nv(vcpu))
-> -		vgic_v3_nested_update_mi(vcpu);
-> +		if (vcpu_has_nv(vcpu))
-> +			vgic_v3_nested_update_mi(vcpu);
-> +	}
->  
->  	if (can_access_vgic_from_kernel())
->  		vgic_save_state(vcpu);
-> @@ -1034,7 +1038,9 @@ void kvm_vgic_process_async_update(struct kvm_vcpu *vcpu)
->  
->  static inline void vgic_restore_state(struct kvm_vcpu *vcpu)
->  {
-> -	if (!static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif))
-> +	if (vgic_is_v5(vcpu->kvm))
-> +		vgic_v5_restore_state(vcpu);
-> +	else if (!static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif))
->  		vgic_v2_restore_state(vcpu);
->  	else
->  		__vgic_v3_restore_state(&vcpu->arch.vgic_cpu.vgic_v3);
 
-I have similar comments as some the previous hunks. Using switch/case
-statements would be more readable IMO.
+>
+>> +      - econet,en7528-pcie-phy0
+>> +      - econet,en7528-pcie-phy1
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  "#phy-cells":
+>> +    const: 0
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - '#phy-cells'
+> Use consisent quotes.
 
-Thanks,
+OK
 
-	M.
+>
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    #include <dt-bindings/phy/phy.h>
+> Where do you use it here?
+Whoops, I think I daydreamed that it was needed for "#phy-cells", will 
+drop.
+>
+>> +    soc {
+>> +      #address-cells = <1>;
+>> +      #size-cells = <1>;
+>> +
+>> +      pcie_phy0: pcie-phy@1faf2000 {
+> Drop unused label.
+OK
+>
+>> +        compatible = "econet,en7528-pcie-phy0";
+>> +        reg = <0x1faf2000 0x1000>;
+>> +        #phy-cells = <0>;
+>> +      };
+>> +
+>> +      pcie_phy1: pcie-phy@1fac0000 {
+>> +        compatible = "econet,en7528-pcie-phy1";
+> Drop node, same as previous one.
 
--- 
-Without deviation from the norm, progress is not possible.
+OK
+
+
+Thanks for the review.
+
+Caleb
+
+
+>
+> Best regards,
+> Krzysztof
+>
 
