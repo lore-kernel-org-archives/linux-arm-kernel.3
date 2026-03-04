@@ -4,87 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AEC7EB7EB5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 09:35:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65884EB7EB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 09:36:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=djsTcbBZjIyNntDpdOqovGkZ3lMCp0FX3FUDPF5jHto=; b=y3Ifbp51Kyq+IpfzZdfJY+4jlo
-	cKbTqVrq0vLEA9KzR/tsEPvPgabfNs5adoi5xaBJ7eV1w6p8aALMdQiWjXP+Nw/J8jtyT99+bbIyR
-	K/8iFoCODromj+YIniYCr79VlVwALofVhpHq5rIgydmfC7oI8a9I0BOmWlQm3hoMnpoZ80oSvdFpM
-	qKzv6PrRmw6Mw48AJrba6L+Sqdh3V1UZVe8hJrcp7ztAPmRwJ3aA+PvJL40A+qfx5ppBqIwONzMNP
-	Qp3+0/Yr07ngXQES2a9UMPe0AD83JV8dD+deYUVCHswJBM0vvOrFcATVvt8rXPeEieWeUbiM7W6Yq
-	kRK6oV4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Z5F1xHevokIdYUTpw8nlsMd8XqO95RKvReIBkCrMMwI=; b=fRo4S6H0ruGc8e
+	r4uOHyjn06nZl0bsxIY9PsmZN0HrZNhB++tJIfk17lJHsAIOM2l8GFs1uC/Fjqhnc7J6zsVow2uix
+	LKW5+1S43iXnvRhIoyQYnBwGgpOPHc43JTHDYICjYfQygGQlf2ZmPfA71lWtGZKKKHVeVTBreQxp2
+	NW6nKP5tF6PzFd+hScR9btPCQ1AbVX0swUgwjVJJx22p8E3WLa2WP2NtzjWOpm+p9v2umFmUOGr7V
+	6RD2JfIUcAbjQVi+OW4keFQNDzQebp0PKBJNRx0nvwnbMfFDt2kC/e3HWxgcpi7YGxWlmBRTkjZWM
+	P6w+w8cbwrs4npQBfZGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxidj-0000000Gt6V-3aL1;
-	Wed, 04 Mar 2026 09:35:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vxieS-0000000GtFU-1B5o;
+	Wed, 04 Mar 2026 09:36:20 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxidh-0000000Gt5H-3jsl
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 09:35:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 29C77408A7;
-	Wed,  4 Mar 2026 09:35:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3771C19423;
-	Wed,  4 Mar 2026 09:35:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772616933;
-	bh=fcQPpx8aXl/bNZmJJr4UNqNuegofLcCcrPHmWDmwHeM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=jAAAOGE3yEaLrrLntuxDP4H0mebq4t+SmQ5VHnBBo3slVvJte1dhqls/6yLwgccPj
-	 JGhp+O05g7UxK+18O7ErIEpLcfmVlKe3YaD2LSycrMQs/h8/FGkJSL/uC25dYkS1hd
-	 0mEB9FT6J1C/tStohhvhX07snjfQp79h8RsKwhD+J2EJ9bX+E6jaAojpDX0ayG+j24
-	 94Bg4T+9U1Tt+NXm8oRxArfvm/PXDREZWT02eOEpUU361uHOF3TF9eTLKMMBtO8dDD
-	 AvOc3HHq3RJ4nUW5QtJrnV/sfO+AU+2XzFeLUHzUDeed9X83iE9epPg8dJfI+xX75K
-	 W6qVuInzp8ABg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vxide-0000000FyTI-31HL;
-	Wed, 04 Mar 2026 09:35:30 +0000
-Date: Wed, 04 Mar 2026 09:35:30 +0000
-Message-ID: <864imw7x99.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly
-	<Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>,
-	"jonathan.cameron@huawei.com"
-	<jonathan.cameron@huawei.com>
-Subject: Re: [PATCH v5 16/36] KVM: arm64: gic-v5: Implement direct injection of PPIs
-In-Reply-To: <20260226155515.1164292-17-sascha.bischoff@arm.com>
-References: <20260226155515.1164292-1-sascha.bischoff@arm.com>
-	<20260226155515.1164292-17-sascha.bischoff@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com, jonathan.cameron@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1vxieP-0000000GtEA-16gz;
+	Wed, 04 Mar 2026 09:36:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1772616974;
+	bh=2R7/eNnX/6fgjXow5X/hQIDpbueZctqQyMkZeUPD3Zg=;
+	h=From:Subject:Date:To:Cc:From;
+	b=gU6aUdC6kbOfvCyKVzGIJ/YbT+A+agy1LU6O9HNv865acYzDED1GDlGlo1GlUNzZs
+	 hFHNHcXGwVwaINPH2UZe3W6epkwfbQ0NDi/mmgNqnCv26bcdfHqT1y6P95+khcUM/r
+	 RS+cs3N8W+k3MZP8ermqcqBPZ3MSHNhl5I+SEDmq98Ey2Mtnsct20i1h7wBmmPho6I
+	 ECpegWJmCPKKtPLlrTFVPZ1B/lbBJf84s9CGrSHSSyPRLyq2wEB50HfkoMXyYcmZc4
+	 1eD8fuD2BwSs1cKeHNRMemITm2dy/A+OTKgYSfmNtuUKMywPBnLVvI0f9crOXMpNkU
+	 /JtFQBmErgh9w==
+Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1BE1817E0D90;
+	Wed,  4 Mar 2026 10:36:14 +0100 (CET)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Subject: [PATCH net-next 0/2] Introduce Airoha AN8801R series Gigabit
+ Ethernet PHY driver
+Date: Wed, 04 Mar 2026 10:35:27 +0100
+Message-Id: <20260304-add-airoha-an8801-support-v1-0-0ae4ee5a2f9d@collabora.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2Nyw6DIBBFf8XMupOAYH38SuNihKGyEC1gY2L89
+ 5K2y5OTe+4JiaPnBEN1QuS3T34NBeStAjNTeDJ6WxhqUd+FEgrJWiQf15mQQtcJiWnftjVmbFr
+ baE2aHFso+y2y88e3/YDAGQMfGcafifzay1n+64kSo1mXxeehYitoctwrZ6VqLJm6Vty1pEyvG
+ yHbSTrqJmdgvK4Pj9Ed7cEAAAA=
+X-Change-ID: 20260303-add-airoha-an8801-support-57d544a4afed
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>
+Cc: kevin-kw.huang@airoha.com, macpaul.lin@mediatek.com, 
+ matthias.bgg@gmail.com, kernel@collabora.com, netdev@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772616974; l=1977;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=2R7/eNnX/6fgjXow5X/hQIDpbueZctqQyMkZeUPD3Zg=;
+ b=B87Z3g8NFoaXD7nNm4y0khdWOoYUP0ZxT7XGmcxAmxVfRqLR0uhRDIQ5g80Nfsm/ij0CMbfr+
+ KPeAsHQGPYPBEo5C2/v6ECbJjUGY1JsYdwMRHa9aoqb6l8PtiaDDT37
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_013533_969871_402CB080 
-X-CRM114-Status: GOOD (  36.70  )
+X-CRM114-CacheID: sfid-20260304_013617_458978_CA805374 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,124 +95,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 26 Feb 2026 15:59:33 +0000,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
-> 
-> GICv5 is able to directly inject PPI pending state into a guest using
-> a mechanism called DVI whereby the pending bit for a paticular PPI is
-> driven directly by the physically-connected hardware. This mechanism
-> itself doesn't allow for any ID translation, so the host interrupt is
-> directly mapped into a guest with the same interrupt ID.
-> 
-> When mapping a virtual interrupt to a physical interrupt via
-> kvm_vgic_map_irq for a GICv5 guest, check if the interrupt itself is a
-> PPI or not. If it is, and the host's interrupt ID matches that used
-> for the guest DVI is enabled, and the interrupt itself is marked as
-> directly_injected.
-> 
-> When the interrupt is unmapped again, this process is reversed, and
-> DVI is disabled for the interrupt again.
-> 
-> Note: the expectation is that a directly injected PPI is disabled on
-> the host while the guest state is loaded. The reason is that although
-> DVI is enabled to drive the guest's pending state directly, the host
-> pending state also remains driven. In order to avoid the same PPI
-> firing on both the host and the guest, the host's interrupt must be
-> disabled (masked). This is left up to the code that owns the device
-> generating the PPI as this needs to be handled on a per-VM basis. One
-> VM might use DVI, while another might not, in which case the physical
-> PPI should be enabled for the latter.
-> 
-> Co-authored-by: Timothy Hayes <timothy.hayes@arm.com>
-> Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> ---
->  arch/arm64/kvm/vgic/vgic-v5.c | 15 +++++++++++++++
->  arch/arm64/kvm/vgic/vgic.c    | 10 ++++++++++
->  arch/arm64/kvm/vgic/vgic.h    |  1 +
->  include/kvm/arm_vgic.h        |  1 +
->  4 files changed, 27 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-> index 5b35c756887a9..f5cd9decfc26e 100644
-> --- a/arch/arm64/kvm/vgic/vgic-v5.c
-> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
-> @@ -86,6 +86,21 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
->  	return 0;
->  }
->  
-> +/*
-> + * Sets/clears the corresponding bit in the ICH_PPI_DVIR register.
-> + */
-> +int vgic_v5_set_ppi_dvi(struct kvm_vcpu *vcpu, u32 irq, bool dvi)
-> +{
-> +	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
-> +	u32 ppi = FIELD_GET(GICV5_HWIRQ_ID, irq);
-> +	unsigned long *p;
-> +
-> +	p = (unsigned long *)&cpu_if->vgic_ppi_dvir[ppi / 64];
-> +	__assign_bit(ppi % 64, p, dvi);
-> +
-> +	return 0;
-> +}
-> +
->  void vgic_v5_load(struct kvm_vcpu *vcpu)
->  {
->  	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
-> diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-> index 1005ff5f36235..62e58fdf611d3 100644
-> --- a/arch/arm64/kvm/vgic/vgic.c
-> +++ b/arch/arm64/kvm/vgic/vgic.c
-> @@ -577,12 +577,22 @@ static int kvm_vgic_map_irq(struct kvm_vcpu *vcpu, struct vgic_irq *irq,
->  	irq->host_irq = host_irq;
->  	irq->hwintid = data->hwirq;
->  	irq->ops = ops;
-> +
-> +	if (vgic_is_v5(vcpu->kvm) &&
-> +	    __irq_is_ppi(KVM_DEV_TYPE_ARM_VGIC_V5, irq->intid))
-> +		irq->directly_injected = !vgic_v5_set_ppi_dvi(vcpu, irq->hwintid,
-> +							      true);
-> +
+This series introduces the Airoha AN8801R Gigabit Ethernet PHY initial
+support.
 
-Huh. A couple of things here:
+The Airoha AN8801R is a low power single-port Ethernet PHY Transceiver
+with Single-port serdes interface for 1000Base-X/RGMII.
+This chip is compliant with 10Base-T, 100Base-TX and 1000Base-T IEEE
+802.3(u,ab) and supports:
+  - Energy Efficient Ethernet (802.3az)
+  - Full Duplex Control Flow (802.3x)
+  - auto-negotiation
+  - crossover detect and autocorrection,
+  - Wake-on-LAN with Magic Packet
+  - Jumbo Frame up to 9 Kilobytes.
+This PHY also supports up to three user-configurable LEDs, which are
+usually used for LAN Activity, 100M, 1000M indication.
 
-- under what conditions would irq->directly_injected not be set to
-  true for a PPI? That can never happen here AFAICT.
+The series provides the devicetree binding and the driver that have been
+written by AngeloGioacchino Del Regno, based on downstream
+implementation ([1]). The driver allows setting up PHY LEDs, 10/100M,
+1000M speeds, and Wake on LAN and PHY interrupts.
 
-- we have per-IRQ operations, and PPIs do have such ops attached to
-  them. Why can't this be moved to such a callback?
+The series is based on net-next kernel tree (sha1: ed0abfe93fd1) and
+I have tested it on Mediatek Genio 720-EVK board (that integrates an
+Airoha AN8801RIN/A Ethernet PHY) with early board hardware enablement
+patches.
 
->  	return 0;
->  }
->  
->  /* @irq->irq_lock must be held */
->  static inline void kvm_vgic_unmap_irq(struct vgic_irq *irq)
->  {
-> +	if (irq->directly_injected && vgic_is_v5(irq->target_vcpu->kvm))
-> +		WARN_ON(vgic_v5_set_ppi_dvi(irq->target_vcpu, irq->hwintid, false));
-> +
-> +	irq->directly_injected = false;
->  	irq->hw = false;
->  	irq->hwintid = 0;
->  	irq->ops = NULL;
-> diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
-> index 81d464d26534f..d7fe867a27b64 100644
-> --- a/arch/arm64/kvm/vgic/vgic.h
-> +++ b/arch/arm64/kvm/vgic/vgic.h
-> @@ -364,6 +364,7 @@ void vgic_debug_init(struct kvm *kvm);
->  void vgic_debug_destroy(struct kvm *kvm);
->  
->  int vgic_v5_probe(const struct gic_kvm_info *info);
-> +int vgic_v5_set_ppi_dvi(struct kvm_vcpu *vcpu, u32 irq, bool dvi);
+[1]: https://gitlab.com/mediatek/aiot/bsp/linux/-/blob/mtk-v6.6/drivers/net/phy/an8801.c
 
-Doing the above would keep these things private to the vgic-v5
-implementation.
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+AngeloGioacchino Del Regno (2):
+      dt-bindings: net: Add support for Airoha AN8801/R GbE PHY
+      net: phy: Introduce Airoha AN8801/R Gigabit Ethernet PHY driver
 
-Thanks,
+ .../devicetree/bindings/net/airoha,an8801.yaml     |   81 ++
+ drivers/net/phy/Kconfig                            |    5 +
+ drivers/net/phy/Makefile                           |    1 +
+ drivers/net/phy/air_an8801.c                       | 1059 ++++++++++++++++++++
+ 4 files changed, 1146 insertions(+)
+---
+base-commit: ed0abfe93fd135dac223e87a3c945017b1fa8bfc
+change-id: 20260303-add-airoha-an8801-support-57d544a4afed
 
-	M.
-
+Best regards,
 -- 
-Without deviation from the norm, progress is not possible.
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+
 
