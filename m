@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F857EB365D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 07:49:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A542CEB362F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 07:49:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3hLl3UJUe0JlUFYLj4nzIajK0L1mkr7Nq97mAHeU6ig=; b=iiSTRyOsfUlDfve458b6FdTgjn
-	hfn/NYjTY/1bWKg4y9nxN5Rb8QgMDXgZfrJidZ4eOvvwPxS6wdsG+/RVZaRa0iNAke1Wu2k8Jya8p
-	P7rCDZVH7Jw2ZJu+PUIE5Cq66Uwsk+Fihqnw2zd5FwVIvIVDEf3dJjYGIC1IovZQFbpLCIpKU0EXd
-	7cyU8Ps2aIsVqDknF0UHtjxurXq5dyfzG4+ODvOoAC8AyFL/6BJ0XVDrmhQgXX3CdphRw+of9peVF
-	dwJXBxXvQECSgY9LAXvc4jeBLN6pi7OK4TJHXUCXD1rWwB/j8Q4w1kP0FnJqFR1x++s0izUWUFTCP
-	vgBo1UiQ==;
+	bh=Hnj7NK9+EESQajO58zJziHpx6y/buUwM86V1gnS791w=; b=XWt1JRBpW0pyaXRPxDQdkGVBlu
+	peUcfq825sJkmTcXm9RdR+3uMzfzRpL3aCpKhNVtbb4iAHKhaU+9gEgngVixbTlyo3auy/0IFoMzN
+	3CCnJQVPKrdIIjviUuAN3eHeZ+JZ6IPZKYyrxyVc1Wu/YOzZTbhS5MPqKlGJREuCK3w4GRQB5Ksm+
+	mAHlNyt/uKnXp664Cm9lX565xbR7pqH2oz8bwScrUDfOElqB0LalN8Hll7xtb87dtdhzppBfCa6XJ
+	aRAm5HofuGmLVaKDW1fwhwgpkdo/yIxpU7GG8HnsQuK0EvD7uSrJwWMxXKnxEo2XLL8zFynEq6C+r
+	399MO4Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxgys-0000000GeBK-0BlR;
-	Wed, 04 Mar 2026 07:49:18 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vxgyv-0000000GeGH-3dKW;
+	Wed, 04 Mar 2026 07:49:21 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxgyo-0000000Ge71-3YJp
+	id 1vxgyq-0000000Ge8R-2mWc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 07:49:16 +0000
+	Wed, 04 Mar 2026 07:49:18 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020; t=1772610553;
@@ -34,27 +34,28 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=3hLl3UJUe0JlUFYLj4nzIajK0L1mkr7Nq97mAHeU6ig=;
-	b=L4y8/yF5PnoYaWH20duPNlNUuPV25olJfyTZyvoQzM2Pkrdt/kV7nwLSquubjcgOiGMBe/
-	6HYQdEfBDaHsoloAnaw7WCB+s+OiSv8fmyz4PJ3xgg3Ehkis0nJ2UAlG8x8dCvCxHJiy0Y
-	EF1M9cRfXPaUonbTkq5EJwU0WI3u2Jvp5B7LuE+ZYy935lepISZ1y4n/YPeNro8aNi+9sK
-	RumpVlSaCC8eGmseya6Xt4aT6ZhS7GUueRvoH16kSFW5/Qp1M7j5l6mKMLOk5e2WLN2poi
-	yrrz6PsyDoAvmLVLxEmJ7e8fSimE8NI4WgWWpzHCnvj5XpjI++AmGGHwtkpC0A==
+	bh=Hnj7NK9+EESQajO58zJziHpx6y/buUwM86V1gnS791w=;
+	b=ip/nm1XqyI7wcCjokpOSiXYv2n4lYU7fwSpV26RLy9siZObCvemuLW2RP4YD1tdRMAI0S8
+	m+pQAaNqdYQ+QygPxVgvdAGCXk+06s3gMrKpXuEh7+flyTwmqsyaD2gML2Ee/87aOwrZMe
+	rkT21vqFiQ+eSMbBUCWSEJcvY2EtBXdR+uFvI30sCEhASj3CYKT6VwpRcNe2RjqfcoevWC
+	6Gy7UfRjSV5D94MjpJ7b/NaJ4APifgGovw2Hepb7xHBR+mJW15Wwj9n+xidp4akBsLGnF/
+	6KJn/Nt73SmPkpUD52uMOGRcrLgn4rC4amrE3fxiLeEM1pUuTjpdlB5wVP4oFg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020e; t=1772610553;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=3hLl3UJUe0JlUFYLj4nzIajK0L1mkr7Nq97mAHeU6ig=;
-	b=Od0cLbs5ssx+x/GYzlkjDjWqNrc5QP65d9w7Sue9ZGGb/uWIVjksTQPxw4BV9+66XRUG+y
-	FRojMnubw0bmXJCA==
-Date: Wed, 04 Mar 2026 08:49:01 +0100
-Subject: [PATCH v6 04/14] sparc64: vdso: Link with -z noexecstack
+	bh=Hnj7NK9+EESQajO58zJziHpx6y/buUwM86V1gnS791w=;
+	b=Jt07OPnU+KT/z86+XHVkhIv4Yw0F2z4/1pj2e1Zuj+DMBO/23sXm5rdimCt979Ch6i0Lum
+	FZuSOtNue8YM41Cw==
+Date: Wed, 04 Mar 2026 08:49:02 +0100
+Subject: [PATCH v6 05/14] sparc64: vdso: Remove obsolete "fake section
+ table" reservation
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260304-vdso-sparc64-generic-2-v6-4-d8eb3b0e1410@linutronix.de>
+Message-Id: <20260304-vdso-sparc64-generic-2-v6-5-d8eb3b0e1410@linutronix.de>
 References: <20260304-vdso-sparc64-generic-2-v6-0-d8eb3b0e1410@linutronix.de>
 In-Reply-To: <20260304-vdso-sparc64-generic-2-v6-0-d8eb3b0e1410@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, 
@@ -80,18 +81,17 @@ Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
  linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
  linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
- Arnd Bergmann <arnd@kernel.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772610551; l=1503;
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772610551; l=2603;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=DbfqOziOrnW4MmYfhJif0AzTAR/TSeBQ63MMUE7Tk9k=;
- b=+70M4kqx+cEzvYJptNErQU/f7vOQKI/r3/zFKWQsNHKYEjPQcbVICMvMGCiqgVJfQ48XGAAC0
- Hr84p2bSVbQAfLf6ad70SVOi+sqV/4jj6fn2wY+ADyRA9XRnf0JNVER
+ bh=oQUOtMJuNveW+RclD59fWViVXCPJwVTHt+8MLrC6gp0=;
+ b=ONjGMauf8t71olRAN5ufRU1QPoFqmeZuj0jaVTXePVPM/+6cJ1aj+IcJKK9s9JN0YdCHpDCxu
+ e00adRtTraRBTXyKxFnAHlW8bX79J2+hczfZ7oL9CPomYAMSfq5sEXH
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_234915_035243_54B89E2E 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20260303_234916_996995_1ECD060A 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,35 +106,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The vDSO stack does not need to be executable. Prevent the linker from
-creating executable. For more background see commit ffcf9c5700e4 ("x86:
-link vdso and boot with -z noexecstack --no-warn-rwx-segments").
+When the vDSO logic was copied from x86 to SPARC some unused remnants of
+the fake section handling were copied, too. In x86 the original fake
+section handling had already been removed incompletely in commit
+da861e18eccc ("x86, vdso: Get rid of the fake section mechanism").
+On x86 the reservation was only cleaned up in commit 24b7c77bbb24
+("x86/vdso: Remove obsolete "fake section table" reservation").
 
-Also prevent the following warning from the linker:
-sparc64-linux-ld: warning: arch/sparc/vdso/vdso-note.o: missing .note.GNU-stack section implies executable stack
-sparc64-linux-ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+Remove the reservation for SPARC, too.
 
-Suggested-by: Arnd Bergmann <arnd@kernel.org>
-Link: https://lore.kernel.org/lkml/20250707144726.4008707-1-arnd@kernel.org/
 Fixes: 9a08862a5d2e ("vDSO for sparc")
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 Tested-by: Andreas Larsson <andreas@gaisler.com>
 Reviewed-by: Andreas Larsson <andreas@gaisler.com>
 Acked-by: Andreas Larsson <andreas@gaisler.com>
 ---
- arch/sparc/vdso/Makefile | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/sparc/vdso/vdso-layout.lds.S | 21 ---------------------
+ arch/sparc/vdso/vdso2c.c          |  8 --------
+ 2 files changed, 29 deletions(-)
 
-diff --git a/arch/sparc/vdso/Makefile b/arch/sparc/vdso/Makefile
-index 1a4e585c91d7..2e911ccc9db7 100644
---- a/arch/sparc/vdso/Makefile
-+++ b/arch/sparc/vdso/Makefile
-@@ -107,4 +107,4 @@ quiet_cmd_vdso = VDSO    $@
- 		       $(VDSO_LDFLAGS) $(VDSO_LDFLAGS_$(filter %.lds,$(^F))) \
- 		       -T $(filter %.lds,$^) $(filter %.o,$^)
+diff --git a/arch/sparc/vdso/vdso-layout.lds.S b/arch/sparc/vdso/vdso-layout.lds.S
+index d31e57e8a3bb..9e0804789d11 100644
+--- a/arch/sparc/vdso/vdso-layout.lds.S
++++ b/arch/sparc/vdso/vdso-layout.lds.S
+@@ -4,16 +4,6 @@
+  * This script controls its layout.
+  */
  
--VDSO_LDFLAGS = -shared --hash-style=both --build-id=sha1 -Bsymbolic --no-undefined
-+VDSO_LDFLAGS = -shared --hash-style=both --build-id=sha1 -Bsymbolic --no-undefined -z noexecstack
+-#if defined(BUILD_VDSO64)
+-# define SHDR_SIZE 64
+-#elif defined(BUILD_VDSO32)
+-# define SHDR_SIZE 40
+-#else
+-# error unknown VDSO target
+-#endif
+-
+-#define NUM_FAKE_SHDRS 7
+-
+ SECTIONS
+ {
+ 	/*
+@@ -47,19 +37,8 @@ SECTIONS
+ 		*(.bss*)
+ 		*(.dynbss*)
+ 		*(.gnu.linkonce.b.*)
+-
+-		/*
+-		 * Ideally this would live in a C file: kept in here for
+-		 * compatibility with x86-64.
+-		 */
+-		VDSO_FAKE_SECTION_TABLE_START = .;
+-		. = . + NUM_FAKE_SHDRS * SHDR_SIZE;
+-		VDSO_FAKE_SECTION_TABLE_END = .;
+ 	}						:text
+ 
+-	.fake_shstrtab	: { *(.fake_shstrtab) }		:text
+-
+-
+ 	.note		: { *(.note.*) }		:text	:note
+ 
+ 	.eh_frame_hdr	: { *(.eh_frame_hdr) }		:text	:eh_frame_hdr
+diff --git a/arch/sparc/vdso/vdso2c.c b/arch/sparc/vdso/vdso2c.c
+index dc81240aab6f..b97af5ec9f35 100644
+--- a/arch/sparc/vdso/vdso2c.c
++++ b/arch/sparc/vdso/vdso2c.c
+@@ -61,8 +61,6 @@ const char *outfilename;
+ /* Symbols that we need in vdso2c. */
+ enum {
+ 	sym_vvar_start,
+-	sym_VDSO_FAKE_SECTION_TABLE_START,
+-	sym_VDSO_FAKE_SECTION_TABLE_END,
+ };
+ 
+ struct vdso_sym {
+@@ -72,12 +70,6 @@ struct vdso_sym {
+ 
+ struct vdso_sym required_syms[] = {
+ 	[sym_vvar_start] = {"vvar_start", 1},
+-	[sym_VDSO_FAKE_SECTION_TABLE_START] = {
+-		"VDSO_FAKE_SECTION_TABLE_START", 0
+-	},
+-	[sym_VDSO_FAKE_SECTION_TABLE_END] = {
+-		"VDSO_FAKE_SECTION_TABLE_END", 0
+-	},
+ };
+ 
+ __attribute__((format(printf, 1, 2))) __attribute__((noreturn))
 
 -- 
 2.53.0
