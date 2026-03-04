@@ -4,84 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 552F7EF8FEA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 14:21:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7951AEF8FE5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 14:22:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jmevS114l3uvxzuybLYKhTgtUPCTzmqnGB9ubfDv3pc=; b=Q66GyGjNLXHYV1BTA1UNgIo9bp
-	QJItau5u92ptjp7FTh5nalK3TuhCEE5JzOtTNZmqFLIntAXDusAR8m1fpgwssC1fXXegqNOlChNdj
-	7su+m/YWvyNxyEfF+J83RrIViIgKQTmEfQk0NBlnF0EtOxdpfkGTTQCq2jclUsJ0PEUi+TlBFUHO2
-	PSMyfCLDBzILybV4I2igK+JdPj23Z+6AJ5OlcRp/YS8GMgS4vrQ/pIPB9UrP0pR/vvPmn8U9KwEWk
-	7YMo/SHrkfG+EEjCLEBMKnZeupMZVlukTqt7HhlkGnljyGE0S4sR1QpJUnAfW7gbSpGUEF5rTPwf/
-	oSuH0hzQ==;
+	bh=AsHF1E5fpWJM63LeJ0TEjWwEk2jADMZzmvlLflpXUCA=; b=KId7LqW8RgIvOezgzLb3vpsKZ+
+	dSain6xTfcgYSjVj6A2WAnKuXOSlSU/65iujNTWafGpxpI2nyMn4hmXU77kvEoRca+e3/azECiQZ0
+	cd+NkAfMK/LyURxjadXEmaOki41B4b2vdiG3CMwRwrM9YPoEnBJuPNADw6dyy9ZN2RvZRfk3/hNgd
+	Wu+BqTwNlf2bs27gEHZdApypYYYHCdM38XZFDAQEU3kNiuSJ6L6+Ym5FnaHOhWyhGANMWBTqYUW2u
+	QvPIhJ+8cQZhYgFhaTQDz+stihljISLtIqbKNlfrN1W0LfJTBwwmeSvHrDVYTUykmrToaA6MQ3cyG
+	manaSZIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxn66-0000000HO3u-3OGL;
-	Wed, 04 Mar 2026 14:21:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vxn7W-0000000HOHR-2mdY;
+	Wed, 04 Mar 2026 14:22:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxn65-0000000HO3k-2T1z
+	id 1vxn7V-0000000HOH9-395t
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 14:21:09 +0000
+	Wed, 04 Mar 2026 14:22:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7F612600AD;
-	Wed,  4 Mar 2026 14:21:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CDD0C4CEF7;
-	Wed,  4 Mar 2026 14:21:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0C9946057A;
+	Wed,  4 Mar 2026 14:22:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44CDCC4CEF7;
+	Wed,  4 Mar 2026 14:22:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772634068;
-	bh=boCSUpadjNJNnBd+r191VSM+8Ky/O0cRPsC0IO4saYU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=R20nAC0yeVJzK9Guh6BogLMj/jwXHQFDlA9yPMyfnX1q/UtumpUMYU2CF01AjRPGP
-	 2U3vEx0+vXRyw69akcUz2Flrf3hI7xKBzyWb+VG6fvKz20YbRUTIvF3kQsN0baG48t
-	 VXmsFdEesMZ6nbfGd/xoo/GYdwWk9FtdxGH4jTi3DgeC/O53SVbCj6bB2uelyITdlH
-	 ySN+qWm6MwpUTykI3u8L9wEmqdtvKf+4KPoiSGqdcvTzFLYSb/osf7jnBkfWdO6nMd
-	 irCDsozjCSQE+lf2aNjIe54MbadcGZUVoPhgBrkpIJqVCmwJ/+isE3tHVrEWmP8VF9
-	 s1H4D1lQIBZjg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vxn61-0000000G4PP-2uwK;
-	Wed, 04 Mar 2026 14:21:05 +0000
-Date: Wed, 04 Mar 2026 14:21:05 +0000
-Message-ID: <86zf4n7k1a.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly
-	<Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>,
-	"jonathan.cameron@huawei.com"
-	<jonathan.cameron@huawei.com>
-Subject: Re: [PATCH v5 20/36] KVM: arm64: gic-v5: Init Private IRQs (PPIs) for GICv5
-In-Reply-To: <20260226155515.1164292-21-sascha.bischoff@arm.com>
-References: <20260226155515.1164292-1-sascha.bischoff@arm.com>
-	<20260226155515.1164292-21-sascha.bischoff@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com, jonathan.cameron@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1772634156;
+	bh=XKm6moUyJlXTOOVZmPNeLBVPA2JMRFGrzzFR2xdojII=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Icj4syoo9HIw5PdWpFz83ztd/Ejz3d/63vXqNdecYSQuq6dV5ZLsI9B1IgU3ECLCx
+	 Z0Ii2xnYl3585A7+ZmDnSniEuzEZ51yazRESvS+OWetHv1y+X3xQm6b3Zfj2ns6ipC
+	 m85blEzI12GXzVcRGR6jmBsYcJZhESBKwG8VGF9/fbpCKwQ4Z2y0fctvdcEh4UaJkW
+	 oVRRd2zN2BGNhBBch35/hTT8St+5vnnxtifDOG3Zgj/yHO+rYXTgbU2m/rptfetO9f
+	 7w0xFp6mE/XoZP0IZX6Low9M8aWC8oqS0uj1Go7P3MTzZOIeJATPB9t9j6nV/FEUcL
+	 PRmEHIMbbCeGg==
+Date: Wed, 4 Mar 2026 19:52:24 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Aksh Garg <a-garg7@ti.com>
+Cc: linux-pci@vger.kernel.org, linux-doc@vger.kernel.org, 
+	bhelgaas@google.com, corbet@lwn.net, cassel@kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, s-vadapalli@ti.com, danishanwar@ti.com, srk@ti.com
+Subject: Re: [RFC PATCH 0/4] PCI: Add DOE support for endpoint
+Message-ID: <26wdt7pasned57ghi6jxgei2ho5akhmlwpycihygd77j5hwne3@tponymt2vudp>
+References: <20260213123603.420941-1-a-garg7@ti.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260213123603.420941-1-a-garg7@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,244 +70,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 26 Feb 2026 16:00:36 +0000,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+On Fri, Feb 13, 2026 at 06:05:59PM +0530, Aksh Garg wrote:
+> This patch series introduces the framework for supporting the Data
+> Object Exchange (DOE) feature for PCIe endpoint devices. Please refer
+> to the documentation added in patch 1 for details on the feature and
+> implementation architecture.
 > 
-> Initialise the private interrupts (PPIs, only) for GICv5. This means
-> that a GICv5-style intid is generated (which encodes the PPI type in
-> the top bits) instead of the 0-based index that is used for older
-> GICs.
+> The implementation provides a common framework for all PCIe endpoint
+> controllers, not specific to any particular SoC vendor.
 > 
-> Additionally, set all of the GICv5 PPIs to use Level for the handling
-> mode, with the exception of the SW_PPI which uses Edge. This matches
-> the architecturally-defined set in the GICv5 specification (the CTIIRQ
-> handling mode is IMPDEF, so Level has been picked for that).
+> Posting this as an RFC patch series to get feedback on the design and
+> implementation.
 > 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> ---
->  arch/arm64/kvm/vgic/vgic-init.c | 39 +++++++++++++++++++++++++--------
->  1 file changed, 30 insertions(+), 9 deletions(-)
+
+Just left some comments inline. In the next non-RFC version, please post the
+EPC and handler changes as well.
+
+It is OK if you can post them separately so that we can merge the common bits
+first.
+
+- Mani
+
+> Aksh Garg (4):
+>   PCI: Add documentation for DOE endpoint support
+>   PCI/DOE: Move common definitions to the header file
+>   PCI/DOE: Add DOE mailbox support for endpoint functions
+>   PCI: Document APIs for endpoint DOE implementation
 > 
-> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-> index d1db384698238..e4a230c3857ff 100644
-> --- a/arch/arm64/kvm/vgic/vgic-init.c
-> +++ b/arch/arm64/kvm/vgic/vgic-init.c
-> @@ -254,14 +254,20 @@ static int vgic_allocate_private_irqs_locked(struct kvm_vcpu *vcpu, u32 type)
->  {
->  	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
->  	int i;
-> +	u32 num_private_irqs;
-
-uber-nit: things look better like this:
-
-	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
-	u32 num_private_irqs;
-	int i;
-
-I know, that's silly. I'll take my pills shortly.
-
->  
->  	lockdep_assert_held(&vcpu->kvm->arch.config_lock);
->  
->  	if (vgic_cpu->private_irqs)
->  		return 0;
->  
-> +	if (vgic_is_v5(vcpu->kvm))
-> +		num_private_irqs = VGIC_V5_NR_PRIVATE_IRQS;
-> +	else
-> +		num_private_irqs = VGIC_NR_PRIVATE_IRQS;
-> +
->  	vgic_cpu->private_irqs = kzalloc_objs(struct vgic_irq,
-> -					      VGIC_NR_PRIVATE_IRQS,
-> +					      num_private_irqs,
->  					      GFP_KERNEL_ACCOUNT);
->  
->  	if (!vgic_cpu->private_irqs)
-> @@ -271,22 +277,37 @@ static int vgic_allocate_private_irqs_locked(struct kvm_vcpu *vcpu, u32 type)
->  	 * Enable and configure all SGIs to be edge-triggered and
->  	 * configure all PPIs as level-triggered.
->  	 */
-> -	for (i = 0; i < VGIC_NR_PRIVATE_IRQS; i++) {
-> +	for (i = 0; i < num_private_irqs; i++) {
->  		struct vgic_irq *irq = &vgic_cpu->private_irqs[i];
->  
->  		INIT_LIST_HEAD(&irq->ap_list);
->  		raw_spin_lock_init(&irq->irq_lock);
-> -		irq->intid = i;
->  		irq->vcpu = NULL;
->  		irq->target_vcpu = vcpu;
->  		refcount_set(&irq->refcount, 0);
-> -		if (vgic_irq_is_sgi(i)) {
-> -			/* SGIs */
-> -			irq->enabled = 1;
-> -			irq->config = VGIC_CONFIG_EDGE;
-> +		if (!vgic_is_v5(vcpu->kvm)) {
-> +			irq->intid = i;
-> +			if (vgic_irq_is_sgi(i)) {
-> +				/* SGIs */
-> +				irq->enabled = 1;
-> +				irq->config = VGIC_CONFIG_EDGE;
-> +			} else {
-> +				/* PPIs */
-> +				irq->config = VGIC_CONFIG_LEVEL;
-> +			}
->  		} else {
-> -			/* PPIs */
-> -			irq->config = VGIC_CONFIG_LEVEL;
-> +			irq->intid = FIELD_PREP(GICV5_HWIRQ_ID, i) |
-> +				     FIELD_PREP(GICV5_HWIRQ_TYPE,
-> +						GICV5_HWIRQ_TYPE_PPI);
-> +
-> +			/* The only Edge architected PPI is the SW_PPI */
-> +			if (i == GICV5_ARCH_PPI_SW_PPI)
-> +				irq->config = VGIC_CONFIG_EDGE;
-> +			else
-> +				irq->config = VGIC_CONFIG_LEVEL;
-> +
-> +			/* Register the GICv5-specific PPI ops */
-> +			vgic_v5_set_ppi_ops(irq);
->  		}
->  
->  		switch (type) {
-
-That's another point where I'd rather have structural changes to the
-code, moving the SGI/PPI init to their own helper:
-
-diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-index 7df7b8aa77a69..0a2468fef86c6 100644
---- a/arch/arm64/kvm/vgic/vgic-init.c
-+++ b/arch/arm64/kvm/vgic/vgic-init.c
-@@ -262,6 +262,66 @@ int kvm_vgic_vcpu_nv_init(struct kvm_vcpu *vcpu)
- 	return ret;
- }
- 
-+static void vgic_init_private_irq(struct kvm_vcpu *vcpu, int i, u32 type)
-+{
-+	struct vgic_irq *irq = &vcpu->arch.vgic_cpu.private_irqs[i];
-+
-+	INIT_LIST_HEAD(&irq->ap_list);
-+	raw_spin_lock_init(&irq->irq_lock);
-+	irq->vcpu = NULL;
-+	irq->target_vcpu = vcpu;
-+	refcount_set(&irq->refcount, 0);
-+	irq->intid = i;
-+
-+	/*
-+	 * Enable and configure all SGIs to be edge-triggered and
-+	 * configure all PPIs as level-triggered.
-+	 */
-+	if (vgic_irq_is_sgi(i)) {
-+		/* SGIs */
-+		irq->enabled = 1;
-+		irq->config = VGIC_CONFIG_EDGE;
-+	} else {
-+		/* PPIs */
-+		irq->config = VGIC_CONFIG_LEVEL;
-+	}
-+
-+	switch (type) {
-+	case KVM_DEV_TYPE_ARM_VGIC_V3:
-+		irq->group = 1;
-+		irq->mpidr = kvm_vcpu_get_mpidr_aff(vcpu);
-+		break;
-+	case KVM_DEV_TYPE_ARM_VGIC_V2:
-+		irq->group = 0;
-+		irq->targets = BIT(vcpu->vcpu_id);
-+		break;
-+	}
-+}
-+
-+static void vgic_v5_init_private_irq(struct kvm_vcpu *vcpu, int i, u32 type)
-+{
-+	struct vgic_irq *irq = &vcpu->arch.vgic_cpu.private_irqs[i];
-+
-+	INIT_LIST_HEAD(&irq->ap_list);
-+	raw_spin_lock_init(&irq->irq_lock);
-+	irq->vcpu = NULL;
-+	irq->target_vcpu = vcpu;
-+	refcount_set(&irq->refcount, 0);
-+
-+	irq->intid = FIELD_PREP(GICV5_HWIRQ_ID, i) |
-+		FIELD_PREP(GICV5_HWIRQ_TYPE,
-+			   GICV5_HWIRQ_TYPE_PPI);
-+
-+	/* The only Edge architected PPI is the SW_PPI */
-+	if (i == GICV5_ARCH_PPI_SW_PPI)
-+		irq->config = VGIC_CONFIG_EDGE;
-+	else
-+		irq->config = VGIC_CONFIG_LEVEL;
-+
-+	/* Register the GICv5-specific PPI ops */
-+	vgic_v5_set_ppi_ops(irq);
-+}
-+
- static int vgic_allocate_private_irqs_locked(struct kvm_vcpu *vcpu, u32 type)
- {
- 	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
-@@ -285,53 +345,11 @@ static int vgic_allocate_private_irqs_locked(struct kvm_vcpu *vcpu, u32 type)
- 	if (!vgic_cpu->private_irqs)
- 		return -ENOMEM;
- 
--	/*
--	 * Enable and configure all SGIs to be edge-triggered and
--	 * configure all PPIs as level-triggered.
--	 */
- 	for (i = 0; i < num_private_irqs; i++) {
--		struct vgic_irq *irq = &vgic_cpu->private_irqs[i];
--
--		INIT_LIST_HEAD(&irq->ap_list);
--		raw_spin_lock_init(&irq->irq_lock);
--		irq->vcpu = NULL;
--		irq->target_vcpu = vcpu;
--		refcount_set(&irq->refcount, 0);
--		if (!vgic_is_v5(vcpu->kvm)) {
--			irq->intid = i;
--			if (vgic_irq_is_sgi(i)) {
--				/* SGIs */
--				irq->enabled = 1;
--				irq->config = VGIC_CONFIG_EDGE;
--			} else {
--				/* PPIs */
--				irq->config = VGIC_CONFIG_LEVEL;
--			}
--		} else {
--			irq->intid = FIELD_PREP(GICV5_HWIRQ_ID, i) |
--				     FIELD_PREP(GICV5_HWIRQ_TYPE,
--						GICV5_HWIRQ_TYPE_PPI);
--
--			/* The only Edge architected PPI is the SW_PPI */
--			if (i == GICV5_ARCH_PPI_SW_PPI)
--				irq->config = VGIC_CONFIG_EDGE;
--			else
--				irq->config = VGIC_CONFIG_LEVEL;
--
--			/* Register the GICv5-specific PPI ops */
--			vgic_v5_set_ppi_ops(irq);
--		}
--
--		switch (type) {
--		case KVM_DEV_TYPE_ARM_VGIC_V3:
--			irq->group = 1;
--			irq->mpidr = kvm_vcpu_get_mpidr_aff(vcpu);
--			break;
--		case KVM_DEV_TYPE_ARM_VGIC_V2:
--			irq->group = 0;
--			irq->targets = BIT(vcpu->vcpu_id);
--			break;
--		}
-+		if (type == KVM_DEV_TYPE_ARM_VGIC_V5)
-+			vgic_v5_init_private_irq(vcpu, i, type);
-+		else
-+			vgic_init_private_irq(vcpu, i, type);
- 	}
- 
- 	return 0;
-
-Thanks,
-
-	M.
+>  Documentation/PCI/index.rst      |   1 +
+>  Documentation/PCI/pci-doe-ep.rst | 297 ++++++++++++++
+>  drivers/pci/Kconfig              |  14 +
+>  drivers/pci/Makefile             |   1 +
+>  drivers/pci/doe-ep.c             | 671 +++++++++++++++++++++++++++++++
+>  drivers/pci/doe.c                |  11 -
+>  include/linux/pci-doe.h          | 107 ++++-
+>  include/linux/pci-epc.h          |   4 +
+>  8 files changed, 1090 insertions(+), 16 deletions(-)
+>  create mode 100644 Documentation/PCI/pci-doe-ep.rst
+>  create mode 100644 drivers/pci/doe-ep.c
+> 
+> -- 
+> 2.34.1
+> 
+> 
 
 -- 
-Without deviation from the norm, progress is not possible.
+மணிவண்ணன் சதாசிவம்
 
