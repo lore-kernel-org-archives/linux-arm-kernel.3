@@ -4,168 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04DBAEB7ED3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 11:35:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F207EB7ED3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 11:35:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Mb1k+uODIgtTD9ggaAVZagwJ9EPWaw3XkVMaESWInnk=; b=lMcIZLEyuuWyOZkCZXCxysWE9Y
-	nCVU6yHeYHOkV4aXA+KnjO2q6xDxVz2Hho7Qi6yfrw8HxzUbJUr94/AVAwvSko1hom4JA1cDoQsqe
-	DMF37W4e1PYzYTmsPwo18LYzN/4TSDOmVVI+Td13WN1eqCBNaLAanhoDhWW/ELDO1DaCWJJQkkHuY
-	cYFA+EanhfaGZ62PF2HHG7sLXgzG2NO1/vyTYkIj4A/I1tw4k8AZemd6lig7eGJ7dOrzce2tpa92V
-	WfdZ5lWE+wGy4E25ieix6KSW7H/etBnbDNt3iKxgb2ixDF8naEfhb+W77OUkHJaEO0Wr+YEX189ps
-	JFGRnYHg==;
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+SvoUIV1vrrnj54TCf/SH4TMhaZacQZY+lg/xaNaxyE=; b=Q18UuUa+cqWBBjANqPs4JIxJGI
+	YhAPe+hmDLJzk/kH3NKi8puczArxpumW6DSWKlWQdRvhM6orSDLlX/X+t9ollL3dApffcyrgMVNM8
+	q+9nSa8P6H9KYQMAXLBGf53sp3n4OqwnD9Jwgfkbg52fLaiFcBHKkzAzRqbOG+8CRMVQTNxLzdQ9n
+	/XQJHiWcRrvtZ219VOVN7+gcZMj42Tk8zN9xJUAA30MRxRwQCL+usP1ugJ8MFd5xkBFP5nQmswpiB
+	d2G5wBru7KLRHwSZ6bNv+XQ61SGB7ulM27JxaAj6BVrqQSCbwt3pNliI2Rs9Y2dRCGOXgxFB/15Sc
+	iFmh613Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxkVE-0000000H6E9-3Be5;
-	Wed, 04 Mar 2026 11:34:56 +0000
-Received: from mail-northeuropeazon11012049.outbound.protection.outlook.com ([52.101.66.49] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1vxkVK-0000000H6HC-1SdZ;
+	Wed, 04 Mar 2026 11:35:02 +0000
+Received: from mail-northeuropeazon11012065.outbound.protection.outlook.com ([52.101.66.65] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxkVC-0000000H6Bf-00lK
+	id 1vxkVI-0000000H6F8-1QgT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 11:34:55 +0000
+	Wed, 04 Mar 2026 11:35:01 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QzwTW2WMjztXbtbpCwZLeDqZjYupyshSshqurxEcXFuFz9GXr4UfpcrnDd8Y9zfSD+weiRpZ9/M7NH76QL89Cgc+mF6sWaeW4+Z4mG35DsG8/MaYMw8I/mrZWc1M02cls0ZdWiw8VNR3gXYqKCIAWNGvrTMxb0PjvJpAS1iCQ8RTX8EqrMHFLuVI8aUjqLP+G9RIIAs7SWyjscJuKWONoX+xSqypuz9HY2Dip9hQVKnjfgm1zDkjsTfSm7CJqsPoyifz/M82cTbDyqc833JhkdZ0LkXM5mV7SSG4G56DUfrgrhnkcZjZZxTGEWkH7keRuwkbPqblGSGF3CiLD8DzKw==
+ b=YRvpPQOBHxf62XNAWxotFRRyZgQGs+MuKhgUdSxxWx1UVrYoSG0iP+CDcLLru8g8voWc+JTQrZiMylyCJsdMPnck4lEJos0tmQ0aTHgmvWCQFyA+Vut5dl3hcGRaY+4mzuSOR3r9Xcab5OfEGnQ1HM6ekJvyV7BkYzdu9obOAXXOO/4x9MfoU4MbOQFf5tyIRHf8wwYe9qrPUG1WeQ1eAAqo5baQPHOiwdDBAlMRrm73Hxnsm9iFNp55ruVMoyCB0Pi2zRr9GP9fxunbrCw7SXpZ2tseuFgB3ufFmkL5/hyVExG0T+hWdUFs8We3PwePeG8o16Ql2h9xD5n6N1lH8A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Mb1k+uODIgtTD9ggaAVZagwJ9EPWaw3XkVMaESWInnk=;
- b=r+yOIVQfcGUU18Krfcz/eaXFY2AVuXxvd42Ll7+AD51shbICPrNCjRKbw/2pY2zY0LWdM4p0XDtXctnsCltPUxCq67xFY9JHdGOL7/60ihBWdg3Sg/wG2N60cvCtTNes7Iw1i4G2to5CLLMybpIGoA2urh8Aid8u2UQp5iPF+dQ12/okZDk+F0Rae/0yodpUA29KMw63NWZJZC0QSYZK999//oIl/B8iCg7QoIt2Id7yyoK54c4VII0c3MLwDLO8a3JYJmFN2luELhW9XMtXbMqx6yAdeWAMxLerH4hC6c5cB+uNKXNIjX4Lb4FNVxkR57UgdiNpmBcxtKkG+jLStA==
+ bh=+SvoUIV1vrrnj54TCf/SH4TMhaZacQZY+lg/xaNaxyE=;
+ b=SPsRrl3ouCsiXT++bZVBfvS/9YGHzOW2WW5w6dNUI3Xyly0SJ1+h5iFeh1TjkHePN7KusJUFFqKWqbzKTvFL3H1hGPXNGbWpLgH+ZFacLJ4yhspW7uxnb8fWxAiqaYpaRvFuyL36RqD333SpkrCW1ZWDMHX9yJrkd+fKZ6dADwPXseCkoWPDKO8B311XiqRZO3ZrP3uSgAeORcgmAAAicDgsdCoUTf3H/Wi87HNQeaYW23bRHdMTP5c6RhCYyUHnsD2l0GurgK/Fy2sambwIc6iU15/CWgCricV6cqOOcxGzKjXcqCH7a7h7V1njihTKdfaIfvZzrt5x371azh6jpg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Mb1k+uODIgtTD9ggaAVZagwJ9EPWaw3XkVMaESWInnk=;
- b=qSRCZFnQdi7ep/JpRadzurVqyLiwz6yz5tn1UMzrrT2qGdP9ltrJ2v3PYc4pEHdDlndEsodDPKCBVyKo0NGzfvahOBHw591ml4w9LNyGn6VTOV4UVtcShK/xIhzbBmIZA6uqIkxA7PnPFRdDU4m0medO3jZS02JX1p6a0trPqeduY/byhi/ZUx5KeTIAB0a2RqckSQx2Qm7HNKqfTLVGApkLgSr8dlRYZFn50o4Ky0f3M3jNUPfLv5Yu1RyYpuPlUohkzV30RBeo5qRzIK9NdHJK0R2P2lhFAHs9VMVkw0HAU9apjp6GdNHHcaaCuk+oXWnlfT6tMvpflF5+u50K6Q==
+ bh=+SvoUIV1vrrnj54TCf/SH4TMhaZacQZY+lg/xaNaxyE=;
+ b=BMPLsKdeKjuH+5wrNNFnR6q1M3vaW50ERQ9YerBFGr/mZ/BewcbMdWHC6lLkU8ckvzwqQLkPA4Gud4E2l2I6oupfGuuwrfASHMpJb5T0E3iRTIIrlGA8HsAi12JjpvD0sKXU6kLvI3szZXwIaa/wv1phmsnupemKkbRAFaEsmC4L8sLG5qqSZxwLNwjqnsVxPRYFyFSmi7J7nKi/2EDckwDKZNNlawqCpAK0WzXiFD1xd+hTqrB05n6sghcHzg7ezGuS/UzEi57Zao/A+w6NSKNrDbJ7TSjOLCirPhfc9Hcs/1rhB8XctbnfzHEplKKdwSd3xtipLaJgFEBkJuVonw==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from GV1PR04MB9135.eurprd04.prod.outlook.com (2603:10a6:150:26::19)
- by AM0PR04MB7188.eurprd04.prod.outlook.com (2603:10a6:208:192::13) with
+ by GV1PR04MB10522.eurprd04.prod.outlook.com (2603:10a6:150:1ce::8) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Wed, 4 Mar
- 2026 11:34:43 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.17; Wed, 4 Mar
+ 2026 11:34:54 +0000
 Received: from GV1PR04MB9135.eurprd04.prod.outlook.com
  ([fe80::3826:2706:1e81:c9e2]) by GV1PR04MB9135.eurprd04.prod.outlook.com
  ([fe80::3826:2706:1e81:c9e2%5]) with mapi id 15.20.9654.022; Wed, 4 Mar 2026
- 11:34:43 +0000
+ 11:34:54 +0000
 From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
 To: imx@lists.linux.dev,
-	Abel Vesa <abelvesa@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Frank Li <Frank.Li@nxp.com>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Marek Vasut <marex@denx.de>
+	Fabio Estevam <festevam@gmail.com>
 Cc: dri-devel@lists.freedesktop.org,
 	Ying Liu <victor.liu@nxp.com>,
 	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Francesco Valla <francesco@valla.it>,
-	linux-clk@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v8 0/9] Add support for i.MX94 DCIF
-Date: Wed,  4 Mar 2026 11:34:09 +0000
-Message-ID: <20260304-dcif-upstreaming-v8-0-bec5c047edd4@oss.nxp.com>
+Subject: [PATCH v8 4/9] dt-bindings: display: imx: Add i.MX94 DCIF
+Date: Wed,  4 Mar 2026 11:34:13 +0000
+Message-ID: <20260304-dcif-upstreaming-v8-4-bec5c047edd4@oss.nxp.com>
 X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20260304-dcif-upstreaming-v8-0-bec5c047edd4@oss.nxp.com>
+References: <20260304-dcif-upstreaming-v8-0-bec5c047edd4@oss.nxp.com>
 Content-Type: text/plain; charset="utf-8"
-X-Change-ID: 20250911-dcif-upstreaming-3e16d89c3385
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR2P281CA0182.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:9f::10) To GV1PR04MB9135.eurprd04.prod.outlook.com
+X-ClientProxiedBy: AM8P191CA0020.EURP191.PROD.OUTLOOK.COM
+ (2603:10a6:20b:21a::25) To GV1PR04MB9135.eurprd04.prod.outlook.com
  (2603:10a6:150:26::19)
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV1PR04MB9135:EE_|AM0PR04MB7188:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8c7fab20-d55c-437e-f1db-08de79e207d2
+X-MS-TrafficTypeDiagnostic: GV1PR04MB9135:EE_|GV1PR04MB10522:EE_
+X-MS-Office365-Filtering-Correlation-Id: bd76fd06-dc9a-4d26-5106-08de79e20e65
 X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|376014|7416014|921020;
-X-Microsoft-Antispam-Message-Info: 54t52vr3FzQc9bVbOzO9DtdpSPO2taVGWiIfh3667IhaQFEkN0NSl8zn2OhS1CstmQ0aZIfT++xWQX9JzzO4iaE6IoKKSxTgPebOj5B3s+Nu7VIUDQMqEEYls1c9rb9wogiSYuZqKQCElqHVjlnY4UblmAzbz1sEkn3N6TEwuqX4xBtZ7nOZmurSlEoJPLbjj+/JVVXCE+CFc6qd53aiewB3NXqUx1iWaJoiYWwhU7uTn5PQNenyY94RwO+1f65yJpqikniEJ/qP+pcukEcT86v+bzDMfyKtzGxO7UTYGApm8gL3prZom94CBoqnnXFiOSH+FwrrqoCFE/4S464nm5NjgjJYiG9gC3UgJbzgvn3ZY5s9ZxotXpA2Jm18GlabmYmpwd7tu4jkevUVscfL+3cer9L8EJlP9IZmRfQa711z3BaynvpLT+bR+JelRTCSwaEHACvaZSGe5eQVMdwaW0/HhuwLx5uY2dz1cVAciSsz4KciB1PgBQRH7WXMVw9SceIi84N3jmq3x9zf9kTK185iD9zYsj8jIIyGPqFNWFI/rGnkoSi2AtLw2S1dZMOXOv/x3GS9xaShV1ERHpYAxofQK7il/TXWGjzfP8MnoUtPHrUdRx4ovsyAgLn4XWsnt9uWXLAVHUs33GUJfOBADPepkxke7TKASDNT4jjaVCvbzo/nOG8iAa5XfQSQLSOt+/GgUebEyVrWeMpRLoE/sAnvrwa20EWmnaKdKgigZvjUzMq3SROZi/2OLJZUQ3snKDuFWWgWR9SoVyiduUSp8RKCKUm3+EyCBXZ97suuWB8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR04MB9135.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(376014)(7416014)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|19092799006|376014|366016|921020;
+X-Microsoft-Antispam-Message-Info: I9RiuGOvlnXgOMymv/kG5ruQ8MKBq7zJBuq/7gxxTOhsJOR3zXJnBRpRpwpCmA9PpaxF39tml5tbTvOp2S21XMXl+/EhNNaJbZp1ncl5lxcMoC4sjUSGDeIKrsvEC6AKuVfg8lJoBb8w5ge0gBHsmuyzr4IACljr/l6HDgCMbFdQAEiYQjukLBHhePFKgbA0bXzV/XXnJJkd3YmJXFZJUGh1maX2LSTR6fNdZM8juwVM5UbVnFG5mMIJUsUlpHARCtmRuQJGvpdreokrS+ZmGeng2oLc4jsWaitIOmnTlSnzp1U81U/U4iVYS5a8wjEfk3LFPJNDfLK6S47e+CboI97a463OTPG//UXef7BBGCCxriAjyzBtVyybHabA+LvK1x/kzmChn9DqXpStEEbtHq8izRITZpTdl8lVf2E7YP08FTWBsePlWNG89xH6ShWRyon2VIQ9fgIPIIzzLz0Wx7FcxlyL8FLpVIZv6PFK+2nbhIYWWCoKVop66cy1NC4N+cApaeCANJma0D/DmVgLC/GLtlttphre/mBS6YyHYNwVsHoyUMg1kbTtoC4reP7EcW74pfth1ZDjfTBw3+qJRihbX54kU8nImKOz3ICWmga5adkCdDmEKDT4roGPUQBPyG5ilg8kR1eQC5SpzEXY/nhAbPEjpSmXpQmsS/n2CUtomvtC6zCBEJNMcIkgqxUUGOQ/yKW1NrWgH/uAEchoZ4sXy7NOTKwpNxfZlRNLsxDeLQkIDrXjre/MA5EmhBy1
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR04MB9135.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(19092799006)(376014)(366016)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?V0MxV3N5S1cvMnZEUlJUR3NZOThNUVQ4YUJNbCs4ZXoxT0lKR0pHZzYxcDhq?=
- =?utf-8?B?bEF3eUF1Q05jZGRmeDMya3gvWUxINllMKzhzd1lIYXpEQ0VxekdEVkVucXZP?=
- =?utf-8?B?RDNmUnFSWTVOMWZXcXRwQmxrR0pkNTQ2RSs5anhTZjVRNEhMTXpHdUNPQ2s1?=
- =?utf-8?B?R1RKWUZITXFnWVEwdndwU1d3b0xlbTNhdTdnNEs2RHFESWpCRFpqcVF2dU4z?=
- =?utf-8?B?VGFVN2RVTE1mZTZkZjlZcjdTR2xUWEVJTlZ6WWVraDR6aGJkeXlFSTM1VG1n?=
- =?utf-8?B?RWc1VUdnWER3d2F5WXNRTjRxZkNCcWRuV1IwelVpT0JRRy9QYlpQb0lhcHUx?=
- =?utf-8?B?V0FEYVh6UzRFUlZVbTlSck94WVd1N05rM1AzT3ZuWHVOZlZtMmtKU0I2eE9R?=
- =?utf-8?B?UEtTeSttK1Q1R2VTc0tIM1NyV2xPZlRKY1VDR3BGaW54TWtYUmpOS25GdmlF?=
- =?utf-8?B?S3R2ME5kbWI2aG1ZUktrYm56d1lMNmNkS2FxWWdPYUY4Tk16VnhBNUQwakF3?=
- =?utf-8?B?QWRab082OWUvakpqbmxRa0R1QVA4WGFuOW1QZllRYWJQSjlZM3BYWEgzeExY?=
- =?utf-8?B?a0JNTGVmYStoeHdTTkMrTHVobm1oM3h4SWd3TlljcEpFNGcyckNrZ0E1bDFY?=
- =?utf-8?B?SktBRi8vZ0w2eU1Bd2NuZUhhcjNwbVZLV1Nhd0lhdE1oUDkvMlV3N0tjdXhX?=
- =?utf-8?B?VG8rWTEwWUVlRm9sMW1DWG5xT3VvTkR5cHpWTVpTdk8vOVByenhiZi9PeWN1?=
- =?utf-8?B?SUo3bnhkb3FUSk1DVXc2Y0JmRDV1SGkyMUsxWjVsZkpIanlxeHlubzVQZnR4?=
- =?utf-8?B?blhmbDZsMXNuYTZxQWM5Q0tqNFFzVEhDREp5U0tkcnZJdGFXNmFuR3BBM3Ju?=
- =?utf-8?B?czFoVFRlclBRRldNKzBaWEdZK2NtSmZSbDhKWXFiTG0xeFVveUlWeXp2RW10?=
- =?utf-8?B?QndNYXNrZUU3Q2tvaGV5Mm5TUGFnSllKajRmeEVqZE82M0xlUmt2LzVEMm91?=
- =?utf-8?B?aEZaYUJWRFN2dDJoK1RXekNzNHNtNElmSlBuN3d6YncyNzlYR2NYRExXa1pr?=
- =?utf-8?B?T3dYYXdHTFJxaWp4SkRoMDgxNmp3QkMwYzkrRnJ5V00zUndHdmNaeGJNaTFz?=
- =?utf-8?B?U0VaTlVvaWFpQWVHd2xoQnhTdHpDeEkweTdDbXRHRUhhcC9UQUFqL2gzMzlv?=
- =?utf-8?B?ZUtOUVZ0R3FVYnBNaXFvNDFqajRTNXpVU1NQWTdqSWtibklLZFpwWW9RSUpW?=
- =?utf-8?B?WWNDSVcvK0VnaytEVGNDQk5mOTdoMkNYWVF1b2QzbHNXM0pHeGdsdGN0WWNJ?=
- =?utf-8?B?YlZwU2ZGdlJMeFY0Y0RpTmFzcGg5NlNuNHpzRVRKTldiNmpnR1JabVJPdXRB?=
- =?utf-8?B?dExPb1J5ZTZrdU9za3AwM2swZHltdG9taVorMjh6UjBCVVBTQnk3MDhoVmtI?=
- =?utf-8?B?UTJOd2UwaFBTenZBSTBwMysrakV4US9tWjYzVG5BeFpTdTlNUVF2SUIyeGdG?=
- =?utf-8?B?MTF2UERxenNHNkt1S2h0Q3g5U1YwNFAzWjlEM2sxTThFb0hZdTc2eVRKS3Az?=
- =?utf-8?B?b0JXRDNhUjNBQ0UwTFR4UlV3NlNsRWJrTEE5SEpDWUNnWXFkUHQzZWZMQURF?=
- =?utf-8?B?L0lzQXFzNVpMKytYM0JEcERyc1BGOVBzNUhKQ1p1QzI4WmRyenRueU1meVNY?=
- =?utf-8?B?MXdDazZmTFQ1dG12aWxiUDcwNmR5cGJ2U0dFVEdjYVptcmlvNTcyOFZQU1VY?=
- =?utf-8?B?VXptQkRsZzA3UzJKY0JFdVB1TllrbmtDMnBVOGw2UjVYQ0RQVkdIN2dlOTNH?=
- =?utf-8?B?OFVqdG5mVjZaQkJBdDdQK29GUlV2UzU3TVBmYXQxd0M4VVgrSTQzQ0c2aFkv?=
- =?utf-8?B?Y1hOOHhIT21NRmM3MmFaeU02T0dJNVR4c1BSYktJbjdxUW83NmIxNEJrWVF0?=
- =?utf-8?B?SFBDWVhjdysvakxHakExUE1EVDVaUVJiUm10QlNJSjNsaXhHdEJKekMxdmtn?=
- =?utf-8?B?TmMxOHBlbWxYQnRId1lzSGI5TXR2ZjRwcmltVG56ZGh3Sk9KZzZRbDlZYmJh?=
- =?utf-8?B?YVI5YnRTd1JDMzdQK2JaVkRxVjFueCt6YlJyYnpsOTZPdUFQTXhHNzkvaGhi?=
- =?utf-8?B?T3Q4Q1FxcmhhV3ZyOEp3ZjFvUDdwSitBbnk3QTVZVUEzVDRXdnpVRURleUk1?=
- =?utf-8?B?Um9VaXY1OW9uQ0xpMTFCZHAzeTA5cnVCSzE1T21BOGlvWlEwdzFXYUZRWlRZ?=
- =?utf-8?B?UGdBRWdJeHB5bERQNHU5OXp3MTNXVk96TWppc1JRMEQzODA5ZENCWlJEQy9W?=
- =?utf-8?B?NzdsR0xuK3BpUnBkUXMrZU0vRVo5L0E4WktOMzhUeVpCM2NldURTV0J6M3pS?=
- =?utf-8?Q?1n7EvWXJUCorE5IE=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?N0pkdWRxUUE0cklscERmamNkR1FFY1FXZnpSTXp0QXhOYk8zOXdZTkYyRXlx?=
+ =?utf-8?B?bnQvdjZWdUpjWmhqUHFsd0grVlh6aWQyckhCY0E0U25iQjJESTFoUHBuN242?=
+ =?utf-8?B?US9aZWVuRUdSeUVyam1UNzc1SGxkS0JNNWJYNFhpWmNvSEZtaEN3bWdYVUNS?=
+ =?utf-8?B?bWdlSXd1em91WitIcnk1dDVGNWprRmZJeDBrUG5ZRnZHdmtBenE2ZnZrVVRu?=
+ =?utf-8?B?WERNNHR4QkpMRWQ4N1hibTh5bHBxOWhZRDBlMGZvZDRBeWoxbGdTYVMyQklI?=
+ =?utf-8?B?TnI4c0lJWnBSelBCbWx4VjQzaURVRHEwdzRydks4cVlzYVhyZmlHUHRXNGNT?=
+ =?utf-8?B?Z1g2bTkyZVlraU5JMmhZenBIbzJITVhqU3RaSEdidUNPYlFJdFZWKzA2RDdU?=
+ =?utf-8?B?VDhvN1JjYzhpTTFiWURaVXdBaVZnUnJVdW9QMVRiOE1MTDhjTGg4TzFmWVlu?=
+ =?utf-8?B?NXBUNzBhVjR6cTNFbnZQZzNnanpyc0d0Z2ZUaEVKdml4MWM5Qzd5NkNrWVhx?=
+ =?utf-8?B?OHFwSnJlV2ZmZWJVVkZ4eFYyMVNsMWJVaVo1YTZtcVFsanpsQnh1V1NkbWtl?=
+ =?utf-8?B?c0FlS25DZ0ROVlc3akF6SFdSTzRpWk91ZU1zRCtiYjBNc0hkcEhMRVVWNVBy?=
+ =?utf-8?B?MHZuZ3JVT3pFRnBXMngxOUEvalBzdld1QVpveVR4NVR4WlZEL3l5S2hrVVpP?=
+ =?utf-8?B?alZ4RjJuZlhOd245bXdRMHdtNGppMnkrZS9CK0RpR0NxV2lteXhUdWsxQTQw?=
+ =?utf-8?B?akdueFFLMXJ0ckdKRHU4bWMvZU51NVdZRTd5eFlSdzYvdWFvNU1GV0dPWStQ?=
+ =?utf-8?B?Mzdmdzg0dXlZVzFPZWZNMkM3STFGZXBtTkpwYmpGSFhZcndISUpkYUJPN0c4?=
+ =?utf-8?B?YnBPUVVJenArRkxITWJyNng4R1czNVVENUlKby92elZqR2tWMmUwVk5pVm01?=
+ =?utf-8?B?cXpnVTNhZWNFb0xzZzQxS0gvNTY2MUdpV0pFM0hzMHVGNHduWERsVFc2bEdW?=
+ =?utf-8?B?WlFxcUI3RW10TjR4Q3liQkZaelJxUExhQjNRYXdNQjdNYk1qZlU0bzdQN29W?=
+ =?utf-8?B?VVZWYnFRb0xENW9PWm9XbTM0SXk1bjU1bEJZVVNLU0o3M250VHBHcUtZZ05T?=
+ =?utf-8?B?ZDdBT1YvdlpKV2l4WFExZy9ESzVMWnFrdFNDVWFYdGxLQ0VBL3hjSTlnSVNx?=
+ =?utf-8?B?QUgwMU5ObW1iMG9pVXM0TmVuOFhzTWxHTGs1a0lMeUpSOVRkZlhWajRWSjky?=
+ =?utf-8?B?OEJDMUVFb2FzaE94R0dhUjlZNzM4K2tDaitvN2Voa1pNWXZKdS9Md1Q3YVZO?=
+ =?utf-8?B?RUZNZThPUDI5TTJkSExUOTVzUSsvWUFQQnZlZkZwNTBrQU5GVERKMm9abUlW?=
+ =?utf-8?B?RFF0TmVOZDlLaTM0dnAvLzVCWnFPeEF2aDBFM3dHZ0xmaHJiSUxsSERVakQ5?=
+ =?utf-8?B?L1FGMm03R1Q4MWpwK1d5TUxKa1N3dnR3NDVkL1hheFAvY1V3eVlRa05mbDdq?=
+ =?utf-8?B?SjJua2Q0b2ZpZjVsb2NSNEc2alBkS0h6c0xKdGpUQTdvN1kwMjJwT0hRcEV4?=
+ =?utf-8?B?YVdRS0dpMFlqVFc2bENXcU93OG1leks0Ym5iNXEvTDUrUDlVaDVZcWhPZmdq?=
+ =?utf-8?B?eGpMZ01ydmM5VC9MajAraFVaaXhBTmVvOWZKeHIwTkdudEYxak5ra0dYT0Rh?=
+ =?utf-8?B?Q0xzaXhzTXdQMXUwQWlQeHcvQXpGTnJXOVFwcDJQeEpYRmd4eEZQb3hXT2JW?=
+ =?utf-8?B?cngvYUlmdkpEUmowMGJrMFc0cmZHU1lkMVZkS1pXM2JldXVGM0kxaXMxaUU4?=
+ =?utf-8?B?OWNwR3FUR2NvWUlnOXgyeTB4My9pTjRBbXVoZ0JJVDVtcWJnTm51K3dObUdj?=
+ =?utf-8?B?Z0JSU0E1KytIdkVOelVFRFdiTzEvZHJsSkdnK3BrZEdFRFpZaHRubmF3VDBX?=
+ =?utf-8?B?TzhnVDhYVkpBL0k1UzBGS3A1YTdmeU1CSkZCTHgyNWZoMGxBcW8rTkNKdlpS?=
+ =?utf-8?B?ME90UDFaWDhtSGd4L1dnSTFzc29lcXFWQlhlME5aL01BQnA1elY2UlpmN0Ew?=
+ =?utf-8?B?SmNmbWRIUUtwdWZQUmVEckR1VXozQU8wcVZtOS9oN01lMkhUZ3kxR0FENHpT?=
+ =?utf-8?B?aG1ZMTdMNXV0VHgwTDE5SjlRU0VtR09CQlJKVitEM3FUcTErTVNuSTBraEho?=
+ =?utf-8?B?Tk51SENpL1h0K21WVFBiaUVvRWFmUk9QN1dzay9ML05RMDFWdVh6cUpLbno1?=
+ =?utf-8?B?ekJvSTRMNHdIS0xaTkdPZGpIeDIxUlRjMldMV3Ywa20ySVVZRVN2ZGdDZjJr?=
+ =?utf-8?B?NlVrT01pWktYdjJXNWFNNFRnbWY3RWI0ZFNQNUduM28vNzNRbzZYbkhEeE5s?=
+ =?utf-8?Q?YuISVpkYyW4Nwakw=3D?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8c7fab20-d55c-437e-f1db-08de79e207d2
+X-MS-Exchange-CrossTenant-Network-Message-Id: bd76fd06-dc9a-4d26-5106-08de79e20e65
 X-MS-Exchange-CrossTenant-AuthSource: GV1PR04MB9135.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2026 11:34:43.6840
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2026 11:34:54.5497
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rjSH5JGSLonZ2gyEontqyxP+QWtoxK+KWEHUZHUXdqO/cCr/zRNMRgguWH+mMnrzEQmKIej4ZWDIoLWyUs3b9w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7188
+X-MS-Exchange-CrossTenant-UserPrincipalName: B1AzXgdaki5dykuYNVpsBwG3SNGhCpHrXTwywOyuOp/aNWxY/CPDpjNPP/cFdmxDgPnV77XhPa1xH2wiqJGPjQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10522
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_033454_193128_58569DE9 
-X-CRM114-Status: GOOD (  20.73  )
+X-CRM114-CacheID: sfid-20260304_033500_385230_81F686E3 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,131 +165,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+DCIF is the i.MX94 Display Controller Interface which is used to
+drive a TFT LCD panel or connects to a display interface depending
+on the chip configuration.
 
-This patch-set adds support for the i.MX94 Display Control Interface.
-It depends on Peng Fan's DTS patch [1] that was not yet merged.
-
-Also, included in the patch-set are a few extra patches that the DCIF
-driver depends on for functioning properly:
- * 1/9 - 3/9 : add support for i.MX94 to fsl-ldb driver. It also
-               contains a patch (2/9) from Liu Ying that was already reviewed
-               and was part of another patch-set ([2]), but was never merged;
-
-Thanks,
-Laurentiu
-
-[1] https://lkml.org/lkml/2025/7/7/84
-[2] https://lkml.org/lkml/2024/11/14/262
-
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
 ---
-Changes in v8:
-- Rebased to latest linux-next (next-20260303). Patch 2/9 had a minor
-  conflict bacause of a patch introduced recently;
-- 8/9: Fixed CHECK_DTBS errors reported by Rob's bot due to missing
-  regulators. Removed the r-b tag for this patch because it needs a
-  fresh review;
-- Link to v7: https://lore.kernel.org/r/20260122-dcif-upstreaming-v7-0-19ea17eb046f@oss.nxp.com
+ .../bindings/display/imx/nxp,imx94-dcif.yaml       | 82 ++++++++++++++++++++++
+ 1 file changed, 82 insertions(+)
 
-Changes in v7:
-- Rebased to latest linux-next;
-- Addressed some new checkpatch warnings: kzalloc -> kzalloc_obj;
-- Fixed a couple of static check warnings in probe();
-- Added Luca's r-b tag for bridge refcounting;
-- Link to v6: https://lore.kernel.org/r/20251103-dcif-upstreaming-v6-0-76fcecfda919@oss.nxp.com
+diff --git a/Documentation/devicetree/bindings/display/imx/nxp,imx94-dcif.yaml b/Documentation/devicetree/bindings/display/imx/nxp,imx94-dcif.yaml
+new file mode 100644
+index 0000000000000..fb25300e25529
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/imx/nxp,imx94-dcif.yaml
+@@ -0,0 +1,82 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++# Copyright 2025 NXP
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/imx/nxp,imx94-dcif.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: i.MX94 Display Control Interface (DCIF)
++
++maintainers:
++  - Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
++
++description:
++  The Display Control Interface(DCIF) is a system master that fetches graphics
++  stored in memory and displays them on a TFT LCD panel or connects to a
++  display interface depending on the chip configuration.
++
++properties:
++  compatible:
++    const: nxp,imx94-dcif
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    items:
++      - description: CPU domain 0 (controlled by common registers group).
++      - description: CPU domain 1 (controlled by background layer registers group).
++      - description: CPU domain 2 (controlled by foreground layer registers group).
++
++  interrupt-names:
++    items:
++      - const: common
++      - const: bg_layer
++      - const: fg_layer
++
++  clocks:
++    maxItems: 3
++
++  clock-names:
++    items:
++      - const: apb
++      - const: axi
++      - const: pix
++
++  power-domains:
++    maxItems: 1
++
++  port:
++    $ref: /schemas/graph.yaml#/$defs/port-base
++    unevaluatedProperties: false
++    description: Display Pixel Interface(DPI) output port
++
++    properties:
++      endpoint:
++        $ref: /schemas/media/video-interfaces.yaml#
++        unevaluatedProperties: false
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    display-controller@4b120000 {
++        compatible = "nxp,imx94-dcif";
++        reg = <0x4b120000 0x300000>;
++        interrupts = <GIC_SPI 377 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 378 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 379 IRQ_TYPE_LEVEL_HIGH>;
++        interrupt-names = "common", "bg_layer", "fg_layer";
++        clocks = <&scmi_clk 69>, <&scmi_clk 70>, <&dispmix_csr 0>;
++        clock-names = "apb", "axi", "pix";
++        assigned-clocks = <&dispmix_csr 0>;
++        assigned-clock-parents = <&ldb_pll_pixel>;
++        power-domains = <&scmi_devpd 11>;
++        port {
++            dcif_out: endpoint {
++                remote-endpoint = <&ldb_in>;
++            };
++        };
++    };
 
-Changes in v6:
-- 2/9: Collected r-b tag from Francesco;
-- 3/9: Removed ch_max_clk_khz variable as suggested by Luca and added
-  his r-b tag;
-- 4/9: Collected r-b tag;
-- 5/9: Call drm_bridge_put() automatically in
-  dcif_crtc_query_output_bus_format() by using a cleanup action (Luca);
-- 6/9: Moved allOf: block after required: block (Krzysztof). Collected
-  r-b tag;
-- Link to v5: https://lore.kernel.org/r/20250911-dcif-upstreaming-v5-0-a1e8dab8ae40@oss.nxp.com
-
-Changes in v5:
-- 4/9: Removed "bindings for" from the title, changed the port
-  definition and simplified the example;
-- 6/9: Fixed the way 'ldb' child node is declared: declare the
-  'ldb' child node out of if:then: block and set the property
-  to false for compatibles other than nxp,imx94-lvds-csr;
-- Link to v4: https://lore.kernel.org/r/20250903123332.2569241-1-laurentiu.palcu@oss.nxp.com
-
-Changes in v4:
-- Addressed remaining DCIF driver comments from Frank;
-- Limit the 'ldb' child node only to CSRs compatible with 'nxp,imx94-lvds-csr'
-  in the binding file. Since LVDS CSRs are a minority, I chose to
-  use the if:then: construct instead of if:not:then:;
-- Remove the '#address-cells' and '#size-cells' from the ldb node, in
-  imx94.dtsi, as they're not needed;
-- Link to v3: https://lore.kernel.org/r/20250806150521.2174797-1-laurentiu.palcu@oss.nxp.com
-
-Changes in v3:
-- Removed the BLK CTL patches and created a separate patch set [2] for them;
-- Collected r-b tags for 1/9, 2/9, 3/9 and 9/9;
-- Removed the DCIF QoS functionality until I find a better way to
-  implement it through syscon. QoS functionality will be added in
-  subsequent patches. Also, used devm_clk_bulk_get_all() and used
-  dev_err_probe() as suggested;
-- Addressed Frank's and Krzysztof's comments on the DCIF bindings;
-- Addressed Frank's comments on dtsi and dts files;
-- Added a new binding patch, 6/9, for adding 'ldb' optional property to
-  nxp,imx95-blk-ctl.yaml;
-- Link to v2: https://lore.kernel.org/r/20250716081519.3400158-1-laurentiu.palcu@oss.nxp.com
-
-Changes in v2:
-- reworked the BLK_CTL patch and split in 2 to make it easier for
-  review;
-- split the dts and dtsi patch in 2 separate ones;
-- addressed Frank's comments in DCIF driver;
-- addressed Rob's comments for the bindings files;
-- addressed a couple of checkpatch issues;
-- Link to v1: https://lore.kernel.org/r/20250709122332.2874632-1-laurentiu.palcu@oss.nxp.com
-
----
-Laurentiu Palcu (7):
-      dt-bindings: display: fsl,ldb: Add i.MX94 LDB
-      drm/bridge: fsl-ldb: Add support for i.MX94
-      dt-bindings: display: imx: Add i.MX94 DCIF
-      dt-bindings: clock: nxp,imx95-blk-ctl: Add ldb child node
-      arm64: dts: imx943: Add display pipeline nodes
-      arm64: dts: imx943-evk: Add display support using IT6263
-      MAINTAINERS: Add entry for i.MX94 DCIF driver
-
-Liu Ying (1):
-      drm/bridge: fsl-ldb: Get the next non-panel bridge
-
-Sandor Yu (1):
-      drm/imx: Add support for i.MX94 DCIF
-
- .../bindings/clock/nxp,imx95-blk-ctl.yaml          |  26 +
- .../bindings/display/bridge/fsl,ldb.yaml           |   2 +
- .../bindings/display/imx/nxp,imx94-dcif.yaml       |  82 +++
- MAINTAINERS                                        |   9 +
- arch/arm64/boot/dts/freescale/imx943-evk.dts       |  86 +++
- arch/arm64/boot/dts/freescale/imx943.dtsi          |  53 +-
- drivers/gpu/drm/bridge/fsl-ldb.c                   |  46 +-
- drivers/gpu/drm/imx/Kconfig                        |   1 +
- drivers/gpu/drm/imx/Makefile                       |   1 +
- drivers/gpu/drm/imx/dcif/Kconfig                   |  15 +
- drivers/gpu/drm/imx/dcif/Makefile                  |   5 +
- drivers/gpu/drm/imx/dcif/dcif-crc.c                | 211 +++++++
- drivers/gpu/drm/imx/dcif/dcif-crc.h                |  52 ++
- drivers/gpu/drm/imx/dcif/dcif-crtc.c               | 695 +++++++++++++++++++++
- drivers/gpu/drm/imx/dcif/dcif-drv.c                | 228 +++++++
- drivers/gpu/drm/imx/dcif/dcif-drv.h                |  86 +++
- drivers/gpu/drm/imx/dcif/dcif-kms.c                | 100 +++
- drivers/gpu/drm/imx/dcif/dcif-plane.c              | 269 ++++++++
- drivers/gpu/drm/imx/dcif/dcif-reg.h                | 267 ++++++++
- 19 files changed, 2212 insertions(+), 22 deletions(-)
----
-base-commit: 11e703f54ac21f4dc609ea12ab578ffa47c87e11
-change-id: 20250911-dcif-upstreaming-3e16d89c3385
-prerequisite-patch-id: b2acaaf7e92a5c8e377e6b56f3a9ee7409f64b00
-
-Best regards,
 -- 
-Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+2.51.0
 
