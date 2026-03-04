@@ -4,58 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C47E7EDEBF9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 00:56:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A1AEDEBFD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 00:59:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wwwhJ0IksbVbncW/vsnJC81xElfOe8hH/fEM464xZfQ=; b=akK6TrRtjBq1vRmHIn0BccwNVK
-	7kwSwoRazsTKdcwmCE3rC3zHBfaLct2UO+90s9Ud0AyDvoT6iYRPLy/wt1+s/q33/iym4tmENTJYp
-	dlrHGe5dr72olAYd1Xcnivq0fDhlv3RvyzhTFmD61nZUNmZ9yXdejFuzjy4GvpQDM1rq5cdFAPpIX
-	U74ogCsKIAHmIxiAHN13gWXjiDn3zPSkpOj3/wgJvYNEgxH8Tj9AalaiinlpqPs2DIPgRJI7IxcVx
-	MMyV0u7yURbk6lLcZeX2Iu6YPpbRRFR363i+TvDx129JjmVlOSZKMvj/ny3HRbHgD7hX4Wss2JzFH
-	/czPF6MQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5ogMkUraTjety9MOgCpxzZj4mdAQTkI2/0DG477NiJI=; b=kQrgRWXnLdH7f6mdxujfew1VAD
+	xrWyaaeU6/nQPdxU8aktJHeOKdhoVu+uMA/MZfRKw1VDlW0e2VY0UNWPhfPRH5dBQTnfRo6VVFcWG
+	gEUCbMtzEKDMKrJKfQq2OfcbeKqQ13jp4ipcBxNqqvW2A/woMK3xuPa2QHhj/TvGWQbAk9mZ/g32e
+	H7ZK/1V/ne3j2BNeBkMLa16A7kqfrigc4+jReEUg3Z+hQWo2J3A4lnMYRYTmZwL7+SzU5n+H6GGxa
+	LkVWFLFVoiPxI+6BZ7lNjS2/HOn4iR/1v+PD3bVSP9HQn0zU8G5ULbqtcMu+AT3Qe7GZVK8v1Hyl4
+	p8anqWeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxaXm-0000000GCAu-2vkr;
-	Wed, 04 Mar 2026 00:56:54 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1vxaZw-0000000GCQ1-3vG7;
+	Wed, 04 Mar 2026 00:59:08 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxaXk-0000000GC9s-3KQS;
-	Wed, 04 Mar 2026 00:56:53 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.99)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1vxaXc-000000008Mz-1mEl;
-	Wed, 04 Mar 2026 00:56:44 +0000
-Date: Wed, 4 Mar 2026 00:56:36 +0000
-From: Daniel Golle <daniel@makrotopia.org>
-To: Olivia Mackall <olivia@selenic.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
+	id 1vxaZv-0000000GCOm-13V3
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Mar 2026 00:59:08 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-48372efa020so55076275e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 16:59:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772585945; x=1773190745; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5ogMkUraTjety9MOgCpxzZj4mdAQTkI2/0DG477NiJI=;
+        b=KBYnauqn6wWpe4MEkRSA03rVcgnEltQGZUjWirDejV+I5kH7Ebl7zRHMQEW+q7N321
+         LjqkGBPNviiMpaq16kMOMrtAX20Ncj2CXxjkq+e3CZJ65Mw0ZwW26ZACAb+++N4IsHR9
+         aKPa4hSl/HD3RERoZbJs+6cS9yOnCzgCA2G3eteU70jR1D0V+iEIGiT8QSgQm3UOQJpx
+         ag6aArx7Sqsaip21wZjBjLIZfXLhPu4O3VTY93qUpdxTEPQQiS1AIDVJRIZU7253IbQJ
+         dWv3NAIzZx9cj+uv/vJmAMbXDolza+/QEuXoQMw6YpcLoCvdcHt4neiScfS4OED/kMfx
+         Y28A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772585945; x=1773190745;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=5ogMkUraTjety9MOgCpxzZj4mdAQTkI2/0DG477NiJI=;
+        b=HNi38gU/3YcNg755/2ThdbV4KMChbKl8hrPhZpnCoQbDJSMfeEhd57RhyVhdFIfFr/
+         UOYO3jwBQsSi7JcH7o9dam5+ApuIb02r0BQTncXXMJ5EeKUFiK4IHmQOhECUzmIQ+3Od
+         wfjMcGdPNlSq/R9sVSJGs0R5sBIpGJwkpOA+ipUBDr8fpWxhkcbQ9DwaxO4R9T3DXuv7
+         EjF1t1ND0+EkwKI6V79xM3l9c9MZsOTMxBs7ue6R157ozhu+VpyQCvw0Mkd7KsdLFtt+
+         kqFX5FdGPQJ5tspxOCqNt3gtyhoZjRWGuib4ufqG2gmJRkfTqi/v1lRGvNyqp4ccv8om
+         qcLw==
+X-Forwarded-Encrypted: i=1; AJvYcCUNB9u7F8RkYdyDc6m36AhsRJWJe+ERk2yTFfyHMUxylx93bVJGMoyaC9x3I45m/atCx9zvzLDhiHU2B35IVBGC@lists.infradead.org
+X-Gm-Message-State: AOJu0YykGox+k84tnxtLVb2htu3kK7eM82+khHmmphspjclqXOz4Z03F
+	T3vV++6oM2b1U/kLRsDJYKq6R3QOwR/r00nYJQ0MFWs44As3RURsUGDv
+X-Gm-Gg: ATEYQzyBzmg6pWj+OXO8sGfWRwRjqV+4LlcT4Ga7xOOl4tyTPIgziC9bs8+22FoqFuI
+	XFTLDUw2inB2+DngV4r9oH+53wdx+j0TT+DQprQhHaI6wNEb1EAzGYDI8UBiLmwBdtXkW4OlXIk
+	qbZu6Hki5er1SoGckFtQMWGR4pk4jiwfJSNKkfzmfw7tM5D0AeYLtzLdEAfNEw7dFOCbu63w8qN
+	PI6xC7Cr7xMyFIZLuo5CEzAHLu5VlRy+MNHe8edMG63SmS8+VlMQ3hUxidmo5ZPysOj4fXigu7w
+	tIsFVqjE5DPBggj9tEo0QupR0XGJ7m51DumqQUKTtV4D0Qq0YTc7H9Fm9B8LTjJC+QIaC6jaSTj
+	QWb//tlbh6ILRoZ5Hsc4MtXQYlLfSVWXLDbId+w9KKReuJEiTlCH/BG3kCLOTTOG7Y+QKqkO7xR
+	pLqwpOnSkVlX1kzFdwei8ko6wNLup8lZvYSvUWPBTMylaBk3YspH5hp30=
+X-Received: by 2002:a05:600c:a08c:b0:483:885:f0b0 with SMTP id 5b1f17b1804b1-485198bac26mr3235315e9.35.1772585945092;
+        Tue, 03 Mar 2026 16:59:05 -0800 (PST)
+Received: from Ansuel-XPS24 (93-34-88-122.ip49.fastwebnet.it. [93.34.88.122])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4851880724esm26927575e9.9.2026.03.03.16.59.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Mar 2026 16:59:03 -0800 (PST)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Daniel Golle <daniel@makrotopia.org>, linux-crypto@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH 2/2] hwrng: mtk - add support for hw access via SMCC
-Message-ID: <168c8cab440372fc215f30684e7afe8ba8cceb96.1772585683.git.daniel@makrotopia.org>
-References: <04622e0bc917aed4145a9a3b50b61f343fc89312.1772585683.git.daniel@makrotopia.org>
+	linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v5 0/4] airoha: an7581: USB support
+Date: Wed,  4 Mar 2026 01:58:32 +0100
+Message-ID: <20260304005843.2680-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <04622e0bc917aed4145a9a3b50b61f343fc89312.1772585683.git.daniel@makrotopia.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_165652_833633_02F68AA2 
-X-CRM114-Status: GOOD (  22.84  )
+X-CRM114-CacheID: sfid-20260303_165907_329668_EEED9A60 
+X-CRM114-Status: GOOD (  16.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,218 +103,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Newer versions of ARM TrustedFirmware-A on MediaTek's ARMv8 SoCs no longer
-allow accessing the TRNG from outside of the trusted firmware.
-Instead, a vendor-defined custom Secure Monitor Call can be used to
-acquire random bytes.
+This is a major rework of the old v2 series.
 
-Add support for newer SoCs (MT7981, MT7987, MT7988).
+The SoC always support USB 2.0 but for USB 3.0 it needs additional
+configuration for the Serdes port. Such port can be either configured
+for USB usage or for PCIe lines or HSGMII and these are configured
+in the SCU space.
 
-As TF-A for the MT7986 may either follow the old or the new
-convention, the best bet is to test if firmware blocks direct access
-to the hwrng and if so, expect the SMCC interface to be usable.
+The previous implementation of a dedicated SSR driver was too
+complex and fragile for the simple task of configuring a register
+hence it was dropped and the handling is entirely in the PHY driver.
 
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
----
- drivers/char/hw_random/mtk-rng.c | 127 ++++++++++++++++++++++++++-----
- 1 file changed, 106 insertions(+), 21 deletions(-)
+Everything was reducted to the dt-bindings to describe the Serdes line.
 
-diff --git a/drivers/char/hw_random/mtk-rng.c b/drivers/char/hw_random/mtk-rng.c
-index 5808d09d12c45..8f5856b59ad66 100644
---- a/drivers/char/hw_random/mtk-rng.c
-+++ b/drivers/char/hw_random/mtk-rng.c
-@@ -3,6 +3,7 @@
-  * Driver for Mediatek Hardware Random Number Generator
-  *
-  * Copyright (C) 2017 Sean Wang <sean.wang@mediatek.com>
-+ * Copyright (C) 2026 Daniel Golle <daniel@makrotopia.org>
-  */
- #define MTK_RNG_DEV KBUILD_MODNAME
- 
-@@ -17,6 +18,8 @@
- #include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
-+#include <linux/arm-smccc.h>
-+#include <linux/soc/mediatek/mtk_sip_svc.h>
- 
- /* Runtime PM autosuspend timeout: */
- #define RNG_AUTOSUSPEND_TIMEOUT		100
-@@ -30,6 +33,11 @@
- 
- #define RNG_DATA			0x08
- 
-+/* Driver feature flags */
-+#define MTK_RNG_SMC			BIT(0)
-+
-+#define MTK_SIP_KERNEL_GET_RND		MTK_SIP_SMC_CMD(0x550)
-+
- #define to_mtk_rng(p)	container_of(p, struct mtk_rng, rng)
- 
- struct mtk_rng {
-@@ -37,6 +45,7 @@ struct mtk_rng {
- 	struct clk *clk;
- 	struct hwrng rng;
- 	struct device *dev;
-+	unsigned long flags;
- };
- 
- static int mtk_rng_init(struct hwrng *rng)
-@@ -103,6 +112,56 @@ static int mtk_rng_read(struct hwrng *rng, void *buf, size_t max, bool wait)
- 	return retval || !wait ? retval : -EIO;
- }
- 
-+static int mtk_rng_read_smc(struct hwrng *rng, void *buf, size_t max,
-+			    bool wait)
-+{
-+	struct arm_smccc_res res;
-+	int retval = 0;
-+
-+	while (max >= sizeof(u32)) {
-+		arm_smccc_smc(MTK_SIP_KERNEL_GET_RND, 0, 0, 0, 0, 0, 0, 0,
-+			      &res);
-+		if (res.a0)
-+			break;
-+
-+		*(u32 *)buf = res.a1;
-+		retval += sizeof(u32);
-+		buf += sizeof(u32);
-+		max -= sizeof(u32);
-+	}
-+
-+	return retval || !wait ? retval : -EIO;
-+}
-+
-+static bool mtk_rng_hw_accessible(struct mtk_rng *priv)
-+{
-+	u32 val;
-+	int err;
-+
-+	err = clk_prepare_enable(priv->clk);
-+	if (err)
-+		return false;
-+
-+	val = readl(priv->base + RNG_CTRL);
-+	val |= RNG_EN;
-+	writel(val, priv->base + RNG_CTRL);
-+
-+	val = readl(priv->base + RNG_CTRL);
-+
-+	if (val & RNG_EN) {
-+		/* HW is accessible, clean up: disable RNG and clock */
-+		writel(val & ~RNG_EN, priv->base + RNG_CTRL);
-+		clk_disable_unprepare(priv->clk);
-+		return true;
-+	}
-+
-+	/*
-+	 * If TF-A blocks direct access, the register reads back as 0.
-+	 * Leave the clock enabled as TF-A needs it.
-+	 */
-+	return false;
-+}
-+
- static int mtk_rng_probe(struct platform_device *pdev)
- {
- 	int ret;
-@@ -114,23 +173,42 @@ static int mtk_rng_probe(struct platform_device *pdev)
- 
- 	priv->dev = &pdev->dev;
- 	priv->rng.name = pdev->name;
--#ifndef CONFIG_PM
--	priv->rng.init = mtk_rng_init;
--	priv->rng.cleanup = mtk_rng_cleanup;
--#endif
--	priv->rng.read = mtk_rng_read;
- 	priv->rng.quality = 900;
--
--	priv->clk = devm_clk_get(&pdev->dev, "rng");
--	if (IS_ERR(priv->clk)) {
--		ret = PTR_ERR(priv->clk);
--		dev_err(&pdev->dev, "no clock for device: %d\n", ret);
--		return ret;
-+	priv->flags = (unsigned long)device_get_match_data(&pdev->dev);
-+
-+	if (!(priv->flags & MTK_RNG_SMC)) {
-+		priv->clk = devm_clk_get(&pdev->dev, "rng");
-+		if (IS_ERR(priv->clk)) {
-+			ret = PTR_ERR(priv->clk);
-+			dev_err(&pdev->dev, "no clock for device: %d\n", ret);
-+			return ret;
-+		}
-+
-+		priv->base = devm_platform_ioremap_resource(pdev, 0);
-+		if (IS_ERR(priv->base))
-+			return PTR_ERR(priv->base);
-+
-+		if (IS_ENABLED(CONFIG_HAVE_ARM_SMCCC) &&
-+		    of_device_is_compatible(pdev->dev.of_node,
-+					    "mediatek,mt7986-rng") &&
-+		    !mtk_rng_hw_accessible(priv)) {
-+			priv->flags |= MTK_RNG_SMC;
-+			dev_info(&pdev->dev,
-+				 "HW RNG not MMIO accessible, using SMC\n");
-+		}
- 	}
- 
--	priv->base = devm_platform_ioremap_resource(pdev, 0);
--	if (IS_ERR(priv->base))
--		return PTR_ERR(priv->base);
-+	if (priv->flags & MTK_RNG_SMC) {
-+		if (!IS_ENABLED(CONFIG_HAVE_ARM_SMCCC))
-+			return -ENODEV;
-+		priv->rng.read = mtk_rng_read_smc;
-+	} else {
-+#ifndef CONFIG_PM
-+		priv->rng.init = mtk_rng_init;
-+		priv->rng.cleanup = mtk_rng_cleanup;
-+#endif
-+		priv->rng.read = mtk_rng_read;
-+	}
- 
- 	ret = devm_hwrng_register(&pdev->dev, &priv->rng);
- 	if (ret) {
-@@ -139,12 +217,15 @@ static int mtk_rng_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
--	dev_set_drvdata(&pdev->dev, priv);
--	pm_runtime_set_autosuspend_delay(&pdev->dev, RNG_AUTOSUSPEND_TIMEOUT);
--	pm_runtime_use_autosuspend(&pdev->dev);
--	ret = devm_pm_runtime_enable(&pdev->dev);
--	if (ret)
--		return ret;
-+	if (!(priv->flags & MTK_RNG_SMC)) {
-+		dev_set_drvdata(&pdev->dev, priv);
-+		pm_runtime_set_autosuspend_delay(&pdev->dev,
-+						 RNG_AUTOSUSPEND_TIMEOUT);
-+		pm_runtime_use_autosuspend(&pdev->dev);
-+		ret = devm_pm_runtime_enable(&pdev->dev);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	dev_info(&pdev->dev, "registered RNG driver\n");
- 
-@@ -181,8 +262,11 @@ static const struct dev_pm_ops mtk_rng_pm_ops = {
- #endif	/* CONFIG_PM */
- 
- static const struct of_device_id mtk_rng_match[] = {
--	{ .compatible = "mediatek,mt7986-rng" },
- 	{ .compatible = "mediatek,mt7623-rng" },
-+	{ .compatible = "mediatek,mt7981-rng", .data = (void *)MTK_RNG_SMC },
-+	{ .compatible = "mediatek,mt7986-rng" },
-+	{ .compatible = "mediatek,mt7987-rng", .data = (void *)MTK_RNG_SMC },
-+	{ .compatible = "mediatek,mt7988-rng", .data = (void *)MTK_RNG_SMC },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, mtk_rng_match);
-@@ -200,4 +284,5 @@ module_platform_driver(mtk_rng_driver);
- 
- MODULE_DESCRIPTION("Mediatek Random Number Generator Driver");
- MODULE_AUTHOR("Sean Wang <sean.wang@mediatek.com>");
-+MODULE_AUTHOR("Daniel Golle <daniel@makrotopia.org>");
- MODULE_LICENSE("GPL");
+Also the property for the PHY are renamed to a more suitable name and
+everything is now mandatory to simplify the implementation.
+(the PHY are always present and active on the SoC)
+
+Also other unrelated patch are dropped from this series.
+
+Changes v5:
+- Add Ack and Review tag from Connor
+- Implement Ethernet support in the USB driver
+  (testing support for this Serdes on a special reference board)
+- Use an7581 prefix for USB PHY driver
+
+Changes v4:
+- Rename PCIe and USB PHY to AN7581
+- Drop airoha,scu (handled directly in driver)
+- Drop dt-bindings for monitor clock in favor of raw values
+- Better describe the usage of airoha,usb3-serdes
+- Simplify values of dt-bindings SSR SERDES
+  Link: https://lore.kernel.org/all/20251107160251.2307088-1-ansuelsmth@gmail.com/
+
+Changes v3:
+- Drop clk changes
+- Drop SSR driver
+- Rename property in Documentation
+- Simplify PHY handling
+- Move SSR handling inside the PHY driver
+  Link: https://lore.kernel.org/all/20251029173713.7670-1-ansuelsmth@gmail.com/
+
+Changes v2:
+- Drop changes for simple-mfd
+- Rework PHY node structure to single node
+- Drop port-id property in favor of serdes-port and
+  usb2-monitor-clock-sel
+- Make the SSR driver probe from the clock driver
+
+Christian Marangi (4):
+  dt-bindings: soc: Add bindings for Airoha SCU Serdes lines
+  dt-bindings: phy: Add documentation for Airoha AN7581 USB PHY
+  phy: move and rename Airoha PCIe PHY driver to dedicated directory
+  phy: airoha: Add support for Airoha AN7581 USB PHY
+
+ .../bindings/phy/airoha,an7581-usb-phy.yaml   |   71 +
+ MAINTAINERS                                   |   11 +-
+ drivers/phy/Kconfig                           |   11 +-
+ drivers/phy/Makefile                          |    4 +-
+ drivers/phy/airoha/Kconfig                    |   23 +
+ drivers/phy/airoha/Makefile                   |    4 +
+ drivers/phy/airoha/phy-an7581-pcie-regs.h     |  494 +++++++
+ drivers/phy/airoha/phy-an7581-pcie.c          | 1290 +++++++++++++++++
+ drivers/phy/airoha/phy-an7581-usb.c           |  640 ++++++++
+ include/dt-bindings/soc/airoha,scu-ssr.h      |   11 +
+ 10 files changed, 2545 insertions(+), 14 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/phy/airoha,an7581-usb-phy.yaml
+ create mode 100644 drivers/phy/airoha/Kconfig
+ create mode 100644 drivers/phy/airoha/Makefile
+ create mode 100644 drivers/phy/airoha/phy-an7581-pcie-regs.h
+ create mode 100644 drivers/phy/airoha/phy-an7581-pcie.c
+ create mode 100644 drivers/phy/airoha/phy-an7581-usb.c
+ create mode 100644 include/dt-bindings/soc/airoha,scu-ssr.h
+
 -- 
-2.53.0
+2.51.0
+
 
