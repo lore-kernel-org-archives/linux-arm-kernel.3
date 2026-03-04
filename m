@@ -4,126 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11DE2EB7ECD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 10:53:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3432EB7ECD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 10:57:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QVRhkMntvBj+ZtEISffIKDRtcWm8X5Uln6JMGzYgrxI=; b=tXfHaniwmNJvKOzsY6VkAchu/5
-	a7W8z7/IyXZ2FU+Nzaz/z521vDa5tsAEjePYWkR78kYuwfMSgfNdKoVwFk+xFA79rXJJSWpwP8/UV
-	ivTkirNTMGwTy2rtHuXzCoJhJKQuuVx3OkCJIxgXOhBlcU4b8jt9UxS4tN7hpy+IbbDMM/NytZebB
-	S4Z6tHNr5KKCUCvMq8ZOyt3Jv7deh4IC10s808DQyJNzOLZmuc1GIqOz6WYeLBx2hWI3sIYkfxEyl
-	Z37Fr3ho+kVlcQRb9cHjmFwhmxbH/COnBQeQiLylZvZW5oyhXWsxXV/4bscMBUIYtFr0fP+iyGR8M
-	3hFfK5Kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Q0H9URFaOl3dJ+a7zQ7u6O8wxYctps5ElYmjBdzE7uk=; b=JD/81YZeGwPtMP079ijcrhfVh4
+	mBGa5zHWjfjlk5P0LJhU8F6WjPKv0vzx4PsW3vRwHmKW0wM8NyK01we/78zx+mk0EDv+eSSGDMtnL
+	nhGVcXuPMXFi6/Be1N5DDx9CDndIjQVQHGBKCkFAkHC6MHf/jgdnZM06YpB1xThLxf3iKBWogdyz0
+	pGj36xPMo1QHDTmVUxGKIr1V/z0vtdaCqANYL0pM11WXHebJnOcLzADJvepQpS7Itrc5Cd4bJIQb9
+	A9mWEZFnMBcyOlGUq3klEsFfQQQ4Na8iz/UyQ1ZExBce9n3ofqkfQ97iK7eyxZc6DZxIQC7y/EuXe
+	wopM/BpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxjqp-0000000H1V9-31s2;
-	Wed, 04 Mar 2026 10:53:11 +0000
-Received: from mail-centralusazhn150110000.outbound.protection.outlook.com ([2a01:111:f403:d905::] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1vxjuc-0000000H1lN-33hr;
+	Wed, 04 Mar 2026 10:57:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxjqm-0000000H1Um-22Tn
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 10:53:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QOb7vdetBdH+4IIaSgat5Sr8pufpInqdI2CHcFHv6NJn737o+5+QPMQb1WcCA/MiCnFknvXx/kF/GYhO2jhf1O10P3nU10BBI4aiEANzWgnDcf+xZRgsxjLDWgB6x07KmkE7td+FZXX9ejiar+AcTQ3oMxI0fifDfYFqHchOAI7k3uKQLKulUvVHiM4hSaqWSLjmKXQkxFeCSlfd1OKpk67qkavSE+zfR2O0mFbUkkZDMC7tJ+cXg7nsJgvPqITTPh6VhX0blxuQq2dlPRUBZAoBDoBGUk8zIvpHwPk2VAqvhr7ocUIBe5PTn9WPHC7YG2Zq6m/25sdOMjmgwhilcA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QVRhkMntvBj+ZtEISffIKDRtcWm8X5Uln6JMGzYgrxI=;
- b=NGlCdq/KvbjyusgFaITB/r7WiP6Epgmr/8Fmny2lvrUz4NjU/pFBIR3y1SSTotXvXJPLrKR8oP5uc0fvj2DGBpfj9pS2e+vQsnxgLCPrbPA+06ngDnUVGX/pAU2l64P4+fOIyYxCc6oGBGdtc8BAVePYz6vIikbn59W5gKR3D0WfwkLcv1pmmTpq9tMV4ih9H1ZU6c3G+Wk65HXRrYqMBdC1k5jZMG625pNvxm1ckR+y5YSReYWfCOWEKv8KWoNfazkrTpbY/isaDfo1NKeZhmIqqdF4sfJPHQxDhIf1ODFh5s/8kPDCpT7W5QzhhIPSGbBpPzi2PLc97frR6xo3JA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=nxp.com smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QVRhkMntvBj+ZtEISffIKDRtcWm8X5Uln6JMGzYgrxI=;
- b=fXjiiJ1W9k67eOGBjuZ/2mXHsqi5sLhTU4JztIGAlVSnFjok3Ieqvy8zo6NJZ4bKlek3I9LznCLozxsqAxjBIHfgcOX+9RhNGuU30xroN0z8ziaX7dUrkFI7Kw1S/rHd1Zq+/+nSCXV4+3h0hcizl2Ui74swpnBmd6KfGt2gqDQ=
-Received: from IA4P221CA0009.NAMP221.PROD.OUTLOOK.COM (2603:10b6:208:559::11)
- by PH7PR10MB6284.namprd10.prod.outlook.com (2603:10b6:510:1aa::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.17; Wed, 4 Mar
- 2026 10:53:00 +0000
-Received: from BL6PEPF0001AB50.namprd04.prod.outlook.com
- (2603:10b6:208:559:cafe::31) by IA4P221CA0009.outlook.office365.com
- (2603:10b6:208:559::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9654.23 via Frontend Transport; Wed,
- 4 Mar 2026 10:53:03 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- BL6PEPF0001AB50.mail.protection.outlook.com (10.167.242.74) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9678.18 via Frontend Transport; Wed, 4 Mar 2026 10:53:00 +0000
-Received: from DLEE211.ent.ti.com (157.170.170.113) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 4 Mar
- 2026 04:52:59 -0600
-Received: from DLEE201.ent.ti.com (157.170.170.76) by DLEE211.ent.ti.com
- (157.170.170.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 4 Mar
- 2026 04:52:59 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE201.ent.ti.com
- (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 4 Mar 2026 04:52:59 -0600
-Received: from [172.24.233.239] (uda0498651.dhcp.ti.com [172.24.233.239])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 624Aqtdr229809;
-	Wed, 4 Mar 2026 04:52:55 -0600
-Message-ID: <e1d07c8a-a90d-444a-a367-230f147e01d6@ti.com>
-Date: Wed, 4 Mar 2026 16:22:54 +0530
+	id 1vxjua-0000000H1kk-0VDS;
+	Wed, 04 Mar 2026 10:57:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E8E1F40300;
+	Wed,  4 Mar 2026 10:57:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77182C2BCAF;
+	Wed,  4 Mar 2026 10:57:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772621822;
+	bh=z6mlT/VdSmy3w+18qyHEGpPhQGLQO3j1yCyXX/Y2eZ8=;
+	h=From:Date:Subject:To:Cc:From;
+	b=k8s2eZLuB8Bi/WwIKoUVlSSbxaGR1HjVmKVaf8cSv+gYS8hub+ZckPZyRRuLl4yeU
+	 987rkykVdsoLKX3D4mF/YBvQJ/Xg4WIAWrMrIgdLsufvrTkIPM8XV8xHKD5OhLLwfd
+	 xqrQDuNH1RdpYcK9bDRkg6xK0MFaVwJ4j77UepEhEyx7TgJQn1WTKnKIrt3KRC5pdg
+	 UkOUikktLorJAt2mwfohWGMT7jrG6Or2/dWdNEHE/6LLOgpbK3R6QAuVPpQ7ogEhY6
+	 ebsFD8EU8RjJOib2TsNg/Jc9XWWnleTSWCq9a82M8QqNgeGAvY129ftm8305r3aqrM
+	 ua7rn5x00/vxw==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Wed, 04 Mar 2026 11:56:47 +0100
+Subject: [PATCH net-next] net: airoha: Rely __field_prep for non-constant
+ masks
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 12/18] dt-bindings: dma: ti: Add K3 BCDMA V2
-To: Rob Herring <robh@kernel.org>
-CC: Krzysztof Kozlowski <krzk@kernel.org>, <peter.ujfalusi@gmail.com>,
-	<vkoul@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nm@ti.com>,
-	<ssantosh@kernel.org>, <dmaengine@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <vigneshr@ti.com>,
-	<Frank.li@nxp.com>, <r-sharma3@ti.com>, <gehariprasath@ti.com>
-References: <20260218095243.2832115-1-s-adivi@ti.com>
- <20260218095243.2832115-13-s-adivi@ti.com>
- <20260219-hopeful-intrepid-cuckoo-32967d@quoll>
- <bab85365-063a-4d46-a1bf-48a25228d109@ti.com>
- <20260223182057.GA4190282-robh@kernel.org>
-Content-Language: en-US
-From: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-In-Reply-To: <20260223182057.GA4190282-robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB50:EE_|PH7PR10MB6284:EE_
-X-MS-Office365-Filtering-Correlation-Id: 57877341-e2f5-4c16-ffea-08de79dc33f9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|7416014|34020700016|36860700016|12100799066;
-X-Microsoft-Antispam-Message-Info: /7cY+Dw3bX7ueJZK85vEA6cw2y0+4qIAV7n3dVbSt08l8DHDS/+U09zR/nAlKQDzCD0pp5Qyq2HDndUKkPr5gC0pL4Hei8xIAHZcQQe/Us0focuTGcQXah1uRRxDb+xvv2XVA0QqXBP9/2byhFxwhFxYXtimMUkDqfYurV1R7tMo6pxKKRzL4ys0OhQWaLJdD5m7eet6MmAX6I1PJmuoeI+/M+Y5bPj89y8LWpyOnr8oK3tlB5iGTs54dgbcTaCpO50HE5nQYEVQIyblee8duiQcwwb9VzPIlLf/+BYcN0b7gJDWnEop8Agoibtmt7silhPRJd6oOwJK/vbt1jiHHk/8Lj+rEUJJsYHCyZDbGR++siPHJIog9kNbH7VCVxYB5ATenfA9dswlMFzsSQ5L7Q+GkHpjuGMoSgm3OR2Qu/ivPR8LMZd+iT2O58nfBumVfT7esO24R1wix63fRK8L0cyVFOUoiyQJGeQG7vwi8ug1YQTfJWTyTKCrlzxl6QoZr/lOU4dQjIMznZVjgZD0PtNF5UB+lkpU2UujMaHlBioqD8pBZS1PxzJGVV149znJ4P7E7X4SPHDYcbXdtKSGGzPv564/2DmagA+8p0l6UbnH4Y2n7s+E052vU3npTbKykmouicWQ0GrU3iYuU5oI6Q0T57k7i6X7mi2efyTLmUovtKkQ8XhEJHRkyHGmrZk+ab7SumEhwXIV+x807V6Ypk0ip/Kl5uv5zkiFCvjuxCM=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(7416014)(34020700016)(36860700016)(12100799066);DIR:OUT;SFP:1501;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 08VgGqRQ2D+tGAc07wwvb8nDcsv+FcxrM7j14Q7090WcEx6QSwdBQ9L4N6E+jp7PNrcl3JsDWYk7Huf3fAkibS0l5u5VcJrIp/n7oMdFErso2S5XlPkGAJsFaeVWC6gLhwta90VTCaP8vHCuFm6HZVOymq99WlHoKltml6dlBXwSuNTMNQ/jfXAhFYyfLtfcUFoskTKBp6g2DTeClR3/z84BDZzzWtZ+dC7Ig9am5EjJWe/iyoYkpWhU13EmwjA3QGM/TLD/0G6oUOoBhq3Ar0XvwhD1PxWD641vFpx5noMKyekhRX5vAQfupa+wIvEGSA0QoXyJ6/qxiU3I+v2GwzzugvWe99Yh/Y9pxgo+wFyZ3a3/LYfu6O8BSUBOCTGNbnP344TeyPMNVGSUCB1hY8tmhJ7clKI1sCk9NIJnvqpkEkIrQI/DJL4OgSIvwZ6v
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2026 10:53:00.3721
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 57877341-e2f5-4c16-ffea-08de79dc33f9
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB50.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB6284
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260304-airoha-__field_prep-v1-1-b185facc4e2f@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MSQqAMAwAvyI5G+jiAn5FpJQaNSBtSUEE8e8Wj
+ zMw80AhYSowNQ8IXVw4xQq6bSAcPu6EvFYGo8ygrOrQs6TDo3Mb07m6LJSxp74b9aiDtQFqWeX
+ G93+dl/f9AMLy3DNlAAAA
+X-Change-ID: 20260304-airoha-__field_prep-5e547171c33c
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_025308_630062_2BC8B34D 
-X-CRM114-Status: GOOD (  19.80  )
+X-CRM114-CacheID: sfid-20260304_025704_185590_79F65EC0 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,124 +78,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Rely on __field_prep macros for non-constant masks preparing the values
+for register updates instead of open-coding.
 
-On 23/02/26 23:50, Rob Herring wrote:
-> On Thu, Feb 19, 2026 at 05:45:46PM +0530, Sai Sree Kartheek Adivi wrote:
->> On 19/02/26 13:13, Krzysztof Kozlowski wrote:
->>
->> Hi Krzysztof,
->>
->> Thanks for the review.
->>> On Wed, Feb 18, 2026 at 03:22:37PM +0530, Sai Sree Kartheek Adivi wrote:
->>>> New binding document for
->>> Fix wrapping - it's wrapped too early.
->> Ack. will fix it in v6.
->>>> Texas Instruments K3 Block Copy DMA (BCDMA) V2.
->>>>
->>>> BCDMA V2 is introduced as part of AM62L.
->>>>
->>>> Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
->>>> ---
->>>>   .../bindings/dma/ti/ti,am62l-dmss-bcdma.yaml  | 120 ++++++++++++++++++
->>>>   1 file changed, 120 insertions(+)
->>>>   create mode 100644 Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-bcdma.yaml
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-bcdma.yaml b/Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-bcdma.yaml
->>>> new file mode 100644
->>>> index 0000000000000..6fa08f22df375
->>>> --- /dev/null
->>>> +++ b/Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-bcdma.yaml
->>>> @@ -0,0 +1,120 @@
->>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>>> +# Copyright (C) 2024-25 Texas Instruments Incorporated
->>>> +# Author: Sai Sree Kartheek Adivi <s-adivi@ti.com>
->>>> +%YAML 1.2
->>>> +---
->>>> +$id: http://devicetree.org/schemas/dma/ti/ti,am62l-dmss-bcdma.yaml#
->>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>>> +
->>>> +title: Texas Instruments K3 DMSS BCDMA V2
->>>> +
->>>> +maintainers:
->>>> +  - Sai Sree Kartheek Adivi <s-adivi@ti.com>
->>>> +
->>>> +description:
->>>> +  The BCDMA V2 is intended to perform similar functions as the TR
->>>> +  mode channels of K3 UDMA-P.
->>>> +  BCDMA V2 includes block copy channels and Split channels.
->>>> +
->>>> +  Block copy channels mainly used for memory to memory transfers, but with
->>>> +  optional triggers a block copy channel can service peripherals by accessing
->>>> +  directly to memory mapped registers or area.
->>>> +
->>>> +  Split channels can be used to service PSI-L based peripherals.
->>>> +  The peripherals can be PSI-L native or legacy, non PSI-L native peripherals
->>>> +  with PDMAs. PDMA is tasked to act as a bridge between the PSI-L fabric and the
->>>> +  legacy peripheral.
->>>> +
->>>> +allOf:
->>>> +  - $ref: /schemas/dma/dma-controller.yaml#
->>>> +
->>>> +properties:
->>>> +  compatible:
->>>> +    const: ti,am62l-dmss-bcdma
->>>> +
->>>> +  reg:
->>>> +    items:
->>>> +      - description: BCDMA Control & Status Registers region
->>>> +      - description: Block Copy Channel Realtime Registers region
->>>> +      - description: Channel Realtime Registers region
->>>> +      - description: Ring Realtime Registers region
->>>> +
->>>> +  reg-names:
->>>> +    items:
->>>> +      - const: gcfg
->>>> +      - const: bchanrt
->>>> +      - const: chanrt
->>>> +      - const: ringrt
->>>> +
->>>> +  "#address-cells":
->>>> +    const: 0
->>>> +
->>>> +  "#interrupt-cells":
->>>> +    const: 1
->>> I don't get why this is nexus but not a interrupt-controller.
->>>
->>> Can you point me to DTS with complete picture using this?
->> Please refer https://github.com/sskartheekadivi/linux/commit/4a7078a6892bfbc4c620b9668e3421b4c7405ca4
->>
->> for the dt nodes of AM62L BCDMA and PKTDMA.
->>
->> Refer to the below tree for full set of driver, dt-binding and dts changes
->>
->> https://github.com/sskartheekadivi/linux/commits/dma-upstream-v5/
-> Whether this is an interrupt-map or a chained interrupt controller 
-> entirely depends on whether the interrupts are transparent to the 
-> DMA controller (i.e. do they have to be acked?). interrupt-map is 
-> generally for transparent cases.
->
-> If not transparent, then just 'interrupts' and 'interrupt-controller' 
-> should work for you. You can map 'interrupts' entries to channels like 
-> many other DMA controllers do that have per channel interrupts.
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/ethernet/airoha/airoha_eth.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-Thanks for the clarification, Rob.
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 3779f93b47bc13ae21d4ae088dece4712dc214e5..09acbe6695368132ddd92c3501f8711476db73f6 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -1727,7 +1727,7 @@ static int airhoha_set_gdm2_loopback(struct airoha_gdm_port *port)
+ 	airoha_fe_rmw(eth,
+ 		      REG_SP_DFT_CPORT(src_port >> fls(SP_CPORT_DFT_MASK)),
+ 		      SP_CPORT_MASK(val),
+-		      FE_PSE_PORT_CDM2 << __ffs(SP_CPORT_MASK(val)));
++		      __field_prep(SP_CPORT_MASK(val), FE_PSE_PORT_CDM2));
+ 
+ 	if (port->id != AIROHA_GDM3_IDX && airoha_is_7581(eth))
+ 		airoha_fe_rmw(eth, REG_SRC_PORT_FC_MAP6,
+@@ -1781,7 +1781,7 @@ static int airoha_dev_init(struct net_device *dev)
+ 	ppe_id = pse_port == FE_PSE_PORT_PPE2 ? 1 : 0;
+ 	airoha_fe_rmw(eth, REG_PPE_DFT_CPORT0(ppe_id),
+ 		      DFT_CPORT_MASK(port->id),
+-		      fe_cpu_port << __ffs(DFT_CPORT_MASK(port->id)));
++		      __field_prep(DFT_CPORT_MASK(port->id), fe_cpu_port));
+ 
+ 	return 0;
+ }
+@@ -2138,7 +2138,7 @@ static int airoha_qdma_set_chan_tx_sched(struct airoha_gdm_port *port,
+ 
+ 	airoha_qdma_rmw(port->qdma, REG_CHAN_QOS_MODE(channel >> 3),
+ 			CHAN_QOS_MODE_MASK(channel),
+-			mode << __ffs(CHAN_QOS_MODE_MASK(channel)));
++			__field_prep(CHAN_QOS_MODE_MASK(channel), mode));
+ 
+ 	return 0;
+ }
 
+---
+base-commit: 4ad96a7c9e2cebbbdc68369438a736a133539f1d
+change-id: 20260304-airoha-__field_prep-5e547171c33c
 
-To answer your question: the interrupts are definitely not transparent. They
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
-have to be explicitly acked by writing to the BCDMA registers.
-
-Given that, interrupt-map is the wrong approach here. I'll drop the nexus
-
-properties and figure out the best way to map the per-channel interrupts
-
-using standard interrupts in v6.
-
-
-Regards,
-
-Kartheek
-
->
-> Rob
 
