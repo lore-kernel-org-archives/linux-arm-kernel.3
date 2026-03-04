@@ -4,70 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 812B7EFCE49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 21:01:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 218EDEFCE47
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 21:19:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GiTjUrz2kPElHMj4xkWswqOzHlzkzI5ZiieqmOCc1F8=; b=dZBHqai6V5iOPwdQ70LfZX0rCx
-	5UHSx+F7fgLgr+RBOWVPcIY+KiW2siicKjtiXDMS9qUG1HKH6cEGQkMVBhWi5KznO8bfwUnfUvVLj
-	pJmfDYgzceX+Tb2eCdF5XiaPsrB8E5+uvGBQHUyEO2EuVJFNz7veM5No6McXPAS1KMW8SNKcDu387
-	g2N07ATKGNB9jt1v62tTNZoR+mPFTswcfppv3g/zcWhnaILg2S/BvKCBu+KNRq3xIyYAbjgvC0CqN
-	9GoLgfP6Xj4S+cbvE4QTf+Y74yK2GEd4WM9TIA0h+P12BhdutaV6/eGBLWL+vLb/bWXNyUseEx07I
-	jZLXTEcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XEel73t4ax9TcRsyBFTvEOkN109emvMaIocLqsc7fyc=; b=xB+/T/BivZC3clcXbrfwf864rD
+	3EObgt9fkvTah2g4JlUxU2ieTBA0Vcp0+XEZBactMJnUJG5lhKQoSsTPwM1YLz9SNUvzX0/bnWq+1
+	Dm+tckeFDVFzoAH//b64q7KKIzrWAhX46YxAOU+1pgs09cwR02/8KGUEXCz+m6DqWnemMX8sImbL1
+	kjBcyy9Dnvtr6Hs0uySakaHIlar73u9JAtobb7w0ln2jIgWOgdEr0BYIYZqbrgeYKgCVcBMDh78CQ
+	Naex9FYQJtJ2+BjJX+3AtZsSrokFE3SbgQWdRpbCqZxU6O24P7hdWJjX+Uh5GXEHNXp9pV4oh8s6e
+	hm7NMj5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxtLY-00000000U7Z-1yZl;
-	Wed, 04 Mar 2026 21:01:32 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vxtcR-00000000VE5-2wdZ;
+	Wed, 04 Mar 2026 21:18:59 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxtLU-00000000U3v-31Zj;
-	Wed, 04 Mar 2026 21:01:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1772658085;
-	bh=7Pu/j2FA1dbN74NgBoJXDOll0xaVUjyO78TNdm4qOyU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=eyoxGK4jaK4/GknPSu/Bfp9WaLDZ/lpe9uRdvOqV5iiQslMZwIMhHnLQNBi3/vzBy
-	 DlnyRf/Yy/jha5dRa1DXk3lSNAtX+GgGSSJZLWRvH5AFxPN2ITum3fI4n6dc3idz6O
-	 sKjgbTF7bch0ddMaRGSRkNALIG5x+yRrLNzUV0ho2XhFi12/n+6AQ5ad2LZykVK6OV
-	 VOlEJ3WVZV/MlN9VuG5PrP54HK48FuJhFLl6P+iUx6j6Ua79ktHwgpQO3Geug7Ml9u
-	 pTBAzQzORXrKjWSRf3NIrREsc2nL0oLB8SpaM9Xjf3hB9LnsswJc2WxmVwJFBNwfNk
-	 xiHDC9ffTrjiw==
-Received: from localhost (unknown [86.123.23.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9752F17E129E;
-	Wed,  4 Mar 2026 22:01:25 +0100 (CET)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Wed, 04 Mar 2026 23:00:43 +0200
-Subject: [PATCH v5 4/4] arm64: dts: rockchip: Update vdec register blocks
- order on RK3588
+	id 1vxtcO-00000000VCv-41nS
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Mar 2026 21:18:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rGiN6wI3KVV6ezf3CYl9eaR+lMGIRJ7pFbZCG1+xIFttdpM0E421m1RXZ/eItsKpiE1LRYQUHIbqSBEtD2VR3KK0rNoTeChNBSoATnhqCZvcfEf+NPUnJ1oSQzN6dSV2buhSU0UrOgIbMvKcrAV9/1ogmJmr+0pHznMb2UEEbk++FogT/fM92tw/+nqG3NzQLTMebio6yR1GMMHHTvamWtuBt+ya2/9D2aaqpcU4vRrYz83kzXMcutfcsdQp8+MtRFxGRAOBkKiDBcoUGA2wv2TlIEzUywvpzLn/1IC/BJG9ZDP69PFZEPqB5W1E8WR7KY0zVfhF1GX80K5jslAfqA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XEel73t4ax9TcRsyBFTvEOkN109emvMaIocLqsc7fyc=;
+ b=DWbAy5GeeCm0SvkVxSRohyLEjyF3gHDJFqOL2NcnvtLRuJS4T3B7UpinaSG31K/KZfJp6iej6sie6K/yUdeZLJSTTYDuDD0YfkQtA9oLuepqesPdpelmjjf12MHPCrVA0yjEiE8t3b28p/rHzaq+wq68T7zdkZxy0cdNpSZUwit8PQYqU9XHAFFpSt6UZ3pZpD+QUoHwgurVi4i2v6xHxfqGMcc4p+S7nqUU7flaknx6YHTN3imygTPPkLDaotscoKEphOFtX9gQohDY5Uid21DkuCIGPHYwcI2Wjt+iK1829unbZGvbx2mr3AWbNwi086LyNKRtWjgdGSBq1mYLRg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XEel73t4ax9TcRsyBFTvEOkN109emvMaIocLqsc7fyc=;
+ b=OyRJwbgzfq9yUU3cAlKogFJHphommB2x0wpWG3cUhtfVfRf2VXmmzSBMmvsSlx25/jCWodUR3JgpNJVsBn5n9BBC+yIKaPLrNKfiXaZh9x/MAvEFmXy/elFUc4iB/FgWWza7fWqwbXzLyz/4g7QwYneJCItduoMQpVc1InQ20TWikLuqGlzymFZB8Z33ke48TFIcWf+vIx8V9T200heQMtDNQX5e8NWxa7gQFSZ1q0VYopFeDObpBg+S8g8LoxDHV+KzgD+oXJZ+aSK8r4XByngaWLJIL7AUuVR7ZZioWp72djuqissz0QYG4VjhZ1qngywyIaPB+xtMT/Cwkh+EQA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
+ by PAXPR04MB8206.eurprd04.prod.outlook.com (2603:10a6:102:1cb::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.17; Wed, 4 Mar
+ 2026 21:18:49 +0000
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::b4c0:6119:2228:2ceb]) by PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::b4c0:6119:2228:2ceb%4]) with mapi id 15.20.9678.016; Wed, 4 Mar 2026
+ 21:18:48 +0000
+From: Shenwei Wang <shenwei.wang@nxp.com>
+To: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	arnaud.pouliquen@foss.st.com
+Cc: Shuah Khan <skhan@linuxfoundation.org>,
+	linux-gpio@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shenwei Wang <shenwei.wang@nxp.com>,
+	Peng Fan <peng.fan@nxp.com>,
+	devicetree@vger.kernel.org,
+	linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-imx@nxp.com
+Subject: [PATCH v9 0/5] Enable Remote GPIO over RPMSG on i.MX Platform
+Date: Wed,  4 Mar 2026 15:18:03 -0600
+Message-ID: <20260304211808.1437846-1-shenwei.wang@nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SN1PR12CA0085.namprd12.prod.outlook.com
+ (2603:10b6:802:21::20) To PAXPR04MB9185.eurprd04.prod.outlook.com
+ (2603:10a6:102:231::11)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260304-vdec-reg-order-rk3576-v5-4-7006fad42c3a@collabora.com>
-References: <20260304-vdec-reg-order-rk3576-v5-0-7006fad42c3a@collabora.com>
-In-Reply-To: <20260304-vdec-reg-order-rk3576-v5-0-7006fad42c3a@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Detlev Casanova <detlev.casanova@collabora.com>, 
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Hans Verkuil <hverkuil@kernel.org>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, 
- linux-media@vger.kernel.org
-X-Mailer: b4 0.14.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9185:EE_|PAXPR04MB8206:EE_
+X-MS-Office365-Filtering-Correlation-Id: 156ee9ba-3e5c-4584-8121-08de7a33a043
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|1800799024|19092799006|366016|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: y827CZjBF0Xo5ANuMVTZ4dXxF7o77OGXvo4ZnOj/k/+5pYiipGZVC0o9ORatgho506JTpR/SWw+Jzjuz1dxUlOtfWgAFyqg42Tm9bGF91SGEw0dh/aucwOnEtcGKATLiWd8xr2e1QfyRi/8MyvDk9PxVXPxG8f339jbpvnu91EdC1TeCUTPul2TXJTeK/DzfHZAwinfYJFZVFZvorTUgawdiSz8HW/zuo1Z/rDToLEpR0JgtIoZuDWVZsmc45Gahcunhp+GXghI7yFERqxGAETSCM08iPccRoZwVMQqvCcwdvvcnmzwIqpXer7b6f8KRlG4tZN+6BsRUiapXsikGV6RAGUpW770SQXZ5xb2DkE10CSRellZ1coh5+tSKKvAMLnG/KWOZD3ORn1kM/2CdQLO9/e+7Q8UdncFk4X/fupemeVDod9dNByq5tZi5INe5JhsKG2vss7kCqP3JWhF/VzayisN3dkJSqR6XkEvRApS2o39kg7hi9ozDtRpboodnra9OJz7ExXglpSjF/6arMhFBJce9kbwNV8YsE4v1T9E473pQfhRHIo1zBt6k1/6Zv3f84KGo5GoSCa0ccjE0+4ggsN3lej8yRJ94P4HdYukU33So67fIrXzNSMUu44KRvPAZEy55TXcIqufGiihvUhGBT+KELHAQw3udrvBskPWsnEQwBrncwXmHaEEcRp3qTBXF84/vAlv/+UO1Z5SS2DdyBdO49DVtyJ+5BtZ1n0WPYOGwC08xN/8wGOLpWDXs2wYp5PXrAFLG8//YsHef89igwJupMUuh8GAoBRZC/b1un2osyOb1HnvLNYxmsyXb
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(1800799024)(19092799006)(366016)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?za542Qh9LRoVtl9bPSJtBFXIArk3V35bodbyssB2oA3p8j8Kv9HC3MhXxS89?=
+ =?us-ascii?Q?v34N810bNIUF0td/RWt3TURSrI2wojj6rFQ7CMt/wk1BnYYLmMF3oGSst/wR?=
+ =?us-ascii?Q?7PmtXR8jbDrKxQJr+rWO8Eo90zY+RpCs18OiMlzFcrzraGwSNwnJ4EiTGzIX?=
+ =?us-ascii?Q?WzuI5SPMnOA3+pLw2Fz9QF3jwDutSXIEZ/BshCTZLuE4FP4Wt7HWyltsF1+L?=
+ =?us-ascii?Q?5bbksr00DkisVZ+6LY7nUpMw9lhyLSzxmVwGGA/ZFpLwSIEnOXZXyBAYjuxV?=
+ =?us-ascii?Q?CSmSgNz51HaJbmlIE5xAzkyrwcMnDzSFAv6b/Khr3xBXjbWxCWPxccmBVUwq?=
+ =?us-ascii?Q?R6MgW3BkzcIJNeYsBf1ptjj2pQOqjq0ATVK7TNtMdBv7DpzWmdIvZ082WKtC?=
+ =?us-ascii?Q?Iqcw9ZeFZHCLW+Hp0MTwbpmsD+0teuWjUr6T763htbkgyc1RNpRK811aO4fm?=
+ =?us-ascii?Q?mv6Roal6R2vV2yyhSVZN00tVj71O65AN9zNSo/HTLb5MEY9v+aOK0BXdtytS?=
+ =?us-ascii?Q?JdTGOnuaM+vgsrTNrhi6BiLD57oluT9b+k0As6t4RSu79TOcDISW3Ese2UeS?=
+ =?us-ascii?Q?+IoZR/Pq+4Hc6pZ3LlLZQ3jX/WSWgUdizJ3ga9aWJmVDcfTxoHxRHYFW6IhS?=
+ =?us-ascii?Q?VQThOfA3XDXICSYR0ZOxxg/Ik8Owkjlq9x1gdhRhljndMBVdZOQiSP4p1ISy?=
+ =?us-ascii?Q?mcd5Farm6pta8nYr18hrjPXt2KgH/RJj0vRTtigm/PgFDlsTO53ZDd3E3b1i?=
+ =?us-ascii?Q?8d9JhnooZquEj0FiWa8trrQrvu7w18KR7MYPatlqKXuIFz38p6U/w//8ApmI?=
+ =?us-ascii?Q?oN6VGyw/ZrE0xxOtHWf3zrPkVP0B73mBTeurH9qkh+rUQBSwUA6K9wNZoby1?=
+ =?us-ascii?Q?CzCa6g0BmxDC6V26SqP+V/Gtxx7n56l7PmYdeYGyQaXekzx3W0xVkceoA7FJ?=
+ =?us-ascii?Q?vy6YLs460Ix6UhvGcca8ieVPIih9bkxcvfEBJx3LdU3rLdsjghxnSbHFT5/H?=
+ =?us-ascii?Q?+nu7lAnNRDWs1O06vHWZlkOiMeRPXEvov8RPit/GGaXOVzBo3wrKgGHcnck6?=
+ =?us-ascii?Q?gIXyPy9XNCmfvmtzrivGWJ1KINaCfRw9V64iV2pATqXNb0qxX5GtBZN6VFfg?=
+ =?us-ascii?Q?IzI/yS7Ux9p8xD3jPGXWXgJ/+QV6vbtLIXA9k6Be8+YsEV/Imy7ByeNsH20X?=
+ =?us-ascii?Q?QxBOTzWr6yZbCxc7g0nSKJy1JThiOMOokEcE8bnoYn1IMNCwUDNNQLM/PFON?=
+ =?us-ascii?Q?FldCnqiuOdpwIBwAWjUykthvAkMMbrivkhfR2fquL9+0AHfOIwv9Rakal5qP?=
+ =?us-ascii?Q?0yVBnZ/7cIE7y1g+OXW43UzlHZQVCt1uzxRYsHlAX4ML/P9BhymvXxc5NMAZ?=
+ =?us-ascii?Q?0TJlhhaqakliqHI5dzQ/jHxclDxJQVNRrRj/YKrl9NuvQX3rW8yDd1ZGIwmi?=
+ =?us-ascii?Q?2qXengqfuBz2mr8tHMDRqqXENfEC7iST7Xij73Bukara9DqFZCagUA62Da5+?=
+ =?us-ascii?Q?knWlgLM5n9kJwtBNWYJSVrjLRZUHDq6zRJ3LMEJ5RZUR7MhpXZqy8UwXJ8Y7?=
+ =?us-ascii?Q?nSp3XC+D5b9xWvzyenjg9BUOi2ULFUPACcCQUQkSHI3Mq+VnHiItl/SxTKqa?=
+ =?us-ascii?Q?K2giyelC5sIbusYExMWca2wvX5iUfSrclJLruecMtWF6AVDw4ctIr9Z/uXaG?=
+ =?us-ascii?Q?rNfcihvxVP4wsi1cCTGftGlYPJjdnhNNvjvGz3O03ZXHe9Dp8dUrju1zy2wB?=
+ =?us-ascii?Q?9g+7V2oMTw=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 156ee9ba-3e5c-4584-8121-08de7a33a043
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2026 21:18:48.7775
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vf7DH3S29vnG3xLTIq3iXSY7LBdGvjsCs66CFb4x29LJNofv+Qbrp7kckJiiXjPuKMrdEebnzzlXaGYVlqVGsQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8206
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_130128_990090_1769134C 
-X-CRM114-Status: GOOD (  13.94  )
+X-CRM114-CacheID: sfid-20260304_131857_013661_444DEA7C 
+X-CRM114-Status: GOOD (  19.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,62 +154,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With the introduction of the RK3588 SoC, three register blocks have been
-provided for the video decoder unit instead of just one, which are
-further referenced in the vendor's datasheet by 'link table', 'function'
-and 'cache'.  The former is present at the top of the listing, starting
-at video decoder unit base address, but the binding got this wrong
-initially, i.e. the 'function' block got listed before the 'link' one.
+Support the remote devices on the remote processor via the RPMSG bus on
+i.MX platform.
 
-Since the video decoder support for the aforementioned SoC in mainline
-driver and devicetrees hasn't been released yet (just landed in
-v7.0-rc1), address the problem by providing the register blocks for
-vdec0 & vdec1 nodes using the 'link,function,cache' listing, which
-ensures the unit address points to the primary register range.
+Changes in v9:
+ - Reuse the gpio-virtio design for command and IRQ type definitions.
+ - Remove msg_id, version, and vendor fields from the generic protocol.
+ - Add fixed-up handlers to support legacy firmware.
 
-This aligns with a similar fix for RK3576, where DTC also complained
-about the bus address format.
+Changes in v8:
+ - Add "depends on REMOTEPROC" in Kconfig to fix the build error reported
+   by the kernel test robot.
+ - Move the .rst patch before the .yaml patch.
+ - Handle the "ngpios" DT property based on Andrew's feedback.
 
-Fixes: f61731bd6062 ("arm64: dts: rockchip: Add the vdpu381 Video Decoders on RK3588")
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+Changes in v7:
+ - Reworked the driver to use the rpmsg_driver framework instead of
+   platform_driver, based on feedback from Bjorn and Arnaud.
+ - Updated gpio-rpmsg.yaml and imx_rproc.yaml according to comments from
+   Rob and Arnaud.
+ - Further refinements to gpio-rpmsg.yaml per Arnaud's feedback.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index 7fe9593d8c19..b95129f85aba 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-@@ -1355,10 +1355,10 @@ vepu121_3_mmu: iommu@fdbac800 {
- 
- 	vdec0: video-codec@fdc38000 {
- 		compatible = "rockchip,rk3588-vdec";
--		reg = <0x0 0xfdc38100 0x0 0x500>,
--		      <0x0 0xfdc38000 0x0 0x100>,
-+		reg = <0x0 0xfdc38000 0x0 0x100>,
-+		      <0x0 0xfdc38100 0x0 0x500>,
- 		      <0x0 0xfdc38600 0x0 0x100>;
--		reg-names = "function", "link", "cache";
-+		reg-names = "link", "function", "cache";
- 		interrupts = <GIC_SPI 95 IRQ_TYPE_LEVEL_HIGH 0>;
- 		clocks = <&cru ACLK_RKVDEC0>, <&cru HCLK_RKVDEC0>, <&cru CLK_RKVDEC0_CA>,
- 			 <&cru CLK_RKVDEC0_CORE>, <&cru CLK_RKVDEC0_HEVC_CA>;
-@@ -1387,10 +1387,10 @@ vdec0_mmu: iommu@fdc38700 {
- 
- 	vdec1: video-codec@fdc40000 {
- 		compatible = "rockchip,rk3588-vdec";
--		reg = <0x0 0xfdc40100 0x0 0x500>,
--		      <0x0 0xfdc40000 0x0 0x100>,
-+		reg = <0x0 0xfdc40000 0x0 0x100>,
-+		      <0x0 0xfdc40100 0x0 0x500>,
- 		      <0x0 0xfdc40600 0x0 0x100>;
--		reg-names = "function", "link", "cache";
-+		reg-names = "link", "function", "cache";
- 		interrupts = <GIC_SPI 97 IRQ_TYPE_LEVEL_HIGH 0>;
- 		clocks = <&cru ACLK_RKVDEC1>, <&cru HCLK_RKVDEC1>, <&cru CLK_RKVDEC1_CA>,
- 			 <&cru CLK_RKVDEC1_CORE>, <&cru CLK_RKVDEC1_HEVC_CA>;
+Changes in v6:
+ - make the driver more generic with the actions below:
+     rename the driver file to gpio-rpmsg.c
+     remove the imx related info in the function and variable names
+     rename the imx_rpmsg.h to rpdev_info.h
+     create a gpio-rpmsg.yaml and refer it in imx_rproc.yaml
+ - update the gpio-rpmsg.rst according to the feedback from Andrew and
+   move the source file to driver-api/gpio
+ - fix the bug reported by Zhongqiu Han
+ - remove the I2C related info
 
--- 
-2.52.0
+Changes in v5:
+ - move the gpio-rpmsg.rst from admin-guide to staging directory after
+   discussion with Randy Dunlap.
+ - add include files with some code improvements per Bartosz's comments.
+
+Changes in v4:
+ - add a documentation to describe the transport protocol per Andrew's
+   comments.
+ - add a new handler to get the gpio direction.
+
+Changes in v3:
+ - fix various format issue and return value check per Peng 's review
+   comments.
+ - add the logic to also populate the subnodes which are not in the
+   device map per Arnaud's request. (in imx_rproc.c)
+ - update the yaml per Frank's review comments.
+
+Changes in v2:
+ - re-implemented the gpio driver per Linus Walleij's feedback by using
+   GPIOLIB_IRQCHIP helper library.
+ - fix various format issue per Mathieu/Peng 's review comments.
+ - update the yaml doc per Rob's feedback
+
+Shenwei Wang (5):
+  docs: driver-api: gpio: rpmsg gpio driver over rpmsg bus
+  dt-bindings: remoteproc: imx_rproc: Add "rpmsg" subnode support
+  gpio: rpmsg: add generic rpmsg GPIO driver
+  gpio: rpmsg: add support for NXP legacy firmware protocol
+  arm64: dts: imx8ulp: Add rpmsg node under imx_rproc
+
+ .../devicetree/bindings/gpio/gpio-rpmsg.yaml  |  55 ++
+ .../bindings/remoteproc/fsl,imx-rproc.yaml    |  53 ++
+ Documentation/driver-api/gpio/gpio-rpmsg.rst  | 258 ++++++
+ Documentation/driver-api/gpio/index.rst       |   1 +
+ arch/arm64/boot/dts/freescale/imx8ulp.dtsi    |  25 +
+ drivers/gpio/Kconfig                          |  17 +
+ drivers/gpio/Makefile                         |   1 +
+ drivers/gpio/gpio-rpmsg.c                     | 735 ++++++++++++++++++
+ 8 files changed, 1145 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml
+ create mode 100644 Documentation/driver-api/gpio/gpio-rpmsg.rst
+ create mode 100644 drivers/gpio/gpio-rpmsg.c
+
+--
+2.43.0
 
 
