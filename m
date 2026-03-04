@@ -4,145 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EF56EDEC03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 03:54:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94755EDEC04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 04:03:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DTSAXqXYf5EFJCbxRyDV+S9phoOJqbg6A0FL7IQ5PCg=; b=1i+HR/yTdiy1ti+H9S4wZXETNV
-	h1pdVJltM4XptZCoxxVZ7HnVBQMjyJpQjTK9+nPc9O92X182Vv83LuW1WzOh9uqSdnccEuDkkEalE
-	OblPme0qo2toGJukB+1+e3NwNT3R3yWJkrSDaB9PudtGBdx77NnTUTavwtyRqnACKdhksIXf7wc8X
-	QoPjLLngjY1aQCS+8Wv/lT7GOxFD2i4oZYe0ySHgx8uS24OoW4hGqEcadkANviHE+qtPXpJDrpwcV
-	z6KXMMlMSRNV7ni1VXSR8VPUh+i7FC9PGDPYRmoNl8RKUNoe8Cwvp1CXGO8vYFWdQcjbfwl9bOipK
-	AXGC3X3A==;
+	bh=bwKQfDZLKns5if9ynjLe+4Lfv8JmZHnCssBKf5Eyipg=; b=FuFE50HK6HU7fAOBPx+7zz2W8w
+	fWYCFg4F6/weB2iS2d1ksncBOia27W7vxN0hlLe5p0IF96L2QlOzt3o88JG8wXt0a9/R80br33lJn
+	6NLHPVJpsi2mj9086KoS9USpL8ReXZFjH1oPKFNRgY+yln5SkXFtNxbLHz4gw3jjbVBa73FR4NieS
+	h4DaKvMYfODI0718VHTrWRvx69MnLNpVaWwuiuVONpzriDOJuzcmyT5iPWGzVawchC7dyDkUV8xCk
+	8SUfweqqF+xSVTeUyi6Zo2Qy9qTuaSwnjBGA9j5jM1onQQC8I4TiA5/lFVhHHja5uir48iSVVAMQq
+	gH+VgsFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxdJR-0000000GOvE-2usJ;
-	Wed, 04 Mar 2026 03:54:17 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1vxdSf-0000000GPGi-0zW0;
+	Wed, 04 Mar 2026 04:03:49 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxdJL-0000000GOug-0pU7
+	id 1vxdSc-0000000GPES-1hp7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 03:54:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hy8eHrxW1Er1PT4aYMQwkKxxbRwFOM0OeuRkbZ9TILf0+rLB9tZalffhXSzXxgCa1rWSGHsAkVktIdyi6ZNLgRywHDlU6t6rjH5w0gsKFY6Nq7WA9bpxxIgTXfsqkPqueysSY47oLQWlnz5gOXvoM1xLGBuxe/uxO4ZUWYF5wNweJG2ROxFep5DsfrRfva/X1gf0PSBFGAL7/hrISKDUOMjayiy1ddKYmvJEAeSyDgBV2k2NV4B1pbnxbonK4Cn6riTy8qBFlSSOz7qm4OAlAyxHBs1sJBQWPWVJ1yQ7dHkIFePeVgy/jyeAxpaFDutFv/DOPyskH1NL+KPyIuXOTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DTSAXqXYf5EFJCbxRyDV+S9phoOJqbg6A0FL7IQ5PCg=;
- b=jzAkkV0F85gK8xNT8abl5SHT0QsqOIegXM8zY8YLMhaZq7lbCoFAGNTnwhcjByxRIHqK3rZ2Mf2ZjiHMjiDEynECdKek3fCgeZZklBfJhREMgJZSc81nMB2q03/Kag27s6pru5ryzDRSYDZaIW2GC4YuHibOJ+J7GC8XBikKamrkacg0J5r3TyA9tc3FD1q7coahunJcUb3Li2sp4mZkGTBg0ZQ6ro6tpinJIQehZCPpphTXymSdeICAThz/xKfp8RWlNudm6720lklSCaiw+nWfiHJAWeJtE61kEFAHaoq9iMBVHZ9JmF0yLs25DG4KH3HKbXJ8P9YeEZuCsqBALg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DTSAXqXYf5EFJCbxRyDV+S9phoOJqbg6A0FL7IQ5PCg=;
- b=I8C4Et9ik6gE5B0rQZpwnHZ0V5rycedFiRJg7KyCYT1zPJaHQofYLDs9eSh1rWo92Tzj/nDN9nyI6A1w/R4fnNZTF++wYCbrUSbWRjeOyG8Mz4UBEMCLka7d87P55CS76n/YHTTQ4+D4zTmrIpNYSD+d5iAB8jvKOaG7bPhEBcJg9Js2Vk2HPT96ML5IPK3zO84lfB0C6TnjsIgF1xHtqIxpcEijmRZNyvLJT0X7PvjyqrQwcq4FDl1t98QLLcqmY672e5IpO1TD1d/nHR3v0HEZpT0GsI10wh+N54S3g3QjMdBKw4inZF/0ErIDqccp71LQEKMTotDhdW8SG7FWjQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by VI1PR04MB6976.eurprd04.prod.outlook.com (2603:10a6:803:130::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.17; Wed, 4 Mar
- 2026 03:54:04 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9654.020; Wed, 4 Mar 2026
- 03:54:04 +0000
-Date: Tue, 3 Mar 2026 22:53:53 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Marco Felsch <m.felsch@pengutronix.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	luca.ceresoli@bootlin.com, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v11 2/3] drm/bridge: imx: Add i.MX93 parallel display
- format configuration support
-Message-ID: <aaes0RIBTcgOZje9@lizhi-Precision-Tower-5810>
-References: <20260303-v6-18-topic-imx93-parallel-display-v11-2-1b03733c8461@pengutronix.de>
- <20260303210131.2966214-2-Frank.Li@nxp.com>
- <3dyb7wc7tg6hc4o4qocn4nft7bu3hbdpxcnv7cln2q6vkxo7bw@dtnswwyou5sp>
- <aademaK0PpTMZ0Xk@lizhi-Precision-Tower-5810>
- <fdcf60da-bc0b-4b99-803d-e2d1948d5633@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <fdcf60da-bc0b-4b99-803d-e2d1948d5633@nxp.com>
-X-ClientProxiedBy: SJ0PR05CA0189.namprd05.prod.outlook.com
- (2603:10b6:a03:330::14) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Wed, 04 Mar 2026 04:03:48 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=bwKQfDZLKns5if9ynjLe+4Lfv8JmZHnCssBKf5Eyipg=;
+	b=WAg4xjzRmfHY89Eo0ZszbpSH/Z2W0H4GnS6RJ1qjD2esE8tihbU8WDcQqs3f6f+gYmq1UIcKB
+	YlA8LYI1alqaz1jpfUZclwBo4nw7IcbTfuibltU4kr4YbSyxkoRYZ1r4wljqiZJk9bGpTGoN3bH
+	iJIhERqdlLMmMRD+nEL/ilU=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4fQf6Z0MSnzLlSL;
+	Wed,  4 Mar 2026 11:58:46 +0800 (CST)
+Received: from kwepemk500005.china.huawei.com (unknown [7.202.194.90])
+	by mail.maildlp.com (Postfix) with ESMTPS id DDF8A40562;
+	Wed,  4 Mar 2026 12:03:36 +0800 (CST)
+Received: from huawei.com (10.50.163.32) by kwepemk500005.china.huawei.com
+ (7.202.194.90) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 4 Mar
+ 2026 12:03:36 +0800
+From: Yifan Wu <wuyifan50@huawei.com>
+To: <tony.luck@intel.com>, <reinette.chatre@intel.com>, <Dave.Martin@arm.com>,
+	<james.morse@arm.com>, <babu.moger@amd.com>, <shuah@kernel.org>,
+	<tan.shaopeng@fujitsu.com>, <fenghuay@nvidia.com>, <ben.horgan@arm.com>,
+	<jonathan.cameron@huawei.com>, <wuyifan50@huawei.com>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kselftest@vger.kernel.org>, <linuxarm@huawei.com>
+CC: <xiaqinxin@huawei.com>, <prime.zeng@hisilicon.com>,
+	<wangyushan12@huawei.com>, <xuwei5@huawei.com>, <fanghao11@huawei.com>,
+	<wangzhou1@hisilicon.com>
+Subject: [RFC patch 2/9] selftests/resctrl: Refactor resctrl_val.c for vendor-specific mem bw measurement
+Date: Wed, 4 Mar 2026 12:03:27 +0800
+Message-ID: <20260304040334.765860-3-wuyifan50@huawei.com>
+X-Mailer: git-send-email 2.33.0
+In-Reply-To: <20260304040334.765860-1-wuyifan50@huawei.com>
+References: <20260304040334.765860-1-wuyifan50@huawei.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI1PR04MB6976:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7f0dc01d-ebd8-4e47-13cc-08de79a1adac
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|376014|366016|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: rOYQ3VPq0Z7T4y7qyDEUIArmVY8NlbP0MFcssKfYm3hZhWDZCqIe6vd098pKD/d1hc6PBm8dH1j271FWHKC2EMu8yybiH5BgT1ssdof6lYvd/u3NoESM8Pxfm/fMj2I7PDe8A3V5ShDc2q7SQHPnv6r1mTQPXyyvtjJiEBzgYE5ylNMMU+G1KYw/Ur012gZwrIdoDWJf6+sIsynj8juTBQqMfiqeE+r/lVs968c0GmrSwwcp8sOrTVrWn1MzjFyF8FslanH++0v5hhwsujyeNACZMgyCXGp1EYKgBMYq+15R7AVQ1BFWmAC7VSgwBNW6NikeRwNuNQAK0QVkSBSDSWseqEqU9ckaAfPT9zjGwjTU3FGok1mxhEKf7S+YO7xGeOtNkzllgYBuzAyOvPlm/11YZa6t6gK2vVEgfHE+82nLQCUAh4dimXxoolDyTAPinrmrkAULDbCTTry7cuTTu6FNf5O74Uq5dv/fG5qfaUof572nMDKeJDUCdKdQ1OAw7CO2v7IaFmen57OqnD7MKwb9EUWo9baAoNJY5gpMuq9cQZiIQegHygVgJmpy5IDx04BeylrKkdKFQhVDSRhksNIQBE8jNf22NDeO2nTaeHk0zHe/BzlJ/DDFfPr4rWkz13kx7CNaRogok6Qb7iA+PjW956S3CaWaeYTYcjlJiwOvtVwwUc540b4ZZXaC+Upyl+8Y1WHZjF9YeonfHRWzZocTh31iWysWsGzWvSF4L2U=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(376014)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?i5PN5wGnhe9gWNh9DFk41st+aE7RG1JIQpxbXlToDl08ZGzm3La0Fa7ncUv9?=
- =?us-ascii?Q?UZgZlzYhQQv6KCddBDQH7f3l32DOOLKDDYQ2lljJ89hLeNgt0aRJ3ZE5zp9k?=
- =?us-ascii?Q?ghsGlpwitH67FCwxg7GsyBeuyVVsLc83H/hmTosKrtkBPjM0H2aO4NWQT+MK?=
- =?us-ascii?Q?SAm5BAuhh6euo7V8I1g5z1nVzgcSnbEEGO1PYtiXa5RydLZy1rE61NIHHWTN?=
- =?us-ascii?Q?Ir48PFOZdUscKgHlW1ELKzN3s8uJ9zKAmJ1709iyMnShZakTvLHvRW4ZsJ1S?=
- =?us-ascii?Q?FNupKSTifi1A21BYkOC6HhAHGemfugY1jC+ZiEN7ljZxZ43jXxFI3jtKubDO?=
- =?us-ascii?Q?DJRHKX/AbyIcpYXoyDdaIWIUU7I1gj1QCtakUhVI90AvMqlOInQLB+5sPZ2R?=
- =?us-ascii?Q?ZNgy3Et9A+MaZlibcUIQS+Pw8FxhlvFFy/tyOkftVJ2iRalvQp3k3NpEu7EQ?=
- =?us-ascii?Q?K7SLRtY7N75Q9LxBP5zxHpPVQ5ea0RdpbZavZxljShy4J0+9X984w3UpamUM?=
- =?us-ascii?Q?tTfYyF/wBe+mL48nwy3xJhusOK+7Ee/8Y+pZ3MsvK+21sEl1eh2cNuttDw+1?=
- =?us-ascii?Q?T2paucDrZag69ehv0+EN8O0fB9IDzyj5t70tKXHuJO8zV/htYsXDpi67T1sG?=
- =?us-ascii?Q?KySAyjbALyn8KbuUEwy27bCpe4jRu3pwF7zExcBXWQIJL231yP2t+uTKvT+i?=
- =?us-ascii?Q?13pqC/VyzgZZ1CtCjTe4Hk+Z3zEAZSHe1m+scSI3n7nkb/Lh1hVO0qUYgLKI?=
- =?us-ascii?Q?ceP/E1M0MlgI6yJIlSWh+471M7YwkheymR+oac3Roj4xz/0SBZxdK200wzM1?=
- =?us-ascii?Q?q9pH59dqTTfkm2X3VRzxrpHMjLsVyjB3N9YRUitVKZT/PJN99zvp1uNp446n?=
- =?us-ascii?Q?f4k+yTesU2rCPPaxOHhO6DrhbbOHJ8ADnHhOhiXK3bT6sQ04ddWM9TQex2lS?=
- =?us-ascii?Q?QwfiV0nS1BrpjLlFuIOdMsv+qudsa+OVM9N05H1gHMkjRPj35TTL09qMAEeo?=
- =?us-ascii?Q?rUBEs5PkpzUQ0RjGzbKajuvk6BhXGRUw+m1qtlQ0NgQ6F7pzZt5Ts2S49K61?=
- =?us-ascii?Q?jhs9c00R6CLo+R6+fZY9srWp3PvkpVuUDQ4PihM3sonBAHl9qGFgJuyWMoHc?=
- =?us-ascii?Q?2zlc7y2NZ/9I8/T6JfAXsZcVLlcmjMPruu/U6AUCHr6nZ+FdSl2ajhp7dY4s?=
- =?us-ascii?Q?WuVfPPggzEKGiTnWZyWcAKbMoUHqvgLPkjej0TeGHMt1XHassJ/bcBtT+XSN?=
- =?us-ascii?Q?8DWNurJiMhftTD/+iFMUv5SDNG+QSOAA/cM9GMeqMPXlCd4L6iiAWOwZyvGO?=
- =?us-ascii?Q?Lbmaqc0ece/WLwCAvwfST1Eh3NQmgwLLEtYTj15q6wVxVRUnPSUp2xPRk612?=
- =?us-ascii?Q?TFlHN+LoO+gPim9koTjytbUDg9ZsDj0od2+rZNX4mKQqmMZA6/ncozurvcy4?=
- =?us-ascii?Q?uC4oD8Zo5I8XkkTSDiQjTQwgOP5iPr3T9D36is2OI2NRtEPA3StHveJGSOBD?=
- =?us-ascii?Q?oUqT1oIlaNS2lCRbTS0/vtkiG1VrmEFo6OWHe/hfO/rbSgMmKY3HFVkEM8rg?=
- =?us-ascii?Q?cOEJCzJ3OFPrZdgpCXHmkXtEpOJPOaNuPvIkoqaiFFadtgRQwAR3QnHxtPz5?=
- =?us-ascii?Q?CGxf9YR48Sygv3GOtWw6fbL6hOHUPQCcIsCH579kttHoYJZKD03hgqn7lsht?=
- =?us-ascii?Q?zTj6f3GxnHq7sE8CxdDEeHQX147t/RhCwAtBbfxFECPqcOmposyPcu4j52n0?=
- =?us-ascii?Q?N35dsYJm6Q=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7f0dc01d-ebd8-4e47-13cc-08de79a1adac
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2026 03:54:04.5157
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: lYGPbRKRb9STJ5HwR55WV/Vx7F5waGJJL/xy6A53O13YWYGifpnklFxHMCj+gKKmxxIWyLEoYX3EpQzXnv5HEQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6976
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemk500005.china.huawei.com (7.202.194.90)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_195411_245382_4AC46C0C 
-X-CRM114-Status: GOOD (  30.05  )
+X-CRM114-CacheID: sfid-20260303_200346_893131_6824F8FC 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,155 +83,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 04, 2026 at 11:29:03AM +0800, Liu Ying wrote:
-> On Tue, Mar 03, 2026 at 05:20:09PM -0500, Frank Li wrote:
-> > On Tue, Mar 03, 2026 at 10:22:02PM +0100, Marco Felsch wrote:
-> >> On 26-03-03, Frank Li wrote:
-> >>> From: Frank Li (AI-BOT) <frank.li@nxp.com>
-> >>>
-> >>> AI bot review and may be useless.
-> >>
-> >> Hi Frank,
-> >>
-> >> albeit I'm very open to new technology, I would appreciate it if your
-> >> AI-BOT is used internally first till you're convinced that it reports
-> >> real issues instead of false-positives.
-> >>
-> >> Regards,
-> >>   Marco
-> >>
-> >>>> +static u32 *
-> >>>> +imx93_pdfc_bridge_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
-> >>>> +					    struct drm_bridge_state *bridge_state,
-> >>>> +					    struct drm_crtc_state *crtc_state,
-> >>>> +					    struct drm_connector_state *conn_state,
-> >>>> +					    u32 output_fmt,
-> >>>> +					    unsigned int *num_input_fmts)
-> >>>> +{
-> >>>> +	struct imx93_pdfc *pdfc = bridge_to_imx93_pdfc(bridge);
-> >>>> +	u32 *input_fmts;
-> >>>> +
-> >>>> +	*num_input_fmts = 0;
-> >>>> +
-> >>>> +	input_fmts = kmalloc_obj(*input_fmts);
-> >>>> +	if (!input_fmts)
-> >>>> +		return NULL;
-> >>>
-> >
-> >> +     input_fmts = kmalloc_obj(*input_fmts);
-> >
-> > AI:
-> >
-> > Actually, this looks incorrect. kmalloc_obj() allocates based on the type
-> > of the pointer argument. Here you're passing *input_fmts (a u32), not
-> > input_fmts (a u32 *).
->
-> This comment is false.  Per kmalloc_obj()'s kerneldoc, it's first argument
-> is "Variable or type to allocate".  In this particular case, the argument
-> should be "*input_fmts (a u32)".
+Currently, the resctrl_val.c is tightly coupled with X86's uncore IMC
+counter, which is inapplicable on other platforms like ARM.
 
-Yes, I wrongly think it is num_input_fmts and return array point for multi
-formats, actually it is just 1 items for format.
+This commit refactor resctrl_val.c by introducing a structure to support
+vendor-specific PMU, event and scale. This allows the test to dynamically
+select the PMU based on the detected CPU vendor, paving the way for
+supporting multiple vendors and architectures.
 
-imx93_pdfc_bridge_atomic_get_input_bus_fmts() is quite likely return many
-format array especially has "s" after fmt.
+Signed-off-by: Yifan Wu <wuyifan50@huawei.com>
+---
+ tools/testing/selftests/resctrl/resctrl_val.c | 48 +++++++++++++++----
+ 1 file changed, 40 insertions(+), 8 deletions(-)
 
-Frank
+diff --git a/tools/testing/selftests/resctrl/resctrl_val.c b/tools/testing/selftests/resctrl/resctrl_val.c
+index 85ac96c7cb8f..b0570c615aac 100644
+--- a/tools/testing/selftests/resctrl/resctrl_val.c
++++ b/tools/testing/selftests/resctrl/resctrl_val.c
+@@ -10,10 +10,7 @@
+  */
+ #include "resctrl.h"
+ 
+-#define UNCORE_IMC		"uncore_imc"
+-#define READ_FILE_NAME		"events/cas_count_read"
+ #define DYN_PMU_PATH		"/sys/bus/event_source/devices"
+-#define SCALE			0.00006103515625
+ #define MAX_IMCS		20
+ #define MAX_TOKENS		5
+ 
+@@ -36,10 +33,30 @@ struct imc_counter_config {
+ 	int fd;
+ };
+ 
++struct membw_read_config {
++	int vendor_id;
++	const char *name;
++	const char *event;
++	double scale;
++};
++
++static struct membw_read_config membw_read_configs[] = {
++	{
++		.vendor_id = ARCH_INTEL | ARCH_AMD | ARCH_HYGON,
++		.name = "uncore_imc",
++		.event = "events/cas_count_read",
++		.scale = 64.0 / MB,
++	},
++	{
++		.vendor_id = NULL
++	}
++};
++
+ static char mbm_total_path[1024];
+ static int imcs;
+ static struct imc_counter_config imc_counters_config[MAX_IMCS];
+ static const struct resctrl_test *current_test;
++static struct membw_read_config *current_config;
+ 
+ static void read_mem_bw_initialize_perf_event_attr(int i)
+ {
+@@ -133,7 +150,7 @@ static int read_from_imc_dir(char *imc_dir, int count)
+ 	fclose(fp);
+ 
+ 	/* Get read config */
+-	sprintf(imc_counter_cfg, "%s%s", imc_dir, READ_FILE_NAME);
++	sprintf(imc_counter_cfg, "%s%s", imc_dir, current_config->event);
+ 	fp = fopen(imc_counter_cfg, "r");
+ 	if (!fp) {
+ 		ksft_perror("Failed to open iMC config file");
+@@ -176,18 +193,18 @@ static int num_of_imcs(void)
+ 	dp = opendir(DYN_PMU_PATH);
+ 	if (dp) {
+ 		while ((ep = readdir(dp))) {
+-			temp = strstr(ep->d_name, UNCORE_IMC);
++			temp = strstr(ep->d_name, current_config->name);
+ 			if (!temp)
+ 				continue;
+ 
+ 			/*
+ 			 * imc counters are named as "uncore_imc_<n>", hence
+ 			 * increment the pointer to point to <n>. Note that
+-			 * sizeof(UNCORE_IMC) would count for null character as
++			 * sizeof("uncore_imc") would count for null character as
+ 			 * well and hence the last underscore character in
+ 			 * uncore_imc'_' need not be counted.
+ 			 */
+-			temp = temp + sizeof(UNCORE_IMC);
++			temp = temp + strlen(current_config->name) + 1;
+ 
+ 			/*
+ 			 * Some directories under "DYN_PMU_PATH" could have
+@@ -328,7 +345,7 @@ static int get_read_mem_bw_imc(float *bw_imc)
+ 			of_mul_read = (float)r_time_enabled /
+ 					(float)r_time_running;
+ 
+-		reads += r->return_value.value * of_mul_read * SCALE;
++		reads += r->return_value.value * of_mul_read * current_config->scale;
+ 	}
+ 
+ 	*bw_imc = reads;
+@@ -469,6 +486,21 @@ static int print_results_bw(char *filename, pid_t bm_pid, float bw_imc,
+ 	return 0;
+ }
+ 
++int initialize_measure_read_mem_bw(const struct resctrl_val_param *param, int domain_id)
++{
++	unsigned int vendor = get_vendor();
++
++	for (current_config = membw_read_configs;
++		!(current_config->vendor_id & vendor);
++		current_config++)
++		continue;
++
++	if (!current_config->vendor_id)
++		return -1;
++
++	return 0;
++}
++
+ /*
+  * measure_read_mem_bw - Measures read memory bandwidth numbers while benchmark runs
+  * @uparams:		User supplied parameters
+-- 
+2.33.0
 
->
-> /**
->  * kmalloc_obj - Allocate a single instance of the given type
->  * @VAR_OR_TYPE: Variable or type to allocate.
->  * @GFP: GFP flags for the allocation.
->  *
->  * Returns: newly allocated pointer to a @VAR_OR_TYPE on success, or NULL
->  * on failure.
->  */
-> #define kmalloc_obj(VAR_OR_TYPE, ...) \
->         __alloc_objs(kmalloc, default_gfp(__VA_ARGS__), typeof(VAR_OR_TYPE), 1)
->
-> > Should be:
-> >
-> > +       input_fmts = kmalloc_array(*num_input_fmts, sizeof(*input_fmts),
-> > +                                  GFP_KERNEL);
->
-> No.  "input_fmts = kmalloc_obj(*input_fmts);" is just fine.
->
-> >
-> > suppose you use kmalloc_objs()
->
-> No. We should use kmalloc_obj(), not kmalloc_objs().
->
-> >
-> > Frank
-> >
-> >>> Missing kfree(input_fmts) in error path if the switch statement
-> >>> or subsequent logic fails. Consider allocating a fixed-size array
-> >>> or using devm_kzalloc() instead.
-> >>>
-> >>>> +	*num_input_fmts = 1;
-> >>>> +
-> >>>> +	if (!imx93_pdfc_bus_output_fmt_supported(output_fmt)) {
-> >>>> +		dev_dbg(pdfc->dev, "No valid output bus-fmt detected, fallback to MEDIA_BUS_FMT_RGB888_1X24\n");
-> >>>
-> >>> Line exceeds 80 characters (97 chars). Break into two lines.
-> >>>
-> >>>> +		input_fmts[0] = MEDIA_BUS_FMT_RGB888_1X24;
-> >>>> +		return input_fmts;
-> >>>> +	}
-> >>>> +
-> >>>> +	switch (output_fmt) {
-> >>>> +	case MEDIA_BUS_FMT_RGB888_1X24:
-> >>>> +	case MEDIA_BUS_FMT_RGB565_1X16:
-> >>>> +		input_fmts[0] = output_fmt;
-> >>>> +		break;
-> >>>> +	case MEDIA_BUS_FMT_RGB666_1X18:
-> >>>> +	case MEDIA_BUS_FMT_FIXED:
-> >>>> +		input_fmts[0] = MEDIA_BUS_FMT_RGB888_1X24;
-> >>>> +		break;
-> >>>> +	}
-> >>>
-> >>> Switch statement lacks default case. Add default case to handle
-> >>> unexpected format values explicitly.
-> >>>
-> >>>> +static int imx93_pdfc_bridge_atomic_enable(struct drm_bridge *bridge,
-> >>>> +					    struct drm_atomic_state *state)
-> >>>> +{
-> >>>> +	struct imx93_pdfc *pdfc = bridge_to_imx93_pdfc(bridge);
-> >>>> +	const struct drm_bridge_state *bridge_state;
-> >>>> +	unsigned int mask = PARALLEL_DISP_FORMAT;
-> >>>> +	unsigned int val;
-> >>>> +
-> >>>> +	bridge_state = drm_atomic_get_new_bridge_state(state, bridge);
-> >>>> +
-> >>>> +	switch (bridge_state->output_bus_cfg.format) {
-> >>>> +	case MEDIA_BUS_FMT_RGB888_1X24:
-> >>>> +	case MEDIA_BUS_FMT_FIXED:
-> >>>> +		val = FORMAT_RGB888_TO_RGB888;
-> >>>> +		if (pdfc->phy_bus_width == 18) {
-> >>>> +			/*
-> >>>> +			 * Can be valid if physical bus limitation exists,
-> >>>> +			 * therefore use dev_dbg().
-> >>>> +			 */
-> >>>> +			dev_dbg(pdfc->dev, "Truncate two LSBs from each color\n");
-> >>>> +			val = FORMAT_RGB888_TO_RGB666;
-> >>>> +		}
-> >>>> +		break;
-> >>>> +	case MEDIA_BUS_FMT_RGB666_1X18:
-> >>>> +		val = FORMAT_RGB888_TO_RGB666;
-> >>>> +
-> >>>
-> >>
-> >> --
-> >> #gernperDu
-> >> #CallMeByMyFirstName
-> >>
-> >> Pengutronix e.K.                           |                             |
-> >> Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-> >> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-> >> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
->
-> --
-> Regards,
-> Liu Ying
 
