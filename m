@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1174EF9014
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 16:59:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F6AAEF9008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 16:59:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=macyhxl6gWt7A+tN06H7vrQVbiKfShkN9MEbSqYp2Iw=; b=CGrTT9czffY9915UPwEV2UYr/e
-	ZaijO48irWvz/JvAJsdb+gxxz/SRvqtUbpkfhqUFveoDiLIYeL/AEkPCgmRYQug1G2bVCcwjoSTFa
-	XoorvLf9o09LuVlZXwnUDLAxkLCq+7DhK2eOKXDm610atNU71bpA0L+IDDrXqiMSemOc8VPr55y28
-	S56FUQMItGy+FNR5UjNWvSGJIzFKuoJkeq+jv/8iF4Ixsuq6eQHzUVVtVoPF7SOzY9M/5gqkSxh+H
-	B/I7miKXBB9ysq/BkWMr3zA2ZKc4H43QjO0HIuE1qazIbFtpXssMNjacM3vEtryVKtD0TzgC/BtLs
-	MuRZulpw==;
+	bh=iIAH0HlFvYRhK3NFdoszDvTJ/4GsWMWcuMlXBzXmUX0=; b=VWINREKeESFuHimFATYw2ZiGCs
+	7Seopjb+Sa+aKTf0bqI/D5ZOojVkjVveOIqj0FbfaFTXl2Ih4UIuH1FKrN3mWWSwuAEFMBZyDU0yV
+	LMXJ6PTwXoWiFAJ+1OVCqYmyLWofPc2xYUZ5UPTAbCONOTf/qu6Aj9b4XuDPLY+g8oPDsZlaqAa6H
+	v+lL+1WejwbfWAISTWNn0IqiPlUcNVmRh5/+5aoP03j29wVNw4J1Moyhb6raC72oKNm3IFBn4HzmJ
+	YE6cbFv2gcmHPavcjZygB+dKL7ph1qm0u7ZkXjOA6S+VF6+Kli6ytNcKKOGirbhQQJhqD9WkPtAWz
+	ptYWZCog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxpZ3-000000006vW-2Rdj;
-	Wed, 04 Mar 2026 16:59:13 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vxpZ6-000000006wT-3gOc;
+	Wed, 04 Mar 2026 16:59:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxpZ3-000000006vN-0b2q
+	id 1vxpZ4-000000006va-2vkm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 16:59:13 +0000
+	Wed, 04 Mar 2026 16:59:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 34266600AE;
+	by sea.source.kernel.org (Postfix) with ESMTP id 1BCAB439D1;
+	Wed,  4 Mar 2026 16:59:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FA49C19425;
 	Wed,  4 Mar 2026 16:59:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A60AC4CEF7;
-	Wed,  4 Mar 2026 16:59:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772643551;
-	bh=Q8SF8PpVcEqwHhE9zkoJiQiPPmkXeROWc4tmofM8UVY=;
+	s=k20201202; t=1772643554;
+	bh=xZa2Y+msYQnIXAIQ2pzwajkWrgpYxz5g3PV3bg0xq2g=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WdQ5E4L/cKkiRXoolcP5h9Jy1bYgUCo5JYR06rotiss6DMec7ZC76HNf2gD9yx4N9
-	 Qhghpz4YTlKcmxQK/AlcQDm+/10caQKnC2giO8soMyPWtALup2EwgID679xYCRzkb7
-	 lEt3GpFmMNsq4UvTsyyuvC8Kme/D5jMEKfs5eKl+TXiIGZdvXDZTJD3Wgxpi2qoWVP
-	 RbbLfdyhVb5MTRSJSPZ9NUK35ayoAc5iqrQfpqb1DYejWsOLLnOFzbnnHKe8IKXhuQ
-	 xMJ4p3155LEPn7jcdJKnyLfvM3WhYgdzgE58v6BJZIqcI42ap6v6MsfDF4K2Sv3hkt
-	 bg61ahlvPWZwQ==
+	b=XBVDK4eSoTCLgjbGPqEMFROw/SayvAbpJZWETDEZ+z0P/MQ8igMpS+e8ASUuv+TfR
+	 L8WmWS18NXj2d3wCRp77CPqJ4jsg4zIyC39MStuMY5X4ksMMmnYiA++Wf8W7l79kEL
+	 0et01IwP1BJLesUgai1uTRNGo9ttRptGOmg5fRErbyFYtig6rAUfJ6emp3T7RREhbP
+	 q+yoQFRzR3tOHB5mt9qLoc02N/v2aL4HUPTYn0hex7Qc1wgFdLpqIbTh+KYKOKG9Qq
+	 LCwx8+JOAyQe3I0K7+qrv+mdCKJgt+efE/wLLeIQTQoLhwNfBhXDuqYWBStbo2kl9D
+	 +dgSfZmF8yzTQ==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	Catalin Marinas <catalin.marinas@arm.com>
 Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Jianpeng Chang <jianpeng.chang.cn@windriver.com>,
-	"Huang, Ying" <ying.huang@linux.alibaba.com>,
-	Guenter Roeck <linux@roeck-us.net>
-Subject: Re: [PATCH] arm64: mm: Add PTE_DIRTY back to PAGE_KERNEL* to fix kexec/hibernation
-Date: Wed,  4 Mar 2026 16:59:02 +0000
-Message-ID: <177263478917.2652582.12486871570942949010.b4-ty@kernel.org>
+	kernel test robot <lkp@intel.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Christoph Hellwig <hch@lst.de>
+Subject: Re: [PATCH] arm64: Silence sparse warnings caused by the type casting in (cmp)xchg
+Date: Wed,  4 Mar 2026 16:59:03 +0000
+Message-ID: <177263468826.2651997.11372661656355895341.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260227185544.1482632-1-catalin.marinas@arm.com>
-References: <20260227185544.1482632-1-catalin.marinas@arm.com>
+In-Reply-To: <20260227155142.1332743-1-catalin.marinas@arm.com>
+References: <20260227155142.1332743-1-catalin.marinas@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260304_085914_772226_2F2FDB20 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,27 +76,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 27 Feb 2026 18:53:06 +0000, Catalin Marinas wrote:
-> Commit 143937ca51cc ("arm64, mm: avoid always making PTE dirty in
-> pte_mkwrite()") changed pte_mkwrite_novma() to only clear PTE_RDONLY
-> when PTE_DIRTY is set. This was to allow writable-clean PTEs for swap
-> pages that haven't actually been written.
+On Fri, 27 Feb 2026 15:51:42 +0000, Catalin Marinas wrote:
+> The arm64 xchg/cmpxchg() wrappers cast the arguments to (unsigned long)
+> prior to invoking the static inline functions implementing the
+> operation. Some restrictive type annotations (e.g. __bitwise) lead to
+> sparse warnings like below:
 > 
-> However, this broke kexec and hibernation for some platforms. Both go
-> through trans_pgd_create_copy() -> _copy_pte(), which calls
-> pte_mkwrite_novma() to make the temporary linear-map copy fully
-> writable. With the updated pte_mkwrite_novma(), read-only kernel pages
-> (without PTE_DIRTY) remain read-only in the temporary mapping.
-> While such behaviour is fine for user pages where hardware DBM or
-> trapping will make them writeable, subsequent in-kernel writes by the
-> kexec relocation code will fault.
+> sparse warnings: (new ones prefixed by >>)
+>    fs/crypto/bio.c:67:17: sparse: sparse: cast from restricted blk_status_t
+> >> fs/crypto/bio.c:67:17: sparse: sparse: cast to restricted blk_status_t
 > 
 > [...]
 
 Applied to arm64 (for-next/fixes), thanks!
 
-[1/1] arm64: mm: Add PTE_DIRTY back to PAGE_KERNEL* to fix kexec/hibernation
-      https://git.kernel.org/arm64/c/c25c4aa3f79a
+[1/1] arm64: Silence sparse warnings caused by the type casting in (cmp)xchg
+      https://git.kernel.org/arm64/c/212dd8477653
 
 Cheers,
 -- 
