@@ -4,71 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A44EDEC08
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 04:04:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F4C5EDEC09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 04:14:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jfNz3GxGoDicW62LZuiyKNWvvB4I0Mdzip6nEjCed84=; b=d0LBg7oB5tBig4iaZntNzqjN8J
-	vVzsvFERL1/unIXSWnd6zr2SKfJTcDAGs3vv+kIvxg4F1sXGZnGcAYQt50DiPFzhSavcOQfwjZz8f
-	9rrCY6wgEWurIfxKAY8kGfcaAt58F4L7injdcLzlKYq9bOxKr/Jc1ir6dMcyRfjozmAI5hrx1b9xf
-	peG3BGyzRw25IcL8ZKOpUpf8xbguGGYSVdzMmJfASl6SN04TV7PlV9mmczm2PU3nNO6xolSxmBx2T
-	VQoU0evyfrNfN0mJDI/N6lSAM01ytk1BeMSfvwiGC0IQjBkCEXsCVi8SY2ffK2DrGJ9eEqOPV9scg
-	y7QTS60w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YNQEOfz/uaj72zFc2OfYhyedqZgPJsuVowB3OOH5Yjk=; b=jgscsGU00Xh7DXkDMIHoPFdPwt
+	Z6ye3tY+7aw52p1A5wMiXr+9CHu/rrTh43SnjwdzS9w9ONrG6RyfEDGsviL0iY1ojfybbI15S9VjF
+	qGrjxuVLKGM9Kt5+9ROWdbV3Vw2qOtg9SRGZNrTU+Ou5HsnohdtMcIG0SJ/KhSsgtWptgdTNegV+b
+	emLu3CvsWED3kMoF7OtBuvL89L0j9nzgX7oo0bl3GUT1GqGhTQxSEVDHwEKdEfrWxBniXYQY30En7
+	6vnVsNEjxKJorXg8Tv/d0zlcsJntAdBRrYlWquMSJ67GemJnAjrMs1kVlbnWLL0yXKrUonnwHCe/3
+	NYCOIWmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxdSf-0000000GPH9-2KyH;
-	Wed, 04 Mar 2026 04:03:49 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1vxdcr-0000000GQQg-1Mtm;
+	Wed, 04 Mar 2026 04:14:21 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxdSc-0000000GPET-0ojP
+	id 1vxdcp-0000000GQPl-2ciD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 04:03:48 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=jfNz3GxGoDicW62LZuiyKNWvvB4I0Mdzip6nEjCed84=;
-	b=uG6ROz7cG1SynSOcfxqOG9HUk2PTlsNNoxEW7RwuCF0Rk3Ry0gZI7HyadMMq6O35RceCou0V0
-	GftDMr0ZwkWuOJW7isoWqHn0/I1I2Qoc1Gtu0+6OpQsKT2oxtGYbBBMA9lGROXuPs+/DmjVCKV5
-	L7N/1ujn1Zue5106n5FY5yY=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4fQf6Y3NDhz1cyPw;
-	Wed,  4 Mar 2026 11:58:45 +0800 (CST)
-Received: from kwepemk500005.china.huawei.com (unknown [7.202.194.90])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3380D40562;
-	Wed,  4 Mar 2026 12:03:36 +0800 (CST)
-Received: from huawei.com (10.50.163.32) by kwepemk500005.china.huawei.com
- (7.202.194.90) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 4 Mar
- 2026 12:03:35 +0800
-From: Yifan Wu <wuyifan50@huawei.com>
-To: <tony.luck@intel.com>, <reinette.chatre@intel.com>, <Dave.Martin@arm.com>,
-	<james.morse@arm.com>, <babu.moger@amd.com>, <shuah@kernel.org>,
-	<tan.shaopeng@fujitsu.com>, <fenghuay@nvidia.com>, <ben.horgan@arm.com>,
-	<jonathan.cameron@huawei.com>, <wuyifan50@huawei.com>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kselftest@vger.kernel.org>, <linuxarm@huawei.com>
-CC: <xiaqinxin@huawei.com>, <prime.zeng@hisilicon.com>,
-	<wangyushan12@huawei.com>, <xuwei5@huawei.com>, <fanghao11@huawei.com>,
-	<wangzhou1@hisilicon.com>
-Subject: [RFC patch 1/9] selftests/resctrl: Move CPU affinity and resctrl FS setup to child process
-Date: Wed, 4 Mar 2026 12:03:26 +0800
-Message-ID: <20260304040334.765860-2-wuyifan50@huawei.com>
-X-Mailer: git-send-email 2.33.0
-In-Reply-To: <20260304040334.765860-1-wuyifan50@huawei.com>
-References: <20260304040334.765860-1-wuyifan50@huawei.com>
+	Wed, 04 Mar 2026 04:14:20 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-c70378ddaafso4228108a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 20:14:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772597658; x=1773202458; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=YNQEOfz/uaj72zFc2OfYhyedqZgPJsuVowB3OOH5Yjk=;
+        b=AQqf7dOmBBfPUXmpeHJsT2O26DuOGwUmCIKXK/DzS+/etgaDbkb1tiop1b9/01ATcB
+         GEaEmOEu7x0Ouu6srA73MPPmZMgEQI3siHsTQntJ+e/y/JTfMRtfgQZ1J2QDAakO6Rr0
+         oqIr5BnAs5fAa90as/5FkzMMY9AoAbWEACnt3j4a8KcGYbxwDDOZDghgUGVoeXFrdMmQ
+         aBCoEIDv+fE0rgrNDHpF1x3MYVetdm2wFr5Udu9g/awTcyskkxSWaoDsCx1KAnnQXZma
+         CQyXBaCz6ryJz9/dzAL3FkZ/VAs+vP0k9jeYliuSirRC9fexhSt94ktWEle+CSYfm6Nr
+         IgUQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772597658; x=1773202458;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YNQEOfz/uaj72zFc2OfYhyedqZgPJsuVowB3OOH5Yjk=;
+        b=tAKGp+YoTcNPrryR5P04f9Gdg1fRM1yLYuo7ByBx6tDWtz3iFOq9OIJXgizoMP1bAk
+         ym1v3Z2RMPKXYNMwj46hgtqZxmd3RgMNBqaruX7L04tpLTq1EuNe2Iloqlnppckvrsmi
+         PgZn8q388hivo+RM30HIIEKnKB+V4KVMbyTIr4FBVFmqlwOLLG+eiXwFQnYayAVFLgGL
+         k2yIHhDV52o1xjPd4NDLo/BRkceoq8WfSdz2PYxYkUmG1w43rd3o4y2ebikk6sgYb8ED
+         qleWSI33xljsWW6uiGo+Lot/q6hXy9fC0yw6w8IGbtvuX4FwYRPefv6C0GxRJaRmuMO8
+         1zbQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWRZMv51O4XT0ZU6YUDN1ll4WEFJhxG8p3z9drgyW5/cU3KEJj4EGtVHPvr8moP4/8+vebSUxVB9ir0my3aeHZ3@lists.infradead.org
+X-Gm-Message-State: AOJu0YzrgDN+C3kFhUY8tlKBerhCUapIE7fxPpRWTlQwscxzrOF8/9qg
+	3+VPV2fMBlZBK2v4sLGDtiLhUi/SPkjDKZMiKzbbb8jvz60KUyrx6IOYcJtzdvfhHjo=
+X-Gm-Gg: ATEYQzyIAUeRPsdeV6rh7PSjHPOcieV+JRl9F4kHa/tfhy4SsmKbDKtbtUQbrOL2efs
+	H25WGicRszsz42fsIRJappYPKOpowmJOLns1aHMV3DtBkRrXtsWpiz/JmHAgX9qVXt8Gw7S6Gq/
+	T5rRQVbTDrRqaxKbJqCMp5Qhw0c5xiQGukF6KIMPs3FmG2qy6yBRbkOO3LnZsI7bLgUMXZcIvo9
+	JYkqc7lv40dtVuwZB8ARyFovhcWWeGd5rNDEndunGFw05KvyfP3VmbRAlcbkFlTxdkc1PDabA/J
+	TJLQYE0ifZA+cHeO8xnd+1pGw4zgqhhgc21pQGx4mMDQlqXLlvawmMl+bcV4L7nM7agYoc+ksBe
+	BEwgfKnAvzCPFgHYaOMIhMQurszG1DC/f0+sNvOI1JKVVjNrzsYzNbw0UXgxp3XYdp66Ftpknwb
+	s5g4SxxbXhae9C1qvP7RVA7lOwvrnqaZ4rt2Vy5Kg2XoqTdcecoWvLzg==
+X-Received: by 2002:a17:902:d50e:b0:2ae:673b:6a3 with SMTP id d9443c01a7336-2ae6ab8e78emr8091365ad.49.1772597658095;
+        Tue, 03 Mar 2026 20:14:18 -0800 (PST)
+Received: from ryzen ([2601:644:8000:56f5::8bd])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2adfb5c183bsm188270585ad.24.2026.03.03.20.14.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Mar 2026 20:14:17 -0800 (PST)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-phy@lists.infradead.org
+Cc: Chunfeng Yun <chunfeng.yun@mediatek.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek USB3 PHY DRIVER),
+	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek USB3 PHY DRIVER),
+	linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support),
+	linux-hardening@vger.kernel.org (open list:KERNEL HARDENING (not covered by other areas):Keyword:\b__counted_by(_le|_be)?\b)
+Subject: [PATCH] phy: mediatek: tphy: simplify main allocation
+Date: Tue,  3 Mar 2026 20:14:00 -0800
+Message-ID: <20260304041400.7236-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.163.32]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemk500005.china.huawei.com (7.202.194.90)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_200346_893146_DE4973C3 
-X-CRM114-Status: GOOD (  21.13  )
+X-CRM114-CacheID: sfid-20260303_201419_668922_DB40D3D1 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,163 +104,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, the resctrl_val() function sets CPU affinity and writes
-the parent process's PID into the control and monitoring groups in the
-resctrl file system before forking the benchmark child process. This
-causes several issues:
+Use a flexible array member to replace kzalloc + kcalloc with a single
+kzalloc.
 
-1. Writing the parent process's PID into the resctrl control group
-unnecessarily affects the behavior of the parent process, while the
-control group should only apply to the benchmark child process.
+Shuffled some code around as __counted_by requires the counting variable
+to be assigned first.
 
-2. Writing the parent process's PID into the resctrl monitoring group
-introduces the parent process's activity into the bandwidth measurement,
-affecting the accuracy of the monitoring, which should only monitor the
-benchmark child process.
+Removed NULL check from of_get_match_data as it's never NULL per the
+device table.
 
-3. Since only the child process is monitored, the CPU affinity should
-also be set only on the child process to ensure that the PMU (Performance
-Monitoring Unit) can count memory bandwidth from the benchmark process.
-
-4. When the parent and child processes are scheduled on the same CPU,
-the parent process's activity may interfere with the monitoring of
-the child process. This is particularly problematic in some ARM MPAM
-implementations, where memory bandwidth monitoring real-time values. When
-the child process is preempted off the CPU, this results in inaccurate
-monitoring.
-
-This commit moves the CPU affinity and resctrl FS setup to the child
-process after fork(), ensuring these settings only affect the benchmark
-process, thereby maintaining measurement accuracy and making the
-implementation more portable across platforms.
-
-Signed-off-by: Yifan Wu <wuyifan50@huawei.com>
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- tools/testing/selftests/resctrl/resctrl_val.c | 68 +++++++++++--------
- 1 file changed, 39 insertions(+), 29 deletions(-)
+ drivers/phy/mediatek/phy-mtk-tphy.c | 19 +++++++------------
+ 1 file changed, 7 insertions(+), 12 deletions(-)
 
-diff --git a/tools/testing/selftests/resctrl/resctrl_val.c b/tools/testing/selftests/resctrl/resctrl_val.c
-index 7c08e936572d..85ac96c7cb8f 100644
---- a/tools/testing/selftests/resctrl/resctrl_val.c
-+++ b/tools/testing/selftests/resctrl/resctrl_val.c
-@@ -545,7 +545,6 @@ int resctrl_val(const struct resctrl_test *test,
- 	cpu_set_t old_affinity;
- 	int domain_id;
- 	int ret = 0;
--	pid_t ppid;
+diff --git a/drivers/phy/mediatek/phy-mtk-tphy.c b/drivers/phy/mediatek/phy-mtk-tphy.c
+index acf506529507..3a6d61cf1cd0 100644
+--- a/drivers/phy/mediatek/phy-mtk-tphy.c
++++ b/drivers/phy/mediatek/phy-mtk-tphy.c
+@@ -340,10 +340,10 @@ struct mtk_tphy {
+ 	struct device *dev;
+ 	void __iomem *sif_base;	/* only shared sif */
+ 	const struct mtk_phy_pdata *pdata;
+-	struct mtk_phy_instance **phys;
+-	int nphys;
+ 	int src_ref_clk; /* MHZ, reference clock for slew rate calibrate */
+ 	int src_coef; /* coefficient for slew rate calibrate */
++	int nphys;
++	struct mtk_phy_instance *phys[]  __counted_by(nphys);
+ };
  
- 	if (strcmp(param->filename, "") == 0)
- 		sprintf(param->filename, "stdio");
-@@ -556,22 +555,10 @@ int resctrl_val(const struct resctrl_test *test,
- 		return ret;
- 	}
+ #if IS_ENABLED(CONFIG_DEBUG_FS)
+@@ -1572,22 +1572,17 @@ static int mtk_tphy_probe(struct platform_device *pdev)
+ 	struct mtk_tphy *tphy;
+ 	struct resource res;
+ 	int port, ret;
++	size_t nphys;
  
--	ppid = getpid();
+-	tphy = devm_kzalloc(dev, sizeof(*tphy), GFP_KERNEL);
++	nphys = of_get_child_count(np);
++	tphy = devm_kzalloc(dev, struct_size(tphy, phys, nphys), GFP_KERNEL);
+ 	if (!tphy)
+ 		return -ENOMEM;
+ 
++	tphy->nphys = nphys;
++	tphy->dev = dev;
+ 	tphy->pdata = of_device_get_match_data(dev);
+-	if (!tphy->pdata)
+-		return -EINVAL;
+ 
+-	tphy->nphys = of_get_child_count(np);
+-	tphy->phys = devm_kcalloc(dev, tphy->nphys,
+-				       sizeof(*tphy->phys), GFP_KERNEL);
+-	if (!tphy->phys)
+-		return -ENOMEM;
 -
--	/* Taskset test to specified CPU. */
--	ret = taskset_benchmark(ppid, uparams->cpu, &old_affinity);
--	if (ret)
--		return ret;
--
--	/* Write test to specified control & monitoring group in resctrl FS. */
--	ret = write_bm_pid_to_resctrl(ppid, param->ctrlgrp, param->mongrp);
--	if (ret)
--		goto reset_affinity;
--
- 	if (param->init) {
- 		ret = param->init(param, domain_id);
- 		if (ret)
--			goto reset_affinity;
-+			return ret;
- 	}
+-	tphy->dev = dev;
+ 	platform_set_drvdata(pdev, tphy);
  
- 	/*
-@@ -586,10 +573,8 @@ int resctrl_val(const struct resctrl_test *test,
- 	if (param->fill_buf) {
- 		buf = alloc_buffer(param->fill_buf->buf_size,
- 				   param->fill_buf->memflush);
--		if (!buf) {
--			ret = -ENOMEM;
--			goto reset_affinity;
--		}
-+		if (!buf)
-+			return -ENOMEM;
- 	}
- 
- 	fflush(stdout);
-@@ -605,11 +590,26 @@ int resctrl_val(const struct resctrl_test *test,
- 	 * terminated.
- 	 */
- 	if (bm_pid == 0) {
-+		bm_pid = getpid();
-+
-+		/* Taskset test to specified CPU. */
-+		ret = taskset_benchmark(bm_pid, uparams->cpu, &old_affinity);
-+		if (ret)
-+			exit(ret);
-+
-+		/* Write test to specified control & monitoring group in resctrl FS. */
-+		ret = write_bm_pid_to_resctrl(bm_pid, param->ctrlgrp, param->mongrp);
-+		if (ret)
-+			goto reset_affinity;
-+
- 		if (param->fill_buf)
- 			fill_cache_read(buf, param->fill_buf->buf_size, false);
- 		else if (uparams->benchmark_cmd[0])
- 			execvp(uparams->benchmark_cmd[0], (char **)uparams->benchmark_cmd);
--		exit(EXIT_SUCCESS);
-+
-+reset_affinity:
-+		taskset_restore(bm_pid, &old_affinity);
-+		exit(ret);
- 	}
- 
- 	ksft_print_msg("Benchmark PID: %d\n", (int)bm_pid);
-@@ -619,23 +619,33 @@ int resctrl_val(const struct resctrl_test *test,
- 
- 	/* Test runs until the callback setup() tells the test to stop. */
- 	while (1) {
--		ret = param->setup(test, uparams, param);
--		if (ret == END_OF_TESTS) {
--			ret = 0;
-+		pid_t wpid = waitpid(bm_pid, &ret, WNOHANG);
-+
-+		if (wpid == -1) {
-+			ret = -errno;
-+			ksft_perror("Unable to waitpid");
- 			break;
- 		}
--		if (ret < 0)
--			break;
- 
--		ret = param->measure(uparams, param, bm_pid);
--		if (ret)
--			break;
-+		if (wpid == 0) {
-+			ret = param->setup(test, uparams, param);
-+			if (ret == END_OF_TESTS) {
-+				ret = 0;
-+				break;
-+			}
-+			if (ret < 0)
-+				break;
-+
-+			ret = param->measure(uparams, param, bm_pid);
-+			if (ret)
-+				break;
-+		} else {
-+			goto free_buf;
-+		}
- 	}
- 
- 	kill(bm_pid, SIGKILL);
- free_buf:
- 	free(buf);
--reset_affinity:
--	taskset_restore(ppid, &old_affinity);
- 	return ret;
- }
+ 	sif_res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
 -- 
-2.33.0
+2.53.0
 
 
