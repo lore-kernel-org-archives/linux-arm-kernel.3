@@ -4,83 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14F74EB7EA0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 08:11:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CF1FEB7EA0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 08:12:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C0EweCKy3lU+DdloOAnpjGiH/03g5gh5bSik4KxXyvc=; b=Ilp1+piXVdq12Jr5RR2eDGkKwX
-	HY1QpOaSG8PN4Zm2iCvHs0kj29tLcWRExA7hAPW19kHPUQ5l23bZZlhQZbBIwz1PvDRypvmPGLAMY
-	9pZ/+sSYAOTUzyCiQP48aYaAYB4VJf3t6xOqTV9mKmzWMulf8ucztBBLghNhd90c4214sUHwirlIo
-	SwlCs73hKv2HG0uZfFQsurAcj9yWqASSvMANy74dVRPwzis5L6LeW2eLDnA/6UmNsdmzlw7+7vPXf
-	lFeUPUb5G4ePl6s3X3XvIhREAe+EXeKccfaLX86ksdv0mKJWYcUCSyWl2wKddJlDoWnauS/VjgFS6
-	oqjg0OwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qHcEmB7+KBoX7+wwRjaxdeWRSdmt/2X8gg+/mUZox9A=; b=A7mDWKmJ3m6/V2kGA118SKj0Rj
+	zNNGfUfdIx1LzvStQpbJSpZUF+lLNl812zIbcf2bbp1w1lW6aRZf9P6rKTb3fDzdAzNhaldQEdZmA
+	P1StUmnYKeDLEBqqSQP02sny8xitb/IudiXk9Fbysweyt35tRQSL9v1A8jiXk0LQUwoJA3ZWZ3GNA
+	TFKX3oXgF1JUsfdhxPsP6bZ/cJCIKKbqj3/g1q6A4f+BTKByk/dl/oDfC6kOh4+dlSkKOffyF3PqF
+	jcFwJ2rK0Psb9aMvOPjthBz1UdQgndrDNU3UUWZikdwDUQVeSS5AXRFm1PFOY0zNHtx+v1+Jl+2GR
+	d283IRyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxhKA-0000000GiGx-01o4;
-	Wed, 04 Mar 2026 08:11:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vxhLR-0000000GiVf-1eX3;
+	Wed, 04 Mar 2026 08:12:37 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxhK7-0000000GiFz-1Phl
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 08:11:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4A8AB41858;
-	Wed,  4 Mar 2026 08:11:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA0EDC2BC87;
-	Wed,  4 Mar 2026 08:11:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772611874;
-	bh=II4aDDUE02AkgxLhaNuEGD/wI5+MI7d/Qa23fAse7cg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=A5lAjDtanRrs9/jMMfHZjLSQ4Tg+H1VtfLa02oOUXcBRCAvsllq3CMU8FsnYUKRU3
-	 woEFbclHxtUCwYTflKhlqjQJ6PMrfjDkK1vS5GSChwmTBU1t/pmnqyAIxzz3JAtWu2
-	 ZbxNjbEL2y7qLePDpgoHQAxIhG6/hySl/e8E08ruXkBf9va7XSf3qwlpvMCFAxJgJn
-	 VtP6wU0+i5KB4nyeyOBs7VQZC3BzAIhStfnN8Yuvxcvj/3LjK6oz8JHPMmslzsIxJG
-	 CecyeCXm0oJ/jY87OVjfE/zG8M/hbHlZQFGt3yFkwXPD/7uU5Ewy54hZdZcV8TPiTj
-	 ZUGPqjyFwEuQg==
-Message-ID: <5e2c2d09-315c-4f68-a762-54253e2320c9@kernel.org>
-Date: Wed, 4 Mar 2026 09:11:06 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 02/14] vdso/datastore: Drop inclusion of
- linux/mmap_lock.h
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
- Andy Lutomirski <luto@kernel.org>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>, Arnd Bergmann
- <arnd@arndb.de>, "David S. Miller" <davem@davemloft.net>,
- Andreas Larsson <andreas@gaisler.com>, Nick Alcock <nick.alcock@oracle.com>,
- John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>,
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- Shuah Khan <shuah@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
- "Jason A. Donenfeld" <Jason@zx2c4.com>, Russell King
- <linux@armlinux.org.uk>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, Shannon Nelson <sln@onemain.com>,
- Thomas Gleixner <tglx@kernel.org>
-Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linux-s390@vger.kernel.org
-References: <20260304-vdso-sparc64-generic-2-v6-0-d8eb3b0e1410@linutronix.de>
- <20260304-vdso-sparc64-generic-2-v6-2-d8eb3b0e1410@linutronix.de>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <20260304-vdso-sparc64-generic-2-v6-2-d8eb3b0e1410@linutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	id 1vxhLP-0000000GiV4-1ChT;
+	Wed, 04 Mar 2026 08:12:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UWM6H64GwYAIHhKyIHWUR5D26YKv1fNocqVU7SR7n3dF5am4w2tRJn1ahdT73rtNwxGZUumHsjyZa2oM4d1FnCg5WDv2ppjGE2Gu4WVLGsnrcaTOXZTd0EHYiOIHXTGrFcjLF7Gr/M/mGri3ozT0uZP+YGTi9cfL5M+Q+lCk4GJjSXPsyhF9bTxS3mJGDuzHQDRYrdu7lUjO+zlt1q9gJgWNE4u1VnDwC1FudhT/IMZ5e6wU0yKiypjhXrpzYIq9VaEEGCVnEkKF1mpl+ecwCcsYCuKYEYoBBUbo1JTY/Qi2p/GWdUBu0tCOUxxZByUCGXz6kp/vygwUBn9M3jxfbw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qHcEmB7+KBoX7+wwRjaxdeWRSdmt/2X8gg+/mUZox9A=;
+ b=lt1T5mISxS9PIbwRob+T+tQCqX0kGbsaelfyERbGfarI3QUZWpBTRvNu4h0voIx/sYKyRynSxdAx3WdI7iB9NQvWIIcZ6Zi0fYbgCjLQNudqmfG9bO4YOPg2/pM8DI20/cCpOCHYMeyFtVUJ/FQCLzZN/qEZYy0QSbvmVZmNVDNR3isn8ofaBELFjwK/EiddPAvDAYVin47Q2TNW1q50mH4dUnkLUGOrr4S/mm5fmkTD1S9j4IYiwXP6+nKbBgh/xzBV9dLUqkrNjVsRXOGYPfVP2XIkstnSPzN6GnuIz38n2kBx5rsUY+tReOEf635sEM96o9a9HO+PEbzGSZiKJQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qHcEmB7+KBoX7+wwRjaxdeWRSdmt/2X8gg+/mUZox9A=;
+ b=YKTDpEmG13lNzmGp5Wsi5zrrFJOEnLYXbewmb+vZmNqcwseFdX8CeIsix2lkjZhJHZC6ROZ2cdkdEB0YSpjHhYgRXks1qXrm54fxLJN/xp7QWJIp0NpHsv0cHEbpLxM5gIZwB50p3zkLjqASy9H1HXOb92JSVF6O/g3NHr2HLj1PG4+RExsez9j99T0y1nfAnnjcnCcJloyQErz2WSzhTlWHf5UhX6XldvQON6swwSrngNvJ4+IGlnLRgzuKiiIqVFQxpg5M/9g74hH7Te72bXAiKQUsD3FaVLjJjhDhTYr+xnPCKIJ/wy3kZKgSgBUrakz40wGyEAy4wKxOobfrpw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8420.eurprd04.prod.outlook.com (2603:10a6:20b:3fd::16)
+ by AS8PR04MB8689.eurprd04.prod.outlook.com (2603:10a6:20b:428::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.17; Wed, 4 Mar
+ 2026 08:12:30 +0000
+Received: from AS8PR04MB8420.eurprd04.prod.outlook.com
+ ([fe80::3f0f:857:96a5:17f]) by AS8PR04MB8420.eurprd04.prod.outlook.com
+ ([fe80::3f0f:857:96a5:17f%3]) with mapi id 15.20.9678.016; Wed, 4 Mar 2026
+ 08:12:30 +0000
+From: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+To: daniel.lezcano@linaro.org,
+	tglx@kernel.org
+Cc: shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	chun-hung.wu@mediatek.com,
+	walter.chang@mediatek.com,
+	jstultz@google.com,
+	amergnat@baylibre.com,
+	aisheng.dong@nxp.com,
+	jindong.yue@nxp.com,
+	xuegang.liu@nxp.com
+Subject: [PATCH v4 0/4] clocksource: Add module support for timer drivers
+Date: Wed,  4 Mar 2026 17:12:03 +0900
+Message-Id: <20260304081207.4030882-1-zhipeng.wang_1@nxp.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SG2PR01CA0117.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:40::21) To AS8PR04MB8420.eurprd04.prod.outlook.com
+ (2603:10a6:20b:3fd::16)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8420:EE_|AS8PR04MB8689:EE_
+X-MS-Office365-Filtering-Correlation-Id: f550065b-1b27-4893-0e65-08de79c5c7ca
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|52116014|376014|7416014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: qxYI7mwsbRq14d9ZGbzHIw8akIMwRF/iHIacrAwPk0pGvqSfqhHCuz42foAh7icuozoBKRtZkYnv65ewxiI9YLgx6k8LXcuS0U3miEfOEamK6luw70250IpBl95xxlsUNftEMe6OF3lgF0N/YxOKEMzInInpFO6V3Ln9Rjx2LFeQQJWSehtyCMHAD3c6UPux2HOHq4nK/ksKbE88vm/tN5pFe5Ppw7iLIZvTSZGtgjINyWCnkX82g+PGaCFp74zHg3gzcZTaF3UDlFdVuHmnwXEFb83tC416y3Tt3ILmZLMVx9RG86dwmxbrApJYovP73zD89V4hL2wN71dqj9tSR/gXHkTveHnGq8OAsYx3eWnZjv/UKDr+kuGxuoU8fJneq0KnmkoZ0X98ulUyPQHtsZXlDOvkM3ZvOXTWEgO2xSbC3cDGWUnx3a6JmuOsMG7T3SgmcB0GJUDCmbpp1vWTsWPoeYhmj9zi+aOTY0dt09LiCSVBcSCH+//jnFxc+HLzzbNzyi5ubKy5KupW1l4qsE4O9B44ebP2vtm+Bsz5WshpBHXIyowZtHRH4DmqkW4vEHUTFDgVOoDpR6HJ9qzAQ2JhUyiRmIH/QxAFXPS2/JSuB/eUJ9q1gtN6xdHkUYeM0MxqratKzk4mLH2G8fY+h7vmi1QxhiE5cAGe7BZX88tjvVDh7y3bYcFLoZocw29Gf2V4lSpbcvuJo6tP38lGznl8q8KLw7Z2yxt8Kl27QnMQoxIwZ0z7wg2HQ2zJA7K6Ri+LrE65t9sqNuJEqtsfBrZsVAEWBp97N7H8CJhs0bo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8420.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(52116014)(376014)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qEkH7I9oogm14kfVeRmdeVpGrk7JTm8t2X+SBB+w91pSOY2X1oOa+JIwor6U?=
+ =?us-ascii?Q?fyqmnywpocbdl1Rfzqr15d7DA8c2duXAa9viZBubTjiDNjtwAKj41Cdi+Wld?=
+ =?us-ascii?Q?oFqYYu1JM+TDqsMgw3VWkrBkBxG6FgN8X2BVZ5XswQS/kign41fkiwxelS5o?=
+ =?us-ascii?Q?3eMBhvRKuXjqzGx0kvXTwxhFy90I7WeQCzEmkum9d+c9AynxCxJUT8IofCDd?=
+ =?us-ascii?Q?GTY9oeHgqZQJXuAV5SM5PDZE+ierTV47+9Z5awDWfIgPkMNmL1y7058Y6fOb?=
+ =?us-ascii?Q?rkYVERJL0MYsMZ2LQcLOuB3HhD4WtVR7Xg6kQZk6V3aRXH+A3pc5B0IbMupF?=
+ =?us-ascii?Q?h1zbdg+47VkxejId09Pzb/7aef3pDXeSKxvzp2rr01uqrdkcgq/oDtlkh8Z7?=
+ =?us-ascii?Q?ZIHSBS+l+6E9aajgMoOAMwO6ieUHBrBUQNnZm9M9ykv0I5FV7V5A2Vf6iAuq?=
+ =?us-ascii?Q?Tm/oivhdx5CRmX8PoLF7QS/g7ZzlTJfL8qfxq4EdQILlts5e2a6frlaL8zt5?=
+ =?us-ascii?Q?R4n5NoKOtCElx0eLElXb6AKdrcM/ttSWuFoGf41jYrgx2Tw4B5h77xKVP7bW?=
+ =?us-ascii?Q?AA7Yve7KiZeFBbVgliguqrrB+iiZHhuwVONy8o19D572fV+JenasKZlIyPVL?=
+ =?us-ascii?Q?HTQglk6X8Q6w8wu/0HStiWfV1kNJVYRbr107RqFWeoN27ZwycN67FuRsMNns?=
+ =?us-ascii?Q?SFv4wMKCZs31/v+wIdkXm4kZIDXJkuASDZ19Lbhep8Ii+YbnG8176lQJxIzS?=
+ =?us-ascii?Q?WGLupk5Kp52ioAroVx6MxOiipn7SmnMcPY1RGvcZcmDvKK4fn5HHGZHOPDku?=
+ =?us-ascii?Q?s4XrPVEmewwGKhxQZ8yt6Q+UuZDoMZtcKfvijX1cKPv01SH9MHmGylKh4hry?=
+ =?us-ascii?Q?Pd5toKjfnpEtanUE9K+yGhEdNTeBibwdSW1ZfSYCyNacY62X/bt9wL8Vvcpv?=
+ =?us-ascii?Q?subJLnl1D240rbqldMCbqj5uuEhIIYYWv/hZyFLSHR323nYYSna1wfNElf/I?=
+ =?us-ascii?Q?HF1W5ttV4CkdQGSP3KgPCli4KiDDLGSLHXzOoZ7Yb6gnDmIl+cQ3gdpaUdyX?=
+ =?us-ascii?Q?4DCSiQkkrKYGFXkqHT0CqE+8TPGMz2jQiMDnJ1ZvDW+Ru5e97N+4rLo1MGxu?=
+ =?us-ascii?Q?BpGCO6UDYgms4lN5pDGV1muiCNwum7WxObJypfJt/oICZ2QOFTbXFHFaSFmf?=
+ =?us-ascii?Q?iTxFwoeI4xqE3z8xCqf3tA2Yt1j9ixSc50X8hY2TpjV+haFgqtf8iDf6SWJ1?=
+ =?us-ascii?Q?UBF2obcbAFdFUotszr/vHnL81VcAY0Rus79eekTeNEhELWCvO9EkP1Ikha87?=
+ =?us-ascii?Q?yjCvz6/BUDZuE6dOA5U8ktX/wyMnviysOur/BQADifdGRGmz+p315KeRiKeA?=
+ =?us-ascii?Q?ibxwYHpr3EbzHs+9e8knF8FN7GR1wZDlHZpJEw/z5N43NdTDaV8hWMvjfz48?=
+ =?us-ascii?Q?4aZxOa1CdsdixgHUnEuEpVmNQVCGmWCs0rgDskJXXVQnWpixTVGMAVDspYuI?=
+ =?us-ascii?Q?7WwQVMDdUKVVvFQrv/9pu4NS/Y+NpwvwoIbS+QtKek5ohWaQ9KXUs+cUQl0j?=
+ =?us-ascii?Q?9ZXzhMQGyA4wKpS5XENIYZPuc/w8j+6ChiEsZ9ptizIEFWvkBUt0+ZhoNM36?=
+ =?us-ascii?Q?5UMQeidwbLePP4uT98hXoXIzqfnG6Kt9wYxnrQLpjrTQ18+ugZu/lsrpcMho?=
+ =?us-ascii?Q?ml9UKiMWyhNUeYdZk2fhBqOkEfpCHlCql+TODsbRn/LrAmQkFcu+8PKKCBpU?=
+ =?us-ascii?Q?Yjt6pHCNXA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f550065b-1b27-4893-0e65-08de79c5c7ca
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8420.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2026 08:12:30.2330
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: yag3VdJvNBsFr+bmOdYPxe3IGyw/CwM6COVdqaZj6jtBWwi6B1TYUwbX7Guiyfdo/t66jNFQVM6ZM20TMv5yxg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8689
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_001115_528119_7AAECBD5 
-X-CRM114-Status: GOOD (  11.86  )
+X-CRM114-CacheID: sfid-20260304_001235_343142_66117BEF 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,35 +148,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This patch series enables SoC-specific timer drivers to be built as 
+loadable modules for Generic Kernel Image (GKI). SoC-specific timer 
+drivers provide always-on broadcast timers that complement the ARM 
+architectural timer.
 
+This series is based on the previous MediaTek timer modularization work:
+Link: https://lore.kernel.org/all/20230517022557.24388-1-walter.chang@mediatek.com/
 
-Le 04/03/2026 à 08:48, Thomas Weißschuh a écrit :
-> This header is unnecessary and together with some upcoming changes would
-> introduce compiler warnings.
-> 
-> Link: https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Flore.kernel.org%2Flkml%2F20250916-mm-rcuwait-v1-1-39a3beea6ec3%40linutronix.de%2F&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C8f791d1218bb4befc3d908de79c289b8%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639082073628618434%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=xxp2D4fWK%2Fd9%2BhcwfbD7s7ft5l773T3LhRdnchXga28%3D&reserved=0
-> Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
-> Tested-by: Andreas Larsson <andreas@gaisler.com>
-> Reviewed-by: Andreas Larsson <andreas@gaisler.com>
+The series includes:
+1. Export necessary functions from clocksource/mmio
+2. Remove __init markings from timer-of to support modules
+3. Convert MediaTek timer driver to support module build
+4. Convert i.MX TPM timer driver to support module build
 
-Reviewed-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+Testing performed:
+- Built and tested on i.MX8ULP platform
+- Built and tested on MediaTek platform
+- Verified both built-in and module configurations
+- Confirmed timer functionality in both configurations
 
-> ---
->   lib/vdso/datastore.c | 1 -
->   1 file changed, 1 deletion(-)
-> 
-> diff --git a/lib/vdso/datastore.c b/lib/vdso/datastore.c
-> index 2cca4e84e5b5..7377fcb6e1df 100644
-> --- a/lib/vdso/datastore.c
-> +++ b/lib/vdso/datastore.c
-> @@ -1,7 +1,6 @@
->   // SPDX-License-Identifier: GPL-2.0-only
->   
->   #include <linux/linkage.h>
-> -#include <linux/mmap_lock.h>
->   #include <linux/mm.h>
->   #include <linux/time_namespace.h>
->   #include <linux/types.h>
-> 
+Changes in v4:
+- Refined the cover letter introduction to clarify that SoC-specific
+  timers act as always-on broadcast timers complementing the ARM
+  architectural timer.
+- Expanded "GKI" to "Generic Kernel Image (GKI)" in commit messages.
+- No functional changes to the code.
+
+Changes in v3:
+- Reworded summary line for timer-mediatek driver as suggested.
+- Improved commit message formatting (line wrapping).
+- No functional changes to the code.
+
+Changes in v2:
+- Added Signed-off-by from submitter (Zhipeng Wang) to all patches
+  as requested by reviewers
+
+Changes in v1:
+- Fixed 'unsigned' to 'unsigned int' in clocksource_mmio_init()
+- Changed MODULE_LICENSE from "GPL v2" to "GPL" for mediatek driver
+- Added i.MX TPM timer driver module support
+
+Chun-Hung Wu (3):
+  clocksource/drivers/mmio: Export clocksource_mmio_init()
+  clocksource/drivers/timer-of: Remove __init markings
+  clocksource/drivers/timer-mediatek: Convert timer-mediatek to a
+    loadable module
+
+Jindong Yue (1):
+  clocksource/drivers/imx-tpm: Support building imx-tpm driver as module
+
+ drivers/clocksource/Kconfig          |  4 ++--
+ drivers/clocksource/mmio.c           |  8 ++++---
+ drivers/clocksource/timer-imx-tpm.c  | 36 +++++++++++++++++++++++++---
+ drivers/clocksource/timer-mediatek.c | 33 +++++++++++++++++++++++++
+ drivers/clocksource/timer-of.c       | 23 +++++++++---------
+ drivers/clocksource/timer-of.h       |  6 ++---
+ 6 files changed, 88 insertions(+), 22 deletions(-)
+
+-- 
+2.34.1
 
 
