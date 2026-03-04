@@ -4,61 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13DB3EFCE37
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 19:49:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47BEEEFCE37
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 20:05:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lO/knfXLU58cqQbFLyikJauWIRCu+bpWpmfL7N87xUg=; b=TVFA7kACGOvqYxdSY+SCOkx0bA
-	GbZ9W3qVfc91UdBni+pmRiE4Edc5HBu0ctTD1XIKbzwkPN6ap1eRyiJUrXaL4VMRF+DFskeQp8N/M
-	HssPNMkpTixn/JILtAP6JtnHqx5Y2CCcjMS5vRK380dgStvrwpy9s9sTHL3sjOj5vcMIXIXy8NAXj
-	DbMo+jqe2/GbfPCmx+9bM+PQPCudt08GPbr63HgWEwtJtBGSrmF6a4SVvCfgq2B4MU/7w1f26WdKs
-	HwuC42bTro2F2UmVGpsMdHtpVkOR32IEhOpgCcjieHIij3fyhJXU/X+mwePVjW6MAR1IXatD3apy+
-	aOARFGtQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bEhVJmS85dWuXz+i/uzPhkGcpMPxtb7lSKola8x84hc=; b=h1g33l9bk0NWupcNmcaawWfP00
+	GBIhI6aL9IEWuKOI+uYaiK6RyQx6P83HDsjT4gXWEm00XcjIordt7xXVt9dF6jeKJo5iWZsvyuAi3
+	HrcFBq62HwVWQEiQTy+zBLcXMe31GuqLqyNotoWGQPjXHCIq9vvzfPKm1LR8YBTQlVIk/wCRLiukU
+	ElGnnFwqZhDNq/upOYTmziMWqrZj7rsSGkDcQlqUDmx7hojWumP3jKCgr5sOpI1ihZ3voPCzkDY8o
+	wZSoEZQIb3YxpTjfO2wOeRvkzjjdUhkW/PlGFXU93FQ3obc2Y/ghY2Cv1TnRShcJPvkkoL62UFlW9
+	DxnV8kbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxsDU-00000000Poy-1oyr;
-	Wed, 04 Mar 2026 19:49:08 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vxsTN-00000000Qws-47lR;
+	Wed, 04 Mar 2026 20:05:34 +0000
+Received: from mx4.wp.pl ([212.77.101.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxsDR-00000000PoY-2y7V
+	id 1vxsTK-00000000Qw6-3HKw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 19:49:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=lO/knfXLU58cqQbFLyikJauWIRCu+bpWpmfL7N87xUg=; b=AW9t9KFci9gSdrFAV5W6jtjGiZ
-	JRt5C6fcGfNY9FuA4VRF05gn2vztRet5pA2TP+D1U61BG4wBE4flqORzUJFcKgXlw3CpHR4xxw6vs
-	BME7ZBjXIyMu2pOb1NZZbBY0Y1d/e/AQSF8U0zlbd/JM13YYTa7uVT5poYROy1CSoAqM=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vxsDI-00AAWR-Go; Wed, 04 Mar 2026 20:48:56 +0100
-Date: Wed, 4 Mar 2026 20:48:56 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Gabor Juhos <j4g8y7@gmail.com>
-Cc: Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: marvell: armada-37xx: drop
- 'marvell,usb-misc-reg' properties
-Message-ID: <db997887-2431-4baa-8e96-04f53ea59060@lunn.ch>
-References: <20260304-armada-37xx-drop-usb-misc-reg-v1-1-800c1b746b7a@gmail.com>
+	Wed, 04 Mar 2026 20:05:32 +0000
+Received: (wp-smtpd smtp.wp.pl 28053 invoked from network); 4 Mar 2026 21:05:25 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
+          t=1772654725; bh=bEhVJmS85dWuXz+i/uzPhkGcpMPxtb7lSKola8x84hc=;
+          h=Subject:To:Cc:From;
+          b=oJ1OIMXjqjeXFFszYYc3yJgoFq7PYYsoyzNz47hzV8pdAlQtEaCjfxx7YY1FHvGfy
+           N7skD9lCQo2nwpqjEQwuqzUWd8K5Kz3Btb/SKwzPoJRNeb47AIQt+4tMB/xDfLaVFu
+           ftfhuPAnY4idLRa6BgS36h72UjMoo3a5v2yD/HFRpepiJNdG/Z75q1yksiF3ilFdS+
+           Jjd82u5zHToUvAOD8WvRbcN+Unx7XA62cVr+CuFvJfzFmkhC+3/xKhjlM0eiIAWfeI
+           FoCE62fG3Od2X+c58DoHh1o+8FPwpq+yyw48SA3yLaWobrtPaU5RFS84QPZvKaFDtP
+           YiRyDKc9+FJPw==
+Received: from 83.24.116.171.ipv4.supernova.orange.pl (HELO [192.168.3.246]) (olek2@wp.pl@[83.24.116.171])
+          (envelope-sender <olek2@wp.pl>)
+          by smtp.wp.pl (WP-SMTPD) with TLS_AES_256_GCM_SHA384 encrypted SMTP
+          for <ansuelsmth@gmail.com>; 4 Mar 2026 21:05:25 +0100
+Message-ID: <5df659ba-4850-4c04-8153-9fb55af81bd0@wp.pl>
+Date: Wed, 4 Mar 2026 21:05:24 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260304-armada-37xx-drop-usb-misc-reg-v1-1-800c1b746b7a@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] arm64: dts: airoha: en7581: add crypto offload
+ support
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: herbert@gondor.apana.org.au, davem@davemloft.net, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, lorenzo@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-crypto@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260303193923.85242-1-olek2@wp.pl>
+ <20260303193923.85242-2-olek2@wp.pl>
+ <69a73dcd.7b0a0220.1ac46b.9bfc@mx.google.com>
+Content-Language: en-US
+From: Aleksander Jan Bajkowski <olek2@wp.pl>
+In-Reply-To: <69a73dcd.7b0a0220.1ac46b.9bfc@mx.google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-WP-MailID: 98f13932068cf993ee8247d24573eb09
+X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
+X-WP-SPAM: NO 0000009 [QerX]                               
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_114905_867440_F6434312 
-X-CRM114-Status: GOOD (  13.05  )
+X-CRM114-CacheID: sfid-20260304_120531_303258_D2EE9827 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,50 +82,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 04, 2026 at 08:12:43PM +0100, Gabor Juhos wrote:
-> The 'marvell,usb-misc-reg' property is present both in the EHCI and
-> in the XHCI USB host device nodes, however it is not documented. Thus
-> 'make dtbs_check' produces warnings like these:
-> 
->   /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@58000 (marvell,armada3700-xhci): Unevaluated properties are not allowed ('marvell,usb-misc-reg' was unexpected)
->           from schema $id: http://devicetree.org/schemas/usb/generic-xhci.yaml
->   /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@5e000 (marvell,armada-3700-ehci): Unevaluated properties are not allowed ('marvell,usb-misc-reg' was unexpected)
->           from schema $id: http://devicetree.org/schemas/usb/generic-ehci.yaml
-> 
-> Apart from the fact that the properties are not documented, those are
-> not even used by any USB host drivers. At least 'git grep' says this:
-> 
->   $ git grep -n 'marvell.usb-misc-reg' v7.0-rc2
->   v7.0-rc2:Documentation/devicetree/bindings/phy/marvell,armada-3700-utmi-phy.yaml:30:  marvell,usb-misc-reg:
->   v7.0-rc2:Documentation/devicetree/bindings/phy/marvell,armada-3700-utmi-phy.yaml:41:  - marvell,usb-misc-reg
->   v7.0-rc2:Documentation/devicetree/bindings/phy/marvell,armada-3700-utmi-phy.yaml:50:      marvell,usb-misc-reg = <&usb2_syscon>;
->   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:372:                              marvell,usb-misc-reg = <&usb32_syscon>;
->   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:383:                              marvell,usb-misc-reg = <&usb32_syscon>;
->   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:396:                              marvell,usb-misc-reg = <&usb2_syscon>;
->   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:406:                              marvell,usb-misc-reg = <&usb2_syscon>;
->   v7.0-rc2:drivers/phy/marvell/phy-mvebu-a3700-utmi.c:231:                                                         "marvell,usb-misc-reg");
+Hi Christian,
 
-The phy-mvebu-a3700-utmi.c does use it, and does document it:
+On 3/3/26 21:00, Christian Marangi wrote:
+> On Tue, Mar 03, 2026 at 08:39:18PM +0100, Aleksander Jan Bajkowski wrote:
+>> Add support for the built-in cryptographic accelerator. This accelerator
+>> supports 3DES, AES (128/192/256 bit), ARC4, MD5, SHA1, SHA224, and SHA256.
+>> It also supports full IPSEC, SRTP and TLS offload.
+>>
+>> Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
+>> ---
+>>   arch/arm64/boot/dts/airoha/en7581.dtsi | 12 ++++++++++++
+>>   1 file changed, 12 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/airoha/en7581.dtsi b/arch/arm64/boot/dts/airoha/en7581.dtsi
+>> index ff6908a76e8e..4931b704235a 100644
+>> --- a/arch/arm64/boot/dts/airoha/en7581.dtsi
+>> +++ b/arch/arm64/boot/dts/airoha/en7581.dtsi
+>> @@ -300,6 +300,18 @@ rng@1faa1000 {
+>>   			interrupts = <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
+>>   		};
+>>   
+>> +		crypto@1e004000 {
+>> +			compatible = "airoha,en7581-eip93",
+>> +				"inside-secure,safexcel-eip93ies";
+>> +			reg = <0x0 0x1fb70000 0x0 0x1000>;
+>> +
+>> +			clocks = <&scuclk EN7523_CLK_CRYPTO>;
+>> +
+>> +			interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
+>> +
+>> +			resets = <&scuclk EN7581_CRYPTO_RST>;
+> I guess you can drop the extra new line between clocks interrupts and resets.
 
-  marvell,usb-misc-reg:
-    description:
-      Phandle on the "USB miscellaneous registers" shared region
-      covering registers related to both the host controller and
-      the PHY.
-    $ref: /schemas/types.yaml#/definitions/phandle
+It makes sense.
 
-And the patch which added the property to the USB nodes also added the
-PHY nodes.
+>
+> Does the driver supports these property tho? For example the clock is just
+> enabled or tweaked to a specific frequency? Same question for resets.
 
-commit 05d168a56fae8ff50432d5dfe6e7423b989455a8
-Author: Miquel Raynal <miquel.raynal@bootlin.com>
-Date:   Tue Jan 29 10:36:34 2019 +0100
+As far as I know, the driver doesn't use these properties. They may be used
+in the future.
 
-    arm64: dts: marvell: armada-37xx: declare USB2 UTMI PHYs
-
-So this change does look correct.
-
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-
-    Andrew
+>
+>> +		};
+>> +
+>>   		system-controller@1fbf0200 {
+>>   			compatible = "airoha,en7581-gpio-sysctl", "syscon",
+>>   				     "simple-mfd";
+>> -- 
+>> 2.47.3
+>>
 
