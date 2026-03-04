@@ -4,90 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26C06EFCE4C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 21:27:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B694EFCE47
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 21:46:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=QqrYXjS07WWLu9a4fdG6oSfjRISyxlXE1cioRIfnuGw=; b=UOCkSglct9adTt
-	S5hn7o7OlsQimJFbGVlRhSgWP0ct41K1gDpN2Zj2XXW3O27LbsPxZqPTKqR5Oycyh9SKKgYULUAJV
-	dnKlJ8Lx83RFI6+F4dWGum+AffGbij6Ek9cZ9kQnQkyva6S+eSpejl3vfwH4Ef6AG7tR+bY4lKclL
-	4Rjj3KTJHts8ZCt1hE7hT7S6b4HjXUAUcUU+MJ5xynYxq9cszV/c7s1nbhtU6zJ8YkozA5k16tTSm
-	96dJbeeR733vJMFBAU8FraGmuSEVEzLuIsmofnuRVaXTzfUoJAcULN+ikRPkfcYicxLZN296UUfKD
-	EK3Wz2uMsStQ9of5TqyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NzpEAndabLXdFU83lYguNUY29Q1wC4ZmNMkxm9NkFgM=; b=Tdv55exbt/GKvDkLuMexKZTmfe
+	I1EKYgshSX4Swa3GAl4POFMDZhs1/5Qsnj9w27dbNGeb19v7PaDQMSEHn42aygO0Rkmy/xl8BHRO/
+	5/KhNjdwnKkedin5QuuzrMyjRsap4R9t/mdVpqU2rusgkVg+dj5F5mg4gqXJm+PbTJPkO9UZfHnDr
+	G6MqGArB394uNiW2BaDofNJDUWz/Z09ykmy11S43uxL7SDab8/XhX7y2LrVFMSU7N3IXMj6ijyxoS
+	7bRdyv11sPiFS2+qgQd+azjVVIFF6r6gVZyXCSk2DMn2kSeWcnFgonRj887HhJ9LlOHaa5glmC2/H
+	D2LwcOFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxtkS-00000000WC8-2B1L;
-	Wed, 04 Mar 2026 21:27:16 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1vxu3N-00000000Xf5-2U9T;
+	Wed, 04 Mar 2026 21:46:49 +0000
+Received: from mx3.wp.pl ([212.77.101.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxtkQ-00000000WBI-01NJ
+	id 1vxu3K-00000000XeM-42nW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 21:27:15 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-48378e60742so8073975e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 13:27:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772659632; x=1773264432; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=QqrYXjS07WWLu9a4fdG6oSfjRISyxlXE1cioRIfnuGw=;
-        b=Lbqm4Q2K5jCRMAL25KARQHgOBxunliM69yYXyoUI/UgYl22A5ez7Jje0myXzx1e49m
-         KZ7Q8NLGU1NV7MrqlPiVKgTOoDXN6uh3pGDqoYqcSfd/2G5tX1OtYLeHHv+axI8q1a3Y
-         CHHH/1aY2VpT6aG3O85tbU7KgUQjtIQ90TmbJPXSkQFaVWD7MwGqHmRBRMwsBkK/8nGW
-         Zc5nvcR7/RODiPTgljo3vrhYOd4P0xgHYKQqpPYmLz/NaVqzza1eYCos45ffa+f02DKu
-         NiI2+OCd0QEz4pWPu21rs3ov4+EQ1r094YA2TRr0eIFPAN7LrALxnUuUQ0/bjpZ0fwfx
-         kKCg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772659632; x=1773264432;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QqrYXjS07WWLu9a4fdG6oSfjRISyxlXE1cioRIfnuGw=;
-        b=rJc/3nnp2s3Wd9fHq815ETX4zCX7T2ggG4cccKhlxa148FYUx+D/v3zL0bNXTkmUfS
-         K9j+3k7bO75fauEkGD5HC28xoA/63/D1RFRXiR7xuB96cmKMp+M+0+WV/kKgqJu7zqjz
-         pT7br0Pv+J+5zxXrFCwl8YP2vBAMxanElsivhrG45U8hwQyVhtidhM9Ycd/6QkW/HOO6
-         0pBbcM+SyUybrIB3jcmp8FbTA6AA57lP4F1Z6vlxs2cH7A1e5v1ztoEFMPZLaoQqURMm
-         MJKoKd+TrTGDjTjUlinJsn2VrukJTkDzeYxeL67UGnMEbppEjY9Cy2NferyzBCzMMlEz
-         VbEw==
-X-Forwarded-Encrypted: i=1; AJvYcCXvK5Pq0siRAEqQT0h0owVO/95LNTnn7/bqCDEY8gVNYz/YaQC5xSmuhQY0ZD5NucelNH7jY9bZcSxep79uoFKU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwkTJyu6heiHoy0zna7qCDBwf8bAwbwlVVcUm2J8eFLU+N6k5+B
-	NFI+rUVHrDmv5ds2HJtbmBu2pm96RuyJf8GmHYKtMVRei3oqXa33ZHcn
-X-Gm-Gg: ATEYQzyikn80J9zPpJ07TWnKG5EPaD1CkDaJPyevMB7c8xzuaYFixRFV+ipUWNrAshE
-	imGOpJexscDzuun2awc2uHV2pWryTDHXT1lR8nqL6NZCuGPTGmHIvqX0vdiiFSR4fHNkmM7K1Ts
-	1S/f9zmkxgj0U2FXXhhlDROeBroZvTtjXAOValPp5YgFmE2WQ/g4lP7i2gBHuQnK5DIT5Lp3ktd
-	kPm+zVCrxmsBsL28gDydbeuiQ3Q1E8NIruoujXOBs/VcxAbIHawK1/t2AtdQUttfBphmgAQCgZo
-	/Ct/RsGQTgIkOI+wyJJ1gmg+I8unuMtiBfc9v5ZRYznn5es4bSWdS4P+N+qhgaUtnAYNyBIcWBN
-	xPeB4VGlLSiMKYp9syqX3NvXTL4Zi0b2XHdMImqEbOSazdOHyWn6dXkLo2+wsjWmmdJFID9COl3
-	GP8h1abJ4VK6gs46+2vN/kydWu6Q==
-X-Received: by 2002:a05:600c:8b32:b0:483:7d93:9f8a with SMTP id 5b1f17b1804b1-4851982c755mr35027765e9.1.1772659631369;
-        Wed, 04 Mar 2026 13:27:11 -0800 (PST)
-Received: from skbuf ([2a02:2f04:d00e:3600:16aa:c9ad:4288:9dcc])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4851a82dac3sm46980315e9.0.2026.03.04.13.27.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Mar 2026 13:27:10 -0800 (PST)
-Date: Wed, 4 Mar 2026 23:27:08 +0200
-From: Vladimir Oltean <olteanv@gmail.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-phy@lists.infradead.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RESEND 1/1] phy: freescale: imx8qm-hsio: provide regmap names
-Message-ID: <20260304212437.z34yjprrovewmlm5@skbuf>
+	Wed, 04 Mar 2026 21:46:48 +0000
+Received: (wp-smtpd smtp.wp.pl 398 invoked from network); 4 Mar 2026 22:46:42 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
+          t=1772660802; bh=NzpEAndabLXdFU83lYguNUY29Q1wC4ZmNMkxm9NkFgM=;
+          h=Subject:To:Cc:From;
+          b=kXijcwDr5eR+9K1AwEREg5sp8eO2Ui5fNQ/FNdpdD4KuEECE7vZahMbWoLbr221VF
+           YDdZcQW2bq/cH4l4B9dnHaSQIOlXrJX6lmG86qAKolf84vsSUInILkDJiH35VvpCLC
+           7Lt/fLQ7rjqjdVkIjGGYT/vj5iJODYPGx7rN82nglesI7ilXYsoPz16kYO/jdLJN8l
+           l5Resb1XzI48I8Whs3PHD7z3LKLXAZZA8GLYpCrCpUEqwcehFiHjcL0Y3OnQhEFoGd
+           qfFgyF47S1t4dK+qTNRhKK9z4bWOyKJRcVO8WrhYn5c0uSUqbCVDVsne9U1yV0dQRy
+           pEqTVWAKGk8MA==
+Received: from 83.24.116.171.ipv4.supernova.orange.pl (HELO [192.168.3.246]) (olek2@wp.pl@[83.24.116.171])
+          (envelope-sender <olek2@wp.pl>)
+          by smtp.wp.pl (WP-SMTPD) with TLS_AES_256_GCM_SHA384 encrypted SMTP
+          for <conor@kernel.org>; 4 Mar 2026 22:46:42 +0100
+Message-ID: <f9b266d7-f545-4088-b6c5-a0cc8676d60c@wp.pl>
+Date: Wed, 4 Mar 2026 22:46:41 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260211144949.1128122-1-alexander.stein@ew.tq-group.com>
- <20260211144949.1128122-1-alexander.stein@ew.tq-group.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: crypto: eip93: add clock gate and reset
+ line
+To: Conor Dooley <conor@kernel.org>
+Cc: ansuelsmth@gmail.com, herbert@gondor.apana.org.au, davem@davemloft.net,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ lorenzo@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-crypto@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260303193923.85242-1-olek2@wp.pl>
+ <20260304-hardship-abreast-7a2d58cbe446@spud>
+Content-Language: en-US
+From: Aleksander Jan Bajkowski <olek2@wp.pl>
+In-Reply-To: <20260304-hardship-abreast-7a2d58cbe446@spud>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-WP-MailID: 99f604febecd4a2e8ba3ea7d20496df9
+X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
+X-WP-SPAM: NO 0000009 [oTqX]                               
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_132714_058466_DFFEF348 
-X-CRM114-Status: GOOD (  18.87  )
+X-CRM114-CacheID: sfid-20260304_134647_497939_46CE5377 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,56 +81,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 11, 2026 at 03:49:48PM +0100, Alexander Stein wrote:
-> This driver uses multiple regmaps, which will causes name conflicts
-> in debugfs like:
->   debugfs: '5f1a0000.phy' already exists in 'regmap'
-> Fix this by using a dedicated regmap config for each resource, each
-> having a dedicated regmap name.
-> 
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> ---
-> Same as the one sent in December but with an updated CC list.
-> 
->  drivers/phy/freescale/phy-fsl-imx8qm-hsio.c | 23 +++++++++++++++++----
->  1 file changed, 19 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c b/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c
-> index 279b8ac7822df..4ab45c9f53dff 100644
-> --- a/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c
-> +++ b/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c
-> @@ -107,7 +107,22 @@ static const char * const lan2_pcieb_clks[] = {"apb_pclk2", "pclk2", "ctl1_crr",
->  static const char * const lan2_sata_clks[] = {"pclk2", "epcs_tx", "epcs_rx",
->  					      "phy1_crr", "misc_crr"};
->  
-> -static const struct regmap_config regmap_config = {
-> +static const struct regmap_config regmap_phy_config = {
-> +	.name = "phy",
-> +	.reg_bits = 32,
-> +	.val_bits = 32,
-> +	.reg_stride = 4,
-> +};
-> +
-> +static const struct regmap_config regmap_ctrl_config = {
-> +	.name = "ctrl",
-> +	.reg_bits = 32,
-> +	.val_bits = 32,
-> +	.reg_stride = 4,
-> +};
-> +
-> +static const struct regmap_config regmap_misc_config = {
-> +	.name = "misc",
+Hi Conor,
 
-Since __regmap_init() doesn't keep a persistent reference to the config,
-just performs a deep copy of it (including regmap_set_name() ->
-kstrdup_const()), technically you could have gotten away with just a
-single on-stack regmap_config whose .name you kept changing for all 3
-calls.
+On 3/4/26 20:08, Conor Dooley wrote:
+> On Tue, Mar 03, 2026 at 08:39:17PM +0100, Aleksander Jan Bajkowski wrote:
+>> Add the clock gate and reset line, both of which are available
+>> on the Airoha AN7581. Both properties are optional.
+> Why are they optional?
 
-But this is perfectly valid as well.
+No reason. In theory, a hardware designer could connect the reset
+to a fixed input signal. In practice, all SoCs on the market have
+a built-in reset and clock controller. I can mark them as required
+in the next revision.
 
-Reviewed-by: Vladimir Oltean <olteanv@gmail.com>
+>> Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
+>> ---
+>>   .../crypto/inside-secure,safexcel-eip93.yaml         | 12 ++++++++++++
+>>   1 file changed, 12 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
+>> index 997bf9717f9e..058454b679b4 100644
+>> --- a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
+>> +++ b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
+>> @@ -48,6 +48,12 @@ properties:
+>>     interrupts:
+>>       maxItems: 1
+>>   
+>> +  clocks:
+>> +    maxItems: 1
+>> +
+>> +  resets:
+>> +    maxItems: 1
+>> +
+>>   required:
+>>     - compatible
+>>     - reg
+>> @@ -57,11 +63,17 @@ additionalProperties: false
+>>   
+>>   examples:
+>>     - |
+>> +    #include <dt-bindings/clock/en7523-clk.h>
+>>       #include <dt-bindings/interrupt-controller/arm-gic.h>
+>> +    #include <dt-bindings/reset/airoha,en7581-reset.h>
+>>   
+>>       crypto@1e004000 {
+>>         compatible = "airoha,en7581-eip93", "inside-secure,safexcel-eip93ies";
+>>         reg = <0x1fb70000 0x1000>;
+>>   
+>> +      clocks = <&scuclk EN7523_CLK_CRYPTO>;
+>> +
+>>         interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
+>> +
+>> +      resets = <&scuclk EN7581_CRYPTO_RST>;
+>>       };
+>> -- 
+>> 2.47.3
+>>
+Best regards,
+Aleksander
 
-I don't think you need to do anything further, just wait for Vinod to
-start going through the backlog.
+
 
