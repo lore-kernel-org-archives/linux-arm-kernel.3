@@ -4,90 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A228AEF8FE3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 13:29:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98784EF8FE6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 13:33:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8mg++I7PIn4dt5AFv6kcvsSJIHq4QLe4L7ARlFnSbcA=; b=TU7zNF/4jNnEHL3VfnPweYt10A
-	HKDgNBl9XJeyBNgaL8mGxfWSkCG1v8UI/eZJxKb97S/ZvUQLnDwzGjwyC4BL7107ybtWkXbiZ8w/F
-	NDMVD2faRuCToHReQoGPxmCR9M+KhkpoLph11bccU9bR99g2sidng+Vaj+3sZAM9Gu91KUo8b5Ge/
-	bHIl+5yumilDEay1yML8MLmx9LueedXl+c7vbOwgas12YGBexcQ+em/Bth6aewf4z2GchToBEYbjM
-	4cyAKgRPImHJ2vLno0JaBhwfLSDl2qTISvfMAGG2iW7T4/28wyhOQ2lUT95rFFBNcwcpzVUUGWG/p
-	jEFn0Ehw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=HyXpXl6bu2okUvtMuzXbBFiVNKQ5edJWxZJefsKwejw=; b=x0CnI+EEjak4cj
+	uEmbZ1ZcqjLpSbuNL3SbYKniNugOCXJ5OwrlTVlkoFu6qmBb6K6da/vbpF7Em2fuGhcSAxhyxV/Bi
+	evDcKVNCjCp65wLxPZG/Fl7SvXU61K8/MNLrxpOTrxnHpGBERSuaNQn+Rn3XPhlt/eEPPQ4f86sfI
+	g1/FsFferipck2OFLgZwUDZNjI3BFu4s/IeLss9PRQQmTs0G202XnhLXecjFeaEG2ZwASG3+ecfFw
+	TyLBw2xeB3gSUOwQgrd8Xx+kfdp7oCXW0VK/4PB1b70T4JZJwc97TOejMI6Lxf6zjLayzQ04LVSfI
+	No1L8eK9v4vNDHlLqrWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxmIH-0000000HFQI-3jv6;
-	Wed, 04 Mar 2026 13:29:41 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1vxmMA-0000000HFhs-0t1M;
+	Wed, 04 Mar 2026 13:33:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxmIF-0000000HFPU-0IgW
+	id 1vxmM7-0000000HFhT-0RH4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 13:29:40 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-48374014a77so83234675e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 05:29:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772630977; x=1773235777; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8mg++I7PIn4dt5AFv6kcvsSJIHq4QLe4L7ARlFnSbcA=;
-        b=bvdxar0rp9CuNGj29kpvwQFBq3L23hijCV0FC+KwnxwyciSSkSJo3fdh+jwD7ZlUQu
-         zK97336aMvg07u8+ntPvjVhmQuZVVX11H+snYW02CPiR3xqEPt+in013ec3AFHjOQyaF
-         OlMJkjhQpdEH/e9FBxKjEiiVISE2yZ7MRl8P4Bvoxpruzo2ihlIq/N9bTV3go9NlgrQQ
-         fBrw/1OJbyyVAvE9b4yIQSQO562NRkQbF4db00BLR3qxdW/dmxRSIGQHe/fUR1N0RPyE
-         AnP5Y8i5vSIC8hFGezZEw6lsVoQ8XmDlUsf0DwYxzywMGf56Dk9k5MuIiSt4FuJw01DJ
-         wZCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772630977; x=1773235777;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=8mg++I7PIn4dt5AFv6kcvsSJIHq4QLe4L7ARlFnSbcA=;
-        b=Bh+XWdfkAOTnygkK6fO7OB2AFLlwpCbqENT0cvwudiT/1+dfCeziXuIsXUJFj2cP/v
-         19y0NVA3LB8AAZZgQ5aQj4JuF4gVkzakI75NtFGhFRi+dc9ZS5XqJNXOhYS3Dle/GlUd
-         X2ndusEF0yAJFeOdGLsh5L4/UFzd6IUeZnTf1xZwKXGsx2erztj6EJHpY8K9zLM+brwa
-         9JaU4qGXYvRyHlup1CbzElahz8o6i3816EBUvyaMuYgSoQp3uG0R2/ahZCcV1rGDTp0o
-         SmunuLmUfZSSWr2A8W0SBTcKVRRLhbeVn7tANvwkHd/QAGSJ8bwiypHw4z2xXJ/EWRSb
-         7SQQ==
-X-Gm-Message-State: AOJu0YxtuYFcpVAVTpPa9dcGSFmMgx6LM3pVsHZDZt/pKmzN96vuuJAI
-	KnznXe0eOVH2R1jWpAtSHnu1XGECJCCxOSb52afShPFCTmUAu17miOKR
-X-Gm-Gg: ATEYQzz7bBNn6BXOHg6wUowwPlVCfGI/I/Cmc2c9Kk0rsn/5ztZ4o+W+eJdVAAArVsH
-	+DQ0draiz+6k4/QLtjtwxen4k81zMEhr8UxZscp1VW8E0km1JBYMG+XRSeLvW98gCI1CF9Ut7JJ
-	yEVz5bAKoh6z+sSJj5qNEnhLHdCIz1l6Si7FA7bEw4jKaRft+26qz8M8vv3gk2/blY0dMb6Vy1y
-	0BrWebiYnFNziAxbvDqwiKeHe1TnBdnFfG7KdcGX7j2tLHn4t1sxxf82Aw2DRbzNUZI9uPrW9uT
-	pMv4+HyPRD3Eow99DUpWXc8hv2FLOAf1InuQfOKOTPW+eq1m5dQHPGnA08vV6R+nGrEvIr0e4gT
-	jDiHkSU2VI/F0eGKdwrPRP5gz2RCS/Ehgr1q/sq7wOe/Ojvlzny6awV/RPhscUdb/ojpdicSEUa
-	UgA0yQZiEGr1zoAFa13wZDVtUSonANgSw6trFT5cljKFLikJpx
-X-Received: by 2002:a05:600c:6098:b0:471:1717:411 with SMTP id 5b1f17b1804b1-48519888e49mr31558475e9.24.1772630976778;
-        Wed, 04 Mar 2026 05:29:36 -0800 (PST)
-Received: from debian.levillagebyca.com ([213.152.28.84])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4851887fa9csm51283605e9.9.2026.03.04.05.29.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Mar 2026 05:29:36 -0800 (PST)
-From: MidG971 <midgy971@gmail.com>
-To: linux-rockchip@lists.infradead.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	heiko@sntech.de,
-	jonas@kwiboo.se,
-	midgy971@gmail.com,
-	Claude <noreply@anthropic.com>
-Subject: [PATCH v2] arm64: dts: rockchip: rock-3b: Model PI6C20100 as
- gated-fixed-clock
-Date: Wed,  4 Mar 2026 14:29:57 +0100
-Message-Id: <20260304132957.684616-1-midgy971@gmail.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260213151452.535527-1-midgy971@gmail.com>
-References: <20260213151452.535527-1-midgy971@gmail.com>
+	Wed, 04 Mar 2026 13:33:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D781F4362B
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Mar 2026 13:33:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5DFCC2BCAF
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Mar 2026 13:33:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772631217;
+	bh=qX8bwC7Pr9sLJEwNHDJdwt6wRYUINp909IFCD+BCZGM=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
+	b=Qif17WzBzBvkoZ/nngJnz8sJxXvmtVb7CDH2GgHnvD8Eg4wXcB7/iUPikO1Rj7Lw+
+	 nTyeDShVWEJOTO6LH41cgsGChErXNk4UKZM7InHw5IsnZgGFDjFjAs2YidL2FRDYye
+	 wldPBeuWRLX4A9id9QwKZBANP4J2ET6394qW5k7N2UQGEsmgZCa+jY9ZNUFKoJtfcc
+	 kp4S9COjdi8zaoMeBQU/KYuckEHF9LS1wWSUozRuey+J3NCBd5gFrq0etry2kCVYsH
+	 3j8h0Gcx7Fgo/89C/1X2+zm7mvzM9yMm9WVMK/zifcZLgf5JixXx4xcD8IqOZHyO8b
+	 mExfYykDd2sgQ==
+Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-38a2a59baa6so7561811fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 05:33:37 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXoR5LETTft9XlowrNlnKWmDzCSf18052kIxDTHH4J1NKsgDOZCwpFAhtmpRAyP5jrI4BTv+n17v6+/5aTPbMz5@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkxcoSsopLIXUpprNRKY/qldK3UInA2bOSntzm3tdwQDUaTaKd
+	Wb2zuv8wRKpv24a8tYtMd4SuzhoLNg2MW8+LdJ48yaPlnoT3a1X1cjmblHsUGmAIE+/AiC6zKut
+	zdh1+MPjDFe4zo4h+22O/e2Xm5vxvaF0=
+X-Received: by 2002:a05:651c:997:b0:389:ff39:d36f with SMTP id
+ 38308e7fff4ca-38a2c564975mr18004471fa.8.1772631216030; Wed, 04 Mar 2026
+ 05:33:36 -0800 (PST)
 MIME-Version: 1.0
+References: <20260304-b4-pck600-a733-v1-0-2f54efdb8cc2@gmail.com> <20260304-b4-pck600-a733-v1-2-2f54efdb8cc2@gmail.com>
+In-Reply-To: <20260304-b4-pck600-a733-v1-2-2f54efdb8cc2@gmail.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Wed, 4 Mar 2026 22:33:23 +0900
+X-Gmail-Original-Message-ID: <CAGb2v64n_8RyWDieUKvbpkTikipB9ZvqEscYRRLowe+rvaJKCQ@mail.gmail.com>
+X-Gm-Features: AaiRm52IhPssfKwic0-9MUev9i9zshO3IgtBuLjVx0xGClavhc7qhY1LONhcieE
+Message-ID: <CAGb2v64n_8RyWDieUKvbpkTikipB9ZvqEscYRRLowe+rvaJKCQ@mail.gmail.com>
+Subject: Re: [PATCH 2/2] pmdomain: sunxi: Add support for A733 to Allwinner
+ PCK600 driver
+To: Yuanshen Cao <alex.caoys@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Ulf Hansson <ulf.hansson@linaro.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_052939_162122_A289503F 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20260304_053339_183500_D33D137F 
+X-CRM114-Status: GOOD (  24.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,79 +83,132 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Radxa ROCK 3B uses a PI6C20100 PCIe reference clock buffer to=0D
-provide a 100MHz reference clock to the PCIe 3.0 PHY and controllers.=0D
-This chip is currently modeled only as a fixed regulator=0D
-(vcc3v3_pi6c_03), with no clock output representation.=0D
-=0D
-The PI6C20100 is a clock generator, not a power supply. Model it=0D
-properly as a gated-fixed-clock, following the pattern established=0D
-for the Rock 5 ITX and other boards with similar PCIe clock buffer=0D
-chips.=0D
-=0D
-The regulator node is kept as-is since it controls the power supply=0D
-to the PI6C20100 chip via GPIO0_D4. The new gated-fixed-clock node=0D
-references this regulator as its vdd-supply and provides a proper=0D
-100MHz clock output. The pcie3x2 node is updated to include the=0D
-reference clock, matching the approach used in rk3588-rock-5-itx.dts.=0D
-=0D
-Signed-off-by: Claude <noreply@anthropic.com>=0D
-Signed-off-by: MidG971 <midgy971@gmail.com>=0D
----=0D
-=0D
-Changes since v1 [1]:=0D
- - Drop phy-supply approach entirely (Jonas, Shawn)=0D
- - Model PI6C20100 as gated-fixed-clock instead=0D
- - Wire reference clock to pcie3x2 controller=0D
- - Follow pattern from rk3588-rock-5-itx.dts=0D
-=0D
-[1] https://lore.kernel.org/linux-rockchip/20260213151452.535527-1-midgy971=
-@gmail.com/=0D
-=0D
- .../arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 18 +++++++++++++++++-=0D
- 1 file changed, 17 insertions(+), 1 deletion(-)=0D
-=0D
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts b/arch/arm64/b=
-oot/dts/rockchip/rk3568-rock-3b.dts=0D
-index 69001e4..24befc9 100644=0D
---- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts=0D
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts=0D
-@@ -56,7 +56,16 @@=0D
- 		};=0D
- 	};=0D
-=0D
--	/* pi6c pcie clock generator */=0D
-+	/* PI6C20100 PCIe reference clock buffer (100MHz) */=0D
-+	pcie30_refclk: pcie-clock-generator {=0D
-+		compatible =3D "gated-fixed-clock";=0D
-+		#clock-cells =3D <0>;=0D
-+		clock-frequency =3D <100000000>;=0D
-+		clock-output-names =3D "pcie30_refclk";=0D
-+		vdd-supply =3D <&vcc3v3_pi6c_03>;=0D
-+	};=0D
-+=0D
-+	/* PI6C20100 power supply - active-high GPIO0_D4 */=0D
- 	vcc3v3_pi6c_03: regulator-3v3-vcc-pi6c-03 {=0D
- 		compatible =3D "regulator-fixed";=0D
- 		enable-active-high;=0D
-@@ -553,6 +562,13 @@=0D
- };=0D
-=0D
- &pcie3x2 {=0D
-+	clocks =3D <&cru ACLK_PCIE30X2_MST>, <&cru ACLK_PCIE30X2_SLV>,=0D
-+		 <&cru ACLK_PCIE30X2_DBI>, <&cru PCLK_PCIE30X2>,=0D
-+		 <&cru CLK_PCIE30X2_AUX_NDFT>,=0D
-+		 <&pcie30_refclk>;=0D
-+	clock-names =3D "aclk_mst", "aclk_slv",=0D
-+		      "aclk_dbi", "pclk", "aux",=0D
-+		      "ref";=0D
- 	pinctrl-names =3D "default";=0D
- 	pinctrl-0 =3D <&pcie30x2m1_pins>;=0D
- 	reset-gpios =3D <&gpio2 RK_PD6 GPIO_ACTIVE_HIGH>;=0D
---=0D
-2.39.5=0D
-=0D
+On Wed, Mar 4, 2026 at 12:44=E2=80=AFPM Yuanshen Cao <alex.caoys@gmail.com>=
+ wrote:
+>
+> The Allwinner A733 PCK600, similar to A523 PCK600, is likely a
+> customized version of ARM PCK-600 power controller. It shares
+> the same BSP driver with A523. According to the BSP provided
+> by Radxa, unlike A523, it doesn't require reset.
+>
+> Make reset optional in the sunxi pck600 driver and add support
+> for A733.
+>
+> Signed-off-by: Yuanshen Cao <alex.caoys@gmail.com>
+> ---
+>  drivers/pmdomain/sunxi/sun55i-pck600.c | 53 ++++++++++++++++++++++++++++=
+++----
+>  1 file changed, 48 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/pmdomain/sunxi/sun55i-pck600.c b/drivers/pmdomain/su=
+nxi/sun55i-pck600.c
+> index c7ab51514531..8f9fdc3915bd 100644
+> --- a/drivers/pmdomain/sunxi/sun55i-pck600.c
+> +++ b/drivers/pmdomain/sunxi/sun55i-pck600.c
+> @@ -52,6 +52,7 @@ struct sunxi_pck600_desc {
+>         u32 logic_power_switch0_delay;
+>         u32 logic_power_switch1_delay;
+>         u32 off2on_delay;
+> +       bool has_rst_clk;
+>  };
+>
+>  struct sunxi_pck600_pd {
+> @@ -151,9 +152,11 @@ static int sunxi_pck600_probe(struct platform_device=
+ *pdev)
+>         if (IS_ERR(base))
+>                 return PTR_ERR(base);
+>
+> -       rst =3D devm_reset_control_get_exclusive_released(dev, NULL);
+> -       if (IS_ERR(rst))
+> -               return dev_err_probe(dev, PTR_ERR(rst), "failed to get re=
+set control\n");
+> +       if (desc->has_rst_clk) {
+> +               rst =3D devm_reset_control_get_exclusive_released(dev, NU=
+LL);
+> +               if (IS_ERR(rst))
+> +                       return dev_err_probe(dev, PTR_ERR(rst), "failed t=
+o get reset control\n");
+> +       }
+>
+>         clk =3D devm_clk_get_enabled(dev, NULL);
+>         if (IS_ERR(clk))
+> @@ -193,7 +196,14 @@ static int sunxi_pck600_probe(struct platform_device=
+ *pdev)
+>  }
+>
+>  static const char * const sun55i_a523_pck600_pd_names[] =3D {
+> -       "VE", "GPU", "VI", "VO0", "VO1", "DE", "NAND", "PCIE"
+> +       "VE",
+> +       "GPU",
+> +       "VI",
+> +       "VO0",
+> +       "VO1",
+> +       "DE",
+> +       "NAND",
+> +       "PCIE",
+
+No need to change this part.
+
+>  };
+>
+>  static const struct sunxi_pck600_desc sun55i_a523_pck600_desc =3D {
+> @@ -206,7 +216,36 @@ static const struct sunxi_pck600_desc sun55i_a523_pc=
+k600_desc =3D {
+>         .device_ctrl1_delay =3D 0xffff,
+>         .logic_power_switch0_delay =3D 0x8080808,
+>         .logic_power_switch1_delay =3D 0x808,
+> -       .off2on_delay =3D 0x8
+> +       .off2on_delay =3D 0x8,
+> +       .has_rst_clk =3D true,
+> +};
+> +
+> +static const char * const sun60i_a733_pck600_pd_names[] =3D {
+> +       "VI",
+> +       "DE_SYS",
+> +       "VE_DEC",
+> +       "VE_ENC",
+> +       "NPU",
+> +       "GPU_TOP",
+> +       "GPU_CORE",
+> +       "PCIE",
+> +       "USB2",
+> +       "VO",
+> +       "VO1",
+> +};
+> +
+> +static const struct sunxi_pck600_desc sun60i_a733_pck600_desc =3D {
+> +       .pd_names =3D sun60i_a733_pck600_pd_names,
+> +       .num_domains =3D ARRAY_SIZE(sun60i_a733_pck600_pd_names),
+> +       .logic_power_switch0_delay_offset =3D 0xc00,
+> +       .logic_power_switch1_delay_offset =3D 0xc04,
+> +       .off2on_delay_offset =3D 0xc10,
+> +       .device_ctrl0_delay =3D 0x1f1f1f,
+> +       .device_ctrl1_delay =3D 0x1f1f,
+> +       .logic_power_switch0_delay =3D 0x8080808,
+> +       .logic_power_switch1_delay =3D 0x808,
+> +       .off2on_delay =3D 0x8,
+> +       .has_rst_clk =3D false,
+>  };
+>
+>  static const struct of_device_id sunxi_pck600_of_match[] =3D {
+> @@ -214,6 +253,10 @@ static const struct of_device_id sunxi_pck600_of_mat=
+ch[] =3D {
+>                 .compatible     =3D "allwinner,sun55i-a523-pck-600",
+>                 .data           =3D &sun55i_a523_pck600_desc,
+>         },
+> +       {
+> +               .compatible     =3D "allwinner,sun60i-a733-pck-600",
+> +               .data           =3D &sun60i_a733_pck600_desc,
+> +       },
+>         {}
+>  };
+>  MODULE_DEVICE_TABLE(of, sunxi_pck600_of_match);
+>
+> --
+> 2.53.0
+>
 
