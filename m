@@ -4,85 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB7F6EFCE20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 17:13:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6866CEFCE21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 17:17:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/prTTpQhW620yX2PYVk5yWIkWxklh3YEhELl29vkzfw=; b=mYT0JGrhnQkfLoQAQA8cYKk3ug
-	eK831XerFPvaXeb6oe8rLasABH6D/Tkxtgjelk27175N4/+CzIL9PzCH4yT10QZvp65AAcQDEnyDp
-	ZZVravrZDVnejHnc+OEn6nf1GmraByTUgPo2KwkU6g8bP01rv52QXYgJfjoaRcDbj5zgH85Opn5Iy
-	RAiXjPjzSWmWg4Rp9/FhP4tV4A6dm3OqWmKhJgjVhrDGWLuLS1agfl2b+mHIpHVFiTXRSwBQfjVev
-	agQfxTSim+uRMpvLxs1k1M+08hYpxlFQjAjRNRisN3KINprSKy+Qi2XvFQ1xImjubhM3oWHaa89Jq
-	qKu7L9Fw==;
+	bh=cJH5HTTS8IXUeuygbajdkmLcYEnLHSboe7+1ynkudCU=; b=FaXmWRIIwLjkzUorPxQf+spt4v
+	fsVPz/dy+p+3pdVGIbUJje1pBU74G/uNwflnzh0r/NWWQPBcDQco6ugWshhNmlJ0kwojRIlvm4Zd+
+	oGmJiI4qnwoHxijD0XPjjpGh/6OeShdGPT6PSLkuMhe8WAiHBBRlHnR8n7jN5y6c9Ltx8NmV5NPb6
+	Z9f9c2P6ssbeU7nKQeywPxPnlFkm9YniVaBKRS+FZIt/2tCIZnSwGF1xjFklFlR4oCr5Gae6Dv8+i
+	c9TS02ks0otdLsVvDvAEgVW0JDL5ZbNWCfBrcOEg31jJ4xqOSAFgPS+TN9z0u/SxT62CmGaCcEDlS
+	fFUayY8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxpml-000000009jM-1ORm;
-	Wed, 04 Mar 2026 17:13:23 +0000
-Received: from mail-vs1-f53.google.com ([209.85.217.53])
+	id 1vxpqO-000000009wj-23r4;
+	Wed, 04 Mar 2026 17:17:08 +0000
+Received: from mail-westus3azon11010038.outbound.protection.outlook.com ([52.101.201.38] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxpmh-000000009iq-3ZQK
+	id 1vxpqL-000000009wM-3Keq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 17:13:21 +0000
-Received: by mail-vs1-f53.google.com with SMTP id ada2fe7eead31-5ffc1e25d6cso78531137.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 09:13:19 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772644398; x=1773249198;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/prTTpQhW620yX2PYVk5yWIkWxklh3YEhELl29vkzfw=;
-        b=Y8x42T4mCpqRvQ4WpWbR/oH67wInX+LWPyma+UL5KB6ysCUltT1lULNB9EYpi5M503
-         zGqeaRkH18DdUtFkuhPsk+ZWGn4BvUpD17IFCwkWd2Y0ScdQs+7+nVZRA7W6BzAF3XnK
-         Cvf7aJxlOgfGI3llmZnc2Hh8YLSfa2+mF+5Iym3IjSQ0Lbm8jFLcp2+61f/kW3Yw0xEZ
-         0MHULR2lik6HQsCFl7oBkLtTcHJtYm2h/3qY/HvT+z9GMWL+z15KtjIyKiaGHrcnmuTJ
-         pkRt2PDB6TXV1AuY7LG8vD8be+FnfOmNJ9Jk+DoIYVpMFdO9S8Hlp/QVM1Ik5df4Zj07
-         qUOQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXt2hHbSjdCqQcaAnK4pmFzJjaYljLVNdkzLq6JiVInlZ87JIBtDrgmvxR5aG9pPMIwuI9oWiOiaDHpffYcZkRs@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8raS5LQJQIxIg2tbxqGEorlfAPG9gXmkXv5sB1QELny3PNZIf
-	XsxdPg7g0FiDTuVS0d1p0nXLfTgjCbMeRHEvTpbtYsijKhj7wz3c9ZRosIDrf57m
-X-Gm-Gg: ATEYQzxul4ox9n/O39voI742gTBgcdHD0PAhhFytFFyjfy3h959mdYNKSY0rzhCB2DC
-	eHvypy1pOSYoViDSgASIUsF2ymUWyaMqsTXVx6/3TU1GgS9pte0VAdEAw6S3sNEApa4jyMsG/cs
-	EB2VzFaiI4rlctYxlO9VcgBqpA+gpZ8RlkyYWy4a3y1GW/9ysAL6T/BY2Wk3CU0zcTelYfCZ79B
-	CG5EkUpF7YBa5b36+9uHManMGNXcLv9IcbpVi8Tm0y/ap6h4oKxXR0/5tZAW1tkzqoqM6KulRT8
-	dpmv96ipeFs7h71LpWPBlpucIy6P4QKVw406ssnIZu1/RwXN2rfkGufdTz7FPeMEpLg3celXT2D
-	G2tCfeNNZuIWExawtGgW0swrvc75GDZGz5sW+FDCZKEeu9SNcjByMtqupmktxIPU1pkmTyMNBqb
-	QKx77vWr8VA7Z0ZT2zJkxJP9LGgBvZx5uZvLhsgJrkbwIgTyWFN5zh3NPeaCQS
-X-Received: by 2002:a05:6102:c8e:b0:5ff:2963:52dc with SMTP id ada2fe7eead31-5ffaaab190fmr1243343137.4.1772644398029;
-        Wed, 04 Mar 2026 09:13:18 -0800 (PST)
-Received: from mail-ua1-f47.google.com (mail-ua1-f47.google.com. [209.85.222.47])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-94df63d8abbsm18329135241.2.2026.03.04.09.13.16
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 04 Mar 2026 09:13:17 -0800 (PST)
-Received: by mail-ua1-f47.google.com with SMTP id a1e0cc1a2514c-94dda16ff9fso2137486241.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 09:13:16 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVvR76q/EQEMNRceQ3NtOmDYo4OKSDQZAPlhgIbzf37LLxgEDJR1D1AN+9XkLuVCBFfIgNrQkKGLi+Ykb2O4o8Y@lists.infradead.org
-X-Received: by 2002:a05:6102:3e86:b0:5f1:b7b2:8929 with SMTP id
- ada2fe7eead31-5ffaac72c15mr1143974137.15.1772644396647; Wed, 04 Mar 2026
- 09:13:16 -0800 (PST)
+	Wed, 04 Mar 2026 17:17:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YA78da0ePCTw5yUz3/HNCmtaw9OCnW4FBRMB1AQ6wnxNIvXj6FfcqwgjLeaQG3ksMLY/r9hN5As+XZtqdPEwtLb0ExZhi2Sii64EGZKX4CbJlXxgi5b7H5wYRuBkpMmI/IGX0URAp3oZVwzURo66JoJ/xTVdfUzQ9F27CnNe3ATuSYBVx7HBaobQ07aKveAMXx+ZJdShCFhtfVDPJ7UYkY5+U8G97Ne8gbF9sorVCaHoqyug1BkRKXmFeK62c38Mqog6EtptCf2KwFtBWVPZ55gKIhkJePsYf2Q13UAE0rGeoQUPFqewU+nGy1SBPQPscZcmuXgH8avJ4dgcyeo0xw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cJH5HTTS8IXUeuygbajdkmLcYEnLHSboe7+1ynkudCU=;
+ b=oNFHhwJ/PQrlfMgX5P+RF3R7/ojPLzzOgQdFhLYkkRkho+VW0SsLPNICaxCzejxxah26hLu/rnhTZhVBj4AqLjDREWRAG/esQSaS5AvVNTcXBEFnwPLB2nsV5FPtSzT9Pg3Yt8KaNeCYT12BaiTs6FOGiKLkUa8BMDz+rvLOYyst0zH1ggcUXq8ruzllD6Kp7e3vRzFuiy4+LJ/pUZdoM7BS3/fpGbYwSGSYGKLGlGNrsLgudwv1tBAvWhgNT3f8p+dUsOs3dNIDzuGA0qsDhpsvUNsyh5u/wXlpUFDVCaSSPBgcGNILvK2mBjBAK5eKchFqU38a4Z5BuDAZWplSLw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cJH5HTTS8IXUeuygbajdkmLcYEnLHSboe7+1ynkudCU=;
+ b=JSfHvCxCVG+k0WkDfd/CgAVjEeFgcEIzEN3y7msFQYycX5rAGOXFT2CHE3x+a5GtEc/ciwcvg6efbKclU1wln7BO5R3wWjYGXclcHnFz3UBZ6d41WMytlTuqQRZtTh3vakKq9gXmtzhXCdg5MNvQPqR36qaHTfU3sWe4V031v319zQ903e6AWynfxgsw7pnu6THFouaRQ9Gfz1DBaGUAWvQld462Vs+gi6pyIvk/vTwD1Tl/2QbA1HkfnXRMvvkbfFV8F1h943On1s4isspGqC9s/UaNQwRYvyLyfraHhNp5lmijIUzexUjCjMVNY3KELwO14NxnOZ5IVOP3h2P88w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB6559.namprd12.prod.outlook.com (2603:10b6:8:d1::6) by
+ MN2PR12MB4173.namprd12.prod.outlook.com (2603:10b6:208:1d8::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.17; Wed, 4 Mar
+ 2026 17:17:00 +0000
+Received: from DS0PR12MB6559.namprd12.prod.outlook.com
+ ([fe80::3f99:f532:cf6b:ea46]) by DS0PR12MB6559.namprd12.prod.outlook.com
+ ([fe80::3f99:f532:cf6b:ea46%4]) with mapi id 15.20.9654.022; Wed, 4 Mar 2026
+ 17:16:59 +0000
+Date: Wed, 4 Mar 2026 09:16:58 -0800
+From: Piotr Jaroszynski <pjaroszynski@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, Alistair Popple <apopple@nvidia.com>, 
+	John Hubbard <jhubbard@nvidia.com>, Zi Yan <ziy@nvidia.com>, Breno Leitao <leitao@debian.org>, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH] arm64: contpte: fix set_access_flags() no-op check for
+ SMMU/ATS faults
+Message-ID: <aahnVXb1IF2yVV5x@box>
+References: <20260303063751.2531716-1-pjaroszynski@nvidia.com>
+ <aagUtDTca5d0le2Y@arm.com>
+ <20260304134313.GM972761@nvidia.com>
+ <aahJX0NwtYHy1ILe@arm.com>
+ <20260304153949.GP972761@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260304153949.GP972761@nvidia.com>
+X-ClientProxiedBy: SJ0PR05CA0034.namprd05.prod.outlook.com
+ (2603:10b6:a03:33f::9) To DS0PR12MB6559.namprd12.prod.outlook.com
+ (2603:10b6:8:d1::6)
 MIME-Version: 1.0
-References: <62b849967d71d73e028fb65efee717986ef847e6.1772641758.git.geert+renesas@glider.be>
- <535cfe49-4f70-4ed9-ae4f-92215140e6f6@gmail.com>
-In-Reply-To: <535cfe49-4f70-4ed9-ae4f-92215140e6f6@gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 4 Mar 2026 18:13:05 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdVhznozaH8=jPGBf_aKEged+pjtAeDTBmukd2B4KMJkwg@mail.gmail.com>
-X-Gm-Features: AaiRm53SGuxzi6WBseORNxFfXVIwmT8pmyVVW-tzwjBIYdQXKlr-Hu8waR2QV74
-Message-ID: <CAMuHMdVhznozaH8=jPGBf_aKEged+pjtAeDTBmukd2B4KMJkwg@mail.gmail.com>
-Subject: Re: [PATCH] irqchip/gic-v3: Print a warning for out-of-range
- interrupt numbers
-To: Sergey Shtylyov <sergei.shtylyov@gmail.com>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB6559:EE_|MN2PR12MB4173:EE_
+X-MS-Office365-Filtering-Correlation-Id: b7ec62af-5168-43b8-676c-08de7a11d856
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: ZwnC6LGvMV+ssAGbfQXAgQ3D0j3UEWfRZMEtYHN88MfG8TXN39lOG7ZPljksoqpDkkQ2m0GPy8NPG+6TtMuYo47nsBGQZHnDw6Py4uruaEoPps63+4l+XOmH3POx6dwnxOpAP0uGT/jUZ4tmnBnjSLFnU2jLp2aBMjgKDPxoeKHJewrlKyVE5l0NKXlMXioSNrOl+NCwjSs6RcWfXEWGLgXpVL0daWxgK2V3ADpHw6TWhdzb6a45c6lyOLp2nL/Zumn1ovnVYLszEbKoxTz8f/OPjJArsttW7I++QvfVtIYz19LastVNlOTB0d2Jit7CfuB9ig6EBEaNUp3T6s3OAc2mt7SBo10YC8D8prxR9MiLRekrzuTUE+k0XZIbGWtdV6D1U5GKIb23HdGiownuufKuQRyr5h2aCv2y322VsBuF6Oe01VPI6fs4Bcj+NU0exgE+oW5LIsMvSKlfKTFCxewjAUKlPCvIvCufjE158w1lXiJHhjEtCj55ChIP+TNXZWk0+CAmk8lZMRJWNCmvHXsqNe+/Jg0jh4QXxK2aK//tL/MoMx2+XsfWvSLJZQsGoX7T+jiQmMaTkt0iUn8IkbWHjxctT5G7CSyJcGzcBGCfB05sIppt727/NQtlPCtGtOIdPtXFy1ooD7hjxJ4LyqEQ8oKKFXW3vosYgFowlFYJeLtNr2eOLUQo94jjosG3RtPLYFew+zF09+YliHEDuC6Pht2wEJtLPkRWi+eOet0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB6559.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jEpGFrLTufV7GskmfwO2h4khYJCyhPYwwdqC6kZ/pfFxaPOkB6XquHsnkGts?=
+ =?us-ascii?Q?L7xWWIq2depsH2XB8VCz//YubPKFsOpb+2iTKi3GrGpEQZxnSeR1TCmo3X1o?=
+ =?us-ascii?Q?8tJlYlvgRdvKwY/VU5l93f2vhHMPBtVZ8m19ln58IARHL+lUeU5xNd8DQKAd?=
+ =?us-ascii?Q?UKyiVB4xXWagwy968zKjMF2FGOCp2yDKY44XYx+a50RIWfDdHk87KDndjLww?=
+ =?us-ascii?Q?tZkBMNtuIDpRlNbSw1AYHW/0ANjElg2cJM3USmSt5JRB3EKpAp967Xil/bvF?=
+ =?us-ascii?Q?ED3PZ+1z8fGG36qmPwf2/A9ulaRbfve7SncuioLuIrdWIsVPhsZVGJg73EYd?=
+ =?us-ascii?Q?pUIRWSZljRtVRE8zLbR3KLuFN0IeipFCebjAPRfNXCA2N2YS0eRHo8jRvEF3?=
+ =?us-ascii?Q?RpOw4aA8nXT8H5qo3hHVSeqIR5KPEN1P4KMaoZiLx4NjQN2jxnmVW9jdimMb?=
+ =?us-ascii?Q?XYWpCgu5WYMdvEDa8p6qpuHbgf/uQkmcQPrgaMWqgO6JPWtcO8tJ9aISUM7t?=
+ =?us-ascii?Q?v2nTvXuDRjnPXUr/ZVdCBlhk5ngVLHzL4a6olmSlZnXhjba4D9wFnJaUuzrM?=
+ =?us-ascii?Q?OiK9J5+cxys8C9QI4cvMboEh6HQW41RiknP9Yu7hq/E8Z8Sws0ipYDj5mLhh?=
+ =?us-ascii?Q?KpgxHBeILirnfcCOPTFsAKjTkjd+hkwtFgNp1M6hsE/A861f2Gw0zyZrswes?=
+ =?us-ascii?Q?bsc4fsSzTlDpEZi4PQQicT+2oUViGO08kzc/Pn1cifDG3Rdb3UBKCHScFPkA?=
+ =?us-ascii?Q?X/TlEg+6x1DiCgI5oISABs+6N7PT2MJVa/2v52WcVIaPAqi3dPrsOOUHmAok?=
+ =?us-ascii?Q?IreDWXGSoMIxR+MbNMS6U/pSmEaHNzLnKa78GQXxRMomBtjOLqAZyMhrulPr?=
+ =?us-ascii?Q?klhSUiVSIlDS0a/BArK7Zo8EHRvbNvfI4wZ6QjxD581WfLuPtuOtjryf+MCa?=
+ =?us-ascii?Q?apmoFkhErFP29+noxtjfxiMGs1RLIkNY5Z6e8S4O1qXXNPHQdpKeBhm1/jgx?=
+ =?us-ascii?Q?zo4cWqpDRdG/9cve62caRthjJix2Msfh7cip39sF+enHfVntMLmg4dQvowrf?=
+ =?us-ascii?Q?6FGNMqcSlwj4e6MvDNdvpCv7LzaNhZLuq3BhXPFOhCuhx/ay9pfpPve7tODQ?=
+ =?us-ascii?Q?hq9P78p31g1bxi5Xruz4OIOGbuIE9kRxCiaQkTqxkgVBiBRPpyk9gKfcbjyw?=
+ =?us-ascii?Q?Rh18pMTwkqQMuXHR5NulFOsss9c3r9JtWUuUrvDyvMkSRhZ2mzS2kkQ4lhF0?=
+ =?us-ascii?Q?PQgtTFtvkl+MhzzNw7v1ZUvnJI5NOWIJz/U01Bwem4HlVTHlRRVjget1gzhJ?=
+ =?us-ascii?Q?qq4eBjKY2rIUkEu+ERhJKadOyMmKS4xOblFJSpDBARoI889d6NAefhFKFbWp?=
+ =?us-ascii?Q?mYGqMQntbkVdGX9jx72i6KUXeJ1QYWFKS5wbrD4Dq4i4GdsGDOPSY6LaskvE?=
+ =?us-ascii?Q?aeYWSbjROipSuzIe77tmMPBhodTuQHeqw0rUTZYxwdizlkIcjYjM07gdm/ew?=
+ =?us-ascii?Q?H+0EAz4IDZ0m0MxUbgtc0S591fopGA+DC3kX99Jq5KRXKJ2UWEVVrzTaf8Qt?=
+ =?us-ascii?Q?lI2T8uL9VpBRaMohmX83bR0oI+0jHpklwQlBqgCy+AbmlYUwFRF4tYgWiZGp?=
+ =?us-ascii?Q?7j0XIgajC2R0O67s8qS3SDNTdPhWF7M924GE+MVm1Nnh2RcVFoNINZ7wncVa?=
+ =?us-ascii?Q?FzjrFdyAnX5XSemt//rJdFcuqLNjSI77Z67aRxu2iopa5iISrBf/zJ+cLGPu?=
+ =?us-ascii?Q?/N85xnLrIaMIRKIXy4sido5F8mASGj8=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b7ec62af-5168-43b8-676c-08de7a11d856
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB6559.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2026 17:16:59.7592
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /84jZNxpukOyCeYJwTWmRJahPvCKNCsmdqWRWABgE2RHRCBSZr908tns1V+b2dckYCty7c9Jo+UFPtyg4ryGow==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4173
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_091319_899596_101C9B16 
-X-CRM114-Status: GOOD (  29.46  )
+X-CRM114-CacheID: sfid-20260304_091705_859494_789CBD6E 
+X-CRM114-Status: GOOD (  23.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,62 +143,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sergey,
+On Wed, Mar 04, 2026 at 11:39:49AM -0400, Jason Gunthorpe wrote:
+> On Wed, Mar 04, 2026 at 03:01:51PM +0000, Catalin Marinas wrote:
+> > Good point. For the AF bit, the hardware is not allowed to cache it in
+> > the TLB, so we can't get an AF fault for an unrelated VA nearby.
+> 
+> The way we have read the spec is there is no restriction on what PTE
+> the HW accesses when it encounters a CONT group.
+> 
+> To be concrete, the spec seems to say it is legal to make HW that
+> fetches the PTE at the VA, sees the CONT bit, and then always fetches
+> the 0th PTE from the group and only uses that for permission checks.
+> 
+> Therefore SW should never assume that HW will read any particular
+> sub-PTE under any scenario.
+> 
+> It seems current cores don't do this, and it is a bit silly to do, but
+> I can imagine an optimizion where the core does a cache line fetch to
+> read the PTE so it can freely snap to the PTE at the start of the
+> cache line for permission checks. Consolidating permission storage to
+> fewer PTEs would reduce atomic memory traffic if the TLB is thrashing.
 
-On Wed, 4 Mar 2026 at 18:05, Sergey Shtylyov <sergei.shtylyov@gmail.com> wrote:
-> On 3/4/26 7:31 PM, Geert Uytterhoeven wrote:
-> > gic_irq_domain_translate() does not check if an interrupt number lies
-> > within the valid range of the specified interrupt type.  Add these
-> > checks, and print a warning if the interrupt number is out of range.
-> >
-> > This can help flagging incorrectly described Extended SPI and PPI
-> > interrupts in DT.
-> >
-> > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> > ---
-> > This would have prevented the issue fixed by "[PATCH] arm64: dts:
-> > renesas: r8a78000: Fix out-of-range SPI interrupt numbers"[1].
-> >
-> > [1] https://lore.kernel.org/1f9dd274720ea1b66617a5dd84f76c3efc829dc8.1772641415.git.geert+renesas@glider.be
-> > ---
-> >  drivers/irqchip/irq-gic-v3.c | 12 ++++++++++++
-> >  1 file changed, 12 insertions(+)
-> >
-> > diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
-> > index 20f13b686ab22faf..d75163e71bf22473 100644
-> > --- a/drivers/irqchip/irq-gic-v3.c
-> > +++ b/drivers/irqchip/irq-gic-v3.c
-> > @@ -1603,15 +1603,27 @@ static int gic_irq_domain_translate(struct irq_domain *d,
-> >
-> >               switch (fwspec->param[0]) {
-> >               case 0:                 /* SPI */
-> > +                     if (fwspec->param[1] > 987)
-> > +                             pr_warn_once("SPI %u out of range (use ESPI?)\n",
-> > +                                          fwspec->param[1]);
-> >                       *hwirq = fwspec->param[1] + 32;
-> >                       break;
-> >               case 1:                 /* PPI */
-> > +                     if (fwspec->param[1] > 16)
->
->    Not 15? Don't PPIs use INTIDs 16-31?
+"The Contiguous bit" section I quoted in the change says this:
+ The entry is permitted to be cached in a TLB as though it is one of a
+ number of adjacent translation table entries that point to a contiguous
+ OA range with consistent attributes and permissions.
 
-Thank you, that is indeed an off-by-one bug.
-Will fix.
+ Software is required to ensure that all of the adjacent translation
+ table entries for the contiguous region point to a contiguous OA range
+ with consistent attributes and permissions.
 
->
-> > +                             pr_warn_once("PPI %u out of range (use EPPI?)\n",
-> > +                                          fwspec->param[1]);
-> >                       *hwirq = fwspec->param[1] + 16;
-> >                       break;
+I think your example is valid as any of the sub-PTEs can be cached.
+Another valid example is that first you access addr A and PTE for A gets
+cached as the value for the whole 2MB region. Then you access a
+different address B within the region and fault based on the cached
+attributes. In this case the SMMU never had to read the PTE for B as it
+already cached it when accessing A. If the faulting code only read the
+PTE for B it can show that e.g. RDONLY was already cleared and hit the
+problem again.
 
-Gr{oetje,eeting}s,
+In summary, I don't see a way to skip reading and fixing all the
+sub-PTEs. And the previous code is already reading all of them so the
+fix is not adding any new overhead.
 
-                        Geert
+> 
+> Jason
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
