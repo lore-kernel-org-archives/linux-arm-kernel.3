@@ -4,66 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13850EF8FE6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 13:36:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 522B6EF8FE6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 13:38:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:Cc:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p/5CjFN5DQLnwXu9X2kNfSbkWVbxCQkt3uDqFMTtaNk=; b=ZL236KWuhwJcmoVkv4N+0gCfxS
-	zdmVfIoXFSbQTvWp9pDbhHR1MXO/guTRPqo6625N4O1U6QQZJdGMWXNyS7p98EDM2rUG8wSUgfCXh
-	6U1aTRJ3d4M5qcfrTiQJpavnyrZ2CHfKvyvd7GEyTrjOlfST/KHVO8cD/4IAhKoBAZMXqbFc9bmIu
-	WYq9rMFhv09oAYP1QbgRkLRZ5Dq8FSIlSTobUtcZh4VX1uSjt1/dqio7WJLUIppas51Q2XgSbUUNo
-	KdMlZgzIkkUFeOGjf71aGMeiRX2LlWUwUkDcODyx7BY7vhXPBO1nSFH3QuuvJ7zEDlorgI3KiVzjF
-	/Jjem02Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	References:To:From:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6xKCzFEa575Ece/U0GGFSt+Fu+C5w9MJrHLEfRQR2Cg=; b=Q4gqYA9aWGlh/md9zsCdVFK8WJ
+	ABq9bDlDKN/esgiYMYSmWaNMhVINDXijmY3D9G6Ng4GgGsewaTk4a0TpKngoGGlRITKcMnOkFYxkA
+	x2tJhTDd6zJixbqma+PY2jLBPDkK5v/enr6zrwY9lsxZJ8z/V7wQyEwNIXs+hF5bI1M0zcvTHxS33
+	JbL2aoCvoyf90yF0fKXUrpR9aIIyw3zq6W/DIetoGJ/91SMnihZJYvhnimqrzFs6+rsMwrb4a+o0T
+	ECZMB8DvcoDnytkKcEfIC32WWwtcMWX27zlO9jYKI63rvoXPPDVbbFByUzitzIILi2TWgf2ZgkDit
+	cCJ79ebw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxmOw-0000000HFw4-01d1;
-	Wed, 04 Mar 2026 13:36:34 +0000
-Received: from mail-m49243.qiye.163.com ([45.254.49.243])
+	id 1vxmQj-0000000HGBr-0U54;
+	Wed, 04 Mar 2026 13:38:25 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxmOs-0000000HFv6-2tl0;
-	Wed, 04 Mar 2026 13:36:32 +0000
-Received: from [172.16.12.14] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 35bef961c;
-	Wed, 4 Mar 2026 21:36:16 +0800 (GMT+08:00)
-Cc: shawn.lin@rock-chips.com, Martin Filla <freebsd@sysctl.cz>,
- Charalampos Mitrodimas <charmitro@posteo.net>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Frank Wunderlich <frank-w@public-files.de>
-Subject: Re: [PATCH v4 1/4] arm64: dts: rockchip: assign pipe clock to rk356x
- PCIe lanes
-To: david@ixit.cz, Rob Herring <robh@kernel.org>,
- Heiko Stuebner <heiko@sntech.de>, "elaine.zhang"
- <elaine.zhang@rock-chips.com>
-References: <20260304-rk3568-bri-r2-pro-fix-pcie-v4-0-37abd7ba29d0@ixit.cz>
- <20260304-rk3568-bri-r2-pro-fix-pcie-v4-1-37abd7ba29d0@ixit.cz>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-Message-ID: <d981fa84-bd05-ac9d-98ca-89ee47177829@rock-chips.com>
-Date: Wed, 4 Mar 2026 21:36:15 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.11.0
-MIME-Version: 1.0
-In-Reply-To: <20260304-rk3568-bri-r2-pro-fix-pcie-v4-1-37abd7ba29d0@ixit.cz>
-Content-Type: text/plain; charset=gbk; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9cb91043db09cckunm56444db0122910c
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQxgYQ1ZIQkxLHxhNSUweTB9WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=fx22D2kn242RR6kXvU/2drBjn1X7G1r4J6WP3RnZQe9shUfVHmlNHN60ywYZG39crbVuIKrwgDtFYU4oIbfReugUOmgXdVdgWDFlSsGQJbth/rPtmlUigRHhfyk4mNFvhSQ/F3n1Dk9z5rfkpYnAu08yC8Gs6u66zvNO7SXT20w=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=p/5CjFN5DQLnwXu9X2kNfSbkWVbxCQkt3uDqFMTtaNk=;
-	h=date:mime-version:subject:message-id:from;
+	id 1vxmQf-0000000HGBB-3xxX
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Mar 2026 13:38:23 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-439a90f194bso3215748f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 05:38:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1772631500; x=1773236300; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=6xKCzFEa575Ece/U0GGFSt+Fu+C5w9MJrHLEfRQR2Cg=;
+        b=mwMOx9tRc/cJEtFbs6C7+n3GZ7KzzPhrkFKyaP5C6XVZWZ6yC/8cmgtZKicYfJQkl/
+         PmMaqs/N1YIBOW0rUhhESb4+owf++vBRyq4WMWaQD2rspda89kzLklXRDBDxgqnreo4D
+         hv8Fpfyv5mdx1sLqadGPsdDfl79BrUHkfGBCKGWtOFX2GBEaDdAYjAGJVT7av+TEdPJ7
+         VWIw6SPWKkisTLvOcWkOOYioIvVEzVmMn8vj+nTNzecrR9hTJkxhC8h9gRluUcE3utmz
+         qVPg97O1m0pic5ElOpGwbUwRoTqNoCdsUjiM0G7Ltf/84UHpP1g3Xk9LVMXL734JiqBe
+         hiVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772631500; x=1773236300;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6xKCzFEa575Ece/U0GGFSt+Fu+C5w9MJrHLEfRQR2Cg=;
+        b=m6TTHzUIntEZSUJXFCYoodAAxmU4IGNi8MJ9qd1IGvh2YDRDEFzAfl3xPOtLsPkjOK
+         00dD5OKgfAd9lv1AX5Ps2UojRhB435nJbniVVE/KjUR07UCjt84REYi0gjuyH5sQJYg7
+         /sUd7KSvKTS1DNvIFgO7wEJ+f1LvnYbJexGVjFdtphQiRNFGEvHeEtBd7XUv6AYV7B2W
+         xFjeqSQ1m+c7hI+ztf62V/yRXXQb4Z/7Yf+e0J7FufXIRdTeuLAtimolBhb5fdIry7ld
+         TEnpW8+xW1FewVYaXkxtkoc1u8YvzEyMSQpDTpB8IHAq70lV1MuSEKgKBO2kg863FbZ1
+         pxBg==
+X-Forwarded-Encrypted: i=1; AJvYcCUAyAN2I8T14+HzSUOpvxyOiGMg2fVnO9wXWcHBAbHdbRAzI2/YLvUsNtgiq1Q+ruk9/lVAsscZiVlNdQXeGS8j@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCTexlYFCERlKo5pcpWPeB2Cp7oi//MIwSAjCX6sbjTKqBVq/M
+	Lqu4qUlpOeU18B/Zw1trf5j05gHeMypZeb9mVJu/bxlwDWXuRAnkN63b+cu6PCcymdA=
+X-Gm-Gg: ATEYQzxXfBY6/Q7Mg6E3MLuHBjW0nVwQfQn4sVqlhUcq8qKkupR4vQ/G5/bgFcHePbn
+	+EYsWMIwWtFtvUlV+ZuynOrRetHY1px9OrInHNVlXZ38kLJxLR8g0FfCPveR0wPbjEQUvnLKXxS
+	hoHmB+OoyagbhPILWAHbfGr1FihVFXOvwwECcRIwGx17fcwv7JGf63MkDGUC9EF3eUk6+ghr1oP
+	Lytm4we6oRLKXSnqZzGozLhpRmh/GpCEc8RKRBuUs5nEjnV4kS28MIyFCRhbQRU96CRMcVpmybH
+	Z1/BDlpgxNu+1aUsVzhQCksBDam9ibTceAUJUOcXNosUJrQoiGi8bT6hpdzTIhTc419msIh2NbH
+	9DUQXrFxr5Ikkw2y/dN1CnReUyi0g9dOl+k1eW9nkfXuCn9yXw2wXa3x9Y17VyGkqoSzBjTu1Rd
+	9+nrh+vH5/RHWvw9E=
+X-Received: by 2002:a05:6000:2302:b0:435:9d70:f299 with SMTP id ffacd0b85a97d-439c7f79f5fmr3963520f8f.22.1772631499943;
+        Wed, 04 Mar 2026 05:38:19 -0800 (PST)
+Received: from localhost ([195.52.25.213])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439b503425asm25373373f8f.25.2026.03.04.05.38.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Mar 2026 05:38:19 -0800 (PST)
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=9f27ca151f75da4521dca0ec3d004e6ed38b66748edd73afbb0ffdc24d2c;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Wed, 04 Mar 2026 14:38:10 +0100
+Message-Id: <DGU1F4OMYXZY.3S9ZX8TB5S3IP@baylibre.com>
+Subject: Re: [PATCH 2/6] dt-bindings: remoteproc: k3-r5f: Add
+ memory-region-names
+From: "Markus Schneider-Pargmann" <msp@baylibre.com>
+To: "Conor Dooley" <conor@kernel.org>, "Markus Schneider-Pargmann (TI)"
+ <msp@baylibre.com>
+X-Mailer: aerc 0.21.0
+References: <20260303-topic-am62a-ioddr-dt-v6-19-v1-0-12fe72bb40d2@baylibre.com> <20260303-topic-am62a-ioddr-dt-v6-19-v1-2-12fe72bb40d2@baylibre.com> <20260303-hesitate-preoccupy-5e311cbd3e58@spud> <20260303-payphone-pancake-b6068c545bc3@spud>
+In-Reply-To: <20260303-payphone-pancake-b6068c545bc3@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_053631_343769_7382C060 
-X-CRM114-Status: GOOD (  17.41  )
+X-CRM114-CacheID: sfid-20260304_053822_105675_EEB10231 
+X-CRM114-Status: GOOD (  18.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,86 +96,78 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Nishanth Menon <nm@ti.com>, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Vignesh
+ Raghavendra <vigneshr@ti.com>, Mathieu Poirier <mathieu.poirier@linaro.org>, Dhruva
+ Gole <d-gole@ti.com>, Akashdeep Kaur <a-kaur@ti.com>, Kevin Hilman <khilman@baylibre.com>, Bjorn Andersson <andersson@kernel.org>, linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, Kendall
+ Willis <k-willis@ti.com>, devicetree@vger.kernel.org, Vishal
+ Mahaveer <vishalm@ti.com>, Sebin Francis <sebin.francis@ti.com>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Tero Kristo <kristo@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+ Elaine
+--9f27ca151f75da4521dca0ec3d004e6ed38b66748edd73afbb0ffdc24d2c
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-在 2026/03/04 星期三 19:05, David Heidelberg via B4 Relay 写道:
-> From: David Heidelberg <david@ixit.cz>
-> 
-> These clocks are used by PCIe lanes, but we're missing from the
-> definition.
+Hi Conor,
+
+On Tue Mar 3, 2026 at 7:33 PM CET, Conor Dooley wrote:
+> On Tue, Mar 03, 2026 at 06:31:56PM +0000, Conor Dooley wrote:
+>> On Tue, Mar 03, 2026 at 04:13:00PM +0100, Markus Schneider-Pargmann (TI)=
+ wrote:
+>> > Add names to the memory-region-names for easier idenfitication of memo=
+ry
+>> > regions.
+>> >=20
+>> > Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
+>> > ---
+>> >  .../bindings/remoteproc/ti,k3-r5f-rproc.yaml          | 19 ++++++++++=
++++++++++
+>> >  1 file changed, 19 insertions(+)
+>> >=20
+>> > diff --git a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rp=
+roc.yaml b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yam=
+l
+>> > index 6aadc61e20f9f4c27f5b9c87ab2025a02776c5de..76ef23afe8c9f7f155dfec=
+7fcabc7c60b8b286c6 100644
+>> > --- a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yam=
+l
+>> > +++ b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yam=
+l
+>> > @@ -182,6 +182,25 @@ patternProperties:
+>> >            - description: DM RM/PM trace and firmware code/data
+>> >          additionalItems: true
+>> > =20
+>> > +      memory-region-names:
+>> > +        description: |
+>> > +          Optional names for the memory regions specified in the memo=
+ry-region
+>>=20
+>> Is this really optional? Shouldn't it be made mandatory so that it is
+>> easy to tell the difference between the two configurations?
 >
+> Actually, so that you can tell at all, since it looks like anything from
+> 2 to 8 regions is permitted (which this prop doesn't account for I guess,
+> only allowing 2 or 6 regions).
 
-These missing clocks are needed but PCIe still work fine，because
-the clk code for rk3568 didn't actually define them as real clock
-gates. So they are always enabled thanks to the default value and out
-of the radar of clk_disable_unused().
+Thanks for your feedback. I will fix both, make memory-region-names
+required and fix the inconsistency between both properties regarding
+what is allowed.
 
-It's a bit suboptimal and probably need to be improved in clk-rk3568.c
+Best
+Markus
 
-For $subject patch,
+--9f27ca151f75da4521dca0ec3d004e6ed38b66748edd73afbb0ffdc24d2c
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
+-----BEGIN PGP SIGNATURE-----
 
+iKMEABYKAEsWIQSJYVVm/x+5xmOiprOFwVZpkBVKUwUCaag1whsUgAAAAAAEAA5t
+YW51MiwyLjUrMS4xMSwyLDIRHG1zcEBiYXlsaWJyZS5jb20ACgkQhcFWaZAVSlMO
+BwEAlzDsVfiuqPCx/XTZv4wEd09mmQ8/q1n6TFL57MQ0VPsA/10oQtozFUWjofc9
+KhaPSSQMHdxnVfQ4MrQdxnV+d+EP
+=C3Zm
+-----END PGP SIGNATURE-----
 
-> Suggested-by: Charalampos Mitrodimas <charmitro@posteo.net>
-> Signed-off-by: David Heidelberg <david@ixit.cz>
-> ---
->   arch/arm64/boot/dts/rockchip/rk3568.dtsi      | 12 ++++++++----
->   arch/arm64/boot/dts/rockchip/rk356x-base.dtsi |  6 ++++--
->   2 files changed, 12 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3568.dtsi b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-> index 658097ed69714..3bc653f027f1f 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-> @@ -155,9 +155,11 @@ pcie3x1: pcie@fe270000 {
->   		bus-range = <0x10 0x1f>;
->   		clocks = <&cru ACLK_PCIE30X1_MST>, <&cru ACLK_PCIE30X1_SLV>,
->   			 <&cru ACLK_PCIE30X1_DBI>, <&cru PCLK_PCIE30X1>,
-> -			 <&cru CLK_PCIE30X1_AUX_NDFT>;
-> +			 <&cru CLK_PCIE30X1_AUX_NDFT>,
-> +			 <&cru CLK_PCIE30X1_PIPE_DFT>;
->   		clock-names = "aclk_mst", "aclk_slv",
-> -			      "aclk_dbi", "pclk", "aux";
-> +			      "aclk_dbi", "pclk", "aux",
-> +			      "pipe";
->   		device_type = "pci";
->   		interrupts = <GIC_SPI 160 IRQ_TYPE_LEVEL_HIGH>,
->   			     <GIC_SPI 159 IRQ_TYPE_LEVEL_HIGH>,
-> @@ -208,9 +210,11 @@ pcie3x2: pcie@fe280000 {
->   		bus-range = <0x20 0x2f>;
->   		clocks = <&cru ACLK_PCIE30X2_MST>, <&cru ACLK_PCIE30X2_SLV>,
->   			 <&cru ACLK_PCIE30X2_DBI>, <&cru PCLK_PCIE30X2>,
-> -			 <&cru CLK_PCIE30X2_AUX_NDFT>;
-> +			 <&cru CLK_PCIE30X2_AUX_NDFT>,
-> +			 <&cru CLK_PCIE30X2_PIPE_DFT>;
->   		clock-names = "aclk_mst", "aclk_slv",
-> -			      "aclk_dbi", "pclk", "aux";
-> +			      "aclk_dbi", "pclk", "aux",
-> +			      "pipe";
->   		device_type = "pci";
->   		interrupts = <GIC_SPI 165 IRQ_TYPE_LEVEL_HIGH>,
->   			     <GIC_SPI 164 IRQ_TYPE_LEVEL_HIGH>,
-> diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-> index 68b48606f6010..15741acac6274 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-> @@ -1020,9 +1020,11 @@ pcie2x1: pcie@fe260000 {
->   		bus-range = <0x0 0xf>;
->   		clocks = <&cru ACLK_PCIE20_MST>, <&cru ACLK_PCIE20_SLV>,
->   			 <&cru ACLK_PCIE20_DBI>, <&cru PCLK_PCIE20>,
-> -			 <&cru CLK_PCIE20_AUX_NDFT>;
-> +			 <&cru CLK_PCIE20_AUX_NDFT>,
-> +			 <&cru CLK_PCIE20_PIPE_DFT>;
->   		clock-names = "aclk_mst", "aclk_slv",
-> -			      "aclk_dbi", "pclk", "aux";
-> +			      "aclk_dbi", "pclk", "aux",
-> +			      "pipe";
->   		device_type = "pci";
->   		#interrupt-cells = <1>;
->   		interrupt-map-mask = <0 0 0 7>;
-> 
+--9f27ca151f75da4521dca0ec3d004e6ed38b66748edd73afbb0ffdc24d2c--
 
