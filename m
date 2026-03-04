@@ -4,78 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4878EDEC03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 02:54:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14576EDEC02
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 02:55:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QaxFyPGTN7p0+FM0J4XB0FbbUg0IRjRHvd/on3YTVps=; b=vHdL3PbszfHHCBNNvmc7HFjX2i
-	8YUnYl0uoVwu6DNmRrN+591DknBzuISY1YORjyuDfwOLFyNIJZAz7nonwpzca7PunJ3jNnw6udsm9
-	e0uTsTlmp6ZtFis7BrdxRUdW/O93GeYysGDSa8HiIVk6QgA2OrjHQ7uaqgeIMSRMPS6jCiRf1pmqk
-	1jX4EyJ/6ast9wJ9OAB79G+DM2Nr0dv3NCBj76QUNdWaBt+InnloGVeYGhYF0YcweymgY8dPEk7lZ
-	RVoV7SGfA+6J2JIEYO0jjmmP52LuTU1342MpBRGqLK5cYwyUTqqF7vCbWt74sT8h5mqaS+9LhxsqK
-	hHrstcVQ==;
+	bh=DugOzDqbwinV7rPcwrpaaCcBBfm3VhhJmZ52z51QrV8=; b=UtICBk8NpPOAnl8zIyE1O8b4ll
+	jDmEmR3Zrk3e14tygpssM/huMgGLCuB0nW5NQcVVTJw39h6ZTJ3B5HhrlwsO0YdvU62Xq6eSS8XIu
+	RRMHmFqEx5Chvi8QItNhV3eYceyitomPanwK4R+PkW9qcfT1061/9yVkCNoIU8a+5dQwVY+xS9Gvm
+	kIUkWztYe6lI4IwYav7XPUMzvwd5CwkVB/h8y6XyGKBWtAYps0Z0Kr2rf1aUV+7/p/IcCY93VjWeW
+	uwgvxFM1BYpmTvFJXGyT9UvkhearypHo2At2RdpsMcWDBbONwlT8YDc8UHDRUqftVbdI9VQSXZXcU
+	bexnfgdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxcNZ-0000000GKNN-25vy;
-	Wed, 04 Mar 2026 02:54:29 +0000
-Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net ([162.243.161.220])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxcNU-0000000GKMh-2mZ1;
-	Wed, 04 Mar 2026 02:54:27 +0000
-Received: from zju.edu.cn (unknown [10.98.66.117])
-	by mtasvr (Coremail) with SMTP id _____wC3LOzRnqdp0w4DAQ--.1182S3;
-	Wed, 04 Mar 2026 10:54:10 +0800 (CST)
-Received: from localhost.localdomain (unknown [10.98.66.117])
-	by mail-app4 (Coremail) with SMTP id zi_KCgAHv4XPnqdpKd+XBQ--.8647S2;
-	Wed, 04 Mar 2026 10:54:08 +0800 (CST)
-From: Fan Wu <fanwu01@zju.edu.cn>
-To: netdev@vger.kernel.org
-Cc: davem@davemloft.net,
-	kuba@kernel.org,
-	edumazet@google.com,
-	pabeni@redhat.com,
-	andrew+netdev@lunn.ch,
-	heiko@sntech.de,
-	romain.perier@gmail.com,
+	id 1vxcOc-0000000GKZe-2nM1;
+	Wed, 04 Mar 2026 02:55:34 +0000
+Received: from mail-pj1-x1062.google.com ([2607:f8b0:4864:20::1062])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxcOW-0000000GKXZ-0vqW
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Mar 2026 02:55:32 +0000
+Received: by mail-pj1-x1062.google.com with SMTP id 98e67ed59e1d1-3597df496f6so1968547a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 18:55:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ausil.us; s=google; t=1772592927; x=1773197727; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=DugOzDqbwinV7rPcwrpaaCcBBfm3VhhJmZ52z51QrV8=;
+        b=FxndjjUj/bZLq1nJS9nTgL6bsGi2y11v5F19UjAW18+wQdGKx/8d+0IiDwtR+1+Vm5
+         YmMpvsdF0y1wouTOaAciXZ5FIe/4qhpIdPSH1rA497kxnAToNs7i5ZRGOc7x7f95AP4S
+         ECDR7CjyzXQMRbK82e4+5bwHWQil4LlDsTNCA3esHK7bEhD0iljl0wuo7HcTb7ar+MV5
+         SRUVTz4vRmbu5T8m1COyO/+Bn82iPWujZZdt2YrHWn2NqabRxE9r60ztIfG3td8KWBUc
+         nqZuu2nht7Ck73S+15L2eVVo96LEzmEoDqU6evqewQ9vLlFWv4TjO1N9YZXhRuIZN344
+         Epuw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772592927; x=1773197727;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DugOzDqbwinV7rPcwrpaaCcBBfm3VhhJmZ52z51QrV8=;
+        b=OZgjWY0E9K7l15MAq3nnmV+c9MlysqCpE6mwr0RXZ1gs2l+U2yUhDJNVGcDzkx9X6I
+         hWxLnrJL4Di/0JQSVD4SeDLqlWobgVuriDvp7Y/vrS5OTQyliAb0Z+3X18A1kVojjIrF
+         09kSicnBe4GkJEYlB5/tEHhx9wrDqmICsAcqIDBjaW5pUu9Od5BNLTZY0fQkJFK7hJlc
+         /hJrQJ9/M15OyfBsGx9kcjnw6n+UKvT2KEW5w1v3YJFAl/9AGDW64cOODZkmTpfDjl3Z
+         yRFHjD6kMvNC3JUlK555BfNahnoYWlI/iZajEFeRcpVhr2Z9bGIb+hqanS28bh+XmoQV
+         VH0A==
+X-Forwarded-Encrypted: i=1; AJvYcCUftOa2q1XhWd3Jz4/TWSuQSgCPNFS8v98q6tXdJ5dKu2dDq0EIDZurxMSRSzrJCRZFNHaNpuOFmfQVqdkuTxOE@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAN6/9MjScMrM2TiVV76x462f0J5i52ytTiBnHk7GHzf3XC3ny
+	3HuwET5kPCke7lkdOOeLYpzotHqpBcJ0xPtWTQVobtckh5rAJVTR0YDodR8nouE5ze/Jg8O7hsh
+	4h75Ebz5i7EW6E4feOM0YPdRahqoRINsyBbeC
+X-Gm-Gg: ATEYQzwmW7/w3jzLdcrP3Q76afF+4z89QhVQugVEKdB9RNM8iZgiR1srDVEIWCER/7/
+	HoHQjGwbx9m5Xn0o8XeZnmRwB1UXdMFmAFGrpeN+VwmHneUJdEJs0Ron83qe7ma0ZYrmo57VEeH
+	7pX6XPov83hfhtOd9Mq50qRMnDEZ756Mdj0oR17q3cutacHQBCbUxAbxnR1TsULeAO9XXF6HrxH
+	INQD6ATMqS7DF5p4LNVXHv9Ulk91OXwvTuA8wSNxAS5Sc+CgmVgZoP2B2D/nm2klZu5ICK1cA9A
+	DxV9ty6yOyDz/si5vJBroHtVe6jU73ZznICEwH6fTMt+T43Al7B0KtGlTgqDj2FnSoTkmarQx1D
+	u9bFu3/7EoyNiQ7UQbPuMLrAF85L/56nVwrt8vjib5zpC
+X-Received: by 2002:a17:90b:1b0d:b0:359:8dc0:428d with SMTP id 98e67ed59e1d1-359a6a531acmr599029a91.25.1772592926872;
+        Tue, 03 Mar 2026 18:55:26 -0800 (PST)
+Received: from ryac.ausil.us (207-179-239-100.mtco.net. [207.179.239.100])
+        by smtp-relay.gmail.com with ESMTPS id 41be03b00d2f7-c70fa7d59b3sm1374096a12.7.2026.03.03.18.55.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Mar 2026 18:55:26 -0800 (PST)
+X-Relaying-Domain: ausil.us
+From: dennis@ausil.us
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: FUKAUMI Naoki <naoki@radxa.com>,
+	Hsun Lai <i@chainsx.cn>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	John Clark <inindev@gmail.com>,
+	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Alexey Charkov <alchark@gmail.com>,
+	Peter Robinson <pbrobinson@gmail.com>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
-	stable@vger.kernel.org,
-	Fan Wu <fanwu01@zju.edu.cn>
-Subject: [PATCH] net: ethernet: arc: fix use-after-free in probe error path
-Date: Wed,  4 Mar 2026 02:53:03 +0000
-Message-Id: <20260304025303.145493-1-fanwu01@zju.edu.cn>
-X-Mailer: git-send-email 2.34.1
+	linux-kernel@vger.kernel.org,
+	Dennis Gilmore <dennis@ausil.us>
+Subject: [PATCH V2 0/3] Add support for Orange Pi 5 Pro
+Date: Tue,  3 Mar 2026 20:55:17 -0600
+Message-ID: <20260304025521.210377-1-dennis@ausil.us>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zi_KCgAHv4XPnqdpKd+XBQ--.8647S2
-X-CM-SenderInfo: qrstjiaswqq6lmxovvfxof0/
-X-CM-DELIVERINFO: =?B?9b13/gXKKxbFmtjJiESix3B1w3vZ3A9ovKVTomAyoQazvoRs/NHSP8GI2EvgeEEW7R
-	sfnVF/U4hEbTTFSw5kpxcvjRYKPstlloiYtLMimIxxPCeK937RxSFJIG2LQyB39D0JCgNO
-	NV74nIx5vQQu6S65pzJdUyKHqvPLYcUGaa3joYPu
-X-Coremail-Antispam: 1Uk129KBj93XoWxCrW8ZF4rGrWxWrW5AFyxZwc_yoW5GF13pa
-	nxAF92krWkGF1jqa1DJa1kZF4rtw4UtayYgFyIkw4fuasIkr18G34I9rW09ry5ArWkCF13
-	ur4DAryUZFs8ZrXCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUP0b4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AK
-	xVW0oVCq3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc804V
-	CY07AIYIkI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AK
-	xVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48Icx
-	kI7VAKI48JM4x0Y48IcxkI7VAKI48G6xCjnVAKz4kxM4IIrI8v6xkF7I0E8cxan2IY04v7
-	MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr
-	0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0E
-	wIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JV
-	WxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAI
-	cVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU85l1PUUUUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_185424_850185_DC5461AF 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20260303_185528_269111_93A0D01B 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,81 +112,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The arc_emac_probe() function calls devm_request_irq() with the
-net_device as the dev_id. However, in the error path of
-emac_rockchip_probe(), free_netdev(ndev) is called before the devm
-cleanup happens. This creates a race window where an interrupt can
-fire and the ISR (arc_emac_intr) will access the already freed
-net_device structure.
+From: Dennis Gilmore <dennis@ausil.us>
 
-Race window:
+This series adds initial support for Orange Pi 5 Pro. The network
+driver was just added. The only thing missing is the second HDMI port
+that is connected via a DP to HDMI adaptor
 
-    CPU 0 (probe error path)           CPU 1 (interrupt)
-    ------------------------           ------------------
-    emac_rockchip_probe()
-      arc_emac_probe()
-        devm_request_irq(..., ndev)
-      [probe fails]
-      goto out_netdev;
 
-      free_netdev(ndev)  // freed!
-                                       <Interrupt fires>
-                                       arc_emac_intr()
-                                         ndev = dev_instance
-                                         priv = netdev_priv(ndev)
-                                         // UAF! Accessing freed mem
+The series was tested against Linux 7.0-rc2
 
-    return err;
+Please take a look.
 
-    devres_release_all()  // Driver core cleanup
-      devm_irq_release()  // IRQ disabled too late!
+Thank you,
 
-Fix this by using devm_alloc_etherdev() instead of alloc_etherdev().
-With fully managed allocation, the devres mechanism ensures proper
-LIFO cleanup order: IRQ is released before net_device memory, thus
-eliminating the race window entirely.
+Dennis Gilmore
 
-Remove the now-unnecessary free_netdev() calls from both the probe
-error path and the remove function, as the memory is automatically
-freed by devres when the device is detached.
+Changes in v2:
+- moved items not shared by orangepi 5/5b/5 Pro from dtsi to 5 and 5b
+  dts files
+- removed all the comments and deleted properties from 5 Pro dts
+- Link to v1 https://lore.kernel.org/linux-devicetree/20260228205418.2944620-1-dennis@ausil.us/
 
-Fixes: 6eacf31139bf ("ethernet: arc: Add support for Rockchip SoC layer device tree bindings")
-Signed-off-by: Fan Wu <fanwu01@zju.edu.cn>
----
- drivers/net/ethernet/arc/emac_rockchip.c | 5 +----
- 1 file changed, 1 insertion(+), 4 deletions(-)
+Dennis Gilmore (3):
+  dt-bindings: arm: rockchip: Add Orange Pi 5 Pro
+  arm64: dts: rockchip: refactor items from Orange Pi 5/b to prep for
+    Pro
+  arm64: dts: rockchip: Add Orange Pi 5 Pro board support
 
-diff --git a/drivers/net/ethernet/arc/emac_rockchip.c b/drivers/net/ethernet/arc/emac_rockchip.c
-index 780e70ea1c22..a695ea6547c8 100644
---- a/drivers/net/ethernet/arc/emac_rockchip.c
-+++ b/drivers/net/ethernet/arc/emac_rockchip.c
-@@ -103,7 +103,7 @@ static int emac_rockchip_probe(struct platform_device *pdev)
- 	if (!pdev->dev.of_node)
- 		return -ENODEV;
- 
--	ndev = alloc_etherdev(sizeof(struct rockchip_priv_data));
-+	ndev = devm_alloc_etherdev(dev, sizeof(struct rockchip_priv_data));
- 	if (!ndev)
- 		return -ENOMEM;
- 	platform_set_drvdata(pdev, ndev);
-@@ -240,7 +240,6 @@ static int emac_rockchip_probe(struct platform_device *pdev)
- out_clk_disable:
- 	clk_disable_unprepare(priv->refclk);
- out_netdev:
--	free_netdev(ndev);
- 	return err;
- }
- 
-@@ -258,8 +257,6 @@ static void emac_rockchip_remove(struct platform_device *pdev)
- 
- 	if (priv->soc_data->need_div_macclk)
- 		clk_disable_unprepare(priv->macclk);
--
--	free_netdev(ndev);
- }
- 
- static struct platform_driver emac_rockchip_driver = {
+ .../devicetree/bindings/arm/rockchip.yaml     |   1 +
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../dts/rockchip/rk3588s-orangepi-5-pro.dts   | 376 ++++++++++++++++++
+ .../boot/dts/rockchip/rk3588s-orangepi-5.dts  | 184 +++++++++
+ .../boot/dts/rockchip/rk3588s-orangepi-5.dtsi | 202 +---------
+ .../boot/dts/rockchip/rk3588s-orangepi-5b.dts | 181 +++++++++
+ 6 files changed, 756 insertions(+), 189 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.dts
+
 -- 
-2.34.1
+2.53.0
 
 
