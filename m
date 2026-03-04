@@ -4,93 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CF15EB7ED5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 11:44:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C46C7EB7ED5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 11:47:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aakhmee/raU7jdKZ9tPN3MemCiopLrjwJ8yjHuKYiX4=; b=hbgQJQxnzSPkph2H17CJuvpBoG
-	JnCJKjBkCEJ1hoZoc5qbf5QaS2gPsm29Moxatim8q9Vaoq8RHwPe4+7uDhN0fAnJSoiOgRMtLB3eP
-	ndAnIbqbyJyCPyM6DetzLhFItgg5TeEWEpuvRKfPr5hqTej32tVbmix2DZfC9fX6sawiATZYRoS0s
-	TRBLRWDR2UxDUPatLcFBkXyVHiSo7dFYeRcVkTU+GXtyJEqBqkqi7Gx8AoBpBNApA5mtnEfhsPzTk
-	Y91CnZ115+XCNwy9TzGcvBBuuNgsqOvp+RiFXDhW+/PZuBpsGODQHBACC0w+Qlen//suL16nmeq4K
-	5s6Z+UFg==;
+	bh=2NaXXDV1tJIB0Dp9DIhsU+WPRj8uTu2ysRvhlaplcIo=; b=mG8YECjXHVvzu/Hx7993iAaGO3
+	OFguML6GaHlnFEgABuUWHuYZEvU9G5WB7TSC1rSKq8wKMcW0FOmr2pMEXHZV862mTPldCHurZrJuM
+	rxOJ4XRz3p3iitNGlfTZNOxApm9TPqzVcRBgw5CyZ9i9BHjLKCLF/9DR9kHbNMW7mCKlWlQJ3U9Qj
+	ZCMmXRxoa7QIcSVzb3kE8sXDEVN2jcmOpZdK+04k1eGW1tw1otIN5Yx+npmkfhGjyW7E5p5YbXakO
+	XqIxM+1LQCPH/p81RmyYn+JH1hQNZ/RwjVLBxNQ8CjN9OrXEl2cUNOcnkn1BwP7ZAswlptt4UIilz
+	FwFmrz7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxke6-0000000H7qf-3zgQ;
-	Wed, 04 Mar 2026 11:44:06 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1vxkha-0000000H87Z-2Qqs;
+	Wed, 04 Mar 2026 11:47:42 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxke3-0000000H7pA-1eUY
+	id 1vxkhY-0000000H86s-3pYK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 11:44:05 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-439b9b1900bso2262406f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 03:44:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772624641; x=1773229441; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=aakhmee/raU7jdKZ9tPN3MemCiopLrjwJ8yjHuKYiX4=;
-        b=YKlRV43+LaHq+i8lBLocjPVRGSHi1Wsm4tue4jYYp6NLHH6CBP0OcRh4xqWiqY+lNK
-         ktDgrBJn7HHqos4YnLKSja02r9cXppXjD4o1FacZnUpIKknECjjFTm3DpDd20Ywhf2Pk
-         KgWgSnfb/jCxm7GYb1izyYoKhVoG+UZmAc54qlaf06jWAlvBTEdZaPkHNNplFMBlexpD
-         oDXQbyACjqqG3j4rJyYhq/GGJjdREtJRGBsenizEctR04fnfB6Jp9/2++AqaKXR1dix/
-         PeWPIufTol7nx1RoTPw5FufQPm63U9wM/PpzJoM4pS95AEs9PiWyRj8j+M3eUQ0oMl+h
-         xPLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772624641; x=1773229441;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=aakhmee/raU7jdKZ9tPN3MemCiopLrjwJ8yjHuKYiX4=;
-        b=VGyjxAa4pJcKuS+Mz3sTl+uUEi0xTUYX7ZIl3Gb0IxOs6HkDShzJBvCBovCGYTZ+fo
-         Ic/PJWBd4edAMzi3CRmNiDZ+QOCpYUXtRKxKu8dMRbyDQmIJ2yQqDp7hW1cxM8XFRWEC
-         wX/ZAPYfyQf1SIW2WlL3JnWGvfpDLZ0T5qg/lvF6gEwhIDkY2gtLIrvMrN74Tz950yNw
-         V2BgaeMwn+cTbaYfWCA4ViGpRbEMlSoQ6fnWj5raBVpBIHbnivRYIaqoBV4t2R0bc2xd
-         1TaqsCtB5I+wrkXZ2rVTF0rCsm0Nmtn80YRJF8wqmG2n7lvEl6R8gkJjYz/ZSq2zjGJp
-         XjaQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW41SzSLfb28gkO85wmx5mP2JplcF7m/Mou70PPOr/kmDb6+XnMxZjOA16q4Pg/ujTs/2nPadfLAnkP03gsQgIi@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYBk9ptBUF2m+k1kFKWNiNFihBFxf0LRRumpi/9eHG8gkEM5PP
-	bcgDaq2LIIRYNyPT6YozzJrzPPi394K6kYRnG7+iKUcwxTH+M3/xfGcU
-X-Gm-Gg: ATEYQzwo0FaXsN+7WuMBzlgikmLoSSkAIlyw18MnzWvp7/NN/sKaxrwKy7EvIyoc6IP
-	qTE+PM4xjo8AFDjGwe9I/6j90Iu/gdCwVJrulnDCnjZ8VKz2n1YPQLczV57TQYxcFROPGU4g/W7
-	c16xis8iTxuNVRxFM/y8lqTHc1NL0SwFEF+9GuyTBeJtphcQvzQ21KhYhNziR5L1eIvmUcV8yAn
-	9oktbZd9S0X0qhkS1grDkZmDmLwU2YDs6gERywwVBWdZYHKr2aWTn9g+AKdIgjx65RS/koUExPe
-	IQC2xmhZybob1GfOzTSPiWGuAAHg99ANxJCZpFnOF1ulxqRAogeBW34AWRSuZ+fnbdRu4Mje/kp
-	KAmxWDOMdKRaMydzAKifixX2+31lsdgrGf28Atgsa/SeHMF8dOcNL/sDAlU0D6OGivHmef9t4IY
-	1WYU52vsibwRDQcpmBbu0Cq36Cf9XO3mo=
-X-Received: by 2002:a05:6000:4381:b0:439:b3d2:376c with SMTP id ffacd0b85a97d-439c7f8f93emr3259733f8f.12.1772624641267;
-        Wed, 04 Mar 2026 03:44:01 -0800 (PST)
-Received: from [192.168.1.187] ([148.63.225.166])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439b03db76bsm27413229f8f.18.2026.03.04.03.43.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Mar 2026 03:44:00 -0800 (PST)
-Message-ID: <31e0d644f251ae29063ef5575fcb851034ab6fd5.camel@gmail.com>
-Subject: Re: [PATCH] iio: adc: at91-sama5d2_adc: no devm for nvmem_cell_get
-From: Nuno =?ISO-8859-1?Q?S=E1?= <noname.nuno@gmail.com>
-To: Rosen Penev <rosenp@gmail.com>, linux-iio@vger.kernel.org
-Cc: Eugen Hristev <eugen.hristev@linaro.org>, Jonathan Cameron	
- <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, Nuno
- =?ISO-8859-1?Q?S=E1?=	 <nuno.sa@analog.com>, Andy Shevchenko
- <andy@kernel.org>, Nicolas Ferre	 <nicolas.ferre@microchip.com>, Alexandre
- Belloni <alexandre.belloni@bootlin.com>,  Claudiu Beznea
- <claudiu.beznea@tuxon.dev>, "moderated list:ARM/Microchip (AT91) SoC
- support"	 <linux-arm-kernel@lists.infradead.org>, open list
- <linux-kernel@vger.kernel.org>
-Date: Wed, 04 Mar 2026 11:44:45 +0000
-In-Reply-To: <20260304041843.7709-1-rosenp@gmail.com>
-References: <20260304041843.7709-1-rosenp@gmail.com>
+	Wed, 04 Mar 2026 11:47:41 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vxkhP-0007OA-Q0; Wed, 04 Mar 2026 12:47:31 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vxkhO-003hsl-0p;
+	Wed, 04 Mar 2026 12:47:31 +0100
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vxkhP-000000009W6-2CCc;
+	Wed, 04 Mar 2026 12:47:31 +0100
+Message-ID: <ceb3f2715e85a922c8122229c843ca79219b4433.camel@pengutronix.de>
+Subject: Re: [PATCH 2/6] reset: intel: Use devm_register_restart_handler()
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Andrew Davis <afd@ti.com>, Vladimir Zapolskiy <vz@mleia.com>, Jacky
+ Huang	 <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, Qin
+ Jian	 <qinjian@cqplus1.com>
+Cc: openbmc@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Date: Wed, 04 Mar 2026 12:47:31 +0100
+In-Reply-To: <20250813214138.477659-3-afd@ti.com>
+References: <20250813214138.477659-1-afd@ti.com>
+	 <20250813214138.477659-3-afd@ti.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_034404_791847_F5FB7AEF 
-X-CRM114-Status: GOOD (  15.05  )
+X-CRM114-CacheID: sfid-20260304_034740_951968_778FCDA8 
+X-CRM114-Status: UNSURE (   7.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,44 +80,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2026-03-03 at 20:18 -0800, Rosen Penev wrote:
-> There is absolutely no reason to pospone cleanup of this post driver
-> removal. Just do it immediately.
+On Mi, 2025-08-13 at 16:41 -0500, Andrew Davis wrote:
+> Function register_restart_handler() is deprecated. Using this new API
+> removes our need to keep and manage a struct notifier_block and to
+> later unregister the handler.
 >=20
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> ---
+> Signed-off-by: Andrew Davis <afd@ti.com>
 
-I guess we do not have that many users for nvmem_cell_get(), otherwise a ne=
-w __free(nvmem_cell)
-could make sense. Anyways not related:
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 
-Reviewed-by: Nuno S=C3=A1 <nuno.sa@analog.com>
-
-> =C2=A0drivers/iio/adc/at91-sama5d2_adc.c | 3 ++-
-> =C2=A01 file changed, 2 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/iio/adc/at91-sama5d2_adc.c b/drivers/iio/adc/at91-sa=
-ma5d2_adc.c
-> index 69bb49434f90..255970b2e747 100644
-> --- a/drivers/iio/adc/at91-sama5d2_adc.c
-> +++ b/drivers/iio/adc/at91-sama5d2_adc.c
-> @@ -2259,7 +2259,7 @@ static int at91_adc_temp_sensor_init(struct at91_ad=
-c_state *st,
-> =C2=A0		return 0;
-> =C2=A0
-> =C2=A0	/* Get the calibration data from NVMEM. */
-> -	temp_calib =3D devm_nvmem_cell_get(dev, "temperature_calib");
-> +	temp_calib =3D nvmem_cell_get(dev, "temperature_calib");
-> =C2=A0	if (IS_ERR(temp_calib)) {
-> =C2=A0		ret =3D PTR_ERR(temp_calib);
-> =C2=A0		if (ret !=3D -ENOENT)
-> @@ -2268,6 +2268,7 @@ static int at91_adc_temp_sensor_init(struct at91_ad=
-c_state *st,
-> =C2=A0	}
-> =C2=A0
-> =C2=A0	buf =3D nvmem_cell_read(temp_calib, &len);
-> +	nvmem_cell_put(temp_calib);
-> =C2=A0	if (IS_ERR(buf)) {
-> =C2=A0		dev_err(dev, "Failed to read calibration data!\n");
-> =C2=A0		return PTR_ERR(buf);
+regards
+Philipp
 
