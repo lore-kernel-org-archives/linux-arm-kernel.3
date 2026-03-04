@@ -4,58 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A50B5EB7ED2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 11:05:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B334EB7EB8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 11:05:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vDHjROkWIZ3KVmL7TZANxv/0Pafogub3u46RSGpDzrU=; b=uKBp++WDgHpYIt4b8JS3JJYQj2
-	qBUoGq9US9yr4m8fwn8jAzBvZvHCy0zF5FkfCkhmy2Z86xmXcQPQUMnMgyJZxeNGWLNGt7aYJcf4T
-	/0DXWAtUvgEYxMGbw9O6zmfmTJdv1ruDvi42ugdZP3GtDt81XfPz4qGYfmvdSvsq0CdZc2vnsAu/R
-	XAzIbCq7PF0elERpg1zWkf7AHFvvIH2AK+9tgv0baCIGFSUUkMSgQvTt3VEbxW6eASomZDJRmfC8v
-	vNeJj4zo9fvm2Jd8RvbgPXWlvH6RXGV3uEf1apKShr9d764SJvUHE8HKbe/kiivtfGDu+DMPILAEj
-	k0mFz0lA==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ea+wLR9q2lbjONR3mCOWnLuglHPlh1X7dNXSB4xq6Zo=; b=HPc30x6PujPFHT8N9sxTe9qqXm
+	J8PVZ7+Lxpn4J21hGekJDEBSZHA1dIGuz2Lh60UnSCbTkLEEO+ItMWtxUcwrPvu59eqXSFxn+rcE8
+	Ac63xtttULJxco4+bLujCta9vqBcthGOJyynIeCfEml9lGONyX/y9LdFKHfOk3bi5mbbkz56S6yte
+	Jsj1Mm2m8ntYdbPqCI/y6HyvMqhJJTnsWjcHmSUwWj7s1c5mxQ05j7vrYuGI7w5LuyWfXh5oUOsFS
+	vIwKlc80pEOqG0BORH2TJtl3zcvqLwuMo/g8vIJnuiC4U6az7aMixiU0gY0Qy3N5H/SbQrGoQjrz5
+	5axBOtQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxk2p-0000000H2gN-2eUX;
-	Wed, 04 Mar 2026 11:05:35 +0000
+	id 1vxk2s-0000000H2iG-2xq1;
+	Wed, 04 Mar 2026 11:05:38 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxk2n-0000000H2eB-0KKl;
-	Wed, 04 Mar 2026 11:05:34 +0000
+	id 1vxk2n-0000000H2eC-0KQB;
+	Wed, 04 Mar 2026 11:05:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 635B240869;
+	by sea.source.kernel.org (Postfix) with ESMTP id 7CCAB438B6;
 	Wed,  4 Mar 2026 11:05:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 39F92C19423;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 559B4C2BC9E;
 	Wed,  4 Mar 2026 11:05:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1772622332;
-	bh=rappOU6haODzrmo9ldSIUDJg7935zH1v7n2L238WwX8=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=P9UVVy9//4YN1Rju/uX3WQmodPMvwy8xwizNCocsDJc+02uvLXxFTis61/9MCQ6FC
-	 8KhVVPxVgN7SG9nh8RDhNsuulzO8JfP1sQ8BQsgNywDj6DP76mvM41pVQzjEAo94Uu
-	 ObMODv1RsTyoNjCmB8t+MiFtzSLCqdbUkms2dSVDyF/wQs5IRsi6JjIoWB40MYM3mP
-	 IB+zrBZtiEc8XZOPDe2+namWh7i07us3JV4VrDV8WqR/rd3PxZfuxOrEQbmVJJzH4l
-	 fwGXurY6Uu8DOcgZRtmEfMwUE0W9fX8TQszOo4cSrHxJUxTP+mjkDLzyY7Th/8I12/
-	 lZ0Z3SX8bMvwg==
+	bh=0U86WNo0Z1KPyrYfx+eFGzAexTHQ6Omrg+jGefNkr5M=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=tuQhPifVWB+XJqH/T2lIQJYWkOA8PvUPLTu1S/tkLu3rEQ1VbUEMfF7iKrKcZnn2C
+	 R6losqzAC+8p5OiHgIVXwbtNCisobnvT7e2fQUA0RM+U25ZsseH0OcEcXPwTBWAHEZ
+	 KeCd5UGkTq8JBdb7QYFVsuLSa2lFTLBApgZTyLMl2wyEdsDWC1RL+XILRb1+pTPG8H
+	 d+nCRyE/F7YXnFvK7FIaxcg5oZaYRYd16+Lwk3urICPUrApxeMtNqX8DpIA5pod6lD
+	 lpsNEytlv4Oj674Xhu+t9gAPBa192FQm4Rx/ebtcTHPmutsX6UPr5NvclfcZz/dILs
+	 YGw/OW68Qakxw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2E8F8EB7EB8;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 43243EB7ECF;
 	Wed,  4 Mar 2026 11:05:32 +0000 (UTC)
 From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
-Subject: [PATCH v4 0/4] Rework BPI-R2-Pro PCIe clock topology
-Date: Wed, 04 Mar 2026 12:05:26 +0100
-Message-Id: <20260304-rk3568-bri-r2-pro-fix-pcie-v4-0-37abd7ba29d0@ixit.cz>
+Date: Wed, 04 Mar 2026 12:05:27 +0100
+Subject: [PATCH v4 1/4] arm64: dts: rockchip: assign pipe clock to rk356x
+ PCIe lanes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAPcRqGkC/43NwQ6CMAzG8VcxO1vTdRTQk+9hPGxsaGMiZBCCE
- t7dqQf1Qjz+vya/TqoLUUKndqtJxTBIJ801RbZeqepsr6cA4lMrQsqRiCBeDOcluCgQCdrYQC0
- jtJUEMMwOCb1HTyoBbQzp9sIPx9Rn6fom3l6/Bv1c36xBvcQOGjS4bfBGly6zRbGXUfpNdVdPd
- KBvyCxCBAiY5TkHZs+2/IXM/5BJkK3ZMmHh0OoPNM/zA5Rx59tUAQAA
-X-Change-ID: 20260222-rk3568-bri-r2-pro-fix-pcie-355b020dd0d2
+Message-Id: <20260304-rk3568-bri-r2-pro-fix-pcie-v4-1-37abd7ba29d0@ixit.cz>
+References: <20260304-rk3568-bri-r2-pro-fix-pcie-v4-0-37abd7ba29d0@ixit.cz>
+In-Reply-To: <20260304-rk3568-bri-r2-pro-fix-pcie-v4-0-37abd7ba29d0@ixit.cz>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
  Frank Wunderlich <frank-w@public-files.de>
@@ -64,29 +62,28 @@ Cc: Martin Filla <freebsd@sysctl.cz>,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  linux-kernel@vger.kernel.org, David Heidelberg <david@ixit.cz>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1501; i=david@ixit.cz;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2523; i=david@ixit.cz;
  h=from:subject:message-id;
- bh=rappOU6haODzrmo9ldSIUDJg7935zH1v7n2L238WwX8=;
- b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBpqBH5QVhOP27LnMiKOOFlu0rfrwVolxABEt7dW
- rPVhLK3scuJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCaagR+QAKCRBgAj/E00kg
- cujPD/0T4cguv77mntr2cU2BgHwJ0LcMPebStYmJTq6Ik7/c5+GAK/s8VhkqnKNzdzbjUpi7hrg
- O7nxijvj6U5NDJS9uiRTi9570RZFDs8pZDenp/IPKi5WR/GuaslR6Xnbqo8tyt2g2S10rXQaWuJ
- jgWWbr5pc3KZ7aXNNNMBQ8C8GpEj+9VplgNe0WhsDVJhhq6wVZrZsu++DNYpVDEvJ64O5L2vcG/
- Yt30ScMWu6s5mLmYs+CYDFAMsTrrf1P+GqJ7Y/boFpckV5Jg4IW8M68uUbZMqYQxyy1MjES8EH7
- BVviXGVMKG2nPJJYERRIXZTIW1fvMkLTEGk934BsHPGxqOBHKf7FkjH/Jo3jHhBWPckEjWdL0MK
- Of+84WHs6SfTh4JqBwBCzL60pYiOahlVjiyoUq8zb3CGLsriWVz/lSY6af+or2aCmLLuF3cYqOn
- m1DWX8cN7aqwDjGQB7JBShBDGm7Tyk4FRr2WqPOWtNt40VXoQlCcBK7e7u3N5Uc5B0IPmR5X7c3
- bvvPPZa6XSq1W+wWlr1qzPx5gMvkypnN27jWc1mMLPTxkk1y5X8tM1Tbly8lUsm/zVrUtQKZrfU
- rn5M99P8fjNOGhI/PyF9H2VNF8VaHswSAXfkoz5vlyLyGWxjxeQKw+O113kDLClPxY510e4gk3l
- GUKSMAtb06LD/RQ==
+ bh=nJWr1cG55C7TfO8lmuP7iO4pkz7D7P5warAqQ5V7GaM=;
+ b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBpqBH5+76cstljDcdJQqO27u9npzazHz0WHktMs
+ RATNgGZiVSJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCaagR+QAKCRBgAj/E00kg
+ ctxBD/wIdVOClRo0Xr9QvWclph7PqoDR44+VURYr41+YD/4RlyzAe/948Bu4XS2V4Ujyp+TfGH7
+ Jmnd831Htg/1Y/2nOK8Jfd5Dc7QFK+pihhm7IOy3AR9g54sz7ddaAvdRGz/xa6sh2zMO2U4JZQw
+ ud8Z6oJsy3xJTeS11PTH8UUTQkjcnalAqsxQQPgtD+BShRVHQEPMvplR8TDyo8VVherlOjt7jdI
+ bKI09/HIOLQKDh6hG9cCStcfRZpV6CinHfNMTdPHTtDOb6LdUC0a3SIdOxXcG+nxzRoJajGFkbW
+ mBuk1ijJngCropAIITQGS7d1ROhXx4+m6ehxMFrjF2NNyd4tbuSBJ1LlQZdWIrDS5kSPwTfA6Us
+ pX3v3XmIe0RLgcVkxzURUWjNA96va95xQnviXhAJwiBW3S3CVJTcXxW2LCxSFQ92d+X2Zdcn0t/
+ 0liNFDU1E8k2Ght8tBN5DQgB2lQgnRKDBdy7+CgEPwh0SJDtqJgauDNjiH3aQN7Cfg+UAAFl1Tq
+ wEh8uNOoGXiLcrjaVjLD80e8BsCxfuXBeylgIcaW8vykJlb7mPtHenVOMUwAgeegFTND9tktZS1
+ T+4wQAbotfwUYigrPhhUE7rs+0EQ8IsZnaJOTmkBRFnqyqE3HbInprZNMvOmmyu/Ybw4om9BafU
+ fwqmyGml7G0cjtg==
 X-Developer-Key: i=david@ixit.cz; a=openpgp;
  fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
 X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
 X-Original-From: David Heidelberg <david@ixit.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_030533_178287_6AE7B24A 
-X-CRM114-Status: UNSURE (   8.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260304_030533_179021_C28518D4 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,41 +99,71 @@ Reply-To: david@ixit.cz
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: David Heidelberg <david@ixit.cz>
+
+These clocks are used by PCIe lanes, but we're missing from the
+definition.
+
+Suggested-by: Charalampos Mitrodimas <charmitro@posteo.net>
 Signed-off-by: David Heidelberg <david@ixit.cz>
 ---
-Changes in v4:
-- Extend rk3568 pipe clock introduction to whole rk356x. (Shawn)
-- typos (Charalampos)
-- Link to v3: https://lore.kernel.org/r/20260303-rk3568-bri-r2-pro-fix-pcie-v3-0-af5a5207b0a1@ixit.cz
+ arch/arm64/boot/dts/rockchip/rk3568.dtsi      | 12 ++++++++----
+ arch/arm64/boot/dts/rockchip/rk356x-base.dtsi |  6 ++++--
+ 2 files changed, 12 insertions(+), 6 deletions(-)
 
-Changes in v3:
-- Added commit extending the clock list with pipe clock for rk3568.
-- Updated the clock list in BPI-R2-Pro dts. (Charalampos)
-- Link to v2: https://lore.kernel.org/r/20260303-rk3568-bri-r2-pro-fix-pcie-v2-0-04665e55d5a8@ixit.cz
+diff --git a/arch/arm64/boot/dts/rockchip/rk3568.dtsi b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
+index 658097ed69714..3bc653f027f1f 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3568.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
+@@ -155,9 +155,11 @@ pcie3x1: pcie@fe270000 {
+ 		bus-range = <0x10 0x1f>;
+ 		clocks = <&cru ACLK_PCIE30X1_MST>, <&cru ACLK_PCIE30X1_SLV>,
+ 			 <&cru ACLK_PCIE30X1_DBI>, <&cru PCLK_PCIE30X1>,
+-			 <&cru CLK_PCIE30X1_AUX_NDFT>;
++			 <&cru CLK_PCIE30X1_AUX_NDFT>,
++			 <&cru CLK_PCIE30X1_PIPE_DFT>;
+ 		clock-names = "aclk_mst", "aclk_slv",
+-			      "aclk_dbi", "pclk", "aux";
++			      "aclk_dbi", "pclk", "aux",
++			      "pipe";
+ 		device_type = "pci";
+ 		interrupts = <GIC_SPI 160 IRQ_TYPE_LEVEL_HIGH>,
+ 			     <GIC_SPI 159 IRQ_TYPE_LEVEL_HIGH>,
+@@ -208,9 +210,11 @@ pcie3x2: pcie@fe280000 {
+ 		bus-range = <0x20 0x2f>;
+ 		clocks = <&cru ACLK_PCIE30X2_MST>, <&cru ACLK_PCIE30X2_SLV>,
+ 			 <&cru ACLK_PCIE30X2_DBI>, <&cru PCLK_PCIE30X2>,
+-			 <&cru CLK_PCIE30X2_AUX_NDFT>;
++			 <&cru CLK_PCIE30X2_AUX_NDFT>,
++			 <&cru CLK_PCIE30X2_PIPE_DFT>;
+ 		clock-names = "aclk_mst", "aclk_slv",
+-			      "aclk_dbi", "pclk", "aux";
++			      "aclk_dbi", "pclk", "aux",
++			      "pipe";
+ 		device_type = "pci";
+ 		interrupts = <GIC_SPI 165 IRQ_TYPE_LEVEL_HIGH>,
+ 			     <GIC_SPI 164 IRQ_TYPE_LEVEL_HIGH>,
+diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+index 68b48606f6010..15741acac6274 100644
+--- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+@@ -1020,9 +1020,11 @@ pcie2x1: pcie@fe260000 {
+ 		bus-range = <0x0 0xf>;
+ 		clocks = <&cru ACLK_PCIE20_MST>, <&cru ACLK_PCIE20_SLV>,
+ 			 <&cru ACLK_PCIE20_DBI>, <&cru PCLK_PCIE20>,
+-			 <&cru CLK_PCIE20_AUX_NDFT>;
++			 <&cru CLK_PCIE20_AUX_NDFT>,
++			 <&cru CLK_PCIE20_PIPE_DFT>;
+ 		clock-names = "aclk_mst", "aclk_slv",
+-			      "aclk_dbi", "pclk", "aux";
++			      "aclk_dbi", "pclk", "aux",
++			      "pipe";
+ 		device_type = "pci";
+ 		#interrupt-cells = <1>;
+ 		interrupt-map-mask = <0 0 0 7>;
 
-Changes in v2:
-- Added patches for solving the topology issues and on top of these
-  original patch. (Heiko)
-- Link to v1: https://lore.kernel.org/r/20260301-rk3568-bri-r2-pro-fix-pcie-v1-1-b9ed318b4a77@ixit.cz
-
----
-David Heidelberg (4):
-      arm64: dts: rockchip: assign pipe clock to rk356x PCIe lanes
-      arm64: dts: rockchip: Introduce the reference PCIe clk generator for BPI-R2-Pro
-      arm64: dts: rockchip: Use reference PCIe clock generator for BPI-R2-Pro
-      arm64: dts: rockchip: Define PCIe clock pinctrl for BPI-R2-Pro
-
- arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts | 59 +++++++++++++++++-----
- arch/arm64/boot/dts/rockchip/rk3568.dtsi           | 12 +++--
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi      |  6 ++-
- 3 files changed, 57 insertions(+), 20 deletions(-)
----
-base-commit: c025f6cf4209e1542ec2afebe49f42bbaf1a5c7b
-change-id: 20260222-rk3568-bri-r2-pro-fix-pcie-355b020dd0d2
-
-Best regards,
 -- 
-David Heidelberg <david@ixit.cz>
+2.53.0
 
 
 
