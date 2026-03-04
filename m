@@ -4,57 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63108EF8FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 15:02:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F944EF8FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 15:06:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RsD2KXo/5uEm3T9d0++Do1JcUCIvfCYK9b/f5tqI3q0=; b=qY4C26gc+Fona8So92ub2Z7MjM
-	uu5FbNVfSTPdfRdLBu6cAtelH//rd4DIyvKpaG155SsMJgfHH/815v/+JriQDjuBdM/jnyQgD5dNR
-	EekVmpFN83ZW5c/K8vX4LfVr7NGVYpJZ+go3LNkdIeHhhaJ7WkbkJb18xjRWv6AYNYo+iO97LxEo0
-	W/56PG3kFCouO/wX+udug3YT7wRybD7TqPFSIeKaCA5/cUkaXkuN/EFtxeOGqdJyAuSoxHXlpNtEE
-	EGPEImqgWd+TivGxfIDcOlXDjXUfsn6UdtzwoKPk+XhvdB+v0+9O2so8FPIRvqXKXF+qbtpTlkkTf
-	V9WC7Sow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vIZO/5lsPSIcHqe7asXEzDOfnJIL+wJsaXc80F6ewqg=; b=YQ6J8fe/q6cEDWMbzPM6ix3Qn6
+	T7qsZgQ5NurVjhLI5ckbRrZeA7ysQkHBPRbj3+cEYIgoSuGZynIJd7/LjgJsk3NvpVhL2e0061nba
+	o+qlDwpOtG6PtpdlNVZkdHDKtCLV5yJEw2b6MsWEkYhL/mYZVQCcQSccTSQfhRHAb3MHwTvG+jAcV
+	ITag4abbYEEiserHSNiVyWF9PYy58hoBqLynqLzakaZYzlvJ2BFSVuW5Lub1wJ/dAMDSNnNwI7eFI
+	IEdMNb8gx3lffPqIyBLbM4NhjmnRI/HuOyBx//4UUDbrqfK//7OnP3Xvni2CDGTf/toV+pwMP1gc1
+	5irNkq9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxnjd-0000000HVKz-1NSS;
-	Wed, 04 Mar 2026 15:02:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxnja-0000000HVKb-2bM2
+	id 1vxnne-0000000HVhM-1Ton;
+	Wed, 04 Mar 2026 15:06:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxnnc-0000000HVhD-29M9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 15:02:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 25B47339;
-	Wed,  4 Mar 2026 07:01:50 -0800 (PST)
-Received: from arm.com (arrakis.cambridge.arm.com [10.1.197.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9EB233F836;
-	Wed,  4 Mar 2026 07:01:54 -0800 (PST)
-Date: Wed, 4 Mar 2026 15:01:51 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Piotr Jaroszynski <pjaroszynski@nvidia.com>,
-	Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	Alistair Popple <apopple@nvidia.com>,
-	John Hubbard <jhubbard@nvidia.com>, Zi Yan <ziy@nvidia.com>,
-	Breno Leitao <leitao@debian.org>, stable@vger.kernel.org
-Subject: Re: [PATCH] arm64: contpte: fix set_access_flags() no-op check for
- SMMU/ATS faults
-Message-ID: <aahJX0NwtYHy1ILe@arm.com>
-References: <20260303063751.2531716-1-pjaroszynski@nvidia.com>
- <aagUtDTca5d0le2Y@arm.com>
- <20260304134313.GM972761@nvidia.com>
+	Wed, 04 Mar 2026 15:06:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A557261118
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Mar 2026 15:06:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50E1CC2BCB4
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Mar 2026 15:06:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772636766;
+	bh=gxAcEfjco4wGcd5mrryQitiaU7LNC8vhE9G14RTHDDo=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=GXd9GKw66/RCES5/LDmh94gtKijy68iTiVF7ojlM67lcaT22ypzTDzXcxsFJblQ6l
+	 W6ejBD0MtWbJIHL5/oXbb7GeyJdKsNkyOPuHJwq2LJWBUs9Z+ZZgAxTMGZXyWG/y41
+	 nmPiyrTkAoeQqffmxjP9IU0KCXecY75c2KMtDeZa5F/iGV1/irZ6HW6hSq8TcPwNfu
+	 onqJ7QVaCLjNZsk8hiP4+IP/yJjKDCos9GqzS1n6rIz9/zcxFW1aYFm+ZLJ4za9yVE
+	 cl17M7asN0sOHqdfifMeQ+Ym00xoTvAUxYPaWQmwQcDru+jF34WmDDtgbZskwy1WZV
+	 FdgyxnC6U9+9Q==
+Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-38700168abaso51703791fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 07:06:06 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWSK+W+igQrOP9A9wVW5Q9krMMdkQoO9V2aknfy1EQZMb+csV4XNwwk6e+0huFe8HWryDxK0oImcylIo5E9gQSw@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXrIKVXfqZh8uWB6XA1JgZ3QF1XMFjpqmLzdSiGNz4+ce9qwDF
+	80MWiZrQWvZEzIBG4fVufb5phC3tBaiF5yufz4bXuE2fQTPy+u2ALpI9Y/zDrKn7szB4a0l7PBi
+	zTrQjPOMBG3v+Qs6fbqNQyHhrkeLMfZHKS7Zpyy2HNA==
+X-Received: by 2002:a2e:8245:0:b0:386:1e28:4d72 with SMTP id
+ 38308e7fff4ca-38a2c7cf3f0mr16410411fa.30.1772636764859; Wed, 04 Mar 2026
+ 07:06:04 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260304134313.GM972761@nvidia.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_070158_796312_843E78F2 
-X-CRM114-Status: GOOD (  30.65  )
+References: <20260302-qcom-qce-cmd-descr-v11-0-4bf1f5db4802@oss.qualcomm.com>
+ <20260302-qcom-qce-cmd-descr-v11-7-4bf1f5db4802@oss.qualcomm.com> <aahEMjjBRINXL5zC@vaman>
+In-Reply-To: <aahEMjjBRINXL5zC@vaman>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Wed, 4 Mar 2026 16:05:51 +0100
+X-Gmail-Original-Message-ID: <CAMRc=Md2G7k7DGMZv2Du75ososQtsAutw2WwwAQ3WL8pC_-LmQ@mail.gmail.com>
+X-Gm-Features: AaiRm53H7_XeJS7KZNaUgV2GDd2SiLuqpmAUu8ZTp5xsf7mIRHhbSIEFXAiwXiE
+Message-ID: <CAMRc=Md2G7k7DGMZv2Du75ososQtsAutw2WwwAQ3WL8pC_-LmQ@mail.gmail.com>
+Subject: Re: [PATCH RFC v11 07/12] crypto: qce - Communicate the base physical
+ address to the dmaengine
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	"David S. Miller" <davem@davemloft.net>, Udit Tiwari <quic_utiwari@quicinc.com>, 
+	Daniel Perez-Zoghbi <dperezzo@quicinc.com>, Md Sadre Alam <mdalam@qti.qualcomm.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Peter Ujfalusi <peter.ujfalusi@gmail.com>, 
+	Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>, dmaengine@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,71 +89,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 04, 2026 at 09:43:13AM -0400, Jason Gunthorpe wrote:
-> On Wed, Mar 04, 2026 at 11:17:08AM +0000, Catalin Marinas wrote:
-> > > @@ -399,13 +416,35 @@ int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
-> > >  	int i;
-> > >  
-> > >  	/*
-> > > -	 * Gather the access/dirty bits for the contiguous range. If nothing has
-> > > -	 * changed, its a noop.
-> > > +	 * Check whether all sub-PTEs in the CONT block already have the
-> > > +	 * requested access flags, using raw per-PTE values rather than the
-> > > +	 * gathered ptep_get() view.
-> > > +	 *
-> > > +	 * ptep_get() gathers AF/dirty state across the whole CONT block,
-> > > +	 * which is correct for CPU TLB semantics: with FEAT_HAFDBS the
-> > > +	 * hardware may set AF/dirty on any sub-PTE and the CPU TLB treats
-> > > +	 * the gathered result as authoritative for the entire range. But an
-> > > +	 * SMMU without HTTU (or with HA/HD disabled in CD.TCR) evaluates
-> > > +	 * each descriptor individually and will keep faulting on the target
-> > > +	 * sub-PTE if its flags haven't actually been updated. Gathering can
-> > > +	 * therefore cause false no-ops when only a sibling has been updated:
-> > > +	 *  - write faults: target still has PTE_RDONLY (needs PTE_RDONLY cleared)
-> > > +	 *  - read faults:  target still lacks PTE_AF
-> > > +	 *
-> > > +	 * Per Arm ARM (DDI 0487) D8.7.1, any sub-PTE in a CONT range may
-> > > +	 * become the effective cached translation, so all entries must have
-> > > +	 * consistent attributes. Check the full CONT block before returning
-> > > +	 * no-op, and when any sub-PTE mismatches, proceed to update the whole
-> > > +	 * range.
-> > >  	 */
-> > > -	orig_pte = pte_mknoncont(ptep_get(ptep));
-> > > -	if (pte_val(orig_pte) == pte_val(entry))
-> > > +	if (contpte_all_subptes_match_access_flags(ptep, entry))
-> > >  		return 0;
-> > 
-> > Actually, do we need to loop over all the ptes? I think it sufficient to
-> > only check the one at ptep since it is the one that triggered the
-> > fault.
-> 
-> With CONT we should not be thinking "the one that triggered the
-> fault".
-> 
-> The PTE that triggered the fault is the PTE that the HW happened to
-> load into the TLB, we cannot assume it is the sub PTE we are faulting
-> at. For instance it could be a sub PTE for a completely unrelated
-> access at a different VA that got cached.
+On Wed, Mar 4, 2026 at 3:39=E2=80=AFPM Vinod Koul <vkoul@kernel.org> wrote:
+>
+> On 02-03-26, 16:57, Bartosz Golaszewski wrote:
+> > In order to let the BAM DMA engine know which address is used for
+> > register I/O, call dmaengine_slave_config() after requesting the RX
+> > channel and use the config structure to pass that information to the
+> > dmaengine core. This is done ahead of extending the BAM driver with
+> > support for pipe locking, which requires performing dummy writes when
+> > passing the lock/unlock flags alongside the command descriptors.
+> >
+> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.co=
+m>
+> > ---
+> >
+> >       dma->txchan =3D devm_dma_request_chan(dev, "tx");
+> >       if (IS_ERR(dma->txchan))
+> > @@ -121,6 +123,12 @@ int devm_qce_dma_request(struct qce_device *qce)
+> >               return dev_err_probe(dev, PTR_ERR(dma->rxchan),
+> >                                    "Failed to get RX DMA channel\n");
+> >
+> > +     cfg.dst_addr =3D qce->base_phys;
+> > +     cfg.direction =3D DMA_MEM_TO_DEV;
+>
+> So is this the address of crypto engine address where dma data is
+> supposed to be pushed to..?
+>
 
-Good point. For the AF bit, the hardware is not allowed to cache it in
-the TLB, so we can't get an AF fault for an unrelated VA nearby. We can,
-however, for the dirty bit since PTE_RDONLY is allowed to be cached in
-the TLB.
+No. In case I wasn't clear enough in the cover letter: this is the
+address of the *crypto engine* register which we use as a scratchpad
+for the dummy write when issuing the lock/unlock command. Mani
+suggested under the cover letter to use the descriptor metadata for
+that.
 
-> Again, the requirement here is that a fault on a CONT PTE must fix all
-> the access flags to be consistent or fail. It cannot resume the fault
-> and leave the sub PTEs inconsistent as the HW is always allowed to
-> load the RDONLY one for any access to the CONT.
-
-It should fix all of them to be consistent if it got a fault. I was
-wondering whether we can simplify this with a single pte read (but still
-setting all in the range). It only works for the AF bit, not dirty. We
-could add a check if it makes things slightly faster on this path.
-
-Now I also wonder if the `pte_write(orig_pte) == pte_write(entry)` check
-to elide BBM is still valid if we have hardware that does not support
-DBM. I need to dig some more into the Arm ARM.
-
--- 
-Catalin
+Bart
 
