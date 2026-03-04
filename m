@@ -4,91 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C19FFEB7EB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 08:49:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D98AEEB7EAC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 08:49:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MtyItftqheZyJr9R3wUpvn9mGQIFWLFIwnIWg5pAtEk=; b=yshf5t30KQyz521d9cU+MgZJp3
-	moZlPmNxxsowo9zWmsfCLn5bKcTYfgGWJMg9zZ8sV5rQ1cknNIa5QvQjngMuVj62Z4ZaEfWERlZDA
-	k0V1pq45N9Z5XOq3R59e17P8Fjp0Lkc4s0oTa9JNWJze6tt0WioT43fFLGQoxvFH+P2Wd22DggXum
-	6XTyPq3FveIhbObao4oPUWlnaOVDJmKwdKgDaC+NU75mP1TUPj0rdWU7kiyaV11ye9ScaWOKYS514
-	kV+an52uXcv0cp2ANeGov7QoNeaczJClkDtJmfn9am3PYju9fS0tQ7ze+LAwGW6GAO+GPDuoXhtvX
-	B6YhFB7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IJS45T4LXa5bVUI2jfMqUdvmKsps5YT2cWbQfq2oPtw=; b=y1u683m5E3XBFQgD3tB61S+Auw
+	yWy7Au8/WHuzOToj3Vf3UUBhY/6e+MJev8BAXb+UNQK2i7Ynv8pVbg1pGvSNpHRZepQ0zvTV0EgQm
+	QqCpLiFnrve6KIZecXMmJCdDcOH2FTGLYGK0ilcxQfOm8nMLTkWu28+iGap2KMy/nTBIsWR8T+rva
+	Q9g0VZ1HzoGgCxinrJRc2PqPvRM81Q+zCgPk/6vQt4Nd24hLW2iKX+98MDpjoYdV6zwp10YPSvuXv
+	6H/KyQgWaBsoTdr738C3j7wcakbsU8hITBPAJChNAVFopVDRgsu3SX7IFN70e8525vjnuJn90Ja43
+	T1w3pMQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxhv6-0000000GmNw-2IyC;
-	Wed, 04 Mar 2026 08:49:28 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxhv4-0000000GmMd-0hIJ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 04 Mar 2026 08:49:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description;
-	bh=MtyItftqheZyJr9R3wUpvn9mGQIFWLFIwnIWg5pAtEk=; b=k5QS16GYNr95UcsIf3QIS1V3U+
-	NItBw8+NHb1HcTgn0bhqMAzEscwepZfZaFnV6sJ6LxRz0Cl5r0sXL+77WEr1tQLu9t1GECV0Yh0dZ
-	Ic5NsfMRq/GJ2fRqm6PiOEI2xLXBsfpAlGTzHAkLIj9TNrq4svrJB3CTuqzr0tRKW41XrTrVnr095
-	ATItoVw+AGXv4gOnRbIb+l9jR72DR7aqYaVlpnJKqDrkd8oZ2wtGP6X5BqyCoDR9x1sRWdAxAmPPd
-	FLOlX31H8Gx1ZlO0apNj4Ak/pmz7swL9wfAyay3Ox6LgTlTITenhO1U3HT9WwpheGJ7tt8nXp7FMg
-	rwRGf51w==;
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxhv0-00000004AVg-0Uu2
+	id 1vxhv8-0000000GmPf-1eXn;
+	Wed, 04 Mar 2026 08:49:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxhv3-0000000GmMT-2fvz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 08:49:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=MtyItftqheZyJr9R3wUpvn9mGQIFWLFIwnIWg5pAtEk=; b=Jk9T+JzepncKRLy5oS27CaBpBm
-	FLsy1d9a+e0N9EHWlPuzj9qYZohiRuviPKf164Q6vDettgXETX3+7uqAHsgsWVaVvFVRLxuGttYQz
-	jnoqzIEE4Xjdi39+q8BDYlLQsImP2uvh2M/iSAsDaLrS9NETk1UKbJ/3+4yOe5ATyGQLTc+E0CMHm
-	6yiHYvn+oVKO/KtLq4gyETxn1NE2oVnCg6TElpaepViGttLsYhXgwqxOCkfcplFNbmNvfy4s6+let
-	iyOKm+hKq526DWlkhq9KSQtOi1FAqqvGVP32UW2rO/xLFJVHc2A8/DGcrMYBDt2Xi+NJgUNNhIfjS
-	nq8sWxTA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:41170 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vxhuu-0000000069o-3eA5;
-	Wed, 04 Mar 2026 08:49:16 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vxhut-0000000BqGc-138V;
-	Wed, 04 Mar 2026 08:49:15 +0000
-In-Reply-To: <aafxqCvJ_XY4YbWw@shell.armlinux.org.uk>
-References: <aafxqCvJ_XY4YbWw@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH RFC net-next v2 4/7] net: stmmac: add struct stmmac_pcs_info
+	Wed, 04 Mar 2026 08:49:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 77349339;
+	Wed,  4 Mar 2026 00:49:17 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C377C3F7BD;
+	Wed,  4 Mar 2026 00:49:21 -0800 (PST)
+Date: Wed, 4 Mar 2026 08:49:19 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ankur Arora <ankur.a.arora@oracle.com>
+Cc: Linus Walleij <linusw@kernel.org>, Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	David Hildenbrand <david@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	James Clark <james.clark2@arm.com>
+Subject: Re: [PATCH] arm64: Implement clear_pages()
+Message-ID: <aafyD6G_Moz8tg1A@arm.com>
+References: <20260303-aarch64-clear-pages-v1-1-ad0c3ee9a555@kernel.org>
+ <aab0SvA0dU0R0pnl@willie-the-truck>
+ <CAD++jLnhe_k1-eU90KjOi_Aj57S53a9GJoCZ-LTE0fz-TVSqvg@mail.gmail.com>
+ <87v7fcuij3.fsf@oracle.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vxhut-0000000BqGc-138V@rmk-PC.armlinux.org.uk>
-Date: Wed, 04 Mar 2026 08:49:15 +0000
+In-Reply-To: <87v7fcuij3.fsf@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_084922_254639_3976AED1 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20260304_004926_974888_C48A78A5 
+X-CRM114-Status: GOOD (  22.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,121 +73,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We need to describe one more register (offset and field bitmask) to
-the PCS code. Move the existing PCS offset and interrupt enable bits
-to a new struct and pass that in to stmmac_integrated_pcs_init().
+On Wed, Mar 04, 2026 at 12:05:04AM -0800, Ankur Arora wrote:
+> Linus Walleij <linusw@kernel.org> writes:
+> > On Tue, Mar 3, 2026 at 3:46 PM Will Deacon <will@kernel.org> wrote:
+> >> If we have CPUs that are this sensitive to branches, perhaps we'd be
+> >> better off taking the opposite approach and moving more code into C
+> >> so that the compiler can optimise the control flow for us?
+> >
+> > Hm! That would be to create a default clear_page() in
+> > <linux/mm.h> and simply delete the existing lib/clear_page.S
+> > and let the default kick in.
+> >
+> > Right now every arch is implementing it custom.
+> > Maybe for no reason in some cases, I could try it!
+> >
+> > I doubt the compiler would emit this part though:
+> >
+> > #ifdef CONFIG_AS_HAS_MOPS
+> > (...)
+> > alternative_else_nop_endif
+> >         setpn   [x0]!, x1!, xzr
+> >         setmn   [x0]!, x1!, xzr
+> >         seten   [x0]!, x1!, xzr
+> >         ret
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c | 9 ++++++---
- drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c    | 8 ++++++--
- drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c     | 8 ++++----
- drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h     | 9 +++++++--
- 4 files changed, 23 insertions(+), 11 deletions(-)
+It won't generate it. It wouldn't be a pure C but have some inline asm.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
-index af566636fad9..a3ef237de1b8 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
-@@ -22,14 +22,17 @@
- #include "stmmac_ptp.h"
- #include "dwmac1000.h"
- 
-+static const struct stmmac_pcs_info dwmac1000_pcs_info = {
-+	.pcs_offset = GMAC_PCS_BASE,
-+	.int_mask = GMAC_INT_DISABLE_PCSLINK | GMAC_INT_DISABLE_PCSAN,
-+};
-+
- static int dwmac1000_pcs_init(struct stmmac_priv *priv)
- {
- 	if (!priv->dma_cap.pcs)
- 		return 0;
- 
--	return stmmac_integrated_pcs_init(priv, GMAC_PCS_BASE,
--					  GMAC_INT_DISABLE_PCSLINK |
--					  GMAC_INT_DISABLE_PCSAN);
-+	return stmmac_integrated_pcs_init(priv, &dwmac1000_pcs_info);
- }
- 
- static void dwmac1000_core_init(struct mac_device_info *hw,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
-index 623868afe93d..7f4949229288 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
-@@ -22,13 +22,17 @@
- #include "dwmac4.h"
- #include "dwmac5.h"
- 
-+static const struct stmmac_pcs_info dwmac4_pcs_info = {
-+	.pcs_offset = GMAC_PCS_BASE,
-+	.int_mask = GMAC_INT_PCS_LINK | GMAC_INT_PCS_ANE,
-+};
-+
- static int dwmac4_pcs_init(struct stmmac_priv *priv)
- {
- 	if (!priv->dma_cap.pcs)
- 		return 0;
- 
--	return stmmac_integrated_pcs_init(priv, GMAC_PCS_BASE,
--					  GMAC_INT_PCS_LINK | GMAC_INT_PCS_ANE);
-+	return stmmac_integrated_pcs_init(priv, &dwmac4_pcs_info);
- }
- 
- static void dwmac4_core_init(struct mac_device_info *hw,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
-index e606dfb85f94..77a83e415597 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
-@@ -167,8 +167,8 @@ int stmmac_integrated_pcs_get_phy_intf_sel(struct phylink_pcs *pcs,
- 	return -EINVAL;
- }
- 
--int stmmac_integrated_pcs_init(struct stmmac_priv *priv, unsigned int offset,
--			       u32 int_mask)
-+int stmmac_integrated_pcs_init(struct stmmac_priv *priv,
-+			       const struct stmmac_pcs_info *pcs_info)
- {
- 	struct stmmac_pcs *spcs;
- 
-@@ -177,8 +177,8 @@ int stmmac_integrated_pcs_init(struct stmmac_priv *priv, unsigned int offset,
- 		return -ENOMEM;
- 
- 	spcs->priv = priv;
--	spcs->base = priv->ioaddr + offset;
--	spcs->int_mask = int_mask;
-+	spcs->base = priv->ioaddr + pcs_info->pcs_offset;
-+	spcs->int_mask = pcs_info->int_mask;
- 	spcs->pcs.ops = &dwmac_integrated_pcs_ops;
- 
- 	/* If the PCS supports extended status, then it supports BASE-X AN
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
-index 12ea87792fcb..f3dada71e381 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
-@@ -27,6 +27,11 @@
- 
- struct stmmac_priv;
- 
-+struct stmmac_pcs_info {
-+	unsigned int pcs_offset;
-+	u32 int_mask;
-+};
-+
- struct stmmac_pcs {
- 	struct stmmac_priv *priv;
- 	void __iomem *base;
-@@ -45,8 +50,8 @@ void stmmac_integrated_pcs_irq(struct stmmac_priv *priv, u32 status,
- 			       struct stmmac_extra_stats *x);
- int stmmac_integrated_pcs_get_phy_intf_sel(struct phylink_pcs *pcs,
- 					   phy_interface_t interface);
--int stmmac_integrated_pcs_init(struct stmmac_priv *priv, unsigned int offset,
--			       u32 int_mask);
-+int stmmac_integrated_pcs_init(struct stmmac_priv *priv,
-+			       const struct stmmac_pcs_info *pcs_info);
- 
- /**
-  * dwmac_ctrl_ane - To program the AN Control Register.
+Anyway, I'm fine with the .S file, I just wonder whether the DCZID_EL0
+read inside the inner loop is causing problems (not the FEAT_MOPS
+variant).
+
+> > Three instructions to clear all pages. But maybe that is not good
+> > if this is a gigabyte, and the per-page loop provides a good breather
+> > preemption point in that case, and then we just shouldn't touch
+> > anything.
+> 
+> The code in folio_zero_user (clear_contig_highpages()) takes care of
+> chunking up the clearing based on preemption model.
+> The idea being that if you are running with preempt=none or voluntary
+> then you might want to call cond_resched(), say every 32MB or so.
+> 
+> If you are running with preempt=full or preempt=lazy, then it would
+> just clear a full GB page.
+> 
+> That would need the set[mpe]n instructions to be interruptible though.
+> (Seems to me that that is true but maybe someone could confirm.)
+
+Yes, they are interruptible (the SETM). The x0, x1 register are left in
+a state that the SETM can be restarted from where it was interrupted.
+
 -- 
-2.47.3
-
+Catalin
 
