@@ -4,115 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5956FEB7ED7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 12:26:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 711E4EB7ECF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 12:46:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ztTpnBFSFYmuGSGK3LS/0+2twE737qGnV11/Yl3tvAw=; b=QRROlHrMFc+Ha4qy2YPX2yem/R
-	3WAkfLl2D7mDjS0Dma1NN+kSkuhmRn5nrYqAsTBxkzGNlY1DzSbI1vtKkqylzvoQWpvQZHbNy57X0
-	xDTekyvi8nMEX6uQxVLe45GkFl3Xc3Fy//iLXbm0qFCAONd9TzNaloTcfrNtZH1LNRkIK1R1tQjPm
-	1J+t5xJMGjiPsd0WewXGhqH1tXQUxHFUaEMr7t43AtC+BoTyrUQbYCFzDQoxJQKcUkzuELjP6BBiG
-	xg2YUsW6GSFZEt1cqTIZv+mqYMlBwgVmaPeqX1OtwC59fjRX9UFbXUiSmWRseBdtksCdcIY3hhnlr
-	r11ThM1A==;
+	bh=4pSTR/vrjyUmMJUp5gkE5Gj7mN1CZUzkQPnXAuEjKyk=; b=Z0M31LjTCRr4izskphG+Wfn/gK
+	s1dmD52rMo0U4rTfeGd42MFbrIHJlqKlJgXnk0mu+OThwvdbDSogDWoBe/36jZFsr5UxnMPXKYo0G
+	vXCmIz24v7J2SIt/88V4XybKoz38eXLi4Vfk3+ir9fVSRllfx0a9NTyzd7S8eom0w7RvtVIbMba75
+	74NUxs+oZbDOp5i8+zQW5bEvQESmT5xsq4d4jal5XaGAH1+zAdLl1DY61hy2shlkj8YOKBtwwGHNA
+	JUAn/t5kQdXJdZy5vsT5tdhh/l1an2aCcqreHhUXVCynENDu01hggjCAMDKl+4oQ4+MG3hYsmTS03
+	pgPGiR4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxlJU-0000000HBQz-2JAu;
-	Wed, 04 Mar 2026 12:26:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vxlcF-0000000HCBu-3wGm;
+	Wed, 04 Mar 2026 12:46:15 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxlJT-0000000HBQe-01PZ;
-	Wed, 04 Mar 2026 12:26:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3279E44176;
-	Wed,  4 Mar 2026 12:26:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78EE4C19423;
-	Wed,  4 Mar 2026 12:26:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772627210;
-	bh=xJAdAQOq1sUrvreai6M+WZzFPPf9zF3QcGa5LFVLw7E=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rZwkmd4bOynmoyAhCO11hjNbkoZL0Ph6JGLPrk0AiQ6M/5zgx2J1FKxf6f8SGjSrM
-	 PYdPMHJnv8/T+YUSdbynqxuQ12KaaL7P1AaNoVohHqSRFXgMW7lULPHj7Tsnk5+sF6
-	 OYNCPXREOsi6R4fOwo/GC3i4AoRrzmu0u5h1WIer3Rpp0TjBcoO9lsxSD1zFblgTu9
-	 JVJBMSSZ8zgBq+UMH2jRjxKmGYT6spIm8o1JvvfQ3nU5/qb2kO+0n8kls5ahwmPrgU
-	 7lub5i76Y5Xk4wHFaRV8AglF5srsVLfyuPl/gh5tIxuXhwIn6iHCPJ9DGJCAyCMpjO
-	 24l06n48riTYw==
-Message-ID: <2db75ee1-396e-46f2-a151-ccae943705fc@kernel.org>
-Date: Wed, 4 Mar 2026 13:26:43 +0100
+	id 1vxlcC-0000000HCBI-3W7o
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Mar 2026 12:46:14 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.198])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4fQspl5jTWzKHLv1
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Mar 2026 20:45:51 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id B621340576
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Mar 2026 20:45:57 +0800 (CST)
+Received: from [10.67.111.192] (unknown [10.67.111.192])
+	by APP1 (Coremail) with SMTP id cCh0CgBXEOaEKahpJ_6cJQ--.63728S2;
+	Wed, 04 Mar 2026 20:45:57 +0800 (CST)
+Message-ID: <1ea52c33-ae27-45fb-b4ff-0c4637a4312a@huaweicloud.com>
+Date: Wed, 4 Mar 2026 20:45:56 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: rng: mtk-rng: add SMC-based TRNG
- variants
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: Olivia Mackall <olivia@selenic.com>,
- Herbert Xu <herbert@gondor.apana.org.au>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Sean Wang <sean.wang@mediatek.com>, linux-crypto@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <04622e0bc917aed4145a9a3b50b61f343fc89312.1772585683.git.daniel@makrotopia.org>
- <20260304-defiant-echidna-of-examination-b1e798@quoll>
- <aagiPIgoosVqsA0t@makrotopia.org>
- <8e685c37-afca-4f2e-ac0a-76a0b060805d@kernel.org>
- <aagjzL4c-3jVuOM5@makrotopia.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH bpf-next v5 3/5] bpf: Add helper to detect indirect jump
+ targets
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <aagjzL4c-3jVuOM5@makrotopia.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
+ Xu Kuohai <xukuohai@huaweicloud.com>
+Cc: bpf <bpf@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
+ <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>,
+ Yonghong Song <yonghong.song@linux.dev>, Puranjay Mohan
+ <puranjay@kernel.org>, Anton Protopopov <a.s.protopopov@gmail.com>
+References: <20260302102726.1126019-1-xukuohai@huaweicloud.com>
+ <20260302102726.1126019-4-xukuohai@huaweicloud.com>
+ <CAADnVQLoWzz8ioVg3MFjn08fBLfNq6HdvqLtqXV0zUb=SR_HGA@mail.gmail.com>
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+In-Reply-To: <CAADnVQLoWzz8ioVg3MFjn08fBLfNq6HdvqLtqXV0zUb=SR_HGA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: cCh0CgBXEOaEKahpJ_6cJQ--.63728S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7CFW7GF45Kr48Gr48ArW8Zwb_yoW8GFWxpa
+	9rX3y5CF47ta1Y9r17WFy0yrWa9F4UJ3ZIkay5WrW8urW2grn5ZF4UKF4vy3s8trWft3Wx
+	ur4j9rZ7CFsxCFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvE14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvEwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka
+	0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7
+	v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF
+	1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIx
+	AIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI
+	42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWI
+	evJa73UjIFyTuYvjfUonmRUUUUU
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_042651_109062_AAA665EF 
-X-CRM114-Status: UNSURE (   9.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260304_044613_255845_B1A52599 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,19 +94,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/03/2026 13:21, Daniel Golle wrote:
-> On Wed, Mar 04, 2026 at 01:18:20PM +0100, Krzysztof Kozlowski wrote:
->> On 04/03/2026 13:14, Daniel Golle wrote:
->>>
->>> Starting with MT7981 and followed by MT7988 and MT7987 it is
->>> technically the same hardware, but on those ARMv8 SoCs TF-A assigns
->>
->> So they are compatible, I presume?
+On 3/4/2026 1:19 AM, Alexei Starovoitov wrote:
+
+[...]
+
+>> -       for (i = 0; i < insn_cnt; i++, insn++) {
+>> +       for (i = 0, j = 0; i < insn_cnt; i++, j++, insn++) {
+>> +               env->insn_aux_data[subprog_start + j].final_idx = i;
+>>                  if (bpf_pseudo_func(insn)) {
+>>                          /* ld_imm64 with an address of bpf subprog is not
+>>                           * a user controlled constant. Don't randomize it,
+>> @@ -1512,6 +1542,8 @@ struct bpf_prog *bpf_jit_blind_constants(struct bpf_verifier_env *env, struct bp
+>>                           */
+>>                          insn++;
+>>                          i++;
+>> +                       j++;
+>> +                       env->insn_aux_data[subprog_start + j].final_idx = i;
 > 
-> Yes. MT7988 and MT7987 are just like MT7981 in that regard.
+> You're adding final_idx because bpf_jit_blind_constants()
+> doesn't call adjust_insn_aux_data() ?
+>
 
-Then please express it with fallback.
+Yes, I added final_idx because insn_aux is not updated here.
 
-Best regards,
-Krzysztof
+> imo that's an ugly workaround. Just call adjust_insn_aux_data().
+>
+
+If we adjust the env->insn_aux_data here, should we also adjust the global
+env->prog->insnsi array? I think env->insn_aux_data should remain consistent
+with the global env->prog->insnsi array. Since constant blinding only rewrites
+the subprog's private instruction array, updating the env->insn_aux_data
+causes a mismatch with the global state.
+
+> And in the future please mention such design decisions in the commit log,
+> so that reviewers don't need to reverse engineer your thought process.
+>
+
+Sorry for the lack of clarity. I’ll make an effort to clarify things more
+clearly in the future.
+
+> pw-bot: cr
+> 
+> 
+
 
