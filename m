@@ -4,57 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAF93EDEBF5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 00:04:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51D95EDEBFC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 00:39:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=klDi2j33s2Z1BYzA7gT3sJcyM8DyJt/FGOXGD3b8PME=; b=laxe+RuAhWYVtjyPVCZIK4gl8J
-	eJP1zZ6wErnpi4/k0Sb+z7oT6N9AEFVssSM7s84DyDKM9TdDKk9j/JuHZnvWJv29eevpPwMb+zHtA
-	chUayqMTJRRQrYIAILfOqS/4OqnDDFoYZbP+LAlTRTsHOSeVqhT2LMKDqw+cc8t12u/oF9S4X9jV4
-	ClZXJqjw2hBJNhFgyHtRV3+tBgBiHyVDgSUIW2ek7ffafJaL11Rp+PdyogYuVJNfps7Vi2XQX7bru
-	PHV/I7XYZ/lO2E7LuafL+vGXk0LslAL3DkdpdAEeyWqLXafJ8+1eFV1wP8rwp4wC2jWyVK8v1SWae
-	MFhsBgQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LodMPQ4iFToDY+xYB4wGeBtsV+RQzMBqBwJ03kJNjPc=; b=j81s6mhzSO487gGeRrdvBpP7zl
+	dGEWBfxs3NSOqPV1xlV7e9K2YjrEpYh0JBXFnrCV/xSSC1G129hRCBZQBHJqmJgUPO9KVYjIGxZCP
+	fGZTibMT+x3ezjSzL/wPhjmH+ynfYnvrFJQkseYhE7bejBR7pQOM9AG3jUt6796NpvnIDXl4eaH41
+	9Jg2BnAeDNYIt4Pv1Nbo8BXlABeWcIxP8u9h7+TXdz5iJm+ugy4OxDIWykSEMoBrgVltrHV9y4Ng8
+	uBBYA5I1uiXSa0FN1skjwcITwEMlo9mvdbF1dqlZo7XbO0I/0VKOcDVLaXEuNsRQHCEIZLcS55LiY
+	LwZ5AjZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxZjC-0000000G82K-0bGR;
-	Wed, 04 Mar 2026 00:04:38 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1vxaGK-0000000GATw-1ktT;
+	Wed, 04 Mar 2026 00:38:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxZj9-0000000G81Z-3HXB;
-	Wed, 04 Mar 2026 00:04:36 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.99)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1vxZiz-000000008Ax-1oPl;
-	Wed, 04 Mar 2026 00:04:25 +0000
-Date: Wed, 4 Mar 2026 00:04:17 +0000
-From: Daniel Golle <daniel@makrotopia.org>
-To: Frank Wunderlich <linux@fw-web.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Frank Wunderlich <frank-w@public-files.de>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Andrew LaMarche <andrewjlamarche@gmail.com>
-Subject: Re: [PATCH] arm64: dts: mediatek: mt7988a-bpi-r4pro: rename mgmt
- port to lan5
-Message-ID: <aad3Acno6QWPbw7T@makrotopia.org>
-References: <20260303202006.37515-1-linux@fw-web.de>
+	id 1vxaGH-0000000GATP-3u23;
+	Wed, 04 Mar 2026 00:38:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9AF3041675;
+	Wed,  4 Mar 2026 00:38:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33080C116C6;
+	Wed,  4 Mar 2026 00:38:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772584728;
+	bh=ghDmKoa2dUlX6/OtOt3rrcXErN7aJJ5211rIBAkODmw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=tEWdoz5OeaSpQx6c/ENjos95U5KxI/Jl98SqspTWYj3JuCPx8u10usnjYZyhNfXsZ
+	 v9Y8yc0cRsOCu3g4v71FRmk4/3ZGq3w/PpuMbj6vD4Kzmk5ZoWkIoKPu7hEp2oqFlb
+	 1VLOi+5HRdjjE21UT8wHg2ILz+0qW9818yapzRb+8Fwcy3JKAiMT49mUwYa1SNdaFm
+	 qCSMPXpomA/If4KmiZI3CAmba4Nm5jBLyIGAtVhbzJevqUAVOCBsK1sVz374yCZIVC
+	 Bgd7V4HY8JQiMkVu1thvTZ1zJ+j1xtktAnESJIiMcYuDV5maJYvwmJ1eXFbDNo/eIi
+	 Cnd/Bg5opJH+w==
+Date: Tue, 3 Mar 2026 16:38:46 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: lizhi2@eswincomputing.com
+Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ rmk+kernel@armlinux.org.uk, wens@kernel.org, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ ningyu@eswincomputing.com, linmin@eswincomputing.com,
+ pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
+ weishangjuan@eswincomputing.com
+Subject: Re: [PATCH net-next v3 1/3] dt-bindings: ethernet: eswin: add clock
+ sampling control
+Message-ID: <20260303163846.156d18f7@kernel.org>
+In-Reply-To: <20260303061637.872-1-lizhi2@eswincomputing.com>
+References: <20260303061525.846-1-lizhi2@eswincomputing.com>
+	<20260303061637.872-1-lizhi2@eswincomputing.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260303202006.37515-1-linux@fw-web.de>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_160435_844493_EF393B2F 
-X-CRM114-Status: GOOD (  18.56  )
+X-CRM114-CacheID: sfid-20260303_163850_016427_8DA2BC33 
+X-CRM114-Status: UNSURE (   5.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,45 +82,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 03, 2026 at 09:20:06PM +0100, Frank Wunderlich wrote:
-> From: Frank Wunderlich <frank-w@public-files.de>
-> 
-> It turns out that the label mgmt confuses users and now official case is
-> released where the port is labeled with number 5. So just rename it to
-> lan5 to follow naming convension (lan1-4 from mxl switch and lan6 for lan-
-> combo).
-> 
-> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-> ---
+On Tue,  3 Mar 2026 14:16:37 +0800 lizhi2@eswincomputing.com wrote:
+> There are currently no in-tree users of the EIC7700 Ethernet driver, so
+> these changes are safe.
 
-Confirming that the port is labeled as "5" on the official case sold
-by SinoVoip/BananaPi.
+What do you mean by this sentence? The commit under Fixes was part of
+Linux v6.19 already.
 
-    5
-[=     =]
-[ RJ-45 ]
-[       ]
-  1G LAN
-
-Reviewed-by: Daniel Golle <daniel@makrotopia.org>
-
->  arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi
-> index a48132f09411..1175ee156cb3 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi
-> +++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi
-> @@ -207,7 +207,7 @@ &gsw_phy0_led0 {
->  };
->  
->  &gsw_port0 {
-> -	label = "mgmt";
-> +	label = "lan5";
->  };
->  
->  /* R4Pro has only port 0 connected, so disable the others */
-> -- 
-> 2.43.0
-> 
+> Fixes: 888bd0eca93c ("dt-bindings: ethernet: eswin: Document for EIC7700 SoC")
 
