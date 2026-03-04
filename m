@@ -4,104 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28E14EF8FEA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 14:05:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0007EF8FEA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 14:05:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2qgonF5w2c8p56bKXYWtL97G1fsfaN/h16mnAE/Q9wM=; b=pfcNdfq8YJ3EaON+jYxEATsUOA
-	Zp2PnkCNpm9UPxQDl2jWlxksVECfOvN49Q3lawN29D78MeGxl8kcu0f1aHo8FovboKvoCM7yY7mBu
-	TBDR3B+j6jc3RYyvGNpzPL7Tzxgq96IOplcxIhyWpGjfF8rkKh6QeC727lr3xXxrU96bXId4gE5M8
-	JrtRl7gBAhruE7Zc/Am5Skl4Bl+uofIJjxL9AKXAxfUOBhTrqRv+cBoZzJG1MQG0s/BqujWZuCaj2
-	lezWtlo24/kj2gT2XpTc5dKisK1b7yQlvDnvCCv/OkYKZuslZPsecR8Z2LLIWFpM1AjHwGZkHVRyW
-	AaNmGGtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yNaltXKAWAjQbwu3MqBmJgovVgpV61nuOt86Xr0pRVM=; b=tp2OVtq1n5XUlluvEYX8EgVtc6
+	4IUbQ/g95nqMYVnkxn07IdKZW02usIUUa9+Fto/MCNgHrQrnzDmFnBGaeHxBofGtVYMlDKZoWMyWf
+	P5RsZyabdki9aO9R7vItuNPqBYXWl6KLfKV8oapSLYVlsKQ1pE/ViiXaGEXgwAjbPlbYOhLpcziBp
+	gih4sbgRD4QK9za4LRUv6eqOm70EYX7NSUFiCKcOvnI9H8FqBgnKa67//dZg7R7mDd9lRVNysyK+f
+	7dj7P2q08inntt+p/mXFTEh1BCC0gV6EXwd7fA5XIjXh6W6o/bfzK2K2xqz16PUcH26IwdrMtp8rZ
+	1B39wBnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxmqU-0000000HIot-0mDz;
-	Wed, 04 Mar 2026 14:05:02 +0000
-Received: from mx-relay49-hz3.antispameurope.com ([94.100.134.238])
+	id 1vxmqs-0000000HJ4K-09Kf;
+	Wed, 04 Mar 2026 14:05:26 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxmqP-0000000HImL-3OFT
+	id 1vxmqo-0000000HIy9-1Q7W
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 14:05:00 +0000
-ARC-Authentication-Results: i=1; mx-gate49-hz3.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out02-hz1.hornetsecurity.com;
- dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=2qgonF5w2c8p56bKXYWtL97G1fsfaN/h16mnAE/Q9wM=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1772633079;
- b=Eu+ESW6pr9R8SrvOr+L93Zh/Jx4p1pJJPKZKy6885zaqv+70+Iyk15CaZlMCuC5erHOXMYUE
- 8B8R864S9wdF9hTat4hd2buETDfRBZ3getsAIOcRpI5XRexVvhN53fDBK3WKREiorgdlyM1rsg7
- VG86b/aBZcqGCF3hFEOSMAYtXWWffqn9e5pwfyJDbFVuKB0jVXcaBpc3UMNyy+jR83xENfmcwXJ
- 1MQviXTNwae0RxTACOEj4xpntFFMTzSdMSdKFOdqP4Ojd+EIlFM/S1pQa0zhowJmCTTVmNSz/MN
- 67JQQzrOmccK61Dm/+MihttsfMjsXz8AWRGII/HBd3I4A==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1772633079;
- b=RBSjkmAhOZ+c4X9tsn2A62UWnPP6L+SjS+DeLQKtZdfe1hp/TwRRPxpAN360qU+naXleSGnn
- oTPwDL95Le1+H1JxxUQu7OGPQJ9DaaccR4r7DK+ekglKM7SiulS/G1TACTZ11JipRk3uB+FGtHg
- cU/UQHULmFLErS0Ielu+zCeSFv05IfroB+H004zYv3p+VvK9RCV8f3W5YFHr8xn37lz9Jz3sgCO
- g0jhIzZ3wG7I2EWHZRo57gO6oMfen1xde0/6/PUJ7IleGTR2AvivpRpoCQXUwb4i7TfiY2r15Um
- JlAy+YbRYokTVCgmLfoE/rvienbjF9S7K94UpBJqoNYAw==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay49-hz3.antispameurope.com;
- Wed, 04 Mar 2026 15:04:39 +0100
-Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by smtp-out02-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 6AF095A0A7A;
-	Wed,  4 Mar 2026 15:04:28 +0100 (CET)
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Marek Vasut <marex@denx.de>,
-	Stefan Agner <stefan@agner.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Liu Ying <victor.liu@nxp.com>,
-	Marco Felsch <m.felsch@pengutronix.de>
-Subject: [PATCH v3 1/1] drm: lcdif: Use dev_err_probe()
-Date: Wed,  4 Mar 2026 15:04:25 +0100
-Message-ID: <20260304140426.1499446-1-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 04 Mar 2026 14:05:24 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-483703e4b08so65961315e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 06:05:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=raspberrypi.com; s=google; t=1772633120; x=1773237920; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yNaltXKAWAjQbwu3MqBmJgovVgpV61nuOt86Xr0pRVM=;
+        b=pvyO5jTK0ckMo3g/TYFOb0qasjLs+saEjZG1V4GVnu5l6xa+IKrs50GAlE3i1uExE0
+         LnFF2ro1bxcJ901R6x9HqB8qnjqS5pSA/Y84rLHOn2rK/d3eIUWPoDuZ0nkH0095YTCE
+         PJpYvnfjbv5K5NuwE9riEr7TF551DkM3mybuQ1Yt9RqtAImQZcLtznL2BD6+Ve35w54C
+         ep3ngyZRWrUk7bIYlaBpjk0wuQWnU1l8FLBy6hzuXhjeed07T7/iu4EV97bZwnmJWXGQ
+         QZoQcUztKADW/KRjMxBbEz1R7OwuC2lXZLs8RYqUCujGxwz1VxNr4x/8mD7YGPvTV1Pk
+         R7yg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772633120; x=1773237920;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=yNaltXKAWAjQbwu3MqBmJgovVgpV61nuOt86Xr0pRVM=;
+        b=XS0o9dXnCRiQOXF6okFAUBdZHI5wlxBiUoX93lcxBZXKjkgrzGwip2cUtI8Eiivgqh
+         H4kpqI1ALNT/TvCM0KbrUg+wFp0POvRv5I3hVC4+6DY37WOUU3iHxA5QkvwUdAQ4HRQb
+         qCOWvIxRa/la+o0RuZLun9ChrCYmsOcMbEJ859sR3wbudi//i2le5kjPSwDU48vHcE7m
+         kYIUuzjo49x3MUb6wVG7I8Qkg+zw3ydeTB/H87iFmiASWCO8fOFftWKZYql9EgTWKby7
+         4GDC9DJVvgUBm/czflcF4cbAD4yhMM7pNvewaUrNFNyHWCC6TqjR7jNGllpMOoaDyMuO
+         AqCA==
+X-Forwarded-Encrypted: i=1; AJvYcCXiPs0m1P5wQhcwsavkEzhD1w+UeqNe8y+J8ypFkqYoj85gw/MMa2aXCn7PBOWC34YKpuYosIELlEipKlsz27eF@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFC1Qi3CFCL0xwQGc/r72LyzrWSy6NudM5v8OvOyeErRdm+tUa
+	lSkoU+uvHalbRZ/xgv2pLXad4SfJOqi+T4W+hYis1aLcFagDuF0pP3ryWgUIQiI5jSw=
+X-Gm-Gg: ATEYQzxOwn4hvlM5Bzo8xOP7gjlIJZjTTRaF3KbekDofgfMS30uM6D8MSBnRt6iFqnH
+	kw9sjmHxmCPvC2cesV4us0X5GWmFe7eSEA8/pkmJqHEXhav7xK6mGFNOJkSvVCAfVZOfJc05cxO
+	9CHz07eaVukXk/SDuRZ2BmiJ4xaRc9XcnrYZuBiPhy+n+xo1tQ4TSnSpociIVNeTp/EUPfPldjP
+	/gj3vxacwkohQaHswMPfDrZ8LLQeH6vELJH/YfG8Vwlm+BXRe/1Ngnay7DXd5B/6/+3C7WBLUNB
+	LraqOnkb0exjsp9/wEvUpWN6nz3wMBJWwgIWDxvjMsEyyJkiiyMz98c9pqdxWRp7bt3/0eaq2wG
+	9H5a5+Q9VTlXissl80yB3bNjc2LsuCB0BSgpepXaDIt7qP4CDw+g0A3ULAyIsrRTZvZWeVcMCAE
+	sL84RTzNIZWV7GfQ==
+X-Received: by 2002:a05:600c:19d4:b0:483:a352:b4e4 with SMTP id 5b1f17b1804b1-4851987df8fmr36433065e9.6.1772633120448;
+        Wed, 04 Mar 2026 06:05:20 -0800 (PST)
+Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-485187b6ffbsm59296165e9.2.2026.03.04.06.05.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Mar 2026 06:05:20 -0800 (PST)
+From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Date: Wed, 04 Mar 2026 14:05:14 +0000
+Subject: [PATCH v6 1/6] docs: uapi: media: Clarify HEVC slice_param
+ bit_size, data_byte_offset
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-cloud-security-sender: alexander.stein@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay49-hz3.antispameurope.com with 4fQvYT2nvYz3ynSL
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: fbf676b47f4878b0afe26766cd0a8878
-X-cloud-security: scantime:1.444
-DKIM-Signature: a=rsa-sha256;
- bh=2qgonF5w2c8p56bKXYWtL97G1fsfaN/h16mnAE/Q9wM=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1772633079; v=1;
- b=hk6yQ6eE2l4FUZlxK/LWWU4nlYaaGcSQzGGlufMqi+vPPrNJ5nC+Jft9kSt4dsOSqgO37JnF
- bsg8WJ6tQF09wSFyV0U4boV9+HwBd0EhYw5jRn2xVnsl8sH5kcYTV7BRhWWDSN6zEK+i4DE9561
- ZiAr/YF2hSYnLC6yPxlBkprYW7YPDLxybJAN6bbmA9Nx6txhkV0dtiJ07Bz+eNBvTCd37xCkuSD
- ap2wbyu+aV6n4zb7qYzwzCrxGCMjfT/t0ByKPmDiLpAS77CWwy80zmZVhx4XJSpfMyhsRb91YhF
- 2qRhnYNo4kupaVLumSA37HfqkgwARO2R8xkvGrfhNcnEA==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260304-media-rpi-hevc-dec-v6-1-93868ae6dff8@raspberrypi.com>
+References: <20260304-media-rpi-hevc-dec-v6-0-93868ae6dff8@raspberrypi.com>
+In-Reply-To: <20260304-media-rpi-hevc-dec-v6-0-93868ae6dff8@raspberrypi.com>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ John Cox <john.cox@raspberrypi.com>, Dom Cobley <dom@raspberrypi.com>, 
+ review list <kernel-list@raspberrypi.com>, 
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
+Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ John Cox <jc@kynesim.co.uk>, Stefan Wahren <wahrenst@gmx.net>, 
+ linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>
+X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_060457_990322_95A9C7DF 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20260304_060522_404293_31792651 
+X-CRM114-Status: GOOD (  14.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,46 +113,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use dev_err_probe() to add a reason for deferred probe. This can
-especially happen on lcdif3 which uses hdmi_tx_phy for 'pix' clock
+From: John Cox <john.cox@raspberrypi.com>
 
-Reviewed-by: Liu Ying <victor.liu@nxp.com>
-Reviewed-by: Marco Felsch <m.felsch@pengutronix.de>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Clarify exactly what bit_size and data_byte_offset mean when there are
+multiple slices in the bitstream data.
+
+Signed-off-by: John Cox <john.cox@raspberrypi.com>
+Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 ---
-Changes in v3:
-* Collected Frank's R-b
+ Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
- drivers/gpu/drm/mxsfb/lcdif_drv.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+diff --git a/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst b/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst
+index 3b1e05c6eb13..a54e8ea29440 100644
+--- a/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst
++++ b/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst
+@@ -2399,10 +2399,12 @@ This structure contains all loop filter related parameters. See sections
+ 
+     * - __u32
+       - ``bit_size``
+-      - Size (in bits) of the current slice data.
++      - Size in bits of the slice_segment_data for the current slice including
++        any emulation prevention bytes.
+     * - __u32
+       - ``data_byte_offset``
+-      - Offset (in byte) to the video data in the current slice data.
++      - Offset in bytes from the start of the current v4l2_buffer to the start
++        of the slice_segment_data for the current slice.
+     * - __u32
+       - ``num_entry_point_offsets``
+       - Specifies the number of entry point offset syntax elements in the slice header.
 
-diff --git a/drivers/gpu/drm/mxsfb/lcdif_drv.c b/drivers/gpu/drm/mxsfb/lcdif_drv.c
-index fcb2a7517377e..47da1d9336b90 100644
---- a/drivers/gpu/drm/mxsfb/lcdif_drv.c
-+++ b/drivers/gpu/drm/mxsfb/lcdif_drv.c
-@@ -149,15 +149,17 @@ static int lcdif_load(struct drm_device *drm)
- 
- 	lcdif->clk = devm_clk_get(drm->dev, "pix");
- 	if (IS_ERR(lcdif->clk))
--		return PTR_ERR(lcdif->clk);
-+		return dev_err_probe(drm->dev, PTR_ERR(lcdif->clk), "Failed to get pix clock\n");
- 
- 	lcdif->clk_axi = devm_clk_get(drm->dev, "axi");
- 	if (IS_ERR(lcdif->clk_axi))
--		return PTR_ERR(lcdif->clk_axi);
-+		return dev_err_probe(drm->dev, PTR_ERR(lcdif->clk_axi),
-+				     "Failed to get axi clock\n");
- 
- 	lcdif->clk_disp_axi = devm_clk_get(drm->dev, "disp_axi");
- 	if (IS_ERR(lcdif->clk_disp_axi))
--		return PTR_ERR(lcdif->clk_disp_axi);
-+		return dev_err_probe(drm->dev, PTR_ERR(lcdif->clk_disp_axi),
-+				     "Failed to get disp_axi clock\n");
- 
- 	platform_set_drvdata(pdev, drm);
- 
 -- 
-2.43.0
+2.34.1
 
 
