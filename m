@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 806D4EB7ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 11:48:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDAB0EB7ECF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 12:08:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2NaXXDV1tJIB0Dp9DIhsU+WPRj8uTu2ysRvhlaplcIo=; b=111CHT7eUU9N2NZODxnrNlAnSn
-	C8OU4yZVQx7+5wfZgmQIp7I0wLt65HZLS6BCBpUR5cbKTnbHwknof6kXoS29PHrZDzNfPu4skzw27
-	MitVM2g/lMTD+hXQ0cG4MZJO70Kvdw++KnDVKIhE6G68tjLRnzRi6Wo6YajN7yh11C2V0Gtmkg/xe
-	2eSq8VvFxaDl+FT2FjqhbjIY945n80w5ajBVxmw13ZZ/5uh2EDk6XbK8gqmkHRcZs9gn+T3PZZs0D
-	kZDIepRpD/ipe2WEh/Ke6lDFQP7SmLpQXbFP4MpAMiscIHtL09TGEceTZ2OATKr+NzgyDKuJhGlPK
-	w1An2ktQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NtWrVnaIBdh+zLOg4GcCWey2uODE3qwbPLuX0VcWbf4=; b=3NJFYGE4GNnJtIAvY6Q0IiYm5s
+	221LuZ12UXaPy+EjSDXmnQuc5IblMtUxiktV/hA5/6ZITQclOieVCIm/5eCEJ3bq7/NlRqp6Ya1h4
+	ZgoivOIuXmD3YwdLz0O8yF9RqfBeRyJT1FzXIwZIV9gr0TV3NoEu5/jtQjVCoEluFNkcoak3G7325
+	vQ4+I2Vf2Ad3NRsHzHLjiTU/Zk5W+boHNtyww35QJVzCbomsz1u8uA5j+jPphbtdFZUkjuzzVFFIF
+	wgdaDYJFlE7GnmopIaoWxZMaJg178RVkDEmdKVLt6j6FFOHZZT8PU40j8iOzQ27xvEnEfZbI5O44O
+	Sg6EHl7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxki9-0000000H8MD-2J9U;
-	Wed, 04 Mar 2026 11:48:17 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxki8-0000000H8L5-1DGg
+	id 1vxl1v-0000000H9UJ-453t;
+	Wed, 04 Mar 2026 12:08:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxl1s-0000000H9Tu-4C1g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 11:48:17 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vxki0-0007dH-Oi; Wed, 04 Mar 2026 12:48:08 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vxkhz-003ht7-0h;
-	Wed, 04 Mar 2026 12:48:08 +0100
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vxki0-000000009bq-21Sk;
-	Wed, 04 Mar 2026 12:48:08 +0100
-Message-ID: <ce173a1bfe9d206ce22ada19412c14b350270127.camel@pengutronix.de>
-Subject: Re: [PATCH 6/6] reset: sunplus: Use devm_register_sys_off_handler()
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Andrew Davis <afd@ti.com>, Vladimir Zapolskiy <vz@mleia.com>, Jacky
- Huang	 <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, Qin
- Jian	 <qinjian@cqplus1.com>
-Cc: openbmc@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Date: Wed, 04 Mar 2026 12:48:08 +0100
-In-Reply-To: <20250813214138.477659-7-afd@ti.com>
-References: <20250813214138.477659-1-afd@ti.com>
-	 <20250813214138.477659-7-afd@ti.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Wed, 04 Mar 2026 12:08:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C588D339;
+	Wed,  4 Mar 2026 04:08:30 -0800 (PST)
+Received: from [10.57.56.227] (unknown [10.57.56.227])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3A4E73F836;
+	Wed,  4 Mar 2026 04:08:32 -0800 (PST)
+Message-ID: <25a22155-50d1-4a85-8ccd-755fee803066@arm.com>
+Date: Wed, 4 Mar 2026 12:08:30 +0000
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 06/46] arm64: RMI: Define the user ABI
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>
+References: <20251217101125.91098-1-steven.price@arm.com>
+ <20251217101125.91098-7-steven.price@arm.com> <86tsuy8g0u.wl-maz@kernel.org>
+ <33053e22-6cc6-4d55-bc7f-01f873a15d28@arm.com> <86h5qx83df.wl-maz@kernel.org>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <86h5qx83df.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_034816_318294_D7946389 
-X-CRM114-Status: UNSURE (   7.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260304_040841_126478_91374904 
+X-CRM114-Status: GOOD (  39.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,15 +78,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mi, 2025-08-13 at 16:41 -0500, Andrew Davis wrote:
-> Function register_restart_handler() is deprecated. Using this new API
-> removes our need to keep and manage a struct notifier_block and to
-> later unregister the handler.
->=20
-> Signed-off-by: Andrew Davis <afd@ti.com>
+On 03/03/2026 13:11, Marc Zyngier wrote:
+> On Mon, 02 Mar 2026 15:23:44 +0000,
+> Steven Price <steven.price@arm.com> wrote:
+>>
+>> Hi Marc,
+>>
+>> On 02/03/2026 14:25, Marc Zyngier wrote:
+>>> On Wed, 17 Dec 2025 10:10:43 +0000,
+>>> Steven Price <steven.price@arm.com> wrote:
+>>>>
+>>>> There is one CAP which identified the presence of CCA, and two ioctls.
+>>>> One ioctl is used to populate memory and the other is used when user
+>>>> space is providing the PSCI implementation to identify the target of the
+>>>> operation.
+>>>>
+>>>> Signed-off-by: Steven Price <steven.price@arm.com>
+>>>> ---
+>>>> Changes since v11:
+>>>>  * Completely reworked to be more implicit. Rather than having explicit
+>>>>    CAP operations to progress the realm construction these operations
+>>>>    are done when needed (on populating and on first vCPU run).
+>>>>  * Populate and PSCI complete are promoted to proper ioctls.
+>>>> Changes since v10:
+>>>>  * Rename symbols from RME to RMI.
+>>>> Changes since v9:
+>>>>  * Improvements to documentation.
+>>>>  * Bump the magic number for KVM_CAP_ARM_RME to avoid conflicts.
+>>>> Changes since v8:
+>>>>  * Minor improvements to documentation following review.
+>>>>  * Bump the magic numbers to avoid conflicts.
+>>>> Changes since v7:
+>>>>  * Add documentation of new ioctls
+>>>>  * Bump the magic numbers to avoid conflicts
+>>>> Changes since v6:
+>>>>  * Rename some of the symbols to make their usage clearer and avoid
+>>>>    repetition.
+>>>> Changes from v5:
+>>>>  * Actually expose the new VCPU capability (KVM_ARM_VCPU_REC) by bumping
+>>>>    KVM_VCPU_MAX_FEATURES - note this also exposes KVM_ARM_VCPU_HAS_EL2!
+>>>> ---
+>>>>  Documentation/virt/kvm/api.rst | 57 ++++++++++++++++++++++++++++++++++
+>>>>  include/uapi/linux/kvm.h       | 23 ++++++++++++++
+>>>>  2 files changed, 80 insertions(+)
+>>>>
+>>>> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+>>>> index 01a3abef8abb..2d5dc7e48954 100644
+>>>> --- a/Documentation/virt/kvm/api.rst
+>>>> +++ b/Documentation/virt/kvm/api.rst
+>>>> @@ -6517,6 +6517,54 @@ the capability to be present.
+>>>>  
+>>>>  `flags` must currently be zero.
+>>>>  
+>>>> +4.144 KVM_ARM_VCPU_RMI_PSCI_COMPLETE
+>>>> +------------------------------------
+>>>> +
+>>>> +:Capability: KVM_CAP_ARM_RMI
+>>>> +:Architectures: arm64
+>>>> +:Type: vcpu ioctl
+>>>> +:Parameters: struct kvm_arm_rmi_psci_complete (in)
+>>>> +:Returns: 0 if successful, < 0 on error
+>>>> +
+>>>> +::
+>>>> +
+>>>> +  struct kvm_arm_rmi_psci_complete {
+>>>> +	__u64 target_mpidr;
+>>>> +	__u32 psci_status;
+>>>> +	__u32 padding[3];
+>>>> +  };
+>>>> +
+>>>> +Where PSCI functions are handled by user space, the RMM needs to be informed of
+>>>> +the target of the operation using `target_mpidr`, along with the status
+>>>> +(`psci_status`). The RMM v1.0 specification defines two functions that require
+>>>> +this call: PSCI_CPU_ON and PSCI_AFFINITY_INFO.
+>>>> +
+>>>> +If the kernel is handling PSCI then this is done automatically and the VMM
+>>>> +doesn't need to call this ioctl.
+>>>
+>>> Shouldn't we make handling of PSCI mandatory for VMMs that deal with
+>>> CCA? I suspect it would simplify the implementation significantly.
+>>
+>> What do you mean by making it "mandatory for VMMs"? If you mean PSCI is
+>> always forwarded to user space then I don't think it's going to make
+>> much difference. Patch 27 handles the PSCI changes (72 lines added), and
+>> some of that is adding this uAPI for the VMM to handle it.
+>>
+>> Removing the functionality to allow the VMM to handle it would obviously
+>> simplify things a bit (we can drop this uAPI), but I think the desire is
+>> to push this onto user space.
+> 
+> And that's what I'm asking for. I do not want this to be optional. CCA
+> should implies PSCI in userspace, and that's it.
+> 
+>>
+>>> What vcpu fd does this apply to? The vcpu calling the PSCI function?
+>>> Or the target? This is pretty important for PSCI_ON. My guess is that
+>>> this is setting the return value for the caller?
+>>
+>> Yes the fd is the vcpu calling PSCI. As you say, this is for the return
+>> value to be set correctly.
+> 
+> Another question is why do we need the ioctl at all? Why can't it be
+> done on the first run of the target vcpu? If no PSCI call was issued
+> to run it, then the run fails.
 
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+So my concern is the ordering of operations for PSCI_CPU_ON. As things
+stand the RMM needs to know the MPIDR mapping to look up the REC object
+before either VCPU runs again.
 
-regards
-Philipp
+If we do this on the first run of the target VCPU, then how is the VMM
+to tell that the target VCPU has executed "long enough" that it is safe
+to do the return on the initial VCPU? Since the VCPUs are different
+threads this becomes tricky. Options I can see are:
+
+a) The VMM has to wait for the target VCPU to exit - we'd probably want
+to trigger an artificial early exit in this case to unblock things.
+
+b) The kernel blocks the initial VCPU from running until the target VCPU
+has completed this "first run" logic. I think waiting in the kernel is
+probably problematic, so this implies return some sort of "retry later"
+response to the VMM.
+
+c) The kernel handles the "PSCI_COMPLETE" dance on whichever VCPU runs
+first, blocking the other until the dance is complete. A disadvantage
+here is that behaviour can differ (in error conditions) depending on
+which VCPU thread wins the race.
+
+All these options also involve the kernel keeping track of the PSCI
+sequence, in particular:
+
+1. Tracking that the exit was due to a PSCI_CPU_ON.
+
+2. Treating attempting to run the target VCPU as an implicit success
+return from the PSCI call.
+
+3. Recognising the next run on the initial VCPU as containing the PSCI
+result - if 2, above, has happened then the kernel will need to handle
+this (by killing the guest).
+
+TLDR; Yes this is possible but I don't think it's pretty, and I'm not
+convinced it's an improved uAPI.
+
+Of course the above all assumes that the RMM can't just track things
+internally. My preference is to kill RMI_PSCI_COMPLETE altogether, but
+I'm not sure how possible that is within the context of the RMM.
+
+>>
+>>> Assuming this is indeed for the caller, why do we have a different
+>>> flow from anything else that returns a result from a hypercall?
+>>
+>> I'm not entirely sure what you are suggesting. Do you mean why are we
+>> not just writing to the GPRS that would contain the result? The issue
+>> here is that the RMM needs to know the PA of the target REC structure -
+>> this isn't a return to the guest, but information for the RMM itself to
+>> complete the PSCI call.
+> 
+> PSCI is a SMC call. SMC calls are routed to userspace as such. For odd
+> reasons, the RMM treats PSCI differently from any other SMC call.
+> 
+> That seems a very bizarre behaviour to me.
+
+The RMM generally treats SMC specially. We have the RSI_HOST_CALL as a
+proxy for "general SMC-like" behaviour which is forwarded to the VMM. I
+believe the intention here is to ensure that SMCs (from the realm guest)
+are handled by a trusted agent (i.e. the RMM). PSCI is a corner case
+because it requires some coordination and buy-in from the VMM.
+
+I'm not sure I fully understand the security pros and cons of the design
+here and what impact it would have if PSCI was well trusted.
+
+Thanks,
+Steve
+
+>>
+>> Ultimately even in the case where the VMM is handling PSCI, it's
+>> actually a combination of the VMM and the RMM - with the RMM validating
+>> the responses.
+> 
+> I don't see why PSCI is singled out here, irrespective of the tracking
+> that the RMM wants to do.
+> 
+> 	M.
+> 
+
 
