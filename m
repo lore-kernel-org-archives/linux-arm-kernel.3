@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 390ABEF8FF4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 15:55:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F350EF8FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 16:21:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HrsHUvGyx9bjwDYZj6bkrDUGZ48K6OAB9f2km2vyIg0=; b=i1D3fGyybx8wknPnTIb8iHKfzn
-	8NAZSMHRYBLesG9oFreJCbCKTOXu6tSiSwR9ivK4J4srR7RO+y2+XFjv1xbaWS0va/M+q8KuIV9Lt
-	Rxv1ngneLtrUcPivtwnqtcAhBPxq1azoTeWsJxIeDjfIb3/BAlpDLMAADX4rO8JICz5KRMMA6XTCA
-	cdrPBpUbHOKhhtnqHsy8+CsKld+XwDiaFU3mnCKJIQ/BlcyUmQoT2swyptJcTo/gDZm0x2nmpQicC
-	Nno5pQWCmyXgbmyWLwubNZZUalkRzRC59/i8+tVXY1G2ej6gBQo8LhpvJnqdQyq0ov8tFYknLk8bj
-	bZTRrjJg==;
+	bh=glS+5HJ2DxGRRqB45W/ypBH6IcWu8Dm6nOQ4Lg+Gwi0=; b=vclD7PjvyQidJWV6MkxEHidZo7
+	yvPQIJElNLNnIpuwqRM35N9+nFCYqVn70fSNS2rWDhenid1idy/px4WFwHhW0H3JOHP8EOX/xizvX
+	RkDmm5vfp80kkVA2V+YJmMlI+SlLWcv9wR7/RpZe8b25lwwzdQz9kw+2SDxB4PYUBHlQnDw0Hx9D6
+	JcjJf2lFKVd1gn2pS/W43ObfKYiioxJHbmsAyblbcSgcpWwrcfi9Kgr7EKXfnQQtNQtGeB8HkgtBR
+	BVChAGxPxMOh2yjJCpDZzUmQfEpudBvbj0S2doLyFSuoziozgmFKFV6FmCsdzK0XjpMcYlpfyfjQB
+	JLiqxUkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxoZQ-000000001af-2Zqx;
-	Wed, 04 Mar 2026 15:55:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vxoyk-000000003tx-2Pk4;
+	Wed, 04 Mar 2026 16:21:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxoZN-000000001aE-2Ir6
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 15:55:30 +0000
+	id 1vxoyj-000000003to-2sO1;
+	Wed, 04 Mar 2026 16:21:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 30C5941772;
-	Wed,  4 Mar 2026 15:55:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2A24C4CEF7;
-	Wed,  4 Mar 2026 15:55:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B1DB960018;
+	Wed,  4 Mar 2026 16:21:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23C41C19423;
+	Wed,  4 Mar 2026 16:21:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772639729;
-	bh=ABz42zLJsDylI4eJTmW95G8I/nLM8maLSCBDhdPGCB0=;
+	s=k20201202; t=1772641300;
+	bh=ccdFdBD1lMtPM8oiM9p/PWDd1n6egACt/w1BvXrrZm4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fVyfMExttLwdhcRAkciRqEv2gfEJKIapjYgottINew3vTuCopPDCu8uVV64f/deKK
-	 Y3FKjyE1k+kOy/fah3fQjBBH8LOb2Sj1zEs7C7ehqUZerOe+d3trNjzRZcXx75Pe3H
-	 iyoZt5EdCBQQu+ma9ufm/atM+CB/Mu+hssRhkVNtXxTPgupKawbqUAwsUnqpTpJtAf
-	 F7Q8T/krrV96QvxbhOEiqa2MBXdMDjLyEaVINV8ftOTnS9L4DH9cuMLyJqaxL7EI9s
-	 NvBxqRTYA+WyyzKlC+iM/hAeYItIU/VtJmfBe/8bxJud1dgFgiS7oFZo1QgsO7n34L
-	 j0LUT9KMAidQA==
-Message-ID: <bc061b0b-448d-43d5-91c2-db2864e0f7c2@kernel.org>
-Date: Wed, 4 Mar 2026 16:55:22 +0100
+	b=csMMdZG8xq7Htpz0PW91yO1dopWEmj8WLULkMtoAl/VWq3vY5hJcDxYFWSKoCxy93
+	 p4Hb73rqhN039MK/tXQFp41TT/xbQcl+qg2h/UXYTod5oGxovmmAdn4H7wTRtD5JmP
+	 gKN9sl2H9zPoX6JbTbTvdyIwS5hjkFAAkk6/qfr4NxpFnhcxSwjNz9CEnpRVanzQur
+	 XbZ0gdx0ZEV3TOqHap++NAAiwjcLZtmcEc+Zqcn9TTeyCYpoKabztxVkSUQD0AoBuv
+	 6oET1VP3yIuVmxCDnlvOucCaSiMSOjbGtfFkxAJGYJMRKdhHUQTsnTj3MVxoNu/rsX
+	 3mBlM1bvb/Smg==
+Message-ID: <2e0e0a40-bef4-4688-b2f7-bcb9b432e9d5@kernel.org>
+Date: Wed, 4 Mar 2026 17:21:33 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/3] arm64: dts: freescale: Add support for Variscite
- DART-MX91
-To: Frank Li <Frank.Li@nxp.com>, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, imx@lists.linux.dev
-Cc: pierluigi.p@variscite.com, Stefano Radaelli <stefano.r@variscite.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
- Alexander Stein <alexander.stein@ew.tq-group.com>,
- Dario Binacchi <dario.binacchi@amarulasolutions.com>,
- Markus Niebel <Markus.Niebel@tq-group.com>,
- Matthias Schiffer <matthias.schiffer@tq-group.com>,
- Yannic Moog <y.moog@phytec.de>, Josua Mayer <josua@solid-run.com>,
- Francesco Dolcini <francesco.dolcini@toradex.com>,
- Primoz Fiser <primoz.fiser@norik.com>, linux-arm-kernel@lists.infradead.org
-References: <5ab5a20c07cd0631fdecc7dba03f0ebb91dfe098.1772534362.git.stefano.r@variscite.com>
- <20260303210131.2966214-8-Frank.Li@nxp.com>
+Subject: Re: [PATCH v6 5/6] media: platform: Add Raspberry Pi HEVC decoder
+ driver
+To: Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, John Cox
+ <john.cox@raspberrypi.com>, Dom Cobley <dom@raspberrypi.com>,
+ review list <kernel-list@raspberrypi.com>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
+Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ John Cox <jc@kynesim.co.uk>, Stefan Wahren <wahrenst@gmx.net>,
+ linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260304-media-rpi-hevc-dec-v6-0-93868ae6dff8@raspberrypi.com>
+ <20260304-media-rpi-hevc-dec-v6-5-93868ae6dff8@raspberrypi.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,13 +110,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260303210131.2966214-8-Frank.Li@nxp.com>
+In-Reply-To: <20260304-media-rpi-hevc-dec-v6-5-93868ae6dff8@raspberrypi.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_075529_630910_9C0C028D 
-X-CRM114-Status: UNSURE (   9.11  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,20 +127,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/03/2026 22:01, Frank Li wrote:
-> From: Frank Li (AI-BOT) <frank.li@nxp.com>
-> 
-> AI bot review and may be useless.
-> 
->> +/*
->> + * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
->> + *
->> + */
-> 
-> Copyright year is 2026, which is in the future. Should be 2024 or
-> current year.
+On 04/03/2026 15:05, Dave Stevenson wrote:
+> +static int hevc_d_probe(struct platform_device *pdev)
+> +{
+> +	struct hevc_d_dev *dev;
+> +	struct video_device *vfd;
+> +	int ret;
+> +
+> +	dev = devm_kzalloc(&pdev->dev, sizeof(*dev), GFP_KERNEL);
+> +	if (!dev)
+> +		return -ENOMEM;
+> +
+> +	dev->vfd = hevc_d_video_device;
+> +	dev->dev = &pdev->dev;
+> +	dev->pdev = pdev;
+> +
+> +	ret = hevc_d_hw_probe(dev);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "Failed to probe hardware - %d\n", ret);
 
-Why are you sending such junk to public mailing lists?
+Here and...
+
+> +		return ret;
+> +	}
+> +
+> +	mutex_init(&dev->dev_mutex);
+> +
+> +	ret = v4l2_device_register(&pdev->dev, &dev->v4l2_dev);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "Failed to register V4L2 device\n");
+
+return dev_err_probe. I would say same in other places (instead of v4l
+wrapper), but I guess media maintainers know better what do they prefer.
+
+> +		return ret;
+> +	}
+
+
+
+> +
+> +static struct platform_driver hevc_d_driver = {
+> +	.probe		= hevc_d_probe,
+> +	.remove		= hevc_d_remove,
+> +	.driver		= {
+> +		.name = HEVC_D_NAME,
+> +		.of_match_table	= of_match_ptr(hevc_d_dt_match),
+
+You have warning here. Drop of_match_ptr. Better if you start from new
+drivers, not some old code.
+
+> +	},
+> +};
+> +module_platform_driver(hevc_d_driver);
+> +
+> +MODULE_LICENSE("GPL");
+> +MODULE_AUTHOR("John Cox <john.cox@raspberrypi.com>");
+> +MODULE_DESCRIPTION("Raspberry Pi HEVC V4L2 driver");
+
 
 Best regards,
 Krzysztof
