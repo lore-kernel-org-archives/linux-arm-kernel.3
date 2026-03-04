@@ -4,138 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A9A7EDEC02
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 02:59:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E8B8EDEC01
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 03:00:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GNZfTs8w379dlpNbAhRA+sADPJgpRD6h/Uge61yblr0=; b=phwTJO5Uh6vpf0cgM7fJBP1iI3
-	AOYtHAlY7Vg37deCdLWxKR9FZtg6kPPbFv2fVmjSMcgFdh/SV+39nCd3qcTqALx+lekD+R3jsfh5P
-	+Wt8o/P8FuDwlc3Lqn0lE5oPsa05MGEH9F3PmkHVVYTGC0xMnrgAf23KeLTKKji2atn7Jej7cdbig
-	OHjW1tGrCmKBw7LosRuT8TT/5aaYmh8OJ/qY1N21bfiDQdyWY/J/zc4o1v/6jTxHAsyDasXJqjUu1
-	PbsB1UOc0Fl7e0ntUaosA7CLsDFLa4C4P92XlOyH3+hmo//24/MSlxGYppseI/IqHm2o80dKssPsL
-	kCYc7h2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CrcziLSLmwygoZkFLoqj/ib3pWN/UUqOS/+uQ+SI+ew=; b=gvZhiyB2yTcIy30LN2qOb78Dyb
+	g8uHisKINa2S1VZty821LNsmonoUkmKHOtekAeVRd544KdjwALdnNgtGp59vNtD5kaldSQQraGovR
+	vMlZTl8tRqTr8xrlFOl8cFT5MlcJYZgYPDuaJXWSV0CbursBgdxl1U7oOiVuaXTTQjC7UgUYJNlSF
+	vjjiZmE639gYlvQuwKpbCYWWorAAI1u2zp2reqcjhbDmC3b+FpZq04Y3kz5k1X4RE/gatn1uEBWHG
+	+keNoJ/A/SUGwWv0hMV1tc6kie/L8l51u7GLZgxUMManIXvoQZEcdfdhVtHs5KG+t1gBLRvZDk0M/
+	Fz/UUirQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxcSK-0000000GLZm-0Ytk;
-	Wed, 04 Mar 2026 02:59:24 +0000
-Received: from mail-swedencentralazon11013057.outbound.protection.outlook.com ([52.101.83.57] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vxcTl-0000000GLpF-3gFz;
+	Wed, 04 Mar 2026 03:00:53 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxcSG-0000000GLXz-3d6Z;
-	Wed, 04 Mar 2026 02:59:22 +0000
+	id 1vxcTj-0000000GLoq-3NPx
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Mar 2026 03:00:53 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=E+4Y4gJSlq/G/Vy6oWJwVAVbdhTxNaYu/ZVFHuw66UyDEbjJxgvFDlZvY2/o2V1C5XSnJbzhHUL0iXx/fllHHe4NAmLVsHXfZuuaRB7KEnaPM9X+E+AywjFyMl6+ndlfA6IhiANC+jA8ED0NYG4Ss7sq4Xv+liy51afWDi/VS9fJR5l+nOi4ETpj41ICy9GNgkUU0am+bAZOC0AaiVnIR35sibavpXDnxleFWZXRdcN8ZrQK0FaAQtgqFocD1TgQ+B1jsxGTDV4OiQkQnZUYTdquL0zioG0siM+lLR7zOM4enV7t+6iDaYeplabc0u5Kyp+oBqs1yZVz+mHRzx+8pg==
+ b=sNY5IrOUy2nUICB/Ck/mXK5G5ltQfcNIlFN7+9WS2whu3Um8HwwLDO4x2h+ETm4It5bcTmCw91dNiAvQs7iEvWoKK7RXGvWS38oLdCfz4TL+8rL5ryDTi88IRym/OarOzTBeplIxKXDclBPHJvuurNEYA07RCjs7I7hHAWqg8nuCiXmn86wSwPTJSWaO8WCoG3rYBCuDb0OKe8pOLzGr17AVKki7uwysmcuNgYuw6s36gjczYX33IJ1XiOQoWAPpPXivAT26NaBway0Hn+TJfCfzmY3k9ifmuh0w6o7qUSmUQfo2XrVAh81tPSiYe6+73XYI6G/+IrAQBKnHetOPPA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GNZfTs8w379dlpNbAhRA+sADPJgpRD6h/Uge61yblr0=;
- b=BuEWBq4600NlGl1G1GWP/SK/+dK++2nPLo1essUcrrqx1x0xh+SdOqizYwZMQAGo8Erh234dR8kLZ+OXnhYE28VPe7BzzkMu/O83Jnclpyo/SqPfnb1nz8JbbFBxBI7xLi1jrkgk+3iNPDrZqFDRzeksPCKxxfaPloILn+LzaZI9ytBpPQwR6Mcl4HPkIkqSDpDh0cHFk/csMV+x5zSZTNexODfINLDHrspVnIWAaZKqCchtjReteK2jh2RkYEFmPTcYKPvSBK5J1NWQUsFRM7sTItWhDgX+VNo4E60oS9yvkdN26MIXZ2Pdh3/LL2kKJEPKZGzhPIsVS2gTR3VvsQ==
+ bh=CrcziLSLmwygoZkFLoqj/ib3pWN/UUqOS/+uQ+SI+ew=;
+ b=gtrIaGsZ/g0Jf6Xn7rJL5ICqmur9cl1uV4Wzdpk/ANrM48l3Ync3BHHuSb8BBTBDLAT0xXPDrsOqYrU5rpTBXmOzZqoJD9gtruFMbe47HF2os9XVkNZq73Tc3ub95oYJM3Mqh/Pz5gvW1jaY4tQmDuegdmmJdbNqnZco/q2dh5/rCrqbq02COmXcNTKDLWqcmPy+L5l09lCaC+SOmGgNx2xM2JPMYvxvFR/Zlnx/j07Yi1eqO0EJahufyxfWfEqdp3ALMiFgr1GiSECm1dH7w8TX1takRT0LmCXXvQ7d2PtRPxs9MbC7SW33A9DzeURso/+gbkl90v5wKcNf3S/CDA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GNZfTs8w379dlpNbAhRA+sADPJgpRD6h/Uge61yblr0=;
- b=N34rCtBC4ktCfBWAsbu/dlSqqKbEJ+xT0snmKgKM1658ThELWnkbcqGXXAizUNEMLCEBzGjo6JglXYkjXkoXLwWxHvGtw/Ccp749IIKE8RdFAzvLpTNuyzV5d/N4YVH9lRBdRN6elMkmpT6l4Sk+gnBs6thkFA044p1pDRVCvNCcs0LZx/1IJ7EzLEzhU3nq5kVZ3CSIQNjYfd+RO6qfImlerSHj1EFBMP5xo0Q4xnCMrKSxZzn2EjUVsBNTCj9TLyvdIVU7zdiT++1OenpLk72GwQtLqnlTZertRT6nvVYJrFqWmpARSt0Mv4cLUx4MqP8MM3rHRnuyQjXN4fzWoQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8420.eurprd04.prod.outlook.com (2603:10a6:20b:3fd::16)
- by GV2PR04MB11936.eurprd04.prod.outlook.com (2603:10a6:150:2f5::14) with
+ bh=CrcziLSLmwygoZkFLoqj/ib3pWN/UUqOS/+uQ+SI+ew=;
+ b=KrlhQFBcB270jnGe9R5r+MbHQhGZS75fWI8cBqIHOD1Z70iQ/2tqlqosOako9o2nxQczwF8uTcxMDxAMj+tBmXS65kd6BHCSJOJRsEpMTlYptebS3nYjxQDJ+M4MUIEd11BoOixtbzGy99tVKvyXLinwbbF8i1qc3tdVebP6g69Xl4nBsRjj90ptpoRRrjDB5r5J0+mqqnOJqdufAcv61UTwskK+0uJEoef0aPGGvSmzIqjKjv416s84vwVLzPO4e9RLc/rD2qYIky0KARZBwAFGAv+Re+tHEhQNwnltzqu/P8hG93WCe83aICCxvG+q6lzqo0e3RIt11+kaSUVECQ==
+Received: from PAWPR04MB9960.eurprd04.prod.outlook.com (2603:10a6:102:38b::5)
+ by PA1PR04MB10771.eurprd04.prod.outlook.com (2603:10a6:102:493::8) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Wed, 4 Mar
- 2026 02:58:51 +0000
-Received: from AS8PR04MB8420.eurprd04.prod.outlook.com
- ([fe80::3f0f:857:96a5:17f]) by AS8PR04MB8420.eurprd04.prod.outlook.com
- ([fe80::3f0f:857:96a5:17f%3]) with mapi id 15.20.9678.016; Wed, 4 Mar 2026
- 02:58:51 +0000
-From: Zhipeng Wang <zhipeng.wang_1@nxp.com>
-To: daniel.lezcano@linaro.org,
-	tglx@kernel.org
-Cc: shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	chun-hung.wu@mediatek.com,
-	walter.chang@mediatek.com,
-	jstultz@google.com,
-	amergnat@baylibre.com,
-	aisheng.dong@nxp.com,
-	jindong.yue@nxp.com,
-	xuegang.liu@nxp.com
-Subject: [PATCH v3 3/4] clocksource/drivers/timer-mediatek: Convert timer-mediatek to a loadable module
-Date: Wed,  4 Mar 2026 11:57:19 +0900
-Message-Id: <20260304025720.2583655-4-zhipeng.wang_1@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260304025720.2583655-1-zhipeng.wang_1@nxp.com>
-References: <20260304025720.2583655-1-zhipeng.wang_1@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0060.apcprd02.prod.outlook.com
- (2603:1096:4:1f5::17) To AS8PR04MB8420.eurprd04.prod.outlook.com
- (2603:10a6:20b:3fd::16)
+ 2026 03:00:45 +0000
+Received: from PAWPR04MB9960.eurprd04.prod.outlook.com
+ ([fe80::566f:3659:511:76cf]) by PAWPR04MB9960.eurprd04.prod.outlook.com
+ ([fe80::566f:3659:511:76cf%5]) with mapi id 15.20.9654.022; Wed, 4 Mar 2026
+ 03:00:45 +0000
+From: Carlos Song <carlos.song@nxp.com>
+To: Frank Li <frank.li@nxp.com>, Stefan Eichenberger <eichest@gmail.com>
+CC: "o.rempel@pengutronix.de" <o.rempel@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "andi.shyti@kernel.org"
+	<andi.shyti@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>, "stefan.eichenberger@toradex.com"
+	<stefan.eichenberger@toradex.com>, Francesco Dolcini
+	<francesco.dolcini@toradex.com>, "linux-i2c@vger.kernel.org"
+	<linux-i2c@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
+	<stable@vger.kernel.org>
+Subject: RE: [PATCH v1 2/2] i2c: imx: ensure no clock is generated after last
+ read
+Thread-Topic: [PATCH v1 2/2] i2c: imx: ensure no clock is generated after last
+ read
+Thread-Index: AQHcqyXwBHUr+bUJrUuXl+mBxXWLd7WdqYeA
+Date: Wed, 4 Mar 2026 03:00:45 +0000
+Message-ID: <PAWPR04MB9960F0118ACC092BCAAB0142E87CA@PAWPR04MB9960.eurprd04.prod.outlook.com>
+References: <20260218150940.131354-1-eichest@gmail.com>
+ <20260218150940.131354-3-eichest@gmail.com>
+ <aZXoTGK_v3L4pc-E@lizhi-Precision-Tower-5810>
+ <aZXq4gn4xhInQQlq@eichest-laptop> <aaamYByn9dZEIBWb@eichest-laptop>
+ <aacECsJ6O8QjHsUa@lizhi-Precision-Tower-5810>
+In-Reply-To: <aacECsJ6O8QjHsUa@lizhi-Precision-Tower-5810>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAWPR04MB9960:EE_|PA1PR04MB10771:EE_
+x-ms-office365-filtering-correlation-id: 2f51942b-dec3-4257-6fae-08de799a3ae5
+x-ld-processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|7416014|38070700021;
+x-microsoft-antispam-message-info: F9DqFjjIk3b86XZd9WzNStBQCdOR/xxy+8kjAvfTx+AWcq7ewZpvNVBwfWO5F1HIU+DrTA2GFkkyekEkY65djn0Mc+FiNV6jQZbyPCns1DDOGxvrMe+OVgQDE1GgYqCH0RrQiDdAkaipmJnqm8ydECH7pSmrv+5DPjUBu+Ip7kS7pypBPTjQs/3jWuWOwFPLezRjUcDLIjUZyBRXmhlxiK4oXr5A1fSdTf0IxqzHy2T2CobChQrWv44kPaFOjA5w26g/5IHDOreHX4uiAGXYR4WlxuxVwTIQOaxsFNRTfdWyWeJLMXrbkqC1RNxXVpcUY2iuw+VR3sFByETp2DN017kgW4j6oCVSA62svt5chwSGQ2yD3gb8PwnrWQt3hflMMkefqAc8R8Y4DASi3Uqssc0nP2KaBKGBu5+VbxJVy6+U3CCljriSMdOROfkqCHS5YuzAZFrTWwFt//bdk1WpM6Og4dLLoFf/s6hbrkdnxAgos2TSf2AD728shO8CNRt5ch+mbD+B5ToYKTN/EdEIYabErN8wok6FIf+SHYHxKmljVTdg20CQ+VKDqnp9RFAFzsWSdpL07PNYZU8IQ/5o9IX+7GQ+gGZMWJjslU6XtQRASFr97plp5taL9OqtAo5qe77q+sz1V8hUTVKWW06ggTAt3wA8Gy398Gu+Ust9Z/X+atMmJn/9MizF0Q1TyMEyohuGTX+O2D5rV5UeUYKDcSw9zbWMutrKRyvvsThWhR5GbEDI6FA6l6zfhTWkHoPI
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWPR04MB9960.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(7416014)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?HOCDvXVUmpECuoUedQVMPEjJfFhkf1XMSmiE6N/xz/2WKSaIJr4dqmSd1Wj0?=
+ =?us-ascii?Q?6RFrscNdPoZwN2RwIRC7J9B/zeNvM1mH3S8u3jA9cEm/F9fQNuKcBL6o1nWV?=
+ =?us-ascii?Q?Dkur5Kd7wXVa1V4tVP2d/N9n7iUxinqInMQlurcEgK4115uqz7VgMEoSBs+K?=
+ =?us-ascii?Q?YAaNevVY9gcpHRD0Q1LPoZqLZ+acBzLOQ53ZbQyLQbeWi7qaFcCEgD2Z368S?=
+ =?us-ascii?Q?niUZHOYvW8xiqJ/7B3l2EGfbrRMXIy63DzXL397ruAcMZvAqagy0GSdItVbH?=
+ =?us-ascii?Q?FbV9acHYrs4GPbKPttP5nZ455uc0XUX1dOZsMRvZgMMTJwU0JaPmjl4ByYIa?=
+ =?us-ascii?Q?tjrm5blqXDsMF8FdjpdMb2cnDfc3S/CYrYJ/lmcMlNbXg1vgfnM4pJn8agl3?=
+ =?us-ascii?Q?bnNJeOAXatpAhU0YU23HUrCdtqcZCafB73FJXDVd4V288jrkhDN3+WYVAtdo?=
+ =?us-ascii?Q?vCeu20eClXol9+lEPo7BjX3/NpT3NTlCGBtsEtPFojOug6s9WvSn5JwyT534?=
+ =?us-ascii?Q?+jCKXsj7xyC4VHmps5i+Dp6d87Pz6e6t+6PXi3NnEGkQR0f5CjQxrK2uuEt/?=
+ =?us-ascii?Q?bW3VoNW8TxFvZmRfjvbU8S0kOKxGY1T1cVqpaafQkF0BS+GyuJXegh4N/NQ2?=
+ =?us-ascii?Q?Pql6EHVJ+O4VS2zADAAXUlbAdRJrwiTNgsAUZbvKrCKtV1aUK93Wszu727jz?=
+ =?us-ascii?Q?IZV7tWoT1t6Lk1rYjj/PwEcblMR2dW2k2M+ePCpxqzAuyXPK3LqHybrE22i8?=
+ =?us-ascii?Q?s7QP80zmRWxMM4nk59hK+lcUwog/jO3xPmlqqETpz2H5AAF3AkRLy/+SRqIQ?=
+ =?us-ascii?Q?YpdtzoHf/llwqatEu5FYfL9nt8fHdjkRNfz9IszMkwXSCOBZnBSZX6Yl1BA7?=
+ =?us-ascii?Q?g/hE4lWoQ3XMDCb2XJOt3gxRmbwoNabm5hHClmpdzVNU8howsBWZPuCL0WlL?=
+ =?us-ascii?Q?eT6dbSVh434KbZ5YYjQdyWGswgx5DZE3ZBwNC/eM55GZUTYo4H8Co1+Qs+1S?=
+ =?us-ascii?Q?Aee4bOAEqrDT0uZ0SIfaWetGVcMCyHt3wjtWve1TTnUi95qHphXYBMeW5Nc+?=
+ =?us-ascii?Q?4eToK7+Nq3vzaEQkLKaYr6xvwDdB/UGaKXqeL1iMzz5SjBvhspZ8jsGw4dc2?=
+ =?us-ascii?Q?q3QmyaBhD1K8m4haP1IUEpV9eDKttEsTl11aCjd7kOp6S2s+6ORPWNvfckSa?=
+ =?us-ascii?Q?QE/rMVcZX6VnhS9AjjCcIaUaT6XyV6ypNZfnUVqAXZKTesOZrB5wMenw8fuh?=
+ =?us-ascii?Q?1ZXz60FGEBZTdSn4reTE5O6Aft4B5OqIZ+eOdLQXx61L2mcqSwQPVXKEzZID?=
+ =?us-ascii?Q?cm2IeKWghgzbhUKwVzGNKo06fk2TOl3jymAE6flGDNkc+C3XHx6EkJR/OW8L?=
+ =?us-ascii?Q?E4S4xCnKPgYBN7tcqHLqMYkeaX884fChDclcjHZJTnAj2j0eeJzETL+6MHmM?=
+ =?us-ascii?Q?kRgvz+U+xd7ljH7pBKbA04eIHj4GZ9Cu5ab24VP70fLTv+bBRRuLc3keJtin?=
+ =?us-ascii?Q?HmN0TvZaca7y1oQiC/eM4RE8Ls/2VBjcLuclf8adPR2imrOr7me4fvnavbgd?=
+ =?us-ascii?Q?yWfHnwhaSwaFzRFL0eKY6OXk/QXtpkBwepKGNI3piQhFGmaTUv4erJTeuVE6?=
+ =?us-ascii?Q?l2+eW1xiPAZREM4paBPv6oxzVabELis66yT5t0rOnUmSMwXBDdV5Y8n30Wbr?=
+ =?us-ascii?Q?+co3yBVCikjETYbkGh4dEraPDJ2xPwYMEzI+LUe2veY6+NvX?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8420:EE_|GV2PR04MB11936:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3640b9ef-a911-4b8b-2928-08de7999f6ca
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|52116014|7416014|366016|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: anIyW+INVIiA9H6usdk+jzXsoFm88SBxUfth7XV0jgJvl3upzaiGh6+NkZy4EXz43AKLOHWGtp9BoGQNgCyiyFjsxsAd2zCyEOmuLSn0Prn7X+0GI0YWwrfpByKuh/JJcgAWA7UllbKnPCnFb7fhC3E8w8z+CFnrkpyxOia6FHUa91gB8bGuiHJ//lNpO+14CpVN/4Xu3OxE5g4QAQWcnHGeqhnf0uj/u/Q3wBu08icaMrPyw+VHOqkgFL6bKMsuhepjt0xqqsTW+Wmbay7uUxA70xfOhktItiV0xIDkiYp+hHBP/jTb9lDLpy8tCGtADP0yiji+DEsfUJfnUByhM4UQHKqJJ2BQHamT0koz1W2rfW53s5uUADuzrylmGTfZQMZ1gc9vhaAWyAbbz6wndthNiViSdYk8t4MbNkmFz5K4ZzJlqtPOC3J8koUZ5fILPeah76ga7yI8bux2yWTrxdyBYJaNXmpmWMn92Ghw0JYToBqXQ0OscOVcDZXiUkXZkgiHa8pPaRVotHua3RWcJLPB3jC8LrLO3eceUES/u70zmi3jaBfdEgb2nsRlVX+rIy3LAcc4S4Y9u6dfnLntU4Mm3emALKg5tS2r/TsIL5ZzeQXuO+m84dyk4ZkpvEv3DPYA5dyMXqkBE1Vu4Vb8Eitts+fcabuoKRyXKuOMzAQ+lOlqbjAxDlXmsOgYcGiAjFPhJf+1miMjz+85gZed/ethcd2Yj93UcVM4kO2nEdch+eYTyro3wxORZyOZDXAGc07G+kqNAXsyzB+HsJ2CD/HMvxYrFxP0WeJdDFHCfII=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8420.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(52116014)(7416014)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iMFB24vWbrQMKhd9nMQs+RDeJtcuGXm2sZDVWpRJwN43QPVdeCssqiTWmx5h?=
- =?us-ascii?Q?6holB2ScTeMpvDXJfXQF4FkWrYEdeeDvTr3RN8VeogyiOQQfdN+CUa7RU9ym?=
- =?us-ascii?Q?LWHQzBsGf1EGS4X+R9T38pgyJVfTjlZAh4B49dNGJ5sy6hzcaBQrptUtxIpE?=
- =?us-ascii?Q?MBngiVgNywnz4mH/5h5h/VU31B/VqcJs2IuoKChLxG0NeiwwxGC5r+dZzhKB?=
- =?us-ascii?Q?qJTyYtr31HNBoDHTTSBGPz1z0E2sAV3F7PBNY/Biy7zKCu8sazdfoIM7TDBN?=
- =?us-ascii?Q?GNTunzCWSRPhX5ZdXqMKVVWK57prOlganSRBxGKnJfRLrwPagWwvuidvMjvg?=
- =?us-ascii?Q?yJyn8HxLr1iUEjdj2jD/sSYLBwFJKhy7deuBWhmGtA+xgNUx41zaaDFovExk?=
- =?us-ascii?Q?o5zNjVJI1wO4w5zu5P0YzH65+43+fHQKI9qauyU0jf+AHvXjDDddQb/z0aqc?=
- =?us-ascii?Q?AJ2r+ade/K1k1Ez2XX56nWsaLnQBkwSZzH2Xl/Akm0NfMhT+DNo4iEjUH/6p?=
- =?us-ascii?Q?PsSKzv7+GCA+lSqKhcP5oey10DY/GSLADskROkzKl7792YwnGZGkOvx0vkvI?=
- =?us-ascii?Q?O1lBOLPQPZH6Mqoz9U/4M/KHC4aFS83fzXUw8KqsoBKQzB4fApvCtxnR46or?=
- =?us-ascii?Q?5taLo2M1TyLjE1DtfDTC83XB7d9TGGDn5uf0O6eJkCgVfrPQziozLje0YrD8?=
- =?us-ascii?Q?xmrTI057vn6XEf0J0YOGWophVNUudpLdLE2SvGINZYSSQ7fUVN2GWbIsg+Zi?=
- =?us-ascii?Q?sNV+5o73JZWQAIXnNZStzEnwq6FmZBOfw2CgaYiwGWRvZmY4DyXnXAxxQHt0?=
- =?us-ascii?Q?UFMk3XO1TS/P75mrg9S6pXmGnCslqCnNqqWAq2Baadsca4rvlCQ1bGFoTG1J?=
- =?us-ascii?Q?MNk3IPjK/oInaoRdTlsNH7L2XjALvkggTgViGGemKUtTzgSZtpScSNyeHKIk?=
- =?us-ascii?Q?N5tSIxx+VsLcnAhvtlfZmkeQkYwSJ7ug/OuKE5CFZWpjItS8mn2e1UnIb5se?=
- =?us-ascii?Q?MYrBEmGZdfQpw+mrKMFBlaS8x6+qBC6/WNObMiX0sy8tyDvoyhBsMrou9o+i?=
- =?us-ascii?Q?jhDqtRyBU3R9dd1OatZS0yvSIRezaVf+zBbdIvJkFSdRxtz9i51upB732zRW?=
- =?us-ascii?Q?en6FEl0AKTrTz0k7I3XMfm/oHPqwWCSlDHlH9yaESxcONXXVyYDxCerLBU3C?=
- =?us-ascii?Q?hoD9FlGjbNYWYIPjOTacZcnnDnFgKyONeQXl0BzuK7Hdus5Ex9j0arZTWPw+?=
- =?us-ascii?Q?X+VvIfhZGk0DWDP415YTUF0hbP59bV3A94ao5lp3FxppdMrWjyDiWV8N7Xof?=
- =?us-ascii?Q?s7830maG5BQiEP+pNrRnzurEPckwFs3SeQNbYT63IDnb1EkHpYF3uXccZEZl?=
- =?us-ascii?Q?KdpvwtUIPzwvn4cYVIqLrqy848Dokbph53ILYspTAOvValp1cHQqcQTwy11K?=
- =?us-ascii?Q?/D3WswUpOI3KOzkx7o3/VzmlTvTQ21u4+OPuIiK4FxfDwH8sqc/37LYYZNev?=
- =?us-ascii?Q?pH/i7vCR/vP2+nB3bcknKGqacUaJKKKg20W3EPYC5z9joLemA9Zoy2i2o9rc?=
- =?us-ascii?Q?8gwJrgAxEMnMjk1Fma2ZSNH/8/w5vHg3zuzmIaQ+Qwl0CNx20UGCxkc8AEMF?=
- =?us-ascii?Q?OQiNV+u5nvJT2dBuGEZlKSDpmycCVRKECUzawAhNqm11IIjuMCGJq3VegQUy?=
- =?us-ascii?Q?0tMaLY4UfYqXfkHhC+A2DHc0yHVpA5M5fbriarbyybM7l+e4N1Ex+2w0sjFg?=
- =?us-ascii?Q?Nq+6uHDdHQ=3D=3D?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3640b9ef-a911-4b8b-2928-08de7999f6ca
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8420.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2026 02:58:51.2182
+X-MS-Exchange-CrossTenant-AuthSource: PAWPR04MB9960.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2f51942b-dec3-4257-6fae-08de799a3ae5
+X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Mar 2026 03:00:45.2616
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: g4J2NoamfZIQKMNaSv6lv59uW6pXTpaS/hr3olP4+l6XDHmnG7+CaPl01vNcDzjBpFMux0Ra3aXcjrtKz3mctg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11936
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 7FQK+FZ2vi3MPsVt4atTMP6cVMgoyBxbyYxUeUTKoyrbPe+xZJ148hRleEXJe9QFNtgyZg+/WOT/9zXXr/tmxA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10771
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_185920_911360_1B450B6B 
-X-CRM114-Status: GOOD (  17.84  )
+X-CRM114-CacheID: sfid-20260303_190051_864817_690EF8FD 
+X-CRM114-Status: GOOD (  28.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,87 +152,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chun-Hung Wu <chun-hung.wu@mediatek.com>
 
-Convert the timer-mediatek driver into a loadable module so that
-it can register an always-on timer as the tick_broadcast_device on
-MediaTek SoCs. This helps support GKI modular configurations.
 
-Signed-off-by: Chun-Hung Wu <chun-hung.wu@mediatek.com>
-Signed-off-by: Walter Chang <walter.chang@mediatek.com>
-Tested-by: Walter Chang <walter.chang@mediatek.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Alexandre Mergnat <amergnat@baylibre.com>
-Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
----
- drivers/clocksource/Kconfig          |  2 +-
- drivers/clocksource/timer-mediatek.c | 33 ++++++++++++++++++++++++++++
- 2 files changed, 34 insertions(+), 1 deletion(-)
+> -----Original Message-----
+> From: Frank Li <frank.li@nxp.com>
+> Sent: Tuesday, March 3, 2026 11:54 PM
+> To: Stefan Eichenberger <eichest@gmail.com>; Carlos Song
+> <carlos.song@nxp.com>
+> Cc: o.rempel@pengutronix.de; kernel@pengutronix.de; andi.shyti@kernel.org=
+;
+> s.hauer@pengutronix.de; festevam@gmail.com;
+> stefan.eichenberger@toradex.com; Francesco Dolcini
+> <francesco.dolcini@toradex.com>; linux-i2c@vger.kernel.org;
+> imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org;
+> linux-kernel@vger.kernel.org; stable@vger.kernel.org
+> Subject: Re: [PATCH v1 2/2] i2c: imx: ensure no clock is generated after =
+last
+> read
+>=20
+> On Tue, Mar 03, 2026 at 10:14:08AM +0100, Stefan Eichenberger wrote:
+> > Hi Frank,
+> >
+> > On Wed, Feb 18, 2026 at 05:37:54PM +0100, Stefan Eichenberger wrote:
+> > > Hi Frank,
+> > >
+> > > On Wed, Feb 18, 2026 at 11:26:52AM -0500, Frank Li wrote:
+> > > > On Wed, Feb 18, 2026 at 04:08:50PM +0100, Stefan Eichenberger wrote=
+:
+> > > > > From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+> > > > >
+> > > > > When reading from the I2DR register, right after releasing the
+> > > > > bus by clearing MSTA and MTX, the I2C controller might still
+> > > > > generate an additional clock cycle which can cause devices to
+> > > > > misbehave. Ensure to
+> > > >
+> > > > Do you means SCL have additional toggle? You capture waveform?
+> > > >
+> > >
+> > > Yes exactly. We were able to capture the waveform when the issue
+> > > happens. It doesn't always happen though, it depends on how much
+> > > time passes between clearing MSTA and MTX and reading from I2DR.
+> > >
+> > > If you want to see the waveform, I uploaded it to our server:
+> > > https://share.toradex.com/dwnhcrl6b9toib6
+> > > You can see the additional clock at the right end, after "0x17 + NAK"=
+.
+> >
+> > Have you had a chance to look at the waveform? Do you have any
+> > concerns about the proposed solution?
+>=20
+> I am fine. Add carlos, who did many work about I2C.
+>=20
+> Frank
 
-diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
-index fd9112706545..2112efb85029 100644
---- a/drivers/clocksource/Kconfig
-+++ b/drivers/clocksource/Kconfig
-@@ -488,7 +488,7 @@ config SYS_SUPPORTS_SH_CMT
- 	bool
- 
- config MTK_TIMER
--	bool "Mediatek timer driver" if COMPILE_TEST
-+	tristate "MediaTek timer driver"
- 	depends on HAS_IOMEM
- 	select TIMER_OF
- 	select CLKSRC_MMIO
-diff --git a/drivers/clocksource/timer-mediatek.c b/drivers/clocksource/timer-mediatek.c
-index 7bcb4a3f26fb..4ad4bac6f34b 100644
---- a/drivers/clocksource/timer-mediatek.c
-+++ b/drivers/clocksource/timer-mediatek.c
-@@ -13,6 +13,9 @@
- #include <linux/clocksource.h>
- #include <linux/interrupt.h>
- #include <linux/irqreturn.h>
-+#include <linux/module.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
- #include <linux/sched_clock.h>
- #include <linux/slab.h>
- #include "timer-of.h"
-@@ -337,5 +340,35 @@ static int __init mtk_gpt_init(struct device_node *node)
- 
- 	return 0;
- }
-+
-+#ifndef MODULE
- TIMER_OF_DECLARE(mtk_mt6577, "mediatek,mt6577-timer", mtk_gpt_init);
- TIMER_OF_DECLARE(mtk_mt6765, "mediatek,mt6765-timer", mtk_syst_init);
-+#else
-+static int mtk_timer_probe(struct platform_device *pdev)
-+{
-+	int (*timer_init)(struct device_node *node);
-+	struct device_node *np = pdev->dev.of_node;
-+
-+	timer_init = of_device_get_match_data(&pdev->dev);
-+	return timer_init(np);
-+}
-+
-+static const struct of_device_id mtk_timer_match_table[] = {
-+	{ .compatible = "mediatek,mt6577-timer", .data = mtk_gpt_init },
-+	{ .compatible = "mediatek,mt6765-timer", .data = mtk_syst_init },
-+	{ /* sentinel */ }
-+};
-+
-+static struct platform_driver mtk_timer_driver = {
-+	.probe = mtk_timer_probe,
-+	.driver = {
-+		.name = "mediatek-timer",
-+		.of_match_table = mtk_timer_match_table,
-+	},
-+};
-+module_platform_driver(mtk_timer_driver);
-+
-+MODULE_DESCRIPTION("MediaTek Timer driver");
-+MODULE_LICENSE("GPL");
-+#endif
--- 
-2.34.1
+Hi,=20
 
+Just review this series, looks this series patch make this fix for the limi=
+tation[1] safer:
+"It must generate STOP before read I2DR to prevent controller from generati=
+ng another clock cycle".
+
+Previous patch[2] has done this to avoid the limitation. However according =
+to the waveform, I2C controller still generated an additional clock cycle s=
+ometime.
+
+The key of patch is ensure to read the last bytes after the bus is not busy=
+ anymore to avoid this another clock cycle.So these patches are fine to me =
+also.
+
+[1] 054b62d9f25c ("i2c: imx: fix the i2c bus hang issue when do repeat rest=
+art")
+[2] 5f5c2d4579ca ("i2c: imx: prevent rescheduling in non dma mode")
+> >
+> > Best regards,
+> > Stefan
 
