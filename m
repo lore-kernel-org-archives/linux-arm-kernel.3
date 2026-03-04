@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A2DBEFCE39
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 19:24:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AC3EEFCE3E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 19:24:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zOuIkmgeu30O4yBUUR0bUaK0PmNnE0z/sa5+7m6TQAc=; b=l6VBMfTtCtf0V+3Tq1TBsz9/7N
-	81fGaOR+yy1pFY+TOpDcRXMMjWprnffrg+FniO2IlF6puNX1kX/xtqgVVib7HvkkT/doH3ge6Niyt
-	R2q6BacO5qWzWIcxjxxKJefD2s17cHK7BXY2ozPtX/ilMfslP92eX/adUp8zKCASGlZjdm95QpT0N
-	2K11rxAhHopHzPKrn6jnVD00Fgoyg4DOBNXgNC4Fkkfj2yf7Cfo4qQifFmr7Oeg2Q0CvYq+dxpUc+
-	WxtcDHPBg/VLO1dSxWj1+EpqW6LEqzszumdqnO22UaDamt0vvL+Bz18PDQbctLxrOb7uUQ7QP1Mrm
-	PJQpwehQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ecl+MG1Yo+TiJvae6jV2u12ntROXHec567OXIz7U1Qg=; b=QbimH33hWw7mDHh5UBS/1kByeH
+	i32f0QTHV79lZTM/fjZXzxcYGFqOVkQhiLVmd4F6CieQZQLP3xLVkeWoc00o11aZFrWf1k9UpxxND
+	CzGPmF4cwY8xLgRAKwNhvlZq0rENyfV6x8Or/SZH8mQO2BW9BnQ1FzX9BHdtOYBBeV7m2LqRx+Nq6
+	KX77ZX16BMkhEGoENIOrWs0OVkW1i8yS+NQsdRMFHA4dFUsrRFziP8yUXI+/XpmphQRHtcmAKgsvh
+	G7KB4eXJTLtLNUVeoClgLfcD7FsidcenOudkR1Zjs/5EGRMTt0I2L3O/QikXOZgrvvGztXfNZqOaJ
+	Gmn2P7UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxrpq-00000000OWX-3aod;
-	Wed, 04 Mar 2026 19:24:42 +0000
+	id 1vxrpt-00000000OXr-0h3N;
+	Wed, 04 Mar 2026 19:24:45 +0000
 Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxrpo-00000000OVH-0xRF
+	id 1vxrpq-00000000OW0-0Oqa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 19:24:41 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-82747396358so3770254b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 11:24:39 -0800 (PST)
+	Wed, 04 Mar 2026 19:24:43 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-82735a41985so4300353b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 11:24:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772652279; x=1773257079; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=zOuIkmgeu30O4yBUUR0bUaK0PmNnE0z/sa5+7m6TQAc=;
-        b=inNSkhGqV9obm5AW/3KT2zSMx2OXyYXe9OJOVvn0kACB779Ec689ZiPy2wQWIPkJiV
-         Fil1dCbsrqJjiG4CSth49e/EtU8LPLSQWBTpwl9bWXPvl4bD7HmYOz1NBEyG2JW3XyNA
-         aTQPBM8nO9LMTO4dky04BC1kQml8ffrN01fUi0TkvCd/vDYcL5lDnNywBDQoO1l7Ev7G
-         VCqO5b3d1EAihmdXESg6wTQkzN+E2ZUZi3Ar8ro+oDtOWSHuGPYiYB+0k+KwDm9Xzszb
-         iYx1DGTa+0TUvmtinAGR7AN6I64THs9rzNjmAkhIo8wQXhkTrocd0sZ3dH6Otkg/w311
-         BMRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772652279; x=1773257079;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1772652281; x=1773257081; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=zOuIkmgeu30O4yBUUR0bUaK0PmNnE0z/sa5+7m6TQAc=;
-        b=SRPcoWRZOTCPgc4HdaFhQzR8C99C2MfX0LHfmEMJovwP5B1Pn4oalNWi7NapxnotrS
-         Ra68Nfa16w4VySupe+xIqQsmy29u+UIY2L2JiFibzsFt+Ju7JP18Gu+DVgsUORiheZvL
-         ElwLuY3hP9e+XibB1gz1Pxg+722ZR8an4ldaZgZ3wxmo4AQji+ufkOXRXRxrjHY1YQuE
-         LB4Orj2q73SJON3v1WDzy8Ub79EdRq2QSilYZDsCtxLnPGIXI3Ry/wUWdBgy16KZVE/Y
-         qQtZZ3F7a4FoaSWS4FdjSsh+9rEKoG+zcqneF6Jpke4X+GkKskYJP0PSw/fD/5UcR0++
-         i6FA==
-X-Forwarded-Encrypted: i=1; AJvYcCVRHk6jDHH5BBQvtDHV9Kgt+XYao0HHRnhFn+grRZpI37rU1QPmH1/8jEHwFqxlQBB/XhLBTNtwEYGJ4UESOSQs@lists.infradead.org
-X-Gm-Message-State: AOJu0YzR6+K0PsX1vVWopc/G1/GCrEgw6mD8sXXeemZ9XqNUSkUCuTj1
-	9nyHSSAZkpqj5e02DnZEAa/b6RHQ7xSeiYsHBLAWkJlu18zvAeLhzTXJ
-X-Gm-Gg: ATEYQzzCl2QjYqfN6AT575NujFPQegaWiMs7lttIhqD85bC+OYLphaBpnNBRPPkcLU0
-	c+DX37XxV1WwcUrWf9u94YWqpFlhDu+emYPVj9a407A4MHQKAvAymh10QD0yXqo8ogtolEutHtP
-	J1xw5PHdnle61NN8e9pTRGI9BADxvPa7IbYPhziWxVE61x2elPV/XVzYKVXN43T7O0HcFWuzgDv
-	lg7c+k/eU+YMvaN6JKsDZ6aCWAZBQqOG8zsmPMoU663PVvx+lA73p6gtqZmJPbuiOUYLm3Itl7h
-	EU4FAopNHYKugxKn9JM/PrAJe6w7tlaJFcW+TQcoC4yhfuu//VH6cmN4XYWdVl0oMOaROe5jD+P
-	f57U72jC5lCdLcX7UeYRkGF2NZU07Yi+OqKFhDtqVb3Rmu4QZUzkUEDlgDWJxqoj1oUWMGSGnj2
-	m3rdplSexE9PbeP9VJ+N8ADnUB87fJfXQOdblpYm4sKvHKCWYPc5YKrcqxRdOhuCysPXUKE6bR6
-	F+KB34=
-X-Received: by 2002:a05:6a00:22c6:b0:81e:8e66:38d8 with SMTP id d2e1a72fcca58-829728f0c2cmr2388151b3a.10.1772652279202;
-        Wed, 04 Mar 2026 11:24:39 -0800 (PST)
+        bh=Ecl+MG1Yo+TiJvae6jV2u12ntROXHec567OXIz7U1Qg=;
+        b=kLJT2tdwzjgxmGMDBPyeGbYnTBgO2ir6j9irOs0DHZ/S4jHyE30iiRvTD2swHpFGu0
+         BSAz+BXnYz8tgqq3xdJVh3+01LYWnff3E5aIunNmitJ7PdLauiodpuuMxrTWj77s9s30
+         JBb0rtmxGeRczwrEw03R0TIDw3ugP5FtIB6E4CW9y/1EQrfuDf92PFgXddTW7y2zS4p3
+         VtJTESs1ehFjvRQc/0wbWOHtjra/D/Ua9+2jvxR88gLVXZyKBcRRGe5bQDAtcUEYz49T
+         RrgjFLMxv3jOdkKj3PjJRHsOjhxqkOwMJKHImpFXaaSXuoiKVVnsWsdxAChwRzkYySCX
+         HuWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772652281; x=1773257081;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Ecl+MG1Yo+TiJvae6jV2u12ntROXHec567OXIz7U1Qg=;
+        b=dg4XDrvWn1B3MAf/DTF8+5G2Zmaf3Z7gXgyibyxkuEQg1RmXVV+JR7kzHjpFNMLUum
+         hXk74ZdP6HmD8TLn5dUpnDF1XLTsd3HKe0XBOT8FndQJFyAQQmWz8aheFr6sefBMiogI
+         K1+7bAIWGU7RC+4Vz+RqU9ISyejogVV61mZ23/ReJiMiIxKm5XSV0GXIpqiGB4pFVLj7
+         gq5FU8hBWsZvvY8DAiKLiyzO9QTZfiwiex8emYyQw6PRhyrEAHpyq937VsBKwZaigVeq
+         OlGVWVkVvjyWm3bN7zBSWymr0x52VhoQpRFCc5f6joFrElADTZvjsM7Rhw7cc2YqbmVJ
+         aN/w==
+X-Forwarded-Encrypted: i=1; AJvYcCVUytlr6NwMabTFYS/zGW8tml1FfF5G58x+WkmfzI+CkEmwREHqzoCAtKdJceYSIn95rx44F6w/6HtseEVFoyFp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1hPcsX1gPis+qXRfFhC2kvHbEFIlNk7mtaFOSaMyh1qFGotrX
+	4qGy1jcwLIF0+p3wuZUAG6FxLigv2HEpZFu5OgeZATgo9bjwG8xY//n9
+X-Gm-Gg: ATEYQzwR2z/HI0mYc/BHOEMQt+6hQhP1EeyI5fevbEbyuWMdmVTK9YhfwzSrLTsS2s4
+	6qbEeCPBC+zUIiJK2eK6uQ6Yth+rLj2PyUTOGRde2TpZRaQH+mT97DP4NL4w10OYThiqAIg3nrg
+	USn8V156wepz2eaUJKXK/m09MMuNd8i7eS0D9/kMKZW0eiKMQDTUsEWm3F+0H0LelvSNIdW0rtm
+	6z7jCdBnWInhuoMZaLvNZmlRqEZbLzdr7O8H391cjtKUIt3oHv1m3jvnaZcbuOTIP10LiG6DNr3
+	ujYEyJyrGsvZLcSmzH5LBDG5MIVWC5meiXbTt/CW9avXwR7uXcqo5hZbD2ZXqYH1GqQ3fL8NEgd
+	+mTKi1NNJkFKwHhjmsUDQxTu/ieuilYBd84FekaQrJaZ2A4Rl9E2ypSM22FWDHiN0U/AumDG0q/
+	6nwI/8ac3FHd7n3I6pYIoIJ6TM647Gs+0WeIHjKv8QfO9CKFVxwyvkKlCVeNVL4qmJ9BxpYx/SB
+	Hue7tMrakIgi2FzDw==
+X-Received: by 2002:a05:6300:6681:b0:393:74ed:7dca with SMTP id adf61e73a8af0-3982e1ec076mr2703298637.37.1772652281462;
+        Wed, 04 Mar 2026 11:24:41 -0800 (PST)
 Received: from buffalo-ssd.taila54753.ts.net (M014013071096.v4.enabler.ne.jp. [14.13.71.96])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82739d8805esm20233563b3a.16.2026.03.04.11.24.37
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82739d8805esm20233563b3a.16.2026.03.04.11.24.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Mar 2026 11:24:38 -0800 (PST)
+        Wed, 04 Mar 2026 11:24:41 -0800 (PST)
 From: Akari Tsuyukusa <akkun11.open@gmail.com>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -81,15 +82,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	Akari Tsuyukusa <akkun11.open@gmail.com>
-Subject: [PATCH 0/2] Add initial support for Lenovo YOGA Tablet 8/10
-Date: Thu,  5 Mar 2026 04:24:15 +0900
-Message-ID: <20260304192417.818211-1-akkun11.open@gmail.com>
+Subject: [PATCH 1/2] dt-bindings: arm: mediatek: Add Lenovo YOGA Tablet 8/10
+Date: Thu,  5 Mar 2026 04:24:16 +0900
+Message-ID: <20260304192417.818211-2-akkun11.open@gmail.com>
 X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260304192417.818211-1-akkun11.open@gmail.com>
+References: <20260304192417.818211-1-akkun11.open@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_112440_263883_9A125D99 
-X-CRM114-Status: GOOD (  10.45  )
+X-CRM114-CacheID: sfid-20260304_112442_136225_70740128 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,20 +107,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series of patches adds basic support to Lenovo YOGA Tablet 8/10.
+Add the "lenovo,blade" compatible string for the Lenovo YOGA Tablet 8/10
+family and add compatible strings for each board
+(B6000-F, B6000-H, B8000-F, B8000-H).
 
-Akari Tsuyukusa (2):
-  dt-bindings: arm: mediatek: Add Lenovo YOGA Tablet 8/10
-  arm: dts: mediatek: mt6589: add basic support for Lenovo B8000-F
+These tablets are based on the "blade" platform, featuring 1GB of RAM
+and powered by MediaTek MT8125 or MT8389 SoCs. Since these SoCs are
+tablet-oriented variants of the MT6589, they are grouped under the
+"mediatek,mt6589" compatible string.
 
- .../devicetree/bindings/arm/mediatek.yaml     |  5 +++
- arch/arm/boot/dts/mediatek/Makefile           |  1 +
- .../dts/mediatek/mt6589-lenovo-b8000-f.dts    | 15 +++++++
- .../dts/mediatek/mt6589-lenovo-blade.dtsi     | 39 +++++++++++++++++++
- 4 files changed, 60 insertions(+)
- create mode 100644 arch/arm/boot/dts/mediatek/mt6589-lenovo-b8000-f.dts
- create mode 100644 arch/arm/boot/dts/mediatek/mt6589-lenovo-blade.dtsi
+Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
+---
+ Documentation/devicetree/bindings/arm/mediatek.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
+diff --git a/Documentation/devicetree/bindings/arm/mediatek.yaml b/Documentation/devicetree/bindings/arm/mediatek.yaml
+index 382d0eb4d0af..69dbe389515c 100644
+--- a/Documentation/devicetree/bindings/arm/mediatek.yaml
++++ b/Documentation/devicetree/bindings/arm/mediatek.yaml
+@@ -44,6 +44,11 @@ properties:
+       - items:
+           - enum:
+               - fairphone,fp1
++              - lenovo,b6000-f
++              - lenovo,b6000-h
++              - lenovo,b8000-f
++              - lenovo,b8000-h
++              - lenovo,blade
+               - mundoreader,bq-aquaris5
+           - const: mediatek,mt6589
+       - items:
 -- 
 2.52.0
 
