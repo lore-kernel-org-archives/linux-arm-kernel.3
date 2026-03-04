@@ -4,59 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75BC8EFCE37
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 18:54:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 496FCEFCE3C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 18:55:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lEcBvlgDOlU2Rd3oSxTJUWRcDX4QT3/cp5xKxOwch4Y=; b=kO6DRW5a1ISNUsw/eYKyVVAtH2
-	ZlnibBqlaV77vlpRNRNeE85z4xAe0WC33BFWz0qKIjlVjbX3IZnQVtUuHVWfuCIeOOvQ1aL2+He3D
-	AiXYEHd2VrBLGybr31b+woHHfjRhAz2vGBJlJrqYXaL1kFBvaJ+nZv65IALD5y+MO2fcd1bUzeYO1
-	4rT7ADgNecSwPftMF5RfcbPoZ9KXyccnqnlryhpHkP2DVCWQ/M+BwaMd/rIyH5MA0P6tUqTz3rfU6
-	EkGfGLYh/ygTtw/9Qr7u37dKh1L2nN4hDaqBk2eAUEs8BZ7WC2zT8OLUsA7ysRzBKQVQV0BRi98LM
-	hu8ThLpg==;
+	bh=AmnWihrmcrp2XQE36QqrvWZSJe8X/UqpThaCD/+4awg=; b=j45laeBq5A1+3oGsZkAuO8uvjR
+	F87mCLgKTprT4bsjqRNM0tck3r91jBLG/fFL1FqGqEv73YNN20IuFVNvOavEtCyskWiYMFjWO+/S9
+	ARmOtOHLQwvaNCENE1HlapNhkQ5aQRG2l8fLs35YCCaUF50c1IAMdsoNu9mjJhZkgkZZCd4Z61rhS
+	b0lzsL6FFcUQeLpeMphAx0XDoR3vzWkquS8Nb8/ctbInjcZqV+V5066e4/MhAcUyROsSJr0a3xRah
+	z8niEWepV2TgIHFUHZUcq6r2Nwqqt82cEwPQhCnB2BuTtw5Uvfx2IzoEfoXPrQUg8dDZGBoiRA35M
+	RqGhZeXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxrM3-00000000McT-2jzo;
-	Wed, 04 Mar 2026 18:53:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vxrNI-00000000MnK-0N5o;
+	Wed, 04 Mar 2026 18:55:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxrM2-00000000McD-1VSu
+	id 1vxrNE-00000000Mmi-26gk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 18:53:54 +0000
+	Wed, 04 Mar 2026 18:55:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6BD8460018;
-	Wed,  4 Mar 2026 18:53:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E466C4CEF7;
-	Wed,  4 Mar 2026 18:53:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 661B64448C;
+	Wed,  4 Mar 2026 18:55:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B9DDC4CEF7;
+	Wed,  4 Mar 2026 18:55:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772650433;
-	bh=CliOUV72ekHmLpkXXmGJGc79ExY9Wz0CZYLwd8GDc68=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IvidYYT8yL6CWT3lD+7DPetAqKrnfZPzjX2EQv7G2N2aEUJS8MS5Z7CyUfGoBBHcB
-	 ybV/cQ0tnoMnatekcKq9YLMmAoGv/DiQeC0QIWHiFI9waDIhcNdDj9CUF7mTcAoGdN
-	 ZWm+tGy5cnDVqpj05GZGXCIciDHV3Zn9fYym7X7X9FdPZ2ByfYv6m4h/6G0IMfnlZy
-	 A/tSx8U2xUlfqpGiWzYFHFJCrFdGKQGhLnpifMXoplKyFrKPkn5+cnHTJmLJJTuUEz
-	 iNvlUyq8YcE+xVw1yIC8elPnvDyIuLpaO3BCNSkdVifPrdOg3gJeJ6rYg34gqZG50R
-	 ok73WZyJiqTyQ==
-Date: Wed, 4 Mar 2026 18:53:48 +0000
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>, linux-pm@vger.kernel.org,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] pmdomain: arm: Add print after a successful probe for
- SCMI power domains
-Message-ID: <20260304-arrogant-primitive-mustang-990de4@sudeepholla>
-References: <20260304101457.7470-1-ulf.hansson@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260304101457.7470-1-ulf.hansson@linaro.org>
+	s=k20201202; t=1772650507;
+	bh=+CoFz2M+9c2pM948N4zJ4k6R6xzkN9GVI18Y8Jz++GU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=MrtTvA8fVlEGm7jd+BRu4fiEpM1dH6JF1nFXXcniv3cdXtwxiqw/L2f/jsagLxsoH
+	 Mv2gByqrF1LvsNwOezxnAMIMEre8p7t9QTAf5DUp/0MxBDd0CAu6c5ZC6y7kkPz6kG
+	 Uo3OMeL2l8UFOp/R/11hTWCgKf2hnNtO1mLokNFbIUIrS3HWqOQpzCgxPGJn3kpZRx
+	 VYXKn8BCVRO8Z9UjAAtJMVjbmxui5S71N5UGpJ7HvrMiJmuWUxw0s8rK5kWhiQUs64
+	 q9zVXdmnHMELCRZuPPOi+/c8MICBNcA1F2sc498CWlaZG5Y6mVDF8ngnWHoT9DwKm8
+	 UB7DwUqhfp8TA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vxrNA-0000000GBPd-2kmH;
+	Wed, 04 Mar 2026 18:55:04 +0000
+Date: Wed, 04 Mar 2026 18:55:04 +0000
+Message-ID: <86wlzr77cn.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Quentin Perret <qperret@google.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
+Subject: Re: [PATCH] KVM: arm64: Adjust range correctly during host stage-2 faults
+In-Reply-To: <20250625105548.984572-1-qperret@google.com>
+References: <20250625105548.984572-1-qperret@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: qperret@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, leo.yan@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260304_105508_584162_5559059A 
+X-CRM114-Status: GOOD (  23.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,20 +90,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 04, 2026 at 11:14:57AM +0100, Ulf Hansson wrote:
-> It can be discussed how useful a print is after a successful probe. In the
-> SCMI power domain case it's seems valuable, as it let us inform about the
-> number of initialized power domains too, which is fetched from firmware.
+On Wed, 25 Jun 2025 11:55:48 +0100,
+Quentin Perret <qperret@google.com> wrote:
 > 
-> Therefore, let's add a print about this, which also aligns with the
-> behaviour of the SCMI perf domain driver.
+> host_stage2_adjust_range() tries to find the largest block mapping that
+> fits within a memory or mmio region (represented by a kvm_mem_range in
+> this function) during host stage-2 faults under pKVM. To do so, it walks
+> the host stage-2 page-table, finds the faulting PTE and its level, and
+> then progressively increments the level until it finds a granule of the
+> appropriate size. However, the condition in the loop implementing the
+> above is broken as it checks kvm_level_supports_block_mapping() for the
+> next level instead of the current, so pKVM may attempt to map a region
+> larger than can be covered with a single block.
 > 
+> This is not a security problem and is quite rare in practice (the
+> kvm_mem_range check usually forces host_stage2_adjust_range() to choose a
+> smaller granule), but this is clearly not the expected behaviour.
+> 
+> Refactor the loop to fix the bug and improve readability.
+> 
+> Fixes: c4f0935e4d95 ("KVM: arm64: Optimize host memory aborts")
+> Signed-off-by: Quentin Perret <qperret@google.com>
 
-I always assumed it was already there as dev_debug() but I am wrong.
+This patch prevents my O6 board from booting in protected mode as of
+e728e705802fe. Reverting it on top of 7.0-rc2 make the box work again.
 
-Acked-by: Sudeep Holla <sudeep.holla@kernel.org>
+I haven't quite worked out why though. The hack below makes it work,
+but implies that we can get ranges that are smaller than a page.  That
+feels unlikely, but I'm not sure we can rule it out (the kernel page
+size could be pretty large anyway).
+
+Any idea?
+
+	M.
+
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index 38f66a56a7665..d815265bd374f 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -518,7 +518,7 @@ static int host_stage2_adjust_range(u64 addr, struct kvm_mem_range *range)
+ 		granule = kvm_granule_size(level);
+ 		cur.start = ALIGN_DOWN(addr, granule);
+ 		cur.end = cur.start + granule;
+-		if (!range_included(&cur, range))
++		if (!range_included(&cur, range) && level < KVM_PGTABLE_LAST_LEVEL)
+ 			continue;
+ 		*range = cur;
+ 		return 0;
 
 -- 
-Regards,
-Sudeep
+Without deviation from the norm, progress is not possible.
 
