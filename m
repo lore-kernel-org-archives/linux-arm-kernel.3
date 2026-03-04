@@ -4,94 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8161CEDEC12
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 06:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90449EDEC12
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 06:33:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f9B/eoXPHzf4Ne438osq3GavHWtC0eEvRnIZrrT/wzs=; b=tCgMq9M4Kr4qyWStVmGRY1f/YE
-	HLuKqTAmO33rD1TlUooj2Av/3liNE6arz5JrXS0vvS41B0GwNjGzZmhFIdEyoXI13I4un2wz774x0
-	cBy2kzLTq7+esnZfvRFFeS4cE66B0YtlgfpD99geFvh1OS53rqZk4WI/13QcnF2E5USlldaWI59U3
-	Ul025o5cFZeiVcgTH0g08eIMb+J2264uq2LmGvr7dyDUKEUOyobIwdY+kxKN1oDglTLVX9kqe7p0h
-	8U4rIp05CLNJSFURKnGh56wwiGv8R1UgFHkggF2JM0eS9pFpbRCG9KLZcfFmqGT/EhjGnfVsPf6bw
-	7FMYpYRw==;
+	bh=VW+H4GFtWpGQnDNFDXBJpRYQQMH/1W8H0//7boax+HQ=; b=JwkwOgGvhebV/o6zeAiFt4EUrQ
+	Hnq+mQBbKMNaW5AjHTEw/jXxfXv+6X3dBS6AuB05FgwXt5Ht2QkuliMLPIKeT3+x+RpxiVMZLWecu
+	m86XZAklyVFXgmD6xDqWzoAyhNsovnlDkjLqIMyEC7W7zImcrwZERL1fs12QtZRRa2WG3zRo4OVpy
+	wyatHSNHJkYbYyc+v8B3jA2mthUwT07/KFplDr6XryQmlY1XVcB1MKQD4FofIDAF1rY3ooHBMuGIS
+	O0rRQZIb7EerFt8Qd1EjB6ToHgLAttpg3dQI33bmc1AozR2v1bbUsWXt4JZVeV9N3ELbmV2hN6kxy
+	vmCUzeBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxfdb-0000000GWL8-2qnt;
-	Wed, 04 Mar 2026 06:23:15 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1vxfn6-0000000GWnF-09Ag;
+	Wed, 04 Mar 2026 06:33:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxfdZ-0000000GWKP-2ZWJ
+	id 1vxfn4-0000000GWmq-0UzJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 06:23:14 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-c7059b9df33so2443667a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Mar 2026 22:23:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772605392; x=1773210192; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=f9B/eoXPHzf4Ne438osq3GavHWtC0eEvRnIZrrT/wzs=;
-        b=jThn7EybM3Yu2ysWvohaaNJ+x/FTAMgiwWJnbYqAdfHiGJiyL1Hwe+wKdwrT2KGIol
-         GB0rTJX+L3ODkJ5Xmwhe3UgXr58wECyZjCdnBsQZngtwWwhqArFPA6UfUvZVSswUawzr
-         j7r5mvE5YRhzhS8T9+DAXCWeRwgyn/gh80f9tpRTYnKU07QA2aVwLCq9xRpAnQNaE9iO
-         m4uhTzOqdocHDLV5Qw+mVplOlX/FeIJJ4mVUO+qbpCtUNRHb6WME92lvKNBWlTtt12Dl
-         oDErFJ8+0WK6ZawJxkbMywT2G+QwfCnW6udqm6/RIdF1HOwsXVJdRS5N8CDNcUAc4yAm
-         TufA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772605392; x=1773210192;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=f9B/eoXPHzf4Ne438osq3GavHWtC0eEvRnIZrrT/wzs=;
-        b=jSRHkAIdpd3NV0rHT9gnhGCsnoldOxDc3HPAQnf4NNzXSZcYxmy4IahXG4B6ghc7GF
-         bqJkuFXTR5IX0SOQeRrYCwNocTlngBmawdjo0/tT7bENK9cGkNMnzMulj+2ZSYDzKIbw
-         dSTmpyM4LMKr3slMy4irWYgDEZXwkU1MuO6SBjj1ZDZ+yVzQ3n8XjfKP2T12WE7JkZ4a
-         dmvDeruL0OjRiWty9aHveOYFuLkhe9OHrCMjZogWwTMoc96wFEnvVWGN4vq3G8a5YdMt
-         kuIv4hOXnK15kTmEXM+TeBU3WVSwkJB+S+o7WVYF5b3Y1eJrQqzTqoMfg+nWkaRsc4OX
-         V1pA==
-X-Forwarded-Encrypted: i=1; AJvYcCUcrNx64MD3bBnlgaVFC3nSJvZfxhWHH+yQYpagId7sLbg/445VsuuiccQBVYClgl7gDCVvm3Mhd8GvVXrrBlWx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7n9sikb8OnBg7sxXgDtPz7ywZJugWTDcK//ykOVMD6yCnhBu3
-	p9pvNkyzXkUGrwE3cOh/38eASpCnlAutS7d7A0AKmEgY+WxGFqjRyDXT
-X-Gm-Gg: ATEYQzy7YkP8BXTcQet5Np5eVpeuYM1FK9lQ+EcEYXAB6GWoJGA/dEUuM2Y9YQYl05Q
-	KEFxxgPpEOzQsBGNe6W5jhm6ZPCOWNAORLHILdLvw8cEh4VEHN1Z4SX7a41enyE9kuEhVq2A+Xm
-	s7tfxPCPcxj4Ybu7DGQlRC5aPnglpMHd01crKZSrZl2ZJMcKvVQf+6y0DwARTohsn7At5dqWz3P
-	TRqOM7QWeWExgTDAZqAsmndeCZReOpKYnUKMqI3GK6ZfVxZf5E+x816M961Nq12qMVWXly0CuJL
-	JcN/BK3oK5w4w31bTxgNT78jEaGCix+s1xt2rIS+vGvsGfUkC68uAcO+jp4rdifNIbdS8HgEYFS
-	dT0P3MI6I8BkQqLpB3iYTMiTdS9KTzeZmndX2mn2Q5TnKsdzRGekc7IitajpH+RPZBSYiEXDqrD
-	FxU6SllPFvZe9G7++mIQgIffeXf/NUpM/DJ97BuKAC2KBN7FZ17Hwg
-X-Received: by 2002:a17:90b:2f87:b0:352:d933:5574 with SMTP id 98e67ed59e1d1-3599ceb537dmr4072869a91.9.1772605392279;
-        Tue, 03 Mar 2026 22:23:12 -0800 (PST)
-Received: from [192.168.0.226] ([38.34.87.7])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae54e394aasm96198375ad.77.2026.03.03.22.23.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Mar 2026 22:23:11 -0800 (PST)
-Message-ID: <e50cb1e9f805d55a04cf0396aeb9fa3823a2f37b.camel@gmail.com>
-Subject: Re: [PATCH bpf-next v5 4/5] bpf, x86: Emit ENDBR for indirect jump
- targets
-From: Eduard Zingerman <eddyz87@gmail.com>
-To: Xu Kuohai <xukuohai@huaweicloud.com>, bpf@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
- <daniel@iogearbox.net>,  Andrii Nakryiko <andrii@kernel.org>, Martin KaFai
- Lau <martin.lau@linux.dev>, Yonghong Song	 <yonghong.song@linux.dev>,
- Puranjay Mohan <puranjay@kernel.org>, Anton Protopopov
- <a.s.protopopov@gmail.com>
-Date: Tue, 03 Mar 2026 22:23:09 -0800
-In-Reply-To: <20260302102726.1126019-5-xukuohai@huaweicloud.com>
-References: <20260302102726.1126019-1-xukuohai@huaweicloud.com>
-	 <20260302102726.1126019-5-xukuohai@huaweicloud.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
+	Wed, 04 Mar 2026 06:33:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 690B3402A5;
+	Wed,  4 Mar 2026 06:32:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56C3AC19423;
+	Wed,  4 Mar 2026 06:32:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772605979;
+	bh=KLX+r/cNJoWvojZCxYtKCgW5FIWCy3S0O4lMxQZnvbo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GYi/RgHc/O9GuaYVlzO1gnR6pZKx0lkv+TjVM4lUDJqV977f7X2JTyAP1pDVDDPf3
+	 f1frd7YUMnSfCSR5AFvoA2ZNpZpDNkL8BugfgxktUoEHMswgkIueG8fYCGUTVEDopW
+	 4QO9lGcOS1G3SKsfgrEfI0Lv+6XdSfQjN8D6X7emLQzL2fyG394bj0iLQywVgxMjMZ
+	 h5uZFBu6MJL6YFZeh5RdYlqTz7qGNzvGGg54+KHpW4bgq9Ijf4PaPgqx3/qlQnLeY7
+	 MANj0hBh9vU2Da5exkV6COy6kMRcWXf1MewqsfdtIRaZL4BFKFnGMiWwmSaAQYlxlx
+	 OkDEhwoFhW/Xg==
+Date: Wed, 4 Mar 2026 12:02:48 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Hongxing Zhu <hongxing.zhu@nxp.com>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>, 
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>
+Subject: Re: i.MX8M Plus PCIe link regression
+Message-ID: <2qto2ddqmtks37wxtklxo4ctvxyezmgtjcuprnk6crant5fvsu@vdbmqomrcqt3>
+References: <23024521.EfDdHjke4D@steina-w>
+ <ac24flkmrooacnpt53swuurkbxvorbjx2yb4s3zdevqua6ddls@wjc3bcsl7zif>
+ <AS8PR04MB88332979F06EDE29E751BCE18C7CA@AS8PR04MB8833.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <AS8PR04MB88332979F06EDE29E751BCE18C7CA@AS8PR04MB8833.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_222313_656059_98D20635 
-X-CRM114-Status: UNSURE (   9.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260303_223302_223296_12BE18D7 
+X-CRM114-Status: GOOD (  33.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,21 +75,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2026-03-02 at 18:27 +0800, Xu Kuohai wrote:
+On Wed, Mar 04, 2026 at 02:55:51AM +0000, Hongxing Zhu wrote:
+> > -----Original Message-----
+> > From: Manivannan Sadhasivam <mani@kernel.org>
+> > Sent: 2026年3月4日 0:42
+> > To: Hongxing Zhu <hongxing.zhu@nxp.com>; Alexander Stein
+> > <alexander.stein@ew.tq-group.com>
+> > Cc: linux-pci@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
+> > imx@lists.linux.dev
+> > Subject: Re: i.MX8M Plus PCIe link regression
+> > 
+> > On Tue, Mar 03, 2026 at 01:38:13PM +0100, Alexander Stein wrote:
+> > > Hi,
+> > >
+> > > these days I noticed that there is a PCIe link regression on my
+> > > i.MX8MP platform (TQMa8MPxL) running next-20260227.
+> > > I could bisect it back to commit 9c03e30e3ade3 ("PCI: imx6: Skip link
+> > > up workaround for newer platforms"). I always get the following errors:
+> > >
+> > > imx6q-pcie 33800000.pcie: Link failed to come up. LTSSM:
+> > > CFG_LINKWD_START imx6q-pcie 33800000.pcie: probe with driver
+> > > imx6q-pcie failed with error -110
+> > >
+> > > Connected is a Gen1 PCIe -> Ethernet adapter. Interestingly a Gen2
+> > > device is detected without issues.
+> > >
+> > > Reverting 3c96a61dd2e098dda8dcac3dce3d38a3c87afbfc and
+> > > b9a8d28ebbf118bb3eac953f4a37abbd341257ab "fixes" my platform, both
+> > Gen
+> > > 1 and Gen 2 devices are detect. Commit
+> > > 3c96a61dd2e098dda8dcac3dce3d38a3c87afbfc is only required for conflict
+> > free revert.
+> > >
+> > > Here is a summary with outputs:
+> > > Gen 1 device
+> > > > 00:00.0 PCI bridge: Synopsys, Inc. DWC_usb3 / PCIe bridge (rev 01)
+> > > > 01:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd.
+> > > > RTL8111/8168/8211/8411 PCI Express Gigabit Ethernet Controller (rev
+> > > > 01)
+> > >
+> > > Gen 2 device
+> > > > 00:00.0 PCI bridge: Synopsys, Inc. DWC_usb3 / PCIe bridge (rev 01)
+> > > > 01:00.0 SATA controller: Marvell Technology Group Ltd. 88SE9128 PCIe
+> > > > SATA 6 Gb/s RAID controller (rev 20)
+> > >
+> > > output of "dmesg | grep imx6q-pcie". Common part for all tests:
+> > > > imx6q-pcie 33800000.pcie: host bridge /soc@0/pcie@33800000 ranges:
+> > > > imx6q-pcie 33800000.pcie:       IO 0x001ff80000..0x001ff8ffff ->
+> > > > 0x0000000000
+> > > > imx6q-pcie 33800000.pcie:      MEM 0x0018000000..0x001fefffff ->
+> > > > 0x0018000000
+> > > > imx6q-pcie 33800000.pcie: config reg[1] 0x1ff00000 == cpu 0x1ff00000
+> > > > imx6q-pcie 33800000.pcie: iATU: unroll T, 4 ob, 4 ib, align 64K,
+> > > > limit 16G
+> > >
+> > > next-20260227
+> > > Gen 1
+> > > > imx6q-pcie 33800000.pcie: Link failed to come up. LTSSM:
+> > > > CFG_LINKWD_START imx6q-pcie 33800000.pcie: probe with driver
+> > > > imx6q-pcie failed with error -110
+> > >
+> > > Gen 2
+> > > > imx6q-pcie 33800000.pcie: PCIe Gen.2 x1 link up imx6q-pcie
+> > > > 33800000.pcie: PCI host bridge to bus 0000:00
+> > >
+> > > next-20260227 + reverts
+> > > Gen 1
+> > > > imx6q-pcie 33800000.pcie: PCIe Gen.1 x1 link up imx6q-pcie
+> > > > 33800000.pcie: PCIe Gen.1 x1 link up imx6q-pcie 33800000.pcie: PCI
+> > > > host bridge to bus 0000:00
+> > >
+> > > Gen 2
+> > > > imx6q-pcie 33800000.pcie: PCIe Gen.1 x1 link up imx6q-pcie
+> > > > 33800000.pcie: PCIe Gen.2 x1 link up imx6q-pcie 33800000.pcie: PCI
+> > > > host bridge to bus 0000:00
+> > >
+> > > What can we do here? I'm wondering why Gen 2 trains correctly, while
+> > > Gen 1 doesn't.
+> > >
+> > 
+> > Thanks for the report and sorry for the breakage. Commit 9c03e30e3ade3,
+> > mentions that the workaround is only needed for the i.MX6 platforms. So
+> > I'm not sure why the patch breaks i.MX8M and that too only for Gen 1
+> > speed.
+> > 
+> > Also, before 9c03e30e3ade3, LTSSM was always started in Gen 1, but as per
+> > your finding, only Gen 1 devices fail to work. So the code till
+> > imx_pcie_wait_for_speed_change() shouldn't have an impact. Maybe the
+> > issue is due to skipping imx_pcie_wait_for_speed_change()?
+> > 
+> > Richard, thoughts?
+> Hi Maini:
+> Prior to calling imx_pcie_wait_for_speed_change(), the PCIe link must
+>  already be established. Before commit 9c03e30e3ade3, the speed change
+>  procedure was only initiated after the initial Gen1 link was successfully
+>  brought up.
+> 
+> Hi Alexander:
+> Sorry for the breakage.
+> Before commit 9c03e30e3ade3, i.MX8MP PCIe forced Gen1 link training
+>  initially, then switched to Gen3 after link-up by triggering a speed
+>  change. After commit 9c03e30e3ade3, link training starts directly at
+>  the Gen3 capability level.
+> 
+> The two link training methods differ only in the i.MX8MP Root Complex (RC)
+>  link capability configuration prior to link training: one method forces
+>  Gen1 speed, while the other retains the default Gen3 setting in your tests.
+> 
 
-[...]
+I still don't understand why the link fails to train at Gen 1.
 
-> @@ -2449,7 +2452,7 @@ st:			if (is_imm8(insn->off))
-> =20
->  			/* call */
->  		case BPF_JMP | BPF_CALL: {
-> -			u8 *ip =3D image + addrs[i - 1];
-> +			u8 *ip =3D image + addrs[i - 1] + (prog - temp);
-                                                        ^^^^^^^^^^^^^
-			Could you please comment a bit why this addend is needed?
-> =20
->  			func =3D (u8 *) __bpf_call_base + imm32;
->  			if (src_reg =3D=3D BPF_PSEUDO_CALL && tail_call_reachable) {
+- Mani
 
-[...]
+> Fortunately, I also have a RTL8168E Gigabit network card on hand.
+> Based on v7.0-rc1, here is the tests log on my i.MX8MP EVK board and one M.2
+> Key E to PCIe standard slot exchange adaptor.
+> 
+> Logs:
+> root@imx8mpevk:~# dmesg | grep pci
+> [    2.172420] imx6q-pcie 33800000.pcie: host bridge /soc@0/pcie@33800000 ranges:
+> [    2.172516] imx6q-pcie 33800000.pcie:       IO 0x001ff80000..0x001ff8ffff -> 0x0000000000
+> [    2.172545] imx6q-pcie 33800000.pcie:      MEM 0x0018000000..0x001fefffff -> 0x0018000000
+> [    2.172631] imx6q-pcie 33800000.pcie: config reg[1] 0x1ff00000 == cpu 0x1ff00000
+> [    2.380065] imx6q-pcie 33800000.pcie: iATU: unroll T, 4 ob, 4 ib, align 64K, limit 16G
+> [    2.579604] imx6q-pcie 33800000.pcie: PCIe Gen.1 x1 link up
+> [    2.580020] imx6q-pcie 33800000.pcie: PCI host bridge to bus 0000:00
+> <snipped>
+> [    2.583653] pci 0000:01:00.0: [10ec:8168] type 00 class 0x020000 PCIe Endpoint
+> [    2.583858] pci 0000:01:00.0: BAR 0 [io  0x0000-0x00ff]
+> [    2.583885] pci 0000:01:00.0: BAR 2 [mem 0x00000000-0x00000fff 64bit]
+> [    2.583902] pci 0000:01:00.0: BAR 4 [mem 0x00000000-0x00003fff 64bit pref]
+> [    2.583914] pci 0000:01:00.0: ROM [mem 0x00000000-0x0001ffff pref]
+> [    2.584280] pci 0000:01:00.0: supports D1 D2
+> [    2.584320] pci 0000:01:00.0: PME# supported from D0 D1 D2 D3hot D3cold
+> [    2.595615] pci 0000:01:00.0: ASPM: default states L0s L1
+> root@imx8mpevk:~#
+> root@imx8mpevk:~# lspci
+> 00:00.0 PCI bridge: Synopsys, Inc. DWC_usb3 / PCIe bridge (rev 01)
+> 01:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. RTL8111/8168/8211/8411 PCI Express Gigabit Ethernet Controller (rev 06)
+> 
+> Best Regards
+> Richard
+> > 
+> > - Mani
+> > 
+> > --
+> > மணிவண்ணன் சதாசிவம்
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
