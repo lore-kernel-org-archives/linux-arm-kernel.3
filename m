@@ -4,72 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 713DBEF9002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 16:23:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5197AEF8FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 16:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xYK5YnD6PK/wRtLBidA/fCTqYSAI3vOMVTapurd9A8Y=; b=dRyt91bOe23gl69z22AuHRTec5
-	oUmJp2RP0Wo0tLptNc96IgQuajNwwGoBggorMm6V/gEkAkw1fjVSkaieTNAXTfZYDqkm6jit7B7+O
-	EMSbV3XsqrtendicYh39Ccto4UPp7BzVnCeyfPx2xttrXlTK/ZmAETfzR0A2qD5Cxq4Rr0/RkaxZ3
-	y3XROscCRA77NopsEFiDewi3qHBYoBU5YdeCYkmDGtR6bxfRt7OuIQJuaB5fPglFTzR22lUMN+clK
-	Zs0DJoY1fzu043DjloTNBNmUUKbHSzfMqL5Duii1Xy8CmolK+r/x/gGwHz0pc0AIg9PpQDuOwh+l5
-	2u+h6bsw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2tE5zCq5iE+7KwSUMgIsmKRLUq7bBMqRO9vqSR5i7E4=; b=Hbxa7N9zkMMXBdv3SQNREGVD2E
+	8brBVlrx/nzvTdhD6qMX5xVMz3GGIOCX4sMmQut3qV0DgKo1xlCYwyRiSLL2Bq2nPi+J/ekWPv0ah
+	fX817HvTXRm8c/MbAMd3juWHDLw2Ut+DBApBDx9H6mYr6Zzs71uOIgDIXIw+f0I3wk1Os4BJMqgJa
+	rC1CVozXbPmwq+llCKoQ1jrjFf/WUgwNeb8X+dakSAgqhTRrzsa/JdgNWVLcEt8O9MywCzxScyBQE
+	89/7e3MPaDHFwqHNKwzEhD0lq7C/WuYp6Y2gd/7w5iUJEM6ka94KNqJM6KYgQ6hRzjHnxvcuhihXu
+	oJ9Sr1Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxp0i-000000004LL-0MsS;
-	Wed, 04 Mar 2026 16:23:44 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vxp5y-000000004j5-3ZJY;
+	Wed, 04 Mar 2026 16:29:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxp0f-000000004Kc-220P
+	id 1vxp5w-000000004hy-0qzI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 16:23:43 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 9AE3E4E42542;
-	Wed,  4 Mar 2026 16:23:39 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6EF075FF5C;
-	Wed,  4 Mar 2026 16:23:39 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 283D410369745;
-	Wed,  4 Mar 2026 17:23:33 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1772641418; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=xYK5YnD6PK/wRtLBidA/fCTqYSAI3vOMVTapurd9A8Y=;
-	b=yGk6nEO0rstImCcR4sXznwq84+ePnnVkTr6gEwdBElr3pI/cDPbrjQaxQP0UfyIHkCs774
-	Z2adwc+dB4YfTmgMM9/qs2jAj8vXpsc5osuo5k2ZUqSwpx1Co9+Mf7G2mQOILt0QcBP8Rh
-	U5IV7CVWBOEwI6ST4iQxnaWK8fDguHvQ/henEU0zb5D9wBEV0CyNYfRtbsiyi7G1AT2gTQ
-	LSkDw29j+3ZS8vNFagkVhAsjvpQ0afMCcnoaeeq6m1Hi2lKH3JyPrgWsztIzsGDPYxdZKE
-	EdDztObWY5q1egJhJcLS1hkbRnCn/2UDLFwdIeHiMX4gO4gKVaDfPWP7p5qvtQ==
-Message-ID: <2069cdfb-7c67-4047-a35f-f1e976a03122@bootlin.com>
-Date: Wed, 4 Mar 2026 17:23:33 +0100
+	Wed, 04 Mar 2026 16:29:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 607EA40E26;
+	Wed,  4 Mar 2026 16:29:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69933C4CEF7;
+	Wed,  4 Mar 2026 16:29:05 +0000 (UTC)
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Huy Bui <huy.bui.wm@renesas.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Hai Pham <hai.pham.ud@renesas.com>,
+	Khanh Le <khanh.le.xr@renesas.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>
+Cc: linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH] arm64: dts: renesas: r8a78000: Fix out-of-range SPI interrupt numbers
+Date: Wed,  4 Mar 2026 17:29:01 +0100
+Message-ID: <1f9dd274720ea1b66617a5dd84f76c3efc829dc8.1772641415.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC net-next v2 3/7] net: stmmac: use integrated PCS for
- BASE-X modes
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>, netdev@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>
-References: <aafxqCvJ_XY4YbWw@shell.armlinux.org.uk>
- <E1vxhuo-0000000BqGW-0YDF@rmk-PC.armlinux.org.uk>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <E1vxhuo-0000000BqGW-0YDF@rmk-PC.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_082341_661604_094C3EB1 
-X-CRM114-Status: GOOD (  20.94  )
+X-CRM114-CacheID: sfid-20260304_082908_284132_D2371CBD 
+X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,77 +66,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Russell,
+SPI interrupts are in the range 0-987.  Extended SPI interrupts should
+use GIC_ESPI, instead of abusing GIC_SPI with a manual offset of 4064.
 
-On 04/03/2026 09:49, Russell King (Oracle) wrote:
-> dwmac-qcom-ethqos supports SGMII and 2500BASE-X using the integrated
-> PCS, so we need to expand the PCS support to include support for
-> BASE-X modes.
-> 
-> Add support to the prereset configuration to detect 2500BASE-X, and
-> arrange for stmmac_mac_select_pcs() to return the integrated PCS if
-> its supported_interfaces bitmap reports support for the interface mode.
-> 
-> This results in priv->hw->pcs now being write-only, so remove it.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Fixes: 63500d12cf76d003 ("arm64: dts: renesas: Add R8A78000 SoC support")
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+To be queued in renesas-fixes for v7.0.
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+ arch/arm64/boot/dts/renesas/r8a78000.dtsi | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
-Maxime
-
-> ---
->  drivers/net/ethernet/stmicro/stmmac/common.h      | 4 ----
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 8 ++------
->  2 files changed, 2 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
-> index 42a48f655849..91116acf3273 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/common.h
-> +++ b/drivers/net/ethernet/stmicro/stmmac/common.h
-> @@ -277,9 +277,6 @@ struct stmmac_safety_stats {
->  #define FLOW_TX		2
->  #define FLOW_AUTO	(FLOW_TX | FLOW_RX)
->  
-> -/* PCS defines */
-> -#define STMMAC_PCS_SGMII	(1 << 1)
-> -
->  #define SF_DMA_MODE 1		/* DMA STORE-AND-FORWARD Operation Mode */
->  
->  /* DMA HW feature register fields */
-> @@ -634,7 +631,6 @@ struct mac_device_info {
->  	unsigned int unicast_filter_entries;
->  	unsigned int mcast_bits_log2;
->  	unsigned int rx_csum;
-> -	unsigned int pcs;
->  	unsigned int num_vlan;
->  	u32 vlan_filter[32];
->  	bool vlan_fail_q_en;
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 029e9b518160..2e7edc3e82f2 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -945,11 +945,8 @@ static struct phylink_pcs *stmmac_mac_select_pcs(struct phylink_config *config,
->  			return pcs;
->  	}
->  
-> -	/* The PCS control register is only relevant for SGMII, TBI and RTBI
-> -	 * modes. We no longer support TBI or RTBI, so only configure this
-> -	 * register when operating in SGMII mode with the integrated PCS.
-> -	 */
-> -	if (priv->hw->pcs & STMMAC_PCS_SGMII && priv->integrated_pcs)
-> +	if (priv->integrated_pcs &&
-> +	    test_bit(interface, priv->integrated_pcs->pcs.supported_interfaces))
->  		return &priv->integrated_pcs->pcs;
->  
->  	return NULL;
-> @@ -1208,7 +1205,6 @@ static void stmmac_check_pcs_mode(struct stmmac_priv *priv)
->  
->  	if (priv->dma_cap.pcs && interface == PHY_INTERFACE_MODE_SGMII) {
->  		netdev_dbg(priv->dev, "PCS SGMII support enabled\n");
-> -		priv->hw->pcs = STMMAC_PCS_SGMII;
->  
->  		switch (speed) {
->  		case SPEED_10:
+diff --git a/arch/arm64/boot/dts/renesas/r8a78000.dtsi b/arch/arm64/boot/dts/renesas/r8a78000.dtsi
+index 03639d0e5e339b14..3ec1b53d27828296 100644
+--- a/arch/arm64/boot/dts/renesas/r8a78000.dtsi
++++ b/arch/arm64/boot/dts/renesas/r8a78000.dtsi
+@@ -698,7 +698,7 @@ scif0: serial@c0700000 {
+ 			compatible = "renesas,scif-r8a78000",
+ 				     "renesas,rcar-gen5-scif", "renesas,scif";
+ 			reg = <0 0xc0700000 0 0x40>;
+-			interrupts = <GIC_SPI 4074 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <GIC_ESPI 10 IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&dummy_clk_sgasyncd16>, <&dummy_clk_sgasyncd16>, <&scif_clk>;
+ 			clock-names = "fck", "brg_int", "scif_clk";
+ 			status = "disabled";
+@@ -708,7 +708,7 @@ scif1: serial@c0704000 {
+ 			compatible = "renesas,scif-r8a78000",
+ 				     "renesas,rcar-gen5-scif", "renesas,scif";
+ 			reg = <0 0xc0704000 0 0x40>;
+-			interrupts = <GIC_SPI 4075 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <GIC_ESPI 11 IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&dummy_clk_sgasyncd16>, <&dummy_clk_sgasyncd16>, <&scif_clk>;
+ 			clock-names = "fck", "brg_int", "scif_clk";
+ 			status = "disabled";
+@@ -718,7 +718,7 @@ scif3: serial@c0708000 {
+ 			compatible = "renesas,scif-r8a78000",
+ 				     "renesas,rcar-gen5-scif", "renesas,scif";
+ 			reg = <0 0xc0708000 0 0x40>;
+-			interrupts = <GIC_SPI 4076 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <GIC_ESPI 12 IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&dummy_clk_sgasyncd16>, <&dummy_clk_sgasyncd16>, <&scif_clk>;
+ 			clock-names = "fck", "brg_int", "scif_clk";
+ 			status = "disabled";
+@@ -728,7 +728,7 @@ scif4: serial@c070c000 {
+ 			compatible = "renesas,scif-r8a78000",
+ 				     "renesas,rcar-gen5-scif", "renesas,scif";
+ 			reg = <0 0xc070c000 0 0x40>;
+-			interrupts = <GIC_SPI 4077 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <GIC_ESPI 13 IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&dummy_clk_sgasyncd16>, <&dummy_clk_sgasyncd16>, <&scif_clk>;
+ 			clock-names = "fck", "brg_int", "scif_clk";
+ 			status = "disabled";
+@@ -738,7 +738,7 @@ hscif0: serial@c0710000 {
+ 			compatible = "renesas,hscif-r8a78000",
+ 				     "renesas,rcar-gen5-hscif", "renesas,hscif";
+ 			reg = <0 0xc0710000 0 0x60>;
+-			interrupts = <GIC_SPI 4078 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <GIC_ESPI 14 IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&dummy_clk_sgasyncd4>, <&dummy_clk_sgasyncd4>, <&scif_clk>;
+ 			clock-names = "fck", "brg_int", "scif_clk";
+ 			status = "disabled";
+@@ -748,7 +748,7 @@ hscif1: serial@c0714000 {
+ 			compatible = "renesas,hscif-r8a78000",
+ 				     "renesas,rcar-gen5-hscif", "renesas,hscif";
+ 			reg = <0 0xc0714000 0 0x60>;
+-			interrupts = <GIC_SPI 4079 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <GIC_ESPI 15 IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&dummy_clk_sgasyncd4>, <&dummy_clk_sgasyncd4>, <&scif_clk>;
+ 			clock-names = "fck", "brg_int", "scif_clk";
+ 			status = "disabled";
+@@ -758,7 +758,7 @@ hscif2: serial@c0718000 {
+ 			compatible = "renesas,hscif-r8a78000",
+ 				     "renesas,rcar-gen5-hscif", "renesas,hscif";
+ 			reg = <0 0xc0718000 0 0x60>;
+-			interrupts = <GIC_SPI 4080 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <GIC_ESPI 16 IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&dummy_clk_sgasyncd4>, <&dummy_clk_sgasyncd4>, <&scif_clk>;
+ 			clock-names = "fck", "brg_int", "scif_clk";
+ 			status = "disabled";
+@@ -768,7 +768,7 @@ hscif3: serial@c071c000 {
+ 			compatible = "renesas,hscif-r8a78000",
+ 				     "renesas,rcar-gen5-hscif", "renesas,hscif";
+ 			reg = <0 0xc071c000 0 0x60>;
+-			interrupts = <GIC_SPI 4081 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <GIC_ESPI 17 IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&dummy_clk_sgasyncd4>, <&dummy_clk_sgasyncd4>, <&scif_clk>;
+ 			clock-names = "fck", "brg_int", "scif_clk";
+ 			status = "disabled";
+-- 
+2.43.0
 
 
