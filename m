@@ -4,94 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3782DEB7EAC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 10:06:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95172EB7EAC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 10:08:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bsGz9NobNNMerVOOjKKJ0LgJD2SxFYXhHAVBSa0LnTg=; b=njZmhDjEZJJQXN55DwqonwWy/m
-	bpNhmOrfr53NQWg23TAFAnJFjbbw74hIWKmj9U0aXLJlp3O99Uk4Y76SOSrDgrUeifPBGNi5GjfFF
-	a539etMSGYi6lF4QDHA/aZSv/IeWo6668p13MPxdi5+r3tbpOzYU5Nn+YD83/25OfaAiYG9110/fN
-	Nhcx/tMkWMFXlY6RfW7hlD7w/WZ+LWZFQPECsPSVX1z60J0QruAI4c0/HEMkq0T0/P15O3gdCvzBZ
-	C91VGSiUHnYkLbf/kuxgQS1rFmfM5blYC9jRz3bChKBCGL4aa79g3BIeExzhMdag8g8eZWkYBhZfa
-	N4VsP7GA==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+3GcVJzJOaMrQj6u+FGtRxjCJVOJSzeAFf3bB9pddjs=; b=Sr3gS9ZyEO3mj/05Qv3ODfbExb
+	geIsI0ApY5Xx3li3ketRtMeugMjyhTafH62V3nuXY35WwAvSZ19eNPsM55qoOb+KyXePSgnb8QV4O
+	9MQa+ZDvn112M0OMdIKx7DlakEjORcBMmgGtA4LZn+moLALkArt/70J1PNVARGu4u5VmBTNiv3q9X
+	EV8jto7+xV8JO9C7K+cL26RC0QqLJp8hfe6P72OKbcxoMOXzz4RMztWhr+vB9E+vA5L5Il6OYzGyg
+	62RROpcDNWsIVG7lzdzvy0Bs2TQXE+JsXyWcLtlWpAfq8UMyyc7X2juHNXR0KFZI9IQnGeQ0ovpak
+	aBLAP4fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxj7L-0000000Gx3e-031y;
-	Wed, 04 Mar 2026 10:06:11 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1vxj9b-0000000GxGc-3AZj;
+	Wed, 04 Mar 2026 10:08:31 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxj7I-0000000Gx2W-2fvQ
+	id 1vxj9Y-0000000GxG8-28SI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 10:06:09 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2ab46931cf1so49246435ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 02:06:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772618767; x=1773223567; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=bsGz9NobNNMerVOOjKKJ0LgJD2SxFYXhHAVBSa0LnTg=;
-        b=SKWh/u3g0ZAGb1Q/4rsGg9Wnyt9uswTWiFBkXqDzH3mUQZemPdVDEyT4fPizSvIg3q
-         jXoeHGwP5V7xHf4G+4OFx8LLaFL6kaq6KcKgMKz1cuKHyEDjGhfJOkQI5AyDUjGe/AQg
-         9qn/xhMpT71OT86AqEAVsa7CGfNEidoHQ4GMFgAda2KtGTXFz/EHmh0stHPoVNa6x58R
-         at/WBfwNxnR+KDX1RdQnIP7Hcpusw06I/urUsDBTVDlmmMF9NuL6Ere03gAKz1ggPTY5
-         V7Ui3LL8qZL3a7aAA2xVR3z3iUFA7P/7oIXFUWKLuUPQ56lXPFD12/szsOLSZexv8LT/
-         +63w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772618767; x=1773223567;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bsGz9NobNNMerVOOjKKJ0LgJD2SxFYXhHAVBSa0LnTg=;
-        b=KZoqf8aFqM204JuKg+1selGCs7oWrHSPURBZiD1OakNjjEIACYyQ9P3jZl8lRml7qC
-         uqY7gm1eoPHNv/SkYVbQHnX+LuJuCz6PX597+oHy2cYJZzuHI8dBFcN0W2R8lSJGGG7D
-         Ld6cnLxxnBCir0H6mi6CcvpErolaQ2I0kN4RmjjWW3oF2I8vFS6CQF3F+VClyGyMqC6g
-         hvev9Sv2MLUyHHbBPBbHTEDRH99HrVTO6PTcBCaO3c43q6lVV9G2ybN9/6OGkbq8XGlq
-         wJ2zvmozvV5vaJJ1DuYOF3d5keweEpJsXv8yuKcSQL0SO8DCA0j39xUOmZ13dwuf+zf9
-         vOJA==
-X-Forwarded-Encrypted: i=1; AJvYcCXh0vP+pjeeYVV4nV65Tkr5wyvXBi2bTBA0nog6IwauUVZrWCKmafyYZRFtBg1mFZ6jx+n10dkA6+Lhqe9jPPxZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYACBf172NP0NdDlVeOa/4AmetwLr2kI3CcBKsXj3YiTN09Rbv
-	25R9bljednBBSCHExxQvqZm9Pz9f2vhhyphnVQSZdoY42OWzaviHE+9y
-X-Gm-Gg: ATEYQzznTYv+CeR62nkHM9ZGU/LDObf9jAoH7Bx28H5OyWqyIzSXU/hc63d8Vop8ugp
-	KJg4+if6mzMvirZc+8jlzUnq3c4L6tPvjdfq4BhUXqdUoZdfOYj5ib5lbKLILIakr8M/D+anPaW
-	26JMR2SMXkZf5YBoWNv+usoq5a+zBM6zulN60Q74adMuVKtMj8nUrqQaMqFg7+KPS+4BtnXXNBM
-	g9v5ThUVNDjBP8zr6/Y24q+We68IfZl35TSaxOYlYtlcg1UTxfY4l63AW07jFQUxKPLi3nG5Be5
-	dut7jarXLECeiYlcbBMgxp1QcraWJwnj20TgDj2P40NK7OnXXTsjXPkXhrjlhmG9HQ4xTotCh9F
-	5NeP7ohNZCUG07Fu4PqI6IlKDGT3OtvB15e3m+e2j6ACOwCZY+Jvj5rovOLTJOG2+EmFP9Lbzes
-	oTrLYdXczwEKzoChxENtHq
-X-Received: by 2002:a17:902:fc87:b0:2ad:da28:8c7a with SMTP id d9443c01a7336-2ae6ae0bfefmr15253245ad.8.1772618767233;
-        Wed, 04 Mar 2026 02:06:07 -0800 (PST)
-Received: from rockpi-5b ([45.112.0.200])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2adfb5b48f4sm191220555ad.13.2026.03.04.02.06.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Mar 2026 02:06:06 -0800 (PST)
-From: Anand Moon <linux.amoon@gmail.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Maxime Jourdan <mjourdan@baylibre.com>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	linux-media@vger.kernel.org (open list:MESON VIDEO DECODER DRIVER FOR AMLOGIC SOCS),
-	linux-amlogic@lists.infradead.org (open list:MESON VIDEO DECODER DRIVER FOR AMLOGIC SOCS),
-	linux-staging@lists.linux.dev (open list:STAGING SUBSYSTEM),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Amlogic Meson SoC support),
-	linux-kernel@vger.kernel.org (open list)
-Cc: Anand Moon <linux.amoon@gmail.com>
-Subject: [PATCH v1] media: meson: vdec: Fix memory leak in error path of vdec_open
-Date: Wed,  4 Mar 2026 15:35:53 +0530
-Message-ID: <20260304100557.126488-1-linux.amoon@gmail.com>
-X-Mailer: git-send-email 2.50.1
+	Wed, 04 Mar 2026 10:08:30 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=+3GcVJzJOaMrQj6u+FGtRxjCJVOJSzeAFf3bB9pddjs=;
+	b=3Sd8e7IlxgM+6czm7SzeGmkr1MLLDXO3tCM90f/PRMZbGdwZOlHMpSuUd0Q7wVWYXYDDWFnoe
+	ifUJTiBz8rrZ+72EuC7XFQzC7tBFGqehMQ2spOylh/k/yN9fCSWrN12T24KcxcjdV8ejC7I90vW
+	4/cJZkYdSaqj2n/xxhpwW1g=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4fQpCJ5647z1prkr;
+	Wed,  4 Mar 2026 18:03:24 +0800 (CST)
+Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2A63C40363;
+	Wed,  4 Mar 2026 18:08:18 +0800 (CST)
+Received: from [10.174.179.248] (10.174.179.248) by
+ kwepemr500001.china.huawei.com (7.202.194.229) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 4 Mar 2026 18:08:16 +0800
+Message-ID: <204de22f-335a-46f3-8f96-f1cbdcf7f2bf@huawei.com>
+Date: Wed, 4 Mar 2026 18:08:15 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v3 2/4] mm/pgtable: Make pfn_pte() filter out huge
+ page attributes
+To: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>,
+	<linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>, <x86@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <willy@infradead.org>,
+	<david@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <luto@kernel.org>,
+	<peterz@infradead.org>, <akpm@linux-foundation.org>,
+	<lorenzo.stoakes@oracle.com>, <ziy@nvidia.com>,
+	<baolin.wang@linux.alibaba.com>, <Liam.Howlett@oracle.com>,
+	<npache@redhat.com>, <ryan.roberts@arm.com>, <dev.jain@arm.com>,
+	<baohua@kernel.org>, <lance.yang@linux.dev>, <vbabka@suse.cz>,
+	<rppt@kernel.org>, <surenb@google.com>, <mhocko@suse.com>,
+	<anshuman.khandual@arm.com>, <rmclure@linux.ibm.com>,
+	<kevin.brodsky@arm.com>, <apopple@nvidia.com>, <ajd@linux.ibm.com>,
+	<pasha.tatashin@soleen.com>, <bhe@redhat.com>, <thuth@redhat.com>,
+	<coxu@redhat.com>, <dan.j.williams@intel.com>, <yu-cheng.yu@intel.com>,
+	<yangyicong@hisilicon.com>, <baolu.lu@linux.intel.com>,
+	<conor.dooley@microchip.com>, <Jonathan.Cameron@huawei.com>,
+	<riel@surriel.com>
+CC: <wangkefeng.wang@huawei.com>, <chenjun102@huawei.com>
+References: <20260228070906.1418911-1-yintirui@huawei.com>
+ <20260228070906.1418911-3-yintirui@huawei.com>
+ <5eaf3846-01db-471e-9903-b0b239d7838d@suse.com>
+From: Yin Tirui <yintirui@huawei.com>
+In-Reply-To: <5eaf3846-01db-471e-9903-b0b239d7838d@suse.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.174.179.248]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemr500001.china.huawei.com (7.202.194.229)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_020608_703701_69BB777C 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20260304_020829_221923_26C8A513 
+X-CRM114-Status: GOOD (  17.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,65 +97,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If vdec_init_ctrls(sess) fails, or any subsequent initialization step
-during vdec_open fails, the control handler allocated for the session
-is not released. This causes a memory leak of the v4l2_ctrl_handler
-and its associated control objects.
 
-Add a call to v4l2_ctrl_handler_free() in the err_m2m_release error
-path to ensure resources are properly reclaimed.
 
-unreferenced object 0xffff0000205d6878 (size 8):
-  comm "v4l_id", pid 5289, jiffies 4294938580
-  hex dump (first 8 bytes):
-    40 d2 49 18 00 00 ff ff                          @.I.....
-  backtrace (crc d3204599):
-    kmemleak_alloc+0xc8/0xf0
-    __kvmalloc_node_noprof+0x60c/0x850
-    v4l2_ctrl_handler_init_class+0x1b4/0x2e8 [videodev]
-    vdec_open+0x1f4/0x788 [meson_vdec]
-    v4l2_open+0x144/0x460 [videodev]
-    chrdev_open+0x1ac/0x500
-    do_dentry_open+0x3f0/0xfe8
-    vfs_open+0x68/0x320
-    do_open+0x2d8/0x9a8
-    path_openat+0x1d0/0x4f0
-    do_filp_open+0x190/0x380
-    do_sys_openat2+0xf8/0x1b0
-    __arm64_sys_openat+0x13c/0x1e8
-    invoke_syscall+0xdc/0x268
-    el0_svc_common.constprop.0+0x178/0x258
-    do_el0_svc+0x4c/0x70
+On 3/4/2026 3:52 PM, Jürgen Groß wrote:
+> On 28.02.26 08:09, Yin Tirui wrote:
+>> A fundamental principle of page table type safety is that `pte_t` 
+>> represents
+>> the lowest level page table entry and should never carry huge page 
+>> attributes.
+>>
+>> Currently, passing a pgprot with huge page bits (e.g., extracted via
+>> pmd_pgprot()) into pfn_pte() creates a malformed PTE that retains the 
+>> huge
+>> attribute, leading to the necessity of the ugly `pte_clrhuge()` anti- 
+>> pattern.
+>>
+>> Enforce type safety by making `pfn_pte()` inherently filter out huge page
+>> attributes:
+>> - On x86: Strip the `_PAGE_PSE` bit.
+>> - On ARM64: Mask out the block descriptor bits in `PTE_TYPE_MASK` and
+>>    enforce the `PTE_TYPE_PAGE` format.
+>> - On RISC-V: No changes required, as RISC-V leaf PMDs and PTEs share the
+>>    exact same hardware format and do not use a distinct huge bit.
+>>
+>> Signed-off-by: Yin Tirui <yintirui@huawei.com>
+>> ---
+>>   arch/arm64/include/asm/pgtable.h | 4 +++-
+>>   arch/x86/include/asm/pgtable.h   | 4 ++++
+>>   2 files changed, 7 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/ 
+>> asm/pgtable.h
+>> index b3e58735c49b..f2a7a40106d2 100644
+>> --- a/arch/arm64/include/asm/pgtable.h
+>> +++ b/arch/arm64/include/asm/pgtable.h
+>> @@ -141,7 +141,9 @@ static inline pteval_t 
+>> __phys_to_pte_val(phys_addr_t phys)
+>>   #define pte_pfn(pte)        (__pte_to_phys(pte) >> PAGE_SHIFT)
+>>   #define pfn_pte(pfn,prot)    \
+>> -    __pte(__phys_to_pte_val((phys_addr_t)(pfn) << PAGE_SHIFT) | 
+>> pgprot_val(prot))
+>> +    __pte(__phys_to_pte_val((phys_addr_t)(pfn) << PAGE_SHIFT) | \
+>> +        ((pgprot_val(prot) & ~(PTE_TYPE_MASK & ~PTE_VALID)) | \
+>> +        (PTE_TYPE_PAGE & ~PTE_VALID)))
+>>   #define pte_none(pte)        (!pte_val(pte))
+>>   #define pte_page(pte)        (pfn_to_page(pte_pfn(pte)))
+>> diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/ 
+>> pgtable.h
+>> index 1662c5a8f445..a4dbd81d42bf 100644
+>> --- a/arch/x86/include/asm/pgtable.h
+>> +++ b/arch/x86/include/asm/pgtable.h
+>> @@ -738,6 +738,10 @@ static inline pgprotval_t check_pgprot(pgprot_t 
+>> pgprot)
+>>   static inline pte_t pfn_pte(unsigned long page_nr, pgprot_t pgprot)
+>>   {
+>>       phys_addr_t pfn = (phys_addr_t)page_nr << PAGE_SHIFT;
+>> +
+>> +    /* Filter out _PAGE_PSE to ensure PTEs never carry the huge page 
+>> bit */
+>> +    pgprot = __pgprot(pgprot_val(pgprot) & ~_PAGE_PSE);
+> 
+> Is it really a good idea to silently drop the bit?
+> 
+> Today it can either be used for a large page (which should be a pmd,
+> of course), or - much worse - you'd strip the _PAGE_PAT bit, which is
+> at the same position in PTEs.
+> 
+> So basically you are removing the ability to use some cache modes.
+> 
+> NACK!
+> 
+> 
+> Juergen
 
-Fixes: 3e7f51bd9607 ("media: meson: add v4l2 m2m video decoder driver")
-Signed-off-by: Anand Moon <linux.amoon@gmail.com>
----
- drivers/staging/media/meson/vdec/vdec.c | 2 ++
- 1 file changed, 2 insertions(+)
+Hi Jürgen,
 
-diff --git a/drivers/staging/media/meson/vdec/vdec.c b/drivers/staging/media/meson/vdec/vdec.c
-index 4b77ec1af5a7..a5ab0c2390f5 100644
---- a/drivers/staging/media/meson/vdec/vdec.c
-+++ b/drivers/staging/media/meson/vdec/vdec.c
-@@ -914,6 +914,7 @@ static int vdec_open(struct file *file)
- 	return 0;
- 
- err_m2m_release:
-+	v4l2_ctrl_handler_free(&sess->ctrl_handler);
- 	v4l2_m2m_release(sess->m2m_dev);
- err_free_sess:
- 	kfree(sess);
-@@ -926,6 +927,7 @@ static int vdec_close(struct file *file)
- 
- 	v4l2_m2m_ctx_release(sess->m2m_ctx);
- 	v4l2_m2m_release(sess->m2m_dev);
-+	v4l2_ctrl_handler_free(&sess->ctrl_handler);
- 	v4l2_fh_del(&sess->fh, file);
- 	v4l2_fh_exit(&sess->fh);
- 
+You are absolutely right. I missed the fact that `_PAGE_PSE` aliases 
+with `_PAGE_PAT` on 4K PTEs.
 
-base-commit: 0031c06807cfa8aa51a759ff8aa09e1aa48149af
+The intention here was to follow previous feedback to enforce type 
+safety by filtering out huge page attributes directly inside 
+`pfn_pte()`. However, doing it this way obviously breaks the cache modes 
+on x86.
+
+I agree with the NACK. I will drop this approach and rethink how to 
+handle the huge-to-normal pgprot conversion safely for v4.
+
 -- 
-2.50.1
+Thanks,
+Yin Tirui
 
 
