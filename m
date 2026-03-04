@@ -4,75 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FFB1EB7EAC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 09:37:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3663EB7EAC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 09:42:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ctgTE9+DXOgMxpJSHAYKtJ2WsWYUb1iCLsiuJHYoxZw=; b=1cmA1U8Fw6VWYCewekBAPchzCP
-	s1hiJRpAfp6t2yHO/5ok+gs5FZgKliQg5asCPJP2AqSixuZEBkTswKvYhdvj6hRFtkKmj4GdjDXmy
-	lLs9cs335FTlBiHUCDjpoKgSoejn3Gd07H0iv3JiAq+XeLXECaIMJ4qq+7VwHijwIfwJr604i/QBw
-	WrUuvpRgfsEXNzAUSV2UsmCuDKtvgcYKfhyfX3CosQl1CpOyzvx0YfjTtxEDO3ZwBSFfKRQxO2BSB
-	C5t2mpoIY8Q666ZLc/dGU7eOfF0zkCpDo/j4oF9Llegnri9XRMXvJsOhbPtyfnASK1Ly0KNAbld15
-	i/7pEXaA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h/XrX5Bu8nB1QMG/Qcbxzkm5sC59lfIQiJM8xkiO4IA=; b=Dmy7+zlyp36WNDQLDwUQtmAtx+
+	iMF+XGxG+ldpgJOjqvQQrBgydGd0w0fnygmVkz2ZQ1ZjXPO3gfCP+rFu4+t97puoLb+nrwaVkuEKg
+	Suj334Cq0xwGJFAhSwBZKukI83zlaNb9rMQwIICEdgkBzkIBBD1CTJ5sY1lDpsR1seW5dCRDBDOHl
+	owNxRtajZv71cUT4L1laDHWE8GTIIxq7/Vu72D2F8xtcNi/cYXobyiDBs1DRvX7CBr+6tkScCOdEf
+	3B3InrxA/cPngs9sovkB+KHsMaWYc8bta/E8+1+MyTAxel5yiDoIafH9LL4Xi2GT9ghZd2WwTliAO
+	vPvsq3uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxif5-0000000GtXW-08KO;
-	Wed, 04 Mar 2026 09:36:59 +0000
-Received: from azure-sdnproxy.icoremail.net ([13.76.78.106])
+	id 1vxikW-0000000Gu24-0xDc;
+	Wed, 04 Mar 2026 09:42:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxif0-0000000GtVX-3Lqh;
-	Wed, 04 Mar 2026 09:36:57 +0000
-Received: from zju.edu.cn (unknown [10.98.66.117])
-	by mtasvr (Coremail) with SMTP id _____wC3Nh0Q_adpkTIFAQ--.16844S3;
-	Wed, 04 Mar 2026 17:36:17 +0800 (CST)
-Received: from localhost.localdomain (unknown [10.98.66.117])
-	by mail-app4 (Coremail) with SMTP id zi_KCgDnfYMG_adp2KCYBQ--.53298S2;
-	Wed, 04 Mar 2026 17:36:06 +0800 (CST)
-From: Fan Wu <fanwu01@zju.edu.cn>
-To: linux-media@vger.kernel.org
-Cc: tiffany.lin@mediatek.com,
-	yunfei.dong@mediatek.com,
-	mchehab@kernel.org,
-	matthias.bgg@gmail.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Fan Wu <fanwu01@zju.edu.cn>
-Subject: [PATCH] media: mediatek: vcodec: fix use-after-free in encoder release path
-Date: Wed,  4 Mar 2026 09:35:06 +0000
-Message-Id: <20260304093506.236277-1-fanwu01@zju.edu.cn>
-X-Mailer: git-send-email 2.34.1
+	id 1vxikT-0000000Gu1V-10Hv
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Mar 2026 09:42:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 05F4A339;
+	Wed,  4 Mar 2026 01:42:25 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D9E153F694;
+	Wed,  4 Mar 2026 01:42:26 -0800 (PST)
+Message-ID: <6259fddb-62f3-4874-8188-6ca82e3586a8@arm.com>
+Date: Wed, 4 Mar 2026 09:42:25 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zi_KCgDnfYMG_adp2KCYBQ--.53298S2
-X-CM-SenderInfo: qrstjiaswqq6lmxovvfxof0/
-X-CM-DELIVERINFO: =?B?eygmewXKKxbFmtjJiESix3B1w3vZ3A9ovKVTomAyoQazvoRs/NHSP8GI2EvgeEEW7R
-	sfnVF/U4hEbTTFSw5kpxcvjRb6mQGmGX2Lq9AG8clAwRux2D2Ta4eYv/3f2xyhLs0q0Axz
-	y3xBfAYJQz1E2yiHyG6p9E6mavGmQbzmcFsnzP86
-X-Coremail-Antispam: 1Uk129KBj93XoWxZFyxtr13Jr1kXr1xKFWUKFX_yoWrXF17pF
-	WfKrW2kayUJr4vyF1xta18Za4ruryagr47Gw40vw1fA3sxAr4qqr42kr109FWktrZ7tF4U
-	ZrsFg3y3Gr4jyFcCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUU9Gb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AK
-	xVW0oVCq3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc804V
-	CY07AIYIkI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AK
-	xVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48Icx
-	kI7VAKI48JM4x0Y48IcxkI7VAKI48G6xCjnVAKz4kxMxAIw28IcxkI7VAKI48JMxC20s02
-	6xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_Jr
-	I_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v2
-	6r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj4
-	0_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8
-	JrUvcSsGvfC2KfnxnUUI43ZEXa7IU85l1PUUUUU==
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 00/41] arm_mpam: Add KVM/arm64 and resctrl glue code
+To: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
+ jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, quic_jiles@quicinc.com, reinette.chatre@intel.com,
+ rohit.mathew@arm.com, scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
+ zengheng4@huawei.com, linux-doc@vger.kernel.org
+References: <20260224175720.2663924-1-ben.horgan@arm.com>
+ <87y0k8r7j1.fsf@stealth>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <87y0k8r7j1.fsf@stealth>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_013655_009240_8397BF5F 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20260304_014233_407938_96656108 
+X-CRM114-Status: GOOD (  28.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,99 +75,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The fops_vcodec_release() function frees the context structure (ctx)
-without first cancelling any pending or running work in ctx->encode_work.
-This creates a race window where the workqueue handler (mtk_venc_worker)
-may still be accessing the context memory after it has been freed.
+Hi Punit,
 
-Race condition:
+On 3/3/26 20:18, Punit Agrawal wrote:
+> Hi Ben,
+> 
+> Ben Horgan <ben.horgan@arm.com> writes:
+> 
+>> The main change in this version of the mpam missing pieces series is to
+>> update the cdp emulation to match the resctrl interface. L2 and L3
+>> resources can now enable cdp separately. Cdp can't be hidden correctly for
+>> memory bandwidth allocation, as max per partid can't be emulated with more
+>> partids, and so we hide this completely when cdp is enabled. There is a little
+>> restructuring and a few smaller changes.
+>>
+>> Changelogs in patches
+>>
+>> It would be great to get this series merged this cycle. For that we'll need
+>> more testing and reviewing. Thanks!
+>>
+>> From James' cover letter:
+>>
+>> This is the missing piece to make MPAM usable resctrl in user-space. This has
+>> shed its debugfs code and the read/write 'event configuration' for the monitors
+>> to make the series smaller.
+>>
+>> This adds the arch code and KVM support first. I anticipate the whole thing
+>> going via arm64, but if goes via tip instead, the an immutable branch with those
+>> patches should be easy to do.
+>>
+>> Generally the resctrl glue code works by picking what MPAM features it can expose
+>> from the MPAM drive, then configuring the structs that back the resctrl helpers.
+>> If your platform is sufficiently Xeon shaped, you should be able to get L2/L3 CPOR
+>> bitmaps exposed via resctrl. CSU counters work if they are on/after the L3. MBWU
+>> counters are considerably more hairy, and depend on hueristics around the topology,
+>> and a bunch of stuff trying to emulate ABMC.
+>> If it didn't pick what you wanted it to, please share the debug messages produced
+>> when enabling dynamic debug and booting with:
+>> | dyndbg="file mpam_resctrl.c +pl"
+>>
+>> I've not found a platform that can test all the behaviours around the monitors,
+>> so this is where I'd expect the most bugs.
+>>
+>> The MPAM spec that describes all the system and MMIO registers can be found here:
+>> https://developer.arm.com/documentation/ddi0598/db/?lang=en
+>> (Ignored the 'RETIRED' warning - that is just arm moving the documentation around.
+>>  This document has the best overview)
+>>
+>>
+>> Based on v7.0-rc1
+>>
+>> The series can be retrieved from:
+>> https://gitlab.arm.com/linux-arm/linux-bh.git mpam_resctrl_glue_v5
+> 
+> I booted with the series applied on an MPAM capable platform. The driver
+> is able to probe the L2 attached MSCs.
+> 
+> In terms of features, bit-mapped based cache portion partitioning works
+> as expected. The platform also supports additional controls (cache
+> capacity and priority partitioning) and monitors (memory bandwidth and
+> cache storage). The ones supported in MPAM driver probe OK but don't
+> seem to be exposed. E.g.,
+> 
+>     mpam:mpam_resctrl_pick_counters: class 2 is a cache but not the L3
+>     
+> 
+> It looks like some of it is due to an impedance mismatch with resctrl
 
-    CPU 0 (release path)               CPU 1 (workqueue)
-    ---------------------               ------------------
-    fops_vcodec_release()
-      v4l2_m2m_ctx_release()
-        v4l2_m2m_cancel_job()
-        // waits for m2m job "done"
-                                        mtk_venc_worker()
-                                          v4l2_m2m_job_finish()
-                                          // m2m job "done"
-                                          // BUT worker still running!
-                                          // post-job_finish access:
-                                        other ctx dereferences
-                                          // UAF if ctx already freed
-        // returns (job "done")
-      kfree(ctx)  // ctx freed
+Yes, what you describe is expected behaviour. There is no support yet
+for cache capacity (CMAX) or bandwidth priority partitioning and
+monitors are only exposed on the L3.
 
-Root cause: The v4l2_m2m_ctx_release() only waits for the m2m job
-lifecycle (via TRANS_RUNNING flag), not the workqueue lifecycle.
-After v4l2_m2m_job_finish() is called, the m2m framework considers
-the job complete and v4l2_m2m_ctx_release() returns, but the worker
-function continues executing and may still access ctx.
+> expectations but hopefully we can get to it with the basics in-place.
 
-The work is queued during encode operations via:
-  queue_work(ctx->dev->encode_workqueue, &ctx->encode_work)
-The worker function accesses ctx->m2m_ctx, ctx->dev, and other ctx
-fields even after calling v4l2_m2m_job_finish().
+I hope so. The CMAX and the bandwidth priority partitioning should be
+easy to add once there is a generic way of adding new schema. There is a
+plan/discussion here [1] and I don't expect adding monitoring on L2 to
+be hard.
 
-This vulnerability was confirmed with KASAN by running an instrumented
-test module that widens the post-job_finish race window. KASAN detected:
+[1] https://lore.kernel.org/lkml/aPtfMFfLV1l%2FRB0L@e133380.arm.com/
 
-  BUG: KASAN: slab-use-after-free in mtk_venc_worker+0x159/0x180
-  Read of size 4 at addr ffff88800326e000 by task kworker/u8:0/12
+> 
+> Feel free to add
+> 
+> Tested-by: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
 
-  Workqueue: mtk_vcodec_enc_wq mtk_venc_worker
+Thanks for testing!
 
-  Allocated by task 47:
-    __kasan_kmalloc+0x7f/0x90
-    fops_vcodec_open+0x85/0x1a0
+> 
+> Thanks,
+> Punit
+> 
 
-  Freed by task 47:
-    __kasan_slab_free+0x43/0x70
-    kfree+0xee/0x3a0
-    fops_vcodec_release+0xb7/0x190
+Thanks,
 
-Fix this by calling cancel_work_sync(&ctx->encode_work) before kfree(ctx).
-This ensures the workqueue handler is both cancelled (if pending) and
-synchronized (waits for any running handler to complete) before the
-context is freed.
-
-Placement rationale: The fix is placed after v4l2_ctrl_handler_free()
-and before list_del_init(&ctx->list). At this point, all m2m operations
-are done (v4l2_m2m_ctx_release() has returned), and we need to ensure
-the workqueue is synchronized before removing ctx from the list and
-freeing it.
-
-Note: The open error path does NOT need cancel_work_sync() because
-INIT_WORK() only initializes the work structure - it does not schedule
-it. Work is only scheduled later during device_run() operations.
-
-Fixes: 0934d3759615 ("media: mediatek: vcodec: separate decoder and encoder")
-Signed-off-by: Fan Wu <fanwu01@zju.edu.cn>
----
- .../mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c         | 9 +++++++++
- 1 file changed, 9 insertions(+)
-
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-index c977ed0c09b6..4e4541b2fc8e 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-@@ -215,6 +215,15 @@ static int fops_vcodec_release(struct file *file)
- 	v4l2_fh_exit(&ctx->fh);
- 	v4l2_ctrl_handler_free(&ctx->ctrl_hdl);
- 
-+	/*
-+	 * Cancel any pending encode work before freeing the context.
-+	 * Although v4l2_m2m_ctx_release() waits for m2m job completion,
-+	 * the workqueue handler (mtk_venc_worker) may still be accessing
-+	 * the context after v4l2_m2m_job_finish() returns. Without this,
-+	 * a use-after-free occurs when the worker accesses ctx after kfree.
-+	 */
-+	cancel_work_sync(&ctx->encode_work);
-+
- 	spin_lock_irqsave(&dev->dev_ctx_lock, flags);
- 	list_del_init(&ctx->list);
- 	spin_unlock_irqrestore(&dev->dev_ctx_lock, flags);
--- 
-2.34.1
+Ben
 
 
