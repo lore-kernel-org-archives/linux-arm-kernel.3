@@ -4,63 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F244EEFCE4D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 22:29:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CB8FEFCE4E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 22:29:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T22TH8MET+b/4gZ8FkcXhYgAB4jyTwECZnc0Ae3vJfs=; b=d+OUuvNmXD5MZe0/xA33OKT9Cg
-	yYkU4ofbzMkryfTH47JV0l6Qw0WkYkUi6VR7kVrsDksf35gvfC4PIkRaMRyPgBC/IrZ8tf+RHFgu2
-	ZTf2G8PHHi5BuC/f8CWohJIkz6h6GGSa8cBiKzeqoHXFlBAzUybNPibIEaAkwfoNr0pxtQQ1zg6Ud
-	B0dD+uIekBYGFy7Udj9DnrZRIObNVFGJsH/bn0JwrjHxtdHQEi+EDSCWJoe68ZuW4l1EyJ4i4XeSU
-	hj/gd7/MV1s9yl2qTUOX5eTTkUokzniLnfqkJBqTJF5l39CrGmsozEcdzHmrKUOYFmgaLh8Kpyo1t
-	E/u4twrA==;
+	bh=ndwHByA9+rPpcw7aenooep5yaqS0L412XpVw3mJ5S2Y=; b=03XfIBcw9qj8zILqGJVpHnUaFi
+	3b9z49Ka9eywZLwN7LnCERZczh2OoL2ZbffqMX4fYZdc+PF78WjSYhfm4TAbkfe+HhFFJPua5+zBF
+	4MRUDm6VQFZ8mkoU1VzI0h4VDVFyHVGhoS4XPd9FcWjIk0R7ZpdG4nYfOUYs4CZGFFAf8gvW/cwQ7
+	BX9200GH/wy/hBPfDvtQNJzM9BX3EMuR33V1G3yIjdHxBgSH8Z3hspoNt8Zje4a+JHL5En3KEWxXp
+	++IvFnyB4y4G0TQgl3gmgT6rVx4zgVhwMqnx0K4AIDSsmEblWPzwyVHQalXNJS0kCR5gjrhEyPTop
+	xyZJBuAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxuiL-00000000aMj-3LBM;
-	Wed, 04 Mar 2026 22:29:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vxuiZ-00000000aRj-2VFd;
+	Wed, 04 Mar 2026 22:29:23 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxuiK-00000000aMN-1rKt;
-	Wed, 04 Mar 2026 22:29:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7740960053;
-	Wed,  4 Mar 2026 22:29:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55AD0C4CEF7;
-	Wed,  4 Mar 2026 22:29:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772663347;
-	bh=ORYQQGNYlwnQgy888AgkqY1bU5sv3cRTXo0nb+aOkbU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OU3WRITIa8Au08wJ1jU2p9dBP01IwGSkDOCxNBL7XgBg6trhBqfW4Ma4uATYqAA9L
-	 3ejgoDmg66mLFvZab4yEK1JF5QHuEDe6vcg7cH290T7LdhLrtp0LXXstY9WgkQK1b3
-	 bIOThJ+xB6KrTCwwKCZuYoZ7vSuqGoCCm+7RvlXw1X+/XnXsNYE1FLGAKIxNGStdXa
-	 P5MrB9tsMPJuk6qnOJNV0luFGZa0zafeMF19a7WtioPcW1+SQzTzVbEU2Hk2qlxW9u
-	 OJSOemr7f22VbMRG6Vk5xBjr2DVGzuDTBtkkdh1xpelWs1ohTyOWIlzo/7wYYGlnPR
-	 GG4+tsXGtc+aQ==
-Date: Wed, 4 Mar 2026 22:29:02 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Aleksander Jan Bajkowski <olek2@wp.pl>
-Cc: ansuelsmth@gmail.com, herbert@gondor.apana.org.au, davem@davemloft.net,
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	lorenzo@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-crypto@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: crypto: eip93: add clock gate and reset
- line
-Message-ID: <20260304-thinner-ungraded-67d7472b6c0b@spud>
-References: <20260303193923.85242-1-olek2@wp.pl>
- <20260304-hardship-abreast-7a2d58cbe446@spud>
- <f9b266d7-f545-4088-b6c5-a0cc8676d60c@wp.pl>
+	id 1vxuiX-00000000aQC-0Qtu;
+	Wed, 04 Mar 2026 22:29:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=ndwHByA9+rPpcw7aenooep5yaqS0L412XpVw3mJ5S2Y=; b=n2HElQtP92EIhUCnCa6CVlf3pY
+	qxyCOpqdiH2QBUshhls/62Vq1l7ycd4FOoPGXh2Vb/+9jUbdsHKLKOCqrX5QRHHAXc1928LyimG1A
+	3o2UK3eYpUmBdotImYqAhQ5xtRaVAPnyrQ1X8+1isNr0xbZO1dN05ATmXsjomU9lYL2Y=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vxuiH-00ABPT-Mx; Wed, 04 Mar 2026 23:29:05 +0100
+Date: Wed, 4 Mar 2026 23:29:05 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Fan Wu <fanwu01@zju.edu.cn>
+Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org,
+	edumazet@google.com, pabeni@redhat.com, andrew+netdev@lunn.ch,
+	heiko@sntech.de, romain.perier@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, stable@vger.kernel.org
+Subject: Re: [PATCH] net: ethernet: arc: fix use-after-free in probe error
+ path
+Message-ID: <b6ac1471-e33a-41d3-9e67-e6463612f05b@lunn.ch>
+References: <20260304025303.145493-1-fanwu01@zju.edu.cn>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="RUXrRWyOYYwphHi5"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <f9b266d7-f545-4088-b6c5-a0cc8676d60c@wp.pl>
+In-Reply-To: <20260304025303.145493-1-fanwu01@zju.edu.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260304_142921_140887_B439306B 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,96 +71,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Mar 04, 2026 at 02:53:03AM +0000, Fan Wu wrote:
+> The arc_emac_probe() function calls devm_request_irq() with the
+> net_device as the dev_id. However, in the error path of
+> emac_rockchip_probe(), free_netdev(ndev) is called before the devm
+> cleanup happens. This creates a race window where an interrupt can
+> fire and the ISR (arc_emac_intr) will access the already freed
+> net_device structure.
 
---RUXrRWyOYYwphHi5
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+It looks like interrupts are only enabled in arc_emac_open(). Have you
+seen interrupts before this?
 
-On Wed, Mar 04, 2026 at 10:46:41PM +0100, Aleksander Jan Bajkowski wrote:
-> Hi Conor,
->=20
-> On 3/4/26 20:08, Conor Dooley wrote:
-> > On Tue, Mar 03, 2026 at 08:39:17PM +0100, Aleksander Jan Bajkowski wrot=
-e:
-> > > Add the clock gate and reset line, both of which are available
-> > > on the Airoha AN7581. Both properties are optional.
-> > Why are they optional?
->=20
-> No reason. In theory, a hardware designer could connect the reset
-> to a fixed input signal. In practice, all SoCs on the market have
-> a built-in reset and clock controller. I can mark them as required
-> in the next revision.
-
-Right, the reset could be optional on some systems, but sounds like it
-is always there on the an7581. The clock is probably mandatory always.
-I think you should make it required in the binding, but not in the
-driver since that needs to work with existing devicetrees.
-Technically this is an ABI break (new required property), so at least
-mention in the commit message that you're aware of this.
-
-
->=20
-> > > Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
-> > > ---
-> > >   .../crypto/inside-secure,safexcel-eip93.yaml         | 12 +++++++++=
-+++
-> > >   1 file changed, 12 insertions(+)
-> > >=20
-> > > diff --git a/Documentation/devicetree/bindings/crypto/inside-secure,s=
-afexcel-eip93.yaml b/Documentation/devicetree/bindings/crypto/inside-secure=
-,safexcel-eip93.yaml
-> > > index 997bf9717f9e..058454b679b4 100644
-> > > --- a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel=
--eip93.yaml
-> > > +++ b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel=
--eip93.yaml
-> > > @@ -48,6 +48,12 @@ properties:
-> > >     interrupts:
-> > >       maxItems: 1
-> > > +  clocks:
-> > > +    maxItems: 1
-> > > +
-> > > +  resets:
-> > > +    maxItems: 1
-> > > +
-> > >   required:
-> > >     - compatible
-> > >     - reg
-> > > @@ -57,11 +63,17 @@ additionalProperties: false
-> > >   examples:
-> > >     - |
-> > > +    #include <dt-bindings/clock/en7523-clk.h>
-> > >       #include <dt-bindings/interrupt-controller/arm-gic.h>
-> > > +    #include <dt-bindings/reset/airoha,en7581-reset.h>
-> > >       crypto@1e004000 {
-> > >         compatible =3D "airoha,en7581-eip93", "inside-secure,safexcel=
--eip93ies";
-> > >         reg =3D <0x1fb70000 0x1000>;
-> > > +      clocks =3D <&scuclk EN7523_CLK_CRYPTO>;
-> > > +
-> > >         interrupts =3D <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
-> > > +
-> > > +      resets =3D <&scuclk EN7581_CRYPTO_RST>;
-> > >       };
-> > > --=20
-> > > 2.47.3
-> > >=20
-> Best regards,
-> Aleksander
->=20
->=20
-
---RUXrRWyOYYwphHi5
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaaiyLQAKCRB4tDGHoIJi
-0ibOAQCXhDFN8QSYrxF47Qb/oFi3wBnPBFiMdgbEvxrc67IdFAEAyO/3v3UV4NE5
-KvSZXTUIkTs0eodNUYw8zdjOzJ0vQAE=
-=6PiR
------END PGP SIGNATURE-----
-
---RUXrRWyOYYwphHi5--
+     Andrew
 
