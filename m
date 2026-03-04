@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1E3CD58E4D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 07:39:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3A4DEA4E27
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 07:44:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qMFyRd+j7d7R0AqLvlGfwF9aHgEaiOv7xHAZcYil3Cc=; b=uP7WeaRLP5L+fH5np5R9lOQqtP
-	EjZGpX1eySVtHw+WDwJtyImHzL4QeLUXFPoaqV8EF6kVbxVmWvb23bcGhbwi6jjFKjXFf9rGdG8oe
-	1d++2NBPEoESdbWGSLk/KysWqTNFL7DkwN5pzrvVjIqHks4UUfW2IVidr1mArsGlwaN/ku433aK68
-	SiGN8zILPyNADv7P8NTtSYeTMR62BmgkoOxCLo5nS3ytf/rwB3B9kTZGINVSUoV0USrtLPez7QEW8
-	OmsT3MkSI5yoy1IGy0JqULMkFzaZOi4+gGkiJKZxFMdXaOP1FdtcoZhg+rMswKCk9bu+FXLaiqIur
-	CNIaiyRQ==;
+	bh=5NSSrx1ATn35Qd+irdORzPcghga7SDzVh5nQ1pJxBLk=; b=T5sWdQcJm1Npf//itZL/pYvrm6
+	hwZLlVwAHFKrHa+PkzIgsZ9RXkhzJhuLMYFtiLnjQMeMB2u8qFTMzKovFbD3N13FTQ+V0BNsi1fCo
+	TBOI8Q4Pw/G6t9a7kgIAVJmcsSYf8LBkWRLkeopLZ3dGTki8QgUzZc5BIxtbUBXKcJSHjQTYMZB1t
+	GNo0giyX6MAMfrLfMnpIHmI+aUp0GUoa1j2HZ2jnSopHczaNWbC5jSMmQxRknIA4TdTMupd79sCGO
+	r/IHnC11Ny1dFK/kNBMpFPBAD1aPkbYrDB2cWDMCauNSsNLdi2bCgd4rcLbeY/aicTsdFiTT+msIB
+	1WDvgD6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxgpe-0000000Gd4C-43Sv;
-	Wed, 04 Mar 2026 07:39:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vxguB-0000000Gdc0-1LG9;
+	Wed, 04 Mar 2026 07:44:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxgpd-0000000Gd41-3Riu;
-	Wed, 04 Mar 2026 07:39:45 +0000
+	id 1vxgu8-0000000Gdbc-29p0;
+	Wed, 04 Mar 2026 07:44:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 40AEC6132D;
-	Wed,  4 Mar 2026 07:39:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BE5AC19423;
-	Wed,  4 Mar 2026 07:39:44 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 72E3B43422;
+	Wed,  4 Mar 2026 07:44:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3F04C19423;
+	Wed,  4 Mar 2026 07:44:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772609984;
-	bh=qdRtPAje6I7hfutoJeNmqVJEJbOGSUjuE1RqijSch3c=;
+	s=k20201202; t=1772610263;
+	bh=Us0KGNplk7HG7Fg83BdG+51O34emtOY7P1nZiiQ0jEU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fx6eA5xbdBXKpUHh3/IErKPDYWgCQMOpGOgNwTTtlboSsMT2zDcFz4NP5doi6f89r
-	 wDKDYQeygqdWZ3mckkpNuFdbCfd9ISn/LHbPM9+po9wMN0ke2Sq7okB4Em152CfeS7
-	 cHnKusNJdzuRkyL49/kkyPGm0S05gkX52f+CEf8AkGOXVj/UAh7L7oxwfIh2Wjrk0z
-	 Uxwt75SSIBzP873g1BaZ1O28zSg88gOejUG65uXc3y0NEGpIfjbh1ee3vw3ipsZ+K4
-	 RNckEFqYZcobNZEEh/wYAn7allEHlvCfsipl4IjAMA9/4k7dAre3Z5h+ezsAFDvhaq
-	 dolGMc42cY2Dg==
-Date: Wed, 4 Mar 2026 08:39:42 +0100
+	b=h14YwVVE6Wj9ayUYI7MGAZoootsuGQ+RsRUIvXmDBYdBvhOGLpsE4P9nw/2i1qmGz
+	 N+VqJuvhpyVsQ3BBLC2IEcy35P7Ad/6xl3kwoDp9ofcfS11K9avXjLWOkOANI4AyWf
+	 zJ01vAyxeRvijBP0ed+iFx0t37A5i0q2Lmim14MvcdRkXdKvcAWbmi9LfC7HaHHuYd
+	 7/rzk8X8A68rxJ7EIcgY3aUvzucihf1RDs3lmV/JqqF5wBtjK2XgakMOwBQlEsoHdv
+	 /MYd0/fycri9g3fr899YtXuwAMjsl3gXw7WHMGy5a5R7snhJZXIh3OvT7FPtFg0fkX
+	 B6OXkr5jGjEcQ==
+Date: Wed, 4 Mar 2026 08:44:21 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Bo Gan <ganboing@gmail.com>
-Cc: Conor Dooley <conor@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
-	lizhi2@eswincomputing.com, devicetree@vger.kernel.org, andrew+netdev@lunn.ch, 
-	davem@davemloft.net, edumazet@google.com, robh@kernel.org, krzk+dt@kernel.org, 
+To: lizhi2@eswincomputing.com
+Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net, 
+	edumazet@google.com, kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
 	conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com, 
 	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk, 
 	wens@kernel.org, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
@@ -56,16 +55,16 @@ Cc: Conor Dooley <conor@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
 	pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com
 Subject: Re: [PATCH net-next v3 1/3] dt-bindings: ethernet: eswin: add clock
  sampling control
-Message-ID: <20260304-stalwart-raptor-of-cleaning-446b61@quoll>
+Message-ID: <20260304-hot-sponge-of-emphasis-6864db@quoll>
 References: <20260303061525.846-1-lizhi2@eswincomputing.com>
  <20260303061637.872-1-lizhi2@eswincomputing.com>
- <20260303163846.156d18f7@kernel.org>
- <20260304-regulate-verdict-c3a361d2dc83@spud>
- <05a15890-392c-41c3-9566-8eb506ddfe5f@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <05a15890-392c-41c3-9566-8eb506ddfe5f@gmail.com>
+In-Reply-To: <20260303061637.872-1-lizhi2@eswincomputing.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260303_234424_614072_80D609A9 
+X-CRM114-Status: GOOD (  26.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,44 +79,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 03, 2026 at 05:23:18PM -0800, Bo Gan wrote:
-> Hi All,
+On Tue, Mar 03, 2026 at 02:16:37PM +0800, lizhi2@eswincomputing.com wrote:
+> From: Zhi Li <lizhi2@eswincomputing.com>
 > 
-> On 3/3/26 16:47, Conor Dooley wrote:
-> > On Tue, Mar 03, 2026 at 04:38:46PM -0800, Jakub Kicinski wrote:
-> > > On Tue,  3 Mar 2026 14:16:37 +0800 lizhi2@eswincomputing.com wrote:
-> > > > There are currently no in-tree users of the EIC7700 Ethernet driver, so
-> > > > these changes are safe.
-> > > 
-> > > What do you mean by this sentence? The commit under Fixes was part of
-> > > Linux v6.19 already.
-> > 
-> > The "funny" thing is that caring about users doesn't even really matter
-> > on the devicetree patch, except for this hunk:
-> > |@@ -81,7 +99,9 @@ properties:
-> > |                          or external clock selection
-> > |           - description: Offset of AXI clock controller Low-Power request
-> > |                          register
-> > |+          - description: Offset of register controlling TXD delay
-> > |           - description: Offset of register controlling TX/RX clock delay
-> > |+          - description: Offset of register controlling RXD delay
-> > |
-> > | required:
-> > |   - compatible
-> > And it only matters here because an item is injected mid-list. If this
-> > was moved to the end with the RXD delay, the **dt-binding** changes
-> > don't have issues with safety. I've not looked at whether there are
-> > knock-on concerns about users in the driver or whatever yet, but from a
-> > binding POV only that hunk can break something that currently works.
+> The second Ethernet controller (eth1) on the EIC7700 SoC may experience
+> RX data sampling issues at high speed due to EIC7700-specific receive
+> clock to data skew at the MAC input.
 > 
-> This was already discussed here in v1:
-> https://lore.kernel.org/lkml/e7183ae1-8b8b-4e77-9f4e-3bc1b4b63556@lunn.ch/
+> On the EIC7700 SoC, the second Ethernet controller (eth1) requires
+> inversion of the internal RGMII receive clock in order to meet RX data
+> sampling timing at high speed.
 > 
-> The device-tree is not checked in yet by ESWIN folks, so there's currently
-> no user of the dt-binding. No need to worry about backward compat.
+> Describe this SoC-specific difference by introducing a distinct compatible
+> string for MAC instances that require internal clock inversion, allowing the
+> driver to select the appropriate configuration without relying on per-board
+> vendor-specific properties.
 
-Of course there is user of this binding, for example ESWIN. Or many
-other vendors using it out of tree. You documented ABI.
+Pointless description/paragrapgh. Your explanation why adding a
+compatible is "because I need compatible". That's completely redundant.
+
+Explain what is special about this MAC instance, what's different in its
+programming model or other characteristics that you claim it is a
+different device.
+
+> 
+> The rx-internal-delay-ps and tx-internal-delay-ps properties now use
+> minimum and maximum constraints to reflect the actual hardware delay
+> range (0-2540 ps) applied in 20 ps steps. This relaxes the binding
+> validation compared to the previous enum-based definition and avoids
+> regressions for existing DTBs while keeping the same hardware limits.
+> 
+> Treat the RX/TX internal delay properties as optional, board-specific
+> tuning knobs and remove them from the example to avoid encouraging
+> their use.
+> 
+> In addition, the binding now includes additional background information
+> about the HSP CSR registers accessed by the MAC. The TXD and RXD delay
+> control registers are included so the driver can explicitly clear any
+> residual configuration left by the bootloader. Background reference for
+> the High-Speed Subsystem and HSP CSR block is available in Chapter 10
+> ("High-Speed Interface") of the EIC7700X SoC Technical Reference Manual,
+> Part 4 (EIC7700X_SoC_Technical_Reference_Manual_Part4.pdf):
+> https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
+> 
+> There are currently no in-tree users of the EIC7700 Ethernet driver, so
+> these changes are safe.
+> 
+> Fixes: 888bd0eca93c ("dt-bindings: ethernet: eswin: Document for EIC7700 SoC")
+> Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
+> ---
+>  .../bindings/net/eswin,eic7700-eth.yaml       | 75 +++++++++++++++----
+>  1 file changed, 59 insertions(+), 16 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
+> index 91e8cd1db67b..22d1cecea07e 100644
+> --- a/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
+> +++ b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
+> @@ -20,6 +20,7 @@ select:
+>        contains:
+>          enum:
+>            - eswin,eic7700-qos-eth
+> +          - eswin,eic7700-qos-eth-clk-inversion
+>    required:
+>      - compatible
+>  
+> @@ -28,9 +29,13 @@ allOf:
+>  
+>  properties:
+>    compatible:
+> -    items:
+> -      - const: eswin,eic7700-qos-eth
+> -      - const: snps,dwmac-5.20
+> +    oneOf:
+> +      - items:
+> +          - const: eswin,eic7700-qos-eth
+> +          - const: snps,dwmac-5.20
+> +      - items:
+> +          - const: eswin,eic7700-qos-eth-clk-inversion
+
+So just enum for both entries?
+
+Anyway, that's the same device, so you do not get two compatibles. This
+should be a property. Which property not sure, maybe all this was
+discussed already.
+
+
+> +          - const: snps,dwmac-5.20
+>  
+>    reg:
+>      maxItems: 1
+> @@ -63,16 +68,29 @@ properties:
+>        - const: stmmaceth
+>  
+>    rx-internal-delay-ps:
+> -    enum: [0, 200, 600, 1200, 1600, 1800, 2000, 2200, 2400]
+> +    minimum: 0
+> +    maximum: 2540
+> +    multipleOf: 20
+>  
+>    tx-internal-delay-ps:
+> -    enum: [0, 200, 600, 1200, 1600, 1800, 2000, 2200, 2400]
+> +    minimum: 0
+> +    maximum: 2540
+> +    multipleOf: 20
+>  
+>    eswin,hsp-sp-csr:
+>      description:
+>        HSP CSR is to control and get status of different high-speed peripherals
+>        (such as Ethernet, USB, SATA, etc.) via register, which can tune
+>        board-level's parameters of PHY, etc.
+> +
+> +      Additional background information about the High-Speed Subsystem
+> +      and the HSP CSR block is available in Chapter 10 ("High-Speed Interface")
+> +      of the EIC7700X SoC Technical Reference Manual, Part 4
+> +      (EIC7700X_SoC_Technical_Reference_Manual_Part4.pdf). The manual is
+> +      publicly available at
+> +      https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
+> +
+> +      This reference is provided for background information only.
+>      $ref: /schemas/types.yaml#/definitions/phandle-array
+>      items:
+>        - items:
+> @@ -81,7 +99,9 @@ properties:
+>                           or external clock selection
+>            - description: Offset of AXI clock controller Low-Power request
+>                           register
+> +          - description: Offset of register controlling TXD delay
+>            - description: Offset of register controlling TX/RX clock delay
+> +          - description: Offset of register controlling RXD delay
+
+As pointed out, you cannot change the order and there is no reason for
+doing this explained in commit msg.
 
 Best regards,
 Krzysztof
