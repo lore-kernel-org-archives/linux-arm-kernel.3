@@ -4,83 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8C56EFCE37
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 20:19:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62EB3EFCE47
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 20:26:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SlEUkWWMykBpTUB4HK8A0B5r+NvQPJVWLT4/cgsUDBU=; b=pR+Wq8PZDT1TRaI26NYyG73LdJ
-	HEePHSPNVmdQ9pdTKCqU++PzollHSbhMD1QgjQMzb/HmPTraQfeQpvupTNELXEXzFCUtJnE3Wq9TC
-	ObfycpEBYCUyr8EsIsI0OO7YUMqpqdjtcg90WprM7rM2bseEzTHdylLPDIV7soDpWrbXeq+qFGDGZ
-	3hP3lQ2quzubE5On2GOMEsNeGz6tm0PwuvGndl1Rdzuy6j+EoOoD7yheKtw+cG5ujZJWp9r8mkWwn
-	od8dnt0g0VSDQSnG+AJvoXmIVX8CcwtXcIOSG4MehWMM1+vHTnm5X2qej40qkTprjvJu3vUw/Hpgj
-	5M2MvVZg==;
+	bh=Efys+qdhDxW8gOWCNyG8ButQuR6xST9UMil7BTxFr0I=; b=t9g/woT1B5FPSYZFvJbNpHmrTe
+	BBpiA7w7eYSb6D4j+dSARYJ6ht6JNz6/2V+KcS9oVVUw3avpxXFL1x77o5UwGe53lTZvBlqjtMqx2
+	nDd4MF5fNWjCnAwwdq0FWIkjB5FmsOt7hqHyIZJAgeFer+t5GFVwFNjTNoP/48rxOOB9DW5QHh76M
+	Hx9Y5wJThEUfjMfHpuoXn/qWdATntu+RZlo7bZoHV/bFKvpspViJ8ctUHCJBkg7fs7UiZWWbOOETU
+	R8mlgzPSK9oBUedVNcSuX8JDnEeIm+FwY6RAPgPfDLWLq+cyBYdfK6mP8MBvLujp1uJ1yLchQa1MR
+	SrfxjqaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxsh1-00000000S6G-0JQi;
-	Wed, 04 Mar 2026 20:19:39 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1vxsnM-00000000Sbl-3Yr4;
+	Wed, 04 Mar 2026 20:26:12 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxsgv-00000000S5v-3Bzr
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 20:19:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1772655573; x=1804191573;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=iikIQE7d5BrMbz5QoKczt9e+EFI540Qu1haop92OMoM=;
-  b=ORzk4Lnxxu/1lhQfzlriJETq1dIEcJ0SJRbx0davkU/8XLIobXT+iBZG
-   z0uyvVIRy9P6CKJgs7D6fefIfHZQp5RXwo/6KyVsyxg1wGYvsk7KXfK2E
-   oOQo+HD/fIJ42Fno03WRhFbrCAyWix9xTPH1m/6rbQPSdAhPtP0ziZg5a
-   c65IpyTZgn6Ie2hVunVmvj0doUVnwS0s3VGbp+XW46/AM+fi75bO2jKR0
-   NxNeWb/maS6yGKf9/dMn93SYu4xojAqueNCYv6tOBEaLKZEq1nhjcKTpL
-   x4bdFOlkFgq0eVMy31g8l2DfwczJ5lXEeXVnOcdAIoJZxm4TQWJ7qFg3z
-   w==;
-X-CSE-ConnectionGUID: QifuTxXkRaO2qYfsFy8lBg==
-X-CSE-MsgGUID: VSW94B62QYG8w+cbzNzWWA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11719"; a="84815871"
-X-IronPort-AV: E=Sophos;i="6.21,324,1763452800"; 
-   d="scan'208";a="84815871"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Mar 2026 12:19:32 -0800
-X-CSE-ConnectionGUID: Ya7/Uf4pRGabToPTi0eQCw==
-X-CSE-MsgGUID: 8GePQ8mUR2+NTCVoDJpoKA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,324,1763452800"; 
-   d="scan'208";a="256331372"
-Received: from lkp-server01.sh.intel.com (HELO f27a57aa7a36) ([10.239.97.150])
-  by orviesa001.jf.intel.com with ESMTP; 04 Mar 2026 12:19:29 -0800
-Received: from kbuild by f27a57aa7a36 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vxsgn-000000004S5-2C0D;
-	Wed, 04 Mar 2026 20:19:25 +0000
-Date: Thu, 5 Mar 2026 04:18:57 +0800
-From: kernel test robot <lkp@intel.com>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Andrew Lunn <andrew@lunn.ch>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Chen-Yu Tsai <wens@kernel.org>, Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Samuel Holland <samuel@sholland.org>
-Subject: Re: [PATCH net-next 8/8] net: stmmac: make pcs_mask and phy_mask u32
-Message-ID: <202603050424.TDlVj9FT-lkp@intel.com>
-References: <E1vxjNj-0000000Br1c-2Fg7@rmk-PC.armlinux.org.uk>
+	id 1vxsnK-00000000SbA-3sOU;
+	Wed, 04 Mar 2026 20:26:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=Efys+qdhDxW8gOWCNyG8ButQuR6xST9UMil7BTxFr0I=; b=OCG17ytgl1BIh7wKVHQ4jUE/W+
+	d5UEeIn5BVPknW6046z/yb39IA1XP8V1orCGXXIlSIyrH8UoQ3OYBIHi9yy5fKgR0Sqz7BKQPjkdS
+	lndwsYRNYUzucKXAOmK5neJDjzib9cMOjPVWOVPTbTxsdniFXBc+mrgPpcIbK2k6XXfoHO57AKLmw
+	KFwAbkBv81HPtyiai9lPGFenEaeo0nLQFCbA62/882SgY8QsK2/9l5pTKXLnRWju+Cjgr+TR2FWOF
+	FUafC9j7Ipb5YL7c644l7xIRK4Ltc3GmjU/TJ1sYieJ2QbLHaSVw/UYmUkeUWpFcUElTfISEgvlQA
+	2NITJWaQ==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Diederik de Haas <diederik@cknow-tech.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Pedro Alves <pta2002@pta2002.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: rockchip: configure hdmirx in Rock 5 ITX
+Date: Wed, 04 Mar 2026 21:26:00 +0100
+Message-ID: <24285215.6Emhk5qWAg@phil>
+In-Reply-To: <CAAEXfUVBVMmT3i+10F3uvmGOtMMLoQK4WXM7_0G88aL5DntOuw@mail.gmail.com>
+References: <20260304-radxa-r5-itx-hdmirx-v1-1-f77bf1f7ce03@pta2002.com>
+ <DGU7SPZQMZR5.1506XM8RO4EHE@cknow-tech.com>
+ <CAAEXfUVBVMmT3i+10F3uvmGOtMMLoQK4WXM7_0G88aL5DntOuw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <E1vxjNj-0000000Br1c-2Fg7@rmk-PC.armlinux.org.uk>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_121933_872700_7A08845C 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20260304_122611_000114_535466BE 
+X-CRM114-Status: GOOD (  20.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,50 +68,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Russell,
+Am Mittwoch, 4. M=C3=A4rz 2026, 21:05:52 Mitteleurop=C3=A4ische Normalzeit =
+schrieb Pedro Alves:
+> On 04/03/2026 18:38, Diederik de Haas wrote:
+> > I have a strong suspicion that it was named 'hdmirx_det' because in the
+> > schema its label is 'HDMIIRX_DET_L' where the extra 'I' was probably
+> > dropped as that seems to be a spelling issue and the '_L' suffix is
+> > quite often dropped.
+> >
+> > FWIW: The label in the schematic for Rock 5B, Rock 5B+, Rock 5T and Rock
+> > 5 ITX+ are all 'HDMIIRX_DET_L', yet none of them follow the convention
+> > to use the label from the schematics.
+>=20
+> That's a good point, and the other boards all have the hdmirx_det
+> naming in the downstream kernel, so I guess that would be the most
+> "correct" name to use.
+>=20
+> > So now the 'problem' is indeed: make it consistent with the other boards
+> > or keep the one where the convention was followed.
+>=20
+> Also a third option of changing the other boards to all match. Either
+> way, I can do those changes, just let me know what would be desirable.
 
-kernel test robot noticed the following build errors:
+I really want pin-names to reflect the schematics. This makes searching
+so much easier. Sometimes things slip through where that doesn't match,
+but the goal would be to always move to improve things.
 
-[auto build test ERROR on net-next/main]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Russell-King-Oracle/net-stmmac-mdio-use-same-test-for-MDC-clock-divisor-lookups/20260304-183416
-base:   net-next/main
-patch link:    https://lore.kernel.org/r/E1vxjNj-0000000Br1c-2Fg7%40rmk-PC.armlinux.org.uk
-patch subject: [PATCH net-next 8/8] net: stmmac: make pcs_mask and phy_mask u32
-config: sparc64-allmodconfig (https://download.01.org/0day-ci/archive/20260305/202603050424.TDlVj9FT-lkp@intel.com/config)
-compiler: clang version 23.0.0git (https://github.com/llvm/llvm-project 9a109fbb6e184ec9bcce10615949f598f4c974a9)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260305/202603050424.TDlVj9FT-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202603050424.TDlVj9FT-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c:171:35: error: call to undeclared function 'BIT_u32'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     171 |         plat->mdio_bus_data->phy_mask = ~BIT_u32(2);
-         |                                          ^
-   1 error generated.
+So at least the newly added hdmirx here should follow the schematics,
+and if you are keen to bring everything in line, you could also change
+the other boards. But please make sure via the schematics of those :-)
 
 
-vim +/BIT_u32 +171 drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
+Thanks
+Heiko
 
-   164	
-   165	static int loongson_gnet_data(struct pci_dev *pdev,
-   166				      struct plat_stmmacenet_data *plat)
-   167	{
-   168		loongson_default_data(pdev, plat);
-   169	
-   170		plat->phy_interface = PHY_INTERFACE_MODE_GMII;
- > 171		plat->mdio_bus_data->phy_mask = ~BIT_u32(2);
-   172		plat->fix_mac_speed = loongson_gnet_fix_speed;
-   173	
-   174		return 0;
-   175	}
-   176	
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
