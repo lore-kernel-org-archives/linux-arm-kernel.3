@@ -4,83 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA5F7EFCE39
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 19:25:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD189EFCE39
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 19:31:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+NFd5DGRL/IrW1hDf8AS6DtJEUGcFyzalFepeI1tRIs=; b=sU/BnntTS57Hvd+htkidQKtanU
-	K2i+jqUdG++mXu9VGicr90/bVPNfc4Pu6/1fXtk+MtkqT+R8W/jOnZchp+gC+sTdrURfuN3I/XcyV
-	hGnKT+LImmYaDZLf2gBXGcgB5cZblT7DYVmbyQB5DXNeMAduHXZUW0M4OVxX0YM/jy1nR+nLNCJzD
-	98RKNzmNz5zwBOMQRVP9wSFstVxxQovtIuHD0uekFh7mFGJ7VshHPwsWxR5uLoFPWJceCoHvRY1lS
-	Lp873wnPZBVygB90YBmvE5/Pa1U+RFiHHCcj0IiP/wQntxmzEcPFJKJLYQ5QgF65+ggeXZ6FcN4hY
-	SzltzwRw==;
+	bh=5Jaor1i7AaHnrlCUBtuu5yj9CDGjIA3h33PiPiPYpNA=; b=OGRRRPF4YtIuYC/lQJwABTJpRo
+	8avj2YJttZWdlyySl06QBajtGlwv4U2E16VbHyOOYgb1Ft6Gf+jzEHpWEqbHPMwoAmNqSPdL2ig4h
+	bu38kHqVD5BV9Va955dYLPy8Jl7JVnF0TCFmt6ZaIpfTHJCbkAGCXrLOxdDMPxNHC5vhnBOGIUawg
+	L/0+t/s5AS4VE7AQucGzODfAzMMYCTTlBNamxJqk1ENKs4O+jwXmUbUtsJQK0F06F8S+YGjmNWGjq
+	E5d5MBq8kYCKAdVEYOCJDjLduhWqtbqzD/hUmHabnSpY0xCNeB4WO9R+iW+BOpSo9zSEC0UGF9rU2
+	Hr+pcp/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxrqh-00000000Oo3-0vuk;
-	Wed, 04 Mar 2026 19:25:35 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1vxrw5-00000000PB8-3zs7;
+	Wed, 04 Mar 2026 19:31:09 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxrqb-00000000OmK-3fT7
+	id 1vxrw3-00000000PAM-1uGD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 19:25:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1772652329; x=1804188329;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=93zi98/SCHi0Xdt2/6okf2xCqWA0WfMJZVk3NLVoY/Y=;
-  b=T4WD+aYveAhErF7JnCyEBp6zXXL8xXA1YQGsnQU4bvVaJ61i+FHeThmD
-   jloUxqHScirmS7EwD95IwI8ex/Kb+X5D8hpADjUQOOSLTU2Di9b6eiIFX
-   RCQvkQlPwZoFSotQRug4nZ/sOYu/Cvw7EiuUwz0598dKeilfXdXYDksTf
-   TTW2yHG22C/sFLZIvOnwGq2XBTkQyeRWM36VIaL/Tg08TVBJh1uKEWOe1
-   w7bqH9JVEL9drw+ekgxslskxw1aA6T9XViXlDWu9+EjM5WFlbdvrHdpVH
-   DtP9hEDAsOeEC8GsBWrsIzL3A+cNWEwHIALTgCIic4YWaOSrgfjK929K6
-   g==;
-X-CSE-ConnectionGUID: k8q12WgDRey1JUGybn/9eg==
-X-CSE-MsgGUID: t1ma2sRQRrSbSg4PjX0tYA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11719"; a="72753239"
-X-IronPort-AV: E=Sophos;i="6.21,324,1763452800"; 
-   d="scan'208";a="72753239"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Mar 2026 11:25:28 -0800
-X-CSE-ConnectionGUID: dct93SjiSJaEO42FIENObw==
-X-CSE-MsgGUID: ajr2Y/TORySK9X58Glk5LQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,324,1763452800"; 
-   d="scan'208";a="218378608"
-Received: from lkp-server01.sh.intel.com (HELO f27a57aa7a36) ([10.239.97.150])
-  by orviesa009.jf.intel.com with ESMTP; 04 Mar 2026 11:25:26 -0800
-Received: from kbuild by f27a57aa7a36 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vxrqU-000000004O5-0gkS;
-	Wed, 04 Mar 2026 19:25:22 +0000
-Date: Thu, 5 Mar 2026 03:25:13 +0800
-From: kernel test robot <lkp@intel.com>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Andrew Lunn <andrew@lunn.ch>
-Cc: oe-kbuild-all@lists.linux.dev,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Chen-Yu Tsai <wens@kernel.org>, Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Samuel Holland <samuel@sholland.org>
-Subject: Re: [PATCH net-next 8/8] net: stmmac: make pcs_mask and phy_mask u32
-Message-ID: <202603050340.7qkvXUGq-lkp@intel.com>
-References: <E1vxjNj-0000000Br1c-2Fg7@rmk-PC.armlinux.org.uk>
+	Wed, 04 Mar 2026 19:31:08 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 624HHEMJ3837984
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 4 Mar 2026 19:31:06 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=5Jaor1i7AaHnrlCUBtuu5yj9
+	CDGjIA3h33PiPiPYpNA=; b=B6/0HCT1giHCu1qilIWaWxAGL9TVYR0aaiE8GJJv
+	X3unB+slTHqqyJMag90tMNq2NMIe/X84h0BnqSD/dn47/hj9+OQIw0wcxrCP4CNK
+	SpvEY06u4k3LJ5ppxCuwTAgOz+PD6aEOA7LPF+AvQu052mlH+DGwRlzwzrsSM5s/
+	Jm+GZ90PNC2xXCh1NLnT106oph24aku6pZ3UHMvhYEiKecQS79i/Z68BvWqBH5Kl
+	JiaKT44IB+SE4sGNDIB5hzuiR8iQmgEVpmhAk5cHW5DPgNcOa2ShChFbiyLLinoa
+	M+XaMFfArLhc7y2Re8ZwPKTW0UST3hRoxKhRLRrfBQO6Ig==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cps0m0dh6-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 19:31:06 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8c70d16d5a9so4125885285a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 11:31:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1772652666; x=1773257466; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=5Jaor1i7AaHnrlCUBtuu5yj9CDGjIA3h33PiPiPYpNA=;
+        b=cPHZaDtthlirwVi5uH/2d9UyYlrUzOvGwKARfdT0GqTK3J1kJd2GHiC0zNNZYDEpd/
+         swyJAsTlCrBef2wwViwYY+qk6Glm2WF2eBcBd5kPZSIzQzy2pw8Jt6sfQPMT7fQ8VxqL
+         h0cXMm9IecinfKRAa5r/b31dCbslNuQAWekpzzfo80ksvVntRx8drQ28Sb8n9S9EPEsB
+         HTzEMjXblXl6Q6tt/m8M0HFJS0AOA5AkHaJ24cDO52vx8WpHo2SqOkZK8Jb5GkDNe6OI
+         2uC0VYRJlq0lWbGeBeV5Y07DNsbNXpR1xTWiA7wetMk3znOEuJ5EyHZ248XfStbwGTyO
+         lGRg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772652666; x=1773257466;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5Jaor1i7AaHnrlCUBtuu5yj9CDGjIA3h33PiPiPYpNA=;
+        b=wvBH+6y4xJC94/a2kKUunAKJxFSOxiDdnbhkm6wYOtLysi4y+rxj5050CMpkfiUI2t
+         Q93ZamIeRGw78UmlPf9jRNXgkIwmMPx9uzSBHPg3cLZqxHlHr6bOr2NjHynWFp7H5XW3
+         icSgfs+9TnG8bMluOB/B+Rf07p2+Y8trTZjwvtOsYMMkxHZovnr9mHKZMNNWH5k3lTdm
+         vqkCaqZaRe18MG2PxdEBVggNlMgBbIdupWRGVX9WidyOwB0Dc//9UHandfk8SyzjohFA
+         YYCQqYFqhmZr6drVszrPhCVsLe1mJQJLq8A42Bacqo0ru69Ukz2t+VtQkaNEaoZccSZm
+         B49g==
+X-Forwarded-Encrypted: i=1; AJvYcCUt6mdjE5hLM2BPAoSnQFaG/fgPCbkjkU7zxxRDJN3JGcb4kPvLelAADqsyU15jP54imQYumkF2ozkkc9G6GX9b@lists.infradead.org
+X-Gm-Message-State: AOJu0YwD3SvO6nBJ5KKbCtEt9w2g+PrBbFv/4a/0hhYZCRaBNIRpBtQp
+	C41b8rAgSBleDhAZN8lPGB0C0W/rSROMfsx+tuyfENxkP7/ApRmh0q8hh8b+zEvobAONQrJchJE
+	Bs9bAxExnoRT1jwsjsxqwUIloD5PIgAl7SLjQSsZEYiGyF1jJoNvgsdDx+1aX1BwuGIMITvoA1j
+	L25g==
+X-Gm-Gg: ATEYQzwE64paw9ppLPLY60IqNeQtVg0DHrwlZte7ifqB0PgAPRKp69fUyWcHrwDthGy
+	/O9chwZ/Mxc5P9R5BsKtgzUnZcpS8eHAWfE4q2d/4K0FBB4SSAbFEz2sg2OmG6auBwDEJAxZkw4
+	c8U7C1sGyT0/a+zeF7HxhHCPoj3QhYd9pgft4b+BRVyoKMIs+tQXNNPaCkAwvgOP5nLz+yyO3fH
+	gtl1VrDHXH8KSUXmXn62OA9x4OWk9mrm2qwF5AAzOylnfIbRY2V5DyoWeA/eN59/UvuYEc8fSiL
+	lBdkgjadwD6Q/3a5DhFXsLyZzlMk4rBPbisaIDDr+9kunlzXcn3yiP9tPP36teUCnenMSa+2Bgr
+	n0qxX8b/gAjtGSa6/Z+la9xn7q6j9
+X-Received: by 2002:a05:620a:3722:b0:8c7:b5b:cea7 with SMTP id af79cd13be357-8cd5aec67d7mr408391385a.12.1772652665621;
+        Wed, 04 Mar 2026 11:31:05 -0800 (PST)
+X-Received: by 2002:a05:620a:3722:b0:8c7:b5b:cea7 with SMTP id af79cd13be357-8cd5aec67d7mr408386285a.12.1772652665180;
+        Wed, 04 Mar 2026 11:31:05 -0800 (PST)
+Received: from mai.linaro.org ([2a05:6e02:1041:c10:ee0b:246c:2dae:77b9])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4851a82dac3sm43124135e9.0.2026.03.04.11.31.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Mar 2026 11:31:04 -0800 (PST)
+Date: Wed, 4 Mar 2026 20:31:01 +0100
+From: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+        Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>,
+        "open list:CLOCKSOURCE, CLOCKEVENT DRIVERS" <linux-kernel@vger.kernel.org>,
+        "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+        "open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+        "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH 1/1] dt-bindings: timer: fsl,imxgpt: add compatible
+ string fsl,imx25-epit
+Message-ID: <aaiIdS0zRPBY81aE@mai.linaro.org>
+References: <20260211214947.3705328-1-Frank.Li@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <E1vxjNj-0000000Br1c-2Fg7@rmk-PC.armlinux.org.uk>
+In-Reply-To: <20260211214947.3705328-1-Frank.Li@nxp.com>
+X-Authority-Analysis: v=2.4 cv=e6wLiKp/ c=1 sm=1 tr=0 ts=69a8887a cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=8AirrxEcAAAA:8
+ a=VlEfjGrzG_qnfxHD3IEA:9 a=CjuIK1q_8ugA:10 a=PEH46H7Ffwr30OY-TuGO:22
+ a=ST-jHhOKWsTCqRlWije3:22
+X-Proofpoint-ORIG-GUID: a_0R0kiQJPRW_5GH4ipZ4fdE_LFlHaWx
+X-Proofpoint-GUID: a_0R0kiQJPRW_5GH4ipZ4fdE_LFlHaWx
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzA0MDE1OSBTYWx0ZWRfX1skwBFQWNuar
+ k0rbslMfFWj8QepKr4GYflHZspzRt2hNrpNW1Lil6hTkEjc6G0FfhM7jAUtnFMUjnjANEcoydck
+ fEw6u1tt9keyFvdIbzaGyKLrAjrZV4nx07sUQgIG/POXO69gX2wV/fcQULJD8uPTcVUzLqJpVyW
+ rw+iETO1GMbUchYXpl5Fz5dJbcy6UqwdUxeZS97LwuE7jHkZz1gY+x603UitI045veTJHwnTlUp
+ ARba9FDLPQ5haq+PfbXEPQhxne0y3LR02zEEhdQ0x9yutUs0NBL8mZQXdn56Ar2zgmXWklmEVmw
+ Fk6B9FikbI1vC+BlakXu+T+dXTtWpuiw6LjQG9nQyXIoRqjuxBz3VcLZigQGBaGMKSyxCZ/JzEF
+ Ka2XixEjKmjhLIbVqnDXFW1U+lEi7+4SI5dmbTLBNMfUUQsKvgUGT7ZLwGkX77+99MAsH8zuno1
+ w7SENhOK4ze8UMs5lnQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-04_07,2026-03-04_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 bulkscore=0 phishscore=0 lowpriorityscore=0 clxscore=1015
+ spamscore=0 adultscore=0 impostorscore=0 suspectscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2603040159
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_112530_374875_1F6B05D5 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20260304_113107_501695_4B7BDA81 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,51 +150,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Russell,
+On Wed, Feb 11, 2026 at 04:49:47PM -0500, Frank Li wrote:
+> Add compatible string fsl,imx25-epit to fix below CHECK_DTBS warnings:
+> arch/arm/boot/dts/nxp/imx/imx25-eukrea-mbimxsd25-baseboard-dvi-svga.dtb: /soc/bus@53f00000/timer@53f94000: failed to match any schema with compatible: ['fsl,imx25-epit']
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-kernel test robot noticed the following build errors:
+Applied, thanks
 
-[auto build test ERROR on net-next/main]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Russell-King-Oracle/net-stmmac-mdio-use-same-test-for-MDC-clock-divisor-lookups/20260304-183416
-base:   net-next/main
-patch link:    https://lore.kernel.org/r/E1vxjNj-0000000Br1c-2Fg7%40rmk-PC.armlinux.org.uk
-patch subject: [PATCH net-next 8/8] net: stmmac: make pcs_mask and phy_mask u32
-config: openrisc-allmodconfig (https://download.01.org/0day-ci/archive/20260305/202603050340.7qkvXUGq-lkp@intel.com/config)
-compiler: or1k-linux-gcc (GCC) 15.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260305/202603050340.7qkvXUGq-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202603050340.7qkvXUGq-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c: In function 'loongson_gnet_data':
->> drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c:171:42: error: implicit declaration of function 'BIT_u32'; did you mean 'BIT_U32'? [-Wimplicit-function-declaration]
-     171 |         plat->mdio_bus_data->phy_mask = ~BIT_u32(2);
-         |                                          ^~~~~~~
-         |                                          BIT_U32
-
-
-vim +171 drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-
-   164	
-   165	static int loongson_gnet_data(struct pci_dev *pdev,
-   166				      struct plat_stmmacenet_data *plat)
-   167	{
-   168		loongson_default_data(pdev, plat);
-   169	
-   170		plat->phy_interface = PHY_INTERFACE_MODE_GMII;
- > 171		plat->mdio_bus_data->phy_mask = ~BIT_u32(2);
-   172		plat->fix_mac_speed = loongson_gnet_fix_speed;
-   173	
-   174		return 0;
-   175	}
-   176	
+> ---
+>  Documentation/devicetree/bindings/timer/fsl,imxgpt.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/timer/fsl,imxgpt.yaml b/Documentation/devicetree/bindings/timer/fsl,imxgpt.yaml
+> index 9898dc7ea97be..6d41fb1203793 100644
+> --- a/Documentation/devicetree/bindings/timer/fsl,imxgpt.yaml
+> +++ b/Documentation/devicetree/bindings/timer/fsl,imxgpt.yaml
+> @@ -14,6 +14,7 @@ properties:
+>      oneOf:
+>        - const: fsl,imx1-gpt
+>        - const: fsl,imx21-gpt
+> +      - const: fsl,imx25-epit
+>        - items:
+>            - const: fsl,imx27-gpt
+>            - const: fsl,imx21-gpt
+> -- 
+> 2.43.0
+> 
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
