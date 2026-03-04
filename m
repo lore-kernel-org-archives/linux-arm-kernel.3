@@ -4,96 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04999EF8FEE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 14:56:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 762E4EF8FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 15:00:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4zl1V74JjZEQ00igJg/pKn4t3Auq4QD7fJPZAoJSVfA=; b=vLDOkMkLfO9MupzOqDaaTeEkMn
-	rURpK6YtngAgvybXjBhNxo0+yz+ScM3fDyRPjmUQ+6eWlVGlkLOBMUKAYG8YBgPNtOwb6tCCu1ttf
-	ZpoRbVr1vuOqy0h9T3GP99wxCvgeT/LP+7oHPkX4/6v5yv2HyuVN8VT7DIzXMvUDQ+CafvLZRcjG8
-	4pYP0wry3YSsE3HICVADbxH0tZH7MBGzKfZf1S9Vqh2UAe49tGESV7iOdNaII3F8vItblGfI6trJR
-	vHC5UW59SvG87qecoTkfXITEHsd8wF2AJfI3i+x1GiXx5e9+WFYtw4VYqlO+s5EIkXsK9IYhvoLSC
-	HwJYr/Cg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vqPIfe+mfsqFhoVG72QNFvYOtrojMOGGbstCn1l5Va0=; b=vbATX4c+J3fIANDUgSWPCRro2H
+	QnQlvPvihiXlz4iO/hA0G6lh0Adz5njGtE6dQn3TR7o6V54t2d7vvfAWTfl4B+S+S50PU7pXGl8wV
+	vrhXk5oTHFOn1Wmj3T/UQlMDvNxNdvy+KfflismZjViBovPYhF80X630ArZX16q/Vl2SaDlzbidof
+	fFt9WxWwwkkj/TzmbQtyeFnwnoCRV6ENqU1RYFYSZaaQnC8PNdJjxwYOqB6XkOR4j+8tMVoaFlc41
+	ZP0wmsdyty0EOW86cbdASg8n70AoSpaXdAYnsC+lizq5Qj51lkD0ZsgQ6nC0gRpbIQEIJutvnse43
+	74hun9Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxndj-0000000HUNZ-1rN8;
-	Wed, 04 Mar 2026 14:55:55 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vxnhg-0000000HV6A-1pow;
+	Wed, 04 Mar 2026 15:00:00 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxndh-0000000HULM-2xxM;
-	Wed, 04 Mar 2026 14:55:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=4zl1V74JjZEQ00igJg/pKn4t3Auq4QD7fJPZAoJSVfA=; b=DDkfURqf0sbal8PPOK6D2qt+UL
-	/cQId9N6R3mqO4+sESYlp0D3830H5kZIqBidBeo6fQmP2qHSyr8qJAqw01ZgpvIBzOdB0fW3SXcrC
-	SP3pDEuaTMYeGGUEbz8Z0E/0QFhs2Oxg9bCDHlw7YJHKG2mlFG10/rRrREO1GLoqmjtDDtE3BlqiN
-	t4rFD4b9fu2jkgZAijp7CypOITNcCm+jSi32zVPRV1GTgCmNJ/KogOf1yHSZmsti+hcpGHAdWHyi9
-	G5NnILxcaNnTRf+FXuEVzDejFgTZd4VCPbtHOTdusExKTxeLUCK9TbpNfKhEVhch8K4iJK/YxfON9
-	quF9so6g==;
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxnde-00000004qi4-00uk;
-	Wed, 04 Mar 2026 14:55:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1772636138; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=AU0dfGiZJIbbK19p+MDgaZqtm2R8hFunuv7hkxWvN6CN/Aehq1IiXkufMjjxOL+R25jcZDVaPiMZfBItqQtx75t42UPS+/GgGnRIUqfkplF11c4ihG1S3X30yatO7evq/t4n+4V9xSku8D16cGIyjOQjw1ZXk7afzaTo/2Wioi0=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1772636138; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=4zl1V74JjZEQ00igJg/pKn4t3Auq4QD7fJPZAoJSVfA=; 
-	b=gVlxjpgtsUFSiDmVuH1dHsCkCcvn3hhWRu2pjJvqKFZCevfTZPYhmUGpobIh2sCnRq5Ciu2SyjLfO2x2zY+ACJIK50SV4Tu6LB37FnyUkfRyeK8DvH8WZgw/P0gQXQnvxefRett//bTBNB0uM98T6uHy9eUegPTQ0uQeSDSJYQg=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772636138;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=4zl1V74JjZEQ00igJg/pKn4t3Auq4QD7fJPZAoJSVfA=;
-	b=CAIVtC2jK4y+72dTp8PKmASE6jlKNXnPR7+5yTnczVfwQIxsAE1s+eZp8CUQsKwR
-	yq+31FkI+NLA2Im8mXncAY/VPyFUzIYORcdaORlxoEp3lwIhNDnB5dRaiVH8AYe3ip1
-	cK3jtSiLDlRxqgwnoELj0W8RVGgyqMCy/Vq86t0g=
-Received: by mx.zohomail.com with SMTPS id 177263613629493.10029857824361;
-	Wed, 4 Mar 2026 06:55:36 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Wed, 04 Mar 2026 15:53:28 +0100
-Subject: [PATCH v8 23/23] scsi: ufs: mediatek: Add MT8196 compatible,
- update copyright
+	id 1vxnhe-0000000HV5h-1vli;
+	Wed, 04 Mar 2026 14:59:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=vqPIfe+mfsqFhoVG72QNFvYOtrojMOGGbstCn1l5Va0=; b=BexXbVtFTtWrabAERt3I7VaQUE
+	1MDE/MWnlrPGimoVaeUcdFk3FB5zaA8BjNLAPHpAYn7v9Q4G0Kwcr5Jl3Q1XLsVswkXw0CyTTLaL/
+	g/dxJutxfPtrr083s9hbQTqwycBJ/VpA4S0S99OWCob94R/W08s1BOKSyzpRiCrzXEWM=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vxnhP-00A7ZE-C5; Wed, 04 Mar 2026 15:59:43 +0100
+Date: Wed, 4 Mar 2026 15:59:43 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>, kevin-kw.huang@airoha.com,
+	macpaul.lin@mediatek.com, matthias.bgg@gmail.com,
+	kernel@collabora.com, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 2/2] net: phy: Introduce Airoha AN8801/R Gigabit
+ Ethernet PHY driver
+Message-ID: <3fbfabf7-b3af-405b-ade4-4f62db2c1c45@lunn.ch>
+References: <20260304-add-airoha-an8801-support-v1-0-0ae4ee5a2f9d@collabora.com>
+ <20260304-add-airoha-an8801-support-v1-2-0ae4ee5a2f9d@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260304-mt8196-ufs-v8-23-5b0eac23314f@collabora.com>
-References: <20260304-mt8196-ufs-v8-0-5b0eac23314f@collabora.com>
-In-Reply-To: <20260304-mt8196-ufs-v8-0-5b0eac23314f@collabora.com>
-To: Alim Akhtar <alim.akhtar@samsung.com>, 
- Avri Altman <avri.altman@wdc.com>, Bart Van Assche <bvanassche@acm.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Peter Wang <peter.wang@mediatek.com>, Stanley Jhu <chu.stanley@gmail.com>, 
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- "Martin K. Petersen" <martin.petersen@oracle.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>, Chaotian Jing <Chaotian.Jing@mediatek.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
- kernel@collabora.com, linux-scsi@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-phy@lists.infradead.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260304-add-airoha-an8801-support-v1-2-0ae4ee5a2f9d@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_145550_419998_6FF756C7 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20260304_065958_521881_DBFB6DD7 
+X-CRM114-Status: GOOD (  22.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,69 +80,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-THe MT8196's UFS controller has a new compatible. Add the necessary
-struct definitions to support it.
+> +static int an8801r_did_interrupt(struct phy_device *phydev)
+> +{
+> +	u32 irq_en, irq_status;
+> +	int ret;
+> +
+> +	ret = air_buckpbus_reg_read(phydev, AN8801_BPBUS_REG_WAKE_IRQ_EN,
+> +				    &irq_en);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = air_buckpbus_reg_read(phydev, AN8801_BPBUS_REG_WAKE_IRQ_STS,
+> +				    &irq_status);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (irq_status & AN8801_IRQ_WAKE_MAGICPKT)
+> +		return 0;
 
-Also update the copyrights and authors, without tabs following spaces to
-avoid checkpatch errors, to list myself as having contributed to this
-driver after the preceding rework patches.
+With a name like an8801r_did_interrupt() you would expect the return
+value to be some value of True, if there was an interrupt. I would
+suggest either a different name, or return 1. Maybe also add a
+kerneldoc header indicating the return values, since it is probably
+not going to be standard.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Peter Wang <peter.wang@mediatek.com>
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> +static void an8801r_get_wol(struct phy_device *phydev,
+> +			    struct ethtool_wolinfo *wol)
+> +{
+> +	u32 reg_val;
+> +
+> +	air_buckpbus_reg_read(phydev, AN8801_BPBUS_REG_WAKEUP_CTL1, &reg_val);
+> +
+> +	wol->supported = WAKE_MAGIC;
+
+How does WoL work on this device. Only via interrupts? If so, maybe
+you should only return WAKE_MAGIC as supported if there is a valid
+interrupt?
+
+> +static int an8801r_rgmii_delay_config(struct phy_device *phydev)
+> +{
+> +	switch (phydev->interface) {
+> +	case PHY_INTERFACE_MODE_RGMII_TXID:
+> +		return an8801r_rgmii_txdelay(phydev, 4);
+> +	case PHY_INTERFACE_MODE_RGMII_RXID:
+> +		return an8801r_rgmii_rxdelay(phydev, 0);
+> +	case PHY_INTERFACE_MODE_RGMII_ID:
+> +		return an8801r_rgmii_txdelay(phydev, 4);
+> +		return an8801r_rgmii_rxdelay(phydev, 0);
+
+The parameters look very odd here. 4 means 2ns, but 0 also means 0ns?
+Can this API be improved?
+
+Also, PHY_INTERFACE_MODE_RGMII_TXID means 2ns delay for TX, but it
+also means 0ns delay for RX. The code appears to be missing this
+second part.
+
+
+> +	case PHY_INTERFACE_MODE_RGMII:
+
+And here you should be disabling all delays. We have seen boards where
+the strapping is wrong, the PHY boots in RGMII_ID, but RGMII is
+required, and so the driver must fully implement
+PHY_INTERFACE_MODE_RGMII disabling the delays.
+
+> +static int an8801r_config_init(struct phy_device *phydev)
+> +{
+> +	u8 led_default_function[AN8801R_NUM_LEDS] = { 0 };
+> +	int prev_page, ret;
+> +
+> +	ret = an8801r_of_init_leds(phydev, led_default_function);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* Disable Low Power Mode (LPM) */
+> +	ret = phy_write_mmd(phydev, MDIO_MMD_VEND2, AN8801_REG_PHY_INTERNAL0,
+> +			    FIELD_PREP(AN8801_PHY_INTFUNC_MASK, 0x1e));
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = phy_write_mmd(phydev, MDIO_MMD_VEND2, AN8801_REG_PHY_INTERNAL1,
+> +			    FIELD_PREP(AN8801_PHY_INTFUNC_MASK, 0x2));
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* Disable EEE by default */
+> +	ret = phy_write_mmd(phydev, MDIO_MMD_AN, MDIO_AN_EEE_ADV, 0);
+> +	if (ret)
+> +		return ret;
+
+Why? If EEE is broken, this is not sufficient to stop a user
+re-enabling it.
+
+> +static int an8801r_read_status(struct phy_device *phydev)
+> +{
+> +	int prev_speed, ret;
+> +	u32 val;
+> +
+> +	prev_speed = phydev->speed;
+> +
+> +	ret = genphy_read_status(phydev);
+> +	if (ret)
+> +		return ret;
+
+You configure the PHY to support downshift. If it has performed a
+downshift, does it report the actual speed in the usual registers read
+by genphy_read_status(), or is it necessary to read a vendor register?
+
+> +static struct phy_driver airoha_driver[] = {
+> +{
+> +	PHY_ID_MATCH_MODEL(AN8801R_PHY_ID),
+> +	.name			= "Airoha AN8801R",
+> +	.features		= PHY_GBIT_FEATURES,
+
+Should not be needed, if the PHY enumerates its capabilities
+correctly.
+
+    Andrew
+
 ---
- drivers/ufs/host/ufs-mediatek.c | 17 +++++++++++++++--
- 1 file changed, 15 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index 6292c943ef99..a9e8641e6f29 100644
---- a/drivers/ufs/host/ufs-mediatek.c
-+++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -1,9 +1,11 @@
- // SPDX-License-Identifier: GPL-2.0
- /*
-  * Copyright (C) 2019 MediaTek Inc.
-+ * Copyright (C) 2025 Collabora Ltd.
-  * Authors:
-- *	Stanley Chu <stanley.chu@mediatek.com>
-- *	Peter Wang <peter.wang@mediatek.com>
-+ *      Stanley Chu <stanley.chu@mediatek.com>
-+ *      Peter Wang <peter.wang@mediatek.com>
-+ *      Nicolas Frattaroli <nicolas.frattaroli@collabora.com> (Major cleanups)
-  */
- 
- #include <linux/arm-smccc.h>
-@@ -2200,6 +2202,10 @@ static const char *const ufs_mtk_regs_avdd12_ckbuf_avdd18[] = {
- 	"avdd12", "avdd12-ckbuf", "avdd18"
- };
- 
-+static const char *const ufs_mtk_regs_avdd12_ckbuf[] = {
-+	"avdd12", "avdd12-ckbuf"
-+};
-+
- static const struct ufs_mtk_soc_data mt8183_data = {
- 	.has_avdd09 = true,
- 	.reg_names = ufs_mtk_regs_avdd12_avdd18,
-@@ -2212,10 +2218,17 @@ static const struct ufs_mtk_soc_data mt8192_8195_data = {
- 	.num_reg_names = ARRAY_SIZE(ufs_mtk_regs_avdd12_ckbuf_avdd18),
- };
- 
-+static const struct ufs_mtk_soc_data mt8196_data = {
-+	.has_avdd09 = true,
-+	.reg_names = ufs_mtk_regs_avdd12_ckbuf,
-+	.num_reg_names = ARRAY_SIZE(ufs_mtk_regs_avdd12_ckbuf),
-+};
-+
- static const struct of_device_id ufs_mtk_of_match[] = {
- 	{ .compatible = "mediatek,mt8183-ufshci", .data = &mt8183_data },
- 	{ .compatible = "mediatek,mt8192-ufshci", .data = &mt8192_8195_data },
- 	{ .compatible = "mediatek,mt8195-ufshci", .data = &mt8192_8195_data },
-+	{ .compatible = "mediatek,mt8196-ufshci", .data = &mt8196_data },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, ufs_mtk_of_match);
-
--- 
-2.53.0
-
+pw-bot: cr
 
