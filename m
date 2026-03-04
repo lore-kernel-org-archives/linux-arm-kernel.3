@@ -4,87 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 522B6EF8FE6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 13:38:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A93F2EF8FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 13:40:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	References:To:From:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6xKCzFEa575Ece/U0GGFSt+Fu+C5w9MJrHLEfRQR2Cg=; b=Q4gqYA9aWGlh/md9zsCdVFK8WJ
-	ABq9bDlDKN/esgiYMYSmWaNMhVINDXijmY3D9G6Ng4GgGsewaTk4a0TpKngoGGlRITKcMnOkFYxkA
-	x2tJhTDd6zJixbqma+PY2jLBPDkK5v/enr6zrwY9lsxZJ8z/V7wQyEwNIXs+hF5bI1M0zcvTHxS33
-	JbL2aoCvoyf90yF0fKXUrpR9aIIyw3zq6W/DIetoGJ/91SMnihZJYvhnimqrzFs6+rsMwrb4a+o0T
-	ECZMB8DvcoDnytkKcEfIC32WWwtcMWX27zlO9jYKI63rvoXPPDVbbFByUzitzIILi2TWgf2ZgkDit
-	cCJ79ebw==;
+	bh=bcPcjxeukKsYB7IDVAKVeqvBRVav0s7BSZS7nHb+R2g=; b=bm7m8ee4arHNPtNr+WdSnTytMr
+	CPDz1OMvWkw/1ADE0OPEVDNSqXzogNET1Ms+YzmQX6fpCDT1bLvOqdfU6sRp4gD4ngp8wn4tiMdwz
+	5oc8rQNd49hIcG6tuT48DY/YbACBhfCcdqowqhvJN4XrJekhhjoL7VXp/YmjEXlqDyn/ZIaIIELit
+	QxRUoTZw/Gg0ri+OXxXGYTIr019CT607ilt35XvclFLfdf8pGnwWVB80uv2RF6XhqtWUVqD4K69Ha
+	Dc+ii85wOzB6B3BdlOvIGydHYrne+JdlX8MBfOIJ/OLYtUxf5XGpFI+xTDVaRj4G4EB+4EXWAXs5r
+	gGIpof9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxmQj-0000000HGBr-0U54;
-	Wed, 04 Mar 2026 13:38:25 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1vxmSZ-0000000HGRH-2Pbn;
+	Wed, 04 Mar 2026 13:40:19 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxmQf-0000000HGBB-3xxX
+	id 1vxmSS-0000000HGQh-3dog
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 13:38:23 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-439a90f194bso3215748f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 05:38:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1772631500; x=1773236300; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=6xKCzFEa575Ece/U0GGFSt+Fu+C5w9MJrHLEfRQR2Cg=;
-        b=mwMOx9tRc/cJEtFbs6C7+n3GZ7KzzPhrkFKyaP5C6XVZWZ6yC/8cmgtZKicYfJQkl/
-         PmMaqs/N1YIBOW0rUhhESb4+owf++vBRyq4WMWaQD2rspda89kzLklXRDBDxgqnreo4D
-         hv8Fpfyv5mdx1sLqadGPsdDfl79BrUHkfGBCKGWtOFX2GBEaDdAYjAGJVT7av+TEdPJ7
-         VWIw6SPWKkisTLvOcWkOOYioIvVEzVmMn8vj+nTNzecrR9hTJkxhC8h9gRluUcE3utmz
-         qVPg97O1m0pic5ElOpGwbUwRoTqNoCdsUjiM0G7Ltf/84UHpP1g3Xk9LVMXL734JiqBe
-         hiVw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772631500; x=1773236300;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6xKCzFEa575Ece/U0GGFSt+Fu+C5w9MJrHLEfRQR2Cg=;
-        b=m6TTHzUIntEZSUJXFCYoodAAxmU4IGNi8MJ9qd1IGvh2YDRDEFzAfl3xPOtLsPkjOK
-         00dD5OKgfAd9lv1AX5Ps2UojRhB435nJbniVVE/KjUR07UCjt84REYi0gjuyH5sQJYg7
-         /sUd7KSvKTS1DNvIFgO7wEJ+f1LvnYbJexGVjFdtphQiRNFGEvHeEtBd7XUv6AYV7B2W
-         xFjeqSQ1m+c7hI+ztf62V/yRXXQb4Z/7Yf+e0J7FufXIRdTeuLAtimolBhb5fdIry7ld
-         TEnpW8+xW1FewVYaXkxtkoc1u8YvzEyMSQpDTpB8IHAq70lV1MuSEKgKBO2kg863FbZ1
-         pxBg==
-X-Forwarded-Encrypted: i=1; AJvYcCUAyAN2I8T14+HzSUOpvxyOiGMg2fVnO9wXWcHBAbHdbRAzI2/YLvUsNtgiq1Q+ruk9/lVAsscZiVlNdQXeGS8j@lists.infradead.org
-X-Gm-Message-State: AOJu0YyCTexlYFCERlKo5pcpWPeB2Cp7oi//MIwSAjCX6sbjTKqBVq/M
-	Lqu4qUlpOeU18B/Zw1trf5j05gHeMypZeb9mVJu/bxlwDWXuRAnkN63b+cu6PCcymdA=
-X-Gm-Gg: ATEYQzxXfBY6/Q7Mg6E3MLuHBjW0nVwQfQn4sVqlhUcq8qKkupR4vQ/G5/bgFcHePbn
-	+EYsWMIwWtFtvUlV+ZuynOrRetHY1px9OrInHNVlXZ38kLJxLR8g0FfCPveR0wPbjEQUvnLKXxS
-	hoHmB+OoyagbhPILWAHbfGr1FihVFXOvwwECcRIwGx17fcwv7JGf63MkDGUC9EF3eUk6+ghr1oP
-	Lytm4we6oRLKXSnqZzGozLhpRmh/GpCEc8RKRBuUs5nEjnV4kS28MIyFCRhbQRU96CRMcVpmybH
-	Z1/BDlpgxNu+1aUsVzhQCksBDam9ibTceAUJUOcXNosUJrQoiGi8bT6hpdzTIhTc419msIh2NbH
-	9DUQXrFxr5Ikkw2y/dN1CnReUyi0g9dOl+k1eW9nkfXuCn9yXw2wXa3x9Y17VyGkqoSzBjTu1Rd
-	9+nrh+vH5/RHWvw9E=
-X-Received: by 2002:a05:6000:2302:b0:435:9d70:f299 with SMTP id ffacd0b85a97d-439c7f79f5fmr3963520f8f.22.1772631499943;
-        Wed, 04 Mar 2026 05:38:19 -0800 (PST)
-Received: from localhost ([195.52.25.213])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439b503425asm25373373f8f.25.2026.03.04.05.38.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Mar 2026 05:38:19 -0800 (PST)
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=9f27ca151f75da4521dca0ec3d004e6ed38b66748edd73afbb0ffdc24d2c;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Wed, 04 Mar 2026 14:38:10 +0100
-Message-Id: <DGU1F4OMYXZY.3S9ZX8TB5S3IP@baylibre.com>
-Subject: Re: [PATCH 2/6] dt-bindings: remoteproc: k3-r5f: Add
- memory-region-names
-From: "Markus Schneider-Pargmann" <msp@baylibre.com>
-To: "Conor Dooley" <conor@kernel.org>, "Markus Schneider-Pargmann (TI)"
- <msp@baylibre.com>
-X-Mailer: aerc 0.21.0
-References: <20260303-topic-am62a-ioddr-dt-v6-19-v1-0-12fe72bb40d2@baylibre.com> <20260303-topic-am62a-ioddr-dt-v6-19-v1-2-12fe72bb40d2@baylibre.com> <20260303-hesitate-preoccupy-5e311cbd3e58@spud> <20260303-payphone-pancake-b6068c545bc3@spud>
-In-Reply-To: <20260303-payphone-pancake-b6068c545bc3@spud>
+	Wed, 04 Mar 2026 13:40:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1772631612; x=1804167612;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=bsf7B5BIfmLnSGKb0te7TGmSKf659fCCwB8op44vRBc=;
+  b=lmARoB0BcgngBphzdb7arS0CxSQfY7RxXTPr1BtEZsXrjLxx/KsIGoKR
+   6/Y3iK3vhk/sSJWmpTTEcaWeR0sHdhliC2xcl8f8l3UVtnz4I0IdniEJT
+   8B9nAZ4aqZ8z7QNO5WxECdHTHaqf7VFOO35b+XQLyYfhiR/GQ+vExiBe6
+   m+rUEh0pNANRnIMQmY7y7Go2jPOI/9MKgUwUh9Jx9YG1k2LakSV0L5ph7
+   X6UD3SGlW9VkxzphiJa5bNwdKHmgXX0TIHLnm9eH3Fne8d6tL+UFd0Ki2
+   Zt/u3uXGi361J0GCPuPGD3K8dU/9jM/Nn324wqZ9UgwdF40Q5CGUugzlF
+   g==;
+X-CSE-ConnectionGUID: /tbjaeKVQ16U+enugNoUxg==
+X-CSE-MsgGUID: QkRTMn1/TEGtRaLT/5U9Xg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11719"; a="73388962"
+X-IronPort-AV: E=Sophos;i="6.21,324,1763452800"; 
+   d="scan'208";a="73388962"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Mar 2026 05:40:11 -0800
+X-CSE-ConnectionGUID: G3suj1SrQaS914RpDC0FCw==
+X-CSE-MsgGUID: 0pq5Dn1tS4W65Mys0QLAQg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,324,1763452800"; 
+   d="scan'208";a="218305788"
+Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.127])
+  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Mar 2026 05:40:07 -0800
+Date: Wed, 4 Mar 2026 15:40:05 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Christofer Jonason <christofer.jonason@guidelinegeo.com>
+Cc: jic23@kernel.org, lars@metafoo.de, dlechner@baylibre.com,
+	nuno.sa@analog.com, andy@kernel.org, michal.simek@amd.com,
+	victor.jonsson@guidelinegeo.com, linux-iio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in
+ postdisable for dual mux
+Message-ID: <aag2NQTBysQYMU--@ashevche-desk.local>
+References: <20260304090727.1800289-1-christofer.jonason@guidelinegeo.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260304090727.1800289-1-christofer.jonason@guidelinegeo.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_053822_105675_EEB10231 
-X-CRM114-Status: GOOD (  18.99  )
+X-CRM114-CacheID: sfid-20260304_054012_945160_05E3809E 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,78 +86,29 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Nishanth Menon <nm@ti.com>, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Vignesh
- Raghavendra <vigneshr@ti.com>, Mathieu Poirier <mathieu.poirier@linaro.org>, Dhruva
- Gole <d-gole@ti.com>, Akashdeep Kaur <a-kaur@ti.com>, Kevin Hilman <khilman@baylibre.com>, Bjorn Andersson <andersson@kernel.org>, linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, Kendall
- Willis <k-willis@ti.com>, devicetree@vger.kernel.org, Vishal
- Mahaveer <vishalm@ti.com>, Sebin Francis <sebin.francis@ti.com>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Tero Kristo <kristo@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---9f27ca151f75da4521dca0ec3d004e6ed38b66748edd73afbb0ffdc24d2c
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+On Wed, Mar 04, 2026 at 10:07:27AM +0100, Christofer Jonason wrote:
+> xadc_postdisable() unconditionally sets the sequencer to continuous
+> mode. For dual external multiplexer configurations this is incorrect:
+> simultaneous sampling mode is required so that ADC-A samples through
+> the mux on VAUX[0-7] while ADC-B simultaneously samples through the
+> mux on VAUX[8-15]. In continuous mode only ADC-A is active, so
+> VAUX[8-15] channels return incorrect data.
+> 
+> Since postdisable is also called from xadc_probe() to set the initial
+> idle state, the wrong sequencer mode is active from the moment the
+> driver loads.
+> 
+> The preenable path already uses xadc_get_seq_mode() which returns
+> SIMULTANEOUS for dual mux. Fix postdisable to do the same.
 
-Hi Conor,
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 
-On Tue Mar 3, 2026 at 7:33 PM CET, Conor Dooley wrote:
-> On Tue, Mar 03, 2026 at 06:31:56PM +0000, Conor Dooley wrote:
->> On Tue, Mar 03, 2026 at 04:13:00PM +0100, Markus Schneider-Pargmann (TI)=
- wrote:
->> > Add names to the memory-region-names for easier idenfitication of memo=
-ry
->> > regions.
->> >=20
->> > Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
->> > ---
->> >  .../bindings/remoteproc/ti,k3-r5f-rproc.yaml          | 19 ++++++++++=
-+++++++++
->> >  1 file changed, 19 insertions(+)
->> >=20
->> > diff --git a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rp=
-roc.yaml b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yam=
-l
->> > index 6aadc61e20f9f4c27f5b9c87ab2025a02776c5de..76ef23afe8c9f7f155dfec=
-7fcabc7c60b8b286c6 100644
->> > --- a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yam=
-l
->> > +++ b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yam=
-l
->> > @@ -182,6 +182,25 @@ patternProperties:
->> >            - description: DM RM/PM trace and firmware code/data
->> >          additionalItems: true
->> > =20
->> > +      memory-region-names:
->> > +        description: |
->> > +          Optional names for the memory regions specified in the memo=
-ry-region
->>=20
->> Is this really optional? Shouldn't it be made mandatory so that it is
->> easy to tell the difference between the two configurations?
->
-> Actually, so that you can tell at all, since it looks like anything from
-> 2 to 8 regions is permitted (which this prop doesn't account for I guess,
-> only allowing 2 or 6 regions).
+-- 
+With Best Regards,
+Andy Shevchenko
 
-Thanks for your feedback. I will fix both, make memory-region-names
-required and fix the inconsistency between both properties regarding
-what is allowed.
 
-Best
-Markus
-
---9f27ca151f75da4521dca0ec3d004e6ed38b66748edd73afbb0ffdc24d2c
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iKMEABYKAEsWIQSJYVVm/x+5xmOiprOFwVZpkBVKUwUCaag1whsUgAAAAAAEAA5t
-YW51MiwyLjUrMS4xMSwyLDIRHG1zcEBiYXlsaWJyZS5jb20ACgkQhcFWaZAVSlMO
-BwEAlzDsVfiuqPCx/XTZv4wEd09mmQ8/q1n6TFL57MQ0VPsA/10oQtozFUWjofc9
-KhaPSSQMHdxnVfQ4MrQdxnV+d+EP
-=C3Zm
------END PGP SIGNATURE-----
-
---9f27ca151f75da4521dca0ec3d004e6ed38b66748edd73afbb0ffdc24d2c--
 
