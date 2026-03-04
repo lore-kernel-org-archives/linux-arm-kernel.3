@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAEE2EF8FEA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 14:07:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E35BEF8FEA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 14:08:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RyuNkplEmWWWfsHzLrnUmsW89o+IaiV9QyQ60TTkBGw=; b=dZEZsBYvteEAvEyEc2S2FnXYPs
-	HsBptOpkzTQAQkuOczCaf9JlJ2gRa5WvvfmzicK19cm4PKHhpRBIySJwfsJwYDq833r83N8tC1/+H
-	z2FqVM8PVwH08bWB1vo4j1eX15B6fksPdaJQRCvWsF62XIlnUvIE+MnxKJx+xIG4YHi/mkf71wux8
-	pSMpupO7oOL1AFbe0/uDQeom7K6EFkM0b0t/IZOpM+uU2ia5YBhAR4Ph49nmO1LYdKBMHDn8Eh+hE
-	ki8/vNz2dJv5DT2bqWaB/wpGAhbVkIgFTj9whGrumHsBID7Iw0Jn/w+n0ZG2yl0rw3t7cu4wALNqN
-	mWbyMdRg==;
+	bh=sNt41knoH6L3GZXOaiB2ns/cBS0LA7UDOI9JlUWv1i8=; b=RR8g5f5LUQmb1adwkB2cAM6QfG
+	3c20pCgBhcfgnrgxNwAe+TNyaLr3sroTKsqEqJYnQ/tWCMzlpZDON+jW4OZU8Ge00qpfGRWYsJ/OV
+	fcpVUkF14iUz8vEXbjVoWeLBnh4znub6QL2BKheTgY/A0eAV3xiqjqRZsD+c+6DXqb3CHRp+LKu8f
+	Oj38s2ywCc5tRZ+l6EilPUGpswIxtICKOZZC4ofmkAk9a1cTVFMMXDavOpM4EJzU+rbAigXQNHWZo
+	+liHb09sv5CkDaa244Z0JBjdC4Le2+QMl3KzsKLL0YRYqpQuqqgCQOGRM5P7mcZQ64tm39shAz/5Q
+	PKqJVyYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxmsM-0000000HKDj-2OU5;
-	Wed, 04 Mar 2026 14:06:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vxmth-0000000HKfY-1fWN;
+	Wed, 04 Mar 2026 14:08:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxmsK-0000000HKCI-1ziV
+	id 1vxmtg-0000000HKez-0Vmt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 14:06:57 +0000
+	Wed, 04 Mar 2026 14:08:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 43152437DB;
-	Wed,  4 Mar 2026 14:06:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E2A2C4CEF7;
-	Wed,  4 Mar 2026 14:06:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 90A73600AD;
+	Wed,  4 Mar 2026 14:08:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB7AAC4CEF7;
+	Wed,  4 Mar 2026 14:08:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772633215;
-	bh=gdTvGR1HAMd/24WUkklJSA4hbg82Mz6vxLyASbCCMXM=;
+	s=k20201202; t=1772633299;
+	bh=RlN6e8YUqUZvBpyKIk+jEAHmPAFSy30sIJkU6Fd/PU8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DWWb/RRBfBLwLwQbLS5nh17ddUUFQWLNr6KxAw89b5/xIMYwGwGjyn30FiOQh7pph
-	 DMxIGtMrs6rvgJ+/W9zzB1YTG77TA/ObRGTDOee6pNfi6zokQ+reHp+vpYMP0Zx/9Y
-	 OZTkJw7QzkB4w57+0FtW5NqI0yepogsF4NdEIGxW4Eugig3baYlkQmjysRGyTtKZvG
-	 /eY8J60Q4SkETWyfpMmGsBPXlSgInpSgyU1KbIoMrvm2c/KgOggUIlMiS0AkN1kPM9
-	 QBz0Z8I4rchcao+wJSYsrBdeUCpymaGJFw9DwkGO/agkWEDJpg1oePyhg/plK3OyW3
-	 96vHhIKLARSGQ==
-Date: Wed, 4 Mar 2026 14:06:49 +0000
+	b=AxBcEsGN1Hc+DNF0l3YqqsIZNXxDWnVXVmaGrsijnSWngNh5Yc3LMljz9COhNTMfX
+	 0ZIn6H18WgoNJEwgb77rsb9y6fxxqr2oWfRMN5glvUrDD4Q70ecICIDxPdzpxvdl03
+	 jJSoORO7Mzd+AU+RAeGBy54YDanpBtL8zBjbQAgFi5mgjDyljY934S3o9VDXuHzTOH
+	 ZFzQg0QIxrX/dX2JyXOO9r3QvX7JivHxxwahIhk/GbgsgSAN2TYC+NEFoe4fbNW09b
+	 JMoe+gnRcTXrD02hUkCwWnVY+dyGsATzLpPUiSGaQqM8xIUjntSwSBRRSxIFu4Lf1q
+	 ZwOSDUdM3/pNA==
+Date: Wed, 4 Mar 2026 14:08:13 +0000
 From: Will Deacon <will@kernel.org>
 To: Alexandru Elisei <alexandru.elisei@arm.com>
 Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
@@ -54,18 +54,16 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH v2 14/35] KVM: arm64: Handle aborts from protected VMs
-Message-ID: <aag8edDkKgfTr_hD@willie-the-truck>
+Subject: Re: [PATCH v2 24/35] KVM: arm64: Introduce hypercall to force
+ reclaim of a protected page
+Message-ID: <aag8zZpi_r5hduQJ@willie-the-truck>
 References: <20260119124629.2563-1-will@kernel.org>
- <20260119124629.2563-15-will@kernel.org>
- <aY2tX6V0pCqwGth5@raptor>
+ <20260119124629.2563-25-will@kernel.org>
+ <aY4LchRsyTvjIBVb@raptor>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aY2tX6V0pCqwGth5@raptor>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_060656_558821_0764BF31 
-X-CRM114-Status: GOOD (  39.06  )
+In-Reply-To: <aY4LchRsyTvjIBVb@raptor>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,110 +78,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 12, 2026 at 10:37:19AM +0000, Alexandru Elisei wrote:
-> On Mon, Jan 19, 2026 at 12:46:07PM +0000, Will Deacon wrote:
-> > Introduce a new abort handler for resolving stage-2 page faults from
-> > protected VMs by pinning and donating anonymous memory. This is
-> > considerably simpler than the infamous user_mem_abort() as we only have
-> > to deal with translation faults at the pte level.
-> > 
-> > Signed-off-by: Will Deacon <will@kernel.org>
-> > ---
-> >  arch/arm64/kvm/mmu.c | 89 ++++++++++++++++++++++++++++++++++++++++----
-> >  1 file changed, 81 insertions(+), 8 deletions(-)
-> > 
-> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> > index a23a4b7f108c..b21a5bf3d104 100644
-> > --- a/arch/arm64/kvm/mmu.c
-> > +++ b/arch/arm64/kvm/mmu.c
-> > @@ -1641,6 +1641,74 @@ static int gmem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
-> >  	return ret != -EAGAIN ? ret : 0;
-> >  }
-> >  
-> > +static int pkvm_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
-> > +		struct kvm_memory_slot *memslot, unsigned long hva)
-> > +{
-> > +	unsigned int flags = FOLL_HWPOISON | FOLL_LONGTERM | FOLL_WRITE;
-> > +	struct kvm_pgtable *pgt = vcpu->arch.hw_mmu->pgt;
-> > +	struct mm_struct *mm = current->mm;
-> > +	struct kvm *kvm = vcpu->kvm;
-> > +	void *hyp_memcache;
-> > +	struct page *page;
-> > +	int ret;
+On Thu, Feb 12, 2026 at 05:18:42PM +0000, Alexandru Elisei wrote:
+> > diff --git a/arch/arm64/kvm/hyp/include/nvhe/memory.h b/arch/arm64/kvm/hyp/include/nvhe/memory.h
+> > index dee1a406b0c2..4cedb720c75d 100644
+> > --- a/arch/arm64/kvm/hyp/include/nvhe/memory.h
+> > +++ b/arch/arm64/kvm/hyp/include/nvhe/memory.h
+> > @@ -30,6 +30,12 @@ enum pkvm_page_state {
+> >  	 * struct hyp_page.
+> >  	 */
+> >  	PKVM_NOPAGE			= BIT(0) | BIT(1),
 > > +
-> > +	ret = prepare_mmu_memcache(vcpu, true, &hyp_memcache);
-> > +	if (ret)
-> > +		return -ENOMEM;
-> > +
-> > +	ret = account_locked_vm(mm, 1, true);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	mmap_read_lock(mm);
-> > +	ret = pin_user_pages(hva, 1, flags, &page);
-> > +	mmap_read_unlock(mm);
+> > +	/*
+> > +	 * 'Meta-states' which aren't encoded directly in the PTE's SW bits (or
+> > +	 * the hyp_vmemmap entry for the host)
+> > +	 */
+> > +	PKVM_POISON			= BIT(2),
+> >  };
+> >  #define PKVM_PAGE_STATE_MASK		(BIT(0) | BIT(1))
 > 
-> If the page is part of a large folio, the entire folio gets pinned here, not
-> just the page returned by pin_user_pages(). Do you reckon that should be
-> considered when calling account_locked_vm()?
+> Looks a bit awkward to me, having the page state encoded using 3 bits, but the
+> mask only 2 bits.
 
-I don't _think_ so.
+It's a little fiddly because we have three ways to track the page state:
 
-Since we only ask for a single page when we call pin_user_pages(), the
-folio refcount will be adjusted by 1, even for large folios. Trying to
-adjust the accounting based on whether the pinned page forms part of a
-large folio feels error-prone, not least because the migration triggered
-by the longterm pin could actually end up splitting the folio but also
-because we'd have to avoid double accounting on subsequent faults to the
-same folio. It also feels fragile if the mm code is able to split
-partially pinned folios in future (like it appears to be able to for
-partially mapped folios).
+1. In the two software bits of the pte mapping the page. This uses
+   PKVM_PAGE_STATE_PROT_MASK.
 
-> > +	if (ret == -EHWPOISON) {
-> > +		kvm_send_hwpoison_signal(hva, PAGE_SHIFT);
-> > +		ret = 0;
-> > +		goto dec_account;
-> > +	} else if (ret != 1) {
-> > +		ret = -EFAULT;
-> > +		goto dec_account;
-> > +	} else if (!folio_test_swapbacked(page_folio(page))) {
-> > +		/*
-> > +		 * We really can't deal with page-cache pages returned by GUP
-> > +		 * because (a) we may trigger writeback of a page for which we
-> > +		 * no longer have access and (b) page_mkclean() won't find the
-> > +		 * stage-2 mapping in the rmap so we can get out-of-whack with
-> > +		 * the filesystem when marking the page dirty during unpinning
-> > +		 * (see cc5095747edf ("ext4: don't BUG if someone dirty pages
-> > +		 * without asking ext4 first")).
-> 
-> I've been trying to wrap my head around this. Would you mind providing a few
-> more hints about what the issue is? I'm sure the approach is correct, it's
-> likely just me not being familiar with the code.
+2. In the four bits of each 'struct hyp_page' entry in the
+   'hyp_vmemmap'. This means we can avoid fragmenting the host stage-2
+   page-table for pages that are shared. These use PKVM_PAGE_STATE_MASK.
 
-The fundamental problem is that unmapping page-cache pages from the host
-stage-2 can confuse filesystems who don't know that either the page is
-now inaccessible (and so may attempt to access it) or that the page can
-be accessed concurrently by the guest without updating the page state.
+3. States derived from an invalid pte that are never stored explicitly.
 
-To fix those issues, we would need to support MMU notifiers for protected
-memory but that would allow the host to mess with the guest stage-2
-page-table, which breaks the security model that we're trying to uphold.
+PKVM_POISON fits into the last category, and so isn't constrained by the
+masks.
 
-> > @@ -2190,15 +2258,20 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
-> >  		goto out_unlock;
-> >  	}
-> >  
-> > -	VM_WARN_ON_ONCE(kvm_vcpu_trap_is_permission_fault(vcpu) &&
-> > -			!write_fault && !kvm_vcpu_trap_is_exec_fault(vcpu));
-> > +	if (kvm_vm_is_protected(vcpu->kvm)) {
-> > +		ret = pkvm_mem_abort(vcpu, fault_ipa, memslot, hva);
-> 
-> I guess the reason this comes after handling an access fault is because you want
-> the WARN_ON() to trigger in pkvm_pgtable_stage2_mkyoung().
-
-Right, we should only ever see translation faults for protected guests
-and that's all that pkvm_mem_abort() is prepared to handle, so we call
-it last.
+Perhaps I should rename PKVM_PAGE_STATE_MASK to something like
+PKVM_PAGE_STATE_VMEMMAP_MASK to make it clearer?
 
 Will
 
