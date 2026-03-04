@@ -4,88 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06315EFCE49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 20:44:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A288EFCE47
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 20:48:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-id:
-	Content-transfer-encoding:Content-type:MIME-version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QqcNY84HU56C92q/VUNsNqUbrdG+Xf4zqhVnZIVoFdA=; b=FsX1mQZWN5Q4ZNvWJuBvi9Cbes
-	pGw+ef1HkvD2fmneJ06VD/SlErxsPDSMA0D56VOU0aa+gzOVxz2KbXfMGQg0vcnZzvhaLXrFydEa3
-	0E2NeVL0TkjmlGAqGgkWWeBX0seA0bLU710E80yl7EHyYVCfvENZ8n+81gi4+RAKz/91I3QRaEgZ1
-	pT5czteeVD/RCadINBQTHOieXg4wpJ1bW8ZRgZepz/wtaKtjNW32bydPu70eWL4j8nRW8medfEnuT
-	WMJiJq4G/jEeb4uNlfSJiqCs85EBYd95NulLzRC8KVOXTdARaN0MJs6iaZILI2SbD8pm/Om1o8pfb
-	3clxM4QA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KYNFqupRvkwAilNqSDcz2z6T7EuDcaIGLGnq2s5luwA=; b=Pguz4U1mA/m0agOZXprT5AKf9P
+	uSa86+3BMgdjDXX6Jrp9tCQVT1HLvB0dXxPSUjXp942YPo1hY4inkHQQjPs4bxPv3Y/mTukTK8MRc
+	Z6nWG31uVP4o8oPdEGog77wPus/tJfZXUQJpDLDOlmdN+ahx6vwHkyPekG8OMNnPOFD66AKuxipbs
+	N4E/2G4XgF4mKLbPNIjWb0T2fYd3uayS7L2PKFckW/bZLTV71ZZr218MOpWQD3o/ibOh3fhX1xHVM
+	fJ2XHpXZkfeCTdDHm1aWpmE6w1xQe3L0RynP3adJ570lgk/h+jVvdTxa/MfL+3UWHFH7sLYiaUm5Z
+	PZjcq5pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxt5N-00000000TCW-2rTg;
-	Wed, 04 Mar 2026 20:44:49 +0000
-Received: from abi149ajj126.mrs1.oracleemaildelivery.com ([129.149.100.126])
+	id 1vxt8j-00000000TOB-28r6;
+	Wed, 04 Mar 2026 20:48:17 +0000
+Received: from mail-wr1-f47.google.com ([209.85.221.47])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxt5J-00000000TBU-1aKz
+	id 1vxt8h-00000000TNp-0AhE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 20:44:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=pta2002-202603;
- d=pta2002.com;
- h=Date:To:From:Subject:Message-Id:MIME-Version:Sender:List-Unsubscribe:List-Unsubscribe-Post;
- bh=QqcNY84HU56C92q/VUNsNqUbrdG+Xf4zqhVnZIVoFdA=;
- b=uxKSbOJSH4ml53K2c9ZzxD4Gs7UFk/F1g+JgcmWat9UzkDdqpn1tQvusDg6djD4RWJM73Qjll5B1
-   /HQQOI8uyG92dlXdDw20eZ0x+jg5WL79KSk1pnDbI/L2L5cUbYCoPzyyyhNMgSnqYpdBYpWsTqLu
-   0ervyjydyDYUR4YV6M6k6T4KvDyrj8fXAfiLum9awE0uEh10MOXurBaGn5SmG6CM3aBtpRzxG2JU
-   T2K5HnKiSEgSzAeNnFMZJz5j4e29jWwHERNUq/lBCKSs53H1IBxMQJl1iOvUa+cGnk8DHeExXXsk
-   2veSzONW34Nd01b/dK5Gvh9S8ghQPNBJLget+w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=prod-mrs-20211019;
- d=mrs1.rp.oracleemaildelivery.com;
- h=Date:To:From:Subject:Message-Id:MIME-Version:Sender:List-Unsubscribe:List-Unsubscribe-Post;
- bh=QqcNY84HU56C92q/VUNsNqUbrdG+Xf4zqhVnZIVoFdA=;
- b=LxFaNA+mE6eYqHTVVZXoVXxxRVD7IVyy/BrBEylT+j9i8XagZ3RaKlf5WT2f/lExbt7Qmh663zRM
-   NzSm//yvMpUX1XAZ4Ge2ZOlMOCWj3/D7dC6bvgagmxDgtKnoiawKTb9JKz/Ota5t5/cp/F63hqDq
-   bGO0Bz4bnXg+5O+oZLFfXujQF9Gp4+kcXVaJJN0diGGPy+Wy1bzcRmnI5/oKxb+DrRSBl8fSzSwG
-   I5Zc6QXuoIe3gRSaU4J/1SAzyzld3wXfFIGC+s1PZjm87R0ziEl2NnJR9z5TvGdAmFO7AtwceUVn
-   zqEubjEoKjAzOaJplKt5plfr9KVeN0T0sZx1nA==
-Received: by omta-ad1-fd2-401-eu-marseille-1.omtaad1.vcndpmrs.oraclevcn.com
- (Oracle Communications Messaging Server 8.1.0.1.20260212 64bit (built Feb 12
- 2026))
- with ESMTPS id <0TBE005RN6YGP0D0@omta-ad1-fd2-401-eu-marseille-1.omtaad1.vcndpmrs.oraclevcn.com>
- for linux-arm-kernel@lists.infradead.org; Wed, 04 Mar 2026 20:44:40 +0000 (GMT)
-List-Unsubscribe-Post: List-Unsubscribe=One-Click
-From: Pedro Alves <pta2002@pta2002.com>
-Date: Wed, 04 Mar 2026 20:44:39 +0000
-Subject: [PATCH v2] arm64: dts: rockchip: configure hdmirx in Rock 5 ITX
-MIME-version: 1.0
-Content-type: text/plain; charset="utf-8"
-Content-transfer-encoding: 7bit
-Message-id: <20260304-radxa-r5-itx-hdmirx-v2-1-6567e9e3298b@pta2002.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+	Wed, 04 Mar 2026 20:48:16 +0000
+Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-439b611274bso2516166f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 12:48:14 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772657293; x=1773262093;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KYNFqupRvkwAilNqSDcz2z6T7EuDcaIGLGnq2s5luwA=;
+        b=t9aJco2RnQgLto1dm4T4mSBmTwbpkgVSc2Ppk65JJwCEuoXHM7vUpvS83zzV49F1CN
+         RVdfHOHCl5NB05UNOJh5yc2s2yrE3VjB9z0NSHgsyTBj2Vx35jU1eMUitUMuLbrTSA+6
+         cbSnOabQqWz8mnFx3gt/OJRlS9ipOdzKWA9HadYo6TpotGEcycMY5qmsnlmgT9u6st4i
+         wopvxna87DYS53ZKKOJSDAyI6AMpIqjAmRqeCkuPVT26IlA2bUwvQ0tNlHFaOZTozQu9
+         QfQSwo/pQdNCLHwroyBMcQ+/U2zGR0/66wHPMgnEPK4wuW+88sWVYvaN52P5BGXklEu9
+         xdDw==
+X-Forwarded-Encrypted: i=1; AJvYcCXO1DcbkMdBoqxtYR96W/MpjJM+Aug4xcftT+M1iG3B/Ug1hFd4Jcejndw9BYSv+2jWoFUVT/Pxuw39SoMz9txO@lists.infradead.org
+X-Gm-Message-State: AOJu0YzxldqgX4Q0FXv+GeQ/WJQZ5qoiai+nhizUaM38pCLxWl3GftfS
+	6gqVP8TjRbrLy1CPxtSRfR8jlxqPVnkAGH0UB/6w+0koEgmwIbMNFi+o
+X-Gm-Gg: ATEYQzxEb6kZ6esJt9lgP/gYYSrOGCZTXMriAefAjaCkxrMm58U4/n4JWfIanXV32nm
+	/mzGz/fY5xYYRCI6icBjWI0WRk0opt0F8cTtOQiPro9XBisXwd2iQuGfqL2y9oRRuEIrEZTvgwY
+	fuRO2YxJ574sVlB3i26pXI/aiVn1Vq61JfBgf9m79KdgVrsDpO+MO/61qO84siWmrNl0xsJX0DW
+	Uv7WGqzf52rHyVwYeL121qpRLznCHoInX6jZ+AsJcD1GTJjKtvVdwV8Izk2xl/PBW6etVcOVayd
+	sW/Zzn+2cJ/pSOiuCqmIjfR4R3cx+6ccG9iz+5LamtSVH5JjfhVeCiw3umueeejMF7tOKlTE6pe
+	tkjayn3vb2uPPcK+sUZd6DsUF799UHbc+10Im9kbw8TrvLtZCXSirnPS4F1nwocIRHWRAa/2kOD
+	AZb8ApcYhf5qr3m+h9rsz3Rbu7Z4UH7q+d8XZA4Pwb3Qyvw4gDFz04OV6LxpgLertn9H2CQxd49
+	44cppTVbkge6bD+tmo+T4WbmU9X
+X-Received: by 2002:a5d:5d07:0:b0:439:cce7:d04d with SMTP id ffacd0b85a97d-439cce7d0a0mr2269547f8f.58.1772657292586;
+        Wed, 04 Mar 2026 12:48:12 -0800 (PST)
+Received: from ?IPV6:2001:818:ea73:e00:b102:ff11:db49:2389? ([2001:818:ea73:e00:b102:ff11:db49:2389])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439ba2a5970sm22469059f8f.33.2026.03.04.12.48.11
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 04 Mar 2026 12:48:12 -0800 (PST)
+Message-ID: <7d3c5e4c-37a8-4d12-a7da-3b4d159a8d4d@pta2002.com>
+Date: Wed, 4 Mar 2026 20:48:09 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: rockchip: configure hdmirx in Rock 5 ITX
+To: Heiko Stuebner <heiko@sntech.de>,
+ Diederik de Haas <diederik@cknow-tech.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Pedro Alves <pta2002@pta2002.com>
-X-Mailer: b4 0.14.3
-X-B4-Tracking: v=1; b=H4sIALaZqGkC/22Nyw6CMBBFf4XM2jF9AcaV/2FY1DKVWQBmSkgN4
- d+tJO5cnpPcczdIJEwJrtUGQisnnqcC5lRBGPz0JOS+MBhlGmWVRfF99ig18pJx6EeWjNE1rqb
- GxUuwUJYvocj5qN67wgOnZZb3cbLqr/313N/eqlFjbNtH1LENpOzttXijlDmHeYRu3/cPbRHbm
- bgAAAA=
-X-Change-ID: 20260303-radxa-r5-itx-hdmirx-f4645e64f8c3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772657079; l=2272;
- i=pta2002@pta2002.com; s=20260304; h=from:subject:message-id;
- bh=jtuJ3sDSTRydL4QDqtLQQf/RxGRON6GfNn+9/Wpf6pU=;
- b=bWuzjkfSGwG38Yb0np1TmOduH+RX+yiRB5PsCDCZPQ7ZVeJZVfkgc9Pks/HDmhjHLh9cWSGD0
- FwK1SVJ5rDqCblHoWkVIPpIFTHLZz3et+1xZTUIOQe6nsriCIqE6xVL
-X-Developer-Key: i=pta2002@pta2002.com; a=ed25519;
- pk=leagPTMCtYIB9nQJfoZ5+TYiuZUercAQHfGnFVTTaiQ=
-Reporting-Meta: AAHDjmJjvCZUCcZYIX7JF0y6IfTTYzSwJJDp0tXSTosAK1Fg2saYxHqqtPk2U2cu
- 1AADq0lNRLQvx62sAxrOipYGlv9v6DU8CbOW6dKznx7eYLQcbQ2Cult0edQqTYVG
- U7qaGDDhA8WITAxjhCChkb3TWM/DlYJ5y+xrGYqtl1DTOyv6W4GZmoud6psDRbaU
- BXs1BS9lwOaWhx/SGl/tzBl0pSpX/oT46MRMRFjNgkLBypzMIK5gcbsbqxe6fUJP
- QxVdTPfp+H3APfNK/8MF/UsBGg5Kp6lOfxzqGu4h4tGqfmgP+riYXIkmsGTjPwRJ
- A3C8vJM0oq99zcyFz9UHeb7hcJz9gR6DqrWDLHAfpX+gs0Lf8nBNYQKn2lIeNiQG
- MQ++BEcHVg2pHeYxcGsJVUrmjLTxmv6skpwlr29A4A7S0Y6uP3612DwW1EOzAqje jc5C24Cfzw==
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260304-radxa-r5-itx-hdmirx-v1-1-f77bf1f7ce03@pta2002.com>
+ <DGU7SPZQMZR5.1506XM8RO4EHE@cknow-tech.com>
+ <CAAEXfUVBVMmT3i+10F3uvmGOtMMLoQK4WXM7_0G88aL5DntOuw@mail.gmail.com>
+ <24285215.6Emhk5qWAg@phil>
+Content-Language: pt_PT
+From: Pedro Alves <pta2002@pta2002.com>
+In-Reply-To: <24285215.6Emhk5qWAg@phil>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_124446_811029_05ACC347 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20260304_124815_092538_B5F66A84 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,73 +95,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Radxa Rock 5 ITX board exposes an HDMI input exactly the same way as
-the Rock 5B, but this was not reflected in its DTS.
+On 04/03/2026 20:26, Heiko Stuebner wrote:
+> I really want pin-names to reflect the schematics. This makes searching
+> so much easier. Sometimes things slip through where that doesn't match,
+> but the goal would be to always move to improve things.
+> 
+> So at least the newly added hdmirx here should follow the schematics,
+> and if you are keen to bring everything in line, you could also change
+> the other boards. But please make sure via the schematics of those :-)
 
-Change the rk3588-rock-5-itx to configure and enable the hdmi_receiver
-and hdmi_receiver_cma nodes.
-
-The hot-plug detection (HPD) pin keeps the hdmirx_det name rather than
-the hdmirx_hpd name used in other boards since that is what matches the
-official schematics (HDMIIRX_DET_L).
-
-The configurations were confirmed to be identical on the downstream
-Radxa kernel, and this has been tested to work on a Rock 5 ITX board
-running kernel 6.19.3.
-
-Signed-off-by: Pedro Alves <pta2002@pta2002.com>
----
-Tested with the following commands:
-
-v4l2-ctl --verbose -d /dev/video4 \
-  --set-fmt-video=width=3840,height=2160,pixelformat='BGR3' \
-  --stream-mmap=4 --stream-skip=3 --stream-count=20 \
-  --stream-to=hdmiin.raw --stream-poll
-
-ffmpeg -f rawvideo -vcodec rawvideo -s 3840x2160 -r 30 -pix_fmt bgr24 \
-  -i hdmiin.raw output.mp4
----
-Changes in v2:
-- Updated dts spacing to match coding style
-- Reverted pin naming to hdmirx_det to match schematics
-  - Didn't end up changing other boards to match. There are quite a few
-    others, so I'll probably send a separate patch for that.
-
-- Link to v1: https://lore.kernel.org/r/20260304-radxa-r5-itx-hdmirx-v1-1-f77bf1f7ce03@pta2002.com
----
- arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
-index 172aeabba72a..8e0eead7d223 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
-@@ -349,6 +349,18 @@ &hdmi1_sound {
- 	status = "okay";
- };
- 
-+&hdmi_receiver_cma {
-+	status = "okay";
-+};
-+
-+&hdmi_receiver {
-+	pinctrl-0 = <&hdmim1_rx_cec &hdmim1_rx_hpdin &hdmim1_rx_scl &hdmim1_rx_sda &hdmirx_det>;
-+	pinctrl-names = "default";
-+	hpd-gpios = <&gpio1 RK_PC6 GPIO_ACTIVE_LOW>;
-+
-+	status = "okay";
-+};
-+
- &hdptxphy1 {
- 	status = "okay";
- };
-
----
-base-commit: 05f7e89ab9731565d8a62e3b5d1ec206485eeb0b
-change-id: 20260303-radxa-r5-itx-hdmirx-f4645e64f8c3
-
-Best regards,
--- 
-Pedro Alves <pta2002@pta2002.com>
-
+Thanks for the feedback. I've reverted that and will look into changing
+the other boards in a separate patch since there are quite a few.
 
