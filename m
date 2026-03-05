@@ -4,107 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 625EBF30955
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 12:39:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF1DEF30946
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 12:40:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SbxQf47xfZ/5C2jELl3sJw8N8vSCBcYcs6zW8A2N7KM=; b=0Dg3lt+h0M2FUkJoVBDe+FTYgL
-	mqaSY5JgbOipZS/UkNsSGgY7GUA8B+7Z2bRh3+0UlaIbrYuVBlNDa7KQduULq5AYXWOlwLMxeoQKd
-	BQ8UANMcd23eT4Pv38a6Sbc9SbA1GJKLK9mHCfIqvecOdiBDCimu4RP3B0usYqjDpRhxTqDo14jwB
-	NZoW4HQ/k8ObnLvPFu7fIvNGFhd039+GN8uqgwV+78qa+5nkJJk62AxdD7yB6gwkj5uo5B130+z/d
-	IhsuqjUJSPgt9YXcq61jxAZZWcNyRRp4IA33lWL1Ni2PxkQZ0n4/Ie3uJa6NNyLFzoB1M87lUfYVB
-	R5bsTp0A==;
+	bh=sFHN5nbkTUocV/DU/WX1AAVjcTSA69wM1/q5lcW7HqY=; b=KbUWN2s0IEfFXAWBzc+sVo6yh7
+	vgEhoOZrf5or6F5WiGDqAVmWOJWiy7KecC7LJH1VnA3OgLpAvz4H0q7z1fKQnmdWE4X7dOTxmCQBt
+	MDw1QSAaELVsC5fxq2EPXyBMNlFb3jnlc9qNI4WjUgO4jQKfLVTLxB++i/Z6Q0HWpzKirs/LZTCvm
+	riglJ1S9MQg6/4tCp2yb/1c5WyrlaZ1Ft/23rpGuELhboEhML4pLfWORw47S1LwuySD8d3qgEpI+4
+	4YLX6oTpwA2rlk26jeZHIjUSXkmTVWRxtApwprdVpr/tVnjy0M1mvHG43tWaAkyBqiLfwLScsTxb+
+	+7/azvnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy7zZ-00000001msg-1Zmg;
-	Thu, 05 Mar 2026 12:39:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vy7zu-00000001n1H-3LfW;
+	Thu, 05 Mar 2026 12:40:10 +0000
+Received: from mail-westeuropeazon11013054.outbound.protection.outlook.com ([52.101.72.54] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy7zY-00000001ms7-117y
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 12:39:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 447446183D;
-	Thu,  5 Mar 2026 12:39:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AEA2C19423;
-	Thu,  5 Mar 2026 12:39:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772714387;
-	bh=NHjvP5Apmcg681KyizLkhQcHDwKR9Nf0s0Y484PlvsA=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=P9ZCpTm1C4pe2uAMW7UXulE7Cj+noO09jxkI0IAcsCHXDK+ESrzixqBiWF1lNG3JS
-	 B3UUBAEApJ0pH9jMpMJUF3hu9+uevGNBlHRzCZ+9zrNMg09LhEw6sVVj5pwCi3Vo8/
-	 dLRxaXLPK0V4srgxVV1s/M5AIWmLyPmbr+FrTTOv8hoqjZZSY/YE0dh5n2Z3V5gyfX
-	 W/wze6nPqQoKPpl3ADdqw7zgRNw+oYa1kclyeH6hULDs6IiX04jDTI19C5hI4KJO34
-	 FWSiKcFHzvK2Pa5n506ZfD7toKcC0yj0cTnMzr3zI+QUAt16ywy3mz5DeFppf/IkJO
-	 bVqQeepibU1eQ==
-Message-ID: <3884dd41-8ab1-45ee-8daa-198384d59c20@kernel.org>
-Date: Thu, 5 Mar 2026 13:39:41 +0100
+	id 1vy7zr-00000001mz8-0FGk;
+	Thu, 05 Mar 2026 12:40:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WAM8CYqSO909Ua88/ZGFSSZgdsRO17HH0Di08xXLaVVqaUpuJdvi91ZJ+/hSMrlkhxXK/ThnTLKZlo5WsFVvRQGs6Q4nr22xXZzWlNAJYdbudv67nARR9RHyO/1odoQrlzhOhmN6wZrvKhPZal6YM3pR7qFjeyIqsUueVVmBFKfaQX9p9igcezgc4dK+VLHt47pOeP5Y8Tgb7CvVe8xEV7W7YqGcZ/1iewXG4j3nBJqSBSwtFy823dwsFFuWFPAHY+Zyg1TgWbw8LSFY9Cu+grr7hluvvbbBYgW9O7nwyYYJuQAr2K38yvWux09vg3yTvRKCh8nUKm4rxn7qTd+UYA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sFHN5nbkTUocV/DU/WX1AAVjcTSA69wM1/q5lcW7HqY=;
+ b=BS1Y0luIS4Xu2V5lmpXr6UoGVm/5ZegaUTM4JmkK7DDsAONzHk78hxHVCXJOVdrnFnXrGrmh4PMySl4ZJGf2fmjkoZOCMHOem3ThELlgHhUP10ng0ks6jHiABS8VsDWroPNVH/0L6Vu++n3tNqzpOxavytBdDITukxUpcTfh8FhUAgJ8mtM4EvpgLjXlqP5IB1jfzC/RLMH6FVC19SfAgim1N+oQCasu6FIlelT3DdrTn3SShcuQs7sizNqNu9oYSC9XsWfhFBhQJ3js6JiyvdV4rJQ/XU++apsZciFnEPKWh/J70pKtbvP4fwRkMvWo7tJsaykn8izjnL+Ubnj+tA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sFHN5nbkTUocV/DU/WX1AAVjcTSA69wM1/q5lcW7HqY=;
+ b=aVuZ/pCpnWlMFp6nxLQBvwTT++JGtr38bS4i2x138FZ1NA4YaP6tBzJjIBUrgGcRHDcG+46cdG6paKmYcq0Xq3K0AaRptskKpkaR/ym8VFr6nZb04sUCJ+Z4e8XrGjYsR9FG1C7ttkTLAw8+rPFc6bVT/S3mCuSNubGB5BbR/+esUTZiCCCEacev8OZ+Ull6bMIEJQB7A2bIlyjP08FtJqDq8n/8YcdZsjunIEmZ5QXTgtgTqtNWiPfSUiHHItCTL2DqaWaGNGens98vC6tIuBoG3ppBtBhhvDb1RJtbkrWAWwrZfJ9eB+9pxVQ0GMORZJS7euKJ8lsyIW0DW1FQcw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
+ by GV1PR04MB10677.eurprd04.prod.outlook.com (2603:10a6:150:20f::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Thu, 5 Mar
+ 2026 12:40:00 +0000
+Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
+ ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
+ ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9678.016; Thu, 5 Mar 2026
+ 12:40:00 +0000
+Date: Thu, 5 Mar 2026 14:39:56 +0200
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+Cc: Joe Perches <joe@perches.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-can@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org,
+	netdev@vger.kernel.org, spacemit@lists.linux.dev,
+	UNGLinuxDriver@microchip.com
+Subject: Re: [PATCH phy-next 22/22] MAINTAINERS: add regex for linux-phy
+Message-ID: <20260305123956.ojkt4k3ly64xz7fu@skbuf>
+References: <20260304175735.2660419-1-vladimir.oltean@nxp.com>
+ <20260304175735.2660419-23-vladimir.oltean@nxp.com>
+ <a8fee1cd-1e69-4a9e-8533-c0988c480fb9@oss.qualcomm.com>
+ <20260305085148.7cwo3yflp7vcfldf@skbuf>
+ <f3a5aa3df78553ffc0fd0024f5fd36a4e2158c88.camel@perches.com>
+ <20260305114352.2f7btqixg4tu5bzl@skbuf>
+ <20260305121532.GA1649635@rocinante>
+ <20260305122957.GA1652563@rocinante>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260305122957.GA1652563@rocinante>
+X-ClientProxiedBy: BE1P281CA0431.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:b10:81::9) To AM9PR04MB8585.eurprd04.prod.outlook.com
+ (2603:10a6:20b:438::13)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V4 2/2] arm64/mm: Reject memory removal that splits a
- kernel leaf mapping
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Yang Shi <yang@os.amperecomputing.com>,
- Christoph Lameter <cl@gentwo.org>, linux-kernel@vger.kernel.org
-References: <20260305053148.3765710-1-anshuman.khandual@arm.com>
- <20260305053148.3765710-3-anshuman.khandual@arm.com>
- <a2b81b60-eb8e-44a2-84fe-8c61bc5fadbe@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <a2b81b60-eb8e-44a2-84fe-8c61bc5fadbe@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|GV1PR04MB10677:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8c26c6a8-1de6-40b7-bc41-08de7ab45099
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|10070799003|19092799006|366016;
+X-Microsoft-Antispam-Message-Info: IaTAT9N7eaLnIdsyfqG4mBpi/u6wYswEPJvXXKsPKygroxQoxKFo/b5Co8mpkCgK4gaGxTrffK5F2phEG075VVz/8iEcQem4bWCeodqEUlvhtge1LNtbhPpa2l39wiFbbh2rzUw0ior7YJiP+bWgEQtNDd/pR/ipWg1o+sdgmb8W3JkotxApRnFjsWAKjYO3jVjLdp/jFL71I1b2Iy4UmzUoAcq7S7iuxmmTNUDqOrbBehNrtGvw23/y1e8Wnz2NjpEEcMg89SRKUmIvZVoO4z1GbJbrjvVFoBUUSkUcphx8Yy21DRqehPEq2fnyOo/PLt8wBp2VS2dL3p85qyQzx+T4C5iKQ+oFfomsCiepPTzVQnEjxHJaBHHgE+wRHoU5eU55i3Ryek3T0SO9nvvJYQJ/2bFHln43RZKLZY66+gBhKTXuyRjqbONQorg9tEVXNVfGo4EjcUq7f3kovx3HDqTzsZ21P/pf/m8AfH+zrudvLaX1CKBN+Un2ofpXnUuzNrTGd9g108xqLcmz4PZ3CVT5eWF1YrTRfjLieGa9vIQXYcANLqpKpcGSL36tqJmG2Q5a6L6xOK03M7R7FAzc6vwUT891SLUWXA92xalTdZi8Kr77KAM9w2OHYGfGEBC/SGrsXRdexoj6tNHbrbXZ5G9gpBev1DxooEZx/ZKJ5WYfVU3AwCqZBc/J7MXpw0yPPMZxGGnW42NsGRXCJxz8KeAIBPrBKDXw6JCAV+/RPgA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(10070799003)(19092799006)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RTMzWVJzRkhodFN3a3kzWUNHVnMzU1RtTFVEcUpmcVlDTjI2ZGtXMkdJdUFh?=
+ =?utf-8?B?dE9iTmt6b1E1UHA5SXNsY3RHNkZYMnYwMkdmZjc1aG1EZXVlNldaQjRzZ3l5?=
+ =?utf-8?B?TjRVd0xmVEthU0dwOVZNajJranRteEJZS1dLVDJ4MVhsdlhXcmNQaHdEbEFH?=
+ =?utf-8?B?NEhVUWszeWxyRXIwVTVoREZEQkxRNDlrV2Ira2NvWnI3NDVPQ2tWcWZlb215?=
+ =?utf-8?B?TmRuenpnakFIY1ZYRmdYc0wyVkZOSjUvMEljL0xMTVU3LzI3V1Zxc25mSmgr?=
+ =?utf-8?B?NHNWdHo4NVFoZXBRK1pEZERtbUdBakRSdjRuaGpqTGdEdVZBSEg5VzZlSVB0?=
+ =?utf-8?B?TmpoVTFGVlBhdlVhOGFvZnowcXlzMkpNOTQ5aFEwVE85VWJ0SURRajFJQ1Nh?=
+ =?utf-8?B?N2hxbERiOUYwZVppODgzOGdWQnNNVk4veUkzdlZVSDBkWGNESHdPNGE2bmww?=
+ =?utf-8?B?Y1hSNlNYdUE4TVp4NE9QYkZjbWViNVVzZjZQclp5WmtFNldvQ0htZkRxTnpE?=
+ =?utf-8?B?eXlkV2d6TGxOV0JORnJaSEZUK2FtdTNMSnN6UDF1SDN3MDV4TzdEaWFLZ2ZW?=
+ =?utf-8?B?K25jb3dyN0E1VG5EV0EvMUVLYk0yMmhVWSs5M1hMOE9YcFdWVXY4cFVKTEpr?=
+ =?utf-8?B?ak9ZTm5KRGgrVnoxdzVFYWdFV2hPQmRsZlpvTVF6QWRVWVIxSGpaUWc3aFdI?=
+ =?utf-8?B?RWhZWDVaMzdIbVkrNzkxSmFBT241MFhYSEhMWmpnR0J2NStwYXVrQTJyc3VE?=
+ =?utf-8?B?d25rYVBnR0NhZEl4VlcrOTdHQ1ZKSnRqVGQ2QjJWOE8vVit3R3FVaVhBQ3R4?=
+ =?utf-8?B?RkNvUjZWS0VSQ05FQW1lMnJ3VEFqVE4vN0Yvc3NvdTJ4WWZzQ2lrRDcrQ0Nz?=
+ =?utf-8?B?YzFqNWh6bG5FTHY0aVdMZ1NpWENUUGNWMGt2bkY0c2tYdVFTU3IycUd3WEZr?=
+ =?utf-8?B?S2JGUWV0dFJ5SDBKaE5BM3BqalAwY2RVZlljQ0FHbWhVZDI5aUoyY2s4RW8x?=
+ =?utf-8?B?c2pGczFWQUZlUE5LUWU4YlpPQkJ5RzRKRlZDVEVuTE8wRHZjODdHSHNBa3NE?=
+ =?utf-8?B?VW0wc1ZpdzZoaW9LTC9acm1XYlFRMFNWN3VwVWVmNzZCSUpQQWFabjJmcTdo?=
+ =?utf-8?B?RzJ1S25BWG5zLzcrWU8yWGRFN2pDcWNhMmJmSlJSNHVkMFJySTdIckFIWi9l?=
+ =?utf-8?B?R0E4UHRoMlZHQWZ3aE1uTGd5NVhjczBIajQ3eVNZTUxkOVlaMFRjQ3RNcEdh?=
+ =?utf-8?B?ak9ZUzNRUEYydWdkUjh5KzBzNXZkL284VFQydEV0ZTFyMHlkZURtSGdPVnJO?=
+ =?utf-8?B?c21Xd0tRR3puUys1Tm5OV1pDSHpMYVJvQ2VkaGxPNGlxa1JKSTR5cWEyQlV3?=
+ =?utf-8?B?cCs5bjBqYXNnM0x6WGVVdnVlNC9LY0g2ZVpJYVBMMjVBZEVIU3Y0by95UHB5?=
+ =?utf-8?B?bXlQY1RpN0NuaDFQNVBvOFVFMHphZzhkT3JIY0ptaVQzQXJqSkhaWllHZm5J?=
+ =?utf-8?B?SFAxK1hIVjdYSTlTcVNtTXNNOUFSVVRKVG93SVZVcXRGUWpQUEVyOUx1blpP?=
+ =?utf-8?B?NzlqN3AwK2xrUTFhM3NUOEZPRnhEeHM4TXBTMWg0aUhFckR3UjNWenVDbFcz?=
+ =?utf-8?B?a3pSME05ZDJ0dHdMUjRaVXdkUlRZMEZGOWpUMTg2NmkzRzR0TnQwYWVDWE9s?=
+ =?utf-8?B?b3o1VUtvOGs3NTkyV3VMbmtkNHZmQTRGSFBXeWc2bzZuNjUvSjRYdUNjVUV2?=
+ =?utf-8?B?RjUyc3k5ZGhwcmZPd0NwcjVSSGZMZ0FPY2Njak1FR0R0Mmw2NzJwQllHMnhR?=
+ =?utf-8?B?QWs0b0YxVTg3N0ZkdzVRUHVwL3JFTTA2N1dhM3dyRGxIRXRyaWx5anpPNDBQ?=
+ =?utf-8?B?cVlMeUU5emd5enI1Uk5VQi9JYSs0dGM3eCtQbVhIaEhnNTQvekN1OUFoUDE0?=
+ =?utf-8?B?K3E2RjZoY0F3TG5YdHAwUFc0YVl5NXVLRm1rNE11NkhES24zdlBUa3Ficnhw?=
+ =?utf-8?B?a0RsdkpNTThTRjRtcmJjTlhDTWZqVmFDRHlnVVF1ZnlRUTkxSUNsUHUwYlhl?=
+ =?utf-8?B?OTR6ZW1xZzFQQms1NXdudThOQkYxNGZUS0J3Z3dLNXVkZGFkV3k4ZTdhcFR4?=
+ =?utf-8?B?Nkw3V1VNdE1NWDNhMVN5NHcveUFaVEQyekdBdzZjdVZMeEFoSDBPOEZuZG1M?=
+ =?utf-8?B?VFRFVVdqc3ZYNEpSeVpSU09iTTBYY01tVm1YOGNIdnNoa2xxUkdaa2x6ODFw?=
+ =?utf-8?B?WUZqU0c0NGg2WXRUWEtHWDAxK01sK0VzcWNBUXdldTc3WlFvb0t3WWV1Vzlw?=
+ =?utf-8?B?bUphN2J3aFhYZGpWQlFTcS9abkpNdHZTYkdRbkF5Z3dORmt2QlpGazcwcEZu?=
+ =?utf-8?Q?q8GejVY/u/NMJ/yMvRiEW6xaWcnXPWY4nlP5dtwcyZp31?=
+X-MS-Exchange-AntiSpam-MessageData-1: TQz4P36Rl6INlkOZs8Xp89OeMO3pzoMOsoQ=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8c26c6a8-1de6-40b7-bc41-08de7ab45099
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2026 12:39:59.9129
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: lWdFX5435tWNjkjZkFJGeC+dzkqrulaSQhTwgHRagCXFYSBDsW71HQY69+ORkIB/u0N9SdD8hbuYCvMgtO1ZfQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10677
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260305_044007_101591_CA37600D 
+X-CRM114-Status: UNSURE (   7.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,75 +166,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/5/26 13:37, David Hildenbrand (Arm) wrote:
-> On 3/5/26 06:31, Anshuman Khandual wrote:
->> Linear and vmemmap mappings that get torn down during a memory hot remove
->> operation might contain leaf level entries on any page table level. If the
->> requested memory range's linear or vmemmap mappings falls within such leaf
->> entries, new mappings need to be created for the remaining memory mapped on
->> the leaf entry earlier, following standard break before make aka BBM rules.
->> But kernel cannot tolerate BBM and hence remapping to fine grained leaves
->> would not be possible on systems without BBML2_NOABORT.
->>
->> Currently memory hot remove operation does not perform such restructuring,
->> and so removing memory ranges that could split a kernel leaf level mapping
->> need to be rejected.
->>
->> While memory_hotplug.c does appear to permit hot removing arbitrary ranges
->> of memory, the higher layers that drive memory_hotplug (e.g. ACPI, virtio,
->> ...) all appear to treat memory as fixed size devices. So it is impossible
->> to hot unplug a different amount than was previously hot plugged, and hence
->> we should never see a rejection in practice, but adding the check makes us
->> robust against a future change.
->>
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: Will Deacon <will@kernel.org>
->> Cc: linux-arm-kernel@lists.infradead.org
->> Cc: linux-kernel@vger.kernel.org
->> Link: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
->> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
->> Suggested-by: Ryan Roberts <ryan.roberts@arm.com>
->> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
->> ---
+On Thu, Mar 05, 2026 at 09:29:57PM +0900, Krzysztof Wilczyński wrote:
+> For content match, it could also be:
 > 
-> [...]
+>   K:    phy
 > 
->> +
->> +	/*
->> +	 * PFN range's linear map edges are leaf entry aligned
->> +	 */
-> 
-> Nit: single-line comments are usually written as
-> 
-> /* ... */
-> 
->> +	start = __phys_to_virt(phys_start);
->> +	end =  __phys_to_virt(phys_end);
->> +	if (addr_splits_kernel_leaf(start) || addr_splits_kernel_leaf(end)) {
->> +		pr_warn("[%lx %lx] splits a leaf entry in linear map\n",
->> +			phys_start, phys_end);
->> +		return false;
->> +	}
->> +
->> +	/*
->> +	 * PFN range's vmemmap edges are leaf entry aligned
->> +	 */
-> 
-> Dito.
-> 
-> LGTM, thanks!
-> 
-> Acked-by: David Hildenbrand (Arm) <david@kernel.org>
-> 
+> I believe this would match everything of interest?
 
-In fact,
-
-Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
-
-:)
-
--- 
-Cheers,
-
-David
+Yeah, and way more. Think USB PHY, network PHY, etc. Don't want to drown
+the linux-phy mailing list in unrelated patches, either.
 
