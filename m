@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41165F33A73
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 14:22:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAB17F33A6B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 14:22:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zbv1svLNiELU2nwPQbaiNz8rD89KKv3/KBIEB/KjLZ4=; b=YHiEVsOxpQfT6RL9O6xmm4b0b5
-	qpyun4WDZ7E2TDixgOGq3RVfFOF7Y/WqG7QsajMpE4YSt2WJnPHjSB6lsqJzvZmIHvXUU50UEPSsI
-	UjVPoVDmY66S4cfrEyrznkIgF8b1dMQL4210evF6Mkx2HfJN+C46NAQ4gEY3gMHA913ssChdOBZ3+
-	aL7e3v58Br74eC17T/iioGeGJ0yutfjuSFOXHxb1cu/JOTaQBAnmoW6jabh+Di4NGYiGXaSqDOV+P
-	yJMBN/sIRbxxSbkb4d4zDx8G5+9Llkv+16PjN0nGuRr7RzAIzbl3oIEZMD3QCQtfBUPYrmR4Y4a4y
-	4vEYYtAw==;
+	bh=d1yMthHYWepKMoQtIRkHnB54WfQr2uBE10YWq40qjiM=; b=1gH+sX/mA2h3qGgT8pKaTtCUii
+	nj6ngcmBp6etkgULyhQIp+zprR8YNY0HF0/uzTTo1IPpKUhITbyAOcqPP4jKqbOi7eNj7WApH3dgt
+	gygkvpFj6mV444oIxDhXBmMr/uhyS1zSrltpyciXaJ74VfZkQiM5khK+UuSzsGUGb1vjoh7PI+GtM
+	J9UmePJ64sUw0cpp9ImIU1OhPiia1xPjDrkvEEMLDZugIm40LC1Mblx4PcmUBumRNtPTBOK8z2iD6
+	t2N47u3BEENub5VtIGMOjIeGXjnJWTV4Z2yjd8zUMQfhlSsgzaui3803tZLWUKBX1xN4Ug2FTUv4q
+	PL813lAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy9b2-00000001xjW-3GvI;
-	Thu, 05 Mar 2026 14:22:36 +0000
+	id 1vy9bE-00000001xt5-0A7u;
+	Thu, 05 Mar 2026 14:22:48 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy9ay-00000001xfQ-3KAd;
-	Thu, 05 Mar 2026 14:22:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1772720523; cv=none; 
+	id 1vy9bA-00000001xqa-3gFF;
+	Thu, 05 Mar 2026 14:22:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1772720529; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=gT71gpjDLSKmJGEi+i4YeeijxN4S6ily71LyMSk/Nf/8abqQxizPo84Aji6fCIwkOJWxxT4PVdD/hgstiRVepjyQxkJfgwqdTiH8FGi4VSYoj260knFu9EblzaTbd29B2/q0ARCT76RZwUMI4eXwJnQTKa2KhravZLhV2IW/Olk=
+	b=b0q9E4wq2mNbgSQiZD3SluDyaqtPFkFeWWekgjflKjnHj1yDQHg2gSHgJ04CtRFwERTkoKynbcuURNoDTxh+EcpcR1/+sw1jqIJMlvFwWPtrsCLS/VI4ZOYsQoHcRJypsys3xBQENeDK3jK5ba0J29gdssC66iGmJsd0kGvzTc8=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1772720523; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Zbv1svLNiELU2nwPQbaiNz8rD89KKv3/KBIEB/KjLZ4=; 
-	b=HkoOnJRjQUKzWZdNI5F+6AIFVDg3s0NqNWg6WU7NiStuc3LPwuW/oiibnk6/jE/t5npwmHPvhfOSYPAb83/OJI7b0iqkAc21zoMyWLTppkNxohlMS2gFr1w1OHrl+ADoXt7+f+iXy27/bY7ufDobI00ExBHWOLgyiBgJvhWejIw=
+	t=1772720529; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=d1yMthHYWepKMoQtIRkHnB54WfQr2uBE10YWq40qjiM=; 
+	b=fvDXAD+lUcv/CRIGv2Y5p70iR7f0xaFXgHtwNsGLr2ZNMdPnxgaiyn2uglIEIYKibxFxS5Jwz737fXcmmqc0gvC0p52k/znEt2QrbTWF1sbgJmmt2Kw337HkCMoJ5xPPR68ZYbcx2qcOxQjnHRIdZiAIhFmkIPpZ+zHe3fZuwlU=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772720523;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772720529;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=Zbv1svLNiELU2nwPQbaiNz8rD89KKv3/KBIEB/KjLZ4=;
-	b=JHP+i8IlsM82rCAhUyPM7lijruOyLcVumgxRAcMHaimbngNP7q1VadP2KdQuHXaq
-	5LgcjQiZKDjtRF5Z4H3qAmIPD/G844fkBhPXTlTh0UgTt0LENal6fwtKSuOABtRk1/S
-	EuMFrrW46TILElVXSFroxcBdtajcw1W5khnw/Ycw=
-Received: by mx.zohomail.com with SMTPS id 1772720521186416.0074677105963;
-	Thu, 5 Mar 2026 06:22:01 -0800 (PST)
+	bh=d1yMthHYWepKMoQtIRkHnB54WfQr2uBE10YWq40qjiM=;
+	b=H7WdE1Oa1r/0OZTcKQ1wUuH1dicilIjRgTW+qy8nnCxkTjfkCTnBQCnkMVoo7Ul6
+	OuBvQUxo3ojid/zzKQ7GbXOuHfmnQzFOVTLFBuExt7VTF89+VKpHqy6OBWD4wRwUiqK
+	6QnwN4v+JV2KhgrAmaX1XSJs/tujyU8k92R0euAU=
+Received: by mx.zohomail.com with SMTPS id 1772720528297844.6772673115894;
+	Thu, 5 Mar 2026 06:22:08 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Thu, 05 Mar 2026 15:19:42 +0100
-Subject: [PATCH v10 16/22] drm/rockchip: dw_hdmi_qp: Set supported_formats
- platdata
+Date: Thu, 05 Mar 2026 15:19:43 +0100
+Subject: [PATCH v10 17/22] drm/connector: Register color format property on
+ HDMI connectors
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260305-color-format-v10-16-a58c68a11868@collabora.com>
+Message-Id: <20260305-color-format-v10-17-a58c68a11868@collabora.com>
 References: <20260305-color-format-v10-0-a58c68a11868@collabora.com>
 In-Reply-To: <20260305-color-format-v10-0-a58c68a11868@collabora.com>
 To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
@@ -84,8 +84,8 @@ Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_062232_941614_3500F647 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20260305_062244_969684_774B0D6F 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,36 +100,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With the introduction of the supported_formats member in the
-dw-hdmi-qp platform data struct, drivers that have access to this
-information should now set it.
+The drmm_connector_hdmi_init function can figure out what DRM color
+formats are supported by a particular connector based on the supported
+HDMI format bitmask that's passed in.
 
-Set it in the rockchip dw_hdmi_qp glue driver.
+Use it to register the drm color format property.
 
-This allows this information to be passed down to the dw-hdmi-qp core,
-which sets it in the bridge it creates, and consequently will allow the
-common HDMI bridge code to act on it.
-
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 4 ++++
+ drivers/gpu/drm/drm_connector.c | 4 ++++
  1 file changed, 4 insertions(+)
 
-diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index e2fa1aa53394..ec78c6895334 100644
---- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-@@ -601,6 +601,10 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
- 	plat_data.phy_data = hdmi;
- 	plat_data.max_bpc = 10;
+diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
+index e848374dee0b..724245d2df29 100644
+--- a/drivers/gpu/drm/drm_connector.c
++++ b/drivers/gpu/drm/drm_connector.c
+@@ -627,6 +627,10 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
+ 	if (max_bpc > 8)
+ 		drm_connector_attach_hdr_output_metadata_property(connector);
  
-+	plat_data.supported_formats = BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444) |
-+				      BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444) |
-+				      BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422);
++	ret = drm_connector_attach_color_format_property(connector, supported_formats);
++	if (ret)
++		return ret;
 +
- 	encoder = &hdmi->encoder.encoder;
- 	encoder->possible_crtcs = drm_of_find_possible_crtcs(drm, dev->of_node);
+ 	connector->hdmi.funcs = hdmi_funcs;
  
+ 	return 0;
 
 -- 
 2.53.0
