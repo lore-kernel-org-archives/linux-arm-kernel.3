@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEB76F47CA9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 18:09:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7DE3F47CA6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 18:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TDgZtL5zOaqdsqkTCX9U+amNxwj0tG+Q14UisOg5Udk=; b=fZafN9ArE0+aX2wq8BxUr9+8Bd
-	qAmlhrmNZC3iOIUiGlxfJoP6886mDLQB/WPqFlJDnzLwaVQuVkkEpnYV8V+NswyRCYOnVNCganeU0
-	q2m+hp8FYbfM7hutfk2FpnTKZKjfyNoJ34XsazhL3gsv2TLBC6nfr39oan+KAGRoZJuv8WXka7jn1
-	6LYZXpGtjeS8j3i9gatUKMPUvpCOXeGgpZ/ZbyHJZ9GghfhuWuxZLRj/SPhQ7oiWO0pKQBpxGY2RH
-	MIL/1bBEyuTRE4sOGR2H3lZzaFlcBmWl7Io8b/vms7HgWsdgzSjmBpPMqFRlvyR7JDef5WJdK7lHg
-	QCXbQkpA==;
+	bh=1BbPnErZKr5F5Y61lUSWUzloxW35TSMZmUfNS3u29qE=; b=XcJST0tGhZ4ArUe5M58CPrCLl3
+	3u9v4kgs2bN860deUoiXOkjQ/ZhzG8B/qFV+OLUqHIV8fqDQXma5ZvuYfXAHB4kVzj81T0Ew4ebbC
+	PGp4KDF3gbeW7Es8mDmMrHXSWGmoXJgEEzrKWXQDORZZ+kf27VrjRbVzkh3LUXEDxT7ywLqrFRefc
+	QAENEXetskiS05HXvIz9rkMTF6GKg+HpzqC/4CyISukLrR1KwY8YzgdbPgiEYnJA68cKMSP0qM/jE
+	EqMHP+dLdsu1RJ4uPLM1qpAws6iVD8EdqXihfu4kcbVPdIUodJpQuJSpaE8s85ys0+RQd3AqOJ0LG
+	BgpJWnxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyD8J-00000002Lvr-45Sw;
-	Thu, 05 Mar 2026 18:09:12 +0000
+	id 1vyD8O-00000002M2f-26Zq;
+	Thu, 05 Mar 2026 18:09:16 +0000
 Received: from mail.hugovil.com ([162.243.120.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyD8G-00000002Lq3-10Un
+	id 1vyD8J-00000002Ltr-1SK4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 18:09:10 +0000
+	Thu, 05 Mar 2026 18:09:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
 	; s=x; h=Subject:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Cc:To
 	:From:subject:date:message-id:reply-to;
-	bh=TDgZtL5zOaqdsqkTCX9U+amNxwj0tG+Q14UisOg5Udk=; b=0LMCNqfx48ls7B2auvFHuMsZfl
-	1jxYy6s/oekobL2FNKhTU4O86l3ENyXEJrxIP3sD8zC3Pp5yPmbsxWhLaiYpKVA4PQ1pSn8kpDXoO
-	jS/go7J5nSfTnU+xZrWfGencBKW4Bx5zMtQc6V71qKJsTGhbTCIwrucCwHInihnZc2Qk=;
+	bh=1BbPnErZKr5F5Y61lUSWUzloxW35TSMZmUfNS3u29qE=; b=M7zlyRSae45AagtmgxzORW1Txm
+	sjKan766dfX/88m8XTxURt52GtfhHYPUjjgUKiyMG0FvQ8Ao/uV7T7gnOj7xm4mzQ/YGoUjT6LRf/
+	LmZFvgOHqZUcEy8jb9y1nQz3VtUhCY8uVfb0IaghQVswFS6i81DCLSJg1Qo1/syJulK8=;
 Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168]:37706 helo=pettiford.lan)
 	by mail.hugovil.com with esmtpa (Exim 4.92)
 	(envelope-from <hugo@hugovil.com>)
-	id 1vyD83-0002aR-VY; Thu, 05 Mar 2026 13:08:56 -0500
+	id 1vyD86-0002aR-5E; Thu, 05 Mar 2026 13:08:58 -0500
 From: Hugo Villeneuve <hugo@hugovil.com>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -65,9 +65,10 @@ Cc: devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	hugo@hugovil.com,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>
-Date: Thu,  5 Mar 2026 13:06:28 -0500
-Message-ID: <20260305180651.1827087-14-hugo@hugovil.com>
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Date: Thu,  5 Mar 2026 13:06:29 -0500
+Message-ID: <20260305180651.1827087-15-hugo@hugovil.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260305180651.1827087-1-hugo@hugovil.com>
 References: <20260305180651.1827087-1-hugo@hugovil.com>
@@ -75,12 +76,12 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 70.80.174.168
 X-SA-Exim-Mail-From: hugo@hugovil.com
-Subject: [PATCH v2 13/15] ARM: dts: imx6ul-var-som: factor out audio support
+Subject: [PATCH v2 14/15] dt-bindings: display/lvds-codec: add ti,sn65lvds93
 X-SA-Exim-Version: 4.2.1 (built Wed, 08 May 2019 21:11:16 +0000)
 X-SA-Exim-Scanned: Yes (on mail.hugovil.com)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_100908_301326_80F2D045 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20260305_100911_478198_CD2C5264 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,143 +98,27 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
 
-Not all boards use the audio codec, so factor out this functionality to a
-separate dtsi.
+Add compatible string for TI SN65LVDS93. Similar to
+SN65LVDS83 but with an industrial temperature range.
 
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Hugo Villeneuve <hvilleneuve@dimonoff.com>
 ---
- .../dts/nxp/imx/imx6ul-var-som-audio.dtsi     | 30 +++++++++++++++++++
- .../dts/nxp/imx/imx6ul-var-som-common.dtsi    | 21 -------------
- .../nxp/imx/imx6ul-var-som-concerto-full.dts  |  1 +
- .../dts/nxp/imx/imx6ul-var-som-concerto.dts   |  1 +
- .../nxp/imx/imx6ull-var-som-concerto-full.dts |  1 +
- .../dts/nxp/imx/imx6ull-var-som-concerto.dts  |  1 +
- 6 files changed, 34 insertions(+), 21 deletions(-)
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-audio.dtsi
+ Documentation/devicetree/bindings/display/bridge/lvds-codec.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-audio.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-audio.dtsi
-new file mode 100644
-index 0000000000000..3c480bc7a6ad8
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-audio.dtsi
-@@ -0,0 +1,30 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Audio support for Variscite VAR-SOM-6UL module.
-+ *
-+ * Copyright 2019-2024 Variscite Ltd.
-+ * Copyright 2026 Dimonoff
-+ */
-+
-+&iomuxc {
-+	pinctrl_sai2: sai2grp {
-+		fsl,pins = <
-+			MX6UL_PAD_JTAG_TDI__SAI2_TX_BCLK	0x17088
-+			MX6UL_PAD_JTAG_TDO__SAI2_TX_SYNC	0x17088
-+			MX6UL_PAD_JTAG_TRST_B__SAI2_TX_DATA	0x11088
-+			MX6UL_PAD_JTAG_TCK__SAI2_RX_DATA	0x11088
-+			MX6UL_PAD_JTAG_TMS__SAI2_MCLK		0x17088
-+		>;
-+	};
-+};
-+
-+&sai2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_sai2>;
-+	assigned-clocks = <&clks IMX6UL_CLK_SAI2_SEL>,
-+			  <&clks IMX6UL_CLK_SAI2>;
-+	assigned-clock-parents = <&clks IMX6UL_CLK_PLL4_AUDIO_DIV>;
-+	assigned-clock-rates = <0>, <12288000>;
-+	fsl,sai-mclk-direction-output;
-+	status = "okay";
-+};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-common.dtsi
-index 70d19eccddb4c..5600eeaa5854d 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-common.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-common.dtsi
-@@ -52,16 +52,6 @@ MX6UL_PAD_CSI_MCLK__I2C1_SDA		0x4001b8b0
- 		>;
- 	};
- 
--	pinctrl_sai2: sai2grp {
--		fsl,pins = <
--			MX6UL_PAD_JTAG_TDI__SAI2_TX_BCLK	0x17088
--			MX6UL_PAD_JTAG_TDO__SAI2_TX_SYNC	0x17088
--			MX6UL_PAD_JTAG_TRST_B__SAI2_TX_DATA	0x11088
--			MX6UL_PAD_JTAG_TCK__SAI2_RX_DATA	0x11088
--			MX6UL_PAD_JTAG_TMS__SAI2_MCLK		0x17088
--		>;
--	};
--
- 	pinctrl_tsc: tscgrp {
- 		fsl,pins = <
- 			MX6UL_PAD_GPIO1_IO01__GPIO1_IO01	0xb0
-@@ -163,17 +153,6 @@ &pxp {
- 	status = "okay";
- };
- 
--&sai2 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_sai2>;
--	assigned-clocks = <&clks IMX6UL_CLK_SAI2_SEL>,
--			  <&clks IMX6UL_CLK_SAI2>;
--	assigned-clock-parents = <&clks IMX6UL_CLK_PLL4_AUDIO_DIV>;
--	assigned-clock-rates = <0>, <12288000>;
--	fsl,sai-mclk-direction-output;
--	status = "okay";
--};
--
- &snvs_poweroff {
- 	status = "okay";
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts
-index b5e6a3306e1cd..64a3cbd8b7c38 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts
-@@ -13,6 +13,7 @@
- #include "imx6ul-var-som-wifi.dtsi"
- #include "imx6ul-var-som-enet2.dtsi"
- #include "imx6ul-var-som-enet1.dtsi"
-+#include "imx6ul-var-som-audio.dtsi"
- 
- / {
- 	model = "Variscite VAR-SOM-6UL Concerto Board (6UL CPU)";
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts
-index 7eebb5b4f5e44..9c5cb96beeb17 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts
-@@ -13,6 +13,7 @@
- #include "imx6ul-var-som-concerto-common.dtsi"
- #include "imx6ul-var-som-sd.dtsi"
- #include "imx6ul-var-som-enet2.dtsi"
-+#include "imx6ul-var-som-audio.dtsi"
- 
- / {
- 	model = "Variscite VAR-SOM-6UL Concerto Board (6UL CPU)";
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts b/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts
-index 86f558c76fb3e..2e1f75d5f25a6 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts
-@@ -13,6 +13,7 @@
- #include "imx6ul-var-som-wifi.dtsi"
- #include "imx6ul-var-som-enet2.dtsi"
- #include "imx6ul-var-som-enet1.dtsi"
-+#include "imx6ul-var-som-audio.dtsi"
- 
- / {
- 	model = "Variscite VAR-SOM-6UL Concerto Board (6ULL CPU)";
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts b/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts
-index 0d3e0d9b0f11d..43a477db652fa 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts
-@@ -12,6 +12,7 @@
- #include "imx6ul-var-som-concerto-common.dtsi"
- #include "imx6ul-var-som-sd.dtsi"
- #include "imx6ul-var-som-enet2.dtsi"
-+#include "imx6ul-var-som-audio.dtsi"
- 
- / {
- 	model = "Variscite VAR-SOM-6UL Concerto Board (6ULL CPU)";
+diff --git a/Documentation/devicetree/bindings/display/bridge/lvds-codec.yaml b/Documentation/devicetree/bindings/display/bridge/lvds-codec.yaml
+index 4f52e35d02537..f2cb74b86cc05 100644
+--- a/Documentation/devicetree/bindings/display/bridge/lvds-codec.yaml
++++ b/Documentation/devicetree/bindings/display/bridge/lvds-codec.yaml
+@@ -37,6 +37,7 @@ properties:
+               - ti,ds90c185   # For the TI DS90C185 FPD-Link Serializer
+               - ti,ds90c187   # For the TI DS90C187 FPD-Link Serializer
+               - ti,sn75lvds83 # For the TI SN75LVDS83 FlatLink transmitter
++              - ti,sn75lvds93 # For the TI SN75LVDS93 FlatLink transmitter
+           - const: lvds-encoder # Generic LVDS encoder compatible fallback
+       - items:
+           - enum:
 -- 
 2.47.3
 
