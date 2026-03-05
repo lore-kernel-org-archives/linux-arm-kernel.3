@@ -4,122 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D27B1F47CD4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 21:16:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAE01F47CDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 21:22:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:MIME-Version:References:In-Reply-To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dZgBIjejuNso6S3D2MmNptM2fbdvIALxSbMLUuOs0CI=; b=J1T8M/U0lyjo123Bzx1hnq46zC
-	nFUZMCWUhY5Eu4pElVDwIA/M//zOtvK0hwpDD7zc1U2SBxoLHr19XeGzXwCYVYyqOFDIZE0yRWrWM
-	79dhZ6rZlfesEyoUTST1ACpsVeQ6w23vJqcBuXQIJQqnj85RNkFdPeHldkoh5fmTxS+1inqM1dulL
-	0FPwAefg2r6Bn64Ak8r3yuCuo3sduajoQXHbK6M4ViKs0LxGq96yDPDnOPX80kkTIM7x/o9yIiuh8
-	+moMg2Ri30ru5VXwTEaJcuPbb09k+grlOPECZeFh6xbnhknqGDb6fgSA2s3Z0MgVjIS0iFKFmWf5n
-	CIJCCFaw==;
+	bh=xRV4KrgPufJHYoouG5oBzfgHa9sX1mic2JP1prCF/Sk=; b=cN0LiWZ2+fn0DVRY9YSd8BwwQP
+	ts9/vRh8m3Yvk/7C4oHbySZc15a/g3mMjtkVG2FCrmvpSf4/zyTRQK2AjM7jT267BIxOKAOSHDFrb
+	Jwp1KrOkl1WDc4DoYQv3BnOTCWQVA0mMjkkkfhOrEryMRsWl3aQgPbRjhG5+wHeuabwv/mIOxOKuN
+	mDwn6AlTMReKSqffiw/bJB5q3HmXrF1mAKDSIovgpZUsRP004hyI/qSPOsimvBSlJhzgdQGAzQQzT
+	/rw1VIh15x5sO//kWL/uNL/ucN0VwA605ctbu867JPbsqYUS7krJ0GFGUMyNJp0JwTcB53OYm5oyg
+	jjxahskA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyG3T-00000002ZiC-3UT8;
-	Thu, 05 Mar 2026 21:16:23 +0000
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1vyG9V-00000002a4j-2ZYD;
+	Thu, 05 Mar 2026 21:22:37 +0000
+Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyG3R-00000002ZhD-14mJ
+	id 1vyG9T-00000002a4Q-0wJR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 21:16:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oLiFm0o/2q81MJ63fL+UHasDlvwm09Ea279rr1Y8f5DrRE6xF4KMO4NiwBoKHujvv7j54k9Cp8TD7unp9X2WcewQDQStGLUj+loQk8ZXNNwbwkMQ/UmWMdAi1z5AdyLa1j7NbLmzeLqAnmPLO/niXzTfnyV04QjERZYjRDKyT6RN1q0DDe5QLtPWQwb8seSRbL+SZMTBImrDbBHppXUwkIvdpdQqL7EGcx1LA2Rf7D3s4dotxHjcKqi57lZ1rh8f4nYBAoUuJ7+Iz+xo3G/9mwaDFAAveGKpklra6WVCdPmo4MDnMzgvt2Ux4RY8RZMlXbSZMFTG/eoV9aoZVLQXKw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dZgBIjejuNso6S3D2MmNptM2fbdvIALxSbMLUuOs0CI=;
- b=gv3EUZbqHVeJDrBHiEowgGziacnJk+71vdWZGR1BmJvpqKduaKcOegpDe4+XA1AgjnPpkzhsVZSWr699fyqQ28iDz0q4zeL7mU6L6Z3ReypJ/GEzMDCgFPpWBdGsxLQiXR9bGhRj0WaWOaVGXXjITAUudZkBfZAVBkyh4K9IAeXJSR9IY3NqFZhXXyBqcYvjnAtVv93SoFp9Am81QDGOPzdai/fZWfrD7sN+wLazR4x5PJcxbaLcAmU9cRmecoN9cXD0CtqD7f32hVb/hnp52k7+h9FN+mq30PRrByLihMk0cn5bzYKq21EYIl3QcdajAtRkmw7tBmTuYSk7GTwESg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dZgBIjejuNso6S3D2MmNptM2fbdvIALxSbMLUuOs0CI=;
- b=TnWIpnAdtY2UyIqNeUC2b25jtdMSYNqf733LXbk8TcmJC3S6OpdrXILV11MDRgMfLecgigdWpTW2AiyZaNkx7z/wYSNa/n/17GFt5aEs1awuww+Z2dAqmp3lvEj3RjMkG2D4ZwG1rY0WPlYAd2j2h9RcNREp5C9BLmc1qBq1SzKIuEDdz1R1jwuCbWg+xjWsb5SgRxwSOznhnRGi+gtq5JQevDy3WvFXDAw+CxaFzxSuJ8nJ4Ruuu6p7ykapPjk06Azbv6YoLPQxVS9SJIgI2tSU89RDyPJXyGmXyxpOXpGWSsifF3dPKLDKsrMNGjnxr70D2F1N/rUEER9G1uCPzg==
-Received: from PH7P223CA0017.NAMP223.PROD.OUTLOOK.COM (2603:10b6:510:338::10)
- by IA0PR12MB8863.namprd12.prod.outlook.com (2603:10b6:208:488::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.18; Thu, 5 Mar
- 2026 21:16:12 +0000
-Received: from SN1PEPF00036F3E.namprd05.prod.outlook.com
- (2603:10b6:510:338:cafe::5c) by PH7P223CA0017.outlook.office365.com
- (2603:10b6:510:338::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.26 via Frontend Transport; Thu,
- 5 Mar 2026 21:16:05 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- SN1PEPF00036F3E.mail.protection.outlook.com (10.167.248.22) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9678.18 via Frontend Transport; Thu, 5 Mar 2026 21:16:11 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 5 Mar
- 2026 13:15:48 -0800
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Thu, 5 Mar 2026 13:15:47 -0800
-Received: from Asurada-Nvidia (10.127.8.10) by mail.nvidia.com
- (10.126.190.181) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 5 Mar 2026 13:15:47 -0800
-Date: Thu, 5 Mar 2026 13:15:45 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<bhelgaas@google.com>, <rafael@kernel.org>, <lenb@kernel.org>,
-	<praan@google.com>, <kees@kernel.org>, <baolu.lu@linux.intel.com>,
-	<smostafa@google.com>, <Alexander.Grest@microsoft.com>,
-	<kevin.tian@intel.com>, <miko.lenczewski@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <vsethi@nvidia.com>
-Subject: Re: [PATCH v1 2/2] iommu/arm-smmu-v3: Recover ATC invalidate timeouts
-Message-ID: <aanygWWZLA1htDdQ@Asurada-Nvidia>
-References: <cover.1772686998.git.nicolinc@nvidia.com>
- <ca7ab934bf0f433b62a5c15d42241632c4cb9366.1772686998.git.nicolinc@nvidia.com>
- <20260305153911.GT972761@nvidia.com>
+	Thu, 05 Mar 2026 21:22:36 +0000
+Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-79852e01cd1so3881197b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 13:22:34 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772745754; cv=none;
+        d=google.com; s=arc-20240605;
+        b=YmBuKVlD00MZl15uqAc5pqigc2+gxji1pukJ75dRDGZPbI/t+U6hKdO9lYKz9sObAL
+         BJrZpPuYpTgmbYPgBNRG4SCq6y0mQj1/ax1Y2gJcST3UAWqh+pGiXON1aZCjylwpg9eQ
+         kuNfbqOhNqsnI7TdKSJB8c/tdERMTWcquwd6yJRPAcGwR6l6iqhonk81l/+8BLJ7gcDd
+         i6+fcsR3c8ZXvmbdvYKtjbYiulaqOstSwHbI66P8nF5wMwIkyT9uGLFwxR9iAzLoJ3f4
+         2Og9gJb9lFItW4Wkh17lD+s6KHOsAVJSnTJXMjwPe+SJJPuflntA7TQaahCVelnZpeTD
+         4AKQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:dkim-signature;
+        bh=xRV4KrgPufJHYoouG5oBzfgHa9sX1mic2JP1prCF/Sk=;
+        fh=snjRL1bBpSg9bpXGK+j8O5RZEp1TKa8LQSr9rB1pfw4=;
+        b=PkQSp2/AE8v0rhWul+R/V2rGhWIOra+FS4xrgmc8UCHcWvkDk1yInrL1MouudGlmND
+         woIupoC7jRC4sXDRbgCIVyWSCCdaxwNCix6glT5PVGkxj53T7xoSCNipFXS2t1cl9X8W
+         h6uu1JhltPlm44MxsYfuojo0gxyhCrYtBxMomV/sBklIKBm0sImu/KMLIBJ4Ce10Yn41
+         0eUqJjCOk0QwvuETTCUbikjxoNckNUZMdE8PjJ3/26/PqPHllNKMQM6eK9hcAH3RG/tH
+         oqWvmtfIRBgWJbrXFQXS5A5Ppq/mc7MMVZt+/ymao3RKdWW7jRxuLspHgscsI5xz/BAk
+         wDeA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772745754; x=1773350554; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=xRV4KrgPufJHYoouG5oBzfgHa9sX1mic2JP1prCF/Sk=;
+        b=Ykto2nGMcMolNknnB/TldNg8Y+4NdgYdB6hTTmVLm2UYLh2qiKN6dWVdEdRpgDAxNs
+         5J+2DZikiHHgEAKbR6pUNyON9NUrG8uXc1MSPyQjKE16NA921Cy2hH1R66uUhepOcC7e
+         9IEGfwP3lwlDpxn/yIWEyjIrDJgKq9ytFaqUO9O48x+ExfJBnwhzV7xKpPl4vfIVs6Tw
+         yhy8Q/56hmJ8GLv35fap7C5NjiBhz/y9ddElzbOsbOWybef2dxAcb0+7gFcV2DOxMPwN
+         Jyyrcf3nsMxQzE9ztS6w5wYm0GXUZRpCj1ZVupg4u2aesEMshUMg3w8HAL1aAN01MtW3
+         XksQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772745754; x=1773350554;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xRV4KrgPufJHYoouG5oBzfgHa9sX1mic2JP1prCF/Sk=;
+        b=cvhE++8zz7V3HzZEtL2otD9x+Bj7HrEFm8gDKNQFeMu1iIwEZ8nxrrb7+eA4494Ajz
+         CP0vd8k3oN4ojld6EQJiAE1zQoxYWipejSnVrXcpcSquY/GZxei4YnOthwhZr9xVzeRR
+         6WmqFEgNyDd68MhjBg8VFdh9d6zznFnO0+HAbY+s6YA/BzsB0K7ntdWRFLWEXuQ6GyEb
+         f1nX0KDtEdycGqVEFQEaTLDbcVdf5XJirecPgelz0XEcw86yhrjfMgnh6oag2RF3+8RD
+         ntVJDoQ7w381Xo5j4HxiGzqt48g99bp1qdYDVjdm3BDI41ayQ204sCjsLo6fWtoo5568
+         g+0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXmCMo/ySi5csWc7lRE38V199mlmUax5aiYj0f8A8q9+8i5EDuCniKTH72zB5AYyzzXOqMYF2oShaoVcA+feM32@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUn7j8nY7SedcQoXY/69C9rr2QvTvEugq0T5sJ/RKoy/s4g9iI
+	Uu+BPNlsKWrcPxQvyGVq6vqnch7jpnHgtMA95EGunvUmPefPL3ip4FQBFKqK9tGmpiSeUFnil8J
+	dMlNuIvr6eF+Rbtfre5kf2ybOIX3qGsE=
+X-Gm-Gg: ATEYQzyAO2lDuA7r9Z/PfYQnuoQzv1xC9BXlAo5his90mhupFpUqp9gikRm9CZ/VcNg
+	jbXu2B5dh8M5Ft8kt8N3zaAufkLahe4ZpCaHmZOmC3oMndXYPTOZts/x+olsN3kuIkrzSZEgkKI
+	q4bezqQWMnpq9qdCBs1yOx1YKA2SkO5twO8BcuYgehgYub2T/bFllP/ZJW+rE7WhWaOu0fCI129
+	QntjpOJW+hqHIus/J7uUWg8g5TaoqGDP4F+M+oDruwtm66S7yezB5y+QeMJN4cAocn9xsMwx3jQ
+	fMXnrz9+
+X-Received: by 2002:a05:690c:385:b0:794:2fca:81a with SMTP id
+ 00721157ae682-798c6cdffacmr55975367b3.8.1772745753906; Thu, 05 Mar 2026
+ 13:22:33 -0800 (PST)
+Received: from 95991385052 named unknown by gmailapi.google.com with HTTPREST;
+ Fri, 6 Mar 2026 06:22:32 +0900
+Received: from 95991385052 named unknown by gmailapi.google.com with HTTPREST;
+ Fri, 6 Mar 2026 06:22:32 +0900
+From: Andrey Ryabinin <ryabinin.a.a@gmail.com>
+In-Reply-To: <aanievpHCv0Sz3Bf@wieczorr-mobl1.localdomain>
+References: <cover.1770232424.git.m.wieczorretman@pm.me> <bd935d83b2fe3ddfedff052323a2b84e85061042.1770232424.git.m.wieczorretman@pm.me>
+ <CAPAsAGxpHBqzppoKCrqvH0mfhEn6p0aEHR30ZifB3uv81v68EA@mail.gmail.com> <aanievpHCv0Sz3Bf@wieczorr-mobl1.localdomain>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260305153911.GT972761@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF00036F3E:EE_|IA0PR12MB8863:EE_
-X-MS-Office365-Filtering-Correlation-Id: deba455c-3340-4e3e-d991-08de7afc6d2c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|36860700016|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: G0rmZfB1PqPQ/KQ9N3GtfSbrEXYtVh9+Rk0Nbq2sNThvgJ9J1zitBFpRrTixtap50BsVzWKqLXq4GpSm7gz9CCN74z4/wvptyr8NUL0fyaT7D+PUz83SUiW0/OCeAhX6xstl6TVI86P6svPxot5P45zIdq3/OMOJ3wgD54bMMOsw93EzU6xaVI00Jm1zkHzDWczv9/KBDtsZEB+Jm/yCdRPoE+zDIktkb6Yzaga3kRs+gBvKWSvrK/xJtGf5sDt9vYPcUh0lyt7qrEON36D18s/sJWUo3r09paTaR2ydiVS42+WgxuYK818rh6yziM8EbZcbwIN3gzStkwd4WtX7GruQRmV0uKNKzNsfiI9LTjmkqXOqAUCqnk4ytFsYiqmOCgaLk38R7PPxN1tgK/Ofra0q59BbZUZwggY7m++7RqrH6UncI0oFBg61mbFd/IFHWhpyqbWS/FAGqdlSOI8lPo5vwzW2xvOJpB+aenp07PRYTAJ95jsWY1uag6nGMdaY2jU+X1ButZTYioQlDjmXq9y9VlfO/Ef8fLxIVU+1YwDdcdn6iTCeF5eXBVW860gD4SL7H2UH9XU1K6qfz/IUp2+v6pUqR4RisLZyqQ5qebvRIaNWmSXvUV4BtPxL55T6rjcyfgGDhrdShwXsNC0E/PndeNe2EdLazR8+pYvgOJr4nPjd1JF8Zh+dL9dBHpvxdGNw0W3GwEewDrg/a9JF8L6NfKwN9c3x9ir2glIOy/IYEVXXvV+govQ6MpFAELyXL8RaokL7RWo2DZTeHqUGKQ==
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700016)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: TJIbOdd8dBwd7i1Usf0069GlLdO+TaX7qOotaHQNSo3ZSUt8WX7WR+4/3A8hg2xww33HzkdgOwzBYBag855xk0H6Vf5637zaDCyZ/2/yRlZXtgxr+OBvWUXogEyzDasCGvmhamvdsTrVTmp53KkQpAH6aNCfTDZfyHGe6jjAhGxo0M7T+nF0ZWZXG0ju3Ah+fiOXsUBAZ2SW3RaAALQRkWqmtxsaJRig7uBsVFa2loTCPzuBpirbusAY2c5OnDc17uJ8+eIq4nNIsqNkdNXYfbE7PNIL9Zqy3PbBU83cZv6QAG7pdvIW7vjKvbW8xKjkqtI/oI+RrvmQTkkCQCgSuIvR3L/oFVdfwtogJOUtzt6p6V+lINq16srYwX+KVTbcQ5AWlz+6dI48I7vRcSKd947R3QIF05ABzpOzInQ/JYcejEEyrhPABzI8JN1kvHze
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2026 21:16:11.3852
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: deba455c-3340-4e3e-d991-08de7afc6d2c
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00036F3E.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8863
+Date: Fri, 6 Mar 2026 06:22:32 +0900
+X-Gm-Features: AaiRm539DykMmBy-Zg-BtYOlfUPQKOJ6bwMQcvFff9WH9ZMuhoRcwF9c8D83p3A
+Message-ID: <CAPAsAGyiukChPLYO_tQci-7Bvmnnxh+w=bO6eUYLrO3RVuUThw@mail.gmail.com>
+Subject: Re: [PATCH v10 01/13] kasan: sw_tags: Use arithmetic shift for shadow computation
+To: Maciej Wieczor-Retman <m.wieczorretman@pm.me>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Alexander Potapenko <glider@google.com>, 
+	Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Jan Kiszka <jan.kiszka@siemens.com>, Kieran Bingham <kbingham@kernel.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	Samuel Holland <samuel.holland@sifive.com>, 
+	Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	kasan-dev@googlegroups.com, workflows@vger.kernel.org, linux-mm@kvack.org, 
+	llvm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_131621_300283_83462202 
-X-CRM114-Status: GOOD (  21.14  )
+X-CRM114-CacheID: sfid-20260305_132235_291822_8578534A 
+X-CRM114-Status: UNSURE (   5.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,61 +130,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 05, 2026 at 11:39:11AM -0400, Jason Gunthorpe wrote:
-> On Wed, Mar 04, 2026 at 09:21:42PM -0800, Nicolin Chen wrote:
-> > +	/*
-> > +	 * ATC timeout indicates the device has stopped responding to coherence
-> > +	 * protocol requests. The only safe recovery is a reset to flush stale
-> > +	 * cached translations. Note that pci_reset_function() internally calls
-> > +	 * pci_dev_reset_iommu_prepare/done() as well and ensures to block ATS
-> > +	 * if PCI-level reset fails.
-> > +	 */
-> > +	if (!pci_reset_function(pdev)) {
-> > +		/*
-> > +		 * If reset succeeds, set BME back. Otherwise, fence the system
-> > +		 * from a faulty device, in which case user will have to replug
-> > +		 * the device to invoke pci_set_master().
-> > +		 */
-> > +		pci_dev_lock(pdev);
-> > +		pci_set_master(pdev);
-> > +		pci_dev_unlock(pdev);
-> > +	}
-> 
-> I thought we talked about this, the iommu driver cannot just blindly
-> issue a reset like this, the reset has to come from the actual device
-> driver through the AERish mechanism. Otherwise the driver RAS is going
-> to explode.
-> 
-> The smmu driver should immediately block the STE (reject translated
-> requests) to protect the system before resuming whatever command
-> submissio n has encountered the error.
-> 
-> You could delegate the STE change to the interrupted command
-> submission to avoid doing it from a ISR, that makes alot of sense
-> because the submission thread is already operating a cmdq so it could
-> stick in a STE invalidation command, possibly even in place of the
-> failed ATC command.
+Maciej Wieczor-Retman <m.wieczorretman@pm.me> writes:
 
-You mean in arm_smmu_cmdq_issue_cmdlist() that issued the timed
-out ATC command?
+> Thanks, that looks really neat! I should've thought of that instead of making
+> separate arch versions :)
+>
+> Do you want me to attach the code you posted here to this patchset or do you
+> intend to post it yourself?
 
-So my test case was to trigger a device fault followed by an ATC
-command. But, I found that the ATC command submission returned 0
-while only the ISR received:
-    CMDQ error (cons 0x03000003): ATC invalidate timeout
-    arm_smmu_debugfs_atc_write: ATC_INV ret=0
-
-It seems difficult to insert a CMDQ_OP_CFGI_STE in the submission
-thread?
-
-> I think I'd break this up into smaller steps, just focus on this STE
-> mechanism at start and have any future attach callback fix the STE.
-> 
-> Then we can talk about how to properly trigger the PCI RAS flow and so
-> on.
-
-OK.
-
-Thanks
-Nicolin
+I think you can just squash my diff into the subject patch.
 
