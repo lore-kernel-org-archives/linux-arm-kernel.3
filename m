@@ -4,112 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74550F47CD8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 21:03:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3000F47CD8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 21:03:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yx4pFGq+U2fz4UG6x4F5rdwJg0eTjQaePUmLPxRD42g=; b=wk7kFaHvZWu4xpQFY1I9LGec0X
-	OwhWq2Cz1d0UtY5m9cvArozovG9p7zjgDkbt7aEVzV5d1h8QLfF/zQNv47Ky5e9vd6Chp5bxkvB1O
-	52j7PL2Wq2NpmIc7gbefjyZJLynpxucPiGiCvbKObbmCTCXHRVQQTHeBCqNfHj3eZy6Tkc71RABFK
-	ecM0Q8kar9uzd7RgSsQLCPfNVRzZygjgU51Llh17bVrYJ1X8jBf7UPIfMc8vNKXWXJ+3IiZ2dnPP5
-	M/5eIOpZCFkyytdA77clTG9ikHVp8OvTn8SlNme76WLAAPNbUkVEJxi1aTK3unpZ3F5+Tuj6CcIYO
-	0or2NFmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uMUvcEj/jfsJXhZHMSm5BagEwceXMMjDcklR+tqh0YI=; b=epR/9eCvaNgkyi
+	KGVwUnSoJHuN/RLC8oMQE2+Q/Jc2AWlk2aMzb+qDmWKaZnPAPDwWhpAxq4FXHPdQbi8P14Dt6d5O0
+	I+AH7IS5irjSKs+b+6qSItcra0xBGZXWac4sL/7P2t+AXXpWUsjdhL1n0BJeWkeFSyQpwH7bXWIu0
+	iL3vWIgyn12zGtfQJyNJYJ3I6at8Lm1S9rkeLk+jl6sRigSrxFGwFxXjTO/8m3+AhOCL5w4ubeVZ1
+	QmQew/yFZk1VFzX3kStXrsjx10pnmyA+4FTtHO44K7TCAEttEQcw+qC2X7EIkvKAWuMovwZWJioD9
+	TXiZ141+puPG4C8csVxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyFqz-00000002YGR-1L5o;
-	Thu, 05 Mar 2026 21:03:29 +0000
-Received: from mo4-p02-ob.smtp.rzone.de ([85.215.255.80])
+	id 1vyFrL-00000002YLK-0hqJ;
+	Thu, 05 Mar 2026 21:03:51 +0000
+Received: from mail-oi1-x231.google.com ([2607:f8b0:4864:20::231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyFqw-00000002YG0-2zWs;
-	Thu, 05 Mar 2026 21:03:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1772744598; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=XLB+plORjjwdonK5xvMsENRrqBB53SzB5cMQHIBO7lEjFuTDaSHxmIWdtg+Ao1Obh4
-    iKZJNBprdYEAIZTT0tfSu96/m5PY8zPsm3hErv44Rf3LFnNWQGsrGHy5Q2FboNlgk9Kf
-    Wp/xOw/PwL9BDVqqoQF7sQgk5kP4Iw+8nrB6hx08P3Car1P3W7jqssJw0ia276FKHvLr
-    6/1jO1qrGUjQz3DwZ0CLMF0mmKhZINqdUmtkGCBnc6FSNVqqMb4K93S03+vcdinmxmvA
-    oK2ZQQ570YZmSk3+hT4B5j0alYggMH0ThrVNu0sc9cqoA1mPnq4I9iJkDCEclsL780AM
-    F13Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1772744598;
-    s=strato-dkim-0002; d=strato.com;
-    h=References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=Yx4pFGq+U2fz4UG6x4F5rdwJg0eTjQaePUmLPxRD42g=;
-    b=p6aD7dW21DxwngeXqNWYWK8OdEa6zPFWiAqhJWMuaM8GtElpPyECJRed5Lxm3nnoun
-    oWDhbr9UZb1FYCnYg3UpWJGd4QLN0EJuDlELwIQszR4lIMHQWiXhgcQQu+ZsUPaiPvF1
-    IMoQnRwa4UvtkcFxCHpfcjX14MXdvYZ6HUhIYcR5Lyk+ry0zRLlMkuWC/UKFikl5sQ3q
-    +TOvBVtW0Ohor5aRYyRWUPKewm5Fhz3NTSnZyDNDxa5rPZOPdPh3DlYBdfiq0Wm+ScL1
-    PTPWl+ewLIc213d6O1DeJgH3OO4n9oLdvSA0/4HyXT3yV1MCGf5VYphsdYQ/yPeL5o0Z
-    R1rA==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo02
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1772744598;
-    s=strato-dkim-0002; d=iokpp.de;
-    h=References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=Yx4pFGq+U2fz4UG6x4F5rdwJg0eTjQaePUmLPxRD42g=;
-    b=epPf6aRM0co0gjVfIz63J+hgTBgdg76E+9k0wrJqzS/2hoKpLyaxjd59UVifC0w3S2
-    gVkIPfSjdDYlvQ35H4bgbnun+Y0woiNlwQe1H4u8nJK+S4BmU2ipTrAD9NiFc9W5xXkv
-    9yzmjT6TDXrBGqlEebr0A84R4+puSyl/V4C8BmhFrxz/d1CiY5IoNYiITmZ8WjtGJZRk
-    Bl5+R+IOlQDGiq3PJTeJgFF75pQDtFUHVDb6DbHe7aw5L4saI+q5XAcq48U8Wbq7Rq1J
-    IJBo/mopmtDl/sYlTp3rttgcTXfR2siU7Idj3mEtEEq7h8OEx/fRxPXZkrFD/rhH+AwO
-    nzQw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1772744598;
-    s=strato-dkim-0003; d=iokpp.de;
-    h=References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=Yx4pFGq+U2fz4UG6x4F5rdwJg0eTjQaePUmLPxRD42g=;
-    b=QEnaNmvEE1Gz2soV99MDcdGfrKTxP4eGMNq1bUdwgstKdqcJWgGHKB5lQ4SBEqXrBR
-    rajzeivLC4sZqqBg8LBw==
-X-RZG-AUTH: ":LmkFe0i9dN8c2t4QQyGBB/NDXvjDB6pBSe9tgBDSDt0V0zNriHg+YfT0rGSTpN/lG4EkH1OcwzJ11G3m+XGf4kwpD3TrkAw="
-Received: from p200300c58703fb9bfc647aebea4a424d.dip0.t-ipconnect.de
-    by smtp.strato.de (RZmta 55.0.1 AUTH)
-    with ESMTPSA id z79345225L3G7LL
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
-	(Client did not present a certificate);
-    Thu, 5 Mar 2026 22:03:16 +0100 (CET)
-Message-ID: <15d49cfb52990dea46596c2eb0cbdc7db9c44ab1.camel@iokpp.de>
-Subject: Re: [PATCH v2 01/11] scsi: ufs: core: Introduce a new ufshcd vops
- negotiate_pwr_mode()
-From: Bean Huo <beanhuo@iokpp.de>
-To: Can Guo <can.guo@oss.qualcomm.com>, avri.altman@wdc.com,
- bvanassche@acm.org,  beanhuo@micron.com, martin.petersen@oracle.com
-Cc: linux-scsi@vger.kernel.org, Alim Akhtar <alim.akhtar@samsung.com>, 
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, Sai Krishna
- Potthuri <sai.krishna.potthuri@amd.com>, Ajay Neeli <ajay.neeli@amd.com>,
- Peter Griffin <peter.griffin@linaro.org>, Krzysztof Kozlowski
- <krzk@kernel.org>, Peter Wang <peter.wang@mediatek.com>, Chaotian Jing
- <chaotian.jing@mediatek.com>, Stanley Jhu <chu.stanley@gmail.com>, 
- Manivannan Sadhasivam <mani@kernel.org>, Orson Zhai <orsonzhai@gmail.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang
- <zhang.lyra@gmail.com>,  Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,  "Bao
- D. Nguyen" <quic_nguyenb@quicinc.com>, Adrian Hunter
- <adrian.hunter@intel.com>, Archana Patni <archana.patni@intel.com>, open
- list <linux-kernel@vger.kernel.org>, "open list:UNIVERSAL FLASH STORAGE
- HOST CONTROLLER DRIVER..." <linux-samsung-soc@vger.kernel.org>, "moderated
- list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
- <linux-arm-kernel@lists.infradead.org>, "moderated list:UNIVERSAL FLASH
- STORAGE HOST CONTROLLER DRIVER..." <linux-mediatek@lists.infradead.org>,
- "open list:ARM/QUALCOMM MAILING LIST" <linux-arm-msm@vger.kernel.org>
-Date: Thu, 05 Mar 2026 22:03:16 +0100
-In-Reply-To: <20260304135313.413688-2-can.guo@oss.qualcomm.com>
-References: <20260304135313.413688-1-can.guo@oss.qualcomm.com>
-	 <20260304135313.413688-2-can.guo@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: base64
-User-Agent: Evolution 3.44.4-0ubuntu2.1 
+	id 1vyFrI-00000002YJr-38BS
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Mar 2026 21:03:50 +0000
+Received: by mail-oi1-x231.google.com with SMTP id 5614622812f47-4648447e29bso3438520b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 13:03:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1772744627; x=1773349427; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=uMUvcEj/jfsJXhZHMSm5BagEwceXMMjDcklR+tqh0YI=;
+        b=IVrSwSjl8ECg2Zb9+1qSOZUXz3HSNSR8BSLiEGAhUBHuJrIBBZ5hXo3OzkkEK32M6E
+         DRY2Do8KwjDWzAPxKzpd4D4oqOzySLswqwuDT/X/27osAiTlUy6Pal9tu+dTNuEpMOTm
+         YK8BXdCjtXxvpITYRwrWUk0sxX/I5r88TftkeITvgMS/7gUL0wn+OZxUR0MYNjrWD4xO
+         lEwaQ8mmSEI/bCHJS6JbMFvAAlTzUXmsY6Sbzb+Oqm88p4qPjQpajPUcXfTiCAGIxWlW
+         GdqSNJPQwzo0T2KAM3Sn3gkjGgWshC2To9+EFmiOkS953JYIcwA/CBin2xDNyRQ9SQwX
+         AFZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772744627; x=1773349427;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uMUvcEj/jfsJXhZHMSm5BagEwceXMMjDcklR+tqh0YI=;
+        b=iJ/TpAYnaPmAIzwUHGA2E8yS6plydn+aEd0OaS/EswFxCtmzVMSF24w1Oj1wA9A1RW
+         865LM/jqR8K0sLOjLOS1jvBMoYg5lh9BV8CaU76ML75/FvtF5eWGsB0q69Z27nEon3U4
+         q/p6Q32+i76Mtbkm8N2r5fon9bRqhYW4vPYr04tReGq7A6z3eJUBDg59O/G2EWyhuoB+
+         iaLL7ZEXRB+n9eAcCFY1t0m6vaAOkGIx1dR1mXDObRLijtqqVUjjTULmXfFuAiRzQ8F5
+         qOLsJceR8ePe0GAotvovXpjKxExfqtFZRJLFNb2/mVnvaachbRc82gl2q/i75dskVz6j
+         8C9w==
+X-Forwarded-Encrypted: i=1; AJvYcCUHttWXfVRZih5vKaJSMPy6vp/8S+nUZXs+NGlI2b3eHw/0S1HyuRjUlnhV5HPIp2Zy8+GJcDGVt89MZbpdSLbn@lists.infradead.org
+X-Gm-Message-State: AOJu0YwxhrbYbRtZZkBTDQWRt90IEhy58wSAVNVamRUkdf+W5vSbsS6h
+	+o/AsI7tHvo87J0qFV/voLIxNdExRD0hdQO4VRnwzrSE2dxSZykpPzoj7Mlsce/2j3I=
+X-Gm-Gg: ATEYQzyT0g3uZgG0YaLrvuP8dOMLDCdVt12hNl88k9Emd3FoSJNoDM0gl27S4B1bkO2
+	MvMkPw1wCa857uMhylje7p7ntTHLx4H4vPoMNzK9oWOw1bkTYSkAKHqjSEQ+Zve4ohIqM4tSthF
+	gkRdZhl22DdlBF4ifGHPiLUbfEF57GWRB9gnM1WQflde8GP5aI+rOFBIZAHlVszYk1r07sgXM/C
+	cJGi7XaaqgXj9rphVqetn4qb2xzqdzuAM/Fa/TRDwb+FPRDW4RClqjSawVaI1zSFKaGOjYqS8qs
+	kSoaj0DrwYIpvJadFxGj6eyzfkGP99MCGCTLIC2tBVCaV2RCJ01siY+nmouejyNF00aM7wj03Wo
+	Ao65z1dZNwY8Z9tL+gD7I7XsYMpf8I6eruM+9x8gC+SOFkxWmh7AuF2NuugxNYZlneVtDbKK6Xf
+	WM8VTUPCvqDVqtY9f0XlSwAd4CxXJ3uG0U6E+18oc=
+X-Received: by 2002:a05:6808:c2ab:b0:455:bf27:e95e with SMTP id 5614622812f47-4651ab1d6b0mr3573703b6e.1.1772744627481;
+        Thu, 05 Mar 2026 13:03:47 -0800 (PST)
+Received: from [127.0.1.1] ([2600:8803:e7e4:500:874e:e775:4f67:b3a5])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-464bb5d0a8csm13729227b6e.14.2026.03.05.13.03.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Mar 2026 13:03:45 -0800 (PST)
+From: David Lechner <dlechner@baylibre.com>
+Subject: [PATCH v2 0/3] arm: dts: mediatek: fix pinctl node names
+Date: Thu, 05 Mar 2026 15:03:15 -0600
+Message-Id: <20260305-mtk-fix-mt7623-pinctl-name-v2-0-a68854a51065@baylibre.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42NTQqDMBCFryKz7pT8oNGuvEdxoXGsQzWRRKQi3
+ r2pJ+jq8T0e3zsgUmCK8MgOCLRxZO8SqFsGdmzdi5D7xKCEKoQUBc7rGwf+pDSF0riws+uErp0
+ JhzKvdJXrjnoDSbAESstL/mwSjxxXH/bra5O/9i/tJlGg1qU01gymJKq7dp+4C3S3fobmPM8v7
+ sTGrMcAAAA=
+X-Change-ID: 20260106-mtk-fix-mt7623-pinctl-name-f8593953bed7
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ David Lechner <dlechner@baylibre.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1024; i=dlechner@baylibre.com;
+ h=from:subject:message-id; bh=nCZZHuCOrSues8QVWXqMC3+FI2MpOSDkCrCh9OXFww0=;
+ b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBpqe+WhDO5SBkuyTXjQeMiDCxhJ+2B7nXDuoYIk
+ 5tZG2mjU7CJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaanvlgAKCRDCzCAB/wGP
+ wEg4B/9KENu8eGKx2Ux1CiqezA+SY9HupqER78ey4oFPO7seJ+znvkbjM4suVHJAMQSh+5NQ3U4
+ g+49D/Nuf1O5XelRqVdmivXh9lSisE4Ae9a63KYim9Pcz7IvqGYctovpdU3KJ0wfY/DBKwCOetQ
+ u8/RI8RLlhEzT+4O6drd63mip9IeCFaEE8eMpGxpDqUQbk6wr15DwI+AdJ/UqrXPal5mJWLx6NK
+ RyJ8E2dGk7YDiYsRxm3WsTYkN4EZIqEa3gO18FhkUSLjpGohV/fahZT9qjbwQan1X6I5i4VmdBO
+ p/Xc200kZ37fidWvtIbQ6Ed/8obcxanvcm7eCdo1IjBmUKiY
+X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
+ fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_130327_014120_B9493D04 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260305_130348_796050_A32ED46D 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,22 +116,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAyMDI2LTAzLTA0IGF0IDA1OjUzIC0wODAwLCBDYW4gR3VvIHdyb3RlOgo+IEBAIC00
-NzQ3LDYgKzQ3NDUsMjIgQEAgc3RhdGljIGludCB1ZnNoY2RfY2hhbmdlX3Bvd2VyX21vZGUoc3Ry
-dWN0IHVmc19oYmEKPiAqaGJhLAo+IMKgwqDCoMKgwqDCoMKgwqByZXR1cm4gcmV0Owo+IMKgfQo+
-IMKgCj4gK2ludCB1ZnNoY2RfY2hhbmdlX3Bvd2VyX21vZGUoc3RydWN0IHVmc19oYmEgKmhiYSwK
-PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-IHN0cnVjdCB1ZnNfcGFfbGF5ZXJfYXR0ciAqcHdyX21vZGUpCj4gK3sKPiArwqDCoMKgwqDCoMKg
-wqBpbnQgcmV0Owo+ICsKPiArwqDCoMKgwqDCoMKgwqB1ZnNoY2Rfdm9wc19wd3JfY2hhbmdlX25v
-dGlmeShoYmEsIFBSRV9DSEFOR0UsIHB3cl9tb2RlKTsKCgp1ZnNoY2RfY2hhbmdlX3Bvd2VyX21v
-ZGUoKSBjYWxscyBwd3JfY2hhbmdlX25vdGlmeShQUkVfQ0hBTkdFKSBidXQgaWdub3JlcyBpdHMK
-cmV0dXJuLCB0aGlzIGNhbiBjb250aW51ZSB3aXRoIGludmFsaWQgdmVuZG9yIHByZXA/IEkgc2F3
-IHRoZXJlIGlzIGNoZWNrdXAKYmVmb3JlLCBkbyB5b3UgdGhpbmsgYWRkaW5nIGNoZWNrIHJlc3Vs
-dD8KCj4gKwo+ICvCoMKgwqDCoMKgwqDCoHJldCA9IHVmc2hjZF9kbWVfY2hhbmdlX3Bvd2VyX21v
-ZGUoaGJhLCBwd3JfbW9kZSk7Cj4gKwo+ICvCoMKgwqDCoMKgwqDCoGlmICghcmV0KQo+ICvCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqB1ZnNoY2Rfdm9wc19wd3JfY2hhbmdlX25vdGlmeSho
-YmEsIFBPU1RfQ0hBTkdFLCBwd3JfbW9kZSk7Cj4gKwo+ICvCoMKgwqDCoMKgwqDCoHJldHVybiBy
-ZXQ7Cj4gK30KPiArRVhQT1JUX1NZTUJPTF9HUEwodWZzaGNkX2NoYW5nZV9wb3dlcl9tb2RlKTsK
-CgpLaW5kIHJlZ2FyZHMsCkJlYW4K
+While passing by, I noticed that the pinctrl nodes in a couple of dtsi
+files did not match the addresses in their reg properties. Here are some
+patches to fix that.
+
+Signed-off-by: David Lechner <dlechner@baylibre.com>
+---
+Changes in v2:
+- Add a new patch to also fix the pinctrl child node names in the
+  mt7623.dtsi file.
+- Link to v1: https://lore.kernel.org/r/20260106-mtk-fix-mt7623-pinctl-name-v1-0-33817c7f78ee@baylibre.com
+
+---
+David Lechner (3):
+      arm: dts: mediatek: mt7623: fix pinctrl child node names
+      arm: dts: mediatek: mt7623: fix pinctrl controller node name
+      arm: dts: mediatek: mt8135: fix pinctrl node name
+
+ arch/arm/boot/dts/mediatek/mt7623.dtsi | 64 +++++++++++++++++-----------------
+ arch/arm/boot/dts/mediatek/mt8135.dtsi |  2 +-
+ 2 files changed, 33 insertions(+), 33 deletions(-)
+---
+base-commit: 3f9cd19e764b782706dbaacc69e502099cb014ba
+change-id: 20260106-mtk-fix-mt7623-pinctl-name-f8593953bed7
+
+Best regards,
+-- 
+David Lechner <dlechner@baylibre.com>
 
 
