@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC91FEF9014
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5987AEDEC1D
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:05:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,43 +12,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O3m+ZBfQr6KmPEhxpy7eMNYP1AMMqlCKAQGv3MS7448=; b=JRBYyC/5hZqIQ5rlBFsJrmyvPo
-	rTkVkyPF9KfrnIj1AuZWGdrm/8+DrGCpVKESGCdVOnfrEOJU1XPaVGFgv5bTnk/Z/ulxOCsdtbqHA
-	PDxzso2nDayqNolCiqSkCHNe3dvWa5jtewYcF4eGvGSu6F+OPzo4xvz2Hq/0XovV/0/Z6Fngk8gn3
-	5EARhIIwLKDISbFOt63cbYcXfcv0AZLGOoY8ASl67vbbg4yZBTFAq3kwv0U54ba3gAz4nDLi/l/N3
-	eVb+/Qxq34IsTJt4bmmfH61wsXr7P6lk3bOoHQodqv6gOGw7mj86acMGWR1PIQCYAf5JCREmDzSeP
-	AvJQTsng==;
+	bh=rHVhNcXkfNqOg5cUFe93QecGkIFDiHj44uNOGg8CdCo=; b=rQHSDNJZLDVEGdA+JIXaZmejfz
+	0OECHDLW42aOYPz8/iC+Q2wbqNFKQOYqoS4FxGkUaoCxbE082Q52U1zLCajMnMLQBSoXevjg80lB7
+	Adm04HAQCpn50K2aAiJXnnwKJxL1wQS3eB1943G4pituPRhDSdjERBphCpLtJbIWaSYGNuOeQSIVp
+	o1kZD6Smq1CC6O8zrar80Sj/ujScwz5l+kLGgGL+Wg4qk9wEvw2RbqMRl//BA+kkYneryUq9i/rm/
+	as7KvEerb+GMBKaBTeCNjTIqQjsJzvMq9NhwnXOV1E0TXkop+V14gLoxPQsS1ZBIGbSeItpfT2UE2
+	nC2I4FOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy4e5-00000001HaC-3F7W;
-	Thu, 05 Mar 2026 09:05:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vy4e6-00000001Hal-0rWx;
+	Thu, 05 Mar 2026 09:05:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy4e2-00000001HWf-1PE5;
-	Thu, 05 Mar 2026 09:05:22 +0000
+	id 1vy4e2-00000001HWg-3I3n;
+	Thu, 05 Mar 2026 09:05:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=rHVhNcXkfNqOg5cUFe93QecGkIFDiHj44uNOGg8CdCo=; b=pOKoBXodPD3ruvyiQhVAYfLODI
+	fHb5eZdw3WX/r5P1nY0hLoTNA5g5w8Ru2KatKUirFSqlQjwLx4LFLLHmccZvOCGL6zMtSJ+52bmS1
+	1C5jXKdSi9jr0Rtbsm4fKBC9+sOlEGJW35e+KGuD6Emzz5I6iLqyur7YQfV9IdhC29ft+3rioqacA
+	6SwNY1JAn4SO+1g3WBos5AZcXWyKtoR4XPjWalhZpvTM10hzvaO5h3NCgzdEM/qwsYA+Vgv+vQA15
+	nmAcb1xzRRYALVzZTBt3g20cg/g9kVEqOL6KDG362IskuxaanTqBbU5A2Tya+IdrItgtwHKmasRC2
+	5bNVB4nw==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vy4dz-00000006GzV-3D52;
+	Thu, 05 Mar 2026 09:05:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A740661344;
-	Thu,  5 Mar 2026 09:05:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEED7C116C6;
-	Thu,  5 Mar 2026 09:05:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B3B65406C5;
+	Thu,  5 Mar 2026 09:05:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07046C2BCAF;
+	Thu,  5 Mar 2026 09:05:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772701521;
-	bh=sIOpPbGND5afLcivkJfIxu5waFc041nLNjD3trLHArs=;
+	s=k20201202; t=1772701515;
+	bh=Bi7dzqSb0xTzyJ/T4zIX0511vvg8pddfBkr4pnB64SM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=SdiZzGCk0jG//olHlzTWO/kOiEJpJ7o6c9g50CKSWxebcaVcxhBh1aHCsCaaXrxn1
-	 lFbskQe6oMlYkyH2Xpg2r9gDsUBIYg5elnYFsSMaOpIKpuSNs9utcQN/T6D9sacupI
-	 lfsM9qTWlEk5B1hs8US0ZLUoy3yut6wckc0dO2Y76SZFyJ8fnvrKnAnTDIaSZX3ZO5
-	 9HaXROAQXiG5bKyWhDSjMsuNUv3WPyYiaNvGYMuR3YhyxS+Mxb7GPdvDFt7FswoJyL
-	 tYKvWcfFQVcb7YIbX74rPx1qMzyWlPWxCQ0EdY8bYEbD3outgsKh4UtYf877bSe3zD
-	 hyccnJEyKmOng==
+	b=EVEox1EqmbtV1utZkz+RzKWiDUb0h5Kk7iM2hm4bclF75JIknKHAsH4acyxtxuRL0
+	 YHCLfUkaNxaIPzkT3n1yVt5XuD8zF/m9eCeEywShk2B1/R4LEP+OUsaDcJe2kaLfrp
+	 NSwjDOm4rl8MSp+Gq0uXAM3jrREitRTJwqgCOw2bnPD9d9qb0vjM6oCLtbEJCok7vG
+	 7TWOeEzD8WZ/eqYPuAFLVRzHmXShRjbOQqxD1pKcAIGtABxD9trgOVyzSH73mt/AN9
+	 A7N00vmML9JAfiD+KJAjsGH8EfA1eJFsyjwgPONIRgkQ+GNm4s8eFLex8xUh3f0oSk
+	 d5LsaHNq/Y29w==
 From: Maxime Ripard <mripard@kernel.org>
-Date: Thu, 05 Mar 2026 10:04:58 +0100
-Subject: [PATCH v3 06/14] drm/bridge: analogix: Convert to
+Date: Thu, 05 Mar 2026 10:04:56 +0100
+Subject: [PATCH v3 04/14] drm/amdgpu: display: Convert to
  drm_output_color_format
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260305-drm-rework-color-formats-v3-6-f3935f6db579@kernel.org>
+Message-Id: <20260305-drm-rework-color-formats-v3-4-f3935f6db579@kernel.org>
 References: <20260305-drm-rework-color-formats-v3-0-f3935f6db579@kernel.org>
 In-Reply-To: <20260305-drm-rework-color-formats-v3-0-f3935f6db579@kernel.org>
 To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
@@ -81,14 +95,17 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  linux-sunxi@lists.linux.dev, Jani Nikula <jani.nikula@intel.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1747; i=mripard@kernel.org;
- h=from:subject:message-id; bh=sIOpPbGND5afLcivkJfIxu5waFc041nLNjD3trLHArs=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDJkr3S1vBT4IWX79y+djb19r7181f/WX3b0NyikBqbnKZ
- dc/mk3S6pjKwiDMySArpsjyRCbs9PL2xVUO9it/wMxhZQIZwsDFKQATsb7F2HDKIOitk5KmySlh
- s1OXZZckvdmyJ9ey6WHr7Mm2xjZ7t504xXK88vTbpevzIiflV+zQjGJsOKlrxCD8JU5N5+4i7Rs
- 5q7tW129bLXygy/Pj+a+ly5pkjT/+3Kn3e4LneSPbNxkP91pLAAA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2094; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=Bi7dzqSb0xTzyJ/T4zIX0511vvg8pddfBkr4pnB64SM=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDJkr3S0uRef/nNDU9unHkR9tiZXPNnlP8c/b7jFRglW+f
+ KFh52/xjqksDMKcDLJiiixPZMJOL29fXOVgv/IHzBxWJpAhDFycAjARFjXG+ngv458W1Y4Pl5p8
+ PPN5Sao9X3d3SM8Cxmof8S/tRxn6hfuT8p91+5bd33nh7adaZT9BxoaTziHRl5cyVr41fHV0frV
+ bFZ/A7DJB4bf/P98XMYj+PSX/oUW079sFiobGRblJtbUFIgA=
 X-Developer-Key: i=mripard@kernel.org; a=openpgp;
  fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260305_090520_146874_E14BB671 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,29 +136,31 @@ or as a discriminant in which case we don't.
 Acked-by: Jani Nikula <jani.nikula@intel.com>
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 ---
- drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 4 ++--
+ drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index b1687a4aa04739fa53f1039376da649ddcea7f41..1dd194bf49cd8f94a2b48f1f32baa262e5e5dbf9 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -1221,13 +1221,13 @@ static void analogix_dp_bridge_mode_set(struct drm_bridge *bridge,
- 		break;
- 	default:
- 		video->color_depth = COLOR_8;
- 		break;
- 	}
--	if (display_info->color_formats & DRM_COLOR_FORMAT_YCBCR444)
-+	if (display_info->color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444))
- 		video->color_space = COLOR_YCBCR444;
--	else if (display_info->color_formats & DRM_COLOR_FORMAT_YCBCR422)
-+	else if (display_info->color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422))
- 		video->color_space = COLOR_YCBCR422;
+diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
+index a8e4e3ab5e40276b3c723297ca6520688079e0a7..2fe9044e1e91d7581fd5032b9883548f8e5e1b43 100644
+--- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
++++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
+@@ -6723,15 +6723,15 @@ static void fill_stream_properties_from_drm_display_mode(
+ 		timing_out->pixel_encoding = PIXEL_ENCODING_YCBCR420;
+ 	else if (drm_mode_is_420_also(info, mode_in)
+ 			&& aconnector
+ 			&& aconnector->force_yuv420_output)
+ 		timing_out->pixel_encoding = PIXEL_ENCODING_YCBCR420;
+-	else if ((connector->display_info.color_formats & DRM_COLOR_FORMAT_YCBCR422)
++	else if ((connector->display_info.color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422))
+ 			&& aconnector
+ 			&& aconnector->force_yuv422_output)
+ 		timing_out->pixel_encoding = PIXEL_ENCODING_YCBCR422;
+-	else if ((connector->display_info.color_formats & DRM_COLOR_FORMAT_YCBCR444)
++	else if ((connector->display_info.color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444))
+ 			&& stream->signal == SIGNAL_TYPE_HDMI_TYPE_A)
+ 		timing_out->pixel_encoding = PIXEL_ENCODING_YCBCR444;
  	else
- 		video->color_space = COLOR_RGB;
+ 		timing_out->pixel_encoding = PIXEL_ENCODING_RGB;
  
- 	/*
 
 -- 
 2.53.0
