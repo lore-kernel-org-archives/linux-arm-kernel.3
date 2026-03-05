@@ -4,148 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A5CBEEF319
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 08:05:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49893EEF317
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 08:11:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PYvW5lGMRhYLQZM24+H+ued90PfEHhVLncMJPUK4Ie4=; b=Vzsez+p3h0YLHEA6SlR1EHPsoe
-	hw/YVGZjppAcwrprXAcpRSXwELrRLjy1ACQVzk247WrlChHDatd59m0J4SSy1+7GRVQjXjEhIdlwn
-	rh0SsnL2EQmuYHfrVAtZsJzBhFK/f45UErML4r+eILtV+jjnmJTmFjAxn4GOgmn40MewX7SiQ9wBi
-	AUJWfD/jLx0ZzeFMklz5JxXoFs0ov06dEjzimO2bj+UO3kvBjYd2wSyO/2xYCfpElMBWtPtESnvCL
-	1PJyG5sdUyonPBsaBq8vvd+1sETstsq67+oTKauqzgWneV31Hv5+qL+xdE3+1jrK81BYnYLGqmWlJ
-	tGssoS/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JIahVgJpcYC39p9TWn8a+GFohs7T1K7Y/uI/wheVE3Y=; b=GPIq70gsg9Z53mYg6LkXZYrY6F
+	NBX0rzAmjZpfnzGAxd729ETXAFCVH6jC9tQO5UZm1+eK4NP5QsFy0P0/hfaRqOoA9EdXCmyl38Nzm
+	HKIdCDgFP6tImpot65bBW44xVOEqTPZsJ3IhobwoIncqAXsKTl7350nrOFSh9SY4sxp8oraFTqZlm
+	K6r2cjHq37HwIXk2cHCEwbjWpgfS1XOvwmcRd3H2XHjsJ/LrZzID1izK1N4VuJub5jB09jE61IaLX
+	n5zHaLoheIXxL3Y/goX2Oe2y/6ls7qXzN1rGp5qIEX/ZFMhflduIdM165gLfbxjMXIZCEOActfYfp
+	hXH+PKHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy3hi-000000019H1-2fdG;
-	Thu, 05 Mar 2026 08:05:06 +0000
-Received: from mail-westeuropeazon11013043.outbound.protection.outlook.com ([52.101.72.43] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1vy3oB-000000019eF-2BwB;
+	Thu, 05 Mar 2026 08:11:47 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy3hf-000000019Gd-3pUJ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 08:05:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BA6JD+Dlc/z5srMGVWrFVmNMBVdunpxEyuotnpdx1INJK70EoUYnoO20EVzhl+SEbcM98Oa693UnD/EzunWpwlElT8n4bw3vYCpokPL3uaaZBcxPjUgBv4AT32cr+RkooInn96gd6yw0ZNm9/bUMdwbStKy3P3z5zMgUE/FtvnwnIwN/Qyb72Wf5xx3vLsPqBQ6PnfghiBzZq7DmyIYMouYmx7iVa/vByf5YPshCKZDleF1u0h6DnDX+9VjoqFanWMT1dDgZ4pu+NeFkMbqBVX+V8Df4Jvq+A08NGLQMKKEmD0Qd2WenHDjQf00DlKymQ8J9eHoUtKbqobz7agn34A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PYvW5lGMRhYLQZM24+H+ued90PfEHhVLncMJPUK4Ie4=;
- b=SbSXzO+l2XBk+Xp5v7R1vRkOgIdrKfcNs5umx9kSIVmfRrvygx/IWgJTYYMR6dKjvf4fJyRIxh+XUu7SdP1Os/XZfO+IV8extGrtyBJR2xboRdyP1ysvCg2keZpAP/BEA5BRdJDpAeGdFPm2O1yetB3BxosfaxuOHGxBEDicjUKFTn7h7XiFMTAc19mp2AQXhPY+AeH5nT/Zw34N3ZCD0QX8S40ivQEkiMnfYjO5Z4fxIkKj3wF7oS/yAlMCLyA7U9qia029NdAOq6+PW+rOGTj7dLr2OTqcSY8EQyay5YfWj9cLPtxVOSYeWOgfUcNuxVcFJTxTur4rkU7PGb+U5A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PYvW5lGMRhYLQZM24+H+ued90PfEHhVLncMJPUK4Ie4=;
- b=UaiY1QT2Bd7u0HtSwG186Pk/lex4o2xcYELeiKCMBiP5KcFe0iRifC6RKIOnN8bRMmEaPsKC/Xm2NukZgex5BIbqJEyKKRVodc/ifFIGGdMn1btPAOVVU1ufxz53Lwm6Cz6Ca3tT+yyGBqB/hq2Ru3CGKxLkuHdiP7/Cv21BR8OJBrcP8+OW9whWCaHKxFmXMNcv25/rUXnie2Vv7htkPDpmW3wKLw+zu4MAJotnwEl/OA8Djx5KHKBuUEUXJ3eF8hy3/FhonVV2lgEmraK7ZLyZ9NrxS2+nGbXmCexFHsD4PBnNCmSjv0Lf8R9Bi+nvD/6XeKbh4bcLy55gUH/h7A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
- by VI0PR04MB11000.eurprd04.prod.outlook.com (2603:10a6:800:268::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.18; Thu, 5 Mar
- 2026 08:04:57 +0000
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::20db:4017:28ea:911b]) by PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::20db:4017:28ea:911b%4]) with mapi id 15.20.9678.017; Thu, 5 Mar 2026
- 08:04:57 +0000
-From: ming.qian@oss.nxp.com
-To: linux-media@vger.kernel.org
-Cc: mchehab@kernel.org,
-	hverkuil-cisco@xs4all.nl,
-	nicolas@ndufresne.ca,
-	benjamin.gaignard@collabora.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	p.zabel@pengutronix.de,
-	sebastian.fricke@collabora.com,
-	shawnguo@kernel.org,
-	ulf.hansson@linaro.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	m.felsch@pengutronix.de,
-	fra.schnyder@gmail.com,
-	linux-imx@nxp.com,
-	l.stach@pengutronix.de,
-	Frank.li@nxp.com,
-	peng.fan@nxp.com,
-	eagle.zhou@nxp.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] media: verisilicon: Fix kernel panic due to __initconst misuse
-Date: Thu,  5 Mar 2026 16:03:52 +0800
-Message-ID: <20260305080354.639-1-ming.qian@oss.nxp.com>
-X-Mailer: git-send-email 2.48.1.windows.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA5PR01CA0070.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1b7::10) To PAXPR04MB8254.eurprd04.prod.outlook.com
- (2603:10a6:102:1cd::24)
+	id 1vy3o8-000000019dF-03fk;
+	Thu, 05 Mar 2026 08:11:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1772698304; x=1804234304;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=c2OeupWlyxOBHDjwK27ZWns2H39A64Z/l1mt16Tsh1o=;
+  b=OzW5iJ0cMI2j9l48rWIEQ50bQbTtmmKjeVa/czO9oRTDqCKaObz9EmFk
+   dp3A8EIheMlSGeNABCATK2dTwS7TGIpdldooqY4PphcIt7+HuTJhv4fqO
+   hCZShvCqUt50+xcL8VV33Q4O1xD0kGFPPhjLAZm9YCE6fWnpaZIZhdxLC
+   SzbweRyWBM73mKTrAGNd5wm6bkXoEuEquS7R/6mqneF3tbTwaoOjuy/iz
+   2w2X/DdjVVor+F1yRa9svUvIWrSJDLSzL1ldfKPdYvKXrCMIBHu5CDLtr
+   /wo+ynpclp6WNHW4eEY6N+CYwNQ+t7iL7ptj6f5qUAnXFoC0vsmq5eTIS
+   A==;
+X-CSE-ConnectionGUID: mDc8mb2iRgKwPWYeCbZhHw==
+X-CSE-MsgGUID: uvnBOxBTRkePoZAW7g2Pog==
+X-IronPort-AV: E=McAfee;i="6800,10657,11719"; a="77621873"
+X-IronPort-AV: E=Sophos;i="6.21,325,1763452800"; 
+   d="scan'208";a="77621873"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Mar 2026 00:11:42 -0800
+X-CSE-ConnectionGUID: I2lMTBllR9aUsEoqVrkuFg==
+X-CSE-MsgGUID: DP7NclihStmIZM3qvKQwJg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,325,1763452800"; 
+   d="scan'208";a="216418397"
+Received: from lkp-server01.sh.intel.com (HELO cadc4577a874) ([10.239.97.150])
+  by fmviesa007.fm.intel.com with ESMTP; 05 Mar 2026 00:11:35 -0800
+Received: from kbuild by cadc4577a874 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vy3nv-000000000Gq-3bdf;
+	Thu, 05 Mar 2026 08:11:31 +0000
+Date: Thu, 5 Mar 2026 16:10:31 +0800
+From: kernel test robot <lkp@intel.com>
+To: lizhi2@eswincomputing.com, devicetree@vger.kernel.org,
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk, wens@kernel.org, pjw@kernel.org,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	ningyu@eswincomputing.com, linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
+	weishangjuan@eswincomputing.com, Zhi Li <lizhi2@eswincomputing.com>
+Subject: Re: [PATCH net-next v3 2/3] net: stmmac: eic7700: enable clocks
+ before syscon access and correct RX sampling timing
+Message-ID: <202603051549.4Mb0ZZjM-lkp@intel.com>
+References: <20260303061711.895-1-lizhi2@eswincomputing.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|VI0PR04MB11000:EE_
-X-MS-Office365-Filtering-Correlation-Id: 91f22eab-b6f8-41ee-5399-08de7a8de3d3
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|1800799024|19092799006|52116014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: e8ArglDeqa9cmZxyNYQuTWQMiYElb0r+jS/Yvlxn/NW8AH2fLwAG8t3RBjMJKbMKDByB/GQiJHZNt6Cf1O2W6zuxyE2l688ZmP94yEcTK12OChyiyP70r4i75gZg7YFvvP86VCAZkGmUIYdMlIG3NYPDReytzctqeJ5ShJjeYS0f2FJmhOCUguyKHsa7N7ChNVMTTKz5wBZs0YAnS84+xibPczMkZifr0dpGk8jnUJsPM5oogWKp426xchyG5LCbcMFQhbnxi7m6dk7l8kBWr2kkb97SBMoAJ68gLTE4CTP8wG4g1olfTgidBGYFtV95F/HALqmzakyZarDxulnOlL34a09+lYTfRAl1bppep+3ER4H2G/TBLpHTK3So29qfi0XRYcYn3b3rlYyizdl7X61KOiWcsgWKKBYc7CJlUKmvmTAYzR+nu4OjNP/8qE48In0D3Bm6DGbpzBOma7QhuL/BUlzFGguIlMxr3gqXfRhULV93RP33HVKiRmZyA3HYTL+wVVn3zYmfFqrGK7dVUfmjpvUHV0PcXy1+7MnBbL0vXKTRHSfcKLyuJ9Z79rnotswGAUKYO4tFYtWY9EFLFlE4fq/mLP344Zv+AiJY9WkBt9COJ6VCrpqZuxQaqJxiCUNhcONdqHl4Fg6+/1AYhDshnHzUfM9MEmH5mgY9B2B/QQRihtwCY+BjY36S4srfDUoWrdbLpl5TtjiNm5T6265LDrGvtVA3XV8rWCVeYS8EaffCFcaqM+dOvVZ1EpO1fxuWwb16D5Pe3z4wXCjqOjpcw4fIKKOnT0X36CTe0hw=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(1800799024)(19092799006)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bs4EG9kxZOCYh0GhkMICcvkFrjQOPQvEDjmC+5OHni8W2Zp5WnjeC9Ac9Khr?=
- =?us-ascii?Q?ExQ460cgp4J07PsruY/WqkhuyIEO+0CMJTBHGam0o84fdzsnVNccC6YqZR2w?=
- =?us-ascii?Q?pzpoaMjgDFI8mMx0j2rRdo6UPt+//T2t0Auiuxg7CAsHycRSElzH80gg/IEn?=
- =?us-ascii?Q?XOdS1tckWHHnoLRxxy7iDUOLdP0Z9xnls4TaRPsdk+SyoW6l/MHhuqKkdjzq?=
- =?us-ascii?Q?qhrrr9IK1wi6BCGfLwkNKnTC6Jl3tJ2BPmoRLrkzzo6r/VJC4MpjyNpOP4mx?=
- =?us-ascii?Q?X28FBV31wQw37194/cbyFextqx223UEIA8jczXdWKszeFUK6N2nHVj2AcZIL?=
- =?us-ascii?Q?xj6pEe4u8gGhhHy0u+iZ5EIN8lMSB9kQM/nP+bi0mMZBjYgk+0pn8qNXHM2U?=
- =?us-ascii?Q?6yhyrXybXv9COFskuUgIyBxaJZ15fiUbQLnhFuC8Gumo0AWh0paOwxRdQAQD?=
- =?us-ascii?Q?vsHmEvpWBdUe4QQPiwmeOW2aZryD0FZTudSQkAGB78GgXlirQ7GSHuMMdcuB?=
- =?us-ascii?Q?2FMMF533sjgccFJC+laQbi68cusSmrZfjfoulft/VEWE1XPyGmDg6Cifb1xp?=
- =?us-ascii?Q?L5heHA2IqetUMKOTYLJT3U8R0EvWmkHlvISL43iG2W3FfmwRjuseZFf1QrFC?=
- =?us-ascii?Q?XCuyp/m6PQkWBOuLT5dtmyvU4zvaqqtKgpZApPyRP1SrbR2G+rGw4XUZjdXC?=
- =?us-ascii?Q?3zvMRVHlYsfK3JG7KfwdlCKdyWNqbjdg55npHaTUdw9VA+V6zk0DkKWvDyaL?=
- =?us-ascii?Q?B10VM2GR7e9H5TMSZu1yw5wsOfshblV8EOOcVA+jCxPiyr7FaA0889dWUtzc?=
- =?us-ascii?Q?PcUrpdoQ2wBojuulGO6I0wJtbPDrwMAYm9VidbsBRmzYuFyNEFyrTXy+UrjC?=
- =?us-ascii?Q?pG7/hMryM+JzIGkeEgOpFP6w40u/wMDKCuLEqoK4j/IVSZZI3n1nq/cfNCD0?=
- =?us-ascii?Q?M0gSma2Wk4ya4umP3UQBQqYCn9pR0cCxF4CEJEZHeJKTpeyYBhtkvQlzYtQn?=
- =?us-ascii?Q?lpl5GdS5QEOQGktNlLBaEwVKI6+h2lP6g5pI87taHJ1Bi3u8qy4DWGCBf7UB?=
- =?us-ascii?Q?3F8RTzm4efM9QBri865uPMg/5qA/shQfo6f+Kwd6nf+OwcOygiyX4k+zEfAQ?=
- =?us-ascii?Q?EWCHcrNT1iP/YF/JzsKzC/P4WVvrt+s3HD0OoF5PdxGANRqQrbzGYflZnGK6?=
- =?us-ascii?Q?W5EHZgx5tWd93OnNIlCQep03DJac3342nrrXTCJMjrQYGP57ItlKLVlBUcCy?=
- =?us-ascii?Q?kyDtczMZOe+LIpo0YI8c2IYVAjPXKy6EDMIVCygWWaNKdthihr9w++QZVbij?=
- =?us-ascii?Q?pHsyX7s3NpfYB2UnWTITgGeJZMjoZIXbe//EACxuqJe6S9l8Upbaks/ufYEw?=
- =?us-ascii?Q?4IGvGy1iqb1IqvdI2Pf772N+15W5SC/26KsEquZ4+LV23pAZEzqAHUs4ny5d?=
- =?us-ascii?Q?295IwAAcFuNEU/1IFsISd1EWmWpx5trN0ys2hVFYkX2qjGNXsv2KfT8mT6hW?=
- =?us-ascii?Q?6E2oMB2IBx9NngVUofPZltfAZeoZYIubv1bpMfk9MqvHVpzWaWAR/1ugcVhK?=
- =?us-ascii?Q?3sUD5KH/jlrvtbSrERCMLPu7+sptKi8PIXrN+hBjsAzX2esbBxZVtu3HNEoZ?=
- =?us-ascii?Q?w63/lhCMhLfNElfBbwpRx250zZxuDRA5Z9w/s/dTsmoxrvmh/UQg0qOOJLfB?=
- =?us-ascii?Q?W7e93RlD14vz3YYDd5Nd63sUHYaoVuYjE82QJDiev6OKyFdDrLPtn2r/6bn0?=
- =?us-ascii?Q?lHn4phqQBQ=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 91f22eab-b6f8-41ee-5399-08de7a8de3d3
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2026 08:04:56.9310
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: i0dqDggzKjBwfIwup2bvGISGlZCUIrbKM9O1jtaKC42W+D7LPkxvRGasyMtXf+tkgvY9EctOK6ler4EBbJrbFQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11000
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260303061711.895-1-lizhi2@eswincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_000503_961935_F1AC2446 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20260305_001144_146733_E62C81F1 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,43 +98,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ming Qian <ming.qian@oss.nxp.com>
+Hi,
 
-Fix a kernel panic when probing the driver as a module:
+kernel test robot noticed the following build errors:
 
-  Unable to handle kernel paging request at virtual address
-  ffffd9c18eb05000
-  of_find_matching_node_and_match+0x5c/0x1a0
-  hantro_probe+0x2f4/0x7d0 [hantro_vpu]
+[auto build test ERROR on net-next/main]
 
-The imx8mq_vpu_shared_resources array is referenced by variant
-structures through their shared_devices field. When built as a
-module, __initconst causes this data to be freed after module
-init, but it's later accessed during probe, causing a page fault.
+url:    https://github.com/intel-lab-lkp/linux/commits/lizhi2-eswincomputing-com/dt-bindings-ethernet-eswin-add-clock-sampling-control/20260303-142311
+base:   net-next/main
+patch link:    https://lore.kernel.org/r/20260303061711.895-1-lizhi2%40eswincomputing.com
+patch subject: [PATCH net-next v3 2/3] net: stmmac: eic7700: enable clocks before syscon access and correct RX sampling timing
+config: hexagon-allmodconfig (https://download.01.org/0day-ci/archive/20260305/202603051549.4Mb0ZZjM-lkp@intel.com/config)
+compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260305/202603051549.4Mb0ZZjM-lkp@intel.com/reproduce)
 
-Use __initconst_or_module to keep the data available when built
-as a module while still allowing it to be freed when built-in.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603051549.4Mb0ZZjM-lkp@intel.com/
 
-Fixes: e0203ddf9af7 ("media: verisilicon: Avoid G2 bus error while decoding H.264 and HEVC")
-Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
----
- drivers/media/platform/verisilicon/imx8m_vpu_hw.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+All errors (new ones prefixed by >>):
 
-diff --git a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
-index 6f8e43b7f157..fa429e6e8281 100644
---- a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
-+++ b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
-@@ -343,7 +343,7 @@ const struct hantro_variant imx8mq_vpu_variant = {
- 	.num_regs = ARRAY_SIZE(imx8mq_reg_names)
- };
- 
--static const struct of_device_id imx8mq_vpu_shared_resources[] __initconst = {
-+static const struct of_device_id imx8mq_vpu_shared_resources[] __initconst_or_module = {
- 	{ .compatible = "nxp,imx8mq-vpu-g1", },
- 	{ .compatible = "nxp,imx8mq-vpu-g2", },
- 	{ /* sentinel */ }
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c:290:26: error: incompatible function pointer types assigning to 'void (*)(void *, phy_interface_t, int, unsigned int)' from 'void (void *, int, unsigned int)' [-Wincompatible-function-pointer-types]
+     290 |         plat_dat->fix_mac_speed = eic7700_dwmac_fix_speed;
+         |                                 ^ ~~~~~~~~~~~~~~~~~~~~~~~
+   1 error generated.
+
+
+vim +290 drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+
+   149	
+   150	static int eic7700_dwmac_probe(struct platform_device *pdev)
+   151	{
+   152		const struct eic7700_dwmac_data *data;
+   153		struct plat_stmmacenet_data *plat_dat;
+   154		struct stmmac_resources stmmac_res;
+   155		struct eic7700_qos_priv *dwc_priv;
+   156		u32 delay_ps, val;
+   157		int i, ret;
+   158	
+   159		ret = stmmac_get_platform_resources(pdev, &stmmac_res);
+   160		if (ret)
+   161			return dev_err_probe(&pdev->dev, ret,
+   162					"failed to get resources\n");
+   163	
+   164		plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
+   165		if (IS_ERR(plat_dat))
+   166			return dev_err_probe(&pdev->dev, PTR_ERR(plat_dat),
+   167					"dt configuration failed\n");
+   168	
+   169		dwc_priv = devm_kzalloc(&pdev->dev, sizeof(*dwc_priv), GFP_KERNEL);
+   170		if (!dwc_priv)
+   171			return -ENOMEM;
+   172	
+   173		dwc_priv->dev = &pdev->dev;
+   174	
+   175		data = device_get_match_data(&pdev->dev);
+   176		if (!data)
+   177			return dev_err_probe(&pdev->dev,
+   178					     -EINVAL, "no match data found\n");
+   179	
+   180		dwc_priv->eth_rx_clk_inv = data->rgmii_rx_clk_invert;
+   181	
+   182		/* Read rx-internal-delay-ps and update rx_clk delay */
+   183		if (!of_property_read_u32(pdev->dev.of_node,
+   184					  "rx-internal-delay-ps", &delay_ps)) {
+   185			if (delay_ps % EIC7700_DELAY_STEP_PS)
+   186				return dev_err_probe(&pdev->dev, -EINVAL,
+   187					"rx delay must be multiple of %dps\n",
+   188					EIC7700_DELAY_STEP_PS);
+   189	
+   190			if (delay_ps > EIC7700_MAX_DELAY_PS)
+   191				return dev_err_probe(&pdev->dev, -EINVAL,
+   192					"rx delay out of range\n");
+   193	
+   194			val = delay_ps / EIC7700_DELAY_STEP_PS;
+   195	
+   196			dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_RX_ADJ_DELAY;
+   197			dwc_priv->eth_clk_dly_param |=
+   198					 FIELD_PREP(EIC7700_ETH_RX_ADJ_DELAY, val);
+   199		}
+   200	
+   201		/* Read tx-internal-delay-ps and update tx_clk delay */
+   202		if (!of_property_read_u32(pdev->dev.of_node,
+   203					  "tx-internal-delay-ps", &delay_ps)) {
+   204			if (delay_ps % EIC7700_DELAY_STEP_PS)
+   205				return dev_err_probe(&pdev->dev, -EINVAL,
+   206					"tx delay must be multiple of %dps\n",
+   207					EIC7700_DELAY_STEP_PS);
+   208	
+   209			if (delay_ps > EIC7700_MAX_DELAY_PS)
+   210				return dev_err_probe(&pdev->dev, -EINVAL,
+   211					"tx delay out of range\n");
+   212	
+   213			val = delay_ps / EIC7700_DELAY_STEP_PS;
+   214	
+   215			dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_TX_ADJ_DELAY;
+   216			dwc_priv->eth_clk_dly_param |=
+   217					 FIELD_PREP(EIC7700_ETH_TX_ADJ_DELAY, val);
+   218		}
+   219	
+   220		dwc_priv->eic7700_hsp_regmap =
+   221				syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
+   222								"eswin,hsp-sp-csr");
+   223		if (IS_ERR(dwc_priv->eic7700_hsp_regmap))
+   224			return dev_err_probe(&pdev->dev,
+   225					PTR_ERR(dwc_priv->eic7700_hsp_regmap),
+   226					"Failed to get hsp-sp-csr regmap\n");
+   227	
+   228		ret = of_property_read_u32_index(pdev->dev.of_node,
+   229						 "eswin,hsp-sp-csr",
+   230						 1, &dwc_priv->eth_phy_ctrl_offset);
+   231		if (ret)
+   232			return dev_err_probe(&pdev->dev, ret,
+   233					     "can't get eth_phy_ctrl_offset\n");
+   234	
+   235		ret = of_property_read_u32_index(pdev->dev.of_node,
+   236						 "eswin,hsp-sp-csr",
+   237						 2, &dwc_priv->eth_axi_lp_ctrl_offset);
+   238		if (ret)
+   239			return dev_err_probe(&pdev->dev, ret,
+   240					     "can't get eth_axi_lp_ctrl_offset\n");
+   241	
+   242		ret = of_property_read_u32_index(pdev->dev.of_node,
+   243						 "eswin,hsp-sp-csr",
+   244						 3, &dwc_priv->eth_txd_offset);
+   245		if (ret)
+   246			return dev_err_probe(&pdev->dev, ret,
+   247					     "can't get eth_txd_offset\n");
+   248	
+   249		ret = of_property_read_u32_index(pdev->dev.of_node,
+   250						 "eswin,hsp-sp-csr",
+   251						 4, &dwc_priv->eth_clk_offset);
+   252		if (ret)
+   253			return dev_err_probe(&pdev->dev, ret,
+   254					     "can't get eth_clk_offset\n");
+   255	
+   256		ret = of_property_read_u32_index(pdev->dev.of_node,
+   257						 "eswin,hsp-sp-csr",
+   258						 5, &dwc_priv->eth_rxd_offset);
+   259		if (ret)
+   260			return dev_err_probe(&pdev->dev, ret,
+   261					     "can't get eth_rxd_offset\n");
+   262	
+   263		plat_dat->num_clks = ARRAY_SIZE(eic7700_clk_names);
+   264		plat_dat->clks = devm_kcalloc(&pdev->dev,
+   265					      plat_dat->num_clks,
+   266					      sizeof(*plat_dat->clks),
+   267					      GFP_KERNEL);
+   268		if (!plat_dat->clks)
+   269			return -ENOMEM;
+   270	
+   271		for (i = 0; i < ARRAY_SIZE(eic7700_clk_names); i++)
+   272			plat_dat->clks[i].id = eic7700_clk_names[i];
+   273	
+   274		ret = devm_clk_bulk_get_optional(&pdev->dev,
+   275						 plat_dat->num_clks,
+   276						 plat_dat->clks);
+   277		if (ret)
+   278			return dev_err_probe(&pdev->dev, ret,
+   279					     "Failed to get clocks\n");
+   280	
+   281		plat_dat->clk_tx_i = stmmac_pltfr_find_clk(plat_dat, "tx");
+   282		plat_dat->set_clk_tx_rate = stmmac_set_clk_tx_rate;
+   283		plat_dat->clks_config = eic7700_clks_config;
+   284		plat_dat->bsp_priv = dwc_priv;
+   285		dwc_priv->plat_dat = plat_dat;
+   286		plat_dat->init = eic7700_dwmac_init;
+   287		plat_dat->exit = eic7700_dwmac_exit;
+   288		plat_dat->suspend = eic7700_dwmac_suspend;
+   289		plat_dat->resume = eic7700_dwmac_resume;
+ > 290		plat_dat->fix_mac_speed = eic7700_dwmac_fix_speed;
+   291	
+   292		return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
+   293	}
+   294	
+
 -- 
-2.52.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
