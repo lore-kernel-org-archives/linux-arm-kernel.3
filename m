@@ -4,91 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5F9CF3D331
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 16:29:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92D9DF3D32E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 16:37:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=956LHPVlfL1rOP3wzpXMeMW0aPaZLWqWprb6Mq5DKY0=; b=t4ymvUTxenBd396lLampyb0/U9
-	9bKoEBcsaZftGzcN1hBkMAmDvo6TxaJrQObjFjLevZFkUCiqsQzGvpz0X9CBFc2NXqJHIKwJhwQSi
-	yii9I2KYUCKrU2PZ5k4Shmsf66xqBGdUbq7/WF+NwkCzl2o4D3PfvDKyOU/rZ1FeC5T1hDE3HTDOe
-	Os7FQUZ7a8FovYkmnYGX31WD5qpjBWoLTaI4N3cBEBnRNz/BtFuZ70voL/IAe7w7Vt8SjWsXO0pGB
-	V3kYnFHocGIxeIV3d7MJvLTN4grpptX7xHoMKq3I5vhDO4EnLWNybKWSCXWJwTiyLsx3Qu+I3yBm0
-	+8nOMCEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0oPl0i9hj48+kA91cHH/gACBTbzOHfvSHxLRGhyEUrM=; b=M3K6wPMd3KoyGik0g+rvNQ3yJH
+	7kdFn5L1QH5fjBVOcEPJHX6TmrYHbfE5JICiRxAo5FgvJCiY1kD+EBZ+vnMm5hTl8z/riaqw69X8r
+	KHfg7JT0oyYC4MTYYW/4ws7z3+jIN0T2Ib/BF5x3rT0zeKYxsG5+H7r211FSWlPCF0xsdXWCVGznT
+	T6y0U93HN0q0WD74DDu1+ujx+Ibi5/EUVZzHFtymnRm9ZSqIUIra8lPlBX1FH27xAUVxfy+291En9
+	uuma4bj4JQezJxy4s4bT29ibUEpRdHdrmnMRMIttYY+voj1MRqCxNKC+lOmB3U/iP2mheDIPZ3Hdq
+	TKov/Y7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyBZH-00000002CxL-3e04;
-	Thu, 05 Mar 2026 16:28:55 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1vyBhm-00000002DbQ-2EUn;
+	Thu, 05 Mar 2026 16:37:42 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyBZC-00000002CuY-04gT
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 16:28:51 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-439c56e822eso2525712f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 08:28:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1772728128; x=1773332928; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=956LHPVlfL1rOP3wzpXMeMW0aPaZLWqWprb6Mq5DKY0=;
-        b=C42K1/I4VX2mKgPUkYMe8IG6zs9g4fCA/ViCk6f/eemw4VpaUAvu68VTa8Xloh4+gJ
-         ZtRUg+tLA34b154PEIpT9QKdc1POpr+soxoEOyZaMjDAbzojftwsbHDRq3jsg5CLZiMh
-         QbApOCCAZffuznSIl2j/7u/K7P37QJmqpvZyfBx6PuK6i7qwdqZnckB+6Olq+7a+IPB2
-         GDEN70RqqXCPFAHVo4Qg+vazZtaNUNHgs6so6uCXndJL0PKwhfykPzQaRPDEhm17ZlBt
-         09evFFhfhIOgndK6rwDgByU2iyl/ooU7vR2gSC3eqAZRnsZQvncrs7fAnkPp4Ko5/Wtb
-         Jngg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772728128; x=1773332928;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=956LHPVlfL1rOP3wzpXMeMW0aPaZLWqWprb6Mq5DKY0=;
-        b=w0u21O4Q4Rx0Qbg7CUWWek0C3glzbLXIIsA1THC157TQJsvg6vCU1S7tiybgAmaH3k
-         Nbpg/T1eQ80JhrKyh/G3wTA0aRaO4iTydKO5PwBpJhWEX4caZiHd7uJmkU/bHSzvc44C
-         09KciHjc/H3lIRa3DILZLFFg0FM0ouKD+aAZynqa0n6+zv44v0npBhOPAj+o9towmgxJ
-         9JPps++Q2Pqn4GO5vNzk7HWBugEUUIh3PQTLfPE6xVI1nr/3lKrd/T8h/SX6dYnDdt71
-         DopeuiZ3PNCVDfjSem5lAiilddQQJbZWNZU0Eqtur1JjoOmDa8QRsothOYixAqyuVCFs
-         KbBA==
-X-Gm-Message-State: AOJu0Yz/cDc+ew3zoO4pzGBCrimJGpfU4owRvoTMMl+1U4ruS1DQ3D2X
-	gQxdaFY+tX/K+CBDpSFwJWx3ZssqMkmWgKAS3mtr/Mw6/Gyh7rCn8sx2yB8fntJKJPI=
-X-Gm-Gg: ATEYQzyCqM+/R8CkRGG5Uii//zTr6Rk+LLVH81n8HMX6O6MQto7NPw9mblMokuwcWkZ
-	Xv4UlWfyIq94X1U56bLBSS900ymtKjAp+tL++pw17fYEIH8IZqC+YHJU3ldc30jsn/egLqEVeFO
-	8mDD36rAC+uQG3HZEt1vWdZV8qjegefkSDz5jF1jqzSMDNHryGMo9XYatvP63hB7Hz1pGOTAWqG
-	gUI4KhjRDAfNi8GBaz/smV+bI9ZNX/gdcputkzfijaxzdvrV0riI8Q97WmLY6g0ZY1rP0lPDokR
-	AnDDxrh8+uGbIJujhuHAv4H6UMaeuhz4E5rw0rpjlpOkOm9itxA7v/+LTlwtl8ExUzCEpGTGzuz
-	TI774v6XWw14uoQruM1VRbr5gSUUbJYs3eGe3EGGbmFU44Bokdd52y1Yjeac+MSwzoSJw6rAal9
-	SqZg84JFy2awxf9/onAWgAi5UwWAudTdN5
-X-Received: by 2002:a05:6000:2881:b0:439:b9bd:51f with SMTP id ffacd0b85a97d-439d721cfc2mr748137f8f.25.1772728128375;
-        Thu, 05 Mar 2026 08:28:48 -0800 (PST)
-Received: from ho-tower-lan.lan ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439c2f8c0e7sm19596034f8f.29.2026.03.05.08.28.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Mar 2026 08:28:48 -0800 (PST)
-From: James Clark <james.clark@linaro.org>
-Date: Thu, 05 Mar 2026 16:28:18 +0000
-Subject: [PATCH v2 2/3] arm64: cpufeature: Make PMUVer and PerfMon unsigned
+	id 1vyBhj-00000002Day-2ZDV;
+	Thu, 05 Mar 2026 16:37:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1772728653;
+	bh=hkK2ONkPprV4u/cqSq86tL9InejtreePpSRQTnb8PLU=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=EsfXpCSmuZhSHchk4H9dKF8uIWDrS/h/Rs9mSwFrC6/wam7h4Hom+k4X+lSVYNWmk
+	 FOrNXbQ9o5D50NzH/9Ny8x6y8baD6773xdiWvIms1qe+RxqWa5MZH3hHF9x3lMwYck
+	 wSJFCtQh3hFk4dIoeYyN1k2C6T/xopVoemStz+U4w6PQIhqdZjI9J7FjU0GV+YGaEq
+	 ZmPp8b93LYfRkfLYnGKKsFaAUPlT+H7zOGlZ7p3u8ZHvTZJpp5ljhkDG4hhSpszzz+
+	 3PohMDDYlyXYjQ2QzTu7h4n2xHjjv86LaLv0GSCMFmbEBt9mn9CdskePr4K6jpm1LM
+	 mvqUhHG1bragA==
+Received: from [IPv6:2606:6d00:15:210e::5ac] (unknown [IPv6:2606:6d00:15:210e::5ac])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8025F17E027A;
+	Thu,  5 Mar 2026 17:37:31 +0100 (CET)
+Message-ID: <1621b56864cb186f1e5433b73b56afc00aa83452.camel@collabora.com>
+Subject: Re: [PATCH 1/2] [RESEND] media: rkvdec: reduce excessive stack
+ usage in assemble_hw_pps()
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Arnd Bergmann <arnd@kernel.org>, Detlev Casanova	
+ <detlev.casanova@collabora.com>, Ezequiel Garcia
+ <ezequiel@vanguardiasur.com.ar>,  Mauro Carvalho Chehab	
+ <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Nathan Chancellor	
+ <nathan@kernel.org>, Hans Verkuil <hverkuil+cisco@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Nick Desaulniers	
+ <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, Justin
+ Stitt <justinstitt@google.com>, Kees Cook <kees@kernel.org>,
+ linux-media@vger.kernel.org, 	linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, 	linux-kernel@vger.kernel.org,
+ llvm@lists.linux.dev
+Date: Thu, 05 Mar 2026 11:37:28 -0500
+In-Reply-To: <20260305152644.791897-1-arnd@kernel.org>
+References: <20260305152644.791897-1-arnd@kernel.org>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-ayQMGRIiYYjBgQDHqjjE"
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260305-james-kvm-pmuver-sign-v2-2-ee80a125af9b@linaro.org>
-References: <20260305-james-kvm-pmuver-sign-v2-0-ee80a125af9b@linaro.org>
-In-Reply-To: <20260305-james-kvm-pmuver-sign-v2-0-ee80a125af9b@linaro.org>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Colton Lewis <coltonlewis@google.com>, 
- Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>
-X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_082850_072897_2E9D6C08 
-X-CRM114-Status: GOOD (  14.04  )
+X-CRM114-CacheID: sfid-20260305_083739_835647_027FA62D 
+X-CRM114-Status: GOOD (  27.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,48 +96,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On the host, this change doesn't make a difference because the fields
-are defined as FTR_EXACT. However, KVM allows userspace to set these
-fields for a guest and overrides the type to be FTR_LOWER_SAFE. And
-while KVM used to do an unsigned comparison to validate that the new
-value is lower than what the hardware provides, since the linked commit
-it uses the generic sanitization framework which does a signed
-comparison.
 
-Fix it by defining these fields as unsigned. In theory, without this
-fix, userspace could set a higher PMU version than the hardware supports
-by providing any value with the top bit set.
+--=-ayQMGRIiYYjBgQDHqjjE
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Fixes: c118cead07a7 ("KVM: arm64: Use generic sanitisation for ID_(AA64)DFR0_EL1")
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- arch/arm64/kernel/cpufeature.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Hi,
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index c31f8e17732a..07abdfd40756 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -565,7 +565,7 @@ static const struct arm64_ftr_bits ftr_id_aa64dfr0[] = {
- 	 * We can instantiate multiple PMU instances with different levels
- 	 * of support.
- 	 */
--	S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_EXACT, ID_AA64DFR0_EL1_PMUVer_SHIFT, 4, 0),
-+	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_EXACT, ID_AA64DFR0_EL1_PMUVer_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_EXACT, ID_AA64DFR0_EL1_DebugVer_SHIFT, 4, 0x6),
- 	ARM64_FTR_END,
- };
-@@ -709,7 +709,7 @@ static const struct arm64_ftr_bits ftr_id_pfr2[] = {
- 
- static const struct arm64_ftr_bits ftr_id_dfr0[] = {
- 	/* [31:28] TraceFilt */
--	S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_EXACT, ID_DFR0_EL1_PerfMon_SHIFT, 4, 0),
-+	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_EXACT, ID_DFR0_EL1_PerfMon_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_DFR0_EL1_MProfDbg_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_DFR0_EL1_MMapTrc_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_DFR0_EL1_CopTrc_SHIFT, 4, 0),
+Le jeudi 05 mars 2026 =C3=A0 16:26 +0100, Arnd Bergmann a =C3=A9crit=C2=A0:
+> From: Arnd Bergmann <arnd@arndb.de>
+>=20
+> The rkvdec_pps had a large set of bitfields, all of which
+> as misaligned. This causes clang-21 and likely other versions to
+> produce absolutely awful object code and a warning about very
+> large stack usage, on targets without unaligned access:
 
--- 
-2.34.1
+I'm a bit surprised you felt the need for resend. Perhaps you can help us
+understand what made you think your patch wasn't being processed ?
 
+My PR:
+https://patchwork.linuxtv.org/project/linux-media/patch/2074ba5a5d05e239f43=
+2d176eb051105f7e692f9.camel@collabora.com/
+
+And Hans/Mauro did logistic on the #linux-maint IRC channel this morning. I
+believe I've marked all the relevant patches on patchwork our of "New" stat=
+e and
+you have my Rb. What else would help you ?
+
+Nicolas
+
+>=20
+> drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c:966:12: error: stack =
+frame
+> size (1472) exceeds limit (1280) in 'rkvdec_vp9_start' [-Werror,-Wframe-
+> larger-than]
+>=20
+> Part of the problem here is how all the bitfield accesses are
+> inlined into a function that already has large structures on
+> the stack.
+>=20
+> Mark set_field_order_cnt() as noinline_for_stack, and split out
+> the following accesses in assemble_hw_pps() into another noinline
+> function, both of which now using around 800 bytes of stack in the
+> same configuration.
+>=20
+> There is clearly still something wrong with clang here, but
+> splitting it into multiple functions reduces the risk of stack
+> overflow.
+>=20
+> Fixes: fde24907570d ("media: rkvdec: Add H264 support for the VDPU383
+> variant")
+> Link: https://godbolt.org/z/acP1eKeq9
+> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+> Resending this along with the other patch mainly to point out that
+> this one is still pending as well.
+> ---
+> =C2=A0.../rockchip/rkvdec/rkvdec-vdpu383-h264.c=C2=A0=C2=A0=C2=A0=C2=A0 |=
+ 50 ++++++++++---------
+> =C2=A01 file changed, 27 insertions(+), 23 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c
+> b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c
+> index 97f1efde2e47..fb4f849d7366 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c
+> @@ -130,7 +130,7 @@ struct rkvdec_h264_ctx {
+> =C2=A0	struct vdpu383_regs_h26x regs;
+> =C2=A0};
+> =C2=A0
+> -static void set_field_order_cnt(struct rkvdec_pps *pps, const struct
+> v4l2_h264_dpb_entry *dpb)
+> +static noinline_for_stack void set_field_order_cnt(struct rkvdec_pps *pp=
+s,
+> const struct v4l2_h264_dpb_entry *dpb)
+> =C2=A0{
+> =C2=A0	pps->top_field_order_cnt0 =3D dpb[0].top_field_order_cnt;
+> =C2=A0	pps->bot_field_order_cnt0 =3D dpb[0].bottom_field_order_cnt;
+> @@ -166,6 +166,31 @@ static void set_field_order_cnt(struct rkvdec_pps *p=
+ps,
+> const struct v4l2_h264_d
+> =C2=A0	pps->bot_field_order_cnt15 =3D dpb[15].bottom_field_order_cnt;
+> =C2=A0}
+> =C2=A0
+> +static noinline_for_stack void set_dec_params(struct rkvdec_pps *pps, co=
+nst
+> struct v4l2_ctrl_h264_decode_params *dec_params)
+> +{
+> +	const struct v4l2_h264_dpb_entry *dpb =3D dec_params->dpb;
+> +
+> +	for (int i =3D 0; i < ARRAY_SIZE(dec_params->dpb); i++) {
+> +		if (dpb[i].flags & V4L2_H264_DPB_ENTRY_FLAG_LONG_TERM)
+> +			pps->is_longterm |=3D (1 << i);
+> +		pps->ref_field_flags |=3D
+> +		 (!!(dpb[i].flags & V4L2_H264_DPB_ENTRY_FLAG_FIELD)) << i;
+> +		pps->ref_colmv_use_flag |=3D
+> +		 (!!(dpb[i].flags & V4L2_H264_DPB_ENTRY_FLAG_ACTIVE)) << i;
+> +		pps->ref_topfield_used |=3D
+> +		 (!!(dpb[i].fields & V4L2_H264_TOP_FIELD_REF)) << i;
+> +		pps->ref_botfield_used |=3D
+> +			(!!(dpb[i].fields & V4L2_H264_BOTTOM_FIELD_REF)) <<
+> i;
+> +	}
+> +	pps->pic_field_flag =3D
+> +		!!(dec_params->flags &
+> V4L2_H264_DECODE_PARAM_FLAG_FIELD_PIC);
+> +	pps->pic_associated_flag =3D
+> +		!!(dec_params->flags &
+> V4L2_H264_DECODE_PARAM_FLAG_BOTTOM_FIELD);
+> +
+> +	pps->cur_top_field =3D dec_params->top_field_order_cnt;
+> +	pps->cur_bot_field =3D dec_params->bottom_field_order_cnt;
+> +}
+> +
+> =C2=A0static void assemble_hw_pps(struct rkvdec_ctx *ctx,
+> =C2=A0			=C2=A0=C2=A0=C2=A0 struct rkvdec_h264_run *run)
+> =C2=A0{
+> @@ -177,7 +202,6 @@ static void assemble_hw_pps(struct rkvdec_ctx *ctx,
+> =C2=A0	struct rkvdec_h264_priv_tbl *priv_tbl =3D h264_ctx->priv_tbl.cpu;
+> =C2=A0	struct rkvdec_sps_pps *hw_ps;
+> =C2=A0	u32 pic_width, pic_height;
+> -	u32 i;
+> =C2=A0
+> =C2=A0	/*
+> =C2=A0	 * HW read the SPS/PPS information from PPS packet index by PPS id=
+.
+> @@ -261,28 +285,8 @@ static void assemble_hw_pps(struct rkvdec_ctx *ctx,
+> =C2=A0		!!(pps->flags & V4L2_H264_PPS_FLAG_SCALING_MATRIX_PRESENT);
+> =C2=A0
+> =C2=A0	set_field_order_cnt(&hw_ps->pps, dpb);
+> +	set_dec_params(&hw_ps->pps, dec_params);
+> =C2=A0
+> -	for (i =3D 0; i < ARRAY_SIZE(dec_params->dpb); i++) {
+> -		if (dpb[i].flags & V4L2_H264_DPB_ENTRY_FLAG_LONG_TERM)
+> -			hw_ps->pps.is_longterm |=3D (1 << i);
+> -
+> -		hw_ps->pps.ref_field_flags |=3D
+> -			(!!(dpb[i].flags & V4L2_H264_DPB_ENTRY_FLAG_FIELD))
+> << i;
+> -		hw_ps->pps.ref_colmv_use_flag |=3D
+> -			(!!(dpb[i].flags & V4L2_H264_DPB_ENTRY_FLAG_ACTIVE))
+> << i;
+> -		hw_ps->pps.ref_topfield_used |=3D
+> -			(!!(dpb[i].fields & V4L2_H264_TOP_FIELD_REF)) << i;
+> -		hw_ps->pps.ref_botfield_used |=3D
+> -			(!!(dpb[i].fields & V4L2_H264_BOTTOM_FIELD_REF)) <<
+> i;
+> -	}
+> -
+> -	hw_ps->pps.pic_field_flag =3D
+> -		!!(dec_params->flags &
+> V4L2_H264_DECODE_PARAM_FLAG_FIELD_PIC);
+> -	hw_ps->pps.pic_associated_flag =3D
+> -		!!(dec_params->flags &
+> V4L2_H264_DECODE_PARAM_FLAG_BOTTOM_FIELD);
+> -
+> -	hw_ps->pps.cur_top_field =3D dec_params->top_field_order_cnt;
+> -	hw_ps->pps.cur_bot_field =3D dec_params->bottom_field_order_cnt;
+> =C2=A0}
+> =C2=A0
+> =C2=A0static void rkvdec_write_regs(struct rkvdec_ctx *ctx)
+
+--=-ayQMGRIiYYjBgQDHqjjE
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaamxSQAKCRDZQZRRKWBy
+9ABOAQCelVLDB2BDEu/lz95fCXShra2NCxpj8lLTj+SppYTgMQEA/RTLk5CjmWVI
+lwRwZRetjCIJCD0IU/MonDof26WGwwg=
+=sLJA
+-----END PGP SIGNATURE-----
+
+--=-ayQMGRIiYYjBgQDHqjjE--
 
