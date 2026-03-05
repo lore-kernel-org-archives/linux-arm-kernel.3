@@ -4,145 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2452FF30939
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 11:02:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06027F3093C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 11:03:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SyesQE+TW6j+u6Nu2efXqFtQJJ+iNIFO3dSsHafZdsQ=; b=47f1VbYVRh3e28l5LRdXMtBegG
-	PIHmLK974xoU4+TMl2peGzmzTo34899Dg1ZB48235sy+ekk1ApY//V2Zk8NtjOWy7xeqZr50scOFl
-	8a05urhEjdpJhzOqKNzcW0sTqnrJVBU3ud1v2jONTQlp4cwc8RerQlRQA8DudHJEhoGY6UHsCLHOR
-	TeLgDxWxd5qnkOf9FPaKv0fKw8wHGOmWDaPfgQ8RfAqSuaboIUcQIHSCJxrCQLnrK/i/ObGLWM1BM
-	T+IzcK7jW9bdWytLw2WDS5ONOtuGYxsZGxgSVzCfOQdE8gnHQYAvCj6Nfvq9JnLnnXPlAF4cYflD2
-	n9Sa9ISQ==;
+	bh=jThW+QQlttHU4EZCycWN6CsyjecbjDUSR8K4pjQhCQI=; b=GMB+FHAsiBhFieq+GgdWhawTTF
+	b1v2rFrmoIHNrHi15cMa95zZV7VZmcv5FL/BiMk5BgeH1ZlQKGp4NGjcM3A2D3RxqJTu/X+H+gTjq
+	LsGkn+fZEQwxNjo/V3uEHPcWGC7677HVnHJu+P+CdhIJO3pAgDIJB73oBy0KHEJfxm2bjYW9Dkgni
+	NXXADiPZk2QcJQOGlJDhMX9Z8WnTp/UKwbHXzHzlxXTa0GowPJ8LqPpMCJaQ8EcA8InmOzCtc8QrY
+	7qbr2sHPbArXiyVpDNoz0LaVGiWkUXVBytPxnpyVNXaspaNcnjqQGMMuOyeDgBW2i8pTqBrNbjYNU
+	kXDHIPVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy6T5-00000001dr9-1P8R;
-	Thu, 05 Mar 2026 11:02:11 +0000
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1vy6UF-00000001dzl-0tki;
+	Thu, 05 Mar 2026 11:03:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy6T2-00000001dqh-47qw;
-	Thu, 05 Mar 2026 11:02:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mExdneQdFTjtsm1xSwSnV76r1rsKifMvNTfquj/xtD+OX7M0ZFF1WqWqs+eghVfmqWljAdjaP/WptKCxveNpXg4M/EtWEVMcoLfsbPjoVvVk74w31nZfsSA/3X6m63JhShEf3MYnOn/+kYuj7Hdhuto+3AbGRy/KyNuuJYTtDQB2B6FoB4S4SDFDc6XsoPkeanGn1Gg6PoD4u9p17SrgbnC7Eiggwc9FaYonnX0S+f4CJ4iOTOcKNTGrp1iLQF7qfHZAALFYhyUBWFxSxJw/sP1KIxhW2Eea8JNbL99mfZlawtVG2fmO7L88WVG6rItCoMlShtDpm8sdSMsdImVO+Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SyesQE+TW6j+u6Nu2efXqFtQJJ+iNIFO3dSsHafZdsQ=;
- b=OWUloQ+h48w7ht6slwuy+YMg3LJEXkhKvodKY8O4j8EjwhP+oLQ2La/9SGWvKDdHjkO071Sk2JIwdWfkpdiiBuncxnrxT6Rou+dLswxBu6f+F84nMh0x4Fmc3C9twupWZlGVI5bctJUqNgBBFAIWvN1qzFp6wxF472d1SFeBgZ4GvF8QFITbX1yLHicHJfNHGlep4qFh0lz+Cpmh64l8GMtmmpL6F5uyjH/GOSP8oXXsZ7uT1xPlPTErkrfOkSAGsTvOgUeyK+3SbUiiH9IXRBg7MqURNXoSo6SlBZo5AIfk4NAGP/yp/xf3iDkB9bEZNhre/lw/TuTYs/9XjebkoQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SyesQE+TW6j+u6Nu2efXqFtQJJ+iNIFO3dSsHafZdsQ=;
- b=XpEzh3FA/f2RDVyVBJ0kWKbiEOiiiHvislxTJ403io0ikSYBvZwtwWE8NjxX3ZudNJ04Urrj3/nI5sKDYaLBjKYT2txPM15PeAWpB5bXigDw2kysibK/odXeV9/XChmVJlDQ/2IuvZpjX+fAg9tKIWIvlyWjE+YsC7s5tgPcsUR3NIS4DTTdIMNEqRwn4NFmx5m1OZCih/hDVvCWPuQULW/gE/YGcFP2lreagIhD/bqLK5uMv5Uxln127SCU3ENamK/3GRJ7h++4ztUfi6cNPy+Se52Hoa2gC2jnMJIhJY6BdmNONDT0eXZin5oHCvnXP0ZZW3n11rRtxAO7JAGQGw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB5521.apcprd03.prod.outlook.com (2603:1096:820:51::12)
- by TY1PPF28B8111DA.apcprd03.prod.outlook.com (2603:1096:408::a4b) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Thu, 5 Mar
- 2026 11:01:59 +0000
-Received: from KL1PR03MB5521.apcprd03.prod.outlook.com
- ([fe80::f12b:85e:f95c:191e]) by KL1PR03MB5521.apcprd03.prod.outlook.com
- ([fe80::f12b:85e:f95c:191e%4]) with mapi id 15.20.9678.017; Thu, 5 Mar 2026
- 11:01:58 +0000
-Message-ID: <26d0f52e-3681-46ce-b0dc-0cb020e8d9a1@amlogic.com>
-Date: Thu, 5 Mar 2026 19:01:54 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v4 1/4] media: dt-bindings: Add Amlogic V4L2 video
- decoder
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org
-References: <20260213-b4-s4-vdec-upstream-v4-0-c7112d00d662@amlogic.com>
- <20260213-b4-s4-vdec-upstream-v4-1-c7112d00d662@amlogic.com>
- <d96c689d-a5a3-453d-a1ab-56dc1bf01635@kernel.org>
- <75e55ceb-e6dd-47b5-a829-66f6fbb3e13e@amlogic.com>
- <2f68ee18-e9d9-4da6-900c-93a7663b3c9d@kernel.org>
- <598c161c-d157-40e5-992c-912540589d7e@amlogic.com>
- <58d57a6c-7c69-4f5b-a4c2-f34ef0238511@kernel.org>
-From: Zhentao Guo <zhentao.guo@amlogic.com>
-In-Reply-To: <58d57a6c-7c69-4f5b-a4c2-f34ef0238511@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SEWP216CA0070.KORP216.PROD.OUTLOOK.COM
- (2603:1096:101:2ba::6) To KL1PR03MB5521.apcprd03.prod.outlook.com
- (2603:1096:820:51::12)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB5521:EE_|TY1PPF28B8111DA:EE_
-X-MS-Office365-Filtering-Correlation-Id: b707d7b7-26b5-4b4a-13e7-08de7aa69e91
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
-X-Microsoft-Antispam-Message-Info: Mfc2kUm+9p4dTNJx8dlmwvQJ5/h8RT1fNyy+vz516g1L2YCejj0efAriMyq0bmQ7BLJDH7On2/B3Pli0cBItH5GlPZsZ7rtFbAeQdRaMHcrOiKYIQiGYXNL6f7Y2z3P4bmn1FsIxJBCcf7tEDiZAOLPIsh7iTCFne9EvzbTlqnIXzXy9BlCqjMjQQMey17LgKgDtOVemVU/Ku12nfuyaNdI9pxaV0aZnAuY1IfwUJbcmWVVdW0sUIdGEJEh/CcS5NDO5la+P/46l/9d4uGZzu9BgPHEZUoOsrJrFoAT0UBBLM9z8Pv1Imcn2PKY9jbD5eaOWJWTQ29nRL1eNQ6Q662aTDHiUXs/HATtEiQNhDarm0s+nXcIwDCIyGUKn4Da6r5bAg79D4Q0cU24UbswuovNwJZTjhlVLjDjjX1u0YZmYJjzdxLqG88J7mrbm+eWWtH6CGgwd+sFHNsEzFdQgKRPjPiU20sOSlISjpemykoVNx8z1mfy25aImvWzWIlYt0BjP1mtpmARVUsQGER+DwD8nzoQ/u/D4kWl0bygaPAS0m1/JmU1eSLN/Tj+sy76WL8AuBXFJobZ+mPuAoQ+VwPBCDJitGIuXCPs4hx6mR3QCWGotb++KMSLZjEYcwuil3aX5NB/Wk1KQC2xjX+k6icmLvRrDArQZKoI6COvjiYaAlu3KA8jXO3VY/jkdiKUyVNkmGsAzNHDh+WONrQTlofPoal9Ai/p357qMW+jQ6QQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5521.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?azJDa3dRS2FGSjhMK3lESytsdXAvQU1CdXJZdVJnRXBDYXh4ZExTTDdLbTZh?=
- =?utf-8?B?bTBNNHhiZU1TV0F2bXQrSEp1dmJtWXJIR2wwZjlmL0M0T241VHhkYjJ0SENU?=
- =?utf-8?B?bnJrNjFCbGNQT3ZPU09HVU5ZZWxWWTZidGo5V1IxeHREMHo3bm9pSXFiUi9C?=
- =?utf-8?B?NlVCbVpNTEdhNndnQm1ETUV1VXlrSmVySDFCVGwrd3BOYTZJUkdyeVVsdFRR?=
- =?utf-8?B?V25aQ3ZQYnVIZXRhVmdjc1JVcFJlclVaNDZEdkdBMUkwR3dsc29nckYyT1hy?=
- =?utf-8?B?VW1zSDFiK3BlMHBaSzU0UWJyWG9yWVdnVlZnL2NjRnh2N3p3bEpXdWpvSy84?=
- =?utf-8?B?WXpBRkxqcEJMVmRJTXdCdFJtcFlpNXBGdHlJZkxhczlwVlA2MzhwdEwzNFdv?=
- =?utf-8?B?NUlybmhSVkg5dEsxY0hHaXdTK3hISnR4OVVjTGlSSE5ZYVYwdm9ldUhHNXNa?=
- =?utf-8?B?SHA4aUcwVFpON3phenlTU0d0VW9NbE9zZ1A0Wko5ZTFxMms1cnJwd2VDZnN0?=
- =?utf-8?B?UHZSTGdOUzkwbUZrMkQ1R25BZTJSWGpkdUpheUZtRG9wTElxYUk1N1dkZ0ZX?=
- =?utf-8?B?bDhvWUp6d0ZxRll0T002ck02TlRtbHR5c0RoMERkdTFLbzJLRU9kMGh2eC9Z?=
- =?utf-8?B?cHhZeW9QcHp6VmZqd0hGV05CQk1EVzF5Q05HL2ZJRXNVR0Q0QkpFRG9DZzhG?=
- =?utf-8?B?K2hXU2RGd3o0eXRZY2Zqa21SZXVFWUZsd3g0TTVHV21PWmE5aE9rT0RPeDBw?=
- =?utf-8?B?R1pwMjl4eUlXRTJoSDQ1OHFTV0wyNlpHZ2E3WUthTWxYZ1NmMlBScVd5SVhM?=
- =?utf-8?B?NnRFMnZZMzVMcStKMm5iZVQwODVSWkdlNUl1NFFnc3JnMmpMV0RvdjVLSnJO?=
- =?utf-8?B?UXBoYUZBcllOa3lIUzJjcVc3QURBdmNWSk0wY0RwQitDbWxoUC9sdDJINExQ?=
- =?utf-8?B?bXllWStDUjlVZVcyUEJvaDdrbVYyVjdvU0daUklFeFRBeHQ1WmVMR2U2Nksw?=
- =?utf-8?B?bkovQmtKQ25aRWhhd1cwOFdibkxqcERQalJnMFVZQlZhQm9VTHNWTGVXY3Bj?=
- =?utf-8?B?OFl2a0hDeTNCSGJsZmtEYVBQblBVVHJ5MG1lS29HYjluRW5uK2hRWjNsbEZY?=
- =?utf-8?B?NnZzVE05MUlXdm9mZHNHZHZoYmRCWTZSbW1hVi92TDJQamVTdjFjU2NwS0hp?=
- =?utf-8?B?UndaT1EzZDQ5QnZYUjhZcHBoUTJUcjdIUFlWYmorc3FES0N3eEYyT21HNTht?=
- =?utf-8?B?cFhEQTRlblBPakhNTzBrNnFzSDljL200SVlBemVHT3ZjeUdqYjQ4cEtEbGJ4?=
- =?utf-8?B?cDU0MjdMVUNWQ1I2SnpxNElxNjlIdE9ldWdYT0xTb0o0V0sreGp6TE05QWRt?=
- =?utf-8?B?M0wrckovdDhNcGNCRmJjT3hsNWxqRWRrQm45Nk83Wi9iQ0wyWVI0bGx5aE9z?=
- =?utf-8?B?TEFZcElEZFM1MDFoaWxhTzQ1TUZCd3NZMmV6ZC8yS25JWDFRNGJoYXFCNW91?=
- =?utf-8?B?TkVWVzZZUGF3TWZ2N092Z1NFa000SmZBdTNZSWRCcE9SZnlWbk5WdXlucHZl?=
- =?utf-8?B?aEEwZ25xOVgzQzFuSzFST1pkL1UrZ21FU1JNUTl2bUZZSXdVMkdUaFduMUJE?=
- =?utf-8?B?WEllajk4R0xsSWZzTHdPN05xVk5Da1RLWUdwckFkd1RPNjZabEhZNWhWQmZy?=
- =?utf-8?B?MzdsQnZ3ZlBLYmNIZlBkQmwzSUVIdDVMT0wya2pjWmFEQXNJbVlDTVp5NUVi?=
- =?utf-8?B?R1dFbSt3M2dSZ0VkSVhENW1zeS93eEdCV044VFBaN1Nla2MySEZ1aDVieTY2?=
- =?utf-8?B?SGdkMklLRHFxL1dIUS8rNkRMUWFNRzMyeEZaL0JhYWxJUmg5aDNYaHlTbTR4?=
- =?utf-8?B?K3Jibi9Bd1pOaDBOQ1dTUzl3L25QTUVCN01nbGlqMmVjTjJ2eWhFRVloQVp3?=
- =?utf-8?B?d3VCUFhpd01VNEM5YjB1VWJPUVJ4VTRxazB2NEZuMjVibWk0SnYrcGlKaDNM?=
- =?utf-8?B?OWRDdXU2SEg0QjBYb05qVDhDTFBIaG90RVU0MmRROE8rbGoxTndNcERpaTZr?=
- =?utf-8?B?cml4ME10SFJ1dmVMazBNMzc3ajNDbFRCbHlEMVRaTmFaZlBpOUZjeVkwZkpa?=
- =?utf-8?B?TTc4NnhnQXVNVjk1OFg2ZUVHV0pqRktWU1BhZERxeEpMT0ttbi9jNDFlN3VH?=
- =?utf-8?B?NHVTSWl6N214NnRyTlBZY3pySnBJb0V4RWZDZGxZcS92T3ZLdTgrSWtDQU9j?=
- =?utf-8?B?SGttOWhiWGF2cGxiUStZUlRjYm52eGdncFNFRjVaaUR2LzNtWEZJb0owQlF5?=
- =?utf-8?B?Y1ZQejdMT0lXQU9rTHEyL00vaGZTZUdBUWFTaG1WU1hnNHZaODBxQT09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b707d7b7-26b5-4b4a-13e7-08de7aa69e91
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5521.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2026 11:01:57.8999
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: EKHJhuMqAUuNVZiAficI+ZaHDSsXUXtl4OxhwzlBauVhItbS7UBTjktvZUQeLrqi0N42fWymnW8F+EeN796kXA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY1PPF28B8111DA
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_030209_165904_E3B20EFE 
-X-CRM114-Status: GOOD (  22.26  )
+	id 1vy6UD-00000001dzU-46Ni;
+	Thu, 05 Mar 2026 11:03:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 172DF61421;
+	Thu,  5 Mar 2026 11:03:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B800EC116C6;
+	Thu,  5 Mar 2026 11:03:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772708600;
+	bh=XkhFu5R2j+knEY1vxGe51F80Ek3LROgWQvuDZnuGOxc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=m4jmbjm9//kg42GLG2DHrlf4HdVzDN0wdhmf9oJwoJ/uVazQXm4jHgL3GIdTnB4nX
+	 cYD7oyukkmFP2YPh6VjlxjPcuJGZPfFzOotMuP8NNek/onH2iqDGgH/m9SHha5bSCD
+	 GkLs4uhjFIpLJMKVJ3GaW3k6saBPcDn8sZxzd+WRieoGFvvc+f31LiE4vQJfCyS5UC
+	 7mQ+xQkqC5Q4jgtoykMnMFjCM+Mbxiulr1Uh0L9j6Dci5/82N/JU0wvyI8l7u2j2xq
+	 Fx2l5d9DCOJnPO8xJ4zfsH6vFRyPrOgmOTYlUbni6EsPPpP1+jjNpKHBu5TRFsnRF5
+	 081LWgCO+6G5Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vy6UA-0000000GPSf-1Z57;
+	Thu, 05 Mar 2026 11:03:18 +0000
+Date: Thu, 05 Mar 2026 11:03:17 +0000
+Message-ID: <86qzpy7d3e.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,	Neil Armstrong
+ <neil.armstrong@linaro.org>,	Kevin Hilman <khilman@baylibre.com>,	Jerome
+ Brunet <jbrunet@baylibre.com>,	Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>,	Peter Griffin
+ <peter.griffin@linaro.org>,	=?UTF-8?B?QW5kcsOp?= Draszik
+ <andre.draszik@linaro.org>,	Tudor Ambarus <tudor.ambarus@linaro.org>,	Alim
+ Akhtar <alim.akhtar@samsung.com>,	Frank Li <Frank.Li@nxp.com>,	Sascha Hauer
+ <s.hauer@pengutronix.de>,	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,	Dinh Nguyen <dinguyen@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,	Konrad Dybcio
+ <konradybcio@kernel.org>,	Thierry Reding <treding@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,	linux-amlogic@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,	imx@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org,	linux-renesas-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/7] arm64: dts: Drop CPU masks from GICv3 PPI interrupts
+In-Reply-To: <24685144-c1bb-4084-80de-40989efbf4a1@oss.qualcomm.com>
+References: <cover.1772643434.git.geert+renesas@glider.be>
+	<ee2980af-e37c-4b4d-86c2-32467d2af454@oss.qualcomm.com>
+	<CAMuHMdUCqozRx_WJesymXmP_PYo4Bf=oed=4fXycVOVk5g8D4Q@mail.gmail.com>
+	<24685144-c1bb-4084-80de-40989efbf4a1@oss.qualcomm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: konrad.dybcio@oss.qualcomm.com, geert@linux-m68k.org, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, peter.griffin@linaro.org, andre.draszik@linaro.org, tudor.ambarus@linaro.org, alim.akhtar@samsung.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, dinguyen@kernel.org, andersson@kernel.org, konradybcio@kernel.org, treding@nvidia.com, linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev, linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,135 +95,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof
+On Thu, 05 Mar 2026 10:02:01 +0000,
+Konrad Dybcio <konrad.dybcio@oss.qualcomm.com> wrote:
+> 
+> On 3/5/26 10:55 AM, Geert Uytterhoeven wrote:
+> > Hi Konrad,
+> > 
+> > On Thu, 5 Mar 2026 at 10:33, Konrad Dybcio
+> > <konrad.dybcio@oss.qualcomm.com> wrote:
+> >> On 3/4/26 6:10 PM, Geert Uytterhoeven wrote:
+> >>> Unlike older GIC variants, the GICv3 DT bindings do not support
+> >>> specifying a CPU mask in PPI interrupt specifiers.  Hence this patch
+> >>> series drop all such masks where they are still present.
+> >>
+> >> I'm having trouble finding where that's used on pre-v3 even.. does
+> >> that actually get processed on the older iterations?
+> > 
+> > I had noticed the same, and had asked maz on IRC.
+> > His answer:
+> > 
+> >    "so far, we have never seen a GICv{1,2} system that didn't have all
+> > of its PPIs
+> >     connected to the same set of devices."
+> 
+> lol, that's fun!
 
-Sorry for the late reply. As we discussed eariler, I would like to show 
-you how the hardware module canvas work and why it is needed inside the 
-Amlogic's SOCs. Hope this answers your questions.
+For some definition of fun. If you want to get a top-class headache,
+have a look at what that means to handle a single INTID being routed
+different drivers based on the *affinity* of the interrupt.
 
+HW people who come up with these contraptions should be spanked
+repeatedly and preferably asymmetrically.
 
-      1. What is canvas? How it works?
+	N,
 
-The architecture is presented in the following diagram:
-
-             +-----------------------------------+
-             | Linux Kernel (CPU)                |
-             |   +---------------------------+   |
-             |   |                           |   |
-             |   |   V4L2 Decoder Driver     |   |
-             |   |                           |   |
-             |   +---------------------------+   |
-             +------|----------|---------^-------+
-                    |	      | 	|	
-                   DMA        APB       IRQ
-                    |          |         |
-      +-------------|----------|---------|------------+
-      | Hardware    |          |         |            |
-      |             v          v         |            |
-      |      +----------------------------------+     |
-      |      |                                  |     |
-      |      |              AMRISC              |     |
-      |      |                                  |     |
-      |      +----------------------------------+     |
-      |      |                                  |     |
-      |      |           Decoder HW             |     |
-      |      |                                  |     |
-      |      +---|-----|-----|--------|-----|---+     |
-      |         idx1 idx2 idx3 ... idx254 idx255      |
-      |          |     |     |        |     |         |
-      |          v     v     v        v     v         |
-      |      +----------------------------------+     |
-      |      |                                  |     |
-      |      |            Canvas                |     |
-      |      |                                  |     |
-      |      +---|-----|-----|--------|-----|---+     |
-      +----------|-----|-----|--------|-----|---------+
-                PA1   PA2   PA3 ... PA254 PA255
-                 |     |     |        |     |
-                 v     v     v        v     v
-      +-----------------------------------------------+
-      |                                               |
-      |                      DDR                      |
-      |                                               |
-      +-----------------------------------------------+
-
-
-Canvas is a hardware module which maintains an on-chip-memory table. 
-Each table entry describes a physical continuous memory region with its 
-properties such as start address, size and the endian settings.
-The design of Video decoder hardware uses canvas index to accesses 
-memory. E.g. canvas #10 is configured to start from address 0x10000, 
-size 1MB with little endian. And then this index number #10 is set to a 
-hardware decoder register to set up a buffer destination. Canvas index 
-is basically a reference to a memory region and its configurations. And 
-a single decoder hardware register may take the canvas indexes for all 
-three YUV components, which is helpful for AMRISC' s firmware (assembly 
-coding) when setting up HW decoder configurations.
-Memory access through canvas has HW out-of-boundary check. And it also 
-has endian controls.
-
-
-      2. Why canvas is needed?
-
- 1. Since the ARM IOMMU HW is not integrated into the Amlogic SOCs,we
-    need canvas to prevent the DDR memory used by the decoder from being
-    rewrote by other hardware. Canvas provides the decoder with a
-    configurable DDR memory range, as well as hardware-based detection
-    and blocking for out-of-bounds access.
-  2. From the diagram above, we can see a lite CPU called AMRISC. AMRISC
-    is the controller of the decoder HW and the decoder driver needs to
-    access the decoder hardware through AMRISC. However, AMRISC is a
-    16-bit CPU and cannot directly handle 32-bit or 64-bit physical
-    addresses. Therefore, canvas is required to convert the addresses
-    into index to facilitate processing by the AMRISC core.
-
-Regards,
-
-Zhentao
-
-> On 13/02/2026 09:31, Zhentao Guo wrote:
->>>>>> +  power-domains:
->>>>>> +    maxItems: 2
->>>>>> +
->>>>>> +  power-domain-names:
->>>>>> +    items:
->>>>>> +      - const: vdec
->>>>>> +      - const: hevc
->>>>>> +
->>>>>> +  resets:
->>>>>> +    maxItems: 1
->>>>>> +
->>>>>> +  amlogic,canvas:
->>>>>> +    description: should point to a canvas provider node
->>>>> Why? What for?
->>>>>
->>>>> What is canvas provider?
->>>> The canvas provider is: drivers/soc/amlogic/meson-canvas.c
->>> What is this "canvas" device.
->> You can think of canvas as the agent through which the decoder hardware
->> accesses DDR.
-> AGAIN:
->
-> What is the canvas device. Describe or point me to bindings describing
-> it. Your current bindings say that canvas is "a collection of metadata
-> that describes a pixel buffer" so there is no way it handles DDR access.
->
-> NAK
->
->>>> In short, canvas is a hardware IP inside the Amlogic SoC. The decoder IP
->>>> needs to access DDR through canvas IP, so we need to reference the
->>> Why decoder cannot access DDR directly?
->> The internal topology of the S4 chip is designed this way, we don't know
->> why our VLSI colleauges designed like this. But similar designs have
->> been removed in subsequent chips, eliminating the need to rely on a
->> common hardware IP.
-> Quite poor explanation. Based on this, this as well could be entry in
-> device reg lists.
->
-> Anyway, I am done guessing, explain properly the hardware instead of
-> answering with half-baked responses just so I will go away.
->
->
-> Best regards,
-> Krzysztof
+-- 
+Without deviation from the norm, progress is not possible.
 
