@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3C82EFCE5F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 03:32:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26150EB7ED2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 03:32:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sE2DdQQuCaDRgAEcrYqAGp9YDtW0Cp8QpFsuudMRzEs=; b=4CCbqBfp7Eg28juJbYwdoPrCvJ
-	6RU29lDPCoIpHjGpp5V8AZlrOY36CVy6gCzqlSF5fnrs2S5gSRrE4X15TDQUyVNKgtulsOTvwtKdY
-	01xBLRKjpty5GHACkMXVrTdXRcYtpGdIZyroEvYZsvjrN1svS8zXunV+2nrXB6f+Rc41EoPXCQBrB
-	QyQtzDnID0fkxAWsDeekAoifB319TKx8cRPv5a+JwmEZd110t8qxqkeEb7SqA4FabTE+CfphVWPSE
-	Zx7edFuo6bkhGhIL2x0IcsbTs1SdFYQc4FNgcukaxf65kN/PbH+cdcTLLDIk+p8i3daGEqC5pB+k0
-	BRzIIXTw==;
+	bh=pfvunmsyqP5kE57kB+fiQFjXjXbwlyHQ1oLinUTVGhU=; b=W4vh2MH6s/3nGowBlVPoC+7Ttq
+	pze1ipuoVeIQiQz7JQgSlAIb2UV2j/eTxO+/HBvuBlMF1lCme52JKZXR01py93vhwHmAPijpkNgFA
+	//ZxId4hOuFZU0Vcp7SzOVNM1Bk/V1tLg1m/wlwMETP+6Me1DXWbg7GUj+3e5met12zXMM+lyZD2e
+	bR/BkpU/YbO9L8i3bzPAwd/ZtwzF9y5lmruF2FcKXpk2DeTFUbXD17v7eJoxg7Dneekqqc3ff0Pw/
+	TJWzGINZJ/otODT+M+IU/P1+Q4MgAajALiiQOqGC+X36MoXq7O9wrqASjB97LXF3w/KlNQMpuPVPd
+	OqSUyDFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxzRO-00000000psx-2gIT;
-	Thu, 05 Mar 2026 03:31:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vxzRR-00000000pwG-3vZk;
+	Thu, 05 Mar 2026 03:32:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxzRM-00000000pq5-0BvQ
+	id 1vxzRO-00000000prq-0QKT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 03:31:56 +0000
+	Thu, 05 Mar 2026 03:31:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6A88161840;
-	Thu,  5 Mar 2026 03:31:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17D8EC19422;
-	Thu,  5 Mar 2026 03:31:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C793D437F8;
+	Thu,  5 Mar 2026 03:31:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF595C2BCB2;
+	Thu,  5 Mar 2026 03:31:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772681515;
-	bh=2RHHwjHDEfLBZts7gftP8ppQ8P51E1xBhiCigfZjKIs=;
+	s=k20201202; t=1772681517;
+	bh=sna7ujIJJX2wXpTTTo8a2xChNhDmAoSGFIkZMWk8srk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Cfo0/10/eTtxez/EjmHNrZDLUnJaecsM+kHAJbSI7XBEe4gYeKHIwJVgEVtidEPYX
-	 C4RnCsY3R806DCdPLtIT78vvseTLwCH+w3DNb2PaAu306Bui1EUN6npvXLE6YR1/d3
-	 2j1m7fIPQwh9BF5RoKdG48iOKVWinRCLyqUQzxQ4VzEZxK164sBltkpw8JI1RWcdus
-	 DzD/kVsbK0U44FFs7VlZR6BXaUssGWcoLTqHLIUddl00+LzJfdqlK+cTrrMep+CYqn
-	 Oz/SA1xPuEABCq8bVmpaEE+8em8YkFnly6C9QV5QaD/KPC23P1FI555AnHmZrUHB4z
-	 gcQdc/PRbL3pA==
+	b=AnH7Qa8ksu5mf2Gv83mjE9ZsD2k9/WUi6+NShvNbex9IjWIn3FsbOpjntGVs94l6B
+	 QzuBnY9D8YVCERpjOgzHblVCNp+ffRlo4EHKVHDd/y2EUiau9BCvyJNRhBX0jdWBSf
+	 snR5BLCyVcjqKjLO9YwXX5pRM0MklJCyN6Lnh8rGep5d6GIoe6YXLG3dC1ENAu7t7j
+	 l6EN+ZGfOWwAb/dKcgfhy5vtvk7LJqcFSY34MDMHHAyx2PCBnpQWbGR8uITU4L/qgw
+	 myvTfGj0zoFTtH7Rln9KExt3KT9/T1v5EgK3ljf2qZSKx85bksHnQf0+ab4yKNfSpu
+	 VlaIyS01/c0Kw==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -56,14 +56,18 @@ Cc: linux-kernel@vger.kernel.org,
 	Nathan Chancellor <nathan@kernel.org>,
 	Nicolas Schier <nsc@kernel.org>,
 	Herbert Xu <herbert@gondor.apana.org.au>
-Subject: [PATCH 09/14] kbuild: Only run objtool if there is at least one command
-Date: Wed,  4 Mar 2026 19:31:28 -0800
-Message-ID: <b5f73df0d598e77104f7d2de5a84d69e75e80b9f.1772681234.git.jpoimboe@kernel.org>
+Subject: [PATCH 11/14] objtool: Allow empty alternatives
+Date: Wed,  4 Mar 2026 19:31:30 -0800
+Message-ID: <1af3deb308fd59086b63690c1e7b53586ba3c5e7.1772681234.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1772681234.git.jpoimboe@kernel.org>
 References: <cover.1772681234.git.jpoimboe@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260304_193158_181143_CD3306B9 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,147 +82,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Split the objtool args into commands and options, such that if no
-commands have been enabled, objtool doesn't run.
-
-This is in preparation in enabling objtool and klp-build for arm64.
+arm64 can have empty alternatives, which are effectively no-ops.  Ignore
+them.
 
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- arch/x86/boot/startup/Makefile |  2 +-
- scripts/Makefile.build         |  4 +--
- scripts/Makefile.lib           | 46 ++++++++++++++++++----------------
- scripts/Makefile.vmlinux_o     | 15 ++++-------
- 4 files changed, 33 insertions(+), 34 deletions(-)
+ tools/objtool/check.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/arch/x86/boot/startup/Makefile b/arch/x86/boot/startup/Makefile
-index 5e499cfb29b5..a08297829fc6 100644
---- a/arch/x86/boot/startup/Makefile
-+++ b/arch/x86/boot/startup/Makefile
-@@ -36,7 +36,7 @@ $(patsubst %.o,$(obj)/%.o,$(lib-y)): OBJECT_FILES_NON_STANDARD := y
- # relocations, even if other objtool actions are being deferred.
- #
- $(pi-objs): objtool-enabled	= 1
--$(pi-objs): objtool-args	= $(if $(delay-objtool),--dry-run,$(objtool-args-y)) --noabs
-+$(pi-objs): objtool-args	= $(if $(delay-objtool),--dry-run,$(objtool-cmds-y) $(objtool-opts-y)) --noabs
+diff --git a/tools/objtool/check.c b/tools/objtool/check.c
+index 23cde2de66b9..036adbd67488 100644
+--- a/tools/objtool/check.c
++++ b/tools/objtool/check.c
+@@ -1994,10 +1994,8 @@ static int add_special_section_alts(struct objtool_file *file)
+ 		}
  
- #
- # Confine the startup code by prefixing all symbols with __pi_ (for position
-diff --git a/scripts/Makefile.build b/scripts/Makefile.build
-index 32e209bc7985..d2d0776df947 100644
---- a/scripts/Makefile.build
-+++ b/scripts/Makefile.build
-@@ -277,7 +277,7 @@ endif # CONFIG_FTRACE_MCOUNT_USE_RECORDMCOUNT
- is-standard-object = $(if $(filter-out y%, $(OBJECT_FILES_NON_STANDARD_$(target-stem).o)$(OBJECT_FILES_NON_STANDARD)n),$(is-kernel-object))
+ 		if (special_alt->group) {
+-			if (!special_alt->orig_len) {
+-				ERROR_INSN(orig_insn, "empty alternative entry");
++			if (!special_alt->orig_len)
+ 				continue;
+-			}
  
- ifdef CONFIG_OBJTOOL
--$(obj)/%.o: private objtool-enabled = $(if $(is-standard-object),$(if $(delay-objtool),$(is-single-obj-m),y))
-+$(obj)/%.o: private objtool-enabled = $(if $(is-standard-object),$(if $(objtool-cmds-y),$(if $(delay-objtool),$(is-single-obj-m),y)))
- endif
- 
- ifneq ($(findstring 1, $(KBUILD_EXTRA_WARN)),)
-@@ -499,7 +499,7 @@ define rule_ld_multi_m
- 	$(call cmd,gen_objtooldep)
- endef
- 
--$(multi-obj-m): private objtool-enabled := $(delay-objtool)
-+$(multi-obj-m): private objtool-enabled := $(if $(objtool-cmds-y),$(delay-objtool))
- $(multi-obj-m): private part-of-module := y
- $(multi-obj-m): %.o: %.mod FORCE
- 	$(call if_changed_rule,ld_multi_m)
-diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
-index 0718e39cedda..40a462581666 100644
---- a/scripts/Makefile.lib
-+++ b/scripts/Makefile.lib
-@@ -183,27 +183,31 @@ ifdef CONFIG_OBJTOOL
- 
- objtool := $(objtree)/tools/objtool/objtool
- 
--objtool-args-$(CONFIG_HAVE_JUMP_LABEL_HACK)		+= --hacks=jump_label
--objtool-args-$(CONFIG_HAVE_NOINSTR_HACK)		+= --hacks=noinstr
--objtool-args-$(CONFIG_MITIGATION_CALL_DEPTH_TRACKING)	+= --hacks=skylake
--objtool-args-$(CONFIG_X86_KERNEL_IBT)			+= --ibt
--objtool-args-$(CONFIG_FINEIBT)				+= --cfi
--objtool-args-$(CONFIG_FTRACE_MCOUNT_USE_OBJTOOL)	+= --mcount
--ifdef CONFIG_FTRACE_MCOUNT_USE_OBJTOOL
--objtool-args-$(CONFIG_HAVE_OBJTOOL_NOP_MCOUNT)		+= --mnop
--endif
--objtool-args-$(CONFIG_UNWINDER_ORC)			+= --orc
--objtool-args-$(CONFIG_MITIGATION_RETPOLINE)		+= --retpoline
--objtool-args-$(CONFIG_MITIGATION_RETHUNK)		+= --rethunk
--objtool-args-$(CONFIG_MITIGATION_SLS)			+= --sls
--objtool-args-$(CONFIG_STACK_VALIDATION)			+= --stackval
--objtool-args-$(CONFIG_HAVE_STATIC_CALL_INLINE)		+= --static-call
--objtool-args-$(CONFIG_HAVE_UACCESS_VALIDATION)		+= --uaccess
--objtool-args-$(or $(CONFIG_GCOV_KERNEL),$(CONFIG_KCOV))	+= --no-unreachable
--objtool-args-$(CONFIG_PREFIX_SYMBOLS)			+= --prefix=$(CONFIG_FUNCTION_PADDING_BYTES)
--objtool-args-$(CONFIG_OBJTOOL_WERROR)			+= --werror
-+# objtool commands
-+objtool-cmds-$(CONFIG_HAVE_JUMP_LABEL_HACK)		+= --hacks=jump_label
-+objtool-cmds-$(CONFIG_HAVE_NOINSTR_HACK)		+= --hacks=noinstr
-+objtool-cmds-$(CONFIG_MITIGATION_CALL_DEPTH_TRACKING)	+= --hacks=skylake
-+objtool-cmds-$(CONFIG_X86_KERNEL_IBT)			+= --ibt
-+objtool-cmds-$(CONFIG_FINEIBT)				+= --cfi
-+objtool-cmds-$(CONFIG_FTRACE_MCOUNT_USE_OBJTOOL)	+= --mcount
-+objtool-cmds-$(CONFIG_UNWINDER_ORC)			+= --orc
-+objtool-cmds-$(CONFIG_MITIGATION_RETPOLINE)		+= --retpoline
-+objtool-cmds-$(CONFIG_MITIGATION_RETHUNK)		+= --rethunk
-+objtool-cmds-$(CONFIG_MITIGATION_SLS)			+= --sls
-+objtool-cmds-$(CONFIG_STACK_VALIDATION)			+= --stackval
-+objtool-cmds-$(CONFIG_HAVE_STATIC_CALL_INLINE)		+= --static-call
-+objtool-cmds-$(CONFIG_HAVE_UACCESS_VALIDATION)		+= --uaccess
-+objtool-cmds-$(CONFIG_PREFIX_SYMBOLS)			+= --prefix=$(CONFIG_FUNCTION_PADDING_BYTES)
-+objtool-cmds-y						+= $(OBJTOOL_ARGS)
- 
--objtool-args = $(objtool-args-y)					\
-+# objtool options
-+ifdef CONFIG_FTRACE_MCOUNT_USE_OBJTOOL
-+objtool-opts-$(CONFIG_HAVE_OBJTOOL_NOP_MCOUNT)		+= --mnop
-+endif
-+objtool-opts-$(or $(CONFIG_GCOV_KERNEL),$(CONFIG_KCOV))	+= --no-unreachable
-+objtool-opts-$(CONFIG_OBJTOOL_WERROR)			+= --werror
-+
-+objtool-args = $(objtool-cmds-y) $(objtool-opts-y)			\
- 	$(if $(delay-objtool), --link)					\
- 	$(if $(part-of-module), --module)
- 
-@@ -212,7 +216,7 @@ delay-objtool := $(or $(CONFIG_LTO_CLANG),$(CONFIG_X86_KERNEL_IBT),$(CONFIG_KLP_
- cmd_objtool = $(if $(objtool-enabled), ; $(objtool) $(objtool-args) $@)
- cmd_gen_objtooldep = $(if $(objtool-enabled), { echo ; echo '$@: $$(wildcard $(objtool))' ; } >> $(dot-target).cmd)
- 
--objtool-enabled := y
-+objtool-enabled = $(if $(objtool-cmds-y),y)
- 
- endif # CONFIG_OBJTOOL
- 
-diff --git a/scripts/Makefile.vmlinux_o b/scripts/Makefile.vmlinux_o
-index 527352c222ff..09af33203bd8 100644
---- a/scripts/Makefile.vmlinux_o
-+++ b/scripts/Makefile.vmlinux_o
-@@ -36,18 +36,13 @@ endif
- # For !delay-objtool + CONFIG_NOINSTR_VALIDATION, it runs on both translation
- # units and vmlinux.o, with the latter only used for noinstr/unret validation.
- 
--objtool-enabled := $(or $(delay-objtool),$(CONFIG_NOINSTR_VALIDATION))
--
--ifeq ($(delay-objtool),y)
--vmlinux-objtool-args-y					+= $(objtool-args-y)
--else
--vmlinux-objtool-args-$(CONFIG_OBJTOOL_WERROR)		+= --werror
-+ifneq ($(delay-objtool),y)
-+objtool-cmds-y					 =
-+objtool-opts-y					+= --link
- endif
- 
--vmlinux-objtool-args-$(CONFIG_NOINSTR_VALIDATION)	+= --noinstr \
--							   $(if $(or $(CONFIG_MITIGATION_UNRET_ENTRY),$(CONFIG_MITIGATION_SRSO)), --unret)
--
--objtool-args = $(vmlinux-objtool-args-y) --link
-+objtool-cmds-$(CONFIG_NOINSTR_VALIDATION)	+= --noinstr \
-+						   $(if $(or $(CONFIG_MITIGATION_UNRET_ENTRY),$(CONFIG_MITIGATION_SRSO)), --unret)
- 
- # Link of vmlinux.o used for section mismatch analysis
- # ---------------------------------------------------------------------------
+ 			if (handle_group_alt(file, special_alt, orig_insn, &new_insn))
+ 				return -1;
 -- 
 2.53.0
 
