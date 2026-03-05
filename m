@@ -4,112 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31CF0EEF30D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 06:50:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 982B4EEF30E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 06:54:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7xR/ODl/LLpv8qzPXxQC2I5D7gVivJZJFQgXB+mbpQQ=; b=n7nQxWYrvEbN49ZVc7T/j6EXgG
-	6eSccLYB1FZe3HQsM1cKvCjPKXt+xSj1zu23e8PfOpHVrzkOkVIBauNziHeBrHW98dPDMw7PMfZ4I
-	vYW+HIKqkT7g2WUE6raU4DLiutkawk3djbR/wf34kh7zqO9nMr27CwK79ts8zf7NmnSV1mtLabCzc
-	rsLa0Mw2gN1l+/1tfmYdiqkn7VwQPWagWGyc1bUI0INgntpXA+8W5oe5O9OmnEOosQp6PwF+P9TWP
-	UywcYNY09me0Y3LBAEgokCcozr/bnnn4dSOVxMHUzygde+zTb+puQdPZGr828HsvlkLZ25ZjGVsEw
-	kjEUlD8w==;
+	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
+	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dErXW1Jpzv3QJs1jd2FdC9ztVSxwa/zpnT9DC9MGvBE=; b=fSV4h0JzPSK5MJ46xpUWC63VQz
+	UeytavTfgCoRTqwKA/+yl+pFD7enSznTSqg+OGvo+x6dOADwxH1IQ3nOy5ibM00ZG0nkYCFuT7MI+
+	/ZFo1E9EdB3CxBvIDRTZFkkpOZ48aAVd+xbICFpejJRJfsV1IFEagUgkoo10kfwZ4aFA/V9NPe7Ls
+	onrEZtrxM593rG2Hjh931t6TqHPIl6QrQfsjT+JEngkkYy+4eXcv8CxlJ+JpO6y0wwB6oGx5MsFTy
+	9lNyeoEVcEAUm/nhnyERpEGLSJkatpTwFWuBWWPqNGZnyzb5/yLM9wh7pFw8LbMXjdn4+RGo3l6+B
+	nkJ86KNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy2Xr-000000012jA-3lkB;
-	Thu, 05 Mar 2026 06:50:51 +0000
-Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
+	id 1vy2bi-0000000135W-3HZf;
+	Thu, 05 Mar 2026 06:54:50 +0000
+Received: from mail1.manjaro.org ([142.132.176.110])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy2Xp-000000012iC-3AlH
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 06:50:51 +0000
-Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-899fac9caabso61061486d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 22:50:48 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772693448; cv=none;
-        d=google.com; s=arc-20240605;
-        b=BRw46B9qwy6MgNCDZz3I1cxdUH2gpc6qJK7OHJpPb3C1rhf5u4SUlxMal0dFhwX1ty
-         1v6H4MrBUh4GwElInBekJ33R/SXP+/JoNfraPzNE9dTpMrjis8jFlHnmpcECtg0Ze4MN
-         KbekIjSOIqZTjr2GJgaxfjAWLTUNk3DcVqLP8sRqKSinFQbZcxnFPko9uKiHExt4EC7Y
-         Oj1r4Ewh5UnMUrfU724b+35QlZfXwyXCK6LUobTnFYDucQlKzw9/xjA7oFBrd/szIE4r
-         I21c2QSK3oynF2lbs0nKEIc4I5Z8iATaNc1svqiIPgqZW5zJ9GTz5+qPm5WUT0a3dHg9
-         D16A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=7xR/ODl/LLpv8qzPXxQC2I5D7gVivJZJFQgXB+mbpQQ=;
-        fh=mqTCEwfWNmY/8gqfXNZd5DoDO+oy2gf9ngv5DZT8Oko=;
-        b=KFIEBZj/T8LYVDytDhxiGxyMojkI6CWLSGjegpSvTtKVItTRSUURdn47cwCF6fu2pw
-         ZBhkEMVLdAKxEsuuwCRcHTfcKKdCO3IC/0dTparpxxucUOUFcPY4nwibaesBBJzWph0O
-         dvgS2N6LNTpAUTQMtf1NU5e5hEWQ1wjK7JgVRm8zCaT9cj1F8d3NAxtg3F9ggbArYUkF
-         huZO2SABdf2t1OZW4+LPD2IJtWZpI2bUTh/vLoD/fNCrZ/uCEUp+0ilMnwcQgAlv2ay1
-         h+5oxX8vGdUXlWnWVa4qg4zVicyZ4zwaNvOOAFggVcMMDTevLJdnkakZLb2yl9Q+VMAQ
-         lyfQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ausil.us; s=google; t=1772693448; x=1773298248; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7xR/ODl/LLpv8qzPXxQC2I5D7gVivJZJFQgXB+mbpQQ=;
-        b=ZWFn/C9CETl/O6NkT9kHbd9F2STa4rH4BaOEOGnpFSLusHxqF9RfJdQ7hsADFjgrGN
-         g6SswAtFQxXTcs5Pjqt8AQ/h42ZVK42TOy5SOvxjXxVDOPWBKfrHf+GGevbgvQPxS7QV
-         Dr7HOg2qOc+cFV60ge8oZi99rH0UB7c4CNiKnwNpuKEgejN+6+sfM40kZY+RXna3iur5
-         4+8vGhON6FgZlCK4rdOmRVdjDc7sonWxEOGazbWQrgjraJyEIl3ri72+xPEMWpQoEtN/
-         tUI3EVCOWyIjn7G3AN5XgCaMkpB/JAvbNqEpGgYOV3fq0GJIrInfkycd/VYbXtu9BMdN
-         ltHA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772693448; x=1773298248;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=7xR/ODl/LLpv8qzPXxQC2I5D7gVivJZJFQgXB+mbpQQ=;
-        b=tBnesKpw8x1/5izLNpvvz2xlNhVYuFtqDhGHMC6ikmxL9SkQ1vUu24Ja9sIjFIROAu
-         mKjZOwREvQgoZFy2ZK8wRs1L5ly1n+jcreDuTuvmXN2Lbf/yGaQUpSuSDB/jdURBgxF6
-         7GlvWYX+OxGgAaa9p0/4wz0Hi+IAsmdvzyKh+169qFKs5yQMDPGQ18YsuotD6R6XtFNb
-         QxoQHhMPzLjDqcgKDKLXouxCWhLuk/sIbaJ6GyREyx9Q+hH91zzhxr1GRaxiOJtG5eey
-         TbY33+eb6J+QeiQlNQnRLpgXerVbtPovJzGPa/mXo2QWvJHrETATbq1xWPSeUqEIStUc
-         +xTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXjDImeDaKQnLpVVmKfN/smaUJJ7WhVg1xSdr5Wi9yvOZq/8BcD1Y31HeAvB43WNWiohNLc0FFf4U00vftXGW6/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5qMNV5rp3veCCzVSybLeDeDKnOpaJjDVmSSn0j3GPu+S29Sn+
-	OYjYdYUeRItd9phlHe16QGKdMMx+PtVGz3oHTZyJ+dU56AeehdN/QAce0nAuJpbzvfcgni4uGOF
-	/encOFrB/6IMqGEpwPj4LUu37seqXWaScHfxHG9K7R+EWkEgwU2e7cm32gbuzwRX1Bw==
-X-Gm-Gg: ATEYQzx2UtdT3srFoZPnlSCYQnNuBTIf3ShCBS39R8X+KBLcOj+0xVgxQkf2k8JD7dR
-	vWT+R3UaxBgtJWwZYDo+Y+olg3HZpKy6orm/bMCZM63ajCKUXkE1tFXwCNZmq2jZE/6/RDAA0JR
-	En5lJAL+0QsX8DcvnMri5sosuqWZVHQTgdrn692X+iZuqflTmSiuP7bJQecp5AKZUduiAuH3973
-	QZDus2tdxhYGAOwWAXDc5Z14oEHti/VOJ5IDAWeIn/ZBqkrmL8q40HPQSOEGsfgmpGqfm9McjLO
-	LidZTPvWd9NWavVP5juulMJrHiEsojYE215ICa4NlLA1EQ53nI9J0sczF4/VHeJyFJJOEaI=
-X-Received: by 2002:a05:6214:d89:b0:89a:90e:3a1b with SMTP id
- 6a1803df08f44-89a19af74b3mr66467296d6.25.1772693447983; Wed, 04 Mar 2026
- 22:50:47 -0800 (PST)
+	id 1vy2bf-0000000133w-3k9h;
+	Thu, 05 Mar 2026 06:54:49 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id 199BF4211B;
+	Thu,  5 Mar 2026 07:54:39 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=dkim;
+	t=1772693683; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=dErXW1Jpzv3QJs1jd2FdC9ztVSxwa/zpnT9DC9MGvBE=;
+	b=oy5bvIDW2Sp5DqZl+Y6XZL9oslOctdG42e1H2jUw7REGuEZTv5+udzyBMdK1cwkxGtrr8o
+	idK5lp2XAr9PCRrOcomg7q33vZxI+XSWPs/IZUEqtAnaFq1S7DFuePb12tNjrhNibroCQ3
+	guGgsMgu2CrQfdvJyslI5x84U312jgp9sXpwFNP3NW1qExG8lKtsXmWB0Pv/CS+Y8RsTsB
+	WDetmyBplXVUTvH4JYu24g7AVW8e6hMWanoqOTYw5TyNynDQR8c7wMUYGdK4bEb3fIC+Bc
+	5t7XFzBqzU+YLDozg635lQuo9cWbqwSCMvElG0x5Pp0L2T4vun3ZTQyf1Saplg==
+From: "Dragan Simic" <dsimic@manjaro.org>
+In-Reply-To: <aakEQ_qtBbYCaUsA@geday>
+Content-Type: text/plain; charset="utf-8"
+References: <cover.1772239598.git.geraldogabriel@gmail.com>
+ <2a0a4aa97bb8b0cb511cb651c5d66c9ec8bab97a.1772239598.git.geraldogabriel@gmail.com>
+ <d2b91260-7666-3606-69ec-0e7cb7a48c02@manjaro.org> <aakEQ_qtBbYCaUsA@geday>
+Date: Thu, 05 Mar 2026 07:54:39 +0100
+Cc: "Shawn Lin" <shawn.lin@rock-chips.com>, "Lorenzo Pieralisi" <lpieralisi@kernel.org>, =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, "Manivannan Sadhasivam" <mani@kernel.org>, "Rob Herring" <robh@kernel.org>, "Bjorn Helgaas" <bhelgaas@google.com>, "Heiko Stuebner" <heiko@sntech.de>, linux-rockchip@lists.infradead.org, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+To: "Geraldo Nascimento" <geraldogabriel@gmail.com>
 MIME-Version: 1.0
-References: <20260228205418.2944620-1-dennis@ausil.us> <20260228205418.2944620-3-dennis@ausil.us>
- <CALWfF7LZV07x7zAgufE_aa58s7x6e_ODAM2LgZqjbEakDticpA@mail.gmail.com>
- <CAABkxwsJ2ZnytCcHEvXWzNkjwzNThoTR23FAeHJLdf4JjXJEMg@mail.gmail.com> <CALWfF7+gdNqSgzk4uAnVRkG8vT9FwJDV46VXpb26hd7BzdaGcw@mail.gmail.com>
-In-Reply-To: <CALWfF7+gdNqSgzk4uAnVRkG8vT9FwJDV46VXpb26hd7BzdaGcw@mail.gmail.com>
-From: Dennis Gilmore <dennis@ausil.us>
-Date: Thu, 5 Mar 2026 00:50:36 -0600
-X-Gm-Features: AaiRm53rLf9JFsOMPcs6Gcb8I80gESnZp0sJGMhEniGuj0Hsfu1GrQDeh7FJtCU
-Message-ID: <CAABkxwtG2e5LpjS-sScmn46DY3eXd6tyNCc1oNHKqoaO+PVwuA@mail.gmail.com>
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Add Orange Pi 5 Pro board support
-To: Jimmy Hon <honyuenkwun@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, FUKAUMI Naoki <naoki@radxa.com>, 
-	Hsun Lai <i@chainsx.cn>, Jonas Karlman <jonas@kwiboo.se>, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
-	John Clark <inindev@gmail.com>, Michael Opdenacker <michael.opdenacker@rootcommit.com>, 
-	Quentin Schulz <quentin.schulz@cherry.de>, Andrew Lunn <andrew@lunn.ch>, 
-	Alexey Charkov <alchark@gmail.com>, Peter Robinson <pbrobinson@gmail.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Message-ID: <5299c7c8-7593-6b0b-5def-8f0bdaecd8f9@manjaro.org>
+Subject: =?utf-8?q?Re=3A?= [PATCH v5 3/4] =?utf-8?q?PCI=3A?==?utf-8?q?_rockchip=3A?= 
+ drive at =?utf-8?q?2=2E5?==?utf-8?q?_GT/s=2C?= error other speeds
+User-Agent: SOGoMail 5.12.3
 Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: None
+X-Rspamd-Fuzzy: 92c42003f999b2e674c87b253aa06c9cc4c940f5231e4605c1cd9f8098bf9aa98d30a83a9928210ba715e9c0d2880cee688bb95b719aaf896ecda919cea7cf50
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_225049_816455_76363A0A 
-X-CRM114-Status: GOOD (  18.22  )
+X-CRM114-CacheID: sfid-20260304_225448_297779_2D7C8C10 
+X-CRM114-Status: GOOD (  38.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,54 +71,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 3, 2026 at 9:45=E2=80=AFPM Jimmy Hon <honyuenkwun@gmail.com> wr=
-ote:
->
-> On Tue, Mar 3, 2026 at 1:43=E2=80=AFPM Dennis Gilmore <dennis@ausil.us> w=
-rote:
-> >
-> > On Mon, Mar 2, 2026 at 11:57=E2=80=AFPM Jimmy Hon <honyuenkwun@gmail.co=
-m> wrote:
-> > >
-> > > Hi Dennis,
-> > >
-> > > Some curiosities below,
-> > >
-> > > On Sat, Feb 28, 2026 at 2:54=E2=80=AFPM <dennis@ausil.us> wrote:
-> > > <snip>
-> > > > +
-> > > > +       /* Pro uses gpio-leds instead; pwm0 LED is not wired up */
-> > > > +       /delete-node/ pwm-leds;
-> > > <snip>
-> > > > +
-> > > > +       gpio-leds {
-> > > > +               compatible =3D "gpio-leds";
-> > > > +               pinctrl-names =3D "default";
-> > > > +               pinctrl-0 =3D <&leds_rgb>;
-> > > > +
-> > > > +               blue-led {
-> > > > +                       color =3D <LED_COLOR_ID_BLUE>;
-> > > > +                       function =3D LED_FUNCTION_STATUS;
-> > > > +                       gpios =3D <&gpio1 RK_PC6 GPIO_ACTIVE_HIGH>;
-> > > How come you decided gpio-leds instead of pwm-leds for this? GPIO1 C6
-> > > is muxed with PWM15_IR_M2
-> >
-> > the downstream dts uses gpio-leds  the GPIO comes from the schematic
-> It should be fine to upgrade to pwm-leds when adding into mainline.
-> The Orange 5 Plus did.
-> In the downstream DTS, they used gpio-led for the green led
-> https://github.com/orangepi-xunlong/linux-orangepi/blob/232ed4b97b65da2b7=
-b647c4e3c496f8594b9f3f1/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus=
-.dts#L31-L36
-> But in the mainline kernel, it was converted to use pwm-led.
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit=
-/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts?id=3D236d225e1ee72=
-a28aa7c2b1e39894e4390bbf51c
->
-> Jimmy
+Hello Geraldo,
 
-Is there a reason the blue led was not converted from GPIO to PWM, and
-only the green led was?
+On Thursday, March 05, 2026 05:19 CET, Geraldo Nascimento <geraldogabri=
+el@gmail.com> wrote:
+> On Sat, Feb 28, 2026 at 07:16:41AM +0100, Dragan Simic wrote:
+> > On Saturday, February 28, 2026 01:55 CET, Geraldo Nascimento <geral=
+dogabriel@gmail.com> wrote:
+> > > Configure the core to be driven at 2.5 GT/s Link Speed and ignore
+> > > any other speed with a warning. The reason is that Shawn Lin from
+> > > Rockchip has reiterated that there may be danger of "catastrophic
+> > > failure" in using their PCIe with 5.0 GT/s speeds.
+> > >=20
+> > > While Rockchip has done so informally without issuing a proper er=
+rata,
+> > > and the particulars are thus unknown, this may cause data loss or
+> > > worse.
+> > >=20
+> > > This change is corroborated by RK3399 official datasheet [1], whi=
+ch
+> > > states maximum link speed for this platform is 2.5 GT/s.
+> > >=20
+> > > [1] https://opensource.rock-chips.com/images/d/d7/Rockchip=5FRK33=
+99=5FDatasheet=5FV2.1-20200323.pdf
+> > >=20
+> > > Fixes: 956cd99b35a8 ("PCI: rockchip: Separate common code from RC=
+ driver")
+> > > Link: https://lore.kernel.org/all/ffd05070-9879-4468-94e3-b88968b=
+4c21b@rock-chips.com/
+> > > Cc: stable@vger.kernel.org
+> > > Reported-by: Dragan Simic <dsimic@manjaro.org>
+> > > Reported-by: Shawn Lin <shawn.lin@rock-chips.com>
+> > > Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
+> > > ---
+> > >  drivers/pci/controller/pcie-rockchip.c | 15 +++++++++------
+> > >  1 file changed, 9 insertions(+), 6 deletions(-)
+> > >=20
+> > > diff --git a/drivers/pci/controller/pcie-rockchip.c b/drivers/pci=
+/controller/pcie-rockchip.c
+> > > index 0f88da378805..2f211d1f4c7c 100644
+> > > --- a/drivers/pci/controller/pcie-rockchip.c
+> > > +++ b/drivers/pci/controller/pcie-rockchip.c
+> > > @@ -66,8 +66,10 @@ int rockchip=5Fpcie=5Fparse=5Fdt(struct rockch=
+ip=5Fpcie *rockchip)
+> > >  	}
+> > > =20
+> > >  	rockchip->link=5Fgen =3D of=5Fpci=5Fget=5Fmax=5Flink=5Fspeed(no=
+de);
+> > > -	if (rockchip->link=5Fgen < 0 || rockchip->link=5Fgen > 2)
+> > > -		rockchip->link=5Fgen =3D 2;
+> > > +	if (rockchip->link=5Fgen < 0 || rockchip->link=5Fgen >=3D 2) {
+> > > +		rockchip->link=5Fgen =3D 1;
+> > > +		dev=5Fwarn(dev, "invalid max-link-speed, fix your DT\n");
+> > > +	}
+> >=20
+> > I'd suggest using a bit more formal message here, like the one belo=
+w,
+> > which would also avoid addressing the user directly:
+> >=20
+> >   "Invalid max-link-speed found, limited to Gen1 to avoid data corr=
+uption"
+>=20
+> We really should spare on characters here, but I see your point and w=
+ill
+> try to cook up a better way.
 
-Dennis
+Makes sense, so perhaps just "Limited to Gen1 to avoid data corruption"
+should be fine for the purpose, because anyone attempting to get rid
+of that warning should search for what emitted it in the kernel source,
+which would provide them with further information.
+
+> > >  	for (i =3D 0; i < ROCKCHIP=5FNUM=5FPM=5FRSTS; i++)
+> > >  		rockchip->pm=5Frsts[i].id =3D rockchip=5Fpci=5Fpm=5Frsts[i];
+> > > @@ -147,12 +149,13 @@ int rockchip=5Fpcie=5Finit=5Fport(struct ro=
+ckchip=5Fpcie *rockchip)
+> > >  		goto err=5Fexit=5Fphy;
+> > >  	}
+> > > =20
+> > > -	if (rockchip->link=5Fgen =3D=3D 2)
+> > > -		rockchip=5Fpcie=5Fwrite(rockchip, PCIE=5FCLIENT=5FGEN=5FSEL=5F=
+2,
+> > > -				    PCIE=5FCLIENT=5FCONFIG);
+> > > -	else
+> > > +	if (rockchip->link=5Fgen =3D=3D 2) {
+> > > +		/* 5.0 GT/s may cause catastrophic failure for this core */
+> > > +		dev=5Fwarn(dev, "5.0 GT/s may cause data loss or worse\n");
+> > > +	} else {
+> > >  		rockchip=5Fpcie=5Fwrite(rockchip, PCIE=5FCLIENT=5FGEN=5FSEL=5F=
+1,
+> > >  				    PCIE=5FCLIENT=5FCONFIG);
+> > > +	}
+> >=20
+> > I don't think we need to emit a warning here, because, as we've alr=
+eady
+> > established through earlier discussions, the rockchip=5Fpcie=5Finit=
+=5Fport()
+> > function should never receive an invalid speed value.
+>=20
+> Just as a lame excuse, those messages were everywhere in the mid of m=
+y
+> development, this is one that escaped deletion, will drop.
+
+Thanks.
+
+> > >  	regs =3D PCIE=5FCLIENT=5FARI=5FENABLE |
+> > >  	       PCIE=5FCLIENT=5FCONF=5FLANE=5FNUM(rockchip->lanes);
+> >=20
+> > It would make most sense to squash all three patches in this series
+> > into a single patch, because they all form a single logical unit, w=
+hich
+> > introduces changes that are just going to be harder to track down l=
+ater
+> > if it's all scattered into multiple separate patches.
+>=20
+> I agree, having all drops in one big patch is the better tactic here.
+>=20
+> > The only possible issue with the squashing comes from the inability=
+ to
+> > have different patch subject prefixes for different driver changes,=
+ but
+> > I think that's actually not an issue.  The long-term benefits of ha=
+ving
+> > everything as a single patch outweighs the benefits of having diffe=
+rent
+> > patch subjects with separate patches.
+>=20
+> Sure, will do so for v6.
+
+Thanks, but as Manivannan pointed out, having the changes split across
+a couple of patches actually comes with benefits.
+
 
