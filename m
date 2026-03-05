@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5617F33A75
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 14:45:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E2ECF33A78
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 14:45:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lE9JS6ymWX0k6b5MfpvXbxLR2+R3yONyyx3Feo4sqQw=; b=cavwf0JZMQpJS/PW4FzNDF460p
-	F0+ZgVccaP6+mhfV6lr4KIAFyePhiWaore8rUyylW7NJvoXjusukcIFYHfaJXee5WPJsS73y4nEKT
-	U4XlzdH2zVY9PThWbePmaF3o7ClpKrQDW8LxlUPybiZ6OpjOnGDn5MJaKybqSaOBl98J1II2+BJpr
-	ZuvlWSh2lYWJibuV6XweZjrJrVH68Rv/t1LCPdCu9RZki03EKeFoMgW8WFKnOcJCakeskBRA0z/GW
-	x3+nkYL77ITyjXyXC5/GKRZ2XaV84emOT4H+nlsbIkLhwmyaoUUQJvi2DH569Cp+wTwDL1Tj9zLlR
-	/prpArbA==;
+	bh=bTX+XsVEdQIPCTaCrgZ7V/0pUyrsR1VHYDEZh6DHHDI=; b=CrtkeJ0SoXeEvJdMJJSmLHWXKN
+	8gi3E9in25f5U7d2IxprKysccuBY9nq/8BJHuzepHLsLPlinuuMqM8Te0SaTl3MogcE3XOKxE+XEx
+	pF0+yakd6+nRQR/q8wTvY9bGom+8VwhR29I8zDrWBRSbJ+CuG6wbDZV59C1431H3We169bXkEkKYH
+	e8kiEY0A95/1QyrJDuuiu9lAzaSK7zX+sJKZ1q/AIovWlpJK0sgRXZb4RI7MHO1kLtEgRi3XdVcKg
+	MXDWvSmnnCW8StRUg/0IeA7TToPPPhrxGER577ZZxQ8zNJOZrYLWpKxz6xlYkvGjvQ+Pt0EjIFLUM
+	OWzb5emw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy9wq-000000021m4-3nxV;
-	Thu, 05 Mar 2026 14:45:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vy9wv-000000021ro-145t;
+	Thu, 05 Mar 2026 14:45:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy9wp-000000021jl-1vPz
+	id 1vy9ws-000000021nd-1eUE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 14:45:07 +0000
+	Thu, 05 Mar 2026 14:45:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BC30361852;
+	by sea.source.kernel.org (Postfix) with ESMTP id 0DAB043649;
+	Thu,  5 Mar 2026 14:45:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A66EC2BC87;
 	Thu,  5 Mar 2026 14:45:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D40BC116C6;
-	Thu,  5 Mar 2026 14:45:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772721906;
-	bh=YshTdXZE6tSIxpmvZ+PoaUxdLFqBKwTJbDdG/9UZ5h0=;
+	s=k20201202; t=1772721909;
+	bh=lgKaBfTxFIy6N2O167IZSquC1rmS31Si+e9fbRSoKsg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IJBiiDRAYf+sBjbg3KuxTBwvP6h/0DNlNmdhmVwOvWz8yfXV2wmEHCbSTuCznYrc+
-	 qBAT9DUbhaO00g4cDsjJzUU3KJHTw+DuHJY4ocziGqGxa83nTleVdGXl1qWnAXjn+9
-	 pKrLVr1Qhx39Fmjr5g6XEaNqBWcWrIdAo2tRU8odnSg4/n8D/BLsT4zCP60/YNWKSW
-	 kGh92OlO0+fcKCYxu5opepMmrkdVn7JXG8SRrbh7HYkg2fkuyBBbjdncIexFcW0UIG
-	 PtNIX3VqyIMIo/M23bqswCniDuI00LuVqP8uObM/Y7D51lpmh+Fju6jIYEmo/i9kSz
-	 n6VglKRUS1XdA==
+	b=ecEBzHivkbW/XdgHW4XjT9kLf7wDDJI365WJwlJzybC7sj65qlFlEp5xbefcI/7Fp
+	 vZ1yDF6raVusLrIxTh/fBEW7agzGGy2bNas4vt1oXLuj2WA1RNgM4a3MrY3b7a8lKH
+	 4xwhFuCx/AlN+rVRkFGbkSuMKtGwoKsacUPRaGLNm8QKVFEiHj//ObHPgqSjUJhmYN
+	 ivmvyp/hjco5uAvZbI2EPvtCou8Aco6n4PAn34F5OsSnj/5TwW7tsebjwqZmis9vcM
+	 q0TuGoVwyNn0bRGIVByr/J1IaBObe6afbcIhOXXGhZy0dV2Jb0fHxsFhkvVQ7AuEJz
+	 xI88bg6qc8czg==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -57,14 +57,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH v3 16/36] KVM: arm64: Factor out pKVM host exception injection logic
-Date: Thu,  5 Mar 2026 14:43:29 +0000
-Message-ID: <20260305144351.17071-17-will@kernel.org>
+Subject: [PATCH v3 17/36] KVM: arm64: Support translation faults in inject_host_exception()
+Date: Thu,  5 Mar 2026 14:43:30 +0000
+Message-ID: <20260305144351.17071-18-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260305144351.17071-1-will@kernel.org>
 References: <20260305144351.17071-1-will@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260305_064510_476985_25840658 
+X-CRM114-Status: GOOD (  12.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,97 +82,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-inject_undef64() open-codes the logic to inject an exception into the
-pKVM host. In preparation for reusing this logic to inject a data abort
-on an unhandled stage-2 fault from the host, factor out the meat and
-potatoes of the function into a new inject_host_exception() function
-which takes the ESR as a parameter.
+Extend inject_host_exception() to support the injection of translation
+faults on both the data and instruction side to 32-bit and 64-bit EL0
+as well as 64-bit EL1. This will be used in a subsequent patch when
+resolving an unhandled host stage-2 abort.
 
 Cc: Fuad Tabba <tabba@google.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 49 ++++++++++++++----------------
- 1 file changed, 23 insertions(+), 26 deletions(-)
+ arch/arm64/kvm/hyp/include/nvhe/trap_handler.h |  2 ++
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c             | 18 +++++++++++++++---
+ 2 files changed, 17 insertions(+), 3 deletions(-)
 
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/trap_handler.h b/arch/arm64/kvm/hyp/include/nvhe/trap_handler.h
+index ba5382c12787..32d7b7746e8e 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/trap_handler.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/trap_handler.h
+@@ -16,4 +16,6 @@
+ 				__always_unused int ___check_reg_ ## reg;	\
+ 				type name = (type)cpu_reg(ctxt, (reg))
+ 
++void inject_host_exception(u64 esr);
++
+ #endif /* __ARM64_KVM_NVHE_TRAP_HANDLER_H__ */
 diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 7294c94f9296..adfc0bc15398 100644
+index adfc0bc15398..6db5aebd92dc 100644
 --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
 +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -705,43 +705,40 @@ static void handle_host_smc(struct kvm_cpu_context *host_ctxt)
+@@ -705,15 +705,24 @@ static void handle_host_smc(struct kvm_cpu_context *host_ctxt)
  	kvm_skip_host_instr();
  }
  
--/*
-- * Inject an Undefined Instruction exception into the host.
-- *
-- * This is open-coded to allow control over PSTATE construction without
-- * complicating the generic exception entry helpers.
-- */
--static void inject_undef64(void)
-+static void inject_host_exception(u64 esr)
+-static void inject_host_exception(u64 esr)
++void inject_host_exception(u64 esr)
  {
--	u64 spsr_mask, vbar, sctlr, old_spsr, new_spsr, esr, offset;
-+	u64 sctlr, spsr_el1, spsr_el2, exc_offset = except_type_sync;
-+	const u64 spsr_mask = PSR_N_BIT | PSR_Z_BIT | PSR_C_BIT |
-+			      PSR_V_BIT | PSR_DIT_BIT | PSR_PAN_BIT;
+ 	u64 sctlr, spsr_el1, spsr_el2, exc_offset = except_type_sync;
+ 	const u64 spsr_mask = PSR_N_BIT | PSR_Z_BIT | PSR_C_BIT |
+ 			      PSR_V_BIT | PSR_DIT_BIT | PSR_PAN_BIT;
  
--	spsr_mask = PSR_N_BIT | PSR_Z_BIT | PSR_C_BIT | PSR_V_BIT | PSR_DIT_BIT | PSR_PAN_BIT;
-+	exc_offset += CURRENT_EL_SP_ELx_VECTOR;
+-	exc_offset += CURRENT_EL_SP_ELx_VECTOR;
+-
+ 	spsr_el1 = spsr_el2 = read_sysreg_el2(SYS_SPSR);
++	switch (spsr_el1 & (PSR_MODE_MASK | PSR_MODE32_BIT)) {
++	case PSR_MODE_EL0t:
++		exc_offset += LOWER_EL_AArch64_VECTOR;
++		break;
++	case PSR_MODE_EL0t | PSR_MODE32_BIT:
++		exc_offset += LOWER_EL_AArch32_VECTOR;
++		break;
++	default:
++		exc_offset += CURRENT_EL_SP_ELx_VECTOR;
++	}
 +
-+	spsr_el1 = spsr_el2 = read_sysreg_el2(SYS_SPSR);
-+	spsr_el2 &= spsr_mask;
-+	spsr_el2 |= PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT |
-+		    PSR_MODE_EL1h;
- 
--	vbar = read_sysreg_el1(SYS_VBAR);
- 	sctlr = read_sysreg_el1(SYS_SCTLR);
--	old_spsr = read_sysreg_el2(SYS_SPSR);
--
--	new_spsr = old_spsr & spsr_mask;
--	new_spsr |= PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT;
--	new_spsr |= PSR_MODE_EL1h;
--
- 	if (!(sctlr & SCTLR_EL1_SPAN))
--		new_spsr |= PSR_PAN_BIT;
-+		spsr_el2 |= PSR_PAN_BIT;
- 
- 	if (sctlr & SCTLR_ELx_DSSBS)
--		new_spsr |= PSR_SSBS_BIT;
-+		spsr_el2 |= PSR_SSBS_BIT;
- 
+ 	spsr_el2 &= spsr_mask;
+ 	spsr_el2 |= PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT |
+ 		    PSR_MODE_EL1h;
+@@ -728,6 +737,9 @@ static void inject_host_exception(u64 esr)
  	if (system_supports_mte())
--		new_spsr |= PSR_TCO_BIT;
--
--	esr = (ESR_ELx_EC_UNKNOWN << ESR_ELx_EC_SHIFT) | ESR_ELx_IL;
--	offset = CURRENT_EL_SP_ELx_VECTOR + except_type_sync;
-+		spsr_el2 |= PSR_TCO_BIT;
+ 		spsr_el2 |= PSR_TCO_BIT;
  
++	if (esr_fsc_is_translation_fault(esr))
++		write_sysreg_el1(read_sysreg_el2(SYS_FAR), SYS_FAR);
++
  	write_sysreg_el1(esr, SYS_ESR);
  	write_sysreg_el1(read_sysreg_el2(SYS_ELR), SYS_ELR);
--	write_sysreg_el1(old_spsr, SYS_SPSR);
--	write_sysreg_el2(vbar + offset, SYS_ELR);
--	write_sysreg_el2(new_spsr, SYS_SPSR);
-+	write_sysreg_el1(spsr_el1, SYS_SPSR);
-+	write_sysreg_el2(read_sysreg_el1(SYS_VBAR) + exc_offset, SYS_ELR);
-+	write_sysreg_el2(spsr_el2, SYS_SPSR);
-+}
-+
-+static void inject_host_undef64(void)
-+{
-+	inject_host_exception((ESR_ELx_EC_UNKNOWN << ESR_ELx_EC_SHIFT) |
-+			       ESR_ELx_IL);
- }
- 
- static bool handle_host_mte(u64 esr)
-@@ -764,7 +761,7 @@ static bool handle_host_mte(u64 esr)
- 		return false;
- 	}
- 
--	inject_undef64();
-+	inject_host_undef64();
- 	return true;
- }
- 
+ 	write_sysreg_el1(spsr_el1, SYS_SPSR);
 -- 
 2.53.0.473.g4a7958ca14-goog
 
