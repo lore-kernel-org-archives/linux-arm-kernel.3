@@ -4,101 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40A54EEF33C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:09:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04C90EEF33A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:09:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=O1e/WtirdtbqhjjpDNbqAtXh4FvgzuNdXObhodxahv0=; b=bMEsDiq+pOitqu
-	eIgv/fP21Ch1aQL4DaR+pwJJi5V5IVfee+J3e+T5cJStPiWBttLyg/KG6cmsx9ehfkk5/hlPTpimH
-	yU7AW27Eiw+UQe05RVR0bVpVyX5fP6kX6EL338ROkH1gjGX+tX8S9Zac1F1YztqRtAm12+Y+Vr5qa
-	VrbaoNZeRizPd22AmbFy1AZrpMYeTht1lp3yIja4/7Mx/z1lYqY73I2qR0WUE9+OUffSo0e8lkiKt
-	iDWAYIMcM/rMChea7qi3bGH+cugZ9M7RrYLzuBpqOzp857yD6QMpq8chxBk3qzG93tfKNj7J4fplI
-	4878PgCj13s4gdqy9hAA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3NSqAxF3r0Iieh2WUFeA3eHT3sx6AFCO5GTCkL4uXVs=; b=ypX2K5i+C+p34jIgFAlCV0WeNw
+	Y+ALXkqfbNKMRll5qVYJOqtP5gMrjixRRWVoiOs5xxndTlq0GMbZqbgy9m8CzFNw8P0P6fxYlcr4n
+	YaOkVbor5M8S6ic4ENq1q4pyrtyadX/Gtz1obEn2oW8D6YyLfyE0UQkEJPbtYOPSu89hoEOkNQhq1
+	zO7tFVujkSiR6GaCpRZzzF3zybuDmsAN5p3f9Lh2tXkpoXYHWlkXYaObTdT4Rl1lRvzJ0Grq693kQ
+	uoqKBAEhJDaCtggO9YV4ef/Nb4RD81q07+i3365HtK4jGufXkUoV9xOzAozCTeEU1TTeFaJ38gfEH
+	vgVqqc2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy4i8-00000001JkR-1QYH;
-	Thu, 05 Mar 2026 09:09:36 +0000
+	id 1vy4iB-00000001JmH-2oUA;
+	Thu, 05 Mar 2026 09:09:39 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy4i6-00000001Jjf-0cMS
+	id 1vy4i9-00000001Jki-0qA5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 09:09:35 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62590gQH1193313
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 5 Mar 2026 09:09:33 GMT
+	Thu, 05 Mar 2026 09:09:38 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6253B6uY866516
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 5 Mar 2026 09:09:36 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=O1e/WtirdtbqhjjpDNbqAt
-	Xh4FvgzuNdXObhodxahv0=; b=K/6Q9TNyNKLtjRnNnmPU1JR3k2UXIabC7yeq6l
-	ERneT2k6JM5E60jWaK7rIzZduj2H/mFRzAY4sepAFHuLjJxN4Hil7chxOUEC1qPj
-	KrlN5/HOZGvyYEBGusyKyw1/pBhrDNbLmKis782Qr7Df+myEjYkeQm8fagleWzhz
-	NojHbJGyLJyJn9+xKoOyojw4g/yaT6L3jDYQhwiRp2ne+eKUYx2cuvlxHm56VLS9
-	at2SsdfVRlwnF/aSap2fWDSdZL7u17d1AsMIlFA5seQkVFNtWmTIku9t/wrrAkl+
-	RGMzaAzSmOxFDKgKrupLQ/Ll3N8cIOmXvR59GwA4518ZoObQ==
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cpqwgauue-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	3NSqAxF3r0Iieh2WUFeA3eHT3sx6AFCO5GTCkL4uXVs=; b=P9fqzOeHiMFU3pVm
+	SS3hs3HuOLA0t9IOKqUyOodq9WYGCZ0z8BZUs0pgEU99MRnGq3j1Si/B1Fzzb02R
+	1sjht9ljwLbkW2mpMsB2itIYxkyUvuOi9menhPzPl6Rz31pVJQDo8j2Uyy8YmhWF
+	skhJ6HPZa1KnKFLA/B250RlC2Qx9QW1v2F0/aBMc0kOUaZaGmoLxkI4uGlzo8msC
+	E4GGaqgRmKaqNv7o4J7Oyq60inL6fEc81kdEFWcYIeuJQCzljCgXctuaeetBLEY5
+	hOWxsP2XBneG0+4AwDk1f176UlgUWTt5Q/XiW5bbGMAbh67tVkshWCnikEj9kMMm
+	ttiVCw==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cq1pk1309-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 09:09:32 +0000 (GMT)
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-899edf01747so357002376d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 01:09:32 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 09:09:36 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8cb4a241582so4181671285a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 01:09:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1772701772; x=1773306572; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=O1e/WtirdtbqhjjpDNbqAtXh4FvgzuNdXObhodxahv0=;
-        b=CPmgmXjs1njHjL86KsYvr7PA9WOZsMsJ3ROIhR8AjSn06RNLLlhu5XrCopBcvS4F0R
-         6vtJNOWC27fRr57McYxmf6MvrzYM3zhJWWiwxFJfW68MVVGagZaEZLFRj6aWzToPtL8X
-         9sCfSM6tqz3yFEXHkB3A1JqAG75pckXfwUxTLSmaQ9OVhp/jDQ+rPMfG2mIfKtvR33+L
-         UbagBVBFdowM28OqWXOmvRYoz5NeR0uKFaRzBkxwVauycVJUps5fsjHOjKYTftboxrv9
-         QVH4muuEZJU7xnCkGtaJco0DnZnZr6lb6/mgKZLRRn1e9P7oJYrid6j6kMR9PHd/FWVM
-         m5BQ==
+        d=oss.qualcomm.com; s=google; t=1772701775; x=1773306575; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3NSqAxF3r0Iieh2WUFeA3eHT3sx6AFCO5GTCkL4uXVs=;
+        b=iEPwyBKZeZPi1gz3e8VnBbKyzrjDwxP7rugCQDeFAEgkSTWN3SMSZWGXkFUhf/E/vZ
+         FUTuzciCW0GvRrBzUObb6LhF72xDbwzZW2MMoDkcOVKTie9fVJsckqOHT2BiiXw93XbC
+         ZiFqY5UD9JjT5L6hvX0fYLfWZf0IAnSthZFIKhp5RdMYXcf6hJeM6nnEkhaMdXqH2oaO
+         4okRMlCZYEyKgQBbdeZ1yL2zn7/TCQAFI04JxGkc198AUof50Y2JtpA+C1X1aBkOWMRf
+         ubLz3RMTpmSn1yjThH766zcZmcoDmurjg1Q6HGvhbkEvzxmk3iyjzWYn6/mKehNLy9jg
+         iB5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772701772; x=1773306572;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=O1e/WtirdtbqhjjpDNbqAtXh4FvgzuNdXObhodxahv0=;
-        b=pAsWmt5B+l7G6YpdHE6osocNKIqWbAhne/PAQjAq7J86WkrVvVm0OAEpu90A/Sr5DI
-         E3ZF7wvYqDGHpM3wwZNiCzaXLbj2d8sTPEXjFW83U0UQ2817cudtRdOIe0d8fIB6umSC
-         hDuJwCt9T+SlLqPvl9iiEGs5A57dH/myrllB5mvRMWX+9clIjGzyRpbkGmz7+ddXVENJ
-         ancebdH1PYbsZoHDhmMADU0IQWZtq2K26csEH5jl8wepw+7+NZMYcVjeugGrV/Y0lUQx
-         GsSsZil27A6f3hUL3kcXoeU1HiUb1WrYu3QclIA4BWXfQO6eo21rO51QIEMHgmcpu6xG
-         L3sw==
-X-Forwarded-Encrypted: i=1; AJvYcCUj0TkhPEGb27PfmMgjkHpQ8yct1DFXxlYXXrk6/VAwifSco3G418wEMrkLiWO6zoY0knXhcqMnYVH8kyR8V1uI@lists.infradead.org
-X-Gm-Message-State: AOJu0YyL/vUcaVWVWG+Q8yneOqnKWGrzI+tP7/xvXkDnpAAAmVOzeX7V
-	MUqfJf6Qw0cK9XhBAHVxx3C8FnJWlWTX1rw/sBBB9YL1TTp+XVY9SLB5u9/Gf5CiyUlY1/DlOiE
-	LO+7/aGq55rKyeZdw3o1JXB0pameswMTfrENGHjLGFDMUuPrb1kolpUEDzVR39hpVzw2QiizpAd
-	6Gurw7PcVcMg==
-X-Gm-Gg: ATEYQzxQ+MucEoqBGns6zs4BStMWR/UFMgEJXk9D5TNEynOkScip1s1KEAWfSn21GR4
-	FyZqsf1szxB7Z89wF/ZMeAsBC1vb/q+yszfCE/kZrfQ+COJzADAZX+nd7u1WOoViXzz/2o7eyCg
-	VfaALFoCe4VOjZjlxdV0JcpbhIQIpt8XEhQZwG+368+KGouHxhKcOwf5zkljVEOpILp8sNq7v4B
-	CD3ajdLrCP+cQHoSIi2EcyG6B3cxG2WnhjXgq0yfs2CG4xXw56tl/ZF9NC4Tk0uz/v4QhuLW/MF
-	yHeioalW+HGoJZfb8OL8zzJZKKTsaCytZXBmjCxeFx22bxnwSjmScPm8aPmGR+ZcNzuROPqN4YQ
-	25TePRoNQeNfdQAbVHtCHj+mTQAqtSVDvTmASZHgc0Rl1
-X-Received: by 2002:a05:620a:40cf:b0:8ca:33d7:8be2 with SMTP id af79cd13be357-8cd5af96737mr662780385a.54.1772701772106;
-        Thu, 05 Mar 2026 01:09:32 -0800 (PST)
-X-Received: by 2002:a05:620a:40cf:b0:8ca:33d7:8be2 with SMTP id af79cd13be357-8cd5af96737mr662778485a.54.1772701771688;
-        Thu, 05 Mar 2026 01:09:31 -0800 (PST)
+        d=1e100.net; s=20230601; t=1772701775; x=1773306575;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=3NSqAxF3r0Iieh2WUFeA3eHT3sx6AFCO5GTCkL4uXVs=;
+        b=Vz2iYbzvIooZl6/mgZPIsj+V7uDL4SUiQkpgiprlIRVgxpf99bYQg1vBG40SxD8kpL
+         vi4UotNRUW/FmHEdB6weypGlQpBaoQ09ocqzvGi+q2y4nwZXDw66TVOXqRpZwYe2FJdb
+         XvP7yYb0btDA3DvhtuvjCMEmZXMlGHGI+jyDPEoiARFoMTmuYBlSCIdJjy4xr6R3Kg66
+         /CVty0frd8z9ES2IOygGOMwD4+Z/ugXU89Srpl4d09kCdFzJBaKewcDd0QCsE2hF5R/R
+         QU6rXzK45qwnLVe6Az8Ov1K7EzcGtsh6lybBlz1obYJxdzouHA/lz40w/D3ZvnQuRbwH
+         jp0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVs7M8gSJ6Rc+Wte93t+0PR2/IMevcgEEgmXkSmxUVd6mfFakiMFGV/VX+fSiSQ08rZrwiw7zb9V3S+F7ScfLYE@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKz/QqiuLXkT3Q+kRilWx2Z6pCH6cCOE8yZvjoTcKQAQA2EWEZ
+	1rst1KwrSnYu+c50cJleVNDbX/XZbTuNwpKF7Aa2eH5te7EgBp+SgK+jHAcn48UsrZtLTnxOdi9
+	8herM1p4G58FdkI0HwL0s3uhjJQk9uM0QiCNQkdZLKEcjnGKP6zaRSyqBXuECW/URGI1bA3hOJM
+	gMCmVZ8T/siw==
+X-Gm-Gg: ATEYQzxyqDlzbMKrCIkRpHtc4jcA4t7x7LVr+S96zQs8DY1RHiH3W9020xq8ZYmJ1IQ
+	5zRFp7M6FRRbpSFVPV4m3I4WTKMpKGlH81rGrDWH/+ErhAIeCJ2ToG0KNFTCM4LB67PMOtbFglj
+	RCAGiNlSyBB69VdyoFL/odQNwy/vQFnN+KDAcapOKvzoRZixAeNSszdTCaZeB+TIKaSayAeLESO
+	emmbjxlzTZGGAxLfzWDz9APoCjqCfxcSPa/47SQ8FxM5iQgbi4bdYFX7sIZqcIXy6j5merPrlVT
+	SbONZt66Jb6mE3A7UB1sfn+c3jHoxw9lj5/ZrrS7IwnI6lmXC/l87d+wzoTbmkS+3mwkestjmVG
+	cC8YnwEf8l3HGVLf+61LaVciBVbPXFz9OXAPtnRtobC+e
+X-Received: by 2002:a05:620a:c4b:b0:8cb:4543:c5cc with SMTP id af79cd13be357-8cd5aeea4e4mr678426385a.20.1772701775323;
+        Thu, 05 Mar 2026 01:09:35 -0800 (PST)
+X-Received: by 2002:a05:620a:c4b:b0:8cb:4543:c5cc with SMTP id af79cd13be357-8cd5aeea4e4mr678423485a.20.1772701774882;
+        Thu, 05 Mar 2026 01:09:34 -0800 (PST)
 Received: from [127.0.1.1] ([178.197.219.94])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439abded86esm38817703f8f.6.2026.03.05.01.09.30
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439abded86esm38817703f8f.6.2026.03.05.01.09.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Mar 2026 01:09:31 -0800 (PST)
+        Thu, 05 Mar 2026 01:09:34 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH 0/5] ARM: dts: exynos: Cleanup I2C address-cells and
- size-cells
-Date: Thu, 05 Mar 2026 10:09:23 +0100
-Message-Id: <20260305-dts-exynos-i2c-v1-0-2c8d3df3b9ca@oss.qualcomm.com>
+Date: Thu, 05 Mar 2026 10:09:25 +0100
+Subject: [PATCH 2/5] arm64: dts: exynos8895: Move I2C address/size-cells to
+ DTSI
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAENIqWkC/x3MQQ5AMBBA0avIrE0yShFXEQtpB7Mp6YhUxN01l
- m/x/wPKUVhhKB6IfInKHjKqsgC3zWFlFJ8NhkxLNVn0pyKnO+yKYhxSt/jeOGupIcjREXmR9A/
- H6X0/o2yhvGAAAAA=
-X-Change-ID: 20260305-dts-exynos-i2c-07fd82c55040
+Message-Id: <20260305-dts-exynos-i2c-v1-2-2c8d3df3b9ca@oss.qualcomm.com>
+References: <20260305-dts-exynos-i2c-v1-0-2c8d3df3b9ca@oss.qualcomm.com>
+In-Reply-To: <20260305-dts-exynos-i2c-v1-0-2c8d3df3b9ca@oss.qualcomm.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
         Conor Dooley <conor+dt@kernel.org>,
         Alim Akhtar <alim.akhtar@samsung.com>
@@ -106,50 +106,50 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
         linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
         Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1571;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9622;
  i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
- bh=ai5g8g0+adsS6IS2Vp/pH5BD4m97fOakeCHE7AL2bMI=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpqUhF3OzzzFwF6cCEKB9NbNfqNWY9/5JFjTYUA
- 61Y2ySXPJmJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaalIRQAKCRDBN2bmhouD
- 1xJ3D/0Z3alg3ADG4aiPfhsMrJrOgxsGDZ63CltQik+60C23WOkmypdnYBEAPq2zshzqa1BNUiY
- fdUK/DDhBpKSwUkzYOynhjaKw1o33quRSs8i8S07gOeYopQZA8aoffHzxQ/urA60KuE8EdjKdUv
- zS7aKXVpGRm8GmcBeHf2mNBElHTd2CeDQLJ7HUnVpvS2MCKOf9MmoXd/XdmfCGZkb8S91KPq5fi
- co0jkF/YeTFKWkoM0eH6jShFZ9vMBIWuxgmm8+UhgqCoCorFYbD9+E43laUhgnJiAhBCDmRzxcv
- 3oXdA2nYZKdYzYFA7Ao0nmmqjAgJr3uRtXRSs+HroRtuR8fW66zsIl5DMwIfH+jFTomNV5V0Mby
- 741mEeQhiel2731qL3VN7Zd/kCIoKWbHBrH/wV6LUY1F53Jktp62NcKRnP9/hM//FF8w2vG5y/d
- fy1+G2QmCKcl8QUpKpCSqSWhuFb/11CoNUiUNp8VoooAHPnGbaVel3OmCVMzvScJ7lug8envMHQ
- 0QgIvBXyojkCRDElRcgU2QVV2Ood9sCfVdb+PBX2MbiQYAHvwTYh6pJbMMSuA4oqLRAATPJRScJ
- i7BdO/26B4FPjehgvGqIZWS520FTnD0BvqDVRm3OFA5cmybjntqmh0fsQPp2aqHudjKWXdyZEt9
- ISMBbi6w0cf+Ulw==
+ bh=qkwvOBIjVKY+jX5sOdQlNLj1HsD1JTAivWXbCCNysDg=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpqUhGeownSnEhVD4uNo77/EysGV8haRBVi6gue
+ 04tpfN5TCqJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaalIRgAKCRDBN2bmhouD
+ 12lvD/oCHl5sKqK+y1S4uef9jsHOvxti/Z1DN9Z4wtTICWqMV2ih3tCF5bvXNUh5cfUEyPJNDk+
+ e539pPAyz54mX3ORNAtjMxdnE0PhwSwsM6SDF6c9rIneLS4kxiS8ILfUZBtx1zlTiWdpapIY3AJ
+ sb8rZBu0hSgQcNHVSS1scWw/E6mCp9wStDYD+Y1m/QL8/7nJcUw+bkA6BWXNV1QYR6jnK2wzxWi
+ NGOiC16v7fqgNYE478C8RBXhv5jvwbULCsc0sQldl3EyxoH29rMpmfe7cjXD3x5VUXWb4zfrIBf
+ EYQUZgeqC/BFaDRBE7uEzhhpqGl6Qyx5lH+xhejTgwXHfSQMTKTX72DImtHE3ZP3J+NRIt8yC7M
+ AEKNLxlIceZ3kr8y2Z4m/cKYfu2RCsBWPxozhblthmpOr/gZ8mva+7h2RkHiKsuc1IrMca0Nxtx
+ hLcejm8j0g++1KEoVH9gXR2RF+2e4mUDXNqVzPZf+hjivESBXwny2yw0fcqMQIAitCpJ/l2Nvtj
+ EKaL8XQ6cWWmiJYTCzLfZbJb/AlIqasgH+mNg7MQKv1Xq9Ria+B5J4EKsJ7//dS5bG49qbRkFQq
+ rZ9bM5D8w0C72eK2Pwf+9Ls/F9OFkcfZzuA9vHjIBmytu5zcnWuA/71SxZ8gJHOTMepmTm7GXFP
+ g4p3Oi4IJa+mYeQ==
 X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-X-Authority-Analysis: v=2.4 cv=bdlmkePB c=1 sm=1 tr=0 ts=69a9484d cx=c_pps
- a=wEM5vcRIz55oU/E2lInRtA==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
+X-Proofpoint-ORIG-GUID: 1nq1xhzQWeoBgZEQJLIfftjhtpYJE0iu
+X-Authority-Analysis: v=2.4 cv=Gu9PO01C c=1 sm=1 tr=0 ts=69a94850 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
  a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=EUspDBNiAAAA:8 a=_sLVMVooNu3QwFCXD4AA:9 a=QEXdDO2ut3YA:10
- a=OIgjcC2v60KrkQgK7BGD:22
-X-Proofpoint-GUID: Lk9urkAf5yjIs97WvNqo2P-OED-jZsKn
-X-Proofpoint-ORIG-GUID: Lk9urkAf5yjIs97WvNqo2P-OED-jZsKn
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzA1MDA3MiBTYWx0ZWRfX0meDPnhwyWq3
- y4G8eeRg9XW3n+chBNrRA6HFuZlWRTtmJvTi5ZJmEQuzHhLH+MPJz01kj6NxOBs+zqRoBIKj1Mq
- q7BglfWqhEohNnjnfpM0o7LchSVWSdBLZfn4pX8XMvHwoAyXxFAYp3OqK19WdXdcRl6LcZHjIch
- F+zq/2Trd1rTS8hCBSHtSxqAu7rhzA5T+iaB4QMwt8zDwabBVAudl78/eGHj5ddsKsFwPwzo812
- yoQm2O2OkjF9/Gv09rydzObXoaapUquvS/GPmrrmMfdHp60DfHDzAejc0Blknp2MRXedl0z3UPo
- 0nZS82l9hJfWiGvqGjsVChUV9ov6IRVgeeffoTxkz3bsc9926khG8mOuMz+zXbTRE9rZGRmo3Xp
- BPFHF7q9SzY+QEVpOS+8x61nSa4NuRWcYfp6BqiZ7/6tKLmCuDfjNz/TCK18FIyYo3iq9DYqLOJ
- Dm5DOXSRrWCpqqX8faw==
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=EUspDBNiAAAA:8 a=DzUSkR2MQIpuhHpr3ioA:9 a=QEXdDO2ut3YA:10
+ a=NFOGd7dJGGMPyQGDc5-O:22
+X-Proofpoint-GUID: 1nq1xhzQWeoBgZEQJLIfftjhtpYJE0iu
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzA1MDA3MyBTYWx0ZWRfX5h1XLtVlfYBR
+ bJc0te9wUFc7xRC8VMH0l95LxSdYRN0J9EfYDgRulGTpdI0BNomadbQqhhQIZXGWN0gO3SInL5Y
+ KMKVeRS//FoFkj0U4+N5hLbdcBKvm4qzIjO5Mi2qFISBbCPyi9uNSBbpCOz8VPStfRzCkxZx+GW
+ jrXVHoCTq/rKrvQoNXuWMENsnv97qrh7h27gPNC0v3Q3idEAS6NyGsIqDXVlTmrili9vt7PSdD2
+ mO9fZJyl7pewYZXjobgozuGzXhbm5QG+OxidvVK7wI4hTEVW93Zqyl9uc8XFU2BYE6WZT/0ADmK
+ JUneqBGQgUdYocnv+2J+IfLgbq5ipze83ZcI30vkwQjh6JGCRE1OgNhXr0MQcLf4FqFudTI//Ye
+ Ax5ciFN9E6rUD+jBiKx3Boq27dnRAWP1Rz2qKUUOm3vVXyGzxYz+n1C9Myuu76G2MeLVKstvHik
+ a3yrTt/PRzMf82RExvw==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-03-05_02,2026-03-04_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 lowpriorityscore=0 priorityscore=1501 phishscore=0 suspectscore=0
- malwarescore=0 bulkscore=0 clxscore=1015 impostorscore=0 adultscore=0
+ spamscore=0 lowpriorityscore=0 suspectscore=0 phishscore=0 adultscore=0
+ impostorscore=0 clxscore=1015 priorityscore=1501 bulkscore=0 malwarescore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2603050072
+ reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2603050073
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_010934_309769_2398DDA5 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20260305_010937_375270_52A84CDD 
+X-CRM114-Status: GOOD (  15.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,40 +164,388 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-No functional impact expected.
+Convention followed in all other DTSI files is to define I2C controller
+address/size-cells in the DTSI thus reducing code needed in each DTS.
+It's also logical, since I2C is a bus and needs definition of addressing
+children, even if the bus is enabled without the nodes.
 
-Best regards,
-Krzysztof
-
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
-Krzysztof Kozlowski (5):
-      arm64: dts: exynos7870: Move I2C address/size-cells to DTSI
-      arm64: dts: exynos8895: Move I2C address/size-cells to DTSI
-      ARM: dts: exynos3250: Drop duplicated I2C address/size-cells
-      ARM: dts: exynos4210-smdkv310: Drop duplicated I2C address/size-cells
-      ARM: dts: exyons4412: Drop duplicated I2C address/size-cells
-
- arch/arm/boot/dts/samsung/exynos3250-artik5.dtsi   |   2 -
- arch/arm/boot/dts/samsung/exynos3250-monk.dts      |   4 -
- arch/arm/boot/dts/samsung/exynos3250-rinato.dts    |   4 -
- arch/arm/boot/dts/samsung/exynos4210-smdkv310.dts  |   2 -
- .../boot/dts/samsung/exynos4412-itop-scp-core.dtsi |   2 -
- arch/arm/boot/dts/samsung/exynos4412-origen.dts    |   2 -
- .../arm64/boot/dts/exynos/exynos7870-a2corelte.dts |   9 --
- arch/arm64/boot/dts/exynos/exynos7870-j5y17lte.dts |   5 -
- arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts    |   6 -
- arch/arm64/boot/dts/exynos/exynos7870-j7xelte.dts  |   3 -
- arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts |   9 --
- arch/arm64/boot/dts/exynos/exynos7870.dtsi         |  48 ++++++++
  arch/arm64/boot/dts/exynos/exynos8895-dreamlte.dts |   2 -
  arch/arm64/boot/dts/exynos/exynos8895.dtsi         | 128 +++++++++++++++++++++
- 14 files changed, 176 insertions(+), 50 deletions(-)
----
-base-commit: 5665c3a48685646320635b46081350191cc67e18
-change-id: 20260305-dts-exynos-i2c-07fd82c55040
+ 2 files changed, 128 insertions(+), 2 deletions(-)
 
-Best regards,
+diff --git a/arch/arm64/boot/dts/exynos/exynos8895-dreamlte.dts b/arch/arm64/boot/dts/exynos/exynos8895-dreamlte.dts
+index 61e064af3337..305dc72f93d8 100644
+--- a/arch/arm64/boot/dts/exynos/exynos8895-dreamlte.dts
++++ b/arch/arm64/boot/dts/exynos/exynos8895-dreamlte.dts
+@@ -103,8 +103,6 @@ reg_placeholder: regulator-0 {
+ };
+ 
+ &hsi2c_23 {
+-	#address-cells = <1>;
+-	#size-cells = <0>;
+ 	status = "okay";
+ 
+ 	touchscreen@48 {
+diff --git a/arch/arm64/boot/dts/exynos/exynos8895.dtsi b/arch/arm64/boot/dts/exynos/exynos8895.dtsi
+index f92d2a8a20a2..ff114cd6c9ea 100644
+--- a/arch/arm64/boot/dts/exynos/exynos8895.dtsi
++++ b/arch/arm64/boot/dts/exynos/exynos8895.dtsi
+@@ -266,6 +266,10 @@ hsi2c_5: i2c@0 {
+ 				interrupts = <GIC_SPI 364 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c5_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 
+@@ -305,6 +309,10 @@ hsi2c_6: i2c@10000 {
+ 				interrupts = <GIC_SPI 365 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c6_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 		};
+@@ -328,6 +336,10 @@ hsi2c_7: i2c@0 {
+ 				interrupts = <GIC_SPI 368 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c5_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 
+@@ -367,6 +379,10 @@ hsi2c_8: i2c@10000 {
+ 				interrupts = <GIC_SPI 369 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c8_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 		};
+@@ -390,6 +406,10 @@ hsi2c_9: i2c@0 {
+ 				interrupts = <GIC_SPI 372 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c9_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 
+@@ -429,6 +449,10 @@ hsi2c_10: i2c@10000 {
+ 				interrupts = <GIC_SPI 373 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c10_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 		};
+@@ -452,6 +476,10 @@ hsi2c_11: i2c@0 {
+ 				interrupts = <GIC_SPI 376 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c11_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 
+@@ -491,6 +519,10 @@ hsi2c_12: i2c@10000 {
+ 				interrupts = <GIC_SPI 377 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c12_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 		};
+@@ -565,6 +597,10 @@ hsi2c_13: i2c@0 {
+ 				interrupts = <GIC_SPI 390 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c13_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 
+@@ -604,6 +640,10 @@ hsi2c_14: i2c@10000 {
+ 				interrupts = <GIC_SPI 391 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c14_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 		};
+@@ -627,6 +667,10 @@ hsi2c_15: i2c@0 {
+ 				interrupts = <GIC_SPI 394 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c15_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 
+@@ -666,6 +710,10 @@ hsi2c_16: i2c@10000 {
+ 				interrupts = <GIC_SPI 395 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c16_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 		};
+@@ -689,6 +737,10 @@ hsi2c_17: i2c@0 {
+ 				interrupts = <GIC_SPI 398 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c17_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 
+@@ -728,6 +780,10 @@ hsi2c_18: i2c@10000 {
+ 				interrupts = <GIC_SPI 399 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c18_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 		};
+@@ -751,6 +807,10 @@ hsi2c_19: i2c@0 {
+ 				interrupts = <GIC_SPI 402 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c19_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 
+@@ -790,6 +850,10 @@ hsi2c_20: i2c@10000 {
+ 				interrupts = <GIC_SPI 403 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c20_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 		};
+@@ -813,6 +877,10 @@ hsi2c_21: i2c@0 {
+ 				interrupts = <GIC_SPI 406 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c21_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 
+@@ -852,6 +920,10 @@ hsi2c_22: i2c@10000 {
+ 				interrupts = <GIC_SPI 407 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c22_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 		};
+@@ -875,6 +947,10 @@ hsi2c_23: i2c@0 {
+ 				interrupts = <GIC_SPI 410 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c23_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 
+@@ -914,6 +990,10 @@ hsi2c_24: i2c@10000 {
+ 				interrupts = <GIC_SPI 411 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c24_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 		};
+@@ -937,6 +1017,10 @@ hsi2c_25: i2c@0 {
+ 				interrupts = <GIC_SPI 414 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c25_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 
+@@ -976,6 +1060,10 @@ hsi2c_26: i2c@10000 {
+ 				interrupts = <GIC_SPI 415 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c26_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 		};
+@@ -999,6 +1087,10 @@ hsi2c_27: i2c@0 {
+ 				interrupts = <GIC_SPI 418 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c27_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 
+@@ -1038,6 +1130,10 @@ hsi2c_28: i2c@10000 {
+ 				interrupts = <GIC_SPI 419 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c28_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 		};
+@@ -1061,6 +1157,10 @@ hsi2c_29: i2c@0 {
+ 				interrupts = <GIC_SPI 422 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c29_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 
+@@ -1100,6 +1200,10 @@ hsi2c_30: i2c@10000 {
+ 				interrupts = <GIC_SPI 423 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c30_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 		};
+@@ -1123,6 +1227,10 @@ hsi2c_31: i2c@0 {
+ 				interrupts = <GIC_SPI 426 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c31_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 
+@@ -1162,6 +1270,10 @@ hsi2c_32: i2c@10000 {
+ 				interrupts = <GIC_SPI 427 IRQ_TYPE_LEVEL_HIGH>;
+ 				pinctrl-0 = <&hsi2c32_bus>;
+ 				pinctrl-names = "default";
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
+ 				status = "disabled";
+ 			};
+ 		};
+@@ -1180,6 +1292,10 @@ hsi2c_1: i2c@10990000 {
+ 			interrupts = <GIC_SPI 431 IRQ_TYPE_LEVEL_HIGH>;
+ 			pinctrl-0 = <&hsi2c1_bus>;
+ 			pinctrl-names = "default";
++
++			#address-cells = <1>;
++			#size-cells = <0>;
++
+ 			status = "disabled";
+ 		};
+ 
+@@ -1191,6 +1307,10 @@ hsi2c_2: i2c@109a0000 {
+ 			interrupts = <GIC_SPI 432 IRQ_TYPE_LEVEL_HIGH>;
+ 			pinctrl-0 = <&hsi2c2_bus>;
+ 			pinctrl-names = "default";
++
++			#address-cells = <1>;
++			#size-cells = <0>;
++
+ 			status = "disabled";
+ 		};
+ 
+@@ -1202,6 +1322,10 @@ hsi2c_3: i2c@109b0000 {
+ 			interrupts = <GIC_SPI 433 IRQ_TYPE_LEVEL_HIGH>;
+ 			pinctrl-0 = <&hsi2c3_bus>;
+ 			pinctrl-names = "default";
++
++			#address-cells = <1>;
++			#size-cells = <0>;
++
+ 			status = "disabled";
+ 		};
+ 
+@@ -1213,6 +1337,10 @@ hsi2c_4: i2c@109c0000 {
+ 			interrupts = <GIC_SPI 434 IRQ_TYPE_LEVEL_HIGH>;
+ 			pinctrl-0 = <&hsi2c4_bus>;
+ 			pinctrl-names = "default";
++
++			#address-cells = <1>;
++			#size-cells = <0>;
++
+ 			status = "disabled";
+ 		};
+ 
+
 -- 
-Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+2.51.0
 
 
