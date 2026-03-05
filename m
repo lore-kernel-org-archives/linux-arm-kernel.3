@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD39FF47CBA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 19:21:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C03F47CBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 19:21:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Cc:To:From:Reply-To:
-	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Lx2PeUB/+ktZhYHec4fhLhGaJWMzeKaDOrGyuPAWw+8=; b=d2DtPk+wX/+5rx
-	Cw+ejGbFpw+fx4eqTiV59mJjX7D/xzJBzMivAf9BCMD7tQ1i45fIkXv49mw047YPEngAJmjFphG1C
-	cONoUPVqE+cxwHwt3JJKwzr8KfY7LQH7cLtURikEeIgVWwpWwNUe3k1Y2towkCQtk2kjsSD/y8YrF
-	hnBJnHfAO2+GaVNul2YSrR04mMzmgM3G4ZWpK22L8o9MaLCHTuhJnATegkVHDfyAlt93zS1Iy42tS
-	BG7qnKy28At/jXaAIR36eWx1UO+eQVC/06RZ7onYM9g0Dm8xMlBRJ0fD0GLHPCQQKryu4Kd5cocvH
-	3PUjA/4tBI9Pa89zKCaA==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d60uRffAte70/fYU7jt58Xh5W/mw3rBFP0BVxonuWsQ=; b=PPpiHb/TWe7ClCavZuMj8j5f55
+	ZebFJglWLIuatHojLv+2/VFC55ByusNLCWUSTfuRjY/pBEXtcbQTO3V2+6PN6HuZhnWCd3zFaYs8L
+	dj2Pks6z6BsnLyWWxA91BfeP5evRxQUeUo2QC1zbA1ljywFAU1SZgU0M3i0VxQU2mAVOmvARUZpzZ
+	4ENvRKdUOONgfQAAEk8fUernxEtdLwClTP+Tnavoy3dzTFNK4jeVrUQ7y1wSp4blZ4UnTqX+b+hFP
+	iqhWNE0V5J5WMRxjTn14vTlJ8mc+JbDMB4o0V6KNXj5dqICKC3Gd3VPkXTyKego6PnhArVNAy3myn
+	RI5/hxJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyEGA-00000002RUV-1NGu;
-	Thu, 05 Mar 2026 19:21:22 +0000
+	id 1vyEGC-00000002RWe-3JgY;
+	Thu, 05 Mar 2026 19:21:24 +0000
 Received: from mail.hugovil.com ([162.243.120.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyEG6-00000002RSF-3v5h;
-	Thu, 05 Mar 2026 19:21:20 +0000
+	id 1vyEG6-00000002RSI-3tQq;
+	Thu, 05 Mar 2026 19:21:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
 	; s=x; h=Subject:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Cc:To
 	:From:subject:date:message-id:reply-to;
-	bh=Lx2PeUB/+ktZhYHec4fhLhGaJWMzeKaDOrGyuPAWw+8=; b=CX/MOaZBZ+AUM2gw4bgjeR2Cln
-	389wJGmvVidldXUMRTNLNWYPENV+HSdyEhdBrJE9CnEvb6ZgWs4cJhG5HChJWQPxiNmxH3ezwNTsz
-	Sp/7+OUAZ+ztq3uN5uYO63SbTslce6jwRkR39jt9Ovp4vfc4W99BSTq8vyXpx75MpPQs=;
+	bh=d60uRffAte70/fYU7jt58Xh5W/mw3rBFP0BVxonuWsQ=; b=e+6cQc8jcDlrByXx3FY0ihrwfC
+	CGW/DfxIYHvCWW+LMs8ahhu5n3a0yblzDeETIrMbE17bPB6OQ5/6/Kck4hQys0k3/TLdfmuFBRqxa
+	QWoRGQ1NaSbTyMZqKw/XW/bEBi7qJQpTzQBd7rAq9AQx3MahPQtl5VeHi5y184NpMeDI=;
 Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168]:42592 helo=pettiford.lan)
 	by mail.hugovil.com with esmtpa (Exim 4.92)
 	(envelope-from <hugo@hugovil.com>)
-	id 1vyEFr-0002na-Aw; Thu, 05 Mar 2026 14:21:07 -0500
+	id 1vyEFz-0002na-Tu; Thu, 05 Mar 2026 14:21:12 -0500
 From: Hugo Villeneuve <hugo@hugovil.com>
 To: robin@protonic.nl,
 	andy@kernel.org,
@@ -58,19 +58,21 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	hugo@hugovil.com
-Date: Thu,  5 Mar 2026 14:20:46 -0500
-Message-ID: <20260305192101.2125660-1-hugo@hugovil.com>
+Date: Thu,  5 Mar 2026 14:20:49 -0500
+Message-ID: <20260305192101.2125660-4-hugo@hugovil.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260305192101.2125660-1-hugo@hugovil.com>
+References: <20260305192101.2125660-1-hugo@hugovil.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 70.80.174.168
 X-SA-Exim-Mail-From: hugo@hugovil.com
-Subject: [PATCH v4 0/4] input: add GPIO-based charlieplex keypad
+Subject: [PATCH v4 3/4] dt-bindings: input: add GPIO charlieplex keypad
 X-SA-Exim-Version: 4.2.1 (built Wed, 08 May 2019 21:11:16 +0000)
 X-SA-Exim-Scanned: Yes (on mail.hugovil.com)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_112119_065362_FFBBC168 
-X-CRM114-Status: GOOD (  15.66  )
+X-CRM114-CacheID: sfid-20260305_112119_061953_C80D113C 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,71 +89,128 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
 
-Hello,
-this patch series add a new GPIO charlieplex keypad driver.
+Add DT bindings for GPIO charlieplex keypad.
 
-The first two patches simply commonize two properties that are present in
-a few bindings, so that the actual patches for the charlieplex keypad driver
-can reuse them instead of also redefining them.
-
-I have tested the driver on a custom board with a Solidrun RZ/G2LC SOM
-with three charlieplex keyboards, all connected thru a single PCAL6416 I2C GPIO
-expander.
-
-Link: [v1] https://lore.kernel.org/all/20260203155023.536103-1-hugo@hugovil.com/
-Link: [v2] https://lore.kernel.org/all/20260213171431.2228814-1-hugo@hugovil.com/
-Link: [v3] https://lore.kernel.org/all/20260225155409.612478-1-hugo@hugovil.com/
-
-Changes for v4:
-- Fix indentation in comments (Andy)
-- Add missing includes (Andy)
-- Remove OF dependency (Andy/Dmitry)
-- Uniformize return code variables to "err" (Andy/Dmitry)
-- Change signed iterator to unsigned and move within loop (Andy)
-- Remove unused platform_set_drvdata() (Andy)
-- Fixed typo in cover letter PCAL6416 (Geert)
-- Changed name in bindings example (Geert)
-- Added pull resistors to bindings doc and example (Geert)
-- Add debounce-delay-ms common property
-- Add settling-time-us common property
-
-Changes for v3:
-- Add ASCII diagram in bindings, and reference to it in example
-- Reorder properties alphabetically
-- Add patch to define common input settling-time-us property
-- Add patch to define common input debounce-delay-ms property
-
-Changes for v2:
-- Fix yamllint error for example
-- Remove unused debug variable (nkeys)
-- Remove support for custom linux,no-autorepeat DT property
-- Remove support for custom gpio-activelow DT property
-
-Thank you.
-
-Hugo Villeneuve (4):
-  dt-bindings: input: add debounce-delay-ms common property
-  dt-bindings: input: add settling-time-us common property
-  dt-bindings: input: add GPIO charlieplex keypad
-  Input: charlieplex_keypad: add GPIO charlieplex keypad
-
- .../bindings/auxdisplay/holtek,ht16k33.yaml   |   5 +-
- .../bindings/input/cirrus,ep9307-keypad.yaml  |   7 +-
- .../input/gpio-charlieplex-keypad.yaml        | 108 +++++++++
- .../bindings/input/gpio-matrix-keypad.yaml    |   5 +-
- .../devicetree/bindings/input/input.yaml      |  16 ++
- .../input/mediatek,mt6779-keypad.yaml         |   1 +
- .../devicetree/bindings/mfd/fsl,mc13xxx.yaml  |   2 -
- MAINTAINERS                                   |   7 +
- drivers/input/keyboard/Kconfig                |  14 ++
- drivers/input/keyboard/Makefile               |   1 +
- drivers/input/keyboard/charlieplex_keypad.c   | 214 ++++++++++++++++++
- 11 files changed, 368 insertions(+), 12 deletions(-)
+Signed-off-by: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+---
+ .../input/gpio-charlieplex-keypad.yaml        | 108 ++++++++++++++++++
+ 1 file changed, 108 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/input/gpio-charlieplex-keypad.yaml
- create mode 100644 drivers/input/keyboard/charlieplex_keypad.c
 
-
-base-commit: 3bf5404fc93825ddde89992acad095a297ed9a31
+diff --git a/Documentation/devicetree/bindings/input/gpio-charlieplex-keypad.yaml b/Documentation/devicetree/bindings/input/gpio-charlieplex-keypad.yaml
+new file mode 100644
+index 0000000000000..c085de6dab854
+--- /dev/null
++++ b/Documentation/devicetree/bindings/input/gpio-charlieplex-keypad.yaml
+@@ -0,0 +1,108 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++
++$id: http://devicetree.org/schemas/input/gpio-charlieplex-keypad.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: GPIO charlieplex keypad
++
++maintainers:
++  - Hugo Villeneuve <hvilleneuve@dimonoff.com>
++
++description: |
++  The charlieplex keypad supports N^2)-N different key combinations (where N is
++  the number of I/O lines). Key presses and releases are detected by configuring
++  only one line as output at a time, and reading other line states. This process
++  is repeated for each line. Diodes are required to ensure current flows in only
++  one direction between any pair of pins, as well as pull-up or pull-down
++  resistors on all I/O lines.
++  This mechanism doesn't allow to detect simultaneous key presses.
++
++  Wiring example for 3 lines keyboard with 6 switches and 3 diodes (pull-up/down
++  resistors not shown but needed on L0, L1 and L2):
++
++  L0  --+---------------------+----------------------+
++        |                     |                      |
++  L1  -------+-----------+---------------------+     |
++        |    |           |    |                |     |
++  L2  -------------+----------------+-----+    |     |
++        |    |     |     |    |     |     |    |     |
++        |    |     |     |    |     |     |    |     |
++        |  S1 \  S2 \    |  S3 \  S4 \    |  S5 \  S6 \
++        |    |     |     |    |     |     |    |     |
++        |    +--+--+     |    +--+--+     |    +--+--+
++        |       |        |       |        |       |
++        |    D1 v        |    D2 v        |    D3 v
++        |       - (k)    |       - (k)    |       - (k)
++        |       |        |       |        |       |
++        +-------+        +-------+        +-------+
++
++  L: GPIO line
++  S: switch
++  D: diode (k indicates cathode)
++
++allOf:
++  - $ref: input.yaml#
++  - $ref: /schemas/input/matrix-keymap.yaml#
++
++properties:
++  compatible:
++    const: gpio-charlieplex-keypad
++
++  autorepeat: true
++
++  debounce-delay-ms:
++    default: 5
++
++  line-gpios:
++    description:
++      List of GPIOs used as lines. The gpio specifier for this property
++      depends on the gpio controller to which these lines are connected.
++
++  linux,keymap: true
++
++  poll-interval: true
++
++  settling-time-us: true
++
++  wakeup-source: true
++
++required:
++  - compatible
++  - line-gpios
++  - linux,keymap
++  - poll-interval
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/gpio/gpio.h>
++    #include <dt-bindings/input/input.h>
++
++    keyboard {
++        compatible = "gpio-charlieplex-keypad";
++        debounce-delay-ms = <20>;
++        poll-interval = <5>;
++        settling-time-us = <2>;
++
++        line-gpios = <&gpio2 25 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
++                      &gpio2 26 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
++                      &gpio2 27 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
++
++        /* MATRIX_KEY(output, input, key-code) */
++        linux,keymap = <
++            /*
++             * According to wiring diagram above, if L1 is configured as
++             * output and HIGH, and we detect a HIGH level on input L0,
++             * then it means S1 is pressed: MATRIX_KEY(L1, L0, KEY...)
++             */
++            MATRIX_KEY(1, 0, KEY_F1) /* S1 */
++            MATRIX_KEY(2, 0, KEY_F2) /* S2 */
++            MATRIX_KEY(0, 1, KEY_F3) /* S3 */
++            MATRIX_KEY(2, 1, KEY_F4) /* S4 */
++            MATRIX_KEY(1, 2, KEY_F5) /* S5 */
++            MATRIX_KEY(0, 2, KEY_F6) /* S6 */
++        >;
++    };
 -- 
 2.47.3
 
