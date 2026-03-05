@@ -4,74 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B161F3D315
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 16:06:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 854D0F3D31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 16:08:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:
-	Content-Transfer-Encoding:Content-Type:Mime-Version:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VURAe1VBJ++jhd1qN9FU3U4sNtpuG6QDqgVP27ujLLQ=; b=lVfIGV0Dz6/o+r
-	FxOFCbw3voW7Bwzhi+TOg9N4P5aCgZQi4PXJ8d/LcsodTdwhln6cEnmsxjhnQritbGhfHgvFybDdp
-	jHkKV31JNrRa5PKUYkRyUPN7QGz8Q0MPtDMKSRcTeSQ3pEpP0V8dsNyg4TGQiHBYFuNxr9wvp4uJw
-	ZMfShuG3QaOEZGNmyIU9tq6O15qR6BSw1Lu07hZlrdGrR790eNpcaRmF7sDdHIBIlMNauMWPn3i0h
-	NQD7YUOUrbOZMmYv7T1IwVt1yOITzSvXKk1GX1FUyOtqBIhWx/fhotXha35CBVRE2lxsKqCqPy5rE
-	qBBkbslFS/5minnXsnuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CNZjilY3nIi5iC0dvH7w23fZyKJ7Yu8EwufPGV0xT9E=; b=FKiMKjIzVc8prqWsP6Huouuyn/
+	1Ef6VOZ8KqsXOFyT7aVVvNrfpYj5LlFvnl9IlgPcpbtOdgP8kR2kPmzWFTW8t+wl76Uf67fBlTbpP
+	d8MqkFV3TcoJhAbBkdf3yB/+s/1IQCruDvh9t/fg2GCOWwNYp/IBOdBBKlPcZJvtnmh8zyz/rHHeb
+	0jAn0doK9bSgVfNvd6ekK06fXBl40EMt2wZlaRSwEPDu8/Cr5eSAx4kDSNKz9kmTw/se1+WK08AvR
+	4McMlr9pQvJ0CHWukuD6WCyvdkOzItcl6pg9mk95mdkYRwLf2An6oB3rFfnHyxc1XuSHhb1lY9zg2
+	KMDmMT0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyBDt-00000002BH1-0T6B;
-	Thu, 05 Mar 2026 16:06:49 +0000
-Received: from mail.hugovil.com ([162.243.120.170])
+	id 1vyBF8-00000002BRN-023d;
+	Thu, 05 Mar 2026 16:08:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyBDq-00000002BG7-0S1p
+	id 1vyBF4-00000002BQo-33uz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 16:06:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
-	; s=x; h=Subject:Content-Transfer-Encoding:Mime-Version:Message-Id:Cc:To:From
-	:Date:subject:date:message-id:reply-to;
-	bh=VURAe1VBJ++jhd1qN9FU3U4sNtpuG6QDqgVP27ujLLQ=; b=HwXvKMDFPKFt/NwsiuXU2mlZnZ
-	QWDSk6365MrHNW3TYaw+6EPMeJVIjcF/pnvE2e7iBVGgBLCaJCI0hcokrMxvLp5olfn9x84uGbMy+
-	cuFWWWzl5J/mCqXEBx3DBK/EgStY7tVKBdr76PdWtiJahJi/3CGXl6UyeWmk+eyDXNEs=;
-Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168]:42578 helo=pettiford.lan)
-	by mail.hugovil.com with esmtpa (Exim 4.92)
-	(envelope-from <hugo@hugovil.com>)
-	id 1vyBDD-0002QH-SQ; Thu, 05 Mar 2026 11:06:09 -0500
-Date: Thu, 5 Mar 2026 11:06:06 -0500
-From: Hugo Villeneuve <hugo@hugovil.com>
-To: "Antonin Godard" <antonin.godard@bootlin.com>
-Cc: "Frank Li" <Frank.li@nxp.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
- <conor+dt@kernel.org>, <andrzej.hajda@intel.com>,
- <neil.armstrong@linaro.org>, <rfoss@kernel.org>,
- <Laurent.pinchart@ideasonboard.com>, <jonas@kwiboo.se>,
- <jernej.skrabec@gmail.com>, <airlied@gmail.com>, <simona@ffwll.ch>,
- <maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
- <tzimmermann@suse.de>, <s.hauer@pengutronix.de>, <kernel@pengutronix.de>,
- <festevam@gmail.com>, <shawnguo@kernel.org>,
- <laurent.pinchart+renesas@ideasonboard.com>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
- <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
- "Hugo Villeneuve" <hvilleneuve@dimonoff.com>
-Message-Id: <20260305110606.f24f17ee4f96d7d2b9b08c2d@hugovil.com>
-In-Reply-To: <DGTU9887GHPO.2FUQ3QITRG7F8@bootlin.com>
-References: <20260302190953.669325-1-hugo@hugovil.com>
-	<20260302190953.669325-9-hugo@hugovil.com>
-	<aaX5E7-3xvkaVV-o@lizhi-Precision-Tower-5810>
-	<20260302161545.f6b76209400e8fbe35cd51a0@hugovil.com>
-	<DGTU9887GHPO.2FUQ3QITRG7F8@bootlin.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	Thu, 05 Mar 2026 16:08:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 15B6D42D9F;
+	Thu,  5 Mar 2026 16:08:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC960C116C6;
+	Thu,  5 Mar 2026 16:08:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772726881;
+	bh=SfeBnjWrPBoan1AGhscSpJ48+mNxFKjXxUAmNLQaKlM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=plFmZVgvxHa4iMJ6ycDhZGTJ4ci5QrVEZA+f2nBuM8Ub/F3oSmqQVjyWiSnGul7+I
+	 5rlgHQpwh4+GslT0jEG4GH8CEOIaeP6MXIImNEsUg/Oh4Uxj6o6HG7ggVbH5MaKLfR
+	 Ht0Tmo+NshSBgQA/y82eP+KGXDeSqk5CYTBg8JmK370XElmIPsdQAfaD/zZ5r8bW7Q
+	 HbnNra3szKy1+pLCnjJZ9jvyLoojTQzaWBUS0SlcXZjiJj7st1vVMLa+3HTtoc4yVG
+	 mfY5Zo14I8u3beMHpMIzaVBFTeW2EUSMPTm988HlbGmQLFSn7yWtJ7u941Sa9TH10E
+	 NwP6NGy0rLqng==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vyBF1-0000000GWOW-3IIk;
+	Thu, 05 Mar 2026 16:07:59 +0000
+Date: Thu, 05 Mar 2026 16:07:59 +0000
+Message-ID: <86ms0m6yzk.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	yangyicong@hisilicon.com,
+	wangzhou1@hisilicon.com
+Subject: Re: [PATCH v1 2/2] KVM: arm64: Fix vma_shift staleness on nested hwpoison path
+In-Reply-To: <20260304162222.836152-3-tabba@google.com>
+References: <20260304162222.836152-1-tabba@google.com>
+	<20260304162222.836152-3-tabba@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 70.80.174.168
-X-SA-Exim-Mail-From: hugo@hugovil.com
-Subject: Re: [PATCH 08/14] ARM: dts: imx6ul-var-som: factor out SD card
- support
-X-SA-Exim-Version: 4.2.1 (built Wed, 08 May 2019 21:11:16 +0000)
-X-SA-Exim-Scanned: Yes (on mail.hugovil.com)
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, yangyicong@hisilicon.com, wangzhou1@hisilicon.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_080646_246543_7C90D8F8 
-X-CRM114-Status: GOOD (  37.15  )
+X-CRM114-CacheID: sfid-20260305_080804_044026_55AF7F51 
+X-CRM114-Status: GOOD (  22.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,122 +93,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Antonin,
+Hi Fuad,
 
-On Wed, 04 Mar 2026 09:01:20 +0100
-"Antonin Godard" <antonin.godard@bootlin.com> wrote:
-
-> Hi,
+On Wed, 04 Mar 2026 16:22:22 +0000,
+Fuad Tabba <tabba@google.com> wrote:
 > 
-> On Mon Mar 2, 2026 at 10:15 PM CET, Hugo Villeneuve wrote:
-> > Hi Frank,
-> >
-> > On Mon, 2 Mar 2026 15:54:43 -0500
-> > Frank Li <Frank.li@nxp.com> wrote:
-> >
-> >> On Mon, Mar 02, 2026 at 02:03:44PM -0500, Hugo Villeneuve wrote:
-> >> > From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
-> >> >
-> >> > Move SD support to a separate include, since it cannot be used at the
-> >> 
-> >> s/include/dtsi/
-> >
-> > Ok. I will also change it in all the other commit messages.
-> >
-> >  
-> >> > same time as the Wifi/BT module.
-> >> 
-> >> what's relation ship between wifi/bt? you just move sd related part to a
-> >> dtsi file.
-> >
-> > As stated in commit message, the SD card interface cannot be used if
-> > the Wifi/BT module is in use.
-> >
-> > Sd card is not mandatory, for example on our board we do not have it,
-> > so we need to have it disabled.
+> When user_mem_abort() handles a nested stage-2 fault, it truncates
+> vma_pagesize to respect the guest's mapping size. However, the local
+> variable vma_shift is never updated to match this new size.
 > 
-> My two cents: if SDCard and WiFi/Bt support are the only mutually exclusive
-> features for this SoM, then how about the following organization:
-
-They maybe are not. There are other peculiarities, for example using the
-touch panel configuration has some impacts on an oscillator used by the
-Wifi/Bt module. The Varisctite documentation is not entirely clear or
-evident about all these details.
-
-
-> Three SoM dtsi files:
-
-This is already the case (apart from the -bt suffix)?
-
+> If the underlying host page turns out to be hardware poisoned,
+> kvm_send_hwpoison_signal() is called with the original, larger
+> vma_shift instead of the actual mapping size. This signals incorrect
+> poison boundaries to userspace and breaks hugepage memory poison
+> containment for nested VMs.
 > 
-> imx6ul-var-som-common.dtsi
+> Update vma_shift to match the truncated vma_pagesize when operating
+> on behalf of a nested hypervisor.
 > 
->   imx6ul-var-som-wifi-bt.dtsi:
->     #include "imx6ul-var-som-common.dtsi"
+> Fixes: fd276e71d1e7 ("KVM: arm64: nv: Handle shadow stage 2 page faults")
+> Signed-off-by: Fuad Tabba <tabba@google.com>
+> ---
+>  arch/arm64/kvm/mmu.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index e1d6a4f591a9..b08240e0cab1 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1751,6 +1751,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>  
+>  		force_pte = (max_map_size == PAGE_SIZE);
+>  		vma_pagesize = min_t(long, vma_pagesize, max_map_size);
+> +		vma_shift = force_pte ? PAGE_SHIFT : __ffs(vma_pagesize);
 
-No need to include it, as it is already included by
-imx6ul-var-som-concerto.dts
+If force_pte is set, then we know that max_map_size == PAGE_SIZE. From
+there, vma_pagesize == PAGE_SIZE, since nothing can be smaller.
 
-> 
->   imx6ul-var-som-sd.dtsi:
->     #include "imx6ul-var-som-common.dtsi"
+Is there anything preventing us from having:
 
-Same...
+		vma_shift = __ffs(vma_pagesize);
 
-> 
-> A common concerto dtsi file:
-> 
->   imx6ul-var-som-concerto-common.dtsi
-> 
-> Separate concerto dts files:
-> 
->   imx6ul-var-som-concerto-wifi-bt.dts:
->     #include "imx6ul-var-som-wifi-bt.dtsi"
->     #include "imx6ul-var-som-concerto-common.dtsi"
-> 
->   imx6ul-var-som-concerto-sd.dts
->     #include "imx6ul-var-som-sd.dtsi"
->     #include "imx6ul-var-som-concerto-common.dtsi"
-> 
-> And possibly the following one to avoid breaking compatibility:
-> 
->   imx6ul-var-som-concerto.dts
->     #include "imx6ul-var-som-sd.dtsi"
->     #include "imx6ul-var-som-concerto-common.dtsi"
-> 
-> In any case, the imx6ul-var-som-concerto-common.dtsi should be full-featured
-> (and thus avoid the imx6ull-var-som-concerto-full.dts file from patch 09/14), if
-> that's possible?
+and be done with it?
 
-I am not convinced that it needs to be full-featured. For our custom
-boards, we want to include only the relevant dtsis, because for example
-we do not use sd, or enet1 or enet2, or audio. Having these options in
-separate dtsi allows our custom boards to include/enable only the
-required features.
+Thanks,
 
-The full dts is only there as a reference, and to make sure all dtsi
-are included and therefore compiled-checked. In it I have enabled
-enet1 and enet2, but some boards may use enet1, and not enet2, or
-vice-versa, or some boards (like our custom boards) we are not using
-either one.
-
-> But I don't know if this follows common practices, and if this is possible, but
-> I think it's clearer as a user to know if the DTS I will use will support
-> WiFi/BT _or_ support SDCard by looking at its name.
-> 
-> Of course this is based on the assumption that those two features are the only
-> mutually exclusive ones.
-> 
-> What do you think?
-
-Yes, but there is an exponential number of different
-combinations, and thus would require a lot of different DTS...
-
-If you look at the Variscite git repos, you will see a lot of different
-DTS to support only a subset of the possible combinations, and it
-already looks like a mess to me :) I would like to keep things simple if
-possible.
+	M.
 
 -- 
-Hugo Villeneuve
+Without deviation from the norm, progress is not possible.
 
