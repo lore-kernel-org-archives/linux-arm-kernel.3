@@ -4,90 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D2FBF30928
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 10:08:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FF06F30928
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 10:14:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nszGsxugf+CGTQes71iM3DAN6Pzn2MLUlpTJlv1vBJI=; b=mBmkIxfKP9Nas5v/2CMoth3vQU
-	/Un1TCfgGCFZGhSRBMT/6m38ezvfdMkpD2La6foyqgo1wsXfKwom97xLEhT+F3etkK/5J72R1v5CO
-	Lxs/i4e8EgRU7+i+LcukNiySlU4SN99f1vGO5O9SPR0zeU6Wq32zLFFsnzTO/22KYP+wLLqlleV1t
-	VxRr+ppWXzhwlL88r3cucrpQO+XdmZ3DnyA8Twa4GcNVTsfWcFl3BF/Iuow8mPNDw0M4BRpIw7Nim
-	XPSW0s9JzUDDm1LfdAf2codppqmt/r719qhirdrHUfIjc4zsYLaxyIEde+hcPSWwp9KHI9jrp7b5w
-	eRpY10LA==;
+	bh=geXM8QRY/cBWOmRMMwOpgOquG+P/WWrnlGqkqRUfv3w=; b=ybLj2ubmjzCNEQhJdVqSPY3Jzw
+	BdNGcHLLGmIRXroRKoazaAN7SZXCZXeAF3FnvkZoZWafqJ4j4br2owq1xxsYsMnW8+5PDmaR0wqWD
+	KEtw/+LEQH3yCG+whFGNYAvxSTuPtBroCwS+Axd7PpEs3ClrOzJV4d43arQ5HgpxYRmaYca2IV2tI
+	jbfSccOtCStD/LIdX9vZ9eW4Bwvpfa/bhh4woyY4vv3YQexdVbp3PyXoZ2kMeGD7tdLwIRjBQ4nkf
+	Re8mkUivA/EYNxOMGKMP0+V5FsN668vNcYbnPnWYUL+MEEf5QVb3aPrghat7Pd6sk26h6B0tykCh5
+	wQIm98YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy5cu-00000001WYy-3Ijz;
-	Thu, 05 Mar 2026 10:08:16 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vy5iX-00000001X8g-30e0;
+	Thu, 05 Mar 2026 10:14:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy5cp-00000001WY4-2mtQ;
-	Thu, 05 Mar 2026 10:08:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1772705241; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=JyfVnP4+KszQmwuoXFZ8ruIZigZfqrPygzLjs/1DRhk05ABitc8xkW/a70ttnvAIlnkhv9vm5jBb1evLXmu8LLKNpxw0hcUJUB1WUcIBnGdNgdCbYmZclDOKZNoQSjlAkIB6Aku5ctzZ/EEhO4TsAa+tImSBL5aG5oKKh68gKqg=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1772705241; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=nszGsxugf+CGTQes71iM3DAN6Pzn2MLUlpTJlv1vBJI=; 
-	b=TsmeHq/rZ93VEmsTOB6uoSvG8hVoDmDbtT5QPjlJFPmzWzfvMdcqJD2mNWBv/B6p/6hRcYN8bDX25/lPRMYkDE4+sLlAyM3RvWVQcBlkDBFB/6ErcCHquAoL0WCQEtdtR8x9GMozNsxBLQsYKGNLz4SqWLjSkWHmUGuVByLmdts=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772705241;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=nszGsxugf+CGTQes71iM3DAN6Pzn2MLUlpTJlv1vBJI=;
-	b=bT09/vEjLQZtoqDIHdb9LiaSgYzDW0jBTU6ABmJ+Zndtis8AZZw4PxDwFtuuAz7J
-	z6/YDMnfDNqNed5d0JD1VmhrN0hraVni8ZJSH9/0onUpXW4Pbtby87TuYDDCYnGXAfu
-	7ZKGkVloRwcZglAOZWYmlVHdKU4MLxKWdWcfbN30=
-Received: by mx.zohomail.com with SMTPS id 1772705239022996.0545573857447;
-	Thu, 5 Mar 2026 02:07:19 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
- Rodrigo Siqueira <siqueira@igalia.com>,
- Alex Deucher <alexander.deucher@amd.com>,
- Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Sandy Huang <hjc@rock-chips.com>,
- Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>,
- Jani Nikula <jani.nikula@linux.intel.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- kernel@collabora.com, amd-gfx@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
- linux-doc@vger.kernel.org, Andri Yngvason <andri@yngvason.is>,
- Werner Sembach <wse@tuxedocomputers.com>,
- Marius Vlad <marius.vlad@collabora.com>
-Subject: Re: [PATCH v9 02/19] drm: Add new general DRM property "color format"
-Date: Thu, 05 Mar 2026 11:07:09 +0100
-Message-ID: <5733371.31r3eYUQgx@workhorse>
-In-Reply-To: <20260305-just-oxpecker-of-reward-e05e4f@houat>
-References: <20260227-color-format-v9-0-658c3b9db7ef@collabora.com>
- <20260227-color-format-v9-2-658c3b9db7ef@collabora.com>
- <20260305-just-oxpecker-of-reward-e05e4f@houat>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+	id 1vy5iV-00000001X7b-3r3W;
+	Thu, 05 Mar 2026 10:14:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=geXM8QRY/cBWOmRMMwOpgOquG+P/WWrnlGqkqRUfv3w=; b=CsZNuLQW7LvW4Lr2lIERegd3Gd
+	Hugi5mKd2FR84bevutDbmljnKKkyWpa+Y9/8Fdz5/+XH8yjT2tJ9L998pSsVKOshIFftYTopy9tHW
+	7ZF6SCZJIlLizc28DvLzCdrrTFoXPxSqeJsusR9YgIhzvIQK5TwDMZOwGOnxZyjiECC9AL1Iq8DK3
+	6YmO3o9JCvxPVA/5mX7Z/AeTBXSw6ddJbAc2aGNX0Tuj+00XYWecA9Fdat3sDTfKL2QSU4+rx7X76
+	hEN7LIQO8aLKdSdKB71nyPJOWT2P+p/LTyjcfbw8vuy6s0PaQXjDjwaoq0y+KTUPLTvCZA6ncSRRH
+	xeDk18Gg==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vy5iT-00000006SF9-07fl;
+	Thu, 05 Mar 2026 10:14:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id F1BD5416B5;
+	Thu,  5 Mar 2026 10:13:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C52AEC116C6;
+	Thu,  5 Mar 2026 10:13:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772705636;
+	bh=gLlEtYagEKIFjG5F8a3A/NR9PRdUS4OHscROMOIMXZA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=OGxx742ke8ndUq+KKpCoK78oYVQ+tBt9CF0nBSTEw5V6sjEK34QB1i75slSO+ilb5
+	 bzv8SKdM+Aj941MheVLLmptyNHH2aZRlbMyfKcyximmU0Iqru503CIvVVpvKQewuVJ
+	 I1gkrYmmRNt70fhzjJFOJIBOr43VyqJZnMKOHmI4BpNrGBTGz3h27oyGs2gULFRa48
+	 cK56WnPdi+Oq6gXwLZby4u/gIzKC/Y28ebuttCuqXyLbELbpasi/D2md3AQnhSl5BY
+	 P9X2qwHlg3WZH66oyHfOnWJ2bJhliZovnSdIh46cr0FMTHaQ40jjxu7XbWLeozpAnG
+	 I1rOHUQJMHF/Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vy5iM-0000000GOHR-0DfY;
+	Thu, 05 Mar 2026 10:13:54 +0000
+Date: Thu, 05 Mar 2026 10:13:53 +0000
+Message-ID: <86v7fa7fdq.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Thomas Gleixner <tglx@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Antoine Tenart <atenart@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Mark-PK Tsai <mark-pk.tsai@mediatek.com>,
+	Daniel Palmer <daniel@thingy.jp>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Nishanth Menon <nm@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-amlogic@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-tegra@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH 3/4] irqchip/gic: Use GIC_* DT binding definitions
+In-Reply-To: <d22488d128d39fcd90359f59559fac637bb4b04c.1772644406.git.geert+renesas@glider.be>
+References: <cover.1772644406.git.geert+renesas@glider.be>
+	<d22488d128d39fcd90359f59559fac637bb4b04c.1772644406.git.geert+renesas@glider.be>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: geert+renesas@glider.be, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, lpieralisi@kernel.org, atenart@kernel.org, florian.fainelli@broadcom.com, bcm-kernel-feedback-list@broadcom.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, mark-pk.tsai@mediatek.com, daniel@thingy.jp, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, thierry.reding@gmail.com, jonathanh@nvidia.com, nm@ti.com, kristo@kernel.org, ssantosh@kernel.org, hayashi.kunihiko@socionext.com, mhiramat@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, imx@lists.linux.dev, linux-amlogic@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org, linux-arm-msm@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_020811_737675_D8F7D1C2 
-X-CRM114-Status: GOOD (  28.27  )
+X-CRM114-CacheID: sfid-20260305_101401_412779_1BF844BF 
+X-CRM114-Status: GOOD (  22.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,100 +131,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thursday, 5 March 2026 10:28:11 Central European Standard Time Maxime Ripard wrote:
-> Hi,
+On Wed, 04 Mar 2026 17:21:58 +0000,
+Geert Uytterhoeven <geert+renesas@glider.be> wrote:
 > 
-> On Fri, Feb 27, 2026 at 08:20:07PM +0100, Nicolas Frattaroli wrote:
-> > diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
-> > index 4af91e252fbd..b5bc93856ad1 100644
-> > --- a/include/drm/drm_connector.h
-> > +++ b/include/drm/drm_connector.h
-> > @@ -579,6 +579,91 @@ enum drm_output_color_format {
-> >  	DRM_OUTPUT_COLOR_FORMAT_YCBCR420,
-> >  };
-> >  
-> > +/* Do not forget to adjust after modifying &enum drm_output_color_format */
-> > +#define DRM_OUTPUT_COLOR_FORMAT_COUNT 4
+> Replace magic numbers by symbolic DT binding definitions.  This improves
+> readability, and makes it easier to find where the various GIC
+> interrupts types are handled.
 > 
-> Maybe we can put that as the last variant of our enum so we don't have
-> to always update it?
-
-That will then cause a bunch of potential warnings for any of the switch
-cases that convert from one thing to the other. At least my LSP indicated
-so. I guess I can ignore those (and wouldn't be surprised if they were
-already ignored by the Makefiles and the LSP just didn't pick up on this
-somehow.) I'll do that in the next revision if you're fine with this.
-Potentially, I'll have to add a default case to some switch statements
-that just does a WARN() or something.
-
-I do wish C had a better way to deal with setting a symbol to the number
-of valid enum values without making it itself a valid enum value.
-
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> ---
+>  drivers/irqchip/irq-gic-v3.c | 14 ++++++++------
+>  drivers/irqchip/irq-gic.c    |  6 ++++--
+>  2 files changed, 12 insertions(+), 8 deletions(-)
 > 
-> > +/**
-> > + * enum drm_connector_color_format - Connector Color Format Request
-> > + *
-> > + * This enum, unlike &enum drm_output_color_format, is used to specify requests
-> > + * for a specific color format on a connector through the DRM "color format"
-> > + * property. The difference is that it has an "AUTO" value to specify that
-> > + * no specific choice has been made.
-> > + */
-> > +enum drm_connector_color_format {
-> > +	/**
-> > +	 * @DRM_CONNECTOR_COLOR_FORMAT_AUTO: The driver or display protocol
-> > +	 * helpers should pick a suitable color format. All implementations of a
-> > +	 * specific display protocol must behave the same way with "AUTO", but
-> > +	 * different display protocols do not necessarily have the same "AUTO"
-> > +	 * semantics.
-> > +	 *
-> > +	 * For HDMI, "AUTO" picks RGB, but falls back to YCbCr 4:2:0 if the
-> > +	 * bandwidth required for full-scale RGB is not available, or the mode
-> > +	 * is YCbCr 4:2:0-only, as long as the mode and output both support
-> > +	 * YCbCr 4:2:0.
-> > +	 *
-> > +	 * For display protocols other than HDMI, the recursive bridge chain
-> > +	 * format selection picks the first chain of bridge formats that works,
-> > +	 * as has already been the case before the introduction of the "color
-> > +	 * format" property. Non-HDMI bridges should therefore either sort their
-> > +	 * bus output formats by preference, or agree on a unified auto format
-> > +	 * selection logic that's implemented in a common state helper (like
-> > +	 * how HDMI does it).
-> > +	 */
-> > +	DRM_CONNECTOR_COLOR_FORMAT_AUTO = 0,
-> > +
-> > +	/**
-> > +	 * @DRM_CONNECTOR_COLOR_FORMAT_RGB444: RGB output format
-> > +	 */
-> > +	DRM_CONNECTOR_COLOR_FORMAT_RGB444,
-> > +
-> > +	/**
-> > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR444: YCbCr 4:4:4 output format (ie.
-> > +	 * not subsampled)
-> > +	 */
-> > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR444,
-> > +
-> > +	/**
-> > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR422: YCbCr 4:2:2 output format (ie.
-> > +	 * with horizontal subsampling)
-> > +	 */
-> > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR422,
-> > +
-> > +	/**
-> > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR420: YCbCr 4:2:0 output format (ie.
-> > +	 * with horizontal and vertical subsampling)
-> > +	 */
-> > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR420,
-> > +};
-> > +
-> > +/* Do not forget to adjust after modifying &enum drm_connector_color_format */
-> > +#define DRM_CONNECTOR_COLOR_FORMAT_COUNT 5
-> 
-> Ditto
-> 
-> Maxime
-> 
+> diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+> index d75163e71bf22473..6ac103cb40097acc 100644
+> --- a/drivers/irqchip/irq-gic-v3.c
+> +++ b/drivers/irqchip/irq-gic-v3.c
+> @@ -35,6 +35,8 @@
+>  #include <asm/smp_plat.h>
+>  #include <asm/virt.h>
+>  
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+>  #include "irq-gic-common.h"
+>  
+>  static u8 dist_prio_irq __ro_after_init = GICV3_PRIO_IRQ;
+> @@ -1602,25 +1604,25 @@ static int gic_irq_domain_translate(struct irq_domain *d,
+>  			return -EINVAL;
+>  
+>  		switch (fwspec->param[0]) {
+> -		case 0:			/* SPI */
+> +		case GIC_SPI:
 
+I'd rather not do that. I use *numeric* values on purpose, because
+that's what the DT *binding* describes, and I have no control over
+what lives in that include file (it gets changed without me being even
+Cc'd).
 
+So I want to stick to the binding, and not to the interpretation of
+it. If you want symbolic values to be used, describe them in the
+binding, have a tool to generate the values from the binding, and use
+that everywhere.
 
+Thanks,
 
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
