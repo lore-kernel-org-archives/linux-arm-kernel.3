@@ -4,58 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71D90F30928
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 10:18:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6031F30928
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 10:18:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5mYTi9iz9zq6Ps8r8brt5REdW2TMWs9sHEBJlY45S2I=; b=wkz6rJVzU5bvW+KvdS8VZkDFs/
-	PHjQQ7pVm/MtuuyeZkRDnpjlVkdOzJ+z2qzW8EqlC6+iW2Pnuv1oWVPFIFpTbzvrdeehS77O7qe9n
-	YvNvvHKOvZMAVUemAavTyh9Io6hAenpAgTkzt6YWDDmw/4fT6VCmaQvkM/x2d9ar77mJNQtJGJZcv
-	xOJBrKodo+CVgLeoFCK07wWMaKwTUKiMjCqvEnCmmLDdkAG11M0dPwE7oE1LkvmGnSm6xQUhXAZoM
-	ZOGkFZqQa7ihhKM1phbXr/BldgnJ1VvDqBQeedfwmd6Sfe77jRcNIayMZf3jxS1pJ6dlUQaY0zdwH
-	Jzm1TLbQ==;
+	bh=LNFNTQsjW7TanYYeq+qX1AMPKNP12R4RI9aV79tx23E=; b=dfHjPcPUFSm4OrEF3N4XWs4Rja
+	O7c0KMf4JElJTrKX2rgayDPaex8sOasURf+aHS62xOk5UZJb+7LLcrkReH1zKzyFI8Dh4rxoqqsZ7
+	wl7qzc6MImxEiXg0zAD6HXClTdhz8sBtscH/JyVb7vesCtbSea3Qf0UKxcYQhM7L5YdFz07XyOSmj
+	ICUYoBuHTlxNj+ukRMo/jSMTgCYM/M63L9W+VvsnLmM1Pq1OgaV0t5Pom3MbMkmhVs6F824Lx6nnh
+	VWd4NG9doozjtFq4d134V8HT1LecryD9wI9PrKnE12qpJZRP1kYAN8PqgZS5fovpk2tMhDg67Diwo
+	5VjGwsbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy5mc-00000001Y7s-2WuH;
-	Thu, 05 Mar 2026 10:18:18 +0000
+	id 1vy5mh-00000001YEy-455L;
+	Thu, 05 Mar 2026 10:18:23 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy5mb-00000001Y4W-1eqW
+	id 1vy5me-00000001Y9Z-2gbV
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 05 Mar 2026 10:18:17 +0000
+	Thu, 05 Mar 2026 10:18:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=5mYTi9iz9zq6Ps8r8brt5REdW2TMWs9sHEBJlY45S2I=; b=d/UnoQ5PfUg0XXVV1bkFD3m2dF
-	dRQVVjkn2frAjM6rqWkNmoseb08qjHrKCZwQ7Lc1iK6zIUg6UKEN9mU+xE371ip6daJTyXqZ6SOPn
-	Qk/ZDu8CiUX6ExlQAZNLo6R7iNqMd4US7X5AdY+btRa/S3aPvhnCyJeX/JAAZUBgGK/aAyrzXsHBI
-	Rno5ifeEV4TyyXQCWs+thYsuvtxWFBfhrqjJS1klvspy5XTIJcQNEBmGlVdDBzJClQwNrh7W7in0t
-	jVImCg4rMdDCuDtVRvCHKBG5vEQVmtx/wWUrTWuGzOPT3L6OiniCywGQKK5vFB6wy6ump0/Ey0f2i
-	8j+KCBnQ==;
+	bh=LNFNTQsjW7TanYYeq+qX1AMPKNP12R4RI9aV79tx23E=; b=kcuDaOvHUcJXPrtzvJCWlFBPBr
+	owcVOd5lc8eBK4iw2co9ds/pO8OtK59WXPnvBV2Yg0UvUmKYrbTjmr681Rt6ThM7r8a0EvTqV4VGM
+	hQ/AQGz8ilzd4t1QMDeDqfbbbKO6HuCP2n4Qop4tZ0uasX3/KCMmryOQLseaakWa0ReU9p+okjPkv
+	LLBjLoYaVAy53XxRVCyHAyg2Wf1rw2d5Q7BC88OpeK2DzI8Tv28fcuEUto83+pON4Bf+myncG1Hg/
+	LajPxnOgF00nrBOYOJrezfLXoyTGTeZ8Rj3gpXX+WFHcnznNft4D8sgr5jElJ/3vjSr9bfFl/vQtL
+	SD7isaNQ==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy5mX-00000006Slh-3htI
+	id 1vy5mb-00000006SmX-1Yl4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 10:18:15 +0000
+	Thu, 05 Mar 2026 10:18:19 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1CE611596;
-	Thu,  5 Mar 2026 02:18:06 -0800 (PST)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7ECAE3F694;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6B364497;
 	Thu,  5 Mar 2026 02:18:10 -0800 (PST)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CA9E93F694;
+	Thu,  5 Mar 2026 02:18:14 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
-Date: Thu, 05 Mar 2026 10:17:43 +0000
-Subject: [PATCH v6 12/19] coresight: sysfs: Use source's path pointer for
- path control
+Date: Thu, 05 Mar 2026 10:17:45 +0000
+Subject: [PATCH v6 14/19] coresight: Control path during CPU idle
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260305-arm_coresight_path_power_management_improvement-v6-12-eff765d211a9@arm.com>
+Message-Id: <20260305-arm_coresight_path_power_management_improvement-v6-14-eff765d211a9@arm.com>
 References: <20260305-arm_coresight_path_power_management_improvement-v6-0-eff765d211a9@arm.com>
 In-Reply-To: <20260305-arm_coresight_path_power_management_improvement-v6-0-eff765d211a9@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -69,16 +68,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772705864; l=4309;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772705864; l=1838;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=jd6jEOcvAj87pKfBGcGJM0pC41ua7G93+DWuUkdsiEA=;
- b=Ocfxcy0kgWvgpyRz/u9/+K4ia1mPanYpmXv7W0VwmAITAgSqtRWswbEUyrJQ2rMwj83U4BBb1
- s/nSABZq9vxDzpaaRCopQwl3KYuYWQWZMhi7lCYunsu4xawGqYsTdC9
+ bh=Rj5YjG3a9FUnXd46ldIB7MbWVhCz6DwCoNjK9OT3uCo=;
+ b=kh4409ClrUL0wxNcd/39KTeOcqxkF34JcrGZ8eHGOffl5zdiBioVib/bfdJxzxiXXaUYleTuf
+ jvoL5QVITg3Be9b6E1zRXC/vwvlMXOWtJjVTg3jOFCXddeYDEdAdcvX
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_101814_366326_EA6CE1F0 
-X-CRM114-Status: GOOD (  20.38  )
+X-CRM114-CacheID: sfid-20260305_101817_646072_2212C87A 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,141 +92,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since the path pointer is stored in the source's structure, retrieve it
-directly when disabling the path.
+Control links and helpers on an activated path during CPU idle.  Set the
+"path->in_idle" flag to true during idle to guide path control.
 
-As a result, the global variables used for caching path pointers are no
-longer needed. Remove them to simplify the code.
+Since coresight_disable_path() doesn't handle a source device's helpers,
+explicitly disable them alongside the source device.
 
+Reviewed-by: James Clark <james.clark@linaro.org>
+Tested-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-sysfs.c | 79 +++------------------------
- 1 file changed, 9 insertions(+), 70 deletions(-)
+ drivers/hwtracing/coresight/coresight-core.c | 23 ++++++++++++++++++++++-
+ 1 file changed, 22 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
-index cb1d4f90a9c245b2c2f6e818c0f4d905b86477db..9e94505bccf4ac91207f2f5393ae57ae077d61d6 100644
---- a/drivers/hwtracing/coresight/coresight-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-sysfs.c
-@@ -12,19 +12,6 @@
- #include "coresight-priv.h"
- #include "coresight-trace-id.h"
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index 420e5a9cf38e64f133aa6780987d2d7c2804feb4..8763ca1d81674efa3dea9479a6a6c4025b652559 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -1729,12 +1729,33 @@ static bool coresight_pm_is_needed(struct coresight_device *csdev)
  
--/*
-- * Use IDR to map the hash of the source's device name
-- * to the pointer of path for the source. The idr is for
-- * the sources which aren't associated with CPU.
-- */
--static DEFINE_IDR(path_idr);
--
--/*
-- * When operating Coresight drivers from the sysFS interface, only a single
-- * path can exist from a tracer (associated to a CPU) to a sink.
-- */
--static DEFINE_PER_CPU(struct coresight_path *, tracer_path);
--
- ssize_t coresight_simple_show_pair(struct device *_dev,
- 			      struct device_attribute *attr, char *buf)
+ static int coresight_pm_save(struct coresight_device *csdev)
  {
-@@ -170,11 +157,10 @@ static int coresight_validate_source_sysfs(struct coresight_device *csdev,
- 
- int coresight_enable_sysfs(struct coresight_device *csdev)
- {
--	int cpu, ret = 0;
-+	int ret = 0;
- 	struct coresight_device *sink;
- 	struct coresight_path *path;
- 	enum coresight_dev_subtype_source subtype;
--	u32 hash;
- 
- 	subtype = csdev->subtype.source_subtype;
- 
-@@ -226,35 +212,6 @@ int coresight_enable_sysfs(struct coresight_device *csdev)
- 	if (ret)
- 		goto err_source;
- 
--	switch (subtype) {
--	case CORESIGHT_DEV_SUBTYPE_SOURCE_PROC:
--		/*
--		 * When working from sysFS it is important to keep track
--		 * of the paths that were created so that they can be
--		 * undone in 'coresight_disable()'.  Since there can only
--		 * be a single session per tracer (when working from sysFS)
--		 * a per-cpu variable will do just fine.
--		 */
--		cpu = source_ops(csdev)->cpu_id(csdev);
--		per_cpu(tracer_path, cpu) = path;
--		break;
--	case CORESIGHT_DEV_SUBTYPE_SOURCE_SOFTWARE:
--	case CORESIGHT_DEV_SUBTYPE_SOURCE_TPDM:
--	case CORESIGHT_DEV_SUBTYPE_SOURCE_OTHERS:
--		/*
--		 * Use the hash of source's device name as ID
--		 * and map the ID to the pointer of the path.
--		 */
--		hash = hashlen_hash(hashlen_string(NULL, dev_name(&csdev->dev)));
--		ret = idr_alloc_u32(&path_idr, path, &hash, hash, GFP_KERNEL);
--		if (ret)
--			goto err_source;
--		break;
--	default:
--		/* We can't be here */
--		break;
--	}
--
- out:
- 	mutex_unlock(&coresight_mutex);
- 	return ret;
-@@ -270,9 +227,8 @@ EXPORT_SYMBOL_GPL(coresight_enable_sysfs);
- 
- void coresight_disable_sysfs(struct coresight_device *csdev)
- {
--	int cpu, ret;
--	struct coresight_path *path = NULL;
--	u32 hash;
+-	return coresight_ops(csdev)->pm_save_disable(csdev);
 +	int ret;
-+	struct coresight_path *path;
- 
- 	mutex_lock(&coresight_mutex);
- 
-@@ -280,32 +236,15 @@ void coresight_disable_sysfs(struct coresight_device *csdev)
- 	if (ret)
- 		goto out;
- 
-+	/*
-+	 * coresight_disable_source_sysfs() clears the 'csdev->path' pointer
-+	 * when disabling the source. Retrieve the path pointer here.
-+	 */
-+	path = csdev->path;
 +
- 	if (!coresight_disable_source_sysfs(csdev, NULL))
- 		goto out;
++	if (WARN_ON(!csdev->path))
++		return -EINVAL;
++
++	/* in_idle flag will be used for path controlling */
++	csdev->path->in_idle = true;
++
++	ret = coresight_ops(csdev)->pm_save_disable(csdev);
++	if (ret) {
++		csdev->path->in_idle = false;
++		return ret;
++	}
++
++	coresight_disable_helpers(csdev, csdev->path);
++	coresight_disable_path(csdev->path);
++	return 0;
+ }
  
--	switch (csdev->subtype.source_subtype) {
--	case CORESIGHT_DEV_SUBTYPE_SOURCE_PROC:
--		cpu = source_ops(csdev)->cpu_id(csdev);
--		path = per_cpu(tracer_path, cpu);
--		per_cpu(tracer_path, cpu) = NULL;
--		break;
--	case CORESIGHT_DEV_SUBTYPE_SOURCE_SOFTWARE:
--	case CORESIGHT_DEV_SUBTYPE_SOURCE_TPDM:
--	case CORESIGHT_DEV_SUBTYPE_SOURCE_OTHERS:
--		hash = hashlen_hash(hashlen_string(NULL, dev_name(&csdev->dev)));
--		/* Find the path by the hash. */
--		path = idr_find(&path_idr, hash);
--		if (path == NULL) {
--			pr_err("Path is not found for %s\n", dev_name(&csdev->dev));
--			goto out;
--		}
--		idr_remove(&path_idr, hash);
--		break;
--	default:
--		/* We can't be here */
--		break;
--	}
--
- 	coresight_disable_path(path);
- 	coresight_release_path(path);
+ static void coresight_pm_restore(struct coresight_device *csdev)
+ {
++	if (WARN_ON(!csdev->path))
++		return;
++
++	coresight_enable_path(csdev->path, coresight_get_mode(csdev));
+ 	coresight_ops(csdev)->pm_restore_enable(csdev);
++	csdev->path->in_idle = false;
+ }
  
+ static int coresight_cpu_pm_notify(struct notifier_block *nb, unsigned long cmd,
 
 -- 
 2.34.1
