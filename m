@@ -4,103 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12CBFF30928
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 10:16:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E345F3092B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 10:17:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e5rwWGFQhdrZCpbbLr/E+X4NwG6E0LyDnEZBwSFjBRo=; b=ZoxMUfGYn6GfJ0vpRLBm61Qfhg
-	WCrosxkc7PvDCwi+ISHInikaRGXgRqveq6oNAUiPpykJHmBM8TtkK/KKRXCyEBdCg5HlaVOzUwcjT
-	t4WcSrYm/6/JcRR/GRjRpjFbgEW+mz7q6kBn3ZyiSj91mjPwutKoyNJi2PYVKzqto+dIeBeUe8peZ
-	N2afxUvUwmc8iPFPGoe/ZtAJRauHdIDvMOsrOHD38Jr1QwyARewru6az9yIqAi3RVux3RKTmoxzB9
-	rIpZKJGuHvFaeYnQgwgpbT9mBqCeZ14/DLdV+z7JyEHVHZMtFqkuCNFpXY83gWVOaw5AD1jkFbjMk
-	2juvCONA==;
+	bh=+1hxziyBDZKX8rnKEDu9pfYqT7qAvp0u0hnPl8L3aIc=; b=axvN9av9fSd9DrK++cYpyR6WcX
+	Zy45YDdVaAwveQqPICarGcUWsJozwZdNpZ8TbKSa9Exk9hNNC41FOE/Q0zhy5DMJEDVqkaWKenecR
+	BGNibQapQ4L+kMozq+Jxgze7E4MYlKa5qjn+EnPi2ca5yAwIWTc/PfMJzpjSKgY0p6hGIAhaAOBSK
+	pTxWuAneqw2TYqefHflEITXWbEKDyprbswTm2bfVVCwP5jdoSiOLtDpfwVx/TzGTwND7EJiqp/g1e
+	Yk7xBdkw5sPsTKmE4jbK5KJ5mcgAuiWWcbnV28QEsv1ZynDzZvKFQvfoV7pGvm2WInTbhAyB8lqnX
+	+bmbfOmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy5l4-00000001XTy-2W1P;
-	Thu, 05 Mar 2026 10:16:42 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1vy5lY-00000001XYF-40Lf;
+	Thu, 05 Mar 2026 10:17:12 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy5l1-00000001XTZ-1xWK
+	id 1vy5lW-00000001XWu-1O7k
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 10:16:40 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-b9359c0ec47so853748266b.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 02:16:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1772705797; x=1773310597; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=e5rwWGFQhdrZCpbbLr/E+X4NwG6E0LyDnEZBwSFjBRo=;
-        b=xZKhZs1oUbiLRnSFH4kU33/v7H3baNuOLnIxNgc1N7wkxRoLUaQSUqjWEpS9Zl5H+Q
-         LC74ootNDh9MFvUErTruSk05E96TrKjPE3SEd8Jt5AsOrKM5L3vaWZ2uwKJ655ppbojv
-         MGF7x6Xh/VZyDXBVBsd7Tl+KJAtuUm2iOm6a4DjcrI6AC9eCA/Y+yxEubR+O7vXxSZnP
-         SMT59ovsc9vMmFdPnHODfVMnwavGLcXc7gzRctP9QDoElFxdVRyIPp7WyA9054fYWbmp
-         nNA5eXlAvGaidInye+7GdBaGpY3oghWZyUse1bhfgpFlQbTtSEfQC9mMsVjGt0nt+vOR
-         6Dpg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772705797; x=1773310597;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=e5rwWGFQhdrZCpbbLr/E+X4NwG6E0LyDnEZBwSFjBRo=;
-        b=pv6Qc6eACbWl1fFnCCE8h6XoOZIAMRJl2cWWQa+KTSf2BEpcFLzPeGNE5DO4XWFy/Q
-         rnxWd7SDgB1DdxdO+rPInzVJu9piGFnV3PiNHyZ373roO1vfyCcZz5BV0+ZJsbnd74tL
-         DPwhPcu+6D2uSwSpSU0g5Ar6x9GnJ6hxFawBD4izkzEug4v8K+9xref9VfEQhxTsST7E
-         2fd7rU7bnmX1G3/eo3n8ALMYec5KvAr0zEGlVgS81ehvhsmzeQydfH/wWvY/3FHfexAX
-         9xmRx/nCj4Pom6jVRJnxygghd4xhrsD0rM05GQhvL2sV7L0vW5W2GsUdLTA4PyeM9jVr
-         jZRA==
-X-Forwarded-Encrypted: i=1; AJvYcCUhGPwZX2EFlbbYyd8+fe4KsN8nTtYls4fXPz5bHHywReAsRUalUUj/EtbsnItrkBDCdGv4y5Hb5uMIcmA6vqxG@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsOHi67rYHlg8Unyt7OCZvmzlgUHdub4X8VyCxM4aeJlrv8dkR
-	SpkSPo8Bjq6V6Uk5Uihag/GeYQ2+3G/Oc1V8P6B3fOnEqdgv6Gx08jy78RHQN80C4D4=
-X-Gm-Gg: ATEYQzzxntmt2kjW3e2qlLgBtPEWT9otQP23qYW5jKrx6iMq4hI/lm3onTE0VX4VW25
-	2o4eo4NJpnToH+hOekw7pT4fey5ZENZgsCtXfhf3/EgWYL3j68Q1AYYAVaxXZSeaCI/ig6OZ6Jn
-	2SAOMCYQFALZMygK348uV93Q/Oo0ndYCqBvwc3kyYD6InlMIKmj9zP+t/n66o3jwJl3VMjVc0fQ
-	iK7a9wS11PWsiN9/4Lrpw7bSMcJgH6a9cvuRJSW63gBpqw0BsLUTYfz+OZXns9RRSwwUc0/fcG+
-	fiAPulnX8mmB5SXUfe9EtsoJwb+Pek+QAyeLZfPBPdB3dk08qjarxruLuRgYJCkzmtM9BOpZj1c
-	1RmqULl96G9/xvGMjAjF8/AgGgGK7CmQb5EVUApDzvc6CwctU/SnrzGEeJZe3x4DdpkQJ0RZ+3b
-	M4LxT+RMhzYoyISR2I0KYfKOlwfuGh
-X-Received: by 2002:a17:907:7b98:b0:b73:544d:b963 with SMTP id a640c23a62f3a-b93f11530ddmr332218266b.13.1772705796619;
-        Thu, 05 Mar 2026 02:16:36 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b935ac7371esm883072366b.24.2026.03.05.02.16.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 05 Mar 2026 02:16:36 -0800 (PST)
-Message-ID: <819fa670-f6f6-4251-a528-6d8264451b9f@linaro.org>
-Date: Thu, 5 Mar 2026 10:16:34 +0000
+	Thu, 05 Mar 2026 10:17:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wU5TaUy6RyZudYJ5GIPIi8dG6Rw1XFJMIc/dWAdKrdSPKP3hR1R/y7UwMAlsRldPIzZaD1333s7BDatyjHf/K4nxfb/FKjBoYdHX+NOD6aQIVdCe83sbGrN9qrHDeqHnocw18/rWpHHGZclhZ3yNSCZv5S+tM/AT0C3LEhltJIk32B86om63ykNH1B/klkl+VJfWxW2aKpIwe+89KdN3o14IzijBpz/wfR5wOwhIKwm1x6irGmv9aZY5q4oHANGZA1R39cqlKl8nEEiwNtObTP+lbzkKhU2Kx8dr5yUIII6KNYsN3layAnNlwvrbkllfgdaV7KlaYlHy1mbYf5pZkQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+1hxziyBDZKX8rnKEDu9pfYqT7qAvp0u0hnPl8L3aIc=;
+ b=GQ3SmrJW13Grrz3U5i1uw1wlkQegu0V6XxL6gJKxQqQXGVKJ6KevqW9R1Ps3GaM/b5Sb3uYJLjzAcPkQmnkOrqhHgAM4iC8JVvfSyg5I+u+GSTenM2SJLX/dETuiGSvXDkwkmSMjVsupBFMQp8RjgpPw0yPHOPVLneLbx9STN5NieLl5Qfy3xtuE2Cf24Qx0u8Zwrt3ajO7yuE4x7YScxqR0D4HtGyv+4mRlatBSLygHQ+41SWBuYkjwOgAGBi8h3RVbPGvcgJTO3z5ON6AgZEgrca5DRATMZ74P8QVQV+tgQjdza9vIlsFEwExdPhGYGgLeLXtVS8l/QBzDex0sRw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+1hxziyBDZKX8rnKEDu9pfYqT7qAvp0u0hnPl8L3aIc=;
+ b=mjXvQiFNO4Pa8gKlL8D4glNe/YadlCu0J6nINeiGMkuduU5wnLdYrusJBtJVHKrJFlBeCBBMQ5B4amZupZLoUbTQKVBS/XnCtg+qUCO6pHWd3j3NjmvormFb8sM6l+0jVP8o/mmRKj6ps3J14AAjWP4i2LBUfvIROkarPaz+yC13DDLgVznJrnpuVlTBzomvXqpqfIfm7CLqoYb8mug8biaA41a1z0mGLh9zPZWXd0PBLRYgLU+2toMJAlGgP45Z98u5fKt9yBSGJTce1UvJHmzxLcL+qQ0mVhq/HidsvwUPxllGDSz521QkzbQFfKiKy69KxPuCEg9EfnTNjQphvA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AM0PR04MB11877.eurprd04.prod.outlook.com (2603:10a6:20b:6fc::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Thu, 5 Mar
+ 2026 10:17:04 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e%7]) with mapi id 15.20.9678.017; Thu, 5 Mar 2026
+ 10:17:03 +0000
+Date: Thu, 5 Mar 2026 18:18:56 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Daniel Baluta <daniel.baluta@gmail.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, arm-scmi@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 1/2] firmware: arm_scmi: imx: Support getting reset
+ reason of MISC protocol
+Message-ID: <aalYkDpKS/W3p3m2@shlinux89>
+References: <20260305-scmi-imx-reset-v1-0-18de78978ba9@nxp.com>
+ <20260305-scmi-imx-reset-v1-1-18de78978ba9@nxp.com>
+ <CAEnQRZC4w3qNOJgth=8N-Ri3wFeKc-=VnQXWzr4WR0j6yt7WMQ@mail.gmail.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAEnQRZC4w3qNOJgth=8N-Ri3wFeKc-=VnQXWzr4WR0j6yt7WMQ@mail.gmail.com>
+X-ClientProxiedBy: SI2P153CA0032.APCP153.PROD.OUTLOOK.COM
+ (2603:1096:4:190::23) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 16/19] KVM: arm64: Add vCPU device attr to partition
- the PMU
-To: Colton Lewis <coltonlewis@google.com>
-Cc: Alexandru Elisei <alexandru.elisei@arm.com>,
- Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Mingwei Zhang <mizhang@google.com>, Joey Gouly <joey.gouly@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, Mark Rutland <mark.rutland@arm.com>,
- Shuah Khan <shuah@kernel.org>,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org,
- kvm@vger.kernel.org
-References: <20260209221414.2169465-1-coltonlewis@google.com>
- <20260209221414.2169465-17-coltonlewis@google.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260209221414.2169465-17-coltonlewis@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM0PR04MB11877:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2e18c078-aa94-44ce-2b16-08de7aa0582c
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|52116014|376014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: TiN+otmcg+f5r5Vgnsofdn1p81+d6FjIWg1HGmS5qcskLMr7l7Of7O3PXa9JoqWAPnV4ggFdFXQN37LdIfXvAu8XF3dH0XG/NkD09wjMTdCmj02yySoXparkQRlhr1yJaYN4nsbWXHJuOHRntP7AyRnf/Q+ySgQRaGXmrtroFCGNnjHJ1kwmtUO/+3SROI3Lb/nX42V60iwsBjUhqpBV8n/hkTFhQrBRx4Q3r4QyWJZoamTaz0hnN3YvpxBdvplKAPbN3DrtXR3CkvUjkZZpFuVig6hDyo0+WWauaCxWFnOzcQIXRM1RMoGrsknEpp+YzwjyK4Wp2abg70hPrguYvMFICkUwUyIhXOugkzPVUxH83sCyF1fReRXSsX6fw/p5BYscHoARXFY2Kt0w2egykzUDMM1GoSGArffI5MzfK42nnKFtrcJrNFzSBHfjqeLCshR5TO+bEuUB5CTAOVqYU2Sy+T43vyhi1ahIGQGikrrPDrv5Ee2nsf4Yldy7pwSkOpxBnX3zNWGgA9hFNJdhNJFHUiAlcUQLh1qPVs9Ns2YQ8oFiSig4xMtN9LLcR8JI/8ctHVyr8tbOiRA69VcjtTq0BDxDfQCikYHPhq3RHuajqYNG6zh7Z7ePZFc8TXY4iVgUD/lWBQfAGPT90AxjhTh6jGQepe5S91tQD40LYp0ULGs9zCf6B7ULCYOwAiMRDxRqZng+qbi4RO8kDAnE0C3QR7L95DEBTpnHFoxqfsBa9Yan3KnF6p/xhr8ZNd0wRHuGLDrhzbOetLjM7MPsAUHesxTg/rBomu1FvU8xw0k=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?REM0NDk5c2pGV0hEbWpxOEhUOFFpL01HbjVkcFpQcFRzTmcrVkd4Y2ZZZWJK?=
+ =?utf-8?B?eHZPS2RoeDlXNnMyY0FaRFlqc0N3TXdPMVE1aytFcUhiRUxHL0NjZlNhSWhr?=
+ =?utf-8?B?TUkzOTRIaCtKQzBQK2dxbnRmVGxaR1g3MWJZaVB1K1pBZ2FORzJlZVQzYStm?=
+ =?utf-8?B?YzdoMXBJTnRJeXdDdTdtZUlZS3BGRTNBc29uWXBlYUY0eTVqMEx4NktKMXly?=
+ =?utf-8?B?RnZBc1RubFd6aWVIL3dodUMxbE5iMDdVby9NQ1BQVHRKK2tzQS9NYlMydHRZ?=
+ =?utf-8?B?bTFYdlVQOStmZ0YrMTQ5Y2d5OEIxd3M3KzlheTk4aGN3WW95MFkvcWtvSXRi?=
+ =?utf-8?B?Kzdla21IdU9yZmFuYXgzU254SWwyZ3RlS0xEOUF1YVc1TDNjc0lUeUdYc1lh?=
+ =?utf-8?B?NDRsYmx1cmdlcStlL1l2cEV6MDlFK2hWa0VpNndDL0dTNDI4MW9ZM3lOWm0w?=
+ =?utf-8?B?bEF5R2psY1lXTGdBTHZ0UTJVNGtmMjhKS3lyeHpGOEFNdEQ2WkxjUDcvRGRz?=
+ =?utf-8?B?T3ZHYUxZTVprdjIrN2FoZTI2Q0NlWGtOUUpXZi9ibGEyQUE2dkR3anJnTFEv?=
+ =?utf-8?B?L2VzZGdKUm9xTEtBL1pnajdUUDBzMitGS3hRWlFhVFp1UFdXWGVwSXo1aVZt?=
+ =?utf-8?B?OUl6NDBKNFh4NUcvVEx3VjdtMjdydCsyNCt5Wi9Pc2Ivb2dCTDV3T2VBeGRj?=
+ =?utf-8?B?NDhNSjAxdVNmWXRPcVZJUCtyNU1POEoyQXpJNGJIZDV6bm9ZbTkrZ3NoZFR5?=
+ =?utf-8?B?Y29WeU1wTDZ1V0FTVTMvemJoaFR0RGJkN2IxZm5qeEZwV0dCOGRqQlFxSlps?=
+ =?utf-8?B?NndCcDZLRXlwVEs2ejhEc3BnOEE3UkxWRTRYd3ZQZ240azVscitXOHIwblht?=
+ =?utf-8?B?c3dWUHVGeFplZG1XNUFRSm8vTFJvUytpbnZQMllRbEVRcm5LajB0YkZhd3JZ?=
+ =?utf-8?B?VVZnR09mZENHOFMyRWVBNXU0K3ViaCtudVVPZnZRdHM4NDM2d3RNdW85Mm4x?=
+ =?utf-8?B?aGZ5Rll3WWRaaXc4cHkxdWtOTzh0ZGxPSFkzQVZ1NFlocnJLYXV2bTZ3cUQv?=
+ =?utf-8?B?QXZ1YjBmTXdleUxFWG0xVUF1K3VWUTJuek1qZy90UjdXUFFHMnFRVmFBdmxj?=
+ =?utf-8?B?V1BJQjJ2VnloOWhQOVFZNGVkSGdpZ2t6WHhZbGh4bm9KbVFqTDBLNk14MFND?=
+ =?utf-8?B?aDlVTS9yaEpxL09uNGNCZ0d0R2Y3S1RVUHBMa25LS3VBdGx2czgwbVZXSmwr?=
+ =?utf-8?B?NjViSSswcW83REpRU0dpYndtSlFKRHlCUmpUWW92UGhGNTNHa0t2RGIzMkZp?=
+ =?utf-8?B?cHFyN3ZCWVFhMHhEVGJ1OGZtTVVBK0Rndy9mUm1FeGZTUzJwUEtHQXpGTHR4?=
+ =?utf-8?B?YWFiZVBKbUZvRkNnNHFTQjA0N3krbXNSMXVhY3dlaU1ZNmlmcUtweSt1OXRH?=
+ =?utf-8?B?bGp6SFNaN0ErWk9CNEpRTnBBaUJabDhKVkJrVGppNTJzdEVUbGRHY04wRkZx?=
+ =?utf-8?B?RTVhR2hRWVVOL0JzSE9rNWFJQUZRUGlvVldLblduclhpQ1NQQUhXS2MvZHBF?=
+ =?utf-8?B?S1VzK3FNYzhqRnRUMzVrc1BpSERQQ29CL01HRmIwQjlXeEdlMDFDcnZaM2RU?=
+ =?utf-8?B?M3Y3UVMwclZwL3FwR1dSbDhLTk1YMHVWUFBrb0RkRnpBSHYwbmhzWnZpa3cz?=
+ =?utf-8?B?MFVSSi9aSENJOGVhZGdWbEhPUTllbUFnOGwyVEtITFJ2Q0xmUjRUeVJpVkhH?=
+ =?utf-8?B?MkZVeG9PRG5UclFuTGFNNkNSdU1nVTQ5dlBKdXFTZnVuVmhnRWEvQlRWc25z?=
+ =?utf-8?B?K0hiVWVOM0FuOVNvK0ZSQlVWaGNhOTlwV3VSdmVmQUlsQVF3R3JDMlVaRElF?=
+ =?utf-8?B?dGJpQUcweGVRcFF1d3A5aDFvMmtHcngxdUpEU2lRVHF4cHhTekkrRTJDUjNX?=
+ =?utf-8?B?eHZqS1NSb1Foamp1Nm1FdG90YVhXeHZLVGw4WElrblIrdTdRdDhhV1k2eHdL?=
+ =?utf-8?B?RHdBclVQemNXbHZUdG1HMVZJQU55OGVrRGlqUEgrUHBlbmpzTDZjZlkwRGpa?=
+ =?utf-8?B?SU10Mjh4RzVoSHcwS0JxWEVUS0dNaGd1UFNXd1Q2bkdWa1Vqd1A3dU91TnNl?=
+ =?utf-8?B?Yk9lZ2xzcFQrRjBBT0hHYkw1bEEzdUJSRTRURWg0UmJBaWFrcUhJY3crQyt3?=
+ =?utf-8?B?ek54VS9Fd0tVN2E0SlJJaDVDMzFvblZjWk50d1NQSFJBSzBGNkVDaGMrQnEx?=
+ =?utf-8?B?bnQrT3VYOEkyTVNjczQvaDhna1AwaUUyaFhFa1ovdXJ5bmRCazFtTVpQYU1I?=
+ =?utf-8?B?NGI3L2loUGtTamRBQzQ5L1F1VjY0aG84ZjNxTG1ocm11UEJDdVFTQT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2e18c078-aa94-44ce-2b16-08de7aa0582c
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2026 10:17:02.9842
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6Q7S/Itb5+SILClnWknn3aAq5PvFBQEsghHoNZlX+sGovRPnoM5D4bIIQJhbC44HNYkl45TPjZBachHgUpHl2A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB11877
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_021639_589994_9DCB4A59 
-X-CRM114-Status: GOOD (  33.55  )
+X-CRM114-CacheID: sfid-20260305_021710_577248_E49DB891 
+X-CRM114-Status: GOOD (  14.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,182 +155,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Daniel,
 
+Thanks for giving a look.
 
-On 09/02/2026 10:14 pm, Colton Lewis wrote:
-> Add a new PMU device attr to enable the partitioned PMU for a given
-> VM. This capability can be set when the PMU is initially configured
-> before the vCPU starts running and is allowed where PMUv3 and VHE are
-> supported and the host driver was configured with
-> arm_pmuv3.reserved_host_counters.
-> 
-> The enabled capability is tracked by the new flag
-> KVM_ARCH_FLAG_PARTITIONED_PMU_ENABLED.
+On Thu, Mar 05, 2026 at 08:52:41AM +0200, Daniel Baluta wrote:
+>On Thu, Mar 5, 2026 at 3:55 AM Peng Fan (OSS) <peng.fan@oss.nxp.com> wrote:
+>>
+>> From: Peng Fan <peng.fan@nxp.com>
+>>
+>> MISC protocol supports getting reset reason per Logical Machine or
+>> System. Add the API for user to retrieve the information from System
+>> Manager.
+>
+>[..]
+>
+>> +struct scmi_imx_misc_reset_reason_in {
+>> +#define MISC_REASON_FLAG_SYSTEM        BIT(0)
+>> +       __le32 flags;
+>> +};
+>> +
+>> +struct scmi_imx_misc_reset_reason_out {
+>> +       /* Boot reason flags */
+>> +#define MISC_BOOT_FLAG_VLD             BIT(31)
+>> +#define MISC_BOOT_FLAG_ORG_VLD         BIT(28)
+>> +#define MISC_BOOT_FLAG_ORIGIN          GENMASK(27, 24)
+>> +#define MISC_BOOT_FLAG_O_SHIFT         24
+>> +#define MISC_BOOT_FLAG_ERR_VLD         BIT(23)
+>> +#define MISC_BOOT_FLAG_ERR_ID          GENMASK(22, 8)
+>> +#define MISC_BOOT_FLAG_E_SHIFT         8
+>> +#define MISC_BOOT_FLAG_REASON          GENMASK(7, 0)
+>
+>I would move this macros outside of the struct. Although the intention
+>is good it makes everything hard to read.
 
-Typo, should be: KVM_ARCH_FLAG_PARTITION_PMU_ENABLED. Or maybe the 
-#define should be fixed.
+I followed arm_scmi coding style, such as
+drivers/firmware/arm_scmi/clock.c
+drivers/firmware/arm_scmi/perf.c
+and etc.
 
-I couldn't see if this was discussed before, but what's the reason to 
-not use the guest partition by default and make this flag control 
-reverting back to use the non passed through PMU?
+I would not break the rule here.
+>
+>Just do:
+>
+>struct scmi_imx_misc_reset_reason_out {
+>__le32 b_flags; /* MISC_BOOT_FLAG_* flags */
+>__le32 s_flags; /* MISC_SHUTDOWN_FLAG_* flags */
+>      /* Array of extended info words */
+>       __le32 extinfo[MISC_EXT_INFO_LEN_MAX];
+>}
+>
+>[...]
+>
+>> +static int scmi_imx_misc_reset_reason(const struct scmi_protocol_handle *ph, bool system,
+>> +                                     struct scmi_imx_misc_reset_reason *boot_r,
+>> +                                     struct scmi_imx_misc_reset_reason *shut_r,
+>> +                                     u32 *extinfo)
+>> +{
+>> +       struct scmi_imx_misc_reset_reason_in *in;
+>> +       struct scmi_imx_misc_reset_reason_out *out;
+>> +       struct scmi_xfer *t;
+>> +       int ret;
+>> +
+>> +       ret = ph->xops->xfer_get_init(ph, SCMI_IMX_MISC_RESET_REASON_GET, sizeof(*in),
+>> +                                     sizeof(*out), &t);
+>> +       if (ret)
+>> +               return ret;
+>> +
+>> +       in = t->tx.buf;
+>> +       if (system)
+>> +               in->flags = le32_encode_bits(1, MISC_REASON_FLAG_SYSTEM);
+>> +       else
+>> +               in->flags = cpu_to_le32(0);
+>
+>What does system = 0 mean? can you directly do in->flags = 0?
 
-Seems like if you already have to enable it by creating a partition on 
-the host, then you more than likely want your guests to use it. And it's 
-lower overhead so it's "better". Right now it's two things that you have 
-to set at the same time to do one thing.
+If system is false, that means to get LM(logial machine) reset reason.
+If system is true, that means to get system reset reason.
 
-Or does having to set it on the host go away with the dynamic approach 
-here [1]?
+grep "cpu_to_le32(0)" ./drivers/firmware/arm_scmi/ -rn
 
-[1]: https://lore.kernel.org/kvmarm/aWjlfl85vSd6sMwT@willie-the-truck/
+You will see other usage, I just follow same style here.
 
-> 
-> Signed-off-by: Colton Lewis <coltonlewis@google.com>
-> ---
->   arch/arm64/include/asm/kvm_host.h |  2 ++
->   arch/arm64/include/uapi/asm/kvm.h |  2 ++
->   arch/arm64/kvm/pmu-direct.c       | 35 ++++++++++++++++++++++++++++---
->   arch/arm64/kvm/pmu.c              | 14 +++++++++++++
->   include/kvm/arm_pmu.h             |  9 ++++++++
->   5 files changed, 59 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 41577ede0254f..f0b0a5edc7252 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -353,6 +353,8 @@ struct kvm_arch {
->   #define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
->   	/* Unhandled SEAs are taken to userspace */
->   #define KVM_ARCH_FLAG_EXIT_SEA				11
-> +	/* Partitioned PMU Enabled */
-> +#define KVM_ARCH_FLAG_PARTITION_PMU_ENABLED		12
->   	unsigned long flags;
->   
->   	/* VM-wide vCPU feature set */
-> diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-> index a792a599b9d68..3e0b7619f781d 100644
-> --- a/arch/arm64/include/uapi/asm/kvm.h
-> +++ b/arch/arm64/include/uapi/asm/kvm.h
-> @@ -436,6 +436,8 @@ enum {
->   #define   KVM_ARM_VCPU_PMU_V3_FILTER		2
->   #define   KVM_ARM_VCPU_PMU_V3_SET_PMU		3
->   #define   KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS	4
-> +#define   KVM_ARM_VCPU_PMU_V3_ENABLE_PARTITION	5
-> +
->   #define KVM_ARM_VCPU_TIMER_CTRL		1
->   #define   KVM_ARM_VCPU_TIMER_IRQ_VTIMER		0
->   #define   KVM_ARM_VCPU_TIMER_IRQ_PTIMER		1
-> diff --git a/arch/arm64/kvm/pmu-direct.c b/arch/arm64/kvm/pmu-direct.c
-> index 6ebb59d2aa0e7..1dbf50b8891f6 100644
-> --- a/arch/arm64/kvm/pmu-direct.c
-> +++ b/arch/arm64/kvm/pmu-direct.c
-> @@ -44,8 +44,8 @@ bool kvm_pmu_is_partitioned(struct arm_pmu *pmu)
->   }
->   
->   /**
-> - * kvm_vcpu_pmu_is_partitioned() - Determine if given VCPU has a partitioned PMU
-> - * @vcpu: Pointer to kvm_vcpu struct
-> + * kvm_pmu_is_partitioned() - Determine if given VCPU has a partitioned PMU
-> + * @kvm: Pointer to kvm_vcpu struct
->    *
->    * Determine if given VCPU has a partitioned PMU by extracting that
->    * field and passing it to :c:func:`kvm_pmu_is_partitioned`
-> @@ -55,7 +55,36 @@ bool kvm_pmu_is_partitioned(struct arm_pmu *pmu)
->   bool kvm_vcpu_pmu_is_partitioned(struct kvm_vcpu *vcpu)
->   {
->   	return kvm_pmu_is_partitioned(vcpu->kvm->arch.arm_pmu) &&
-> -		false;
-> +		test_bit(KVM_ARCH_FLAG_PARTITION_PMU_ENABLED, &vcpu->kvm->arch.flags);
-> +}
-> +
-> +/**
-> + * has_kvm_pmu_partition_support() - If we can enable/disable partition
-> + *
-> + * Return: true if allowed, false otherwise.
-> + */
-> +bool has_kvm_pmu_partition_support(void)
-> +{
-> +	return has_host_pmu_partition_support() &&
-> +		kvm_supports_guest_pmuv3() &&
-> +		armv8pmu_max_guest_counters > -1;
-> +}
-> +
-> +/**
-> + * kvm_pmu_partition_enable() - Enable/disable partition flag
-> + * @kvm: Pointer to vcpu
-> + * @enable: Whether to enable or disable
-> + *
-> + * If we want to enable the partition, the guest is free to grab
-> + * hardware by accessing PMU registers. Otherwise, the host maintains
-> + * control.
-> + */
-> +void kvm_pmu_partition_enable(struct kvm *kvm, bool enable)
-> +{
-> +	if (enable)
-> +		set_bit(KVM_ARCH_FLAG_PARTITION_PMU_ENABLED, &kvm->arch.flags);
-> +	else
-> +		clear_bit(KVM_ARCH_FLAG_PARTITION_PMU_ENABLED, &kvm->arch.flags);
->   }
->   
->   /**
-> diff --git a/arch/arm64/kvm/pmu.c b/arch/arm64/kvm/pmu.c
-> index 72d5b7cb3d93e..cdf51f24fdaf3 100644
-> --- a/arch/arm64/kvm/pmu.c
-> +++ b/arch/arm64/kvm/pmu.c
-> @@ -759,6 +759,19 @@ int kvm_arm_pmu_v3_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
->   
->   		return kvm_arm_pmu_v3_set_nr_counters(vcpu, n);
->   	}
-> +	case KVM_ARM_VCPU_PMU_V3_ENABLE_PARTITION: {
-> +		unsigned int __user *uaddr = (unsigned int __user *)(long)attr->addr;
-> +		bool enable;
-> +
-> +		if (get_user(enable, uaddr))
-> +			return -EFAULT;
-> +
-> +		if (!has_kvm_pmu_partition_support())
-> +			return -EPERM;
-> +
-> +		kvm_pmu_partition_enable(kvm, enable);
-> +		return 0;
-> +	}
->   	case KVM_ARM_VCPU_PMU_V3_INIT:
->   		return kvm_arm_pmu_v3_init(vcpu);
->   	}
-> @@ -798,6 +811,7 @@ int kvm_arm_pmu_v3_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
->   	case KVM_ARM_VCPU_PMU_V3_FILTER:
->   	case KVM_ARM_VCPU_PMU_V3_SET_PMU:
->   	case KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS:
-> +	case KVM_ARM_VCPU_PMU_V3_ENABLE_PARTITION:
->   		if (kvm_vcpu_has_pmu(vcpu))
->   			return 0;
->   	}
-> diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
-> index 93586691a2790..ff898370fa63f 100644
-> --- a/include/kvm/arm_pmu.h
-> +++ b/include/kvm/arm_pmu.h
-> @@ -109,6 +109,8 @@ void kvm_pmu_load(struct kvm_vcpu *vcpu);
->   void kvm_pmu_put(struct kvm_vcpu *vcpu);
->   
->   void kvm_pmu_set_physical_access(struct kvm_vcpu *vcpu);
-> +bool has_kvm_pmu_partition_support(void);
-> +void kvm_pmu_partition_enable(struct kvm *kvm, bool enable);
->   
->   #if !defined(__KVM_NVHE_HYPERVISOR__)
->   bool kvm_vcpu_pmu_is_partitioned(struct kvm_vcpu *vcpu);
-> @@ -311,6 +313,13 @@ static inline void kvm_pmu_host_counters_enable(void) {}
->   static inline void kvm_pmu_host_counters_disable(void) {}
->   static inline void kvm_pmu_handle_guest_irq(struct arm_pmu *pmu, u64 pmovsr) {}
->   
-> +static inline bool has_kvm_pmu_partition_support(void)
-> +{
-> +	return false;
-> +}
-> +
-> +static inline void kvm_pmu_partition_enable(struct kvm *kvm, bool enable) {}
-> +
->   #endif
->   
->   #endif
+>
+>
+>> +
+>> +       ret = ph->xops->do_xfer(ph, t);
+>
+>Is it mandatory to call  ph->xops->xfer_put(ph, t); even if ret ! = 0?
+>Because we can get rid of one level of indentation with:
 
+yes, xfer_put is mandatory.
+
+Thanks,
+Peng.
+
+>
+> ret = ph->xops->do_xfer(ph, t);
+> if (ret)
+>    return ret;
 
