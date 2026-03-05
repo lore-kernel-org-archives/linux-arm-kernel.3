@@ -4,85 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DC92F33A78
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 14:46:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E455DF33A79
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 14:47:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
+	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
+	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ib3Y1WfXK/VAkE8AT+6ehanWQlaf0h04pTxuz0yWfmU=; b=OzoTQlSOv4ePzB0DZCdbaWi7fx
-	DLFuvSlmIXFhxlIdZw3e9i60jnG8OIF+ZL6k8pIpV6J381G6VBFIFl7UZlKJQbp2+AyaD7Vsa9QDl
-	3nbLM/LEgVcundJOFj7sNRk+SVTAoSDrxXl2d7dr5Q1KEPhV/JrrYO5iLRg+zo9Q4NVmOKHrNV/YB
-	+3KfHTwNX1bWLJY+hN4no/OcN9BGtkqtLLLfsTwJNCTdJVlnw4NnHa+Zt/dcV0lLEdCHHOFbJoB1P
-	BmtmNn7TNVpzaV7Kkx1KxBVpP76gNyngm4hZ6VfHFLZNrYxpRBQSEKESqO6IGrFsGm9yxFlyc6Px3
-	J4dFS9xQ==;
+	bh=EJOEhKeUqI/M2HsTElLEzgI9onsrGDvECDa56GzYQ6k=; b=ru0z2tOTpCAjktU+4a3ZPXvT5s
+	EFEsVKTPM7Vq8h0HoxRLKAUmSjFaXKafKnzC//lWjVA6/tRpAynKw3cmOqWDI1RLCf5fFgVa6SwiY
+	RJVsgLHmRUKR+vFslsjehcAXV/fSwDqdiASdli7Yh88dHk11HU0kSmfDgnjSSQdEdosM1eVkN/vew
+	LJ3CQ3EPGJsdb5CmjiMv2bredgNC725Zii+rVLpp4id8Y+IwfuiFeEfxboMT8hegd5IjhT686Guv1
+	dYihATp0R7LiPxZC7ILTA3NkrgY9FoDcj+LWOnGKD9IldBR979vN4uzSqL72JJdy/Khwj6Ys0wIV+
+	D/ZkCMuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy9y4-000000023MO-1Hx4;
-	Thu, 05 Mar 2026 14:46:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vy9yb-000000023oJ-0Pje;
+	Thu, 05 Mar 2026 14:46:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy9y3-000000023JI-0cbl
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 05 Mar 2026 14:46:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=Ib3Y1WfXK/VAkE8AT+6ehanWQlaf0h04pTxuz0yWfmU=; b=HjZ9YrGuyB5HamY1vfjn3bDHkO
-	Pp1omwaxCToss0LGOvKJO36rvl08/OxMnAHRg14T4HOSWu/y4sAOTWzryHTDCSaj3DwP0tCOKOhHn
-	ISFxqU+B2kKe8haWvx0t/c4l6VldVShTv2elYC7dmhcDgNKp1JgDGLD+e1RcaZUZcDu+0u8wtr4fp
-	oAP5nz7EIpLvVNSv5SElge0alF8ccz5PLPdiLZnTFmNbD/pMeS8E1etOzdvQP+YNfnV9fKaPa8eH+
-	9vmW8N19fpbzlxAXMKJctmD8lLN7gEKdnr6yqRg5l10ROwnWeB/SkBIeKChXVFTQ1Ncjsnsicr5hq
-	PAYVqtHQ==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy9xx-00000006yi4-2hlO
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 14:46:21 +0000
+	id 1vy9yZ-000000023ml-1f5V;
+	Thu, 05 Mar 2026 14:46:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 96C4B43A30;
-	Thu,  5 Mar 2026 14:46:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94D13C116C6;
-	Thu,  5 Mar 2026 14:46:12 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AF6386184F;
+	Thu,  5 Mar 2026 14:46:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D781BC116C6;
+	Thu,  5 Mar 2026 14:46:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772721975;
-	bh=oZcCfY/nioqPKTU9trBN+esVvAZhnr2RYRCLrfwP754=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Nupp1a6D9V7Y7uajqJaNSL5oBJxrMqJWYyxJyXxRnRCKd01rf+liXMQJRjgjOb3Q7
-	 0UDlrr43Ob7yq+XRRKwZPAU6Pz1RoF0Rwf6jfCEJHLAsy9BGu/3yVB/f7dQ/sJXosk
-	 OukL7EtKxgLKi1O1eVT5BnyO4z69zYJSJiqj2huXpnzU5U5mMYh7kppGVQu23BKsRy
-	 8LEz0T/gIoomgLrN4TL21A5R+ZakCQVAhEPTRCsQD+3PA4Tz5F6CSYP1ABR6wFXqwe
-	 g9z/Wm93kK4SzRMNs6AXxtUuE/e8CQhtRkU8mPutTGmKzsmAk4r6L7YtjBYYKXE8+C
-	 QHaVviOpkTuUQ==
-From: Will Deacon <will@kernel.org>
-To: kvmarm@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Quentin Perret <qperret@google.com>,
-	Fuad Tabba <tabba@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH v3 36/36] KVM: arm64: Rename PKVM_PAGE_STATE_MASK
-Date: Thu,  5 Mar 2026 14:43:49 +0000
-Message-ID: <20260305144351.17071-37-will@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260305144351.17071-1-will@kernel.org>
-References: <20260305144351.17071-1-will@kernel.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_144617_927119_291B41D5 
-X-CRM114-Status: GOOD (  10.96  )
+	s=k20201202; t=1772722014;
+	bh=+vyyNXwbVKSALuloOGJ/u3XQdbK2QU/tneBRUrk0GPg=;
+	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
+	b=Dtp4EoErGT5rmyC8XF590dGA+1fJwq3ailHWMacH5ErbUV+V1olQJF0gWKHFogu0X
+	 BS6BWuhIKpEF8bh0LvV+cqOW1xT56JIqFWU6kgMkxpYrJtZIQj2zJYo4NETaHbFvir
+	 H7q8e8sCROgU5De7vFaYkHpe5SBoFyZ2kXGiubH8BVWWjpCVMn6WZJrSdmBblj+JfY
+	 3QJLSw282cXQGFqC9c4Yqoj8DvGpn3osMVMUdJULiALh0LhbcxoeHYNUDGXthpqT1t
+	 2lJZ8L1MpOzPvXV2y/6wfRJ35EnJ/sfrhKG+Tixtl7ZwK3UmPTVA9jsaF/w6p9Xr0B
+	 jpKoTIypQBWrw==
+Message-ID: <0d4b2eb4691010abf43dcafb96b3694e@kernel.org>
+Date: Thu, 05 Mar 2026 14:46:51 +0000
+From: "Maxime Ripard" <mripard@kernel.org>
+To: "Nicolas Frattaroli" <nicolas.frattaroli@collabora.com>
+Subject: Re: [PATCH v10 06/22] drm/display: hdmi-state-helper: Act on color
+ format DRM property
+In-Reply-To: <20260305-color-format-v10-6-a58c68a11868@collabora.com>
+References: <20260305-color-format-v10-6-a58c68a11868@collabora.com>
+Cc: amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, kernel@collabora.com, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, "Alex
+ Deucher" <alexander.deucher@amd.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Andy
+ Yan" <andy.yan@rock-chips.com>, =?utf-8?b?Q2hyaXN0aWFuIEvDtm5pZw==?= <christian.koenig@amd.com>, "David
+ Airlie" <airlied@gmail.com>, "Dmitry Baryshkov" <lumag@kernel.org>, "Harry
+ Wentland" <harry.wentland@amd.com>, =?utf-8?b?SGVpa28gU3TDvGJuZXI=?= <heiko@sntech.de>, "Jani
+ Nikula" <jani.nikula@linux.intel.com>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Jonas
+ Karlman" <jonas@kwiboo.se>, "Jonathan Corbet" <corbet@lwn.net>, "Joonas
+ Lahtinen" <joonas.lahtinen@linux.intel.com>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>, "Leo
+ Li" <sunpeng.li@amd.com>, "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime
+ Ripard" <mripard@kernel.org>, "Neil Armstrong" <neil.armstrong@linaro.org>, "Rob
+ Herring" <robh@kernel.org>, "Robert Foss" <rfoss@kernel.org>, "Rodrigo
+ Siqueira" <siqueira@igalia.com>, "Rodrigo Vivi" <rodrigo.vivi@intel.com>, "Sandy
+ Huang" <hjc@rock-chips.com>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Shuah
+ Khan" <skhan@linuxfoundation.org>, "Simona Vetter" <simona@ffwll.ch>, "Thomas
+ Zimmermann" <tzimmermann@suse.de>, "Tvrtko Ursulin" <tursulin@ursulin.net>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,46 +79,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename PKVM_PAGE_STATE_MASK to PKVM_PAGE_STATE_VMEMMAP_MASK to make it
-clear that the mask applies to the page state recorded in the entries
-of the 'hyp_vmemmap', rather than page states stored elsewhere (e.g. in
-the ptes).
+On Thu, 5 Mar 2026 15:19:32 +0100, Nicolas Frattaroli wrote:
+> With the introduction of the "color format" DRM property, which allows
+> userspace to request a specific color format, the HDMI state helper
+> should implement this.
+> 
+> Implement it by translating the requested drm_connector_color_format to
+> 
+> [ ... ]
 
-Suggested-by: Alexandru Elisei <alexandru.elisei@arm.com>
-Signed-off-by: Will Deacon <will@kernel.org>
----
- arch/arm64/kvm/hyp/include/nvhe/memory.h | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/memory.h b/arch/arm64/kvm/hyp/include/nvhe/memory.h
-index 4cedb720c75d..b50712d47f6d 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/memory.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/memory.h
-@@ -37,7 +37,7 @@ enum pkvm_page_state {
- 	 */
- 	PKVM_POISON			= BIT(2),
- };
--#define PKVM_PAGE_STATE_MASK		(BIT(0) | BIT(1))
-+#define PKVM_PAGE_STATE_VMEMMAP_MASK	(BIT(0) | BIT(1))
- 
- #define PKVM_PAGE_STATE_PROT_MASK	(KVM_PGTABLE_PROT_SW0 | KVM_PGTABLE_PROT_SW1)
- static inline enum kvm_pgtable_prot pkvm_mkstate(enum kvm_pgtable_prot prot,
-@@ -114,12 +114,12 @@ static inline void set_host_state(struct hyp_page *p, enum pkvm_page_state state
- 
- static inline enum pkvm_page_state get_hyp_state(struct hyp_page *p)
- {
--	return p->__hyp_state_comp ^ PKVM_PAGE_STATE_MASK;
-+	return p->__hyp_state_comp ^ PKVM_PAGE_STATE_VMEMMAP_MASK;
- }
- 
- static inline void set_hyp_state(struct hyp_page *p, enum pkvm_page_state state)
- {
--	p->__hyp_state_comp = state ^ PKVM_PAGE_STATE_MASK;
-+	p->__hyp_state_comp = state ^ PKVM_PAGE_STATE_VMEMMAP_MASK;
- }
- 
- /*
--- 
-2.53.0.473.g4a7958ca14-goog
-
+Thanks!
+Maxime
 
