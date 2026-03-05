@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D52BEEF312
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 07:54:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15E84EEF316
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 07:59:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=INGbhC1k38Jrr8kD8M8GCyeZ7uJijtC0Me4SABhYQmg=; b=Rv7SSmR7gf3CFtDqYg9wwWthJD
-	AnMTqx1sLxwRIQM3B8Pr/jEUEnfT5N97I2dpmbJ+zXWtZdIlF71H4tUDK/2oEZoUDzdYp+VrBMvAb
-	RskEfJdqVw9N/lPH15+AWN8Myfwu9P0p9/H+5S0uy7se8EmCrU5o1SaAGOkeqjrPROmtcpmGrip8P
-	xJVBFcCAcJ53ejV8ADO4pDNdFwn5fblrU3bcd8pqu2wW3bk0iwsu9HVAkCfg9Q1EQ99XqZxTu5Uoc
-	aS8RLUAodlq6bdP4i/0aSrEO6fzwn83EW4qmA24k7c0CTP8OJEW1iAYZjFweCQHDhuPg9zFheV6bU
-	Do8p2nxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WgZ+RIWY3eB9qYzhsZqkcwzK6/MpvbcTMTMZUCtLcNc=; b=4nJ3c62FNtd8QloMekXh0KCSrC
+	A9rIWrhQ5nlic9usZGv9qbGYvlryBkrAl5n0eOr+Q9oWBYDZo8p1zM8n4pQu+mAPVf6Is/ijS6NQb
+	xs6IeVL+E2DH7FqHSSUacWhTaWpOO8duI+W6LkMnzX2WMSs1CX/qtrptIEwNy5N23x9BMYoz396Uo
+	56Iu8V/yZS34N7jjZBTDKrEutk/X0BC5fl8l07eGLSAO/lIxt2tQu/tXBHxcumTnT1+ZMTD0Hbo+Y
+	nhl1KXDkNkCWtVCyboBOe5F1uaRMJN4KEqnrqfQ3qE6voi14NNs4VH7tyHuPlibS3IYgDhssIrUUf
+	SQDvTL7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy3Xi-000000018T8-3bt2;
-	Thu, 05 Mar 2026 07:54:46 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vy3c3-000000018xD-2cmJ;
+	Thu, 05 Mar 2026 07:59:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy3Xf-000000018OP-1qSA
+	id 1vy3c0-000000018wq-483C
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 07:54:45 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id ADB11C40404;
-	Thu,  5 Mar 2026 07:54:56 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 28BF15FDEB;
-	Thu,  5 Mar 2026 07:54:38 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4AFD51036981A;
-	Thu,  5 Mar 2026 08:54:34 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1772697277; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=INGbhC1k38Jrr8kD8M8GCyeZ7uJijtC0Me4SABhYQmg=;
-	b=lhxI5l8/VONdMAIwqs/2IElcJc+GoI3Y+SJON2PZaZFs8Vq54FxfiqMoB6j58Jg4LyKxoN
-	XKzzVE8KbVMV50C0QbPLInENombI2kH+esU68DR4+uaQtUHcDAPboa/g0SYlU05D8ksXPa
-	92ZE8P+kEg4icw/xhHb9nMq9aSoZeWUd/G2Jg/8NnvpISdvG5eyTACg6K2NDkFUVShQoGL
-	IL15RxAr7cENNulbAT+OwLAQow3ue423grgkoHNFKM2dvmBZEGx2iYBwedZcSNs3U9KayG
-	wmHaw0WmPC5rK+yHhIqK7ZWxb49/mFveEM5pq5+esQE7Ppvv+9Io0/SGeTniow==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: Andrew Lunn <andrew@lunn.ch>, Gabor Juhos <j4g8y7@gmail.com>
-Cc: Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: marvell: armada-37xx: drop
- 'marvell,usb-misc-reg' properties
-In-Reply-To: <db997887-2431-4baa-8e96-04f53ea59060@lunn.ch>
-References: <20260304-armada-37xx-drop-usb-misc-reg-v1-1-800c1b746b7a@gmail.com>
- <db997887-2431-4baa-8e96-04f53ea59060@lunn.ch>
-Date: Thu, 05 Mar 2026 08:54:34 +0100
-Message-ID: <874imug18l.fsf@BLaptop.bootlin.com>
+	Thu, 05 Mar 2026 07:59:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 76E77445B1;
+	Thu,  5 Mar 2026 07:59:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6616C116C6;
+	Thu,  5 Mar 2026 07:59:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772697552;
+	bh=mM3OjQ33S9TQppKsWWyKBLl8eCLt4XCfC08emeBfuqU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AjssJ6aLg8dT7xUstr9c/ZnzaYyKi7sI/j7A0qr8qZHrKwFfrZvtf2Xfb+6UN3nhU
+	 q1m+lNAt/BUmY4C+UV9GIOylGVrXbgQLWZf395SV7xk1xW8vi/Hho1sB+McNeSwAFb
+	 F8OkJfROXIq/Z+liGDyZK07vsG+NQ2CWGY1w8rKnWAVUS1SrxpVKTj3XOEW7grgCyP
+	 CisCZDfUEwBQuvs89Ol1dgUR3Mil53vH7zUH919FFdDVxOCWVUAE7JZqJB1InlXdol
+	 jGrhlwu6VPUZkoTvspMPKLfixAX0Agkth+auQxoKcNIO0Sx/HWb74C8aQRYBC2qePe
+	 81BZ0DzM8CWTA==
+Date: Thu, 5 Mar 2026 13:28:57 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Cc: Jingoo Han <jingoohan1@gmail.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Will Deacon <will@kernel.org>, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, jonathanh@nvidia.com, 
+	bjorn.andersson@oss.qualcomm.com
+Subject: Re: [PATCH v2 5/5] PCI: qcom: Add D3cold support
+Message-ID: <om6t5hlnxadpmet5i2gochjmfjw6mdfllrdbgewiz4u6vj3zot@nse5rbl3je64>
+References: <20260217-d3cold-v2-0-89b322864043@oss.qualcomm.com>
+ <20260217-d3cold-v2-5-89b322864043@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260217-d3cold-v2-5-89b322864043@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_235443_629652_F805BF23 
-X-CRM114-Status: GOOD (  15.17  )
+X-CRM114-CacheID: sfid-20260304_235913_089051_EE3D0D1E 
+X-CRM114-Status: GOOD (  21.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,84 +77,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Andrew,
+On Tue, Feb 17, 2026 at 04:49:10PM +0530, Krishna Chaitanya Chundru wrote:
+> Add support for transitioning Qcom PCIe controllers into D3cold by
 
-> On Wed, Mar 04, 2026 at 08:12:43PM +0100, Gabor Juhos wrote:
->> The 'marvell,usb-misc-reg' property is present both in the EHCI and
->> in the XHCI USB host device nodes, however it is not documented. Thus
->> 'make dtbs_check' produces warnings like these:
->>=20
->>   /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@58000 (marvell,ar=
-mada3700-xhci): Unevaluated properties are not allowed ('marvell,usb-misc-r=
-eg' was unexpected)
->>           from schema $id: http://devicetree.org/schemas/usb/generic-xhc=
-i.yaml
->>   /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@5e000 (marvell,ar=
-mada-3700-ehci): Unevaluated properties are not allowed ('marvell,usb-misc-=
-reg' was unexpected)
->>           from schema $id: http://devicetree.org/schemas/usb/generic-ehc=
-i.yaml
->>=20
->> Apart from the fact that the properties are not documented, those are
->> not even used by any USB host drivers. At least 'git grep' says this:
->>=20
->>   $ git grep -n 'marvell.usb-misc-reg' v7.0-rc2
->>   v7.0-rc2:Documentation/devicetree/bindings/phy/marvell,armada-3700-utm=
-i-phy.yaml:30:  marvell,usb-misc-reg:
->>   v7.0-rc2:Documentation/devicetree/bindings/phy/marvell,armada-3700-utm=
-i-phy.yaml:41:  - marvell,usb-misc-reg
->>   v7.0-rc2:Documentation/devicetree/bindings/phy/marvell,armada-3700-utm=
-i-phy.yaml:50:      marvell,usb-misc-reg =3D <&usb2_syscon>;
->>   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:372:            =
-                  marvell,usb-misc-reg =3D <&usb32_syscon>;
->>   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:383:            =
-                  marvell,usb-misc-reg =3D <&usb32_syscon>;
->>   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:396:            =
-                  marvell,usb-misc-reg =3D <&usb2_syscon>;
->>   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:406:            =
-                  marvell,usb-misc-reg =3D <&usb2_syscon>;
->>   v7.0-rc2:drivers/phy/marvell/phy-mvebu-a3700-utmi.c:231:              =
-                                           "marvell,usb-misc-reg");
->
+You cannot transition a 'PCIe controller' to D3Cold state, but only the
+endpoints and bridges.
 
-I don't follow:
+> integrating with the DWC core suspend/resume helpers.
+> 
+> Implement PME_TurnOff message generation via ELBI_SYS_CTRL and hook it
+> into the DWC host operations so the controller follows the standard
+> PME_TurnOff-based power-down sequence before entering D3cold.
+> 
+> When the link is suspended into D3cold, fully tear down interconnect
 
-> The phy-mvebu-a3700-utmi.c does use it, and does document it:
->
->   marvell,usb-misc-reg:
->     description:
->       Phandle on the "USB miscellaneous registers" shared region
->       covering registers related to both the host controller and
->       the PHY.
->     $ref: /schemas/types.yaml#/definitions/phandle
->
-> And the patch which added the property to the USB nodes also added the
-> PHY nodes.
->
-> commit 05d168a56fae8ff50432d5dfe6e7423b989455a8
-> Author: Miquel Raynal <miquel.raynal@bootlin.com>
-> Date:   Tue Jan 29 10:36:34 2019 +0100
->
->     arm64: dts: marvell: armada-37xx: declare USB2 UTMI PHYs
->
+You cannot suspend a link into D3Cold. Link and D-State are different.
 
-You stated that the property is used and was properly added.
+> bandwidth, OPP votes. If D3cold is not entered, retain existing behavior
+> by keeping the required interconnect and OPP votes.
+> 
+> Drop the qcom_pcie::suspended flag and rely on the existing
+> dw_pcie::suspended state, which now drives both the power-management
+> flow and the interconnect/OPP handling.
+> 
+> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+> ---
+>  drivers/pci/controller/dwc/pcie-qcom.c | 121 ++++++++++++++++++++-------------
+>  1 file changed, 74 insertions(+), 47 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
+> index b02c19bbdf2ea5db252c2a0281a569bb3a0cc497..37442bbe588c36b0b0414cc4d0016da2d8424a87 100644
+> --- a/drivers/pci/controller/dwc/pcie-qcom.c
+> +++ b/drivers/pci/controller/dwc/pcie-qcom.c
+> @@ -145,6 +145,7 @@
 
-> So this change does lookcorrect.
+[...]
 
-But here you agree with removing it.
+> -	if (pcie->suspended) {
+> -		ret = qcom_pcie_host_init(&pcie->pci->pp);
+> -		if (ret)
+> -			return ret;
+> +		ret = icc_enable(pcie->icc_mem);
+> +		if (ret) {
+> +			dev_err(dev, "Failed to enable PCIe-MEM interconnect path: %d\n", ret);
+> +			goto disable_icc_cpu;
+> +		}
+>  
+> -		pcie->suspended = false;
+> +		/*
+> +		 * Ignore -ETIMEDOUT here since it is expected when no endpoint is
+> +		 * connected to the PCIe link.
+> +		 */
+> +		ret = dw_pcie_resume_noirq(pcie->pci);
+> +		if (ret && (ret != -ETIMEDOUT))
 
-I am lost :)
+No, dw_pcie_resume_noirq() was reworked to return -ETIMEDOUT to indicate a hard
+failure. If the device is not found, it will return -ENODEV. So you should
+fail the resume if -ETIMEDOUT is returned.
 
-Gregory
+- Mani
 
->
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
->
->     Andrew
-
---=20
-Gr=C3=A9gory CLEMENT, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+-- 
+மணிவண்ணன் சதாசிவம்
 
