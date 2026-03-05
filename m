@@ -4,96 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A20FF47CC6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 19:52:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E1DAF47CC6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 19:59:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3ycShkWVfvP9qFPQPEgw7veVNo7m/BtpCOIUn4PJI+A=; b=Pee1foFn23AkL2MOZQSxTHPKWV
-	4eKqT3UFk9LIndamOl/SuFFasTR/eSXxWzkiB74yNtbk19KhyWCb+DpmxognKThxyg22QnvEUbq9c
-	hWGctoZZ7J6ZGvS6pcmSFc1o7OVEy04EvyfFdt4kFSEvazvH5s/q26Cvm44FPvfR7ESPWd8dD2RCn
-	dsEUQrdlj/GF08vK9Q4xLDuu24nmsOuJ69Ol2jPmbXVWKX5ne5Bkap5JG4jWu06ReFCpq75Nwuf98
-	J1nNlkux+cJM+7RG8ke9CfuUsWIm63jePpIfX/P3+/3gKhlLO/LfuqRC0U6i3buI2vvtHuEddQtOF
-	s5Ga53Mw==;
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7DN+KI20/nr4bGXo2TiFQ3uVPvfOMz0EViovKfREFA0=; b=qfjUnBZ9P/QK33rPvrMUMT1KJE
+	EdsuepKNotVYzvNti3Te5g1Z4t3CxySFOBdHdWGRl/KQ3ADd2CKHKS9j1jblgXGLQjERujuyxLynE
+	shpygAlv2FXt9iTp9YrM8R54674G8g72OI1StexXqJLz2fOBgrTZvNHuS+yXWXw9etcVpxo5qYDeJ
+	1ToG6sPfSxYKq1Ov93XNS+hxCakxnY3ugAooyfzj4LWQV996V0CuZe9eL7e5dcRVcCtqvU0lzF/qi
+	vMyl6wxlAHfY8APgQpVHszDKLdhPg1iG9WSGgHa2uj+ofAoWbWyLJU3mo6LxDKB34/xah7f0SUAI/
+	9COI2RoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyEjm-00000002Twx-2CNa;
-	Thu, 05 Mar 2026 19:51:58 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1vyEqo-00000002UGe-2E7E;
+	Thu, 05 Mar 2026 19:59:14 +0000
+Received: from mx3.wp.pl ([212.77.101.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyEjk-00000002Twb-1LSp
+	id 1vyEql-00000002UFW-3QY5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 19:51:57 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-48370174e18so51009565e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 11:51:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772740314; x=1773345114; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=3ycShkWVfvP9qFPQPEgw7veVNo7m/BtpCOIUn4PJI+A=;
-        b=j6QkCw111LZv/pewh9nP8zROq5+fVOfTnRjqsFYYqGaH9f39QN8GYc4WIOkNMlxorJ
-         w/SXgeR0bDYEfbVFCqmHud0GlVYaJOJ7UdgToO2nhGbxEmdtLVyN15pMNlwupBIGzMau
-         vWMicytf0Ufg8UeJB81vpmZ6cql16vAggZtZO67yCWLBnoE0M0HncWqGFynTwNW/3Iny
-         n++OTP5v4UshWcizZa/wYczw6UwhA0f6OKcGyBagh6EGOlpcBprU1mf52ThMn2mRrhs8
-         gBRTV3afOlH7avPe+r7nwJUXjAKVc3UqM2MrMiAspYdv7z1C9NNlFc6wx6YQ29HpTUCx
-         d3Ag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772740314; x=1773345114;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3ycShkWVfvP9qFPQPEgw7veVNo7m/BtpCOIUn4PJI+A=;
-        b=utXPowyX95PgRhoRJfKMn1u7VlHJnbT6nWusqW6UuK0F+Kr4k2K9HB+XB5nF2ITN+g
-         KGFbkG08S2oYn8umfHvLktUsY/9PAaGeY9DM1n3Dd60EJGyTgINOw8TFlYENB26/ipP6
-         pC8chp2/f7hl23uEuacCrEaD7aGK1AqF/bGlRe/nsOXq2HyUUc2jJ8YnNCAoqOcNDMAa
-         tqFSakFUwM0kqEOUGj2Rvexyfiqz1KQNIo2g4UrfbMe/I1tyWf5LsmJQgUsDLVCBrBU9
-         MIwcNZchN34lyQNFbl0KC55cU4HZXQc02geXAprN0uKaa/l+8MBYIF6hpDkInAIwfy66
-         61iA==
-X-Forwarded-Encrypted: i=1; AJvYcCUrEI4aUWjqaTWLfJVqq4yG+9hJ6o8YlpiXbQngruLuB8/5QjDOpo/JMrtqCH2si4mmfmxfvRXOqLj9nQSzYVZ8@lists.infradead.org
-X-Gm-Message-State: AOJu0YynmghIue5dc8U+vklPpYp2zjX3/1aZUIW/vUrLsOc8EajK/Rfn
-	PWMATXAcQMCtgYdaSyntbKfFT/qp5TaqXAiPYopkviPH7KaGa9PNuSGj
-X-Gm-Gg: ATEYQzwLjj+IMlXChfihRhyRPcoYFf9Elai3GCeczIqiVdGEgGLJcl/NKo0TexyvGTj
-	KDfTeMDtAPHGxZ/hicB36AWkfeqVw1LrsE60qOKH4t1DecDX6vZ56Vvg9dqpskKCIb+Ev4CPzfu
-	SWR7XmC11Np3eWjAWGGw45sb7owCeLNNgJise8uBqEwlqgddvxFdyLAOyQtS07n4aR9Xp7Knz7s
-	XLg7DYgwpeE0KXV/MtcvRlsPdJhScetw4hB8hCGOkymougIOt3nm1aTnR8iQRZ7HUmIVDt3vO/D
-	9lDsh3sKz8pH7EOR6ntOPlSvydtG2lbuI6IhiomRoyTEigkFq1Ej6IA/qR2Fe2GpkAUEWLLRwWj
-	X4gpiezLOvbdhECaOC2CGkwk4OlMTNr7FN1SXA7PEdtfzG40a/usudE5bQkA8osXDJ9ZDeAoabw
-	X+vTS6u/jgPijMwdbMVpmdbQJg1jv1rm3keSl8aTvwgTuiwZ1ngkUr6p1gNHSyN9I=
-X-Received: by 2002:a05:600c:828a:b0:480:1c53:2085 with SMTP id 5b1f17b1804b1-4851986f362mr134157105e9.19.1772740313624;
-        Thu, 05 Mar 2026 11:51:53 -0800 (PST)
-Received: from [192.168.20.170] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4852378dc51sm9128705e9.1.2026.03.05.11.51.52
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 05 Mar 2026 11:51:53 -0800 (PST)
-Message-ID: <41a42087-dc36-41de-a8f2-0c8b39425ffd@gmail.com>
-Date: Thu, 5 Mar 2026 20:51:50 +0100
+	Thu, 05 Mar 2026 19:59:13 +0000
+Received: (wp-smtpd smtp.wp.pl 16902 invoked from network); 5 Mar 2026 20:59:06 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
+          t=1772740746; bh=7DN+KI20/nr4bGXo2TiFQ3uVPvfOMz0EViovKfREFA0=;
+          h=From:To:Subject;
+          b=X4JpREueQcxtL18zjrpZit6Yb5HoDpNhtqo0A7g9iGBBzW1V4lVSaPDh5+LxWd9mP
+           9jUbXdePb99PQQlnWODuKhXQSFB1souwh42ov0GVy87Tdbr9Jlhl9AzRRuU5Ew5AIn
+           enJRHoaSQly06lCAQ/FHuN6lYYHKSsT0cr7pBLCJJmrVcAZhhFnIlik1umBakRCDPd
+           yvnbsrXtK7HEqQjr7Vu6i/STrxXjy0DK+qIxFIVo8SsY+xH8qBLSURafqsbXH4haQd
+           hhmLFZUavgLYkTVvpzmnO1X0aTPAg8X4EG3orK/uhv3BAZwGgB1PnPLqH/0JhsZzwh
+           mEJHI3IKcombA==
+Received: from 83.24.116.171.ipv4.supernova.orange.pl (HELO laptop-olek.lan) (olek2@wp.pl@[83.24.116.171])
+          (envelope-sender <olek2@wp.pl>)
+          by smtp.wp.pl (WP-SMTPD) with TLS_AES_256_GCM_SHA384 encrypted SMTP
+          for <ansuelsmth@gmail.com>; 5 Mar 2026 20:59:06 +0100
+From: Aleksander Jan Bajkowski <olek2@wp.pl>
+To: ansuelsmth@gmail.com,
+	herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	lorenzo@kernel.org,
+	olek2@wp.pl,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 1/2] dt-bindings: crypto: eip93: add clock gate and reset line
+Date: Thu,  5 Mar 2026 20:53:10 +0100
+Message-ID: <20260305195903.59776-1-olek2@wp.pl>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: marvell: armada-37xx: drop
- 'marvell,usb-misc-reg' properties
-Content-Language: hu
-To: Andrew Lunn <andrew@lunn.ch>,
- Gregory CLEMENT <gregory.clement@bootlin.com>
-Cc: Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260304-armada-37xx-drop-usb-misc-reg-v1-1-800c1b746b7a@gmail.com>
- <db997887-2431-4baa-8e96-04f53ea59060@lunn.ch>
- <874imug18l.fsf@BLaptop.bootlin.com>
- <cacefc69-dba3-4ff6-a039-85fe35a91e0b@lunn.ch>
-From: Gabor Juhos <j4g8y7@gmail.com>
-In-Reply-To: <cacefc69-dba3-4ff6-a039-85fe35a91e0b@lunn.ch>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-WP-MailID: c7c3f264b6f210d9aa7875ffc4db7536
+X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
+X-WP-SPAM: NO 0000009 [oWox]                               
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_115156_387203_E478CA31 
-X-CRM114-Status: GOOD (  18.76  )
+X-CRM114-CacheID: sfid-20260305_115912_318150_81033D7F 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,76 +84,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+Add the clock gate and reset line, both of which are available
+on the Airoha AN7581. Both properties are mandatory.
 
-2026. 03. 05. 14:28 keltezéssel, Andrew Lunn írta:
-> On Thu, Mar 05, 2026 at 08:54:34AM +0100, Gregory CLEMENT wrote:
->> Hello Andrew,
->>
->>> On Wed, Mar 04, 2026 at 08:12:43PM +0100, Gabor Juhos wrote:
->>>> The 'marvell,usb-misc-reg' property is present both in the EHCI and
->>>> in the XHCI USB host device nodes, however it is not documented. Thus
->>>> 'make dtbs_check' produces warnings like these:
->>>>
->>>>   /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@58000 (marvell,armada3700-xhci): Unevaluated properties are not allowed ('marvell,usb-misc-reg' was unexpected)
->>>>           from schema $id: http://devicetree.org/schemas/usb/generic-xhci.yaml
->>>>   /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@5e000 (marvell,armada-3700-ehci): Unevaluated properties are not allowed ('marvell,usb-misc-reg' was unexpected)
->>>>           from schema $id: http://devicetree.org/schemas/usb/generic-ehci.yaml
->>>>
->>>> Apart from the fact that the properties are not documented, those are
->>>> not even used by any USB host drivers. At least 'git grep' says this:
->>>>
->>>>   $ git grep -n 'marvell.usb-misc-reg' v7.0-rc2
->>>>   v7.0-rc2:Documentation/devicetree/bindings/phy/marvell,armada-3700-utmi-phy.yaml:30:  marvell,usb-misc-reg:
->>>>   v7.0-rc2:Documentation/devicetree/bindings/phy/marvell,armada-3700-utmi-phy.yaml:41:  - marvell,usb-misc-reg
->>>>   v7.0-rc2:Documentation/devicetree/bindings/phy/marvell,armada-3700-utmi-phy.yaml:50:      marvell,usb-misc-reg = <&usb2_syscon>;
->>>>   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:372:                              marvell,usb-misc-reg = <&usb32_syscon>;
->>>>   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:383:                              marvell,usb-misc-reg = <&usb32_syscon>;
->>>>   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:396:                              marvell,usb-misc-reg = <&usb2_syscon>;
->>>>   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:406:                              marvell,usb-misc-reg = <&usb2_syscon>;
->>>>   v7.0-rc2:drivers/phy/marvell/phy-mvebu-a3700-utmi.c:231:                                                         "marvell,usb-misc-reg");
->>>
->>
->> I don't follow:
->>
->>> The phy-mvebu-a3700-utmi.c does use it, and does document it:
->>>
->>>   marvell,usb-misc-reg:
->>>     description:
->>>       Phandle on the "USB miscellaneous registers" shared region
->>>       covering registers related to both the host controller and
->>>       the PHY.
->>>     $ref: /schemas/types.yaml#/definitions/phandle
->>>
->>> And the patch which added the property to the USB nodes also added the
->>> PHY nodes.
->>>
->>> commit 05d168a56fae8ff50432d5dfe6e7423b989455a8
->>> Author: Miquel Raynal <miquel.raynal@bootlin.com>
->>> Date:   Tue Jan 29 10:36:34 2019 +0100
->>>
->>>     arm64: dts: marvell: armada-37xx: declare USB2 UTMI PHYs
->>>
->>
->> You stated that the property is used and was properly added.
-> 
-> I can understand your confusion. The commit message is not great. I
-> had to read quite a bit of code to convince myself the change is
-> correct.
+Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
+---
+v2:
+- mandate clock and reset properties
+- drop extra new lines in example
+---
+ .../crypto/inside-secure,safexcel-eip93.yaml        | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
 
-> The property is used and documented in the Generic PHY driver,
-> phy-mvebu-a3700-utmi.c. And the properties being removed are in USB
-> nodes. The properties in the PHY node are not removed.
-> 
-> The properties in the USB node have never been used, as far as i can
-> see.
-
-Thank you for the review, and sorry about the confusing commit message. Perhaps
-I should have skipped the 'git grep' part.
-
-@Gregory: Shall I send a v2 with a reworded the commit message?
-
-Regards,
-Gabor
+diff --git a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
+index 997bf9717f9e..10caa989f660 100644
+--- a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
++++ b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
+@@ -48,20 +48,31 @@ properties:
+   interrupts:
+     maxItems: 1
+ 
++  clocks:
++    maxItems: 1
++
++  resets:
++    maxItems: 1
++
+ required:
+   - compatible
+   - reg
+   - interrupts
++  - clocks
++  - resets
+ 
+ additionalProperties: false
+ 
+ examples:
+   - |
++    #include <dt-bindings/clock/en7523-clk.h>
+     #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/reset/airoha,en7581-reset.h>
+ 
+     crypto@1e004000 {
+       compatible = "airoha,en7581-eip93", "inside-secure,safexcel-eip93ies";
+       reg = <0x1fb70000 0x1000>;
+-
++      clocks = <&scuclk EN7523_CLK_CRYPTO>;
+       interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
++      resets = <&scuclk EN7581_CRYPTO_RST>;
+     };
+-- 
+2.47.3
 
 
