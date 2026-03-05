@@ -4,78 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55333F33A8C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 15:20:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2334FF33A8E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 15:24:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q3G6Xkwu2d2NXlh3GCZoEqI3kg7a5kSeZMQzvJ9SoQ8=; b=nYK98B7jSbrtpUDTB099Cwd5qY
-	15hGKNnslzhiH8QY8uMeK4+VL7hWbsybf4ngCZSruCQBsbk1JqflrDqDD95nwo4Q8gb0nS0zGC+pA
-	mLBlvRSlv1UqGF/ZQzml35Ndby/tNfv+sMZqo39QzztgWYbheruNK4WNSHgQH/dnpHzl2LOEQEV+C
-	vFBYSMsDkm6jxn+c5cllyzbb1eRmSH1u8lXp38W5qDBGo0GAqC1puoyA8PmCSWD+9AaSlW9Iv99N5
-	FzZoPOdpgmKQ6m58YTBZA7mpPcELAtaSdadUkZ+NsDSNJ1NqIuLTxFWXYFHQXPPF7GWxT5AAzIDJk
-	axKfHfYA==;
+	bh=pbQi2fe2J15dzMxwTIEZaDyEsGn36uCUuJAaVoGipfU=; b=OO/4DLKmaM5w7YtG8DSjczOr2T
+	Pl/gzLbPjdH5bBpmDGVdNTae3vRfKFCS/Fn1CGvGDwRA2iv7YTcJj2p65Ms8TEPT4P4v6Cef6tevY
+	Nmaft6PhOq89mAhrqxinfIIZeS2nzGN44nA4O6RnMNIG3K/6Gse3ZlMvlOVyqcBwYKUeX630Akcnd
+	TAoI1G07VfZ0eIjda632jbGj1CA0VUgFdoKQ4znQ5EEuTIzK1WY4Noy6lGqXfF9bR0XO6sh3Ietk2
+	teduMtNpiAQrk+O8i58cqCvHEG+r94wjJ5xNN8/UOXLsTkD4MlrxnBTilmmnYroCFoAOBwFRHrXaG
+	UNVreyVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyAUj-000000026a9-3knX;
-	Thu, 05 Mar 2026 15:20:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyAUh-000000026ZC-3WxU
+	id 1vyAZ9-000000026vJ-3aB9;
+	Thu, 05 Mar 2026 15:24:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vyAZ7-000000026ux-1f21
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 15:20:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7B5FC41878;
-	Thu,  5 Mar 2026 15:20:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FB17C116C6;
-	Thu,  5 Mar 2026 15:20:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772724007;
-	bh=2Q8/O9auZdr51ye5A181/o/Z6f3MOFDJFJzm8s1nY7A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DPnX4yzYKs5I7WCgazm2fb5Z2czxv+OpSi1+2UsJa2lil40dbj3p7+cBa0wXpUc3p
-	 Y3GWzz7GbO47wsAi32N24wwhxVIiiquyNL2a+Y0XYznsuS+JyJOzzz+4oAReQopKox
-	 WgX5RofM8zN4/WB3WFql2VVz1ptJeNPCpOaNCqC69X55LcNYHgFFUWNW5jlMT1KpLv
-	 dFt0XOxjtj4z6Wcet1rdIhG3x18zIYO/LvbHpYiOGzR9/c3O9xjIEyJy7aaLLX6WX9
-	 AhUHWCWYbzCFgjyF0jkEtITlApC5AMHbdYMd/3b4XVPPCpni18B0Kj+u1EPJwF+kM3
-	 /z4rZp1jwipJA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vyAUf-0000000GVIq-0Fim;
-	Thu, 05 Mar 2026 15:20:05 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Quentin Perret <qperret@google.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: pkvm: Fallback to level-3 mapping on host stage-2 fault
-Date: Thu,  5 Mar 2026 15:20:02 +0000
-Message-ID: <177272398043.2929264.16877917398365629675.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260305132751.2928138-1-maz@kernel.org>
-References: <20260305132751.2928138-1-maz@kernel.org>
+	Thu, 05 Mar 2026 15:24:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1CFE6339;
+	Thu,  5 Mar 2026 07:24:30 -0800 (PST)
+Received: from [10.57.48.84] (unknown [10.57.48.84])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 10D663F73B;
+	Thu,  5 Mar 2026 07:24:32 -0800 (PST)
+Message-ID: <a5ff7a43-ea52-462d-a316-d3a6c08410e0@arm.com>
+Date: Thu, 5 Mar 2026 15:24:30 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, will@kernel.org, tabba@google.com, qperret@google.com, stable@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 2/2] iommu/arm-smmu-v3: Recover ATC invalidate timeouts
+To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org, joro@8bytes.org,
+ bhelgaas@google.com, jgg@nvidia.com
+Cc: rafael@kernel.org, lenb@kernel.org, praan@google.com, kees@kernel.org,
+ baolu.lu@linux.intel.com, smostafa@google.com,
+ Alexander.Grest@microsoft.com, kevin.tian@intel.com,
+ miko.lenczewski@arm.com, linux-arm-kernel@lists.infradead.org,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-acpi@vger.kernel.org, linux-pci@vger.kernel.org, vsethi@nvidia.com
+References: <cover.1772686998.git.nicolinc@nvidia.com>
+ <ca7ab934bf0f433b62a5c15d42241632c4cb9366.1772686998.git.nicolinc@nvidia.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <ca7ab934bf0f433b62a5c15d42241632c4cb9366.1772686998.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_072007_906190_03E06AA9 
-X-CRM114-Status: GOOD (  10.80  )
+X-CRM114-CacheID: sfid-20260305_072441_534553_CEE2E1B4 
+X-CRM114-Status: GOOD (  43.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,27 +70,271 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 05 Mar 2026 13:27:51 +0000, Marc Zyngier wrote:
-> If, for any odd reason, we cannot converge to mapping size that is
-> completely contained in a memblock region, we fail to install a S2
-> mapping and go back to the faulting instruction. Rince, repeat.
+On 2026-03-05 5:21 am, Nicolin Chen wrote:
+> Currently, when GERROR_CMDQ_ERR occurs, the arm_smmu_cmdq_skip_err() won't
+> do anything for the CMDQ_ERR_CERROR_ATC_INV_IDX.
 > 
-> This happens when faulting in regions that are smaller than a page
-> or that do not have PAGE_SIZE-aligned boundaries (as witnessed on
-> an O6 board that refuses to boot in protected mode).
+> When a device wasn't responsive to an ATC invalidation request, this often
+> results in constant CMDQ errors:
+>    unexpected global error reported (0x00000001), this could be serious
+>    CMDQ error (cons 0x0302bb84): ATC invalidate timeout
+>    unexpected global error reported (0x00000001), this could be serious
+>    CMDQ error (cons 0x0302bb88): ATC invalidate timeout
+>    unexpected global error reported (0x00000001), this could be serious
+>    CMDQ error (cons 0x0302bb8c): ATC invalidate timeout
+>    ...
 > 
-> [...]
+> An ATC invalidation timeout indicates that the device failed to respond to
+> a protocol-critical coherency request, which means that device's internal
+> ATS state is desynchronized from the SMMU.
+> 
+> Furthermore, ignoring the timeout leaves the system in an unsafe state, as
+> the device cache may retain stale ATC entries for memory pages that the OS
+> has already reclaimed and reassigned. This might lead to data corruption.
+> 
+> The only safe recovery action is to issue a PCI reset, which guarantees to
+> flush all internal device caches and recover the device.
+> 
+> Read the ATC_INV command that led to the timeouts, and schedule a recovery
+> worker to reset the device corresponding to the Stream ID. If reset fails,
+> keep the device in the resetting/blocking domain to avoid data corruption.
+> 
+> Though it'd be ideal to block it immediately in the ISR, it cannot be done
+> because an STE update would require another CFIG_STE command that couldn't
+> finish in the context of an ISR handling a CMDQ error.
 
-Applied to fixes, thanks!
+Why not? As soon as we've acked GERRORN.CMDQ_ERR, command consumption 
+will resume and we're free to do whatever we fancy. Admittedly this 
+probably represents more work than we *want* to be doing in the SMMU's 
+IRQ handler (arguably even in a thread, since all the PCI housekeeping 
+isn't really the SMMU driver's own problem), but I would say the 
+workqueue is a definite design choice, not a functional requirement.
 
-[1/1] KVM: arm64: pkvm: Fallback to level-3 mapping on host stage-2 fault
-      commit: 8531d5a83d8eb8affb5c0249b466c28d94192603
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |   5 +
+>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 131 +++++++++++++++++++-
+>   2 files changed, 132 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> index 3c6d65d36164f..8789cf8294504 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> @@ -803,6 +803,11 @@ struct arm_smmu_device {
+>   
+>   	struct rb_root			streams;
+>   	struct mutex			streams_mutex;
+> +
+> +	struct {
+> +		struct list_head	list;
+> +		spinlock_t		lock; /* Lock the list */
+> +	} atc_recovery;
+>   };
+>   
+>   struct arm_smmu_stream {
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index 4d00d796f0783..de182c27c77c4 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -106,6 +106,8 @@ static const char * const event_class_str[] = {
+>   	[3] = "Reserved",
+>   };
+>   
+> +static struct arm_smmu_master *
+> +arm_smmu_find_master(struct arm_smmu_device *smmu, u32 sid);
+>   static int arm_smmu_alloc_cd_tables(struct arm_smmu_master *master);
+>   
+>   static void parse_driver_options(struct arm_smmu_device *smmu)
+> @@ -174,6 +176,13 @@ static void queue_inc_cons(struct arm_smmu_ll_queue *q)
+>   	q->cons = Q_OVF(q->cons) | Q_WRP(q, cons) | Q_IDX(q, cons);
+>   }
+>   
+> +static u32 queue_prev_cons(struct arm_smmu_ll_queue *q, u32 cons)
+> +{
+> +	u32 idx_wrp = (Q_WRP(q, cons) | Q_IDX(q, cons)) - 1;
+> +
+> +	return Q_OVF(cons) | Q_WRP(q, idx_wrp) | Q_IDX(q, idx_wrp);
+> +}
+> +
+>   static void queue_sync_cons_ovf(struct arm_smmu_queue *q)
+>   {
+>   	struct arm_smmu_ll_queue *llq = &q->llq;
+> @@ -410,6 +419,97 @@ static void arm_smmu_cmdq_build_sync_cmd(u64 *cmd, struct arm_smmu_device *smmu,
+>   		u64p_replace_bits(cmd, CMDQ_SYNC_0_CS_NONE, CMDQ_SYNC_0_CS);
+>   }
+>   
+> +/* ATC recovery upon ATC invalidation timeout */
+> +struct arm_smmu_atc_recovery_param {
+> +	struct arm_smmu_device *smmu;
+> +	struct pci_dev *pdev;
+> +	u32 sid;
+> +
+> +	struct work_struct work;
+> +	struct list_head node;
+> +};
+> +
+> +static void arm_smmu_atc_recovery_worker(struct work_struct *work)
+> +{
+> +	struct arm_smmu_atc_recovery_param *param =
+> +		container_of(work, struct arm_smmu_atc_recovery_param, work);
+> +	struct pci_dev *pdev;
+> +
+> +	scoped_guard(mutex, &param->smmu->streams_mutex) {
+> +		struct arm_smmu_master *master;
+> +
+> +		master = arm_smmu_find_master(param->smmu, param->sid);
+> +		if (!master || WARN_ON(!dev_is_pci(master->dev)))
+> +			goto free_param;
+> +		pdev = to_pci_dev(master->dev);
+> +		pci_dev_get(pdev);
+> +	}
+> +
+> +	scoped_guard(spinlock_irqsave, &param->smmu->atc_recovery.lock) {
+> +		struct arm_smmu_atc_recovery_param *e;
+> +
+> +		list_for_each_entry(e, &param->smmu->atc_recovery.list, node) {
+> +			/* Device is already being recovered */
+> +			if (e->pdev == pdev)
+> +				goto put_pdev;
+> +		}
+> +		param->pdev = pdev;
+> +		list_add(&param->node, &param->smmu->atc_recovery.list);
+> +	}
+> +
+> +	/*
+> +	 * Stop DMA (PCI) and block ATS (IOMMU) immediately, to prevent memory
+> +	 * corruption. This must take pci_dev_lock to prevent any racy unplug.
+> +	 *
+> +	 * If pci_dev_reset_iommu_prepare() fails, pci_reset_function will call
+> +	 * it again internally.
+> +	 */
+> +	pci_dev_lock(pdev);
+> +	pci_clear_master(pdev);
+> +	if (pci_dev_reset_iommu_prepare(pdev))
+> +		pci_err(pdev, "failed to block ATS!\n");
+> +	pci_dev_unlock(pdev);
+> +
+> +	/*
+> +	 * ATC timeout indicates the device has stopped responding to coherence
+> +	 * protocol requests. The only safe recovery is a reset to flush stale
+> +	 * cached translations. Note that pci_reset_function() internally calls
+> +	 * pci_dev_reset_iommu_prepare/done() as well and ensures to block ATS
+> +	 * if PCI-level reset fails.
+> +	 */
+> +	if (!pci_reset_function(pdev)) {
+> +		/*
+> +		 * If reset succeeds, set BME back. Otherwise, fence the system
+> +		 * from a faulty device, in which case user will have to replug
+> +		 * the device to invoke pci_set_master().
+> +		 */
+> +		pci_dev_lock(pdev);
+> +		pci_set_master(pdev);
+> +		pci_dev_unlock(pdev);
+> +	}
+> +	scoped_guard(spinlock_irqsave, &param->smmu->atc_recovery.lock)
+> +		list_del(&param->node);
+> +put_pdev:
+> +	pci_dev_put(pdev);
+> +free_param:
+> +	kfree(param);
+> +}
 
-Cheers,
+The only thing SMMU-specific about this seems to be the use of 
+arm_smmu_find_master() to resolve the device, which could just as well 
+be done upon submission anyway - why isn't this a generic IOMMU/IOPF 
+mechanism?
 
-	M.
--- 
-Without deviation from the norm, progress is not possible.
+> +
+> +static int arm_smmu_sched_atc_recovery(struct arm_smmu_device *smmu, u32 sid)
+> +{
+> +	struct arm_smmu_atc_recovery_param *param;
+> +
+> +	param = kzalloc_obj(*param, GFP_ATOMIC);
+> +	if (!param)
+> +		return -ENOMEM;
+> +	param->smmu = smmu;
+> +	param->sid = sid;
+> +
+> +	INIT_WORK(&param->work, arm_smmu_atc_recovery_worker);
+> +	queue_work(system_unbound_wq, &param->work);
 
+Might it make more sense to have a single work item associated with the 
+list_head and use the latter as an actual queue, such that the work runs 
+until the list is empty, then here at submisison time we do the 
+list_add() and schedule_work()? That could perhaps even be a global 
+queue, since ATS timeouts can hardly be expected to be a 
+highly-contended high-perfoamnce concern.
+
+Right now it seems the list is barely doing anything - a "deduplication" 
+mechanism that only works if multiple resets for the same device happen 
+to have their work scheduled concurrently seems pretty ineffective.
+
+> +	return 0;
+> +}
+> +
+>   void __arm_smmu_cmdq_skip_err(struct arm_smmu_device *smmu,
+>   			      struct arm_smmu_cmdq *cmdq)
+>   {
+> @@ -441,11 +541,10 @@ void __arm_smmu_cmdq_skip_err(struct arm_smmu_device *smmu,
+>   	case CMDQ_ERR_CERROR_ATC_INV_IDX:
+>   		/*
+>   		 * ATC Invalidation Completion timeout. CONS is still pointing
+> -		 * at the CMD_SYNC. Attempt to complete other pending commands
+> -		 * by repeating the CMD_SYNC, though we might well end up back
+> -		 * here since the ATC invalidation may still be pending.
+> +		 * at the CMD_SYNC. Rewind it to read the ATC_INV command.
+>   		 */
+> -		return;
+> +		cons = queue_prev_cons(&q->llq, cons);
+> +		fallthrough;
+>   	case CMDQ_ERR_CERROR_ILL_IDX:
+>   	default:
+>   		break;
+> @@ -456,6 +555,27 @@ void __arm_smmu_cmdq_skip_err(struct arm_smmu_device *smmu,
+>   	 * not to touch any of the shadow cmdq state.
+>   	 */
+>   	queue_read(cmd, Q_ENT(q, cons), q->ent_dwords);
+> +
+> +	if (idx == CMDQ_ERR_CERROR_ATC_INV_IDX) {
+> +		/*
+> +		 * Since commands can be issued in batch making it difficult to
+> +		 * identify which CMDQ_OP_ATC_INV actually timed out, the driver
+> +		 * must ensure only CMDQ_OP_ATC_INV commands for the same device
+> +		 * can be batched.
+
+But this *is* "the driver" - arm_smmu_atc_inv_domain() is literally 
+further down this same C file, and does not do what this comment is 
+saying it must do, so how are you expecting this to work correctly?
+
+Thanks,
+Robin.
+
+> +		 */
+> +		WARN_ON(FIELD_GET(CMDQ_0_OP, cmd[0]) != CMDQ_OP_ATC_INV);
+> +
+> +		/*
+> +		 * If we failed to schedule a recovery worker, we would well end
+> +		 * up back here since the ATC invalidation may still be pending.
+> +		 * This gives us another chance to reschedule a recovery worker.
+> +		 */
+> +		arm_smmu_sched_atc_recovery(smmu,
+> +					    FIELD_GET(CMDQ_ATC_0_SID, cmd[0]));
+> +		return;
+> +	}
+> +
+> +	/* idx == CMDQ_ERR_CERROR_ILL_IDX */
+>   	dev_err(smmu->dev, "skipping command in error state:\n");
+>   	for (i = 0; i < ARRAY_SIZE(cmd); ++i)
+>   		dev_err(smmu->dev, "\t0x%016llx\n", (unsigned long long)cmd[i]);
+> @@ -3942,6 +4062,9 @@ static int arm_smmu_init_structures(struct arm_smmu_device *smmu)
+>   {
+>   	int ret;
+>   
+> +	INIT_LIST_HEAD(&smmu->atc_recovery.list);
+> +	spin_lock_init(&smmu->atc_recovery.lock);
+> +
+>   	mutex_init(&smmu->streams_mutex);
+>   	smmu->streams = RB_ROOT;
+>   
 
 
