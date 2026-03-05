@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7F48EFCE43
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 03:32:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 046CFEFCE5E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 03:32:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+rHFO8CtRZKDQL4xCEE4Xwd7zfE9VNa09g9Dp2Sjhfc=; b=RMDd3uk/VjAzAZkJBv/+9UuR5l
-	RNLRQnFhuS2krUrg+jYPSE8XM1ThvRvprd1TyRhls/O1JdU88AncJFI7GQuI+c2GWGH/Vu9L+xllu
-	2q9+8kWeCnGcpNXDIa7X+Bzd/PdDbvhSstaEzeno91jdGqqJfuc/VoozbTH9ptkSBcl6yKTxy+8/l
-	1pRYgPS5glQ//DtPZ3iEunoVW2K8/y+npvcwgXhOymkWKxODmnrNO2qxY0Y0jAtZwqkah/efOwj8k
-	qZz/qUaS5L2owzL5YyS1z3Jq9hfPlzJdNDGaPW9jufWiXqs7aFLhbE/CnRF4kjxP9sZcEK6D1g8/7
-	QuH3Nzag==;
+	bh=9FbM9wp9Lk119vAFLCSLT86rNsi7sXUiauHk/TYVs3I=; b=QsZVWhrvBXM/X+knTpOPv5nHvJ
+	/1VlZuK4hjYEbT59E9x51e6YYVrvpgZAO+juoKsZxF4Vb0QddcuAAyLMXDUUoIQTEq4TW27kRWs5z
+	rHohR/DatCFxwsZ8tD1BuV4M3GRmlw2H0HP/VPSUnfBZrWHsen/LpEVnrqnleGqHWK9EYBnbBwdpS
+	WjQYiOefqardWRcFCTb0JVabU0eiwi1JkndsxIaN4l6x3afot0tTaatFcQ24vigp3P2pEFF/frD3I
+	qCmtyizisD3JI4fJBt+M1sDU4+dO2s26CpBkw2sRIi6LvG1dbNiTt94dFgtg/si7HrIPGAAaIZIqZ
+	kmL6GNyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxzRR-00000000pvW-2GLt;
-	Thu, 05 Mar 2026 03:32:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vxzRS-00000000px2-16bB;
+	Thu, 05 Mar 2026 03:32:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxzRM-00000000pqS-3Sny
+	id 1vxzRP-00000000ptn-2xsJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 03:31:57 +0000
+	Thu, 05 Mar 2026 03:31:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 85D5844741;
-	Thu,  5 Mar 2026 03:31:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47AF2C2BCB1;
-	Thu,  5 Mar 2026 03:31:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1DB2861842;
+	Thu,  5 Mar 2026 03:31:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD774C2BCB0;
+	Thu,  5 Mar 2026 03:31:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772681516;
-	bh=NbzuW+7uujyEcZZ30AyHwoJE50Su+M8O/JLaUCgVuZA=;
+	s=k20201202; t=1772681518;
+	bh=CfP2DFBojtfnSTUyVXwvbIwOJH/gBb2u2wzP+UFC7hU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KbeqmIyqV/ay83Ax51Gnb91by92icM4HeckvCSg7fd5//tXpXxY1HC8pfFb+VxIgB
-	 mKpJtzzZEyUsZEntGsvM+LiTA2/dwgGVbrkRKx20sQLXEtlIKwl/VZb5HAtA8XXCaY
-	 LIL8NZcbFooJ+11aFaXszGpQQlJWbhVKOeHbhqT2woGkqFe3yl4RoQE15CLNDY84xa
-	 sbNZO7VDXSRfKMPQH3u/5bciI/yV1YbWoFs0Im2Dvkkd97yq3vbyl9gb4OkTMr52DY
-	 QuQ7cVZ4dKMjpjTmuvqMSGrH84GkVszXcQMT8RZ3ReR0BeuaSyyEFPNtWVyFQxtt1d
-	 Ja+0ZRFwtqerA==
+	b=k8+xaC8YqfE6gU2/m9z8R8CU4ZtMOnKh6oZcO4Ro2BZbPyVsMhee6JY06BnMAaCz9
+	 u8zu+NzWjBt+hQjDDgnH/gDDjLGrgtRI+i2V51yXvnAYa+IY/aT1REYDZxXXj3G56y
+	 eNAWWR0/GM3UhgJSQNBmo3forCYVrdQKRNF+fPtSj9kOh1+ljSQOYnBpxet63Kw8Bf
+	 GBx3KWytFqBo+nBtwU77jZI0bW72uOmwifFCHKtVrkjECvh0QMWSoqFb9MaM6+izqG
+	 6rin6gy13+vqHMniez8ytADE32fn03PliQJxT3bjmatIW5rWQwNaNVGhDSYMMvZqB2
+	 cHQacOXnWEYJQ==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -56,17 +56,14 @@ Cc: linux-kernel@vger.kernel.org,
 	Nathan Chancellor <nathan@kernel.org>,
 	Nicolas Schier <nsc@kernel.org>,
 	Herbert Xu <herbert@gondor.apana.org.au>
-Subject: [PATCH 10/14] objtool: Ignore jumps to the end of the function for non-CFG arches
-Date: Wed,  4 Mar 2026 19:31:29 -0800
-Message-ID: <4aaa59736860f593e18e5978ebd56e04e4deea9d.1772681234.git.jpoimboe@kernel.org>
+Subject: [PATCH 12/14] objtool: Reuse consecutive string references
+Date: Wed,  4 Mar 2026 19:31:31 -0800
+Message-ID: <1cdd2737d2db5a300eea971382c5e8edda7fb474.1772681234.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1772681234.git.jpoimboe@kernel.org>
 References: <cover.1772681234.git.jpoimboe@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_193156_887912_B9910286 
-X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,35 +78,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sometimes Clang arm64 code jumps to the end of the function for UB.
-No need to make that an error, arm64 doesn't reverse engineer the CFG
-anyway.
+For duplicate strings, elf_add_string() just blindly adds duplicates.
+
+That can be a problem for arm64 which often uses two consecutive
+instructions (and corresponding relocations) to put an address into a
+register, like:
+
+  d8:   90000001        adrp    x1, 0 <meminfo_proc_show>       d8: R_AARCH64_ADR_PREL_PG_HI21  .rodata.meminfo_proc_show.str1.8
+  dc:   91000021        add     x1, x1, #0x0    dc: R_AARCH64_ADD_ABS_LO12_NC   .rodata.meminfo_proc_show.str1.8
+
+Referencing two different string addresses in the adrp+add pair can
+result in a corrupt string addresses.  Detect such consecutive reuses
+and force them to use the same string.
 
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- tools/objtool/check.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ tools/objtool/elf.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-diff --git a/tools/objtool/check.c b/tools/objtool/check.c
-index f73cf1382e5c..23cde2de66b9 100644
---- a/tools/objtool/check.c
-+++ b/tools/objtool/check.c
-@@ -1630,10 +1630,12 @@ static int add_jump_destinations(struct objtool_file *file)
- 			/*
- 			 * GCOV/KCOV dead code can jump to the end of
- 			 * the function/section.
-+			 *
-+			 * Clang on arm64 also does this sometimes for
-+			 * undefined behavior.
- 			 */
--			if (file->ignore_unreachables && func &&
--			    dest_sec == insn->sec &&
--			    dest_off == func->offset + func->len)
-+			if ((file->ignore_unreachables || (!opts.stackval && !opts.orc)) &&
-+			    func && dest_sec == insn->sec && dest_off == func->offset + func->len)
- 				continue;
+diff --git a/tools/objtool/elf.c b/tools/objtool/elf.c
+index 3da90686350d..52ef991115fc 100644
+--- a/tools/objtool/elf.c
++++ b/tools/objtool/elf.c
+@@ -1321,6 +1321,8 @@ struct elf *elf_create_file(GElf_Ehdr *ehdr, const char *name)
  
- 			ERROR_INSN(insn, "can't find jump dest instruction at %s",
+ unsigned int elf_add_string(struct elf *elf, struct section *strtab, const char *str)
+ {
++	static unsigned int last_off;
++	static const char *last_str;
+ 	unsigned int offset;
+ 
+ 	if (!strtab)
+@@ -1329,17 +1331,22 @@ unsigned int elf_add_string(struct elf *elf, struct section *strtab, const char
+ 		ERROR("can't find .strtab section");
+ 		return -1;
+ 	}
+-
+ 	if (!strtab->sh.sh_addralign) {
+ 		ERROR("'%s': invalid sh_addralign", strtab->name);
+ 		return -1;
+ 	}
+ 
++	if (last_str && !strcmp(last_str, str))
++		return last_off;
++
+ 	offset = ALIGN(strtab->sh.sh_size, strtab->sh.sh_addralign);
+ 
+ 	if (!elf_add_data(elf, strtab, str, strlen(str) + 1))
+ 		return -1;
+ 
++	last_str = str;
++	last_off = offset;
++
+ 	return offset;
+ }
+ 
 -- 
 2.53.0
 
