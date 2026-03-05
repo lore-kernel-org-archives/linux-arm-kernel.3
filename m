@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAD58F3092C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 12:59:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 465F0F30946
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 13:00:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hJmpiIOWInOkV3qbbnLsifIpZUkYd7EmxSaAbHJlkuw=; b=DtSzN48LGYKr+EAzxzOmEqsrD4
-	ILhCWz2nYsfxsj+xqGUg90VPq/urO5Rt888AencwSR22nB1Shi6Dl7BEFEUIqGlom0bi49CMeq6Nh
-	lu9OupgVhFNJD2AOuC0XmHW7cqjU3e21jrvPOJoEGmizjIgEzhWtyAejB3Epo8ClBiF0Z3dtRtZg6
-	JmZBLsaF/pOHhTAeUFwdQjqgDGLT+34jVzsgSsFKS5is6+3Y0/fN7TJtTsaSgOIzv79UtBimbDiTF
-	XRyPuZNeCYLuNGjaTe6fW3kXC8+JwFzfzZros9whu+SXgWrZq4Ty0nrKtlECBkEsn/LkT/vKZt+0N
-	L2BG6T3w==;
+	bh=MQFjFILC5mkY+Vwv4pWWykfJ7vYhfaqzdPLfw43t0cM=; b=fHXgXRt4jIobs9pb8ob0wChCky
+	4Y00EotbSniVOBW9mw+QsnZY1FejIEojYdOFOdsclKv5ZtV8H2aWWNdevsY7EV/v5enu5DaCqgLio
+	L4bgAgsOqwQZBhbIsQP6LmHYjEkr1gLP3kys9ZOFWr0CriWmx/DtJ35865YGm9tm/9JS7p0mt5hjc
+	ahL4/Mo+7VhQBxaxAzWwurM7uIsp5mokddNWQlC2U4pyEpcR7+Lo7PwTExajFgVkJM+mC96XDqkVB
+	PJFdX2Sv2jv6vB0BLMGFXtQ3oyjeWCOsW6dOTi3Ey9Y4AJeRda/HJra5x9Rnw/I2rPVCvY8l4I9Ub
+	kJ0t/LoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy8Io-00000001pgM-37bp;
-	Thu, 05 Mar 2026 12:59:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vy8JD-00000001pmP-0KKQ;
+	Thu, 05 Mar 2026 13:00:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy8In-00000001pfy-2Bja
+	id 1vy8JA-00000001plw-1bNL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 12:59:41 +0000
+	Thu, 05 Mar 2026 13:00:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D77696183D
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Mar 2026 12:59:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85F2CC4AF0C
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Mar 2026 12:59:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B977C40529
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Mar 2026 13:00:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94574C19423
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Mar 2026 13:00:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772715580;
-	bh=hJmpiIOWInOkV3qbbnLsifIpZUkYd7EmxSaAbHJlkuw=;
+	s=k20201202; t=1772715603;
+	bh=MQFjFILC5mkY+Vwv4pWWykfJ7vYhfaqzdPLfw43t0cM=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=B8+bz8NvUU3ZjfyhlEYHwnKJnQnWQMNd+c1e/t/cWW9iT470c3B1hA50m1k9B/YEf
-	 zSvuVTBN+kbkDGw4azKKK8w23UXa26d6dlZJleNTDqNR0/oJNZDVUAzvg1KE9KhH90
-	 E3wvSK4CcqrARs3w+nUNxPLDLSZ3zNs+hE4XvxMFhNs2+CCvIxZAEPjQYP1atC2/OZ
-	 /+bs40dp1aejDRILqHN9hKVchfRq9Qz1lntvaTMPg8Jpj49cFD1opBNSs25dGUhIaw
-	 rwRW0e2m/RV0TLtC+i1j52fVcY5uvyzZ+zpZXc84nT5wHWn/q++TXt1HRFaVR7W9xm
-	 tzVtXopdvd4Pw==
-Received: by mail-yx1-f45.google.com with SMTP id 956f58d0204a3-64c9a6d7f81so7290077d50.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 04:59:40 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUUv/IcQ8obK3sQZXmMheeWE2m0G8ETQ8yVN1R4h1USwWqquDFIZZLmur7vlBoFkcMULKX2YMkjqEUDgctJmH+e@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSyWejON7P7UguMOJ1TyMz6rug7/XeSAj9sFOp8EgU0qBw+T2l
-	9S8XNUA0BBevBfgSsWZRwxAAvHk68vbfKT4nPaSnaglberK7G0Ct7aV87T0bZF+xhUlQ8j+Ea3L
-	0DERBGEUHw4I63ntMh0efPzr8T2cc5nQ=
-X-Received: by 2002:a05:690e:d02:b0:649:da44:78ad with SMTP id
- 956f58d0204a3-64cf9bab50emr4671980d50.49.1772715579875; Thu, 05 Mar 2026
- 04:59:39 -0800 (PST)
+	b=mRt/V5Y+XF1IVSwG8+jgRQQyCvpXzrM2yGEMcTCtiKo92vOK/oYAOcv3PSeRo6LjC
+	 4hpJ6MZp11xMwkEB9Ia5N5Lo4ZLUYuS892vquqkFTEEx5MKE0Zjypla34/hbRsbphS
+	 4xUuDxfZOdkz/lUEsiGPSWi6n1d9I2BG/yFhmm87TI5WSOZcxOXEw6Ga1P/Ttxd5Lh
+	 r3WNQsdzdQ+1TuV++pGiJjlLiHdiBYpVJMZbu/ZnVpgSeCMRnFVj2jq2WeGtTvL41j
+	 C8Ir1Z9pBStxgl/rgavHxyBM4Bj38b2tMKwxcOAU+ND9sp3Lz98VfkZdiIW5f5RIa7
+	 P8t+8Zc/xswQQ==
+Received: by mail-yx1-f53.google.com with SMTP id 956f58d0204a3-64c9ebd1369so7289279d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 05:00:03 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWqZtCurrlNKMXFM+2yISNxeSZ2pklDEX5KRa4Udv/Tsbyj7PukDu0cdXNU79gIxQUtIVLJdZ1EbLDL0V7b+1kt@lists.infradead.org
+X-Gm-Message-State: AOJu0YwWUjtCNqFINzQVvkBzDp3gpyPZrdP/tRJ42TqS1KWcLTlpCipk
+	Ir3VZwPDeAIqciAlxSjjSEqTgqzYls7oySD2Ch1664Jczaen30qWX/nVpsseVoSNX2+nc8QK8xJ
+	UnISxithCcvk4UvrMkGi86NHKmGsexVA=
+X-Received: by 2002:a05:690e:448d:b0:64a:e7e0:a70c with SMTP id
+ 956f58d0204a3-64cf9bd6f89mr3303741d50.65.1772715602763; Thu, 05 Mar 2026
+ 05:00:02 -0800 (PST)
 MIME-Version: 1.0
-References: <20260305-gpio-hog-fwnode-v1-0-97d7df6bbd17@oss.qualcomm.com> <20260305-gpio-hog-fwnode-v1-3-97d7df6bbd17@oss.qualcomm.com>
-In-Reply-To: <20260305-gpio-hog-fwnode-v1-3-97d7df6bbd17@oss.qualcomm.com>
+References: <20260305-gpio-hog-fwnode-v1-0-97d7df6bbd17@oss.qualcomm.com> <20260305-gpio-hog-fwnode-v1-4-97d7df6bbd17@oss.qualcomm.com>
+In-Reply-To: <20260305-gpio-hog-fwnode-v1-4-97d7df6bbd17@oss.qualcomm.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 5 Mar 2026 13:59:27 +0100
-X-Gmail-Original-Message-ID: <CAD++jL=-Bg3-bO2+j3X6rJraVMPKs7c=ohydNwMfnXC59Bioyw@mail.gmail.com>
-X-Gm-Features: AaiRm53UNgtq5CBT6ERTIki7vTWuq6Z_AjQImfj6EE0Rg6alEBc0pTXA_jEAvrI
-Message-ID: <CAD++jL=-Bg3-bO2+j3X6rJraVMPKs7c=ohydNwMfnXC59Bioyw@mail.gmail.com>
-Subject: Re: [PATCH 3/6] gpio: sim: use fwnode-based GPIO hogs
+Date: Thu, 5 Mar 2026 13:59:51 +0100
+X-Gmail-Original-Message-ID: <CAD++jLnW=6CNK3F8T8UHR01UfTk7CUwavB9dwv-Ug266mVcy4g@mail.gmail.com>
+X-Gm-Features: AaiRm53RubGlDYUWuLep_26rBrnPyLYf-1xTz_QksBGDgogCNI444BwJT_n_uH4
+Message-ID: <CAD++jLnW=6CNK3F8T8UHR01UfTk7CUwavB9dwv-Ug266mVcy4g@mail.gmail.com>
+Subject: Re: [PATCH 4/6] ARM: omap1: ams-delta: convert GPIO hogs to using
+ firmware nodes
 To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 Cc: Bartosz Golaszewski <brgl@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
 	Frank Rowand <frowand.list@gmail.com>, Mika Westerberg <westeri@kernel.org>, 
@@ -72,6 +73,10 @@ Cc: Bartosz Golaszewski <brgl@kernel.org>, Geert Uytterhoeven <geert+renesas@gli
 	linux-doc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260305_050004_442018_BF92E3E0 
+X-CRM114-Status: UNSURE (   8.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,8 +94,8 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Thu, Mar 5, 2026 at 10:51=E2=80=AFAM Bartosz Golaszewski
 <bartosz.golaszewski@oss.qualcomm.com> wrote:
 
-> Convert gpio-sim to using software nodes for setting up simulated hogs
-> instead of legacy machine hogs.
+> Setup a software node hierarchy for the latch2 GPIO controller defining
+> the required hog and stop using legacy machine hog API.
 >
 > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
