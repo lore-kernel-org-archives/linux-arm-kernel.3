@@ -4,99 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1F67F47CA9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 18:40:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 431CFF47CB0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 18:42:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kQ0KzDnbu1PlI/JdLZkDqAqrxLxl5G06+OR7mjHBzrw=; b=PuBv1oFq40cGfnXbOkU4XOGq6/
-	/+WNUqlXeKHOJB/ksGiv5pMbHATsaPGLy+RQ1E9K11wh3s1VZbIC6G7NYKf//rBxR31mc5E4Rv8Xr
-	z2EpfE7yuuwbZFRO3/6HhefwJaA5hXvf6J1u+Jbl39AbTJRs2njYMieoFgLOA2xRLy3sgUHucK5x+
-	khwnCG3zqna76QdDDFP2aYM8EeXw/f/luclQdqpCR20kOLSUXlOEXHPMszxuIFpe4Bdbd6N8VLLFN
-	vU5WfKo8sZOuuG/hvIfyPjBtWy1yyIaxFiI2Qpc7SRLoNbPFg3DitgbQyvcfErNfOwL/wYOHjUCyl
-	7xQ+onvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2uk6vBu5cOxA/1MXKdQTjwYDPaF8hInAIBqLWOzDf1s=; b=EW+Lzf/QNI62ZUy2SGnH3x84Uv
+	CreOMQhvC80XNWXN7gY6KNzRUmzfEhZKwovHpP8OvzJyvGCLakE/6+xiMToXVPu2OnCH1TphGZ4ai
+	vvJ7n/EuYGK7auZ5eRXbf7MV3q6c8fb0RpIOKRhAm9GKdI2k/pKC3/ct1OlK/uVOg9ODt2eBJvNd2
+	IOUg84XAI7PqrLFdbLLKEbiyyLlX4v9SRvQlXJvvA8YYrkLr5fyXGuFTaSPUvqUHh79TvKT1vIvOY
+	7nJu1CyV9x7Ww6p08FrPTlSGAlttttGckR++dNH1O73c+WdomWrpUfC9RtoXalkp6PbMZAM/ZR/0w
+	HXR1We4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyDcP-00000002Oku-2ktm;
-	Thu, 05 Mar 2026 18:40:17 +0000
-Received: from mx-relay90-hz2.antispameurope.com ([94.100.136.190])
+	id 1vyDeX-00000002OxE-0OWC;
+	Thu, 05 Mar 2026 18:42:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyDcL-00000002Ok6-1awq
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 18:40:16 +0000
-ARC-Authentication-Results: i=1; mx-gate90-hz2.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com
- smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
- header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=kQ0KzDnbu1PlI/JdLZkDqAqrxLxl5G06+OR7mjHBzrw=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1772728405;
- b=qRzouoqyUJ7bGrbA6YDQvfnGUJFs1KM2LynXELGGWxnGVrxh5+jPSlJQ1JnQqVaviPEwW3tP
- wkD5+SOcY5LsjEsMD8lpfi7uAavdThnqtBR4RGr1x7LN2fH05wnz2I6VKwUK70WgzsfllkNVcn3
- 8MmWpmD6pqAVHNKLvljxwi+eaNJsPuVCywogro/kCa+OMB/kXT7R1J0G8/LmFRK6PDKrpIagkDI
- +OPXlU4MIT0DLARacmQTyCGHJinygjorPAPslAwU7D3SdTbwBT+MBVd8QiPZkaPakUbCYW65Gj9
- HQU5MXv0p4RMnp6r4/u1RTTehn8+sVOxdxCmDms3edcNQ==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1772728405;
- b=QNOWDqycLSV464SgNxXSJ8cIMDNyqx2F+oPGjtUKEPKwu5iEyrIVS2QPa1o8UcJZJemi4omL
- ttLJggMJstnKIWY39KVDL80D7Wd5VRxPUz1s9UtR81MJboC9Kx/lSW3XH5T2XByQgOyNGoVz2d7
- RYAs/ZhnAK8GLGVoivUCUaaRTjHzkU/tMBc5Ux+Yy3nkBRFxIkb1BHDPPdKb6UlFKG4/IiLBUXK
- RgeKSwFRzDgaj1IkUbj55JubDZ6OTLNe4B415sH3VH+2h/fSYPDqC2hbjZWbVw2M6y8BtggurBN
- CS9X2vUquKJRPMnTFXUmcRHtttfBZ9HaVc7MIjNq77DtQ==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay90-hz2.antispameurope.com;
- Thu, 05 Mar 2026 17:33:25 +0100
-Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 88EA3CC0D36;
-	Thu,  5 Mar 2026 17:33:16 +0100 (CET)
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Abel Vesa <abelvesa@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	linux-clk@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/1] clk: imx: fracn-gppll: Add 333.333333 MHz Support
-Date: Thu,  5 Mar 2026 17:33:13 +0100
-Message-ID: <20260305163314.2642523-1-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
+	id 1vyDeV-00000002Ox4-1LR2;
+	Thu, 05 Mar 2026 18:42:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EDC7B60053;
+	Thu,  5 Mar 2026 18:42:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AA36C116C6;
+	Thu,  5 Mar 2026 18:42:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772736145;
+	bh=mFBLekNu0pFh38RoS+ly8NDtbNgs1xYCpIaBJhYLK6s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZaL/avDCoUq1hdotZkUw4/COICPIBYrMTm9k+d4uRIetbmtsqV+GciipM7MHurTLs
+	 xHKY4E1BNjwJGd2GYjVAnecZv+VegXt/ug1yhqZmDzUTKSpx7rTJHNSrEBGXXySL/W
+	 kyIxF8P7MJ11z1jrIc2AUjshfmglqddtat59eBfoN0Oi8qusPMCySS3Om/bmYQra1a
+	 lA5GxnsDdMfBVF1ZqNLyQfG6boF98td58zsHVg7txsiJ7vE915l0hsQz3+JNEcWxDZ
+	 M/Fr5jz9XHNktZEpxJSj5qc6+1mX8szkHIZfo3b32soS53mwKvluR2akgE776dmWg/
+	 7iBc+LfwGFkvQ==
+Date: Thu, 5 Mar 2026 18:42:17 +0000
+From: Conor Dooley <conor@kernel.org>
+To: =?utf-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
+Cc: krzk+dt@kernel.org, Bo Gan <ganboing@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>, devicetree@vger.kernel.org,
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	robh@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
+	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+	wens@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	ningyu@eswincomputing.com, linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
+	weishangjuan@eswincomputing.com
+Subject: Re: Re: [PATCH net-next v3 1/3] dt-bindings: ethernet: eswin: add
+ clock sampling control
+Message-ID: <20260305-goldsmith-omnivore-21958a41ff48@spud>
+References: <20260303061525.846-1-lizhi2@eswincomputing.com>
+ <20260303061637.872-1-lizhi2@eswincomputing.com>
+ <20260303163846.156d18f7@kernel.org>
+ <20260304-regulate-verdict-c3a361d2dc83@spud>
+ <05a15890-392c-41c3-9566-8eb506ddfe5f@gmail.com>
+ <20260304-capable-setback-908ba5b5c858@spud>
+ <9eaad6e.4df8.19cbbe95b3c.Coremail.lizhi2@eswincomputing.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-cloud-security-sender: alexander.stein@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay90-hz2.antispameurope.com with 4fRZpj1jQSzWj0k
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: e09355286075a816d83ad3ff6a06a7b0
-X-cloud-security: scantime:1.332
-DKIM-Signature: a=rsa-sha256;
- bh=kQ0KzDnbu1PlI/JdLZkDqAqrxLxl5G06+OR7mjHBzrw=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1772728404; v=1;
- b=dWAej7i6erYA/ZkLYxz+98CZE2xVGv4m5z4Mr1Nh5FcrYWPODroOF4n5t57cwyPOOVlR+jZK
- CgIsdOmY7SDHMcXUu0rk+nPWSBMyomrXLfMpPSxBeMKmeGVdnHz4TrfCtgo0EKTxSyX9JiKNnUJ
- sk/EAYJW8mcCjXUbdi9h9VUqRTuRxy87zWGzj2coErB/IZgNlQfFcWmrpaNslWaIk/AfkQdClKn
- +eD0CY4QCCssafctvQ3MEmybMTUEmJi8ME95Gqsg8m8UBtcHI6h1DmOH2dpjzRP6gho/npqf0Ec
- Nz3Bs7NP/s+sYAymwTtadDmqGe/P3sZjPPRjLlGhEox3Q==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_104013_682797_050545DD 
-X-CRM114-Status: GOOD (  11.10  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="9LdxKbp5rG3ADm6j"
+Content-Disposition: inline
+In-Reply-To: <9eaad6e.4df8.19cbbe95b3c.Coremail.lizhi2@eswincomputing.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,27 +87,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some parallel panels have a pixelclk of 33.30 MHz. Add support for
-333.333333 MHz so a by 10 divider can be used to derive the exact pixelclk.
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
- drivers/clk/imx/clk-fracn-gppll.c | 1 +
- 1 file changed, 1 insertion(+)
+--9LdxKbp5rG3ADm6j
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/drivers/clk/imx/clk-fracn-gppll.c b/drivers/clk/imx/clk-fracn-gppll.c
-index 89ed7749bf47e..fe6ee77ba1485 100644
---- a/drivers/clk/imx/clk-fracn-gppll.c
-+++ b/drivers/clk/imx/clk-fracn-gppll.c
-@@ -88,6 +88,7 @@ static const struct imx_fracn_gppll_rate_table fracn_tbl[] = {
- 	PLL_FRACN_GP(445333333U, 167, 0, 1, 0, 9),
- 	PLL_FRACN_GP(400000000U, 200, 0, 1, 0, 12),
- 	PLL_FRACN_GP(393216000U, 163, 84, 100, 0, 10),
-+	PLL_FRACN_GP(333333333U, 125, 0, 1, 1, 9),
- 	PLL_FRACN_GP(332600000U, 138, 584, 1000, 0, 10),
- 	PLL_FRACN_GP(300000000U, 150, 0, 1, 0, 12),
- 	PLL_FRACN_GP(241900000U, 201, 584, 1000, 0, 20),
--- 
-2.43.0
+On Thu, Mar 05, 2026 at 10:52:38AM +0800, =E6=9D=8E=E5=BF=97 wrote:
+>=20
+>=20
+>=20
+> > -----=E5=8E=9F=E5=A7=8B=E9=82=AE=E4=BB=B6-----
+> > =E5=8F=91=E4=BB=B6=E4=BA=BA: "Conor Dooley" <conor@kernel.org>
+> > =E5=8F=91=E9=80=81=E6=97=B6=E9=97=B4:2026-03-04 17:30:57 (=E6=98=9F=E6=
+=9C=9F=E4=B8=89)
+> > =E6=94=B6=E4=BB=B6=E4=BA=BA: "Bo Gan" <ganboing@gmail.com>
+> > =E6=8A=84=E9=80=81: "Jakub Kicinski" <kuba@kernel.org>, lizhi2@eswincom=
+puting.com, devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@daveml=
+oft.net, edumazet@google.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt=
+@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com, mcoquelin.stm32@gma=
+il.com, alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk, wens@kern=
+el.org, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghi=
+ti.fr, linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormrepl=
+y.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, =
+ningyu@eswincomputing.com, linmin@eswincomputing.com, pinkesh.vaghela@einfo=
+chips.com, pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com
+> > =E4=B8=BB=E9=A2=98: Re: [PATCH net-next v3 1/3] dt-bindings: ethernet: =
+eswin: add clock sampling control
+> >=20
+> > On Tue, Mar 03, 2026 at 05:23:18PM -0800, Bo Gan wrote:
+> > > Hi All,
+> > >=20
+> > > On 3/3/26 16:47, Conor Dooley wrote:
+> > > > On Tue, Mar 03, 2026 at 04:38:46PM -0800, Jakub Kicinski wrote:
+> > > > > On Tue,  3 Mar 2026 14:16:37 +0800 lizhi2@eswincomputing.com wrot=
+e:
+> > > > > > There are currently no in-tree users of the EIC7700 Ethernet dr=
+iver, so
+> > > > > > these changes are safe.
+> > > > >=20
+> > > > > What do you mean by this sentence? The commit under Fixes was par=
+t of
+> > > > > Linux v6.19 already.
+> > > >=20
+> > > > The "funny" thing is that caring about users doesn't even really ma=
+tter
+> > > > on the devicetree patch, except for this hunk:
+> > > > |@@ -81,7 +99,9 @@ properties:
+> > > > |                          or external clock selection
+> > > > |           - description: Offset of AXI clock controller Low-Power=
+ request
+> > > > |                          register
+> > > > |+          - description: Offset of register controlling TXD delay
+> > > > |           - description: Offset of register controlling TX/RX clo=
+ck delay
+> > > > |+          - description: Offset of register controlling RXD delay
+> > > > |
+> > > > | required:
+> > > > |   - compatible
+> > > > And it only matters here because an item is injected mid-list. If t=
+his
+> > > > was moved to the end with the RXD delay, the **dt-binding** changes
+> > > > don't have issues with safety. I've not looked at whether there are
+> > > > knock-on concerns about users in the driver or whatever yet, but fr=
+om a
+> > > > binding POV only that hunk can break something that currently works.
+> > >=20
+> > > This was already discussed here in v1:
+> > > https://lore.kernel.org/lkml/e7183ae1-8b8b-4e77-9f4e-3bc1b4b63556@lun=
+n.ch/
+> > >=20
+> > > The device-tree is not checked in yet by ESWIN folks, so there's curr=
+ently
+> > > no user of the dt-binding. No need to worry about backward compat.
+> >=20
+> > The binding and driver exist, there doesn't need to be a dts in tree for
+> > there to be potential users. If the break was important I might not
+> > care, but this seems to be a gratuitous break, since the new items could
+> > be added to the end of the list and compatibility maintained without
+> > incurring any more difficulty for you.
+>=20
+> Hi Conor and Krzysztof,
+>=20
+> Thanks for the reviews.
+>=20
+> - The next patch will fix the property order to avoid any breakage
+>   with existing DT bindings.
 
+Good, thanks.
+
+> - Eth1 does have a timing issue in silicon, as discussed here:
+>   https://lore.kernel.org/lkml/32a1f814.2c79.19bfe173225.Coremail.linmin@=
+eswincomputing.com/
+>=20
+> =C2=A0 Based on this, and according to the advice from Andrew
+>   https://lore.kernel.org/lkml/59cec617-0189-4dc3-bc3f-6346155a62ae@lunn.=
+ch/
+>   https://lore.kernel.org/lkml/bd202cfa-d6eb-4d0e-982d-b49795dd25f7@lunn.=
+ch/
+> =C2=A0 adding a DT property is not a reasonable approach.
+> =C2=A0=C2=A0
+> =C2=A0 In the next patch, I will improve the description/paragraph and pr=
+operly
+>   document the timing issues.
+
+I personally don't mind having two compatibles, but I might be more
+clear about what device the new one refers to (so something like
+s/clk-inversion/eth1/g). But Krzysztof was the one who objected to
+having multiple compatibles, so it's worth waiting to see what he has to
+say.
+
+--9LdxKbp5rG3ADm6j
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaanOiQAKCRB4tDGHoIJi
+0kTVAP9/DDa/WZb3rTbhG6Imf28y6B3b5r9J/wxYjlBtYoF2VAEAq36UpKZJpbys
+a5AO5ebrLpv/DEjmj/ymz2YiZYHVtgw=
+=oXU3
+-----END PGP SIGNATURE-----
+
+--9LdxKbp5rG3ADm6j--
 
