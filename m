@@ -4,83 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9922AEEF309
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 06:39:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91E87EEF30D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 06:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pSEK+9z2LB078TSLD7snMI9lC5mH+QLMUw9H/gtFVrQ=; b=VhwpcM3Ru0ibJbUCnIgVVEaNNc
-	ndUjSIOiVPyqe6Zw/nmWldcedqV4rlq9bhHDa9/TCIUzlbkGn0mHnhAFHaR3FYYtWbWGXuMbJVL0S
-	E/Hzd4sz2nsjI7/I4f7xAXEjq0+WfI2gLCcWUJE+cXHU2WuZC1V7/AY7cGCwGcNclSd+VX2hsE3io
-	aoJ845Bll6hctFymjL4xVXeozt6XlvrfM4IDP8yjqpAJHz5J7KwllSYrRigFSr3rmdoGWYxETDyzj
-	xoKTsjRoZgfs81cdpUArXv7M1gK42cDmmxeIclPqyn5QS5bhyC+TnD8TVpCn0hRsMuYNyXC6TXGE+
-	U4NK7eIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SJnKoH2k8aUsMnHN9s6q8EPoGOgHGpVja0sh8tMg5Zs=; b=lDZ71dwDnXxRZyQI9WVVx0nB1Z
+	LnB5wyx8CAOzZNKSTObuYuR7BReTUYLP3C++hPU31dhmp6SlJOHH+nko2u9PD+itVUFIegkcha9Vk
+	TQ/bz4OzvbO+4K9sgmLk50DlfkA0bAqfNg33A2dLlmqIT1evjOW85/tzq/oWXUq5jZQBs9CSkmgra
+	dm4Oa+N1zyKXiFyB4e3z6ObERgOIR05WDpxRxdeTBP6IbBsIFgmIc6KiErF45wnUzfkYhud7CfKKi
+	JVdDzD6sdLe1XJyYQHlPV6/tv3dFIjyQsKKHocWG5HlD58xaMZf3eZ4DdyYM5QhnaHk+fujq4wOyE
+	lopMbtLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy2Me-000000011VD-0Bjr;
-	Thu, 05 Mar 2026 06:39:16 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1vy2Wx-000000012df-164C;
+	Thu, 05 Mar 2026 06:49:55 +0000
+Received: from mail-dl1-x1233.google.com ([2607:f8b0:4864:20::1233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy2Ma-000000011UN-2Sf1
+	id 1vy2Wu-000000012dK-3sNM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 06:39:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1772692753; x=1804228753;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=08P+xjE+qk6UsI8mJrxebsA7ZIQQhBiJz1S2trq85zI=;
-  b=jINghsXDO9IQwieHY6hBuD4nCCSoiMWnnIKATXmyrDW8LBFNbKbZQfap
-   Ikx/5nhB8iFPvYbp877PiOblqsdagp8KonkHZPniNpcTiV0bg6gj29kUn
-   Jr8svAEq+fRGugay7PKBdfmXU1NcqT5Hnl+BBfxsVtdvc44Yl1fgj1RAC
-   hhg/DSeeUaUfS3QFlDXxodU08mpCLU47nevxSqdnlmXnXCgRu0BSwbzRR
-   BT6ITwdjapDx+ZUeluHg6HI04AcRszzaMqgPObX32dX0p/2pC+byozhDY
-   p5VcMAtFOCDWhkd2v6/zosrfy/UVouumrYdVuhuyCLYDtAFdv0wt0f7pY
-   A==;
-X-CSE-ConnectionGUID: qzfTAqnpQd2pxkjvyIniMA==
-X-CSE-MsgGUID: h53mg/t7TcSKZdGtubdUDw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11719"; a="73676974"
-X-IronPort-AV: E=Sophos;i="6.21,325,1763452800"; 
-   d="scan'208";a="73676974"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Mar 2026 22:39:10 -0800
-X-CSE-ConnectionGUID: bC+F6IgTQTuCY9Sz1CyJRw==
-X-CSE-MsgGUID: /WZQqOdbSIOFcsYMa2AF0A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,325,1763452800"; 
-   d="scan'208";a="217821731"
-Received: from lkp-server01.sh.intel.com (HELO cadc4577a874) ([10.239.97.150])
-  by orviesa010.jf.intel.com with ESMTP; 04 Mar 2026 22:39:07 -0800
-Received: from kbuild by cadc4577a874 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vy2MQ-0000000005m-4B7I;
-	Thu, 05 Mar 2026 06:39:02 +0000
-Date: Thu, 5 Mar 2026 14:38:43 +0800
-From: kernel test robot <lkp@intel.com>
-To: Xu Kuohai <xukuohai@huaweicloud.com>, bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: oe-kbuild-all@lists.linux.dev, Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Anton Protopopov <a.s.protopopov@gmail.com>
-Subject: Re: [PATCH bpf-next v5 4/5] bpf, x86: Emit ENDBR for indirect jump
- targets
-Message-ID: <202603051414.AAMjmOHv-lkp@intel.com>
-References: <20260302102726.1126019-5-xukuohai@huaweicloud.com>
+	Thu, 05 Mar 2026 06:49:54 +0000
+Received: by mail-dl1-x1233.google.com with SMTP id a92af1059eb24-1270adc5121so9631204c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 22:49:52 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772693391; cv=none;
+        d=google.com; s=arc-20240605;
+        b=hCCQSRWkXje6ANxIy4HzuCEBQxkAa63P6z4mCBOIeoHyhmlapFfJPxVfcTqGKXBWLq
+         DLqE7JDV898sL2FVBncH6PKw7/u6+04nZ/F2Y5NviK60uUniSDwmymJlTtCNdwqeZurW
+         fzFtQnf8a7P1wwfIEl6/g/DgdcpinjbqJaokDu5jVQsQ+ynwF0rCR7Ilhp/w8JgXI/Xy
+         Th3IxA2iV0GKaXtXAtMg/5Iu0ASatzkQTH8BTffk+La7XEo/mTb28+5OCIeMOfsWnMnD
+         V5sxU60SD6vwRQj6+AF37IcXfJAT7gI8k+JjqKLhHHd51E/Vchx5ND9gQkM9gFMV29+v
+         BtMg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=SJnKoH2k8aUsMnHN9s6q8EPoGOgHGpVja0sh8tMg5Zs=;
+        fh=tJqzp2s+fWAnT+O9nx+5kSok7JXn91pdoeyGlPaExFw=;
+        b=USWAUa6jrrbznXuQSKFsX/fYV2gDjIln8iHS65g2ABF2B80RYeABx4NYic39d6aiow
+         6uX6zRBu2v5vNGDJaVberKYNmwslec3MWbcX5fGWLEKIdIqP9PhekJGrzkJ77F7VoAHt
+         ZGMFLH8llsTuz2eWLVGWYwsKFuPT3a2bgOhydQCSAPs9M+oz8RT0gw9Z5h+KlcgzjjtM
+         FP3MRy14JR4uhD6gN1L6gdTRcubFw6p5K/9c8T7nyHncZ/KN6tnzQ1UxOVrGkQKIC+bG
+         MDDEKwlgm2CGzXgFL0XhfqhZlJBUe6ceAXBZBYhUnh3e6Vs/oZLpMzGLBDtjdoA7fgAd
+         xORQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772693391; x=1773298191; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SJnKoH2k8aUsMnHN9s6q8EPoGOgHGpVja0sh8tMg5Zs=;
+        b=MDSB2yc+LDD+HMC8RRuzlvBHGAtKvvUCwlHboOvSj6RXXahFgRTNGk7h4Tr8w7c4dW
+         xVDDMr3xLTkltaugjHnQs+4yhhHaKkPHzqxMHqrj9mxpeaTJB4f3nI9TIKc51216WEbq
+         9OhfOK4LnwV8vHKWqqt6nZvhhNYnQEQbhOtXjvEOpPbIpZq8Sg2XhNztlHwd/fICOC+Q
+         uImosK+FaHeWkF1gawgkELIiBpHlc4AFrOATqFNfcy3NP1uwlDl+hPNoWjXZ4/k/3BEE
+         VFDz39JcfveXdqGza9+nSsouC9ZsBCBKTZf1t7T2Ain18rYP7XigbA24NzS+RXdcHNt9
+         /O0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772693391; x=1773298191;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=SJnKoH2k8aUsMnHN9s6q8EPoGOgHGpVja0sh8tMg5Zs=;
+        b=IOK8LkoW0nY7WKFLrAOfY8IVTbXTAtpSxFDEMGOssc9dpIUfslnS3RpEBnIiVV/rIk
+         PgRhCLClbOUVIdINwEIsbEEAnAUbQX3BXEcrrwqZElooBiCsg0FHnvPWFonR1dPffmGa
+         btCB4NlnAH/8huOi3hQCVKEP2anP9EKn47c0Erhgbp7GWzK43L6XpkKA+Pp2bUybrY6t
+         s843jH8DRsA0lhdqYHNxCSZLm6N7ywGl4wcr/cZbOb7Nv63chQlbWuOzwr/TaYkNGQkr
+         N7HOHzKhsIWoBr8Yb8ONJnlrCs5P9T9RnYvYkx+Hr2NV6oxFKi4ERD3eAQxuqXGLa+OA
+         lsrg==
+X-Forwarded-Encrypted: i=1; AJvYcCUxQdRDJueS7LBSOAw/7C7i+WvsZQZWS34clPzIwnLcUgOUdYkd1KD8BtscobmvyrDGW56gwz2mMFibo+wxqL7i@lists.infradead.org
+X-Gm-Message-State: AOJu0YzxbKhv0GUdPw8ZilINJ2ESD/SpCYpwhJugatEk5K8jw3PU6Cpt
+	pBuZrU8DXPQ/umccgedHAywm7tqqpS08J40/ViWAZ6wDK4QUmAIaeq+2HAmDUMh0BQKzGpYQWxd
+	cqenE/7wwdkpNVvcm9u8gwEer3kY5y0U=
+X-Gm-Gg: ATEYQzzQ6QllLv0cA8h8SUwKGmVr6FWaUQezAASYhYxI+6g4CvpkXHsavriVi23T5UK
+	GqoTuMfjg8ibPX6Y/uTC/b7j3cGUsMb8uWMhRGBlNSVOGdaYRJm2ZEbVfTu8NfQJKzhJZ0O37Gd
+	Mh7kxArQMskiKsDOnk0FDBej1hayjDacOL8viiDBqVMVru1aJIhrViqCTOq4qMAhCgjXUZDg901
+	LV27qGLu6AB22VkUALzOVSUwFgJK+nMZiwq92b+qcquA3QvWi5hK3gcxkc/FJ4k1k6RTKCes373
+	9DnQw+6gHF9XXj5msYfDicAsgsdEWrjjCiYtlP6AMU0LWfaj5OvsUnzDp4SvZhaRFncQCkLYO4H
+	9ntgC9mQF2t9bXn0S59J5RQ==
+X-Received: by 2002:a05:7022:324:b0:127:3b1d:f593 with SMTP id
+ a92af1059eb24-128b7086624mr1846052c88.9.1772693391456; Wed, 04 Mar 2026
+ 22:49:51 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260302102726.1126019-5-xukuohai@huaweicloud.com>
+References: <20260305-scmi-imx-reset-v1-0-18de78978ba9@nxp.com> <20260305-scmi-imx-reset-v1-1-18de78978ba9@nxp.com>
+In-Reply-To: <20260305-scmi-imx-reset-v1-1-18de78978ba9@nxp.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Thu, 5 Mar 2026 08:52:41 +0200
+X-Gm-Features: AaiRm505xBxL2PxE2YKJ3MTVjZe8kemHLRhSvtWvM-ybN_ZTK85FYION66BVMA4
+Message-ID: <CAEnQRZC4w3qNOJgth=8N-Ri3wFeKc-=VnQXWzr4WR0j6yt7WMQ@mail.gmail.com>
+Subject: Re: [PATCH 1/2] firmware: arm_scmi: imx: Support getting reset reason
+ of MISC protocol
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, 
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, arm-scmi@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_223912_689529_11F58E76 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20260304_224952_969229_BD686451 
+X-CRM114-Status: GOOD (  13.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,523 +121,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Xu,
+On Thu, Mar 5, 2026 at 3:55=E2=80=AFAM Peng Fan (OSS) <peng.fan@oss.nxp.com=
+> wrote:
+>
+> From: Peng Fan <peng.fan@nxp.com>
+>
+> MISC protocol supports getting reset reason per Logical Machine or
+> System. Add the API for user to retrieve the information from System
+> Manager.
 
-kernel test robot noticed the following build warnings:
+[..]
 
-[auto build test WARNING on bpf-next/master]
+> +struct scmi_imx_misc_reset_reason_in {
+> +#define MISC_REASON_FLAG_SYSTEM        BIT(0)
+> +       __le32 flags;
+> +};
+> +
+> +struct scmi_imx_misc_reset_reason_out {
+> +       /* Boot reason flags */
+> +#define MISC_BOOT_FLAG_VLD             BIT(31)
+> +#define MISC_BOOT_FLAG_ORG_VLD         BIT(28)
+> +#define MISC_BOOT_FLAG_ORIGIN          GENMASK(27, 24)
+> +#define MISC_BOOT_FLAG_O_SHIFT         24
+> +#define MISC_BOOT_FLAG_ERR_VLD         BIT(23)
+> +#define MISC_BOOT_FLAG_ERR_ID          GENMASK(22, 8)
+> +#define MISC_BOOT_FLAG_E_SHIFT         8
+> +#define MISC_BOOT_FLAG_REASON          GENMASK(7, 0)
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Xu-Kuohai/bpf-Move-JIT-for-single-subprog-programs-to-verifier/20260302-181031
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git master
-patch link:    https://lore.kernel.org/r/20260302102726.1126019-5-xukuohai%40huaweicloud.com
-patch subject: [PATCH bpf-next v5 4/5] bpf, x86: Emit ENDBR for indirect jump targets
-config: x86_64-buildonly-randconfig-001-20260305 (https://download.01.org/0day-ci/archive/20260305/202603051414.AAMjmOHv-lkp@intel.com/config)
-compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260305/202603051414.AAMjmOHv-lkp@intel.com/reproduce)
+I would move this macros outside of the struct. Although the intention
+is good it makes everything hard to read.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202603051414.AAMjmOHv-lkp@intel.com/
+Just do:
 
-All warnings (new ones prefixed by >>):
+struct scmi_imx_misc_reset_reason_out {
+__le32 b_flags; /* MISC_BOOT_FLAG_* flags */
+__le32 s_flags; /* MISC_SHUTDOWN_FLAG_* flags */
+      /* Array of extended info words */
+       __le32 extinfo[MISC_EXT_INFO_LEN_MAX];
+}
 
-   arch/x86/net/bpf_jit_comp.c: In function 'do_jit':
->> arch/x86/net/bpf_jit_comp.c:1747:37: warning: suggest braces around empty body in an 'if' statement [-Wempty-body]
-    1747 |                         EMIT_ENDBR();
-         |                                     ^
+[...]
+
+> +static int scmi_imx_misc_reset_reason(const struct scmi_protocol_handle =
+*ph, bool system,
+> +                                     struct scmi_imx_misc_reset_reason *=
+boot_r,
+> +                                     struct scmi_imx_misc_reset_reason *=
+shut_r,
+> +                                     u32 *extinfo)
+> +{
+> +       struct scmi_imx_misc_reset_reason_in *in;
+> +       struct scmi_imx_misc_reset_reason_out *out;
+> +       struct scmi_xfer *t;
+> +       int ret;
+> +
+> +       ret =3D ph->xops->xfer_get_init(ph, SCMI_IMX_MISC_RESET_REASON_GE=
+T, sizeof(*in),
+> +                                     sizeof(*out), &t);
+> +       if (ret)
+> +               return ret;
+> +
+> +       in =3D t->tx.buf;
+> +       if (system)
+> +               in->flags =3D le32_encode_bits(1, MISC_REASON_FLAG_SYSTEM=
+);
+> +       else
+> +               in->flags =3D cpu_to_le32(0);
+
+What does system =3D 0 mean? can you directly do in->flags =3D 0?
 
 
-vim +/if +1747 arch/x86/net/bpf_jit_comp.c
+> +
+> +       ret =3D ph->xops->do_xfer(ph, t);
 
-  1660	
-  1661	static int do_jit(struct bpf_verifier_env *env, struct bpf_prog *bpf_prog, int *addrs, u8 *image,
-  1662			  u8 *rw_image, int oldproglen, struct jit_context *ctx, bool jmp_padding)
-  1663	{
-  1664		bool tail_call_reachable = bpf_prog->aux->tail_call_reachable;
-  1665		struct bpf_insn *insn = bpf_prog->insnsi;
-  1666		bool callee_regs_used[4] = {};
-  1667		int insn_cnt = bpf_prog->len;
-  1668		bool seen_exit = false;
-  1669		u8 temp[BPF_MAX_INSN_SIZE + BPF_INSN_SAFETY];
-  1670		void __percpu *priv_frame_ptr = NULL;
-  1671		u64 arena_vm_start, user_vm_start;
-  1672		void __percpu *priv_stack_ptr;
-  1673		int i, excnt = 0;
-  1674		int ilen, proglen = 0;
-  1675		u8 *prog = temp;
-  1676		u32 stack_depth;
-  1677		int err;
-  1678	
-  1679		stack_depth = bpf_prog->aux->stack_depth;
-  1680		priv_stack_ptr = bpf_prog->aux->priv_stack_ptr;
-  1681		if (priv_stack_ptr) {
-  1682			priv_frame_ptr = priv_stack_ptr + PRIV_STACK_GUARD_SZ + round_up(stack_depth, 8);
-  1683			stack_depth = 0;
-  1684		}
-  1685	
-  1686		arena_vm_start = bpf_arena_get_kern_vm_start(bpf_prog->aux->arena);
-  1687		user_vm_start = bpf_arena_get_user_vm_start(bpf_prog->aux->arena);
-  1688	
-  1689		detect_reg_usage(insn, insn_cnt, callee_regs_used);
-  1690	
-  1691		emit_prologue(&prog, image, stack_depth,
-  1692			      bpf_prog_was_classic(bpf_prog), tail_call_reachable,
-  1693			      bpf_is_subprog(bpf_prog), bpf_prog->aux->exception_cb);
-  1694	
-  1695		bpf_prog->aux->ksym.fp_start = prog - temp;
-  1696	
-  1697		/* Exception callback will clobber callee regs for its own use, and
-  1698		 * restore the original callee regs from main prog's stack frame.
-  1699		 */
-  1700		if (bpf_prog->aux->exception_boundary) {
-  1701			/* We also need to save r12, which is not mapped to any BPF
-  1702			 * register, as we throw after entry into the kernel, which may
-  1703			 * overwrite r12.
-  1704			 */
-  1705			push_r12(&prog);
-  1706			push_callee_regs(&prog, all_callee_regs_used);
-  1707		} else {
-  1708			if (arena_vm_start)
-  1709				push_r12(&prog);
-  1710			push_callee_regs(&prog, callee_regs_used);
-  1711		}
-  1712		if (arena_vm_start)
-  1713			emit_mov_imm64(&prog, X86_REG_R12,
-  1714				       arena_vm_start >> 32, (u32) arena_vm_start);
-  1715	
-  1716		if (priv_frame_ptr)
-  1717			emit_priv_frame_ptr(&prog, priv_frame_ptr);
-  1718	
-  1719		ilen = prog - temp;
-  1720		if (rw_image)
-  1721			memcpy(rw_image + proglen, temp, ilen);
-  1722		proglen += ilen;
-  1723		addrs[0] = proglen;
-  1724		prog = temp;
-  1725	
-  1726		for (i = 1; i <= insn_cnt; i++, insn++) {
-  1727			const s32 imm32 = insn->imm;
-  1728			u32 dst_reg = insn->dst_reg;
-  1729			u32 src_reg = insn->src_reg;
-  1730			u8 b2 = 0, b3 = 0;
-  1731			u8 *start_of_ldx;
-  1732			s64 jmp_offset;
-  1733			s16 insn_off;
-  1734			u8 jmp_cond;
-  1735			u8 *func;
-  1736			int nops;
-  1737	
-  1738			if (priv_frame_ptr) {
-  1739				if (src_reg == BPF_REG_FP)
-  1740					src_reg = X86_REG_R9;
-  1741	
-  1742				if (dst_reg == BPF_REG_FP)
-  1743					dst_reg = X86_REG_R9;
-  1744			}
-  1745	
-  1746			if (bpf_insn_is_indirect_target(env, bpf_prog, i - 1))
-> 1747				EMIT_ENDBR();
-  1748	
-  1749			switch (insn->code) {
-  1750				/* ALU */
-  1751			case BPF_ALU | BPF_ADD | BPF_X:
-  1752			case BPF_ALU | BPF_SUB | BPF_X:
-  1753			case BPF_ALU | BPF_AND | BPF_X:
-  1754			case BPF_ALU | BPF_OR | BPF_X:
-  1755			case BPF_ALU | BPF_XOR | BPF_X:
-  1756			case BPF_ALU64 | BPF_ADD | BPF_X:
-  1757			case BPF_ALU64 | BPF_SUB | BPF_X:
-  1758			case BPF_ALU64 | BPF_AND | BPF_X:
-  1759			case BPF_ALU64 | BPF_OR | BPF_X:
-  1760			case BPF_ALU64 | BPF_XOR | BPF_X:
-  1761				maybe_emit_mod(&prog, dst_reg, src_reg,
-  1762					       BPF_CLASS(insn->code) == BPF_ALU64);
-  1763				b2 = simple_alu_opcodes[BPF_OP(insn->code)];
-  1764				EMIT2(b2, add_2reg(0xC0, dst_reg, src_reg));
-  1765				break;
-  1766	
-  1767			case BPF_ALU64 | BPF_MOV | BPF_X:
-  1768				if (insn_is_cast_user(insn)) {
-  1769					if (dst_reg != src_reg)
-  1770						/* 32-bit mov */
-  1771						emit_mov_reg(&prog, false, dst_reg, src_reg);
-  1772					/* shl dst_reg, 32 */
-  1773					maybe_emit_1mod(&prog, dst_reg, true);
-  1774					EMIT3(0xC1, add_1reg(0xE0, dst_reg), 32);
-  1775	
-  1776					/* or dst_reg, user_vm_start */
-  1777					maybe_emit_1mod(&prog, dst_reg, true);
-  1778					if (is_axreg(dst_reg))
-  1779						EMIT1_off32(0x0D,  user_vm_start >> 32);
-  1780					else
-  1781						EMIT2_off32(0x81, add_1reg(0xC8, dst_reg),  user_vm_start >> 32);
-  1782	
-  1783					/* rol dst_reg, 32 */
-  1784					maybe_emit_1mod(&prog, dst_reg, true);
-  1785					EMIT3(0xC1, add_1reg(0xC0, dst_reg), 32);
-  1786	
-  1787					/* xor r11, r11 */
-  1788					EMIT3(0x4D, 0x31, 0xDB);
-  1789	
-  1790					/* test dst_reg32, dst_reg32; check if lower 32-bit are zero */
-  1791					maybe_emit_mod(&prog, dst_reg, dst_reg, false);
-  1792					EMIT2(0x85, add_2reg(0xC0, dst_reg, dst_reg));
-  1793	
-  1794					/* cmove r11, dst_reg; if so, set dst_reg to zero */
-  1795					/* WARNING: Intel swapped src/dst register encoding in CMOVcc !!! */
-  1796					maybe_emit_mod(&prog, AUX_REG, dst_reg, true);
-  1797					EMIT3(0x0F, 0x44, add_2reg(0xC0, AUX_REG, dst_reg));
-  1798					break;
-  1799				} else if (insn_is_mov_percpu_addr(insn)) {
-  1800					/* mov <dst>, <src> (if necessary) */
-  1801					EMIT_mov(dst_reg, src_reg);
-  1802	#ifdef CONFIG_SMP
-  1803					/* add <dst>, gs:[<off>] */
-  1804					EMIT2(0x65, add_1mod(0x48, dst_reg));
-  1805					EMIT3(0x03, add_2reg(0x04, 0, dst_reg), 0x25);
-  1806					EMIT((u32)(unsigned long)&this_cpu_off, 4);
-  1807	#endif
-  1808					break;
-  1809				}
-  1810				fallthrough;
-  1811			case BPF_ALU | BPF_MOV | BPF_X:
-  1812				if (insn->off == 0)
-  1813					emit_mov_reg(&prog,
-  1814						     BPF_CLASS(insn->code) == BPF_ALU64,
-  1815						     dst_reg, src_reg);
-  1816				else
-  1817					emit_movsx_reg(&prog, insn->off,
-  1818						       BPF_CLASS(insn->code) == BPF_ALU64,
-  1819						       dst_reg, src_reg);
-  1820				break;
-  1821	
-  1822				/* neg dst */
-  1823			case BPF_ALU | BPF_NEG:
-  1824			case BPF_ALU64 | BPF_NEG:
-  1825				maybe_emit_1mod(&prog, dst_reg,
-  1826						BPF_CLASS(insn->code) == BPF_ALU64);
-  1827				EMIT2(0xF7, add_1reg(0xD8, dst_reg));
-  1828				break;
-  1829	
-  1830			case BPF_ALU | BPF_ADD | BPF_K:
-  1831			case BPF_ALU | BPF_SUB | BPF_K:
-  1832			case BPF_ALU | BPF_AND | BPF_K:
-  1833			case BPF_ALU | BPF_OR | BPF_K:
-  1834			case BPF_ALU | BPF_XOR | BPF_K:
-  1835			case BPF_ALU64 | BPF_ADD | BPF_K:
-  1836			case BPF_ALU64 | BPF_SUB | BPF_K:
-  1837			case BPF_ALU64 | BPF_AND | BPF_K:
-  1838			case BPF_ALU64 | BPF_OR | BPF_K:
-  1839			case BPF_ALU64 | BPF_XOR | BPF_K:
-  1840				maybe_emit_1mod(&prog, dst_reg,
-  1841						BPF_CLASS(insn->code) == BPF_ALU64);
-  1842	
-  1843				/*
-  1844				 * b3 holds 'normal' opcode, b2 short form only valid
-  1845				 * in case dst is eax/rax.
-  1846				 */
-  1847				switch (BPF_OP(insn->code)) {
-  1848				case BPF_ADD:
-  1849					b3 = 0xC0;
-  1850					b2 = 0x05;
-  1851					break;
-  1852				case BPF_SUB:
-  1853					b3 = 0xE8;
-  1854					b2 = 0x2D;
-  1855					break;
-  1856				case BPF_AND:
-  1857					b3 = 0xE0;
-  1858					b2 = 0x25;
-  1859					break;
-  1860				case BPF_OR:
-  1861					b3 = 0xC8;
-  1862					b2 = 0x0D;
-  1863					break;
-  1864				case BPF_XOR:
-  1865					b3 = 0xF0;
-  1866					b2 = 0x35;
-  1867					break;
-  1868				}
-  1869	
-  1870				if (is_imm8(imm32))
-  1871					EMIT3(0x83, add_1reg(b3, dst_reg), imm32);
-  1872				else if (is_axreg(dst_reg))
-  1873					EMIT1_off32(b2, imm32);
-  1874				else
-  1875					EMIT2_off32(0x81, add_1reg(b3, dst_reg), imm32);
-  1876				break;
-  1877	
-  1878			case BPF_ALU64 | BPF_MOV | BPF_K:
-  1879			case BPF_ALU | BPF_MOV | BPF_K:
-  1880				emit_mov_imm32(&prog, BPF_CLASS(insn->code) == BPF_ALU64,
-  1881					       dst_reg, imm32);
-  1882				break;
-  1883	
-  1884			case BPF_LD | BPF_IMM | BPF_DW:
-  1885				emit_mov_imm64(&prog, dst_reg, insn[1].imm, insn[0].imm);
-  1886				insn++;
-  1887				i++;
-  1888				break;
-  1889	
-  1890				/* dst %= src, dst /= src, dst %= imm32, dst /= imm32 */
-  1891			case BPF_ALU | BPF_MOD | BPF_X:
-  1892			case BPF_ALU | BPF_DIV | BPF_X:
-  1893			case BPF_ALU | BPF_MOD | BPF_K:
-  1894			case BPF_ALU | BPF_DIV | BPF_K:
-  1895			case BPF_ALU64 | BPF_MOD | BPF_X:
-  1896			case BPF_ALU64 | BPF_DIV | BPF_X:
-  1897			case BPF_ALU64 | BPF_MOD | BPF_K:
-  1898			case BPF_ALU64 | BPF_DIV | BPF_K: {
-  1899				bool is64 = BPF_CLASS(insn->code) == BPF_ALU64;
-  1900	
-  1901				if (dst_reg != BPF_REG_0)
-  1902					EMIT1(0x50); /* push rax */
-  1903				if (dst_reg != BPF_REG_3)
-  1904					EMIT1(0x52); /* push rdx */
-  1905	
-  1906				if (BPF_SRC(insn->code) == BPF_X) {
-  1907					if (src_reg == BPF_REG_0 ||
-  1908					    src_reg == BPF_REG_3) {
-  1909						/* mov r11, src_reg */
-  1910						EMIT_mov(AUX_REG, src_reg);
-  1911						src_reg = AUX_REG;
-  1912					}
-  1913				} else {
-  1914					/* mov r11, imm32 */
-  1915					EMIT3_off32(0x49, 0xC7, 0xC3, imm32);
-  1916					src_reg = AUX_REG;
-  1917				}
-  1918	
-  1919				if (dst_reg != BPF_REG_0)
-  1920					/* mov rax, dst_reg */
-  1921					emit_mov_reg(&prog, is64, BPF_REG_0, dst_reg);
-  1922	
-  1923				if (insn->off == 0) {
-  1924					/*
-  1925					 * xor edx, edx
-  1926					 * equivalent to 'xor rdx, rdx', but one byte less
-  1927					 */
-  1928					EMIT2(0x31, 0xd2);
-  1929	
-  1930					/* div src_reg */
-  1931					maybe_emit_1mod(&prog, src_reg, is64);
-  1932					EMIT2(0xF7, add_1reg(0xF0, src_reg));
-  1933				} else {
-  1934					if (BPF_CLASS(insn->code) == BPF_ALU)
-  1935						EMIT1(0x99); /* cdq */
-  1936					else
-  1937						EMIT2(0x48, 0x99); /* cqo */
-  1938	
-  1939					/* idiv src_reg */
-  1940					maybe_emit_1mod(&prog, src_reg, is64);
-  1941					EMIT2(0xF7, add_1reg(0xF8, src_reg));
-  1942				}
-  1943	
-  1944				if (BPF_OP(insn->code) == BPF_MOD &&
-  1945				    dst_reg != BPF_REG_3)
-  1946					/* mov dst_reg, rdx */
-  1947					emit_mov_reg(&prog, is64, dst_reg, BPF_REG_3);
-  1948				else if (BPF_OP(insn->code) == BPF_DIV &&
-  1949					 dst_reg != BPF_REG_0)
-  1950					/* mov dst_reg, rax */
-  1951					emit_mov_reg(&prog, is64, dst_reg, BPF_REG_0);
-  1952	
-  1953				if (dst_reg != BPF_REG_3)
-  1954					EMIT1(0x5A); /* pop rdx */
-  1955				if (dst_reg != BPF_REG_0)
-  1956					EMIT1(0x58); /* pop rax */
-  1957				break;
-  1958			}
-  1959	
-  1960			case BPF_ALU | BPF_MUL | BPF_K:
-  1961			case BPF_ALU64 | BPF_MUL | BPF_K:
-  1962				maybe_emit_mod(&prog, dst_reg, dst_reg,
-  1963					       BPF_CLASS(insn->code) == BPF_ALU64);
-  1964	
-  1965				if (is_imm8(imm32))
-  1966					/* imul dst_reg, dst_reg, imm8 */
-  1967					EMIT3(0x6B, add_2reg(0xC0, dst_reg, dst_reg),
-  1968					      imm32);
-  1969				else
-  1970					/* imul dst_reg, dst_reg, imm32 */
-  1971					EMIT2_off32(0x69,
-  1972						    add_2reg(0xC0, dst_reg, dst_reg),
-  1973						    imm32);
-  1974				break;
-  1975	
-  1976			case BPF_ALU | BPF_MUL | BPF_X:
-  1977			case BPF_ALU64 | BPF_MUL | BPF_X:
-  1978				maybe_emit_mod(&prog, src_reg, dst_reg,
-  1979					       BPF_CLASS(insn->code) == BPF_ALU64);
-  1980	
-  1981				/* imul dst_reg, src_reg */
-  1982				EMIT3(0x0F, 0xAF, add_2reg(0xC0, src_reg, dst_reg));
-  1983				break;
-  1984	
-  1985				/* Shifts */
-  1986			case BPF_ALU | BPF_LSH | BPF_K:
-  1987			case BPF_ALU | BPF_RSH | BPF_K:
-  1988			case BPF_ALU | BPF_ARSH | BPF_K:
-  1989			case BPF_ALU64 | BPF_LSH | BPF_K:
-  1990			case BPF_ALU64 | BPF_RSH | BPF_K:
-  1991			case BPF_ALU64 | BPF_ARSH | BPF_K:
-  1992				maybe_emit_1mod(&prog, dst_reg,
-  1993						BPF_CLASS(insn->code) == BPF_ALU64);
-  1994	
-  1995				b3 = simple_alu_opcodes[BPF_OP(insn->code)];
-  1996				if (imm32 == 1)
-  1997					EMIT2(0xD1, add_1reg(b3, dst_reg));
-  1998				else
-  1999					EMIT3(0xC1, add_1reg(b3, dst_reg), imm32);
-  2000				break;
-  2001	
-  2002			case BPF_ALU | BPF_LSH | BPF_X:
-  2003			case BPF_ALU | BPF_RSH | BPF_X:
-  2004			case BPF_ALU | BPF_ARSH | BPF_X:
-  2005			case BPF_ALU64 | BPF_LSH | BPF_X:
-  2006			case BPF_ALU64 | BPF_RSH | BPF_X:
-  2007			case BPF_ALU64 | BPF_ARSH | BPF_X:
-  2008				/* BMI2 shifts aren't better when shift count is already in rcx */
-  2009				if (boot_cpu_has(X86_FEATURE_BMI2) && src_reg != BPF_REG_4) {
-  2010					/* shrx/sarx/shlx dst_reg, dst_reg, src_reg */
-  2011					bool w = (BPF_CLASS(insn->code) == BPF_ALU64);
-  2012					u8 op;
-  2013	
-  2014					switch (BPF_OP(insn->code)) {
-  2015					case BPF_LSH:
-  2016						op = 1; /* prefix 0x66 */
-  2017						break;
-  2018					case BPF_RSH:
-  2019						op = 3; /* prefix 0xf2 */
-  2020						break;
-  2021					case BPF_ARSH:
-  2022						op = 2; /* prefix 0xf3 */
-  2023						break;
-  2024					}
-  2025	
-  2026					emit_shiftx(&prog, dst_reg, src_reg, w, op);
-  2027	
-  2028					break;
-  2029				}
-  2030	
-  2031				if (src_reg != BPF_REG_4) { /* common case */
-  2032					/* Check for bad case when dst_reg == rcx */
-  2033					if (dst_reg == BPF_REG_4) {
-  2034						/* mov r11, dst_reg */
-  2035						EMIT_mov(AUX_REG, dst_reg);
-  2036						dst_reg = AUX_REG;
-  2037					} else {
-  2038						EMIT1(0x51); /* push rcx */
-  2039					}
-  2040					/* mov rcx, src_reg */
-  2041					EMIT_mov(BPF_REG_4, src_reg);
-  2042				}
-  2043	
-  2044				/* shl %rax, %cl | shr %rax, %cl | sar %rax, %cl */
-  2045				maybe_emit_1mod(&prog, dst_reg,
-  2046						BPF_CLASS(insn->code) == BPF_ALU64);
-  2047	
-  2048				b3 = simple_alu_opcodes[BPF_OP(insn->code)];
-  2049				EMIT2(0xD3, add_1reg(b3, dst_reg));
-  2050	
-  2051				if (src_reg != BPF_REG_4) {
-  2052					if (insn->dst_reg == BPF_REG_4)
-  2053						/* mov dst_reg, r11 */
-  2054						EMIT_mov(insn->dst_reg, AUX_REG);
-  2055					else
-  2056						EMIT1(0x59); /* pop rcx */
-  2057				}
-  2058	
-  2059				break;
-  2060	
-  2061			case BPF_ALU | BPF_END | BPF_FROM_BE:
-  2062			case BPF_ALU64 | BPF_END | BPF_FROM_LE:
-  2063				switch (imm32) {
-  2064				case 16:
-  2065					/* Emit 'ror %ax, 8' to swap lower 2 bytes */
-  2066					EMIT1(0x66);
-  2067					if (is_ereg(dst_reg))
-  2068						EMIT1(0x41);
-  2069					EMIT3(0xC1, add_1reg(0xC8, dst_reg), 8);
-  2070	
-  2071					/* Emit 'movzwl eax, ax' */
-  2072					if (is_ereg(dst_reg))
-  2073						EMIT3(0x45, 0x0F, 0xB7);
-  2074					else
-  2075						EMIT2(0x0F, 0xB7);
-  2076					EMIT1(add_2reg(0xC0, dst_reg, dst_reg));
-  2077					break;
-  2078				case 32:
-  2079					/* Emit 'bswap eax' to swap lower 4 bytes */
-  2080					if (is_ereg(dst_reg))
-  2081						EMIT2(0x41, 0x0F);
-  2082					else
-  2083						EMIT1(0x0F);
-  2084					EMIT1(add_1reg(0xC8, dst_reg));
-  2085					break;
-  2086				case 64:
-  2087					/* Emit 'bswap rax' to swap 8 bytes */
-  2088					EMIT3(add_1mod(0x48, dst_reg), 0x0F,
-  2089					      add_1reg(0xC8, dst_reg));
-  2090					break;
-  2091				}
-  2092				break;
-  2093	
-  2094			case BPF_ALU | BPF_END | BPF_FROM_LE:
-  2095				switch (imm32) {
-  2096				case 16:
-  2097					/*
-  2098					 * Emit 'movzwl eax, ax' to zero extend 16-bit
-  2099					 * into 64 bit
-  2100					 */
-  2101					if (is_ereg(dst_reg))
-  2102						EMIT3(0x45, 0x0F, 0xB7);
-  2103					else
-  2104						EMIT2(0x0F, 0xB7);
-  2105					EMIT1(add_2reg(0xC0, dst_reg, dst_reg));
-  2106					break;
-  2107				case 32:
-  2108					/* Emit 'mov eax, eax' to clear upper 32-bits */
-  2109					if (is_ereg(dst_reg))
-  2110						EMIT1(0x45);
-  2111					EMIT2(0x89, add_2reg(0xC0, dst_reg, dst_reg));
-  2112					break;
-  2113				case 64:
-  2114					/* nop */
-  2115					break;
-  2116				}
-  2117				break;
-  2118	
-  2119				/* speculation barrier */
-  2120			case BPF_ST | BPF_NOSPEC:
-  2121				EMIT_LFENCE();
-  2122				break;
-  2123	
-  2124				/* ST: *(u8*)(dst_reg + off) = imm */
-  2125			case BPF_ST | BPF_MEM | BPF_B:
-  2126				if (is_ereg(dst_reg))
-  2127					EMIT2(0x41, 0xC6);
-  2128				else
-  2129					EMIT1(0xC6);
-  2130				goto st;
-  2131			case BPF_ST | BPF_MEM | BPF_H:
-  2132				if (is_ereg(dst_reg))
-  2133					EMIT3(0x66, 0x41, 0xC7);
-  2134				else
-  2135					EMIT2(0x66, 0xC7);
-  2136				goto st;
-  2137			case BPF_ST | BPF_MEM | BPF_W:
-  2138				if (is_ereg(dst_reg))
-  2139					EMIT2(0x41, 0xC7);
-  2140				else
-  2141					EMIT1(0xC7);
-  2142				goto st;
-  2143			case BPF_ST | BPF_MEM | BPF_DW:
-  2144				EMIT2(add_1mod(0x48, dst_reg), 0xC7);
-  2145	
+Is it mandatory to call  ph->xops->xfer_put(ph, t); even if ret ! =3D 0?
+Because we can get rid of one level of indentation with:
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+ ret =3D ph->xops->do_xfer(ph, t);
+ if (ret)
+    return ret;
 
