@@ -4,72 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30948F30922
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:26:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE958F30924
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xdQrU4qXjTQ+7Me9O0jc4BQBHlE/G3e5V9tAzTNavKA=; b=Tj2JrTUK6l5V0oTMgBO+tbsdMQ
-	x4Tzfm6O6QkKwfV7sZZ1zX4M/zlwaHFJ1la6mGhbPAeQ/rtnTWIABLGpSmARVe2XrI6Sh2CExQtNf
-	P0DA4rFhrmLUYJ11h0iBdaMZxcToQzLDy6/Bi7paOrIstqdt7wucvlivQKqi+WyQuGwRNvgf2mXkK
-	v8n9ruXEjY12v+tcV9IbwCq0Ilg4rgA9EFsSKxCzsCdtQAlxte++lpFkRwjEPiVJ1IHcDhPPGOWrx
-	9E9uOMuay5YMbEXG/C4coxs+X1pR4LlvJ9QKL/SdfRQDYEIjO4pwsxljewRmixxXRwZoy4pXNLOIa
-	hB8HUkSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qpDt49gW8VSVLc5P1itBk8mCzYzqpKqFBpggkeBP84c=; b=MLVV2rkZQWqWWawgPhkesFML+q
+	Q/783erRV9q5s1AvjwcU+Ct04/XrVk/oqYY1ZLISxULeJUD2mQmbAQoM9SDWUaLw0rodGykvOCj4q
+	CNyjRL325D8PYPTBLpbCnxaPdJXHfp5vo4bohxU0pPiQWxSInPprUZ2nAQHLY3bGJHrQVFxVcIOre
+	po9Vw3jPy2I2KQmIv5JbUUq+ano1zw/vn70V0OpdoYDr5FHjlMAeL44NEQMayVrStVRa0wKCckyZo
+	L4moutVgzrdnXLLw2Te/XpWTAMopiW6/+n/xYZtL/XezFb5VU5hi5NN203dgwYbBn7ylubx3HR2nn
+	wbh3kbzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy4y9-00000001NPL-3Ugc;
-	Thu, 05 Mar 2026 09:26:09 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vy50B-00000001Nic-2i7g;
+	Thu, 05 Mar 2026 09:28:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy4y6-00000001NOI-35RO
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 09:26:08 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 0E9F21A2CD7;
-	Thu,  5 Mar 2026 09:26:05 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D42755FDEB;
-	Thu,  5 Mar 2026 09:26:04 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 905521036984E;
-	Thu,  5 Mar 2026 10:25:58 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1772702763; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=xdQrU4qXjTQ+7Me9O0jc4BQBHlE/G3e5V9tAzTNavKA=;
-	b=XEQqk9leLVrIMuzk8bu7Hj6g5wiJ3yEC0RKVMO8iNt9vdNP9G705szS3WVJblHVezb+wqQ
-	knRXsgJUpwXDcxt5LoA/+JHO+6D9EEohgAlgfqNL9KkER5FiXq1ZLhrNj5NNw3uTPWnmTs
-	t60qOH/4vi76epX0K3q2ieHpmKKQnm1JXDW7+Nk1Nes2tXOJQMB+QeKKFU0TJRnNtVt9Ei
-	Cvvb/na82PeG0J8h89D24oR8fTwfpCYmlAEjjUgLcopF/2InzieX8bq104U9VCdgtIGAME
-	8//EWQik54BRtDpQ9YeDG8AbFsTMmwqlYzONPvxoMQAEzZY6vxFj1oyLCtavfA==
-Message-ID: <2d65c928-8b4e-4224-93db-a1430945d719@bootlin.com>
-Date: Thu, 5 Mar 2026 10:25:57 +0100
+	id 1vy50A-00000001NiP-48dY;
+	Thu, 05 Mar 2026 09:28:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0E07461340;
+	Thu,  5 Mar 2026 09:28:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33AF9C116C6;
+	Thu,  5 Mar 2026 09:28:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772702893;
+	bh=eMEdAdxmi5XoFOVsNLtFj1G9gXiGNoC5/esgtPlElrw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rI7HGIYhSvfO1RmPL7HM9zEdH40BCaFV4GwxZZJjuXF3OASqzHW3jOH+AkqYx0AUG
+	 8+zQ87QG1y13OUntm0/TwT8WYNQXGWcBfbqSBLeGVbvp9AHtZZLURGBdLEfWt2lo5V
+	 le0b7GQewa3RvZOpRCegZPxgVHgc3EDPFkhvqb/ey5q6I/g+xR5SFq7Xmi4x7cFv2O
+	 LZs02z7aN6V4Z4FqV5gW9M+z/My2xLpx74i3BRILn+CmiCr/MAgM8jNnlgIVIOSApw
+	 gDkrtyV4tUll/rdSmRF6JUE2LBOOgLmrk1cCyX9Zc6j1Tn9XC/oz4dzPh3/P0BP/q2
+	 obZnRjiQsVFWg==
+Date: Thu, 5 Mar 2026 10:28:11 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <skhan@linuxfoundation.org>, kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+	Andri Yngvason <andri@yngvason.is>, Werner Sembach <wse@tuxedocomputers.com>, 
+	Marius Vlad <marius.vlad@collabora.com>
+Subject: Re: [PATCH v9 02/19] drm: Add new general DRM property "color format"
+Message-ID: <20260305-just-oxpecker-of-reward-e05e4f@houat>
+References: <20260227-color-format-v9-0-658c3b9db7ef@collabora.com>
+ <20260227-color-format-v9-2-658c3b9db7ef@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/6] mtd: rawnand: sunxi: fix sunxi_nand_ooblayout_free
-To: =?UTF-8?Q?Jernej_=C5=A0krabec?= <jernej.skrabec@gmail.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>
-Cc: Wentao Liang <vulab@iscas.ac.cn>, Maxime Ripard <mripard@kernel.org>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20260220161011.999642-1-richard.genoud@bootlin.com>
- <20260220161011.999642-2-richard.genoud@bootlin.com>
- <5967652.DvuYhMxLoT@jernej-laptop>
-From: Richard GENOUD <richard.genoud@bootlin.com>
-Content-Language: en-US, fr
-Organization: Bootlin
-In-Reply-To: <5967652.DvuYhMxLoT@jernej-laptop>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_012606_912789_9660789D 
-X-CRM114-Status: GOOD (  19.18  )
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="56nzglyxg7oadotv"
+Content-Disposition: inline
+In-Reply-To: <20260227-color-format-v9-2-658c3b9db7ef@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,55 +86,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 21/02/2026 à 10:13, Jernej Škrabec a écrit :
-> Dne petek, 20. februar 2026 ob 17:10:06 Srednjeevropski standardni čas je Richard Genoud napisal(a):
->> The available length is really USER_DATA_LEN - 2 instead of just 2 (the
->> user data length minus the BBM length)
->> That doesn't change anything now, but if USER_DATA_LEN changes, it will.
-> 
-> s/USER_DATA_LEN/USER_DATA_SZ/
-> 
->>
->> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
-> 
-> If this is really a fix as subject suggest, then Fixes tag is in order. However,
-> this looks more like code refactor as end result is the same. So maybe
-> reword subject?
-Yes, it's more a code clarification, I'll reword that.
 
-Thanks!
+--56nzglyxg7oadotv
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v9 02/19] drm: Add new general DRM property "color format"
+MIME-Version: 1.0
 
-> 
-> Best regards,
-> Jernej
-> 
->> ---
->>   drivers/mtd/nand/raw/sunxi_nand.c | 4 ++--
->>   1 file changed, 2 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
->> index 9dcdc93734cb..c420909b944b 100644
->> --- a/drivers/mtd/nand/raw/sunxi_nand.c
->> +++ b/drivers/mtd/nand/raw/sunxi_nand.c
->> @@ -1761,12 +1761,12 @@ static int sunxi_nand_ooblayout_free(struct mtd_info *mtd, int section,
->>   
->>   	/*
->>   	 * The first 2 bytes are used for BB markers, hence we
->> -	 * only have 2 bytes available in the first user data
->> +	 * only have USER_DATA_SZ - 2 bytes available in the first user data
->>   	 * section.
->>   	 */
->>   	if (!section && ecc->engine_type == NAND_ECC_ENGINE_TYPE_ON_HOST) {
->>   		oobregion->offset = 2;
->> -		oobregion->length = 2;
->> +		oobregion->length = USER_DATA_SZ - 2;
->>   
->>   		return 0;
->>   	}
->>
-> 
-> 
-> 
-> 
+Hi,
 
+On Fri, Feb 27, 2026 at 08:20:07PM +0100, Nicolas Frattaroli wrote:
+> diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
+> index 4af91e252fbd..b5bc93856ad1 100644
+> --- a/include/drm/drm_connector.h
+> +++ b/include/drm/drm_connector.h
+> @@ -579,6 +579,91 @@ enum drm_output_color_format {
+>  	DRM_OUTPUT_COLOR_FORMAT_YCBCR420,
+>  };
+> =20
+> +/* Do not forget to adjust after modifying &enum drm_output_color_format=
+ */
+> +#define DRM_OUTPUT_COLOR_FORMAT_COUNT 4
+
+Maybe we can put that as the last variant of our enum so we don't have
+to always update it?
+
+> +/**
+> + * enum drm_connector_color_format - Connector Color Format Request
+> + *
+> + * This enum, unlike &enum drm_output_color_format, is used to specify r=
+equests
+> + * for a specific color format on a connector through the DRM "color for=
+mat"
+> + * property. The difference is that it has an "AUTO" value to specify th=
+at
+> + * no specific choice has been made.
+> + */
+> +enum drm_connector_color_format {
+> +	/**
+> +	 * @DRM_CONNECTOR_COLOR_FORMAT_AUTO: The driver or display protocol
+> +	 * helpers should pick a suitable color format. All implementations of a
+> +	 * specific display protocol must behave the same way with "AUTO", but
+> +	 * different display protocols do not necessarily have the same "AUTO"
+> +	 * semantics.
+> +	 *
+> +	 * For HDMI, "AUTO" picks RGB, but falls back to YCbCr 4:2:0 if the
+> +	 * bandwidth required for full-scale RGB is not available, or the mode
+> +	 * is YCbCr 4:2:0-only, as long as the mode and output both support
+> +	 * YCbCr 4:2:0.
+> +	 *
+> +	 * For display protocols other than HDMI, the recursive bridge chain
+> +	 * format selection picks the first chain of bridge formats that works,
+> +	 * as has already been the case before the introduction of the "color
+> +	 * format" property. Non-HDMI bridges should therefore either sort their
+> +	 * bus output formats by preference, or agree on a unified auto format
+> +	 * selection logic that's implemented in a common state helper (like
+> +	 * how HDMI does it).
+> +	 */
+> +	DRM_CONNECTOR_COLOR_FORMAT_AUTO =3D 0,
+> +
+> +	/**
+> +	 * @DRM_CONNECTOR_COLOR_FORMAT_RGB444: RGB output format
+> +	 */
+> +	DRM_CONNECTOR_COLOR_FORMAT_RGB444,
+> +
+> +	/**
+> +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR444: YCbCr 4:4:4 output format (ie.
+> +	 * not subsampled)
+> +	 */
+> +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR444,
+> +
+> +	/**
+> +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR422: YCbCr 4:2:2 output format (ie.
+> +	 * with horizontal subsampling)
+> +	 */
+> +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR422,
+> +
+> +	/**
+> +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR420: YCbCr 4:2:0 output format (ie.
+> +	 * with horizontal and vertical subsampling)
+> +	 */
+> +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR420,
+> +};
+> +
+> +/* Do not forget to adjust after modifying &enum drm_connector_color_for=
+mat */
+> +#define DRM_CONNECTOR_COLOR_FORMAT_COUNT 5
+
+Ditto
+
+Maxime
+
+--56nzglyxg7oadotv
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaalMqgAKCRAnX84Zoj2+
+dmOPAX92VmruO+gIj35XK8ogbZVYutcf8QCLMn4u+YKllIE7k9+XA+wG0UK9eYuH
+cO1fW3UBfRH+rv+HolxgeR79kVh3vlGJgPBqkn4Am7SomEZ6vyimagwigP2i7czB
+4BUuzmli8g==
+=EFdZ
+-----END PGP SIGNATURE-----
+
+--56nzglyxg7oadotv--
 
