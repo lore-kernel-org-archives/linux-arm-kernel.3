@@ -4,83 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF537F47CA6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 18:09:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6AD4F47CB0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 18:32:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=adH7Yx0sIn9M3KOK46MS0Z5Gi0nhXo0SQhj7OZo/qJ8=; b=Ww9jqoWN9HbwoSIAR8QyoUUyZ0
-	9Lf3y1WUCxa8o292qdKoD3ORkV2c4LeCfkemBD8CItDEhR0E7+FGbc5KLXzMMdkDkDlMm3wR+wECC
-	hzJ9gTe17vut3oHkCYJAyCDnrblJ71bIL0fxYLyV7dfMD7K7iJvPkSzqDvFEQQzSb4+ZVn+Ku2HTG
-	W7BeuFG/T5TfqRnNI+3WJ+89EO4PhWj9omS43kJPOuEaLZM/aO55RkcOjVwjyovFftzxqNOXZmLuw
-	xmoGojjGkCzJFK+ZswIfVmBtMzLsBqX8l1FhU8C2LHMwHgZTHUU2MQObeqMKyYAU1CtkKWslE6et9
-	YoNi5DZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=E8X4J3YnGtFMlKI1flQlOPu7lYUst5o9wwkZ0vaHFP0=; b=2PVDpaPX/fZEVFa35vXaBjDxzs
+	pqHfxKyH2P4FCr2lMV5HEb0vPV35ImFh5HOl7v6BvL4dUEuH85iUN369tk0cb4UH3IVTdzvFRqpiL
+	aP7juW/Pist7zL3zMYEBBoJBzjkNAURYzgwH8SQsP4EIMLjya4PojG0DbsTifFwP09KUbELpePmyu
+	n4gZtZD5rpYY1DgouOEmQr+498MrbSXVjDIAfLW+4hb7JtywG+DlsHaFRagcSP4ByhZvpNWv+t7ts
+	iFrN4L2lAoDayH2fXR/thnGb+f7Mfkcq1F0WJF7WCFIE3afdXzPZjbcYte9JAgaCQ0K84PsmqhQWV
+	9JPWxfIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyD8R-00000002M6O-306f;
-	Thu, 05 Mar 2026 18:09:19 +0000
-Received: from mail.hugovil.com ([162.243.120.170])
+	id 1vyDV3-00000002O8k-48pA;
+	Thu, 05 Mar 2026 18:32:42 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyD8K-00000002LwZ-2sgx
+	id 1vyDV0-00000002O86-4Bv4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 18:09:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
-	; s=x; h=Subject:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Cc:To
-	:From:subject:date:message-id:reply-to;
-	bh=adH7Yx0sIn9M3KOK46MS0Z5Gi0nhXo0SQhj7OZo/qJ8=; b=lqlBFHzHucqbX23Z0gYNkhbOT+
-	B8TsSyatYJkNNTvIsn8Cn7eGTpr2KuboOyI6uaPultdmhp7TNeuqTG30MMfh7dFgJXSDaEriFaFLf
-	J5HMNj4uA9IIHKbEodePvg9Gw8gptAwbEXsB+m/+1M+p8KXi+O36ZqxGzO6Z+wGgTaas=;
-Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168]:37706 helo=pettiford.lan)
-	by mail.hugovil.com with esmtpa (Exim 4.92)
-	(envelope-from <hugo@hugovil.com>)
-	id 1vyD89-0002aR-5o; Thu, 05 Mar 2026 13:09:02 -0500
-From: Hugo Villeneuve <hugo@hugovil.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org,
-	Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	shawnguo@kernel.org,
-	laurent.pinchart+renesas@ideasonboard.com,
-	antonin.godard@bootlin.com
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev,
+	Thu, 05 Mar 2026 18:32:40 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-8299c75f730so124278b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 10:32:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772735557; x=1773340357; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=E8X4J3YnGtFMlKI1flQlOPu7lYUst5o9wwkZ0vaHFP0=;
+        b=gJY9ee0lymZ5ucXwMjVaVkhgPK5J1CBFUN6+1TD4eXzyt29HUz6AHvyjbiSSVwJWle
+         5I/YgwEtdI41gDPgTyh0YOLllSlh9I3FYGSmCwVu2ZIH6Vtq0+IhTbL1sheiaFBWHdvP
+         Hw+8nYN08KQjf2iyRwW25CtIkaERBgIhQrmd2F7xJD0IMTGCFncW4sWxM5RutZwZablw
+         HZxJmABL2z8CFO7tiqyfNv5cg1GjGdhXCFFdpQNhIa5BSbP84a8e8un4P1jJzjV44MNE
+         1geXciFiZ3W6vv4AlvV0JX4ecqZS/ZGw2G+UDGjs1NgIWonzD0WqVh17zlCxG6ZZybQi
+         /ayQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772735557; x=1773340357;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=E8X4J3YnGtFMlKI1flQlOPu7lYUst5o9wwkZ0vaHFP0=;
+        b=e8cy6Y5k5o6UCbnG5unEZt4BuqvWGZr9OxpwhEbo6942/3d1p9+D2yf2+fs2C4EOdg
+         aN8ytiYjlNqNfyLIbFuLzksQ6DfClicmV2g+jBHINUgtRH/w3D1+1ge0uSwx5IW+9XJA
+         9SvEjqrj9OzfyN1qhoTmMsglzmiw8mobA0Gp62snKu52KpQg1YHZK5Wx59hjqy+rVwwW
+         7LVUkBTxe9/ADfW5iy0zdcv4PENMux66Bu56R2LhS6unwFDaLdjqS7dQbvgTLXTO0sOQ
+         /OlfkzfcqcmNr018hzgT1/Vo5TlJDMRtcy8IEXxxv89EADyAhSK7mK8WrdqGj6ec6V4m
+         mdSg==
+X-Forwarded-Encrypted: i=1; AJvYcCW8IgeERtND5+3H35ip10uqaUES6QDUugm34NCcjlh8+fWx+/OBoExrHagkqmRlIILIlRFmv8H8DPPvZMn7xCZ+@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUYFpSgLEnf9bjlzd30RgZrO+twpQSMPSARXODE57naoG5mTHv
+	4toJPeoXtNwEYvJfX/AZYC4OktQKGo1IUiIJH91PPq7UgGMzyjWgWeeV
+X-Gm-Gg: ATEYQzxYeBZBue11Gm2U9Jh2ipLYJiRtebJ2pUjz/WzfCfEnsVDeMdj+X4/0G4y5Sn3
+	X3gXhtZXxKa84YREtc1DcHtot+EJHpZ36U/q9sy1WG8r2/gdPVyUj8ZS6t7Gum95t1x+ENMxPPW
+	B+Vucl2KwQ8JNL1qjPG0d7C5RSwJXBmAAJoUk1b2Ek9Ica+eppICU2vlG9sVQwWtWNd58wDvmKv
+	j/HVpZcAwAdfnS2YF1f//JIaKjr4Bd5nDd4rfkkw9ohvci/s0qro//BaQkkx7My3oHqYaO/V7hU
+	c6DnQPyEj/qbab6s5RRVI+V7qMbGT2W6Kwe074kBhlXkUPFnibQ9Sh9MGhKYWLrvUIBj+hSpq2I
+	duHGwoL1UPvzLXizEwoNWzSphMVX4g5DycIXaLy30hdC5czVoM9c9ea3T04uiIOyFyfddICrRPx
+	EHCtfPv1TUilhI/uvJaM6fynx/caBk7A==
+X-Received: by 2002:a05:6a00:1c96:b0:81c:717b:9d31 with SMTP id d2e1a72fcca58-829855ddd18mr2791886b3a.2.1772735557298;
+        Thu, 05 Mar 2026 10:32:37 -0800 (PST)
+Received: from arm-server.. ([2001:288:7001:2724:1a31:bfff:fe58:b622])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-829898e1417sm2554420b3a.62.2026.03.05.10.32.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Mar 2026 10:32:36 -0800 (PST)
+From: Cheng-Yang Chou <yphbchou0911@gmail.com>
+To: herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	linux-crypto@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	hugo@hugovil.com,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>
-Date: Thu,  5 Mar 2026 13:06:30 -0500
-Message-ID: <20260305180651.1827087-16-hugo@hugovil.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260305180651.1827087-1-hugo@hugovil.com>
-References: <20260305180651.1827087-1-hugo@hugovil.com>
+	linux-kernel@vger.kernel.org
+Cc: jserv@ccns.ncku.edu.tw,
+	yphbchou0911@gmail.com
+Subject: [PATCH 0/1] crypto: arm64/aes-neonbs - Move key expansion off the stack
+Date: Fri,  6 Mar 2026 02:32:23 +0800
+Message-ID: <20260305183229.150599-1-yphbchou0911@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 70.80.174.168
-X-SA-Exim-Mail-From: hugo@hugovil.com
-Subject: [PATCH v2 15/15] ARM: dts: imx6ul-var-som: add support for LVDS display panel
-X-SA-Exim-Version: 4.2.1 (built Wed, 08 May 2019 21:11:16 +0000)
-X-SA-Exim-Scanned: Yes (on mail.hugovil.com)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_100912_823275_217B4434 
-X-CRM114-Status: GOOD (  18.49  )
+X-CRM114-CacheID: sfid-20260305_103239_055367_1832F4E0 
+X-CRM114-Status: UNSURE (   7.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,251 +103,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+aesbs_setkey() and aesbs_cbc_ctr_setkey() trigger -Wframe-larger-than=
+warnings because struct crypto_aes_ctx is allocated on the stack,
+pushing the frame size to ~1040 bytes and exceeding the 1024-byte limit.
 
-Add support for the LD configuration option (LVDS encoder assembled on SOM)
-so that the LVDS display panel on the concerto EVK board works properly.
-Not all VAR-SOM-6UL SOMs have the LD configuration option so factor out
-this functionality to a separate dtsi.
+arch/arm64/crypto/aes-neonbs-glue.c: In function ‘aesbs_setkey’:
+arch/arm64/crypto/aes-neonbs-glue.c:92:1: warning: the frame size of 1040 bytes is larger than 1024 bytes [-Wframe-larger-than=]
+   92 | }
+      | ^
+arch/arm64/crypto/aes-neonbs-glue.c: In function ‘aesbs_cbc_ctr_setkey’:
+arch/arm64/crypto/aes-neonbs-glue.c:152:1: warning: the frame size of 1040 bytes is larger than 1024 bytes [-Wframe-larger-than=]
+  152 | }
+      | ^
 
-Signed-off-by: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+Tested on arm64. Confirmed the -Wframe-larger-than= warning is resolved.
+
+Thanks,
+Cheng-Yang
+
 ---
- .../imx/imx6ul-var-som-concerto-common.dtsi   |  35 ++++--
- .../nxp/imx/imx6ul-var-som-concerto-full.dts  |   1 +
- .../dts/nxp/imx/imx6ul-var-som-concerto.dts   |   1 +
- .../nxp/imx/imx6ul-var-som-lvds-panel.dtsi    | 112 ++++++++++++++++++
- .../nxp/imx/imx6ull-var-som-concerto-full.dts |   1 +
- .../dts/nxp/imx/imx6ull-var-som-concerto.dts  |   1 +
- 6 files changed, 139 insertions(+), 12 deletions(-)
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-lvds-panel.dtsi
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-common.dtsi
-index f099ca5d0e8f0..e5637310ba632 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-common.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-common.dtsi
-@@ -44,6 +44,29 @@ led-0 {
- 			linux,default-trigger = "heartbeat";
- 		};
- 	};
-+
-+	lvds_panel: lvds-panel {
-+		compatible = "sgd,gktw70sdae4se", "panel-lvds";
-+		data-mapping = "jeida-18";
-+		width-mm = <153>;
-+		height-mm = <86>;
-+
-+		panel-timing {
-+			clock-frequency = <35000000>;
-+			hactive = <800>;
-+			vactive = <480>;
-+			hback-porch = <40>;
-+			hfront-porch = <40>;
-+			vback-porch = <29>;
-+			vfront-porch = <13>;
-+			hsync-len = <48>;
-+			vsync-len = <3>;
-+			hsync-active = <0>;
-+			vsync-active = <0>;
-+			de-active = <1>;
-+			pixelclk-active = <0>;
-+		};
-+	};
- };
- 
- &can1 {
-@@ -98,12 +121,6 @@ MX6UL_PAD_UART3_RX_DATA__GPIO1_IO25	0x1b0b0	/* GPLED2 */
- 		>;
- 	};
- 
--	pinctrl_pwm4: pwm4grp {
--		fsl,pins = <
--			MX6UL_PAD_GPIO1_IO05__PWM4_OUT		0x110b0
--		>;
--	};
--
- 	pinctrl_rtc: rtcgrp {
- 		fsl,pins = <
- 			MX6UL_PAD_JTAG_MOD__GPIO1_IO10		0x1b0b0 /* RTC alarm IRQ */
-@@ -139,12 +156,6 @@ MX6UL_PAD_GPIO1_IO01__WDOG1_WDOG_B	0x78b0
- 	};
- };
- 
--&pwm4 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_pwm4>;
--	status = "okay";
--};
--
- &snvs_pwrkey {
- 	status = "disabled";
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts
-index 64a3cbd8b7c38..725f34d6b7ee9 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts
-@@ -14,6 +14,7 @@
- #include "imx6ul-var-som-enet2.dtsi"
- #include "imx6ul-var-som-enet1.dtsi"
- #include "imx6ul-var-som-audio.dtsi"
-+#include "imx6ul-var-som-lvds-panel.dtsi"
- 
- / {
- 	model = "Variscite VAR-SOM-6UL Concerto Board (6UL CPU)";
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts
-index 9c5cb96beeb17..c249e15772b82 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts
-@@ -14,6 +14,7 @@
- #include "imx6ul-var-som-sd.dtsi"
- #include "imx6ul-var-som-enet2.dtsi"
- #include "imx6ul-var-som-audio.dtsi"
-+#include "imx6ul-var-som-lvds-panel.dtsi"
- 
- / {
- 	model = "Variscite VAR-SOM-6UL Concerto Board (6UL CPU)";
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-lvds-panel.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-lvds-panel.dtsi
-new file mode 100644
-index 0000000000000..996b37d35d6e0
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-lvds-panel.dtsi
-@@ -0,0 +1,112 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * LVDS panel support for Variscite VAR-SOM-6UL module.
-+ *
-+ * Copyright 2019-2024 Variscite Ltd.
-+ * Copyright 2026 Dimonoff
-+ */
-+
-+/ {
-+	lcd_backlight: lcd-backlight {
-+		compatible = "pwm-backlight";
-+		pwms = <&pwm4 0 2000000 0>;
-+		pwm-names = "LCD_BKLT_PWM";
-+		brightness-levels = <0 4 8 16 32 64 128 255>;
-+		default-brightness-level = <6>;
-+		status = "okay";
-+	};
-+
-+	lvds_encoder: lvds-encoder {
-+		compatible = "ti,sn75lvds93", "lvds-encoder";
-+		power-supply = <&reg_3p3v>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
-+
-+				lvds_enc_in: endpoint {
-+					remote-endpoint = <&lcdif_out>;
-+				};
-+			};
-+
-+			port@1 {
-+				reg = <1>;
-+
-+				lvds_enc_out: endpoint {
-+					remote-endpoint = <&lvds_panel_in>;
-+				};
-+			};
-+		};
-+	};
-+};
-+
-+&iomuxc {
-+	pinctrl_lcdif_ctrl: lcdif-ctrl-grp {
-+		fsl,pins = <
-+			MX6UL_PAD_LCD_CLK__LCDIF_CLK		0x79
-+			MX6UL_PAD_LCD_ENABLE__LCDIF_ENABLE	0x79
-+		>;
-+	};
-+
-+	pinctrl_lcdif_dat: lcdif-dat-grp {
-+		fsl,pins = <
-+			MX6UL_PAD_LCD_DATA02__LCDIF_DATA02	0x79
-+			MX6UL_PAD_LCD_DATA03__LCDIF_DATA03	0x79
-+			MX6UL_PAD_LCD_DATA04__LCDIF_DATA04	0x79
-+			MX6UL_PAD_LCD_DATA05__LCDIF_DATA05	0x79
-+			MX6UL_PAD_LCD_DATA06__LCDIF_DATA06	0x79
-+			MX6UL_PAD_LCD_DATA07__LCDIF_DATA07	0x79
-+			MX6UL_PAD_LCD_DATA10__LCDIF_DATA10	0x79
-+			MX6UL_PAD_LCD_DATA11__LCDIF_DATA11	0x79
-+			MX6UL_PAD_LCD_DATA12__LCDIF_DATA12	0x79
-+			MX6UL_PAD_LCD_DATA13__LCDIF_DATA13	0x79
-+			MX6UL_PAD_LCD_DATA14__LCDIF_DATA14	0x79
-+			MX6UL_PAD_LCD_DATA15__LCDIF_DATA15	0x79
-+			MX6UL_PAD_LCD_DATA18__LCDIF_DATA18	0x79
-+			MX6UL_PAD_LCD_DATA19__LCDIF_DATA19	0x79
-+			MX6UL_PAD_LCD_DATA20__LCDIF_DATA20	0x79
-+			MX6UL_PAD_LCD_DATA21__LCDIF_DATA21	0x79
-+			MX6UL_PAD_LCD_DATA22__LCDIF_DATA22	0x79
-+			MX6UL_PAD_LCD_DATA23__LCDIF_DATA23	0x79
-+		>;
-+	};
-+
-+	pinctrl_pwm4: pwm4-grp {
-+		fsl,pins = <
-+			MX6UL_PAD_GPIO1_IO05__PWM4_OUT		0x110b0 /* LCD BACKLIGHT */
-+		>;
-+	};
-+};
-+
-+&lcdif {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_lcdif_dat
-+		     &pinctrl_lcdif_ctrl>;
-+	status = "okay";
-+
-+	port {
-+		lcdif_out: endpoint {
-+			remote-endpoint = <&lvds_enc_in>;
-+		};
-+	};
-+};
-+
-+&lvds_panel {
-+	status = "okay";
-+
-+	port {
-+		lvds_panel_in: endpoint {
-+			remote-endpoint = <&lvds_enc_out>;
-+		};
-+	};
-+};
-+
-+/* PWM LCD */
-+&pwm4 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_pwm4>;
-+	status = "okay";
-+};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts b/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts
-index 2e1f75d5f25a6..1b7c1a3383eec 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts
-@@ -14,6 +14,7 @@
- #include "imx6ul-var-som-enet2.dtsi"
- #include "imx6ul-var-som-enet1.dtsi"
- #include "imx6ul-var-som-audio.dtsi"
-+#include "imx6ul-var-som-lvds-panel.dtsi"
- 
- / {
- 	model = "Variscite VAR-SOM-6UL Concerto Board (6ULL CPU)";
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts b/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts
-index 43a477db652fa..9c9d16eb1a11e 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts
-@@ -13,6 +13,7 @@
- #include "imx6ul-var-som-sd.dtsi"
- #include "imx6ul-var-som-enet2.dtsi"
- #include "imx6ul-var-som-audio.dtsi"
-+#include "imx6ul-var-som-lvds-panel.dtsi"
- 
- / {
- 	model = "Variscite VAR-SOM-6UL Concerto Board (6ULL CPU)";
+Cheng-Yang Chou (1):
+  crypto: arm64/aes-neonbs - Move key expansion off the stack
+
+ arch/arm64/crypto/aes-neonbs-glue.c | 39 ++++++++++++++++++-----------
+ 1 file changed, 25 insertions(+), 14 deletions(-)
+
 -- 
-2.47.3
+2.48.1
 
 
