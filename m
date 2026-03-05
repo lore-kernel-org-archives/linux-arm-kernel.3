@@ -4,86 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49893EEF317
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 08:11:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F1E5EEF31C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 08:12:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JIahVgJpcYC39p9TWn8a+GFohs7T1K7Y/uI/wheVE3Y=; b=GPIq70gsg9Z53mYg6LkXZYrY6F
-	NBX0rzAmjZpfnzGAxd729ETXAFCVH6jC9tQO5UZm1+eK4NP5QsFy0P0/hfaRqOoA9EdXCmyl38Nzm
-	HKIdCDgFP6tImpot65bBW44xVOEqTPZsJ3IhobwoIncqAXsKTl7350nrOFSh9SY4sxp8oraFTqZlm
-	K6r2cjHq37HwIXk2cHCEwbjWpgfS1XOvwmcRd3H2XHjsJ/LrZzID1izK1N4VuJub5jB09jE61IaLX
-	n5zHaLoheIXxL3Y/goX2Oe2y/6ls7qXzN1rGp5qIEX/ZFMhflduIdM165gLfbxjMXIZCEOActfYfp
-	hXH+PKHg==;
+	bh=IERoM+0LmeBY7ANqfOoUEbhu/sAxXm8IA6OMd9BX25M=; b=p/cZ9qh+WERlff2mz/4ThVYOD0
+	61phMG71c0LkT4795VhIwvcX3yvSumGFjJosDercGfp4IpXefKWqMRvCIscIDWZRcijwpI1WjBclr
+	XM44xYCfqeyDpHKAasRg8l2IoPSXdvZ4LEe03P5MSJiPzSZwFfzBmDPSDok2OqQ8iFKoCPctuEtY6
+	2lyBw4LuEkmwmkTbm6eW5EYWGrOoPe0vaPrM/vOAcR0HZocelcrD3trj+EM34+rEql5vRhj5BGH+5
+	S+JfhZa+97lzkpoR0eCc9bXk+CCDzTNmIbPc39mLsXcED9qaeu3xhANR8e2vOrSb06LjGBtkQ6Fk9
+	IRMaxdGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy3oB-000000019eF-2BwB;
-	Thu, 05 Mar 2026 08:11:47 +0000
+	id 1vy3oC-000000019ea-1TqT;
+	Thu, 05 Mar 2026 08:11:48 +0000
 Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy3o8-000000019dF-03fk;
-	Thu, 05 Mar 2026 08:11:45 +0000
+	id 1vy3o9-000000019dF-2fZJ;
+	Thu, 05 Mar 2026 08:11:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1772698304; x=1804234304;
+  t=1772698305; x=1804234305;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=c2OeupWlyxOBHDjwK27ZWns2H39A64Z/l1mt16Tsh1o=;
-  b=OzW5iJ0cMI2j9l48rWIEQ50bQbTtmmKjeVa/czO9oRTDqCKaObz9EmFk
-   dp3A8EIheMlSGeNABCATK2dTwS7TGIpdldooqY4PphcIt7+HuTJhv4fqO
-   hCZShvCqUt50+xcL8VV33Q4O1xD0kGFPPhjLAZm9YCE6fWnpaZIZhdxLC
-   SzbweRyWBM73mKTrAGNd5wm6bkXoEuEquS7R/6mqneF3tbTwaoOjuy/iz
-   2w2X/DdjVVor+F1yRa9svUvIWrSJDLSzL1ldfKPdYvKXrCMIBHu5CDLtr
-   /wo+ynpclp6WNHW4eEY6N+CYwNQ+t7iL7ptj6f5qUAnXFoC0vsmq5eTIS
-   A==;
-X-CSE-ConnectionGUID: mDc8mb2iRgKwPWYeCbZhHw==
-X-CSE-MsgGUID: uvnBOxBTRkePoZAW7g2Pog==
-X-IronPort-AV: E=McAfee;i="6800,10657,11719"; a="77621873"
+  bh=C5zLzfyENBPlFTeplVQUbZ2qMCLm6d9LophjVLEMU3A=;
+  b=TEaWUqg+cjpfOj96anRNZjoIkfF49dtF3/ZlyKvmPOZjg8DkqNs2pgZu
+   v28C7L4QxcJrJ9htGdObpWBWXuxINXTwdozl/wRbRIkW2a9vP5VtnZEYZ
+   gCK9j+sAqTkGNJtVk/jF5Qrw0vjhctlysGp41Ms8y6y/YI7Xy/phQzIjS
+   c+Djq9oKuvUEE07D77WHHOmL3iWf6babeZDQBF4iIziukKqAuzxi0LCpC
+   hRrHcCAJALi3tOUC3G13VrTDBoOPTUseAIohmQY82Nz3b/B3NppZUxoVu
+   vT52VBtpI+t5VoNKbTbWz31z38OwQy6xtKecnhRzMOdrBjAorsuIA5RvZ
+   Q==;
+X-CSE-ConnectionGUID: N5ZFQG23RBaNSMHs43UXgA==
+X-CSE-MsgGUID: UzkY+8yhSBeM53DVW5tlRw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11719"; a="77621883"
 X-IronPort-AV: E=Sophos;i="6.21,325,1763452800"; 
-   d="scan'208";a="77621873"
+   d="scan'208";a="77621883"
 Received: from fmviesa007.fm.intel.com ([10.60.135.147])
   by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Mar 2026 00:11:42 -0800
-X-CSE-ConnectionGUID: I2lMTBllR9aUsEoqVrkuFg==
-X-CSE-MsgGUID: DP7NclihStmIZM3qvKQwJg==
+X-CSE-ConnectionGUID: Iw4uhjOiRf+rxsmGmxlWiA==
+X-CSE-MsgGUID: 1kllHXJpTTC5o4nRplKxbA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.21,325,1763452800"; 
-   d="scan'208";a="216418397"
+   d="scan'208";a="216418398"
 Received: from lkp-server01.sh.intel.com (HELO cadc4577a874) ([10.239.97.150])
-  by fmviesa007.fm.intel.com with ESMTP; 05 Mar 2026 00:11:35 -0800
+  by fmviesa007.fm.intel.com with ESMTP; 05 Mar 2026 00:11:36 -0800
 Received: from kbuild by cadc4577a874 with local (Exim 4.98.2)
 	(envelope-from <lkp@intel.com>)
-	id 1vy3nv-000000000Gq-3bdf;
+	id 1vy3nv-000000000Gs-3xwF;
 	Thu, 05 Mar 2026 08:11:31 +0000
-Date: Thu, 5 Mar 2026 16:10:31 +0800
+Date: Thu, 5 Mar 2026 16:10:36 +0800
 From: kernel test robot <lkp@intel.com>
-To: lizhi2@eswincomputing.com, devicetree@vger.kernel.org,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk, wens@kernel.org, pjw@kernel.org,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	ningyu@eswincomputing.com, linmin@eswincomputing.com,
-	pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
-	weishangjuan@eswincomputing.com, Zhi Li <lizhi2@eswincomputing.com>
-Subject: Re: [PATCH net-next v3 2/3] net: stmmac: eic7700: enable clocks
- before syscon access and correct RX sampling timing
-Message-ID: <202603051549.4Mb0ZZjM-lkp@intel.com>
-References: <20260303061711.895-1-lizhi2@eswincomputing.com>
+To: david.laight.linux@gmail.com, Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andre Almeida <andrealmeid@igalia.com>,
+	Andrew Cooper <andrew.cooper3@citrix.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Darren Hart <dvhart@infradead.org>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	Heiko Carstens <hca@linux.ibm.com>, Jan Kara <jack@suse.cz>,
+	Julia Lawall <julia.lawall@inria.fr>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Nicolas Palix <nicolas.palix@imag.fr>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Sven Schnelle <svens@linux.ibm.com>
+Cc: oe-kbuild-all@lists.linux.dev, LKML <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 4/5] uaccess: Disable -Wshadow in
+ __scoped_user_access()
+Message-ID: <202603051642.i46zzlJ8-lkp@intel.com>
+References: <20260302132755.1475451-5-david.laight.linux@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260303061711.895-1-lizhi2@eswincomputing.com>
+In-Reply-To: <20260302132755.1475451-5-david.laight.linux@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_001144_146733_E62C81F1 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20260305_001145_756875_3B422444 
+X-CRM114-Status: GOOD (  16.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,177 +113,398 @@ Hi,
 
 kernel test robot noticed the following build errors:
 
-[auto build test ERROR on net-next/main]
+[auto build test ERROR on brauner-vfs/vfs.all]
+[also build test ERROR on v7.0-rc2]
+[cannot apply to linus/master next-20260303]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-url:    https://github.com/intel-lab-lkp/linux/commits/lizhi2-eswincomputing-com/dt-bindings-ethernet-eswin-add-clock-sampling-control/20260303-142311
-base:   net-next/main
-patch link:    https://lore.kernel.org/r/20260303061711.895-1-lizhi2%40eswincomputing.com
-patch subject: [PATCH net-next v3 2/3] net: stmmac: eic7700: enable clocks before syscon access and correct RX sampling timing
-config: hexagon-allmodconfig (https://download.01.org/0day-ci/archive/20260305/202603051549.4Mb0ZZjM-lkp@intel.com/config)
-compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260305/202603051549.4Mb0ZZjM-lkp@intel.com/reproduce)
+url:    https://github.com/intel-lab-lkp/linux/commits/david-laight-linux-gmail-com/uaccess-Fix-scoped_user_read_access-for-pointer-to-const/20260302-213317
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git vfs.all
+patch link:    https://lore.kernel.org/r/20260302132755.1475451-5-david.laight.linux%40gmail.com
+patch subject: [PATCH v2 4/5] uaccess: Disable -Wshadow in __scoped_user_access()
+config: nios2-allnoconfig (https://download.01.org/0day-ci/archive/20260305/202603051642.i46zzlJ8-lkp@intel.com/config)
+compiler: nios2-linux-gcc (GCC) 11.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260305/202603051642.i46zzlJ8-lkp@intel.com/reproduce)
 
 If you fix the issue in a separate patch/commit (i.e. not just a new version of
 the same patch/commit), kindly add following tags
 | Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202603051549.4Mb0ZZjM-lkp@intel.com/
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603051642.i46zzlJ8-lkp@intel.com/
 
-All errors (new ones prefixed by >>):
+All error/warnings (new ones prefixed by >>):
 
->> drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c:290:26: error: incompatible function pointer types assigning to 'void (*)(void *, phy_interface_t, int, unsigned int)' from 'void (void *, int, unsigned int)' [-Wincompatible-function-pointer-types]
-     290 |         plat_dat->fix_mac_speed = eic7700_dwmac_fix_speed;
-         |                                 ^ ~~~~~~~~~~~~~~~~~~~~~~~
-   1 error generated.
+   In file included from include/asm-generic/div64.h:27,
+                    from ./arch/nios2/include/generated/asm/div64.h:1,
+                    from include/linux/math.h:6,
+                    from include/linux/math64.h:6,
+                    from include/linux/time.h:6,
+                    from include/linux/compat.h:10,
+                    from kernel/futex/core.c:34:
+   kernel/futex/futex.h: In function 'futex_get_value_locked':
+>> include/linux/uaccess.h:740:20: warning: unused variable '_tmpptr' [-Wunused-variable]
+     740 |         with (auto _tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl))        \
+         |                    ^~~~~~~
+   include/linux/compiler.h:396:14: note: in definition of macro 'and_with'
+     396 |         for (declaration; !_with_done; _with_done = true)
+         |              ^~~~~~~~~~~
+   include/linux/uaccess.h:740:9: note: in expansion of macro 'with'
+     740 |         with (auto _tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl))        \
+         |         ^~~~
+   include/linux/uaccess.h:755:9: note: in expansion of macro '__scoped_user_access'
+     755 |         __scoped_user_access(read, usrc, size, elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:767:9: note: in expansion of macro 'scoped_user_read_access_size'
+     767 |         scoped_user_read_access_size(usrc, sizeof(*(usrc)), elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:831:9: note: in expansion of macro 'scoped_user_read_access'
+     831 |         scoped_user_read_access(_tmpsrc, efault)                \
+         |         ^~~~~~~~~~~~~~~~~~~~~~~
+   kernel/futex/futex.h:288:16: note: in expansion of macro 'get_user_inline'
+     288 |         return get_user_inline(*dest, from);
+         |                ^~~~~~~~~~~~~~~
+>> include/linux/compiler.h:396:9: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+     396 |         for (declaration; !_with_done; _with_done = true)
+         |         ^~~
+   include/linux/compiler.h:394:17: note: in expansion of macro 'and_with'
+     394 |                 and_with (declaration)
+         |                 ^~~~~~~~
+   include/linux/uaccess.h:740:9: note: in expansion of macro 'with'
+     740 |         with (auto _tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl))        \
+         |         ^~~~
+   include/linux/uaccess.h:755:9: note: in expansion of macro '__scoped_user_access'
+     755 |         __scoped_user_access(read, usrc, size, elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:767:9: note: in expansion of macro 'scoped_user_read_access_size'
+     767 |         scoped_user_read_access_size(usrc, sizeof(*(usrc)), elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:831:9: note: in expansion of macro 'scoped_user_read_access'
+     831 |         scoped_user_read_access(_tmpsrc, efault)                \
+         |         ^~~~~~~~~~~~~~~~~~~~~~~
+   kernel/futex/futex.h:288:16: note: in expansion of macro 'get_user_inline'
+     288 |         return get_user_inline(*dest, from);
+         |                ^~~~~~~~~~~~~~~
+   In file included from include/linux/compiler_types.h:173,
+                    from <command-line>:
+   include/linux/compiler-gcc.h:118:33: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+     118 | #define __diag(s)               _Pragma(__diag_str(GCC diagnostic s))
+         |                                 ^~~~~~~
+   include/linux/compiler-gcc.h:129:9: note: in expansion of macro '__diag'
+     129 |         __diag(__diag_GCC_ignore option)
+         |         ^~~~~~
+   include/linux/uaccess.h:742:31: note: in expansion of macro '__diag_ignore_all'
+     742 |                 __diag_push() __diag_ignore_all("-Wshadow", "uptr is readonly copy")    \
+         |                               ^~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:755:9: note: in expansion of macro '__scoped_user_access'
+     755 |         __scoped_user_access(read, usrc, size, elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:767:9: note: in expansion of macro 'scoped_user_read_access_size'
+     767 |         scoped_user_read_access_size(usrc, sizeof(*(usrc)), elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:831:9: note: in expansion of macro 'scoped_user_read_access'
+     831 |         scoped_user_read_access(_tmpsrc, efault)                \
+         |         ^~~~~~~~~~~~~~~~~~~~~~~
+   kernel/futex/futex.h:288:16: note: in expansion of macro 'get_user_inline'
+     288 |         return get_user_inline(*dest, from);
+         |                ^~~~~~~~~~~~~~~
+   In file included from include/asm-generic/div64.h:27,
+                    from ./arch/nios2/include/generated/asm/div64.h:1,
+                    from include/linux/math.h:6,
+                    from include/linux/math64.h:6,
+                    from include/linux/time.h:6,
+                    from include/linux/compat.h:10,
+                    from kernel/futex/core.c:34:
+>> include/linux/uaccess.h:743:90: error: '_tmpptr' undeclared (first use in this function)
+     743 |                 and_with (const auto uptr __cleanup(__scoped_user_##mode##_access_end) = _tmpptr) \
+         |                                                                                          ^~~~~~~
+   include/linux/compiler.h:396:14: note: in definition of macro 'and_with'
+     396 |         for (declaration; !_with_done; _with_done = true)
+         |              ^~~~~~~~~~~
+   include/linux/uaccess.h:755:9: note: in expansion of macro '__scoped_user_access'
+     755 |         __scoped_user_access(read, usrc, size, elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:767:9: note: in expansion of macro 'scoped_user_read_access_size'
+     767 |         scoped_user_read_access_size(usrc, sizeof(*(usrc)), elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:831:9: note: in expansion of macro 'scoped_user_read_access'
+     831 |         scoped_user_read_access(_tmpsrc, efault)                \
+         |         ^~~~~~~~~~~~~~~~~~~~~~~
+   kernel/futex/futex.h:288:16: note: in expansion of macro 'get_user_inline'
+     288 |         return get_user_inline(*dest, from);
+         |                ^~~~~~~~~~~~~~~
+   include/linux/uaccess.h:743:90: note: each undeclared identifier is reported only once for each function it appears in
+     743 |                 and_with (const auto uptr __cleanup(__scoped_user_##mode##_access_end) = _tmpptr) \
+         |                                                                                          ^~~~~~~
+   include/linux/compiler.h:396:14: note: in definition of macro 'and_with'
+     396 |         for (declaration; !_with_done; _with_done = true)
+         |              ^~~~~~~~~~~
+   include/linux/uaccess.h:755:9: note: in expansion of macro '__scoped_user_access'
+     755 |         __scoped_user_access(read, usrc, size, elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:767:9: note: in expansion of macro 'scoped_user_read_access_size'
+     767 |         scoped_user_read_access_size(usrc, sizeof(*(usrc)), elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:831:9: note: in expansion of macro 'scoped_user_read_access'
+     831 |         scoped_user_read_access(_tmpsrc, efault)                \
+         |         ^~~~~~~~~~~~~~~~~~~~~~~
+   kernel/futex/futex.h:288:16: note: in expansion of macro 'get_user_inline'
+     288 |         return get_user_inline(*dest, from);
+         |                ^~~~~~~~~~~~~~~
+>> include/linux/compiler.h:396:28: error: '_with_done' undeclared (first use in this function)
+     396 |         for (declaration; !_with_done; _with_done = true)
+         |                            ^~~~~~~~~~
+   include/linux/uaccess.h:743:17: note: in expansion of macro 'and_with'
+     743 |                 and_with (const auto uptr __cleanup(__scoped_user_##mode##_access_end) = _tmpptr) \
+         |                 ^~~~~~~~
+   include/linux/uaccess.h:755:9: note: in expansion of macro '__scoped_user_access'
+     755 |         __scoped_user_access(read, usrc, size, elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:767:9: note: in expansion of macro 'scoped_user_read_access_size'
+     767 |         scoped_user_read_access_size(usrc, sizeof(*(usrc)), elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:831:9: note: in expansion of macro 'scoped_user_read_access'
+     831 |         scoped_user_read_access(_tmpsrc, efault)                \
+         |         ^~~~~~~~~~~~~~~~~~~~~~~
+   kernel/futex/futex.h:288:16: note: in expansion of macro 'get_user_inline'
+     288 |         return get_user_inline(*dest, from);
+         |                ^~~~~~~~~~~~~~~
+   kernel/futex/core.c: In function 'get_futex_key':
+>> include/linux/uaccess.h:740:20: warning: unused variable '_tmpptr' [-Wunused-variable]
+     740 |         with (auto _tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl))        \
+         |                    ^~~~~~~
+   include/linux/compiler.h:396:14: note: in definition of macro 'and_with'
+     396 |         for (declaration; !_with_done; _with_done = true)
+         |              ^~~~~~~~~~~
+   include/linux/uaccess.h:740:9: note: in expansion of macro 'with'
+     740 |         with (auto _tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl))        \
+         |         ^~~~
+   include/linux/uaccess.h:755:9: note: in expansion of macro '__scoped_user_access'
+     755 |         __scoped_user_access(read, usrc, size, elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:767:9: note: in expansion of macro 'scoped_user_read_access_size'
+     767 |         scoped_user_read_access_size(usrc, sizeof(*(usrc)), elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:831:9: note: in expansion of macro 'scoped_user_read_access'
+     831 |         scoped_user_read_access(_tmpsrc, efault)                \
+         |         ^~~~~~~~~~~~~~~~~~~~~~~
+   kernel/futex/core.c:584:21: note: in expansion of macro 'get_user_inline'
+     584 |                 if (get_user_inline(node, naddr))
+         |                     ^~~~~~~~~~~~~~~
+>> include/linux/compiler.h:396:9: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+     396 |         for (declaration; !_with_done; _with_done = true)
+         |         ^~~
+   include/linux/compiler.h:394:17: note: in expansion of macro 'and_with'
+     394 |                 and_with (declaration)
+         |                 ^~~~~~~~
+   include/linux/uaccess.h:740:9: note: in expansion of macro 'with'
+     740 |         with (auto _tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl))        \
+         |         ^~~~
+   include/linux/uaccess.h:755:9: note: in expansion of macro '__scoped_user_access'
+     755 |         __scoped_user_access(read, usrc, size, elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:767:9: note: in expansion of macro 'scoped_user_read_access_size'
+     767 |         scoped_user_read_access_size(usrc, sizeof(*(usrc)), elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:831:9: note: in expansion of macro 'scoped_user_read_access'
+     831 |         scoped_user_read_access(_tmpsrc, efault)                \
+         |         ^~~~~~~~~~~~~~~~~~~~~~~
+   kernel/futex/core.c:584:21: note: in expansion of macro 'get_user_inline'
+     584 |                 if (get_user_inline(node, naddr))
+         |                     ^~~~~~~~~~~~~~~
+   In file included from include/linux/compiler_types.h:173,
+                    from <command-line>:
+   include/linux/compiler-gcc.h:118:33: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+     118 | #define __diag(s)               _Pragma(__diag_str(GCC diagnostic s))
+         |                                 ^~~~~~~
+   include/linux/compiler-gcc.h:129:9: note: in expansion of macro '__diag'
+     129 |         __diag(__diag_GCC_ignore option)
+         |         ^~~~~~
+   include/linux/uaccess.h:742:31: note: in expansion of macro '__diag_ignore_all'
+     742 |                 __diag_push() __diag_ignore_all("-Wshadow", "uptr is readonly copy")    \
+         |                               ^~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:755:9: note: in expansion of macro '__scoped_user_access'
+     755 |         __scoped_user_access(read, usrc, size, elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:767:9: note: in expansion of macro 'scoped_user_read_access_size'
+     767 |         scoped_user_read_access_size(usrc, sizeof(*(usrc)), elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:831:9: note: in expansion of macro 'scoped_user_read_access'
+     831 |         scoped_user_read_access(_tmpsrc, efault)                \
+         |         ^~~~~~~~~~~~~~~~~~~~~~~
+   kernel/futex/core.c:584:21: note: in expansion of macro 'get_user_inline'
+     584 |                 if (get_user_inline(node, naddr))
+         |                     ^~~~~~~~~~~~~~~
+   In file included from include/asm-generic/div64.h:27,
+                    from ./arch/nios2/include/generated/asm/div64.h:1,
+                    from include/linux/math.h:6,
+                    from include/linux/math64.h:6,
+                    from include/linux/time.h:6,
+                    from include/linux/compat.h:10,
+                    from kernel/futex/core.c:34:
+>> include/linux/uaccess.h:743:90: error: '_tmpptr' undeclared (first use in this function)
+     743 |                 and_with (const auto uptr __cleanup(__scoped_user_##mode##_access_end) = _tmpptr) \
+         |                                                                                          ^~~~~~~
+   include/linux/compiler.h:396:14: note: in definition of macro 'and_with'
+     396 |         for (declaration; !_with_done; _with_done = true)
+         |              ^~~~~~~~~~~
+   include/linux/uaccess.h:755:9: note: in expansion of macro '__scoped_user_access'
+     755 |         __scoped_user_access(read, usrc, size, elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:767:9: note: in expansion of macro 'scoped_user_read_access_size'
+     767 |         scoped_user_read_access_size(usrc, sizeof(*(usrc)), elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:831:9: note: in expansion of macro 'scoped_user_read_access'
+     831 |         scoped_user_read_access(_tmpsrc, efault)                \
+         |         ^~~~~~~~~~~~~~~~~~~~~~~
+   kernel/futex/core.c:584:21: note: in expansion of macro 'get_user_inline'
+     584 |                 if (get_user_inline(node, naddr))
+         |                     ^~~~~~~~~~~~~~~
+>> include/linux/compiler.h:396:28: error: '_with_done' undeclared (first use in this function)
+     396 |         for (declaration; !_with_done; _with_done = true)
+         |                            ^~~~~~~~~~
+   include/linux/uaccess.h:743:17: note: in expansion of macro 'and_with'
+     743 |                 and_with (const auto uptr __cleanup(__scoped_user_##mode##_access_end) = _tmpptr) \
+         |                 ^~~~~~~~
+   include/linux/uaccess.h:755:9: note: in expansion of macro '__scoped_user_access'
+     755 |         __scoped_user_access(read, usrc, size, elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:767:9: note: in expansion of macro 'scoped_user_read_access_size'
+     767 |         scoped_user_read_access_size(usrc, sizeof(*(usrc)), elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:831:9: note: in expansion of macro 'scoped_user_read_access'
+     831 |         scoped_user_read_access(_tmpsrc, efault)                \
+         |         ^~~~~~~~~~~~~~~~~~~~~~~
+   kernel/futex/core.c:584:21: note: in expansion of macro 'get_user_inline'
+     584 |                 if (get_user_inline(node, naddr))
+         |                     ^~~~~~~~~~~~~~~
+>> include/linux/uaccess.h:740:20: warning: unused variable '_tmpptr' [-Wunused-variable]
+     740 |         with (auto _tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl))        \
+         |                    ^~~~~~~
+   include/linux/compiler.h:396:14: note: in definition of macro 'and_with'
+     396 |         for (declaration; !_with_done; _with_done = true)
+         |              ^~~~~~~~~~~
+   include/linux/uaccess.h:740:9: note: in expansion of macro 'with'
+     740 |         with (auto _tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl))        \
+         |         ^~~~
+   include/linux/uaccess.h:778:9: note: in expansion of macro '__scoped_user_access'
+     778 |         __scoped_user_access(write, udst, size, elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:790:9: note: in expansion of macro 'scoped_user_write_access_size'
+     790 |         scoped_user_write_access_size(udst, sizeof(*(udst)), elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:856:9: note: in expansion of macro 'scoped_user_write_access'
+     856 |         scoped_user_write_access(_tmpdst, efault)               \
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~
+   kernel/futex/core.c:604:37: note: in expansion of macro 'put_user_inline'
+     604 |                 if (node_updated && put_user_inline(node, naddr))
+         |                                     ^~~~~~~~~~~~~~~
+>> include/linux/compiler.h:396:9: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+     396 |         for (declaration; !_with_done; _with_done = true)
+         |         ^~~
+   include/linux/compiler.h:394:17: note: in expansion of macro 'and_with'
+     394 |                 and_with (declaration)
+         |                 ^~~~~~~~
+   include/linux/uaccess.h:740:9: note: in expansion of macro 'with'
+     740 |         with (auto _tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl))        \
+         |         ^~~~
+   include/linux/uaccess.h:778:9: note: in expansion of macro '__scoped_user_access'
+     778 |         __scoped_user_access(write, udst, size, elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:790:9: note: in expansion of macro 'scoped_user_write_access_size'
+     790 |         scoped_user_write_access_size(udst, sizeof(*(udst)), elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:856:9: note: in expansion of macro 'scoped_user_write_access'
+     856 |         scoped_user_write_access(_tmpdst, efault)               \
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~
+   kernel/futex/core.c:604:37: note: in expansion of macro 'put_user_inline'
+     604 |                 if (node_updated && put_user_inline(node, naddr))
+         |                                     ^~~~~~~~~~~~~~~
+   In file included from include/linux/compiler_types.h:173,
+                    from <command-line>:
+   include/linux/compiler-gcc.h:118:33: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+     118 | #define __diag(s)               _Pragma(__diag_str(GCC diagnostic s))
+         |                                 ^~~~~~~
+   include/linux/compiler-gcc.h:129:9: note: in expansion of macro '__diag'
+     129 |         __diag(__diag_GCC_ignore option)
+         |         ^~~~~~
+   include/linux/uaccess.h:742:31: note: in expansion of macro '__diag_ignore_all'
+     742 |                 __diag_push() __diag_ignore_all("-Wshadow", "uptr is readonly copy")    \
+         |                               ^~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:778:9: note: in expansion of macro '__scoped_user_access'
+     778 |         __scoped_user_access(write, udst, size, elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:790:9: note: in expansion of macro 'scoped_user_write_access_size'
+     790 |         scoped_user_write_access_size(udst, sizeof(*(udst)), elbl)
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:856:9: note: in expansion of macro 'scoped_user_write_access'
+     856 |         scoped_user_write_access(_tmpdst, efault)               \
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~
+   kernel/futex/core.c:604:37: note: in expansion of macro 'put_user_inline'
+     604 |                 if (node_updated && put_user_inline(node, naddr))
+         |                                     ^~~~~~~~~~~~~~~
+..
 
 
-vim +290 drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+vim +/_tmpptr +743 include/linux/uaccess.h
 
-   149	
-   150	static int eic7700_dwmac_probe(struct platform_device *pdev)
-   151	{
-   152		const struct eic7700_dwmac_data *data;
-   153		struct plat_stmmacenet_data *plat_dat;
-   154		struct stmmac_resources stmmac_res;
-   155		struct eic7700_qos_priv *dwc_priv;
-   156		u32 delay_ps, val;
-   157		int i, ret;
-   158	
-   159		ret = stmmac_get_platform_resources(pdev, &stmmac_res);
-   160		if (ret)
-   161			return dev_err_probe(&pdev->dev, ret,
-   162					"failed to get resources\n");
-   163	
-   164		plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
-   165		if (IS_ERR(plat_dat))
-   166			return dev_err_probe(&pdev->dev, PTR_ERR(plat_dat),
-   167					"dt configuration failed\n");
-   168	
-   169		dwc_priv = devm_kzalloc(&pdev->dev, sizeof(*dwc_priv), GFP_KERNEL);
-   170		if (!dwc_priv)
-   171			return -ENOMEM;
-   172	
-   173		dwc_priv->dev = &pdev->dev;
-   174	
-   175		data = device_get_match_data(&pdev->dev);
-   176		if (!data)
-   177			return dev_err_probe(&pdev->dev,
-   178					     -EINVAL, "no match data found\n");
-   179	
-   180		dwc_priv->eth_rx_clk_inv = data->rgmii_rx_clk_invert;
-   181	
-   182		/* Read rx-internal-delay-ps and update rx_clk delay */
-   183		if (!of_property_read_u32(pdev->dev.of_node,
-   184					  "rx-internal-delay-ps", &delay_ps)) {
-   185			if (delay_ps % EIC7700_DELAY_STEP_PS)
-   186				return dev_err_probe(&pdev->dev, -EINVAL,
-   187					"rx delay must be multiple of %dps\n",
-   188					EIC7700_DELAY_STEP_PS);
-   189	
-   190			if (delay_ps > EIC7700_MAX_DELAY_PS)
-   191				return dev_err_probe(&pdev->dev, -EINVAL,
-   192					"rx delay out of range\n");
-   193	
-   194			val = delay_ps / EIC7700_DELAY_STEP_PS;
-   195	
-   196			dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_RX_ADJ_DELAY;
-   197			dwc_priv->eth_clk_dly_param |=
-   198					 FIELD_PREP(EIC7700_ETH_RX_ADJ_DELAY, val);
-   199		}
-   200	
-   201		/* Read tx-internal-delay-ps and update tx_clk delay */
-   202		if (!of_property_read_u32(pdev->dev.of_node,
-   203					  "tx-internal-delay-ps", &delay_ps)) {
-   204			if (delay_ps % EIC7700_DELAY_STEP_PS)
-   205				return dev_err_probe(&pdev->dev, -EINVAL,
-   206					"tx delay must be multiple of %dps\n",
-   207					EIC7700_DELAY_STEP_PS);
-   208	
-   209			if (delay_ps > EIC7700_MAX_DELAY_PS)
-   210				return dev_err_probe(&pdev->dev, -EINVAL,
-   211					"tx delay out of range\n");
-   212	
-   213			val = delay_ps / EIC7700_DELAY_STEP_PS;
-   214	
-   215			dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_TX_ADJ_DELAY;
-   216			dwc_priv->eth_clk_dly_param |=
-   217					 FIELD_PREP(EIC7700_ETH_TX_ADJ_DELAY, val);
-   218		}
-   219	
-   220		dwc_priv->eic7700_hsp_regmap =
-   221				syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
-   222								"eswin,hsp-sp-csr");
-   223		if (IS_ERR(dwc_priv->eic7700_hsp_regmap))
-   224			return dev_err_probe(&pdev->dev,
-   225					PTR_ERR(dwc_priv->eic7700_hsp_regmap),
-   226					"Failed to get hsp-sp-csr regmap\n");
-   227	
-   228		ret = of_property_read_u32_index(pdev->dev.of_node,
-   229						 "eswin,hsp-sp-csr",
-   230						 1, &dwc_priv->eth_phy_ctrl_offset);
-   231		if (ret)
-   232			return dev_err_probe(&pdev->dev, ret,
-   233					     "can't get eth_phy_ctrl_offset\n");
-   234	
-   235		ret = of_property_read_u32_index(pdev->dev.of_node,
-   236						 "eswin,hsp-sp-csr",
-   237						 2, &dwc_priv->eth_axi_lp_ctrl_offset);
-   238		if (ret)
-   239			return dev_err_probe(&pdev->dev, ret,
-   240					     "can't get eth_axi_lp_ctrl_offset\n");
-   241	
-   242		ret = of_property_read_u32_index(pdev->dev.of_node,
-   243						 "eswin,hsp-sp-csr",
-   244						 3, &dwc_priv->eth_txd_offset);
-   245		if (ret)
-   246			return dev_err_probe(&pdev->dev, ret,
-   247					     "can't get eth_txd_offset\n");
-   248	
-   249		ret = of_property_read_u32_index(pdev->dev.of_node,
-   250						 "eswin,hsp-sp-csr",
-   251						 4, &dwc_priv->eth_clk_offset);
-   252		if (ret)
-   253			return dev_err_probe(&pdev->dev, ret,
-   254					     "can't get eth_clk_offset\n");
-   255	
-   256		ret = of_property_read_u32_index(pdev->dev.of_node,
-   257						 "eswin,hsp-sp-csr",
-   258						 5, &dwc_priv->eth_rxd_offset);
-   259		if (ret)
-   260			return dev_err_probe(&pdev->dev, ret,
-   261					     "can't get eth_rxd_offset\n");
-   262	
-   263		plat_dat->num_clks = ARRAY_SIZE(eic7700_clk_names);
-   264		plat_dat->clks = devm_kcalloc(&pdev->dev,
-   265					      plat_dat->num_clks,
-   266					      sizeof(*plat_dat->clks),
-   267					      GFP_KERNEL);
-   268		if (!plat_dat->clks)
-   269			return -ENOMEM;
-   270	
-   271		for (i = 0; i < ARRAY_SIZE(eic7700_clk_names); i++)
-   272			plat_dat->clks[i].id = eic7700_clk_names[i];
-   273	
-   274		ret = devm_clk_bulk_get_optional(&pdev->dev,
-   275						 plat_dat->num_clks,
-   276						 plat_dat->clks);
-   277		if (ret)
-   278			return dev_err_probe(&pdev->dev, ret,
-   279					     "Failed to get clocks\n");
-   280	
-   281		plat_dat->clk_tx_i = stmmac_pltfr_find_clk(plat_dat, "tx");
-   282		plat_dat->set_clk_tx_rate = stmmac_set_clk_tx_rate;
-   283		plat_dat->clks_config = eic7700_clks_config;
-   284		plat_dat->bsp_priv = dwc_priv;
-   285		dwc_priv->plat_dat = plat_dat;
-   286		plat_dat->init = eic7700_dwmac_init;
-   287		plat_dat->exit = eic7700_dwmac_exit;
-   288		plat_dat->suspend = eic7700_dwmac_suspend;
-   289		plat_dat->resume = eic7700_dwmac_resume;
- > 290		plat_dat->fix_mac_speed = eic7700_dwmac_fix_speed;
-   291	
-   292		return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
-   293	}
-   294	
+   689	
+   690	/**
+   691	 * __scoped_user_access - Open a scope for user access
+   692	 * @mode:	The mode of the access class (read, write, rw)
+   693	 * @uptr:	The pointer to access user space memory
+   694	 * @size:	Size of the access
+   695	 * @elbl:	Error label to goto when the access region is rejected. It
+   696	 *		must be placed outside the scope
+   697	 *
+   698	 * If the user access function inside the scope requires a fault label, it
+   699	 * can use @elbl or a different label outside the scope, which requires
+   700	 * that user access which is implemented with ASM GOTO has been properly
+   701	 * wrapped. See unsafe_get_user() for reference.
+   702	 *
+   703	 *	scoped_user_rw_access(ptr, efault) {
+   704	 *		unsafe_get_user(rval, &ptr->rval, efault);
+   705	 *		unsafe_put_user(wval, &ptr->wval, efault);
+   706	 *	}
+   707	 *	return 0;
+   708	 *  efault:
+   709	 *	return -EFAULT;
+   710	 *
+   711	 * The scope is internally implemented as a autoterminating nested for()
+   712	 * loop, which can be left with 'return', 'break' and 'goto' at any
+   713	 * point.
+   714	 *
+   715	 * When the scope is left user_##@_mode##_access_end() is automatically
+   716	 * invoked.
+   717	 *
+   718	 * When the architecture supports masked user access and the access region
+   719	 * which is determined by @uptr and @size is not a valid user space
+   720	 * address, i.e. < TASK_SIZE, the scope sets the pointer to a faulting user
+   721	 * space address and does not terminate early. This optimizes for the good
+   722	 * case and lets the performance uncritical bad case go through the fault.
+   723	 *
+   724	 * The eventual modification of the pointer is limited to the scope.
+   725	 * Outside of the scope the original pointer value is unmodified, so that
+   726	 * the original pointer value is available for diagnostic purposes in an
+   727	 * out of scope fault path.
+   728	 *
+   729	 * Nesting scoped user access into a user access scope is invalid and fails
+   730	 * the build. Nesting into other guards, e.g. pagefault is safe.
+   731	 *
+   732	 * The masked variant does not check the size of the access and relies on a
+   733	 * mapping hole (e.g. guard page) to catch an out of range pointer, the
+   734	 * first access to user memory inside the scope has to be within
+   735	 * @uptr ... @uptr + PAGE_SIZE - 1
+   736	 *
+   737	 * Don't use directly. Use scoped_masked_user_$MODE_access() instead.
+   738	 */
+   739	#define __scoped_user_access(mode, uptr, size, elbl)					\
+ > 740		with (auto _tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl))	\
+   741			/* Force modified pointer usage within the scope */			\
+   742			__diag_push() __diag_ignore_all("-Wshadow", "uptr is readonly copy")	\
+ > 743			and_with (const auto uptr __cleanup(__scoped_user_##mode##_access_end) = _tmpptr) \
+   744			__diag_pop()
+   745	
 
 -- 
 0-DAY CI Kernel Test Service
