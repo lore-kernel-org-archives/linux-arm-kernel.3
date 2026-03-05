@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05EB7F33A78
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 14:45:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38E94F33A75
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 14:45:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4uqbTaK/SUKC5hU3BqIKF2hPbFB7qXHLA/iy/1InYug=; b=tNrp2iwoMqYIvi8jYg/vk2c7DT
-	UXkm02IbxlYC9ElXQcem3Lg3V5k661+Uj3mlMEoW7MXc3FpVR9CT6xYp2+rBneECWfZemcAXU36hS
-	81KSYKMNTCxTGHAgQV5u3yK2YFdsF51ArhZRrdFPoRvb0bxwOqn+ygXjhzVvfy/nusT+o1hZ4s3fo
-	Q7MxmWiZJET21/LcwMF7R2jtzivRANbI78a8/ltGpx0cMu0svOObG1M5FuHBQpK070v0FoAd6T9lq
-	CD79xfBqODE9+6gf6SsaYdZ1O9GqqxxVdS2PISZyOBxS4+STuL25Q1g2TlN4cxTHuIHU4bAA8525k
-	sQIlW4CQ==;
+	bh=2scvdhxi2QZdSxsfTkStbeIyAY7PzebqgoXiEIZ5cpo=; b=IzFVYcGdq8BPHTj1q3yE2Fj4U7
+	+1yIipspaQRzp5F26aQYMQyYk9OMtEvSv3Ruudxx05yv4d5+mGYNzuwOQAwzEGZPRq9Konus8wnRp
+	0EabI0OYWFQlGLuMwiFA6Kq4pHrCJjiSERnNXDzVRF0pwCi/M8IyelCjIbdNAb+NkhgxGQ4IpxC5h
+	nIedtwAwm0TidvG3krDLjSVnks9/U0PEWwDWt5xemBLWNYxdvjRc1MyFH+gT+9DuDGIYIZjV22E6w
+	ISG4HjtYgtohEImnKb88VgbttaUuyNvJ76+5W4znRkKxGhxmGW5old0UL9TUeFkxMrEL0bKCPd746
+	TbCN0OfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy9wg-000000021Y7-0io5;
-	Thu, 05 Mar 2026 14:44:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vy9wm-000000021fz-22v9;
+	Thu, 05 Mar 2026 14:45:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy9we-000000021Vz-3WWP
+	id 1vy9wl-000000021ec-3e6D
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 14:44:56 +0000
+	Thu, 05 Mar 2026 14:45:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4935161851;
-	Thu,  5 Mar 2026 14:44:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A995C19423;
-	Thu,  5 Mar 2026 14:44:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4C26D61850;
+	Thu,  5 Mar 2026 14:45:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00E2CC116C6;
+	Thu,  5 Mar 2026 14:44:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772721896;
-	bh=kFtW1Hxer6ySjqBzPY4uotlzvf+zgtokwak9YJtR+oA=;
+	s=k20201202; t=1772721903;
+	bh=ZFZN8A37nToAI6B0WJ6a2JQ5jY/kc1n7WNlM0zbyq1U=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=LelBXVUJP7VMfU8ygXPiHDPG+HXZyssOSQDmK1N6eTnw5xkX0JWoS1sXBWh8NUThe
-	 4MLdS2gnG5S1Gt/QEFnGJVER1uada2rbdJFEBpKsEbf8FVyVVQysOckgcmqXdhCWoC
-	 lNl8BpFirdnqQRPnx/phzkQ7qGLpB1Kucx5rjt6+Oz69ER1fnzHFNAphkUEXDC4nIB
-	 vqMJZGZzmT0qvjYTB7QTMSPEkOdxKDtmYfUeKuRKXd355mv6NmyS6l9h4h8qSjG1JF
-	 ANBFMTloVLXUX7yZGGsRoyT2XTCzyr1oJrOVAp3Nn18TDzoI56tZ5E2nUBIZozW5PC
-	 ad2/ZZRnsjJTA==
+	b=NkJkB7ksSNwLIw2GgCnVzGeueoattv7HH5DypH4MQStkBY72xV5tHtYIho33GAGxn
+	 G+KC0v/bk+nBo6cipzrt/Y79CAP0fXJtof5Z+e8XF82cEltnit6ro1ZWFTmhniNUd6
+	 57bHZYtw+D34OUsghu6w7h27cWZEHIM7xD3rCSIDbIlqzgP0eGBXxmOZZP3A7X/Qfk
+	 Y3sOZM2KwtWFDpx0YUxnBeW13UMpuW+9lQ6WNgPjd+8ySWBrsew30ais87qCVUWEoa
+	 YpnvD8jeFGao673jqilAlPrg5OLu40/XfD3p58vUH9qT1yWhtaAjNwULu3j+HOe8a3
+	 fmfFS1IxtXG0Q==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -57,9 +57,9 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH v3 13/36] KVM: arm64: Handle aborts from protected VMs
-Date: Thu,  5 Mar 2026 14:43:26 +0000
-Message-ID: <20260305144351.17071-14-will@kernel.org>
+Subject: [PATCH v3 15/36] KVM: arm64: Hook up reclaim hypercall to pkvm_pgtable_stage2_destroy()
+Date: Thu,  5 Mar 2026 14:43:28 +0000
+Message-ID: <20260305144351.17071-16-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260305144351.17071-1-will@kernel.org>
 References: <20260305144351.17071-1-will@kernel.org>
@@ -79,124 +79,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a new abort handler for resolving stage-2 page faults from
-protected VMs by pinning and donating anonymous memory. This is
-considerably simpler than the infamous user_mem_abort() as we only have
-to deal with translation faults at the pte level.
+During teardown of a protected guest, its memory pages must be reclaimed
+from the hypervisor by issuing the '__pkvm_reclaim_dying_guest_page'
+hypercall.
+
+Add a new helper, __pkvm_pgtable_stage2_reclaim(), which is called
+during the VM teardown operation to reclaim pages from the hypervisor
+and drop the GUP pin on the host.
 
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kvm/mmu.c | 89 ++++++++++++++++++++++++++++++++++++++++----
- 1 file changed, 81 insertions(+), 8 deletions(-)
+ arch/arm64/kvm/pkvm.c | 31 ++++++++++++++++++++++++++++++-
+ 1 file changed, 30 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 9d183df0b0ac..4e64528d86a6 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1642,6 +1642,74 @@ static int gmem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	return ret != -EAGAIN ? ret : 0;
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index 1814e17d600e..8be91051699e 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -322,6 +322,32 @@ int pkvm_pgtable_stage2_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu,
+ 	return 0;
  }
  
-+static int pkvm_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
-+		struct kvm_memory_slot *memslot, unsigned long hva)
++static int __pkvm_pgtable_stage2_reclaim(struct kvm_pgtable *pgt, u64 start, u64 end)
 +{
-+	unsigned int flags = FOLL_HWPOISON | FOLL_LONGTERM | FOLL_WRITE;
-+	struct kvm_pgtable *pgt = vcpu->arch.hw_mmu->pgt;
-+	struct mm_struct *mm = current->mm;
-+	struct kvm *kvm = vcpu->kvm;
-+	void *hyp_memcache;
-+	struct page *page;
++	struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
++	pkvm_handle_t handle = kvm->arch.pkvm.handle;
++	struct pkvm_mapping *mapping;
 +	int ret;
 +
-+	ret = prepare_mmu_memcache(vcpu, true, &hyp_memcache);
-+	if (ret)
-+		return -ENOMEM;
++	for_each_mapping_in_range_safe(pgt, start, end, mapping) {
++		struct page *page;
 +
-+	ret = account_locked_vm(mm, 1, true);
-+	if (ret)
-+		return ret;
++		ret = kvm_call_hyp_nvhe(__pkvm_reclaim_dying_guest_page,
++					handle, mapping->gfn);
++		if (WARN_ON(ret))
++			return ret;
 +
-+	mmap_read_lock(mm);
-+	ret = pin_user_pages(hva, 1, flags, &page);
-+	mmap_read_unlock(mm);
-+
-+	if (ret == -EHWPOISON) {
-+		kvm_send_hwpoison_signal(hva, PAGE_SHIFT);
-+		ret = 0;
-+		goto dec_account;
-+	} else if (ret != 1) {
-+		ret = -EFAULT;
-+		goto dec_account;
-+	} else if (!folio_test_swapbacked(page_folio(page))) {
-+		/*
-+		 * We really can't deal with page-cache pages returned by GUP
-+		 * because (a) we may trigger writeback of a page for which we
-+		 * no longer have access and (b) page_mkclean() won't find the
-+		 * stage-2 mapping in the rmap so we can get out-of-whack with
-+		 * the filesystem when marking the page dirty during unpinning
-+		 * (see cc5095747edf ("ext4: don't BUG if someone dirty pages
-+		 * without asking ext4 first")).
-+		 *
-+		 * Ideally we'd just restrict ourselves to anonymous pages, but
-+		 * we also want to allow memfd (i.e. shmem) pages, so check for
-+		 * pages backed by swap in the knowledge that the GUP pin will
-+		 * prevent try_to_unmap() from succeeding.
-+		 */
-+		ret = -EIO;
-+		goto unpin;
-+	}
-+
-+	write_lock(&kvm->mmu_lock);
-+	ret = pkvm_pgtable_stage2_map(pgt, fault_ipa, PAGE_SIZE,
-+				      page_to_phys(page), KVM_PGTABLE_PROT_RWX,
-+				      hyp_memcache, 0);
-+	write_unlock(&kvm->mmu_lock);
-+	if (ret) {
-+		if (ret == -EAGAIN)
-+			ret = 0;
-+		goto unpin;
++		page = pfn_to_page(mapping->pfn);
++		WARN_ON_ONCE(mapping->nr_pages != 1);
++		unpin_user_pages_dirty_lock(&page, 1, true);
++		account_locked_vm(current->mm, 1, false);
++		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
++		kfree(mapping);
 +	}
 +
 +	return 0;
-+unpin:
-+	unpin_user_pages(&page, 1);
-+dec_account:
-+	account_locked_vm(mm, 1, false);
-+	return ret;
 +}
 +
- static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 			  struct kvm_s2_trans *nested,
- 			  struct kvm_memory_slot *memslot, unsigned long hva,
-@@ -2201,15 +2269,20 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
- 		goto out_unlock;
+ static int __pkvm_pgtable_stage2_unshare(struct kvm_pgtable *pgt, u64 start, u64 end)
+ {
+ 	struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
+@@ -355,7 +381,10 @@ void pkvm_pgtable_stage2_destroy_range(struct kvm_pgtable *pgt,
+ 		kvm->arch.pkvm.is_dying = true;
  	}
  
--	VM_WARN_ON_ONCE(kvm_vcpu_trap_is_permission_fault(vcpu) &&
--			!write_fault && !kvm_vcpu_trap_is_exec_fault(vcpu));
-+	if (kvm_vm_is_protected(vcpu->kvm)) {
-+		ret = pkvm_mem_abort(vcpu, fault_ipa, memslot, hva);
-+	} else {
-+		VM_WARN_ON_ONCE(kvm_vcpu_trap_is_permission_fault(vcpu) &&
-+				!write_fault &&
-+				!kvm_vcpu_trap_is_exec_fault(vcpu));
+-	__pkvm_pgtable_stage2_unshare(pgt, addr, addr + size);
++	if (kvm_vm_is_protected(kvm))
++		__pkvm_pgtable_stage2_reclaim(pgt, addr, addr + size);
++	else
++		__pkvm_pgtable_stage2_unshare(pgt, addr, addr + size);
+ }
  
--	if (kvm_slot_has_gmem(memslot))
--		ret = gmem_abort(vcpu, fault_ipa, nested, memslot,
--				 esr_fsc_is_permission_fault(esr));
--	else
--		ret = user_mem_abort(vcpu, fault_ipa, nested, memslot, hva,
--				     esr_fsc_is_permission_fault(esr));
-+		if (kvm_slot_has_gmem(memslot))
-+			ret = gmem_abort(vcpu, fault_ipa, nested, memslot,
-+					 esr_fsc_is_permission_fault(esr));
-+		else
-+			ret = user_mem_abort(vcpu, fault_ipa, nested, memslot, hva,
-+					     esr_fsc_is_permission_fault(esr));
-+	}
- 	if (ret == 0)
- 		ret = 1;
- out:
+ void pkvm_pgtable_stage2_destroy_pgd(struct kvm_pgtable *pgt)
 -- 
 2.53.0.473.g4a7958ca14-goog
 
