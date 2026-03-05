@@ -4,143 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E345F3092B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 10:17:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A43C4F30928
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 10:17:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+1hxziyBDZKX8rnKEDu9pfYqT7qAvp0u0hnPl8L3aIc=; b=axvN9av9fSd9DrK++cYpyR6WcX
-	Zy45YDdVaAwveQqPICarGcUWsJozwZdNpZ8TbKSa9Exk9hNNC41FOE/Q0zhy5DMJEDVqkaWKenecR
-	BGNibQapQ4L+kMozq+Jxgze7E4MYlKa5qjn+EnPi2ca5yAwIWTc/PfMJzpjSKgY0p6hGIAhaAOBSK
-	pTxWuAneqw2TYqefHflEITXWbEKDyprbswTm2bfVVCwP5jdoSiOLtDpfwVx/TzGTwND7EJiqp/g1e
-	Yk7xBdkw5sPsTKmE4jbK5KJ5mcgAuiWWcbnV28QEsv1ZynDzZvKFQvfoV7pGvm2WInTbhAyB8lqnX
-	+bmbfOmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6DmSHCM0LgzOUffNj69Wkvex2Mer/Y8hOcMtDoz2e4Y=; b=LysVLqsYB1ikPs
+	z/tqUikfRWADDJTzTp7TXzPHSSe6jn5nBTgS0lwCQafHkQg0GcCF2xNmayRWnkocJp5sCYJlyBynz
+	+RYB+gzFiM/UR0Nj0U1hQQP44KtW/4FJ0u1Hds/aEQLpp/aj0dTrQDKBqJKKl5zLaHCcWjJv8BWBQ
+	JQnsEewiWELww7sgBQGVurqGvGrmSOzkjOrX1pD7tXXnnFjxE0jUVFTVHRUr+IWayPLHiYLyG44/L
+	EoAN5vfpki0l63/42qXYw/vUmn1el63H+ewa0zIttNjGw1F8JmEq1LKar2R3tZpqh/CcjE5EOhpJO
+	4aLvFDnxrpBYUK9HYqrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy5lY-00000001XYF-40Lf;
-	Thu, 05 Mar 2026 10:17:12 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy5lW-00000001XWu-1O7k
+	id 1vy5mD-00000001Xhz-3Kal;
+	Thu, 05 Mar 2026 10:17:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vy5mA-00000001Xg4-2yw2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 10:17:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wU5TaUy6RyZudYJ5GIPIi8dG6Rw1XFJMIc/dWAdKrdSPKP3hR1R/y7UwMAlsRldPIzZaD1333s7BDatyjHf/K4nxfb/FKjBoYdHX+NOD6aQIVdCe83sbGrN9qrHDeqHnocw18/rWpHHGZclhZ3yNSCZv5S+tM/AT0C3LEhltJIk32B86om63ykNH1B/klkl+VJfWxW2aKpIwe+89KdN3o14IzijBpz/wfR5wOwhIKwm1x6irGmv9aZY5q4oHANGZA1R39cqlKl8nEEiwNtObTP+lbzkKhU2Kx8dr5yUIII6KNYsN3layAnNlwvrbkllfgdaV7KlaYlHy1mbYf5pZkQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+1hxziyBDZKX8rnKEDu9pfYqT7qAvp0u0hnPl8L3aIc=;
- b=GQ3SmrJW13Grrz3U5i1uw1wlkQegu0V6XxL6gJKxQqQXGVKJ6KevqW9R1Ps3GaM/b5Sb3uYJLjzAcPkQmnkOrqhHgAM4iC8JVvfSyg5I+u+GSTenM2SJLX/dETuiGSvXDkwkmSMjVsupBFMQp8RjgpPw0yPHOPVLneLbx9STN5NieLl5Qfy3xtuE2Cf24Qx0u8Zwrt3ajO7yuE4x7YScxqR0D4HtGyv+4mRlatBSLygHQ+41SWBuYkjwOgAGBi8h3RVbPGvcgJTO3z5ON6AgZEgrca5DRATMZ74P8QVQV+tgQjdza9vIlsFEwExdPhGYGgLeLXtVS8l/QBzDex0sRw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+1hxziyBDZKX8rnKEDu9pfYqT7qAvp0u0hnPl8L3aIc=;
- b=mjXvQiFNO4Pa8gKlL8D4glNe/YadlCu0J6nINeiGMkuduU5wnLdYrusJBtJVHKrJFlBeCBBMQ5B4amZupZLoUbTQKVBS/XnCtg+qUCO6pHWd3j3NjmvormFb8sM6l+0jVP8o/mmRKj6ps3J14AAjWP4i2LBUfvIROkarPaz+yC13DDLgVznJrnpuVlTBzomvXqpqfIfm7CLqoYb8mug8biaA41a1z0mGLh9zPZWXd0PBLRYgLU+2toMJAlGgP45Z98u5fKt9yBSGJTce1UvJHmzxLcL+qQ0mVhq/HidsvwUPxllGDSz521QkzbQFfKiKy69KxPuCEg9EfnTNjQphvA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AM0PR04MB11877.eurprd04.prod.outlook.com (2603:10a6:20b:6fc::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Thu, 5 Mar
- 2026 10:17:04 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%7]) with mapi id 15.20.9678.017; Thu, 5 Mar 2026
- 10:17:03 +0000
-Date: Thu, 5 Mar 2026 18:18:56 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Daniel Baluta <daniel.baluta@gmail.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, arm-scmi@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 1/2] firmware: arm_scmi: imx: Support getting reset
- reason of MISC protocol
-Message-ID: <aalYkDpKS/W3p3m2@shlinux89>
-References: <20260305-scmi-imx-reset-v1-0-18de78978ba9@nxp.com>
- <20260305-scmi-imx-reset-v1-1-18de78978ba9@nxp.com>
- <CAEnQRZC4w3qNOJgth=8N-Ri3wFeKc-=VnQXWzr4WR0j6yt7WMQ@mail.gmail.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAEnQRZC4w3qNOJgth=8N-Ri3wFeKc-=VnQXWzr4WR0j6yt7WMQ@mail.gmail.com>
-X-ClientProxiedBy: SI2P153CA0032.APCP153.PROD.OUTLOOK.COM
- (2603:1096:4:190::23) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Thu, 05 Mar 2026 10:17:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2413E339;
+	Thu,  5 Mar 2026 02:17:40 -0800 (PST)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8303A3F694;
+	Thu,  5 Mar 2026 02:17:44 -0800 (PST)
+From: Leo Yan <leo.yan@arm.com>
+Subject: [PATCH v6 00/19] CoreSight: Refactor power management for
+ CoreSight path
+Date: Thu, 05 Mar 2026 10:17:31 +0000
+Message-Id: <20260305-arm_coresight_path_power_management_improvement-v6-0-eff765d211a9@arm.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM0PR04MB11877:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2e18c078-aa94-44ce-2b16-08de7aa0582c
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|52116014|376014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: TiN+otmcg+f5r5Vgnsofdn1p81+d6FjIWg1HGmS5qcskLMr7l7Of7O3PXa9JoqWAPnV4ggFdFXQN37LdIfXvAu8XF3dH0XG/NkD09wjMTdCmj02yySoXparkQRlhr1yJaYN4nsbWXHJuOHRntP7AyRnf/Q+ySgQRaGXmrtroFCGNnjHJ1kwmtUO/+3SROI3Lb/nX42V60iwsBjUhqpBV8n/hkTFhQrBRx4Q3r4QyWJZoamTaz0hnN3YvpxBdvplKAPbN3DrtXR3CkvUjkZZpFuVig6hDyo0+WWauaCxWFnOzcQIXRM1RMoGrsknEpp+YzwjyK4Wp2abg70hPrguYvMFICkUwUyIhXOugkzPVUxH83sCyF1fReRXSsX6fw/p5BYscHoARXFY2Kt0w2egykzUDMM1GoSGArffI5MzfK42nnKFtrcJrNFzSBHfjqeLCshR5TO+bEuUB5CTAOVqYU2Sy+T43vyhi1ahIGQGikrrPDrv5Ee2nsf4Yldy7pwSkOpxBnX3zNWGgA9hFNJdhNJFHUiAlcUQLh1qPVs9Ns2YQ8oFiSig4xMtN9LLcR8JI/8ctHVyr8tbOiRA69VcjtTq0BDxDfQCikYHPhq3RHuajqYNG6zh7Z7ePZFc8TXY4iVgUD/lWBQfAGPT90AxjhTh6jGQepe5S91tQD40LYp0ULGs9zCf6B7ULCYOwAiMRDxRqZng+qbi4RO8kDAnE0C3QR7L95DEBTpnHFoxqfsBa9Yan3KnF6p/xhr8ZNd0wRHuGLDrhzbOetLjM7MPsAUHesxTg/rBomu1FvU8xw0k=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?REM0NDk5c2pGV0hEbWpxOEhUOFFpL01HbjVkcFpQcFRzTmcrVkd4Y2ZZZWJK?=
- =?utf-8?B?eHZPS2RoeDlXNnMyY0FaRFlqc0N3TXdPMVE1aytFcUhiRUxHL0NjZlNhSWhr?=
- =?utf-8?B?TUkzOTRIaCtKQzBQK2dxbnRmVGxaR1g3MWJZaVB1K1pBZ2FORzJlZVQzYStm?=
- =?utf-8?B?YzdoMXBJTnRJeXdDdTdtZUlZS3BGRTNBc29uWXBlYUY0eTVqMEx4NktKMXly?=
- =?utf-8?B?RnZBc1RubFd6aWVIL3dodUMxbE5iMDdVby9NQ1BQVHRKK2tzQS9NYlMydHRZ?=
- =?utf-8?B?bTFYdlVQOStmZ0YrMTQ5Y2d5OEIxd3M3KzlheTk4aGN3WW95MFkvcWtvSXRi?=
- =?utf-8?B?Kzdla21IdU9yZmFuYXgzU254SWwyZ3RlS0xEOUF1YVc1TDNjc0lUeUdYc1lh?=
- =?utf-8?B?NDRsYmx1cmdlcStlL1l2cEV6MDlFK2hWa0VpNndDL0dTNDI4MW9ZM3lOWm0w?=
- =?utf-8?B?bEF5R2psY1lXTGdBTHZ0UTJVNGtmMjhKS3lyeHpGOEFNdEQ2WkxjUDcvRGRz?=
- =?utf-8?B?T3ZHYUxZTVprdjIrN2FoZTI2Q0NlWGtOUUpXZi9ibGEyQUE2dkR3anJnTFEv?=
- =?utf-8?B?L2VzZGdKUm9xTEtBL1pnajdUUDBzMitGS3hRWlFhVFp1UFdXWGVwSXo1aVZt?=
- =?utf-8?B?OUl6NDBKNFh4NUcvVEx3VjdtMjdydCsyNCt5Wi9Pc2Ivb2dCTDV3T2VBeGRj?=
- =?utf-8?B?NDhNSjAxdVNmWXRPcVZJUCtyNU1POEoyQXpJNGJIZDV6bm9ZbTkrZ3NoZFR5?=
- =?utf-8?B?Y29WeU1wTDZ1V0FTVTMvemJoaFR0RGJkN2IxZm5qeEZwV0dCOGRqQlFxSlps?=
- =?utf-8?B?NndCcDZLRXlwVEs2ejhEc3BnOEE3UkxWRTRYd3ZQZ240azVscitXOHIwblht?=
- =?utf-8?B?c3dWUHVGeFplZG1XNUFRSm8vTFJvUytpbnZQMllRbEVRcm5LajB0YkZhd3JZ?=
- =?utf-8?B?VVZnR09mZENHOFMyRWVBNXU0K3ViaCtudVVPZnZRdHM4NDM2d3RNdW85Mm4x?=
- =?utf-8?B?aGZ5Rll3WWRaaXc4cHkxdWtOTzh0ZGxPSFkzQVZ1NFlocnJLYXV2bTZ3cUQv?=
- =?utf-8?B?QXZ1YjBmTXdleUxFWG0xVUF1K3VWUTJuek1qZy90UjdXUFFHMnFRVmFBdmxj?=
- =?utf-8?B?V1BJQjJ2VnloOWhQOVFZNGVkSGdpZ2t6WHhZbGh4bm9KbVFqTDBLNk14MFND?=
- =?utf-8?B?aDlVTS9yaEpxL09uNGNCZ0d0R2Y3S1RVUHBMa25LS3VBdGx2czgwbVZXSmwr?=
- =?utf-8?B?NjViSSswcW83REpRU0dpYndtSlFKRHlCUmpUWW92UGhGNTNHa0t2RGIzMkZp?=
- =?utf-8?B?cHFyN3ZCWVFhMHhEVGJ1OGZtTVVBK0Rndy9mUm1FeGZTUzJwUEtHQXpGTHR4?=
- =?utf-8?B?YWFiZVBKbUZvRkNnNHFTQjA0N3krbXNSMXVhY3dlaU1ZNmlmcUtweSt1OXRH?=
- =?utf-8?B?bGp6SFNaN0ErWk9CNEpRTnBBaUJabDhKVkJrVGppNTJzdEVUbGRHY04wRkZx?=
- =?utf-8?B?RTVhR2hRWVVOL0JzSE9rNWFJQUZRUGlvVldLblduclhpQ1NQQUhXS2MvZHBF?=
- =?utf-8?B?S1VzK3FNYzhqRnRUMzVrc1BpSERQQ29CL01HRmIwQjlXeEdlMDFDcnZaM2RU?=
- =?utf-8?B?M3Y3UVMwclZwL3FwR1dSbDhLTk1YMHVWUFBrb0RkRnpBSHYwbmhzWnZpa3cz?=
- =?utf-8?B?MFVSSi9aSENJOGVhZGdWbEhPUTllbUFnOGwyVEtITFJ2Q0xmUjRUeVJpVkhH?=
- =?utf-8?B?MkZVeG9PRG5UclFuTGFNNkNSdU1nVTQ5dlBKdXFTZnVuVmhnRWEvQlRWc25z?=
- =?utf-8?B?K0hiVWVOM0FuOVNvK0ZSQlVWaGNhOTlwV3VSdmVmQUlsQVF3R3JDMlVaRElF?=
- =?utf-8?B?dGJpQUcweGVRcFF1d3A5aDFvMmtHcngxdUpEU2lRVHF4cHhTekkrRTJDUjNX?=
- =?utf-8?B?eHZqS1NSb1Foamp1Nm1FdG90YVhXeHZLVGw4WElrblIrdTdRdDhhV1k2eHdL?=
- =?utf-8?B?RHdBclVQemNXbHZUdG1HMVZJQU55OGVrRGlqUEgrUHBlbmpzTDZjZlkwRGpa?=
- =?utf-8?B?SU10Mjh4RzVoSHcwS0JxWEVUS0dNaGd1UFNXd1Q2bkdWa1Vqd1A3dU91TnNl?=
- =?utf-8?B?Yk9lZ2xzcFQrRjBBT0hHYkw1bEEzdUJSRTRURWg0UmJBaWFrcUhJY3crQyt3?=
- =?utf-8?B?ek54VS9Fd0tVN2E0SlJJaDVDMzFvblZjWk50d1NQSFJBSzBGNkVDaGMrQnEx?=
- =?utf-8?B?bnQrT3VYOEkyTVNjczQvaDhna1AwaUUyaFhFa1ovdXJ5bmRCazFtTVpQYU1I?=
- =?utf-8?B?NGI3L2loUGtTamRBQzQ5L1F1VjY0aG84ZjNxTG1ocm11UEJDdVFTQT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2e18c078-aa94-44ce-2b16-08de7aa0582c
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2026 10:17:02.9842
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 6Q7S/Itb5+SILClnWknn3aAq5PvFBQEsghHoNZlX+sGovRPnoM5D4bIIQJhbC44HNYkl45TPjZBachHgUpHl2A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB11877
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADtYqWkC/52OQQ6DIBBFr2JYlwYUUbvqPZqGjDoqC4SAoW2Md
+ y+6abftbt5fvDcrCeg1BnLJVuIx6qDtnECeMtJNMI9IdZ+Y5CwvOWeCgjeqsx6DHqdFOVgm5ew
+ DvTIww4gG50Vp47yNx017aEUj5VDnNSPJ6jwO+nkUb/fEkw6L9a/jgSj29f9WFJTRohdtC7ISF
+ WuuyXDurCF7KZZfdt78bi+TfZC8hIJx6Fn7sW/b9gYwQhS8SgEAAA==
+X-Change-ID: 20251104-arm_coresight_path_power_management_improvement-dab4966f8280
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
+ Yeoreum Yun <yeoreum.yun@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+ Will Deacon <will@kernel.org>, Yabin Cui <yabinc@google.com>, 
+ Keita Morisaki <keyz@google.com>, 
+ Yuanfang Zhang <quic_yuanfang@quicinc.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772705864; l=4824;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=6n7UPZn5JH2I09w9wrgs9yrYPB4a+ET46ndIfurwF7E=;
+ b=MzBW4EIrRQkHC9U/CcAtyPZajdib9UEWEWqKV9ZltSHewKeGhH8BseAZ/+ASU4/Ap9gP6sHiG
+ y0F46CE1LB8DMxQnvs3NDtoLpTLca+NB9QUR4H2CMx/fWH1RRg8xzL5
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_021710_577248_E49DB891 
-X-CRM114-Status: GOOD (  14.77  )
+X-CRM114-CacheID: sfid-20260305_021750_846168_0977FBDD 
+X-CRM114-Status: GOOD (  14.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,103 +81,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
+This series focuses on CoreSight path power management.  The changes can
+be divided into four parts for review:
 
-Thanks for giving a look.
+  Patches 01~06: Refactor the CPU idle flow with moving common code into
+                 the CoreSight core layer.
+  Patches 07~14: Add link control during CPU idle.
+  Patches 15~16: Support the sink (TRBE) control during CPU idle.
+  Patches 17~19: Move the CPU hotplug flow into the coresight core layer
+                 and simplify the code.
 
-On Thu, Mar 05, 2026 at 08:52:41AM +0200, Daniel Baluta wrote:
->On Thu, Mar 5, 2026 at 3:55 AM Peng Fan (OSS) <peng.fan@oss.nxp.com> wrote:
->>
->> From: Peng Fan <peng.fan@nxp.com>
->>
->> MISC protocol supports getting reset reason per Logical Machine or
->> System. Add the API for user to retrieve the information from System
->> Manager.
->
->[..]
->
->> +struct scmi_imx_misc_reset_reason_in {
->> +#define MISC_REASON_FLAG_SYSTEM        BIT(0)
->> +       __le32 flags;
->> +};
->> +
->> +struct scmi_imx_misc_reset_reason_out {
->> +       /* Boot reason flags */
->> +#define MISC_BOOT_FLAG_VLD             BIT(31)
->> +#define MISC_BOOT_FLAG_ORG_VLD         BIT(28)
->> +#define MISC_BOOT_FLAG_ORIGIN          GENMASK(27, 24)
->> +#define MISC_BOOT_FLAG_O_SHIFT         24
->> +#define MISC_BOOT_FLAG_ERR_VLD         BIT(23)
->> +#define MISC_BOOT_FLAG_ERR_ID          GENMASK(22, 8)
->> +#define MISC_BOOT_FLAG_E_SHIFT         8
->> +#define MISC_BOOT_FLAG_REASON          GENMASK(7, 0)
->
->I would move this macros outside of the struct. Although the intention
->is good it makes everything hard to read.
+This series is rebased on the coresight-next branch and has been verified
+on Juno-r2 and FVP RevC.
 
-I followed arm_scmi coding style, such as
-drivers/firmware/arm_scmi/clock.c
-drivers/firmware/arm_scmi/perf.c
-and etc.
+---
+Changes in v6:
+- Rebase on the latest coresight-next branch.
+- Always save and restore TRBE context during idle (Will).
+- Use get_cpu() / put_cpu() when set the per CPU source pointer.
+- Link to v5: https://lore.kernel.org/r/20251119-arm_coresight_path_power_management_improvement-v5-0-f615a301ad0b@arm.com
 
-I would not break the rule here.
->
->Just do:
->
->struct scmi_imx_misc_reset_reason_out {
->__le32 b_flags; /* MISC_BOOT_FLAG_* flags */
->__le32 s_flags; /* MISC_SHUTDOWN_FLAG_* flags */
->      /* Array of extended info words */
->       __le32 extinfo[MISC_EXT_INFO_LEN_MAX];
->}
->
->[...]
->
->> +static int scmi_imx_misc_reset_reason(const struct scmi_protocol_handle *ph, bool system,
->> +                                     struct scmi_imx_misc_reset_reason *boot_r,
->> +                                     struct scmi_imx_misc_reset_reason *shut_r,
->> +                                     u32 *extinfo)
->> +{
->> +       struct scmi_imx_misc_reset_reason_in *in;
->> +       struct scmi_imx_misc_reset_reason_out *out;
->> +       struct scmi_xfer *t;
->> +       int ret;
->> +
->> +       ret = ph->xops->xfer_get_init(ph, SCMI_IMX_MISC_RESET_REASON_GET, sizeof(*in),
->> +                                     sizeof(*out), &t);
->> +       if (ret)
->> +               return ret;
->> +
->> +       in = t->tx.buf;
->> +       if (system)
->> +               in->flags = le32_encode_bits(1, MISC_REASON_FLAG_SYSTEM);
->> +       else
->> +               in->flags = cpu_to_le32(0);
->
->What does system = 0 mean? can you directly do in->flags = 0?
+Changes in v5:
+- Set the per-CPU source pointer on target CPU (Suzuki).
+- Reused existed enable/disable buffer functions in TRBE callbacks
+  (James).
+- Refactored refcount for source devices in SysFS mode.
+- Released path in cpu-hotplug off flow to avoid memory leak.
+- Updated ETMv3 driver when move common code into core layer.
+- Rebased on the latest coresight-next branch.
+- Link to v4: https://lore.kernel.org/r/20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com
 
-If system is false, that means to get LM(logial machine) reset reason.
-If system is true, that means to get system reset reason.
+Changes in v4:
+- Changed to store path pointer in coresight_device, this is easier for
+  fetching path pointer based on source device (Mike).
+- Dropped changes in CTI driver.
+- Only disabled path for CPU hot-plugged off but not enable path for
+  hot-plugged in.
+- Removed James' test tags for modified patches.
+- Link to v3: https://lore.kernel.org/r/20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com
 
-grep "cpu_to_le32(0)" ./drivers/firmware/arm_scmi/ -rn
+Signed-off-by: Leo Yan <leo.yan@arm.com>
 
-You will see other usage, I just follow same style here.
+---
+Leo Yan (18):
+      coresight: sysfs: Validate CPU online status for per-CPU sources
+      coresight: Set per-CPU source pointer
+      coresight: Register CPU PM notifier in core layer
+      coresight: etm4x: Hook CPU PM callbacks
+      coresight: Add callback to determine if PM is needed
+      coresight: etm4x: Remove redundant condition checks in save and restore
+      coresight: syscfg: Use spinlock to protect active variables
+      coresight: Introduce coresight_enable_source() helper
+      coresight: Save active path for system tracers
+      coresight: etm4x: Set active path on target CPU
+      coresight: etm3x: Set active path on target CPU
+      coresight: sysfs: Use source's path pointer for path control
+      coresight: Add 'in_idle' argument to path
+      coresight: Control path during CPU idle
+      coresight: Add PM callbacks for sink device
+      coresight: sysfs: Increment refcount only for system tracers
+      coresight: Take hotplug lock in enable_source_store() for Sysfs mode
+      coresight: Move CPU hotplug callbacks to core layer
 
->
->
->> +
->> +       ret = ph->xops->do_xfer(ph, t);
->
->Is it mandatory to call  ph->xops->xfer_put(ph, t); even if ret ! = 0?
->Because we can get rid of one level of indentation with:
+Yabin Cui (1):
+      coresight: trbe: Save and restore state across CPU low power state
 
-yes, xfer_put is mandatory.
+ drivers/hwtracing/coresight/coresight-catu.c       |   1 +
+ drivers/hwtracing/coresight/coresight-core.c       | 273 ++++++++++++++++++++-
+ drivers/hwtracing/coresight/coresight-ctcu-core.c  |   1 +
+ drivers/hwtracing/coresight/coresight-cti-core.c   |   1 +
+ drivers/hwtracing/coresight/coresight-dummy.c      |   1 +
+ drivers/hwtracing/coresight/coresight-etb10.c      |   1 +
+ drivers/hwtracing/coresight/coresight-etm-perf.c   |   2 +-
+ drivers/hwtracing/coresight/coresight-etm3x-core.c |  65 ++---
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 153 +++---------
+ drivers/hwtracing/coresight/coresight-funnel.c     |   1 +
+ drivers/hwtracing/coresight/coresight-priv.h       |   3 +
+ drivers/hwtracing/coresight/coresight-replicator.c |   1 +
+ drivers/hwtracing/coresight/coresight-stm.c        |   1 +
+ drivers/hwtracing/coresight/coresight-syscfg.c     |  22 +-
+ drivers/hwtracing/coresight/coresight-syscfg.h     |   2 +
+ drivers/hwtracing/coresight/coresight-sysfs.c      | 126 +++-------
+ drivers/hwtracing/coresight/coresight-tmc-core.c   |   1 +
+ drivers/hwtracing/coresight/coresight-tnoc.c       |   2 +
+ drivers/hwtracing/coresight/coresight-tpda.c       |   1 +
+ drivers/hwtracing/coresight/coresight-tpdm.c       |   1 +
+ drivers/hwtracing/coresight/coresight-tpiu.c       |   1 +
+ drivers/hwtracing/coresight/coresight-trbe.c       |  60 ++++-
+ drivers/hwtracing/coresight/ultrasoc-smb.c         |   1 +
+ include/linux/coresight.h                          |  11 +
+ 24 files changed, 458 insertions(+), 274 deletions(-)
+---
+base-commit: 9c5ef7a30d9044f8706bd02bfdc4eff7266f3e25
+change-id: 20251104-arm_coresight_path_power_management_improvement-dab4966f8280
 
-Thanks,
-Peng.
+Best regards,
+-- 
+Leo Yan <leo.yan@arm.com>
 
->
-> ret = ph->xops->do_xfer(ph, t);
-> if (ret)
->    return ret;
 
