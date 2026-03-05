@@ -4,97 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 596A0EEF326
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:04:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72EF3EDA697
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:05:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x29TSbD/9Rjft5iIHHQCYlLvvZ+GvP60F94LjzSbanc=; b=hSdc8LnYFAw0Q67r5jwiYSAlK0
-	WcnFN+NN5yOgRaaJJmU3AKuCIRMEwK/rDuikdu+V4jm1x7sUrW9MgCf59/VpSBP29O+ucMexMYQau
-	2W9PSBuQtB5eu4q+NDEsVCAY6k9oQT+DyuQsjPwCEX/BIJ8nl9T7h7PhfXJSFQxRNmIkREMdgL16p
-	4zsrSyH3fMjNO0SBxRb8KmSq2x8cNLQ4sCHI8xcPgXdyG8EM3lfMCGVg+b852EzGtXO6HedpuiI+P
-	S55xNGzeKtmHAXC1NjipeSSqOy+VxF6ECYOdQI4dBRVXUk2O2OZkzxs4Yl6oCwoVkKv7fDD/D3Ma9
-	3vwaxKhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=putXP3nw9m8tOcwNkN9YYBaFsCXIW2SkOIo0UXEJ50E=; b=0Q+I63Rc1YVNIS
+	8sb2411b1MS0XM0lSGen+oH0tJ/6OXogvMCR3LuW1TBnhm/sw2/rPhalXvnDZpDDedkv75aor5pxG
+	zvOKHImutZ8V6KtmcvthSnapKgOSndiXco9jYjOI5mM/KX6i9Xl/ZgDNaSXsz3KWiEkD4BE0TTvqd
+	iS/W2Lkv7GAxC2CkUH4j1t8QC5NnPW+Al8YjHGEPrjx7c8ORcvW9i96Z3qWRNUQtxw9Mt2KSOa/7f
+	APDbfsKdyCC62cXhq+QZVK8srrkiOA2le7qA6x85M/qYPkkFe29gJrPW8J532jlhzFuEVFT3o/pxy
+	gCjVfjNuG9keESvnignw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy4dC-00000001H5L-2qti;
-	Thu, 05 Mar 2026 09:04:30 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1vy4dn-00000001HEa-03RO;
+	Thu, 05 Mar 2026 09:05:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy4d7-00000001H49-0rFh
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 09:04:29 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-439cd6b0aedso557855f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 01:04:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1772701463; x=1773306263; darn=lists.infradead.org;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=x29TSbD/9Rjft5iIHHQCYlLvvZ+GvP60F94LjzSbanc=;
-        b=nsClsLEydHE0roOcBsoFaCVPZEunoSrxa6UimmWjpIECcLJtNvehA6sYmAtUDDq3fg
-         2A9BZkhKG7fmECda2ZaMkgU69sbTy0Pb9wjs6Wn3NXexrrCJl/rIlBShIAwOTREiUmw2
-         ZJOOQyR4SNbFSRaWzLc2B9m0QcF2F8q0Rs7vAN47f3TGj2t3w3kSkUQG6ZUQ+9ZpZknj
-         lGpSw/EcPdoOlqUwTNHQDUHqCzq38pKfM++MFpw1Gam8ziKQxzxB1mebDtrMh1PnMwDj
-         Gx9lEkuQtjHNhzC2aioRDV+erUuX2KwNdxJERunu6RRRvOshVUb3g9NW0Y1BsIXj1mQv
-         geNQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772701463; x=1773306263;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=x29TSbD/9Rjft5iIHHQCYlLvvZ+GvP60F94LjzSbanc=;
-        b=GedduQxzwX1V2+D79T3OO1IOYuybwXw5kSL+onyqu+4jsZXp4XBftIjX8tDEpZS4zT
-         RQHDJqykXx5CXV0L7Bdpwd/YdYyqPcc0FjLPCu6r3MIs4DXFfdrd2CHzgzKd1Zr8aJ+P
-         Q7f7xHx+b9rB40bsrITSoM7iP1SWAWJt5m18PBlR6/MvkXOHHdloys6JPBfJmlhFSAv5
-         Qi0x9ZZfA5+fEMR+RZZNsC6Y1KOaxL8/KmcVSNX5ZxXYNSLK4pGYkpnvXkmGPv+hlaaq
-         53k4hPFxK8bk+6U1TaW8skdGE8IavkyjHuavxdwObzBDd8MeWdGIDL3RQmylO0EkR/0I
-         qFGQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUbzSuP2916cFdBeAwEbteL0LqPMf/q6XLQDmmK14J0CpeWt3lLnhUJoBEEtnCYvBQ/pajynyT57jCBEOUsOSKJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzCN5SzqvFSLFfGGHVzL58wavxoYgNckZoUQ/oHv6HqXrFo51x
-	eI9+nQHddTo+xmHqkxq/pWLe3N0HbJDgt4V4u+CWmRrE2ml728u0ulhipY9h6O7GD/vKW30Ygqq
-	hevKx
-X-Gm-Gg: ATEYQzxg1RgfDBr7slKjdiqR/8j+M1Bpgk7ZT4h8+U9S4IDFYQJLmf3ti4MK6sfcRhR
-	ZLWCSZfLjhHVy038jkkvRJ6+BhpVEc1DyHYOuaMkrBJyp+aCDGH6c/TRAgYnWZVLs3CdkPkxDCR
-	HjasK43teDfogT0t9ooySYDfr8rR/s3wzjZcnM+gZS0xUR6gFUyXANvzhTeWclNR7mQot2dJvW8
-	7YwGUmW2r+KF9mP+USiryFMNv85b73lYu8Ve2Q0bmxwIgRFCKCGh3vFADJa7MYOVY3YfwKyWlGf
-	IB8pDy1W8g1pQ8cer019Xga4myZ6tJcVAk0Nuzo1+3CL/OwRhFJImEs/gCoVgchojwYco1l0ziy
-	2TBxKvtvnLq8CtxtM/AHEM3ro9+h1k8qrQFafwqaewVhNlaCorfWuspfymxhkmGcvoeA6MULYf8
-	APY49HlGb2eK9RWSA+SQl6+O6qyt/kqa4=
-X-Received: by 2002:a5d:6409:0:b0:439:ca45:ae26 with SMTP id ffacd0b85a97d-439ca45af5cmr7015427f8f.18.1772701463400;
-        Thu, 05 Mar 2026 01:04:23 -0800 (PST)
-Received: from localhost ([2a01:e0a:3c5:5fb1:5595:8450:af3:bbe3])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-439c6129017sm13508505f8f.31.2026.03.05.01.04.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Mar 2026 01:04:22 -0800 (PST)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Jian Hu <jian.hu@amlogic.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,  Kevin Hilman
- <khilman@baylibre.com>,  "Martin Blumenstingl"
- <martin.blumenstingl@googlemail.com>,  Stephen Boyd <sboyd@kernel.org>,
-  Michael Turquette <mturquette@baylibre.com>,  robh+dt
- <robh+dt@kernel.org>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
- <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  devicetree
- <devicetree@vger.kernel.org>,  linux-clk <linux-clk@vger.kernel.org>,
-  linux-amlogic <linux-amlogic@lists.infradead.org>,  linux-kernel
- <linux-kernel@vger.kernel.org>,  linux-arm-kernel
- <linux-arm-kernel@lists.infradead.org>,  Ronald Claveau
- <linux-kernel-dev@aliel.fr>
-Subject: Re: [PATCH 3/3] arm64: dts: amlogic: t7: Add clock controller nodes
-In-Reply-To: <20260305074328.639993-4-jian.hu@amlogic.com> (Jian Hu's message
-	of "Thu, 5 Mar 2026 15:43:27 +0800")
-References: <20260305074328.639993-1-jian.hu@amlogic.com>
-	<20260305074328.639993-4-jian.hu@amlogic.com>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Thu, 05 Mar 2026 10:04:21 +0100
-Message-ID: <1jy0k6abqi.fsf@starbuckisacylon.baylibre.com>
+	id 1vy4dk-00000001HDy-2deo;
+	Thu, 05 Mar 2026 09:05:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CEC2A41B4E;
+	Thu,  5 Mar 2026 09:05:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B124C116C6;
+	Thu,  5 Mar 2026 09:05:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772701503;
+	bh=CCLpEYvlxoqg400L58JRWG0E8HGphV4/FeLFDSKOkYA=;
+	h=From:Subject:Date:To:Cc:From;
+	b=bc/kGKJZ0ibUi/NN9IxRD2uOMUgbhElzEWhdq7Y4QhXet3eELFJnQjV7FVnQcH9cu
+	 Yig89dkNqgJewqPYmcYNRf2tGAJvH2Mh6uK3W28q9jIAnDQA9Qijxu1F0HYL8foRQd
+	 V0qtN0rCewp335lvhThdcbZLjkDeqndIh2EcCt8tUq8NLzoCT/sNAAVjYfWlc0zPae
+	 aNElAxT+P+IL2t319cj6xl6pm9VqgMqldnBbyZu36RxDrMa2l2MfjBzpX17heUJbk0
+	 5WI0FB/Qn3w8HA14syv87Cuzu90uvLEqzwWQng/gA8q0MUQcBTgbgfZjAnLlnEiHtJ
+	 L0VGn08pirZrA==
+From: Maxime Ripard <mripard@kernel.org>
+Subject: [PATCH v3 00/14] drm: Create drm_output_color_format enum
+Date: Thu, 05 Mar 2026 10:04:52 +0100
+Message-Id: <20260305-drm-rework-color-formats-v3-0-f3935f6db579@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43NzQ6CMAzA8VchO1vDCgH05HsYD2MrsPAx05GpI
+ by7g5NejL39m/TXRXhiS16ck0UwBeutm2Jkh0ToTk0tgTWxBaZYpIg5GB6B6eG4B+0Gx9A4HtX
+ soUKj48hMSyni+Z2psc+dvt5id9bPjl/7pyC37R9okJBCTbUuiyLNlVGXnnii4ei4FZsa8FMqf
+ 0gYpao2WFaEqjmZL2ld1zdtajFPCwEAAA==
+X-Change-ID: 20260224-drm-rework-color-formats-82dcccc13c11
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Jani Nikula <jani.nikula@linux.intel.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+ Rodrigo Siqueira <siqueira@igalia.com>, 
+ Alex Deucher <alexander.deucher@amd.com>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Andy Yan <andy.yan@rock-chips.com>, Liviu Dudau <liviu.dudau@arm.com>, 
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Liu Ying <victor.liu@nxp.com>, Chen-Yu Tsai <wens@kernel.org>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ amd-gfx@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, Jani Nikula <jani.nikula@intel.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3940; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=CCLpEYvlxoqg400L58JRWG0E8HGphV4/FeLFDSKOkYA=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDJkr3c1+T9owYXYw97NTTTkuk/c0eNgsWBrI47H5gpzlX
+ 0nbLebvOqayMAhzMsiKKbI8kQk7vbx9cZWD/cofMHNYmUCGMHBxCsBEkl4yNmxgXRFs7MjPe+za
+ 5SOvg3iCL7rHCLoY7bKNepXpGDhJrrl9gn/gfcc5XfennZzdWLNfm7HO8kFu1j3mpedmvJQ67C9
+ guOHCImWNNP1X3uZXo4MFvvPfLfl96dV9lxvOczaYLtTLF0gDAA==
+X-Developer-Key: i=mripard@kernel.org; a=openpgp;
+ fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_010425_268062_13A78994 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20260305_010504_724773_4C4914E2 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,186 +108,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On jeu. 05 mars 2026 at 15:43, Jian Hu <jian.hu@amlogic.com> wrote:
+Hi,
 
-> Add the required clock controller nodes for Amlogic T7 SoC family:
-> - SCMI clock controller
-> - PLL clock controller
-> - Peripheral clock controller
->
+This series creates an enum to represent the output color format as an
+enum instead of a bitmask, and consolidate the HDMI helpers to use the
+new enum.
 
-Again I think you should credit Ronald.
+This should make Nicolas' work easier.
 
-> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
-> ---
->  arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 125 ++++++++++++++++++++
->  1 file changed, 125 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-> index 6510068bcff9..6ea1b583b13d 100644
-> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-> @@ -6,6 +6,9 @@
->  #include <dt-bindings/interrupt-controller/arm-gic.h>
->  #include <dt-bindings/power/amlogic,t7-pwrc.h>
->  #include "amlogic-t7-reset.h"
-> +#include <dt-bindings/clock/amlogic,t7-scmi.h>
-> +#include <dt-bindings/clock/amlogic,t7-pll-clkc.h>
-> +#include <dt-bindings/clock/amlogic,t7-peripherals-clkc.h>
->  
->  / {
->  	interrupt-parent = <&gic>;
-> @@ -201,6 +204,33 @@ pwrc: power-controller {
->  		};
->  	};
->  
-> +	sram@f7042000 {
-> +		compatible = "mmio-sram";
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +		ranges = <0 0x0 0xf7042000 0x100>;
-> +
-> +		scmi_shmem: sram@0 {
-> +			compatible = "arm,scmi-shmem";
-> +			reg = <0x0 0x100>;
-> +		};
-> +	};
-> +
-> +	firmware {
-> +		scmi: scmi {
-> +			compatible = "arm,scmi-smc";
-> +			arm,smc-id = <0x820000c1>;
-> +			shmem = <&scmi_shmem>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			scmi_clk: protocol@14 {
-> +				reg = <0x14>;
-> +				#clock-cells = <1>;
-> +			};
-> +		};
-> +	};
-> +
->  	soc {
->  		compatible = "simple-bus";
->  		#address-cells = <2>;
-> @@ -224,6 +254,42 @@ apb4: bus@fe000000 {
->  			#size-cells = <2>;
->  			ranges = <0x0 0x0 0x0 0xfe000000 0x0 0x480000>;
->  
-> +			clkc_periphs:clock-controller@0 {
-> +				compatible = "amlogic,t7-peripherals-clkc";
-> +				reg = <0x0 0x0 0x0 0x1c8>;
-> +				#clock-cells = <1>;
-> +				clocks = <&xtal>,
-> +					 <&scmi_clk CLKID_SYS_CLK>,
-> +					 <&scmi_clk CLKID_FIXED_PLL>,
-> +					 <&scmi_clk CLKID_FCLK_DIV2>,
-> +					 <&scmi_clk CLKID_FCLK_DIV2P5>,
-> +					 <&scmi_clk CLKID_FCLK_DIV3>,
-> +					 <&scmi_clk CLKID_FCLK_DIV4>,
-> +					 <&scmi_clk CLKID_FCLK_DIV5>,
-> +					 <&scmi_clk CLKID_FCLK_DIV7>,
-> +					 <&hifi CLKID_HIFI_PLL>,
-> +					 <&gp0 CLKID_GP0_PLL>,
-> +					 <&gp1 CLKID_GP1_PLL>,
-> +					 <&mpll CLKID_MPLL1>,
-> +					 <&mpll CLKID_MPLL2>,
-> +					 <&mpll CLKID_MPLL3>;
-> +				clock-names = "xtal",
-> +					      "sys",
-> +					      "fix",
-> +					      "fdiv2",
-> +					      "fdiv2p5",
-> +					      "fdiv3",
-> +					      "fdiv4",
-> +					      "fdiv5",
-> +					      "fdiv7",
-> +					      "hifi",
-> +					      "gp0",
-> +					      "gp1",
-> +					      "mpll1",
-> +					      "mpll2",
-> +					      "mpll3";
-> +			};
-> +
->  			reset: reset-controller@2000 {
->  				compatible = "amlogic,t7-reset";
->  				reg = <0x0 0x2000 0x0 0x98>;
-> @@ -234,6 +300,7 @@ watchdog@2100 {
->  				compatible = "amlogic,t7-wdt";
->  				reg = <0x0 0x2100 0x0 0x10>;
->  				clocks = <&xtal>;
-> +
->  			};
->  
->  			periphs_pinctrl: pinctrl@4000 {
-> @@ -269,6 +336,64 @@ uart_a: serial@78000 {
->  				status = "disabled";
->  			};
->  
-> +			gp0:clock-controller@8080 {
-> +				compatible = "amlogic,t7-gp0-pll";
-> +				reg = <0x0 0x8080 0x0 0x20>;
-> +				clocks = <&scmi_clk CLKID_TOP_PLL_OSC>;
-> +				clock-names = "in0";
-> +				#clock-cells = <1>;
-> +			};
-> +
-> +			gp1:clock-controller@80c0 {
-> +				compatible = "amlogic,t7-gp1-pll";
-> +				reg = <0x0 0x80c0 0x0 0x14>;
-> +				clocks = <&scmi_clk CLKID_TOP_PLL_OSC>;
-> +				clock-names = "in0";
-> +				#clock-cells = <1>;
-> +			};
-> +
-> +			hifi:clock-controller@8100 {
-> +				compatible = "amlogic,t7-hifi-pll";
-> +				reg = <0x0 0x8100 0x0 0x20>;
-> +				clocks = <&scmi_clk CLKID_TOP_PLL_OSC>;
-> +				clock-names = "in0";
-> +				#clock-cells = <1>;
-> +			};
-> +
-> +			pcie:clock-controller@8140 {
-> +				compatible = "amlogic,t7-pcie-pll";
-> +				reg = <0x0 0x8140 0x0 0x1c>;
-> +				clocks = <&scmi_clk CLKID_PCIE_OSC>;
-> +				clock-names = "in0";
-> +				#clock-cells = <1>;
-> +			};
-> +
-> +			mpll:clock-controller@8180 {
-> +				compatible = "amlogic,t7-mpll";
-> +				reg = <0x0 0x8180 0x0 0x28>;
-> +				clocks = <&scmi_clk CLKID_FIXED_PLL_DCO>;
-> +				clock-names = "in0";
-> +				#clock-cells = <1>;
-> +			};
-> +
-> +			hdmi:clock-controller@81c0 {
-> +				compatible = "amlogic,t7-hdmi-pll";
-> +				reg = <0x0 0x81c0 0x0 0x20>;
-> +				clocks = <&scmi_clk CLKID_HDMI_PLL_OSC>;
-> +				clock-names = "in0";
-> +				#clock-cells = <1>;
-> +			};
-> +
-> +			mclk:clock-controller@8300 {
-> +				compatible = "amlogic,t7-mclk-pll";
-> +				reg = <0x0 0x8300 0x0 0x18>;
-> +				clocks = <&scmi_clk CLKID_MCLK_PLL_OSC>,
-> +					 <&xtal>,
-> +					 <&scmi_clk CLKID_FCLK_50M>;
-> +				clock-names = "in0", "in1", "in2";
-> +				#clock-cells = <1>;
-> +			};
-> +
->  			sec_ao: ao-secure@10220 {
->  				compatible = "amlogic,t7-ao-secure",
->  					     "amlogic,meson-gx-ao-secure",
+It has been build tested, and passes kunit tests.
 
+Let me know what you think,
+Maxime
+
+---
+Changes in v3:
+- Update more documentation
+- Rebase on drm-misc-next-2026-03-05
+- Link to v2: https://lore.kernel.org/r/20260227-drm-rework-color-formats-v2-0-8bd278e2af9d@kernel.org
+
+Changes in v2:
+- Add missing conversion from HDMI_COLORSPACE to DRM_OUTPUT_COLOR
+- Do an enum forward declaration instead of including a header
+- Fix typos in doc
+- Collect tags
+- Rebase on drm-misc-next-2026-02-26
+- Link to v1: https://lore.kernel.org/r/20260224-drm-rework-color-formats-v1-0-bebc76604ada@kernel.org
+
+---
+Maxime Ripard (14):
+      drm/connector: Introduce drm_output_color_format enum
+      drm/edid: Convert to drm_output_color_format enum
+      drm/display: hdmi: Convert to drm_output_color_format
+      drm/amdgpu: display: Convert to drm_output_color_format
+      drm/bridge: adv7511: Convert to drm_output_color_format
+      drm/bridge: analogix: Convert to drm_output_color_format
+      drm/bridge: cadence: Convert to drm_output_color_format
+      drm/bridge: synopsys: dw-dp: Convert to drm_output_color_format
+      drm/bridge: synopsys: dw-hdmi: Convert to drm_output_color_format
+      drm/arm: komeda: Convert to drm_output_color_format
+      drm/mediatek: dp: Convert to drm_output_color_format
+      drm/rockchip: analogix: Convert to drm_output_color_format
+      drm/connector: Remove DRM_COLOR_FORMAT defines
+      drm/display: hdmi: Use drm_output_color_format instead of hdmi_colorspace
+
+ drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c  |   4 +-
+ .../gpu/drm/arm/display/komeda/d71/d71_component.c |  14 +-
+ drivers/gpu/drm/arm/display/komeda/komeda_crtc.c   |   2 +-
+ .../gpu/drm/arm/display/komeda/komeda_pipeline.h   |   5 +-
+ .../drm/arm/display/komeda/komeda_pipeline_state.c |   2 +-
+ drivers/gpu/drm/bridge/adv7511/adv7511_drv.c       |   2 +-
+ drivers/gpu/drm/bridge/analogix/analogix_dp_core.c |   4 +-
+ .../gpu/drm/bridge/cadence/cdns-mhdp8546-core.c    |  24 +--
+ .../gpu/drm/bridge/cadence/cdns-mhdp8546-core.h    |   2 +-
+ drivers/gpu/drm/bridge/inno-hdmi.c                 |   6 +-
+ drivers/gpu/drm/bridge/ite-it6263.c                |   2 +-
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c            |  71 ++++----
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi.c          |  16 +-
+ drivers/gpu/drm/display/drm_bridge_connector.c     |   4 +-
+ drivers/gpu/drm/display/drm_hdmi_helper.c          |   7 +-
+ drivers/gpu/drm/display/drm_hdmi_state_helper.c    |  60 ++++---
+ drivers/gpu/drm/drm_bridge.c                       |   2 +-
+ drivers/gpu/drm/drm_connector.c                    |  16 +-
+ drivers/gpu/drm/drm_edid.c                         |  18 +-
+ drivers/gpu/drm/mediatek/mtk_dp.c                  |   4 +-
+ drivers/gpu/drm/mediatek/mtk_hdmi_v2.c             |   8 +-
+ drivers/gpu/drm/rockchip/analogix_dp-rockchip.c    |   4 +-
+ drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c             |   2 +-
+ drivers/gpu/drm/tests/drm_connector_test.c         |  80 ++++-----
+ drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 182 ++++++++++-----------
+ drivers/gpu/drm/vc4/vc4_hdmi.c                     |  18 +-
+ drivers/gpu/drm/vc4/vc4_hdmi.h                     |   2 +-
+ include/drm/bridge/dw_hdmi_qp.h                    |   2 +-
+ include/drm/display/drm_hdmi_helper.h              |   3 +-
+ include/drm/drm_bridge.h                           |   5 +-
+ include/drm/drm_connector.h                        |  48 ++++--
+ 31 files changed, 334 insertions(+), 285 deletions(-)
+---
+base-commit: d2e20c8951e4bb5f4a828aed39813599980353b6
+change-id: 20260224-drm-rework-color-formats-82dcccc13c11
+
+Best regards,
 -- 
-Jerome
+Maxime Ripard <mripard@kernel.org>
+
 
