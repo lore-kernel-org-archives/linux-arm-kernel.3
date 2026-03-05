@@ -4,75 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 431CFF47CB0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 18:42:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 201B6F47CA9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 18:43:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2uk6vBu5cOxA/1MXKdQTjwYDPaF8hInAIBqLWOzDf1s=; b=EW+Lzf/QNI62ZUy2SGnH3x84Uv
-	CreOMQhvC80XNWXN7gY6KNzRUmzfEhZKwovHpP8OvzJyvGCLakE/6+xiMToXVPu2OnCH1TphGZ4ai
-	vvJ7n/EuYGK7auZ5eRXbf7MV3q6c8fb0RpIOKRhAm9GKdI2k/pKC3/ct1OlK/uVOg9ODt2eBJvNd2
-	IOUg84XAI7PqrLFdbLLKEbiyyLlX4v9SRvQlXJvvA8YYrkLr5fyXGuFTaSPUvqUHh79TvKT1vIvOY
-	7nJu1CyV9x7Ww6p08FrPTlSGAlttttGckR++dNH1O73c+WdomWrpUfC9RtoXalkp6PbMZAM/ZR/0w
-	HXR1We4A==;
+	bh=pnxoz4idCuWp1cjgR8NlXKfgMViTDq/5rJxjecRq6R4=; b=454+sJXWxIm6sGqVWz4sYIted8
+	KTo35JFsM/6tqI2xENBS5DOE74gDeceAfvjtq+/bknDzRKR6PbFsQRRpXPLGSTE2FGkxu89vxTx2r
+	rHK0TunlWZA5jUt50zJkRECqLovKxf0Fxv5S0cmRlIARBU6r9c/7A8z+N9XhgxCu4Vu0iBs0OHitZ
+	ewogMTSkPhXVzEpEN2pDHWtneLoL6zQY+d68EcXskUiZwYEeROPSGkGsOAG0Ukod2hwhlRaounbX5
+	R1CTkCuNO/g+K1NgxrSC5fPHtQRXhi1mW5uLeuSXAlNnd41E9hQ54n3sywevZ0dqGRe7a0zHGNyFL
+	9dk5yaPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyDeX-00000002OxE-0OWC;
-	Thu, 05 Mar 2026 18:42:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vyDfM-00000002P6v-39hq;
+	Thu, 05 Mar 2026 18:43:20 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyDeV-00000002Ox4-1LR2;
-	Thu, 05 Mar 2026 18:42:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EDC7B60053;
-	Thu,  5 Mar 2026 18:42:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AA36C116C6;
-	Thu,  5 Mar 2026 18:42:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772736145;
-	bh=mFBLekNu0pFh38RoS+ly8NDtbNgs1xYCpIaBJhYLK6s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZaL/avDCoUq1hdotZkUw4/COICPIBYrMTm9k+d4uRIetbmtsqV+GciipM7MHurTLs
-	 xHKY4E1BNjwJGd2GYjVAnecZv+VegXt/ug1yhqZmDzUTKSpx7rTJHNSrEBGXXySL/W
-	 kyIxF8P7MJ11z1jrIc2AUjshfmglqddtat59eBfoN0Oi8qusPMCySS3Om/bmYQra1a
-	 lA5GxnsDdMfBVF1ZqNLyQfG6boF98td58zsHVg7txsiJ7vE915l0hsQz3+JNEcWxDZ
-	 M/Fr5jz9XHNktZEpxJSj5qc6+1mX8szkHIZfo3b32soS53mwKvluR2akgE776dmWg/
-	 7iBc+LfwGFkvQ==
-Date: Thu, 5 Mar 2026 18:42:17 +0000
-From: Conor Dooley <conor@kernel.org>
-To: =?utf-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
-Cc: krzk+dt@kernel.org, Bo Gan <ganboing@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>, devicetree@vger.kernel.org,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	robh@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
-	wens@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	ningyu@eswincomputing.com, linmin@eswincomputing.com,
-	pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
-	weishangjuan@eswincomputing.com
-Subject: Re: Re: [PATCH net-next v3 1/3] dt-bindings: ethernet: eswin: add
- clock sampling control
-Message-ID: <20260305-goldsmith-omnivore-21958a41ff48@spud>
-References: <20260303061525.846-1-lizhi2@eswincomputing.com>
- <20260303061637.872-1-lizhi2@eswincomputing.com>
- <20260303163846.156d18f7@kernel.org>
- <20260304-regulate-verdict-c3a361d2dc83@spud>
- <05a15890-392c-41c3-9566-8eb506ddfe5f@gmail.com>
- <20260304-capable-setback-908ba5b5c858@spud>
- <9eaad6e.4df8.19cbbe95b3c.Coremail.lizhi2@eswincomputing.com>
+	id 1vyDfJ-00000002P4w-1QYb;
+	Thu, 05 Mar 2026 18:43:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1772736193;
+	bh=pnxoz4idCuWp1cjgR8NlXKfgMViTDq/5rJxjecRq6R4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=FvICW1C+Vlwk7C4+2b7hZrZ1qiKUEWLbPrLCzWapdyHqHilwja7f51Mk42/bd4IYS
+	 46BIFvCXXiNaJ+Pja4y+Td9egZ0+ZSeEqthkmqAaA6UmT6YKxhSOOUAl5zJ+z0lf6L
+	 +gNsej+g6pk4/aVVfERQGjaQDW6nYi4DP1BoZchf9c/ktfYhxP4IDNld2oUW2mwAje
+	 4z4UBZdkfg2o4bnQPQSPmnvp7NKwbrYfQkybUPREENsRddcAfsHou8u37b2Y05X2Gu
+	 Y6h1RKLmnJ/1GhWcvkZ+jgbJ5atxN4V5Sw9Hh1RH1DGMSmHwKTlZ/DWOTnUy4wEVzq
+	 baOMHLDz9YL3g==
+Received: from [IPv6:2606:6d00:15:210e::5ac] (unknown [IPv6:2606:6d00:15:210e::5ac])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id AB81F17E026C;
+	Thu,  5 Mar 2026 19:43:11 +0100 (CET)
+Message-ID: <5c8e5f38af10f44f366629e1e7c948ae9af2a196.camel@collabora.com>
+Subject: Re: [PATCH 1/2] [RESEND] media: rkvdec: reduce excessive stack
+ usage in assemble_hw_pps()
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Arnd Bergmann <arnd@arndb.de>, Arnd Bergmann <arnd@kernel.org>, Detlev
+ Casanova <detlev.casanova@collabora.com>, Ezequiel Garcia
+ <ezequiel@vanguardiasur.com.ar>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>, Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+ Nathan Chancellor	 <nathan@kernel.org>, Hans Verkuil
+ <hverkuil+cisco@kernel.org>
+Cc: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling
+	 <morbo@google.com>, Justin Stitt <justinstitt@google.com>, Kees Cook
+	 <kees@kernel.org>, linux-media@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev
+Date: Thu, 05 Mar 2026 13:43:09 -0500
+In-Reply-To: <e907e900-073f-4aa6-b4fe-36b87e312f62@app.fastmail.com>
+References: <20260305152644.791897-1-arnd@kernel.org>
+	 <1621b56864cb186f1e5433b73b56afc00aa83452.camel@collabora.com>
+	 <e907e900-073f-4aa6-b4fe-36b87e312f62@app.fastmail.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-2kH2WREimXA5rID0isEA"
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="9LdxKbp5rG3ADm6j"
-Content-Disposition: inline
-In-Reply-To: <9eaad6e.4df8.19cbbe95b3c.Coremail.lizhi2@eswincomputing.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260305_104317_565069_FFE5E074 
+X-CRM114-Status: GOOD (  29.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,125 +99,95 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---9LdxKbp5rG3ADm6j
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+--=-2kH2WREimXA5rID0isEA
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Mar 05, 2026 at 10:52:38AM +0800, =E6=9D=8E=E5=BF=97 wrote:
->=20
->=20
->=20
-> > -----=E5=8E=9F=E5=A7=8B=E9=82=AE=E4=BB=B6-----
-> > =E5=8F=91=E4=BB=B6=E4=BA=BA: "Conor Dooley" <conor@kernel.org>
-> > =E5=8F=91=E9=80=81=E6=97=B6=E9=97=B4:2026-03-04 17:30:57 (=E6=98=9F=E6=
-=9C=9F=E4=B8=89)
-> > =E6=94=B6=E4=BB=B6=E4=BA=BA: "Bo Gan" <ganboing@gmail.com>
-> > =E6=8A=84=E9=80=81: "Jakub Kicinski" <kuba@kernel.org>, lizhi2@eswincom=
-puting.com, devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@daveml=
-oft.net, edumazet@google.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt=
-@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com, mcoquelin.stm32@gma=
-il.com, alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk, wens@kern=
-el.org, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghi=
-ti.fr, linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormrepl=
-y.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, =
-ningyu@eswincomputing.com, linmin@eswincomputing.com, pinkesh.vaghela@einfo=
-chips.com, pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com
-> > =E4=B8=BB=E9=A2=98: Re: [PATCH net-next v3 1/3] dt-bindings: ethernet: =
-eswin: add clock sampling control
+Hi,
+
+Le jeudi 05 mars 2026 =C3=A0 18:10 +0100, Arnd Bergmann a =C3=A9crit=C2=A0:
+> On Thu, Mar 5, 2026, at 17:37, Nicolas Dufresne wrote:
 > >=20
-> > On Tue, Mar 03, 2026 at 05:23:18PM -0800, Bo Gan wrote:
-> > > Hi All,
+> > Le jeudi 05 mars 2026 =C3=A0 16:26 +0100, Arnd Bergmann a =C3=A9crit=C2=
+=A0:
+> > > From: Arnd Bergmann <arnd@arndb.de>
 > > >=20
-> > > On 3/3/26 16:47, Conor Dooley wrote:
-> > > > On Tue, Mar 03, 2026 at 04:38:46PM -0800, Jakub Kicinski wrote:
-> > > > > On Tue,  3 Mar 2026 14:16:37 +0800 lizhi2@eswincomputing.com wrot=
-e:
-> > > > > > There are currently no in-tree users of the EIC7700 Ethernet dr=
-iver, so
-> > > > > > these changes are safe.
-> > > > >=20
-> > > > > What do you mean by this sentence? The commit under Fixes was par=
-t of
-> > > > > Linux v6.19 already.
-> > > >=20
-> > > > The "funny" thing is that caring about users doesn't even really ma=
-tter
-> > > > on the devicetree patch, except for this hunk:
-> > > > |@@ -81,7 +99,9 @@ properties:
-> > > > |                          or external clock selection
-> > > > |           - description: Offset of AXI clock controller Low-Power=
- request
-> > > > |                          register
-> > > > |+          - description: Offset of register controlling TXD delay
-> > > > |           - description: Offset of register controlling TX/RX clo=
-ck delay
-> > > > |+          - description: Offset of register controlling RXD delay
-> > > > |
-> > > > | required:
-> > > > |   - compatible
-> > > > And it only matters here because an item is injected mid-list. If t=
-his
-> > > > was moved to the end with the RXD delay, the **dt-binding** changes
-> > > > don't have issues with safety. I've not looked at whether there are
-> > > > knock-on concerns about users in the driver or whatever yet, but fr=
-om a
-> > > > binding POV only that hunk can break something that currently works.
-> > >=20
-> > > This was already discussed here in v1:
-> > > https://lore.kernel.org/lkml/e7183ae1-8b8b-4e77-9f4e-3bc1b4b63556@lun=
-n.ch/
-> > >=20
-> > > The device-tree is not checked in yet by ESWIN folks, so there's curr=
-ently
-> > > no user of the dt-binding. No need to worry about backward compat.
+> > > The rkvdec_pps had a large set of bitfields, all of which
+> > > as misaligned. This causes clang-21 and likely other versions to
+> > > produce absolutely awful object code and a warning about very
+> > > large stack usage, on targets without unaligned access:
 > >=20
-> > The binding and driver exist, there doesn't need to be a dts in tree for
-> > there to be potential users. If the break was important I might not
-> > care, but this seems to be a gratuitous break, since the new items could
-> > be added to the end of the list and compatibility maintained without
-> > incurring any more difficulty for you.
+> > I'm a bit surprised you felt the need for resend. Perhaps you can help =
+us
+> > understand what made you think your patch wasn't being processed ?
 >=20
-> Hi Conor and Krzysztof,
+> I updated the second patch today after I found a corner case that
+> wasn't addressed by the first version. As I had sent both as a series
+> a month ago, and neither was in linux-next yet, it seemed more helpful
+> to send an updated series rather than replace only one of the two.
+
+If you updated the code I'd prefer if it is sent as a new version, not a re=
+send.
+As for the media merge window, its been about a week since rc1 got merged i=
+nto
+media tree, with couple of weeks before that waiting for rc1 to land. I bel=
+ieve
+your month gap is there and accurate. I did also took a small break on revi=
+ew
+and PR concurrently.
+
 >=20
-> Thanks for the reviews.
+> > My PR:
+> > https://patchwork.linuxtv.org/project/linux-media/patch/2074ba5a5d05e23=
+9f432d176eb051105f7e692f9.camel@collabora.com/
+> >=20
+> > And Hans/Mauro did logistic on the #linux-maint IRC channel this mornin=
+g. I
+> > believe I've marked all the relevant patches on patchwork our of "New" =
+state
+> > and
+> > you have my Rb. What else would help you ?
 >=20
-> - The next patch will fix the property order to avoid any breakage
->   with existing DT bindings.
+> That's fine then, I did not mean to seem impatient. I assume
+> the original patches will be in linux-next then, and [v2 2/2]
+> will conflict. I'll let you review that one first, but can
+> send a rebased version if you think we should merge it on top.
 
-Good, thanks.
+It will first reach media media-fixes (and not media-next, to avoid duplica=
+ting
+the patches), but I have no idea if someone picks from media-fixes into lin=
+ux-
+next. I recall there was a gap to be fixed in this "pre-integration" proces=
+s.
+Though, patch from fixes reaches RCs quickly, which are linux-next base.
 
-> - Eth1 does have a timing issue in silicon, as discussed here:
->   https://lore.kernel.org/lkml/32a1f814.2c79.19bfe173225.Coremail.linmin@=
-eswincomputing.com/
->=20
-> =C2=A0 Based on this, and according to the advice from Andrew
->   https://lore.kernel.org/lkml/59cec617-0189-4dc3-bc3f-6346155a62ae@lunn.=
-ch/
->   https://lore.kernel.org/lkml/bd202cfa-d6eb-4d0e-982d-b49795dd25f7@lunn.=
-ch/
-> =C2=A0 adding a DT property is not a reasonable approach.
-> =C2=A0=C2=A0
-> =C2=A0 In the next patch, I will improve the description/paragraph and pr=
-operly
->   document the timing issues.
+Now, concurrently, Detlev is working on removing the bitfield for the RPS, =
+and
+the SPS will come later. Perhaps you want to sync to make sure we don't jus=
+t
+cancel out the work.
 
-I personally don't mind having two compatibles, but I might be more
-clear about what device the new one refers to (so something like
-s/clk-inversion/eth1/g). But Krzysztof was the one who objected to
-having multiple compatibles, so it's worth waiting to see what he has to
-say.
+To solve the patch conflict issue, you can work on top of your existing ser=
+ies
+(just put a comment in the cover). I'll request a merge of rc2 / rc3 into m=
+edia-
+next, before I pick it up.
 
---9LdxKbp5rG3ADm6j
+regards,
+Nicolas
+
+--=-2kH2WREimXA5rID0isEA
 Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaanOiQAKCRB4tDGHoIJi
-0kTVAP9/DDa/WZb3rTbhG6Imf28y6B3b5r9J/wxYjlBtYoF2VAEAq36UpKZJpbys
-a5AO5ebrLpv/DEjmj/ymz2YiZYHVtgw=
-=oXU3
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaanOvQAKCRDZQZRRKWBy
+9HEEAP9SxgfNdzeWxoTFoO7BIW/dGlPesVcMOtlIL7jliydbcgD+IVKhK0U8Xtik
+CKB7l0ZE/DrTnjCzPM7uHg1CaqNjXwM=
+=SWbL
 -----END PGP SIGNATURE-----
 
---9LdxKbp5rG3ADm6j--
+--=-2kH2WREimXA5rID0isEA--
 
