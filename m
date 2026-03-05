@@ -4,84 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0F6BF33A61
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 13:54:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3A65F33A70
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 14:15:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XNEc9+ahz7dlU1ZGYsJX4Kf6Gy+aD7tZ2f4Pr2djs3Y=; b=wh+d3agi+RxJXdY00T31FsNFG8
-	manapwV9bwtt2/tMZK8gTyeZiR4O6gse84RFfEhNzaItlQNi7UPHJbAT8SzJKCKTrrarZekb7r8yQ
-	aQuuEZb9yHA9xm73QqXQ4eYWMCno+wncMAmTsDwyyouq6QN2M5SJT24Cu/TW+IBcYkkY0NZ5vWrEE
-	g8gUUF1705c5oxkfkT6t5KRg7I69e4kfbxLeqPPgKKy9TX06U4G3ptSQ3B/3U7FXdmTdMwlbXjIbY
-	jN0T5S+p3QITvW9mqENKCJJKut33bYrJHYQN3/HFRmDAPoqHoXoum+swHivi7XDD4+ENf5tSzElTA
-	RI55Yq/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lwFZtwwUHU51thyn9ZTePSP0KyHtnuAeJ2If0LKZXIs=; b=r/Sj9wzUguEZQqTXc9ghc70Aot
+	HMyMCuJN7KfgRmOZEc18P/3ms9amBWHXdPwEmZagzARjfa4xjLGYWxkH74gg2cackjOZkR7yF5A9l
+	B5cWawGHsTyE3CIB5yd2mUx3poniHZh3ULV6Y7S934PxDEwSHLjMx/CUAQEARAY//eba++wb7bNgW
+	k+8dX4l7hxJl/IwKUy/uxk+8k/Ht4qdqaLOVONtPoQ5+5lXvjh+AeZadI0V7pS7z/7JkB1A3+NJ8f
+	yPG52b5orwgZ5DImpnRrdtr4Clfct1bxD4Jf28lAS2Bgpnd9DQEvF98eTWf+B7VgOr+o3i+alafIP
+	yPTFYftQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy99e-00000001uYH-3oBt;
-	Thu, 05 Mar 2026 13:54:18 +0000
+	id 1vy9UM-00000001vf5-2l4p;
+	Thu, 05 Mar 2026 14:15:42 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy99c-00000001uXg-3u0h
+	id 1vy9UJ-00000001veW-3xxl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 13:54:18 +0000
+	Thu, 05 Mar 2026 14:15:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3E99E42A0C
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Mar 2026 13:54:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C59EC2BC9E
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Mar 2026 13:54:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 58F7741745;
+	Thu,  5 Mar 2026 14:15:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41342C116C6;
+	Thu,  5 Mar 2026 14:15:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772718856;
-	bh=XNEc9+ahz7dlU1ZGYsJX4Kf6Gy+aD7tZ2f4Pr2djs3Y=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=uGFpjcPgCjDb6i1AShmMLpPt6HWe3ALg4vViqxTDZZrjsDTq3YJu1tDQvfBiryHIy
-	 p4lhfNuqgQtHzlNpsbtP/azRtkOhBLCkYsUMT5e55sWpNanAXlk3uS3HO2KzQIX7xh
-	 qE5wrxCRmJHRdYGFcvv21409rcvpizvUKIXibqikLMOUEqQ5BRAmZHD5SSt+vz2Ooa
-	 OyIY2Cn0MIz0XQuVWJMNXUIWFu7038q5WnHIXnrgFNfT5oalP8lBGTJ11fRjl+ak3D
-	 iIPieV2sGQIhOfrYpC9Afm/0QO3zSRWCeyLIAUeGUVB8IsNgahy2ztjHExRmCvdoKs
-	 n95fmtmS2i6OQ==
-Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-38a3225d59fso16699751fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 05:54:15 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUsJq+Cob8pD6vJNZITAO/RNYJnMpA++fLW2Abl6VFy9k1FzY+J/TaBefxFFqTN7MW9a8mW1Tba2KW560995OrM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1wzxJm154YvPZ24NrpM9ct2E2pDYkUeuitxn8h+/6+QSF8lZb
-	EgFMzVof+Ygu4RcPheTXnqoBrS4g4H7g1pN06BapRGsMDFKb4XxCdOSLUDvB7UAGqRmC9KTBRtX
-	Tfw4L927lafmoB7BZ8GJkDoFb+T8WDXltpU0H/LElZQ==
-X-Received: by 2002:a05:651c:3244:b0:38a:23cf:873 with SMTP id
- 38308e7fff4ca-38a2c7a62c1mr39072801fa.29.1772718854668; Thu, 05 Mar 2026
- 05:54:14 -0800 (PST)
+	s=k20201202; t=1772720138;
+	bh=lwFZtwwUHU51thyn9ZTePSP0KyHtnuAeJ2If0LKZXIs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qoIS2LOr7V02/EFRBwqdAJUmleXkuyNvIkmxwsOIMzyI+Mmpls4CGh/d4sSH3AnCS
+	 Zh7Bi33nhwMP/U1ZTX2QkDZ7hZ2DuIZSOG5LplAdv3qMK3ZEnV5yTHdBdjlvwFW+V9
+	 65PY8RuH6S6PB5VElq9uygBWL0KeWmISQyowprMtjgea9uYhBc57B9a7us87DRORGm
+	 nwbr6Cfx57JAI5jch6bkqY9LQ40+rIzA/tjAaG4pg5uCf4z3RcVZzUxkdI2mDJZxad
+	 ycAzU+ORpteFvhPrNJ+C439GiZHLIqxEjyZRWacIRdN4cHktaIFZj/P232PSg/79R7
+	 XWirhF0CxDrLg==
+Date: Thu, 5 Mar 2026 14:15:32 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Yifan Wu <wuyifan50@huawei.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, shuah@kernel.org,
+	yeoreum.yun@arm.com, jonathan.cameron@huawei.com,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linuxarm@huawei.com,
+	xiaqinxin@huawei.com, prime.zeng@hisilicon.com,
+	wangyushan12@huawei.com, xuwei5@huawei.com, fanghao11@huawei.com,
+	wangzhou1@hisilicon.com
+Subject: Re: [PATCH v2 2/2] selftests/arm64: Implement cmpbr_sigill() to
+ hwcap test
+Message-ID: <9e4e0af5-992a-46d5-9e5c-21ef747498f9@sirena.org.uk>
+References: <20260305013638.992301-1-wuyifan50@huawei.com>
+ <20260305013638.992301-3-wuyifan50@huawei.com>
 MIME-Version: 1.0
-References: <20260302-qcom-qce-cmd-descr-v11-0-4bf1f5db4802@oss.qualcomm.com>
- <scr5qvxa7f7k22pms4c6k5gwiky7lhssrw6qryfngexlek44g2@rayinnnwqgbt>
- <aalwMwN3qMlzrql5@linaro.org> <CAMRc=MfjknN1AYF_NPLzR0YbdWuoET25D9o0zsvx56VN+u59HQ@mail.gmail.com>
- <aamIf8JethKzLW93@linaro.org>
-In-Reply-To: <aamIf8JethKzLW93@linaro.org>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Thu, 5 Mar 2026 14:54:02 +0100
-X-Gmail-Original-Message-ID: <CAMRc=Mf=NjCqf0eqmM800Q3MEUC48V_DZ3ts6+4=qMCtrbvzzQ@mail.gmail.com>
-X-Gm-Features: AaiRm51IYcUCfeLohT9D6zKyfOjMI-00Tvkk-qYeZ800US0I_YGYl-ZxLXXpeCw
-Message-ID: <CAMRc=Mf=NjCqf0eqmM800Q3MEUC48V_DZ3ts6+4=qMCtrbvzzQ@mail.gmail.com>
-Subject: Re: [PATCH RFC v11 00/12] crypto/dmaengine: qce: introduce BAM
- locking and use DMA for register I/O
-To: Stephan Gerhold <stephan.gerhold@linaro.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	"David S. Miller" <davem@davemloft.net>, Udit Tiwari <quic_utiwari@quicinc.com>, 
-	Daniel Perez-Zoghbi <dperezzo@quicinc.com>, Md Sadre Alam <mdalam@qti.qualcomm.com>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Peter Ujfalusi <peter.ujfalusi@gmail.com>, 
-	Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>, dmaengine@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, 
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Bjorn Andersson <andersson@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="F1N8Q+cYn7f9aq1L"
+Content-Disposition: inline
+In-Reply-To: <20260305013638.992301-3-wuyifan50@huawei.com>
+X-Cookie: Onward through the fog.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_055417_032703_89ADE229 
-X-CRM114-Status: GOOD (  57.82  )
+X-CRM114-CacheID: sfid-20260305_061540_007938_0CF6FBE5 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,158 +80,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 5, 2026 at 2:43=E2=80=AFPM Stephan Gerhold
-<stephan.gerhold@linaro.org> wrote:
->
-> On Thu, Mar 05, 2026 at 02:10:55PM +0100, Bartosz Golaszewski wrote:
-> > On Thu, Mar 5, 2026 at 1:00=E2=80=AFPM Stephan Gerhold
-> > <stephan.gerhold@linaro.org> wrote:
-> > >
-> > > On Tue, Mar 03, 2026 at 06:13:56PM +0530, Manivannan Sadhasivam wrote=
-:
-> > > > On Mon, Mar 02, 2026 at 04:57:13PM +0100, Bartosz Golaszewski wrote=
-:
-> > > > > NOTE: Please note that even though this is version 11, I changed =
-the
-> > > > > prefix to RFC as this is an entirely new approach resulting from
-> > > > > discussions under v9. I AM AWARE of the existing memory leaks in =
-the
-> > > > > last patch of this series - I'm sending it because I want to firs=
-t
-> > > > > discuss the approach and get a green light from Vinod as well as =
-Mani
-> > > > > and Bjorn. Especially when it comes to communicating the address =
-for the
-> > > > > dummy rights from the client to the BAM driver.
-> > > > > /NOTE
-> > > > >
-> > > > > Currently the QCE crypto driver accesses the crypto engine regist=
-ers
-> > > > > directly via CPU. Trust Zone may perform crypto operations simult=
-aneously
-> > > > > resulting in a race condition. To remedy that, let's introduce su=
-pport
-> > > > > for BAM locking/unlocking to the driver. The BAM driver will now =
-wrap
-> > > > > any existing issued descriptor chains with additional descriptors
-> > > > > performing the locking when the client starts the transaction
-> > > > > (dmaengine_issue_pending()). The client wanting to profit from lo=
-cking
-> > > > > needs to switch to performing register I/O over DMA and communica=
-te the
-> > > > > address to which to perform the dummy writes via a call to
-> > > > > dmaengine_slave_config().
-> > > > >
-> > > >
-> > > > Thanks for moving the LOCK/UNLOCK bits out of client to the BAM dri=
-ver. It looks
-> > > > neat now. I understand the limitation that for LOCK/UNLOCK, BAM nee=
-ds to perform
-> > > > a dummy write to an address in the client register space. So in thi=
-s case, you
-> > > > can also use the previous metadata approach to pass the scratchpad =
-register to
-> > > > the BAM driver from clients. The BAM driver can use this register t=
-o perform
-> > > > LOCK/UNLOCK.
-> > > >
-> > > > It may sound like I'm suggesting a part of your previous design, bu=
-t it fits the
-> > > > design more cleanly IMO. The BAM performs LOCK/UNLOCK on its own, b=
-ut it gets
-> > > > the scratchpad register address from the clients through the metada=
-ta once.
-> > > >
-> > > > It is very unfortunate that the IP doesn't accept '0' address for L=
-OCK/UNLOCK or
-> > > > some of them cannot append LOCK/UNLOCK to the actual CMD descriptor=
-s passed from
-> > > > the clients. These would've made the code/design even more cleaner.
-> > > >
-> > >
-> > > I was staring at the downstream drivers for QCE (qce50.c?) [1] for a =
-bit
-> > > and my impression is that they manage to get along without dummy writ=
-es.
-> > > It's a big mess, but it looks like they always have some commands
-> > > (depending on the crypto operation) that they are sending anyway and
-> > > they just assign the LOCK/UNLOCK flag to the command descriptor of th=
-at.
-> > >
-> > > It is similar for the second relevant user of the LOCK/UNLOCK flags, =
-the
-> > > QPIC NAND driver (msm_qpic_nand.c in downstream [2], qcom_nandc.c in
-> > > mainline), it is assigned as part of the register programming sequenc=
-e
-> > > instead of using a dummy write. In addition, the UNLOCK flag is
-> > > sometimes assigned to a READ command descriptor rather than a WRITE.
-> > >
-> > > @Bartosz: Can we get by without doing any dummy writes?
-> > > If not, would a dummy read perhaps be less intrusive than a dummy wri=
-te?
-> > >
-> >
-> > The HPG says that the LOCK/UNLOCK flag *must* be set on a command
-> > descriptor, not a data descriptor. For a simple encryption we will
-> > typically have a data descriptor and a command descriptor with
-> > register writes. So we need a command descriptor in front of the data
-> > and - while we could technically set the UNLOCK bit on the subsequent
-> > command descriptor - it's unclear from the HPG whether it will unlock
-> > before or after processing the command descriptor with the UNLOCK bit
-> > set. Hence the additional command descriptor at the end.
-> >
->
-> I won't pretend that I actually understand what the downstream QCE
-> driver is doing, but e.g. qce_ablk_cipher_req() in the qce50.c I linked
-> looks like they just put the command descriptor with all the register
-> writes first and then the data second (followed by another command
-> descriptor for cleanup/unlocking). Is it actually required to put the
-> data first?
->
 
-Well, now you're getting into the philosophical issue of imposing
-requirements on the client which seemed to be the main point of
-contention in earlier versions. If you start requiring the client to
-put the DMA operations in a certain order (and it's not based on any
-HW requirement but rather on how the DMA driver is implemented) then
-how is it better than having the client just drive the locking
-altogether like pre v11? We won't get away without at least some
-requirements - like the client doing register I/O over DMA or
-providing the scratchpad address - but I think just wrapping the
-existing queue with additional descriptors in a way transparent to
-consumers is better in this case. And as I said: the HPG doesn't
-explicitly say that it unlocks the pipe *after* the descriptor with
-the unlock bit is processed. Doesn't even hint at what real the
-ordering is.
+--F1N8Q+cYn7f9aq1L
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> > The HPG also only mentions a write command and says nothing about a
-> > read. In any case: that's the least of the problems as switching to
-> > read doesn't solve the issue of passing the address of the scratchpad
-> > register.
->
-> True.
->
-> >
-> > So while some of this *may* just work, I would prefer to stick to what
-> > documentation says *will* work. :)
-> >
->
-> Well, the question is if there is always a dummy register that can be
-> safely written (without causing any side effects). This will be always
-> just based on experiments, since the concept of a dummy write doesn't
-> seem to exist downstream (and I assume the documentation doesn't suggest
-> a specific register to use either).
->
+On Thu, Mar 05, 2026 at 09:36:38AM +0800, Yifan Wu wrote:
 
-You'd think so but the HPG actually does use the word "dummy" to
-describe the write operation with lock/unlock bits set. Though it does
-not recommend any particular register to do it.
+> The function executes a CBEQ instruction which is valid if the CPU
+> supports the CMPBR extension. The CBEQ branches to skip the following
+> UDF instruction, and no SIGILL is generated. Otherwise, it will
+> generate a SIGILL.
 
-> NAND_VERSION (0xf08) might work for qcom_nandc.c (which might be the
-> only other relevant user of the BAM locking functionality...).
->
+Reviewed-by: Mark Brown <broonie@kernel.org>
 
-Yeah, I do the same for QCE, write to the version register.
+--F1N8Q+cYn7f9aq1L
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Bart
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmmpkAMACgkQJNaLcl1U
+h9CNbgf+M2ibIDYwmqQ3xHMNxWIfRowucYliLdhtvGU8lCixXS3u9NLLggngaIv6
+l62DHNfWJResPAz+9ENbXcUNDancgqZzYOkF20jCKUhQAq6LgPcSuAeZCjrpoq7g
+F07cbectKD5R+t6hlSsQFv5hfp2ltC/TpWovGbSrPIVP8WWe7TexR7jbdx+itdvO
+HuHwsiFPeZPRL4Ru6DXGnJvVO2zcjYUOH+aIP4VoXoNszt0zhH3DZWnwA17V7OW+
+PkQm/rqcV29zYL00C0gAHZ++O8tmdm42AYihqaqLDV8tlwlrC+oSlMuXolFxOQW7
+lj8zDJ0cCQjNYv7THHdt3JHBXqQ/Dw==
+=ClP2
+-----END PGP SIGNATURE-----
+
+--F1N8Q+cYn7f9aq1L--
 
