@@ -4,93 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07AFCF513E7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 23:47:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 656BCF513E7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 23:50:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zcZpnrWcDjcweOn1Um75L9TOaVFcEi5KqxXQxmAOFC8=; b=fxnmXV07zZyLPSm68P7pa+oefM
-	boHVoy5bTNBjCxXnFr8vnjq7wPjawe60o441QObPxpYRdRByQjIoeCpoh8f3TQhxMVCq5NWbxnCRg
-	Eplgw7Sy1RwTGSw0TCzsyn1mRHRJR0/9AGNaQjQDCq6WgPHBUEU9WXlDFRqcqOYYyfv6wqmFFIkak
-	AXLYV5pu6+LIBD3RGgUu6Bz8+NEha4TCoASGISI1Ka6973KLno61nPRYev4b3agHDHYxSyeksffzL
-	3YHIc03Zq6/Ld9mB2PIzSlxXHFxcfxuMbHPfv1rowev/XzX15/6s0LzBVmYMFqEe2ow0yVCIR0m0x
-	Tom1npMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N4kBpcfsoeaJi+f81n/Q/DnrcvYZV3O8eSYSXVcq1VY=; b=iSCg6oMxPNh0vS6J00giBMAooO
+	FEm8qNyq2SYdrQADQnsOZJMj2OdF+67YL5orU5xTxsUH/RupJ8pGBCqA+afkCW+IDk5du+Yv3wcOs
+	pX/BZSJ6uh3cEUbGbx4QyCj79ldgYH7toyKbN1OFbkJjSrGvSH2TfNx+67ARpU9Ion5NtqSFNbpDr
+	5vjVmHq7I6I9t/nEn5gpYmeAjdhZzpIFUwU+fbvvVjOcqBLu6GKKM1OKIin3nyGnNRLD9WPX801pS
+	Ag+Wh9hhF+KRiNwGz0HIL1RTcv4nrirt0dUiL6jv/GR4HCJberX8Z6kN0lVF8drwuY10cr/g7DZUn
+	N4E4OTWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyIPr-00000002kLI-3WAN;
-	Thu, 05 Mar 2026 23:47:39 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1vyISh-00000002kUE-1SAa;
+	Thu, 05 Mar 2026 23:50:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyIPp-00000002kKw-2Ii5
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 23:47:38 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2a7a9b8ed69so97167215ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 15:47:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772754456; x=1773359256; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=zcZpnrWcDjcweOn1Um75L9TOaVFcEi5KqxXQxmAOFC8=;
-        b=RdbXBVWrjXeN3YjPif/NSS8Nqan1FyvZeKJOiWSMd/YSanyX4acFZuL5Vau0ZXPMAl
-         cVfcoY8n/RSf5IKTdGaw1raOYjrLc+q19+8tFFedgjxXMGc/B3KGuFrHX2rns5SCCpZX
-         6Y5fCzCDSvCCOYe4UE6Gf6px0sQf/4Ekkxdw3OntxM992PFabTZeoWxGzJCkeph7+Pec
-         1aRs27mquAxBqkW/d5rY3Msh0/SJOGiC2MVVTHrzVIyAv7v67zTMOjnIoXAjfKBZfaTx
-         2evCW5N9O6+TOKRtHHA/8GnvZxYrbz59yQqWKPLisG6Q7fhiESZofg/FODCggEQw4EXb
-         HMVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772754456; x=1773359256;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zcZpnrWcDjcweOn1Um75L9TOaVFcEi5KqxXQxmAOFC8=;
-        b=wjVTpwjQ3DkV1nqICEusrmUxcU4UWKE3KKHaFnSOfHiNGLiMymYw3xdaPz276pCAp2
-         OFGj+lqon0Fo3XHBzt/kKehgBDRLdJq2OaR0b1YczP2xzkiK5mzxCktR4UKZ6MY7ls0q
-         Vwp0tg+VpoHTo5WXPrV+9h2Y4CZKvN+vasOeqHo1kRdUNW26c1Vy/9kR6MPkwQ1zl38d
-         ijr+2qEnmDDeJ7p4Z21idxCLfLSy2Q21DTkufW2VAczLlkB5EH882FkQA40wvbLpnXKh
-         UwnzridiCD0cUYk2WboOFRq99vs/6Ce292C2hx91PCMD1wEDZ3I3TGR5j/f5/PtJzfbT
-         VYHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVS9JoDmVrd0Sa1Yu/AEBIoHYsjdYibU4yy0pfVKiyGbSGn6GYCPDfA8+dZpYTLm897UoTxHu2asqXXvKgRSC3c@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEn6CYJM/0BuMtbXbWE8DODRIWvRurfIJALH95KiGEG2IyMIeS
-	bHZ/Gw04tii2zeeM1sz9Tv5LvVOgQbghfQhx0yjoMUC8AqdbLbGZSXMX
-X-Gm-Gg: ATEYQzxS2iaENT3DwmLC9Aowt26b9wRprXvVKT1aLDOdl2siCiTDwIrfg8A4LuLjCFu
-	Jv76MUdvTnR/HeEACvNiHMAsgb6+D4ur7Tr14dpGOG27O3VSmH5Ef4FYy+ZnzEYI47a+Ou1TRJb
-	2Kgwu9gIOmRocfNIgjpjYZ0W2mW48m9C95gmbWusDv0mXn0o2+DKlZ58Tje/K5OFs1f+eZBSX91
-	0U9TM2PQ3qR6IOs7nDp0LpHdVZtqg8K4uwd1ks6m4Nn9Rb9m8cAKbIRTy9U3R6Hz0iK/B/evjmq
-	4dwNDpU01V8lvXqoKE4oRaTbpsrkkY+x5kub72X2OLGPptjnLIzw8w/NbRmWnqI6bGiTvnuMt7p
-	DON3M2qACrXs/Ax50pjBAAoT/9dT/MKlp6qQrJEnfAcihesYtK8IemNa8x7jpFM3JCZOpO27le7
-	WEognMZHCNOxaAg5dhrk9D6owM+9xH
-X-Received: by 2002:a17:903:1986:b0:2ae:4847:cace with SMTP id d9443c01a7336-2ae8242cf7dmr3033205ad.28.1772754456050;
-        Thu, 05 Mar 2026 15:47:36 -0800 (PST)
-Received: from localhost.localdomain ([1.212.70.3])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c73917b4000sm2515316a12.15.2026.03.05.15.47.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Mar 2026 15:47:35 -0800 (PST)
-From: Lee Yongjun <jun85566@gmail.com>
-To: ulf.hansson@linaro.org,
-	robh@kernel.org
-Cc: krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	rjui@broadcom.com,
-	sbranden@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com,
-	nsaenz@kernel.org,
-	linux-mmc@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	id 1vyISg-00000002kU4-1SXa;
+	Thu, 05 Mar 2026 23:50:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E0D6B600B0;
+	Thu,  5 Mar 2026 23:50:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55CEDC116C6;
+	Thu,  5 Mar 2026 23:50:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772754631;
+	bh=L74ljxlOMOHO7j1qIlwoOavzI+BtasTxWVEi3URKLLk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gbUsSV5l/lchMJE4IC1QCrlxz+dPFqDFrRa4IGL6G6W6voGN9sRcy2CxJmNzAXtRD
+	 TnM/h2ggoMXNcVq0Yzt6tPJCp94as9M3OxZJLZ6pc80r+mL4J3zyxpJ3B1isMUqozR
+	 +dXkqpsPIg5UM3vxhkTeio0osF4sFmrPx4YsdcHV76WLGlYU96w3cD0CQ8x4r8mboI
+	 eUAS5gy8lWskOkHtj1o1+BWUSQskB5en9s395aHML4CjbMxmrJ6zWBSiQgOZ3JUUt5
+	 QZy/yRsfod5lMhaO5Fr5rarxNPkLJd2NKHmCO7kXvWUVNa0SC0e1fOYvDODbbi+SEW
+	 e9cAiMiwmqtRA==
+Date: Thu, 5 Mar 2026 17:50:30 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Aleksandr Shubin <privatesub2@gmail.com>
+Cc: Samuel Holland <samuel@sholland.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor+dt@kernel.org>, linux-riscv@lists.infradead.org,
+	Cheo Fusi <fusibrandon13@gmail.com>, linux-sunxi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Lee Yongjun <jun85566@gmail.com>
-Subject: [PATCH] dt-bindings: mmc: brcm,iproc-sdhci: allow dma-coherent property
-Date: Fri,  6 Mar 2026 08:47:03 +0900
-Message-Id: <20260305234703.38490-1-jun85566@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Chen-Yu Tsai <wens@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Lukas Schmid <lukas.schmid@netcube.li>
+Subject: Re: [PATCH v13 1/3] dt-bindings: pwm: Add binding for Allwinner
+ D1/T113-S3/R329 PWM controller
+Message-ID: <177275463009.803008.10030326759377016804.robh@kernel.org>
+References: <20260221183609.95403-1-privatesub2@gmail.com>
+ <20260221183609.95403-2-privatesub2@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_154737_611719_390B1983 
-X-CRM114-Status: GOOD (  10.59  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260221183609.95403-2-privatesub2@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,39 +81,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Broadcom iProc SDHCI controller supports DMA, but its binding
-schema does not allow the 'dma-coherent' property.
 
-As a result, dtbs_check reports the following validation errors
-on the Northstar2 SoC:
+On Sat, 21 Feb 2026 21:35:51 +0300, Aleksandr Shubin wrote:
+> Allwinner's D1, T113-S3 and R329 SoCs have a new pwm
+> controller which is different from the previous pwm-sun4i.
+> 
+> The D1 and T113 are identical in terms of peripherals,
+> they differ only in the architecture of the CPU core, and
+> even share the majority of their DT. Because of that,
+> using the same compatible makes sense.
+> The R329 is a different SoC though, and should have
+> a different compatible string added, especially as there
+> is a difference in the number of channels.
+> 
+> D1 and T113s SoCs have one PWM controller with 8 channels.
+> R329 SoC has two PWM controllers in both power domains, one of
+> them has 9 channels (CPUX one) and the other has 6 (CPUS one).
+> 
+> Add a device tree binding for them.
+> 
+> Signed-off-by: Aleksandr Shubin <privatesub2@gmail.com>
+> ---
+>  .../bindings/pwm/allwinner,sun20i-d1-pwm.yaml | 74 +++++++++++++++++++
+>  1 file changed, 74 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pwm/allwinner,sun20i-d1-pwm.yaml
+> 
 
-  mmc@66420000 (brcm,sdhci-iproc-cygnus): Unevaluated properties
-  are not allowed ('dma-coherent' was unexpected)
-  mmc@66430000 (brcm,sdhci-iproc-cygnus): Unevaluated properties
-  are not allowed ('dma-coherent' was unexpected)
-
-Allow the 'dma-coherent' property in the schema to fix the validation
-errors and accurately reflect the hardware capability.
-
-Signed-off-by: Lee Yongjun <jun85566@gmail.com>
----
- Documentation/devicetree/bindings/mmc/brcm,iproc-sdhci.yaml | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/mmc/brcm,iproc-sdhci.yaml b/Documentation/devicetree/bindings/mmc/brcm,iproc-sdhci.yaml
-index 2f63f2cdeb71..579e44843404 100644
---- a/Documentation/devicetree/bindings/mmc/brcm,iproc-sdhci.yaml
-+++ b/Documentation/devicetree/bindings/mmc/brcm,iproc-sdhci.yaml
-@@ -38,6 +38,8 @@ properties:
-     type: boolean
-     description: Specifies that controller should use auto CMD12
- 
-+  dma-coherent: true
-+
- required:
-   - compatible
-   - reg
--- 
-2.34.1
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 
