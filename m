@@ -4,92 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0444EEF31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 08:29:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CADF3EEF316
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 08:29:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZlLnToI6SbxsSn7ypnmaqq1RX+miw2VMTyDHKi+gwbk=; b=mBQdLaq6TGNY4/dsGvvh/Sb93e
-	xbcUOEq00WEl1GQ5a/tPzN0kb5r1zx0yjBxU6Y1Sz1GOPz2aRKG2FzYqwJG7vPA8Ervf/7yHysd4Z
-	B3wth98+hmB2OA/QeXJ+nWqaxUumDc4Ca4fzJTHo0A5NlEhc5yWNDIBWDFhyAS2MMhWqqkxTGzoK7
-	b9AfbG1lMMGwjAjVPWn0fs95keaytXE9M+CE6BI5vCfkpwdbt03QOWOU4F3ywqVJ9/6hv/F0c++uP
-	sxYeLTYDUl49ZVtI852DMowYHBj2jYIXAyAW9Op3bNeAJ6vcHfY8fHGS8lJrLnBEk3ibypHAllgyW
-	haxnD0QQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YGYEzO7qkE8Sc5u/+WF8bOCRqDgQZaCrql82uLk7zds=; b=JsBmazRbzpd7lbqUQlQTFRUvJ5
+	jFg3xXpKTZVBaz0hqLp09Hbl/4KR+9cXQukVDac0Hle7hTbX5SwhaHmTrfZvOQ4tUHn6zBEdiBl9O
+	dBOCAhlXh4kC2t1Lr+PgYHosU49AuF85UH9UXqdoK00Yy/J6EyUf6fdBUNN1IZ1Ak8xxjpVIkrl26
+	lnwqNWhSXFFdcal3cs9hts5jwic/6gtJ5aQ4vvf7d1it2mNA+BeZX+4N+B2yFpOgNRjDB41BPBj89
+	vPOTWoSvKlGKLOYkF45DRxWOQBvg9V2G8rLvBNsMRksuFV1cL9KmPR2uIPY9flqAfRbx1CwHC+PNg
+	E5o8yemQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy44x-00000001CEe-34vH;
-	Thu, 05 Mar 2026 08:29:07 +0000
-Received: from mail-vs1-f47.google.com ([209.85.217.47])
+	id 1vy45S-00000001CMp-1hQL;
+	Thu, 05 Mar 2026 08:29:38 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy44t-00000001CDF-1U68
+	id 1vy45Q-00000001CMP-472H
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 05 Mar 2026 08:29:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=YGYEzO7qkE8Sc5u/+WF8bOCRqDgQZaCrql82uLk7zds=; b=RUrjJ240gd1TK6El6g2aTwKA0s
+	V0gx0IMgc2lhYIcLiwNBvUNgTbl5p8MAWLI/uGT4So+zpcgHaw8WyxcvGOjDJOjhEmbCtv5pW7N4v
+	35APF+3a8bBFc7sbqyaoOoa6hKKpofERawDe3Nksk+nRfU4dbWx4+XJF0bY4GBL/I0fC/CaVbqTCx
+	u7kTpKqSly4rt87wn8JJ6W7ef4tbu1AgbIKmhCcNqIvj6soUjYBXg2dUBlg88MSGjYWhtzCfDPSEY
+	wacawnQ0rZybmflxNyskYdOLB1/qnMoZ8IlmmyY5Br8A/LGBELVBTJh82eVj5mXDf9SFvzmOq1rx9
+	GriDVrVg==;
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vy45M-00000006DBl-1lHF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 08:29:05 +0000
-Received: by mail-vs1-f47.google.com with SMTP id ada2fe7eead31-5ffa0b23a1aso812306137.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 00:29:02 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772699342; x=1773304142;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+	Thu, 05 Mar 2026 08:29:35 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-8296d553142so906406b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 00:29:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772699370; x=1773304170; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ZlLnToI6SbxsSn7ypnmaqq1RX+miw2VMTyDHKi+gwbk=;
-        b=qBT4g+86g79xihanhOGPdiIgbaPzVtPeStyeM1Tm2Md1+OW9J7FkbZsNzuUpQQ2hn0
-         fG29bx/AGaySh0ou7J4jatxuOmsMZ/bsbvEt8OV4bO112v4dtK0obkVDpNT+UsAi7k4v
-         mNH0CrMfUA2x7qBaem1JwdGLxxAY3qPK9aV5v018AZnw5ZQKf4ERy2IKbXxewjgVtbiZ
-         QZa0F/JTyIYpimigg6xg7v6QFFEJcpZISID4H25DTQ2oagmrF9kQiQWCuhOqMn9vrf26
-         xKGUnnD6q3gbUYMw6WQM3O0anEgSY0wxOy7MkhzzY43E8V5Qw7zKguZI1QXcihCdSdSS
-         WYlw==
-X-Forwarded-Encrypted: i=1; AJvYcCUFmSclZrQbdMqtbzjo9MDhA975Ao8phgdMFgIuw0+onQRTm729ogsj22Q/rOaElDrbUj0VzYRo92z1QomDU3tB@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMfx6Hkp7BoasVLKnUKoe33m8eLE84DlkgmY0kMcKdtRtbioN/
-	x9GuID2iUzEE8FoL8fb19XaeSD2FHJoiXM2LyVGW0FdZCmj2isHqZM40swLBuMMq
-X-Gm-Gg: ATEYQzxweE+9khNhA5cD7A0puSA3KFchRUkKZrPp/vxdGC4lCrQgTtjfKAr2ffkkK5R
-	PTvOaqZPZiZYThyeuke8KRiXyXBb8vvZOYsDcxPVxzuZah+Nx8zYa4ZIwzC+WgZe3D18T6CZMgN
-	A0zr0foFnR952j5PR/eIMIjXMuwnbzIWtAFGP+MJjPXHzqC0vZernud6rOftfMpRhzZw0pXq7Ds
-	x0bOT56XK5u4XZFAmLvSJtqvghPLoGBjTiyASU4smiZIY3S7gAOxn/4WSEA2Xg9xiwsJC9NuIkj
-	+OxGSK3HJnhhwS7J0ppSU45m8i1SUBKTboMqHqccs3qsFb19O2UzO1xFSlDV/iXayNooYC3FfHo
-	lNwjjbF+4inGQ5RbdrfH5rvNVK3AGMEq+ZPsiCcIJ1c8j9C9PmtIVh/5es9R/dGgrqz4jTqpL2D
-	9j/3SAHddBXne7F2xpDZqHeTyw+LxjcD9Xpq9KdtTAHBNPJjUkT8KM+MS+BtzX
-X-Received: by 2002:a05:6102:3e8f:b0:5f5:402b:7ee3 with SMTP id ada2fe7eead31-5ffaac72b32mr2090943137.14.1772699341769;
-        Thu, 05 Mar 2026 00:29:01 -0800 (PST)
-Received: from mail-vs1-f53.google.com (mail-vs1-f53.google.com. [209.85.217.53])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5ffc0df8ce2sm2828922137.11.2026.03.05.00.29.01
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 05 Mar 2026 00:29:01 -0800 (PST)
-Received: by mail-vs1-f53.google.com with SMTP id ada2fe7eead31-5ffa0b23a1aso812301137.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 00:29:01 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWxXoQ7xq9gS9jk7p/J96Fia9ah5bPqq1Sn8P/iaxzoXKIDUynEr9XI3KouV00g0x1OLrsB3BWTksRZ1Y19EIz6@lists.infradead.org
-X-Received: by 2002:a05:6102:1607:b0:5ff:c64d:228c with SMTP id
- ada2fe7eead31-5ffc64d2600mr724913137.22.1772699340961; Thu, 05 Mar 2026
- 00:29:00 -0800 (PST)
+        bh=YGYEzO7qkE8Sc5u/+WF8bOCRqDgQZaCrql82uLk7zds=;
+        b=DNwdEalomNN6PdvrWyd5boH95H+dCMqAQxNfcncjHCUaYYXx075e7WwnVZ5q7FIUyF
+         2XiCcnchlPh2EErAXDNGAceV8XI94aDp47hDFUVoCPrNz/gwqOeAMXqm8abUVEjD18G2
+         3BQNs+afLr7nqP8JA2WZSzvFERPE4XCEETYdLflNALL+62JJRoibFnKCSC1tnswfRftN
+         Ig+1KJu5R85SKjyQVG2v/xNNdPdeYoLFGkThqHkuWa+yaWqGoMd2D2nSsz2nhrF0bFLe
+         RLyUvuc0HNg14XL+vgTnKI21HsFXaSXFYwGhlYUQIhSE+G2U4iS/jcpijpbMZUiW9zJt
+         NWGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772699370; x=1773304170;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=YGYEzO7qkE8Sc5u/+WF8bOCRqDgQZaCrql82uLk7zds=;
+        b=JgWmRpw1g9U4qg8RW+c77Xg8Nyn09bG3G4dDftuTt454iX8MkxrN1xhnhPhS0AGerT
+         XbqvwNZPUw1TCjWFfp/aUsqwKXafmIH/W86Q0IbjqrYQhK8637jQ/CxPBFLVLAVuRdDg
+         gzh214IXdp8fJW7E4AHhYLNwMALM8Wr6jbcX37r/Kwo+7m/O6zxgIUlWo5rKJNNDJLQz
+         aGiCAzeKvmyvmVVY6L6/QMNVtkIzBe0RkoEPxJyGGQaIzB6YS6j6bkthSRBq2ErC/GIV
+         yRuluf4q/nvNuvcTTIpSC25qy1Kt3US7JN2/U1484p7pc0Cd6FEM6Bl7TSewvV3zfgln
+         cbzg==
+X-Forwarded-Encrypted: i=1; AJvYcCXmszkjDaf64qCCY8cIjSlUTVgCYzsism3p8ecZQ0TKJ0l4DuMv1/YuSBBFVKnNWZZrqxeHE85GnN5GiSloCfx/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxk1V9fbSoW1uqHFIuiFJv8C+QsSbaDlWK/DdOC9HturczZFr9q
+	OJhDJdh/WUPL/f+KZQaQjY4TmlIAeHvPi97ScJZP0zqRPaKgPTKxO363
+X-Gm-Gg: ATEYQzwuJUv+KC34xLAX8nNsg0DD8bREYK96COfjb3uejcZZ1qVcbCX+KQDyyPFNRQr
+	DqgidfoKxL8F7ltTZG+VDwFpWFy0CNCObBsGwREzjtyz4leh6y9vyQq5g4bq+iDkq9PPXnGWCE+
+	dPWUsUL/hy8kD4hZ3kP8VNLrD/TI3vuGAKbuCQ/H8SWgP5XldTayxR2EMWGwFFmXd/jC5g6OU8A
+	tQJKNbaERIieKp9GyXypzP/2cJrmfAb4fLLNdDI7CCpWBSJgegLkY3teNweh6SFhM83K8hTE+az
+	rcwVd1ekXf/ZtlUIDeEXBbQi1shrIWkhIMUlz/nNfTbq3Jsl5XFEK8mSRnW60MHmz2CipML69ta
+	7iicEjf1dFEka75udhj0jUTG2bKvEheYlrViy5i09TeKKRLPUcI9muFNl8ZZonS4knPal70nA7g
+	EFcXLj+GRtTEhEjxA824djw2UI5kE=
+X-Received: by 2002:a05:6a00:12e6:b0:81f:3fbd:ccf with SMTP id d2e1a72fcca58-82972b58c4amr4691981b3a.23.1772699369906;
+        Thu, 05 Mar 2026 00:29:29 -0800 (PST)
+Received: from bsp.. ([58.84.61.62])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8298e640d6esm811574b3a.52.2026.03.05.00.29.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Mar 2026 00:29:29 -0800 (PST)
+From: Rahul Navale <rahulnavale04@gmail.com>
+To: Folker Schwesinger <dev@folker-schwesinger.de>
+Cc: Rahul Navale <rahul.navale@ifm.com>,
+	dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	vkoul@kernel.org,
+	Frank.Li@kernel.org,
+	michal.simek@amd.com,
+	suraj.gupta2@amd.com,
+	thomas.gessler@brueckmann-gmbh.de,
+	radhey.shyam.pandey@amd.com,
+	tomi.valkeinen@ideasonboard.com,
+	rahulnavale04@gmail.com,
+	marex@nabladev.com,
+	marex@denx.de
+Subject: Re: [RFC PATCH] dmaengine: xilinx_dma: Fix per-channel direction reporting via device_caps
+Date: Thu,  5 Mar 2026 13:59:17 +0530
+Message-ID: <20260305082919.5940-1-rahulnavale04@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <DGHGTCJRRZCW.9TGXQW44V6RR@folker-schwesinger.de>
+References: <DGHGTCJRRZCW.9TGXQW44V6RR@folker-schwesinger.de>
 MIME-Version: 1.0
-References: <20260304175735.2660419-1-vladimir.oltean@nxp.com> <20260304175735.2660419-13-vladimir.oltean@nxp.com>
-In-Reply-To: <20260304175735.2660419-13-vladimir.oltean@nxp.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 5 Mar 2026 09:28:50 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdV+7n==crPmitH-JCwtJiH+7LaPKZQYU4ZqX_duo3_7Eg@mail.gmail.com>
-X-Gm-Features: AaiRm50Kgxrt1IEt_9GEmeNyCIrylErpUd7qkh7D4FIoK_FYituUB8DTITetq4c
-Message-ID: <CAMuHMdV+7n==crPmitH-JCwtJiH+7LaPKZQYU4ZqX_duo3_7Eg@mail.gmail.com>
-Subject: Re: [PATCH phy-next 12/22] phy: move provider API out of public <linux/phy/phy.h>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, dri-devel@lists.freedesktop.org, 
-	freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-can@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev, 
-	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org, 
-	netdev@vger.kernel.org, spacemit@lists.linux.dev, 
-	UNGLinuxDriver@microchip.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_002903_400613_675AB26B 
-X-CRM114-Status: GOOD (  30.07  )
+X-CRM114-CacheID: sfid-20260305_082932_535144_C711D29D 
+X-CRM114-Status: UNSURE (   5.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,88 +126,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vladimir,
+From: Rahul Navale <rahul.navale@ifm.com>
 
-On Wed, 4 Mar 2026 at 19:03, Vladimir Oltean <vladimir.oltean@nxp.com> wrote:
-> The major goal is to hide the contents of struct phy from consumer
-> drivers.
->
-> The idea with "phy-props.h" is that both consumers and providers make
-> use of some data types. So both headers include "phy-props.h".
->
-> Two slight points of contention.
->
-> 1. phy_set_bus_width(): Vinod explains that despite the current caller
->    situation (9 providers, 1 consumer), it is a consumer API function.
->
->    The use case is that the controller (for example UFS) may have
->    limitations and should set the expected lanes to be used and width on
->    those lanes. A number of Generic PHYs can support multiple lanes and
->    multiple width so this is way for controller telling I am using this
->    configuration.
->
-> 2. phy-provider.h should go to include/linux/phy/ or to drivers/phy/?
->    We do have 3 PHY providers outside of drivers/phy/:
->
->    drivers/media/platform/sunxi/sun8i-a83t-mipi-csi2/sun8i_a83t_dphy.c
->    drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
->    drivers/pinctrl/tegra/pinctrl-tegra-xusb.c
->
->    but the practice is not encouraged, and with time, these should be
->    moved to the subsystem. This is not something that I can do now.
->
-> For temporary compatibility, keep including the provider header. This
-> will be removed when abuses are all gotten rid of.
->
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+>Could you show the debug output from dma_get_slave_caps()? 
 
-Thanks for your patch!
-
-> --- /dev/null
-> +++ b/drivers/phy/phy-provider.h
-
-> --- a/include/linux/phy/phy.h
-> +++ b/include/linux/phy/phy.h
-> @@ -1,246 +1,38 @@
->  /* SPDX-License-Identifier: GPL-2.0-or-later */
->  /*
-> - * phy.h -- generic phy header file
-> + * phy.h -- Generic PHY consumer API
->   *
->   * Copyright (C) 2013 Texas Instruments Incorporated - http://www.ti.com
->   *
->   * Author: Kishon Vijay Abraham I <kishon@ti.com>
->   */
->
-> -#ifndef __DRIVERS_PHY_H
-> -#define __DRIVERS_PHY_H
-> +#ifndef __PHY_CONSUMER_H
-> +#define __PHY_CONSUMER_H
->
-> -#include <linux/err.h>
-> -#include <linux/of.h>
-> -#include <linux/device.h>
-> -#include <linux/pm_runtime.h>
-> -#include <linux/regulator/consumer.h>
-> +#include <linux/phy/phy-props.h>
->
-> -#include <linux/phy/phy-dp.h>
-> -#include <linux/phy/phy-hdmi.h>
-> -#include <linux/phy/phy-lvds.h>
-> -#include <linux/phy/phy-mipi-dphy.h>
-> +#include "../../drivers/phy/phy-provider.h"
-
-Shouldn't there be one more "../"?
-Interestingly, it compiles with/without.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+logs:
+<4>[    0.302360] dma_slave_caps:
+<4>[    0.302364]   src_addr_widths    = 0x00000000
+<4>[    0.302368]   dst_addr_widths    = 0x00000000
+<4>[    0.302371]   directions         = 0x00000000
+<4>[    0.302374]   min_burst          = 0x00000000
+<4>[    0.302377]   max_burst          = 0x00000000
+<4>[    0.302380]   max_sg_burst       = 0x00000000
+<4>[    0.302383]   cmd_pause          = 0x00
+<4>[    0.302386]   cmd_resume         = 0x00
+<4>[    0.302388]   cmd_terminate      = 0x00
+<4>[    0.302391]   residue_granularity= 0x00000000
+<4>[    0.302394]   descriptor_reuse   = 0x00
+<4>[    0.302398] xilinx_dma_device_caps: caps->directions = 0x00000001
+<4>[    0.302401] xilinx_dma_device_caps: caps->directions = 0x00000001
+<4>[    0.302404] dma_slave_caps:
+<4>[    0.302406]   src_addr_widths    = 0x00000000
+<4>[    0.302409]   dst_addr_widths    = 0x00000000
+<4>[    0.302412]   directions         = 0x00000001
+<4>[    0.302415]   min_burst          = 0x00000000
+<4>[    0.302418]   max_burst          = 0x00000000
+<4>[    0.302421]   max_sg_burst       = 0x00000000
+<4>[    0.302423]   cmd_pause          = 0x00
+<4>[    0.302426]   cmd_resume         = 0x00
+<4>[    0.302429]   cmd_terminate      = 0x01
+<4>[    0.302431]   residue_granularity= 0x00000001
+<4>[    0.302434]   descriptor_reuse   = 0x00
 
