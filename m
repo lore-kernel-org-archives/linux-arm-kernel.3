@@ -4,114 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CADF3EEF316
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 08:29:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A7CEEEF319
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 08:30:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YGYEzO7qkE8Sc5u/+WF8bOCRqDgQZaCrql82uLk7zds=; b=JsBmazRbzpd7lbqUQlQTFRUvJ5
-	jFg3xXpKTZVBaz0hqLp09Hbl/4KR+9cXQukVDac0Hle7hTbX5SwhaHmTrfZvOQ4tUHn6zBEdiBl9O
-	dBOCAhlXh4kC2t1Lr+PgYHosU49AuF85UH9UXqdoK00Yy/J6EyUf6fdBUNN1IZ1Ak8xxjpVIkrl26
-	lnwqNWhSXFFdcal3cs9hts5jwic/6gtJ5aQ4vvf7d1it2mNA+BeZX+4N+B2yFpOgNRjDB41BPBj89
-	vPOTWoSvKlGKLOYkF45DRxWOQBvg9V2G8rLvBNsMRksuFV1cL9KmPR2uIPY9flqAfRbx1CwHC+PNg
-	E5o8yemQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8Ymdw+XC/6Jy9fN+NX35+E/o8bLZmtxZBZ4e3pQeTxE=; b=bqK1LpIgus5pyBIhPvw70YYlbA
+	lkqrVcoGebnJpgVyT85HIk5fa6kdR0hW+0jAmfLkOMrZWBPQWOuwyLArqmRcY2O6PN/T4aj5aZXGi
+	HT++4EXDgy2Vv9q8ap7nJ5p3xpez2bEUzmyo5otbH/CaRgVPb5kRjI4w46NG3fZq+rdk46Vl2t3Rl
+	2CPntFrn9hjPwYBJ6ewJPih6mL2Sj/Wn1JGWIA23acuzAEaD6w9vr272pP9C/8cr++rTSbbqb5am5
+	qz2Sy46KY82Q5gcd/PdhvHj1SAB/tK2L8E3+I5LxOSPJK1GfwAXAZ7QF0SXtsOjVNcNMYBVKIrrTl
+	4Zifr7GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy45S-00000001CMp-1hQL;
-	Thu, 05 Mar 2026 08:29:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vy45s-00000001CUd-0xA7;
+	Thu, 05 Mar 2026 08:30:04 +0000
+Received: from mail-vk1-f178.google.com ([209.85.221.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy45Q-00000001CMP-472H
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 05 Mar 2026 08:29:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=YGYEzO7qkE8Sc5u/+WF8bOCRqDgQZaCrql82uLk7zds=; b=RUrjJ240gd1TK6El6g2aTwKA0s
-	V0gx0IMgc2lhYIcLiwNBvUNgTbl5p8MAWLI/uGT4So+zpcgHaw8WyxcvGOjDJOjhEmbCtv5pW7N4v
-	35APF+3a8bBFc7sbqyaoOoa6hKKpofERawDe3Nksk+nRfU4dbWx4+XJF0bY4GBL/I0fC/CaVbqTCx
-	u7kTpKqSly4rt87wn8JJ6W7ef4tbu1AgbIKmhCcNqIvj6soUjYBXg2dUBlg88MSGjYWhtzCfDPSEY
-	wacawnQ0rZybmflxNyskYdOLB1/qnMoZ8IlmmyY5Br8A/LGBELVBTJh82eVj5mXDf9SFvzmOq1rx9
-	GriDVrVg==;
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy45M-00000006DBl-1lHF
+	id 1vy45p-00000001CTP-42k0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 08:29:35 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-8296d553142so906406b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 00:29:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772699370; x=1773304170; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YGYEzO7qkE8Sc5u/+WF8bOCRqDgQZaCrql82uLk7zds=;
-        b=DNwdEalomNN6PdvrWyd5boH95H+dCMqAQxNfcncjHCUaYYXx075e7WwnVZ5q7FIUyF
-         2XiCcnchlPh2EErAXDNGAceV8XI94aDp47hDFUVoCPrNz/gwqOeAMXqm8abUVEjD18G2
-         3BQNs+afLr7nqP8JA2WZSzvFERPE4XCEETYdLflNALL+62JJRoibFnKCSC1tnswfRftN
-         Ig+1KJu5R85SKjyQVG2v/xNNdPdeYoLFGkThqHkuWa+yaWqGoMd2D2nSsz2nhrF0bFLe
-         RLyUvuc0HNg14XL+vgTnKI21HsFXaSXFYwGhlYUQIhSE+G2U4iS/jcpijpbMZUiW9zJt
-         NWGA==
+	Thu, 05 Mar 2026 08:30:03 +0000
+Received: by mail-vk1-f178.google.com with SMTP id 71dfb90a1353d-5688c221fd3so3483494e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 00:30:01 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772699370; x=1773304170;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=YGYEzO7qkE8Sc5u/+WF8bOCRqDgQZaCrql82uLk7zds=;
-        b=JgWmRpw1g9U4qg8RW+c77Xg8Nyn09bG3G4dDftuTt454iX8MkxrN1xhnhPhS0AGerT
-         XbqvwNZPUw1TCjWFfp/aUsqwKXafmIH/W86Q0IbjqrYQhK8637jQ/CxPBFLVLAVuRdDg
-         gzh214IXdp8fJW7E4AHhYLNwMALM8Wr6jbcX37r/Kwo+7m/O6zxgIUlWo5rKJNNDJLQz
-         aGiCAzeKvmyvmVVY6L6/QMNVtkIzBe0RkoEPxJyGGQaIzB6YS6j6bkthSRBq2ErC/GIV
-         yRuluf4q/nvNuvcTTIpSC25qy1Kt3US7JN2/U1484p7pc0Cd6FEM6Bl7TSewvV3zfgln
-         cbzg==
-X-Forwarded-Encrypted: i=1; AJvYcCXmszkjDaf64qCCY8cIjSlUTVgCYzsism3p8ecZQ0TKJ0l4DuMv1/YuSBBFVKnNWZZrqxeHE85GnN5GiSloCfx/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxk1V9fbSoW1uqHFIuiFJv8C+QsSbaDlWK/DdOC9HturczZFr9q
-	OJhDJdh/WUPL/f+KZQaQjY4TmlIAeHvPi97ScJZP0zqRPaKgPTKxO363
-X-Gm-Gg: ATEYQzwuJUv+KC34xLAX8nNsg0DD8bREYK96COfjb3uejcZZ1qVcbCX+KQDyyPFNRQr
-	DqgidfoKxL8F7ltTZG+VDwFpWFy0CNCObBsGwREzjtyz4leh6y9vyQq5g4bq+iDkq9PPXnGWCE+
-	dPWUsUL/hy8kD4hZ3kP8VNLrD/TI3vuGAKbuCQ/H8SWgP5XldTayxR2EMWGwFFmXd/jC5g6OU8A
-	tQJKNbaERIieKp9GyXypzP/2cJrmfAb4fLLNdDI7CCpWBSJgegLkY3teNweh6SFhM83K8hTE+az
-	rcwVd1ekXf/ZtlUIDeEXBbQi1shrIWkhIMUlz/nNfTbq3Jsl5XFEK8mSRnW60MHmz2CipML69ta
-	7iicEjf1dFEka75udhj0jUTG2bKvEheYlrViy5i09TeKKRLPUcI9muFNl8ZZonS4knPal70nA7g
-	EFcXLj+GRtTEhEjxA824djw2UI5kE=
-X-Received: by 2002:a05:6a00:12e6:b0:81f:3fbd:ccf with SMTP id d2e1a72fcca58-82972b58c4amr4691981b3a.23.1772699369906;
-        Thu, 05 Mar 2026 00:29:29 -0800 (PST)
-Received: from bsp.. ([58.84.61.62])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8298e640d6esm811574b3a.52.2026.03.05.00.29.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Mar 2026 00:29:29 -0800 (PST)
-From: Rahul Navale <rahulnavale04@gmail.com>
-To: Folker Schwesinger <dev@folker-schwesinger.de>
-Cc: Rahul Navale <rahul.navale@ifm.com>,
-	dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	vkoul@kernel.org,
-	Frank.Li@kernel.org,
-	michal.simek@amd.com,
-	suraj.gupta2@amd.com,
-	thomas.gessler@brueckmann-gmbh.de,
-	radhey.shyam.pandey@amd.com,
-	tomi.valkeinen@ideasonboard.com,
-	rahulnavale04@gmail.com,
-	marex@nabladev.com,
-	marex@denx.de
-Subject: Re: [RFC PATCH] dmaengine: xilinx_dma: Fix per-channel direction reporting via device_caps
-Date: Thu,  5 Mar 2026 13:59:17 +0530
-Message-ID: <20260305082919.5940-1-rahulnavale04@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <DGHGTCJRRZCW.9TGXQW44V6RR@folker-schwesinger.de>
-References: <DGHGTCJRRZCW.9TGXQW44V6RR@folker-schwesinger.de>
+        d=1e100.net; s=20230601; t=1772699400; x=1773304200;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8Ymdw+XC/6Jy9fN+NX35+E/o8bLZmtxZBZ4e3pQeTxE=;
+        b=DDPzHPUNgqvKen+++PDWKeVAsHt8LMPv6AY1zoMg+X66hfEiuhn5yCtu/Su6owIT1j
+         xo4JFBDGFMB9x08+wDkWxHveqdzIIyniLtNChuT+44D2VZi4XiYjHU7NVRkdwOGyp40s
+         YkcG+Ncf1dHnaW3erC1iC7MbBAdZ+8Moh3/kaPiGYF/Lsxe/dEahfVVXsgTTcjIpyKVu
+         nzsvBndo+AvkTy9/ZkBE9ZlahjZeat4NpSKUr9QwXVDSlCfM3n2vUHoj6y7ld+5k+B5H
+         Bt0HOgg/WTvYPzK9iRgK7/lm6FrZcan8EmOXLq4eceZXw9pG1IP2vuSIiSlTZRtjRxvC
+         Ecqg==
+X-Forwarded-Encrypted: i=1; AJvYcCWELmotgsFejrH/EkL4CDOToQZRxWW6xGOC4xZjvaNzrTr8fEr1addNJ8b0/HYUwvhZsBlv5jhaeNrXVHRmN3me@lists.infradead.org
+X-Gm-Message-State: AOJu0YyF5TOhhUPfUNk6WMsE8NNACQYxEgI8FsIP/B7S6dtAQzKcYqjE
+	o55kW6WIASBQIdA3ZCwrVuPCUQcp6V3r5mQD/VbTCGRszpooWccCkD1px2XqECU6
+X-Gm-Gg: ATEYQzxwDXncwd8VIJIkLk9nn/tAEodYwFiXz7jFOdqiripQr4gJScdGOij3NnRHA0s
+	1T54kU1L1DxPY5dAil44D06BHEJ8g8ZJUSNwN6ZOqZ6Nh1zSnQeiNaYhE/dORTrekj+kI+3XlEc
+	eFcYXst9jhZ1RaxXHjgyxk8fnMyKQ1yYFtDsTA/IB3TuDvBfL9kP7jaZx428UJL0Ut9/aTb9dJq
+	5wgYNPSJGB1J+YjR+V8ql4chzuJNMgYGn/sJKUWjnD9KJfILBDXb4ep16OS+B0qnBVJ5Spt4qX1
+	gUixrTfr4A01tk2m6xMEvfUfWRzQr9B/uEG+tEBPHeSKgthvDLrD3hdgA54u3XSKAX3Jtf48Dhx
+	rRuLP15ZY9Fl0+570+6d5vhkstXUyIflFJi5Gu/nrFNIfZW2NeBzRGgsNcBsb5htbUnAOV6UNIm
+	h7FlgncFhsLvAonGirzCopt6RdawSW3o2DmDZpF0KB1gIGcxDYAZvnWP9ear3v
+X-Received: by 2002:a05:6122:6586:b0:559:5dbe:fe29 with SMTP id 71dfb90a1353d-56ae74c943cmr2213119e0c.2.1772699400558;
+        Thu, 05 Mar 2026 00:30:00 -0800 (PST)
+Received: from mail-ua1-f52.google.com (mail-ua1-f52.google.com. [209.85.222.52])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56aea88c0b6sm4459146e0c.20.2026.03.05.00.29.59
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 05 Mar 2026 00:29:59 -0800 (PST)
+Received: by mail-ua1-f52.google.com with SMTP id a1e0cc1a2514c-94e2ad66abcso1249905241.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 00:29:59 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWSFOT5WcbYek8yiXHOXod2MLFRcj8f30fYYo08yjjsr4DCOcmmdowsF0t92lFQgR3bHkjUwNAQcdDEP0BNbKmH@lists.infradead.org
+X-Received: by 2002:a05:6102:2ac9:b0:5f7:24dc:3ac3 with SMTP id
+ ada2fe7eead31-5ffaaa86250mr1899404137.7.1772699399463; Thu, 05 Mar 2026
+ 00:29:59 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260304175735.2660419-1-vladimir.oltean@nxp.com> <20260304175735.2660419-18-vladimir.oltean@nxp.com>
+In-Reply-To: <20260304175735.2660419-18-vladimir.oltean@nxp.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 5 Mar 2026 09:29:48 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdXUBhpnFEnnTfyPdECWqNmKLweupX=FY2SedYA3bapG2g@mail.gmail.com>
+X-Gm-Features: AaiRm53mHozL13yvxji6rv0MKzaGvWxuhr7SWHD2SjBJ0VWNhqppZZeXezGpDhg
+Message-ID: <CAMuHMdXUBhpnFEnnTfyPdECWqNmKLweupX=FY2SedYA3bapG2g@mail.gmail.com>
+Subject: Re: [PATCH phy-next 17/22] net: renesas: rswitch: include PHY
+ provider header
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, dri-devel@lists.freedesktop.org, 
+	freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-can@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev, 
+	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org, 
+	netdev@vger.kernel.org, spacemit@lists.linux.dev, 
+	UNGLinuxDriver@microchip.com, 
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, Michael Dege <michael.dege@renesas.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_082932_535144_C711D29D 
-X-CRM114-Status: UNSURE (   5.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260305_003002_017886_3DC0B3A3 
+X-CRM114-Status: GOOD (  33.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,35 +109,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rahul Navale <rahul.navale@ifm.com>
+On Wed, 4 Mar 2026 at 19:00, Vladimir Oltean <vladimir.oltean@nxp.com> wrote:
+> As a PHY consumer driver, the Renesas rswitch dereferences internal
+> fields of struct phy, something which shouldn't be done, as that is
+> going to be made an opaque pointer.
+>
+> It is quite clearly visible that the driver is tightly coupled with the
+> drivers/phy/renesas/r8a779f0-ether-serdes.c, which puts heavy pressure
+> on the Generic PHY subsystem.
+>
+> This was discussed before here:
+> https://lore.kernel.org/linux-phy/20260211194541.cdmibrpfn6ej6e74@skbuf/
+>
+> but to summarize, it is generally expected that when a Generic PHY
+> function is called, it takes effect immediately. When this doesn't
+> happen, the PHY provider driver must change its implementation rather
+> than the consumer be made to work around it. PHY providers which rely on
+> a hardcoded call sequence in the consumer are just lazy and wrong.
+>
+> The most obvious example is commit 5cb630925b49 ("net: renesas: rswitch:
+> Add phy_power_{on,off}() calling"). Problem description:
+> - Ethernet PHYs may change phydev->interface. When this happens, the
+>   SerDes must learn of the new phydev->interface using phy_set_mode_ext().
+> - drivers/phy/renesas/r8a779f0-ether-serdes.c implements phy_set_mode_ext(),
+>   but this only caches the mode and submode into channel->phy_interface
+>   and applies this to hardware during phy_power_on().
+>
+> The commit author decided to work around this at the consumer site, by
+> power cycling the PHY for the configuration to take effect.
+>
+> This had a worse implication from an API perspective in subsequent
+> commit 053f13f67be6 ("rswitch: Fix imbalance phy_power_off() calling").
+> It was observed that phy_power_on() and phy_power_off() calls need to be
+> balanced, and so, the consumer decided to start looking at the struct
+> phy :: power_count (the technical reason why I'm making this change).
+>
+> This is also wrong from an API perspective because
+> - a consumer should only care about its own vote on the PHY power state.
+>   If this is a multi-port submode like QSGMII, a single phy_power_off()
+>   call will not actually turn the PHY off (nor should it).
+> - the power_count is written under the &phy->mutex, but read unlocked
+>   here.
+>
+> The rswitch and r8a779f0-ether-serdes drivers both need to be completely
+> rethought in terms of Generic PHY API call sequence. There is no quick
+> fix to apply. Just include the PHY provider API along with the consumer
+> one, to keep working as before when struct phy will be made an opaque
+> pointer to normal PHY consumers. But this is a bad offender (and it's
+> not even a provider) so add a FIXME.
+>
+> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
 
->Could you show the debug output from dma_get_slave_caps()? 
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
-logs:
-<4>[    0.302360] dma_slave_caps:
-<4>[    0.302364]   src_addr_widths    = 0x00000000
-<4>[    0.302368]   dst_addr_widths    = 0x00000000
-<4>[    0.302371]   directions         = 0x00000000
-<4>[    0.302374]   min_burst          = 0x00000000
-<4>[    0.302377]   max_burst          = 0x00000000
-<4>[    0.302380]   max_sg_burst       = 0x00000000
-<4>[    0.302383]   cmd_pause          = 0x00
-<4>[    0.302386]   cmd_resume         = 0x00
-<4>[    0.302388]   cmd_terminate      = 0x00
-<4>[    0.302391]   residue_granularity= 0x00000000
-<4>[    0.302394]   descriptor_reuse   = 0x00
-<4>[    0.302398] xilinx_dma_device_caps: caps->directions = 0x00000001
-<4>[    0.302401] xilinx_dma_device_caps: caps->directions = 0x00000001
-<4>[    0.302404] dma_slave_caps:
-<4>[    0.302406]   src_addr_widths    = 0x00000000
-<4>[    0.302409]   dst_addr_widths    = 0x00000000
-<4>[    0.302412]   directions         = 0x00000001
-<4>[    0.302415]   min_burst          = 0x00000000
-<4>[    0.302418]   max_burst          = 0x00000000
-<4>[    0.302421]   max_sg_burst       = 0x00000000
-<4>[    0.302423]   cmd_pause          = 0x00
-<4>[    0.302426]   cmd_resume         = 0x00
-<4>[    0.302429]   cmd_terminate      = 0x01
-<4>[    0.302431]   residue_granularity= 0x00000001
-<4>[    0.302434]   descriptor_reuse   = 0x00
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
