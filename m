@@ -4,109 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4CBBF30946
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 12:37:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F276F30946
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 12:38:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WEpe7E4Byt5MfzVyHGj5LKfw000c+UL9SUdPrf0zlDU=; b=MN1XKAVl91OZZ3DzN1YsORcCM0
-	UgtDTPqEr4eNmH+ud0RYaqO2qqmUomrKDDpj/YTV5kHj/u9fPxo9daT7Sd3igXaifEM7S8iHbYpzv
-	89NswBsuz0ZRplRBdU+vuDpgat6ebMd0DiWYMcXiXG3dRoc6YGztR4AnaPycR0GIT4Auc5Faaw5+6
-	TX16G192U9IF+GlA3qQHEoZv+IFot8J7iamMnjmIUZ8m4wJRpNBA5EU2vhO2pbQTGpc0OutlOM7zK
-	42xVGXGYppRo0tubUo9+JX1gGa24LyizrJqa/LGK6zE8DJJDWAgFCO/JbtUYMP2ZeC9eqITH95Abe
-	KLbnzHBw==;
+	bh=5VBMGygrn7J3QqoRIgoU7F3m2wdmnelaXdnoZHrs2Pk=; b=K477P9SsXuF08fbQz6YPK5jH5I
+	zX9oLGf+LanlGdISrbQ8hPpnmBCd2/iHdSkg3K0KzY4ulnUQxc/FapWxpgikB0NnXqDBxOn0ZYbXj
+	KSjHEqIrgB+fa9myQ+1BtuHgCCfnJqa520HpfOXkycqxG1nmdJUW7ruRvmckGtz92a1Ft+n/YZprx
+	m6xyz/8i6g0jA73t5P6oYBY5zvjBrCq+PGELyzhzwONrhwoSHGusJ7VCXwZCQp52hH9jj7NLkXZuU
+	PKvceZs4CtwnvHDWCvLjnkLL/wHqnd7ioPum/QPf7J4IrZ1mk6eU0CYAOYty93uqHuvEAZh6xXyc+
+	aehA+zwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy7xb-00000001mOW-0aFg;
-	Thu, 05 Mar 2026 12:37:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vy7xo-00000001mQr-1pCX;
+	Thu, 05 Mar 2026 12:38:00 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy7xZ-00000001mO0-1L46
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 12:37:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 47C814409F;
-	Thu,  5 Mar 2026 12:37:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E42BC2BC87;
-	Thu,  5 Mar 2026 12:37:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772714264;
-	bh=qmwOM88pig4Nq4HUd0fMB96N+Rr3BRS1u/CGhx+ArjI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=leZ8v1MeqIZmr7oHBVyoEp4LhKcAuvYKGR9d+WtlSNyyCRoJfldu3qCsoz30nufTk
-	 d+M+6yuDbmu0o+PYUprzSbWXuV1jQbjJsIgDhHXmq7rBpw8ZYGrg0Z435MR2nzc7Cy
-	 OkLNQQ3qvTaSNdsw6aD1dmrFIOLodOjCbVECv2PjMEZslnZvt3FB2LZ4hY5sSBvXdJ
-	 m5RqqN1avGdCJXDYH0nQrUprhD8g+27bG9dQT8/PbjbvdJvjnlrCckTJDcT3irTPqV
-	 V4gISkR7n6YuX02lioSkjFJEeqxfdqPpB6dMdXxCjmkRD3UpeXr0m+KClkLRp1lwEA
-	 E9K5wRVtA9iIQ==
-Message-ID: <a2b81b60-eb8e-44a2-84fe-8c61bc5fadbe@kernel.org>
-Date: Thu, 5 Mar 2026 13:37:38 +0100
+	id 1vy7xi-00000001mOU-00u0;
+	Thu, 05 Mar 2026 12:37:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=5VBMGygrn7J3QqoRIgoU7F3m2wdmnelaXdnoZHrs2Pk=; b=ssBxrRfZPkBPDOdA8GZ1IqQ9hn
+	LIPhIKaDruhJL+BXgB4gGbFZRYYVQIzkfCx03Vdfqbs8wvSKeVtfHP3wxvWsZxNuJnqxd50kzeR7i
+	i6LGJLONyFCGp+S2bECjhmv3OR6A6f1VnDMj8kfoDV8rk4784/Bl3IJqCveOwznx88vyvy3EDsgNB
+	CSuhsP5iszxf+J8HFCyCFxKfQrN6eN+43VoPLSFwW5dRnkywqkUEeCL2zH+WvhCLz01kjqNSsO5Wn
+	bZofdgx/CLuFbbc5axl87clAryCQgSCWw37Gp+JeSFdxKyLT+09Bqx0aVyc8Kn9l2eFOjsw2dcIZ4
+	dRAMtsyw==;
+Received: from [189.7.87.203] (helo=[192.168.0.2])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1vy7xP-009MPz-2G; Thu, 05 Mar 2026 13:37:35 +0100
+Message-ID: <ffa09e98-8b28-48b2-875e-804b56eafb4b@igalia.com>
+Date: Thu, 5 Mar 2026 09:37:28 -0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V4 2/2] arm64/mm: Reject memory removal that splits a
- kernel leaf mapping
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Yang Shi <yang@os.amperecomputing.com>,
- Christoph Lameter <cl@gentwo.org>, linux-kernel@vger.kernel.org
-References: <20260305053148.3765710-1-anshuman.khandual@arm.com>
- <20260305053148.3765710-3-anshuman.khandual@arm.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: [PATCH v6 1/6] clk: bcm: rpi: Manage clock rate in
+ prepare/unprepare callbacks
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Stefan Wahren <wahrenst@gmx.net>, Melissa Wen <mwen@igalia.com>,
+ Iago Toral Quiroga <itoral@igalia.com>,
+ Chema Casanova <jmcasanova@igalia.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
+References: <20260218-v3d-power-management-v6-0-40683fd39865@igalia.com>
+ <20260218-v3d-power-management-v6-1-40683fd39865@igalia.com>
+ <20260224-curvy-shiny-dodo-e50cef@houat>
+ <481489f1-850f-44ae-8586-b69c1d2faf8e@igalia.com>
+ <20260305-unyielding-sponge-of-efficiency-07218c@houat>
+From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
 Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260305053148.3765710-3-anshuman.khandual@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Autocrypt: addr=mcanal@igalia.com; keydata=
+ xsBNBGcCwywBCADgTji02Sv9zjHo26LXKdCaumcSWglfnJ93rwOCNkHfPIBll85LL9G0J7H8
+ /PmEL9y0LPo9/B3fhIpbD8VhSy9Sqz8qVl1oeqSe/rh3M+GceZbFUPpMSk5pNY9wr5raZ63d
+ gJc1cs8XBhuj1EzeE8qbP6JAmsL+NMEmtkkNPfjhX14yqzHDVSqmAFEsh4Vmw6oaTMXvwQ40
+ SkFjtl3sr20y07cJMDe++tFet2fsfKqQNxwiGBZJsjEMO2T+mW7DuV2pKHr9aifWjABY5EPw
+ G7qbrh+hXgfT+njAVg5+BcLz7w9Ju/7iwDMiIY1hx64Ogrpwykj9bXav35GKobicCAwHABEB
+ AAHNIE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+wsCRBBMBCAA7FiEE+ORdfQEW
+ dwcppnfRP/MOinaI+qoFAmcCwywCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQ
+ P/MOinaI+qoUBQgAqz2gzUP7K3EBI24+a5FwFlruQGtim85GAJZXToBtzsfGLLVUSCL3aF/5
+ O335Bh6ViSBgxmowIwVJlS/e+L95CkTGzIIMHgyUZfNefR2L3aZA6cgc9z8cfow62Wu8eXnq
+ GM/+WWvrFQb/dBKKuohfBlpThqDWXxhozazCcJYYHradIuOM8zyMtCLDYwPW7Vqmewa+w994
+ 7Lo4CgOhUXVI2jJSBq3sgHEPxiUBOGxvOt1YBg7H9C37BeZYZxFmU8vh7fbOsvhx7Aqu5xV7
+ FG+1ZMfDkv+PixCuGtR5yPPaqU2XdjDC/9mlRWWQTPzg74RLEw5sz/tIHQPPm6ROCACFls7A
+ TQRnAsMsAQgAxTU8dnqzK6vgODTCW2A6SAzcvKztxae4YjRwN1SuGhJR2isJgQHoOH6oCItW
+ Xc1CGAWnci6doh1DJvbbB7uvkQlbeNxeIz0OzHSiB+pb1ssuT31Hz6QZFbX4q+crregPIhr+
+ 0xeDi6Mtu+paYprI7USGFFjDUvJUf36kK0yuF2XUOBlF0beCQ7Jhc+UoI9Akmvl4sHUrZJzX
+ LMeajARnSBXTcig6h6/NFVkr1mi1uuZfIRNCkxCE8QRYebZLSWxBVr3h7dtOUkq2CzL2kRCK
+ T2rKkmYrvBJTqSvfK3Ba7QrDg3szEe+fENpL3gHtH6h/XQF92EOulm5S5o0I+ceREwARAQAB
+ wsB2BBgBCAAgFiEE+ORdfQEWdwcppnfRP/MOinaI+qoFAmcCwywCGwwACgkQP/MOinaI+qpI
+ zQf+NAcNDBXWHGA3lgvYvOU31+ik9bb30xZ7IqK9MIi6TpZqL7cxNwZ+FAK2GbUWhy+/gPkX
+ it2gCAJsjo/QEKJi7Zh8IgHN+jfim942QZOkU+p/YEcvqBvXa0zqW0sYfyAxkrf/OZfTnNNE
+ Tr+uBKNaQGO2vkn5AX5l8zMl9LCH3/Ieaboni35qEhoD/aM0Kpf93PhCvJGbD4n1DnRhrxm1
+ uEdQ6HUjWghEjC+Jh9xUvJco2tUTepw4OwuPxOvtuPTUa1kgixYyG1Jck/67reJzMigeuYFt
+ raV3P8t/6cmtawVjurhnCDuURyhUrjpRhgFp+lW8OGr6pepHol/WFIOQEg==
+In-Reply-To: <20260305-unyielding-sponge-of-efficiency-07218c@houat>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_043745_409751_FA7D97F8 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20260305_043755_177838_905B06F2 
+X-CRM114-Status: GOOD (  31.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,67 +112,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/5/26 06:31, Anshuman Khandual wrote:
-> Linear and vmemmap mappings that get torn down during a memory hot remove
-> operation might contain leaf level entries on any page table level. If the
-> requested memory range's linear or vmemmap mappings falls within such leaf
-> entries, new mappings need to be created for the remaining memory mapped on
-> the leaf entry earlier, following standard break before make aka BBM rules.
-> But kernel cannot tolerate BBM and hence remapping to fine grained leaves
-> would not be possible on systems without BBML2_NOABORT.
-> 
-> Currently memory hot remove operation does not perform such restructuring,
-> and so removing memory ranges that could split a kernel leaf level mapping
-> need to be rejected.
-> 
-> While memory_hotplug.c does appear to permit hot removing arbitrary ranges
-> of memory, the higher layers that drive memory_hotplug (e.g. ACPI, virtio,
-> ...) all appear to treat memory as fixed size devices. So it is impossible
-> to hot unplug a different amount than was previously hot plugged, and hence
-> we should never see a rejection in practice, but adding the check makes us
-> robust against a future change.
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Link: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
-> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-> Suggested-by: Ryan Roberts <ryan.roberts@arm.com>
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
+Hi Maxime,
+
+On 05/03/26 05:53, Maxime Ripard wrote:
+> On Wed, Feb 25, 2026 at 10:57:11AM -0300, Maíra Canal wrote:
+>> Hi Maxime,
+>>
+>> On 24/02/26 11:11, Maxime Ripard wrote:
+>>> Hi Maira,
+>>>
+>>
 
 [...]
 
-> +
-> +	/*
-> +	 * PFN range's linear map edges are leaf entry aligned
-> +	 */
+>>>> @@ -306,10 +313,19 @@ static int raspberrypi_fw_prepare(struct clk_hw *hw)
+>>>>    static void raspberrypi_fw_unprepare(struct clk_hw *hw)
+>>>>    {
+>>>>    	const struct raspberrypi_clk_data *data = clk_hw_to_data(hw);
+>>>> +	struct raspberrypi_clk_variant *variant = data->variant;
+>>>>    	struct raspberrypi_clk *rpi = data->rpi;
+>>>>    	u32 state = 0;
+>>>>    	int ret;
+>>>> +	/*
+>>>> +	 * On current firmware versions, RPI_FIRMWARE_SET_CLOCK_STATE doesn't
+>>>> +	 * actually power off the clock. To achieve meaningful power consumption
+>>>> +	 * reduction, the driver needs to set the clock rate to minimum before
+>>>> +	 * disabling it.
+>>>> +	 */
+>>>> +	raspberrypi_fw_set_rate(hw, variant->min_rate, 0);
+>>>
+>>> I'm not sure setting it to variant->min_rate would work directly either,
+>>> since it would break consumers expectations. Also, can we guard it with
+>>
+>> The clock is being unprepared, which means that any consumer that wants
+>> to use it again must call clk_prepare() first, at which point the rate
+>> gets restored (for maximize clocks) or re-established by the consumer
+>> via clk_set_rate(). Considering that no consumer should be relying on
+>> the rate of an unprepared clock, I understand that there are no
+>> expectations to break here.
+> 
+> For both of those, I still feel like it's a pretty strong deviation from
+> the general expected behaviour of the CCF API. From what you're saying,
+> we shouldn't notice it too much, but at the very least we should
+> document it explicitly, both what the deviation is, and why we think
+> it's ok.
+> 
 
-Nit: single-line comments are usually written as
+I'll make sure to add such comment in the next version.
 
-/* ... */
+>>> a version check if we know that there's some good and bad firmwares?
+>>
+>> So far, all firmware versions have this issue. For future firmware
+>> releases, it might change, but so far, all firmware versions have this
+>> issue.
+> 
+> ack :)
+> 
+>>>
+>>>>    	ret = raspberrypi_clock_property(rpi->firmware, data,
+>>>>    					 RPI_FIRMWARE_SET_CLOCK_STATE, &state);
+>>>>    	if (ret)
+>>>> @@ -334,7 +350,7 @@ static struct clk_hw *raspberrypi_clk_register(struct raspberrypi_clk *rpi,
+>>>>    {
+>>>>    	struct raspberrypi_clk_data *data;
+>>>>    	struct clk_init_data init = {};
+>>>> -	u32 min_rate, max_rate;
+>>>> +	unsigned long rate;
+>>>>    	int ret;
+>>>>    	data = devm_kzalloc(rpi->dev, sizeof(*data), GFP_KERNEL);
+>>>> @@ -354,18 +370,20 @@ static struct clk_hw *raspberrypi_clk_register(struct raspberrypi_clk *rpi,
+>>>>    	data->hw.init = &init;
+>>>> -	ret = raspberrypi_clock_property(rpi->firmware, data,
+>>>> -					 RPI_FIRMWARE_GET_MIN_CLOCK_RATE,
+>>>> -					 &min_rate);
+>>>> -	if (ret) {
+>>>> -		dev_err(rpi->dev, "Failed to get clock %d min freq: %d\n",
+>>>> -			id, ret);
+>>>> -		return ERR_PTR(ret);
+>>>> +	if (!variant->min_rate) {
+>>>> +		ret = raspberrypi_clock_property(rpi->firmware, data,
+>>>> +						 RPI_FIRMWARE_GET_MIN_CLOCK_RATE,
+>>>> +						 &variant->min_rate);
+>>>> +		if (ret) {
+>>>> +			dev_err(rpi->dev, "Failed to get clock %d min freq: %d\n",
+>>>> +				id, ret);
+>>>> +			return ERR_PTR(ret);
+>>>> +		}
+>>>>    	}
+>>>
+>>> It feels to me like it would need to be a separate patch. Why do you
+>>> need to override the minimum clock rate reported by the firmware?
+>>
+>> This change is needed because the prepare/unprepare callbacks need
+>> access to the min/max rates. In the current code, these are local
+>> variables in raspberrypi_clk_register(). Storing them in the variant
+>> struct makes them available to the callbacks. The `if (!variant-
+>>> min_rate)` guard only preserves the existing behavior for clocks like
+>> M2MC that have a hard-coded minimum rate.
+> 
+> min_rate itself is indeed available only in raspberrypi_clk_register(),
+> but its main use is to call clk_hw_set_rate_range to use it as the
+> minimum clock rate.
+ > > In prepare/unprepare, you should be able to use clk_hw_get_rate_range()
+> to retrieve it, or am I missing something?
 
-> +	start = __phys_to_virt(phys_start);
-> +	end =  __phys_to_virt(phys_end);
-> +	if (addr_splits_kernel_leaf(start) || addr_splits_kernel_leaf(end)) {
-> +		pr_warn("[%lx %lx] splits a leaf entry in linear map\n",
-> +			phys_start, phys_end);
-> +		return false;
-> +	}
-> +
-> +	/*
-> +	 * PFN range's vmemmap edges are leaf entry aligned
-> +	 */
+Okay, I got now, I didn't know about the function
+clk_hw_get_rate_range(). Thanks for your feedback! I'd address it in the
+next version.
 
-Dito.
+Best regards,
+- Maíra
 
-LGTM, thanks!
+> 
+> Maxime
 
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
-
--- 
-Cheers,
-
-David
 
