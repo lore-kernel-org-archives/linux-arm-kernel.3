@@ -4,107 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D827BF3D31C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 16:14:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C2D2F3D31A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 16:16:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RZX8IkznGuT8tzheZIwXF+8NCOjzDtkabhnGyWvo57Q=; b=cNyXDWTx554jEojKDyk9QwevdR
-	FLaFSAiM2tB8HntK7hjl+1EI99L0e9hfarE0dvBp9dvj1LzA+POIwgNQ05+FeEm6a7iEn7KysnLM6
-	ckMaYUmlDdgyV+JQN8bSD3eh3KSRhpZOmDkJGF+ViqrUIpZXUGfksKGLHve0ZZwm0Tf3Gmf4EyrDd
-	vllU6moZhEWK1KCZJ9vIPaAKrXUwQYv4G2P6DUf2YORJzhRFyRRnWntA1jDhRNCAx7rRV9ZlYTVXH
-	PTvSUX2weYCbA0hFwSz68pkn5eTdkWvlPlwQkWGh7JmaFZ9jn4m4MEU3EDcpzw1EMdqeuADg1NCvv
-	2Rfd8aHQ==;
+	bh=Yx4AyhOAgyJue9ackXDxB6qNVZ3mjjFPXiVKLeWDVo0=; b=gTLz3fODsOUenv9fybzqwUs20z
+	LbNZc/vgUkfywKiag5bv5uf8N+Zt9wjfqoALWsQskrbaOp9ZTJBrSQFdzBOXlIrzOQ73KDwYG6AFS
+	A6fr2YKczrdk4I2D5SkDPaEalrh8smM/+DGe6d0GxB7zRaK031kxx51KZ7YSzcmfxr8RmSLXCOCOJ
+	gdNcoPuK/BhJRGupVS0YhceMsCJkDLHN+6T7KIyb+BfDkZthvNpOXvsmc0bFBFcSQiINifQMFYQyt
+	3KoGZWCd0+aZfIiHSJ1ZWSU+lYY8320mepkA5FnITlmYXhwAmAfaXjliGlf1DIp+Qe6eDyyI8WYHv
+	Md1ofVNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyBLF-00000002BrJ-0nH4;
-	Thu, 05 Mar 2026 16:14:25 +0000
-Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
+	id 1vyBNL-00000002C2T-0B7c;
+	Thu, 05 Mar 2026 16:16:35 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyBLD-00000002Bqx-2Pav
+	id 1vyBNI-00000002C1A-28f4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 16:14:24 +0000
-Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-506a355aedfso601571cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 08:14:22 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772727262; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Bs3Kz7ZnSTJKCEBQjFVxUqUZqDGNUjDWO76wkDzDdtgYzkOZRPFLwnPfKZ83oz4Vaw
-         yc7e/A+TaYEzt3PEZQM8nc0p7E2symG3NGvffgqUAZigdsZlfKnCpou0GFMqvaiIbaDJ
-         u/16e4YizWBpgTeBhMlH+l3HRN1HKEGWOnU9F+kkD9OvlzDanpYjQQz6UiMiO4r+A9BQ
-         A+N3E8kWjrviOJl/2kQ+V/kIp5qwAjXFoxUoaVMTgYNb4rF7hGzDV8V40zgm/eJieCt5
-         PEOSA63vvj8KYgizvl6xmlHpq5sdDdoZgjpFX6mfNmTmYTELuCBGbcM+pd5MZDZC4LGW
-         pvYw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=RZX8IkznGuT8tzheZIwXF+8NCOjzDtkabhnGyWvo57Q=;
-        fh=2EU4LFLg3nPS2hEVmwPsId2g65wK0EU36eXnFHGEnBU=;
-        b=UjDJLtcR06SXb5pDJ1nJe2Sv0lqX+r/c5l/kWgDs0Cnvkbkhed+z10i4fDbBAv+xM2
-         AzB099NkmP38Gf9Q1AQeTZ1OyBUqZ/CeQUTAIXE/kGk8ipVTC5Dwr68f67PlnCxd9IR6
-         sE/Dd0YLNLcQWCzUedHtdwM6xuhpiLveJGdvWjwWILnWeZ8TR23Ry7BW7W6en1eJDtSq
-         m3p53PsQp7h+70lzeaG1wfCGvVA6xT/I+ubOLXAXr/xZtaoHItvhl8jrtTKKSKvdMHPT
-         4rOpQ3E7cc/MveNWatwicKnA+JuHIxyqK2uCmYkBxncYEpNGNEes0VdZIDqhMdcnLkv1
-         0gUA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 05 Mar 2026 16:16:34 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-48371119eacso97877795e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 08:16:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1772727262; x=1773332062; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=RZX8IkznGuT8tzheZIwXF+8NCOjzDtkabhnGyWvo57Q=;
-        b=AvMcyzsfjAkWXa61ENKa9CjBQ+pHkeESj9i/55MxkBaV9KZUCVhjs071qDy9LvM1Kn
-         uGnwxjEFHUFzHC8lXpx1O4RobA12BM4I6P8eCh/uWdmuIJ6xkUTpleqB9smgF7er16Nz
-         HwnDaH+dZMGKgLoN4pMvRJ604XHneT10Au0UBm9yQMVwMxeXEl7RJPXrm4rwsauryaiS
-         EPvzYOWCSZZcbw7YLm7U9jGjZVKpjxTImtXJod0/Qdt/TGwEnMu4UGtYs4gRQoslxh21
-         SMGcPyud4fsH/s5PsDUO2Pv/9EllSe2tGgbyWPSpQJA7CGlw9Ge/alUPBgWwDoOWLOD0
-         IJSw==
+        d=linaro.org; s=google; t=1772727391; x=1773332191; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Yx4AyhOAgyJue9ackXDxB6qNVZ3mjjFPXiVKLeWDVo0=;
+        b=y7gLpJY9zoUZAZB2zOLUwj22kaNNsDFC244JzVT9OjFqHey6LZL2isUjIR0dOyElNY
+         EUNt4qgGxYWBN3nHqzBSliuMNyHd9alj9QxwV1qSIRvdxc4xDOGqyoxk5Yr208XbJL9t
+         0eiOwIxrsaEN9qQkZ9GTgbl5HlggYl/RGXottd3e+4rhM/MB9EWWvmY/nw7lbsj2cLDq
+         rfrdbIAQo7X1CtMQksGH4L/j1GhE8cM0yztSZIdIySY7eW7SoQYFwl4tuoXPq6GsEVF3
+         m5cgEgs7i/gKqHPWtVY3O+7LbDMTtthN5ejZmvm5lsZ8I9baXv/XC6FljrNvgWMuUnLz
+         gN4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772727262; x=1773332062;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RZX8IkznGuT8tzheZIwXF+8NCOjzDtkabhnGyWvo57Q=;
-        b=T6W4dI2Ame+S1mUZEG5NHIxyWrVw+IL6O3PzlQMdds4L/EgrR9c1hN19oNo6CWXq9r
-         BTl9Im+2zuYn/wfCaQJN65ueWeXpnuJTR1Z0C9wzPHsEJ7waOE2VibKUDANGcKW0IXVG
-         1QvO/OpjGDYMXs68qMExbTeezJLRw4VVd+wKff/8wZ/Lq529bwYVVKMN7OisKiMcFBfB
-         U81Gk1+LpWtCZBmwTS2XpMlbnP/wjbLHr6ojuuWala+H4opkNqtnD0Yn0dDQrR6K2E2m
-         ec5Xceg9Dh/F+w4kRwufdN5/Wj62HydN7zJnQt5cDkevGM6CL4DkpI6WWqJ8RE1w4kGe
-         Nqcw==
-X-Forwarded-Encrypted: i=1; AJvYcCWeNsOzPHRwQzs53QHpyxj5mX8/FMvTKUI6XsE5nSwhfCyGUph4M5E6SZZt5SisTZLWuVeCA6zu1Dh/VUF3yFnx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz66RwZfYYT9o3OW10KzPZP0bqyRTqficMbPhtZ1FZ50xzVXZY1
-	8KqI/1dQXF1g7Q/Jh2OF87bvSYwtlvSdxQwQ8Jpl6EIuzY1e2QeUF1b99ASl7t76yMMea49TEx0
-	sAB2Po134UAEpCRUYedl1fLV5QTk9g/rnzWEJjYG8
-X-Gm-Gg: ATEYQzxoZS1OjbAeWoalfZH6NM5GFV+c8DJQITggNlG3Kg+rs+Xg86E4sOpb7vMhhyf
-	iVJxVvJxseslFOWNneomYgvPyc2Cqzf3qXKzSPI48j52VSALnIOxwOk7E7iGHQ43Vq1Rz8O5JPb
-	BWp7nw3yCOZJxXXEEcQVfEyLg4d1XxRZI0m5y5mmExcoQFnICJp3JVhSrkF/pHwI8iJj9WW6CoM
-	Bss3tWMeg4LU5WOFnwZYhuf5Oc3yCy6r5HCNI0UuwztveRs8TgcRD3ExnULbgfOPt2Qpv3KAuH7
-	xPOZ6gLy
-X-Received: by 2002:a05:622a:1908:b0:501:5180:3c90 with SMTP id
- d75a77b69052e-508e78bc5a4mr10844941cf.15.1772727260703; Thu, 05 Mar 2026
- 08:14:20 -0800 (PST)
+        d=1e100.net; s=20230601; t=1772727391; x=1773332191;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Yx4AyhOAgyJue9ackXDxB6qNVZ3mjjFPXiVKLeWDVo0=;
+        b=DyTM1h9YBxZ9PlYCaLQGgIDeMj3cOO9dgj5iOomF2p3u1jK+lZmIKg47OzYh5nltwU
+         rEFg1IVMf2NgMZkqDplwV30tvF2IVQ7Ipr0lu2eiIPaqzTBR8giQ+D5E5U5LUhPYZeMz
+         6HVBDV1LiCLweP36Xt0Yhl3/JL8KkaziP7EvnpAPIujlu/zP1nXwO5PGE8zBIy3+h1NB
+         /IVoDyY1/yjfMM+2fkfFH/NARrrn8/+/s/Sngepv8eQ8FM03BSBmTc+ZmtwPmDJYqXJ8
+         VbzcL2XztMH8jUwUZCPmkaM/CjD/FptshQWT0bnTkQBgpI8n/BFJ9oq+6beSjgz1fYg2
+         A6PA==
+X-Forwarded-Encrypted: i=1; AJvYcCUifO0GbZ/Lmu7FYCJsFBcvmof8kCuec4YEtgrTG6v8zyFpphFycizdqXbVxl+zpr6JEg7HZO6gIqEAtPoOseAN@lists.infradead.org
+X-Gm-Message-State: AOJu0YxfRG1MDLOjpmUn9KGAgIXJGONFn8VNvQg613Ktx5gJih4Cx1m7
+	JgjCT4lJegoVYtDsb5EhT2N4HVNik1CjNIbqp92OsTijpUR39me/N2w9FZb5fBHL0yI=
+X-Gm-Gg: ATEYQzy+WMWG760YTY8SfJ2J9bsXQShEu+wAiqAGAj8hmS35Rliv+LipfIMfutpqIep
+	9aXfz+DQ0FTRhzjdNNPhbLvma2lK/z4CeK1ue6KjgPez8zc7cmcdiZ4kDooiI8gpcqSovD7dWCG
+	XdPvnH4czVFRCe68TC+CGRyAZyJbMCi6dJ3t5Myc5fg94rpQZP1B908my4da569tkZ8FoXoOVCc
+	hwMo1jHEQ7XDeQ46hoN781WQ/vEammx4WS3fjKXL11Z/5EiYSEPcl96+f0uvL5dmfQqk2FW0xNH
+	vSBXqd0BLyP7ny4jgQelw5zf+pPsukqWm+WhEK4EUdKOfkz8j0zp24Mrd4/XYSmzwVkXjtYzxmm
+	yiwvcPlAWXXUzzx4PR+lgUUMVf08NujM4YQedo+lO/YfZzTWY75ZAP96lIj5yJeULLVSMIs80Ib
+	p5MQVxTNeU9kVtA97JO5FEZ9a7jgpC
+X-Received: by 2002:a05:600c:1f13:b0:480:4a90:1afe with SMTP id 5b1f17b1804b1-485198bab53mr105777125e9.34.1772727390462;
+        Thu, 05 Mar 2026 08:16:30 -0800 (PST)
+Received: from linaro.org ([77.64.146.193])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4851a8d64dbsm55344325e9.3.2026.03.05.08.16.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Mar 2026 08:16:29 -0800 (PST)
+Date: Thu, 5 Mar 2026 17:15:43 +0100
+From: Stephan Gerhold <stephan.gerhold@linaro.org>
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Thara Gopinath <thara.gopinath@gmail.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Udit Tiwari <quic_utiwari@quicinc.com>,
+	Md Sadre Alam <mdalam@qti.qualcomm.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Peter Ujfalusi <peter.ujfalusi@gmail.com>,
+	Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>,
+	dmaengine@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Bjorn Andersson <andersson@kernel.org>
+Subject: Re: [PATCH RFC v11 00/12] crypto/dmaengine: qce: introduce BAM
+ locking and use DMA for register I/O
+Message-ID: <aamsL4uh58Fv5een@linaro.org>
+References: <20260302-qcom-qce-cmd-descr-v11-0-4bf1f5db4802@oss.qualcomm.com>
+ <scr5qvxa7f7k22pms4c6k5gwiky7lhssrw6qryfngexlek44g2@rayinnnwqgbt>
+ <aalwMwN3qMlzrql5@linaro.org>
+ <CAMRc=MfjknN1AYF_NPLzR0YbdWuoET25D9o0zsvx56VN+u59HQ@mail.gmail.com>
+ <aamIf8JethKzLW93@linaro.org>
+ <CAMRc=Mf=NjCqf0eqmM800Q3MEUC48V_DZ3ts6+4=qMCtrbvzzQ@mail.gmail.com>
 MIME-Version: 1.0
-References: <20260304162222.836152-1-tabba@google.com> <20260304162222.836152-3-tabba@google.com>
- <86ms0m6yzk.wl-maz@kernel.org>
-In-Reply-To: <86ms0m6yzk.wl-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Thu, 5 Mar 2026 16:13:43 +0000
-X-Gm-Features: AaiRm50AKwVyEzy5F_vJgB74LeS4g576zBjIzkwS3u0xl1hmNy8i_O0Mvctk7UE
-Message-ID: <CA+EHjTwQP=sXJ=SJE3OqByHKm7Si3S41BfuFO827_ZVwaygC9g@mail.gmail.com>
-Subject: Re: [PATCH v1 2/2] KVM: arm64: Fix vma_shift staleness on nested
- hwpoison path
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, yangyicong@hisilicon.com, 
-	wangzhou1@hisilicon.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMRc=Mf=NjCqf0eqmM800Q3MEUC48V_DZ3ts6+4=qMCtrbvzzQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_081423_621692_6F983268 
-X-CRM114-Status: GOOD (  24.18  )
+X-CRM114-CacheID: sfid-20260305_081632_626124_B5F8A648 
+X-CRM114-Status: GOOD (  70.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,62 +120,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 5 Mar 2026 at 16:08, Marc Zyngier <maz@kernel.org> wrote:
->
-> Hi Fuad,
->
-> On Wed, 04 Mar 2026 16:22:22 +0000,
-> Fuad Tabba <tabba@google.com> wrote:
+On Thu, Mar 05, 2026 at 02:54:02PM +0100, Bartosz Golaszewski wrote:
+> On Thu, Mar 5, 2026 at 2:43 PM Stephan Gerhold
+> <stephan.gerhold@linaro.org> wrote:
 > >
-> > When user_mem_abort() handles a nested stage-2 fault, it truncates
-> > vma_pagesize to respect the guest's mapping size. However, the local
-> > variable vma_shift is never updated to match this new size.
+> > On Thu, Mar 05, 2026 at 02:10:55PM +0100, Bartosz Golaszewski wrote:
+> > > On Thu, Mar 5, 2026 at 1:00 PM Stephan Gerhold
+> > > <stephan.gerhold@linaro.org> wrote:
+> > > >
+> > > > On Tue, Mar 03, 2026 at 06:13:56PM +0530, Manivannan Sadhasivam wrote:
+> > > > > On Mon, Mar 02, 2026 at 04:57:13PM +0100, Bartosz Golaszewski wrote:
+> > > > > > NOTE: Please note that even though this is version 11, I changed the
+> > > > > > prefix to RFC as this is an entirely new approach resulting from
+> > > > > > discussions under v9. I AM AWARE of the existing memory leaks in the
+> > > > > > last patch of this series - I'm sending it because I want to first
+> > > > > > discuss the approach and get a green light from Vinod as well as Mani
+> > > > > > and Bjorn. Especially when it comes to communicating the address for the
+> > > > > > dummy rights from the client to the BAM driver.
+> > > > > > /NOTE
+> > > > > >
+> > > > > > Currently the QCE crypto driver accesses the crypto engine registers
+> > > > > > directly via CPU. Trust Zone may perform crypto operations simultaneously
+> > > > > > resulting in a race condition. To remedy that, let's introduce support
+> > > > > > for BAM locking/unlocking to the driver. The BAM driver will now wrap
+> > > > > > any existing issued descriptor chains with additional descriptors
+> > > > > > performing the locking when the client starts the transaction
+> > > > > > (dmaengine_issue_pending()). The client wanting to profit from locking
+> > > > > > needs to switch to performing register I/O over DMA and communicate the
+> > > > > > address to which to perform the dummy writes via a call to
+> > > > > > dmaengine_slave_config().
+> > > > > >
+> > > > >
+> > > > > Thanks for moving the LOCK/UNLOCK bits out of client to the BAM driver. It looks
+> > > > > neat now. I understand the limitation that for LOCK/UNLOCK, BAM needs to perform
+> > > > > a dummy write to an address in the client register space. So in this case, you
+> > > > > can also use the previous metadata approach to pass the scratchpad register to
+> > > > > the BAM driver from clients. The BAM driver can use this register to perform
+> > > > > LOCK/UNLOCK.
+> > > > >
+> > > > > It may sound like I'm suggesting a part of your previous design, but it fits the
+> > > > > design more cleanly IMO. The BAM performs LOCK/UNLOCK on its own, but it gets
+> > > > > the scratchpad register address from the clients through the metadata once.
+> > > > >
+> > > > > It is very unfortunate that the IP doesn't accept '0' address for LOCK/UNLOCK or
+> > > > > some of them cannot append LOCK/UNLOCK to the actual CMD descriptors passed from
+> > > > > the clients. These would've made the code/design even more cleaner.
+> > > > >
+> > > >
+> > > > I was staring at the downstream drivers for QCE (qce50.c?) [1] for a bit
+> > > > and my impression is that they manage to get along without dummy writes.
+> > > > It's a big mess, but it looks like they always have some commands
+> > > > (depending on the crypto operation) that they are sending anyway and
+> > > > they just assign the LOCK/UNLOCK flag to the command descriptor of that.
+> > > >
+> > > > It is similar for the second relevant user of the LOCK/UNLOCK flags, the
+> > > > QPIC NAND driver (msm_qpic_nand.c in downstream [2], qcom_nandc.c in
+> > > > mainline), it is assigned as part of the register programming sequence
+> > > > instead of using a dummy write. In addition, the UNLOCK flag is
+> > > > sometimes assigned to a READ command descriptor rather than a WRITE.
+> > > >
+> > > > @Bartosz: Can we get by without doing any dummy writes?
+> > > > If not, would a dummy read perhaps be less intrusive than a dummy write?
+> > > >
+> > >
+> > > The HPG says that the LOCK/UNLOCK flag *must* be set on a command
+> > > descriptor, not a data descriptor. For a simple encryption we will
+> > > typically have a data descriptor and a command descriptor with
+> > > register writes. So we need a command descriptor in front of the data
+> > > and - while we could technically set the UNLOCK bit on the subsequent
+> > > command descriptor - it's unclear from the HPG whether it will unlock
+> > > before or after processing the command descriptor with the UNLOCK bit
+> > > set. Hence the additional command descriptor at the end.
+> > >
 > >
-> > If the underlying host page turns out to be hardware poisoned,
-> > kvm_send_hwpoison_signal() is called with the original, larger
-> > vma_shift instead of the actual mapping size. This signals incorrect
-> > poison boundaries to userspace and breaks hugepage memory poison
-> > containment for nested VMs.
+> > I won't pretend that I actually understand what the downstream QCE
+> > driver is doing, but e.g. qce_ablk_cipher_req() in the qce50.c I linked
+> > looks like they just put the command descriptor with all the register
+> > writes first and then the data second (followed by another command
+> > descriptor for cleanup/unlocking). Is it actually required to put the
+> > data first?
 > >
-> > Update vma_shift to match the truncated vma_pagesize when operating
-> > on behalf of a nested hypervisor.
-> >
-> > Fixes: fd276e71d1e7 ("KVM: arm64: nv: Handle shadow stage 2 page faults")
-> > Signed-off-by: Fuad Tabba <tabba@google.com>
-> > ---
-> >  arch/arm64/kvm/mmu.c | 1 +
-> >  1 file changed, 1 insertion(+)
-> >
-> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> > index e1d6a4f591a9..b08240e0cab1 100644
-> > --- a/arch/arm64/kvm/mmu.c
-> > +++ b/arch/arm64/kvm/mmu.c
-> > @@ -1751,6 +1751,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
-> >
-> >               force_pte = (max_map_size == PAGE_SIZE);
-> >               vma_pagesize = min_t(long, vma_pagesize, max_map_size);
-> > +             vma_shift = force_pte ? PAGE_SHIFT : __ffs(vma_pagesize);
->
-> If force_pte is set, then we know that max_map_size == PAGE_SIZE. From
-> there, vma_pagesize == PAGE_SIZE, since nothing can be smaller.
->
-> Is there anything preventing us from having:
->
->                 vma_shift = __ffs(vma_pagesize);
->
-> and be done with it?
+> 
+> Well, now you're getting into the philosophical issue of imposing
+> requirements on the client which seemed to be the main point of
+> contention in earlier versions. If you start requiring the client to
+> put the DMA operations in a certain order (and it's not based on any
+> HW requirement but rather on how the DMA driver is implemented) then
+> how is it better than having the client just drive the locking
+> altogether like pre v11? We won't get away without at least some
+> requirements - like the client doing register I/O over DMA or
+> providing the scratchpad address - but I think just wrapping the
+> existing queue with additional descriptors in a way transparent to
+> consumers is better in this case. And as I said: the HPG doesn't
+> explicitly say that it unlocks the pipe *after* the descriptor with
+> the unlock bit is processed. Doesn't even hint at what real the
+> ordering is.
+> 
 
-Nope, nothing prevents that. Even simpler and better.
+Yes, I think the transparent approach here is reasonable given the
+design of the Linux DMA engine API. Since Mani commented "It is very
+unfortunate that the IP doesn't [...]" I mainly wanted to point out that
+this is probably because the main use cases the HW designers had in mind
+don't strictly require use of a dummy descriptor. The comment about the
+dummy descriptors might be more of a side note than an actual
+recommendation to implement it that way (otherwise, the downstream
+drivers would likely use the dummy descriptor approach as well).
 
-Would you like me to respin it?
+> > > The HPG also only mentions a write command and says nothing about a
+> > > read. In any case: that's the least of the problems as switching to
+> > > read doesn't solve the issue of passing the address of the scratchpad
+> > > register.
+> >
+> > True.
+> >
+> > >
+> > > So while some of this *may* just work, I would prefer to stick to what
+> > > documentation says *will* work. :)
+> > >
+> >
+> > Well, the question is if there is always a dummy register that can be
+> > safely written (without causing any side effects). This will be always
+> > just based on experiments, since the concept of a dummy write doesn't
+> > seem to exist downstream (and I assume the documentation doesn't suggest
+> > a specific register to use either).
+> >
+> 
+> You'd think so but the HPG actually does use the word "dummy" to
+> describe the write operation with lock/unlock bits set. Though it does
+> not recommend any particular register to do it.
+> 
 
-Cheers,
-/fuad
+I guess the documentation I'm looking at (8.7.3.4 BAM operation in the
+public APQ8016E TRM) might be an excerpt from some older version of the
+BAM HPG. Is also has a note about "dummy" command descriptors:
 
-> Thanks,
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
+  "NOTE: Pipe locking and unlocking should appear only in
+   command-descriptor. In case a lock is required on a data descriptor
+   this can be implemented by a dummy command descriptor with
+   lock/unlock bit asserted preceding/following the data descriptor."
+
+This one doesn't make any difference between READ and WRITE command
+descriptors (and both are documented in the chapter).
+
+Personally, I would prefer using a read over a write if possible. Unless
+you can confirm that the register used for the dummy write is actually
+read-only *and* write-ignore, writing to the register is essentially
+undefined behavior. It will probably do the right thing on most
+platforms, but there could also be one out there where writing to the
+register triggers an error or potentially even silently ends up writing
+into another register. Register logic can be fun in practice, commit
+e9a48ea4d90b ("irqchip/qcom-pdc: Workaround hardware register bug on
+X1E80100") [1] is a good example of that. :')
+
+Thanks,
+Stephan
+
+[1]: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e9a48ea4d90be251e0d057d41665745caccb0351
 
