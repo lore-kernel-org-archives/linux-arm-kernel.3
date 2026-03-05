@@ -4,99 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74604F3093A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 11:27:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B979F30946
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 11:28:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xZZVApgq/G+kwjimfOM6gAatNV+GE2CQXWyQH6+SXek=; b=cDe+Adr2SdHDj4WTJCpXOHm5PL
-	aLWEuUlIjfDZ3xSW0mIW2dPK9zsmVhYA6/3WJOSl9RStxXg3Mb/OyFMDTvX1pGMjOTNwZQkgVZPYT
-	8lGSJoPXKWsVNrAan+06jpYHHWDVXkzkpvozvuAXa8WbHh93oxlJSj50FhP1cDNtBJHhh5RGgkRVb
-	38iKcQvdBZgTM2z7onY8O3YfJWVadIPeSrtNv4ztfaeVzhTSIql582Vuipdu1m3JK9EvManDNPcvh
-	Rly3oT00V7goy0jEG3w4VeLFiVIsBLmOz8oMlHF5A5Uckz6s2qaInYKmJvsZlPTJwA5D1pcu0qnKD
-	2e3tbQ6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XvAS0SAYBwTnSG6I7oe2XtFU4ro4P/wdqQ4dE06w1WY=; b=06EJlCuxesbZSZoI0fV5HDk2vP
+	tEqIzZ0zGceZ7lxNKVuxWa1lF2ExY6hyn9S0mFwtWUdpaufbCj0haTTEDT6DZ8FYYGUs/eB7rpJol
+	6voxov1inXLO+uk8Jqq0Z3tsWjW3e4ea3iFZLR/OISKFXGLuZ4uTewKI6RdDWWZQdUVyj+CHbP0kv
+	qreZsaBl+8Lx7I8e0xrvCUMAvAxUiAkKbKAl2eMwZ3L+P9z4tT9Q6qZh5MOdtdDtNCgxKwCt24733
+	FL5OZLH+u2ZWskKB4SBCCVJHkcWPNmCinxC9ubNAQXgZHU0G0dkEco13p6k3/qBUrRoZRkFEAvRbo
+	2tOgMppw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy6rU-00000001g8I-42Nb;
-	Thu, 05 Mar 2026 11:27:24 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy6rS-00000001g7p-2utC
+	id 1vy6sA-00000001gCf-1EUt;
+	Thu, 05 Mar 2026 11:28:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vy6s7-00000001gBk-1qVz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 11:27:23 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2a9296b3926so58229915ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 03:27:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772710041; x=1773314841; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xZZVApgq/G+kwjimfOM6gAatNV+GE2CQXWyQH6+SXek=;
-        b=JMQdtWPaGIBIS8PXi5Me/hh13L7d2tEXFdefmNIcu4VD7F0IuuBv2Wuwul75S0Q1mQ
-         yZkw/ey97V1ctwPRxsVNm7aUpxWc8QR9gxdNgU5Q4lW7dZO2qGPmyv+YFInL4o0SZbaE
-         g2FVULHHEd1Qw+Ldy+SawJZN35j60ZmRLpwAjPBSmV3QUTca4wn9l6c7TRlstJheYyJL
-         fG1bjzD03YK/NcWjgWM6dErgKAavwV+/UXBS748ffK5BCJY/7ECLiaOj4dHMw8ASU9Cp
-         EJrD5Sf6H0ic2oQBIfxBA9Asg9QTdfWfJ1LrAQQNJwP+dbNd8LK+m5rhQnLZafW5XsMA
-         wssw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772710041; x=1773314841;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=xZZVApgq/G+kwjimfOM6gAatNV+GE2CQXWyQH6+SXek=;
-        b=jjgINfPp07rq5ZES3UrZMBTad18nbXOu/hWqzJhn9AZg7QKFFoKEJwnS8mPMDNQpSE
-         39CgExmrtxK1C9lfaAdy4vgk5HX9rJrRdLFC9eck23EMyXGRy/TGvGPcvmwMmMlvRpdt
-         mNy4VT+OWQCm+vT9LhgNzI6au2nh6I8O+Qm6ZLENIkjJMqldpkTDf4nHj8e1fgAyf6vL
-         qjPrci4AglaC1WbXuGaAKDNrdKgwh4eRqw/jYz14QHlMqB7xpPnVA1hSKyAIgTtGwCI6
-         mfULtQ0sQSktGB34QHjwLy8REStPu2wkvxodKjflGpiGPHBKXEQS/q5WJ/2XG5B+aj8w
-         e1nw==
-X-Forwarded-Encrypted: i=1; AJvYcCXb6mta55m8RyXH9S+51isdZ6qp/wse+4G75WWxEutg9RA0qpxxbRBX+jtsK0OYw2Di5xwdC8iFRgg6t0dnZIkb@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfI1l+9oqb2aSAhRPbvxOLFPxqe2RsfCvcGLx9RXpgEX1C8hUY
-	vdaYcgsX8DbWhP9zLQn82bdosUNQ5D2Pn5ZqYI7ME6J1kur7uR33eozH
-X-Gm-Gg: ATEYQzzQPfKukUCyMLGwGqN2cg57ovkvfGeWBsu6NNIvFh6rcJKrf6VN2ZpLKhoZn2E
-	lEqM5rge27kMJzR9txHyoIPk3KjW/49zsYEaR/CyrVU4AWFwUmg9jDOZRmS9Ua0lHeCbIF2AtWb
-	bFVKlfyVUMKClnyQLmGnjtAo5Wloi1AyLrb1h6Rvho80N+x2orN0Vi5gH5Sj6JVC3afDP+WXPBT
-	fJZw1B2K3YtKjl8fe9QBcfqd7M0vmudETXFzzZ72SYE9J5muC3H8Ah/CdZAIuP1IJCj5ASXeNf9
-	U/Is2de8wQLzvaYsIo4Xdq6ozqd1cRKeWx+GnmVxE1u294h29TNnvWF2qjPwA//RdBLHFU57vWv
-	gPZhoej121LseUyc4C2i4eDW+BH3vuA9nIaOLXJ3SFk9IAL4bkhbTlWaT9clJoO1VXiuwbhB00W
-	QIleLPEMin1i9OXyP5
-X-Received: by 2002:a17:902:e88f:b0:2ae:3a77:a1f4 with SMTP id d9443c01a7336-2ae6aa49457mr52815905ad.24.1772710041230;
-        Thu, 05 Mar 2026 03:27:21 -0800 (PST)
-Received: from bsp.. ([58.84.61.62])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae5229cda1sm144938805ad.23.2026.03.05.03.27.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Mar 2026 03:27:20 -0800 (PST)
-From: Rahul Navale <rahulnavale04@gmail.com>
-To: Folker Schwesinger <dev@folker-schwesinger.de>
-Cc: Rahul Navale <rahul.navale@ifm.com>,
-	dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	vkoul@kernel.org,
-	Frank.Li@kernel.org,
-	michal.simek@amd.com,
-	suraj.gupta2@amd.com,
-	thomas.gessler@brueckmann-gmbh.de,
-	radhey.shyam.pandey@amd.com,
-	tomi.valkeinen@ideasonboard.com,
-	rahulnavale04@gmail.com,
-	marex@nabladev.com,
-	marex@denx.de
-Subject: Re: [RFC PATCH] dmaengine: xilinx_dma: Fix per-channel direction reporting via device_caps
-Date: Thu,  5 Mar 2026 16:57:04 +0530
-Message-ID: <20260305112705.6862-1-rahulnavale04@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <DGHGTCJRRZCW.9TGXQW44V6RR@folker-schwesinger.de>
-References: <DGHGTCJRRZCW.9TGXQW44V6RR@folker-schwesinger.de>
+	Thu, 05 Mar 2026 11:28:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7F74E339;
+	Thu,  5 Mar 2026 03:27:52 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 714873F836;
+	Thu,  5 Mar 2026 03:27:57 -0800 (PST)
+Date: Thu, 5 Mar 2026 11:27:54 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	James Morse <james.morse@arm.com>, Mark Brown <broonie@kernel.org>,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH 1/4] arm64: tlb: Use __tlbi_sync_s1ish_kernel() for
+ kernel TLB maintenance
+Message-ID: <aaloumkRhnlu7gux@arm.com>
+References: <20260302165801.3014607-1-catalin.marinas@arm.com>
+ <20260302165801.3014607-2-catalin.marinas@arm.com>
+ <aabeUlR3QcBg7GmM@J2N7QTR9R3.cambridge.arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aabeUlR3QcBg7GmM@J2N7QTR9R3.cambridge.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_032722_743418_0198AE86 
-X-CRM114-Status: UNSURE (   5.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260305_032803_620575_9EE292E0 
+X-CRM114-Status: GOOD (  31.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,11 +69,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rahul Navale <rahul.navale@ifm.com>
+On Tue, Mar 03, 2026 at 01:12:50PM +0000, Mark Rutland wrote:
+> On Mon, Mar 02, 2026 at 04:57:54PM +0000, Catalin Marinas wrote:
+> > Add __tlbi_sync_s1ish_kernel() similar to __tlbi_sync_s1ish() and use it
+> > for kernel TLB maintenance. Also use this function in flush_tlb_all()
+> > which is only used in relation to kernel mappings. Subsequent patches
+> > can differentiate between workarounds that apply to user only or both
+> > user and kernel.
+> > 
+> > Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+> > Cc: Will Deacon <will@kernel.org>
+> > Cc: Mark Rutland <mark.rutland@arm.com>
+> 
+> This looks fine to me. I have one minor comment/naming nit below, but
+> this looks functionally correct, and I'm happy to spin a follow-up for
+> that.
+> 
+> With or without the changes below:
+> 
+> Acked-by: Mark Rutland <mark.rutland@arm.com>
 
->Could you confirm that the DMA IP core in your PL design operates in 
->scatter Gather mode?
+Thanks Mark.
 
-Yes, We confirmed that our DMA IP core in the PL design are configured 
-for Scatter-Gather mode.
+> > diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+> > index 1416e652612b..19be0f7bfca5 100644
+> > --- a/arch/arm64/include/asm/tlbflush.h
+> > +++ b/arch/arm64/include/asm/tlbflush.h
+> > @@ -191,6 +191,12 @@ static inline void __tlbi_sync_s1ish(void)
+> >  	__repeat_tlbi_sync(vale1is, 0);
+> >  }
+> >  
+> > +static inline void __tlbi_sync_s1ish_kernel(void)
+> > +{
+> > +	dsb(ish);
+> > +	__repeat_tlbi_sync(vale1is, 0);
+> > +}
+> > +
+> >  /*
+> >   * Complete broadcast TLB maintenance issued by hyp code which invalidates
+> >   * stage 1 translation information in any translation regime.
+> > @@ -299,7 +305,7 @@ static inline void flush_tlb_all(void)
+> >  {
+> >  	dsb(ishst);
+> >  	__tlbi(vmalle1is);
+> > -	__tlbi_sync_s1ish();
+> > +	__tlbi_sync_s1ish_kernel();
+> >  	isb();
+> >  }
+> 
+> The commit message is correct that flush_tlb_all() is only used for
+> kernel mappings today, via flush_tlb_kernel_range(), so this is safe.
+
+Unfortunately, it's also used by the core code -
+hugetlb_vmemmap_restore_folios() (and another function in this file).
+
+> However, the big comment block around line 200 says:
+> 
+> 	flush_tlb_all()
+> 		Invalidate the entire TLB (kernel + user) on all CPUs
+> 
+> ... and:
+> 
+> 	local_flush_tlb_all()
+> 		Same as flush_tlb_all(), but only applies to the calling CPU.
+> 
+> ... where the latter is used for user mappings (upon ASID overflow), so
+> I think there's some risk of future confusion.
+
+Ignoring this erratum, the statements are still correct for arm64 as it
+flushes both kernel and user, though I see what you mean w.r.t. its
+intended use.
+
+> To minimize the risk that flush_tlb_all() gets used for user mappings in
+> future, how about we rename flush_tlb_all() => flush_tlb_kernel_all(), and
+> update those comments:
+> 
+> 	flush_tlb_kernel_all()
+> 		Invalidate all kernel mappings on all CPUs.
+> 		Should not be used to invalidate user mappings.
+> 
+> 	local_flush_tlb_all()
+> 		Invalidate all (kernel + user) mappings on the calling CPU.
+> 
+> Note: I chose flush_tlb_kernel_all() rather than flush_tlb_all_kernel()
+> __flush_tlb_kernel_{pgtable,range}, with 'kernel' before the operation/scope.
+
+I'm fine to update the comments but, for backporting, I'd not change the
+function name as it will have to touch core code. Ideally we should go
+around and change the other architectures to follow the same semantics
+(I briefly looked at x86 and powerpc and they also seem to use
+flush_tlb_all() only for kernel mappings).
+
+So, I think it's better to do this cleanup separately ;).
+
+-- 
+Catalin
 
