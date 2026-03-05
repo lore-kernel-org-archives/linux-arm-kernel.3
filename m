@@ -4,87 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B951F33A71
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 14:25:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 765DDF33A74
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 14:32:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vcAnJxT2MoytbVr4+KRHt9aHA6PVj5pyj6kUavH5DjM=; b=nAE2ogHIup4pmx2a7UPBozVrA6
-	gDhRXftgZV5leDpYjMUmGOzGXUlYMUj4vtFyb8rhUAcC50E0zuZ1ODX+HdP+69kM6P6kw1gnd0TSW
-	tpi3IZbivd5YMtFYofQ0OKepjvBNee185DirT9n+FpMApUxybt2jcvQv6O2Qmb5nKeL35uzTYC5Kh
-	zUkEWvmISWfPQkxcu6Zc1ZXGOZ03+IRMabyuwhuWUGKl62JnRHZAtxqv1htjraOM6uB6o0n9+3sS9
-	uniBxzW6ea86XsaWtuF/mATGmiAso9b6Y8JkV3fesGvwQgsOVq62ikYdp7IkLQg0UN1CuVRKDQ31f
-	3rMHFnVg==;
+	bh=EbCQueaJiNrL46u9K2+vA32OpLp/TxgEjPJUL+Wg6Bg=; b=OKhwKLvskHBKMNWU8Fhb6x580v
+	5dIOrYSFRkencYeY07sz5AQsi1HZ1Ny0cV7vLWMJERVCy71ZS74GCmIKV9KAt/enuSaUBq0f8yu3Q
+	HXyvO5eqrhxBfpK0IOyAmQV51ufu/dysHUPo4kFMpOegNUHt4ho/RVz4gUuAsuobUYOjYMz2bc98f
+	nBZLzk8zuPmS5GDmqZH8DE7iShADeem1A9slrVJ+9yrQ41XgiAjkCIReS/6DHo4h7BGwjrAeKwU3d
+	9XVut5Z0Tlawsqd/4jBOy2YjrlV6WdkiUEBKbKsa0sYHKqfloZW66+MTZTA/WnT3FoS1pYLK+F/pA
+	leqkmf9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy9dZ-00000001z9o-1qxs;
-	Thu, 05 Mar 2026 14:25:13 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1vy9kT-00000001zmL-2MbA;
+	Thu, 05 Mar 2026 14:32:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy9dT-00000001z6d-461J
+	id 1vy9kR-00000001zlq-1DKT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 14:25:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1772720708; x=1804256708;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=UND8xvhahcE7q/80K7vvrBC8EEtbqKcSL68hzKgc8Lw=;
-  b=TP8nZjIME1qsBAJIfwP48KvFe9U/5ui+dhavbnpJdBBhPgRG+Q78iKRO
-   IHIAgo+I7NxUhzqkMglNbvteQAG3djg5uRnMevwwOrzgXN6VcOWWfHs62
-   ko+eoIJ90kPjc2sXv93WCRCojC+bEujXNUl5pfNWVMkKy3zJBq2ovzF7b
-   6CuTtH7gDZHqJUAGyAgEzKQhyfD+c9NZ+PNO8WJw9FX4XADs3PdWoHnsZ
-   wWQNFXY/toKb+Whav/scK4P0GYoLRBB22Bcn1jGAop8KdfM+iu3HF0hIY
-   oaoWUDuXYV2MwF+uJjfHvwfYhkk6qFY6tbDpsdpAzLzlKQuCfvhKFpaCN
-   g==;
-X-CSE-ConnectionGUID: NKB+Y3jSSZaimN3V6kHeCA==
-X-CSE-MsgGUID: W0bd/w3bQfyDKgZes3biDw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11720"; a="72835928"
-X-IronPort-AV: E=Sophos;i="6.23,103,1770624000"; 
-   d="scan'208";a="72835928"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Mar 2026 06:25:06 -0800
-X-CSE-ConnectionGUID: F23Q4HAtQZOHCQj1Y+ZJiQ==
-X-CSE-MsgGUID: 8InoVMI7SAakhBhZj/4klQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,103,1770624000"; 
-   d="scan'208";a="217938311"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by orviesa010.jf.intel.com with ESMTP; 05 Mar 2026 06:25:02 -0800
-Received: by black.igk.intel.com (Postfix, from userid 1001)
-	id B050B95; Thu, 05 Mar 2026 15:25:00 +0100 (CET)
-Date: Thu, 5 Mar 2026 15:25:00 +0100
-From: Mika Westerberg <mika.westerberg@linux.intel.com>
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Frank Rowand <frowand.list@gmail.com>,
-	Mika Westerberg <westeri@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Janusz Krzysztofik <jmkrzyszt@gmail.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH 2/6] gpio: move hogs into GPIO core
-Message-ID: <20260305142500.GB2275908@black.igk.intel.com>
-References: <20260305-gpio-hog-fwnode-v1-0-97d7df6bbd17@oss.qualcomm.com>
- <20260305-gpio-hog-fwnode-v1-2-97d7df6bbd17@oss.qualcomm.com>
+	Thu, 05 Mar 2026 14:32:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EEE48436D7;
+	Thu,  5 Mar 2026 14:32:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9A87C116C6;
+	Thu,  5 Mar 2026 14:32:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772721137;
+	bh=BDxRqGoVPIAZP5jThA2TA1n7z0JYbMMJCM69Dd0B96Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=f6BMuB0LQdQojB3SzJVF9cI/GNdjZ45yhkZv+0JndOxbsgW6Vl/hDYpq0QPcMKtYZ
+	 SY9Q4MyF0P76suZ/AszzmZNjB3ZXonECq1868uUCyaw9UvQ+b2JL2ytjyiliWXUr0c
+	 F69z9IR4flhpaVv7sz5fsNLsttVVpefU+nUnlB+2I6v0tWq5YQBT668+Yb+v1VWxuC
+	 1gV+MRpdNXgdgZGIDOHHMQC/dVJZkI/dBQtEjEzrro4Q9jiMHyS3+waWrW4FtDhqWe
+	 h4cM2WIlOqd+ScCMfHaahf7CsHuKlMbiqLva0QDQcxzbPH5MODVf3X3+mjXp/nNtK3
+	 EC0FX8Hsh+S9Q==
+Date: Thu, 5 Mar 2026 14:32:11 +0000
+From: Will Deacon <will@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev
+Subject: Re: [PATCH 3/4] arm64: errata: Work around early CME DVMSync
+ acknowledgement
+Message-ID: <aamT6-Mvr9nI1unq@willie-the-truck>
+References: <20260302165801.3014607-1-catalin.marinas@arm.com>
+ <20260302165801.3014607-4-catalin.marinas@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260305-gpio-hog-fwnode-v1-2-97d7df6bbd17@oss.qualcomm.com>
+In-Reply-To: <20260302165801.3014607-4-catalin.marinas@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_062509_132459_650D56F7 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20260305_063219_369741_2B6B8B11 
+X-CRM114-Status: GOOD (  25.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,15 +78,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 05, 2026 at 10:51:27AM +0100, Bartosz Golaszewski wrote:
-> Refactor line hogging code by moving the parts duplicated in
-> gpiolib-acpi-core.c and gpiolib-of.c into gpiolib.c, leaving just the
-> OF-specific bits in the latter.
-> 
-> This makes fwnode the primary API for setting up hogs and allows to use
-> software nodes in addition to ACPI and OF nodes.
-> 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+On Mon, Mar 02, 2026 at 04:57:56PM +0000, Catalin Marinas wrote:
+> C1-Pro acknowledges DVMSync messages before completing the SME/CME
+> memory accesses. Work around this by issuing an IPI+DSB to the affected
+> CPUs if they are running in EL0 with SME enabled.
 
-Reviewed-by: Mika Westerberg <mika.westerberg@linux.intel.com>
+Just to make sure I understand the implications, but this _only_ applies
+to explicit memory accesses from the SME unit and not, for example, to
+page-table walks initiated by SME instructions?
+
+> Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Mark Brown <broonie@kernel.org>
+> ---
+>  arch/arm64/Kconfig                | 12 +++++
+>  arch/arm64/include/asm/cpucaps.h  |  2 +
+>  arch/arm64/include/asm/cputype.h  |  2 +
+>  arch/arm64/include/asm/fpsimd.h   | 29 +++++++++++
+>  arch/arm64/include/asm/mmu.h      |  1 +
+>  arch/arm64/include/asm/tlbflush.h | 17 +++++++
+>  arch/arm64/kernel/cpu_errata.c    | 19 ++++++++
+>  arch/arm64/kernel/entry-common.c  |  3 ++
+>  arch/arm64/kernel/fpsimd.c        | 81 +++++++++++++++++++++++++++++++
+>  arch/arm64/kernel/process.c       |  7 +++
+>  arch/arm64/tools/cpucaps          |  1 +
+>  11 files changed, 174 insertions(+)
+
+[...]
+
+> @@ -575,6 +576,14 @@ static const struct midr_range erratum_spec_ssbs_list[] = {
+>  };
+>  #endif
+>  
+> +#ifdef CONFIG_ARM64_ERRATUM_SME_DVMSYNC
+> +static void cpu_enable_sme_dvmsync(const struct arm64_cpu_capabilities *__unused)
+> +{
+> +	if (this_cpu_has_cap(ARM64_WORKAROUND_SME_DVMSYNC))
+> +		sme_enable_dvmsync();
+> +}
+> +#endif
+> +
+>  #ifdef CONFIG_AMPERE_ERRATUM_AC03_CPU_38
+>  static const struct midr_range erratum_ac03_cpu_38_list[] = {
+>  	MIDR_ALL_VERSIONS(MIDR_AMPERE1),
+> @@ -901,6 +910,16 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+>  		.matches = need_arm_si_l1_workaround_4311569,
+>  	},
+>  #endif
+> +#ifdef CONFIG_ARM64_ERRATUM_SME_DVMSYNC
+> +	{
+> +		.desc = "C1-Pro SME DVMSync early acknowledgement",
+> +		.capability = ARM64_WORKAROUND_SME_DVMSYNC,
+> +		.cpu_enable = cpu_enable_sme_dvmsync,
+> +		/* C1-Pro r0p0 - r1p2 (the latter only when REVIDR_EL1[0]==0 */
+> +		ERRATA_MIDR_RANGE(MIDR_C1_PRO, 0, 0, 1, 2),
+> +		MIDR_FIXED(MIDR_CPU_VAR_REV(1, 2), BIT(0)),
+> +	},
+> +#endif
+
+An alternative to this workaround is just to disable SME entirely, perhaps
+by passing 'arm64.nosme' on the cmdline. Maybe we should disable the
+workaround in that case?
+
+> @@ -1358,6 +1360,85 @@ void do_sve_acc(unsigned long esr, struct pt_regs *regs)
+>  	put_cpu_fpsimd_context();
+>  }
+>  
+> +#ifdef CONFIG_ARM64_ERRATUM_SME_DVMSYNC
+> +
+> +/*
+> + * SME/CME erratum handling
+> + */
+> +static cpumask_var_t sme_dvmsync_cpus;
+> +static cpumask_var_t sme_active_cpus;
+> +
+> +void sme_set_active(unsigned int cpu)
+> +{
+> +	if (!cpus_have_final_cap(ARM64_WORKAROUND_SME_DVMSYNC))
+> +		return;
+> +	if (!cpumask_test_cpu(cpu, sme_dvmsync_cpus))
+> +		return;
+> +
+> +	if (!test_bit(ilog2(MMCF_SME_DVMSYNC), &current->mm->context.flags))
+> +		set_bit(ilog2(MMCF_SME_DVMSYNC), &current->mm->context.flags);
+> +
+> +	cpumask_set_cpu(cpu, sme_active_cpus);
+> +
+> +	/*
+> +	 * Ensure subsequent (SME) memory accesses are observed after the
+> +	 * cpumask and the MMCF_SME_DVMSYNC flag setting.
+> +	 */
+> +	smp_mb();
+
+I can't convince myself that a DMB is enough here, as the whole issue
+is that the SME memory accesses can be observed _after_ the TLB
+invalidation. I'd have thought we'd need a DSB to ensure that the flag
+updates are visible before the exception return.
+
+> +void sme_do_dvmsync(void)
+> +{
+> +	/*
+> +	 * This is called from the TLB maintenance functions after the DSB ISH
+> +	 * to send hardware DVMSync message. If this CPU sees the mask as
+> +	 * empty, the remote CPU executing sme_set_active() would have seen
+> +	 * the DVMSync and no IPI required.
+> +	 */
+> +	if (cpumask_empty(sme_active_cpus))
+> +		return;
+> +
+> +	preempt_disable();
+> +	smp_call_function_many(sme_active_cpus, sme_dvmsync_ipi, NULL, true);
+> +	preempt_enable();
+> +}
+
+Why do we care about all CPUs using SME, rather than limiting it to the
+set of CPUs using SME with the mm we've invalidated? This looks like it
+will result in unnecessary cross-calls when multiple tasks are using SME
+(especially as the mm flag is only cleared on fork).
+
+Will
 
