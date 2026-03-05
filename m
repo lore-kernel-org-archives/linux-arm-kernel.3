@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1D0CEEF30E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 07:18:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7901DEEF313
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 07:19:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=C38jdy81p0mIzFF0LJ3prC3UOsZD6FgVzym1nTZbMhQ=; b=Jq2/tcCbp9OS0/utNtBQka0rJI
-	ggvz5cIALbEkDScBEoNfezqBkpTQ2SswEEfX+Jbz9NXpchCGCJqhyJCAtx3oPcMdYC2lBmPqblfae
-	IHWXbiXhyTcwVrgRQ456FsqWd4u5H14MFkKV5UpVzeC9yu8+Y5dfQ+wg/6Y5aBdwTnLXmygJmsvOV
-	PacvUzjrVBvogmdTUro8k3D8w9MLP2xcgIqlsOa5CUapssHWzO2nzkMtmdAYAzYaI1ep3uxf8NoES
-	jgn0Gb/lp+XvfSVHj8jNXNrMYgx0Jmg2jnxzHGBRIDwWSR1TMOl3oLICZtnRuFggCLY4pbG0N6IFJ
-	ooapYPog==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Uoaz7W+ExVjeFhFu+oy/yehfxU/6m5rmsVl0/hxKwR8=; b=K9Sj0ttAS20m99XK/o/A1m6xaG
+	uEFaUJa+i8jbSarklrW8GCrHOYE+jztPf7XLm7qL5unJ7lIw4GKvCu5WeRulxBsa0EXgKgoIRJ4z2
+	gl5o0yLZ+R+LNJttzEV75c7IZJAB5BGjkdEe+atH+gXhkhrS71eXTEZ7PHQES0NmbsnGzQHdEYom6
+	hP/CaJsj9PBMR3ILglnJrwb/X/z/hikRtRj8v5zkWUfmOc6U33fpgyRVJkOLgE6IBLA6XUwLMN0hV
+	adJ6cpzqe6/h61DIc139p+MRF/IW1rcF6QajgSrX+a7SlOgAFvNYbY9AeGBj322FSg8tKSVYxkBxa
+	6NYeGZRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy2yA-0000000152J-3KJ5;
-	Thu, 05 Mar 2026 07:18:02 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1vy2zk-000000015Ac-0jQM;
+	Thu, 05 Mar 2026 07:19:40 +0000
+Received: from smtp.jvdsn.com ([2603:c020:1:bd00::1:3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy2y7-0000000151K-1HcA
+	id 1vy2zi-000000015AG-1KLU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 07:18:01 +0000
-Received: from localhost (unknown [124.16.138.129])
-	by APP-01 (Coremail) with SMTP id qwCowADXgGwfLqlpGypHCQ--.538S2;
-	Thu, 05 Mar 2026 15:17:51 +0800 (CST)
-From: Chen Ni <nichen@iscas.ac.cn>
-To: sudeep.holla@kernel.org,
-	cristian.marussi@arm.com
-Cc: sumit.garg@oss.qualcomm.com,
-	jens.wiklander@linaro.org,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Chen Ni <nichen@iscas.ac.cn>
-Subject: [PATCH] firmware: arm_scmi: optee: Check return value of tee_shm_get_va()
-Date: Thu,  5 Mar 2026 15:15:33 +0800
-Message-Id: <20260305071533.930896-1-nichen@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	Thu, 05 Mar 2026 07:19:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=jvdsn.com; s=mail;
+	t=1772695175; bh=28Ie8QvorUqaeXyfBFib6Vpgd0CWzIv1/GxcOBEm6QM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=4I6+dhHDnhoRF7n6JWdDE9O8fP3gN5EuF5Xg0PY1SoG7hZdINWPSf07YIsZbAfKUk
+	 0RPU5iLbNHN5ZnGGUdWbVsEgJwbODOeQfmR0zkezNU4GngmeiKycX9nL4CzMY3a2ct
+	 /YG+DJ/Fq7W0L4DmDNuUvVgsDmUPMR5Y4X676dsBNeygIP+Ce/g/WyZI9+3pRxI4pP
+	 dNZ0TSX+Txu6tsTapGlZbfNVcNYCwDsTZ4ltdkSFo2Et32FQeyLliS+bY4IJqOzFY4
+	 oSFlKqqhbmeq4y352WuXhw6/4KcvQdyYp725I00E8PYmA85ikTdLWMLw2+RKW/2OIg
+	 ubv1nyl7WwjKA==
+Message-ID: <952df8bf-0393-48a3-a844-e3acf13fd770@jvdsn.com>
+Date: Thu, 5 Mar 2026 01:19:34 -0600
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qwCowADXgGwfLqlpGypHCQ--.538S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7WF4xGFyrAFy5Xry7Ww1kGrg_yoW8JFy8pF
-	4YgayUtr47tF4ft34Iqrs7uFy5J3W8Gr9rKa4vya4kAwn8ArykGryUta4jgF98Ar4xt3y5
-	K3WFqrZ0gFyUJrJanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvv14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWU
-	AVWUtwCY02Avz4vE14v_GF4l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
-	87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
-	IFyTuYvjfU5FApDUUUU
-X-Originating-IP: [124.16.138.129]
-X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
+Subject: Re: [PATCH] crypto: testmgr - block Crypto API xxhash64 in FIPS mode
+To: Christoph Hellwig <hch@infradead.org>, Eric Biggers <ebiggers@kernel.org>
+Cc: Herbert Xu <herbert@gondor.apana.org.au>,
+ "David S. Miller" <davem@davemloft.net>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ linux-crypto@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ dm-devel@lists.linux.dev
+References: <20260303060509.246038-1-git@jvdsn.com>
+ <aab5ptuamQ7d_tTi@infradead.org> <20260303193102.GA2846@sol>
+ <aagvBY-XMfPIqkDO@infradead.org>
+Content-Language: en-US
+From: Joachim Vandersmissen <git@jvdsn.com>
+In-Reply-To: <aagvBY-XMfPIqkDO@infradead.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_231759_719019_82E99A1A 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20260304_231938_440386_002EF5AB 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,38 +73,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The function tee_shm_get_va() can return an error pointer if the shared
-memory is not properly mapped or if the offset is invalid. Without this
-check, passing the error pointer to subsequent memory operations could
-lead to a kernel panic.
+Thanks for the discussion below, it sounds like I need to ensure 
+dm-integrity can use lib/crypto (at least for xxhash64) before blocking 
+it in the crypto API.
 
-Add a check for IS_ERR() on the return value of tee_shm_get_va().
-
-Fixes: db9cc5e67778 ("firmware: arm_scmi: Make OPTEE transport a standalone driver")
-Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
----
- drivers/firmware/arm_scmi/transports/optee.c | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/drivers/firmware/arm_scmi/transports/optee.c b/drivers/firmware/arm_scmi/transports/optee.c
-index 07ae18d5279d..a6774152c205 100644
---- a/drivers/firmware/arm_scmi/transports/optee.c
-+++ b/drivers/firmware/arm_scmi/transports/optee.c
-@@ -340,6 +340,13 @@ static int setup_dynamic_shmem(struct device *dev, struct scmi_optee_channel *ch
- 	}
- 
- 	shbuf = tee_shm_get_va(channel->tee_shm, 0);
-+	if (IS_ERR(shbuf)) {
-+		dev_err(channel->cinfo->dev, "failed to get shared memory VA\n");
-+		tee_shm_free(channel->tee_shm);
-+		channel->tee_shm = NULL;
-+		return PTR_ERR(shbuf);
-+	}
-+
- 	memset(shbuf, 0, msg_size);
- 	channel->req.msg = shbuf;
- 	channel->rx_len = msg_size;
--- 
-2.25.1
-
+On 3/4/26 7:09 AM, Christoph Hellwig wrote:
+> On Tue, Mar 03, 2026 at 11:31:02AM -0800, Eric Biggers wrote:
+>>> It sounds like xxhash should be removed the crypto API entirely.
+>>> There's no user of it, it's not crypto, and doing xxhash through
+>>> the userspace crypto API socket is so stupid that I doubt anyone
+>>> attempted it.
+>> dm-integrity, which uses crypto_shash and accepts arbitrary hash
+>> algorithm strings from userspace, might be relying on "xxhash64" being
+>> supported in crypto_shash.  The integritysetup man page specifically
+>> mentions xxhash64:
+> Oh, ok.  So at least for now we need it, although it would be nice to
+> convert dm-integrity to lib/crypto/ and limit it to the advertised
+> algorithms (including xxhash).
+>
+>
 
