@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82DC7EF8FE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:20:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CC21EDA697
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:20:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WcLNzXl21Z0IGz5loeaMz5yAKbSvSMAru23mD8/dYjg=; b=qNVA3mLMY1stbIfvhIm2QndO0R
-	7EG4m+iihwIkWDMHzpzoxBeq+L6irrIsqbfXxHlcAFcRDMAAtO6Bd7tn1Lg/mqwprtA9p/ntlSyI4
-	2BDxGRT8sTM7o+gLXUjTW0fG1LMsoJmAdXDt5T5TGgEuh8JmfB1hZ3MbtvHxLLQath6YzYhzQIBtM
-	6NlMvEVWaWcDYyAlxj8C0YrJrZErHRzhGuLOY6h9PtRc9lNfpRiFdD+V2v+j4BBcZWP3AfP2Xyf3T
-	txuHrYIIr/qUE7/2t9k6qxvu+4G4g/hU1h0Ml5A7zLKSVLSWnxnd0JDepDb5Bt56r0iagHfUpfQzd
-	bkluJIeg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UkvhX1eGnzYEIZ/ydvqM1n36ebV8YAFKvf0gHruqeB0=; b=czTToqBszXkmIURFjj/cMjC2VC
+	01i8Qunj+lONETL9V+U/tkEPp+ND7pxT3o0EiGnhEMaTR5Z5zVHlx/9w8i1yz0pxsujRivQNZG+PJ
+	s3EjwuuYWM0DUTddg9AXR4naWzUMRx3hcBqvQaGwG+0zG1MyC7SeYLYkQw0babWU5DgWur0XQDw55
+	Ztip4eW8lwb96unecTtZ3sWhMCtPivW8NmZf7zYM8nV1J4dxkEjZuW1ChgBUC9lMZbH1Qfo/LLRjh
+	K5Tb3sxEev9swo9KNkMYXt00IfhjW3IpaSjg6x+cJkAiH58H7dmtBZzxPiUHBOiCii4a/qX67eNZU
+	q2NSi+4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy4st-00000001MaR-3qry;
-	Thu, 05 Mar 2026 09:20:43 +0000
+	id 1vy4sp-00000001MWO-2PKa;
+	Thu, 05 Mar 2026 09:20:39 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy4ss-00000001MZE-3wRK
+	id 1vy4sm-00000001MTj-1JdH
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 05 Mar 2026 09:20:42 +0000
+	Thu, 05 Mar 2026 09:20:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=WcLNzXl21Z0IGz5loeaMz5yAKbSvSMAru23mD8/dYjg=; b=mgukK4nVe4SLJ9FBrtsDBChVUG
-	j4ht5ZZRzU603HzaHj/gaoG+6FUpMd74klLHq/tFilW14bMwJJbW1uka+Iz9fvc/O1nE2go9uPf5w
-	5ho8k/1Ng7S4wQo9qtf/tyuumsXQ1kbaFDj2dMKULmOYiWqiCNtKfQwK4W4Yshrfv+v+6Y3l6H7ad
-	Z+ZgJl/hZaIPa2LryW9gJpwMFUtYCHFwV8ssmuwAKtEYTKuX2G3c56mjF2dFe8xL1CGKxYqroS7pJ
-	mOR8Qg97K1s3IJK44nZQK5EfM1pHlxzwdYDeXcjazxaZwU79iezRO+og8mPfZx0Bs2MryvQe926FR
-	vgzgallA==;
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=UkvhX1eGnzYEIZ/ydvqM1n36ebV8YAFKvf0gHruqeB0=; b=B6y4oMu4jki14rD40X9Q99bONk
+	BOc8LmX4dNU0UY0LfzpUzHf3q/AquHCArGmwawiwt8RIJ4unK3DopAwBClMas1zLO8zs259b5j8yo
+	2lQv8BmDo0moTykW9i2yE8IYL6KCoWyMSIY8yphtEly442jwa4dmpIMgjB3kf6srLoxkWs3HfLQV4
+	cMSCUDzIhai0ncvpMwAL7kbJfKH8vCMbsGAt/0n/TvBOHJVnBxSc4b7YP+gZQMOfaLwI4/0JyJK6D
+	VtdgqcQmT4fXUhPn/GjgZQ4oeoBvTWT0TMuGrwpBgBL6czIrkgHuoORD33UrT4oUy/T5Lwt9AmVnR
+	hwbIWzQg==;
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy4sq-0000000Ejon-0jYm
+	id 1vy4sj-0000000Ejni-0C2H
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 09:20:41 +0000
+	Thu, 05 Mar 2026 09:20:34 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 0A4074E4256A;
-	Thu,  5 Mar 2026 09:20:36 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 444DFC40415;
+	Thu,  5 Mar 2026 09:20:43 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D450E5FDEB;
-	Thu,  5 Mar 2026 09:20:35 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 875EF10369849;
-	Thu,  5 Mar 2026 10:20:32 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B25105FDEB;
+	Thu,  5 Mar 2026 09:20:24 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1E4B710369570;
+	Thu,  5 Mar 2026 10:20:14 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1772702434; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=WcLNzXl21Z0IGz5loeaMz5yAKbSvSMAru23mD8/dYjg=;
-	b=tSJh4rNXf+8kqYmGWjdJRtL1YpUdmBC6t6JuEW42eXnjw0td/WVuYR3U66a5O+Uwod4OYJ
-	fCztOUWsGmdatP5yOYZBx30Yy1Hx/cpz11HwuIFK09mg9kZP2WjFTHOKsNHvHWj/xUQgpt
-	mU+VLHE86bgHNXxgJEImx2WbjUjSF9EifARjj6ee/Ev5URpTialkzgEtta0LsX4h2h1OFQ
-	BxwRujlOM0QzrGgtyc2rK4rgRfvtxvkpz/42qn50dPJxsVmi7ZxIFETLm4uFzBU2YV903c
-	Y3wmcSy4WyUG0zCCmulP+FTPWDlv1PBLYa+MNQe4ubnudAIbKuR0u3GcE7Ap/A==
+	t=1772702420; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=UkvhX1eGnzYEIZ/ydvqM1n36ebV8YAFKvf0gHruqeB0=;
+	b=UmZ3SJc0Zji3xNMUrwvviAdpYax1HkPBKYFgvhsumSNQGNzWVHEmHhfkt+TkttVf/aqP6t
+	eWexiZkQlFooD2ryhEgv3UKafV+ataLrHzMtcL4pIpyjJia9HCnm2HrJTbHfOZ4MIAeX0I
+	xy2g/UG55w0ScsDkuLPiBrzzSJNRTupLfbtmd/ue8kbmbf3mkcfY9XdklCsncL73Z5mdEI
+	E0j76e3CA6eXc1UhKjgmdiyvsBMXSt9MHB0xH87vWcslY2eb2bJ9vTop59QT4Xy83y80u/
+	TbqaVS74poxBdKumJkC25nX73HnaIGsTNK30lyh5BPy7KJ1injH+ky167S+gPQ==
 From: Richard Genoud <richard.genoud@bootlin.com>
 To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
 	Rob Herring <robh@kernel.org>,
@@ -78,19 +77,16 @@ Cc: Paul Kocialkowski <paulk@sys-base.io>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Richard Genoud <richard.genoud@bootlin.com>
-Subject: [PATCH v4 4/4] MAINTAINERS: Add entry on Allwinner H616 PWM driver
-Date: Thu,  5 Mar 2026 10:19:59 +0100
-Message-ID: <20260305091959.2530374-5-richard.genoud@bootlin.com>
+Subject: [PATCH v4 0/4] Introduce Allwinner H616 PWM controller
+Date: Thu,  5 Mar 2026 10:19:55 +0100
+Message-ID: <20260305091959.2530374-1-richard.genoud@bootlin.com>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260305091959.2530374-1-richard.genoud@bootlin.com>
-References: <20260305091959.2530374-1-richard.genoud@bootlin.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_092040_349828_40BCBDAB 
-X-CRM114-Status: UNSURE (   9.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260305_092033_142696_0D29E528 
+X-CRM114-Status: GOOD (  21.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,29 +101,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add myself as maintainer of Allwinner H616 PWM driver and device-tree
-bindings.
+Allwinner H616 PWM controller is quite different from the A10 one.
 
-Tested-by: John Stultz <jstultz@google.com>
-Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
----
- MAINTAINERS | 5 +++++
- 1 file changed, 5 insertions(+)
+It can drive 6 PWM channels, and like for the A10, each channel has a
+bypass that permits to output a clock, bypassing the PWM logic, when
+enabled.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 61bf550fd37c..de284487242f 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -906,6 +906,11 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/sound/allwinner,sun50i-h6-dmic.yaml
- F:	sound/soc/sunxi/sun50i-dmic.c
- 
-+ALLWINNER H616 PWM DRIVER
-+M:	Richard Genoud <richard.genoud@bootlin.com>
-+S:	Maintained
-+F:	drivers/pwm/pwm-sun50i-h616.c
-+
- ALLWINNER HARDWARE SPINLOCK SUPPORT
- M:	Wilken Gottwalt <wilken.gottwalt@posteo.net>
- S:	Maintained
+But, the channels are paired 2 by 2, sharing a first set of
+MUX/prescaler/gate.
+Then, for each channel, there's another prescaler (that will be bypassed
+if the bypass is enabled for this channel).
+
+It looks like that:
+            _____      ______      ________
+OSC24M --->|     |    |      |    |        |
+APB1 ----->| Mux |--->| Gate |--->| /div_m |-----> PWM_clock_src_xy
+           |_____|    |______|    |________|
+                          ________
+                         |        |
+                      +->| /div_k |---> PWM_clock_x
+                      |  |________|
+                      |    ______
+                      |   |      |
+                      +-->| Gate |----> PWM_bypass_clock_x
+                      |   |______|
+PWM_clock_src_xy -----+   ________
+                      |  |        |
+                      +->| /div_k |---> PWM_clock_y
+                      |  |________|
+                      |    ______
+                      |   |      |
+                      +-->| Gate |----> PWM_bypass_clock_y
+                          |______|
+
+Where xy can be 0/1, 2/3, 4/5
+
+PWM_clock_x/y serve for the PWM purpose.
+PWM_bypass_clock_x/y serve for the clock-provider purpose.
+The common clock framework has been used to manage those clocks.
+
+This PWM driver serves as a clock-provider for PWM_bypass_clocks.
+This is needed for example by the embedded AC300 PHY which clock comes
+from PMW5 pin (PB12).
+
+Usually, to get a clock from a PWM driver, we use the pwm-clock driver
+so that the PWM driver doesn't need to be a clk-provider itself.
+While this works in most cases, here it just doesn't.
+That's because the pwm-clock request a period from the PWM driver,
+without any clue that it actually wants a clock at a specific frequency,
+and not a PWM signal with duty cycle capability.
+So, the PWM driver doesn't know if it can use the bypass or not, it
+doesn't even have the real accurate frequency information (23809524 Hz
+instead of 24MHz) because PWM drivers only deal with periods.
+
+With pwm-clock, we loose a precious information along the way (that we
+actually want a clock and not a PWM signal).
+That's ok with simple PWM drivers that don't have multiple input clocks,
+but in this case, without this information, we can't know for sure which
+clock to use.
+And here, for instance, if we ask for a 24MHz clock, pwm-clock will
+requests 42ns (assigned-clocks doesn't help for that matter). The logic
+is to select the highest clock (100MHz) with no prescaler and a duty
+cycle value of 2/4 => we have 25MHz instead of 24MHz.
+And that's a perfectly fine choice for a PMW, because we still can
+change the duty cycle in the range [0-4]/4.
+But obviously for a clock, we don't care about the duty cycle, but more
+about the clock accuracy.
+
+And actually, this PWM is really a PWM AND a real clock when the bypass
+is set.
+
+This series is based onto v6.19-rc4
+
+NB: checkpatch is not happy with patch 2, but it's a false positive.
+It doesn't detect that PWM_XY_SRC_MUX/GATE/DIV are structures, but as
+it's more readable like that, I prefer keeping it that way.
+
+NB2: for geopolitical reasons, I didn't re-use the old series that Paul
+was referring to.
+
+Changes since v3:
+- gather Acked-by/Tested-by
+- fix cast from pointer to integer of different size (kernel test robot
+  with arc platform)
+- add devm_action for clk_hw_unregister_composite as suggested by Philipp
+- remove now unused pwm_remove as suggested by Philipp
+
+Changes since v2:
+- use U32_MAX instead of defining UINT32_MAX
+- add a comment on U32_MAX usage in clk_round_rate()
+- change clk_table_div_m (use macros)
+- fix formatting (double space, superfluous comma, extra line feed)
+- fix the parent clock order
+- simplify code by using scoped_guard()
+- add missing const in to_h616_pwm_chip() and rename to
+h616_pwm_from_chip()
+- add/remove missing/superflous error messages
+- rename cnt->period_ticks, duty_cnt->duty_ticks
+- fix PWM_PERIOD_MAX
+- add .remove() callback
+- fix DIV_ROUND_CLOSEST_ULL->DIV_ROUND_UP_ULL
+- add H616_ prefix
+- protect _reg in macros
+- switch to waveforms instead of apply/get_state
+- shrink struct h616_pwm_channel
+- rebase on v6.19-rc4
+
+Changes since v1:
+- rebase onto v6.19-rc1
+- add missing headers
+- remove MODULE_ALIAS (suggested by Krzysztof)
+- use sun4i-pwm binding instead of creating a new one (suggested by Krzysztof)
+- retrieve the parent clocks from the devicetree
+- switch num_parents to unsigned int
+
+Richard Genoud (4):
+  dt-bindings: pwm: allwinner: add h616 pwm compatible
+  pwm: sun50i: Add H616 PWM support
+  arm64: dts: allwinner: h616: add PWM controller
+  MAINTAINERS: Add entry on Allwinner H616 PWM driver
+
+ .../bindings/pwm/allwinner,sun4i-a10-pwm.yaml |  19 +-
+ MAINTAINERS                                   |   5 +
+ .../arm64/boot/dts/allwinner/sun50i-h616.dtsi |  47 +
+ drivers/pwm/Kconfig                           |  12 +
+ drivers/pwm/Makefile                          |   1 +
+ drivers/pwm/pwm-sun50i-h616.c                 | 936 ++++++++++++++++++
+ 6 files changed, 1019 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/pwm/pwm-sun50i-h616.c
+
+
+base-commit: 11439c4635edd669ae435eec308f4ab8a0804808
 
