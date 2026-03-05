@@ -4,93 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19A10F30922
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:56:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A925F30924
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:57:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cg9EXYcydfZ+ulIjzuaopPgTp0XFzaHPOEgk/rgt7WQ=; b=hqudcRyxP188DboxaBWsWiz2Em
-	PNVK49F0eAAHTrkGeir4W/6aeaVw3HksxoXMmb3JPnXVvOkHHGT0aezYlLa8J1f6sOOhtDdyFbC6U
-	CWwBi9GdBzftCY4AuNKM5gtlxE4GI3cHw4FFLgS80o1m1/TOBo0iQcMxIYhIP1bR1ZHvRIJ9AisYN
-	bS48UPJhdlLLQTatd6WyUQum/1930d/i8b84nkLenTRjeGFV30yAjDsiUQ9v6s/gsTudPRF1R2rI5
-	zzBXgJ0E4+P8GAz4OH32+6L7PYwpxe1k+HVB6Nsy7YcIN/5SvYk6jsOwYlaei/Y6J5XCylHc3BigE
-	kuvuP2uw==;
+	bh=V94vJUMAUqkp8XTyxdwOF9Zhm8eyGffjICa34MBPhnU=; b=zv01IMjMwPXdqLyG10Xk+2Foy3
+	rFWxAqZ8BgKOX8/9slUaRNMWLWtM7l4m9Yxhk46USxTLKrC1n6OcvmE5eq5A2/+kDxey1ZEdWlwD+
+	gh82kD2VEf1D+WVUVzTP6+6GrpGuAYGrpJ74erZT0xRdKmJVB/uPFbDxLC1nNsMR+MkHEjXjdxUqy
+	L46QZi4aYw8iKrVRrnHZUSq7crwRZbXhXRmNfCNso5WenFo0+Fov+j0Q4Zk0Af1d+F3x+bz+XnSqp
+	p+uWabf8mDbZoDSE58ffJmRP23mwZS6mQd+xdclPnEqoa4Nnlo0K2Dave7HNk9VQP1qA9Z8tzLAbj
+	0VrsyX1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy5R2-00000001TYp-2802;
-	Thu, 05 Mar 2026 09:56:00 +0000
-Received: from mail-vk1-f176.google.com ([209.85.221.176])
+	id 1vy5Sq-00000001ToY-2m0M;
+	Thu, 05 Mar 2026 09:57:52 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy5R0-00000001TXz-275B
+	id 1vy5Sn-00000001To6-1XNZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 09:55:59 +0000
-Received: by mail-vk1-f176.google.com with SMTP id 71dfb90a1353d-56af41d1e0bso190583e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 01:55:57 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772704557; x=1773309357;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Cg9EXYcydfZ+ulIjzuaopPgTp0XFzaHPOEgk/rgt7WQ=;
-        b=CR/8LF5HTClt7hyNYZnlWlsCA/jSGi8AI8PkzIkwN4lhoePH2S084Q2a8hZ+8bRFkr
-         3b84Kt8bb2L53Sd/Ws6oPIxnauIqG8cdj8r/pqXLakGQ8XsfI1WSWAng2pClZZsNn1lC
-         pQnwtpVKRZhKTSLBQdg20DcWeL9WnTAzDndNTTBfdmSrFWg8p4UyNWsDr6v+Wgyyg6rb
-         TMiKc5pqtX59zgTqI+WhaJgWy276I601sEXrX2Iv+unmONB5Rs/w5MQPS0afxvQELpAX
-         C1w9lqJZyhQI+WF84tKUU5O3CqetZRfdvJEN4Ss+eRJdh8BDPMYb3yDZMdHIkLqFcfWt
-         StsA==
-X-Forwarded-Encrypted: i=1; AJvYcCVjBB59n53QHhcA/e8K6mDC6/li0J4epSYUhGKAk74OOcM7F/2NfFiaZr9LY249+EKkguZxYvPaLp6h8pQ5pM3A@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw99O89yPbZongKvEnU3xo1sJpVp/2S/JusVsuT5DH81gXnZKGT
-	HgepzKvDxaf6jQnzVL6so8gXURGml5gHwBXcIdQAuePB/8f6L89T5uQASR9gzxxw
-X-Gm-Gg: ATEYQzwCPd0Jx695aD6DDMVxyYOa/hkzu8K5RZggGpVSl8Jy5RXJOjLX/6kgM4brsuu
-	6D5NxXdIQHRnALo2NJg9d4s7zDmsDPdMfXeAbOozkdvcsUaVAk0AFaKuhhKahwdelrnmifM6oZl
-	i2T4VkuDaCe0ehBLNNlegYFx2hMCdC0xOlEIJ2xWuLxO9tivVLrPPtov9Fvvpod0Dp6k4Jdmm0T
-	q1P1AWFfy/izgaZxmMgVUiByhKRYC/BxIkbBQXVL6rtwYVCJMqGL3jX9Z8px9FJioKaM4ozKsTy
-	eEY6g0l2IRpnMru2/vB8dVI5YUcQXlh2jsL8Nw4q54/K3Xyja53//Qg+iUWS92Z3Eys06JiimLR
-	/ovgXrPUeD0/tyslk6PFcbhWuDiB6YkQHiuE9f4a/pgh6bw3HOG0MuxBOfW1J3MBcRg0pfJDUa/
-	lrQIVvv3EjZHuaKUtB8BA31saveuKCJahQVCXISsAGlRyEncne7NK0bnWd4P5H
-X-Received: by 2002:a05:6122:a23:b0:56a:9841:9f81 with SMTP id 71dfb90a1353d-56ae7603d05mr2346159e0c.6.1772704556752;
-        Thu, 05 Mar 2026 01:55:56 -0800 (PST)
-Received: from mail-vs1-f52.google.com (mail-vs1-f52.google.com. [209.85.217.52])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56adfad07f5sm7420933e0c.10.2026.03.05.01.55.55
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 05 Mar 2026 01:55:55 -0800 (PST)
-Received: by mail-vs1-f52.google.com with SMTP id ada2fe7eead31-5ffa0b23a1aso836570137.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 01:55:55 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWaSgyoPZTqkCzM2ei3Zj66n+y5TWQNrB/rBQF5wZCef6LCkEj66HpaCGg1C/rKvzIRRJm8SgjDMe+TCdTuJ3+N@lists.infradead.org
-X-Received: by 2002:a05:6102:26d6:b0:5fe:c4aa:10d6 with SMTP id
- ada2fe7eead31-5ffaaf7c9f3mr2333684137.34.1772704554695; Thu, 05 Mar 2026
- 01:55:54 -0800 (PST)
+	Thu, 05 Mar 2026 09:57:51 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vy5SO-0005fW-Ni; Thu, 05 Mar 2026 10:57:24 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vy5SM-003rSo-2D;
+	Thu, 05 Mar 2026 10:57:24 +0100
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vy5SN-00000002FW3-3jOJ;
+	Thu, 05 Mar 2026 10:57:23 +0100
+Date: Thu, 5 Mar 2026 10:57:23 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: ming.qian@oss.nxp.com, linux-media@vger.kernel.org, mchehab@kernel.org, 
+	hverkuil-cisco@xs4all.nl, nicolas@ndufresne.ca, benjamin.gaignard@collabora.com, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de, 
+	sebastian.fricke@collabora.com, shawnguo@kernel.org, ulf.hansson@linaro.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	fra.schnyder@gmail.com, linux-imx@nxp.com, l.stach@pengutronix.de, Frank.li@nxp.com, 
+	peng.fan@nxp.com, eagle.zhou@nxp.com, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] media: verisilicon: Fix kernel panic due to __initconst
+ misuse
+Message-ID: <ayefolxtgwfmvs5h5ln7u4hdope4rdthvpiacdbfbnxe33lgzb@vts2vnib3t7w>
+References: <20260305080354.639-1-ming.qian@oss.nxp.com>
+ <j4h65w6rwsd227gooa437qfp43z3vtiyaegehbe5md3f22anae@lprbmtart3km>
+ <68ef934f-baa0-4bf6-93d8-834bbc441e66@kernel.org>
 MIME-Version: 1.0
-References: <cover.1772643434.git.geert+renesas@glider.be> <ee2980af-e37c-4b4d-86c2-32467d2af454@oss.qualcomm.com>
-In-Reply-To: <ee2980af-e37c-4b4d-86c2-32467d2af454@oss.qualcomm.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 5 Mar 2026 10:55:43 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdUCqozRx_WJesymXmP_PYo4Bf=oed=4fXycVOVk5g8D4Q@mail.gmail.com>
-X-Gm-Features: AaiRm50TZMfTdXxkme8-hNv5QLySSNWDLayLbCjX-hPHmdjBiItNwF_qP7aR9JM
-Message-ID: <CAMuHMdUCqozRx_WJesymXmP_PYo4Bf=oed=4fXycVOVk5g8D4Q@mail.gmail.com>
-Subject: Re: [PATCH 0/7] arm64: dts: Drop CPU masks from GICv3 PPI interrupts
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	Peter Griffin <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Dinh Nguyen <dinguyen@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Thierry Reding <treding@nvidia.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <68ef934f-baa0-4bf6-93d8-834bbc441e66@kernel.org>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_015558_571492_CB7476C3 
-X-CRM114-Status: GOOD (  20.60  )
+X-CRM114-CacheID: sfid-20260305_015749_409084_DB65BEB8 
+X-CRM114-Status: GOOD (  25.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,33 +85,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Konrad,
+On 26-03-05, Krzysztof Kozlowski wrote:
+> On 05/03/2026 10:01, Marco Felsch wrote:
+> > Hi Ming,
+> > 
+> > On 26-03-05, ming.qian@oss.nxp.com wrote:
+> >> From: Ming Qian <ming.qian@oss.nxp.com>
+> >>
+> >> Fix a kernel panic when probing the driver as a module:
+> >>
+> >>   Unable to handle kernel paging request at virtual address
+> >>   ffffd9c18eb05000
+> >>   of_find_matching_node_and_match+0x5c/0x1a0
+> >>   hantro_probe+0x2f4/0x7d0 [hantro_vpu]
+> >>
+> >> The imx8mq_vpu_shared_resources array is referenced by variant
+> >> structures through their shared_devices field. When built as a
+> >> module, __initconst causes this data to be freed after module
+> >> init, but it's later accessed during probe, causing a page fault.
+> >>
+> >> Use __initconst_or_module to keep the data available when built
+> >> as a module while still allowing it to be freed when built-in.
+> > 
+> > would be nice if I get at least some credit for pointing to the correct
+> > fix ;)
+> > 
+> >> Fixes: e0203ddf9af7 ("media: verisilicon: Avoid G2 bus error while decoding H.264 and HEVC")
+> >> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+> > 
+> > However, patch looks fine:
+> > 
+> > Reviewed-by: Marco Felsch <m.felsch@pengutronix.de>
+> 
+> Patch is not correct. This is being referenced from other data where
+> nothing is __init. Section mismatch might not point it, but I don't
+> think the code is readable and actually correct.
+> 
+> You can exercise it by rebinding device when built-in.
 
-On Thu, 5 Mar 2026 at 10:33, Konrad Dybcio
-<konrad.dybcio@oss.qualcomm.com> wrote:
-> On 3/4/26 6:10 PM, Geert Uytterhoeven wrote:
-> > Unlike older GIC variants, the GICv3 DT bindings do not support
-> > specifying a CPU mask in PPI interrupt specifiers.  Hence this patch
-> > series drop all such masks where they are still present.
->
-> I'm having trouble finding where that's used on pre-v3 even.. does
-> that actually get processed on the older iterations?
+That's correct, I didn't consider the manual unbind for the built-in
+case in which you will trigger the issue again! Dropping the annotation
+is the correct fix, thanks!
 
-I had noticed the same, and had asked maz on IRC.
-His answer:
+Regards,
+  Marco
 
-   "so far, we have never seen a GICv{1,2} system that didn't have all
-of its PPIs
-    connected to the same set of devices."
 
-Gr{oetje,eeting}s,
-
-                        Geert
+> 
+> Best regards,
+> Krzysztof
+> 
 
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+#gernperDu 
+#CallMeByMyFirstName
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
