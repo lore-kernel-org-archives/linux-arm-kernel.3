@@ -4,63 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97239EDEC07
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 04:48:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6C4DEDEC07
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 05:05:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cbsw8tseKrvocUrScVRPZ8jUa5DS9H3FddYAlk/lCFo=; b=gMq1kf9EA3WgVKrz+gCEVJriY4
-	CXlJpvED3D/aA5Y6HST2ezTTq6H24HNDu/sRuwLiqSVHaeblwaaXiCBB2ntqTSK8Co6uPkxUzByD5
-	dSOAVA2Gy3GAI3+73nb0MQozfwZmb6JhNTGcZr2baXv6zmn9ZRrmkYM8XtxYlfSA2SegaT9Ae0ElG
-	ckggtWi1WcBhvjFGRn+8u35ydW0NarO5hN05eP5h1KCT+Ll5dGi5bPWrpallnt5WxgkIQoejsc2pt
-	Bp1vJ1BvWSNScJbDJME1jeZFC8pBWNZxPPG0tYN1ZbDoXXpfGa46msEZ+MDtcNLS4pDhGMdm8f8+S
-	mTnrDcQg==;
+	bh=/sHAhj9wNzRfb5p7/kkVsgqS6rgt06l4ydGbbpiq71o=; b=vhwRZ3EoRJtD2uLtDcNHWViDS6
+	IK9JCwSmzozgRWjYKrZPKM+4HaBaLUrTArMoWfpA925rWotzN+HsL0E1V2C74p+QtNs53PkuhAmLh
+	aMqZEa8UtOOZYNSiegkrKx3JGi7OR2ZMzpXijZUGuCbakktyVWrrKKnwi+rQ26t/xa83o27JbB08/
+	EjfSOnh3wEz1I0jeCdUBVai5eOpN/RQRZnKAILMhe6Ldw6SUZMdIa8N1ppWEvF+VTMMv5baETbWhJ
+	yrbAduCg1xEsl6lcfAk1GYzpWactzCWjKL/jZfm18myjOTEM5zRHgy8Z26NN3sfygiJMHcd909peB
+	M1PgkvXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy0dl-00000000utK-0jMP;
-	Thu, 05 Mar 2026 04:48:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vy0te-00000000vU5-3EzO;
+	Thu, 05 Mar 2026 05:05:14 +0000
+Received: from mail-japaneastazon11023126.outbound.protection.outlook.com ([52.101.127.126] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy0dk-00000000ut9-08Mu;
-	Thu, 05 Mar 2026 04:48:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 21AA761339;
-	Thu,  5 Mar 2026 04:48:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00028C116C6;
-	Thu,  5 Mar 2026 04:48:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772686126;
-	bh=5Q3URsPBWzntEDl70LI9PAp+r4nAgAt1MNhYpVp4hEs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=m3bA/gjV3ndP5r3Zi44D96tB11TosErCdlIgf1xdIad5K1fRDakH4XIP7yS//xBL8
-	 A/UN7UXZFh/oukVYgYBMzZwSEdV8UV20H7Spi485TXhvYNplJ3VwbmT/IkAbUr01Du
-	 4VeTDOclWN927uXlFuid06cnWNhCJ312KqXz9KgUA7cwggXuIONgSLp6iccDSnEFVK
-	 FDEoYscCdZ9NNI0wixGZCFlPnemaqare7/56DJO1YMvgKpN3wNMc0WSj3Y3SQacwvW
-	 SP6t9YRgCxtk4tC4brfyZA5W6gUSaBSJZqP4R/nOdS2oRHMmfJ3UUCh7K4SHDXTeFX
-	 Q2hesZJ9zIodQ==
-Date: Thu, 5 Mar 2026 10:18:34 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Dragan Simic <dsimic@manjaro.org>
-Cc: Geraldo Nascimento <geraldogabriel@gmail.com>, 
-	Shawn Lin <shawn.lin@rock-chips.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
-	linux-rockchip@lists.infradead.org, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 3/4] PCI: rockchip: drive at 2.5 GT/s, error other
- speeds
-Message-ID: <l3y3isas7rfe47uwk3bcvx4qpkpfen3j32omy6r4rxe6kn4kas@c4z5ydkervkm>
-References: <cover.1772239598.git.geraldogabriel@gmail.com>
- <2a0a4aa97bb8b0cb511cb651c5d66c9ec8bab97a.1772239598.git.geraldogabriel@gmail.com>
- <d2b91260-7666-3606-69ec-0e7cb7a48c02@manjaro.org>
+	id 1vy0tc-00000000vSX-1rJN
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Mar 2026 05:05:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EHKxExy2xjdZa2YmzLHY2eLT4+E4vHuNg+lNpzezGJZR7CrCnx6Mpj6S4blAi2BTNcBLIPO54up5NgND95d9OdppdA72Pje6yWquHlDlBLsBDUnigCnJDd0KEs2CkFtvNzLzfVMIP+jS9kwpypVtrtyE/bUGsno/5L1x4OxPHIovsvP2X3c36GPIDKQZkIJlDBcO7riFAi/8yPDavTtlq5ryW+RID4GNRGaeRSsEdGA4QtYnP/lIjC+5t3YPu3M0oV8zt+RaxPeioeobJqZqxP9z4V1DXzyhbvjG+MgSgt2dp6A7QKTUIWUZ1VQK1p7Y/HeW4aEMSUao/mFA3rs+EQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/sHAhj9wNzRfb5p7/kkVsgqS6rgt06l4ydGbbpiq71o=;
+ b=vPVWAGX2k1UgOGIhupd3AYiFh5wry4svqjLmihBsPQl0Sm5xGPruvFYcAVnV36VfMWlnDvVxns37Cu0OiTM4g7dEd2s/yddZDrXe2CZYThSCoSsSiiTwMeb92XOI+O/lxVOMARn94ebtemISN0Y9fDLrifsnAqnNw+KcmRfjWoHjlqtBxkMCFKwizolywtC9A1X8g3V3wSYFJlv28vULaQhHUwf8g2e1pRThj4zihKl7UTlZM4eaowDmMLiRJV+1+JkXj9iI36k91Hp/JQVMuampOR09tylGgzglgKOryQox3g0KJ8j5y7+z0uZNJ/+IyW0/wiKcRiWi0lR3s+JGTw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/sHAhj9wNzRfb5p7/kkVsgqS6rgt06l4ydGbbpiq71o=;
+ b=UnO2oU7GlyE6hYXQzRscMtktfdPnkJqQ/vfWHCRgX9R9ryXUENn0k6xWGkM0idw8yLjSiCtzAvi9EwVtFqS2AsMtfy4r9ItjqjQHiYg9nRwCDv22XR9/2OsTOAjV+6c356cTQec6N4u86icXMP5K46dumpUEAsJn5kjw7ip8EubI8iASTewYPMz6HYuGaD2YQ2kEOBA9igeE0uB/5Z0zgfmaii0WeCUYGej/tMmdZZo9ddXwNhOnjaWfGIWNFriFXW4wQGBZTHxZXc6vqS/iBWecIp5DZABLa2HXd7oY++3gMURa+PSm8J7UTrwszCF7YAwDhKlqz5UOHrCuKakkAw==
+Received: from SEYPR06MB5134.apcprd06.prod.outlook.com (2603:1096:101:5a::12)
+ by KL1PR06MB6865.apcprd06.prod.outlook.com (2603:1096:820:10d::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.18; Thu, 5 Mar
+ 2026 05:05:03 +0000
+Received: from SEYPR06MB5134.apcprd06.prod.outlook.com
+ ([fe80::f53d:547a:8c11:fc6c]) by SEYPR06MB5134.apcprd06.prod.outlook.com
+ ([fe80::f53d:547a:8c11:fc6c%4]) with mapi id 15.20.9654.020; Thu, 5 Mar 2026
+ 05:05:03 +0000
+From: Jacky Chou <jacky_chou@aspeedtech.com>
+To: Andrew Lunn <andrew@lunn.ch>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Po-Yu Chuang <ratbert@faraday-tech.com>, Joel Stanley
+	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "taoren@meta.com" <taoren@meta.com>
+Subject: [PATCH net-next v6 5/5] ARM: dts: aspeed: ast2600-evb: Configure
+ RGMII delay for MAC
+Thread-Topic: [PATCH net-next v6 5/5] ARM: dts: aspeed: ast2600-evb: Configure
+ RGMII delay for MAC
+Thread-Index: AQHcqi7Gxnd/yfDNn0+qSBvgjkBecbWbib0AgAPdJDA=
+Date: Thu, 5 Mar 2026 05:05:03 +0000
+Message-ID: <SEYPR06MB5134AE0B0042E05E8E58A5239D7DA@SEYPR06MB5134.apcprd06.prod.outlook.com>
+References: <20260302-rgmii_delay_2600-v6-0-68319a4c4110@aspeedtech.com>
+ <20260302-rgmii_delay_2600-v6-5-68319a4c4110@aspeedtech.com>
+ <d38f54b2-4a99-4a54-8403-e4f4a9704386@lunn.ch>
+In-Reply-To: <d38f54b2-4a99-4a54-8403-e4f4a9704386@lunn.ch>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SEYPR06MB5134:EE_|KL1PR06MB6865:EE_
+x-ms-office365-filtering-correlation-id: 32cfb30e-0d47-44a9-9eae-08de7a74c293
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700021;
+x-microsoft-antispam-message-info: HqVADbgSL41l8NLdaxa7ZAKt0EMDzL+sHKUWJdd0u4Q31biMhlP8OOEulB+opbQvpEQtt8L/LIZjiQic4EMhc88dsiMMDbzxDlbrDTZkoy4xLUIHpOOfa6W2tn439DrGMv/fOz1sr4zumX/Jjv3k5AqUKBG4WW9oIKShXa9MiyKcOg81g8J+9ppwnmozAVi0YSck67e0yN0UJirL4gFjwgcpWY4RVfRCyOhnVp8cdOP/LFXBBcPSi7V/BDu+P+WbPemtcgHQFEAhDax6cwFTDv7J9iZJctE7Nxe36eaSTvw0Un1Oi+5a6u1ZWyrt4awRDQx2nIRFnOAkZKPMN9TUeUFw9M21M7EazQajRhs67ItM5rINaEaz5S7lNuGzU/8HyxlVSpALOXrZPQe4ad/M8Pd9iQKE87PTcfmlGDwg6ddAPVUoBY9nFYxub9QP+jqrASGvygrU4gTYCSTuIo3qiehLTsTilQ43E0WX8OBZp5LAAruAKy74FZiKOyEChmqCJgU1c34k04gMK1OdCYlK/yTZf9NpANfwy+jIIjo1nea78cEA5nK6aI4GwtNvYJ5E966OTx1+4RwRFjSNptnah8Uv/zJIur7spm5se/kZOvHVo9UqWsrX+ARTA+gbyREOeUOypeI2rTAWzsg0ILMJELyBC1gxHjpTaS6xOv3c4zlzZk1WJhnVMbALKeiqCVrZ3rrlKn6Kv5DUSeXToY8/pFBf1Dg1a6w1WI0vF1NfOrmv5KoTVyhgCq+AczDx1ms4ajZlG1Lk8f8sCfkYREFWKTrdrDJdIL4mH49nRLEh60I=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB5134.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?ekZLeXhFcjNpZk1sNUZ0UEV4cGkyN3o5Rk9lTlB6RlNFN0lNQkZSZUlzeXBY?=
+ =?utf-8?B?VHFjb25hNkI5aDBST000SFcvNjlGN3drL0ZTV2trRGd2WkR0d005YmZnSFdo?=
+ =?utf-8?B?dG02OUw0UkRiTUo0Y0J6S3ZRUVlYejJVMnZlTzhvL2l6aW5LVm5mOVhUd0M5?=
+ =?utf-8?B?aVJHTU5EYmFnNmlxczRjaTNucHpaR3hveG1MZkxhK0pPNUFhNXJFc1hqQmRV?=
+ =?utf-8?B?WGZYeThXQU5BdHoxVWFvTVhqeS8wS0tBWHl2V0IyOTI4S0tqb2FlMlc1OXlv?=
+ =?utf-8?B?cWpURlcyc20vazd1QVM3YXEzUHNCbmdqb3dpN0R3Q1NNN3MrL0R0QXlqK09z?=
+ =?utf-8?B?K05XcHBLTlFwQmFYYVh6bGxCSzdhRTUxTUNNbkYrb2srZjZKdnJSVFRNTXhX?=
+ =?utf-8?B?NzVJczlmVXcyMzVCc0hqdUxOZnNqVzM2M2puQmd5dFREUTJBNk55NXJXaGtU?=
+ =?utf-8?B?eDFNcnFqV3M0TlFNeXZEdTVRQnNLa0xyWStPQklGU3pTM1Rra2dsbHdaT2lu?=
+ =?utf-8?B?Q3crUXZEUnFZS2RBcmx0OUF1OTZYM1R6Z0ViaEVsU2lKRjhoTFpPTENuOHRK?=
+ =?utf-8?B?bEpSYzE2Qi9udkFhMTJhdHRtTVFtUmVUalVZRm82dE8yWjRBNnBBV1pKWWpU?=
+ =?utf-8?B?L2VSVG0wa2Job09DcG9DNFF0ZHhTZnV3WTIwUGNWOXQ4bUoyN1hyOUcycE8y?=
+ =?utf-8?B?SzRKMlluaS84TlVEcVdrV0NHWlFSV0pZU0lIaHhPVEJWQzNwTFhBb2hPZUVy?=
+ =?utf-8?B?amthL05zVWttckFCMVFhRTBoRUtKNFNhN0x6RXhWdmhEZ0JkVm5lYUlSMHFZ?=
+ =?utf-8?B?aFNzVXY0MWxMRUozSXJ1M2NmVFk1WlIyRkh3ZDRzRjdTalB1VmE2OE5JTk15?=
+ =?utf-8?B?enI2d2dSNVdWRkRZTmc5V2Ezc2QwRDh6VG1TSFpZb3Y1WHRmbjFaVFUxM09u?=
+ =?utf-8?B?cFh6V3FMaWYzSVpLWk90MCtiSG9NYjI3bzZXbGhCblhBVUJ4RkFzZXFON1Zx?=
+ =?utf-8?B?UWVWV0RlZytxN3dLZ0txNWZCSWgyTFNHb2ZDL0drRktwRUVwdkRndUczWGk4?=
+ =?utf-8?B?djFZVC9ndVVoRS9jN0dwVDRpeFl6WVJRVDFlNVE1L0RvRFhSbHZrWHpnV2lO?=
+ =?utf-8?B?QVpUemFRN0hxM2srbUJsUnk0YkRkUnJaVFNJd3p1R08wRDBGWlFPWStDeVEv?=
+ =?utf-8?B?RWwxUVhvQjV5bUF4TSt2M2NFc3FJSDZBeW1pTDZVY3M4OXF3M3VKWlJQQXd1?=
+ =?utf-8?B?ZDdvNWFPSnEvRHorQ1JTL091cUxib2p1c2Vyc05NdFlzenNCSUNJL2FSazdQ?=
+ =?utf-8?B?VzdObjBoOExjUmFZZmxoS3hVZ1JZRlNHV3EyeDJWekh4Ri92b3o1aDRXSGZH?=
+ =?utf-8?B?LzJTdDBWc244UjBBQ2NPc2tFanhoSkpaNEpQeERUT1h3L3g2Sk1RQWpIMkhE?=
+ =?utf-8?B?YkZhSUZHSUNmVng3dC9RUVlqRUxuelJwbHVSdVpZWEdyMnNtcmtLY1VXcWVo?=
+ =?utf-8?B?Q1o0a2NSdHdoTmQ0QnA5bUJJdDg0K2NXaS94bG1RN0VHcEZpSEp6VTBCZnRY?=
+ =?utf-8?B?U2kwdk45MFFTbnp2Qlg1cTZadkxmY2tUTm5wSnBjSm0yRlBlSDhNRmpFanho?=
+ =?utf-8?B?aWVBOE16VW93cm4rZzR2MityZ0JIT3g0UXZ5NzlVNzBuaTVxY1cxem0zRDlh?=
+ =?utf-8?B?WTk1eS90QXozeW56dXBaWlBRcUJQSTRpN1A5V2lVTDdxRlo4dU4ybHdjdGk0?=
+ =?utf-8?B?TTBpSVFFbitzN1lPK3R6eXFIYzAvN0FCd0hVWFBKWFpyQmcvNXhUUGN6dnVQ?=
+ =?utf-8?B?NkZrbTlkM1V6OWJUa3M4LzB1UXYxOXBETFkyNllNRWcxZGlUUkFuZElHTUFk?=
+ =?utf-8?B?OW13UnROaTR0YXVzbDZYeDVhWjJhUUxaLzlYYXNyVlRlMi9CUlM5YXB5cXht?=
+ =?utf-8?B?bE8xR1NsT0dCSUV1TDNkL0NLRHRoWGdxMlBFd3kvTEdvMUFYZnlzUmF0MmhK?=
+ =?utf-8?B?dzN3YlNSOXNpUFV3TzJVRFpsZHNzMDNNMGNtQTVZc2paSEljN2gvNmRHY2dL?=
+ =?utf-8?B?R0ZPam52OG9QSW9IRWNTTlRmL0xjZzVoa29ud1R0U3VEaVUyMVlqYTdNeVZP?=
+ =?utf-8?B?Sjc3ZS9DSWZWbDBySEIvNk8yWGVKL1lTakV3L0VmSGZyMnRrTERxUSttVVZl?=
+ =?utf-8?B?ejVvbGd5NU5RbmNxNjZMcXF1TzZKMzdzNVRWYW50dXYrME4weGVzUUNJZ0hv?=
+ =?utf-8?B?Y2hVMlRMbExFTlduaVlpK25KdFQvNVZkaUlUcWRZN0w0OUVDRWZRQzdCU05F?=
+ =?utf-8?B?dHgzUDBhVUJEanpLTUxtNVltb0QweU5jS0VFZ1hpdFVmN2hLeWtMdz09?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <d2b91260-7666-3606-69ec-0e7cb7a48c02@manjaro.org>
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB5134.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 32cfb30e-0d47-44a9-9eae-08de7a74c293
+X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Mar 2026 05:05:03.2227
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: kcvAO8KbZpvTpVOcAOJBkpKmtxChDg2Ob3jPIYOlaVYugstIB5JO4pqpnfUD8Ccy5tOzRebQzk6d4FdLjoYIHnHyJeUvEl/tb5VQa8AcQl8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR06MB6865
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260304_210512_488632_D48AE8A7 
+X-CRM114-Status: GOOD (  24.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,97 +161,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 28, 2026 at 07:16:41AM +0100, Dragan Simic wrote:
-> Hello Geraldo,
-> 
-> On Saturday, February 28, 2026 01:55 CET, Geraldo Nascimento <geraldogabriel@gmail.com> wrote:
-> > Configure the core to be driven at 2.5 GT/s Link Speed and ignore
-> > any other speed with a warning. The reason is that Shawn Lin from
-> > Rockchip has reiterated that there may be danger of "catastrophic
-> > failure" in using their PCIe with 5.0 GT/s speeds.
-> > 
-> > While Rockchip has done so informally without issuing a proper errata,
-> > and the particulars are thus unknown, this may cause data loss or
-> > worse.
-> > 
-> > This change is corroborated by RK3399 official datasheet [1], which
-> > states maximum link speed for this platform is 2.5 GT/s.
-> > 
-> > [1] https://opensource.rock-chips.com/images/d/d7/Rockchip_RK3399_Datasheet_V2.1-20200323.pdf
-> > 
-> > Fixes: 956cd99b35a8 ("PCI: rockchip: Separate common code from RC driver")
-> > Link: https://lore.kernel.org/all/ffd05070-9879-4468-94e3-b88968b4c21b@rock-chips.com/
-> > Cc: stable@vger.kernel.org
-> > Reported-by: Dragan Simic <dsimic@manjaro.org>
-> > Reported-by: Shawn Lin <shawn.lin@rock-chips.com>
-> > Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
-> > ---
-> >  drivers/pci/controller/pcie-rockchip.c | 15 +++++++++------
-> >  1 file changed, 9 insertions(+), 6 deletions(-)
-> > 
-> > diff --git a/drivers/pci/controller/pcie-rockchip.c b/drivers/pci/controller/pcie-rockchip.c
-> > index 0f88da378805..2f211d1f4c7c 100644
-> > --- a/drivers/pci/controller/pcie-rockchip.c
-> > +++ b/drivers/pci/controller/pcie-rockchip.c
-> > @@ -66,8 +66,10 @@ int rockchip_pcie_parse_dt(struct rockchip_pcie *rockchip)
-> >  	}
-> >  
-> >  	rockchip->link_gen = of_pci_get_max_link_speed(node);
-> > -	if (rockchip->link_gen < 0 || rockchip->link_gen > 2)
-> > -		rockchip->link_gen = 2;
-> > +	if (rockchip->link_gen < 0 || rockchip->link_gen >= 2) {
-> > +		rockchip->link_gen = 1;
-> > +		dev_warn(dev, "invalid max-link-speed, fix your DT\n");
-> > +	}
-> 
-> I'd suggest using a bit more formal message here, like the one below,
-> which would also avoid addressing the user directly:
-> 
->   "Invalid max-link-speed found, limited to Gen1 to avoid data corruption"
-> 
-> >  	for (i = 0; i < ROCKCHIP_NUM_PM_RSTS; i++)
-> >  		rockchip->pm_rsts[i].id = rockchip_pci_pm_rsts[i];
-> > @@ -147,12 +149,13 @@ int rockchip_pcie_init_port(struct rockchip_pcie *rockchip)
-> >  		goto err_exit_phy;
-> >  	}
-> >  
-> > -	if (rockchip->link_gen == 2)
-> > -		rockchip_pcie_write(rockchip, PCIE_CLIENT_GEN_SEL_2,
-> > -				    PCIE_CLIENT_CONFIG);
-> > -	else
-> > +	if (rockchip->link_gen == 2) {
-> > +		/* 5.0 GT/s may cause catastrophic failure for this core */
-> > +		dev_warn(dev, "5.0 GT/s may cause data loss or worse\n");
-> > +	} else {
-> >  		rockchip_pcie_write(rockchip, PCIE_CLIENT_GEN_SEL_1,
-> >  				    PCIE_CLIENT_CONFIG);
-> > +	}
-> 
-> I don't think we need to emit a warning here, because, as we've already
-> established through earlier discussions, the rockchip_pcie_init_port()
-> function should never receive an invalid speed value.
-> 
-> >  	regs = PCIE_CLIENT_ARI_ENABLE |
-> >  	       PCIE_CLIENT_CONF_LANE_NUM(rockchip->lanes);
-> 
-> It would make most sense to squash all three patches in this series
-> into a single patch, because they all form a single logical unit, which
-> introduces changes that are just going to be harder to track down later
-> if it's all scattered into multiple separate patches.
-> 
-> The only possible issue with the squashing comes from the inability to
-> have different patch subject prefixes for different driver changes, but
-> I think that's actually not an issue.  The long-term benefits of having
-> everything as a single patch outweighs the benefits of having different
-> patch subjects with separate patches.
-> 
-
-Patches 3&4 can be squashed together, but the rest should be in separate patches
-as they target different drivers. If we were to revert any of these in the
-future, it becomes easy.
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+SGkgQW5kcmV3LA0KDQpUaGFuayB5b3UgZm9yIHlvciByZXBseS4NCg0KPiBPbiBNb24sIE1hciAw
+MiwgMjAyNiBhdCAwNjoyNDozMlBNICswODAwLCBKYWNreSBDaG91IHdyb3RlOg0KPiA+IFRoaXMg
+Y2hhbmdlIHNldHMgdGhlIHJ4LWludGVybmFsLWRlbGF5LXBzIGFuZCB0eC1pbnRlcm5hbC1kZWxh
+eS1wcw0KPiA+IHByb3BlcnRpZXMgdG8gY29udHJvbCB0aGUgUkdNSUkgc2lnbmFsIGRlbGF5Lg0K
+PiA+IFRoZSBwaHktbW9kZSBmb3IgTUFDMOKAk01BQzMgaXMgdXBkYXRlZCB0byAicmdtaWktaWQi
+IHRvIGVuYWJsZSBUWC9SWA0KPiA+IGludGVybmFsIGRlbGF5IG9uIHRoZSBQSFkgYW5kIGRpc2Fi
+bGUgdGhlIGNvcnJlc3BvbmRpbmcgZGVsYXkgb24gdGhlDQo+ID4gTUFDLg0KPiA+DQo+ID4gU2ln
+bmVkLW9mZi1ieTogSmFja3kgQ2hvdSA8amFja3lfY2hvdUBhc3BlZWR0ZWNoLmNvbT4NCj4gPiAt
+LS0NCj4gPiAgYXJjaC9hcm0vYm9vdC9kdHMvYXNwZWVkL2FzcGVlZC1hc3QyNjAwLWV2Yi5kdHMg
+fCAyMA0KPiA+ICsrKysrKysrKysrKysrKystLS0tDQo+ID4gIDEgZmlsZSBjaGFuZ2VkLCAxNiBp
+bnNlcnRpb25zKCspLCA0IGRlbGV0aW9ucygtKQ0KPiA+DQo+ID4gZGlmZiAtLWdpdCBhL2FyY2gv
+YXJtL2Jvb3QvZHRzL2FzcGVlZC9hc3BlZWQtYXN0MjYwMC1ldmIuZHRzDQo+ID4gYi9hcmNoL2Fy
+bS9ib290L2R0cy9hc3BlZWQvYXNwZWVkLWFzdDI2MDAtZXZiLmR0cw0KPiA+IGluZGV4IDNmMmNh
+OWRhMGJlMi4uYTJhMWMxZGJiODMwIDEwMDY0NA0KPiA+IC0tLSBhL2FyY2gvYXJtL2Jvb3QvZHRz
+L2FzcGVlZC9hc3BlZWQtYXN0MjYwMC1ldmIuZHRzDQo+ID4gKysrIGIvYXJjaC9hcm0vYm9vdC9k
+dHMvYXNwZWVkL2FzcGVlZC1hc3QyNjAwLWV2Yi5kdHMNCj4gPiBAQCAtMTIzLDQyICsxMjMsNTQg
+QEAgZXRocGh5MzogZXRoZXJuZXQtcGh5QDAgew0KPiA+ICAmbWFjMCB7DQo+ID4gIAlzdGF0dXMg
+PSAib2theSI7DQo+ID4NCj4gPiAtCXBoeS1tb2RlID0gInJnbWlpLXJ4aWQiOw0KPiA+ICsJcGh5
+LW1vZGUgPSAicmdtaWktaWQiOw0KPiA+ICAJcGh5LWhhbmRsZSA9IDwmZXRocGh5MD47DQo+ID4N
+Cj4gPiAgCXBpbmN0cmwtbmFtZXMgPSAiZGVmYXVsdCI7DQo+ID4gIAlwaW5jdHJsLTAgPSA8JnBp
+bmN0cmxfcmdtaWkxX2RlZmF1bHQ+Ow0KPiA+ICsNCj4gPiArCXJ4LWludGVybmFsLWRlbGF5LXBz
+ID0gPDA+Ow0KPiA+ICsJdHgtaW50ZXJuYWwtZGVsYXktcHMgPSA8MD47DQo+IA0KPiBJbiB0aGUg
+YmluZGluZywgeW91IHNhaWQgdGhlc2UgZGVmYXVsdCB0byAwLiBTbyB5b3UgZG9uJ3QgbmVlZCB0
+aGVtLg0KPiANCj4gSXQgaXMgYWxzbyBvZGQgdGhhdCByZ21paS1yeGlkIGJlY29tZXMgcm1naWkt
+aWQsIHlldCBib3RoIGRlbGF5cyBhcmUgMD8NCj4gDQo+IFdoYXQgd2FzIHRoZSBib290bG9hZGVy
+IGRvaW5nPyBUaGlzIGlzIHdvcnRoIGEgY29tbWVudCBpbiB0aGUgY29tbWl0DQo+IG1lc3NhZ2Vz
+Lg0KPiANCg0KQmVmb3JlIHRoaXMgcGF0Y2gsIGFzcGVlZC1hc3QyNjAwLWV2Yi5kdHMgaXMgYW4g
+ZXhpc3RlZCBvbGQgZHRzIGluIG1haW5saW5lIGtlcm5lbC4NCkluIHRoaXMgc2VyaWVzLCBmdGdt
+YWMxMDAgZm9yIEFTVDI2MDAgd2lsbCBjb25maWd1cmUgdGhlIE1BQyBSR01JSSBpbnRlcm5hbCBk
+ZWxheQ0KdmlhIFNDVSByZWdpc3Rlciwgc28gdGhpcyBwYXRjaCBpcyBjaGFuZ2luZyB0aGlzIGR0
+cyBhcyBhIE5FVyBkdHMgZm9yIGRyaXZlciB0byBjb25maWd1cmUNClJHTUlJIGRlbGF5IGZyb20g
+dGhlIHByb3BlcnRpZXMgb2YgTUFDIG5vZGVzLg0KDQpPbGQgZHRzOiBnZW5lcmFsbHksIGxlYWsg
+dHgvcngtaW50ZXJuYWwtZGVsYXktcHMgLT4gQ2FsY3VsYXRlIHRoZSBSR01JSSBkZWxheSB0aGF0
+IGlzIGNvbmZpZ3VyZWQNCmZyb20gYm9vdGxvYWRlciBhbmQgZGVjaWRlIHdoZXRoZXIga2VlcCB0
+aGUgb3JpZ2luYWwgdmFsdWUNCg0KTmV3IGR0czogSW4gQVNUMjYwMCwgd2UgZXhwZWN0IHRoZSBN
+QUMgbm9kZSBpbmNsdWRlcyB0aGUgcngvdHgtaW50ZXJuYWwtZGVsYXktbnMgcHJvcGVydGllcw0K
+YW5kIHRoZSBkcml2ZXIgZGlyZWN0bHkgdXNlcyB0aGVzZSBwcm9wZXJ0aWVzIHRvIGNvbmZpZ3Vy
+ZSBSR01JSSBkZWxheS4NCg0KV2UgaG9wZSB0aGlzIHNlcmllcyBjYW4ga2VlcCB0aGUgb2xkIGR0
+cyB3b3JrcyBmaW5lIGFuZCBwdXNoIHRoZSBuZXcgbWVjaGFuaXNtIGZvciB0aGUNCm5leHQgZ2Vu
+ZXJhdGlvbiwgQVNUMjcwMC4gU28sIGluIEFTVDI3MDAsIGlmIHRoZSByeC90eC1pbnRlcm5hbC1k
+ZWxheS1wcyBhcmUgWkVSTywgaXQgaXMgDQp1bm5lY2Vzc2FyeSBpbmNsdWRpbmcgdGhlc2UgcHJv
+cGVydGllcywgYWNjb3JkaW5nIHRvIHRoZSBiaW5kaW5nIHRoZXNlIGRlZmF1bHQgYXJlIFpFUk8u
+DQoNClRoYW5rcywNCkphY2t5DQoNCg==
 
