@@ -4,109 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91E87EEF30D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 06:50:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31CF0EEF30D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 06:50:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SJnKoH2k8aUsMnHN9s6q8EPoGOgHGpVja0sh8tMg5Zs=; b=lDZ71dwDnXxRZyQI9WVVx0nB1Z
-	LnB5wyx8CAOzZNKSTObuYuR7BReTUYLP3C++hPU31dhmp6SlJOHH+nko2u9PD+itVUFIegkcha9Vk
-	TQ/bz4OzvbO+4K9sgmLk50DlfkA0bAqfNg33A2dLlmqIT1evjOW85/tzq/oWXUq5jZQBs9CSkmgra
-	dm4Oa+N1zyKXiFyB4e3z6ObERgOIR05WDpxRxdeTBP6IbBsIFgmIc6KiErF45wnUzfkYhud7CfKKi
-	JVdDzD6sdLe1XJyYQHlPV6/tv3dFIjyQsKKHocWG5HlD58xaMZf3eZ4DdyYM5QhnaHk+fujq4wOyE
-	lopMbtLQ==;
+	bh=7xR/ODl/LLpv8qzPXxQC2I5D7gVivJZJFQgXB+mbpQQ=; b=n7nQxWYrvEbN49ZVc7T/j6EXgG
+	6eSccLYB1FZe3HQsM1cKvCjPKXt+xSj1zu23e8PfOpHVrzkOkVIBauNziHeBrHW98dPDMw7PMfZ4I
+	vYW+HIKqkT7g2WUE6raU4DLiutkawk3djbR/wf34kh7zqO9nMr27CwK79ts8zf7NmnSV1mtLabCzc
+	rsLa0Mw2gN1l+/1tfmYdiqkn7VwQPWagWGyc1bUI0INgntpXA+8W5oe5O9OmnEOosQp6PwF+P9TWP
+	UywcYNY09me0Y3LBAEgokCcozr/bnnn4dSOVxMHUzygde+zTb+puQdPZGr828HsvlkLZ25ZjGVsEw
+	kjEUlD8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy2Wx-000000012df-164C;
-	Thu, 05 Mar 2026 06:49:55 +0000
-Received: from mail-dl1-x1233.google.com ([2607:f8b0:4864:20::1233])
+	id 1vy2Xr-000000012jA-3lkB;
+	Thu, 05 Mar 2026 06:50:51 +0000
+Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy2Wu-000000012dK-3sNM
+	id 1vy2Xp-000000012iC-3AlH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 06:49:54 +0000
-Received: by mail-dl1-x1233.google.com with SMTP id a92af1059eb24-1270adc5121so9631204c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 22:49:52 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772693391; cv=none;
+	Thu, 05 Mar 2026 06:50:51 +0000
+Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-899fac9caabso61061486d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 22:50:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772693448; cv=none;
         d=google.com; s=arc-20240605;
-        b=hCCQSRWkXje6ANxIy4HzuCEBQxkAa63P6z4mCBOIeoHyhmlapFfJPxVfcTqGKXBWLq
-         DLqE7JDV898sL2FVBncH6PKw7/u6+04nZ/F2Y5NviK60uUniSDwmymJlTtCNdwqeZurW
-         fzFtQnf8a7P1wwfIEl6/g/DgdcpinjbqJaokDu5jVQsQ+ynwF0rCR7Ilhp/w8JgXI/Xy
-         Th3IxA2iV0GKaXtXAtMg/5Iu0ASatzkQTH8BTffk+La7XEo/mTb28+5OCIeMOfsWnMnD
-         V5sxU60SD6vwRQj6+AF37IcXfJAT7gI8k+JjqKLhHHd51E/Vchx5ND9gQkM9gFMV29+v
-         BtMg==
+        b=BRw46B9qwy6MgNCDZz3I1cxdUH2gpc6qJK7OHJpPb3C1rhf5u4SUlxMal0dFhwX1ty
+         1v6H4MrBUh4GwElInBekJ33R/SXP+/JoNfraPzNE9dTpMrjis8jFlHnmpcECtg0Ze4MN
+         KbekIjSOIqZTjr2GJgaxfjAWLTUNk3DcVqLP8sRqKSinFQbZcxnFPko9uKiHExt4EC7Y
+         Oj1r4Ewh5UnMUrfU724b+35QlZfXwyXCK6LUobTnFYDucQlKzw9/xjA7oFBrd/szIE4r
+         I21c2QSK3oynF2lbs0nKEIc4I5Z8iATaNc1svqiIPgqZW5zJ9GTz5+qPm5WUT0a3dHg9
+         D16A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=SJnKoH2k8aUsMnHN9s6q8EPoGOgHGpVja0sh8tMg5Zs=;
-        fh=tJqzp2s+fWAnT+O9nx+5kSok7JXn91pdoeyGlPaExFw=;
-        b=USWAUa6jrrbznXuQSKFsX/fYV2gDjIln8iHS65g2ABF2B80RYeABx4NYic39d6aiow
-         6uX6zRBu2v5vNGDJaVberKYNmwslec3MWbcX5fGWLEKIdIqP9PhekJGrzkJ77F7VoAHt
-         ZGMFLH8llsTuz2eWLVGWYwsKFuPT3a2bgOhydQCSAPs9M+oz8RT0gw9Z5h+KlcgzjjtM
-         FP3MRy14JR4uhD6gN1L6gdTRcubFw6p5K/9c8T7nyHncZ/KN6tnzQ1UxOVrGkQKIC+bG
-         MDDEKwlgm2CGzXgFL0XhfqhZlJBUe6ceAXBZBYhUnh3e6Vs/oZLpMzGLBDtjdoA7fgAd
-         xORQ==;
+        bh=7xR/ODl/LLpv8qzPXxQC2I5D7gVivJZJFQgXB+mbpQQ=;
+        fh=mqTCEwfWNmY/8gqfXNZd5DoDO+oy2gf9ngv5DZT8Oko=;
+        b=KFIEBZj/T8LYVDytDhxiGxyMojkI6CWLSGjegpSvTtKVItTRSUURdn47cwCF6fu2pw
+         ZBhkEMVLdAKxEsuuwCRcHTfcKKdCO3IC/0dTparpxxucUOUFcPY4nwibaesBBJzWph0O
+         dvgS2N6LNTpAUTQMtf1NU5e5hEWQ1wjK7JgVRm8zCaT9cj1F8d3NAxtg3F9ggbArYUkF
+         huZO2SABdf2t1OZW4+LPD2IJtWZpI2bUTh/vLoD/fNCrZ/uCEUp+0ilMnwcQgAlv2ay1
+         h+5oxX8vGdUXlWnWVa4qg4zVicyZ4zwaNvOOAFggVcMMDTevLJdnkakZLb2yl9Q+VMAQ
+         lyfQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772693391; x=1773298191; darn=lists.infradead.org;
+        d=ausil.us; s=google; t=1772693448; x=1773298248; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=SJnKoH2k8aUsMnHN9s6q8EPoGOgHGpVja0sh8tMg5Zs=;
-        b=MDSB2yc+LDD+HMC8RRuzlvBHGAtKvvUCwlHboOvSj6RXXahFgRTNGk7h4Tr8w7c4dW
-         xVDDMr3xLTkltaugjHnQs+4yhhHaKkPHzqxMHqrj9mxpeaTJB4f3nI9TIKc51216WEbq
-         9OhfOK4LnwV8vHKWqqt6nZvhhNYnQEQbhOtXjvEOpPbIpZq8Sg2XhNztlHwd/fICOC+Q
-         uImosK+FaHeWkF1gawgkELIiBpHlc4AFrOATqFNfcy3NP1uwlDl+hPNoWjXZ4/k/3BEE
-         VFDz39JcfveXdqGza9+nSsouC9ZsBCBKTZf1t7T2Ain18rYP7XigbA24NzS+RXdcHNt9
-         /O0g==
+        bh=7xR/ODl/LLpv8qzPXxQC2I5D7gVivJZJFQgXB+mbpQQ=;
+        b=ZWFn/C9CETl/O6NkT9kHbd9F2STa4rH4BaOEOGnpFSLusHxqF9RfJdQ7hsADFjgrGN
+         g6SswAtFQxXTcs5Pjqt8AQ/h42ZVK42TOy5SOvxjXxVDOPWBKfrHf+GGevbgvQPxS7QV
+         Dr7HOg2qOc+cFV60ge8oZi99rH0UB7c4CNiKnwNpuKEgejN+6+sfM40kZY+RXna3iur5
+         4+8vGhON6FgZlCK4rdOmRVdjDc7sonWxEOGazbWQrgjraJyEIl3ri72+xPEMWpQoEtN/
+         tUI3EVCOWyIjn7G3AN5XgCaMkpB/JAvbNqEpGgYOV3fq0GJIrInfkycd/VYbXtu9BMdN
+         ltHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772693391; x=1773298191;
+        d=1e100.net; s=20230601; t=1772693448; x=1773298248;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=SJnKoH2k8aUsMnHN9s6q8EPoGOgHGpVja0sh8tMg5Zs=;
-        b=IOK8LkoW0nY7WKFLrAOfY8IVTbXTAtpSxFDEMGOssc9dpIUfslnS3RpEBnIiVV/rIk
-         PgRhCLClbOUVIdINwEIsbEEAnAUbQX3BXEcrrwqZElooBiCsg0FHnvPWFonR1dPffmGa
-         btCB4NlnAH/8huOi3hQCVKEP2anP9EKn47c0Erhgbp7GWzK43L6XpkKA+Pp2bUybrY6t
-         s843jH8DRsA0lhdqYHNxCSZLm6N7ywGl4wcr/cZbOb7Nv63chQlbWuOzwr/TaYkNGQkr
-         N7HOHzKhsIWoBr8Yb8ONJnlrCs5P9T9RnYvYkx+Hr2NV6oxFKi4ERD3eAQxuqXGLa+OA
-         lsrg==
-X-Forwarded-Encrypted: i=1; AJvYcCUxQdRDJueS7LBSOAw/7C7i+WvsZQZWS34clPzIwnLcUgOUdYkd1KD8BtscobmvyrDGW56gwz2mMFibo+wxqL7i@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxbKhv0GUdPw8ZilINJ2ESD/SpCYpwhJugatEk5K8jw3PU6Cpt
-	pBuZrU8DXPQ/umccgedHAywm7tqqpS08J40/ViWAZ6wDK4QUmAIaeq+2HAmDUMh0BQKzGpYQWxd
-	cqenE/7wwdkpNVvcm9u8gwEer3kY5y0U=
-X-Gm-Gg: ATEYQzzQ6QllLv0cA8h8SUwKGmVr6FWaUQezAASYhYxI+6g4CvpkXHsavriVi23T5UK
-	GqoTuMfjg8ibPX6Y/uTC/b7j3cGUsMb8uWMhRGBlNSVOGdaYRJm2ZEbVfTu8NfQJKzhJZ0O37Gd
-	Mh7kxArQMskiKsDOnk0FDBej1hayjDacOL8viiDBqVMVru1aJIhrViqCTOq4qMAhCgjXUZDg901
-	LV27qGLu6AB22VkUALzOVSUwFgJK+nMZiwq92b+qcquA3QvWi5hK3gcxkc/FJ4k1k6RTKCes373
-	9DnQw+6gHF9XXj5msYfDicAsgsdEWrjjCiYtlP6AMU0LWfaj5OvsUnzDp4SvZhaRFncQCkLYO4H
-	9ntgC9mQF2t9bXn0S59J5RQ==
-X-Received: by 2002:a05:7022:324:b0:127:3b1d:f593 with SMTP id
- a92af1059eb24-128b7086624mr1846052c88.9.1772693391456; Wed, 04 Mar 2026
- 22:49:51 -0800 (PST)
+        bh=7xR/ODl/LLpv8qzPXxQC2I5D7gVivJZJFQgXB+mbpQQ=;
+        b=tBnesKpw8x1/5izLNpvvz2xlNhVYuFtqDhGHMC6ikmxL9SkQ1vUu24Ja9sIjFIROAu
+         mKjZOwREvQgoZFy2ZK8wRs1L5ly1n+jcreDuTuvmXN2Lbf/yGaQUpSuSDB/jdURBgxF6
+         7GlvWYX+OxGgAaa9p0/4wz0Hi+IAsmdvzyKh+169qFKs5yQMDPGQ18YsuotD6R6XtFNb
+         QxoQHhMPzLjDqcgKDKLXouxCWhLuk/sIbaJ6GyREyx9Q+hH91zzhxr1GRaxiOJtG5eey
+         TbY33+eb6J+QeiQlNQnRLpgXerVbtPovJzGPa/mXo2QWvJHrETATbq1xWPSeUqEIStUc
+         +xTQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXjDImeDaKQnLpVVmKfN/smaUJJ7WhVg1xSdr5Wi9yvOZq/8BcD1Y31HeAvB43WNWiohNLc0FFf4U00vftXGW6/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5qMNV5rp3veCCzVSybLeDeDKnOpaJjDVmSSn0j3GPu+S29Sn+
+	OYjYdYUeRItd9phlHe16QGKdMMx+PtVGz3oHTZyJ+dU56AeehdN/QAce0nAuJpbzvfcgni4uGOF
+	/encOFrB/6IMqGEpwPj4LUu37seqXWaScHfxHG9K7R+EWkEgwU2e7cm32gbuzwRX1Bw==
+X-Gm-Gg: ATEYQzx2UtdT3srFoZPnlSCYQnNuBTIf3ShCBS39R8X+KBLcOj+0xVgxQkf2k8JD7dR
+	vWT+R3UaxBgtJWwZYDo+Y+olg3HZpKy6orm/bMCZM63ajCKUXkE1tFXwCNZmq2jZE/6/RDAA0JR
+	En5lJAL+0QsX8DcvnMri5sosuqWZVHQTgdrn692X+iZuqflTmSiuP7bJQecp5AKZUduiAuH3973
+	QZDus2tdxhYGAOwWAXDc5Z14oEHti/VOJ5IDAWeIn/ZBqkrmL8q40HPQSOEGsfgmpGqfm9McjLO
+	LidZTPvWd9NWavVP5juulMJrHiEsojYE215ICa4NlLA1EQ53nI9J0sczF4/VHeJyFJJOEaI=
+X-Received: by 2002:a05:6214:d89:b0:89a:90e:3a1b with SMTP id
+ 6a1803df08f44-89a19af74b3mr66467296d6.25.1772693447983; Wed, 04 Mar 2026
+ 22:50:47 -0800 (PST)
 MIME-Version: 1.0
-References: <20260305-scmi-imx-reset-v1-0-18de78978ba9@nxp.com> <20260305-scmi-imx-reset-v1-1-18de78978ba9@nxp.com>
-In-Reply-To: <20260305-scmi-imx-reset-v1-1-18de78978ba9@nxp.com>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Thu, 5 Mar 2026 08:52:41 +0200
-X-Gm-Features: AaiRm505xBxL2PxE2YKJ3MTVjZe8kemHLRhSvtWvM-ybN_ZTK85FYION66BVMA4
-Message-ID: <CAEnQRZC4w3qNOJgth=8N-Ri3wFeKc-=VnQXWzr4WR0j6yt7WMQ@mail.gmail.com>
-Subject: Re: [PATCH 1/2] firmware: arm_scmi: imx: Support getting reset reason
- of MISC protocol
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, 
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, arm-scmi@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+References: <20260228205418.2944620-1-dennis@ausil.us> <20260228205418.2944620-3-dennis@ausil.us>
+ <CALWfF7LZV07x7zAgufE_aa58s7x6e_ODAM2LgZqjbEakDticpA@mail.gmail.com>
+ <CAABkxwsJ2ZnytCcHEvXWzNkjwzNThoTR23FAeHJLdf4JjXJEMg@mail.gmail.com> <CALWfF7+gdNqSgzk4uAnVRkG8vT9FwJDV46VXpb26hd7BzdaGcw@mail.gmail.com>
+In-Reply-To: <CALWfF7+gdNqSgzk4uAnVRkG8vT9FwJDV46VXpb26hd7BzdaGcw@mail.gmail.com>
+From: Dennis Gilmore <dennis@ausil.us>
+Date: Thu, 5 Mar 2026 00:50:36 -0600
+X-Gm-Features: AaiRm53rLf9JFsOMPcs6Gcb8I80gESnZp0sJGMhEniGuj0Hsfu1GrQDeh7FJtCU
+Message-ID: <CAABkxwtG2e5LpjS-sScmn46DY3eXd6tyNCc1oNHKqoaO+PVwuA@mail.gmail.com>
+Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Add Orange Pi 5 Pro board support
+To: Jimmy Hon <honyuenkwun@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, FUKAUMI Naoki <naoki@radxa.com>, 
+	Hsun Lai <i@chainsx.cn>, Jonas Karlman <jonas@kwiboo.se>, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+	John Clark <inindev@gmail.com>, Michael Opdenacker <michael.opdenacker@rootcommit.com>, 
+	Quentin Schulz <quentin.schulz@cherry.de>, Andrew Lunn <andrew@lunn.ch>, 
+	Alexey Charkov <alchark@gmail.com>, Peter Robinson <pbrobinson@gmail.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_224952_969229_BD686451 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20260304_225049_816455_76363A0A 
+X-CRM114-Status: GOOD (  18.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,83 +124,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 5, 2026 at 3:55=E2=80=AFAM Peng Fan (OSS) <peng.fan@oss.nxp.com=
-> wrote:
+On Tue, Mar 3, 2026 at 9:45=E2=80=AFPM Jimmy Hon <honyuenkwun@gmail.com> wr=
+ote:
 >
-> From: Peng Fan <peng.fan@nxp.com>
+> On Tue, Mar 3, 2026 at 1:43=E2=80=AFPM Dennis Gilmore <dennis@ausil.us> w=
+rote:
+> >
+> > On Mon, Mar 2, 2026 at 11:57=E2=80=AFPM Jimmy Hon <honyuenkwun@gmail.co=
+m> wrote:
+> > >
+> > > Hi Dennis,
+> > >
+> > > Some curiosities below,
+> > >
+> > > On Sat, Feb 28, 2026 at 2:54=E2=80=AFPM <dennis@ausil.us> wrote:
+> > > <snip>
+> > > > +
+> > > > +       /* Pro uses gpio-leds instead; pwm0 LED is not wired up */
+> > > > +       /delete-node/ pwm-leds;
+> > > <snip>
+> > > > +
+> > > > +       gpio-leds {
+> > > > +               compatible =3D "gpio-leds";
+> > > > +               pinctrl-names =3D "default";
+> > > > +               pinctrl-0 =3D <&leds_rgb>;
+> > > > +
+> > > > +               blue-led {
+> > > > +                       color =3D <LED_COLOR_ID_BLUE>;
+> > > > +                       function =3D LED_FUNCTION_STATUS;
+> > > > +                       gpios =3D <&gpio1 RK_PC6 GPIO_ACTIVE_HIGH>;
+> > > How come you decided gpio-leds instead of pwm-leds for this? GPIO1 C6
+> > > is muxed with PWM15_IR_M2
+> >
+> > the downstream dts uses gpio-leds  the GPIO comes from the schematic
+> It should be fine to upgrade to pwm-leds when adding into mainline.
+> The Orange 5 Plus did.
+> In the downstream DTS, they used gpio-led for the green led
+> https://github.com/orangepi-xunlong/linux-orangepi/blob/232ed4b97b65da2b7=
+b647c4e3c496f8594b9f3f1/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus=
+.dts#L31-L36
+> But in the mainline kernel, it was converted to use pwm-led.
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit=
+/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts?id=3D236d225e1ee72=
+a28aa7c2b1e39894e4390bbf51c
 >
-> MISC protocol supports getting reset reason per Logical Machine or
-> System. Add the API for user to retrieve the information from System
-> Manager.
+> Jimmy
 
-[..]
+Is there a reason the blue led was not converted from GPIO to PWM, and
+only the green led was?
 
-> +struct scmi_imx_misc_reset_reason_in {
-> +#define MISC_REASON_FLAG_SYSTEM        BIT(0)
-> +       __le32 flags;
-> +};
-> +
-> +struct scmi_imx_misc_reset_reason_out {
-> +       /* Boot reason flags */
-> +#define MISC_BOOT_FLAG_VLD             BIT(31)
-> +#define MISC_BOOT_FLAG_ORG_VLD         BIT(28)
-> +#define MISC_BOOT_FLAG_ORIGIN          GENMASK(27, 24)
-> +#define MISC_BOOT_FLAG_O_SHIFT         24
-> +#define MISC_BOOT_FLAG_ERR_VLD         BIT(23)
-> +#define MISC_BOOT_FLAG_ERR_ID          GENMASK(22, 8)
-> +#define MISC_BOOT_FLAG_E_SHIFT         8
-> +#define MISC_BOOT_FLAG_REASON          GENMASK(7, 0)
-
-I would move this macros outside of the struct. Although the intention
-is good it makes everything hard to read.
-
-Just do:
-
-struct scmi_imx_misc_reset_reason_out {
-__le32 b_flags; /* MISC_BOOT_FLAG_* flags */
-__le32 s_flags; /* MISC_SHUTDOWN_FLAG_* flags */
-      /* Array of extended info words */
-       __le32 extinfo[MISC_EXT_INFO_LEN_MAX];
-}
-
-[...]
-
-> +static int scmi_imx_misc_reset_reason(const struct scmi_protocol_handle =
-*ph, bool system,
-> +                                     struct scmi_imx_misc_reset_reason *=
-boot_r,
-> +                                     struct scmi_imx_misc_reset_reason *=
-shut_r,
-> +                                     u32 *extinfo)
-> +{
-> +       struct scmi_imx_misc_reset_reason_in *in;
-> +       struct scmi_imx_misc_reset_reason_out *out;
-> +       struct scmi_xfer *t;
-> +       int ret;
-> +
-> +       ret =3D ph->xops->xfer_get_init(ph, SCMI_IMX_MISC_RESET_REASON_GE=
-T, sizeof(*in),
-> +                                     sizeof(*out), &t);
-> +       if (ret)
-> +               return ret;
-> +
-> +       in =3D t->tx.buf;
-> +       if (system)
-> +               in->flags =3D le32_encode_bits(1, MISC_REASON_FLAG_SYSTEM=
-);
-> +       else
-> +               in->flags =3D cpu_to_le32(0);
-
-What does system =3D 0 mean? can you directly do in->flags =3D 0?
-
-
-> +
-> +       ret =3D ph->xops->do_xfer(ph, t);
-
-Is it mandatory to call  ph->xops->xfer_put(ph, t); even if ret ! =3D 0?
-Because we can get rid of one level of indentation with:
-
- ret =3D ph->xops->do_xfer(ph, t);
- if (ret)
-    return ret;
+Dennis
 
