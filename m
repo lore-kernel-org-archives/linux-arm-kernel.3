@@ -4,142 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70E28F47CC8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 20:06:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28E0CF47CC4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 20:09:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e3ZTeFDxpi1I7MJRsg31j+H3gXi/EUnLFUjrvM8iH9o=; b=UnU5mTbBJxt84Bh6xw66dOeZDH
-	ZFtpWLRoiK9OTQfR8jvfSHpvm8ZvNNv9sF0IT5mSkl4h1ybLyE6EmLDDxxQPwzaVbuaG3aj3xPe+a
-	RpxVf2/z4seX/pTpyH2q26Wc4/cNdf6+poMaqJUKb0YtzfdIs7sR9/BlNnicWOCQem0TVry2z19LY
-	C/qfJ6TUwIVEc5x24HOy/hd6RaI+VqrECNrIvE4sQe8OiQfM+ZjgTgayY6y1y7c8NMRMFxlMeqcMz
-	PlYy/jwDA1VD+ckU0mXVxw4rGZY/+m5uN4Co+PdxonRdFEPz5ihzNl7cLVmFIMJ1uGcclyhv/lHHm
-	QVhXQBzA==;
+	bh=u7AaR+feZM5r2+UFInGB9UfPdjsNdVV2tS9vYrPEuqc=; b=4a/4GJ0YfbpG61aRgCtqcZ0jU/
+	Ui2dml41G8auGN514eIcvoGGnuHLpQ6lO5cgHwd6ZLjRMMUls4uWD3ahSOBntKPKSEzKNlQtylCaM
+	IE3OGgOnf39yKslwidxHlkfq3aLD7foaynvb5WVbtVvCSN6srgFHxVZi4cvcVGuCBft8EuUenSdRe
+	larYmWfkypaDdgKjOKe+8CXcdtWehALzW7i6NsNnkR8cLCHIHv1eNiMGcD2HvbvaOOMfV3Qhf1t+L
+	Qemokzl/oT/8oj29S66B9CRUeW2UDiDKgr6Z2pV0u6Vb9Taal/Z3IcbrY5UsGeWtRFN5yYHD8KI+q
+	mlTKTdIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyExO-00000002V94-3frI;
-	Thu, 05 Mar 2026 20:06:02 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vyF0J-00000002VLK-47uh;
+	Thu, 05 Mar 2026 20:09:03 +0000
+Received: from mail-yw1-x1162.google.com ([2607:f8b0:4864:20::1162])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyExM-00000002V8Z-08aq
+	id 1vyF0H-00000002VKv-0AeN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 20:06:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=W6eSpkassrz+x/JdCrYLYhIQRfWDnEXSV7fRFa4V3EBObjHoYkq8qu3CTsO4Vlji1yfkmP0fAixcQ88dINcA5Z1q99oMZD/UfU8einkqffYrJWZ/WkOnhOn6G4iIPKF2+wZSwWny+CYdhfE/bhfEXpnBvYvf4jmkGv+1Ee48ubv8Rh3cDjzbmAzproHpPsi4PyqnQYjq5fHENDpi2+fS8NXp/RXBx3Dc96LgDE5CG5LWJzt5aA7rHC5w2+99zHunFVgybD6oZ738IGCfq2r5riTjwlgjdEwZvC960PnjQ9PQ7MC+3zHtBk52tpi4QHe1br04OH/tjFC8QpuVHNS8Xg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=e3ZTeFDxpi1I7MJRsg31j+H3gXi/EUnLFUjrvM8iH9o=;
- b=tsEcoJPnnPUuJ8WcmHhly6gIHs1wcGkPMB8RljX4WzqS2O9NnccqFG41BZkxEWuN7XffzY9/mmTkdRmU0yE4Z0HMDt4FvrnZmA/Bq1/M8eY0SYjcxQ1McFJ+PeB9w35Dtiwn2Xkw0AfXmnZc5Cc4jVcYQIuwiugO18/wV7fUpzIsItBOZxwQudU6qNeFe++dIU0lObhlJQ3Fm9CudayCX718EvVqeO/KsyA4HTCi+rILXgmznU8/VNZjW8pmOlIpNnQmuwlK91n8q7SNiOwYQ9Mu8FYhLh5qoT3vCYljXWvyzv7B0h96XMjnV2mbG2S+pQNcqSFSCR96ARHZCBunAA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=e3ZTeFDxpi1I7MJRsg31j+H3gXi/EUnLFUjrvM8iH9o=;
- b=jZoIWJv8TkatAkB6k/zDz+TZzDGB48ZLcMHiAJPEBB8UbrgfJ+YKl6Ks8FGQJW0YXQCNmVvZds5Oyqpjq5TWsLmc+juBS60Zwo5c4DbfbPvkPli8TXPwVsNPG4gCRwPfoZCXUteQ3zlF6VshmyfpakYzuugD8vT+3KYFnnqKB91Iivjh1MYF3ayVCtJuevvovfJ+8FPwoDBYX/WiNsnztuzyptFUq02iG+QerCEbYBgQPWapQ5nMcgsZ/eiltPA2765CHEnLj2RDbnSnqEHm/LxWvdb0Fy2kDHvNgiovfjZVOeqbLELGG4fuCJ/z4drRUNKneHyRuc7xiv8lFfQu/g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by PA1PR04MB10649.eurprd04.prod.outlook.com (2603:10a6:102:48c::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.18; Thu, 5 Mar
- 2026 20:05:53 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9654.020; Thu, 5 Mar 2026
- 20:05:53 +0000
-Date: Thu, 5 Mar 2026 15:05:46 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: max.krummenacher@gmx.de
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Max Krummenacher <max.krummenacher@toradex.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] Revert "ARM: dts: imx: move nand related property under
- nand@0"
-Message-ID: <aaniGuauaieO3p36@lizhi-Precision-Tower-5810>
-References: <20260219151157.2549198-1-max.oss.09@gmail.com>
- <aZcz1vRg4KtAKUd_@lizhi-Precision-Tower-5810>
- <aZdDF6BObEu_C4KJ@toolbox>
- <aZdnhv2QC1szMCVl@lizhi-Precision-Tower-5810>
- <aZ80BWH6DRu8_W_S@toolbox>
- <aZ82pG3PO1HxD18B@lizhi-Precision-Tower-5810>
- <aaBA65_zLu8S6WMS@toolbox>
- <aaBi9lipWTG5l0hs@lizhi-Precision-Tower-5810>
- <bd0bd330d140f9d9d222c72c3797f79d08fcae1d.camel@active.ch>
- <aaWxiERQ4u6IhO7Q@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aaWxiERQ4u6IhO7Q@lizhi-Precision-Tower-5810>
-X-ClientProxiedBy: SA1P222CA0140.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:3c2::23) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Thu, 05 Mar 2026 20:09:03 +0000
+Received: by mail-yw1-x1162.google.com with SMTP id 00721157ae682-7986e0553bdso82847537b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 12:09:00 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772741339; x=1773346139;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=u7AaR+feZM5r2+UFInGB9UfPdjsNdVV2tS9vYrPEuqc=;
+        b=JPhoBjNE+NomVpPANp+fXuep+bjHFXQNoWYYNYQ9fvf3GP6PEI+7+YkfAthYWtAPhc
+         WgE+/CBzfHBAI+m6Se0WJYmoqnO66Bb1NEzXTw1EAtA45eOk7dHPWoZLU8bdtM4ILfNX
+         w4CyNLLCprkoPJbSLGExB4YVZq0fLXKnCllDqQKvMaci1OIuPuNIF/e6IL1W5+Zurs6r
+         i/2ip4mSjS2QhQFtkeiBPoWgrnM4EbCXEzQC+IvshTNr0B+xmR3n1at2IAEgpWYxiblD
+         fyRlpYKbe1xDUIbsBmhhB7Ztv4zT0VH3vp/yqYDib/Fo6Y7mFAty03c/GWDZBQqElaUo
+         twRw==
+X-Forwarded-Encrypted: i=2; AJvYcCVQgZMogBVq2VLMcJ8DVQTeHCw5DvIB2+NdUQdWTKRjgmKUB6Eh1mlBAzIv1D2163zR6M9YVVXui0OYMIFp9cHf@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDpMzNM5D4UswNo7I5jhKov9SO4845imekhDiXMJGw6ackLCMl
+	yDf5g70WF8qg+Hb0yaJ5BDuKu3SJ3KV3b+F9pIFukY4ypWvXcTG3xZXb1GOOoe8BB7HWAF50YRE
+	0TynUd9MEpnPuHVbRKm28qwr6+hXLIKFMoXnw81xyutMk6hPXBtytRq+5GE8093C6WQKN+abcSv
+	qS1V5qJvStzUbHfoWCvJ8oEeCg3ZbEARN49zW22785cl0eQgTv7I8uXFRGI7eJOecixeDcEOzM+
+	HD4owvjJT4tZ+egNcTo4Hd3rGA=
+X-Gm-Gg: ATEYQzyGvy4UxG1CI0EAAv5435xTdM2uxpJwg2T1JXVz+vp3LZXN2eQGRcEKkjHVkHh
+	lIZodBLnuHIG6d4SU4sOHTY/8USlfQmK8k6gZDEH2ddIZ1OBdl9hWoLfbAJ8HwcZbpfPr2aPneP
+	QaLdtzrc2zhoiVUNb+TsUOCyh7OgwBM65cdliwkE3Ex+6q8WZJSoo4G8ZHNzvs+UUZf5O8xIISU
+	mUzNLr9/EgCZax8HQvyVuO8UQNTSOYfEZQi4J/BEf67e9RKGuRFadA/NmBFG/NQnowO93vSq0eP
+	X2Vg6lHtq0HxWZaic1ihdAjJ14hlOPWaETF7gcTdJbENB3e3wIg2nvRPFEZ7rZSYL1dbcvQ7a0q
+	XX8fGYN7TKwvtDj5wALeqMtkyQDyWE5hKv+2stQwgVMPcnygi+1tkgWFB109i8TZFtO7a7M0i+U
+	gpg7nSGJpbeUPTKKxMpMwG6PlJ3rHzKtqzQTpQ03ilLTQ/DJ1LNvsDngmn
+X-Received: by 2002:a05:690c:dd5:b0:798:68c0:d9fc with SMTP id 00721157ae682-798da50bbf6mr12024927b3.49.1772741339271;
+        Thu, 05 Mar 2026 12:08:59 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-117.dlp.protect.broadcom.com. [144.49.247.117])
+        by smtp-relay.gmail.com with ESMTPS id 00721157ae682-79876c9b902sm29352857b3.29.2026.03.05.12.08.58
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 05 Mar 2026 12:08:59 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-12721cd1a2aso125745604c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 12:08:58 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772741338; cv=none;
+        d=google.com; s=arc-20240605;
+        b=egWkzROLk8iAk5wIO5N+yY0U8wSsf8W/1//CHaN3mESfn4+8Nu8RGlo/vN3B9ggCaT
+         vEWScBVGr+a4fhIVcFWjzrd1KSN9758pBWs/5eX37AyMALkw2bY2yz6O1yZMA0wtZoOh
+         txGZhem4Ii1aE26AApTDGgQNJ57vU828u2YYrcoS6mXjSoaRonenoxE/G9DtxBYcyP2l
+         9gaqw7cbm7/XE6nl44YARJs8GR0L11fmKtZEKrgy5pscUtUD2nrjJsYUHdnqsUPyXr+F
+         bIi1lzRa5zMG1MiRSRUAoxd/sOyIEYEEldQXqEymENpjtGrcz70zxrnX2lfAFebu6iFj
+         aruA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=u7AaR+feZM5r2+UFInGB9UfPdjsNdVV2tS9vYrPEuqc=;
+        fh=vMpjq1cV2SvhREPrjPM9026mMWDNWX7AVDoEnBT6MfM=;
+        b=FY9uDE01CH6UaF3cdxoxOeOkdTsKu9TPK7qxEBPvBP/etjl+/In+4xidoEE/RTr7C1
+         zCeSnRFkuKgKmQYCKGm2k3jE3mtruZa+CvzBiUZ05tcPbcHSG6Qel7OVfiFfrlOSr9xL
+         Rz70gvjUwkpbPdL1N/wQDCXLyUr8SlxOifBCtQrjdtSEkU6vKAzzKjc3drTnL2T7RDsB
+         eq6E4qOEQ6lTxrXm6+3BEpGYctzGMi+FKlKIEBDGbN/hRQcvgmdvd/HwUykv5HH0KiTq
+         vRYHihrDTIfiG4Q8GAbGpTfdB3uFt+M7clA2EfJAzu7maBmIb3eXrdBeVf+Ld1t+yaUZ
+         +CTg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1772741338; x=1773346138; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=u7AaR+feZM5r2+UFInGB9UfPdjsNdVV2tS9vYrPEuqc=;
+        b=TGdeGC1VQ86LSpWMEz3ckg28HlkDmb9l1eX92auAYU2VTB/7z+LJPS8FnYj/Deiuuo
+         zZtXpdU/4iCVJeLtSyt1SOJIVaZBaJ0gdQvBRL4hvIjfyLa4c7iDX3ckaxYBbcj88SX9
+         7zsKloIQi2yC2z6Ey4AMiBkXf3ns8nSa2TZbw=
+X-Forwarded-Encrypted: i=1; AJvYcCW65y+MKbRCCpbSJ15IMkuPZ3wPYlSsTRUaW7yEY0SeIDGXzYbOEsNGSCgtdOE5bzQ0M8HULcJ5Ju8gSFakRcpy@lists.infradead.org
+X-Received: by 2002:a05:7022:b8c:b0:11b:88a7:e1ac with SMTP id a92af1059eb24-128c10c9716mr546668c88.19.1772741337895;
+        Thu, 05 Mar 2026 12:08:57 -0800 (PST)
+X-Received: by 2002:a05:7022:b8c:b0:11b:88a7:e1ac with SMTP id
+ a92af1059eb24-128c10c9716mr546651c88.19.1772741337353; Thu, 05 Mar 2026
+ 12:08:57 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA1PR04MB10649:EE_
-X-MS-Office365-Filtering-Correlation-Id: c4284944-82ce-4808-e2c6-08de7af29af8
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|376014|52116014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: wGFGUyGFAwsCJp+/es7pVyiEzPpo1sBppa+nUpYgO4CHsFxQwDZRcnxjgIO1yLN1WbC6GOEwS8Tz9qKb4np3CiVA8wEetFtHt4g+/SXFVrx/NBfC1sTasyPL8U9rXRP/p4QApLdMht0cJ+COVW9+DzkRFqfHFZ7kiE23VZBi/23Jeq61a3D284ER+DQKpbBUZN9H54LkV6qYxJwRItk8FcKYg/QN4dFPmMkp4D/9M1BO1xDBZ/o65TW3LBNeeJgHFLCmZUOmMaHlsfo5zuxnDecGdp2Fmj2ccTzniKjA6s3gsPMCfWBvuSJF0T/khreOmHiVI5hDLDL+530dmVLlQBxh6BmLRb0/azwvKB/YCJW5Uo0mApB372AkmYeSDfUrzV6tpaJuMQSaevnbDnXIN8CVdc6J8ODtpc79fzZ7kqnQ+0vxvCz5/Gx/AGvwOblqOyNTuNGgPjK+lc9MV/gY5j6aHafzh/b/oH+qMTNv/1wB1bCEdAJVIjSWWQf2Sfu9zFiIqOrWIsBDXWoyOhAjY9ZJKv9osOe/Tr487jzz6BSvL6yP86nBjbLPZREgOhJx1RRHzAEx1XD4FX7EHCSnnPYO6SoWDJt9CPOy7MMJHBm4wgT5w5PaYz4dsvigsVLhnhM4elr4wqXP3819fUhPPGqTtsCsRn0HJWIFa28QM29GZpRT2J035llZkpBoT4uDcs73biqD2k9il1nBUII1hjyGyig5kLzL/1kBHBb58DjCGVYYlQ9TIM6k8M3K5b/kOVxCRO4beL0zVPAIzdwig6s8bk+UW5VnDqMFlNmKfIM=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mIILtQSoPwJYPHBiQsTJItrO8AsYAxuE1f4VyKVxS61n469z6LDqenSoHkwY?=
- =?us-ascii?Q?M4A4VkWBDvjgADixPW7tw+3FdVa7LSrILHYY/j0gNiDjg+GPn5Inhha2HcNV?=
- =?us-ascii?Q?xcXAGx0WrgL408B2yCI0s26Hjj1GWRQUKXJTJ4QMUQmdMvFDFGge6pb48Vwc?=
- =?us-ascii?Q?pY3L/LTXpB1xBx3EUHzAd/u7gOYvEKKWdDUXFVbGWh3d0AndilJcsIbk0Un5?=
- =?us-ascii?Q?SrxzgdyPSR2+44SC45S0Tip5qg3iKEvJK30Y8NAe++bT01P/zYZpYfslqw4G?=
- =?us-ascii?Q?6U3wT/mmacphZTyi6PKj3jV5xlkp2x3LHg4BqahZiYdNXqEAIAFrcv1sspQk?=
- =?us-ascii?Q?x+tdVM+yNHl5Gffm/kETyHbdqIJFBtue6u02Vsizc7Gt9xEYilXjOFTY5vzT?=
- =?us-ascii?Q?84U+kF43kpC8whxfkXKD+rRtn86GSghyBfZRj8O0oPo6OAwS/eceQ2Fla8hZ?=
- =?us-ascii?Q?ZkozbespO57+gLaN4CFUJN1VjCjs6Q1+TbbKTGOwuOAXrlNtV2Zi5A9yZ2Xi?=
- =?us-ascii?Q?EGgzDht5I+cWUq20aEHBEt8Wr9dtTwyL2ZPKPmWxeQTsW95k4LelUyyOKXxx?=
- =?us-ascii?Q?SV+tboLTrX95RvRD/5S3UezSm6P4iudFowIsuUnJ9nfHafzbw77ctPSZ6+UT?=
- =?us-ascii?Q?ZVf7keKUP0KhtBjW+UKsMoOcB8i0TQr+jXjYsMxmq5rUmino2JaPZIKCSZGe?=
- =?us-ascii?Q?RzjPVRESI3hiTozY/vssoL6KZS9mq7Jrsh89xiuDr9p7I7UQDE2YfKLwF8fO?=
- =?us-ascii?Q?64L4PPry+5kQwgCqFmZn8IFcjNmmA+NBMQRiscKGxzmki4Ygiu9OkgF0PVEm?=
- =?us-ascii?Q?sdDS0NQiaNjqWG44Nl8UjaqYQtCGWk99wje0ombX+80npQfwslqkLwIKJEkx?=
- =?us-ascii?Q?57pVDM5zRaM12500LokdE81epcM29LRN42FTA/9NyHIOY6dd3LEmA4/cUFj4?=
- =?us-ascii?Q?1uHPJy4sT+g5kFcGi6Is9iq6/fukK+lDrxzWrBB9ABhEH8ERLaczSULrCmF9?=
- =?us-ascii?Q?B7vtRhrrwY7Q4hXkbBnbWtNKzFghDyyXcK0pkg3s/8xzIFlip/ZPpwNmkSYI?=
- =?us-ascii?Q?Kyyn+8UNhBQvebcT1Lj3T/Gxea5hrp3hTDYjB6hF5UzWmQihXxN10MF/lNb8?=
- =?us-ascii?Q?24FCZCbvBB/Hs8OTeHParHFedq8v44ZhoXTxvN/DUR3kTO3cKVmYJNUqb18R?=
- =?us-ascii?Q?ix5GZDIN85Ipn5W43Q+Mfol94RcZAugl4/HomUdP1YvCy7ZUbSd33D6hOVLZ?=
- =?us-ascii?Q?6WTQo08oM/5fjnECw31Tm6kMwpQr6sXjLhmgQSSV9nNfWMc+m1MAmxj8j1fJ?=
- =?us-ascii?Q?LV4TkQb1Ct5RRxhF6O4A+s6/ZBQpQNvvTvc6wh+w2/JK8lKhKUZRTO5smEFB?=
- =?us-ascii?Q?IS7mSCiYijtEDZrzs6FpnLWRwVhSVYCWF+iUXy52ok74xRL8KawCSySeIEOO?=
- =?us-ascii?Q?lbEkEjkGBX/sPnEbE/XIh+ErRVaxU+HcDRLMp62H83JHhIdtyjthTw4ese40?=
- =?us-ascii?Q?ME6Qn7r+SiqdobRRd17rYYkI5Zo/1nY9GLzt4U/rpOdx7ufu7kIQZXkr232J?=
- =?us-ascii?Q?RwVsLmeJNG0d7o6nUGTVcLK6XWjK4ev8t5YDSpbXTQZFEZQdJLbeiSHlCCfe?=
- =?us-ascii?Q?lGO/40kOtmGk4MimIuVEgmlgWdP+t2mTumL+aXpU17lyBlbU0yj2qH8oSG3t?=
- =?us-ascii?Q?SAqnuqWK2czAWHlVf3QyodAXTFiyckv/XzgMd0Dh3+4r0pwE?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c4284944-82ce-4808-e2c6-08de7af29af8
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2026 20:05:53.7215
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 63si5rb7TRT/SbEEw8v+ApkpCjpq3GvtTuB9fU11O/mGdrywy4y03qgt7eAyE7NcOAaHHz72AxAoUjHNiLCM6w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10649
+References: <20260224220407.2351692-1-kamal.dasu@broadcom.com>
+ <CAKekbevZQBdvH5CCGyCDhs7ND6y65C=S3k1Aop8eh4CV5r_4aQ@mail.gmail.com> <38c0a23e-88cc-4f26-9648-fdeb9e99160f@kernel.org>
+In-Reply-To: <38c0a23e-88cc-4f26-9648-fdeb9e99160f@kernel.org>
+From: Kamal Dasu <kamal.dasu@broadcom.com>
+Date: Thu, 5 Mar 2026 15:08:20 -0500
+X-Gm-Features: AaiRm53XZhNPPi96Ac0somFmO4m3j6WMSccVLybwlqQcDsC_RIXA2i9TzPTQmH4
+Message-ID: <CAKekbesOEL5kTYEq=ibsiuDoY2MGxJ6oxAkGrR6v3yQLUsLcUA@mail.gmail.com>
+Subject: Re: [PATCH v6 0/3] Adding brcmstb-hwspinlock support
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: andersson@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, baolin.wang@linux.alibaba.com, 
+	florian.fainelli@broadcom.com, bcm-kernel-feedback-list@broadcom.com, 
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
+	boundary="000000000000c1784a064c4c8116"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_120600_275599_1A63B39F 
-X-CRM114-Status: GOOD (  28.29  )
+X-CRM114-CacheID: sfid-20260305_120901_134753_64B9A63D 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,409 +135,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 02, 2026 at 10:49:28AM -0500, Frank Li wrote:
-> On Mon, Mar 02, 2026 at 11:53:00AM +0100, Max Krummenacher wrote:
-> > for our NAND-based modules, and our CI no longer produces any useful
-> > results as a consequence.
-> >
-> > I strongly believe that, as an immediate first step, the commit
-> > that moved the DT NAND chip configuration into its subnode should
-> > be reverted.
->
-> As my previous said, can do partial revert? Just add back property under
-> gpmi and keep nand@0 node.
->
-> For example
->
-> --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
-> @@ -260,14 +260,10 @@ fixed-link {
-> &gpmi {
->   	pinctrl-names = "default";
->   	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> +	nand-on-flash-bbt;
->   	#address-cells = <1>;
->  	#size-cells = <0>;
->   	status = "okay";
->
-> Remove "- nand@0" part.  You can use "git add -p" to do that.
+--000000000000c1784a064c4c8116
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Do you plan rework this patch as what I said?
-
-Frank
-
+On Thu, Mar 5, 2026 at 2:59=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.org=
+> wrote:
 >
-> Frank
->
->
+> On 05/03/2026 20:17, Kamal Dasu wrote:
+> >>
+> >>  .../brcm,bcm7038-sun-top-ctrl-semaphore.yaml  | 45 +++++++++
+> >>  MAINTAINERS                                   |  8 ++
+> >>  drivers/hwspinlock/Kconfig                    | 11 ++-
+> >>  drivers/hwspinlock/Makefile                   |  1 +
+> >>  drivers/hwspinlock/brcmstb_hwspinlock.c       | 96 ++++++++++++++++++=
++
+> >>  5 files changed, 160 insertions(+), 1 deletion(-)
+> >>  create mode 100644 Documentation/devicetree/bindings/hwlock/brcm,bcm7=
+038-sun-top-ctrl-semaphore.yaml
+> >>  create mode 100644 drivers/hwspinlock/brcmstb_hwspinlock.c
+> >>
+> >> --
+> >> 2.34.1
+> >>
 > >
-> > Regards
-> > Max
+> > Hi Baolin, Rob,
 > >
-> > >
-> > > I plan give additional 1 year to do transistion. This type layout actually
-> > > exist for long time.
-> > >
-> > > Frank
-> > >
-> > > >
-> > > > Regards
-> > > > Max
-> > > >
-> > > > >
-> > > > > Frank
-> > > > > >
-> > > > > > Regards,
-> > > > > > Max
-> > > > > >
-> > > > > > >
-> > > > > > > diff --git a/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c b/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
-> > > > > > > index 51f595fbc834e..fb126a7c4a61e 100644
-> > > > > > > --- a/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
-> > > > > > > +++ b/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
-> > > > > > > @@ -2680,6 +2680,7 @@ static int gpmi_nand_init(struct gpmi_nand_data *this)
-> > > > > > >  {
-> > > > > > >         struct nand_chip *chip = &this->nand;
-> > > > > > >         struct mtd_info  *mtd = nand_to_mtd(chip);
-> > > > > > > +       struct device_node *np;
-> > > > > > >         int ret;
-> > > > > > >
-> > > > > > >         /* init the MTD data structures */
-> > > > > > > @@ -2688,7 +2689,10 @@ static int gpmi_nand_init(struct gpmi_nand_data *this)
-> > > > > > >
-> > > > > > >         /* init the nand_chip{}, we don't support a 16-bit NAND Flash bus. */
-> > > > > > >         nand_set_controller_data(chip, this);
-> > > > > > > -       nand_set_flash_node(chip, this->pdev->dev.of_node);
-> > > > > > > +       np = of_get_next_child(this->pdev->dev.of_node, NULL);
-> > > > > > > +       if (!np)
-> > > > > > > +               np = this->pdev->dev.of_node;
-> > > > > > > +       nand_set_flash_node(chip, np);
-> > > > > > >         chip->legacy.block_markbad = gpmi_block_markbad;
-> > > > > > >         chip->badblock_pattern  = &gpmi_bbt_descr;
-> > > > > > >         chip->options           |= NAND_NO_SUBPAGE_WRITE;
-> > > > > > >
-> > > > > > > Frank
-> > > > > > > >
-> > > > > > > >
-> > > > > > > > So I don't see a quick fix other than reverting and living with the
-> > > > > > > > dtb_check warning.
-> > > > > > > >
-> > > > > > > > Regards,
-> > > > > > > > Max
-> > > > > > > >
-> > > > > > > > > >
-> > > > > > > > > > Fixes: 8124b4a4a96b ("ARM: dts: imx: move nand related property under nand@0")
-> > > > > > > > > > Signed-off-by: Max Krummenacher <max.krummenacher@toradex.com>
-> > > > > > > > > >
-> > > > > > > > > > ---
-> > > > > > > > > >
-> > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx6-logicpd-som.dtsi      |  6 +-----
-> > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx6qdl-icore.dtsi         |  6 +-----
-> > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-pfla02.dtsi |  6 +-----
-> > > > > > > > > >  .../boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi |  6 +-----
-> > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi      |  6 +-----
-> > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi           |  6 +-----
-> > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx6ul-geam.dts            |  6 +-----
-> > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx6ul-isiot.dtsi          |  6 +-----
-> > > > > > > > > >  .../boot/dts/nxp/imx/imx6ul-phytec-phycore-som.dtsi  |  6 +-----
-> > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi          |  6 +-----
-> > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi       | 12 ++++--------
-> > > > > > > > > >  .../boot/dts/nxp/imx/imx6ull-engicam-microgea.dtsi   | 12 ++++--------
-> > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx6ull-myir-mys-6ulx.dtsi |  6 +-----
-> > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts     |  6 +-----
-> > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi          |  8 ++------
-> > > > > > > > > >  15 files changed, 22 insertions(+), 82 deletions(-)
-> > > > > > > > > >
-> > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6-logicpd-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6-logicpd-som.dtsi
-> > > > > > > > > > index f452764fae00..547fb141ec0c 100644
-> > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6-logicpd-som.dtsi
-> > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6-logicpd-som.dtsi
-> > > > > > > > > > @@ -36,12 +36,8 @@ &clks {
-> > > > > > > > > >  &gpmi {
-> > > > > > > > > >  	pinctrl-names = "default";
-> > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> > > > > > > > > > +	nand-on-flash-bbt;
-> > > > > > > > > >  	status = "okay";
-> > > > > > > > > > -
-> > > > > > > > > > -	nand@0 {
-> > > > > > > > > > -		reg = <0>;
-> > > > > > > > > > -		nand-on-flash-bbt;
-> > > > > > > > > > -	};
-> > > > > > > > > >  };
-> > > > > > > > > >
-> > > > > > > > > >  &i2c3 {
-> > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-icore.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-icore.dtsi
-> > > > > > > > > > index 58ecdb87c6d4..9975b6ee433d 100644
-> > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-icore.dtsi
-> > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-icore.dtsi
-> > > > > > > > > > @@ -172,12 +172,8 @@ eth_phy: ethernet-phy@0 {
-> > > > > > > > > >  &gpmi {
-> > > > > > > > > >  	pinctrl-names = "default";
-> > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> > > > > > > > > > +	nand-on-flash-bbt;
-> > > > > > > > > >  	status = "okay";
-> > > > > > > > > > -
-> > > > > > > > > > -	nand@0 {
-> > > > > > > > > > -		reg = <0>;
-> > > > > > > > > > -		nand-on-flash-bbt;
-> > > > > > > > > > -	};
-> > > > > > > > > >  };
-> > > > > > > > > >
-> > > > > > > > > >  &i2c1 {
-> > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-pfla02.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-pfla02.dtsi
-> > > > > > > > > > index 6f3becd33a5b..aa9a442852f4 100644
-> > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-pfla02.dtsi
-> > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-pfla02.dtsi
-> > > > > > > > > > @@ -102,12 +102,8 @@ ethphy: ethernet-phy@0 {
-> > > > > > > > > >  &gpmi {
-> > > > > > > > > >  	pinctrl-names = "default";
-> > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> > > > > > > > > > +	nand-on-flash-bbt;
-> > > > > > > > > >  	status = "okay";
-> > > > > > > > > > -
-> > > > > > > > > > -	nand@0 {
-> > > > > > > > > > -		reg = <0>;
-> > > > > > > > > > -		nand-on-flash-bbt;
-> > > > > > > > > > -	};
-> > > > > > > > > >  };
-> > > > > > > > > >
-> > > > > > > > > >  &i2c1 {
-> > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
-> > > > > > > > > > index f2140dd8525f..85e278eb2016 100644
-> > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
-> > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
-> > > > > > > > > > @@ -73,12 +73,8 @@ ethphy: ethernet-phy@3 {
-> > > > > > > > > >  &gpmi {
-> > > > > > > > > >  	pinctrl-names = "default";
-> > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> > > > > > > > > > +	nand-on-flash-bbt;
-> > > > > > > > > >  	status = "disabled";
-> > > > > > > > > > -
-> > > > > > > > > > -	nand@0 {
-> > > > > > > > > > -		reg = <0>;
-> > > > > > > > > > -		nand-on-flash-bbt;
-> > > > > > > > > > -	};
-> > > > > > > > > >  };
-> > > > > > > > > >
-> > > > > > > > > >  &i2c3 {
-> > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
-> > > > > > > > > > index 131a3428ddb8..c93dbc595ef6 100644
-> > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
-> > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
-> > > > > > > > > > @@ -260,14 +260,10 @@ fixed-link {
-> > > > > > > > > >  &gpmi {
-> > > > > > > > > >  	pinctrl-names = "default";
-> > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> > > > > > > > > > +	nand-on-flash-bbt;
-> > > > > > > > > >  	#address-cells = <1>;
-> > > > > > > > > >  	#size-cells = <0>;
-> > > > > > > > > >  	status = "okay";
-> > > > > > > > > > -
-> > > > > > > > > > -	nand@0 {
-> > > > > > > > > > -		reg = <0>;
-> > > > > > > > > > -		nand-on-flash-bbt;
-> > > > > > > > > > -	};
-> > > > > > > > > >  };
-> > > > > > > > > >
-> > > > > > > > > >  &i2c3 {
-> > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi
-> > > > > > > > > > index d29adfef5fdb..57297d6521cf 100644
-> > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi
-> > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi
-> > > > > > > > > > @@ -252,13 +252,9 @@ etnphy: ethernet-phy@0 {
-> > > > > > > > > >  &gpmi {
-> > > > > > > > > >  	pinctrl-names = "default";
-> > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> > > > > > > > > > +	nand-on-flash-bbt;
-> > > > > > > > > >  	fsl,no-blockmark-swap;
-> > > > > > > > > >  	status = "okay";
-> > > > > > > > > > -
-> > > > > > > > > > -	nand@0 {
-> > > > > > > > > > -		reg = <0>;
-> > > > > > > > > > -		nand-on-flash-bbt;
-> > > > > > > > > > -	};
-> > > > > > > > > >  };
-> > > > > > > > > >
-> > > > > > > > > >  &i2c1 {
-> > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-geam.dts b/arch/arm/boot/dts/nxp/imx/imx6ul-geam.dts
-> > > > > > > > > > index 40d530c1dc29..2a6bb5ff808a 100644
-> > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6ul-geam.dts
-> > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6ul-geam.dts
-> > > > > > > > > > @@ -133,12 +133,8 @@ ethphy1: ethernet-phy@1 {
-> > > > > > > > > >  &gpmi {
-> > > > > > > > > >  	pinctrl-names = "default";
-> > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> > > > > > > > > > +	nand-on-flash-bbt;
-> > > > > > > > > >  	status = "okay";
-> > > > > > > > > > -
-> > > > > > > > > > -	nand@0 {
-> > > > > > > > > > -		reg = <0>;
-> > > > > > > > > > -		nand-on-flash-bbt;
-> > > > > > > > > > -	};
-> > > > > > > > > >  };
-> > > > > > > > > >
-> > > > > > > > > >  &i2c1 {
-> > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-isiot.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-isiot.dtsi
-> > > > > > > > > > index 776f6f78ee46..e34c8cbe36ae 100644
-> > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6ul-isiot.dtsi
-> > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6ul-isiot.dtsi
-> > > > > > > > > > @@ -101,12 +101,8 @@ ethphy0: ethernet-phy@0 {
-> > > > > > > > > >  &gpmi {
-> > > > > > > > > >  	pinctrl-names = "default";
-> > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> > > > > > > > > > +	nand-on-flash-bbt;
-> > > > > > > > > >  	status = "disabled";
-> > > > > > > > > > -
-> > > > > > > > > > -	nand@0 {
-> > > > > > > > > > -		reg = <0>;
-> > > > > > > > > > -		nand-on-flash-bbt;
-> > > > > > > > > > -	};
-> > > > > > > > > >  };
-> > > > > > > > > >
-> > > > > > > > > >  &i2c1 {
-> > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-phytec-phycore-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-phytec-phycore-som.dtsi
-> > > > > > > > > > index 27e4d2aec137..a3ea1b208462 100644
-> > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6ul-phytec-phycore-som.dtsi
-> > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6ul-phytec-phycore-som.dtsi
-> > > > > > > > > > @@ -63,12 +63,8 @@ ethphy1: ethernet-phy@1 {
-> > > > > > > > > >  &gpmi {
-> > > > > > > > > >  	pinctrl-names = "default";
-> > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> > > > > > > > > > +	nand-on-flash-bbt;
-> > > > > > > > > >  	status = "disabled";
-> > > > > > > > > > -
-> > > > > > > > > > -	nand@0 {
-> > > > > > > > > > -		reg = <0>;
-> > > > > > > > > > -		nand-on-flash-bbt;
-> > > > > > > > > > -	};
-> > > > > > > > > >  };
-> > > > > > > > > >
-> > > > > > > > > >  &i2c1 {
-> > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
-> > > > > > > > > > index dc53f9286ffe..1992dfb53b45 100644
-> > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
-> > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
-> > > > > > > > > > @@ -296,13 +296,9 @@ &fec2 {
-> > > > > > > > > >  &gpmi {
-> > > > > > > > > >  	pinctrl-names = "default";
-> > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> > > > > > > > > > +	nand-on-flash-bbt;
-> > > > > > > > > >  	fsl,no-blockmark-swap;
-> > > > > > > > > >  	status = "okay";
-> > > > > > > > > > -
-> > > > > > > > > > -	nand@0 {
-> > > > > > > > > > -		reg = <0>;
-> > > > > > > > > > -		nand-on-flash-bbt;
-> > > > > > > > > > -	};
-> > > > > > > > > >  };
-> > > > > > > > > >
-> > > > > > > > > >  &i2c2 {
-> > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi
-> > > > > > > > > > index eaed2cbf0c82..ec3c1e7301f4 100644
-> > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi
-> > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi
-> > > > > > > > > > @@ -160,15 +160,11 @@ &gpmi {
-> > > > > > > > > >  	pinctrl-names = "default";
-> > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> > > > > > > > > >  	fsl,use-minimum-ecc;
-> > > > > > > > > > +	nand-on-flash-bbt;
-> > > > > > > > > > +	nand-ecc-mode = "hw";
-> > > > > > > > > > +	nand-ecc-strength = <8>;
-> > > > > > > > > > +	nand-ecc-step-size = <512>;
-> > > > > > > > > >  	status = "okay";
-> > > > > > > > > > -
-> > > > > > > > > > -	nand@0 {
-> > > > > > > > > > -		reg = <0>;
-> > > > > > > > > > -		nand-on-flash-bbt;
-> > > > > > > > > > -		nand-ecc-mode = "hw";
-> > > > > > > > > > -		nand-ecc-strength = <8>;
-> > > > > > > > > > -		nand-ecc-step-size = <512>;
-> > > > > > > > > > -	};
-> > > > > > > > > >  };
-> > > > > > > > > >
-> > > > > > > > > >  /* I2C3_SDA/SCL on SODIMM 194/196 (e.g. RTC on carrier board) */
-> > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea.dtsi
-> > > > > > > > > > index 3dfd43b32055..43518bf07602 100644
-> > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea.dtsi
-> > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea.dtsi
-> > > > > > > > > > @@ -43,15 +43,11 @@ ethphy0: ethernet-phy@0 {
-> > > > > > > > > >  &gpmi {
-> > > > > > > > > >  	pinctrl-names = "default";
-> > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> > > > > > > > > > +	nand-ecc-mode = "hw";
-> > > > > > > > > > +	nand-ecc-strength = <0>;
-> > > > > > > > > > +	nand-ecc-step-size = <0>;
-> > > > > > > > > > +	nand-on-flash-bbt;
-> > > > > > > > > >  	status = "okay";
-> > > > > > > > > > -
-> > > > > > > > > > -	nand@0 {
-> > > > > > > > > > -		reg = <0>;
-> > > > > > > > > > -		nand-ecc-mode = "hw";
-> > > > > > > > > > -		nand-ecc-strength = <0>;
-> > > > > > > > > > -		nand-ecc-step-size = <0>;
-> > > > > > > > > > -		nand-on-flash-bbt;
-> > > > > > > > > > -	};
-> > > > > > > > > >  };
-> > > > > > > > > >
-> > > > > > > > > >  &iomuxc {
-> > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-myir-mys-6ulx.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ull-myir-mys-6ulx.dtsi
-> > > > > > > > > > index fc298f57bfff..83b9de17cee2 100644
-> > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6ull-myir-mys-6ulx.dtsi
-> > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6ull-myir-mys-6ulx.dtsi
-> > > > > > > > > > @@ -60,12 +60,8 @@ ethphy0: ethernet-phy@0 {
-> > > > > > > > > >  &gpmi {
-> > > > > > > > > >  	pinctrl-names = "default";
-> > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> > > > > > > > > > +	nand-on-flash-bbt;
-> > > > > > > > > >  	status = "disabled";
-> > > > > > > > > > -
-> > > > > > > > > > -	nand@0 {
-> > > > > > > > > > -		reg = <0>;
-> > > > > > > > > > -		nand-on-flash-bbt;
-> > > > > > > > > > -	};
-> > > > > > > > > >  };
-> > > > > > > > > >
-> > > > > > > > > >  &uart1 {
-> > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts b/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts
-> > > > > > > > > > index 8ec18eae98a4..2d9f495660c9 100644
-> > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts
-> > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts
-> > > > > > > > > > @@ -25,12 +25,8 @@ usdhc2_pwrseq: usdhc2-pwrseq {
-> > > > > > > > > >  &gpmi {
-> > > > > > > > > >  	pinctrl-names = "default";
-> > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> > > > > > > > > > +	nand-on-flash-bbt;
-> > > > > > > > > >  	status = "okay";
-> > > > > > > > > > -
-> > > > > > > > > > -	nand@0 {
-> > > > > > > > > > -		reg = <0>;
-> > > > > > > > > > -		nand-on-flash-bbt;
-> > > > > > > > > > -	};
-> > > > > > > > > >  };
-> > > > > > > > > >
-> > > > > > > > > >  &snvs_poweroff {
-> > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi b/arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi
-> > > > > > > > > > index a41dc4edfc0d..8666dcd7fe97 100644
-> > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi
-> > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi
-> > > > > > > > > > @@ -375,14 +375,10 @@ &gpio7 {
-> > > > > > > > > >  /* NAND on such SKUs */
-> > > > > > > > > >  &gpmi {
-> > > > > > > > > >  	fsl,use-minimum-ecc;
-> > > > > > > > > > +	nand-ecc-mode = "hw";
-> > > > > > > > > > +	nand-on-flash-bbt;
-> > > > > > > > > >  	pinctrl-names = "default";
-> > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
-> > > > > > > > > > -
-> > > > > > > > > > -	nand@0 {
-> > > > > > > > > > -		reg = <0>;
-> > > > > > > > > > -		nand-ecc-mode = "hw";
-> > > > > > > > > > -		nand-on-flash-bbt;
-> > > > > > > > > > -	};
-> > > > > > > > > >  };
-> > > > > > > > > >
-> > > > > > > > > >  /* On-module Power I2C */
-> > > > > > > > > > --
-> > > > > > > > > > 2.42.0
-> > > > > > > > > >
+> > Gentle ping on this series. Patch 1/3 (dt-bindings) has been reviewed
+> > by Krzysztof and all previous review comments have been addressed.
+>
+> Why pinging Rob? You got DT review. Or one review is not enough and you
+> need multiple maintainers engaged?
+>
+
+I am good with the DT review. Rob commented on previous patches so I
+added him. I just need the hwspinlock maintainer to review the other
+two patches.
+
+> Best regards,
+> Krzysztof
+
+Thanks,
+Kamal
+
+--000000000000c1784a064c4c8116
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Description: S/MIME Cryptographic Signature
+
+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
+H0K0rs+X8O45xZIUJlxzf5UZex3BLi1f/H+08rSQULWEtO/ECwkFod2DIzSX7fZdz5RQ1PpziEOp
+goo/JZPYIeCmgt3rIyvMuupj8Ymb0J/velhpXfQuYUM52viw2nmqVcxCwBqyM3Iq7eI4xtEOFRmR
+wxSizd3MSQMf6GCHA4/B/6ttnxhGAr3utaOU+x/RnzG0gPLTW1XRAQ0+GVc/tGFdI864OG1cyrRl
+GvBnHJQSAFOIKwYrUk2oFpgMbafQ6osCAwEAAaOCAdswggHXMA4GA1UdDwEB/wQEAwIFoDAMBgNV
+HRMBAf8EAjAAMIGTBggrBgEFBQcBAQSBhjCBgzBGBggrBgEFBQcwAoY6aHR0cDovL3NlY3VyZS5n
+bG9iYWxzaWduLmNvbS9jYWNlcnQvZ3NnY2NyNnNtaW1lY2EyMDIzLmNydDA5BggrBgEFBQcwAYYt
+aHR0cDovL29jc3AuZ2xvYmFsc2lnbi5jb20vZ3NnY2NyNnNtaW1lY2EyMDIzMGUGA1UdIAReMFww
+CQYHZ4EMAQUDAzALBgkrBgEEAaAyASgwQgYKKwYBBAGgMgoDAjA0MDIGCCsGAQUFBwIBFiZodHRw
+czovL3d3dy5nbG9iYWxzaWduLmNvbS9yZXBvc2l0b3J5LzBBBgNVHR8EOjA4MDagNKAyhjBodHRw
+Oi8vY3JsLmdsb2JhbHNpZ24uY29tL2dzZ2NjcjZzbWltZWNhMjAyMy5jcmwwIgYDVR0RBBswGYEX
+a2FtYWwuZGFzdUBicm9hZGNvbS5jb20wEwYDVR0lBAwwCgYIKwYBBQUHAwQwHwYDVR0jBBgwFoAU
+ACk2nlx6ug+vLVAt26AjhRiwoJIwHQYDVR0OBBYEFOV9h+N/T9ZsJ40qRxh7NYYD+N6MMA0GCSqG
+SIb3DQEBCwUAA4ICAQAKtKh30wv1/30230mCimgUjMWQE/LImRmyfDgrp2IhBVS6mDun+wH8thEB
+WhBHQMz3gsGixU4ZBJG72eWi39IzQ7CGnisJwA0+hsGaGg03AVtFtqo1rXYRZ81MEDOb6BPYLigJ
+RsHbNmrUGR+LsGeUwOWUeRXqBrYaYFrkgHKvVK1NEewv+vUY08n4tsezO3jq0HKhVDY46bMbf8vL
+oQqqhtcQvu2+5FK2jpUayeubpzPwobjEG61RIhBvM0KivY4CB2s9A7qgjL1XBycAybIvG03BbFoT
+t282FqXwk9JU6YihLlt+hpzO9UF7E8GZYlQlVIZOLOvytqilhua+2h77Yy8Jz/FJyIXKuaLPtvb2
+SC2shL7jF28kQbP3QUKwAig+cxwbpngnUkd9D9cXSHVq9PPwYm0A4eAO0YQ/80Uq20+gXF++g0sy
+NKrrV3i0T1dbCd86miGDKvarGzjh7pdsdwNY15liGP6Orib1tnWkJcbtP1rJty4r/mbbxcK8ILO4
+IvTGFG6BfjJ+La0aRt69i1fQmjUWHLwzkLNpw9cJH8/MONZcEJeDkq9WELSyy29bagStk5KHu7NO
+TH65sZg+i/4qmj3DEeEGTr/Shzp4YWSNn4W7NEelr0VgDlwa7xqlwZjXxG4MIJqy0SsQlAwEXtqd
+nH2FpJfzgAetkuyU6DGCAlcwggJTAgEBMGIwUjELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2Jh
+bFNpZ24gbnYtc2ExKDAmBgNVBAMTH0dsb2JhbFNpZ24gR0NDIFI2IFNNSU1FIENBIDIwMjMCDEca
+ZUGCu6d0oT1M+zANBglghkgBZQMEAgEFAKCBxzAvBgkqhkiG9w0BCQQxIgQgLSmWdQjIvYNUlNCQ
+ggtvQWGDlj6QlPv+Nz0l57iApFcwGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0B
+CQUxDxcNMjYwMzA1MjAwODU4WjBcBgkqhkiG9w0BCQ8xTzBNMAsGCWCGSAFlAwQBKjALBglghkgB
+ZQMEARYwCwYJYIZIAWUDBAECMAoGCCqGSIb3DQMHMAsGCSqGSIb3DQEBBzALBglghkgBZQMEAgEw
+DQYJKoZIhvcNAQEBBQAEggEAWT0BrV5ljR7YdMHVKFUuX1zj+/luVKAc9MoEGj+28b4gmwiRUb6w
+Hqu2PhOL+vAmOrHv6vpedAQY63IvX67WsuilJz+5D5qAAedRBuLDqps6FVFzb385cibdhpRxAvfH
+VEuleE5s3dTNwD1zBU6dSkLjXDv0Or+v/m3Yn1iTa16P6nMZ/RmKZ5NBmU9Uemg96n0RYQ+2CrwO
+k5eEZDk2THrxIXCb/s9XV9bg5l/6goxIomXiaFZ6zr6INIFyYsVAA5vwPIusWAQCarbPLl75PklV
+UJ251kG4CwU8YSxl99LQtS6Yv+ymr/mMP+RTwQmo+Vnboboc2Iya8xIBfwvyhg==
+--000000000000c1784a064c4c8116--
 
