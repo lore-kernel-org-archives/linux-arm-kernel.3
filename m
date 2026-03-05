@@ -4,59 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86BF6F30923
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:29:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB281F30923
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:31:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U3QH1RuqqeGKgkqYKwc4vfVSFtJyu2Xx1dJOpnpW0gE=; b=t2+TiQQbckj0ehCX/p/t7b+7ya
-	QouZ0YoEWu+55PUNq4LIOU/WSLdfS5L486WjY89T1LbGpzcjryuoRoPwZcip5nphsHGqvaWqWzyB/
-	Qj41iV7kQym8ljC71/bIkb9i4ZdsqkcoP2TRjO3Q8TMNPn2hSkxxNwFfI3eUCH/CN4AKjpQHbl8cU
-	osdFox4W5RZjLh48+l1Ka52RGc9zJ9+lgx1A7f+z7SRz8IgSbZIh5N4cB+CW70981vnQZpH/A034b
-	4qMvVb5Gp5CHdG+8uuSke3bIk2LdHFPz70rK1zyewWokMNLod/BDxM+jwAJanmiMLr61IYDaU9Tab
-	h7TeeggA==;
+	bh=hp29jnAJzUeQb6JgllraBvfvqxFaJdKR1N6ZWb40Qgo=; b=WgVtGtieaNoggZCw3zjjkLRLv1
+	j37VmAeC0XS6vs88/dC+F7rSDyw/EzaUB75zI3XqTE4RB8o5zp7HU32nP473de0+F0YPkKtbQRIVz
+	TC/N1GP8Ec/OuFBL5X3fCq91vHloU/btsbfS4hOh+FhepUIIZNWWv8HqUslHZBDhSjES6ZwdPShUG
+	HQNeNX96Oe/dBIkL1/PzmAEhM+sbNO+RnMeswiM5keRuo4jxyzmHF2vjX2+AqVOcBvZMzttd9A3wG
+	eC07NtSuasFxNuvQ7OmOdhpfnIuMhkBVzs3D/AUAjlAdBGNjM6i1y/SPuyOxbdznpr+qQugMHlqCd
+	3boQ5g1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy51K-00000001Nz3-2eBZ;
-	Thu, 05 Mar 2026 09:29:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vy52m-00000001ONa-0lMy;
+	Thu, 05 Mar 2026 09:30:56 +0000
+Received: from smtprelay0011.hostedemail.com ([216.40.44.11] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy51J-00000001NyP-1rFR
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 09:29:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B389D61339;
-	Thu,  5 Mar 2026 09:29:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A7BCC116C6;
-	Thu,  5 Mar 2026 09:29:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772702964;
-	bh=JT5toTgjzbgzKeoODHGgwKMDOSRkF8JApEv+ETaVYco=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=F43PK5AHHkCYeROZH0GYnlXo7VV109Y6s7h7ZSBUj4dft4uoo4Xuy4WIObA6q1SIv
-	 HTZrdshzMY3/e4QnbVLBHo6+04Mv1XRSde6qTaharM5PN7eXmlh1Np5Py/S1T+kI6H
-	 7l5nBud6kiIIKCk0hs+fPkkxa/h03azEm0JBabs1D2Br0WH6vDIT9cRQ1FROdo5oqE
-	 HrT414pDICpuLWUvtzhj6u1pS01UAmnlqrfmCwxMVUVVfsHpkcnqWWg8tZ+m9XoiWM
-	 kMTA5/ReE8TZ2avtrTkleUMJ83hV52H2aGXbCbDFpKK/qzvZZE1dbPybwJki+sWxJE
-	 b08eSfzdMswXA==
-Date: Thu, 5 Mar 2026 10:29:21 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: "Viorel Suman (OSS)" <viorel.suman@oss.nxp.com>
-Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, linux-pwm@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] pwm: imx-tpm: keep channel state instead of counting
-Message-ID: <aalMdTmQd075dcF1@monoceros>
-References: <20260202104738.837016-1-viorel.suman@oss.nxp.com>
+	id 1vy52k-00000001OMR-08U2;
+	Thu, 05 Mar 2026 09:30:55 +0000
+Received: from omf12.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay04.hostedemail.com (Postfix) with ESMTP id 6EF351A090A;
+	Thu,  5 Mar 2026 09:30:48 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: joe@perches.com) by omf12.hostedemail.com (Postfix) with ESMTPA id ABA5119;
+	Thu,  5 Mar 2026 09:30:41 +0000 (UTC)
+Message-ID: <f3a5aa3df78553ffc0fd0024f5fd36a4e2158c88.camel@perches.com>
+Subject: Re: [PATCH phy-next 22/22] MAINTAINERS: add regex for linux-phy
+From: Joe Perches <joe@perches.com>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>, Konrad Dybcio
+	 <konrad.dybcio@oss.qualcomm.com>
+Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>, Neil
+ Armstrong <neil.armstrong@linaro.org>, dri-devel@lists.freedesktop.org, 
+	freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-can@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev, 
+	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org,
+ netdev@vger.kernel.org, 	spacemit@lists.linux.dev,
+ UNGLinuxDriver@microchip.com
+Date: Thu, 05 Mar 2026 01:30:40 -0800
+In-Reply-To: <20260305085148.7cwo3yflp7vcfldf@skbuf>
+References: <20260304175735.2660419-1-vladimir.oltean@nxp.com>
+	 <20260304175735.2660419-23-vladimir.oltean@nxp.com>
+	 <a8fee1cd-1e69-4a9e-8533-c0988c480fb9@oss.qualcomm.com>
+	 <20260305085148.7cwo3yflp7vcfldf@skbuf>
+Content-Type: text/plain; charset="ISO-8859-1"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="l3hiqyu24f3uothm"
-Content-Disposition: inline
-In-Reply-To: <20260202104738.837016-1-viorel.suman@oss.nxp.com>
+X-Rspamd-Server: rspamout07
+X-Rspamd-Queue-Id: ABA5119
+X-Stat-Signature: isin6ba55864u4k7cspzxagise7enff6
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Session-ID: U2FsdGVkX1+c/QqwBFj4RnbTOHAHP0u/fhPSDrZvfXg=
+X-HE-Tag: 1772703041-391055
+X-HE-Meta: U2FsdGVkX18CpOmWAsQNq/nzIGrueYMCLFpafncVkMPEeWn8lMHmxGid0nuFShmczpxd7LMIQ2HkJXitNrouaAWweblPom1aNWswKBKkaGGCen5irY0lnX3z9ty7T8amhD6qn9Q5wfYeFrX1AAy/tVHr70RJ5jxHv1CzpDKls395qE7TAifFzgOqcxBZ+LxnR/uVacI/Z8SiG+R8Q0lWc4dUv5BUq0HaFG5uC1dlHaBdlDEn65TIo3X5+7C0AcoUpQeypXp8sK9gp+VHT+vsBW/Ta2vT0Zqxi066+g9opvcn5emNN3z91009RwQ+r7ADwt/gmX2gmKTLfK9kac3enKskM+3ua1Jz
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260305_013054_125886_B2628A00 
+X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,81 +83,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 2026-03-05 at 10:51 +0200, Vladimir Oltean wrote:
+> On Thu, Mar 05, 2026 at 09:39:35AM +0100, Konrad Dybcio wrote:
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> > > index 55af015174a5..bdfa47d9c774 100644
+> > > --- a/MAINTAINERS
+> > > +++ b/MAINTAINERS
+> > > @@ -10713,6 +10713,7 @@ F:    Documentation/devicetree/bindings/phy/
+> > >  F:   drivers/phy/
+> > >  F:   include/dt-bindings/phy/
+> > >  F:   include/linux/phy/
+> > > +K:   \b(devm_)?(of_)?phy_(create|destroy|init|exit|reset|power_(on|o=
+ff)|configure|validate|calibrate|(get|set)_(mode|media|speed|bus_width|drvd=
+ata)|get_max_link_rate|pm_runtime_(get|put)|notify_(connect|disconnect|stat=
+e)|get|put|optional_get|provider_(un)?register|simple_xlate|(create|remove)=
+_lookup)\b|(struct\s+)?phy(_ops|_attrs|_lookup|_provider)?\b|linux/phy/phy\=
+.h|phy-props\.h|phy-provider\.h
 
---l3hiqyu24f3uothm
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2] pwm: imx-tpm: keep channel state instead of counting
-MIME-Version: 1.0
+You could use multiple K: entries instead of this monster.
 
-Hello,
-
-On Mon, Feb 02, 2026 at 12:47:38PM +0200, Viorel Suman (OSS) wrote:
-> On a soft reset TPM PWM IP may preserve its internal state from
-> previous runtime, therefore on a subsequent OS boot and driver
-> probe "enable_count" value and TPM PWM IP internal channels
-> "enabled" states may get unaligned. In consequence on a suspend/resume
-> cycle the call "if (--tpm->enable_count =3D=3D 0)" may lead to
-> "enable_count" overflow the system being blocked from entering
-> suspend due to:
->=20
->    if (tpm->enable_count > 0)
->        return -EBUSY;
->=20
-> Fix the problem by replacing counting logic with per-channel state
-> handling and by aligning IP and driver state at probe.
->=20
-> Signed-off-by: Viorel Suman (OSS) <viorel.suman@oss.nxp.com>
-
-I wonder if the following change would be enough:
-
-diff --git a/drivers/pwm/pwm-imx-tpm.c b/drivers/pwm/pwm-imx-tpm.c
-index 5b399de16d60..36f873133f94 100644
---- a/drivers/pwm/pwm-imx-tpm.c
-+++ b/drivers/pwm/pwm-imx-tpm.c
-@@ -352,7 +352,7 @@ static int pwm_imx_tpm_probe(struct platform_device *pd=
-ev)
- 	struct clk *clk;
- 	void __iomem *base;
- 	int ret;
--	unsigned int npwm;
-+	unsigned int i, npwm;
- 	u32 val;
-=20
- 	base =3D devm_platform_ioremap_resource(pdev, 0);
-@@ -382,6 +382,12 @@ static int pwm_imx_tpm_probe(struct platform_device *p=
-dev)
-=20
- 	mutex_init(&tpm->lock);
-=20
-+	for (i =3D 0; i < npwm; ++i) {
-+		val =3D readl(base + PWM_IMX_TPM_CnSC(i));
-+		if (FIELD_GET(PWM_IMX_TPM_CnSC_ELS, val))
-+			++tpm->enable_count;
-+	}
-+
- 	ret =3D devm_pwmchip_add(&pdev->dev, chip);
- 	if (ret)
- 		return dev_err_probe(&pdev->dev, ret, "failed to add PWM chip\n");
-
-Best regards
-Uwe
-
---l3hiqyu24f3uothm
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmmpTO8ACgkQj4D7WH0S
-/k7Hrgf/Q+CV5g1n5H2m0Eoa2ED9scvifb8NzAU6vXnl5oRGdYwGSwBPx0kH5aoy
-S9Jovt20o7JRkpzJ+8sSZ/QYsshiEDqrELV/kPkpvYHvGhUsbQ/38Vf7xs0ggh70
-0kXlGmvOZw6iwmUILjMQD4/MoNgibQkL2HyittLb6IbuH2/meVm7lqipQ1YvRjTe
-oeAMdnytVyjW8J0yl7rkHFtUsNSS57NxsiFo1cDWJfcBE1LXyGMlxkHL1s0YwCE4
-kF4I0KKeK44djYQ6JG1rvFkVJPMZ39i3pYX42FSS7zGr9G/dRkj452+C3JaZWt7m
-c+nOUaZ7FDkwn3kBIuLvwfmxRr1UaQ==
-=d5zG
------END PGP SIGNATURE-----
-
---l3hiqyu24f3uothm--
+And please use (?:<foo>) to avoid capture groups too.
 
