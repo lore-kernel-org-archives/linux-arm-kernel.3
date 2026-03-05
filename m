@@ -4,78 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28FDAEDEC05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 13:28:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B4ECEDEC05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 13:32:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1dMeUX2Xk9StLIqbGPYXzES8zoDvxqM6/CpgP+M7sCk=; b=UoNluxK08XbHX89u0AhhJUnjCS
-	0oZm/OZDC9HWzBthlC26Jhb/83e10sndM6Tad8VUNidPNp+74Ma86IQrsLjAlqlqARMt54LTVTnAF
-	ghl+J3fjdxY4ytovOvMy94anWxYydIjGT+dHtevEKy9oyy5PzMNVs2QaDbkpzFMrDuXrC6smfWyOi
-	JxoDosacTmYDSCUjzhqZQxPTe54M9TsdEwyuojL6HDfZfULhBm4lG2T9vMYGDC4Qh/RIckgAdo/SY
-	cGOLghWEdj8WLx0JwGczxxQ7e1nMwPTWva5IY53CxgYajG5xHklaF4rExH8+n5y/VZTfpYaSog4Nd
-	6TNECz4Q==;
+	bh=KybW8tUP6bPQfaZAXV8EZj1GpPXt16l3Eqfqa0qV9WU=; b=wY0s6k5rkVPjvjWjuArBnjz4Lp
+	UVhrklLqPuCz8XySFbv5fSX7vZPOkfEOYTO8652jDcFIhC4KlyQ7KJwsO9w2W3Igmb7yBeq8ZkMha
+	5pF+vNsP1z49dexAfWr0raEG7KtISS20ZLpPWfdtK08oNAlmIZTzrqg9tovTNV6EZ09h7KbBntFLt
+	4qwMExASBKqs7yuBzHcfYQcnLeVmcQ5IWV0FsbILulIBkaBqYfPXkL04r95psi3YgBoDf53bfCJGd
+	+uEuOoNDjrax7vFegVYeCdc3YI6f2y7J+IkYUv4Kgwxni1ZGhc7omt79YLJQIlBu039a7sU+3dzHI
+	FqNdtyCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy8kR-00000001slT-0zQk;
-	Thu, 05 Mar 2026 13:28:15 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1vy8oR-00000001t9F-2pcl;
+	Thu, 05 Mar 2026 13:32:23 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy8kQ-00000001slE-29zH
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 05 Mar 2026 13:28:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=1dMeUX2Xk9StLIqbGPYXzES8zoDvxqM6/CpgP+M7sCk=; b=b9KFWaAZwFJOJCdF/fD/2b8ijT
-	CnuA/DEpdWGGiUZKousRrMYZkfwPBdqft4Fkd2zg/sgL1OU6Kj43aG6rJXif0aEpG6D6UBrSmZL6z
-	TTtg4SX3Z6i7Bp4nrfP0LOebQMSeUT0iLparxgkHMBZwy23/87MSucrq5G9vL6ns5dmZmcY1PvgJY
-	w5l9CpVPMmSDFarjc6bfj374jGhFsMNchXHccQpb2tI5MX3kgSyzalmLP/QMotw1uRziQ+JtePB7p
-	G2D3Jahot/rczu0QPiMy0qGQZN0Aw2bQB8SqRXFmUvr4GKnBi3yJkLqCdKmZkibVqINjXuBZ3bDkn
-	caik8Xmg==;
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy8kL-0000000F3Et-2LC8
+	id 1vy8oP-00000001t8o-3SBi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 13:28:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=1dMeUX2Xk9StLIqbGPYXzES8zoDvxqM6/CpgP+M7sCk=; b=BAYSc8DI/atjiwBSNuMx04jOlC
-	WyE5kJjHsIJb/FolbwHzzh5FxYMude3XTNFs1PzECU8uOsZB9jnfsIi3ZQCZ3KiqZpwnCADAWTVHl
-	mpV2ahH+/fWWIZDR918qn4oUm25sYfRWUq++LNJ0kllVTtJZ0Hl3uTujp2dXhW4EocEw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vy8kG-00AJok-91; Thu, 05 Mar 2026 14:28:04 +0100
-Date: Thu, 5 Mar 2026 14:28:04 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Gregory CLEMENT <gregory.clement@bootlin.com>
-Cc: Gabor Juhos <j4g8y7@gmail.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: marvell: armada-37xx: drop
- 'marvell,usb-misc-reg' properties
-Message-ID: <cacefc69-dba3-4ff6-a039-85fe35a91e0b@lunn.ch>
-References: <20260304-armada-37xx-drop-usb-misc-reg-v1-1-800c1b746b7a@gmail.com>
- <db997887-2431-4baa-8e96-04f53ea59060@lunn.ch>
- <874imug18l.fsf@BLaptop.bootlin.com>
+	Thu, 05 Mar 2026 13:32:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XdTyddcTGF3cFPsZDTZX5Nj8ne7Z7OswMPIpVTrmYNxyCZi8Z1ZT/nOqdwLscAQBoGRHhwcY/PcNEE3+2XGQugzWLpbaWUkWJy3Rpq8r0NicGhN1mXBlovgZieCr3IrWGTVIa7P0RKqIlzU8ylyGhyf+hprclkUmTrlAnEtzFPL5C0EG/nX6NHTfn/bHgXDtyfGh6VeV8DnAasCgZThsnPbkpOx9Mbewu+3m0dvXGcm6DCZzjd9rpggJVHBvhP6yFUlAVAJUfh56LfmG03vj5M/ZgbohashW9Cgb8aHCcwWCWAxFpay8RNlDp8EgK+oJjHo6r0dX2wvegUOBac9ASA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KybW8tUP6bPQfaZAXV8EZj1GpPXt16l3Eqfqa0qV9WU=;
+ b=kuzx+PEHNp9jUmvHcS6R7CCJgNET9PHmwXQTFQ5PZ5qSZMWgPMQImOWO0iyzV16wXsTdTO7uXMZZU6tk12B5hH76Eh7m68jcOqmSp11LQXCz5k5noKc9UNJbSpY3m6GmGunLhsGLo5HfMoVCIUMrU+T7ZFqfRyT1pCAmRvg0qAczX4KjP/OIgdpJzoPWaC1guBTqnQ0TqhTqkmAuyRwVSp1mh5RnJSuzfxVR/GVsWeC7lNAsaL+4ZEx93wUpya8REPPazR8FPkk2taruX92eiZC5nwGffb/EQlHhIhw7bw0Qrz4pLEE4psIHpX6xy3UXIZgBVPt0IW5lZstPn7v1jg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KybW8tUP6bPQfaZAXV8EZj1GpPXt16l3Eqfqa0qV9WU=;
+ b=iPKXaKfJaJz1PKex59jbzEEMGQJNoWBgKUcc0bMQ5zLzVVghF5mEdwDDXpegYSwFYdusPpxK3+b0136G//t1NI4a9W41CM6KWAe7mAeTGlRrPDo550H0g5D8yk1c8LvEb4b08XeLO0/eZB1gQEKmaixWjX4FZ4tZtB6di9I/2rLlIyQPh7TSVhn1U5tqRuTUg5O4UCERADJgmXOZ3w9AOExEGCatoVMlBflRljrsPDwc6zTHKajMbNzcXWBHvEsD2DUhLtMgbk4RXooZ9lCatZ+dRD/zh9ST5wEwcjxYRWS9BFdNwV+Bw/laPl8MOptDLysezwEkODI3QV/Sbj0BtA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU0PR04MB9251.eurprd04.prod.outlook.com (2603:10a6:10:352::15)
+ by AS8PR04MB8945.eurprd04.prod.outlook.com (2603:10a6:20b:42c::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.18; Thu, 5 Mar
+ 2026 13:32:16 +0000
+Received: from DU0PR04MB9251.eurprd04.prod.outlook.com
+ ([fe80::5c3a:1a67:2e02:20d0]) by DU0PR04MB9251.eurprd04.prod.outlook.com
+ ([fe80::5c3a:1a67:2e02:20d0%5]) with mapi id 15.20.9654.022; Thu, 5 Mar 2026
+ 13:32:16 +0000
+Message-ID: <38289782-b49a-463b-be13-6cd70e0e25aa@oss.nxp.com>
+Date: Thu, 5 Mar 2026 15:32:12 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/7] dt-bindings: interrupt-controller: fsl,irqsteer:
+ add S32N79 support
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+ Ulf Hansson <ulf.hansson@linaro.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Haibo Chen <haibo.chen@nxp.com>, Adrian Hunter <adrian.hunter@intel.com>,
+ Shawn Guo <shawnguo@kernel.org>, Lucas Stach <l.stach@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, s32@nxp.com,
+ Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>,
+ Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>,
+ Larisa Grigore <larisa.grigore@nxp.com>
+References: <20260225133858.8026-1-ciprianmarian.costea@oss.nxp.com>
+ <20260225133858.8026-2-ciprianmarian.costea@oss.nxp.com>
+ <20260226-ingenious-shiny-axolotl-e0e6d2@quoll>
+ <e8e258fb-23c0-44d1-bf4d-e2fed92ad90d@oss.nxp.com>
+ <6a481490-28dc-4b62-9782-95a32d0e2857@kernel.org>
+ <aba2401e-e26c-44d1-b321-56cd18f11a37@oss.nxp.com>
+ <e400bb73-3f80-4fcd-91a1-6b9b966c5e2d@kernel.org>
+Content-Language: en-US
+From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+In-Reply-To: <e400bb73-3f80-4fcd-91a1-6b9b966c5e2d@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: AS4P191CA0017.EURP191.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d9::7) To DU0PR04MB9251.eurprd04.prod.outlook.com
+ (2603:10a6:10:352::15)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <874imug18l.fsf@BLaptop.bootlin.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9251:EE_|AS8PR04MB8945:EE_
+X-MS-Office365-Filtering-Correlation-Id: ba1990fc-ecac-4b70-a038-08de7abb9e29
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: 9kOE3AgfGXOs1Z+cZpWAuirMdve4Bs9mjjT0WLOe13OtyMf93uk5BczDWeS5rWusVdQpH7gotxL+PDIWWz8BfAivHdvb8PPw3xko2HEibXADydv+uef/jlytcFmQhCv6yltn1Xu4082M1Si+XWLnBSVF7d2bYJ4N2ZhHLjdCAH4MmBIANhmZyUUylP3DhHNvjs6gjqCV7ZsnjcB9bYOjStZpHID+h8Cuuf3xAmNbRnC3SpWBz9Y6UWJ41p4lz4b2QRzA0JjYW1Vug43/mS9p8+cQmm741uI6JWlE4V0TcUPMxLc1HbYVac8BBJ2KSijMs+WnfnmL/YM/5r3oOv5O8zMePznsCCodGmVNUPFElPPKXA69lJ0hzxoAkpf9LSBkoa2JG65NxLwgqHYLTDc8l8IyiLlt0rBO9m3XmoVzudjeXeGFpbpBigFbNr6LJ6O6Fz7tE+n3vfzZGtzVdZckerqbJUYlIMRSInrOYWDd89Foz4QPX+Qb8moYaq4kCajUzf9+LSO2Zky0i0wi184Dw4jeUpnagLMy4OBfbz2/tRlTRNMwSe9RgfmBTIZLbwMQZcKrLD+460tQRYL83RmtobbLZfn21xuyTXDHfCEC6hsSZBwsQkDtl+t5uw1NLC5fJHiXdh+jLbTR/slha3mZiXijJ/9j/Q9P8GnOHrE9Th4Lk/zkE3mxhiZaN2gmioSsIK6AyT34mOHUEC+hfHKgLSz8s7XUg8kMp20phnNFdy4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9251.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WDJqT3dCYkE2TTRWUzFTRVVnb214SStHS2JIRU9ROFhuY1k1a05jY1U5THVT?=
+ =?utf-8?B?U0I2THB4STY4T2RZTTQ2YVpHVys4bWRmTHkyeTBNZng3UmJzeGt1Yk9YcU9B?=
+ =?utf-8?B?cWJVMTZIQ0MvSVU0UkhZSzBpMWtuTnhscDV6K3RMNWtFVStpYTgvbkU0M2I0?=
+ =?utf-8?B?OFhJZDBZRXNGdFprbmxhaURxT1Jid3AzTXFoSXIyWHhEdDZyRzNuWEorTGdE?=
+ =?utf-8?B?SVNaV0hpQ0Q3U01QTXFicnlwYlY1N0tXR09MeDhXZzJWaldwKy9NQzFxSVNB?=
+ =?utf-8?B?RVZ2NmJ2cjFUYnVXbXRURnowUEkxLy9nam1Qc0VFcUNHT3JTMURudEFsWXJG?=
+ =?utf-8?B?aldsNXZVQ1NhVVVrM0JmUEZnYjVoRUkzbTJ5V0h2VGorOVZsVG1CSlhiMDVC?=
+ =?utf-8?B?dFlTRHBFdTkxeDFjZzFSaWRDZlJFbU00cWMwdjlZczlvTUFDcTBpc25DMmRz?=
+ =?utf-8?B?NmNNYXpvMDlmbGlFcElSSXdWQlhQcFNKZGJWeVdBQ0x6ZWRqalJWWExHUldL?=
+ =?utf-8?B?dXdma1hwTUhkenZ0cjF6bmg2NjcwUFJ3QVByQ1dhQVNWWHZIdEtOYTNvYjho?=
+ =?utf-8?B?SkxDVW9IOFV6Yy9KMml4V1dwczhFRUgyMGcvTDkxWmxIY2RpYjFxL1JkbEor?=
+ =?utf-8?B?V0lldldpYnVDb016am1JY1k5MDlldHNDMEVYc1BuMStWZFY1NWFEcDJ1TEZH?=
+ =?utf-8?B?ejgweFdteE1wcWdMNS9KcERWUFo4YWJpQThHNWxaQUFiU09McG5GOWs3RzRz?=
+ =?utf-8?B?RFJnNFg5V0k3c2ZWMldpTW42TVF5SkZTUUhieVFPWmdNNXdqTW95Y2gxZzNL?=
+ =?utf-8?B?WTFqS1l5VDBBMUFkR0RUSmEyWVpRamdrRytwbHIvclBvMHVSRVNVMVJaaGNL?=
+ =?utf-8?B?QUd5UTgvTzNFRUR4OStMaFduK0NWZk9JYVRKTXR0TEx4bUhrZE1DMDdSSHF2?=
+ =?utf-8?B?VzVtYldVY2swVXhHREpMbVBTdEdEU2JxS2pqempEbUg4a3JPVk1YdXd5dG5K?=
+ =?utf-8?B?dlRpUkx1YjZhSEQxL0ZaSlE3c1lxUVBjbWY5VE05Sm8zRE5tUVMzM0lxM01N?=
+ =?utf-8?B?cVNQMkY0dlNIQ3QxOWhaT1BIWWFhbGU1RVNtM0ZVMTMzTnd2ZUtmN1NEMG9s?=
+ =?utf-8?B?NFMxSWEyRWpLc3RUMm1aaThxRVBxT2JHOXYzdlAyeDdKRnNoVk1nQ1ZkR0li?=
+ =?utf-8?B?QzhhOGZVSE9kUk9qbVhNSDNXWmtLL2VMdmxhaGhGL2tnQkpXQ01sYTE4cFdr?=
+ =?utf-8?B?RDRMZmVKQWhXOHFlUCs2SnkxNmVoclJEUmMrdGRJME15ZFc4S2dKODZrcGlv?=
+ =?utf-8?B?VVdFaUdVNnY3bUpSRjljRVJDSWxUTUNlVytLNmNBS1RkbnNqdU5vWURaT25B?=
+ =?utf-8?B?elpGUTBzTGpGUXFPUWRmK3o5TUhGbFR5aDVzQWVTY3BCREVOU2tpMVpJaVBZ?=
+ =?utf-8?B?bndDKzNxU3hQanpwOUMxSmdKTm4yeVRaM0ZJQ2lkNzl0MHU1cGlvM1J5dUEx?=
+ =?utf-8?B?WXJKSDlIckVBV1Z1aHNWT2xuVVVvWVNpVnNLQmVkbGxUSFdJdWhveUtxRElX?=
+ =?utf-8?B?eDIzWkJ2WnNZdTdOS1F5SldHZjhNbEFNYUlJMXd3OVF3RnZOQ0Roam9hQmU1?=
+ =?utf-8?B?RlF2VkdQSmE1OXJPVTRHRk9qRmRRZTUycUxoc3lKejJ2Mlh2cnlkTFIrWElN?=
+ =?utf-8?B?M3MyNUUwY2VpUU9CeHFKNC9DOENNMFk5U04rYWMzdmwzSnR2TStxaGNQQy93?=
+ =?utf-8?B?M0orU2h4cU5pb0lNSFRhRWxVNC94U1dVTlJKeWs4Mll3RXRJOEVKL0dRZDZl?=
+ =?utf-8?B?OVN4c3JLa0pWSTNPNmF3RmxjLzl3TEJyaHEwWnJ5WUIzMS9OQjZZc1FwdHpG?=
+ =?utf-8?B?OVZwSFJUVTcwYUlia29hT0RoRVJ5Sm1BbHRwZ055MHVzMjFzbDl3V0xJaUpr?=
+ =?utf-8?B?dDBVNEI4M0pUQjR2SWVKZDBIUDM5MC9BTzNYZlEyekVKamtJMnBQRkhYNDFC?=
+ =?utf-8?B?WTlXamdDUE80MzFOOHBBNFNBRWIyWStobGtGb2VFZWFWYm1KbnBZUWg5ZWVy?=
+ =?utf-8?B?TjdZeHViNTR0Sk5IYjhqd205dmVIR2FWRGpYTy9BWVFhVGhXMllpYVhoNmhu?=
+ =?utf-8?B?bVF5WUhmYkhKYlVhcmdNTFd0eDhaZnFkWW1FcVVnTHF2c3EzdHJ2N0JYTkdh?=
+ =?utf-8?B?eFpHRlFmNlJObXd3a0tGTm82MFdSbUpGUmoraW1mK2pMdVRwTjc4WjVHZDZS?=
+ =?utf-8?B?cHVCNHFmM0E0R0VNeWpPd3AzTGdXL1RTbmZ1MTJXaktiZmpLSlh6SUNsamNE?=
+ =?utf-8?B?TWxBcWFLNEFTTloxenRTbHo2ejVhdCswUUdwQWZOdGRKaFVrZ0oreUFRTXgv?=
+ =?utf-8?Q?rmK7/WcVNNyJvxnM=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ba1990fc-ecac-4b70-a038-08de7abb9e29
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9251.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2026 13:32:16.6097
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: oQvIJTdgt0UuMnDSMg9aqEpTX02eZEroyNT5cHxQ2+2H25EBF9wq3daSMMNOJPEXskC50yynjHq0r4ZcYPl71fEHxau6GcRfPZ6BkWh4bzU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8945
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_132809_635661_F37DBA3A 
-X-CRM114-Status: GOOD (  17.94  )
+X-CRM114-CacheID: sfid-20260305_053221_880507_F7784EC4 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,67 +166,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 05, 2026 at 08:54:34AM +0100, Gregory CLEMENT wrote:
-> Hello Andrew,
+On 3/5/2026 2:39 PM, Krzysztof Kozlowski wrote:
+> On 05/03/2026 13:25, Ciprian Marian Costea wrote:
+>> On 3/5/2026 2:12 PM, Krzysztof Kozlowski wrote:
+>>> On 05/03/2026 13:02, Ciprian Marian Costea wrote:
+>>>> On 2/26/2026 9:31 AM, Krzysztof Kozlowski wrote:
+>>>>> On Wed, Feb 25, 2026 at 02:38:52PM +0100, Ciprian Costea wrote:
+>>>>>> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+>>>>>>
+>>>>>> Add compatible string for the interrupt steering controller used in NXP
+>>>>>> S32N79 SoC.
+>>>>>>
+>>>>>> The S32N79 SoC differs from the i.MX version by not implementing the
+>>>>>> CHANCTRL register, but otherwise maintains the same programming model and
+>>>>>> register layout.
+>>>>>>
+>>>>>> Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
+>>>>>> Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
+>>>>>> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+>>>>>> ---
+>>>>>>     .../devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml   | 1 +
+>>>>>>     1 file changed, 1 insertion(+)
+>>>>>>
+>>>>>> diff --git a/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml b/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml
+>>>>>> index 5c768c1e159c..caf3e4a1f26f 100644
+>>>>>> --- a/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml
+>>>>>> +++ b/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml
+>>>>>> @@ -22,6 +22,7 @@ properties:
+>>>>>>                   - fsl,imx94-irqsteer
+>>>>>>                   - fsl,imx95-irqsteer
+>>>>>>               - const: fsl,imx-irqsteer
+>>>>>> +      - const: nxp,s32n79-irqsteer
+>>>>>
+>>>>> So that should be part of enum with the first entry.
+>>>>>
+>>>>> Best regards,
+>>>>> Krzysztof
+>>>>>
+>>>>
+>>>> Hello Krzysztof,
+>>>>
+>>>> Thanks for your review. Regarding this change, I was thinking since
+>>>> S32N79 irqsteer does not implement the 'CHANCTRL' register, it should
+>>>> not fallback to 'fsl,imx-irqsteer'. If the driver were to match on the
+>>>> fallback compatible, it would attempt to write to the non-existent
+>>>> CHANCTRL register.
+>>>>
+>>>> Am I wrong?
+>>>
+>>> No clue, I did not say anything about fallbacks.
+>>>
+>>> Best regards,
+>>> Krzysztof
+>>
+>> Indeed, but your suggestion of moving 'nxp,s32n79-irqsteer' under the
+>> enum would fallback on 'fsl,imx-irqsteer'.
+>>
+>> Am I misunderstanding your suggestion ?
 > 
-> > On Wed, Mar 04, 2026 at 08:12:43PM +0100, Gabor Juhos wrote:
-> >> The 'marvell,usb-misc-reg' property is present both in the EHCI and
-> >> in the XHCI USB host device nodes, however it is not documented. Thus
-> >> 'make dtbs_check' produces warnings like these:
-> >> 
-> >>   /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@58000 (marvell,armada3700-xhci): Unevaluated properties are not allowed ('marvell,usb-misc-reg' was unexpected)
-> >>           from schema $id: http://devicetree.org/schemas/usb/generic-xhci.yaml
-> >>   /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@5e000 (marvell,armada-3700-ehci): Unevaluated properties are not allowed ('marvell,usb-misc-reg' was unexpected)
-> >>           from schema $id: http://devicetree.org/schemas/usb/generic-ehci.yaml
-> >> 
-> >> Apart from the fact that the properties are not documented, those are
-> >> not even used by any USB host drivers. At least 'git grep' says this:
-> >> 
-> >>   $ git grep -n 'marvell.usb-misc-reg' v7.0-rc2
-> >>   v7.0-rc2:Documentation/devicetree/bindings/phy/marvell,armada-3700-utmi-phy.yaml:30:  marvell,usb-misc-reg:
-> >>   v7.0-rc2:Documentation/devicetree/bindings/phy/marvell,armada-3700-utmi-phy.yaml:41:  - marvell,usb-misc-reg
-> >>   v7.0-rc2:Documentation/devicetree/bindings/phy/marvell,armada-3700-utmi-phy.yaml:50:      marvell,usb-misc-reg = <&usb2_syscon>;
-> >>   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:372:                              marvell,usb-misc-reg = <&usb32_syscon>;
-> >>   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:383:                              marvell,usb-misc-reg = <&usb32_syscon>;
-> >>   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:396:                              marvell,usb-misc-reg = <&usb2_syscon>;
-> >>   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:406:                              marvell,usb-misc-reg = <&usb2_syscon>;
-> >>   v7.0-rc2:drivers/phy/marvell/phy-mvebu-a3700-utmi.c:231:                                                         "marvell,usb-misc-reg");
-> >
+> Open the code. What is the first entry?
 > 
-> I don't follow:
-> 
-> > The phy-mvebu-a3700-utmi.c does use it, and does document it:
-> >
-> >   marvell,usb-misc-reg:
-> >     description:
-> >       Phandle on the "USB miscellaneous registers" shared region
-> >       covering registers related to both the host controller and
-> >       the PHY.
-> >     $ref: /schemas/types.yaml#/definitions/phandle
-> >
-> > And the patch which added the property to the USB nodes also added the
-> > PHY nodes.
-> >
-> > commit 05d168a56fae8ff50432d5dfe6e7423b989455a8
-> > Author: Miquel Raynal <miquel.raynal@bootlin.com>
-> > Date:   Tue Jan 29 10:36:34 2019 +0100
-> >
-> >     arm64: dts: marvell: armada-37xx: declare USB2 UTMI PHYs
-> >
-> 
-> You stated that the property is used and was properly added.
+> Best regards,
+> Krzysztof
 
-I can understand your confusion. The commit message is not great. I
-had to read quite a bit of code to convince myself the change is
-correct.
+Sorry, the enum reference confused me.
 
-The property is used and documented in the Generic PHY driver,
-phy-mvebu-a3700-utmi.c. And the properties being removed are in USB
-nodes. The properties in the PHY node are not removed.
+Is the following in accordance with your suggestion?
 
-The properties in the USB node have never been used, as far as i can
-see.
+oneOf:
+   - enum:
+       - fsl,imx-irqsteer
+       - nxp,s32n79-irqsteer
+   - items:
+       - enum:
+           ...
+       - const: fsl,imx-irqsteer
 
-	Andrew
+Best regards,
+Ciprian
 
 
