@@ -4,146 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8D59F33A8A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 15:16:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4AA8F33A8A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 15:16:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oc4qnS8GL6TG/1RA+WhZAeDw1iKcEvDUV1t9wWCPGv0=; b=ZGkWP0asU0GwaLIZiGD8rbwC1d
-	oBmhesNVF1ZQ5+vsktx88bpE7HHmvKOCIGzGFh0E/JILRYgQW35U4w2SZY5CmD43AvMLQSb6vf1EJ
-	Q8IprIxND0HgI+AA/Puyalywms4TnIqRX/9EZtsQSAR+JyJpXLe6b1ClrINeKTXEwLw+HNY3Sq70e
-	Rr1LzwuvBhm/xxyrEWwYLFYX0daijpW3hs1MSgATl58ibxAKsZYf5pRgUu6OCdhU+L5C03xfE4WGF
-	8Q6A4imO2vF+qAOTgu4y/hrdvO0swOCOWRTtTdnKQgHs7Lz8ZhQyM/BqH5KjEfkDJ7Fs6FcE+wBpR
-	sdt4ND2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OMQ7Vcm9EWebWdGK0o/UurmgGnoJNra1GWHX4Z4gBGM=; b=Nn3wXscCqpmoqCJ1olzV0qEHFH
+	Rx9kp/pIQCBGF0HdurX9vmv3ijV7I54iwDaLZyF/qYaAWplLhRKAcyOOeYAZznDd/938o+EqdytVt
+	1Y5WFCfoqnOFGQQU0UrP84a3QXKEkw4Kk76bCeNRQxOCy29kYrU1v5BDopBR0AQ9sJyp9xpGjcwoD
+	0HJjj/Ip/k62W74Jr+F7XPUZBhE9v8YfqvFoL27RURIKVKTglqsBy9VBlGi20IO3DtZl/2p3zClV9
+	HTPTnvRxl6sAmOFnKYNYP/Z/JdihTO425JZUzUtc2Xc6mcS/CYDM67LEz1jD3XiCAEfT3oNYnHW/P
+	MRtTGvlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyARB-00000002669-2kZl;
-	Thu, 05 Mar 2026 15:16:29 +0000
-Received: from mail-swedencentralazon11013057.outbound.protection.outlook.com ([52.101.83.57] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vyARE-00000002676-3yqx;
+	Thu, 05 Mar 2026 15:16:32 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyAR9-0000000265B-04Gg
+	id 1vyAR9-00000002659-3KnY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 15:16:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XM91ne7DM/BgIwdP63maSwRvKOPxzbq6gy17XEIlNrb1QRxdgn+ggmVbj0x8LqUkibSbUoBymSWuxgUqQMPQ4n43He4DmDT1yDcCjeMZvSUE4h526HkDOz8vjzWsFRyEB6llhwP5GxTRylDne8WiD/FE9IUJtVjlXgq+7KEIMp5xLu5Ij9dIeHqfPn1X0CGalMYHcwuZWJleRWheB/wM6EAIP/fpr8Hp0BQB9Jnt4hfecWFIaxYZD1kBWRYdouomgPQtFQblFndEuZyhhYv7Ypnak5NI9NHYlFLF6veFSsl61O5+BIUY/80S8EWHQs4wTcehiI9+1t1t2BHjS6caTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oc4qnS8GL6TG/1RA+WhZAeDw1iKcEvDUV1t9wWCPGv0=;
- b=ywqI6bxjXxSLeK62+hyWsqiMQqzEHsHFzgVRPj+0OWOtwwISbTr93YhnWZALkJhAbE94rkY9Tzlstkd93kt5N+9xB+64V4HG/fViYUFsvaRKpzoffDF6GGNPdLczoIoQM4WWKvWscNpg74IidSH2LmNLiD1xUCN2MktWhXPtMZQzG60cE7aUY8kmzVebArTB/kkc9Q8vsq2bOir4gAZj97z6xnvZfM0lGODqoxIZgC08pbJenNTjimoZ1oUE5YgsKuLlD1rKfHR/vWM/xpKSz54rYrvmlHlN7dcQW+A/5JreIPisX5T8hnBH+lU+t8/QzqnwGnB48nj9x3otIuKtTQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oc4qnS8GL6TG/1RA+WhZAeDw1iKcEvDUV1t9wWCPGv0=;
- b=RrUC29ZiQQ7yZPeN61DcN1xglprMoiD+jvoPus/fPH/uh71dLZf9Va//fsuewFcyc/YJdDVuQJUizfYQulkbUvjmChqXrBOph2SYM9E+JJVErCqY7DgCYHMsjjAsZ/bZRMHRS35pAKpiOIjvYUU3u3T2Q7IALUyVLs829So72j90wK9VHhY/er8uCdAfLXOsMcLY4zk1wFqhh931Do0iNoacgqM/5l9ZtMMvPQpI+Z64afkXeUha+CT0/9QMMssDVIyK6ZxdlRpuyx7Hir3NaqgSiKlSUj0Y+Tq5oZhty8Ek7OwQMxXjxbEFd9Va8+61lwCCxTHVy72MYJNTo59oiw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by DB8PR04MB6874.eurprd04.prod.outlook.com (2603:10a6:10:11d::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.17; Thu, 5 Mar
- 2026 15:16:19 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9654.020; Thu, 5 Mar 2026
- 15:16:19 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	arnaud.pouliquen@foss.st.com
-Cc: Frank Li <frank.li@nxp.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	linux-gpio@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>,
-	Peng Fan <peng.fan@nxp.com>,
-	devicetree@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-imx@nxp.com
-Subject: Re: [PATCH v9 4/5] gpio: rpmsg: add support for NXP legacy firmware protocol
-Date: Thu,  5 Mar 2026 10:16:01 -0500
-Message-ID: <20260305151602.3913147-1-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260304211808.1437846-5-shenwei.wang@nxp.com>
-References: <20260304211808.1437846-5-shenwei.wang@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SA1P222CA0038.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:2d0::19) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Thu, 05 Mar 2026 15:16:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1772723788; x=1804259788;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=NIqGePwhMB9v9rBzNePQxONPR4S/D8k+T7Bqpz8eGUc=;
+  b=Ddrrt3NHcIB29vQfExY61ahT6VzZ6Q0M3/+iQ+WwjigyAObIdeOERTFP
+   02hrXe0s58xqWrldKmE2UjsEIGsttdiqgv9BP3M4x/979tkjtqQ78BeuJ
+   o+YNlx/4Lm9xvoBNsp3pL2059PE3rOVDRuyjNp622D4wz/+ZbYc3sQaW7
+   8QfK9ZNnuDCTnmfApg3KI3FVYjrosyV0sKC//SDs8+s0AoLxm5ZUkjxuQ
+   KahvEBDi9j1M9zo6jPUYmgSjcM0vKJteD0agaSVmQ3DAU+uMijdB/2p2H
+   eEb4+vnzS8mIun/8fDjEGS5oDpFnD4jQkNwUbYEeT5UzWmdL7wftX1/jV
+   Q==;
+X-CSE-ConnectionGUID: JuM+x04+QxiJMhu3ddIUSA==
+X-CSE-MsgGUID: 0bwbiVq6S+CxzsRsZizruQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11720"; a="96431015"
+X-IronPort-AV: E=Sophos;i="6.23,103,1770624000"; 
+   d="scan'208";a="96431015"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Mar 2026 07:16:19 -0800
+X-CSE-ConnectionGUID: wnCKV1F1Q4ykB5mWY2Gqag==
+X-CSE-MsgGUID: Qs67a8/fRH2sHp+KnOhEfg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,103,1770624000"; 
+   d="scan'208";a="223667087"
+Received: from lkp-server01.sh.intel.com (HELO cadc4577a874) ([10.239.97.150])
+  by orviesa005.jf.intel.com with ESMTP; 05 Mar 2026 07:16:13 -0800
+Received: from kbuild by cadc4577a874 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vyAQs-000000000oU-2KhI;
+	Thu, 05 Mar 2026 15:16:10 +0000
+Date: Thu, 5 Mar 2026 23:15:45 +0800
+From: kernel test robot <lkp@intel.com>
+To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
+	robin.murphy@arm.com, joro@8bytes.org, bhelgaas@google.com,
+	jgg@nvidia.com
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev, rafael@kernel.org,
+	lenb@kernel.org, praan@google.com, kees@kernel.org,
+	baolu.lu@linux.intel.com, smostafa@google.com,
+	Alexander.Grest@microsoft.com, kevin.tian@intel.com,
+	miko.lenczewski@arm.com, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-acpi@vger.kernel.org, linux-pci@vger.kernel.org,
+	vsethi@nvidia.com
+Subject: Re: [PATCH v1 2/2] iommu/arm-smmu-v3: Recover ATC invalidate timeouts
+Message-ID: <202603052303.jrfwR7CV-lkp@intel.com>
+References: <ca7ab934bf0f433b62a5c15d42241632c4cb9366.1772686998.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DB8PR04MB6874:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2dd5a581-e788-4e90-e56d-08de7aca2704
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|52116014|19092799006|366016|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: jgm2gCL58E9yliLyRQaS4z+QdBi0CVSQNWkcoZHw/x/rsS1u97O2+JZVHm7Cxhvd4Ayv9PdaO4qS+qjIKD7di8o/By5rI+Y+YuBD1+9Z9rmqPP25nZ94U+Ul/G0CDO9/9TGVcI5ao5GHNIoCsD7teqamFSL8QXabVElUZqukWf+bsyAlvchuT/je8OR39hKJ3mR/LJZs2EKd5iQSRLPVNn3xAtiW6+dgMoUzgdmSWoyON5Wm20XcSPboXIQ2k2/XpSyDaO+eK7I2pPpZs5y83Jpdudng9/MAOMU/Bzgldk+Dude0wnCXDVVTyzpqQsB+ocmtFo4ndWQvPq2QLnGRkZAjQth9StxrElGJm6+Oy6ifkst+Ijp8xTwKRjOlurJR/3qvqBUPJ3eF1WO4OkKwMZlVarNWzm0yxMfsEBFi/PmURutHg+gMpw0e/bu+Z0XPqJbDXg/cyW1g4HwGludP9bOaKeixOKLx6pYeM/KUc8TWfIXN3SdO11be9+iDRN/Z5nq5QOPcmDZIwisOCVhvBn11eVIs6Fx88hfdKLUodbRVDKzvsqzjw70Z8n5mpMg9nLWqWyNk+AEr5fenvgZ5ZapN7jTunHoFCUoGBWJzd2JDv4VFcc03mCnW7aOYgbjr1M9w7h7jmtMkEMyfSlQC95cfDxOVa1cXgZLfyx+wb0xP/TQxopfWm3KtzwnpGlvldqK28ZrhHqijWuQhgE+S4kilkmyh4U+DXNCCi36uA+Xiuzimf+xg1iR3OdU3jpVu/dc1WsmMEoxHfFGsfih6IWv6pzi+QrhB8EoV35IZi/87gsHLJKyJhNHhQZgO7T3/
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(52116014)(19092799006)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?87G0f9buCU3N0m3mQ3Y62mChxxQOLKL/52zKogUPO8O+w9oyp9FqZXcw5LC/?=
- =?us-ascii?Q?dc4UQJBzXDgC4xAtVa4+BntvHwWbsKfca3+vFc3mEp+kIFq6UFx3VoWhUF2L?=
- =?us-ascii?Q?QoKPP+waRBH1jLLOPzJViyU8pR5gdamY1q6z6PGKNITy8oF47vL9cD+/pyGp?=
- =?us-ascii?Q?MPbW3gJ3u13rH+Z1Cpmx863Q3E3i5fKYe6IyRYk4Li6WW7uo4cXQLV20P4SK?=
- =?us-ascii?Q?XUV6e0BFz3D9rrPSGH7wFVEC0EijJkbTDW256Dg/IBF4VSE9s8Iv/GP8ktlU?=
- =?us-ascii?Q?bXLK5w8aIk2C/1CWwWYk5Kc2cMSoklQ9qA/0nilCFz2jAw3jxwCxJpobBZPZ?=
- =?us-ascii?Q?1YpOGObgpc16OngQWX4AzpLD9fdLEQBUAI8oBecssw6H/+gGsMk3eK9XXQKA?=
- =?us-ascii?Q?S12zDMp2SYUVnxzWmf6HU27+vjkQrd2s4OCoh6KmmWsoAD2b1ipzIz5Oa7Xc?=
- =?us-ascii?Q?m/oHZvzhlBIJXz4GgDAlvVGmCGd/AB70E4AoegpIk8ZWfBjSC+wjb4+BU9s/?=
- =?us-ascii?Q?ESnS4TApEPGD0Ugelhaxx8sATH63KYYBQdWNRrP4WFJlbq6kEQJ6BZTqqc3p?=
- =?us-ascii?Q?hWLJaYfiUHyrgJIvJJDtvJIk969lz8EDKrSSECe3+iN7gDoeNmOVHt9ZpkLn?=
- =?us-ascii?Q?HkOqRy6kwteKGSJQBIa4Vo5c6iLuRAWjPB/psVCguoOKY4BVF/1pnlIpS4nm?=
- =?us-ascii?Q?s4HqA3V93YKRuG7Rd6aSxuk65Cb6hm5I2TLt6WUUwX+Fvgg/26GRTmSPuSqZ?=
- =?us-ascii?Q?c1isDxXWoGaqCsJUc1NtF4cpQPoyR7kY7PWSFcF/5S3kAoKAzu9EJx8MLEsv?=
- =?us-ascii?Q?52HOpeHKgtDTm7CFPiXCbkgnX07TyDeHZwEhqhbumVa/X8WHO3BpzWJLiOGv?=
- =?us-ascii?Q?UCYuXN+38tTq1dxkUTs8dTfEpwL/jU38tlpuZ2/IVNS8r0OD0jG28ePpsYPC?=
- =?us-ascii?Q?N+qLzWBNVMegpkRtiutalcRVcivOVYQ+N53RbtlQjuYkOG/NEkLM1MZifLEo?=
- =?us-ascii?Q?rKsna/adQXQH2yd+f/YP1Uz9URNeV2FnrH4GixqdPgtPdI7y+8oLVwaSnNk/?=
- =?us-ascii?Q?iR7OXV190YqH577pGSgP62xf1H1+0JLDRFVS1w/HVnk3/o4OkcTJ8RUqX1S5?=
- =?us-ascii?Q?6LHAga7vLJNhFz2KzkTQpA5q4jkAozfRl6Fq59mI8aTaxNgz5JV8UixJCHRZ?=
- =?us-ascii?Q?3qrACYslSOkXTY2UAqOaQjy3bKk8nYTriF3i23x0wefpsnc9+4pQDpHysvT+?=
- =?us-ascii?Q?G7HTg5uxnmZg6RkSQNyqtylajgaHWV0SScf9YR+VyzQU64ynCtggmu2gVITJ?=
- =?us-ascii?Q?H/Ka+BMxJO6F2GWEDjA10vWbew++kykyYhgRy2FnhI7Zqhd7Aj2+ktz4SfK2?=
- =?us-ascii?Q?596TsBzQ6743wT8VeFC5oHmzIw2ZPcaTAzZ09+sLPfBVZyLRGuTb7gXFEkGP?=
- =?us-ascii?Q?LALv3cKoQi6+GC1TrFOvj6agj6skJ6YEJtz90GhGRU3V66HXQfFbrxdF63Ib?=
- =?us-ascii?Q?2itS7bjXfOmERCIE8rQUHk1/YKVZAwBKGBu2J35WIpXoKEXPP/LzG6RbBqMr?=
- =?us-ascii?Q?B4Qa1YniZBf9j+iaNwyHMSHHNTym0K5sZbdzF0RxK3Mj62HU1mKQCU7t5+4C?=
- =?us-ascii?Q?M7aXL2BBbZriFWORc6d9UsIh+6oCDz6KzfpANiqMsj19v4SRxS7B6NjoWpGm?=
- =?us-ascii?Q?W52qXfq/8qXc4Vxx27PU/TjMiiqWLNoffIYEF9B9+TIHqPPFyF1STzF0VeuR?=
- =?us-ascii?Q?5s7VBelgww=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2dd5a581-e788-4e90-e56d-08de7aca2704
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2026 15:16:19.3676
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FQ0LAxkzFmpUZr8d+pLSHnvHywCAj+ecoAVGjSzT8Ip+b4MThI+sNxh1WGt5DuIxA5+ZgqTNY0H7VednynsrjQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6874
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ca7ab934bf0f433b62a5c15d42241632c4cb9366.1772686998.git.nicolinc@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_071627_077123_71B99547 
-X-CRM114-Status: UNSURE (   7.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260305_071628_170531_7D53491F 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,18 +95,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li (AI-BOT) <frank.li@nxp.com>
+Hi Nicolin,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on pci/next]
+[also build test ERROR on pci/for-linus rafael-pm/linux-next rafael-pm/bleeding-edge soc/for-next linus/master v7.0-rc2 next-20260304]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Nicolin-Chen/iommu-Do-not-call-pci_dev_reset_iommu_done-unless-reset-succeeds/20260305-132923
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git next
+patch link:    https://lore.kernel.org/r/ca7ab934bf0f433b62a5c15d42241632c4cb9366.1772686998.git.nicolinc%40nvidia.com
+patch subject: [PATCH v1 2/2] iommu/arm-smmu-v3: Recover ATC invalidate timeouts
+config: arm64-randconfig-003-20260305 (https://download.01.org/0day-ci/archive/20260305/202603052303.jrfwR7CV-lkp@intel.com/config)
+compiler: clang version 16.0.6 (https://github.com/llvm/llvm-project 7cbf1a2591520c2491aa35339f227775f4d3adf6)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260305/202603052303.jrfwR7CV-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603052303.jrfwR7CV-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c:467:2: error: call to undeclared function 'pci_dev_lock'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+           pci_dev_lock(pdev);
+           ^
+>> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c:471:2: error: call to undeclared function 'pci_dev_unlock'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+           pci_dev_unlock(pdev);
+           ^
+>> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c:480:7: error: call to undeclared function 'pci_reset_function'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+           if (!pci_reset_function(pdev)) {
+                ^
+   3 errors generated.
 
 
-> +static int imx_std_cmd_map[] = {
+vim +/pci_dev_lock +467 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
 
-AI: Should be 'static const int' since this is a read-only lookup table.
+   431	
+   432	static void arm_smmu_atc_recovery_worker(struct work_struct *work)
+   433	{
+   434		struct arm_smmu_atc_recovery_param *param =
+   435			container_of(work, struct arm_smmu_atc_recovery_param, work);
+   436		struct pci_dev *pdev;
+   437	
+   438		scoped_guard(mutex, &param->smmu->streams_mutex) {
+   439			struct arm_smmu_master *master;
+   440	
+   441			master = arm_smmu_find_master(param->smmu, param->sid);
+   442			if (!master || WARN_ON(!dev_is_pci(master->dev)))
+   443				goto free_param;
+   444			pdev = to_pci_dev(master->dev);
+   445			pci_dev_get(pdev);
+   446		}
+   447	
+   448		scoped_guard(spinlock_irqsave, &param->smmu->atc_recovery.lock) {
+   449			struct arm_smmu_atc_recovery_param *e;
+   450	
+   451			list_for_each_entry(e, &param->smmu->atc_recovery.list, node) {
+   452				/* Device is already being recovered */
+   453				if (e->pdev == pdev)
+   454					goto put_pdev;
+   455			}
+   456			param->pdev = pdev;
+   457			list_add(&param->node, &param->smmu->atc_recovery.list);
+   458		}
+   459	
+   460		/*
+   461		 * Stop DMA (PCI) and block ATS (IOMMU) immediately, to prevent memory
+   462		 * corruption. This must take pci_dev_lock to prevent any racy unplug.
+   463		 *
+   464		 * If pci_dev_reset_iommu_prepare() fails, pci_reset_function will call
+   465		 * it again internally.
+   466		 */
+ > 467		pci_dev_lock(pdev);
+   468		pci_clear_master(pdev);
+   469		if (pci_dev_reset_iommu_prepare(pdev))
+   470			pci_err(pdev, "failed to block ATS!\n");
+ > 471		pci_dev_unlock(pdev);
+   472	
+   473		/*
+   474		 * ATC timeout indicates the device has stopped responding to coherence
+   475		 * protocol requests. The only safe recovery is a reset to flush stale
+   476		 * cached translations. Note that pci_reset_function() internally calls
+   477		 * pci_dev_reset_iommu_prepare/done() as well and ensures to block ATS
+   478		 * if PCI-level reset fails.
+   479		 */
+ > 480		if (!pci_reset_function(pdev)) {
+   481			/*
+   482			 * If reset succeeds, set BME back. Otherwise, fence the system
+   483			 * from a faulty device, in which case user will have to replug
+   484			 * the device to invoke pci_set_master().
+   485			 */
+   486			pci_dev_lock(pdev);
+   487			pci_set_master(pdev);
+   488			pci_dev_unlock(pdev);
+   489		}
+   490		scoped_guard(spinlock_irqsave, &param->smmu->atc_recovery.lock)
+   491			list_del(&param->node);
+   492	put_pdev:
+   493		pci_dev_put(pdev);
+   494	free_param:
+   495		kfree(param);
+   496	}
+   497	
 
-> +	if (msg->cmd >= sizeof(imx_std_cmd_map))
-
-AI: Use ARRAY_SIZE(imx_std_cmd_map) instead of sizeof() for clarity.
-
-because imx_std_cmd_map is array, AI most likely is correct.
-
-Frank
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
