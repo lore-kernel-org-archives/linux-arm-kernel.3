@@ -4,95 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D7A9EEF312
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 07:50:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59A8AEEF316
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 07:53:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KLWXJFRzKXYfvRWexgs1gCb/dTgnevi1M5AetCjur0g=; b=yrqLfYe6l+Br/ESVCWr8/ggwQt
-	lAV3aH/nRT8i8NKG0vcsZ4c7iXcq3R5jgLsNlaeOol0UI6iyaN6PGUZZaLKjTWypRUJ3zE0I0XRE9
-	YyZFrzzf6iMbMtDZ4+JW7tC4FyqtfymM190vRReOYzEo4YYk03ix4RJ7EN7HvoY5GeZhcThz+fV6c
-	pJPkkVyoftZmmdfw2ZnBCj/cxZ543oy3ZmAo5xVXZCEOkLdKVEMjJsmegTsY9W9a2K3qElLq+ClnH
-	htb+PlPIvKSgJmSTUhxIuxQi9mtgollLUFtK7ByIaOX0Um4BqRAkYmeZbj98Lk0awJBjMpV2DSglT
-	Vb0ow/qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lfc0G+KEA4MQsBfisTH3KuY60V/vsB5Z3uStWz2dAmg=; b=PV8GxS7Uvs5s20LNy/tG1eNx48
+	q2b98mV/bXYgDfLK8M+NHbXwvnJ83HU/L3kJQWZIgvTXj1rT1J0ruxIiqkUAC7AGJar1DKanyiXMb
+	ckmFOXpzTeaGHzpHVJtEa4qeR+Kq1Uws19BpKECwoR4aQ55pxlHINMvgmVUQuIca9NzILSUngBrGS
+	GOntT7gsbF1mAMupXi0gDNheQodkCEWSQIFxJrD7XVTF6NdYkvadCOOnegLY+Af8mYDP665owADiQ
+	3xNDb4EGk2WXFJrT88TDgXBcWIrpSmtMC1nI4XyO+REEiHE8JEFfgXmwV39eYIXiWfvBkprNgdP6m
+	66OzqGGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy3Tu-000000017ns-3cEp;
-	Thu, 05 Mar 2026 07:50:50 +0000
-Received: from mail-qk1-f178.google.com ([209.85.222.178])
+	id 1vy3Wm-0000000183h-03j6;
+	Thu, 05 Mar 2026 07:53:48 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy3Ts-000000017nW-0Nx5
+	id 1vy3Wj-0000000181k-0vmo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 07:50:49 +0000
-Received: by mail-qk1-f178.google.com with SMTP id af79cd13be357-8cb40149037so804403485a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 23:50:47 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772697047; x=1773301847;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KLWXJFRzKXYfvRWexgs1gCb/dTgnevi1M5AetCjur0g=;
-        b=BaWivdJPbQxbYm496XkdMdvNEibgsztRfuPcYQFs1ae8ca2Y/w4kROl+b1RF98GRU7
-         oKxc4IiQR4rWUeLGFFGfcrAK3hxJrxV9AeV8FmaidTvmM6pQjE4clfFTQKbwCGcU5hpt
-         bR665eSIW9q5y0hIqWgGj5AYpa2Yv8rRIuI3wnWfNsVN5Q5MjD+euaV0GJ7UmQRjnIk7
-         KWMx+wbeF7BRIl9LR7NUvB40unh2UpTh31+smqa7BFrNp6TkIvY+P4PlrtlgfknfG3wO
-         YNHitARRYrta0O0YpMt8KaOhdjRmu71drW5JXhlip/RSxtEe6bPNwIDEkcU/DGiGyA3N
-         Jh1A==
-X-Forwarded-Encrypted: i=1; AJvYcCUrP53rdVHkxBDGtlhdhSItybsIOMJPI+7HGuez/DwiU31PPUZVThgk9AGQk+Og2R9kdhcZI6fcGI9OQ/W5nYqL@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFsughz3E4Inqp1i11c/7t2nGkzubIsWu2nhIX3pM0XRFdProN
-	pjEUDajielh0FG2qKG5MPm4nnE1eTPdCoihoB4A+6x06cAmekDhrYl958VenQbnr
-X-Gm-Gg: ATEYQzxSWAl4zsFim0+0I4geRiqh1qYCFZl5xh6DxMZdNgA+xmRFDHqWrZnRN7DCHqi
-	iDt4OrXpFPZjRRIui7gFCwy38ppHZr2vxxbLrA+34RUMubbOfL4UY9jxb4MgHWFFzSa/UFKMeXp
-	6blqIXaoNduqUp8lf7/0qAabyog3Hsww5DaH80m8+xnMdvITd7pME/VXUfsX32n4IDZKoXarmY9
-	YCAhF/ElpcKheH31Xdrv4Dg0Vg/43daTsr9U6ZsdN4P42rokf64nptBgI6sC1f93cntni8ZbYV0
-	7VlLM3cuEdEFubHIf6PXR9O0oK07iM61smRKCiIA8EorRWxMz6eeWRuAOoDdBNlj9ZzDmkSHPSY
-	2T1GTAgl+sxgC5i3/KbqYulfmer/oyhe4UWmKF8RmLx4H2Ew5SRrgCER7v0NvhN/zQ/YpbFZhaJ
-	nuAUGz1zMVJbH0ub26fr6n9AymopHsoPvVWfOXyjH7NRKp6rI3Q/VsHI7+Mg/s
-X-Received: by 2002:a05:620a:2a0f:b0:8c5:3574:90a7 with SMTP id af79cd13be357-8cd5afcc90bmr581463385a.80.1772697046463;
-        Wed, 04 Mar 2026 23:50:46 -0800 (PST)
-Received: from mail-qv1-f47.google.com (mail-qv1-f47.google.com. [209.85.219.47])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cbbf71ac86sm1819254685a.40.2026.03.04.23.50.46
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 04 Mar 2026 23:50:46 -0800 (PST)
-Received: by mail-qv1-f47.google.com with SMTP id 6a1803df08f44-89a0d53f3d1so28775736d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 23:50:46 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXvMw9SsCvF7XapKGr4vyePEmJzlYd6PabQuaEoy4RtIwW8NhiBMsGJnBlGVqg/ps8P/2r5G3QoprL1Wr7vOn0h@lists.infradead.org
-X-Received: by 2002:a05:6102:441c:b0:5f9:3a22:85a2 with SMTP id
- ada2fe7eead31-5ffaac72675mr2059267137.12.1772696734612; Wed, 04 Mar 2026
- 23:45:34 -0800 (PST)
+	Thu, 05 Mar 2026 07:53:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fgdTDUUkURIFaylLgYef95Q4CRHTyqW9J84CO/s2759+aUhE1qKIIwKIhNTi0NbFUbFiRedSrJZG7J7rIOYXy1va4ZpMD4HqWYmopzrirzA85uFrJm4tJLcLCe/hC7QeD/nCE4c0hOZ7K/ykubzK2sgwKGiGSdf1iDFD+8CKOnEU+dDGjg2OrokxFdgEK4MnKLkJMbCB5+MSAA9Xel8YCcG7xO2Rb9MN0/74rUrJ7j00NQRHJEwyWxjo+bSAjnNiociWitiVNdt3e6viTVw6d45XSfdOpfyYuVwQBLw2zIHXqul3bYEMBmm8Fm9ObH8arX2BZr5ey5B53NKjv2zvRA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lfc0G+KEA4MQsBfisTH3KuY60V/vsB5Z3uStWz2dAmg=;
+ b=l0uZddCTz50WCumfi5l01EZOEcUeY8QiYkiurq5AIrYuy/xL5azTxDI9X4JL5B4byaRBElxWhg5UgQJ4a2Rr9yQ/l4Bi8b2X/mVFb4qGXzaYDkpA43CintKmramaFJtvUZU0HlNh1Ec/9dCO5DdQtu9ck6iNwoNlVHmlSIGfNeof/WhLomDpi0t6b6Qy4BcnrlMm48YuDDyffLBsKKw9cCLzPAuhuS4Wwg/P2UT1/GiWaYO7aU/wB9E/NWofcPW2K6pc9hPWdk2RGoui550kVudQyWZo4P+vJGJQAzf4f7fbZS5gKhXqG1akoIoxtgtAujiVbqztoFusfJKG9rQlsw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lfc0G+KEA4MQsBfisTH3KuY60V/vsB5Z3uStWz2dAmg=;
+ b=JLlcm1JK1CGnupQVO3C4UWlF7/+YHApGXNcDeNdEnS5SRBAqeE1m3P94aUGBFVBVt0HSKyGvPq63OPlpes175RHZwvnDSfuP/tvcp7GG5GZ02dLrvZ7+28cnoR1jHhmgg4/X/j+/e/NL+QJy2Ik2jG9quHFuYY7EOYqTblwHl4z3+/FzqKi+UAngqLVD+pMRF7I0XuUZhLWn6W6a8PrEHfiyIiZzpdU+KfwZTUSToZZGotTmzCAX0qwgVwlsqwh7BOJtkUX3VoYgvK2gL3g7spdiw4m05yMbHIlECTV/Izd1y5rq/hHEE/ELHIYYFoHkXriJgri+EprW//MdtGnmPA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8829.eurprd04.prod.outlook.com (2603:10a6:102:20c::17)
+ by VI1PR04MB10051.eurprd04.prod.outlook.com (2603:10a6:800:1db::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.17; Thu, 5 Mar
+ 2026 07:53:38 +0000
+Received: from PAXPR04MB8829.eurprd04.prod.outlook.com
+ ([fe80::52de:f9c9:8c2e:7dd5]) by PAXPR04MB8829.eurprd04.prod.outlook.com
+ ([fe80::52de:f9c9:8c2e:7dd5%5]) with mapi id 15.20.9678.017; Thu, 5 Mar 2026
+ 07:53:38 +0000
+From: Xu Yang <xu.yang_2@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	jun.li@nxp.com
+Subject: [PATCH 1/2] arm64: dts: imx94: add USB nodes
+Date: Thu,  5 Mar 2026 15:55:26 +0800
+Message-Id: <20260305075527.1116943-1-xu.yang_2@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR01CA0014.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:191::17) To PAXPR04MB8829.eurprd04.prod.outlook.com
+ (2603:10a6:102:20c::17)
 MIME-Version: 1.0
-References: <20260304175735.2660419-1-vladimir.oltean@nxp.com> <20260304175735.2660419-6-vladimir.oltean@nxp.com>
-In-Reply-To: <20260304175735.2660419-6-vladimir.oltean@nxp.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 5 Mar 2026 08:45:23 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXA67BO8Umz8-4jRg1SLvtZUSEzK0p7WxSvomnBk+WiyA@mail.gmail.com>
-X-Gm-Features: AaiRm52ziEM93YxO07h7pOV0rTYZnULijxTOwLRm9EW_k_lOxLulmwK4PITV2jw
-Message-ID: <CAMuHMdXA67BO8Umz8-4jRg1SLvtZUSEzK0p7WxSvomnBk+WiyA@mail.gmail.com>
-Subject: Re: [PATCH phy-next 05/22] phy: add <linux/pm_runtime.h> where missing
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, dri-devel@lists.freedesktop.org, 
-	freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-can@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev, 
-	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org, 
-	netdev@vger.kernel.org, spacemit@lists.linux.dev, 
-	UNGLinuxDriver@microchip.com, Peter Griffin <peter.griffin@linaro.org>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, Heiko Stuebner <heiko@sntech.de>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8829:EE_|VI1PR04MB10051:EE_
+X-MS-Office365-Filtering-Correlation-Id: c7d79f5f-d396-4b28-162b-08de7a8c4f8d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|366016|19092799006|1800799024|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: O+11BLLlWejcnz2SLNhdzWxSqJ+gNhH7+V1Xaj7KhONr1s9mDRbe/8mz3C1D6TLIo69Ri+R+llQ1T5iXMULS9q8bmmo7IdWXh9sst3NSpaCVh+Xx+uD1gJ5yT9UFp/H/WSXsHwmGEYm4J/meSxDBvmHHafoJlmwtzxi0lQTZMJ2Y2NB7/3sAQPx4NXMHvpv9g4d5rxFF8Evl1egII11AS0HuLpro5V4fAwT++ESG7sK/IKOr98KEEr3Se0KLzU/SoQT55jffLW8OK6Ah8+c5e6XaawkjSyJMWyGpnYFnA29Vv7gqDzVqmajgqwbu2u3H04Ub3v5TgFLa6N7gDB0RQd4n1+pRRsXX1uxQ6gWpAQ2/gCj7NZTfk5dtehdCZ/L9mn5rXUqupJ/X30AbEofuOu+AiUEsD5pQBG709ZlQla+ecoX56ax7QKkvzIRCXsEEPqTAPsuDgc5aL5SqR0kcB2kJ/2saPE1hxCLlXzTKDrB1TY0cDasZEHYp7DV/wWrEnuX9dhcnr3m+4KtqY7T9ASfQZF688ME4XaYHADM1L8KVTtZmnIBEEoLtmXOaLH8mZe7IDBDftwvvHk9KPfamNf6XIs3gHhyB7yAtiqDdWAh5MkZQXBgEsKSHdN3n4iMEzoOs0q67Mzt/GijWorBfmT69A5tgFCipH5+RsbctyjKckNTn2Rdf//u6dL3y6NVTTs6eTZFC32Q31rqsjWsVhlEMvuxLUA5FP8ze+/AfLPsa0ml+oJnUC8aoPM3LK4r1k5RekSdM0U7SbZBZo0sCMiFdMnJik3bkRn9XAG3AYsc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8829.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(366016)(19092799006)(1800799024)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aiDZBBk3pBZc2PJXxlfq0y2g/7+chCcaLW5FG5tQP3Z+Eqty7evkyjDtbSKp?=
+ =?us-ascii?Q?KgSP4k67td/6RnBBbFS2YqlguaseCj7tliQ8oVXSl2lojqiwd65lUxqNeDL+?=
+ =?us-ascii?Q?053wXEwvfvR7yAkpCiW8LBinVBlqmFjSXZCKmgC8SdxbL20iOqpyXZclm3xv?=
+ =?us-ascii?Q?JXxSVZFSy9EHlFA4KkfRO0S+g4aBaxW4LN7W0W4YqmdzJUcxoyLOOAp+qJKp?=
+ =?us-ascii?Q?Y7ibsWlGReY2+ddNVrBSulmraPylmcSP4VN+n2mA/okvqenKiG9+5NYpVfPa?=
+ =?us-ascii?Q?s8aLekUPbImlDvhTOQgNlYQvPr+Wny6TpTg5NK97JO4U1zn8oeWdSItQr1XI?=
+ =?us-ascii?Q?khQ/bqtepqnjOo/TK1pVb4XPBlUKopdvCimw4RQgMACWbUgCvPFf0O/JW9Ma?=
+ =?us-ascii?Q?Sx1xtDuxwLcXxcfCjnB3XRhibe7c7x7U44KG4ERHZ6z1jCvbnqUEnpT0FCcq?=
+ =?us-ascii?Q?3REvoFmBgkOONJpIxj47ZbsAIb48ZcHGzZHScyxgkNTKeChIZ6SQh7mKbqw+?=
+ =?us-ascii?Q?03JBEvocdj/3r70spykbgMen9amHha3+XCk5TgI+nQDMyTKtA0t4yo85vWUX?=
+ =?us-ascii?Q?BMef7c2EOqI2YgeG/f+dZg0g4564LVt5+qGFHWZ/rCq2VgtUzhJa8XYSwUJI?=
+ =?us-ascii?Q?YOk6eltBZUem08LobeJKF0JLk589QSJQLXBErYikuRqhIdAaMS76KuOFWMZ3?=
+ =?us-ascii?Q?cBwWhnFskPurG+MLb40V0WHxi7z6Ij5C/wHvOiKelN2bU7swTIoasq/7+hXv?=
+ =?us-ascii?Q?wX8tNxCzUPC2P0kacZPgAHDSU+zAgdVRHfZnW+LVyBqDP2iD5kuQx5KZESPv?=
+ =?us-ascii?Q?Hciir8xTKa6NOLWra4U3HT23wE0XNQDwm/AGu7HhAold8NE5Zu4GKeV1hiHs?=
+ =?us-ascii?Q?mEsulNW7PqdQXLPlW5h+taTpQV9TAMeju9nihk8xCjxCtk7bOU0aTYBpQyby?=
+ =?us-ascii?Q?nyam+LtfyA3kPdLV/uu04vA953/uqnkaBHp6NRTkdXn/ORteBU0/WuJjUshy?=
+ =?us-ascii?Q?DSiJlad0rdXG0rHjsxrauze4sw+JTo1d3tW47tSj99vt9n0EMunwv//9+Yh9?=
+ =?us-ascii?Q?tYAw7LlxYnvUdIwhVzFOSGF7Yug2dpKeVMtYzIi8LjpChOwJJZZCQA0paGBW?=
+ =?us-ascii?Q?nWJv47nBC1qRbALUB8NhvNMMeOg/rLFO6t1Wzw6h0NxQOztMFOChfzEUIYez?=
+ =?us-ascii?Q?NKxHWk8Pp44RETZDJRUtG35cwe10qZepxSHMydD6tNslrJx2HEsp3s7sKkq9?=
+ =?us-ascii?Q?klR79wCeGpPLW/CCKByozXNx8hWwBTrImTggEd2EhTE/FPb9umrnfNnWE6P6?=
+ =?us-ascii?Q?ab1htj7pUY+L/kNdHYmq/moOOJcV0KndUZD6E7Hy4SBeUlSnzcBv9vtv4xRt?=
+ =?us-ascii?Q?hp/lff8d7YnqTdRWT+xLUI4B/xoeOTtgoV+wSlwH58DA+i+R4Ukz83ovMXOT?=
+ =?us-ascii?Q?iYVafib9TRl17s2Q1aABzbhZs/2AfUBDnzownQZvyycQeitMftggwSFOwTgY?=
+ =?us-ascii?Q?nZ4mPCYjkwxxGKNqv6dzmVNK+AuwV1kTxsM/9fdoL0mAhJhIRCG/gepRoSsD?=
+ =?us-ascii?Q?Ok5OIB1EvIFRJjEbgru95A4XQKRBl2fGMzNDTWUEtTCQnLOqLnFLdZtaUyeI?=
+ =?us-ascii?Q?vQIB6QbV7+1iS6+I3l/nyLhbGYTOhSGtGfOShMK2o0dp/hlIIcYFotyP6pBv?=
+ =?us-ascii?Q?fYApaPM3ZG6CjOkM/pzl1Hy83rH/YUNGtiR+/JSoLisLxQFtGXghlp4ibvS4?=
+ =?us-ascii?Q?ZZ6AP4TNnA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c7d79f5f-d396-4b28-162b-08de7a8c4f8d
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8829.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2026 07:53:38.3090
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wrj4EQL8r69rzk9tgnGwdCwafgvQW4Bs3FDh1TmBGRQp+2cWhw7DalmVAOzxXIxtzB82MRAFlO8HhK+m+6CH0w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB10051
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_235048_132530_EC98522C 
-X-CRM114-Status: GOOD (  20.30  )
+X-CRM114-CacheID: sfid-20260304_235345_268701_6F2195D1 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,31 +143,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 4 Mar 2026 at 19:00, Vladimir Oltean <vladimir.oltean@nxp.com> wrote:
-> It appears that the phy-mapphone-mdm6600, phy-qcom-snps-femto-v2,
-> phy-rcar-gen3-pcie, r8a779f0-ether-serdes and phy-rockchip-typec drivers
-> call runtime PM operations without including the proper header.
->
-> This was provided by <linux/phy/phy.h> but no function exported by this
-> header directly needs it. So we need to drop it from there, and fix up
-> drivers that used to depend on that.
->
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+add USB2.0, USB3.0 controller and USB phy nodes.
 
->  drivers/phy/renesas/phy-rcar-gen3-pcie.c       | 1 +
->  drivers/phy/renesas/r8a779f0-ether-serdes.c    | 1 +
+Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+---
+ arch/arm64/boot/dts/freescale/imx94.dtsi | 61 ++++++++++++++++++++++++
+ 1 file changed, 61 insertions(+)
 
-For the Renesas parts:
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
+diff --git a/arch/arm64/boot/dts/freescale/imx94.dtsi b/arch/arm64/boot/dts/freescale/imx94.dtsi
+index d2f31c8caf6e..8384166400e9 100644
+--- a/arch/arm64/boot/dts/freescale/imx94.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx94.dtsi
+@@ -161,6 +161,13 @@ its: msi-controller@48040000 {
+ 		};
+ 	};
+ 
++	usbphynop: usbphynop {
++		compatible = "usb-nop-xceiv";
++		clocks = <&scmi_clk IMX94_CLK_HSIO>;
++		clock-names = "main_clk";
++		#phy-cells = <0>;
++	};
++
+ 	soc {
+ 		compatible = "simple-bus";
+ 		ranges;
+@@ -1223,6 +1230,60 @@ wdog3: watchdog@49220000 {
+ 			};
+ 		};
+ 
++		usb3: usb@4c100000 {
++			compatible = "nxp,imx94-dwc3", "nxp,imx8mp-dwc3";
++			reg = <0x0 0x4c100000 0x0 0x10000>,
++			      <0x0 0x4c010010 0x0 0x04>,
++			      <0x0 0x4c1f0000 0x0 0x20>;
++			reg-names = "core", "blkctl", "glue";
++			clocks = <&scmi_clk IMX94_CLK_HSIO>,
++				 <&scmi_clk IMX94_CLK_HSIO>,
++				 <&scmi_clk IMX94_CLK_24M>,
++				 <&scmi_clk IMX94_CLK_32K>;
++			clock-names = "hsio", "bus_early", "ref", "suspend";
++			interrupts = <GIC_SPI 180 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 386 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "dwc_usb3", "wakeup";
++			power-domains = <&scmi_devpd IMX94_PD_HSIO_TOP>;
++			phys = <&usb3_phy>, <&usb3_phy>;
++			phy-names = "usb2-phy", "usb3-phy";
++			snps,gfladj-refclk-lpm-sel-quirk;
++			snps,parkmode-disable-ss-quirk;
++			status = "disabled";
++		};
++
++		usb3_phy: phy@4c1f0040 {
++			compatible = "fsl,imx95-usb-phy", "fsl,imx8mp-usb-phy";
++			reg = <0x0 0x4c1f0040 0x0 0x40>,
++			      <0x0 0x4c1fc000 0x0 0x100>;
++			clocks = <&scmi_clk IMX94_CLK_HSIO>;
++			clock-names = "phy";
++			#phy-cells = <0>;
++			power-domains = <&scmi_devpd IMX94_PD_HSIO_TOP>;
++			status = "disabled";
++		};
++
++		usb2: usb@4c200000 {
++			compatible = "fsl,imx95-usb", "fsl,imx7d-usb", "fsl,imx27-usb";
++			reg = <0x0 0x4c200000 0x0 0x200>;
++			interrupts = <GIC_SPI 181 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 387 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&scmi_clk IMX94_CLK_HSIO>,
++				 <&scmi_clk IMX94_CLK_32K>;
++			clock-names = "usb_ctrl_root", "usb_wakeup";
++			power-domains = <&scmi_devpd IMX94_PD_HSIO_TOP>;
++			phys = <&usbphynop>;
++			fsl,usbmisc = <&usbmisc 0>;
++			status = "disabled";
++		};
++
++		usbmisc: usbmisc@4c200200 {
++			compatible = "fsl,imx95-usbmisc", "fsl,imx7d-usbmisc", "fsl,imx6q-usbmisc";
++			reg = <0x0 0x4c200200 0x0 0x200>,
++			      <0x0 0x4c010014 0x0 0x04>;
++			#index-cells = <1>;
++		};
++
+ 		netc_blk_ctrl: system-controller@4ceb0000 {
+ 			compatible = "nxp,imx94-netc-blk-ctrl";
+ 			reg = <0x0 0x4ceb0000 0x0 0x10000>,
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+2.34.1
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
