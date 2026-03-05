@@ -4,73 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A925F30924
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:57:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D9C8F30924
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:58:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V94vJUMAUqkp8XTyxdwOF9Zhm8eyGffjICa34MBPhnU=; b=zv01IMjMwPXdqLyG10Xk+2Foy3
-	rFWxAqZ8BgKOX8/9slUaRNMWLWtM7l4m9Yxhk46USxTLKrC1n6OcvmE5eq5A2/+kDxey1ZEdWlwD+
-	gh82kD2VEf1D+WVUVzTP6+6GrpGuAYGrpJ74erZT0xRdKmJVB/uPFbDxLC1nNsMR+MkHEjXjdxUqy
-	L46QZi4aYw8iKrVRrnHZUSq7crwRZbXhXRmNfCNso5WenFo0+Fov+j0Q4Zk0Af1d+F3x+bz+XnSqp
-	p+uWabf8mDbZoDSE58ffJmRP23mwZS6mQd+xdclPnEqoa4Nnlo0K2Dave7HNk9VQP1qA9Z8tzLAbj
-	0VrsyX1g==;
+	bh=t+dM/ivqOh9qFQC6P4MhMScrDFmdYfA44gwq4G7yKZA=; b=sPP/dU2WWBKQ8tAVhnCDGcrfiH
+	2PoQeqSt+1gq1sZJXz0lWrzZNXqRbOTp0jWTQ9ooPSTBWb/nj5hCxZHI3MIvNEwQfFvb9FjteutkK
+	BAEaVBSp43V+T7AlMIdQoy36iNwyX3BrZAofuh0GiKXQ2NzaAQGxvO1eWPXRWmm3UibpTCmu+gO7T
+	vtuk0baOfKAmkVL+YA6jg0j+ouSWbnHlfcP/+uoGw+ePOHnF6/bZB0nTCn5pSy0Rvr+1xmNBuYmsw
+	bdRiRALMPNEsvCFl+H7M3arQxU0R/b481m9cTvdmROdyOM+KM3h+e4hfy+q+c/PgsURb3dtwTHvHD
+	HYgU10mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy5Sq-00000001ToY-2m0M;
-	Thu, 05 Mar 2026 09:57:52 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vy5TC-00000001TuE-0igy;
+	Thu, 05 Mar 2026 09:58:14 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy5Sn-00000001To6-1XNZ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 09:57:51 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vy5SO-0005fW-Ni; Thu, 05 Mar 2026 10:57:24 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vy5SM-003rSo-2D;
-	Thu, 05 Mar 2026 10:57:24 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vy5SN-00000002FW3-3jOJ;
-	Thu, 05 Mar 2026 10:57:23 +0100
-Date: Thu, 5 Mar 2026 10:57:23 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: ming.qian@oss.nxp.com, linux-media@vger.kernel.org, mchehab@kernel.org, 
-	hverkuil-cisco@xs4all.nl, nicolas@ndufresne.ca, benjamin.gaignard@collabora.com, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de, 
-	sebastian.fricke@collabora.com, shawnguo@kernel.org, ulf.hansson@linaro.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	fra.schnyder@gmail.com, linux-imx@nxp.com, l.stach@pengutronix.de, Frank.li@nxp.com, 
-	peng.fan@nxp.com, eagle.zhou@nxp.com, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] media: verisilicon: Fix kernel panic due to __initconst
- misuse
-Message-ID: <ayefolxtgwfmvs5h5ln7u4hdope4rdthvpiacdbfbnxe33lgzb@vts2vnib3t7w>
-References: <20260305080354.639-1-ming.qian@oss.nxp.com>
- <j4h65w6rwsd227gooa437qfp43z3vtiyaegehbe5md3f22anae@lprbmtart3km>
- <68ef934f-baa0-4bf6-93d8-834bbc441e66@kernel.org>
+	id 1vy5TA-00000001Tsg-10Qo;
+	Thu, 05 Mar 2026 09:58:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1772704683; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=kBoMhSSPZC5RsRfS4lwUYt+DXbeKYd998viSF8OfQgMUxb/zXbxyemZauGhuLeYTbPBelQjuTfEL9D0+cWo40OIheo5HwWCwpwlhtF3FhqUusAxKkTY416Dmd3KJxG3Sfv/E4HjLm8ThGO3Xq0gjfknscHV4kjjKHfgvW8ob+Yc=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1772704683; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=t+dM/ivqOh9qFQC6P4MhMScrDFmdYfA44gwq4G7yKZA=; 
+	b=fK4RwTEpB/dukN63XUnC6gB0R4xTNhIruor1iiIurQIm8TsF4kKFxi+gMjRHWSoxFymTAVKJ+sVEYYCSrvj5kS8FLsPP41vixq+SkwRlXPTwlKClaT5CvK20ffWU7wnncuAFyu8PJwB95ylrXrsozTseCxJZpS1ZLScgCqos7R4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772704683;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=t+dM/ivqOh9qFQC6P4MhMScrDFmdYfA44gwq4G7yKZA=;
+	b=J/301NWaZdxu3OBlGpm+tcT8tF32LtInDWcbPlcVv41C/2xK55Pi9n2RO8pJgD/l
+	wkCpA7kwqrt9OFuobYiiO8tC+AKWML/dxJuO+AITRr9jlC6DgJvNBBrTSC2C5FGya/f
+	yyvNJiQC2PXlDeManSvq/+q1AWUAAinyKmpE1e2Y=
+Received: by mx.zohomail.com with SMTPS id 1772704680982221.39391748095557;
+	Thu, 5 Mar 2026 01:58:00 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: "chu.stanley@gmail.com" <chu.stanley@gmail.com>,
+ "robh@kernel.org" <robh@kernel.org>,
+ Chunfeng Yun =?UTF-8?B?KOS6keaYpeWzsCk=?= <Chunfeng.Yun@mediatek.com>,
+ "kishon@kernel.org" <kishon@kernel.org>,
+ "James.Bottomley@HansenPartnership.com"
+ <James.Bottomley@hansenpartnership.com>,
+ "bvanassche@acm.org" <bvanassche@acm.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ Chaotian Jing =?UTF-8?B?KOS6leacneWkqSk=?= <Chaotian.Jing@mediatek.com>,
+ "lgirdwood@gmail.com" <lgirdwood@gmail.com>,
+ "vkoul@kernel.org" <vkoul@kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "avri.altman@wdc.com" <avri.altman@wdc.com>,
+ "martin.petersen@oracle.com" <martin.petersen@oracle.com>,
+ "broonie@kernel.org" <broonie@kernel.org>,
+ Peter Wang =?UTF-8?B?KOeOi+S/oeWPiyk=?= <peter.wang@mediatek.com>
+Cc: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ "kernel@collabora.com" <kernel@collabora.com>
+Subject: Re: [PATCH v8 11/23] scsi: ufs: mediatek: Remove undocumented downstream
+ reset cruft
+Date: Thu, 05 Mar 2026 10:57:53 +0100
+Message-ID: <3472277.mvXUDI8C0e@workhorse>
+In-Reply-To: <3aeee75e78fed2be92038c776463a231b94462f3.camel@mediatek.com>
+References: <20260304-mt8196-ufs-v8-0-5b0eac23314f@collabora.com>
+ <20260304-mt8196-ufs-v8-11-5b0eac23314f@collabora.com>
+ <3aeee75e78fed2be92038c776463a231b94462f3.camel@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <68ef934f-baa0-4bf6-93d8-834bbc441e66@kernel.org>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_015749_409084_DB65BEB8 
-X-CRM114-Status: GOOD (  25.87  )
+X-CRM114-CacheID: sfid-20260305_015812_342931_7E6ED6EF 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,63 +105,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-03-05, Krzysztof Kozlowski wrote:
-> On 05/03/2026 10:01, Marco Felsch wrote:
-> > Hi Ming,
-> > 
-> > On 26-03-05, ming.qian@oss.nxp.com wrote:
-> >> From: Ming Qian <ming.qian@oss.nxp.com>
-> >>
-> >> Fix a kernel panic when probing the driver as a module:
-> >>
-> >>   Unable to handle kernel paging request at virtual address
-> >>   ffffd9c18eb05000
-> >>   of_find_matching_node_and_match+0x5c/0x1a0
-> >>   hantro_probe+0x2f4/0x7d0 [hantro_vpu]
-> >>
-> >> The imx8mq_vpu_shared_resources array is referenced by variant
-> >> structures through their shared_devices field. When built as a
-> >> module, __initconst causes this data to be freed after module
-> >> init, but it's later accessed during probe, causing a page fault.
-> >>
-> >> Use __initconst_or_module to keep the data available when built
-> >> as a module while still allowing it to be freed when built-in.
-> > 
-> > would be nice if I get at least some credit for pointing to the correct
-> > fix ;)
-> > 
-> >> Fixes: e0203ddf9af7 ("media: verisilicon: Avoid G2 bus error while decoding H.264 and HEVC")
-> >> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
-> > 
-> > However, patch looks fine:
-> > 
-> > Reviewed-by: Marco Felsch <m.felsch@pengutronix.de>
-> 
-> Patch is not correct. This is being referenced from other data where
-> nothing is __init. Section mismatch might not point it, but I don't
-> think the code is readable and actually correct.
-> 
-> You can exercise it by rebinding device when built-in.
+On Thursday, 5 March 2026 10:14:47 Central European Standard Time Peter Wan=
+g (=E7=8E=8B=E4=BF=A1=E5=8F=8B) wrote:
+> On Wed, 2026-03-04 at 15:53 +0100, Nicolas Frattaroli wrote:
+> > @@ -2383,38 +2383,12 @@ MODULE_DEVICE_TABLE(of, ufs_mtk_of_match);
+> >  static int ufs_mtk_probe(struct platform_device *pdev)
+> >  {
+> >  	int err;
+> > -	struct device *dev =3D &pdev->dev, *phy_dev =3D NULL;
+> >=20
+>=20
+> Will there be a build error if phy_dev is removed?
+> Please make sure that each patch can build successfully, one by one.
+>=20
+> Thanks
+> Peter
+>=20
+>=20
+>=20
+>=20
 
-That's correct, I didn't consider the manual unbind for the built-in
-case in which you will trigger the issue again! Dropping the annotation
-is the correct fix, thanks!
+Yes, these are the kinds of mistakes that happen when you ask someone
+to pick apart patches for your downstream convenience.
 
-Regards,
-  Marco
+I'll hand dealing with any further fixups and variable naming concerns
+you have over to Angelo, as I can't be bothered to deal with you
+anymore.
 
 
-> 
-> Best regards,
-> Krzysztof
-> 
-
--- 
-#gernperDu 
-#CallMeByMyFirstName
-
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
