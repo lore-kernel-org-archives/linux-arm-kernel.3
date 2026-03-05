@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 837FDF33A8E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 15:20:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55333F33A8C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 15:20:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dcj0ejoSnW/5eblQMFtU+6rnCGFUr5a/VkoxkVgkFIU=; b=20UkPsQK9NsAIObRBBW9SpjH9A
-	NEHSPhzn0Z7LX7D6MemG3NuBtNVmuxbmQUboJrlY8jGJs9fQx4CuFwDUMSpavFYq0yMDyqWFwurRE
-	8+uTlqMBrsJSl/G2VVOf40fbZeQ84LZFc7IkSzTrd/Lig4gb/S7C2+npJxMfn/GAdkUJtQDv+9WGk
-	Vk0q2LShizvOfUAtt93ZPpy336Ndi6orkn9hY9vVH2qSFFXZVSSuy4grGDqvGTiyJOy0UMkA43KEo
-	rBYrEc9mF/25Q7ecJvd68BWCRSjMNG2/K/zyYg/h0UsPUdqdAyEIBmuOCX/7rFapKCTtNJGasmazk
-	6YjkxlDA==;
+	bh=Q3G6Xkwu2d2NXlh3GCZoEqI3kg7a5kSeZMQzvJ9SoQ8=; b=nYK98B7jSbrtpUDTB099Cwd5qY
+	15hGKNnslzhiH8QY8uMeK4+VL7hWbsybf4ngCZSruCQBsbk1JqflrDqDD95nwo4Q8gb0nS0zGC+pA
+	mLBlvRSlv1UqGF/ZQzml35Ndby/tNfv+sMZqo39QzztgWYbheruNK4WNSHgQH/dnpHzl2LOEQEV+C
+	vFBYSMsDkm6jxn+c5cllyzbb1eRmSH1u8lXp38W5qDBGo0GAqC1puoyA8PmCSWD+9AaSlW9Iv99N5
+	FzZoPOdpgmKQ6m58YTBZA7mpPcELAtaSdadUkZ+NsDSNJ1NqIuLTxFWXYFHQXPPF7GWxT5AAzIDJk
+	axKfHfYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyAUb-000000026X7-026T;
-	Thu, 05 Mar 2026 15:20:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vyAUj-000000026a9-3knX;
+	Thu, 05 Mar 2026 15:20:09 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyAUZ-000000026Vz-13VH
+	id 1vyAUh-000000026ZC-3WxU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 15:20:00 +0000
+	Thu, 05 Mar 2026 15:20:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BE0C44072B;
-	Thu,  5 Mar 2026 15:19:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E616BC116C6;
-	Thu,  5 Mar 2026 15:19:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7B5FC41878;
+	Thu,  5 Mar 2026 15:20:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FB17C116C6;
+	Thu,  5 Mar 2026 15:20:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772723997;
-	bh=fiPz7wtqOY5BeMkxwRsGcfzBJ/wpg9ehDqfpzlZwBLQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=cy/zFlEmHAifNQfbSTWPYDYipTTH6trB82Oy0edkNFgF3YpPGscbwDmMl6vOh2a1o
-	 cpLko/5dWTKLyg07VjmS9LvqLoqnVHOa10DVNy56/V8v9skgkhMOnmKQiBd13OF6ka
-	 /p85yoP6L6p3fmrqnArS85XXxfzOKNwC6EDHgH+oBU82lczxgd0IXLvSjUnlBq/k+l
-	 +YQNjeZKi1l1nUxwuU4utBs0zt/8j5Bey0RfbuahW3/7fg8yk9OFdVfa18aPtLZbkr
-	 f0hmeSriiIJz++KYt3Q7i1jDkiLdKpJbo3FOMMZWy/DCGjGDbww8vzd28fbZQEWa+C
-	 u0XPYXxW/UvsA==
-Date: Thu, 5 Mar 2026 07:19:56 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- Chen-Yu Tsai <wens@kernel.org>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev,
- netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>, Samuel Holland
- <samuel@sholland.org>
-Subject: Re: [PATCH net-next v2 1/8] net: stmmac: mdio: convert MDC clock
- divisor selection to tables
-Message-ID: <20260305071956.08d49615@kernel.org>
-In-Reply-To: <aaly2p34HoJAIJbx@shell.armlinux.org.uk>
-References: <aald--qJquWGIvmO@shell.armlinux.org.uk>
-	<E1vy69y-0000000Btwd-3oq7@rmk-PC.armlinux.org.uk>
-	<aaly2p34HoJAIJbx@shell.armlinux.org.uk>
+	s=k20201202; t=1772724007;
+	bh=2Q8/O9auZdr51ye5A181/o/Z6f3MOFDJFJzm8s1nY7A=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=DPnX4yzYKs5I7WCgazm2fb5Z2czxv+OpSi1+2UsJa2lil40dbj3p7+cBa0wXpUc3p
+	 Y3GWzz7GbO47wsAi32N24wwhxVIiiquyNL2a+Y0XYznsuS+JyJOzzz+4oAReQopKox
+	 WgX5RofM8zN4/WB3WFql2VVz1ptJeNPCpOaNCqC69X55LcNYHgFFUWNW5jlMT1KpLv
+	 dFt0XOxjtj4z6Wcet1rdIhG3x18zIYO/LvbHpYiOGzR9/c3O9xjIEyJy7aaLLX6WX9
+	 AhUHWCWYbzCFgjyF0jkEtITlApC5AMHbdYMd/3b4XVPPCpni18B0Kj+u1EPJwF+kM3
+	 /z4rZp1jwipJA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vyAUf-0000000GVIq-0Fim;
+	Thu, 05 Mar 2026 15:20:05 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Quentin Perret <qperret@google.com>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: pkvm: Fallback to level-3 mapping on host stage-2 fault
+Date: Thu,  5 Mar 2026 15:20:02 +0000
+Message-ID: <177272398043.2929264.16877917398365629675.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260305132751.2928138-1-maz@kernel.org>
+References: <20260305132751.2928138-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, will@kernel.org, tabba@google.com, qperret@google.com, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_071959_311389_E153B9FB 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20260305_072007_906190_03E06AA9 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,17 +90,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 5 Mar 2026 12:11:06 +0000 Russell King (Oracle) wrote:
-> On Thu, Mar 05, 2026 at 10:42:26AM +0000, Russell King (Oracle) wrote:
-> > Convert the MDC clock divisor selection to tabular format.
-> > 
-> > Note that there is a change for 300MHz, but this is not a problem,
-> > as the MDC clock remains within the useable ranges, which are:  
+On Thu, 05 Mar 2026 13:27:51 +0000, Marc Zyngier wrote:
+> If, for any odd reason, we cannot converge to mapping size that is
+> completely contained in a memblock region, we fail to install a S2
+> mapping and go back to the faulting instruction. Rince, repeat.
 > 
-> I notice that checkpatch complains about "useable", which it should
-> not do. "useable" is perfectly correct, especially in British English.
-> As I'm British, I won't be fixing this checkpatch complaint.
+> This happens when faulting in regions that are smaller than a page
+> or that do not have PAGE_SIZE-aligned boundaries (as witnessed on
+> an O6 board that refuses to boot in protected mode).
+> 
+> [...]
 
-Yesterday it reported a warning that someone repeated the word 'very'.
-As in "this is very very wrong". checkpatch, eh? gold.
+Applied to fixes, thanks!
+
+[1/1] KVM: arm64: pkvm: Fallback to level-3 mapping on host stage-2 fault
+      commit: 8531d5a83d8eb8affb5c0249b466c28d94192603
+
+Cheers,
+
+	M.
+-- 
+Without deviation from the norm, progress is not possible.
+
+
 
