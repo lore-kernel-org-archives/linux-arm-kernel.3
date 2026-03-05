@@ -4,99 +4,192 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DDF3F30928
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:39:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19C74F30928
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:39:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AQZLec4BAneo8BhInQA5agN2qdzjXNpGaV/sLShC5Io=; b=GBWn3yAzaPSe+y5FsWRmpPzeSJ
-	86LNZit50DJ7BA1LPZiCWexrmI1kcFdM5hqriI+KnH+s2EGD0ithuK91d++3uMkVdy8Lnmz4cQx3d
-	tnBEsFFUh7BlZrnOxXSiXOXlb/9o4mRb/1W4uRB/7Y7VmbwCGKgDGLZkY+cmGnXHfOKgQD6UHWD+d
-	sTkfpy7PoKc196VDWKY9aHBZOXLoY60EfT3XLxUlIIicMr5EjNJGwx+SvEKvVa87J3utke3r6v9mR
-	1e8Nb6VICuOgg+lsLW8rKDVVbdwbgaBG0sHOEBWrUL1jH+0VSxIWn5zzblu6WGIcCQ7SID32wDgDF
-	3+rdw+xQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1iJmHmzWIj7ydbWIIanQwVPbV1m+mhKTS0wHuyHKT+g=; b=I+6u1emnNYYouW3dLOVma62dbq
+	ToqDZjukq4i7G/rL9GG2g0cRQaipLk0U4ecz/hPRBh0uD/bUsm+E9NLIQ/ZvYVdyxSFTxMZQshHEE
+	rvZHHDAr4xZae5ctx6iDAZaXfSY0uREihmbJ6k85D6Dt8h2/i1oOEWsbS/ZBCyrUV5sCJsDjI/3uQ
+	qEK5Uqw5XxL8+QycpY8SHpGk+i8LmVDseGvVmo9DI0tJKWlSR5Lt36OW0CliWJNN4F+uhN+YNBElK
+	z3lM8VM2ax6rGBNOReBTTQJBmLmcO2q522M5y2q8flDSpcjEpBeldL2JTZAS2rwD613+wJyncO5bn
+	gR2PI17g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy5As-00000001QJE-2J1i;
-	Thu, 05 Mar 2026 09:39:18 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1vy5B9-00000001QML-0j3b;
+	Thu, 05 Mar 2026 09:39:35 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy5Aq-00000001QIp-3Fu1
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 05 Mar 2026 09:39:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=AQZLec4BAneo8BhInQA5agN2qdzjXNpGaV/sLShC5Io=; b=lVy2BNBo02bKsSgfM71yPWMrkL
-	0tohFKZw1GmRvfeVnESEHj62qgPfNQnJ/GUJprpjXcTIkhFEkW1ONG41mLMFj33sc0YfghMcfSYRv
-	6E0fflnhEVG3z/BtnbbUEExnoWNgyym1KaO//EwejPvM+1HHhoviOtdIoX2I5eT7f0/u9PgRgK8+g
-	uvOGUUfqiYck/5Sk88cuMqFlpnEpKicIp6LlgmiRm3KMsfUh9FzQ2l/7nbboD5uDyDqgWyCsgly/d
-	ao4wPMiPmzqg5pN7on6tBxmaxd9V871zd4t2kobcdmqjweQ9wcJYm5qtQPneFIS0auXUKq25AkUWA
-	wJeHE3DA==;
-Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy5An-0000000ElAl-1h6r
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 09:39:15 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=AQZLec4BAneo8BhInQA5agN2qdzjXNpGaV/sLShC5Io=;
-	b=DMN7BrRaySUoQIncAzgL91m7t6EL8KkrdjCtskwDaAvv0bqFp5mIGOekePkbVmNmpwY3NzwFl
-	4zZKHzJPpaN9HV9Xtms61DIJ6ktWBzLnKwD4JdbFX0v1kAzFgOeKvTIUXoscdDvqOaZSAatS4GD
-	w+pbrCszYAfWyYaFETZX/bI=
-Received: from mail.maildlp.com (unknown [172.19.163.127])
-	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4fRPW932C4znTWB;
-	Thu,  5 Mar 2026 17:34:13 +0800 (CST)
-Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
-	by mail.maildlp.com (Postfix) with ESMTPS id 77BFF402AB;
-	Thu,  5 Mar 2026 17:38:49 +0800 (CST)
-Received: from [10.174.179.248] (10.174.179.248) by
- kwepemr500001.china.huawei.com (7.202.194.229) with Microsoft SMTP Server
+	id 1vy5B7-00000001QLN-2G0T;
+	Thu, 05 Mar 2026 09:39:34 +0000
+X-UUID: 33783e70187711f1ad39f32c34db0b1c-20260305
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=1iJmHmzWIj7ydbWIIanQwVPbV1m+mhKTS0wHuyHKT+g=;
+	b=d1wtylG40KIG/s+ZU1rs17MzAHjT7FB59ZVVNEcqtckUM7ho+T7y9BtBczzmw1Ihz3dwhZb+X+coADwhYB1tLJTVeQbCmMGNOcgBOj8SZ1bfbvYS57wWW58IJU9PBlZJLZ0ynPKcfJGLuKOF4sFb3E0hl5RXugXPF5pAFnc2RC4=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.11,REQID:9f9354de-19f3-4af8-b900-15a26d7ad0df,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:89c9d04,CLOUDID:dca98d7b-8c8a-4fc4-88c0-3556e7711556,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
+	TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BE
+	C:-1,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 33783e70187711f1ad39f32c34db0b1c-20260305
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
+	(envelope-from <peter.wang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1135453454; Thu, 05 Mar 2026 02:39:26 -0700
+Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 5 Mar 2026 17:38:47 +0800
-Message-ID: <e8d5ba16-3071-4b4a-b6a1-d492cc46e8c2@huawei.com>
-Date: Thu, 5 Mar 2026 17:38:46 +0800
+ 15.2.2562.29; Thu, 5 Mar 2026 17:39:24 +0800
+Received: from SI4PR04CU002.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Thu, 5 Mar 2026 17:39:24 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LPaWfr+QG5eVLwW5MgucOCa5btkn2v5SLdd5sORv255eGdCCJGCAFkL0w+Js7sVwIGrAcQ66BeULhiwU2e9LQpmQ1CW44ks4ls3fuRrJIzIxJIQWoHdeeAcR7gZCFQ4Mr3hp58QXBaKwJ1QIcfY+IdLgP5DbqZp+Kf1fvgWjMx3hMi0ukvWzNbeO21A4rlhQJu2vqSHak0bdt6vTC7N9rLQG4yXuPnP2D2WUp72fWmGDRMX/WxMBII0M6aC01fUpyb7MqXYhKj8VC1Hs9Dbi/qSAXiCdbe8ExOAlM8PRnEHtISiFISimVKdldtnaEaABuH0PqOASpdSVZJJ2+BxV5A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1iJmHmzWIj7ydbWIIanQwVPbV1m+mhKTS0wHuyHKT+g=;
+ b=fO9MveMPg/YDS4WJ+bQrzVUVvn1x51lhvcjCmuy06vK/489i3iucC+vzVY6SDGFjilode4HxcAiV+QOxAu5fxiWkNbUP1WHoVcB67hJ/Kmub1G5F79W3g80EDPSPvT2VeHD80m1GccY4m1TFoih4Xkwg2qfrWqAzBcm5Z6VGYt1/u+PXGrib9wH08sFfKENwT8xKDHUKbkVNdDsQOid44t990PUWsmanoozGxkyAiZY+jBpflAQoPSvtBxBZEH7Xv4Vddu6/NkOjTi76sQCE2aryBgvf2JMWMbF0K9BHmt5H/E5Q4BorPtEtwD+KBhLiF1B3zLbxyr2obPC9en05Nw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1iJmHmzWIj7ydbWIIanQwVPbV1m+mhKTS0wHuyHKT+g=;
+ b=Fw/+elGssoKcxFABJTqeZSlb0+yX0Rk8ZHEGYcugPFs3ATkdJZiSsdI+x3GboCM4OyDJwMlp+VlXFcnTu9AecDb3ldPVUGbpb9IUGFTVS1Lxp1x2UGWzJRFUYZQoL23QyuZuhJ8EO3DnpiwSIIq9KOD+VXm85EVCMGFcx0xy+9Q=
+Received: from PSAPR03MB5605.apcprd03.prod.outlook.com (2603:1096:301:66::6)
+ by KL1PR03MB8822.apcprd03.prod.outlook.com (2603:1096:820:144::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.17; Thu, 5 Mar
+ 2026 09:39:21 +0000
+Received: from PSAPR03MB5605.apcprd03.prod.outlook.com
+ ([fe80::165:d36a:3f76:2925]) by PSAPR03MB5605.apcprd03.prod.outlook.com
+ ([fe80::165:d36a:3f76:2925%4]) with mapi id 15.20.9678.017; Thu, 5 Mar 2026
+ 09:39:21 +0000
+From: =?utf-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>
+To: "chu.stanley@gmail.com" <chu.stanley@gmail.com>, "robh@kernel.org"
+	<robh@kernel.org>, =?utf-8?B?Q2h1bmZlbmcgWXVuICjkupHmmKXls7Ap?=
+	<Chunfeng.Yun@mediatek.com>, "kishon@kernel.org" <kishon@kernel.org>,
+	"James.Bottomley@HansenPartnership.com"
+	<James.Bottomley@HansenPartnership.com>, "bvanassche@acm.org"
+	<bvanassche@acm.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, "neil.armstrong@linaro.org"
+	<neil.armstrong@linaro.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	=?utf-8?B?Q2hhb3RpYW4gSmluZyAo5LqV5pyd5aSpKQ==?=
+	<Chaotian.Jing@mediatek.com>, "lgirdwood@gmail.com" <lgirdwood@gmail.com>,
+	"nicolas.frattaroli@collabora.com" <nicolas.frattaroli@collabora.com>,
+	"vkoul@kernel.org" <vkoul@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	"alim.akhtar@samsung.com" <alim.akhtar@samsung.com>, "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>, "avri.altman@wdc.com" <avri.altman@wdc.com>,
+	"martin.petersen@oracle.com" <martin.petersen@oracle.com>,
+	"broonie@kernel.org" <broonie@kernel.org>
+CC: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-phy@lists.infradead.org"
+	<linux-phy@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, Louis-Alexis Eyraud
+	<louisalexis.eyraud@collabora.com>, "kernel@collabora.com"
+	<kernel@collabora.com>
+Subject: Re: [PATCH v8 20/23] scsi: ufs: mediatek: Back up idle timer in
+ per-instance struct
+Thread-Topic: [PATCH v8 20/23] scsi: ufs: mediatek: Back up idle timer in
+ per-instance struct
+Thread-Index: AQHcq+cF2cnBq3nuRUSLS7+9UR1t9rWfsBQA
+Date: Thu, 5 Mar 2026 09:39:21 +0000
+Message-ID: <7b85028c529ce1b4ab33d2cc3e385dcefd51a1d4.camel@mediatek.com>
+References: <20260304-mt8196-ufs-v8-0-5b0eac23314f@collabora.com>
+	 <20260304-mt8196-ufs-v8-20-5b0eac23314f@collabora.com>
+In-Reply-To: <20260304-mt8196-ufs-v8-20-5b0eac23314f@collabora.com>
+Accept-Language: zh-TW, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PSAPR03MB5605:EE_|KL1PR03MB8822:EE_
+x-ms-office365-filtering-correlation-id: c9ebb213-5bad-4310-b521-08de7a9b143a
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|921020|38070700021;
+x-microsoft-antispam-message-info: CJGDIjX+Xrt//Hw9PgNIEGuTArH/fltC54kXCK7bll2daJTkDtA25JczGd/symxgJxvlR37jgcIXXFINV/0U5GTdqyJldBiwxGzOHakry/6d21zQCYrpDkOi9U3PFp2MAqnTQxdmVhzYwvGhHwvTQ5+cfdxPPwt3QOMMvbmDxH0Kf+cIlpgapucqcMvLi9DrqwMeCVv2wbt01rXWW/L7iV9mBJhjSbMPBfVd6guNocAzBEpnTF445SL0RzPYpc70Wl7ZktR5jcnxmWoMIl9jvnbFc4cP+C+vFPdHRx6h1RxLMbuIM/f4QA8Thcik/BC16X0lRHJWQi/1IdLTDtWLEocXEd63Aez0dTuOaA9SUze4nIYJFSJNSTEkV6kIpQbvGvTlpM4GVkugJ6Y145a9y5nUP6G8zfh7vr5gYxjBBhtIhEvVsDlrnbt8U4AZGNXRwmarJUdMHknah43F1TbtGQ/i4u7yMGJiZK45LMqzWZGaZybFGUBS3CIbavOoazl02FQHZ5FfYDvie5nhuuLdFjWHslOoZhuJzRpDc8UYyBuAeI1lTRe1YOGMqrZ5++TpiIvZ9rnL0rIeMY+Hto1q1tFz5T25vdh3D7oo+Ax6QAwKGbW6XFt0VVFC06klxnc7jfR47uRNyFSJUx6a1ppvqUy1vyoL4qYPx5/jJM2uB7EBMWBDt3E5JOgQVocgGO2JDSjou5MPYejj/HdeMSQuI+k0KnsvoDTS5S0F3YRlTOZzgZ/ascv7Mncft9nD/c+8G/po9MYXaAj6r+Cxkp0pkDzwCZVkFi4GOLt9Xel7ZFO02GRS7Nb8QSn8o7to/4o2
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PSAPR03MB5605.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(921020)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?OFVrb1dyM2hSNklFSC8xZVdhclI3cW4vdm0xRjhSNEpkR0EzVS9ycG1SU3VO?=
+ =?utf-8?B?UWE1S0E2VnJHRlhHUURoM3lkMVdIMGs2L2FMSURhelNwR3VSbHNGRjNCa3JO?=
+ =?utf-8?B?TFpYNUUzN2puSmpTa1BPVGFzdkU4Rm15b2pQVU14dDNpeDRKekNBTGFjbE50?=
+ =?utf-8?B?MndZRTNzVWwzbEQ3Qk1rL2didkFwa29kUG9oS3B2bEp6QkJibHdMWW1JSWNJ?=
+ =?utf-8?B?Y3g2c2xFZ0JERkR0cXNrY09uTWMxeDRxREVyWVhUUDljZ3ByS0lUQjh2ZEhk?=
+ =?utf-8?B?a0VFYzJESUtYVUNRQ0RDNExLVnk0WVl0emljOXJad011UUpuN0xRcFFsekEy?=
+ =?utf-8?B?emhBbGNGNkErYnVVOWtDdTA1dnlnbTZqSE9neDdueFAwTWtyaTVMd2t5UkVV?=
+ =?utf-8?B?U2krRWc4M2ZUQys1eWNLdWVyVEVTOWl6NWdKaW5XWmtRMjdnWGk5aDdHTEZa?=
+ =?utf-8?B?N3lKek82Y1Q2OGtDUVgrNGFkbFR2ZW8wL3R3dmhiL1ZrU2xFT2hpMmtJcVZM?=
+ =?utf-8?B?NkVUMUx4ZzNqTndjQ3J4M1A0S2RwT1pNUis2cWhaTlMxN0tOakZoUWxKcHpn?=
+ =?utf-8?B?eG1lYUN0dzg2NDVYV0JFUkQrcjNUdVJRYk10QUt0TEc1ZXNjVFBMNHN2U0ZX?=
+ =?utf-8?B?MFJ4cWlhT2UyNmJoa1g5S2VSSWJEM3Nkdks0VW4yMXpFWE1GZkltUCtwTlhT?=
+ =?utf-8?B?dVpFeTFkK0JaQjVDd0ZSMk9UNmVaN1gyTnlVSDM0OXdmMnpRZkUySmplcG5o?=
+ =?utf-8?B?elNqeU1pcThNR3ZSV3R0SWlMZTNITDRLRE40SitRSjArZ20wK0pPK1NuSVZP?=
+ =?utf-8?B?cDNkMHJ0R1llWUljRGhDdTBOOS9oMjU2bmh5aXFLenp1OEg0bjltbFpCMXFv?=
+ =?utf-8?B?bk54RXpIcE1BSVRZRzlKWjRON0dOTUZWQ2htblltTXhSYVlIUjM4TWNRWlFV?=
+ =?utf-8?B?MC8wK01uMEx3aWpNaDI3WkxPU0QrdjJqQXpZVGd3bEFoOFhsRVRZUmE3RHhT?=
+ =?utf-8?B?RFEvSXFnOFkwZ0ljYThHT1FjNGRnNE1vSnljSkVnS1FwRGcwU3JwTEMxSjJF?=
+ =?utf-8?B?dS8zVVJPeWdBeGVxOU83K2s2UXhxbWllYlorUmtZeU5yRDl0Y3ovM3Q3R2NK?=
+ =?utf-8?B?cTh4R0RSY3AyNkhkR1ZJOGRFNXlEL0tDVnQ3VDVLbnpEbEw3ajhMUWprQ3Bn?=
+ =?utf-8?B?T1BMWC9kSGNDVFpPeExYOXQxbGx2M0Q5MVQ1ZlhESGQycW9WZjJPRmREdFJx?=
+ =?utf-8?B?c1JESVpYeWZpSjBJelRtUU1vL1NhbFBMcGtyOWFLSEoxdWxPS0JmV3Z6VHdl?=
+ =?utf-8?B?aG54dkYxajhGY1R3RTd2SnBuU0ZFdG5xSnA1Uk9oTHBVc2VwRDNlUWZ4N2Ey?=
+ =?utf-8?B?SGF3K25wQjlqcjY4V1ViR2E4VDVmMktobjdMb2htSFltdmxWRXZDQ0JCMGNz?=
+ =?utf-8?B?TGpEcVV2amF2VnE2UU95S2dtdTNNQXNBRXVhM2VwOFlCVlltNmtFMll6SW9R?=
+ =?utf-8?B?cVpjRkdiOGh2cmJ1a2pRbXBWTEs4S0ZtQnJGYk1RYTNzMmFjOGM4NGJYYmFS?=
+ =?utf-8?B?aFljbXNZN21JZVVYdnh3bzJYWTBqZmI2VnVRcXltL2E0OEJna2VrdzhkanVH?=
+ =?utf-8?B?YmRjV2R4TGptdHRxWG9tRWtVWlZrVHFBQXU2cGI1ZGRhdjM1RTFVcGdwOVFX?=
+ =?utf-8?B?SUErdkdweDEwSURhbW9obGJ0MlZtWllxak5UV0VBU3cwckhTeCs2bzN3Wlo4?=
+ =?utf-8?B?RDdvZzJBUWJrYVFBbGlqTWorWlBQWUt3Y2tBUzYwVS9NUjdyd2ZiOCtYTFhG?=
+ =?utf-8?B?TTlQRnI0ZGJ6U3dZODFsdmZSVEJTWXVrWDkyT3VYUFNWb0JQM0s4RFZBOUlJ?=
+ =?utf-8?B?UDU5eHU4ekV2QW93OWhJZzFIV24yVHVtS0pUV2dCQlNXSCtZekNheFdjRCtV?=
+ =?utf-8?B?eDd5VU9zWFZVTVY2cGRYTHB3MFpXU0h4c01oUndScTg5MzBxNU0yWkQ0SzU0?=
+ =?utf-8?B?d0ozRGlwOElXYng0Rk5KYW5wUVRZd09qMmpxUVZpbVFvZXdtVHpIT3BnV2F0?=
+ =?utf-8?B?dUQ3T1ZId2ZsVUt5UVRhcVVLVCszcGRBTEhpMFQ2b29ZK0pyTnhpZGg3QmVQ?=
+ =?utf-8?B?REsxNlJiVzcrVjZWTlpxOUU0emtYeHZSbnB4WVN1N0F1RlZmb1JHWUdqRmUw?=
+ =?utf-8?B?cUZHVlFPRWlQM21Xdmd4dWVRMXhJRVU1cE81WUd3OHI2REdHcUtudUw2L2g5?=
+ =?utf-8?B?SzJvSXNyUWZXbDR4RVc5alJyRitKQXhsSzlLNTdaTlpFTFVsK3FmMEtTUDFH?=
+ =?utf-8?B?Z0F4eS9OS1pUazRURXBLb01ibHVRWUQwVG1sMFBCbTIrN01IaVRjQT09?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <81C892C81748AD49BA31EF4593CEBA22@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v3 2/4] mm/pgtable: Make pfn_pte() filter out huge
- page attributes
-To: Matthew Wilcox <willy@infradead.org>, =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?=
-	<jgross@suse.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>, <x86@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <david@kernel.org>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <tglx@kernel.org>,
-	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
-	<hpa@zytor.com>, <luto@kernel.org>, <peterz@infradead.org>,
-	<akpm@linux-foundation.org>, <lorenzo.stoakes@oracle.com>, <ziy@nvidia.com>,
-	<baolin.wang@linux.alibaba.com>, <Liam.Howlett@oracle.com>,
-	<npache@redhat.com>, <ryan.roberts@arm.com>, <dev.jain@arm.com>,
-	<baohua@kernel.org>, <lance.yang@linux.dev>, <vbabka@suse.cz>,
-	<rppt@kernel.org>, <surenb@google.com>, <mhocko@suse.com>,
-	<anshuman.khandual@arm.com>, <rmclure@linux.ibm.com>,
-	<kevin.brodsky@arm.com>, <apopple@nvidia.com>, <ajd@linux.ibm.com>,
-	<pasha.tatashin@soleen.com>, <bhe@redhat.com>, <thuth@redhat.com>,
-	<coxu@redhat.com>, <dan.j.williams@intel.com>, <yu-cheng.yu@intel.com>,
-	<baolu.lu@linux.intel.com>, <conor.dooley@microchip.com>,
-	<Jonathan.Cameron@huawei.com>, <riel@surriel.com>, Kefeng Wang
-	<wangkefeng.wang@huawei.com>, <chenjun102@huawei.com>
-References: <20260228070906.1418911-1-yintirui@huawei.com>
- <20260228070906.1418911-3-yintirui@huawei.com>
- <5eaf3846-01db-471e-9903-b0b239d7838d@suse.com>
-From: Yin Tirui <yintirui@huawei.com>
-In-Reply-To: <5eaf3846-01db-471e-9903-b0b239d7838d@suse.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.174.179.248]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemr500001.china.huawei.com (7.202.194.229)
+X-Exchange-RoutingPolicyChecked: IrRyVrHCEI8Fsn06mX5RVud67ncO9BqVbcI9TiEwbMJhJau7BGMe6l/0OPoxNrg+YXCMt9s5yyldeLWRpg15CxHX72S9rtp2Nv/ZGLkB/mY6UXUk3tc2G7cMlY1BbfK92QyQreHzbp7u/RhOKOcSiABxUS1gEp4PxIspgkklTSeOqLjlvMGSMl7ehv6uGgQpalO9t08+fJ5g48kDtUixKN66GzU3eghgB3vx826ddKQdBmXA5uMpkG/CWSZTngDJhYmJ0Jiwh+UhbvLhW/am313CczVylPEkl0wiLpyNZ2bUS2CATHGPuvQFM8rZp3ABOQyEqxiYqv/PrKzpBRj6+g==
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PSAPR03MB5605.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c9ebb213-5bad-4310-b521-08de7a9b143a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Mar 2026 09:39:21.0907
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: Hiw3LDi00L8Y3IQQh6oKjxYnkyGm1bw0JADOxd3h2yR7IwwJG+40oE0sn7yIklUQfT++AV4my0f7AsouVfs0Cg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR03MB8822
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_093914_006046_8B7FB845 
-X-CRM114-Status: GOOD (  18.21  )
+X-CRM114-CacheID: sfid-20260305_013933_585027_1CC0EEC2 
+X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,145 +204,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 3/4/2026 3:52 PM, Jürgen Groß wrote:
-> On 28.02.26 08:09, Yin Tirui wrote:
->> A fundamental principle of page table type safety is that `pte_t` 
->> represents
->> the lowest level page table entry and should never carry huge page 
->> attributes.
->>
->> Currently, passing a pgprot with huge page bits (e.g., extracted via
->> pmd_pgprot()) into pfn_pte() creates a malformed PTE that retains the 
->> huge
->> attribute, leading to the necessity of the ugly `pte_clrhuge()` anti- 
->> pattern.
->>
->> Enforce type safety by making `pfn_pte()` inherently filter out huge page
->> attributes:
->> - On x86: Strip the `_PAGE_PSE` bit.
->> - On ARM64: Mask out the block descriptor bits in `PTE_TYPE_MASK` and
->>    enforce the `PTE_TYPE_PAGE` format.
->> - On RISC-V: No changes required, as RISC-V leaf PMDs and PTEs share the
->>    exact same hardware format and do not use a distinct huge bit.
->>
->> Signed-off-by: Yin Tirui <yintirui@huawei.com>
->> ---
->>   arch/arm64/include/asm/pgtable.h | 4 +++-
->>   arch/x86/include/asm/pgtable.h   | 4 ++++
->>   2 files changed, 7 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/ 
->> asm/pgtable.h
->> index b3e58735c49b..f2a7a40106d2 100644
->> --- a/arch/arm64/include/asm/pgtable.h
->> +++ b/arch/arm64/include/asm/pgtable.h
->> @@ -141,7 +141,9 @@ static inline pteval_t 
->> __phys_to_pte_val(phys_addr_t phys)
->>   #define pte_pfn(pte)        (__pte_to_phys(pte) >> PAGE_SHIFT)
->>   #define pfn_pte(pfn,prot)    \
->> -    __pte(__phys_to_pte_val((phys_addr_t)(pfn) << PAGE_SHIFT) | 
->> pgprot_val(prot))
->> +    __pte(__phys_to_pte_val((phys_addr_t)(pfn) << PAGE_SHIFT) | \
->> +        ((pgprot_val(prot) & ~(PTE_TYPE_MASK & ~PTE_VALID)) | \
->> +        (PTE_TYPE_PAGE & ~PTE_VALID)))
->>   #define pte_none(pte)        (!pte_val(pte))
->>   #define pte_page(pte)        (pfn_to_page(pte_pfn(pte)))
->> diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/ 
->> pgtable.h
->> index 1662c5a8f445..a4dbd81d42bf 100644
->> --- a/arch/x86/include/asm/pgtable.h
->> +++ b/arch/x86/include/asm/pgtable.h
->> @@ -738,6 +738,10 @@ static inline pgprotval_t check_pgprot(pgprot_t 
->> pgprot)
->>   static inline pte_t pfn_pte(unsigned long page_nr, pgprot_t pgprot)
->>   {
->>       phys_addr_t pfn = (phys_addr_t)page_nr << PAGE_SHIFT;
->> +
->> +    /* Filter out _PAGE_PSE to ensure PTEs never carry the huge page 
->> bit */
->> +    pgprot = __pgprot(pgprot_val(pgprot) & ~_PAGE_PSE);
-> 
-> Is it really a good idea to silently drop the bit?
-> 
-> Today it can either be used for a large page (which should be a pmd,
-> of course), or - much worse - you'd strip the _PAGE_PAT bit, which is
-> at the same position in PTEs.
-> 
-> So basically you are removing the ability to use some cache modes.
-> 
-> NACK!
-> 
-> 
-> Juergen
-
-Hi Willy and Jürgen,
-
-Following up on the x86 _PAGE_PSE and _PAGE_PAT aliasing issue.
-
-To achieve the goal of keeping pfn_pte() pure and completely eradicating 
-the pte_clrhuge() anti-pattern, we need a way to ensure pfn_pte() never 
-receives a pgprot with the huge bit set.
-
-@Jürgen:
-Just to be absolutely certain: is there any safe way to filter out the 
-huge page attributes directly inside x86's pfn_pte() without breaking 
-PAT? Or does the hardware bit-aliasing make this strictly impossible at 
-the pfn_pte() level?
-
-@Willy @Jürgen:
-Assuming it is impossible to filter this safely inside pfn_pte() on x86, 
-we must translate the pgprot before passing it down. To maintain strict 
-type-safety and still drop pte_clrhuge(), I plan to introduce two 
-arch-neutral wrappers:
-
-x86:
-/* Translates large prot to 4K. Shifts PAT back to bit 7, inherently 
-clearing _PAGE_PSE */
-#define pgprot_huge_to_pte(prot)    pgprot_large_2_4k(prot)
-/* Translates 4K prot to large. Shifts PAT to bit 12, strictly sets 
-_PAGE_PSE */
-#define pgprot_pte_to_huge(prot) 
-__pgprot(pgprot_val(pgprot_4k_2_large(prot)) | _PAGE_PSE)
-
-arm64:
-/*
-  * Drops Block marker, enforces Page marker.
-  * Strictly preserves the PTE_VALID bit to avoid validating PROT_NONE 
-pages.
-  */
-#define pgprot_huge_to_pte(prot) \
-      __pgprot((pgprot_val(prot) & ~(PMD_TYPE_MASK & ~PTE_VALID)) | \
-             (PTE_TYPE_PAGE & ~PTE_VALID))
-/*
-  * Drops Page marker, sets Block marker.
-  * Strictly preserves the PTE_VALID bit.
-  */
-#define pgprot_pte_to_huge(prot) \
-      __pgprot((pgprot_val(prot) & ~(PTE_TYPE_MASK & ~PTE_VALID)) | \
-             (PMD_TYPE_SECT & ~PTE_VALID))
-
-Usage:
-1.  Creating a huge pfnmap (remap_try_huge_pmd)
-pgprot_t huge_prot = pgprot_pte_to_huge(prot);
-
-/* No need for pmd_mkhuge() */
-pmd_t entry = pmd_mkspecial(pfn_pmd(pfn, huge_prot));
-set_pmd_at(mm, addr, pmd, entry);
-
-2. Splitting a huge pfnmap (__split_huge_pmd_locked)
-pgprot_t small_prot = pgprot_huge_to_pte(pmd_pgprot(old_pmd));
-
-/* No need for pte_clrhuge() */
-pte_t entry = pfn_pte(pmd_pfn(old_pmd), small_prot);
-set_ptes(mm, haddr, pte, entry, HPAGE_PMD_NR);
-
-
-Willy, is there a better architectural approach to handle this and 
-satisfy the type-safety requirement given the x86 hardware constraints?
-
--- 
-Thanks,
-Yin Tirui
-
+T24gV2VkLCAyMDI2LTAzLTA0IGF0IDE1OjUzICswMTAwLCBOaWNvbGFzIEZyYXR0YXJvbGkgd3Jv
+dGU6DQo+IEBAIC0xODcsNiArMTg3LDcgQEAgc3RydWN0IHVmc19tdGtfaG9zdCB7DQo+IMKgCXUx
+NiByZWZfY2xrX2dhdGluZ193YWl0X3VzOw0KPiDCoAl1MzIgaXBfdmVyOw0KPiDCoAlib29sIGxl
+Z2FjeV9pcF92ZXI7DQo+ICsJdTMyIGhpYmVybmF0ZV9pZGxlX3RpbWVyOw0KPiDCoA0KDQpTYW1l
+IGFzIGluIHBhdGNoIFY3LCB0aGlzIHZhcmlhYmxlIGlzIG5vdCBjbGVhciB0byBtZS4NClBsZWFz
+ZSBkbyBub3Qgb21pdCAiYXV0byIgb3IgY29uc2lkZXIgdXNpbmcgImFoaXQiIGFzIA0KaXMgY3Vz
+dG9tYXJ5IGluIHRoZSBVRlMgY29tbXVuaXR5Lg0KDQpUaGFua3MNClBldGVyDQo=
 
