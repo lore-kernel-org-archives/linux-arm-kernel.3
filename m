@@ -4,51 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56E23EEF33D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:05:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2294FEEF33F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:05:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Y1wBlwiUH2fvTmqiMDb+GkeEXWeNmz3D1IXmxMK6Vs=; b=0zureKJ75J41w+FXk+GzkLLyo1
-	96GzRNtrQz4coEMsAaEyLCM8BbCF1UR+Xyf3jAqZAcqh4DL5P5SWQs50mr0mX8+AuUyt2AU2t8t6d
-	Psb5f+9mFRx8rwnySHEGzUj9UkdgnfstR+rV0iL/f64JD+WZ8FppC74xjhok+LLRQoQYVbcwokl+L
-	W4XUvTKgJgt97NN1Ze+r1xS2kLLkDglkW4YssTlNRcXP+wZULT1xew+IRvqpE4mTLQPQ+6zKRTPCz
-	lTQr/cl1SW/3GlJtp6A0LWkvpIvj/JHRjW2x6tfrf3cTvdAeUTUJGVIjPvM9r+Hq05KCRDXAXgpxZ
-	GwknDmCw==;
+	bh=LGq8rqAQ+iNk8xJxMmHn/kQRItiktlpJqhtHtVqk4mY=; b=YTO7unMQPQ+FuCzmo20e8ZCwVR
+	+jb0Wd8U774B3PALWDG4mxrPKbl9g4gGT7YbFOCez8ZeIfNLbYhTlEcEQYlsG/D9NHw6LZBJo7Pc2
+	nfq6RJCyTqFHCkvlWe/9mdKL999qLQDRQshJPHxj+jUu9AI7+DpLoJIm2tv6mSZecd0jOo74pW1U6
+	4PYzMIhUsyDzQFYGRc3RfOlSDw1e9VYyMq9zhJcWZv7HjSaWfj8Z0mIJjatT2S2rfD7+H4fryIjIX
+	dCfdHLwBYnt2gR+5vs/mKlRZ4GJI57ZIbcY/jexjCp/CuPTxsmDnVNSauTy1A1MxCQj41KYuCrjKc
+	6nsuqinw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy4dp-00000001HGi-21bT;
-	Thu, 05 Mar 2026 09:05:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vy4ds-00000001HLG-40c2;
+	Thu, 05 Mar 2026 09:05:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy4do-00000001HF9-28UP;
-	Thu, 05 Mar 2026 09:05:08 +0000
+	id 1vy4dq-00000001HHF-2GKq;
+	Thu, 05 Mar 2026 09:05:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0B10A6183B;
-	Thu,  5 Mar 2026 09:05:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 303BAC116C6;
-	Thu,  5 Mar 2026 09:05:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 935A040B06;
+	Thu,  5 Mar 2026 09:05:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7862C2BCB2;
+	Thu,  5 Mar 2026 09:05:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772701506;
-	bh=pALwRFzWIQKTpcLw9NIyZWrgGnwzLJRpPmwmiwUCRco=;
+	s=k20201202; t=1772701509;
+	bh=Ll7vX0iwBqlcAulvUYDlg1AF0/cayK4xOYfyyHaI++E=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=kOccXVVpzQJcoK4ZH1qTKM3+cnAQeelrqtoUyy1JqsNlr1R8sMgpP0+IUjaLut8LB
-	 STkK8FUuw4Joye8r5/jx8Xc87nLEzLulTTEVhwqKQ5Eae4xnZ4KUDH5DKkcFxPZwAx
-	 tWME1d/v7hz/JPYdfurBhneA/DX/y4xz2wGTB9GifjSTu9hyT16AE8cd1lstlyZr5h
-	 gwVga/FXeCeBhElapZ3OC8O5/ODOk+DPZbSr7z8ErgVEr3Q83GxhUd0FE9UgrR44c7
-	 ukmVy0Kr30393ldmezE1vAZuvdnwer/hIO0bxScSIb/ethb3odHJuN/tkv7ebqyBsA
-	 OYlH+Pbu5glHw==
+	b=lnSgtYuJJtg3IXuD0bcarNYHq4jV7do9cEExTj4hXU9vBiIhA9W/sC/Q4HdBa1uOf
+	 T04hNZoGYRxY78DIdKdQiJGOSDawfx/wjgxdkS/8wCmZAZMy7DJASFntpQF8XD2wa0
+	 IYEMcMb/tC12kSFfgemeMawDGVdmDPxtEK8evUfeGxuxwPEyXSCKMFinPMZndvp2tn
+	 bzxkySHACTB2dHZ7FXWdzbpKZdrHZy1zYrHUVJAg2U3Fy64Kn0WzDpUdPoBmTJ0kds
+	 NQsq0zUXGkbW2kKbZ8hR6TaAGHduG7Bzw9tKsWS3oOzirYbeW4z3geXLUh48l0tJ3o
+	 lPKBjZnIfNBuA==
 From: Maxime Ripard <mripard@kernel.org>
-Date: Thu, 05 Mar 2026 10:04:53 +0100
-Subject: [PATCH v3 01/14] drm/connector: Introduce drm_output_color_format
- enum
+Date: Thu, 05 Mar 2026 10:04:54 +0100
+Subject: [PATCH v3 02/14] drm/edid: Convert to drm_output_color_format enum
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260305-drm-rework-color-formats-v3-1-f3935f6db579@kernel.org>
+Message-Id: <20260305-drm-rework-color-formats-v3-2-f3935f6db579@kernel.org>
 References: <20260305-drm-rework-color-formats-v3-0-f3935f6db579@kernel.org>
 In-Reply-To: <20260305-drm-rework-color-formats-v3-0-f3935f6db579@kernel.org>
 To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
@@ -81,14 +80,17 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  linux-sunxi@lists.linux.dev, Jani Nikula <jani.nikula@intel.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4252; i=mripard@kernel.org;
- h=from:subject:message-id; bh=pALwRFzWIQKTpcLw9NIyZWrgGnwzLJRpPmwmiwUCRco=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDJkr3c0uiehK3JxY4pAnEdi8pPXmK+NPb/WuJ7M5hL3m0
- BN7f+5Mx1QWBmFOBlkxRZYnMmGnl7cvrnKwX/kDZg4rE8gQBi5OAZhI0j/GhvdXVjaW/XFoMX7H
- edi2M87TwFpK/uwdt8uRi/pMeV47s2zJn7hs/seMzfVs/o65SpdSGWv4VlkkuLtYvVsT6KLmknY
- +s3dFYZVrXV3S8QzZs8ZmGbJbXNudVq3IT8iturXAIf09AwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4310; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=Ll7vX0iwBqlcAulvUYDlg1AF0/cayK4xOYfyyHaI++E=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDJkr3c1fP0m4lROx8rSsPncYk7J1h8qT9fEsr9bN/FH5R
+ ftwn0Bix1QWBmFOBlkxRZYnMmGnl7cvrnKwX/kDZg4rE8gQBi5OAZiIeRFjrdT06klTYu/1WTt0
+ sc7U0VPnXL7DgMdA4uhaUWllzynuFYGKT5m2Mx70bT+4UO2RRpsiY32xtHaZmG+J/eb58+aYhvJ
+ XrZJ2Pah1vPRVv/er22dW3y/hfSexRJP3tWOS8i8Vva1HzAA=
 X-Developer-Key: i=mripard@kernel.org; a=openpgp;
  fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260305_010510_631683_F9FE0952 
+X-CRM114-Status: GOOD (  14.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,108 +105,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The EDID parsing code initially introduced the DRM_COLOR_FORMAT_*
-defines to represent the sink capabilities. Since a given sink could
-support multiple formats, it was first defined as a bitmask.
+Now that we introduced a new drm_output_color_format enum to represent
+what DRM_COLOR_FORMAT_* bits were representing, we can switch to the new
+enum.
 
-However, the core and drivers have since leveraged those defines to
-represent both the supported formats but also the current format being
-used.
+The main difference is that while DRM_COLOR_FORMAT_ was a bitmask,
+drm_output_color_format is a proper enum. However, the enum was done is
+such a way than DRM_COLOR_FORMAT_X = BIT(DRM_OUTPUT_COLOR_FORMAT_X) so
+the transitition is easier.
 
-Considering the latter case, the more natural, and consistent, thing to
-do would be to create an enum of all the possible formats, and then list
-the supported formats using a bitmask of the individual enum values.
-
-Let's create a new enum following that pattern, drm_output_color_format,
-while maintaining the DRM_COLOR_FORMAT_* compatibility to make the
-transition easier.
+The only thing we need to consider is if the original code meant to use
+that value as a bitmask, in which case we do need to keep the bit shift,
+or as a discriminant in which case we don't.
 
 Acked-by: Jani Nikula <jani.nikula@intel.com>
-Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 ---
- include/drm/drm_connector.h | 42 ++++++++++++++++++++++++++++++++++--------
- 1 file changed, 34 insertions(+), 8 deletions(-)
+ drivers/gpu/drm/drm_edid.c | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
 
-diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
-index c18be8c19de0ab1e02e7d7b1fcd9f2ab5ef1dd15..227f6190438679104f5336be088a73f4529c15fa 100644
---- a/include/drm/drm_connector.h
-+++ b/include/drm/drm_connector.h
-@@ -554,10 +554,35 @@ enum drm_colorspace {
- 	DRM_MODE_COLORIMETRY_RGB_WIDE_FLOAT	= 14,
- 	DRM_MODE_COLORIMETRY_BT601_YCC		= 15,
- 	DRM_MODE_COLORIMETRY_COUNT
- };
+diff --git a/drivers/gpu/drm/drm_edid.c b/drivers/gpu/drm/drm_edid.c
+index ff432ac6b5692d9178f4bfab039d2e52af68e952..5f9fcd7d9ce45d5b892077b7e7e78fed4aa88499 100644
+--- a/drivers/gpu/drm/drm_edid.c
++++ b/drivers/gpu/drm/drm_edid.c
+@@ -5314,11 +5314,11 @@ static void parse_cta_y420cmdb(struct drm_connector *connector,
+ 	for (i = 0; i < map_len; i++)
+ 		map |= (u64)data[i] << (8 * i);
  
-+/**
-+ * enum drm_output_color_format - Output Color Format
-+ *
-+ * This enum is a consolidated color format list supported by
-+ * connectors. It's only ever really been used for HDMI and DP so far,
-+ * so it's not exhaustive and can be extended to represent other formats
-+ * in the future.
-+ *
-+ *
-+ * @DRM_OUTPUT_COLOR_FORMAT_RGB444:
-+ *   RGB output format
-+ * @DRM_OUTPUT_COLOR_FORMAT_YCBCR444:
-+ *   YCbCr 4:4:4 output format (ie. not subsampled)
-+ * @DRM_OUTPUT_COLOR_FORMAT_YCBCR422:
-+ *   YCbCr 4:2:2 output format (ie. with horizontal subsampling)
-+ * @DRM_OUTPUT_COLOR_FORMAT_YCBCR420:
-+ *   YCbCr 4:2:0 output format (ie. with horizontal and vertical subsampling)
-+ */
-+enum drm_output_color_format {
-+	DRM_OUTPUT_COLOR_FORMAT_RGB444 = 0,
-+	DRM_OUTPUT_COLOR_FORMAT_YCBCR444,
-+	DRM_OUTPUT_COLOR_FORMAT_YCBCR422,
-+	DRM_OUTPUT_COLOR_FORMAT_YCBCR420,
-+};
-+
- /**
-  * enum drm_bus_flags - bus_flags info for &drm_display_info
-  *
-  * This enum defines signal polarities and clock edge information for signals on
-  * a bus as bitmask flags.
-@@ -697,14 +722,14 @@ struct drm_display_info {
- 	/**
- 	 * @subpixel_order: Subpixel order of LCD panels.
+ out:
+ 	if (map)
+-		info->color_formats |= DRM_COLOR_FORMAT_YCBCR420;
++		info->color_formats |= BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR420);
+ 
+ 	*y420cmdb_map = map;
+ }
+ 
+ static int add_cea_modes(struct drm_connector *connector,
+@@ -6090,11 +6090,11 @@ static void parse_cta_y420vdb(struct drm_connector *connector,
+ 
+ 		if (!drm_valid_cea_vic(vic))
+ 			continue;
+ 
+ 		bitmap_set(hdmi->y420_vdb_modes, vic, 1);
+-		info->color_formats |= DRM_COLOR_FORMAT_YCBCR420;
++		info->color_formats |= BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR420);
+ 	}
+ }
+ 
+ static void drm_parse_vcdb(struct drm_connector *connector, const u8 *db)
+ {
+@@ -6424,15 +6424,15 @@ static void drm_parse_cea_ext(struct drm_connector *connector,
+ 				    "[CONNECTOR:%d:%s] CEA extension version mismatch %u != %u\n",
+ 				    connector->base.id, connector->name,
+ 				    info->cea_rev, edid_ext[1]);
+ 
+ 		/* The existence of a CTA extension should imply RGB support */
+-		info->color_formats = DRM_COLOR_FORMAT_RGB444;
++		info->color_formats = BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444);
+ 		if (edid_ext[3] & EDID_CEA_YCRCB444)
+-			info->color_formats |= DRM_COLOR_FORMAT_YCBCR444;
++			info->color_formats |= BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444);
+ 		if (edid_ext[3] & EDID_CEA_YCRCB422)
+-			info->color_formats |= DRM_COLOR_FORMAT_YCBCR422;
++			info->color_formats |= BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422);
+ 		if (edid_ext[3] & EDID_BASIC_AUDIO)
+ 			info->has_audio = true;
+ 
+ 	}
+ 	drm_edid_iter_end(&edid_iter);
+@@ -6696,11 +6696,11 @@ static void update_display_info(struct drm_connector *connector,
+ 		goto out;
+ 
+ 	if (!drm_edid_is_digital(drm_edid))
+ 		goto out;
+ 
+-	info->color_formats |= DRM_COLOR_FORMAT_RGB444;
++	info->color_formats |= BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444);
+ 	drm_parse_cea_ext(connector, drm_edid);
+ 
+ 	update_displayid_info(connector, drm_edid);
+ 
+ 	/*
+@@ -6750,13 +6750,13 @@ static void update_display_info(struct drm_connector *connector,
+ 	drm_dbg_kms(connector->dev,
+ 		    "[CONNECTOR:%d:%s] Assigning EDID-1.4 digital sink color depth as %d bpc.\n",
+ 		    connector->base.id, connector->name, info->bpc);
+ 
+ 	if (edid->features & DRM_EDID_FEATURE_RGB_YCRCB444)
+-		info->color_formats |= DRM_COLOR_FORMAT_YCBCR444;
++		info->color_formats |= BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444);
+ 	if (edid->features & DRM_EDID_FEATURE_RGB_YCRCB422)
+-		info->color_formats |= DRM_COLOR_FORMAT_YCBCR422;
++		info->color_formats |= BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422);
+ 
+ 	drm_update_mso(connector, drm_edid);
+ 
+ out:
+ 	if (drm_edid_has_internal_quirk(connector, EDID_QUIRK_NON_DESKTOP)) {
+@@ -7227,11 +7227,11 @@ static bool is_hdmi2_sink(const struct drm_connector *connector)
  	 */
- 	enum subpixel_order subpixel_order;
+ 	if (!connector)
+ 		return true;
  
--#define DRM_COLOR_FORMAT_RGB444		(1<<0)
--#define DRM_COLOR_FORMAT_YCBCR444	(1<<1)
--#define DRM_COLOR_FORMAT_YCBCR422	(1<<2)
--#define DRM_COLOR_FORMAT_YCBCR420	(1<<3)
-+#define DRM_COLOR_FORMAT_RGB444		(1 << DRM_OUTPUT_COLOR_FORMAT_RGB444)
-+#define DRM_COLOR_FORMAT_YCBCR444	(1 << DRM_OUTPUT_COLOR_FORMAT_YCBCR444)
-+#define DRM_COLOR_FORMAT_YCBCR422	(1 << DRM_OUTPUT_COLOR_FORMAT_YCBCR422)
-+#define DRM_COLOR_FORMAT_YCBCR420	(1 << DRM_OUTPUT_COLOR_FORMAT_YCBCR420)
+ 	return connector->display_info.hdmi.scdc.supported ||
+-		connector->display_info.color_formats & DRM_COLOR_FORMAT_YCBCR420;
++		connector->display_info.color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR420);
+ }
  
- 	/**
- 	 * @panel_orientation: Read only connector property for built-in panels,
- 	 * indicating the orientation of the panel vs the device's casing.
- 	 * drm_connector_init() sets this to DRM_MODE_PANEL_ORIENTATION_UNKNOWN.
-@@ -712,14 +737,15 @@ struct drm_display_info {
- 	 * fb to compensate and gets exported as prop to userspace.
- 	 */
- 	int panel_orientation;
- 
- 	/**
--	 * @color_formats: HDMI Color formats, selects between RGB and YCrCb
--	 * modes. Used DRM_COLOR_FORMAT\_ defines, which are _not_ the same ones
--	 * as used to describe the pixel format in framebuffers, and also don't
--	 * match the formats in @bus_formats which are shared with v4l.
-+	 * @color_formats: HDMI Color formats, selects between RGB and
-+	 * YCbCr modes. Uses a bitmask of DRM_OUTPUT_COLOR_FORMAT\_
-+	 * defines, which are _not_ the same ones as used to describe
-+	 * the pixel format in framebuffers, and also don't match the
-+	 * formats in @bus_formats which are shared with v4l.
- 	 */
- 	u32 color_formats;
- 
- 	/**
- 	 * @bus_formats: Pixel data format on the wire, somewhat redundant with
+ static u8 drm_mode_hdmi_vic(const struct drm_connector *connector,
+ 			    const struct drm_display_mode *mode)
+ {
 
 -- 
 2.53.0
