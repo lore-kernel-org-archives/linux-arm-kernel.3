@@ -4,85 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94078EEF31C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 08:53:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17DABEEF32A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 08:53:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ptsXsrwpjPBC6+0C67kO0fMIbirFyi/qX12OIkLgHqk=; b=i1g1O5xaiBafcSLWUOFbll+Yz9
-	4mXFmjK0xjAYCOt47NNuDzU5ZBS6DsWyNMkTIjQLJCqvFuL92yYUYhDeNURJC2RgT5WmC1u9q3ec7
-	q+u3ei2nuRm9k7RPmqderdw99hK9GiTJEg4SFSpcGv9Kuvov2HICKT8rpnFfqwskQdOU47Fc46qRp
-	Mcle33gnmaUgfI6ugWvbjIphDmNpl/GWmhRJ+WM5FRtIdHNm6D/G3EtB36/hutpY3rODiuEOgQgfc
-	eRkJjsLwJAhidqOaj6O8lGYH0IRpsM/G6qz2NDZkyoBrWYg4NfcxIyX7nkzq7ioFTOCj6AhhPMXPE
-	1WaS5rHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hIcVy7n+YYDL3znnApNGWRQxm2qhJa4Pgw6otKMOHi4=; b=xO5T100d+k02jIobie2L4x61qI
+	9XLd40vTaHLBe8dU51IgjQuQY89x2oIMaABNyVbPxANX/VDGxu/w2ZFxW2j+Y2sbBzKL8SImN/Abk
+	+WKvSDraTgtUkUWnuQvvYFnQySHD2Y6OMgDNTJrdVFL99ghSWHzWSUjm0S1G8KUR3JweMfLPpZF9L
+	+9kPobWNlnhWC/spTFeMa8sA2MoOzH2SCWM9mRPHVCw2fYLbUzK7eervOuKP4Mvf8kZR3/TeiJVtc
+	P1+6fm1x5nl+5JbzIxhYhBgIvy+ZS31obkSfQH1xWBetyqRgzI0pfdtl8Nu9PLTB7IOhqKVA2gEso
+	gVjlPchg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy4SO-00000001Flt-3O5d;
-	Thu, 05 Mar 2026 08:53:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vy4Su-00000001Fr6-1azQ;
+	Thu, 05 Mar 2026 08:53:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy4SL-00000001Fkc-3SvQ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 08:53:19 +0000
+	id 1vy4Sr-00000001FqJ-34rl;
+	Thu, 05 Mar 2026 08:53:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D0C8A44728
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Mar 2026 08:53:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3308C2BCB8
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Mar 2026 08:53:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C061440A63;
+	Thu,  5 Mar 2026 08:53:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A67DC116C6;
+	Thu,  5 Mar 2026 08:53:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772700796;
-	bh=lmLJav9SueX4fK6pxy1Dw2a7ykTqhKyyY2pLtA+wBdY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=YkeTrWCRVLa7ix2RFYXj14crYJE4Hvg5YXkZWR8rOp0mm6k9J/gdG0qaoNlGyOYxO
-	 uUtgXEcN9msZDbC/ZkLxKm4j9PUKunGrbg+q6/WRWyAvB3xHk/ge6k0FkeAtRdTDJr
-	 bdfbRBwWA7/ADYMr5uR3pPDAq9PQ5mui7Evy8xmR/EmXF7fCXgwqBfyoj9wK3Jtkku
-	 qKAjiP2pKEcWovoLCG0ST1x6eciU3wsp2uwSaGCCyBAS1bROUWjiNJf4y9MRclQvGO
-	 f7Vy3CWOGpUURdjBpQxvJxfro/Me4HafCtmpGNdvbRKlQvAOkXFvma8le2Nb24EWA2
-	 1UU8yZCMGEvGA==
-Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-66151557d0cso302185a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 00:53:16 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCX6p5dW5Xkp4XynC87ZMwSqQAKQhf4gJ+qwvS2IcRRqZPXZQPUWxFHemvt+NkoVkYGMuNY2FgYUFb9A8RPV+WRN@lists.infradead.org
-X-Gm-Message-State: AOJu0YzO566YFVLgBdclXsnBMyun+3OCXyZRz499l4FCcKhDjtEvR6aw
-	AHpUnfV2owTXdUg3bd5d/s0ecMU/IXyqKHlW9es2Coavh8rrtCKNQoep/rYS+tlA2BV0EjUbzT7
-	FHK+Hmyw1gXpwyf2j93rvYHzgzTKrKuQ=
-X-Received: by 2002:a05:6402:358d:b0:65f:bad8:9c6 with SMTP id
- 4fb4d7f45d1cf-660efcb74femr2969453a12.12.1772700794653; Thu, 05 Mar 2026
- 00:53:14 -0800 (PST)
+	s=k20201202; t=1772700828;
+	bh=g72iVl9U5HM9n+fiEwdIJh7nyYcCS/n2Mf5HPw+45ck=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Haft0vZlu5WKCYI8SG96a55+tzNaVOQgUPwajW9y9Xxd9bD/uc5Y7QwIrABkY8vJ+
+	 WKbmVrjQJ0Hlf/TQd04hYghNTawePDk+RJ61+GsMeJBtN9Wlt3KzKfK4NhguZc3o9+
+	 CPhG6EatlfrSTlJdRarp2cfrok8Mo334XQhQBgyhLfdW2VFYiE4x5BgKJqDJHV9DF1
+	 8Cr9Ys/l3+tay19A54Dmd9U+83x7f/Ln8Grqtt3QQRLd2HhdgOouC490XFEZpJ5dvS
+	 1vFJULwUsZI9Od9Rj+6iS1Nih8MTyz6AaR3aI57vfzeYiEm62Q2iHn2eZIUQgrneOm
+	 oqTxnYunR8x7A==
+Date: Thu, 5 Mar 2026 09:53:45 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Stefan Wahren <wahrenst@gmx.net>, Melissa Wen <mwen@igalia.com>, 
+	Iago Toral Quiroga <itoral@igalia.com>, Chema Casanova <jmcasanova@igalia.com>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
+Subject: Re: [PATCH v6 1/6] clk: bcm: rpi: Manage clock rate in
+ prepare/unprepare callbacks
+Message-ID: <20260305-unyielding-sponge-of-efficiency-07218c@houat>
+References: <20260218-v3d-power-management-v6-0-40683fd39865@igalia.com>
+ <20260218-v3d-power-management-v6-1-40683fd39865@igalia.com>
+ <20260224-curvy-shiny-dodo-e50cef@houat>
+ <481489f1-850f-44ae-8586-b69c1d2faf8e@igalia.com>
 MIME-Version: 1.0
-References: <20260303003625.39035-1-fengchengwen@huawei.com> <20260305083650.54611-1-fengchengwen@huawei.com>
-In-Reply-To: <20260305083650.54611-1-fengchengwen@huawei.com>
-From: Huacai Chen <chenhuacai@kernel.org>
-Date: Thu, 5 Mar 2026 16:53:02 +0800
-X-Gmail-Original-Message-ID: <CAAhV-H4xZsyLdzswPxPGHoQNd4LKXrTOL-oPGZHyVt8dj0xu6A@mail.gmail.com>
-X-Gm-Features: AaiRm52KNe1sCTgdvwoUawx92IFVO7ock76aGC0FmUYpz_759-88tc4Qm9b9dQw
-Message-ID: <CAAhV-H4xZsyLdzswPxPGHoQNd4LKXrTOL-oPGZHyVt8dj0xu6A@mail.gmail.com>
-Subject: Re: [PATCH v2] PCI/TPH: Fix get cpu steer-tag fail on ARM64 platform
-To: Chengwen Feng <fengchengwen@huawei.com>
-Cc: linux-pci@vger.kernel.org, bhelgaas@google.com, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	WANG Xuerui <kernel@xen0n.name>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
-	Andy Gospodarek <andrew.gospodarek@broadcom.com>, Eric Van Tassell <Eric.VanTassell@amd.com>, 
-	Ajit Khaparde <ajit.khaparde@broadcom.com>, Somnath Kotur <somnath.kotur@broadcom.com>, 
-	linux-acpi@vger.kernel.org, wei.huang2@amd.com, jonathan.cameron@huawei.com, 
-	wangzhou1@hisilicon.com, wanghuiqiang@huawei.com, liuyonglong@huawei.com, 
-	stable@vger.kernel.org, jeremy.linton@arm.com, sunilvl@ventanamicro.com, 
-	sunilvl@oss.qualcomm.com, chenhuacai@loongson.cn, wangliupu@loongson.cn, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, 
-	linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="rsl6glzzmmnhyjuq"
+Content-Disposition: inline
+In-Reply-To: <481489f1-850f-44ae-8586-b69c1d2faf8e@igalia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_005317_897025_A2CC0EDA 
-X-CRM114-Status: GOOD (  41.77  )
+X-CRM114-CacheID: sfid-20260305_005349_817631_92B45794 
+X-CRM114-Status: GOOD (  42.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,305 +81,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Chengwen,
 
-On Thu, Mar 5, 2026 at 4:37=E2=80=AFPM Chengwen Feng <fengchengwen@huawei.c=
-om> wrote:
->
-> Currently the pcie_tph_get_cpu_st() has an issue on ARM64 platform:
-> 1. The pcie_tph_get_cpu_st() function directly uses cpu_uid as the input
->    parameter to call the PCI ACPI DSM method. According to the DSM
->    definition, the input value should be the ACPI Processor UID (see [1]
->    for details).
-> 2. In the Broadcom driver implementation [2] (which invokes
->    pcie_tph_get_cpu_st()), cpu_uid is obtained via
->    cpumask_first(irq->cpu_mask) - this is the logical CPU ID of a CPU
->    core, generated and managed by kernel (e.g., [0,255] for a system
->    with 256 logical CPU cores).
-> 3. On ARM64 platforms, ACPI assigns Processor UID to cores listed in the
->    MADT table, and this UID may not match the kernel's logical CPU ID.
->    As a result, the current implementation fails to retrieve the correct
->    CPU steer-tag in such cases.
-> 4. The function works on AMD x86 platforms only because the logical CPU
->    ID is identical to the ACPI Processor UID on those systems.
->
-> This commit fixes it by:
-> 1. Introducing acpi_get_cpu_acpi_id() in all ACPI-enabled platforms.
->    This new API calls get_acpi_id_for_cpu() to retrieve the ACPI
->    Processor UID on arm64/riscv/loongarch arch, and it calls
->    cpu_acpi_id() on x86 arch.
-> 2. Renaming pcie_tph_get_cpu_st()'s input parameter cpu_uid to cpu for
->    clarity, as the parameter now represents a logical CPU ID (not a
->    UID).
->
-> [1] According to ECN_TPH-ST_Revision_20200924
->     (https://members.pcisig.com/wg/PCI-SIG/document/15470), the input
->     is defined as: "If the target is a processor, then this field
->     represents the ACPI Processor UID of the processor as specified in
->     the MADT. If the target is a processor container, then this field
->     represents the ACPI Processor UID of the processor container as
->     specified in the PPTT."
-> [2] commit c214410c47d6e ("bnxt_en: Add TPH support in BNXT driver")
->
-> Fixes: d2e8a34876ce ("PCI/TPH: Add Steering Tag support")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Chengwen Feng <fengchengwen@huawei.com>
->
-> ---
-> Changes in v2:
-> - Add ECN _DSM reference doc name and its URL.
-> - Separate implement acpi_get_cpu_acpi_id() in each arch which supports
->   ACPI.
-> - Refine commit-log.
->
-> ---
->  Documentation/PCI/tph.rst    |  4 ++--
->  arch/arm64/kernel/acpi.c     |  9 +++++++++
->  arch/loongarch/kernel/acpi.c |  9 +++++++++
->  arch/riscv/kernel/acpi.c     | 10 ++++++++++
->  arch/x86/kernel/cpu/common.c | 17 +++++++++++++++++
->  drivers/pci/tph.c            | 17 ++++++++++++-----
->  include/linux/acpi.h         | 10 ++++++++++
->  include/linux/pci-tph.h      |  4 ++--
->  8 files changed, 71 insertions(+), 9 deletions(-)
->
-> diff --git a/Documentation/PCI/tph.rst b/Documentation/PCI/tph.rst
-> index e8993be64fd6..b6cf22b9bd90 100644
-> --- a/Documentation/PCI/tph.rst
-> +++ b/Documentation/PCI/tph.rst
-> @@ -79,10 +79,10 @@ To retrieve a Steering Tag for a target memory associ=
-ated with a specific
->  CPU, use the following function::
->
->    int pcie_tph_get_cpu_st(struct pci_dev *pdev, enum tph_mem_type type,
-> -                          unsigned int cpu_uid, u16 *tag);
-> +                          unsigned int cpu, u16 *tag);
->
->  The `type` argument is used to specify the memory type, either volatile
-> -or persistent, of the target memory. The `cpu_uid` argument specifies th=
-e
-> +or persistent, of the target memory. The `cpu` argument specifies the
->  CPU where the memory is associated to.
->
->  After the ST value is retrieved, the device driver can use the following
-> diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
-> index af90128cfed5..e7d4d9bd3036 100644
-> --- a/arch/arm64/kernel/acpi.c
-> +++ b/arch/arm64/kernel/acpi.c
-> @@ -29,6 +29,7 @@
->  #include <linux/suspend.h>
->  #include <linux/pgtable.h>
->
-> +#include <acpi/acpi.h>
->  #include <acpi/ghes.h>
->  #include <acpi/processor.h>
->  #include <asm/cputype.h>
-> @@ -458,3 +459,11 @@ int acpi_unmap_cpu(int cpu)
->  }
->  EXPORT_SYMBOL(acpi_unmap_cpu);
->  #endif /* CONFIG_ACPI_HOTPLUG_CPU */
-> +
-> +int acpi_get_cpu_acpi_id(unsigned int cpu)
-> +{
-> +       if (cpu >=3D nr_cpu_ids || !cpu_possible(cpu))
-> +               return -EINVAL;
-> +       return get_acpi_id_for_cpu(cpu);
-> +}
-> +EXPORT_SYMBOL_GPL(acpi_get_cpu_acpi_id);
-> diff --git a/arch/loongarch/kernel/acpi.c b/arch/loongarch/kernel/acpi.c
-> index 1367ca759468..db28747a18e8 100644
-> --- a/arch/loongarch/kernel/acpi.c
-> +++ b/arch/loongarch/kernel/acpi.c
-> @@ -16,6 +16,7 @@
->  #include <linux/memblock.h>
->  #include <linux/of_fdt.h>
->  #include <linux/serial_core.h>
-> +#include <asm/acpi.h>
->  #include <asm/io.h>
->  #include <asm/numa.h>
->  #include <asm/loongson.h>
-> @@ -385,3 +386,11 @@ int acpi_unmap_cpu(int cpu)
->  EXPORT_SYMBOL(acpi_unmap_cpu);
->
->  #endif /* CONFIG_ACPI_HOTPLUG_CPU */
-> +
-> +int acpi_get_cpu_acpi_id(unsigned int cpu)
-> +{
-> +       if (cpu >=3D nr_cpu_ids || !cpu_possible(cpu))
-> +               return -EINVAL;
-> +       return get_acpi_id_for_cpu(cpu);
-> +}
-> +EXPORT_SYMBOL_GPL(acpi_get_cpu_acpi_id);
-> diff --git a/arch/riscv/kernel/acpi.c b/arch/riscv/kernel/acpi.c
-> index 71698ee11621..287c25e79347 100644
-> --- a/arch/riscv/kernel/acpi.c
-> +++ b/arch/riscv/kernel/acpi.c
-> @@ -22,6 +22,8 @@
->  #include <linux/pci.h>
->  #include <linux/serial_core.h>
->
-> +#include <asm/acpi.h>
-> +
->  int acpi_noirq =3D 1;            /* skip ACPI IRQ initialization */
->  int acpi_disabled =3D 1;
->  EXPORT_SYMBOL(acpi_disabled);
-> @@ -337,3 +339,11 @@ int raw_pci_write(unsigned int domain, unsigned int =
-bus,
->  }
->
->  #endif /* CONFIG_PCI */
-> +
-> +int acpi_get_cpu_acpi_id(unsigned int cpu)
-> +{
-> +       if (cpu >=3D nr_cpu_ids || !cpu_possible(cpu))
-> +               return -EINVAL;
-> +       return get_acpi_id_for_cpu(cpu);
-> +}
-> +EXPORT_SYMBOL_GPL(acpi_get_cpu_acpi_id);
-> diff --git a/arch/x86/kernel/cpu/common.c b/arch/x86/kernel/cpu/common.c
-> index 1c3261cae40c..9b06c76d5c0c 100644
-> --- a/arch/x86/kernel/cpu/common.c
-> +++ b/arch/x86/kernel/cpu/common.c
-> @@ -28,6 +28,7 @@
->  #include <linux/stackprotector.h>
->  #include <linux/utsname.h>
->  #include <linux/efi.h>
-> +#include <linux/acpi.h>
->
->  #include <asm/alternative.h>
->  #include <asm/cmdline.h>
-> @@ -57,6 +58,7 @@
->  #include <asm/asm.h>
->  #include <asm/bugs.h>
->  #include <asm/cpu.h>
-> +#include <asm/smp.h>
->  #include <asm/mce.h>
->  #include <asm/msr.h>
->  #include <asm/cacheinfo.h>
-> @@ -2643,3 +2645,18 @@ void __init arch_cpu_finalize_init(void)
->          */
->         mem_encrypt_init();
->  }
-> +
-> +int acpi_get_cpu_acpi_id(unsigned int cpu)
-> +{
-> +       u32 acpi_id;
-> +
-> +       if (cpu >=3D nr_cpu_ids || !cpu_possible(cpu))
-> +               return -EINVAL;
-> +
-> +       acpi_id =3D cpu_acpi_id(cpu);
-> +       if (acpi_id =3D=3D CPU_ACPIID_INVALID)
-> +               return -ENODEV;
-> +
-> +       return (int)acpi_id;
-> +}
-> +EXPORT_SYMBOL_GPL(acpi_get_cpu_acpi_id);
-> diff --git a/drivers/pci/tph.c b/drivers/pci/tph.c
-> index ca4f97be7538..3cd38972fcb1 100644
-> --- a/drivers/pci/tph.c
-> +++ b/drivers/pci/tph.c
-> @@ -236,21 +236,28 @@ static int write_tag_to_st_table(struct pci_dev *pd=
-ev, int index, u16 tag)
->   * with a specific CPU
->   * @pdev: PCI device
->   * @mem_type: target memory type (volatile or persistent RAM)
-> - * @cpu_uid: associated CPU id
-> + * @cpu: associated CPU id
->   * @tag: Steering Tag to be returned
->   *
->   * Return the Steering Tag for a target memory that is associated with a
-> - * specific CPU as indicated by cpu_uid.
-> + * specific CPU as indicated by cpu.
->   *
->   * Return: 0 if success, otherwise negative value (-errno)
->   */
->  int pcie_tph_get_cpu_st(struct pci_dev *pdev, enum tph_mem_type mem_type=
-,
-> -                       unsigned int cpu_uid, u16 *tag)
-> +                       unsigned int cpu, u16 *tag)
->  {
->  #ifdef CONFIG_ACPI
-> +       unsigned int cpu_uid;
->         struct pci_dev *rp;
->         acpi_handle rp_acpi_handle;
->         union st_info info;
-> +       int ret;
-> +
-> +       ret =3D acpi_get_cpu_acpi_id(cpu);
-Can we use get_acpi_id_for_cpu() directly? Then just x86 needs a wrapper.
+--rsl6glzzmmnhyjuq
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v6 1/6] clk: bcm: rpi: Manage clock rate in
+ prepare/unprepare callbacks
+MIME-Version: 1.0
 
-Huacai
+On Wed, Feb 25, 2026 at 10:57:11AM -0300, Ma=EDra Canal wrote:
+> Hi Maxime,
+>=20
+> On 24/02/26 11:11, Maxime Ripard wrote:
+> > Hi Maira,
+> >=20
+>=20
+> [...]
+>=20
+> > > @@ -289,16 +290,22 @@ static int raspberrypi_fw_dumb_determine_rate(s=
+truct clk_hw *hw,
+> > >   static int raspberrypi_fw_prepare(struct clk_hw *hw)
+> > >   {
+> > >   	const struct raspberrypi_clk_data *data =3D clk_hw_to_data(hw);
+> > > +	struct raspberrypi_clk_variant *variant =3D data->variant;
+> > >   	struct raspberrypi_clk *rpi =3D data->rpi;
+> > >   	u32 state =3D RPI_FIRMWARE_STATE_ENABLE_BIT;
+> > >   	int ret;
+> > >   	ret =3D raspberrypi_clock_property(rpi->firmware, data,
+> > >   					 RPI_FIRMWARE_SET_CLOCK_STATE, &state);
+> > > -	if (ret)
+> > > +	if (ret) {
+> > >   		dev_err_ratelimited(rpi->dev,
+> > >   				    "Failed to set clock %s state to on: %d\n",
+> > >   				    clk_hw_get_name(hw), ret);
+> > > +		return ret;
+> > > +	}
+> > > +
+> > > +	if (variant->maximize)
+> > > +		ret =3D raspberrypi_fw_set_rate(hw, variant->max_rate, 0);
+> >=20
+> >=20
+> > It's not clear to me why you would want to force it to the max there,
+> > and especially the max of the clock. It would make more sense to me to
+> > set it to whatever maximum rate clk_hw_get_rate_range would return
+> > (which should be the minimum of variant->max_rate + all clk->max_rate),
+> > but even then it would erase every call to clk_set_rate before calling
+> > clk_prepare().
+> >=20
+> > I'd understand lowering the clock rate in unprepare to avoid wasting too
+> > much power, but why do we need to raise it here?
+>=20
+> This only applies to clocks with variant->maximize =3D=3D true, which is
+> exclusively the V3D clock. The V3D driver doesn't do fine-grained rate
+> control, it always wants maximum performance. In the case of V3D, there
+> are no intermediate clk_set_rate() calls to preserve.
+>=20
+> >=20
+> > >   	return ret;
+> > >   }
+> > > @@ -306,10 +313,19 @@ static int raspberrypi_fw_prepare(struct clk_hw=
+ *hw)
+> > >   static void raspberrypi_fw_unprepare(struct clk_hw *hw)
+> > >   {
+> > >   	const struct raspberrypi_clk_data *data =3D clk_hw_to_data(hw);
+> > > +	struct raspberrypi_clk_variant *variant =3D data->variant;
+> > >   	struct raspberrypi_clk *rpi =3D data->rpi;
+> > >   	u32 state =3D 0;
+> > >   	int ret;
+> > > +	/*
+> > > +	 * On current firmware versions, RPI_FIRMWARE_SET_CLOCK_STATE doesn=
+'t
+> > > +	 * actually power off the clock. To achieve meaningful power consum=
+ption
+> > > +	 * reduction, the driver needs to set the clock rate to minimum bef=
+ore
+> > > +	 * disabling it.
+> > > +	 */
+> > > +	raspberrypi_fw_set_rate(hw, variant->min_rate, 0);
+> >=20
+> > I'm not sure setting it to variant->min_rate would work directly either,
+> > since it would break consumers expectations. Also, can we guard it with
+>=20
+> The clock is being unprepared, which means that any consumer that wants
+> to use it again must call clk_prepare() first, at which point the rate
+> gets restored (for maximize clocks) or re-established by the consumer
+> via clk_set_rate(). Considering that no consumer should be relying on
+> the rate of an unprepared clock, I understand that there are no
+> expectations to break here.
 
-> +       if (ret < 0)
-> +               return ret;
-> +       cpu_uid =3D (unsigned int)ret;
->
->         rp =3D pcie_find_root_port(pdev);
->         if (!rp || !rp->bus || !rp->bus->bridge)
-> @@ -265,9 +272,9 @@ int pcie_tph_get_cpu_st(struct pci_dev *pdev, enum tp=
-h_mem_type mem_type,
->
->         *tag =3D tph_extract_tag(mem_type, pdev->tph_req_type, &info);
->
-> -       pci_dbg(pdev, "get steering tag: mem_type=3D%s, cpu_uid=3D%d, tag=
-=3D%#04x\n",
-> +       pci_dbg(pdev, "get steering tag: mem_type=3D%s, cpu=3D%d, tag=3D%=
-#04x\n",
->                 (mem_type =3D=3D TPH_MEM_TYPE_VM) ? "volatile" : "persist=
-ent",
-> -               cpu_uid, *tag);
-> +               cpu, *tag);
->
->         return 0;
->  #else
-> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
-> index 4d2f0bed7a06..426fb4dca333 100644
-> --- a/include/linux/acpi.h
-> +++ b/include/linux/acpi.h
-> @@ -324,6 +324,16 @@ int acpi_unmap_cpu(int cpu);
->
->  acpi_handle acpi_get_processor_handle(int cpu);
->
-> +/*
-> + * acpi_get_cpu_acpi_id() - Get ACPI Processor UID of a specified CPU fr=
-om MADT table
-> + * @cpu: Logical CPU number (0-based)
-> + *
-> + * Return: ACPI Processor ID of the CPU on success (non-negative);
-> + *         -EINVAL if the CPU number is invalid or not possible;
-> + *         -ENODEV if the ACPI ID of the CPU is invalid.
-> + */
-> +int acpi_get_cpu_acpi_id(unsigned int cpu);
-> +
->  #ifdef CONFIG_ACPI_HOTPLUG_IOAPIC
->  int acpi_get_ioapic_id(acpi_handle handle, u32 gsi_base, u64 *phys_addr)=
-;
->  #endif
-> diff --git a/include/linux/pci-tph.h b/include/linux/pci-tph.h
-> index ba28140ce670..be68cd17f2f8 100644
-> --- a/include/linux/pci-tph.h
-> +++ b/include/linux/pci-tph.h
-> @@ -25,7 +25,7 @@ int pcie_tph_set_st_entry(struct pci_dev *pdev,
->                           unsigned int index, u16 tag);
->  int pcie_tph_get_cpu_st(struct pci_dev *dev,
->                         enum tph_mem_type mem_type,
-> -                       unsigned int cpu_uid, u16 *tag);
-> +                       unsigned int cpu, u16 *tag);
->  void pcie_disable_tph(struct pci_dev *pdev);
->  int pcie_enable_tph(struct pci_dev *pdev, int mode);
->  u16 pcie_tph_get_st_table_size(struct pci_dev *pdev);
-> @@ -36,7 +36,7 @@ static inline int pcie_tph_set_st_entry(struct pci_dev =
-*pdev,
->  { return -EINVAL; }
->  static inline int pcie_tph_get_cpu_st(struct pci_dev *dev,
->                                       enum tph_mem_type mem_type,
-> -                                     unsigned int cpu_uid, u16 *tag)
-> +                                     unsigned int cpu, u16 *tag)
->  { return -EINVAL; }
->  static inline void pcie_disable_tph(struct pci_dev *pdev) { }
->  static inline int pcie_enable_tph(struct pci_dev *pdev, int mode)
-> --
-> 2.17.1
->
+For both of those, I still feel like it's a pretty strong deviation from
+the general expected behaviour of the CCF API. From what you're saying,
+we shouldn't notice it too much, but at the very least we should
+document it explicitly, both what the deviation is, and why we think
+it's ok.
+
+> > a version check if we know that there's some good and bad firmwares?
+>=20
+> So far, all firmware versions have this issue. For future firmware
+> releases, it might change, but so far, all firmware versions have this
+> issue.
+
+ack :)
+
+> >=20
+> > >   	ret =3D raspberrypi_clock_property(rpi->firmware, data,
+> > >   					 RPI_FIRMWARE_SET_CLOCK_STATE, &state);
+> > >   	if (ret)
+> > > @@ -334,7 +350,7 @@ static struct clk_hw *raspberrypi_clk_register(st=
+ruct raspberrypi_clk *rpi,
+> > >   {
+> > >   	struct raspberrypi_clk_data *data;
+> > >   	struct clk_init_data init =3D {};
+> > > -	u32 min_rate, max_rate;
+> > > +	unsigned long rate;
+> > >   	int ret;
+> > >   	data =3D devm_kzalloc(rpi->dev, sizeof(*data), GFP_KERNEL);
+> > > @@ -354,18 +370,20 @@ static struct clk_hw *raspberrypi_clk_register(=
+struct raspberrypi_clk *rpi,
+> > >   	data->hw.init =3D &init;
+> > > -	ret =3D raspberrypi_clock_property(rpi->firmware, data,
+> > > -					 RPI_FIRMWARE_GET_MIN_CLOCK_RATE,
+> > > -					 &min_rate);
+> > > -	if (ret) {
+> > > -		dev_err(rpi->dev, "Failed to get clock %d min freq: %d\n",
+> > > -			id, ret);
+> > > -		return ERR_PTR(ret);
+> > > +	if (!variant->min_rate) {
+> > > +		ret =3D raspberrypi_clock_property(rpi->firmware, data,
+> > > +						 RPI_FIRMWARE_GET_MIN_CLOCK_RATE,
+> > > +						 &variant->min_rate);
+> > > +		if (ret) {
+> > > +			dev_err(rpi->dev, "Failed to get clock %d min freq: %d\n",
+> > > +				id, ret);
+> > > +			return ERR_PTR(ret);
+> > > +		}
+> > >   	}
+> >=20
+> > It feels to me like it would need to be a separate patch. Why do you
+> > need to override the minimum clock rate reported by the firmware?
+>=20
+> This change is needed because the prepare/unprepare callbacks need
+> access to the min/max rates. In the current code, these are local
+> variables in raspberrypi_clk_register(). Storing them in the variant
+> struct makes them available to the callbacks. The `if (!variant-
+> >min_rate)` guard only preserves the existing behavior for clocks like
+> M2MC that have a hard-coded minimum rate.
+
+min_rate itself is indeed available only in raspberrypi_clk_register(),
+but its main use is to call clk_hw_set_rate_range to use it as the
+minimum clock rate.
+
+In prepare/unprepare, you should be able to use clk_hw_get_rate_range()
+to retrieve it, or am I missing something?
+
+Maxime
+
+--rsl6glzzmmnhyjuq
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaalElQAKCRAnX84Zoj2+
+dq4PAYCPY9g7d5egQ6wghudGoDzx9SHRivvClwKyoKk1AodMMK9NTvkbz1M0ygp3
+KeJQSpEBf39z7CUZJB1YDJbR1YN0OePlyJploZSkmc72zTPwl2RyrpMor29K1LfH
+eOPgy8oVMw==
+=GW7L
+-----END PGP SIGNATURE-----
+
+--rsl6glzzmmnhyjuq--
 
