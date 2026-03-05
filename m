@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D881F47CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 19:24:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81677F47CC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 19:39:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:
-	Content-Transfer-Encoding:Content-Type:Mime-Version:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T/6FQsMLnCGkibjJw9JyQAihdbLawYlk2aY7GuhBV/I=; b=SeBRnN8EKrMrkw
-	GIO2OcFnUTdVfc70hQQMvWpVymg7kw0LMrdiRXI5xt7YHtZtRoOacKHDvbrAUP/GEEgnqvVovHNvG
-	6BsCZ84GbHB4x8rmmbRlyRo1/TJUqjCCbcAKtHpUkXer4O+cwUTHJNrIB91JAaL9v3v0u6HfIhMAb
-	RFI4P5TwRPNEYDz+cqCNZf6kBClQHh/GnLMTK7yTpAxZQbP7P/IV5E+obyJf50kRiiHdoewAg/hv7
-	714OhX01tBVm803jzDNroc3UticY1m3lYlECv8hJpFY5JBgXIHDhaM+pCL9L89bPWaTFV0o7EjhAj
-	mN2v2dhXdyHr8VDtjzzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N8kAMoEEm4RgDUZi0RTTSp1n7mMruJk7xeTsERQ6Evk=; b=B7XJcQg7BQmSbkyHdgT4IYMajp
+	9dN4s28940OrDUIwGhGeVENbMlY9hwMh8OjOzwoG2juH3mgD9JmH9xXqSMffWZhZTA87PhfRIMcJu
+	EEva0tqoWNkVMMy/xanNZ4smg1OHDxlKI2cI6Db+7zIzAbOSqHT4tMUCv1e/driXWDP9+Na17Bqj+
+	Hbdvj1r13h44sLV7xGLTyhlLxe9RhyYnNCW/45SZraWAvoduXmmnIKGj56fwsmA5yvwfDN87/RcHh
+	s4UvFeBNpb21GF+bBXppzRTuSquVXxj1+JAOJNn+A0etqoMr5ApfV3BpMOcWLR6KROO3ACfIHGLV3
+	t/KdoVaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyEIi-00000002S8u-1aSC;
-	Thu, 05 Mar 2026 19:24:00 +0000
-Received: from mail.hugovil.com ([162.243.120.170])
+	id 1vyEX7-00000002T4l-0Mdj;
+	Thu, 05 Mar 2026 19:38:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyEIf-00000002S7b-3WWm;
-	Thu, 05 Mar 2026 19:23:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
-	; s=x; h=Subject:Content-Transfer-Encoding:Mime-Version:Message-Id:Cc:To:From
-	:Date:subject:date:message-id:reply-to;
-	bh=T/6FQsMLnCGkibjJw9JyQAihdbLawYlk2aY7GuhBV/I=; b=FQ/tvoAE3+CW29cdkBlkTr+ymc
-	u+GZKHBdVaRp8zLyuciuoQad+jje36JbHkBjzMKldzouBa+MRr8HoApvDQqA+Cl8xzsU3l0MxWz9f
-	HU/zCz6c5n+qLIYAkobroWWRfecuD6W5ZSBtzEPmXgFdrLExYuR9vzu3zYXfsePDeV1Q=;
-Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168]:40032 helo=pettiford.lan)
-	by mail.hugovil.com with esmtpa (Exim 4.92)
-	(envelope-from <hugo@hugovil.com>)
-	id 1vyEIZ-0003Lc-Kv; Thu, 05 Mar 2026 14:23:52 -0500
-Date: Thu, 5 Mar 2026 14:23:50 -0500
-From: Hugo Villeneuve <hugo@hugovil.com>
-To: Hugo Villeneuve <hugo@hugovil.com>
-Cc: robin@protonic.nl, andy@kernel.org, geert@linux-m68k.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- dmitry.torokhov@gmail.com, hvilleneuve@dimonoff.com,
- mkorpershoek@kernel.org, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, lee@kernel.org,
- alexander.sverdlin@gmail.com, marek.vasut@gmail.com, akurz@blala.de,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Message-Id: <20260305142350.fbc6e19c89215c3a7da2a6c0@hugovil.com>
-In-Reply-To: <20260305192101.2125660-1-hugo@hugovil.com>
-References: <20260305192101.2125660-1-hugo@hugovil.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 70.80.174.168
-X-SA-Exim-Mail-From: hugo@hugovil.com
-Subject: Re: [PATCH v4 0/4] input: add GPIO-based charlieplex keypad
-X-SA-Exim-Version: 4.2.1 (built Wed, 08 May 2019 21:11:16 +0000)
-X-SA-Exim-Scanned: Yes (on mail.hugovil.com)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_112357_882697_885AD767 
-X-CRM114-Status: GOOD (  21.88  )
+	id 1vyEX5-00000002T4f-2aL4
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Mar 2026 19:38:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7D61B60053;
+	Thu,  5 Mar 2026 19:38:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5FEAC116C6;
+	Thu,  5 Mar 2026 19:38:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772739529;
+	bh=4P7IvlDXVMb8aJ5U3oJEZWYqkie/zWLUSvgwf2HKGvs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=siqIkm649lFn7xIxhr0WIePvk7wKgedglH6M6oR19DfqgX0GKWyk9p+7ounXWRR36
+	 3ML4TK6cMVqVoRaB7G08WOaps4+8zgHxCHrUooER+oHibIAXsPL8A63mXpOJQusbIf
+	 acvx5Oj+WHaoUeil144hzsdqZ7uzoi9HO+B8HUEosPw82NkbPJeXSXu8nfiINAE5DM
+	 9P22GVQuRol8fTzTetZbPTWqK3c2+P8NRxlXEg7XalaD8jTl21vp9oPdZf3kb8sYX9
+	 3Phyo+X8PDnmDIrETtBriD3GLPOC3oJ/uIhkXDg3xS25l8lyMJLWcbEZQKv8CaXfp0
+	 lxC9PMnCgvY0w==
+Date: Thu, 5 Mar 2026 11:38:47 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: Cheng-Yang Chou <yphbchou0911@gmail.com>
+Cc: herbert@gondor.apana.org.au, davem@davemloft.net,
+	catalin.marinas@arm.com, will@kernel.org,
+	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, jserv@ccns.ncku.edu.tw
+Subject: Re: [PATCH 1/1] crypto: arm64/aes-neonbs - Move key expansion off
+ the stack
+Message-ID: <20260305193847.GG2796@quark>
+References: <20260305183229.150599-1-yphbchou0911@gmail.com>
+ <20260305183229.150599-2-yphbchou0911@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260305183229.150599-2-yphbchou0911@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,88 +72,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu,  5 Mar 2026 14:20:46 -0500
-Hugo Villeneuve <hugo@hugovil.com> wrote:
+On Fri, Mar 06, 2026 at 02:32:24AM +0800, Cheng-Yang Chou wrote:
+> aesbs_setkey() and aesbs_cbc_ctr_setkey() trigger -Wframe-larger-than=
+> warnings due to struct crypto_aes_ctx being allocated on the stack,
+> causing the frame size to exceed 1024 bytes.
+> 
+> Allocate struct crypto_aes_ctx on the heap instead to reduce stack
+> usage. Use a goto-based cleanup path to ensure memzero_explicit() and
+> kfree() are always called.
+> 
+> Signed-off-by: Cheng-Yang Chou <yphbchou0911@gmail.com>
+> ---
+>  arch/arm64/crypto/aes-neonbs-glue.c | 39 ++++++++++++++++++-----------
+>  1 file changed, 25 insertions(+), 14 deletions(-)
+> 
+> diff --git a/arch/arm64/crypto/aes-neonbs-glue.c b/arch/arm64/crypto/aes-neonbs-glue.c
+> index cb87c8fc66b3..a24b66fd5cad 100644
+> --- a/arch/arm64/crypto/aes-neonbs-glue.c
+> +++ b/arch/arm64/crypto/aes-neonbs-glue.c
+> @@ -76,19 +76,25 @@ static int aesbs_setkey(struct crypto_skcipher *tfm, const u8 *in_key,
+>  			unsigned int key_len)
+>  {
+>  	struct aesbs_ctx *ctx = crypto_skcipher_ctx(tfm);
+> -	struct crypto_aes_ctx rk;
+> +	struct crypto_aes_ctx *rk;
+>  	int err;
+>  
+> -	err = aes_expandkey(&rk, in_key, key_len);
+> +	rk = kmalloc(sizeof(*rk), GFP_KERNEL);
+> +	if (!rk)
+> +		return -ENOMEM;
+> +
+> +	err = aes_expandkey(rk, in_key, key_len);
+>  	if (err)
+> -		return err;
+> +		goto out;
+>  
+>  	ctx->rounds = 6 + key_len / 4;
+>  
+>  	scoped_ksimd()
+> -		aesbs_convert_key(ctx->rk, rk.key_enc, ctx->rounds);
+> -
+> -	return 0;
+> +		aesbs_convert_key(ctx->rk, rk->key_enc, ctx->rounds);
+> +out:
+> +	memzero_explicit(rk, sizeof(*rk));
+> +	kfree(rk);
+> +	return err;
+>  }
+>  
+>  static int __ecb_crypt(struct skcipher_request *req,
+> @@ -133,22 +139,27 @@ static int aesbs_cbc_ctr_setkey(struct crypto_skcipher *tfm, const u8 *in_key,
+>  			    unsigned int key_len)
+>  {
+>  	struct aesbs_cbc_ctr_ctx *ctx = crypto_skcipher_ctx(tfm);
+> -	struct crypto_aes_ctx rk;
+> +	struct crypto_aes_ctx *rk;
+>  	int err;
+>  
+> -	err = aes_expandkey(&rk, in_key, key_len);
+> +	rk = kmalloc(sizeof(*rk), GFP_KERNEL);
+> +	if (!rk)
+> +		return -ENOMEM;
+> +
+> +	err = aes_expandkey(rk, in_key, key_len);
+>  	if (err)
+> -		return err;
+> +		goto out;
+>  
+>  	ctx->key.rounds = 6 + key_len / 4;
+>  
+> -	memcpy(ctx->enc, rk.key_enc, sizeof(ctx->enc));
+> +	memcpy(ctx->enc, rk->key_enc, sizeof(ctx->enc));
+>  
+>  	scoped_ksimd()
+> -		aesbs_convert_key(ctx->key.rk, rk.key_enc, ctx->key.rounds);
+> -	memzero_explicit(&rk, sizeof(rk));
+> -
+> -	return 0;
+> +		aesbs_convert_key(ctx->key.rk, rk->key_enc, ctx->key.rounds);
+> +out:
+> +	memzero_explicit(rk, sizeof(*rk));
+> +	kfree(rk);
+> +	return err;
+>  }
 
-> From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
-> 
-> Hello,
-> this patch series add a new GPIO charlieplex keypad driver.
-> 
-> The first two patches simply commonize two properties that are present in
-> a few bindings, so that the actual patches for the charlieplex keypad driver
-> can reuse them instead of also redefining them.
-> 
-> I have tested the driver on a custom board with a Solidrun RZ/G2LC SOM
-> with three charlieplex keyboards, all connected thru a single PCAL6416 I2C GPIO
-> expander.
-> 
-> Link: [v1] https://lore.kernel.org/all/20260203155023.536103-1-hugo@hugovil.com/
-> Link: [v2] https://lore.kernel.org/all/20260213171431.2228814-1-hugo@hugovil.com/
-> Link: [v3] https://lore.kernel.org/all/20260225155409.612478-1-hugo@hugovil.com/
-> 
-> Changes for v4:
-> - Fix indentation in comments (Andy)
-> - Add missing includes (Andy)
-> - Remove OF dependency (Andy/Dmitry)
-> - Uniformize return code variables to "err" (Andy/Dmitry)
-> - Change signed iterator to unsigned and move within loop (Andy)
-> - Remove unused platform_set_drvdata() (Andy)
-> - Fixed typo in cover letter PCAL6416 (Geert)
-> - Changed name in bindings example (Geert)
-> - Added pull resistors to bindings doc and example (Geert)
-> - Add debounce-delay-ms common property
-> - Add settling-time-us common property
+Instead of memzero_explicit() followed by kfree(), just use
+kfree_sensitive().
 
-Please ignore the last two lines that were already mentioned for V3.
+Also, single patches should not have a cover letter.  Just send a single
+patch email with all the details in the patch itself.
 
-Hugo.
+As for the actual change, I guess it's okay for now.  Ideally we'd
+refactor the aes-bs key preparation to not need temporary space.
 
-
-> 
-> Changes for v3:
-> - Add ASCII diagram in bindings, and reference to it in example
-> - Reorder properties alphabetically
-> - Add patch to define common input settling-time-us property
-> - Add patch to define common input debounce-delay-ms property
-> 
-> Changes for v2:
-> - Fix yamllint error for example
-> - Remove unused debug variable (nkeys)
-> - Remove support for custom linux,no-autorepeat DT property
-> - Remove support for custom gpio-activelow DT property
-> 
-> Thank you.
-> 
-> Hugo Villeneuve (4):
->   dt-bindings: input: add debounce-delay-ms common property
->   dt-bindings: input: add settling-time-us common property
->   dt-bindings: input: add GPIO charlieplex keypad
->   Input: charlieplex_keypad: add GPIO charlieplex keypad
-> 
->  .../bindings/auxdisplay/holtek,ht16k33.yaml   |   5 +-
->  .../bindings/input/cirrus,ep9307-keypad.yaml  |   7 +-
->  .../input/gpio-charlieplex-keypad.yaml        | 108 +++++++++
->  .../bindings/input/gpio-matrix-keypad.yaml    |   5 +-
->  .../devicetree/bindings/input/input.yaml      |  16 ++
->  .../input/mediatek,mt6779-keypad.yaml         |   1 +
->  .../devicetree/bindings/mfd/fsl,mc13xxx.yaml  |   2 -
->  MAINTAINERS                                   |   7 +
->  drivers/input/keyboard/Kconfig                |  14 ++
->  drivers/input/keyboard/Makefile               |   1 +
->  drivers/input/keyboard/charlieplex_keypad.c   | 214 ++++++++++++++++++
->  11 files changed, 368 insertions(+), 12 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/input/gpio-charlieplex-keypad.yaml
->  create mode 100644 drivers/input/keyboard/charlieplex_keypad.c
-> 
-> 
-> base-commit: 3bf5404fc93825ddde89992acad095a297ed9a31
-> -- 
-> 2.47.3
-> 
-> 
-
-
--- 
-Hugo Villeneuve
+- Eric
 
