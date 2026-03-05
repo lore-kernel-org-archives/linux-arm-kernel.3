@@ -4,84 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D567EEF304
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 13:45:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EC4DEEF304
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 13:45:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T4YL72Ts8cHY1RRu2FR/pypZgXbZ1z9X/NIthHRxO3o=; b=V7Ho24zrpHPzh90INH+n7rPMo7
-	J5F+8A2ApY6bTR7TRop3lWeIUMDr3OuvVaCgQ9HXeVJb5862sFSKaoyoyWEw36rtPTrc/U47wfUUb
-	VdV09/cvbo2PCWt+iflvDAHsPV1M1uh33ALZ78a8DaIGZMQznGtVAQV0bphCASc7w+4ojwMhFAiVk
-	+lw6E9lS+FqBs7l2qEzcVhvHxEMpbe4Lax+V7Er7L3v6KxA3/TgTCHlerbcAviKy0pgG8AU/liN3P
-	oEEnu8Dc+muSsBHSfM0AFGcRVddEFRpoWY1kSyR4ZSv/h80oukoUOWP9PYRSlT5DRM8EvTobv86Am
-	lvjJH16w==;
+	bh=ueWqTVe04zFok5bXvG4gbrXr/anBMPLVEJL8cYGEQ0U=; b=ZRfHaIfkpie5vzcPlke7L3l9Fq
+	VHsVmo/HFuNB7dfuEXLZ9vcbYtHpCg6ZrR8kOvdSevEdE6b0Wt57nhmCjnyMsl5+0O9b7P7wxtvNr
+	GK0QKSShOwGxkyc3wrjMZ/zDyhkpCm/xlO0ZUCdimb8XNfrC7OniQX33sTqMADw1/JUOE1PPNKVEh
+	acqqSd3cnh5KPJ3082Qppn1EIHlq8SQ2vHC4eek2ocrLdesBq0HpP9TLVwXgqaXSXXV6tcVXsxTx+
+	rrM+xsJBaMuGT/8I5yeYN/w0Y+AjbrEl/pz5uwAyMqOP3Nc19ICOkIMZmtvIbrAVPYuPfvZAZ+pdo
+	tGiYgDnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy90s-00000001tlD-3aRV;
-	Thu, 05 Mar 2026 13:45:14 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1vy914-00000001toe-1qwX;
+	Thu, 05 Mar 2026 13:45:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy90o-00000001tk8-0wae;
-	Thu, 05 Mar 2026 13:45:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1772718310; x=1804254310;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=4Gh2NcoJDAdmYkWLxN8oOm0bK5ef8GB8TLuWTWL3eXE=;
-  b=AVyDzngxkJ0JamGxeCt8e1vhQmiSLMbXR53C2+U754UZhp7Hh1lRuDss
-   0ZteD0kHWCCn8scy1rEm2otfuBCR0DpJYTsz72lCo112qbb/UYeGD5Vg1
-   Rcdx51OnSHqDcfIp8t/OMigI3QgPBsSLKDgyZ4WJ3+1AdbYPSUN+sneok
-   XswsOYGp6cuqLrwpw9sMW49CbHhZZG4ehLeZcoqw69obvyZWGhOo5S0BC
-   zt4n9qZpGCJuObLChILKMSAz0789YCuBbqX/rcIg5uUeYSmfjqZF7bUXM
-   edyxhlJe47Upl7+bT5DFockjTUJS6eJZGFyZBKBnFRuOz+NIzRqPB6tVM
-   Q==;
-X-CSE-ConnectionGUID: W+0DNft6T8ypKud6iLbLHg==
-X-CSE-MsgGUID: AEkfpUM4SdyG7y8Sx72Xhg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11720"; a="99271040"
-X-IronPort-AV: E=Sophos;i="6.23,103,1770624000"; 
-   d="scan'208";a="99271040"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Mar 2026 05:45:06 -0800
-X-CSE-ConnectionGUID: WlNWW7IaR2iERV9Yw03yIA==
-X-CSE-MsgGUID: Jb3UhAIkTTKgczClbrXASw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,103,1770624000"; 
-   d="scan'208";a="216956271"
-Received: from lkp-server01.sh.intel.com (HELO cadc4577a874) ([10.239.97.150])
-  by fmviesa008.fm.intel.com with ESMTP; 05 Mar 2026 05:45:01 -0800
-Received: from kbuild by cadc4577a874 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vy90c-000000000g2-24iQ;
-	Thu, 05 Mar 2026 13:44:58 +0000
-Date: Thu, 5 Mar 2026 21:44:36 +0800
-From: kernel test robot <lkp@intel.com>
-To: Zhipeng Wang <zhipeng.wang_1@nxp.com>, daniel.lezcano@linaro.org,
-	tglx@kernel.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, chun-hung.wu@mediatek.com,
-	walter.chang@mediatek.com, jstultz@google.com,
-	amergnat@baylibre.com, aisheng.dong@nxp.com, jindong.yue@nxp.com,
-	xuegang.liu@nxp.com
-Subject: Re: [PATCH v4 4/4] clocksource/drivers/imx-tpm: Support building
- imx-tpm driver as module
-Message-ID: <202603052149.00j5uebB-lkp@intel.com>
-References: <20260304081207.4030882-5-zhipeng.wang_1@nxp.com>
+	id 1vy912-00000001tni-0wjs;
+	Thu, 05 Mar 2026 13:45:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6DCC54166C;
+	Thu,  5 Mar 2026 13:45:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F620C116C6;
+	Thu,  5 Mar 2026 13:45:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772718323;
+	bh=OItzwbM1kWf/k111FzhV0ryoidvsVkmrmFKOuyzTRBA=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=LB//sRAqF22s63HNrBHamLSG8+BH0+Cws/VmCppeOuyzHovaM84NrUtkJsx+88eMG
+	 Kvy7oUUO/Gg12APg9N8DkBlWImapQBu7dMHKgBJYtvB28KLJjr5jDtxmBqrUqHyQZ+
+	 4U1ZcaYZk0WmqFuQJwX0RfhS4zcfd1vacfTFEO7I+/D5qd7qklmBBEqFUgJ49I4Wl/
+	 ySo0JzoulrRF3VGczcDCsYTbOVvu9gMamxOM+loEdhxA0RGIIVJ9p+jT1Ho6e6Iyob
+	 WalmR0IgSb/JqAvs0dVVhdifrH4lIOHrXvqlOj0tvB4vynmKdRhTC+emWryJQ+lgt1
+	 xuNUqq5FPr66A==
+Date: Thu, 05 Mar 2026 07:45:22 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260304081207.4030882-5-zhipeng.wang_1@nxp.com>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>, Chuanhong Guo <gch981213@gmail.com>, 
+ devicetree@vger.kernel.org, linux-spi@vger.kernel.org, 
+ Bayi Cheng <bayi.cheng@mediatek.com>, sirius.wang@mediatek.com, 
+ Matthias Brugger <matthias.bgg@gmail.com>, linux-kernel@vger.kernel.org, 
+ vince-wl.liu@mediatek.com, linux-mediatek@lists.infradead.org, 
+ Project_Global_Chrome_Upstream_Group@mediatek.com, 
+ linux-arm-kernel@lists.infradead.org, jh.hsu@mediatek.com, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Meiker Gao <ot_meiker.gao@mediatek.com>
+In-Reply-To: <20260305071546.2603378-1-ot_meiker.gao@mediatek.com>
+References: <20260305071546.2603378-1-ot_meiker.gao@mediatek.com>
+Message-Id: <177271832061.3486624.7931849295651115643.robh@kernel.org>
+Subject: Re: [PATCH] spi: dt-bindings: mediatek,spi-mtk-nor: Add clock
+ bindings for mt8189
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_054510_604045_C69E1220 
-X-CRM114-Status: GOOD (  10.77  )
+X-CRM114-CacheID: sfid-20260305_054524_306525_32252E3B 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,35 +79,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Zhipeng,
 
-kernel test robot noticed the following build warnings:
+On Thu, 05 Mar 2026 15:15:42 +0800, Meiker Gao wrote:
+> Update mediatek,spi-mtk-nor.yaml to add conditional clock and
+> clock-names bindings for the mt8189-nor platform. The mt8189-nor
+> controller requires five specific clocks and corresponding clock-names
+> ("spi", "sf", "axi_f", "axi_h", "axi_p"). This change enforces these
+> requirements in the device tree binding schema.
+> 
+> For other platforms, the minimum number of clocks and clock-names
+> remains unchanged. The patch also adds an example for mt8189-nor,
+> illustrating the new clock configuration.
+> 
+> This update ensures correct hardware description and validation for
+> mt8189-nor, improving compatibility and reducing configuration errors.
+> 
+> Signed-off-by: Meiker Gao <ot_meiker.gao@mediatek.com>
+> (cherry picked from commit c3180d35e52b5213764a89403e71f9a34d7bb842)
+> ---
+>  .../bindings/spi/mediatek,spi-mtk-nor.yaml    | 69 ++++++++++++++++---
+>  1 file changed, 58 insertions(+), 11 deletions(-)
+> 
 
-[auto build test WARNING on tip/timers/core]
-[also build test WARNING on soc/for-next linus/master v7.0-rc2 next-20260304]
-[cannot apply to daniel-lezcano/clockevents/next]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+My bot found errors running 'make dt_binding_check' on your patch:
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Zhipeng-Wang/clocksource-drivers-mmio-Export-clocksource_mmio_init/20260304-162226
-base:   tip/timers/core
-patch link:    https://lore.kernel.org/r/20260304081207.4030882-5-zhipeng.wang_1%40nxp.com
-patch subject: [PATCH v4 4/4] clocksource/drivers/imx-tpm: Support building imx-tpm driver as module
-config: arm-randconfig-001-20260305 (https://download.01.org/0day-ci/archive/20260305/202603052149.00j5uebB-lkp@intel.com/config)
-compiler: clang version 23.0.0git (https://github.com/llvm/llvm-project 9a109fbb6e184ec9bcce10615949f598f4c974a9)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260305/202603052149.00j5uebB-lkp@intel.com/reproduce)
+yamllint warnings/errors:
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202603052149.00j5uebB-lkp@intel.com/
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/spi/mediatek,spi-mtk-nor.yaml: allOf:1:then:properties:clock-names: 'oneOf' conditional failed, one must be fixed:
+	False schema does not allow 5
+	[{'const': 'spi'}, {'const': 'sf'}, {'const': 'axi_f'}, {'const': 'axi_h'}, {'const': 'axi_p'}] is too long
+	[{'const': 'spi'}, {'const': 'sf'}, {'const': 'axi_f'}, {'const': 'axi_h'}, {'const': 'axi_p'}] is too short
+	1 was expected
+	5 is greater than the maximum of 2
+	5 is greater than the maximum of 3
+	5 is greater than the maximum of 4
+	hint: "minItems" is only needed if less than the "items" list length
+	from schema $id: http://devicetree.org/meta-schemas/items.yaml
+Lexical error: Documentation/devicetree/bindings/spi/mediatek,spi-mtk-nor.example.dts:79.32-50 Unexpected 'CLK_PERAO_SFLASH_F'
+Lexical error: Documentation/devicetree/bindings/spi/mediatek,spi-mtk-nor.example.dts:79.64-82 Unexpected 'CLK_PERAO_SFLASH_H'
+Lexical error: Documentation/devicetree/bindings/spi/mediatek,spi-mtk-nor.example.dts:80.32-50 Unexpected 'CLK_PERAO_SFLASH_P'
+FATAL ERROR: Syntax error parsing input tree
+make[2]: *** [scripts/Makefile.dtbs:140: Documentation/devicetree/bindings/spi/mediatek,spi-mtk-nor.example.dtb] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1597: dt_binding_check] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
 
-All warnings (new ones prefixed by >>, old ones prefixed by <<):
+doc reference errors (make refcheckdocs):
 
->> WARNING: modpost: vmlinux: section mismatch in reference: tpm_timer_init+0x111 (section: .text) -> register_current_timer_delay (section: .init.text)
+See https://patchwork.kernel.org/project/devicetree/patch/20260305071546.2603378-1-ot_meiker.gao@mediatek.com
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
