@@ -4,59 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3831FF33A78
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 14:45:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 817AEF33A75
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 14:46:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mHxMn6St+I4mjIlbh+xyEyPgDa5zObo4ez224FGbQQw=; b=RrTzcRT/jFWA7fYQ3pF0BPezME
-	yT/wLF7dPnhD9dfv4hFSF6MexUEOiC11sxMADGhnRvhOmyiOK3u1hiy1snX4EPZqr3OTbVj4FIVS+
-	qXhTtC7NvcjAnJAYu7YJN2vhi9EgoFa5ybv9QlQ40ahoZnjJZSwu52VFRjqXHh04lleyerGq7YCPv
-	r1WBr+bVTXXm2j1hiapwr5i9L63cB5eUWOY+VEjrZLsgoxhZJavBDdRDHeUA/d4/mg4QZ3eX0F5eB
-	FvQPBKer37u49HpBmsR6DFKzM1pSsG497zD2720hqwZTf1exo2P4xUp1qJN45O95crI12a5JTCSzU
-	D76HoX1A==;
+	bh=91+OU9yo0GgOmL8+4z6yURCgH97x1Mi8cm2vvDtJe9k=; b=bgj8cZECZLTQoQA9VJG9sms1Br
+	QY7Vor8ILoJDUdLaPUI1il+vVEhBSTZJrPk9ZbUfoDTfRpenbetWhuHzj5JTSLfxP2zZoBEeneR7D
+	5Uk2fLIZi5iajFpzSPdrmZB7ajdTOmf6CuR5msnlFSgMZs7VMFz3VMSpWvffwVLLP6Wr5tjfvxleh
+	EZqyQjECzZfmbt0+qgiGYEhsaFqa0S5Q+5NO0k9tvkqe9M0TsusIXIaAOl/858TBBG7OIWtLPTYzw
+	OFesCD61YBuPt7UFy7wLB+BHtFkPurlbdTr6lwDZy7VrdVgvE5auNWhq52SyF4MLv5DsuuDuw2frT
+	ot3WODhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy9xZ-000000022iE-22Pm;
-	Thu, 05 Mar 2026 14:45:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vy9xd-000000022mh-0I1N;
+	Thu, 05 Mar 2026 14:45:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy9xX-000000022ez-1G0f
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 05 Mar 2026 14:45:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=mHxMn6St+I4mjIlbh+xyEyPgDa5zObo4ez224FGbQQw=; b=m1NuNs3ktA6mkeg3DvQxzrxQHP
-	nGA0K1j5uxmVSaq8Gsd+MA1oivYiyqfLtbRFjDelGMOjRJHGWrcdsL8hDZU8ZRWX1FFqC+3qWAPcV
-	8eBl444GzAmYQva0G+U06aNNm9+Al1FOZYNNc5jyKzyHAwuGxkdErSn2Q/PyNZxRDBRKrRTCXKTid
-	55q95nVoUnUxHtq2ENvhLaSOgaX5d2n7bwozbyYVJ6z9Wxn9OR09g39AybNtoJT2lKWc0AypuKntw
-	1UpS+xlswvbI0O2bsO7hu5BDC2bu5RzEE3+rMkTY+Es6SMMynUF8SF5U9tZJojU55SqiMOLXi6hAv
-	zD2o3AwQ==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy9xS-00000006yVy-0Y1k
+	id 1vy9xb-000000022kL-2rsB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 14:45:49 +0000
+	Thu, 05 Mar 2026 14:45:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 91FCA43A4B;
-	Thu,  5 Mar 2026 14:45:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94E58C19423;
-	Thu,  5 Mar 2026 14:45:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 16A656184F;
+	Thu,  5 Mar 2026 14:45:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E149DC2BCB3;
+	Thu,  5 Mar 2026 14:45:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772721944;
-	bh=A0gsw+S7d26oFSbb4t0/obkO9fbZRmAPdY9H7qyJ5Ks=;
+	s=k20201202; t=1772721954;
+	bh=VQdIsZC5GfRSg/vKbiwcTXem/SqGLlNtcZq7UMf4eDI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hoX6ABhzuxWAqaWusGAhOeqENN/xpQ13hMEqqSVpmns03veeWshSJUrTgIK4p83rG
-	 MzIx4bcd+CVDSTsg/KN91X95GOzoxKeo4M2Qhbjq1poelmC8g8NMKzwjTYVO2ynKSK
-	 nO+XmU9tFm3rnVljrWZhxzjVRewKTYGNKYLdQg18F3Q7xSzfP57pp5mXvSsJmWw4ty
-	 YvthnExa6UsI3ZI3CjwvtXp0ydFknpzmM4pcG64MSPeHvNprZfZQ0PmVxsWZdt8cX3
-	 sQfC0y5NKxnTa++4Qcll3hju62GXtUi4/BgUTceTYreRKHvwaOUobs39Z3v3x1w7VU
-	 lIaArBKe44iQg==
+	b=JzIfdT/XLng0DYfnf80ryTE063ykp+nj/5yYUI2/pgHzwCuHXWgVIEdyJV8Bk1gAF
+	 s3cIxAtSbPDsphj/nXhwURUSRfG4LzAKjR9G9K7Zo/KqiOYn4TqErpohzgt6bobicc
+	 BCTHRCta++cgVGD9mLPWt6B1n4yJFet96KS9OBF2PIGipKk11GoRJxDWiqWTZs/Dwa
+	 0cNV+pAAD4DyFyrD5Lj3JneLOqfcjzblf2zK+mv2o8FDHPw7Q0Oygxdz6+6XAmQMct
+	 6rKEqRhSZTosFjyQE/PnpuEAj4gjG/AiiOlzt2uiHtap9vlN5bulP7a4RCwGKHXkRX
+	 r4JRTJQ/b7OZw==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -72,17 +57,14 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH v3 27/36] KVM: arm64: Add hvc handler at EL2 for hypercalls from protected VMs
-Date: Thu,  5 Mar 2026 14:43:40 +0000
-Message-ID: <20260305144351.17071-28-will@kernel.org>
+Subject: [PATCH v3 30/36] KVM: arm64: Allow userspace to create protected VMs when pKVM is enabled
+Date: Thu,  5 Mar 2026 14:43:43 +0000
+Message-ID: <20260305144351.17071-31-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260305144351.17071-1-will@kernel.org>
 References: <20260305144351.17071-1-will@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_144546_694314_5257D89F 
-X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,97 +79,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a hypercall handler at EL2 for hypercalls originating from protected
-VMs. For now, this implements only the FEATURES and MEMINFO calls, but
-subsequent patches will implement the SHARE and UNSHARE functions
-necessary for virtio.
+Introduce a new VM type for KVM/arm64 to allow userspace to request the
+creation of a "protected VM" when the host has booted with pKVM enabled.
 
-Unhandled hypercalls (including PSCI) are passed back to the host.
+For now, this depends on CONFIG_EXPERT and results in a taint on first
+use as many aspects of a protected VM are not yet protected!
 
-Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  1 +
- arch/arm64/kvm/hyp/nvhe/pkvm.c         | 37 ++++++++++++++++++++++++++
- arch/arm64/kvm/hyp/nvhe/switch.c       |  1 +
- 3 files changed, 39 insertions(+)
+ arch/arm64/include/asm/kvm_pkvm.h |  2 +-
+ arch/arm64/kvm/Kconfig            | 10 ++++++++++
+ arch/arm64/kvm/arm.c              |  8 +++++++-
+ arch/arm64/kvm/mmu.c              |  3 ---
+ arch/arm64/kvm/pkvm.c             | 11 ++++++++++-
+ include/uapi/linux/kvm.h          |  5 +++++
+ 6 files changed, 33 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-index a5a7bb453f3e..c904647d2f76 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-@@ -88,6 +88,7 @@ struct pkvm_hyp_vm *get_pkvm_hyp_vm(pkvm_handle_t handle);
- struct pkvm_hyp_vm *get_np_pkvm_hyp_vm(pkvm_handle_t handle);
- void put_pkvm_hyp_vm(struct pkvm_hyp_vm *hyp_vm);
+diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+index 7041e398fb4c..2954b311128c 100644
+--- a/arch/arm64/include/asm/kvm_pkvm.h
++++ b/arch/arm64/include/asm/kvm_pkvm.h
+@@ -17,7 +17,7 @@
  
-+bool kvm_handle_pvm_hvc64(struct kvm_vcpu *vcpu, u64 *exit_code);
- bool kvm_handle_pvm_sysreg(struct kvm_vcpu *vcpu, u64 *exit_code);
- bool kvm_handle_pvm_restricted(struct kvm_vcpu *vcpu, u64 *exit_code);
- void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu);
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 5269ac20d2fb..8b32bf37acc3 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -4,6 +4,8 @@
-  * Author: Fuad Tabba <tabba@google.com>
-  */
+ #define HYP_MEMBLOCK_REGIONS 128
  
-+#include <kvm/arm_hypercalls.h>
+-int pkvm_init_host_vm(struct kvm *kvm);
++int pkvm_init_host_vm(struct kvm *kvm, unsigned long type);
+ int pkvm_create_hyp_vm(struct kvm *kvm);
+ bool pkvm_hyp_vm_is_created(struct kvm *kvm);
+ void pkvm_destroy_hyp_vm(struct kvm *kvm);
+diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+index 7d1f22fd490b..e71f7fb6e89a 100644
+--- a/arch/arm64/kvm/Kconfig
++++ b/arch/arm64/kvm/Kconfig
+@@ -82,4 +82,14 @@ config PTDUMP_STAGE2_DEBUGFS
+ 
+ 	  If in doubt, say N.
+ 
++config PROTECTED_VM_UAPI
++	bool "Expose protected VMs to userspace (experimental)"
++	depends on KVM && EXPERT
++	help
++	  Say Y here to enable experimental (i.e. in development)
++	  support for creating protected virtual machines using KVM's
++	  KVM_CREATE_VM ioctl() when booted with pKVM enabled.
 +
- #include <linux/kvm_host.h>
- #include <linux/mm.h>
++	  Unless you are a KVM developer, say N.
++
+ endif # VIRTUALIZATION
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 3589fc08266c..c2b666a46893 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -203,6 +203,9 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+ {
+ 	int ret;
  
-@@ -965,3 +967,38 @@ int __pkvm_finalize_teardown_vm(pkvm_handle_t handle)
- 	hyp_spin_unlock(&vm_table_lock);
- 	return err;
++	if (type & ~KVM_VM_TYPE_ARM_MASK)
++		return -EINVAL;
++
+ 	mutex_init(&kvm->arch.config_lock);
+ 
+ #ifdef CONFIG_LOCKDEP
+@@ -234,9 +237,12 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+ 		 * If any failures occur after this is successful, make sure to
+ 		 * call __pkvm_unreserve_vm to unreserve the VM in hyp.
+ 		 */
+-		ret = pkvm_init_host_vm(kvm);
++		ret = pkvm_init_host_vm(kvm, type);
+ 		if (ret)
+ 			goto err_uninit_mmu;
++	} else if (type & KVM_VM_TYPE_ARM_PROTECTED) {
++		ret = -EINVAL;
++		goto err_uninit_mmu;
+ 	}
+ 
+ 	kvm_vgic_early_init(kvm);
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 4e64528d86a6..7655e4c61c4e 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -881,9 +881,6 @@ static int kvm_init_ipa_range(struct kvm_s2_mmu *mmu, unsigned long type)
+ 	u64 mmfr0, mmfr1;
+ 	u32 phys_shift;
+ 
+-	if (type & ~KVM_VM_TYPE_ARM_IPA_SIZE_MASK)
+-		return -EINVAL;
+-
+ 	phys_shift = KVM_VM_TYPE_ARM_IPA_SIZE(type);
+ 	if (is_protected_kvm_enabled()) {
+ 		phys_shift = kvm_ipa_limit;
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index da0a45dab203..d1eb6e23367e 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -219,9 +219,13 @@ void pkvm_destroy_hyp_vm(struct kvm *kvm)
+ 	mutex_unlock(&kvm->arch.config_lock);
  }
-+/*
-+ * Handler for protected VM HVC calls.
-+ *
-+ * Returns true if the hypervisor has handled the exit (and control
-+ * should return to the guest) or false if it hasn't (and the handling
-+ * should be performed by the host).
-+ */
-+bool kvm_handle_pvm_hvc64(struct kvm_vcpu *vcpu, u64 *exit_code)
-+{
-+	u64 val[4] = { SMCCC_RET_INVALID_PARAMETER };
-+	bool handled = true;
-+
-+	switch (smccc_get_function(vcpu)) {
-+	case ARM_SMCCC_VENDOR_HYP_KVM_FEATURES_FUNC_ID:
-+		val[0] = BIT(ARM_SMCCC_KVM_FUNC_FEATURES);
-+		val[0] |= BIT(ARM_SMCCC_KVM_FUNC_HYP_MEMINFO);
-+		break;
-+	case ARM_SMCCC_VENDOR_HYP_KVM_HYP_MEMINFO_FUNC_ID:
-+		if (smccc_get_arg1(vcpu) ||
-+		    smccc_get_arg2(vcpu) ||
-+		    smccc_get_arg3(vcpu)) {
-+			break;
-+		}
-+
-+		val[0] = PAGE_SIZE;
-+		break;
-+	default:
-+		/* Punt everything else back to the host, for now. */
-+		handled = false;
-+	}
-+
-+	if (handled)
-+		smccc_set_retval(vcpu, val[0], val[1], val[2], val[3]);
-+	return handled;
-+}
-diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
-index 779089e42681..51bd88dc6012 100644
---- a/arch/arm64/kvm/hyp/nvhe/switch.c
-+++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-@@ -190,6 +190,7 @@ static const exit_handler_fn hyp_exit_handlers[] = {
  
- static const exit_handler_fn pvm_exit_handlers[] = {
- 	[0 ... ESR_ELx_EC_MAX]		= NULL,
-+	[ESR_ELx_EC_HVC64]		= kvm_handle_pvm_hvc64,
- 	[ESR_ELx_EC_SYS64]		= kvm_handle_pvm_sys64,
- 	[ESR_ELx_EC_SVE]		= kvm_handle_pvm_restricted,
- 	[ESR_ELx_EC_FP_ASIMD]		= kvm_hyp_handle_fpsimd,
+-int pkvm_init_host_vm(struct kvm *kvm)
++int pkvm_init_host_vm(struct kvm *kvm, unsigned long type)
+ {
+ 	int ret;
++	bool protected = type & KVM_VM_TYPE_ARM_PROTECTED;
++
++	if (protected && !IS_ENABLED(CONFIG_PROTECTED_VM_UAPI))
++		return -EINVAL;
+ 
+ 	if (pkvm_hyp_vm_is_created(kvm))
+ 		return -EINVAL;
+@@ -236,6 +240,11 @@ int pkvm_init_host_vm(struct kvm *kvm)
+ 		return ret;
+ 
+ 	kvm->arch.pkvm.handle = ret;
++	kvm->arch.pkvm.is_protected = protected;
++	if (protected) {
++		pr_warn_once("kvm: protected VMs are for development only, tainting kernel\n");
++		add_taint(TAINT_USER, LOCKDEP_STILL_OK);
++	}
+ 
+ 	return 0;
+ }
+diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+index 65500f5db379..50348efe3384 100644
+--- a/include/uapi/linux/kvm.h
++++ b/include/uapi/linux/kvm.h
+@@ -699,6 +699,11 @@ struct kvm_enable_cap {
+ #define KVM_VM_TYPE_ARM_IPA_SIZE_MASK	0xffULL
+ #define KVM_VM_TYPE_ARM_IPA_SIZE(x)		\
+ 	((x) & KVM_VM_TYPE_ARM_IPA_SIZE_MASK)
++
++#define KVM_VM_TYPE_ARM_PROTECTED	(1UL << 31)
++#define KVM_VM_TYPE_ARM_MASK		(KVM_VM_TYPE_ARM_IPA_SIZE_MASK | \
++					 KVM_VM_TYPE_ARM_PROTECTED)
++
+ /*
+  * ioctls for /dev/kvm fds:
+  */
 -- 
 2.53.0.473.g4a7958ca14-goog
 
