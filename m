@@ -4,131 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A2DEF513E6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 22:48:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44D30F513E6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 22:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
 	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=04iAeQzIkEcGNpKDxgOw270im+0xYrZ//tnov5p3M1M=; b=E0Bkge8ffciYYA3FypKUISZkpy
-	+1UkRDXjeKjHHmujVmNP3WSXLeucuy9LVAWRUFa67UOsHS2NEzf1FZguBWfiHZRXqz5rcyWfbPzAv
-	yCv2fJTQvItuHOFTZwfMRHgpWCq2KEj2BQZv1NR1RnJ+lBewGGtf18ywQkK9PQsAEurptIfUAr24Y
-	jTSE5VH5dcT2+BRiWP2LECe2Bf5MMTB5dBAPjovqOb3XijpefY6M60K1RfxfXRyxz/EUFFe3/xi1D
-	k5fJo1jqMUG6FsGLWwrHEQv+6Ml3jN+BulggAJaK+De4qt02BcHbCyE9UgB4aEV1xihkf16iYUEwN
-	77jILpKg==;
+	bh=1YrsfIxECZ9joRMUdHh8abizdvLMo1U+QdJOIGBWjiU=; b=iylRy1qZiPSv7u3IevSF6hhgNQ
+	UT9Lri5OevgYpa7cF4LRHPJL2VATUbEM8AdDYZwjYL9eqHqIFI2xPV15kTjYbdNPe61uG0g1sBTpI
+	Vecjo6OwljK7km+g6QobS8SC82Lfn/LIz/uV2eEpA0PM+q44seZiIm5+NHZs2GLdxQBVTsvNaXT4Q
+	EP9n7mQVAZnp5PKAJC9ZlPC/VmIA46Q5HkYEtUVsVFenrtQJ9lIivHGUswEV5M8IsYaSqXveQwBYH
+	Uobq6WSd6WOXZuGnL89W+tFmCnBoU+xaTJbENwPxAQwWduF2zmSN/9L2TFkyzPvrKBRz58UW8hplm
+	izuqm1Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyHUY-00000002hPf-1aBI;
-	Thu, 05 Mar 2026 22:48:26 +0000
-Received: from mail-westeuropeazon11013030.outbound.protection.outlook.com ([52.101.72.30] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1vyHVx-00000002hX2-3Jol;
+	Thu, 05 Mar 2026 22:49:53 +0000
+Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyHUV-00000002hPI-1787
+	id 1vyHVw-00000002hWh-0KQc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 22:48:24 +0000
+	Thu, 05 Mar 2026 22:49:53 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rx69PG8/cbxheBeR5sOPWBwjUGXJpjlBPI1V55u94K6Fy/+M1LLT3TXEXXJyWN0aKb3c1c74VgxuO19KsLsIZ4WphQJ2BygsK0Nn+1nZUKFBMr0JJeuUi2gYtOoXwdLxyJhRt22r7lYw6v38dOCJ9elNOlODldx7Zq9KjnVqiIUFhe+hwqW9y/FawaO6SmQqodxINM4qZpc333x4Mkhs7lN8efwcF6BFznMG8vDIP/fLSm9D/92bpwdkM+PtrdHddrV/RLHRyXn69fJcam5gUFy23JXgcDSvyNNz2SUrJ2yCnCOuVlYVWZQEQNVpHBidI37xahCA3nuKexB1f8pqJQ==
+ b=qPBBK3SV/aHgR7rZu6znN6a5n1a/lDxiVc4kVLpyXijkpi+dQMkN3/9p6UN7nvvnGCwKuuXr7KOppys7wfyKdGnrnxlB5NGnZvq5bJbqOhbDq+/cQylrERedFLBk/fMESA0gIzrLnOZTiPTd1Qdcsr+TmhtWhdKcFgBAI1TIi25bL9zH9oCJn9NZS6JaTCEslT/4ulcMuD4GUcPZuxx9ITYTua1EnjeNavQEQvWb2fN6FeCZsr5QWSXnOgGF7sKU/WXbYPjpB8qngt0FjbOM6CYVIQ/1uOZWhtz+R2Um/7kwcDEE3sc5cXl7UdbGcc+WLihjBGVTkKmnOV63PUMPmg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=04iAeQzIkEcGNpKDxgOw270im+0xYrZ//tnov5p3M1M=;
- b=H+fbpfikTVqM9cTawVAZSXnxMghhkUsjR9gBSQARoeAzcp2O0M4nM1WJWXvkvy+zphSWUSh9Zy8vjbbgqK7XaS6O5mjRpFF+JHWi/15NmhgjPI04mCAL5u0a9dEsuKpIgG82YcNQ1dv60zFRF8d+fSU4Y66DYIoznT91ELvse7kxOYh2vmVp0pTJiswAXFMmJR0rXxl1KcTJDS7hBmFtAxosY3bAduYYcyVCjtv72XZEGwQZpliWd87VLTJ57bjukUA8MWbAy/PprJ9iKgcTg6RPYSdeaP9Z4JudZXfA4E+poGi+bi43lG5Dpdk5NL+iOA9I/1ucakucYToXCr523A==
+ bh=1YrsfIxECZ9joRMUdHh8abizdvLMo1U+QdJOIGBWjiU=;
+ b=Jkp00J3ZkzJKCP0G0y4Zez7nHPutYYeC02s0oZ6pi2V5gueaMe/T0lHJqvtGjzSElnJV5l1o6rZFfxpieJDHo4dl8yZuh/U61OqW7IW7bvpqXMKVZIj+KRGiCT3qqA9aqgb6a0QaGW7PF77XAbYdEuui+QbVKW0KqJWl0u6mli09F8CMIbC7gDuhYktZ7aYTmtg+0TTWavu1XmRFDkrgd8ZUUmwJEn8rmVWE3ojcxMXHZzg/m7z0sJUlYRsDoAkzFNn75QWeJEEREOsAfHysVXPhHmFy53Lzdrp25+pG/cM4SvbIiQf+CDL+1LmkuWVO3Ci7EffkTUbCQJlyPwTWhA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=04iAeQzIkEcGNpKDxgOw270im+0xYrZ//tnov5p3M1M=;
- b=epJpkqCePYG8Nirr48nu/SDvc3zOr52hr3J06uPoW5ced0Xe8FEr4zaB4+QaXqAP70j9TOXTXP7uCiiyEH7J3w+zbSsSQd/zpog6FkzXtpv/J1xwr+u5zKCmxNV9CJqcca6LcLYskpuC90wPUI50XgBgd8kdwG3rSMt4K+IIi9+x/K1Ah0qwFCz4vjd7XqNCg0r8QBO/H6hY1cmPq1nYnwLkC1Wb//B20yUp7sIMwCyZ6rvyXWHHfbnhePzCDamKDXc3FuFK1pkY+x3QdueEkV3BVs5h9UPq0vqQWuwZjaETI/mmS5zsFKAxgmqzOyJLxhcMsUSKqRK5HDBXkbMxlA==
+ bh=1YrsfIxECZ9joRMUdHh8abizdvLMo1U+QdJOIGBWjiU=;
+ b=tzSXnNOQQWLLFpHNzlYzv9Gs3JsFQIU4He+uGhIG0x2gFeV+Y5+FHFtDKnUl0RLZOosWczsfDrspjEzvYW5Q7mq/BHq5TZA/KFg4K9ZtdZEZu9z2SsQ0nRIJEJdFqGnq7LvMgxZX0Ol8/mcpvQZaq1t4jj8+v0JlQy3gLrk7APwk/7hVXFThgXat8gRW/ftAuNVO1BoSd2obAuj/v2GIXhXD4xjjq9+SBqf27KFl1DbrA6eVn+KaaUEsYRQfnjoOSeog+W6JYDtzYxbLgLpQvBtCRevxRa+bzhVKFMcOQpznzcQ8JnBjKuKHnYYn6ONkLIBIIfcSwSBaoi9kAElzCA==
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by AM7PR04MB7032.eurprd04.prod.outlook.com (2603:10a6:20b:112::12) with
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB6559.namprd12.prod.outlook.com (2603:10b6:8:d1::6) by
+ MN6PR12MB8565.namprd12.prod.outlook.com (2603:10b6:208:47d::22) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.18; Thu, 5 Mar
- 2026 22:48:18 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9654.020; Thu, 5 Mar 2026
- 22:48:18 +0000
-Date: Thu, 5 Mar 2026 17:48:10 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	Liu Ying <victor.liu@nxp.com>
-Subject: Re: [PATCH 1/1] ARM: dts: imx6sx: remove fallback compatible string
- fsl,imx28-lcdif
-Message-ID: <aaoIKmhcgIZdFvbz@lizhi-Precision-Tower-5810>
-References: <20260305212312.4053922-1-Frank.Li@nxp.com>
- <c64ee6d6-d948-4146-8463-0e68ba542404@kernel.org>
+ 2026 22:49:44 +0000
+Received: from DS0PR12MB6559.namprd12.prod.outlook.com
+ ([fe80::3f99:f532:cf6b:ea46]) by DS0PR12MB6559.namprd12.prod.outlook.com
+ ([fe80::3f99:f532:cf6b:ea46%4]) with mapi id 15.20.9654.022; Thu, 5 Mar 2026
+ 22:49:44 +0000
+Date: Thu, 5 Mar 2026 14:49:43 -0800
+From: Piotr Jaroszynski <pjaroszynski@nvidia.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, Alistair Popple <apopple@nvidia.com>, 
+	Jason Gunthorpe <jgg@nvidia.com>, John Hubbard <jhubbard@nvidia.com>, Zi Yan <ziy@nvidia.com>, 
+	Breno Leitao <leitao@debian.org>, stable@vger.kernel.org
+Subject: Re: [PATCH] arm64: contpte: fix set_access_flags() no-op check for
+ SMMU/ATS faults
+Message-ID: <aaoHSV-dL8ernMLR@box>
+References: <20260303063751.2531716-1-pjaroszynski@nvidia.com>
+ <aam-ZSHWrkYX8spV@arm.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <c64ee6d6-d948-4146-8463-0e68ba542404@kernel.org>
-X-ClientProxiedBy: PH7PR17CA0072.namprd17.prod.outlook.com
- (2603:10b6:510:325::20) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+In-Reply-To: <aam-ZSHWrkYX8spV@arm.com>
+X-ClientProxiedBy: BY3PR05CA0005.namprd05.prod.outlook.com
+ (2603:10b6:a03:254::10) To DS0PR12MB6559.namprd12.prod.outlook.com
+ (2603:10b6:8:d1::6)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AM7PR04MB7032:EE_
-X-MS-Office365-Filtering-Correlation-Id: eceee48f-e2df-422c-ace2-08de7b094b67
+X-MS-TrafficTypeDiagnostic: DS0PR12MB6559:EE_|MN6PR12MB8565:EE_
+X-MS-Office365-Filtering-Correlation-Id: 563dedc2-7fa7-4805-7721-08de7b097ebc
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|376014|52116014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: +fBD7BZrl8d2wcwKbu36gQIVVuUrF8VSDA3kZMm4kwNbaQ73t1bwtg/+pZd3vXessvqnYj/gPtlvEegnHxiyVSbmk/slgHMXobU93lMQmp17DdKcigaP6uyg5QEIk3xUmOc8vkP93bHOoQb+XJ1TyKFtW8a0TiQo3XZ+MHzNDmDKxZT29XHMHXJ2GLFJwGJKMLYRzvHQKyUI8evlAjVKsNGIfuWkLdgOE1TC1WjpUByVyMEl/bpJ0aiC2oQHzPLblkG80pUdKBSYZegBgDHjc8qOsR/zC1LDsy2R6MnXmOCSXjXxWHEi4yfijUPUYu4Gt1AvLEjQGZHTKdWcYbhD3Dpo6H1i+vcwC4eaJlmxqnyzykVP+Gmnev6GdKrKsdIo7yA14/sX91DQvRJWdtzTNEmLSuP7wLs0LI/kdT8jB7jhJ43r8G7NwuK5EbuLVHv67L0ZjRtA9dbOMYa66KgzNUMUEzrNB5szDXRb+ZIKBogAPE7MSI4zDWkF+wN1+bJrG9yfnpad5NQEt8E5BXhnqZ3i7uHbzCqad+Yk4v5GQkD9ZUYwbOdBVb+BskFzmzoXctfZSMA8p9LA7xpDy8cAnbH4uYKONE3onrvMehKJn3yfSIkT8XvW8HmGaEo8Dh+tlOM8K9L4Ol/OS7I3FIk/0kdx2EC/yzY4ZSL8Lf4kj5WzLzQQmLLt80p2CoxsJGAKBDcRa8t0gsHsBHMwJCUpn2v9Ta3OuXHJdDknUSkbHKRoc4watATkok3Vm0p2Rzdm
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014;
+X-Microsoft-Antispam-Message-Info: eo/5+yZlYmGzOCthoz+/eKTBbMjt/XnVb0b75pUBThfTf7pfsbw7ECISVBUjDdkO4gJ6IEIy0GjyYrDsokS9goJ2T5tgzOFOChqPfjVFv06e/2s5DOhyAJTIRDTqCppUsnwBGDOpAQhOq3E+yT234+riwb8Pp0iPJDml6D9o6qm+OSOm+Y4nxoWiZOazbNZfePZ85yZ1AuIs0OrkwLicpemIaY1lKJsCoBkXXB4QQ9JS9J7zKco1o4C0fKvghOvR2YxukCfIz9pnw/IvjwB1AvFTpr0EMK4XGhqcGBYR14b1uFU3jcpUL+yBnaKDx2LK83Rtxo1ZjlQ87LxutYy5p3PAaPXsuzvdICW6v1+oKDvaEgY728IbcGCOrI4v/JVKClZfIF1m4kzSywkzCcFqSN8KQ8PdjMKLxiOVDvOsVcdlTuNdXHauxDnmNfd3mCtcEj21K4n9FCKSKnTzvHELCG7RHn6qG0DsjbnX/LEYW+gHJZNwG5EKrmT0feIVLw6Xt1VvXetFOwWuulAG5EykPFwSNA+IzYjS7a9bFGPbouCOtOz8aiNtTsr3B/AmoShPUuZmDdFSqPA2XiAZvUtEsxpeBN5J+EW7bsHDTIEN89prdph6qOSaDrYbZxB5aoaD/23XoIhOFb8mzUsdiktD49+oskaiMyDxhRM3kvoXvHzABNl46lgWMJ9r1nazyxbpD3ZrfDhG05+XiQ/py2XXipsoE9euRNaIaylOMSSM22Y=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB6559.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?t/lsg3j91YHzo4i8lWqsYgO8dSrjYztl7x15Y68O7tNJaLX6JCJo5pyirl6Q?=
- =?us-ascii?Q?jAwt5LAqXoEF5GupexTiKlVa40kjR3fE2GBisN/HWdn9hsF5l4pLSLekmzSD?=
- =?us-ascii?Q?UkeP4F9grUek6AzD3SZoCOzJ+gXtoNQhcjR27x8yVJ3qxVUNladJJDQb6ht4?=
- =?us-ascii?Q?k7tMDzCDXfts0upa5DfaIzDwnrWuCek/F/DDZ1f8EQplWjgeLWck7ON92Nmh?=
- =?us-ascii?Q?6c4PbK0L72o6xPl/CDQ1VyHDV2m44AycriDiqypmeLPpS3x6l2atmrTViwzF?=
- =?us-ascii?Q?ie/wLAhTgODRwYhcrz11BMdw2USZSdCFao8ebBYYbweWALwPaQfsRqJYJM5D?=
- =?us-ascii?Q?PB1TtwA+kzpP/MFuZyMjU1uoD7ncJJqymUBvux7OsnsLWVR89zmwhCxuD3oT?=
- =?us-ascii?Q?QjL/Yd31vOw5+i/aafab1jED+afHNFJjVknSFZeeXUGTlmmXMu3Epf00iqCW?=
- =?us-ascii?Q?+r7+QUmLMWh1eig5PXnHv2BSXDg0Nfgbg8rDkNdfNTJxq62im3DvbnOD8ViM?=
- =?us-ascii?Q?c6MzJvoYdymiJkUnaDnnHtL/3TTydmB/naQfPRrTlHu0p2CnJGIWzIxlM7Q+?=
- =?us-ascii?Q?ivfznli9uBg5c/3TEVVa/ky+2bC0BaBkVNbTDIvigkqZz7xuCbeeVEc+glEx?=
- =?us-ascii?Q?z1ZnRNUEemY90GG08b7BxuRr65zRRFIkUzpbRpVXOVrxd9oOg+F4PLHwzEjn?=
- =?us-ascii?Q?l27iz1JpXCVX8Cr7w2BwQEg7umBI6VNKn4N6O1aR0rnmxImiwhZaVsJd4cM1?=
- =?us-ascii?Q?/Kv6EqZtHYXZvA2qDvdmwLBGmxuwYM+DP+HDtl2B7h/0cg0flFvQyKyHjMsW?=
- =?us-ascii?Q?lTjDm/2h6H/PM+zdVMhuhSrbc5jIfULhZzmUsSBxuybaEecwgN9ZKOpdpH0S?=
- =?us-ascii?Q?KmOdWdRf8FeZLEUbXy8I0xNjDWmEzGiIsYeHSda5FpFg1uFhnhDlacH3ZiOH?=
- =?us-ascii?Q?faW+yvogK+e0a1sYo4Qd+eUwD2LlXEhLdB0SKC+qT9gg/XARz5stoD7TBEVR?=
- =?us-ascii?Q?JMNtqM+6QWyDIebsLJN7NMonMduI+HsT+MlGhYwAXibuLTIEpLTa2Qt0trWm?=
- =?us-ascii?Q?RrVFphukXNYWSCrRtjEiR6XqKuE1V9TeALdioGpsFX43gFwR2UmZ0/bULbJy?=
- =?us-ascii?Q?p10JjfbgbvtqMhtMakGS1OpfftM+4Yj2TkwDxathpe8Y181Vxpt1Z+ebr6QM?=
- =?us-ascii?Q?4Rt3NwM4URvL4XpZWo15XW4UaeyGyts/58dbsLrQBxqBn7WHEQMpKIqcSKG2?=
- =?us-ascii?Q?AZd4WNTodJB9BmtOWkaeFQkAnBae0ZNqHyvAIw5flgDwMtWvt5LdCAOzMuSp?=
- =?us-ascii?Q?VVIRH98h8rc897acWDLrZ9qHp+SMDzqdPDs+4+xBCx9+BOQJy0ERz60S9HtZ?=
- =?us-ascii?Q?uKPSprIuXtvfEndFuIRd59NeVCm4rDicNTFGwpQvRMzZCb9pGTCQ46LRC1ko?=
- =?us-ascii?Q?Jh6mH3FTfKT2LvcZdUP3xCtjDnZYdFiwblqU+/+dFt68S6PhhNgmu0sGMgVl?=
- =?us-ascii?Q?J7Dav/xCdLF9vYQvD9Oh/AhevCn3I3ULUdyyIWezHtbQOp29desHD/G3vLem?=
- =?us-ascii?Q?YpY3XIaUXNLDAw/8iZuvRYD9rbn7ZNgI1qqPwE89Hh7A42lXuE9YSfQUWjIq?=
- =?us-ascii?Q?IG0wGIVQWqh+UAr7kvhXhiTtnkzozcysWX+Csk8zrmfVPx4RPPweSiJcfSHU?=
- =?us-ascii?Q?cDxc/OMG/vFbK7HWWyupWHiTzMJgMUn1wsN0v/WksP+i6K5/?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: eceee48f-e2df-422c-ace2-08de7b094b67
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eWuW+vokEFMnWNKXipGZmISMjhWmO8h4iTTOnJodkdA7OyywMp+HX07wQO75?=
+ =?us-ascii?Q?smUzDaHy9qKWkrwOlwy/shYyA9jyN/m2VlJDFmFyruy8Sz5z+xd+Xoiuw4Us?=
+ =?us-ascii?Q?oCxJFCCM74FlCL5rEccyJgQ+cw8oAn5z5v1c9hEBJUEQ4hOTtnYfX8LucBjP?=
+ =?us-ascii?Q?fTy9tnEJhvN8puSoCxedOrOtjdt+Be14Q56+N4cgCmXHKv+4l8D+yRKqScZl?=
+ =?us-ascii?Q?UtntwBbixlzhxA5WQIpHCrO07RULlxN99vVhQtHau1lflqVW5m1GrLAdvXS0?=
+ =?us-ascii?Q?UAy3vuO0zmze+W73fDYQj42ZJjHWvFA74BZ8ssUfQMEdC9zJMetXlXYtDee2?=
+ =?us-ascii?Q?vwDWikjFBl9lhAHJm8qt2P3Dm//EbPz9A3ZAHrw1t31KNQzXeLIo1RV54SZb?=
+ =?us-ascii?Q?PMCu0uJ3tJToial/bF8GEMQYd5dcDAjJQoXPNlCHeoO8PDYIUH8IQHIb/3ps?=
+ =?us-ascii?Q?P0j2t9QFNqNHsaAm1QfNYoJuoZ3PRtpr7/YtV8mi4icMyfpIkKElmAuk+lAp?=
+ =?us-ascii?Q?nOieltGdvEXjHEQeUhSYhsjAQErFa7O2Iniu5CasC+63/8Dkr3k/m9hob5Ky?=
+ =?us-ascii?Q?t/ezYA5khJV+IlVQ2wMaantFi+ZVaPDGuv50eP/STiiNTQJgFSAqmQZ0BSwG?=
+ =?us-ascii?Q?aJKk5iHiU4pJ277uz9FCQG15a+oaAtdYt2Vs/DbfZozFIss4UXOK5u3g78JR?=
+ =?us-ascii?Q?EmAJySNKXYDwgDHuTaEPUo87yXuTexfgPkn7CDLGw3BPtkfBR4BAUQ/MIzrh?=
+ =?us-ascii?Q?78XfUUAW/+8bCrADBcGM4YhFtDailS4XETif74cgzmujYIsBuk8178ZhgSfg?=
+ =?us-ascii?Q?NbnN/ipxmmuKYrBLbUGykCXMIw+tq3sjhjuTtApSDtCa6NPZNg02oiuv2o13?=
+ =?us-ascii?Q?RKIlt3llQeh6KFQmW5De+5c8U4xrDGN20VBxmlFpLib4OCJMSpPrFo0X4H+P?=
+ =?us-ascii?Q?C0GMRnIAhH0ONosK5idzVZQjHYNzdejmKi5uzJwzUUp1cfjbl0mTjSMJnJ51?=
+ =?us-ascii?Q?Tm53vPQa81lG8xIZirkoHdbY7SaB4IassWGjTvOba4Iibe2dAqpfubcrOqm0?=
+ =?us-ascii?Q?CAmFFUqEUWR1BYOISkxEvzZN9pOhFIj2VPza76Jnep0OYv6UE0kCne5jGdXh?=
+ =?us-ascii?Q?yvMtQYfjOvm5RuHw5CekQX5y2pkkDAJkK8vhsTcXwjLbS7kPz8UjGW9kR3dr?=
+ =?us-ascii?Q?QinAf5Vv8E7II3RE4eG98drTJDUgvoqjpBpN1/ZR7gxkigz5BS9YFmkQSDp2?=
+ =?us-ascii?Q?DMgRC4drweZoRP/JTdQDfpz5+nbtO5WiJ9SAX8Cvl9q1v3HftgsSbXIRz952?=
+ =?us-ascii?Q?Ie3nN+1eY24WF1U+lmauuS7ITYgLlg5iQOuDxKulu53/IOdH+Tiv/pcUOKjZ?=
+ =?us-ascii?Q?HnFpa1xvp52AEClLinBFQLl+IaKnt8B3sRE6QqQNdhL32dO4UeB+anKej6VB?=
+ =?us-ascii?Q?ItU4l9+DL4UNfmb8L0VygQhPQDAEU2oAJgDi8aYkz6MIzRJStbsqBqRLLFIM?=
+ =?us-ascii?Q?KY5UpL/eVzoxcjJgm/y6LX/srvUzv+CSmiAwCx0CRfrdUQlePwjZG5eoSnBm?=
+ =?us-ascii?Q?rSX1b7CECng5063/r/hBUdGzzyj/vgZeTESJU44g87BonAbi50nnJP3Y60ZL?=
+ =?us-ascii?Q?osf0/g76frS3ZcTPt3EAnZOivjzjmeZRxK1jij3NhmF26rAUqhjbwooDXWeL?=
+ =?us-ascii?Q?bcMgcufuKiUvorEx6wMBsZE0V1nagAhh69zz7uaWnI6eJq1CfUQ4YGbySiDo?=
+ =?us-ascii?Q?RUMKyDdUiZH4Z01LHrES2+JsnTgYOjY=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 563dedc2-7fa7-4805-7721-08de7b097ebc
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB6559.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2026 22:48:18.6013
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2026 22:49:44.5795
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: WcMy0idxphZn1fyrzJnJxysPm5LeoSobwxIgE0or0iZWw02xt/CcNu7quZYE2GFiO8x+tkoZEaejCvpztIjamw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB7032
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1+1P4n4/6eenWCoe+W47rgnafoHKeAQJujoQihjKnVx8ltxzuvKfszapPb3K5BYG//BDgiKlGOnteoUqjCVsFA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR12MB8565
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_144823_332457_BB6490A8 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20260305_144952_143768_F7AA6F37 
+X-CRM114-Status: GOOD (  35.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,31 +139,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 05, 2026 at 10:34:18PM +0100, Krzysztof Kozlowski wrote:
-> On 05/03/2026 22:23, Frank Li wrote:
-> > i.MX6SX uses the v6 LCDIF controller, while i.MX28 uses the older v4
-> > version. The driver has supported the "fsl,imx6sx-lcdif" compatible string
-> > since the initial commit:
-> >
-> >    commit 45d59d704080 ("drm: Add new driver for MXSFB controller")
-> >
-> > Therefore the fallback compatible string "fsl,imx28-lcdif" is not required
-> > and can be removed.
->
-> It is required - you are changing the ABI and possibly impacting other
-> users without valid reason ("not required and can be removed" is not a
-> reason).
+On Thu, Mar 05, 2026 at 05:33:25PM +0000, Catalin Marinas wrote:
+> Looking at the patch again, some more comments.
+> 
+> On Mon, Mar 02, 2026 at 10:37:51PM -0800, Piotr Jaroszynski wrote:
+> > diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+> > index bcac4f55f9c1..9868bfe4607c 100644
+> > --- a/arch/arm64/mm/contpte.c
+> > +++ b/arch/arm64/mm/contpte.c
+> > @@ -390,6 +390,23 @@ void contpte_clear_young_dirty_ptes(struct vm_area_struct *vma,
+> >  }
+> >  EXPORT_SYMBOL_GPL(contpte_clear_young_dirty_ptes);
+> >  
+> > +static bool contpte_all_subptes_match_access_flags(pte_t *ptep, pte_t entry)
+> 
+> More of a nitpick: since this checks both the flags and write
+> permission, I'd rename to something else. Maybe contpte_ptep_same() to
+> somewhat resemble pte_same() used by __ptep_set_access_flags().
 
-In https://lore.kernel.org/imx/42eb2d42-47b0-46b6-92e9-c59473113c2d@nxp.com/
+pte_same() also compares the PFN though. I picked the _access_flags
+suffix to match the ptep_set_access_flags() naming. I do agree the
+aliasing of AF and "access flags" is unfortunate, but it seems
+preexisting. I am updating the comments to be clearer in v2, let me know
+if that works.
 
-other known user barebox/uboot already fix it.
+> 
+> > +{
+> > +	pte_t *cont_ptep = contpte_align_down(ptep);
+> > +	const pteval_t access_mask = PTE_RDONLY | PTE_AF | PTE_WRITE | PTE_DIRTY;
+> 
+> We can drop the PTE_DIRTY from the mask as it's not relevant to the
+> hardware permission. It probably doesn't matter in practice.
 
-https://lore.barebox.org/barebox/20251107210033.2229781-3-a.fatoum@barebox.org/T/#u
-https://git.pengutronix.de/cgit/barebox/commit/?id=c99b937f3a31
+I think it's good to be consistent and just update everything while we
+are doing it such that the sub-PTEs are in sync.
 
-Frank
+> 
+> > +	pteval_t entry_access = pte_val(entry) & access_mask;
+> > +	int i;
+> > +
+> > +	for (i = 0; i < CONT_PTES; i++) {
+> > +		pteval_t pte_access = pte_val(__ptep_get(cont_ptep + i)) & access_mask;
+> > +
+> > +		if (pte_access != entry_access)
+> > +			return false;
+> > +	}
+> > +
+> > +	return true;
+> > +}
+> > +
+> >  int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
+> >  					unsigned long addr, pte_t *ptep,
+> >  					pte_t entry, int dirty)
+> > @@ -399,13 +416,35 @@ int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
+> >  	int i;
+> >  
+> >  	/*
+> > -	 * Gather the access/dirty bits for the contiguous range. If nothing has
+> > -	 * changed, its a noop.
+> > +	 * Check whether all sub-PTEs in the CONT block already have the
+> > +	 * requested access flags, using raw per-PTE values rather than the
+> > +	 * gathered ptep_get() view.
+> 
+> It's not just about the access flag but AF, dirty and write permission,
+> all can be changed by this function (and only to a more permissive
+> setting).
 
->
-> Best regards,
-> Krzysztof
+Thanks, updating the wording in v2.
+
+> 
+> > +	 *
+> > +	 * ptep_get() gathers AF/dirty state across the whole CONT block,
+> > +	 * which is correct for CPU TLB semantics: with FEAT_HAFDBS the
+> > +	 * hardware may set AF/dirty on any sub-PTE and the CPU TLB treats
+> > +	 * the gathered result as authoritative for the entire range. But an
+> > +	 * SMMU without HTTU (or with HA/HD disabled in CD.TCR) evaluates
+> 
+> Or CPU equally, we don't force all CPUs in a system to support DBM.
+
+Thanks, updating the wording in v2.
+
+> 
+> > +	 * each descriptor individually and will keep faulting on the target
+> > +	 * sub-PTE if its flags haven't actually been updated. Gathering can
+> > +	 * therefore cause false no-ops when only a sibling has been updated:
+> > +	 *  - write faults: target still has PTE_RDONLY (needs PTE_RDONLY cleared)
+> > +	 *  - read faults:  target still lacks PTE_AF
+> > +	 *
+> > +	 * Per Arm ARM (DDI 0487) D8.7.1, any sub-PTE in a CONT range may
+> > +	 * become the effective cached translation, so all entries must have
+> > +	 * consistent attributes. Check the full CONT block before returning
+> > +	 * no-op, and when any sub-PTE mismatches, proceed to update the whole
+> > +	 * range.
+> >  	 */
+> > -	orig_pte = pte_mknoncont(ptep_get(ptep));
+> > -	if (pte_val(orig_pte) == pte_val(entry))
+> > +	if (contpte_all_subptes_match_access_flags(ptep, entry))
+> >  		return 0;
+> >  
+> > +	/*
+> > +	 * Use raw target pte (not gathered) for write-bit unfold decision.
+> > +	 */
+> > +	orig_pte = pte_mknoncont(__ptep_get(ptep));
+> 
+> This is fine since all should have the same PTE_WRITE bit.
+> 
+> Anyway, nothing major, so:
+> 
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+
+Thanks!
 
