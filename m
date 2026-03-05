@@ -4,55 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7224EF8FE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 17:33:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4130F47CA2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 17:38:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6KxDPXzKlZXyg0YT04s+mgKVvzxgPJkOZP0QSTDCW7E=; b=RyLPPDljMCFOPleRhNHZI2XHg1
-	CNHOQpQCfLStB8jqOxkaKij2eo4/TLIQps50lilmBFS9N6SFIYVM37Iigh8BTeeYoDUgcpSeOrP/K
-	cVurhHGPqaAS013TOledkvIzUONj5zDG+EPTAbPbOVcZGgpf2vCQ3SLwI9ZLNDlXSGGRRvKUtwf6i
-	/AdYig76OD3JHK8xgL4q/zg4lZuGpQaWarDSpQMDCcHPS6zyrENx6UjScioxJhdH8X9Kqwp+HJeaS
-	pzKtsCX8LSZv9tL3xNRPwJ42ci1fdb9vu9si8yDgwkbTEDfOb/EHH1Walj0gzbeydHsmS7bP/nKJk
-	T4aTYxOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q0hqXPf4kTbOxJkOF4gql1YC4rmxr2neS6DmqcMuUNc=; b=wWrlFW0+EiN9tAwgL64DOBbpji
+	OG5BqKVz6XBhqe7v433VM4rVrtWEV1S1YrZ+DLwZ9tt6ULd9AoUbSGbJECj6SWP1vTdbEl6XbZI9O
+	41Zpa6KJAw+tmBoESRHzXuHvrmFKAmo0qWWk/ebmLoBcP57Z7tCq1vCAycsVrjgnxcSMuOLW89Zn+
+	9DhXTbzpkD5fSi71CeCVlrGJgFA7j2ASm2yay1HJTgkBzR2YZ579Kr4DhXsqNRjuZlhTw24ncfnc7
+	aXddDSfwOivb0jJzY9iaWEFb/ktMCwN5n0R16bHfIymS53yPzt/VVXeA8+8LVmW9+HDgtU5L8QAvO
+	nyON2HAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyCZv-00000002JUW-1bOL;
-	Thu, 05 Mar 2026 17:33:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyCZs-00000002JTy-10d6
+	id 1vyCeM-00000002Jm3-27Px;
+	Thu, 05 Mar 2026 17:38:14 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vyCeJ-00000002JlC-2Yc7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 17:33:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C36DD339;
-	Thu,  5 Mar 2026 09:33:27 -0800 (PST)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9C9F63F694;
-	Thu,  5 Mar 2026 09:33:32 -0800 (PST)
-Date: Thu, 5 Mar 2026 17:33:25 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Piotr Jaroszynski <pjaroszynski@nvidia.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	Alistair Popple <apopple@nvidia.com>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	John Hubbard <jhubbard@nvidia.com>, Zi Yan <ziy@nvidia.com>,
-	Breno Leitao <leitao@debian.org>, stable@vger.kernel.org
-Subject: Re: [PATCH] arm64: contpte: fix set_access_flags() no-op check for
- SMMU/ATS faults
-Message-ID: <aam-ZSHWrkYX8spV@arm.com>
-References: <20260303063751.2531716-1-pjaroszynski@nvidia.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+	Thu, 05 Mar 2026 17:38:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=u/L+k7Cd+AzgffPgrAsgDQZAF5cETgVMusAhqNesX2b/WtnkkvqSqF6ZJ2wJxfIJhnYFz2RRkkgkbRE1pPz3ebMOudfUL+Xb4DVllj8H6BgXCc+SDylFy3N6f4lPnphvduWv69to0yUI85ndhSCxtskzUwX/msCXsgLhTSzrWQOvDnR2vrIagSxyJpUm9vwpNgh3UTHdLw5EOZ3z+IkRckzzzafykXb2ika8X1UAxNS92d7G4WiYcndKVc7FuG9rY+NjuZmaaMU2T4xhqiBRq6VPhhozBWYyniSbaYgOsh+UuvhTnXPyiAcOSYg98PURiF92cC/1vf8q2rftACW9Sg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=q0hqXPf4kTbOxJkOF4gql1YC4rmxr2neS6DmqcMuUNc=;
+ b=igSThpjwdR3j/huitz7B5Iqu/f6M917qtzUeLMGZYKz05Z34TXCk6ywpNndo3ttTmJ1ctZaI1Un7/ikSKX8l7ZMtWn1jJ7un3yLekMUfb+4XdwNajtbvzwbpoEB0iIkRyEJi65oyVB2d/OHV5CnVMXJN1tSb+fFfTflWMbYEvZp57nlQj1Tac9VtM9gj6Z5q5Mp688XID0HrlhCYDvze0GWwG09Z32vxGOiMiVFHgulcJXmVYkJdEzgxDiQFEulyClCIbbJP7KqHbLZOY2P2jLlLdzn3xhXZnnohOZSawyJ6miNslCzhZRR1NqaeTqcq5WBY01wwm7OSHV5xfXR6eg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=q0hqXPf4kTbOxJkOF4gql1YC4rmxr2neS6DmqcMuUNc=;
+ b=fpLGP5OuXlCfs3iG0WMXPDy5siWKRmEQjh6zGzA/B4iFPlEwfn3NwdXvz94y5fFkatk4+HX+ZlatrfODYqo0TZ0Xmn6v1WNaAHgbsUO8wY/RDeZD6WKu61mFur1720J5CYAZfND1or0PHIcOKhmAr6Yskp889bBCvEU1CU+Iz/piJ7Mr1vErR8WcJEw1rG/yPEvbCSt6NMXCdPsMB0CBJPzVxiknZkM8K9VxCMN3P+NqS7/u91ub9HkfRcfOkMpeZNSfvDqapNLiFq0rY+doNY7TM0rQys514cVAmQx6l5eBskCXdMgYH8dSe7rlIz26Q9bKl3/gv6k2FnBsbg5VLg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by GVXPR04MB11041.eurprd04.prod.outlook.com (2603:10a6:150:218::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Thu, 5 Mar
+ 2026 17:38:02 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9654.020; Thu, 5 Mar 2026
+ 17:38:02 +0000
+Date: Thu, 5 Mar 2026 12:37:53 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Peter Rosin <peda@axentia.se>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Haibo Chen <haibo.chen@nxp.com>
+Subject: Re: [PATCH v2 4/6] pinctrl: add generic board-level pinctrl driver
+ using mux framework
+Message-ID: <aam_cZhlCSxu5WHS@lizhi-Precision-Tower-5810>
+References: <20260225-pinctrl-mux-v2-0-1436a25fa454@nxp.com>
+ <20260225-pinctrl-mux-v2-4-1436a25fa454@nxp.com>
+ <CAD++jLkT83xz+PSzZZv_Mv+Mqx_+W30d_xk68EDG-sdmFF3x3A@mail.gmail.com>
+ <aaG2xQDnMVGGAOJE@lizhi-Precision-Tower-5810>
+ <CAD++jLm=6pTh7N5UAXFaaYWCs5DhfQdb+8TnM5XLcYC886=kLw@mail.gmail.com>
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260303063751.2531716-1-pjaroszynski@nvidia.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAD++jLm=6pTh7N5UAXFaaYWCs5DhfQdb+8TnM5XLcYC886=kLw@mail.gmail.com>
+X-ClientProxiedBy: PH0PR07CA0025.namprd07.prod.outlook.com
+ (2603:10b6:510:5::30) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GVXPR04MB11041:EE_
+X-MS-Office365-Filtering-Correlation-Id: 27f9533e-a0e5-43dc-8ce0-08de7addf34b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|52116014|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: ZX7tuqGEsHMu4ctHSqIpgqpad9c5l41h6tfon8mmcxDozCMJLv6B8zXsmcyN7nXfVptRbIz44ggrqr/kSuqSckfRzGZuMq4qFoWHmkvTcPGgnQFw/p8071tFPAvVZD+73CEkCOEqbKHK9GcUU7fNlBovEqtvk1lCqBZUIoRatSvrN1fNABBpGShL2341h5O01JCkObDmDVvqBElt1hIVwq0wlhrUXzJ5Vz5Fz9Qg9ic/ZvBpFcoQ+eet7X3X3jT0g+xZBMnjWnTdDnbL0bFR/LwwEShjM29xbURceQr3MdGMPRae5SrUpO/EbiID7ZCwabbCqZ90vUL1iq4BseCj+HnpV35MbhGeNGnZHmGH5OjUzNLaZOUMq5o0DUUBgBpNPe4OWbFPuEeKwP2Awph9AqI6oKH8ExFhNd3dYmaA9QJ3+Bbksb6jb9m7hrpf0fK2pyMOXtiFkjA6k07LYv2wNcujfyBwcLPTsncZfMTEHlTYUWg8ZRTj4mcEerzmUQCYCqxXD3sbu8tt5htRIaAh7M8qmtwUwd31eM4D18j4+liD5kBz2OURYMr2/uP5KQONk3naJWOhh43WZTR1snNQPYc7TkX3nUsy7DX216jQQqWAAWgYrrYg9f9Wi3fowHnzL2IYVqdnE7TsYiCZwcdJH+uf41SjCgENxvkCQNbMEMh9uyeb3+wMQypEMfHmV1Z+BZDQyk60wmlY4EcQYLb8iG7M2diZF0BVCXSdeRZSKZJ6B5lp+jblhslkO+EkBXmKkbPaWvnCUGvgI2p4MHZ+qmEqr1pDRYGFqa5+l02icpI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(52116014)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Yld3ZFZrTERYVnRIUTI0Ri9MOElKeW45RTdqQ2VlMEVnWG0vcWU1OEFmNWN3?=
+ =?utf-8?B?YlFwdzN0K3lqTERFeXFmWUw2YkEwdDQ3a1JRWlVvNG5URmFxcksrbndpT3lB?=
+ =?utf-8?B?eEFCakFyREFVZlJiSGZ0aG9pQTMzR3poNm5PdzJFMFltVjQ1NGFZdWQwV01l?=
+ =?utf-8?B?ZXdKMzhyelFQWUI0RkZKUUljbTdadTAwVDNmbzBtMmc5TElVaStLQ3g0ODJC?=
+ =?utf-8?B?a3Fja0dVbWNHdFdadDBXTkFpVjkvVWJOQTJzN3ZYdFN1TGtEMmJpNmVlVGVV?=
+ =?utf-8?B?RGR1MHQ5QzVYY2VlZmYxUHJyY0hYeUVRbjRRZFhTeURTOTVDdXg1NXU0N3ox?=
+ =?utf-8?B?Z3JTUURYNlJac1RScXlJY2o2c05FcmZtZS9od0g1WnkvZ0o2OUFKbk1OQ0tw?=
+ =?utf-8?B?SlFkZHdyaGVCdjFWSysxSmtIUFFzU0p0bTU3cUM4R0pnR3dMeXJUNDZLN2dG?=
+ =?utf-8?B?eGtwSDdrNDlOUEpkSXU0N2Z2NWNMQlNNUjI2ZHEzOGZ1dURlVjRNcThIdG5L?=
+ =?utf-8?B?SUwvWjNydkxvVjVDMUk0UjJPcWxtRGlYNHloMmF1WkVSMEh3YkJUOWdpVW5s?=
+ =?utf-8?B?aW1rL1I4di9lekZwSWdwNThwc1llQVNCTW51bjdRNjBuLzVTRzhIZWd2N0p3?=
+ =?utf-8?B?djlYUmhwaDUwQnllUDc4bXBvR1Z3cnJaVDd4SFk0YmxqVkt1c28yYURXSkpT?=
+ =?utf-8?B?UU92RGk2dllNVk1JRFdyeGdvb1pFZDRSN3RzUGNwYlZKQ3N2aW8zMFh4cERn?=
+ =?utf-8?B?VERqN1NrVkYzbHdGT2d0NTlRemxmb0lGNnkzOU44Mkh5ZndiK1kwc3ByTXVi?=
+ =?utf-8?B?ZVkyVDIzUkJ3UXkzM3JjRklNVmdPSFUzUWFBZDUzdHg2ZUpPZGJxc1hyVGZi?=
+ =?utf-8?B?VU5kMTBTT0RCZ0JsdHZJWGQ3RUtPZVhlbERBZVVEYysweHMxanRBMlJpb2Rh?=
+ =?utf-8?B?TzJzVFVSaDRNbHc4a21HQzRxYzlmRTZhY3JkdW9MalR2VGpOSkFTMjdNZkxY?=
+ =?utf-8?B?Q3JjVWRmU3ZLeHU2emk0WTB2YThHaXRpWk1WNEsrakNyL0JZaUJhMWgyaXd6?=
+ =?utf-8?B?QUNPQXplQmF1eCs3UlY0aHpIc2VWVm9SbWRsSlhrM3VNM2F3dUlEeEN6c0dq?=
+ =?utf-8?B?a2x2TTFnZThldkJNOS9PQjArZEthZUtuNUNhTHhBd1hrVkVsOFpuRngrOURD?=
+ =?utf-8?B?QXBRNzBVR1dZUS9Na2xzTWVyU3ZrWGhsUXVQYXVEd3JjcWVqaG5DZUlQaVNy?=
+ =?utf-8?B?VjBvdzRLUFoyNFJHWTJLU2FneXFzR3NnMjVkdm5KaFlVYWFJVFNwek4yalZx?=
+ =?utf-8?B?ZkUxMTFuVDlvOFk2Nll4TTRzL1E0R3cyRHcxT1BHbUVxNTlmOEh2ZGp2WDlZ?=
+ =?utf-8?B?dWpLMnpINDkwOG1NRE9Qd3BhU1hlYXF0bTlOQjMxOTN2eWwyeWhwazlGM0Ji?=
+ =?utf-8?B?K1dMcVZ6K05hK280TGZtSzFXYzhpeWhYbndjdWtZdzc3L1F4QSs3T0l4c3FS?=
+ =?utf-8?B?dHZVWDNvbjVrZ3ZEcjcyL3ZBWFgzN0JLVTNKRVJFK0l4d2hRT1FiUnl0Y0NF?=
+ =?utf-8?B?MUlIRHY2eXFxVHlhOU0zcjRhdXZCTUdmQjVWWUVlMjhldWJCWCtnakF0UHVM?=
+ =?utf-8?B?U0F1ZW9PZjQ2R29mM1pmRDdTWGhMWGYwY1RGcnlWUkd3SGZTeFVRN2NKM1ZJ?=
+ =?utf-8?B?M084bDZGNmF0SlZITURCZEowR09YbnFYZFBWUW4wc0VEZ2Q2QUdHVVJ0OUxP?=
+ =?utf-8?B?dTlKSndUamdHaTZudnVMVmw3bU5OV3QzdmVKNWwyUWlLa3ZUcHF6TW1qMkdn?=
+ =?utf-8?B?YUt6K0Z1d3VzVUlHUWpMbi92N0w2OFFONzJtM2hxbmNhOTY5OTluY1FEM0Q1?=
+ =?utf-8?B?ZG5qUWZFb2wwTVBmWStYOTZKQ2tuZDNaM0JuNm9pejVZK1FmUFMyQUpuRGdx?=
+ =?utf-8?B?YnBNby9wVHlMQ0ZmeWhSdE1QbUhlblA0ZThiRUQ2NG9qNG9wT2xTeWVsaGhO?=
+ =?utf-8?B?dUY4a04zNFRZSnRmT0l4QUo1VlVON1ZTMkJ6aWxLRWg1Z1dxTlJ4bm42R0ZZ?=
+ =?utf-8?B?OC9KTlhmSkR1N1hFYUZKWVphRTYzZVFidHhzdStvc2w5WWd6K3dVZ2tTV3Fr?=
+ =?utf-8?B?c2s0S00vUHZnT2NaWUxQNHVHTEJlb1pORHJtZXM0SUlaTVlERm1CZG5MTGlR?=
+ =?utf-8?B?bU5SbzdrU2xJd0ZJTkVsUVFCYjB0c1VEbmxMeHM5dk5mOG4rSEZtd1NLeVBF?=
+ =?utf-8?B?Mi8rMHJRUDlPeEpQQzhmcEREMGdCTU0ySXFrKy85ZkM5QjU0Q2NFS1ZiUFUr?=
+ =?utf-8?B?UURmMUVJNjE3N2pHVFhnVEpDVnFuZWx1VHZNU3Urd05qRzQybjh1UT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 27f9533e-a0e5-43dc-8ce0-08de7addf34b
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2026 17:38:02.3181
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: a71jUAoXHkJwwTwGcAZJDsLqaKjflV59lGlBMJ9hGPVSHPytXeL7Hnh3wrX/v88R5ozWG6lf//ZK9Z2X1BuXsQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB11041
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_093336_419128_43E1E662 
-X-CRM114-Status: GOOD (  26.18  )
+X-CRM114-CacheID: sfid-20260305_093811_688638_02A24ED2 
+X-CRM114-Status: GOOD (  26.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,94 +157,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Looking at the patch again, some more comments.
+On Mon, Mar 02, 2026 at 11:11:00AM +0100, Linus Walleij wrote:
+> On Fri, Feb 27, 2026 at 4:23 PM Frank Li <Frank.li@nxp.com> wrote:
+> > On Fri, Feb 27, 2026 at 10:20:14AM +0100, Linus Walleij wrote:
+> > > On Thu, Feb 26, 2026 at 12:55 AM Frank Li <Frank.Li@nxp.com> wrote:
+>
+> > > > +static void mux_pinmux_release_mux(struct pinctrl_dev *pctldev,
+> > > > +                                  unsigned int func_selector,
+> > > > +                                  unsigned int group_selector)
+> > > > +{
+> > > > +       struct mux_pinctrl *mpctl = pinctrl_dev_get_drvdata(pctldev);
+> > > > +       const struct function_desc *function;
+> > > > +       struct mux_pin_function *func;
+> > > > +
+> > > > +       guard(mutex)(&mpctl->lock);
+> > > > +
+> > > > +       function = pinmux_generic_get_function(pctldev, func_selector);
+> > > > +       func = function->data;
+> > > > +
+> > > > +       mux_state_deselect(func->mux_state);
+> > > > +
+> > > > +       mpctl->cur_select = -1;
+> > > > +}
+> > >
+> > > As mentioned I have my doubts about this, explain why this hardware
+> > > is so different that this is needed.
+> >
+> > As board mux (uart and flexcan) exist, for example, only one of UART and
+> > FlexCAN work.
+> >
+> > when modprobe uart.ko,  mux_state_select called.
+> >
+> > So flexcan driver can't get such mux as expected.
+> >
+> > when remmod uart.ko, we need release mux_state, so flexcan driver can
+> > get such resource.
+> >
+> > Genernally, DT may only enouble one of UART or flexcan.
+> >
+> > but insmod uart.ko
+> >     rmmod uart.ko
+> >
+> >     insmod uart.ko (here also need release previous's state at prevous rmmod).
+>
+> Can't you just enter the state "init"? This can be used
+> explicitly on the uart .remove() path using pinctrl_pm_select_init_state().
+>
+> Sure the device core does not do it automatically but this is a
+> special case.
+>
+> If you want a generic solution without having to change any drivers,
+> Add pinctrl_unbind_pins() to drivers/base/pinctrl.c and call on the
+> generic .remove path for all drivers to put the device into "init"
+> state during rmmod.
+>
+> This gives us better control of the actual hardware states I think?
 
-On Mon, Mar 02, 2026 at 10:37:51PM -0800, Piotr Jaroszynski wrote:
-> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-> index bcac4f55f9c1..9868bfe4607c 100644
-> --- a/arch/arm64/mm/contpte.c
-> +++ b/arch/arm64/mm/contpte.c
-> @@ -390,6 +390,23 @@ void contpte_clear_young_dirty_ptes(struct vm_area_struct *vma,
->  }
->  EXPORT_SYMBOL_GPL(contpte_clear_young_dirty_ptes);
->  
-> +static bool contpte_all_subptes_match_access_flags(pte_t *ptep, pte_t entry)
+init state is before probe if exist, which not fit this case because:
+- on board mux need be enabled before probe, some device need communicate
+with periphal at probe, such as SD card. SD data/cmd line must be ready
+to scan SD, similar case for all mtd devices.
 
-More of a nitpick: since this checks both the flags and write
-permission, I'd rename to something else. Maybe contpte_ptep_same() to
-somewhat resemble pte_same() used by __ptep_set_access_flags().
+if add new state "release",  when the pinctrl may switch between default,
+sleep, ... , "release" have to switch between switch state, such as default
+ -> sleep have to change to default->release->sleep.
 
-> +{
-> +	pte_t *cont_ptep = contpte_align_down(ptep);
-> +	const pteval_t access_mask = PTE_RDONLY | PTE_AF | PTE_WRITE | PTE_DIRTY;
+mux device also have idle state, which map to pinctrl's "init" or "sleep"
+state.
 
-We can drop the PTE_DIRTY from the mask as it's not relevant to the
-hardware permission. It probably doesn't matter in practice.
+The key difference should be
+- pinctrl can uncondtional switch state.
+- mux frame have to use pair mux_control_(de)select() to switch state.
 
-> +	pteval_t entry_access = pte_val(entry) & access_mask;
-> +	int i;
-> +
-> +	for (i = 0; i < CONT_PTES; i++) {
-> +		pteval_t pte_access = pte_val(__ptep_get(cont_ptep + i)) & access_mask;
-> +
-> +		if (pte_access != entry_access)
-> +			return false;
-> +	}
-> +
-> +	return true;
-> +}
-> +
->  int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
->  					unsigned long addr, pte_t *ptep,
->  					pte_t entry, int dirty)
-> @@ -399,13 +416,35 @@ int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
->  	int i;
->  
->  	/*
-> -	 * Gather the access/dirty bits for the contiguous range. If nothing has
-> -	 * changed, its a noop.
-> +	 * Check whether all sub-PTEs in the CONT block already have the
-> +	 * requested access flags, using raw per-PTE values rather than the
-> +	 * gathered ptep_get() view.
+So, I think just need a hook in pinctrl system to call mux_control_deselect()
+when switch state and release resource.
 
-It's not just about the access flag but AF, dirty and write permission,
-all can be changed by this function (and only to a more permissive
-setting).
+Frank
 
-> +	 *
-> +	 * ptep_get() gathers AF/dirty state across the whole CONT block,
-> +	 * which is correct for CPU TLB semantics: with FEAT_HAFDBS the
-> +	 * hardware may set AF/dirty on any sub-PTE and the CPU TLB treats
-> +	 * the gathered result as authoritative for the entire range. But an
-> +	 * SMMU without HTTU (or with HA/HD disabled in CD.TCR) evaluates
-
-Or CPU equally, we don't force all CPUs in a system to support DBM.
-
-> +	 * each descriptor individually and will keep faulting on the target
-> +	 * sub-PTE if its flags haven't actually been updated. Gathering can
-> +	 * therefore cause false no-ops when only a sibling has been updated:
-> +	 *  - write faults: target still has PTE_RDONLY (needs PTE_RDONLY cleared)
-> +	 *  - read faults:  target still lacks PTE_AF
-> +	 *
-> +	 * Per Arm ARM (DDI 0487) D8.7.1, any sub-PTE in a CONT range may
-> +	 * become the effective cached translation, so all entries must have
-> +	 * consistent attributes. Check the full CONT block before returning
-> +	 * no-op, and when any sub-PTE mismatches, proceed to update the whole
-> +	 * range.
->  	 */
-> -	orig_pte = pte_mknoncont(ptep_get(ptep));
-> -	if (pte_val(orig_pte) == pte_val(entry))
-> +	if (contpte_all_subptes_match_access_flags(ptep, entry))
->  		return 0;
->  
-> +	/*
-> +	 * Use raw target pte (not gathered) for write-bit unfold decision.
-> +	 */
-> +	orig_pte = pte_mknoncont(__ptep_get(ptep));
-
-This is fine since all should have the same PTE_WRITE bit.
-
-Anyway, nothing major, so:
-
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+>
+> Yours,
+> Linus Walleij
 
