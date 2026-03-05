@@ -4,98 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43A5DF47CCC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 20:25:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71EE2F47CCE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 20:37:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=e7ZYKBVruApI8Lg7SIwWtlcpJWziK6Oev9y2DvYJxqA=; b=gkM4oIguKrPFTwspKKe8USyF3g
-	yjnhjnvojpIMdFjDNe4FUJziSoQvMFHMPOD6HX5f3ynHHDJChSrDtcQfedqBt8hDHXMsbitpbVuCQ
-	tsqvQio850CfASp47jBVbwdswj7GVgavHI6UuJu9Nq3zcJY2qI/EdYnFPShwweAnJqz4z31J0tP5J
-	H/RjcElqLFuVL5oNjsJs/H+e8RYZdqLOR3RXI7oK/6Pfp4sNq6K2Vo6WQPaX2Z90X6KO+NVPWjFtr
-	LNHhn0qJSSCAYPMyiT8gzca/DlNsoRA8EgT1I/po3reJHkiDMVjSDBGCBO9Wnhc6MZ1LE4nqN8tuk
-	V2ZsMDLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GagjlAL2O7EYzCpCrWOurTNpv/8gvwBM7noizJC+i7E=; b=rVKJ+jB1zkNq3nVBrX2H7g2GoC
+	YZDg/VGumX73S9SWZ2T71qmUon8Febb8LAjWmJxSAPa/ZSvzzotjJICx2sk9ZGbXQoZfNBOskJD6k
+	C1F4Umx+4huf9XE91HebtS3orvz9j2V0TMIj3fO/kGBDzOkwEJFTSO4O2y6J6d2vW0ZEtAu1jE4Lk
+	JRScKe9pWWKfawbwKeF83OKMsYwoskV74jD+KPusdIsrDvBdnF1Luc0RRHsynPGr2kLKAp3Djuibq
+	d7OJ21naOiGvayZ/Xf5M8OEAe0Pus5GhUSzShAj8iy8pKS9DAMZazvg/z/Hyc3yGwLoqXCdDSgyD1
+	LcRFHFGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyFFn-00000002WxR-3vbE;
-	Thu, 05 Mar 2026 20:25:03 +0000
-Received: from mail-oo1-xc36.google.com ([2607:f8b0:4864:20::c36])
+	id 1vyFRu-00000002XSb-25Xe;
+	Thu, 05 Mar 2026 20:37:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyFFl-00000002Wwb-0662
+	id 1vyFRs-00000002XSV-2GGQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 20:25:03 +0000
-Received: by mail-oo1-xc36.google.com with SMTP id 006d021491bc7-6775a46c6dfso3294335eaf.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 12:24:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1772742299; x=1773347099; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=e7ZYKBVruApI8Lg7SIwWtlcpJWziK6Oev9y2DvYJxqA=;
-        b=Vx/14Bk7RMwMdPUMVB+u48VoKH2uI0LZbkaz/njrM99wXu4p+gWQZLdyowUzynsOEJ
-         NMwy8LrPwiT8mbhYTBlo9QV5K39f5qGqDdq/q6E3SjgOHKzTSvnY/5FjiJQvMB1+89ZS
-         efbKcPK9ij1tLiYpvrY8Uj1oQUPsTUG3+nJGRR0Er+PxEX9RN+Gdj3+XIH2xZXUMP5+J
-         O42KIQ6z53h1Li+u8O//dQVH78F2NyIpJtNjRQDzgS6dvh6R8m9jIyc3r9FE4+vLbnBY
-         1ITx7uDhceBWGF0FfUErBHMcI/EWk1ggC+GUp/TrNcJ31oGo2qZVUnOhYWLpmkJNE8lB
-         vXjA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772742299; x=1773347099;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=e7ZYKBVruApI8Lg7SIwWtlcpJWziK6Oev9y2DvYJxqA=;
-        b=qbVSy4WI/c3RWy+BMpquXO46ceWvkxvWz8VZ3sprZqaHpeDqegKT6cwHzKJudmrMhw
-         mLKMJvH9eyGGNnLbgxajftwhkwzZbUqGkj5A9bTft7GzIkDm9JKq9CvPBq9DXAJ7fxYW
-         8+FOkvWk9mA3HkiKe8209MEOn7Ll8TdL1A0BipmmNe25VZ+1vwbnphP+JE92yLlPu9KX
-         2aI3nIvNFG9htReq9QLcLfMxZQ2H414YSqfxjVvh29Ol6ARo23ZBna67yu2NqZRuw6Qc
-         EOFPaSzxoMcpKfMvQOz3ZIGXPJK97vx+eYOIflrwHyglNZIBlw3nNOxSBwEi6mKNrIvv
-         bkrA==
-X-Gm-Message-State: AOJu0Yzofz4cEh64P6mN/AHknZRCpyUoYlplh2cLfS5kIdTnIWo5aOMi
-	voc08inp3djY3Majwl67d2KJhXwhLNx4xu9p8nMTo/2nXDZvnQnX7JJ8vkGiweB2OgQ=
-X-Gm-Gg: ATEYQzwrz99LDdWOdYUe2EsUGttnrWGxO8PFOAAc5YZ5RrRSqY5/9OQ7eqDTWQ2KCvF
-	5zFq/6/+HDLPd+miNZkPkaBqtxlVLS6NI5G1QUI79VYlWzi2sRhtaT+RwgN0C7O9hEnd2xo2GIf
-	me061lIThp2Lu4BlQTnp3cdp5yxeFhXm6N9W/6xEnBZMqDQHEeht3OY8yA5/XbQNkg5xWeW9AJH
-	DVj3XSQ/SgUFOlnCFEJA0JeDW+V9nBLarsScP8pBNLzel7xJddeQg9fumJyFNgpDYqZ1Csas+SN
-	pi+/u0ROKVyq0K35IYys+digxw7l6FjBV5+1OTgoaZFgP+qw5U0UEnYL02sRr05dn0q+INkgVcS
-	9WS356kVYE0t6k49Y1fXFF5085eIptvMhDPTKbeXVuQ28IGUHWQA6fCgZPlqwQBKB82zn7IaPXy
-	QMsM/vOQz6stGLhSVHf7UAhLbETInq
-X-Received: by 2002:a05:6820:1799:b0:679:dd71:db78 with SMTP id 006d021491bc7-67b176e81e5mr4267637eaf.12.1772742299132;
-        Thu, 05 Mar 2026 12:24:59 -0800 (PST)
-Received: from [127.0.1.1] ([2600:8803:e7e4:500:874e:e775:4f67:b3a5])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-679f2bcd3c5sm15417943eaf.1.2026.03.05.12.24.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Mar 2026 12:24:58 -0800 (PST)
-From: David Lechner <dlechner@baylibre.com>
-Date: Thu, 05 Mar 2026 14:24:50 -0600
-Subject: [PATCH] ARM: defconfig: remove duplicate CONFIG_TI_PRUSS
+	Thu, 05 Mar 2026 20:37:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A02E36001D;
+	Thu,  5 Mar 2026 20:37:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D420BC116C6;
+	Thu,  5 Mar 2026 20:37:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772743051;
+	bh=rJdX5O217lkUZWEJmhxFt0SA5QUe4q3aekpnomdRpFE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=uuc/vu6CnzHzYDEfKuXj1/wsZUgPZrBRr9oIGVJLjem+FmBtPE63AfrMam1GYEotG
+	 P5wScuhptWXQdWOGU7EogQEZzlVxBfRekvnAGVDW4zO5JS7b7qumuV/qoK+6ZKIUD3
+	 bXFYnBTmwz4hOQ3Lj1nvZMvO9dyK+kUyf3Wzlo9cbqoRubRV/XjJjGNYxuSPC0vrPe
+	 rjckhY5SEkBDqUUu2gAFvnJdgRngEmuI4Eb8p8MNBQEjMNi3egBvUybnOGTUm8vKhl
+	 CJabOx4E4Ak8oNueqUiWw9GB9L/HJp6AtzyfNQBxLkI7EI1Gp4ud4tkYFOOLgTloJK
+	 +lyQ/OrLoQgVw==
+Message-ID: <39ef5c99-ba8e-40c1-bf93-359db7297d55@kernel.org>
+Date: Thu, 5 Mar 2026 21:37:26 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] Revert "ARM: dts: imx: move nand related property under
+ nand@0"
+To: Frank Li <Frank.li@nxp.com>, max.krummenacher@gmx.de
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+ Max Krummenacher <max.krummenacher@toradex.com>,
+ Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ "regressions@lists.linux.dev" <regressions@lists.linux.dev>
+References: <20260219151157.2549198-1-max.oss.09@gmail.com>
+ <aZcz1vRg4KtAKUd_@lizhi-Precision-Tower-5810> <aZdDF6BObEu_C4KJ@toolbox>
+ <aZdnhv2QC1szMCVl@lizhi-Precision-Tower-5810> <aZ80BWH6DRu8_W_S@toolbox>
+ <aZ82pG3PO1HxD18B@lizhi-Precision-Tower-5810> <aaBA65_zLu8S6WMS@toolbox>
+ <aaBi9lipWTG5l0hs@lizhi-Precision-Tower-5810>
+ <bd0bd330d140f9d9d222c72c3797f79d08fcae1d.camel@active.ch>
+ <aaWxiERQ4u6IhO7Q@lizhi-Precision-Tower-5810>
+ <aaniGuauaieO3p36@lizhi-Precision-Tower-5810>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <aaniGuauaieO3p36@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260305-arm-defconfig-remove-dup-ti-pruss-v1-1-bd518ab2627c@baylibre.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3NwQqDMAyA4VeRnA3UyAb6KsNDManLwbYkUwbiu
- 6/s+F3+/wIXU3GYuwtMTnUtuWHoO1jfMW+Cys1AgZ5hDA+MtiNLWktOuqHJXk5BPip+FKsd7ig
- cp4EiEacRWqeaJP3+H6/lvn/3F7X1cwAAAA==
-X-Change-ID: 20260305-arm-defconfig-remove-dup-ti-pruss-eda912a22df3
-To: Russell King <linux@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- David Lechner <dlechner@baylibre.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1112; i=dlechner@baylibre.com;
- h=from:subject:message-id; bh=N3MQaBbD/mr93c9VrfcDHwGfEOBT8CXfibyctV/QTtE=;
- b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBpqeaTD0YE3QcuvzNDNFwpgFrqtDR2tongdpqG6
- Qq9XDsto2yJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaanmkwAKCRDCzCAB/wGP
- wHxCCACZVspXhVCcg3YV2CJZ/Wvq+JPYXw1NcghcRDvyB6st4aKINyeWwFBrNFHU3aU01r9+YEV
- NJjcxMBGUgJazIV3zC4ceJcmNI21pUADGHPAE4OKF7veSOhrBH3srwNaTsLzHuh6eMIwwRci2Mk
- NvOfqv8oLkYNWF8sSdYjA75NMmyx/D/RAFkZUa3Ok8J9ZLpM1lZJAY9GyGIylkLUye52FudHfk3
- sfLf9wtfQhorCF7dOWiYGnRnfRINKIBWgWhw8dN9HjNdYwZfBeetJZJeWDJ2hW5yulmiS7tDle2
- jPMudwmQQO2y//2xsQs1XpoucnVRiwrphaExUC3ClVi9mvCE
-X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
- fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_122501_333610_222527B5 
-X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,40 +129,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove a duplicate entry of CONFIG_TI_PRUSS=m in the multi_v7_defconfig
-file.
+On 05/03/2026 21:05, Frank Li wrote:
+> On Mon, Mar 02, 2026 at 10:49:28AM -0500, Frank Li wrote:
+>> On Mon, Mar 02, 2026 at 11:53:00AM +0100, Max Krummenacher wrote:
+>>> for our NAND-based modules, and our CI no longer produces any useful
+>>> results as a consequence.
+>>>
+>>> I strongly believe that, as an immediate first step, the commit
+>>> that moved the DT NAND chip configuration into its subnode should
+>>> be reverted.
+>>
+>> As my previous said, can do partial revert? Just add back property under
+>> gpmi and keep nand@0 node.
+>>
+>> For example
+>>
+>> --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
+>> +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
+>> @@ -260,14 +260,10 @@ fixed-link {
+>> &gpmi {
+>>   	pinctrl-names = "default";
+>>   	pinctrl-0 = <&pinctrl_gpmi_nand>;
+>> +	nand-on-flash-bbt;
+>>   	#address-cells = <1>;
+>>  	#size-cells = <0>;
+>>   	status = "okay";
+>>
+>> Remove "- nand@0" part.  You can use "git add -p" to do that.
+> 
+> Do you plan rework this patch as what I said?
 
-This was noticed by the following warning during a build:
+Issue and revert were posted two weeks ago. That's maximum time to
+handle regression.
 
-    arch/arm/configs/multi_v7_defconfig:1152:warning: override: reassigning to symbol TI_PRUSS
+Please apply the patch to fix the regression.
 
-Signed-off-by: David Lechner <dlechner@baylibre.com>
----
-In case anyone is wondering, I used savedefconfig to make sure I removed
-the one in the "incorrect" place.
----
- arch/arm/configs/multi_v7_defconfig | 1 -
- 1 file changed, 1 deletion(-)
+#regzbot introduced: 8124b4a4a96b
 
-diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
-index f75d75cf91c8..70d05f74049e 100644
---- a/arch/arm/configs/multi_v7_defconfig
-+++ b/arch/arm/configs/multi_v7_defconfig
-@@ -279,7 +279,6 @@ CONFIG_TI_CPSW_SWITCHDEV=y
- CONFIG_TI_CPTS=y
- CONFIG_TI_KEYSTONE_NETCP=y
- CONFIG_TI_KEYSTONE_NETCP_ETHSS=y
--CONFIG_TI_PRUSS=m
- CONFIG_TI_PRUETH=m
- CONFIG_XILINX_EMACLITE=y
- CONFIG_SFP=m
+> 
+> Frank
+> 
+>>
+>> Frank
+>>
+>>
 
----
-base-commit: 3f9cd19e764b782706dbaacc69e502099cb014ba
-change-id: 20260305-arm-defconfig-remove-dup-ti-pruss-eda912a22df3
+Please kindly trim the replies from unnecessary context. It makes it
+much easier to find new content.
+
+There is huge chunk of quotes below which no one should scroll through
+to look for your replies.
+
 
 Best regards,
--- 
-David Lechner <dlechner@baylibre.com>
-
+Krzysztof
 
