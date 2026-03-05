@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A384EFCE5E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 03:34:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C721DEFCE5E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 03:34:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GoyJS43DjogCNIlYUyLOl9RH46vOQLUOd3a+06hfz+Q=; b=mMDYf55R8Z1YdrtceOLmi3RGZk
-	+AG8uV7wVMuu4keCij10kN1E2GCY9dI1xITjPd48Gxk8fqIjQ1cM/fXQS7EEIpdpBDU1xYCuIE8mq
-	Skf9FIfZI0dFTAL+nUvGkKmMRb0Fmb/d3gL4A9UuzKyVOL1DBZqvi5y40opDOzZT7sOcm0HJvmiYF
-	kOWI2silVq1CjmnXfHvzgI0ZeublIzsiSj+f7WHBiIJahklq0CyXro8JYSH2BW0rPU23cWD+nAgGs
-	pCWan1G00UOfujznc0LWejf/sQBy2iMFZw2Rf/e+MWmP8/FRVPv7tmFUXiKJ0Sflr6jswZcdxrgIN
-	n8tGFkmA==;
+	bh=2d5yl02iJv/wkdm4hWnCdO+qs5aDrcJeSjvUW0fTJuE=; b=pnSIJVsfBDJlbTHN11L+hi3mp8
+	1lHbZ2O9b2jRfg1blzRicdw8S/q/VMHSKlALyCZtC5MCksUx/gIXb/l4PXTaJrTKaNo4woohYGvgQ
+	MNqIKjE78vS09zTmnhfTlwoZKkGb0UYOCe6AybVZ7qLc6x8ZIo/sXIpakotBkbzFqxRNFYMfe0xSH
+	0EQMB/ke3XFxpc7ND4OYJbLqmPFkeZ4qkrPWfqXI+6PW+4bRHJPtQs6FCIsuXWKdBPhg/JT6ymZnz
+	UxN3pcgGWW5f/FYxFD8FK3LcX7IR46K3pZZnYhShDu+z7krS60SndsHDG1iWtcaI1jrzPCefiUldD
+	acMzPTIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxzTc-00000000r5k-1oxv;
-	Thu, 05 Mar 2026 03:34:16 +0000
-Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
+	id 1vxzTe-00000000r6k-41Fp;
+	Thu, 05 Mar 2026 03:34:18 +0000
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxzTZ-00000000r4V-43IE
+	id 1vxzTa-00000000r4m-3Nxg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 03:34:15 +0000
-Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-506bad34f51so65344001cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 19:34:13 -0800 (PST)
+	Thu, 05 Mar 2026 03:34:16 +0000
+Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-506c00df428so66314871cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 19:34:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772681652; x=1773286452; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1772681653; x=1773286453; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=GoyJS43DjogCNIlYUyLOl9RH46vOQLUOd3a+06hfz+Q=;
-        b=DrJp/BtXA7wI7Gl5FYaFP84kV/LHgkHUu0XQy5UN+XMBxAPdxAUFndmamf4Kg3KFi0
-         CoBurt+vjmcs5FxAoQqitjBkj6Jc1xgHGCRW6UxXu4q81+5gIJnUxwzRRp4kP/ljaSg2
-         cGsO6tK4VJgTB8r+z6gojrXGthrKHhde7k1AHEeBk4A+3sx6E2JIz6CmjCUNne0U6n2R
-         /Fwcwno6Z9+Ei/QIvfH3PB20F5XlIUCpLta06IeqPLTCEDpAW/ISvTkDoLYvgnXw6F/m
-         EPrlAAn1Vx/+rOfnBwZv6n8uohFxIAcf0+YfyvqXNk1k/KSG6eaKHOnFbBA1k+yq1h/G
-         nzJg==
+        bh=2d5yl02iJv/wkdm4hWnCdO+qs5aDrcJeSjvUW0fTJuE=;
+        b=NTZBOpILAt71nnvX6zWSfqgsGPVbJVAegMIs2QAmFehd5B5QU8fs5l0jQQQ6KfCDwI
+         yEX98YfFMhyB9pAFezrjfalocSQsUJzmiIhNbJPT1aIlwxeAjXXmRimF5IoVoZdVXkov
+         38cH8eDcSwTNNzoP7a8MPzvBgMNETXiSXwPeAIyDL4lKcet7oRvVE3jO2vtLTKDdTTLk
+         598lJZtgqYDFFEFXYP1fiUQO9LDWt2JDpq9v9XWvp0TMee6JJSYyVajZTBgoiApEzaLN
+         +Hsdr4GnNtifQen4g1/C6whtTvrdnKmkaTeUvJj5IsarTf9GnD1BJxHoR9KKI7NUH588
+         MBiA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772681652; x=1773286452;
+        d=1e100.net; s=20230601; t=1772681653; x=1773286453;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=GoyJS43DjogCNIlYUyLOl9RH46vOQLUOd3a+06hfz+Q=;
-        b=HspiuTAec7z7U9f6xW3YKKmuUr5dgHWeqFOjgVYo74sBilFJ+lNByat+fp36Q6tTE7
-         6cwdbkzZpi4J1XWnZsvrNFKuNc2PY54Cyy2B+GcuPfJfAVC5I23qDSM00t2sQoaMsD1Q
-         uGrEgjq1vWZ9qhAV513yh9dkC+C0Cst8cneYHNjPY+9o/UuDkH314XgyM9h7NRk26KPt
-         nv4V9nyapqQ+I2jKPXPiVhp42geaCe7ICGZ0bI2kksZfxYWMRmqisG95me2SbsbbQI5x
-         /3Wa9M0gcS2eb+lMooKygDl36rMutNXnkTxhBZGbEI8UcA+CH87zkPYNpPkTtQG36MLL
-         eG0Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXoJfaUtB1lTX+ojhoiB1PvDn3XkAxnUkir4NWkejOe+G8a2VLB0i2qyqHP7TmE/Wxe5I1/R193CjQsEA2kceWS@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVse4e1rq7YcMkbZ+nvMlpxVWn9mFEuws6UePqLSHMmpu4Qgmw
-	1hg63nsHahBb6M3t9GoPjFYCjxASsdSXyWrfH3ewnVXWjM1CiEnv+q4i
-X-Gm-Gg: ATEYQzwvV5Zk1Bw/mRf8bhngfWzVayO3KP26SEGe6JiZJMSYbs+qOCrAvIHONb5u3MF
-	z2Ifq52D3kPBzxCB6N50Yp4swLnFcxcTFSryZQwfAuZ4CihwHqZRVen5in7cGEuSSR6Xrf5Hxfo
-	/7RJEbn/pKpYEGWek1SreyFfipL1uRjK+GF/+GPM1IJ5npX3byzJRJ/IhV9lihhGRCIbWm6hixL
-	vb4ooKgKSray+mM8o7cv6p9WTH+wtme/Zbcj+TDDlNFDypQnIy+YeASs2wagKKXrNNd5twFmiKj
-	lx8uXjjnW3ZalmT95opmEIeLwpcQsFow8Bs4e/Qk0ldlZj4tfXwMkBDu6SYRes1/v/+u+TFy9qC
-	Q13A3b3BOBkj/wWU7q0Mb+CUplfi3fHCfhFgZVXEstO6ic9KUeaoGt3IK2Uz327wmRhv2ngbTIH
-	StZF2Yw1/lYvrJLQykJdrK+4iUGPc=
-X-Received: by 2002:ac8:5a82:0:b0:502:9e93:617d with SMTP id d75a77b69052e-508db36395dmr51002631cf.46.1772681652477;
-        Wed, 04 Mar 2026 19:34:12 -0800 (PST)
+        bh=2d5yl02iJv/wkdm4hWnCdO+qs5aDrcJeSjvUW0fTJuE=;
+        b=Xc9hAytpvC2k47tFSKCcs6M1SXifK9DSmbRwjYuDJaBA+r9F9D0Y8r1xVfZFKt79xX
+         fVxep8nzp9kIg67UWaRkeAgiPMSV5k+EzRj4dBlYkX06FEiX9iZjhI5gdoPSpTzxR5Vm
+         LJbWt1HjIjgw+usCZS5SiygTzC5X7p7J5corLqExQS/1PrV/s8XiI88VvQ0AodFGkfdW
+         bbIKWJVYaXZfBgphG8AYHKoCX5Y0tmdAgF2YRpgJ4HZhQA557HmZtt+Rp4qd+3xzzNsu
+         mfOPIW6IBKe3TX9VX8tLrQzGA/3RmgbYogO5/GE3VaGxDpfYQWRpasizlOXj3n/GKdJt
+         W1UA==
+X-Forwarded-Encrypted: i=1; AJvYcCUnZxiI+rbjc08pZdQ1pNEfAKdE4wudSwx2iI2OWAu7Bnl2Ftczb69Qf2u2KksGZW08dvCDTC63gmklQkqSnTqU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxtDTfwb9bP3kcUvzRnfYYV3FMmR9jOWMp96T0mhtH9kh6VEZZj
+	V24hgpK4zwAMWBD9+cjNch/rA03vxHsU+i+T2lRoSslk5OxdlUX16g76
+X-Gm-Gg: ATEYQzwQZb934Fv3zvd/W21tNVxB5f/097iXJ4QxU8IcwTs8voG2n2isPEJaRbSrqbQ
+	o8jSpBf63d2M7coiOW8EhnkzjFHiXT7H3LZalEJUzkBGKeZUzGh5Hk6V5+ur9CxE5HuwRikk0Lu
+	CGGHfnQcQxgrHHX6ztjXq3csDbEzvNTnfCsP6YwaZHynmr6/iYH4/yku2y4IjRDw8ZqKScGs1iN
+	ekK9ZUylywPnlqlR+GM+Z/gal9obR/er4gq8WywoKIJqBNgq2FM/Wp4WNV7FhkeWWOmzjD1+1l9
+	BPyeIxu5B32DiBN8v+w3D6417i6B2EaUDGlkwR8gKRmwsti+u3hWIXnp59PUO0sDpI62U4VsFDH
+	gUpgWt/g5dN5oUssdTfZF/u1TJJDeHlYr1vPlRAw3Fjny8VfZdGEm39AqeBiZcpzT/Kxiz/sGSn
+	abG2E1ojbo7k9Ni3KE+zNa3mszPGo=
+X-Received: by 2002:ac8:5a0c:0:b0:501:4b10:aa9e with SMTP id d75a77b69052e-508db2a632bmr59254511cf.13.1772681653433;
+        Wed, 04 Mar 2026 19:34:13 -0800 (PST)
 Received: from [172.17.0.2] ([134.128.219.200])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-507449630b6sm190667601cf.7.2026.03.04.19.34.11
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-507449630b6sm190667601cf.7.2026.03.04.19.34.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Mar 2026 19:34:12 -0800 (PST)
+        Wed, 04 Mar 2026 19:34:13 -0800 (PST)
 From: Yuanshen Cao <alex.caoys@gmail.com>
-Date: Thu, 05 Mar 2026 03:34:07 +0000
-Subject: [PATCH v2 1/2] dt-bindings: power: Add Support for Allwinner A733
- PCK600 Power Domain Controller
+Date: Thu, 05 Mar 2026 03:34:08 +0000
+Subject: [PATCH v2 2/2] pmdomain: sunxi: Add support for A733 to Allwinner
+ PCK600 driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260305-b4-pck600-a733-v2-1-ba6bbed7d253@gmail.com>
+Message-Id: <20260305-b4-pck600-a733-v2-2-ba6bbed7d253@gmail.com>
 References: <20260305-b4-pck600-a733-v2-0-ba6bbed7d253@gmail.com>
 In-Reply-To: <20260305-b4-pck600-a733-v2-0-ba6bbed7d253@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -85,12 +85,11 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Samuel Holland <samuel@sholland.org>, Ulf Hansson <ulf.hansson@linaro.org>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- linux-pm@vger.kernel.org, Yuanshen Cao <alex.caoys@gmail.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ linux-pm@vger.kernel.org, Yuanshen Cao <alex.caoys@gmail.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_193414_022076_7A318ACB 
-X-CRM114-Status: GOOD (  13.28  )
+X-CRM114-CacheID: sfid-20260304_193414_862008_86CFEF73 
+X-CRM114-Status: GOOD (  16.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,83 +104,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The A733 PCK600, similar to A523 PCK600, is likely a customized version
-of ARM PCK-600 power controller. They share the same BSP drivers in the
-package provided by Radxa, with the only difference being the lack of
-resets.
+The Allwinner A733 PCK600, similar to A523 PCK600, is likely a
+customized version of ARM PCK-600 power controller. It shares the same
+BSP driver with A523. According to the BSP provided by Radxa, unlike
+A523, it doesn't require reset, as well as a different pair of delay
+values.
 
-Therefore, document A733 compatible and make resets required only for
-the other models, as well as prepare the PD definitions for future
-device trees.
+Make reset optional in the sunxi pck600 driver and add support
+for A733.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Yuanshen Cao <alex.caoys@gmail.com>
 ---
- .../bindings/power/allwinner,sun20i-d1-ppu.yaml        | 17 ++++++++++++++++-
- .../dt-bindings/power/allwinner,sun60i-a733-pck-600.h  | 18 ++++++++++++++++++
- 2 files changed, 34 insertions(+), 1 deletion(-)
+ drivers/pmdomain/sunxi/sun55i-pck600.c | 35 ++++++++++++++++++++++++++++++----
+ 1 file changed, 31 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/power/allwinner,sun20i-d1-ppu.yaml b/Documentation/devicetree/bindings/power/allwinner,sun20i-d1-ppu.yaml
-index a28e75a9cb6a..b97361ce2a00 100644
---- a/Documentation/devicetree/bindings/power/allwinner,sun20i-d1-ppu.yaml
-+++ b/Documentation/devicetree/bindings/power/allwinner,sun20i-d1-ppu.yaml
-@@ -20,6 +20,7 @@ properties:
-       - allwinner,sun20i-d1-ppu
-       - allwinner,sun55i-a523-pck-600
-       - allwinner,sun55i-a523-ppu
-+      - allwinner,sun60i-a733-pck-600
+diff --git a/drivers/pmdomain/sunxi/sun55i-pck600.c b/drivers/pmdomain/sunxi/sun55i-pck600.c
+index c7ab51514531..1d47bbd35ced 100644
+--- a/drivers/pmdomain/sunxi/sun55i-pck600.c
++++ b/drivers/pmdomain/sunxi/sun55i-pck600.c
+@@ -52,6 +52,7 @@ struct sunxi_pck600_desc {
+ 	u32 logic_power_switch0_delay;
+ 	u32 logic_power_switch1_delay;
+ 	u32 off2on_delay;
++	bool has_rst_clk;
+ };
  
-   reg:
-     maxItems: 1
-@@ -38,9 +39,23 @@ required:
-   - compatible
-   - reg
-   - clocks
--  - resets
-   - '#power-domain-cells'
+ struct sunxi_pck600_pd {
+@@ -151,9 +152,11 @@ static int sunxi_pck600_probe(struct platform_device *pdev)
+ 	if (IS_ERR(base))
+ 		return PTR_ERR(base);
  
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - allwinner,sun8i-v853-ppu
-+              - allwinner,sun20i-d1-ppu
-+              - allwinner,sun55i-a523-pck-600
-+              - allwinner,sun55i-a523-ppu
-+
-+    then:
-+      required:
-+        - resets
-+
- additionalProperties: false
+-	rst = devm_reset_control_get_exclusive_released(dev, NULL);
+-	if (IS_ERR(rst))
+-		return dev_err_probe(dev, PTR_ERR(rst), "failed to get reset control\n");
++	if (desc->has_rst_clk) {
++		rst = devm_reset_control_get_exclusive_released(dev, NULL);
++		if (IS_ERR(rst))
++			return dev_err_probe(dev, PTR_ERR(rst), "failed to get reset control\n");
++	}
  
- examples:
-diff --git a/include/dt-bindings/power/allwinner,sun60i-a733-pck-600.h b/include/dt-bindings/power/allwinner,sun60i-a733-pck-600.h
-new file mode 100644
-index 000000000000..cf476a005b55
---- /dev/null
-+++ b/include/dt-bindings/power/allwinner,sun60i-a733-pck-600.h
-@@ -0,0 +1,18 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+ 	clk = devm_clk_get_enabled(dev, NULL);
+ 	if (IS_ERR(clk))
+@@ -206,7 +209,27 @@ static const struct sunxi_pck600_desc sun55i_a523_pck600_desc = {
+ 	.device_ctrl1_delay = 0xffff,
+ 	.logic_power_switch0_delay = 0x8080808,
+ 	.logic_power_switch1_delay = 0x808,
+-	.off2on_delay = 0x8
++	.off2on_delay = 0x8,
++	.has_rst_clk = true,
++};
 +
-+#ifndef _DT_BINDINGS_POWER_SUN60I_A733_PCK600_H_
-+#define _DT_BINDINGS_POWER_SUN60I_A733_PCK600_H_
++static const char * const sun60i_a733_pck600_pd_names[] = {
++	"VI", "DE_SYS", "VE_DEC", "VE_ENC", "NPU",
++	"GPU_TOP", "GPU_CORE", "PCIE", "USB2", "VO", "VO1"
++};
 +
-+#define PD_VI			0
-+#define PD_DE_SYS		1
-+#define PD_VE_DEC		2
-+#define PD_VE_ENC		3
-+#define PD_NPU			4
-+#define PD_GPU_TOP		5
-+#define PD_GPU_CORE		6
-+#define PD_PCIE			7
-+#define PD_USB2			8
-+#define PD_VO			9
-+#define PD_VO1			10
-+
-+#endif /* _DT_BINDINGS_POWER_SUN60I_A733_PCK600_H_ */
++static const struct sunxi_pck600_desc sun60i_a733_pck600_desc = {
++	.pd_names = sun60i_a733_pck600_pd_names,
++	.num_domains = ARRAY_SIZE(sun60i_a733_pck600_pd_names),
++	.logic_power_switch0_delay_offset = 0xc00,
++	.logic_power_switch1_delay_offset = 0xc04,
++	.off2on_delay_offset = 0xc10,
++	.device_ctrl0_delay = 0x1f1f1f,
++	.device_ctrl1_delay = 0x1f1f,
++	.logic_power_switch0_delay = 0x8080808,
++	.logic_power_switch1_delay = 0x808,
++	.off2on_delay = 0x8,
++	.has_rst_clk = false,
+ };
+ 
+ static const struct of_device_id sunxi_pck600_of_match[] = {
+@@ -214,6 +237,10 @@ static const struct of_device_id sunxi_pck600_of_match[] = {
+ 		.compatible	= "allwinner,sun55i-a523-pck-600",
+ 		.data		= &sun55i_a523_pck600_desc,
+ 	},
++	{
++		.compatible	= "allwinner,sun60i-a733-pck-600",
++		.data		= &sun60i_a733_pck600_desc,
++	},
+ 	{}
+ };
+ MODULE_DEVICE_TABLE(of, sunxi_pck600_of_match);
 
 -- 
 2.53.0
