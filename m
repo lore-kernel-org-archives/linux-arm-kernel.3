@@ -4,59 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 982B4EEF30E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 06:54:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E319EEF30C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 07:05:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dErXW1Jpzv3QJs1jd2FdC9ztVSxwa/zpnT9DC9MGvBE=; b=fSV4h0JzPSK5MJ46xpUWC63VQz
-	UeytavTfgCoRTqwKA/+yl+pFD7enSznTSqg+OGvo+x6dOADwxH1IQ3nOy5ibM00ZG0nkYCFuT7MI+
-	/ZFo1E9EdB3CxBvIDRTZFkkpOZ48aAVd+xbICFpejJRJfsV1IFEagUgkoo10kfwZ4aFA/V9NPe7Ls
-	onrEZtrxM593rG2Hjh931t6TqHPIl6QrQfsjT+JEngkkYy+4eXcv8CxlJ+JpO6y0wwB6oGx5MsFTy
-	9lNyeoEVcEAUm/nhnyERpEGLSJkatpTwFWuBWWPqNGZnyzb5/yLM9wh7pFw8LbMXjdn4+RGo3l6+B
-	nkJ86KNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=G1nKJVAd8ykMh/lRoa5dFXntTG851gTRqMr2+jBpdAc=; b=y7gPh2xZPFEkVPAOXI9lQmUG2J
+	Ou6lsE8c8I//YFIUq74J376iD6hoBiJ8oPgt9aqeMAu23T67QnEcXo2lZ69rGBZzpgVLEeEfAe5nN
+	/0oa7yTTknzpP6SCi/o3WlMIAC2k+J9QTFUC36WE7/yTGUbdBX1FjX+7qK4isaK6yCWNhfd7Xo8oR
+	Mq8KtXilDxX5uycYXIbn/p4QtQGbN288qo9cN8rPW4ltd5vwjAs/p/nbB4dxFBZPoRHO1+Q7VF89o
+	iJ3AXtUqVEEh0zRd/SbR8/7Ktan4LFIvMGxF0EGN28E7fsyYJYg96XytvAZQ0AR9pS8J4Yge25oo5
+	MV55Trbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy2bi-0000000135W-3HZf;
-	Thu, 05 Mar 2026 06:54:50 +0000
-Received: from mail1.manjaro.org ([142.132.176.110])
+	id 1vy2mK-000000013qk-2JJQ;
+	Thu, 05 Mar 2026 07:05:48 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy2bf-0000000133w-3k9h;
-	Thu, 05 Mar 2026 06:54:49 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id 199BF4211B;
-	Thu,  5 Mar 2026 07:54:39 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=dkim;
-	t=1772693683; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=dErXW1Jpzv3QJs1jd2FdC9ztVSxwa/zpnT9DC9MGvBE=;
-	b=oy5bvIDW2Sp5DqZl+Y6XZL9oslOctdG42e1H2jUw7REGuEZTv5+udzyBMdK1cwkxGtrr8o
-	idK5lp2XAr9PCRrOcomg7q33vZxI+XSWPs/IZUEqtAnaFq1S7DFuePb12tNjrhNibroCQ3
-	guGgsMgu2CrQfdvJyslI5x84U312jgp9sXpwFNP3NW1qExG8lKtsXmWB0Pv/CS+Y8RsTsB
-	WDetmyBplXVUTvH4JYu24g7AVW8e6hMWanoqOTYw5TyNynDQR8c7wMUYGdK4bEb3fIC+Bc
-	5t7XFzBqzU+YLDozg635lQuo9cWbqwSCMvElG0x5Pp0L2T4vun3ZTQyf1Saplg==
-From: "Dragan Simic" <dsimic@manjaro.org>
-In-Reply-To: <aakEQ_qtBbYCaUsA@geday>
-Content-Type: text/plain; charset="utf-8"
-References: <cover.1772239598.git.geraldogabriel@gmail.com>
- <2a0a4aa97bb8b0cb511cb651c5d66c9ec8bab97a.1772239598.git.geraldogabriel@gmail.com>
- <d2b91260-7666-3606-69ec-0e7cb7a48c02@manjaro.org> <aakEQ_qtBbYCaUsA@geday>
-Date: Thu, 05 Mar 2026 07:54:39 +0100
-Cc: "Shawn Lin" <shawn.lin@rock-chips.com>, "Lorenzo Pieralisi" <lpieralisi@kernel.org>, =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, "Manivannan Sadhasivam" <mani@kernel.org>, "Rob Herring" <robh@kernel.org>, "Bjorn Helgaas" <bhelgaas@google.com>, "Heiko Stuebner" <heiko@sntech.de>, linux-rockchip@lists.infradead.org, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-To: "Geraldo Nascimento" <geraldogabriel@gmail.com>
+	id 1vy2mG-000000013qM-3KKk
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Mar 2026 07:05:47 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20260305070535epoutp0385810976fd8f26ac2afcd5b9bea87f16~Z4BsVilZw0159501595epoutp03M
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Mar 2026 07:05:35 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20260305070535epoutp0385810976fd8f26ac2afcd5b9bea87f16~Z4BsVilZw0159501595epoutp03M
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1772694335;
+	bh=G1nKJVAd8ykMh/lRoa5dFXntTG851gTRqMr2+jBpdAc=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=fRnX9K0zyEuaZa5TFWQGQtn8USef/UfA9bHV06j/i4tR82N70eT1bwWV9O3U22Mcl
+	 ziNnDRq3eaP4V/6dqv1NCj9vrDj+iSYSXNsn9BeMTjAmST7KyyYxDgFvYnpnXotSQN
+	 kJnWCxyM+M31XzUCQP2OzmqsjPp2LyL2QmBQ1Vms=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20260305070534epcas5p38fe398fcd583a2269523f0e1ee873e0c~Z4BrzXOvA0513005130epcas5p39;
+	Thu,  5 Mar 2026 07:05:34 +0000 (GMT)
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4fRLCf4nZhz6B9m9; Thu,  5 Mar
+	2026 07:05:34 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20260305070534epcas5p378bb22ef9f1a895d7736ed2272c19ec6~Z4BrlV65x0512105121epcas5p3E;
+	Thu,  5 Mar 2026 07:05:34 +0000 (GMT)
+Received: from localhost.localdomain (unknown [107.97.243.203]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20260305070532epsmtip1003b8c1a79ea3652af5c2e5e8ee423e5~Z4Bpyn1L72807728077epsmtip1Q;
+	Thu,  5 Mar 2026 07:05:32 +0000 (GMT)
+From: Maninder Singh <maninder1.s@samsung.com>
+To: linux@armlinux.org.uk, rmk+kernel@armlinux.org.uk,
+	bigeasy@linutronix.de, peterz@infradead.org, kees@kernel.org,
+	ardb@kernel.org, keithpac@amazon.com, linusw@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Maninder Singh <maninder1.s@samsung.com>
+Subject: [PATCH 1/1] arm: get task_stack reference before dump_backtrace
+Date: Thu,  5 Mar 2026 12:35:27 +0530
+Message-Id: <20260305070527.719073-1-maninder1.s@samsung.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Message-ID: <5299c7c8-7593-6b0b-5def-8f0bdaecd8f9@manjaro.org>
-Subject: =?utf-8?q?Re=3A?= [PATCH v5 3/4] =?utf-8?q?PCI=3A?==?utf-8?q?_rockchip=3A?= 
- drive at =?utf-8?q?2=2E5?==?utf-8?q?_GT/s=2C?= error other speeds
-User-Agent: SOGoMail 5.12.3
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: None
-X-Rspamd-Fuzzy: 92c42003f999b2e674c87b253aa06c9cc4c940f5231e4605c1cd9f8098bf9aa98d30a83a9928210ba715e9c0d2880cee688bb95b719aaf896ecda919cea7cf50
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20260305070534epcas5p378bb22ef9f1a895d7736ed2272c19ec6
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+X-CMS-RootMailID: 20260305070534epcas5p378bb22ef9f1a895d7736ed2272c19ec6
+References: <CGME20260305070534epcas5p378bb22ef9f1a895d7736ed2272c19ec6@epcas5p3.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_225448_297779_2D7C8C10 
-X-CRM114-Status: GOOD (  38.08  )
+X-CRM114-CacheID: sfid-20260304_230545_471048_112BA93F 
+X-CRM114-Status: GOOD (  16.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,134 +88,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Geraldo,
+With Support of THREAD_INFO_IN_TASK, stack of task can be
+freed earlier than task (even if task's reference is taken),
+and it needs separate reference with try_get_task_stack()
+before using the stack.
+Otherwise if someone calls show_stack() for task, it can oops
+the kernel like below: (Tried with normal race of show_stack when
+task still exists, but its stack is freed)
 
-On Thursday, March 05, 2026 05:19 CET, Geraldo Nascimento <geraldogabri=
-el@gmail.com> wrote:
-> On Sat, Feb 28, 2026 at 07:16:41AM +0100, Dragan Simic wrote:
-> > On Saturday, February 28, 2026 01:55 CET, Geraldo Nascimento <geral=
-dogabriel@gmail.com> wrote:
-> > > Configure the core to be driven at 2.5 GT/s Link Speed and ignore
-> > > any other speed with a warning. The reason is that Shawn Lin from
-> > > Rockchip has reiterated that there may be danger of "catastrophic
-> > > failure" in using their PCIe with 5.0 GT/s speeds.
-> > >=20
-> > > While Rockchip has done so informally without issuing a proper er=
-rata,
-> > > and the particulars are thus unknown, this may cause data loss or
-> > > worse.
-> > >=20
-> > > This change is corroborated by RK3399 official datasheet [1], whi=
-ch
-> > > states maximum link speed for this platform is 2.5 GT/s.
-> > >=20
-> > > [1] https://opensource.rock-chips.com/images/d/d7/Rockchip=5FRK33=
-99=5FDatasheet=5FV2.1-20200323.pdf
-> > >=20
-> > > Fixes: 956cd99b35a8 ("PCI: rockchip: Separate common code from RC=
- driver")
-> > > Link: https://lore.kernel.org/all/ffd05070-9879-4468-94e3-b88968b=
-4c21b@rock-chips.com/
-> > > Cc: stable@vger.kernel.org
-> > > Reported-by: Dragan Simic <dsimic@manjaro.org>
-> > > Reported-by: Shawn Lin <shawn.lin@rock-chips.com>
-> > > Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
-> > > ---
-> > >  drivers/pci/controller/pcie-rockchip.c | 15 +++++++++------
-> > >  1 file changed, 9 insertions(+), 6 deletions(-)
-> > >=20
-> > > diff --git a/drivers/pci/controller/pcie-rockchip.c b/drivers/pci=
-/controller/pcie-rockchip.c
-> > > index 0f88da378805..2f211d1f4c7c 100644
-> > > --- a/drivers/pci/controller/pcie-rockchip.c
-> > > +++ b/drivers/pci/controller/pcie-rockchip.c
-> > > @@ -66,8 +66,10 @@ int rockchip=5Fpcie=5Fparse=5Fdt(struct rockch=
-ip=5Fpcie *rockchip)
-> > >  	}
-> > > =20
-> > >  	rockchip->link=5Fgen =3D of=5Fpci=5Fget=5Fmax=5Flink=5Fspeed(no=
-de);
-> > > -	if (rockchip->link=5Fgen < 0 || rockchip->link=5Fgen > 2)
-> > > -		rockchip->link=5Fgen =3D 2;
-> > > +	if (rockchip->link=5Fgen < 0 || rockchip->link=5Fgen >=3D 2) {
-> > > +		rockchip->link=5Fgen =3D 1;
-> > > +		dev=5Fwarn(dev, "invalid max-link-speed, fix your DT\n");
-> > > +	}
-> >=20
-> > I'd suggest using a bit more formal message here, like the one belo=
-w,
-> > which would also avoid addressing the user directly:
-> >=20
-> >   "Invalid max-link-speed found, limited to Gen1 to avoid data corr=
-uption"
->=20
-> We really should spare on characters here, but I see your point and w=
-ill
-> try to cook up a better way.
+8<--- cut here ---
+Unable to handle kernel paging request at virtual address f8aebec4 when read
+[f8aebec4] *pgd=83c2c811, *pte=00000000, *ppte=00000000
+Internal error: Oops: 7 [#1] SMP ARM
+..
+CPU: 0 UID: 0 PID: 70 Comm: cat Not tainted 7.0.0-rc2-next-20260302+ #26 VOLUNTARY
+..
+PC is at __read_once_word_nocheck+0x0/0x8
+LR is at unwind_frame+0x6b0/0xa90
+...
+Call trace:
+ __read_once_word_nocheck from unwind_frame+0x6b0/0xa90
+ unwind_frame from unwind_backtrace+0x178/0x1e0
+ unwind_backtrace from show_stack+0x10/0x14
+...
 
-Makes sense, so perhaps just "Limited to Gen1 to avoid data corruption"
-should be fine for the purpose, because anyone attempting to get rid
-of that warning should search for what emitted it in the kernel source,
-which would provide them with further information.
+ARM64 also takes care of it in dump_backtrace(), so same logic
+is added for ARM also.
 
-> > >  	for (i =3D 0; i < ROCKCHIP=5FNUM=5FPM=5FRSTS; i++)
-> > >  		rockchip->pm=5Frsts[i].id =3D rockchip=5Fpci=5Fpm=5Frsts[i];
-> > > @@ -147,12 +149,13 @@ int rockchip=5Fpcie=5Finit=5Fport(struct ro=
-ckchip=5Fpcie *rockchip)
-> > >  		goto err=5Fexit=5Fphy;
-> > >  	}
-> > > =20
-> > > -	if (rockchip->link=5Fgen =3D=3D 2)
-> > > -		rockchip=5Fpcie=5Fwrite(rockchip, PCIE=5FCLIENT=5FGEN=5FSEL=5F=
-2,
-> > > -				    PCIE=5FCLIENT=5FCONFIG);
-> > > -	else
-> > > +	if (rockchip->link=5Fgen =3D=3D 2) {
-> > > +		/* 5.0 GT/s may cause catastrophic failure for this core */
-> > > +		dev=5Fwarn(dev, "5.0 GT/s may cause data loss or worse\n");
-> > > +	} else {
-> > >  		rockchip=5Fpcie=5Fwrite(rockchip, PCIE=5FCLIENT=5FGEN=5FSEL=5F=
-1,
-> > >  				    PCIE=5FCLIENT=5FCONFIG);
-> > > +	}
-> >=20
-> > I don't think we need to emit a warning here, because, as we've alr=
-eady
-> > established through earlier discussions, the rockchip=5Fpcie=5Finit=
-=5Fport()
-> > function should never receive an invalid speed value.
->=20
-> Just as a lame excuse, those messages were everywhere in the mid of m=
-y
-> development, this is one that escaped deletion, will drop.
+Fixes: 18ed1c01a7dd ("ARM: smp: Enable THREAD_INFO_IN_TASK")
+Signed-off-by: Maninder Singh <maninder1.s@samsung.com>
+---
+ arch/arm/kernel/traps.c  |  9 +++++++--
+ arch/arm/kernel/unwind.c | 10 ++++++++--
+ 2 files changed, 15 insertions(+), 4 deletions(-)
 
-Thanks.
-
-> > >  	regs =3D PCIE=5FCLIENT=5FARI=5FENABLE |
-> > >  	       PCIE=5FCLIENT=5FCONF=5FLANE=5FNUM(rockchip->lanes);
-> >=20
-> > It would make most sense to squash all three patches in this series
-> > into a single patch, because they all form a single logical unit, w=
-hich
-> > introduces changes that are just going to be harder to track down l=
-ater
-> > if it's all scattered into multiple separate patches.
->=20
-> I agree, having all drops in one big patch is the better tactic here.
->=20
-> > The only possible issue with the squashing comes from the inability=
- to
-> > have different patch subject prefixes for different driver changes,=
- but
-> > I think that's actually not an issue.  The long-term benefits of ha=
-ving
-> > everything as a single patch outweighs the benefits of having diffe=
-rent
-> > patch subjects with separate patches.
->=20
-> Sure, will do so for v6.
-
-Thanks, but as Manivannan pointed out, having the changes split across
-a couple of patches actually comes with benefits.
+diff --git a/arch/arm/kernel/traps.c b/arch/arm/kernel/traps.c
+index afbd2ebe5c39..770dcb1dc683 100644
+--- a/arch/arm/kernel/traps.c
++++ b/arch/arm/kernel/traps.c
+@@ -221,11 +221,14 @@ void dump_backtrace(struct pt_regs *regs, struct task_struct *tsk,
+ 	unsigned int fp, mode;
+ 	int ok = 1;
+ 
+-	printk("%sCall trace: ", loglvl);
+-
+ 	if (!tsk)
+ 		tsk = current;
+ 
++	if (!try_get_task_stack(tsk))
++		return;
++
++	printk("%sCall trace: ", loglvl);
++
+ 	if (regs) {
+ 		fp = frame_pointer(regs);
+ 		mode = processor_mode(regs);
+@@ -249,6 +252,8 @@ void dump_backtrace(struct pt_regs *regs, struct task_struct *tsk,
+ 
+ 	if (ok)
+ 		c_backtrace(fp, mode, loglvl);
++
++	put_task_stack(tsk);
+ }
+ #endif
+ 
+diff --git a/arch/arm/kernel/unwind.c b/arch/arm/kernel/unwind.c
+index c91cb0e1585e..990692714288 100644
+--- a/arch/arm/kernel/unwind.c
++++ b/arch/arm/kernel/unwind.c
+@@ -29,6 +29,7 @@
+ #include <linux/spinlock.h>
+ #include <linux/list.h>
+ #include <linux/module.h>
++#include <linux/sched/task_stack.h>
+ 
+ #include <asm/stacktrace.h>
+ #include <asm/traps.h>
+@@ -524,13 +525,16 @@ void unwind_backtrace(struct pt_regs *regs, struct task_struct *tsk,
+ {
+ 	struct stackframe frame;
+ 
+-	printk("%sCall trace: ", loglvl);
+-
+ 	pr_debug("%s(regs = %p tsk = %p)\n", __func__, regs, tsk);
+ 
+ 	if (!tsk)
+ 		tsk = current;
+ 
++	if (!try_get_task_stack(tsk))
++		return;
++
++	printk("%sCall trace: ", loglvl);
++
+ 	if (regs) {
+ 		arm_get_current_stackframe(regs, &frame);
+ 		/* PC might be corrupted, use LR in that case. */
+@@ -567,6 +571,8 @@ void unwind_backtrace(struct pt_regs *regs, struct task_struct *tsk,
+ 			break;
+ 		dump_backtrace_entry(where, frame.pc, frame.sp - 4, loglvl);
+ 	}
++
++	put_task_stack(tsk);
+ }
+ 
+ struct unwind_table *unwind_table_add(unsigned long start, unsigned long size,
+-- 
+2.34.1
 
 
