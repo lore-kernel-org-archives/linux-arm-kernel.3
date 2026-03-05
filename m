@@ -4,112 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 236FEEFCE5A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 03:56:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1ACAEFCE5F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 04:19:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DSMQoK9CKr+LoofYVBjOMA1G+9sSOQ945cuPkJEnW+U=; b=OC9JYqBcTWn12RTwzc+MUUH64I
-	TTLON9ppUaMFFUm2Nqv4XCBIJa3CxRqeTIMSeXsXuRe8sgRhhiHtPiEVQyAD3JzZkca5o0lZnLXFY
-	j9NdCpRD9f+fGsdO8OBX8G4OUd28WHvkAHZMxSKZZGteAY+NqUk1XfNeyvTRNY3Xcstvn2q2OJ2kJ
-	arsYj3crkUwlUIGJ5N45cp0Iyxre9oaRJ+JlT7FrfzPsH5j4f4EqCJYZsMrO1gl9M54rWSk2cV7xa
-	NvDSvTtniQaBdvcQbwD7Bq1rar4Kz05uyd3fbszioFG5xen2jgcmCspl2r/a5iebX4h4qlbrIcKCA
-	OqsC8rew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dcwLPgCuX5qGk1VO8dlUrj59t6r//UFI20kbYxyl5TI=; b=Tojae/KrIYLst4LziVbMflDiaA
+	UVsYurYSG2Z5d6sNRaqNK6bPbe4vavvV4qGc4tcjJD7iP0gOo/4xOwFrrV5z6EuHIjyXfdmMvUnAi
+	lz8EDchz0whGX68v9bY/ybm9IEjOP9wnpIfsItN4S6JoRt99OpSVF1EPRj9Z2Iw8IB7yEeAL7MOo8
+	EW9yZE7c374eM3XvqyJ+VeaoM/A/UksLIKmMWqLbCuWRHtKzR12Av459tWYtodd6eE8EdUc1caFYr
+	j0/poz45dDB9HeV4e4QoBrOIq4gvxYRxJzhcTSgO+UfjRaWinCdtVAEeJSTMOCCUixqcipXbRD7wy
+	UEyJjFYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxzpD-00000000sbY-3Sh9;
-	Thu, 05 Mar 2026 03:56:35 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1vy0BM-00000000tFG-2wLH;
+	Thu, 05 Mar 2026 04:19:28 +0000
+Received: from mail-vs1-xe36.google.com ([2607:f8b0:4864:20::e36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxzpB-00000000sbD-3SLq
+	id 1vy0BI-00000000tEQ-0yiY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 03:56:34 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-439cd6b09f8so320388f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 19:56:32 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772682991; cv=none;
-        d=google.com; s=arc-20240605;
-        b=d0hwsBixhIgsrh8A02vgSpKPVhWQwAwqes/4SD3jRZ+BqJui8hizWBAHX0bBDvl6Lr
-         7FNGVdv0/WRpBNdD5HRJ79Aj7H2Zq3+kFKlq3GDZf4QKqJvjCo9O6VrwK7GPMjVzrs+d
-         EmC+CV5GCmB2aI0NgxU/w8nS0Yxw/091ARI/w5Bk5ozGpqlBU87aGw8Oqzf/Z/WNgds9
-         uh3i3c2Rxvx6XF2VNKif4VssPtdzxDuKXpTnAf4PNZES+1DuuOcAZHCC3sYlhadxIjBW
-         DsLWsnXr6xHbJQiyyqGG8jiZPZw+x7/SbIPr+dismPz+b7DnNSA6uMha/K+zkgyf0kjD
-         48BQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=DSMQoK9CKr+LoofYVBjOMA1G+9sSOQ945cuPkJEnW+U=;
-        fh=E/bXuuJtggsgizRwX2xVq4uW6pVKlSLe1xIa4RS4zpU=;
-        b=P95CvmQLoMaKVTY+UgZY7oNh6exWF02tdzqVbLF4KzUhpU1QGj3xubGJPAhaXiHmVI
-         iYE3NfQPtVq5SQAP5lxgNDpy1kOYC6a5fL0j1OOPkJ37pnjocytt0WRWAM0UaRciK9f5
-         YMNxRNQdOvK0tXUD3wvxzvtVJNlev9gpqDj4IDeK7o9ZAbF5UFoAzg4x5+FXGqfOsVs7
-         7T9NNokW+CMUjjtJMkNN89pRpboCrong0kbhGTDOITx4yMGj6hMMPCktEFZEpdnOxACD
-         zMg5lsvpTJUi/wQEJhDUy3xczt4kcwY5MFuHKhpKdBK6MKKT/e4EvPbFpbVK8XcC5tYi
-         8U0w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 05 Mar 2026 04:19:26 +0000
+Received: by mail-vs1-xe36.google.com with SMTP id ada2fe7eead31-5ffb61b0babso743447137.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 20:19:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772682991; x=1773287791; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DSMQoK9CKr+LoofYVBjOMA1G+9sSOQ945cuPkJEnW+U=;
-        b=JwCJtfoNT33tKcqM0XZa3Euz+6KFYswB4WU6yFaOiAiszVOSroJNBJdiMw9WP6kzZs
-         vXPtz4mXdEHK34bwus2aVLVjPn0QxQhxzZDcZSekrv73lkb1Mm0Uy7MSfgJf3fLOMlfg
-         vOcxtJz93fjkHWU7cP55k4xD/7c4RXI3Psw3lc3jcubCoWGtdJIjyv2662juOlB4KtnE
-         YcbE1VkZVpMeMAPEksEvDL6ivs3Es6qUMbBkdh4NtUu0IHxETjocA8xVZR3z8zI+DgT7
-         jfzYpRkhMku+zJCeKNh3KQNfkImK5KsnotaH9kbyqpzprrGrcRHMVZATyaYJXdKndZUh
-         2Pqg==
+        d=gmail.com; s=20230601; t=1772684362; x=1773289162; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=dcwLPgCuX5qGk1VO8dlUrj59t6r//UFI20kbYxyl5TI=;
+        b=VLbnNrJe1aFsbmZ4hEleEF7ZBYbwx2PpKL1d2nc90b5GHxpyirFxxrNbFCAOAxEqIo
+         wmV9i9qjWyFcRtZdyaGBV+dWJedtrEB2zEodrT2DtcnUVOXI4UWmWItb8ke/2jdIv1C2
+         R1Q0BlE1B/zlQ5HBbVCwGKy7axqYxDtSmrwQABVDLZozGjTFhdAsLCBrTY1cIyAyf9Bh
+         /me9lBqS4SucC+fFJrOT59FQsHWARJq/i9vFYqLYy8NpcLTGz/A9k8T0fPSdhTD+XdgY
+         DeYlz57Kih2zBeqA2gzEgTT/zuLNnekICdi2P1MiClIO4D4urWIs2ipKu2tKNv3UuwfI
+         0vow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772682991; x=1773287791;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=DSMQoK9CKr+LoofYVBjOMA1G+9sSOQ945cuPkJEnW+U=;
-        b=X0XQgDWphf4PCSYYbDTxxplsbgJ0SFDLY4Kku/XF3LQW2fN0Gm8iOSIfDzo/OvaORU
-         2H2CrrdmnsxpjM7vztWy/2k/Ifnf/3qs2uiGqwgNRLQDNCRsF9NO4Yt4BCaG4h7CALnz
-         Pjhb2foYskc9NDMOSvwb36xO+xUxUbYsWAC8NZFe2clun/1cZY/S+0QkOqhxwhNDDfm3
-         njmybmydnbGoguvFO9k+W03o9qxkbUm5unrDuTxgpQm7NHm1Zg/8ykjaVY6QsPryrro3
-         JWujNlSaQGVFZ2z+Gop7rE1SyHeAIsYUXXcL8h8S1QXB2ep44AgG/wzo/wZYLmaxE6zf
-         5scw==
-X-Forwarded-Encrypted: i=1; AJvYcCXmvOvQuCb5d6/NTyJZjfXZ3trDZbVPyBgmNpSLwSTihGxJHlJ/9osPXxzytsACY0W3l1WEfCmFx0fSo7NhRJFs@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYvAT0eAO0PNW6EkQMkFUKOxl1qYlUd255/FgEjD9zx4yOJc33
-	4O21ziALDMkOi4oBWJYIpwNfq26Crl5R4TxwwHG4lgru7ptieO4TTQLwv3+XOTpwczeRbcU7Q50
-	UX0ewABC8gGFQVjTHjyxZWEgvpxJb4KM=
-X-Gm-Gg: ATEYQzz/LaKMmtU6u7YLePbR/kaqXXe8zAGB/UIhHqdwma1JABAdEDJYy37FFHEpgYG
-	NuKHJdxeR4hdIYtlkT1YhWPzbnJsz90YvSScnuGBEkUEMq6PNH4Zk1exYmc4c921chUpWrjcNE8
-	M393lMg6RguFZ0lWBC9cXTCErRr9teeTS/2HNUa58i1wQy0PTJiirmXrjNJeFj0nrwxjsU1j79Z
-	U2x79xA7+wmL4xQ+rsm6QaMQMX1O4i1atK/FlBEA86YpD/4KvJuTxEqZYPw/mQdmV01j/F3XkDa
-	95ZZBnBxyKTyEMzxumU9EfvP3E8aJyLs/UDYR+8LcNaShu94mDH9KEZenuqypaM9A1aLa5B6QPg
-	3sQH+e3kQJlG1NvZ/ErALOoi/LQ==
-X-Received: by 2002:a5d:608e:0:b0:439:c92f:ef35 with SMTP id
- ffacd0b85a97d-439c92fef50mr5426026f8f.17.1772682991134; Wed, 04 Mar 2026
- 19:56:31 -0800 (PST)
+        d=1e100.net; s=20230601; t=1772684362; x=1773289162;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dcwLPgCuX5qGk1VO8dlUrj59t6r//UFI20kbYxyl5TI=;
+        b=khgFMKVAEHZf6UUXIingT1lXLF8b2UeiFouk9KsUmPpwffIJ5AEJ3zcA1XkA0cDiHU
+         16H6I8kGZDc4pF/FR2UUbtoJL3E7BWbDE8SfRLID5ntqr7b207Ijz5+DgmKmfP4rdikj
+         kq9UweuPXkmU2yJE6RhVYpNlRssHLkvY/wVkTC6W77zLihCqv2Glz0ImgwjUxFVm4TS+
+         6FfMYDEnrHjR0t16gTM+u1/U+cxJqRgpmsPykbrsWgUnelaYIbFqLvlgXUgLSPZws4pl
+         eMTsWX6P54FyxU5Wrw6mYJOtEKwqaxOgkrWRpjOzBMefVgaWrAq1TGc18jAmpPBkH/ch
+         3ajg==
+X-Forwarded-Encrypted: i=1; AJvYcCXnAssqV9pPPIjuqzxobs41Jrh/38LqMeasy1G8M4APADH4bNuK91OyW4bOBaEqLzph/t6lXuAhiwzyM8u/LHE4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4haj8AdgS8NpP3ghq/Ph78Ry53bK7T4mpKFJE42tYX3BUyVBy
+	oyh8alx7+8asw1l6F3eCMSV+fF2exRpRkzGZEyFt5kjFzvB0KeTDYgfm
+X-Gm-Gg: ATEYQzxJE9wtNaxaQ/wNn9OgfDZEF2CFEILq7MMpIASot/1hnuaUwvdBvsrvvhHQ7m7
+	dQ1N2dEKqOgNvE6+aVX6e7MfpJ8ZtvIjC9njOvwEg1iFAxoyIPtnMX3oT1kitJNk62ls27vIdN8
+	uzWW3QfG4HS6EbSBCdy5pirRQsoccX/riyCba3NLZ0mUwmAHE8+WFKMQkPlzlz/aAyiNZxcFQYf
+	nnlUcTKHJUTqPHWso2GJbID02O2zor/6zv+a9VhG7UkFuTjiVPtaJWWd49K6w+NiKAAraaYKqQq
+	3UZaZD6e+Je3shKxruUogOhfAJH1SGCni4E79nq6GDGgDB912l0TGl8XqFr5NiqhZgfB2D3xKQX
+	5dB/lk/Tzqj2Q+gZ93VHHkQgnswmqOOdV0qGdvUa3ubTmPc6wYzAhlemgBse+PzEf9aYhDNMnzx
+	M=
+X-Received: by 2002:a67:fbce:0:b0:5ff:b8d8:b40d with SMTP id ada2fe7eead31-5ffb8d8d44bmr1248639137.21.1772684362172;
+        Wed, 04 Mar 2026 20:19:22 -0800 (PST)
+Received: from geday ([2804:7f2:8080:fd2e::1])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-94df6577a4fsm21273560241.10.2026.03.04.20.19.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Mar 2026 20:19:21 -0800 (PST)
+Date: Thu, 5 Mar 2026 01:19:15 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: Dragan Simic <dsimic@manjaro.org>
+Cc: Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-rockchip@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 3/4] PCI: rockchip: drive at 2.5 GT/s, error other
+ speeds
+Message-ID: <aakEQ_qtBbYCaUsA@geday>
+References: <cover.1772239598.git.geraldogabriel@gmail.com>
+ <2a0a4aa97bb8b0cb511cb651c5d66c9ec8bab97a.1772239598.git.geraldogabriel@gmail.com>
+ <d2b91260-7666-3606-69ec-0e7cb7a48c02@manjaro.org>
 MIME-Version: 1.0
-References: <20260302102726.1126019-1-xukuohai@huaweicloud.com>
- <20260302102726.1126019-4-xukuohai@huaweicloud.com> <CAADnVQLoWzz8ioVg3MFjn08fBLfNq6HdvqLtqXV0zUb=SR_HGA@mail.gmail.com>
- <1ea52c33-ae27-45fb-b4ff-0c4637a4312a@huaweicloud.com> <CAADnVQ+HvsZ0zr6AGLBhMOVX1uRKwRqV28ywcvpVkrsDTyaXmw@mail.gmail.com>
- <0f18b3b1-9bd1-4ce8-a7df-c1149cf6e14d@huaweicloud.com>
-In-Reply-To: <0f18b3b1-9bd1-4ce8-a7df-c1149cf6e14d@huaweicloud.com>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Wed, 4 Mar 2026 19:56:20 -0800
-X-Gm-Features: AaiRm53xbp8-NAX3A4O1s33pD9uNRg2yfLWGq2t7tCn5lWZ6f21ccsyp9hyEmv8
-Message-ID: <CAADnVQ+ryOMoDUAhvDMJYe_mh_gt9Wbe4Vcb+A68tty=RZCtrA@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v5 3/5] bpf: Add helper to detect indirect jump targets
-To: Xu Kuohai <xukuohai@huaweicloud.com>
-Cc: bpf <bpf@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, 
-	Yonghong Song <yonghong.song@linux.dev>, Puranjay Mohan <puranjay@kernel.org>, 
-	Anton Protopopov <a.s.protopopov@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d2b91260-7666-3606-69ec-0e7cb7a48c02@manjaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_195633_926547_E8F5D617 
-X-CRM114-Status: GOOD (  21.63  )
+X-CRM114-CacheID: sfid-20260304_201924_279279_730CB262 
+X-CRM114-Status: GOOD (  39.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,69 +106,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 4, 2026 at 7:47=E2=80=AFPM Xu Kuohai <xukuohai@huaweicloud.com>=
- wrote:
->
-> On 3/4/2026 11:37 PM, Alexei Starovoitov wrote:
-> > On Wed, Mar 4, 2026 at 4:46=E2=80=AFAM Xu Kuohai <xukuohai@huaweicloud.=
-com> wrote:
-> >>
-> >> On 3/4/2026 1:19 AM, Alexei Starovoitov wrote:
-> >>
-> >> [...]
-> >>
-> >>>> -       for (i =3D 0; i < insn_cnt; i++, insn++) {
-> >>>> +       for (i =3D 0, j =3D 0; i < insn_cnt; i++, j++, insn++) {
-> >>>> +               env->insn_aux_data[subprog_start + j].final_idx =3D =
-i;
-> >>>>                   if (bpf_pseudo_func(insn)) {
-> >>>>                           /* ld_imm64 with an address of bpf subprog=
- is not
-> >>>>                            * a user controlled constant. Don't rando=
-mize it,
-> >>>> @@ -1512,6 +1542,8 @@ struct bpf_prog *bpf_jit_blind_constants(struc=
-t bpf_verifier_env *env, struct bp
-> >>>>                            */
-> >>>>                           insn++;
-> >>>>                           i++;
-> >>>> +                       j++;
-> >>>> +                       env->insn_aux_data[subprog_start + j].final_=
-idx =3D i;
-> >>>
-> >>> You're adding final_idx because bpf_jit_blind_constants()
-> >>> doesn't call adjust_insn_aux_data() ?
-> >>>
-> >>
-> >> Yes, I added final_idx because insn_aux is not updated here.
-> >>
-> >>> imo that's an ugly workaround. Just call adjust_insn_aux_data().
-> >>>
-> >>
-> >> If we adjust the env->insn_aux_data here, should we also adjust the gl=
-obal
-> >> env->prog->insnsi array? I think env->insn_aux_data should remain cons=
-istent
-> >> with the global env->prog->insnsi array. Since constant blinding only =
-rewrites
-> >> the subprog's private instruction array, updating the env->insn_aux_da=
-ta
-> >> causes a mismatch with the global state.
-> >
-> > yes, and subprog starts, and pokes that bpf_patch_insn_data() do.
-> >
-> > blinding was implemented long before that, so it was never updated.
->
-> I see. Since env->prog->insnsi is rewritten by blind_constants now, would=
- it
-> make sense to move constant blinding to the beginning of jit_subprogs, ju=
-st
-> before the global instruction array is split into subprog copies?
->
-> This would eliminate the need to invoke constant blinding per subprog fro=
-m
-> the arch-specific JIT, simplifying the overall flow.
+On Sat, Feb 28, 2026 at 07:16:41AM +0100, Dragan Simic wrote:
+> Hello Geraldo,
 
-Makes sense to me.
-Since we're touching all JITS, lets remove bpf_jit_blind_constants()
-call from the too and do it from generic code.
+Hi Dragan,
+
+> 
+> On Saturday, February 28, 2026 01:55 CET, Geraldo Nascimento <geraldogabriel@gmail.com> wrote:
+> > Configure the core to be driven at 2.5 GT/s Link Speed and ignore
+> > any other speed with a warning. The reason is that Shawn Lin from
+> > Rockchip has reiterated that there may be danger of "catastrophic
+> > failure" in using their PCIe with 5.0 GT/s speeds.
+> > 
+> > While Rockchip has done so informally without issuing a proper errata,
+> > and the particulars are thus unknown, this may cause data loss or
+> > worse.
+> > 
+> > This change is corroborated by RK3399 official datasheet [1], which
+> > states maximum link speed for this platform is 2.5 GT/s.
+> > 
+> > [1] https://opensource.rock-chips.com/images/d/d7/Rockchip_RK3399_Datasheet_V2.1-20200323.pdf
+> > 
+> > Fixes: 956cd99b35a8 ("PCI: rockchip: Separate common code from RC driver")
+> > Link: https://lore.kernel.org/all/ffd05070-9879-4468-94e3-b88968b4c21b@rock-chips.com/
+> > Cc: stable@vger.kernel.org
+> > Reported-by: Dragan Simic <dsimic@manjaro.org>
+> > Reported-by: Shawn Lin <shawn.lin@rock-chips.com>
+> > Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
+> > ---
+> >  drivers/pci/controller/pcie-rockchip.c | 15 +++++++++------
+> >  1 file changed, 9 insertions(+), 6 deletions(-)
+> > 
+> > diff --git a/drivers/pci/controller/pcie-rockchip.c b/drivers/pci/controller/pcie-rockchip.c
+> > index 0f88da378805..2f211d1f4c7c 100644
+> > --- a/drivers/pci/controller/pcie-rockchip.c
+> > +++ b/drivers/pci/controller/pcie-rockchip.c
+> > @@ -66,8 +66,10 @@ int rockchip_pcie_parse_dt(struct rockchip_pcie *rockchip)
+> >  	}
+> >  
+> >  	rockchip->link_gen = of_pci_get_max_link_speed(node);
+> > -	if (rockchip->link_gen < 0 || rockchip->link_gen > 2)
+> > -		rockchip->link_gen = 2;
+> > +	if (rockchip->link_gen < 0 || rockchip->link_gen >= 2) {
+> > +		rockchip->link_gen = 1;
+> > +		dev_warn(dev, "invalid max-link-speed, fix your DT\n");
+> > +	}
+> 
+> I'd suggest using a bit more formal message here, like the one below,
+> which would also avoid addressing the user directly:
+> 
+>   "Invalid max-link-speed found, limited to Gen1 to avoid data corruption"
+
+We really should spare on characters here, but I see your point and will
+try to cook up a better way.
+
+> 
+> >  	for (i = 0; i < ROCKCHIP_NUM_PM_RSTS; i++)
+> >  		rockchip->pm_rsts[i].id = rockchip_pci_pm_rsts[i];
+> > @@ -147,12 +149,13 @@ int rockchip_pcie_init_port(struct rockchip_pcie *rockchip)
+> >  		goto err_exit_phy;
+> >  	}
+> >  
+> > -	if (rockchip->link_gen == 2)
+> > -		rockchip_pcie_write(rockchip, PCIE_CLIENT_GEN_SEL_2,
+> > -				    PCIE_CLIENT_CONFIG);
+> > -	else
+> > +	if (rockchip->link_gen == 2) {
+> > +		/* 5.0 GT/s may cause catastrophic failure for this core */
+> > +		dev_warn(dev, "5.0 GT/s may cause data loss or worse\n");
+> > +	} else {
+> >  		rockchip_pcie_write(rockchip, PCIE_CLIENT_GEN_SEL_1,
+> >  				    PCIE_CLIENT_CONFIG);
+> > +	}
+> 
+> I don't think we need to emit a warning here, because, as we've already
+> established through earlier discussions, the rockchip_pcie_init_port()
+> function should never receive an invalid speed value.
+
+Just as a lame excuse, those messages were everywhere in the mid of my
+development, this is one that escaped deletion, will drop.
+
+> 
+> >  	regs = PCIE_CLIENT_ARI_ENABLE |
+> >  	       PCIE_CLIENT_CONF_LANE_NUM(rockchip->lanes);
+> 
+> It would make most sense to squash all three patches in this series
+> into a single patch, because they all form a single logical unit, which
+> introduces changes that are just going to be harder to track down later
+> if it's all scattered into multiple separate patches.
+
+I agree, having all drops in one big patch is the better tactic here.
+
+> 
+> The only possible issue with the squashing comes from the inability to
+> have different patch subject prefixes for different driver changes, but
+> I think that's actually not an issue.  The long-term benefits of having
+> everything as a single patch outweighs the benefits of having different
+> patch subjects with separate patches.
+> 
+
+Sure, will do so for v6.
+
+Many thanks,
+Geraldo Nascimento
 
