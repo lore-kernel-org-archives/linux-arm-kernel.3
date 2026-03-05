@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 765DDF33A74
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 14:32:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EF7AF33A74
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 14:33:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EbCQueaJiNrL46u9K2+vA32OpLp/TxgEjPJUL+Wg6Bg=; b=OKhwKLvskHBKMNWU8Fhb6x580v
-	5dIOrYSFRkencYeY07sz5AQsi1HZ1Ny0cV7vLWMJERVCy71ZS74GCmIKV9KAt/enuSaUBq0f8yu3Q
-	HXyvO5eqrhxBfpK0IOyAmQV51ufu/dysHUPo4kFMpOegNUHt4ho/RVz4gUuAsuobUYOjYMz2bc98f
-	nBZLzk8zuPmS5GDmqZH8DE7iShADeem1A9slrVJ+9yrQ41XgiAjkCIReS/6DHo4h7BGwjrAeKwU3d
-	9XVut5Z0Tlawsqd/4jBOy2YjrlV6WdkiUEBKbKsa0sYHKqfloZW66+MTZTA/WnT3FoS1pYLK+F/pA
-	leqkmf9g==;
+	bh=l49Hu0c5soBmy/5+cLM4owVfzf9yzdal8PFyT7273Bk=; b=iNEI4eQZ8oEHeVLbE2dIZ/pMrl
+	wFyARB9cq2ZN0+k+b6RbbOM9rXIQXnImrFk6T9sJOWXy7f0fMk2YecaN46zl+kv3HwhWJ63iHXjRr
+	Ep72FTsxwmlSiriU0OfpiULcOs7hx+tZSBxSqRThD+xNU/DyShAiJNbTex9EwY2RDTcLuJ6EE1eXW
+	KTgQS8DGm7QkbQ0QpILJCZfsHlC7IuTu3Btaaf2LvtcLuD93RSnNBS6AcjIkNcpenmJsNoR7TpvMG
+	2mM2AhL4xhe6CChhztiOzN+WytUtB9Am73H2iHBfqQ7Pxe9DVSmqr+uLtqFDuiT7MLp0QuJ45Lqjr
+	c3yFNFag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy9kT-00000001zmL-2MbA;
-	Thu, 05 Mar 2026 14:32:21 +0000
+	id 1vy9lA-00000001zup-0aeS;
+	Thu, 05 Mar 2026 14:33:04 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy9kR-00000001zlq-1DKT
+	id 1vy9l6-00000001zu1-0389
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 14:32:20 +0000
+	Thu, 05 Mar 2026 14:33:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EEE48436D7;
-	Thu,  5 Mar 2026 14:32:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9A87C116C6;
-	Thu,  5 Mar 2026 14:32:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AD30A43DE4;
+	Thu,  5 Mar 2026 14:32:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D156C116C6;
+	Thu,  5 Mar 2026 14:32:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772721137;
-	bh=BDxRqGoVPIAZP5jThA2TA1n7z0JYbMMJCM69Dd0B96Q=;
+	s=k20201202; t=1772721179;
+	bh=cZO6dCpt0PwPwyFlyqp9lDdewbXDrNxzC0E2dFssjr8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=f6BMuB0LQdQojB3SzJVF9cI/GNdjZ45yhkZv+0JndOxbsgW6Vl/hDYpq0QPcMKtYZ
-	 SY9Q4MyF0P76suZ/AszzmZNjB3ZXonECq1868uUCyaw9UvQ+b2JL2ytjyiliWXUr0c
-	 F69z9IR4flhpaVv7sz5fsNLsttVVpefU+nUnlB+2I6v0tWq5YQBT668+Yb+v1VWxuC
-	 1gV+MRpdNXgdgZGIDOHHMQC/dVJZkI/dBQtEjEzrro4Q9jiMHyS3+waWrW4FtDhqWe
-	 h4cM2WIlOqd+ScCMfHaahf7CsHuKlMbiqLva0QDQcxzbPH5MODVf3X3+mjXp/nNtK3
-	 EC0FX8Hsh+S9Q==
-Date: Thu, 5 Mar 2026 14:32:11 +0000
+	b=VeGUumLJg9Ecgb1G2OIvzx5YPaE355YP/2d4ad0wJ7yPFkxosRZoOx1nZVJay0ZJN
+	 wVOh/lC8yMSk/rD7p4Rawv/ccKouRzfC8wO438uQzXDjIRW0WDOvJU/BqhtwurVcfc
+	 +ZvX/DkJtaXxwDubC9+Bw9RVTrHxoo/IRsxjC5VBPqHRq+rqjHjfYqTwGea6WHe8LP
+	 Bvj55rHbqfiN+pV0OQTsec9boA+LpvgaAQ6c5dI0BJdtK8mWmlHWtwY3oBbrJn/7Yu
+	 ZRIbFZ99aTHTeGxtN3gLjUg+mhhwHLww3RZMHXPLxODGThYSuZGXGaSFTAR0OxJJdU
+	 qVGWmFk1WNjUQ==
+Date: Thu, 5 Mar 2026 14:32:54 +0000
 From: Will Deacon <will@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>
 Cc: linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
@@ -52,18 +52,17 @@ Cc: linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
 	James Morse <james.morse@arm.com>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev
-Subject: Re: [PATCH 3/4] arm64: errata: Work around early CME DVMSync
- acknowledgement
-Message-ID: <aamT6-Mvr9nI1unq@willie-the-truck>
+Subject: Re: [PATCH 4/4] KVM: arm64: Add SMC hook for SME dvmsync erratum
+Message-ID: <aamUFoQV74t4okXx@willie-the-truck>
 References: <20260302165801.3014607-1-catalin.marinas@arm.com>
- <20260302165801.3014607-4-catalin.marinas@arm.com>
+ <20260302165801.3014607-5-catalin.marinas@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260302165801.3014607-4-catalin.marinas@arm.com>
+In-Reply-To: <20260302165801.3014607-5-catalin.marinas@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_063219_369741_2B6B8B11 
-X-CRM114-Status: GOOD (  25.97  )
+X-CRM114-CacheID: sfid-20260305_063300_092196_82A52952 
+X-CRM114-Status: GOOD (  25.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,124 +77,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 02, 2026 at 04:57:56PM +0000, Catalin Marinas wrote:
-> C1-Pro acknowledges DVMSync messages before completing the SME/CME
-> memory accesses. Work around this by issuing an IPI+DSB to the affected
-> CPUs if they are running in EL0 with SME enabled.
-
-Just to make sure I understand the implications, but this _only_ applies
-to explicit memory accesses from the SME unit and not, for example, to
-page-table walks initiated by SME instructions?
-
+On Mon, Mar 02, 2026 at 04:57:57PM +0000, Catalin Marinas wrote:
+> From: James Morse <james.morse@arm.com>
+> 
+> C1-Pro cores with SME have an erratum where TLBI+DSB does not complete
+> all outstanding SME accesses. Instead a DSB needs to be executed on the
+> affecteed CPUs. The implication is pages cannot be unmapped from the
+> host stage2 then provided to the guest. Host SME accesses may occur
+> after this point.
+> 
+> This erratum breaks pKVM's guarantees, and the workaround is hard to
+> implement as EL2 and EL1 share a security state meaning EL1 can mask
+> IPI sent by EL2, leading to interrupt blackouts.
+> 
+> Instead, do this in EL3. This has the advantage of a separate security
+> state, meaning lower EL cannot mask the IPI. It is also simpler for EL3
+> to know about CPUs that are off or in PSCI's CPU_SUSPEND.
+> 
+> Add the needed hook.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
 > Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Oliver Upton <oupton@kernel.org>
 > Cc: Will Deacon <will@kernel.org>
 > Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Mark Brown <broonie@kernel.org>
+> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: Sudeep Holla <sudeep.holla@kernel.org>
 > ---
->  arch/arm64/Kconfig                | 12 +++++
->  arch/arm64/include/asm/cpucaps.h  |  2 +
->  arch/arm64/include/asm/cputype.h  |  2 +
->  arch/arm64/include/asm/fpsimd.h   | 29 +++++++++++
->  arch/arm64/include/asm/mmu.h      |  1 +
->  arch/arm64/include/asm/tlbflush.h | 17 +++++++
->  arch/arm64/kernel/cpu_errata.c    | 19 ++++++++
->  arch/arm64/kernel/entry-common.c  |  3 ++
->  arch/arm64/kernel/fpsimd.c        | 81 +++++++++++++++++++++++++++++++
->  arch/arm64/kernel/process.c       |  7 +++
->  arch/arm64/tools/cpucaps          |  1 +
->  11 files changed, 174 insertions(+)
-
-[...]
-
-> @@ -575,6 +576,14 @@ static const struct midr_range erratum_spec_ssbs_list[] = {
->  };
->  #endif
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c | 17 +++++++++++++++++
+>  include/linux/arm-smccc.h             |  5 +++++
+>  2 files changed, 22 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> index 38f66a56a766..ab7f9273fddf 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> @@ -5,6 +5,8 @@
+>   */
 >  
-> +#ifdef CONFIG_ARM64_ERRATUM_SME_DVMSYNC
-> +static void cpu_enable_sme_dvmsync(const struct arm64_cpu_capabilities *__unused)
-> +{
-> +	if (this_cpu_has_cap(ARM64_WORKAROUND_SME_DVMSYNC))
-> +		sme_enable_dvmsync();
-> +}
-> +#endif
+>  #include <linux/kvm_host.h>
+> +#include <linux/arm-smccc.h>
 > +
->  #ifdef CONFIG_AMPERE_ERRATUM_AC03_CPU_38
->  static const struct midr_range erratum_ac03_cpu_38_list[] = {
->  	MIDR_ALL_VERSIONS(MIDR_AMPERE1),
-> @@ -901,6 +910,16 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
->  		.matches = need_arm_si_l1_workaround_4311569,
->  	},
->  #endif
-> +#ifdef CONFIG_ARM64_ERRATUM_SME_DVMSYNC
-> +	{
-> +		.desc = "C1-Pro SME DVMSync early acknowledgement",
-> +		.capability = ARM64_WORKAROUND_SME_DVMSYNC,
-> +		.cpu_enable = cpu_enable_sme_dvmsync,
-> +		/* C1-Pro r0p0 - r1p2 (the latter only when REVIDR_EL1[0]==0 */
-> +		ERRATA_MIDR_RANGE(MIDR_C1_PRO, 0, 0, 1, 2),
-> +		MIDR_FIXED(MIDR_CPU_VAR_REV(1, 2), BIT(0)),
-> +	},
-> +#endif
-
-An alternative to this workaround is just to disable SME entirely, perhaps
-by passing 'arm64.nosme' on the cmdline. Maybe we should disable the
-workaround in that case?
-
-> @@ -1358,6 +1360,85 @@ void do_sve_acc(unsigned long esr, struct pt_regs *regs)
->  	put_cpu_fpsimd_context();
->  }
+>  #include <asm/kvm_emulate.h>
+>  #include <asm/kvm_hyp.h>
+>  #include <asm/kvm_mmu.h>
+> @@ -28,6 +30,15 @@ static struct hyp_pool host_s2_pool;
+>  static DEFINE_PER_CPU(struct pkvm_hyp_vm *, __current_vm);
+>  #define current_vm (*this_cpu_ptr(&__current_vm))
 >  
-> +#ifdef CONFIG_ARM64_ERRATUM_SME_DVMSYNC
-> +
-> +/*
-> + * SME/CME erratum handling
-> + */
-> +static cpumask_var_t sme_dvmsync_cpus;
-> +static cpumask_var_t sme_active_cpus;
-> +
-> +void sme_set_active(unsigned int cpu)
+> +static void pkvm_sme_dvmsync_fw_call(void)
 > +{
-> +	if (!cpus_have_final_cap(ARM64_WORKAROUND_SME_DVMSYNC))
-> +		return;
-> +	if (!cpumask_test_cpu(cpu, sme_dvmsync_cpus))
-> +		return;
+> +	if (cpus_have_final_cap(ARM64_WORKAROUND_SME_DVMSYNC)) {
+> +		struct arm_smccc_res res;
 > +
-> +	if (!test_bit(ilog2(MMCF_SME_DVMSYNC), &current->mm->context.flags))
-> +		set_bit(ilog2(MMCF_SME_DVMSYNC), &current->mm->context.flags);
-> +
-> +	cpumask_set_cpu(cpu, sme_active_cpus);
-> +
-> +	/*
-> +	 * Ensure subsequent (SME) memory accesses are observed after the
-> +	 * cpumask and the MMCF_SME_DVMSYNC flag setting.
-> +	 */
-> +	smp_mb();
-
-I can't convince myself that a DMB is enough here, as the whole issue
-is that the SME memory accesses can be observed _after_ the TLB
-invalidation. I'd have thought we'd need a DSB to ensure that the flag
-updates are visible before the exception return.
-
-> +void sme_do_dvmsync(void)
-> +{
-> +	/*
-> +	 * This is called from the TLB maintenance functions after the DSB ISH
-> +	 * to send hardware DVMSync message. If this CPU sees the mask as
-> +	 * empty, the remote CPU executing sme_set_active() would have seen
-> +	 * the DVMSync and no IPI required.
-> +	 */
-> +	if (cpumask_empty(sme_active_cpus))
-> +		return;
-> +
-> +	preempt_disable();
-> +	smp_call_function_many(sme_active_cpus, sme_dvmsync_ipi, NULL, true);
-> +	preempt_enable();
+> +		arm_smccc_1_1_smc(ARM_SMCCC_CPU_SME_DVMSYNC_WORKAROUND, &res);
+> +	}
 > +}
+> +
+>  static void guest_lock_component(struct pkvm_hyp_vm *vm)
+>  {
+>  	hyp_spin_lock(&vm->lock);
+> @@ -553,6 +564,12 @@ int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id)
+>  	if (ret)
+>  		return ret;
+>  
+> +	/*
+> +	 * After stage2 maintenance has happened, but before the page owner has
+> +	 * changed.
+> +	 */
+> +	pkvm_sme_dvmsync_fw_call();
 
-Why do we care about all CPUs using SME, rather than limiting it to the
-set of CPUs using SME with the mm we've invalidated? This looks like it
-will result in unnecessary cross-calls when multiple tasks are using SME
-(especially as the mm flag is only cleared on fork).
+Please note that this will conflict with my patch series adding support
+for protected memory with pkvm. I _think_ the right answer is to
+move this call into host_stage2_set_owner_metadata_locked().
 
 Will
 
