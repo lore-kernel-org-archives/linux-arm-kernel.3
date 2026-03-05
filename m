@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 760D6F3D33C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 17:19:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A2A7EF8FE4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 17:23:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jvL7QI7vtAV/elV7wuwJjb0ouQ5MS/0W571Ri2ejdh8=; b=OBEXyD2n4f30rfDdCmANFYTItu
-	5uhLxgpHad6MPGJgAsxceEp5zSTH04MHrg2N1Le/CZpb1ZGyOAl4Yv89/Kie/SRLUyZozZrRVEH8g
-	iP8dFBlrm4EbZxv3+qGmDw8pK03W1pkWmZeRRjMZ4Mv8XB/jJcvrj6oWwxvMdWu0J3SIIXKo2i1Yk
-	ynk+KI5v28B5IC5pq23n88JGseCeH099/LMQtMntqj6vFdRMv/B8JUcpXXafy4w3wRg5YdIRJl2yj
-	zsRF+qN17PN+76NbXwcHriWm9cGv4ROw4R+P5VRbSZTmMt3hErrPWcRjiQVGbjCAjXLp4s+EfBZAy
-	oPRPoAHw==;
+	bh=p1wGeuRJ/eZ0ds4iRA1USsFNUrpQJYzw8H7jxKUj2JY=; b=YnCgasbBkj1usBqiGshKwYO/LZ
+	GXcxvgBSNhfGpjteLA68vLLzEJQpIO8e2L7VYxSvinmiPUZVRFCwyOJFvkP7ZBpLajVACDLq5o0De
+	yDhfaQmsSp16pdHRqXw+5Inj0blVGpgqooiKOvxPGoojXk7gTkHJzIvFBoOC0QltNTLgQfcZLMA6v
+	tnPC/pVYzfb1rZSHM6v47EviuXnxsxaR/XmGwYvxJ+t46bGL8JnT6DlttYvFXEBtXUTCaHjwVF5d/
+	aCORUJLFBV098H5bHCRfSrbgYIqIcHZgOEC7BuF/JUQgF5pkvS1Wl3qqSZ+Bbo/L3gHY98Fc4HD04
+	do/oiIpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyCMO-00000002HH1-1GIP;
-	Thu, 05 Mar 2026 17:19:40 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1vyCPd-00000002Hga-1xiS;
+	Thu, 05 Mar 2026 17:23:01 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyCML-00000002HFE-2pse
+	id 1vyCPa-00000002Her-0C7I
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 17:19:38 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-82984468f85so594551b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 09:19:36 -0800 (PST)
+	Thu, 05 Mar 2026 17:23:00 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2ae3f446ccfso51447775ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 09:22:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1772731176; x=1773335976; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1772731376; x=1773336176; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jvL7QI7vtAV/elV7wuwJjb0ouQ5MS/0W571Ri2ejdh8=;
-        b=U+/NFEkOWE9jZ0bM1oY079L2ahCo07sLfRKa8o+CYugD3fwHz4jLi3hosu/GwioO3z
-         Cu0Rf+oZdtDq0iaagNRnQCNw6ayYeSXbIG02mosII2OUI3lMgZkf18a/smDNNbiD1uxn
-         Zhr0v5UOjMRzgo/Fn7yuHbdP0+hREaXskn5oFdc7an2+gW633W5jba3qXPuKW0YEUfWb
-         ZEu+r3KDnjJOC44Aq9op2OvP5ADMCWhmfjcXdz2/JBIVvA6MSuHF5MCUnxAnVVpM4JAg
-         b0KM5NgRBO690pF6g/E6LH7gczk4VcwiSRnDVnwTcRuBK0DM9M6OtU7oH80nzutnjeZ1
-         H7vw==
+        bh=p1wGeuRJ/eZ0ds4iRA1USsFNUrpQJYzw8H7jxKUj2JY=;
+        b=FOLiUk7xIG2OtDzj72VK7nbXKcA4lsx5vhhS7PyOIBnckU6uoPJZpl1CyNHItTql1l
+         zlMW2e0uVf2vsRtXbc6SOP3aaVnzgxljZBkT+xk2UiqZCs1GDr056IYIosqdzcLGAXcC
+         vXyRMeXKjtTGnmJshtPvfCYXM1hCL5tZbRUFI89cHLPj21wwbOyrYv69qoYdQ+tpe6FY
+         lXdrhqsFHhPh9/U/yXpC1ogkbLBZaBLSEJHeaSC+Wmfi93ryiIU03cPz0gwotDRxOHs8
+         DqoYYW3VnX4GJYN6oRNdxL4gLGF4+zAjRFYc5QIIPOfT1W7U9d4hUIBnWB5I3RZGaOUV
+         x4Ow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772731176; x=1773335976;
+        d=1e100.net; s=20230601; t=1772731376; x=1773336176;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jvL7QI7vtAV/elV7wuwJjb0ouQ5MS/0W571Ri2ejdh8=;
-        b=WM1/ZcphQPENxfNJO0H3T4r6ToEOoInSJLPNn8jXYesgWE3P6/xDEUWm/asA9doDJi
-         DcSa2FoCroIF8mJTMWp0WXs6RmclUAqn9ir4h5OxYtyJ2pFVSZ3Rd2hh45kEfRTXr2V2
-         XosJQyoKVM6b57SS7xsjPMKHC0CI1HvftkqR5cGnA2tba3lHfy0GcASLdqEtycfWmNbm
-         FjUuFnc6egWgXxl3qaGr9P/Eb3ogQymVagGnn2BOYcfOGtRJVSxExKfSwhZigvpLjCV1
-         RvdyhRR9kwbsgqNMv8I8S30HJfXAFEnSnKpmNua6L9zAtugiPIxBFSPeQjRihQukVgUs
-         rBbA==
-X-Forwarded-Encrypted: i=1; AJvYcCWtP6u6XnMElwHha00s8hHrREZVzWEh6YnF9q2gC1WdYfH7ZaBzNjZ2fQ/CXYHFViSKUEN1Aab2OzDQLWN90ivC@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmTpTC9VuvkRPH3pEEp6OFKT/Fdv3U2VPvjMJZQ09/8oBnqBqo
-	pYZ5YVeQCGMWeCmfSYE0p/5xmpq+2KZnUKKaSpmsmq9pbtob6Vt+0l9szYXYUkPa5LU/7Tp7jan
-	dAv7kcg==
-X-Received: from pfcp25.prod.google.com ([2002:a05:6a00:a259:b0:829:808f:cb8d])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:4295:b0:81b:d5d9:a83a
- with SMTP id d2e1a72fcca58-8299ae60809mr419972b3a.61.1772731175885; Thu, 05
- Mar 2026 09:19:35 -0800 (PST)
-Date: Thu, 5 Mar 2026 09:19:34 -0800
-In-Reply-To: <20260220004223.4168331-5-dmatlack@google.com>
+        bh=p1wGeuRJ/eZ0ds4iRA1USsFNUrpQJYzw8H7jxKUj2JY=;
+        b=PDC2twZGgNqff46GC/Bs+3L+NmoaBWK6Xh2ntQvwXoQJI0EC5feRx/TEj4yqHzj7Qz
+         N9mt2JL+w6Ev0JcPVd3bbLQ/0peEMMqbd/sBhAACjrcbT83YC9hwvEVonIpcfdZ+yRBI
+         8/Adi/nVDZv7juYa3Cwo6ia8fLZDbCA6dTR/p/tRzhS+ZX02wQdTZbrrgB4BRcz32Kfg
+         dnRwLG/eQEkZPv/SejTrtB7h6UJZDWl8VwOqobfk1B+up+n/njUI3efdNI8fQDM7RGBZ
+         nizZiar2HJgPUJE0BQ43DYs4cdnUum+gthVHGoTnwpV1EftNerfQZHAfjtCCHWWyfOwk
+         IziQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWFdd1/SUBJph+AE9INntlGIV62Kl7tm6/5p7atS8emUHtI0Wp5sysp4skudnfWxkdOswJ/GT05cb7C2EPv1QNC@lists.infradead.org
+X-Gm-Message-State: AOJu0YyT/dJOB0FZ9/KNxfrAaUOQE69boBYeVckLfIbuuG9If0e7T/ML
+	PWGxfdzNdsmW/L1xxW7Dc2h2ylyRytQ4flcTfu/KF/HTbbXvXzjDHWRP+UQIJAvAgT3iRk2Zh7I
+	SdskuRg==
+X-Received: from pgbda4.prod.google.com ([2002:a05:6a02:2384:b0:c73:7810:6005])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:166e:b0:2ae:7efa:b2ee
+ with SMTP id d9443c01a7336-2ae7efab422mr8334235ad.45.1772731376023; Thu, 05
+ Mar 2026 09:22:56 -0800 (PST)
+Date: Thu, 5 Mar 2026 09:22:54 -0800
+In-Reply-To: <20260220004223.4168331-1-dmatlack@google.com>
 Mime-Version: 1.0
-References: <20260220004223.4168331-1-dmatlack@google.com> <20260220004223.4168331-5-dmatlack@google.com>
-Message-ID: <aam7JsCyQ5Oacvl5@google.com>
-Subject: Re: [PATCH v2 04/10] KVM: selftests: Use u64 instead of uint64_t
+References: <20260220004223.4168331-1-dmatlack@google.com>
+Message-ID: <aam77t8fe5RKSr2Q@google.com>
+Subject: Re: [PATCH v2 00/10] KVM: selftests: Use kernel-style integer and
+ g[vp]a_t types
 From: Sean Christopherson <seanjc@google.com>
 To: David Matlack <dmatlack@google.com>
 Cc: Paolo Bonzini <pbonzini@redhat.com>, Ackerley Tng <ackerleytng@google.com>, 
@@ -87,9 +88,8 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Ackerley Tng <ackerleytng@google.com>,
 	Zenghui Yu <yuzenghui@huawei.com>
 Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_091937_717327_69A9E560 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260305_092258_083664_2CB9DD97 
+X-CRM114-Status: GOOD (  14.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,15 +105,34 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On Fri, Feb 20, 2026, David Matlack wrote:
-> -static uint64_t pread_uint64(int fd, const char *filename, uint64_t index)
-> +static u64 pread_uint64(int fd, const char *filename, u64 index)
+> This series renames types across all KVM selftests to more align with
+> types used in the kernel:
+> 
+>   vm_vaddr_t -> gva_t
+>   vm_paddr_t -> gpa_t
+> 
+>   uint64_t -> u64
+>   uint32_t -> u32
+>   uint16_t -> u16
+>   uint8_t  -> u8
+> 
+>   int64_t -> s64
+>   int32_t -> s32
+>   int16_t -> s16
+>   int8_t  -> s8
+> 
+> The goal of this series is to make the KVM selftests code more concise
+> (the new type names are shorter) and more similar to the kernel, since
+> selftests are developed by kernel developers.
+> 
+> v2:
+>  - Reapply the series on top of kvm/queue
+> 
+> v1: https://lore.kernel.org/kvm/20250501183304.2433192-1-dmatlack@google.com
 
-I think it's also worth converting the function to pread_u64().
+Sorry, I was too slow and missed the window to get this into kvm/next without
+causing a disaster of merge conflicts.
 
->  {
-> -	uint64_t value;
-> +	u64 value;
->  	off_t offset = index * sizeof(value);
->  
->  	TEST_ASSERT(pread(fd, &value, sizeof(value), offset) == sizeof(value),
+I don't think you need to send a v3 though.  I'll prep a v3, a branch, and send
+Paolo a pull request during the next merge window.
 
