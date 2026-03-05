@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE664F47CC6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 19:59:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCE3AF47CC4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 20:00:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kxa67K0ynIkAExL5QV2/uC6WHZQ5+EGoLef5kUO5JS8=; b=R82VX55H3a83zSudH+mIXRGqvL
-	RIyrrfvNxml7hcdEG0Qc2B4lKgZJVyXoOj3RvdL5HRNo97U67voa15KHqw80es7l7StWf9757AjOH
-	OtG21KBNd7b3MufAXBUkhIALZZdfESVl4HDChF96BFQ9wcweNQt/m8c08DQffzlnOOWeLbgb6GWvk
-	DFiODKUCTkiydSdzOq+wftSU0Dz2SHk7faVqrrPge6qa0itnkwV0uL2TQIWd0+q02Y2lz780hRMdF
-	zuW6lFBhhFbxeUzfkCcLCQQTC7lM21XGkTHYATPeEgaDLMlVrpKb6+LKTqKw51JrWeZjKOpvx/ZdY
-	llYzlZEQ==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xphpQByXIbnNH7X7R8HuZoZkSzH6oDGzFy5gh9MGIvs=; b=Z+vI6KUX0cENCIvH3tExFjbNph
+	AYYezOFMqjNSGg9pFdQl0wHCwE/9VvzIVdLUuKwJfA0uY74sTv53GVuZXShHuh3P4KtzHXhUos7ji
+	shuKCxTyWGCqZv2bmP4wE8gppDIscjv6UAqeFWgBGqBBvacoEMnwhbPn8fg2V3QXWNJmdG0kPtjgM
+	thzk0hgBktr+F2FI3qcQU1NF5doLk1fJrUzAfXET4IVA8G85Bj06gsPUzN+kevMUHI7q7KXGrPBbq
+	mgd7LYsqXHVhrk/L4sIJowjfHR0gUFLMabPMijBKuwT3AtJ/PeNB363yO4OtdaRhyS4Oc8ZckU/Sl
+	udyvympQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyEqy-00000002UKz-2b7T;
-	Thu, 05 Mar 2026 19:59:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vyEsJ-00000002UpM-3b2F;
+	Thu, 05 Mar 2026 20:00:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyEqx-00000002UKc-1xsS
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 19:59:23 +0000
+	id 1vyEsH-00000002Uo0-0zHK;
+	Thu, 05 Mar 2026 20:00:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 860C2600AE;
-	Thu,  5 Mar 2026 19:59:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A563C116C6;
-	Thu,  5 Mar 2026 19:59:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 944E74167E;
+	Thu,  5 Mar 2026 20:00:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BC64C116C6;
+	Thu,  5 Mar 2026 20:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772740762;
-	bh=P9h6a/+i3jTbQ0P6zLNBb0w2w4R0puzCUrjq5M6rt14=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=s8hwsYsTPzK+NDRRb0FvEfT/X/McPB2ztMGfeCncP5M2EoJrRh3Tbs0fcU7/iIBb+
-	 uo97qV+PwSnti8Fy1ARXKIXWhhmV6/675pRWDzkaXvm0AQOJxTcf7sAZwLwTOGwmtT
-	 YFRwfp+1EYF2X9kMrISZEhyCe1dWuGmYgpkRtfBi5zTXqoaZpg70Uu5clvBefzuOam
-	 L2qZiLYaiYWhYOPFqjijgYDxwFdK7MrBq9D1pqoMfvG+hbepCqUI2OpONqi3RqhuNb
-	 auy0xzqU2zOfDVGOPCpJ4NlMs2oOiODe/jhvNa32JyolOGbKW3vzeL+GyY1hFRrVd4
-	 TAr9Gq4eILYAQ==
-Message-ID: <38c0a23e-88cc-4f26-9648-fdeb9e99160f@kernel.org>
-Date: Thu, 5 Mar 2026 20:59:17 +0100
+	s=k20201202; t=1772740844;
+	bh=xphpQByXIbnNH7X7R8HuZoZkSzH6oDGzFy5gh9MGIvs=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=mVorKT1xS9QEG/N1aCEZT0UWqhAG/N/fc5r4aIwcvXKppGFK3//Nfby74ivZRJskH
+	 cVcrQ0Qt4GNIE7PJzTA03dKNcw/1ma3InemGFsYlRaxq+oDKqHD4FmXcSMFB5vZAwT
+	 U6szf6qee23EI03Guh57jKwzuttVyJmQ2vKusuBEy38luCJ2JavoFU8L0HUbCkyDKd
+	 1/9JTH4wf2So0LFfcZStuSIev9vilDjnh/rZ3C1o954kM6wKrzJUNKzACJfIR5iqJR
+	 cYn0qErx1QqStYULQvQlxI+9SJP0+A9IlkC85NokLtcyKlkBddRDGUXV4dNIrPh5st
+	 FNWQSWr9PHKHQ==
+Message-ID: <d7c83ef5-c7f7-4401-9032-5a86844b6d82@kernel.org>
+Date: Thu, 5 Mar 2026 21:00:39 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/3] Adding brcmstb-hwspinlock support
-To: Kamal Dasu <kamal.dasu@broadcom.com>, andersson@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: baolin.wang@linux.alibaba.com, florian.fainelli@broadcom.com,
- bcm-kernel-feedback-list@broadcom.com, linux-remoteproc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+Subject: Re: [PATCH v2 1/2] dt-bindings: crypto: eip93: add clock gate and
+ reset line
+To: Aleksander Jan Bajkowski <olek2@wp.pl>, ansuelsmth@gmail.com,
+ herbert@gondor.apana.org.au, davem@davemloft.net, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, lorenzo@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-crypto@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org
-References: <20260224220407.2351692-1-kamal.dasu@broadcom.com>
- <CAKekbevZQBdvH5CCGyCDhs7ND6y65C=S3k1Aop8eh4CV5r_4aQ@mail.gmail.com>
+References: <20260305195903.59776-1-olek2@wp.pl>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,9 +100,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <CAKekbevZQBdvH5CCGyCDhs7ND6y65C=S3k1Aop8eh4CV5r_4aQ@mail.gmail.com>
+In-Reply-To: <20260305195903.59776-1-olek2@wp.pl>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260305_120045_315934_EF41487F 
+X-CRM114-Status: UNSURE (   5.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,28 +121,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/03/2026 20:17, Kamal Dasu wrote:
->>
->>  .../brcm,bcm7038-sun-top-ctrl-semaphore.yaml  | 45 +++++++++
->>  MAINTAINERS                                   |  8 ++
->>  drivers/hwspinlock/Kconfig                    | 11 ++-
->>  drivers/hwspinlock/Makefile                   |  1 +
->>  drivers/hwspinlock/brcmstb_hwspinlock.c       | 96 +++++++++++++++++++
->>  5 files changed, 160 insertions(+), 1 deletion(-)
->>  create mode 100644 Documentation/devicetree/bindings/hwlock/brcm,bcm7038-sun-top-ctrl-semaphore.yaml
->>  create mode 100644 drivers/hwspinlock/brcmstb_hwspinlock.c
->>
->> --
->> 2.34.1
->>
-> 
-> Hi Baolin, Rob,
-> 
-> Gentle ping on this series. Patch 1/3 (dt-bindings) has been reviewed
-> by Krzysztof and all previous review comments have been addressed.
+On 05/03/2026 20:53, Aleksander Jan Bajkowski wrote:
+> Add the clock gate and reset line, both of which are available
+> on the Airoha AN7581. Both properties are mandatory.
 
-Why pinging Rob? You got DT review. Or one review is not enough and you
-need multiple maintainers engaged?
+Why are mandatory? We see that from the diff, you must explain WHY you
+are doing things.
+
+Also, that's ABI break without that explanation.
 
 Best regards,
 Krzysztof
