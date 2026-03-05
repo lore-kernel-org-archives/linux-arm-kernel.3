@@ -4,91 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85C34F3094B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 11:50:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AE58F3094E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 11:53:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iUs+CGKlSXZwATM56oVixVPREmsA3EmoDPmnZPV6UKk=; b=veDVjJktzh6cJX5ZWt8RAyae3l
-	KTl6DmSXeDRep3GthKMYUAq9OJuHmy2khH9uR16hX6Ax6NIrPSleGcvhon9U2GcuyCiToctl2En5o
-	bA2abMJ7r3LyhXe7Xgb5B2BxJTH3Xq3pYqIAQFelz4Jb/g3vJZLJCsdnMqfAPLfu+Vlxq2CXGwoZI
-	AJFPc9epvH+ThraeT161yue0dNzDqx4+Sy3hIvLbH2CXBIp7hEsj+qknZ8IVrDgJZiMZiwTMm9dm9
-	kkyQb3b03r1ib5UKcR19bK8ezClqiFDDHy3Bhf6a7rsqiS/6A6tK2p95Ckfu+e1o9hRo+f6qbugI/
-	pTaROB3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wQJak8X63a6L+hd0Sh8Vb/xECPC47w7fdGGe93u4BWc=; b=KB4y0Ke8PaxYNZ8IcUTeIcZGyT
+	xra+Wui9FgpxXNImAF59C0xRGzQuV17Rr+NZe9olti8Iou7WwieKwfhPvBINgKVozV22J+87NH75h
+	gNf9yvhMVxNPagWWLbipTdlwE8+/EYcarIP3zxEJrYdpjnF4KA9g92v8wuA9i0Qx9oHN1o6BqMJE5
+	7YCPSeXpBhnN9wvQl/anYdaiX8O3Nufrwayi2qN4rUHV7EjTyewcTtmnzeGtZkOTIEwBYa3hrjuNB
+	aO9lU529H1q7zHD7xne7HJUDwu9uWxh4t65gFmQ9YYiXA3hieCPGGuQGv1jea0+LkwHgu0v+xiyYV
+	rmDC8Q6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy7Du-00000001hwU-06YM;
-	Thu, 05 Mar 2026 11:50:34 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1vy7Gt-00000001i9o-16ZV;
+	Thu, 05 Mar 2026 11:53:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy7Dr-00000001hvo-3M9R
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 11:50:32 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-439afc58ac7so4965216f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 03:50:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1772711430; x=1773316230; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=iUs+CGKlSXZwATM56oVixVPREmsA3EmoDPmnZPV6UKk=;
-        b=CPUoJEn90L8bCDQiiNphny28O7MEkw28rK2S+AzTU5U+gSC92x6DVHfuoIGDq6qd+C
-         EEiAOFzEcigqmOoea6qT9yX087U4aLmq9awuVoZXy50rmk28m9HIuTuoDXGMPCE3d9ey
-         PQJ5kVmcfaamP3H37X3AEHrgNyToM9j2BxuL74TvHpZxWBdV60xwo+ubGpbP9zWw3mLC
-         6oDrxQffKCotS3klX43uknqDCake7CfF/BcgtQL7IVYqNzpIE5YEBf4bgMBMz74Yi0JO
-         hyMNBwBH1pBf+LKfeA2bekg6hNOOy1XZ7FH5Yj0WTUG5lk8K/KeM+nmmGHA6O8nRGcGJ
-         P8+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772711430; x=1773316230;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iUs+CGKlSXZwATM56oVixVPREmsA3EmoDPmnZPV6UKk=;
-        b=sVuQHQGVtCQ3xsU+kSRfZA0eDRz51Av+e8eKQcu4VCKm/e1X9oKwPrk+l9tSp1qNnD
-         8q4Vm7t4LFXYvVAqP4DtwZ28I7vUgPYqhl2Gh/PxBRKEIetPHDNSVxVuqLlICUPnHEqd
-         cnmuUevOxSY0G/EjMJ3kJmEFs7XqcT0EJyxAxU/Wx2lGH6UOTIcN3cvkCFxXC7/KRB7N
-         KDCHMCcdUnW/RNCypBddXOnrvfhiN3cWIi460VRdof89htCJzuKnFmfWZK5m3EI6nPCm
-         J9yPBC+TMSLCTc7R1a80L+nLlKbq2/AekIjfRKfevwwBNKnE/qRicON6Mk733YxnbuV9
-         SDow==
-X-Gm-Message-State: AOJu0YxLfo6z95fBXYtaZBzlk42nX9snMN1I4aySgodsFSw39KnPz53d
-	1Gmr9IThzEVYdjEDtq3xTIzkSDdv83bjgTuFl2Y6j4A8vQHLRQMNFUbrWwwWKzNsyY8=
-X-Gm-Gg: ATEYQzxWOfIFf/oz3ThuzTT85ew9OtieuCiNqzR8yycjcIh7rmAkVT0uD4CntsL+N2C
-	6Sydwx6G0A4kGEbnF3871GSqnlMeJ+qmdnMzAbD/KG60ZmJ/vC+yl7u30Ot6SoWtkBcuhARrnZO
-	PlCPdMkJNB0hD/jjcj8yGYkR7VLAl6ajHzwxt/b8yCmzQYV7OdhUokjS1LRSnsleoIGilU/eB3o
-	+OUtnY836ZjsbVBOFuJ/UtAZNWuHRs3i+sOYZxN+CO/I9JkaMWwRRCq5x9mrzUpAMej8dCAf4mA
-	qN37Q0rtPW+BulZWFI+FrGkReJ1UEVfGj0F7oXuaVi1tRA7SO6bojrYTSe3lHlpj1PIcuVK8E1z
-	bb000rGd6QPYzcrJWwnVNOsYepjra3NZww6+7ptbnxYc35zLDSVyGIH4pozB2BJZ0d9X1zVyI3W
-	vF7fqgotW27F1isoyMHWZNxOQagAbfmHvz9KpQ3BMI5pU=
-X-Received: by 2002:a05:6000:18a9:b0:439:b486:ba7f with SMTP id ffacd0b85a97d-439c8015847mr10303402f8f.49.1772711429861;
-        Thu, 05 Mar 2026 03:50:29 -0800 (PST)
-Received: from ho-tower-lan.lan ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4399c60e40fsm48919998f8f.7.2026.03.05.03.50.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Mar 2026 03:50:29 -0800 (PST)
-From: James Clark <james.clark@linaro.org>
-Date: Thu, 05 Mar 2026 11:50:01 +0000
-Subject: [PATCH] KVM: arm64: Read PMUVer as unsigned
+	id 1vy7Gr-00000001i9I-0pmv;
+	Thu, 05 Mar 2026 11:53:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 44F7744484;
+	Thu,  5 Mar 2026 11:53:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C262AC116C6;
+	Thu,  5 Mar 2026 11:53:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772711616;
+	bh=Vokr7pE3jEjoiqQGZNJz/o38aeGgsCzeWhivmvmLiz0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lc1ZWWwh1K+uDC5GITnGWwSlMopayI5NZ65uBO+3ORUFnrdUKiJiEjwIR+Ijv5UMB
+	 1Plrs8An5KzFFWD1x5fiBrENeqRigsixsL+2KkeQ7WpUfiRHI0/F6WXxB2RF1EL5kl
+	 WAyzIV3UFQeBUDzTlXHzGu+jyQa66XfHqxZJGfBSyEliiTLZMZw2R9ft9pwOs4Bqre
+	 NImYGz5NVJgHQYFuL7O48DJDox9lPSalz55jrUUFnZwbcJg6PphNgz8xEzS87VES3h
+	 eGjFf0e3OyZzfKqOrMa9NnmWNhlVnH0R70ARq0c2tUWA+8A9iiuaFKZ8T2PcDer0t0
+	 +y54AZX01CRzw==
+Message-ID: <c8b9aa23-9081-4482-b638-e57a0c419356@kernel.org>
+Date: Thu, 5 Mar 2026 12:53:30 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v4 1/4] media: dt-bindings: Add Amlogic V4L2 video
+ decoder
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+ Zhentao Guo <zhentao.guo@amlogic.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org
+References: <20260213-b4-s4-vdec-upstream-v4-0-c7112d00d662@amlogic.com>
+ <20260213-b4-s4-vdec-upstream-v4-1-c7112d00d662@amlogic.com>
+ <d96c689d-a5a3-453d-a1ab-56dc1bf01635@kernel.org>
+ <75e55ceb-e6dd-47b5-a829-66f6fbb3e13e@amlogic.com>
+ <2f68ee18-e9d9-4da6-900c-93a7663b3c9d@kernel.org>
+ <598c161c-d157-40e5-992c-912540589d7e@amlogic.com>
+ <58d57a6c-7c69-4f5b-a4c2-f34ef0238511@kernel.org>
+ <26d0f52e-3681-46ce-b0dc-0cb020e8d9a1@amlogic.com>
+ <69900d76-3820-467a-9fbc-13f79189df2f@kernel.org>
+ <278f5018-9183-4eeb-bde1-7c19adecab06@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <278f5018-9183-4eeb-bde1-7c19adecab06@linaro.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260305-james-kvm-pmuver-sign-v1-1-eea0a2116dd0@linaro.org>
-X-B4-Tracking: v=1; b=H4sIAOhtqWkC/x3MQQqDMBBG4avIrB2IEaV4FXGRNr92lETJ0FAQ7
- 25w+S3eO0mRBEpDdVJCFpU9FjR1RZ+viwtYfDFZY3vTmo5XF6C85cBH+GUkVlkiz3i15u3hvPV
- U2iNhlv/zHafrugEKnUWbZwAAAA==
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Colton Lewis <coltonlewis@google.com>, 
- Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>
-X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_035031_852242_B30C421B 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20260305_035337_286027_A3D0D09A 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,38 +132,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ID_AA64DFR0_EL1.PMUVer is an unsigned field, so this skips
-initialization of host_data_ptr(nr_event_counters) for PMUv3 for Armv8.8
-onwards as they appear as negative values.
+On 05/03/2026 12:35, Neil Armstrong wrote:
+> On 3/5/26 12:08, Krzysztof Kozlowski wrote:
+>> On 05/03/2026 12:01, Zhentao Guo wrote:
+>>>
+>>>        2. Why canvas is needed?
+>>>
+>>>   1. Since the ARM IOMMU HW is not integrated into the Amlogic SOCs,we
+>>>      need canvas to prevent the DDR memory used by the decoder from being
+>>>      rewrote by other hardware. Canvas provides the decoder with a
+>>>      configurable DDR memory range, as well as hardware-based detection
+>>>      and blocking for out-of-bounds access.
+>>>    2. From the diagram above, we can see a lite CPU called AMRISC. AMRISC
+>>>      is the controller of the decoder HW and the decoder driver needs to
+>>>      access the decoder hardware through AMRISC. However, AMRISC is a
+>>>      16-bit CPU and cannot directly handle 32-bit or 64-bit physical
+>>>      addresses. Therefore, canvas is required to convert the addresses
+>>>      into index to facilitate processing by the AMRISC core.
+>>
+>> This suggests "Canvas" is IOMMU, thus use proper IOMMU abstractions and
+>> you cannot have own phandle for it.
+> 
+> 
+> No it is not, canvas was used for a long time for the display and video processing side.
+> 
+> It's absolutely not like an IOMMU, the diagram is quite clear.
 
-Fix it by reading it as unsigned.
+The diagram and all descriptions points to memory mapping...
 
-Fixes: 2417218f2f23 ("KVM: arm64: Get rid of __kvm_get_mdcr_el2() and related warts")
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- arch/arm64/kvm/debug.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+"Canvas index is basically a reference to a memory region and its
+configurations."
+"Memory access through canvas has HW out-of-boundary check. "
+"Canvas provides the decoder with a configurable DDR memory range"
+"canvas is required to convert the addresses into index to..."
 
-diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
-index 3ad6b7c6e4ba..b8632edba9a3 100644
---- a/arch/arm64/kvm/debug.c
-+++ b/arch/arm64/kvm/debug.c
-@@ -76,7 +76,7 @@ void kvm_init_host_debug_data(void)
- {
- 	u64 dfr0 = read_sysreg(id_aa64dfr0_el1);
- 
--	if (cpuid_feature_extract_signed_field(dfr0, ID_AA64DFR0_EL1_PMUVer_SHIFT) > 0)
-+	if (cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_PMUVer_SHIFT) > 0)
- 		*host_data_ptr(nr_event_counters) = FIELD_GET(ARMV8_PMU_PMCR_N,
- 							      read_sysreg(pmcr_el0));
- 
+so it is not a random phandle either.
 
----
-base-commit: c107785c7e8dbabd1c18301a1c362544b5786282
-change-id: 20260305-james-kvm-pmuver-sign-fe830bdead2d
 
 Best regards,
--- 
-James Clark <james.clark@linaro.org>
-
+Krzysztof
 
