@@ -4,115 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13B24F30946
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 12:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 625EBF30955
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 12:39:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=feqMFqCR/Sc8xbBCdHZZwm0LpZSu+jdSNYNMmiLXuHY=; b=gXCoZk5AGBH+s8iXE1+ROWWBjr
-	ex0vhrSqXQOrRkA7YtXXOGXAnfjZRU9TJDON4TgzUF12SLpKtOEXrWithN6nJaMgN4tJ6QW0pyxO0
-	XWSIkMN2SND8kxGZIqeS4eYMminUrsa0eJfXR3gC7YKTS8uBsGVfYPp2968X2m6CxFGoVL9wgXEPZ
-	z2PQx5YBx9l86W1ptXpkq5wfsfC8pHVHR42CLXgx8w+eTMcG5d7OIqVeweW5dqbgpVPsTe1zPyYgW
-	IcA1QjFLeZ4oykyrTa5kGTPxof91KClJhRieYEaQLWCZk/jVO+Te3Gh6e8Xom3ne+hUrF0wvnuR7c
-	/zlltIig==;
+	bh=SbxQf47xfZ/5C2jELl3sJw8N8vSCBcYcs6zW8A2N7KM=; b=0Dg3lt+h0M2FUkJoVBDe+FTYgL
+	mqaSY5JgbOipZS/UkNsSGgY7GUA8B+7Z2bRh3+0UlaIbrYuVBlNDa7KQduULq5AYXWOlwLMxeoQKd
+	BQ8UANMcd23eT4Pv38a6Sbc9SbA1GJKLK9mHCfIqvecOdiBDCimu4RP3B0usYqjDpRhxTqDo14jwB
+	NZoW4HQ/k8ObnLvPFu7fIvNGFhd039+GN8uqgwV+78qa+5nkJJk62AxdD7yB6gwkj5uo5B130+z/d
+	IhsuqjUJSPgt9YXcq61jxAZZWcNyRRp4IA33lWL1Ni2PxkQZ0n4/Ie3uJa6NNyLFzoB1M87lUfYVB
+	R5bsTp0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy7zP-00000001moa-2OMS;
-	Thu, 05 Mar 2026 12:39:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vy7zZ-00000001msg-1Zmg;
+	Thu, 05 Mar 2026 12:39:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy7zO-00000001moB-0B24
+	id 1vy7zY-00000001ms7-117y
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 12:39:38 +0000
+	Thu, 05 Mar 2026 12:39:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 26FFF61339;
-	Thu,  5 Mar 2026 12:39:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE62EC116C6;
-	Thu,  5 Mar 2026 12:39:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 447446183D;
+	Thu,  5 Mar 2026 12:39:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AEA2C19423;
+	Thu,  5 Mar 2026 12:39:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772714376;
-	bh=Gcla6dk7HKtcPXm/uEjdADuBF2XFedUxob0vlvhB3lA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DCIJdZtN9n/FZ1K2dR1eS6YttnLrjzkCayO9RoJGt0DidNJ+0klcKHQvdzMZOf+1w
-	 2K4f1hBgfJouqTvwTikU0tWq9uW8ifxBuaSMOMJ6XQWkdpEyqX8XlF2O9gDqJ6omiJ
-	 jYvx8K7Tcmsd0hAlXx7+f/qn0FEHiejgCiW71fBfk+OnXqILC6ueTBqHa+/PsRQN/2
-	 gOPJXI/BTMtnnLa2xQIVIj+ebDOc2+9UFvF1Ehm8kffeZCMcJJm3qZ22lvNUwRwPlv
-	 U9QWyW+hDnlB2eHQFWCsQ3S9Qeb1wFs6vSAKbo8HRPENJDST4KXr7OX2EvZaTfLwOW
-	 KjuWYuzopxJig==
-Message-ID: <e400bb73-3f80-4fcd-91a1-6b9b966c5e2d@kernel.org>
-Date: Thu, 5 Mar 2026 13:39:29 +0100
+	s=k20201202; t=1772714387;
+	bh=NHjvP5Apmcg681KyizLkhQcHDwKR9Nf0s0Y484PlvsA=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=P9ZCpTm1C4pe2uAMW7UXulE7Cj+noO09jxkI0IAcsCHXDK+ESrzixqBiWF1lNG3JS
+	 B3UUBAEApJ0pH9jMpMJUF3hu9+uevGNBlHRzCZ+9zrNMg09LhEw6sVVj5pwCi3Vo8/
+	 dLRxaXLPK0V4srgxVV1s/M5AIWmLyPmbr+FrTTOv8hoqjZZSY/YE0dh5n2Z3V5gyfX
+	 W/wze6nPqQoKPpl3ADdqw7zgRNw+oYa1kclyeH6hULDs6IiX04jDTI19C5hI4KJO34
+	 FWSiKcFHzvK2Pa5n506ZfD7toKcC0yj0cTnMzr3zI+QUAt16ywy3mz5DeFppf/IkJO
+	 bVqQeepibU1eQ==
+Message-ID: <3884dd41-8ab1-45ee-8daa-198384d59c20@kernel.org>
+Date: Thu, 5 Mar 2026 13:39:41 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/7] dt-bindings: interrupt-controller: fsl,irqsteer:
- add S32N79 support
-To: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
- Ulf Hansson <ulf.hansson@linaro.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Haibo Chen <haibo.chen@nxp.com>, Adrian Hunter <adrian.hunter@intel.com>,
- Shawn Guo <shawnguo@kernel.org>, Lucas Stach <l.stach@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, s32@nxp.com,
- Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>,
- Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>,
- Larisa Grigore <larisa.grigore@nxp.com>
-References: <20260225133858.8026-1-ciprianmarian.costea@oss.nxp.com>
- <20260225133858.8026-2-ciprianmarian.costea@oss.nxp.com>
- <20260226-ingenious-shiny-axolotl-e0e6d2@quoll>
- <e8e258fb-23c0-44d1-bf4d-e2fed92ad90d@oss.nxp.com>
- <6a481490-28dc-4b62-9782-95a32d0e2857@kernel.org>
- <aba2401e-e26c-44d1-b321-56cd18f11a37@oss.nxp.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH V4 2/2] arm64/mm: Reject memory removal that splits a
+ kernel leaf mapping
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Yang Shi <yang@os.amperecomputing.com>,
+ Christoph Lameter <cl@gentwo.org>, linux-kernel@vger.kernel.org
+References: <20260305053148.3765710-1-anshuman.khandual@arm.com>
+ <20260305053148.3765710-3-anshuman.khandual@arm.com>
+ <a2b81b60-eb8e-44a2-84fe-8c61bc5fadbe@kernel.org>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <aba2401e-e26c-44d1-b321-56cd18f11a37@oss.nxp.com>
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <a2b81b60-eb8e-44a2-84fe-8c61bc5fadbe@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -129,65 +119,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/03/2026 13:25, Ciprian Marian Costea wrote:
-> On 3/5/2026 2:12 PM, Krzysztof Kozlowski wrote:
->> On 05/03/2026 13:02, Ciprian Marian Costea wrote:
->>> On 2/26/2026 9:31 AM, Krzysztof Kozlowski wrote:
->>>> On Wed, Feb 25, 2026 at 02:38:52PM +0100, Ciprian Costea wrote:
->>>>> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
->>>>>
->>>>> Add compatible string for the interrupt steering controller used in NXP
->>>>> S32N79 SoC.
->>>>>
->>>>> The S32N79 SoC differs from the i.MX version by not implementing the
->>>>> CHANCTRL register, but otherwise maintains the same programming model and
->>>>> register layout.
->>>>>
->>>>> Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
->>>>> Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
->>>>> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
->>>>> ---
->>>>>    .../devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml   | 1 +
->>>>>    1 file changed, 1 insertion(+)
->>>>>
->>>>> diff --git a/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml b/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml
->>>>> index 5c768c1e159c..caf3e4a1f26f 100644
->>>>> --- a/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml
->>>>> +++ b/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml
->>>>> @@ -22,6 +22,7 @@ properties:
->>>>>                  - fsl,imx94-irqsteer
->>>>>                  - fsl,imx95-irqsteer
->>>>>              - const: fsl,imx-irqsteer
->>>>> +      - const: nxp,s32n79-irqsteer
->>>>
->>>> So that should be part of enum with the first entry.
->>>>
->>>> Best regards,
->>>> Krzysztof
->>>>
->>>
->>> Hello Krzysztof,
->>>
->>> Thanks for your review. Regarding this change, I was thinking since
->>> S32N79 irqsteer does not implement the 'CHANCTRL' register, it should
->>> not fallback to 'fsl,imx-irqsteer'. If the driver were to match on the
->>> fallback compatible, it would attempt to write to the non-existent
->>> CHANCTRL register.
->>>
->>> Am I wrong?
+On 3/5/26 13:37, David Hildenbrand (Arm) wrote:
+> On 3/5/26 06:31, Anshuman Khandual wrote:
+>> Linear and vmemmap mappings that get torn down during a memory hot remove
+>> operation might contain leaf level entries on any page table level. If the
+>> requested memory range's linear or vmemmap mappings falls within such leaf
+>> entries, new mappings need to be created for the remaining memory mapped on
+>> the leaf entry earlier, following standard break before make aka BBM rules.
+>> But kernel cannot tolerate BBM and hence remapping to fine grained leaves
+>> would not be possible on systems without BBML2_NOABORT.
 >>
->> No clue, I did not say anything about fallbacks.
+>> Currently memory hot remove operation does not perform such restructuring,
+>> and so removing memory ranges that could split a kernel leaf level mapping
+>> need to be rejected.
 >>
->> Best regards,
->> Krzysztof
+>> While memory_hotplug.c does appear to permit hot removing arbitrary ranges
+>> of memory, the higher layers that drive memory_hotplug (e.g. ACPI, virtio,
+>> ...) all appear to treat memory as fixed size devices. So it is impossible
+>> to hot unplug a different amount than was previously hot plugged, and hence
+>> we should never see a rejection in practice, but adding the check makes us
+>> robust against a future change.
+>>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-kernel@vger.kernel.org
+>> Link: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
+>> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+>> Suggested-by: Ryan Roberts <ryan.roberts@arm.com>
+>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> ---
 > 
-> Indeed, but your suggestion of moving 'nxp,s32n79-irqsteer' under the
-> enum would fallback on 'fsl,imx-irqsteer'.
+> [...]
 > 
-> Am I misunderstanding your suggestion ?
+>> +
+>> +	/*
+>> +	 * PFN range's linear map edges are leaf entry aligned
+>> +	 */
+> 
+> Nit: single-line comments are usually written as
+> 
+> /* ... */
+> 
+>> +	start = __phys_to_virt(phys_start);
+>> +	end =  __phys_to_virt(phys_end);
+>> +	if (addr_splits_kernel_leaf(start) || addr_splits_kernel_leaf(end)) {
+>> +		pr_warn("[%lx %lx] splits a leaf entry in linear map\n",
+>> +			phys_start, phys_end);
+>> +		return false;
+>> +	}
+>> +
+>> +	/*
+>> +	 * PFN range's vmemmap edges are leaf entry aligned
+>> +	 */
+> 
+> Dito.
+> 
+> LGTM, thanks!
+> 
+> Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+> 
 
-Open the code. What is the first entry?
+In fact,
 
-Best regards,
-Krzysztof
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+
+:)
+
+-- 
+Cheers,
+
+David
 
