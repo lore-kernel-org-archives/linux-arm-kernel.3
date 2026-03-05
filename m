@@ -4,100 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDEF7F3D331
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 16:46:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02D9FF3D332
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 16:52:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8ngiLaVCA85hGhw8n+Td0yCrIRvJxsFDKHVUsZ1Svyg=; b=Ho3gu6f6ATKqUwdnRhVDa5lFE3
-	rRdkwVgct3UIF5Ri20clMbcUviTM2EYwRJ4JHq2BDdXZslVM0ZfU/YSPUJZXJk5gz8yIJenxgM97X
-	vFX5X4A9HMbF+7kqYd/2XUMDpCikFuQNdknCMBrh73QPbsIJEETajDI4bddvH05aWKlQpDiuu53Wh
-	MvV5XwyYrJ8Q5HatNMlFligFszuSnysOhmwZgBuxN3yD5wQ2ezjz0aVx+aVBYF0VHsZR34PFlcOSb
-	oCcaUslv1DpRdogfU6oMgSqmhssHlEQDsTL5UQAnLAp26S3EETAukVGEpzOf+ZrdAnmEYlJpQI/Mt
-	2BGX73ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gZVs978fG63IeYkIm4zIOuQhCCjaFcz+rYiA+0VxTTc=; b=IfP0Dwxiq+Agv6AFs8fwp1nsVi
+	qBpX7F9cmQcJPT0E5TKVUlrcq1sw7pLUGpD5Z0QO++5iCU2GW7J3yqSuE/FtvR8/vW/WVm/LMJao5
+	jDme26HhKvE+bZhhFHhnVbADJBp6Oof6mWGalj5+JGQPvzT8+hQLdiSkHUm0prrRk+D0cvrm8GbSe
+	CvlX4EzfPGkPXGvuif8RuWrLtG7jyyPc6zqNB+e3okOS77LYeTB8Kx6mtjkEqTQLV2OjWgBFMKoiP
+	PWzLT3M8RmF4FVwK7kE62j0ITWG8MGXurl+BuGmp477yLSodzf1EkD/xZkokc7N1WIROzGPKoRsDT
+	YTGVljFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyBpr-00000002EFE-49UA;
-	Thu, 05 Mar 2026 16:46:03 +0000
-Received: from mx-relay47-hz3.antispameurope.com ([94.100.134.236])
+	id 1vyBvZ-00000002EZQ-3eD9;
+	Thu, 05 Mar 2026 16:51:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyBpp-00000002EE5-2dwX
+	id 1vyBvX-00000002EZ4-16vW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 16:46:02 +0000
-ARC-Authentication-Results: i=1; mx-gate47-hz3.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out01-hz1.hornetsecurity.com;
- dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=8ngiLaVCA85hGhw8n+Td0yCrIRvJxsFDKHVUsZ1Svyg=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1772729153;
- b=O6OCmWcfKwpY6MtvYTZEyf72s0VRusBRrChxj9/YJJyxrzRr8U6mYMFT5pClMzjSS9y4IGtR
- rlkG3U2ML4deJpHpBR6yWE1kGW594NLZvMAX9yfDolGDQSt4zvwWVhXsu+ggHX8Z8TEo9hRa8Uk
- ZV/Xt6ix66xsm6xVYmwGszF3BBYf8VxpcXmEsUlBuqdXkOsRuttrqrnmdRFifOVyL3xICgTGkiB
- z23dRbljTA0Yfsr+8N905w1VnnHiDelMciMoHeKcczU2LYCOeHsOzjetQ4Ovn9ClIL4lBBl0bjs
- cOAj+CAX5Lp8lhdxGBsLl0KHPvDVmz25n8CHjJvo/EYEQ==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1772729153;
- b=ewxLHM6df5uSW9ExVPkGYvRSlzKBNaeUbRdc6gcLKgJXeav3djtrlRKVfApBukVHaHuV7MD0
- B8hnXLSDEi75JCUwgmrAjMX90ZOFhfxy8NAzgDx1EIM6a3qQxdzv2UxuCm1d92hV/yN4dsgZvhI
- mrFq2Eq0WKYUeaC7GJUYlH/B3d7VhFHuoViK9ejI1Lm40+9NgcRd949rALH2wRdn1clqqPM9162
- /7wYr8rWK4ddm/B6u2zgO19CCIUvzVl1n+Kz5o7+YInymD1y3c7ToC57JpsJIENCnB3/a4HZmEG
- rSEXrwRR7wv6mv08BqWG53hDS7bFfI3QeL0ESwXPE46/w==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay47-hz3.antispameurope.com;
- Thu, 05 Mar 2026 17:45:53 +0100
-Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by smtp-out01-hz1.hornetsecurity.com (Postfix) with ESMTPSA id E957CA407E8;
-	Thu,  5 Mar 2026 17:45:37 +0100 (CET)
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	linux@ew.tq-group.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	Thu, 05 Mar 2026 16:51:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7531F43746;
+	Thu,  5 Mar 2026 16:51:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DBE0C116C6;
+	Thu,  5 Mar 2026 16:51:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772729514;
+	bh=oqOA+tmfWR/3o3GnKvVmaJw8vJLjDXFAY6myXgfJMys=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=moM108plUmV/G37engsMy4GFUzqDGqzF8whhdWesfjVVbT9tInS7er92/tfDqURoY
+	 gXxTbux74YQ8hmfSphEl4EStZXsfKCcf71SmOC8x+Nw+dSDC0PICKSTecz2LBipClb
+	 s+TNSV7lh9WrMhuMLRORHcA0Rr9+mPCJ3Fez0/yv6Rh4HkpkNyB68CbwwtkS4fhAI+
+	 SiY7qXk+y1cHJojCDdzAEFIBjxc7+fugCsgW6JoeGn434ltkjapK49/fwFPExJYJVm
+	 oit1Cd8WYK1oY320OGkhtkjftPZxwn3k2A/jg7tZ5m8lUK6UHeEaJb75pYtTHq1XWw
+	 2TMtsFYZxG9jw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vyBvU-0000000GXE2-0TSs;
+	Thu, 05 Mar 2026 16:51:52 +0000
+Date: Thu, 05 Mar 2026 16:51:51 +0000
+Message-ID: <86jyvq6wyg.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/2] arm64: dts: tqma9352-mba91xxca: Change Ethernet PHY IRQ to IRQ_TYPE_LEVEL_LOW
-Date: Thu,  5 Mar 2026 17:45:34 +0100
-Message-ID: <20260305164535.2653745-2-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260305164535.2653745-1-alexander.stein@ew.tq-group.com>
-References: <20260305164535.2653745-1-alexander.stein@ew.tq-group.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-cloud-security-sender: alexander.stein@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay47-hz3.antispameurope.com with 4fRb4y4zlgz4MYsQ
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 2cfb841dcaefcfe296d25fd5cf87c6d3
-X-cloud-security: scantime:2.057
-DKIM-Signature: a=rsa-sha256;
- bh=8ngiLaVCA85hGhw8n+Td0yCrIRvJxsFDKHVUsZ1Svyg=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1772729153; v=1;
- b=qxt4BwHjieyfS6FqWY014MVB8DIbes7pjdskhoDhTy5uy2Ya+tqENEHZ1mptPwgVZKHEECwh
- /rTkgvwWr12S7KWR3Clv3lIk+rfK+nuRZjysy+2VyXhsz/o5zeYObfZ0jFxCk9ZR3bublvmk7RI
- MwjrMfzobMZEdQqbIikE2UdItX6WHHSn5hugdK9WXUEIv2uJAKIOJDyPp3q7CtN6gSLXqbYBEb3
- NnPtWBYErVF6F/e0+zj+s+UtuAgUaTVtofyO/ilTgKqYN8f19cEIZY7Dv8TmkOnENeQX+zjyWuk
- oN0/CI4EjLsw2lsyTcNGa+j0n90cdkBuQlsAoPjpMrBuw==
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	yangyicong@hisilicon.com,
+	wangzhou1@hisilicon.com
+Subject: Re: [PATCH v1 0/2] KVM: arm64: Fix a couple of latent bugs in user_mem_abort()
+In-Reply-To: <20260304162222.836152-1-tabba@google.com>
+References: <20260304162222.836152-1-tabba@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, yangyicong@hisilicon.com, wangzhou1@hisilicon.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_084601_815318_88FF1EFE 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20260305_085155_323663_FA590A6E 
+X-CRM114-Status: GOOD (  15.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,40 +92,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ethernet PHY interrupt mode is level triggered. Adjust the mode
-accordingly.
+On Wed, 04 Mar 2026 16:22:20 +0000,
+Fuad Tabba <tabba@google.com> wrote:
+> 
+> Finding these issues just reinforces how fragile this 300-line function
+> has become. We really need to refactor it to make the state flow easier
+> to reason about. I'm currently putting together a series to do just that
+> (introducing a proper fault state object), so stay tuned for an RFC on
+> that front.
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
-Changes in v2:
-* Adjusted the subject
+If you have such patches, please post them sooner rather than later,
+even if the rework is incomplete. I'd be happy take small patches that
+start add infrastructure early and work out the full refactoring over
+time.
 
- arch/arm64/boot/dts/freescale/imx93-tqma9352-mba91xxca.dts | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Thanks,
 
-diff --git a/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba91xxca.dts b/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba91xxca.dts
-index 2673d9dccbf4b..737326ba1b2a7 100644
---- a/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba91xxca.dts
-+++ b/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba91xxca.dts
-@@ -232,7 +232,7 @@ ethphy_eqos: ethernet-phy@0 {
- 			reset-assert-us = <500000>;
- 			reset-deassert-us = <50000>;
- 			interrupt-parent = <&gpio3>;
--			interrupts = <26 IRQ_TYPE_EDGE_FALLING>;
-+			interrupts = <26 IRQ_TYPE_LEVEL_LOW>;
- 			enet-phy-lane-no-swap;
- 			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_25_NS>;
- 			ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_25_NS>;
-@@ -265,7 +265,7 @@ ethphy_fec: ethernet-phy@0 {
- 			reset-assert-us = <500000>;
- 			reset-deassert-us = <50000>;
- 			interrupt-parent = <&gpio3>;
--			interrupts = <27 IRQ_TYPE_EDGE_FALLING>;
-+			interrupts = <27 IRQ_TYPE_LEVEL_LOW>;
- 			enet-phy-lane-no-swap;
- 			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_25_NS>;
- 			ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_25_NS>;
+	M.
+
 -- 
-2.43.0
-
+Without deviation from the norm, progress is not possible.
 
