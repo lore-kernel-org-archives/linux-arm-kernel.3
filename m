@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99645F47CA9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1BF9F47CA6
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 18:08:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RXeuyAaTvwAMCt0q3PFB8EJk7uqdNN6rk4nzvIkVw+E=; b=k4U2jE3d//H644KwPdC/R3CwSy
-	BO+ai7XpgKK+wRy1ZMQ/3khgjWuhhJYQxTcKzUmqhNJhTLqg7k9DBHfnkzuAbM9Bmy93WIYGgXTQ1
-	7eBKB1YSiOz3xPelWXMJg4RmLy5Ex5hd+C6ji3A5+5pVi9dtVts4dzPQmbO6W/64x137b3r/kWZKi
-	o+V+53BrvggA0yOSZsoPAs3JZsCGo6NhpFtRG7A41Eo5lmdjQ4IQbcEKlx1rshQ9YYihGHGBR9ZQq
-	Xy7W+deHuLevMgC4VtaAENRHMdy0jFAslDWjpfmOVot33Jxl4AfhfjMvnnbum+JXOeJ5k8Ku9dA1e
-	AP+H+sEA==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Cc:To:From:Reply-To:
+	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xlv9aSBDN9dBeajKyuHQxLmuBfwuhVHupzGXgcU9K58=; b=Q1XjK9LdzpIrXN
+	s5zlckJm4b3IUS/SHbkNjzbuc6aIHm12TWO/n7HgZ1kQfnbMaz6tur+1FTWa/dyrX8e5J+TUy2ysU
+	bt/INYiQV/fG7+wErhQwDPVf7ymnVdTbvRyJeCTMvLgR5nT5OTg4YX5JUlurNLQGMUjoRbuGMxdwl
+	5sBt61pHRU/obALXzMZ9bihNRob4OBVz1DecHlQV7zjJ2yXJq4wp96Vv08kErTlWCDblZtO91UCVo
+	26BqTlfeP+18CClvVcESuBZ0amlrPqh42Ie+wBJF5CofWcLs16Fgd2LrPmwtdnk8RzwILxmXNy2ee
+	6xSyKsgZLfmqPU4UOHZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyD7t-00000002LQj-1jdd;
+	id 1vyD7t-00000002LRF-36Fs;
 	Thu, 05 Mar 2026 18:08:45 +0000
 Received: from mail.hugovil.com ([162.243.120.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyD7o-00000002LO5-1OMB
+	id 1vyD7o-00000002LO8-1nYO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 18:08:41 +0000
+	Thu, 05 Mar 2026 18:08:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
 	; s=x; h=Subject:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Cc:To
 	:From:subject:date:message-id:reply-to;
-	bh=RXeuyAaTvwAMCt0q3PFB8EJk7uqdNN6rk4nzvIkVw+E=; b=qx7x5D3igLAYp4cJ0Rm8VkbeNg
-	5/fG2OumU8+uLx0mwbHoeZ8V8CadhDp5Of9lJB/0XlBn3gb/bRqNMFD8vY2oSDQRl2RsrMbyxb3OD
-	xbFKW+w9DSJ7EX6t85V4RfGhhEaPkH/HOESPMGwDb1cUipsN2QfhY3ZYBC0OyjVTTneU=;
+	bh=xlv9aSBDN9dBeajKyuHQxLmuBfwuhVHupzGXgcU9K58=; b=CxWr7cc6/pd/qdgtGA7o5nsQWP
+	zGWH7xN3y7bhDNaKluN4rX2wMiLrJmL+Qz2ny8Yt1FzaNMj2VuM8K31ZgolY9h/Nf80b7++wFXGsd
+	Rs9x2z9g/iRsoOSq0Sqgw01i4s3N+H9je+iuwu5+o1lmSxZfLEfH5jE6DXhR0HfjlLDo=;
 Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168]:37706 helo=pettiford.lan)
 	by mail.hugovil.com with esmtpa (Exim 4.92)
 	(envelope-from <hugo@hugovil.com>)
-	id 1vyD7X-0002aR-Nh; Thu, 05 Mar 2026 13:08:23 -0500
+	id 1vyD7T-0002aR-Vo; Thu, 05 Mar 2026 13:08:20 -0500
 From: Hugo Villeneuve <hugo@hugovil.com>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -66,21 +66,19 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	hugo@hugovil.com,
 	Hugo Villeneuve <hvilleneuve@dimonoff.com>
-Date: Thu,  5 Mar 2026 13:06:17 -0500
-Message-ID: <20260305180651.1827087-3-hugo@hugovil.com>
+Date: Thu,  5 Mar 2026 13:06:15 -0500
+Message-ID: <20260305180651.1827087-1-hugo@hugovil.com>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260305180651.1827087-1-hugo@hugovil.com>
-References: <20260305180651.1827087-1-hugo@hugovil.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 70.80.174.168
 X-SA-Exim-Mail-From: hugo@hugovil.com
-Subject: [PATCH v2 02/15] ARM: dts: imx6ul-var-som: fix warning for boolean property with a value
+Subject: [PATCH v2 00/15] var-som-6ul: improve support for variants
 X-SA-Exim-Version: 4.2.1 (built Wed, 08 May 2019 21:11:16 +0000)
 X-SA-Exim-Scanned: Yes (on mail.hugovil.com)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_100840_369423_2A620495 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20260305_100840_466883_A3968908 
+X-CRM114-Status: GOOD (  21.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,51 +95,109 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
 
-dmesg warning:
+Hello,
+this patch series improves support for Variscite VAR-SOM-6UL based boards.
 
-  OF: /soc/bus@2000000/ethernet@20b4000/mdio/ethernet-phy@3: Read of
-      boolean property 'micrel,rmii-reference-clock-select-25-mhz' with a
-      value.
+The first two patches fix DT/dmesg warnings.
 
-Using of_property_read_bool() for non-boolean properties is deprecated and
-results in a warning during runtime since commit c141ecc3cecd
-("of: Warn when of_property_read_bool() is used on non-boolean properties")
+The next patches fix the incorrect use of VAR-SOM-MX6UL to refer to the
+VAR-SOM-6UL.
 
-micrel,rmii-reference-clock-select-25-mhz is a boolean property and should
-not have a value, so remove it.
+The next patches add support for the imx6ull CPU variant of the VAR-SOM-6UL.
 
-Signed-off-by: Hugo Villeneuve <hvilleneuve@dimonoff.com>
----
- arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts | 2 +-
- arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi         | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+Then improves/fixes the following features/options that are currently not
+working on the concerto EVK board:
+  - ethernet ports ENET1
+  - LVDS display panel
+  - Wifi/Bt
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts
-index 9ff3b374a2b31..085985356668f 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts
-@@ -79,7 +79,7 @@ ethphy1: ethernet-phy@3 {
- 			reset-gpios = <&gpio5 5 GPIO_ACTIVE_LOW>;
- 			reset-assert-us = <100000>;
- 			micrel,led-mode = <0>;
--			micrel,rmii-reference-clock-select-25-mhz = <1>;
-+			micrel,rmii-reference-clock-select-25-mhz;
- 		};
- 	};
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi
-index 3fb5e2fb68777..30032be6fdd50 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi
-@@ -64,7 +64,7 @@ ethphy0: ethernet-phy@1 {
- 			reset-gpios = <&gpio5 0 GPIO_ACTIVE_LOW>;
- 			reset-assert-us = <100000>;
- 			micrel,led-mode = <1>;
--			micrel,rmii-reference-clock-select-25-mhz = <1>;
-+			micrel,rmii-reference-clock-select-25-mhz;
- 		};
- 	};
- };
+Note that the previous configuration of the optional Wifi/Bluetooth module
+was copied from the original Variscite kernel tree, and required custom
+shell scripts to properly configure the Wifi/Bluetooth module.
+
+Also factor out optional features into separate DTSI include files, so it will
+be easier to support them for other boards, and to make sure they are not
+unconditionnally enabled.
+
+I have tested these changes on a Variscite concerto EVK board using a
+VAR-SOM-6UL with the following options:
+  - EC (ethernet phy on SOM)
+  - LD (LVDS encoder assembled on SOM)
+  - WBD (Wi-Fi 802.11 ac/a/b/g/n and Bluetooth 5.2/BLE on SOM)
+Result of tests:
+  - Both ethernet ports Ok
+  - LVDS display panel Ok
+  - Wifi/Bt Ok
+
+Also tested on a custom board with a VAR-SOM-6UL SOM (will be submitted in
+a future series).
+
+Thank you.
+
+Link: [v1] https://lore.kernel.org/all/20260302190953.669325-1-hugo@hugovil.com/
+
+Changes for v2:
+- Place imx6ull-var-som-concerto.dtb in alphabetical order (Frank)
+- s/include/dtsi in commit msgs (Frank)
+- Clarify and improve patches to change VAR-SOM-MX6UL (Krzysztof)
+- Collect tags for some acked patches (Krzysztof)
+- Reorder pinctrl_gpio_leds in separate patch (Frank)
+- Improve git commit messages ((Frank)/Krzysztof)
+
+Hugo Villeneuve (15):
+  ARM: dts: imx6ul-var-som: fix warning for non-existent dc-supply
+    property
+  ARM: dts: imx6ul-var-som: fix warning for boolean property with a
+    value
+  ARM: dts: imx6ul-var-som: change incorrect VAR-SOM-MX6UL references
+  dt-bindings: arm: fsl: change incorrect VAR-SOM-MX6UL references
+  dt-bindings: arm: fsl: add variscite,var-som-imx6ull
+  ARM: dts: imx6ul-var-som: Factor out common parts for all CPU variants
+  ARM: dts: imx6ul-var-som-concerto: Factor out common parts for all CPU
+    variants
+  ARM: dts: imx6ul-var-som-concerto: order DT properties
+  ARM: dts: imx6ul-var-som: factor out SD card support
+  ARM: dts: imx6ul-var-som: add proper Wifi and Bluetooth support
+  ARM: dts: imx6ul-var-som: factor out ENET2 ethernet support
+  ARM: dts: imx6ul-var-som: add support for EC configuration option
+    (ENET1)
+  ARM: dts: imx6ul-var-som: factor out audio support
+  dt-bindings: display/lvds-codec: add ti,sn65lvds93
+  ARM: dts: imx6ul-var-som: add support for LVDS display panel
+
+ .../devicetree/bindings/arm/fsl.yaml          |   8 +-
+ .../bindings/display/bridge/lvds-codec.yaml   |   1 +
+ arch/arm/boot/dts/nxp/imx/Makefile            |   3 +
+ .../dts/nxp/imx/imx6ul-var-som-audio.dtsi     |  30 ++
+ ...ar-som.dtsi => imx6ul-var-som-common.dtsi} | 140 +++-----
+ ...ts => imx6ul-var-som-concerto-common.dtsi} | 159 ++-------
+ .../nxp/imx/imx6ul-var-som-concerto-full.dts  |  22 ++
+ .../dts/nxp/imx/imx6ul-var-som-concerto.dts   | 318 +-----------------
+ .../dts/nxp/imx/imx6ul-var-som-enet1.dtsi     |  44 +++
+ .../dts/nxp/imx/imx6ul-var-som-enet2.dtsi     |  79 +++++
+ .../nxp/imx/imx6ul-var-som-lvds-panel.dtsi    | 112 ++++++
+ .../boot/dts/nxp/imx/imx6ul-var-som-sd.dtsi   |  27 ++
+ .../boot/dts/nxp/imx/imx6ul-var-som-wifi.dtsi |  75 +++++
+ arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi | 219 +-----------
+ .../nxp/imx/imx6ull-var-som-concerto-full.dts |  22 ++
+ .../dts/nxp/imx/imx6ull-var-som-concerto.dts  |  21 ++
+ .../arm/boot/dts/nxp/imx/imx6ull-var-som.dtsi |  36 ++
+ 17 files changed, 575 insertions(+), 741 deletions(-)
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-audio.dtsi
+ copy arch/arm/boot/dts/nxp/imx/{imx6ul-var-som.dtsi => imx6ul-var-som-common.dtsi} (60%)
+ copy arch/arm/boot/dts/nxp/imx/{imx6ul-var-som-concerto.dts => imx6ul-var-som-concerto-common.dtsi} (50%)
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet1.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet2.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-lvds-panel.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-sd.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-wifi.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som.dtsi
+
+
+base-commit: c107785c7e8dbabd1c18301a1c362544b5786282
 -- 
 2.47.3
 
