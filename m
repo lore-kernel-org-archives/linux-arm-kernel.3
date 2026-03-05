@@ -4,45 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D42C0EFCE4D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Mar 2026 23:57:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3E2DEFCE4D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 00:12:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gIGwrCqPlTvk8g05dxZBjXzxv9TdKNafDRbPwLq0ZSI=; b=LndKfhIscYakIECVbnrAXYeGtI
-	3gExfu6TrAGvDLo0ZMwktLGmWK1oGaOeP6g+iYJKOWirlzLzlJydZTKdBVH2wIc2RmVu+ezcKAbfT
-	IDbit7tDuoACI/9/sRFS2yu0Jj1xzoOMKrTF8u5zj66xZaHFGTZXnXyryP8QywC04LCgwTsNJ//pO
-	KQzafkn+L6qFXXa3v6h3SPSDvkFuvXcm8lF9muzqeXP4caewve4LHwsiHnPxR2OhMgky5jBFCCKQE
-	GVnJAi/zyU2I1fwTTpLq3UOmYV4V2Bk3oODWo1+07LP4RiUEAZ/xagbBNy+RdTSWz9jBWLzYWt26a
-	UY0968fA==;
+	bh=VhY75jogzIbjhIU27lFiOoKUr7croBBqbus1UG6As90=; b=fTt7rO1uQKw3Qg9fRxPAgpcn7A
+	Wc3mX+2MhtfamOwfO98MElixsGdupeEH3cWA5CQRp121HGVuzQbzz+wnGw0Xz0///mTp2rC2emq8O
+	+xfCoN5QdMcWUQppruYNBSH4Lfpu4/S0HZlhAhIq1tOnC4f8a+lCO4INAfOOPFY2Q2eALEttyfg+j
+	M2ZrD/VKgEY8WTSnAXTJEPEbWKkQauloV/e/8z462IfDhIcUrXnbXQzipE+roRZp7ZPPLwK2DyZaO
+	HxJziYnWr3AWIIrQrwb8QS59V3bc1dN2TFycT+t4CoVdGBTZ6XHtmO3azZoGQt+uN81AdsvRT/W1Q
+	8nno341w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxw6B-00000000fgK-28gV;
-	Wed, 04 Mar 2026 23:57:51 +0000
+	id 1vxwKS-00000000gcW-3fFv;
+	Thu, 05 Mar 2026 00:12:36 +0000
 Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxw67-00000000fdq-2Eik
+	id 1vxwKR-00000000gcC-0i9r
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Mar 2026 23:57:49 +0000
+	Thu, 05 Mar 2026 00:12:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1772668660;
-	bh=gIGwrCqPlTvk8g05dxZBjXzxv9TdKNafDRbPwLq0ZSI=;
+	d=codeconstruct.com.au; s=2022a; t=1772669552;
+	bh=VhY75jogzIbjhIU27lFiOoKUr7croBBqbus1UG6As90=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Wgo5VNoTLL2efzHKlpFefxV+cqSmR3SHo2mShMBZS50s4ZhhSnQ3SRU+9WhDd5KzM
-	 cF39e6AqZ34dIkPctLlSnC5QqGjWIp85FJmu5FI4oYMrT6/IvnDgY74CsUrSNCX8P9
-	 SXZJnv+gIQaud0xbHfY3J+hVsu5IDgjN9apWk7VmygQgzMUeb9sTSvqjzfhrjM8YrS
-	 OIgZlmtOYchjPpLU60OcWtRsCZqoWJIE+IDTtn645bJ2yE4J9wotU1clhEc3EewXxc
-	 chO3xZYQljCx/CtvjZZ0s+5p1m+V8sEhs1hEcUHZqkWpkLUxtTXbEuQIEalsqBoJi3
-	 BAGuBAXUjix3g==
+	b=eNz3NS9/mqu22kQpJvGSvcfTjFkgM9K80QAyI675eZTCeg0UZADIuFVg+7wB2B/bB
+	 i/cO7wIIsMAjX0iquAGV+hse58/7N1tbGTi81IH/W7GdjG8f1AlQSXN4qUoIFhz41c
+	 8ZAmaCkV7EFpU/O0rBBtTPMy/5AnBvWWrFvV4N99HIvyYFJuWg88qSlMPdfWlyHnLq
+	 DbXrFt572dt3X7gT2iprl1tBlRvR/Lez3favGPZcjVsr0JdxSlkLhS7danAQqDPfEx
+	 2obVBaa/neFVE1l2O6pzzJ0YoRGdcEkHpunSaRSgFhgnq8qO/XXK22+RaqHlBUJ872
+	 Ot1S8wUQ2NsUg==
 Received: from [192.168.68.117] (unknown [180.150.112.60])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 46F0760C90;
-	Thu,  5 Mar 2026 07:57:39 +0800 (AWST)
-Message-ID: <3e9d0b356ad2871de0b3a47194726d3503ef136e.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v2] ARM: dts: aspeed: anacapa: update SGPIO and PCA9555
- settings for DFT
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 8733060C90;
+	Thu,  5 Mar 2026 08:12:32 +0800 (AWST)
+Message-ID: <fd932aa3f0cae64f40c3b207657032e7bf61066a.camel@codeconstruct.com.au>
+Subject: Re: [PATCH] ARM: dts: aspeed: anacapa: Add eeprom device node
 From: Andrew Jeffery <andrew@codeconstruct.com.au>
 To: Colin Huang <u8813345@gmail.com>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski
@@ -50,17 +49,18 @@ To: Colin Huang <u8813345@gmail.com>, Rob Herring <robh@kernel.org>,
 	 <joel@jms.id.au>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
-	Colin.Huang2@amd.com, Carl.Lee@amd.com, Peter.Shen@amd.com
-Date: Thu, 05 Mar 2026 10:27:38 +1030
-In-Reply-To: <20260226-anacapa-dts-sgpio-v2-1-fd76828616b8@gmail.com>
-References: <20260226-anacapa-dts-sgpio-v2-1-fd76828616b8@gmail.com>
+	colin.huang2@amd.com
+Date: Thu, 05 Mar 2026 10:42:32 +1030
+In-Reply-To: <20260302-add-new-eeprom-node-v1-1-2bcf87bc22e4@gmail.com>
+References: <20260302-add-new-eeprom-node-v1-1-2bcf87bc22e4@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_155747_783558_1AAA74EE 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20260304_161235_400442_4DE00FF2 
+X-CRM114-Status: UNSURE (   7.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,38 +75,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Colin,
-
-On Thu, 2026-02-26 at 22:08 +0800, Colin Huang wrote:
-> This update adjusts SGPIO mappings and enables interrupt support for the
-> PCA9555 GPIO expanders. These changes are required as part of the DFT
-> (Design For Tooling) integration and are aligned with the SGPIO signal
-> definitions provided in Helios_SGPIO_BIT_MAP.xlsx (rev: 2026-02-16).
-
-Where can I access Helios_SGPIO_IT_MAP.xslx?
-
-My suspicion is I can't, in which case this doesn't have any business
-being the commit message.
-
+On Mon, 2026-03-02 at 12:20 +0800, Colin Huang wrote:
+> eeprom address changed (0x50 to 0x51) in DCSCM rev D
+> To support previous rev (B/C) and rev D,
+> add eeprom device node for DCSCM rev D.
 >=20
-> Updates include:
-> - Add interrupt-parent and interrupts properties to PCA9555 nodes to
-> =C2=A0 enable proper interrupt handling required by phosphor-gpio-monitor=
-.
-> - Correct placement of LEAK_DETECT_RMC_N.
-> - Update SGPIO line-name mappings per the latest Helios SGPIO bit map to
-> =C2=A0 reflect leakage channels, presence pins, module power-good, and ot=
-her
-> =C2=A0 DFT-related monitoring signals.
+> Signed-off-by: Colin Huang <u8813345@gmail.com>
+> ---
+> DCSCM rev D changed the eeprom address from 0x50 t0 0x51
+> To support previous rev(B/C) and rev D.
+> add new eeprom node for devscm rev d.
 
-Please take some time to read through the documentation on separating
-your changes:
+I feel different hardware revisions may deserved different devicetrees.
+What are the trade-offs that lead you to avoiding that?
 
-https://docs.kernel.org/process/submitting-patches.html#separate-your-chang=
-es
-
-If you haven't already, please also take the time to read the rest of
-the document.
+Why is it better to cause driver bind errors on both revisions?
 
 Andrew
 
