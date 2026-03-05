@@ -4,153 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 242CEF30955
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 12:39:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB665F30955
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 12:39:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n5zVsERJ5AxLSu+YZ8Q76HfpHYdfqT3jJxmwrqINGnM=; b=rA7vE7j96C0UbYQ1OQB4M64ntd
-	aiZ9Kwr/fflNojOocWoOuPOtLb9B1zc76uDABssyZ0W+ua3DURZNHcZQ1bm5v7ZB1Jz9Y383zdmGP
-	1SPUdOHY2d1MeX4SSmHbW8Mvof+H02WdAo7cSAQ5lBIuM1+HL1CDSphSqQrbAVfUcvoUOgFtY3VTF
-	9PrHJ1WByurXsvIow8m5JzYInLSHzmRK5mWlhg7dkgkZbh6w4PMb5BzCov8IZwCXd+PL7PUzqlG9M
-	0X5VbYTBNfTAVHoJ4WzG0CgxFZ9Qiq1Nbvq2Lm/5cV/Xd9pxT6F5rTA2VWlev120G1pm9ZF7c0jfg
-	8CW4eeJA==;
+	bh=MuxXa7oIq6CaE9OM/HG649+ufY3EqR2B2FLMP0XD2cc=; b=3fnFrDkG7fNyh16FOyFvQFVIs6
+	eAYWFjg84bSYI84jKsdxv5k2Zbyke9k5z7M9yL4PpYqPpNKk9EZ5ADUwCJG3srLD5gH/rJ181zHn9
+	XStPOOs98cv9mJ+uqMTSnO4JWVukA069XmEZkR4oVWvEN0TMwiCS4SI2uy7zKo+EVhypn0XlDI/YU
+	m3iNzidIzM4dU9VQjUFh28lb7SbiPAWW8At2QyQ+sHDUIQkwHEB4i11594m/U22Ls9UFhd4ooJNV8
+	vY2EbrkfGblEqwQIYT5GY8HTHl1KahB6fwC7wDBCt1w+lcb6B99vi8RXpQ2obMxmAsugQ3/IiEQ99
+	qhqdrQ+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy7yj-00000001mcU-2mOA;
-	Thu, 05 Mar 2026 12:38:57 +0000
-Received: from mail-francecentralazon11013064.outbound.protection.outlook.com ([40.107.162.64] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vy7z6-00000001mkX-14su;
+	Thu, 05 Mar 2026 12:39:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy7yg-00000001mb6-2YGs;
-	Thu, 05 Mar 2026 12:38:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sbJcrMZ8JoL3JM+UQarEIlYo1VRL76lF/yu1Ysk8dIbpKfIW+YQyuD30V7S7fZCpKeGcZ2QB4imDosCntYHiSndWmbdkWGQoAeX5pyCxtWaaBOo8KaxUjSmn9cfQ03VUh9PcwTm8XwvLGQxOZJ2ROoaKQik/B66rtHB/Ex17F+OkMtVxmUbX4xauqF785Jq9J5Gdrti22QySMG20h/+INnGnRNaUYn4rFbpZGd0A7GjBv1h1kNtTTcV3dmjA8l8+gtS0JIVkfkOw0f9SSppXU64jc/BuuLQZoRzWTYESeTW9lBLVpczMPttRpk5yRKo151xKzxiZOgjqPQRnHJRz9Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=n5zVsERJ5AxLSu+YZ8Q76HfpHYdfqT3jJxmwrqINGnM=;
- b=S+3ojnKwSNBnLejWohnje/QHQt9J34aMfJil+J11jjER2+ERCndiPBMI2QDZRXGKffgKnKnzGm0o5mlOjqE4U/T9x57d4czO/8jlZJOEjvJbL7wJ/XZU1gbX89NnP8j4JbnPisv4VVo4tRuJnT2/thEx5q2iblPw7cwOWuN3kKhjMmBhlgBVUY0ICdiyfTY6gRW/D3Zlj1uB8Jlw8+aCPpt5oZOipcceJeCLtzxxPuzb8Pmdzyamyqe/rEM4V7U+ggeZoDowibzvceSqBPLBPtvVBdif1GMFqXjVe+GUvtM0MPXxpag87M84gvVd+obBMXciBmkYtCUmFmUmTbK8oQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=n5zVsERJ5AxLSu+YZ8Q76HfpHYdfqT3jJxmwrqINGnM=;
- b=oUqlfobSt5WV1IwafvcYR4pbTs8L/SocsjZ5aY8Z3tvURLsOdwKeUHhxLCt714SsBDCTkPyPn0Pq5NxSBZiF/ka/I+GLrfBvpXkrEDmrMZPV48mK/91I3HjAr7tlXcBiUp+EWfg9QmkSmhfcLxhRG/2FAcuCD7kpRYWXpR/xXxiFrMXheV/jF8mhExU1s8R4hVRqMeO4BjzG+zxTXAgdrlZRm9JPddeJZHJqkfMeVHzQRS+EvEQsDT8T5dSNyaMBY+DE4tY4xYOcDyuKXhz7G9NC/JguHKGq/SxvEy66/gELa4FV8Z6eMg0WTYnePQ5KkDEaNwNII79+sHvaZ5SuUA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
- by GV1PR04MB10677.eurprd04.prod.outlook.com (2603:10a6:150:20f::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Thu, 5 Mar
- 2026 12:38:47 +0000
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9678.016; Thu, 5 Mar 2026
- 12:38:47 +0000
-Date: Thu, 5 Mar 2026 14:38:43 +0200
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-Cc: Joe Perches <joe@perches.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-can@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org,
-	netdev@vger.kernel.org, spacemit@lists.linux.dev,
-	UNGLinuxDriver@microchip.com
-Subject: Re: [PATCH phy-next 22/22] MAINTAINERS: add regex for linux-phy
-Message-ID: <20260305123843.i47asdrjychwlgdt@skbuf>
-References: <20260304175735.2660419-1-vladimir.oltean@nxp.com>
- <20260304175735.2660419-23-vladimir.oltean@nxp.com>
- <a8fee1cd-1e69-4a9e-8533-c0988c480fb9@oss.qualcomm.com>
- <20260305085148.7cwo3yflp7vcfldf@skbuf>
- <f3a5aa3df78553ffc0fd0024f5fd36a4e2158c88.camel@perches.com>
- <20260305114352.2f7btqixg4tu5bzl@skbuf>
- <20260305121532.GA1649635@rocinante>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260305121532.GA1649635@rocinante>
-X-ClientProxiedBy: WA2P291CA0014.POLP291.PROD.OUTLOOK.COM
- (2603:10a6:1d0:1e::25) To AM9PR04MB8585.eurprd04.prod.outlook.com
- (2603:10a6:20b:438::13)
+	id 1vy7z3-00000001mjm-2xhI
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Mar 2026 12:39:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 670814390C;
+	Thu,  5 Mar 2026 12:39:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7F75C116C6;
+	Thu,  5 Mar 2026 12:39:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772714357;
+	bh=KHW4zGFxdwtgS6DZ4KhYyjuMBJUABIaJ1Yd4ZcE2WkU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=SK8khnZEPjBqHDibVqZgldRd8kodqYHKeDVbUmohIiR8IWxOdaBzkdpRq51LctnYK
+	 iSUUsL179ubvsOSrJhfT3BAw7HQhKc/auJ7YF476GEGuW8hIKu30z1RXE5suh73xFk
+	 OmUDRSe87FrND8tFRvPlxa+yYJY0+O0UWKPanNyv8u6mHCb+E57Aa8bUtS1X1qqb3u
+	 Cgj9jdifKdvtjuLtU0bxEnhLAazWQJ9XIpPnWZNZZ6VAtvDpRaw+GAQK5TwwuMM/Y8
+	 zhLiCMcv67AY+pjXqPlXtjpCDNyzU7ydr4842wUo8by0RQMD5q/qPjepDHy/Ri9Rbb
+	 RF8uWHcGrdKzA==
+Message-ID: <8443cc2a-fd39-4af8-b3cc-370f6987b85c@kernel.org>
+Date: Thu, 5 Mar 2026 13:39:11 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|GV1PR04MB10677:EE_
-X-MS-Office365-Filtering-Correlation-Id: 92fd34bf-a4bd-4ba1-ae20-08de7ab42580
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|10070799003|19092799006|366016;
-X-Microsoft-Antispam-Message-Info: Or+3d3/Ai/ryZw9YiuleRyLi6cCpR/E4gqjC7S9WM3nwx9v938lMLYmfPt8wASXmJkcCeqES7dQP00CmXE8idAgy6SwSJQuomwP9SkcoRUzDj3VGHd6+co+pjwYpGoiA6g7R4WOzuAt8PpDZi4gBSnX5qeKlfNGHTxmHX8QiGOS1m682O2qX+Oz1cvy/IBLLMzZ7DfAIoLUX+4JWEOmIxCq5DY+f/BVhluUbA7KfccSnERH7SBttosd/r5zAsConSn/00qM1bycBYAwSMLFBkQCJicNM1IITNiE/OFgYEJw7IH/KXVSVkH9HW0fDmxFKUWphxIO4b6iR8vPQQalzRtU0H0oMkfjQpqfVjvlZc1FkBoaTnA35Qkf9GPpgF0au80lUL1ITwqoVIR6AsHNxqIyLXJDIE1NmBujwPS1Bi8eSzwPZomDu5S0uGL8ucs4Hiq23xFTlEeFUvoCdKgLWB4YzyGixa+pdjdAs6Wy+G8yJsAWyMn02/fL20iPpCr9orYFYKFYqG3Wykns+JGSD1KeVg7wHTYQnk3hHoUmyMijoH2Di8kCgIeEh792TtJuWELSd45qq5TxK8iBEROCG/tJKi5Hkk9zjnhrEc1j/nuzCKWSsa27cCCl7F2STkh4w4J8hz7kkjfpiwXVSkDoqCqn+cRjks05o50h/a1LZllRfW0QXjUVh3rcNSvZv8bvAjH5Z4OHj9HiPvvGl+6J5U59vroFPrWkPWHla1yrpjz8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(10070799003)(19092799006)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UVRFZVpvdTRVSE1td2poSE5HdWRRZ2NwellsNmtKbmVvUnA5TjI0Q2JqV2Jt?=
- =?utf-8?B?K0FRSFhqZkdIdTJvSFhaR2FTQTFRQU5MM1R4UEorRUY5Zy9MM3NtT3ZJUWhH?=
- =?utf-8?B?dzdzRlBLUTNOZnozUlEvQ3FJVVBtVjFFRlJ2dkRoNHBZZTloNmFDcU80T3Fx?=
- =?utf-8?B?UWxXZGRrbis3STh4MnZlaGNaNyttQVVaNHlZenVqT2hjOWFFYnpRbnJldkpD?=
- =?utf-8?B?Z1dWV2o1SkEwM2JTTjJRUjVEUGdJUUVYRCt3WTR2TDRtNzZMc0tnQVExaStv?=
- =?utf-8?B?ZDFDQ1g2VHJMS2cwcDAzbmFXczBVV2d5QktTbDBNaFVZZHJSVlIyVjhjSW5P?=
- =?utf-8?B?R3p5T3k5b2p0MEpJMXozbm9NV05lRjduM1lwMys3b2kwOVRPMk9VbmliMUpO?=
- =?utf-8?B?UzJYUTV2Wk01alpYeXAydWxlMExRNnF2RGozY0JRQ0VwYnNhejMvRlRmeG1Q?=
- =?utf-8?B?Z3A5c1QzUnZCQVA5OVJrYU13a0Q2RVI5UmFtKzQxaXJBTWlJTG01blNUWkcw?=
- =?utf-8?B?WGxDam5CdFJYMHVEMDNlUFJHb3BucElBbTNyUkZpcEhXVUQxeVFZMzIrcUVM?=
- =?utf-8?B?b1E1Q3ByU0ZwbWowSkFReWovRzdPTEJ5dFM4Vng0QitTY0lyNGt6WGpzZktn?=
- =?utf-8?B?QzErcGRjU0RyTmhVY3E3TGJFQkxwUE13cmVaR1oxcTZ4WG10bGoxRzRodzM1?=
- =?utf-8?B?QmIyTk9PcnloZW9EendTblM1c3gyVTJqMnlyZVhPUzJPYmtTK2FDaTN1TE9W?=
- =?utf-8?B?SmhIWVhLTVphc0s4MUFTY09EUE93V1lQUjloQW43VDZSV2Z0OHRqQUVML2da?=
- =?utf-8?B?L05RR3pHTjE3V3JjMkc3RVphelVvOFRCTnZUSFlvQkcyaVZyMHhxRlhORjl3?=
- =?utf-8?B?U0ovN1hkL2tqWk96WDdjcndjazlaci82SnpyUmtsR0RzNjRIY2NHYXZnTkJK?=
- =?utf-8?B?VDNLVW9yRVQ1SWhRa3J1M01YVDNBT1N6a0VoN1NybTA4dVA4TG9XNEN4emxE?=
- =?utf-8?B?cGZCamVyUTJUdGhVZ3crb2hPdytzeXlmZVNqK2ZoSGpwTGxTNk1zWThXTStK?=
- =?utf-8?B?YkNrUmhvejVhRk8rUDZFZnQwL3JOSGJwOEpybTVkNkc4MlpQUEFhOXMyellv?=
- =?utf-8?B?bFNUNitkcGQzc2dGKzJkL2xtSS82SFQ5bjIyb2RtR0wzU0krbnUzSjFRK3E0?=
- =?utf-8?B?WTUxRGVPbE9sQ2tmY2h6a2RPaU42N1RKa1dqT1k4M1p6Y3Z1YmJPc3FXSTFX?=
- =?utf-8?B?QjFDYURkM2hzYytWdXVlYnMwdGk3cnhWYThud1BONXpMZDRwL1BKMEFoR2FW?=
- =?utf-8?B?bUhaVWNIQXZzN3h0T2lyYnpuMGIvcS9LcWliSzU3K2RTY01DL1ZxOXhHTEpV?=
- =?utf-8?B?T2s2Um4xL3pDMEFsUC9zVDNTVXNBeGpScjFrN2JueXJyVTY0c2VtRTY2ZmJx?=
- =?utf-8?B?Q0NvdkpWVWprL2s1ajNpcSsrSkdXN1V3Njd3RHZuNFNWbElqL3Z1M2ZTdjVy?=
- =?utf-8?B?OW1wSDhkc0hTUjlRZVNaVzlNTVdmOUsrbmhOT2h6UnNvZ1pEQTBncnZ0ZEVj?=
- =?utf-8?B?OWRYcU5OS29NelZwZ1RrWnRlZXNGSS9sZEU5V3FuUXJMVWNFRlZobTZiTS9v?=
- =?utf-8?B?WEdzN1lmK2ZRRU9nMHZOaVl6dkRHMjB4amN2YysvVlJRNUNvVVZPa1NVRXJr?=
- =?utf-8?B?ZWc3NzNYdm15K0N0YkdOeUllMVd4UGhNcU5VVGovRlFlbVdwTDE1YkF0Y3Z6?=
- =?utf-8?B?SHp6UWJ0Yy81K3V2U2FMQ0UydUVzMEltN3B4bmJPUkN1Z3h0QWtnVHFLcWNn?=
- =?utf-8?B?REFJZS8zeDlMRUhNdnQvM2FMeGc1NUxibXNJUlpIWVYwVG9URTlBZ09NRWRP?=
- =?utf-8?B?RW4vRHlCalg0djBla01TYzNUc1NiNFN4blFPcmlzbjJaclJjNklibUlva0ln?=
- =?utf-8?B?ZHl3OHdFbDJPakkrK3ZQdTZjbWdsZXJ5bGFyaThuMDlCMEpWUGszdGlwWDZv?=
- =?utf-8?B?WE1EbUdLdGlOdjlyNnpCRUtBMkt2cFBDNW5kdDJEc3J5ektsRzdydVd6OFVk?=
- =?utf-8?B?bWcxemFYWDBYWm1KNUZueHdNenVBT0ZFMUtScjhzZ2RuSFlLeGlBOFNGK1F0?=
- =?utf-8?B?KzA5cjArTXFkdlVrNXZReXVWWU5sS0ZONnFDYmMvdWY2ZmE4S0FSbkdmdjNV?=
- =?utf-8?B?ckU2TG9FYkUzRUV2YWtFT2N4aGZTRk9qUlBRcnZhaDVOWTMxNFloelBIRUl1?=
- =?utf-8?B?MytZUlFsdmxaS2JFZDZDajFzV3c3QS9mRys5cWJBaEMxNDRhRU9HZS9xN0J2?=
- =?utf-8?B?TmRFTTRkRFJZaTE0aGpYZGplSHhvNSsvR3hjelIrVFN0QjdNMWVaNCtuVyty?=
- =?utf-8?Q?VSQ4n96COp+VeG6DZUIqCWVnYJeZC0fJ6wvBjGTbu27n2?=
-X-MS-Exchange-AntiSpam-MessageData-1: icg1hWaeECYBMzVpOHpoBY6XIi2hkmJbrlQ=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 92fd34bf-a4bd-4ba1-ae20-08de7ab42580
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2026 12:38:47.6555
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NgDM6NP8bMhDa1quO7mroDtw6ECkhySH2qEHvkhMYT1b5RojcHOyLsIjjwaiPJT1OvIxWKhpdZSLVTruGzsBfQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10677
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V4 1/2] arm64/mm: Enable batched TLB flush in
+ unmap_hotplug_range()
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Yang Shi <yang@os.amperecomputing.com>,
+ Christoph Lameter <cl@gentwo.org>, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20260305053148.3765710-1-anshuman.khandual@arm.com>
+ <20260305053148.3765710-2-anshuman.khandual@arm.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260305053148.3765710-2-anshuman.khandual@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_043854_656884_5D852204 
-X-CRM114-Status: UNSURE (   8.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260305_043917_791029_D6B172F7 
+X-CRM114-Status: GOOD (  25.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,58 +122,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 05, 2026 at 09:15:32PM +0900, Krzysztof Wilczyński wrote:
-> Hello,
+On 3/5/26 06:31, Anshuman Khandual wrote:
+> During a memory hot remove operation, both linear and vmemmap mappings for
+> the memory range being removed, get unmapped via unmap_hotplug_range() but
+> mapped pages get freed only for vmemmap mapping. This is just a sequential
+> operation where each table entry gets cleared, followed by a leaf specific
+> TLB flush, and then followed by memory free operation when applicable.
 > 
-> > K:    \b(?:__)?(?:devm_)?(?:of_)?phy_(?:create|destroy|provider_(?:un)?register)\b
-> > K:    \bphy_(?:create|remove)_lookup\b
-> > K:    \bphy_(?:get|set)?_drvdata\b
-> > K:    \b(?:devm_)?(?:of_)?phy_(?:optional_)?(?:get|put)(?:_by_index)?\b
-> > K:    \bphy_pm_runtime_(?:get|put)(?:_sync)?\b
-> > K:    \bphy_(?:init|exit|power_(?:on|off))\b
-> > K:    \bphy_|(?:get|set)_(?:mode(?:_ext)?|media|speed|bus_width|max_link_rate)\b
-> > K:    \bphy_(?:reset|configure|validate|calibrate)\b
-> > K:    \bphy_notify_(?:connect|disconnect|state)\b
-> > K:    (?:struct\s+)?phy(?:_ops|_attrs|_lookup|_provider)?\b
-> > K:    (?:linux/phy/phy\.h|phy-props\.h|phy-provider\.h)
+> This approach was simple and uniform both for vmemmap and linear mappings.
+> But linear mapping might contain CONT marked block memory where it becomes
+> necessary to first clear out all entire in the range before a TLB flush.
+> This is as per the architecture requirement. Hence batch all TLB flushes
+> during the table tear down walk and finally do it in unmap_hotplug_range().
 > 
-> What about
+> Prior to this fix, it was hypothetically possible for a speculative access
+> to a higher address in the contiguous block to fill the TLB with shattered
+> entries for the entire contiguous range after a lower address had already
+> been cleared and invalidated. Due to the table entries being shattered, the
+> subsequent TLB invalidation for the higher address would not then clear the
+> TLB entries for the lower address, meaning stale TLB entries could persist.
 > 
->   F:    drivers/*/*phy*
+> Besides it also helps in improving the performance via TLBI range operation
+> along with reduced synchronization instructions. The time spent executing
+> unmap_hotplug_range() improved 97% measured over a 2GB memory hot removal
+> in KVM guest.
 > 
-> or something along these lines.
+> This scheme is not applicable during vmemmap mapping tear down where memory
+> needs to be freed and hence a TLB flush is required after clearing out page
+> table entry.
 > 
->         Krzysztof
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Closes: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
+> Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
+> Cc: stable@vger.kernel.org
+> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+>  arch/arm64/mm/mmu.c | 46 +++++++++++++++++++++++++++++----------------
+>  1 file changed, 30 insertions(+), 16 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index a6a00accf4f9..f7ccda22d39e 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -1458,10 +1458,18 @@ static void unmap_hotplug_pte_range(pmd_t *pmdp, unsigned long addr,
+>  
+>  		WARN_ON(!pte_present(pte));
+>  		__pte_clear(&init_mm, addr, ptep);
+> -		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+> -		if (free_mapped)
+> +		if (free_mapped) {
+> +			/*
+> +			 * CONT blocks are not supported in the vmemmap
+> +			 */
 
-I don't understand your suggestion. Is it meant as a replacement for the
-keyword regexes? Your file pattern matches on:
+Same nit as on patch #2,
 
-$ ls drivers/*/*phy*
-drivers/base/physical_location.c           drivers/phy/phy-airoha-pcie.c        drivers/phy/phy-core-mipi-dphy.c   drivers/phy/phy-snps-eusb2.c
-drivers/base/physical_location.h           drivers/phy/phy-airoha-pcie-regs.h   drivers/phy/phy-google-usb.c       drivers/phy/phy-spacemit-k1-pcie.c
-drivers/firewire/phy-packet-definitions.h  drivers/phy/phy-can-transceiver.c    drivers/phy/phy-lgm-usb.c          drivers/phy/phy-xgene.c
-drivers/net/sungem_phy.c                   drivers/phy/phy-common-props.c       drivers/phy/phy-lpc18xx-usb-otg.c  drivers/reset/reset-rzg2l-usbphy-ctrl.c
-drivers/nfc/mei_phy.c                      drivers/phy/phy-common-props-test.c  drivers/phy/phy-nxp-ptn3222.c      drivers/reset/reset-rzv2h-usb2phy.c
-drivers/nfc/mei_phy.h                      drivers/phy/phy-core.c               drivers/phy/phy-pistachio-usb.c
+/* CONT blocks are not supported in the vmemmap */
 
-drivers/net/phy:
-adin1100.c        bcm87xx.c      dp83848.c     lxt.c                 mediatek             mxl-gpy.c                 phy_caps.c           qsemi.c     teranetics.c
-adin.c            bcm-cygnus.c   dp83867.c     Makefile              meson-gxl.c          national.c                phy-caps.h           qt2025.rs   uPD60620.c
-air_en8811h.c     bcm-phy-lib.c  dp83869.c     marvell10g.c          micrel.c             ncn26000.c                phy-core.c           realtek     vitesse.c
-amd.c             bcm-phy-lib.h  dp83tc811.c   marvell-88q2xxx.c     microchip.c          nxp-c45-tja11xx.c         phy_device.c         rockchip.c  xilinx_gmii2rgmii.c
-aquantia          bcm-phy-ptp.c  dp83td510.c   marvell-88x2222.c     microchip_rds_ptp.c  nxp-c45-tja11xx.h         phy_led_triggers.c   sfp-bus.c
-as21xxx.c         broadcom.c     dp83tg720.c   marvell.c             microchip_rds_ptp.h  nxp-c45-tja11xx-macsec.c  phylib.h             sfp.c
-ax88796b.c        cicada.c       et1011c.c     mdio_bus.c            microchip_t1.c       nxp-cbtx.c                phylib-internal.h    sfp.h
-ax88796b_rust.rs  cortina.c      fixed_phy.c   mdio_bus_provider.c   microchip_t1s.c      nxp-tja11xx.c             phylink.c            smsc.c
-bcm54140.c        davicom.c      icplus.c      mdio_device.c         mii_timestamper.c    open_alliance_helpers.c   phy_link_topology.c  ste10Xp.c
-bcm63xx.c         dp83640.c      intel-xway.c  mdio_devres.c         motorcomm.c          open_alliance_helpers.h   phy_package.c        stubs.c
-bcm7xxx.c         dp83640_reg.h  Kconfig       mdio-open-alliance.h  mscc                 phy.c                     phy_port.c           swphy.c
-bcm84881.c        dp83822.c      linkmode.c    mdio-private.h        mxl-86110.c          phy-c45.c                 qcom                 swphy.h
 
-drivers/usb/phy:
-Kconfig   phy-ab8500-usb.c      phy-am335x-control.h  phy-fsl-usb.h  phy-gpio-vbus-usb.c  phy-mv-usb.h    phy-tahvo.c        phy-ulpi.c
-Makefile  phy-am335x.c          phy.c                 phy-generic.c  phy-isp1301.c        phy-mxs-usb.c   phy-tegra-usb.c    phy-ulpi-viewport.c
-of.c      phy-am335x-control.c  phy-fsl-usb.c         phy-generic.h  phy-keystone.c       phy-omap-otg.c  phy-twl6030-usb.c
+Same for the other comments.
 
-There are a lot of false positives, and a lot of false negatives.
+Thanks!
+
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+
+-- 
+Cheers,
+
+David
 
