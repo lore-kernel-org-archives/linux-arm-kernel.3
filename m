@@ -4,74 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C238BF30955
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 13:00:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ED89F30946
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 13:02:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2fLPVF8V+Qo14CJ4xDQwdqLS8Injz5P+WDXvbO/X/0I=; b=RZvwMb10UixjKms25vlkaIgcyx
-	HfidWydzfDIw2rfRF5G6+Kr1wbvtB2LE1HlogSTELP7eD55nJqtfLX9O7N6pYqYrDY6g4uyyyKMem
-	lwYRwVehC02JrQpQoTKRfDYRvHby9LYSI9CA6MzROIT9Bxj/nhwBwNGQsXFFuVpElxhdGVmbmRdru
-	L69vd9cITfj/Hu65cHxL7gNmEYe9MRGsZV5lapNgQo82PXV5s/cXDIiwYtYjyiE52Ipy8OsGVrHGW
-	0Cc3Z5jY1rgpWi7IQf1dm2vqn55tfgZFKI26T8cAnXfzliu+AuvzU7gshYDnXS2gAz7mD8ykii2ch
-	aXOaFrjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7IxpxVkGnClS/pzWnTPcTEx+bl+pPZR21vGpLksfVXc=; b=CgEDzJWOhzljqvX0kwJnRAbPsT
+	wyEfR56nmpJa2arFIbQOfj7T8Sr6idB5jK4XCWG+blhQbxfM9L2JgWNlZrCe3nZWLbbDpuMAQz3XM
+	HgnzrxFpDa9SSzq6cXhd1vNwgOn7o3LVbYejwm0lqgDNS935c4UReNlHNdwQ5i2/J6SFWGrXqgZuI
+	wFGEbp7dqge3gmyQvOy2bffGDiGrrqAkS2CScBF4Cue55A4iUrpRsgPTHgf2BKEjZlPJzO31TvkW3
+	fi02ifcuR7rXyhzzyeRjPoF/PChNwAnjTHUskJ2LgvJ/Wz0cgXTFd7Pv9zogocv0AujZ8eqjcbYY3
+	RcTOZbgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy8Jw-00000001puJ-1UCF;
-	Thu, 05 Mar 2026 13:00:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vy8Kx-00000001q9r-3bD9;
+	Thu, 05 Mar 2026 13:01:55 +0000
+Received: from mail-pl1-f175.google.com ([209.85.214.175])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy8Jv-00000001pu7-0nyI
+	id 1vy8Ku-00000001q8T-2ymU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 13:00:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A040161340
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Mar 2026 13:00:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55DF8C4AF0B
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Mar 2026 13:00:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772715650;
-	bh=2fLPVF8V+Qo14CJ4xDQwdqLS8Injz5P+WDXvbO/X/0I=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=twUdTs6XpsaHTqb7/+sj6nUAKJHd7mJ015J4UZirKJlRB4Mn9xHgbdf1BJbu5xM4c
-	 QeSuYlsHXhCNopfoOno24MTfQaNqdGHiL41ffTSK55F7zs3oO06VT+POBJN6ZiCG+i
-	 8AJ35Juqjo/ffp+aKwq8LWxpgDpvsFTCT5T8/L92KIr90JOqn5Ce2QPIhcUAudQvsW
-	 ionlFFANhsQdtpQVuXoOgIWd8wsCBDNJFnLu1U4foxnA+4tBizXxJRXdidX5GM3fFO
-	 rM0yV/EevQjWQmwLcME0JdH6slrFh79w+HpApj0JTbpTLOmHtJ6H+AWGa1xadyNSHD
-	 X9cHt2rkn9ocg==
-Received: by mail-yw1-f174.google.com with SMTP id 00721157ae682-79628fb5c05so65640507b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 05:00:50 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWW0vwpjc6Pfl/cQdesmR/Za772XuKz+acYC4ycFDrjYWDGStxMuosQk0ZgPn03KoX51AbZUzMiShgm7caUGtFQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPYx079CTLtHLTRwbFpFupiaNeXqLCDVnAqGprzLlZqN2barnP
-	CLYqDaFa1/H+kF74BsLy58xWxsMOAHj0T6roPu8FE6qHEsNoTmlchNLym4xYgSJNAcs+trpW20W
-	CoQ/n8YcEL2fn1YN1NjHsgPUkJraaY7E=
-X-Received: by 2002:a05:690c:385:b0:796:3c39:eb96 with SMTP id
- 00721157ae682-798c6bd8c88mr47025427b3.13.1772715649725; Thu, 05 Mar 2026
- 05:00:49 -0800 (PST)
+	Thu, 05 Mar 2026 13:01:54 +0000
+Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2addb31945aso58280785ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 05:01:52 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772715712; x=1773320512;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=7IxpxVkGnClS/pzWnTPcTEx+bl+pPZR21vGpLksfVXc=;
+        b=IxEvCnVe4doqzPJlSK9JeXdVan720dVNTT6eF68KZVLLiSEM5mJsF2q1GymnJDeNkV
+         DLGOVDv6CKp8hXf795KTwVNFV90itQyaxe2EBuvq9IYk+hIcdHOgw0wPROL6ri6wQ8zc
+         frNXY56L2jszdik+mPJFZKg62DtMKS3xJLjzuR3A1BNwfTdHVjo/9Tt/+8KPQANfDtwt
+         27XXTbYoH/eyfVd5y6Z+TR/Qs3u5b41Fqd8QJQAosgn8SwmoDC/qWaaQxZgVNwUODAlt
+         RGiAOn3Oh/xFYzcqvSsEFbN66/rk2T4rGM5XnwcKitmAR8gxklATUei2b4v6YHbcSpvf
+         lZTA==
+X-Forwarded-Encrypted: i=1; AJvYcCXoGprOlONUYRTFyvJkEnR70K2NVl87QLmY2tRuoiH2e9m/W27qYlfeQS7jxo4RRbEESceSesimF411IutX1mup@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywu5lTo1BA7ZwCTU6E++RUWuoHfiAuXpJtCF68Bg/pvruSXT4uH
+	DTIv6Web6UVNkKNihL5VXmVMnn4acb3C9AefC+Pf/tq24pgrAU+icv4l
+X-Gm-Gg: ATEYQzxo6UllG9/a83DKSW6Zc9UjwZxrgLQPBZsS71VMFUpt0+uy6mkoMhVbpTZx3op
+	MVgwZl39v4L79USK3xVBmvfI5zOPzicdvUD0yrIJdV9jW1Tznt1gbbZbgf4j1nxslGwYmpUDRnr
+	v1Cg1DX4NaqWUIu98x8XpwHBWPGW9yhEgKfbwQCPJVSYG4lR95FY1u+QxoMllqq0ymiAeMW6V5c
+	LNyzo6IxSmz8re9lMrs86Ikvnv+skTON800TEG1xhmdwTY3zxb5RyifpTAYHiKBqq+oqyU/7Msv
+	n+1r5ySBWekpJwrYRFOwEqYrDloWVLM/w+3iTxl95T+ZzsAOEm8KtXV6ajCatIa36KXidRwMBrR
+	iUU5rusnGlr2F0f44tKliUsd8RVT0fjYOK+LU0Rpm4Jkkdt+CRmNr+8ZD6rVhEp2gIdXEloZVgP
+	hRO+U7jQXGtMApb/6NhOlv1rmOY1r0QC+Lf8ukc05x07wutIh3Y438hp8SpUI/cEMVv9dGnghYQ
+	55/PWYZE+A1NmtCZWK5mNSKDBNeilJSgRFHs3VLzBFvWopWu+2A/Lm05FYOGQ==
+X-Received: by 2002:a17:902:ce03:b0:2ae:5b52:3818 with SMTP id d9443c01a7336-2ae6a9deb2amr60551085ad.8.1772715711782;
+        Thu, 05 Mar 2026 05:01:51 -0800 (PST)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae54136b28sm115696425ad.73.2026.03.05.05.01.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Mar 2026 05:01:50 -0800 (PST)
+Date: Thu, 5 Mar 2026 22:01:49 +0900
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Joe Perches <joe@perches.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-can@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org,
+	netdev@vger.kernel.org, spacemit@lists.linux.dev,
+	UNGLinuxDriver@microchip.com
+Subject: Re: [PATCH phy-next 22/22] MAINTAINERS: add regex for linux-phy
+Message-ID: <20260305130149.GA1659133@rocinante>
+References: <20260304175735.2660419-1-vladimir.oltean@nxp.com>
+ <20260304175735.2660419-23-vladimir.oltean@nxp.com>
+ <a8fee1cd-1e69-4a9e-8533-c0988c480fb9@oss.qualcomm.com>
+ <20260305085148.7cwo3yflp7vcfldf@skbuf>
+ <f3a5aa3df78553ffc0fd0024f5fd36a4e2158c88.camel@perches.com>
+ <20260305114352.2f7btqixg4tu5bzl@skbuf>
+ <20260305121532.GA1649635@rocinante>
+ <20260305122957.GA1652563@rocinante>
+ <20260305123956.ojkt4k3ly64xz7fu@skbuf>
+ <aal6kWDx_3XRGB4K@shell.armlinux.org.uk>
 MIME-Version: 1.0
-References: <20260305-gpio-hog-fwnode-v1-0-97d7df6bbd17@oss.qualcomm.com> <20260305-gpio-hog-fwnode-v1-5-97d7df6bbd17@oss.qualcomm.com>
-In-Reply-To: <20260305-gpio-hog-fwnode-v1-5-97d7df6bbd17@oss.qualcomm.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 5 Mar 2026 14:00:37 +0100
-X-Gmail-Original-Message-ID: <CAD++jLnuKkWh9HRBHOVtYnDuPgAU=bjm=gUZtEHEcyp-e0y3Ng@mail.gmail.com>
-X-Gm-Features: AaiRm51We3q6CMYsTkjp3rhKYGVHxX_F9UZaiYdDL8ZCrn8J3C4v9v7PwSz-XUA
-Message-ID: <CAD++jLnuKkWh9HRBHOVtYnDuPgAU=bjm=gUZtEHEcyp-e0y3Ng@mail.gmail.com>
-Subject: Re: [PATCH 5/6] gpio: remove machine hogs
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Frank Rowand <frowand.list@gmail.com>, Mika Westerberg <westeri@kernel.org>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
-	Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>, 
-	Russell King <linux@armlinux.org.uk>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org, 
-	linux-doc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aal6kWDx_3XRGB4K@shell.armlinux.org.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260305_050152_748737_0522FC70 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,16 +110,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 5, 2026 at 10:52=E2=80=AFAM Bartosz Golaszewski
-<bartosz.golaszewski@oss.qualcomm.com> wrote:
+Hello,
 
-> With no more users, remove legacy machine hog API from the kernel.
->
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> > > For content match, it could also be:
+> > > 
+> > >   K:    phy
+> > > 
+> > > I believe this would match everything of interest?
+> > 
+> > Yeah, and way more. Think USB PHY, network PHY, etc. Don't want to drown
+> > the linux-phy mailing list in unrelated patches, either.
+> 
+> Also phylink, any memory management / DMA stuff that happens to mention
+> "physical", and probably numerous other examples.
 
-Sweet, less and clearer abstractions using strings instead, I like it.
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+Makes sense!  Sorry for the commotion here, then. :)
 
-Yours,
-Linus Walleij
+	Krzysztof
 
