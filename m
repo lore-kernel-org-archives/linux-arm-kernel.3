@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8A04F3092A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 10:43:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9B1AF30931
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 10:43:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nXZyqgN8dMCgcgZFM/zLAXjQCHFSgvYmx6oyb7xGPsI=; b=u2bUOBJ2Lyr8BU5af/+SgMUIH1
-	nH6DbHRWak9/Y1A/MhVRh9w3s8MlYsBpeo+1CIIDMuf5kYtez1XNH3qccLkFzMWQBJi4SWGwcConn
-	F2zqd5qQ0ek2HcKq0TqaSn10a8r+NQmG69H//J+HwkXksXLd6MkgmsZXQTip0OmKg3JPzWkJfuGNs
-	Wxg9UpbiBLp218XRQIasUEDgLzRKXRnhbnvcNRw8lwKJNhzl30peid6lv+woND2oJQxeb86Sa5+z/
-	IJGJZMGeUZEAhrKlQ9Qe9lyimV9ZdvM5zi/AJ9M0NmJArWBbJe6wlnDM1HCx187S7y+Vxhb7PrdLf
-	/nCWEFGg==;
+	bh=JXAuD3nUVcKQxQuqoS4zKPyRKQFd55XZkokpVdQy2cE=; b=5Gf9yp1o6IQqHNmmOSxYGw7b0P
+	UDWQAR5PTl5baHAcawvXZ4+2dEw4ZqgNVO0ho9lgILtpaomNHnA4ScnufEGfs1nQycLH+YrJVV9kU
+	VrufSNzEGwdxMJt1EuVHJu3+7ppGwAgraXLzDK8ina72LxlbQpDY6yGREz+z1unzKrqXxfV5skrVA
+	R3qcSswinkBIrQOS0R7T3MXtYdW0IRU64WHtkL9aqKMM6oGen465vsbxwI4Jq03ys0RpeGAJdnZWN
+	Of5KV35RdFVmpO3CUcf+qJnx4sq4WECgwiw42OUG6m/LtOwZ5Rfkf5eELqw04VndQxhTaniHHmy8H
+	is+q5sKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy6Ab-00000001bbI-2Tuu;
-	Thu, 05 Mar 2026 10:43:05 +0000
+	id 1vy6Ai-00000001bgI-2CeD;
+	Thu, 05 Mar 2026 10:43:12 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy6AZ-00000001bXY-0CFR
+	id 1vy6Af-00000001bcR-3Lq4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 10:43:04 +0000
+	Thu, 05 Mar 2026 10:43:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=nXZyqgN8dMCgcgZFM/zLAXjQCHFSgvYmx6oyb7xGPsI=; b=yIxKsNaGj0884hFedTKYrmGTv/
-	MAIIGTLD7qzIQsE475lPs20slPp7XAAAP8NSnYMYyvhcIMZtgEw3LF0+V1RXxhlVrJAmIXt736i0T
-	R6Czkb2uLPIvNHddhiTLVhQQ8RV9SVNrFpLtmIx8eRsLg6wsaJALyR2v9LLTsKHaBWtIoxc7Fw2UV
-	G9q169qOTxX+LFxJ4gyof1LlB08uxcli3JIods61zjSvVrCMyoOGiK1liXNu0Qu1k8xDU9UKDSoE+
-	qM9tgeWSfLYNPQ245GY7HRxk1dPx5N8qlDSF5Dv3qp0rstPtefPlahLlPbl01p+TVPLMIqnl4rXip
-	pBEASvQQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:43338 helo=rmk-PC.armlinux.org.uk)
+	bh=JXAuD3nUVcKQxQuqoS4zKPyRKQFd55XZkokpVdQy2cE=; b=m9xKcV8GAJSk7SyGx2IYKMlYw5
+	MmTmgM+rRCW4UhLaIhFCUUhyeAmy3s9WhqYQ84Nbzuo26rd3uNaM18O48FJguW79oiTRgvgdCTA/B
+	s6WEACHq7JHG9ewfXG1DxN4hngbxM4tIDUk5hJtoI96OHJEZ0xaLkKEve9GoF513KPsdvpOgqTJVD
+	QW6/nA85QQzbW3HE244YZwSrIXy8mfISSWPQZrC4LOz2ZdKDFmrwKB0eGVyNOzSYAAwogdqyLhykR
+	v5sf3cIO+1NUshvPDO6EqHHVVo5+FvPKiy3Ylahk+XdY8mnTLYbIGE4vW2suvYu8cer9GX0FRGEgh
+	LXmX5vyQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:43352 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vy6AP-000000007oH-3b3E;
-	Thu, 05 Mar 2026 10:42:53 +0000
+	id 1vy6AV-000000007oc-3yH9;
+	Thu, 05 Mar 2026 10:43:00 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vy6AO-0000000Btx7-2NDV;
-	Thu, 05 Mar 2026 10:42:52 +0000
+	id 1vy6AT-0000000BtxD-2qm7;
+	Thu, 05 Mar 2026 10:42:57 +0000
 In-Reply-To: <aald--qJquWGIvmO@shell.armlinux.org.uk>
 References: <aald--qJquWGIvmO@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -65,17 +65,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>,
 	Samuel Holland <samuel@sholland.org>
-Subject: [PATCH net-next v2 6/8] net: stmmac: use GENMASK_U32() for mdio
- bitfields
+Subject: [PATCH net-next v2 7/8] net: stmmac: mdio_bus_data->default_an_inband
+ is boolean
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vy6AO-0000000Btx7-2NDV@rmk-PC.armlinux.org.uk>
-Date: Thu, 05 Mar 2026 10:42:52 +0000
+Message-Id: <E1vy6AT-0000000BtxD-2qm7@rmk-PC.armlinux.org.uk>
+Date: Thu, 05 Mar 2026 10:42:57 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_024303_083904_AC989399 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20260305_024309_834681_FE6B093F 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,60 +90,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rather than using hex numbers, use GENMASK() for mdio bitfields.
+default_an_inband is declared as an unsigned int, but is set to true/
+false and is assigned to phylink_config's member of the same name
+which is a bool. Declare this also as a bool for consistency.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c | 4 ++--
- drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c | 4 ++--
- drivers/net/ethernet/stmicro/stmmac/dwmac100_core.c  | 4 ++--
- 3 files changed, 6 insertions(+), 6 deletions(-)
+ include/linux/stmmac.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-index a6f8e78856aa..b913fe5af488 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-@@ -367,8 +367,8 @@ static int loongson_dwmac_setup(void *apriv, struct mac_device_info *mac)
- 	mac->link.speed_mask = GMAC_CONTROL_PS | GMAC_CONTROL_FES;
- 	mac->mii.addr = GMAC_MII_ADDR;
- 	mac->mii.data = GMAC_MII_DATA;
--	mac->mii.addr_mask = 0x0000F800;
--	mac->mii.reg_mask = 0x000007C0;
-+	mac->mii.addr_mask = GENMASK_U32(15, 11);
-+	mac->mii.reg_mask = GENMASK_U32(10, 6);
- 	mac->mii.clk_csr_mask = GENMASK_U32(5, 2);
+diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+index 2fc169c7117e..678d03d6d3bd 100644
+--- a/include/linux/stmmac.h
++++ b/include/linux/stmmac.h
+@@ -86,10 +86,10 @@ struct stmmac_priv;
+ struct stmmac_mdio_bus_data {
+ 	unsigned int phy_mask;
+ 	unsigned int pcs_mask;
+-	unsigned int default_an_inband;
+ 	int *irqs;
+ 	int probed_phy_irq;
+ 	bool needs_reset;
++	bool default_an_inband;
+ };
  
- 	return 0;
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
-index 4ea55be04c5c..c7cb30672604 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
-@@ -496,8 +496,8 @@ int dwmac1000_setup(struct stmmac_priv *priv)
- 	mac->link.speed_mask = GMAC_CONTROL_PS | GMAC_CONTROL_FES;
- 	mac->mii.addr = GMAC_MII_ADDR;
- 	mac->mii.data = GMAC_MII_DATA;
--	mac->mii.addr_mask = 0x0000F800;
--	mac->mii.reg_mask = 0x000007C0;
-+	mac->mii.addr_mask = GENMASK_U32(15, 11);
-+	mac->mii.reg_mask = GENMASK_U32(10, 6);
- 	mac->mii.clk_csr_mask = GENMASK_U32(5, 2);
- 
- 	return 0;
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac100_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac100_core.c
-index 7c91ea2775d4..6b5cf3a0866a 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac100_core.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac100_core.c
-@@ -184,8 +184,8 @@ int dwmac100_setup(struct stmmac_priv *priv)
- 	mac->link.speed_mask = MAC_CONTROL_PS;
- 	mac->mii.addr = MAC_MII_ADDR;
- 	mac->mii.data = MAC_MII_DATA;
--	mac->mii.addr_mask = 0x0000F800;
--	mac->mii.reg_mask = 0x000007C0;
-+	mac->mii.addr_mask = GENMASK_U32(15, 11);
-+	mac->mii.reg_mask = GENMASK_U32(10, 6);
- 	mac->mii.clk_csr_mask = GENMASK_U32(5, 2);
- 
- 	return 0;
+ struct stmmac_dma_cfg {
 -- 
 2.47.3
 
