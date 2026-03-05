@@ -4,61 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B771EEF316
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 07:49:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F04E6EEF312
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 07:49:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gAxU2uL+a8I1Qpot4nrXlcqoghvipUjOcs8HX2AbB5k=; b=ZkRoXGoHVkgFeddsPDA5sKH9Ng
-	xNBgFVe0BtsYZnSPZNeJO9Yt7fTh1EfYFLmRrmXqSAMzC0wFnGSInhEeDDmV+Qt+bgBMlpFpjL4vb
-	AywgSJZ70hgQdi1TkazFLF4KSC9v5J6QF3uPeFXXNmFMXY1pUBfdyEvmw1FAI0NNcXTFALCIIX5pk
-	ZHxrqnN9BY6TBXr8q0kEGUH4O7tRYN1MzMh+tVTuV7Nmi6xsbk7Mf33V0mfrkBHJ3odl/SIU1J6cn
-	CehkUwzMBB37bV4e5HdLe9XpPKCNstTxkZAYmIxHhwQnWq2gs6J0isFW7jQUB4QvedJxHj5FzDCTi
-	KGZUNqUQ==;
+	bh=0kdkdKbMA+2uP4xd99/SezbJpyEhpHnhCpbt1mlY7Io=; b=4GnRBSQm6iVimKjcuSCBw3l1oQ
+	2xCbeML4+wnmYh8ANQuqUAfN/MSExs9Nd6Ak2Qhqwj422TN80GYBBLE+d/BQqwm8ddMROMsFOvjFZ
+	LPUZzKS3HCAs1mSlzJNXGM+pQFJPG4nxQ3VMAeEp5MogBKKWbqKj4wxEtYzxxRtshWak8hRwDRIg/
+	Egn1Se/Xqt1fKX7EIGtqNPvon3Wm0HRMig1Sm0O5xraPGVDWkBSJfVbZzHXduPCbXVtWDMnxmqumN
+	uVhPvi5PpfSPQHyM2oCk3xJMhwommbMu0ZC90KTEyqMH8V+METhjVDhXULmgKebtheooG1/FPOj3R
+	R1c/imZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy3S8-000000017KN-0DlW;
-	Thu, 05 Mar 2026 07:49:00 +0000
-Received: from [64.106.246.77] (helo=mail-sc.amlogic.com)
+	id 1vy3SZ-000000017YN-1mX6;
+	Thu, 05 Mar 2026 07:49:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy3S5-000000017Ii-45Fb;
-	Thu, 05 Mar 2026 07:48:58 +0000
-Received: from rd03-sz.software.amlogic (10.28.11.121) by mailsc.amlogic.com
- (10.8.11.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Wed, 4 Mar
- 2026 23:42:58 -0800
-From: Jian Hu <jian.hu@amlogic.com>
-To: Jerome Brunet <jbrunet@baylibre.com>, Neil Armstrong
-	<neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, "Martin
- Blumenstingl" <martin.blumenstingl@googlemail.com>, Stephen Boyd
-	<sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, robh+dt
-	<robh+dt@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-CC: Jian Hu <jian.hu@amlogic.com>, devicetree <devicetree@vger.kernel.org>,
-	linux-clk <linux-clk@vger.kernel.org>, linux-amlogic
-	<linux-amlogic@lists.infradead.org>, linux-kernel
-	<linux-kernel@vger.kernel.org>, linux-arm-kernel
-	<linux-arm-kernel@lists.infradead.org>, Ronald Claveau
-	<linux-kernel-dev@aliel.fr>
-Subject: [PATCH 3/3] arm64: dts: amlogic: t7: Add clock controller nodes
-Date: Thu, 5 Mar 2026 15:43:27 +0800
-Message-ID: <20260305074328.639993-4-jian.hu@amlogic.com>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20260305074328.639993-1-jian.hu@amlogic.com>
-References: <20260305074328.639993-1-jian.hu@amlogic.com>
+	id 1vy3SW-000000017XD-3HMp
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Mar 2026 07:49:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 692D144160;
+	Thu,  5 Mar 2026 07:49:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95538C116C6;
+	Thu,  5 Mar 2026 07:49:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772696964;
+	bh=6AqLYlPW/gs3vlo4az2RBnc0fhk6dglm/YJG1KWJfp4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OX5meTB9KrGVnyHJiKDDlXTURvrR3RfZb5Q477AWojqGpqFAT91ujTK66gHgJOq+a
+	 DTt/sOga39neE+CW7s4xLXJK5c52xpOnqv8aGaV9fcShBhmTWA5/pMXnVuSuGKyojQ
+	 AVEGfbMqf2VhL8o3uQIBOJcmNQaPcFURPHmM9J4caAigy7Xx4M2DEtIdPaEZYi5bDB
+	 OnK92yMjCFkw9/sXmWeopiF4lwHRMY6B6A9PKengoQ1A50XgU0Ja1cg8F4K5VTnGKV
+	 067wdC2+hhAvMJbPyPiQdtrkU8q1SU3eRLC+n/mqmxt6K38kkNQVCwPAMyVPV9jlxF
+	 uPXZZBbc3XChQ==
+Date: Thu, 5 Mar 2026 13:19:10 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Cc: Jingoo Han <jingoohan1@gmail.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Will Deacon <will@kernel.org>, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, jonathanh@nvidia.com, 
+	bjorn.andersson@oss.qualcomm.com
+Subject: Re: [PATCH v2 4/5] PCI: qcom: Power down PHY via PARF_PHY_CTRL
+ before disabling rails/clocks
+Message-ID: <to6p7yf2oo5qh37hsye4zpputrc7p4bwgqvjc2plieuyapjdhp@7xshxghi4tzd>
+References: <20260217-d3cold-v2-0-89b322864043@oss.qualcomm.com>
+ <20260217-d3cold-v2-4-89b322864043@oss.qualcomm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.28.11.121]
-X-ClientProxiedBy: mailsh.amlogic.com (10.18.11.5) To mailsc.amlogic.com
- (10.8.11.35)
+In-Reply-To: <20260217-d3cold-v2-4-89b322864043@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_234858_007953_E0CD168D 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260304_234924_861422_9C59D105 
+X-CRM114-Status: GOOD (  20.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,181 +78,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the required clock controller nodes for Amlogic T7 SoC family:
-- SCMI clock controller
-- PLL clock controller
-- Peripheral clock controller
+On Tue, Feb 17, 2026 at 04:49:09PM +0530, Krishna Chaitanya Chundru wrote:
+> Some Qcom PCIe controller variants bring the PHY out of test power-down
+> (PHY_TEST_PWR_DOWN) during init. When the link is later transitioned
+> towards D3cold and the driver disables PCIe clocks and/or regulators
+> without explicitly re-asserting PHY_TEST_PWR_DOWN, the PHY can remain
+> partially powered, leading to avoidable power leakage.
+> 
+> Update the init-path comments to reflect that PARF_PHY_CTRL is used to
+> power the PHY on. Also, for controller revisions that enable PHY power
+> in init (2.3.2, 2.3.3, 2.7.0 and 2.9.0), explicitly power the PHY down
+> via PARF_PHY_CTRL in the deinit path before disabling clocks/regulators.
+> 
+> This ensures the PHY is put into a defined low-power state prior to
+> removing its supplies, preventing leakage when entering D3cold.
+> 
+> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+> ---
+>  drivers/pci/controller/dwc/pcie-qcom.c | 30 +++++++++++++++++++++++++++---
+>  1 file changed, 27 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
+> index 2c4dc7134e006d3530a809f1bcc1a6488d4632ad..b02c19bbdf2ea5db252c2a0281a569bb3a0cc497 100644
+> --- a/drivers/pci/controller/dwc/pcie-qcom.c
+> +++ b/drivers/pci/controller/dwc/pcie-qcom.c
+> @@ -513,7 +513,7 @@ static int qcom_pcie_post_init_2_1_0(struct qcom_pcie *pcie)
+>  	u32 val;
+>  	int ret;
+>  
+> -	/* enable PCIe clocks and resets */
+> +	/* PHY power ON */
 
-Signed-off-by: Jian Hu <jian.hu@amlogic.com>
----
- arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 125 ++++++++++++++++++++
- 1 file changed, 125 insertions(+)
+This comment is confusing since we already have phy_power_on() API. What does
+really happen in the 'test power down' case?
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-index 6510068bcff9..6ea1b583b13d 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-@@ -6,6 +6,9 @@
- #include <dt-bindings/interrupt-controller/arm-gic.h>
- #include <dt-bindings/power/amlogic,t7-pwrc.h>
- #include "amlogic-t7-reset.h"
-+#include <dt-bindings/clock/amlogic,t7-scmi.h>
-+#include <dt-bindings/clock/amlogic,t7-pll-clkc.h>
-+#include <dt-bindings/clock/amlogic,t7-peripherals-clkc.h>
- 
- / {
- 	interrupt-parent = <&gic>;
-@@ -201,6 +204,33 @@ pwrc: power-controller {
- 		};
- 	};
- 
-+	sram@f7042000 {
-+		compatible = "mmio-sram";
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges = <0 0x0 0xf7042000 0x100>;
-+
-+		scmi_shmem: sram@0 {
-+			compatible = "arm,scmi-shmem";
-+			reg = <0x0 0x100>;
-+		};
-+	};
-+
-+	firmware {
-+		scmi: scmi {
-+			compatible = "arm,scmi-smc";
-+			arm,smc-id = <0x820000c1>;
-+			shmem = <&scmi_shmem>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			scmi_clk: protocol@14 {
-+				reg = <0x14>;
-+				#clock-cells = <1>;
-+			};
-+		};
-+	};
-+
- 	soc {
- 		compatible = "simple-bus";
- 		#address-cells = <2>;
-@@ -224,6 +254,42 @@ apb4: bus@fe000000 {
- 			#size-cells = <2>;
- 			ranges = <0x0 0x0 0x0 0xfe000000 0x0 0x480000>;
- 
-+			clkc_periphs:clock-controller@0 {
-+				compatible = "amlogic,t7-peripherals-clkc";
-+				reg = <0x0 0x0 0x0 0x1c8>;
-+				#clock-cells = <1>;
-+				clocks = <&xtal>,
-+					 <&scmi_clk CLKID_SYS_CLK>,
-+					 <&scmi_clk CLKID_FIXED_PLL>,
-+					 <&scmi_clk CLKID_FCLK_DIV2>,
-+					 <&scmi_clk CLKID_FCLK_DIV2P5>,
-+					 <&scmi_clk CLKID_FCLK_DIV3>,
-+					 <&scmi_clk CLKID_FCLK_DIV4>,
-+					 <&scmi_clk CLKID_FCLK_DIV5>,
-+					 <&scmi_clk CLKID_FCLK_DIV7>,
-+					 <&hifi CLKID_HIFI_PLL>,
-+					 <&gp0 CLKID_GP0_PLL>,
-+					 <&gp1 CLKID_GP1_PLL>,
-+					 <&mpll CLKID_MPLL1>,
-+					 <&mpll CLKID_MPLL2>,
-+					 <&mpll CLKID_MPLL3>;
-+				clock-names = "xtal",
-+					      "sys",
-+					      "fix",
-+					      "fdiv2",
-+					      "fdiv2p5",
-+					      "fdiv3",
-+					      "fdiv4",
-+					      "fdiv5",
-+					      "fdiv7",
-+					      "hifi",
-+					      "gp0",
-+					      "gp1",
-+					      "mpll1",
-+					      "mpll2",
-+					      "mpll3";
-+			};
-+
- 			reset: reset-controller@2000 {
- 				compatible = "amlogic,t7-reset";
- 				reg = <0x0 0x2000 0x0 0x98>;
-@@ -234,6 +300,7 @@ watchdog@2100 {
- 				compatible = "amlogic,t7-wdt";
- 				reg = <0x0 0x2100 0x0 0x10>;
- 				clocks = <&xtal>;
-+
- 			};
- 
- 			periphs_pinctrl: pinctrl@4000 {
-@@ -269,6 +336,64 @@ uart_a: serial@78000 {
- 				status = "disabled";
- 			};
- 
-+			gp0:clock-controller@8080 {
-+				compatible = "amlogic,t7-gp0-pll";
-+				reg = <0x0 0x8080 0x0 0x20>;
-+				clocks = <&scmi_clk CLKID_TOP_PLL_OSC>;
-+				clock-names = "in0";
-+				#clock-cells = <1>;
-+			};
-+
-+			gp1:clock-controller@80c0 {
-+				compatible = "amlogic,t7-gp1-pll";
-+				reg = <0x0 0x80c0 0x0 0x14>;
-+				clocks = <&scmi_clk CLKID_TOP_PLL_OSC>;
-+				clock-names = "in0";
-+				#clock-cells = <1>;
-+			};
-+
-+			hifi:clock-controller@8100 {
-+				compatible = "amlogic,t7-hifi-pll";
-+				reg = <0x0 0x8100 0x0 0x20>;
-+				clocks = <&scmi_clk CLKID_TOP_PLL_OSC>;
-+				clock-names = "in0";
-+				#clock-cells = <1>;
-+			};
-+
-+			pcie:clock-controller@8140 {
-+				compatible = "amlogic,t7-pcie-pll";
-+				reg = <0x0 0x8140 0x0 0x1c>;
-+				clocks = <&scmi_clk CLKID_PCIE_OSC>;
-+				clock-names = "in0";
-+				#clock-cells = <1>;
-+			};
-+
-+			mpll:clock-controller@8180 {
-+				compatible = "amlogic,t7-mpll";
-+				reg = <0x0 0x8180 0x0 0x28>;
-+				clocks = <&scmi_clk CLKID_FIXED_PLL_DCO>;
-+				clock-names = "in0";
-+				#clock-cells = <1>;
-+			};
-+
-+			hdmi:clock-controller@81c0 {
-+				compatible = "amlogic,t7-hdmi-pll";
-+				reg = <0x0 0x81c0 0x0 0x20>;
-+				clocks = <&scmi_clk CLKID_HDMI_PLL_OSC>;
-+				clock-names = "in0";
-+				#clock-cells = <1>;
-+			};
-+
-+			mclk:clock-controller@8300 {
-+				compatible = "amlogic,t7-mclk-pll";
-+				reg = <0x0 0x8300 0x0 0x18>;
-+				clocks = <&scmi_clk CLKID_MCLK_PLL_OSC>,
-+					 <&xtal>,
-+					 <&scmi_clk CLKID_FCLK_50M>;
-+				clock-names = "in0", "in1", "in2";
-+				#clock-cells = <1>;
-+			};
-+
- 			sec_ao: ao-secure@10220 {
- 				compatible = "amlogic,t7-ao-secure",
- 					     "amlogic,meson-gx-ao-secure",
+- Mani
+
+>  	val = readl(pcie->parf + PARF_PHY_CTRL);
+>  	val &= ~PHY_TEST_PWR_DOWN;
+>  	writel(val, pcie->parf + PARF_PHY_CTRL);
+> @@ -680,6 +680,12 @@ static int qcom_pcie_get_resources_2_3_2(struct qcom_pcie *pcie)
+>  static void qcom_pcie_deinit_2_3_2(struct qcom_pcie *pcie)
+>  {
+>  	struct qcom_pcie_resources_2_3_2 *res = &pcie->res.v2_3_2;
+> +	u32 val;
+> +
+> +	/* PHY Power down */
+> +	val = readl(pcie->parf + PARF_PHY_CTRL);
+> +	val |= PHY_TEST_PWR_DOWN;
+> +	writel(val, pcie->parf + PARF_PHY_CTRL);
+>  
+>  	clk_bulk_disable_unprepare(res->num_clks, res->clks);
+>  	regulator_bulk_disable(ARRAY_SIZE(res->supplies), res->supplies);
+> @@ -712,7 +718,7 @@ static int qcom_pcie_post_init_2_3_2(struct qcom_pcie *pcie)
+>  {
+>  	u32 val;
+>  
+> -	/* enable PCIe clocks and resets */
+> +	/* PHY Power ON */
+>  	val = readl(pcie->parf + PARF_PHY_CTRL);
+>  	val &= ~PHY_TEST_PWR_DOWN;
+>  	writel(val, pcie->parf + PARF_PHY_CTRL);
+> @@ -844,6 +850,12 @@ static int qcom_pcie_get_resources_2_3_3(struct qcom_pcie *pcie)
+>  static void qcom_pcie_deinit_2_3_3(struct qcom_pcie *pcie)
+>  {
+>  	struct qcom_pcie_resources_2_3_3 *res = &pcie->res.v2_3_3;
+> +	u32 val;
+> +
+> +	/* PHY Power down */
+> +	val = readl(pcie->parf + PARF_PHY_CTRL);
+> +	val |= PHY_TEST_PWR_DOWN;
+> +	writel(val, pcie->parf + PARF_PHY_CTRL);
+>  
+>  	clk_bulk_disable_unprepare(res->num_clks, res->clks);
+>  }
+> @@ -994,7 +1006,7 @@ static int qcom_pcie_init_2_7_0(struct qcom_pcie *pcie)
+>  	/* configure PCIe to RC mode */
+>  	writel(DEVICE_TYPE_RC, pcie->parf + PARF_DEVICE_TYPE);
+>  
+> -	/* enable PCIe clocks and resets */
+> +	/* PHY power ON */
+>  	val = readl(pcie->parf + PARF_PHY_CTRL);
+>  	val &= ~PHY_TEST_PWR_DOWN;
+>  	writel(val, pcie->parf + PARF_PHY_CTRL);
+> @@ -1065,6 +1077,12 @@ static void qcom_pcie_host_post_init_2_7_0(struct qcom_pcie *pcie)
+>  static void qcom_pcie_deinit_2_7_0(struct qcom_pcie *pcie)
+>  {
+>  	struct qcom_pcie_resources_2_7_0 *res = &pcie->res.v2_7_0;
+> +	u32 val;
+> +
+> +	/* PHY Power down */
+> +	val = readl(pcie->parf + PARF_PHY_CTRL);
+> +	val |= PHY_TEST_PWR_DOWN;
+> +	writel(val, pcie->parf + PARF_PHY_CTRL);
+>  
+>  	clk_bulk_disable_unprepare(res->num_clks, res->clks);
+>  
+> @@ -1169,6 +1187,12 @@ static int qcom_pcie_get_resources_2_9_0(struct qcom_pcie *pcie)
+>  static void qcom_pcie_deinit_2_9_0(struct qcom_pcie *pcie)
+>  {
+>  	struct qcom_pcie_resources_2_9_0 *res = &pcie->res.v2_9_0;
+> +	u32 val;
+> +
+> +	/* PHY Power down */
+> +	val = readl(pcie->parf + PARF_PHY_CTRL);
+> +	val |= PHY_TEST_PWR_DOWN;
+> +	writel(val, pcie->parf + PARF_PHY_CTRL);
+>  
+>  	clk_bulk_disable_unprepare(res->num_clks, res->clks);
+>  }
+> 
+> -- 
+> 2.34.1
+> 
+
 -- 
-2.47.1
-
+மணிவண்ணன் சதாசிவம்
 
