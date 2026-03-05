@@ -4,151 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E19D5F3092C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 12:47:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB9D2F30946
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 12:53:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tl5cbVzjBQ25zWuP9qsr5NvkC2I952uIqY7xV4+c1Dc=; b=1SnY6CsO1g9RCO3NK2eueHs8Ib
-	ZQi7IbYOQaVFBLzvprkaXKIP06SbjUp5PX6av4ll3OTsrBsMZg+w+D6fZPf2y63GJGKTgAuZ7r3//
-	0TdzFyORztrXHe1xQtMfURwcMSJvxsiYjG0Hst3onvjBVqg8KnFOy1NTfN9mMIDuwbAcyxs2YsAvI
-	sun0xTApG6X2S4LXMFKbSlY6DHEfaPyfXKnGPGxVgTXczeqIc+uUpNWzbZV1ufVLbo2ZtIYj1kS+F
-	zPYms00cOf/yG5lin19SAMHqVSyTMTPvG7068vlFtJWVmKOhNf68x6rVn6tdPbVMt14/pm0geYFcN
-	tuwzHG+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VuJX8kQYPV8451BZkD//NEdBc7/mcuz13s5BfHDhRTU=; b=QiUEGXEgkftwlcesxIQmTBAwPG
+	DcltfjSNyYF9ET8VxWSahddxKnurhlAbOH32sxbl13B+zOTYVDI4Tn4sAXOwFJUDR/U5n/OsvyYSV
+	T+Eg7Xn2EKIId6TOVKtcdNtQrgYXRUTgOlsKl3ZX6/Ptexygxjh+63ncKnea1Eo5MjKjiOnEmhj3E
+	Hcn0CeM9mkSjJ7qX5vP5vLZON0Vl0aeaHLuggJhG7gmjyTMGw8dD2ndw8XkrcAxApLFZJAt7gFgAl
+	mi493sXghjykdgtmcwDKu8y34mTTKmwoKchmcDTVFnEFDXddsswCYadl4s58Cfoz1se4h/Kufg8Z3
+	7MPUFJag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy86y-00000001oVJ-0uLZ;
-	Thu, 05 Mar 2026 12:47:28 +0000
-Received: from mail-norwayeastazon11013036.outbound.protection.outlook.com ([40.107.159.36] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1vy8CP-00000001oyO-4C7W;
+	Thu, 05 Mar 2026 12:53:06 +0000
+Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy86u-00000001oT0-0pld;
-	Thu, 05 Mar 2026 12:47:25 +0000
+	id 1vy8CM-00000001oxZ-221y
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Mar 2026 12:53:04 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lBdActs3csMpNWQYKfEa0VU6JuRPbGcCUOPe920az6laTU6Qn5z+ObbFd2mhfVuInAf97EtccPHUmCc2Kv2ILs9El2PknmUYG0pxmMlGwcHl28okXAhML02/068BreZ64lxe7rdThCDRe4sHOFJxlOAEBGf8aYy2KCZydESo3diZWwQL8LaS4g2o8yFVPeqEI0dM2MD9sz0r7ehwkLLy/Ck4eRA+9f4hwdkQdke8wS0ogCVgwFZ3IU5yTQEawY6M9xIKWozYZDlf8qN7MsseGy/rtMjYjTEc/SXCuQgqNOzYdjGszCkGAmspdW3F+xK5QgzW/UYSxPnGWpXouP0XuA==
+ b=JJLIWilPsfUpbv45KeSLWSUra4fMQUJjMzhKlybUqqgAldL1mZ2Uc+gcEkJyUDdSA3BX+1rYQWq3EeIBJScrLA1EcLnNN2hHUy1t46W6ouj1eoGG5cqlUOdy4Y6ipmTCwtQ6LsGC2Q0rOmwgtPtqbvBsoPFJxSo6LZCiLQ/q1cBf3OZF8cM+hHYJsh1mYHWae2D8halfnCrfCZMF5SuP4r0+fUelBT+x21t9DbjDbSFEnrN5Z/tCY/P0o3f8/H3ZuR6QpdNHJjzEUPtPrAeLpH1gk3Z3K+zI6Nb+3m8XdWkgapW8w9z7uTXisBIPQAARtM1DiU74K7+sMruB3i4FJQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tl5cbVzjBQ25zWuP9qsr5NvkC2I952uIqY7xV4+c1Dc=;
- b=I0dxL+OJkf2yW60ibvvHFbAxZvveKO6+oW715cCPb2Yttkd8qvER/eLkqMJHHCVcDQTBj4ncACuJca/XO6OPWoAUYwyOnDIiQw3O2kErUazVFPLNKMXKe9Kko89abG+7ayBrO0aFgu5joBxBYNiDk+6ZTuKqIyLFsEjfXDgR0TR6NkqUgVhHx9xdMsSxjcdSah+itw8ZLMKKLANSvIb82K8D+wEKq7OYNRUeJr6l4NCLSgPfM+PzAo7424jizthak5oQMUsBL22+vNB2SIraLKwtSeS9EbWcMsmpn0NoXlfjuT42du8kou4lEUH8swnvVH2B/jXdprp7HQ/NBB1Mmg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ bh=VuJX8kQYPV8451BZkD//NEdBc7/mcuz13s5BfHDhRTU=;
+ b=TRlaPgVBahq/Cx6lzGFavWQoWitSROW6r4l/+/MnvetiUjbqI4E1td5J/9ZMjM36g5QgHxxaeX3IvCi+jwbbNkbNTWskl9ojbxLO9OBJktc0a4NkfPtBTlkeZNVCJz+kb5WLhUpTAi/QVdjzxwxHDACjD6X2VuPjw3j1mHmV2k4olUGuZ5ezONhNc0v+GaZgbweJot6koVa+064Ynk16cKKTmW4qLjP8juXy/v6oaaDycNbM+TycUku7mBZX6Iy0+tllBJv81syWbFXfi+cK9DfFkfYc8jgaOabtY1f8Ww/4ZK7rS+UAe07NbV8u+3VbbBkBSr8/+fCYFe5YKVHzCA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=lunn.ch smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tl5cbVzjBQ25zWuP9qsr5NvkC2I952uIqY7xV4+c1Dc=;
- b=U/MJw51t4U/3/KqzGgIRzT/DdjnPYdQCQAJSofl1zxeRh4maIAGC4Xdq9ya488vwZQLM/5QBB3X45gH2faVh0pt75+CwbxbWF8DHN6Zjemv4MfRkZtXPHcl7fnE1Ek2BNOeA1o2+XEmolAdxL3N+Mxf8dnx57JY7AfUJF14hYQYb29/tnJJn/xPPIS5MqDRx+YUU824u1sxFBVt9lUox3D7NC/AKUhfVLWpe1OEEX3dLQ4kz1Ol4P0AFl0oEs4QevYZImCKSbKA0/xRYT+TJZLjrgdEOD7xtzR5D76r9WOi5ik6jpcj+tlJLoZyfB6mgXalp8SSbI0FIL7W3qiVYRw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
- by GVXPR04MB9829.eurprd04.prod.outlook.com (2603:10a6:150:116::21) with
+ bh=VuJX8kQYPV8451BZkD//NEdBc7/mcuz13s5BfHDhRTU=;
+ b=HYJwYU1EO2DQL/yK7WQ6S5cLfkJ9dxU8hY45YTLB6wYKKFbiWusaAzCRzqBkpnLo8Vzrbb50IgWE3229vuUdp73gLwnBvBxyM5nVAX5zux2eMAs0Np/Fr3YNkRjqwQjhpNmxqPUo8h0csa/qn9suIB5iafT2j50q73s+mvyZ8+k=
+Received: from MW4PR03CA0280.namprd03.prod.outlook.com (2603:10b6:303:b5::15)
+ by DS0PR10MB6270.namprd10.prod.outlook.com (2603:10b6:8:d2::18) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Thu, 5 Mar
- 2026 12:47:15 +0000
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9678.016; Thu, 5 Mar 2026
- 12:47:15 +0000
-Date: Thu, 5 Mar 2026 14:47:10 +0200
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: Linus Walleij <linusw@kernel.org>
-Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-can@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org,
-	netdev@vger.kernel.org, spacemit@lists.linux.dev,
-	UNGLinuxDriver@microchip.com,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH phy-next 18/22] pinctrl: tegra-xusb: include PHY provider
- header
-Message-ID: <20260305124710.pk5sah3wz3acyvmz@skbuf>
-References: <20260304175735.2660419-1-vladimir.oltean@nxp.com>
- <20260304175735.2660419-19-vladimir.oltean@nxp.com>
- <CAD++jLnCtu20rXcg7sMVLBi24EohscJoz0kN46XJaKPJt00O2w@mail.gmail.com>
- <CAD++jL=m+cEcqy1i2H0tdeBa3Sy76myGAR9HdBqrT4u-x5v50A@mail.gmail.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAD++jL=m+cEcqy1i2H0tdeBa3Sy76myGAR9HdBqrT4u-x5v50A@mail.gmail.com>
-X-ClientProxiedBy: VI1PR09CA0133.eurprd09.prod.outlook.com
- (2603:10a6:803:12c::17) To AM9PR04MB8585.eurprd04.prod.outlook.com
- (2603:10a6:20b:438::13)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.18; Thu, 5 Mar
+ 2026 12:52:57 +0000
+Received: from CO1PEPF000075F0.namprd03.prod.outlook.com
+ (2603:10b6:303:b5:cafe::d4) by MW4PR03CA0280.outlook.office365.com
+ (2603:10b6:303:b5::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9654.21 via Frontend Transport; Thu,
+ 5 Mar 2026 12:52:56 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ CO1PEPF000075F0.mail.protection.outlook.com (10.167.249.39) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9678.18 via Frontend Transport; Thu, 5 Mar 2026 12:52:55 +0000
+Received: from DFLE203.ent.ti.com (10.64.6.61) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 5 Mar
+ 2026 06:52:54 -0600
+Received: from DFLE206.ent.ti.com (10.64.6.64) by DFLE203.ent.ti.com
+ (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 5 Mar
+ 2026 06:52:54 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE206.ent.ti.com
+ (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 5 Mar 2026 06:52:54 -0600
+Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 625CqsOj1868857;
+	Thu, 5 Mar 2026 06:52:54 -0600
+Received: from localhost (dhcp-172-24-231-152.dhcp.ti.com [172.24.231.152])
+	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 625CqreY002163;
+	Thu, 5 Mar 2026 06:52:53 -0600
+From: MD Danish Anwar <danishanwar@ti.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Meghana Malladi
+	<m-malladi@ti.com>, Jacob Keller <jacob.e.keller@intel.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>, "Roger
+ Quadros" <rogerq@kernel.org>, <danishanwar@ti.com>
+Subject: [PATCH net-next] net: ti: icssg-prueth: Add HSR multicast FDB port membership management
+Date: Thu, 5 Mar 2026 18:22:51 +0530
+Message-ID: <20260305125251.1828326-1-danishanwar@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|GVXPR04MB9829:EE_
-X-MS-Office365-Filtering-Correlation-Id: b0425645-c39b-423b-35ab-08de7ab553f4
+X-MS-TrafficTypeDiagnostic: CO1PEPF000075F0:EE_|DS0PR10MB6270:EE_
+X-MS-Office365-Filtering-Correlation-Id: fcf83e49-d2d9-457f-40ae-08de7ab61eec
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|376014|10070799003|1800799024|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: s2/LrZ7A5mDZzEi6zfk1p/04b0qQsDyxyOhGDEfPg4AJrXwrZG/KCrkKG/wnma8eAJNFKmQSyUNoovRSEH7FLLhQKRCjUxoxiMit3ODgfsZu3ZNXOVeK4okGy3SgGwZ7NvSng+AUdIAbp5gscShUFH4nqOnjn8ODurLQD8uU/oTZl/hsg0O9oG3/Ne1BDAbU387OsncbjA1X8IRGKAqFaxg/IigwZBnbUC65xExusogHQhfBrk2vzfRZw7tx2/iinfbul7lIEs7fpAVPTQLipUVQPUN2u2NGRQM/mhnmIt0YPqVU0XxEaCDhTlX5KwBFf2+KhG/Ue5cm3DdN2NJVEhuRZFz6XOH5xPK8x/G3dKUwNqf+DcezthFJgsXdD9SeafnnkaRPDI0xz5N/td3s4extarRjxfSezlN5kFNq4UFSVl7FZ3RU90A3TqgwN3xZnSnyZN6xyFDCmZRMsOAhGHt26E+xTFDLfxC9Qz7dsCTcr5I36enjD7d+5lRhwyjkM2qWF+sJ2Z0ov6bRje9OaymcJi40H6/dHR3j2vT5zNBtKNl3t8iIXnEVjNOvSO8aCuzLoiCBW8LMJwqL4vxhyxJuca6lhDyTa7qiKrjYMFSL56r20gPC7hlylUGBZfLIPXF0o20VNBCJwWywmqxg34+M7h3UqbSQkSRUFUvb2rFGZzOEp9EqvW46PYm0aETTCW8qigV82bVnKWV8Qa/urxaYijMyztfPFfFWF6s+KrY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(10070799003)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?T2hNT1p5K1dzODFXN0ZGM1BBM2xQNC9aUVRDZXhZTEhyYWpmTkdVeVhoc1dB?=
- =?utf-8?B?dXpYUWJyeFVvTm1ReG01NGRMRjZnK2RaNWJxalBuRWUvaVUvTlNrWWZNb1BI?=
- =?utf-8?B?REtVWTBBSFZtVTFFK2RaZUpxanZkNXNBYy9sTXZrcWJKVFliV1ZFVUxMaWRD?=
- =?utf-8?B?M1lqMDlkWFZFUis3SGIvUjJWbW1lbm4xYkxFVWtaSGdXM21pdlRIbnNYMVpm?=
- =?utf-8?B?b0Z4RlhDeDRFazRzU3MrcEZGcG4vc0g3ZWp0UnlPeE15VXg4bFJiWnFkMmM0?=
- =?utf-8?B?RWwxZG1zT2FReGllb3JsUmgzSzJRclpIcVJ5aHAxVlE0SnhuOTV1OU51RmdF?=
- =?utf-8?B?Um9XYWtCYjIyaElVUytwdjBjUDJYSkVvVUlDWW5ZYUZKMjFOUGpQdzBVdWky?=
- =?utf-8?B?MWhuSlhINENxcXRrK2N4bW1XUURsUGlZUnA4RTkxRnkrNzlGL3J6dkdwYjB2?=
- =?utf-8?B?Z1JWOWhmekpxOUVyZFBuUHcySWVBb3pJcEozdnBiOXVKOGllNUExRm96cTNW?=
- =?utf-8?B?QTM4dGJvVGNGcU55QWFtcHA5Qkpqc3dwZzk1TVZpbjEzYzVPUndJM3lXSWRQ?=
- =?utf-8?B?WExTU0ZiL2YrMmZPZGhiN1hHVktwYUt2RnhvQmRGanNhWlBtR0xZYTN3SWdy?=
- =?utf-8?B?eVZxQXVVdExaS0xkYm1jdTJGcUVlYmh5WGg1NE1vaUp1dW1sOEZHbVVUaXc1?=
- =?utf-8?B?U3d6eVIrOEx0MElHZlQyQnVNNUpqUFhaNUhKN1N2N2xyWGRvR2lUeVJEMjQr?=
- =?utf-8?B?WVpUc2VoamlTZkpmWTNqUFVvdW9BMGVTVXoyMkFmRUMzMlkxa2tpSDBIa2sx?=
- =?utf-8?B?STF1RlJsN1pRMW1ERHhkWHUwRmlPZjNzOUhaRHE1VnFnRzF2UDB6MlhSZ3Vs?=
- =?utf-8?B?RTMyTDhvUytCK3A5SHpUZ0IydVJ1akpPZTRGT1FiTWJEWFU2bnVaRy91NnU1?=
- =?utf-8?B?L1pLMXI0MGJvTkxpMDZ0RWlnUnAwQWZ5T08wZVM2QUNhMFlPU20vc3ZOaVpw?=
- =?utf-8?B?VmthQitNTjl5NVhJRlhuNlMxODBDNkxPMFZRVTBwbnRnSWVYT3JBS2s1L0la?=
- =?utf-8?B?Y0dFWGNLL1ljM3JPRnJhOGFUVlptUDVpMkZnbXlPa0hPWUxMZlpjclhUbjRX?=
- =?utf-8?B?cXJERW9uRGNLMXFPTFBVMS9TMk9sZmVtTnFYR00vZ29QR3BRaksranpsMGxO?=
- =?utf-8?B?SlZyL056ODNLbmlKcWVHUFc2cWtGdDZMQVlYUjNQV0Q1aXlMNXNkcXRNVk1T?=
- =?utf-8?B?WkZUZG5IMW9uTXFIV3lPdzEzRW4weEg1NTlEbXF3QWhrYkJqYjVrSUlGQlVw?=
- =?utf-8?B?S1cwN0V0eXFONWtCd1lueXR0VGwyNWtsSFFmS2tzRi9ITXhGQ3VQQzNQcVlx?=
- =?utf-8?B?R3pRRUVoMFBWV283WTVCU3pLYmllVkxhaXpLYTM0QkxFeTFVV2NQSVk4dmk1?=
- =?utf-8?B?czVVNjRhMEtSbzZQUm55Z3RzeGJyOURRVHVhdVpOSWN0eW9wS1RTdG1YanRK?=
- =?utf-8?B?Nmx1QzFzU2xGNkdMaFNRMDhPSFh2MldmbWNheFBiaVRtZjY4M3Jpcks0MWlK?=
- =?utf-8?B?ZzB4OGloUUhWMnViU3BKdVp1UzJWWHhBanhBUWgwUnUrQUhVVDQrTTRhWXUv?=
- =?utf-8?B?WmxzQTZPM0pOQVpOVldCN2FiNktSUE4wcFRQTXdtbTkxME1tOFJyaEZGb29Z?=
- =?utf-8?B?Z3Q5WU5wd3JSenBVYm10Tm8weGRlS25wWXZ5WFBLaWZOZjJZd1BoSXpGcEw2?=
- =?utf-8?B?VitQcmsrLy9talBnZC8rRk5SK2IySEVEUUNSbnB5amg0Yk5aZ3ROQUxRU1Jp?=
- =?utf-8?B?V3RHMjU0ZEJjeW5yaHIvTTJ6RDUwVWhJR05hUEx2QmVZSTJUbHVxWDU2UVRE?=
- =?utf-8?B?NjZkazdxdDZPNUhuanBvbkFHWlM2bk05VEhkYUtzSndyWGRkcTdmUDdoOFA1?=
- =?utf-8?B?Y2IxbzI2azVVc013RTdtcHBVeXhSZDJqbWpPUGJzMjFLelFWTUVhVnZzdkZz?=
- =?utf-8?B?bE1ZcUYwK3JCemppZ081M3kxTW5VZnRQL0Z5ais0eGlqanRhSHduOStnM1Ri?=
- =?utf-8?B?YWNmYjNycm1KZEcwNUxhTGEvTFZpZFAzSlZ0eVpTTXhsVHNFc1hZbG15bWFH?=
- =?utf-8?B?eDQ5bnFVaVJhUTNHWENHRzQrd0FCaTRFOHdtOWJDZnF2azFFNDhKSnRFbWRI?=
- =?utf-8?B?d0hGdmFCM1ViVUg5YXZMbWtoNk9xTStmSjBIaEdNQ3ZEWXZkQXo0bnVjbnov?=
- =?utf-8?B?V0Vwd1A2b2h6bUpNWDZpUmhqZFpVWkJZSDViRmVxZjdLTDhuakJEbEhwWkhp?=
- =?utf-8?B?ZUJkUkN5WCtXb2wyNUlKS0M3YWQ3ZDh4WEI2TDNDNU5hN25qa3ZDOENsZUJj?=
- =?utf-8?Q?23zGrSobP9rRG48uQ6s4aqv7nt9iAMHoJW8JC8nfvLS2O?=
-X-MS-Exchange-AntiSpam-MessageData-1: UK65I6fS3Xoj3XOYyYu166ZjCh3OtG1plUs=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b0425645-c39b-423b-35ab-08de7ab553f4
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2026 12:47:15.0513
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|36860700016|34020700016|1800799024;
+X-Microsoft-Antispam-Message-Info: o5tbOnCzGcg6kGrlQ9muX4VUr91YUYNIryvpu/f+lmf8sUlxzHBkfnuvDzVlgSKMsiOBmC7JJUn/DBjlxSplSSnkCf8r0IAmtvWApkJ6U8KwEMlcczfPrxkOSitI3hY+G6/sIBWRhfmQQSH/LKYHPcwfgggiIDcIrkALzCG+eFNxeo6x/WjmT2DGR00xG+DTmz0zWzWrCrGIBIBP50DJtSpbQOkS4x92mCVu91tyLbwlHKtQTwOhTaKF393Zmuw1rGwa65zl/n5xeev8aTyz3eNFsuOkYA5fEBD14yTGT0gWhQlJoz67RWWvXJZ+aeLbA8U1VHPizOPwvJ3myqVWdWUYV89w5eEFyl9RSCtivoc9tXo9yfjkat8mSGXMfPLWsfJRPCjkT+vKBRUBKCjjHLrlvJhn6cVrhQKUPjEi9n2AHulETTvjFC4fTw3qVqKBBfu0zJeuwZfB4pLxYqvsC0JbKsaAqrwSjxanAyCpIzS+h713BuylHz3L89ZP+xbh+r5uIt0a5iYGXw6lnlEL6h/+oSEfCZt++w39wjuV9bKjKgSG/e9v71r8Z0pBAsFhdt/ZUn0ywUwQBktJRUwBAMl1LzYVuxR5Nrq9JFjMdgM+M85uFaCeRiYigGu3C3Q8x9wCBrqLJQ/vMw8PCo/5+/KtR1erpncmPcSxQBR8sYQ9urVq5Xyl31ucd0iiYTWdwxBtYCCEWGBZdp//X8UvyrThvQf2V4vphUa8ECm+s1wqNRq06/ZAvEH9JM8GwSchT3m7uj/7aL8Yx59meMxRpw==
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(36860700016)(34020700016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: XThIQq33xZGb+eHD/Mo1qru9YyATVrecJmRWLpQ2pjXxMNKJKelj9d18S/K5rPtmra7vfnvG4uB0JAywmOBJp/3E+L2Fc3mOBVYaYDRt9WttaatSaMqR6ctgblmPxsV5ygIDYNfdPImJPpbh/WB0NNEctWzvBwS8adV1y3wmaM31XOzUR00thO7pDV7ffC+J2ISD+tKXxBvXNU1X/PrEFlL+I0e8fjl8eD9VYb88YPoScAVOTcmW251MOiHCqdZQmdQpgH03v+xAgczgCRAnn18KkbOEHEgmmAYiVPBVx6sPdgvaV45/P8RWgxmhK1m1286mF1U5x3DKktOWnaAPnU2eiDC48c8GsQfV6LXtbZ583yGEmghNpUR3Q6pTPoLiugVGFLfeqOIHCbeE2K/+hMSlEPNi8Ke1tOz0hDcO8+vEvITxVzshu2WK8kiM0H6W
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2026 12:52:55.3342
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: aoj63ml7r909s4dyCtDrdiGKCwhYxCHgdMjekDfqw+vhi3uk93RIwb1mNeMyGnYVXtQLR2Wrd2X6uemdxAjE3A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9829
+X-MS-Exchange-CrossTenant-Network-Message-Id: fcf83e49-d2d9-457f-40ae-08de7ab61eec
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000075F0.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB6270
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_044724_237113_786B5001 
-X-CRM114-Status: GOOD (  18.78  )
+X-CRM114-CacheID: sfid-20260305_045302_672929_AAFCC42C 
+X-CRM114-Status: GOOD (  20.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,30 +134,345 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 05, 2026 at 01:44:42PM +0100, Linus Walleij wrote:
-> On Thu, Mar 5, 2026 at 1:43 PM Linus Walleij <linusw@kernel.org> wrote:
-> > On Wed, Mar 4, 2026 at 7:00 PM Vladimir Oltean <vladimir.oltean@nxp.com> wrote:
-> >
-> > > The tegra-xusb pinctrl driver is also a PHY provider (calls
-> > > devm_phy_create() for PCIe and SATA). However, according to Vinod Koul,
-> > > having PHY provider drivers outside of drivers/phy/ is discouraged,
-> > > although it would be difficult for me to address a proper movement here.
-> > >
-> > > Include the private provider API header from drivers/phy/, but leave a
-> > > FIXME in place. It will have to be moved, eventually.
-> > >
-> > > Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-> >
-> > Fair enough, is this a regression so I should merge it for fixes
-> > or just a nonurgent fix that I can apply for next?
-> 
-> Sorry I realized it needs to go in with the series.
-> Reviewed-by: Linus Walleij <linusw@kernel.org>
-> 
-> You can take it from here.
+In HSR offload mode, multicast addresses can be added via HSR master
+(hsr0) or directly to slave ports (eth1/eth2). The FDB must track port
+membership: P0 (0x1) for HSR master, P1 (0x2) for slave port 1, and P2
+(0x4) for slave port 2. When the same address is added from multiple
+paths, memberships must accumulate.
 
-Yeah, the plan is explained in the cover letter. No regression intended
-if it's taken through the same tree as the header split itself.
+Implement a hybrid approach using __dev_mc_sync() callbacks to track
+basic add/delete operations, checking netdev_hw_addr->synced to
+distinguish HSR-synced addresses from direct additions. Post-process
+to handle overlapping memberships by checking refcount:
+- refcount=2 with synced=1: HSR only (P0)
+- refcount>=3 with synced=1: HSR + direct (P0|P1/P2)
+- synced=0 with P0 set: HSR removed, clean up orphaned P0
 
-Thanks for the review.
+On add operations, accumulate new membership with existing ports. On
+delete operations, remove only the specific port and clean up orphaned
+P0 bits if needed.
+
+Add error handling for icssg_fdb_lookup() which can return negative
+error codes (e.g., -ETIMEDOUT). On lookup failure in add/delete path,
+default to no existing membership. In the post-processing path, skip
+the address update to avoid corrupting FDB entries with garbage values.
+
+VLAN Interface Handling:
+Add support for multicast addresses added to VLAN interfaces on the HSR
+master (e.g., hsr0.7). These addresses require P0 (HSR master) bit to be
+set along with the port bits, since VLAN-tagged packets use separate FDB
+entries per VLAN ID. Without P0, the HSR master would not receive
+multicast packets on VLAN interfaces.
+
+Track whether the add/del operation came from a VLAN interface path and
+set P0 when in HSR offload mode with VLAN interfaces. Update orphaned P0
+cleanup logic to preserve P0 for VLAN interfaces.
+
+Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+---
+ drivers/net/ethernet/ti/icssg/icssg_prueth.c | 233 +++++++++++++++++--
+ 1 file changed, 217 insertions(+), 16 deletions(-)
+
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+index 9efa39069c8c..1366e8e3abbe 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+@@ -661,28 +661,133 @@ static int icssg_prueth_del_mcast(struct net_device *ndev, const u8 *addr)
+ 	return 0;
+ }
+ 
++/**
++ * icssg_is_addr_synced - Check if address is synced from HSR master
++ * @ndev: network device
++ * @addr: multicast MAC address
++ *
++ * Checks if the address is synced from HSR master (hsr0) via
++ * dev_mc_sync_multiple() or added directly to the slave port.
++ *
++ * Return: true if synced from HSR master, false if added directly
++ */
++static bool icssg_is_addr_synced(struct net_device *ndev, const u8 *addr)
++{
++	struct netdev_hw_addr *ha;
++	bool is_synced = false;
++
++	netif_addr_lock_bh(ndev);
++	netdev_for_each_mc_addr(ha, ndev) {
++		if (ether_addr_equal(ha->addr, addr)) {
++			is_synced = ha->synced;
++			break;
++		}
++	}
++	netif_addr_unlock_bh(ndev);
++
++	return is_synced;
++}
++
++/**
++ * icssg_hsr_fdb_update - Update FDB and VLAN table for HSR multicast
++ * @emac: PRUETH EMAC private data
++ * @addr: multicast MAC address
++ * @vid: VLAN ID
++ * @port_membership: port membership bitmap (P0=0x1, P1=0x2, P2=0x4)
++ * @add: true to add entry, false to delete
++ *
++ * Updates both FDB and VLAN table entries for the given address.
++ */
++static void icssg_hsr_fdb_update(struct prueth_emac *emac, const u8 *addr,
++				 u8 vid, u8 port_membership, bool add)
++{
++	icssg_fdb_add_del(emac, addr, vid, port_membership, add);
++	icssg_vtbl_modify(emac, vid, BIT(emac->port_id),
++			  BIT(emac->port_id), add);
++}
++
++/**
++ * icssg_prueth_hsr_fdb_add_del - Manage FDB port membership for HSR multicast
++ * @emac: PRUETH EMAC private data
++ * @addr: multicast MAC address
++ * @vid: VLAN ID
++ * @is_synced: true if synced from HSR master, false if added directly
++ * @is_vlan_path: true if called from VLAN interface path, false for direct path
++ * @add: true to add/update, false to remove
++ *
++ * Manages FDB port membership bits (P0/P1/P2) for multicast addresses.
++ * On add: accumulates membership with existing ports.
++ * On delete: removes only the specific port, cleans up orphaned P0 if needed.
++ */
+ static void icssg_prueth_hsr_fdb_add_del(struct prueth_emac *emac,
+-					 const u8 *addr, u8 vid, bool add)
++					 const u8 *addr, u8 vid,
++					 bool is_synced, bool is_vlan_path,
++					 bool add)
+ {
+-	icssg_fdb_add_del(emac, addr, vid,
+-			  ICSSG_FDB_ENTRY_P0_MEMBERSHIP |
+-			  ICSSG_FDB_ENTRY_P1_MEMBERSHIP |
+-			  ICSSG_FDB_ENTRY_P2_MEMBERSHIP |
+-			  ICSSG_FDB_ENTRY_BLOCK, add);
+-
+-	if (add)
+-		icssg_vtbl_modify(emac, vid, BIT(emac->port_id),
+-				  BIT(emac->port_id), add);
++	int existing_membership, other_port_membership;
++	u8 port_membership;
++
++	/* Set P0 (HSR master) bit when:
++	 * - Address is synced from HSR master (is_synced=true), OR
++	 * - In HSR offload mode AND it's a VLAN interface (is_vlan_path=true)
++	 * This ensures VLAN interfaces on HSR master (hsr0.X) also get P0 set.
++	 */
++	if (is_synced || (emac->prueth->is_hsr_offload_mode && is_vlan_path))
++		port_membership = ICSSG_FDB_ENTRY_P0_MEMBERSHIP | BIT(emac->port_id);
++	else
++		port_membership = BIT(emac->port_id);
++	existing_membership = icssg_fdb_lookup(emac, addr, vid);
++	if (existing_membership < 0) {
++		netdev_dbg(emac->ndev,
++			   "FDB lookup failed for %pM: %d, assuming no existing entry\n",
++			   addr, existing_membership);
++		existing_membership = 0;
++	}
++
++	if (add) {
++		/* Accumulate with existing membership */
++		port_membership |= existing_membership;
++
++		netdev_dbg(emac->ndev,
++			   "FDB add %pM: P%d%s -> membership 0x%x\n",
++			   addr, emac->port_id, is_synced ? "+P0" : "",
++			   port_membership);
++
++		icssg_hsr_fdb_update(emac, addr, vid, port_membership, true);
++	} else {
++		other_port_membership = existing_membership & ~port_membership;
++
++		/* Clean up orphaned P0 if neither HSR synced nor VLAN path */
++		if (!is_synced && !is_vlan_path &&
++		    (existing_membership & ICSSG_FDB_ENTRY_P0_MEMBERSHIP))
++			other_port_membership &=
++				~ICSSG_FDB_ENTRY_P0_MEMBERSHIP;
++
++		netdev_dbg(emac->ndev,
++			   "FDB del %pM: 0x%x -> 0x%x\n",
++			   addr, existing_membership, other_port_membership);
++
++		icssg_hsr_fdb_update(emac, addr, vid, port_membership, false);
++
++		if (other_port_membership)
++			icssg_hsr_fdb_update(emac, addr, vid,
++					     other_port_membership, true);
++	}
+ }
+ 
+ static int icssg_prueth_hsr_add_mcast(struct net_device *ndev, const u8 *addr)
+ {
+ 	struct net_device *real_dev, *port_dev;
++	bool is_synced, is_vlan_path;
+ 	struct prueth_emac *emac;
+ 	u8 vlan_id, i;
+ 
+-	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_HSR;
+-	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
++	is_vlan_path = is_vlan_dev(ndev);
++	vlan_id = is_vlan_path ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_HSR;
++	real_dev = is_vlan_path ? vlan_dev_real_dev(ndev) : ndev;
++
++	/* Check if this address is synced from HSR master */
++	is_synced = icssg_is_addr_synced(ndev, addr);
+ 
+ 	if (is_hsr_master(real_dev)) {
+ 		for (i = HSR_PT_SLAVE_A; i < HSR_PT_INTERLINK; i++) {
+@@ -693,12 +798,14 @@ static int icssg_prueth_hsr_add_mcast(struct net_device *ndev, const u8 *addr)
+ 				return -EINVAL;
+ 			}
+ 			icssg_prueth_hsr_fdb_add_del(emac, addr, vlan_id,
++						     is_synced, is_vlan_path,
+ 						     true);
+ 			dev_put(port_dev);
+ 		}
+ 	} else {
+ 		emac = netdev_priv(real_dev);
+-		icssg_prueth_hsr_fdb_add_del(emac, addr, vlan_id, true);
++		icssg_prueth_hsr_fdb_add_del(emac, addr, vlan_id,
++					     is_synced, is_vlan_path, true);
+ 	}
+ 
+ 	return 0;
+@@ -707,11 +814,16 @@ static int icssg_prueth_hsr_add_mcast(struct net_device *ndev, const u8 *addr)
+ static int icssg_prueth_hsr_del_mcast(struct net_device *ndev, const u8 *addr)
+ {
+ 	struct net_device *real_dev, *port_dev;
++	bool is_synced, is_vlan_path;
+ 	struct prueth_emac *emac;
+ 	u8 vlan_id, i;
+ 
+-	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_HSR;
+-	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
++	is_vlan_path = is_vlan_dev(ndev);
++	vlan_id = is_vlan_path ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_HSR;
++	real_dev = is_vlan_path ? vlan_dev_real_dev(ndev) : ndev;
++
++	/* Check if this address was synced from HSR master */
++	is_synced = icssg_is_addr_synced(ndev, addr);
+ 
+ 	if (is_hsr_master(real_dev)) {
+ 		for (i = HSR_PT_SLAVE_A; i < HSR_PT_INTERLINK; i++) {
+@@ -722,12 +834,14 @@ static int icssg_prueth_hsr_del_mcast(struct net_device *ndev, const u8 *addr)
+ 				return -EINVAL;
+ 			}
+ 			icssg_prueth_hsr_fdb_add_del(emac, addr, vlan_id,
++						     is_synced, is_vlan_path,
+ 						     false);
+ 			dev_put(port_dev);
+ 		}
+ 	} else {
+ 		emac = netdev_priv(real_dev);
+-		icssg_prueth_hsr_fdb_add_del(emac, addr, vlan_id, false);
++		icssg_prueth_hsr_fdb_add_del(emac, addr, vlan_id,
++					     is_synced, is_vlan_path, false);
+ 	}
+ 
+ 	return 0;
+@@ -1077,8 +1191,95 @@ static void emac_ndo_set_rx_mode_work(struct work_struct *work)
+ 	}
+ 
+ 	if (emac->prueth->is_hsr_offload_mode) {
++		struct hsr_mcast_update {
++			struct list_head list;
++			u8 addr[ETH_ALEN];
++			bool synced;
++			int refcount;
++		};
++		struct hsr_mcast_update *update, *tmp;
++		u8 vlan_id = PRUETH_DFLT_VLAN_HSR;
++		struct netdev_hw_addr *ha;
++		int existing_membership;
++		LIST_HEAD(update_list);
++		u8 port_membership;
++
++		/* Track basic add/delete via callbacks */
+ 		__dev_mc_sync(ndev, icssg_prueth_hsr_add_mcast,
+ 			      icssg_prueth_hsr_del_mcast);
++
++		/* Handle overlapping memberships: When the same address
++		 * is added from multiple paths (hsr0 + eth1), kernel
++		 * increments refcount without triggering callbacks.
++		 * Manually check refcount to detect:
++		 * - refcount=2 + synced: HSR only, membership = P0
++		 * - refcount>=3 + synced: HSR + direct, membership = P0|Px
++		 * - !synced but P0 set: HSR removed, clean up orphaned P0
++		 *
++		 * Collect addresses to update while holding the lock, then
++		 * process them after releasing the lock to avoid sleeping
++		 * while atomic (icssg_fdb_lookup/update can sleep).
++		 */
++		netif_addr_lock_bh(ndev);
++		netdev_for_each_mc_addr(ha, ndev) {
++			/* Queue this address for processing.
++			 * We need to check existing_membership via FDB lookup
++			 * (which can sleep), so defer that until after unlock.
++			 * Save synced/refcount to reproduce original logic.
++			 */
++			update = kmalloc_obj(*update, GFP_ATOMIC);
++			if (!update)
++				continue;
++
++			ether_addr_copy(update->addr, ha->addr);
++			update->synced = ha->synced;
++			update->refcount = ha->refcount;
++			list_add_tail(&update->list, &update_list);
++		}
++		netif_addr_unlock_bh(ndev);
++
++		/* Process collected addresses outside spinlock */
++		list_for_each_entry_safe(update, tmp, &update_list, list) {
++			existing_membership = icssg_fdb_lookup(emac,
++							       update->addr,
++							       vlan_id);
++			if (existing_membership < 0) {
++				netdev_dbg(ndev,
++					   "FDB lookup failed for %pM: %d, skipping\n",
++					   update->addr, existing_membership);
++				list_del(&update->list);
++				kfree(update);
++				continue;
++			}
++
++			port_membership = existing_membership;
++			if (update->synced) {
++				port_membership |=
++					ICSSG_FDB_ENTRY_P0_MEMBERSHIP;
++				if (update->refcount >= 3)
++					port_membership |= BIT(emac->port_id);
++				else
++					port_membership &= ~BIT(emac->port_id);
++			} else if (existing_membership &
++				   ICSSG_FDB_ENTRY_P0_MEMBERSHIP) {
++				port_membership &=
++					~ICSSG_FDB_ENTRY_P0_MEMBERSHIP;
++			}
++
++			if (existing_membership != port_membership) {
++				netdev_dbg(ndev, "Update %pM: 0x%x -> 0x%x\n",
++					   update->addr, existing_membership,
++					   port_membership);
++
++				icssg_hsr_fdb_update(emac, update->addr,
++						     vlan_id, port_membership,
++						     true);
++			}
++
++			list_del(&update->list);
++			kfree(update);
++		}
++
+ 		if (rtnl_trylock()) {
+ 			vlan_for_each(emac->prueth->hsr_dev,
+ 				      icssg_update_vlan_mcast, emac);
+
+base-commit: 70836c8d0fe046400de8cdcf0613b2f1f6bddde3
+-- 
+2.34.1
+
 
