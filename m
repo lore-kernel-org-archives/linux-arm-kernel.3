@@ -4,71 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB281F30923
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:31:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6C16F30928
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:33:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hp29jnAJzUeQb6JgllraBvfvqxFaJdKR1N6ZWb40Qgo=; b=WgVtGtieaNoggZCw3zjjkLRLv1
-	j37VmAeC0XS6vs88/dC+F7rSDyw/EzaUB75zI3XqTE4RB8o5zp7HU32nP473de0+F0YPkKtbQRIVz
-	TC/N1GP8Ec/OuFBL5X3fCq91vHloU/btsbfS4hOh+FhepUIIZNWWv8HqUslHZBDhSjES6ZwdPShUG
-	HQNeNX96Oe/dBIkL1/PzmAEhM+sbNO+RnMeswiM5keRuo4jxyzmHF2vjX2+AqVOcBvZMzttd9A3wG
-	eC07NtSuasFxNuvQ7OmOdhpfnIuMhkBVzs3D/AUAjlAdBGNjM6i1y/SPuyOxbdznpr+qQugMHlqCd
-	3boQ5g1A==;
+	bh=QJP6h53nXAhHEO5hrve67/6AtJvsJKoLKA6wWuc49rU=; b=MfqUKcqc3IOPl9Sq4Sv5Q98qNh
+	yZCQsXcVf8vD3nGbnfOstkS+TsXaPKCxZqJkiW3Cpw7qcTlDBYZBA9zKkLd6rlM18Q/4/VZsPcxbe
+	5CZwhyay32AzzcdsXCqHMb6KDiNCvj0fwaeBfMXOZEY8scyZMBTX21EVj5nsHasMoXbvJOStFDp9L
+	WK+imEhez9beD+h2Dpig0tE4eJSNCMXzatKvmvm8fMjPRKjBn9uvAsh22l+nYvIkviBtcTWDZEuhM
+	a+Q16NUaW6Qh/sAjRw1L1dcGqLWzuRewJm2CKyeFlCAk88wDR8PcWdzQyTQxLK7ModE+dkdILQQfr
+	WhH5hu4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy52m-00000001ONa-0lMy;
-	Thu, 05 Mar 2026 09:30:56 +0000
-Received: from smtprelay0011.hostedemail.com ([216.40.44.11] helo=relay.hostedemail.com)
+	id 1vy54r-00000001On8-1qoC;
+	Thu, 05 Mar 2026 09:33:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy52k-00000001OMR-08U2;
-	Thu, 05 Mar 2026 09:30:55 +0000
-Received: from omf12.hostedemail.com (a10.router.float.18 [10.200.18.1])
-	by unirelay04.hostedemail.com (Postfix) with ESMTP id 6EF351A090A;
-	Thu,  5 Mar 2026 09:30:48 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: joe@perches.com) by omf12.hostedemail.com (Postfix) with ESMTPA id ABA5119;
-	Thu,  5 Mar 2026 09:30:41 +0000 (UTC)
-Message-ID: <f3a5aa3df78553ffc0fd0024f5fd36a4e2158c88.camel@perches.com>
-Subject: Re: [PATCH phy-next 22/22] MAINTAINERS: add regex for linux-phy
-From: Joe Perches <joe@perches.com>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>, Konrad Dybcio
-	 <konrad.dybcio@oss.qualcomm.com>
-Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>, Neil
- Armstrong <neil.armstrong@linaro.org>, dri-devel@lists.freedesktop.org, 
-	freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-can@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev, 
-	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org,
- netdev@vger.kernel.org, 	spacemit@lists.linux.dev,
- UNGLinuxDriver@microchip.com
-Date: Thu, 05 Mar 2026 01:30:40 -0800
-In-Reply-To: <20260305085148.7cwo3yflp7vcfldf@skbuf>
-References: <20260304175735.2660419-1-vladimir.oltean@nxp.com>
-	 <20260304175735.2660419-23-vladimir.oltean@nxp.com>
-	 <a8fee1cd-1e69-4a9e-8533-c0988c480fb9@oss.qualcomm.com>
-	 <20260305085148.7cwo3yflp7vcfldf@skbuf>
-Content-Type: text/plain; charset="ISO-8859-1"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	id 1vy54o-00000001OmH-2Mc3;
+	Thu, 05 Mar 2026 09:33:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E46904005D;
+	Thu,  5 Mar 2026 09:33:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43DBBC19423;
+	Thu,  5 Mar 2026 09:33:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772703181;
+	bh=J1mPT0AS8G1kySDxO52H0dygz5R6XVL35p3Y+NkqEgs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=a95GeOy3NiPdBOqMQASBUPOamqYfl0FLVGcbxOgvYBHwGTjZVrzEX5K33FLrVBezv
+	 xsGGp75ylQLEv0gME68PFfq67dpOdq+tFzm7dRZw8OHjs5O7YA+t0USAlx2OkXZxsE
+	 0F6pJeDYsNDp4MncGFvuL/NgDTNFA44ahWG0eQ7YI3kHLsqNFMwbuBanMj9T8ISewP
+	 ZLa8wISf1QPRTlFmAoHnRRMGe9HtJ09u++rOeW2kjpE9CfiHGzGD+gkpIMOqmtyyCy
+	 58qwM1coJUmNA4IX49yeejBpXhcJ6Piw8c6vtCgf5xS5r0RuJEFRUCuB6LxUkedn0I
+	 mADgD+p2e1AxA==
+Date: Thu, 5 Mar 2026 10:32:59 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <skhan@linuxfoundation.org>, kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org
+Subject: Re: [PATCH v9 04/19] drm/display: hdmi-state-helper: Act on color
+ format DRM property
+Message-ID: <20260305-sweet-boar-of-certainty-70f15f@houat>
+References: <20260227-color-format-v9-0-658c3b9db7ef@collabora.com>
+ <20260227-color-format-v9-4-658c3b9db7ef@collabora.com>
+ <20260302-literate-shrew-of-health-ec19d2@houat>
+ <8648916.T7Z3S40VBb@workhorse>
 MIME-Version: 1.0
-X-Rspamd-Server: rspamout07
-X-Rspamd-Queue-Id: ABA5119
-X-Stat-Signature: isin6ba55864u4k7cspzxagise7enff6
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Session-ID: U2FsdGVkX1+c/QqwBFj4RnbTOHAHP0u/fhPSDrZvfXg=
-X-HE-Tag: 1772703041-391055
-X-HE-Meta: U2FsdGVkX18CpOmWAsQNq/nzIGrueYMCLFpafncVkMPEeWn8lMHmxGid0nuFShmczpxd7LMIQ2HkJXitNrouaAWweblPom1aNWswKBKkaGGCen5irY0lnX3z9ty7T8amhD6qn9Q5wfYeFrX1AAy/tVHr70RJ5jxHv1CzpDKls395qE7TAifFzgOqcxBZ+LxnR/uVacI/Z8SiG+R8Q0lWc4dUv5BUq0HaFG5uC1dlHaBdlDEn65TIo3X5+7C0AcoUpQeypXp8sK9gp+VHT+vsBW/Ta2vT0Zqxi066+g9opvcn5emNN3z91009RwQ+r7ADwt/gmX2gmKTLfK9kac3enKskM+3ua1Jz
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="etgtgheqnhe6g46r"
+Content-Disposition: inline
+In-Reply-To: <8648916.T7Z3S40VBb@workhorse>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_013054_125886_B2628A00 
-X-CRM114-Status: UNSURE (   7.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260305_013302_647821_F6F4BD38 
+X-CRM114-Status: GOOD (  37.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,24 +90,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2026-03-05 at 10:51 +0200, Vladimir Oltean wrote:
-> On Thu, Mar 05, 2026 at 09:39:35AM +0100, Konrad Dybcio wrote:
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> > > index 55af015174a5..bdfa47d9c774 100644
-> > > --- a/MAINTAINERS
-> > > +++ b/MAINTAINERS
-> > > @@ -10713,6 +10713,7 @@ F:    Documentation/devicetree/bindings/phy/
-> > >  F:   drivers/phy/
-> > >  F:   include/dt-bindings/phy/
-> > >  F:   include/linux/phy/
-> > > +K:   \b(devm_)?(of_)?phy_(create|destroy|init|exit|reset|power_(on|o=
-ff)|configure|validate|calibrate|(get|set)_(mode|media|speed|bus_width|drvd=
-ata)|get_max_link_rate|pm_runtime_(get|put)|notify_(connect|disconnect|stat=
-e)|get|put|optional_get|provider_(un)?register|simple_xlate|(create|remove)=
-_lookup)\b|(struct\s+)?phy(_ops|_attrs|_lookup|_provider)?\b|linux/phy/phy\=
-.h|phy-props\.h|phy-provider\.h
 
-You could use multiple K: entries instead of this monster.
+--etgtgheqnhe6g46r
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v9 04/19] drm/display: hdmi-state-helper: Act on color
+ format DRM property
+MIME-Version: 1.0
 
-And please use (?:<foo>) to avoid capture groups too.
+On Mon, Mar 02, 2026 at 01:53:34PM +0100, Nicolas Frattaroli wrote:
+> On Monday, 2 March 2026 09:46:06 Central European Standard Time Maxime Ri=
+pard wrote:
+> > Hi,
+> >=20
+> > On Fri, Feb 27, 2026 at 08:20:09PM +0100, Nicolas Frattaroli wrote:
+> > > With the introduction of the "color format" DRM property, which allows
+> > > userspace to request a specific color format, the HDMI state helper
+> > > should implement this.
+> > >=20
+> > > Implement it by translating the requested drm_connector_color_format =
+to
+> > > a drm_output_color_format enum value as per the logic HDMI should use
+> > > for this: Auto is translated to RGB, and a fallback to YUV420 is only
+> > > performed if the original color format was auto.
+> > >=20
+> > > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > > ---
+> > >  drivers/gpu/drm/display/drm_hdmi_state_helper.c | 28 +++++++++++++++=
+++++++++--
+> > >  1 file changed, 26 insertions(+), 2 deletions(-)
+> > >=20
+> > > diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/driver=
+s/gpu/drm/display/drm_hdmi_state_helper.c
+> > > index 9f3b696aceeb..31c6d55fa995 100644
+> > > --- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> > > +++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> > > @@ -669,10 +669,34 @@ hdmi_compute_config(const struct drm_connector =
+*connector,
+> > >  	unsigned int max_bpc =3D clamp_t(unsigned int,
+> > >  				       conn_state->max_bpc,
+> > >  				       8, connector->max_bpc);
+> > > +	enum drm_output_color_format fmt;
+> > >  	int ret;
+> > > =20
+> > > -	ret =3D hdmi_compute_format_bpc(connector, conn_state, mode, max_bp=
+c,
+> > > -				      DRM_OUTPUT_COLOR_FORMAT_RGB444);
+> > > +	switch (conn_state->color_format) {
+> > > +	case DRM_CONNECTOR_COLOR_FORMAT_AUTO:
+> > > +	case DRM_CONNECTOR_COLOR_FORMAT_RGB444:
+> > > +		fmt =3D DRM_OUTPUT_COLOR_FORMAT_RGB444;
+> > > +		break;
+> > > +	case DRM_CONNECTOR_COLOR_FORMAT_YCBCR444:
+> > > +		fmt =3D DRM_OUTPUT_COLOR_FORMAT_YCBCR444;
+> > > +		break;
+> > > +	case DRM_CONNECTOR_COLOR_FORMAT_YCBCR422:
+> > > +		fmt =3D DRM_OUTPUT_COLOR_FORMAT_YCBCR422;
+> > > +		break;
+> > > +	case DRM_CONNECTOR_COLOR_FORMAT_YCBCR420:
+> > > +		fmt =3D DRM_OUTPUT_COLOR_FORMAT_YCBCR420;
+> > > +		break;
+> > > +	default:
+> > > +		drm_dbg_kms(connector->dev, "HDMI does not support color format '%=
+d'.\n",
+> > > +			    conn_state->color_format);
+> > > +		return -EINVAL;
+> > > +	}
+> > > +
+> > > +	ret =3D hdmi_compute_format_bpc(connector, conn_state, mode, max_bp=
+c, fmt);
+> > > +
+> > > +	if (conn_state->color_format !=3D DRM_CONNECTOR_COLOR_FORMAT_AUTO)
+> > > +		return ret;
+> > > +
+> >=20
+> > We discussed it before, and it wasn't as trivial as it should have been,
+> > but now, I really feel something like the following would be simpler:
+> >=20
+> > if (conn_state->color_format !=3D DRM_CONNECTOR_COLOR_FORMAT_AUTO) {
+> > 	enum drm_output_color_format fmt;
+> >=20
+> > 	switch (conn_state->color_format) {
+> > 	case DRM_CONNECTOR_COLOR_FORMAT_AUTO:
+> > 	     drm_warn(connector->dev, "The format shouldn't be auto here"); //=
+ or any better message
+> > 	     fallthrough;
+>=20
+> Why shouldn't it be auto there? This is the function where the auto->rgb
+> mapping is explicitly handled.
+
+We just tested above that it wasn't, so if we took that branch but it's
+still auto, something is very wrong :)
+
+> > 	case DRM_CONNECTOR_COLOR_FORMAT_RGB444:
+> > 	     fmt =3D DRM_OUTPUT_COLOR_FORMAT_RGB444;
+> > 	     break;
+> > 	....
+> > 	}
+> >=20
+> > 	return hdmi_compute_format_bpc(connector, conn_state, mode, max_bpc, f=
+mt);
+> > }
+> >=20
+> > ret =3D hdmi_compute_format_bpc(connector, conn_state, mode, max_bpc,
+> > 			      DRM_OUTPUT_COLOR_FORMAT_RGB444);
+> >=20
+> > It makes it much clearer what the two branches are, and we don't have to
+> > test for auto multiple times.
+>=20
+> Testing for auto multiple times is done for the "4:2:0 fallback on
+> AUTO only" case. If you fall through from AUTO to RGB and then return
+> the result of hdmi_compute_format_bpc on RGB, then you will not let
+> AUTO fall back to 4:2:0. hdmi_compute_format_bpc only does a fallback
+> for lower bit depths, not different color formats.
+
+The part above wasn't meant to be the whole function but only the part
+covered by your patch. My point is you should have a test of whether we
+have auto or not. If we don't we use whatever we have and early return.
+If we have auto, we do RGB then YUV420 like we used to.
+
+Maxime
+
+--etgtgheqnhe6g46r
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaalNygAKCRAnX84Zoj2+
+dhnCAX9DNAh/ZSZ/rCHg5+5ZYomOTbZkZfYVH9tmTzU1bVK4L/QKl1+OT4JFZgi4
+MOwWQH4BegMzSI+E4j/H8ZJUYoTCAU2UluDtmLLmQt5+1qE3ZOKXXBngFnNDHiYU
+ARwHaTH91w==
+=n+uK
+-----END PGP SIGNATURE-----
+
+--etgtgheqnhe6g46r--
 
