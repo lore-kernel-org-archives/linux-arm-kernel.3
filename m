@@ -4,82 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E65AEFCE43
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A384EFCE5E
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 03:34:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lRmZpXw1Na1Jt0sZYZ3Dk4vuOehC4OWy1CGhTN9jzyk=; b=WgjqW9/Bu78ACB
-	1E72Vb4Hh7wbPwlAmQOpfMB+qToXr8w77ePk0w7TeImLNwRGcZg9b7xSMXP0oaUHOPkkwWsg9rD4f
-	/TM3noXEMZBxSPyFW35+JBXT4/E1aVQyP3Ij/BKKTnM5so0AA0JIB9U+S+5jOx3bN3fzkupx+sqsH
-	hRlyfUNdE7tpLAjoCwsOmeUPOEvqLSEMUepfdaDT71w4tIg/kZvHt3k9UP5OXzmmQxbTiidfYYcnx
-	f/+xxVEPu8buZxDY77ChFiVm+1EsBCmz6DG9yIv/dKq/yXaT6Lzm9s0ccRA5At94SXv7WRdiYt182
-	bHCqKWBPHxoN8kKUKZ4w==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GoyJS43DjogCNIlYUyLOl9RH46vOQLUOd3a+06hfz+Q=; b=mMDYf55R8Z1YdrtceOLmi3RGZk
+	+AG8uV7wVMuu4keCij10kN1E2GCY9dI1xITjPd48Gxk8fqIjQ1cM/fXQS7EEIpdpBDU1xYCuIE8mq
+	Skf9FIfZI0dFTAL+nUvGkKmMRb0Fmb/d3gL4A9UuzKyVOL1DBZqvi5y40opDOzZT7sOcm0HJvmiYF
+	kOWI2silVq1CjmnXfHvzgI0ZeublIzsiSj+f7WHBiIJahklq0CyXro8JYSH2BW0rPU23cWD+nAgGs
+	pCWan1G00UOfujznc0LWejf/sQBy2iMFZw2Rf/e+MWmP8/FRVPv7tmFUXiKJ0Sflr6jswZcdxrgIN
+	n8tGFkmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxzTc-00000000r5Q-0O4R;
+	id 1vxzTc-00000000r5k-1oxv;
 	Thu, 05 Mar 2026 03:34:16 +0000
-Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
+Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxzTZ-00000000r4T-0TP5
+	id 1vxzTZ-00000000r4V-43IE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 03:34:14 +0000
-Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-899fbf92bdbso56641076d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 19:34:12 -0800 (PST)
+	Thu, 05 Mar 2026 03:34:15 +0000
+Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-506bad34f51so65344001cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 19:34:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772681651; x=1773286451; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=lRmZpXw1Na1Jt0sZYZ3Dk4vuOehC4OWy1CGhTN9jzyk=;
-        b=lZ7pmEk6Bf9k2yvigsX97xQI/FEP8DF4DeIC1TeN3UcaPnrH9EPKYNwXBivsywykN9
-         Sjvkl/hOVslButbMG9Q5u3SRGdGjJwxdrlDz5frjZQjsq+p43rgjS1lNjgszkIPhIgdG
-         FwPnnOy2PSg5tw3uOWScWHrkgnimiJjJ3P0JkLM9Qw8882k7RPmWbyfcFVjU/vStbGhs
-         ZoLZbmb6Iyv7sFY7uoy+C0IKkLRtGpozUrEzuyQwbZyuguSZdAUTkqPa1GYeO1zQi7JZ
-         uZnjHyiscBc0mlwAjWRY26KNlGDNMKoh68l2i6B86P3Vo9TCeVM6m7M/bvnor2EKpHCE
-         tiGw==
+        d=gmail.com; s=20230601; t=1772681652; x=1773286452; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=GoyJS43DjogCNIlYUyLOl9RH46vOQLUOd3a+06hfz+Q=;
+        b=DrJp/BtXA7wI7Gl5FYaFP84kV/LHgkHUu0XQy5UN+XMBxAPdxAUFndmamf4Kg3KFi0
+         CoBurt+vjmcs5FxAoQqitjBkj6Jc1xgHGCRW6UxXu4q81+5gIJnUxwzRRp4kP/ljaSg2
+         cGsO6tK4VJgTB8r+z6gojrXGthrKHhde7k1AHEeBk4A+3sx6E2JIz6CmjCUNne0U6n2R
+         /Fwcwno6Z9+Ei/QIvfH3PB20F5XlIUCpLta06IeqPLTCEDpAW/ISvTkDoLYvgnXw6F/m
+         EPrlAAn1Vx/+rOfnBwZv6n8uohFxIAcf0+YfyvqXNk1k/KSG6eaKHOnFbBA1k+yq1h/G
+         nzJg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772681651; x=1773286451;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lRmZpXw1Na1Jt0sZYZ3Dk4vuOehC4OWy1CGhTN9jzyk=;
-        b=AJVvjTGtMNvr8ItjZciUOvXAB7iKhJtQ0IKhzhzAJM6XQqKfs2O1Vovv5LoGIRDuXp
-         rb0S8T6lPAMVrQkoTOFTfCp93eTaLm/fDUmAfxaf6E5QWaAkTikSvGz5Ws8Q3NACTxBj
-         5NYTTSEFlfBt1g2oqiKBjZLexsChwPwxHxhZ75k8TliIW3q6ZbtKTq6KV6lUbOUMxau3
-         iVkl/879awCF+V2QGMdVt2aSW5KbGaxVQLuHL7Fus3KD1l5RuOfODrJV+FV6h8S7WxSe
-         YEs0FXGd0tLohFwEuNAK/W8utKGianqzEQvARL0N0IDD8Qz1j0IG1JZix6m+3wvRQlMI
-         uOYg==
-X-Forwarded-Encrypted: i=1; AJvYcCUkkr1fETEcvbMeHrGo73xwW9TP/a96fuCDfz6PqYzMIlC++hqp7ZVi9D66mYb9fPljvBYzVB1hQhXYvwc5u78P@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5Mh2WzHUygt2+lyiuee5VaqXnO3Kdl/m3RUzutQ6GTjLgIPND
-	2axWm5wOHi3b7p4NQPIH9zCO9E9O9AyDLqQ+i8MkZFwF0O1Bd3fOlsFh
-X-Gm-Gg: ATEYQzz4CsXzRAyQzTUQC3lad4w+WrCLjaSlH9H/b/zv95ZA9AHx/F/XVYmY4JkOlsi
-	wVqU4vbuNRM4PGbNmvKVnmxYse7Ncvw8GLYtUgbefDLhkWCulHIWqMgMNYM9+zbobrW6agEB9Iu
-	z2WWEYk98Z9GsygsTqEIkjU1GG0YGMJWFdfx3WUA/YrT3bp+k0WE3D3JRzhwcBPcAlATALKpEOI
-	19lcEAO/7mxJNSOekxa7i3e+nKvqfKt/TBYTuHAUgoe0u/1w8Y1Ui1QKMrTG3fEcbTCuh5NktyM
-	Oj/rfMqZnE8yLlamFm6mE9FK5Q6O+lstaIvjlG6jqRQvDp4b56t0vvKY32Ip/c8jE+wEHBHxMEP
-	wa2i/lynlydbvuNYUR7Ofmv/zSfdmsJkDfi2Ah41rLns7RerhluMRrrXr9X8oOsXRU12vDWz1Ig
-	V/3BY5llhUp3sWDG0Uzm2X0WAQyncQWsmUDBVbqQ==
-X-Received: by 2002:ac8:5f11:0:b0:4f1:dfc8:50b with SMTP id d75a77b69052e-508db3fe6f9mr57487911cf.76.1772681651474;
-        Wed, 04 Mar 2026 19:34:11 -0800 (PST)
+        d=1e100.net; s=20230601; t=1772681652; x=1773286452;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=GoyJS43DjogCNIlYUyLOl9RH46vOQLUOd3a+06hfz+Q=;
+        b=HspiuTAec7z7U9f6xW3YKKmuUr5dgHWeqFOjgVYo74sBilFJ+lNByat+fp36Q6tTE7
+         6cwdbkzZpi4J1XWnZsvrNFKuNc2PY54Cyy2B+GcuPfJfAVC5I23qDSM00t2sQoaMsD1Q
+         uGrEgjq1vWZ9qhAV513yh9dkC+C0Cst8cneYHNjPY+9o/UuDkH314XgyM9h7NRk26KPt
+         nv4V9nyapqQ+I2jKPXPiVhp42geaCe7ICGZ0bI2kksZfxYWMRmqisG95me2SbsbbQI5x
+         /3Wa9M0gcS2eb+lMooKygDl36rMutNXnkTxhBZGbEI8UcA+CH87zkPYNpPkTtQG36MLL
+         eG0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXoJfaUtB1lTX+ojhoiB1PvDn3XkAxnUkir4NWkejOe+G8a2VLB0i2qyqHP7TmE/Wxe5I1/R193CjQsEA2kceWS@lists.infradead.org
+X-Gm-Message-State: AOJu0YzVse4e1rq7YcMkbZ+nvMlpxVWn9mFEuws6UePqLSHMmpu4Qgmw
+	1hg63nsHahBb6M3t9GoPjFYCjxASsdSXyWrfH3ewnVXWjM1CiEnv+q4i
+X-Gm-Gg: ATEYQzwvV5Zk1Bw/mRf8bhngfWzVayO3KP26SEGe6JiZJMSYbs+qOCrAvIHONb5u3MF
+	z2Ifq52D3kPBzxCB6N50Yp4swLnFcxcTFSryZQwfAuZ4CihwHqZRVen5in7cGEuSSR6Xrf5Hxfo
+	/7RJEbn/pKpYEGWek1SreyFfipL1uRjK+GF/+GPM1IJ5npX3byzJRJ/IhV9lihhGRCIbWm6hixL
+	vb4ooKgKSray+mM8o7cv6p9WTH+wtme/Zbcj+TDDlNFDypQnIy+YeASs2wagKKXrNNd5twFmiKj
+	lx8uXjjnW3ZalmT95opmEIeLwpcQsFow8Bs4e/Qk0ldlZj4tfXwMkBDu6SYRes1/v/+u+TFy9qC
+	Q13A3b3BOBkj/wWU7q0Mb+CUplfi3fHCfhFgZVXEstO6ic9KUeaoGt3IK2Uz327wmRhv2ngbTIH
+	StZF2Yw1/lYvrJLQykJdrK+4iUGPc=
+X-Received: by 2002:ac8:5a82:0:b0:502:9e93:617d with SMTP id d75a77b69052e-508db36395dmr51002631cf.46.1772681652477;
+        Wed, 04 Mar 2026 19:34:12 -0800 (PST)
 Received: from [172.17.0.2] ([134.128.219.200])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-507449630b6sm190667601cf.7.2026.03.04.19.34.10
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-507449630b6sm190667601cf.7.2026.03.04.19.34.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Mar 2026 19:34:11 -0800 (PST)
+        Wed, 04 Mar 2026 19:34:12 -0800 (PST)
 From: Yuanshen Cao <alex.caoys@gmail.com>
-Subject: [PATCH v2 0/2] allwinner: a733: Add A733 PCK600 Power Domain
- Controller Support
-Date: Thu, 05 Mar 2026 03:34:06 +0000
-Message-Id: <20260305-b4-pck600-a733-v2-0-ba6bbed7d253@gmail.com>
+Date: Thu, 05 Mar 2026 03:34:07 +0000
+Subject: [PATCH v2 1/2] dt-bindings: power: Add Support for Allwinner A733
+ PCK600 Power Domain Controller
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAK/5qGkC/3XMyw6CMBCF4Vchs3bMUCoXV76HYVHKFCYKJa0hG
- sK7W9m7/E9yvg0iB+EI12yDwKtE8XMKdcrAjmYeGKVPDYpUSQVp7DQu9lESoamKAvOqISbWda8
- bSKclsJP3Ad7b1KPElw+fw1/z3/qXWnMkVO6i2fVdba26DZOR59n6Cdp937++DMi5rAAAAA==
-X-Change-ID: 20260304-b4-pck600-a733-1790e0e48d49
+Message-Id: <20260305-b4-pck600-a733-v2-1-ba6bbed7d253@gmail.com>
+References: <20260305-b4-pck600-a733-v2-0-ba6bbed7d253@gmail.com>
+In-Reply-To: <20260305-b4-pck600-a733-v2-0-ba6bbed7d253@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
  Jernej Skrabec <jernej.skrabec@gmail.com>, 
@@ -90,8 +89,8 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_193413_195389_F9DD55BA 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20260304_193414_022076_7A318ACB 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,45 +105,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi everyone,
+The A733 PCK600, similar to A523 PCK600, is likely a customized version
+of ARM PCK-600 power controller. They share the same BSP drivers in the
+package provided by Radxa, with the only difference being the lack of
+resets.
 
-This series is to introduce Allwinner A733 PCK600 Power Domain
-Controller.
+Therefore, document A733 compatible and make resets required only for
+the other models, as well as prepare the PD definitions for future
+device trees.
 
-Allwinner A733 has this one power domain controller, PCK600, which
-shares the same BSP drivers according to the package provided by
-Radxa[1]. Unlike A523, A733 does not require the resets, and it also has
-different delay values. Apart from these, driver wise, everything else
-is the same. 
-
-Add support for A733 power domain controller by making resets optional
-on sun55i-pck600 driver, adding A733 sunxi_pck600_desc and dt-bindings 
-definitions.
-Tested on Radxa Cubie A7Z.
-
-[1] https://github.com/radxa/allwinner-bsp
-
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Yuanshen Cao <alex.caoys@gmail.com>
 ---
-Changes in v2:
-- Fit the pd_names into two lines
-- Link to v1: https://lore.kernel.org/r/20260304-b4-pck600-a733-v1-0-2f54efdb8cc2@gmail.com
+ .../bindings/power/allwinner,sun20i-d1-ppu.yaml        | 17 ++++++++++++++++-
+ .../dt-bindings/power/allwinner,sun60i-a733-pck-600.h  | 18 ++++++++++++++++++
+ 2 files changed, 34 insertions(+), 1 deletion(-)
 
----
-Yuanshen Cao (2):
-      dt-bindings: power: Add Support for Allwinner A733 PCK600 Power Domain Controller
-      pmdomain: sunxi: Add support for A733 to Allwinner PCK600 driver
+diff --git a/Documentation/devicetree/bindings/power/allwinner,sun20i-d1-ppu.yaml b/Documentation/devicetree/bindings/power/allwinner,sun20i-d1-ppu.yaml
+index a28e75a9cb6a..b97361ce2a00 100644
+--- a/Documentation/devicetree/bindings/power/allwinner,sun20i-d1-ppu.yaml
++++ b/Documentation/devicetree/bindings/power/allwinner,sun20i-d1-ppu.yaml
+@@ -20,6 +20,7 @@ properties:
+       - allwinner,sun20i-d1-ppu
+       - allwinner,sun55i-a523-pck-600
+       - allwinner,sun55i-a523-ppu
++      - allwinner,sun60i-a733-pck-600
+ 
+   reg:
+     maxItems: 1
+@@ -38,9 +39,23 @@ required:
+   - compatible
+   - reg
+   - clocks
+-  - resets
+   - '#power-domain-cells'
+ 
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - allwinner,sun8i-v853-ppu
++              - allwinner,sun20i-d1-ppu
++              - allwinner,sun55i-a523-pck-600
++              - allwinner,sun55i-a523-ppu
++
++    then:
++      required:
++        - resets
++
+ additionalProperties: false
+ 
+ examples:
+diff --git a/include/dt-bindings/power/allwinner,sun60i-a733-pck-600.h b/include/dt-bindings/power/allwinner,sun60i-a733-pck-600.h
+new file mode 100644
+index 000000000000..cf476a005b55
+--- /dev/null
++++ b/include/dt-bindings/power/allwinner,sun60i-a733-pck-600.h
+@@ -0,0 +1,18 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++
++#ifndef _DT_BINDINGS_POWER_SUN60I_A733_PCK600_H_
++#define _DT_BINDINGS_POWER_SUN60I_A733_PCK600_H_
++
++#define PD_VI			0
++#define PD_DE_SYS		1
++#define PD_VE_DEC		2
++#define PD_VE_ENC		3
++#define PD_NPU			4
++#define PD_GPU_TOP		5
++#define PD_GPU_CORE		6
++#define PD_PCIE			7
++#define PD_USB2			8
++#define PD_VO			9
++#define PD_VO1			10
++
++#endif /* _DT_BINDINGS_POWER_SUN60I_A733_PCK600_H_ */
 
- .../bindings/power/allwinner,sun20i-d1-ppu.yaml    | 17 ++++++++++-
- drivers/pmdomain/sunxi/sun55i-pck600.c             | 35 +++++++++++++++++++---
- .../power/allwinner,sun60i-a733-pck-600.h          | 18 +++++++++++
- 3 files changed, 65 insertions(+), 5 deletions(-)
----
-base-commit: 0031c06807cfa8aa51a759ff8aa09e1aa48149af
-change-id: 20260304-b4-pck600-a733-1790e0e48d49
-
-Best regards,
 -- 
-Yuanshen Cao <alex.caoys@gmail.com>
+2.53.0
 
 
