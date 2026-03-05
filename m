@@ -4,69 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17DABEEF32A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 08:53:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5C82EEF32F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 08:56:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hIcVy7n+YYDL3znnApNGWRQxm2qhJa4Pgw6otKMOHi4=; b=xO5T100d+k02jIobie2L4x61qI
-	9XLd40vTaHLBe8dU51IgjQuQY89x2oIMaABNyVbPxANX/VDGxu/w2ZFxW2j+Y2sbBzKL8SImN/Abk
-	+WKvSDraTgtUkUWnuQvvYFnQySHD2Y6OMgDNTJrdVFL99ghSWHzWSUjm0S1G8KUR3JweMfLPpZF9L
-	+9kPobWNlnhWC/spTFeMa8sA2MoOzH2SCWM9mRPHVCw2fYLbUzK7eervOuKP4Mvf8kZR3/TeiJVtc
-	P1+6fm1x5nl+5JbzIxhYhBgIvy+ZS31obkSfQH1xWBetyqRgzI0pfdtl8Nu9PLTB7IOhqKVA2gEso
-	gVjlPchg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V3eDqJ6jpq/KisFt7ksH/4aFqk3PdilfLAwISDAZsjU=; b=MY1EowcTS54uJk8Ghk4W487xh0
+	RNyKuyoto9W2H9Pj1CKNt7p6rm9LMJUmIR8VAcAJ5cW2nsJebaok3J4c7crP7394twj2qnQMFsffZ
+	YIkXktqpTcx2XuEdDGN5/ggM33L+lNidq5Xb8eg2+ZmGsQersmxDpfIuqhro00zfettlBXfLE4V7K
+	QcGFHeEi6OCz3t1+C8x7rXMgT/n4vOf4t7MM48epJxyA1w0GCoHvJRrbfbCFKoZ4Kh/nlAsi4yKzs
+	j6iCvf7UuTPebymi59++EuOp6lB98A2HVyniwGr8x90+RJ89n8PBrHfjbz/ivVUGhL9OJ3JckoaLy
+	QowtJ6RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy4Su-00000001Fr6-1azQ;
-	Thu, 05 Mar 2026 08:53:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vy4VW-00000001GDa-2QES;
+	Thu, 05 Mar 2026 08:56:34 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy4Sr-00000001FqJ-34rl;
-	Thu, 05 Mar 2026 08:53:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C061440A63;
-	Thu,  5 Mar 2026 08:53:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A67DC116C6;
-	Thu,  5 Mar 2026 08:53:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772700828;
-	bh=g72iVl9U5HM9n+fiEwdIJh7nyYcCS/n2Mf5HPw+45ck=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Haft0vZlu5WKCYI8SG96a55+tzNaVOQgUPwajW9y9Xxd9bD/uc5Y7QwIrABkY8vJ+
-	 WKbmVrjQJ0Hlf/TQd04hYghNTawePDk+RJ61+GsMeJBtN9Wlt3KzKfK4NhguZc3o9+
-	 CPhG6EatlfrSTlJdRarp2cfrok8Mo334XQhQBgyhLfdW2VFYiE4x5BgKJqDJHV9DF1
-	 8Cr9Ys/l3+tay19A54Dmd9U+83x7f/Ln8Grqtt3QQRLd2HhdgOouC490XFEZpJ5dvS
-	 1vFJULwUsZI9Od9Rj+6iS1Nih8MTyz6AaR3aI57vfzeYiEm62Q2iHn2eZIUQgrneOm
-	 oqTxnYunR8x7A==
-Date: Thu, 5 Mar 2026 09:53:45 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Stefan Wahren <wahrenst@gmx.net>, Melissa Wen <mwen@igalia.com>, 
-	Iago Toral Quiroga <itoral@igalia.com>, Chema Casanova <jmcasanova@igalia.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
-Subject: Re: [PATCH v6 1/6] clk: bcm: rpi: Manage clock rate in
- prepare/unprepare callbacks
-Message-ID: <20260305-unyielding-sponge-of-efficiency-07218c@houat>
-References: <20260218-v3d-power-management-v6-0-40683fd39865@igalia.com>
- <20260218-v3d-power-management-v6-1-40683fd39865@igalia.com>
- <20260224-curvy-shiny-dodo-e50cef@houat>
- <481489f1-850f-44ae-8586-b69c1d2faf8e@igalia.com>
+	id 1vy4VT-00000001GD9-3tRK
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Mar 2026 08:56:33 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6251BVeE2665033
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 5 Mar 2026 08:56:31 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	V3eDqJ6jpq/KisFt7ksH/4aFqk3PdilfLAwISDAZsjU=; b=jLlZPU/X1OCwF0wF
+	1UcdeX6avnQUDkUN05L8dAbQAN9kQJSjq1JuhbrHdM+l0bcNeZdPLU8AeldOtikO
+	ZVO/yTrlt5W9h0Rhr0Ny8zDx8jqgypT4tpQcyCWAGhLTewI+FGp36qDakLgCIFNU
+	crO9KULtNdiuY7AZUmPC2gP4iHSR3OMBCC3I8ZFsrcccbimQiZOOAdq0czBVP85e
+	0OIkIVYunJZcU3D2vRJ3hh/P6IiYn++rOdPecUFwau2+hGYGmKNgti0f1qqf1uiJ
+	Ub14ovt9Eag1EA9ugWUu2vNHof1rl9P147S+TtZn9m0rEiYP6MlRne/HpCcAWgpJ
+	9gQimg==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cpuhb217v-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 08:56:31 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2ae44db60c2so45614505ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 00:56:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1772700990; x=1773305790; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=V3eDqJ6jpq/KisFt7ksH/4aFqk3PdilfLAwISDAZsjU=;
+        b=RhPhPG8GeqKrTgAFLzTX9hzqrh2TtFMviEaBa0UyS0sQFRyoZhpBBon2CUS7Vwq+vQ
+         ld5dQn8LjGkXNmqGrIXnqrF4T0dYt9Jc1H72oPfo1dOB10DOPWPB2bseaegLnovtCSx1
+         yewMRfg4pzTInEJcm9/1cqG80P+DdXg67HGAlNFYlthunka36h4pJ6iuoD8DxLE4Vh/z
+         F0DnoUNaD+Xo3iWWWtVNC19PYfT0boRDb/rz4ZYmJT8Wce9FKwJviOpPBrzSO9b8WZrU
+         s5Jut0fi706rfXszCDUGIMKnNXaGUteHtJ+2Msn2A+GFyigx0aMr4AHoRBYr+2pFx6VS
+         CWZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772700990; x=1773305790;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=V3eDqJ6jpq/KisFt7ksH/4aFqk3PdilfLAwISDAZsjU=;
+        b=jnMksbwhhLSHJVjN6AdAUYGPIqdpVvSK+1dQmAi5nCjTMqLUQIaby8sZwAFgPbYHj5
+         Le6fY7qPq0hWiYzlDWF3PuQd78QT2lpfeR2diC068FhyY+nQNvXskMMIC69Xgm4EKHJY
+         JmWxpZfSrhtGaCvFHqImK57eNMgx+bDyw71pYRVWv0V+kSp7A0EeohAdBfn8SpIR69qt
+         oSPMnmdnbrECu7S7nEWPldmPZv41mIneF9UhzPpgD8hPbrCwTOLiEpPp7JQ5juyA7cK/
+         O01FRuA0/D06Imj1ndJKPamkdZ7hvbUGLdBr1poJ6fJG8Sh6JIpoWcBHWhtmBUaF7FqU
+         KLUw==
+X-Forwarded-Encrypted: i=1; AJvYcCWlvnibO0K+zn/9+zpC5twIwpjN/gSg7UtidJNwonBEtXWqoiWZjFUKdMsA4V1NYTz4dksjrgC1h30cirLKgh2F@lists.infradead.org
+X-Gm-Message-State: AOJu0YzrLBZdIQc1p6XuWoUQf1qhJ1dB8cDc6m2e9uCQQGHQpQ9PsZRJ
+	PyhNdXugp5yVEPdXVyr7z8bse010Q6nZzGrdA2aJ6jl+pphbhIfG00LMCOePmK0k4Jo+vQoFfmJ
+	wjicRmlgIq4ud8QJ5QIADvhYBJrLHsCF5Sf74CABBdrAmhVK0ikRs31JQ90M3c/C6zdBsQm5ivW
+	ftGepGwt5Xcw==
+X-Gm-Gg: ATEYQzxHidvH/EpbTPwNif6mmg/5AmyqeF48Z95qinXpIxuusCbghGYPlVOx0SbXJX8
+	XcvzKhc2ISzBLhiwr4E6etWbLTHETqVNzaRfLXdVrHFtvtl6mIU201PyhyhJWjjwjmVsDbfQj8d
+	CYdzqEyW9CL9k/QxIxoT3EnYUPrIoK4vsndaIfJsoF/DyPdbYOjeA5o8jICB5TG4rwEEkL8Aw5R
+	3JXWRRPWx2wWWSLdVNCQVywWPyF7y4+QhQCteTgEqUadoQW3mb9F+YczJHuBh+oYJvZ6LcItWcT
+	tdGVe+uJWEPuD08/uJNLb83KdG29966HfGMZd92GSnU845xNxP2YuIju8tn1h5lyPvjpyJjnEdU
+	Ydy86cP1xevEGsgMmtLrUB4zUL6xTJmFMuy+Vqiy3F0fnPfwEZ/8m5A==
+X-Received: by 2002:a17:903:388e:b0:2ad:ba80:df62 with SMTP id d9443c01a7336-2ae6aae8d8amr47956855ad.37.1772700990107;
+        Thu, 05 Mar 2026 00:56:30 -0800 (PST)
+X-Received: by 2002:a17:903:388e:b0:2ad:ba80:df62 with SMTP id d9443c01a7336-2ae6aae8d8amr47956585ad.37.1772700989632;
+        Thu, 05 Mar 2026 00:56:29 -0800 (PST)
+Received: from [10.218.35.45] ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2adfb6bb5b2sm224434525ad.69.2026.03.05.00.56.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 05 Mar 2026 00:56:29 -0800 (PST)
+Message-ID: <313d2262-56e4-49b0-8455-2b46d0966976@oss.qualcomm.com>
+Date: Thu, 5 Mar 2026 14:26:22 +0530
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="rsl6glzzmmnhyjuq"
-Content-Disposition: inline
-In-Reply-To: <481489f1-850f-44ae-8586-b69c1d2faf8e@igalia.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/5] PCI: qcom: Power down PHY via PARF_PHY_CTRL before
+ disabling rails/clocks
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Jingoo Han <jingoohan1@gmail.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+        Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+        Will Deacon <will@kernel.org>, linux-pci@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, jonathanh@nvidia.com,
+        bjorn.andersson@oss.qualcomm.com
+References: <20260217-d3cold-v2-0-89b322864043@oss.qualcomm.com>
+ <20260217-d3cold-v2-4-89b322864043@oss.qualcomm.com>
+ <to6p7yf2oo5qh37hsye4zpputrc7p4bwgqvjc2plieuyapjdhp@7xshxghi4tzd>
+Content-Language: en-US
+From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+In-Reply-To: <to6p7yf2oo5qh37hsye4zpputrc7p4bwgqvjc2plieuyapjdhp@7xshxghi4tzd>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzA1MDA3MSBTYWx0ZWRfX744NH/LWOOfj
+ 0Iz5c3N0oE8ngHGbE9+zMFWm+fPPprjzd5ugYCvNYpQcgotmvOG+ujkffWsAkyqeKiSmd21YUGT
+ Mz0p2/sVxmhQ8bT8KUanpzReDRNwf4nDwds0UMF6VTVkUjbzs+0X2bL1yNyMy/Ifj2lFbnjQhlI
+ r/CVnp23s4swqzYn4jbPMB/a9ic0O+buvIV0m61HQsnK17A+TnMGoHgt6aupRrlYo4OaNqrqQFK
+ E/9WAyZxhrNRy75CAipIWJ3EcVKZrp4x/Ddan3tFIUKn2HvweycqUCJE+tUNj7kufL0AhI5EzPV
+ CYryih3uSYk8YeFvw5SNZsCSGaQfY1HVSEDSVvgeOz6Fxjf49jqIHsIMBix+X3fnBDCX0mI1/ig
+ ZAQCqxu9zZ+o4i09T4hd/I5CzpU67DfsjwHYl3TXmi+IuiAGRdUY5VVi9YKH8DYMHYJs/cLVN2P
+ /5w1OKlXFwsthhKmQBA==
+X-Proofpoint-GUID: WvRaO4MSXOb7MegYSXRvFXFhKLl_rkpV
+X-Authority-Analysis: v=2.4 cv=SqydKfO0 c=1 sm=1 tr=0 ts=69a9453f cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=EUspDBNiAAAA:8 a=kJBpcOZ6olZWUerAqwAA:9 a=QEXdDO2ut3YA:10
+ a=uG9DUKGECoFWVXl0Dc02:22
+X-Proofpoint-ORIG-GUID: WvRaO4MSXOb7MegYSXRvFXFhKLl_rkpV
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-05_02,2026-03-04_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 lowpriorityscore=0 bulkscore=0 spamscore=0 suspectscore=0
+ impostorscore=0 adultscore=0 clxscore=1015 phishscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2603050071
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_005349_817631_92B45794 
-X-CRM114-Status: GOOD (  42.19  )
+X-CRM114-CacheID: sfid-20260305_005631_973329_AE0E26B4 
+X-CRM114-Status: GOOD (  22.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,172 +155,126 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---rsl6glzzmmnhyjuq
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v6 1/6] clk: bcm: rpi: Manage clock rate in
- prepare/unprepare callbacks
-MIME-Version: 1.0
 
-On Wed, Feb 25, 2026 at 10:57:11AM -0300, Ma=EDra Canal wrote:
-> Hi Maxime,
->=20
-> On 24/02/26 11:11, Maxime Ripard wrote:
-> > Hi Maira,
-> >=20
->=20
-> [...]
->=20
-> > > @@ -289,16 +290,22 @@ static int raspberrypi_fw_dumb_determine_rate(s=
-truct clk_hw *hw,
-> > >   static int raspberrypi_fw_prepare(struct clk_hw *hw)
-> > >   {
-> > >   	const struct raspberrypi_clk_data *data =3D clk_hw_to_data(hw);
-> > > +	struct raspberrypi_clk_variant *variant =3D data->variant;
-> > >   	struct raspberrypi_clk *rpi =3D data->rpi;
-> > >   	u32 state =3D RPI_FIRMWARE_STATE_ENABLE_BIT;
-> > >   	int ret;
-> > >   	ret =3D raspberrypi_clock_property(rpi->firmware, data,
-> > >   					 RPI_FIRMWARE_SET_CLOCK_STATE, &state);
-> > > -	if (ret)
-> > > +	if (ret) {
-> > >   		dev_err_ratelimited(rpi->dev,
-> > >   				    "Failed to set clock %s state to on: %d\n",
-> > >   				    clk_hw_get_name(hw), ret);
-> > > +		return ret;
-> > > +	}
-> > > +
-> > > +	if (variant->maximize)
-> > > +		ret =3D raspberrypi_fw_set_rate(hw, variant->max_rate, 0);
-> >=20
-> >=20
-> > It's not clear to me why you would want to force it to the max there,
-> > and especially the max of the clock. It would make more sense to me to
-> > set it to whatever maximum rate clk_hw_get_rate_range would return
-> > (which should be the minimum of variant->max_rate + all clk->max_rate),
-> > but even then it would erase every call to clk_set_rate before calling
-> > clk_prepare().
-> >=20
-> > I'd understand lowering the clock rate in unprepare to avoid wasting too
-> > much power, but why do we need to raise it here?
->=20
-> This only applies to clocks with variant->maximize =3D=3D true, which is
-> exclusively the V3D clock. The V3D driver doesn't do fine-grained rate
-> control, it always wants maximum performance. In the case of V3D, there
-> are no intermediate clk_set_rate() calls to preserve.
->=20
-> >=20
-> > >   	return ret;
-> > >   }
-> > > @@ -306,10 +313,19 @@ static int raspberrypi_fw_prepare(struct clk_hw=
- *hw)
-> > >   static void raspberrypi_fw_unprepare(struct clk_hw *hw)
-> > >   {
-> > >   	const struct raspberrypi_clk_data *data =3D clk_hw_to_data(hw);
-> > > +	struct raspberrypi_clk_variant *variant =3D data->variant;
-> > >   	struct raspberrypi_clk *rpi =3D data->rpi;
-> > >   	u32 state =3D 0;
-> > >   	int ret;
-> > > +	/*
-> > > +	 * On current firmware versions, RPI_FIRMWARE_SET_CLOCK_STATE doesn=
-'t
-> > > +	 * actually power off the clock. To achieve meaningful power consum=
-ption
-> > > +	 * reduction, the driver needs to set the clock rate to minimum bef=
-ore
-> > > +	 * disabling it.
-> > > +	 */
-> > > +	raspberrypi_fw_set_rate(hw, variant->min_rate, 0);
-> >=20
-> > I'm not sure setting it to variant->min_rate would work directly either,
-> > since it would break consumers expectations. Also, can we guard it with
->=20
-> The clock is being unprepared, which means that any consumer that wants
-> to use it again must call clk_prepare() first, at which point the rate
-> gets restored (for maximize clocks) or re-established by the consumer
-> via clk_set_rate(). Considering that no consumer should be relying on
-> the rate of an unprepared clock, I understand that there are no
-> expectations to break here.
+On 3/5/2026 1:19 PM, Manivannan Sadhasivam wrote:
+> On Tue, Feb 17, 2026 at 04:49:09PM +0530, Krishna Chaitanya Chundru wrote:
+>> Some Qcom PCIe controller variants bring the PHY out of test power-down
+>> (PHY_TEST_PWR_DOWN) during init. When the link is later transitioned
+>> towards D3cold and the driver disables PCIe clocks and/or regulators
+>> without explicitly re-asserting PHY_TEST_PWR_DOWN, the PHY can remain
+>> partially powered, leading to avoidable power leakage.
+>>
+>> Update the init-path comments to reflect that PARF_PHY_CTRL is used to
+>> power the PHY on. Also, for controller revisions that enable PHY power
+>> in init (2.3.2, 2.3.3, 2.7.0 and 2.9.0), explicitly power the PHY down
+>> via PARF_PHY_CTRL in the deinit path before disabling clocks/regulators.
+>>
+>> This ensures the PHY is put into a defined low-power state prior to
+>> removing its supplies, preventing leakage when entering D3cold.
+>>
+>> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+>> ---
+>>   drivers/pci/controller/dwc/pcie-qcom.c | 30 +++++++++++++++++++++++++++---
+>>   1 file changed, 27 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
+>> index 2c4dc7134e006d3530a809f1bcc1a6488d4632ad..b02c19bbdf2ea5db252c2a0281a569bb3a0cc497 100644
+>> --- a/drivers/pci/controller/dwc/pcie-qcom.c
+>> +++ b/drivers/pci/controller/dwc/pcie-qcom.c
+>> @@ -513,7 +513,7 @@ static int qcom_pcie_post_init_2_1_0(struct qcom_pcie *pcie)
+>>   	u32 val;
+>>   	int ret;
+>>   
+>> -	/* enable PCIe clocks and resets */
+>> +	/* PHY power ON */
+> This comment is confusing since we already have phy_power_on() API. What does
+> really happen in the 'test power down' case?
+QCOM PCIe controller wrapper has way to force the entire PHY into lowest 
+power
+state by turning everything off, without this bit being cleared the phy 
+will not be
+powered on even after phy_power_on(), we can think this as a kind of switch
+from the controller side to power on phy.
 
-For both of those, I still feel like it's a pretty strong deviation from
-the general expected behaviour of the CCF API. From what you're saying,
-we shouldn't notice it too much, but at the very least we should
-document it explicitly, both what the deviation is, and why we think
-it's ok.
+- Krishna Chaitanya.
+> - Mani
+>
+>>   	val = readl(pcie->parf + PARF_PHY_CTRL);
+>>   	val &= ~PHY_TEST_PWR_DOWN;
+>>   	writel(val, pcie->parf + PARF_PHY_CTRL);
+>> @@ -680,6 +680,12 @@ static int qcom_pcie_get_resources_2_3_2(struct qcom_pcie *pcie)
+>>   static void qcom_pcie_deinit_2_3_2(struct qcom_pcie *pcie)
+>>   {
+>>   	struct qcom_pcie_resources_2_3_2 *res = &pcie->res.v2_3_2;
+>> +	u32 val;
+>> +
+>> +	/* PHY Power down */
+>> +	val = readl(pcie->parf + PARF_PHY_CTRL);
+>> +	val |= PHY_TEST_PWR_DOWN;
+>> +	writel(val, pcie->parf + PARF_PHY_CTRL);
+>>   
+>>   	clk_bulk_disable_unprepare(res->num_clks, res->clks);
+>>   	regulator_bulk_disable(ARRAY_SIZE(res->supplies), res->supplies);
+>> @@ -712,7 +718,7 @@ static int qcom_pcie_post_init_2_3_2(struct qcom_pcie *pcie)
+>>   {
+>>   	u32 val;
+>>   
+>> -	/* enable PCIe clocks and resets */
+>> +	/* PHY Power ON */
+>>   	val = readl(pcie->parf + PARF_PHY_CTRL);
+>>   	val &= ~PHY_TEST_PWR_DOWN;
+>>   	writel(val, pcie->parf + PARF_PHY_CTRL);
+>> @@ -844,6 +850,12 @@ static int qcom_pcie_get_resources_2_3_3(struct qcom_pcie *pcie)
+>>   static void qcom_pcie_deinit_2_3_3(struct qcom_pcie *pcie)
+>>   {
+>>   	struct qcom_pcie_resources_2_3_3 *res = &pcie->res.v2_3_3;
+>> +	u32 val;
+>> +
+>> +	/* PHY Power down */
+>> +	val = readl(pcie->parf + PARF_PHY_CTRL);
+>> +	val |= PHY_TEST_PWR_DOWN;
+>> +	writel(val, pcie->parf + PARF_PHY_CTRL);
+>>   
+>>   	clk_bulk_disable_unprepare(res->num_clks, res->clks);
+>>   }
+>> @@ -994,7 +1006,7 @@ static int qcom_pcie_init_2_7_0(struct qcom_pcie *pcie)
+>>   	/* configure PCIe to RC mode */
+>>   	writel(DEVICE_TYPE_RC, pcie->parf + PARF_DEVICE_TYPE);
+>>   
+>> -	/* enable PCIe clocks and resets */
+>> +	/* PHY power ON */
+>>   	val = readl(pcie->parf + PARF_PHY_CTRL);
+>>   	val &= ~PHY_TEST_PWR_DOWN;
+>>   	writel(val, pcie->parf + PARF_PHY_CTRL);
+>> @@ -1065,6 +1077,12 @@ static void qcom_pcie_host_post_init_2_7_0(struct qcom_pcie *pcie)
+>>   static void qcom_pcie_deinit_2_7_0(struct qcom_pcie *pcie)
+>>   {
+>>   	struct qcom_pcie_resources_2_7_0 *res = &pcie->res.v2_7_0;
+>> +	u32 val;
+>> +
+>> +	/* PHY Power down */
+>> +	val = readl(pcie->parf + PARF_PHY_CTRL);
+>> +	val |= PHY_TEST_PWR_DOWN;
+>> +	writel(val, pcie->parf + PARF_PHY_CTRL);
+>>   
+>>   	clk_bulk_disable_unprepare(res->num_clks, res->clks);
+>>   
+>> @@ -1169,6 +1187,12 @@ static int qcom_pcie_get_resources_2_9_0(struct qcom_pcie *pcie)
+>>   static void qcom_pcie_deinit_2_9_0(struct qcom_pcie *pcie)
+>>   {
+>>   	struct qcom_pcie_resources_2_9_0 *res = &pcie->res.v2_9_0;
+>> +	u32 val;
+>> +
+>> +	/* PHY Power down */
+>> +	val = readl(pcie->parf + PARF_PHY_CTRL);
+>> +	val |= PHY_TEST_PWR_DOWN;
+>> +	writel(val, pcie->parf + PARF_PHY_CTRL);
+>>   
+>>   	clk_bulk_disable_unprepare(res->num_clks, res->clks);
+>>   }
+>>
+>> -- 
+>> 2.34.1
+>>
 
-> > a version check if we know that there's some good and bad firmwares?
->=20
-> So far, all firmware versions have this issue. For future firmware
-> releases, it might change, but so far, all firmware versions have this
-> issue.
-
-ack :)
-
-> >=20
-> > >   	ret =3D raspberrypi_clock_property(rpi->firmware, data,
-> > >   					 RPI_FIRMWARE_SET_CLOCK_STATE, &state);
-> > >   	if (ret)
-> > > @@ -334,7 +350,7 @@ static struct clk_hw *raspberrypi_clk_register(st=
-ruct raspberrypi_clk *rpi,
-> > >   {
-> > >   	struct raspberrypi_clk_data *data;
-> > >   	struct clk_init_data init =3D {};
-> > > -	u32 min_rate, max_rate;
-> > > +	unsigned long rate;
-> > >   	int ret;
-> > >   	data =3D devm_kzalloc(rpi->dev, sizeof(*data), GFP_KERNEL);
-> > > @@ -354,18 +370,20 @@ static struct clk_hw *raspberrypi_clk_register(=
-struct raspberrypi_clk *rpi,
-> > >   	data->hw.init =3D &init;
-> > > -	ret =3D raspberrypi_clock_property(rpi->firmware, data,
-> > > -					 RPI_FIRMWARE_GET_MIN_CLOCK_RATE,
-> > > -					 &min_rate);
-> > > -	if (ret) {
-> > > -		dev_err(rpi->dev, "Failed to get clock %d min freq: %d\n",
-> > > -			id, ret);
-> > > -		return ERR_PTR(ret);
-> > > +	if (!variant->min_rate) {
-> > > +		ret =3D raspberrypi_clock_property(rpi->firmware, data,
-> > > +						 RPI_FIRMWARE_GET_MIN_CLOCK_RATE,
-> > > +						 &variant->min_rate);
-> > > +		if (ret) {
-> > > +			dev_err(rpi->dev, "Failed to get clock %d min freq: %d\n",
-> > > +				id, ret);
-> > > +			return ERR_PTR(ret);
-> > > +		}
-> > >   	}
-> >=20
-> > It feels to me like it would need to be a separate patch. Why do you
-> > need to override the minimum clock rate reported by the firmware?
->=20
-> This change is needed because the prepare/unprepare callbacks need
-> access to the min/max rates. In the current code, these are local
-> variables in raspberrypi_clk_register(). Storing them in the variant
-> struct makes them available to the callbacks. The `if (!variant-
-> >min_rate)` guard only preserves the existing behavior for clocks like
-> M2MC that have a hard-coded minimum rate.
-
-min_rate itself is indeed available only in raspberrypi_clk_register(),
-but its main use is to call clk_hw_set_rate_range to use it as the
-minimum clock rate.
-
-In prepare/unprepare, you should be able to use clk_hw_get_rate_range()
-to retrieve it, or am I missing something?
-
-Maxime
-
---rsl6glzzmmnhyjuq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaalElQAKCRAnX84Zoj2+
-dq4PAYCPY9g7d5egQ6wghudGoDzx9SHRivvClwKyoKk1AodMMK9NTvkbz1M0ygp3
-KeJQSpEBf39z7CUZJB1YDJbR1YN0OePlyJploZSkmc72zTPwl2RyrpMor29K1LfH
-eOPgy8oVMw==
-=GW7L
------END PGP SIGNATURE-----
-
---rsl6glzzmmnhyjuq--
 
