@@ -4,118 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9445F30946
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 12:12:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D90FF30954
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 12:15:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kn4V8y7djy/ZlJA1XZnfXVN4f7EswwKyZ/Q4N76im6c=; b=f73Tpz87Ogg1A/U2JMtHaoRN1u
-	gen00+pIQzzqHGg8SJ5EZGl3gbjFpgXHvB+sZpS6dIH+ez5V1oY9MK80ajSKBLnlG03pLG8Nf91PY
-	h+7l7w8o9QRIVf2NBv6x4ni8o3mrByCVERLV+3OVT/VllyT6TKNxveWEYciF0cs8IVfWu+cbuLRnN
-	ZXv5zaEM0SA33eH13Q5AZpwZeEeIiN0HmSudM/RlKbFCNLVsg0OzpeLq2t4VfX73B00UGDW2DXNV2
-	Ij1GmUgBsvym29qmdcDDqiwH5+my8Vb92JlCq6Lh3uDgrQZ2s/+cjwDU7ULuo3NCflHpR3iFY9jep
-	STD8iPyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yS764krKV6WfB8kOxjvP29bXooB1nm1bNBDNiujlO4g=; b=sz04PN2XXyQMqJ8wkmS4nmKb5x
+	AK/i2ByLcH5cy4WPT/dtnCDHOcJ2stOEYnXBaqjOZ/TpnOewHiIXq6kRhliatyeFZ3coY0YiyEmdP
+	zEoeVnWOi9C/cqJCgDv0xdkdhUGlFVU9K8VRfI6CiA6Q/W2PrL2IZJVab27mYGdVEm267Lufy7Tx+
+	fiwZgRUcVMYsGihL30o1RU8R/ZJ5S0SiaYrWFyly9EtGw+IKBucQIKKxshUKFjVJxV3fwhpz0KBw6
+	d62z/tN+JZCdnDbPKaVbd/ZMTolpRpN2KsyqQPh25m/PHXEqWpoK+hWHM7y3fcnixzU/PW/ByHbI0
+	UyByBEtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy7Yw-00000001jre-2iJ0;
-	Thu, 05 Mar 2026 12:12:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vy7cB-00000001k5x-0bhU;
+	Thu, 05 Mar 2026 12:15:39 +0000
+Received: from mail-pj1-f53.google.com ([209.85.216.53])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy7Yu-00000001jrF-27bt
+	id 1vy7c7-00000001k4j-2pYz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 12:12:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AF8B04346B;
-	Thu,  5 Mar 2026 12:12:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33495C19423;
-	Thu,  5 Mar 2026 12:12:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772712735;
-	bh=MCIaZ62bOxHolmAR8XP3vkklc/zstKu8tjoJCXqNuGc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=krr8AXPv9EVFxKVuYzzaj+gFjszMnyzzhthPzcNtExMy1IZ+aXOgvOcSip0XqWAU7
-	 jliEKzjN5YcjuD4dq4puMktzuY/FrgtmH7JV16vmP4xaZ+MDPgiMP2dnJcXcUxy4Dt
-	 x+L5lgqvzrLS/ZLns0umdwdOfi9vbHI02gQ/QuBWyhCjETc4G6obGTAab05neEIqVW
-	 8EI9ss1pwBvUxq7qDV10jxaDkksWxYjNOCfY+QWH87Q4xgS/Q3W49vp6J92zoMumTc
-	 ciH0ym82ZeqVEYYAeIsyGkJVZyF9dSpqowma16s1ve4fFIbJvkzZAZDToBO9hYDIw7
-	 uNPoxiz953bIQ==
-Message-ID: <6a481490-28dc-4b62-9782-95a32d0e2857@kernel.org>
-Date: Thu, 5 Mar 2026 13:12:08 +0100
+	Thu, 05 Mar 2026 12:15:37 +0000
+Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-35691a231a7so4896009a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 04:15:35 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772712934; x=1773317734;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=yS764krKV6WfB8kOxjvP29bXooB1nm1bNBDNiujlO4g=;
+        b=QTP8rm7gnrIVdO9WJ3E8D0vKaKLh7n44rcLATVxuHzZ99zu0uzeoHETwlYiLfDp/Z9
+         Qo+q/MC9v4WryZX3exAqyGQhRE6x0DUWbbUIdUQjSYggUvvId4pVVMUQQdEFazsQo/pt
+         DGZpaYzi594zxcti+GNGRgvaFr2Lwa606kIxKk1yLkmkLa+ZiinuGhqWkqWhbbY8yVHL
+         uJYNLurA70TDByVP88lz/SiKFZMrXLvwOP7e/lEnWwbc7xrq7s9UNef7/WWK2kVW+bL+
+         ZKQeJwH6R/k7y54HdDFI2nd53ZuoPqHd12EFsUUD53p14atvU9Vr4XcNSm9MZNRNA2EL
+         Zu3w==
+X-Forwarded-Encrypted: i=1; AJvYcCUlIgCw9Fznq+M4OHhn1vs1vhKxPpknIETPraA9/SzOn+FiQol+IddFz9zV2vTFRQ2Qz8l+A7RMMfizPp4k8WSd@lists.infradead.org
+X-Gm-Message-State: AOJu0YxvkGzajUE1X0xncU1I6ttlmJ4Ykvg0D7ssXnyK3YPb2IMCJBjS
+	HzltUfuxCZIGicp1SVeFuAhFc7WT1TIBvr9EaSBMxCB7lDp5Gfy1X8A3
+X-Gm-Gg: ATEYQzymsO61SKfgNzM6dKrz+prVSemjKm8+YUkFXMf6uwWf2l+CSRtNIypjpz6E3ie
+	o3o+PEDMoujDMB5wwl9rXd6yJS3+ephGnSbwHb08pm2F5yzadJvf1yTTm/zzEwCs/HCe0oWLjhP
+	SAw1YJnAL7hjI6ez3MXDtVjWVsRpZkVOxdL1Gf7EwWeLrUu5omGngUdCta69bdquIGzGA2/20/q
+	mArQ5v39+txG/EvvtwlOkpA4sU6eUr6i2iI1CBFxHWcQ60ejdfmTL555qY2BOk5RnPe8U/g6TnY
+	NvOMzoB4jhecQJyQPGb9TI/IqFfXYsChFY1nb09isK955ppEjrn+yMZVAXfxIZCcETxJqwgjl9W
+	q5r9mlVSOgPPHtKcIc8cwOrcJh7uYSBogm+jYjFYEtvHUoCmwfqrBtg6ZcKE9CcrgDDcOD3RkC2
+	oWivClJazeuGDxb2CFhinF1QvY2GL5S5gdSu8lrnpmQlV4Du4DwL9SOHG/OOox+kBckxr/MWbgI
+	BpTlG11Pu+wsc5zqXlqftkeQy+8BU2PCFTOu4Rjr4hCDDFe3qyrgTMhTfaQew==
+X-Received: by 2002:a17:90a:d44b:b0:34e:630c:616c with SMTP id 98e67ed59e1d1-359a6a92750mr4210979a91.31.1772712934483;
+        Thu, 05 Mar 2026 04:15:34 -0800 (PST)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-359b2c1daa6sm2391359a91.0.2026.03.05.04.15.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Mar 2026 04:15:33 -0800 (PST)
+Date: Thu, 5 Mar 2026 21:15:32 +0900
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: Joe Perches <joe@perches.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-can@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org,
+	netdev@vger.kernel.org, spacemit@lists.linux.dev,
+	UNGLinuxDriver@microchip.com
+Subject: Re: [PATCH phy-next 22/22] MAINTAINERS: add regex for linux-phy
+Message-ID: <20260305121532.GA1649635@rocinante>
+References: <20260304175735.2660419-1-vladimir.oltean@nxp.com>
+ <20260304175735.2660419-23-vladimir.oltean@nxp.com>
+ <a8fee1cd-1e69-4a9e-8533-c0988c480fb9@oss.qualcomm.com>
+ <20260305085148.7cwo3yflp7vcfldf@skbuf>
+ <f3a5aa3df78553ffc0fd0024f5fd36a4e2158c88.camel@perches.com>
+ <20260305114352.2f7btqixg4tu5bzl@skbuf>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/7] dt-bindings: interrupt-controller: fsl,irqsteer:
- add S32N79 support
-To: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
- Ulf Hansson <ulf.hansson@linaro.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Haibo Chen <haibo.chen@nxp.com>, Adrian Hunter <adrian.hunter@intel.com>,
- Shawn Guo <shawnguo@kernel.org>, Lucas Stach <l.stach@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, s32@nxp.com,
- Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>,
- Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>,
- Larisa Grigore <larisa.grigore@nxp.com>
-References: <20260225133858.8026-1-ciprianmarian.costea@oss.nxp.com>
- <20260225133858.8026-2-ciprianmarian.costea@oss.nxp.com>
- <20260226-ingenious-shiny-axolotl-e0e6d2@quoll>
- <e8e258fb-23c0-44d1-bf4d-e2fed92ad90d@oss.nxp.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <e8e258fb-23c0-44d1-bf4d-e2fed92ad90d@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260305114352.2f7btqixg4tu5bzl@skbuf>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_041216_585461_1692681D 
-X-CRM114-Status: GOOD (  16.75  )
+X-CRM114-CacheID: sfid-20260305_041535_712492_5B6AAA91 
+X-CRM114-Status: UNSURE (   6.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,53 +106,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/03/2026 13:02, Ciprian Marian Costea wrote:
-> On 2/26/2026 9:31 AM, Krzysztof Kozlowski wrote:
->> On Wed, Feb 25, 2026 at 02:38:52PM +0100, Ciprian Costea wrote:
->>> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
->>>
->>> Add compatible string for the interrupt steering controller used in NXP
->>> S32N79 SoC.
->>>
->>> The S32N79 SoC differs from the i.MX version by not implementing the
->>> CHANCTRL register, but otherwise maintains the same programming model and
->>> register layout.
->>>
->>> Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
->>> Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
->>> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
->>> ---
->>>   .../devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml   | 1 +
->>>   1 file changed, 1 insertion(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml b/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml
->>> index 5c768c1e159c..caf3e4a1f26f 100644
->>> --- a/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml
->>> +++ b/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml
->>> @@ -22,6 +22,7 @@ properties:
->>>                 - fsl,imx94-irqsteer
->>>                 - fsl,imx95-irqsteer
->>>             - const: fsl,imx-irqsteer
->>> +      - const: nxp,s32n79-irqsteer
->>
->> So that should be part of enum with the first entry.
->>
->> Best regards,
->> Krzysztof
->>
-> 
-> Hello Krzysztof,
-> 
-> Thanks for your review. Regarding this change, I was thinking since 
-> S32N79 irqsteer does not implement the 'CHANCTRL' register, it should 
-> not fallback to 'fsl,imx-irqsteer'. If the driver were to match on the 
-> fallback compatible, it would attempt to write to the non-existent 
-> CHANCTRL register.
-> 
-> Am I wrong?
+Hello,
 
-No clue, I did not say anything about fallbacks.
+> K:	\b(?:__)?(?:devm_)?(?:of_)?phy_(?:create|destroy|provider_(?:un)?register)\b
+> K:	\bphy_(?:create|remove)_lookup\b
+> K:	\bphy_(?:get|set)?_drvdata\b
+> K:	\b(?:devm_)?(?:of_)?phy_(?:optional_)?(?:get|put)(?:_by_index)?\b
+> K:	\bphy_pm_runtime_(?:get|put)(?:_sync)?\b
+> K:	\bphy_(?:init|exit|power_(?:on|off))\b
+> K:	\bphy_|(?:get|set)_(?:mode(?:_ext)?|media|speed|bus_width|max_link_rate)\b
+> K:	\bphy_(?:reset|configure|validate|calibrate)\b
+> K:	\bphy_notify_(?:connect|disconnect|state)\b
+> K:	(?:struct\s+)?phy(?:_ops|_attrs|_lookup|_provider)?\b
+> K:	(?:linux/phy/phy\.h|phy-props\.h|phy-provider\.h)
 
-Best regards,
-Krzysztof
+What about
+
+  F:	drivers/*/*phy*
+
+or something along these lines.
+
+	Krzysztof
 
