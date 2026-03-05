@@ -4,69 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 517F6EFCE43
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 03:37:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E4B1EB7ED2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 03:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ghr3uI93WpwtSyesRNymYMt2VX85GapSXkijoAurTe4=; b=how59RYslK/fPf/YQckrIKY89k
-	FQSwmZUVKTS0YyhO6tXwcefOo7zEQHVGtzXvWg2ik8F2c7JTTzHFYvj0dq7FibwcHrxzyNNVkD5qQ
-	TELCvStBKY3s1EC55P4qznw4EWK0zzDycHNoX7QXPyMnFea87+8+0C7zQmcW2QLy8YQdfIEQA5Rq2
-	nvpuuqB1zYB0uQl8M0eGF2IPN67YSciJSIQuPC9e1GcYs17jvFDlP8U9TcEaL6XjEsUC0uZw69224
-	Fz7hlLJmUyYDDY0ZR1+i2UwHqS0/spJ57zrUGUYIeSTIe2c0tmULX41O9YR4vKut2YXl+hbHRapMy
-	UuOk11lA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8r5jN4v6lMcK9U5h1NBAmfnlG14mxZIduaXYUOJ9Z84=; b=yMioibcGENx8s9ZO5vcWH9hJ9A
+	DJIu5HWigtC6DZOqypM5zbLBD47fGLjr1UX5ZvkZNMQwJbWDE779Znlt+SGMbwoCjsHq3Fu+wKook
+	XxZ0LXoOD4j8RUOCwL03l49z/bp8S4SmlZ/feRLxKT0pDQaR2XeGUNIpenLZgYkpoJ6RVEGAAwFgF
+	/6KQxdJcAzvuWe9rX3msKeQQhYCaJWKXO4WuChOPc5b/KQOsoGGH+Tz+P3NvjxBfr8j/uWNgzul7v
+	SHS0N3ei5cnTWlFLE8Ae4+fnCucTWuTEAW7i8TLcrGz24JtbMhuxEHAvuYmFA9dHdd3QoQv8l5e7R
+	x1k/qwbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxzWd-00000000reC-1fBB;
-	Thu, 05 Mar 2026 03:37:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vxzgP-00000000s3l-0QHv;
+	Thu, 05 Mar 2026 03:47:29 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxzWa-00000000rdE-2OCo;
-	Thu, 05 Mar 2026 03:37:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A624843968;
-	Thu,  5 Mar 2026 03:37:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04E2AC116C6;
-	Thu,  5 Mar 2026 03:37:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772681839;
-	bh=4CChaQiwX+2W8fCaoWno/DcM/mSm9HaXiOce0Px9PGY=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=QKKrvh/vwUqdQ7CABCR64QJ6mNeP341xSZOGi2IP7zyqEpzWlS//ncythdDmn7/Cj
-	 91G4MUWMCsL+7ZK37AWXtVeesAzbduu/9Sf0aPagC3ZJT2z419gN6eJ7k5pEB2f1L1
-	 MHlBXF/sHvpKYla1Or3hRoJXGllqTzwd8vu87vP+hcno16YsjRN41yKIx/2VCvBzBo
-	 buE8tWz7v8RG35IGx5m3jtD86WjoFTJ2R2k24fhRq2yCIPmiHT61IDMfYpMBKcXGLj
-	 Tjb/77k1PD3EJq6p8uq+sDwVI/4KzrJBvj/1sRXxrESet1XMXTjyZ45H1sOmk1OrHs
-	 dAI51fgyU+KYQ==
-Date: Wed, 04 Mar 2026 21:37:17 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1vxzgL-00000000s3C-218L
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Mar 2026 03:47:27 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.198])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4fRFpk6QcKzKHMKh
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Mar 2026 11:47:10 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.252])
+	by mail.maildlp.com (Postfix) with ESMTP id CA16540575
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Mar 2026 11:47:17 +0800 (CST)
+Received: from [10.67.111.192] (unknown [10.67.111.192])
+	by APP3 (Coremail) with SMTP id _Ch0CgDHFRTE_KhpEeyxJQ--.41212S2;
+	Thu, 05 Mar 2026 11:47:17 +0800 (CST)
+Message-ID: <0f18b3b1-9bd1-4ce8-a7df-c1149cf6e14d@huaweicloud.com>
+Date: Thu, 5 Mar 2026 11:47:16 +0800
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Bayi Cheng <bayi.cheng@mediatek.com>, 
- linux-arm-kernel@lists.infradead.org, 
- Project_Global_Chrome_Upstream_Group@mediatek.com, 
- vince-wl.liu@mediatek.com, Mark Brown <broonie@kernel.org>, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- sirius.wang@mediatek.com, linux-spi@vger.kernel.org, 
- Chuanhong Guo <gch981213@gmail.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- linux-mediatek@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
- jh.hsu@mediatek.com
-To: Meiker Gao <ot_meiker.gao@mediatek.com>
-In-Reply-To: <20260305022740.2334033-1-ot_meiker.gao@mediatek.com>
-References: <20260305022740.2334033-1-ot_meiker.gao@mediatek.com>
-Message-Id: <177268183719.3308732.11684734825825109153.robh@kernel.org>
-Subject: Re: [PATCH] spi: dt-bindings: mediatek,spi-mtk-nor: Add clock
- bindings for mt8189
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next v5 3/5] bpf: Add helper to detect indirect jump
+ targets
+Content-Language: en-US
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: bpf <bpf@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
+ <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>,
+ Yonghong Song <yonghong.song@linux.dev>, Puranjay Mohan
+ <puranjay@kernel.org>, Anton Protopopov <a.s.protopopov@gmail.com>
+References: <20260302102726.1126019-1-xukuohai@huaweicloud.com>
+ <20260302102726.1126019-4-xukuohai@huaweicloud.com>
+ <CAADnVQLoWzz8ioVg3MFjn08fBLfNq6HdvqLtqXV0zUb=SR_HGA@mail.gmail.com>
+ <1ea52c33-ae27-45fb-b4ff-0c4637a4312a@huaweicloud.com>
+ <CAADnVQ+HvsZ0zr6AGLBhMOVX1uRKwRqV28ywcvpVkrsDTyaXmw@mail.gmail.com>
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+In-Reply-To: <CAADnVQ+HvsZ0zr6AGLBhMOVX1uRKwRqV28ywcvpVkrsDTyaXmw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _Ch0CgDHFRTE_KhpEeyxJQ--.41212S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7tF17Cw45Xry3Kr48CF4kZwb_yoW8CF1rpa
+	4DXayUAF4Uta1Yvw12gr40yrWagr47Xwn0ya45WrWUAr9FgFn3JF4UKr4Fkas8trW5AF1I
+	qr42vrZxuFy3GFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvjb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I
+	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
+	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
+	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AF
+	wI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
+	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43
+	MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I
+	0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWU
+	JVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUF1
+	v3UUUUU
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_193720_674443_7353CDEB 
-X-CRM114-Status: GOOD (  17.72  )
+X-CRM114-CacheID: sfid-20260304_194725_875689_C79F703E 
+X-CRM114-Status: GOOD (  13.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,74 +95,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 05 Mar 2026 10:27:36 +0800, Meiker Gao wrote:
-> Update mediatek,spi-mtk-nor.yaml to add conditional clock and
-> clock-names bindings for the mt8189-nor platform. The mt8189-nor
-> controller requires five specific clocks and corresponding clock-names
-> ("spi", "sf", "axi_f", "axi_h", "axi_p"). This change enforces these
-> requirements in the device tree binding schema.
+On 3/4/2026 11:37 PM, Alexei Starovoitov wrote:
+> On Wed, Mar 4, 2026 at 4:46 AM Xu Kuohai <xukuohai@huaweicloud.com> wrote:
+>>
+>> On 3/4/2026 1:19 AM, Alexei Starovoitov wrote:
+>>
+>> [...]
+>>
+>>>> -       for (i = 0; i < insn_cnt; i++, insn++) {
+>>>> +       for (i = 0, j = 0; i < insn_cnt; i++, j++, insn++) {
+>>>> +               env->insn_aux_data[subprog_start + j].final_idx = i;
+>>>>                   if (bpf_pseudo_func(insn)) {
+>>>>                           /* ld_imm64 with an address of bpf subprog is not
+>>>>                            * a user controlled constant. Don't randomize it,
+>>>> @@ -1512,6 +1542,8 @@ struct bpf_prog *bpf_jit_blind_constants(struct bpf_verifier_env *env, struct bp
+>>>>                            */
+>>>>                           insn++;
+>>>>                           i++;
+>>>> +                       j++;
+>>>> +                       env->insn_aux_data[subprog_start + j].final_idx = i;
+>>>
+>>> You're adding final_idx because bpf_jit_blind_constants()
+>>> doesn't call adjust_insn_aux_data() ?
+>>>
+>>
+>> Yes, I added final_idx because insn_aux is not updated here.
+>>
+>>> imo that's an ugly workaround. Just call adjust_insn_aux_data().
+>>>
+>>
+>> If we adjust the env->insn_aux_data here, should we also adjust the global
+>> env->prog->insnsi array? I think env->insn_aux_data should remain consistent
+>> with the global env->prog->insnsi array. Since constant blinding only rewrites
+>> the subprog's private instruction array, updating the env->insn_aux_data
+>> causes a mismatch with the global state.
 > 
-> For other platforms, the minimum number of clocks and clock-names
-> remains unchanged. The patch also adds an example for mt8189-nor,
-> illustrating the new clock configuration.
+> yes, and subprog starts, and pokes that bpf_patch_insn_data() do.
 > 
-> This update ensures correct hardware description and validation for
-> mt8189-nor, improving compatibility and reducing configuration errors.
-> 
-> Signed-off-by: Meiker Gao <ot_meiker.gao@mediatek.com>
-> 
-> ---
->  .../bindings/spi/mediatek,spi-mtk-nor.yaml    | 78 ++++++++++++++++---
->  1 file changed, 68 insertions(+), 10 deletions(-)
-> 
+> blinding was implemented long before that, so it was never updated.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+I see. Since env->prog->insnsi is rewritten by blind_constants now, would it
+make sense to move constant blinding to the beginning of jit_subprogs, just
+before the global instruction array is split into subprog copies?
 
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/spi/mediatek,spi-mtk-nor.yaml:20:1: [warning] too many blank lines (2 > 1) (empty-lines)
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/spi/mediatek,spi-mtk-nor.yaml: allOf:1:else:properties:clock-names: {'minItems': 2, 'maxItems': 2, 'items': [{'const': 'spi'}, {'const': 'sf'}, {'const': 'axi'}, {'const': 'axi_s'}]} should not be valid under {'required': ['maxItems']}
-	hint: "maxItems" is not needed with an "items" list
-	from schema $id: http://devicetree.org/meta-schemas/items.yaml
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/spi/mediatek,spi-mtk-nor.yaml: allOf:1:then:properties:clock-names: {'minItems': 5, 'maxItems': 5, 'items': [{'const': 'spi'}, {'const': 'sf'}, {'const': 'axi_f'}, {'const': 'axi_h'}, {'const': 'axi_p'}]} should not be valid under {'required': ['maxItems']}
-	hint: "maxItems" is not needed with an "items" list
-	from schema $id: http://devicetree.org/meta-schemas/items.yaml
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/spi/mediatek,spi-mtk-nor.yaml: allOf:1:then:properties:clock-names: 'oneOf' conditional failed, one must be fixed:
-	False schema does not allow 5
-	[{'const': 'spi'}, {'const': 'sf'}, {'const': 'axi_f'}, {'const': 'axi_h'}, {'const': 'axi_p'}] is too long
-	[{'const': 'spi'}, {'const': 'sf'}, {'const': 'axi_f'}, {'const': 'axi_h'}, {'const': 'axi_p'}] is too short
-	1 was expected
-	5 is greater than the maximum of 2
-	5 is greater than the maximum of 3
-	5 is greater than the maximum of 4
-	hint: "minItems" is only needed if less than the "items" list length
-	from schema $id: http://devicetree.org/meta-schemas/items.yaml
-Documentation/devicetree/bindings/spi/mediatek,spi-mtk-nor.example.dts:69:18: fatal error: dt-bindings/clock/mt8189-clk.h: No such file or directory
-   69 |         #include <dt-bindings/clock/mt8189-clk.h>
-      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[2]: *** [scripts/Makefile.dtbs:140: Documentation/devicetree/bindings/spi/mediatek,spi-mtk-nor.example.dtb] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1597: dt_binding_check] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.kernel.org/project/devicetree/patch/20260305022740.2334033-1-ot_meiker.gao@mediatek.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+This would eliminate the need to invoke constant blinding per subprog from
+the arch-specific JIT, simplifying the overall flow.
 
 
