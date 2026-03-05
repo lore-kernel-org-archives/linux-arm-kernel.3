@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A641F3092A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 10:42:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AF43F30931
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 10:42:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ogTF0nwdsw9SfsXkkXPmG+1dcoUkKCrfCK9EtBt6iXY=; b=26dgzi0NS7sBx1wAbwIzEHbZzt
-	VI5XZDO/Fb63KrTqXBjIPFDqTmgvOygZJ/8LDHkLjXsKpCOn7l8kzbggSutNdWm/7cUAo5fslrkjD
-	vRC+x35YHSfoyuzUMiWrzFVYTp3As9qp+Kx14SmZp54tpmJVuOi2IoLXFDiVEE3tFF/h9SWNZhWAI
-	zNqWm03rafd9hWxfHyhIM6dOS0lF0MbrsAaJnpR+sajY2h+Y6vZ98kYdzoeq/Q5+KGiaqKrPVODPp
-	acZ8ToosDSEL3uBuX40Ei+3DEKQJXF/5OYdadHhiZDkC9nsZLqpr/la2eNFXh2aw3vF/MCW8VrVTF
-	7N7kGIeQ==;
+	bh=ZgLn5gKTC6ltjP22vENPvguQQAUnJs1iU1xrD1qgNa0=; b=R0fTK/+lBCgHjYesmqCTvvkUiX
+	38E1+dhUk2RvyLWAvamXsMzddC5rjlZO509lumix2Ig0H3CpQM0g2t4/9Yyn+DJZ2lszghXrXt/xx
+	7Zl+xaqx8lHt+kket1BSYEA8FRcuXm5WjSD9W2geSdpZO9ELOLMETfxjZdGi6uMjfixrKW45bF28z
+	GLkOtwsmi23McKps0fgqRxOihkNDFB+k9zsv9PbiNrItLtkRSqwuDhFM4xgdjBlgB6XnfuxINdSoX
+	OwC1wEt7zwJAml8J1e67gPLnjmGzQJq8VAT0NDVa/36ons+h64dzK70RHAW7DJkGiMzUZJzJ3h6qL
+	fPePEljw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy6AK-00000001bPp-0fkm;
-	Thu, 05 Mar 2026 10:42:48 +0000
+	id 1vy6AO-00000001bSw-3zZ4;
+	Thu, 05 Mar 2026 10:42:52 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy6AI-00000001bNo-0wKP
+	id 1vy6AM-00000001bQZ-2oYp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 10:42:47 +0000
+	Thu, 05 Mar 2026 10:42:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ogTF0nwdsw9SfsXkkXPmG+1dcoUkKCrfCK9EtBt6iXY=; b=mzd9Vi17Y8fsq1lbF7B6trNGzX
-	XciP0EMRAq+KpqWqEoCSGQ2Efb0n7upecnA6cu5jov3LMwAlOg7JEnqBADsb9eVXVBHxDcdg11t6A
-	PDZ4aCfxNVsoVXEsiucJ8biSaKIWh3sI2EineFZopP5PTr6Q858Z20o1rANsAK8nShLGKo550I8dQ
-	EzHooF4548FFvurv6hc2Rn5VZAj6khnDCe1OLf4NNFf+fYMceVwjxac0tXQW+fgQZ60UquqOmNalG
-	be6aQojUFJ+M+fMAHFd3qj3eEWbv6tqCkR0E0xmDRmMbUcdm4EXtDxNLUwpR42Ov5cSI1wY6OwJWd
-	GxoAg6Yg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:46580 helo=rmk-PC.armlinux.org.uk)
+	bh=ZgLn5gKTC6ltjP22vENPvguQQAUnJs1iU1xrD1qgNa0=; b=kjOZapz9Cy687qC4OkDRb34zzI
+	aDvzNyVJBUL1P2nBVmBo55U8s+wJwYybrPZ0fKLXulCpOcFB87VEouy9exDrhtvmQJCmF8XGWZz9Z
+	OZmFI+DXsQTMsLVYDyj2TcO7eOU83+/4VoyDpBodtQOCc1lhTU0dYOeywPSisj1kowKzv6V4ZZSuX
+	tsE+Uiqv4L+5agHYuS5KLfy4EH6B7XpxjfEYEjAyXs5gX8VsMX9mkhKEUl0GyPrUsehenzS40TPSE
+	G+9p/Ro3ia6PikvJs8gkG5lxNfYNgQVP+VpWqbKJG8P1wJLJ5dFjqAvDYAFOZo7c+7qNvfTqKqUbO
+	om0dWTnA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:58672 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vy6AA-000000007nC-10GC;
-	Thu, 05 Mar 2026 10:42:38 +0000
+	id 1vy6AF-000000007nW-1SLf;
+	Thu, 05 Mar 2026 10:42:43 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vy6A9-0000000Btwp-0lxY;
-	Thu, 05 Mar 2026 10:42:37 +0000
+	id 1vy6AE-0000000Btwv-1LM4;
+	Thu, 05 Mar 2026 10:42:42 +0000
 In-Reply-To: <aald--qJquWGIvmO@shell.armlinux.org.uk>
 References: <aald--qJquWGIvmO@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -65,17 +65,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>,
 	Samuel Holland <samuel@sholland.org>
-Subject: [PATCH net-next v2 3/8] net: stmmac: mdio: simplify MDC clock divisor
- lookup
+Subject: [PATCH net-next v2 4/8] net: stmmac: mdio: convert field prep to use
+ field_prep()
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vy6A9-0000000Btwp-0lxY@rmk-PC.armlinux.org.uk>
-Date: Thu, 05 Mar 2026 10:42:37 +0000
+Message-Id: <E1vy6AE-0000000Btwv-1LM4@rmk-PC.armlinux.org.uk>
+Date: Thu, 05 Mar 2026 10:42:42 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_024246_263136_70C3ED22 
-X-CRM114-Status: GOOD (  13.79  )
+X-CRM114-CacheID: sfid-20260305_024250_871015_5E1FDC29 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,62 +90,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As each lookup now iterates over each table in the same way, simplfy
-the code to select the table, and then walk that table.
+Convert the MDIO field preparation to use field_prep(), which removes
+the need to store separate mask and shifts. Also convert the clk_csr
+value using __ffs() to do the shift as we need to detect overflows
+for this.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../net/ethernet/stmicro/stmmac/stmmac_mdio.c | 29 +++++++------------
- 1 file changed, 11 insertions(+), 18 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/common.h         | 3 ---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c | 3 ---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c    | 3 ---
+ drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c | 3 ---
+ drivers/net/ethernet/stmicro/stmmac/dwmac100_core.c  | 3 ---
+ drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c    | 3 ---
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c  | 6 ------
+ drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c    | 6 +++---
+ 8 files changed, 3 insertions(+), 27 deletions(-)
 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
+index e4ce1167ebab..978f90065681 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/common.h
++++ b/drivers/net/ethernet/stmicro/stmmac/common.h
+@@ -608,11 +608,8 @@ struct mac_link {
+ struct mii_regs {
+ 	unsigned int addr;	/* MII Address */
+ 	unsigned int data;	/* MII Data */
+-	unsigned int addr_shift;	/* MII address shift */
+-	unsigned int reg_shift;		/* MII reg shift */
+ 	unsigned int addr_mask;		/* MII address mask */
+ 	unsigned int reg_mask;		/* MII reg mask */
+-	unsigned int clk_csr_shift;
+ 	unsigned int clk_csr_mask;
+ };
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
+index 9c51c96223ad..6dfccc969d0e 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
+@@ -367,11 +367,8 @@ static int loongson_dwmac_setup(void *apriv, struct mac_device_info *mac)
+ 	mac->link.speed_mask = GMAC_CONTROL_PS | GMAC_CONTROL_FES;
+ 	mac->mii.addr = GMAC_MII_ADDR;
+ 	mac->mii.data = GMAC_MII_DATA;
+-	mac->mii.addr_shift = 11;
+ 	mac->mii.addr_mask = 0x0000F800;
+-	mac->mii.reg_shift = 6;
+ 	mac->mii.reg_mask = 0x000007C0;
+-	mac->mii.clk_csr_shift = 2;
+ 	mac->mii.clk_csr_mask = GENMASK(5, 2);
+ 
+ 	return 0;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+index c01b86fd64da..6b18072112db 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+@@ -1063,11 +1063,8 @@ static int sun8i_dwmac_setup(void *ppriv, struct mac_device_info *mac)
+ 	mac->link.duplex = EMAC_DUPLEX_FULL;
+ 	mac->mii.addr = EMAC_MDIO_CMD;
+ 	mac->mii.data = EMAC_MDIO_DATA;
+-	mac->mii.reg_shift = 4;
+ 	mac->mii.reg_mask = GENMASK(8, 4);
+-	mac->mii.addr_shift = 12;
+ 	mac->mii.addr_mask = GENMASK(16, 12);
+-	mac->mii.clk_csr_shift = 20;
+ 	mac->mii.clk_csr_mask = GENMASK(22, 20);
+ 	mac->unicast_filter_entries = 8;
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
+index af566636fad9..10acca806f4f 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
+@@ -496,11 +496,8 @@ int dwmac1000_setup(struct stmmac_priv *priv)
+ 	mac->link.speed_mask = GMAC_CONTROL_PS | GMAC_CONTROL_FES;
+ 	mac->mii.addr = GMAC_MII_ADDR;
+ 	mac->mii.data = GMAC_MII_DATA;
+-	mac->mii.addr_shift = 11;
+ 	mac->mii.addr_mask = 0x0000F800;
+-	mac->mii.reg_shift = 6;
+ 	mac->mii.reg_mask = 0x000007C0;
+-	mac->mii.clk_csr_shift = 2;
+ 	mac->mii.clk_csr_mask = GENMASK(5, 2);
+ 
+ 	return 0;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac100_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac100_core.c
+index db4fbe64a38a..911753b9889e 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac100_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac100_core.c
+@@ -184,11 +184,8 @@ int dwmac100_setup(struct stmmac_priv *priv)
+ 	mac->link.speed_mask = MAC_CONTROL_PS;
+ 	mac->mii.addr = MAC_MII_ADDR;
+ 	mac->mii.data = MAC_MII_DATA;
+-	mac->mii.addr_shift = 11;
+ 	mac->mii.addr_mask = 0x0000F800;
+-	mac->mii.reg_shift = 6;
+ 	mac->mii.reg_mask = 0x000007C0;
+-	mac->mii.clk_csr_shift = 2;
+ 	mac->mii.clk_csr_mask = GENMASK(5, 2);
+ 
+ 	return 0;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
+index 623868afe93d..0e87590c806b 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
+@@ -1030,11 +1030,8 @@ int dwmac4_setup(struct stmmac_priv *priv)
+ 	mac->link.speed_mask = GMAC_CONFIG_FES | GMAC_CONFIG_PS;
+ 	mac->mii.addr = GMAC_MDIO_ADDR;
+ 	mac->mii.data = GMAC_MDIO_DATA;
+-	mac->mii.addr_shift = 21;
+ 	mac->mii.addr_mask = GENMASK(25, 21);
+-	mac->mii.reg_shift = 16;
+ 	mac->mii.reg_mask = GENMASK(20, 16);
+-	mac->mii.clk_csr_shift = 8;
+ 	mac->mii.clk_csr_mask = GENMASK(11, 8);
+ 	mac->num_vlan = stmmac_get_num_vlan(priv->ioaddr);
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+index 49893b9fb88c..ba98e22f1c12 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+@@ -1551,11 +1551,8 @@ int dwxgmac2_setup(struct stmmac_priv *priv)
+ 
+ 	mac->mii.addr = XGMAC_MDIO_ADDR;
+ 	mac->mii.data = XGMAC_MDIO_DATA;
+-	mac->mii.addr_shift = 16;
+ 	mac->mii.addr_mask = GENMASK(20, 16);
+-	mac->mii.reg_shift = 0;
+ 	mac->mii.reg_mask = GENMASK(15, 0);
+-	mac->mii.clk_csr_shift = 19;
+ 	mac->mii.clk_csr_mask = GENMASK(21, 19);
+ 	mac->num_vlan = stmmac_get_num_vlan(priv->ioaddr);
+ 
+@@ -1594,11 +1591,8 @@ int dwxlgmac2_setup(struct stmmac_priv *priv)
+ 
+ 	mac->mii.addr = XGMAC_MDIO_ADDR;
+ 	mac->mii.data = XGMAC_MDIO_DATA;
+-	mac->mii.addr_shift = 16;
+ 	mac->mii.addr_mask = GENMASK(20, 16);
+-	mac->mii.reg_shift = 0;
+ 	mac->mii.reg_mask = GENMASK(15, 0);
+-	mac->mii.clk_csr_shift = 19;
+ 	mac->mii.clk_csr_mask = GENMASK(21, 19);
+ 
+ 	return 0;
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-index 6292911fb54b..c9f0b8b601d2 100644
+index c9f0b8b601d2..afe98ff5bdcb 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-@@ -535,6 +535,7 @@ static const struct stmmac_clk_rate stmmac_xgmac_csr_to_mdc[] = {
-  */
- static u32 stmmac_clk_csr_set(struct stmmac_priv *priv)
+@@ -234,8 +234,8 @@ static u32 stmmac_mdio_format_addr(struct stmmac_priv *priv,
  {
-+	const struct stmmac_clk_rate *rates;
- 	unsigned long clk_rate;
- 	u32 value = ~0;
- 	int i;
-@@ -548,25 +549,17 @@ static u32 stmmac_clk_csr_set(struct stmmac_priv *priv)
- 	 * the frequency of clk_csr_i. So we do not change the default
- 	 * divider.
- 	 */
--	for (i = 0; stmmac_std_csr_to_mdc[i].rate; i++)
--		if (clk_rate > stmmac_std_csr_to_mdc[i].rate)
--			break;
--	if (stmmac_std_csr_to_mdc[i].cr != (u8)~0)
--		value = stmmac_std_csr_to_mdc[i].cr;
--
--	if (priv->plat->flags & STMMAC_FLAG_HAS_SUN8I) {
--		for (i = 0; stmmac_sun8i_csr_to_mdc[i].rate; i++)
--			if (clk_rate > stmmac_sun8i_csr_to_mdc[i].rate)
--				break;
--		value = stmmac_sun8i_csr_to_mdc[i].cr;
--	}
-+	rates = stmmac_std_csr_to_mdc;
-+	if (priv->plat->flags & STMMAC_FLAG_HAS_SUN8I)
-+		rates = stmmac_sun8i_csr_to_mdc;
-+	if (priv->plat->core_type == DWMAC_CORE_XGMAC)
-+		rates = stmmac_xgmac_csr_to_mdc;
+ 	const struct mii_regs *mii_regs = &priv->hw->mii;
  
--	if (priv->plat->core_type == DWMAC_CORE_XGMAC) {
--		for (i = 0; stmmac_xgmac_csr_to_mdc[i].rate; i++)
--			if (clk_rate > stmmac_xgmac_csr_to_mdc[i].rate)
--				break;
--		value = stmmac_xgmac_csr_to_mdc[i].cr;
--	}
-+	for (i = 0; rates[i].rate; i++)
-+		if (clk_rate > rates[i].rate)
-+			break;
-+	if (rates[i].cr != (u8)~0)
-+		value = rates[i].cr;
- 
- 	return value;
+-	return ((pa << mii_regs->addr_shift) & mii_regs->addr_mask) |
+-	       ((gr << mii_regs->reg_shift) & mii_regs->reg_mask) |
++	return field_prep(mii_regs->addr_mask, pa) |
++	       field_prep(mii_regs->reg_mask, gr) |
+ 	       priv->gmii_address_bus_config |
+ 	       MII_ADDR_GBUSY;
  }
+@@ -577,7 +577,7 @@ static void stmmac_mdio_bus_config(struct stmmac_priv *priv)
+ 	else
+ 		value = stmmac_clk_csr_set(priv);
+ 
+-	value <<= priv->hw->mii.clk_csr_shift;
++	value <<= __ffs(priv->hw->mii.clk_csr_mask);
+ 
+ 	if (value & ~priv->hw->mii.clk_csr_mask)
+ 		dev_warn(priv->device,
 -- 
 2.47.3
 
