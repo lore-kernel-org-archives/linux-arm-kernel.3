@@ -4,44 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93BA6F33A75
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 14:46:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DC92F33A78
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 14:46:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WCLWYQ18/s6Nm4fe1duu2e+pVwieQtkohLKILTlNCGo=; b=widy19fAlVLyyemqnmaeK2MGgu
-	T57EVjUqXe09A00+fcrIVWGsV/JDqLc8J+wpSqG+OziXwmoUTYc3btMzWpBNlHK8KEHfUPjsUs3RI
-	GCJn/gbp+/i2d9TGtOqS2yS49Q3qvj1gAKE3gWBe+3sL1KV8ktRXbu01Yzi5HPsu+DVv0qcvmw4gx
-	Y+qsPUarCz8h6skAxeLmhGs4LaiKnHkpMp1HL1Wx1hjkGAle1Y/vkZ8zxrNwGPmTBSlBf9FwN4OHd
-	s8hbjLNdycg/FCAuZbpAe8uC9HLcgeypEvA4roQ7oz2wpuO5l4inoZMDmobK4KIR8HEe4UK9qSLRw
-	Ma61EyqQ==;
+	bh=Ib3Y1WfXK/VAkE8AT+6ehanWQlaf0h04pTxuz0yWfmU=; b=OzoTQlSOv4ePzB0DZCdbaWi7fx
+	DLFuvSlmIXFhxlIdZw3e9i60jnG8OIF+ZL6k8pIpV6J381G6VBFIFl7UZlKJQbp2+AyaD7Vsa9QDl
+	3nbLM/LEgVcundJOFj7sNRk+SVTAoSDrxXl2d7dr5Q1KEPhV/JrrYO5iLRg+zo9Q4NVmOKHrNV/YB
+	+3KfHTwNX1bWLJY+hN4no/OcN9BGtkqtLLLfsTwJNCTdJVlnw4NnHa+Zt/dcV0lLEdCHHOFbJoB1P
+	BmtmNn7TNVpzaV7Kkx1KxBVpP76gNyngm4hZ6VfHFLZNrYxpRBQSEKESqO6IGrFsGm9yxFlyc6Px3
+	J4dFS9xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy9xw-000000023D5-3hnN;
-	Thu, 05 Mar 2026 14:46:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vy9y4-000000023MO-1Hx4;
+	Thu, 05 Mar 2026 14:46:24 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy9xt-0000000237A-0KHd
+	id 1vy9y3-000000023JI-0cbl
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 05 Mar 2026 14:46:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=Ib3Y1WfXK/VAkE8AT+6ehanWQlaf0h04pTxuz0yWfmU=; b=HjZ9YrGuyB5HamY1vfjn3bDHkO
+	Pp1omwaxCToss0LGOvKJO36rvl08/OxMnAHRg14T4HOSWu/y4sAOTWzryHTDCSaj3DwP0tCOKOhHn
+	ISFxqU+B2kKe8haWvx0t/c4l6VldVShTv2elYC7dmhcDgNKp1JgDGLD+e1RcaZUZcDu+0u8wtr4fp
+	oAP5nz7EIpLvVNSv5SElge0alF8ccz5PLPdiLZnTFmNbD/pMeS8E1etOzdvQP+YNfnV9fKaPa8eH+
+	9vmW8N19fpbzlxAXMKJctmD8lLN7gEKdnr6yqRg5l10ROwnWeB/SkBIeKChXVFTQ1Ncjsnsicr5hq
+	PAYVqtHQ==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vy9xx-00000006yi4-2hlO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 14:46:13 +0000
+	Thu, 05 Mar 2026 14:46:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 50E3361857;
+	by sea.source.kernel.org (Postfix) with ESMTP id 96C4B43A30;
+	Thu,  5 Mar 2026 14:46:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94D13C116C6;
 	Thu,  5 Mar 2026 14:46:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E76FC2BC9E;
-	Thu,  5 Mar 2026 14:46:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772721972;
-	bh=CIGOKJuZgKjFCfL6DC6C0hs/9MofTsV+iNo7k0rsBuI=;
+	s=k20201202; t=1772721975;
+	bh=oZcCfY/nioqPKTU9trBN+esVvAZhnr2RYRCLrfwP754=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=X9TbfUopPoGk3E4Rh/PUqiF8HXSVSirfRUHrJ3lA/MkElzVDm3y4aFJy7YZCxnkCo
-	 Et9yaISXp13cUDM0rL3csspZIajejutExk5MXOox/0MMTW3gelFbxgjNskNiPdILo2
-	 r2b8owgqfQlvyjLudYko9fI/JeWJUECF6G/x88tczZlBv49jZa931+UYvhsOeM3I8/
-	 pn3C/ncEouVl/E50f3/2lCpoCHa5sx33yv6Y94SREDT0uKKO3twjRGgPED+4xyB5CF
-	 FdYVPind0jXCLHaKoONvPltCoVC2KjHnhOXjC8ihQeNazVd2kcxNHssTyi9KDOYiZt
-	 I6npCQHmYi/3A==
+	b=Nupp1a6D9V7Y7uajqJaNSL5oBJxrMqJWYyxJyXxRnRCKd01rf+liXMQJRjgjOb3Q7
+	 0UDlrr43Ob7yq+XRRKwZPAU6Pz1RoF0Rwf6jfCEJHLAsy9BGu/3yVB/f7dQ/sJXosk
+	 OukL7EtKxgLKi1O1eVT5BnyO4z69zYJSJiqj2huXpnzU5U5mMYh7kppGVQu23BKsRy
+	 8LEz0T/gIoomgLrN4TL21A5R+ZakCQVAhEPTRCsQD+3PA4Tz5F6CSYP1ABR6wFXqwe
+	 g9z/Wm93kK4SzRMNs6AXxtUuE/e8CQhtRkU8mPutTGmKzsmAk4r6L7YtjBYYKXE8+C
+	 QHaVviOpkTuUQ==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -57,14 +72,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH v3 35/36] KVM: arm64: Extend pKVM page ownership selftests to cover guest hvcs
-Date: Thu,  5 Mar 2026 14:43:48 +0000
-Message-ID: <20260305144351.17071-36-will@kernel.org>
+Subject: [PATCH v3 36/36] KVM: arm64: Rename PKVM_PAGE_STATE_MASK
+Date: Thu,  5 Mar 2026 14:43:49 +0000
+Message-ID: <20260305144351.17071-37-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260305144351.17071-1-will@kernel.org>
 References: <20260305144351.17071-1-will@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260305_144617_927119_291B41D5 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,61 +97,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that the guest can share and unshare memory with the host using
-hypercalls, extend the pKVM page ownership selftest to exercise these
-new transitions.
+Rename PKVM_PAGE_STATE_MASK to PKVM_PAGE_STATE_VMEMMAP_MASK to make it
+clear that the mask applies to the page state recorded in the entries
+of the 'hyp_vmemmap', rather than page states stored elsewhere (e.g. in
+the ptes).
 
+Suggested-by: Alexandru Elisei <alexandru.elisei@arm.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kvm/hyp/nvhe/mem_protect.c | 30 +++++++++++++++++++++++++++
- 1 file changed, 30 insertions(+)
+ arch/arm64/kvm/hyp/include/nvhe/memory.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index de224e4ffeeb..f8f38c0e6835 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -1812,11 +1812,41 @@ void pkvm_ownership_selftest(void *base)
- 	assert_transition_res(-EPERM,	__pkvm_host_unshare_hyp, pfn);
- 	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/memory.h b/arch/arm64/kvm/hyp/include/nvhe/memory.h
+index 4cedb720c75d..b50712d47f6d 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/memory.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/memory.h
+@@ -37,7 +37,7 @@ enum pkvm_page_state {
+ 	 */
+ 	PKVM_POISON			= BIT(2),
+ };
+-#define PKVM_PAGE_STATE_MASK		(BIT(0) | BIT(1))
++#define PKVM_PAGE_STATE_VMEMMAP_MASK	(BIT(0) | BIT(1))
  
-+	selftest_state.host = PKVM_PAGE_SHARED_BORROWED;
-+	selftest_state.guest[0] = PKVM_PAGE_SHARED_OWNED;
-+	assert_transition_res(0,	__pkvm_guest_share_host, vcpu, gfn);
-+	assert_transition_res(-EPERM,	__pkvm_guest_share_host, vcpu, gfn);
-+	assert_transition_res(-EPERM,	__pkvm_host_donate_guest, pfn, gfn, vcpu);
-+	assert_transition_res(-EPERM,	__pkvm_host_donate_guest, pfn, gfn + 1, vcpu);
-+	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, 1, vcpu, prot);
-+	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn + 1, 1, vcpu, prot);
-+	assert_transition_res(-EPERM,	__pkvm_host_share_ffa, pfn, 1);
-+	assert_transition_res(-EPERM,	__pkvm_host_donate_hyp, pfn, 1);
-+	assert_transition_res(-EPERM,	__pkvm_host_share_hyp, pfn);
-+	assert_transition_res(-EPERM,	__pkvm_host_unshare_hyp, pfn);
-+	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
-+
-+	selftest_state.host = PKVM_NOPAGE;
-+	selftest_state.guest[0] = PKVM_PAGE_OWNED;
-+	assert_transition_res(0,	__pkvm_guest_unshare_host, vcpu, gfn);
-+	assert_transition_res(-EPERM,	__pkvm_guest_unshare_host, vcpu, gfn);
-+	assert_transition_res(-EPERM,	__pkvm_host_donate_guest, pfn, gfn, vcpu);
-+	assert_transition_res(-EPERM,	__pkvm_host_donate_guest, pfn, gfn + 1, vcpu);
-+	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, 1, vcpu, prot);
-+	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn + 1, 1, vcpu, prot);
-+	assert_transition_res(-EPERM,	__pkvm_host_share_ffa, pfn, 1);
-+	assert_transition_res(-EPERM,	__pkvm_host_donate_hyp, pfn, 1);
-+	assert_transition_res(-EPERM,	__pkvm_host_share_hyp, pfn);
-+	assert_transition_res(-EPERM,	__pkvm_host_unshare_hyp, pfn);
-+	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
-+
- 	selftest_state.host = PKVM_PAGE_OWNED;
- 	selftest_state.guest[0] = PKVM_POISON;
- 	assert_transition_res(0,	__pkvm_host_force_reclaim_page_guest, phys);
- 	assert_transition_res(-EPERM,	__pkvm_host_donate_guest, pfn, gfn, vcpu);
- 	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, 1, vcpu, prot);
-+	assert_transition_res(-EHWPOISON, __pkvm_guest_share_host, vcpu, gfn);
-+	assert_transition_res(-EHWPOISON, __pkvm_guest_unshare_host, vcpu, gfn);
+ #define PKVM_PAGE_STATE_PROT_MASK	(KVM_PGTABLE_PROT_SW0 | KVM_PGTABLE_PROT_SW1)
+ static inline enum kvm_pgtable_prot pkvm_mkstate(enum kvm_pgtable_prot prot,
+@@ -114,12 +114,12 @@ static inline void set_host_state(struct hyp_page *p, enum pkvm_page_state state
  
- 	selftest_state.host = PKVM_NOPAGE;
- 	selftest_state.guest[1] = PKVM_PAGE_OWNED;
+ static inline enum pkvm_page_state get_hyp_state(struct hyp_page *p)
+ {
+-	return p->__hyp_state_comp ^ PKVM_PAGE_STATE_MASK;
++	return p->__hyp_state_comp ^ PKVM_PAGE_STATE_VMEMMAP_MASK;
+ }
+ 
+ static inline void set_hyp_state(struct hyp_page *p, enum pkvm_page_state state)
+ {
+-	p->__hyp_state_comp = state ^ PKVM_PAGE_STATE_MASK;
++	p->__hyp_state_comp = state ^ PKVM_PAGE_STATE_VMEMMAP_MASK;
+ }
+ 
+ /*
 -- 
 2.53.0.473.g4a7958ca14-goog
 
