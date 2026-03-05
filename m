@@ -4,74 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1321F30937
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 10:48:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BF74F30937
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 10:55:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JyzgqHBTIRWys6T3ef9YTAXgeD/CZH7ydpXxQ1OHI9A=; b=QLianh4MTx5HXAp3VveVSEEJQ3
-	2uH7kEKHxqpsWlwM1kCCiqXo9A8S0zAGNyjKQrUsXUA6UhTAwr63AvTJbcVKT2iOYzxXd4oGFqM+g
-	me20Xk4AO7ah20Ysy13XCUCr/Qe4gy669renyycJIoZQk7bCoG3HVFZ18ghxA+gJSJiL91TchKNhH
-	PrpQ6J9H5ozF4p6XLuTbO2y/NVyosmpCCnxZv4J2tNbGWfjSTyE2A8tE4vZE7DGT0s9j2J0rZ3iIf
-	T6P+5dnGd2RQKprRT2IpokuJ7aMtsoCmE8vOkBlrckTi3o570xwDW1FoBCdEogwCYzV531sxk2dLh
-	3A0QCKFg==;
+	bh=3heVX67RC8aCvqiC52Xf1aeQu5ZWwacD9Kp5djlBLVI=; b=LO0I3qXyjVC/PwW/4Cp2Bt1dMm
+	6pJEOlzldNEiMq4+rU9CXFoLNBkSJJxEYIvx6Bwrgf3otrcEwN3tLpbdQhJxsFxPKLLam9LaH5NkJ
+	8RImYHBqJKZMUpeDky4dLxlEONw+g7wLE4o/Njhoxi1GUp3xU2imxDuAp2H8Z32QhHZb1uWzc+ZZJ
+	76MaOUAOX7NOHsaLKkgbkjpdimGR+gtAIJSazFLq3q0bzOLmhRZVqkRSSrO7i4u+0QblUixOlfGhD
+	CyLerbdW1TIaw6b3vSggW2gNy65XipxmkdeU23B+02UP+U+OUnRQstLiUlliCSm3x1jsBY0K68PkA
+	W9o3nDhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy6G3-00000001cO0-2z8O;
-	Thu, 05 Mar 2026 10:48:43 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vy6Mu-00000001d6w-3Wlo;
+	Thu, 05 Mar 2026 10:55:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy6G1-00000001cNA-1bz2
+	id 1vy6Mr-00000001d5x-3F7S
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 10:48:42 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ore@pengutronix.de>)
-	id 1vy6Fs-0000TS-L0; Thu, 05 Mar 2026 11:48:32 +0100
-Received: from dude04.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::ac] helo=dude04)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1vy6Fq-003rwV-20;
-	Thu, 05 Mar 2026 11:48:31 +0100
-Received: from ore by dude04 with local (Exim 4.98.2)
-	(envelope-from <ore@pengutronix.de>)
-	id 1vy6Fr-00000001aVY-3j3z;
-	Thu, 05 Mar 2026 11:48:31 +0100
-Date: Thu, 5 Mar 2026 11:48:31 +0100
-From: Oleksij Rempel <o.rempel@pengutronix.de>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 2/2] firmware: imx: sm-misc: Print boot/shutdown reasons
-Message-ID: <aalff2CtcIeln0NG@pengutronix.de>
-References: <20260305-scmi-imx-reset-v1-0-18de78978ba9@nxp.com>
- <20260305-scmi-imx-reset-v1-2-18de78978ba9@nxp.com>
- <24409695.EfDdHjke4D@steina-w>
- <aalZV981HAneFWiC@shlinux89>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <aalZV981HAneFWiC@shlinux89>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ore@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+	Thu, 05 Mar 2026 10:55:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 06B8E41814;
+	Thu,  5 Mar 2026 10:55:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5630C116C6;
+	Thu,  5 Mar 2026 10:55:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772708144;
+	bh=inGG7aCeztwLtn94aRsqW0/+EdtoLTodhlHwJRABAGs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Ml7AuvDFtrUlCH4EaMX7Z31t9EkPYgX4ZgO0kkUNADOfKATTnPHDCzZbBsWDas8dW
+	 0HRR822649Mjj0/uxSzNyw7l/kUTYDw+CBVjF7/FKa7Q6aZ1UyF+dBDrH2nrE41URy
+	 NdUY7U8/CwvtVKPy5ftnJ9HhKI8mk6wAj/Sf1bdAIe/EjaRS+QC3pqycJ2TNWYP5/2
+	 Qy7G+gOpDnfOa10pcV+ns2BH6ySe7g3aMBMQdGF+2UxNysOHZFdXGT0dtnBxOnF4dq
+	 tf9NbNB5tQdwXYdUtaYaUpiSzmk0wwNgHUdkj5jR1PmdphQrKEtjYEkJjzvBBvbD5k
+	 8H3j7lHR3H7Vw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vy6Mo-0000000GPIG-3G5P;
+	Thu, 05 Mar 2026 10:55:42 +0000
+Date: Thu, 05 Mar 2026 10:55:42 +0000
+Message-ID: <86seae7dg1.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Quentin Perret <qperret@google.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Leo Yan <leo.yan@arm.com>
+Subject: Re: [PATCH] KVM: arm64: Adjust range correctly during host stage-2 faults
+In-Reply-To: <86wlzr77cn.wl-maz@kernel.org>
+References: <20250625105548.984572-1-qperret@google.com>
+	<86wlzr77cn.wl-maz@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: qperret@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, leo.yan@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_024841_422435_EACD4BB9 
-X-CRM114-Status: GOOD (  18.07  )
+X-CRM114-CacheID: sfid-20260305_025545_863351_0721E803 
+X-CRM114-Status: GOOD (  28.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,56 +92,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+On Wed, 04 Mar 2026 18:55:04 +0000,
+Marc Zyngier <maz@kernel.org> wrote:
+> 
+> On Wed, 25 Jun 2025 11:55:48 +0100,
+> Quentin Perret <qperret@google.com> wrote:
+> > 
+> > host_stage2_adjust_range() tries to find the largest block mapping that
+> > fits within a memory or mmio region (represented by a kvm_mem_range in
+> > this function) during host stage-2 faults under pKVM. To do so, it walks
+> > the host stage-2 page-table, finds the faulting PTE and its level, and
+> > then progressively increments the level until it finds a granule of the
+> > appropriate size. However, the condition in the loop implementing the
+> > above is broken as it checks kvm_level_supports_block_mapping() for the
+> > next level instead of the current, so pKVM may attempt to map a region
+> > larger than can be covered with a single block.
+> > 
+> > This is not a security problem and is quite rare in practice (the
+> > kvm_mem_range check usually forces host_stage2_adjust_range() to choose a
+> > smaller granule), but this is clearly not the expected behaviour.
+> > 
+> > Refactor the loop to fix the bug and improve readability.
+> > 
+> > Fixes: c4f0935e4d95 ("KVM: arm64: Optimize host memory aborts")
+> > Signed-off-by: Quentin Perret <qperret@google.com>
+> 
+> This patch prevents my O6 board from booting in protected mode as of
+> e728e705802fe. Reverting it on top of 7.0-rc2 make the box work again.
+> 
+> I haven't quite worked out why though. The hack below makes it work,
+> but implies that we can get ranges that are smaller than a page.  That
+> feels unlikely, but I'm not sure we can rule it out (the kernel page
+> size could be pretty large anyway).
 
-On Thu, Mar 05, 2026 at 06:22:15PM +0800, Peng Fan wrote:
-> Hi Alexander,
->
-> Thanks for giving a look.
->
-> On Thu, Mar 05, 2026 at 08:44:26AM +0100, Alexander Stein wrote:
-> >Hi,
-> >
-> >Am Donnerstag, 5. M=C3=A4rz 2026, 02:56:45 CET schrieb Peng Fan (OSS):
-> >> From: Peng Fan <peng.fan@nxp.com>
-> >>
-> >> Add reset reason string table for i.MX95 and introduce a helper
-> >> (scmi_imx_misc_get_reason) to query and print both system and LM
-> >> (Logical Machine) reset reasons via the SCMI MISC protocol.
-> >>
-> >> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> >> ---
-> [...]
-> >> +		if (boot.valid)
-> >> +			dev_info(&sdev->dev, "%s Boot reason: %s, origin: %d, errid: %d\n",
-> >> +				 system ? "SYS" : "LM", rst[boot.reason],
-> >> +				 boot.orig_valid ? boot.origin : -1,
-> >> +				 boot.err_valid ? boot.errid : -1);
-> >> +		if (shutdown.valid)
-> >> +			dev_info(&sdev->dev, "%s shutdown reason: %s, origin: %d, errid: %=
-d\n",
-> >> +				 system ? "SYS" : "LM", rst[shutdown.reason],
-> >> +				 shutdown.orig_valid ? shutdown.origin : -1,
-> >> +				 shutdown.err_valid ? shutdown.errid : -1);
-> >
-> >Is there a way to query this from userspace programs instead of printing=
- into kernel log?
->
-> I not add sysfs or debugfs to get the information in this patchset, since=
- our
-> customer only want the information could be shown in kernel boot log.
->
-> But I could add also sysfs interface to allow userspace get the informati=
-on if
-> you need this feature.
+Having spent a bit of time on this, I'm pretty sure this is the cause
+of the issue. The memblock tables are as such:
 
-I started to working on corresponding framework:
-https://lore.kernel.org/all/20250618120255.3141862-1-o.rempel@pengutronix.d=
-e/
+maz@cosmic-debris:~/vminstall$ sudo cat /sys/kernel/debug/memblock/memory
+   0: 0x0000000080000000..0x00000000843fffff    0 NOMAP
+   1: 0x0000000084400000..0x00000000845fffff    0 NONE
+   2: 0x0000000085000000..0x000000009fffffff    0 NONE
+   3: 0x00000000a0000000..0x00000000a7ffffff    0 NOMAP
+   4: 0x00000000a8000000..0x00000000fffbffff    0 NONE
+   5: 0x00000000fffc0000..0x00000000fffeffff    0 NOMAP
+   6: 0x00000000ffff0000..0x00000000ffffdfff    0 NONE
+   7: 0x00000000ffffe000..0x00000000ffffffff    0 NOMAP
+   8: 0x0000000100000000..0x00000007fe4effff    0 NONE
+   9: 0x00000007fe4f0000..0x00000007fedeffff    0 NOMAP
+  10: 0x00000007fedf0000..0x00000007ffffffff    0 NONE
+  11: 0x0000008000000000..0x000000807a290fff    0 NONE
+  12: 0x000000807a291000..0x000000807a2927b2    0 NOMAP
+  13: 0x000000807a2927b3..0x000000807fffffff    0 NONE
 
-but it is stalled due to devicetree decisions. I wont to respin the
-discussion tomorrow
+Any access to page 0x000000807a292000 is going to blow up in your
+face, because there is no way you can map this and still respect the
+memblock boundary. Same thing for any region that is smaller than
+PAGE_SIZE, or not aligned on PAGE_SIZE. Which is even more annoying.
 
-Best Regards,
-Oleksij
+I'm starting to think that my hack is not that idiotic in the end...
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
