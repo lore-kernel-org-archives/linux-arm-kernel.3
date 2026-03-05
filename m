@@ -4,71 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52873EEF304
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 13:28:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28FDAEDEC05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 13:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=G1NjBZLS2dGThviFkw+Hs4fu8RnfXS7kK3f1HgMTxHE=; b=gpEQ50BV4MDQK1Zx3AlDGVLpXP
-	jk6CFXHGKwxUUjHvLZ0rBfGZ8f6gkCVwOkUe2O/5LQJ1v+3JLCN0RJnk8wF+sDcDbcT7hVTKNU9nG
-	TZibselPO3UGMfyVU8ja+n3gA9jyTtPlv+uIyluOhz9udJ8neF2k/iIXCJga7eCcZw8D48BSuhfCX
-	JRau0vqMyLFDm6HXa4mgu0TsVVN9uEzk8gEYeS+Ug58W/eylBSWU+iWQMes0/7sLiqGqinw6LHG91
-	HYVDG6LvXJZUYJw+hCnSGjmtE6eP7smgJAs/0UlIdHqtH5/gTL2c/n3g1Lpx62sGTowJx4iIrRYl7
-	R2m5iISA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1dMeUX2Xk9StLIqbGPYXzES8zoDvxqM6/CpgP+M7sCk=; b=UoNluxK08XbHX89u0AhhJUnjCS
+	0oZm/OZDC9HWzBthlC26Jhb/83e10sndM6Tad8VUNidPNp+74Ma86IQrsLjAlqlqARMt54LTVTnAF
+	ghl+J3fjdxY4ytovOvMy94anWxYydIjGT+dHtevEKy9oyy5PzMNVs2QaDbkpzFMrDuXrC6smfWyOi
+	JxoDosacTmYDSCUjzhqZQxPTe54M9TsdEwyuojL6HDfZfULhBm4lG2T9vMYGDC4Qh/RIckgAdo/SY
+	cGOLghWEdj8WLx0JwGczxxQ7e1nMwPTWva5IY53CxgYajG5xHklaF4rExH8+n5y/VZTfpYaSog4Nd
+	6TNECz4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy8kF-00000001sj6-1v2Z;
-	Thu, 05 Mar 2026 13:28:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vy8kR-00000001slT-0zQk;
+	Thu, 05 Mar 2026 13:28:15 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy8kE-00000001six-17ES
+	id 1vy8kQ-00000001slE-29zH
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 05 Mar 2026 13:28:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=1dMeUX2Xk9StLIqbGPYXzES8zoDvxqM6/CpgP+M7sCk=; b=b9KFWaAZwFJOJCdF/fD/2b8ijT
+	CnuA/DEpdWGGiUZKousRrMYZkfwPBdqft4Fkd2zg/sgL1OU6Kj43aG6rJXif0aEpG6D6UBrSmZL6z
+	TTtg4SX3Z6i7Bp4nrfP0LOebQMSeUT0iLparxgkHMBZwy23/87MSucrq5G9vL6ns5dmZmcY1PvgJY
+	w5l9CpVPMmSDFarjc6bfj374jGhFsMNchXHccQpb2tI5MX3kgSyzalmLP/QMotw1uRziQ+JtePB7p
+	G2D3Jahot/rczu0QPiMy0qGQZN0Aw2bQB8SqRXFmUvr4GKnBi3yJkLqCdKmZkibVqINjXuBZ3bDkn
+	caik8Xmg==;
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vy8kL-0000000F3Et-2LC8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 13:28:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 64A7561340;
-	Thu,  5 Mar 2026 13:28:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12A6CC116C6;
-	Thu,  5 Mar 2026 13:28:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772717281;
-	bh=lnBSHxmNphnGNCi22PlaGFKdvnE9IXS9939YI+0IHf0=;
-	h=From:To:Cc:Subject:Date:From;
-	b=LetMebQDnbnkvkpZ77o4DJegqdAtRxcSwn2e975//5D15F2wztxAf6ue0O1wcByQz
-	 uJ+bbLHmbT0GAE6/l3QQlflrP9/sgfSRgoQbPZmTZTynD/FwJHR5RGSygFhtIn2SkM
-	 a5n1U5V0UGJmuLYe6m4KE+u6MEetsu3ELvKiz3axzLeagbC+DOMKoqDS6J5DaPKAOT
-	 QT8o0BGvLvl13qZYSPoDt4uq47vSpvg8qYu3VWDi39nrPlMYkPn7dwHqVbOLpMlWc7
-	 9yps8TnTd2J0Xk82h14cyL9endiFGiz4W/MCnMWx7ELXvcVQMe1tDRgYGTzDi9zchQ
-	 ydHvonROTXS7w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vy8kA-0000000GST7-3TSz;
-	Thu, 05 Mar 2026 13:27:58 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Quentin Perret <qperret@google.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] KVM: arm64: pkvm: Fallback to level-3 mapping on host stage-2 fault
-Date: Thu,  5 Mar 2026 13:27:51 +0000
-Message-ID: <20260305132751.2928138-1-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	Thu, 05 Mar 2026 13:28:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=1dMeUX2Xk9StLIqbGPYXzES8zoDvxqM6/CpgP+M7sCk=; b=BAYSc8DI/atjiwBSNuMx04jOlC
+	WyE5kJjHsIJb/FolbwHzzh5FxYMude3XTNFs1PzECU8uOsZB9jnfsIi3ZQCZ3KiqZpwnCADAWTVHl
+	mpV2ahH+/fWWIZDR918qn4oUm25sYfRWUq++LNJ0kllVTtJZ0Hl3uTujp2dXhW4EocEw=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vy8kG-00AJok-91; Thu, 05 Mar 2026 14:28:04 +0100
+Date: Thu, 5 Mar 2026 14:28:04 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Gregory CLEMENT <gregory.clement@bootlin.com>
+Cc: Gabor Juhos <j4g8y7@gmail.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: marvell: armada-37xx: drop
+ 'marvell,usb-misc-reg' properties
+Message-ID: <cacefc69-dba3-4ff6-a039-85fe35a91e0b@lunn.ch>
+References: <20260304-armada-37xx-drop-usb-misc-reg-v1-1-800c1b746b7a@gmail.com>
+ <db997887-2431-4baa-8e96-04f53ea59060@lunn.ch>
+ <874imug18l.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, will@kernel.org, tabba@google.com, qperret@google.com, stable@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <874imug18l.fsf@BLaptop.bootlin.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260305_132809_635661_F37DBA3A 
+X-CRM114-Status: GOOD (  17.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,40 +90,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If, for any odd reason, we cannot converge to mapping size that is
-completely contained in a memblock region, we fail to install a S2
-mapping and go back to the faulting instruction. Rince, repeat.
+On Thu, Mar 05, 2026 at 08:54:34AM +0100, Gregory CLEMENT wrote:
+> Hello Andrew,
+> 
+> > On Wed, Mar 04, 2026 at 08:12:43PM +0100, Gabor Juhos wrote:
+> >> The 'marvell,usb-misc-reg' property is present both in the EHCI and
+> >> in the XHCI USB host device nodes, however it is not documented. Thus
+> >> 'make dtbs_check' produces warnings like these:
+> >> 
+> >>   /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@58000 (marvell,armada3700-xhci): Unevaluated properties are not allowed ('marvell,usb-misc-reg' was unexpected)
+> >>           from schema $id: http://devicetree.org/schemas/usb/generic-xhci.yaml
+> >>   /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@5e000 (marvell,armada-3700-ehci): Unevaluated properties are not allowed ('marvell,usb-misc-reg' was unexpected)
+> >>           from schema $id: http://devicetree.org/schemas/usb/generic-ehci.yaml
+> >> 
+> >> Apart from the fact that the properties are not documented, those are
+> >> not even used by any USB host drivers. At least 'git grep' says this:
+> >> 
+> >>   $ git grep -n 'marvell.usb-misc-reg' v7.0-rc2
+> >>   v7.0-rc2:Documentation/devicetree/bindings/phy/marvell,armada-3700-utmi-phy.yaml:30:  marvell,usb-misc-reg:
+> >>   v7.0-rc2:Documentation/devicetree/bindings/phy/marvell,armada-3700-utmi-phy.yaml:41:  - marvell,usb-misc-reg
+> >>   v7.0-rc2:Documentation/devicetree/bindings/phy/marvell,armada-3700-utmi-phy.yaml:50:      marvell,usb-misc-reg = <&usb2_syscon>;
+> >>   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:372:                              marvell,usb-misc-reg = <&usb32_syscon>;
+> >>   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:383:                              marvell,usb-misc-reg = <&usb32_syscon>;
+> >>   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:396:                              marvell,usb-misc-reg = <&usb2_syscon>;
+> >>   v7.0-rc2:arch/arm64/boot/dts/marvell/armada-37xx.dtsi:406:                              marvell,usb-misc-reg = <&usb2_syscon>;
+> >>   v7.0-rc2:drivers/phy/marvell/phy-mvebu-a3700-utmi.c:231:                                                         "marvell,usb-misc-reg");
+> >
+> 
+> I don't follow:
+> 
+> > The phy-mvebu-a3700-utmi.c does use it, and does document it:
+> >
+> >   marvell,usb-misc-reg:
+> >     description:
+> >       Phandle on the "USB miscellaneous registers" shared region
+> >       covering registers related to both the host controller and
+> >       the PHY.
+> >     $ref: /schemas/types.yaml#/definitions/phandle
+> >
+> > And the patch which added the property to the USB nodes also added the
+> > PHY nodes.
+> >
+> > commit 05d168a56fae8ff50432d5dfe6e7423b989455a8
+> > Author: Miquel Raynal <miquel.raynal@bootlin.com>
+> > Date:   Tue Jan 29 10:36:34 2019 +0100
+> >
+> >     arm64: dts: marvell: armada-37xx: declare USB2 UTMI PHYs
+> >
+> 
+> You stated that the property is used and was properly added.
 
-This happens when faulting in regions that are smaller than a page
-or that do not have PAGE_SIZE-aligned boundaries (as witnessed on
-an O6 board that refuses to boot in protected mode).
+I can understand your confusion. The commit message is not great. I
+had to read quite a bit of code to convince myself the change is
+correct.
 
-In this situation, fallback to using a PAGE_SIZE mapping anyway --
-it isn't like we can go any lower.
+The property is used and documented in the Generic PHY driver,
+phy-mvebu-a3700-utmi.c. And the properties being removed are in USB
+nodes. The properties in the PHY node are not removed.
 
-Fixes: e728e705802fe ("KVM: arm64: Adjust range correctly during host stage-2 faults")
-Link: https://lore.kernel.org/r/86wlzr77cn.wl-maz@kernel.org
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Cc: stable@vger.kernel.org
-Cc: Quentin Perret <qperret@google.com>
----
- arch/arm64/kvm/hyp/nvhe/mem_protect.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+The properties in the USB node have never been used, as far as i can
+see.
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index 38f66a56a7665..d815265bd374f 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -518,7 +518,7 @@ static int host_stage2_adjust_range(u64 addr, struct kvm_mem_range *range)
- 		granule = kvm_granule_size(level);
- 		cur.start = ALIGN_DOWN(addr, granule);
- 		cur.end = cur.start + granule;
--		if (!range_included(&cur, range))
-+		if (!range_included(&cur, range) && level < KVM_PGTABLE_LAST_LEVEL)
- 			continue;
- 		*range = cur;
- 		return 0;
--- 
-2.47.3
+	Andrew
 
 
