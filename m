@@ -4,86 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D04B7F513E2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 21:47:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 141A6F513E2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 22:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zGRFZgb/PP4fIdcfT0XlmdmP0TFBZp3Tj2yB6Ck+SG0=; b=USZEIiW8v+kMc0gjlS0ey8ouBs
-	ZWhyVmmgUXf+7KcJNjdU1qhg3XAuHgB5uRlBQEw7vDzJ0aheyXWPu0ZZC1aPiGwpFgECRqhTMsdJJ
-	b6eS22NWhCdTlyQoMRofthPR7JJ0je8M5QEtP85PDNiTdiLarIV1fdt+kwuW/LNNvvX5XyneeLZcE
-	gCNpw0JEjjM9CWkdBs3IaIFfQLRzTK/h3SzIUcJIt2ifZ4yL/W5HY+BPVxOrWxRzaDXWNkXhAO2BG
-	Q1fU6IwqNBduSYSJBhgLJxg2nTM+pNMllONnodNd+wXvPOopGmkwKtWHNKOpAE+7kwZCZP+5Zm+Ys
-	94kD/vNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nBTgtiaxMcXIb/o8fyl8c7XGqhbYNm6Tkdd4C9Mdd9c=; b=aQ/n2tK/sUPJcFyZAKauxWMwvS
+	wBSyjG4ulGcmgLidacxGOchykE7LbMIcayYPWqsY7KUQSME6rx1vuApj5n8H2WNQ3enB0BH55VfLD
+	3tAJI614znqZWzPT6yUmOHj0fAhicqUS048IAhcIDYHWOzoKTmssDnfZTGlbMrahH3+6WakYvNqH0
+	b9givsLh8L4khLAV/D85P+zlZwFX6szIh+18oyLCS0i+0CxX/XUv31zMmzibe0FgHpUtHPLH1hBdb
+	bTikKeaXrRBGpV/ikZMFCWjFh0UlPOxnFMc+8OyhMff8iYBmTp/hjvi/0TVXMzEMY+B3YS9p75iwb
+	cB7HMo6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyGXZ-00000002c5G-0wNI;
-	Thu, 05 Mar 2026 21:47:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vyGys-00000002deT-1UAk;
+	Thu, 05 Mar 2026 22:15:42 +0000
+Received: from [2a01:4f9:c011:1c83::1] (helo=courrier.aliel.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyGXT-00000002c1K-0FvC
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 21:47:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CD1896011F;
-	Thu,  5 Mar 2026 21:47:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DA1CC116C6;
-	Thu,  5 Mar 2026 21:47:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772747241;
-	bh=u0gj4H2h3Emn6PHCQ3NTJ6S3USkiCu4juy7VLJs6MK8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oyoG2yF5B15y9Q5opzbe48/xqw/zEN/T6mwkbwIrHuNF/42yYeHMyAjl5ywJZXbgG
-	 4EZUKXvDRtMKjoAtHPGx3L9Nr8Y/rTzM4wJT9MldC7zoNLCst4XHv4NJZsp2DNZFyZ
-	 D1MHbqJG+BL/VExFOdNCTK9uSAKtDVz7abBLO/rDR8lLv/3iismgy95mI6m6DeSpyo
-	 oxDbb99Ib4gNDkpEsMj6AWSHxilPpBZpBooEQiWSUGxSs5K1fzA9OYoGp57sAr5dU5
-	 fmzFvUyNtrpdK8gfpJzTO7otOCU7TtXcPqH/6btO+MCDk18AjGmYBjF/CPzxr/Wt4W
-	 o0AY+HjRydIXA==
-Date: Thu, 5 Mar 2026 15:47:20 -0600
-From: Rob Herring <robh@kernel.org>
-To: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Nipun Gupta <nipun.gupta@amd.com>,
-	Nikhil Agarwal <nikhil.agarwal@amd.com>,
-	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Juergen Gross <jgross@suse.com>,
-	Stefano Stabellini <sstabellini@kernel.org>,
-	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Prakash Gupta <prakash.gupta@oss.qualcomm.com>,
-	Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-pci@vger.kernel.org, imx@lists.linux.dev,
-	xen-devel@lists.xenproject.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH v9 1/3] of: Add convenience wrappers for of_map_id()
-Message-ID: <20260305214720.GA317432-robh@kernel.org>
-References: <20260301-parse_iommu_cells-v9-0-4d1bceecc5e1@oss.qualcomm.com>
- <20260301-parse_iommu_cells-v9-1-4d1bceecc5e1@oss.qualcomm.com>
- <86342janlx.wl-maz@kernel.org>
- <d3687764-024d-4dbc-9342-8edc9b4f1fdd@oss.qualcomm.com>
+	id 1vyGyo-00000002dbQ-2PK7;
+	Thu, 05 Mar 2026 22:15:40 +0000
+Received: from 34.1.168.192.in-addr.arpa (2A02-842b-8136-0001-1033-1579-E8Cc-83D5.rev.sfr.net [IPv6:2a02:842b:8136:1:1033:1579:e8cc:83d5])
+	by courrier.aliel.fr (Postfix) with ESMTPSA id BB5CF4A56F;
+	Thu, 05 Mar 2026 22:15:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
+	s=courrier-s1; t=1772748930;
+	bh=MDPDvWX54EIzBiBuHUn/Aek5yD+kq27hlEvXjqO8q9U=;
+	h=From:Date:Subject:To:Cc;
+	b=Juj1hjdaTS4gqtBfcUQrRis7u4eJ/vkB3H7heQkhR8aTp831SXwMbTVpheuwa5Es5
+	 fOZGbwPGN9fccgQRNJOZw7iPENvnY3dQstHJ6zmTwL5WJGboFM5/sXwscpGd6xHsNa
+	 EIDlBquD+vfKvdweTFgUt077tu65RRligBXbhK00=
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+Date: Thu, 05 Mar 2026 23:11:25 +0100
+Subject: [PATCH] arm64: dts: amlogic: Fix GIC register ranges for Amlogic
+ T7
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <d3687764-024d-4dbc-9342-8edc9b4f1fdd@oss.qualcomm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260305-fix-amlt7-gic-dts-v1-1-5944415c74bf@aliel.fr>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MWwqAIBAAryL73YIPSOoq0UfoZgtloRKBdPekz
+ 4GZqZApMWUYRYVEN2c+YwPVCXDbEgMh+8agpe6lkQZXfnA59mIxsENfMlrv3GBImV5paN2VqEn
+ /c5rf9wMyw58RYwAAAA==
+X-Change-ID: 20260303-fix-amlt7-gic-dts-7dcc93e13612
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Ronald Claveau <linux-kernel-dev@aliel.fr>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openssh-sha256; t=1772748929; l=2389;
+ i=linux-kernel-dev@aliel.fr; s=id_ed25519; h=from:subject:message-id;
+ bh=MDPDvWX54EIzBiBuHUn/Aek5yD+kq27hlEvXjqO8q9U=;
+ b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgMGec55oxeeisqykQiUedekMYyOnR9
+ BG9E/7rDWyqdNoAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
+ QBlVSZU1SuoR80Cb0Pf7o9GsnKQNlDlTZVb8I9zS9pOyAJmcu0zAhwete0dfovrGxBWCmaGC44T
+ Y7HZa3INOTQc=
+X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openssh;
+ fpr=SHA256:kch4osYZ6A1BrPps5AUs6KnfdE2wm4ocMtyTc8TmZMs
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260305_141539_062406_3D18B804 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,190 +84,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 04, 2026 at 03:02:14PM +0530, Vijayanand Jitta wrote:
-> 
-> 
-> On 3/1/2026 3:16 PM, Marc Zyngier wrote:
-> > On Sun, 01 Mar 2026 08:34:19 +0000,
-> > Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com> wrote:
-> >>
-> >> From: Robin Murphy <robin.murphy@arm.com>
-> >>
-> >> Since we now have quite a few users parsing "iommu-map" and "msi-map"
-> >> properties, give them some wrappers to conveniently encapsulate the
-> >> appropriate sets of property names. This will also make it easier to
-> >> then change of_map_id() to correctly account for specifier cells.
-> >>
-> >> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> >> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> >> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
-> >> Signed-off-by: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-> >> ---
-> >>  drivers/cdx/cdx_msi.c                    |  3 +--
-> >>  drivers/iommu/of_iommu.c                 |  4 +---
-> >>  drivers/irqchip/irq-gic-its-msi-parent.c |  2 +-
-> >>  drivers/of/irq.c                         |  3 +--
-> >>  drivers/pci/controller/dwc/pci-imx6.c    |  6 ++----
-> >>  drivers/pci/controller/pcie-apple.c      |  3 +--
-> >>  drivers/xen/grant-dma-ops.c              |  3 +--
-> >>  include/linux/of.h                       | 14 ++++++++++++++
-> >>  8 files changed, 22 insertions(+), 16 deletions(-)
-> >>
-> >> diff --git a/drivers/cdx/cdx_msi.c b/drivers/cdx/cdx_msi.c
-> >> index 91b95422b263..63b3544ec997 100644
-> >> --- a/drivers/cdx/cdx_msi.c
-> >> +++ b/drivers/cdx/cdx_msi.c
-> >> @@ -128,8 +128,7 @@ static int cdx_msi_prepare(struct irq_domain *msi_domain,
-> >>  	int ret;
-> >>  
-> >>  	/* Retrieve device ID from requestor ID using parent device */
-> >> -	ret = of_map_id(parent->of_node, cdx_dev->msi_dev_id, "msi-map", "msi-map-mask",
-> >> -			NULL, &dev_id);
-> >> +	ret = of_map_msi_id(parent->of_node, cdx_dev->msi_dev_id, NULL, &dev_id);
-> >>  	if (ret) {
-> >>  		dev_err(dev, "of_map_id failed for MSI: %d\n", ret);
-> >>  		return ret;
-> >> diff --git a/drivers/iommu/of_iommu.c b/drivers/iommu/of_iommu.c
-> >> index 6b989a62def2..a511ecf21fcd 100644
-> >> --- a/drivers/iommu/of_iommu.c
-> >> +++ b/drivers/iommu/of_iommu.c
-> >> @@ -48,9 +48,7 @@ static int of_iommu_configure_dev_id(struct device_node *master_np,
-> >>  	struct of_phandle_args iommu_spec = { .args_count = 1 };
-> >>  	int err;
-> >>  
-> >> -	err = of_map_id(master_np, *id, "iommu-map",
-> >> -			 "iommu-map-mask", &iommu_spec.np,
-> >> -			 iommu_spec.args);
-> >> +	err = of_map_iommu_id(master_np, *id, &iommu_spec.np, iommu_spec.args);
-> >>  	if (err)
-> >>  		return err;
-> >>  
-> >> diff --git a/drivers/irqchip/irq-gic-its-msi-parent.c b/drivers/irqchip/irq-gic-its-msi-parent.c
-> >> index d36b278ae66c..b63343a227a9 100644
-> >> --- a/drivers/irqchip/irq-gic-its-msi-parent.c
-> >> +++ b/drivers/irqchip/irq-gic-its-msi-parent.c
-> >> @@ -180,7 +180,7 @@ static int of_pmsi_get_msi_info(struct irq_domain *domain, struct device *dev, u
-> >>  
-> >>  	struct device_node *msi_ctrl __free(device_node) = NULL;
-> >>  
-> >> -	return of_map_id(dev->of_node, dev->id, "msi-map", "msi-map-mask", &msi_ctrl, dev_id);
-> >> +	return of_map_msi_id(dev->of_node, dev->id, &msi_ctrl, dev_id);
-> >>  }
-> >>  
-> >>  static int its_pmsi_prepare(struct irq_domain *domain, struct device *dev,
-> >> diff --git a/drivers/of/irq.c b/drivers/of/irq.c
-> >> index 6367c67732d2..e37c1b3f8736 100644
-> >> --- a/drivers/of/irq.c
-> >> +++ b/drivers/of/irq.c
-> >> @@ -817,8 +817,7 @@ u32 of_msi_xlate(struct device *dev, struct device_node **msi_np, u32 id_in)
-> >>  	 * "msi-map" or an "msi-parent" property.
-> >>  	 */
-> >>  	for (parent_dev = dev; parent_dev; parent_dev = parent_dev->parent) {
-> >> -		if (!of_map_id(parent_dev->of_node, id_in, "msi-map",
-> >> -				"msi-map-mask", msi_np, &id_out))
-> >> +		if (!of_map_msi_id(parent_dev->of_node, id_in, msi_np, &id_out))
-> >>  			break;
-> >>  		if (!of_check_msi_parent(parent_dev->of_node, msi_np))
-> >>  			break;
-> >> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> >> index a5b8d0b71677..bff8289f804a 100644
-> >> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> >> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> >> @@ -1144,8 +1144,7 @@ static int imx_pcie_add_lut_by_rid(struct imx_pcie *imx_pcie, u32 rid)
-> >>  	u32 sid = 0;
-> >>  
-> >>  	target = NULL;
-> >> -	err_i = of_map_id(dev->of_node, rid, "iommu-map", "iommu-map-mask",
-> >> -			  &target, &sid_i);
-> >> +	err_i = of_map_iommu_id(dev->of_node, rid, &target, &sid_i);
-> >>  	if (target) {
-> >>  		of_node_put(target);
-> >>  	} else {
-> >> @@ -1158,8 +1157,7 @@ static int imx_pcie_add_lut_by_rid(struct imx_pcie *imx_pcie, u32 rid)
-> >>  	}
-> >>  
-> >>  	target = NULL;
-> >> -	err_m = of_map_id(dev->of_node, rid, "msi-map", "msi-map-mask",
-> >> -			  &target, &sid_m);
-> >> +	err_m = of_map_msi_id(dev->of_node, rid, &target, &sid_m);
-> >>  
-> >>  	/*
-> >>  	 *   err_m      target
-> >> diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
-> >> index 2d92fc79f6dd..a0937b7b3c4d 100644
-> >> --- a/drivers/pci/controller/pcie-apple.c
-> >> +++ b/drivers/pci/controller/pcie-apple.c
-> >> @@ -764,8 +764,7 @@ static int apple_pcie_enable_device(struct pci_host_bridge *bridge, struct pci_d
-> >>  	dev_dbg(&pdev->dev, "added to bus %s, index %d\n",
-> >>  		pci_name(pdev->bus->self), port->idx);
-> >>  
-> >> -	err = of_map_id(port->pcie->dev->of_node, rid, "iommu-map",
-> >> -			"iommu-map-mask", NULL, &sid);
-> >> +	err = of_map_iommu_id(port->pcie->dev->of_node, rid, NULL, &sid);
-> >>  	if (err)
-> >>  		return err;
-> >>  
-> >> diff --git a/drivers/xen/grant-dma-ops.c b/drivers/xen/grant-dma-ops.c
-> >> index c2603e700178..1b7696b2d762 100644
-> >> --- a/drivers/xen/grant-dma-ops.c
-> >> +++ b/drivers/xen/grant-dma-ops.c
-> >> @@ -325,8 +325,7 @@ static int xen_dt_grant_init_backend_domid(struct device *dev,
-> >>  		struct pci_dev *pdev = to_pci_dev(dev);
-> >>  		u32 rid = PCI_DEVID(pdev->bus->number, pdev->devfn);
-> >>  
-> >> -		if (of_map_id(np, rid, "iommu-map", "iommu-map-mask", &iommu_spec.np,
-> >> -				iommu_spec.args)) {
-> >> +		if (of_map_iommu_id(np, rid, &iommu_spec.np, iommu_spec.args)) {
-> >>  			dev_dbg(dev, "Cannot translate ID\n");
-> >>  			return -ESRCH;
-> >>  		}
-> >> diff --git a/include/linux/of.h b/include/linux/of.h
-> >> index be6ec4916adf..824649867810 100644
-> >> --- a/include/linux/of.h
-> >> +++ b/include/linux/of.h
-> >> @@ -1457,6 +1457,20 @@ static inline int of_property_read_s32(const struct device_node *np,
-> >>  	return of_property_read_u32(np, propname, (u32*) out_value);
-> >>  }
-> >>  
-> >> +static inline int of_map_iommu_id(const struct device_node *np, u32 id,
-> >> +				  struct device_node **target, u32 *id_out)
-> >> +{
-> >> +	return of_map_id(np, id, "iommu-map", "iommu-map-mask",
-> >> +			 target, id_out);
-> >> +}
-> >> +
-> >> +static inline int of_map_msi_id(const struct device_node *np, u32 id,
-> >> +				struct device_node **target, u32 *id_out)
-> >> +{
-> >> +	return of_map_id(np, id, "msi-map", "msi-map-mask",
-> >> +			 target, id_out);
-> >> +}
-> >> +
-> > 
-> > Any particular reason why this is made inline instead of out of line
-> > in of/base.c? Also, some documentation would be helpful for the
-> > aspiring hackers dipping into this.
-> > 
-> > Other than that,
-> > 
-> > Acked-by: Marc Zyngier <maz@kernel.org>
-> > 
-> > 	M.
-> > 
-> 
-> Thanks Marc.
-> 
-> I made them static inline mainly because they’re just trivial wrappers
-> around of_map_id(), so keeping them in include/linux/of.h avoids adding
-> new global symbols/exports and keeps the callsites simple (similar to
-> the existing of_property_read_*() inline wrappers).
-> 
-> That said, I don’t have a strong preference—if you’d rather have
-> out-of-line helpers in drivers/of/base.c, I’m happy to respin accordingly.
+This patch aims to fix the GIC register ranges for Amlogic T7 SoC family.
 
-The downside is we get N copies of the string args for N callers 
-assuming the callers are in different compilation units. It's not 
-performance critical either.
+- Context
+Kernel log shows a warning about GIC
+[    0.000000] GIC: GICv2 detected, but range too small and irqchip.gicv2_force_probe not set
 
-Rob
+Using cat /proc/interrupts command shows GIC as GIC-0
+
+Adding some peripherals sometimes causes hangs on interrupts.
+
+- According to the GIC-400 ARM doc, the memory map is like:
+0x1000-0x1FFF Distributor
+0x2000-0x3FFF CPU interfaces
+0x4000-0x5FFF Virtual interface control block
+0x6000-0x7FFF Virtual CPU interfaces
+
+- Identify GIC model from distributor register
+
+Offset | Name | Type | Reset
+0x008 | GICD_IIDR | RO | 0x0200143B
+
+kvim4# md.l 0xFFF01008 1
+fff01008: 0200143b
+
+- Identify CPU interface from CPU interface register
+
+Offset | Name | Type | Reset
+0x00FC | GICC_IIDR | RO | 0x0202143B
+
+kvim4# md.l 0xFFF020FC 1
+fff020fc: 0202143b
+
+- Virtual interface control register check
+
+Offset | Name | Type | Reset
+0x004 | GICH_VTR | RO | 0x90000003
+
+kvim4# md.l 0xFFF04004 1
+fff04004: 90000003
+
+- Virtual CPU interfaces check
+
+Offset | Name | Type | Reset
+0x00FC | GICV_IIDR | RO | 0x0202143B
+
+kvim4# md.l 0xFFF060FC 1
+fff060fc: 0202143b
+
+- After this patch there is no warning anymore.
+GICv2 is correctly identified.
+
+[    0.000000] GIC: Using split EOI/Deactivate mode
+
+Using cat /proc/interrupts command shows GIC as GICv2
+
+Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+---
+ arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+index 6510068bcff92..d523cbc0ed22a 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+@@ -213,7 +213,9 @@ gic: interrupt-controller@fff01000 {
+ 			#address-cells = <0>;
+ 			interrupt-controller;
+ 			reg = <0x0 0xfff01000 0 0x1000>,
+-			      <0x0 0xfff02000 0 0x0100>;
++			      <0x0 0xfff02000 0 0x2000>,
++			      <0x0 0xfff04000 0 0x2000>,
++			      <0x0 0xfff06000 0 0x2000>;
+ 			interrupts = <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_HIGH)>;
+ 		};
+ 
+
+---
+base-commit: c025f6cf4209e1542ec2afebe49f42bbaf1a5c7b
+change-id: 20260303-fix-amlt7-gic-dts-7dcc93e13612
+
+Best regards,
+-- 
+Ronald Claveau <linux-kernel-dev@aliel.fr>
+
 
