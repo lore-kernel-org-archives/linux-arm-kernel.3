@@ -4,92 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98921F47CB0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 18:32:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18BF2F47CA9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 18:35:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4FzuoEEpRY+L14uQlsGmCRGMqZLXTc3G6agjBXy78yU=; b=FkihNU5A4SbqEdPUDYl9hqIvTh
-	yY9I0L5Huw6+qFdSIeqrkus4/xX6XC5Z6TrZ6JMWrgxB2QhyW7uqPJquh6pPhKoZUlCA+QXQldb/D
-	AxNsn/XGCGmHSZN1WmNurp8ySs0IIbzNwWJl+nQc6oZX5M12ReYRCqGZ4s50GNfq6lIkVaEcyDudd
-	hbHtG3Pl8OoEtuJ6TukvgRG24lBv/DCbWN3cZ5s9gbSSpKihHJAdQYiWo9W3xo4FuElk8eZ0ER9M2
-	mLfkxayGmc5+aBZheZhB2YrKbhPEXGTJXE8gInh5luz/nURrtkcuTDth4P9d9FmKqmnp0pIOwhI7E
-	C3sg/+Pw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rT3HFFE0hN5Iv+Nkv4cLwwjitenY62fCR7k08+CamVo=; b=HGghoCpkZ2iAOjidah/ICNTVjj
+	KodWBDBwV01eKzpLrOSYLxQ+A6+76q6p51AAfbqpUZjq685HuM7M0FRmSdCH6NU6o3/i7+FxRV2oF
+	GwoPgh/XMeDmbypiiZJnrBhA9I/xRJEiE4ooJEiJRCkYcGo61zyefTPil1YzHR/oE3suC3w04PssP
+	klgOirwVOSXqXo9UT4HmM5AvADDys3zqF+dlYwEG5pF2yBpBuWotIlkt1TI0ITNGOSrmlM6tgyyDc
+	8rk+14RWCfdZYy2amcp1xTPFovxOR0nLkGmzc6+tiHlabF4vXIUedPgtAu4fv5HLrqMuGQd3PFgxu
+	Eg1oiJNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyDV4-00000002O8o-1DRt;
-	Thu, 05 Mar 2026 18:32:42 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1vyDXx-00000002ONr-3YKo;
+	Thu, 05 Mar 2026 18:35:41 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyDV2-00000002O8J-0yrO
+	id 1vyDXw-00000002ONW-0biO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 18:32:41 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-82735a41920so3241291b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 10:32:40 -0800 (PST)
+	Thu, 05 Mar 2026 18:35:41 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-48378136adcso50760145e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 10:35:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772735560; x=1773340360; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4FzuoEEpRY+L14uQlsGmCRGMqZLXTc3G6agjBXy78yU=;
-        b=c32L3xYJiMbOQF0XYGR9vnmIrJ+Gmf41VPtM+8nuKdNXSodQH97IkP23qC/zD8ouiR
-         5wIOUh3PbGOCW+ANd+hyLd2gzqg4Gb9aV+cwTXQX4raaGa/dCulzDaXqIJXD78Qt/9sY
-         Bwp34Eq1ZBeqWny2gxH3FfyPsyzBQStZGrJFth7/NwCprYA3Np0TlNRs0d9wfEiVoINB
-         n508y/t43ThEQV0gu9zywp+HmM/hkkm3LYZGVl9v5hOzQomPmB2kfPhJX9XGBHCXBXN9
-         m2SFnh4meroou7TMOjHvNK4c3CwhHgf0puLGbz7fvXMpBXjA/dVWyl2qTypUeQ6eKSPV
-         DTLA==
+        d=google.com; s=20230601; t=1772735737; x=1773340537; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=rT3HFFE0hN5Iv+Nkv4cLwwjitenY62fCR7k08+CamVo=;
+        b=22X9eMFMLj2rBVtMcIPHMubf82Zz3esnBgeqhn4XnDy4oSWlbd7O1JjZQAKxCLxxDk
+         s9/0WsW6PU2V9J6wNmPPIWIjEaLOFZ5scPzZlDs93IWBsThPy3x8zFnNcyPHZI/J04q1
+         63z6BlyiogDvvByaobL3lgR802OaiTTNG9YjlQSAP2EeFpgYqgECUNmxV3ONPQgNt8Cc
+         j1AzPoaYv0o9lF90AqE9UWt/KeKoNLhDViGbFU0AViE73ZlYRN2vd9UK/In1SjUOzeha
+         B6GlFJo5j9PJyk+oRL7I+ybwH/Spd/8EfIo0yzdjWHjKPoplvV5ZEiI8RVN5tc33M3TL
+         uASA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772735560; x=1773340360;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=4FzuoEEpRY+L14uQlsGmCRGMqZLXTc3G6agjBXy78yU=;
-        b=WKWQHUWZgePwjxBE1WIvM+qsEio/YTTC51nTtMlSY2X75IYVX9ORPKXXpdjeCh2EnD
-         9Ru/jQ+zfO8+iDs/Kjoqd/qJWb+Q0BW/uxeI8rXH/6bOMe8vx8O+3bgciPpHH6gr6hBi
-         dFoeZZNHYAmLJIeGNMclDQWzDaYRRdFos64loX6G3pfmLysGkevt0afl3gfjsGP3jawC
-         UEE8qqSHi1Cuh8uVRsfdfE/MQQw0HPYwW6Nwf8fBQN6SLSv6H6RE9U7tLhelPg+KaNQY
-         KIsAfW6Ou/qWP5UoS7GzcbPxu6xP6zVPlxVM/mTtJAHUM5jLf/UplAcA1XQzUqaeMDNR
-         s/Dw==
-X-Forwarded-Encrypted: i=1; AJvYcCWllZ5ks9GhN/DRPP+08aM2kd99xnnEplm5ksNGhGAKMUOBIwC/PCCNlo+rbs0DIp86rkZprKOJj3RvhJ63a/JQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwcTV58IVdQOXIZoT5927oRi01CgFaTMmrJ2qFqgCNfh74QvthX
-	n3+AqtZs7OgG9ob1XV+vNvaOQ9RM6wJOsPDhl+PvtMF5jBWqS/1qiKdP
-X-Gm-Gg: ATEYQzzXQFwxOlF1PFSAtLT9AX/Wl9KcXjivm60bSarcvtI+nvp/00cTTmA3iVFV4Yt
-	HDQ07lf407/RNKQBcKoN5TMFNvZ42BXZVoEI/86ORux6QFnWvVzlZam/nM2emyJu63zE5WTFnlF
-	OcaXUQfzrocEj29/suJg3IeJJTcoDQJQXEziI6rS6tl/O4wRYrG4gXkSw561/1zHDtx2KHgTRpi
-	BENuBNzu0xiYLPQSIpVYFLE8m1m4FoLMVAy5f9jaKA8nDChjlVXMMSGstERw6APr8JApRPT+/o/
-	vJWi6Q+UphZ1x2Ll99wQ5kAz2Kro2KuVN3ehlre5jHWis/03CWowy+STYwBEzlNDEYvwV1T9yyD
-	IlUyQCiTQ5DMUrPnwnQzNaQyodsmn+uH1hacGmyP5163Qr2bAFFnlOzraTvL6H+yRKk1VQrgEp/
-	waScluMARBXuBaF/xz2OwnOsnAOdtoow==
-X-Received: by 2002:a05:6a00:2482:b0:829:7245:92f7 with SMTP id d2e1a72fcca58-8299aa203e0mr484415b3a.3.1772735559482;
-        Thu, 05 Mar 2026 10:32:39 -0800 (PST)
-Received: from arm-server.. ([2001:288:7001:2724:1a31:bfff:fe58:b622])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-829898e1417sm2554420b3a.62.2026.03.05.10.32.37
+        d=1e100.net; s=20230601; t=1772735737; x=1773340537;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rT3HFFE0hN5Iv+Nkv4cLwwjitenY62fCR7k08+CamVo=;
+        b=T7IU7RpMGm97p6+95K/O0sUKR5Khf1AxFbbD3YgoHY6vkQFka3Diu7jR/a5hz0B5vm
+         +PuwcsxJ/QWVwducddVSA2Mn2XGjdJTj/8fzvuI+TocRba4jNshCS5DGszDZrqaIfEt4
+         ukGWF87TW6/MOnK4WSBddmWrgCJ7Y23m6cvtrtzL3uz/rUm+/VsPH7xXOrgzJjWJYI7W
+         1iNBSpdL85uEyQoSII3vOIe5nEyRWAgHp8b4OyE7bSeDaAAvVKpmEWrgVo3KS7fBiEtF
+         iTodufEZJ22k9m3ec6Arq7IvSGeiZk9vThdectzwf7tc2LPQGuPZW9D0Ar/b42oA1gmN
+         Zcgg==
+X-Forwarded-Encrypted: i=1; AJvYcCWqr1Uj9HpY0himSU5/qfyRNAV2N/OXnH7bPtWiMFQ1wc/ElZYyfGPprqbrLQ4yL7H4ew7zaWaJOzWl6adTW6st@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNB9XPIh8RG/DiGBD7nOw689RTjvEU7K6neliiYwN6qNXlrONb
+	ULfBeXJ0thMmO9Q0YgMwm0udxqpjj898jcjA7iqNJUwRP/5PuqnHRaKxO2mxiJNhbw==
+X-Gm-Gg: ATEYQzw5ih0jUNOYQ80yrQNpldz82W09/woXa4rZBk97pEQJ3PfmMW7YtoiFqt6qzVk
+	X/L90wA17ckh+LqySm7HX8HBenXTLTqbiDT5pMWLh4HzipG+bBGQEfDTcwYmeBPFpjcuevpjw8C
+	PnNwF/RkY/ewxw2gHb4OE6CDViCJNHNsjPn8rPkqZjA2U556yfdrE5BmCZXD6U/UE7sbkDL9nJa
+	AhV/x2v9+LDvvtHQ2F2Sf57gVr9IIsPtzB0K5NEwAxtB42VQMzJsHdJhz9uWwB5m5D6YRS8URp2
+	X1N06ReRfARgGshnoywnuFatvF0Ay63NANlga3KL8PdeR9dGiS2F5jljWq/ep56p8pudpyjOhbS
+	MHVj36RHK330+6CjlVw6dapiKUxXWNhftwxg8fmIwQQ5NdF4I3ZU6HMsEEgnhoo4D60N/rMIozl
+	JFpTQY5qbLqhD6MPqJgrdKN3B+M4fscArNcGFLX9q1Thdf/po64jHJcUb5k+Aop6LtxIY=
+X-Received: by 2002:a05:600c:529b:b0:47d:25ac:3a94 with SMTP id 5b1f17b1804b1-485198840ddmr121717605e9.17.1772735736986;
+        Thu, 05 Mar 2026 10:35:36 -0800 (PST)
+Received: from google.com (198.115.140.34.bc.googleusercontent.com. [34.140.115.198])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4852378de86sm2222085e9.4.2026.03.05.10.35.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Mar 2026 10:32:39 -0800 (PST)
-From: Cheng-Yang Chou <yphbchou0911@gmail.com>
-To: herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: jserv@ccns.ncku.edu.tw,
-	yphbchou0911@gmail.com
-Subject: [PATCH 1/1] crypto: arm64/aes-neonbs - Move key expansion off the stack
-Date: Fri,  6 Mar 2026 02:32:24 +0800
-Message-ID: <20260305183229.150599-2-yphbchou0911@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20260305183229.150599-1-yphbchou0911@gmail.com>
-References: <20260305183229.150599-1-yphbchou0911@gmail.com>
+        Thu, 05 Mar 2026 10:35:36 -0800 (PST)
+Date: Thu, 5 Mar 2026 18:35:32 +0000
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: Marc Zyngier <maz@kernel.org>, mhiramat@kernel.org,
+	mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, jstultz@google.com,
+	qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org,
+	kernel-team@android.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v12 00/30] Tracefs support for pKVM
+Message-ID: <aanM9DL_jKkhHHAF@google.com>
+References: <20260219150307.14538-1-vdonnefort@google.com>
+ <20260219130220.063c8db3@gandalf.local.home>
+ <87cy20eeg6.wl-maz@kernel.org>
+ <20260305111703.6346b243@gandalf.local.home>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260305111703.6346b243@gandalf.local.home>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_103240_290827_BED16495 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20260305_103540_191377_338B898E 
+X-CRM114-Status: GOOD (  15.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,92 +105,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-aesbs_setkey() and aesbs_cbc_ctr_setkey() trigger -Wframe-larger-than=
-warnings due to struct crypto_aes_ctx being allocated on the stack,
-causing the frame size to exceed 1024 bytes.
+O Thu, Mar 05, 2026 at 11:17:03AM -0500, Steven Rostedt wrote:
+> On Thu, 19 Feb 2026 19:11:21 +0000
+> Marc Zyngier <maz@kernel.org> wrote:
+> 
+> > > 
+> > > Then the arm/kvm folks could start with that branch and add the arm/KVM
+> > > portion of this series on top of it. This will prevent major merge
+> > > conflicts in linux-next.
+> > > 
+> > > Does that sound OK?  
+> > 
+> > That works. Just send us a link to the branch after -rc2 and we'll get
+> > that sorted.
+> 
+> Vincent,
+> 
+> There's a few minor conflicts with this series and v7.0-rc2, can you rebase
+> and send again?
 
-Allocate struct crypto_aes_ctx on the heap instead to reduce stack
-usage. Use a goto-based cleanup path to ensure memzero_explicit() and
-kfree() are always called.
+I'll send a rebased new version tomorrow.
 
-Signed-off-by: Cheng-Yang Chou <yphbchou0911@gmail.com>
----
- arch/arm64/crypto/aes-neonbs-glue.c | 39 ++++++++++++++++++-----------
- 1 file changed, 25 insertions(+), 14 deletions(-)
-
-diff --git a/arch/arm64/crypto/aes-neonbs-glue.c b/arch/arm64/crypto/aes-neonbs-glue.c
-index cb87c8fc66b3..a24b66fd5cad 100644
---- a/arch/arm64/crypto/aes-neonbs-glue.c
-+++ b/arch/arm64/crypto/aes-neonbs-glue.c
-@@ -76,19 +76,25 @@ static int aesbs_setkey(struct crypto_skcipher *tfm, const u8 *in_key,
- 			unsigned int key_len)
- {
- 	struct aesbs_ctx *ctx = crypto_skcipher_ctx(tfm);
--	struct crypto_aes_ctx rk;
-+	struct crypto_aes_ctx *rk;
- 	int err;
- 
--	err = aes_expandkey(&rk, in_key, key_len);
-+	rk = kmalloc(sizeof(*rk), GFP_KERNEL);
-+	if (!rk)
-+		return -ENOMEM;
-+
-+	err = aes_expandkey(rk, in_key, key_len);
- 	if (err)
--		return err;
-+		goto out;
- 
- 	ctx->rounds = 6 + key_len / 4;
- 
- 	scoped_ksimd()
--		aesbs_convert_key(ctx->rk, rk.key_enc, ctx->rounds);
--
--	return 0;
-+		aesbs_convert_key(ctx->rk, rk->key_enc, ctx->rounds);
-+out:
-+	memzero_explicit(rk, sizeof(*rk));
-+	kfree(rk);
-+	return err;
- }
- 
- static int __ecb_crypt(struct skcipher_request *req,
-@@ -133,22 +139,27 @@ static int aesbs_cbc_ctr_setkey(struct crypto_skcipher *tfm, const u8 *in_key,
- 			    unsigned int key_len)
- {
- 	struct aesbs_cbc_ctr_ctx *ctx = crypto_skcipher_ctx(tfm);
--	struct crypto_aes_ctx rk;
-+	struct crypto_aes_ctx *rk;
- 	int err;
- 
--	err = aes_expandkey(&rk, in_key, key_len);
-+	rk = kmalloc(sizeof(*rk), GFP_KERNEL);
-+	if (!rk)
-+		return -ENOMEM;
-+
-+	err = aes_expandkey(rk, in_key, key_len);
- 	if (err)
--		return err;
-+		goto out;
- 
- 	ctx->key.rounds = 6 + key_len / 4;
- 
--	memcpy(ctx->enc, rk.key_enc, sizeof(ctx->enc));
-+	memcpy(ctx->enc, rk->key_enc, sizeof(ctx->enc));
- 
- 	scoped_ksimd()
--		aesbs_convert_key(ctx->key.rk, rk.key_enc, ctx->key.rounds);
--	memzero_explicit(&rk, sizeof(rk));
--
--	return 0;
-+		aesbs_convert_key(ctx->key.rk, rk->key_enc, ctx->key.rounds);
-+out:
-+	memzero_explicit(rk, sizeof(*rk));
-+	kfree(rk);
-+	return err;
- }
- 
- static int cbc_encrypt(struct skcipher_request *req)
--- 
-2.48.1
-
+> 
+> Thanks,
+> 
+> -- Steve
 
