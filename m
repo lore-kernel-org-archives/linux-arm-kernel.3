@@ -4,51 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C984EEF338
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:05:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 091AEEEF33F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:05:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/JGyPvqoP3qkZvkcy6WzrnSwSWOAT/ACG21DLRSo9N8=; b=PTW4qAfuPbnRTApkg9/qSwQtXQ
-	j3O5Ct+jtLAfr9X42IYb9f/H6k55D/rx6ozBgYOPrecyyj9H/SyroATlgJEHZajOO25LrUazUsqaF
-	c3kDkl6tXMIgXK2RjRneGXNlakkGX42VZBsqsMA2/RaXm3wQ2l7mLqAjiIM6NKSiuM30mbnZyahG2
-	sByKHe3adl8hLZmvnsr6U9fvCBJLZwh8sHGT0HLU/QYpG/SbQBBEpovM3kcPHhuLK7+byhziTxwJi
-	pyk6xsEoHJHTh6KMa7A5Ctx/+U8fh3H0UP4aLk7L/8WMViiePj5hEuBrqRFLNlE0WqDsJMhde7X6k
-	E2QmdAzg==;
+	bh=dYrI1IV+AVW9ANNtOJwLUFp1oSOgUAnAbvJ53Y/tu6c=; b=tHGe2/uiBT/YofVzIeMH52rXEy
+	u1cfcW905olaKjeOV+s/rBpyIzmYWgU/3LZR9VvqeIAA2GUFhLYnuNbEIcxAjigq867u09iLtV7BD
+	KFyOnci0PiHgb9VOJaeqaVxcAycrcfajInJ1hDDydj2Soy8SZS86Q28USTAPMbvSdqoq4QXpLUQWr
+	c4L6W3CYeZ84vNB+ewbE4L0Z7dtw7uSpcaodqe0v+iG1fprVFyvbkD7iKEqU+6I97mFO7rf/eWxPn
+	7aFZdUOKZpcEWs16mplsEyEQeMo7UDqJ5MOPbQSbdKU9JNGFp9CCBDbR/WM9ZW7w7wWjs2FF0/uH+
+	n23O5/Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy4eN-00000001IB8-3X5E;
-	Thu, 05 Mar 2026 09:05:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vy4eR-00000001IIt-32zt;
+	Thu, 05 Mar 2026 09:05:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy4eJ-00000001HzW-0Vav;
-	Thu, 05 Mar 2026 09:05:39 +0000
+	id 1vy4eP-00000001ICk-2bX6;
+	Thu, 05 Mar 2026 09:05:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=dYrI1IV+AVW9ANNtOJwLUFp1oSOgUAnAbvJ53Y/tu6c=; b=D++a20LqWeguC4hZEXyLuTnmKo
+	mt5I7R/vWJAVXSAb/Weg8FRg+bCSHamWr5ngkPStn7zFIxFU+AXwTEQK3bTHjjvKXwthfVIHoRU9+
+	8Y4aH+IqHINVgGuNNDG9U+wn7NZ5Nd91UVRXqZTueyFdTJr7K5VgSmsYuWUl7AHwaGn2BFAVSVA9c
+	XrkT+DJwRmbm/XZLMv94pvn81wpmQsrkHRE46qbvLBNFuzHdFZnUI+jFXJFVMx1+hBEWKq4FvsRsU
+	civKAo9yGfShbQ7dR9q9iWJ+V+ZS/JC0gIeQ6DCHzqMRlMTLrBDmqG5Y2+CmSH1v2zHf9zTkV/Qwh
+	PATc1lPw==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vy4eM-00000006H9V-0jML;
+	Thu, 05 Mar 2026 09:05:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 44A1261421;
-	Thu,  5 Mar 2026 09:05:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6838DC2BC9E;
-	Thu,  5 Mar 2026 09:05:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D2C0A41E51;
+	Thu,  5 Mar 2026 09:05:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B351C116C6;
+	Thu,  5 Mar 2026 09:05:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772701537;
-	bh=uP3ezNFnJxO2oGz8kzraRalxMbsjayeIpXlAa0HLzJU=;
+	s=k20201202; t=1772701540;
+	bh=YVQvpGLZ5wA3mAnHs4fX4YhU+wAN3umweSoHZOXTpbw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Mi+CmIBzbKeQdabEIDe4sqxkKLNPn7IbpoCDNPNi+xxlv89Zv4SZwkQqXjC1ZRjVi
-	 W/4+W4CdxEcQiK9zsdr7n3u8Q+kObc0cTt47zrbkOi4GPhXNkc5j7Ni4Sq9t20h1Eb
-	 1QHn5Jns8P++/SvucsbzXAGInb6R5G4UNKf6izIJByaD1CBFHK8F3VxWm3zjh9Gn8U
-	 jh3eLS3jGPZ7eQ0JBQtUFJEZMFzRqYGCkjfntmUEMylhUhZwTVBzMBdHQJNxQkSmy+
-	 mkgK3g78mzilKqZGDz0zBqlT5yY/EUWKZ+TPPyVSspwJ6MAKL4e+QHx+jleqLRZ2B3
-	 Psq3n5XBiwskQ==
+	b=DqJjjIiUo7T8edAXBOy6y0f/LpuRACzvTfloTKVQvZ/hiW25Tp6oa+klH4oASgy91
+	 o7Jld+9r4aPNEGBwcW2D+ctohbwbnJEma8GQrAQGspXp6cWgBeYpY2PCt0W2l3SEiL
+	 9qUeXThFkRcZF35TPeqfSSi+2kr+Jx1jeJZFvNvgOubTITJYCQhFcz3x8recvCBsL9
+	 EGWX/674Y9Yg73VV7weFCbgpJOonW0v2IQvCmstHSbq5xEM7FQQdLRwdejXC4Lktnt
+	 cOmE2v1d4Hr+gjDRsuCfCKMI+y2JI6t0bI0NL7QbjfWf8bE7Pk9TI9Eb4RXZQCdk+l
+	 gbPB5cxRjEaTg==
 From: Maxime Ripard <mripard@kernel.org>
-Date: Thu, 05 Mar 2026 10:05:04 +0100
-Subject: [PATCH v3 12/14] drm/rockchip: analogix: Convert to
- drm_output_color_format
+Date: Thu, 05 Mar 2026 10:05:05 +0100
+Subject: [PATCH v3 13/14] drm/connector: Remove DRM_COLOR_FORMAT defines
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260305-drm-rework-color-formats-v3-12-f3935f6db579@kernel.org>
+Message-Id: <20260305-drm-rework-color-formats-v3-13-f3935f6db579@kernel.org>
 References: <20260305-drm-rework-color-formats-v3-0-f3935f6db579@kernel.org>
 In-Reply-To: <20260305-drm-rework-color-formats-v3-0-f3935f6db579@kernel.org>
 To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
@@ -81,14 +94,18 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  linux-sunxi@lists.linux.dev, Jani Nikula <jani.nikula@intel.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1938; i=mripard@kernel.org;
- h=from:subject:message-id; bh=uP3ezNFnJxO2oGz8kzraRalxMbsjayeIpXlAa0HLzJU=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDJkr3a1P2TEnX7XTmTdDSe2K0W07LyvZW1fFQlsr3J5km
- Kw7q7+yYyoLgzAng6yYIssTmbDTy9sXVznYr/wBM4eVCWQIAxenAEzkkThjvY/UOpf+3uy9efsv
- RofOPqZfM79V+ll//nGDmB3HZv2LLTILTihYazGFRSPV2SPpwrntjA0TmwUUdzFafM2czcX0ni/
- SZoKmyPXqeXyRZVlbqjR/PLM0r6uep8aXnBMsf5ml2an4MQA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1320; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=YVQvpGLZ5wA3mAnHs4fX4YhU+wAN3umweSoHZOXTpbw=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDJkr3W12NxfszUkUeOctufRV1teZQrZlhVXHimtM0qbHP
+ Pnh2bChYyoLgzAng6yYIssTmbDTy9sXVznYr/wBM4eVCWQIAxenAExEcBljrWRd4qTFa1K3rWO0
+ CFqkP/XC7Ql2y+7E91/S6DjNbmKen+qxpKU50PP1ZdWUGXfXy7e0MDYcni6qlGbAv+eTZcrcham
+ nYrKjCg06nsd+lbgTXFqk/n6Lc2RE0/+T6ypWPbtR+vJflx4A
 X-Developer-Key: i=mripard@kernel.org; a=openpgp;
  fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260305_090542_835769_B9A97160 
+X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,48 +120,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that we introduced a new drm_output_color_format enum to represent
-what DRM_COLOR_FORMAT_* bits were representing, we can switch to the new
-enum.
-
-The main difference is that while DRM_COLOR_FORMAT_ was a bitmask,
-drm_output_color_format is a proper enum. However, the enum was done is
-such a way than DRM_COLOR_FORMAT_X = BIT(DRM_OUTPUT_COLOR_FORMAT_X) so
-the transitition is easier.
-
-The only thing we need to consider is if the original code meant to use
-that value as a bitmask, in which case we do need to keep the bit shift,
-or as a discriminant in which case we don't.
+Now that all users of DRM_COLOR_FORMAT_* defines have been converted to
+the new enum, we can get rid of those defines.
 
 Acked-by: Jani Nikula <jani.nikula@intel.com>
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 ---
- drivers/gpu/drm/rockchip/analogix_dp-rockchip.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ include/drm/drm_connector.h | 5 -----
+ 1 file changed, 5 deletions(-)
 
-diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-index fdab71d51e2a71d644f128b1bf1c39429b4ad52a..96bd3dd239d251af3d5a7d0fbd4dd74942d44f2d 100644
---- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-@@ -169,16 +169,16 @@ static int rockchip_dp_powerdown(struct analogix_dp_plat_data *plat_data)
- static int rockchip_dp_get_modes(struct analogix_dp_plat_data *plat_data,
- 				 struct drm_connector *connector)
- {
- 	struct drm_display_info *di = &connector->display_info;
- 	/* VOP couldn't output YUV video format for eDP rightly */
--	u32 mask = DRM_COLOR_FORMAT_YCBCR444 | DRM_COLOR_FORMAT_YCBCR422;
-+	u32 mask = BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444) | BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422);
+diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
+index 227f6190438679104f5336be088a73f4529c15fa..562f6da90facdacc98307c50177792e26f2dece6 100644
+--- a/include/drm/drm_connector.h
++++ b/include/drm/drm_connector.h
+@@ -722,15 +722,10 @@ struct drm_display_info {
+ 	/**
+ 	 * @subpixel_order: Subpixel order of LCD panels.
+ 	 */
+ 	enum subpixel_order subpixel_order;
  
- 	if ((di->color_formats & mask)) {
- 		DRM_DEBUG_KMS("Swapping display color format from YUV to RGB\n");
- 		di->color_formats &= ~mask;
--		di->color_formats |= DRM_COLOR_FORMAT_RGB444;
-+		di->color_formats |= BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444);
- 		di->bpc = 8;
- 	}
- 
- 	return 0;
- }
+-#define DRM_COLOR_FORMAT_RGB444		(1 << DRM_OUTPUT_COLOR_FORMAT_RGB444)
+-#define DRM_COLOR_FORMAT_YCBCR444	(1 << DRM_OUTPUT_COLOR_FORMAT_YCBCR444)
+-#define DRM_COLOR_FORMAT_YCBCR422	(1 << DRM_OUTPUT_COLOR_FORMAT_YCBCR422)
+-#define DRM_COLOR_FORMAT_YCBCR420	(1 << DRM_OUTPUT_COLOR_FORMAT_YCBCR420)
+-
+ 	/**
+ 	 * @panel_orientation: Read only connector property for built-in panels,
+ 	 * indicating the orientation of the panel vs the device's casing.
+ 	 * drm_connector_init() sets this to DRM_MODE_PANEL_ORIENTATION_UNKNOWN.
+ 	 * When not UNKNOWN this gets used by the drm_fb_helpers to rotate the
 
 -- 
 2.53.0
