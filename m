@@ -4,127 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94DD6F3D311
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 15:42:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAECCF3D31A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 15:50:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JhBL+uNCJn+PCrR4JmCAN0bMUELHeDdg11rc+UKOp1Y=; b=MBZW6wI7RzGsZEb0b4O9+YGh9K
-	3CUb3cocX5CQ2AfBImb/xHYdz++9uud5GRU5CdJJOW7HNCryIErHr/0n/OcYftt6lzimEoQ4WmLh8
-	PKJ25v7GvH5irVNoqxAg1EBFIDnI3ynVGUP3dtln4/T8ETKJqDrbFbb6SvySeDRxUdJbvmjTKOwOk
-	rgzM2b1KW+ack3b2j7N7+gUdfPP9/Ajos+PM8l/FHXvmaAH5xxQZ4HEL3RzPPDt6kZwtHcFts0UZ8
-	V1P1/TOrMSd9Svx/PrSd0YGWYQ/r1791BuLB2ujke3Xa5xcTwysTn+iE9d5OWN1axwshCjBoWA8Xt
-	F42Kgjdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b+pXAeMXzWroKCOYvz9KbDSldPuur+STmUT37F1ZplU=; b=yUqZPljVc0nS3rbhbNFDTeXvap
+	2dlPHWURKf1N02PQwMTxui0hJgsY/Ui+S7kiB+b4WgKm6P7rgllRRNQVn8JDVk99Gk0GAC2JL6lr/
+	yXY7cLt9fxewr1ty9SY/5bj1BptK/g5LHKoNqjBIQTQiAnRvLgWyWOfm77lKbLPhURDa0k1aLv68M
+	2a5gAFCg+th4ZaJLKajZ9uRP6P4CpryDKEwcgkAt7e9WKPna/HED781KlkP4H5QbDK6sU4mB3DbTR
+	qSTrBZNqHWURO2D5ljNBGhXAAyrMlMaggGAc79Rk7nPmzqBjjUAkaixsoXFmA6PnE/Uj3o1J+FZX3
+	G555U/Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyAqM-000000029AL-2tWW;
-	Thu, 05 Mar 2026 15:42:30 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vyAxf-000000029ff-2yFA;
+	Thu, 05 Mar 2026 15:50:03 +0000
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyAqK-0000000299f-0JYN
+	id 1vyAxc-000000029eW-1jy1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 15:42:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aD6osQQGYtkyrP5YXcsZmx4DaSh4WD5In9xANHuUMoIZA8F7qrOq2kK7rNPMQZGdVoLeLTrnuOasmv9vQcdUX675MbJJOvJQHFlfg8l66IYlOd/WViAJ7LYEBIYQL1vcmzDaHwMpNB/DmdWwoyiWYZX25TtYNL3o5AepapgoTFI4sVovpHYPr7q+avJGeKjKINBFDjDPS8I47vhj33QSlkX7QlL9tk7WlNN0GyOoZg0mxQXXzQUk6TWqqfJxECAEjrlh5mgcbwMis4FTpfgG7gRhBBh3JNtj16sA6iD0xltrgSWZZ8L5CdIFj112c54MHpVCpgrw5MAImToi3UhvlA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JhBL+uNCJn+PCrR4JmCAN0bMUELHeDdg11rc+UKOp1Y=;
- b=X1NJMziVd30tSlH8qCaDd1Yy7u7j/xaIyPoSVJV604siENfctcgGygQSXNdO7NcEk1eb3pRuPG35Ou/hFu5MFZ5zUXJ37SHD0gdHCYWy86y6NN6PuOTQReyVV+BcLHxvjxcsOIMQ7NldEUkQkwuykMQaa50R1HBsVpWOjbWsbDi+7Z45if4g7hedm25l5kaStZbTV2vMto3H7yGyIsye0QiR5tvzIQVZfWekAsWexab1TzAqN7j+8PaeQI7Kv4A2G4sT2wafIAe7EL1DllH/vfz8CdF7ICbO09q25T2WG9lZerLqrGhG0Ejov8y850ZIR6jGkCO3kZNnWZbs4awzMg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JhBL+uNCJn+PCrR4JmCAN0bMUELHeDdg11rc+UKOp1Y=;
- b=j7xwELHCtyDpJufbI9AmDPznNepybPeNdKjFWCW15CRwsWn/mvdDfMHKHJfwYMFAiqA+X/TaLZ+MYuWEl33YogXkjARsyNdgE2l89TnIr3T6wt/eREBa9y8n1+8kV/O2ni3o+Zd0DJf8NABnxUVxzoWTmPcUv9kYwPV8JrwHjZsTFXO2Z0P0Hopx8LnIMexho83Tmy2ZHOIAAa8psK5+wLarqOzF53JndqT+Zda2/JBH7VS5VXeszHnUmYO3fAkcwlO3fftlqBuGqT/jIZzRdE0VSzPG6wu+3UIJnjK/RbDFcxtv6GPW/FGDqbPkL9B3hqPAZjpT2ypCbHi1SdjO5Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by PAXPR04MB8349.eurprd04.prod.outlook.com (2603:10a6:102:1bd::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Thu, 5 Mar
- 2026 15:42:23 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9654.020; Thu, 5 Mar 2026
- 15:42:23 +0000
-Date: Thu, 5 Mar 2026 10:42:16 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Xu Yang <xu.yang_2@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	jun.li@nxp.com
-Subject: Re: [PATCH 2/2] arm64: dts: imx943-evk: add Type-C node and enable
- USB node
-Message-ID: <aamkWBGOPDlc8Bxu@lizhi-Precision-Tower-5810>
-References: <20260305075527.1116943-1-xu.yang_2@nxp.com>
- <20260305075527.1116943-2-xu.yang_2@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260305075527.1116943-2-xu.yang_2@nxp.com>
-X-ClientProxiedBy: SA1PR04CA0022.namprd04.prod.outlook.com
- (2603:10b6:806:2ce::17) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Thu, 05 Mar 2026 15:50:02 +0000
+Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-5069df1de6fso69223521cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 07:49:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772725799; cv=none;
+        d=google.com; s=arc-20240605;
+        b=GXQUtTt4CC6l8Jrvz5rao/YzrB2KBjHzUwaL7bnzu2JtiBZJce3acO8x+nmJ7f7UEg
+         oHJED1gZB4/8NUQDP+76Q1P2UBa3FSkRl0CXmHVwkWI9/fWgvV+pg+0HHr1xLUodNTjS
+         pBtf4QMQ0PayIHbQiq05y6aII6D539d0lTTMt188a7Usq0jd2jkEK0WAhfBKW19yF48t
+         Yt53ettNo94Cn5BePNnlTfC6s6dAM0oTvTFPrNqwt19svR9clLzR5E4jUEUNQGoZd+z9
+         0notwOTJrWumsva2KOKSmQ58VbcGJU53vEbCN1CJo3hfQaWVCieXBS7m+Fq9QCuYwiKI
+         7NXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=b+pXAeMXzWroKCOYvz9KbDSldPuur+STmUT37F1ZplU=;
+        fh=iS+jKiPytF0hOvznV9ffkhShosrSH5VU3IaqcXZRPsc=;
+        b=KkSXMPcKa7xKincAFIA3v0P3b87G4cB0vI8lqr0OTidXFRpna/jVLTG6IEpnfAaMtY
+         GW31bUb9euvgy/4bomCFw+eNd3Z2hj8MFZ4WttxpvTVqdYCVFDcSoJ5j3vfLQhvflxfP
+         bxAMCE6jFYsJnvzVaGvT3ysNmcKOTLswvyVIIvd7QNakV+2L+REx+c0qHsyARNoxvHHQ
+         x0m2QZSi+ZDijGVE6s21i9qmZH9aqYQtmNAQyOre9jGXm30LLcytiGHBG9qSnenQ5AwV
+         FRxBsJdVTBu+iL6nih9QKo3JUjWuB2vqbMExs96KUVYZ0hoAQ2H4gY2tpu3iBYfb4sZt
+         FxSA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772725799; x=1773330599; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=b+pXAeMXzWroKCOYvz9KbDSldPuur+STmUT37F1ZplU=;
+        b=H1EKObGqU8Ac8iL6HtM1mWLw2YawKR2xpwcJ9XCB0Wjv285Rj1tZKrNWPF2pvmF6Cg
+         YE6O09eciRAzeR4gusRSKmVPquCfhlmTmrbDfLHJulbNtrkccdqSOZjxJWZA0K5lKlYz
+         gDcEvz4Q+HW8UM9N/+RUDAE3+UsO7UO4Fazdq8NO0aBCZ3tmghA6LD4dOmIWny+5O1C7
+         ptmGZOaB3wR+zahfe+WyqWN5MIjjUc29ghe6cd75JmoLSwMLilqc5JvOWs9FDEn/MCLT
+         qxj5Q67DoKHr7goiky8EKs/7IEZkq7uObmHCxp7bN7TlSjYXSFl/bHyNk0lIBkJi4f9s
+         VWkg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772725799; x=1773330599;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=b+pXAeMXzWroKCOYvz9KbDSldPuur+STmUT37F1ZplU=;
+        b=HCYt9Lgj0kQV4KsfLlZA3fKYK2VjKSBfbTeULHa8H1iXzHS6TjnYMLD+xWAxJCIniI
+         hLPrO7mbJ5NmV2jX7hcPNWR+cy7Hp9Ja68WIkbutmsCn0DHHJnT4oUnnKyVT8abWe/5X
+         Ym1jCpvnZmiuYDRLvjxkkxWAQqTVztodm8M0L+cgrOPJphCS3yPVnlSE2iwy7DsalvPz
+         UxHWTiczVf9FaLg9D16c/Qiw6rX1EY+wXkY2meGsCL7BpJqgsl/mi7HXXRRoAsclFzFj
+         obUQ6o4ELdJbKpUEK+Ys+j5E/6LNh5oD02o9xBcfLSRKsUvhX7SyemnVlPebTxOG8dqI
+         d3IQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUFq9cMvJ66KJ+OPdUb0jl1wwNcIehVqyovApPRKRqv8BTVIVxkxhQ5X/rw/N2KZRKXfbJPthxjA3LuKndxuqRq@lists.infradead.org
+X-Gm-Message-State: AOJu0YxA4uzDYwrzAhEJYOITLdQrYYhKmGd7p8ha7jWkB+uLRFATnmF0
+	NgV4VZiWAUSm44FcfRgF3tpqeySNcjHhSFkUSa77ZXZFBbAtxZHL1K/DDOibSRn2LuUzSw2OLHr
+	1lZWqVrPHF5pwlcflnMwje3Hdwa9OMgs=
+X-Gm-Gg: ATEYQzxXEVN5/v+gk/Ua98kD39g+3GTqA+axEQ9qNSzG5tcCzGf/rbM8OtlvuqVuUnI
+	6EHwAhyOiWKNIucWFxFqre0m5ZaqufrtNRZGANrEe0DNyTX933mAOQyMJ6E+72MmdGG0tlCs6+A
+	V/gyso2+IR7u0cjoj8bgaeieTmDNjHytkwTIZ9qNHcanw7yKedZRxetWuO99ot+SXjrJPZSeElc
+	P3aIVfvY9RKW9hcFWkorw/JjKOdXdbOVBBJEuiV8ATdfwxY+KFhUCmJVMwOvHerNS/FqoNCYCkh
+	W2lTJYtZlajrBiDoJvqmqZX7yA==
+X-Received: by 2002:a05:622a:1484:b0:4ee:2510:198a with SMTP id
+ d75a77b69052e-508db38c1a8mr76337861cf.39.1772725798828; Thu, 05 Mar 2026
+ 07:49:58 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PAXPR04MB8349:EE_
-X-MS-Office365-Filtering-Correlation-Id: 848eff75-216f-406f-0fe5-08de7acdcb56
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|7416014|52116014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: Z4hWe5ZE8VZWWpEwDAS5o7pewu5CwndLD8EOjQwfYfYYWLYtA1GdIts8xly+qvfBwny3J3AEzje16AIhrFVchocxK5VJl4++7KfpL/S1BrxVpxUUQ7oiQdhdCP/AFoiRUiog9fMSNayYV4Hd5/35CWShG9lAmkpF3cpgeXXWHvG1Av77RAuXzPa6c4W+I26cqk4VmtUDs1oo+2G+iQFVgEeqOqhInyvFsoCUaL9iP5A5ukzN7J5i50uBtVl88UtEomtw1+c4x+uiRgg+GVA4wqs8dXkxQo59buee6QZ+hXF/UN8iUwcaUBA8faj9ePGrG3/QD6gxp6rbX9XLSWPMgOhsHtuwaK5oyxHV9of2XeeCzZYLasxyWStyeVrpjwHSRxAbz4afJJXjLP2isO79atvyiBMmTRwrvea8Sq6pklglARgF2CkKOwmTQasvbSbDCGepxMoz7m6skEoDTIwboKAwUAyeZM3A0tsxmRlGfE3iqJIluLzMtXcjRTInJkdRy7pOcG/oakxvT43I5/OZwWkZbxuJ/1xXJTnu0B+EjDE8E8IpI8ppWEDt94GTeytrFzkrmhtYJ5c9ebvBgADeZMXfPD+yGYhZbxNzY59VgCye+eiYFTZxYVumj/rCVaibGtUnAfAT08x2FO2UIklBhFv/DpQxlccAzaxBF9rT1dRuwJEaBg+3Q3C8Bq3kSlnqt6/GI+dM5aJkacpuUSvt/WgTxEROkfO4aMjEEZY6sB3m6XN67mjOdvrcsVcJfH8gp1m2tEUWABYM1Y9wuCqBPILvQVnaedODWLiyDV0eQvk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(7416014)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?83E9xJfIJ4a2zHuCcsH2Hdzd4DfSOfTwnmgshSThSpJQlGU3LVkHST/KQrag?=
- =?us-ascii?Q?HJr0amnLI8QOcmQL1nfngdm+F+7SWXtVzRLeAyKF1Cr+H4j4LD2Dice7m1yt?=
- =?us-ascii?Q?T4rmGeWI4Gqxhu3envOPlltJ4NHwvC45UtH0UIrRiijI8DGef2LeCn8nCJek?=
- =?us-ascii?Q?fqlleECytn/JkLkhEl9+I263mh0nsQH7ZpEhinEkAEPyt8TGnfFUI/qlwXo1?=
- =?us-ascii?Q?U5n1i7FqtJD0fDVN/yP6bvf6iM36LZ3cMuzf63RIVIk9VlgkY0wVk8Tu5aW3?=
- =?us-ascii?Q?DUYR4MfgS6e/ITU4mf14QGGn9TDO6mhAURaKDDWQ4heXdkuY8kODFgyOwHNX?=
- =?us-ascii?Q?Vs51tLfo0Mi8d2G+XgWY2EoPAjlM2NwlOIHv5ipnc/qfGXFZkmHNQIA8ZXv6?=
- =?us-ascii?Q?1WAiugb7G3REMGSmJGxbK1hHrzijb3x5mV93FYpufF1ItmnF2mA3Iu4SM3be?=
- =?us-ascii?Q?zV2ZpKNAnInl+h7B6eGQA1ainvYMB7HbSLtuW0iNiKrMjoqFQpoXQMm4N5Dh?=
- =?us-ascii?Q?Hn9hMlMhXgSgBZrnheJ2fQOlH+R53j8gE9qEHQA3vZrwU4k/wKNJU7Zxj2+V?=
- =?us-ascii?Q?nDbxR7KRYqWPlbP3oW1fXZUk4WShLAI7wL04UvOEcoxYLgg4muh+Wcl3XKGN?=
- =?us-ascii?Q?Cnej4//z5tp4BPTkSljxGUmoo6HJO2Il23G2P4x0Beo7YUU7fTGACezcfDW9?=
- =?us-ascii?Q?fFbDeJGnavhGHSish69gbuZs+eIpbmQkVZLQNiR+XG5R2eTHyNjpWKVOewOy?=
- =?us-ascii?Q?K9gq3Iku/k3hcU8hiM2TIrhGRuC2bXGOc/qxfyT/j8t+wF5TcHrBynU4zVTP?=
- =?us-ascii?Q?sTtJ0p65iWmbz8KJs/5vEokFLpMjPdFY4rs+Jmtd79Tj1IrKqVF3Qe7wC1F6?=
- =?us-ascii?Q?TahvH/4nOc0kvl6K5JLD6ozf5GyYJ3iiE1wz24Jp0zc6dyLjU6EEI73GRpLS?=
- =?us-ascii?Q?3TW+0OH9d+9Bd4Zf6f8cNDCKJ+ysNhpa61joBSfZtFMdNREMl5XEmPB3caNf?=
- =?us-ascii?Q?fJKH7pak107tUrJ6m0fNmbZBkt2zYscKNrs4NHbVYzl8vUNZ7w3pS7kM+Uzt?=
- =?us-ascii?Q?hs74WbfSp6EeabjDW4GmAEMaORCU+dZOYqioNdFlyclaz1UxqGl7MG0Xv51G?=
- =?us-ascii?Q?dfQ8yc5iKGiGm6sD1LiT70D3pfwHaP9j3uIxHa+f0VQ0ZMj1JiwaJgdUFoku?=
- =?us-ascii?Q?EqAtBLKqaDlNBu9jVLFFAXooR8BEQJIOlODbIJSwqKaEcyy0rmOvCnM0hXn3?=
- =?us-ascii?Q?myn71d9br59RPYif3X9Fn5W4wvj+t+cfVMVDP7ZfCGqLBisJHJajzhHPUz4I?=
- =?us-ascii?Q?msxTImzMSlHifjSPCnT52IZ4qYV1AKtdWY/aUEi8AXJU1JWAcJNF9gIPa7bO?=
- =?us-ascii?Q?bX79cM546PqnlY3EClKwy8ptyD0vlwZWyl9dJvcq8A9kY+CAJf5iPpJpsIlH?=
- =?us-ascii?Q?igzOWfRAE0rnG7ZMS6RL1JS74gQ7AeE0mzJu0r4cU+XwTA1vsOQcfLoJVFQa?=
- =?us-ascii?Q?6suiinJgg6oTZU0TsgBzv6xBk7wJ9EOdju2I+9TC+5w6gNz3Lalex4EU0Chp?=
- =?us-ascii?Q?fuByNagVoVe3xUpGEBR3IpUW0o1QtiK9mNTsVc4QOuprKcnfwcTyLIX5Uag5?=
- =?us-ascii?Q?t7kCFm7tfNQ3UrdeUgVDvrDH4dnCJ2//C03d4A4ybD8x7nX5b+/cVDIuWe+E?=
- =?us-ascii?Q?x+9E8f3vIrzguniCBc4cnpbg0eH31cTvk5a8cvsq8JxStqWHNmQhBN1wGPgN?=
- =?us-ascii?Q?kxh6PYeOxA=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 848eff75-216f-406f-0fe5-08de7acdcb56
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2026 15:42:23.4183
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2xAJQ6bHEYdgr+EtMjRey76SUW4xxHOJcgSGqJvTUIh/sYewQEp7ZMYsvglah6cYG+l66LnEpqXfqPq5U9cehg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8349
+References: <20260304192417.818211-1-akkun11.open@gmail.com>
+ <20260304192417.818211-3-akkun11.open@gmail.com> <94465ca7-b3dc-4736-9d58-4024f2494e54@collabora.com>
+In-Reply-To: <94465ca7-b3dc-4736-9d58-4024f2494e54@collabora.com>
+From: Akari Tsuyukusa <akkun11.open@gmail.com>
+Date: Fri, 6 Mar 2026 00:49:47 +0900
+X-Gm-Features: AaiRm521wTMvM9tiwSeKP0vcH6dUDJ_V9_ra6wgn6PHQaKXTEdU0XLC1ALsdj4A
+Message-ID: <CAKr_iV5cmE-GBp679Q-=bZi+186BvMvD41ctxnxNC3mTKEzuRw@mail.gmail.com>
+Subject: Re: [PATCH 2/2] arm: dts: mediatek: mt6589: add basic support for
+ Lenovo B8000-F
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	matthias.bgg@gmail.com, sean.wang@mediatek.com, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_074228_147066_BBC09F7A 
-X-CRM114-Status: GOOD (  15.91  )
+X-CRM114-CacheID: sfid-20260305_075000_463471_EA0E0020 
+X-CRM114-Status: GOOD (  24.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,149 +120,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 05, 2026 at 03:55:27PM +0800, Xu Yang wrote:
-> This board has 2 Type-C port, one has USB2 capability and another one
-> has USB3 capability. This will add Type-C node and enable USB nodes.
+Hi Angelo, thanks for the feedback.
 
-last sentense change to:
+On Thu, Mar 5, 2026 at 6:46=E2=80=AFPM AngeloGioacchino Del Regno
+<angelogioacchino.delregno@collabora.com> wrote:
+> Okay, but this is just a simple framebuffer and a UART; while it may be i=
+n some
+> way useful, there's already one device based on MT6589 that was upstreame=
+d with
+> just a framebuffer and a serial port, but then didn't receive any more su=
+pport.
+>
+> Could you please extend your efforts a little and push at least some supp=
+ort for
+> clock controllers and power domains for the MT6589 SoC to make it at leas=
+t barely
+> useful?
 
-arm64: dts: imx943-evk: add Type-C and USB related nodes.
+Your point is valid. I saw similar minimal Device Trees in
+"arch/arm/boot/dts/mediatek/" . Currently, I am actively working on
+MT6589 kernel mainlining and Lenovo YOGA Tablet support, so I submitted
+this patch as initial support for this device.
 
-Add Type-C and USB related nodes. There are two Type-C ports, one is USB2
-only and another is USB3.
+I will send patches to add the following features in the near future
+(preferably within this month):
 
-Frank
->
-> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx943-evk.dts | 92 ++++++++++++++++++++
->  1 file changed, 92 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> index c8ceabe3d923..fd67cc8e919b 100644
-> --- a/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> @@ -6,6 +6,7 @@
->  /dts-v1/;
->
->  #include "imx943.dtsi"
-> +#include <dt-bindings/usb/pd.h>
->
->  / {
->  	compatible = "fsl,imx943-evk", "fsl,imx94";
-> @@ -230,6 +231,48 @@ pca9670_i2c3: gpio@23 {
->  		gpio-controller;
->  	};
->
-> +	ptn5110: tcpc@50 {
-> +		compatible = "nxp,ptn5110", "tcpci";
-> +		reg = <0x50>;
-> +		interrupt-parent = <&gpio3>;
-> +		interrupts = <12 IRQ_TYPE_LEVEL_LOW>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pinctrl_typec>;
-> +
-> +		typec_con: connector {
-> +			compatible = "usb-c-connector";
-> +			label = "USB-C";
-> +			power-role = "dual";
-> +			data-role = "dual";
-> +			try-power-role = "sink";
-> +			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
-> +			sink-pdos = <PDO_FIXED(5000, 0, PDO_FIXED_USB_COMM)>;
-> +			op-sink-microwatt = <0>;
-> +			self-powered;
-> +
-> +			ports {
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +
-> +				port@0 {
-> +					reg = <0>;
-> +
-> +					typec_con_hs: endpoint {
-> +						remote-endpoint = <&usb3_data_hs>;
-> +					};
-> +				};
-> +
-> +				port@1 {
-> +					reg = <1>;
-> +
-> +					typec_con_ss: endpoint {
-> +						remote-endpoint = <&usb3_data_ss>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +	};
-> +
->  	pca9548_i2c3: i2c-mux@77 {
->  		compatible = "nxp,pca9548";
->  		reg = <0x77>;
-> @@ -680,6 +723,12 @@ IMX94_PAD_GPIO_IO47__SAI3_TX_DATA0	0x31e
->  		>;
->  	};
->
-> +	pinctrl_typec: typecgrp {
-> +		fsl,pins = <
-> +			IMX94_PAD_GPIO_IO44__GPIO3_IO12		0x30e
-> +		>;
-> +	};
-> +
->  	pinctrl_uart1: uart1grp {
->  		fsl,pins = <
->  			IMX94_PAD_UART1_TXD__LPUART1_TX		0x31e
-> @@ -821,6 +870,49 @@ IMX94_PAD_XSPI1_DQS__XSPI1_A_DQS	0x3fe
->  	};
->  };
->
-> +&usb2 {
-> +	dr_mode = "otg";
-> +	disable-over-current;
-> +	adp-disable;
-> +	hnp-disable;
-> +	srp-disable;
-> +	samsung,picophy-dc-vol-level-adjust = <10>;
-> +	status = "okay";
-> +};
-> +
-> +&usb3 {
-> +	dr_mode = "otg";
-> +	adp-disable;
-> +	hnp-disable;
-> +	srp-disable;
-> +	usb-role-switch;
-> +	snps,dis-u1-entry-quirk;
-> +	snps,dis-u2-entry-quirk;
-> +	status = "okay";
-> +
-> +	port {
-> +		usb3_data_hs: endpoint {
-> +			remote-endpoint = <&typec_con_hs>;
-> +		};
-> +	};
-> +};
-> +
-> +&usb3_phy {
-> +	fsl,phy-pcs-tx-deemph-3p5db-attenuation-db = <17>;
-> +	fsl,phy-pcs-tx-swing-full-percent = <100>;
-> +	fsl,phy-tx-preemp-amp-tune-microamp = <600>;
-> +	fsl,phy-tx-vboost-level-microvolt = <1156>;
-> +	fsl,phy-tx-vref-tune-percent = <100>;
-> +	orientation-switch;
-> +	status = "okay";
-> +
-> +	port {
-> +		usb3_data_ss: endpoint {
-> +			remote-endpoint = <&typec_con_ss>;
-> +		};
-> +	};
-> +};
-> +
->  &usdhc1 {
->  	pinctrl-0 = <&pinctrl_usdhc1>;
->  	pinctrl-1 = <&pinctrl_usdhc1_100mhz>;
-> --
-> 2.34.1
->
+- Clock
+I wrote drivers and they seem to be working.
+However, some parent clocks are unknown.
+
+- Pinctrl
+I refactored it to common-v2, paris and it's working.
+A little more work is needed to add support for R0, TDSEL, RDSEL, and
+device tree binding.
+
+- PWRAP and MT6320 PMIC RTC
+PWRAP is working fine. This seems to be almost the same as MT8135.
+MT6320 PMIC has confirmed RTC operation, but it will take a little more
+time as I haven't written the regulator driver yet.
+
+Additional time is required to add the following features:
+
+- Power Domains (scpsys)
+I've written a driver, but I haven't checked that it works yet.
+And, some features are missing for full support.
+
+- eMMC/SD (MSDC)
+Likely compatible with "mtk-sd.c". I have written in Device Tree, but
+it is not working on the device. It needs debug mode.
+
+- USB
+Almost certainly compatible with "mediatek,mtk-musb" and
+"mediatek,generic-tphy-v1". The device is not recognized by the PC,
+and there are logs saying "couldn't find an available UDC".
+It may take more time.
+
+- UART DMA
+Boots without any errors, but I can't confirm its operation because
+I haven't soldered UART.
+
+- I2C
+I don't know the details, but the clock is supplied from the PMIC,
+but PMIC clock driver does not exist. Fortunately, MediaTek engineers
+implemented MT6589 compatibility in the I2C driver (but it is not added
+in the MT6589 Device Tree).
+
+- I2C devices (only in mainline)
+Touchscreen: syna,rmi4-i2c
+Accelerometer: bosch,bma255
+Magnetometer: bosch,bmm150
+Fuel Gauge: ti,bq27541
+Battery Charger: ti,bq24196
+
+- SPI
+Like I2C, there is a driver (it seems that the PMIC clock is not
+required for SPI), but  I don't know what devices are connected.
+
+I am committed to making MT6589 and the Lenovo YOGA Tablet fully
+functional in the mainline kernel. I will send these additional patches
+as soon as they are ready for review.
+
+Best regards,
+Akari
 
