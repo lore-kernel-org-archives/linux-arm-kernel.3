@@ -4,102 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F513F47CD0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 21:04:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64A61F47CDA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 21:07:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yLUdw3G1Oa8h+gUfTU4WhFpXDYDSf42qjb0ihw6v2cM=; b=yHMWuEl1z2LccEOBBPYrJwrdvJ
-	0SHMeH0X3jHEfn3+zPwroTfsDbalbGGBQtSipxVH4TFiHA9Jmpv5c7J6kiN9o9psTFwuqGOJG20jh
-	YtV7MVtuYR+gOn/bu+i2BDeUFvnVJ/CHHrqT/eH2A1AwAa40fkA1kbUBxuwzBuKOnZGE4Frx6ClUa
-	YgHKOFwaXQ9ITy8kPh9WIl7mjQB0wFoX8AGzkki4K7xsQKJs2GaHlUHtDdZ9bmYWGGUNwVhaJt0/X
-	uvLtg86bXiv9spDajCdLegwj+9MjCTBPXlwfy2LQ0kH8jDbsGOaGCeIrYxAJg3VRyaezNJXi2OH3D
-	Wb9/yFrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3EctW3jvFPsOk0/EIuOkO1Vp33FB79drmL8T3kLvsdo=; b=a6PPh/aaED3rh7gVPG/h4mG0n9
+	NBgLr/zVK4VlK3s+iqhU1S1HZ7GxZco3GV0TVTNeaCdX2Q4pWJUEoWhn9LO9fpdhidIB6YlPwvODU
+	0PyVGydOYVzjhe21aC0jze/p6E+HAJyG5rKlc1T/8BT7PtcnwCpYAczjOpeaPhOLgBo8PN3cabPjO
+	kKMEOMwSRl2YpF3/ZdZIG88zxi2jlxisLO7hsHaB6UxewcpRrOP55sHWbBPCyR8HM3Mu9f7ovfTy7
+	bhy+a/VVwWNdpNU6gMWNPI+mgHGSsoWeQkrk96JlFHgOwzPqCryXg+eTLj1p9LNAgpNQjwJmYS5Yv
+	V9b5EkUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyFrR-00000002YSF-31j4;
-	Thu, 05 Mar 2026 21:03:57 +0000
-Received: from mail-oi1-x231.google.com ([2607:f8b0:4864:20::231])
+	id 1vyFuK-00000002Z13-2l1u;
+	Thu, 05 Mar 2026 21:06:56 +0000
+Received: from mail-southcentralusazon11013065.outbound.protection.outlook.com ([40.93.196.65] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyFrO-00000002YOO-0496
+	id 1vyFuH-00000002Z0j-3r4n
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 21:03:55 +0000
-Received: by mail-oi1-x231.google.com with SMTP id 5614622812f47-463960df4f9so5738168b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 13:03:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1772744633; x=1773349433; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=yLUdw3G1Oa8h+gUfTU4WhFpXDYDSf42qjb0ihw6v2cM=;
-        b=IYcPaCa6o93cnLGB4LtKydJqyKpEjDwqqJorWf9GxY/kJ1j/GglYGusi+ooTAJ/1jW
-         iw3mVM6ev+5kEVog9qQymjoa1QvGairVq0hHsBnMI6T/jCWAsiZC77QBTLalZTuTaa0Z
-         D+f86V0uDjngcmpwoCnlThkLHPaFKkTZesFp6HvMoOtzhmjPaNCTXaHieYbgcSb9jHpc
-         r3WIS7+xf57Pd4X/JyMFmcpKuuELPPvkBob3rLtezUYV8D19pc70YZNdGqLTNRUZO1HL
-         +FhTz+k7alaT3V3tcnikbhQXOhtYXOs3eTjWQ6XigOt5VNgCjYUopTbe4Z95f6B2V74q
-         V70A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772744633; x=1773349433;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=yLUdw3G1Oa8h+gUfTU4WhFpXDYDSf42qjb0ihw6v2cM=;
-        b=ID4F6jLVCi1s248zjnX/giHLt/uMK56E+DHglnLtaSqBp989H3o//fAEA+XdbzYiio
-         ESu4P/5U4WkvOagTD3VBxsPNipurAEiv5fErsaQ35vaWAanhc/PaNav1f40Am+PO10JL
-         IgVzHtcquvTBQ+5192GJU1BRZMqrbYA4OuftU/FbM0YPKffrzvcnPmmGONDamMnwQGH8
-         UaUgXkj0cQy9GRbUO57ZWl9Rzc18EuDSK18hqur5z487QN9dr0LAT+IL5zbZdg63UrQ8
-         4sSeg38tOYyyyPJNq0QqZUy4QrzLa1MbVlfdRbkpeZoqL8895qZ4PULfOMVNRb6DnTfp
-         Ry5w==
-X-Forwarded-Encrypted: i=1; AJvYcCW2JaulxgV2hG/FNTh6C0hoLhSRxQ7nJPL5pwZWq8SEeTjQkbPdNA1OdkFzQYkQLO/wI2CDuEw0SaldQfUbVrca@lists.infradead.org
-X-Gm-Message-State: AOJu0YwySt3VNfoJwZ3WnKtQL7TZcMGAdx7g0Ugwmt+Qs5lO/eWHFbH0
-	VarvU5Xn6qwsD7R2kJuPs5S/Tf1BPFUAyvqZwXfJgt1rf8InsPPHua8+NLi6Ev3Vuzg=
-X-Gm-Gg: ATEYQzx2FRIEJoHG0kJ66fCQXigydMRreZQnEFQGMfAdZG1dX3NNS5KgBKr/Iw/6NR6
-	x44kHD7RIno4R0aRbY3YFH+qS4xLVxjdGbwTYtbq+muNLoe7xcTnJiAI99FA3VyZSNpQ9tNSAxE
-	3sg07jGmxQndbtZfzHhjDIOiLKLSlYM0cBNcZQvic6whwXYVWpEfRWP9eGHSI6m3807vZcOed7s
-	Vx/UIbLCN3bAiWQAGnqJRM0K/d0fPkPYAaWcIoSUzuNUiz31S4fNoCLWstauapfO1IfrQrdd/JQ
-	i3EQcXTn9/5CaSa76761Dv4pzFVoDv72NLmmy7DMtOhOIsbpW8uY0I8t8kFv6J+9Go6CMDYcS/h
-	voGM6A5939Yt95JpgUEmFfbVQpXw8OnmCF5DdU++1lwPCs/6+nr54niErMGwUMCHcAjmQ6nNJdI
-	5/lFXRvwDgj9yd7prptQT5vYoP/yjG
-X-Received: by 2002:a05:6808:2f19:b0:450:5e3a:6f1a with SMTP id 5614622812f47-4651abba7b9mr3988299b6e.20.1772744633230;
-        Thu, 05 Mar 2026 13:03:53 -0800 (PST)
-Received: from [127.0.1.1] ([2600:8803:e7e4:500:874e:e775:4f67:b3a5])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-464bb5d0a8csm13729227b6e.14.2026.03.05.13.03.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Mar 2026 13:03:51 -0800 (PST)
-From: David Lechner <dlechner@baylibre.com>
-Date: Thu, 05 Mar 2026 15:03:18 -0600
-Subject: [PATCH v2 3/3] arm: dts: mediatek: mt8135: fix pinctrl node name
+	Thu, 05 Mar 2026 21:06:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=geM6CfonyePPkHgXejDbROHz1TMUOjecyxNg3Mir66/i67bNhkc+4NCiwDT3ZTe80j4NzCoEkNQ8rvcT3jJReW18v0Bemb0iM5CodusNvz5pL1iglSGDgDiVdLAHidWDE4T/bCUySAaDioShLIT9MgRxVXndrvlfb+Q+LlCDJp6Zx64aNkhpbx5UMJ7u0I+YOCMAQVM1iYLrWGPlw8nJdYB/d3Lqw7U3RNBArECYiJg1vk831i+1XBuzI8HfK5co0g6Y4gyyde1sqXkJQ343CcZhntFvLB5vsHTIxsWxfbceaGtAH9zgqSgdKmtoUc8Tz1aeI/Ol9wmqvQV3WMQCyg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3EctW3jvFPsOk0/EIuOkO1Vp33FB79drmL8T3kLvsdo=;
+ b=kU0JmV1R4r9N+anQeJsesP0FbrcOcRrPLy59jV31gM4d7HM/l+vNF/kQC293Y+aqSPhmcCW0WvQQIni7hA+jURqnDcVDp+RAQ01ijl8iLfunDJyp1+ZnA5dviUyMIjoa1mFClKomDteEYQhFwFsIKifWov4T//LWwggFEnpXOp05I0c6cYcmOYDftv2KYkZJ1ZN+wtNO1GtcEUYAXnxFPcmcme74U/qp4odTVFlh04u3y3ntVLRfGFbBX1nxigjDQ1OqqGT/tVbY/XjY7SWxCnIrk5ESObps4jkESIRxdaOh1XKJXwkdLR/Ar4XpAT8DwQGfLax2/Ld61BCPEbmeLw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3EctW3jvFPsOk0/EIuOkO1Vp33FB79drmL8T3kLvsdo=;
+ b=ZQP7CIltNjnXeu6DG15s/AUlh2NdAx4F5YAqIj7I3/6FheVwXXAXBFlK0BucVtT66AhjvgvpPCHvUFu7oQVOlkH5E295XrC+uAgJ3TGADJnvtW0y9G7XpW7sOdmuyRtPTVq5ffhdL1yX7buI5666lHsK4b1pkswuCm/QY7nzRv4tQXFBmKz7e2QWQk35MGtsZoLFG1wKFtkNe9d1GEJ+3uQZ+YfX9+A2XiG5IkL+pzudzOL2Zg0JC9rpSreJqf5yQZV5oUd7NUL95tNwMHNKbzOp03NrTvtMF+Mn4xdtPXTlGLw02jodQ5fVymEPEg2mOwaLrS0Xg+PCoVQufValiQ==
+Received: from BYAPR05CA0107.namprd05.prod.outlook.com (2603:10b6:a03:e0::48)
+ by LV3PR12MB9411.namprd12.prod.outlook.com (2603:10b6:408:215::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.17; Thu, 5 Mar
+ 2026 21:06:43 +0000
+Received: from SJ5PEPF000001E9.namprd05.prod.outlook.com
+ (2603:10b6:a03:e0:cafe::27) by BYAPR05CA0107.outlook.office365.com
+ (2603:10b6:a03:e0::48) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.13 via Frontend Transport; Thu,
+ 5 Mar 2026 21:06:43 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ SJ5PEPF000001E9.mail.protection.outlook.com (10.167.242.197) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9678.18 via Frontend Transport; Thu, 5 Mar 2026 21:06:41 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 5 Mar
+ 2026 13:06:24 -0800
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 5 Mar
+ 2026 13:06:24 -0800
+Received: from Asurada-Nvidia (10.127.8.10) by mail.nvidia.com (10.129.68.6)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 5 Mar 2026 13:06:22 -0800
+Date: Thu, 5 Mar 2026 13:06:21 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>
+CC: <will@kernel.org>, <joro@8bytes.org>, <bhelgaas@google.com>,
+	<jgg@nvidia.com>, <rafael@kernel.org>, <lenb@kernel.org>, <praan@google.com>,
+	<kees@kernel.org>, <baolu.lu@linux.intel.com>, <smostafa@google.com>,
+	<Alexander.Grest@microsoft.com>, <kevin.tian@intel.com>,
+	<miko.lenczewski@arm.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-acpi@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<vsethi@nvidia.com>
+Subject: Re: [PATCH v1 2/2] iommu/arm-smmu-v3: Recover ATC invalidate timeouts
+Message-ID: <aanwTQtMMplXY3du@Asurada-Nvidia>
+References: <cover.1772686998.git.nicolinc@nvidia.com>
+ <ca7ab934bf0f433b62a5c15d42241632c4cb9366.1772686998.git.nicolinc@nvidia.com>
+ <a5ff7a43-ea52-462d-a316-d3a6c08410e0@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260305-mtk-fix-mt7623-pinctl-name-v2-3-a68854a51065@baylibre.com>
-References: <20260305-mtk-fix-mt7623-pinctl-name-v2-0-a68854a51065@baylibre.com>
-In-Reply-To: <20260305-mtk-fix-mt7623-pinctl-name-v2-0-a68854a51065@baylibre.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- David Lechner <dlechner@baylibre.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=853; i=dlechner@baylibre.com;
- h=from:subject:message-id; bh=/r4SI0+l+6elgaFXyZuBmLqw3XZThStXnYZaeAp4zQ8=;
- b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBpqe+q61fQg0Se4w258lQkpeMgGkcngGiz+mQG2
- PE0OP0joRCJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaanvqgAKCRDCzCAB/wGP
- wB4FB/44iUz+SQ+oBg1sMW6mRRlWtbIgyWdNLTCnbkmFf5/Wt/t1uBg7CWi+dmFQLWJT14tLQD8
- SAokLqmtlADTwENqEwAoVt0yHBpfOi8wVJeGpEduZ/XzYwtrrkyu1HxqlItk/xOSoBwMYbB28tq
- sDVTUzJH5rVjw/RhpTtfl1G/Xr5Wj+ObdMiYx5g+7SeWj701+9ZvcJAKexlYq7/Cis6jxpBanK3
- u1pQdLMP4X+lyvjNeTTJgm+bQMZr87PmTWo8w9HNXDggixpEmBv4x158fQjNyz8iH5DhNwqfOQ1
- 7Y059ibhtO92ANFuKyStFLcOJZGoZDdByIbMZfmvok6i2M2f
-X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
- fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <a5ff7a43-ea52-462d-a316-d3a6c08410e0@arm.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001E9:EE_|LV3PR12MB9411:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3249b412-e9f9-42e5-b1ab-08de7afb1992
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|1800799024|36860700016;
+X-Microsoft-Antispam-Message-Info: XRO11fukPD1iR7ofjLJmhx2e8R9JHGNVYuXPICMRXUFhcrHeLXuCA7rNaTX49LIp2nGCEEimlrJp1oRyIUaGHYF55SXtnFVkZzFlL2Hgg4eBNQTvBhUeAMMElWio610B/onFXzrtd+90zyjOxCFvY8xVEE2LYDDrq2mEXMuJXhYRq853TNJozeDXsXC2xbQYjiGT/6Fbe7amWxlJcoQ5FnI6uzoZpWDhuBri5T5SmOB2rn4G6b1hILMJJJ87RIISQ41dDVcEXjIq21vyOCCg9dJlc6GD9hBHeQXo6enRidNFJ+affICOFIff10SwiANzLbGz8f4i9ZhOEyZvL9YcrSew+06PC9vCq+T9j66y81luUPY6nC+q7yZWdvIB8hs3LWgNMNMyMeZGb2sQlk5Td1DE/w9d2i/fYsNhbGapPOfZ4SKcW+lMvxP971VRzLVsxjvwUrfzZWeL7/uDcecQ9QuYpBfjEtnFA1OxRY52H9TBxdXcMKrzMjX5dLpmSxa+3Q7dxEKKp0kzQ/JssN8JJxHFGLlHu40SAZk9DDFaHeOOqaXAi8N2C/Eewm1LImxFhK/7+fFUqoyKORBl7/sECfMVv63n2MBeSRSaKQF687TiYsYm7iBH93AU1O3H9HPX4KrgddJs/NY8K2tp3pQp1GGjgysq0LKFDBMKrLI+Or+0B4Hz0aydqtaRb9QLqJgLj5ghCAbXnHvCg7gnAmkRFji1Z1TrlqBcFuskdL4es5BM2yljLWkYdZBzu/QP8jGsbC/y74ILuYKcYX35yJw1AQ==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(1800799024)(36860700016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: UK4muLFlfujQWqLkNF1/Gyc+tL6pRRhKhhlb6/W9JzaTtW7WrIYl+/hTFvk4X+5PVzxaWIN0YgOIyLgKJ4NsXq4FbI8sXupn/0aj3cS0/KMcHzdRJLhN6F/XFNg2n2UsGN4vTyqdj0UBh7v4oNaBH5HO1qw5TqQZiCxIA7hC99II4g8QvvxdMWvvbkPlJtp0Va+IaSXOpCrkcFfbhZU80In9fMJ3n1ibOxtjd4bfkMMjghortMiAR+0W94gA0ch+HzUrOySb8rq8ueRca1w+axogwoQHIj70iCXjMWVytmhbXIQ3a6Wu9D/X/H0WAVIfbMeHiLPpLV4QoYqQ7tECWAVdo1wmmDMIWtObMlWk/wdC0SjsStPPA9nM967NpoMrSWvqSALwH8aTHJnBeYNJxy3vy8SEtaE9U+SIHKbUHocAwnBjDBQfcVgTm3wiKXg6
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2026 21:06:41.7282
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3249b412-e9f9-42e5-b1ab-08de7afb1992
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001E9.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9411
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_130354_087366_AB908AFD 
-X-CRM114-Status: GOOD (  12.88  )
+X-CRM114-CacheID: sfid-20260305_130653_969250_20C0D663 
+X-CRM114-Status: GOOD (  30.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,29 +134,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Correct the pinctrl node name to use the same address as the reg
-property.
+On Thu, Mar 05, 2026 at 03:24:30PM +0000, Robin Murphy wrote:
+> On 2026-03-05 5:21 am, Nicolin Chen wrote:
+> > Though it'd be ideal to block it immediately in the ISR, it cannot be done
+> > because an STE update would require another CFIG_STE command that couldn't
+> > finish in the context of an ISR handling a CMDQ error.
+> 
+> Why not? As soon as we've acked GERRORN.CMDQ_ERR, command consumption will
+> resume and we're free to do whatever we fancy. Admittedly this probably
+> represents more work than we *want* to be doing in the SMMU's IRQ handler
+> (arguably even in a thread, since all the PCI housekeeping isn't really the
+> SMMU driver's own problem), but I would say the workqueue is a definite
+> design choice, not a functional requirement.
 
-Signed-off-by: David Lechner <dlechner@baylibre.com>
----
- arch/arm/boot/dts/mediatek/mt8135.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Hmm, you are right, after writel(gerror, ARM_SMMU_GERRORN), it
+would be doable.
 
-diff --git a/arch/arm/boot/dts/mediatek/mt8135.dtsi b/arch/arm/boot/dts/mediatek/mt8135.dtsi
-index 0f291ad22d3a..b03bd980ec37 100644
---- a/arch/arm/boot/dts/mediatek/mt8135.dtsi
-+++ b/arch/arm/boot/dts/mediatek/mt8135.dtsi
-@@ -148,7 +148,7 @@ pericfg: pericfg@10003000 {
- 		 * Pinctrl access register at 0x10005000 and 0x1020c000 through
- 		 * regmap. Register 0x1000b000 is used by EINT.
- 		 */
--		pio: pinctrl@10005000 {
-+		pio: pinctrl@1000b000 {
- 			compatible = "mediatek,mt8135-pinctrl";
- 			reg = <0 0x1000b000 0 0x1000>;
- 			mediatek,pctl-regmap = <&syscfg_pctl_a &syscfg_pctl_b>;
+Though SID->pdev conversion requires streams_mutex, which can't
+happen in ISR?
 
--- 
-2.43.0
+> > +static void arm_smmu_atc_recovery_worker(struct work_struct *work)
+> > +{
+> > +	struct arm_smmu_atc_recovery_param *param =
+> > +		container_of(work, struct arm_smmu_atc_recovery_param, work);
+> > +	struct pci_dev *pdev;
+> > +
+> > +	scoped_guard(mutex, &param->smmu->streams_mutex) {
+> > +		struct arm_smmu_master *master;
+> > +
+> > +		master = arm_smmu_find_master(param->smmu, param->sid);
+> 
+> The only thing SMMU-specific about this seems to be the use of
+> arm_smmu_find_master() to resolve the device, which could just as well be
+> done upon submission anyway - why isn't this a generic IOMMU/IOPF mechanism?
 
+You mean treating this as a page fault? That's an interesting idea.
+
+So, the IOMMU-level fence could be done in arm_smmu_page_response().
+
+> > +static int arm_smmu_sched_atc_recovery(struct arm_smmu_device *smmu, u32 sid)
+> > +{
+> > +	struct arm_smmu_atc_recovery_param *param;
+> > +
+> > +	param = kzalloc_obj(*param, GFP_ATOMIC);
+> > +	if (!param)
+> > +		return -ENOMEM;
+> > +	param->smmu = smmu;
+> > +	param->sid = sid;
+> > +
+> > +	INIT_WORK(&param->work, arm_smmu_atc_recovery_worker);
+> > +	queue_work(system_unbound_wq, &param->work);
+> 
+> Might it make more sense to have a single work item associated with the
+> list_head and use the latter as an actual queue, such that the work runs
+> until the list is empty, then here at submisison time we do the list_add()
+> and schedule_work()? That could perhaps even be a global queue, since ATS
+> timeouts can hardly be expected to be a highly-contended high-perfoamnce
+> concern.
+
+That sounds like the IOPF implementation. Maybe inventing another
+IOMMU_FAULT_ATC_TIMEOUT to reuse the existing infrastructure would
+make things cleaner.
+
+> Right now it seems the list is barely doing anything - a "deduplication"
+> mechanism that only works if multiple resets for the same device happen to
+> have their work scheduled concurrently seems pretty ineffective.
+
+From my testing results, it does effectively block duplications, so
+I think it's somehow meaningful.
+
+If I wasn't wrong, the duplicated ATC timeout might come from this
+exact reset thread, as it did a CMDQ_OP_CFGI_STE while the CONS was
+still pointing to previous CMDQ_OP_ATC_INV.
+
+IIUIC, the IOPF queue doesn't expect duplicated PRI events. So, it
+might invoke the handler twice if there is a duplication. The core
+handling list_add() might need a deduplication.
+
+> > @@ -456,6 +555,27 @@ void __arm_smmu_cmdq_skip_err(struct arm_smmu_device *smmu,
+> >   	 * not to touch any of the shadow cmdq state.
+> >   	 */
+> >   	queue_read(cmd, Q_ENT(q, cons), q->ent_dwords);
+> > +
+> > +	if (idx == CMDQ_ERR_CERROR_ATC_INV_IDX) {
+> > +		/*
+> > +		 * Since commands can be issued in batch making it difficult to
+> > +		 * identify which CMDQ_OP_ATC_INV actually timed out, the driver
+> > +		 * must ensure only CMDQ_OP_ATC_INV commands for the same device
+> > +		 * can be batched.
+> 
+> But this *is* "the driver" - arm_smmu_atc_inv_domain() is literally further
+> down this same C file, and does not do what this comment is saying it must
+> do, so how are you expecting this to work correctly?
+
+Oh, that's a big miss..
+
+I imaged these changes to be based on the arm_smmu_invs series,
+where it could break the ATC in the batching function. Here, it
+should have made some change to arm_smmu_atc_inv_domain().
+
+Thanks
+Nicolin
 
