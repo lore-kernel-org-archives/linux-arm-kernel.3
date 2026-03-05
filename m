@@ -4,79 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA5A2F30946
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 13:11:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 545D7F30956
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 13:12:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ISJ9IeJb4bdYq8e9zGFzYpxXmxiQlQWQQQm3BHAO9ac=; b=rfSqY77OEbS31O9DqoR/V0Agrx
-	ROKTZHAiy7UgASf9d825qxp56804ecyrGgjyyh6ZMWiNtMXhdl64puSlSQpn7cI9kspfim1qjK79H
-	YRnDnHe1McbhCV1ZzJDKV1+lshgXMDQFMupdzS4hpzWfxcKi7yaogJ9uyZtOs3N1qDwoZ3W15eSUX
-	wc8gSw1mRgAjGXGfqM8SIdxmyrGY7N3mHT0LhfYq3+5PCFOWNioAAy54kON5UHb23QEXyZ2nPOM+w
-	TjzN39DzUWOsQo8CJAh3EYXN7vFNXKSjSaLpBremKMI3bOoQBa2STnQKIfe8CL6otDM9wZ+NqzDjP
-	ZAn+hCcQ==;
+	bh=4hSMkVlElClTBfYcUftvSmxqMPWogkjljPOeeXcMdXM=; b=Pirw/38vjVWZOcCYvRo8ssUER7
+	GRws9FD06pp6gM0H7xHcMedOT51EPu+hOqJuEek/jaQsbkdj4oqK86bTBUka7BV3N0MtvVAVU4lbU
+	SaCDCwRhpbycsgWnslfUzodQSLsRMTgCASGHLdaAVCDMLORnvwRWHJJBXFW0X1l8HXKhbfiN4aLae
+	WfEBWM1e8cbYg4uRvexm3XD6vITNSBYbWaUekRKqkFjJCJU5uDhj6WbXflTWhcdTZ2pqxxfEppWYW
+	MAJud/4o+ZNvZlJFMIUWTexegv8LCuND3Y2fT4UzOwNYGeIeJoVje5AOxGQDnJsI1mL7DpPxxEoez
+	r/92ObZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy8Tu-00000001rJa-41Sh;
-	Thu, 05 Mar 2026 13:11:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vy8Ug-00000001rSH-1quj;
+	Thu, 05 Mar 2026 13:11:58 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy8Tt-00000001rJG-1AA2
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 13:11:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7263E61340
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Mar 2026 13:11:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26B70C116C6
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Mar 2026 13:11:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772716268;
-	bh=ISJ9IeJb4bdYq8e9zGFzYpxXmxiQlQWQQQm3BHAO9ac=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=G9tX/hM7Mw5zGuhmFHkyyRDc++MrZfNxmP/ZNpmTsla4iANpe9h6kxmyvipqjVzAz
-	 Je4rF+N2HacpqEUtA56nQtcW1Htkr75+BA+vYEBrXZ0N0EhwNnymUo/bk0Yb2nmnJI
-	 6At5t1N+ZbugQP602yqM+0ekCuw5r/LjlLyjizp7gjfUKgG9DbIFhqJ5snjfsbc7qL
-	 tRdXzb1bCUDZ+74i3CHKIzvC2Qvcl0Pbqfwm7DRHg9NWxMR797L8CIY5ZgcM1SXhW3
-	 gdQRt7gvL13nfQWGsJz8VdZ6LjcxwV1aDfNTS9fN+gdaJEhCSsx11FW798ngQVwGtG
-	 1h6WZhARdxABQ==
-Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-38a2e62b893so20924081fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 05:11:08 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUtF/ol7AmsjoJuBA6RQF6VqF70lKM7lJ1jGm/TgSjbDs7VbTFNYrNvDQBFNrafoaeCi9PqsdSmbhmuEYjqAJeL@lists.infradead.org
-X-Gm-Message-State: AOJu0YwuhmFXXQhsswUi7ZfzjA7/f2tR2chc7J+RCjR7qEDb24ZmznbA
-	X5Es5eExPLOaEkYGxW4nKRTpf9Q65SJMmxn/IYFHtyW9z78PhOZB84TjsLIIW53JDjkailVk986
-	eyCwqv1dt81SNRGaDWM2FNPv7/y7pqQoQV83LtH0f7Q==
-X-Received: by 2002:a2e:22c4:0:b0:383:7f85:8eef with SMTP id
- 38308e7fff4ca-38a2c7c74e6mr37197791fa.29.1772716266754; Thu, 05 Mar 2026
- 05:11:06 -0800 (PST)
+	id 1vy8Ud-00000001rQv-1F0D;
+	Thu, 05 Mar 2026 13:11:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lmebUp+NSg43P6DrMnWPOtkJ+NVm4CE5rLlAyevCbsoF51fOGJpgvpMX+6hYdIXWHI56aUmgzdy9RTQADPgKjSnJnYebhV9mS+l0koNj1yybjPwkUp0pjFsF+ZsXunA51aUn8vhVp/RPEvad2bmS8XzVEiU5a7f1ARONaXKU1t5a5oOQ6mFqVBP2itJ9KY5Cxs4wyEH3d3CdQtyRgu/u3oRwSU3IodKsTu3N6DIBzuwyKbkXw85lwah0E1XUn6o6ac4aI3OhJDnFZccaScJTMn9f8nj5GRD/wuySh8mz3s9ZQHX7rV+zZPP4hJj53Zv3Qnwx3DTc+cPCMv812dHvcg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4hSMkVlElClTBfYcUftvSmxqMPWogkjljPOeeXcMdXM=;
+ b=Eb98H7+xicR0fPOEvFkwucV/95bKRVuV8xg6oBgREjRvSvjhRMg3p499vE8rlgTnyrruwvCbnbBjBwWlDCNCdtUq8zTncwlO7cXFH2rkS+BI7lbDth4ywPcmlP6zcZB8i9UBF/VLO5BPig5t98RNJQ16TvA1reQF+/79KJZzGN/MJmtGQ0P4SOLPYDJhrhKuiyaOEMOuKyv6TsKXW0myp9d7PlzAA7dJk/5j8Mwc1rUWl514PJVeG/WmgtEfyJexhU6ktoIeNWpxwitR7Zzo6ddfIbjMfnpNc/WUZcwKpaQ2JiFCDnMu7gZOaMVTE3nz0dL4if5+Di/IpuV+qr9mxQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4hSMkVlElClTBfYcUftvSmxqMPWogkjljPOeeXcMdXM=;
+ b=fkXeXFLYwibbaMffWdJVXYF0OpM67RbtwceJfGliKf0rGTeU5UEaQVfaHoGxl1bQ2PkIryyWYDt3iBXJS+tvu14P7W9YO35w98B39Y65loJpwQV2H7vRRYy+R9AZHL0InIFoSB3wOQtMr91aD1YC5p5doR+FmICR5jsuzqX96JQmbUGePk6l8xd+0/nHMdP9NgN1i5gnVunjfeuPStKJj5UJQNTNzOLCYcVbjlkRHEPalT0QxG2eI8YWtwNXBEto06SQRhE4ODNtK66OfDs9IUiNAO/ucSHuJThfhjsSs8FpghnttGKP7GsE+KVnDgQll0knSejdmstRq6vMl7n1pA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
+ by PAXPR04MB8079.eurprd04.prod.outlook.com (2603:10a6:102:1cc::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.18; Thu, 5 Mar
+ 2026 13:11:49 +0000
+Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
+ ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
+ ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9678.016; Thu, 5 Mar 2026
+ 13:11:49 +0000
+Date: Thu, 5 Mar 2026 15:11:45 +0200
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+Cc: Joe Perches <joe@perches.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-can@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org,
+	netdev@vger.kernel.org, spacemit@lists.linux.dev,
+	UNGLinuxDriver@microchip.com
+Subject: Re: [PATCH phy-next 22/22] MAINTAINERS: add regex for linux-phy
+Message-ID: <20260305131145.zvi5eor5kj4n3fu3@skbuf>
+References: <20260304175735.2660419-1-vladimir.oltean@nxp.com>
+ <20260304175735.2660419-23-vladimir.oltean@nxp.com>
+ <a8fee1cd-1e69-4a9e-8533-c0988c480fb9@oss.qualcomm.com>
+ <20260305085148.7cwo3yflp7vcfldf@skbuf>
+ <f3a5aa3df78553ffc0fd0024f5fd36a4e2158c88.camel@perches.com>
+ <20260305114352.2f7btqixg4tu5bzl@skbuf>
+ <20260305121532.GA1649635@rocinante>
+ <20260305123843.i47asdrjychwlgdt@skbuf>
+ <20260305130609.GB1659133@rocinante>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260305130609.GB1659133@rocinante>
+X-ClientProxiedBy: BE1P281CA0187.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:b10:8d::6) To AM9PR04MB8585.eurprd04.prod.outlook.com
+ (2603:10a6:20b:438::13)
 MIME-Version: 1.0
-References: <20260302-qcom-qce-cmd-descr-v11-0-4bf1f5db4802@oss.qualcomm.com>
- <scr5qvxa7f7k22pms4c6k5gwiky7lhssrw6qryfngexlek44g2@rayinnnwqgbt> <aalwMwN3qMlzrql5@linaro.org>
-In-Reply-To: <aalwMwN3qMlzrql5@linaro.org>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Thu, 5 Mar 2026 14:10:55 +0100
-X-Gmail-Original-Message-ID: <CAMRc=MfjknN1AYF_NPLzR0YbdWuoET25D9o0zsvx56VN+u59HQ@mail.gmail.com>
-X-Gm-Features: AaiRm53riIL1Ev5aiOi4LeHVM1opButAi-QDELWr9rH7US3VnOIMoqa9uDUU7UY
-Message-ID: <CAMRc=MfjknN1AYF_NPLzR0YbdWuoET25D9o0zsvx56VN+u59HQ@mail.gmail.com>
-Subject: Re: [PATCH RFC v11 00/12] crypto/dmaengine: qce: introduce BAM
- locking and use DMA for register I/O
-To: Stephan Gerhold <stephan.gerhold@linaro.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	"David S. Miller" <davem@davemloft.net>, Udit Tiwari <quic_utiwari@quicinc.com>, 
-	Daniel Perez-Zoghbi <dperezzo@quicinc.com>, Md Sadre Alam <mdalam@qti.qualcomm.com>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Peter Ujfalusi <peter.ujfalusi@gmail.com>, 
-	Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>, dmaengine@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, 
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Bjorn Andersson <andersson@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|PAXPR04MB8079:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5b571484-1da2-468e-505d-08de7ab8c2a8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|7416014|366016|1800799024|19092799006|376014;
+X-Microsoft-Antispam-Message-Info: 2ljAm+k1rZ25I3N9CRhbmc7ttnAAErjLH/n/Ezqn/ICGIDT5mR229+H7KOi/Ch4IFO9csUA9KGhQoWdLrHOgEK2g+46wIUzR2r8ppFF+LUwyJpSYvOhdo55MTE3xNgDcOOPjhNKDKqgyyLaEZY94xyaTzloxmjPXfTimNa9gb3uGun+/R9gvpCrpeIExnDru5iAGeQRxK49a6ZPCi3FjP/iG7aLkRVPifB63M3m1P3vR6Mf0ohGa9lOntJRytJHE0qQSqEKLabnW1u4peybvoXkMd7VsbgZF2BEC5YpkkN9eubPzJJx2fUqhRuHsYjjJSXImCu5/uV3m7QaqnxxbKh/Q+vIfg/NVCI8me3Ehe7kYP7guYgaGs4iSOoZu2kfxwo2Fpwb+hn6xnppJ0nG/BGjuIYWXJN6C54PRne/EmsJYsycwzTonZXaj4Em/zGHEl4NleISmmmVO6N3VsWCb4EMJojnCQQopOeUPmudlKblmFbGWG/Txh+9p/IpMIycjQsJkfPWEBhpTMLajewl4ijspdte8zcUiDNuwAV/DNNCd45n8LGHnz6xlJ9rEPKud5E4ustL7tLedX5fwfoyUWJ8YTl3agyH+3fqR6OxAmQb0p4FlmkK43vL0ZskwOxGpYoZASK+9Db21u7sfkTBf3ehIJtZ2Yw49AUuyObrwYxPpkdyH+2vkanKjSNfkJSKu0TndKz3s+PpksKSVa5l5cfRnDEbWw/bBY8IbEza9Ke0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(7416014)(366016)(1800799024)(19092799006)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eDNCVVJ4bHdJeWRjR0hpa3c5WU5xU0ZxMmZpOWFFWm1mQkswNTdUU3lUM0hq?=
+ =?utf-8?B?VitCZDlEMlYyazVJVzRWTEhjL08xeG10SlJ3aTlkMDhlVU52ckE3Z3grSkt0?=
+ =?utf-8?B?UjRSbHlVK0w1azJaRUY0R0Fyb0hESnVYSU94RXRuejVESi9xZ1puUUhVc2Vp?=
+ =?utf-8?B?REt2MW04Y0hSQ3BSZFdUSm1vYnZFTUgxQktqZUlvZ2hTS2cvcCtMTnVMd2ZN?=
+ =?utf-8?B?M2xhNG1IU2oxallRaDBPcU9OZHY4eGNTVFhYTjVyNFNUU25yZWNZMDdQUGM4?=
+ =?utf-8?B?UUdPTXZRSFJibG1pUVE1dVBwZ1JPZ09lM2hCblBCVXJQSGw2ODJKVU1NdTZz?=
+ =?utf-8?B?R0MrWjM0ZXVNclJpdlU5bjhjNjkzVGNNa3E0aWoyakJzbS9QdEZlR3AzdWRk?=
+ =?utf-8?B?MTdpL3U3M2s4bmN1Q2VvaVlCUDh5UHFQWDZqNDM5VVRJdHZMVVhrWjB2UGNm?=
+ =?utf-8?B?WnlkTkxWM3piMTUxemlpczhpL2ZCeEZSRTlFb1RtNU9jU2pTa0dSNnk2dXlU?=
+ =?utf-8?B?VkhkTXlSZ3BZS2Q1VldZM2wrb3BnUmpDd0syTjVycW54UDl4am5QSEdubWMz?=
+ =?utf-8?B?Q0pOU2VUQTV1UjJmcFZLRllDTlJTcTExRnUzSnJTYVpLM2ZnVVI4VUZxUnFy?=
+ =?utf-8?B?R3YyNVRWelNwSG9wU2lVbVdFQzNNTTVLMFBUMm5INDNxbFErT0lncWJvVW1U?=
+ =?utf-8?B?VkJMOWIybkxNaGFtUFZoZ3hMYTk5RFJ1azN5Znp2d2tDNWU3bFBZTjZoNDhV?=
+ =?utf-8?B?MWlDdnp0WUNocFdDckNiWTRLVFp3bWtwcXBreEI3VXZoTlFoekQ2aU5VQkJJ?=
+ =?utf-8?B?SThkby9FNnZ3KzQwRmpZZW1nY3R6TGpMK296WWtRWFNhNmdaVjQydG5BdUJl?=
+ =?utf-8?B?b0lVQ1hrc1hoTkNFZzYrMms5RjlrK3NzVktvd2ErYWZHU0FQUmFGczUwUHJn?=
+ =?utf-8?B?R0pnVG1kK2duZndnTEVhRlIwUGViSkFaclRUSlJqNWpjeUVOTGxKb0pvbEtL?=
+ =?utf-8?B?MjVuQ2pqT3NwR0xyTklGTy8vbnhyNVhJZmZnc2JNREhBaks4NFpVUmt3MlNN?=
+ =?utf-8?B?T3dFMmZRRE5HcWZXTmx1em1vV2ZsTzNMQnRrMnk3SC9XRWZRbSsyRTRIYTk5?=
+ =?utf-8?B?OVhTTTFsY0FEK0UzZm9TQnpTd09MdGoySEJaNzdFZFAySGVmazdYTFdhZUpk?=
+ =?utf-8?B?RnlUcWFjbktVSzg5L0VrQ091a2FwU1d4S3pwRC92VjNZM0dkenR6MzF1N25h?=
+ =?utf-8?B?bkE3bm9vcmZIMCt5ak5mUnNIR05pVXY4RlJDL3lZQWpNZTUreVpBYkFvSnFD?=
+ =?utf-8?B?eXFSa3RLcmNvelNsRzVLaERPaEQ5c0c5c2JLWkI0dG5oL0FEbFlsVEtFY2Qy?=
+ =?utf-8?B?cTFGb1B0Sjg0VG44cnNtcjU0V2xKUEVEbUtYOEpEcm40ZEc3KzArSlR6UExw?=
+ =?utf-8?B?TlRlS2FkZ3dpZTJ4OG00VjAyK1hFS3dFcFhvbFZQVTJ2dXNUWUgwUUxtMXhT?=
+ =?utf-8?B?MVlUS2xBRVhtamJoc2pPOGJSSHdDN040ZXpyNFdUOTU1L213ZmFpVmhUV1kw?=
+ =?utf-8?B?UUt1NHlvbXpDQ01EM21icysxRFcvaG1xZEdacVVsaEt5V2k0NVpoYkpYK24z?=
+ =?utf-8?B?Z1dxby9FbWNhMnVya0pUNlVadjZTbm9oRFA3Tlk2Yy9kbzFDYWxMY1FEZ3BI?=
+ =?utf-8?B?cmJaVlBBbEIxenZHZDluOWxNS1lQVkkrdVppMXRHTmFGRU9Ua1ltZGxNTHM2?=
+ =?utf-8?B?cDdTWld5NUM1OE9aR0xYU0pLUFlpQW94bjNSUS9TQXQzUG01b25Ma3NxcmJh?=
+ =?utf-8?B?VXdiZWh2VnNQM1JxV1dWMnZFTjVuSCtGT3hvZEt0WDV6L3pYZ0ZxUk1SOXh5?=
+ =?utf-8?B?OWREOFhEdjRVZTd1RVMwbUhKZEFlMU1MVjlNV2Z3azR6MzhJYmh2VkVwd1NO?=
+ =?utf-8?B?ZGRKcFdiZFFhdERpZDhaSkFqbTYwOUd4eFc1cUpRdUcrK2t2MzFyRjZOYnU2?=
+ =?utf-8?B?UlFDdjBldHlCQklOeGNra3FRQi9NTVJ2QmErenNFTW01dERkZzIvNmNnZ1FV?=
+ =?utf-8?B?MzRUU1VPV0dJVEVxOGJsS2o1TjhIeUg2U212OUZGZC9sdktiUG9jRXlWbk01?=
+ =?utf-8?B?SHRub3RNN0g1QVFHTjIzeW9UOE1OSEVjY2t4WmRScGlRU0p2aCtxbnZDNC92?=
+ =?utf-8?B?TXY1L2FUN3kzUmxRV01wUHlsVUthS090SHA2K1RDa1FSckFoTU82L2Vndy9I?=
+ =?utf-8?B?R2docFBrQ056ZThSWjl1dVJPN2xTVHlwcFdEODFyV29MZXJ1S3ArTTNNbk41?=
+ =?utf-8?B?VjdZOE51ZGNsb3JlaDVKdHMwUDZyek5YV2UvZHNNcHh4Y1NvRmd3YXNDc1Fq?=
+ =?utf-8?Q?vbS1ruZ+oVkRNBxyDydtWxDDelbsI6sN2iBS81ZOdRbgB?=
+X-MS-Exchange-AntiSpam-MessageData-1: aX3NTqYZlXUn3bTkuzVnmLUBxD0md3Dkmvs=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5b571484-1da2-468e-505d-08de7ab8c2a8
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2026 13:11:49.3216
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HrDkPt3rE/6HF4ol/kT/cCP8SJf++cKC9ty6FSnzt32w8+isdUX6uZ8cGubVG6CLj25Tso/9WkTlBciN7mL9Gg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8079
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260305_051155_338366_870F27E3 
+X-CRM114-Status: GOOD (  16.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,95 +166,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 5, 2026 at 1:00=E2=80=AFPM Stephan Gerhold
-<stephan.gerhold@linaro.org> wrote:
->
-> On Tue, Mar 03, 2026 at 06:13:56PM +0530, Manivannan Sadhasivam wrote:
-> > On Mon, Mar 02, 2026 at 04:57:13PM +0100, Bartosz Golaszewski wrote:
-> > > NOTE: Please note that even though this is version 11, I changed the
-> > > prefix to RFC as this is an entirely new approach resulting from
-> > > discussions under v9. I AM AWARE of the existing memory leaks in the
-> > > last patch of this series - I'm sending it because I want to first
-> > > discuss the approach and get a green light from Vinod as well as Mani
-> > > and Bjorn. Especially when it comes to communicating the address for =
-the
-> > > dummy rights from the client to the BAM driver.
-> > > /NOTE
-> > >
-> > > Currently the QCE crypto driver accesses the crypto engine registers
-> > > directly via CPU. Trust Zone may perform crypto operations simultaneo=
-usly
-> > > resulting in a race condition. To remedy that, let's introduce suppor=
-t
-> > > for BAM locking/unlocking to the driver. The BAM driver will now wrap
-> > > any existing issued descriptor chains with additional descriptors
-> > > performing the locking when the client starts the transaction
-> > > (dmaengine_issue_pending()). The client wanting to profit from lockin=
-g
-> > > needs to switch to performing register I/O over DMA and communicate t=
-he
-> > > address to which to perform the dummy writes via a call to
-> > > dmaengine_slave_config().
-> > >
-> >
-> > Thanks for moving the LOCK/UNLOCK bits out of client to the BAM driver.=
- It looks
-> > neat now. I understand the limitation that for LOCK/UNLOCK, BAM needs t=
-o perform
-> > a dummy write to an address in the client register space. So in this ca=
-se, you
-> > can also use the previous metadata approach to pass the scratchpad regi=
-ster to
-> > the BAM driver from clients. The BAM driver can use this register to pe=
-rform
-> > LOCK/UNLOCK.
-> >
-> > It may sound like I'm suggesting a part of your previous design, but it=
- fits the
-> > design more cleanly IMO. The BAM performs LOCK/UNLOCK on its own, but i=
-t gets
-> > the scratchpad register address from the clients through the metadata o=
-nce.
-> >
-> > It is very unfortunate that the IP doesn't accept '0' address for LOCK/=
-UNLOCK or
-> > some of them cannot append LOCK/UNLOCK to the actual CMD descriptors pa=
-ssed from
-> > the clients. These would've made the code/design even more cleaner.
-> >
->
-> I was staring at the downstream drivers for QCE (qce50.c?) [1] for a bit
-> and my impression is that they manage to get along without dummy writes.
-> It's a big mess, but it looks like they always have some commands
-> (depending on the crypto operation) that they are sending anyway and
-> they just assign the LOCK/UNLOCK flag to the command descriptor of that.
->
-> It is similar for the second relevant user of the LOCK/UNLOCK flags, the
-> QPIC NAND driver (msm_qpic_nand.c in downstream [2], qcom_nandc.c in
-> mainline), it is assigned as part of the register programming sequence
-> instead of using a dummy write. In addition, the UNLOCK flag is
-> sometimes assigned to a READ command descriptor rather than a WRITE.
->
-> @Bartosz: Can we get by without doing any dummy writes?
-> If not, would a dummy read perhaps be less intrusive than a dummy write?
->
+On Thu, Mar 05, 2026 at 10:06:09PM +0900, Krzysztof Wilczyński wrote:
+> > > What about
+> > > 
+> > >   F:    drivers/*/*phy*
+> > > 
+> > > or something along these lines.
+> > > 
+> > >         Krzysztof
+> > 
+> > I don't understand your suggestion. Is it meant as a replacement for the
+> > keyword regexes? Your file pattern matches on:
+> 
+> I was thinking more along the lines of using wildcards, the F: was just an
+> example.
+> 
+> [...]
+> 
+> > There are a lot of false positives, and a lot of false negatives.
+> 
+> Yeah, the "catch-all", for lack of better word, will not work here.
 
-The HPG says that the LOCK/UNLOCK flag *must* be set on a command
-descriptor, not a data descriptor. For a simple encryption we will
-typically have a data descriptor and a command descriptor with
-register writes. So we need a command descriptor in front of the data
-and - while we could technically set the UNLOCK bit on the subsequent
-command descriptor - it's unclear from the HPG whether it will unlock
-before or after processing the command descriptor with the UNLOCK bit
-set. Hence the additional command descriptor at the end.
+But assume it did, for a second. The intention of the patch, stated in
+the commit message, is to match on PHY consumers, to review their API
+use.
 
-The HPG also only mentions a write command and says nothing about a
-read. In any case: that's the least of the problems as switching to
-read doesn't solve the issue of passing the address of the scratchpad
-register.
+$ grep -l -r '\bphy_power_on\b' drivers/ | sort | uniq
+drivers/ata/ahci_ceva.c
+drivers/ata/ahci_imx.c
+drivers/ata/libahci_platform.c
+drivers/ata/sata_dwc_460ex.c
+drivers/ata/sata_mv.c
+drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+drivers/gpu/drm/bridge/cadence/cdns-dsi-core.c
+drivers/gpu/drm/bridge/imx/imx8qm-ldb.c
+drivers/gpu/drm/bridge/imx/imx8qxp-ldb.c
+drivers/gpu/drm/bridge/nwl-dsi.c
+drivers/gpu/drm/bridge/samsung-dsim.c
+drivers/gpu/drm/bridge/synopsys/dw-dp.c
+drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c
+drivers/gpu/drm/mediatek/mtk_dsi.c
+drivers/gpu/drm/mediatek/mtk_hdmi.c
+drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
+drivers/gpu/drm/meson/meson_dw_mipi_dsi.c
+drivers/gpu/drm/msm/dp/dp_ctrl.c
+drivers/gpu/drm/rockchip/cdn-dp-core.c
+drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+drivers/gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c
+drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+drivers/gpu/drm/rockchip/rockchip_lvds.c
+drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c
+drivers/gpu/drm/xlnx/zynqmp_dp.c
+drivers/media/platform/cadence/cdns-csi2rx.c
+drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c
+drivers/media/platform/samsung/exynos4-is/mipi-csis.c
+drivers/media/platform/sunxi/sun6i-mipi-csi2/sun6i_mipi_csi2.c
+drivers/media/platform/sunxi/sun8i-a83t-mipi-csi2/sun8i_a83t_mipi_csi2.c
+drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+drivers/mmc/host/sdhci-of-arasan.c
+drivers/net/can/at91_can.c
+drivers/net/can/flexcan/flexcan-core.c
+drivers/net/can/m_can/m_can.c
+drivers/net/can/rcar/rcar_canfd.c
+drivers/net/can/xilinx_can.c
+drivers/net/ethernet/cadence/macb_main.c
+drivers/net/ethernet/freescale/dpaa2/dpaa2-mac.c
+...
 
-So while some of this *may* just work, I would prefer to stick to what
-documentation says *will* work. :)
-
-Bartosz
+How can it find the above? I think you've severely oversimplified what I
+am trying to do.
 
