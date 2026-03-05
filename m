@@ -4,78 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14EACEEF30E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 07:16:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1D0CEEF30E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 07:18:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hwgqbmMSY3cSHc4GhC0gL/PpPTLaj95cN2wGFjzRcWI=; b=A6NAi17l5du2JrxB+me2DGHefK
-	pOuyAaGPe857NKPqGr3oP/PuoAQ9o1E4MNBwwNHzE01iyXWXubgzZPerK/OYXn+9604uyiVZerkiX
-	XnMuxVUS6knY/0efE0mraSfg+/0eHbbyasmZU9SMLjdQuB50xOkOVaHpeRwwMg7ahol8q5p3gwx51
-	HUXQxqelrQuvqe1N+6798Tv+sahEpqaDYao6KBKN6HRLMcdH1lT3CcbZk8saK02r97NapblXIFpII
-	PY26CGmm/ovqzZjV5GSASM00AG5jDVg32R+xFNKKS/Yr7YtzbnmN7pAtWyEwVj1WT9E8ZowJhQbuk
-	uG8Lc8rw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=C38jdy81p0mIzFF0LJ3prC3UOsZD6FgVzym1nTZbMhQ=; b=Jq2/tcCbp9OS0/utNtBQka0rJI
+	ggvz5cIALbEkDScBEoNfezqBkpTQ2SswEEfX+Jbz9NXpchCGCJqhyJCAtx3oPcMdYC2lBmPqblfae
+	IHWXbiXhyTcwVrgRQ456FsqWd4u5H14MFkKV5UpVzeC9yu8+Y5dfQ+wg/6Y5aBdwTnLXmygJmsvOV
+	PacvUzjrVBvogmdTUro8k3D8w9MLP2xcgIqlsOa5CUapssHWzO2nzkMtmdAYAzYaI1ep3uxf8NoES
+	jgn0Gb/lp+XvfSVHj8jNXNrMYgx0Jmg2jnxzHGBRIDwWSR1TMOl3oLICZtnRuFggCLY4pbG0N6IFJ
+	ooapYPog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy2wK-000000014oC-28Xe;
-	Thu, 05 Mar 2026 07:16:08 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1vy2yA-0000000152J-3KJ5;
+	Thu, 05 Mar 2026 07:18:02 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy2wI-000000014nQ-1XU8;
-	Thu, 05 Mar 2026 07:16:08 +0000
-X-UUID: 28bf5aae186311f1ad39f32c34db0b1c-20260305
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=hwgqbmMSY3cSHc4GhC0gL/PpPTLaj95cN2wGFjzRcWI=;
-	b=OyCZjFKeBhT/nNH7LIWcilCg5loHiWpyweuJkc2HPaZpQ/+4pCnZ5BPhTxbOmws2YyniFU2XDX+eJ7x0brFx7lGSZKiYbyV8t+exfNvTAzyM0YNGS2E4UjWnjB+TZXL7tWqPZO8jEp1XE+I7ngHkJs37sAnvgTlqXFq62Yhw/4w=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.11,REQID:e874460c-24ce-4862-bb96-b73d3db36dc5,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:89c9d04,CLOUDID:19df8b7b-8c8a-4fc4-88c0-3556e7711556,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
-	0,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA
-	:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 28bf5aae186311f1ad39f32c34db0b1c-20260305
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
-	(envelope-from <ot_meiker.gao@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 601126331; Thu, 05 Mar 2026 00:15:58 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Thu, 5 Mar 2026 15:15:55 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Thu, 5 Mar 2026 15:15:55 +0800
-From: Meiker Gao <ot_meiker.gao@mediatek.com>
-To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias
- Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Bayi Cheng
-	<bayi.cheng@mediatek.com>, Chuanhong Guo <gch981213@gmail.com>
-CC: <linux-spi@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
-	<jh.hsu@mediatek.com>, Meiker Gao <ot_meiker.gao@mediatek.com>
-Subject: [PATCH] spi: dt-bindings: mediatek,spi-mtk-nor: Add clock bindings for mt8189
-Date: Thu, 5 Mar 2026 15:15:42 +0800
-Message-ID: <20260305071546.2603378-1-ot_meiker.gao@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+	id 1vy2y7-0000000151K-1HcA
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Mar 2026 07:18:01 +0000
+Received: from localhost (unknown [124.16.138.129])
+	by APP-01 (Coremail) with SMTP id qwCowADXgGwfLqlpGypHCQ--.538S2;
+	Thu, 05 Mar 2026 15:17:51 +0800 (CST)
+From: Chen Ni <nichen@iscas.ac.cn>
+To: sudeep.holla@kernel.org,
+	cristian.marussi@arm.com
+Cc: sumit.garg@oss.qualcomm.com,
+	jens.wiklander@linaro.org,
+	arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Chen Ni <nichen@iscas.ac.cn>
+Subject: [PATCH] firmware: arm_scmi: optee: Check return value of tee_shm_get_va()
+Date: Thu,  5 Mar 2026 15:15:33 +0800
+Message-Id: <20260305071533.930896-1-nichen@iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+X-CM-TRANSID: qwCowADXgGwfLqlpGypHCQ--.538S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7WF4xGFyrAFy5Xry7Ww1kGrg_yoW8JFy8pF
+	4YgayUtr47tF4ft34Iqrs7uFy5J3W8Gr9rKa4vya4kAwn8ArykGryUta4jgF98Ar4xt3y5
+	K3WFqrZ0gFyUJrJanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvv14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWU
+	AVWUtwCY02Avz4vE14v_GF4l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
+	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
+	14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
+	IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
+	87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
+	IFyTuYvjfU5FApDUUUU
+X-Originating-IP: [124.16.138.129]
+X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_231606_417324_985175BA 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20260304_231759_719019_82E99A1A 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,131 +80,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update mediatek,spi-mtk-nor.yaml to add conditional clock and
-clock-names bindings for the mt8189-nor platform. The mt8189-nor
-controller requires five specific clocks and corresponding clock-names
-("spi", "sf", "axi_f", "axi_h", "axi_p"). This change enforces these
-requirements in the device tree binding schema.
+The function tee_shm_get_va() can return an error pointer if the shared
+memory is not properly mapped or if the offset is invalid. Without this
+check, passing the error pointer to subsequent memory operations could
+lead to a kernel panic.
 
-For other platforms, the minimum number of clocks and clock-names
-remains unchanged. The patch also adds an example for mt8189-nor,
-illustrating the new clock configuration.
+Add a check for IS_ERR() on the return value of tee_shm_get_va().
 
-This update ensures correct hardware description and validation for
-mt8189-nor, improving compatibility and reducing configuration errors.
-
-Signed-off-by: Meiker Gao <ot_meiker.gao@mediatek.com>
-(cherry picked from commit c3180d35e52b5213764a89403e71f9a34d7bb842)
+Fixes: db9cc5e67778 ("firmware: arm_scmi: Make OPTEE transport a standalone driver")
+Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
 ---
- .../bindings/spi/mediatek,spi-mtk-nor.yaml    | 69 ++++++++++++++++---
- 1 file changed, 58 insertions(+), 11 deletions(-)
+ drivers/firmware/arm_scmi/transports/optee.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/spi/mediatek,spi-mtk-nor.yaml b/Documentation/devicetree/bindings/spi/mediatek,spi-mtk-nor.yaml
-index a453996c13f2..587f77d3f8d1 100644
---- a/Documentation/devicetree/bindings/spi/mediatek,spi-mtk-nor.yaml
-+++ b/Documentation/devicetree/bindings/spi/mediatek,spi-mtk-nor.yaml
-@@ -17,9 +17,6 @@ description: |
-   for devices other than SPI NOR flash due to limited transfer
-   capability of this controller.
+diff --git a/drivers/firmware/arm_scmi/transports/optee.c b/drivers/firmware/arm_scmi/transports/optee.c
+index 07ae18d5279d..a6774152c205 100644
+--- a/drivers/firmware/arm_scmi/transports/optee.c
++++ b/drivers/firmware/arm_scmi/transports/optee.c
+@@ -340,6 +340,13 @@ static int setup_dynamic_shmem(struct device *dev, struct scmi_optee_channel *ch
+ 	}
  
--allOf:
--  - $ref: /schemas/spi/spi-controller.yaml#
--
- properties:
-   compatible:
-     oneOf:
-@@ -39,6 +36,7 @@ properties:
-       - items:
-           - enum:
-               - mediatek,mt8188-nor
-+              - mediatek,mt8189-nor
-           - const: mediatek,mt8186-nor
- 
-   reg:
-@@ -56,14 +54,8 @@ properties:
-                      design, so this is optional.
-       - description: clock used for controller axi slave bus.
-                      this depends on hardware design, so it is optional.
--
--  clock-names:
--    minItems: 2
--    items:
--      - const: spi
--      - const: sf
--      - const: axi
--      - const: axi_s
-+      - description: clock used for controller axi_f, axi_h, and
-+                     axi_p to support the new platform.
- 
- required:
-   - compatible
-@@ -71,6 +63,37 @@ required:
-   - clocks
-   - clock-names
- 
-+allOf:
-+  - $ref: /schemas/spi/spi-controller.yaml#
+ 	shbuf = tee_shm_get_va(channel->tee_shm, 0);
++	if (IS_ERR(shbuf)) {
++		dev_err(channel->cinfo->dev, "failed to get shared memory VA\n");
++		tee_shm_free(channel->tee_shm);
++		channel->tee_shm = NULL;
++		return PTR_ERR(shbuf);
++	}
 +
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: mediatek,mt8189-nor
-+    then:
-+      properties:
-+        clocks:
-+          minItems: 5
-+        clock-names:
-+          minItems: 5
-+          items:
-+            - const: spi
-+            - const: sf
-+            - const: axi_f
-+            - const: axi_h
-+            - const: axi_p
-+    else:
-+      properties:
-+        clocks:
-+          minItems: 2
-+        clock-names:
-+          items:
-+            - const: spi
-+            - const: sf
-+            - const: axi
-+            - const: axi_s
-+
- unevaluatedProperties: false
- 
- examples:
-@@ -97,3 +120,27 @@ examples:
-         };
-       };
-     };
-+
-+  - |
-+
-+    soc {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      nor_flash: spi@1100d000 {
-+        compatible = "mediatek,mt8189-nor";
-+        reg = <0 0x1100d000 0 0xe0>;
-+        interrupts = <1>;
-+        clocks = <&pericfg CLK_PERI_SPI>, <&topckgen CLK_TOP_SPINFI_IFR_SEL>,
-+                 <&pericfg CLK_PERAO_SFLASH_F>, <&topckgen CLK_PERAO_SFLASH_H>,
-+                 <&pericfg CLK_PERAO_SFLASH_P>;
-+        clock-names = "spi", "sf", "axi_f", "axi_h", "axi_p";
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        flash@0 {
-+          compatible = "jedec,spi-nor";
-+          reg = <0>;
-+        };
-+      };
-+    };
+ 	memset(shbuf, 0, msg_size);
+ 	channel->req.msg = shbuf;
+ 	channel->rx_len = msg_size;
 -- 
-2.45.2
+2.25.1
 
 
