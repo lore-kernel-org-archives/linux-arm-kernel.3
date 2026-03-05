@@ -4,128 +4,192 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCBD2F30929
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:36:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10F52F30924
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 09:37:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:Cc:To:From:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mbidr/A9XxccdAFsJsVKLL2bBtmGRz8XUrt7LUMLgOs=; b=t/MZs+TG3FBImhsD0ueq6cIlFi
-	BwV3u2bzZQvrXKZJdaZ2DLWAnqyFUt3HhFNgwCOnaY0z21fs2QM3UhmIiBKFTaQJBYnGAYbbQGrCE
-	IlzLkwccNGpgPgOKGtF/D8b5wtsF1//PmpdKELbP33AXdAl47WLkTa5ALxsLq2HTw5mPnZcIQ2afj
-	gq9XtG3TQ25UEm1apjTd9hfjXloqAVYmeemQmS7kk7gJaIjX+t3uV+G2yJjsyrp1N89Pd92bsDX3n
-	fOltVcxsLvfScQW4JvB6w/xgYdCbdnMBP+5T14Y7NQDq1C+BkrgGr1/xeT2HzXuXRHK/jPIg9Du5l
-	3mcT1wIg==;
+	bh=mUgngtQPjrKHMYXaOseDXxs925fwvCXZOLZbq3nWhE0=; b=fdt3Vhj37h2nnDnd3db8hZu1mH
+	Blfc03vb20qtt5UR5IzVPOdoxpO1xDPXLivAI9Tug5ourNi7aSNJ6wiAkFFNNfGGZKu4dELPUN6aN
+	OY4uP1esklMW3KFyXNGJhRILcq0lB6WVc6WdluS2utE48WIcLz4qjjW6hoKC+TdBDT/XIg3G090tr
+	cHmT1GYHFfbU1n0/P319SBAc9ayYHoVEwMMVimoXi6lFKYxJ+LB19QYf6pY1A8N70bH4vFNjSbQXZ
+	/jsDCIsCj68FRjV/mK5qg1cBmXH0xv2lSkCiTEX0/jL2g4Sz9nqhE9jvoMxmvK0C0kis31Rvq0yCB
+	17EeLEjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy58C-00000001PeZ-2gov;
-	Thu, 05 Mar 2026 09:36:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vy59W-00000001Q0v-0TgV;
+	Thu, 05 Mar 2026 09:37:54 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy58A-00000001Pcc-0o61
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 05 Mar 2026 09:36:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:References:Subject:Cc:To:
-	From:Message-Id:Date:Content-Type:Mime-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Mbidr/A9XxccdAFsJsVKLL2bBtmGRz8XUrt7LUMLgOs=; b=dl2ong5NzZGjHxK3+LR4jXgVul
-	OHC6KBy2eYlHoj3X1bKIRpHfH2lElUgPW9/M4dfKa2VVwhPDDf871qF22T9lNqVZ4OnxGQhfDtKWJ
-	56J1Nvwpk/MIf77sCqVOOLMoUagkt3XzsuXcQoz1d856kdHx77UcTBSTaDyq7EomZ6p0egPBEPXoe
-	4PAILZahNruS6+UuouBHws21Yq5rspNbKLEipuUgjDsKOaE0789tfFS/mMX2Q9MlPNhzWnMDzrWie
-	9fvmVB3tjFuToRRTZV50mIkRtgAghjfqpXjiQfmvXnn35FgxR3wxXP323m7gtZl0PmRJuJQLrsJGr
-	+zuR4z8Q==;
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy587-00000006M3r-0EKT
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 09:36:29 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-439cb5af25bso1294569f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 01:36:25 -0800 (PST)
+	id 1vy59T-00000001Q00-3Uhe;
+	Thu, 05 Mar 2026 09:37:52 +0000
+X-UUID: f8f90176187611f1ad39f32c34db0b1c-20260305
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=mUgngtQPjrKHMYXaOseDXxs925fwvCXZOLZbq3nWhE0=;
+	b=hZSoZFii0duhl904pfzxB8+n1qWnMTtLcWS6gqObcce6FTKYZMKXKS3mLsMNVDEUU5cwjdtDB7Fi0zdMtQZ8iwcmppYMaaHUF2gIiyDd8jas1u+1sJU7QsMvBQBFpxIl5R3KuUV+ePjnT/JQjf21nV9CqnbTR9/YwwL05GxGlW0=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.11,REQID:4f8c11d1-b88e-4d39-8d14-3fa0e33f8819,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:89c9d04,CLOUDID:a8294bf1-16bd-4243-b4ca-b08ca08ab1d8,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
+	TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BE
+	C:-1,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: f8f90176187611f1ad39f32c34db0b1c-20260305
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
+	(envelope-from <peter.wang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 41780668; Thu, 05 Mar 2026 02:37:48 -0700
+Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Thu, 5 Mar 2026 17:37:46 +0800
+Received: from SI4PR04CU002.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Thu, 5 Mar 2026 17:37:46 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=J1Q6lgc0bd/jp0FtSQBl5xSauB5nTJyV+IAFq+49TISsicRfDLeLbnu/moByyaQ6TZQ6uCCM/LgJ1VdbL812hxV2FGMVyPDfFY+jdm4IQ324EGr65+cyjeQnS91U7EOj2PM3++Gzf4+XCT2fe6QMYG0cYA6mVtuhVdihrfHjHE0twufVR46K8y4OUapOVpOr0IODKSQvquqIY6iVo910MGvuqSkcRCHdEwBSIgoIEs1Z3c9/wNa+XP2fsFvxoacY3BZdX3vevrmOaAAciTI0rlKxk04Ajz5qg7SiM6gR2JOOzvvRd6kuFo3pN0jf8KHrYhLvOoENCP4CyR4kLLQUUQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mUgngtQPjrKHMYXaOseDXxs925fwvCXZOLZbq3nWhE0=;
+ b=QKELim+pZqx1NgAWJZkRVIOOzzRBFZ/rNlZjLtND4OVWnZWPXqk3otev0BLlAcRMpWGLvRK27gmfbLMdF0L/iSFcc4c0VSXf1aXi23R4zUZWjfXsO+0m/xjD+42hTFukhu7j1ZXNyvszBQoqAi3syaRNRrsC6zFp4PWDy84GR6oaxPv3MZpxZjQ7h4qjsym5FbHKvcOZZmKlukPSgFKLkzieYQPB/F30yuCiZK92RA9wNohEyBBX3bMtBo1BpSXWHMHWr+TGdP39morxup4aMdta9A3WP+QjW+/pqqrOczUHKx88l02RrvOvmnQVHd8XCt9ZcRMeA9l+JN8luiElWg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1772703385; x=1773308185; darn=lists.infradead.org;
-        h=in-reply-to:references:subject:cc:to:from:message-id:date
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Mbidr/A9XxccdAFsJsVKLL2bBtmGRz8XUrt7LUMLgOs=;
-        b=N0S3IsyCKkyFGJvcjWmFM714EtFQIbnd6KXtK5vBVkCbblFSAjIwodqNiXIvbK+17B
-         LPL5czAhCCdebfOh5IpP+PpRp2uO1v2WdaJQcLlPw3eJ9Py0QinlDSm4s1hZAREYNVbi
-         p9NB4YuXDtBOYGFq0xIq24LnULchX6e+/VFz0r8yrylKaBTBpBtko+dmc3xHKyn5gH5B
-         5h8BPZWou7EqqudPqvzgcP+LBnjQh1u8ahLrasXw1fqU5o0v/HzlceI5sszy+FlP2GY+
-         EggKaYhiNsBL1Q0f3dFYmCgI5ARiiWZpS9SI7lgrA29Z4rKwVUL2JRzThVNc0T8/r/2K
-         Vvow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772703385; x=1773308185;
-        h=in-reply-to:references:subject:cc:to:from:message-id:date
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Mbidr/A9XxccdAFsJsVKLL2bBtmGRz8XUrt7LUMLgOs=;
-        b=n9k0nlvn+wRgBEY8SwQTw7XPvbrvfrnfL3dGq5D87HF49Zv5dq8uz+9vyMybcTMkQg
-         sS5ohIC1qgzElQj2QtzK3pmy+S7ZrQKEAPejNK5m1d++o6VDqDP79b66bj7wDz1I7+RU
-         KD9+YvoJ22njC0PX25qBcnu8m5tJdR59DdYigGSJLUJn/BccIjFa6J9qlZC9s74jTAqb
-         4BmSn/jVoaeu7rnfq6JcJtdvxQogKVFoD3bMw6Y5X0Abqox840xMxq5UGjqOHe9ctcaZ
-         b1vrFvo6ucssiJAavibVl9vt3NwCVWFQGcTz4IC65MyUR2njzngHR0v6qu7lGDulI6ZT
-         GGPA==
-X-Forwarded-Encrypted: i=1; AJvYcCUP1uBmG0txABhTLCZFImpV2xS2IJ+UMiRuE/xmLL/V/zgYz+iu3B1noRkOaxJTtb+P2M2fegJnqbmdFkI0CMm0@lists.infradead.org
-X-Gm-Message-State: AOJu0YwaTypkIDFtMGnk4MddlILoCNAMtEsKjYn1cl086JPq8Iob3FKB
-	3qUBpb6u2i2v4Ni6iIQOPbev0LCNeMo6vSetFhO+7HBiu4r2YQXhRxJif/BldCE5pM0=
-X-Gm-Gg: ATEYQzxDg/YvvsXOG+WstfNr9K2fXLX9Oe8GdX3T4HypCJcDCYB9eg2/LIhNe7iPVXp
-	sqDSh0SrapDHhvQvt4skHVSnSfXPs0LHexWyxBgqnnMPhOyEk5z861nfTUYTQVSjRcZQmULNq19
-	A3GLTJSB//z1sjHXhFLCXxANlM5edSrB638x0akgvj4eWNY+HK5VvYIP7SH5MYnvUuVr+rqd64T
-	ZgZmXXvyi2/42LhsuAhJMIkQIBvGDRdrvOVhqX44HaihN4HzUfJDnnCi7a6LyPUzCSMb0iTUFIS
-	htoOaNOVgs1AIMHy7E7nEt/R3Mv6rHjW1Ca212+dh5/c4IWZUnZA7n+5Jdh9EymFIFoB2FKKmaf
-	iRwelU45DOSo3bBgtBk7H1PO2XA2pExJIKN5B5DUfSmSOIyS9uxitJc0RwBy3F7ALXaAKiVe/CM
-	NPqMK9CRZaxrS1FGk=
-X-Received: by 2002:a05:6000:144f:b0:439:b564:7a6c with SMTP id ffacd0b85a97d-439c7f6a2c9mr9158913f8f.4.1772703384539;
-        Thu, 05 Mar 2026 01:36:24 -0800 (PST)
-Received: from localhost ([195.52.25.213])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439c2f7eca1sm14966458f8f.11.2026.03.05.01.36.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Mar 2026 01:36:22 -0800 (PST)
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=b895f1e89350da7f8491f35b99d431866030fe6df54b62358155e9918430;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Thu, 05 Mar 2026 10:36:14 +0100
-Message-Id: <DGUQWFYCPRQZ.17SO07GXW2DYA@baylibre.com>
-From: "Markus Schneider-Pargmann" <msp@baylibre.com>
-To: "Vladimir Oltean" <vladimir.oltean@nxp.com>,
- <linux-phy@lists.infradead.org>
-Cc: "Vinod Koul" <vkoul@kernel.org>, "Neil Armstrong"
- <neil.armstrong@linaro.org>, <dri-devel@lists.freedesktop.org>,
- <freedreno@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-arm-msm@vger.kernel.org>, <linux-can@vger.kernel.org>,
- <linux-gpio@vger.kernel.org>, <linux-ide@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-media@vger.kernel.org>,
- <linux-pci@vger.kernel.org>, <linux-renesas-soc@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <linux-rockchip@lists.infradead.org>,
- <linux-samsung-soc@vger.kernel.org>, <linux-sunxi@lists.linux.dev>,
- <linux-tegra@vger.kernel.org>, <linux-usb@vger.kernel.org>,
- <netdev@vger.kernel.org>, <spacemit@lists.linux.dev>,
- <UNGLinuxDriver@microchip.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>,
- "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
- <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Andy Yan"
- <andy.yan@rock-chips.com>, "Marc Kleine-Budde" <mkl@pengutronix.de>,
- "Vincent Mailhol" <mailhol@kernel.org>, "Nicolas Ferre"
- <nicolas.ferre@microchip.com>, "Alexandre Belloni"
- <alexandre.belloni@bootlin.com>, "Claudiu Beznea"
- <claudiu.beznea@tuxon.dev>, "Markus Schneider-Pargmann" <msp@baylibre.com>,
- "Geert Uytterhoeven" <geert+renesas@glider.be>, "Magnus Damm"
- <magnus.damm@gmail.com>
-Subject: Re: [PATCH phy-next 13/22] phy: introduce phy_get_max_link_rate()
- helper for consumers
-X-Mailer: aerc 0.21.0
-References: <20260304175735.2660419-1-vladimir.oltean@nxp.com>
- <20260304175735.2660419-14-vladimir.oltean@nxp.com>
-In-Reply-To: <20260304175735.2660419-14-vladimir.oltean@nxp.com>
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mUgngtQPjrKHMYXaOseDXxs925fwvCXZOLZbq3nWhE0=;
+ b=I9+d1RqjQcPq0o1rwUFYAsDzAhndRdkz/BZ/eC0cO6Te9g5CcpGDkzGys8soOcFTQaZjNKlGn+EVyWbpXvYvz0Juqf03CvVgQdjK/Ta3bhz/8vIzzfc6HK8EpFow++waIcaS1zI3v3wiyDn7dxicvGFaxyRJALqI7JCRhRM47Gw=
+Received: from PSAPR03MB5605.apcprd03.prod.outlook.com (2603:1096:301:66::6)
+ by KL1PR03MB8822.apcprd03.prod.outlook.com (2603:1096:820:144::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.17; Thu, 5 Mar
+ 2026 09:37:43 +0000
+Received: from PSAPR03MB5605.apcprd03.prod.outlook.com
+ ([fe80::165:d36a:3f76:2925]) by PSAPR03MB5605.apcprd03.prod.outlook.com
+ ([fe80::165:d36a:3f76:2925%4]) with mapi id 15.20.9678.017; Thu, 5 Mar 2026
+ 09:37:42 +0000
+From: =?utf-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>
+To: "chu.stanley@gmail.com" <chu.stanley@gmail.com>, "robh@kernel.org"
+	<robh@kernel.org>, =?utf-8?B?Q2h1bmZlbmcgWXVuICjkupHmmKXls7Ap?=
+	<Chunfeng.Yun@mediatek.com>, "kishon@kernel.org" <kishon@kernel.org>,
+	"James.Bottomley@HansenPartnership.com"
+	<James.Bottomley@HansenPartnership.com>, "bvanassche@acm.org"
+	<bvanassche@acm.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, "neil.armstrong@linaro.org"
+	<neil.armstrong@linaro.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	=?utf-8?B?Q2hhb3RpYW4gSmluZyAo5LqV5pyd5aSpKQ==?=
+	<Chaotian.Jing@mediatek.com>, "lgirdwood@gmail.com" <lgirdwood@gmail.com>,
+	"nicolas.frattaroli@collabora.com" <nicolas.frattaroli@collabora.com>,
+	"vkoul@kernel.org" <vkoul@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	"alim.akhtar@samsung.com" <alim.akhtar@samsung.com>, "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>, "avri.altman@wdc.com" <avri.altman@wdc.com>,
+	"martin.petersen@oracle.com" <martin.petersen@oracle.com>,
+	"broonie@kernel.org" <broonie@kernel.org>
+CC: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-phy@lists.infradead.org"
+	<linux-phy@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, Louis-Alexis Eyraud
+	<louisalexis.eyraud@collabora.com>, "kernel@collabora.com"
+	<kernel@collabora.com>
+Subject: Re: [PATCH v8 17/23] scsi: ufs: mediatek: Rework
+ ufs_mtk_wait_idle_state
+Thread-Topic: [PATCH v8 17/23] scsi: ufs: mediatek: Rework
+ ufs_mtk_wait_idle_state
+Thread-Index: AQHcq+cZXVppKOVsJkaBkhcDhEq4LbWfr52A
+Date: Thu, 5 Mar 2026 09:37:41 +0000
+Message-ID: <7e94a3acfec6f7d967a66993de81e1d52f1aaa89.camel@mediatek.com>
+References: <20260304-mt8196-ufs-v8-0-5b0eac23314f@collabora.com>
+	 <20260304-mt8196-ufs-v8-17-5b0eac23314f@collabora.com>
+In-Reply-To: <20260304-mt8196-ufs-v8-17-5b0eac23314f@collabora.com>
+Accept-Language: zh-TW, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PSAPR03MB5605:EE_|KL1PR03MB8822:EE_
+x-ms-office365-filtering-correlation-id: 9eeb4c33-584a-49c5-511b-08de7a9ad92d
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|921020|38070700021;
+x-microsoft-antispam-message-info: JI1WBJhnr8ymZ5bb3VDPiLKz7ZICKvxTUhdIqquQuRqQbLU0WweOZXLU9p/IDERm95ma9Vq5f4EZUNg62W+uwXzCwAij1nDM/RTSyXTR3CClTqMXhy3JFGWkviuT0aqgksJcuajX+5Qptn8YMNaavWTp42aa91rYRa+fO7DPgV9CCdZWmKN2O9xBcoJqgvDC6Pkpz2JXu4O7z+IKfXAeLW7rfzoce+xRn+6YZicRtqoxiVdSqUBs5q2sZQ35p2As/oKy+nSrWRhEQF+Fzo/9USZKZA1U0+dCJjrr9vC0hTYc5CjNDWVNpJG3BaJbwfxDXARDbj82xCF8NTbcbQarB6WUgQYfgN7N6+vYsz4TgaZRNHdOUTErYyjgLmQRfUcdjILzns3kXdnJyODPu0IDrZnKGvhGw7+re2ARu0gUkkAK87swy1oB7wnjLVbRn6xD2okUBLipY9kSXK3XPVwKaC9w/C729QiaeFymcEcPbSct5RCWrpQgtyDry/QLv376aSEGLtXMIBc/knY2sB4GN9G/Olgn1XU/vAK6UrwWGhCcOjZT/1DFbYf1SHZT54U+jBa7PNK+4yTM4jTWLbdSjVKikPmj6HlYn51J4opQbq5zr4i+6ZZqzv82uFylTP324XNfJSQTm6DZ4C5E94owBCzoeYDvPKSHgZqkEi688DMf262Ye/j+B9Unr+KsG2rQ+8taY/0X+a1aOCx1HWMrfK2U2XksYiswLeuJL91222JZwjHSrsYG1w5UghK+JuaIyU+u1HjCtmENu/L9xGn4Ena3LLgGoig5oOdSBouq7VZbutktk0pR/rQOSh8dlGko
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PSAPR03MB5605.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(921020)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?VmlDSmp2Y3l0NFZMcGp1WnVpYWE1SXVLSHJzSkFCTS9JMHpFRjFiUnprQ2hq?=
+ =?utf-8?B?SXFsaE5wZWdDdlBaM2xLa2x0MjdBVjhSUTNQdWRQVU8vRU56WE40YVJUejBx?=
+ =?utf-8?B?YXRLR25JOUUvQjBVa29iRXZKMERIUlNVWmhkbXRpQUlvNWRSR1VJZkJoOVAw?=
+ =?utf-8?B?S0lqM0pNOExPYm02aGJPSVk2TGxZa2ZGbHpwNnBiMG5UM3ZIeUhEZWtmSms4?=
+ =?utf-8?B?RlRWWEcrNXFsTjF1TC8xNWFFelVWSzVISi9ZRDBpcG50bXhjekZ2ZGNDZmxt?=
+ =?utf-8?B?d3N2c21VcFpmeVplRnNlSEhDL0s2aExUNnNHMnRVeSsxREo5NW9ZY2pwejVU?=
+ =?utf-8?B?ZXNEM0ltUlRoMisxTWJ4Z1B4Sm4zZjRFZzA2OENiVitJZ1VPKzUxK1FFUkxT?=
+ =?utf-8?B?cnFEVVJ5bFFvZHAwdS9kRVBWS0JUTWVkakN6K0E4VXdDN3M4cjhGZnNsZjlQ?=
+ =?utf-8?B?ZTV2Q04rNlJVVHlmc2QxalRJY2krMGozQ2U2bjVQMUlTM0dub1N4MllPaVQ3?=
+ =?utf-8?B?eVNLZzkrZUtia2h2TXBmOXhHUElBNU85ZjlzdjJ2OVAra1dESUdtZTdSRnlE?=
+ =?utf-8?B?ektVY3J4anpaT1hnZ0FLYXNQY3pBaFdlb2gwUDBWbTROb0lSalNBVXhBRVRV?=
+ =?utf-8?B?RWRTRThoMkNwZDlyRzl2RFhVTkhhU3dMT2lUbGdUZTJWTUxKV1B3MmloNXF5?=
+ =?utf-8?B?YTI1Q2RvdGVhemF3ZVlLcTNOQzRjdm9pYzI4TkV1YWdBdkVqMEpjRXB6ek9F?=
+ =?utf-8?B?RUtqUDVPcythQi9ZZTZSM0JMTXFKUDAzSXZETldvUHNFcG9tQkQ2SkVLdjM2?=
+ =?utf-8?B?eko0VEFGZlZGa1lSa2ZNZXZ2YWhKU0RsSkNKK1JkWWU5WG5XVHUrZkZTRW8y?=
+ =?utf-8?B?UVRPK3VuMkVpN2I1VlVkNkpNVjJGUTZ3OG5nUGhVK0FCbnQramgvdlE5Sk5W?=
+ =?utf-8?B?QWx0cGlvbFZuczhsVTBRQVhad1REU3Nhc2gvRXgrdm5QbG5zek5EZDd3d24w?=
+ =?utf-8?B?SFUvbG9wcGcwdFRTVnFCVmlqM0ZXRUt6Z252Tlp2VUQ5SUg2aE1ZMEd5TXQv?=
+ =?utf-8?B?T3d0MFA2d1ExdDIxTDRrdktCS09jQ2lSL2grYytjVVRNQ0J0eDQ1bUM3dXNP?=
+ =?utf-8?B?NEloTzQzZi9QRUJObzExQkFubUZWVk80K0FyNWx6N25iRDBHVkN1ZWlKUy9I?=
+ =?utf-8?B?UDgrS0g5L3l2K1piSVVySndQUXlQL1NhS01rMDY4c1ZGUExGQU9aVlFUaCsr?=
+ =?utf-8?B?RndJeDBZRks5cjJWS0dUZTllMGZXRUY5eUpuVDM2azNLYUxlVEs1aHR0KytS?=
+ =?utf-8?B?OUhvQ0ZYeDlJYnh6UlA0NEY2aGNLeUtmT2VrWEtuT1FuYitoVWRDbHFEK0tI?=
+ =?utf-8?B?dkhMTEFGQWxpdkdJZmh4YklHcVhOeHQ1WGxsNG1FYnBqRlhMQWJDWDdURUlx?=
+ =?utf-8?B?aG8zWWZNVTluM0xuQW1MRzU3dXFZVmI0ZlV0a1A5cFZXUXNram5COElDdzNY?=
+ =?utf-8?B?dGo1L0V3UHRmc20vbVpLL1hqeDExdUZkNUJwRk41VmRUaXJWZ0dRYkZnZC9Z?=
+ =?utf-8?B?REJrQ0JTNHhDVGUyeUNMb3JYaGFmb05WQnZER2drdC80VmY5OUJaOGVrczlW?=
+ =?utf-8?B?cHYzU0pxcHdIRERWbXJFM2JCVTl4TFpTVFA1UDRSZVd0K215cEhhZ21najVB?=
+ =?utf-8?B?ZGl2MzBFUHRHYmFCZE9wUFRKcHo0MDd1SVpTYndZUWZBZUJGT1paL2lGcUw4?=
+ =?utf-8?B?NkJzYmVVVlZJc3BtTlhnOGxFT2pwRmNYamlxYmtja1QyVDdXeTU4aU81UHFs?=
+ =?utf-8?B?SDNXNkQyK0hacFAyVVY2M2t1NlhBR2YvR3hmNzNXOFpVblF5QU9WUjJDNS85?=
+ =?utf-8?B?VytTTHpkVVI5TFE3N0FPam1QNkNLamJTWkNyUUNWZ2wrdkJPUlY3QnRnQ2VZ?=
+ =?utf-8?B?d1dLSmx5RWwyTXBEZ3UzcjdBLzBxTmZWTGJGUHgyamFGSWFuRVJEOHJucDhR?=
+ =?utf-8?B?SFVDQTZ1UmZmSVpTOXg2L3hoaXM5RVVXbFNhTU1CSlFncjVLdThtblBHWGtq?=
+ =?utf-8?B?cFZyZkMxTlV3YlFxZS9lRXB1eU5jbm5BYk1mY2QwdUNqYnJGbWZHMC9xQnhU?=
+ =?utf-8?B?a09yVy9pZ2Rwbm02c05HSDcwU094dHJ1bUlPbW1iL2YweldKM1ljd0d5T2tC?=
+ =?utf-8?B?Q280ell4RE5SWnp0SUoyS29UQm55Nzd1YStFaXhvWFNoM0k3SFdCT29POXNu?=
+ =?utf-8?B?U1BCell1NVd0MU5TMkZ4eDZRekQ2bm8xd0dzN3lOQWtRUGdVN3M0bnc4bVhx?=
+ =?utf-8?B?OEFxM3pkMzZaeExvdDExa2pVdTJCcFo1L0Frdkt4YmRVMVZwQ3FtVSt0TVVp?=
+ =?utf-8?Q?OvpQGBx5vDThGdRw=3D?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <F5DBACB299BD664E96C90FE341E7941D@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-Exchange-RoutingPolicyChecked: DliczXiUHikQ8MQW9ii9RVAHoGi/VNexlT1bcMFpBIw/2h4ZfICAAEYhrlPj2cLItNQ5ap+TFao/ntOMwYfvWVmQClVYzGwxxnKOCNdgq3fK3s/s8RvmFZBMhwVnBiZJOamavPEGMXyOSvKqWLTMbGvbnH64Y5kbAyIaLwGBRbgUZMDrEAJ4NmgNnkaA1LrGW5pXy9dI9ESESnrUXTgDHutTY3PhG8kGt2ugd6vEnelpyKy9olS1gPM8yyCaUCxLO0f5XqcWJSGxL5bXvbbut6OCMYO4B9Bokj2ZkvuwZ3J0X8vjx7KoyVOT9ZPE7o0gsLwFJU1SOn8QqVDQ7PodAQ==
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PSAPR03MB5605.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9eeb4c33-584a-49c5-511b-08de7a9ad92d
+X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Mar 2026 09:37:41.9966
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: OOWVSU6BXqSP3OiDyXl9MctyV9bmeeAkGt2ILIuSd4izB+DIp7tLX20b3Z4EoExfgmNAID5CagMXtb5yfOG0Pg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR03MB8822
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_093627_169050_29CC8923 
-X-CRM114-Status: GOOD (  26.11  )
+X-CRM114-CacheID: sfid-20260305_013751_881736_5E82EE9D 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,227 +204,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---b895f1e89350da7f8491f35b99d431866030fe6df54b62358155e9918430
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-
-Hi,
-
-On Wed Mar 4, 2026 at 6:57 PM CET, Vladimir Oltean wrote:
-> Consumer drivers shouldn't dereference struct phy, not even to get to
-> its attributes.
->
-> We have phy_get_bus_width() as a precedent for getting the bus_width
-> attribute, so let's add phy_get_max_link_rate() and use it in DRM and
-> CAN drivers.
->
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-> ---
-> Cc: Andrzej Hajda <andrzej.hajda@intel.com>
-> Cc: Neil Armstrong <neil.armstrong@linaro.org>
-> Cc: Robert Foss <rfoss@kernel.org>
-> Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
-> Cc: Jonas Karlman <jonas@kwiboo.se>
-> Cc: Jernej Skrabec <jernej.skrabec@gmail.com>
-> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-> Cc: Maxime Ripard <mripard@kernel.org>
-> Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> Cc: David Airlie <airlied@gmail.com>
-> Cc: Simona Vetter <simona@ffwll.ch>
-> Cc: Andy Yan <andy.yan@rock-chips.com>
-> Cc: Marc Kleine-Budde <mkl@pengutronix.de>
-> Cc: Vincent Mailhol <mailhol@kernel.org>
-> Cc: Nicolas Ferre <nicolas.ferre@microchip.com>
-> Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>
-> Cc: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-> Cc: Markus Schneider-Pargmann <msp@baylibre.com>
-> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-> Cc: Magnus Damm <magnus.damm@gmail.com>
-> ---
->  drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c | 4 ++--
->  drivers/gpu/drm/bridge/synopsys/dw-dp.c             | 2 +-
->  drivers/net/can/at91_can.c                          | 2 +-
->  drivers/net/can/flexcan/flexcan-core.c              | 2 +-
->  drivers/net/can/m_can/m_can_platform.c              | 2 +-
->  drivers/net/can/rcar/rcar_canfd.c                   | 2 +-
->  drivers/phy/phy-core.c                              | 6 ++++++
->  include/linux/phy/phy.h                             | 6 ++++++
->  8 files changed, 19 insertions(+), 7 deletions(-)
->
-> diff --git a/drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c b/driver=
-s/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c
-> index a8b6ae58cb0a..ed7ed82ddb64 100644
-> --- a/drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c
-> +++ b/drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c
-> @@ -1300,7 +1300,7 @@ static u32 cdns_mhdp_get_training_interval_us(struc=
-t cdns_mhdp_device *mhdp,
-> =20
->  static void cdns_mhdp_fill_host_caps(struct cdns_mhdp_device *mhdp)
->  {
-> -	unsigned int link_rate;
-> +	u32 link_rate;
-> =20
->  	/* Get source capabilities based on PHY attributes */
-> =20
-> @@ -1308,7 +1308,7 @@ static void cdns_mhdp_fill_host_caps(struct cdns_mh=
-dp_device *mhdp)
->  	if (!mhdp->host.lanes_cnt)
->  		mhdp->host.lanes_cnt =3D 4;
-> =20
-> -	link_rate =3D mhdp->phy->attrs.max_link_rate;
-> +	link_rate =3D phy_get_max_link_rate(mhdp->phy);
->  	if (!link_rate)
->  		link_rate =3D drm_dp_bw_code_to_link_rate(DP_LINK_BW_8_1);
->  	else
-> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/br=
-idge/synopsys/dw-dp.c
-> index 4ab6922dd79c..79c72ee8e263 100644
-> --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-> +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-> @@ -536,7 +536,7 @@ static int dw_dp_link_parse(struct dw_dp *dp, struct =
-drm_connector *connector)
-> =20
->  	link->revision =3D link->dpcd[DP_DPCD_REV];
->  	link->rate =3D min_t(u32, min(dp->plat_data.max_link_rate,
-> -				    dp->phy->attrs.max_link_rate * 100),
-> +				    phy_get_max_link_rate(dp->phy) * 100),
->  			   drm_dp_max_link_rate(link->dpcd));
->  	link->lanes =3D min_t(u8, phy_get_bus_width(dp->phy),
->  			    drm_dp_max_lane_count(link->dpcd));
-> diff --git a/drivers/net/can/at91_can.c b/drivers/net/can/at91_can.c
-> index 58da323f14d7..b56db253f02d 100644
-> --- a/drivers/net/can/at91_can.c
-> +++ b/drivers/net/can/at91_can.c
-> @@ -1126,7 +1126,7 @@ static int at91_can_probe(struct platform_device *p=
-dev)
->  	can_rx_offload_add_timestamp(dev, &priv->offload);
-> =20
->  	if (transceiver)
-> -		priv->can.bitrate_max =3D transceiver->attrs.max_link_rate;
-> +		priv->can.bitrate_max =3D phy_get_max_link_rate(transceiver);
-> =20
->  	if (at91_is_sam9263(priv))
->  		dev->sysfs_groups[0] =3D &at91_sysfs_attr_group;
-> diff --git a/drivers/net/can/flexcan/flexcan-core.c b/drivers/net/can/fle=
-xcan/flexcan-core.c
-> index f5d22c61503f..3a4307bc1d61 100644
-> --- a/drivers/net/can/flexcan/flexcan-core.c
-> +++ b/drivers/net/can/flexcan/flexcan-core.c
-> @@ -2211,7 +2211,7 @@ static int flexcan_probe(struct platform_device *pd=
-ev)
->  	priv->transceiver =3D transceiver;
-> =20
->  	if (transceiver)
-> -		priv->can.bitrate_max =3D transceiver->attrs.max_link_rate;
-> +		priv->can.bitrate_max =3D phy_get_max_link_rate(transceiver);
-> =20
->  	if (priv->devtype_data.quirks & FLEXCAN_QUIRK_NR_IRQ_3) {
->  		priv->irq_boff =3D platform_get_irq(pdev, 1);
-> diff --git a/drivers/net/can/m_can/m_can_platform.c b/drivers/net/can/m_c=
-an/m_can_platform.c
-> index 56da411878af..73525be6566b 100644
-> --- a/drivers/net/can/m_can/m_can_platform.c
-> +++ b/drivers/net/can/m_can/m_can_platform.c
-> @@ -132,7 +132,7 @@ static int m_can_plat_probe(struct platform_device *p=
-dev)
->  	}
-> =20
->  	if (transceiver)
-> -		mcan_class->can.bitrate_max =3D transceiver->attrs.max_link_rate;
-> +		mcan_class->can.bitrate_max =3D phy_get_max_link_rate(transceiver);
-> =20
->  	priv->base =3D addr;
->  	priv->mram_base =3D mram_addr;
-> diff --git a/drivers/net/can/rcar/rcar_canfd.c b/drivers/net/can/rcar/rca=
-r_canfd.c
-> index eaf8cac78038..645d5671705d 100644
-> --- a/drivers/net/can/rcar/rcar_canfd.c
-> +++ b/drivers/net/can/rcar/rcar_canfd.c
-> @@ -1885,7 +1885,7 @@ static int rcar_canfd_channel_probe(struct rcar_can=
-fd_global *gpriv, u32 ch,
->  	priv->channel =3D ch;
->  	priv->gpriv =3D gpriv;
->  	if (transceiver)
-> -		priv->can.bitrate_max =3D transceiver->attrs.max_link_rate;
-> +		priv->can.bitrate_max =3D phy_get_max_link_rate(transceiver);
->  	priv->can.clock.freq =3D fcan_freq;
->  	dev_info(dev, "can_clk rate is %u\n", priv->can.clock.freq);
-> =20
-> diff --git a/drivers/phy/phy-core.c b/drivers/phy/phy-core.c
-> index a1aff00fba7c..89f7410241aa 100644
-> --- a/drivers/phy/phy-core.c
-> +++ b/drivers/phy/phy-core.c
-> @@ -640,6 +640,12 @@ void phy_set_bus_width(struct phy *phy, int bus_widt=
-h)
->  }
->  EXPORT_SYMBOL_GPL(phy_set_bus_width);
-> =20
-> +u32 phy_get_max_link_rate(struct phy *phy)
-> +{
-
-All of the can drivers that would use this function are checking phy
-before assigning the max_link_rate:
-
-  if (transceiver)
-          priv->can.bitrate_max =3D transceiver->attrs.max_link_rate;
-
-Would it be reasonable to have
-
-  if (!phy)
-          return 0;
-
-in this function to be able to drop these individual checks of the
-drivers? This would be similar to clk_get_rate() which does the same
-check and return 0 for convenience.
-
-Best
-Markus
-
-> +	return phy->attrs.max_link_rate;
-> +}
-> +EXPORT_SYMBOL_GPL(phy_get_max_link_rate);
-> +
->  /**
->   * _of_phy_get() - lookup and obtain a reference to a phy by phandle
->   * @np: device_node for which to get the phy
-> diff --git a/include/linux/phy/phy.h b/include/linux/phy/phy.h
-> index 36307e47760d..af9c3e795786 100644
-> --- a/include/linux/phy/phy.h
-> +++ b/include/linux/phy/phy.h
-> @@ -57,6 +57,7 @@ int phy_notify_disconnect(struct phy *phy, int port);
->  int phy_notify_state(struct phy *phy, union phy_notify state);
->  int phy_get_bus_width(struct phy *phy);
->  void phy_set_bus_width(struct phy *phy, int bus_width);
-> +u32 phy_get_max_link_rate(struct phy *phy);
->  #else
->  static inline struct phy *phy_get(struct device *dev, const char *string=
-)
->  {
-> @@ -256,6 +257,11 @@ static inline int phy_get_bus_width(struct phy *phy)
->  static inline void phy_set_bus_width(struct phy *phy, int bus_width)
->  {
->  }
-> +
-> +static inline u32 phy_get_max_link_rate(struct phy *phy)
-> +{
-> +	return 0;
-> +}
->  #endif /* IS_ENABLED(CONFIG_GENERIC_PHY) */
-> =20
->  #endif /* __PHY_CONSUMER_H */
-
-
---b895f1e89350da7f8491f35b99d431866030fe6df54b62358155e9918430
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iKMEABYKAEsWIQSJYVVm/x+5xmOiprOFwVZpkBVKUwUCaalOjxsUgAAAAAAEAA5t
-YW51MiwyLjUrMS4xMSwyLDIRHG1zcEBiYXlsaWJyZS5jb20ACgkQhcFWaZAVSlPc
-SwEAt3Fg0ly9qnS+HJQv96JGhcc9ssPHPspnN0LcoiUH76oBAJJ1UWuuXcnIsBb3
-namewJQN1U0nDnFUFRtJbSq49LcK
-=6g8b
------END PGP SIGNATURE-----
-
---b895f1e89350da7f8491f35b99d431866030fe6df54b62358155e9918430--
+T24gV2VkLCAyMDI2LTAzLTA0IGF0IDE1OjUzICswMTAwLCBOaWNvbGFzIEZyYXR0YXJvbGkgd3Jv
+dGU6DQo+IFdoaWxlIHVmc19tdGtfd2FpdF9pZGxlIHN0YXRlIGhhcyBzb21lIGNvZGUgc21lbGxz
+IGZvciBtZSAodGhlDQo+IFZTX0hDRV9CQVNFIGVhcmx5IGV4aXQgc2VlbXMgcmFjZXkgYXQgYmVz
+dCksIGl0IGNhbiBzdGlsbCBiZW5lZml0DQo+IGZyb20NCj4gc29tZSBnZW5lcmFsIGNsZWFudXAg
+dG8gbWFrZSB0aGUgY29kZSBmbG93IGxlc3MgY29udm9sdXRlZC4NCj4gDQo+IFVzZSB0aGUgaW9w
+b2xsIGhlbHBlcnMsIGZvciBvbmUsIGFuZCBzcGVjaWZpY2FsbHkgdGhlIG9uZSB0aGF0IHNsZWVw
+cw0KPiBhbmQgZG9lcyBub3QgYnVzeSBkZWxheSwgYXMgaXQncyBiZWluZyBkb25lIGZvciB1cCB0
+byA1bXMuDQo+IA0KPiBUaGUgcmVnaXN0ZXIgcmVhZCBpcyBzcGxpdCBvdXQgdG8gYSBoZWxwZXIg
+ZnVuY3Rpb24gdGhhdCBicmFuY2hlcw0KPiBiZXR3ZWVuIG5ldyBhbmQgb2xkIHN0eWxlIGZsb3cu
+DQo+IA0KPiBFdmVyeSBjYWxsZWQgdXNlcyB0aGUgc2FtZSA1bXMgdGltZW91dCB2YWx1ZSwgc28g
+dGhlcmUgaXMgbm8gcG9pbnQgaW4NCj4gbWFraW5nIHRoaXMgYSBwYXJhbWV0ZXIuIEp1c3QgYXNz
+dW1lIGEgNW1zIHRpbWVvdXQgaW4gdGhlIGZ1bmN0aW9uLg0KPiANCj4gU2lnbmVkLW9mZi1ieTog
+Tmljb2xhcyBGcmF0dGFyb2xpIDxuaWNvbGFzLmZyYXR0YXJvbGlAY29sbGFib3JhLmNvbT4NCg0K
+UmV2aWV3ZWQtYnk6IFBldGVyIFdhbmcgPHBldGVyLndhbmdAbWVkaWF0ZWsuY29tPg0K
 
