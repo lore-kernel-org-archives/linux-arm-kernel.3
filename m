@@ -4,89 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E882DF30955
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 12:44:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47560F30955
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 12:45:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L3RgJ7ay7e4JV2CizcjZPXE74NAx+EJwuTVFkQMPa0A=; b=phqrr2E7x1hGJ07NGaRDsZV/Ue
-	qHRkpJWQsH1Y2wxeOf9EpNibzXqeWvlqWopzN4K3p/drE70HufMM56I8+z9aOdnllIZXX6iOUUJk5
-	16FZvih1WV2c7m7O0rYdSOKG3EewcbHRIFxnHotS5vTuYRbpCAfNldj3GCU05NOJYgwf3aRj1mUIt
-	D71pB6oRzVIaUFfkShU3IWuxq+yfKg1lvTTjyg2QQCCTKfMqlj3Vi3b9B4Yy1/8VqImyZCzK6Mkua
-	EtjupFheBBANsodjw9lZuy4qusKb4mDJqghyKOhnUJPTc7DW9Aq/tZcfpKZl4wcyamhyXPCGZqBcv
-	23BK98PA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7/B3L3Xu38pLEI9aWzEuoVdxX7Qp2NIDeM+Gg1/xjBI=; b=tmYw3GIBtzy7AjdyCK5hjqczEL
+	w+qf0G+cxNEy3YOtYxPRSnpbvuDR+cXiOIDIjWYDtBiLqF3TSGhhCMEJzxr9oRKbtsicdLZswxq39
+	/OeeQBFjXGk0M1eV/lUBxw7B4oyd7QZs8S9z5awB1SlLQ0P3N4GsRSy8CP1mpvlJMG7dtF6e9L9UC
+	B9OmoPK9GevB45g7Mbd8Bpp9/Q4X4IN/T9mGILaIqEs1NBuV+nGkOE0UXheIQwM/XpytjsAPDZbx/
+	4dm4dxWwtmbq7pu+1SGNDbZgjSmLnWZRwcL/vCovSBAimQV008wIrxa9y93n7ip37tr77DmrXuplF
+	NivKp3AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy83t-00000001neM-33q5;
-	Thu, 05 Mar 2026 12:44:17 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vy84X-00000001nrx-46Wb;
+	Thu, 05 Mar 2026 12:44:57 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy83q-00000001ncS-3AGV;
-	Thu, 05 Mar 2026 12:44:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=L3RgJ7ay7e4JV2CizcjZPXE74NAx+EJwuTVFkQMPa0A=; b=l50LaDmjwGawLaPx5tzHoFyGj9
-	uGN8SEcW1FWI6giSjN9Agdyb79Tf3OMhQXp/1gLi0v88hElChCRRTsLpqVYtIZK+paqMnlyltD32A
-	LQ0AhdD22P4ujgDapZgRXFYGLCZrA45NiSH8me9Kg1PaTgCmj/ZWbGhtviqwB04DVbNPwnLa8dKI9
-	9mxRpqIu1HtkdGIRvZLX3sD9iAPjMIC43yTRproxomlma7C/XuD/8yQmfeCSYHF/SWDmMp1a0l3AJ
-	wMvKbs4k9v54egyciEG7tZ4AAqzht7nPQY0ActrFtJhzqMRqqOw4aTsCQSik4pbjnzIjQ7ivxUwR2
-	mURwhBjQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54444)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vy83h-000000007wT-3LTg;
-	Thu, 05 Mar 2026 12:44:05 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vy83d-000000000Sp-2FwN;
-	Thu, 05 Mar 2026 12:44:01 +0000
-Date: Thu, 5 Mar 2026 12:44:01 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Joe Perches <joe@perches.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-can@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org,
-	netdev@vger.kernel.org, spacemit@lists.linux.dev,
-	UNGLinuxDriver@microchip.com
-Subject: Re: [PATCH phy-next 22/22] MAINTAINERS: add regex for linux-phy
-Message-ID: <aal6kWDx_3XRGB4K@shell.armlinux.org.uk>
-References: <20260304175735.2660419-1-vladimir.oltean@nxp.com>
- <20260304175735.2660419-23-vladimir.oltean@nxp.com>
- <a8fee1cd-1e69-4a9e-8533-c0988c480fb9@oss.qualcomm.com>
- <20260305085148.7cwo3yflp7vcfldf@skbuf>
- <f3a5aa3df78553ffc0fd0024f5fd36a4e2158c88.camel@perches.com>
- <20260305114352.2f7btqixg4tu5bzl@skbuf>
- <20260305121532.GA1649635@rocinante>
- <20260305122957.GA1652563@rocinante>
- <20260305123956.ojkt4k3ly64xz7fu@skbuf>
+	id 1vy84U-00000001nqg-3bm5
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Mar 2026 12:44:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 83FC143F57
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Mar 2026 12:44:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61057C2BCAF
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Mar 2026 12:44:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772714694;
+	bh=7/B3L3Xu38pLEI9aWzEuoVdxX7Qp2NIDeM+Gg1/xjBI=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=OtqYMvb5oPxe5sMzeuWM/p9QhfY79P8WSa8Oc0dmxSoFCqAxC+CeiyJ4NR/CKYXp5
+	 2pWsVJ/8dTjJPaOTsMOrLWg9QrWyIT17qWYKoWkp2uev1+hKn84FX5s0QnjAl8bNE/
+	 7JpPIBkXPhGvuxF9NkQde6xY7s3+z78cNibHOOJcW8DPll2R+OOPS/ZPgglANmm0bm
+	 z+fq9gwNqWVY2cpjU7AjP46t/Fi3qyyprLoCv6ETr3JC7/UsdbQoEj4fnlA7mjJ3u9
+	 kpBnTLkqR3bbedcx3T7TtOd2iumdT2sN3/QFxWt88OY6wGjq0mmb5qwwhn72EVc8bD
+	 zEhwMty5ybC+w==
+Received: by mail-yx1-f43.google.com with SMTP id 956f58d0204a3-64ad46a44easo7001845d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 04:44:54 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXwx8Z0EUv0hwayaWYbhvACAPANcftWAhmSdGVNu8AmfyrEMyn8dLMvxXrasYFMDSrbgF7vpz9Ls4AB8kyi1TnA@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2Vze5iOtA5BLI2wC1ik3f0nBWmq5UAmAspKLP0EnCnIajBE2K
+	cu3lf92lnvQ483G+hBDGScCuseEW4nsdYVrrU429KLkLDWh7ektlh2OkEo/5q9Kb5rEBRP1UNe2
+	K7iPl+/cxA9mueGcfG1OVSEvtcGf51cc=
+X-Received: by 2002:a05:690e:1a12:b0:649:5a6e:bc88 with SMTP id
+ 956f58d0204a3-64cf9bac208mr3552462d50.46.1772714693758; Thu, 05 Mar 2026
+ 04:44:53 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260305123956.ojkt4k3ly64xz7fu@skbuf>
+References: <20260304175735.2660419-1-vladimir.oltean@nxp.com>
+ <20260304175735.2660419-19-vladimir.oltean@nxp.com> <CAD++jLnCtu20rXcg7sMVLBi24EohscJoz0kN46XJaKPJt00O2w@mail.gmail.com>
+In-Reply-To: <CAD++jLnCtu20rXcg7sMVLBi24EohscJoz0kN46XJaKPJt00O2w@mail.gmail.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 5 Mar 2026 13:44:42 +0100
+X-Gmail-Original-Message-ID: <CAD++jL=m+cEcqy1i2H0tdeBa3Sy76myGAR9HdBqrT4u-x5v50A@mail.gmail.com>
+X-Gm-Features: AaiRm53u9phsGhzUDeKiqEnTp_X3DfbqaQ7dJ0SVurbn78IH1263DExaHPtG4YM
+Message-ID: <CAD++jL=m+cEcqy1i2H0tdeBa3Sy76myGAR9HdBqrT4u-x5v50A@mail.gmail.com>
+Subject: Re: [PATCH phy-next 18/22] pinctrl: tegra-xusb: include PHY provider header
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, dri-devel@lists.freedesktop.org, 
+	freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-can@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev, 
+	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org, 
+	netdev@vger.kernel.org, spacemit@lists.linux.dev, 
+	UNGLinuxDriver@microchip.com, Thierry Reding <thierry.reding@gmail.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_044414_790239_BB3CAFEC 
-X-CRM114-Status: UNSURE (   8.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260305_044454_948392_B4A97541 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,21 +95,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 05, 2026 at 02:39:56PM +0200, Vladimir Oltean wrote:
-> On Thu, Mar 05, 2026 at 09:29:57PM +0900, Krzysztof Wilczyński wrote:
-> > For content match, it could also be:
-> > 
-> >   K:    phy
-> > 
-> > I believe this would match everything of interest?
-> 
-> Yeah, and way more. Think USB PHY, network PHY, etc. Don't want to drown
-> the linux-phy mailing list in unrelated patches, either.
+On Thu, Mar 5, 2026 at 1:43=E2=80=AFPM Linus Walleij <linusw@kernel.org> wr=
+ote:
+> On Wed, Mar 4, 2026 at 7:00=E2=80=AFPM Vladimir Oltean <vladimir.oltean@n=
+xp.com> wrote:
+>
+> > The tegra-xusb pinctrl driver is also a PHY provider (calls
+> > devm_phy_create() for PCIe and SATA). However, according to Vinod Koul,
+> > having PHY provider drivers outside of drivers/phy/ is discouraged,
+> > although it would be difficult for me to address a proper movement here=
+.
+> >
+> > Include the private provider API header from drivers/phy/, but leave a
+> > FIXME in place. It will have to be moved, eventually.
+> >
+> > Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+>
+> Fair enough, is this a regression so I should merge it for fixes
+> or just a nonurgent fix that I can apply for next?
 
-Also phylink, any memory management / DMA stuff that happens to mention
-"physical", and probably numerous other examples.
+Sorry I realized it needs to go in with the series.
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+You can take it from here.
+
+Yours,
+Linus Walleij
 
