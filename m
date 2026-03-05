@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DF41F33A78
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 14:44:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AD16F33A78
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 14:44:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XiGmT45PsLbMJNT+huovjFRwAwzp41EeCaoWhSWxcgg=; b=rpNQL9OxADW0m022Rb5Z8vaTKX
-	QqdBKFJkDEKXS0YsulvW6E64rYodbsG7eGpd726KKrXJMtoZuFHJCBH9hZGK8WnSzG0ptIefuO+DC
-	GPTFmz9vnQNFq9gJdle9v540PwjQlbDp6OL8OHHAGkZ5L9UVT3mw9eBceEqnjYq9wgV+EXW+Ac6/6
-	q+DoevIbHgC6IQoOoMSHB4iyHLM6Ixhmq0gfb1+kxNMfEBRx2+1VHSEFLLJv19g2gtOud1jAOonNx
-	9HzNnJxWtG8yEJj2AEg64ImdPBWF+LC4+nQE3vmuN15JMMz8CZ/ac+Wax4ULzYP9JpXhJHD7nlJcc
-	AJRKLmqA==;
+	bh=VGPJFYLBzm6Tz/ttEIhKsbug8LLNq+Z9GhS2kObL3jE=; b=wn7QrEHar6x642PIQWL1c6he17
+	l24qKK5kaxm6VEiGGC1cgRBbJ5oL2ootpOHyMoxEILSX6I7Yv8lZiWRnPUueMVpLDjHadsKOb+884
+	0KBTTEb1Mnrz4WaeGjtng4H1xIaRZFiqWj+ghWngZauat4U4K9WrcKBJh2JPVu7F92uDNedQiiWSV
+	SMR9hg2bFV740CY6iUVlSvU/ZHfV1DHRS6q3RW96bdpxwGMZtzhqOsIxtBA0DOOyUb2+a/RGmisA6
+	N4aHbJH4PALeJ4lj+BCAQRx0AQyAVJ+X6RIbzomN+YxvCIOl17XIPZ1TiDi7vLUd5PmAWdFIREPrQ
+	dPUg5q6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy9wL-000000021Dd-3IWc;
-	Thu, 05 Mar 2026 14:44:37 +0000
+	id 1vy9wT-000000021Jd-0QJJ;
+	Thu, 05 Mar 2026 14:44:45 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy9wK-000000021CQ-0c1w
+	id 1vy9wR-000000021I1-07wU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 14:44:36 +0000
+	Thu, 05 Mar 2026 14:44:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 881EF61850;
-	Thu,  5 Mar 2026 14:44:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AF23C2BC9E;
-	Thu,  5 Mar 2026 14:44:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 74DF861851;
+	Thu,  5 Mar 2026 14:44:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49AE5C116C6;
+	Thu,  5 Mar 2026 14:44:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772721875;
-	bh=zUfNG20++qm+IFIOEeFiT7GAONrck8zwiKUguq1Xulc=;
+	s=k20201202; t=1772721882;
+	bh=A98jBFfJ0Zw8odIv9cujR5a6XKhnf74/r1VWTBluNWU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=YD/uOZQTw8OQvc819D20Y+KlXM/gX8Lpa76QvBLXLkiMEyKJ9oW88sxNqNXSjPCW/
-	 RLk5zdIi2LnMC/f5py8fsZKGSp4TwPLWGRUw0UdmWfuBpS5veQkUMy2P+sFvy4PXSh
-	 ECzOrxTsBkMEOWHN7G7X98seR+NT7eHdUhse493DVs+C5fjQMLk6TByf2GaKPcwDLb
-	 Vmu/hl4HIyGJV6S4ZfUeTxIPskFQ1749Z+fY4ZzRase0DhTm8MCSosrel9ysJUPyGp
-	 S18kg2ej3Gh36zkjxivMo1cvvGkO6EJf4VxLgQwOYjX6VDEb+npgVtK6q+/8OctItw
-	 olTmFUstljQbw==
+	b=UGMcUolr9sRhY8akUwGcfiaq0SmE6b+jSfPDHR5YoLTLAPt7Fep3zIl5L7Z6HCvrU
+	 XRJhT1L3CS47R2uOm7taehQIKj4KdK45VCtCLMEx9ACImYlaWR4P8WCzZakKKLkGic
+	 ddzfFET6ZHHY16voHtNH15A8NJttx7iPEmRVVbuEo4u/U7Nf81uir0CZfKZIOLxWOE
+	 xvX11t6BvSQyQ2y6weRNdipt768j+XBSbwqHhl3J2KMXBI59J1/F0dwE/UXYHw0axC
+	 s5XFbmtjM7a2eo8/ykfXo22uALsw7EMbPKH1vU3/A0JAXNYU1zSExpirefyFMGM4D1
+	 q0WfGiF3+VSZw==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -57,9 +57,9 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH v3 07/36] KVM: arm64: Ignore MMU notifier callbacks for protected VMs
-Date: Thu,  5 Mar 2026 14:43:20 +0000
-Message-ID: <20260305144351.17071-8-will@kernel.org>
+Subject: [PATCH v3 09/36] KVM: arm64: Ignore -EAGAIN when mapping in pages for the pKVM host
+Date: Thu,  5 Mar 2026 14:43:22 +0000
+Message-ID: <20260305144351.17071-10-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260305144351.17071-1-will@kernel.org>
 References: <20260305144351.17071-1-will@kernel.org>
@@ -79,114 +79,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for supporting the donation of pinned pages to protected
-VMs, return early from the MMU notifiers when called for a protected VM,
-as the necessary hypercalls are exposed only for non-protected guests.
+If the host takes a stage-2 translation fault on two CPUs at the same
+time, one of them will get back -EAGAIN from the page-table mapping code
+when it runs into the mapping installed by the other.
+
+Rather than handle this explicitly in handle_host_mem_abort(), pass the
+new KVM_PGTABLE_WALK_IGNORE_EAGAIN flag to kvm_pgtable_stage2_map() from
+__host_stage2_idmap() and return -EEXIST if host_stage2_adjust_range()
+finds a valid pte. This will avoid having to test for -EAGAIN on the
+reclaim path in subsequent patches.
 
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kvm/mmu.c  |  9 ++++++---
- arch/arm64/kvm/pkvm.c | 19 ++++++++++++++++++-
- 2 files changed, 24 insertions(+), 4 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c | 21 ++++++++++++++++-----
+ 1 file changed, 16 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index ec2eee857208..43632c69adaf 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -340,6 +340,9 @@ static void __unmap_stage2_range(struct kvm_s2_mmu *mmu, phys_addr_t start, u64
- void kvm_stage2_unmap_range(struct kvm_s2_mmu *mmu, phys_addr_t start,
- 			    u64 size, bool may_block)
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index 38f66a56a766..7b0f8ad7b20f 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -461,8 +461,15 @@ static bool range_is_memory(u64 start, u64 end)
+ static inline int __host_stage2_idmap(u64 start, u64 end,
+ 				      enum kvm_pgtable_prot prot)
  {
-+	if (kvm_vm_is_protected(kvm_s2_mmu_to_kvm(mmu)))
-+		return;
-+
- 	__unmap_stage2_range(mmu, start, size, may_block);
++	/*
++	 * We don't make permission changes to the host idmap after
++	 * initialisation, so we can squash -EAGAIN to save callers
++	 * having to treat it like success in the case that they try to
++	 * map something that is already mapped.
++	 */
+ 	return kvm_pgtable_stage2_map(&host_mmu.pgt, start, end - start, start,
+-				      prot, &host_s2_pool, 0);
++				      prot, &host_s2_pool,
++				      KVM_PGTABLE_WALK_IGNORE_EAGAIN);
  }
  
-@@ -2219,7 +2222,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ /*
+@@ -504,7 +511,7 @@ static int host_stage2_adjust_range(u64 addr, struct kvm_mem_range *range)
+ 		return ret;
  
- bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
+ 	if (kvm_pte_valid(pte))
+-		return -EAGAIN;
++		return -EEXIST;
+ 
+ 	if (pte) {
+ 		WARN_ON(addr_is_memory(addr) &&
+@@ -609,7 +616,6 @@ void handle_host_mem_abort(struct kvm_cpu_context *host_ctxt)
  {
--	if (!kvm->arch.mmu.pgt)
-+	if (!kvm->arch.mmu.pgt || kvm_vm_is_protected(kvm))
- 		return false;
+ 	struct kvm_vcpu_fault_info fault;
+ 	u64 esr, addr;
+-	int ret = 0;
  
- 	__unmap_stage2_range(&kvm->arch.mmu, range->start << PAGE_SHIFT,
-@@ -2234,7 +2237,7 @@ bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- {
- 	u64 size = (range->end - range->start) << PAGE_SHIFT;
+ 	esr = read_sysreg_el2(SYS_ESR);
+ 	if (!__get_fault_info(esr, &fault)) {
+@@ -628,8 +634,13 @@ void handle_host_mem_abort(struct kvm_cpu_context *host_ctxt)
+ 	BUG_ON(!(fault.hpfar_el2 & HPFAR_EL2_NS));
+ 	addr = FIELD_GET(HPFAR_EL2_FIPA, fault.hpfar_el2) << 12;
  
--	if (!kvm->arch.mmu.pgt)
-+	if (!kvm->arch.mmu.pgt || kvm_vm_is_protected(kvm))
- 		return false;
- 
- 	return KVM_PGT_FN(kvm_pgtable_stage2_test_clear_young)(kvm->arch.mmu.pgt,
-@@ -2250,7 +2253,7 @@ bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- {
- 	u64 size = (range->end - range->start) << PAGE_SHIFT;
- 
--	if (!kvm->arch.mmu.pgt)
-+	if (!kvm->arch.mmu.pgt || kvm_vm_is_protected(kvm))
- 		return false;
- 
- 	return KVM_PGT_FN(kvm_pgtable_stage2_test_clear_young)(kvm->arch.mmu.pgt,
-diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index 42f6e50825ac..20d50abb3b94 100644
---- a/arch/arm64/kvm/pkvm.c
-+++ b/arch/arm64/kvm/pkvm.c
-@@ -407,7 +407,12 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
- 
- int pkvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size)
- {
--	lockdep_assert_held_write(&kvm_s2_mmu_to_kvm(pgt->mmu)->mmu_lock);
-+	struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
-+
-+	if (WARN_ON(kvm_vm_is_protected(kvm)))
-+		return -EPERM;
-+
-+	lockdep_assert_held_write(&kvm->mmu_lock);
- 
- 	return __pkvm_pgtable_stage2_unshare(pgt, addr, addr + size);
- }
-@@ -419,6 +424,9 @@ int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
- 	struct pkvm_mapping *mapping;
- 	int ret = 0;
- 
-+	if (WARN_ON(kvm_vm_is_protected(kvm)))
-+		return -EPERM;
-+
- 	lockdep_assert_held(&kvm->mmu_lock);
- 	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
- 		ret = kvm_call_hyp_nvhe(__pkvm_host_wrprotect_guest, handle, mapping->gfn,
-@@ -450,6 +458,9 @@ bool pkvm_pgtable_stage2_test_clear_young(struct kvm_pgtable *pgt, u64 addr, u64
- 	struct pkvm_mapping *mapping;
- 	bool young = false;
- 
-+	if (WARN_ON(kvm_vm_is_protected(kvm)))
-+		return -EPERM;
-+
- 	lockdep_assert_held(&kvm->mmu_lock);
- 	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
- 		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest, handle, mapping->gfn,
-@@ -461,12 +472,18 @@ bool pkvm_pgtable_stage2_test_clear_young(struct kvm_pgtable *pgt, u64 addr, u64
- int pkvm_pgtable_stage2_relax_perms(struct kvm_pgtable *pgt, u64 addr, enum kvm_pgtable_prot prot,
- 				    enum kvm_pgtable_walk_flags flags)
- {
-+	if (WARN_ON(kvm_vm_is_protected(kvm_s2_mmu_to_kvm(pgt->mmu))))
-+		return -EPERM;
-+
- 	return kvm_call_hyp_nvhe(__pkvm_host_relax_perms_guest, addr >> PAGE_SHIFT, prot);
+-	ret = host_stage2_idmap(addr);
+-	BUG_ON(ret && ret != -EAGAIN);
++	switch (host_stage2_idmap(addr)) {
++	case -EEXIST:
++	case 0:
++		break;
++	default:
++		BUG();
++	}
  }
  
- void pkvm_pgtable_stage2_mkyoung(struct kvm_pgtable *pgt, u64 addr,
- 				 enum kvm_pgtable_walk_flags flags)
- {
-+	if (WARN_ON(kvm_vm_is_protected(kvm_s2_mmu_to_kvm(pgt->mmu))))
-+		return;
-+
- 	WARN_ON(kvm_call_hyp_nvhe(__pkvm_host_mkyoung_guest, addr >> PAGE_SHIFT));
- }
- 
+ struct check_walk_data {
 -- 
 2.53.0.473.g4a7958ca14-goog
 
