@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A762FEEF305
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 06:12:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09488EEF309
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 06:12:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GJyveOpQYRN0Rj97xYSp2eMNn5Hi3Nxu7cTlokaFCRE=; b=O0HTHH7cVurZsyhiAVKC1ZDXFe
-	AcH6caUugjO8W2U77ra/qPc5JO6ZNYm5ObIKKw4ZqKn/Y5LeNVH58/x/VMdSOftUluikkAV/bFh/9
-	LOmWVZG5AZzVrqoZ5lRL5CS6HMllC58nRvQlM+EzGJ4VgR/K6YDrxnAoDqQmZms84K+FbxKFinn8w
-	yJlNI3fsMECHFGSUUR9Dz/e9g5AgK0cUlNcUU2tg2q0rJnrI+B6nE+6wS3sZjCPvaPwDzHa8e70w3
-	Ijq9xauQsGhh7TktChFCzgiJEWSfhtWWB4lmdidtd2PK/3a48bYq3U0wRNgQ6hsbPGWM2y0UuNy1b
-	UjUipJKg==;
+	bh=Z+RpBQOuQW07kF7dgJNXDXfeT4g3XJJZS09GBpqTzzg=; b=MNdv7BveEdHbx05oyw9rUhDOcd
+	3/EGKOz+QjrbfWkLZn6HSfAljVI9gd4zyk2JpA+w4KGohWNNeZu8eAXKVAm4il3pJ3qzKMJB7BKVm
+	bt2ajZ+UAoLHMxVkjabEqXwZn/F/y0+OtbFIPcVHaRI/b2a9cdm13HSD1uGeZEsSnQNyKRB31i27v
+	6x9twJyDs2IcsuWhyIXACLbynzNqO0eb75KfFelkf+5jIG78NanBuaQvT1+lHMSbAzicHliRtFejE
+	MBlpCDkRqo/Kt11XUYochOITWfC7fP9qtgE09PQEphveqI5YN/RQhcfj3AZPrZCQtsmz619aT3bLm
+	rXweCCWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy1wO-00000000yeZ-15oo;
+	id 1vy1wO-00000000yfR-3bLc;
 	Thu, 05 Mar 2026 06:12:08 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy1wI-00000000yZc-1DKb
+	id 1vy1wK-00000000ybE-2Blu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Mar 2026 06:12:03 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-b93718302beso163514566b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 22:12:01 -0800 (PST)
+	Thu, 05 Mar 2026 06:12:05 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-b9382e59c0eso212961666b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Mar 2026 22:12:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1772691120; x=1773295920; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1772691123; x=1773295923; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=GJyveOpQYRN0Rj97xYSp2eMNn5Hi3Nxu7cTlokaFCRE=;
-        b=j3pplhi27nUzwmUHYnjE83qjgGCaTXJRAmZ40PTmmtMVZJjfaMwCbzJkFhix4ogDjr
-         3/dnw7WECwQgMulowY9LlsYcJXB+n7jXBpK7y4O4VldqAB59kNYvgEvxNo0q9hMjieJi
-         xaDkRKIWJMiXOJDj5p1t0DQtM50v3khN1Mu39WKYC7u0LaDtXjjUkYs6gS9TlKHgV/WB
-         0u66jYkqvpSiXAGSFp/obV4pd4LxhB53f1oYOrmpJ3gfGXYfiNKNrO0cNn1Bjn0lawI/
-         V0EZYxuuUNzexvpyFLeZA81fi3VzOe63uX7fauF3uxDDFWdUIU6vls824n0dXiHNom4E
-         BJFQ==
+        bh=Z+RpBQOuQW07kF7dgJNXDXfeT4g3XJJZS09GBpqTzzg=;
+        b=nI5Sb2nenrd1QAxKg6hKY08fFS14J2aUJRV0zQWU/gNfjRa54gdq0rPePABxcG6Vup
+         NE2rSqGxj2L3JmRTeFe+VVyIwFA9hkwG0O0RXZSLiazINbTXK/lB+6vkyKrqyKnOegll
+         i3kMr/DE+DukT5SUeSocVMBl3BmJd1lH9BDihSbaOV06EgaFEhI+/WEDSmOmPO3fBEs8
+         N0DCxC3fMITZs3HaSqN8l72+BjnRX+bgoGCikxcGuwhsnDcH59OqHwjGbaArjojT/ZF7
+         fYm3gNoVJJAHBhx3MU6zuo63x5vyYrOurmgIvO9R1BnBSLadyr2BWV/X+YGLJlQbSuXB
+         Ft3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772691120; x=1773295920;
+        d=1e100.net; s=20230601; t=1772691123; x=1773295923;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=GJyveOpQYRN0Rj97xYSp2eMNn5Hi3Nxu7cTlokaFCRE=;
-        b=jLBgf+4Pq57kveJSpqurRZUF2ddwLPv4/f0CHiw+Jg6F8zMavTHt6PMejNbdDWnvDg
-         XIDsi4oiKalVBvKo5KIvaJXP6M1iNX/xuAQ4jGjnjk0pJyBS8UnK4w4ww2kENhosjp9D
-         8neBmavZG5PmJyu2e58W43T5hw/OqL0mMCtBhoNn1A/RuTdge02pAQPdxx5j2Sqwzc31
-         JRDlLvUaWJOUzOhjhaS/Vm75LK2IQl8IHjYBK5CAY43xDP3N+dfp8pWgEZ907ecjPTUL
-         VfPTp7xgxMK/I5ejzZkboo4w6dGsQe7ML1jkdauWtQxWl8iSVMhFGxifN094FnTcsxpB
-         MRxg==
-X-Forwarded-Encrypted: i=1; AJvYcCW56ONLfEtnKktNFB56fnpHQLSqzTg20poKN1gUok83+efw0yeZc/yUgSEaBdEdL7T0F7KK1+iRoQoYMdgk6Z1A@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSnAiDnydW+9smWkYyP0twCH590Z2vjjQaFVTkot4vAsHyYVzK
-	wFJ/pNtGdNZaKt0CPs2xoUsRzsW6cfOZGmiqWjvgCcVSkKWyFx2571ZworTQJ1eUhxA=
-X-Gm-Gg: ATEYQzzr2c+kpPtJ8lpZ/Xvb0tdaDXpCSpMb4DEFSaVYaMO7I72n3b56Ot/EAynQqID
-	fm2MfNTkwYd4vcTYij3w8By7YtV/E7YiZM/CI+kY4Sd0OTl3gPel1xhDyRO5mQQdc50pfNuEy8m
-	JCUxd4vvR1PFByRKl3YSfhTihD8U76I3KHumkLv8nj9nZRCtR0q8oIlXyrh9rH+cQYu7ySW7GC2
-	cZQNwG1RdjqPdTKcmhBwBahsBUWg9Zr3CMEvvH19933KmvZl2gZiBAoZE1K8VDQ0p42x/5YctVE
-	3xAGkLeDwMHwghdKRnZM88Cqa5sy/UsbqDBQlb4x1qA5ilulRRwpqHmj0N/T2ueq10Thf6U78OE
-	/ATj//7jFBVf12mxtWt7o2xXXQvtNO6mI//gEGBTaNyM6hFUqAYdoqaLKfrPXDftcNNJKIhLliN
-	+1RjCinndxz4brZybr7RXcBKAuutIM6kTrqDkV91Jh1K35kXIM4A7UxP/BnyaKUQgguIcwdYH5q
-	V78IWqEFyVPHHI=
-X-Received: by 2002:a17:906:209a:b0:b94:102d:243a with SMTP id a640c23a62f3a-b94102d2a92mr24981766b.37.1772691120288;
-        Wed, 04 Mar 2026 22:12:00 -0800 (PST)
+        bh=Z+RpBQOuQW07kF7dgJNXDXfeT4g3XJJZS09GBpqTzzg=;
+        b=h0h92YTeQi7P9Eg41B14QsgqXjy9Si8HmgunuP5zlgs4xGpbTu2AD77gbAvZtPYdKi
+         xrPlVGUcbZByroOknTSrZLsTheE0Z9v5k/95DCbRNbqGe2rjXNeJ2CoZHJWZshFXq4/W
+         4zHS2j9kU884k2kT4aLNHuGbcRI58zgZZvvKZikjrYPWetXnsDT49UVIFYe0KUZqdvw3
+         G7o2GswcrST9n+eGLplJBXpRTNbNLT+f8xIvOJZUHu3NgZzQvB07rq7RfcCQNpqb9b4K
+         Ks/IkLZchbWpopS+1fDRs/JdVxEb+pOrF0117FXFcmUlw0rtj3OcV27oUmY9IqTcr/fU
+         O7Vw==
+X-Forwarded-Encrypted: i=1; AJvYcCX48MrpJMfFyXYgkfhMtCxnnQnkUW9Hh6eByuMde20G8ssAJMqxgUoyHjO6uKwoxa9NddEVIbd7LIVV4iPP05iQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZM4ieVbW4VIb2CN/aTndUHH3QlE2rZuA2R2vNWJYxayHkRKdO
+	GZO/li8D3U4E5vUOndXQWrfUaWOoGpmKU6h4QQX8jxKRPYlcu1uhO3L5QDGm6UrDWUg=
+X-Gm-Gg: ATEYQzyRouMuejDbXgKckhC1a7EK793J70M3BnNtpsTSutt6REpxUOxuhjl+vOJ87AZ
+	RqID3Js0cfffJ7guS1IXf44NM3DqAeegJ1F5ZYSFVv3oCSrYwOjoccdDLCcrsUSOwuez9H+OoUh
+	66Si/mCrxd+odwXZHVolyM0RQiUc0hro6XGBQ7x9InNUZSG4BLUQ027tv30cN49bFMgqphFVS3F
+	X2fIbg8sibsjG5b+6ydYph2SQ9loSG2ruN0dK+VXK0lkmTioXF+xLNTYkNt4eG6CE2lE0/cnrHQ
+	pdw7SPFeD0lJTjv+ZAluYE3fw3GkCidNnNcCT9qUfbPQbCxCNXjrblxFdsNT2toN9e+Tq2nOvQB
+	ZD3CIrIvkxsos3RuYLlxV4bpmijEK4zJ+cqKpqrxOZ/LcmCXvxi3tqvw7MV/yf58FjidC8WhjMq
+	EYujfctC6c2flhM4cpCt2i8AoNGNDKDuZhvAFRYXg/7vQf0eb68oUU8PZ2aR42CEo9H6fafCSn+
+	2yfHgqCoxeAEvmzEhZXP3nwrA==
+X-Received: by 2002:a17:906:6a1b:b0:b8f:8cf4:adf9 with SMTP id a640c23a62f3a-b93f115f763mr262528766b.6.1772691122762;
+        Wed, 04 Mar 2026 22:12:02 -0800 (PST)
 Received: from puffmais2.c.googlers.com (221.210.91.34.bc.googleusercontent.com. [34.91.210.221])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b935aec3243sm849355966b.53.2026.03.04.22.11.59
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b935aec3243sm849355966b.53.2026.03.04.22.12.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Mar 2026 22:11:59 -0800 (PST)
+        Wed, 04 Mar 2026 22:12:01 -0800 (PST)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Thu, 05 Mar 2026 06:11:57 +0000
-Subject: [PATCH v6 08/10] pmdomain: samsung: use dev_err() instead of
- pr_err()
+Date: Thu, 05 Mar 2026 06:11:59 +0000
+Subject: [PATCH v6 10/10] pmdomain: samsung: implement domain-supply
+ regulator
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260305-gs101-pd-v6-8-8cb953c1a723@linaro.org>
+Message-Id: <20260305-gs101-pd-v6-10-8cb953c1a723@linaro.org>
 References: <20260305-gs101-pd-v6-0-8cb953c1a723@linaro.org>
 In-Reply-To: <20260305-gs101-pd-v6-0-8cb953c1a723@linaro.org>
 To: Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -92,13 +92,11 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-pm@vger.kernel.org, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_221202_376779_B61EC3BF 
-X-CRM114-Status: GOOD (  14.54  )
+X-CRM114-CacheID: sfid-20260304_221204_649699_A112B657 
+X-CRM114-Status: GOOD (  20.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,60 +111,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-dev_err() gives us more consistent error messages, which include the
-device. Switch to using dev_err().
+Some power domains on Exynos are fed by a regulator rail and therefore
+regulator control needs be implemented for Exynos power domains.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+On Google gs101, HSI0 (USB) is one example of such a power domain.
+
+While at it, add a to_exynos_pd() to avoid direct use of
+container_of() in various additional places, and update existing code
+to use it.
+
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
 ---
- drivers/pmdomain/samsung/exynos-pm-domains.c | 12 ++++++++----
- 1 file changed, 8 insertions(+), 4 deletions(-)
+ drivers/pmdomain/samsung/exynos-pm-domains.c | 53 +++++++++++++++++++++++++---
+ 1 file changed, 48 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/pmdomain/samsung/exynos-pm-domains.c b/drivers/pmdomain/samsung/exynos-pm-domains.c
-index 2214d9f32d59..41a232b3cdaf 100644
+index f59986b56213..ed7a5807555b 100644
 --- a/drivers/pmdomain/samsung/exynos-pm-domains.c
 +++ b/drivers/pmdomain/samsung/exynos-pm-domains.c
-@@ -30,6 +30,7 @@ struct exynos_pm_domain_config {
-  */
+@@ -20,12 +20,15 @@
+ #include <linux/of_address.h>
+ #include <linux/pm_runtime.h>
+ #include <linux/regmap.h>
++#include <linux/regulator/consumer.h>
+ 
+ #define EXYNOS_SMC_CMD_PREPARE_PD_ONOFF		0x82000410
+ #define EXYNOS_GET_IN_PD_DOWN			0
+ #define EXYNOS_WAKEUP_PD_DOWN			1
+ #define EXYNOS_RUNTIME_PM_TZPC_GROUP		2
+ 
++#define to_exynos_pd(gpd) container_of_const(gpd, struct exynos_pm_domain, pd)
++
+ struct exynos_pm_domain_config {
+ 	/* Value for LOCAL_PWR_CFG and STATUS fields for each domain */
+ 	u32 local_pwr_cfg;
+@@ -39,6 +42,7 @@ struct exynos_pm_domain_config {
  struct exynos_pm_domain {
  	struct regmap *regmap;
-+	struct device *dev;
+ 	struct device *dev;
++	struct regulator *supply;
  	struct generic_pm_domain pd;
- 	u32 local_pwr_cfg;
+ 	const struct exynos_pm_domain_config *cfg;
  	u32 configuration_reg;
-@@ -47,8 +48,9 @@ static int exynos_pd_power(struct generic_pm_domain *domain, bool power_on)
- 	pwr = power_on ? pd->local_pwr_cfg : 0;
- 	err = regmap_write(pd->regmap, pd->configuration_reg, pwr);
- 	if (err) {
--		pr_err("Regmap write for power domain %s %sable failed: %d\n",
--		       domain->name, power_on ? "en" : "dis", err);
-+		dev_err(pd->dev,
-+			"Regmap write for power domain %s %sable failed: %d\n",
-+			domain->name, power_on ? "en" : "dis", err);
- 		return err;
- 	}
+@@ -64,12 +68,10 @@ static int exynos_pd_access_controller_power(struct exynos_pm_domain *pd,
  
-@@ -71,8 +73,8 @@ static int exynos_pd_power(struct generic_pm_domain *domain, bool power_on)
- 		/* Only return timeout if no other error also occurred. */
- 		err = -ETIMEDOUT;
- 	if (err)
--		pr_err("Power domain %s %sable failed: %d\n", domain->name,
--		       power_on ? "en" : "dis", err);
-+		dev_err(pd->dev, "Power domain %s %sable failed: %d\n",
-+			domain->name, power_on ? "en" : "dis", err);
+ static int exynos_pd_power(struct generic_pm_domain *domain, bool power_on)
+ {
+-	struct exynos_pm_domain *pd;
++	struct exynos_pm_domain *pd = to_exynos_pd(domain);
+ 	u32 timeout, pwr;
+ 	int err;
  
+-	pd = container_of(domain, struct exynos_pm_domain, pd);
+-
+ 	if (!power_on) {
+ 		err = exynos_pd_access_controller_power(pd, power_on);
+ 		if (err) {
+@@ -126,14 +128,45 @@ static int exynos_pd_power(struct generic_pm_domain *domain, bool power_on)
  	return err;
  }
-@@ -140,6 +142,8 @@ static int exynos_pd_probe(struct platform_device *pdev)
- 	if (!pd)
- 		return -ENOMEM;
  
-+	pd->dev = dev;
++static int exynos_pd_regulator_enable(struct regulator *supply)
++{
++	return supply ? regulator_enable(supply) : 0;
++}
 +
- 	pd->pd.name = exynos_get_domain_name(dev, np);
- 	if (!pd->pd.name)
- 		return -ENOMEM;
++static int exynos_pd_regulator_disable(struct regulator *supply)
++{
++	return supply ? regulator_disable(supply) : 0;
++}
++
+ static int exynos_pd_power_on(struct generic_pm_domain *domain)
+ {
+-	return exynos_pd_power(domain, true);
++	struct exynos_pm_domain *pd = to_exynos_pd(domain);
++	int ret;
++
++	ret = exynos_pd_regulator_enable(pd->supply);
++	if (ret)
++		return ret;
++
++	ret = exynos_pd_power(domain, true);
++	if (ret)
++		exynos_pd_regulator_disable(pd->supply);
++
++	return ret;
+ }
+ 
+ static int exynos_pd_power_off(struct generic_pm_domain *domain)
+ {
+-	return exynos_pd_power(domain, false);
++	struct exynos_pm_domain *pd = to_exynos_pd(domain);
++	int ret;
++
++	ret = exynos_pd_power(domain, false);
++	if (ret)
++		return ret;
++
++	/* Ignore regulator errors - the domain was disabled after all. */
++	exynos_pd_regulator_disable(pd->supply);
++
++	return 0;
+ }
+ 
+ static const struct exynos_pm_domain_config exynos4210_cfg = {
+@@ -283,6 +316,16 @@ static int exynos_pd_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
++	/* get the domain power supply if required */
++	pd->supply = devm_regulator_get_optional(dev, "domain");
++	if (IS_ERR(pd->supply)) {
++		if (PTR_ERR(pd->supply) != -ENODEV)
++			return dev_err_probe(dev, PTR_ERR(pd->supply),
++					     "failed to get domain supply");
++
++		pd->supply = NULL;
++	}
++
+ 	/*
+ 	 * Some Samsung platforms with bootloaders turning on the splash-screen
+ 	 * and handing it over to the kernel, requires the power-domains to be
 
 -- 
 2.53.0.473.g4a7958ca14-goog
