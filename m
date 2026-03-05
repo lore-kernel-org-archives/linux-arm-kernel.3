@@ -4,86 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 201B6F47CA9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 18:43:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C600EF47CA9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Mar 2026 18:44:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pnxoz4idCuWp1cjgR8NlXKfgMViTDq/5rJxjecRq6R4=; b=454+sJXWxIm6sGqVWz4sYIted8
-	KTo35JFsM/6tqI2xENBS5DOE74gDeceAfvjtq+/bknDzRKR6PbFsQRRpXPLGSTE2FGkxu89vxTx2r
-	rHK0TunlWZA5jUt50zJkRECqLovKxf0Fxv5S0cmRlIARBU6r9c/7A8z+N9XhgxCu4Vu0iBs0OHitZ
-	ewogMTSkPhXVzEpEN2pDHWtneLoL6zQY+d68EcXskUiZwYEeROPSGkGsOAG0Ukod2hwhlRaounbX5
-	R1CTkCuNO/g+K1NgxrSC5fPHtQRXhi1mW5uLeuSXAlNnd41E9hQ54n3sywevZ0dqGRe7a0zHGNyFL
-	9dk5yaPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p/InfKTyXkgN1PvmXo/6+5rZe0iozex09wg2bfgN7qQ=; b=sdpoa1GNX0b2pd4cTHFm/S+BuA
+	a+kJ7TmJGMT5JtdRKsMvgmnkLzg4L6zr1LAnx4nqWTI+JYodbMQdvM70HVT8kq+gqdqGCIRwI1JNd
+	nKYEUBWuN34ZbxEqqucBBp0p2tDtHZ03LU6TryRJcRtZWGzCv4Nfwam63sDOCoDFRccT3yMhIPu6F
+	/k80bNFoN3U2kwXOQ/YGlRnclGjuGqMBRmyNpTUZmu9kVXNlRbiIhr9okvq8UsPqAa8auVkemcBc2
+	ebASjEWhY6eXUahop7r2t3koCLc2IYcKaGP37r7ubHAdMUgb2WlUdvKEbkczoVS/tjT7IIA9TOsWE
+	ZbBZ29Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyDfM-00000002P6v-39hq;
-	Thu, 05 Mar 2026 18:43:20 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vyDgd-00000002PHs-1fqm;
+	Thu, 05 Mar 2026 18:44:39 +0000
+Received: from mail-northcentralusazhn150130003.outbound.protection.outlook.com ([2a01:111:f403:d918::3] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyDfJ-00000002P4w-1QYb;
-	Thu, 05 Mar 2026 18:43:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1772736193;
-	bh=pnxoz4idCuWp1cjgR8NlXKfgMViTDq/5rJxjecRq6R4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=FvICW1C+Vlwk7C4+2b7hZrZ1qiKUEWLbPrLCzWapdyHqHilwja7f51Mk42/bd4IYS
-	 46BIFvCXXiNaJ+Pja4y+Td9egZ0+ZSeEqthkmqAaA6UmT6YKxhSOOUAl5zJ+z0lf6L
-	 +gNsej+g6pk4/aVVfERQGjaQDW6nYi4DP1BoZchf9c/ktfYhxP4IDNld2oUW2mwAje
-	 4z4UBZdkfg2o4bnQPQSPmnvp7NKwbrYfQkybUPREENsRddcAfsHou8u37b2Y05X2Gu
-	 Y6h1RKLmnJ/1GhWcvkZ+jgbJ5atxN4V5Sw9Hh1RH1DGMSmHwKTlZ/DWOTnUy4wEVzq
-	 baOMHLDz9YL3g==
-Received: from [IPv6:2606:6d00:15:210e::5ac] (unknown [IPv6:2606:6d00:15:210e::5ac])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AB81F17E026C;
-	Thu,  5 Mar 2026 19:43:11 +0100 (CET)
-Message-ID: <5c8e5f38af10f44f366629e1e7c948ae9af2a196.camel@collabora.com>
-Subject: Re: [PATCH 1/2] [RESEND] media: rkvdec: reduce excessive stack
- usage in assemble_hw_pps()
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Arnd Bergmann <arnd@arndb.de>, Arnd Bergmann <arnd@kernel.org>, Detlev
- Casanova <detlev.casanova@collabora.com>, Ezequiel Garcia
- <ezequiel@vanguardiasur.com.ar>, Mauro Carvalho Chehab
- <mchehab@kernel.org>, Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
- Nathan Chancellor	 <nathan@kernel.org>, Hans Verkuil
- <hverkuil+cisco@kernel.org>
-Cc: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling
-	 <morbo@google.com>, Justin Stitt <justinstitt@google.com>, Kees Cook
-	 <kees@kernel.org>, linux-media@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev
-Date: Thu, 05 Mar 2026 13:43:09 -0500
-In-Reply-To: <e907e900-073f-4aa6-b4fe-36b87e312f62@app.fastmail.com>
-References: <20260305152644.791897-1-arnd@kernel.org>
-	 <1621b56864cb186f1e5433b73b56afc00aa83452.camel@collabora.com>
-	 <e907e900-073f-4aa6-b4fe-36b87e312f62@app.fastmail.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-2kH2WREimXA5rID0isEA"
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	id 1vyDgZ-00000002PHW-3Ulm
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Mar 2026 18:44:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=N1SAZpS6ZaqJsZXYfrw0RRTjWhLEkVCZ0eRYS5trB/7Q2VsGTnhObpl8iDfx8B9N8kndbqF5SBGIVLbHzevP/fDuSoBCTgPqveyabi2XLTk5NBFvzGAWuOOiYeuJdzmnmJ3+4uieG+YgyQLRAZper+4V/GDRa3Z5bw0PSWxsrbJ1vPzuiPcAh2+ffK7+8QUZs1LPjCO5l+GIrFVmFDFYohYXeeUucaqe1XWO6JiVeDhPPFLm1v5Ohti/bQ8suSvPc5XZNSXiObtQVyXLyb212k2EyVSPET7vOE6KX6uyyPx0NXpXMwn3I98ZWrBjXB1yGeJ8W+SbH3KeZOkmfFbPQg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=p/InfKTyXkgN1PvmXo/6+5rZe0iozex09wg2bfgN7qQ=;
+ b=kTsXxskQVid1/icpPYxJ3smD1Rs/AOogtaAvFoMuQcOjanA0GCZ9nDYegyP5vZ3m6MNoxXv0UnTGIUCJJnSqxZxsjEfg45CN8X6dpA02p5wmwGHHrGaYdQesKrwZY0z8/s52903LwWDx6kux5sBDdJel72rbe2Tm6z2pObNMocI2v78IeMoA4tTM7lZJtsbiJbqUxuvLcWWf74dUSGVrVAQd1sg79UEDx+uxPo+BW98Cn/uK9F/8W4hMGm1CE1LXE307BvJn4Id5OE8voAzvoSFG6HX7Ge1JFsU3Ji7R2PWOs3IVGUNKRcofFSiFOsqv2g9cpgPdBKmLV7nfaVaEVQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=p/InfKTyXkgN1PvmXo/6+5rZe0iozex09wg2bfgN7qQ=;
+ b=W9/68gUQ8B15ZaovfWlonDrEKpyySDIGS0lQ01xTpovJOTwnTRenSu9VaQSOLUQvzHlWQ1pbyRS2cn1w50KITU+hzqzu5e+xarG/Z7PjqrxILm05/BFrQwTUcYLKLiJuwfA8loTeEqOnQdNF1MX5oiWGqlRIw+YNedv3zhBrogw=
+Received: from PH7P221CA0061.NAMP221.PROD.OUTLOOK.COM (2603:10b6:510:328::15)
+ by BY5PR10MB4243.namprd10.prod.outlook.com (2603:10b6:a03:210::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.18; Thu, 5 Mar
+ 2026 18:44:33 +0000
+Received: from CY4PEPF0000E9D9.namprd05.prod.outlook.com
+ (2603:10b6:510:328:cafe::9c) by PH7P221CA0061.outlook.office365.com
+ (2603:10b6:510:328::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.23 via Frontend Transport; Thu,
+ 5 Mar 2026 18:44:20 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ CY4PEPF0000E9D9.mail.protection.outlook.com (10.167.241.72) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9678.18 via Frontend Transport; Thu, 5 Mar 2026 18:44:30 +0000
+Received: from DFLE210.ent.ti.com (10.64.6.68) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 5 Mar
+ 2026 12:44:29 -0600
+Received: from DFLE215.ent.ti.com (10.64.6.73) by DFLE210.ent.ti.com
+ (10.64.6.68) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 5 Mar
+ 2026 12:44:25 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE215.ent.ti.com
+ (10.64.6.73) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 5 Mar 2026 12:44:25 -0600
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 625IiO7G2857803;
+	Thu, 5 Mar 2026 12:44:25 -0600
+Message-ID: <aa2899ff-a8d9-4740-b256-266f7073f0a9@ti.com>
+Date: Thu, 5 Mar 2026 12:44:24 -0600
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ti: sci: Drop fake 'const' on handle pointer
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Nishanth Menon
+	<nm@ti.com>, Tero Kristo <kristo@kernel.org>, Santosh Shilimkar
+	<ssantosh@kernel.org>, Michael Turquette <mturquette@baylibre.com>, "Stephen
+ Boyd" <sboyd@kernel.org>, Peter Ujfalusi <peter.ujfalusi@gmail.com>, "Vinod
+ Koul" <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, Thomas Gleixner
+	<tglx@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, Bjorn Andersson
+	<andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>,
+	"Philipp Zabel" <p.zabel@pengutronix.de>, Dave Gerlach <d-gerlach@ti.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-clk@vger.kernel.org>, <dmaengine@vger.kernel.org>,
+	<linux-pm@vger.kernel.org>, <linux-remoteproc@vger.kernel.org>
+CC: <stable@vger.kernel.org>
+References: <20260223202426.566958-2-krzysztof.kozlowski@oss.qualcomm.com>
+ <195cc8dc-8642-481c-8bdd-f5409ab8f5b5@ti.com>
+ <5b6a4284-4766-424c-9171-feaa08c52ad1@oss.qualcomm.com>
+ <2d852f07-0bd9-4076-b0dd-93425ed237f4@ti.com>
+ <c768706e-f063-44bd-92cd-f3984ad3bfbc@oss.qualcomm.com>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <c768706e-f063-44bd-92cd-f3984ad3bfbc@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9D9:EE_|BY5PR10MB4243:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7d3e5d10-6700-41b6-26fc-08de7ae73c5a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|7416014|36860700016|34020700016|376014|921020|12100799066;
+X-Microsoft-Antispam-Message-Info: 01QlmEKCQw7H221QOm+anKMleDiJ9ZE4YBF+79avqADBK4K/enYpewwf3vBq4SGmocoJwpZslIeVWQnb9k2Fgul6SJzHoCKkMhpivWEvyoPgzyiDdjnt3znfqeTsAUwol7bgEb2970jkp2EJlhpScUj3W3ZTzu30KPWWhzriMlj7TYyJAEKfoFRbhzOgYBHU0DJjJ6kBI679tMMbk9Y5qoV/E3xPReQ2CaSYOHuSOuuxJyX9a9tNmZ7V2yQqJBLs3UvDmQpITDrHigp9dm9lrCTUPhpuobKP94ea3+B357wVkI+dLTOzTwlFBzBkAwVYSCmc53/m5APAigdmqzzHUpWMFfOM/Ud64GH81EkMI6NupKVlMuQqNV+XUIZdeOAJo+vDdcm0luCi+UVW2A7haYelsQM5jvAoGrXd5i4+sYzdSa8d2sgvic0z+LcOCsuOiVOekGqDvyUJOZyBsMmKHtIhIpYLbV/SztG6CNNuqkq+z/i1C0UY40C77vZjdTEmFFbR5iyrtbtGUwV5kUGoAQE27Sa0mUxuamjdp1HGH1BR47e+NvV+JK5gdpXLScvxxi65efhcB5vOiWNywvLcW+oYt5RPZI0hDxW95nQ3xLnq4/UPYLZSq+wBuaLrwfStkePFp0Qk05W1DQrly3zwEOw9ezDFXc4P3WgOAgaKXNZDKm2oDjVR650IltpJ2/lWs5dAY9zyqUOzJfTxdEaq9wfLjQfqn7X8OPSxf0AoNHzbEBbN1t2n1Ztpv9pH2kmhD2QYmTn9XpsRWzfjDLZZpQ==
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(7416014)(36860700016)(34020700016)(376014)(921020)(12100799066);DIR:OUT;SFP:1501;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 4FuUm2GQ70MA6Za6CwN0A8qOHHhEcmC3rNs0LekX1f7ImeEC62VJbClbsFHY39fyVoLLKaD6zH/iPc/9gTzX4fBnSgcTigasGu1Z/U5Q6D72mIiK+Wbu7R4H6ImS1o9HlxNBeKmhpgXN90cHxU7T4XVslTSa3PN5w9xNm+FtUbFb3OM6EOxSE+vJ844dWnfuf9FbZ5I5HWbLO2jI4Rf4yoAldUKB+jMoBM7bH5FZ4NypLb0SD6Jc1nqi3B2kxic1HeGQMRQVLuT0bimeV/F13OAS/X5juiFb6pOi+97TCNKFwU3SWEjgQJUw0SzmO4vt8nEQWK2VjPNStDDCJbmNTfarqAaMZm4U7QVmBoEtuRA9i09ii0srbqgExxj36Xxyv+K/R2qc8FhS+1Wvia6bYnXE4bAYN//2PXMQHumMPMnEOn9tSizTkmTLORB0JrKi
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2026 18:44:30.0881
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7d3e5d10-6700-41b6-26fc-08de7ae73c5a
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9D9.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR10MB4243
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_104317_565069_FFE5E074 
-X-CRM114-Status: GOOD (  29.05  )
+X-CRM114-CacheID: sfid-20260305_104436_054618_0DCEA68F 
+X-CRM114-Status: GOOD (  29.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,96 +143,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 3/5/26 9:59 AM, Krzysztof Kozlowski wrote:
+> On 05/03/2026 16:52, Andrew Davis wrote:
+>>>>> The code is not correct logically, either, because functions like
+>>>>> ti_sci_get_handle() and ti_sci_put_handle() are meant to modify the
+>>>>> handle reference counting, thus they must modify the handle.
+>>>>
+>>>> The reference counting is handled outside of the ti_sci_handle struct,
+>>>> the contents of the handle are never modified after it is created.
+>>>>
+>>>> The const is only added by functions return a handle to consumers.
+>>>> We cannot return non-const to consumer drivers or then they would
+>>>> be able to modify the content without a compiler warning, which would
+>>>> be a real problem.
+>>>
+>>> This is the same argument as making pointer to const the pointer freed
+>>> via kfree() (or free() in userspace). kfree() does not modify the
+>>> contents of the pointer, right? The same as getting putting handle does
+>>> not modify the handle...
+>>>
+>>
+>> In that argument, if we wanted the consumer of the pointer to not free()
+>> it we would return a const pointer, free()'ing that would result in the
+>> warning we want (discards const qualifier).
+>>
+>> If you could somehow malloc() from a const area in memory then free()
+>> doesn't modify the pointed to values, only the non-const record keeping
+>> which would be stored outside of the const memory. So even in this analogy
+>> there isn't a problem.
+> 
+> I am not saying about malloc. I am saying about free() which does not
+> modify the freed memory.
+> 
 
---=-2kH2WREimXA5rID0isEA
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+And if you look, kfree() in Linux takes a const pointer. We also do not
+modify the content of the pointer we are given either, so we should
+be okay using const by the same reasoning.
 
-Hi,
+>>
+>>> The point is that storing the reference counter outside of handle does
+>>> not make the argument correct. Logically when you get a reference, you
+>>> increase the counter, so it is not a pointer to const. And the code
+>>> agrees, because you must drop the const.
+>>>
+>>
+>> The record keeping memory is not const and can be modified.
+>>
+>> And where do we drop the const? The outer "struct ti_sci_info" was never
+>> const to begin with, so no dropped const.
+> 
+> We discuss about different points. I did not say the outer memory is
+> const. I said that you drop the const - EXPLICITLY - from the pointer to
+> handle.
+> 
 
-Le jeudi 05 mars 2026 =C3=A0 18:10 +0100, Arnd Bergmann a =C3=A9crit=C2=A0:
-> On Thu, Mar 5, 2026, at 17:37, Nicolas Dufresne wrote:
-> >=20
-> > Le jeudi 05 mars 2026 =C3=A0 16:26 +0100, Arnd Bergmann a =C3=A9crit=C2=
-=A0:
-> > > From: Arnd Bergmann <arnd@arndb.de>
-> > >=20
-> > > The rkvdec_pps had a large set of bitfields, all of which
-> > > as misaligned. This causes clang-21 and likely other versions to
-> > > produce absolutely awful object code and a warning about very
-> > > large stack usage, on targets without unaligned access:
-> >=20
-> > I'm a bit surprised you felt the need for resend. Perhaps you can help =
-us
-> > understand what made you think your patch wasn't being processed ?
->=20
-> I updated the second patch today after I found a corner case that
-> wasn't addressed by the first version. As I had sent both as a series
-> a month ago, and neither was in linux-next yet, it seemed more helpful
-> to send an updated series rather than replace only one of the two.
+Only because container_of() forces the const to be dropped, that is out
+of our control. But we never modify handle though the non-const parent
+struct.
 
-If you updated the code I'd prefer if it is sent as a new version, not a re=
-send.
-As for the media merge window, its been about a week since rc1 got merged i=
-nto
-media tree, with couple of weeks before that waiting for rc1 to land. I bel=
-ieve
-your month gap is there and accurate. I did also took a small break on revi=
-ew
-and PR concurrently.
+> And that API which gets a handle (increases reference count) via pointer
+> to const is completely illogical, because increasing refcnt is already
+> modifying it. Just because you store the refcnt outside, does not change
+> the fact that API is simply confusing.
+> 
 
->=20
-> > My PR:
-> > https://patchwork.linuxtv.org/project/linux-media/patch/2074ba5a5d05e23=
-9f432d176eb051105f7e692f9.camel@collabora.com/
-> >=20
-> > And Hans/Mauro did logistic on the #linux-maint IRC channel this mornin=
-g. I
-> > believe I've marked all the relevant patches on patchwork our of "New" =
-state
-> > and
-> > you have my Rb. What else would help you ?
->=20
-> That's fine then, I did not mean to seem impatient. I assume
-> the original patches will be in linux-next then, and [v2 2/2]
-> will conflict. I'll let you review that one first, but can
-> send a rebased version if you think we should merge it on top.
+If the refcnt is not inside the const struct, then the contents are not
+changed, therefor const is still correct. Even if the content of handle
+were in fixed ROM, nothing would break here.
 
-It will first reach media media-fixes (and not media-next, to avoid duplica=
-ting
-the patches), but I have no idea if someone picks from media-fixes into lin=
-ux-
-next. I recall there was a gap to be fixed in this "pre-integration" proces=
-s.
-Though, patch from fixes reaches RCs quickly, which are linux-next base.
+>>
+>> If the issue is that the handle is not const inside that outer struct
+>> we could fix that,
+>>
+>> struct ti_sci_info {
+>> ...
+>> -	struct ti_sci_handle handle;
+>> +	const struct ti_sci_handle handle;
+>> ...
+>> };
+>>
+>> And with that change even your original commit message example issue
+>> goes away,
+>>
+>> struct ti_sci_info *info = handle_to_ti_sci_info(handle);
+>> info->handle.version.abi_major = 0;
+>>
+>> would now fail to work to compile.
+> 
+> But you cannot do that for other reasons in your code because you DO
+> modify the handle in all the APIs which you call "pointer to const".
+> 
 
-Now, concurrently, Detlev is working on removing the bitfield for the RPS, =
-and
-the SPS will come later. Perhaps you want to sync to make sure we don't jus=
-t
-cancel out the work.
+Show me *any* API that modifies the handle. The *only* time handle
+contents are modified is when initialized in probe() and functions
+called only by probe(), never in any API function.
 
-To solve the patch conflict issue, you can work on top of your existing ser=
-ies
-(just put a comment in the cover). I'll request a merge of rc2 / rc3 into m=
-edia-
-next, before I pick it up.
+If the thing making this confusing is that the const gets dropped
+by container_of() then it seems there is a new version of that now
+that explicitly fixes that issue we could move to[0] with a small
+modification.
 
-regards,
-Nicolas
+Andrew
 
---=-2kH2WREimXA5rID0isEA
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+[0] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/include/linux/container_of.h#n26
 
------BEGIN PGP SIGNATURE-----
+> 
+> Best regards,
+> Krzysztof
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaanOvQAKCRDZQZRRKWBy
-9HEEAP9SxgfNdzeWxoTFoO7BIW/dGlPesVcMOtlIL7jliydbcgD+IVKhK0U8Xtik
-CKB7l0ZE/DrTnjCzPM7uHg1CaqNjXwM=
-=SWbL
------END PGP SIGNATURE-----
-
---=-2kH2WREimXA5rID0isEA--
 
