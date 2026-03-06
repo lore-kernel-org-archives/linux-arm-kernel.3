@@ -4,131 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4486F51416
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 22:04:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAC63F51416
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 22:13:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U9ul6jW/9rLESY+gJQnO8m7yD7U7ZuDMSPQt8Bpxof0=; b=vUq8MS6urt3UFUAxOOovLpY7tL
-	t1yFRfunmechyWR+Ysb3jyunNGVH0SklvOSJc0WjYXOwZXHPIEQtEkV6GGY3BtiBTyR+GqHQQnDOe
-	g2OHYrPi4Tppws6XNh60h1AKiozvGELbyDcnOi1QZ15YfvTSdfrBj1CsuDsIGbGyJD/3vGiuy0XGz
-	Nnxe0CrYiiJrNEdG52eBqpX27oJ/FPd9IHmxV4YlAmgjIcOX6q1FfbuG+3T5pTGaeDsT8UmH5imOH
-	yakW1lEr6c19U3+60JLcqCBx9fJdmcUyxOTJHxhbfOyHBOtdsaGEYH6I5E9IJp9zGudSMCkD5Vgzv
-	6hO0+4eg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=h+HjxBbqUayjpQcCrB3uCv/VFRRj+KcP57Lt4fPrV70=; b=1hu7OKTMOggWtz+uliZhd2itoc
+	R2qgAXkYVCYEjSlQUTttfr9eA9mobwgSGEzXStIByMsEOCdAvesYm/GZ8pWWlL6hEIPYpzh5miaY+
+	R6if+gIn7HCMQ+v4k9j7asPpAI+MThd99/q214M6H0tpVDLydTEBiPp7CPHeu5mwpOXBeA5iTWszO
+	6gFwiZGw69MhfFnC25zOAIGMJn4xws3R+/z25N9P4ghFaOeKgiZTXpeaq5rDrSPkMAbSbNBPdv5mw
+	26Sph4Q0+rjOt68SGUKzrxpZp3/auZ6FZ/rmpq4xb6ELv7lAreG/3jh9dRcuOSTVVgh95Dyu4X2ZF
+	dtZu5/sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vydHg-00000004Z37-28HH;
-	Fri, 06 Mar 2026 22:04:36 +0000
-Received: from mail-swedencentralazon11013001.outbound.protection.outlook.com ([52.101.83.1] helo=GVXPR05CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vydHe-00000004Z2N-0JPd
+	id 1vydQU-00000004ZOt-2DUW;
+	Fri, 06 Mar 2026 22:13:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vydQS-00000004ZO5-1S3A
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 22:04:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GYoblNTFT3FSt0ptQUMWE+zI/Zj+o8T+boq4sYd8DVtEqNKElS7jRN9M3rRavITsHXvDmQSxlM7qVxCQhUKT7xzPem6tzapMeaSWZpnL/gmeUMCk0yKdKRIN/AFip3zFF1jUw2NetEepp6TD0rWsgPBtbk2W4MRD1Yc4LAWyKAGjDiEaVLWu7o1Y1Y/mBRu2K+yP0xLWGgoUaiXkFLkF4brGNRgmbkPdM+oE+WU0M4zBAcaWNc8OTttwaj11DALga7t0274W1d3tamZW+xGq+AAZv1s9orxay1YRkX5gmRLATSm/pB70mlb3Y65CWJjLaau3fHAe+xCtsL/VvzyZoA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=U9ul6jW/9rLESY+gJQnO8m7yD7U7ZuDMSPQt8Bpxof0=;
- b=ah9Ob7SF2lj21xAKOSXL2/athffvu7JA90+i08YdpMZxWhtw0suSA78YOtmRP4zgRWWXV5vc9vrx76NvDXtzu0wXwLDdv4fIK9phvw2TRX+axGQDDh3wcO/cL8/1E90x0mcwxYTuj2VZpy1FTp8aF68tP+M/TX7qn/mEeTtkmVB4NyiSo5t6dayQBhqqRtG5rnLGgyV9vwVVmVn/Qc0SnYVDVGKhSuLdHrsD87gdFq6MDYwwElTAw4NG48eeeoDcxMNV9K7iuC1ABVksRHsGAvxwjqoJKS4SrjJSCqlgPKD9SDj/TLj5s3J2jihR4XZ37iFHi68wZtE2Jpkeq9BCig==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=U9ul6jW/9rLESY+gJQnO8m7yD7U7ZuDMSPQt8Bpxof0=;
- b=BmJNr7Kiv2qaPH+I5Wg1GeqGTgDKxhP47+Gk0+fTXqTUJJg/iauoGSIz5eCMwB0R4c1fp36vSm8pyeE4jVL6wqVyyc463wLDcFDzCqszJnmR0gyb2UMXarKz+y2MjJ7tlMDYFWS/FNRO2EXsO7DkWxdHiiTtGk3kgHBSEPJu2l4G6ZuTMSmcUrfvsg2DEr6e/B2T8qts+LC9O0HjNJC92WlA15qi9SwhsgkF8A6t7fTM+OPxVfkjgwBxHfl+9zBRXxDR6VqbUwHuxN8mtKdoSDdMaPEFf5R2QJNG/4vHqdKEBI5uqIM7dnnCt1rMpiunZI22vX3NKhR0HARYT3VSkg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by AS8PR04MB7559.eurprd04.prod.outlook.com (2603:10a6:20b:295::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.17; Fri, 6 Mar
- 2026 22:04:28 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9678.017; Fri, 6 Mar 2026
- 22:04:27 +0000
-Date: Fri, 6 Mar 2026 17:04:18 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Subject: Re: [PATCH v2 11/11] arm64: dts: imx8mm-var-som-symphony: Enable PCIe
-Message-ID: <aatPYopLuQ4K_K7I@lizhi-Precision-Tower-5810>
-References: <cover.1772826534.git.stefano.r@variscite.com>
- <a029d4f029274a368af0e9c58e9b41106857e436.1772826534.git.stefano.r@variscite.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a029d4f029274a368af0e9c58e9b41106857e436.1772826534.git.stefano.r@variscite.com>
-X-ClientProxiedBy: SJ0PR03CA0186.namprd03.prod.outlook.com
- (2603:10b6:a03:2ef::11) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Fri, 06 Mar 2026 22:13:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 698DA497;
+	Fri,  6 Mar 2026 14:13:29 -0800 (PST)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2DA513F7BD;
+	Fri,  6 Mar 2026 14:13:33 -0800 (PST)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: ast@kernel.org,
+	daniel@iogearbox.net,
+	john.fastabend@gmail.com,
+	andrii@kernel.org,
+	martin.lau@linux.dev,
+	eddyz87@gmail.com,
+	song@kernel.org,
+	yonghong.song@linux.dev,
+	kpsingh@kernel.org,
+	sdf@fomichev.me,
+	haoluo@google.com,
+	jolsa@kernel.org,
+	puranjay@kernel.org,
+	xukuohai@huaweicloud.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	richardcochran@gmail.com,
+	a.s.protopopov@gmail.com,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH 0/3] fix BTI exception when execute gotox insturcion
+Date: Fri,  6 Mar 2026 22:13:27 +0000
+Message-Id: <20260306221330.630971-1-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AS8PR04MB7559:EE_
-X-MS-Office365-Filtering-Correlation-Id: 53e7ce5b-47c5-43db-ecfd-08de7bcc55e7
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|52116014|376014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: mGYd7imJgUfgUwx2/FrOORDde2oQG2D02W7V7wsanbkvXhOzBOOQprF/wdwml1x4/rZYVf7WpJ8jLodI9aFfnEcjL7lkL0Wy3+1HR7dSvoLGNHl9lBEFhvzpSeRZNOVmDDwueM7EzMHTbuy91TaSxQgRla5FpglZgIRhAZApiWjkv1K9fOYEgkvS28PRTulCP/62ks+/y2pFvvkyB/SStU98hAtqHmUQJE/O6woIvoA8RIBpvgy5truBBMftxTpclVknGzsRSeUK/KHYToUv/YzVdgWULIpO23+Dqy3rw9laSmFU9ZglRTMy8fqrsD4oSgIJOVYVWKvwZ9wGWyohsDd2BvjSdo4LLe/DYqvi674zpz6HM7fODw9+qceBGyM7fouIOwhDbLpaZ7VFWzsYT5JZU0Iq51hwC78OM2yuB1rpgPiIl/YVrAQHeIbEi8rtnCqtFIZIyher0uL4ziYm0it3RXm/VHYvSEUK8FFmvRirm5iysTNHdilx6quk74I0KcArCBDdyZX1y9DVY4ekwKa2fk/l+fJCRF2PbZSZ57VXo0kyq4Sg8K1xPHZNBdJDnWvPu0ClPuhHiuCA3IscEKzdfxrry1RkzvV8K+hM1h+ahX0MoV2fAu1SLT0RTsZc6iKpCfpc6Q8oL0PVQDYtSUvyMesHBdESwnvtOKWLUsLovNq1+PhHr32Dm0E9zRfJBV7l6glZWCYcR/XQ72gkJn7vsw15PJLW1ZAdHGUqNn41tVz+UY/lY3cbl1LRC2wepqzYGS0KobEjOjJl5M4UWUH2tTAzd+8dTRqMCvs3HiE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mh5fUQRbbDAnugOFWeBk/c7dYD2B0KVOvxRjiOqesqy8Lk130YtzjTS3FiRT?=
- =?us-ascii?Q?17WgXCfK53Xa0iu5SgDHSNIgsL1R86nNk46Af0ANpJ53y/VmyS8Y6i4aNJhG?=
- =?us-ascii?Q?wpS8lliIt/kGacstTfme/2BMJQiG2ZcPGq5Xt20TY6LBpZcqJQm5nUkdDlEc?=
- =?us-ascii?Q?CDQrdmLxo259Zq0Y91BLAq9tG6bufSPujS5C8E3ke/TT+hbzj6D9OehtmS7H?=
- =?us-ascii?Q?JDVfI/sFcRqJmhLOlh+6Sq64qhGpw7vLxcCpyTG1LAsBvksm25wbGZMHJUuQ?=
- =?us-ascii?Q?V7Vyeul1DyYwKE6MZ4TLZ+2k7Wbcvp+vR+rHwsfOGd7e3FUrNfeUgZmAlJdg?=
- =?us-ascii?Q?mb/6kJpcXZUQ32u0kbSodhK5C0J29Y77Z4PZnuNndXLMm8WPPpAxzVW+YRDW?=
- =?us-ascii?Q?ssVXBb9A3WTR4McgHkqQUZBDf6cwTi8Ui6P+owMxC3UyiC1mb8/sy2nw0L66?=
- =?us-ascii?Q?lbD7cJK5/Ly4jlSgzj6SPyVR42z7/mmCffJCKrSW4ein1D9tUs9FyzAEX8Ll?=
- =?us-ascii?Q?dgdnvRsJ45QePXyJ9ZRolHPZ3mxT9Ls646KuB30gcXQ9F1cJHZghHzM4ZAt+?=
- =?us-ascii?Q?mlSofnEsT4OMwJ32XTYZTDhECgTcI0gO1kHUsZ4ToVcJfWGPlz8/Z1s/gAU8?=
- =?us-ascii?Q?lGPqN2KAtBzpvOWlFnU8PJhS/VgDy3SkPwzslgKYPLbxCphHFaBMz4/cSUWZ?=
- =?us-ascii?Q?aWURUNhGXDmt8FnnTbzgyfWyAP5oeZ1anHhlcpE7cT5veXPQBelDcOVJS2dB?=
- =?us-ascii?Q?aMnssErRO8+msfq8AjZhAxcOMVCo4W0LO7Q3QWCx23Rbdw4ql592uJrk2s3e?=
- =?us-ascii?Q?kkDqhDMftSzKpQuhYK2Hh8O3VGXFMkNRPJ/Lh+Kd/YCSDXW5dllF/clAHOL5?=
- =?us-ascii?Q?SzINoAl4zNVqP7N5Hd290fiJVzVptXqBxj9Gjt4fxeAnSm7HDPQ6NC0B2kK6?=
- =?us-ascii?Q?d9kQ5D9Ewx6tV1n7/Sxm3lriFZIStSr1ej9d3ENwZvN/aRynp/T/5btNUlqv?=
- =?us-ascii?Q?3bceyZ5Dn8pt8E4rlXxdS+RbGqOsoA9lRyAWYkIFDpecEtJCagz6NmBgCOV2?=
- =?us-ascii?Q?kNEUFvtO8oJK8vzDl7ArZ4uaaoJwzz5tMYloqy/QCGtTRVeY5rkmDirm2uI/?=
- =?us-ascii?Q?yatrO1pZL8oJ5Q/ajSwVP+rGO9lJxiqOWTqLfC4QcsLGfj3iT2QWrLnifoEm?=
- =?us-ascii?Q?sPH+GtlhxfpwsivxLwBUzJ/SRsd97RnQs858C56OIJk9/WUMtlhSFCMK5/MO?=
- =?us-ascii?Q?vn7IuLEw60tiYJ6kVRTLsYOKfKIz7V79BafP3dCmqPDVYQTmGwgSCyLCPRdl?=
- =?us-ascii?Q?DNyXz2pKvuI8i6A/WVdpjltB+ReRTcrJZnmiB5k9ycSH+V1fqUUXWWlBJobx?=
- =?us-ascii?Q?VKxdC1ywkv+5ZyBmoFYi785hS0CeoSksD/W82LmfxulD1LY85GAIrZ3sdlRP?=
- =?us-ascii?Q?SykVN2gfv7/iUwSEbxE+qM5Z6Gt7SwaV5UO/R7p7Tk2dBCTtNlVO8Ao0DYQP?=
- =?us-ascii?Q?OLG7YLKyphDrPylGIbc+a7WGSTlnz7fqceSemMY8MLg+KuI9FRAR3R3b33Rx?=
- =?us-ascii?Q?R4NRxvrCX4zjiMz9IRaiODXOMPQ4UnGsw0WCfc2/mMhCaQGA56pix//GGQ47?=
- =?us-ascii?Q?aA3pfjJQVxjasUcVc91zoPRFGA1kgSvDtFuHdpRbgJJag3KeLimmvUZhxKkM?=
- =?us-ascii?Q?Z9TSkQfMuWkUrMHfPorg446JwT39XyG2pkynPFFewHUaLNX+?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 53e7ce5b-47c5-43db-ecfd-08de7bcc55e7
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 22:04:27.9046
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: aL+WMqfTmiz4NGHMrzvU9QIFGcEVgMgzjgjWV1TkgUaePxTDyEDXIECPp1mcoCTktxvGz5PwwhQi/pbGSBOy5A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7559
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_140434_146334_4856A8F0 
-X-CRM114-Status: GOOD (  16.90  )
+X-CRM114-CacheID: sfid-20260306_141340_477990_D1072AA0 
+X-CRM114-Status: UNSURE (   7.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,83 +80,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 08:58:30PM +0100, Stefano Radaelli wrote:
-> From: Stefano Radaelli <stefano.r@variscite.com>
->
-> Enable PCIe support on the VAR-SOM Symphony carrier board by adding the
-> external reference clock, configuring the PHY and providing the required
-> clock and reset properties.
->
-> Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
-> ---
-> v1->v2:
->  -
->
->  .../dts/freescale/imx8mm-var-som-symphony.dts | 28 +++++++++++++++++++
->  1 file changed, 28 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts
-> index 9a29c81b06eb..0aa288af6c5e 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts
-> @@ -6,6 +6,7 @@
->  /dts-v1/;
->
->  #include <dt-bindings/leds/common.h>
-> +#include <dt-bindings/phy/phy-imx8-pcie.h>
->  #include "imx8mm-var-som.dtsi"
->  #include "imx8mm-var-som-wifi-bt-iw61x.dtsi"
->
-> @@ -17,6 +18,12 @@ chosen {
->  		stdout-path = &uart4;
->  	};
->
-> +	pcie0_refclk: pcie0-refclk {
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +		clock-frequency = <100000000>;
-> +	};
-> +
->  	reg_usdhc2_vmmc: regulator-usdhc2-vmmc {
->  		compatible = "regulator-fixed";
->  		pinctrl-names = "default";
-> @@ -205,6 +212,27 @@ &i2c4 {
->  	status = "okay";
->  };
->
-> +&pcie_phy {
-> +	fsl,refclk-pad-mode = <IMX8_PCIE_REFCLK_PAD_INPUT>;
-> +	fsl,tx-deemph-gen1 = <0x2d>;
-> +	fsl,tx-deemph-gen2 = <0xf>;
-> +	fsl,clkreq-unsupported;
-> +	clocks = <&pcie0_refclk>;
-> +	status = "okay";
-> +};
-> +
-> +&pcie0 {
-> +	reset-gpio = <&pca6408 1 GPIO_ACTIVE_LOW>;
-> +	clocks = <&clk IMX8MM_CLK_PCIE1_ROOT>, <&pcie0_refclk>,
-> +		 <&clk IMX8MM_CLK_PCIE1_AUX>;
+On systems where FEAT_BTI is enabled, running the verifier_gotox testcase
+triggers a BTI exception:
 
-put clocks-names here also. Although it duplicate dts part, it may cause
-miss match between clocks and clock-names.
+  [  257.920598] Internal error: Oops - BTI: 0000000036000003 [#1]  SMP
+  [  257.920740] Modules linked in:
+  [  257.920860] CPU: 4 UID: 0 PID: 239 Comm: test_progs Not tainted 7.0.0-rc2+ #602 PREEMPT(full)
+  [  257.921061] Hardware name:  , BIOS
+  [  257.921160] pstate: 161402c09 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=j-)
+  [  257.921337] pc : bpf_prog_0a2b4e44c75a3cb4_jump_table_ok+0x40/0x60
+  [  257.921491] lr : bpf_test_run+0x1e8/0x460
+  [  257.921639] sp : ffff80008435b7f0
+  [  257.921736] x29: ffff80008435b800 x28: ffff80008435b858 x27: ffff80008435b870
+  [  257.921991] x26: ffff80008435b7f0 x25: f8ff000803478000 x24: 0000000000000001
+  [  257.922243] x23: f0ff8000839bd000 x22: f4ff000801f7f200 x21: ffff80008435b9a4
+  [  257.922498] x20: ffff80008435b9a0 x19: 0000000000000000 x18: 0000000000000000
+  [  257.922743] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+  [  257.922992] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+  [  257.923232] x11: 000000000000dd86 x10: 0000000000000000 x9 : ffff8000814f06f0
+  [  257.923480] x8 : ffff800083d9d888 x7 : ffff800083d9d8c8 x6 : 0000000000000000
+  [  257.923731] x5 : 0000000000000000 x4 : ffff80008435b9a0 x3 : 0000000000000000
+  [  257.923976] x2 : 0000000000000000 x1 : f0ff8000839bd060 x0 : f4ff000801f7f200
+  [  257.924226] Call trace:
+  [  257.924307]  bpf_prog_0a2b4e44c75a3cb4_jump_table_ok+0x40/0x60 (P)
+  [  257.924481]  bpf_test_run+0x1e8/0x460
+  [  257.924644]  bpf_prog_test_run_skb+0x424/0x708
+  [  257.924820]  bpf_prog_test_run+0xf4/0x218
+  [  257.924978]  __sys_bpf+0x3c4/0x498
+  [  257.925124]  __arm64_sys_bpf+0x30/0x58
+  [  257.925312]  invoke_syscall+0x68/0xe8
+  [  257.925490]  el0_svc_common+0x94/0xf8
+  [  257.925668]  do_el0_svc+0x28/0x48
+  [  257.925840]  el0_svc+0x40/0x100
+  [  257.925998]  el0t_64_sync_handler+0x84/0x140
+  [  257.926172]  el0t_64_sync+0x1bc/0x1c0
+  [  257.926359] Code: f28bea07 910020e7 f94000e7 d61f00e0 (d2800027)
+  [  257.926489] ---[ end trace 0000000000000000 ]---
+  [  257.926612] Kernel panic - not syncing: Oops - BTI: Fatal exception in interrupt
+  [  257.926755] SMP: stopping secondary CPUs
+  [  257.927208] Kernel Offset: disabled
+  [  257.927300] CPU features: 0x0000000,00040f05,dffb65e1,976ff727
+  [  257.927437] Memory Limit: none
+  [  257.927540] ---[ end Kernel panic - not syncing: Oops - BTI: Fatal exception in interrupt ]---
 
-This type pair property should put together every where.
+This occurs because the target of the gotox instruction
+(BPF_JMP | BPF_JA | BPF_X) does not begin with a BTI instruction.
 
-Frank
+To fix this:
+  PATCH #1-#2 makes verifier deliver "gotox point" to JIT.
+  PATCH #3 emit a BTI J instrction at the beginning of the gotox
+           destination.
 
-> +	assigned-clocks = <&clk IMX8MM_CLK_PCIE1_AUX>,
-> +			  <&clk IMX8MM_CLK_PCIE1_CTRL>;
-> +	assigned-clock-rates = <10000000>, <250000000>;
-> +	assigned-clock-parents = <&clk IMX8MM_SYS_PLL2_50M>,
-> +				 <&clk IMX8MM_SYS_PLL2_250M>;
-> +	status = "okay";
-> +};
-> +
->  /* Header */
->  &uart1 {
->  	pinctrl-names = "default";
-> --
-> 2.47.3
->
+after this patch verifier_gotox passes without exception:
+
+  # ./test_progs -a verifier_gotox
+  ...
+  #540/1   verifier_gotox/jump_table_ok:OK
+  #540/2   verifier_gotox/jump_table_reserved_field_src_reg:OK
+  #540/3   verifier_gotox/jump_table_reserved_field_non_zero_off:OK
+  #540/4   verifier_gotox/jump_table_reserved_field_non_zero_imm:OK
+  #540/5   verifier_gotox/jump_table_no_jump_table:OK
+  #540/6   verifier_gotox/jump_table_incorrect_dst_reg_type:OK
+  #540/7   verifier_gotox/jump_table_invalid_read_size_u32:OK
+  #540/8   verifier_gotox/jump_table_invalid_read_size_u16:OK
+  #540/9   verifier_gotox/jump_table_invalid_read_size_u8:OK
+  #540/10  verifier_gotox/jump_table_misaligned_access:OK
+  #540/11  verifier_gotox/jump_table_invalid_mem_acceess_pos:OK
+  #540/12  verifier_gotox/jump_table_invalid_mem_acceess_neg:OK
+  #540/13  verifier_gotox/jump_table_add_sub_ok:OK
+  #540/14  verifier_gotox/jump_table_no_writes:OK
+  #540/15  verifier_gotox/jump_table_use_reg_r0:OK
+  #540/16  verifier_gotox/jump_table_use_reg_r1:OK
+  #540/17  verifier_gotox/jump_table_use_reg_r2:OK
+  #540/18  verifier_gotox/jump_table_use_reg_r3:OK
+  #540/19  verifier_gotox/jump_table_use_reg_r4:OK
+  #540/20  verifier_gotox/jump_table_use_reg_r5:OK
+  #540/21  verifier_gotox/jump_table_use_reg_r6:OK
+  #540/22  verifier_gotox/jump_table_use_reg_r7:OK
+  #540/23  verifier_gotox/jump_table_use_reg_r8:OK
+  #540/24  verifier_gotox/jump_table_use_reg_r9:OK
+  #540/25  verifier_gotox/jump_table_outside_subprog:OK
+  #540/26  verifier_gotox/jump_table_contains_non_unique_values:OK
+  #540     verifier_gotox:OK
+
+This patch based on v7.0-rc2
+
+Yeoreum Yun (3):
+  bpf: introduce gotox_point in bpf_insn_aux_data.
+  bpf: introduce bpf_jit_insn_aux_data
+  bpf: arm64: fix BTI exception when execute gotox instruction
+
+ arch/arm64/net/bpf_jit_comp.c | 15 +++++++++
+ include/linux/bpf.h           |  6 ++++
+ include/linux/bpf_verifier.h  |  3 ++
+ include/linux/filter.h        |  4 +++
+ kernel/bpf/core.c             | 59 ++++++++++++++++++++++++++++++++++-
+ kernel/bpf/verifier.c         | 36 ++++++++++++++++++++-
+ 6 files changed, 121 insertions(+), 2 deletions(-)
+
+--
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+
 
