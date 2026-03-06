@@ -4,74 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09199F51415
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 07:04:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27614F51415
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 07:13:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pgyznw0osakjqMVPwpk+kZfcdwhRlnKh/U8T+sscVp4=; b=1pJ06l3xQNi5vs3KitRLKfA4R2
-	XTDepU7cziiWE+jd6+x7B8mt/dyaDxn3bC0hi9SP6IkaqYNkO+OQM6CebHVyy4pKLOSprz85gGrzQ
-	pYdTRtYl3+51kIe5FnmzGpeyUU53ajIqaiUXWkte9CbuhccAkja8WViyi5RzLgMS+0/tjWeXEmpND
-	Jw/miXzYDqhkg6x0gM6XLqubbGv8RZRAMBwp2PxHO1FJgZXbTJMc8HmGMfW/HqFnl+U3IBppPi7rQ
-	uX0oxD9Iw3VTS/qQo28ilox6/2r02UA7bE+ClcXHCGxaJhX8Wm4opRIEAtYbbQoFcXxwewhrJ5CgA
-	I5FOOyYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aPh1tTWz3Ceby7KQu1/gQAuqDGU1oHUMy5LEhWH0hWY=; b=2UyPShspAIhxUnraq5ycBofF7F
+	/aftjfP4z/GQNHutA6RHuMQqqwmQeR47/KMm8OURpRrFhq1qmKEbwNlmQ9nxCCwls+0QizNSaI49X
+	IF9ElI+VKRFmDrp5lfAjAm6tRSi/YHlm5m2G5Rf+2lgmOuEkkqF1I43lXxlC1gGZ/XVaFrqIIC4mk
+	Yi9M5T0/hlEypLCf7TSci23avpipQyx9IWH6gu8e2aJTk78cDAXr07EFiIsUn9u0X6p8e0B46j2DO
+	lmbkscLCO1ODgirAtQOXs3Zz7ul+V6if86QdqZ/dDZI7tjXsgY91Ma/ttbJHGnKmRRJUSaAiSayVI
+	6dHoeQmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyPEm-000000037bI-3ew6;
-	Fri, 06 Mar 2026 07:04:40 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vyPMn-000000038BH-1i7e;
+	Fri, 06 Mar 2026 07:12:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyPEk-000000037Zv-1eYm
+	id 1vyPMm-000000038BA-01iH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 07:04:40 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1vyPEe-00022D-1i; Fri, 06 Mar 2026 08:04:32 +0100
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1vyPEc-0040s5-1A;
-	Fri, 06 Mar 2026 08:04:31 +0100
-Received: from pengutronix.de (unknown [IPv6:2a01:4f8:1c1c:29e9:22:41ff:fe00:1400])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 4B5584F9179;
-	Fri, 06 Mar 2026 07:04:30 +0000 (UTC)
-Date: Fri, 6 Mar 2026 08:04:28 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-media@vger.kernel.org, 
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Frank Li <Frank.Li@nxp.com>, gustavoars@kernel.org, open list <linux-kernel@vger.kernel.org>, 
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH] media: nxp: imx8-isi: remove kzalloc_objs
-Message-ID: <20260306-capable-gainful-goose-e94f08-mkl@pengutronix.de>
-X-AI: stop_reason: "refusal"
-References: <20260306044536.149204-1-rosenp@gmail.com>
- <20260306-handsome-quixotic-catfish-705bde-mkl@pengutronix.de>
- <CAKxU2N9szBV0C95=v7_HxJOBgOhFv1J=k9XPE1Lm-w3zQMQWdg@mail.gmail.com>
+	Fri, 06 Mar 2026 07:12:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CC4D2600B0;
+	Fri,  6 Mar 2026 07:12:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBA69C4CEF7;
+	Fri,  6 Mar 2026 07:12:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772781174;
+	bh=XT0AA5uqBKfCW2YCMSUndSquZ6L/D2yShFNdlBVDBOg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=tdAqwqLvr+LgBLcGS/59UrDUb0xfPQE6x2hXuTyIYBTK9iJ3xlPmHcYwjIe2UliWq
+	 pg8qca/NOkP8TF6MgSSIfi8+/uY/Ld4WITcOSC0mp/QcLQ6QyIAOkO0Z5PJIUeoqLF
+	 7i7aY65yYrZdCsNHzrJVBizopzC9orZUQpwIYQkv05OyL7pviv5Qs5/u91dfqvpgGx
+	 eaYSWZh+B8ffBozsASa5PrJvwgcZsbVpppfls+r2B6HaCNJ6p59H5YFSZ5UPaRK9xm
+	 0nIf8ls/GtEwaTX0J4gnxH2wXLn2LPh8i+NiQHkbDG0mMPSufzzf1kL9b/mEHbbpea
+	 3B6MUIfkGJ7kQ==
+Message-ID: <502e876d-3627-4d9b-a02b-d2a708ae67e8@kernel.org>
+Date: Fri, 6 Mar 2026 08:12:48 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="2uzw3kkivjpbaqyp"
-Content-Disposition: inline
-In-Reply-To: <CAKxU2N9szBV0C95=v7_HxJOBgOhFv1J=k9XPE1Lm-w3zQMQWdg@mail.gmail.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_230438_435101_9420AB0C 
-X-CRM114-Status: GOOD (  15.31  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] Revert "ARM: dts: imx: move nand related property under
+ nand@0"
+To: Frank Li <Frank.li@nxp.com>
+Cc: max.krummenacher@gmx.de, Francesco Dolcini
+ <francesco.dolcini@toradex.com>,
+ Max Krummenacher <max.krummenacher@toradex.com>,
+ Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ "regressions@lists.linux.dev" <regressions@lists.linux.dev>
+References: <aZdDF6BObEu_C4KJ@toolbox>
+ <aZdnhv2QC1szMCVl@lizhi-Precision-Tower-5810> <aZ80BWH6DRu8_W_S@toolbox>
+ <aZ82pG3PO1HxD18B@lizhi-Precision-Tower-5810> <aaBA65_zLu8S6WMS@toolbox>
+ <aaBi9lipWTG5l0hs@lizhi-Precision-Tower-5810>
+ <bd0bd330d140f9d9d222c72c3797f79d08fcae1d.camel@active.ch>
+ <aaWxiERQ4u6IhO7Q@lizhi-Precision-Tower-5810>
+ <aaniGuauaieO3p36@lizhi-Precision-Tower-5810>
+ <39ef5c99-ba8e-40c1-bf93-359db7297d55@kernel.org>
+ <aaoI7TqtClwSKTLg@lizhi-Precision-Tower-5810>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <aaoI7TqtClwSKTLg@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,50 +131,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 05/03/2026 23:51, Frank Li wrote:
+> On Thu, Mar 05, 2026 at 09:37:26PM +0100, Krzysztof Kozlowski wrote:
+>> On 05/03/2026 21:05, Frank Li wrote:
+>>> On Mon, Mar 02, 2026 at 10:49:28AM -0500, Frank Li wrote:
+>>>> On Mon, Mar 02, 2026 at 11:53:00AM +0100, Max Krummenacher wrote:
+>>>>> for our NAND-based modules, and our CI no longer produces any useful
+>>>>> results as a consequence.
+>>>>>
+>>>>> I strongly believe that, as an immediate first step, the commit
+>>>>> that moved the DT NAND chip configuration into its subnode should
+>>>>> be reverted.
+>>>>
+>>>> As my previous said, can do partial revert? Just add back property under
+>>>> gpmi and keep nand@0 node.
+>>>>
+>>>> For example
+>>>>
+>>>> --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
+>>>> +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
+>>>> @@ -260,14 +260,10 @@ fixed-link {
+>>>> &gpmi {
+>>>>   	pinctrl-names = "default";
+>>>>   	pinctrl-0 = <&pinctrl_gpmi_nand>;
+>>>> +	nand-on-flash-bbt;
+>>>>   	#address-cells = <1>;
+>>>>  	#size-cells = <0>;
+>>>>   	status = "okay";
+>>>>
+>>>> Remove "- nand@0" part.  You can use "git add -p" to do that.
+>>>
+>>> Do you plan rework this patch as what I said?
+>>
+>> Issue and revert were posted two weeks ago. That's maximum time to
+>> handle regression.
+> 
+> Any docuement said these maxium times, I also want to know other maximum
 
---2uzw3kkivjpbaqyp
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] media: nxp: imx8-isi: remove kzalloc_objs
-MIME-Version: 1.0
+Just read the regression and bug handling docs in the kernel.
 
-On 05.03.2026 22:59:13, Rosen Penev wrote:
-> On Thu, Mar 5, 2026 at 10:56=E2=80=AFPM Marc Kleine-Budde <mkl@pengutroni=
-x.de> wrote:
-> >
-> > On 05.03.2026 20:45:36, Rosen Penev wrote:
-> > > Use a flexible arraay member to combine allocations.
-> > >
-> > > It looks like pipes never gets freed anywhere. Meaning this effective=
-ly
-> > > fixes a memory leak.
-> >
-> > It's a devm_kzalloc(), which means it's automatically free()ed after the
-> > remove callback.
-> Yes but pipes does not use devm.
+> time, such as
+> 	what's max time maintainer need reply? Many patch is not any
+> reponse for long time.
 
-Doh! Sorry, I should not review patches before first tee in the morning.
 
-regards,
-Marc
 
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
 
---2uzw3kkivjpbaqyp
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCaap8eQAKCRDMOmT6rpmt
-0ui3APwJONlYYblrkwwoXFicyuw4HjAIX8KM4u1R9jFdyY/UVgEA5LhVNXfqicvS
-mQPUC7n3xnNDIGl7fSPAREPtn970hwI=
-=Jzjd
------END PGP SIGNATURE-----
-
---2uzw3kkivjpbaqyp--
+Best regards,
+Krzysztof
 
