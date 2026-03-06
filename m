@@ -4,118 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 987B6F0183E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:21:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 965ADF33A92
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:22:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Gt5lqhV+YVsP0IGj8kG//6j1W+7LeoQsSF9UHjgx/k=; b=YOFmwuYdtEhwBExUMvk+xLaWIF
-	pLsibbNfW7QpNh8wZEZwFlMTBJDwWX5C2IJv0f9iM30Dohr0eKTh1S7RsrQqVTzKUoTEQAoUE34Gt
-	ISEVPE8/KpkL88iThnUJYzuWPClTjEopfizDV1VJZl+GsQ4rLaauc5GX+BtoIHC27blwfrjAlTvig
-	mJaMkrb55CgDsHMBl50S6onuPX1bPZUifebNFfWNQ1jxUM9aEjkjJBngVeg98i1wk6AQqvrwCdxFE
-	JQkH3Tovw9ulbdvj1tnEFbGYQdAYvgz4kbRHuJnnxCNGLyqVNB5+lmF4/f5q0ALKZSYo90cvvBTPQ
-	AXoRQ+HQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V6ojT6B2pOAcNJA8AKYZusnktwWBE0CvG4HxrGkb5jw=; b=CvqbKYCKLm5ZVmz3T4UEJ4eiIL
+	cu9AYmYfCmnG2GIlvRXbArJWTvgDSlaBmYoGiM7QLmXI3dnfPBt/9CIlJ4loRZVo3WbWAgHwVdNMP
+	y4TX/qj7Lad5cDUW8IcxtOogjCEDLzeXaVFzasufoBZxiaMXTlG/AleN57umHh/SWOHMhEEqR/iW3
+	zUw1Y6z2cY62NZUSYV2IMU13YlfdmX7er0LgSo7G2ufrVgnC+e6osh8mcEYGQFpiQn2LcREx8sY3X
+	p78WCOHjeXqXJfvWx1VZx6f+WUKS5N4/sTPRsNV8A0zS1LJ1PjbPh5NC3bVK4n7BXeYxGfWvcrtXo
+	Y5gQCk9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyW3o-00000003tkO-33yP;
-	Fri, 06 Mar 2026 14:21:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vyW4O-00000003tqs-0HVb;
+	Fri, 06 Mar 2026 14:22:24 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyW3m-00000003tjc-0Odg
+	id 1vyW4L-00000003tpp-0Dox
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 14:21:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AD5854174F;
-	Fri,  6 Mar 2026 14:21:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C60EC4CEF7;
-	Fri,  6 Mar 2026 14:21:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772806905;
-	bh=QlowReCLCXaDEPiS+S2GX0Mrds2Ec/PskTemUWOyu5k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jil9XdiNACVK8YNzZ5AQCO0O/A1VouaMzryqqOCAUCJDpa/RrLxWj2Q3MeCF2Mslg
-	 7d+1SpFsGEfaWNks+Ufj1woTgQrxd0nsBHhcCL925Zm5YXPkiJdb9okYaFmTbCBpSL
-	 tDokRNtYiIUIxpSJuB7Br0LeJb7U9sQ4B7N//dG+efQgrdFRsFNi36aOqOjosrFlXT
-	 Lb1i29HxExS4viNqXTeYq7O1E3gVR8ouf7x/dhLRrp8av5Oh0QuIlZnQWu4/34ggH1
-	 7+mecAb4+B6N63mbxF1LV/aCoWx9adrtQySO77EcmT6LE/cyZmtVIpwkuK8gxMxg9j
-	 0W+3NlSCajVyg==
-Message-ID: <110dace9-3ff9-4750-813f-93c6827b105c@kernel.org>
-Date: Fri, 6 Mar 2026 15:21:38 +0100
+	Fri, 06 Mar 2026 14:22:22 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-6611d20c026so4075552a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 06:22:20 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772806939; cv=none;
+        d=google.com; s=arc-20240605;
+        b=V/QHvI9E8aYSyLeMTeakNZ1yR8S0hpGuYZ/sjVCZtdlxjvbRkS+vckUPAlVNdyg94+
+         Zzfce+ZuYzXDoaZLhUn+9aQTvG/fpNtnEPZMDrNmuXau5imz3rxMftNLfeC6rHenFfu+
+         /5tFmwkNL37ZXocB4pCOLIw73cnNn7EmlxonrpjrhES/85sm6QIqwgpRFQz5v+GURfjE
+         eV63NsVm/5HcVBZeJ2cv9yDijNj99N1MVUrY7y9Raf0OThcMjM0gDxLg2EaFPhqqjehH
+         lVd4im6uCgvcjfrR5ZcxhUwCjJCXWyeggTC79YQ5RLzo4ljE/eGscxHeAJzfqBNSqgC0
+         6J8w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=V6ojT6B2pOAcNJA8AKYZusnktwWBE0CvG4HxrGkb5jw=;
+        fh=IFXv19YDGAhqJXmI9oeT700PTUbSkfa9+niqRkJJo24=;
+        b=ScLeN1MusjTa6XCSxZIjFuN7ssS5DoczofA1OSCg74RZA8xRawTRVRiEoQtDBKwgJo
+         C+1tx2ftZe6q7ZrLOs25elwrTUN+xDjOFfNPCLXhWofjJrz9Hkig1gzArejEma9EnZxi
+         VBwR2c0WsrlPVNi3PKh7QO10WvojttRA+2s9i98IFW/9eDaouXehWMsXrYtLqfe4ny7c
+         rAgM49mmIOokn2SeaMjtHl5WiSJ3vlJQmD3Wn+8gGz7HeFBahtxwOeWoiq9bl8P6GJZ5
+         qOkJTai6D+LskYSxOTQ7MK5XBLE64+RMptIsRNdTlawHwpB1ranobVkhIdImNfeN1m+F
+         O4nA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1772806939; x=1773411739; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=V6ojT6B2pOAcNJA8AKYZusnktwWBE0CvG4HxrGkb5jw=;
+        b=PcaKR8hU6CX0OdgxiLhRyTeGXCc6ELGO6j5z0Xgd4boEXMIFl3qxzrQu/wF2DsOlg0
+         5Xx8nNWFZ8kOE+9A3V+AIVQe38F0ss/wwRwBNu/rZ8pleTmtDAE5c7903zdSv0QbpcCR
+         wQ8kpv7lNOgY3mjr9j/Ok+ygQ+KgMNafjMuD72X9Jy2W1caJKRPgBf3KX4OsmlpdjZxj
+         XP94zbS182/yyOx2vYhd6Q5D1sOpVe6PYyG1nph+ey6cGPFMEuxDBCPMRIEWbHKYMjN5
+         G0JZ/KXvtS1EdPizZpi7jAqejul86Thg2ldTGgR1Wvr6XhqHCcprHu/YvIyRTLVvXvJT
+         FbeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772806939; x=1773411739;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=V6ojT6B2pOAcNJA8AKYZusnktwWBE0CvG4HxrGkb5jw=;
+        b=nW21Z10E52NGPA5WFprcX8miu1AdAWEacPDmAmmPUdE2+Ft2oIwmdvc9XGzFUYZk/p
+         rDKRW/d0ArJRdA/hpEEKfCiKV0WuyJUw9NoqOa1jDDyZ+Ag/0cuksQ879pHR/uqRR6j/
+         e2aMnM2hOzhPOgpqKuL6BWvGxAS4Y9ADFxY5qwS2kXRN4hFWY2tP2Yrqi+s6lNqWF8cc
+         C20f8s1FHPzjQT44cx7D8GBtiXvDrpqe4OPhKv5ORsMOVZT0EYRSlLfuikv8Grk2kpL5
+         2SKEjUmAOcXVOQWJnXOjvwC3y8YPkmj3rkd0IR657X5eH8zUZAelpeMaHdSrKnfLiiEL
+         VERQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXKTiXMPWkrV+oNSWylfDpoFiIkOduuOhYuwTpGzruRXdaPSX78lDgoQKPeZ6Q4kqV2K2yLW882f5mC4BxsZFL7@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVojjLb3MAvEelEg3xPXqasbs91B8dkFEBsfceMbRogjZ54Lrc
+	HVGIOM7zlqw5WAkKGsarSWnBVv1/Ngegn9hUpjlJaOLn/14nbSypsn9F4u2Dn6RwvEKqBYkdNpx
+	mFlBQ7vkCVcS1Lu/FGNWmk2GR1T1zGx+AN/v7jByPSg==
+X-Gm-Gg: ATEYQzw7s9EwSFaXQnhKxHrHGBJeBlrnrEtcgmDrePQ1jRthQGcjARYBE/axju0+Pcp
+	9EEj+3HDI1Gsqe9cboftsGmi26RJOlWdcpCtFN4y5dsNDHBtyQJqUohGNIbSb38YJ8bwqrb8QdJ
+	ncNXjN5O6TiKAvakoq0x/5g+f6ciVkPOZajm8oOgxp4bxIrH+AmG2Hmii7Y4NPFPmvA2mqmRTc9
+	2+fJ2ALGKmispri1dj7D7ZZlwhI+ZTkjVGK5Z+VumpBmnL/0/7J3h/1csAlH0Os2NBpGHBUnTPM
+	5rakQ6+pV+3oBbmPgFcdKiE7lRfCuMWV2jrtuzKCMw==
+X-Received: by 2002:a05:6402:13d6:b0:660:f1a1:e8fa with SMTP id
+ 4fb4d7f45d1cf-6619d51f8a8mr1194732a12.15.1772806938879; Fri, 06 Mar 2026
+ 06:22:18 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/9] accel/neutron: Add driver for NXP Neutron NPU
-To: Ioana Ciocoi-Radulescu <ruxandra.radulescu@nxp.com>,
- Oded Gabbay <ogabbay@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sumit Semwal <sumit.semwal@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Frank Li <Frank.Li@nxp.com>, =?UTF-8?Q?Christian_K=C3=B6nig?=
- <christian.koenig@amd.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
- linaro-mm-sig@lists.linaro.org, Jiwei Fu <jiwei.fu@nxp.com>,
- Forrest Shi <xuelin.shi@nxp.com>, Alexandru Taran <alexandru.taran@nxp.com>,
- Daniel Baluta <daniel.baluta@nxp.com>
-References: <20260306-neutron-v2-0-3019bd8c91ef@nxp.com>
- <20260306-neutron-v2-4-3019bd8c91ef@nxp.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260306-neutron-v2-4-3019bd8c91ef@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260226-exynos850-cpuhotplug-v1-0-71d7c4063382@linaro.org> <20260226-exynos850-cpuhotplug-v1-1-71d7c4063382@linaro.org>
+In-Reply-To: <20260226-exynos850-cpuhotplug-v1-1-71d7c4063382@linaro.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Fri, 6 Mar 2026 14:22:05 +0000
+X-Gm-Features: AaiRm50tjNf_4y_LSd43JUB-JI4HV8BibVu6BzHdRNYQHYI0j8IJYTG4MdR3kHI
+Message-ID: <CADrjBPpfSLN9A7jjxiVSYL_5__kZmxdP0H6+UJiK563KpvxTLg@mail.gmail.com>
+Subject: Re: [PATCH RFC 1/8] dt-bindings: soc: move and rename
+ google,gs101-pmu-intr-gen schema under soc/samsung/
+To: Alexey Klimov <alexey.klimov@linaro.org>
+Cc: Sam Protsenko <semen.protsenko@linaro.org>, linux-samsung-soc@vger.kernel.org, 
+	Krzysztof Kozlowski <krzk@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_062146_201619_3AB74FFC 
-X-CRM114-Status: GOOD (  21.34  )
+X-CRM114-CacheID: sfid-20260306_062221_107085_F9A85358 
+X-CRM114-Status: GOOD (  18.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,177 +119,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/03/2026 14:27, Ioana Ciocoi-Radulescu wrote:
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 8a5b27b061da..f7a687eb6b54 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -19191,6 +19191,16 @@ S:	Orphan
->  F:	Documentation/devicetree/bindings/net/nfc/nxp,nci.yaml
->  F:	drivers/nfc/nxp-nci
->  
-> +NXP Neutron NPU DRIVER
+Hi Alexey,
 
-s/Neutron/NEUTRON/ as everything here is in uppercase
+On Thu, 26 Feb 2026 at 15:47, Alexey Klimov <alexey.klimov@linaro.org> wrote:
+>
+> The GS101 PMU interrupts generation block is actually a standard Samsung
+> Exynos IP block found in older SoCs like the Exynos 850 and others and
+> not exclusive to Google SoCs. Thus, renaming to
+> samsung,exynos850-pmu-intr-gen, moving the schema file to soc/samsung
+> directory to reflect its origin, since Exynos850 predates GS101 SoCs,
+> and preparing for adding Exynos850 description.
+>
+> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+> ---
 
-> +M:	Ioana Ciocoi Radulescu <ruxandra.radulescu@nxp.com>
-> +M:	Jiwei Fu <jiwei.fu@nxp.com>
-> +L:	dri-devel@lists.freedesktop.org
-> +S:	Maintained
-> +T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
-> +F:	Documentation/accel/neutron/
-> +F:	drivers/accel/neutron/
-> +F:	include/uapi/drm/neutron_accel.h
+I'll leave it to Krzysztof to decide if renaming/moving makes sense
+and if there are any guidelines/rules around this. From my PoV it
+seems likely that there will be many more Samsung Exynos based SoCs
+with this IP than Google designed ones (Google SoCs I'm aware of with
+the IP being gs101, gs201, zuma and zuma pro).
 
+regards,
 
->  
-> diff --git a/drivers/accel/Makefile b/drivers/accel/Makefile
-> index 1d3a7251b950..698136e12cce 100644
-> --- a/drivers/accel/Makefile
-> +++ b/drivers/accel/Makefile
-> @@ -4,5 +4,6 @@ obj-$(CONFIG_DRM_ACCEL_AMDXDNA)		+= amdxdna/
->  obj-$(CONFIG_DRM_ACCEL_ARM_ETHOSU)	+= ethosu/
->  obj-$(CONFIG_DRM_ACCEL_HABANALABS)	+= habanalabs/
->  obj-$(CONFIG_DRM_ACCEL_IVPU)		+= ivpu/
-> +obj-$(CONFIG_DRM_ACCEL_NXP_NEUTRON)	+= neutron/
->  obj-$(CONFIG_DRM_ACCEL_QAIC)		+= qaic/
-> -obj-$(CONFIG_DRM_ACCEL_ROCKET)		+= rocket/
-> \ No newline at end of file
+Peter
 
-You still have patch warnings.
-
-> +obj-$(CONFIG_DRM_ACCEL_ROCKET)		+= rocket/
-> diff --git a/drivers/accel/neutron/Kconfig b/drivers/accel/neutron/Kconfig
-> new file mode 100644
-> index 000000000000..37b8ecb49804
-> --- /dev/null
-> +++ b/drivers/accel/neutron/Kconfig
-> @@ -0,0 +1,16 @@
-> +# SPDX-License-Identifier: GPL-2.0+
-> +
-> +config DRM_ACCEL_NXP_NEUTRON
-> +	tristate "NXP Neutron NPU"
-> +	depends on HAS_IOMEM
-> +	depends on DRM_ACCEL
-> +	depends on ARCH_MXC
-
-Missing compile test
-
-> +	select DRM_GEM_DMA_HELPER
-> +	select DRM_SCHED
-> +	help
-> +	  Enables driver for NXP Neutron NPU.
-> +
-> +	  Select this if you have an NXP SoC with Neutron, like i.MX95,
-> +	  and want to run machine learning applications.
-> +
-> +	  If built as module, the module is named neutron.
-
-...
-
-> +
-> +	ret = devm_request_threaded_irq(dev, ndev->irq, NULL,
-> +					neutron_irq_handler_thread,
-> +					IRQF_ONESHOT, KBUILD_MODNAME, ndev);
-> +	if (ret) {
-> +		dev_err(dev, "Failed to request irq %d\n", ndev->irq);
-
-Drop, not needed.
-
-> +		return ret;
-> +	}
-> +
-> +	ret = of_reserved_mem_device_init(&pdev->dev);
-> +	if (ret) {
-> +		dev_err(dev, "Failed to initialize reserved memory\n");
-> +		return ret;
-> +	}
-> +
-> +	ret = devm_pm_runtime_enable(dev);
-> +	if (ret)
-> +		goto free_reserved;
-> +
-> +	pm_runtime_set_autosuspend_delay(dev, NEUTRON_SUSPEND_DELAY_MS);
-> +	pm_runtime_use_autosuspend(dev);
-> +
-> +	ret = drm_dev_register(&ndev->base, 0);
-> +	if (ret)
-> +		goto free_reserved;
-> +
-> +	return 0;
-> +
-> +free_reserved:
-> +	of_reserved_mem_device_release(&pdev->dev);
-> +
-> +	return ret;
-> +}
-> +
-> +static void neutron_remove(struct platform_device *pdev)
-> +{
-> +	struct neutron_device *ndev = platform_get_drvdata(pdev);
-> +
-> +	drm_dev_unregister(&ndev->base);
-> +	of_reserved_mem_device_release(&pdev->dev);
-> +}
-> +
-> +static int neutron_runtime_suspend(struct device *dev)
-> +{
-> +	struct neutron_device *ndev = dev_get_drvdata(dev);
-> +
-> +	neutron_disable_irq(ndev);
-> +	neutron_shutdown(ndev);
-> +
-> +	clk_bulk_disable_unprepare(ndev->num_clks, ndev->clks);
-> +
-> +	return 0;
-> +}
-> +
-> +static int neutron_runtime_resume(struct device *dev)
-> +{
-> +	struct neutron_device *ndev = dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	ret = clk_bulk_prepare_enable(ndev->num_clks, ndev->clks);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = neutron_boot(ndev);
-> +	if (ret) {
-> +		clk_bulk_disable_unprepare(ndev->num_clks, ndev->clks);
-> +		return ret;
-> +	}
-> +
-> +	neutron_enable_irq(ndev);
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct dev_pm_ops neutron_pm_ops = {
-> +	SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend, pm_runtime_force_resume)
-> +	RUNTIME_PM_OPS(neutron_runtime_suspend, neutron_runtime_resume, NULL)
-> +};
-> +
-> +static const struct of_device_id neutron_match_table[] = {
-> +	{ .compatible = "nxp,imx95-neutron" },
-> +	{}
-> +};
-> +
-> +MODULE_DEVICE_TABLE(of, neutron_match_table);
-> +
-> +static struct platform_driver neutron_driver = {
-> +	.probe	= &neutron_probe,
-> +	.remove	= &neutron_remove,
-> +	.driver	= {
-> +		.name		= "neutron",
-> +		.of_match_table	= of_match_ptr(neutron_match_table),
-
-Drop of_match_ptr. You will have (or you have already same as v1) here
-warning.
-
-> +		.pm		= pm_ptr(&neutron_pm_ops),
-> +	},
-> +};
-Best regards,
-Krzysztof
+>  .../samsung,exynos850-pmu-intr-gen.yaml}                              | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/soc/google/google,gs101-pmu-intr-gen.yaml b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos850-pmu-intr-gen.yaml
+> similarity index 80%
+> rename from Documentation/devicetree/bindings/soc/google/google,gs101-pmu-intr-gen.yaml
+> rename to Documentation/devicetree/bindings/soc/samsung/samsung,exynos850-pmu-intr-gen.yaml
+> index 2be022ca6a7d..f9b40f3fd165 100644
+> --- a/Documentation/devicetree/bindings/soc/google/google,gs101-pmu-intr-gen.yaml
+> +++ b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos850-pmu-intr-gen.yaml
+> @@ -1,10 +1,10 @@
+>  # SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>  %YAML 1.2
+>  ---
+> -$id: http://devicetree.org/schemas/soc/google/google,gs101-pmu-intr-gen.yaml#
+> +$id: http://devicetree.org/schemas/soc/samsung/samsung,exynos850-pmu-intr-gen.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>
+> -title: Google Power Management Unit (PMU) Interrupt Generation
+> +title: Samsung Power Management Unit (PMU) Interrupt Generation
+>
+>  description: |
+>    PMU interrupt generator for handshaking between PMU through interrupts.
+>
+> --
+> 2.51.0
+>
 
