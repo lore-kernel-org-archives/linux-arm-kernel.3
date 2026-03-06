@@ -4,75 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8896CF513F4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 04:26:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 397B9F513F3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 04:46:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jvulmaWHVHLTxELsaUcupjwHmyR9DBqU5/UhJVjUTkk=; b=eKh+9kqMrzqNb5fZhGVdNiPkTB
-	LuEw+iJoNHSTdMoN48VLDQoaYwUKncDSSD3BOV2G4ZXY6nYNfqyw3QEjydViRokg2VFgN6eO2HVqX
-	pHUJL3SqST0w3dTdYNZuYTzcA+ZjzRoiz13I0hRWjicqSVVD1HXYcU+Nw6Q+QIu9Rs84MnVJDnOt2
-	vmulN5xV+Xukhx/rmdgt/6rvZ9CQmNdXJCYxN/h5FJpoXK7p38D6PSwAfVK6a0zrEKJoKnXNKY62x
-	EtDT1eAIEwtuZ9/ZYa2UhG9ZkJrYg7kKTO4UTi601x4ASsMTOBNZkwnYuOXlWMcL3THBBRoMqdsaO
-	hRUd1jog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qG3UCHbICIKoqorE0OwQsqzoYP9iJFn4dnjoO73bdjs=; b=fbG+KJbtDZm1ZgbRQETw4peimi
+	i/fn5QBSZaXgOz+vv2ma9TltqO1ej1Ryko3FAspAKIULeOfXtW46IN6VbMJtBmvBAmA0qpu6zl9J8
+	VLfQ3dA2oqerChjtjowMojbRdSDD6RA92eRhKrL7JV80g5M74bsA2yP2U0Fu5BL363XYP3akeAYIg
+	OHbXlys+iujFVSWX1M6rSNwD8V+DfhBr9WCQCj1mW7wV9tKLNg9oXOkI9EOhtdPT3sLCQXbLz3nQj
+	xlhykWvB0XML/PtQK90EDajMQOvZrrkmNvhGbhpA08hJPUUDrcTXv9eLsznuFVD0WcUGKYBLzOGVJ
+	OsSRkkNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyMl8-000000030db-1RqG;
-	Fri, 06 Mar 2026 04:25:54 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1vyN4b-0000000317N-0kz6;
+	Fri, 06 Mar 2026 04:46:01 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyMl5-000000030dH-2fB4
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 06 Mar 2026 04:25:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=jvulmaWHVHLTxELsaUcupjwHmyR9DBqU5/UhJVjUTkk=; b=aFzYSKfNpDK4g1CCGvw7X8T2jh
-	fISPftxcZZHFmW/uVYj00QjQoeOE+cnxCCfNGf60xcAITo155VewGg8b94KHAJDmgSmxDFO2xybGm
-	lS9KOpNbj3XTlNAgb2fA1YpjhDE8FN/l3OVKD83XpfLFxTVQpOieJ3IMP0XnnrB3IRERiRApue4lg
-	IdqoYajTIgG3LUGOW+QUYzwKSVc1bAPidLbWXo4yK4LXIhi9nuTQLcc/2qb5TalHrcpKGAtk2TQV7
-	IhT7WXpVDek3hi1swmixTb654rh4P0qCodoYra7NlWmKoya92mTQQ1VcLMa/i8nueZDSJfFlNUaF3
-	4LBCnnHw==;
-Received: from willy by casper.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyMkv-0000000G8pR-0PfW;
-	Fri, 06 Mar 2026 04:25:41 +0000
-Date: Fri, 6 Mar 2026 04:25:40 +0000
-From: Matthew Wilcox <willy@infradead.org>
-To: Yin Tirui <yintirui@huawei.com>
-Cc: =?iso-8859-1?Q?J=FCrgen_Gro=DF?= <jgross@suse.com>,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, david@kernel.org,
-	catalin.marinas@arm.com, will@kernel.org, tglx@kernel.org,
-	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
-	hpa@zytor.com, luto@kernel.org, peterz@infradead.org,
-	akpm@linux-foundation.org, lorenzo.stoakes@oracle.com,
-	ziy@nvidia.com, baolin.wang@linux.alibaba.com,
-	Liam.Howlett@oracle.com, npache@redhat.com, ryan.roberts@arm.com,
-	dev.jain@arm.com, baohua@kernel.org, lance.yang@linux.dev,
-	vbabka@suse.cz, rppt@kernel.org, surenb@google.com, mhocko@suse.com,
-	anshuman.khandual@arm.com, rmclure@linux.ibm.com,
-	kevin.brodsky@arm.com, apopple@nvidia.com, ajd@linux.ibm.com,
-	pasha.tatashin@soleen.com, bhe@redhat.com, thuth@redhat.com,
-	coxu@redhat.com, dan.j.williams@intel.com, yu-cheng.yu@intel.com,
-	baolu.lu@linux.intel.com, conor.dooley@microchip.com,
-	Jonathan.Cameron@huawei.com, riel@surriel.com,
-	Kefeng Wang <wangkefeng.wang@huawei.com>, chenjun102@huawei.com
-Subject: Re: [PATCH RFC v3 2/4] mm/pgtable: Make pfn_pte() filter out huge
- page attributes
-Message-ID: <aapXRN4KjWtUUJ0g@casper.infradead.org>
-References: <20260228070906.1418911-1-yintirui@huawei.com>
- <20260228070906.1418911-3-yintirui@huawei.com>
- <5eaf3846-01db-471e-9903-b0b239d7838d@suse.com>
- <e8d5ba16-3071-4b4a-b6a1-d492cc46e8c2@huawei.com>
+	id 1vyN4X-0000000316n-2Drf
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Mar 2026 04:45:59 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2ae527552acso19188455ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 20:45:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772772356; x=1773377156; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=qG3UCHbICIKoqorE0OwQsqzoYP9iJFn4dnjoO73bdjs=;
+        b=F8GIA7GiYSyo95ecRWG0l2S05LC4Kfm+hwNPvlqvfa8I/9rXKMdvNjxIVBOXEi0lzr
+         3yfjp0Ir2wkZZF0Nw95KPbdd+TgsTWQ4p8ZRI3LGhifqlMJwv6K1G48PkgLm6xMpAM0E
+         7uTC+ta5F78Y7pm/JLr9P3CnW2PdBzFP3sywSLb2JGGnOk3xLsmyBn0mGZ1Q0H4Gh6Sl
+         hncLd3QE3u3O+P4yZG+xwFb+P9tDmfGn9haN2nIXR9RypSZf6ObBbQ0s/R1D5oxbiHqE
+         Y84fvzv/46QGw+qvlsu8KVeey60nFSHIjjmqGIUC4VIefgsZFRH2uPmAslHXO5LfbRN4
+         wqpw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772772356; x=1773377156;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qG3UCHbICIKoqorE0OwQsqzoYP9iJFn4dnjoO73bdjs=;
+        b=fq7l86L06yryUuRHQD0Pq6txUpXk4MqDnMjlxGx2V7prbH3RRDyOTYdiCzX6llZ8qd
+         7yg5yQyS+wOh5D/NQZEvndDyVgMT5/wZluQzaGyxk97gW7uZBak+RUICKj0++Z1jzq1Q
+         MS7mZX1m8Y/XxGX3JJa8K8bxaci1AhF/e7XVD/KaNT2G/Tvg1cPEQThr6bc1c/HCZuq3
+         7g2uAnB6Nkp5K5Iw/fQACXSrrP1bL9m+2acQ1cU1yGyOluIbXyzvic0Tx8JndiALR1DQ
+         Gg7YggO2a81Yvf1tmKG56NJp21oJT9S4uHDBSlqOkGH5o/pivJaWVfdHacz6F914TmJJ
+         W55w==
+X-Forwarded-Encrypted: i=1; AJvYcCUslq/77USCfzKpst3Q3kZWPfbY4nedpS/IqyGbyzJeDL+lEggdqTF5Kh6V67PEzpi9joQqCkIRtdSCmarggcRN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3TgVONbyBTTJkJ7j5539Ja4j2cFrkszHxREdAT92tnHGHPFiv
+	1keSqx7Dg+Ns/sB+/UtXUokmHu5ZKlFVX8TS5VWjbwApKPiVhlaBgkaa
+X-Gm-Gg: ATEYQzwFJhHNQN81Qak+b8ibPPL7lTnzHBoAfgYEGjYZDEueK7fyET4yjyUGq4NLChy
+	xQGMYuBWCnRy8/WFWxxp9cbFAiPoog+drt9fd7G5tY7jkkStPOm+qTULeWI5srzj4Ii1D0/QXnU
+	SiYg45m1tCTln68tYKwEaJ8kux/P+De82i2N5Zf1zG2uSwjLQxlEaD+EDFtV1fMH4Y/P7ihG/ux
+	j32HSG2Qmn5UX3lNjXuGABM8+2fk6YVzWaR45xUwKYxuIjHHu+AOBEAUFKaT5Q00jqEbKMuOvqu
+	jRnUphD5jS0kxxA2UViNaMMNd3jySI/wD2QILHLPYIShuU7L190NuewW9wEUypXPQLISwO44S21
+	ilpHMDpdu2yAlCziqPi8tXOv2JUAIsgUi3iRhCzMyKuacIdAUon2FqRJ5UO2UpszVn7aHvRVDYW
+	kWxUSPscovAV3idht6cv8PI9w/BG6QdGVXoKEXEgKLcOgnWb06R8bFYmc=
+X-Received: by 2002:a17:903:2986:b0:2ae:8092:e212 with SMTP id d9443c01a7336-2ae823ffc26mr10568555ad.8.1772772356318;
+        Thu, 05 Mar 2026 20:45:56 -0800 (PST)
+Received: from ryzen ([2601:644:8000:56f5::8bd])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae83e57cb1sm3927375ad.9.2026.03.05.20.45.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Mar 2026 20:45:55 -0800 (PST)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-media@vger.kernel.org
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	linux-hardening@vger.kernel.org,
+	gustavoars@kernel.org,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] media: nxp: imx8-isi: remove kzalloc_objs
+Date: Thu,  5 Mar 2026 20:45:36 -0800
+Message-ID: <20260306044536.149204-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <e8d5ba16-3071-4b4a-b6a1-d492cc46e8c2@huawei.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260305_204557_568891_85D29648 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,92 +104,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 05, 2026 at 05:38:46PM +0800, Yin Tirui wrote:
-> On 3/4/2026 3:52 PM, Jürgen Groß wrote:
-> > Today it can either be used for a large page (which should be a pmd,
-> > of course), or - much worse - you'd strip the _PAGE_PAT bit, which is
-> > at the same position in PTEs.
-> > 
-> > So basically you are removing the ability to use some cache modes.
-> > 
-> > NACK!
-> > 
-> > 
-> > Juergen
-> 
-> Hi Willy and Jürgen,
-> 
-> Following up on the x86 _PAGE_PSE and _PAGE_PAT aliasing issue.
-> 
-> To achieve the goal of keeping pfn_pte() pure and completely eradicating the
-> pte_clrhuge() anti-pattern, we need a way to ensure pfn_pte() never receives
-> a pgprot with the huge bit set.
-> 
-> @Jürgen:
-> Just to be absolutely certain: is there any safe way to filter out the huge
-> page attributes directly inside x86's pfn_pte() without breaking PAT? Or
-> does the hardware bit-aliasing make this strictly impossible at the
-> pfn_pte() level?
-> 
-> @Willy @Jürgen:
-> Assuming it is impossible to filter this safely inside pfn_pte() on x86, we
-> must translate the pgprot before passing it down. To maintain strict
-> type-safety and still drop pte_clrhuge(), I plan to introduce two
-> arch-neutral wrappers:
-> 
-> x86:
-> /* Translates large prot to 4K. Shifts PAT back to bit 7, inherently
-> clearing _PAGE_PSE */
-> #define pgprot_huge_to_pte(prot)    pgprot_large_2_4k(prot)
-> /* Translates 4K prot to large. Shifts PAT to bit 12, strictly sets
-> _PAGE_PSE */
-> #define pgprot_pte_to_huge(prot)
-> __pgprot(pgprot_val(pgprot_4k_2_large(prot)) | _PAGE_PSE)
+Use a flexible arraay member to combine allocations.
 
-I don't think we should have pgprot_large_2_4k().  Or rather, I think it
-should be embedded in pmd_pgprot() / pud_pgprot().  That is, we should
-have an 'ideal' pgprot which, on x86, perhaps matches that used by the
-4k level.  pfn_pmd() should be converting from the ideal pgprot to
-that actually used by PMDs (and setting _PAGE_PSE?)
+It looks like pipes never gets freed anywhere. Meaning this effectively
+fixes a memory leak.
 
-> arm64:
-> /*
->  * Drops Block marker, enforces Page marker.
->  * Strictly preserves the PTE_VALID bit to avoid validating PROT_NONE pages.
->  */
-> #define pgprot_huge_to_pte(prot) \
->       __pgprot((pgprot_val(prot) & ~(PMD_TYPE_MASK & ~PTE_VALID)) | \
->              (PTE_TYPE_PAGE & ~PTE_VALID))
-> /*
->  * Drops Page marker, sets Block marker.
->  * Strictly preserves the PTE_VALID bit.
->  */
-> #define pgprot_pte_to_huge(prot) \
->       __pgprot((pgprot_val(prot) & ~(PTE_TYPE_MASK & ~PTE_VALID)) | \
->              (PMD_TYPE_SECT & ~PTE_VALID))
-> 
-> Usage:
-> 1.  Creating a huge pfnmap (remap_try_huge_pmd)
-> pgprot_t huge_prot = pgprot_pte_to_huge(prot);
-> 
-> /* No need for pmd_mkhuge() */
-> pmd_t entry = pmd_mkspecial(pfn_pmd(pfn, huge_prot));
-> set_pmd_at(mm, addr, pmd, entry);
-> 
-> 2. Splitting a huge pfnmap (__split_huge_pmd_locked)
-> pgprot_t small_prot = pgprot_huge_to_pte(pmd_pgprot(old_pmd));
-> 
-> /* No need for pte_clrhuge() */
-> pte_t entry = pfn_pte(pmd_pfn(old_pmd), small_prot);
-> set_ptes(mm, haddr, pte, entry, HPAGE_PMD_NR);
-> 
-> 
-> Willy, is there a better architectural approach to handle this and satisfy
-> the type-safety requirement given the x86 hardware constraints?
-> 
-> -- 
-> Thanks,
-> Yin Tirui
-> 
-> 
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c | 11 ++++-------
+ drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h |  3 ++-
+ 2 files changed, 6 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+index 16392420903a..657ffecc4d7e 100644
+--- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
++++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+@@ -459,25 +459,21 @@ static const struct dev_pm_ops mxc_isi_pm_ops = {
+ 
+ static int mxc_isi_probe(struct platform_device *pdev)
+ {
++	const struct mxc_isi_plat_data *pdata;
+ 	struct device *dev = &pdev->dev;
+ 	struct mxc_isi_dev *isi;
+ 	unsigned int dma_size;
+ 	unsigned int i;
+ 	int ret = 0;
+ 
+-	isi = devm_kzalloc(dev, sizeof(*isi), GFP_KERNEL);
++	pdata = of_device_get_match_data(dev);
++	isi = devm_kzalloc(dev, struct_size(isi, pipes, pdata->num_channels), GFP_KERNEL);
+ 	if (!isi)
+ 		return -ENOMEM;
+ 
+ 	isi->dev = dev;
+ 	platform_set_drvdata(pdev, isi);
+ 
+-	isi->pdata = of_device_get_match_data(dev);
+-
+-	isi->pipes = kzalloc_objs(isi->pipes[0], isi->pdata->num_channels);
+-	if (!isi->pipes)
+-		return -ENOMEM;
+-
+ 	isi->num_clks = devm_clk_bulk_get_all(dev, &isi->clks);
+ 	if (isi->num_clks < 0)
+ 		return dev_err_probe(dev, isi->num_clks, "Failed to get clocks\n");
+@@ -487,6 +483,7 @@ static int mxc_isi_probe(struct platform_device *pdev)
+ 		return dev_err_probe(dev, PTR_ERR(isi->regs),
+ 				     "Failed to get ISI register map\n");
+ 
++	isi->pdata = pdata;
+ 	if (isi->pdata->gasket_ops) {
+ 		isi->gasket = syscon_regmap_lookup_by_phandle(dev->of_node,
+ 							      "fsl,blk-ctrl");
+diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+index 3cbd35305af0..99532efa4e41 100644
+--- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
++++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+@@ -286,7 +286,6 @@ struct mxc_isi_dev {
+ 	struct regmap			*gasket;
+ 
+ 	struct mxc_isi_crossbar		crossbar;
+-	struct mxc_isi_pipe		*pipes;
+ 	struct mxc_isi_m2m		m2m;
+ 
+ 	struct media_device		media_dev;
+@@ -294,6 +293,8 @@ struct mxc_isi_dev {
+ 	struct v4l2_async_notifier	notifier;
+ 
+ 	struct dentry			*debugfs_root;
++
++	struct mxc_isi_pipe		pipes[];
+ };
+ 
+ extern const struct mxc_gasket_ops mxc_imx8_gasket_ops;
+-- 
+2.53.0
+
 
