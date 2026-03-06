@@ -4,59 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0280AF01832
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 12:19:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91A9FF01832
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 12:20:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pehl7zECjEs7dXJslXQDt3mVrT8jB5OCjTmkCK4PEyU=; b=fcAFKqH11HaJT2HwIayYK6A8LO
-	SG0pycOC0GB8wVo+hEMOhEzNKnHZWDt6/qXkd6zRRREFVhvXD2AlrA3wbpyoh7a3Bwwg2SaSCsS9M
-	cUglDH7SiNAGi0D7OnxJUyeXQ5d7UVEMAsuW7ecjYnLza1V1un5PJ9zjSDm9ea2SBd0r74QPT0xy0
-	EL3X8TCkhxRtbP9aoZRZeZFxnD6AXNV+Up83Xv7wujx9F4r534EDrPZNlXJXbbef36Tw7J0I6unmp
-	mJR0SlnmMpyYChH7gJvJ6AWK0YoRNJ+lXZUoFOUm7DGraqEAgNlVebkGdla4J58WJKezXD7o5Lmui
-	nHnxHW1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hcHErwP1yQbqfY818V8ltH+BIoWk+d2SfQ9YEfMKEl0=; b=qEh+SQQIw5l1nZtXEgCcODdt26
+	WMV4QuVaHnMBeY4myqLM4GeAoojnEJjciLJqXjtljiLzSiGWPuzUC+K5T0fyA4/I0hHuYVi1fhEq3
+	YD0f4RiaYQtBU5LDCTdeK47ZuxUF0vXAfvA1yShrlxIKlyuYX/uOlj5FsML/A2v7aT1Egz8jSIUbp
+	TMJPRnKudVMRf/XtN+bxpoJ3pTTbU58gPvBfXvtAXmoOcyHwmmziePyi9SlhVIM7qFgGMSn2V5bn4
+	J4vcKqBeomB0vXHIOcrgxWR1F5nhOl5DZbrAmJs7aT4YBV6ZZzT43w1TC2hUbQ9ZJytViu85b6Ie8
+	DLRdQYTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyU9I-00000003dKU-2Tmo;
-	Fri, 06 Mar 2026 12:19:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyU9G-00000003dK9-0Vay
+	id 1vyUAF-00000003dSB-2gTF;
+	Fri, 06 Mar 2026 12:20:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vyUAE-00000003dRy-2tya
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 12:19:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0577F497;
-	Fri,  6 Mar 2026 04:19:10 -0800 (PST)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ADEFC3F694;
-	Fri,  6 Mar 2026 04:19:14 -0800 (PST)
-Date: Fri, 6 Mar 2026 12:19:12 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev
-Subject: Re: [PATCH 3/4] arm64: errata: Work around early CME DVMSync
- acknowledgement
-Message-ID: <aarGQNNi1HfrcGyy@arm.com>
-References: <20260302165801.3014607-1-catalin.marinas@arm.com>
- <20260302165801.3014607-4-catalin.marinas@arm.com>
- <aamT6-Mvr9nI1unq@willie-the-truck>
- <aarB3iv8963UDn5E@arm.com>
+	Fri, 06 Mar 2026 12:20:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C0DAA60018;
+	Fri,  6 Mar 2026 12:20:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4F6DC4CEF7;
+	Fri,  6 Mar 2026 12:20:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772799617;
+	bh=eQ1zNeqiAjFDxjrPGD92P1W0AAqfR5sLEOVZ3IlTQ/U=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=GAP2vNuRnWQrrUKmXvGx/Q3s/kVH5aUX/amIVtquc+a/GfCKdDqwBNGZFqX2yEMlF
+	 DZ3gMoGAFW9FUYj9xNam0sBjZmfErZqOmEVbRYSR5UuoNVUEzc4v/ceB7ZYrxw9Bgs
+	 vprXV8JWHoQvAgRPdwbmifR35yAbtLIP+hf4dUarrrYWPzGn0P1zP7f6jVdAAsa9li
+	 Bec7kyhIYHhu0UXSPuG5t+jDHytCgbnVOECDqy4+pFmGRet0MFKwTrYCZFkjdAwDwl
+	 ebCwNx77r77MJF365ibQIOyqrGLAqDTKeAmfyFY7RiyGahGX9HEFlUVkV0SyaeW9A1
+	 VSOH7yzZLOENg==
+From: Lee Jones <lee@kernel.org>
+To: maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+ tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, 
+ nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
+ claudiu.beznea@tuxon.dev, lee@kernel.org, dri-devel@lists.freedesktop.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Manikandan Muralidharan <manikandan.m@microchip.com>
+Cc: Dharma Balasubiramani <dharma.b@microchip.com>
+In-Reply-To: <20260223101920.284697-2-manikandan.m@microchip.com>
+References: <20260223101920.284697-2-manikandan.m@microchip.com>
+Subject: Re: (subset) [PATCH v3 1/4] mfd: atmel-hlcdc: fetch LVDS PLL clock
+ for LVDS display
+Message-Id: <177279961448.979425.2188993103584319.b4-ty@kernel.org>
+Date: Fri, 06 Mar 2026 12:20:14 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aarB3iv8963UDn5E@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_041918_281406_F54FC764 
-X-CRM114-Status: GOOD (  26.92  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.15-dev-52d38
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,115 +74,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 12:00:30PM +0000, Catalin Marinas wrote:
-> On Thu, Mar 05, 2026 at 02:32:11PM +0000, Will Deacon wrote:
-> > On Mon, Mar 02, 2026 at 04:57:56PM +0000, Catalin Marinas wrote:
-> > > +void sme_do_dvmsync(void)
-> > > +{
-> > > +	/*
-> > > +	 * This is called from the TLB maintenance functions after the DSB ISH
-> > > +	 * to send hardware DVMSync message. If this CPU sees the mask as
-> > > +	 * empty, the remote CPU executing sme_set_active() would have seen
-> > > +	 * the DVMSync and no IPI required.
-> > > +	 */
-> > > +	if (cpumask_empty(sme_active_cpus))
-> > > +		return;
-> > > +
-> > > +	preempt_disable();
-> > > +	smp_call_function_many(sme_active_cpus, sme_dvmsync_ipi, NULL, true);
-> > > +	preempt_enable();
-> > > +}
-> > 
-> > Why do we care about all CPUs using SME, rather than limiting it to the
-> > set of CPUs using SME with the mm we've invalidated? This looks like it
-> > will result in unnecessary cross-calls when multiple tasks are using SME
-> > (especially as the mm flag is only cleared on fork).
+On Mon, 23 Feb 2026 15:49:17 +0530, Manikandan Muralidharan wrote:
+> The XLCDC IP supports parallel RGB, MIPI DSI and LVDS Display.
+> The LCD Generic clock (sys_clk) is used for Parallel RGB and MIPI
+> displays, while the LVDS PLL clock (lvds_pll_clk) is used for LVDS
+> displays.Since both the clocks cannot co-exist together in the DT
+> for a given display, this patch tries sys_clk first (RGB/MIPI),
+> fallback to lvds_pll_clk (LVDS).
 > 
-> Yes, it's a possibility but I traded it for simplicity. We also have the
-> TTU case where we don't have an mm and we don't want to broadcast to all
-> CPUs either, hence an sme_active_cpus mask. As I just replied on patch
-> 2, for the TLB batching we wouldn't be able to use a cpumask in the
-> batching structure since, per the ordering above, we need the DVMSync
-> before checking if/where to send the IPI to.
-> 
-> For the typical TLBI (not TTU), we can track a per-mm mask passed down
-> to this function (I have patches doing this but it didn't make a
-> significant difference in benchmarks).
+> [...]
 
-Reusing the current mm_cpumask(), something like below. We could also
-scrap the MMCF_SME_DVMSYNC flag, though we end up always call
-sme_do_dvmsync() and checking the mask, probably more expensive than a
-flag check.
+Applied, thanks!
 
-diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index e3ea0246a4f4..2c77ca41cb14 100644
---- a/arch/arm64/include/asm/tlbflush.h
-+++ b/arch/arm64/include/asm/tlbflush.h
-@@ -81,7 +81,7 @@ static inline unsigned long get_trans_granule(void)
- }
- 
- #ifdef CONFIG_ARM64_ERRATUM_SME_DVMSYNC
--void sme_do_dvmsync(void);
-+void sme_do_dvmsync(struct mm_struct *mm);
- 
- static inline void sme_dvmsync(struct mm_struct *mm)
- {
-@@ -90,7 +90,7 @@ static inline void sme_dvmsync(struct mm_struct *mm)
- 	if (mm && !test_bit(ilog2(MMCF_SME_DVMSYNC), &mm->context.flags))
- 		return;
- 
--	sme_do_dvmsync();
-+	sme_do_dvmsync(mm);
- }
- #else
- static inline void sme_dvmsync(struct mm_struct *mm) { }
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index 90015fc29722..37e215cd0f39 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -1378,6 +1378,7 @@ void sme_set_active(unsigned int cpu)
- 	if (!test_bit(ilog2(MMCF_SME_DVMSYNC), &current->mm->context.flags))
- 		set_bit(ilog2(MMCF_SME_DVMSYNC), &current->mm->context.flags);
- 
-+	cpumask_set_cpu(cpu, mm_cpumask(current->mm));
- 	cpumask_set_cpu(cpu, sme_active_cpus);
- 
- 	/*
-@@ -1398,6 +1399,7 @@ void sme_clear_active(unsigned int cpu)
- 	 * With SCTLR_EL1.IESB enabled, the SME memory transactions are
- 	 * completed on entering EL1.
- 	 */
-+	cpumask_clear_cpu(cpu, mm_cpumask(current->mm));
- 	cpumask_clear_cpu(cpu, sme_active_cpus);
- }
- 
-@@ -1410,19 +1412,25 @@ static void sme_dvmsync_ipi(void *unused)
- 	 */
- }
- 
--void sme_do_dvmsync(void)
-+void sme_do_dvmsync(struct mm_struct *mm)
- {
- 	/*
- 	 * This is called from the TLB maintenance functions after the DSB ISH
- 	 * to send hardware DVMSync message. If this CPU sees the mask as
- 	 * empty, the remote CPU executing sme_set_active() would have seen
- 	 * the DVMSync and no IPI required.
-+	 *
-+	 * When an mm is provided, limit the IPI to CPUs that are actively
-+	 * running SME code for that mm (recorded in mm_cpumask()), otherwise
-+	 * fall back to the global sme_active_cpus mask.
- 	 */
--	if (cpumask_empty(sme_active_cpus))
-+	const struct cpumask *mask = mm ? mm_cpumask(mm) : sme_active_cpus;
-+
-+	if (cpumask_empty(mask))
- 		return;
- 
- 	preempt_disable();
--	smp_call_function_many(sme_active_cpus, sme_dvmsync_ipi, NULL, true);
-+	smp_call_function_many(mask, sme_dvmsync_ipi, NULL, true);
- 	preempt_enable();
- }
- 
+[1/4] mfd: atmel-hlcdc: fetch LVDS PLL clock for LVDS display
+      commit: bd7b76604b3b218d0b5a32bcfaaed9eb4cc0ddb2
+
+--
+Lee Jones [李琼斯]
+
 
