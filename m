@@ -4,64 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C2F4F01804
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 07:54:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A044F01808
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 07:55:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=51bKZp8HGwWRddd1tNSHXaubft5ibHLxsbZndwLhhBE=; b=a6IlM6YAuCrKfLpOfinRmnjTjR
-	2LJqQzatMMq22NhN67GqnUcP9g7XSo7iyoIci5fKWavZdvRZL/wfMPlYp55H5yEe1JO9HF9nqWWRy
-	/5aqIHz4ITuOHkVPSYpE7hKrNR87mfNK9Dx3IDS8ZHkX1nexKgHpVf2zhut8/xQtc9EexyebLeOI3
-	jXSx6YGtrf8ZxPPLL9UO9K/DatVkkmKscea5BBNdk2l2KYEv3Mu7ZN7rBAzVWhhe8n8Z2l23WXnO/
-	m1WsCXohx7ZwF6zK1QrU+wqrU4C9Mx/JScGfzHjf/UVAfiHHWghzaSGLq956w4J7zQm59gkeVl45D
-	JBeTmp1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x4WWKecG/iTSsh2dycXEkAFiD9abnKWJV73l5Pt4Z3c=; b=IcBt+g7DSDamzIOpfeaqEH0ukO
+	rxEhm+OReh1h7f0Agkex7uSIfKxoygrvPeQmB/H6QkXvCT6GQslKF47ra9nH2e9TxWYaww/qp6gdM
+	9wF0PmO+u0ORl9IbHNBe9T18t+kycLd4MjVZ82Ea13ahGb4D3BtDFJ/YW2O4VMEnzB43K9Xs8san8
+	NXrRWJO7JeKBzKpHWc/Cn3L6guMyzXe48lyMwfM2VMD0P+JPTNfM8GsIulpYFpOWHXuVTZPHqaOpA
+	ArFBbcQWAjrSaxG0YZfMnhx/02+LbvWyT1+sXso0mPYdqaqAQYGORDdBPIlm0I1G20Ny2RMfdErkb
+	7vuV+XVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyQ0y-00000003BOP-0m83;
-	Fri, 06 Mar 2026 07:54:28 +0000
-Received: from 15.511.mail-out.ovh.net ([188.165.38.172])
+	id 1vyQ1s-00000003Bb9-1Fp5;
+	Fri, 06 Mar 2026 07:55:24 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyQ0t-00000003BLY-25za
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 07:54:26 +0000
-Received: from ex.mail.ovh.net (unknown [10.108.42.185])
-	by mo511.mail-out.ovh.net (Postfix) with SMTP id 4fRzFM6XDqz9tg2;
-	Fri,  6 Mar 2026 07:54:15 +0000 (UTC)
-Message-ID: <439033a9-6f4b-478d-9317-f16167d138b8@aliel.fr>
-Date: Fri, 6 Mar 2026 08:54:14 +0100
+	id 1vyQ1p-00000003BaG-39G9;
+	Fri, 06 Mar 2026 07:55:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=x4WWKecG/iTSsh2dycXEkAFiD9abnKWJV73l5Pt4Z3c=; b=hRY+OJNSncFYexmNPYRfFbEQfL
+	LffJIbz4+EUTp3rGSALWlwnmZ28ORnObNOMWzWSBbAOP9G6Et+svZRC5bseECJtj8+HbKrEe2QHWJ
+	La7ab5md54JuCg20oISHG5podKFJPvyMpFZoRa72pqXXxsYKzsnIyEOSWmvHmt4ux6r7GR5o9tors
+	dMN9Bd7UJITs5j0AIWioOc3RkVIwGJZ0FuTRnpMBL/bmcrwm7QwhER/ujmsYdcsT93e6bQU348iGy
+	1zOURHQEmJokBax76OeiGPcqMVNmoTLMIvgNW/6cApqCHY5EysxLt90w8BP9ueCS4BcRcGrRQDvaW
+	Rcc8rF0w==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vyQ1m-00000008EKy-1NDT;
+	Fri, 06 Mar 2026 07:55:20 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6267qjQgB2977148, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1772783565; bh=x4WWKecG/iTSsh2dycXEkAFiD9abnKWJV73l5Pt4Z3c=;
+	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type;
+	b=MfZdK7upk91YY3jTXxdhhBU2oS4uaTO5SzgQT+dLT/5rBEjEUyl3vYhlXoB4hBaXn
+	 dPiA93ajusIehwSJyxMkmgAi/smLJk4o6HT4FMat/ABG4TQECQ6EC72dx3GdyamsyW
+	 YfpfvCR0/dCZUxVhWRwhM6UhsI1HOHpGUZe/Gl0frAFr4jR258HyKoiumNvwwBBPEc
+	 VjvcYGnRBxEaLieC3cPP9xBdAOk8J0WPtRU6QkHOTO3D/yPTKoEBxNdf073mABHvCp
+	 xnyUJUFvbvWEEJWOb4JOGlu8wxDc+erotcSWKwcHjzAA+eEAyxVeIq413a86sH4q07
+	 qXpBlHyeiJP5A==
+Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
+	by rtits2.realtek.com.tw (8.15.2/3.21/5.94) with ESMTPS id 6267qjQgB2977148
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 6 Mar 2026 15:52:45 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Fri, 6 Mar 2026 15:52:45 +0800
+Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
+ (10.21.1.56) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Fri, 6 Mar 2026 15:52:44 +0800
+From: Yu-Chun Lin <eleanor.lin@realtek.com>
+To: <linusw@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <bartosz.golaszewski@oss.qualcomm.com>,
+        <afaerber@suse.com>
+CC: <james.tai@realtek.com>, <cy.huang@realtek.com>,
+        <stanley_chang@realtek.com>, <eleanor.lin@realtek.com>,
+        <tychang@realtek.com>, <linux-gpio@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-realtek-soc@lists.infradead.org>
+Subject: [PATCH v2 01/14] pinctrl: realtek: Cleanup license string
+Date: Fri, 6 Mar 2026 15:52:31 +0800
+Message-ID: <20260306075244.1170399-2-eleanor.lin@realtek.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260306075244.1170399-1-eleanor.lin@realtek.com>
+References: <20260306075244.1170399-1-eleanor.lin@realtek.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH] arm64: dts: amlogic: t7: khadas-vim4: fix memory layout
- for 8GB RAM
-To: Nick Xie <nick@khadas.com>
-CC: <krzk+dt@kernel.org>, <robh@kernel.org>, <conor+dt@kernel.org>,
-	<linux-amlogic@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<jbrunet@baylibre.com>, <martin.blumenstingl@googlemail.com>,
-	<khilman@baylibre.com>, <neil.armstrong@linaro.org>
-References: <20260306031014.2421875-1-nick@khadas.com>
-Content-Language: en-US
-From: Ronald Claveau <ronald.claveau@aliel.fr>
-In-Reply-To: <20260306031014.2421875-1-nick@khadas.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [92.91.227.71]
-X-ClientProxiedBy: CAS7.indiv.local (172.16.1.7) To DAG11EX2.indiv.local
- (172.16.2.112)
-DKIM-Signature: v=1; a=rsa-sha256; d=aliel.fr; s=ovhex24454-selector1;
- c=relaxed/relaxed; t=1772783655; h=from:to:subject:date;
- bh=51bKZp8HGwWRddd1tNSHXaubft5ibHLxsbZndwLhhBE=;
- b=lw2O4qJ5j7aJ3hE4MaFONiW2cYTLYJlv4989G5cYp2+YsZDj7lbPYzzPPRDzLbQBckbkG6JymkbZ1FVc5L9Sa43jOqM34X9n8iiA87lJ7K6olKwXeQ9M0pZc2gnrLeZKVhck8qB7xQQ1qOMvSyldpWONraTjK+6ghHH5/Hy1LJKenLcO5nTbtW9VhQ63vqZywMdmL7zqdP5Daalub1295OVdXjiPBpbp8SaDd7lusC5AG6FQc3CJbl2JAR+hfR25jl4CuZeakKS2eEkQXD9mhrroyjY0ll4GqYZlyztZDb2JWw8m+ln+GnIfThGfhkTazznhCfsQKs+ByPDctAvJXw==
-x-ovh-tracer-id: 9811091791627160995
-X-VR-SPAMSTATE: OK
-X-VR-SPAMSCORE: -100
-X-VR-SPAMCAUSE: dmFkZTEO47OSnav7wHMO6VHKQJYw5sS6E1e0dYLi3aOM6XwWvW+BSO5iAnSyXpDTvn1oG6KJjf4G2oPkJMUwvkq2sKBzmJS+e508dKIWeUZ61hmeH//FXxRIrm6M8y6Um7Hs+J92kq7PB6I88a08R607cdwV1iGBxKfjwv7MEHzwXWKMQeZ2Fva5/DJ5huPnlMsK+1reqtqT9vWQDSAbOXap04ilYp6tzIaFU9FOLlHOZRflY8zux8lbJwgB+Pc/OJakQZarkL/VVoZLBhVbJ6zS0A/YDb2Q1H+zCC9hhoj9H4FtnVb5YFUvfqbLmq0Qg6LtNthW5djX3NRKQrYgnp8e5mz/t98llNdJdNLHyfrZeTUTzVloxKRxbh61lfS5YMf7zu7oqT2/k0LUi4W9SqVCujxGP2UhsKcwWbu/8jKSEWcDvNHjZCqVdM1jQJZWv4+yfey0yAQSGC4cf+BaVdCvYf3ccJ8P7VfoPuD4yJ2cWyW+lih46CAp3DP7hBNuZ8/bmYzOISl//Y4TpKNIvqNpYdMXXTy9ubuUJdftZZDnLcjQPmKmay2PzMus2ThE0xHtzMty7KJEFdbmEDrQActRMrH+kv3Y0LjyMqCW/+X555lpEvfNn89Na9xSHNsqi60fBkEbryrv8YQ0XXscrXS55KmFMDOKBemrknUs/Lm2b1naLg
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_235424_720894_541A66D3 
-X-CRM114-Status: GOOD (  15.07  )
+X-CRM114-CacheID: sfid-20260306_075518_807384_9C7D39B2 
+X-CRM114-Status: UNSURE (   8.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,42 +99,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/6/26 4:10 AM, Nick Xie wrote:
-> The Khadas VIM4 features 8GB of LPDDR4X RAM. The previous memory node
-> mapped a single incorrect region. This caused the kernel to map MMIO
-> and secure firmware (ATF/TrustZone) memory holes as standard RAM,
-> leading to an Asynchronous SError Interrupt during early boot
-> (paging_init) when the kernel attempted to clear those pages.
-> 
-> Fix this by splitting the 8GB memory layout into three separate
-> regions to properly avoid the memory holes (e.g., 0xe0000000 -
-> 0xffffffff):
-> - 3.5GB @ 0x000000000
-> - 3.5GB @ 0x100000000
-> - 1.0GB @ 0x200000000
-> 
-> Signed-off-by: Nick Xie <nick@khadas.com>
-> ---
->  arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-> index 25b478e106451..106eab2b4c2e2 100644
-> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-> @@ -17,7 +17,9 @@ aliases {
->  
->  	memory@0 {
->  		device_type = "memory";
-> -		reg = <0x0 0x0 0x2 0x0>; /* 8 GB */
-> +		reg = <0x00000000 0x00000000 0x00000000 0xE0000000
-> +			0x00000001 0x00000000 0x00000000 0xE0000000
-> +			0x00000002 0x00000000 0x00000000 0x40000000>;
->  	};
->  
+Prefer "GPL" over "GPL v2" - see commit bf7fbeeae6db
+("module: Cure the MODULE_LICENSE "GPL" vs. "GPL v2" bogosity")
 
-I suggest to remove the leading zeroes here.
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+---
+Changes in v2:
+- Add Bartosz's Reviewed-by tag.
 
->  	reserved-memory {
+ drivers/pinctrl/realtek/pinctrl-rtd.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/pinctrl/realtek/pinctrl-rtd.c b/drivers/pinctrl/realtek/pinctrl-rtd.c
+index 244060486332..eafa0d7bb19d 100644
+--- a/drivers/pinctrl/realtek/pinctrl-rtd.c
++++ b/drivers/pinctrl/realtek/pinctrl-rtd.c
+@@ -593,4 +593,4 @@ int rtd_pinctrl_probe(struct platform_device *pdev, const struct rtd_pinctrl_des
+ EXPORT_SYMBOL(rtd_pinctrl_probe);
+ 
+ MODULE_DESCRIPTION("Realtek DHC SoC pinctrl driver");
+-MODULE_LICENSE("GPL v2");
++MODULE_LICENSE("GPL");
+-- 
+2.34.1
 
 
