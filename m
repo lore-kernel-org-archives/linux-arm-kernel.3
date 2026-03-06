@@ -4,92 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48B2BF513E9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 01:07:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B576F513E9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 01:07:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xldhKdSLExnwUIprLhiJ31YKhBCjitGVus1su/uXCG0=; b=rcpSmttp6ODVUNeGW6s7Q9hYaM
-	ZKlSqPaqTWx2Ep8nYexpkqCKjUVAmbCacZBjPbg1iv/L+sfUU9V+hnWyTw7F8SHjCX+KpzeKG8Z+M
-	T4T9IaX3y26NZZsya6MBz4FxrFdjnxXdQ8O/I3GO+s3juT8sitlutIPBnX5PTMoWvtXVc0uNC4O8/
-	jTQmeq8qhSNrYTNuWTiE8vhJYF/oGk8F1ZX7fVSURZ9RukB5T39jK3e7KyTh8W0YS7JOt4YlPXOxr
-	AdwXi3lSXH+2ObktHTbUf7QSPekDXbQv7CWe07HezDlQXjuGze7DAjCPrXkWbbZIuUY0PGpkGr/u1
-	fPwfK7uA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qk3va7EqRblQvPQuIP+Xv3Nh0k9Ts3EEcLUkbWFDR6M=; b=hOIlczpP4XcDxRFlJkOn1PwEli
+	CympCkX/Y8N2+HCAeWp+B9sGxpjKv9ZxRKMyqlkj3JtXvcFWf7gFyjWKuWS2vSjutTNdYixgYRYGl
+	HMxlD2rvYS2lNpwBEqE2NuNAnQxabMeQD4Bricvlp+NCKVPGD3t0X64SrmI/5FQkWiWJW/QODX5TO
+	MVhxZtr7n+MBN2hc8/DE47h+P5gZ171GBTP2SVQ7AEXNxhh8Uxu0HVB74SS/CHCrFquSo5XfZ6vnM
+	7ka5vPZj468hGlM1+/2pKhQjTu73W5DxipowG9vX00g6kiN1dNEqJ8ok3mwRhQ19Np5PZQnkwCWo5
+	gEH3ufng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyJf9-00000002ocY-2yQJ;
-	Fri, 06 Mar 2026 01:07:31 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1vyJfI-00000002oh0-1LUY;
+	Fri, 06 Mar 2026 01:07:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyJf5-00000002oaW-0AQL
+	id 1vyJfF-00000002ofU-0eQC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 01:07:28 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2ae41544dcfso63327565ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 17:07:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1772759246; x=1773364046; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xldhKdSLExnwUIprLhiJ31YKhBCjitGVus1su/uXCG0=;
-        b=ZjDRh0AcgOgTj3ACN4olF5DGhRkRS9OHm1oIsGKLO0bAOQCtfU8UFIRq79A2TyvluZ
-         rYFJg8paJ1JA/aqOurF86HlCXbxaahEpv0ePG/lqVVo+fCq9RQiSmw6/Kj1JPp0K9//h
-         INjXh0hCYisoJPZTB/Lk+QGvYJKSvHokABDgvhZcezToan4HoVuvPugDhKTmHQtYEyD6
-         4UYBszsdQGd0KqVOsJlN5tPIJUR+Fs40Mj9fJhADQ9V0DbAxhU+l1SFbfIcE1eLHaJ1b
-         Gw5AHLXrfzzw+vGlQldVaZtpZQNexABtBfItqblkcSZSzfvuS/QQtm94EqVu6qp1puN4
-         tPUw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772759246; x=1773364046;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=xldhKdSLExnwUIprLhiJ31YKhBCjitGVus1su/uXCG0=;
-        b=ufUkEnfR7tmlE43+rN1I8ME3+clo1yhkuMNanWyhNpbmPDv1WAbRRxWzqLn85MthdC
-         nz/1x0kuUc1wFMVltcMW8XRHpjF8HU34L2UXE/gFm5Td19DajUGnzqZBUToK6F4GTnRu
-         Q5sZJ6P/rsmZToLScEOKwk2yeNsJbz/5kv3qJ2oAJ5FxfaZIcPm/klZGAZqLBB2N24mi
-         VdoxKxrlJ+f/M3E411CCkAbeVfUl4j3qnBhJlZEXPs2Du6WcSWb1ZR1M6M6mnjK41DLO
-         4sqSZrVIbx7nQ+b+L+QUPYlfNBofaAdZTAfD8kc1Txk1BX+I0omnvEidgnyIvw5e3dZe
-         T8wA==
-X-Forwarded-Encrypted: i=1; AJvYcCUm3yaFMKreQVQNla0Spcl5gBB66jhWaAWoEdM5/QIZmNYS5d3p73p5jqtkQH/8VCxZZ0V3WwUOs3jJYai3NcRc@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIaVjxeJiyK99hO/IUDbcH1BdyGqRKssj4DaP64PEiipmTr9RU
-	2mUqYAjnAtVKw5pNcqi963AEPLxq9cCk/mXPsDWsZwZxsmJ+latNN43KbD4cfM3Zu/k=
-X-Gm-Gg: ATEYQzxsn4hYOsCNPadx0EoouHoZQwwr2ilwQUbU+b2gJnztrQyTuFvFIyhPJvl/2ih
-	XvMynHyI5S3wfiBtIKwKcqtv+rOjcCC9J5P6rncxsITRPT0rEJdM2T5YEwYHMthUgbcbwrqpPCb
-	qhQ01Sh7UCy1CXdniD3k0QVF5iY54cDG0pPmvD22F9olwaJzx3T5iUbO5iAiLH4LYp8CDzykbMz
-	Zj07VRrzapdBjrwXuVwuY/BekaCmjmQ0/WKnvEkkO/kG2Ld7i79v7CFlcv2BCeA3/AmLauSdzdy
-	orY/sLnj9K2FhUUFOOiCRWOPnQyzeW37KGXICFcO54omAUcGoV7SU0g6zAKwJQ4xpBzXK88Wuvv
-	gi0FcaZG1MG/35eofKp7cF6zHf7nNIjzoBDBc1RPgrU80ZpS0BI40gvfNaqkHURWG+JbYYHrr4m
-	G7T6nqZHM+z7pHcHCozTT1
-X-Received: by 2002:a17:903:19e5:b0:2ae:61bb:425c with SMTP id d9443c01a7336-2ae8242cfa9mr4937905ad.35.1772759246050;
-        Thu, 05 Mar 2026 17:07:26 -0800 (PST)
-Received: from localhost ([71.212.200.220])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae45e07626sm172536085ad.39.2026.03.05.17.07.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Mar 2026 17:07:25 -0800 (PST)
-From: Kevin Hilman <khilman@baylibre.com>
-To: Aaro Koskinen <aaro.koskinen@iki.fi>, 
- Andreas Kemnade <andreas@kemnade.info>, Roger Quadros <rogerq@kernel.org>, 
- Tony Lindgren <tony@atomide.com>, Russell King <linux@armlinux.org.uk>, 
- Thorsten Blum <thorsten.blum@linux.dev>
-Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20260224144552.585272-1-thorsten.blum@linux.dev>
-References: <20260224144552.585272-1-thorsten.blum@linux.dev>
-Subject: Re: [PATCH RESEND] ARM: omap2: Replace scnprintf with strscpy in
- omap3_cpuinfo
-Message-Id: <177275924495.1445909.15705115426095519350.b4-ty@baylibre.com>
-Date: Thu, 05 Mar 2026 17:07:24 -0800
+	Fri, 06 Mar 2026 01:07:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 55EC8600B0;
+	Fri,  6 Mar 2026 01:07:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDE7BC116C6;
+	Fri,  6 Mar 2026 01:07:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772759256;
+	bh=z4HAlmfWQOzRiBcoGIB7Q03RvJNuqThL39CBgE2qsQU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EVBdL4JbvNDpAyuFRvZ4/vfZMSnu/DOz00U914ktPjcw25bz52wXCvzP6ewL5u6R5
+	 Nx7uVkwPkXEP//pyRcA2eI1OLDS1VwRRzl+c4dV/Cdxolaf7GgEJsz5MgP1gUrSfeD
+	 VU3koytaulSA8xghO/zH0OymywkkRdjnuu2N6v4vQcLOZ1ueg6Uw5kMp2VzijUqK5d
+	 qIFFD6RZYUIQM+QB3c+1ctLSWojQ64qRo8dX3Bh+mGaTDMf6RDtO+6vxacaipPCp0G
+	 zEaeTrAO4YQYJCt5BpK/cn5xZvpwbb2uEyab5r8eKA19i1U668Fo8aVvW8oDWBdmlI
+	 A5KDJ4s3leZJg==
+Date: Thu, 5 Mar 2026 19:07:34 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: James Calligeros <jcalligeros99@gmail.com>
+Cc: Conor Dooley <conor+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+	imx@lists.linux.dev, Mark Brown <broonie@kernel.org>,
+	Kevin Lu <kevin-lu@ti.com>, Baojun Xu <baojun.xu@ti.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	asahi@lists.linux.dev, Shenghao Ding <shenghao-ding@ti.com>,
+	linux-sound@vger.kernel.org, Jaroslav Kysela <perex@perex.cz>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>, devicetree@vger.kernel.org,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Takashi Iwai <tiwai@suse.com>, Frank Li <Frank.Li@nxp.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 2/7] ASoC: dt-bindings: update tdm-slot.txt references
+ to tdm-slot.yaml
+Message-ID: <177275925396.907435.14412144819851551606.robh@kernel.org>
+References: <20260301-tdm-idle-slots-v3-0-c6ac5351489a@gmail.com>
+ <20260301-tdm-idle-slots-v3-2-c6ac5351489a@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-47773
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_170727_083563_6B082723 
-X-CRM114-Status: UNSURE (   6.76  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260301-tdm-idle-slots-v3-2-c6ac5351489a@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,18 +83,17 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 24 Feb 2026 15:45:51 +0100, Thorsten Blum wrote:
-> Replace scnprintf("%s", ...) with the faster and more direct strscpy().
+On Sun, 01 Mar 2026 18:05:21 +1000, James Calligeros wrote:
+> Ensure that all references to tdm-slot.txt have been updated to
+> tdm-slot.yaml, and are schema-compliant.
 > 
+> Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
+> ---
+>  .../bindings/sound/imx-audio-card.yaml   |  9 +++------
+>  .../bindings/sound/simple-card.yaml      | 14 ++------------
+>  2 files changed, 5 insertions(+), 18 deletions(-)
 > 
 
-Applied, thanks!
-
-[1/1] ARM: omap2: Replace scnprintf with strscpy in omap3_cpuinfo
-      commit: 5156a8d92cebb531c320c7cec7e527e40232b922
-
-Best regards,
--- 
-Kevin Hilman <khilman@baylibre.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 
