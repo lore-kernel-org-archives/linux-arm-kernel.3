@@ -4,99 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1E82F01821
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 10:30:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A763F01825
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 10:32:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v9aOQtXPMrRyOq0vhd4Vrs9+A7t+qYPDJvOzQNfneMs=; b=G07suSqDV5jGtgX+L551UtYdlR
-	XDDn3A1dihLC33OJsULeI9lPkkB6uSiZtIjGvmUSYGXFM0fuILhQ/1g+BaxeguFjUbIC7RqRKnfHv
-	DtXzWuQvSyozelqEdp01Q1gCcrArfS0g2Fyy+tgOKpCzWPTXYPZN96hmEdtDg9cGxH1aI10XWbSo1
-	+CqRXXHZnRyo9+mC6mvrhf6MFpdmRY0Gsor71yWUxnf3ZglNEAt9KI8GhgkAqFesupiQ6p1hiPHAv
-	rJGn9PpyfqCTwWczr407yGZK0kIX3cRPJo5RvrixsYnp9rcUFL0bI0UJpKI/MiVz9Bmhrc3xk5cbd
-	PsiSaSzw==;
+	bh=v9kq8Rwj6Nj70RxlwjNL/YWOuGNBkH4XA9hyPzQZwSg=; b=FfDtHdbRh3et0mJykrJzwBXdBS
+	W8pCgBEkScHEGdnyXCamA9X15dPhd0Ks5vXMRqrBqxEFTKifv+Lz2vcwEDVUXyfNzTDSGk5wj5/eS
+	n8L9uUoBS66Dx+XDoeRlvAikN4X9QZH2dEjSWEWqO7hxgfArVW+PUAz0YnFjw68UKl+l+Ied90Z+0
+	StCf+w/hnlwRgsb0Uk5moL5uQARk1N7Vs/W118kmLQW0sW5aQF3AUguO+E7tDJpJcQh/0JMF0Y/Vx
+	awalUqqBdA8b0MsFNxBmd3slmVZetHorQLIts8HWBgcNSQiPcjGQSzpM5q2oN4dFtaz3iubTfJQhr
+	Adn168nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vySRi-00000003Sn7-3vou;
-	Fri, 06 Mar 2026 10:30:14 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1vySTQ-00000003TYf-38Zr;
+	Fri, 06 Mar 2026 10:32:00 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vySRW-00000003SYG-0jZ3
+	id 1vySTN-00000003TUl-3Yb8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 10:30:03 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-660a7aa6e44so5655340a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 02:30:01 -0800 (PST)
+	Fri, 06 Mar 2026 10:31:59 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6264afLe265849
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 6 Mar 2026 10:31:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	v9kq8Rwj6Nj70RxlwjNL/YWOuGNBkH4XA9hyPzQZwSg=; b=ID5KbRuvUC1SoizJ
+	umuQ0puANJIk5HMtDv7fekJ4BBl2DaXH40Orl6y+Zc0Zt6unBEzS3YDVNPCk0em1
+	ZCyb2z11eHx3gM57wK2rbdoQc1hV4VEJI/uibL0Z+ZoeNM1y/Rq2Zu8OdhJfowEO
+	qBLW4VB4SM2SXULUEOzaff6DAzMYjDqw8nTjaeibkWWnI65mVKplnQByNEtk3Tio
+	X1NSyZEyLHPI8WvoD08QMNerJp1Zh6xwlbIRGY2CdVW99xDgjYu8oa+SFrpkS02X
+	slfB5qWOYr86Zf3pS2eo7iOFXo6ZeF3lvtRXRb5UEuAiIEem2guRfQpcXtiCkrmE
+	NMcyZA==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cqdvku7c0-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 10:31:56 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-c738bebd53fso5817286a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 02:31:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1772793000; x=1773397800; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=v9aOQtXPMrRyOq0vhd4Vrs9+A7t+qYPDJvOzQNfneMs=;
-        b=MZvlwV1qSvuW4rrvpJkhcL/+9/XGvpzKAGI9rhP/lDUOa/722dMb8PLIHrRg0lCcv4
-         c0w20tTU2DzXEnj7t8XLd+Hh1h9vb0xixcrMln3h/SQEvA2HV76MpgJ+7BPePnhGeGdY
-         2Y5Ik9e5yrAk6XoI1l+pnstEW7c3tA2qyLoiNe8+9s3ZZvLxleBIBXWLGRyKKSRfXjpm
-         PKj0Y7F9Mq03iVbtG5WI5MFZy7guv1YsANVp4i78y7ul1MbHGgAeVBOTHROXH9AYAqU1
-         ZcaqYR3ufmvO3fNobJYeiGKD5ZWyymggZLACKI08D+qM8+8fu1a855V+/iuwhb3yZ+Z7
-         4vOQ==
+        d=oss.qualcomm.com; s=google; t=1772793116; x=1773397916; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=v9kq8Rwj6Nj70RxlwjNL/YWOuGNBkH4XA9hyPzQZwSg=;
+        b=P78/27+Upsq1Hkv8JEWMNv7bNB0pkaJYo3nT4hiV8QMWDWiFG3ygisWXnjuKMkmyhK
+         ifpux4DhJbRJx9reshAevgKoFy4PEjI7jjZ2g4pxDRZPFjwnzqsY1f6GJ4t1rRIO52KJ
+         YurgTlV4bNn7LOjAd/qrsWWQm1ET9+LLEBvhfk5yUnFOyZzwP0ESgtzct7w8kxfK2h2t
+         WOG448NVDm/ORs6kGLF+Kd5WuL8XK1B/vUKOzgmd+5UeTf9WT87NrCPDkDyqQGam5jF8
+         u9PThfYsxJUi161KgIzulxNmXhn5rydle01KkSrGU3vHx58yxmf7AikEpc63f45WHgZO
+         TwbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772793000; x=1773397800;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=v9aOQtXPMrRyOq0vhd4Vrs9+A7t+qYPDJvOzQNfneMs=;
-        b=eYfqyBuMiZhKfFt8emR7MvXPJ2aC72oQw5lAhXS7Uh4MSp3TJ9MGb79LeG61zS/Q5i
-         E6GnoDzm7w5GbT6bEHnTAqlbUULQV7E72+fC8HKL1EPvPmsdYxWOSzjMlYduURiYYNcV
-         wN/D/YR88d2kkjKWePW+WLS+CItiCpQai05gVwmY59EsSlrnZyM67lSheY8w5uP9G0a0
-         edie/y4Q8MAhgLD9LPLi+2/DOaIHREFDJbVwNEspSajSdQ51jyU/Euzfz97DVDISqUpX
-         8ozhxTIZPUz+f97uyCU4UVpMxoSVkwaW4hTh6B/+XTwwXl2n1XQG1Z41bt7PsidU1SJ5
-         N3/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXXcHpX5nubTfsB74iEWZRM5XWxUPmBr/DjnbYkEekNVf5c+G2XKlGQuBmrpFgdCDEIpg+Hhhd5juguXI1R2R3M@lists.infradead.org
-X-Gm-Message-State: AOJu0YwG1RA7a7i3wKIiDSyAornUl6+VzytsNyVej6b6vzjB3Ui/LdXg
-	kGqBixOoLMN3qKvxsd7zAUtcVXJGut2akyZ6ItMhx1SjXPMZojB5//LhJb5BCLDYHLI=
-X-Gm-Gg: ATEYQzyJjKW0aSDtYmDZWsHrtrjm0Ry/D5sprcwNeHT+mY64i6MSP33XLE6DhiFNB8U
-	EKSKKgUHJH3B0sLmcxOdUazggKPm8eRTEo0r/lurfiLjaqL5B9H45W9l7dxbZcEUNWt7ptAwOQ1
-	B1H1NzW/FUPQZPb1xljRwA7qxKNshJbG2Wgf0z75bybdUem38LQt6v3N7d9/J8KOXaXQRqensmY
-	hP5vH3/rLG1L/rhalygnMNrZJcxbeVg2Kb4WGTNGnmP5HyGB+x9n1Za/8bFgchrumEu/FDfPWaw
-	+pystNWL60z7LOUR+q7WTVn44ZXaGoCe0tyVXXPAFMLaoiAhMNI8q5f95N716+J6l18SveXn8cm
-	rAGka2s0dcQ/MIzO9YO4cPAvX0vK4QAzlZocxm1l0H4yiTA5mxeMPK5lb/qmU0uhcO0zpVVZWRJ
-	YV3nFhHguydBj8+BDKJ0/vgEQ7TSatsjrQ8+gAx9CVyTTNe1qmLazs/87hVC+z3k8jOgeoesiV0
-	FwQIWpvT7EOHsM=
-X-Received: by 2002:a17:907:3f87:b0:b94:2d07:6c3e with SMTP id a640c23a62f3a-b942ddf6c53mr95330966b.27.1772792999960;
-        Fri, 06 Mar 2026 02:29:59 -0800 (PST)
-Received: from puffmais2.c.googlers.com (221.210.91.34.bc.googleusercontent.com. [34.91.210.221])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b942ef8c95csm42907266b.21.2026.03.06.02.29.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Mar 2026 02:29:59 -0800 (PST)
-From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Fri, 06 Mar 2026 10:30:00 +0000
-Subject: [PATCH v7 09/10] pmdomain: samsung: implement SMC to save /
- restore TZ config
+        d=1e100.net; s=20230601; t=1772793116; x=1773397916;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=v9kq8Rwj6Nj70RxlwjNL/YWOuGNBkH4XA9hyPzQZwSg=;
+        b=clSgdUSN0j8yAl1XWJtfEpsj+DNiPFE9oN/LdefnFNLLoStkhZzRrVacQfFdgXvGH5
+         vz0XXvfhm2Iv8KMiXtwE0RkUz0MKLThHsQsu5XSSanFZk5CsdqYEvplbsOWVf3elQkPc
+         fyvVwVAV/4FPY/qQ2MFa6V7wduTs2NSAvzxzERNy9khBoAXYOEbXUCQ4jtvWAUHVDRob
+         +GbGjj91fBCpTjxh1xLzJOtyWiYDE0xtGMcEzO/YU+T8dkGdj8uSWqivfH7YN7OvDg3L
+         RXjgDSYKPbfpNS57OEohB9ZZJTEAxePFFtaLHrx8W1PvXwO11z9GK0hds4O7RxF6X3ZR
+         DP4w==
+X-Forwarded-Encrypted: i=1; AJvYcCU7bI5JQxb54rrdBB4vWjPfH3BXQuXcjCyEKvh75WMy86eLEY5P+NHPOwcFv1OK3leuKk5q0ZFOBkZ5Lo+RUKQY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8+ExqbwnO/lcLw8cL3w3inp37hLjp7MO+wIX99f83dlypa2td
+	xTvBhEYCfxd1CvAqzD2lOwtADR8WDE8qob3BUFLbKEA2K5wM9FVBAg0UX7ADMxxmHuszYeMwsFk
+	AQ/gcym/SRREiLdeVBDXHsJBiTY0GZO2NuGtB7lDc9X35SjFDrX/190MI1sT2Oi/yrreE5yzO/L
+	qn9w==
+X-Gm-Gg: ATEYQzzgZ5G97JUAjHXSvxYdmimdTYsKhBRVjJOWsArfvjRrw5grxr1KnLrnhMV+WLp
+	HzCBPY/dRsNsgGJIhwTNmloplFYo68D5ZBhE3QQDvmxI/kdPtPvNhLMEQrHQcJifKIqwKASM02O
+	Ypu/qfMv903Dbz3JuDaNmTiaJ0aFiKW+Ppypi6y6fODb26IT13FB2SrOH3hyPCjhcYI6p8izQSe
+	B/54FG3A/mtwYhdd+NII9Vb94crejV8c75FrnZPMLCvCROREAQCm0w++Yh3JWjW78jk5QiYmhbx
+	yupvRD9BgCDTKppaFO6/5vCuD3U6oVH4X1JIiGPCdrlNoaXCVKR6eGOL//TY71IqfjuNZxld8gk
+	EcA/Yc3+FdmR27nJFyYcJ6QoSPvQ449mZDqV+Jj9FnrvwRgptpV+X3A==
+X-Received: by 2002:a05:6a21:2d44:b0:398:4b6a:90cc with SMTP id adf61e73a8af0-398590df8bcmr1886661637.70.1772793115759;
+        Fri, 06 Mar 2026 02:31:55 -0800 (PST)
+X-Received: by 2002:a05:6a21:2d44:b0:398:4b6a:90cc with SMTP id adf61e73a8af0-398590df8bcmr1886632637.70.1772793115260;
+        Fri, 06 Mar 2026 02:31:55 -0800 (PST)
+Received: from [10.218.35.45] ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-829a48dfc17sm1726877b3a.64.2026.03.06.02.31.50
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 06 Mar 2026 02:31:54 -0800 (PST)
+Message-ID: <aa97748a-cf72-464c-98f6-11d792551aba@oss.qualcomm.com>
+Date: Fri, 6 Mar 2026 16:01:48 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/5] PCI: qcom: Power down PHY via PARF_PHY_CTRL before
+ disabling rails/clocks
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Jingoo Han <jingoohan1@gmail.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+        Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+        Will Deacon <will@kernel.org>, linux-pci@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, jonathanh@nvidia.com,
+        bjorn.andersson@oss.qualcomm.com
+References: <20260217-d3cold-v2-0-89b322864043@oss.qualcomm.com>
+ <20260217-d3cold-v2-4-89b322864043@oss.qualcomm.com>
+ <to6p7yf2oo5qh37hsye4zpputrc7p4bwgqvjc2plieuyapjdhp@7xshxghi4tzd>
+ <313d2262-56e4-49b0-8455-2b46d0966976@oss.qualcomm.com>
+ <ksd4ogzz2o5uuwnkvq6yzcwm3zsxiaeuotdj6aiqrew7jqrwl4@g3wcnqhviqwq>
+Content-Language: en-US
+From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+In-Reply-To: <ksd4ogzz2o5uuwnkvq6yzcwm3zsxiaeuotdj6aiqrew7jqrwl4@g3wcnqhviqwq>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260306-gs101-pd-v7-9-03f7c7965ba5@linaro.org>
-References: <20260306-gs101-pd-v7-0-03f7c7965ba5@linaro.org>
-In-Reply-To: <20260306-gs101-pd-v7-0-03f7c7965ba5@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Ulf Hansson <ulf.hansson@linaro.org>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>
-Cc: Peter Griffin <peter.griffin@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, Juan Yescas <jyescas@google.com>, 
- Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-pm@vger.kernel.org, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-X-Mailer: b4 0.14.3
+X-Authority-Analysis: v=2.4 cv=M7xA6iws c=1 sm=1 tr=0 ts=69aaad1c cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=EUspDBNiAAAA:8 a=uIgEQj9WjdynuVTCvEgA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=3WC7DwWrALyhR5TkjVHa:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzA2MDEwMCBTYWx0ZWRfX/JrVs3cPAp2R
+ z0vCdq0PuaSPV5po991RGiiwOSBq0tM6DEhuz3QSAlhSoXW8V1Pzn4FN8iMyYFAxMGSYMhDAcCK
+ 6kNK0kHdUlPxcJWVEfrYSI548+iMDj++eb9G0ZnFJ9OvcRf+7cEFfWBohIMO+pZ48dM/UcrVWp+
+ 8sG2mx6qMpC13+4OhnJOc6ywwJi87fl57LbFoQZzDEVzs8DzyVHVS7rs1Ae+/My+NztvNR3ghD8
+ h/O179G+FnuU45THfh8SXXk80z8QvgjLDY76hFiYrIJdY04B+HB4LIPeZHv9g9S7rNIaY0mj1S9
+ 8DbLmVcWFo8Vg2NfvBF0SpZXaSZ6E6z4/TJXuL975xnFPR72Y4MFiJegKxN9P02e3TmIHtIodwK
+ VHAgWNGqBaBWromyUgA5FzZkdx4E6w1EHJt8ldb322O978bIOeGC3D9v8cRy5Op5qaL9hOE8qe5
+ RBO/zSWD7K4BYHBWp2A==
+X-Proofpoint-GUID: fDsI35mMyXfRVySiZ7LZpY8ZHfqR2mrN
+X-Proofpoint-ORIG-GUID: fDsI35mMyXfRVySiZ7LZpY8ZHfqR2mrN
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-06_03,2026-03-04_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 suspectscore=0 phishscore=0 malwarescore=0 lowpriorityscore=0
+ priorityscore=1501 bulkscore=0 spamscore=0 clxscore=1015 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2603060100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_023002_260569_132B80F2 
-X-CRM114-Status: GOOD (  27.21  )
+X-CRM114-CacheID: sfid-20260306_023157_976298_A649BE20 
+X-CRM114-Status: GOOD (  21.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,218 +156,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Newer Exynos platforms have a Distributed Trust Zone Protection Control
-(DTZPC) linked to each power domain. It controls the access permissions
-to various registers from secure and non-secure world. An SMC call is
-required to instruct the firmware that the power domain is about to be
-turned off and again once it was turned on. This allows the firmware to
-save and restore the DTZPC configuration. Without, register access to
-various registers becomes impossible from Linux (causing SError), as
-the PoR configuration doesn't allow access.
 
-Neither the requirement for the SMC call, nor its arguments appear to
-be specific to gs101, as at least Exynos E850 also uses the same as can
-be seen in [1], hence prefix the new macros simply with EXYNOS_.
 
-At least on gs101, this SMC call isn't implemented for all power
-domains (e.g. it's missing for HSI2 (UFS)), therefore we issue a test
-SMC to store the configuration during probe, and if it fails we mark a
-domain as always-on to avoid the SErrors and to avoid unnecessarily
-retrying for each domain on/off.
+On 3/5/2026 2:48 PM, Manivannan Sadhasivam wrote:
+> On Thu, Mar 05, 2026 at 02:26:22PM +0530, Krishna Chaitanya Chundru wrote:
+>>
+>> On 3/5/2026 1:19 PM, Manivannan Sadhasivam wrote:
+>>> On Tue, Feb 17, 2026 at 04:49:09PM +0530, Krishna Chaitanya Chundru wrote:
+>>>> Some Qcom PCIe controller variants bring the PHY out of test power-down
+>>>> (PHY_TEST_PWR_DOWN) during init. When the link is later transitioned
+>>>> towards D3cold and the driver disables PCIe clocks and/or regulators
+>>>> without explicitly re-asserting PHY_TEST_PWR_DOWN, the PHY can remain
+>>>> partially powered, leading to avoidable power leakage.
+>>>>
+>>>> Update the init-path comments to reflect that PARF_PHY_CTRL is used to
+>>>> power the PHY on. Also, for controller revisions that enable PHY power
+>>>> in init (2.3.2, 2.3.3, 2.7.0 and 2.9.0), explicitly power the PHY down
+>>>> via PARF_PHY_CTRL in the deinit path before disabling clocks/regulators.
+>>>>
+>>>> This ensures the PHY is put into a defined low-power state prior to
+>>>> removing its supplies, preventing leakage when entering D3cold.
+>>>>
+>>>> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+>>>> ---
+>>>>    drivers/pci/controller/dwc/pcie-qcom.c | 30 +++++++++++++++++++++++++++---
+>>>>    1 file changed, 27 insertions(+), 3 deletions(-)
+>>>>
+>>>> diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
+>>>> index 2c4dc7134e006d3530a809f1bcc1a6488d4632ad..b02c19bbdf2ea5db252c2a0281a569bb3a0cc497 100644
+>>>> --- a/drivers/pci/controller/dwc/pcie-qcom.c
+>>>> +++ b/drivers/pci/controller/dwc/pcie-qcom.c
+>>>> @@ -513,7 +513,7 @@ static int qcom_pcie_post_init_2_1_0(struct qcom_pcie *pcie)
+>>>>    	u32 val;
+>>>>    	int ret;
+>>>> -	/* enable PCIe clocks and resets */
+>>>> +	/* PHY power ON */
+>>> This comment is confusing since we already have phy_power_on() API. What does
+>>> really happen in the 'test power down' case?
+>> QCOM PCIe controller wrapper has way to force the entire PHY into lowest
+>> power
+>> state by turning everything off, without this bit being cleared the phy will
+>> not be
+>> powered on even after phy_power_on(), we can think this as a kind of switch
+>> from the controller side to power on phy.
+>>
+> We never cared to set/clear this bit so far. So I'm assuming that if we simply
+> set it during init, it will not do any harm and allow the PHY to fully power
+> down itself when phy_power_off() is called?
+we are already doing set/clear of this bit, its not newly introduced 
+one, I am
+updating the  comment  to correctly reflect hw behaviour. PHY power on 
+looks little
+confusing I will update the commet to "Force PHY out of lowest mode".
 
-Link: https://lore.kernel.org/all/20230308233822.31180-4-semen.protsenko@linaro.org/ [1]
-Signed-off-by: André Draszik <andre.draszik@linaro.org>
----
- drivers/pmdomain/samsung/exynos-pm-domains.c | 96 ++++++++++++++++++++++++++--
- 1 file changed, 90 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/pmdomain/samsung/exynos-pm-domains.c b/drivers/pmdomain/samsung/exynos-pm-domains.c
-index 41a232b3cdaf..f59986b56213 100644
---- a/drivers/pmdomain/samsung/exynos-pm-domains.c
-+++ b/drivers/pmdomain/samsung/exynos-pm-domains.c
-@@ -9,6 +9,7 @@
- // conjunction with runtime-pm. Support for both device-tree and non-device-tree
- // based power domain support is included.
- 
-+#include <linux/arm-smccc.h>
- #include <linux/err.h>
- #include <linux/platform_device.h>
- #include <linux/slab.h>
-@@ -16,12 +17,19 @@
- #include <linux/pm_domain.h>
- #include <linux/delay.h>
- #include <linux/of.h>
-+#include <linux/of_address.h>
- #include <linux/pm_runtime.h>
- #include <linux/regmap.h>
- 
-+#define EXYNOS_SMC_CMD_PREPARE_PD_ONOFF		0x82000410
-+#define EXYNOS_GET_IN_PD_DOWN			0
-+#define EXYNOS_WAKEUP_PD_DOWN			1
-+#define EXYNOS_RUNTIME_PM_TZPC_GROUP		2
-+
- struct exynos_pm_domain_config {
- 	/* Value for LOCAL_PWR_CFG and STATUS fields for each domain */
- 	u32 local_pwr_cfg;
-+	u32 smc_offset;
- 	bool use_parent_regmap;
- };
- 
-@@ -32,11 +40,28 @@ struct exynos_pm_domain {
- 	struct regmap *regmap;
- 	struct device *dev;
- 	struct generic_pm_domain pd;
--	u32 local_pwr_cfg;
-+	const struct exynos_pm_domain_config *cfg;
- 	u32 configuration_reg;
- 	u32 status_reg;
-+	phys_addr_t ac_pa;
- };
- 
-+static int exynos_pd_access_controller_power(struct exynos_pm_domain *pd,
-+					     bool power_on)
-+{
-+	struct arm_smccc_res res;
-+
-+	if (!pd->ac_pa || !pd->cfg->smc_offset)
-+		return 0;
-+
-+	arm_smccc_smc(EXYNOS_SMC_CMD_PREPARE_PD_ONOFF,
-+		      power_on ? EXYNOS_WAKEUP_PD_DOWN : EXYNOS_GET_IN_PD_DOWN,
-+		      pd->ac_pa + pd->cfg->smc_offset,
-+		      EXYNOS_RUNTIME_PM_TZPC_GROUP, 0, 0, 0, 0, &res);
-+
-+	return res.a0;
-+}
-+
- static int exynos_pd_power(struct generic_pm_domain *domain, bool power_on)
- {
- 	struct exynos_pm_domain *pd;
-@@ -45,7 +70,17 @@ static int exynos_pd_power(struct generic_pm_domain *domain, bool power_on)
- 
- 	pd = container_of(domain, struct exynos_pm_domain, pd);
- 
--	pwr = power_on ? pd->local_pwr_cfg : 0;
-+	if (!power_on) {
-+		err = exynos_pd_access_controller_power(pd, power_on);
-+		if (err) {
-+			dev_err(pd->dev,
-+				"SMC for power domain %s %sable failed: %d\n",
-+				domain->name, power_on ? "en" : "dis", err);
-+			return err;
-+		}
-+	}
-+
-+	pwr = power_on ? pd->cfg->local_pwr_cfg : 0;
- 	err = regmap_write(pd->regmap, pd->configuration_reg, pwr);
- 	if (err) {
- 		dev_err(pd->dev,
-@@ -60,7 +95,7 @@ static int exynos_pd_power(struct generic_pm_domain *domain, bool power_on)
- 		unsigned int val;
- 
- 		err = regmap_read(pd->regmap, pd->status_reg, &val);
--		if (err || ((val & pd->local_pwr_cfg) != pwr)) {
-+		if (err || ((val & pd->cfg->local_pwr_cfg) != pwr)) {
- 			cpu_relax();
- 			usleep_range(80, 100);
- 			continue;
-@@ -72,9 +107,21 @@ static int exynos_pd_power(struct generic_pm_domain *domain, bool power_on)
- 	if (!timeout && !err)
- 		/* Only return timeout if no other error also occurred. */
- 		err = -ETIMEDOUT;
--	if (err)
-+	if (err) {
- 		dev_err(pd->dev, "Power domain %s %sable failed: %d\n",
- 			domain->name, power_on ? "en" : "dis", err);
-+		return err;
-+	}
-+
-+	if (power_on) {
-+		err = exynos_pd_access_controller_power(pd, power_on);
-+		if (err) {
-+			dev_err(pd->dev,
-+				"SMC for power domain %s %sable failed: %d\n",
-+				domain->name, power_on ? "en" : "dis", err);
-+			return err;
-+		}
-+	}
- 
- 	return err;
- }
-@@ -99,6 +146,7 @@ static const struct exynos_pm_domain_config exynos5433_cfg = {
- 
- static const struct exynos_pm_domain_config gs101_cfg = {
- 	.local_pwr_cfg		= BIT(0),
-+	.smc_offset		= 0x0204,
- 	.use_parent_regmap	= true,
- };
- 
-@@ -126,6 +174,38 @@ static const char *exynos_get_domain_name(struct device *dev,
- 	return devm_kstrdup_const(dev, name, GFP_KERNEL);
- }
- 
-+static int exynos_pd_get_access_controller(struct exynos_pm_domain *pd)
-+{
-+	struct device_node *ac_np;
-+	struct resource ac_res;
-+	int ret;
-+
-+	ac_np = of_parse_phandle(pd->dev->of_node, "samsung,dtzpc", 0);
-+	if (!ac_np)
-+		return 0;
-+
-+	ret = of_address_to_resource(ac_np, 0, &ac_res);
-+	of_node_put(ac_np);
-+	if (ret)
-+		return dev_err_probe(pd->dev, ret,
-+				     "failed to get access controller\n");
-+
-+	pd->ac_pa = ac_res.start;
-+
-+	/*
-+	 * For some domains, TZ save/restore might not be implemented. If that
-+	 * is the case, simply mark it as always on, as otherwise a power cycle
-+	 * will lead to lost TZ configuration, making it impossible to access
-+	 * registers from Linux afterwards.
-+	 */
-+	if (exynos_pd_access_controller_power(pd, false) == -ENOENT) {
-+		pd->ac_pa = 0;
-+		pd->pd.flags |= GENPD_FLAG_ALWAYS_ON;
-+	}
-+
-+	return 0;
-+}
-+
- static int exynos_pd_probe(struct platform_device *pdev)
- {
- 	const struct exynos_pm_domain_config *pm_domain_cfg;
-@@ -195,10 +275,14 @@ static int exynos_pd_probe(struct platform_device *pdev)
- 
- 	pd->pd.power_off = exynos_pd_power_off;
- 	pd->pd.power_on = exynos_pd_power_on;
--	pd->local_pwr_cfg = pm_domain_cfg->local_pwr_cfg;
-+	pd->cfg = pm_domain_cfg;
- 	pd->configuration_reg += 0;
- 	pd->status_reg += 4;
- 
-+	ret = exynos_pd_get_access_controller(pd);
-+	if (ret)
-+		return ret;
-+
- 	/*
- 	 * Some Samsung platforms with bootloaders turning on the splash-screen
- 	 * and handing it over to the kernel, requires the power-domains to be
-@@ -212,7 +296,7 @@ static int exynos_pd_probe(struct platform_device *pdev)
- 	if (ret)
- 		return dev_err_probe(dev, ret, "failed to read status");
- 
--	on = val & pd->local_pwr_cfg;
-+	on = val & pd->cfg->local_pwr_cfg;
- 
- 	pm_genpd_init(&pd->pd, NULL, !on);
- 	ret = of_genpd_add_provider_simple(np, &pd->pd);
-
--- 
-2.53.0.473.g4a7958ca14-goog
+- Krishna Chaitanya.
+> - Mani
+>
 
 
