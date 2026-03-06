@@ -4,110 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E30FFCB604
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:47:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17F03FCB607
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:57:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ta3MggE09YbEyF7g4RimfGEhB0rCQXIJBNih2ThEo30=; b=isQcjAtlEhTeVGqvoItmSBAUAT
-	WQCGEThrpJXFk4/M8L3DbRpJD061wJ0UrH43U6Z+Ed7PyLTCcFSE/O8uEU+lFgZ/Yelk3dFVkKUpG
-	Nn6OOXKAjxTaHYFKNyyC47jedXLoOfCDYyd01JYdw1ZHHRElwSHdpQEt68k72TaClh68X69NpId/s
-	nd7UmYCrMu4BBmRXvw9+X8/0CO6t/yXuh4LwV/8AspY1TDVLOgNORAOCa2afMl6fP+10jZ6l3P2wo
-	EO31JJpH+PGOmkZODSLKGKKuuu9libYYXsZmE/i8OQIvYCuZNE+qvWCfRE7wY8rkK7vKXhI/Svtt4
-	gDOWiK0w==;
+	bh=ZeEoT4aQ4mi2vgbSEY9kBw8Y3Q/OpPZnH0cNhdXpb+E=; b=jTbn4ryZlL8Qu8mETfDQOL0clA
+	1s6g6F2FnepT8lbI18cMpaxMZuh/bFsAtbTQhpQSkL19eA/vhiNn7U+6H4/2waTm86M28x+gnwwn0
+	BxsDClsNbBmJ6yuVF7Tlsw+3R+sXcvnQJPlY5ybrNN4vY6sTuK5OimgCVR+9NQisp9YN+17I418u7
+	wwcAfOJhgvd1nJHTXaw+boegr422PgYhSO1dFWf5aThC0memfE2t663H8Sx8dvq/5AOEzETlz3/Sr
+	dcuG+gaxZL2Nc3UyEIOM8n8qfRStivk6F7HGEnNhg11CzH/A9FAGvm6mQNPe9aT+TVcZYQSglavno
+	JenK1kQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyWSy-00000003yA3-1GmO;
-	Fri, 06 Mar 2026 14:47:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vyWbo-00000003ylB-2oCe;
+	Fri, 06 Mar 2026 14:56:57 +0000
+Received: from mail-ua1-x933.google.com ([2607:f8b0:4864:20::933])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyWSw-00000003y9Y-1MWC
+	id 1vyWbm-00000003ykk-0eFD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 14:47:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 59E1060018;
-	Fri,  6 Mar 2026 14:47:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD48EC4CEF7;
-	Fri,  6 Mar 2026 14:47:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772808465;
-	bh=nEGfcHcUpVbkDCHnZEP98qdqW1VIi3Dz6vL20ShVqGA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Rt2zzKKvlaFqYA8JPV2xqXEsBr54Bo4++L/xVH19cYqGVTItFEE0aVaSlbw3b21dR
-	 r2sGxgCFxYNvIm746EXbwl5pcLSAPRmYyMWSu9SsnNfA7jqZHZeHH4NxJZ0BIJrCoL
-	 qxbifJzo1/tXP4EdwwPmlhM1sdC990sSw0/asXJfqW5GlAYfYMNqmv3cBaW1d5a0LG
-	 RsLtHeS+snKmusuPnjjpAOEM6R1u18m5jDuYt3tH3ldjHY8G098wY1jCW8YhBtuwSH
-	 PgsueJiOD1d0k/TtS17AWBrta5G3iGwoPq5ObY9xIvaD/zOyO5nZlfpyrG/LAzh2eD
-	 tpwVYVgp928cw==
-Message-ID: <6305e05e-2911-42b0-b6f5-7fdde787b778@kernel.org>
-Date: Fri, 6 Mar 2026 15:47:35 +0100
+	Fri, 06 Mar 2026 14:56:55 +0000
+Received: by mail-ua1-x933.google.com with SMTP id a1e0cc1a2514c-94dddb3c3f0so2464271241.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 06:56:53 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772809013; cv=none;
+        d=google.com; s=arc-20240605;
+        b=QL4qv1ZiYBBtyugnzFadqlq3n0wi9WSi5GmG+GOCx85pBRjNf4P2Ow4G8VZ6oOMByw
+         //JV5lFtIHJGzGc4L2jmSydyaXTVAI82czDo5dOSnaeS3K2l+SU7U3AftQK83oYnxNkb
+         Ng6bqfdj+zX992XL7n/keWELn1Y2ZR5FflzN9E4mw3+ezZU8GX3fwck09MWJBiI+2dQD
+         sAYICaVeCypFecbS6aK1l+Q5JrWl2FHiXKhaC4ltdT4cp9O0uuQteAd3Mw1P8qOU2h5B
+         ctapXEsAE1dq9To1cI7It0PJrA3rB4sUs7VPjw1UnGocirSIAeeC+9hSCpVaXYUdyIOo
+         DeUg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ZeEoT4aQ4mi2vgbSEY9kBw8Y3Q/OpPZnH0cNhdXpb+E=;
+        fh=TPlceQp1jqeuhh/FcDAwLjtE1HuenfEzPY2o3wpn4z4=;
+        b=JKjQHvJNE/fUtTT9Juhq2FllzZY/S2EFTVA7jKvjOr8ibxo8hXiRefXOdwz0f8cXD4
+         SYN0tRv8VSQv/kqmqpSHZ8owPDmCj8jvf9LN9KbnFXLngDUKZoqvT8i4v9BoVnbKVAmz
+         MHCvd/lsG4AcqEb8eqox5xIdZ/pSXY+kGZMsI0uFYiCTZbxKo0hutSqZ67/BJVW7VbPK
+         T7sdY8GqWRcyBLlRDN8ECojeJ29t0/bvdQjnHG6MLoX7gGHbkxMy081Km8A7P579bOry
+         iPKC0MgvD1BaJIR264H2zWAFsHvkTr7mMhMyAKlKHVCtQsnPnImQq0UxzciGt0AyPhOz
+         uzTw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1772809013; x=1773413813; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZeEoT4aQ4mi2vgbSEY9kBw8Y3Q/OpPZnH0cNhdXpb+E=;
+        b=mShVPW44t7gn9ldUHIM8HaNkRQn1wVVaAHBPPvLfrz1QixidlVufSHcAi9q4glMczW
+         01A+waAvsflCPhTZNHjAIp9iYUk7XpmxwxChaOwBzhI7lHvLkGH0Y43RDNyTXMsrMT76
+         0/kJJ+VmgrcEBwZYtnu+ZOOg1nYlGfNIBLIqi0rHMuCgrtIBEXjGA06p8YyfvmurPbRO
+         pm5CpL7ZRqfG5EhVpTXcl8m9SlSABsSOCDVPBrFGORdfHf5mjLuIkLR0R7dcx8EmA8m2
+         +l/kZGudh71Vwz0PKW9NULJwmB3YjsnmBpBUx1p8Eec5Ibde7SpuwicKLzJFT/R/po1B
+         +OQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772809013; x=1773413813;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ZeEoT4aQ4mi2vgbSEY9kBw8Y3Q/OpPZnH0cNhdXpb+E=;
+        b=T5Ay4aqQCAvUVIvf6yTHoC2xzbgHEhExdc8AXfuo8T35oy3N6rd9OUzvZKPbzKfxK+
+         9ChT8WxiVDT9vuptwg8O7nE9l0b9eVifbAoZjKlVa6o3zT33nI4tQmcAfaj9hKvZdiVH
+         JMMBZgzJKT3dKvTq9i9ieUn/6lUCmXVtME6Ry+GVPO6wesre72OVeNtSxuhtrzHpekaa
+         mu4t/d4jxO2Y7NZTjbbgQj/+Ypc/4ITDsAf2W7QNrk8AaFQHiuTZc6eQ6SlkWuB0IIAp
+         G3EXEg+B8HxQ0HBUN5eqCSE/YzyqBsI3HR42n6g3FH5T3BpFpBLbv5pn6knCDe83c/oF
+         jL7w==
+X-Forwarded-Encrypted: i=1; AJvYcCU7ahse3P5+yGeXpBWoRGeYgTa9OM0EvC+UR9MbJ05Nl/eF/GxKs9TynBjJHwulw7/QuABisaQXd6ujQUG+q8kF@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywcmk5NuIWfvHnwazvfcsDG0D5VudNUxDzbAe22WTM6GwSTkzDe
+	IssRRoTeY4VIf/o+eJpxpDB/OZrvmnwzkjP9cRnH7Fpwn90CBXOEAkIQfc3h2MyNOPPgbHZDrHf
+	G8SoUCpUIa00bwy8wOruzBmVF1I8rXB9lOHkhfTWEtg==
+X-Gm-Gg: ATEYQzwUCAIF4BBFLPEgD9ubrnSGijm6b5TRwgidfNDjEwtwAYPTqpHZlS9W/UceqwW
+	ixMXmmMRBxe/3dLooPI07usLGmiLFJpfpysPlsJQoYe+6Wmw5QYTtQ51wJvgxOb1wJcQU4g9rJA
+	aEtUl8Ii05XuWoNK7o8SIpTZSzY2R8WwOWwBk15d6bmdEq8T5Md/y1po35MU4tqyee4Y07ciyQU
+	y162wSHdcSPSO6sd/ihNpCETnLrxVyzq9qn44fwBYFKshoyOU0T4Z6GMKjlLLLL+ZXX57JVgPjq
+	OlWta9Dfhcu1NDyXqkAHQyK/7wJ2JFIqKM9/eTOGHg==
+X-Received: by 2002:a05:6102:2908:b0:5f5:459f:9860 with SMTP id
+ ada2fe7eead31-5ffe61b0681mr982266137.28.1772809012534; Fri, 06 Mar 2026
+ 06:56:52 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 6/6] arm64: mm: implement the architecture-specific
- test_and_clear_young_ptes()
-To: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org
-Cc: catalin.marinas@arm.com, will@kernel.org, lorenzo.stoakes@oracle.com,
- ryan.roberts@arm.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
- rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
- harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
- baohua@kernel.org, dev.jain@arm.com, axelrasmussen@google.com,
- yuanchu@google.com, weixugc@google.com, hannes@cmpxchg.org,
- zhengqi.arch@bytedance.com, shakeel.butt@linux.dev, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1772778858.git.baolin.wang@linux.alibaba.com>
- <7f891d42a720cc2e57862f3b79e4f774404f313c.1772778858.git.baolin.wang@linux.alibaba.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <7f891d42a720cc2e57862f3b79e4f774404f313c.1772778858.git.baolin.wang@linux.alibaba.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260306-gs101-pd-v7-0-03f7c7965ba5@linaro.org> <20260306-gs101-pd-v7-2-03f7c7965ba5@linaro.org>
+In-Reply-To: <20260306-gs101-pd-v7-2-03f7c7965ba5@linaro.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Fri, 6 Mar 2026 14:56:38 +0000
+X-Gm-Features: AaiRm53uvHQccafGc4pUCi7QdXkQtBc4s9nxRYsP2kqD6MjlxpYsHiREsE46KEE
+Message-ID: <CADrjBPqsQhmL+7tFQQdFDq=xbWKMUcADXiGoWehKXgWe1FVhnQ@mail.gmail.com>
+Subject: Re: [PATCH v7 02/10] dt-bindings: power: samsung: add google,gs101-pd
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Juan Yescas <jyescas@google.com>, 
+	Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-pm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260306_065654_210872_24582709 
+X-CRM114-Status: GOOD (  20.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,65 +123,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/6/26 07:43, Baolin Wang wrote:
-> Implement the Arm64 architecture-specific test_and_clear_young_ptes() to enable
-> batched checking of young flags, improving performance during large folio
-> reclamation when MGLRU is enabled.
-> 
-> While we're at it, simplify ptep_test_and_clear_young() by calling
-> test_and_clear_young_ptes(). Since callers guarantee that PTEs are present
-> before calling these functions, we can use pte_cont() to check the CONT_PTE
-> flag instead of pte_valid_cont().
-> 
-> Performance testing:
-> Enable MGLRU, then allocate 10G clean file-backed folios by mmap() in a memory
-> cgroup, and try to reclaim 8G file-backed folios via the memory.reclaim interface.
-> I can observe 60%+ performance improvement on my Arm64 32-core server (and about
-> 15% improvement on my X86 machine).
-> 
-> W/o patchset:
-> real	0m0.470s
-> user	0m0.000s
-> sys	0m0.470s
-> 
-> W/ patchset:
-> real	0m0.180s
-> user	0m0.001s
-> sys	0m0.179s
-> 
-> Reviewed-by: Rik van Riel <riel@surriel.com>
-> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+On Fri, 6 Mar 2026 at 10:29, Andr=C3=A9 Draszik <andre.draszik@linaro.org> =
+wrote:
+>
+> Add support for the Google gs101 version of the Exynos power domains. A
+> new compatible is needed because register fields have changed and
+> because power domain operations involve interfacing with the TrustZone
+> protection control on newer Exynos SoCs.
+>
+> Power domains can also have a power supply linked to them, so add
+> optional support for that, too. It is believed that all (existing)
+> platforms could benefit from this, hence it's not being limited to
+> gs101-pd.
+>
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+>
 > ---
->  arch/arm64/include/asm/pgtable.h | 18 ++++++++++++------
->  1 file changed, 12 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index aa4b13da6371..ab451d20e4c5 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -1812,16 +1812,22 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
->  	return __ptep_get_and_clear(mm, addr, ptep);
->  }
->  
-> +#define test_and_clear_young_ptes test_and_clear_young_ptes
-> +static inline int test_and_clear_young_ptes(struct vm_area_struct *vma,
-> +					    unsigned long addr, pte_t *ptep,
-> +					    unsigned int nr)
-> +{
-> +	if (likely(nr == 1 && !pte_cont(__ptep_get(ptep))))
-> +		return __ptep_test_and_clear_young(vma, addr, ptep);
+
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+
+> v5:
+> - add domain-supply and update commit message
+>
+> v4:
+> - add new vendor property samsung,dtzpc
+> - drop previous tags due to that
+> ---
+>  .../devicetree/bindings/power/pd-samsung.yaml      | 33 ++++++++++++++++=
+++++--
+>  1 file changed, 30 insertions(+), 3 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/power/pd-samsung.yaml b/Do=
+cumentation/devicetree/bindings/power/pd-samsung.yaml
+> index 9c2c51133457..3f1a2dc17862 100644
+> --- a/Documentation/devicetree/bindings/power/pd-samsung.yaml
+> +++ b/Documentation/devicetree/bindings/power/pd-samsung.yaml
+> @@ -13,12 +13,10 @@ description: |+
+>    Exynos processors include support for multiple power domains which are=
+ used
+>    to gate power to one or more peripherals on the processor.
+>
+> -allOf:
+> -  - $ref: power-domain.yaml#
+> -
+>  properties:
+>    compatible:
+>      enum:
+> +      - google,gs101-pd
+>        - samsung,exynos4210-pd
+>        - samsung,exynos5433-pd
+>
+> @@ -33,6 +31,9 @@ properties:
+>      deprecated: true
+>      maxItems: 1
+>
+> +  domain-supply:
+> +    description: domain regulator supply.
 > +
-> +	return contpte_test_and_clear_young_ptes(vma, addr, ptep, nr);
-> +}
-
-Thinking out loud, what would happen if
-
-(a) The range spans multiple possible cont ranges (like, 64 ptes).
-
-(b) The first pte is !pte_cont(), but some others in there are?
-
--- 
-Cheers,
-
-David
+>    label:
+>      description:
+>        Human readable string with domain name. Will be visible in userspa=
+ce
+> @@ -44,11 +45,28 @@ properties:
+>    power-domains:
+>      maxItems: 1
+>
+> +  samsung,dtzpc:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      Distributed TrustZone Protection Control (DTZPC) node.
+> +
+>  required:
+>    - compatible
+>    - "#power-domain-cells"
+>    - reg
+>
+> +allOf:
+> +  - $ref: power-domain.yaml#
+> +  - if:
+> +      not:
+> +        properties:
+> +          compatible:
+> +            contains:
+> +              const: google,gs101-pd
+> +    then:
+> +      properties:
+> +        samsung,dtzpc: false
+> +
+>  unevaluatedProperties: false
+>
+>  examples:
+> @@ -66,3 +84,12 @@ examples:
+>          #power-domain-cells =3D <0>;
+>          label =3D "MFC";
+>      };
+> +
+> +    power-domain@2080 {
+> +        compatible =3D "google,gs101-pd";
+> +        reg =3D <0x2080 0x80>;
+> +        #power-domain-cells =3D <0>;
+> +        label =3D "hsi0";
+> +        domain-supply =3D <&ldo7m>;
+> +        samsung,dtzpc =3D <&dtzpc_hsi0>;
+> +    };
+>
+> --
+> 2.53.0.473.g4a7958ca14-goog
+>
 
