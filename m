@@ -4,54 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 654E1F01821
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 10:38:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2C8AF01821
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 10:38:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2v/ibo0LKo1YbvkECC60AmphWGEZbzDiV7DSUJEct6g=; b=YdyWEsyVYRooe0P4OZmg0AjDST
-	0ov0vVW3PvSGyj0GuUg+yN5iSjNCQMr5lcyvSUb92SClxFxlVDtbyAIVDaLu59MwXsov0lmQ0qI7W
-	2zMTa+6sJWMKGHzQBmr8vEl1OdJFQdm2kI6DPeGTT9fO23xia7PHYIL/ZmxZduDxDNQUh0utFB0Ia
-	Br8CcU0fbsaoBhNhMTWA4HTdkeFIy2cerxdqGD/3k+cVYZibOj39N1U4CklQVgGFye9fjYzekBc2I
-	EjKSA38ODx0+hKgNmKlmiKIE0ZVN2b96uJob2F3e0Z4sqKFxwy8w79hTfK9uFp1sY0B8P6qXbZ2yT
-	0Tvf8IvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:To:From:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PMeqslybOW2+duB8kifg1EmjsYpVV4hNMJZj7+LPARk=; b=oJJIwsA7QRf1kZ3nKuBkGFp8A3
+	jqzTFJtvxHL1FLNi3vmUKJipUELvaFyyjngWoDOo/67AeE/+0faylnb83rcI7aOnxStKwANquu9mV
+	CDmTca8O2+x/hd52xFS2hLMkxAKbmoq9SC9GJ/kE2f8CMJQLPnoh13G6tSHfdyBsAhBz6t5UDJa3a
+	g9FSQRACC+t/k1daS2PA30VYwDsaelFJt1VQSxmgU2lOCtbtyhT1V+awSwwh6x4Vjc4Y/pvqa4DCp
+	0WeoNUM5LhYS+3o+a0BzOraivOEdT/coXKdElA1wgbsAGLQyoGaSEyrv3x3UisaRVTXyJzdyM90oc
+	0I9Lzwqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vySZM-00000003UBa-2deQ;
-	Fri, 06 Mar 2026 10:38:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vySa6-00000003UMC-0Leh;
+	Fri, 06 Mar 2026 10:38:54 +0000
+Received: from www522.your-server.de ([195.201.215.122])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vySZK-00000003UBK-3QNh
+	id 1vySa2-00000003UKk-2lrl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 10:38:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D8A1E60130;
-	Fri,  6 Mar 2026 10:38:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19ED1C2BCAF;
-	Fri,  6 Mar 2026 10:38:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772793485;
-	bh=JXQcaGq9fREW7V4MaPDiovNi/xMtD05r3fDs02EK3as=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date:From;
-	b=pFd3z64lmp2CrxfWzQeXzC0qVSTEF+FvEAbfwayrpT5FR+GDKRDeoRS69g/VzNV+7
-	 6PfPWUrEphNMHsCEKiYqvzxwgQvyYXVgDtq70vDPmwktAF/20FBCDscJCSPdPbM3ED
-	 z48R6XzU/VsPRqDvR/6XLWYElJZxFF+Dx9WC3Hqz1guRCaEMYxoymI7d8ftwU64WWD
-	 UTnphwC09Q8AeCWND6BNpiB493RbrjkPS8YVEImhtyf630kjVGZKADgOzNRwhnU2uN
-	 kZUA4dy5Cd8QNwnSggUR/6nU6btRahdB3XgJS0JlbIRtkmHZxlYbTpLZOfsPYJLm+b
-	 wc40I58ABbKtg==
-Content-Type: multipart/mixed; boundary="===============4728792340798176958=="
-MIME-Version: 1.0
-Message-Id: <48167f373db21bc7817e4e69b8be017c5c0a26bc54b8dd30206dd1b0ebc3a944@mail.kernel.org>
-In-Reply-To: <20260306102329.2056216-2-xukuohai@huaweicloud.com>
-References: <20260306102329.2056216-2-xukuohai@huaweicloud.com>
-Subject: Re: [bpf-next v6 1/5] bpf: Move constants blinding from JIT to verifier
-From: bot+bpf-ci@kernel.org
-To: xukuohai@huaweicloud.com,bpf@vger.kernel.org,linux-kernel@vger.kernel.org,linux-arm-kernel@lists.infradead.org
-Cc: ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,martin.lau@linux.dev,eddyz87@gmail.com,yonghong.song@linux.dev,puranjay@kernel.org,a.s.protopopov@gmail.com,list+bpf@vahedi.org,linux@armlinux.org.uk,yangtiezhu@loongson.cn,hengqi.chen@gmail.com,johan.almbladh@anyfinetworks.com,paulburton@kernel.org,hbathini@linux.ibm.com,chleroy@kernel.org,naveen@kernel.org,luke.r.nels@gmail.com,xi.wang@gmail.com,bjorn@kernel.org,pulehui@huawei.com,iii@linux.ibm.com,hca@linux.ibm.com,gor@linux.ibm.com,davem@davemloft.net,udknight@gmail.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
-Date: Fri,  6 Mar 2026 10:38:05 +0000 (UTC)
+	Fri, 06 Mar 2026 10:38:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=folker-schwesinger.de; s=default2212; h=In-Reply-To:References:Subject:To:
+	From:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:Mime-Version:
+	Sender:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=PMeqslybOW2+duB8kifg1EmjsYpVV4hNMJZj7+LPARk=; b=nhT7pXqIwmwxJXg0QLonxKGqUU
+	npmPA235Is2wPVPlOIdqFKf5XSWqb5alein90piHyDWJ+Ec1PBLg/ATbUdB8khnPd+dCZtd1vhxir
+	SLoLo0bhqWgpwEpMEY5xKqvhhZ8k5aSrRIDSgLJkj1gSInYoUU7EL6ZQWFGW8w3cfx+JArOkoVqwp
+	K8Loniurp8W1MPhoe0A7hI/6qzJEV0WqIDuOCwfHu7ksEjI8try4cSXTqrIVN+d5JNLgu+8pvVaK0
+	cFxwRxaJ7/dclXct7HlHh2vSAzOdkisBPRzWXS6yiWi08RoI2CYk8c9+FRY+uxRnsE4KGguqpKCEW
+	Ak9m6kkw==;
+Received: from sslproxy04.your-server.de ([78.46.152.42])
+	by www522.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <dev@folker-schwesinger.de>)
+	id 1vySZc-000PyD-18;
+	Fri, 06 Mar 2026 11:38:24 +0100
+Received: from localhost ([127.0.0.1])
+	by sslproxy04.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <dev@folker-schwesinger.de>)
+	id 1vySZb-000NTP-22;
+	Fri, 06 Mar 2026 11:38:23 +0100
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 06 Mar 2026 10:38:19 +0000
+Message-Id: <DGVMUIOJEVMP.175UQQKV32PR4@folker-schwesinger.de>
+Cc: "Rahul Navale" <rahul.navale@ifm.com>, <dmaengine@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <vkoul@kernel.org>, <Frank.Li@kernel.org>, <michal.simek@amd.com>,
+ <suraj.gupta2@amd.com>, <thomas.gessler@brueckmann-gmbh.de>,
+ <radhey.shyam.pandey@amd.com>, <tomi.valkeinen@ideasonboard.com>,
+ <marex@nabladev.com>, <marex@denx.de>
+From: "Folker Schwesinger" <dev@folker-schwesinger.de>
+To: "Rahul Navale" <rahulnavale04@gmail.com>
+Subject: Re: [RFC PATCH] dmaengine: xilinx_dma: Fix per-channel direction
+ reporting via device_caps
+X-Mailer: aerc 0.21.0-119-g0a449d4a7ff3
+References: <DGHGTCJRRZCW.9TGXQW44V6RR@folker-schwesinger.de>
+ <20260305112705.6862-1-rahulnavale04@gmail.com>
+In-Reply-To: <20260305112705.6862-1-rahulnavale04@gmail.com>
+X-Virus-Scanned: Clear (ClamAV 1.4.3/27932/Fri Mar  6 08:24:27 2026)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260306_023851_036007_F6316F35 
+X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,79 +88,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---===============4728792340798176958==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+On Thu Mar 5, 2026 at 12:27 PM CET, Rahul Navale wrote:
+> From: Rahul Navale <rahul.navale@ifm.com>
+>
+>>Could you confirm that the DMA IP core in your PL design operates in=20
+>>scatter Gather mode?
+>
+> Yes, We confirmed that our DMA IP core in the PL design are configured=20
+> for Scatter-Gather mode.
 
-> diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-> index adf84962d579..c5ed9d84c3ae 100644
-> --- a/arch/arm64/net/bpf_jit_comp.c
-> +++ b/arch/arm64/net/bpf_jit_comp.c
+Thanks for confirming, this disproves the last theory. Please undo the
+latest Xilinx DMA patch I sent.
+To get some more data, could you apply the following patch (keep RFC
+patch and debug stuff) and rerun with 7e01511443c3 a) applied and b)
+reverted and post logs for both cases:
 
-[ ... ]
+dmesg|grep ptr_res
 
-> @@ -2201,7 +2170,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
->  		if (WARN_ON(bpf_jit_binary_pack_finalize(ro_header, header))) {
->  			/* ro_header has been freed */
->  			ro_header = NULL;
-> -			prog = orig_prog;
->  			goto out_off;
->  		}
+<--8<-->
+diff --git i/sound/soc/soc-generic-dmaengine-pcm.c w/sound/soc/soc-generic-=
+dmaengine-pcm.c
+index a63e942fdc0b..4635b199d020 100644
+--- i/sound/soc/soc-generic-dmaengine-pcm.c
++++ w/sound/soc/soc-generic-dmaengine-pcm.c
+@@ -280,11 +280,16 @@ static snd_pcm_uframes_t dmaengine_pcm_pointer(
+ 	struct snd_pcm_substream *substream)
+ {
+ 	struct dmaengine_pcm *pcm =3D soc_component_to_pcm(component);
++	snd_pcm_uframes_t ptr =3D 0;
 
-With the orig_prog fallback removed, if bpf_jit_binary_pack_finalize()
-fails on the extra pass, prog->bpf_func and prog->jited still hold
-the values set during the first pass. At that point ro_header has been
-freed, so bpf_func points to freed memory.
+-	if (pcm->flags & SND_DMAENGINE_PCM_FLAG_NO_RESIDUE)
+-		return snd_dmaengine_pcm_pointer_no_residue(substream);
+-	else
+-		return snd_dmaengine_pcm_pointer(substream);
++	if (pcm->flags & SND_DMAENGINE_PCM_FLAG_NO_RESIDUE) {
++		ptr =3D snd_dmaengine_pcm_pointer_no_residue(substream);
++		printk("ptr_res_no: ptr =3D 0x%08lx\n", ptr);
++	} else {
++		ptr =3D snd_dmaengine_pcm_pointer(substream);
++		printk("ptr_res: ptr =3D 0x%08lx\n", ptr);
++	}
++	return ptr;
+ }
 
-In jit_subprogs() the second loop checks:
+ static int dmaengine_copy(struct snd_soc_component *component,
+<-->8-->
 
-    old_bpf_func = func[i]->bpf_func;
-    tmp = bpf_int_jit_compile(func[i]);
-    if (tmp != func[i] || func[i]->bpf_func != old_bpf_func) {
-
-Since bpf_func is unchanged, this does not detect the failure. The
-program continues with jited=1 and a stale bpf_func.
-
-The powerpc and riscv JITs handle this correctly in the same commit:
-
-arch/riscv/net/bpf_jit_core.c:bpf_int_jit_compile():
-
-    if (WARN_ON(bpf_jit_binary_pack_finalize(...))) {
-            jit_data->ro_header = NULL;
-            prog->bpf_func = NULL;
-            prog->jited = 0;
-            prog->jited_len = 0;
-            goto out_offset;
-    }
-
-Should the arm64 path also clear bpf_func, jited, and jited_len here
-to match?
-
-> diff --git a/arch/loongarch/net/bpf_jit.c b/arch/loongarch/net/bpf_jit.c
-> index 3bd89f55960d..3a5cc3e88424 100644
-> --- a/arch/loongarch/net/bpf_jit.c
-> +++ b/arch/loongarch/net/bpf_jit.c
-
-[ ... ]
-
-> @@ -2041,7 +2014,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
->  		if (WARN_ON(bpf_jit_binary_pack_finalize(ro_header, header))) {
->  			/* ro_header has been freed */
->  			ro_header = NULL;
-> -			prog = orig_prog;
->  			goto out_free;
->  		}
-
-Same issue as arm64 above. The loongarch JIT also sets prog->jited and
-prog->bpf_func before finalize, and the failure path does not clear
-them. Would it make sense to add the same clearing here as well?
-
-
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/22758822985
---===============4728792340798176958==--
 
