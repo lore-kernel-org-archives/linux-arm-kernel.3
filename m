@@ -4,85 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E785EFCB61B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 15:39:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B361FCB61A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 15:45:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ecugwceZRXjAL34b3Y6VujivoFDaKE6QF8IGHx366Hc=; b=d3z3v65pNu4NjxQexivCWvL6yb
-	r3flI+zn2Q8M28P5iCWI8cicyxcX8XLJ7Mg7/4hMaiJBhrCPY5hbtMlGWCVpzUBNfm4QMoe+FHkzx
-	h0Px80xiYleJinYEPIeJ0N+5GfCofquLcc97Wj5bhdnqEtfps3es+CCWFlFPZIhvM3TzrNmHp31u1
-	C+ZDgQ1CkM0ud7nHjEDk7SrXWNEeAChJU7SCZ61IJxVQFVwpQFxOROxhsZFFd2DAql4ORt9ufD4rd
-	/Tya9wdMe1OK+crXue2EaWk+4VL+Sg1R6ZwEhm/nwjzURClTYZ4cBYrsj3dpWVc7wE522NJNl0dRV
-	xfgAGKag==;
+	bh=unhg1T2qCPKxpfY/PSePUJ4/CJHWOdFGonXXRJegCXU=; b=Hy6mWkLo+yeOt8pc5GEgnbI/aa
+	q+tP4uXCLGvH49+fPQzwKPZigna7WQXbJ2fJoeNtNXm9xchnJxJN0tJ3wiE5rNa2Et2zQ44KWb3G3
+	TgRM0jfB9jlYsI8a33eK5BDjcJum/iwQ8qAieOPpbl3q7iHLn1LX6fISvX5bTuxpFOgs+jTmjzUZS
+	oYYLBotNp+ifEHt9W7qdtZZMwsmQKs2qFc4kI56si6pYK9r78jvq2k1j4IKlkRu4GzkCM7Qrhb5PY
+	ug0urSi15vouwDPuekUaX/b4w5diFsWPKYSKoly3pCvKs1CiufqvNrUI7Np2zIoBQENIyLApkYfok
+	ReBw49Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyXHG-000000043FG-0bpm;
-	Fri, 06 Mar 2026 15:39:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vyXMk-000000043g3-0GZ2;
+	Fri, 06 Mar 2026 15:45:26 +0000
+Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyXHE-000000043F5-49vU;
-	Fri, 06 Mar 2026 15:39:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 04B036012A;
-	Fri,  6 Mar 2026 15:39:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87FF3C4CEF7;
-	Fri,  6 Mar 2026 15:39:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772811583;
-	bh=sA7klZwAjMGzSg7D2nkr3VzQfy3dllPSLjh1NxQleUA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=joeYs+2fl+4Fec/1XHfYv3A7Q4YKPP5eiMn0LZM+qRweq/0Nb7kbhiLzqCxvkgWRC
-	 tCAS/Xx0agJmoxvvAVc6x4X8GZR1BI3svk9yKBfAEuQLgkLqDqRKwm7e6RwKl4pyMn
-	 dUQ95O395D88k9Yg13CcVMogOutjKpVqLmwup4Ex7i4Z3ch4u/o8zh10VAGacvteCd
-	 0ioPnzAhuVix78W0UsYEYvBbJxV/ywhcyOOMiApmh0S1ywx8DF+VobQ/QLsAzG3m/C
-	 LWHfX4xBdayp9vmOMWP88nGMykl3fWI4var5kS7GlnVBK6RWTpAzcxPtZHOdhHq20R
-	 +kKU1lnmfWAMg==
-Received: from johan by xi.lan with local (Exim 4.98.2)
-	(envelope-from <johan@kernel.org>)
-	id 1vyXHA-000000003em-3GlB;
-	Fri, 06 Mar 2026 16:39:40 +0100
-Date: Fri, 6 Mar 2026 16:39:40 +0100
-From: Johan Hovold <johan@kernel.org>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Andi Shyti <andi.shyti@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Khalil Blaiech <kblaiech@nvidia.com>,
-	Asmaa Mnebhi <asmaa@nvidia.com>, Jean Delvare <jdelvare@suse.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-actions@lists.infradead.org,
-	linux-media@vger.kernel.org
-Subject: Re: [PATCH v2 00/13] i2c: add and start using i2c_adapter-specific
- printk helpers
-Message-ID: <aar1PDUB2t7DgEP6@hovoldconsulting.com>
-References: <20260223-i2c-printk-helpers-v2-0-13b2a97762af@oss.qualcomm.com>
- <aaFcs1miP88QWmtH@hovoldconsulting.com>
- <aaFfEsfh0xTh0b1y@shikoro>
- <aaFsZbiLYSz_YEjw@hovoldconsulting.com>
- <CAMRc=MfcvD1nJy=zpoCkSkJq6WjyXQxFUZ4QE6vyCS+XFCn5AA@mail.gmail.com>
- <aaHI_VavZugXjVoL@hovoldconsulting.com>
- <CAMRc=MdKF29McBJ9U=qELkzf9GYV1CQpRF7U6OweDNtVzMXo7A@mail.gmail.com>
- <aacE-27iaYneKCJi@hovoldconsulting.com>
- <CAMRc=Mcx8Hu407arSEo3o-Xhmep_ZK4BM2TVi_55nXGwYcaijw@mail.gmail.com>
+	id 1vyXMg-000000043fR-45Bt
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Mar 2026 15:45:24 +0000
+Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-506a355aedfso600011cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 07:45:22 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772811922; cv=none;
+        d=google.com; s=arc-20240605;
+        b=CPM5WPHqsFvbUBZSLPYGjfLGyr4s4OUEbVJXLSa/kbWyAEDOqoqgZzVKASt9pWWOGu
+         9dctIXbZRc2O8WbYsDxdz584rpRJwlBnzRckOQzL2gf9dsksR04TUc5cxXTxZu51LLfk
+         i81Ygk7/2mt5w45+zjp3loK1wohVIcsQ8pp4WGJ+KdJ0dH8N99/Lza9sdTRL//6lbK1q
+         xMaJj9e8W1Rb2jtxTbBca4tFCg/cniIpuHyPsLJNliLBqRqwwfSOXFT9knlbJSO9R8pH
+         NRiCye7qVDyEdmHapUzYIrr3D2yEKbK2Q60r1EvDneWqglnUONzRJAuVS5//U2Wdo80O
+         1M7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=unhg1T2qCPKxpfY/PSePUJ4/CJHWOdFGonXXRJegCXU=;
+        fh=jpR8kf0ZcdM/vB327QmZtb/6XY4eGzLh8Bnl+5Zc4Cg=;
+        b=ktB1scPkbAEHg07XYXxRtkmbBMsOO1c2XjCWaU6Wgt8NV5BxtMzf5+AKr4Z6OqIEPk
+         q+93g6KV9A4xMQ9gdu+jyqXEjIkZ589qI8eiOWvNVVaAhxUjxNrxu8eUxhm+qtgVXAGp
+         3/zlybNNv6lhyv0NJt8QnqKqsVQzM+c/EI36WBddmjSMO7SgyQ9flUYGth5qWBhWUL5l
+         HzHhNYuWotXhcCnGq3kyHo4lLcAPz4GmeOPLa4cwCL6BrZXaIqc1EMfbknJ679kkt4AX
+         s0ulpQGnNnp1IJYd/yYa+ZMlD63/4mJ2JrS9TrjNHBO8lSCOpxQEpAldbmZeOar49lHB
+         l2Ww==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1772811921; x=1773416721; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=unhg1T2qCPKxpfY/PSePUJ4/CJHWOdFGonXXRJegCXU=;
+        b=yBA1yvjFF7FILeKFntpnCpmjSZnJBx9LUitHNxB+PM8FyRHNSHapqyh1og3kkWRx4U
+         VbeNE91hpvU0NgI5n7O5gCJykbdXd99BBf9hRyJvYBTouuhJCdfctC8a03/7RQlKu97D
+         +QGX007WmrC03JU7NPO+e7Kc2uwCnftsoTamGR/sJkOIj0NTfRu0JurkEnf8UcG0gYd2
+         XgF0vDlp8Svg0TEWdowCRkP70iVI1zORtzRzoqumpWt7JoI9ZPn5TyVho+XW1KgMl2RF
+         xbrR8DKczM99lWPVr9WxYS/Kfxuf+TuBCTLFJWwaHnEic8FVYEUcVF9h9AaSDxHo5eKF
+         dtPA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772811921; x=1773416721;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=unhg1T2qCPKxpfY/PSePUJ4/CJHWOdFGonXXRJegCXU=;
+        b=U52GIlPHIYlfrE/cV7WogGujNQnhsDuMNr6Q86NGQWrwFQQS0IfVXCBn828Vu8M01L
+         nvx6BISuGUoYEXDdXFOeRhnrurqG1t8CFCAYZj47B28BCzUp1rgpXyakbhEmCner7Is5
+         Kcp7Dh+RuQlDkPVDcGLhgtIfsE01Jk+agKHNy1lItIxkyWHk2kqGyDaayyyuh98gU8a+
+         aWPWqYM3ns74rfofGXu2mtmwkY1cCusKNMdl3jouXoAx/T0Iv763EtzVUzH9vpkTXVXO
+         LHReXQBcT6C1rTYdPNsl6bFD+aYyqy46dfqla94CuBhMitXVDc8MXffKRdFcpEHTSvd4
+         xwGQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUQ9otNiDLF+LDO5csefdfAMyBv5MM4qBzzYyNmb30QSYaiahtD8hDypctpIUlxs/N6KByK9hSOCb0E0dLHeTfS@lists.infradead.org
+X-Gm-Message-State: AOJu0YytEtdtSIDWDwVngSitysncQBfS7qL1bBJcUAkEvbfUjxkSdpng
+	w10JAVeLCSLyWp2fhPEecaTJL1AWwgkdjvPESCCZPLDOaAy/zwWEiVO7XvHglhfGCrEI9XQZnt4
+	oetk+OrpeflW0XDAU3R05lpKQpjGO8VH9bKuQ6vr3
+X-Gm-Gg: ATEYQzxLlNx3+y1XpoHNs2JTO4M2P0Sr2T7XHscAp4wUdtsijMqPsrTzfpe0dwbyGAW
+	XcLb86Jus2AkyuuwlFpGm7nR7YO8ZrDAeVr3+QTna2vKVipxorRnmfd2of68dtVoeeOcxZxdcQ3
+	WzmgcnMpEKApGGXPOQOTHh5jAnbXG102Te0eZujr++aveY9CoJYMJMVeDbZDXQK/mPDQmBQKBK7
+	9efiZBxW8ZsBOS8aWC8dl6SCwk6fRSySQeeAeK+BM9204muFVM9g+2dOzWPm/95MYGN1GyJSX6Y
+	Zwf0jHNA
+X-Received: by 2002:a05:622a:1825:b0:501:5180:3c90 with SMTP id
+ d75a77b69052e-508fa666c57mr3491241cf.15.1772811920943; Fri, 06 Mar 2026
+ 07:45:20 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMRc=Mcx8Hu407arSEo3o-Xhmep_ZK4BM2TVi_55nXGwYcaijw@mail.gmail.com>
+References: <20260306140232.2193802-1-tabba@google.com> <86ikb96kg8.wl-maz@kernel.org>
+In-Reply-To: <86ikb96kg8.wl-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Fri, 6 Mar 2026 15:44:44 +0000
+X-Gm-Features: AaiRm52XLBmqNfW9v8Obow2Zg0ILvEXXBAF6YDgU2FBbzIjxzMdGtwXjVc2CnoU
+Message-ID: <CA+EHjTzenq_xFwe8K_g1KFbETqndS3FnxPiwBRKrMvrxH4Z1qg@mail.gmail.com>
+Subject: Re: [PATCH v1 00/13] KVM: arm64: Refactor user_mem_abort() into a
+ state-object model
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, qperret@google.com, 
+	vdonnefort@google.com
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260306_074523_657329_D6A3BBF8 
+X-CRM114-Status: GOOD (  36.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,216 +118,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 04, 2026 at 01:55:14AM -0800, Bartosz Golaszewski wrote:
-> On Tue, Mar 3, 2026 at 4:57 PM Johan Hovold <johan@kernel.org> wrote:
+On Fri, 6 Mar 2026 at 15:34, Marc Zyngier <maz@kernel.org> wrote:
+>
+> Hi Fuad,
+>
+> On Fri, 06 Mar 2026 14:02:19 +0000,
+> Fuad Tabba <tabba@google.com> wrote:
 > >
-> > On Mon, Mar 02, 2026 at 12:03:19PM -0600, Bartosz Golaszewski wrote:
-> > > On Fri, Feb 27, 2026 at 5:41 PM Johan Hovold <johan@kernel.org> wrote:
-> > > >
-> > > > On Fri, Feb 27, 2026 at 04:42:09PM +0100, Bartosz Golaszewski wrote:
-> > > > > On Fri, Feb 27, 2026 at 11:06 AM Johan Hovold <johan@kernel.org> wrote:
-> > > >
-> > > > > > It seems all that is needed is to decouple the struct i2c_adapter from
-> > > > > > the driver data and have core manage the lifetime of the former using
-> > > > > > the reference count of the embedded struct device.
-> > > >
-> > > > > This is a weird pattern you sometimes see where a driver allocates
-> > > > > something and passes the ownership to the subsystem.
-> > > >
-> > > > It's not weird at all, this is the standard way to handle this. We have
-> > > > these things called reference counts for a reason.
-> > >
-> > > I wouldn't say it's *the* standard way. There are at least several different
-> > > ways driver subsystems handle resource ownership. And even so: the fact that
-> > > something's done a lot does not make it automatically correct.
+> > As promised in my recent patch series fixing a couple of urgent bugs in
+> > user_mem_abort() [1], here is the actual refactoring to finally clean up this
+> > monolith.
 > >
-> > It's the way the driver model works.
-> 
-> No, it does not impose any specific pattern to use for subsystems other than
-> requiring each device that's been *initialized* to provide a .release() callback
-> called when the last reference is dropped.
+> > If you look through the Fixes: history of user_mem_abort(), you will start to
+> > see a very clear pattern of whack-a-mole caused by the sheer size and
+> > complexity of the function. For example:
+> > - We keep leaking struct page references on early error returns because the
+> >   cleanup logic is hard to track (e.g., 5f9466b50c1b and the atomic fault leak
+> >   I just fixed in the previous series).
+> > - We have had uninitialized memcache pointers (157dbc4a321f) because the
+> >   initialization flow jumps around unpredictably.
+> > - We have had subtle TOCTOU and locking boundary bugs (like 13ec9308a857 and
+> >   f587661f21eb) because we drop the mmap_read_lock midway through the function
+> >   but leave the vma pointer and mmu_seq floating around in the same lexical
+> >   scope, tempting people to use them.
+> >
+> > The bulk of the work is in the first 6 patches, which perform a strict,
+> > no-logic-change structural refactoring of user_mem_abort() into a clean,
+> > sequential dispatcher.
+> >
+> > We introduce a state object, struct kvm_s2_fault, which encapsulates
+> > both the input parameters and the intermediate state. Then,
+> > user_mem_abort() is broken down into focused, standalone helpers:
+> > - kvm_s2_resolve_vma_size(): Determines the VMA shift and page size.
+> > - kvm_s2_fault_pin_pfn(): Handles faulting in the physical page.
+> >   - kvm_s2_fault_get_vma_info(): A tightly-scoped sub-helper that isolates the
+> >     mmap_read_lock, VMA lookup, and metadata snapshotting.
+> > - kvm_s2_fault_compute_prot(): Computes stage-2 protections and evaluates
+> >   permission/execution constraints.
+> > - kvm_s2_fault_map(): Manages the KVM MMU lock, mmu_seq retry loops, MTE, and
+> >   the final stage-2 mapping.
+> >
+> > This structural change makes the "danger zone" foolproof. By isolating
+> > the mmap_read_lock region inside a tightly-scoped sub-helper
+> > (kvm_s2_fault_get_vma_info), the vma pointer is confined. It snapshots
+> > the required metadata into the kvm_s2_fault structure before dropping
+> > the lock. Because the pointers scope ends when the sub-helper returns,
+> > accessing a stale VMA in the mapping phase is not possible by design.
+> >
+> > The remaining patches in are localized cleanup patches. With the logic
+> > finally extracted into digestible helpers, these patches take the
+> > opportunity to streamline struct initialization, drop redundant struct
+> > variables, simplify nested math, and hoist validation checks (like MTE)
+> > out of the lock-heavy mapping phase.
+> >
+> > I think that there are still more opportunities to tidy things up some
+> > more, but I'll stop here to see what you think.
+>
+> Thanks a lot for going through this, this looks like a very valuable
+> starting point. From a high-level perspective, the end result is even
+> more shocking:
+>
+> <quote>
+> static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>                           struct kvm_s2_trans *nested,
+>                           struct kvm_memory_slot *memslot, unsigned long hva,
+>                           bool fault_is_perm)
+> {
+>         bool write_fault = kvm_is_write_fault(vcpu);
+>         bool logging_active = memslot_is_logging(memslot);
+>         struct kvm_s2_fault fault = {
+>                 .vcpu = vcpu,
+>                 .fault_ipa = fault_ipa,
+>                 .nested = nested,
+>                 .memslot = memslot,
+>                 .hva = hva,
+>                 .fault_is_perm = fault_is_perm,
+>                 .ipa = fault_ipa,
+>                 .logging_active = logging_active,
+>                 .force_pte = logging_active,
+>                 .prot = KVM_PGTABLE_PROT_R,
+>                 .fault_granule = fault_is_perm ? kvm_vcpu_trap_get_perm_fault_granule(vcpu) : 0,
+>                 .write_fault = write_fault,
+>                 .exec_fault = kvm_vcpu_trap_is_exec_fault(vcpu),
+>                 .topup_memcache = !fault_is_perm || (logging_active && write_fault),
+>         };
+> </quote>
+>
+> This kvm_s2_fault structure is a mess of architectural state (the
+> fault itself), hypervisor context (logging_active, force_pte...), and
+> implementation details (topup_memcache...). Effectively, that's the
+> container for *everything* that was a variable in u_m_a() is now part
+> of the structure that is passed around.
+>
+> The task at hand is now to completely nuke this monster. The
+> architectural fault information should be further split, and directly
+> passed as a parameter to user_mem_abort(). We have a lot of redundant
+> state that is computed, recomputed, derived, and that should probably
+> moved into the exact place where it matters.
 
-Reference counting is a core part of the driver model and this is
-reflected in the way subsystems manage lifetime.
+Thanks Marc! Like I said, I stopped after 13 patches to see what you
+think, and if this is the right approach. But yes, more can be done
+here.
 
-> > > I'm advocating for a hard split between the subsystem data (reference-counted)
-> > > and driver data (living from probe() until remove()). A logical struct device
-> > > managed entirely by the subsystem should live in a separate structure than
-> > > driver data and be allocated - and freed - by the subsystem module.
-> >
-> > It doesn't really matter what you think. You can't just go around
-> > making up new subsystem specific rules at your whim. The linux driver
-> > model uses reference counting and that's what developers expect to be
-> > used.
-> >
-> 
-> And I've never said that it should not use reference counting. I'm not sure
-> what you're implying here.
+>
+> I'll have a play with it,
 
-You have posted changes that will prevent driver from accessing the
-struct device of core i2c structures. This is unexpected, non-idiomatic
-and subsystem specific and therefore a bad idea.
+Sounds good, and if you'd like me to tackle any particular part of
+this, let me know.
 
-> > > Let's put aside kernel code for a minute and work with an abstract C example,
-> > > where the equivalent of what you're proposing would look like this:
-> > >
-> > > struct bar {
-> > >	   struct foo foo;
-> > >	   ...
-> > > };
-> > >
-> > > struct bar *bar = malloc(sizeof(*bar));
-> > >
-> > > ret = foo_register(&bar->foo);
-> > >
-> > > And the corresponding free() lives who knows where because foo_register()
-> > > automagically introduces reference counting (nevermind the need to calculate
-> > > where bar is in relations to foo).
-> >
-> > No, that's not what I'm suggesting here, but it would be compatible with
-> > the driver model (ever heard of struct device which works exactly like
-> > this?).
-> 
-> I know how struct device works. I'm pointing out that this is a bad API (just
-> to be absolutely clear: not the reference counting of struct device itself but
-> using it in a way tha looks like it's not refcounted but becomes so after an
-> API call) because it's confusing. I'm not buying the argument that if it
-> confuses you then you should not be doing kernel development because it's not
-> the goal of API design to make it as complex and confusing as possible - quite
-> the contrary. And it *is* confusing given the amount of misuse present. I've
-> heard Greg KH say on multiple occasions during his talks that we try to offload
-> complex code to subsystems so that drivers can remain fairly simple. I agree
-> with that.
+I have to admit, breaking this down into pieces and seeing how much
+tidier and easier to understand it became felt oddly satisfying.
 
-Again, this is a core feature of the driver model. You can't just ignore
-it and come up with random ways to work around just because you disagree
-with design decisions that were made 25 years ago.
+Cheers,
+/fuad
 
-> > > I strongly believe that this makes more sense:
-> > >
-> > > struct bar {
-> > >	   ...
-> > > };
-> > >
-> > > struct bar *bar = malloc();
-> > >
-> > > struct foo *foo = foo_register(bar);
-> > >
-> > > // foo is reference counted and allocated in the provider of foo_register()
-> > >
-> > > foo_put(foo);
-> > > free(bar);
-> > >
-> > > The equivalent of which is moving struct device out of struct i2c_adapter.
-> >
-> > No, it's not.
-> >
-> > > In fact: I would love to see i2c_adapter become a truly reference-counted
-> > > object detached from driver data but due to it being embedded in every bus
-> > > driver data structure it realistically won't happen.
-> >
-> > And this is what I've been suggesting all along, separating the driver
-> > data and making the adapter reference counted.
-> >
-> > The idiomatic way to handle this is:
-> >
-> >		 xyz_probe()
-> >		 {
-> >				 adap = i2c_adapter_alloc();
-> >				 // initialise driver data, store pointer in adap
-> >				 i2c_adapter_register(adap);
-> >		 }
-> >
-> >		 xyz_remove()
-> >		 {
-> >				 i2c_adapter_deregister(adap);
-> >				 i2c_adapter_put(adap);
-> >		 }
-> >
-> > Exactly where the driver data is stored is secondary, it could be memory
-> > allocated by core or by the driver.
-> >
-> > But the adapter is reference counted and kept around until all users are
-> > gone.
-> 
-> Yeah, that's awesome but that's not what's being done in i2c. We do:
-> 
-> struct foo_i2c_driver_data {
-> 	struct i2c_adapter adap {
-> 		struct device dev;
-> 		...
-> 	};
-> 	...
-> };
-> 
-> instead which is a completely different story. It makes foo_i2c_driver_data
-> implicitly reference counted despite its lifetime being tied to the bound-state
-> of the device. It becomes painfully obvious in rust when the compiler starts
-> enforcing proper lifetime management.
-
-I'm quite aware of that and that's why we are discussing how to change
-it.
-
-> But sure, your example works fine too. My point is: getting to that state would
-> require more churn than allowing drivers to continue allocating i2c_adapter
-> struct themselves with struct device being moved out of it - making reference
-> counting of it work properly.
-> 
-> And I agree: doing the above would be even better but you'd need - for every
-> driver - to move the i2c_adapter struct out of driver data and make it a
-> pointer. That's in addition to providing new APIs and using them. I2C drivers
-> are spread treewide. There's a reason why nobody attempted it for decades. I'm
-> proposing something a bit less complex: allow drivers to free i2c_adapter at
-> unbind but make i2c core keep a private, reference-counted structure for as
-> long as it's needed.
-
-But its non-idiomatic and therefore not a good idea. Sometimes you just
-have to dig in and fix the real problem instead of trying to work around
-it.
-
-> > > > Yes, you have to update the allocation and replace container_of() with
-> > > > dev_get_drvdata() but it's a straight-forward transformation that brings
-> > > > the i2c subsystem more in line with the driver model (unlike whatever it
-> > > > is you're trying to do).
-> > > >
-> > >
-> > > No, it's not that simple. The .release() callback of struct device embedded
-> > > in struct i2c_adapter is assigned from the bus type and only calls complete()
-> > > (yeah, I too don't think it looks right, one would expect to see the associated
-> > > kfree() here, right?). It relies on the bus driver freeing the data in its
-> > > remove() path. That's why we wait until all references to said struct device
-> > > are dropped. After your proposed change, if your new release() lives in the
-> > > driver module, it must not be removed until all the references are dropped
-> > > - basically where we are now. If on the other hand, the release() callback's
-> > > functionality is moved into i2c-core, how would you handle the fact i2c_adapter
-> > > can be embedded in a larger driver data structure? Provide yet another callback
-> > > in i2c_adapter called from the device's .release()? Sure, can be done but I
-> > > doubt it's a better solution.
-> >
-> > You seem to be constructing some kind of straw man here. Obviously, the
-> > release function would free the memory allocated for the adapter struct.
-> >
-> > An adapter driver can free its driver data on unbind as core will
-> > guarantee that there are no further callbacks after the adapter has been
-> > deregistered.
-> >
-> 
-> Sure, but my point all along has been that - with struct device currently
-> embedded in struct i2c_adapter - that's not the case. Driver data *and*
-> i2c_adapter are tied together. You need a major rework in either case.
-
-And I've being saying that the driver data should be *decoupled* from
-the i2c_adapter.
-
-> I'm frustrated because I'm spending time working on an actual solution. I've
-> explained what I'm doing and what the end result will look like based on what
-> works for GPIO (struct gpio_chip's lifetime is bound to device's "bound" state,
-> struct gpio_device is refcounted, I want to mirror it with i2c_adapter and
-> whatever we eventually call its refcounted counterpart - let's say:
-> i2c_bus_device). If you claim you have a better alternative - will you do the
-> work to make it happen?
-
-Sure. I'll fix this properly.
-
-Johan
+> Thanks,
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
