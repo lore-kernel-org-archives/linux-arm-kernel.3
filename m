@@ -4,142 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 776EAFCB61D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 16:07:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77349FCB61D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 16:13:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=13teqRpAijEkDHrBYLtnQL5M72RTqMo0xCMUPrUjwBI=; b=LREe+fMEr9kM6puQsLv0s71mnT
-	IpZM0E2jo9pCvaRQVWx7pd9Mp13vg3p+WOHmftUskCUKw5jwyn6DKpGWhi2KYIDjbqfkChMJ1OQ5K
-	s8xGRAKrXYLVJGesjk/b50Ilg9OI2k6oa2XbEn+A3G4X3wg8q7G1GV5wONeulOMuHy/RzTk87BBU7
-	AafnBSmT9lYM6zEzrWcNyqeJl/csD1uyk+Nyw8lnvh/wQ4E1k6W2hTUDLDDeibqLTFWpdFljqVAro
-	a5yAFsflEggngUMY9rx8vjsZiHlSCIeJ6JklNUJ9qPx5RZVkYSvigFmhXkGDeBiBC/XcXVGzNCkaA
-	npsmR2nw==;
+	bh=2ExyNVSWsZEiPhZCTeAKx/MrxZrOY+AoCmCT2YcRTRo=; b=xhuWQU7Ev8dpk0Ix5amE/0Jh1J
+	yWysSqnQsbuLTjvcwxp/Ao4ctiomJzcEWX574Yem1juZXys3HV80wux8/b6WF+U0AogV4yB6ByU5E
+	j1CQ2pvZSQqHMYBjrdZmX5L0zhPPsfyh/RqRmmn7ELE6jXTEyJgtblxlS5GmC337KbEw9RxB5zfb6
+	S/u763N1BrVgFZXif6i7fNNOrWeRMObdiy1zoxLdjIySjc2XoEnF/UG5G/JhGeWFriewN2SRpvp1G
+	j7QNWt9MLdhArABMOW93re7rfskqUAcIaStGcuXSOorCAK2Rxe2EmyI0BXGnmH0jrz82qymPhwgUc
+	PSa0Fa9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyXiK-000000047Qi-18Ih;
-	Fri, 06 Mar 2026 16:07:44 +0000
-Received: from mail-westeuropeazon11013020.outbound.protection.outlook.com ([52.101.72.20] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1vyXnY-000000047jJ-08Ju;
+	Fri, 06 Mar 2026 16:13:08 +0000
+Received: from mail-dy1-x1329.google.com ([2607:f8b0:4864:20::1329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyXiI-000000047QL-1VUg
+	id 1vyXnV-000000047im-1z7B
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 16:07:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=i5ib8zrfhx73VQm0oe7+exMCyICoKDDRaAEUDrZcIFMjvltr0Shkol97r2/Vp5D4RuLu0AeMuv9kgiYGocsS+OPu5rKRntxsdavlgGqj5b05jXE6JTer2iSIGVZqhKIpWqAJxHZkZTmN2UIQOKwH9kKSv1U62WzRwimy/M4EGDq/ZqVGUpillxBuPGwclrdwCRG1Hl0v9lFWvvw4fm79pX7qIDzcyQFRWkjtpNR1PkvrHB75PXyKl2r99vhPxM++qyldRb9KflQwPkXvt44VMEPIwCPftvDb9CXjS1cBShv961u7c95BU9AdaixkHQjO8RAyIUUMKqT/igkRtveXTg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=13teqRpAijEkDHrBYLtnQL5M72RTqMo0xCMUPrUjwBI=;
- b=x98XEAR//9UUagScZ1Xy4tLNyi2EPIXpfJ84PkIqAn9aqIWY2VpKsuPU7jFuSbPOeccEyhS6WPWlmgUo1TXzXPgWWStrAG7d7kkg+QivHHgMjmKULAU3P+CtkUkQTvOquwN8BMgI6ITCxJxdJMHkZIzv5Ng+5eaFJcWU0qd9PoUADmeUsdPY7/P0Uw/1RYwhl4BBRDy6iWSAT08QOnmfoJ7YZzNdXzLP00oikgpdxU4XQ6tWA1GA86n20lBNNjfcpHXqa74Wl3Qd+riIpgLS4hCJZy/HD9DAbjgkdkArAap7/FrwmoNWayWmXnvfP0+sBRyGYaBGYfkZg7BDmxy62g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=13teqRpAijEkDHrBYLtnQL5M72RTqMo0xCMUPrUjwBI=;
- b=UUMSEGvBR0aSkqX3cBkyUYYvkujTiHSAz9+Hms1QSOKkVWWKnJSUddyAO/hazKW+TCbTIFsAUSV3XxwVOTqbhoO84pQjE7M5QK9Wym983EqjWhWq44wFtxcZCjkkfKbaiZrQpjNdREuJg8hMhyR1h7AoExBRtR1/mcD69KlVeN93l00aYwLP2cbsn58mz3O0SIM0BM3jEtTO9s+ZgLJ7YXwEHKOIR3P0hkA0bBvlFMBWdcBTrG5fmLPgmq5k9pRBzaflE72LqvTQztVPKzc7zJSDv9gMZ4Hay3mrWUpVtTEAFDwWD15ggIr0p3lgkf/5nbLEwFgMbIEBWh6C7BxfRg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by GV4PR04MB11822.eurprd04.prod.outlook.com (2603:10a6:150:2d8::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.18; Fri, 6 Mar
- 2026 16:07:36 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9654.020; Fri, 6 Mar 2026
- 16:07:35 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Max Merchel <Max.Merchel@ew.tq-group.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	linux@ew.tq-group.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/4] ARM: dts: TQMa6: modify for use in bootloaders
-Date: Fri,  6 Mar 2026 11:07:18 -0500
-Message-ID: <177281321975.269574.15412276944981439762.b4-ty@nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260220143008.186851-1-Max.Merchel@ew.tq-group.com>
-References: <20260220143008.186851-1-Max.Merchel@ew.tq-group.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH5P222CA0011.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:510:34b::15) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Fri, 06 Mar 2026 16:13:06 +0000
+Received: by mail-dy1-x1329.google.com with SMTP id 5a478bee46e88-2be19f05d7dso805882eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 08:13:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772813584; x=1773418384; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=2ExyNVSWsZEiPhZCTeAKx/MrxZrOY+AoCmCT2YcRTRo=;
+        b=gHqEHWYiJVUI8hXrm8ENIWRO2zhcjsa2awjG+/JLXefxUr/0RpLb/deGyZyjU/CGkw
+         fGswi5zJmAxTtxbtInkrpyDBvTiphWQO430cMYtBmxK4ZmjZbZ6gBbusYdZ6cGtT4ENs
+         G+6nasx/IdvdKCeoO+Hm9EVf54HiCxoZK8AkKw0saDGgQJ0hfzLDjXokC1os6/dJMdvc
+         fSNQSn+OEVpLdjaqv4SBZx1+rorDc6n7Pz1nDvyEdbEFZKKny02QBPKx9jAMbNat9rrF
+         bnQAjusF7VjDB0oxIV2Y/+bZzjD4YJPftIrqQpF12TWdva2HF+nPc4I4B2gozP/ZR2Hb
+         DXSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772813584; x=1773418384;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=2ExyNVSWsZEiPhZCTeAKx/MrxZrOY+AoCmCT2YcRTRo=;
+        b=aK/tgQXBWGP/DioLddrPqWiLbiIiY80XZf5TZzV0QPDp55/kFA3QAM+zP0i8vE9IlU
+         ogVn5j7Kz0oI2hOlJLuGnOIEwzpZDrUbApBjEJH/AfqH+5l3Ccsi/DU1JaPScTj7wgIM
+         mrwQk2fhUnTumyIiPeOXPrIL321AFBrlS+svUFhAZs+79KsznALLINR25UL98ZGKAQ06
+         +7O8Lt4p7U6Rxc0kmrT7UeVsShiMktflcnPS3AaszgNDlTo2ZNJWe361tEBbjag9tjtO
+         /tqZCI6FDeUxcXKWm8Yxmt2KaqXkOJzatTD9dwYhBh/4js9TPCGGb/oKC9gTW50ODeU5
+         df4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUTYXqMd7839M3ftrzK4pyeq8EDIhKiMYjT4rVLr+EGTmMd1J9xW/xhnsGkQzdWtrCDK2JlPHI2yvtKI2mysT36@lists.infradead.org
+X-Gm-Message-State: AOJu0YwyDncvomdliu6eDvsp4hOcvh7Jao/psxWdgcv2UZ4OkHNsTwk4
+	cbLyOuf8SQ2ve65333Uu1FTv6tBqQtPoNuxHjYvOkNlO4sFateJvnlXVQa6GZg==
+X-Gm-Gg: ATEYQzxfgcowfDRPQbuj2xg5mGaWbAGneBsbOAx8enfbNSMnnnh22ZxEm60TryMkE0n
+	t3uswbOtfU0sMe88uEJ+aRQGsKwq22Yegomkc8FyDI7Y8x9NE6pxHY4NtirQZuhY6BryDKwvXNj
+	4AQqgNONjGngNX8dyAH/qB0sq5raIei/QeKFu92jDlobwkqHvUIM/nOKiHWdwocyhy60/1jE2ma
+	57zo1pAbKqzWhEW46Si9aoaoEa5eH5lqSklXVf5U75KBe4tURf+YezqfFJ1aZlNgIJJRGxxk/R3
+	mOPBCXnmHGDpRvEkVSwA/gWVPhCHxWIEhWubfuRxSPG+KZOW7b5XAc/I8s/gTY7YA6vVA3aE3nM
+	FpxsnOiiV0zWAQVvdV7bJKCbdpX/9BqwVnWS0e/Vk6yCm0ZVd0jf+pCUKAx1odn8vGKwUqrVJpx
+	YYsukRwfuzKDbrR0/yBnOvE7tN8JiEUET7zRlO
+X-Received: by 2002:a05:7300:320a:b0:2b7:fdb6:ccf2 with SMTP id 5a478bee46e88-2be4de99574mr1150793eec.13.1772813584166;
+        Fri, 06 Mar 2026 08:13:04 -0800 (PST)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2be4f94823esm1578036eec.20.2026.03.06.08.13.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Mar 2026 08:13:03 -0800 (PST)
+Date: Fri, 6 Mar 2026 08:13:02 -0800
+From: Guenter Roeck <linux@roeck-us.net>
+To: Billy Tsai <billy_tsai@aspeedtech.com>
+Cc: Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	linux-hwmon@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] hwmon: (aspeed-g6-pwm-tach): fix driver data handling in
+ probe/remove
+Message-ID: <e6c06c88-d2cd-4501-8a15-b89ba5a36e5f@roeck-us.net>
+References: <20260306-pwm_fixes-v1-1-e8ede6fbaf47@aspeedtech.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GV4PR04MB11822:EE_
-X-MS-Office365-Filtering-Correlation-Id: bc5e6811-8801-45f7-5e4e-08de7b9a7ad1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|52116014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: /udeURXeUeRMjLTHHtYMQcvLdY+sAeLvqFffq6YMp/M+q4u1ky206ZAnfGMJIxxJMwvCfu3+bJ0dflXB3Kok7KINw6FTKNOHQYuDbUJjBcj582H8J/i1jRrxtLWc3kpbdxSTEYhgrZvSeuiwvW+ypB/YT6OBlQGEIV4R9PKozjJ8sIJwf4kgn1HttCkGkh4NUvTcxQUwCf3tvq08ePF/+HJikyoxipaakkJ2JDkqjcGmuW2xkz4z5a17rClOTtKf2/dUOhYFDfIJLoiIqaerY7L1f6getwIQNwel7PFCsduuGHs6MnqeO9QkO8wetKF4Cg62VzqbUzEtcVbOpxssWPRCnsS1bqi8++7tE5bkOuDTk+cZMhSzmip969PsL2dxggUDEJlm540NyIuEsIaa8iwJw334bviLtSHiitdEw4eybkJIESuGt5ca9BcZkPk1JVRw+4C4Eh+AbHLztreprF4/MaN7fBa2Gz6N7fFRCHPG1lND1muW6kKiVVUnfttnCHkVCvZL87J4JamO3uTVxUj7ykVLveYkkmLXbs4ELSvDynZC5l2jkOtin0RXARQNrB+RH+jA3wmjh0lIz2T9e8grEK/IaRRobNHqQdGbkQjE/xzpatVpzHCD9XB7ESvsO1XcGcE8bbkIJTvGKmaJAt6idbZ6En53HM5AS7DV2IpSDWZm13HoT56aOXDtC1Ybnubyu/rOfEMlr92XAtKwQgf3tvMH9xOedov5oT+Gv6fumkVO+AcUFc9vh4MdhUoa0ze9E2NbgXpOM2s+KGjUyB7Sp0Wd45dLp9U7izhOx3Y=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b2h2MG5jOURQeEZ5L2pDWlpzdUF3cEYxQWtUUkZCa015YmVkMUtRRG1lZVNF?=
- =?utf-8?B?aGRaZCtEOW54YytJOG01WFQwQ2pMeGF5dkdnS1ZhMDNLWE1nNWJteEFrVkpu?=
- =?utf-8?B?MzdYYlVrTnVRb0ZEZmhMU3NLd3FQSkt1aVN2d2gxbnRRZVhkZXJ6T3hxSmth?=
- =?utf-8?B?Ymh5Q1p3Wks0YlM5T2lqMkFNQ0dld1hQSjFMd0x4T3BPczc5dEYzcFZocUlk?=
- =?utf-8?B?Y3A4NEt5cWtjY3ZGUW0wY3ZIZW5ZNUdEbnpVWkZ2ZGN6V1dXMW40eDB1N09B?=
- =?utf-8?B?S2l0Q2VLWmxvUEtjWC9Ga0x2dnlVSlQ5SWdWU1FzU1BuTzhTby91VHVOSVJF?=
- =?utf-8?B?OVV6UWdYT01HSzVPQmQ5WVA4aitPVXQzZVc2L0g2QzVpWWo4OTQ3U2lma2Zk?=
- =?utf-8?B?KzlwS09SZnNVWVBxS1cveTZ0ektYWlFoOWhocFRJNDRsUXJhaVNxRm92S3pl?=
- =?utf-8?B?ZjIvc2p3d0pzdTgvMmJFZmRhS2tDWWE2d2RWaWZmaTV0Q1M3eWF4MFFVb1Q2?=
- =?utf-8?B?bGRQUTA3bjUyUmlnRVRrRUlTZ0tPaUlrTGRaNlJXWExXZUdaTnlOakxxY0hU?=
- =?utf-8?B?N1A1eWRscysxRjdtRENBYXVZUUMxNkJQd0ttMTVEVG5DNmFReS9WWVBwTmx3?=
- =?utf-8?B?QmtUYjhBUWhINmEvMHlDNlJzZ3crZ0JLTEZNdjFyeVJzSTg0OEpQbU50WXBI?=
- =?utf-8?B?VW5KZE5aR2hFTStHaGF2Zm1kU0RqVERBNlFxRUJxdFRvV2VEZDBpVWJZTmwx?=
- =?utf-8?B?UEhKa2JESldkTG96andDbEpocCtZeWNtVTJEUnQwbGZqeHBvWFpIK0xFQ2JQ?=
- =?utf-8?B?MkdGN2VsbU5MTnFoejNOTVY5aE1XYVdIVmx4QUttbGlFYlJBcWh0SWdTbXdD?=
- =?utf-8?B?MEVrbVNIaTNheVV6L2dHVmYyVjlObVllZE1vdVdOYXR2bHc2YTE2VmJkNW9l?=
- =?utf-8?B?d0JBQ3RadjBUa3lCRFZsdXNPVXhkV3lwNlRvVWRjT3VhcmhVcFNVbGRJSVZT?=
- =?utf-8?B?Y1FmTytKNXZGS2ZhSmdIMUwyTERlUGdHeE1OYU1RMjd4SjZvWFZMMDRoYzRs?=
- =?utf-8?B?d3Z5L0ZZUnMvNnU5M1luZjJEMWI4Uk5vY0FINDBzdlRmL1g3UDVnRVczUnF2?=
- =?utf-8?B?NHlSeThtN2lZcHlnbHplUU50TUowNWFBbVhYTkxjR2ZRbUVHUTFhZTVxSlpM?=
- =?utf-8?B?b0YvRXp4eHlLUXBiOW1QUklISTVETHBqaEF3d2pscmRnaGpFMEREM3V6RDNy?=
- =?utf-8?B?NU52M1lDazArN1JuS1daR1pxejJLWDRaTlBsa09XR041SXJtc0lCdnZxTnAx?=
- =?utf-8?B?T2VnWFpjK2JQMEFvR3UvZGtRTSs5NVhRMGN0eDZZdjErOW41a2tPbnUwenZq?=
- =?utf-8?B?MHNlVHdtWkNoNFlrMTlNcTQrQUFJOXBsajdoOHJZVnFGRVhhVTZQbmJrdGp4?=
- =?utf-8?B?RVYxM3dLb3FuczI2RkFlQ1Q5RG0yeUMveXZGd0l5RHdMVGgycStVYUtraW5N?=
- =?utf-8?B?bmNxdER5WXI1MUZlNFJPNENiOHlpNlJBb3h4ZFh3R0lYYlRlSlBJODB5OU43?=
- =?utf-8?B?Z1dKMEZ0aEdsdFBldXQ5Y0xuTWhMbXdybkxFT1RqcGtWSFRXUGVzNTR1Rit0?=
- =?utf-8?B?T2QwYXRPNm9GVkx6U21NcDBCY3lsZ04rMnNGNzZlczlyM1hGQWtyQ0Fhb01o?=
- =?utf-8?B?L09LLzkvbUF4Mm5UbWErSjhpMzBaSll1KzhXNERVSER0TVRWbzliOXJZY2JN?=
- =?utf-8?B?bEp1NDJkN2JIYW1iS1FoNVJKODJjRkZJZytSenNLRkp5ZlR6Z1lFeUQ5eERu?=
- =?utf-8?B?RG5DVUsxbldtTUxJb2R0Qkx4RWVmY1ZQYURYcldKK2dmV090ekE5RmFXc1VJ?=
- =?utf-8?B?WEVzdUpDYjhVQS8ydG1wcHJQOFhEVFhFY3pxS0Rid2xEVzJyVEttMFFTYmkr?=
- =?utf-8?B?Qkg2YWxQQ2FVRkpvWFJWVUxmOG42d09PQ3B1clB0eGhBRGdBbHpIR1NXOEM3?=
- =?utf-8?B?TVlRRkdQWk12OXBlb1RpZzdzTWdaOGtuaEJLQnVQdHM5K0tnZ05zTXZHOUpG?=
- =?utf-8?B?Z0tyQ1ZSbHkzZEpDQTEzbXlIcHFBWjFtbjVqMmlLRkZKVjJqSnV6enpYOFlX?=
- =?utf-8?B?N2hrWk1NdHF3cHVpakpFeVIxZEwwbnAzam55YlpscjZIZ1RtZXE5NWZjbDVJ?=
- =?utf-8?B?cTNSU2x2U1Z4SVBYYktGUy9NcytnK0lkQ3FUVmFCK0xqLzdrNWE3UkNNTkdu?=
- =?utf-8?B?Y1lzNjhBOHgzZENnaHM3dEJ2dXFURGRibVFsam9hUk02YzgrNDdEQSt5SjB1?=
- =?utf-8?B?QnhsSGZ0Ump5clV6a2QrdGU2TTVSQkNVcWVpZmJlU0RyVWFGVE54dz09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bc5e6811-8801-45f7-5e4e-08de7b9a7ad1
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 16:07:35.2295
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9gyrutyBFAa/QNB8vs298YlGTes/2OIGuOMmAWlW7XRlgCkY0QIr+ljPNtEt2g6SY8NpRYZa/1yxEIDsW/wgQA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11822
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260306-pwm_fixes-v1-1-e8ede6fbaf47@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_080742_396904_EE4FFE7C 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20260306_081305_517648_629239E6 
+X-CRM114-Status: GOOD (  19.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,29 +101,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 20 Feb 2026 15:30:01 +0100, Max Merchel wrote:
-> This series contains modifications for using Linux device trees
-> in bootloaders. Changes from U-Boot bootloader are incorporated
-> directly into the Linux device trees.
+On Fri, Mar 06, 2026 at 02:44:31PM +0800, Billy Tsai wrote:
+> Ensure proper association of driver data by setting and retrieving
+> the platform device's driver data during probe and remove.
 > 
-> Changes in v2:
-> Improved commit messages for commits that add boot-phase properties.
+> Fixes: 7e1449cd15d1 ("hwmon: (aspeed-g6-pwm-tacho): Support for ASPEED g6 PWM/Fan tach")
+> Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
+> ---
+>  drivers/hwmon/aspeed-g6-pwm-tach.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 > 
-> [...]
+> diff --git a/drivers/hwmon/aspeed-g6-pwm-tach.c b/drivers/hwmon/aspeed-g6-pwm-tach.c
+> index 44e1ecba205d..0c03d272279a 100644
+> --- a/drivers/hwmon/aspeed-g6-pwm-tach.c
+> +++ b/drivers/hwmon/aspeed-g6-pwm-tach.c
+> @@ -490,6 +490,7 @@ static int aspeed_pwm_tach_probe(struct platform_device *pdev)
+>  	if (IS_ERR(chip))
+>  		return PTR_ERR(chip);
+>  
+> +	platform_set_drvdata(pdev, chip);
+>  	pwmchip_set_drvdata(chip, priv);
+>  	chip->ops = &aspeed_pwm_ops;
+>  
+> @@ -519,7 +520,8 @@ static int aspeed_pwm_tach_probe(struct platform_device *pdev)
+>  
+>  static void aspeed_pwm_tach_remove(struct platform_device *pdev)
+>  {
+> -	struct aspeed_pwm_tach_data *priv = platform_get_drvdata(pdev);
+> +	struct pwm_chip *chip = platform_get_drvdata(pdev);
+> +	struct aspeed_pwm_tach_data *priv = aspeed_pwm_chip_to_data(chip);
+>  
+>  	reset_control_assert(priv->reset);
 
-Applied, thanks!
+AI review has the same (and more) concerns. Here is what it has to say:
 
-[1/4] ARM: dts: imx6qdl-tqma6: add missing labels
-      commit: 1153d2e24eb466c73bc12eeaa6045781d8c32b72
-[2/4] ARM: dts: imx6qdl: add boot phase properties
-      commit: 60d7f4ad760bd6803756e2ef4bfe3d716de8a2bd
-[3/4] ARM: dts: imx6qdl-tqma6: add boot phase properties
-      commit: 3ff92e7fbbaeab51dd54b22774353ede11ef4b72
-[4/4] ARM: dts: imx6qdl-mba6: add boot phase properties
-      commit: 8ef9e4c3306a22ab760d9c8f5514c6f315091f6e
+Does asserting the reset here place the hardware into reset while the sysfs
+interfaces are still active?
 
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+Since probe uses devm_pwmchip_add() and
+devm_hwmon_device_register_with_info(), those devices are unregistered
+during devres cleanup, which happens after this remove function returns. If
+userspace accesses the devices before devres cleanup finishes, it could
+access an IP block that is in reset and cause a system hang.
+
+Also, since probe already registers a devres action
+(devm_add_action_or_reset()) to call aspeed_pwm_tach_reset_assert(),
+this explicit assert appears to be redundant. Can the remove function be
+dropped entirely?
+
+This isn't a bug, but probe calls of_platform_populate() without a
+corresponding of_platform_depopulate(). Using
+devm_of_platform_populate() in probe would fix the leak and allow
+deleting this remove function.
+
+I think all those points are valid.
+
+Thanks,
+Guenter
 
