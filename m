@@ -4,90 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31CDDF513EE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 02:52:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E5DF513EE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 02:52:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZEnB/hiv2/rKoS+M+yUbl2/5GxTIZHy/Mw1vnmK96nU=; b=i5sYaA522rJXYWRve/HfjnbD8D
-	8r9opWrm5otOMGNwTFAXWLtqb/HPKsx/twjo1LDU9MMtrAYWW67q8rIuIaAuWo6Tfng7n4oh6axrt
-	lqa0wP8qI+djSuLqW+3r/qRH3o6hTbIPwNooq6FekaI031yMTNa7oJay7kJvkmxloM1UYUK4kFe4w
-	Bd88l82QIqo70UDNGTYoMqay8cfpCPFjECsk5zZT2pJ9JNvz4corEheQHpYtL15o/MuveJ0DM2luz
-	DSoRhrubUIcF46P2toS1HXt9YKPfEGshOqpiNNBK4gTVo2+Jrk6pyr+VLiYCMDlqIfhKDN7zfzd0E
-	9EprKYxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HnuQL4Bt41sQZh+O3TYYEI4uzbfWPzeMvfFbMsHra9Q=; b=kkgTdFh6/hIW+jxLOSAAX14Zy0
+	hbpV1fmNrsZCLjMu0h2i5g/bJD4fGNpqyHgl19dYc4FSztdsLSg74G65zaOx/yXQGZSXsPAHP8n1m
+	K6z74kkqRY9TBMKFgA6ADBXb2Rx/a9TGWnPXkT+XBSLnnsf9Hyqb2+Kslfsh7xK3huR5ndidd4Nwe
+	+O0uc4HMB0JGwr51ZKIZ2RXp7YVMwB6t+0Qhy38FcYdP3PKeYguUPszBwb/kvcnf3MhCJm6B5XXEm
+	rqiTXK80feUdkYq/VJycesWHd4e6g2w9YiTCzlxHK0vKzjDN0yGlJncL9OzgCkpz+sC+hzfF3W8fA
+	qlekVqKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyLIx-00000002uut-0H4x;
-	Fri, 06 Mar 2026 02:52:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vyLJ8-00000002ux0-07dP;
+	Fri, 06 Mar 2026 02:52:54 +0000
+Received: from mail-norwayeastazon11013032.outbound.protection.outlook.com ([40.107.159.32] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyLIv-00000002uuj-32u8;
-	Fri, 06 Mar 2026 02:52:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7A6F3600B0;
-	Fri,  6 Mar 2026 02:52:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99677C116C6;
-	Fri,  6 Mar 2026 02:52:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772765560;
-	bh=59Brc3xI7MFaiXfr+R/dXuomEGyJC2J+vM/pJ/BSte8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=RJUaAkiLxDd++c9sKrZnqEjNkKjdzz59SAy9wTUS1ke/qS9IR+iEnm9Z/8NB6RYYS
-	 G4cBNUSwM/FjCfDVijoXBZeTdM6XI5OEt/qpfFy85VNsIy9YabGSW8YMCuVvrmQBvP
-	 vh50wIestjE8G3UWXVt3B13MTpR5ZR+lk8NDl6u/HeetyPp1HbmueZyG101OrPjk6x
-	 riwbXU+4Q+LcUWQq9YgabkBvYTwNF3AiDSPS6qR1+Nuclfz1G7gGt1TlnUNeEi4bWf
-	 COpVWmyM6Wa0LRo2zZbmdhFIWpw7mUNtvPmGI+oGg83DDdnQ/O+37pYUXtM2RpFyqG
-	 lf7jy2ZxDTxEQ==
-From: Jakub Kicinski <kuba@kernel.org>
-To: inochiama@gmail.com
-Cc: Jakub Kicinski <kuba@kernel.org>,
-	davem@davemloft.net,
-	dlan@kernel.org,
-	palmer@dabbelt.com,
-	me@ziyao.cc,
-	boon.khai.ng@altera.com,
-	linux-riscv@lists.infradead.org,
-	edumazet@google.com,
-	joabreu@synopsys.com,
-	pjw@kernel.org,
-	weishangjuan@eswincomputing.com,
-	andrew+netdev@lunn.ch,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	siyanteng@cqsoftware.com.cn,
-	richardcochran@gmail.com,
-	looong.bin@gmail.com,
-	quentin.schulz@cherry.de,
-	alex@ghiti.fr,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	dlan@gentoo.org,
-	alexandre.torgue@foss.st.com,
-	conor+dt@kernel.org,
-	netdev@vger.kernel.org,
-	aou@eecs.berkeley.edu,
-	rmk+kernel@armlinux.org.uk,
-	linux-arm-kernel@lists.infradead.org,
-	vladimir.oltean@nxp.com,
-	mcoquelin.stm32@gmail.com,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	peppe.cavallaro@st.com,
-	devicetree@vger.kernel.org,
-	pabeni@redhat.com,
-	linux-stm32@st-md-mailman.stormreply.com,
-	wens@kernel.org,
-	maxime.chevallier@bootlin.com
-Subject: Re: [net-next,v7,3/3] net: stmmac: Add glue layer for Spacemit K3 SoC
-Date: Thu,  5 Mar 2026 18:52:37 -0800
-Message-ID: <20260306025237.580075-1-kuba@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260304080721.1658224-4-inochiama@gmail.com>
-References: <20260304080721.1658224-4-inochiama@gmail.com>
-MIME-Version: 1.0
+	id 1vyLJ5-00000002uwL-3OIq
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Mar 2026 02:52:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MuiyIOrXUhqwMAu8Iw6/B6/KeZqi7CSt1mvLUEwAcBZFVsfT6JMqNrNNSDqb/wj9hjYFtV56Jrt5eGFwGB76Vdn0N3mUI3S05vIwJR7p2aTXat2Bz2UZFSdacWB9ClTcUkGfHBbUaRjPtDA57u7MgJPzD8Ch8wxg/JoQrtG9BoKIThyE7gkrIdYpV7S5dHzhUhYHTMwcXJjEChmVJ7QyfjE13AlFIn7qd+yxyrW6VGi+LGAnJdyOn1OkfBEpUBrhmskAfM7c69+2+oxGHmMIZ+jGNRyJnkdT8GixpmwiPXe/CQ+IxwtWc498NKTSH5aabgTObj7ohuEz1GurbqeoBQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HnuQL4Bt41sQZh+O3TYYEI4uzbfWPzeMvfFbMsHra9Q=;
+ b=k2XYr31vZd4PhIcZrPn6l1wqfxleWaSimrATBBBAK7kahR37CuzQvbDUPTv9nzskChE83ge3Vs6BfH74+sHFoVWQOcDiJdhcTdAXgvoMQ8STLtpe6zR3gIIZdxWb7tw0vwR8FWUWpNdiEvhNV9OdovVKnwB0WaC31JMqm1NP0P35rAmdMnKPTC6r16ciye2WLnbVRDoxFRv2lturheK2o7V1GCRw+Yv11DZ7H/Z+/bMcKjGybaAzhbdQWifF/XP28JzQqD93ewkOfNgFrJdd9tyopwK6sNJRdwb+BhAm6gozEZ/Z+TJ5cOVTv2L+twN5EOV01MQH4sm9Bp//kmLq7g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HnuQL4Bt41sQZh+O3TYYEI4uzbfWPzeMvfFbMsHra9Q=;
+ b=wwyZ2As5PYTYh3Vznj/7Pg7MfylH3UU3bKpobcCWW3jq/egdYxrNjqCSyV07/ZNFbyV/lwol0mXYikPtD0i1nr3tcewuE6FnbwCuscN5Sn+N2/S4ol+zGyxBXCkZlGB9Dzp0+8Do4zfQw7/Gnkozna+6OxDw/jWEbmjUOPe+2ICl3/HByDGVrHAxohw7fJvM7KaYFvn5HKuxOvgaU0XTvyM7kiTuUMp2T3KdObk67hduUSQ8mQo67TQHmowfRrS2D2bE0wi5PYfDUuWruCagw8gwnvPAspg6WSOBkHQ/9QgiRq6Dbe2+gc1I7rO3DZAjt07YLkzpTX8gawjxfMShSA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
+ by DB9PR04MB8137.eurprd04.prod.outlook.com (2603:10a6:10:244::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.17; Fri, 6 Mar
+ 2026 02:52:46 +0000
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::20db:4017:28ea:911b]) by PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::20db:4017:28ea:911b%4]) with mapi id 15.20.9678.017; Fri, 6 Mar 2026
+ 02:52:46 +0000
+Message-ID: <fa15db89-9bc9-4ce1-89bc-6c56e29725c3@oss.nxp.com>
+Date: Fri, 6 Mar 2026 10:52:33 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] media: verisilicon: Fix kernel panic due to
+ __initconst misuse
+To: Fabio Estevam <festevam@gmail.com>
+Cc: linux-media@vger.kernel.org, mchehab@kernel.org,
+ hverkuil-cisco@xs4all.nl, nicolas@ndufresne.ca,
+ benjamin.gaignard@collabora.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, p.zabel@pengutronix.de, sebastian.fricke@collabora.com,
+ shawnguo@kernel.org, ulf.hansson@linaro.org, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, m.felsch@pengutronix.de, fra.schnyder@gmail.com,
+ linux-imx@nxp.com, l.stach@pengutronix.de, Frank.li@nxp.com,
+ peng.fan@nxp.com, eagle.zhou@nxp.com, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260306022406.760-1-ming.qian@oss.nxp.com>
+ <CAOMZO5BP2aLD+a1r7hVd3F4Qvfovxb8PgQfzcVRKknBHWYBmtg@mail.gmail.com>
+ <61e260e0-4544-4c51-99bf-c4815367fa94@oss.nxp.com>
+ <CAOMZO5AYRWBykSdvogO0Ea6JidjgY_h5drnBpcDNFrU_oo_L2Q@mail.gmail.com>
+From: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
+In-Reply-To: <CAOMZO5AYRWBykSdvogO0Ea6JidjgY_h5drnBpcDNFrU_oo_L2Q@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SI2PR02CA0036.apcprd02.prod.outlook.com
+ (2603:1096:4:195::15) To PAXPR04MB8254.eurprd04.prod.outlook.com
+ (2603:10a6:102:1cd::24)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|DB9PR04MB8137:EE_
+X-MS-Office365-Filtering-Correlation-Id: 395ada87-ce98-4505-e731-08de7b2b71ea
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|7416014|376014;
+X-Microsoft-Antispam-Message-Info: 5g0Or5CSCpxVSP0jZU/6ejclR3M+kI9fh7iDbSimwAqm/+khCfR8tGybtMK683j/x4tKAvdEvlC1PCL4tCWYFiTd4n9jQ89k5HLhwWSu815coW+s5nitb/NWvfyiuwCDJvWbQ8f8KHtFW+czQDENqp7mXbU/vtYyIcaPZPGFqmmZ9bYgPBMMswBL3UMLIttUslipciUdhvbdzayHVYHq2VKUMLcMPRUv60bgHf5SHVQ0+umgNc2DXwtbqwUNX+BY4zmNfPxtPlH1pCFxJ2cQEKbHPZI/lSyNBBdhZGHmIl27rSYgIT/SGgRwTt3u4xRk18GT+zCepuoF3Zxy//TY/QFvDd67V4itc0wURfS0Zvv7/rk1m3mu/P+jSRrdSZA3JieL03gA+1oJEYZ830d8CoY/gtQccx5ndkALYWxnQzEBOL1N21hs7lQ6f8mx6tw6hIXwNfFze7J/EPHBzJCSWZBICWpb/aMZ/6mhtCUhFKBJydiA+AtHCHbrEOA7OdxC853ngTCCJXqkiDZ3owl/Lli1XD0fWbeCpgFJwSwkhxlD8XKjelNVSFofChWzPrOn2SA/vKpbsC4IBnZ4DDwOHVhtBsRNJv5ALFk+pUkycJPFXjbnDkwavN5wUO9iUuj+yBt/DMXAZTGoo2TvMY8Qi6h47bI6khf6Z1MhAqS9e4wg0sq3ZgXcXjVK+Ipg4qCpxHgAjZMdf/QA0/9dpl089VCFe5a+XIYjRm7oPEmL9Ps=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eFVnVVVDa1VhQ1NLY1JsaWc1VkhpUnZGeHdhbzRpZGRMcEhMd1A1NEI4eTFx?=
+ =?utf-8?B?d2pqcWRQSndVbmdkWnVWUVFPUHpxWHdkR1RyVkQrWndvLytlWTR4UTRMTWhX?=
+ =?utf-8?B?MUg4MWFnZ2FuUUp2enRYN2kzQmFxRTR1L3luS1FCMGFkTUJKQ1MrK2hqQXhJ?=
+ =?utf-8?B?a1BNU05XZFQ0a0huVEhxeFM1ODkzSHBKSWNkUldQK1pHa2RZM3hrN0hiSkN1?=
+ =?utf-8?B?Vm5FQVpNUGRYSTFvcTVzTXVhd0g4cXhxOFhqK2NYaWYxOTVOZFBXaWZmQTFq?=
+ =?utf-8?B?c1pLdFViOG1WS2o5cjdHNmZYY0FIcjd0L09MR3NUdzRDbGw3bUNiNmpZLzgw?=
+ =?utf-8?B?V0pDZFJzN0kzQllSb0c3b21iVFZpaDNab0ZpdVF6MG5KT2xMZ2QzeW5Wc2Rl?=
+ =?utf-8?B?RDJBSlIvVWQyMGZnVmZCQldqSUVyazE0eW9iaVVUSkhYY1FuMWxQZTB6R2wy?=
+ =?utf-8?B?Rlg1L3NEb0Zoc3RGcko5amxCQTlydTBQMlEzOEYya0kxVmxqajZ2bW5BNS9Q?=
+ =?utf-8?B?Z2M2bitVOXhZUURzQnJVNU9uckt4NXhjZzlhek5qNkZabFJMY2x6UHhsazFS?=
+ =?utf-8?B?emNaV3NnbHNNV2VnZmNESVcyazVKMDZmYXBGTjZGaE5HZ0pTLzk1RXJoMmdL?=
+ =?utf-8?B?ZjZqYmxjdWovakFaWWRFUEVldks4L0hNMzJ2UHlzYzFLZXN5Y0pGN3g5eWln?=
+ =?utf-8?B?WEJGaWdLejR5NXpwQWRnbEZPS3RkbHYvRVAxQno0eHFwSjhxOWFGMkFYbHlL?=
+ =?utf-8?B?T3RPeDV3RFl1S3FDUFFKUFJCOWFGSmRmQXZBRGhTT3lnbHRpUEhsOFRVcVlu?=
+ =?utf-8?B?NVNOSEVyM1U2UzZSaXJoNGdNRGFwQTV6OE5IUVJib2w5c0t2MFBWcytyVjlC?=
+ =?utf-8?B?VThIeXNpWXM3Z1RhVmhmTUdvaFZVWnQyWEZZWWdaMkwxQlVVQnBZM2hUVC93?=
+ =?utf-8?B?UFAyMDJRdDQwbzJGa08zN1dXRXFaUU9aZmdaNzREUk56RTZyaWplWi91WmVX?=
+ =?utf-8?B?eVlZdWdWN0xWdDl5WVhiWDVXOVpVc1dwdWZRcTVDUXFlVUJEZ2NJZlEwZXh5?=
+ =?utf-8?B?K0ErUXZqcE9sRWhqNFloL05aWk5kZCtTbU5LN2pUelhBZjJYK1RVUk9kMXRo?=
+ =?utf-8?B?RFlCanVhQStsNkFlRmpIRlNEeVgrNGpsRG5TeU5KYkI5ZnlYWVZCcGFYczRo?=
+ =?utf-8?B?TE1TanVHZmtQR2MwMjdBaWdObEhqYWVza3JQRkRJOWxFSElwc1l5QlBaeWdJ?=
+ =?utf-8?B?cUNxTWRFLzdaVmMrK1o0bzlWK2J5RDNURVVSYW5QTXd5OTd5RXY1Tzc1MmN6?=
+ =?utf-8?B?SU5ZU2JLTDIzallCU1FtVnNUUHJlU0orWkhoS1BOandlaG83eWxGT21lVUgy?=
+ =?utf-8?B?VTlpYnBzNVNaS0Zzejcya1BSdkUyU280Z3dueDRGV2hLQ3lRM1RnQmdNWlNl?=
+ =?utf-8?B?dFBiUDNXWVA4Sk9DK2xkZHJEd2E4L25pU1NiZE1jcFE3b204eVdRS3ptY3ZH?=
+ =?utf-8?B?cHBMTmh3cW5TWnV2N05NSjhFZWR2SXBCdTVneUF5UW5mUkJMUGNxekVCWDhD?=
+ =?utf-8?B?alhtbEYrZzYzKys1OVhENWtpNHBqTFFxNE1yVUljMWhFVzZZQ1cwb0hPQ25p?=
+ =?utf-8?B?eEo0V0piYXh5c0VuWC9PLyt0Z1NGb0I1ZmtvOXEyTEtCK2ZyNFRPQ2dYbE9r?=
+ =?utf-8?B?ODRMZmRGQWJqaktmazBGVjcvL2QwbEkvenRmOEJWVEFVNkJCTDE4MnNtL21q?=
+ =?utf-8?B?OWN1STB1bFdLWVp0QUxSU3N4dmFuMmxtRHFaQkpaNzRLM2xRY3d2RXdzT1o3?=
+ =?utf-8?B?V2lhWGpRUkRIN0ZRbTNWeFpuKzA0c2lFVEhtWVZPUVRwZWJSQkF1eDltclRr?=
+ =?utf-8?B?UEp2OHpGeEE1aVpacnFlTW1wajlZcGZ3bHdLR1loNXg3ZnVlUzB6TTRkMThY?=
+ =?utf-8?B?TzA3TERQek5XMDZoQXk2Z1dzQUIwd0l5eVBRMFJQR3JNT0tzcVBBditaWXF2?=
+ =?utf-8?B?VmZlNjFWNW12Ukh5aHFqN1FuQkg2Nk92enJqT2hRcm9CckRoMFNlMWducWww?=
+ =?utf-8?B?Tmp2eFdqSndNWlc0d2tJR1VXOTVMeTVBOXhDVVowUSthOTVUZWYwSVFpNDhz?=
+ =?utf-8?B?OHVOenZzYzR1eWdCdlpyRXE0T3dwRS9kYVhiSXAxUmpVRVcwbFRnWUhrMjRC?=
+ =?utf-8?B?TEtwNWRRbE4vYm1PMFk1ZnNIOE1MR1BRb1lRamV1QnRXanVqQzI4dWIzWi9G?=
+ =?utf-8?B?WDNZMnh1ZFFWM3Z3dTU2WkZSMzBMNFJVWFJFWTBpVW0ySVE1MXV0Tm13dkRF?=
+ =?utf-8?B?dmFPcysxNXhqekZjRkpsV3ozTTgrZXNpOTdZSUlFSXpjNWcxd0ljZz09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 395ada87-ce98-4505-e731-08de7b2b71ea
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 02:52:46.4960
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: w1xs9ZHeWQkfCO1TOVFLL/ixwuGbvb5Kpn1UHGu5vgUCvntKiWhfLvQTkL36WdP4aprcERRLRyhPT9X2sTvi1g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8137
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260305_185251_850898_46B5567C 
+X-CRM114-Status: UNSURE (   8.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,85 +160,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
+Hi Fabio,
 
-For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
----
-net: stmmac: Add glue layer for Spacemit K3 SoC
+On 3/6/2026 10:50 AM, Fabio Estevam wrote:
+> On Thu, Mar 5, 2026 at 11:47 PM Ming Qian(OSS) <ming.qian@oss.nxp.com> wrote:
+> 
+>>> Drop this change. It is unrelated.
+>>
+>> But without this, the checkpatch.pl will report error:
+> 
+> Please do this in a separate patch.
+> 
+> The goal of this one is to fix the kernel panic. Don't mix other
+> changes with it.
 
-The ethernet controller on Spacemit K3 SoC is Synopsys DesignWare
-MAC (version 5.40a), with the following special points:
-1. The rate of the tx clock line is auto changed when the mac speed
-   rate is changed, and no need for changing the input tx clock.
-2. This controller require a extra syscon device to configure the
-   interface type, enable wake up interrupt and delay configuration
-   if needed.
+OK, will do in v4
 
-Add Spacemit dwmac driver support on the Spacemit K3 SoC.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
-> new file mode 100644
-> index 000000000000..22aa25a7417b
-> --- /dev/null
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
-> @@ -0,0 +1,228 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * Spacemit DWMAC platform driver
-> + *
-> + * Copyright (C) 2026 Inochi Amaoto <inochiama@gmail.com>
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/math.h>
-> +#include <linux/mod_devicetable.h>
-> +#include <linux/module.h>
-> +#include <linux/mfd/syscon.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/property.h>
-> +#include <linux/regmap.h>
-> +
-> +#include "stmmac_platform.h"
-
-[ ... ]
-
-> +struct spacmit_dwmac {
-> +	struct regmap *apmu;
-> +	unsigned int ctrl_offset;
-> +	unsigned int dline_offset;
-> +};
-
-This isn't a bug, but the struct name is 'spacmit_dwmac' (missing 'e'),
-while the driver filename is 'dwmac-spacemit.c' and all function names use
-'spacemit_*' (e.g., spacemit_dwmac_probe, spacemit_dwmac_set_delay). Should
-the struct be named 'spacemit_dwmac' for consistency?
-
-[ ... ]
-
-> +static int spacemit_dwmac_fix_delay(struct spacmit_dwmac *dwmac,
-> +				    struct plat_stmmacenet_data *plat_dat,
-> +				    unsigned int tx_delay,
-> +				    unsigned int rx_delay)
-> +{
-> +	int rx_code;
-> +	int tx_code;
-> +
-> +	rx_code = spacemit_dwmac_detected_delay_value(rx_delay);
-> +	if (rx_code < 0)
-> +		return rx_code;
-> +
-> +	tx_code = spacemit_dwmac_detected_delay_value(tx_delay);
-> +	if (tx_code < 0)
-> +		return tx_code;
-> +
-> +	return spacemit_dwmac_set_delay(dwmac, tx_code, rx_code);
-> +}
-
-The 'plat_dat' parameter appears to be unused in spacemit_dwmac_fix_delay().
-The function only uses 'dwmac', 'tx_delay', and 'rx_delay'. Is this
-parameter needed?
-
-[ ... ]
 
