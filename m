@@ -4,95 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CF2FF01829
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 11:25:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EFCFF01828
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 11:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/mMT+D07w7rqjOY120b1nVktQhIrW6vGfucleX/0LgI=; b=Bt4kdRpifZooHDhrSKacl7tN9V
-	j/AlUs6lJIBBqYhhA6RsqZlCbt30n3ipjxiGAUHxygpR5OQkG7vPyOp+z1YFeyFABtjpvBkYuyZG4
-	4SCjZQ2IPTW1tBh+PzTdss0iYOnSpG9gK7HKBLrdglWBwOEq25wUrU5l/V4EDYCEy6k1aCd3CDh1z
-	AVVD5+jY6belz7c6CSZOTwY17EmBLCPSTxeXffD0OkkGIGbK9caE9UJFa5stenTuhtAJ3akDbjo1t
-	qiMD9cWNKzp3BZSPaFhR45yzw2IrGogOAYLncKcJ4ytve/4/HT/eeY4ACYI8Mc9TpN+bmx7I5JdeE
-	KnoAnx/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H4j4+q4eg1DQ8S+6+MlfSRMzb8mYN62U7bLHqrIqMUA=; b=XE00tjZvh5t0nH41cZXS9cUIg2
+	f5PpLXxkfb1jSY6hh8OQWUYf7lyWFODFYBfHapxmUq4OIhkfQgXGxZdTRMKMWK9LFOBU+09BnXylb
+	DsTvDwR0Lu+l8mtivdYRueUN5OkRRPnyczavCZ5bWaCuMhQA7TgJ3UFUpQiNpVzCwqN8RUzQnEOT9
+	+EkVSMXHPGm6QzZx/PG1VoalQAWHqL38yb+3TX9NsvNAWvYDqYObynot8hcnr2Ot4npGp/LMEhCA6
+	9cXNCy/juNPUEvzogLRmUCOq/dhBIOgCcnidGO3QleKo+7Gz1oKPZEiMkcSYoU5QYSIBImzG2faod
+	5MVVG/3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyTIl-00000003Ys1-1yTO;
-	Fri, 06 Mar 2026 11:25:03 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1vyTN7-00000003ZIK-2BUy;
+	Fri, 06 Mar 2026 11:29:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyTIi-00000003Ypu-1jMy
+	id 1vyTN5-00000003ZHd-0HwS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 11:25:01 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4837634de51so39581695e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 03:24:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1772796299; x=1773401099; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/mMT+D07w7rqjOY120b1nVktQhIrW6vGfucleX/0LgI=;
-        b=e7EGPD6wHGMSTOy60Pu/thDkRg7zVVBVKY7f8SMPMqLQM3GP79/3V2A6zgylw9VcO1
-         YPIfxSGKXEOVuWMM5D+QrJ64sjvu7UGJ2Ygv3NZbb6jZLJHBpuleb+7F9cJGK2oLs5/P
-         yNl1n41hXMl1HGQg96L2ZoQyZhMBALcyutzO6yUkXi5j9GavPy36YQfRjEM09XbgZyxi
-         HqN31ZipjcL8F5/hZTHXpogRsA+EFdTW2Llvi5O/eH80/ngNS1obJtHvkmQHcu/e5xxF
-         4KlM7x8X9RxhleSqsFRK/E8cZDLJbhS5g1p+F+6DIKUCpbj4iSeoe/9fbNoYxvcToCuM
-         9dBA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772796299; x=1773401099;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=/mMT+D07w7rqjOY120b1nVktQhIrW6vGfucleX/0LgI=;
-        b=GHkEmgHVoY9B6939/Wi6nNgxdWgDTCj3ZeurBnWHRKa6ed/fYS22jUk7ssNaQj3Ksi
-         +NcFDwA699dmdLtjPWiPFUGL+OttHw5hxuCkLtFglKG6wYuKFyAwDBLA7TGcNmI7hKni
-         IViU7AQFV6kyw4TV7CM5alfYI1LEIncUOUPNqro6sAD31iRv/cq55IKRSV8TNTNNiVVR
-         bi1H3iVkX2Kh4SXzI4WRgVF+zvIbLbj0um8rlDCO+woShWWJ1TZWEGuaq3j4BaHMX142
-         gHNQy5EcuUC9fr6S5scH3YMyz+OC4TCP/Nf0aqRu0XpnBgdOGSHbFaZRCTD6jjtIXu72
-         yiTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV8QzUOsGYrKMMGd5HwBfdTYVpxDrJ7/Gt7HgFoVwbcUHbYO/jCyJTxMMb2zmXKr2vmp2boK1gf6WPEQZ9Df3IW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/jlKFY/EJXjSgVLJ8icUF5odLQpgJwn1cHcB1N7U3uLyX0j2H
-	WcZvqG5guVIhh58VwspxiTsbVQTwqvMxAE4RAXCzcg2dOUQ/Wobj3RRrnZN8h+ojdic=
-X-Gm-Gg: ATEYQzywFg1ufqeWpUepRx9l8+L+4v2ffh1SuJyUcooGZdMs3SfRxyGODLJefun3eEr
-	shG41spm+KB8SeBqYkIWTJJt+TW/gedbc+jjjaI9ICA+M4Lx37TCxvnv1/Dzn8WP7ZRSFDnoIVN
-	29ZtWfOL+Qp1dSbr1SZ70qjCKI8oY++KqeNBlmOBCCTLdcCMauYlhuoTu5qdwELexjdE4bL5Hao
-	BPF4jNQwsbF6cTQ+gUD80a8EJMsD1PwrZGrn9lqSTOD1NaYgCp6ss5F+pNfR9jcsufzzfWBKomp
-	959g2VdhAUjlnoH1JLwJRLUYkcgEjGguBwlE4GoePabce3flQ3kU2qrANVn+56r0PN6f588mj82
-	0Qss+LyzoW+tOfHtjhJxQUCyGEz2b4byN+i7DvFrxAfwGGL0sKKNjtqYPOCOqFl5hS9sLtmXDRq
-	d9gXZq4foZW9oMct/KRHrXsOzDv3KkJIyv
-X-Received: by 2002:a05:600c:a12:b0:477:6d96:b3c8 with SMTP id 5b1f17b1804b1-485269648fcmr24117915e9.23.1772796298595;
-        Fri, 06 Mar 2026 03:24:58 -0800 (PST)
-Received: from ho-tower-lan.lan ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48527681a3esm66542245e9.4.2026.03.06.03.24.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Mar 2026 03:24:58 -0800 (PST)
-From: James Clark <james.clark@linaro.org>
-Date: Fri, 06 Mar 2026 11:24:46 +0000
-Subject: [PATCH 2/2] tools: Sync coresight-pmu.h header
+	Fri, 06 Mar 2026 11:29:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E6D7B43B66;
+	Fri,  6 Mar 2026 11:29:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEE51C4CEF7;
+	Fri,  6 Mar 2026 11:29:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772796569;
+	bh=XryNqzJpAbwoPPJDceu+o/RMktCv0sL78kkwIFXfp2Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KqRr2BgDwmSvs5Hlh9XDngsdSc53G1yIc7aGX1uFjRRiZqnxwB1lRMQoq7QTxqesg
+	 JLfbnw7piKywWe9WtsSPASsCyxqBVPcdadgdgT3IM8ZM5CnX6N5rvkonx1QbasGG2s
+	 rOhRetD5OuGYkCOvvj+lWOYRVK7S6HfjiFhA0xcOZd9JPaT8sATuB85OOD8aiJnfRX
+	 y5ayFUc3Fe6Q8fXtNA6kFZrQTFk7fF/KAxeM4RQp7S34+xaBsSDpmKw6i5ncas/DuK
+	 yUG1/h2o/p2YUu+Yaxam0qqlC+uixpO1i7fkgLzVRc7uyVhZAefMsB+SrgcbquCpaD
+	 A65RtASmO4M2g==
+Date: Fri, 6 Mar 2026 11:29:18 +0000
+From: Lee Jones <lee@kernel.org>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Mark Brown <broonie@kernel.org>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
+	Boqun Feng <boqun@kernel.org>, Waiman Long <longman@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Orson Zhai <orsonzhai@gmail.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Antonio Borneo <antonio.borneo@foss.st.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	linux-remoteproc@vger.kernel.org, linux-doc@vger.kernel.org,
+	driver-core@lists.linux.dev, linux-iio@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, linux-spi@vger.kernel.org
+Subject: Re: [PATCH v3 15/15] hwspinlock/treewide: refactor consumer.h from
+ public header
+Message-ID: <20260306112918.GG183676@google.com>
+References: <20260303192600.7224-17-wsa+renesas@sang-engineering.com>
+ <20260303192600.7224-32-wsa+renesas@sang-engineering.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260306-james-perf-remove-etm_opt-v1-2-03c662380361@linaro.org>
-References: <20260306-james-perf-remove-etm_opt-v1-0-03c662380361@linaro.org>
-In-Reply-To: <20260306-james-perf-remove-etm_opt-v1-0-03c662380361@linaro.org>
-To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Leo Yan <leo.yan@linux.dev>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>
-Cc: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, coresight@lists.linaro.org, 
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>
-X-Mailer: b4 0.14.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260303192600.7224-32-wsa+renesas@sang-engineering.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_032500_476245_0946B482 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20260306_032931_153742_8E10CE9E 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,51 +103,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the header to pull in the changes from commit 3285c471d0c0
-("coresight: Remove misleading definitions").
+On Tue, 03 Mar 2026, Wolfram Sang wrote:
 
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- tools/include/linux/coresight-pmu.h | 24 ------------------------
- 1 file changed, 24 deletions(-)
+> Factor out the entries only needed for consumers from the generic public
+> header. This allows for a clean separation between providers and
+> consumers. Also remove contact field in favor of MAINTAINERS entries.
+> Fix the users, too.
+> 
+> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+> Acked-by: Mark Brown <broonie@kernel.org>
+> Acked-by: Jonathan Cameron <jonathan.cameron@huawei.com> # for IIO
+> ---
+>  Documentation/locking/hwspinlock.rst              |  2 +-
+>  MAINTAINERS                                       |  1 -
+>  drivers/base/regmap/regmap.c                      |  2 +-
+>  drivers/hwspinlock/hwspinlock_core.c              |  2 +-
+>  drivers/iio/adc/sc27xx_adc.c                      |  2 +-
+>  drivers/irqchip/irq-stm32mp-exti.c                |  2 +-
+>  drivers/mfd/syscon.c                              |  2 +-
 
-diff --git a/tools/include/linux/coresight-pmu.h b/tools/include/linux/coresight-pmu.h
-index 89b0ac0014b0..2e179abe472a 100644
---- a/tools/include/linux/coresight-pmu.h
-+++ b/tools/include/linux/coresight-pmu.h
-@@ -21,30 +21,6 @@
-  */
- #define CORESIGHT_LEGACY_CPU_TRACE_ID(cpu)  (0x10 + (cpu * 2))
- 
--/*
-- * Below are the definition of bit offsets for perf option, and works as
-- * arbitrary values for all ETM versions.
-- *
-- * Most of them are orignally from ETMv3.5/PTM's ETMCR config, therefore,
-- * ETMv3.5/PTM doesn't define ETMCR config bits with prefix "ETM3_" and
-- * directly use below macros as config bits.
-- */
--#define ETM_OPT_BRANCH_BROADCAST 8
--#define ETM_OPT_CYCACC		12
--#define ETM_OPT_CTXTID		14
--#define ETM_OPT_CTXTID2		15
--#define ETM_OPT_TS		28
--#define ETM_OPT_RETSTK		29
--
--/* ETMv4 CONFIGR programming bits for the ETM OPTs */
--#define ETM4_CFG_BIT_BB         3
--#define ETM4_CFG_BIT_CYCACC	4
--#define ETM4_CFG_BIT_CTXTID	6
--#define ETM4_CFG_BIT_VMID	7
--#define ETM4_CFG_BIT_TS		11
--#define ETM4_CFG_BIT_RETSTK	12
--#define ETM4_CFG_BIT_VMID_OPT	15
--
- /*
-  * Interpretation of the PERF_RECORD_AUX_OUTPUT_HW_ID payload.
-  * Used to associate a CPU with the CoreSight Trace ID.
+Acked-by: Lee Jones <lee@kernel.org>
+
+>  drivers/nvmem/sc27xx-efuse.c                      |  2 +-
+>  drivers/nvmem/sprd-efuse.c                        |  2 +-
+>  drivers/pinctrl/stm32/pinctrl-stm32.c             |  2 +-
+>  drivers/soc/qcom/smem.c                           |  2 +-
+>  drivers/spi/spi-sprd-adi.c                        |  2 +-
+>  .../linux/{hwspinlock.h => hwspinlock/consumer.h} | 15 ++++++---------
 
 -- 
-2.34.1
-
+Lee Jones [李琼斯]
 
