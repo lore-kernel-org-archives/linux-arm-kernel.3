@@ -4,98 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29966FCC062
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 20:22:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6669FCC074
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 20:22:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N/ru0EOFkc3AcpS21XeyDwquZX7JMKMkovV4eRQ1jis=; b=kRn1ZZq3gJMrz9RvRrEQt4WAk/
-	+QKmTgAFmppCxzDTuKvCLBI6WZ0sciM9hl5WvEP7Gc6Tq8JUOGf/XGVk0LiRW55EU4deQRX17CdEd
-	2LBFhXrUL1FtEYVQ84kA02U7YGHqtLNVmJzAmOb5E7aey8xmDwRbXGrYGR9IfvVmjV5h8eExzxu6W
-	hHzBUzYIHr6d5XhIJx8tu4Exa3yjZAnZ0ImeEWMhm4Rw1jZCBuiL75HslNz/WrK27rA0A3jKPASRz
-	KMe1l+4DASWIinT5rdPmd5I6ztLzWdKm/sU82FG9ECQllP4WF1KEzWIQ4kyZrGwfamcL6OAV0cVzb
-	HczklWWA==;
+	bh=VeFfXwb8T8R4F7TZYTs0/D+ioU1n6QDhzRq2dm5Zqfk=; b=rJ8J/IIvskwC6W6EYgCOCu+S2g
+	EykiqVbVBYh6dptzR0NrVnU+R+LSyhxcGdxoUT8bhRZQrKsBY1DvFQ/hWvopScUbgk4U/WWRmbovb
+	4uXmKTQ9suhlKyCNwhfnTCpDk3bjRKkEfFtqTyEVnF9lgz2HQJ8viam76z9kgUwOKoGn53AyauSI9
+	n1SUrPgkQa8FBJw5GX1wNNj28sKBR2E372BdV8fsVxbAFcpiWffCinNVD1azI1tv/S2JNp7hXobb5
+	GL0zAiql00Yd5IL2BjN3rk9doE8EcJlKT+5j9uqhRLi6+OGr+mYQQa62rvk9SEBFeB8RaLG6mw006
+	LtUkVN3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vybgf-00000004TM0-0JtL;
-	Fri, 06 Mar 2026 20:22:17 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1vybgp-00000004TOt-3iwz;
+	Fri, 06 Mar 2026 20:22:27 +0000
+Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vybgc-00000004TLd-3AQm
+	id 1vybgn-00000004TOB-1fz4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 20:22:15 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2ae3f822163so13525ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 12:22:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1772828534; x=1773433334; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=N/ru0EOFkc3AcpS21XeyDwquZX7JMKMkovV4eRQ1jis=;
-        b=T8IRbM0d3Q8xiTIaCGuxfJwKHvDU4X/OhIb2ZS8AiyICUyk9zfXQaji+QsV6sbBcyA
-         zfWMYlLtyWU2u3GdeaD6AGwvWZ8MCfjBN1OQv4MPu6wCiClSMG3s02Q+gO/YI+Yc+dbb
-         W1reHA7PdfDBRBQUpHnta+bzIP7l2f/QJsNwJzJhhUIrJ0FiyE523JaGoUKAbfk8beS/
-         oF76kNsW//M4r7HEvYM+s4m7zfUG/ZpdlE+FrUYQCG3VLl7z/EY2m2SLXshlHfkAqHFf
-         REglJuS66kkBbjSRIO27XcB0RNTz5K1G4oStJOxvV/Np9h70zkC6+MaLMEyR5bX5xjRH
-         sL9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772828534; x=1773433334;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=N/ru0EOFkc3AcpS21XeyDwquZX7JMKMkovV4eRQ1jis=;
-        b=fml30NR3k1QQ9VpmdbxbNJX/O+D42kJQVxEcncuI0HFIA1zms6dNSxLWV706Vofmbr
-         rnGB/peSSZJF2WQAZ97jrzWIiwjfir1TXcN1/9BX4bGa3pVQr+1obB9JeVLzLth5LMAx
-         V216xTWvASSrIvRp/dj/OCyR2xeXM/ccUqa3O2SrC4uToazT0doxRrwm1pmqRIPGlSeS
-         vassY/rwUakSx4OXshbMLMQtdIKXuX+YEHDXGKcxT+XU5qnbveNyWSgexeFRPfVTvHl4
-         bMHZodINBbaT2iLupesngQUayitvbbleZm9Pa8zElyv8jL+8AFXU4gaWq9vMHnzPH/Up
-         YEUg==
-X-Forwarded-Encrypted: i=1; AJvYcCWHJE1YgKEVKMRKZyH67rrj7956F+pFWGQswCLxUz5zfmEPBS0q4ZItXifPodufGK9J9OLG47wBfOHUTcUHvEkP@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJvdNBBvXEzMhugysiwDL1Ukr4/xIowVWX1ZDNjLNZxBzyQZQr
-	XHOwmI8AK/zquiSVQdVSJWXVpbX1Xz5gBXZToR8rLlHBCna7lMQNiDA9x52jyDoQjw==
-X-Gm-Gg: ATEYQzyhU9ZOYu7pap368FfQIx0oMlR6gZLYyJfyZ9FhSdV4pG6s4dkxRJHwp1BFcgP
-	grD4a2cWeOkaNsq/l1DiXVCrXFmFV4U4OF/+UlCPpjcOYoCwhjqe3DiMCPwhJ4Fiva9QCWH7Ghm
-	8w4DbEf6sbIbw77MWHK2/ZbEAE2BTVk5lsX87i+YcdyYxYJ22OhdeEGvRmQmgWemkFXxrvqmvkN
-	YEeD4WbmaR8s3wnKuA6+xdsS4D42WrXM74/NgPeoPUPIpwofjkmkeLHK7VbOq1WsMnzz5InGbKs
-	ISPecrnV2qsOVpVKYEHXFHiZ5FaNRoDRN8KHMYTZktSKSnUh05q0SHJfc3MTnT4ehhAUMxzGZVr
-	b8mcgrmiMFTX+0K1UKzjLGGVRwQ++KZ+imi2Ey/fmfpuXjpkXk0B5tXXLHdEkLPHTj6eSsCcAET
-	NXbyfk2Q0LUo1bgA5LqpvtXaLobU8Tw4dr/xjQAWT59mf2sEN/r2V+8cFd8A0Vcg==
-X-Received: by 2002:a17:902:e84b:b0:2aa:d604:62f3 with SMTP id d9443c01a7336-2ae8ad1ceb3mr443415ad.10.1772828533274;
-        Fri, 06 Mar 2026 12:22:13 -0800 (PST)
-Received: from google.com (168.136.83.34.bc.googleusercontent.com. [34.83.136.168])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae83f7837bsm28280845ad.48.2026.03.06.12.22.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Mar 2026 12:22:12 -0800 (PST)
-Date: Fri, 6 Mar 2026 20:22:08 +0000
-From: Samiullah Khawaja <skhawaja@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Baolu Lu <baolu.lu@linux.intel.com>, 
-	Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, 
-	bhelgaas@google.com, rafael@kernel.org, lenb@kernel.org, praan@google.com, 
-	kees@kernel.org, smostafa@google.com, Alexander.Grest@microsoft.com, 
-	kevin.tian@intel.com, miko.lenczewski@arm.com, linux-arm-kernel@lists.infradead.org, 
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, 
+	Fri, 06 Mar 2026 20:22:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uif5egebiP066UmWe2BrEABFlNmsOyAoUPW5L3oi7qQDhbsaA/eGZP87kxhyMVs1XcDgqQx6vGqhyBYEnH+SG5fTp4+f5yu01P4ro+9ixBzlkH2C2hA2f3B4cU6aCoHw6+zleg/cdp4CAV1acprdwIqWgO2qctEotBK0Xl5kqR8uuYD+FLSFzM5ig7oERabxcBP7g+csGdBSfGz8iz746WWOkMVfapeAGUO+v6WVAYKsxLouDnQZEeiL4IKVT+MlrztT3jwrn9rV4Mt+EMqFyb/a64wOvX7lY+ljWX683QqMn1ctTPvny9rYvICQcvljgBM1mh+ubu7PXUbVy1jJlQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VeFfXwb8T8R4F7TZYTs0/D+ioU1n6QDhzRq2dm5Zqfk=;
+ b=mHTrG/oZ4UmZASo8VpyXTVomfCTVXADKs0/37SpwgobP/GviuGG3U3SVDrQ/CXutr2aa0d5kmcOG0BmEXjLwjiiNUre7Tf7fnRcB/Cj/gCtdPMmLfbQoNtqLQksDvm74owwY2+43XBniZZP6mG9MntknBzQ6MHfoLs9JRhGgL7lk5MIFfpOsfmL86ikOEMTC7KaUIVGpLoS+9h0jey2XFfzCjh5yuit/R5TTEBfcMiDMt8Op5n0kTv9cHISm91tKYH0/qdUuBCqADvW7XZ8Ug2WifKgZykf8nEgb3sNfWAQS7cp8L8pgE53kmrcPRNCjVRda8MAfJ7X+qI8qYV1p/w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VeFfXwb8T8R4F7TZYTs0/D+ioU1n6QDhzRq2dm5Zqfk=;
+ b=mqT4UeHEKT8lOWLXJnhbWcrjyFTZAq9sJGDBykm6hA81mew4/f0uKSE2pg0DF3k4rOlc1q02NY5fiAth03iTJuqbKf7bBexK2RgteUXmlY8kU//qZf9EPbTTKb7vk4WkggbnWVb9VtMHILCUWHVM6r6EloeForX8VX7Z5yAOkr37NN+ahJvkvWFdEaZLU4B3Z4+P/UEoEnuJEK5KDPw0gkYM3/XXcGKPLGNknj7ko+/LyzK9W9O6NId62v4NirMII85exX3xYPGFWwBGMHjBtgLmFIWXS2i1u1YG+JP/tYZA+D9Nq/a/+XYEmLFo9Iew4uBj0GgEtc7FQbGlWpsRpw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by DM6PR12MB4106.namprd12.prod.outlook.com (2603:10b6:5:221::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.5; Fri, 6 Mar
+ 2026 20:22:17 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9654.022; Fri, 6 Mar 2026
+ 20:22:17 +0000
+Date: Fri, 6 Mar 2026 16:22:16 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Robin Murphy <robin.murphy@arm.com>, will@kernel.org, joro@8bytes.org,
+	bhelgaas@google.com, rafael@kernel.org, lenb@kernel.org,
+	praan@google.com, kees@kernel.org, baolu.lu@linux.intel.com,
+	smostafa@google.com, Alexander.Grest@microsoft.com,
+	kevin.tian@intel.com, miko.lenczewski@arm.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
 	linux-pci@vger.kernel.org, vsethi@nvidia.com
 Subject: Re: [PATCH v1 2/2] iommu/arm-smmu-v3: Recover ATC invalidate timeouts
-Message-ID: <aas0dLwKmZyL_iOL@google.com>
+Message-ID: <20260306202216.GO1651202@nvidia.com>
 References: <cover.1772686998.git.nicolinc@nvidia.com>
  <ca7ab934bf0f433b62a5c15d42241632c4cb9366.1772686998.git.nicolinc@nvidia.com>
  <20260305153911.GT972761@nvidia.com>
- <6416b7fe-0190-4c7b-9a62-5da7d5eea794@linux.intel.com>
- <20260306130006.GF1651202@nvidia.com>
- <aasmWvA-sqi0KJwO@google.com>
- <20260306194312.GL1651202@nvidia.com>
- <aasv1HYOKuuJyi1k@google.com>
- <20260306200321.GN1651202@nvidia.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
+ <aanygWWZLA1htDdQ@Asurada-Nvidia>
+ <20260305234158.GB1651202@nvidia.com>
+ <60d77adc-d5a6-40e2-a497-a57004f23e7e@arm.com>
+ <20260306140115.GH1651202@nvidia.com>
+ <aas2kHcjJPYFbKSD@Asurada-Nvidia>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260306200321.GN1651202@nvidia.com>
+In-Reply-To: <aas2kHcjJPYFbKSD@Asurada-Nvidia>
+X-ClientProxiedBy: MN2PR20CA0043.namprd20.prod.outlook.com
+ (2603:10b6:208:235::12) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DM6PR12MB4106:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2959da3c-aae8-46a0-66f6-08de7bbe0f88
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: HLkmSbLw8D6QH/YH05VsgQTFrBCWK+XakP5kfqms7AZ6900GQY2MboVaInsvT/YLRlBP0/Qb3gBJ0zSg3nDCAl1TWOCWKGmjN6U1AwcCR6zjFpMpIbVU6zYvWWKznLj6eORVJS9dYeR7C0cgLbeXaHee7NJXlwXiKnpRdee7Kcf8uE9q69K8wKkCn0qoZjelPB/HeAzg9Egu7pQO3pw+AzILHlvBdKAOM2LN8RaEP1MSwIJ0PN5zAR8vBrBBiVqaD69++fwvUP9CLxul4XNVD4EyXTyYMTGJSrWPqKa6NSOxIeUN726LNwpYLM1ZDOGRVCm9QTuvFNYYW9dBWkWIUlFBL3m43zfwxgV3Fn6I8pOi4nvVrT5lkxdWqhW8grXNWIyZy7zF9zIAbaiWfN2mtYb0R/LJQvhdONi0Voigyw+c1ZSkTlWKOaqC2HgfHNU9vKZceTGXtnRGJ7xZ3OcQZH4RucNG+2tp4JZlOuFbPIt2ZU9/3TGDS4H2yNXTDorU6lc9J5uxGBK2RBEs3aTh8437VHS5NPZ3P5l3R+qnY0s2wE4FkXDFn9k3eDwoeonYnlRGnXU7TXEghaWyvL0I/uCnvFg2DuSgny/1hc5ouPddAqkZJrfj8jubhYTqUFQbQwgOVpQVvgxXXlY75osZDnw8hyV0eKNXeoZBI94eVNZAotiD7xELSWwapGIB6CStAJ2irmIQ81dV75ql4rURNUucItP8uNEsUnDh7P9F1Kg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NR3rQmLd0Lw0cKT/SrZ2VkVe8g1jnFF6IfbruB7o4hRhQmHeulxS9wg4KqV8?=
+ =?us-ascii?Q?8TKDntCeZSVq2Ur1fTl0YpsVYbGqgEWKxoXsIEbyhVZsHAa22t2ItXQqCY91?=
+ =?us-ascii?Q?n6BHvvl1rSR321synR4DK9W08AvpJkKxWzAA1XmYBWYRWdTgczchKmcuyZrL?=
+ =?us-ascii?Q?QSCZ5tUWPzC3rPr64SXX8WdhQuoV7tDs58eLR33bt0Rw4r1MH0CFCazqI8up?=
+ =?us-ascii?Q?/UfqszQnSFVyncJ27Ai1AkJbj73gRDJrj+l21wuMGFj2l8uFawrhwnka87ZU?=
+ =?us-ascii?Q?7pyoUObpSo2zr6zVnEsDJb6Nhb9kTdMzTBREgYT9PngS2SVIyvW/q+MkXdOS?=
+ =?us-ascii?Q?abOkmFpf30NdaOnOmKoeE2CAV+K92/FOOSjPAraUnAtrxqSRd/hdK5mHUJOk?=
+ =?us-ascii?Q?U8n+fwgzL3BDXOk1YGCfA7elbPCZd8nc75LjvIv69ta/MazFHfvN0YfRgEUk?=
+ =?us-ascii?Q?QdlpqljuojtciQqaKVZ6wgqZal7Yyl1AIw7ttC1dgsQ0OY+r2IKUFHddMdAj?=
+ =?us-ascii?Q?WzFkxU900b+lvJuRpegUyHTuSgicDLXEs1/SAHD+ItH4IstM413sonSmdBWu?=
+ =?us-ascii?Q?huc62HLqs6aBnzCoKJHmU5YlpioydadLx0ztUSJ9/BW5wm/Elwhty4JEK8l/?=
+ =?us-ascii?Q?I+dsIi/mIBiAQfXV2TKM+EBPDuwvYHOANilQ+6uz0INmiW1wHTsBlgatd1c7?=
+ =?us-ascii?Q?Wu2zvbQMYDvQlTsFheavC81jhxVwuUOKBco4yU4nRhUeVJMFgOkfja3Wo9wy?=
+ =?us-ascii?Q?kz4M6uJB2NMIDi38jnWptzgoy/fUxG19bcrzmq5bhxpkh3Twsbmze6eIMA/C?=
+ =?us-ascii?Q?HiaEWxyzfjttqR92k7+9ux4Bd/ww/3TcoHsqNrXKtkE8NHpen+yIy7ehRN4G?=
+ =?us-ascii?Q?DvOSdzd+t3lP8MRAjZab8RUc3IdINpQ578vPIpOUr57aQbnvxuU/5gbgbMXT?=
+ =?us-ascii?Q?eWTItZ7UJFoF3gAyH3hiuyNZPGJQLn7np0XPzg+HPPxiVjInX7DtaC4Wbac3?=
+ =?us-ascii?Q?lMj2r31IdTxPVWpUundNQWq34RSAApb0C3vi/ADMUXnt0Zxjyim5/yU8Hxb4?=
+ =?us-ascii?Q?VHp3WPOMeH1hUllX8dghHSXnczCuCPTumfutAxVACMHgrBpy4sgVYcOu4cq+?=
+ =?us-ascii?Q?QgCHbIK0XNewS1J2TditqZCJzzcHYKZh0hnZbcaLyZDtSWNbc5LoRHWSFOh5?=
+ =?us-ascii?Q?z6NytBYCj7Bok6sCK9cBqivH50TpqJngCv+oDVhz66eSmcc51X9a8nq3Wvgn?=
+ =?us-ascii?Q?CmBsJqHkuPYEn5EB5+zHV7TJwhPQycVHXpilRfup4qyb2hOTC4u4Np26IKAP?=
+ =?us-ascii?Q?vBPldkgl1lR3oxjooKHWYtZU25kGyBVOAdulWpg39Un2F9SyP65GC3pRhIcV?=
+ =?us-ascii?Q?vBeZTV02s+6MCtrm6yoZ57KKiry+Xg72rfgVyuvXVEv4FLIwxqncW8KjR3ze?=
+ =?us-ascii?Q?SSxuU7DbUN5QRRsYN5DPyiRuGtD3yVjbUHPjXXg7I62yg3pr9OX7uwoWwOOg?=
+ =?us-ascii?Q?JXgPRGoo5a50pURWNK0b1Y5SekfNy5zBP8iYLjL3xrLFeCfGhd3znc4ZLX+n?=
+ =?us-ascii?Q?zPp5Pn96Vy5NPGO/by/yXflQxto2ZUFGaIuuzdl7tKoSfrBmsU/Gl2Z58BaY?=
+ =?us-ascii?Q?/+nkiNMIN1wxvPC6nokP9qZOnqaFfge37+fS5kX2quGEnbCiUq9oePGxmHCU?=
+ =?us-ascii?Q?qp+hNf9qwoDBEJkK26bcYQ5Ez/CTHm5Or6d0Q3RfWtVwfKzfS8MyI8rDY8Uz?=
+ =?us-ascii?Q?kosVg9102Q=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2959da3c-aae8-46a0-66f6-08de7bbe0f88
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 20:22:16.9440
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5bLtwSXMwmK3IdisQ1ngw+a6rNXyZ+DIZ2FiBmjuKYPPspYWBMFSL7g1OIfHTo25
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4106
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_122214_858375_04F337AA 
-X-CRM114-Status: GOOD (  30.04  )
+X-CRM114-CacheID: sfid-20260306_122225_442334_BD02582B 
+X-CRM114-Status: UNSURE (   7.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,75 +149,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 04:03:21PM -0400, Jason Gunthorpe wrote:
->On Fri, Mar 06, 2026 at 07:59:33PM +0000, Samiullah Khawaja wrote:
->> On Fri, Mar 06, 2026 at 03:43:12PM -0400, Jason Gunthorpe wrote:
->> > On Fri, Mar 06, 2026 at 07:35:19PM +0000, Samiullah Khawaja wrote:
->> > > On Fri, Mar 06, 2026 at 09:00:06AM -0400, Jason Gunthorpe wrote:
->> > > > On Fri, Mar 06, 2026 at 11:22:52AM +0800, Baolu Lu wrote:
->> > > > > I believe this issue is not unique to the arm-smmu-v3 driver. Device ATC
->> > > > > invalidation timeout is a generic challenge across all IOMMU
->> > > > > architectures that support PCI ATS. Would it be feasible to implement a
->> > > > > common 'fencing and recovery' mechanism in the IOMMU core so that all
->> > > > > IOMMU drivers could benefit?
->> > > >
->> > > > I think yes, for parts, but the driver itself has to do something deep
->> > > > inside it's invalidation to allow the flush to complete without
->> > > > exposing the system to memory corruption - meaning it has to block
->> > > > translated requests before completing the flush
->> > >
->> > > Yes and currently the underlying drivers have software timeouts
->> > > (AMD=100millisecond, arm-smmu-v3=1second) defined which could timeout
->> > > before the actual ATC invalidation timeout occurs. Do you think maybe
->> > > the timeout needs to be propagated to the caller (flush callback) so the
->> > > memory/IOVA is not allocated to something else?
->> >
->> > No, definitely not, that's basically impossible, so many callers just
->> > can't handle such an idea, and you can't ever fully recover from such
->> > a thing.
->> >
->>
->> Agreed.
->> > > Or blocking translated requests for such devices should be enough?
->> >
->> > Yes, we have to fence the hardware and then allow the existing SW
->> > stack to continue without any fear of UAF from the broken HW.
->>
->> And this applies to software timeout also I think, since both have same
->> end result.
->
->Any situation where the ATC flush doesn't get a positive response from
->the HW must fence the HW before continuing to avoid UAF bugs.
->
->Obviously today we just succeed the flush anyhow and hope for the
->best, and I think that is a good starting point for VT-d. We need at
->least that to build anything more complex on to.
->
->Fencing the device also has to come with a full RAS flow to eventually
->unfence it, so I wouldn't do it in isolation.
+On Fri, Mar 06, 2026 at 12:18:24PM -0800, Nicolin Chen wrote:
 
-But do you think doing the timeout logic without fencing would be good
-enough? Currently VT-d blocks itself, until it gets an Invalidation
-Timeout from HW, and system ends up in a hardlockup since interrupts are
-disabled.
+> IIUIC, we would have two timeouts to identify the device(s), so we
+> wouldn't need to give away the optimization of batching ATCI cmds?
 
-Are you concerned that if fencing is done without an RAS flow, the
-device might not be able to detect the failure (if it really needs ATS
-to work)?
+Yes we should not harm success path performance to compensate for a
+RAS error case.
 
-I am thinking, we can do translated fence and timeout change for VT-d.
-And the device can use existing RAS mechanism to recover itself. This
-way we atleast make sure that caller of flush can reuse the memory/IOVAs
-without UAFs.
->
->I would like the unfence to be done with a fresh domain attach (or
->re-attach I guess) that just rewrites the context entry with the
->correct one.
+> Will letting a faulty device time out once again give it a window
+> to corrupt the memory?
 
-Agreed.
->
->For VT-d that probably also means it will need all the domain attach
->fixing we've talked about as a precondition too.
->
->Jason
+No, you are doing this within the flush callback so everything relying
+on that flush should remain held.
+
+Jason
 
