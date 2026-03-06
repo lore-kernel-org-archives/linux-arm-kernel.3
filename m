@@ -4,163 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A92E7F0182F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 12:41:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CA1FF0182E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 12:42:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=th1itqMbs74IRL2O00rpVuDnvWp8kNZ4S6kCMjIQqT0=; b=BuQpnCCaCcU0OxAnfc7mbPxZ/A
-	qsPFlTJ/wHFB7VpAA+ZuPJ6t0J8vdqRxInItoRx7dGQW394UTM3jkRqGKedAn8OMHrJW57zIyTOsz
-	qUH4hg+pOeSSFHpb8Sjcvq4mF4Z2jq72buLvqfYDemunMYW8Z7hsJTL7Z4E+rGtX+y0Dkt5ZU9RbV
-	YP436GGCu7d5crbfAIMhJkuVUGKnjHbZBLCszcWPTzhGmmAghYYxLxDrazPhIrf3VljPab6OD+Um9
-	L6W3pPvaF0t9ZS/zCbzssGZsEVC4BYLjwsDCbKNW90q3bmmww/a4F5VrFkRs+Emzwg8HosXjaR9aX
-	Xztpxs1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=mtkN5wY32yGyUVMqIQKwbA762es0jsXWtrjdjPl4Z3E=; b=wL/NHA22VgLjX5
+	UYoPkvSPGu7vUZkAMhgKulXK3VaG9y8s9r68zpuIwnBc2xw+bkSkA1lWgLbmQ/zcmfZOfW4W5XLwt
+	Y7s+GBAfcJwPDs1ISb2QfZXIezOZFpZNDlNaPGn2CblNEjaaFKZoTbMZamuBbBC4upwzKFr2MvESq
+	gZpNJVX9r7x2m0AKgzzhKXQBpYGI4lHz6o5ay6G3PdbciLd3yUINDvG1NSQu7WHt3KQOuwcKpu7Wb
+	roxEy3F1n6g5vNNH6g7qCYM3Jqb+LIbCBK0KTN73raIA4vm690/i4oN5agB7UclUqXoymxQGhQIs5
+	ZQNyPoAeauQAy9acSx8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyUUb-00000003fFv-42ld;
-	Fri, 06 Mar 2026 12:41:21 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vyUVb-00000003fNt-3zsw;
+	Fri, 06 Mar 2026 12:42:23 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyUUZ-00000003fFG-2sYy
+	id 1vyUVX-00000003fMc-2Axg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 12:41:20 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 626BbJAV037698
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 6 Mar 2026 12:41:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	th1itqMbs74IRL2O00rpVuDnvWp8kNZ4S6kCMjIQqT0=; b=g0mRvaQH2xLIkVxe
-	O9x4vc6XXRUqObKh92tHzLbIrRL2E7QmZrfqFRVVCF6aCKy5AIRWaVa9y1qwFI7z
-	GA5SQrKqhbVR+6jNNhdz9XD8+bCNye8mZOtHi56gxhf5211y6EX5AUQM5ysKhdKG
-	bdHfyKIkeHQxi4PJ53kzbKSgGp3XXJivm19ShidNUgzBWysgISHh6exBlCvMdnL+
-	bMyNjB3EjgtOkw0GB1okKC00l7yF9E83K0bDRhn4uDLq2KGuewZ2UIcV2K4Ka86w
-	lVW2wsJFCzMEYcshQZp5P6bE8VHqrdIpwgckSrY7KTDFVt9D6R83db9lfR5UDN4Y
-	xsfJ8A==
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cqpxdsru1-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 12:41:19 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-35985522c1aso19200606a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 04:41:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1772800878; x=1773405678; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=th1itqMbs74IRL2O00rpVuDnvWp8kNZ4S6kCMjIQqT0=;
-        b=hjFhXIq8e8hi2oTb0fE9HgK6qhlJjK/dIXTDdYmpqqsnqI7KpkcD/QNPRHhsisVT92
-         ZPILdjkdHTlsnupLGLWeVHG3621spq36BUUhsZ8h2X+dzljMSc0RlQOw1mazLNVw0Psw
-         1nJAhC/0ZpHKqe9nwV5TB9CdyBjt+LXJYEHkfcAMHIiVLcf+fx0Wlx6TAYM5LlH8opj7
-         d2ubgYOTamrELD+GZ2PzltRRpq93cX46opXywgidmaZ/WLgjEto4lTvSgGJakVrvjh8D
-         WrooN6eZGNqYffGus3V3dhXy3dnNayjOVIeLGvHrpkN4jliFdpYY5tOxhMc/GLbhdC4C
-         6wuA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772800878; x=1773405678;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=th1itqMbs74IRL2O00rpVuDnvWp8kNZ4S6kCMjIQqT0=;
-        b=HB8pTFy4+35OFQaMdg1zMp4v/qzhY1oJP7ERSeX1UuNF5Tq4spYZZ+CypscUCtMX7K
-         Cxr0aOlS9Kts7Wiu1dlrmu1VYkPPyBhil4JYFmAzVsXESMMHtgSFO9z6hO3VmHOYhpg9
-         7Mbt+ccb+d2vSt2LT0xWWoxc20uk5YJXHHchdPuTanZquP4u0fGu1/fR7fep+Od6uvCo
-         wHMl0iS6j2dFG8XgoMmSckknzBN+osW3Wp9Ek2SiKV5SyUaYqqmmwShdjH1ll6iGjW8p
-         9Ih5EzNO9CBKStXUz1bBIPlMdkC4HmbEizmE2aROO6CgNDWqsKJmEZuXna74NUxkh5OY
-         CF/A==
-X-Forwarded-Encrypted: i=1; AJvYcCVMeGjGuKMT6cUlN6+svXjb72nAmIWFBixhZMNupcMkzvS/ES6DXNph/jBmzffGH9ZnlqwmpSqYSaBuMIREE7mD@lists.infradead.org
-X-Gm-Message-State: AOJu0YzH9AXKD2G8PJ40MaoHbqqsucj3owjoLlNkdCXw27rJiV/HiJqR
-	gakStQX7jvjmJLVxMvZbcgfYJ/D8z+UwJOXtg2JMLWRenZukWR76iKjuffSyFEg7DfFItZfGSxK
-	/hZwjHmafMUak7mDg2HugX5iELTUa3IOAjZjAA9qUVjDFdT0l6ECURiDGBv0po66+9LPqkaSmZl
-	GuBQ==
-X-Gm-Gg: ATEYQzxxuBoxBFgP0RbjgLo9OhF/l6N5ugyUTqy4qldkux5kCrrwyOPNOKKuLauFy/i
-	E5ZvuNSKuD8OjCDvyRORu5aCaUZRdsUZit66sdNO5AdQ43giF4oaO118pimqjaOO3hpFlUDiQRN
-	XOqJwwLCYUedfN4KRV4SCj+wPW8caBfZn2Ct8tS8L5m6P30HBazjah04GT+sS9paYanzL39kwUS
-	HkO07oZgllzxa2G9KP4kd+a3iIr/u3DhcEww3c85dMyAOllsBzDS0fA6BDakRnLgzGAe0zu1eJI
-	aMRXy5KlDVr5ZfdeIuwTgUqPIVpf+uFvQmZKaZMxxNJIqe+FnPRoCFmiS+joZOARbdcU9m4t6ju
-	wkfUJZAc/dHJH3SNSJOXWSnVuD2dulmq8Tc5VaSC0+xWmkO9oJQBHNIHvhOSMcC5b/V10dbWNY5
-	BQHmHjDtNp/xM=
-X-Received: by 2002:a05:6a21:498:b0:366:14ac:e1df with SMTP id adf61e73a8af0-398590e0f3dmr2322266637.69.1772800878405;
-        Fri, 06 Mar 2026 04:41:18 -0800 (PST)
-X-Received: by 2002:a05:6a21:498:b0:366:14ac:e1df with SMTP id adf61e73a8af0-398590e0f3dmr2322211637.69.1772800877795;
-        Fri, 06 Mar 2026 04:41:17 -0800 (PST)
-Received: from [10.133.33.226] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c739e0f15f5sm1673727a12.15.2026.03.06.04.41.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 06 Mar 2026 04:41:17 -0800 (PST)
-Message-ID: <1609ae14-888f-46b5-9e8c-1aaa50b803c2@oss.qualcomm.com>
-Date: Fri, 6 Mar 2026 20:41:06 +0800
+	Fri, 06 Mar 2026 12:42:23 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 6 Mar
+ 2026 20:42:14 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Fri, 6 Mar 2026 20:42:14 +0800
+From: Billy Tsai <billy_tsai@aspeedtech.com>
+Subject: [PATCH v4 0/3] pinctrl: aspeed: Add AST2700 SoC0 support
+Date: Fri, 6 Mar 2026 20:40:24 +0800
+Message-ID: <20260306-upstream_pinctrl-v4-0-ad4e8ab8b489@aspeedtech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/11] scsi: ufs: core: Introduce a new ufshcd vops
- negotiate_pwr_mode()
-To: Bean Huo <beanhuo@iokpp.de>, avri.altman@wdc.com, bvanassche@acm.org,
-        beanhuo@micron.com, martin.petersen@oracle.com
-Cc: linux-scsi@vger.kernel.org, Alim Akhtar <alim.akhtar@samsung.com>,
-        "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-        Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
-        Ajay Neeli <ajay.neeli@amd.com>,
-        Peter Griffin <peter.griffin@linaro.org>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Peter Wang <peter.wang@mediatek.com>,
-        Chaotian Jing <chaotian.jing@mediatek.com>,
-        Stanley Jhu <chu.stanley@gmail.com>,
-        Manivannan Sadhasivam
- <mani@kernel.org>,
-        Orson Zhai <orsonzhai@gmail.com>,
-        Baolin Wang <baolin.wang@linux.alibaba.com>,
-        Chunyan Zhang <zhang.lyra@gmail.com>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        "Bao D. Nguyen" <quic_nguyenb@quicinc.com>,
-        Adrian Hunter <adrian.hunter@intel.com>,
-        Archana Patni <archana.patni@intel.com>,
-        open list <linux-kernel@vger.kernel.org>,
-        "open list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER..."
- <linux-samsung-soc@vger.kernel.org>,
-        "moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
- <linux-arm-kernel@lists.infradead.org>,
-        "moderated list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER..."
- <linux-mediatek@lists.infradead.org>,
-        "open list:ARM/QUALCOMM MAILING LIST" <linux-arm-msm@vger.kernel.org>
-References: <20260304135313.413688-1-can.guo@oss.qualcomm.com>
- <20260304135313.413688-2-can.guo@oss.qualcomm.com>
- <15d49cfb52990dea46596c2eb0cbdc7db9c44ab1.camel@iokpp.de>
-Content-Language: en-US
-From: Can Guo <can.guo@oss.qualcomm.com>
-In-Reply-To: <15d49cfb52990dea46596c2eb0cbdc7db9c44ab1.camel@iokpp.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: VjA7_XQ3tO91A2bVj0besD2X7w0zcRNl
-X-Authority-Analysis: v=2.4 cv=E83AZKdl c=1 sm=1 tr=0 ts=69aacb6f cx=c_pps
- a=0uOsjrqzRL749jD1oC5vDA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=o_XSaaT3ieLpCecdYGcA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=mQ_c8vxmzFEMiUWkPHU9:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzA2MDEyMSBTYWx0ZWRfXybJk7ZSOIxwp
- Mwn46w7eGXcEXQWDiybVLUw6Xvk+f1Jr4rVnIy1U7AJPTXBfsMoqo9F5zgpBaThdUwSbprZxec7
- xlMMhCIazZZb7R/05vINXDxF9fxEFrlaCw1kSFfJEVyUGEjo+1FgY4QA3ysFSkM/Z3XAD4PD86R
- FaBOquuRGF3ETslenEUULsiGuXlO53cMcxG9UCDGd4frr5PJXNhUIUmsQ49Jhq/tR6HYMzF2dGb
- 6L2dDY9v3mzJUudrZmjgKhTwqWpG0FkEr3FRE123YLfdGPT0x0+DCOWCHXFlrjtiJgliQcU5LUE
- NOP48DunDh9hzAT6xdYV/p7DPXsSoAZ9XaxuTEUokWVI33NXt2812LhgFzFEQVfVSiooJa+KPv9
- +/VjYrKIM5VP1GiEygjtlKA2/LEDHWvFn4MbKtLIvd5ZcsbgX3oIYKFPd+XKwrFzHFVl8uvLZrm
- yDeneDeBYqKErTBL9CA==
-X-Proofpoint-GUID: VjA7_XQ3tO91A2bVj0besD2X7w0zcRNl
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-06_04,2026-03-06_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 suspectscore=0 bulkscore=0 phishscore=0 impostorscore=0
- adultscore=0 lowpriorityscore=0 priorityscore=1501 malwarescore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2603060121
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADjLqmkC/z3MTQ7CIBBA4as0s5YGsKTUVe9hTIMwyCT9IYBG0
+ /TuEhcuv8V7O2RMhBkuzQ4JX5RpWyu6UwM2mPWBjFw1SC6VkEKxZ8wloVmmSKstaWbai0E5z83
+ QK6hZTOjp/Vteb9U+bQsroTb/ER94J/i546LVWuqeCXanef5MJRsaTY6IrqANrd0WOI4v818Hc
+ aUAAAA=
+X-Change-ID: 20251215-upstream_pinctrl-8f195df0a975
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Joel
+ Stanley" <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+	"Linus Walleij" <linusw@kernel.org>, Billy Tsai <billy_tsai@aspeedtech.com>,
+	"Bartosz Golaszewski" <brgl@kernel.org>, Ryan Chen <ryan_chen@aspeedtech.com>
+CC: Andrew Jeffery <andrew@aj.id.au>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-kernel@vger.kernel.org>, <openbmc@lists.ozlabs.org>,
+	<linux-gpio@vger.kernel.org>, <linux-clk@vger.kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772800933; l=3651;
+ i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
+ bh=hmhX29ofHmVWCzL1SALtQcsZhjHt2TQjDqLgIH3btbs=;
+ b=Lb4YNVvozAIHN2+4S7osElCp6zPzI4h1b6nDiv/0/Q9kkILL1f5AqvwWrXcPbS8SM/mUoFGnp
+ BFPpaJ9eunyBlcCNPhH94GGWamZqJC8xEAMqtxUdj2yGiCTbh4j3rsu
+X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
+ pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_044119_755532_B0D6F948 
-X-CRM114-Status: GOOD (  18.12  )
+X-CRM114-CacheID: sfid-20260306_044219_570110_E9694FFB 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,73 +80,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bean,
+AST2700 is composed of two interconnected SoC instances, each providing
+its own pin control hardware. This series introduces bindings describing
+the AST2700 pinctrl architecture and adds pinctrl driver support for the
+SoC0 instance.
 
-On 3/6/2026 5:03 AM, Bean Huo wrote:
-> On Wed, 2026-03-04 at 05:53 -0800, Can Guo wrote:
->> @@ -4747,6 +4745,22 @@ static int ufshcd_change_power_mode(struct ufs_hba
->> *hba,
->>          return ret;
->>   }
->>   
->> +int ufshcd_change_power_mode(struct ufs_hba *hba,
->> +                            struct ufs_pa_layer_attr *pwr_mode)
->> +{
->> +       int ret;
->> +
->> +       ufshcd_vops_pwr_change_notify(hba, PRE_CHANGE, pwr_mode);
->
-> ufshcd_change_power_mode() calls pwr_change_notify(PRE_CHANGE) but ignores its
-> return, this can continue with invalid vendor prep? I saw there is checkup
-> before, do you think adding check result?
-pwr_change_notify(PRE_CHANGE) was used by most vendor-specific 
-implementations
-to negotiate Power Mode negotiation, if pwr_change_notify(PRE_CHANGE) is not
-implemented (returns -ENOTSUPP) or Power Mode negotiation returns error, 
-the error
-check was there in order to call the memcpy() to copy the desired Power 
-Mode as the
-final power mode, that is, an error return from 
-pwr_change_notify(PRE_CHANGE) won't
-lead to skipping the ufshcd_change_power_mode().
+The bindings document the AST2700 dual-SoC design and follow common
+pinctrl conventions, while the SoC0 driver implementation builds upon
+the existing ASPEED pinctrl infrastructure.
 
-So, to introduce the new vops negotiate_pwr_mode() and keep the logic 
-same as before,
-in this patch, the error check and its error handling are kept and 
-coming after the call to
-ufshcd_vops_negotiate_pwr_mode():
+A binding example is not yet provided as there were differing opinions
+during review about whether it should live in the SCU binding or the
+pinctrl binding. I can add one in a follow-up revision once the
+preferred location is agreed.
 
-int ufshcd_config_pwr_mode(struct ufs_hba *hba,
-                 struct ufs_pa_layer_attr *desired_pwr_mode)
-{
-         struct ufs_pa_layer_attr final_params = { 0 };
-         int ret;
+---
+Changes in v4:
+- Rename series title to "pinctrl: aspeed: Add AST2700 SoC0 support"
+  to make it specific to SoC0.
+- Remove unnecessary SCU example from bindings.
+- Fix Makefile newline to avoid patch warning.
+- Make pinctrl data structures const and align with existing Aspeed drivers.
+- Sort the arrays and enums alphabetically.
+- Minor cleanups for consistency, no functional changes.
+- Link to v3: https://lore.kernel.org/r/20260120-upstream_pinctrl-v3-0-868fbf8413b5@aspeedtech.com
 
-         ret = ufshcd_vops_negotiate_pwr_mode(hba, desired_pwr_mode,
-                                              &final_params);
-         if (ret)
-                 memcpy(&final_params, desired_pwr_mode, 
-sizeof(final_params));
+Changes in v3:
+dt-bindings: pinctrl: aspeed: AST2700 pinctrl improvements
+- Improved binding descriptions for SoC0 and SoC1 to better explain the
+  AST2700 dual-SoC architecture with independent pin control blocks
+- Switched from additionalProperties to patternProperties using the
+  '-state$' suffix to restrict child node naming
+- Removed per-binding examples based on review feedback
+- Added additionalProperties: false at the top level for stricter schema
+  validation
+- Dropped the aspeed,ast2700-soc1-pinctrl binding, as the SoC1 pinctrl
+  registers follow a regular layout and can be described using an
+  existing generic pinctrl binding
+- Updated the function and group enum lists to match the definitions
+  used by the AST2700 pinctrl driver
 
-         return ufshcd_change_power_mode(hba, &final_params);
-}
+dt-bindings: mfd: aspeed: Add AST2700 SCU example with pinctrl
+- Added a complete AST2700 SCU0 example demonstrating pinctrl integration
+- Example covers both pin function/group configuration and pin
+  drive-strength settings
+- Updated child node naming to use the '-state' suffix, following common
+  pinctrl conventions
 
-I hope your question is answered.
+pinctrl: aspeed: AST2700 SoC0 driver improvements
+- Refactored pin and signal declarations to use common ASPEED pinmux
+  macros (SIG_EXPR_LIST_DECL_SEMG, SIG_EXPR_LIST_DECL_SESG, PIN_DECL_*)
+- Added SCU010 register definition for hardware strap control
+- Reworked code structure to better align with existing ASPEED pinctrl
+  drivers
 
-Thanks,
-Can Guo.
->
->> +
->> +       ret = ufshcd_dme_change_power_mode(hba, pwr_mode);
->> +
->> +       if (!ret)
->> +               ufshcd_vops_pwr_change_notify(hba, POST_CHANGE, pwr_mode);
->> +
->> +       return ret;
->> +}
->> +EXPORT_SYMBOL_GPL(ufshcd_change_power_mode);
->
-> Kind regards,
-> Bean
+- Link to v2: https://lore.kernel.org/r/20250904103401.88287-1-billy_tsai@aspeedtech.com
+
+Changes in v2:
+- Update pinctrl aspeed binding files.
+- Update the commit message for pinctrl binding patch.
+- Link to v1: https://lore.kernel.org/r/20250829073030.2749482-1-billy_tsai@aspeedtech.com
+
+---
+Billy Tsai (3):
+      dt-bindings: mfd: aspeed,ast2x00-scu: Support AST2700 SoC0 pinctrl
+      dt-bindings: pinctrl: Add aspeed,ast2700-soc0-pinctrl
+      pinctrl: aspeed: Add AST2700 SoC0 support
+
+ .../bindings/mfd/aspeed,ast2x00-scu.yaml           |   1 +
+ .../pinctrl/aspeed,ast2700-soc0-pinctrl.yaml       | 126 ++++
+ drivers/pinctrl/aspeed/Kconfig                     |   9 +
+ drivers/pinctrl/aspeed/Makefile                    |   1 +
+ drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc0.c    | 710 +++++++++++++++++++++
+ 5 files changed, 847 insertions(+)
+---
+base-commit: af4e9ef3d78420feb8fe58cd9a1ab80c501b3c08
+change-id: 20251215-upstream_pinctrl-8f195df0a975
+
+Best regards,
+-- 
+Billy Tsai <billy_tsai@aspeedtech.com>
 
 
