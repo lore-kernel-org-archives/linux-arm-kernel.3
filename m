@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34C59EFCE5B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:02:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87FBAF0183E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:02:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZJF5wl0idW47D9GCd6ULDgMs+egUo0RLejd/z4xiKdQ=; b=SxMR+Z5jj7sKe7NlkT33lTILXH
-	Aoy4QlmfUpcaKGHpCwPDbNzrMl/bS8aPCsX/ZGnijEDnPy51xqYOnZ5Ycq0+M8OdLsFe7mdumhcvp
-	gJJUDjJxPp6VKqqiqeg8CU+2mE2bKGonTg1Iul/pliiPAENUdlGryMb2MraRP61mINQcryevUhQre
-	cVFSjZ5y8TLR/T+9C759wXWSyX48TZAM5UXcdFV6/sHvCQo8hhayCyigGMd2HudxyaUhWHspHiI61
-	vJO+9FPQCIU6H4VSB7//KoAIoXyfRrFmtY7kMsu3GdZ5FEZm1SkM+G5BxozGGd2ahm3KbM4BQZh1C
-	uRSzqUZw==;
+	bh=dq2CFWg/s/4LGPe7PH75WI1RwQG3qN/TUDsxF12q5kw=; b=vsjQjfNzFiY79PNcIHXn9RiAF0
+	EA+8jBhgEafOYi7Nqp9PsPanAz9gv2zZvDSL10zBjWYIkXwNWFobgCRkGntXLlunroFBWAXz1pgQV
+	AS6e7Y9AmjzQO+22qNUClnffyNgOe2RCsm0NgpuLAcJDPG0t2qCJ0bJbpxDxWwjAhwavtI/jrPawX
+	wBqH3R6OwvhDMaRosNA4qSw+Sl3qm0OlterFLk3HrrweOEq7Li62EF+E9B/WCfWvAwmUNzBAxbSKe
+	DGbzTz9w1mTmV2v7xw4tNciRw5Uh1fCfphJkDi8/wT0uoHev4jnbON4qGz7HtfshI//zOhX3JWM6U
+	n0+vP40Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVlP-00000003qBj-3mXm;
-	Fri, 06 Mar 2026 14:02:48 +0000
-Received: from mail-ed1-x54a.google.com ([2a00:1450:4864:20::54a])
+	id 1vyVlR-00000003qDO-0Gdb;
+	Fri, 06 Mar 2026 14:02:49 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVlK-00000003q55-29uT
+	id 1vyVlM-00000003q5a-1yQV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 14:02:44 +0000
-Received: by mail-ed1-x54a.google.com with SMTP id 4fb4d7f45d1cf-661aff85c3eso1245554a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 06:02:40 -0800 (PST)
+	Fri, 06 Mar 2026 14:02:46 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-483a24db6ecso117033365e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 06:02:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1772805759; x=1773410559; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1772805762; x=1773410562; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZJF5wl0idW47D9GCd6ULDgMs+egUo0RLejd/z4xiKdQ=;
-        b=K+m81/wi5f4nRnQL2cW/qe+hUobgBtZcI6lBF2jSvEyZD6fJhx1yWOTM++Lth/eseE
-         l+3eDo9Ghchm9d4lqyee8FCprEF1nG+18TSGIirp0kGMhcG3evJRrrrIVGhisDaL2uNP
-         95OwfbTi6FsknQOPDsXiXAH7WjLh4clga51u/hdBi6VOSRwRtaUwOqNDWCX7ppDPvPyZ
-         DqzQJPfQLiTLTUxPcyjnioMGEjCphd9aBEZk3szG7MqjqYaGDoH7/9wFNUGXToRHoAil
-         se5JowV1QW4oECszeY1nUro8FygGyKyMF9N9utfoEMLDZvKL1tDrCuuU/d+IKrMV8EIz
-         PGBA==
+        bh=dq2CFWg/s/4LGPe7PH75WI1RwQG3qN/TUDsxF12q5kw=;
+        b=3DvJB/mkNJ+5B1pFAWQCkRSfXINjDTWqjW9FtIMljZP5zKH6wCEU4ho6o+lrSX+F8A
+         SIr5wQEuHzYNFlVf7rI0HL5IJtPRjHwz1P/zUdzyjxvJRcZOaWE1JKdLx/9PVtja5MJZ
+         qyem6+B0UZ/f2tGQG5R6Vm/Gr+X4BPYkt/lA/mj0yx/PrjUowHMRW3l5/Q3bq95dB8S3
+         kp8PV3sr5tL4ZHwz44Ijv1ZWCMsfmhTRadBT/nfhWOCIZkyCUTlI0rgcQP5Ko1yOPVr+
+         9n3IlqY+qyhqdH513bGREG6KOExMUS5oHJv8QrJh3xhqq1yL+nd6kQyANXf4uNJbdSAC
+         ebSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772805759; x=1773410559;
+        d=1e100.net; s=20230601; t=1772805762; x=1773410562;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZJF5wl0idW47D9GCd6ULDgMs+egUo0RLejd/z4xiKdQ=;
-        b=hduQouEpOL8myYK6e4V8FIItC6OQcMX7GBC6sZg1pu+OaN0i7ExRSvdOJXwSHV5KCd
-         3GS7Naj9DZdfdfFgUCG4sEtzXkOKZvnrpGBZmuPCpiBMclzXhSJunvZGAgWem3t1UL+/
-         whU11lIpqj349J2xkPnB/1PxqoCQaJkS3yz+h7zorDNMZ3bgI/OtupBWb7hAXuIYhVpc
-         IfZEYy7cwGUI+Fu0UPprc9EAZP6aUogcUUZdEcilS4gag6i3O48g63KU8DrImH/01Ftq
-         vZKr+PWU/rzUW099k/YRwq/GKc6zwNYIqfJYFxrL+zT8/lmh5tY1cK/wHW5trgR5zzXr
-         n/Ow==
-X-Forwarded-Encrypted: i=1; AJvYcCW80zz2aD6GIyLzjQCRi+m+kAYvsESR4mmjtLbHAEgOtvU/GG33wCMqhcCkgPyhEj4oNAD3k0pPAaCuh290r6YD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+XQFEoX9mN0wQhNvczgMw5IBhrL0uPx/nmq4VksTAaqXFHGUb
-	Jlj74QeydOlQoei6UKSI7Q293scMLSyX66p6irZCOfb1e6YLlMycyueTCYcu6gk9ZOeJMo2haHu
-	nbQ==
-X-Received: from edai24.prod.google.com ([2002:a05:6402:f18:b0:660:af3b:aad3])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:4303:b0:65a:3526:50e0
- with SMTP id 4fb4d7f45d1cf-6619d4ff435mr1156859a12.30.1772805757678; Fri, 06
- Mar 2026 06:02:37 -0800 (PST)
-Date: Fri,  6 Mar 2026 14:02:22 +0000
+        bh=dq2CFWg/s/4LGPe7PH75WI1RwQG3qN/TUDsxF12q5kw=;
+        b=CS/1pqvSQAApwwdfQRNYcfpscJPSmJV/j8LQpiWK7ihweAZ2KttDtaPHjN2zg46yRX
+         tXwlWm+TXOg6roxJOUyNTGyHu9sa4OOeBas1F8O28NRcroXMBi5RtKXnRbjoieDbkyj8
+         B3/bTr5Qb4IfwtV8QHgo6RTIfinOZM43k5HDikVruSWICtJz+Mb0upKLZL4h6SPDPWXg
+         MJBzx1kwTnp0Us0+E2VMrDK0q3eiyD4FIWJNFX1ycRB997lYf/prDbDTEHYnv+3oCrhS
+         k/vnQgcDmZRIKdqaamfU/gbxOR/c0b4szYKJNlQjpQn4lmmeA/y45h8ONV1aBjn1Oj0g
+         YBEQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWlynjowizsu+RME8SovjeKEtw6uHHP8EzRfsgd62InUpMneJNX2ZQKDfzR/cZu9LGj8s+NaRZtAdTV71vUCU6c@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwJimfAeq5g9pRFd25WLi4SKNLUiYqd1QmxSAXvQFzLMZOYpUl
+	T3SZiaKnfMqAPVfaeHTx3eQJUvAREgh7odBxeSMQYscR2Ym7SjtKcxnfy8lFgad2j/0IB/OrJRY
+	zeQ==
+X-Received: from wmbjw16.prod.google.com ([2002:a05:600c:5750:b0:480:4a03:7b6f])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:474f:b0:477:af8d:203a
+ with SMTP id 5b1f17b1804b1-48526964c79mr37178325e9.27.1772805761667; Fri, 06
+ Mar 2026 06:02:41 -0800 (PST)
+Date: Fri,  6 Mar 2026 14:02:25 +0000
 In-Reply-To: <20260306140232.2193802-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20260306140232.2193802-1-tabba@google.com>
 X-Mailer: git-send-email 2.53.0.473.g4a7958ca14-goog
-Message-ID: <20260306140232.2193802-4-tabba@google.com>
-Subject: [PATCH v1 03/13] KVM: arm64: Extract PFN resolution in user_mem_abort()
+Message-ID: <20260306140232.2193802-7-tabba@google.com>
+Subject: [PATCH v1 06/13] KVM: arm64: Extract page table mapping in user_mem_abort()
 From: Fuad Tabba <tabba@google.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
@@ -74,8 +74,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
 	will@kernel.org, qperret@google.com, vdonnefort@google.com, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_060242_621882_AB7F4143 
-X-CRM114-Status: GOOD (  20.94  )
+X-CRM114-CacheID: sfid-20260306_060244_587587_FEF47A91 
+X-CRM114-Status: GOOD (  20.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,37 +90,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extract the section of code responsible for pinning the physical page
-frame number (PFN) backing the faulting IPA into a new helper,
-kvm_s2_fault_pin_pfn().
+Extract the code responsible for locking the KVM MMU and mapping the PFN
+into the stage-2 page tables into a new helper, kvm_s2_fault_map().
 
-This helper encapsulates the critical section where the mmap_read_lock
-is held, the VMA is looked up, the mmu invalidate sequence is sampled,
-and the PFN is ultimately resolved via __kvm_faultin_pfn(). It also
-handles the early exits for hardware poisoned pages and noslot PFNs.
+This helper manages the kvm_fault_lock, checks for MMU invalidation
+retries, attempts to adjust for transparent huge pages (THP), handles
+MTE sanitization if needed, and finally maps or relaxes permissions on
+the stage-2 entries.
 
-By isolating this region, we can begin to organize the state variables
-required for PFN resolution into the kvm_s2_fault struct, clearing out
-a significant amount of local variable clutter from user_mem_abort().
+With this change, the main user_mem_abort() function is now a sequential
+dispatcher that delegates to specialized helper functions.
 
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- arch/arm64/kvm/mmu.c | 105 ++++++++++++++++++++++++-------------------
- 1 file changed, 59 insertions(+), 46 deletions(-)
+ arch/arm64/kvm/mmu.c | 128 +++++++++++++++++++++++--------------------
+ 1 file changed, 68 insertions(+), 60 deletions(-)
 
 diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 419b793c5891..d56c6422ca5f 100644
+index b328299cc0f5..833a7f769467 100644
 --- a/arch/arm64/kvm/mmu.c
 +++ b/arch/arm64/kvm/mmu.c
-@@ -1740,55 +1740,11 @@ struct kvm_s2_fault {
- 	vm_flags_t vm_flags;
- };
+@@ -1892,68 +1892,13 @@ static int kvm_s2_fault_compute_prot(struct kvm_s2_fault *fault)
+ 	return 0;
+ }
  
 -static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
 -			  struct kvm_s2_trans *nested,
 -			  struct kvm_memory_slot *memslot, unsigned long hva,
 -			  bool fault_is_perm)
-+static int kvm_s2_fault_pin_pfn(struct kvm_s2_fault *fault)
++static int kvm_s2_fault_map(struct kvm_s2_fault *fault, void *memcache)
  {
 -	int ret = 0;
 -	struct kvm_s2_fault fault_data = {
@@ -139,11 +137,11 @@ index 419b793c5891..d56c6422ca5f 100644
 -	};
 -	struct kvm_s2_fault *fault = &fault_data;
 -	struct kvm *kvm = vcpu->kvm;
- 	struct vm_area_struct *vma;
 -	void *memcache;
--	struct kvm_pgtable *pgt;
--	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
 +	struct kvm *kvm = fault->vcpu->kvm;
+ 	struct kvm_pgtable *pgt;
++	int ret;
+ 	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
  
 -	if (fault->fault_is_perm)
 -		fault->fault_granule = kvm_vcpu_trap_get_perm_fault_granule(fault->vcpu);
@@ -167,14 +165,38 @@ index 419b793c5891..d56c6422ca5f 100644
 -	 * Let's check if we will get back a huge fault->page backed by hugetlbfs, or
 -	 * get block mapping for device MMIO region.
 -	 */
- 	mmap_read_lock(current->mm);
- 	vma = vma_lookup(current->mm, fault->hva);
- 	if (unlikely(!vma)) {
-@@ -1842,6 +1798,63 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	if (is_error_noslot_pfn(fault->pfn))
- 		return -EFAULT;
+-	ret = kvm_s2_fault_pin_pfn(fault);
+-	if (ret != 1)
+-		return ret;
+-
+-	ret = 0;
+-
+-	ret = kvm_s2_fault_compute_prot(fault);
+-	if (ret == 1) {
+-		ret = 1; /* fault injected */
+-		goto out_put_page;
+-	}
+-	if (ret)
+-		goto out_put_page;
+-
+ 	kvm_fault_lock(kvm);
+ 	pgt = fault->vcpu->arch.hw_mmu->pgt;
+ 	if (mmu_invalidate_retry(kvm, fault->mmu_seq)) {
+@@ -2001,8 +1946,8 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 		 * PTE, which will be preserved.
+ 		 */
+ 		fault->prot &= ~KVM_NV_GUEST_MAP_SZ;
+-		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, fault->fault_ipa, fault->prot,
+-								 flags);
++		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, fault->fault_ipa,
++								 fault->prot, flags);
+ 	} else {
+ 		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, fault->fault_ipa, fault->vma_pagesize,
+ 							 __pfn_to_phys(fault->pfn), fault->prot,
+@@ -2018,6 +1963,69 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 		mark_page_dirty_in_slot(kvm, fault->memslot, fault->gfn);
  
-+	return 1;
+ 	return ret != -EAGAIN ? ret : 0;
 +}
 +
 +static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
@@ -198,10 +220,7 @@ index 419b793c5891..d56c6422ca5f 100644
 +		.prot = KVM_PGTABLE_PROT_R,
 +	};
 +	struct kvm_s2_fault *fault = &fault_data;
-+	struct kvm *kvm = vcpu->kvm;
 +	void *memcache;
-+	struct kvm_pgtable *pgt;
-+	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
 +
 +	if (fault->fault_is_perm)
 +		fault->fault_granule = kvm_vcpu_trap_get_perm_fault_granule(fault->vcpu);
@@ -231,9 +250,19 @@ index 419b793c5891..d56c6422ca5f 100644
 +
 +	ret = 0;
 +
- 	/*
- 	 * Check if this is non-struct fault->page memory PFN, and cannot support
- 	 * CMOs. It could potentially be unsafe to access as cacheable.
++	ret = kvm_s2_fault_compute_prot(fault);
++	if (ret == 1) {
++		ret = 1; /* fault injected */
++		goto out_put_page;
++	}
++	if (ret)
++		goto out_put_page;
++
++	ret = kvm_s2_fault_map(fault, memcache);
++	return ret;
+ 
+ out_put_page:
+ 	kvm_release_page_unused(fault->page);
 -- 
 2.53.0.473.g4a7958ca14-goog
 
