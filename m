@@ -4,112 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 314B0FCB611
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 15:12:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0F0EFCB613
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 15:13:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HVem0P0AdsDnzJHzIyaxJZEVpAJaMe9yOv2rf1iAdzg=; b=Ux8IWrjsbwJL4Zd8k6z+1yFvPU
-	ADrcdw5g4RTWSlgAoUgkaw4SrRpFGYPz+aAkdDJYDEsYmAuZH2lHVKceUtVWF0uiNLDHsXmE2AHdN
-	lL5OpHHsMRkvSzSGaGZOVNHLFrPSnxxX/S+MXLv59Aj4KzfhbuE54xa3avDILDtmbZ8uVVNBj6cYA
-	wiX1Yeh8XxTuItWTH20WhDeVWYsVwXNtH69eet4nOcW2zBOcNNykA7vVH0Z71ZDPhGFCfNM3uThqw
-	AvW1Jqgl7tYEIhgyXGcI5VRR3+M1xFLV6jgf5TAsQu1yuj0M8v3qbqhVCy8DnCDmvxyD4uQQxQ2rd
-	KUgDFXwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m3yX/TuFuLRmQIgjvocQq3GX0w3ISo7+U2TC5CEV9uw=; b=phip7RhDbzJEIBXIpDMURO6jES
+	/L5VWVopB9C4J/6zRvE/sHlEv3/DLss6A6LTo256p2Ar5erT6RRNzW0hBsNRvBrdITkKFj5cBcxfc
+	QXQLrEM5SSGSVBz2V/oOtqS214ZrwSi08IrKt6WhLapq9j08S7ak0lBwF5gyOWAsvkQXS6g5K+4iV
+	YEo4rKS/pTwqr/0yAym9Aj8l2+aJM4q5mk76gSACgmxPiTRnsPV29+mscGPX3KQ55N/MhB1Rkno6C
+	Q+0AbBOrmj9vAvh0Y8FPFAczMql/q1Sh2w1C9f8wJk+lSL2fkHXZxKfPdUGGvEjJzdfGXpW3aS9Eo
+	GRAEnfWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyWqw-00000003zuQ-2X8T;
-	Fri, 06 Mar 2026 15:12:34 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1vyWri-0000000405R-40Iv;
+	Fri, 06 Mar 2026 15:13:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyWqt-00000003ztT-3BWg
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 15:12:32 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-661b16ac011so789577a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 07:12:31 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772809950; cv=none;
-        d=google.com; s=arc-20240605;
-        b=hBqVdvdj6EpwtsGW4QQUvplAkvo7m2r0q79veD6HkQp91I2J78mz0MOFbVF7h3U2L8
-         eYhXwNi6lpRhMfMrAHKgr+f6uafP6oRP0orzhVQ0/YpYJDRs1SUFOHHSxdoPCqoAHfGe
-         ZD2yx/9Soa54t2+LdUnvazELMRDBPM960fjW4wP7W4CQWgmTdYqZ3Ijh2oUS53vqm/H/
-         u9Eld2IXaDutwsqYHUz3zQjK5dop/9i5T1v720dP56RyTaRFfvsBneZ2cCul3AXEtAfQ
-         8Pnqb5eHqXxlkDPV2zXRjh1rX0Vys4AQ1yZodyXIXENiAI8NCvGHcEsYXQcOOGsTPgEb
-         aJqQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=HVem0P0AdsDnzJHzIyaxJZEVpAJaMe9yOv2rf1iAdzg=;
-        fh=hNMunYXxAlFJrNsG2OJGGSukPac+yDJwL9J098nOlIk=;
-        b=Vkh8gvVPoy5dZI4kMNa1/1MmmVBGxlQSnyCMU0uEMI0c5/Dfb1Sjm7Mv+ptUaPNhTh
-         13i9WQSeFgwqUbNT0QreA97/iHUGqLsoeNo9veB8ikI5i73H6WkQyG1TZ61tu84/9GJM
-         M6j2rUXG/ohLv/Wq9t2ZY8/ljnUIEua+Y3H+Kg3467s4vDf61h2xsU2rqHYTNG5dsUky
-         GVUKu5Ik4umsD07YeFaK02fJkXEpCh0fBZusnUb5vBUXN03ktMJTK9s2PCq97rKe/vKY
-         mjaRlyCluupSkGsZCvwJniAKFdR+w3BMVqgBakOwuOJNrKM1opgVYAXLJLS4yNGDLxC9
-         pIew==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1772809950; x=1773414750; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HVem0P0AdsDnzJHzIyaxJZEVpAJaMe9yOv2rf1iAdzg=;
-        b=ML9xMqh8WAmIPuzTZuQbNyShNIatym8BVcfdMZtVX8H+hNilqOLJj6w0x9zfrb5Df6
-         W+w4wiB/kYqrVK470D4sHD+u4rpQ3r3uXoSspQz560CcRg4gdjr7y1QO2QRyzR4ioEbG
-         nbcBLDOW8aJ+c9pT49UiFk86tXJvex+QhtAYN/wu33HLHMm27PBisVxNTfcHc3UzHIms
-         vz+Vx6tw7giGH5rymGsnyFjW3jIgy7BWlP9JwHmUEEpE1+mG6rf1MLetBhV03YdDnuf3
-         Wp6FuODCTJdP43JpxK58UgfNV3LUkKbb7p9goKYOLV3LQBdj0ugyfcDHku6u3eSOHMAV
-         kS0A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772809950; x=1773414750;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=HVem0P0AdsDnzJHzIyaxJZEVpAJaMe9yOv2rf1iAdzg=;
-        b=ZT1iseyd0V1tkiUf/Oy/wlc1+yvjBRT19Gwcwd6cxBQwgItltQxc7uZnsWys0ORyeS
-         NdzKrA/9vM8xzjL7ks70jifhcEmKHGA8bKMWFrMbc/ZkQhiWo6+hg5mSCGy4tuflUD3J
-         IiosfnEbKijJIIX1coTvieyxt/xz0oBLKk9FoBQILi1ARs8XUQat95Nxatizz2697Xcx
-         KkNA5mfwQD0dCVmQrSLzBXFhRvuv5nPlaev5JFcGSZj2XelIakz9LyPtwH34tzMY7fG0
-         kBZNdo2i2xQi1g5EigH73H/DFdKUvl5ZSgkN2lRW85LCdF73ALuDPPa9LS/ODO/Jt1+F
-         gVCw==
-X-Forwarded-Encrypted: i=1; AJvYcCV/RMM3G7zXaKU5cAm8FBFA33tB27GtcMb3lyyFYzKpqVTHxsRBLUpZhItdOg4sXh+1BCV4QgIwqrDX4+Owycl6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyq/+7H1WufhKD4Ckd5OOj+3lSQ6/nXvGSuqghy+nC9tvBCdhK4
-	QBt0Ww3kKkIKHg9+kdQRkUCb0VPGCWkhzpTch4Q7AmQtsX2aY4P17iIEkySBxSfeURJ1Lmlb9lu
-	r+ibKJgWwQ+mGBlsJTHd4UZ/1tPwmxr4Qel0/wR54NA==
-X-Gm-Gg: ATEYQzzgMNBFu/TpXgNjjzrKkQqQ2I5RiOP8WrpF0WwyfRTzrCxSZjaNx5GuxJKz0z6
-	gP81XTFjvccW5HqNQF/kJJs73zSra0FdCugAJuFXBGeshCsf9aMI2pOBv5wXCjq/wQQNY3y6pk+
-	GBc96/fnzroSppfF5Km5fphp4uUzIg/a6nRvMj4BUlh1paDZs8gNAYsWW+RxIVmjn6fiJneL+O2
-	f4+Io8y8SbOdRLlej6WbCsWabDaGjut7oi7+7zHYZbPYfLJSGQWVGoLyqegWYNVph+tuo0nFomx
-	pI2pLO6qfeNfW3bCamGcJL3Sgh3CcxlHF2IDaS+aKA==
-X-Received: by 2002:a05:6402:3487:b0:660:b913:faa with SMTP id
- 4fb4d7f45d1cf-6619d464e36mr1481328a12.7.1772809948849; Fri, 06 Mar 2026
- 07:12:28 -0800 (PST)
+	id 1vyWrh-0000000404d-1uwj;
+	Fri, 06 Mar 2026 15:13:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CF3434010B;
+	Fri,  6 Mar 2026 15:13:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EC2AC4CEF7;
+	Fri,  6 Mar 2026 15:13:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772810000;
+	bh=m3yX/TuFuLRmQIgjvocQq3GX0w3ISo7+U2TC5CEV9uw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jiZltdZ2gL1FgHjce7eq7UkgNdE3B4LBXJl8Qxe8+hOJHZUbs+T/gCtq822uK3SXp
+	 xTDxNlZKmvRv+qxSeUHDc/A9eyWLuenTL/NO0qMG+kcC9WNWRn6FPehz7PW1C1PX62
+	 psecRgeyD+CRzBQS0qvbuhAFLQ7u1/guxPnWe0QoV/5rHghKcPBk+lpSfZ3A9Y6Eqp
+	 o5HlFzYcgk4FIRzFpMx1H61mJumZtuX0wmQ8iT6LcOqRhntlHBrpDPWejjuz16xD2n
+	 ZcAiOJR35oELwpol4XNVFP880WiVW/ZxVYQF1Zvyb0IDwXXEUy21kxzA2BSl6Ojqm9
+	 F0dC5Vcig7fVA==
+Date: Fri, 6 Mar 2026 16:13:18 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Simon Horman <horms@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net-next] net: airoha: Fix GDM2 loopback configuration
+ for USB serdes
+Message-ID: <aarvDt9TAn0MkUk8@lore-desk>
+References: <20260228-airoha-fix-loopback-for-usb-serdes-v1-1-a94be0f897da@kernel.org>
+ <20260303141624.GD71509@kernel.org>
+ <aaftUXaSD0u5ZhO7@lore-desk>
+ <20260306134226.GD461701@kernel.org>
 MIME-Version: 1.0
-References: <20260306-gs101-pd-v7-0-03f7c7965ba5@linaro.org> <20260306-gs101-pd-v7-4-03f7c7965ba5@linaro.org>
-In-Reply-To: <20260306-gs101-pd-v7-4-03f7c7965ba5@linaro.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Fri, 6 Mar 2026 15:12:17 +0000
-X-Gm-Features: AaiRm50bC_Zr0ksut70Q7jUwSUCXTU_SK0a7CwA46Jn7HCchhyT2HfXFov7-djc
-Message-ID: <CADrjBPpiFR-T5SgnOAgt9U279esUYkdVn21Yy2TQnMvrd3VNUA@mail.gmail.com>
-Subject: Re: [PATCH v7 04/10] dt-bindings: soc: google: gs101-pmu: allow power
- domains as children
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Juan Yescas <jyescas@google.com>, 
-	Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="UOcuNL+C/U/0CMjH"
+Content-Disposition: inline
+In-Reply-To: <20260306134226.GD461701@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_071231_829595_F7DCF656 
-X-CRM114-Status: GOOD (  20.47  )
+X-CRM114-CacheID: sfid-20260306_071321_554416_24007FC3 
+X-CRM114-Status: GOOD (  25.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,110 +79,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 6 Mar 2026 at 10:29, Andr=C3=A9 Draszik <andre.draszik@linaro.org> =
-wrote:
->
-> The power domains are a property of / implemented in the PMU. As such,
-> they should be modelled as child nodes of the PMU.
->
-> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> ---
 
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+--UOcuNL+C/U/0CMjH
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> v7:
-> - really be consistent with quoting (Krzysztof)
-> - drop invalid tested-by tag (Krzysztof)
->
-> v4:
-> - consistent quoting using " (Krzysztof)
-> - add samsung,dtzpc to example
->
-> Note:
-> Because the properties added are 'required', this commit breaks DT
-> validation of the existing DT for Pixel 6, but a) that's simply because
-> the DT is incomplete and b) a DT update will be posted once the binding
-> is accepted.
-> It is not possible to write the binding such that it supports old
-> (incomplete) DTs in addition to the full version, but as per above
-> it's not required to keep supporting old DTs.
-> ---
->  .../bindings/soc/google/google,gs101-pmu.yaml      | 41 ++++++++++++++++=
-++++++
->  1 file changed, 41 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/soc/google/google,gs101-pm=
-u.yaml b/Documentation/devicetree/bindings/soc/google/google,gs101-pmu.yaml
-> index a06bd8ec3c20..dfe6f87e5949 100644
-> --- a/Documentation/devicetree/bindings/soc/google/google,gs101-pmu.yaml
-> +++ b/Documentation/devicetree/bindings/soc/google/google,gs101-pmu.yaml
-> @@ -16,6 +16,14 @@ properties:
->    reg:
->      maxItems: 1
->
-> +  "#address-cells":
-> +    const: 1
-> +
-> +  "#size-cells":
-> +    const: 1
-> +
-> +  ranges: true
-> +
->    reboot-mode:
->      $ref: /schemas/power/reset/syscon-reboot-mode.yaml
->      type: object
-> @@ -39,9 +47,23 @@ properties:
->      description:
->        Phandle to PMU interrupt generation interface.
->
-> +patternProperties:
-> +  "^power-domain@[0-9a-f]+$":
-> +    type: object
-> +    description: Child node describing one power domain within the PMU
-> +
-> +    additionalProperties: true
-> +
-> +    properties:
-> +      compatible:
-> +        const: google,gs101-pd
-> +
->  required:
->    - compatible
->    - reg
-> +  - "#address-cells"
-> +  - "#size-cells"
-> +  - ranges
->    - google,pmu-intr-gen-syscon
->
->  additionalProperties: false
-> @@ -51,6 +73,25 @@ examples:
->      system-controller@17460000 {
->          compatible =3D "google,gs101-pmu";
->          reg =3D <0x17460000 0x10000>;
-> +        #address-cells =3D <1>;
-> +        #size-cells =3D <1>;
-> +        ranges;
->
->          google,pmu-intr-gen-syscon =3D <&pmu_intr_gen>;
-> +
-> +        pd_g3d: power-domain@1e00 {
-> +            compatible =3D "google,gs101-pd";
-> +            reg =3D <0x1e00 0x80>;
-> +            #power-domain-cells =3D <0>;
-> +            label =3D "g3d";
-> +            samsung,dtzpc =3D <&pd_g3d>;
-> +        };
-> +
-> +        power-domain@2000 {
-> +            compatible =3D "google,gs101-pd";
-> +            reg =3D <0x2000 0x80>;
-> +            #power-domain-cells =3D <0>;
-> +            power-domains =3D <&pd_g3d>;
-> +            label =3D "embedded_g3d";
-> +        };
->      };
->
-> --
-> 2.53.0.473.g4a7958ca14-goog
->
+> On Wed, Mar 04, 2026 at 09:29:05AM +0100, Lorenzo Bianconi wrote:
+> > > On Sat, Feb 28, 2026 at 01:20:33PM +0100, Lorenzo Bianconi wrote:
+> > > > Flow Control source port mapping for USB serdes needs to be configu=
+red
+> > > > according to the GDM port nbd parameter. This is a preliminary patch
+> > > > since nbd parameter is specific for the given port serdes and needs=
+ to
+> > > > be read from the DTS (in the current codebase is assigned staticall=
+y).
+> > > >=20
+> > > > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> > >=20
+> > > Hi Lorenzo,
+> > >=20
+> > > Is this a fix? If so, should it have a fixes tag? And be targeted at =
+net?
+> > > Otherwise, perhaps drop the "Fix" from the subject.
+> >=20
+> > Hi Simon,
+> >=20
+> > This is a preliminary patch in order to completely fix the loopback
+> > configuration for USB serdes but the point is we are not supporting
+> > USB serdes upstream yet (there is only OpenWrt support available at
+> > the moment). Do you think we should target net-next or net in this
+> > case?
+>=20
+> If there is no bug in net - given the way net can be used with in-tree co=
+de
+> - then I would not tag this as a fix.
+
+ack, fine.
+
+Regards,
+Lorenzo
+
+>=20
+> >=20
+> > >=20
+> > > Also, I think it would be worth explaining the situation
+> > > before and after this patch.
+>=20
+> ...
+>=20
+
+--UOcuNL+C/U/0CMjH
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaarvDgAKCRA6cBh0uS2t
+rHS4AP93AGB12XIMmq1lglTzHPArpDsRGddVBWHb/RHvuaZHdAEA1mo58+20I1V4
+7y5FGuGUMVWZVwOEUq8W6grMJD84VAc=
+=ifxM
+-----END PGP SIGNATURE-----
+
+--UOcuNL+C/U/0CMjH--
 
