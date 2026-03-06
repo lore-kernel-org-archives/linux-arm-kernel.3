@@ -4,90 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6751F5140A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 06:43:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52B9FF51411
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 06:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=11+RTC5t0MsdYzyhRjOIFhJd9Jd2+UWG3tuKjDCny7k=; b=13c5N0tfvFBlkJxwRw3Wdh7bBH
-	ZwUO8w65qFGzt3SWlX2n18uWCg/yqjtheZYRoz8v75rMAkOYM4cpokFkPDI6IFDnOGFg47qB4RSbZ
-	Ibv5pSu/jJ4RGTisowUr0OpHC98BxLmiWOl2QdbeeH5oRR2AvGOMFLQBFrgzOxIkw+T+F1AtzmjGH
-	PNgF4TM4iLhZJmYuRTc0A/a/sO9O31cPf8N2pUkxFie+E6p9AgGLZx24gdhONs3A7ZzSmNsZhc83+
-	Dz2YOk1wubuwvjL3VkvErDsWmg+BqF0nsYIJ+TRP+CWg9IHHBkz9skxfwOw759LdBsX4DvE8IOhOD
-	GV2WokBA==;
+	bh=CmeKu3kFQGo6glaHzn6GIz9FtScBZUYLt4OdvSQRdYA=; b=LZVx1nv/Z5WLOmwohfltQPH2Xx
+	vEIxtQnTxP75APhai8Ryccr191Ca0znU/L1uxA/B2LMYpmHQWD8d3+eFIp+HRvAcBa6EkpwCxd3xe
+	bgD/9AB8GAnEIWoyhgi0VdsASRdfVoWnKARXoiAMzH31r0Y8rTX6BCbzqmDH/knkFQUgoVe6XURas
+	xNJGP1fTRGV96Zi/GYX4zMQkP4nbProkDU46YY3QQbrS2B1mcYaYeapaeCU3i/Mp8zzr+3iIrpTNM
+	Q9SlYAF68khcuFaXT8BgPCPNsBVzCOKD4n1/8rJbuh3uqOTA1BCYo/g1qLyHdJzxJtO/ZlCnbIy+D
+	wcRslCrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyOty-000000035pC-2GXh;
-	Fri, 06 Mar 2026 06:43:10 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1vyOuy-000000035yh-2ted;
+	Fri, 06 Mar 2026 06:44:12 +0000
+Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyOtw-000000035or-23ex
+	id 1vyOuu-000000035vS-0dNR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 06:43:09 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-c737d3a51bdso1029711a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 22:43:08 -0800 (PST)
+	Fri, 06 Mar 2026 06:44:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772779388; x=1773384188; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=11+RTC5t0MsdYzyhRjOIFhJd9Jd2+UWG3tuKjDCny7k=;
-        b=aHBa0UxI/+WGQrz55WzROqDwzihmNPoidM3i3Cc92udZuaqggTpx7iq66qzIe4fpRB
-         y1orWanMJM5u+1e4mmMvvHZmBBq9+v7r/ATMyRzlx+EEXbO/+XhM4qWwSIO0YNNMKCTv
-         erYV/+9F73GMU4jSSNmQ5YBb/B9JeqWU56PLo9cDI6J367m3ST1zaSmBxojnGaDwxBib
-         DOzC9/g8t+p5DALYupJMNLoJLvy6g+i5vyg70cSibDmR/H6aN4f6eG1B8gzfzgseo92n
-         ySifXOqNAIgVWrdghrOHEnYdsx6crGhcLOxpRDcr7zyZaCaZgvLhfdNjD63ywzS3bdSx
-         NbMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772779388; x=1773384188;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=11+RTC5t0MsdYzyhRjOIFhJd9Jd2+UWG3tuKjDCny7k=;
-        b=nPiH2BPw99JxlCzjw/jKYDTOfykKr+0lDyVpZQtMbg/cfxCtkAbfHecAlyZ1Ydk19L
-         rCB+PRpt8VEmmtlZoSx9WMrMttcGPSGWM19CsPXp1TgVC33RpRZ2BtSwl6AYdoH6n9CA
-         28ZRZ6HNAOmSTpqmCmYlIb9KNgc2GB+FncEOSIoLbFLabWURw7lq6SL6iHtUUdapQhD1
-         iDnlZ8+D+5UFEnNshbhBqI99yz/BMmOu8w8rKOeoqu8egsNQlsBqFyiPQSBpQGKEBABk
-         Rx/WVGuvt5l/u/bAwW5kw0EAMHVhIG0YAIZzwr83yNc/K6YFvxqdmdpQjU1lCG12oSF7
-         gA6Q==
-X-Forwarded-Encrypted: i=1; AJvYcCV4Z1AW6Yx6cvwsLpwJXTAWyLJt9q1vBhMQdIG/zQDjaaXGPX6h8GecM1biWiOnMH6ZDDlN5wf9tvaKTJojfYF7@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUmu+kW4VFaFIxrHdA8/DEpn56IKikWmpBosH1b/FfxzPNHuG5
-	gTvfTPETNPhJ5sAt77pxNU9nk05+0ib0KX4MxsqL2Y0urdj9WFgfDajR
-X-Gm-Gg: ATEYQzxhnrxMQ+N6GaqL6mqshweiX6wk36fxDjz4U5vhdJNI1ePomI4O29Ld4w+MMEP
-	evcxp3umG1GpLslDH08bCUMAk6cLBJUZvm+jAe6eHlchqMgWdOr4Y5qjlowVfsNEFCPM6DRqBqv
-	7npIAEWQetpV/rzzohzSm16BnRwjfzIe5KgVhkyJ3Cxn4E9sn0nxw7W0d3aPfbdCW72EZvAEZvd
-	KWms+KISFlyxhVUnTk3Xadz+8vb6ohcoh8AODiM3tfOllxWir/hokfQXIjX7P6EX9+2xwjQydcK
-	Px3Q164/MVzh4E523zHh/krVWrTyPP4RCo098+alWylritgKMEkB3UoxvBAI8pDFuFTXdRJDrvN
-	mPE/cwkaAkzZCeYAm5WeH+/sW+CVJZoJBgtS45T9nAYic1CzV6CQn/2m2pcxReP9befgPmRBPQE
-	Bg1X0/9wjkswjeJ/n3hMVsMl3ewIqdiQ==
-X-Received: by 2002:a17:902:da8a:b0:2ae:450c:951e with SMTP id d9443c01a7336-2ae82388a53mr13181935ad.17.1772779387493;
-        Thu, 05 Mar 2026 22:43:07 -0800 (PST)
-Received: from arm-server.. ([2001:288:7001:2724:1a31:bfff:fe58:b622])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae840b2e9dsm11892375ad.85.2026.03.05.22.43.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Mar 2026 22:43:07 -0800 (PST)
-From: Cheng-Yang Chou <yphbchou0911@gmail.com>
-To: herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	catalin.marinas@arm.com,
+	d=linux.alibaba.com; s=default;
+	t=1772779440; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
+	bh=CmeKu3kFQGo6glaHzn6GIz9FtScBZUYLt4OdvSQRdYA=;
+	b=rCHwBcYKYxqqLCgeotDAHfd7ljpsrHI1oCNUdPzZTiQKym1X3GfPq711vD0L8Y04G3uFWqk4Ct5GGpPgDvhfbBSxGls/d2mQ04NYioqIObjlgzFVWNdiwwBobw9yCeBTq8UcA3Ne3ebkVfrL9vpYtllUULKnetXDqzviZZLNTus=
+Received: from localhost(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0X-ML2rg_1772779436 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 06 Mar 2026 14:43:57 +0800
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+To: akpm@linux-foundation.org,
+	david@kernel.org
+Cc: catalin.marinas@arm.com,
 	will@kernel.org,
-	ebiggers@kernel.org,
-	linux-crypto@vger.kernel.org,
+	lorenzo.stoakes@oracle.com,
+	ryan.roberts@arm.com,
+	Liam.Howlett@oracle.com,
+	vbabka@suse.cz,
+	rppt@kernel.org,
+	surenb@google.com,
+	mhocko@suse.com,
+	riel@surriel.com,
+	harry.yoo@oracle.com,
+	jannh@google.com,
+	willy@infradead.org,
+	baohua@kernel.org,
+	dev.jain@arm.com,
+	axelrasmussen@google.com,
+	yuanchu@google.com,
+	weixugc@google.com,
+	hannes@cmpxchg.org,
+	zhengqi.arch@bytedance.com,
+	shakeel.butt@linux.dev,
+	baolin.wang@linux.alibaba.com,
+	linux-mm@kvack.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Cc: jserv@ccns.ncku.edu.tw,
-	yphbchou0911@gmail.com
-Subject: [PATCH v2] crypto: arm64/aes-neonbs - Move key expansion off the stack
-Date: Fri,  6 Mar 2026 14:42:54 +0800
-Message-ID: <20260306064254.2079274-1-yphbchou0911@gmail.com>
-X-Mailer: git-send-email 2.48.1
+Subject: [PATCH v3 0/6] support batched checking of the young flag for MGLRU
+Date: Fri,  6 Mar 2026 14:43:36 +0800
+Message-ID: <cover.1772778858.git.baolin.wang@linux.alibaba.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_224308_598344_29387C55 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20260305_224408_896657_B88D63A8 
+X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,97 +88,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-aesbs_setkey() and aesbs_cbc_ctr_setkey() allocate struct crypto_aes_ctx
-on the stack. On arm64, the kernel-mode NEON context is also stored on
-the stack, causing the combined frame size to exceed 1024 bytes and
-triggering -Wframe-larger-than= warnings.
+This is a follow-up to the previous work [1], to support batched checking
+of the young flag for MGLRU.
 
-Allocate struct crypto_aes_ctx on the heap instead and use
-kfree_sensitive() to ensure the key material is zeroed on free.
-Use a goto-based cleanup path to ensure kfree_sensitive() is always
-called.
+Similarly, batched checking of young flag for large folios can improve
+performance during large-folio reclamation when MGLRU is enabled. I
+observed noticeable performance improvements (see patch 5) on an Arm64
+machine that supports contiguous PTEs. All mm-selftests are passed.
 
-Signed-off-by: Cheng-Yang Chou <yphbchou0911@gmail.com>
----
-Changes in v1:
-- Replace memzero_explicit() + kfree() with kfree_sensitive()
-  (Eric Biggers)
-- Link to v1: https://lore.kernel.org/all/20260305183229.150599-1-yphbchou0911@gmail.com/
+Patch 1 - 3: cleanup patches.
+Patch 4: add a new generic batched PTE helper: test_and_clear_young_ptes().
+Patch 5: support batched young flag checking for MGLRU.
+Patch 6: implement the Arm64 arch-specific test_and_clear_young_ptes().
 
- arch/arm64/crypto/aes-neonbs-glue.c | 37 ++++++++++++++++++-----------
- 1 file changed, 23 insertions(+), 14 deletions(-)
+[1] https://lore.kernel.org/all/cover.1770645603.git.baolin.wang@linux.alibaba.com/
 
-diff --git a/arch/arm64/crypto/aes-neonbs-glue.c b/arch/arm64/crypto/aes-neonbs-glue.c
-index cb87c8fc66b3..00530b291010 100644
---- a/arch/arm64/crypto/aes-neonbs-glue.c
-+++ b/arch/arm64/crypto/aes-neonbs-glue.c
-@@ -76,19 +76,24 @@ static int aesbs_setkey(struct crypto_skcipher *tfm, const u8 *in_key,
- 			unsigned int key_len)
- {
- 	struct aesbs_ctx *ctx = crypto_skcipher_ctx(tfm);
--	struct crypto_aes_ctx rk;
-+	struct crypto_aes_ctx *rk;
- 	int err;
- 
--	err = aes_expandkey(&rk, in_key, key_len);
-+	rk = kmalloc(sizeof(*rk), GFP_KERNEL);
-+	if (!rk)
-+		return -ENOMEM;
-+
-+	err = aes_expandkey(rk, in_key, key_len);
- 	if (err)
--		return err;
-+		goto out;
- 
- 	ctx->rounds = 6 + key_len / 4;
- 
- 	scoped_ksimd()
--		aesbs_convert_key(ctx->rk, rk.key_enc, ctx->rounds);
--
--	return 0;
-+		aesbs_convert_key(ctx->rk, rk->key_enc, ctx->rounds);
-+out:
-+	kfree_sensitive(rk);
-+	return err;
- }
- 
- static int __ecb_crypt(struct skcipher_request *req,
-@@ -133,22 +138,26 @@ static int aesbs_cbc_ctr_setkey(struct crypto_skcipher *tfm, const u8 *in_key,
- 			    unsigned int key_len)
- {
- 	struct aesbs_cbc_ctr_ctx *ctx = crypto_skcipher_ctx(tfm);
--	struct crypto_aes_ctx rk;
-+	struct crypto_aes_ctx *rk;
- 	int err;
- 
--	err = aes_expandkey(&rk, in_key, key_len);
-+	rk = kmalloc(sizeof(*rk), GFP_KERNEL);
-+	if (!rk)
-+		return -ENOMEM;
-+
-+	err = aes_expandkey(rk, in_key, key_len);
- 	if (err)
--		return err;
-+		goto out;
- 
- 	ctx->key.rounds = 6 + key_len / 4;
- 
--	memcpy(ctx->enc, rk.key_enc, sizeof(ctx->enc));
-+	memcpy(ctx->enc, rk->key_enc, sizeof(ctx->enc));
- 
- 	scoped_ksimd()
--		aesbs_convert_key(ctx->key.rk, rk.key_enc, ctx->key.rounds);
--	memzero_explicit(&rk, sizeof(rk));
--
--	return 0;
-+		aesbs_convert_key(ctx->key.rk, rk->key_enc, ctx->key.rounds);
-+out:
-+	kfree_sensitive(rk);
-+	return err;
- }
- 
- static int cbc_encrypt(struct skcipher_request *req)
+Changes from v2:
+v2: https://lore.kernel.org/all/cover.1772185080.git.baolin.wang@linux.alibaba.com/
+ - Update the commit message of patch 5 (per David).
+ - Fix some coding style issues (per David).
+ - Remove 'cur_pte' variable in lru_gen_look_around() (per David).
+ - Move 'ptes += nr;' to the suitable place in folio_referenced_one() (per David).
+ - Add acked tag from David. Thanks.
+
+Changes from v1:
+v1: https://lore.kernel.org/all/cover.1771897150.git.baolin.wang@linux.alibaba.com/
+ - Update some commit message (per David).
+ - Fix some coding style issues (per David).
+ - Use VM_WARN_ON_ONCE_FOLIO() instead of VM_WARN_ON_FOLIO() (per Rik).
+ - Define a generic ptep_test_and_clear_young_notify() (per David).
+ - Remove redundant 'nr > 1' check in folio_referenced_one() (per David).
+ - Rename some variables' to make code more clear (per David).
+ - Add a new patch to rename some functions (per David).
+ - Update the young counters with the batched count for MGLRU.
+ - Collect reviewed tags from Rik, Barry, Alistair and David. Thanks.
+
+Baolin Wang (6):
+  mm: use inline helper functions instead of ugly macros
+  mm: rename ptep/pmdp_clear_young_notify() to
+    ptep/pmdp_test_and_clear_young_notify()
+  mm: rmap: add a ZONE_DEVICE folio warning in folio_referenced()
+  mm: add a batched helper to clear the young flag for large folios
+  mm: support batched checking of the young flag for MGLRU
+  arm64: mm: implement the architecture-specific
+    test_and_clear_young_ptes()
+
+ arch/arm64/include/asm/pgtable.h | 18 +++++++----
+ include/linux/mmu_notifier.h     | 54 --------------------------------
+ include/linux/mmzone.h           |  5 +--
+ include/linux/pgtable.h          | 37 ++++++++++++++++++++++
+ mm/internal.h                    | 52 ++++++++++++++++++++++++++++++
+ mm/rmap.c                        | 29 ++++++++---------
+ mm/vmscan.c                      | 45 +++++++++++++++++++-------
+ 7 files changed, 152 insertions(+), 88 deletions(-)
+
 -- 
-2.48.1
+2.47.3
 
 
