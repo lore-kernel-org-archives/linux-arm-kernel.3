@@ -4,81 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 319E2F0183E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:21:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 987B6F0183E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:21:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ymvrjjPd//GaKYl9Ka0K/Hr4LIDzlDczwQ2BLU0KF2Q=; b=h+YOqc4oWlx/tQiSM3I34vK4El
-	w/jqSUat7N9vFsxunZokWkuAotHtY9ZmPVdQuwR6rx9EePo7P4l59BASGuSDay2+PHeXXoX+PGcya
-	8wqitKL5ajPjkK25hTqWDa8lZ9+1erJYcOjKVIrStbEhoSD9aWicLDdpS0STL5AwlYD/4zTXXfxhN
-	jK28it0ZBtadKA1/8fDeKxV7kMu+6697mmo43dbtNlm6N9tfdnGcr4iMjk5MbKKNw6k+ULR6t7o+8
-	k4GhhTJ3dlWS6p9V6wgkBwXCktl8JtdP4QbG9/x5XeISi038VzNI4n/biG5L7loRRFiBKbZ1ptyDz
-	N8wL81ZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0Gt5lqhV+YVsP0IGj8kG//6j1W+7LeoQsSF9UHjgx/k=; b=YOFmwuYdtEhwBExUMvk+xLaWIF
+	pLsibbNfW7QpNh8wZEZwFlMTBJDwWX5C2IJv0f9iM30Dohr0eKTh1S7RsrQqVTzKUoTEQAoUE34Gt
+	ISEVPE8/KpkL88iThnUJYzuWPClTjEopfizDV1VJZl+GsQ4rLaauc5GX+BtoIHC27blwfrjAlTvig
+	mJaMkrb55CgDsHMBl50S6onuPX1bPZUifebNFfWNQ1jxUM9aEjkjJBngVeg98i1wk6AQqvrwCdxFE
+	JQkH3Tovw9ulbdvj1tnEFbGYQdAYvgz4kbRHuJnnxCNGLyqVNB5+lmF4/f5q0ALKZSYo90cvvBTPQ
+	AXoRQ+HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyW3U-00000003tei-1XNo;
-	Fri, 06 Mar 2026 14:21:28 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1vyW3o-00000003tkO-33yP;
+	Fri, 06 Mar 2026 14:21:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyW3N-00000003teI-1sfV;
-	Fri, 06 Mar 2026 14:21:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1772806881; x=1804342881;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=qrSWEQCzYdDInjoygqfLYRngEipu0GaqBoIRMKJNN88=;
-  b=beI8aZRrPiw57iTTUY+pmoGtR9Ni+IGO1x7GOWETJGZbdly0ODIyXtoP
-   QBKmvzO0Xp6OTclcYxwArfzH4TlIYayjoUjTinYJHh0v5of8zvJREMtnL
-   12mlwe6ww55Rii5ZctqNSgkasqna1DYP9tbIYPKOI2S7JcqodeK7pAW+X
-   dtr57aAYcMymW72Nf88MHEukcnY7kJF90akgsKuXjmTGHmT2sNgVYokFK
-   zaAV7IzBK++7UuFUCQeZa7JK/PyXW4IRVVJQXb9IaXTar/fkfB9yjiTkL
-   hMYDpRF/uwgm9INHqeCQBAy2UWk6X7cARij9NZKeavJx+kU00G2puIgJR
-   w==;
-X-CSE-ConnectionGUID: oq/ZI5jLSGaHOsnrD3lLmA==
-X-CSE-MsgGUID: pK0P/LxlRqqu5Grk7w0dDA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11721"; a="99385727"
-X-IronPort-AV: E=Sophos;i="6.23,104,1770624000"; 
-   d="scan'208";a="99385727"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Mar 2026 06:21:18 -0800
-X-CSE-ConnectionGUID: Z6Kp7Gz/TD6nsUrJkzKytg==
-X-CSE-MsgGUID: 39iaiRcqTdiVpjYced1ksw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,104,1770624000"; 
-   d="scan'208";a="218252442"
-Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.1])
-  by orviesa010-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Mar 2026 06:21:12 -0800
-Date: Fri, 6 Mar 2026 16:21:09 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Hugo Villeneuve <hugo@hugovil.com>
-Cc: robin@protonic.nl, andy@kernel.org, geert@linux-m68k.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	dmitry.torokhov@gmail.com, hvilleneuve@dimonoff.com,
-	mkorpershoek@kernel.org, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, lee@kernel.org,
-	alexander.sverdlin@gmail.com, marek.vasut@gmail.com, akurz@blala.de,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v4 4/4] Input: charlieplex_keypad: add GPIO charlieplex
- keypad
-Message-ID: <aari1Y1CPZSYEVj3@ashevche-desk.local>
-References: <20260305192101.2125660-1-hugo@hugovil.com>
- <20260305192101.2125660-5-hugo@hugovil.com>
+	id 1vyW3m-00000003tjc-0Odg
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Mar 2026 14:21:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AD5854174F;
+	Fri,  6 Mar 2026 14:21:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C60EC4CEF7;
+	Fri,  6 Mar 2026 14:21:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772806905;
+	bh=QlowReCLCXaDEPiS+S2GX0Mrds2Ec/PskTemUWOyu5k=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jil9XdiNACVK8YNzZ5AQCO0O/A1VouaMzryqqOCAUCJDpa/RrLxWj2Q3MeCF2Mslg
+	 7d+1SpFsGEfaWNks+Ufj1woTgQrxd0nsBHhcCL925Zm5YXPkiJdb9okYaFmTbCBpSL
+	 tDokRNtYiIUIxpSJuB7Br0LeJb7U9sQ4B7N//dG+efQgrdFRsFNi36aOqOjosrFlXT
+	 Lb1i29HxExS4viNqXTeYq7O1E3gVR8ouf7x/dhLRrp8av5Oh0QuIlZnQWu4/34ggH1
+	 7+mecAb4+B6N63mbxF1LV/aCoWx9adrtQySO77EcmT6LE/cyZmtVIpwkuK8gxMxg9j
+	 0W+3NlSCajVyg==
+Message-ID: <110dace9-3ff9-4750-813f-93c6827b105c@kernel.org>
+Date: Fri, 6 Mar 2026 15:21:38 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260305192101.2125660-5-hugo@hugovil.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/9] accel/neutron: Add driver for NXP Neutron NPU
+To: Ioana Ciocoi-Radulescu <ruxandra.radulescu@nxp.com>,
+ Oded Gabbay <ogabbay@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Sumit Semwal <sumit.semwal@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Frank Li <Frank.Li@nxp.com>, =?UTF-8?Q?Christian_K=C3=B6nig?=
+ <christian.koenig@amd.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+ linaro-mm-sig@lists.linaro.org, Jiwei Fu <jiwei.fu@nxp.com>,
+ Forrest Shi <xuelin.shi@nxp.com>, Alexandru Taran <alexandru.taran@nxp.com>,
+ Daniel Baluta <daniel.baluta@nxp.com>
+References: <20260306-neutron-v2-0-3019bd8c91ef@nxp.com>
+ <20260306-neutron-v2-4-3019bd8c91ef@nxp.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260306-neutron-v2-4-3019bd8c91ef@nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_062121_528873_5BCF5CDB 
-X-CRM114-Status: GOOD (  19.74  )
+X-CRM114-CacheID: sfid-20260306_062146_201619_3AB74FFC 
+X-CRM114-Status: GOOD (  21.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,145 +130,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 05, 2026 at 02:20:50PM -0500, Hugo Villeneuve wrote:
-
-> Add support for GPIO-based charlieplex keypad, allowing to control
-> N^2-N keys using N GPIO lines.
+On 06/03/2026 14:27, Ioana Ciocoi-Radulescu wrote:
 > 
-> Reuse matrix keypad keymap to simplify, even if there is no concept
-> of rows and columns in this type of keyboard.
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 8a5b27b061da..f7a687eb6b54 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -19191,6 +19191,16 @@ S:	Orphan
+>  F:	Documentation/devicetree/bindings/net/nfc/nxp,nci.yaml
+>  F:	drivers/nfc/nxp-nci
+>  
+> +NXP Neutron NPU DRIVER
+
+s/Neutron/NEUTRON/ as everything here is in uppercase
+
+> +M:	Ioana Ciocoi Radulescu <ruxandra.radulescu@nxp.com>
+> +M:	Jiwei Fu <jiwei.fu@nxp.com>
+> +L:	dri-devel@lists.freedesktop.org
+> +S:	Maintained
+> +T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
+> +F:	Documentation/accel/neutron/
+> +F:	drivers/accel/neutron/
+> +F:	include/uapi/drm/neutron_accel.h
+
+
+>  
+> diff --git a/drivers/accel/Makefile b/drivers/accel/Makefile
+> index 1d3a7251b950..698136e12cce 100644
+> --- a/drivers/accel/Makefile
+> +++ b/drivers/accel/Makefile
+> @@ -4,5 +4,6 @@ obj-$(CONFIG_DRM_ACCEL_AMDXDNA)		+= amdxdna/
+>  obj-$(CONFIG_DRM_ACCEL_ARM_ETHOSU)	+= ethosu/
+>  obj-$(CONFIG_DRM_ACCEL_HABANALABS)	+= habanalabs/
+>  obj-$(CONFIG_DRM_ACCEL_IVPU)		+= ivpu/
+> +obj-$(CONFIG_DRM_ACCEL_NXP_NEUTRON)	+= neutron/
+>  obj-$(CONFIG_DRM_ACCEL_QAIC)		+= qaic/
+> -obj-$(CONFIG_DRM_ACCEL_ROCKET)		+= rocket/
+> \ No newline at end of file
+
+You still have patch warnings.
+
+> +obj-$(CONFIG_DRM_ACCEL_ROCKET)		+= rocket/
+> diff --git a/drivers/accel/neutron/Kconfig b/drivers/accel/neutron/Kconfig
+> new file mode 100644
+> index 000000000000..37b8ecb49804
+> --- /dev/null
+> +++ b/drivers/accel/neutron/Kconfig
+> @@ -0,0 +1,16 @@
+> +# SPDX-License-Identifier: GPL-2.0+
+> +
+> +config DRM_ACCEL_NXP_NEUTRON
+> +	tristate "NXP Neutron NPU"
+> +	depends on HAS_IOMEM
+> +	depends on DRM_ACCEL
+> +	depends on ARCH_MXC
+
+Missing compile test
+
+> +	select DRM_GEM_DMA_HELPER
+> +	select DRM_SCHED
+> +	help
+> +	  Enables driver for NXP Neutron NPU.
+> +
+> +	  Select this if you have an NXP SoC with Neutron, like i.MX95,
+> +	  and want to run machine learning applications.
+> +
+> +	  If built as module, the module is named neutron.
 
 ...
 
-> --- a/drivers/input/keyboard/Makefile
-> +++ b/drivers/input/keyboard/Makefile
-> @@ -40,6 +40,7 @@ obj-$(CONFIG_KEYBOARD_LOCOMO)		+= locomokbd.o
->  obj-$(CONFIG_KEYBOARD_LPC32XX)		+= lpc32xx-keys.o
->  obj-$(CONFIG_KEYBOARD_MAPLE)		+= maple_keyb.o
->  obj-$(CONFIG_KEYBOARD_MATRIX)		+= matrix_keypad.o
-> +obj-$(CONFIG_KEYBOARD_CHARLIEPLEX)	+= charlieplex_keypad.o
-
-Seem unordered. At least the all around it is ordered AFAICS.
-
->  obj-$(CONFIG_KEYBOARD_MAX7359)		+= max7359_keypad.o
->  obj-$(CONFIG_KEYBOARD_MAX7360)		+= max7360-keypad.o
->  obj-$(CONFIG_KEYBOARD_MPR121)		+= mpr121_touchkey.o
-
-...
-
-> +/*
-> + * GPIO driven charlieplex keypad driver
-> + *
-> + * Copyright (c) 2025 Hugo Villeneuve <hvilleneuve@dimonoff.com>
-
-2026?
-
-> + *
-> + * Based on matrix_keyboard.c
-> + */
-
-...
-
-> +#include <linux/bitops.h>
-> +#include <linux/delay.h>
-> +#include <linux/dev_printk.h>
-> +#include <linux/device/devres.h>
-> +#include <linux/err.h>
-> +#include <linux/gpio/consumer.h>
-> +#include <linux/input.h>
-> +#include <linux/input/matrix_keypad.h>
-> +#include <linux/math.h>
-> +#include <linux/module.h>
-> +#include <linux/mod_devicetable.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/property.h>
-> +#include <linux/types.h>
-
-> +static void charlieplex_keypad_poll(struct input_dev *input)
-> +{
-> +	struct charlieplex_keypad *keypad = input_get_drvdata(input);
-
-> +	int oline;
-
-Why signed?
-
-> +	int code;
 > +
-> +	for (code = 0, oline = 0; oline < keypad->nlines; oline++) {
+> +	ret = devm_request_threaded_irq(dev, ndev->irq, NULL,
+> +					neutron_irq_handler_thread,
+> +					IRQF_ONESHOT, KBUILD_MODNAME, ndev);
+> +	if (ret) {
+> +		dev_err(dev, "Failed to request irq %d\n", ndev->irq);
 
-Can be like
+Drop, not needed.
 
-	code = 0;
-	for (unsigned int oline = 0; oline < keypad->nlines; oline++) {
-
-as iterator is not used outside the loop.
-
-> +		DECLARE_BITMAP(values, MATRIX_MAX_ROWS);
-
-> +		int iline;
-
-Why signed?
-
-> +		int err;
-> +
-> +		/* Activate only one line as output at a time. */
-> +		gpiod_direction_output(keypad->line_gpios->desc[oline], 1);
-> +
-> +		if (keypad->settling_time_us)
-> +			fsleep(keypad->settling_time_us);
-> +
-> +		/* Read input on all other lines. */
-> +		err = gpiod_get_array_value_cansleep(keypad->line_gpios->ndescs,
-> +						     keypad->line_gpios->desc,
-> +						     keypad->line_gpios->info, values);
-> +		if (err)
-> +			return;
-
-> +		for (iline = 0; iline < keypad->nlines; iline++) {
-
-Can be just
-
-		for (unsigned int iline = 0; iline < keypad->nlines; iline++) {
-
-as iterator is not used outside the loop.
-
-> +			if (iline == oline)
-> +				continue; /* Do not read active output line. */
-> +
-> +			/* Check if GPIO is asserted. */
-> +			if (test_bit(iline, values)) {
-> +				code = MATRIX_SCAN_CODE(oline, iline,
-> +							get_count_order(keypad->nlines));
-> +				/*
-> +				 * Exit loop immediately since we cannot detect
-> +				 * more than one key press at a time.
-> +				 */
-> +				break;
-> +			}
-> +		}
-> +
-> +		gpiod_direction_input(keypad->line_gpios->desc[oline]);
-> +
-> +		if (code)
-> +			break;
+> +		return ret;
 > +	}
 > +
-> +	charlieplex_keypad_check_switch_change(input, code);
+> +	ret = of_reserved_mem_device_init(&pdev->dev);
+> +	if (ret) {
+> +		dev_err(dev, "Failed to initialize reserved memory\n");
+> +		return ret;
+> +	}
+> +
+> +	ret = devm_pm_runtime_enable(dev);
+> +	if (ret)
+> +		goto free_reserved;
+> +
+> +	pm_runtime_set_autosuspend_delay(dev, NEUTRON_SUSPEND_DELAY_MS);
+> +	pm_runtime_use_autosuspend(dev);
+> +
+> +	ret = drm_dev_register(&ndev->base, 0);
+> +	if (ret)
+> +		goto free_reserved;
+> +
+> +	return 0;
+> +
+> +free_reserved:
+> +	of_reserved_mem_device_release(&pdev->dev);
+> +
+> +	return ret;
 > +}
+> +
+> +static void neutron_remove(struct platform_device *pdev)
+> +{
+> +	struct neutron_device *ndev = platform_get_drvdata(pdev);
+> +
+> +	drm_dev_unregister(&ndev->base);
+> +	of_reserved_mem_device_release(&pdev->dev);
+> +}
+> +
+> +static int neutron_runtime_suspend(struct device *dev)
+> +{
+> +	struct neutron_device *ndev = dev_get_drvdata(dev);
+> +
+> +	neutron_disable_irq(ndev);
+> +	neutron_shutdown(ndev);
+> +
+> +	clk_bulk_disable_unprepare(ndev->num_clks, ndev->clks);
+> +
+> +	return 0;
+> +}
+> +
+> +static int neutron_runtime_resume(struct device *dev)
+> +{
+> +	struct neutron_device *ndev = dev_get_drvdata(dev);
+> +	int ret;
+> +
+> +	ret = clk_bulk_prepare_enable(ndev->num_clks, ndev->clks);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = neutron_boot(ndev);
+> +	if (ret) {
+> +		clk_bulk_disable_unprepare(ndev->num_clks, ndev->clks);
+> +		return ret;
+> +	}
+> +
+> +	neutron_enable_irq(ndev);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct dev_pm_ops neutron_pm_ops = {
+> +	SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend, pm_runtime_force_resume)
+> +	RUNTIME_PM_OPS(neutron_runtime_suspend, neutron_runtime_resume, NULL)
+> +};
+> +
+> +static const struct of_device_id neutron_match_table[] = {
+> +	{ .compatible = "nxp,imx95-neutron" },
+> +	{}
+> +};
+> +
+> +MODULE_DEVICE_TABLE(of, neutron_match_table);
+> +
+> +static struct platform_driver neutron_driver = {
+> +	.probe	= &neutron_probe,
+> +	.remove	= &neutron_remove,
+> +	.driver	= {
+> +		.name		= "neutron",
+> +		.of_match_table	= of_match_ptr(neutron_match_table),
 
-...
+Drop of_match_ptr. You will have (or you have already same as v1) here
+warning.
 
-> +	for (unsigned int i = 0; i < keypad->nlines; i++)
-> +		gpiod_set_consumer_name(keypad->line_gpios->desc[i], "charlieplex_kbd_line");
-
-Hmm... Don't you want to give it an index?
-
-(In case you go this direction, see the kasprintf_strarray() or
- its managed variant.)
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+> +		.pm		= pm_ptr(&neutron_pm_ops),
+> +	},
+> +};
+Best regards,
+Krzysztof
 
