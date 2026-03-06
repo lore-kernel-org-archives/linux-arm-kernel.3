@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06405FCC07D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 787F4F5141C
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 22:25:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,63 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BA9nb83nCkXGkJ9IKyGDJ21XOXhsf5BHbt5T5gtrqN0=; b=hLuxwUc9ZmcmlaJLWAh4PfjnFk
-	WtrzM8e0gInkSUHZdWk4KWj6FZTRZLbj/0LIZX2G035fTxnF93A8xUzCN93S/7I5wxkaVdVGM4lXo
-	MQvFPjg/RgfcvDIl1+YjL4wljfX7dMNkAm/dybytI39GQ3sJ4sRCe6TE4EbvMR678gjE+kty7opMp
-	GspZZDutQENgCavA/w7djsnn2Ra712qw0ajLoli+8r7jXikLyTe2UyY3p94hnthSBNgGl6TJdWjEI
-	UVQyRDYE5wWwXVCUBjs4U83tHG+hKvOazxSZoDRc+J0NELa9Tm9bhHVbjsncFOY3aBKsc/ihACnT9
-	+ATXWnew==;
+	bh=BGeWdIkU9VejQgwZq5zb7Y2J6ZyCjsrY3OgmM4MXxHc=; b=AnSvShURL30V1G0DcwSb23puIT
+	xc2Jbyu4QyhuHZcXrdh/EThCYHNA+wWB7bJX+ZCiQH6x9TuReIeay2c4vQYfwswUjTh3qf1qPKKdj
+	Hvnr5mxFCbPwkP2mpALMaQ0WnjX+6h3s3H7APWhLZjRPBNchCIpvqjLFn/TkSGTTmzVHFjU1TeHXm
+	VTyo0WgjaCVnm3fqMxBl5l/MQBRwYWQgeL0uGR/N1v83IQo5LOgVyXPTBWOQBxm/JJ/5pbYVpOz+b
+	k/QX0Ap96Uae6uqmPHz9KKwdn3IDru6Q1A6qioFKejRnfmG1XeMDQXXlJdZBM+cfCBjvQ0NwwmDXA
+	0uGnAM+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vydbm-00000004aSV-0GGp;
-	Fri, 06 Mar 2026 22:25:22 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1vydbl-00000004aRt-2CNh;
+	Fri, 06 Mar 2026 22:25:21 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vydbj-00000004aPk-1KDl
+	id 1vydbi-00000004aPD-0ajX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 22:25:20 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-c70f91776fcso3959270a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 14:25:19 -0800 (PST)
+	Fri, 06 Mar 2026 22:25:19 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2ab39b111b9so45397805ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 14:25:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772835918; x=1773440718; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1772835917; x=1773440717; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=BA9nb83nCkXGkJ9IKyGDJ21XOXhsf5BHbt5T5gtrqN0=;
-        b=Ly8zLU1V4Rm8KgDsR4ggDCxck3hSO2LBZSIjVVZIBTrvfE4jg0wjpVOG280vgCXosn
-         r4RTcCyvUKta/37JXcA2/gLkQEEIcifvdL+Beaj2I+pkZtDKwAGOr6U4McSoCv4WXB6t
-         HPgKnQogh5MtcytZebmwfIXwVtPdnYmhtcOgWvwWiLvwmmpVAub8hVw9MYRk419ACs7M
-         l3Rhtq5E9TSFJH54HIu1t3YWg2oPLZJiGenIjjrZemdb/v5WiFv64btZXMz3Vm58vbGd
-         NK1tF+Gwqu5g4ktQXkAKXKBuQZ20cw2Wtz3MMdr6sOBRB+VoZAYf+RhYIi5xNHd9iQfR
-         TubQ==
+        bh=BGeWdIkU9VejQgwZq5zb7Y2J6ZyCjsrY3OgmM4MXxHc=;
+        b=aqJiwcZ4LZo9lTsmv4ROHdZh5b/RID+ah7N2qtpM6T3fXxxtHHwSJ7pGTIBVt27O8e
+         2WLJiSfB2Hw2bfi9AFvfg4WTKeqtl3M5i4/VVu249Odye4AlcFRqQ0RANHmjdC/Fo0qF
+         AFf/+j+4lRwHXcmR2hPsK1p/zTZNmSVV/EMQj2RxMmQ0xfIcVVLbVhLMq9QOx7IaUIY+
+         FhR0DfJAgFp84+f769KoDDV+1F62oevsqqZjxMZ6a3URxhDXFkWKNnmNSBPukSh/0QEP
+         T8qEMJhagq4XV5+HNBi0ny7HARRs9LMKhP+paKLLTmE3Gl6a9VYuxRBM/iknk69vKoY/
+         R60A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772835918; x=1773440718;
+        d=1e100.net; s=20230601; t=1772835917; x=1773440717;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=BA9nb83nCkXGkJ9IKyGDJ21XOXhsf5BHbt5T5gtrqN0=;
-        b=wzZ3CJJyVvl/fUU1teTNr+NDeg2N1qa13wosGLxIQ5oyfgKfmigEB3oXO46U8/37dd
-         xcordx0EdqjK+wLxYfSw+eeqcE69BV+XnztRmUvhqyalZcLwZSAafMhynYHw9rPkjg29
-         k9IWYG94pTmRk5UTSLs2sjuQMD+b+v9lj7nB5CKnvEE4E03hngN4ViAfkaRRfoF9hpEJ
-         CpDBEerjNqJzzKlVidq9dPOCzyXfkRRJ63iAL8rOqQ+j36JwONYpYtNHCJ0W4ohgnIdw
-         IqeiCNRNJddiZJ/vNGKhsqd8uGUlsKG7MhaAmFeWTMnATXpqzZPs+xFG6ttE2e/FE/V+
-         tvJg==
-X-Forwarded-Encrypted: i=1; AJvYcCX9fMzC8X/VGVSce5+m0patrbglhpMRNfn5A55HSA6fLUfG4KqMMKkU4ru558CAPFwmVMMxJtFZnJWbiuqEW43w@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCjN6gzSB36+mhle2LHvsSHfsy3nqveGFhdk16BX65ON8gvy7B
-	Y20PG6RLObvIwicV3JEczO1gAI8Q04ByxAvTRdke4aO8zL5g7/w0r3uQ
-X-Gm-Gg: ATEYQzxn8cA74TFvup+170T+MPciTJ1KlCX/xB9xpKy5d2nvEAMBkCh+pfOJLHZtYJR
-	T95PoP9rKRHB6n+deANxRyu2/Jx4YKSaYn3xG58a1QvhxQ2JgbX9X8pQnbajdZXqk89DMh36koR
-	kMcF+bBHcia4ENB1ONI1qpJ1quJB4AxLfYZqFewho/nOGWmaB/lnE1sg3Bs/nQNbAwb+fHfwndX
-	ooUoLsMc5wugy4ZsiVbcRpuM7B1BmVf8ElPjlAdO8aLa9MS0ZhZTAL5JVzqAjElmqxwHKu5IlS9
-	cg79Gl791dgC5lVaZW9XrIqeOvbu7tIFBt8anvnGHvYva+Xs5X/71mIRH7x8k+/2h6FPZot0o6B
-	yoARjPaESR0MkncdSA1z6jXRf9f/K4WxHVjQgUMnnQmNkTbCH66Tu+58MwErt2+DXgQZGeKqzP6
-	h0xM1n52xP5nJzvS69wa9lUjeHk2OqwlAD1Gb3mizBctzTRt3JxnfpOyA=
-X-Received: by 2002:a17:902:e790:b0:2ae:5aed:1f4d with SMTP id d9443c01a7336-2ae8245cd73mr32902025ad.42.1772835918443;
-        Fri, 06 Mar 2026 14:25:18 -0800 (PST)
-Received: from ryzen ([2601:644:8000:56f5::8bd])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae83e7c58asm32516605ad.25.2026.03.06.14.25.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        bh=BGeWdIkU9VejQgwZq5zb7Y2J6ZyCjsrY3OgmM4MXxHc=;
+        b=hfzW5jOGKHJfaIoLHM1SlOpX0duD6Cl48Ju4wLwZpemAsCS1wJwJA69z8P1j8mXoO5
+         V/w/5zijiQN0bF2/WLWQ/1C0Lnia8i6mUXtX7xkAQxmN7+2I5lKMgYT/DAkkVKPAPQpL
+         DvAHsSGKuu1HOfiR8FQMm6fIK9DuthH6NhRDilgAK2r+CCTbLyG9h3QSuJJ3CwU6+0d4
+         07C8ZqAP8HdD+UjSAbbFLGiLZq82W2qj0dnfQ6cKGOXM/O1PF7ffccHILojhASKz5JqS
+         EfKovkdwcoKk4hpUaWcS3+a7yc6anQ5sMS/E5MB/w7TyUK8xWZIKbY1pq56859+N/6dU
+         Wj4w==
+X-Forwarded-Encrypted: i=1; AJvYcCV2xRsAiYo3Y1nFsDOwTLaJZ5qMSz4iedZ+8PolkZqm/oTAu0mNachhWL+4YGoMWMlc2a5QEITFWg9HdEVZAVT8@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdSFKrnQNEeeM300wR1s6xAqLuwfSDzIQ/Bp28wc7ESGU0N88l
+	kxwFIkR4+lcxdKpgSlNX9I8hWOsgkOTHwPyq49+avYdq/+Iuv1x4BVSv
+X-Gm-Gg: ATEYQzxylJiTBPphDrMSAcw5Ga3CzLNTBMmL+Ns9ezgF4JQHb5iwM/qAU6iVLFKPlct
+	PpuRNIxkTK9PMhRTEoAEro0oHJc5cc/ZHetxJy8JuRaKn3i+5PsYPMLkGJU2z4V8EW4FHrpI1LS
+	epKmXwTjeVChLRMGc2DWb+PDQwY5ElvcNkUwZXuP1JTu0hhEEuj9BbXbzREQV4QJBA5nKLO1+jE
+	i+n4oSbiSUflBuueq8zBzomDb4i7RJTrsXTNjeHi/Q5L2H4IH2XaVJcxa/L/sXabnoFN2NOkkRG
+	G1gPMrOu1ZKmKvjPQae+xCpQE5kOG4tDms74FvSzypAtezdTGq4n/hrrGWZfrHq8r6BTk0eVt45
+	EHJKZmcX2LHU5ybii6kWIYEI9RmQfTjc9FVFe/YYqMbyDYuHUTYnAUMtxsFIqozSFDD/K36RxPl
+	pmrwca6Sp+nKN0MsebgvvqPjuga5/MEysrXvcvUOlpqRWr9qO1IKM5nz4=
+X-Received: by 2002:a17:902:ce82:b0:2aa:ea8e:f118 with SMTP id d9443c01a7336-2ae8241ddf9mr42623695ad.3.1772835917227;
         Fri, 06 Mar 2026 14:25:17 -0800 (PST)
+Received: from ryzen ([2601:644:8000:56f5::8bd])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae83e7c58asm32516605ad.25.2026.03.06.14.25.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Mar 2026 14:25:16 -0800 (PST)
 From: Rosen Penev <rosenp@gmail.com>
 To: linux-phy@lists.infradead.org
 Cc: Vinod Koul <vkoul@kernel.org>,
@@ -79,17 +79,17 @@ Cc: Vinod Koul <vkoul@kernel.org>,
 	linux-kernel@vger.kernel.org (open list),
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STI ARCHITECTURE),
 	linux-hardening@vger.kernel.org (open list:KERNEL HARDENING (not covered by other areas):Keyword:\b__counted_by(_le|_be)?\b)
-Subject: [PATCHv2 2/2] phy: miphy28lp: kzalloc + kcalloc to single kzalloc
-Date: Fri,  6 Mar 2026 14:24:57 -0800
-Message-ID: <20260306222457.8400-3-rosenp@gmail.com>
+Subject: [PATCHv2 1/2] phy: miphy28lp: add COMPILE_TEST
+Date: Fri,  6 Mar 2026 14:24:56 -0800
+Message-ID: <20260306222457.8400-2-rosenp@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260306222457.8400-1-rosenp@gmail.com>
 References: <20260306222457.8400-1-rosenp@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_142519_360514_DE94B85A 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20260306_142518_199431_068B4B86 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,50 +104,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use flex array to simplify allocation.
+There's nothing special here to prevent compilation on non ARM hosts.
 
-Allows using __counted_by for extra runtime analysis.
+Matches every other st phy driver.
 
 Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- drivers/phy/st/phy-miphy28lp.c | 12 +++++-------
- 1 file changed, 5 insertions(+), 7 deletions(-)
+ drivers/phy/st/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/phy/st/phy-miphy28lp.c b/drivers/phy/st/phy-miphy28lp.c
-index 43cef89af55e..c576fc5569fe 100644
---- a/drivers/phy/st/phy-miphy28lp.c
-+++ b/drivers/phy/st/phy-miphy28lp.c
-@@ -224,8 +224,8 @@ struct miphy28lp_dev {
- 	struct device *dev;
- 	struct regmap *regmap;
- 	struct mutex miphy_mutex;
--	struct miphy28lp_phy **phys;
- 	int nphys;
-+	struct miphy28lp_phy *phys[] __counted_by(nphys);
- };
-
- enum miphy_sata_gen { SATA_GEN1, SATA_GEN2, SATA_GEN3 };
-@@ -1168,16 +1168,14 @@ static int miphy28lp_probe(struct platform_device *pdev)
- 	struct phy_provider *provider;
- 	struct phy *phy;
- 	int ret, port = 0;
-+	size_t nphys;
-
--	miphy_dev = devm_kzalloc(&pdev->dev, sizeof(*miphy_dev), GFP_KERNEL);
-+	nphys = of_get_child_count(np);
-+	miphy_dev = devm_kzalloc(&pdev->dev, struct_size(miphy_dev, phys, nphys), GFP_KERNEL);
- 	if (!miphy_dev)
- 		return -ENOMEM;
-
--	miphy_dev->nphys = of_get_child_count(np);
--	miphy_dev->phys = devm_kcalloc(&pdev->dev, miphy_dev->nphys,
--				       sizeof(*miphy_dev->phys), GFP_KERNEL);
--	if (!miphy_dev->phys)
--		return -ENOMEM;
-+	miphy_dev->nphys = nphys;
-
- 	miphy_dev->regmap = syscon_regmap_lookup_by_phandle(np, "st,syscfg");
- 	if (IS_ERR(miphy_dev->regmap)) {
+diff --git a/drivers/phy/st/Kconfig b/drivers/phy/st/Kconfig
+index 304614b6dabf..49206185e563 100644
+--- a/drivers/phy/st/Kconfig
++++ b/drivers/phy/st/Kconfig
+@@ -4,7 +4,7 @@
+ #
+ config PHY_MIPHY28LP
+ 	tristate "STMicroelectronics MIPHY28LP PHY driver for STiH407"
+-	depends on ARCH_STI
++	depends on ARCH_STI || COMPILE_TEST
+ 	select GENERIC_PHY
+ 	help
+ 	  Enable this to support the miphy transceiver (for SATA/PCIE/USB3)
 --
 2.53.0
 
