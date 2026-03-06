@@ -4,98 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64307FCC06E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 19:59:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A963FCC06B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 19:59:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=opNBN+DL1CwCTEmCmfQVU04W6S+7jcXxdGJnG1le+IA=; b=pAsNDS2qwD3zxZQ+0YXWiUgp6H
-	uLWK7I9ATa7SpCNAcG+HUHcJ0YusQJ0jQSMwoyn9i8kDcq7twXA6YW/uhoDrpNkC10S56bJcQLUr8
-	/mWNCQxBytgPkR4CO92lBt0oEUbZewEtyxmdqz7MnzAVmKEsPB0Gcb3ROwmiymdxEyVPvBaMpAfvF
-	INS77Dd34L1/FfcRIU7KU1u2sfOBE6Jk9+7SbNhyANmlsM6kTR/nXIt5lWdJotQJmpq/PJJHKGxOH
-	TBrb07o4HAul54KCRdhdD+iQAXSlDIPZ0FDrCaYHH51INMpn8Ukovm2KELMhfZ8DkxG/429VDvye+
-	CHQgOMTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=945rH/e5rNYp7DXMDC1/KmZIttMnGVuMabmAVl9nIC0=; b=24eHDFvsHTX6J2JruGfFlMH49U
+	2fOOw4psbD1SDz7gyvEwHrKzWzM+Jy0xWUDg6A9rFQs4CByQuPN3v1QooB1Sj0yfS5mjNzl9m92mC
+	o7jSxJQ4JxHDARPagPZKxODNtt2lDXdRv7izt6vFv7QDnwr4XMELgECJkZuBbl1MxkggFN4gtk2sF
+	JFdTpe63aDdRhY2k4iADq4HQRBggBSelNVUaF/zl7WteCvA1543wVgsGaOtuQTbMnS2xYRz3F1NuT
+	h9p+8JnX05S4k8syCut14VoA8YXYw0QdThOhOWP+G2I7m72ddaqTRwjXOsh38RcwxVD8/ncbPKG4P
+	4JiC2sYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vybK7-00000004QoR-2kqR;
-	Fri, 06 Mar 2026 19:58:59 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1vybKs-00000004RW4-2Blw;
+	Fri, 06 Mar 2026 19:59:46 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vybJz-00000004QeQ-3PO2
+	id 1vybKl-00000004RQS-1lfu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 19:58:53 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-48370174e18so58720885e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 11:58:51 -0800 (PST)
+	Fri, 06 Mar 2026 19:59:45 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2ae523d54d2so11465ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 11:59:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772827130; x=1773431930; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=opNBN+DL1CwCTEmCmfQVU04W6S+7jcXxdGJnG1le+IA=;
-        b=KtzzQeFt1922KeO4aS/qzFjEGqXUbvCuJEgIgWZZa0X3BEaEjFl4+/4yS5PeY10dmq
-         EjZpkyQVmGDXXf7VgS7pLQAWHz2BscNGxx6Y+kj28Kf7Sb2mbRF+G+H01uXmpv+FLVGh
-         dzDFaQ6DtqKmv1Qs0Qz6K1c8Z5yF2tsvJNOyCv/yufr4WszxHZ29Acc96pLFkmxgQE2P
-         uvoB4fXVQtGHLX1YWOjafrR2eft4j4tzuKQqhlopbSUOEHBzSJp1aJOUwg3RhOqPgEt6
-         UI42vZIu6tJTJVNGppxR+QcNM5gd+L2k97wyAsRuMOLOaIWULRMQfXYUzh6YzwbctET5
-         Xgvw==
+        d=google.com; s=20230601; t=1772827178; x=1773431978; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=945rH/e5rNYp7DXMDC1/KmZIttMnGVuMabmAVl9nIC0=;
+        b=TkfAPxOiATJq58vgJkQsP8ZLGS1k5Z9Qq4kLJYhp7+dH7uvUQnzamwT+qAoqtAwbJp
+         qWHExUdvPsfa6RxQCWTXD60VViGXmvQNRE4uy/Dl/jGLpfUb2+pJi1U93kUGAC9rY1UR
+         9ttEoiuMcRuYVFH/sYOolMVU/iHvGdH0DvaBrL27uqIzpf/1KURnD6PhQrg8nzNwR54Y
+         Wk59Dz3ML4oGVCnkpIf7FgrV0vUBPbcPKyArip9ECDJhfrp0xyTN9cg0mQ+01KCmIuTi
+         2y40l7bB4utHrcuRoMdppDAiiZhJmKB50P1+nQWiiy2dTdCfMR5p1X3GzyRSJlPPxsGN
+         CX7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772827130; x=1773431930;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=opNBN+DL1CwCTEmCmfQVU04W6S+7jcXxdGJnG1le+IA=;
-        b=wBAtwYWWjaaxovKy9aLVQvBNZJtqkaHjzxsuXYm1BF+RO/T2j//6X/Kb8hvWX3mxLq
-         BXiJ/E8DXcRbA1BUBTMagsmpf3Gs63UfWF+doVgfJ+0VZUXWXMeAVr2rmxuA5rXdzfiD
-         fCWsdrenzHrAwtukTGWdgLw58jqzXOhCTTBUi5/QeuVr1yKBZGJqZNImjU1pV87FdNNL
-         BFxBPIAAH5Y+0zqu7E6MDcQW5+xcJPLNU3YalxqoFGMJdAs/O7ZSmEZatk0RJYTsAqlc
-         8TYn+Q1OGW6Y+GiQO/1IbbnEseqFiBwKFc0Td3EMw+dF9I2tboeOjdfX+BmvfTL3IWsj
-         v7xw==
-X-Forwarded-Encrypted: i=1; AJvYcCWdkpVTJE7REAf+8e5KW6qgbRFJUlNmmv/lTcmiUJXJWPs+0fmZlpAEIExS8g/Nv1ZPVpoJ0U8U8t6fM+TESpOU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8IfQHD3xkebod52NVareqYpb9q5ojp18nqcfwdjwTfn5h7ybd
-	OM2G2br2qYw7ipCBX5l/sR95yyeXIQuc+IPQ74+aywBSG01PrvyGQCzk
-X-Gm-Gg: ATEYQzyHCFTCJSTdeEFfIZMVvdP1IqSfU7VcR24Ms9PmxJA1lL4Kbpgrx3c3/IqoqVV
-	0HXgBvh8uXVb5PeH3Q9jdUfXMr2j6UEJuhJoXMFV1oCOo7ha3/h1zfvrrz5v8bIZsP2vKURpjGX
-	reoGAjsYhebUigkL+prv/QLqaodirfLUhjguz5yYfXrlKG0EPaq40Aec701zukgrsE2SbIQAq3f
-	Qsvhpv6akZt7nKuv4J2bzD/LwzxywdWtAFBv6knjN7h0WQXv8D+peL+h5gQqIqktChFPoyyUl5F
-	/YbbCnBh7dWlaJ71sOIHE+EmVdoM6WkYtGTLKMV6a+ZEltG/B2k1V6BUaWyOT19i3yLwUydUV9C
-	CnEQMJne4meBlpH8iYZzniweCruRrmN/CNK/4Aol2XdcUrhePY8y6WlhG/itoMkDer/fWyYEctq
-	BQenunU6gB/Yi4kYyl9J0U6EgiqUI2jO0Lda6Y4nB5rmm1s4lrzojOY7i1aMK4Q91v8+pCY1BFo
-	YaXDO4VQFXKe51egkzDD3AK6gi4xHEYkW+zxKI=
-X-Received: by 2002:a05:600c:4f0d:b0:483:5a29:9678 with SMTP id 5b1f17b1804b1-4852691967bmr59464725e9.2.1772827130125;
-        Fri, 06 Mar 2026 11:58:50 -0800 (PST)
-Received: from Lord-Beerus.station (net-188-152-100-94.cust.dsl.teletu.it. [188.152.100.94])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48523803b5fsm25167265e9.7.2026.03.06.11.58.49
+        d=1e100.net; s=20230601; t=1772827178; x=1773431978;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=945rH/e5rNYp7DXMDC1/KmZIttMnGVuMabmAVl9nIC0=;
+        b=CMbNwLXCUXKBLUCKUxTtBUnRhAI2BFe7wV0phEPHnD8FHxvUGyArmrGIAvPQlsAz4k
+         /JDBUEP/cJb9qN/74n5biHTVhD17vnTEIHC+60k384shwDnuxVmbg++e+F8Pap+L98Wc
+         osorI93v54CGW4vgx7j5Oj9NOW2dR/Q9uEXpJCeSwC+sG8pWuiLaitRqbtwN4HnVA5mx
+         8onou7ezjUw3hGlD9MBKz989zyFJyE9RzDXE/BfGtHHwvaRPqCqbi8vRunvXyx9y4nfb
+         wmnWUQpYkldEKe8k0HOC/YsW8ch+myK5PyOLSVg+M6sAdPWxdQX9/6MF6d8CoyFwqsY1
+         zSIQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXb4B9idrqDesZrhu7kCdNIJ7QDuDPrxT8EOJDY1uMZx1XQHOTG0xO/vcmCBm56IakGbMefxB3qLR43zrIsi3QC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1hnya2ZdyK7SKQJb8Fvq2rNoh3ur4hdmh2Dq0Tyz69M5sbfIa
+	tnFfmZpcChLfWE38oEpz/fp+FEbqM5w531UghlgZs1BW1+CVDTLkhCjFxYQRmT0sMb15K1yfXRU
+	FIXBVs60D
+X-Gm-Gg: ATEYQzz+dL9CH3c3JPIrY6Pa4ork4NGAd623/jlzGsXHQGBJrY/yYD3IytIqs644bgo
+	0scXzWfv4plD2/Kj3+CKdHbCWv3SuzPsBJq/Gn2/ERjYXV/aPKruaK7vmE1ecvxD9xBxevqWTyE
+	TNlDB/UKcHeK4FgMLOcAlsw0dEh2fP8udobBEsvCz5ToMfc+D3byKrhH9ptIl5O8+n00Qq/IF16
+	32tr8ZQbnMEBiRT5of/l+9luGNyWE5/HkaMs+AghQX5qs377l17xi9Zfv4pTmmE3dPYHr5ePCpl
+	pI8fTK50gS4br567mOeX16dXAGkewmi84aEhic/UFVoLTQyihrXBGP3f6HrbqH48YfB3twaMLIF
+	PPqejgtLaSU+vTSOawRg/53z53MrCyh1dz0A3FpPzIBauNM4qZ9M+a9uu0KNWUQ/miFCFMhEpWX
+	cp3lWHnHnAeXBE/Il5rGhCdkUMff1T5qsxlfw5hY52AULkkd39TZxyXtF+g4r2BA==
+X-Received: by 2002:a17:903:2f8a:b0:2ae:575f:3755 with SMTP id d9443c01a7336-2ae8ad8939bmr404865ad.20.1772827178041;
+        Fri, 06 Mar 2026 11:59:38 -0800 (PST)
+Received: from google.com (168.136.83.34.bc.googleusercontent.com. [34.83.136.168])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae840b2130sm30703795ad.83.2026.03.06.11.59.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Mar 2026 11:58:49 -0800 (PST)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH v2 10/11] arm64: dts: imx8mm-var-som-symphony: Enable I2C4
-Date: Fri,  6 Mar 2026 20:58:29 +0100
-Message-ID: <02dcc47d59674a9945ade8a6f2c42f4c0908942d.1772826534.git.stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1772826534.git.stefano.r@variscite.com>
-References: <cover.1772826534.git.stefano.r@variscite.com>
+        Fri, 06 Mar 2026 11:59:37 -0800 (PST)
+Date: Fri, 6 Mar 2026 19:59:33 +0000
+From: Samiullah Khawaja <skhawaja@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Baolu Lu <baolu.lu@linux.intel.com>, 
+	Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, 
+	bhelgaas@google.com, rafael@kernel.org, lenb@kernel.org, praan@google.com, 
+	kees@kernel.org, smostafa@google.com, Alexander.Grest@microsoft.com, 
+	kevin.tian@intel.com, miko.lenczewski@arm.com, linux-arm-kernel@lists.infradead.org, 
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, 
+	linux-pci@vger.kernel.org, vsethi@nvidia.com
+Subject: Re: [PATCH v1 2/2] iommu/arm-smmu-v3: Recover ATC invalidate timeouts
+Message-ID: <aasv1HYOKuuJyi1k@google.com>
+References: <cover.1772686998.git.nicolinc@nvidia.com>
+ <ca7ab934bf0f433b62a5c15d42241632c4cb9366.1772686998.git.nicolinc@nvidia.com>
+ <20260305153911.GT972761@nvidia.com>
+ <6416b7fe-0190-4c7b-9a62-5da7d5eea794@linux.intel.com>
+ <20260306130006.GF1651202@nvidia.com>
+ <aasmWvA-sqi0KJwO@google.com>
+ <20260306194312.GL1651202@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20260306194312.GL1651202@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_115851_867127_C0EE67B9 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20260306_115939_476713_9E6F6880 
+X-CRM114-Status: GOOD (  22.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,62 +109,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefano Radaelli <stefano.r@variscite.com>
+On Fri, Mar 06, 2026 at 03:43:12PM -0400, Jason Gunthorpe wrote:
+>On Fri, Mar 06, 2026 at 07:35:19PM +0000, Samiullah Khawaja wrote:
+>> On Fri, Mar 06, 2026 at 09:00:06AM -0400, Jason Gunthorpe wrote:
+>> > On Fri, Mar 06, 2026 at 11:22:52AM +0800, Baolu Lu wrote:
+>> > > I believe this issue is not unique to the arm-smmu-v3 driver. Device ATC
+>> > > invalidation timeout is a generic challenge across all IOMMU
+>> > > architectures that support PCI ATS. Would it be feasible to implement a
+>> > > common 'fencing and recovery' mechanism in the IOMMU core so that all
+>> > > IOMMU drivers could benefit?
+>> >
+>> > I think yes, for parts, but the driver itself has to do something deep
+>> > inside it's invalidation to allow the flush to complete without
+>> > exposing the system to memory corruption - meaning it has to block
+>> > translated requests before completing the flush
+>>
+>> Yes and currently the underlying drivers have software timeouts
+>> (AMD=100millisecond, arm-smmu-v3=1second) defined which could timeout
+>> before the actual ATC invalidation timeout occurs. Do you think maybe
+>> the timeout needs to be propagated to the caller (flush callback) so the
+>> memory/IOVA is not allocated to something else?
+>
+>No, definitely not, that's basically impossible, so many callers just
+>can't handle such an idea, and you can't ever fully recover from such
+>a thing.
+>
 
-Enable I2C4 on the Symphony carrier and add pinctrl configuration,
-including GPIO-based bus recovery support.
+Agreed.
+>> Or blocking translated requests for such devices should be enough?
+>
+>Yes, we have to fence the hardware and then allow the existing SW
+>stack to continue without any fear of UAF from the broken HW.
 
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
----
-v1->v2:
- - 
+And this applies to software timeout also I think, since both have same
+end result.
 
- .../dts/freescale/imx8mm-var-som-symphony.dts | 24 +++++++++++++++++++
- 1 file changed, 24 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts
-index a77085b264e5..9a29c81b06eb 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts
-@@ -195,6 +195,16 @@ rtc@68 {
- 	};
- };
- 
-+&i2c4 {
-+	clock-frequency = <100000>;
-+	pinctrl-names = "default", "gpio";
-+	pinctrl-0 = <&pinctrl_i2c4>;
-+	pinctrl-1 = <&pinctrl_i2c4_gpio>;
-+	scl-gpios = <&gpio5 20 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	sda-gpios = <&gpio5 21 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	status = "okay";
-+};
-+
- /* Header */
- &uart1 {
- 	pinctrl-names = "default";
-@@ -288,6 +298,20 @@ MX8MM_IOMUXC_I2C2_SDA_I2C2_SDA		0x400001c3
- 		>;
- 	};
- 
-+	pinctrl_i2c4: i2c4grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_I2C4_SCL_I2C4_SCL		0x400001c3
-+			MX8MM_IOMUXC_I2C4_SDA_I2C4_SDA		0x400001c3
-+		>;
-+	};
-+
-+	pinctrl_i2c4_gpio: i2c4gpiogrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_I2C4_SCL_GPIO5_IO20	0x1c3
-+			MX8MM_IOMUXC_I2C4_SDA_GPIO5_IO21	0x1c3
-+		>;
-+	};
-+
- 	pinctrl_pca9534: pca9534grp {
- 		fsl,pins = <
- 			MX8MM_IOMUXC_GPIO1_IO07_GPIO1_IO7	0x16
--- 
-2.47.3
-
+I am working on a series to solve this for VT-d and testing it
+internally.
+>
+>Fencing the HW means using the IOMMU to block translated requests.
+>
+>Jason
 
