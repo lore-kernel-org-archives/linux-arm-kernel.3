@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA7B8F0182F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 13:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72F5BF01835
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 13:32:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5qjLEAIOM/x5LTkseOtlz5V4adYllqJnixHsyNEVKMk=; b=l++eP+B0ZdlWKgsohWzLRgJC4i
-	uqwUzI05mSuMjV4/QtLzDdI7tuVUAOpc5n90zRarxkWh4IWAyp0x1U7/pEgLr1O8S2wGng4WIdrpP
-	sFFQW/TfbS30ybz720uewBHfRafTZg6YZ2198jp5RPR1Vn7sNBkeuCTD27tG9xixVl9uOhj8tTPey
-	+6fv4ZT6ZmqfqXalhlbMdrG171/0jm4NE3v8/5HrM2Sw70Hm4c8HZJYYPvi4dVwrYDAzamRMmbaeV
-	eGzlHt1Qz58DpRjOuTdUbHDYfjAuVssAaN8DlmmoLehZB/ZYKpEYR43pxCr/ioWimYDN8nOpb5vUQ
-	ZareDLxA==;
+	bh=MtGSXQd1rJ7F7WpffOYtsvHkK2yZmux9XID3eldxZIU=; b=USrBZBZpOmdBOFmuYg+kuBAJri
+	QFrrmCOj2nHcdawmnbQWq4l2Rau1fwOJlRGouhyKnDuWZ2jlFe9LoD0aE1OSAw+5UsOCkcXpc/Bc7
+	ZITodYgCfgmsPks5jokX79iIZOH5PZ2MZVi+04yf1N4LZugR3BHGeJ5B94NlNhcfwLZNrR3tGK4Xg
+	nS63kvGrjf+JYLh4KnRpOrOvVSaQurYKqLD/MM1FTASVbTilIg/BdIHMdSLbv96Ngt2GtoPb0F0MQ
+	T/CZQpB5xmj+hmaLGUaXnEN7iXT3GQH43qskoaSIoLhNLo4Jw+2nhxbLyNHwOneLaVWEWC8MzLXq2
+	nFJpjIGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVH8-00000003nsl-3EpW;
-	Fri, 06 Mar 2026 13:31:30 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vyVI1-00000003o2S-0U5u;
+	Fri, 06 Mar 2026 13:32:25 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVH7-00000003nsG-0DP5
+	id 1vyVHz-00000003o1e-0HAm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 13:31:30 +0000
+	Fri, 06 Mar 2026 13:32:24 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id A88F51A2D49;
-	Fri,  6 Mar 2026 13:31:27 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 0DA25C40437;
+	Fri,  6 Mar 2026 13:32:39 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 7F07D5FF92;
-	Fri,  6 Mar 2026 13:31:27 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6BA61103699F4;
-	Fri,  6 Mar 2026 14:31:24 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 05F5E5FF92;
+	Fri,  6 Mar 2026 13:32:20 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 78C9E1036994E;
+	Fri,  6 Mar 2026 14:32:15 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1772803886; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1772803939; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=5qjLEAIOM/x5LTkseOtlz5V4adYllqJnixHsyNEVKMk=;
-	b=dSp9M74cgTh3Myvz930z+Pkb8FeyXYlq/Xbl8c9f07aZ4QW4SevEdAzFaAMH0nhC9N7PwR
-	/Grp2B+bQXDwC4xqRIFmrJBeDK0YDV2TCsmPesgfAzOTXPQQg6iwoCtcJ/LguHRXl4SXlJ
-	ky5CVrr7zFu6ydudEUBsM4Y+D+J219l3yNE8GJqMyMMVNuAT53GO6NSX3V0EORX4QyK+n+
-	aQJvzszeUnoBmiXC1udTHzI4SnjhlTGMqkLnPDbnT8luMdezeKY69ONQvyLNKyoeRkGgvB
-	4+4Tft/fcFOWW7BhMqUwS/pVH//zfnermFLGlObfDxKkeZJoANyzJxQwUZErug==
-Message-ID: <310c465e-0956-48ca-9887-cdd1ad0db58d@bootlin.com>
-Date: Fri, 6 Mar 2026 14:31:24 +0100
+	bh=MtGSXQd1rJ7F7WpffOYtsvHkK2yZmux9XID3eldxZIU=;
+	b=syuwf17OBQRSlsgCUAuuSAuSoqGuBwfoHBbK9g4Bh9AQzCvKCyDFKN8bmPdlRnKdOk2aA5
+	VB87AhBHBpX2LO5ODAZrlnihKEnT6E4qGUIBbmgJG+GU9TaDwiiVp4DXTEFjl1l3ZNBkmB
+	DWbv/EG5B41lrbD3F8ZQpXF9BKZEDeD1S7Kz/AgXstteX1JnGIygade+ftEaVahkmKSFMs
+	SjnnmLlvC93omtAOC+oJX7rh0eLn65jRgr8dw5WmzANFwfDlriHcxzeNK4eOdNFrqDYGmR
+	VWfJdHlegT6ZvN1nCIzgcsemxAf3jSE5a2s9VVh8cop3kGZpKDlGdzWtPxlSJw==
+Message-ID: <065b3dc0-b092-45c5-b7ea-e0a54264558e@bootlin.com>
+Date: Fri, 6 Mar 2026 14:32:15 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 7/8] net: stmmac:
- mdio_bus_data->default_an_inband is boolean
+Subject: Re: [PATCH net-next v2 8/8] net: stmmac: make pcs_mask and phy_mask
+ u32
 To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
  Andrew Lunn <andrew@lunn.ch>
 Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
@@ -60,16 +60,16 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
  netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
  Samuel Holland <samuel@sholland.org>
 References: <aald--qJquWGIvmO@shell.armlinux.org.uk>
- <E1vy6AT-0000000BtxD-2qm7@rmk-PC.armlinux.org.uk>
+ <E1vy6AY-0000000BtxJ-3smT@rmk-PC.armlinux.org.uk>
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Content-Language: en-US
-In-Reply-To: <E1vy6AT-0000000BtxD-2qm7@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1vy6AY-0000000BtxJ-3smT@rmk-PC.armlinux.org.uk>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_053129_227394_DA4A5894 
-X-CRM114-Status: UNSURE (   6.59  )
+X-CRM114-CacheID: sfid-20260306_053223_247468_9A7BB480 
+X-CRM114-Status: UNSURE (   7.59  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,15 +87,18 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-On 05/03/2026 11:42, Russell King (Oracle) wrote:
-> default_an_inband is declared as an unsigned int, but is set to true/
-> false and is assigned to phylink_config's member of the same name
-> which is a bool. Declare this also as a bool for consistency.
+On 05/03/2026 11:43, Russell King (Oracle) wrote:
+> The PCS and PHY masks are passed to the mdio bus layer as phy_mask
+> to prevent bus addresses between 0 and 31 inclusive being scanned,
+> and this is declared as u32. Also declare these as u32 in stmmac
+> for type consistency.
+> 
+> Since this is a u32, use BIT_U32() rather than BIT() to generate
+> values for these fields.
 > 
 > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
 Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
 Maxime
-
 
