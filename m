@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1731F01825
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 10:30:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F670F01825
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 10:30:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4gPeJxyuGY5/8F9b5AqNdyg2EFBWflmTDpqYPujzuFU=; b=aeJ/4PlsaBc7g+F8pnZqeWL24z
-	d7MWqSBsFx0ll1CKAqqFITYWSJSQn86TzSL6eX5U45LQsjPrtzETbVKMWC+gtR0FvHITKwJxdV663
-	7nBMew8dInWAjotFyVEtuvRmpJ8kiRGYmOVk+XUPQwTryKe5RBkyasHQwCIHKwq0aYCMX6G6Ph0ai
-	0pgx1sxqWue9vMnSSDIrcW0U5jTdolCt3NqhswGPEVGnx/PQP25fj5KQKI5jflLpwVHYuEIjb0Ra+
-	yv32DIsrAWnB0UvEXtZXdn24nisW4edd+/thRkzRYj3p7PQDX4ct76kVHvjHiD+OIGbQB1cFcW4++
-	8Q7zyPMw==;
+	bh=3FUcP5CBZJQtkRrAcWORzv320QMtIf9elaWuqQIxzig=; b=ex5aGFmhrbA46n4lkkcV2KQzHS
+	IWTWbuoBcU6weembc88XRHgEjdTgOM9IzhitezEbXH+LPv8y69T1Ur8zUp6npeh+1jWS9xy1BfKEa
+	jJK6WCKvTl60A74Tv8NScl93OPxTgFWMJByp1zQBb13V/8v1sXqXxT9EL0JYy8V+CtDZPAbYwBndl
+	eWeVkaC7yWzVTNR2NJ4q9FhHBl800v+suLoklqHw/2QOoiK4ftIz5rmddwwqPprUNDPHW/Cm3NVXt
+	F8/TuVooJayxIUPW3hNOyjg2fTXRPAa4ZlAPi5Kix26ASC5+5BmlZq3Xz3YVJA1VewLQ3DJ/IIlTh
+	GNP6ufMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vySRT-00000003SWZ-24os;
-	Fri, 06 Mar 2026 10:29:59 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1vySRX-00000003Sab-3UnY;
+	Fri, 06 Mar 2026 10:30:03 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vySRR-00000003SUg-18iM
+	id 1vySRR-00000003SUh-3rnZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 10:29:58 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-b9424501589so128983466b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 02:29:56 -0800 (PST)
+	Fri, 06 Mar 2026 10:29:59 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b936331786dso983158866b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 02:29:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1772792995; x=1773397795; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1772792996; x=1773397796; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=4gPeJxyuGY5/8F9b5AqNdyg2EFBWflmTDpqYPujzuFU=;
-        b=CpMwWVQeJShq4lSYZ2Nu2G/emsN0b/mWtE6UjEmH4a5Zr1fIEizDmQHftc+MrTwPbO
-         +T9krbQ9AWw4x2APBd5ts9Qy6kiapkKb16xw8zIwDGTvoCepiReTVN9tFhVrB/AfDO45
-         PLSQ5YgSiFfbYoj9yl5y05sbiYlNp08qRKr8rV4zU+9TpyUYlpwEnDK7Qz59ET4zQsjH
-         /F/49mwzi1t5sZLT7xEIf2j9LonvoUNhCoM3MhFXIhdLgt4g1fphoa+kR5Moxv1yQBbS
-         aij/l0wBDrfWkgZhK3od6zSXSfhsGHdJw1PGeLa4spe4f5DSKsEvRz9W11W1VrjhMrfV
-         VDMw==
+        bh=3FUcP5CBZJQtkRrAcWORzv320QMtIf9elaWuqQIxzig=;
+        b=aAshSyp1I1gXW4y1kxM26vH0gZvDFE6Frts3jYZ1PjYbki6MPTmgkFooBuhDtj6+9j
+         7WT5qtT9zPUKwkHaA9YrgRj+O4cinKqK5B9v4NQy32ShXr7SjOykErRJEj8teyy9Qgfz
+         9jH4Jet6t0n9S3Yq2rD0XZPacIq3gWsRE4MRgRO9aEco5UxMUEdHzs03r4LpeWWoel/+
+         zx1w5+asg+cHOrLy9K6Gjn25C4A1dJJt5Bz3AWsNUKymTB4tcp5IUSaDOp7CLYxF6Ss2
+         KAOX74p/XWrNviXdkXZg1zUCKBUYmXfdviAc/gduJ0nNAQ+0HygGDba+iHFul504SLSH
+         kSEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772792995; x=1773397795;
+        d=1e100.net; s=20230601; t=1772792996; x=1773397796;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=4gPeJxyuGY5/8F9b5AqNdyg2EFBWflmTDpqYPujzuFU=;
-        b=qqVDjCNjFDx3ecCkkirPYHAuVyYmI6WDt6AWrcxkHNivNg/L/zgue2jXdMI/uuE0zE
-         toQXzgs3iKzLNJVQRCeFh9+OeUQAWbLGwnXe7jF2lcY9ak1/J2Bd6c9p1V3IsadeDYS/
-         VPiTLjpmP3mmCw6wfSaZD0FM5zLMQtwlpQUXmyAOqTkDVgGv8Jt0jcyJQ350Ql4dSM+3
-         Rpr3K1P4w0BJMWIuow2bnQ2+7kYz7PUnntQ3hi+K77yJ7j1lIsQoB6A4z9NKE03//k4+
-         EAs27oH4HdEGdG9twe+N2LsRdcGK1hU1QVlGqtuCrpX2+Aqh3WA2a6xg7MtLk3cWO4sn
-         iXLw==
-X-Forwarded-Encrypted: i=1; AJvYcCXiu6Fb66yLKtoI9PuFw57DMuB/uvRZOL9LPTaFq+Ty8tWcKh9ajJmmCEJAsIA8xhUdjcfi7rPdvzJtBn+RL/0H@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6n2bFnCwIbluQpRdIMsGoBOTuukkiXSfRpNP/hh3MVb2l5RdM
-	0zycU/xd/hCb3V+fdmyVrs4FeWCttaJtNmMAfb2cG2fkyaTe2sAZkz0l3XVz38T1yO4=
-X-Gm-Gg: ATEYQzxYJXNoAcaL94NZLR/ujTScWL0fNLmhPgY3gM6fwh0o9nn+pIyyrpSUWHm9coT
-	NhLE69pL/T/+KxNJ28ES461A9Iq6P+9s+MY3T223whk9+MbEgqqd89avRTh6vBKo4CB00sUkyDV
-	Pnk49U1J+meKTrJbbQi69p0RUK2e92SndMKGadTD37Sm4wQ6K6IWU18jT1DJUwrt9lvN9tdBS2p
-	wSX2ulgZc02liDW+OspQMZY3OWbJz58V3VJ6aRQR3FPKnqcQzrEanhrTzWTN9zbYpFLh4CCt+Xz
-	j3OYacqqCAdJnmPTYSVcDGn9i67hcMjTbealyB0N6ySiP4jlIGV2gU3DBZUsiuOzIQmLPVQVa80
-	AmprDAlLbxvqa0FQpKdikZgXrHvvZdnvV4zOTsbt/9jQYgdIZXAlwyTi6lKCDVIOhQOvWhggNGQ
-	iERaTsn24IQ5PGQuAH3FhkFCaQqdoQ79/20IdcCoykYaehB3KdXlf34oLYtBe/udQ6jOkxlezoH
-	7e8pIsx0EvwU94Yonoyz4xPvQ==
-X-Received: by 2002:a17:907:3d8b:b0:b43:b7ec:b8a1 with SMTP id a640c23a62f3a-b942dcee05cmr89065966b.24.1772792995144;
+        bh=3FUcP5CBZJQtkRrAcWORzv320QMtIf9elaWuqQIxzig=;
+        b=Bi76CesQ57pcBSPuRd8hpIULdG29VHG4wVopFuymhVFFr09eiAY0zQkjJN5Tgo3G9O
+         3AHXO2J6dZNmgPTDbJjSUAGNM9CxV+WVhbGJ0Oa+kmCNX0T07RPC6pA3fn784wOCjUi1
+         godVWhU2OZvWyS2v+h7Yug+oKATYV7KZzi5e27qRmb1XYML/H0Q/KimmFUo3Bf2YWmHR
+         iOpTrC9oMy4n3Cwso/6kAwi6N/8MbHSbZa6IN0nNr5sJcwRSri4nya52B9RkMXPyP+F1
+         Hbe2GcJDcAEQlYwK0hWyJ9OiT9+eymFLUGjrS5mpl0UfBxNOXOBu4l4Q1lPXoI46ehnc
+         /5hA==
+X-Forwarded-Encrypted: i=1; AJvYcCUF0MViETtNOjgUU0FLvmbQZNfNoDcA9CvE0BXmZgx8YceENUPrtXbfPz4kZKtUwSJ5s2Jjt15FLx6FjpTUENQS@lists.infradead.org
+X-Gm-Message-State: AOJu0YzBLEdp+t/MevUdfl3C49p59tIMrHHD+o+OMTRggrG1J/skEjha
+	N00owoB4ZAB3Iz30Mgc5SMF+PNdHTIcyHeImi7m810hK1IuaLRJkskt8dEA63DAcgIQ=
+X-Gm-Gg: ATEYQzzhyEv4nM+gUV5kK2uyCNZztUM5AnAR2dn48Chr/u3c5OugrOFJE6byhO54Wga
+	5IigOMtA2s+TyiQyYjya10txzX0sMnNNm2OlmyNxxmN20RvyHSCGbWfkJOZs9x0TE1NCPhRaAsh
+	tP1fHJF0hC14uAPtIKSg4shWbiTTJNYVLdirIsafbejYhAimCK/m21tKo7jFMry53ao4hdnLGNx
+	gA3kzhLL62aYfeLJvN380KxQ1zcWZtunHFTFzT+0BcG9NSl5LZCIoK2RlH68i7sVc+s3LEo3EX1
+	dP1hLJOTNQfJGq9chN9DYAdFfgGCA6zVklCGSmRxQFtgT+lJgB9k038tTxpDPmhz3GR4mOCKNNe
+	3FqzLBiuRZBEl8uxPosdE8A02n4U38xwi9Cx6mpzvC2keXX8cBguIKrnvaZN3FwtGoI8IV/z7It
+	Q7F8RCJMFjMOcXsQTfqD5WVxhSXJ0fC7Zd8SRmKF8NVTp/ZOwj2xfa1+9AI/KiliiJGbrJVenBR
+	Al0ESkamZQ5UN8=
+X-Received: by 2002:a17:907:f816:b0:b83:b7c5:de2c with SMTP id a640c23a62f3a-b942dbcd35dmr93807866b.10.1772792995758;
         Fri, 06 Mar 2026 02:29:55 -0800 (PST)
 Received: from puffmais2.c.googlers.com (221.210.91.34.bc.googleusercontent.com. [34.91.210.221])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b942ef8c95csm42907266b.21.2026.03.06.02.29.54
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b942ef8c95csm42907266b.21.2026.03.06.02.29.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Mar 2026 02:29:54 -0800 (PST)
+        Fri, 06 Mar 2026 02:29:55 -0800 (PST)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Fri, 06 Mar 2026 10:29:52 +0000
-Subject: [PATCH v7 01/10] dt-bindings: soc: google: add google,gs101-dtzpc
+Date: Fri, 06 Mar 2026 10:29:53 +0000
+Subject: [PATCH v7 02/10] dt-bindings: power: samsung: add google,gs101-pd
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260306-gs101-pd-v7-1-03f7c7965ba5@linaro.org>
+Message-Id: <20260306-gs101-pd-v7-2-03f7c7965ba5@linaro.org>
 References: <20260306-gs101-pd-v7-0-03f7c7965ba5@linaro.org>
 In-Reply-To: <20260306-gs101-pd-v7-0-03f7c7965ba5@linaro.org>
 To: Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -94,8 +94,8 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_022957_321598_49A5B257 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20260306_022957_972773_099302F3 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,78 +110,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Exynos Distributed TruztZone Protection Control (D_TZPC) provides
-an interface to the protection bits that are included in the TrustZone
-design in a secure system. It configures each area of the memory as
-secure or non-secure.
+Add support for the Google gs101 version of the Exynos power domains. A
+new compatible is needed because register fields have changed and
+because power domain operations involve interfacing with the TrustZone
+protection control on newer Exynos SoCs.
+
+Power domains can also have a power supply linked to them, so add
+optional support for that, too. It is believed that all (existing)
+platforms could benefit from this, hence it's not being limited to
+gs101-pd.
 
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
----
- .../bindings/soc/google/google,gs101-dtzpc.yaml    | 42 ++++++++++++++++++++++
- MAINTAINERS                                        |  1 +
- 2 files changed, 43 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/soc/google/google,gs101-dtzpc.yaml b/Documentation/devicetree/bindings/soc/google/google,gs101-dtzpc.yaml
-new file mode 100644
-index 000000000000..a8c61ce069d6
---- /dev/null
-+++ b/Documentation/devicetree/bindings/soc/google/google,gs101-dtzpc.yaml
-@@ -0,0 +1,42 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/soc/google/google,gs101-dtzpc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+---
+v5:
+- add domain-supply and update commit message
+
+v4:
+- add new vendor property samsung,dtzpc
+- drop previous tags due to that
+---
+ .../devicetree/bindings/power/pd-samsung.yaml      | 33 ++++++++++++++++++++--
+ 1 file changed, 30 insertions(+), 3 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/power/pd-samsung.yaml b/Documentation/devicetree/bindings/power/pd-samsung.yaml
+index 9c2c51133457..3f1a2dc17862 100644
+--- a/Documentation/devicetree/bindings/power/pd-samsung.yaml
++++ b/Documentation/devicetree/bindings/power/pd-samsung.yaml
+@@ -13,12 +13,10 @@ description: |+
+   Exynos processors include support for multiple power domains which are used
+   to gate power to one or more peripherals on the processor.
+ 
+-allOf:
+-  - $ref: power-domain.yaml#
+-
+ properties:
+   compatible:
+     enum:
++      - google,gs101-pd
+       - samsung,exynos4210-pd
+       - samsung,exynos5433-pd
+ 
+@@ -33,6 +31,9 @@ properties:
+     deprecated: true
+     maxItems: 1
+ 
++  domain-supply:
++    description: domain regulator supply.
 +
-+title: Samsung Exynos Distributed TruztZone Protection Control.
+   label:
+     description:
+       Human readable string with domain name. Will be visible in userspace
+@@ -44,11 +45,28 @@ properties:
+   power-domains:
+     maxItems: 1
+ 
++  samsung,dtzpc:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Distributed TrustZone Protection Control (DTZPC) node.
 +
-+description:
-+  Distributed TrustZone Protection Control (D_TZPC) provides an interface to the
-+  protection bits that are included in the TrustZone design in a secure system.
-+  It configures each area of the memory as secure or non-secure.
+ required:
+   - compatible
+   - "#power-domain-cells"
+   - reg
+ 
++allOf:
++  - $ref: power-domain.yaml#
++  - if:
++      not:
++        properties:
++          compatible:
++            contains:
++              const: google,gs101-pd
++    then:
++      properties:
++        samsung,dtzpc: false
 +
-+maintainers:
-+  - André Draszik <andre.draszik@linaro.org>
+ unevaluatedProperties: false
+ 
+ examples:
+@@ -66,3 +84,12 @@ examples:
+         #power-domain-cells = <0>;
+         label = "MFC";
+     };
 +
-+properties:
-+  compatible:
-+    const: google,gs101-dtzpc
-+
-+  clocks:
-+    maxItems: 1
-+
-+  reg:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - clocks
-+  - reg
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/google,gs101.h>
-+
-+    dtzpc_hsi0: dtzpc@11010000 {
-+      compatible = "google,gs101-dtzpc";
-+      reg = <0x11010000 0x10000>;
-+      clocks = <&cmu_hsi0 CLK_GOUT_HSI0_D_TZPC_HSI0_PCLK>;
++    power-domain@2080 {
++        compatible = "google,gs101-pd";
++        reg = <0x2080 0x80>;
++        #power-domain-cells = <0>;
++        label = "hsi0";
++        domain-supply = <&ldo7m>;
++        samsung,dtzpc = <&dtzpc_hsi0>;
 +    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index f0b879760b6e..611fa8fb9f8f 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -10883,6 +10883,7 @@ P:	Documentation/process/maintainer-soc-clean-dts.rst
- C:	irc://irc.oftc.net/pixel6-kernel-dev
- F:	Documentation/devicetree/bindings/clock/google,gs101-clock.yaml
- F:	Documentation/devicetree/bindings/phy/google,lga-usb-phy.yaml
-+F:	Documentation/devicetree/bindings/soc/google/google,gs101-dtzpc.yaml
- F:	Documentation/devicetree/bindings/soc/google/google,gs101-pmu-intr-gen.yaml
- F:	Documentation/devicetree/bindings/usb/google,lga-dwc3.yaml
- F:	arch/arm64/boot/dts/exynos/google/
 
 -- 
 2.53.0.473.g4a7958ca14-goog
