@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BD2CF0183A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:02:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E77E9F0183C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:02:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d0w9iw1cGZJvO5arhwgcmj7KKngdL1WNYxmO3CGQ7Gg=; b=tYY38eAnGKd901A06Wfmwapxl9
-	s+pfx/4AKKnK2Nqkdo35igs3PzKh5Loc8aehJPdIFe9IOhfTiza/6wGE7sE4bUeoXv0XSslLw5t9a
-	fFQilJ13smtpaDJo5dkdwY9DoP4kXmslOljB4MpWGAIVxkXMhpey8TTjhbE5DWzYJ45SD0m+ghiLI
-	ZHnzZSCSgyph/huVlbAwbv8YF34HJIG+EGGoVuQ8im19rCD37hYkIt6YP0zGA5B6EDbmkDyLUagSe
-	41RbY17RGoVTcyZAWg5OyN8LdeoGG+v6LNvAzIbAUqAcRh0djrLJ2+PlNs3In+lcn+kINBsPk3ZYv
-	OL6MJ2Cw==;
+	bh=sHiziDrbrII1tYwtdt9uLufHtIuF7NAMU9T1cNEOC3I=; b=eHqC+dQ9NGgJMXUkNVnOriyRgd
+	JdEVspqQg1YfIKru+t5nVLXVZepaMfgBFR8akalMAFPMuRS3CYriaVL9OzW5OBHD2w8OZ/vYbghH4
+	+znMh5JKXvnU8BfhocWG9UF6y4jDUEceaT+gJxEg+AZ16x93CakclqAwjerG2jqg0T0TaBGcM/yOW
+	OgwXxYv7fRctwJvqO0BM8+wuSfbGxKxeq5fap/BQtVOrU3TrEOzbgkSL2qOKQqwH7sl0KeCPVC2PZ
+	ftiGVVNyUowbodwT0AFvjNA/ykqsFRom1ETuj3iGHtsHwN2fYt7xxeFJqEnVw7DSuASk+U0cEPyTs
+	GzV47nIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVlL-00000003q6k-1TL3;
-	Fri, 06 Mar 2026 14:02:43 +0000
-Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
+	id 1vyVlP-00000003qBI-2Grt;
+	Fri, 06 Mar 2026 14:02:47 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVlH-00000003q4E-19HP
+	id 1vyVlK-00000003q4y-1jwn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 14:02:40 +0000
-Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-b9071b7cc09so686012966b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 06:02:37 -0800 (PST)
+	Fri, 06 Mar 2026 14:02:43 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4836bf1a920so99520485e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 06:02:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1772805756; x=1773410556; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1772805759; x=1773410559; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=d0w9iw1cGZJvO5arhwgcmj7KKngdL1WNYxmO3CGQ7Gg=;
-        b=xWcAFGlfqBp82ZklyTzwUvCpeXzh6aXDNxTIrQY+S1Utqka3S8TN2da1VbsTGF9b1U
-         kMaeylv3sawQG7pPyKR/Zh3gI4Bk1sFUUnaeoRgVBnsAsq5HJnrlobkEC7zfKS5x1F0U
-         M0yyN1CKLd9YtzdYo5XbpNC8yz8MyYORM5whFOD3e165P6NYzuARmYarQ63Mts6/qz1A
-         IoNi3g7zwall50fy69gv5Y6+PIEraWQnIKqUdvSWJC/u/AU5MKVLCmH9gPYtjnscXyYI
-         3/HaYioi4PoOdc/j7Vdh9izBKz8FNNHSZoNxXapC9dZZW7sm0lvmNND+K8UFlCa+tbde
-         YZJw==
+        bh=sHiziDrbrII1tYwtdt9uLufHtIuF7NAMU9T1cNEOC3I=;
+        b=rtdQQLUzublQS/SV65D+fGHhN51kz+MnfYW82Iimje6YJG0UlE4ld/vUTZxsREWhhB
+         /1hgzCRpTTFKF4qXgT/sOezscudnvPJYO7C8ZkH19BdiKqfzU2ECH8LyPy7dTUDGtVNk
+         0Ux+0SBN1uMTrHJqXr/UtAxH16V1hGjnQIkRDIF8M08OXANACpxbPIlUS9B6DJvICVit
+         wDwyw7qU6JUCIIKZ0aVemHBaMukDAoYfpXb76X9GI0PcnPUTfFWtz+R1Nv4dwCeYAxDl
+         uWIVahBcrvyYU18OLYe8R7tSZblw586X6uiJwQFnRWHn+MoQXZqOj5hRew/fgqCGP5eV
+         P8Zw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772805756; x=1773410556;
+        d=1e100.net; s=20230601; t=1772805759; x=1773410559;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=d0w9iw1cGZJvO5arhwgcmj7KKngdL1WNYxmO3CGQ7Gg=;
-        b=NkBEat9zxgRJ5YOLh8QuoUGMUxETNt+uiBRGzzWx6JqOPtuUTDcNZ+qAZmkZit672v
-         ADk2kT3bwRO/IA0c358KRpwC2jWTsLRYmVqC4nO6iH4rKXKiwyOcB58TJAhdic53PA/U
-         8S/Y999dbv2fusqLxagc1B1spkVYmdI4IBckKAMRSR0d4ymx4WJAt2NHz9J7d2S6m6BH
-         5DU4Ici3R/r8f8xq8EHE5cYgHxmdzdWGsSeOw/jOx3nsLV1hVLwQYSPJdzFnXwq1qZ2X
-         Ho8Pf6HoNXk6dyQ27kvXLYg4JB/5F4NHifI7tKaLPdbi4EISdDBMQmERzO4FuafgSJyd
-         UnXA==
-X-Forwarded-Encrypted: i=1; AJvYcCVxcpkblETjR4DfDuTPz/FI1YYSZcG6xqm9emWxTsNAMg5s71UYlSeVFnvtq5L9te0/aY2puT9cryLRnSiimHh+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yybo8lKyCrvVDsO76T4fWD2jtl+/2CRpx21DKTsdJEEeBM52FZ8
-	LyVPolXsXIjqBrmoa/yCcpW3KW0tiPMf93zY+A8B/IP5vGcNfmISKDGWpLlEiYeLnteOgvdB3yU
-	ZnQ==
-X-Received: from ejbci23.prod.google.com ([2002:a17:906:c357:b0:b93:5d8f:523c])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a17:906:f588:b0:b87:d255:39ff
- with SMTP id a640c23a62f3a-b942dfb3019mr117949966b.32.1772805756111; Fri, 06
- Mar 2026 06:02:36 -0800 (PST)
-Date: Fri,  6 Mar 2026 14:02:21 +0000
+        bh=sHiziDrbrII1tYwtdt9uLufHtIuF7NAMU9T1cNEOC3I=;
+        b=XryEG+qbIR4p7U37Ktky+DjHoB7mqlDn/Y5E6ecA+/ZrjGZQ9MxUURiWxz7quElXhh
+         NuK93H8sO/hfICf/CEe/GOFZN/pMxuRzbRqslXhWjegJgvLZ+0KlDAUpuxPxWFgbrUmt
+         fTK6rxOGp7ez1Afv4FcT81ZXYu7DKVbAEK7fYedj0KN2L2CmrjYzx5TvcAop+Cq9+kC/
+         oJTxgq4MCqpNjOoHzTpgF1MPKVP3RbzFgv75ooew688k6pYd/Dtd2AB2JZkwWuAl7SbL
+         NlOCBhvcjXNNResyEQ5ikcS4PaL0NgFmQfrN+ntxj4JxDHsQ+DjJOTJr3zY2THUrI28S
+         yVoA==
+X-Forwarded-Encrypted: i=1; AJvYcCXsTVlXAQH67q4nxBqZsmqyKjq2ruehJmCRUrUa39lFpFW1R61vzxGZsmv1Qk1gh/f0DplcstvCtTPKqnrqfOEp@lists.infradead.org
+X-Gm-Message-State: AOJu0YzK8Gs8acHpDmDoTuvxCqm3QHYd/J9fa1l5tkx0ak+FAEtJbp3P
+	LrqAnxd1RotqSnJur9ClA1I8p4EEfPIHZkh7mNeZ0mVtMg4NtCn6JnmS7zJidr5kXapmGLVDCWA
+	X1Q==
+X-Received: from wmjk6.prod.google.com ([2002:a7b:c306:0:b0:483:7b48:cd99])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:a0d:b0:485:1878:7b8c
+ with SMTP id 5b1f17b1804b1-4852695b6fcmr34660805e9.18.1772805758953; Fri, 06
+ Mar 2026 06:02:38 -0800 (PST)
+Date: Fri,  6 Mar 2026 14:02:23 +0000
 In-Reply-To: <20260306140232.2193802-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20260306140232.2193802-1-tabba@google.com>
 X-Mailer: git-send-email 2.53.0.473.g4a7958ca14-goog
-Message-ID: <20260306140232.2193802-3-tabba@google.com>
-Subject: [PATCH v1 02/13] KVM: arm64: Introduce struct kvm_s2_fault to user_mem_abort()
+Message-ID: <20260306140232.2193802-5-tabba@google.com>
+Subject: [PATCH v1 04/13] KVM: arm64: Isolate mmap_read_lock inside new
+ kvm_s2_fault_get_vma_info() helper
 From: Fuad Tabba <tabba@google.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
@@ -74,8 +75,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
 	will@kernel.org, qperret@google.com, vdonnefort@google.com, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_060239_388200_DF69A619 
-X-CRM114-Status: GOOD (  30.08  )
+X-CRM114-CacheID: sfid-20260306_060242_468996_A26D1B31 
+X-CRM114-Status: GOOD (  14.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,395 +91,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The user_mem_abort() function takes many arguments and defines a large
-number of local variables. Passing all these variables around to helper
-functions would result in functions with too many arguments.
+Extract the VMA lookup and metadata snapshotting logic from
+kvm_s2_fault_pin_pfn() into a tightly-scoped sub-helper.
 
-Introduce struct kvm_s2_fault to encapsulate the stage-2 fault state.
-This structure holds both the input parameters and the intermediate
-state required during the fault handling process.
+This refactoring structurally fixes a TOCTOU (Time-Of-Check to
+Time-Of-Use) vulnerability and Use-After-Free risk involving the vma
+pointer. In the previous layout, the mmap_read_lock is taken, the vma is
+looked up, and then the lock is dropped before the function continues to
+map the PFN. While an explicit vma = NULL safeguard was present, the vma
+variable was still lexically in scope for the remainder of the function.
 
-Update user_mem_abort() to initialize this structure and replace the
-usage of local variables with fields from the new structure.
-
-This prepares the ground for further extracting parts of
-user_mem_abort() into smaller helper functions that can simply take a
-pointer to the fault state structure.
+By isolating the locked region into kvm_s2_fault_get_vma_info(), the vma
+pointer becomes a local variable strictly confined to that sub-helper.
+Because the pointer's scope literally ends when the sub-helper returns,
+it is not possible for the subsequent page fault logic in
+kvm_s2_fault_pin_pfn() to accidentally access the vanished VMA,
+eliminating this bug class by design.
 
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- arch/arm64/kvm/mmu.c | 222 +++++++++++++++++++++++++------------------
- 1 file changed, 128 insertions(+), 94 deletions(-)
+ arch/arm64/kvm/mmu.c | 16 ++++++++++++----
+ 1 file changed, 12 insertions(+), 4 deletions(-)
 
 diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index f8064b2d3204..419b793c5891 100644
+index d56c6422ca5f..344a477e1bff 100644
 --- a/arch/arm64/kvm/mmu.c
 +++ b/arch/arm64/kvm/mmu.c
-@@ -1710,38 +1710,68 @@ static short kvm_s2_resolve_vma_size(struct vm_area_struct *vma,
- 	return vma_shift;
- }
+@@ -1740,7 +1740,7 @@ struct kvm_s2_fault {
+ 	vm_flags_t vm_flags;
+ };
  
-+struct kvm_s2_fault {
-+	struct kvm_vcpu *vcpu;
-+	phys_addr_t fault_ipa;
-+	struct kvm_s2_trans *nested;
-+	struct kvm_memory_slot *memslot;
-+	unsigned long hva;
-+	bool fault_is_perm;
-+
-+	bool write_fault;
-+	bool exec_fault;
-+	bool writable;
-+	bool topup_memcache;
-+	bool mte_allowed;
-+	bool is_vma_cacheable;
-+	bool s2_force_noncacheable;
-+	bool vfio_allow_any_uc;
-+	unsigned long mmu_seq;
-+	phys_addr_t ipa;
-+	short vma_shift;
-+	gfn_t gfn;
-+	kvm_pfn_t pfn;
-+	bool logging_active;
-+	bool force_pte;
-+	long vma_pagesize;
-+	long fault_granule;
-+	enum kvm_pgtable_prot prot;
-+	struct page *page;
-+	vm_flags_t vm_flags;
-+};
-+
- static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 			  struct kvm_s2_trans *nested,
- 			  struct kvm_memory_slot *memslot, unsigned long hva,
- 			  bool fault_is_perm)
+-static int kvm_s2_fault_pin_pfn(struct kvm_s2_fault *fault)
++static int kvm_s2_fault_get_vma_info(struct kvm_s2_fault *fault)
  {
- 	int ret = 0;
--	bool topup_memcache;
--	bool write_fault, writable;
--	bool exec_fault, mte_allowed, is_vma_cacheable;
--	bool s2_force_noncacheable = false, vfio_allow_any_uc = false;
--	unsigned long mmu_seq;
--	phys_addr_t ipa = fault_ipa;
-+	struct kvm_s2_fault fault_data = {
-+		.vcpu = vcpu,
-+		.fault_ipa = fault_ipa,
-+		.nested = nested,
-+		.memslot = memslot,
-+		.hva = hva,
-+		.fault_is_perm = fault_is_perm,
-+		.ipa = fault_ipa,
-+		.logging_active = memslot_is_logging(memslot),
-+		.force_pte = memslot_is_logging(memslot),
-+		.s2_force_noncacheable = false,
-+		.vfio_allow_any_uc = false,
-+		.prot = KVM_PGTABLE_PROT_R,
-+	};
-+	struct kvm_s2_fault *fault = &fault_data;
- 	struct kvm *kvm = vcpu->kvm;
  	struct vm_area_struct *vma;
--	short vma_shift;
- 	void *memcache;
--	gfn_t gfn;
--	kvm_pfn_t pfn;
--	bool logging_active = memslot_is_logging(memslot);
--	bool force_pte = logging_active;
--	long vma_pagesize, fault_granule;
--	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
- 	struct kvm_pgtable *pgt;
--	struct page *page;
--	vm_flags_t vm_flags;
- 	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
+ 	struct kvm *kvm = fault->vcpu->kvm;
+@@ -1774,9 +1774,6 @@ static int kvm_s2_fault_pin_pfn(struct kvm_s2_fault *fault)
  
--	if (fault_is_perm)
--		fault_granule = kvm_vcpu_trap_get_perm_fault_granule(vcpu);
--	write_fault = kvm_is_write_fault(vcpu);
--	exec_fault = kvm_vcpu_trap_is_exec_fault(vcpu);
--	VM_WARN_ON_ONCE(write_fault && exec_fault);
-+	if (fault->fault_is_perm)
-+		fault->fault_granule = kvm_vcpu_trap_get_perm_fault_granule(fault->vcpu);
-+	fault->write_fault = kvm_is_write_fault(fault->vcpu);
-+	fault->exec_fault = kvm_vcpu_trap_is_exec_fault(fault->vcpu);
-+	VM_WARN_ON_ONCE(fault->write_fault && fault->exec_fault);
+ 	fault->is_vma_cacheable = kvm_vma_is_cacheable(vma);
  
+-	/* Don't use the VMA after the unlock -- it may have vanished */
+-	vma = NULL;
+-
  	/*
- 	 * Permission faults just need to update the existing leaf entry,
-@@ -1749,43 +1779,44 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	 * only exception to this is when dirty logging is enabled at runtime
- 	 * and a write fault needs to collapse a block entry into a table.
- 	 */
--	topup_memcache = !fault_is_perm || (logging_active && write_fault);
--	ret = prepare_mmu_memcache(vcpu, topup_memcache, &memcache);
-+	fault->topup_memcache = !fault->fault_is_perm ||
-+				(fault->logging_active && fault->write_fault);
-+	ret = prepare_mmu_memcache(fault->vcpu, fault->topup_memcache, &memcache);
- 	if (ret)
- 		return ret;
- 
- 	/*
--	 * Let's check if we will get back a huge page backed by hugetlbfs, or
-+	 * Let's check if we will get back a huge fault->page backed by hugetlbfs, or
- 	 * get block mapping for device MMIO region.
- 	 */
- 	mmap_read_lock(current->mm);
--	vma = vma_lookup(current->mm, hva);
-+	vma = vma_lookup(current->mm, fault->hva);
- 	if (unlikely(!vma)) {
--		kvm_err("Failed to find VMA for hva 0x%lx\n", hva);
-+		kvm_err("Failed to find VMA for fault->hva 0x%lx\n", fault->hva);
- 		mmap_read_unlock(current->mm);
- 		return -EFAULT;
- 	}
- 
--	vma_shift = kvm_s2_resolve_vma_size(vma, hva, memslot, nested,
--					    &force_pte, &ipa);
--	vma_pagesize = 1UL << vma_shift;
-+	fault->vma_shift = kvm_s2_resolve_vma_size(vma, fault->hva, fault->memslot, fault->nested,
-+						   &fault->force_pte, &fault->ipa);
-+	fault->vma_pagesize = 1UL << fault->vma_shift;
- 
- 	/*
- 	 * Both the canonical IPA and fault IPA must be aligned to the
- 	 * mapping size to ensure we find the right PFN and lay down the
- 	 * mapping in the right place.
- 	 */
--	fault_ipa = ALIGN_DOWN(fault_ipa, vma_pagesize);
--	ipa = ALIGN_DOWN(ipa, vma_pagesize);
-+	fault->fault_ipa = ALIGN_DOWN(fault->fault_ipa, fault->vma_pagesize);
-+	fault->ipa = ALIGN_DOWN(fault->ipa, fault->vma_pagesize);
- 
--	gfn = ipa >> PAGE_SHIFT;
--	mte_allowed = kvm_vma_mte_allowed(vma);
-+	fault->gfn = fault->ipa >> PAGE_SHIFT;
-+	fault->mte_allowed = kvm_vma_mte_allowed(vma);
- 
--	vfio_allow_any_uc = vma->vm_flags & VM_ALLOW_ANY_UNCACHED;
-+	fault->vfio_allow_any_uc = vma->vm_flags & VM_ALLOW_ANY_UNCACHED;
- 
--	vm_flags = vma->vm_flags;
-+	fault->vm_flags = vma->vm_flags;
- 
--	is_vma_cacheable = kvm_vma_is_cacheable(vma);
-+	fault->is_vma_cacheable = kvm_vma_is_cacheable(vma);
- 
- 	/* Don't use the VMA after the unlock -- it may have vanished */
- 	vma = NULL;
-@@ -1798,24 +1829,25 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	 * Rely on mmap_read_unlock() for an implicit smp_rmb(), which pairs
- 	 * with the smp_wmb() in kvm_mmu_invalidate_end().
- 	 */
--	mmu_seq = kvm->mmu_invalidate_seq;
-+	fault->mmu_seq = kvm->mmu_invalidate_seq;
+ 	 * Read mmu_invalidate_seq so that KVM can detect if the results of
+ 	 * vma_lookup() or __kvm_faultin_pfn() become stale prior to
+@@ -1788,6 +1785,17 @@ static int kvm_s2_fault_pin_pfn(struct kvm_s2_fault *fault)
+ 	fault->mmu_seq = kvm->mmu_invalidate_seq;
  	mmap_read_unlock(current->mm);
  
--	pfn = __kvm_faultin_pfn(memslot, gfn, write_fault ? FOLL_WRITE : 0,
--				&writable, &page);
--	if (pfn == KVM_PFN_ERR_HWPOISON) {
--		kvm_send_hwpoison_signal(hva, vma_shift);
-+	fault->pfn = __kvm_faultin_pfn(fault->memslot, fault->gfn,
-+				       fault->write_fault ? FOLL_WRITE : 0,
-+				       &fault->writable, &fault->page);
-+	if (fault->pfn == KVM_PFN_ERR_HWPOISON) {
-+		kvm_send_hwpoison_signal(fault->hva, fault->vma_shift);
- 		return 0;
- 	}
--	if (is_error_noslot_pfn(pfn))
-+	if (is_error_noslot_pfn(fault->pfn))
- 		return -EFAULT;
- 
- 	/*
--	 * Check if this is non-struct page memory PFN, and cannot support
-+	 * Check if this is non-struct fault->page memory PFN, and cannot support
- 	 * CMOs. It could potentially be unsafe to access as cacheable.
- 	 */
--	if (vm_flags & (VM_PFNMAP | VM_MIXEDMAP) && !pfn_is_map_memory(pfn)) {
--		if (is_vma_cacheable) {
-+	if (fault->vm_flags & (VM_PFNMAP | VM_MIXEDMAP) && !pfn_is_map_memory(fault->pfn)) {
-+		if (fault->is_vma_cacheable) {
- 			/*
- 			 * Whilst the VMA owner expects cacheable mapping to this
- 			 * PFN, hardware also has to support the FWB and CACHE DIC
-@@ -1832,26 +1864,26 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 				ret = -EFAULT;
- 		} else {
- 			/*
--			 * If the page was identified as device early by looking at
--			 * the VMA flags, vma_pagesize is already representing the
-+			 * If the fault->page was identified as device early by looking at
-+			 * the VMA flags, fault->vma_pagesize is already representing the
- 			 * largest quantity we can map.  If instead it was mapped
--			 * via __kvm_faultin_pfn(), vma_pagesize is set to PAGE_SIZE
-+			 * via __kvm_faultin_pfn(), fault->vma_pagesize is set to PAGE_SIZE
- 			 * and must not be upgraded.
- 			 *
- 			 * In both cases, we don't let transparent_hugepage_adjust()
- 			 * change things at the last minute.
- 			 */
--			s2_force_noncacheable = true;
-+			fault->s2_force_noncacheable = true;
- 		}
--	} else if (logging_active && !write_fault) {
-+	} else if (fault->logging_active && !fault->write_fault) {
- 		/*
--		 * Only actually map the page as writable if this was a write
-+		 * Only actually map the fault->page as fault->writable if this was a write
- 		 * fault.
- 		 */
--		writable = false;
-+		fault->writable = false;
- 	}
- 
--	if (exec_fault && s2_force_noncacheable)
-+	if (fault->exec_fault && fault->s2_force_noncacheable)
- 		ret = -ENOEXEC;
- 
- 	if (ret)
-@@ -1860,101 +1892,103 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	/*
- 	 * Guest performs atomic/exclusive operations on memory with unsupported
- 	 * attributes (e.g. ld64b/st64b on normal memory when no FEAT_LS64WB)
--	 * and trigger the exception here. Since the memslot is valid, inject
-+	 * and trigger the exception here. Since the fault->memslot is valid, inject
- 	 * the fault back to the guest.
- 	 */
--	if (esr_fsc_is_excl_atomic_fault(kvm_vcpu_get_esr(vcpu))) {
--		kvm_inject_dabt_excl_atomic(vcpu, kvm_vcpu_get_hfar(vcpu));
-+	if (esr_fsc_is_excl_atomic_fault(kvm_vcpu_get_esr(fault->vcpu))) {
-+		kvm_inject_dabt_excl_atomic(fault->vcpu, kvm_vcpu_get_hfar(fault->vcpu));
- 		ret = 1;
- 		goto out_put_page;
- 	}
- 
--	if (nested)
--		adjust_nested_fault_perms(nested, &prot, &writable);
-+	if (fault->nested)
-+		adjust_nested_fault_perms(fault->nested, &fault->prot, &fault->writable);
- 
- 	kvm_fault_lock(kvm);
--	pgt = vcpu->arch.hw_mmu->pgt;
--	if (mmu_invalidate_retry(kvm, mmu_seq)) {
-+	pgt = fault->vcpu->arch.hw_mmu->pgt;
-+	if (mmu_invalidate_retry(kvm, fault->mmu_seq)) {
- 		ret = -EAGAIN;
- 		goto out_unlock;
- 	}
- 
- 	/*
--	 * If we are not forced to use page mapping, check if we are
-+	 * If we are not forced to use fault->page mapping, check if we are
- 	 * backed by a THP and thus use block mapping if possible.
- 	 */
--	if (vma_pagesize == PAGE_SIZE && !(force_pte || s2_force_noncacheable)) {
--		if (fault_is_perm && fault_granule > PAGE_SIZE)
--			vma_pagesize = fault_granule;
-+	if (fault->vma_pagesize == PAGE_SIZE &&
-+	    !(fault->force_pte || fault->s2_force_noncacheable)) {
-+		if (fault->fault_is_perm && fault->fault_granule > PAGE_SIZE)
-+			fault->vma_pagesize = fault->fault_granule;
- 		else
--			vma_pagesize = transparent_hugepage_adjust(kvm, memslot,
--								   hva, &pfn,
--								   &fault_ipa);
-+			fault->vma_pagesize = transparent_hugepage_adjust(kvm, fault->memslot,
-+									  fault->hva, &fault->pfn,
-+									  &fault->fault_ipa);
- 
--		if (vma_pagesize < 0) {
--			ret = vma_pagesize;
-+		if (fault->vma_pagesize < 0) {
-+			ret = fault->vma_pagesize;
- 			goto out_unlock;
- 		}
- 	}
- 
--	if (!fault_is_perm && !s2_force_noncacheable && kvm_has_mte(kvm)) {
-+	if (!fault->fault_is_perm && !fault->s2_force_noncacheable && kvm_has_mte(kvm)) {
- 		/* Check the VMM hasn't introduced a new disallowed VMA */
--		if (mte_allowed) {
--			sanitise_mte_tags(kvm, pfn, vma_pagesize);
-+		if (fault->mte_allowed) {
-+			sanitise_mte_tags(kvm, fault->pfn, fault->vma_pagesize);
- 		} else {
- 			ret = -EFAULT;
- 			goto out_unlock;
- 		}
- 	}
- 
--	if (writable)
--		prot |= KVM_PGTABLE_PROT_W;
-+	if (fault->writable)
-+		fault->prot |= KVM_PGTABLE_PROT_W;
- 
--	if (exec_fault)
--		prot |= KVM_PGTABLE_PROT_X;
-+	if (fault->exec_fault)
-+		fault->prot |= KVM_PGTABLE_PROT_X;
- 
--	if (s2_force_noncacheable) {
--		if (vfio_allow_any_uc)
--			prot |= KVM_PGTABLE_PROT_NORMAL_NC;
-+	if (fault->s2_force_noncacheable) {
-+		if (fault->vfio_allow_any_uc)
-+			fault->prot |= KVM_PGTABLE_PROT_NORMAL_NC;
- 		else
--			prot |= KVM_PGTABLE_PROT_DEVICE;
-+			fault->prot |= KVM_PGTABLE_PROT_DEVICE;
- 	} else if (cpus_have_final_cap(ARM64_HAS_CACHE_DIC)) {
--		prot |= KVM_PGTABLE_PROT_X;
-+		fault->prot |= KVM_PGTABLE_PROT_X;
- 	}
- 
--	if (nested)
--		adjust_nested_exec_perms(kvm, nested, &prot);
-+	if (fault->nested)
-+		adjust_nested_exec_perms(kvm, fault->nested, &fault->prot);
- 
- 	/*
- 	 * Under the premise of getting a FSC_PERM fault, we just need to relax
--	 * permissions only if vma_pagesize equals fault_granule. Otherwise,
-+	 * permissions only if fault->vma_pagesize equals fault->fault_granule. Otherwise,
- 	 * kvm_pgtable_stage2_map() should be called to change block size.
- 	 */
--	if (fault_is_perm && vma_pagesize == fault_granule) {
-+	if (fault->fault_is_perm && fault->vma_pagesize == fault->fault_granule) {
- 		/*
- 		 * Drop the SW bits in favour of those stored in the
- 		 * PTE, which will be preserved.
- 		 */
--		prot &= ~KVM_NV_GUEST_MAP_SZ;
--		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, fault_ipa, prot, flags);
-+		fault->prot &= ~KVM_NV_GUEST_MAP_SZ;
-+		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, fault->fault_ipa, fault->prot,
-+								 flags);
- 	} else {
--		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, fault_ipa, vma_pagesize,
--					     __pfn_to_phys(pfn), prot,
--					     memcache, flags);
-+		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, fault->fault_ipa, fault->vma_pagesize,
-+							 __pfn_to_phys(fault->pfn), fault->prot,
-+							 memcache, flags);
- 	}
- 
- out_unlock:
--	kvm_release_faultin_page(kvm, page, !!ret, writable);
-+	kvm_release_faultin_page(kvm, fault->page, !!ret, fault->writable);
- 	kvm_fault_unlock(kvm);
- 
--	/* Mark the page dirty only if the fault is handled successfully */
--	if (writable && !ret)
--		mark_page_dirty_in_slot(kvm, memslot, gfn);
-+	/* Mark the fault->page dirty only if the fault is handled successfully */
-+	if (fault->writable && !ret)
-+		mark_page_dirty_in_slot(kvm, fault->memslot, fault->gfn);
- 
- 	return ret != -EAGAIN ? ret : 0;
- 
- out_put_page:
--	kvm_release_page_unused(page);
-+	kvm_release_page_unused(fault->page);
- 	return ret;
- }
- 
++	return 0;
++}
++
++static int kvm_s2_fault_pin_pfn(struct kvm_s2_fault *fault)
++{
++	int ret;
++
++	ret = kvm_s2_fault_get_vma_info(fault);
++	if (ret)
++		return ret;
++
+ 	fault->pfn = __kvm_faultin_pfn(fault->memslot, fault->gfn,
+ 				       fault->write_fault ? FOLL_WRITE : 0,
+ 				       &fault->writable, &fault->page);
 -- 
 2.53.0.473.g4a7958ca14-goog
 
