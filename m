@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CA1FF0182E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 12:42:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5BFDF01832
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 12:42:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=mtkN5wY32yGyUVMqIQKwbA762es0jsXWtrjdjPl4Z3E=; b=wL/NHA22VgLjX5
-	UYoPkvSPGu7vUZkAMhgKulXK3VaG9y8s9r68zpuIwnBc2xw+bkSkA1lWgLbmQ/zcmfZOfW4W5XLwt
-	Y7s+GBAfcJwPDs1ISb2QfZXIezOZFpZNDlNaPGn2CblNEjaaFKZoTbMZamuBbBC4upwzKFr2MvESq
-	gZpNJVX9r7x2m0AKgzzhKXQBpYGI4lHz6o5ay6G3PdbciLd3yUINDvG1NSQu7WHt3KQOuwcKpu7Wb
-	roxEy3F1n6g5vNNH6g7qCYM3Jqb+LIbCBK0KTN73raIA4vm690/i4oN5agB7UclUqXoymxQGhQIs5
-	ZQNyPoAeauQAy9acSx8g==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fBrsdJ4dnS+r6WgToQIDR0U5A7RpsD4F+UWhnBl6RyE=; b=R9nxecyE+RvAGR6jhAWN6cUa64
+	iLpFEF4UlZ6vvLpheSOx8ynH2vkSraGGxOaNUyemin8OBUhpjJzCHa8PxMe3suuibe14flVsKx4x8
+	154qm7FHjoJOOP3WKVGBjA6sTbFndpEwF4IZIr++183cbzQi0xksTU4b+QcII1JySFfjgWK7NqlyN
+	GZuMD1AAJYxjhruF+onQtBbhJ9fSCVne6UFjVbMhc0Za30GQM9yZ2rJFGIzPd2Iw9FbUi8dC8FqeD
+	i13XyLzwnPnjyksFcN+iiUY991cUUE08JguTEAjKX8dYSzN4bhNIUh/y3+Q/wvYf7JQQsy6jz2AV+
+	tJLhJsNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyUVb-00000003fNt-3zsw;
-	Fri, 06 Mar 2026 12:42:23 +0000
+	id 1vyUVg-00000003fQH-2QU2;
+	Fri, 06 Mar 2026 12:42:28 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyUVX-00000003fMc-2Axg
+	id 1vyUVd-00000003fMc-0q92
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 12:42:23 +0000
+	Fri, 06 Mar 2026 12:42:26 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 6 Mar
@@ -35,17 +35,15 @@ Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
  Transport; Fri, 6 Mar 2026 20:42:14 +0800
 From: Billy Tsai <billy_tsai@aspeedtech.com>
-Subject: [PATCH v4 0/3] pinctrl: aspeed: Add AST2700 SoC0 support
-Date: Fri, 6 Mar 2026 20:40:24 +0800
-Message-ID: <20260306-upstream_pinctrl-v4-0-ad4e8ab8b489@aspeedtech.com>
+Date: Fri, 6 Mar 2026 20:40:26 +0800
+Subject: [PATCH v4 2/3] dt-bindings: pinctrl: Add
+ aspeed,ast2700-soc0-pinctrl
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIADjLqmkC/z3MTQ7CIBBA4as0s5YGsKTUVe9hTIMwyCT9IYBG0
- /TuEhcuv8V7O2RMhBkuzQ4JX5RpWyu6UwM2mPWBjFw1SC6VkEKxZ8wloVmmSKstaWbai0E5z83
- QK6hZTOjp/Vteb9U+bQsroTb/ER94J/i546LVWuqeCXanef5MJRsaTY6IrqANrd0WOI4v818Hc
- aUAAAA=
-X-Change-ID: 20251215-upstream_pinctrl-8f195df0a975
+Message-ID: <20260306-upstream_pinctrl-v4-2-ad4e8ab8b489@aspeedtech.com>
+References: <20260306-upstream_pinctrl-v4-0-ad4e8ab8b489@aspeedtech.com>
+In-Reply-To: <20260306-upstream_pinctrl-v4-0-ad4e8ab8b489@aspeedtech.com>
 To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
  Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Joel
  Stanley" <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
@@ -56,16 +54,17 @@ CC: Andrew Jeffery <andrew@aj.id.au>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <openbmc@lists.ozlabs.org>,
 	<linux-gpio@vger.kernel.org>, <linux-clk@vger.kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772800933; l=3651;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772800933; l=3826;
  i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
- bh=hmhX29ofHmVWCzL1SALtQcsZhjHt2TQjDqLgIH3btbs=;
- b=Lb4YNVvozAIHN2+4S7osElCp6zPzI4h1b6nDiv/0/Q9kkILL1f5AqvwWrXcPbS8SM/mUoFGnp
- BFPpaJ9eunyBlcCNPhH94GGWamZqJC8xEAMqtxUdj2yGiCTbh4j3rsu
+ bh=mPT8n+MaX4Lh4CkPfpwTkyH556XOL8xul6h5uB8F66k=;
+ b=r8CRLYKKssCEgJyYltzECKcfCQ1H2FB/QUpDzWdO0pUk13xIh9akUiRbohD2istSQDNo3E1/7
+ EcIKmmVOjd8AYue9aWrT6NEiTm+cHgwa6L3AYUhU0L1VaIzq78lkaHm
 X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
  pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_044219_570110_E9694FFB 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20260306_044225_256087_62726C9F 
+X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,85 +79,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-AST2700 is composed of two interconnected SoC instances, each providing
-its own pin control hardware. This series introduces bindings describing
-the AST2700 pinctrl architecture and adds pinctrl driver support for the
-SoC0 instance.
+Add a device tree binding for the pin controller found in the
+ASPEED AST2700 SoC0.
 
-The bindings document the AST2700 dual-SoC design and follow common
-pinctrl conventions, while the SoC0 driver implementation builds upon
-the existing ASPEED pinctrl infrastructure.
+The controller manages various peripheral functions such as eMMC, USB,
+VGA DDC, JTAG, and PCIe root complex signals.
 
-A binding example is not yet provided as there were differing opinions
-during review about whether it should live in the SCU binding or the
-pinctrl binding. I can add one in a follow-up revision once the
-preferred location is agreed.
+Describe the AST2700 SoC0 pin controller using standard pin multiplexing
+and configuration properties.
 
+Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
 ---
-Changes in v4:
-- Rename series title to "pinctrl: aspeed: Add AST2700 SoC0 support"
-  to make it specific to SoC0.
-- Remove unnecessary SCU example from bindings.
-- Fix Makefile newline to avoid patch warning.
-- Make pinctrl data structures const and align with existing Aspeed drivers.
-- Sort the arrays and enums alphabetically.
-- Minor cleanups for consistency, no functional changes.
-- Link to v3: https://lore.kernel.org/r/20260120-upstream_pinctrl-v3-0-868fbf8413b5@aspeedtech.com
+ .../pinctrl/aspeed,ast2700-soc0-pinctrl.yaml       | 126 +++++++++++++++++++++
+ 1 file changed, 126 insertions(+)
 
-Changes in v3:
-dt-bindings: pinctrl: aspeed: AST2700 pinctrl improvements
-- Improved binding descriptions for SoC0 and SoC1 to better explain the
-  AST2700 dual-SoC architecture with independent pin control blocks
-- Switched from additionalProperties to patternProperties using the
-  '-state$' suffix to restrict child node naming
-- Removed per-binding examples based on review feedback
-- Added additionalProperties: false at the top level for stricter schema
-  validation
-- Dropped the aspeed,ast2700-soc1-pinctrl binding, as the SoC1 pinctrl
-  registers follow a regular layout and can be described using an
-  existing generic pinctrl binding
-- Updated the function and group enum lists to match the definitions
-  used by the AST2700 pinctrl driver
+diff --git a/Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml
+new file mode 100644
+index 000000000000..caf8616c70e3
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml
+@@ -0,0 +1,126 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: ASPEED AST2700 SoC0 Pin Controller
++
++maintainers:
++  - Billy Tsai <billy_tsai@aspeedtech.com>
++
++description:
++  The AST2700 features a dual-SoC architecture with two interconnected SoCs,
++  each having its own System Control Unit (SCU) for independent pin control.
++  This pin controller manages the pin multiplexing for SoC0.
++
++  The SoC0 pin controller manages pin functions including eMMC, VGA DDC,
++  dual USB3/USB2 ports (A and B), JTAG, and PCIe root complex interfaces.
++
++properties:
++  compatible:
++    const: aspeed,ast2700-soc0-pinctrl
++
++patternProperties:
++  '-state$':
++    type: object
++    allOf:
++      - $ref: pinmux-node.yaml#
++      - $ref: pincfg-node.yaml#
++    additionalProperties: false
++
++    properties:
++      function:
++        enum:
++          - EMMC
++          - JTAGDDR
++          - JTAGM0
++          - JTAGPCIEA
++          - JTAGPCIEB
++          - JTAGPSP
++          - JTAGSSP
++          - JTAGTSP
++          - JTAGUSB3A
++          - JTAGUSB3B
++          - PCIERC0PERST
++          - PCIERC1PERST
++          - TSPRSTN
++          - UFSCLKI
++          - USB2AD0
++          - USB2AD1
++          - USB2AH
++          - USB2AHP
++          - USB2AHPD0
++          - USB2AXH
++          - USB2AXH2B
++          - USB2AXHD1
++          - USB2AXHP
++          - USB2AXHP2B
++          - USB2AXHPD1
++          - USB2BD0
++          - USB2BD1
++          - USB2BH
++          - USB2BHP
++          - USB2BHPD0
++          - USB2BXH
++          - USB2BXH2A
++          - USB2BXHD1
++          - USB2BXHP
++          - USB2BXHP2A
++          - USB2BXHPD1
++          - USB3AXH
++          - USB3AXH2B
++          - USB3AXHD
++          - USB3AXHP
++          - USB3AXHP2B
++          - USB3AXHPD
++          - USB3BXH
++          - USB3BXH2A
++          - USB3BXHD
++          - USB3BXHP
++          - USB3BXHP2A
++          - USB3BXHPD
++          - VB
++          - VGADDC
++
++      groups:
++        enum:
++          - EMMCCDN
++          - EMMCG1
++          - EMMCG4
++          - EMMCG8
++          - EMMCWPN
++          - JTAG0
++          - PCIERC0PERST
++          - PCIERC1PERST
++          - TSPRSTN
++          - UFSCLKI
++          - USB2A
++          - USB2AAP
++          - USB2ABP
++          - USB2ADAP
++          - USB2AH
++          - USB2AHAP
++          - USB2B
++          - USB2BAP
++          - USB2BBP
++          - USB2BDBP
++          - USB2BH
++          - USB2BHBP
++          - USB3A
++          - USB3AAP
++          - USB3ABP
++          - USB3B
++          - USB3BAP
++          - USB3BBP
++          - VB0
++          - VB1
++          - VGADDC
++
++required:
++  - compatible
++
++allOf:
++  - $ref: pinctrl.yaml#
++
++additionalProperties: false
 
-dt-bindings: mfd: aspeed: Add AST2700 SCU example with pinctrl
-- Added a complete AST2700 SCU0 example demonstrating pinctrl integration
-- Example covers both pin function/group configuration and pin
-  drive-strength settings
-- Updated child node naming to use the '-state' suffix, following common
-  pinctrl conventions
-
-pinctrl: aspeed: AST2700 SoC0 driver improvements
-- Refactored pin and signal declarations to use common ASPEED pinmux
-  macros (SIG_EXPR_LIST_DECL_SEMG, SIG_EXPR_LIST_DECL_SESG, PIN_DECL_*)
-- Added SCU010 register definition for hardware strap control
-- Reworked code structure to better align with existing ASPEED pinctrl
-  drivers
-
-- Link to v2: https://lore.kernel.org/r/20250904103401.88287-1-billy_tsai@aspeedtech.com
-
-Changes in v2:
-- Update pinctrl aspeed binding files.
-- Update the commit message for pinctrl binding patch.
-- Link to v1: https://lore.kernel.org/r/20250829073030.2749482-1-billy_tsai@aspeedtech.com
-
----
-Billy Tsai (3):
-      dt-bindings: mfd: aspeed,ast2x00-scu: Support AST2700 SoC0 pinctrl
-      dt-bindings: pinctrl: Add aspeed,ast2700-soc0-pinctrl
-      pinctrl: aspeed: Add AST2700 SoC0 support
-
- .../bindings/mfd/aspeed,ast2x00-scu.yaml           |   1 +
- .../pinctrl/aspeed,ast2700-soc0-pinctrl.yaml       | 126 ++++
- drivers/pinctrl/aspeed/Kconfig                     |   9 +
- drivers/pinctrl/aspeed/Makefile                    |   1 +
- drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc0.c    | 710 +++++++++++++++++++++
- 5 files changed, 847 insertions(+)
----
-base-commit: af4e9ef3d78420feb8fe58cd9a1ab80c501b3c08
-change-id: 20251215-upstream_pinctrl-8f195df0a975
-
-Best regards,
 -- 
-Billy Tsai <billy_tsai@aspeedtech.com>
+2.34.1
 
 
