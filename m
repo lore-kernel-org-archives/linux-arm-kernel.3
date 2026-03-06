@@ -4,78 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1697FFCB63A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 17:10:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A55FFCB637
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 17:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kne2/iM2itYNWOjgSMONme8xb9RmGta4G8bo3No3QDY=; b=sg7acoyK/T4nWvmBMatI8iPXrD
-	IaGQvXfmCy7pNsFPj/RQy/7U1IbcgUYc2JPtalWwCxJMXTZNBkN9rRP5Xz3M0dWvG1XDWXZhYFLmr
-	jKHn3xoThje1BTABxHw0HG5F3czz1e8/tiiD9nyTowoaqhhJoW7Ix8U85eQYDXu2xK9dJY+0TrqCB
-	rDW8KU5Y3sO2sN4YiITudOSS1XgUZ9yjuz6xhTkkP0HnD4f1RPN+14oEbWlPJdP3H2IaY6RN6D+3O
-	EWrrnhSGA8wAEq84FMP+0SL1WMUgrgM89lSvqBXfqNRQDzfQEXFvPg4mNkK8VYfXOPu5DhISbEu8M
-	6l5U8yCw==;
+	bh=VsXE+svD0ozIQDDFOgt45cd6eXjH7nxp9XTye3IloGc=; b=tg+9T8Z5nLmG/dfOlhwqhuh/Ud
+	lBE1fXgVgx6V85Yljuq0MZ5SSAoY3sm+5ubXGHVS5b4e7ODCNRA0j7MesQot4K5sOPEhw7xC90LBo
+	4h1Gx5xevOkQJcdoTZc6oLFoyLWyubrmqXc2L8999v1vmNhIOsW2EeBdiONZjhaCU+qLJ+1FTwsyy
+	a7xBblE+mfLWE+u90r+AzqWe5hkd42boHWXRllX/QOpb5ItwR17gwfJGe7YCuFoS84eC64D2CB51Y
+	JxERfKvzn+7RDMqA+oTGWm0O6GQyDSMZKXFbcEjYZb+u5+WElWnC9PMMhK78u/HM+lOBs/xhSTUbM
+	e2nrMeaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyYgZ-00000004Cti-1jD2;
-	Fri, 06 Mar 2026 17:09:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vyYge-00000004Cy8-37GF;
+	Fri, 06 Mar 2026 17:10:04 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyYgX-00000004CrG-0OxX
+	id 1vyYgd-00000004Cx8-3xy4
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 06 Mar 2026 17:10:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=VsXE+svD0ozIQDDFOgt45cd6eXjH7nxp9XTye3IloGc=; b=onMYNOqpBrDXfse+oNeh8hDDFi
+	tH8euPJP9lxXLDZa9OTxay5ebu5wUEO2/X0EcjPBk1QT6x80sWeCq0VxUTulUEXwe64Oni0xxXNGh
+	UvJUKtgELiXcprkUL4JTESdngyPGEX7owwUv0CpRMjNEr39Br+wCVKF3Ri4+MwF98xeH2jAfGg19k
+	AHyXD1uW+g4aFWVPqgW5mBuZX7wjg2sVVpattHq1vIMnCWbcisj83PgZmyFx5X3j1UeqEHJ5H8CEG
+	COC3qg7yuAh5LkmN4Xp5L+Q9CYgHmwx9S6vkDmG+fc/6ap3L5Ki2vGJy2sHtuPb81wX0CHGPTEhi7
+	GSTvhxuQ==;
+Received: from www537.your-server.de ([2a01:4f8:d0a:334f::2])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vyYga-00000009JMz-13GO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 17:09:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6A63060018;
-	Fri,  6 Mar 2026 17:09:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 245DCC2BC86;
-	Fri,  6 Mar 2026 17:09:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772816996;
-	bh=WVinD+PZg5gNJJmXAaqYdYZjNnA9vJnAHHaWmmyoiA0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=l+SNf2LJKvzXJvTAXxdWC2sMdkaz+ozbrbV8vW5MZT3te7IMAzl5YxKu/5MeWgrZh
-	 P+aMITHI6G37NIkM4Pwgf5eH2MWibKf25naqVNY0m7fI4VQ78C87GBWdrwM7UY5buR
-	 ItLKDJ6skZIhcI8lJ2Y+hvPOPAKoPmy0IhHarctHEQp+7XfVS7IpryXVq2GUnRw4nq
-	 EFvaL8YczoFxOYmi/bn204pfh5Lx/4/r4t/ZsAxgQS64dRaAb5KXcpIx9Vy8zMsH21
-	 ffrAfYm7yfqdlAOegtqJB7pYFJaRKc3zLAq+yUNjNEsz/H9BAN6vjd2fsTE432v96w
-	 PyAfbrTDiE4fw==
-From: Mark Brown <broonie@kernel.org>
-Date: Fri, 06 Mar 2026 17:00:59 +0000
-Subject: [PATCH v10 07/30] KVM: arm64: Move SVE state access macros after
- feature test macros
+	Fri, 06 Mar 2026 17:10:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=VsXE+svD0ozIQDDFOgt45cd6eXjH7nxp9XTye3IloGc=; b=l9YUV9HdlLX1HfeKUqfDNoU5YI
+	CXhnjJjxxN09CLqR+AHoeDH8353f4NYCDNtqXDEfiaFOjMVS4l462dWrRo+KWmhB31SnQTbSbVxI6
+	IuZbWb/nuh/8t51OhOr5Jb7TkinDYH7E2qeTXj/mwjLQ9uVuXCvtsWTaGC5Jr/vO1sHx3u73RSoUy
+	CFhzNduiEBY388G13kQaPZ7HCk5ToAxKoqm6QjV2AnlpPrr7bjSb2r6XnCP0xgcTmyYKcq9x+oLJL
+	do97pKp8inQqRzyTOyo+PqAlaa08/Hsh/yxXEJlxrLgz3RN09y+HSieY0rW4+uQA60JCsGVoA1yh+
+	SuCUKsKw==;
+Received: from sslproxy07.your-server.de ([78.47.199.104])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.feilke@ew.tq-group.com>)
+	id 1vyYgG-000JfL-16;
+	Fri, 06 Mar 2026 18:09:40 +0100
+Received: from localhost ([127.0.0.1])
+	by sslproxy07.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.feilke@ew.tq-group.com>)
+	id 1vyYgF-000KT5-2p;
+	Fri, 06 Mar 2026 18:09:39 +0100
+Message-ID: <6db90740-5a89-47dd-a789-98b96b202a1a@ew.tq-group.com>
+Date: Fri, 6 Mar 2026 18:09:38 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: [PATCH v2 0/3] ARM: dts: TQMa7: modify for use in bootloaders
+To: Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, linux@ew.tq-group.com,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>
+References: <20260220145917.1797286-1-Alexander.Feilke@ew.tq-group.com>
+From: "Feilke, Alexander" <alexander.feilke@ew.tq-group.com>
+In-Reply-To: <20260220145917.1797286-1-Alexander.Feilke@ew.tq-group.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260306-kvm-arm64-sme-v10-7-43f7683a0fb7@kernel.org>
-References: <20260306-kvm-arm64-sme-v10-0-43f7683a0fb7@kernel.org>
-In-Reply-To: <20260306-kvm-arm64-sme-v10-0-43f7683a0fb7@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>, 
- Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>
-Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>, 
- Mark Rutland <mark.rutland@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- Peter Maydell <peter.maydell@linaro.org>, 
- Eric Auger <eric.auger@redhat.com>, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.15-dev-6ac23
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2766; i=broonie@kernel.org;
- h=from:subject:message-id; bh=WVinD+PZg5gNJJmXAaqYdYZjNnA9vJnAHHaWmmyoiA0=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpqwouL/LMzLhb7e8WoxtZwIEbzOl4rfVnCNAcj
- 9NpObJy/I6JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaasKLgAKCRAk1otyXVSH
- 0J7KB/9cDJ3yEZzWS61XCor71OYqImPMtHbcwcGrAwSt9+PIEB0J4xMggs8anSvNbOjxmJ6vcm6
- uDYL08igkJwXWVPCWsdyxDSaVPLAN5E1NogM95HuOCD4ZXncP817BevI6naP6Vmu6/hqM7z4PUe
- cNlqLYM2JTpPgRch0cQbp/pZNmutdQDMEMoLqSbZfdM2qGRLdrMZ4MI3MloXaaUB0vGTUzgFjAp
- kcz/QCklxqYhptf4b0um1WVDdCdRL91EypKUhor+zsxqtdccd9JOydp2mxN50M/aOCe03cYM6Ws
- gdm17lBZmTgbHJKpLgKxHdK+yasjHF/3XVmSYLZ2HSvL6+Ys
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-Virus-Scanned: Clear (ClamAV 1.4.3/27932/Fri Mar  6 08:24:27 2026)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260306_171000_356062_40B8824C 
+X-CRM114-Status: UNSURE (   7.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,86 +101,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for SME support move the macros used to access SVE state
-after the feature test macros, we will need to test for SME subfeatures to
-determine the size of the SME state.
 
-Reviewed-by: Fuad Tabba <tabba@google.com>
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- arch/arm64/include/asm/kvm_host.h | 50 +++++++++++++++++++--------------------
- 1 file changed, 25 insertions(+), 25 deletions(-)
-
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 2ca264b3db5f..3e7247b3890c 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1072,31 +1072,6 @@ struct kvm_vcpu_arch {
- #define NESTED_SERROR_PENDING	__vcpu_single_flag(sflags, BIT(8))
- 
- 
--/* Pointer to the vcpu's SVE FFR for sve_{save,load}_state() */
--#define vcpu_sve_pffr(vcpu) (kern_hyp_va((vcpu)->arch.sve_state) +	\
--			     sve_ffr_offset((vcpu)->arch.sve_max_vl))
--
--#define vcpu_sve_max_vq(vcpu)	sve_vq_from_vl((vcpu)->arch.sve_max_vl)
--
--#define vcpu_sve_zcr_elx(vcpu)						\
--	(unlikely(is_hyp_ctxt(vcpu)) ? ZCR_EL2 : ZCR_EL1)
--
--#define sve_state_size_from_vl(sve_max_vl) ({				\
--	size_t __size_ret;						\
--	unsigned int __vq;						\
--									\
--	if (WARN_ON(!sve_vl_valid(sve_max_vl))) {			\
--		__size_ret = 0;						\
--	} else {							\
--		__vq = sve_vq_from_vl(sve_max_vl);			\
--		__size_ret = SVE_SIG_REGS_SIZE(__vq);			\
--	}								\
--									\
--	__size_ret;							\
--})
--
--#define vcpu_sve_state_size(vcpu) sve_state_size_from_vl((vcpu)->arch.sve_max_vl)
--
- #define KVM_GUESTDBG_VALID_MASK (KVM_GUESTDBG_ENABLE | \
- 				 KVM_GUESTDBG_USE_SW_BP | \
- 				 KVM_GUESTDBG_USE_HW | \
-@@ -1132,6 +1107,31 @@ struct kvm_vcpu_arch {
- 
- #define vcpu_gp_regs(v)		(&(v)->arch.ctxt.regs)
- 
-+/* Pointer to the vcpu's SVE FFR for sve_{save,load}_state() */
-+#define vcpu_sve_pffr(vcpu) (kern_hyp_va((vcpu)->arch.sve_state) +	\
-+			     sve_ffr_offset((vcpu)->arch.sve_max_vl))
-+
-+#define vcpu_sve_max_vq(vcpu)	sve_vq_from_vl((vcpu)->arch.sve_max_vl)
-+
-+#define vcpu_sve_zcr_elx(vcpu)						\
-+	(unlikely(is_hyp_ctxt(vcpu)) ? ZCR_EL2 : ZCR_EL1)
-+
-+#define sve_state_size_from_vl(sve_max_vl) ({				\
-+	size_t __size_ret;						\
-+	unsigned int __vq;						\
-+									\
-+	if (WARN_ON(!sve_vl_valid(sve_max_vl))) {			\
-+		__size_ret = 0;						\
-+	} else {							\
-+		__vq = sve_vq_from_vl(sve_max_vl);			\
-+		__size_ret = SVE_SIG_REGS_SIZE(__vq);			\
-+	}								\
-+									\
-+	__size_ret;							\
-+})
-+
-+#define vcpu_sve_state_size(vcpu) sve_state_size_from_vl((vcpu)->arch.sve_max_vl)
-+
- /*
-  * Only use __vcpu_sys_reg/ctxt_sys_reg if you know you want the
-  * memory backed version of a register, and not the one most recently
-
--- 
-2.47.3
-
+> This series contains modifications for using Linux device trees
+> in bootloaders. Changes from U-Boot bootloader are incorporated
+> directly into the Linux device trees.
+>
+> V2:
+> - Updated commit messages
+> - Added missing QSPI bootph properties to imx7-tqma7.dtsi
+Any update on this?
 
