@@ -4,83 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A963FCC06B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 19:59:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC525FCC06C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 20:03:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=945rH/e5rNYp7DXMDC1/KmZIttMnGVuMabmAVl9nIC0=; b=24eHDFvsHTX6J2JruGfFlMH49U
-	2fOOw4psbD1SDz7gyvEwHrKzWzM+Jy0xWUDg6A9rFQs4CByQuPN3v1QooB1Sj0yfS5mjNzl9m92mC
-	o7jSxJQ4JxHDARPagPZKxODNtt2lDXdRv7izt6vFv7QDnwr4XMELgECJkZuBbl1MxkggFN4gtk2sF
-	JFdTpe63aDdRhY2k4iADq4HQRBggBSelNVUaF/zl7WteCvA1543wVgsGaOtuQTbMnS2xYRz3F1NuT
-	h9p+8JnX05S4k8syCut14VoA8YXYw0QdThOhOWP+G2I7m72ddaqTRwjXOsh38RcwxVD8/ncbPKG4P
-	4JiC2sYQ==;
+	bh=WMj1ufUCWVXtPeqS3ysRrEQTz1RUsINUQsWJ/TyL2ek=; b=x/J2L6GA7dL392HfTBITCw9U8p
+	2klmwOH3hxS1r675RHPjL8IjsBZvQl4Z/zK1+dRhOTMerDncGg6oUL0cCx+AUdxmtGy+jE14osWBQ
+	lN6oLM0Q0Xodb/8fBPaFMEmigSzMWmglOO6b+9eDxCFJef1OjYE7cH2OsSiQaHNlexKrajbrfWy8M
+	2eusMu3GX6jn3ux4k3bp2EOJiMr/Q9CD7rPIUmtyQlobyfyrzv9amcRzgxcvDEA0aFzUIwvMkbL7x
+	Ox4MqRo7u/KAg8nXGrxViqRLAfjQz8tp7zioShJ6hDccJj5bgm+jp4W1Xz65SH1GhKdn+LcNVxVd1
+	BN/7cRvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vybKs-00000004RW4-2Blw;
-	Fri, 06 Mar 2026 19:59:46 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1vybOY-00000004SJd-2JNQ;
+	Fri, 06 Mar 2026 20:03:34 +0000
+Received: from mail-northcentralusazon11010044.outbound.protection.outlook.com ([52.101.193.44] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vybKl-00000004RQS-1lfu
+	id 1vybOV-00000004SJ6-2kRD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 19:59:45 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2ae523d54d2so11465ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 11:59:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1772827178; x=1773431978; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=945rH/e5rNYp7DXMDC1/KmZIttMnGVuMabmAVl9nIC0=;
-        b=TkfAPxOiATJq58vgJkQsP8ZLGS1k5Z9Qq4kLJYhp7+dH7uvUQnzamwT+qAoqtAwbJp
-         qWHExUdvPsfa6RxQCWTXD60VViGXmvQNRE4uy/Dl/jGLpfUb2+pJi1U93kUGAC9rY1UR
-         9ttEoiuMcRuYVFH/sYOolMVU/iHvGdH0DvaBrL27uqIzpf/1KURnD6PhQrg8nzNwR54Y
-         Wk59Dz3ML4oGVCnkpIf7FgrV0vUBPbcPKyArip9ECDJhfrp0xyTN9cg0mQ+01KCmIuTi
-         2y40l7bB4utHrcuRoMdppDAiiZhJmKB50P1+nQWiiy2dTdCfMR5p1X3GzyRSJlPPxsGN
-         CX7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772827178; x=1773431978;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=945rH/e5rNYp7DXMDC1/KmZIttMnGVuMabmAVl9nIC0=;
-        b=CMbNwLXCUXKBLUCKUxTtBUnRhAI2BFe7wV0phEPHnD8FHxvUGyArmrGIAvPQlsAz4k
-         /JDBUEP/cJb9qN/74n5biHTVhD17vnTEIHC+60k384shwDnuxVmbg++e+F8Pap+L98Wc
-         osorI93v54CGW4vgx7j5Oj9NOW2dR/Q9uEXpJCeSwC+sG8pWuiLaitRqbtwN4HnVA5mx
-         8onou7ezjUw3hGlD9MBKz989zyFJyE9RzDXE/BfGtHHwvaRPqCqbi8vRunvXyx9y4nfb
-         wmnWUQpYkldEKe8k0HOC/YsW8ch+myK5PyOLSVg+M6sAdPWxdQX9/6MF6d8CoyFwqsY1
-         zSIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXb4B9idrqDesZrhu7kCdNIJ7QDuDPrxT8EOJDY1uMZx1XQHOTG0xO/vcmCBm56IakGbMefxB3qLR43zrIsi3QC@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1hnya2ZdyK7SKQJb8Fvq2rNoh3ur4hdmh2Dq0Tyz69M5sbfIa
-	tnFfmZpcChLfWE38oEpz/fp+FEbqM5w531UghlgZs1BW1+CVDTLkhCjFxYQRmT0sMb15K1yfXRU
-	FIXBVs60D
-X-Gm-Gg: ATEYQzz+dL9CH3c3JPIrY6Pa4ork4NGAd623/jlzGsXHQGBJrY/yYD3IytIqs644bgo
-	0scXzWfv4plD2/Kj3+CKdHbCWv3SuzPsBJq/Gn2/ERjYXV/aPKruaK7vmE1ecvxD9xBxevqWTyE
-	TNlDB/UKcHeK4FgMLOcAlsw0dEh2fP8udobBEsvCz5ToMfc+D3byKrhH9ptIl5O8+n00Qq/IF16
-	32tr8ZQbnMEBiRT5of/l+9luGNyWE5/HkaMs+AghQX5qs377l17xi9Zfv4pTmmE3dPYHr5ePCpl
-	pI8fTK50gS4br567mOeX16dXAGkewmi84aEhic/UFVoLTQyihrXBGP3f6HrbqH48YfB3twaMLIF
-	PPqejgtLaSU+vTSOawRg/53z53MrCyh1dz0A3FpPzIBauNM4qZ9M+a9uu0KNWUQ/miFCFMhEpWX
-	cp3lWHnHnAeXBE/Il5rGhCdkUMff1T5qsxlfw5hY52AULkkd39TZxyXtF+g4r2BA==
-X-Received: by 2002:a17:903:2f8a:b0:2ae:575f:3755 with SMTP id d9443c01a7336-2ae8ad8939bmr404865ad.20.1772827178041;
-        Fri, 06 Mar 2026 11:59:38 -0800 (PST)
-Received: from google.com (168.136.83.34.bc.googleusercontent.com. [34.83.136.168])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae840b2130sm30703795ad.83.2026.03.06.11.59.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Mar 2026 11:59:37 -0800 (PST)
-Date: Fri, 6 Mar 2026 19:59:33 +0000
-From: Samiullah Khawaja <skhawaja@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Baolu Lu <baolu.lu@linux.intel.com>, 
-	Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, 
-	bhelgaas@google.com, rafael@kernel.org, lenb@kernel.org, praan@google.com, 
-	kees@kernel.org, smostafa@google.com, Alexander.Grest@microsoft.com, 
-	kevin.tian@intel.com, miko.lenczewski@arm.com, linux-arm-kernel@lists.infradead.org, 
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, 
-	linux-pci@vger.kernel.org, vsethi@nvidia.com
+	Fri, 06 Mar 2026 20:03:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YVXJDumRpBcYoZxNLMXXzl5QkDxxQv0k824GHmcgK6e2kvZFsEZhePd/lvhAuyxHN6aHpVhbpsfjvO/7vIg7RsVXtq49OdC4StxkORRDoxe8/T6rR/nBWk97SXQB+ZddD+0PRpHVF0VmEE1MQWvV1Zs4WgrtpHUZM7SsAZde/N07Q7ZaueRfZxRfmcHywiM8QzJO1ekZ14VlR0WeZE4QWYt1xfaU+5BRCZQ5hUUYw7nGaFXAFLDZBUAODZxZgnyP3JP1VKHn8r/OjsxtR3Fo+hVGA0peAOqtauwg1EN1/BZoV0V2y3RaSy6RZsiketDywPWJEHbopTzmJSTa9ZLqGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WMj1ufUCWVXtPeqS3ysRrEQTz1RUsINUQsWJ/TyL2ek=;
+ b=xWOgKuH3+MrsXJACbnrK9C3+7lc2DN0b6efAQaQOKH9FYfQM91ndmmH6Bcah74vpW+PqsUkL7/dU/nbhonY1po3JUjibSsH+Asc4PimJyIRqJcUE8wuckPhqWzgRcdJdfggS/Fh+/ZM7foU3o5wSJiQpgr9jmzQwplT7+ekjD/widZZf3mHBcKg6VxOMxM+GOQ69irhnnSs6wEH+2mraQQZUrgF5aPhnFuNYZNvV9x6/A6CQPKKb5q8qFKfo8wkJMG4gn0txjeQ8GHuwc40ICRrFpjvlyeAnQrQPWSU6EFr5yrdS1XvSHsMkse8zZBen1q3yg+XPgwW0qjXF2CD1AA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WMj1ufUCWVXtPeqS3ysRrEQTz1RUsINUQsWJ/TyL2ek=;
+ b=Nec+xc95+iahKZGJkZmJ9IgS84ZMICfbVZkr4iiHBObVIoVaNlbjU4JZESFamvlJF7P9I/Fqkk/jqqvzZcYf/GULdNbhzAk5J0zQr0hJXAPAiC2COeDeMbOTE0QiVW4Ygppa7HYzUbSZYQb5wHGX7lMMzbQ6ziwGDSdrf7iqQQkeWpbuz+FIEvRPi6+51QRAPs/n8Wi3klVgzo2lYQa8BYrBTlL41ph33UiJu4ojo6KPpMKxyRYNSV9oJ2Wog9s7D5sp/Sjektx5WUksLBh5FnRI3UUeWwCY6faAlA40l3ojQTQvQ9GC9iqOXsr7HQ2ax+DiewBSwalv2iMpCgEV0Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by LV2PR12MB5750.namprd12.prod.outlook.com (2603:10b6:408:17e::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Fri, 6 Mar
+ 2026 20:03:22 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9654.022; Fri, 6 Mar 2026
+ 20:03:22 +0000
+Date: Fri, 6 Mar 2026 16:03:21 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Samiullah Khawaja <skhawaja@google.com>
+Cc: Baolu Lu <baolu.lu@linux.intel.com>, Nicolin Chen <nicolinc@nvidia.com>,
+	will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
+	bhelgaas@google.com, rafael@kernel.org, lenb@kernel.org,
+	praan@google.com, kees@kernel.org, smostafa@google.com,
+	Alexander.Grest@microsoft.com, kevin.tian@intel.com,
+	miko.lenczewski@arm.com, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-acpi@vger.kernel.org, linux-pci@vger.kernel.org,
+	vsethi@nvidia.com
 Subject: Re: [PATCH v1 2/2] iommu/arm-smmu-v3: Recover ATC invalidate timeouts
-Message-ID: <aasv1HYOKuuJyi1k@google.com>
+Message-ID: <20260306200321.GN1651202@nvidia.com>
 References: <cover.1772686998.git.nicolinc@nvidia.com>
  <ca7ab934bf0f433b62a5c15d42241632c4cb9366.1772686998.git.nicolinc@nvidia.com>
  <20260305153911.GT972761@nvidia.com>
@@ -88,13 +74,67 @@ References: <cover.1772686998.git.nicolinc@nvidia.com>
  <20260306130006.GF1651202@nvidia.com>
  <aasmWvA-sqi0KJwO@google.com>
  <20260306194312.GL1651202@nvidia.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
+ <aasv1HYOKuuJyi1k@google.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260306194312.GL1651202@nvidia.com>
+In-Reply-To: <aasv1HYOKuuJyi1k@google.com>
+X-ClientProxiedBy: MN0P221CA0004.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:208:52a::11) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|LV2PR12MB5750:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5b9a3e8a-3596-43fd-58a1-08de7bbb6b0a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: p1WLN4/NSd/Ai6Df0Z7prJkR+zHGIMp6idPhZZRztBC9b5doI57lN0RsQDMBe+iN7lzH0VI0dIjtVE4FCO0PQ16xIpPDBLYCX93GmXrlOjEo/yM62Cw0zl91QDXxHU/mUFTnwe/Z+O2gmLVR61XFF/gWNVKjEfiGbHK6SDvm15IjRMpRKIErdTTUJ2VzTlUudU7wreSbo0jQmah1qqh7jqP2V2v34o978UgcfbxBbjy41uw+3MelDYRydjeUHKOIot9mC2DDr3kZJEqXbe/IS7Cx5By6DyQytP8tWEzzVPSXd3ww7ygY6cAX+s3UqIZ4rVwDVVyQHeRJXGEJIX6ehGIO8NhW3lglpDdDo3CJmzARScCur1Pzpa8ReR/DI8py2TM1yVbdHqvOdIOMhBf66dviBGaJuSqFcJUc0NHlfc22i5j8TNIn5IqX5zq/E7nznbeU5V6OXfGK6OuMG1tzM9L3QL0ayRt1iAMvISMgv5PEilNWguI7ko9XFyzlkyIhp0dIijBH+3efGTovSz02rpXoHKkp39OZtvQlKQJxek7DSG6zPqfemy7r0Ea02LE/hkJiNedpbQ4+DY6iDb9KsHj6mirt3+tLiFb2FEYQ0lcFsOxXukUUAhZv4jS1A61BFIt11azXGdnI4QL0Bc2AkAmMEupkWZhoj0WqDFpaHd+GWKDKiYnE11965iXvRyIsISnhZTKXfhFiFqGbN30phx6TwzL64u+SBWCcKFiZPAQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Wd/6pWZTbUCXyTwBOaMXLF1BPub2yUXrUGU2fumYJa/nLMlM/vhbqyx8ZDwv?=
+ =?us-ascii?Q?RSphypD6xQQLwlbhMzjJk2SPMeKdz1H+S8CFxvUdIupg3l+UAlb5JrjlYgmh?=
+ =?us-ascii?Q?FVmem99Jjmut/oGhdGr5myyJJ/UmRroIUmqYy/zNZPH25MH0BZ4OlmYgK8a3?=
+ =?us-ascii?Q?k7ySx0coX9YvknziWnSiq7C5Z5i30yyMFc5MA/mxstXq1Db/+rzw9QgXfxQq?=
+ =?us-ascii?Q?mtm60JVGQSvXp15rS3N2qOmxiQQS9sNe3gKxTggSeGtVXHRpqyDEbFqVRcaH?=
+ =?us-ascii?Q?ofpsyXTTT3SRtnYeeRYck2W/XPa/l49a5lGmzW0osL2M3crrjWMLr3cVpllX?=
+ =?us-ascii?Q?TYja2MbgXRBmh//9BdqdDpEQbm0XCP0yf+vHVC+Pcxz368LMUtmoLGSaT86N?=
+ =?us-ascii?Q?dtoYPPgDiUG7ORnYWIlRdQqAY0U0OETgVDJ/ooQuTS/sUKAgbg1YVqPNMx/i?=
+ =?us-ascii?Q?fQyEHN8vWRBYUmEhGqKE3T40md1pvZ0ykQd9F2+5vtb8lizA6M/TkicZB1tY?=
+ =?us-ascii?Q?A1D5cqCCvdHU0C+Hgh7EtC7hxHL2dik/68+bVYWnu1GrEE8NmpcbGfcNKtJT?=
+ =?us-ascii?Q?hgBJjthjQGYXr5liGgwWHLu9N6JHri9UQx4ejMRbCkZROCCGYxy69JkPyXTo?=
+ =?us-ascii?Q?nJ9rj2LPVcIDblDxz9QXMtjWssj/f1jDl5veQeexmnLPfgRM/TGU5C0epQi3?=
+ =?us-ascii?Q?Z5mEa21hHEqQWoKCy5w8KQ50mcWNAOYfS75XeutnU4GqNSQZg5lUMUIzSWpf?=
+ =?us-ascii?Q?aiqk7L2hH8+bG/xT92V4m+eKLyMxTKDva0wyeJxCXJeN7rBNEsT8YId0VIrA?=
+ =?us-ascii?Q?/OHq1g7AGNBIvAeskGYscJY5lxd8tlB4NF8aGQeYVS/68Q9X/z34mx988Yw8?=
+ =?us-ascii?Q?n1oQY2C/NWSIeAHx4eERHIwzlpXz2CCkSS23GLU34/LQRZr2p7G7Kf447/Vc?=
+ =?us-ascii?Q?imRv5bbM4iRpK1cbMS6MGNWHtpYDigYVNfqmMjdlen/Au4Dn8cuLyC0DJjfr?=
+ =?us-ascii?Q?WARBbtxPhhBcpIk43kL3SM9QEgfwExaQBR5gwP6OqjtlLsLHY45wSeNZ282r?=
+ =?us-ascii?Q?DJXxGyH3QkqPn7OFtSMbYVqEv0QT6lXgrgZKRiqmD1UoQWmm7w2A9tmdXXLK?=
+ =?us-ascii?Q?VnYFPSJD3DzjgktNO7o5SA9ga92zJnq+Cj1DoB+71hIYThERW9F+vVL4fFsV?=
+ =?us-ascii?Q?5PCodAAeXbZLcmWy89cXkGxOl6XQ+XfoxxKQOBZw2VYyMvhridE2SbmxiylU?=
+ =?us-ascii?Q?GtFID9i4BCBX2MLND7o1Ffd8G0yH3YurJqJ0DLwIXNyisxQDZvjWfqJgqAQ3?=
+ =?us-ascii?Q?oikDWdBT+3HNwk5Iy46NhcENllUBkc3N2QCVDZHfUmQhm5qM9/VOxpy44CC9?=
+ =?us-ascii?Q?40Db8PP5U6qwEwsIqyrA5UWAdL8AxCUsD/gTAjl6hmKCH2N3zMzFtiM38qra?=
+ =?us-ascii?Q?H4NY4ZGRzV5NWrgaWUrleRn15wlUhwM6+hqPVyyYfkAivVrI/5U1MhQK0WkK?=
+ =?us-ascii?Q?g3WlNc7v6upwF3rDuQSwBeuWNyOQ2H6P4DA9uMZ/7OdhhkpMPqr/c0VqClx8?=
+ =?us-ascii?Q?KdU0LxrlePHyewn96W/9WzcUd9++EUlWeVNoLpJjcxxF8MKy8jEmVIwXwmvc?=
+ =?us-ascii?Q?hqB0yYTCNpbYaTm9msAifOROILIfG7V2w//0KXmdbMM9pH5usDB/O3TR6Y1T?=
+ =?us-ascii?Q?5tuzwFlfCDmtUdb2XG96UpyDJkFs8GC6eJUV8zuX7IP0ZGo89k6v7OaoM0Cw?=
+ =?us-ascii?Q?aQPzYJXb1A=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5b9a3e8a-3596-43fd-58a1-08de7bbb6b0a
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 20:03:22.0097
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XiwhyhCXHTcu07g/uGrAKgUdniBpAPOiNQsxHglNbxuVy9ouGwgbYxV1EbpNYtgZ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB5750
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_115939_476713_9E6F6880 
-X-CRM114-Status: GOOD (  22.24  )
+X-CRM114-CacheID: sfid-20260306_120331_718073_A35AFBEF 
+X-CRM114-Status: GOOD (  24.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,45 +149,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 03:43:12PM -0400, Jason Gunthorpe wrote:
->On Fri, Mar 06, 2026 at 07:35:19PM +0000, Samiullah Khawaja wrote:
->> On Fri, Mar 06, 2026 at 09:00:06AM -0400, Jason Gunthorpe wrote:
->> > On Fri, Mar 06, 2026 at 11:22:52AM +0800, Baolu Lu wrote:
->> > > I believe this issue is not unique to the arm-smmu-v3 driver. Device ATC
->> > > invalidation timeout is a generic challenge across all IOMMU
->> > > architectures that support PCI ATS. Would it be feasible to implement a
->> > > common 'fencing and recovery' mechanism in the IOMMU core so that all
->> > > IOMMU drivers could benefit?
->> >
->> > I think yes, for parts, but the driver itself has to do something deep
->> > inside it's invalidation to allow the flush to complete without
->> > exposing the system to memory corruption - meaning it has to block
->> > translated requests before completing the flush
->>
->> Yes and currently the underlying drivers have software timeouts
->> (AMD=100millisecond, arm-smmu-v3=1second) defined which could timeout
->> before the actual ATC invalidation timeout occurs. Do you think maybe
->> the timeout needs to be propagated to the caller (flush callback) so the
->> memory/IOVA is not allocated to something else?
->
->No, definitely not, that's basically impossible, so many callers just
->can't handle such an idea, and you can't ever fully recover from such
->a thing.
->
+On Fri, Mar 06, 2026 at 07:59:33PM +0000, Samiullah Khawaja wrote:
+> On Fri, Mar 06, 2026 at 03:43:12PM -0400, Jason Gunthorpe wrote:
+> > On Fri, Mar 06, 2026 at 07:35:19PM +0000, Samiullah Khawaja wrote:
+> > > On Fri, Mar 06, 2026 at 09:00:06AM -0400, Jason Gunthorpe wrote:
+> > > > On Fri, Mar 06, 2026 at 11:22:52AM +0800, Baolu Lu wrote:
+> > > > > I believe this issue is not unique to the arm-smmu-v3 driver. Device ATC
+> > > > > invalidation timeout is a generic challenge across all IOMMU
+> > > > > architectures that support PCI ATS. Would it be feasible to implement a
+> > > > > common 'fencing and recovery' mechanism in the IOMMU core so that all
+> > > > > IOMMU drivers could benefit?
+> > > >
+> > > > I think yes, for parts, but the driver itself has to do something deep
+> > > > inside it's invalidation to allow the flush to complete without
+> > > > exposing the system to memory corruption - meaning it has to block
+> > > > translated requests before completing the flush
+> > > 
+> > > Yes and currently the underlying drivers have software timeouts
+> > > (AMD=100millisecond, arm-smmu-v3=1second) defined which could timeout
+> > > before the actual ATC invalidation timeout occurs. Do you think maybe
+> > > the timeout needs to be propagated to the caller (flush callback) so the
+> > > memory/IOVA is not allocated to something else?
+> > 
+> > No, definitely not, that's basically impossible, so many callers just
+> > can't handle such an idea, and you can't ever fully recover from such
+> > a thing.
+> > 
+> 
+> Agreed.
+> > > Or blocking translated requests for such devices should be enough?
+> > 
+> > Yes, we have to fence the hardware and then allow the existing SW
+> > stack to continue without any fear of UAF from the broken HW.
+> 
+> And this applies to software timeout also I think, since both have same
+> end result.
 
-Agreed.
->> Or blocking translated requests for such devices should be enough?
->
->Yes, we have to fence the hardware and then allow the existing SW
->stack to continue without any fear of UAF from the broken HW.
+Any situation where the ATC flush doesn't get a positive response from
+the HW must fence the HW before continuing to avoid UAF bugs.
 
-And this applies to software timeout also I think, since both have same
-end result.
+Obviously today we just succeed the flush anyhow and hope for the
+best, and I think that is a good starting point for VT-d. We need at
+least that to build anything more complex on to.
 
-I am working on a series to solve this for VT-d and testing it
-internally.
->
->Fencing the HW means using the IOMMU to block translated requests.
->
->Jason
+Fencing the device also has to come with a full RAS flow to eventually
+unfence it, so I wouldn't do it in isolation.
+
+I would like the unfence to be done with a fresh domain attach (or
+re-attach I guess) that just rewrites the context entry with the
+correct one.
+
+For VT-d that probably also means it will need all the domain attach
+fixing we've talked about as a precondition too.
+
+Jason
 
