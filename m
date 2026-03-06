@@ -4,63 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72D80F513ED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 01:21:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C699F513E9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 01:29:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OBTvu7NXwMqJkI/fJlPTvddkmoBzX7NAmKT7nsQ4K9E=; b=FyK2kJ28uAIwtxqrIThpEfkTLC
-	QjycViI69Wa3zQUHN+wyEFm7JuqNGyvm+4QEX0da+bK/LhfbaRjvFBtK9uoQT0eaWX9hl1GO/h+qT
-	twCfb79qjIdh76VjSPeMq8SIk9Zvv0dpmBsBTLdUDwa+0gqxPkUtGscJDZ5TvMfa/GqVgASd2FEo2
-	YenZHa8GAiBswn2A+jT9feCQQzfL3EhjP3M5Zw7U+bup89rTdwmfHngD6pYKPOee7ixUZKJyiZ1p3
-	0xWhKIi316GCEp1d14zyYl4RWJHT6DwjtOtJOI1QLWoWK3EWeOgKE2gVq9ar7Fgq1b7/e4BAMtzfE
-	F3QZSQQw==;
+	bh=gfPLjVRO2nOOwLUUjvDT6W/Je5YmZ9lTARccIVlkByw=; b=IZiJOuWRK+ppKk9wguDzmU59Z1
+	ZLqbb8xKf+2K+tC8bI6Ou6zop72/Xfv9sCwWlp3ayy8WxyBpU3iEKQhLz1TDK+NyrHof/jCrB/OJi
+	+2UxYrGN9L8PKS+mr0TGZRPgE4wLL7sPAy58IDqDHumXUdq8NNJu09Jp8hoJoJuYDUKBvtaheBguj
+	X8irlSU2lg7JLkOQWJn3ljqcyMepCTqAixDUxzE8KYPdc/EV6yvjGtSeyzmQC9B8HY0jXM32IklM2
+	TGrpcbrdAEKJnZHrEWpwGWUq0qwXkdTmm7a3PJ3wjdhqm2CRajnio5LGWRqgOPWR8RRpidpaczcrH
+	9lcaNQzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyJsR-00000002pr2-1a38;
-	Fri, 06 Mar 2026 01:21:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vyK0g-00000002qAf-1TrM;
+	Fri, 06 Mar 2026 01:29:47 +0000
+Received: from mail-westusazon11010043.outbound.protection.outlook.com ([52.101.85.43] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyJsO-00000002pqd-3lgN
+	id 1vyK0d-00000002qAK-2BlC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 01:21:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3565C42D69;
-	Fri,  6 Mar 2026 01:21:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E324DC116C6;
-	Fri,  6 Mar 2026 01:21:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772760072;
-	bh=qK1Pb6PRMN/5EDxvXqpnSPidQtcYgcosLSdYEdyfatM=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=KVyGZAvLUG+NSKuzln4XZyGN8vBdTQZCO+wfrI72GYmPmuT59ZhGLpwL2675wNms9
-	 t0eVBagXnb2DSWMQDLH5eflZgku70KfBUkjUWw+YCWdC6d0FKRgV2zWhgRkCwicupb
-	 Z9VpW3lZZXj6Yd5iOpnc4B/iL8okqwFpmkEZv/MEYVJ3BD2cYcew5e8CBA5GSFZ7r/
-	 WpodTtVWnu7GVfsCcSSwysVZx5KcY5Um8kY7gnHb4/QfRSTbuypExZbbIBd6gQyeAS
-	 vJl7qct/qLdcKP5bQH3JRSIBbLuPoSPM4EA+67xPuZU2lXstWAPiKL93SoaaGqVxE7
-	 t0V+Z2wcXt4VQ==
-Date: Thu, 05 Mar 2026 19:21:11 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Fri, 06 Mar 2026 01:29:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tylPmc9d5cH4oQVuCg0WBblWnO3dUpAtSEOSYv8RwVRMUsXRIGvfbe2NVHEx65IqVYI1EEIIABlzj9a+BKWNdSGq5A85h/FLEQqh6cP3WYqdc071I9o3ClC16ZNzkqYhha330aRuo8+p3Er3hJAXC5ZOgjuBzJ+euYQz1S0m1wlUx8W262NiTtPwzvNsQloe9/FFEs1edhBQ8SwVwxrRxiAitWpHmLJbDfYDHuytZPUsyDtg8IIGWoxi6l2jPrMpOA+nid0xqEwtDHjntQocAQd3XSmvSiayhWkpYuxX20BfXXv10g2Rucc2PakJuYh1c5MQmoasPma9M0HATYz5Hg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gfPLjVRO2nOOwLUUjvDT6W/Je5YmZ9lTARccIVlkByw=;
+ b=lYpadOKoxr1TjHNicLlq/r4SmcsDlWS8up6GBtO3B9hxs93oXflP5YECEZwj6bgextp2YD1Jik/tmEl/czCPLkUTvrC4tZHVJMEw+OTYNL91deRo3S8eiygSdua8zBxRevDrWXTZO2xDtmxrH1C5cw9bz8oLdt/G5aRUCXuco5WWlbFIvDUNYEYVMzWxrWW5XSFS1204at5ir1DNTs3iA9fh5b52CvGhmu/2hBS4e9ZM9QDvfGMrryOtvF02uUYzflFdJGmjC/CHftPC5ZO3RXwBGlf40gzmJ5FDkWsGd37sRa1cV3pG/rCUuoBUzP0E7N/cpv/Gvl2b6JGFsUE2gA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gfPLjVRO2nOOwLUUjvDT6W/Je5YmZ9lTARccIVlkByw=;
+ b=plHNX8iu1n/fSpcyomHzoogbrAiY7quzzf/I4S5e2HhP6/8nGiOpPQPupMIBRqCNmUrvkub7yty3mbdDHTbhXxkMQWN559BxLd74C+xs4pAnYb+n1Dn9paY8STP5mIQKS98haTgCEKFH4K5Ffb3IbVNXu6q8B+ePlX3r6kHxzdcr3kjkb5/MGaQHCDCJsSRn9RC8d3vXIGJrvNfgPbgLfpyxh7j+VHBMvl2stvRpAOgjcfPZu4LfR4nJP7ZFAULV0PMQNnxyXLMogf3j7GpEqMwhNfI6c7lNVNavGp4JQiEgEqClAysU4ITeojYK0maCgpTRt3qzhqvuRj2gBr9rpw==
+Received: from CH0P221CA0006.NAMP221.PROD.OUTLOOK.COM (2603:10b6:610:11c::29)
+ by DM3PR12MB9436.namprd12.prod.outlook.com (2603:10b6:8:1af::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.18; Fri, 6 Mar
+ 2026 01:29:33 +0000
+Received: from CH1PEPF0000AD7C.namprd04.prod.outlook.com
+ (2603:10b6:610:11c:cafe::e5) by CH0P221CA0006.outlook.office365.com
+ (2603:10b6:610:11c::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.18 via Frontend Transport; Fri,
+ 6 Mar 2026 01:29:32 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ CH1PEPF0000AD7C.mail.protection.outlook.com (10.167.244.84) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9678.18 via Frontend Transport; Fri, 6 Mar 2026 01:29:32 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 5 Mar
+ 2026 17:29:24 -0800
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Thu, 5 Mar 2026 17:29:24 -0800
+Received: from Asurada-Nvidia (10.127.8.10) by mail.nvidia.com
+ (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 5 Mar 2026 17:29:23 -0800
+Date: Thu, 5 Mar 2026 17:29:22 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<bhelgaas@google.com>, <rafael@kernel.org>, <lenb@kernel.org>,
+	<praan@google.com>, <kees@kernel.org>, <baolu.lu@linux.intel.com>,
+	<smostafa@google.com>, <Alexander.Grest@microsoft.com>,
+	<kevin.tian@intel.com>, <miko.lenczewski@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-pci@vger.kernel.org>, <vsethi@nvidia.com>
+Subject: Re: [PATCH v1 2/2] iommu/arm-smmu-v3: Recover ATC invalidate timeouts
+Message-ID: <aaot8uRsli5jNPzH@Asurada-Nvidia>
+References: <cover.1772686998.git.nicolinc@nvidia.com>
+ <ca7ab934bf0f433b62a5c15d42241632c4cb9366.1772686998.git.nicolinc@nvidia.com>
+ <20260305153911.GT972761@nvidia.com>
+ <aanygWWZLA1htDdQ@Asurada-Nvidia>
+ <20260305234158.GB1651202@nvidia.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: bcm-kernel-feedback-list@broadcom.com, 
- linux-arm-kernel@lists.infradead.org, rjui@broadcom.com, 
- conor+dt@kernel.org, krzk+dt@kernel.org, sbranden@broadcom.com, 
- linux-mmc@vger.kernel.org, ulf.hansson@linaro.org, 
- devicetree@vger.kernel.org, nsaenz@kernel.org, linux-kernel@vger.kernel.org
-To: Lee Yongjun <jun85566@gmail.com>
-In-Reply-To: <20260305234703.38490-1-jun85566@gmail.com>
-References: <20260305234703.38490-1-jun85566@gmail.com>
-Message-Id: <177276007097.977010.11624734015908520209.robh@kernel.org>
-Subject: Re: [PATCH] dt-bindings: mmc: brcm,iproc-sdhci: allow dma-coherent
- property
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260305234158.GB1651202@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD7C:EE_|DM3PR12MB9436:EE_
+X-MS-Office365-Filtering-Correlation-Id: 37f609f6-2b92-4399-ea05-08de7b1fd1f2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|36860700016|1800799024;
+X-Microsoft-Antispam-Message-Info: WjOJnqwyaZodK7fcL+MGhWT4ok304Z5Sf5Umj7s/FpZRImTLMRnwrpNcP42+LExVHdgIObxEVAh9rNTM1OhLuhWVBIgCJrFcdwvLkcFPQYjHtCRMrrsq3x3TKodG4mcZyyb2PIS2aH5+RLVOeoXsuntDJvpCuJxjU1S0fI/+xIEXFlGGMtK0WOnrmntVxSLeXNZt+uEOwuzGRAnTlTgoH5GAv4yqyBBntOzO05bBu1mwBzGaP3CHeJCNxbzGQXKA/1k7SvBXdMUMmNfuizSLrXpruty3MlI6Hrg/hKj7q/DLGSv0t0GOuCjTRmjuqgorMOvc8CUt1n8tApx7GnrryKytisF81273T9vD/Axc8zeci8K/qaStKxMHHwvJ0nDnkGDOJmG2bilye4szni5R1RtgTS/oqbL1Gg6CNs9iDfcrYAgFQYR2Lh2JyARo6lta3clK4uB29O7bB1bAeqMmL+R7FXoq1Lt/UMtsGkJmOUqop4XQ8J0A9jEUi7Wpfw8TaVeiOHc9fxbAYbzU5OPnF9RzDLSrVXwMF+9y1zs7D3s79nqOz5uoUx+tWIOyk93LmN4f2/4/kBLiHON3qkXC+N9KfaKoo7u+H0HSIcTigum/c3ND7JJHcCAo/J1mipJp2VzdL6H//ih/dy0kak7xshPebtcBIumev3gBAUHaERH/rhD+mO9ooFrunuQj0QJiJvJXxf0NVD2yRehgnsQ1dtz0/qn+Q1TbSW3JuoI6nNQXuKiss4y4K58vVjgdgcuHMxo0y8Nxqq7EK6gwZCBz5Q==
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(36860700016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: DKD49Z4+NLxoODy2CbYeI2mjj0zAqIpm9cv+SZRM8iBbNSMTLMc2nUZo9Qoz5N1+qGwuPMtWhW0aPBvLHxdb3eYvr51kWC5DvDgj+SRnauw0vtC/f02JS0DNElWG6jHwomrfcD3ZQM6y+pvIdBb3RARkbguCfZ4Sylj7yBv4/E7ALYVKxGk6YoG3nOVWTx9SaBRMMuX5NqhuU9LP5b9E3mf9nPb0UR2YZ7xhSO9KknRQKqRP2bZtN5fBJyZwz33HTtjCDr1Px6/0jSy2Ow6+uEJNLkgsN2HPfR5Dqn36ngPfai+rCNGGJPF8fMAwQ+14B14fAbE5eMY9oaKIXBpM7uhLHoqObnegD4zW2ZZmn2QgZuuRgcl2FOTvciUONjjiuh8+zERB9ljI611ZYS7D3jc9BgzoH7NH15aqoyNKrpAboapVQWTM2VT65rpZJRdj
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 01:29:32.8345
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 37f609f6-2b92-4399-ea05-08de7b1fd1f2
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD7C.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PR12MB9436
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_172113_004461_925BF7F3 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20260305_172943_588789_BCC48038 
+X-CRM114-Status: GOOD (  18.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,58 +136,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 06 Mar 2026 08:47:03 +0900, Lee Yongjun wrote:
-> The Broadcom iProc SDHCI controller supports DMA, but its binding
-> schema does not allow the 'dma-coherent' property.
+On Thu, Mar 05, 2026 at 07:41:58PM -0400, Jason Gunthorpe wrote:
+> On Thu, Mar 05, 2026 at 01:15:45PM -0800, Nicolin Chen wrote:
 > 
-> As a result, dtbs_check reports the following validation errors
-> on the Northstar2 SoC:
+> > You mean in arm_smmu_cmdq_issue_cmdlist() that issued the timed
+> > out ATC command?
 > 
->   mmc@66420000 (brcm,sdhci-iproc-cygnus): Unevaluated properties
->   are not allowed ('dma-coherent' was unexpected)
->   mmc@66430000 (brcm,sdhci-iproc-cygnus): Unevaluated properties
->   are not allowed ('dma-coherent' was unexpected)
+> Yes, it was my off hand thought.
+>
+> > So my test case was to trigger a device fault followed by an ATC
+> > command. But, I found that the ATC command submission returned 0
+> > while only the ISR received:
+> >     CMDQ error (cons 0x03000003): ATC invalidate timeout
+> >     arm_smmu_debugfs_atc_write: ATC_INV ret=0
+> > 
+> > It seems difficult to insert a CMDQ_OP_CFGI_STE in the submission
+> > thread?
 > 
-> Allow the 'dma-coherent' property in the schema to fix the validation
-> errors and accurately reflect the hardware capability.
+> I didn't look, but I thought the CMDQ stops on the ATC invalidation,
+> flags the error and the ISR NOP's the failing CMDQ entry and restarts
+> it to resume the thread? Is that something else?
 > 
-> Signed-off-by: Lee Yongjun <jun85566@gmail.com>
-> ---
->  Documentation/devicetree/bindings/mmc/brcm,iproc-sdhci.yaml | 2 ++
->  1 file changed, 2 insertions(+)
-> 
+> If so you could insert the STE flush instead of a NOP
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Yea, we could do a surgical STE update/flush in the ISR, bypassing
+the arm_smmu_ste_writer that has dependency on "master" vs "smmu".
 
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/mmc/brcm,iproc-sdhci.yaml:46:3: [error] duplication of key "dma-coherent" in mapping (key-duplicates)
+> Otherwise the arm_smmu_cmdq_issue_cmdlist() can just push another CMD
+> to the queue and sync, it is obviously in a context that can do that.
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mmc/brcm,iproc-sdhci.yaml: ignoring, error parsing file
-./Documentation/devicetree/bindings/mmc/brcm,iproc-sdhci.yaml:46:3: found duplicate key "dma-coherent" with value "True" (original value: "True")
-make[2]: *** Deleting file 'Documentation/devicetree/bindings/mmc/brcm,iproc-sdhci.example.dts'
-Documentation/devicetree/bindings/mmc/brcm,iproc-sdhci.yaml:46:3: found duplicate key "dma-coherent" with value "True" (original value: "True")
-make[2]: *** [Documentation/devicetree/bindings/Makefile:26: Documentation/devicetree/bindings/mmc/brcm,iproc-sdhci.example.dts] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1605: dt_binding_check] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
+It was actually a good idea and would make things cleaner..
 
-doc reference errors (make refcheckdocs):
+But arm_smmu_cmdq_issue_cmdlist() doesn't know when to push another
+CMD. In my case where ATC_INV irq occurs, the return value from the
+arm_smmu_cmdq_poll_until_sync() in the Step 5 is 0, and prods/cons
+are also matched. Actually, at this point that NOP ISR has already
+finished.
 
-See https://patchwork.kernel.org/project/devicetree/patch/20260305234703.38490-1-jun85566@gmail.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+Thanks
+Nicolin
 
