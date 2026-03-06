@@ -4,96 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF45CF01821
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 11:07:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B3E3F01825
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 11:08:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LkZRQN19x7mFcsCOofw3+jxcPy1oc8gx31GqMlFvfgk=; b=C0AehDe3hwFOhgY18935KCKG7H
-	/bY6aLreI+fB5kixfYTod9GdbEh7ucN+fx12SIZNpR1YcekgD1iKmzV1A6VUMpaPIW2XJ7ke7zBHs
-	vygvNtMuqW69PjSG7JVqgTQyDOWGiHmUe7C6dfmQxi+ZgCITuKIvv9G0J7haY2CPUaz9tswPhmiyy
-	pCt78AXtFDaHVbDj8WHi33stJRVWBa6urBOfeFUYNmeOsi+l+QOZ6vE4X0Jvk+L/6b5aSpIgAsQ6O
-	mZuI740iLUIg3mMRzJ9EpQuzl/Z+btfhLh4KLTYnbqy7+cf0HH9QP9HvxfWXie2VLCTB58v/Vz8f1
-	YLB8eq8Q==;
+	bh=NTYdTeBjMr6XpI5HTAxWxrD66RVzOSfkMwRE+gHfKWY=; b=Tr9v01txxULegSCCQUmL8We5pN
+	7dB6qkvZCowJVWtgKGR+aO89UqnqEziihCE1434vVypHbwu7+ovFKZ0IiUrK+eLSjRMDjIZxUsr1a
+	+l/rmgh7aG4cNJnkvh0nxu16kXBqYetS2ifrE1RsBJEyme6/giPW2ljH7w1VQTWk4Jc/pjuNlnQTj
+	GofosY2xWa/KVk6kFCKpFnjBIH+TYthAUscY/kczxsI18lipEH7csGiziCP1RvvZuZvL97TFGc9EE
+	Dq5YPMVrCDsDIgM3x0pTePDUfFZfX+apW7bIggVKmaxUjjZKfJbdP1MUqvPiVDgxkvgNZpBh9P8UR
+	1eu1gNqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyT1f-00000003XWM-1Fgl;
-	Fri, 06 Mar 2026 11:07:23 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1vyT2R-00000003XbG-2m33;
+	Fri, 06 Mar 2026 11:08:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyT1c-00000003XVo-1Jfe
+	id 1vyT2P-00000003Xab-2KSG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 11:07:21 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-829a9c03780so227253b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 03:07:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772795239; x=1773400039; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LkZRQN19x7mFcsCOofw3+jxcPy1oc8gx31GqMlFvfgk=;
-        b=O8du5WwB4RLrWdGi0G97R5tocrJXo7MEuFEbqeRlatbVtXS7CbmZWqL9MSeQcOvmns
-         i8lQpz2x9Fq1vxIEQpCa1MkhNhAreZhID4m3UH3mUSIvufxlq/gKA8gTMvRyq4lc4CUD
-         extNRnbVCzlD2R36RjjTZc4rjWgHYzIdPqXYLA6XiI6YHw4HGeW4zrikmmzDjS3mp5jv
-         vjDT7VE3ZIoYZDcIKDnNwvopG1xqAO1rCDjNsyxmGSuRuHajg8kP+ZDHxNv/GxWwTPkr
-         s+km/PQKitw1H2gVQYk2f1kkYL+Qeqmkjl2iV5PIFPMzNdzLxy09LtLFMxIo5phKAQEl
-         a+kA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772795239; x=1773400039;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=LkZRQN19x7mFcsCOofw3+jxcPy1oc8gx31GqMlFvfgk=;
-        b=lhWRYEL6MwJzBG6q1/bGoff5I5xS/pWAH4ktqljWrtdmplnJ04DKxlErrUKiSmYW89
-         9YUeS05iN9o9eSwbxnz2BvnWd4Tl8TaGJR4qPuVGaISROVbzn78dGQKNpnR/L+ds9ppn
-         4Fb2TDTJiPAlXcTAkvJ5Rf0M3rlhlAFtjQpxXXFUj1fGgfEvKnwADySp1lgMpaIp+/Ir
-         OJCmu7GrgSYaSi9toDIyCosCbJnMIZm5qtqChhkrIXTh6viLoKiwNTOTy4NCmKKv9So5
-         v+Ag5X4n++DuSY1K+TXfog+wcc/PBlkYquKP9euMvApBHqscrNh+BElElsgk8Ua2bdqd
-         7n4g==
-X-Forwarded-Encrypted: i=1; AJvYcCXoWVJVRx8YGHhTcbPONF3aES62cyWKGwYyzt09mTj1wCwVo+L3OGj0niOIRbxME3Ipt1rf8OBKmfixZOwgOrwy@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjaXtfIHPYR2bLQdBqRdg6vM+sIkfBPEvQ827vQVRkwySavWWz
-	g8rNbQ05JgZgajJYc3i1dS9uOI0vkd88LKPMGQgfvSz3uqRQz217Bn41
-X-Gm-Gg: ATEYQzwVh49FCPDhHAxBVDsxD1jv57mQNNT0okfPDvVlkvTWdJeTHl2mt/IyQud/wU3
-	ko1YLkVKsiZcbTrcsrB+HrLZ95eoC9CWCEk4Nm0Ok+mpiSACn0nycUYZpCqizuq+IovLeJ1DRyk
-	FGVKYZtHoGoUtdo4MmXRgQdbolqBjz+lOhpXI+c2HJaFGzV+q7RU9q5KHyY3gRckxPdzl3VE0ln
-	oqUFsXB7hO8T/I5vM061iQUVb558Aj4vWhX+FlOLa7BkTgaQZpg3EDg860+H6QQRpOwAG8G0qpX
-	H4x+vXjNvbdDhVWl7X58lnGL8ZMfYZLmtooEGKF+NVkK4z5xE1Pjvrrb1qhxIwr9SDkgJfRKFnb
-	QUp1rNFBeCDGrzW2mvozQCCr05X5shucFwtBAVHngMEaswy5pMJ6PwuVAp+RxWe3dO91FTuPnLy
-	Vg8naGzyWnMNyRDRan4JECCTYCV0U3JrE=
-X-Received: by 2002:a05:6a00:1a0e:b0:829:8e91:eff with SMTP id d2e1a72fcca58-829a2f1429fmr1340770b3a.30.1772795239104;
-        Fri, 06 Mar 2026 03:07:19 -0800 (PST)
-Received: from localhost.localdomain ([58.29.79.238])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-829a48d6985sm1428631b3a.63.2026.03.06.03.07.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Mar 2026 03:07:18 -0800 (PST)
-From: Lee Yongjun <jun85566@gmail.com>
-To: krzk+dt@kernel.org
-Cc: robh@kernel.org,
-	rjui@broadcom.com,
-	florian.fainelli@broadcom.com,
-	sbranden@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com,
-	nsaenz@kernel.org,
-	ulf.hansson@linaro.org,
-	linux-mmc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: mmc: brcm,iproc-sdhci: allow dma-coherent property
-Date: Fri,  6 Mar 2026 20:06:53 +0900
-Message-Id: <20260306110653.3519-1-jun85566@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260305234703.38490-1-jun85566@gmail.com>
-References: <20260305234703.38490-1-jun85566@gmail.com>
+	Fri, 06 Mar 2026 11:08:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6A9B74451E
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  6 Mar 2026 11:08:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AF70C4CEF7
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  6 Mar 2026 11:08:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772795288;
+	bh=zvGkoOu6sc3DwKuM9+tCXqq+dXf2cC7y58uKtjKrGkA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=enhnqn0cQZOEfPg4lbr5H0FcIOxP/gaxG/zy4LHsHbA4Y//gAslwnbfUUjaIeSPwd
+	 /XqGAc1zKK9l/RwY+YKBm0jm2/l5eZ8bBH84Vl9gXweq54jTLN7PSUoS5wkA+sj52M
+	 OgrSO3Yc8VMOPu3u81jUj+NfsgMOtFEoNikq6bspa78MHsrfxKrY2l7pWKZc8O6DsX
+	 /kH3ojHcyPUAyuaR6CUWEXqo+2wa9wyMT8+h8PiUpnnAtMeoRI5n355eulvZupV3aQ
+	 OICqI7Ot9BXmBXN1FpeBIotaIPwdFoAwwGcAHoQHXlmbuZJgb7wZoYFsWqk3W4OCfo
+	 QmkMfSQbe73LA==
+Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5a131e8a236so2022422e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 03:08:08 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXrMmcVp+UIfx5UaUj6PAYAQF3rtRk4iMT3ieLzGb6DCIPormd2YSnsm+URPRZrsZEWW/bOUz/r7UPSwsWJtlkK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIHPSv4fh/KgAEjasYNWaKLA3NlOKmj+N3HKdZ9uhvPz+Q7xIP
+	q8EbIfgR4tSwOAtlli8DF5u6ePjuOeKxWdG7wf6X2CIB6GGLBfOFF7bskJIvQjqLPux3o8qx/ZD
+	Ze0go82z0FJVoZ8obfBnhhA5kGHOSA2Cf8T+/Ek4/SQ==
+X-Received: by 2002:a05:6512:3719:b0:5a1:3b28:42fd with SMTP id
+ 2adb3069b0e04-5a13cd58785mr456080e87.47.1772795286638; Fri, 06 Mar 2026
+ 03:08:06 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260302-qcom-qce-cmd-descr-v11-0-4bf1f5db4802@oss.qualcomm.com>
+ <scr5qvxa7f7k22pms4c6k5gwiky7lhssrw6qryfngexlek44g2@rayinnnwqgbt>
+ <aalwMwN3qMlzrql5@linaro.org> <CAMRc=MfjknN1AYF_NPLzR0YbdWuoET25D9o0zsvx56VN+u59HQ@mail.gmail.com>
+ <aamIf8JethKzLW93@linaro.org> <CAMRc=Mf=NjCqf0eqmM800Q3MEUC48V_DZ3ts6+4=qMCtrbvzzQ@mail.gmail.com>
+ <aamsL4uh58Fv5een@linaro.org>
+In-Reply-To: <aamsL4uh58Fv5een@linaro.org>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Fri, 6 Mar 2026 12:07:54 +0100
+X-Gmail-Original-Message-ID: <CAMRc=MfMJzVrRBo0kbgDbznRexFn2bc6GBkNh75k3L4Kw25VJg@mail.gmail.com>
+X-Gm-Features: AaiRm50SYPFbrtvBCgqbAD5XV2pariKnEghQc2LIPzo-Ehg13xkHUxUA3b9Bzso
+Message-ID: <CAMRc=MfMJzVrRBo0kbgDbznRexFn2bc6GBkNh75k3L4Kw25VJg@mail.gmail.com>
+Subject: Re: [PATCH RFC v11 00/12] crypto/dmaengine: qce: introduce BAM
+ locking and use DMA for register I/O
+To: Stephan Gerhold <stephan.gerhold@linaro.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	"David S. Miller" <davem@davemloft.net>, Udit Tiwari <quic_utiwari@quicinc.com>, 
+	Md Sadre Alam <mdalam@qti.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+	Peter Ujfalusi <peter.ujfalusi@gmail.com>, Michal Simek <michal.simek@amd.com>, 
+	Frank Li <Frank.Li@kernel.org>, dmaengine@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Bjorn Andersson <andersson@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_030720_358609_FB8FA6D0 
-X-CRM114-Status: UNSURE (   7.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260306_030809_632266_2EF23793 
+X-CRM114-Status: GOOD (  24.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,13 +96,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear Krzysztof, Rob, and Ray,
+On Thu, Mar 5, 2026 at 5:16=E2=80=AFPM Stephan Gerhold
+<stephan.gerhold@linaro.org> wrote:
+>
+> >
+> > You'd think so but the HPG actually does use the word "dummy" to
+> > describe the write operation with lock/unlock bits set. Though it does
+> > not recommend any particular register to do it.
+> >
+>
+> I guess the documentation I'm looking at (8.7.3.4 BAM operation in the
+> public APQ8016E TRM) might be an excerpt from some older version of the
+> BAM HPG. Is also has a note about "dummy" command descriptors:
+>
+>   "NOTE: Pipe locking and unlocking should appear only in
+>    command-descriptor. In case a lock is required on a data descriptor
+>    this can be implemented by a dummy command descriptor with
+>    lock/unlock bit asserted preceding/following the data descriptor."
+>
+> This one doesn't make any difference between READ and WRITE command
+> descriptors (and both are documented in the chapter).
+>
+> Personally, I would prefer using a read over a write if possible. Unless
+> you can confirm that the register used for the dummy write is actually
+> read-only *and* write-ignore, writing to the register is essentially
+> undefined behavior. It will probably do the right thing on most
+> platforms, but there could also be one out there where writing to the
+> register triggers an error or potentially even silently ends up writing
+> into another register. Register logic can be fun in practice, commit
+> e9a48ea4d90b ("irqchip/qcom-pdc: Workaround hardware register bug on
+> X1E80100") [1] is a good example of that. :')
+>
+> [1]: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/c=
+ommit/?id=3De9a48ea4d90be251e0d057d41665745caccb0351
 
-Thank you for the feedback. I've checked the linux-next tree and confirmed 
-that Rob Herring's patch (commit acb52756e90c) already addresses this issue.
+I agree in general but I also learned from the QCE team at Qualcomm
+that apparently there were some issues with register reads over DMA,
+which makes writes preferable. While the VERSION register is
+officially read-only, I've been told writing to it is safe. So it's a
+choice between doing a READ that may not work on some platforms and
+doing a WRITE that may theoretically not work on some platforms.
 
-I apologize for the redundant submission. Please disregard this patch.
+I'll send v12 which will be a proper series with using register
+metadata and correctly freeing resources and we can rediscuss. Doing
+one or the other is actually a minor details of the whole thing after
+all.
 
-Best regards,
-Lee Yongjun
+Bart
 
