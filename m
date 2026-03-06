@@ -4,64 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD4CFFCB619
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 15:31:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C5C4FCB619
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 15:34:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oKbch+KhkvyosRD0j6QhDe+o5sMa38/e30u48THoCP0=; b=xLTohaQAzoTqT0lscdut47mRmQ
-	P5xJV3fq+pYq9vffGS9GKyqaFsCE8TEtDfyWgk4qPxokLXee8viihIF0bUT+PERL5vQ0fPwA/U44B
-	LyRdsZLETcxgYiL+nhiuhvOFOd+xEd2yTBpat7Z/vb4gj86PrijB6SEJa2DTse/ZOggiTq6WNfz3F
-	B5UdgMUm3SDxkfi+uEg83e+9jyUWMCaqREAQBD9yo/ltsG7RvsYt2/e/45urHqfcMnq5Bzai+m2Ww
-	Ipr7HpCw2GLp01brxvgdtPEpIwMYdaFYcFxRzxgKimmEt1rn9C23gQGxmKoV/vyXIdUggjrp7iJZX
-	ZLbffoFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XBIKfWL0VOzyYVKgeV3FXhMfWq9VeLVVvB7ea5H4Iro=; b=NCUju5hw49oV1cDF8amL26vUIo
+	R/wMTwC/fPq+BsqgJEVEuGjsv6nUNxa0RXBftww2Qc+77f1GwbZJ4FYrbDNeZoXWcFQrQ8oLVQeQz
+	ky4I4obF57s84pLYlQxvZn8fHo/ZCZ4/CFKPQBjqRbLjlNEZvxi/hs1tnrsZFyX3Ehm+5tdHWLrzZ
+	7cxjjZQ6Vn4CEXh0TgnfIhCMZ20JpuXqndaKAQbRzP1yOB5nA0Xmdj3HVh9hTUZIpqJpKIMpyySiz
+	abBi0OjhyTeJ4E9+qBruCrAAZUWJGQUuNOa/HMCXsGW4tIxc9WW/PU9AV9t9TM7/08gMx+jDtxwoO
+	vD0osQNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyX9V-000000042dA-0VcB;
-	Fri, 06 Mar 2026 15:31:45 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1vyXC0-000000042s9-2MCH;
+	Fri, 06 Mar 2026 15:34:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyX9R-000000042cA-2vJg
+	id 1vyXBy-000000042rQ-3wSH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 15:31:43 +0000
-Received: from localhost.localdomain (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 5446622A3A;
-	Fri,  6 Mar 2026 16:31:37 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1772811097;
-	bh=oKbch+KhkvyosRD0j6QhDe+o5sMa38/e30u48THoCP0=; h=From:To:Subject;
-	b=FghcCxJGAh5ajqHSqacpSD8/LuALJYMy/9FSxbx0TWrnNAc8fKCSijOKI3AEl9xVJ
-	 ZrJ3m21h4IRuJfxaCXxMvDg0nFtbC83Dr8rtc6N3AoXEj5c8nJ8ydC+GKwsXkbfPBA
-	 PRZnaQmiegimKbQOPOEcyeJdL9+4KZYTWKaDE9VcHaHdI9Qu71ZWkneNB9UhLJZhZa
-	 53HWptRrKGhlWOXggdUpR1fBqiSSGAAMmMPliwGnBoooqm9uR1HNF7ZGHwwBSRzmPq
-	 u/z6/EKPRm9U+NgrHe4pJXkNqM1l1sczQl65KfVhuOmnusKQqlG3fsCFfnHlelk8+t
-	 kRSTeVoOjsmcg==
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Arnd Bergmann <arnd@arndb.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Drew Fustini <fustini@kernel.org>,
-	Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	linux-kernel@vger.kernel.org,
+	Fri, 06 Mar 2026 15:34:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CB96744051;
+	Fri,  6 Mar 2026 15:34:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A33AAC4CEF7;
+	Fri,  6 Mar 2026 15:34:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772811257;
+	bh=8uvPh2HpjMCl9fCTBfKM7y2fpeBlB+HBuTT9XIIMrOc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=AouAY/n6tG1Ud6aCgEJZbMhjAIEiHJvq35rA9cVJQdp6nlHD0C6VYHlzdIJIiMlHN
+	 6REVfZRIP7au3oXKOKlwsP71Tmpz/WVK+f5OSRXKpG1nbYaS6qJfKZ5O9c8zJoLJpl
+	 CWujP3D/+JoiRtVDT87ywoEvatSNdgPcBQc/Kt2/JAsQ+l7tTl5AaSIIQUgGPgl2kk
+	 qgx87kmMc3ai65mn0juYCYyAMByo/wLfnrFM5H+iPTBpEIsXdvK/B0BGYSiE6tJMTy
+	 mEW/zkieqflspSe14t6uUCyvwHDsdQt/4YTkBeZ/f9gor41MVqoBLyHvUn6XkXUvjF
+	 kgYppsJFIN9Pw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vyXBv-0000000Guzf-215X;
+	Fri, 06 Mar 2026 15:34:15 +0000
+Date: Fri, 06 Mar 2026 15:34:15 +0000
+Message-ID: <86ikb96kg8.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	soc@lists.linux.dev
-Subject: [PATCH] arm64: defconfig: Enable configurations for Toradex Aquila AM69
-Date: Fri,  6 Mar 2026 16:31:17 +0100
-Message-ID: <20260306153130.102972-1-francesco@dolcini.it>
-X-Mailer: git-send-email 2.47.3
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	qperret@google.com,
+	vdonnefort@google.com
+Subject: Re: [PATCH v1 00/13] KVM: arm64: Refactor user_mem_abort() into a state-object model
+In-Reply-To: <20260306140232.2193802-1-tabba@google.com>
+References: <20260306140232.2193802-1-tabba@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, qperret@google.com, vdonnefort@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_073142_473506_F017778D 
-X-CRM114-Status: UNSURE (   8.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260306_073419_040579_8A003033 
+X-CRM114-Status: GOOD (  28.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,44 +92,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
+Hi Fuad,
 
-Enable the configurations needed for Aquila AM69 SoM and compatible
-carrier boards.
+On Fri, 06 Mar 2026 14:02:19 +0000,
+Fuad Tabba <tabba@google.com> wrote:
+> 
+> As promised in my recent patch series fixing a couple of urgent bugs in
+> user_mem_abort() [1], here is the actual refactoring to finally clean up this
+> monolith.
+> 
+> If you look through the Fixes: history of user_mem_abort(), you will start to
+> see a very clear pattern of whack-a-mole caused by the sheer size and
+> complexity of the function. For example:
+> - We keep leaking struct page references on early error returns because the
+>   cleanup logic is hard to track (e.g., 5f9466b50c1b and the atomic fault leak
+>   I just fixed in the previous series).
+> - We have had uninitialized memcache pointers (157dbc4a321f) because the
+>   initialization flow jumps around unpredictably.
+> - We have had subtle TOCTOU and locking boundary bugs (like 13ec9308a857 and
+>   f587661f21eb) because we drop the mmap_read_lock midway through the function
+>   but leave the vma pointer and mmu_seq floating around in the same lexical
+>   scope, tempting people to use them.
+> 
+> The bulk of the work is in the first 6 patches, which perform a strict,
+> no-logic-change structural refactoring of user_mem_abort() into a clean,
+> sequential dispatcher.
+> 
+> We introduce a state object, struct kvm_s2_fault, which encapsulates
+> both the input parameters and the intermediate state. Then,
+> user_mem_abort() is broken down into focused, standalone helpers:
+> - kvm_s2_resolve_vma_size(): Determines the VMA shift and page size.
+> - kvm_s2_fault_pin_pfn(): Handles faulting in the physical page.
+>   - kvm_s2_fault_get_vma_info(): A tightly-scoped sub-helper that isolates the
+>     mmap_read_lock, VMA lookup, and metadata snapshotting.
+> - kvm_s2_fault_compute_prot(): Computes stage-2 protections and evaluates
+>   permission/execution constraints.
+> - kvm_s2_fault_map(): Manages the KVM MMU lock, mmu_seq retry loops, MTE, and
+>   the final stage-2 mapping.
+> 
+> This structural change makes the "danger zone" foolproof. By isolating
+> the mmap_read_lock region inside a tightly-scoped sub-helper
+> (kvm_s2_fault_get_vma_info), the vma pointer is confined. It snapshots
+> the required metadata into the kvm_s2_fault structure before dropping
+> the lock. Because the pointers scope ends when the sub-helper returns,
+> accessing a stale VMA in the mapping phase is not possible by design.
+> 
+> The remaining patches in are localized cleanup patches. With the logic
+> finally extracted into digestible helpers, these patches take the
+> opportunity to streamline struct initialization, drop redundant struct
+> variables, simplify nested math, and hoist validation checks (like MTE)
+> out of the lock-heavy mapping phase.
+> 
+> I think that there are still more opportunities to tidy things up some
+> more, but I'll stop here to see what you think.
 
- - CONFIG_SENSORS_AMC6821, needed for the fan controller on the clover
-   and dev carrier board (as module).
- - CONFIG_POWER_RESET_GPIO and CONFIG_POWER_RESET_GPIO_RESTART needed
-   for poweroff and restart functionalities (as built-in, it's not
-   possible to set them as 'm').
+Thanks a lot for going through this, this looks like a very valuable
+starting point. From a high-level perspective, the end result is even
+more shocking:
 
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
----
- arch/arm64/configs/defconfig | 3 +++
- 1 file changed, 3 insertions(+)
+<quote>
+static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+			  struct kvm_s2_trans *nested,
+			  struct kvm_memory_slot *memslot, unsigned long hva,
+			  bool fault_is_perm)
+{
+	bool write_fault = kvm_is_write_fault(vcpu);
+	bool logging_active = memslot_is_logging(memslot);
+	struct kvm_s2_fault fault = {
+		.vcpu = vcpu,
+		.fault_ipa = fault_ipa,
+		.nested = nested,
+		.memslot = memslot,
+		.hva = hva,
+		.fault_is_perm = fault_is_perm,
+		.ipa = fault_ipa,
+		.logging_active = logging_active,
+		.force_pte = logging_active,
+		.prot = KVM_PGTABLE_PROT_R,
+		.fault_granule = fault_is_perm ? kvm_vcpu_trap_get_perm_fault_granule(vcpu) : 0,
+		.write_fault = write_fault,
+		.exec_fault = kvm_vcpu_trap_is_exec_fault(vcpu),
+		.topup_memcache = !fault_is_perm || (logging_active && write_fault),
+	};
+</quote>
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 4ed70ab7ee85..af679604d9ed 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -729,6 +729,8 @@ CONFIG_GPIO_MACSMC=m
- CONFIG_GPIO_MAX77620=y
- CONFIG_GPIO_SL28CPLD=m
- CONFIG_GPIO_AGGREGATOR=m
-+CONFIG_POWER_RESET_GPIO=y
-+CONFIG_POWER_RESET_GPIO_RESTART=y
- CONFIG_POWER_RESET_MACSMC=m
- CONFIG_POWER_RESET_MSM=y
- CONFIG_POWER_RESET_QCOM_PON=m
-@@ -757,6 +759,7 @@ CONFIG_SENSORS_PWM_FAN=m
- CONFIG_SENSORS_RASPBERRYPI_HWMON=m
- CONFIG_SENSORS_SA67MCU=m
- CONFIG_SENSORS_SL28CPLD=m
-+CONFIG_SENSORS_AMC6821=m
- CONFIG_SENSORS_INA2XX=m
- CONFIG_SENSORS_INA3221=m
- CONFIG_SENSORS_TMP102=m
+This kvm_s2_fault structure is a mess of architectural state (the
+fault itself), hypervisor context (logging_active, force_pte...), and
+implementation details (topup_memcache...). Effectively, that's the
+container for *everything* that was a variable in u_m_a() is now part
+of the structure that is passed around.
+
+The task at hand is now to completely nuke this monster. The
+architectural fault information should be further split, and directly
+passed as a parameter to user_mem_abort(). We have a lot of redundant
+state that is computed, recomputed, derived, and that should probably
+moved into the exact place where it matters.
+
+I'll have a play with it,
+
+Thanks,
+
+	M.
+
 -- 
-2.47.3
-
+Without deviation from the norm, progress is not possible.
 
