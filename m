@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4B92F513F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 03:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2920EF513F3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 03:33:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c54Io35Jyz5x1mhrtOZ7XZoTy0ONIPLw1P/a1qQU0T0=; b=c0bl0aPx7fMt21jXnY2A5o70FR
-	PW2c7JkRFbv+u11iRkyZV4sjpABNUq+Sq6A7lJqy2KuK2lyU9zjCvN+CEUjGAkng42ktxhYFc7I9S
-	cFct+Ebwyj93nvzPEE1Ck/mXF6yW3zhuLVMDsNNmkAsC9lpUJ0dFJNVgZ9wfmJbH3joZxpzMCvmA6
-	9xoJDEum/wXnrGmxoIsOcartjyS2Iq0bKeEx2jup6wXvVcKRKFubzFe1i6MBODKKiaXmmL/IlNPn/
-	0D3wNgyI32HeFntOdghaRrKusIwJNJRFS40dzogQfzpvZ2H9bKgQqhJvveWhPspTbwWmshBbL8aVA
-	izXMnooQ==;
+	bh=Y0xcWXzGH468tdb8ojDFzDems01+IFDl6KSRGswwbzc=; b=tZORpoI8zflNXVflKbBTPanmfL
+	9IXGFx2gOaJLPZpyj+7s3pPHTsPaESPzhKx+87uICig7tRH+QwEUTt2lomje0eIP4ASQIfulVbQQh
+	7rlkxRgK07y/yPUYLlW9GGalFGQIB6L/rSVpEKWltV2qxDx7DVIdska+j/THdM0Un3RmHJQtJnbQA
+	SrckDF92eZp51J8FkGdANO8TQkqL5Y2ueLW8aLGaJyu8MEK05f7myx8Yv9c7gh+zCzgXzDfmlbvT0
+	tlhOHThgqHHIXy3wcFIdu6AAqALAp2FUy/vMRRq8mrlF6lRFZVlye79tqKDYSKv/huiwLdHEYNkon
+	yWEBhufQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyLvs-00000002xxe-3c5T;
-	Fri, 06 Mar 2026 03:32:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vyLvy-00000002y3M-0UNJ;
+	Fri, 06 Mar 2026 03:33:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyLvp-00000002xv7-2idy;
-	Fri, 06 Mar 2026 03:32:56 +0000
+	id 1vyLvt-00000002xxy-2lHG;
+	Fri, 06 Mar 2026 03:32:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 82CEE4400D;
-	Fri,  6 Mar 2026 03:32:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63326C116C6;
-	Fri,  6 Mar 2026 03:32:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F195B442B7;
+	Fri,  6 Mar 2026 03:32:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D05F8C19423;
+	Fri,  6 Mar 2026 03:32:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772767972;
-	bh=J5WNpI9IFOZTn+5xxMTNRdxLsLhlZZ5pCnKzZHghzHU=;
+	s=k20201202; t=1772767976;
+	bh=dHeHma9AiWF1RiaOUAgdoIsbggNG2YQxNrnoSZiH8cA=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=CiZHaT+iDF0JBJhKP5j+xHrw3HKoiJahdSNW1m5LuGTPLlSgRRlmggtREW6U1dtdu
-	 eO1inZLnbuc81n2FDTFA5ImteQHR8K7Bg0t6726FgJf63jOJgUMvBSTLS2j1wuHiER
-	 lDbPDz7PQ9WNn8Hh7HDoNbMVNAdO1dIXOyEPYVHlwcgA9Vay8p1Loo5INeR+2dSc30
-	 ktxCqHrbbLEEdO0HgR2MbJBI4EysmfY3ATloJ0dJpvTT1IIx0axex6J4tS6bF9v5gF
-	 Jn46/XT8RyMWYDrDfXYEaa5+Sp+KCyB8zeR/2CJUzESI2HgZT7uPBFh01v29Nzc94a
-	 PyFl4bi2dPmbw==
+	b=vMGGkGu0tSCBjE3psm8TVkzP/xK8u9zutqEo5acgnrgMLV03DcSlrz8mKYh1PLjc7
+	 /WN2XdGFoN3sBhQMDJ8FN8ATC8qonD777pR4QyPnz6bfbYU5TgsCrs2TLZg+0zXypO
+	 fQseQXN3eBWFSvgOEMxmpGnK8wT2UnWAW4enshurKdKX0g1BuXdtKiJfKsoIEpKTlO
+	 G77MCqPDMuoO1loe0l9+6DQ3auvwWyPrRcsxXk1lmdbooqM+33p+kE3IHT/X4KV3bi
+	 MAdiwlZRjDI8/uXyAvkc8j0Ass5CkjJ1rvEMXLf2MbPYzc/bRCyGUpoHdTROIisjiA
+	 u/mZXWt97GICA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FEF53808200;
-	Fri,  6 Mar 2026 03:32:53 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B9F823808200;
+	Fri,  6 Mar 2026 03:32:57 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v2 0/7] net: stmmac: qcom-ethqos: further serdes
- reorganisation
+Subject: Re: [PATCH net-next] net: airoha: Rely __field_prep for non-constant
+ masks
 From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <177276797180.3348267.4879154054522782350.git-patchwork-notify@kernel.org>
-Date: Fri, 06 Mar 2026 03:32:51 +0000
-References: <aacD3osfaZkLsGxm@shell.armlinux.org.uk>
-In-Reply-To: <aacD3osfaZkLsGxm@shell.armlinux.org.uk>
-To: Russell King (Oracle) <linux@armlinux.org.uk>
-Cc: andrew@lunn.ch, alexandre.torgue@foss.st.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
- mohd.anwar@oss.qualcomm.com, neil.armstrong@linaro.org,
- netdev@vger.kernel.org, pabeni@redhat.com, vkoul@kernel.org
+Message-Id: <177276797654.3348267.16106814160751955991.git-patchwork-notify@kernel.org>
+Date: Fri, 06 Mar 2026 03:32:56 +0000
+References: <20260304-airoha-__field_prep-v1-1-b185facc4e2f@kernel.org>
+In-Reply-To: <20260304-airoha-__field_prep-v1-1-b185facc4e2f@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_193253_709260_85A9D93E 
-X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-CacheID: sfid-20260305_193257_729068_D86C28D5 
+X-CRM114-Status: UNSURE (   9.60  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,35 +78,23 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hello:
 
-This series was applied to netdev/net-next.git (main)
+This patch was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Tue, 3 Mar 2026 15:53:02 +0000 you wrote:
-> This is part 2 of the qcom-ethqos series, part 1 and patch 2 of part 2
-> has now been merged.
+On Wed, 04 Mar 2026 11:56:47 +0100 you wrote:
+> Rely on __field_prep macros for non-constant masks preparing the values
+> for register updates instead of open-coding.
 > 
-> This part of the series focuses on the generic PHY driver, but these
-> changes have dependencies on the ethernet driver, hence why
-> it will need to go via net-next. Furthermore, subsequent changes
-> depend on these patches.
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
 > 
 > [...]
 
 Here is the summary with links:
-  - [net-next,v2,1/7] net: stmmac: qcom-ethqos: move ethqos_set_serdes_speed()
-    https://git.kernel.org/netdev/net-next/c/fc8ca5da896e
-  - [net-next,v2,2/7] net: stmmac: qcom-ethqos: convert to use phy_set_mode_ext()
-    https://git.kernel.org/netdev/net-next/c/4999e0a2ab34
-  - [net-next,v2,3/7] phy: qcom-sgmii-eth: remove .set_speed() implementation
-    https://git.kernel.org/netdev/net-next/c/b7721597547d
-  - [net-next,v2,4/7] phy: qcom-sgmii-eth: use PHY interface mode for SerDes settings
-    https://git.kernel.org/netdev/net-next/c/d2b20acdaed8
-  - [net-next,v2,5/7] phy: qcom-sgmii-eth: remove qcom_dwmac_sgmii_phy_interface()
-    https://git.kernel.org/netdev/net-next/c/f82210ce8cb8
-  - [net-next,v2,6/7] phy: qcom-sgmii-eth: relax order of .power_on() vs .set_mode*()
-    https://git.kernel.org/netdev/net-next/c/ebe8b48b88ad
-  - [net-next,v2,7/7] net: stmmac: qcom-ethqos: remove phy_set_mode_ext() after phy_power_on()
-    https://git.kernel.org/netdev/net-next/c/038a8e8eb90d
+  - [net-next] net: airoha: Rely __field_prep for non-constant masks
+    https://git.kernel.org/netdev/net-next/c/7600fb3b41dd
 
 You are awesome, thank you!
 -- 
