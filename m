@@ -4,55 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C2F8F01822
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 10:28:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1C7AF01825
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 10:28:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6su7dB16JTFoMBcxeJuAhCGcoSJbu/TNjj9N42DfbC8=; b=AvxIFUYsP6bs8U
-	kWg55PhHUmZTsVDLOvDjy1TtYaKjJI+G0FlQ0a9DB8JwM6MEpt2HLkloODv1DO5lBCFNKWKUQQtc1
-	2hQ4WlJ26fKyWLi+gOlYYDWDDdTs5PlrqU8UuuV6HJk+NXUKrMGwaWY18vMe/5KaxgslIR9AcfYZ9
-	5ONKkE21hyo65g112vwRstFQSfkvgdzE8RfimPXfFUE4CzMFuZqzcTao+1XDcCcjz3UWJXJqjuvmR
-	prj95VNy9xhMyVHCMHbHEHk0Td3MYOp/ddFlOglRL6OTWkrAEXXKM7LKMHKjFVsXDSGGSXe1/EQXV
-	d2ApDEXzOzse9lWF5vNg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2kqrj/2c0zv+1NCTSq2/VHk7jhBs1mvGg+SzX49antA=; b=dE7ePGyQjx3VWFlFC2mmFi6W68
+	4Hi7w4Wz/cF97IydU7trIrTPempCtk5/B0I3Ww4fCTfzKbyiN4h6NOmkxPr0N2SVhvMVYpcMLIwDf
+	Og0D3fNFseFP29UKXZbL3gheBpBy9FRUl9P8P8s/XAbFSkAeHwoAGu6+PG0+oM4Yqd+cVMHB5pOFE
+	GYfJatSdIXwr6UNDF3KkSvCAjYbWhLRAYzCQAxOakhbkt0/SR3pLncD2Fos/IP4m2DmYSJg+Rz8zS
+	1F/pc78AAqcs59Vo33HhUnccL2JrorsODe6OPMP37OAzCg18PAfJxmATUNG7N//cS+7YL7AQlZLyj
+	btwu4LLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vySPg-00000003RtE-3okD;
-	Fri, 06 Mar 2026 10:28:08 +0000
+	id 1vySPn-00000003RwF-1vNf;
+	Fri, 06 Mar 2026 10:28:15 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vySPf-00000003Rso-3PrZ;
-	Fri, 06 Mar 2026 10:28:07 +0000
+	id 1vySPk-00000003RvE-2xfV;
+	Fri, 06 Mar 2026 10:28:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EF32760018;
-	Fri,  6 Mar 2026 10:28:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50DCCC4CEF7;
-	Fri,  6 Mar 2026 10:28:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 28CAE60018;
+	Fri,  6 Mar 2026 10:28:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FE11C2BCB1;
+	Fri,  6 Mar 2026 10:28:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772792886;
-	bh=xyoECdBTPkHphTz09uglf5Fw6arG6VEmkxyNX6In6MM=;
-	h=From:Subject:Date:To:Cc:From;
-	b=uNwTMYE1DoKL3rUtZKyGsvrXvWLZnbTJMsk8I4pOEvWfvhWdENhFUy9KEBQUn0Nga
-	 dZNrWxois0UL7wprBmeNXcTjiAMVnR79fPXdgGzP0lAIWYKW9c8Fw9BxtRFxO7qPdG
-	 DOsI0lYnWj9eZQUfN6+dePTHT2QvhpYyNFayJpmiUue5b7kuzBiqXu8VgEsKLagQ9o
-	 +rWf5j3MMdp2PgBM2qDzXQg48Sx/yh31sxUdlc51+ugn6UB79Ikeumd6P+K0IEZLvD
-	 hajtjApUZNtjWmZlNKgg5nCVwGQy5BMRDGWv8xkgg+Zkm6jDXGjTIfkWW/mVseggYF
-	 3dHrvQrBCaGOA==
+	s=k20201202; t=1772792891;
+	bh=UX9LotaCII1gNgWF6VT0FK2LBe6LuscZygpKe1U4P9o=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=jtfEIRU+Oa7aPZpI2yKHto/RoaDuZe+on+y4m2sd0FwoxdLGYbK+YXCZz9pNKoSvA
+	 E6qGiW44VjTiwvxFmbvFbaJ7FV4n73HLdUb7SFAgSvScN3uTMTRTjk6esBuElpWqbH
+	 x/dSftm+owyRqjZMLC4MhqyEBVaz8SUs9S4PMqPW7EiXJJYkPyT9XGs6tjhrUuKfF8
+	 lnG5FtGtpKMMaPYfMv1hqDeR3pXFzUOzfnE/qSQlDVUO9/X3VWSjAS9AZSUUWZVyWH
+	 aKbuX/sHlVKoFYPm3pn/PxmsOyhzKNqaQLHkvFludMHpScx3YJjY4t87wdG3LFrruU
+	 GmFWLENw4aKWw==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Subject: [PATCH mt76 0/4] wifi: mt76: mt7996: Some MLO link reconfiguration
- fixes
-Date: Fri, 06 Mar 2026 11:27:51 +0100
-Message-Id: <20260306-mt7996-deflink-lookup-link-remove-v1-0-7162b332873c@kernel.org>
+Date: Fri, 06 Mar 2026 11:27:53 +0100
+Subject: [PATCH mt76 2/4] wifi: mt76: mt7996: Fix deflink lookup removing
+ links
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2NwQqDMBAFf0X23IVExaq/UjwU92kXNZFEpSD+u
- 8HbzGXmpIigiNRmJwUcGtW7JPaVUf/7uhGskpxyk1emMCUv27tpKhYMs7qJZ++nfeWHAxZ/gG0
- vYlAWgtpS6qwBg/6fx6e7rhtMaEUDcwAAAA==
-X-Change-ID: 20260304-mt7996-deflink-lookup-link-remove-1cdd0e43de81
+Message-Id: <20260306-mt7996-deflink-lookup-link-remove-v1-2-7162b332873c@kernel.org>
+References: <20260306-mt7996-deflink-lookup-link-remove-v1-0-7162b332873c@kernel.org>
+In-Reply-To: <20260306-mt7996-deflink-lookup-link-remove-v1-0-7162b332873c@kernel.org>
 To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
  Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
  Matthias Brugger <matthias.bgg@gmail.com>, 
@@ -74,28 +72,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is a preliminary series to properly support R1 link reconfiguration
-on AP side.
+Do not set vif deflink in mt7996_vif_link_remove routine if the vif txq
+pointer is NULL in order to not miss the mtxq wcid field update adding
+a new link with a valid vif txq pointer.
 
+Fixes: 2e6bdd40e1d01 ("wifi: mt76: mt7996: Reset mtxq->idx if primary link is removed in mt7996_vif_link_remove()")
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
-Lorenzo Bianconi (4):
-      wifi: mt76: mt7996: Remove link pointer dependency in mt7996_mac_sta_remove_links()
-      wifi: mt76: mt7996: Fix deflink lookup removing links
-      wifi: mt76: mt7996: Fix deflink lookup adding links
-      wifi: mt76: mt7996: Remove unnecessary phy filed in mt7996_vif_link struct
+ drivers/net/wireless/mediatek/mt76/mt7996/main.c | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
- .../net/wireless/mediatek/mt76/mt7996/debugfs.c    | 14 +++-
- drivers/net/wireless/mediatek/mt76/mt7996/mac.c    |  7 +-
- drivers/net/wireless/mediatek/mt76/mt7996/main.c   | 82 ++++++++++++----------
- drivers/net/wireless/mediatek/mt76/mt7996/mcu.c    | 74 +++++++++++++------
- drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h |  2 -
- 5 files changed, 116 insertions(+), 63 deletions(-)
----
-base-commit: 030eea77accf40477be540445fc5a5be52d810a3
-change-id: 20260304-mt7996-deflink-lookup-link-remove-1cdd0e43de81
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+index 8b1924778cbd6a5f6a516a689a379fb715cc3097..e76643b8234b6323fa53f1f5958e23b5adc99c72 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+@@ -405,26 +405,26 @@ void mt7996_vif_link_remove(struct mt76_phy *mphy, struct ieee80211_vif *vif,
+ 
+ 	rcu_assign_pointer(dev->mt76.wcid[idx], NULL);
+ 
+-	if (!mlink->wcid->offchannel &&
++	if (vif->txq && !mlink->wcid->offchannel &&
+ 	    mvif->mt76.deflink_id == link_conf->link_id) {
+ 		struct ieee80211_bss_conf *iter;
++		struct mt76_txq *mtxq;
+ 		unsigned int link_id;
+ 
+-		/* Primary link will be removed, look for a new one */
+ 		mvif->mt76.deflink_id = IEEE80211_LINK_UNSPECIFIED;
++		mtxq = (struct mt76_txq *)vif->txq->drv_priv;
++		/* Primary link will be removed, look for a new one */
+ 		for_each_vif_active_link(vif, iter, link_id) {
+ 			struct mt7996_vif_link *link;
+ 
++			if (link_id == link_conf->link_id)
++				continue;
++
+ 			link = mt7996_vif_link(dev, vif, link_id);
+ 			if (!link)
+ 				continue;
+ 
+-			if (vif->txq) {
+-				struct mt76_txq *mtxq;
+-
+-				mtxq = (struct mt76_txq *)vif->txq->drv_priv;
+-				mtxq->wcid = link->msta_link.wcid.idx;
+-			}
++			mtxq->wcid = link->msta_link.wcid.idx;
+ 			mvif->mt76.deflink_id = link_id;
+ 			break;
+ 		}
 
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.53.0
 
 
