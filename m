@@ -4,81 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D49FCB638
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 17:11:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 276A3FCB63B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 17:13:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UxyPjk0ceE6+uxtAtg141B8jkOiqX0hTv7zIVNCy0Mk=; b=vXMZ9PJau5WbqC7Ghm0Yf6z74X
-	kvVReLozYZqjlja/QV2GPpQZJEQcx3e5jAdUoG5shymIAS/4ZI7REWHeRruEUEVYwO8YSkQzk5c9y
-	SHgqLIM/W7gCn4jNeoBVFTaOKHVV4ryJkhBykuDsRH3VTHCsn/3sONk9C+Lm+PkugElva4lWePEDb
-	y5j3zdV7ry3K4pQvjnXjArmi4HXd80L1iQRs7gwmPrsvjVKjoDzKNNovoADhXREP7RB3sYxgGWL9m
-	qaIncsiaJCzElb2ZNNgtkYXn9sZZZZQc5oyePdoneO0fDYupymEn2LGTvmNO32BohKMsT2s582FeQ
-	6h6481Tw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HTUyjzWQlmyWS8msqiZFIPsGR/mo7nkJ7d7d2h1vFSM=; b=zDlaKEYHCOUuuXcy4kWeSATccA
+	+BC5SXqP6Rg0eU1b5siwfP+v6RW8unYd8qHnAkklKNeTcX02eIjLjrQBE/9uTpX3h5Gdz1x8it2s0
+	rfVr4lVpCO7UAR0B+PYGcEIt7fVMtzKvvIRtGZWQXSLvqsqlU8G5hy1PYTq9BE/FJ7Q9sMRHlKjNo
+	XDLzj0BGb2VCa6vRKBTR5T59vjLBlmAHdk024wPfF39Now3OAR1BEHcfteFYyczuPVfy5EAX7rLZd
+	3PrRyz53DoR7yn7+8u4ismfnUd3ANEco3ZKW1fF247mtNHuM3PB/0yTYlmnBv0Y+oUbaQNKt4GvgL
+	YG/knMgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyYiE-00000004El9-1BL9;
-	Fri, 06 Mar 2026 17:11:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vyYjn-00000004FYc-1rSU;
+	Fri, 06 Mar 2026 17:13:19 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyYiA-00000004Egb-2Gio
+	id 1vyYjj-00000004FWg-2ZTI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 17:11:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 121D943CCC;
-	Fri,  6 Mar 2026 17:11:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDDFDC19425;
-	Fri,  6 Mar 2026 17:11:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772817097;
-	bh=NZIFgTqhh8EXiLLs/nxGZ8SnCnhPPbRnuUWQ0HANKVQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=pkYVXB8H7vKkPXZgZCgjPpnjMqxBKbjFIMuRJTGiM3BUto0m1fiQYC25++c4eJM17
-	 oJqfV9pYBzTYXjU1zqbJhPBjEdHUTALKi3cU3lhLHBm4tOom7isS2/Ic9hkO5Sqx6o
-	 kqRdqZZGyKzwpdpGWcu4k57LympBFNwhusj+bhQKjH/2j5JhFTQaIKbHcfASRJSAeq
-	 Hz9zs88t2F9ocLtbPVFKc6Cqk/D3b23MaSjA31Kqq3xDBNnJ2SqZYCZrKM37SzvJ+3
-	 z84LQBq2wY8fSSsHnsxDgrlDyu5D5r9El6Y+5ft1ZlR029CD081PO05YP6sLnoiqdM
-	 GK0vy12EpfhUg==
-From: Mark Brown <broonie@kernel.org>
-Date: Fri, 06 Mar 2026 17:01:22 +0000
-Subject: [PATCH v10 30/30] KVM: arm64: selftests: Add SME to set_id_regs
- test
+	Fri, 06 Mar 2026 17:13:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1772817193;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=HTUyjzWQlmyWS8msqiZFIPsGR/mo7nkJ7d7d2h1vFSM=;
+	b=VwwMuUhLcLGBHUyyQw5l8dk+x6hhxEYguoJRx9XNsUHzrKlkWB77vqA2XxS+58IbZDKjra
+	aaTokg8O94xJWhtmzpNhOiHM7X1o6rp0pZ2xJLzdSp2dVdVJrJX4FS6FGFjOt63bkVRJzw
+	AZeAUWE5KgBvhMPfp72WA45q/fEP5p4=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-52-VJAyFxjXMeCPhW5M4IrPzg-1; Fri,
+ 06 Mar 2026 12:13:12 -0500
+X-MC-Unique: VJAyFxjXMeCPhW5M4IrPzg-1
+X-Mimecast-MFC-AGG-ID: VJAyFxjXMeCPhW5M4IrPzg_1772817191
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 861371956089;
+	Fri,  6 Mar 2026 17:13:10 +0000 (UTC)
+Received: from [172.20.96.208] (unknown [10.30.44.37])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 3E6A7180035F;
+	Fri,  6 Mar 2026 17:13:09 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (7.0.0-rc2,
+ upstream-arm-next, 1e0a8362)
+Date: Fri, 06 Mar 2026 17:13:09 -0000
+To: will@kernel.org, linux-arm-kernel@lists.infradead.org,
+ catalin.marinas@arm.com
 MIME-Version: 1.0
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+Message-Id: <36947.126030612131200335@us-mta-52.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: zLAhbtkdSyXvGApli2ZmuXfYm4DI4idYMdghau34El4_1772817191
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260306-kvm-arm64-sme-v10-30-43f7683a0fb7@kernel.org>
-References: <20260306-kvm-arm64-sme-v10-0-43f7683a0fb7@kernel.org>
-In-Reply-To: <20260306-kvm-arm64-sme-v10-0-43f7683a0fb7@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>, 
- Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>
-Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>, 
- Mark Rutland <mark.rutland@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- Peter Maydell <peter.maydell@linaro.org>, 
- Eric Auger <eric.auger@redhat.com>, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.15-dev-6ac23
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3538; i=broonie@kernel.org;
- h=from:subject:message-id; bh=NZIFgTqhh8EXiLLs/nxGZ8SnCnhPPbRnuUWQ0HANKVQ=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpqwpAv2zOEHkFm+GcJUqJtudd25zDjFhwHvj1S
- uW+4xwJ6NOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaasKQAAKCRAk1otyXVSH
- 0Ni7B/0T3XlbJIMnbMh8OG9XDj/dYjlfpsSNvzZ+HLVd+tbRo7mKD0KbCYe7XgRKmDz7DMpZKre
- 0XR0UtnEAYMps41HkT4Iu8Rinj+UjHHeRTeDL066+LWleOkQrCrWzEjsepMaZJVoxsS1jWiFpue
- tuW5vhiKv8bRuWc3y67+T5oe/kCIr3VaUm1GK1q5KRWOktz1qK61RwqP5BVIkCYSmV3MyfGuqmM
- pETU5l8Osql5i7d7hFZLXtmgqhhosg83Bx5HpBWigsMMbmg/3SKX8zRPP0kMw+Eyz8kkjAnoEBD
- zUH8q6rNnIJ4aRHIFRa6fXrm1zNom8U7TMSSAn28D/FoK2Ea
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_091138_650994_C3EDFE89 
-X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-CacheID: sfid-20260306_091315_726948_F953A362 
+X-CRM114-Status: UNSURE (   5.97  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,78 +84,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add coverage of the SME ID registers to set_id_regs, ID_AA64PFR1_EL1.SME
-becomes writable and we add ID_AA64SMFR0_EL1 and it's subfields.
+Hi, we tested your kernel and here are the results:
 
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- tools/testing/selftests/kvm/arm64/set_id_regs.c | 30 +++++++++++++++++++++++++
- 1 file changed, 30 insertions(+)
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
-diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-index 928e7d9e5ab7..042a7496ec83 100644
---- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-+++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-@@ -145,6 +145,7 @@ static const struct reg_ftr_bits ftr_id_aa64pfr0_el1[] = {
- static const struct reg_ftr_bits ftr_id_aa64pfr1_el1[] = {
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, DF2, 0),
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, CSV2_frac, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, SME, 0),
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, SSBS, ID_AA64PFR1_EL1_SSBS_NI),
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, BT, 0),
- 	REG_FTR_END,
-@@ -202,6 +203,33 @@ static const struct reg_ftr_bits ftr_id_aa64mmfr3_el1[] = {
- 	REG_FTR_END,
- };
- 
-+static const struct reg_ftr_bits ftr_id_aa64smfr0_el1[] = {
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, FA64, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, LUTv2, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, SMEver, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, I16I64, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F64F64, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, I16I32, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, B16B16, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F16F16, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F8F16, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F8F32, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, I8I32, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F16F32, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, B16F32, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, BI32I32, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F32F32, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, SF8FMA, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, SF8DP4, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, SF8DP2, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, SBitPerm, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, AES, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, SFEXPA, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, STMOP, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, SMOP4, 0),
-+	REG_FTR_END,
-+};
-+
- static const struct reg_ftr_bits ftr_id_aa64zfr0_el1[] = {
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64ZFR0_EL1, F64MM, 0),
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64ZFR0_EL1, F32MM, 0),
-@@ -234,6 +262,7 @@ static struct test_feature_reg test_regs[] = {
- 	TEST_REG(SYS_ID_AA64MMFR1_EL1, ftr_id_aa64mmfr1_el1),
- 	TEST_REG(SYS_ID_AA64MMFR2_EL1, ftr_id_aa64mmfr2_el1),
- 	TEST_REG(SYS_ID_AA64MMFR3_EL1, ftr_id_aa64mmfr3_el1),
-+	TEST_REG(SYS_ID_AA64SMFR0_EL1, ftr_id_aa64smfr0_el1),
- 	TEST_REG(SYS_ID_AA64ZFR0_EL1, ftr_id_aa64zfr0_el1),
- };
- 
-@@ -253,6 +282,7 @@ static void guest_code(void)
- 	GUEST_REG_SYNC(SYS_ID_AA64MMFR1_EL1);
- 	GUEST_REG_SYNC(SYS_ID_AA64MMFR2_EL1);
- 	GUEST_REG_SYNC(SYS_ID_AA64MMFR3_EL1);
-+	GUEST_REG_SYNC(SYS_ID_AA64SMFR0_EL1);
- 	GUEST_REG_SYNC(SYS_ID_AA64ZFR0_EL1);
- 	GUEST_REG_SYNC(SYS_MPIDR_EL1);
- 	GUEST_REG_SYNC(SYS_CLIDR_EL1);
+Tested-by: CKI Project <cki-project@redhat.com>
 
--- 
-2.47.3
+Kernel information:
+    Commit message: Merge branches 'for-next/core' and 'for-next/fixes' int=
+o for-kernelci
+
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2368596381
+
+One or more kernel tests failed:
+    We also see the following known issues which are not related to your ch=
+anges:
+        Issue: fedora: avc:  denied  { create } for  pid=3D1 comm=3D"system=
+d" name=3D"io.systemd.Hostname" scontext=3Dsystem_u:system_r:init_t:s0 tcon=
+text=3Dsystem_u:object_r:var_run_t:s0 tclass=3Dlnk_file permissive=3D1
+            URL: https://bugzilla.redhat.com/show_bug.cgi?id=3D2443788
+            Affected tests:
+                Boot test [aarch64]
+                Reboot test [aarch64]
+        Issue: [upstream] Hardware - Firmware test suite - auto-waive failu=
+res
+            URL: https://gitlab.com/cki-project/infrastructure/-/issues/779
+            Affected tests:
+                Hardware - Firmware test suite [aarch64]
+
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
 
 
