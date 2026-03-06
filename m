@@ -4,65 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B9B0F5140F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 06:44:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 228BFF5140F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 06:56:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=weVje6VkStlr/WzV2kfkWiuSUPkbEVkQwhRLMAxr5Ko=; b=uwoN4Zox0hqe1p0cIDfkEsV5jw
-	ttguf9uhV8Zf7XiJQrbTqs3Y0rA4Pp17ZgmMGj05MusSJP4ZkNdvTLgHn235/Coo+Lp/O2MowQwJW
-	iMk0QrFtGRn3PLcSFzEfihB7KIBZGu5qzLuNZmGHSl8kYZlub0fWHIVthogSLHoI298fRcO44XSNt
-	pnAPdUoJOsebEDZa7EjQ+1zKd/+S0o0nd9b4XQZTUXTiFyake0HEnNHDzpTv2pG4Dg0C2exo7R1C2
-	59onqNhxOtt0YqQ3DU0RdS+urmkj2yFHx07cjLdwxwAcqo5vAkPWNNbiUKe0pmupISmAZOXDzeV4d
-	2C5WvZ5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pFxcEiFIp9Unp7d4adappmda++dqQYtYDnG5dmkjlkw=; b=kiI/SNyRz8Tr7l4n0LSoB/95pf
+	WVOxFtLcxmCxtiUuF11l6zK3Qn4DvaB+E4JEBJBkOZjxOMcQquGzIH47NOOgr9duMA3fpPWtrAnPC
+	sWVbSG4VqN1O9Rb8oOABenxbQXiLNeMc1DTZ6RGoiunws5r5EoeDCyAgvnl0Vv4VA+WyftAaCBz+t
+	5DM34UiVnLCQg3hvJDBhsUVl0pI+eDAE3pP7BPnu6ahcnUHv6hyByYMHcpMg9sozWTU983w2FK5CM
+	zQeqHI2izv0cYRKmzrZPTgw3utrspmtFxfLxSo6JlVKgXPLq9ZlH6gqtXkieubzwbZ6NPC/kP+hbu
+	KSlYu2wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyOve-000000036O9-3LcD;
-	Fri, 06 Mar 2026 06:44:54 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1vyP6s-000000036uL-2BYA;
+	Fri, 06 Mar 2026 06:56:30 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyOvb-000000036Lm-3pSJ
+	id 1vyP6o-000000036tq-37ai
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 06:44:53 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 6 Mar
- 2026 14:44:43 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Fri, 6 Mar 2026 14:44:43 +0800
-From: Billy Tsai <billy_tsai@aspeedtech.com>
-Date: Fri, 6 Mar 2026 14:44:31 +0800
-Subject: [PATCH] hwmon: (aspeed-g6-pwm-tach): fix driver data handling in
- probe/remove
+	Fri, 06 Mar 2026 06:56:28 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1vyP6e-0008Cg-FH; Fri, 06 Mar 2026 07:56:16 +0100
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1vyP6c-0040ah-0f;
+	Fri, 06 Mar 2026 07:56:15 +0100
+Received: from pengutronix.de (unknown [IPv6:2a01:4f8:1c1c:29e9:22:41ff:fe00:1400])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id B80D84F9166;
+	Fri, 06 Mar 2026 06:56:13 +0000 (UTC)
+Date: Fri, 6 Mar 2026 07:56:12 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-media@vger.kernel.org, 
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Frank Li <Frank.Li@nxp.com>, gustavoars@kernel.org, open list <linux-kernel@vger.kernel.org>, 
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH] media: nxp: imx8-isi: remove kzalloc_objs
+Message-ID: <20260306-handsome-quixotic-catfish-705bde-mkl@pengutronix.de>
+X-AI: stop_reason: "refusal"
+References: <20260306044536.149204-1-rosenp@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260306-pwm_fixes-v1-1-e8ede6fbaf47@aspeedtech.com>
-X-B4-Tracking: v=1; b=H4sIAM53qmkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDYwMz3YLy3Pi0zIrUYl1zSwujxBRTE4s0A3MloPqColSwBFB5dGxtLQA
- 7d/zWWwAAAA==
-X-Change-ID: 20260306-pwm_fixes-7982ad548f07
-To: Guenter Roeck <linux@roeck-us.net>, Joel Stanley <joel@jms.id.au>, "Andrew
- Jeffery" <andrew@codeconstruct.com.au>
-CC: <linux-hwmon@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>, Billy Tsai
-	<billy_tsai@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772779483; l=1393;
- i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
- bh=Hp31w4Jdd8sbOX4FBY/G7j05d+Zg3ydoO83w3jExP4Y=;
- b=09OrdeecveOCl4q7/xzNvFn8RPwEs0VhaZWGUH3DjxtVv/MYLVRvpS5M+R/B7fmZ9Wu/kcLtQ
- 7t0gVAB7TCBBGFnoYzwXx3sDDYB8WQH3a8GZW4Y54TPRZDxzAppIi5m
-X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
- pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="qt6jm373d6epfxbc"
+Content-Disposition: inline
+In-Reply-To: <20260306044536.149204-1-rosenp@gmail.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_224451_956114_029407F3 
-X-CRM114-Status: UNSURE (   9.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260305_225626_786058_D7E4282D 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,44 +84,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ensure proper association of driver data by setting and retrieving
-the platform device's driver data during probe and remove.
 
-Fixes: 7e1449cd15d1 ("hwmon: (aspeed-g6-pwm-tacho): Support for ASPEED g6 PWM/Fan tach")
-Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
----
- drivers/hwmon/aspeed-g6-pwm-tach.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+--qt6jm373d6epfxbc
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] media: nxp: imx8-isi: remove kzalloc_objs
+MIME-Version: 1.0
 
-diff --git a/drivers/hwmon/aspeed-g6-pwm-tach.c b/drivers/hwmon/aspeed-g6-pwm-tach.c
-index 44e1ecba205d..0c03d272279a 100644
---- a/drivers/hwmon/aspeed-g6-pwm-tach.c
-+++ b/drivers/hwmon/aspeed-g6-pwm-tach.c
-@@ -490,6 +490,7 @@ static int aspeed_pwm_tach_probe(struct platform_device *pdev)
- 	if (IS_ERR(chip))
- 		return PTR_ERR(chip);
- 
-+	platform_set_drvdata(pdev, chip);
- 	pwmchip_set_drvdata(chip, priv);
- 	chip->ops = &aspeed_pwm_ops;
- 
-@@ -519,7 +520,8 @@ static int aspeed_pwm_tach_probe(struct platform_device *pdev)
- 
- static void aspeed_pwm_tach_remove(struct platform_device *pdev)
- {
--	struct aspeed_pwm_tach_data *priv = platform_get_drvdata(pdev);
-+	struct pwm_chip *chip = platform_get_drvdata(pdev);
-+	struct aspeed_pwm_tach_data *priv = aspeed_pwm_chip_to_data(chip);
- 
- 	reset_control_assert(priv->reset);
- }
+On 05.03.2026 20:45:36, Rosen Penev wrote:
+> Use a flexible arraay member to combine allocations.
+>
+> It looks like pipes never gets freed anywhere. Meaning this effectively
+> fixes a memory leak.
 
----
-base-commit: af4e9ef3d78420feb8fe58cd9a1ab80c501b3c08
-change-id: 20260306-pwm_fixes-7982ad548f07
+It's a devm_kzalloc(), which means it's automatically free()ed after the
+remove callback.
 
-Best regards,
--- 
-Billy Tsai <billy_tsai@aspeedtech.com>
+Marc
 
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--qt6jm373d6epfxbc
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCaap6igAKCRDMOmT6rpmt
+0h0YAP9FYFN9bll7jzuGDpQaPy24yBisGMPapjkkoLpoXI0gFgEA15p+v6RhEWUS
+2+WhjuDG94zUDEWMa2eNHkHVZONmfgU=
+=Afub
+-----END PGP SIGNATURE-----
+
+--qt6jm373d6epfxbc--
 
