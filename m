@@ -4,134 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 809D0F0183C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:01:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB4EEF0183C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:02:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+oVv3YZB41KlIY6PYSj33RWtbiRB/XxsFCI7VErY72k=; b=ZMQ60xHzUqNmrhD63R2MAg7kqF
-	gBArEV8A9O1BWy51Ot5LXTSY/ofyMT+v7JY7GDPeXEUZlkQJLQXvDT+SPnYUso9HBBVc8nJMOwvZY
-	d/GdgoZkUIH/g/PD2qlI+UHTpYgjOojVAF4GmPMILP7kqckNqe+GoAL1EcpLo02J1Xgn9k8JwLgj8
-	CwcbgXk2HBeNlh9iUM/wcUttaxpq5Je6PJDGoxZGlWOHJuNHb4KntKU+X1ESv4NUhCSMf1ZqbIrKo
-	XOilnT2IbAXD0xDHGk9XZwp1ItkXJR5sDVyhe3Rkc5JhV44Z+0EmN+lZxfYPBhc9IkBPeeVB3ESEh
-	N4W/LNvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BwOlgh6ZUE7+ip/EGV9A/3opBVCZWrRyXJLI+YqAKL0=; b=2G+614cqLgS4Oid7irVCuUjet6
+	V+vaCF+av6BnXeaMU6xLBPZXKZCQKVOFqwdx4ocAW3sOm66Ie5zoj5XoylayXDd1H3w1RayUoObdw
+	Oyh+nkldvJ/wuLi6tWaLfWm4pGiQgUCF5rUoXN8Qn4qNTC0KK5NrYGG7RUhpNZC8x+Qg3BNegBoXW
+	6fM0P1eMhMIGYNNSm9EdkguGgfuwijSybAcaO9M5Fc3uBDDcw2HE89eXBceGaJhPEMAHURB4YKHgl
+	1MDo7iE3anFBfN6WEwf68+maR2yUKvut2qjVWn+qJvU2tgCGBLVy4QO3t0cg1520aKxL6usvLki0f
+	3L0L3KZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVkJ-00000003pv0-1AQq;
-	Fri, 06 Mar 2026 14:01:39 +0000
-Received: from mail-northcentralusazon11010001.outbound.protection.outlook.com ([52.101.193.1] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1vyVlI-00000003q5C-2nD0;
+	Fri, 06 Mar 2026 14:02:40 +0000
+Received: from mail-ed1-x549.google.com ([2a00:1450:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVkG-00000003ptw-2RPk
+	id 1vyVlE-00000003q3b-0vPS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 14:01:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=S4V7Ru1/Im8ug8SEebPmeeKyTi1OCDFPsvf6C9teqEygtfFTBw01pU57uGQLuAFv/Q7Rpon4kVPf6LvJ4k7YPwcRRCzUALhStvdKGrdVSOFPRlHYM1bv7DKrNz6nuBL9ucC/XZSZhftIjx3aoQDLUf1F2XVYGQa8rT6Phjg56DJh6yDUWOakWmj47xWBCQAjhSd3YRpjQ9uYoQUjcC75cDfkkCLAPbS2QM3dZUlzW/gc/in49ZGCBr4wAdDDksxKxWa3RatolOjxL1IJtvnAFyiC/o58WuziaTusPtACrB6/ZVGxDmwwoRDFWvDc9YKo/rCbSB4wPD4jja7r9LIgnQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+oVv3YZB41KlIY6PYSj33RWtbiRB/XxsFCI7VErY72k=;
- b=e3mWhH2ZlC2vXcYRpnjNvdw80L4xGE+2hLkn6UjzwnQPoNwoousoxtJRBsQEUnF9uOo6xXZ0mqgn9iX5noPelIIWJ6jYNtAvHE6NfbJd9+hlE4WdAQ8m8et4u7LdoQtZ95xDBNfcsjef0hS4kzJjeY3U/kr6394I535v5XAbZVdBUeibn/XIT1cG4nvfJqD0Z/KHHbzfZifomclml/JimrJ9nECspZTKXVp9xkBru5nD5XJA7ci8Ho49ZJhMpc3Gij7IT4g2GINBJcV+GRbB/kfK9+QoQ4qbuTfPNvjblbnxLRMfzhxvnPUplthdOA0ahnI4vxcb7HfhJJEtaMyYFg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+oVv3YZB41KlIY6PYSj33RWtbiRB/XxsFCI7VErY72k=;
- b=OvrgNUXOBKOSuc2VQ+7Ran0fWi12FhlDrl4X9fbr8+KSaQmvAGlCl8VR7DY2IWgQ7eivhsrVSj5jjehaAQiH3OEJyMbcx60f+rJf2Agbq18eER6uZjmo9WBdoGYJnDIB3z4l/MaE+KhMaASmHoN/pUHaq5WqQYBBIHz2tAsPnIcQ3GSDJQ5L6IvUvN29Nrwnn7+4qFGmCMGS+rk4iizkazYcouyJ1Ecrdhb+LlBtUvmLtLg53zbZfDq6GJyLUBz+smjRwz19upSmM4POUpbikDJi+V7Jae0WUjULRWVy1A2VClaOISQJ/3oUr7Mi7TjdreDDOLxs77VFoiuz3bLU8g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by CY5PR12MB6382.namprd12.prod.outlook.com (2603:10b6:930:3e::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.5; Fri, 6 Mar
- 2026 14:01:18 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9654.022; Fri, 6 Mar 2026
- 14:01:18 +0000
-Date: Fri, 6 Mar 2026 10:01:15 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org, joro@8bytes.org,
-	bhelgaas@google.com, rafael@kernel.org, lenb@kernel.org,
-	praan@google.com, kees@kernel.org, baolu.lu@linux.intel.com,
-	smostafa@google.com, Alexander.Grest@microsoft.com,
-	kevin.tian@intel.com, miko.lenczewski@arm.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-pci@vger.kernel.org, vsethi@nvidia.com
-Subject: Re: [PATCH v1 2/2] iommu/arm-smmu-v3: Recover ATC invalidate timeouts
-Message-ID: <20260306140115.GH1651202@nvidia.com>
-References: <cover.1772686998.git.nicolinc@nvidia.com>
- <ca7ab934bf0f433b62a5c15d42241632c4cb9366.1772686998.git.nicolinc@nvidia.com>
- <20260305153911.GT972761@nvidia.com>
- <aanygWWZLA1htDdQ@Asurada-Nvidia>
- <20260305234158.GB1651202@nvidia.com>
- <60d77adc-d5a6-40e2-a497-a57004f23e7e@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <60d77adc-d5a6-40e2-a497-a57004f23e7e@arm.com>
-X-ClientProxiedBy: BLAPR05CA0035.namprd05.prod.outlook.com
- (2603:10b6:208:335::16) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CY5PR12MB6382:EE_
-X-MS-Office365-Filtering-Correlation-Id: 892e27ff-9d55-48f0-44a4-08de7b88d697
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: 8Du7+7w2emJxT9XWLkUHX+W/MmZC87azB0nTchCnlrmlPPPdOudOo1qs/S9TH49TyAHHcx8zQc19pZxJpY6FTmv6QBYBkvHMBXeo7DOK/QCeOBxh1WhR1X/Qff3HAwyZ/uhNQHv62WYBcUyHz1lGy9fGAubblH+/23BK9nJlrStkD3i82Bm4SrYfJyfocbFTzUhzT99rhh8HmcPVH9KX/l+9R8CFmUsKI3mj/ScqceCDt6aB9B6lhgvMY03dUarSo77UXdGR27NaXr4Bw59y/OcQLLYFmHLhgPYKEvzAJbekJiu8tp1Jkel85AtSWuDsZAdhPoARHOizIsciD2qWh8lcrPoamqhtOvMAApUYxshWcAI5ZKDb1q/qyP0OPoBF8lYoQWLppIaqJrXfI8yCPw+2fwqD6ztg5bw6u308QGYnRNMyJhub9tJu28sNBKbKtTiBJPYRLDeL2+8zC+UsWeB9W4Cmm5wA6gwGRGUJ4qYcbaDviZwLOml89I1fNiwpcguw1ykLvG+im/LjiBULe/JepWdq3ZmdVDhfzs2UY6lWCWkRLOkzGhxERL7RFBbcItv5YqkRKKIqQ+9IjSenh236MVS0SGtGPor+grKrgUQFTI1sh5C63QYSm2lCGk8uD/TBNNEjeCAOpnMVr2+Y4CrbrvuMuoygaxQlpRE7gOMBP+8/ZhhoSZevoryLqnR8OijkmGtFCZNmm3KpHsvHFJ9kkPrJlYpky9CCztM5tmc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CPBAlpD87y7rvGtzjiFPryyb5i2jZqT2ejLd84N+BvlcqsFlWc9kUQix2Git?=
- =?us-ascii?Q?dOYuGf+QJtQmDbbaG21Cbvg5VsRZaK1xGRayc3Uyflykao1EzGGctdaSn5bs?=
- =?us-ascii?Q?RBIJJC36Bv4uihdx59YY13I9O8itPUppdME6kmLYHuyzWLuwz0GvLoXuvNq+?=
- =?us-ascii?Q?0+X8ge8JFMsRrVOA6RSQVPJiE4VeEXP1AezESPoBFw0gJluPY2k99TNu3rJ6?=
- =?us-ascii?Q?x+1PMa7W5BBgDXNmhnk/TA7r6BAHu8i5pfE6XYc2ai030YwKcomfLYfkagf0?=
- =?us-ascii?Q?J2uhkX8m6RpC/RcWZyX7psE+34akS+quksO4O+UvZJU+cY02Gi2QBmgCzlsE?=
- =?us-ascii?Q?Lvck0pAZGgQmkpoIMpMzJbnKnXi2SPOp8a49LDPhWNFjj2YSiE5gsdGbPUwI?=
- =?us-ascii?Q?GQw/Vs9hX8LOVqtJVKTf3iux6cbfBI1GO0BvUFZzeYqIFY7RAnH7/gdei/Yv?=
- =?us-ascii?Q?XI5lp4iNwxsy01u5W5KoTicYrHABQV77ctYtrNl8egePA6/nOD2G2exSFN2q?=
- =?us-ascii?Q?SS3yuCwY0hqMbFi9JQhmIcCC7S9gq7iECrQfxo8UY5hRZpHGqPxXY75otM0j?=
- =?us-ascii?Q?h+RT60q0cAG59s2RKqBDiuPl5uMOH5ULRRqUma+f2YCgIwXWq2LerzC2rQoq?=
- =?us-ascii?Q?pCAW9y1lOlBIByDGlEEDw3p452VM2DePLGH2M4rXs5qaKTLrGgvib5aN11+D?=
- =?us-ascii?Q?ojSwT8QRQVp862WnfWrLOsdiNqB4iRM62g0bqiok3wZf5VZs2WvD/pWToeyg?=
- =?us-ascii?Q?zru5sy42PXTk7lleE65Y6l4GcWJE+1TszY2mQygbi4GtN6CC4deg0dFutvXn?=
- =?us-ascii?Q?zwOSvNSvS7Xjy1BAwBTbWjyCrr62janrCyWGFVQqu512UHu3nJ1JoYqJLYbB?=
- =?us-ascii?Q?PUF5MRIkPWP6LmD8s1stufMJR5kV3Z+3BeNuwKKU4Ir5sTZlwG3eoAoSnpU1?=
- =?us-ascii?Q?pwFjVRFRiwMXRIkezqnZ/rOPXxFdc0PNmgTSTQsLYnYkVrWWKTqefsiGGQtk?=
- =?us-ascii?Q?hrJfrXTyahxRawU2EWxTmLjLqdgT7K0wvMbUF6xNp0VIa0US80J9AU9WVBgr?=
- =?us-ascii?Q?STR08FYouwe5BhdTisfULcQt94wYWK/hARmB4uGEq3Joh9DA5j3dlUklYjMt?=
- =?us-ascii?Q?ZUJ6Uied466z0iwmvNoR6aE9L6xKyYNHW3GJD+zIBcWBM2UtVLcK7P8zXsXC?=
- =?us-ascii?Q?XBUTejnj0OfQLSrwxD9XU8rXqLmQ+n1B1tx07tYcxDFhQXXRA5nnPA4Rf/gF?=
- =?us-ascii?Q?TGo1FaYH90SHIZdquE1WrHHvT754a3sSxC1tNIMPxiqlAqFEmwLeaoUkBJbx?=
- =?us-ascii?Q?tqlcwGeC7DlkWcKiPJE2MXCFtowW9Tn12Fk7tc/LqfsHZL5nfCG4j1aAOVfF?=
- =?us-ascii?Q?2wRIg0kkjtFDCLca7JyM4IX7MtwX1sf1nNQ6lc6CCAq0Ee0yvNfW5Rzrggwb?=
- =?us-ascii?Q?5XESrEkznTHnaUyvxHjvt4tPEpq1+ASRTBXKhQYsZsZRKz9zhKTjhprpmNXs?=
- =?us-ascii?Q?JXBnDin0hBXtXS8sdaWn6Omf1BQyBkXasaOisITbIqjaK/9fUBFExt13KTwm?=
- =?us-ascii?Q?LFW78yybju/GPdWvG2EayLWOItv8/PE3iaci9Q+eJa2aOta0MVqawYp/pa0u?=
- =?us-ascii?Q?WSNXMPK6xzNFyFFH+D3Cbtb6llVBMwlo/aWUjI3TKwXn0+12DMoy2JFpzM/9?=
- =?us-ascii?Q?uyTNdUi1KwEdiLOECMFFjX2HCwe9RL4SjPm/4ZpPYIiu1QQUx42LvT+dbe3W?=
- =?us-ascii?Q?NcEAcg/z0g=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 892e27ff-9d55-48f0-44a4-08de7b88d697
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 14:01:18.1160
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: c/xC+YtF5FJWlH5g2JUbSWWJTVii20/kIEoxNSiIih+j3XlZCUdsacFWFGGpdpGF
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6382
+	Fri, 06 Mar 2026 14:02:38 +0000
+Received: by mail-ed1-x549.google.com with SMTP id 4fb4d7f45d1cf-661aae3a881so1285921a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 06:02:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1772805754; x=1773410554; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=BwOlgh6ZUE7+ip/EGV9A/3opBVCZWrRyXJLI+YqAKL0=;
+        b=2Q0JR0AN/amlOE6aqWMZRP12aNLecNi7DvHvsJvsYPQkBD465kqdTJSbhV083odfyx
+         CinXZedJETWipwZgmx+5tpoPEcDAZE/KVtuvpRcJsQhwV6tGO3HDdXLQSlxrF8oHmo8B
+         TC7gjxk59zdN+wohLUR9DDIEgvz3uODRHXjLObBYkixoZAxH80L+e7WncWTMgHFlYSdd
+         Yhx7F/QXOOLyBRX1X7ycmn4FptbH27Xi7afRbESudmWPwR8kG9xPIz0u+rSqaRjy7Ql6
+         IoYnNY3YtTKqTn3cYKE/BcJaMBQDqQlYyb9EsJI9fh54qVrZdXQZVXq3U1Wc6krpUcaD
+         rmqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772805754; x=1773410554;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=BwOlgh6ZUE7+ip/EGV9A/3opBVCZWrRyXJLI+YqAKL0=;
+        b=oF9yNnyfBZggCA5Ddaxk9bh5OwSxNWxvM97dYAq3Bh0g91Otyz/EyGwZw4fO1U08aS
+         iYtyFfCVBUHrLeMwFo10Dzgr4hGPjGsMKQmxaqumL5U3KQZCBnuFdy0mwTv5rpbVjGGA
+         FX9AulMWFOr+TV/CAor6zrjuWXseQ/e7LTWe44SzbdNcB3VmGJrCsgjJASxGfXj6LdVZ
+         JOJDomQ1hL6GC9pRS1pVFu5WtEX7Cwgt006c6TIHWTm4GRC2nmGgkOReYB9Uj0S/Qr1D
+         v5ru2TN4mFrct4x6MNCY4MZPsSLaLRASVTn3MCIRJq0PvSlC5n5rik1ec1U5s4u6r6O9
+         2jTg==
+X-Forwarded-Encrypted: i=1; AJvYcCUtztdgz07S9l3jZtO2f3Eywlk79zkSjBNuBbSdlwZ/EHndmADkfWivHjYL4WZAzbsWQju1phdzuYC/CsrBKlnG@lists.infradead.org
+X-Gm-Message-State: AOJu0YzA4/dEwL4B0uGr235hZxuBwbyuwm777sf6ftVUQ+yXGyBV8mEx
+	Sg7rxrKEr4DIx8NrTRvctBmYmsDjWW1H84KWYhhTfYPT5S+Xcuw/v4r2ZJsdaRpFwAVI7eXNRSw
+	ahg==
+X-Received: from edb22.prod.google.com ([2002:a05:6402:2396:b0:661:257c:8537])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:354a:b0:65b:f3d5:ae79
+ with SMTP id 4fb4d7f45d1cf-6619d4650damr1116541a12.10.1772805753773; Fri, 06
+ Mar 2026 06:02:33 -0800 (PST)
+Date: Fri,  6 Mar 2026 14:02:19 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.53.0.473.g4a7958ca14-goog
+Message-ID: <20260306140232.2193802-1-tabba@google.com>
+Subject: [PATCH v1 00/13] KVM: arm64: Refactor user_mem_abort() into a
+ state-object model
+From: Fuad Tabba <tabba@google.com>
+To: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org, qperret@google.com, vdonnefort@google.com, tabba@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_060136_641858_347883D8 
-X-CRM114-Status: GOOD (  23.06  )
+X-CRM114-CacheID: sfid-20260306_060236_277438_A348F67D 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,47 +89,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 01:22:11PM +0000, Robin Murphy wrote:
-> On 2026-03-05 11:41 pm, Jason Gunthorpe wrote:
-> > On Thu, Mar 05, 2026 at 01:15:45PM -0800, Nicolin Chen wrote:
-> > 
-> > > You mean in arm_smmu_cmdq_issue_cmdlist() that issued the timed
-> > > out ATC command?
-> > 
-> > Yes, it was my off hand thought.
-> > 
-> > > So my test case was to trigger a device fault followed by an ATC
-> > > command. But, I found that the ATC command submission returned 0
-> > > while only the ISR received:
-> > >      CMDQ error (cons 0x03000003): ATC invalidate timeout
-> > >      arm_smmu_debugfs_atc_write: ATC_INV ret=0
-> > > 
-> > > It seems difficult to insert a CMDQ_OP_CFGI_STE in the submission
-> > > thread?
-> > 
-> > I didn't look, but I thought the CMDQ stops on the ATC invalidation,
-> > flags the error and the ISR NOP's the failing CMDQ entry and restarts
-> > it to resume the thread? Is that something else?
-> > 
-> > If so you could insert the STE flush instead of a NOP
-> 
-> Nope, sadly the timeout is asynchronous, and CERROR_ATC_INV_SYNC is only
-> reported on the *next* CMD_SYNC - it can't even tell us which CMD_ATC_INV(s)
-> had a problem.
+As promised in my recent patch series fixing a couple of urgent bugs in
+user_mem_abort() [1], here is the actual refactoring to finally clean up this
+monolith.
 
-!! That's a good point! The new invalidation code runs many ATC
-invalidations under one sync to optimize for SVA performance so we
-have no idea what devices need to be reset :(
+If you look through the Fixes: history of user_mem_abort(), you will start to
+see a very clear pattern of whack-a-mole caused by the sheer size and
+complexity of the function. For example:
+- We keep leaking struct page references on early error returns because the
+  cleanup logic is hard to track (e.g., 5f9466b50c1b and the atomic fault leak
+  I just fixed in the previous series).
+- We have had uninitialized memcache pointers (157dbc4a321f) because the
+  initialization flow jumps around unpredictably.
+- We have had subtle TOCTOU and locking boundary bugs (like 13ec9308a857 and
+  f587661f21eb) because we drop the mmap_read_lock midway through the function
+  but leave the vma pointer and mmu_seq floating around in the same lexical
+  scope, tempting people to use them.
 
-So we really do need to signal to the issuing thread and it will have
-to go back and check how many ATC invalidations are under this sync
-and re-issue one by one to isolate the error then issue the STE change
-and sync. Nothing from an ISR then..
+The bulk of the work is in the first 6 patches, which perform a strict,
+no-logic-change structural refactoring of user_mem_abort() into a clean,
+sequential dispatcher.
 
-> Also there is no NOP; currently the only command rewriting we
-> do is for CERROR_ILL, where we turn the illegal command into a CMD_SYNC.
+We introduce a state object, struct kvm_s2_fault, which encapsulates
+both the input parameters and the intermediate state. Then,
+user_mem_abort() is broken down into focused, standalone helpers:
+- kvm_s2_resolve_vma_size(): Determines the VMA shift and page size.
+- kvm_s2_fault_pin_pfn(): Handles faulting in the physical page.
+  - kvm_s2_fault_get_vma_info(): A tightly-scoped sub-helper that isolates the
+    mmap_read_lock, VMA lookup, and metadata snapshotting.
+- kvm_s2_fault_compute_prot(): Computes stage-2 protections and evaluates
+  permission/execution constraints.
+- kvm_s2_fault_map(): Manages the KVM MMU lock, mmu_seq retry loops, MTE, and
+  the final stage-2 mapping.
 
-Oh, OK thats what I was half remembering then..
+This structural change makes the "danger zone" foolproof. By isolating
+the mmap_read_lock region inside a tightly-scoped sub-helper
+(kvm_s2_fault_get_vma_info), the vma pointer is confined. It snapshots
+the required metadata into the kvm_s2_fault structure before dropping
+the lock. Because the pointers scope ends when the sub-helper returns,
+accessing a stale VMA in the mapping phase is not possible by design.
 
-Jason
+The remaining patches in are localized cleanup patches. With the logic
+finally extracted into digestible helpers, these patches take the
+opportunity to streamline struct initialization, drop redundant struct
+variables, simplify nested math, and hoist validation checks (like MTE)
+out of the lock-heavy mapping phase.
+
+I think that there are still more opportunities to tidy things up some
+more, but I'll stop here to see what you think.
+
+Based on Linux 7.0-rc2 and my previous fixes series [1].
+
+[1] https://lore.kernel.org/all/20260304162222.836152-1-tabba@google.com/
+
+Cheers,
+/fuad
+
+Fuad Tabba (13):
+  KVM: arm64: Extract VMA size resolution in user_mem_abort()
+  KVM: arm64: Introduce struct kvm_s2_fault to user_mem_abort()
+  KVM: arm64: Extract PFN resolution in user_mem_abort()
+  KVM: arm64: Isolate mmap_read_lock inside new
+    kvm_s2_fault_get_vma_info() helper
+  KVM: arm64: Extract stage-2 permission logic in user_mem_abort()
+  KVM: arm64: Extract page table mapping in user_mem_abort()
+  KVM: arm64: Simplify nested VMA shift calculation
+  KVM: arm64: Remove redundant state variables from struct kvm_s2_fault
+  KVM: arm64: Simplify return logic in user_mem_abort()
+  KVM: arm64: Initialize struct kvm_s2_fault completely at declaration
+  KVM: arm64: Optimize early exit checks in kvm_s2_fault_pin_pfn()
+  KVM: arm64: Hoist MTE validation check out of MMU lock path
+  KVM: arm64: Clean up control flow in kvm_s2_fault_map()
+
+ arch/arm64/kvm/mmu.c | 379 +++++++++++++++++++++++++------------------
+ 1 file changed, 224 insertions(+), 155 deletions(-)
+
+
+base-commit: f9985be5e1985930c2d2cf2752e36bb145b3ff7c
+-- 
+2.53.0.473.g4a7958ca14-goog
+
 
