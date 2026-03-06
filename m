@@ -4,92 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 787F4F5141C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 22:25:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F241F51416
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 22:33:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BGeWdIkU9VejQgwZq5zb7Y2J6ZyCjsrY3OgmM4MXxHc=; b=AnSvShURL30V1G0DcwSb23puIT
-	xc2Jbyu4QyhuHZcXrdh/EThCYHNA+wWB7bJX+ZCiQH6x9TuReIeay2c4vQYfwswUjTh3qf1qPKKdj
-	Hvnr5mxFCbPwkP2mpALMaQ0WnjX+6h3s3H7APWhLZjRPBNchCIpvqjLFn/TkSGTTmzVHFjU1TeHXm
-	VTyo0WgjaCVnm3fqMxBl5l/MQBRwYWQgeL0uGR/N1v83IQo5LOgVyXPTBWOQBxm/JJ/5pbYVpOz+b
-	k/QX0Ap96Uae6uqmPHz9KKwdn3IDru6Q1A6qioFKejRnfmG1XeMDQXXlJdZBM+cfCBjvQ0NwwmDXA
-	0uGnAM+w==;
+	bh=jUW3uQ0GOOk5NLEcFEyI1LZbgO/qREK4Yx9n2fFhxPY=; b=fHbsrKf0iQ/ec4L0iwrK0zkdSq
+	ARqYuL0eBUwnWePqfw93URGMOAOXhCCvS6Nqmn6XSYYKxr3noeNmBLH+ZrxpkZZlebWR/ax6u/68+
+	us2Ye/v/WwrGVzcar/R+0j9ptZMaEOF+YLP59VhOLwVuUzU6aToOTF9MRxy1lQRmb0+cFv4qlk1MQ
+	gWedlEsTU8vTmAKg7rsNPNZDCKjinobkWvxLPYM0Af17i9h8yPq+Z4q3F1Q2vA8sjhrOf9xYQUcwA
+	XAbMsLrH+nALnRnipA5n61rBWmvxDp6yE5SuuhAqOvX8AZME2XjJI6zv/TXR3Qvh8YCnMHb2pAMMS
+	5ENe7SDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vydbl-00000004aRt-2CNh;
-	Fri, 06 Mar 2026 22:25:21 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1vydjr-00000004at0-11DE;
+	Fri, 06 Mar 2026 22:33:43 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vydbi-00000004aPD-0ajX
+	id 1vydjp-00000004asf-00xo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 22:25:19 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2ab39b111b9so45397805ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 14:25:17 -0800 (PST)
+	Fri, 06 Mar 2026 22:33:42 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-439aa2f8ebaso4316812f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 14:33:40 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772836419; cv=none;
+        d=google.com; s=arc-20240605;
+        b=W9QZSkMsZnnLRz8xHkN1LFbFeJNDxUG/FLJVLO9WimTU19UkYysDlXzgM7rsdr3Ddz
+         I8hptxk27jZOMcAXiDllHbCCVBiVA8OnKX6XMw3fqBxvmDdeko+Rc4XNphjpsXIl0+A3
+         hGXqPxu4gwspTmKIVa8NTtJwA8XiI+EtC1Dqpx/Rp4XZkXQnUYvnrKW7dCZuRvViMP8Y
+         oI8f9G69UEvZc+3AbWJ7RVCLyxvsSMyhB10cyKYKtPNB216kXtUaIO9eRhY106Ww9j0V
+         jxWlpDXAKyBzqhXO2/RlkoxHPcVE4eI7E+UQu4Eh8WQHjCRVxBw6z6bH49NrOFd59Ddw
+         hgrA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=jUW3uQ0GOOk5NLEcFEyI1LZbgO/qREK4Yx9n2fFhxPY=;
+        fh=9ukHZsU45jcu+ytjeQsBPu100g9vW0PPBop8M8UYp+I=;
+        b=TGQy9rb5i0KYxmc0ZntyemmDstpMMquoSGaBjsA8cG90XLqg+lQgk12rKC4XWDwVgc
+         retqmgC8ZY2WhUSglcCWSisCSV/juH2015qogPaNKbr2Z3/OlEoMpB/pUFmtFoPzFvTK
+         g1LWFAfDtEWsA20/BLgc2BaIMwIekLOZG3DcynCHlUJKZuCBjWFay2pZONZGgPCtYrxR
+         c9HNU6Ww8zVhbDQH4Io5iRBbLPnNRiwWFbDrM8bcv7JU9gOVZa0inEdqu9jtpKDzaYnU
+         M6K5L+/vFJBiOwttXRbYWIbIxOHV0cvFJ0NtgRlAwJ2JvO0y3z/Jr5PjoMuf/vXsJaIu
+         CZGA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772835917; x=1773440717; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1772836419; x=1773441219; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=BGeWdIkU9VejQgwZq5zb7Y2J6ZyCjsrY3OgmM4MXxHc=;
-        b=aqJiwcZ4LZo9lTsmv4ROHdZh5b/RID+ah7N2qtpM6T3fXxxtHHwSJ7pGTIBVt27O8e
-         2WLJiSfB2Hw2bfi9AFvfg4WTKeqtl3M5i4/VVu249Odye4AlcFRqQ0RANHmjdC/Fo0qF
-         AFf/+j+4lRwHXcmR2hPsK1p/zTZNmSVV/EMQj2RxMmQ0xfIcVVLbVhLMq9QOx7IaUIY+
-         FhR0DfJAgFp84+f769KoDDV+1F62oevsqqZjxMZ6a3URxhDXFkWKNnmNSBPukSh/0QEP
-         T8qEMJhagq4XV5+HNBi0ny7HARRs9LMKhP+paKLLTmE3Gl6a9VYuxRBM/iknk69vKoY/
-         R60A==
+        bh=jUW3uQ0GOOk5NLEcFEyI1LZbgO/qREK4Yx9n2fFhxPY=;
+        b=SaLEEkPqJyp7a8piI2T3XxwVMyTye3OjgdIwK2aO/m2TFgkBDCsKaifhxnPiYL8rAS
+         23hPxRw/GMyRy0lAplZ/nyyvyA/yi2FhL2i0rb2G9fA6VMhrtpC5+IG36V3mUCK/IcJE
+         TPRjwPoj37E7YuAvutB+cI5DulnT5MLY0cRtoJ9JZh8i7oHKVLblZoDJ/wrJaTBt6X77
+         9FjMi5F36bJKyStuxkfFpT6V3nJ/o1UWlCg0DiIEwXCsRT65QNehvwxBpk8bjOERufxu
+         +gN+Ewn3X7EVj2if8ZwQj6i9jpuArcOe2wyAL15Qn1ootpGR+TbvVumPqOiuJOA2f2Oh
+         fd8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772835917; x=1773440717;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+        d=1e100.net; s=20230601; t=1772836419; x=1773441219;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=BGeWdIkU9VejQgwZq5zb7Y2J6ZyCjsrY3OgmM4MXxHc=;
-        b=hfzW5jOGKHJfaIoLHM1SlOpX0duD6Cl48Ju4wLwZpemAsCS1wJwJA69z8P1j8mXoO5
-         V/w/5zijiQN0bF2/WLWQ/1C0Lnia8i6mUXtX7xkAQxmN7+2I5lKMgYT/DAkkVKPAPQpL
-         DvAHsSGKuu1HOfiR8FQMm6fIK9DuthH6NhRDilgAK2r+CCTbLyG9h3QSuJJ3CwU6+0d4
-         07C8ZqAP8HdD+UjSAbbFLGiLZq82W2qj0dnfQ6cKGOXM/O1PF7ffccHILojhASKz5JqS
-         EfKovkdwcoKk4hpUaWcS3+a7yc6anQ5sMS/E5MB/w7TyUK8xWZIKbY1pq56859+N/6dU
-         Wj4w==
-X-Forwarded-Encrypted: i=1; AJvYcCV2xRsAiYo3Y1nFsDOwTLaJZ5qMSz4iedZ+8PolkZqm/oTAu0mNachhWL+4YGoMWMlc2a5QEITFWg9HdEVZAVT8@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdSFKrnQNEeeM300wR1s6xAqLuwfSDzIQ/Bp28wc7ESGU0N88l
-	kxwFIkR4+lcxdKpgSlNX9I8hWOsgkOTHwPyq49+avYdq/+Iuv1x4BVSv
-X-Gm-Gg: ATEYQzxylJiTBPphDrMSAcw5Ga3CzLNTBMmL+Ns9ezgF4JQHb5iwM/qAU6iVLFKPlct
-	PpuRNIxkTK9PMhRTEoAEro0oHJc5cc/ZHetxJy8JuRaKn3i+5PsYPMLkGJU2z4V8EW4FHrpI1LS
-	epKmXwTjeVChLRMGc2DWb+PDQwY5ElvcNkUwZXuP1JTu0hhEEuj9BbXbzREQV4QJBA5nKLO1+jE
-	i+n4oSbiSUflBuueq8zBzomDb4i7RJTrsXTNjeHi/Q5L2H4IH2XaVJcxa/L/sXabnoFN2NOkkRG
-	G1gPMrOu1ZKmKvjPQae+xCpQE5kOG4tDms74FvSzypAtezdTGq4n/hrrGWZfrHq8r6BTk0eVt45
-	EHJKZmcX2LHU5ybii6kWIYEI9RmQfTjc9FVFe/YYqMbyDYuHUTYnAUMtxsFIqozSFDD/K36RxPl
-	pmrwca6Sp+nKN0MsebgvvqPjuga5/MEysrXvcvUOlpqRWr9qO1IKM5nz4=
-X-Received: by 2002:a17:902:ce82:b0:2aa:ea8e:f118 with SMTP id d9443c01a7336-2ae8241ddf9mr42623695ad.3.1772835917227;
-        Fri, 06 Mar 2026 14:25:17 -0800 (PST)
-Received: from ryzen ([2601:644:8000:56f5::8bd])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae83e7c58asm32516605ad.25.2026.03.06.14.25.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Mar 2026 14:25:16 -0800 (PST)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-phy@lists.infradead.org
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-kernel@vger.kernel.org (open list),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STI ARCHITECTURE),
-	linux-hardening@vger.kernel.org (open list:KERNEL HARDENING (not covered by other areas):Keyword:\b__counted_by(_le|_be)?\b)
-Subject: [PATCHv2 1/2] phy: miphy28lp: add COMPILE_TEST
-Date: Fri,  6 Mar 2026 14:24:56 -0800
-Message-ID: <20260306222457.8400-2-rosenp@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260306222457.8400-1-rosenp@gmail.com>
-References: <20260306222457.8400-1-rosenp@gmail.com>
+        bh=jUW3uQ0GOOk5NLEcFEyI1LZbgO/qREK4Yx9n2fFhxPY=;
+        b=wMrlw9UAHBsx7z8c8KSSvyqToZTITNbWmZhSA+KiXFRk0RsFYVgaMUK1m4vkoItYwZ
+         6GIIJVbO3H4K9kXkpri4d8TfscaGj1JvEui8NcKjOnF/o/Tv/1QqowpDrBFqwY4VWFqS
+         SEpPRWYlz3hF6q96Ohd3MmUtBjvf1wWeqT0EDNd7U+wilwO+2v/8w/jNNHW7wDfU7735
+         r0O1/VacCgcTPyrulQsOCHwxtHjkx1IRnQ+J6spdEpEpSgPH8jhwWPe7L8gqsL0byEfd
+         q1fjN0mTr0Urt+KKUOK6RJt6GHqjaJ48TVDhCTJCmU64S6h2+qH/J1NF6yRnf6MtITs7
+         wrWQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXva5pfqAyIEFQYZPLA1I+ey7xP2aOVAEp2rE9OlpQXyJIlMwjGq6DIuBVrjECwQQLNdi/dmwgIsjKV4qI3pcID@lists.infradead.org
+X-Gm-Message-State: AOJu0YxWZ3ReXF+plaQvBfMTozTk9eenpa8S0MQXpYbi07XXa9fNHir6
+	Lo9ismNLmdeJ68XcR/Ny5++BymY4jNs+H9+74xFsqhm2VPIdqPhfYzT34mRfWM4xGU6+55b/Jpi
+	teh4uESeZ6s1pFDdMwAA27NNMMVTbev4=
+X-Gm-Gg: ATEYQzysz4EdOX12Zq12xXeAx34xAdjV9PETs8x5zazxOBKAdyl/69JtirnDAX8tgAK
+	dabWuee4Ua8BBd/s7Y8KOdzYufmego3ysqLrgMjh38cSGfwGNAZAhOOlxZAt3Ed438RYQaqTno3
+	zxz5BtpLhliM1qO1sw41O45sbkbW3NxkFlnp/6KIbGl0jMb/MIUZHDtGkUZPtsuYIVFloqyaPgv
+	o0C+eKVyYO4nO/1EfF6M1DtMcNZkeYUncI3OEQpscLQG/32n/pnPYTvZ1QoEJMvqgCWPNN/0moy
+	8eFBJ2LMvfOPLYuzJQcCZzyYDF9BM4K5r6Zl79tzSVVP0EJFUHX4Gdzipx1PJ4rr9zPboI9NGqq
+	hmx/61BZXcs+nBpVHiSzObUc9DQ==
+X-Received: by 2002:a05:6000:2003:b0:439:ad2d:99f8 with SMTP id
+ ffacd0b85a97d-439da885bebmr6744576f8f.30.1772836418704; Fri, 06 Mar 2026
+ 14:33:38 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260306221330.630971-1-yeoreum.yun@arm.com> <20260306221330.630971-3-yeoreum.yun@arm.com>
+In-Reply-To: <20260306221330.630971-3-yeoreum.yun@arm.com>
+From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Date: Fri, 6 Mar 2026 14:33:27 -0800
+X-Gm-Features: AaiRm523IJSrvR6Oh5s_-TbReIdaszdnRGNng5EUigJX51I46zC9wDY2sRJtdOs
+Message-ID: <CAADnVQJW2vK9YEsdnDMbij9Ed-wfra3Wbg4mp95C=xiDw6Bteg@mail.gmail.com>
+Subject: Re: [PATCH 2/3] bpf: introduce bpf_jit_insn_aux_data
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: bpf <bpf@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, John Fastabend <john.fastabend@gmail.com>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, Eduard <eddyz87@gmail.com>, 
+	Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, KP Singh <kpsingh@kernel.org>, 
+	Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Puranjay Mohan <puranjay@kernel.org>, Xu Kuohai <xukuohai@huaweicloud.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, richardcochran@gmail.com, 
+	Anton Protopopov <a.s.protopopov@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_142518_199431_068B4B86 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20260306_143341_084515_594F32A7 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,29 +124,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There's nothing special here to prevent compilation on non ARM hosts.
+On Fri, Mar 6, 2026 at 2:13=E2=80=AFPM Yeoreum Yun <yeoreum.yun@arm.com> wr=
+ote:
+>
+> This patch prepares for fixing the BTI exception related to gotox.
+>
+> bpf_jit_insn_aux_data contains per-instruction auxiliary data for the JIT=
+,
+> extracted from env->insn_aux_data.
+>
+> For example, it is used to determine whether an instruction is
+> a destination of a gotox, allowing the JIT to emit
+> the appropriate BTI instruction at that location in arm64.
+>
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>  include/linux/bpf.h    |  6 +++++
+>  include/linux/filter.h |  4 +++
+>  kernel/bpf/core.c      | 59 +++++++++++++++++++++++++++++++++++++++++-
+>  kernel/bpf/verifier.c  | 30 ++++++++++++++++++++-
+>  4 files changed, 97 insertions(+), 2 deletions(-)
 
-Matches every other st phy driver.
+before posting patches please scan the mailing list to see whether
+a particular issue was discussed.
 
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- drivers/phy/st/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/phy/st/Kconfig b/drivers/phy/st/Kconfig
-index 304614b6dabf..49206185e563 100644
---- a/drivers/phy/st/Kconfig
-+++ b/drivers/phy/st/Kconfig
-@@ -4,7 +4,7 @@
- #
- config PHY_MIPHY28LP
- 	tristate "STMicroelectronics MIPHY28LP PHY driver for STiH407"
--	depends on ARCH_STI
-+	depends on ARCH_STI || COMPILE_TEST
- 	select GENERIC_PHY
- 	help
- 	  Enable this to support the miphy transceiver (for SATA/PCIE/USB3)
---
-2.53.0
-
+pw-bot: cr
 
