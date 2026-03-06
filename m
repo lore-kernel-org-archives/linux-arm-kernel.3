@@ -4,139 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37234F01814
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 08:44:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D53FF01812
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 08:45:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rnRTR9KPewoeaSpuxHLaHlCnvmn8CLefGOOtkhjuIo0=; b=E380RlUzOzlcRPTo7+GMwuOD08
-	ohmgf9CrGl6euYuhw7n6TJ2URN3vX8tPlPB+3g/j70usSJq89+4Iy5fr5dyI8qs354OFq8UFOAk+A
-	4OMozpJVxgiot8fNRv3Bi03GZ1a7rzmB5j7l5mHwAIYjb9Jo4pBIniI8JBfELZtcj0cs9ecTMzXcR
-	1nRvYjMpkApeOPyMAaErz2Bwdbe5iDos2EGKxvKIHvwg5J1CFN2lxb1BixcDxlkqqkvll9+jfr63b
-	6iUGNVv4NGgKUIzHmdlNsW3+W0EgVbRBoRiO9bDDBpclV1L0BQnmfjJk0GHtl+X6A57uUgbsgIACJ
-	1kamCCtg==;
+	bh=i+9eh1GKoXKvN+iTRb5SdTdHqhmPyo3KOrf3w38LGgs=; b=JiXYbGYz8ikI7BLD+d4q44bM8A
+	wvIkq0C0JQBRdmq4LZa1w/bmQS1Hj20oN6v2XEBCmHkfzmG5zvy0fWmS2D5ET0boDbYqJHhckDISn
+	QlX2NjuGtUjEOapQI031X3+HZl7xv6ia029P6TaE6jotiJsaiV46RSyHKCVBVi/qmkPSKMdM6965J
+	nlY6DhDw9Ar78B//G2X2nOIjlU01boCtaT9zZ1WlSSaxoc/EcsEpjg6mrA7Up9o7lEfDqrfDS+6zT
+	mfOqIMdBGPqpY9W+IQz/UtxKGVApytIcL8+V9Kjj5D/JdyRlfFqpGqxFxIWya8gG6D1/UXILzB7F5
+	Jd6LGbGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyQnO-00000003HHx-1FRz;
-	Fri, 06 Mar 2026 08:44:30 +0000
-Received: from mail-northeuropeazon11011008.outbound.protection.outlook.com ([52.101.65.8] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1vyQo8-00000003HPx-2Td5;
+	Fri, 06 Mar 2026 08:45:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyQnM-00000003HHB-0RFV
+	id 1vyQo5-00000003HPR-2aqt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 08:44:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BrIoAsYfKG29E6rnFz0LsQ9uPh3Blhq6JZEsLhqeokp1CQpOSu8JV+qDvvVruqDktWEyHYCSnJPKHWT8ydkmMMlFCQl+3YV93qhf2RUvfebEywKI67wjxpfq2xYvwDsNKVqd0Ob4nw0s88tCCVKDyRY2ilAuLgJw9yw9JXsLx2cLbLQINE8jANyFB8CK+4LkGohjqct0VPNvXGU/Eaul23cX+sRQ0i02QU+gDaQtsojF3xE+ngI/KDKS8Q4eZ7S7bye1VFSes4/6oo9/3pD/3swM3v22trg8EDXQWxf/Be5N7xAwIg2IUasygH4N26TjhxttPbgzV0DWXO3JF+VdOQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rnRTR9KPewoeaSpuxHLaHlCnvmn8CLefGOOtkhjuIo0=;
- b=SZSopVBN2Tkx1iHESO8n9cGZSY3XX6ZN1cUTxbiCfiIk9iE5oXubWnuYRJPgMWCzPJWM+98JNQGC76G5ZTFNOiHEyIW1XGk5wvzkM02sj/U2p+2kWww3a+3SlIPA73s9Vc9LTGNTyTA/1YVMHReY+ms5Vi257ncs+rCXAdI6VOtBaNWVoUq/o1JeNjhkSlsrwg/5Zy5ie5D2CXghMoyaR50kUtHa6OZFTBoTkyOMJPCs642GPA4scZKjN40gQvx54pnZ6Kt56avxVnLdrAtDXHf/OlqC7Fvmmq7RqCwI6ZZoL+1NhD/tvrAxCA7irYRGnsIYaw7wvTPmeImhts38Mg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rnRTR9KPewoeaSpuxHLaHlCnvmn8CLefGOOtkhjuIo0=;
- b=LgPyX1YgYIa0Ca0on0fm8oK0ZC1eVG/ah2bCpLJdIca5ur3Y25Hi2ZPmWxoBa0ZHPKPzrXboiTk7CqBadDoC0RLnfMEK/EbYgm6j0XKcavkaQBC3SMouWHML0GU2hiAAn4WGOnLo4vkbuP3SpDhuQ6QARSoyKCu1LL1yWv5LH5VWJ6xiu3dovATC7Gr/ylJbqU+OhPEzCblzgbvtU1iDqQw8lX6e2nEEHRBMz7foKcieLF1AnucvH2xocdWBExZWm0Ov3ekH7fiZ1+mHzjdTGmCMAP+GOD4Jct746e+42R+h2dPPRnY1GCWbk8zuXNeZ4shsfPSNmfI7PDw55lAO9g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by AS8PR04MB8357.eurprd04.prod.outlook.com (2603:10a6:20b:3f1::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.19; Fri, 6 Mar
- 2026 08:44:22 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64%4]) with mapi id 15.20.9678.017; Fri, 6 Mar 2026
- 08:44:22 +0000
-Message-ID: <1a3d466c-c1b5-49f1-a9ab-1c827e906e91@nxp.com>
-Date: Fri, 6 Mar 2026 16:45:25 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 8/9] arm64: dts: imx943-evk: Add display support using
- IT6263
-To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>, imx@lists.linux.dev,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260304-dcif-upstreaming-v8-0-bec5c047edd4@oss.nxp.com>
- <20260304-dcif-upstreaming-v8-8-bec5c047edd4@oss.nxp.com>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <20260304-dcif-upstreaming-v8-8-bec5c047edd4@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SG2PR04CA0156.apcprd04.prod.outlook.com (2603:1096:4::18)
- To AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+	Fri, 06 Mar 2026 08:45:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4008643AC3;
+	Fri,  6 Mar 2026 08:45:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A931C4CEF7;
+	Fri,  6 Mar 2026 08:45:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772786713;
+	bh=xDpS7E9mTWjhtIwUYMgTXCTt+wHEc1BFGf+VVsdD1lU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rJdame2/emJrCIivulXkdE3s+/btMsDNwil+GEaLS2cmx+2r7OiBel0Gj90oU5cB+
+	 6xDw/2eQLN23jsHPK7fAlz+f0y57K7a/D5jXI/NC7z+T6XXcocILfT1Ts3tBD+ZJko
+	 ijowZzmOH0J/KTi0mhp7R0IoYVJuRYKfHYQagnMrtnAmEEDuqlnZLwNjNSzee1+ngo
+	 3Fe0V0dBMskdTJH3QrCC7h0u7/410SAfpfGGb8gc05r0NfCEVl6P3zZEUZGCFQ1Knl
+	 RsL2PpPGpPUq0obgrUca5a/OiQiYS+E2Erxr0FwJSP/wxAtobVS3KafB+H7IrEKVXr
+	 w2woqcojCaFTw==
+Date: Fri, 6 Mar 2026 09:45:10 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Ray Jui <ray.jui@broadcom.com>
+Cc: Lee Yongjun <jun85566@gmail.com>, ulf.hansson@linaro.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, rjui@broadcom.com, 
+	sbranden@broadcom.com, bcm-kernel-feedback-list@broadcom.com, nsaenz@kernel.org, 
+	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: mmc: brcm,iproc-sdhci: allow dma-coherent
+ property
+Message-ID: <20260306-tactful-asparagus-cat-b77853@quoll>
+References: <20260305234703.38490-1-jun85566@gmail.com>
+ <CAJ8Y1dTJ5yNPP8BN46BfDdLAvuWxW+OrZ+P538Bp9+3_6XankA@mail.gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|AS8PR04MB8357:EE_
-X-MS-Office365-Filtering-Correlation-Id: d271bcb1-2f36-4f61-86cb-08de7b5c9074
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: suPOOSRtYsLMv38aoX+D79LGGtTVkwpYkPGYRJMyGgKVYGX3mDZfKQwVF6LFkQnJRpvfx/DRpGHjmBz9CU+OASLpHJnECNBbLGqwnENT6J7+2CrEiQD72YDgT8DeNSNbQDnCV8PBqSwphfDQzN8wd8757NS/1+63CFPmx3pNYcjHOWHoD2QylPOT0qGuxfmVaU4ZwQSMBBBsv8NjqmQGWvAanmlcR6Rf2S9YLdlGSE8UX0TizOCORUlboHc0f4js0q9MIeNDS9OF3ZH22d9jE6M0e9GXPPJDP/iWERalWF5NWRnHx8pMbyOU9YH41F8w928w9XvCWqwtFU/udI2rBdA7KwM3xNRtHUhFhb/2Fm/av8U2sDMhfwzBm5wz6X4TGJo5Cll85TnE3ao+hxKXBkWH4rrjOCoBBTt6Q0di0p4nHS1TIjtO2XiwCkIRQRWt6yhrGVTezd1U9gRRjco4+BaC77j2VZAAAUS6fTuzckeiM8jFtiAJHA/OtxxHlI/eGXUzsvuFs/GUgZye/DNeIi95eIlomNo9+B0J328zLGLn+WeZbD9oggxv+nuyrBC+RHjigXftRUQjokLsLQEpLO2+AVg7V5v3emQ3coPYDRDz9ULAE/JaovD2Fcoc1KoEGbeyLx4WUJLBk86G/4Weenit92WegbMHi0TpjXiYsNxkTXv99GDypJ1gkos87u5P68bR4X2QegW2JG+l60mUuF0HeH6QqHccmq/ZzvoQaro=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NTJCVzJ3Qkt2UFlmUGxxdkNXbFJ1Vk5ZeWhnUklsS3NXRGtRSWRuOUs3Yll2?=
- =?utf-8?B?SS9nTWQzWEZZM01TUEVSaEU4N21rYUZ5c2xvQk91ZlVtNDY0QzQvSG4ybTNl?=
- =?utf-8?B?ME01WVlxbk1xN3c1QjhrYjJoelVTWk8vUW9mdDBZLyt5clo3WGZ6b0ZDQUpD?=
- =?utf-8?B?M05BWTY2cVZ4OE9CNlJNeXRQOFl4QUl6L0ZwMzVmYWJmRGJaLzhVVEJBc2Rx?=
- =?utf-8?B?TENHa2lNQWFWWVhHWmE2ZFhHdEZUeDdZaFlYdllJZ0JRbVlHb2Z1WWRMWURR?=
- =?utf-8?B?L3JBbnVmVnNHaTNoV1VXT3pEMDJRc0pPck9vQUk1NVdxOFZNQlJMMDk2cTdz?=
- =?utf-8?B?ZytROVFxOTNOWlR2cy9BNjY4NUxuRHYwT3lBWi9iM3d1QTBJRzhHSG10L25S?=
- =?utf-8?B?eS9rVWlDdUpFTFVhLzkvanlYV3VXNTZaNGo5cFA4MVFaWXR1dlFXNDVXbWl6?=
- =?utf-8?B?UGxJME5WV3RVZ1pkZWEwcktHWWxZeTEwcnl5NWpKOWh0R21tZ0VFazFKeEIr?=
- =?utf-8?B?eVRFVGtrelRWRmFhU092MVlwVmgrZk5QTlVuSyt4cFhnZTRMQ1RHL2dSYWds?=
- =?utf-8?B?NndtTU9ucjJxQ2IrbU1pN3I5eHE1ZGJjcEJub2NoN2hrb05YNHMzSmJzQ3Ju?=
- =?utf-8?B?ZUUzZGY3dHN5Y2w5UkhwcEVCa3pPVEwzbjJzcFZYVmpkRFdXbHVGQ2sxVWt4?=
- =?utf-8?B?a0s1RlF3NTRaSW1VNzB1RGlYcTc5TXJJR05YYWI3UjJHeFpHSVFTRUJBWjEz?=
- =?utf-8?B?YjNyeXNlaktXZDNMNXhIMlp4U0VkdElydENEamJ4QTM5Qi9aRkt6RDBLRmNt?=
- =?utf-8?B?OC9BODU2MERNek9TNUNPNmozSjhxdHJtM2ZaNTlwU1hIaUxURDFPNDZxL3pn?=
- =?utf-8?B?U0lYRlFOK3dQbG9rYUZlWGJxQU1DRnN4Q2pVYmQ0MGc1cjRkNGl4MC85a040?=
- =?utf-8?B?elVrVGhDZWNnWmVrOEROcmgrVm1sNm1kOFFHekJqVUIzTnN4T2VERWJQVm5G?=
- =?utf-8?B?WjYyQkRDWCtqdm5NemRGMjZUeTUvVDBmL2dXYmJtdGZoU1hDZC90L2lXb3VR?=
- =?utf-8?B?UWphVjNGQXpEOFJyVE1xNUh3U3dRd1JKeXNzZWhWeWRZVFFhcFNROFFZTVVx?=
- =?utf-8?B?SVBuTjJXZTZDM3FKV1ZPTnRnRFFiMlJXWVI4OUU3UVo2UjdzZ3g1VTNiWEt2?=
- =?utf-8?B?TG1TSzJ4Ymt1UHBNaWpQZXI5NjE2RDM1SVFKK3VTb3ZSY0cvMkwzMnNkM0Jn?=
- =?utf-8?B?OFFlOEZXMExzVDVhajM5OTA0UHBsYUJJZEliNS9aRVl0N1Z5MldiemlaTDRN?=
- =?utf-8?B?cG5mdUo2MlMveTkzRzBWMlFzQVZqRGY2alcyZzZObFlwZ1JSR3N1UXAwRCtT?=
- =?utf-8?B?UHBoS3hBSGhJTkRzM2dRamRPT2JkQmxaWWpUWU5sVC81R0F5WnJWN0RWOWxv?=
- =?utf-8?B?UWticFFibUFvOEt4WTAwMWtoUncxazRieWxNNzU1ajd2LzVVWU1SMENUWjd0?=
- =?utf-8?B?R0VwRjIwSS9IcUx6cWsyY0JRT2ZGNmg5TXRvMy9HWndhV3ptUmtzZ2FCQU9y?=
- =?utf-8?B?WCtFbVhHUHhoNUdjTkRRQ3NnMjFBUWpjUVlWZEtvanB5NVZmdVMxN3N4dlY2?=
- =?utf-8?B?UDZXcnU3L3NMVS9tNTJ1K1NpQkkrM2NBMmpvalRwbFVRZlRCN2c4NEs4TUdE?=
- =?utf-8?B?cEJxUTZjYVoxUGFsL0dMZzNQOEwyUEhhVlVwcmZlOUhLN05CVHplU1M4UGs1?=
- =?utf-8?B?dzRsMlBJSS8rd3hicDRhZ0FZRjk5UHQ4YitMemVkTWNzelYzKzJ3Yy9CUG42?=
- =?utf-8?B?VUpIK3hqZm5nVGV0UE56bXRnam5QTmdob3ZVV1FKZGk1TGdXZWdpaFpWNVhs?=
- =?utf-8?B?OWU4MW9YbzBNc0JUOUc1M3p5RXU1OEhwMFQ5VkNQNkNxQWtCN3JmNmRxaUNp?=
- =?utf-8?B?NTJiSW5USENVR3poTWVGajdhSEc4dUtwUmxLb3BKTThoQWRoQnpOazEwalY0?=
- =?utf-8?B?SEpQSFZ3YWhTZDNmeTBFbU8vVGFUNTFGanBLL29IRzlFTG0xMm5nM2Z1WHJa?=
- =?utf-8?B?Zy9BbEk0VTZwc0dmTlBRTCs4WXVPUm5OcFA1RXhwQzdoQllUNWtkRWdVU1Zn?=
- =?utf-8?B?VDNRbXdJM0hlM0pjTUU2dWZDVmNVZG1TSjlPTHVpeHkwVjlBditxNDZQV3Bo?=
- =?utf-8?B?b2hmOWMxdXNwa21BbDYvVS9FV0lIZERScHdNcG42TXpVY1FCS0xzUlgya0hm?=
- =?utf-8?B?dnJQVmhBdlVudkNlaXUrTndCTDBlano3bWZFcGl3MFlKUTIxNllDc1BFb2E5?=
- =?utf-8?B?S2h0REdCamNpNzRsTUZsZW9kVk5wQm9oYnBqMkJMZzZvNnBiTUhBUT09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d271bcb1-2f36-4f61-86cb-08de7b5c9074
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 08:44:22.6669
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qJGwxQBz4n9/ulnbke63KTKMo4GwhDDbJZxy8KuJrjMcJGnb/e6pw+Oay3A36ZZ8o8dEWpnibnjEg6ya/tQL8Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8357
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <CAJ8Y1dTJ5yNPP8BN46BfDdLAvuWxW+OrZ+P538Bp9+3_6XankA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_004428_154372_7F0DF944 
-X-CRM114-Status: GOOD (  17.72  )
+X-CRM114-CacheID: sfid-20260306_004513_677754_746B00C1 
+X-CRM114-Status: GOOD (  18.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,145 +77,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 04, 2026 at 11:34:17AM +0000, Laurentiu Palcu wrote:
-> The ITE IT6263 based NXP LVDS to HDMI converter can be attached to the
-> i.MX943 EVK board LVDS port using the mini-SAS connector. Since this is
+On Thu, Mar 05, 2026 at 04:03:48PM -0800, Ray Jui wrote:
+> On Thu, Mar 5, 2026 at 3:47=E2=80=AFPM Lee Yongjun <jun85566@gmail.com> w=
+rote:
+>=20
+> > The Broadcom iProc SDHCI controller supports DMA, but its binding
+> > schema does not allow the 'dma-coherent' property.
+> >
+> > As a result, dtbs_check reports the following validation errors
+> > on the Northstar2 SoC:
+> >
+> >   mmc@66420000 (brcm,sdhci-iproc-cygnus): Unevaluated properties
+> >   are not allowed ('dma-coherent' was unexpected)
+> >   mmc@66430000 (brcm,sdhci-iproc-cygnus): Unevaluated properties
+> >   are not allowed ('dma-coherent' was unexpected)
+> >
+> > Allow the 'dma-coherent' property in the schema to fix the validation
+> > errors and accurately reflect the hardware capability.
+> >
+> > Signed-off-by: Lee Yongjun <jun85566@gmail.com>
+> > ---
+> >  Documentation/devicetree/bindings/mmc/brcm,iproc-sdhci.yaml | 2 ++
+> >  1 file changed, 2 insertions(+)
+> >
+> > diff --git a/Documentation/devicetree/bindings/mmc/brcm,iproc-sdhci.yaml
+> > b/Documentation/devicetree/bindings/mmc/brcm,iproc-sdhci.yaml
+> > index 2f63f2cdeb71..579e44843404 100644
+> > --- a/Documentation/devicetree/bindings/mmc/brcm,iproc-sdhci.yaml
+> > +++ b/Documentation/devicetree/bindings/mmc/brcm,iproc-sdhci.yaml
+> > @@ -38,6 +38,8 @@ properties:
+> >      type: boolean
+> >      description: Specifies that controller should use auto CMD12
+> >
+> > +  dma-coherent: true
+> > +
+> >
+>=20
+> Yeah for Broadcom iProc SDHCI on ARM64 platforms (including NS2), cache
+> coherent DMA is supported (as opposed to other 32-bit based ARM platforms=
+).
+>=20
+> Change looks good to me. Thanks!
 
-Since the LVDS to HDMI converter can be attached or detached to the EVK
-board, it would be appropriate to use a DT overlay instead?
+Just open the file before giving blanket reviews or how are you exactly
+reviewing without knowing what is there? This was already fixed and
+this patch is obviously wrong.
 
-> the default configuration for the EVK, add support for it here.
-> 
-> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx943-evk.dts | 86 ++++++++++++++++++++++++++++
->  1 file changed, 86 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> index c8ceabe3d9239..0b69450566159 100644
-> --- a/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> @@ -55,6 +55,36 @@ dmic: dmic {
->  		#sound-dai-cells = <0>;
->  	};
->  
-> +	hdmi-connector {
-> +		compatible = "hdmi-connector";
-> +		label = "hdmi";
-> +		type = "a";
-> +
-> +		port {
-> +			hdmi_connector_in: endpoint {
-> +				remote-endpoint = <&it6263_out>;
-> +			};
-> +		};
-> +	};
-> +
-> +	reg_1v8_ext: regulator-1v8-ext {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "1V8_EXT";
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-max-microvolt = <1800000>;
-> +		regulator-boot-on;
-> +		regulator-always-on;
-> +	};
-> +
-> +	reg_3v3_ext: regulator-3v3-ext {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "3V3_EXT";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-boot-on;
-> +		regulator-always-on;
-> +	};
-> +
->  	reg_m2_pwr: regulator-m2-pwr {
->  		compatible = "regulator-fixed";
->  		regulator-name = "M.2-power";
-> @@ -179,6 +209,10 @@ memory@80000000 {
->  	};
->  };
->  
-> +&dcif {
-> +	status = "okay";
-> +};
-> +
->  &enetc1 {
->  	clocks = <&scmi_clk IMX94_CLK_MAC4>;
->  	clock-names = "ref";
-> @@ -217,6 +251,21 @@ &flexcan4 {
->  	status = "okay";
->  };
->  
-> +&ldb {
-> +	assigned-clocks = <&scmi_clk IMX94_CLK_LDBPLL_VCO>,
-> +			  <&scmi_clk IMX94_CLK_LDBPLL>;
-> +	assigned-clock-rates = <4158000000>, <1039500000>;
-> +	status = "okay";
-> +
-> +	ports {
-> +		port@1 {
-> +			lvds_out: endpoint {
-> +				remote-endpoint = <&it6263_in>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
->  &lpi2c3 {
->  	clock-frequency = <400000>;
->  	pinctrl-0 = <&pinctrl_lpi2c3>;
-> @@ -258,6 +307,43 @@ i2c@3 {
->  			reg = <3>;
->  			#address-cells = <1>;
->  			#size-cells = <0>;
-> +
-> +			lvds-to-hdmi-bridge@4c {
+Best regards,
+Krzysztof
 
-Maybe, change the node name to be "hdmi" to align with the nodes in
-imx8mp-evk-lvds{0,1}-imx-lvds-hdmi-common.dtsi.
-
-> +				compatible = "ite,it6263";
-> +				reg = <0x4c>;
-> +				data-mapping = "jeida-24";
-> +				reset-gpios = <&pcal6416_i2c3_u171 8 GPIO_ACTIVE_HIGH>;
-> +				ivdd-supply = <&reg_1v8_ext>;
-> +				ovdd-supply = <&reg_3v3_ext>;
-> +				txavcc18-supply = <&reg_1v8_ext>;
-> +				txavcc33-supply = <&reg_3v3_ext>;
-> +				pvcc1-supply = <&reg_1v8_ext>;
-> +				pvcc2-supply = <&reg_1v8_ext>;
-> +				avcc-supply = <&reg_3v3_ext>;
-> +				anvdd-supply = <&reg_1v8_ext>;
-> +				apvdd-supply = <&reg_1v8_ext>;
-> +
-> +				ports {
-> +					#address-cells = <1>;
-> +					#size-cells = <0>;
-> +
-> +					port@0 {
-> +						reg = <0>;
-> +
-> +						it6263_in: endpoint {
-> +							remote-endpoint = <&lvds_out>;
-> +						};
-> +					};
-> +
-> +					port@2 {
-> +						reg = <2>;
-> +
-> +						it6263_out: endpoint {
-> +							remote-endpoint = <&hdmi_connector_in>;
-> +						};
-> +					};
-> +				};
-> +			};
->  		};
->  
->  		i2c@4 {
-> 
-
--- 
-Regards,
-Liu Ying
 
