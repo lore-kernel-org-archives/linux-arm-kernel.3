@@ -4,138 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9389DF0180E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 08:51:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 234A7F01812
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 08:58:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oYcOFjQuZduWtNNbR5S9+8Q/AcT3kTPe/1jB6KlX3e0=; b=CJANkLEGvn5HrCS0j1cMxWT4QD
-	CQzcR0y9KNwYGiey5TIxna0Oj/D1c01Yr5Xda8H6Ah0XGP0LQHS/HhXb3o1ldu0YJlMjjxrnuS0q5
-	/rj8kznxSAsebKfDMGhVFr/hyX4JhNy2+k6IqHf2ZBbz+aOZndw6LDI+7VroIGyzgPpQCu5jXnvTV
-	jVhvzCiHluhFWHYU5mIuUGITiCiPqwv1U1wrY2Fl8U2cw0sQlNcoakS3HtpQ5fxaz0KsjVasQuiz0
-	BUl+BwpeqjnWwU0/sVbZXvdrdwA2u77FDUwXuFGKmQxJDska76yYk6OY66jIUcc11hF8rLkjA7CPB
-	wq/8YEPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yi5utj0VkHiYl9//1i2hhjQIWgRw7Dr/IOKczfuhQ38=; b=SlGO73z1v1757CBwmPnNZIjkhR
+	vTbz0zftvcLcx9o6QYB5ga1kuiWMPo7dV/+rl+r9OYs8OD2sqGtGJeFWYvaH8L70GfgBOjBP17Pd4
+	ynk0mrm5/S0woKVsOv+4EYEU4oDmR6sSWcJdTWRF7c4osy3lJV3fzEBXW441IGggVDPUCDqZDbEKp
+	yds5cdqcdNcH7tHvUGV9e2f8N83DOTFnX/PpD4LMHaU2NtGtZrrY1IVjiNcMYdqaBk4PTfnGAG5l9
+	tXZUG7I+KQuJBoSkshuDrzAuhVDIkwdVAh7wGLLnTacMKpDicHzIa+P/EC+SF4sAFSAcqsiFV7a7B
+	4gA+NQgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyQtz-00000003I1Y-3XOn;
-	Fri, 06 Mar 2026 08:51:19 +0000
-Received: from mail-westeuropeazon11013002.outbound.protection.outlook.com ([52.101.72.2] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1vyR0R-00000003JID-0gmk;
+	Fri, 06 Mar 2026 08:57:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyQtx-00000003HyS-3TuQ;
-	Fri, 06 Mar 2026 08:51:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jZDvN9Ii8fwvVXdycWQnbDpQiwxhXKJeFNe78bcceIGvMhpD94sB5wZWjeVQK6vlrMJjAOxSKiiLIIjsFya3HdhQgXkvXJzmh5wnpSmbwNEjnXndWOKlXXsOWHgcm7sqmRPl69bouvi3iPqPtMVtqPA7AjXFf3H7Mhb+e5DL+ncb1SeSCl0BTTbf5NSbHUni327w6SsJJ7UWbyhV9vIk98D8HGseN2CLrBTBGy6Lq3uVrVJWd2Ap5LO4KfWczy0GbXyhLlNxTD6K7ClN828CLlcwFyccwvx/YxW+EVlLa0m2LDk7NZcnSC00dQ7u5nlCmKz36JXZcE/2uN2KqXJmGg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oYcOFjQuZduWtNNbR5S9+8Q/AcT3kTPe/1jB6KlX3e0=;
- b=RXMuE6so6vMXgsOs0MrFnZSH55ViMREGt2ue/OyVCkAb90eZPR7tGO8KPC7BAONejsJHlkwbLozUzIwj+7BmjksrBrDoVFm/GcYIUmpHYaqT0nR0pqJK4OwwSKBoIDh7juaVHizW7t2QEKdAyBkkZh7YLi5wWAPLbsGMIdbr55xTCOIexlPNbpNt1gOjFZPViC/VdH6AbrIh120Yd1RPXvWvV1ypcfqAIPqr+lz6pfrAM9MHALiXDAElyqYugOhGt6o3SgUyo2XYbAMOMgY4RCB4/LZ9UIce9TTcTq3cmIUZfPfKsWPjag6aIN0Ccngqqy/CN8p58P5pqsSDhIHR0Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oYcOFjQuZduWtNNbR5S9+8Q/AcT3kTPe/1jB6KlX3e0=;
- b=cFlgQSUHXJ19BsgaVsFofRCuQhWsIy6jOo8PX/5YzWTBHdK5uqnVOwRqRpeD63trAMU6/LVtNu0CRWHqd83KYxNN2ZF47HS9CqZGwBPzJrjRmP/wwU+z68eruRD0izuRnqVnCXI5vc+DXCfbmDq4h0JRRY6ynbzz1AShmmEXw2NsItlGkFioC8W3tpIG+L/WOEG9DncxtVDbf2mmgnMFUUVLstxFqu1O4eLL6y7neOMqQ1BpZ4Dt+HcopUg5zTzLUjXJ99iajDtvygGImHZNPzcEIRqLF5AeSqIo7GLbWyPW0WEYdvzjllatmlexRjxGE8Goyf2+z3HGwyK7NK+mvg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8420.eurprd04.prod.outlook.com (2603:10a6:20b:3fd::16)
- by DB9PR04MB8122.eurprd04.prod.outlook.com (2603:10a6:10:25d::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.17; Fri, 6 Mar
- 2026 08:51:14 +0000
-Received: from AS8PR04MB8420.eurprd04.prod.outlook.com
- ([fe80::3f0f:857:96a5:17f]) by AS8PR04MB8420.eurprd04.prod.outlook.com
- ([fe80::3f0f:857:96a5:17f%3]) with mapi id 15.20.9678.017; Fri, 6 Mar 2026
- 08:51:14 +0000
-From: Zhipeng Wang <zhipeng.wang_1@nxp.com>
-To: daniel.lezcano@linaro.org,
-	tglx@kernel.org
-Cc: shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	chun-hung.wu@mediatek.com,
-	walter.chang@mediatek.com,
-	jstultz@google.com,
-	amergnat@baylibre.com,
-	aisheng.dong@nxp.com,
-	jindong.yue@nxp.com,
-	xuegang.liu@nxp.com
-Subject: [PATCH v5 4/4] clocksource/drivers/imx-tpm: Support building imx-tpm driver as module
-Date: Fri,  6 Mar 2026 17:50:21 +0900
-Message-Id: <20260306085021.1231032-5-zhipeng.wang_1@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260306085021.1231032-1-zhipeng.wang_1@nxp.com>
-References: <20260306085021.1231032-1-zhipeng.wang_1@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR06CA0002.apcprd06.prod.outlook.com
- (2603:1096:4:186::10) To AS8PR04MB8420.eurprd04.prod.outlook.com
- (2603:10a6:20b:3fd::16)
+	id 1vyR0Q-00000003JI3-0SL7
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Mar 2026 08:57:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C69636012B;
+	Fri,  6 Mar 2026 08:57:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6518CC19425;
+	Fri,  6 Mar 2026 08:57:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772787475;
+	bh=83o4Me6So3lEG2vi0PcYD2aOl1HkS7WlUbaRJqiwFSQ=;
+	h=From:Date:Subject:To:Cc:From;
+	b=uNW7PKwmWVRqMZd6RyvLsNnIT9RzDevJHKWNCSdl33+BrawmO3jMy4BiQYbCkOgot
+	 6F23u5QB3NSr8X5VwJz1tgP2QCBMuEq6mJwHwQMYbAMyvMamBQhQe/fAu/rzXzHdJp
+	 fLVWmg7L8AxlLlO3tKJ8aPe14nr99OMux3DNxl1PYQrsKkf0WOfxmX0hlXvh3RzwCA
+	 +DW6PVT4iXVH3CcPAl3tqwJL7UDryV5UcXQvUKx4aZM0ch5iwLzAyxV5+GssxSYPfX
+	 9K4IZyT3BQOzQHZ1Uc1suB7HeHYvF9668BnMQKl5oBEbw0J0Mh9wAoL2pyCx6R7lwP
+	 BqgQkXyW4QyMA==
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 06 Mar 2026 09:57:50 +0100
+Subject: [PATCH] arm64: clear_page[s] using memset
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8420:EE_|DB9PR04MB8122:EE_
-X-MS-Office365-Filtering-Correlation-Id: 24f1dc47-0307-4a87-8434-08de7b5d85b4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|52116014|366016|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: krziZQ1xWgZKf3cqfjK5YzoWQS8ZDse51RWGLG15Meht/Ov3Ufpt9XXaA5TCvdfRFZ4UCyfcGNBNf/aWHuAHeVLbWegGd5s+/ug9mjkiorjlvq3xsvS/2/923Doo4sYjNvqHR+b4miLI5ooojgkZCm928FyGI31UurLKQbRnCA3ErFCVWslWdcXDQm1NaLYU5gsLaN7XjlENFpKerSPIvhIZ5ycB7Uv97S/zmbznyMJgmHfm3htXrxE0bMzcOlPtmt5TCyLJ5MTABEM4tPjQ/jrLhp0Xk3oGbbRHpg5qFsh2aXVTBIHQ7ETOW+KQ4gWahpIOwYYAEeh28ZC1eEP/RHTSCZKwqy1DriTacGaz89v7/xh+VQUcC0LTkVFLiFPHqeInecocGkACl6tp1SwBJouLYfNuBZIP0LRQYvwTnn3ZtBwKz+NtVikaWLeDLwEQHr/UBeBQ8CGxRUi8E+HCuw2kkMKzpuevP7RkmNzLDdsI2TKmFDw0ejAnIaz+N4/gb0Z/FXRpcX7GglSbKd3uA/vdFUGWswAULtjOsLF7ynfFawBN0oepwX5DBKjMi7fJqbcShnB7mmsfBiWTvdN4/3QJ9pT2x0fHwy2qLFgtyVd4qaGrdoBw8MxkJD4u1H24SBCd1sBlFakiprWp+InZz0xo4XwpUGEGMsCvoJNXor8EZPRJAolli1xGOoZAq6qKtoYaZstqfX9Ulm4v+Jtp12MvURm+zGEhkH9heyO/K6Ms9ikjfvAjdzrvDD5RoA8fqlZuruWKHVaW8gWUiyYBnguQJGsmyLqqbO5BM9PL2TE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8420.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(52116014)(366016)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?lA1aXshtVI76QvT+JNelQkFa7Q3gw/mwpUknf+6DVVox1V0zPm9g8tjtOXZt?=
- =?us-ascii?Q?VXJx7KpNw+kdoeEQ9Td6XyL6v+mCOBN5L73DplIaY99az+LTvwC8lgcJV3lg?=
- =?us-ascii?Q?EfHCNpIuSPxr1nXFu2UMfJBCoQq+SL6uKjoNB18bn1/yf1Q1ZnMy7Ma6ics/?=
- =?us-ascii?Q?9yRrZa8SE8H+aOhn1eETKs3Z/A7EQICNYB3G4qxT/aur0o39PQAGcjkoRIN6?=
- =?us-ascii?Q?WETsLsal/mS17K4KyDmFoShXyKrbxzoq3x5x4VAIrAXSBb0HO7NLn6bieqJT?=
- =?us-ascii?Q?CxeghXVe7VZfwYaqATPg7pb96C60/+ALuA722N1wruSu+vUvh8P3G6Fuf2I8?=
- =?us-ascii?Q?78DjMXO7a8JLV8CPLgE49BVdLZ3B7FdAkF7x04e2CejH1PxnjC0HblxX+SJx?=
- =?us-ascii?Q?0J6Jj9g2okNDdsdyRvsr1H2cUfSg9A0qOT7OHMnFqAVOTb+1kJbPCLzcaZtV?=
- =?us-ascii?Q?WfLey6aWLX4YuLz1FVnDJiG5ZcmULa2cOMtTSa9epRSg8g7B/uQ6+JxGg3QI?=
- =?us-ascii?Q?MbmclkV7nyjgVfc1LxAQwZLLf6W62hGwMeIrSgY4mTR5ObsYLQRVuqT0vvTr?=
- =?us-ascii?Q?r6r3JdsgOD7JCp6tdGR3wOvPO5nFwu5K/6To3u4V3IHorFssNXB/abwZfamc?=
- =?us-ascii?Q?mClCY7V3AMDzx/nl+VNvatzXymv5Scp2kn9ehvyHM9fFxcbWv4uQqz5KCxWY?=
- =?us-ascii?Q?rQn4fbJRevjrnuu3ANmr5PdCROLipzfNZlIIlp7JLuR9XzGKD/ceeZ26hJqi?=
- =?us-ascii?Q?AolWu0Alg4OohTQ+ip12crm9QVTHHV6f4KRn5MM95VgRwp7V5w8lT+HZ1kr6?=
- =?us-ascii?Q?8wVp8SiwYXR0lV7ln6l4eMvD1duBCcuv6B+HhalKwjB5bEn/t7UvUMaKCjRZ?=
- =?us-ascii?Q?LBMyG6zWH1Tf38yZR21kd8ZcYRYDNVnkiY2LVe7+Ac5PYe5N6vU+j72e19MQ?=
- =?us-ascii?Q?0yBT+SYagXQemI56gYIEbXOrg/NtG542EWDtDqJb90PDHfl3ztedrhuvLYHv?=
- =?us-ascii?Q?wFyr8nTKLYZcJECwiZM8G+Q1A2xyyzhaUluwes+bWkHGMjdoajshhxC3ejk0?=
- =?us-ascii?Q?yTZiymDtTo6An8H7ELYEHSLogsVYR1YyP33czWA1M2XAgizgw1E5rLETgwYG?=
- =?us-ascii?Q?8HrF7ZiLs5F/TNWr5gJTCvY/n76kh6haQnEJXP8g1sItuzOiDkNgrJdJ41wx?=
- =?us-ascii?Q?GwP3iIafkbyRkZKvL4YFX9SiVFbJKgrxYbzKFkxRtzhONDORcOpAq66/+0Ys?=
- =?us-ascii?Q?Vi+l4G977/Lx5U4/wZ6B1WxfG2hirHaNb8PN5DlSUm/2D5epCWF87/6OvGqN?=
- =?us-ascii?Q?B/DJZLFrj2PKwdfok07JDR2nauP6bHiuzHlB7bRqd/C/ZCzCam82H4H92ada?=
- =?us-ascii?Q?usCqwdIWSlNp0Jot4R3x5If1R0wgA0JMdVY8P9E/vzjTSaPhT0L1bac5Apn0?=
- =?us-ascii?Q?E3WtOe1I9tO9EZ6W9CkQvD19Hoh4hl/G7XEQu2SDocqAh8ucU2g3AfGBfzPi?=
- =?us-ascii?Q?+6xzgOdIOJsB3KyWwY9l8N4zfnKDBJoaLHE8gHU7gt4BML4MVQtpzoZNBDS2?=
- =?us-ascii?Q?11DPGTClPgdkKDtxw6nvQ9QmlAW63f1eWVbdBg0UXXIHaYkmsV/cUIyCkZHQ?=
- =?us-ascii?Q?FADMry6V7h2YYXJ7yWH87v1kAwDfjFV6DyRP7WH0o9ULBsPexwQA8iE8b5tt?=
- =?us-ascii?Q?Eml8lMa/m0xcReHZrP/wCqoO5LUBg2Dasfjjy66jANaIOl61jPuC/+MiudjR?=
- =?us-ascii?Q?5THUeFtqIQ=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 24f1dc47-0307-4a87-8434-08de7b5d85b4
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8420.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 08:51:14.1034
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Uhy4bMNGYdAglwk2cJVJ/HaYDwCs6Tq/smgMdsiJtymQhCA7xgGW2Ybq2i34IxwPg+sSloKmLdJVocTiHCFAzA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8122
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_005117_880657_6CF326D4 
-X-CRM114-Status: GOOD (  17.97  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260306-aarch64-clear-pages-c-v1-1-77c1bb0f1c21@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MwQpAQBCA4VfRnE0ti/AqcpjG2J0Smi0peXeb4
+ 3f4/weSmEqCsXjA5NKkx55RlQVwpD0I6pINtas7512LRMaxa5A3IcOTgiRkbAe3kAw9e+8ht6f
+ Jqvf/neb3/QBDeSyuZwAAAA==
+X-Change-ID: 20260305-aarch64-clear-pages-c-590dae98c333
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+ Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ Linus Walleij <linusw@kernel.org>
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,117 +75,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jindong Yue <jindong.yue@nxp.com>
+There is no need to try to second-guess the compiler when
+clearing memory. Just call memset() like everyone else.
 
-Change defconfig as tristate type and add platform driver
-to support building it as a module.
+Since memset() already has an architecture-local MOPS
+optimization, we do not need to do anything else to preserve
+the MOPS optimization.
 
-Signed-off-by: Jindong Yue <jindong.yue@nxp.com>
-Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+While at it, implement the shorthand for directly calling
+the new prototype clear_pages() for larger page chunks.
+
+No performance regressions can be seen, the fastpath
+benchmarks differences are in the noise.
+
+Suggested-by: Will Deacon <will@kernel.org>
+Link: https://lore.kernel.org/linux-arm-kernel/20260303-aarch64-clear-pages-v1-1-ad0c3ee9a555@kernel.org/
+Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- drivers/clocksource/Kconfig         |  2 +-
- drivers/clocksource/timer-imx-tpm.c | 40 +++++++++++++++++++++++++----
- 2 files changed, 36 insertions(+), 6 deletions(-)
+ arch/arm64/include/asm/page.h    | 13 +++++++++-
+ arch/arm64/kernel/image-vars.h   |  1 -
+ arch/arm64/kvm/hyp/nvhe/Makefile |  2 +-
+ arch/arm64/lib/Makefile          |  2 +-
+ arch/arm64/lib/clear_page.S      | 53 ----------------------------------------
+ 5 files changed, 14 insertions(+), 57 deletions(-)
 
-diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
-index 2112efb85029..1ba3e9bca3db 100644
---- a/drivers/clocksource/Kconfig
-+++ b/drivers/clocksource/Kconfig
-@@ -613,7 +613,7 @@ config CLKSRC_IMX_GPT
- 	select CLKSRC_MMIO
+diff --git a/arch/arm64/include/asm/page.h b/arch/arm64/include/asm/page.h
+index b39cc1127e1f..d6ae2e53bf4a 100644
+--- a/arch/arm64/include/asm/page.h
++++ b/arch/arm64/include/asm/page.h
+@@ -13,6 +13,7 @@
+ #ifndef __ASSEMBLER__
  
- config CLKSRC_IMX_TPM
--	bool "Clocksource using i.MX TPM" if COMPILE_TEST
-+	tristate "Clocksource using i.MX TPM"
- 	depends on (ARM || ARM64) && HAVE_CLK
- 	select CLKSRC_MMIO
- 	select TIMER_OF
-diff --git a/drivers/clocksource/timer-imx-tpm.c b/drivers/clocksource/timer-imx-tpm.c
-index 92c025b70eb6..1d593b6f0c37 100644
---- a/drivers/clocksource/timer-imx-tpm.c
-+++ b/drivers/clocksource/timer-imx-tpm.c
-@@ -8,6 +8,8 @@
- #include <linux/clocksource.h>
- #include <linux/delay.h>
- #include <linux/interrupt.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
- #include <linux/sched_clock.h>
+ #include <linux/personality.h> /* for READ_IMPLIES_EXEC */
++#include <linux/string.h> /* for memset() */
+ #include <linux/types.h> /* for gfp_t */
+ #include <asm/pgtable-types.h>
  
- #include "timer-of.h"
-@@ -66,7 +68,7 @@ static inline unsigned long tpm_read_counter(void)
- 	return readl(timer_base + TPM_CNT);
- }
+@@ -20,7 +21,17 @@ struct page;
+ struct vm_area_struct;
  
--#if defined(CONFIG_ARM)
-+#if defined(CONFIG_ARM) && !defined(MODULE)
- static struct delay_timer tpm_delay_timer;
- 
- static unsigned long tpm_read_current_timer(void)
-@@ -152,9 +154,9 @@ static struct timer_of to_tpm = {
- 	},
- };
- 
--static int __init tpm_clocksource_init(void)
-+static int tpm_clocksource_init(void)
- {
--#if defined(CONFIG_ARM)
-+#if defined(CONFIG_ARM) && !defined(MODULE)
- 	tpm_delay_timer.read_current_timer = &tpm_read_current_timer;
- 	tpm_delay_timer.freq = timer_of_rate(&to_tpm) >> 3;
- 	register_current_timer_delay(&tpm_delay_timer);
-@@ -171,7 +173,7 @@ static int __init tpm_clocksource_init(void)
- 				     clocksource_mmio_readl_up);
- }
- 
--static void __init tpm_clockevent_init(void)
-+static void tpm_clockevent_init(void)
- {
- 	clockevents_config_and_register(&to_tpm.clkevt,
- 					timer_of_rate(&to_tpm) >> 3,
-@@ -180,7 +182,7 @@ static void __init tpm_clockevent_init(void)
- 					1));
- }
- 
--static int __init tpm_timer_init(struct device_node *np)
-+static int tpm_timer_init(struct device_node *np)
- {
- 	struct clk *ipg;
- 	int ret;
-@@ -241,4 +243,32 @@ static int __init tpm_timer_init(struct device_node *np)
- 
- 	return tpm_clocksource_init();
- }
-+#ifdef MODULE
-+static int tpm_timer_probe(struct platform_device *pdev)
+ extern void copy_page(void *to, const void *from);
+-extern void clear_page(void *to);
++
++static inline void clear_pages(void *addr, unsigned int npages)
 +{
-+	struct device_node *np = pdev->dev.of_node;
-+
-+	return tpm_timer_init(np);
++	memset(addr, 0, npages * PAGE_SIZE);
 +}
++#define clear_pages clear_pages
 +
-+static const struct of_device_id tpm_timer_match_table[] = {
-+	{ .compatible = "fsl,imx7ulp-tpm" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, tpm_timer_match_table);
-+
-+static struct platform_driver tpm_timer_driver = {
-+	.probe		= tpm_timer_probe,
-+	.driver		= {
-+		.name	= "tpm-timer",
-+		.of_match_table = tpm_timer_match_table,
-+	},
-+};
-+module_platform_driver(tpm_timer_driver);
-+
-+#else
- TIMER_OF_DECLARE(imx7ulp, "fsl,imx7ulp-tpm", tpm_timer_init);
-+#endif
-+
-+MODULE_DESCRIPTION("i.MX TPM Timer Driver");
-+MODULE_LICENSE("GPL");
++static inline void clear_page(void *addr)
++{
++	clear_pages(addr, 1);
++}
+ 
+ void copy_user_highpage(struct page *to, struct page *from,
+ 			unsigned long vaddr, struct vm_area_struct *vma);
+diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
+index d7b0d12b1015..7890454d595d 100644
+--- a/arch/arm64/kernel/image-vars.h
++++ b/arch/arm64/kernel/image-vars.h
+@@ -117,7 +117,6 @@ KVM_NVHE_ALIAS(__start___kvm_ex_table);
+ KVM_NVHE_ALIAS(__stop___kvm_ex_table);
+ 
+ /* Position-independent library routines */
+-KVM_NVHE_ALIAS_HYP(clear_page, __pi_clear_page);
+ KVM_NVHE_ALIAS_HYP(copy_page, __pi_copy_page);
+ KVM_NVHE_ALIAS_HYP(memcpy, __pi_memcpy);
+ KVM_NVHE_ALIAS_HYP(memset, __pi_memset);
+diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
+index a244ec25f8c5..4d7f3faf1da2 100644
+--- a/arch/arm64/kvm/hyp/nvhe/Makefile
++++ b/arch/arm64/kvm/hyp/nvhe/Makefile
+@@ -17,7 +17,7 @@ ccflags-y += -fno-stack-protector	\
+ hostprogs := gen-hyprel
+ HOST_EXTRACFLAGS += -I$(objtree)/include
+ 
+-lib-objs := clear_page.o copy_page.o memcpy.o memset.o
++lib-objs := copy_page.o memcpy.o memset.o
+ lib-objs := $(addprefix ../../../lib/, $(lib-objs))
+ 
+ CFLAGS_switch.nvhe.o += -Wno-override-init
+diff --git a/arch/arm64/lib/Makefile b/arch/arm64/lib/Makefile
+index 633e5223d944..1840e417dd9a 100644
+--- a/arch/arm64/lib/Makefile
++++ b/arch/arm64/lib/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ lib-y		:= clear_user.o delay.o copy_from_user.o		\
+ 		   copy_to_user.o copy_page.o				\
+-		   clear_page.o csum.o insn.o memchr.o memcpy.o		\
++		   csum.o insn.o memchr.o memcpy.o			\
+ 		   memset.o memcmp.o strcmp.o strncmp.o strlen.o	\
+ 		   strnlen.o strchr.o strrchr.o tishift.o
+ 
+diff --git a/arch/arm64/lib/clear_page.S b/arch/arm64/lib/clear_page.S
+deleted file mode 100644
+index bd6f7d5eb6eb..000000000000
+--- a/arch/arm64/lib/clear_page.S
++++ /dev/null
+@@ -1,53 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0-only */
+-/*
+- * Copyright (C) 2012 ARM Ltd.
+- */
+-
+-#include <linux/linkage.h>
+-#include <linux/const.h>
+-#include <asm/assembler.h>
+-#include <asm/page.h>
+-
+-/*
+- * Clear page @dest
+- *
+- * Parameters:
+- *	x0 - dest
+- */
+-SYM_FUNC_START(__pi_clear_page)
+-#ifdef CONFIG_AS_HAS_MOPS
+-	.arch_extension mops
+-alternative_if_not ARM64_HAS_MOPS
+-	b	.Lno_mops
+-alternative_else_nop_endif
+-
+-	mov	x1, #PAGE_SIZE
+-	setpn	[x0]!, x1!, xzr
+-	setmn	[x0]!, x1!, xzr
+-	seten	[x0]!, x1!, xzr
+-	ret
+-.Lno_mops:
+-#endif
+-	mrs	x1, dczid_el0
+-	tbnz	x1, #4, 2f	/* Branch if DC ZVA is prohibited */
+-	and	w1, w1, #0xf
+-	mov	x2, #4
+-	lsl	x1, x2, x1
+-
+-1:	dc	zva, x0
+-	add	x0, x0, x1
+-	tst	x0, #(PAGE_SIZE - 1)
+-	b.ne	1b
+-	ret
+-
+-2:	stnp	xzr, xzr, [x0]
+-	stnp	xzr, xzr, [x0, #16]
+-	stnp	xzr, xzr, [x0, #32]
+-	stnp	xzr, xzr, [x0, #48]
+-	add	x0, x0, #64
+-	tst	x0, #(PAGE_SIZE - 1)
+-	b.ne	2b
+-	ret
+-SYM_FUNC_END(__pi_clear_page)
+-SYM_FUNC_ALIAS(clear_page, __pi_clear_page)
+-EXPORT_SYMBOL(clear_page)
+
+---
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+change-id: 20260305-aarch64-clear-pages-c-590dae98c333
+
+Best regards,
 -- 
-2.34.1
+Linus Walleij <linusw@kernel.org>
 
 
