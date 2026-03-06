@@ -4,71 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95F4BFC9EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 23:46:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90AF1FC9EC3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 23:48:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V4xsdr2SOXxaVwr7h1gBMDOwXdTrlnqc/oGBb97215A=; b=LhH5ZYp07QDQt5l8bfv2N4wKnF
-	/CsI1+7oNfYgmS7x6kstdYhAqZfJT9duqOSwohwiCPf1QSlZHJphxpvaC4U36Xc7um+r+rVvhXucz
-	uQkGfZOM/bWbKpnr2nEK/LQslm6AGskpSazGarDbc7r6I/UUhM1GZ6dLAPOEE+XnW9pAi/iwclGoF
-	kVxt7riW5ABzJ+pMQb5UAlNZ3GRiq08yM7dcnZtJ4PoEf5mMgTA0fHMOrd7sDqmGZIaI85FkWBwDu
-	o2pTYH8Ynxni/Ou2+No+FO0dzrShpP8itA97b5kT8Danv6db+E+nU+zLNwwabaRr4Fe2IxVre+eCr
-	lBZFD9AQ==;
+	bh=+EuyHHVP1ezysh+DOMChYpQ6YLA93nDMuTUQuNAbUKI=; b=wFobHbGopdxnMavgS5EJIgv3+y
+	Jg3aZa3mJKXu8Zh6jRK9N0MbYVqqcg5836v/CzV4N286AXAvTHH9IvRxSuYhLCpthK+8cX5vyDN4C
+	2Vu2VtQ/NUJL9Y+BLePzMuuhbBIKlAMbULJo23U8/xjkAl1eWpVAJbxZQwWToLXVANTopF6bfj6Af
+	coP/ha315qdC8Xq1h8zMeFjk87nPVwI0GdxIhNRW0UOy/VqbR4MkgDJoIcTAnBI4L+J9bk2Cdu4vv
+	615AWau8s1f8Fe4UpnRTj3W4zWpLA0sN7Sf4WUzocVYfwFsV01oSc2zohidM5kFbDYqO05tvM/YKT
+	1+yA0F1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyesM-00000004fzY-2k1D;
-	Fri, 06 Mar 2026 23:46:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vyeuO-00000004gCw-1CKZ;
+	Fri, 06 Mar 2026 23:48:40 +0000
+Received: from terminus.zytor.com ([2607:7c80:54:3::136] helo=mail.zytor.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyesL-00000004fyt-26HI
+	id 1vyeuK-00000004gCK-0ze8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 23:46:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9190760053
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  6 Mar 2026 23:46:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4602BC2BCAF
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  6 Mar 2026 23:46:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772840792;
-	bh=V4xsdr2SOXxaVwr7h1gBMDOwXdTrlnqc/oGBb97215A=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=l0h7AZaluenLH656OAETKKyXCSFDSTj1tVnm4Hh15YNg3sXwVkLgjEjOCluh82ZP8
-	 WnNLYMQrH+UNS/E4LG7GDj7njbm+ewuTqyP4n1aQ/FQUyKuRxhCwFJd5T+0+rH0/M+
-	 WE2FTfs8G3AQ3yDB2BN4ZKRG6aAbgMxA+0/SKY+ujFHAmkYUDXJM1glAhTzjMnif+3
-	 lQMaoPrbqwlFvGxEmEb5oFMHErrhTGp9O8lKfDglBdkELxhjYLssUsulAj2Flr31Hc
-	 aygTJrpLYYnQiEyXYuf7iUhBzcHLfLuoHnrEuQyxl9T841UuftX9biKXgGPqDrIBw2
-	 DDLwUY8eCjERQ==
-Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-b940a00415cso341798666b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 15:46:32 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCW8tv+RLJIJHP8L7ztgfzfjKxhT4V/tO4D1oYJAt5H7eJWBSYrWzkdbcK2OsogJTxO++ocrcQPWpG7K+VGTPYnI@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVt082NHLiJDGCPyi+PPq9RVFLVnuMYS8/NoURCeArq0+dTfrW
-	+mGoZm82eKnfKNkwu/KRvI+p3gPfnUn1IGSYVx6WYtvt/e64OMg8FHtWtJ9o2HbH97RTF2wORae
-	+ARWaTSUgelDzcziKbW2ZAcpLapaa3A==
-X-Received: by 2002:a17:907:3f20:b0:b73:8639:cd96 with SMTP id
- a640c23a62f3a-b942dbdfbd6mr216720866b.24.1772840790779; Fri, 06 Mar 2026
- 15:46:30 -0800 (PST)
+	Fri, 06 Mar 2026 23:48:39 +0000
+Received: from [172.27.2.41] (c-76-133-66-138.hsd1.ca.comcast.net [76.133.66.138])
+	(authenticated bits=0)
+	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 626NVQj92208026
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
+	Fri, 6 Mar 2026 15:31:58 -0800
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 626NVQj92208026
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
+	s=2026022301; t=1772839922;
+	bh=+EuyHHVP1ezysh+DOMChYpQ6YLA93nDMuTUQuNAbUKI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=PioK8n1GDOCMylG5Zt2121yBqaQjmuAgAG8ArmoqbSGk+AY2HjiUf0EtOT1DsexRY
+	 3XzpMhpcVWr9RPSEgwVE9ESR7uck6X+0Brpr8WoubZ+TlXmlH4lDGa0CVViVEYVOPr
+	 a2U1eLnne4Jq8YkGPdE7tatxcJ2Gd+LMg66XDUlWERyyYKh8whYexkpditNEyz4ILx
+	 yckiGOkMmhcxGYFKzQD0ff8pydvHcvjyUktvDHaVTIquZDk64YCElixBnK+5hWClOa
+	 uRJidGVd5gvOOIeokQ5EcbFwoFLXBWjUIyo+ZDse7szoWgdzIXdm2JW1VkFzyB6i6x
+	 eQ3pvQwa4welw==
+Message-ID: <75d0ca29-b227-49c1-8204-b305f64b009b@zytor.com>
+Date: Fri, 6 Mar 2026 15:31:21 -0800
 MIME-Version: 1.0
-References: <20260122165923.2316510-1-enachman@marvell.com>
- <20260122165923.2316510-2-enachman@marvell.com> <87ms0qfd8h.fsf@BLaptop.bootlin.com>
-In-Reply-To: <87ms0qfd8h.fsf@BLaptop.bootlin.com>
-From: Rob Herring <robh+dt@kernel.org>
-Date: Fri, 6 Mar 2026 17:46:19 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqJn87FdJmh=4phLL+DRQk8dz1iJE7=43f-ObFpEPpB_Dw@mail.gmail.com>
-X-Gm-Features: AaiRm50LdTsH2jqP9SzcYIinwhDACMAbrvfuHG6zjOqjPZa8N3B-Nx1hio6ZK-c
-Message-ID: <CAL_JsqJn87FdJmh=4phLL+DRQk8dz1iJE7=43f-ObFpEPpB_Dw@mail.gmail.com>
-Subject: Re: [PATCH 1/3] dt-bindings: arm64: add Marvell 7k COMe boards
-To: Gregory CLEMENT <gregory.clement@bootlin.com>
-Cc: Elad Nachman <enachman@marvell.com>, krzysztof.kozlowski+dt@linaro.org, 
-	conor+dt@kernel.org, andrew@lunn.ch, sebastian.hesselbarth@gmail.com, 
-	pali@kernel.org, mrkiko.rs@gmail.com, chris.packham@alliedtelesis.co.nz, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] kbuild: Switch from '-fms-extensions' to
+ '-fms-anonymous-structs' when available
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Nicolas Schier <nsc@kernel.org>,
+        Linus Torvalds <torvalds@linux-foundation.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+        WANG Xuerui <kernel@xen0n.name>,
+        "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+        Helge Deller <deller@gmx.de>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
+        Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+        Ard Biesheuvel <ardb@kernel.org>,
+        Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+        Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+        Bill Wendling <morbo@google.com>,
+        Justin Stitt <justinstitt@google.com>, Kees Cook <kees@kernel.org>,
+        linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+        linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+        linux-s390@vger.kernel.org, linux-efi@vger.kernel.org,
+        llvm@lists.linux.dev
+References: <20260223-fms-anonymous-structs-v1-0-8ee406d3c36c@kernel.org>
+ <01433066-eb9b-4a96-8d7f-794af941d365@zytor.com>
+ <20260306231705.GD2746259@ax162>
+Content-Language: en-US, sv-SE
+From: "H. Peter Anvin" <hpa@zytor.com>
+In-Reply-To: <20260306231705.GD2746259@ax162>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260306_154838_140692_DA2EE289 
+X-CRM114-Status: GOOD (  17.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,28 +102,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 2, 2026 at 9:44=E2=80=AFAM Gregory CLEMENT
-<gregory.clement@bootlin.com> wrote:
->
-> Elad Nachman <enachman@marvell.com> writes:
->
-> > From: Elad Nachman <enachman@marvell.com>
-> >
-> > Add dt bindings for:
-> > Armada 7020 COM Express CPU module
-> > Falcon DB-98CX85x0 COM Express type 7 Carrier board
-> > Falcon DB-98CX85x0 COM Express type 7 Carrier board
-> > with an Armada 7020 COM Express CPU module
-> >
-> > Signed-off-by: Elad Nachman <enachman@marvell.com>
->
-> Applied on mvebu/dt64
+On 2026-03-06 15:17, Nathan Chancellor wrote:
+> On Thu, Mar 05, 2026 at 03:43:29PM -0800, H. Peter Anvin wrote:
+>> Question: does clang allow this with __extension__, or only if the option is
+>> on the command line?  It would be desirable in the long run if both clang and
+> 
+> It looks like only on the command line:
+> 
+>   https://godbolt.org/z/zrE766obe
+> 
+>> gcc would allow this with __extension__, as that would be required to use it
+>> in uapi headers (at least without some doable-but-nontrivial preprocessing,
+>> which might be worthwhile to do anyway...)
+> 
+> I agree that would be desirable but wouldn't that change how
+> __extension__ works? As far as I can tell from reading GCC's
+> documentation [1], __extension__ just supresses warnings from -pedantic
+> and such, it does not actually enable a used extension if it conflicts
+> with whatever -std= value is passed?
+> 
+> [1]: https://gcc.gnu.org/onlinedocs/gcc/Alternate-Keywords.html
+> 
 
-It seems the .dts files are in 7.0 and the binding is only in next.
-The binding needs to go into 7.0 too.
+Maybe it does, but it's explicit purpose is to allow code to be compiled with
+a -std= setting lower than the system libraries.
 
-Please pay attention to the warnings. There are only 19 (unique ones)
-left for marvell since I fixed most of them.
+I was a little surprised to see that -std=c90 doesn't actually enforce C90
+compatibility; even with -Wall -Wextra it requires -pedantic to issue
+warnings; the same seems to apply to -std=c99 for at least some features that
+were included in gnu* standards like anonymous structures and unions.
 
-Rob
+The latter is probably a particular indication about the desirability of this,
+since the extension we are talking about is a relatively obvious extension of
+the anonymous struct/union construct!
+
+It is an incredibly useful thing in ABI headers, because it lets you avoid the
+"copy/macro this entire structure definition into another."
+
+	-hpa
+
+
+
+
+
 
