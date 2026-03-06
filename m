@@ -4,63 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 017D0F01825
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 10:28:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFCD3F01827
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 10:30:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QACcn7d2Uq9LPlBgzroFirEryTgoxmO/1pZj/VdLAF4=; b=NZJWehF7tnNFgXI8sfko5ynAor
-	oaSuvelbnzAAtpDg/+dh9LCKatM1ggsU567dyQ5Oz+9LoHje9cvw0BrWgDPKji+F+ovRHAMQeutmK
-	pQC+geFHKV01LozrXKN2yVKmTw6Q8RylmzLMWo0EaXlJP4MZttIuuRPwqzPKpcscv9EM/ZM5pu6IW
-	F76ewzgprgHzMS3c8hUbOqOtOpteGBtvpBU0166mkgs6TAuOnleHqTBD9ZCWIbZUjTQSLlyvwginV
-	+uVeD+PU34K7rA6HW49vaCS0zlitFNDjnTXBvRwgK1Wx0/gpnrtFy9K98SVOYnz8BHqMqwjYjL2F9
-	oaF+RgHw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=5PvtQLAwyimVW6/tRnss8RiKpGBnGc7biXK7tOFe0QM=; b=zLf5h3yiNbePgS
+	cRam6Qw3LD2pAVe6tzTwQ1ubw4k3b4Awx2ur2e4copbI0OvZFtqLapYBmo68S8jWWyqY6OmKG/ut8
+	SmV97RtadTgceoaFxYom4vhoC7xCQBd7o1b1EfpxMxp3HDmpin7JdH5ZL2MRa09uunzDg44OInifw
+	hTPi5HmCh14gMXZviElbWdDZcvYNM429J17GzoGn2eDRhgi8sKcOHpztArAzORVQzP/jUTGbdBpRq
+	fIyPUYOdpLZAHW+ms1Jm6Yh7e/lM6UrN8uPFEjeUnccvzsCgpbSnkGmVnBL1WjhPwr0Z+/phXUObz
+	O00aK1sAV5XRtP9sV8uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vySPx-00000003S3M-26qn;
-	Fri, 06 Mar 2026 10:28:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vySRT-00000003SW9-0muW;
+	Fri, 06 Mar 2026 10:29:59 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vySPp-00000003RyX-1i3Z;
-	Fri, 06 Mar 2026 10:28:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 19BE8416DA;
-	Fri,  6 Mar 2026 10:28:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 989FAC19422;
-	Fri,  6 Mar 2026 10:28:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772792897;
-	bh=OL0rgue66YdTnJUJbn4fjsELZT80r00fKL12WnmaKWc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=RfjB8UbngGuQpcUAiQST0fIUHPjQzGIfArct/EdZpi9oYo1ymOWaI2GWq2PS+Ch2y
-	 2I3M+39bhy6ZU0wZJAek4Y8o0byqogzkMIZpxC0YQ0iViiPqPOZm/4pIjioSc3GmZr
-	 kG4Q2PKM/A9EOQSYCQ6mrPpnBrs6VLVmTecUFmWN5Yk+cPFsWSdlb9Wny1MumENb8i
-	 XaZEmNW3WPc1JE8SUFV5giwtsAWSyqo4UwN4Z0SAHwYsNTN8Huw9TV5M/2ysh8j5qY
-	 COcBBmBeBWdIo9hnJcxiQVYhFtnDafOV9JlyuXFXzCKXvxsROPd4OxfUKoZQw4Krs+
-	 gmE1/Eu62fLAg==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 06 Mar 2026 11:27:55 +0100
-Subject: [PATCH mt76 4/4] wifi: mt76: mt7996: Remove unnecessary phy filed
- in mt7996_vif_link struct
+	id 1vySRQ-00000003SUf-2ZAw
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Mar 2026 10:29:57 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-6611f41eebcso3046077a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 02:29:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1772792995; x=1773397795; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5PvtQLAwyimVW6/tRnss8RiKpGBnGc7biXK7tOFe0QM=;
+        b=dw0n0n7wJ1BLJbvTBKoTf8aXtabrO/WC2pRFd1j4XppjkfLMxgw4rKoMAuX+dIou9L
+         p9zOTcC2Djhz3vRs8VPBpdbfjOvXGMoD0hwi6kr6kGtZ1QCs+Nr+YMn6KjI5K1m28MDF
+         fHJ2fjV9u9uKC8hwmpTn6/f1oQHTIwiC4EsYdIAVbYc7n5B4FWe8Hmkbzh9LjO33knrP
+         xJ5ItfYoJ34BMP2f5z4Oeeqv3Sb+LPhCHeVxY3kj7qwY0wIj+x1COzsCNNmmpg9UpNW5
+         vzOn0oOt7zFUWGI4J9wRu0Tlq0mcWbc4+JfuB+4uyv1ddFmRIhuzxvxdSf4YwKDdVFCo
+         9NsQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772792995; x=1773397795;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5PvtQLAwyimVW6/tRnss8RiKpGBnGc7biXK7tOFe0QM=;
+        b=rUNKjMg5otIdjcOHskzaFGKPr3yeX7sHG4djWFpM/LVHnC1YMOuTZ5pj+PlkU/UGVG
+         wZB3MdDCVZjwuHJvfrZcVWujjg5G7GiG4kBRBcwn6K+RnIFFSGaEEvb3LGtdAy+oDdax
+         FZlR3gYtufe+sV1d9r1YkjOSwi7jm8cFpGWZdDZjhrjYig9HVj/4JZtEDiZH9yOAxEYP
+         0w0W3md0f3U2rpoKOmr4yfO6Iob62qnYaigmYLOUcQd16qK18M5e4gx+6UdLw4XwoD5S
+         P9928IcAVTZh8tJ3Z2c4KVsEZPgM/+zNE3jLa9VptxFoPq+o/NOy0XQxiNjiQq5rFB9f
+         hY1A==
+X-Forwarded-Encrypted: i=1; AJvYcCW0WcSNJxL+dqAmkHLmvRJHAOwpAqn3kqfNYZWuCTAEOwjD+jxAYFBYNWPtsO8Xb4z/ckuuZ4MFHrK2X7qobNIf@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZ/1I99CDIK/8EahYiU7DPC3pHaRGf7M1Boqp8nSglbOnlCzJX
+	NTxtC8PVYs2+kkdMwM0lTV6TkZoswFr2HNPPVYC4yV5ov/TsI9Uev6gl571IGDbnIJM=
+X-Gm-Gg: ATEYQzwSXyevP70Pt7vZ77DHWo9ruOo/DZvUvbbICOPKfJSJT9lAG8mNU8H5VA1I4Ot
+	PFthAIRZN7nR7jOLdNz+jF/5HRPmTscxqKjcjkqhjKTtAVkTE/8hlDvpqs83CKwyauTqlb0VJH4
+	CSzqc4UXM69u+idd/NnoXhs03ha6v8T2AKrNlHk+JshUE7Xk05iJRHB7QswULmv2/7pG6A1syux
+	lU0+1Q3ObylwURLoP9cdEiFZnDt8VQZtTFICSTjW/zInrl6krAM0ilLPL9SGbFNXo5wI5wWl960
+	57T1ZzQj4YHoU389P3dIN+BhdQjEoLT8uhdGlcQ80MdQ7gahy8/iFZ/mwjWm0AZIU4b2PWFhSx1
+	EieVJNgczd26vhpFSwLglvKWhpApRVw0luSHqe6KWSQAM+PNCf3nCRYUU68W2P4uvZisWSgYNfg
+	MXKzsYXAcM1qKvPAxErwg5GDhW77il1AfxALfbSYL0lvrNiOkbrUDmb1dh2qZZgPjBhs28V1bmd
+	CDtNqDsWBqU62Q=
+X-Received: by 2002:a17:906:7307:b0:b8f:6696:f81d with SMTP id a640c23a62f3a-b942da7798cmr93636766b.11.1772792994492;
+        Fri, 06 Mar 2026 02:29:54 -0800 (PST)
+Received: from puffmais2.c.googlers.com (221.210.91.34.bc.googleusercontent.com. [34.91.210.221])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b942ef8c95csm42907266b.21.2026.03.06.02.29.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Mar 2026 02:29:54 -0800 (PST)
+From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Subject: [PATCH v7 00/10] pmdomain: samsung: add support for Google GS101
+Date: Fri, 06 Mar 2026 10:29:51 +0000
+Message-Id: <20260306-gs101-pd-v7-0-03f7c7965ba5@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260306-mt7996-deflink-lookup-link-remove-v1-4-7162b332873c@kernel.org>
-References: <20260306-mt7996-deflink-lookup-link-remove-v1-0-7162b332873c@kernel.org>
-In-Reply-To: <20260306-mt7996-deflink-lookup-link-remove-v1-0-7162b332873c@kernel.org>
-To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
- Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAJ+sqmkC/2XNy2rDMBCF4VcJWldldB0rq75H6UI3O4JiB6mYl
+ uB37yQQrOCN4Ah9v26s5VpyY+fTjdW8llaWmQa+nVi8+HnKvCTaTII0AkDwqQk6r4knnaLDhOA
+ Hzej5teax/D5Sn1+0L6X9LPXvUV7F/fYZsXtkFRz4CDFABJE9ho/vMvu6vC91YvfKKnvpOilJq
+ lF7m4L0o3IHqTop+j8VSQwK0KFyNuNB6qe0IOTQSU0yhowhGa/BwkGaXUownTQkc8raxRQMenu
+ QdpfqRVqSQwzOqCg8SvUit237B1h9hPfDAQAA
+X-Change-ID: 20251001-gs101-pd-d4dc97d70a84
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Ulf Hansson <ulf.hansson@linaro.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>
+Cc: Peter Griffin <peter.griffin@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Juan Yescas <jyescas@google.com>, 
+ Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-pm@vger.kernel.org, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_022817_536162_30A59487 
-X-CRM114-Status: GOOD (  17.79  )
+X-CRM114-CacheID: sfid-20260306_022956_682360_8E28FE78 
+X-CRM114-Status: GOOD (  17.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,449 +115,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove unnecessary phy pointer in mt7996_vif_link struct and rely on
-mt7996_vif_link_phy() utility routine.
+Hi,
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+This series adds support for the power domains on Google GS101.
+
+There are a few differences compared to SoCs already supported by this
+driver:
+* register access does not work via plain ioremap() / readl() /
+  writel().
+  Instead, the regmap created by the PMU driver must be used (which
+  uses Arm SMCC calls under the hood).
+* DTZPC: a call needs to be made before and after power domain off/on,
+  to inform the EL3 firmware of the request.
+* power domains can and are fed by a regulator rail and therefore
+  regulator control needed be implemented.
+
+Bullet points 2 and 3 are new since version 4 of this series, and
+related changes are in patches 1, 2, 9, and 10. I can merge patch 9
+(SMC call) into the gs101 patch (patch 7) if preferred, but for now I
+kept them independent to make it easier to see changes compared to
+previous versions of this series, and because patch 9 actually applies
+to not only gs101, but to many newer Exynos SoCs, and to make patches 9
+and 10 themselves easier to review and reason about.
+
+The DT update to add the new required properties on gs101 will be
+posted separately.
+
+Signed-off-by: André Draszik <andre.draszik@linaro.org>
 ---
- .../net/wireless/mediatek/mt76/mt7996/debugfs.c    | 14 +++-
- drivers/net/wireless/mediatek/mt76/mt7996/mac.c    |  7 +-
- drivers/net/wireless/mediatek/mt76/mt7996/main.c   | 43 +++++++++----
- drivers/net/wireless/mediatek/mt76/mt7996/mcu.c    | 74 ++++++++++++++++------
- drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h |  2 -
- 5 files changed, 101 insertions(+), 39 deletions(-)
+Changes in v7:
+- really be consistent with quoting (Krzysztof, patch 4)
+- drop invalid tested-by tag (Krzysztof, patch 3 & 4)
+- Link to v6: https://lore.kernel.org/r/20260305-gs101-pd-v6-0-8cb953c1a723@linaro.org
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/debugfs.c b/drivers/net/wireless/mediatek/mt76/mt7996/debugfs.c
-index 76d623b2cafb4d55ddeee04b1e84be08e149860e..6cc63f87b2226e9165eeeaf56b61c1c6d4d34052 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/debugfs.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/debugfs.c
-@@ -626,13 +626,18 @@ mt7996_sta_hw_queue_read(void *data, struct ieee80211_sta *sta)
- {
- 	struct mt7996_sta *msta = (struct mt7996_sta *)sta->drv_priv;
- 	struct mt7996_vif *mvif = msta->vif;
--	struct mt7996_dev *dev = mvif->deflink.phy->dev;
-+	struct mt7996_phy *phy = mt7996_vif_link_phy(&mvif->deflink);
- 	struct ieee80211_link_sta *link_sta;
- 	struct seq_file *s = data;
- 	struct ieee80211_vif *vif;
-+	struct mt7996_dev *dev;
- 	unsigned int link_id;
- 
-+	if (!phy)
-+		return;
-+
- 	vif = container_of((void *)mvif, struct ieee80211_vif, drv_priv);
-+	dev = phy->dev;
- 
- 	rcu_read_lock();
- 
-@@ -979,13 +984,17 @@ static ssize_t mt7996_link_sta_fixed_rate_set(struct file *file,
- #define LONG_PREAMBLE 1
- 	struct ieee80211_link_sta *link_sta = file->private_data;
- 	struct mt7996_sta *msta = (struct mt7996_sta *)link_sta->sta->drv_priv;
--	struct mt7996_dev *dev = msta->vif->deflink.phy->dev;
-+	struct mt7996_phy *link_phy = mt7996_vif_link_phy(&msta->vif->deflink);
- 	struct mt7996_sta_link *msta_link;
- 	struct ra_rate phy = {};
-+	struct mt7996_dev *dev;
- 	char buf[100];
- 	int ret;
- 	u16 gi, ltf;
- 
-+	if (!link_phy)
-+		return -EINVAL;
-+
- 	if (count >= sizeof(buf))
- 		return -EINVAL;
- 
-@@ -1008,6 +1017,7 @@ static ssize_t mt7996_link_sta_fixed_rate_set(struct file *file,
- 	 * spe - off: 0, on: 1
- 	 * ltf - 1xltf: 0, 2xltf: 1, 4xltf: 2
- 	 */
-+	dev = link_phy->dev;
- 	if (sscanf(buf, "%hhu %hhu %hhu %hhu %hu %hhu %hhu %hhu %hhu %hu",
- 		   &phy.mode, &phy.bw, &phy.mcs, &phy.nss, &gi,
- 		   &phy.preamble, &phy.stbc, &phy.ldpc, &phy.spe, &ltf) != 10) {
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-index a415cc610eeec8cb160aeac8219f421742d75bad..382b2d873021c6ae253e8ff71bce77bdedff75a3 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-@@ -2167,9 +2167,14 @@ mt7996_update_vif_beacon(void *priv, u8 *mac, struct ieee80211_vif *vif)
- 
- 	for_each_vif_active_link(vif, link_conf, link_id) {
- 		struct mt7996_vif_link *link;
-+		struct mt7996_phy *link_phy;
- 
- 		link = mt7996_vif_link(dev, vif, link_id);
--		if (!link || link->phy != phy)
-+		if (!link)
-+			continue;
-+
-+		link_phy = mt7996_vif_link_phy(link);
-+		if (link_phy != phy)
- 			continue;
- 
- 		mt7996_mcu_add_beacon(dev->mt76.hw, vif, link_conf,
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-index b659d173268981f25344be4b3176a1e7636db7a4..745e01f0eb67dfb7f6474bc39ad25146474e2011 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-@@ -239,10 +239,13 @@ mt7996_set_hw_key(struct ieee80211_hw *hw, enum set_key_cmd cmd,
- 		link_conf = &vif->bss_conf;
- 
- 	if (cmd == SET_KEY && !sta && !link->mt76.cipher) {
-+		struct mt7996_phy *phy = mt7996_vif_link_phy(link);
-+
- 		link->mt76.cipher =
- 			mt76_connac_mcu_get_cipher(key->cipher);
--		mt7996_mcu_add_bss_info(link->phy, vif, link_conf,
--					&link->mt76, msta_link, true);
-+		if (phy)
-+			mt7996_mcu_add_bss_info(phy, vif, link_conf,
-+						&link->mt76, msta_link, true);
- 	}
- 
- 	if (cmd == SET_KEY)
-@@ -316,7 +319,6 @@ int mt7996_vif_link_add(struct mt76_phy *mphy, struct ieee80211_vif *vif,
- 		return -ENOSPC;
- 
- 	link->mld_idx = mld_idx;
--	link->phy = phy;
- 	mlink->omac_idx = idx;
- 	mlink->band_idx = band_idx;
- 	mlink->wmm_idx = vif->type == NL80211_IFTYPE_AP ? 0 : 3;
-@@ -823,15 +825,17 @@ mt7996_vif_cfg_changed(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
- 
- 		for_each_vif_active_link(vif, link_conf, link_id) {
- 			struct mt7996_vif_link *link;
-+			struct mt7996_phy *phy;
- 
- 			link = mt7996_vif_link(dev, vif, link_id);
- 			if (!link)
- 				continue;
- 
--			if (!link->phy)
-+			phy = mt7996_vif_link_phy(link);
-+			if (!phy)
- 				continue;
- 
--			mt7996_mcu_add_bss_info(link->phy, vif, link_conf,
-+			mt7996_mcu_add_bss_info(phy, vif, link_conf,
- 						&link->mt76, &link->msta_link,
- 						true);
- 			mt7996_mcu_add_sta(dev, link_conf, NULL, link, NULL,
-@@ -950,10 +954,15 @@ mt7996_channel_switch_beacon(struct ieee80211_hw *hw,
- 	mutex_lock(&dev->mt76.mutex);
- 
- 	for_each_vif_active_link(vif, link_conf, link_id) {
--		struct mt7996_vif_link *link =
--			mt7996_vif_link(dev, vif, link_id);
-+		struct mt7996_vif_link *link;
-+		struct mt7996_phy *link_phy;
-+
-+		link = mt7996_vif_link(dev, vif, link_id);
-+		if (!link)
-+			continue;
- 
--		if (!link || link->phy != phy)
-+		link_phy = mt7996_vif_link_phy(link);
-+		if (link_phy != phy)
- 			continue;
- 
- 		/* Reset beacon when channel switch triggered during CAC to let
-@@ -1024,10 +1033,13 @@ mt7996_mac_sta_init_link(struct mt7996_dev *dev,
- {
- 	struct ieee80211_sta *sta = link_sta->sta;
- 	struct mt7996_sta *msta = (struct mt7996_sta *)sta->drv_priv;
--	struct mt7996_phy *phy = link->phy;
-+	struct mt7996_phy *phy = mt7996_vif_link_phy(link);
- 	struct mt7996_sta_link *msta_link;
- 	int idx;
- 
-+	if (!phy)
-+		return -EINVAL;
-+
- 	idx = mt76_wcid_alloc(dev->mt76.wcid_mask, MT7996_WTBL_STA);
- 	if (idx < 0)
- 		return -ENOSPC;
-@@ -1571,8 +1583,8 @@ mt7996_get_stats(struct ieee80211_hw *hw,
- 
- u64 __mt7996_get_tsf(struct ieee80211_hw *hw, struct mt7996_vif_link *link)
- {
-+	struct mt7996_phy *phy = mt7996_vif_link_phy(link);
- 	struct mt7996_dev *dev = mt7996_hw_dev(hw);
--	struct mt7996_phy *phy = link->phy;
- 	union {
- 		u64 t64;
- 		u32 t32[2];
-@@ -1631,7 +1643,7 @@ mt7996_set_tsf(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
- 
- 	n = link->mt76.omac_idx > HW_BSSID_MAX ? HW_BSSID_0
- 					       : link->mt76.omac_idx;
--	phy = link->phy;
-+	phy = mt7996_vif_link_phy(link);
- 	if (!phy)
- 		goto unlock;
- 
-@@ -1665,7 +1677,7 @@ mt7996_offset_tsf(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
- 	if (!link)
- 		goto unlock;
- 
--	phy = link->phy;
-+	phy = mt7996_vif_link_phy(link);
- 	if (!phy)
- 		goto unlock;
- 
-@@ -1795,9 +1807,14 @@ static void mt7996_link_rate_ctrl_update(void *data,
- 					 struct mt7996_sta_link *msta_link)
- {
- 	struct mt7996_sta *msta = msta_link->sta;
--	struct mt7996_dev *dev = msta->vif->deflink.phy->dev;
-+	struct mt7996_phy *phy = mt7996_vif_link_phy(&msta->vif->deflink);
-+	struct mt7996_dev *dev;
- 	u32 *changed = data;
- 
-+	if (!phy)
-+		return;
-+
-+	dev = phy->dev;
- 	spin_lock_bh(&dev->mt76.sta_poll_lock);
- 
- 	msta_link->changed |= *changed;
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-index bdb9e30c54c14cb70e548bf347d0449ad8207848..fe9dcc6b08b88aebb5d5242a50aa6d48d16f502a 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-@@ -128,9 +128,16 @@ mt7996_mcu_set_sta_he_mcs(struct ieee80211_link_sta *link_sta,
- 			  struct mt7996_vif_link *link,
- 			  __le16 *he_mcs, u16 mcs_map)
- {
-+	struct mt76_phy *mphy = mt76_vif_link_phy(&link->mt76);
- 	int nss, max_nss = link_sta->rx_nss > 3 ? 4 : link_sta->rx_nss;
--	enum nl80211_band band = link->phy->mt76->chandef.chan->band;
--	const u16 *mask = link->bitrate_mask.control[band].he_mcs;
-+	enum nl80211_band band;
-+	const u16 *mask;
-+
-+	if (!mphy)
-+		return;
-+
-+	band = mphy->chandef.chan->band;
-+	mask = link->bitrate_mask.control[band].he_mcs;
- 
- 	for (nss = 0; nss < max_nss; nss++) {
- 		int mcs;
-@@ -1968,9 +1975,8 @@ mt7996_mcu_sta_bfer_tlv(struct mt7996_dev *dev, struct sk_buff *skb,
- #define EBF_MODE	BIT(0)
- #define IBF_MODE	BIT(1)
- #define BF_MAT_ORDER	4
-+	struct mt7996_phy *phy = mt7996_vif_link_phy(link);
- 	struct ieee80211_vif *vif = link_conf->vif;
--	struct mt7996_phy *phy = link->phy;
--	int tx_ant = hweight16(phy->mt76->chainmask) - 1;
- 	struct sta_rec_bf *bf;
- 	struct tlv *tlv;
- 	static const u8 matrix[BF_MAT_ORDER][BF_MAT_ORDER] = {
-@@ -1979,8 +1985,12 @@ mt7996_mcu_sta_bfer_tlv(struct mt7996_dev *dev, struct sk_buff *skb,
- 		{2, 4, 4, 0},	/* 3x1, 3x2, 3x3, 3x4 */
- 		{3, 5, 6, 0}	/* 4x1, 4x2, 4x3, 4x4 */
- 	};
-+	int tx_ant;
- 	bool ebf;
- 
-+	if (!phy)
-+		return;
-+
- 	if (!(link_sta->ht_cap.ht_supported || link_sta->he_cap.has_he))
- 		return;
- 
-@@ -1996,17 +2006,18 @@ mt7996_mcu_sta_bfer_tlv(struct mt7996_dev *dev, struct sk_buff *skb,
- 	 * ht: iBF only, since mac80211 lacks of eBF support
- 	 */
- 	if (link_sta->eht_cap.has_eht)
--		mt7996_mcu_sta_bfer_eht(link_sta, vif, link->phy, bf, ebf);
-+		mt7996_mcu_sta_bfer_eht(link_sta, vif, phy, bf, ebf);
- 	else if (link_sta->he_cap.has_he)
--		mt7996_mcu_sta_bfer_he(link_sta, vif, link->phy, bf, ebf);
-+		mt7996_mcu_sta_bfer_he(link_sta, vif, phy, bf, ebf);
- 	else if (link_sta->vht_cap.vht_supported)
--		mt7996_mcu_sta_bfer_vht(link_sta, link->phy, bf, ebf);
-+		mt7996_mcu_sta_bfer_vht(link_sta, phy, bf, ebf);
- 	else if (link_sta->ht_cap.ht_supported)
--		mt7996_mcu_sta_bfer_ht(link_sta, link->phy, bf, ebf);
-+		mt7996_mcu_sta_bfer_ht(link_sta, phy, bf, ebf);
- 	else
- 		return;
- 
- 	bf->bf_cap = ebf ? EBF_MODE : (dev->ibf ? IBF_MODE : 0);
-+	tx_ant = hweight16(phy->mt76->chainmask) - 1;
- 	if (is_mt7992(&dev->mt76) && tx_ant == 4)
- 		bf->bf_cap |= IBF_MODE;
- 
-@@ -2038,11 +2049,14 @@ mt7996_mcu_sta_bfee_tlv(struct mt7996_dev *dev, struct sk_buff *skb,
- 			struct ieee80211_link_sta *link_sta,
- 			struct mt7996_vif_link *link)
- {
--	struct mt7996_phy *phy = link->phy;
--	int tx_ant = hweight8(phy->mt76->antenna_mask) - 1;
-+	struct mt7996_phy *phy = mt7996_vif_link_phy(link);
- 	struct sta_rec_bfee *bfee;
- 	struct tlv *tlv;
- 	u8 nrow = 0;
-+	int tx_ant;
-+
-+	if (!phy)
-+		return;
- 
- 	if (!(link_sta->vht_cap.vht_supported || link_sta->he_cap.has_he))
- 		return;
-@@ -2066,6 +2080,7 @@ mt7996_mcu_sta_bfee_tlv(struct mt7996_dev *dev, struct sk_buff *skb,
- 	}
- 
- 	/* reply with identity matrix to avoid 2x2 BF negative gain */
-+	tx_ant = hweight8(phy->mt76->antenna_mask) - 1;
- 	bfee->fb_identity_matrix = (nrow == 1 && tx_ant == 2);
- }
- 
-@@ -2249,6 +2264,7 @@ mt7996_mcu_add_rate_ctrl_fixed(struct mt7996_dev *dev, struct mt7996_sta *msta,
- 	struct ieee80211_sta *sta;
- 	int ret, nrates = 0, idx;
- 	enum nl80211_band band;
-+	struct mt76_phy *mphy;
- 	bool has_he;
- 
- #define __sta_phy_bitrate_mask_check(_mcs, _gi, _ht, _he)			\
-@@ -2282,7 +2298,11 @@ mt7996_mcu_add_rate_ctrl_fixed(struct mt7996_dev *dev, struct mt7996_sta *msta,
- 	if (!link_sta)
- 		goto error_unlock;
- 
--	band = link->phy->mt76->chandef.chan->band;
-+	mphy = mt76_vif_link_phy(&link->mt76);
-+	if (!mphy)
-+		goto error_unlock;
-+
-+	band = mphy->chandef.chan->band;
- 	has_he = link_sta->he_cap.has_he;
- 	mask = link->bitrate_mask;
- 	idx = msta_link->wcid.idx;
-@@ -2362,18 +2382,25 @@ mt7996_mcu_sta_rate_ctrl_tlv(struct sk_buff *skb, struct mt7996_dev *dev,
- 			     struct mt7996_vif_link *link)
- {
- #define INIT_RCPI 180
--	struct mt76_phy *mphy = link->phy->mt76;
--	struct cfg80211_chan_def *chandef = &mphy->chandef;
-+	struct mt76_phy *mphy = mt76_vif_link_phy(&link->mt76);
- 	struct cfg80211_bitrate_mask *mask = &link->bitrate_mask;
- 	u32 cap = link_sta->sta->wme ? STA_CAP_WMM : 0;
--	enum nl80211_band band = chandef->chan->band;
-+	struct cfg80211_chan_def *chandef;
- 	struct sta_rec_ra_uni *ra;
-+	enum nl80211_band band;
- 	struct tlv *tlv;
--	u32 supp_rate = link_sta->supp_rates[band];
-+	u32 supp_rate;
-+
-+	if (!mphy)
-+		return;
- 
- 	tlv = mt76_connac_mcu_add_tlv(skb, STA_REC_RA, sizeof(*ra));
- 	ra = (struct sta_rec_ra_uni *)tlv;
- 
-+	chandef = &mphy->chandef;
-+	band = chandef->chan->band;
-+	supp_rate = link_sta->supp_rates[band];
-+
- 	ra->valid = true;
- 	ra->auto_rate = true;
- 	ra->phy_mode = mt76_connac_get_phy_mode(mphy, vif, band, link_sta);
-@@ -2722,6 +2749,7 @@ void mt7996_mcu_update_sta_rec_bw(void *data, struct ieee80211_sta *sta)
- {
- 	struct mt7996_vif_link *link = (struct mt7996_vif_link *)data;
- 	struct mt7996_sta *msta = (struct mt7996_sta *)sta->drv_priv;
-+	struct mt7996_phy *phy = mt7996_vif_link_phy(link);
- 	struct mt7996_sta_link *msta_link;
- 	struct mt7996_dev *dev;
- 	struct ieee80211_bss_conf *link_conf;
-@@ -2730,10 +2758,13 @@ void mt7996_mcu_update_sta_rec_bw(void *data, struct ieee80211_sta *sta)
- 	struct sk_buff *skb;
- 	int link_id;
- 
-+	if (!phy)
-+		return;
-+
- 	if (link->mt76.mvif != &msta->vif->mt76)
- 		return;
- 
--	dev = link->phy->dev;
-+	dev = phy->dev;
- 	link_id = link->msta_link.wcid.link_id;
- 	link_sta = link_sta_dereference_protected(sta, link_id);
- 	if (!link_sta)
-@@ -3010,6 +3041,7 @@ int mt7996_mcu_add_beacon(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
- {
- 	struct mt7996_dev *dev = mt7996_hw_dev(hw);
- 	struct mt7996_vif_link *link = mt7996_vif_conf_link(dev, vif, link_conf);
-+	struct mt76_phy *mphy = link ? mt76_vif_link_phy(&link->mt76) : NULL;
- 	struct mt76_vif_link *mlink = link ? &link->mt76 : NULL;
- 	struct ieee80211_mutable_offsets offs;
- 	struct ieee80211_tx_info *info;
-@@ -3024,7 +3056,7 @@ int mt7996_mcu_add_beacon(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
- 	if (!mlink)
- 		return -EINVAL;
- 
--	if (link->phy && link->phy->mt76->offchannel)
-+	if (mphy && mphy->offchannel)
- 		enabled = false;
- 
- 	rskb = __mt7996_mcu_alloc_bss_req(&dev->mt76, mlink,
-@@ -3075,9 +3107,9 @@ int mt7996_mcu_beacon_inband_discov(struct mt7996_dev *dev,
- {
- #define OFFLOAD_TX_MODE_SU	BIT(0)
- #define OFFLOAD_TX_MODE_MU	BIT(1)
-+	struct mt76_phy *mphy = mt76_vif_link_phy(&link->mt76);
- 	struct ieee80211_vif *vif = link_conf->vif;
- 	struct ieee80211_hw *hw = mt76_hw(dev);
--	struct mt7996_phy *phy = link->phy;
- 	struct mt76_wcid *wcid = &dev->mt76.global_wcid;
- 	struct bss_inband_discovery_tlv *discov;
- 	struct ieee80211_tx_info *info;
-@@ -3088,10 +3120,10 @@ int mt7996_mcu_beacon_inband_discov(struct mt7996_dev *dev,
- 	u8 *buf, interval;
- 	int len;
- 
--	if (!phy)
-+	if (!mphy)
- 		return -EINVAL;
- 
--	chandef = &phy->mt76->chandef;
-+	chandef = &mphy->chandef;
- 	band = chandef->chan->band;
- 
- 	if (link_conf->nontransmitted)
-@@ -3129,7 +3161,7 @@ int mt7996_mcu_beacon_inband_discov(struct mt7996_dev *dev,
- 	info = IEEE80211_SKB_CB(skb);
- 	info->control.vif = vif;
- 	info->band = band;
--	info->hw_queue |= FIELD_PREP(MT_TX_HW_QUEUE_PHY, phy->mt76->band_idx);
-+	info->hw_queue |= FIELD_PREP(MT_TX_HW_QUEUE_PHY, mphy->band_idx);
- 
- 	len = ALIGN(sizeof(*discov) + MT_TXD_SIZE + skb->len, 4);
- 	tlv = mt7996_mcu_add_uni_tlv(rskb, UNI_BSS_INFO_OFFLOAD, len);
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-index ee3564c0115a36ea592741f34025a9f9f701315c..d18f8794351eca4e3d3b3a314d0ac2fe7a6d8249 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-@@ -276,8 +276,6 @@ struct mt7996_vif_link {
- 	struct mt76_vif_link mt76; /* must be first */
- 
- 	struct mt7996_sta_link msta_link;
--	struct mt7996_phy *phy;
--
- 	struct cfg80211_bitrate_mask bitrate_mask;
- 
- 	u8 mld_idx;
+Changes in v6:
+- collect tags
+- patch 4: update commit message footer to clarify that while
+  old/existing DT are now incomplete, they'll be updated once binding
+  is accepted.
+- Link to v5: https://lore.kernel.org/r/20260205-gs101-pd-v5-0-ede49cdb57a6@linaro.org
 
+Changes in v5:
+- add domain-supply to binding (patch 2)
+- Link to v4: https://lore.kernel.org/r/20260128-gs101-pd-v4-0-cbe7bd5a4060@linaro.org
+
+Changes in v4:
+- drop unneeded or already merged patches
+- drop patch "pmdomain: samsung: convert to regmap_read_poll_timeout()"
+  as Marek reported issues on some platforms
+- rebase
+- DTZPC related changes
+- Link to v3: https://lore.kernel.org/r/20251016-gs101-pd-v3-0-7b30797396e7@linaro.org
+
+Changes in v3:
+- use additionalProperties, not unevaluatedProperties in patch 2
+- fix path in $id in patch 2 (Rob)
+- drop comment around 'select' in patch 2 (Rob)
+- collect tags
+- Link to v2: https://lore.kernel.org/r/20251009-gs101-pd-v2-0-3f4a6db2af39@linaro.org
+
+Changes in v2:
+- Krzysztof:
+  - move google,gs101-pmu binding into separate file
+  - mark devm_kstrdup_const() patch as fix
+  - use bool for need_early_sync_state
+  - merge patches 8 and 10 from v1 series into one patch
+- collect tags
+- Link to v1: https://lore.kernel.org/r/20251006-gs101-pd-v1-0-f0cb0c01ea7b@linaro.org
+
+---
+André Draszik (10):
+      dt-bindings: soc: google: add google,gs101-dtzpc
+      dt-bindings: power: samsung: add google,gs101-pd
+      dt-bindings: soc: samsung: exynos-pmu: move gs101-pmu into separate binding
+      dt-bindings: soc: google: gs101-pmu: allow power domains as children
+      pmdomain: samsung: convert to using regmap
+      pmdomain: samsung: don't hard-code offset for registers to 0 and 4
+      pmdomain: samsung: add support for google,gs101-pd
+      pmdomain: samsung: use dev_err() instead of pr_err()
+      pmdomain: samsung: implement SMC to save / restore TZ config
+      pmdomain: samsung: implement domain-supply regulator
+
+ .../devicetree/bindings/power/pd-samsung.yaml      |  33 ++-
+ .../bindings/soc/google/google,gs101-dtzpc.yaml    |  42 ++++
+ .../bindings/soc/google/google,gs101-pmu.yaml      |  97 ++++++++
+ .../bindings/soc/samsung/exynos-pmu.yaml           |  20 --
+ MAINTAINERS                                        |   2 +
+ drivers/pmdomain/samsung/exynos-pm-domains.c       | 254 ++++++++++++++++++---
+ 6 files changed, 399 insertions(+), 49 deletions(-)
+---
+base-commit: fc7b1a72c6cd5cbbd989c6c32a6486e3e4e3594d
+change-id: 20251001-gs101-pd-d4dc97d70a84
+
+Best regards,
 -- 
-2.53.0
+André Draszik <andre.draszik@linaro.org>
 
 
