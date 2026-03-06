@@ -4,105 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 696EEFCC065
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 19:14:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E1EAFCC066
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 19:20:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UX70eqTPldRVlnp6TbQSbemdGWZN5RJN1ptIeYYKtG8=; b=2xYnUT745RbMXShtTFRKzt7Zwq
-	5Es+UhMDIIvJslIjxkWvqOBtmzL6acnSlmjQ+1b9lR24raQp+WRMXzQgCp+7bkrstcCazVitO3mmn
-	873kDzjWEd3t3LGkkTRAzy9knQXzEyTzl+azX6cPs+6wKcTro2GXrVg3Gue0LU8jjU7uQjyOpy8fd
-	6C17Y18iIsoWFL8A2IKfYueidoDndGREDUrCTljbcuumNO5bfkWIpI/suFYdgICNryvyASaCMkLHI
-	0VbdqxpV2+tcmsVJvyqgrwN3Gv9hM3yRncuz8S60Yub05B+NbkxYyVxhxHChfUIkUaAC+jFr/uVuW
-	A7u9V+ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oE50GJpHZ5XNtL+cx2jvgfBFPMFvG6iY6gN+BcM/8gU=; b=gxlhuA+8kF1VBgYxrExWqfJvQY
+	D3Mce9isamjJt3QunJtNImm14ZeKEH3/BI3CdECX8FXW4lPij7GkjhambRMF8FBDtIFOGNaki4GMl
+	K8VMgtKwLPrfu4R9ca6DDeujo3E7fciPe2zUOB9UcKsBMbl9PBjkEFB2axCBT5lh+h18TO6EyyvMr
+	Yxh5gYs1nFXUrs5WhxkYmPrm2bhi6/fbq6/TakZMMrd6xThCX11IhY5bINZLIFt393cyG7G+S3ikX
+	bbbKYfGEKak/ahFREUrdWWEc4F1A5JI0XO59rf8/2UQe5tHIPjJ0iQ7N0WAS7o7Akio0WPleQ8JqJ
+	Ux2A+b2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyacu-00000004Njx-1f0E;
-	Fri, 06 Mar 2026 19:14:20 +0000
-Received: from omta036.useast.a.cloudfilter.net ([44.202.169.35])
+	id 1vyaiW-00000004OGU-2iKa;
+	Fri, 06 Mar 2026 19:20:08 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyacr-00000004Nil-3gn3
+	id 1vyaiU-00000004OG9-1uKh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 19:14:18 +0000
-Received: from eig-obgw-5003b.ext.cloudfilter.net ([10.0.29.155])
-	by cmsmtp with ESMTPS
-	id yY3QvBxHtKXDJyacqvpEI9; Fri, 06 Mar 2026 19:14:16 +0000
-Received: from gator4166.hostgator.com ([108.167.133.22])
-	by cmsmtp with ESMTPS
-	id yacovGV2l2l0kyacovIce6; Fri, 06 Mar 2026 19:14:14 +0000
-X-Authority-Analysis: v=2.4 cv=UfRRSLSN c=1 sm=1 tr=0 ts=69ab2788
- a=1YbLdUo/zbTtOZ3uB5T3HA==:117 a=k5Y5iPg+dmTXVWgYE/XtfQ==:17
- a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=7T7KSl7uo7wA:10 a=pGLkceISAAAA:8
- a=VwQbUJbxAAAA:8 a=4KyMBbRfhRQTWuXm2KoA:9 a=QEXdDO2ut3YA:10
- a=2aFnImwKRvkU0tJ3nQRT:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=embeddedor.com; s=default; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=UX70eqTPldRVlnp6TbQSbemdGWZN5RJN1ptIeYYKtG8=; b=tscGF14g6RrBEKmnC12nH+q23r
-	Saqh4tVvRYVfYwGG4W9VhMRiHBWi0hqEEUGmgZC8Ukq0nxhBVO+eQTUWRCYyOkOkzBY86UKY7JmcT
-	xeYajce0NP1LNBRReeW4AOK+oU5cHpOHowWYex2w0ckcKWT7blQZrrp2Sd7VuTPXM6/TKUcqvzsXG
-	9GT/bFcd2K8QFTC86ivNaAq+YrQrK2bZxAuXgqZQx+r/iSx35D+TU2Wur7+pnN99AWbYsBnUN9E8j
-	71MyrgfhpLgiq+QMZaG8wU73aJmO8mSCyREaynLGLrekKMTE6Ce01pPEMXZxukz7m4imiwkcpTuio
-	Y5vRmDcA==;
-Received: from [177.238.16.13] (port=46342 helo=[192.168.0.21])
-	by gator4166.hostgator.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.99.1)
-	(envelope-from <gustavo@embeddedor.com>)
-	id 1vyacn-000000018a0-0TQQ;
-	Fri, 06 Mar 2026 13:14:13 -0600
-Message-ID: <1b50b40e-6682-4156-a60a-c2725527d648@embeddedor.com>
-Date: Fri, 6 Mar 2026 13:13:43 +0900
+	Fri, 06 Mar 2026 19:20:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pJ1ygBhQAR24aFebuKHX06hAYFuFB8V7qG12y4jnr0UjUOKvEefO/a6BcDDPOvUst+bfTPmlavNbeFpbOHViQBi5izX/0UjykNZOUAzK4R3+EosVLZ0xSVDjwWsRU9nL+fNd9cxxRj9VEpyWdF4sCxtG0jKtOl7CUi60s0iT+oM5Ug5/h2O0JDZSBNX5gg7UdzoTUtZze138H9KhsPDss9SwGgeY93ng9FCn1AutQjWcM2YXI5jfqyypCOK3Fw1H28SNtpq/7ar2UBrrgrh6mA/WkuslgTL+Ne7FmN3bD5wraCI4O2miiWGbRNM3o2jNffMq/WicujfFURhNd0RUZQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oE50GJpHZ5XNtL+cx2jvgfBFPMFvG6iY6gN+BcM/8gU=;
+ b=UNN9U1VZy7B5rbOOfLwsqMmJSimBSIVMnndTboX8Ldi1cQJD0t032yuIxdTK3R+VjpsaUro58lK9JJ4pcMsBBGXmE806tgP8CUo7ZR1hK72NzZQG++HgQ7ZVsbwfPhoY6qQrefWlXvHmL2QbqWvuLJLYH8R7tMgP3ZV41o5fDOG7U9j9vQtl1DKXK2KRJcpAjrBKJfSwSs8+PL1A6NUjyTMEDDMbd/e8yalOImIRDjLLd2bg4LoXHexzhTsGMKdnLpnuBLg/XFQZEkurP0QY15XcF2wlbSUlajeQtZLdKO6LCFq+GqU2+69yzvC0bp1Y73RVF97DBJCSG8xFUNGPlQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oE50GJpHZ5XNtL+cx2jvgfBFPMFvG6iY6gN+BcM/8gU=;
+ b=Hk8nbDYPutZ7kdnnt7BEpgR9Ux2yPvGBzqgw78MXShK+pBHgeWT5BX7LPaIhdeBEEgMT80n8cvzYeHoNGNsmyrFmffZkQmz71ZSpNwIBmUpSKtoAt8P+wdQeGneLp/mmM+kuBZ4lOM2Rrug24voQlkdEZa32N3tfrzpwe+CkjX6vVAEhvbZUO4T1fE1PZF0ispjlSBYRCCO8eO9fPW6TfOmtyLzgd+qKQ/j7/Dso03WSS+ihxOn0x+/LjShF7VBjx9zUTiBQU20WROAVtfwGTTqy8qsZxqJoD63CzzNTjY3W2/0gQsXYyo6tLDtDiX/OIK+btebO7Hz9MQAsFj5x9w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU0PR04MB9372.eurprd04.prod.outlook.com (2603:10a6:10:35b::7)
+ by AM9PR04MB8809.eurprd04.prod.outlook.com (2603:10a6:20b:408::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.20; Fri, 6 Mar
+ 2026 19:20:01 +0000
+Received: from DU0PR04MB9372.eurprd04.prod.outlook.com
+ ([fe80::4f6:1e57:c3b9:62b4]) by DU0PR04MB9372.eurprd04.prod.outlook.com
+ ([fe80::4f6:1e57:c3b9:62b4%4]) with mapi id 15.20.9654.022; Fri, 6 Mar 2026
+ 19:20:01 +0000
+Date: Fri, 6 Mar 2026 14:19:54 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	jun.li@nxp.com
+Subject: Re: [PATCH v2 1/2] arm64: dts: imx94: add USB nodes
+Message-ID: <aaso2mdxgYIJzB0i@lizhi-Precision-Tower-5810>
+References: <20260306102837.2648955-1-xu.yang_2@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260306102837.2648955-1-xu.yang_2@nxp.com>
+X-ClientProxiedBy: SN7P220CA0005.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:806:123::10) To DU0PR04MB9372.eurprd04.prod.outlook.com
+ (2603:10a6:10:35b::7)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] phy: mediatek: xsphy: reduce main allocation
-To: Rosen Penev <rosenp@gmail.com>, linux-phy@lists.infradead.org
-Cc: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- "moderated list:ARM/Mediatek USB3 PHY DRIVER"
- <linux-arm-kernel@lists.infradead.org>,
- "moderated list:ARM/Mediatek USB3 PHY DRIVER"
- <linux-mediatek@lists.infradead.org>,
- "open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>,
- open "list:KERNEL" HARDENING "(not" covered by other
- "areas):Keyword:b__counted_by(_le|_be)?b" <linux-hardening@vger.kernel.org>
-References: <20260304043420.14151-1-rosenp@gmail.com>
-Content-Language: en-US
-From: "Gustavo A. R. Silva" <gustavo@embeddedor.com>
-In-Reply-To: <20260304043420.14151-1-rosenp@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - gator4166.hostgator.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - embeddedor.com
-X-BWhitelist: no
-X-Source-IP: 177.238.16.13
-X-Source-L: No
-X-Exim-ID: 1vyacn-000000018a0-0TQQ
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: ([192.168.0.21]) [177.238.16.13]:46342
-X-Source-Auth: gustavo@embeddedor.com
-X-Email-Count: 14
-X-Org: HG=hgshared;ORG=hostgator;
-X-Source-Cap: Z3V6aWRpbmU7Z3V6aWRpbmU7Z2F0b3I0MTY2Lmhvc3RnYXRvci5jb20=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfDgzM/zufDQjJMxLGsqArwjO9qdAOl4p9Qyp9Hqrc4FXh/k8KLJD8TxJB6pfrnaAWajy1BKd0jld01aOg2gQcHiRD2fB9xECBvDZybL0pjdEtxFWUOfi
- r8qT4+CnM2LqCcfxB1guu3scZTrTEPNzOA5ETpuxnwfskCICV3oyXNO7QrUdt7UfF8riQ/lu0ZqtQ3aC7QgEeCTG6Um9EyDMRkg0rYdJquRNyOLoFcWJb9h3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9372:EE_|AM9PR04MB8809:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5e346449-ee20-4003-e696-08de7bb55cd6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|19092799006|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: IstEImoL3WhkCj/tW3KFzKnoT7Uf82Y1834fn+lCqEGmzfzOml+9Jccgx0xD0T5My+oiL8wIZSH0VNZT0fR58AiAFr2qxbs6JKecDgjttHnSuGxlOOnAMW8O2JQxb/pPxbj1etWed4lSgx0cITTC5SFxQKtAhDyyP9eJ73XWs3ugql14xV9DYDBXV81DbMKToizHGRqkCbrmj3g0isTX2wpmni3JmnlpfGiBgtJjfgaAT2+B9jRplIRP8utio9wX2N95G7slq0pUGBNFzAhh5WvxzLEZCq45cA00BhVpyD1zWsZJA9Jduk7frzNP+duYPMhKyByxtn41TwgQVWpQpLFbz2uPZms6ya24kL7JKckaeBTA7r2oj8aItIdMo35PeMEa/l+zFdP1XpoTEpMJ9J2vXuOEFMStm1e7ZTOcS9YfEdMZ8gsJ582BQzkmF+Lm09kEyq6KesMMDMok3KLLDOtr9GAgiICcVrXZwCytqeF099emDec58/Ka41NmGvUTxjdqSTMRciyoj1HHXOpmJrhQoQ3V0nIPJ07d6TiV22CymnQt1UInDwCxiNdqqcDhzVDxOOX0dNqnGjyykV8omgpt7vtGPkkiJqrOkL27eY/vsdqlyqKV30NaYBGMRsGazI1oLeNvShtR4OvA8eGT3XQn+yiORdp5F8AK38Y6HDkBg9a0o9cnk45rJXVpGDM7OL7Xk9uIf6RYUuT33eUd6X6qXhS6Xi8RGXds3eQ+HtM1GPHmIl5hOKYCn292HJ0bh6FXpnPs1PAiMl5Yg1FJrdQvPbibINVsvx+O5053sOU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9372.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(19092799006)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8Wk+fIu2Fiz4AiG2yb7DjgDn6/4NgRc3KtM/i5bzZqgbeazQT47lBA8u5u0X?=
+ =?us-ascii?Q?YX1BcCTvIIwX2/fB2UsVgPzIBiV2E3dpnBBB7mWascar0M6/1RJ/MuYKHj9x?=
+ =?us-ascii?Q?1J/TD7A8sMBZt07zQQ8L0IhLgKEJRwDxijIj/cyddOSec7azQsNkQ8z8nZov?=
+ =?us-ascii?Q?dnucSshIYBVNkgEAzum5nQsKn88y8reXDJCW6SKgv9mo4xywtHO4lTx9BFcx?=
+ =?us-ascii?Q?zdOnsaU5912vw+haecpowNRC8F/QY/RRH2nfLeXhOgNwVqEkgJbADPOYeCag?=
+ =?us-ascii?Q?RxZNJLNf1UEWG7iVP+b05ACOP4tgpL69kHrWisw8wKuP1ZV/jeL7FJUvdc/j?=
+ =?us-ascii?Q?yGlXqiLjxUd9KzEB0RPyB6hFb4g5YG8s0KtSKB79q+aNS/yYPM1Yso6ZhpWa?=
+ =?us-ascii?Q?E+9Mgc5HXHDCDOlMBTSsadZiyTv95qC4zJQd9pcNh5DelAb20YnT3ziCVyZI?=
+ =?us-ascii?Q?nkEbZj4Jutl9Oy0nwnDPNIG7Pu76VpacFmjDjPFd7prQzJeeC5Ew8b+ZUsNa?=
+ =?us-ascii?Q?s1oWWC6sovujup4xz3XAf7iKwzIZLUL8KkV6OpPsw8CJ6fT6RYAr3YwCO30z?=
+ =?us-ascii?Q?IavSc01b7A3gZq9Z/ibPM5upCew95gEjRJqWfgwZ3gO+fof9onj6Gqrtj0UD?=
+ =?us-ascii?Q?kFBUgGe8wyNOzGW6vURly1qW19cl58joJy7Tn12EdL8M3bg8TMsnFmXD9mIA?=
+ =?us-ascii?Q?7rPYSApHAQoctW2ZMaWd0fEdYyul3FFY5zqXZv4BRZZIG7v5FFNvHKjAaznI?=
+ =?us-ascii?Q?drq9bscYmmsqGuGwHoMcfXC+gmGNn9qggXJK7nG5UZIyxZc8tXnUFkTlXmai?=
+ =?us-ascii?Q?qIwMzm6N7z3++paRcQBhQJLBB2zcbUv2LGcBkNUYNeHlsHcoPgi5GLbXE8z4?=
+ =?us-ascii?Q?fJKjExT9TkhRJU13JVSjLscPmQsgDh9k5VpbGZP/wpq8mlnAGOcqLpsCaU7w?=
+ =?us-ascii?Q?wIVNPiQtijUS9kLAID7fvcWtajeOiVS5raHNFEfpKnNBvwZoUuwLKeSQiFkf?=
+ =?us-ascii?Q?3h1h4QoFJ4W8PdRUtzTqyX1Bo+DdR5wAo4rZjyx4dt0IePkhEbxmrmvNnJdB?=
+ =?us-ascii?Q?cnYixJhmhN5nQgYuvzdpjsZsR9luqIDxt6GgvzZALthEhf+PcqRTTHiX4tnT?=
+ =?us-ascii?Q?t8qIkkCqhFKWdfuOrP///59r2JpKzJH739Xc11C3qU60RMXq3du9uW4LXcIb?=
+ =?us-ascii?Q?qpvcqRls7QmBlp1GgbjYZYYfxFLcsDb0JnUzAlvB27Puku7kyhrP3mbi49gW?=
+ =?us-ascii?Q?cuLk6bl1E0Trr0z3ToDB1N09bJfWWho7i8UC9nmN6G4YCpycI6qytmDhzqiz?=
+ =?us-ascii?Q?q+1mc/zO6K2Lmi6SHtZCS5pxq9qcQDgJXMMI3eugBZ/tFlm3cOCbXn0i2JAd?=
+ =?us-ascii?Q?6yKR0SSlaaIGar7kfRAQiqrkR9Jctq4jUhntI9q1WRg3U8PdUKlaS78HdVvN?=
+ =?us-ascii?Q?dNeBSszeVeVX+sLZPamCq+X3bfo39Xe4SKdvFl6v4UTUidIcV+NtMGMAn+zh?=
+ =?us-ascii?Q?de1U12HK1p0Lb/xau1a0wJUffvWeR9ISrW3cSaQ9sshe42MvTHIfnhLZhZ9N?=
+ =?us-ascii?Q?ZdJOqy+0eV6zEGSoOeOlySC6DThz8HUttal9vfYPpBLb9HC/rdKYqPYWmFwe?=
+ =?us-ascii?Q?YChyvi4ksfCU5U8SCQTjMvbPdPWDqj34EYKsJw40Syk2MBnG62+cvbLIzk+0?=
+ =?us-ascii?Q?hhELkmV4b8wVNYUbOQbK6jmCZOLdP/ngkITP+ylUmqhz0evm?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5e346449-ee20-4003-e696-08de7bb55cd6
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9372.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 19:20:01.1374
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Fm8LVOsIfjFMFKbzMZkJXY7+xGstzNnDxzd0xKd6/RwXLXHEKryEAv4tMrTE19g7SL8LRXbacgmt2JuRisaTeA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8809
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_111417_978819_5D693F62 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20260306_112006_501084_79CB2003 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,64 +136,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 3/4/26 13:34, Rosen Penev wrote:
-> Instead of kzalloc and kcalloc, we can use a flex array to reduce to a
-> single allocation.
-> 
-> Also added __counted_by() for extra possible analysis.
-> 
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-
-Reviewed-by: Gustavo A. R. Silva <gustavoars@kernel.org>
-
-Thanks
--Gustavo
-
+On Fri, Mar 06, 2026 at 06:28:36PM +0800, Xu Yang wrote:
+> add USB2.0, USB3.0 controller and USB phy nodes.
+>
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+>
 > ---
->   drivers/phy/mediatek/phy-mtk-xsphy.c | 15 ++++++---------
->   1 file changed, 6 insertions(+), 9 deletions(-)
-> 
-> diff --git a/drivers/phy/mediatek/phy-mtk-xsphy.c b/drivers/phy/mediatek/phy-mtk-xsphy.c
-> index c0ddb9273cc3..cc1d66954212 100644
-> --- a/drivers/phy/mediatek/phy-mtk-xsphy.c
-> +++ b/drivers/phy/mediatek/phy-mtk-xsphy.c
-> @@ -112,10 +112,10 @@ struct xsphy_instance {
->   struct mtk_xsphy {
->   	struct device *dev;
->   	void __iomem *glb_base;	/* only shared u3 sif */
-> -	struct xsphy_instance **phys;
-> -	int nphys;
->   	int src_ref_clk; /* MHZ, reference clock for slew rate calibrate */
->   	int src_coef;    /* coefficient for slew rate calibrate */
-> +	int nphys;
-> +	struct xsphy_instance *phys[] __counted_by(nphys);
->   };
->   
->   static void u2_phy_slew_rate_calibrate(struct mtk_xsphy *xsphy,
-> @@ -515,18 +515,15 @@ static int mtk_xsphy_probe(struct platform_device *pdev)
->   	struct resource *glb_res;
->   	struct mtk_xsphy *xsphy;
->   	struct resource res;
-> +	size_t nphys;
->   	int port;
->   
-> -	xsphy = devm_kzalloc(dev, sizeof(*xsphy), GFP_KERNEL);
-> +	nphys = of_get_child_count(np);
-> +	xsphy = devm_kzalloc(dev, struct_size(xsphy, phys, nphys), GFP_KERNEL);
->   	if (!xsphy)
->   		return -ENOMEM;
->   
-> -	xsphy->nphys = of_get_child_count(np);
-> -	xsphy->phys = devm_kcalloc(dev, xsphy->nphys,
-> -				       sizeof(*xsphy->phys), GFP_KERNEL);
-> -	if (!xsphy->phys)
-> -		return -ENOMEM;
-> -
-> +	xsphy->nphys = nphys;
->   	xsphy->dev = dev;
->   	platform_set_drvdata(pdev, xsphy);
->   
+> Changes in v2:
+>  - move usbphynop behind of clock-sai4-mclk1
+> ---
+>  arch/arm64/boot/dts/freescale/imx94.dtsi | 61 ++++++++++++++++++++++++
+>  1 file changed, 61 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx94.dtsi b/arch/arm64/boot/dts/freescale/imx94.dtsi
+> index d2f31c8caf6e..2a367764f7fe 100644
+> --- a/arch/arm64/boot/dts/freescale/imx94.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx94.dtsi
+> @@ -66,6 +66,13 @@ sai4_mclk: clock-sai4-mclk1 {
+>  		clock-output-names = "sai4_mclk";
+>  	};
+>
+> +	usbphynop: usbphynop {
+> +		compatible = "usb-nop-xceiv";
+> +		clocks = <&scmi_clk IMX94_CLK_HSIO>;
+> +		clock-names = "main_clk";
+> +		#phy-cells = <0>;
+> +	};
+> +
 
+Sorry, position still wrong, please order by node name usbphynop,
+
+before, interrupt-controller's pos is wrong,
+
+no @hex at first, order by node name.
+have @hex at last, order by hex value.
+
+gic: interrupt-controller@48000000
+
+Frank
+
+>  	firmware {
+>  		scmi {
+>  			compatible = "arm,scmi";
+> @@ -1223,6 +1230,60 @@ wdog3: watchdog@49220000 {
+>  			};
+>  		};
+>
+> +		usb3: usb@4c100000 {
+> +			compatible = "nxp,imx94-dwc3", "nxp,imx8mp-dwc3";
+> +			reg = <0x0 0x4c100000 0x0 0x10000>,
+> +			      <0x0 0x4c010010 0x0 0x04>,
+> +			      <0x0 0x4c1f0000 0x0 0x20>;
+> +			reg-names = "core", "blkctl", "glue";
+> +			clocks = <&scmi_clk IMX94_CLK_HSIO>,
+> +				 <&scmi_clk IMX94_CLK_HSIO>,
+> +				 <&scmi_clk IMX94_CLK_24M>,
+> +				 <&scmi_clk IMX94_CLK_32K>;
+> +			clock-names = "hsio", "bus_early", "ref", "suspend";
+> +			interrupts = <GIC_SPI 180 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 386 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "dwc_usb3", "wakeup";
+> +			power-domains = <&scmi_devpd IMX94_PD_HSIO_TOP>;
+> +			phys = <&usb3_phy>, <&usb3_phy>;
+> +			phy-names = "usb2-phy", "usb3-phy";
+> +			snps,gfladj-refclk-lpm-sel-quirk;
+> +			snps,parkmode-disable-ss-quirk;
+> +			status = "disabled";
+> +		};
+> +
+> +		usb3_phy: phy@4c1f0040 {
+> +			compatible = "fsl,imx95-usb-phy", "fsl,imx8mp-usb-phy";
+> +			reg = <0x0 0x4c1f0040 0x0 0x40>,
+> +			      <0x0 0x4c1fc000 0x0 0x100>;
+> +			clocks = <&scmi_clk IMX94_CLK_HSIO>;
+> +			clock-names = "phy";
+> +			#phy-cells = <0>;
+> +			power-domains = <&scmi_devpd IMX94_PD_HSIO_TOP>;
+> +			status = "disabled";
+> +		};
+> +
+> +		usb2: usb@4c200000 {
+> +			compatible = "fsl,imx95-usb", "fsl,imx7d-usb", "fsl,imx27-usb";
+> +			reg = <0x0 0x4c200000 0x0 0x200>;
+> +			interrupts = <GIC_SPI 181 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 387 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&scmi_clk IMX94_CLK_HSIO>,
+> +				 <&scmi_clk IMX94_CLK_32K>;
+> +			clock-names = "usb_ctrl_root", "usb_wakeup";
+> +			power-domains = <&scmi_devpd IMX94_PD_HSIO_TOP>;
+> +			phys = <&usbphynop>;
+> +			fsl,usbmisc = <&usbmisc 0>;
+> +			status = "disabled";
+> +		};
+> +
+> +		usbmisc: usbmisc@4c200200 {
+> +			compatible = "fsl,imx95-usbmisc", "fsl,imx7d-usbmisc", "fsl,imx6q-usbmisc";
+> +			reg = <0x0 0x4c200200 0x0 0x200>,
+> +			      <0x0 0x4c010014 0x0 0x04>;
+> +			#index-cells = <1>;
+> +		};
+> +
+>  		netc_blk_ctrl: system-controller@4ceb0000 {
+>  			compatible = "nxp,imx94-netc-blk-ctrl";
+>  			reg = <0x0 0x4ceb0000 0x0 0x10000>,
+> --
+> 2.34.1
+>
 
