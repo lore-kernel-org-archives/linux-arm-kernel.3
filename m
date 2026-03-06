@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA300F0182F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 13:30:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E72F5F01832
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 13:31:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gLX/vLGdWOlScvV94mBZQHZ++2FDe6d8l62ZQIqal5o=; b=FNcGgtp3EE0OLmDeAhV49lzCBF
-	QjgOS4EUf5gNB/lFkdxA5ksjoTA5FdOnJPobi6afP23R5jIbsQkarKAFhkfQVw00hmAoIOzhe9iWk
-	oJYjoGMV9lZaVxaNtyLvfIDhX3Pt7nwAlAeLYw07YPd4l25iGYXwiP/WSR1BvcQDWZjL7gedNK2sf
-	NooCzNJ+kwvXEi4jXA3K2V59jrL+59kNgNbnIm9iRaOcJUaVSY2oQk2jg3QyyNUMS69gKngTeXaTN
-	k2oR/Sxc5xbMNOBA2CpjDNjr1AZK9M+cpnzWQeYUUFEsc81Mab2aHqCnPSykaMBAocx5VnOQn2/1r
-	5Y6xqy3Q==;
+	bh=nxd5+HhPr1aXq8AG7jS9dl3xaEa1KYdFdeENyM5pOHQ=; b=FRm8aYYWZJM+YOUYnjofxL81LA
+	nlw5kwTRk9ElzDE9wz1hs4UwdPkXPYQXtWi711PGWvx5OyGYbiuIrNS73CmfdgIWSMl4MqqQsaL76
+	1ZvgTHde8qm+KI1Eq/zFXTIheMArpUbSjS09hFY9jhbYcm9qVGO1y5rW3MHQpCz1+YsxxJFjak37c
+	SVQWeAF9JaoaWEEyNUB6CK7yw9z057SNSO9D3wENfTOjYO6Cs0Y5gJa3mNvVPL4h9FiOpbh7Vq0Qm
+	X6WMIvAVaBZOJ2Z97gkp4B2AojF3RjQLp06nIE+zXzYKI0STecVTy5mlOld8OXvDyw6eUOsS/pxcu
+	VIQZDcUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVGB-00000003nik-02TC;
-	Fri, 06 Mar 2026 13:30:31 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vyVGh-00000003noQ-1uHF;
+	Fri, 06 Mar 2026 13:31:03 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVG7-00000003nhc-0XsG
+	id 1vyVGe-00000003nng-3ODT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 13:30:29 +0000
+	Fri, 06 Mar 2026 13:31:02 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 1273B1A2D44;
-	Fri,  6 Mar 2026 13:30:22 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id E806D4E4258F;
+	Fri,  6 Mar 2026 13:30:57 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D978B5FF92;
-	Fri,  6 Mar 2026 13:30:21 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 83118103699F2;
-	Fri,  6 Mar 2026 14:30:11 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id BDAD55FF92;
+	Fri,  6 Mar 2026 13:30:57 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 02D161036994E;
+	Fri,  6 Mar 2026 14:30:54 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1772803820; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1772803857; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=gLX/vLGdWOlScvV94mBZQHZ++2FDe6d8l62ZQIqal5o=;
-	b=UltR2bA6NlebUf4a8560wOZ2sCNSLRI2hwC35B7QGMOuDXtMFMOj92MOCEQL5ArIj+eU2T
-	Um9Ke1hmuZ7eCVJNYIuqidEEMkJUjWWmPPc1h2KGbogfMsSAtdeJ2M8fcWmFDCPEmDmt9/
-	WHXVn6EgXvVVn/JhWfbkwdFiKEX002Mnas0hC7Xhq5W7XkxMPDqpj3ACPFnnjX8jt0RA2H
-	WtAdm8oRtMMuN3VzoUYRWtqp3SQycrp85kc2l8Mn6tXjTUXUFy7Z6M5f5cOmLHrX90BjMJ
-	9QbQae0Yurqf2N+8lAy+/oE8+WTTkEYJJKzPfCQWwhZMpCYHwbXjw9i/o8k4YA==
-Message-ID: <690fc924-8605-45f7-810a-4c8e58cf4db0@bootlin.com>
-Date: Fri, 6 Mar 2026 14:30:10 +0100
+	bh=nxd5+HhPr1aXq8AG7jS9dl3xaEa1KYdFdeENyM5pOHQ=;
+	b=S9QYFZ+bN8spKnDrozVteeI8ay2jV8Tu0iKqrFGRt1aftAs06DzF7J2XvLihvAtNee8mJI
+	RQ4xIKsmzy+mvGvD1WXSgrVofGUZBVR1/1uTrn/rB+GpRBQ4z4sY8bnMMCM8ON+xvodnDu
+	+k3z/H5xntZh7wxTG5ZMYb4HpR9NBrfNM5MLou+Xw2TKFIlg4iGEE+LbWt3YuEim1wedPn
+	XT4lIVp2BdehjfieXtLp0ZRoINtrvzU+HgIjM9aUvDLtl9S34CyQJA9BmCdZOgzUag4Tnb
+	phfAnu1BNPeR8EBqGhYCtvdcDjx4pTsEqXiTgCZ/4zcdiR9OyVdal36QCmwW3w==
+Message-ID: <a91ba34f-cf47-4983-9864-9da6ac23e078@bootlin.com>
+Date: Fri, 6 Mar 2026 14:30:54 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 4/8] net: stmmac: mdio: convert field prep to
- use field_prep()
+Subject: Re: [PATCH net-next v2 6/8] net: stmmac: use GENMASK_U32() for mdio
+ bitfields
 To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
  Andrew Lunn <andrew@lunn.ch>
 Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
@@ -60,16 +60,16 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
  netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
  Samuel Holland <samuel@sholland.org>
 References: <aald--qJquWGIvmO@shell.armlinux.org.uk>
- <E1vy6AE-0000000Btwv-1LM4@rmk-PC.armlinux.org.uk>
+ <E1vy6AO-0000000Btx7-2NDV@rmk-PC.armlinux.org.uk>
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Content-Language: en-US
-In-Reply-To: <E1vy6AE-0000000Btwv-1LM4@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1vy6AO-0000000Btx7-2NDV@rmk-PC.armlinux.org.uk>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_053027_665545_1623D94F 
-X-CRM114-Status: UNSURE (   6.81  )
+X-CRM114-CacheID: sfid-20260306_053100_994310_DA100B5A 
+X-CRM114-Status: UNSURE (   4.45  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,10 +88,7 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Hi,
 
 On 05/03/2026 11:42, Russell King (Oracle) wrote:
-> Convert the MDIO field preparation to use field_prep(), which removes
-> the need to store separate mask and shifts. Also convert the clk_csr
-> value using __ffs() to do the shift as we need to detect overflows
-> for this.
+> Rather than using hex numbers, use GENMASK() for mdio bitfields.
 > 
 > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
