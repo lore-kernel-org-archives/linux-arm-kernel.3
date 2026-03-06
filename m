@@ -4,112 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 225C5F01816
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 09:33:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 087BAF01818
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 09:42:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kDsOvGswv5MMXjq36By3O+u8td88SJvXaTYMt3I0Qs0=; b=HW8ohiJI8ZqT6TjGGdQri08nwG
-	p6Q3q48xJU7fs72Et+tdEv0HnAficyeaQEJa7/IevPUxWDfIV53h0E81t7M7yrLaupxmoTsbNiLRp
-	qfypunbOuUxG4l8Es6rXzD9bLrOlcDiBY5dWAt6qG3pMPIRgHueV+CTYM5OxCP82iqBBzgtH+DVOE
-	zZJw9k3TsOn0rZZatYejQ08/vRCMDiZdALb9e6QasxK0RRi28bDfgvqpXK6cv2BLFgsErXwLhp0XY
-	6Tv/3guBMua7g0HqLdgpv3u33mJvm0k9UYCj1LzbnuEU7sZ6a/nGuMkoPFAshEKrdY1hYjeMRTyYG
-	Fu18WmKQ==;
+	bh=c5VUW8trjR/pt+wAGhG4nPXpBxsgItrdqPqtSJUhNGo=; b=gHj5UNtULI2H9Hai6SVnX+AIj4
+	T5rwOqmqC3sYNQ42TJtnlZG2IfhZ30z+NfKw6VOlGZbPo42QmFr9AYmM0EaznuY8tkW2hYq4wKw1u
+	iLY6DBIgv2NtrhIOzgDQO9rq4qTNG9Fxj0e8z7Wm3+xcF15fCMTFwJnut/Bqt6Mq8B/9YF6t47zCY
+	VHJ1LibO6mwIUW/i2WkdaMHW1h36YsTylkeAALkbyYSuuYS/X9qLKMEXdhh0ymkFJu2fdubRJLjCL
+	I/IgzGmZvbAmDIrgP/8I9PGPKvisefsNaOdQe2/cDZZBqjyaEQc5bcTHncsYNHYU4RgIIGaT3KU2b
+	+2VtaJwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyRYI-00000003M9q-1iLw;
-	Fri, 06 Mar 2026 09:33:00 +0000
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1vyRhZ-00000003Mug-0O9J;
+	Fri, 06 Mar 2026 09:42:33 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyRYG-00000003M95-0uAD
+	id 1vyRhW-00000003MuM-37Bi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 09:32:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UBZP0rBaoU3NG8/6S0+CIG9baUuCwVSyIBVCuuCm/2aze0S1x1Sxbo4CsJZQLJ8OmRuClScA5EXpSqcofGgbos8j9LjXP6ljkb3GRlTS07GC9XthBWemw1HlIgjuuehULLRsXlo2ac1Go1DWdGAh+e/E8NNLjrjHXIxeshMliWZvmAMOvBqiVxrZ/5lsZ2pjcM4XFmThXRh0h4dDl4q2CiYt/Uj/pcrNV600yLuI+TZsDq21QZRubzhuZIkijwG0RnFNkxbrgkg54Ii08JN/OljfLnbA78j+hgJX/P+U9QbpAo/4dBViilFxpRLN36EhwQfsIlnrwIZ9e63wnWHB2A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kDsOvGswv5MMXjq36By3O+u8td88SJvXaTYMt3I0Qs0=;
- b=j31ohKT02+MH2RX8qj0euJi1Mo+VvMvqFJhFZFXQF8AfxvQTTa+TLxe4dAF2V/A8J0bgY08/XQkHB3TQ7UohKOmyWLKVklupiWWDh7Q+5U1GpWEJ/Ag3SF5QVKvXQ/LLvM+h9agmb6m4ojZ5U11MsfMXCwdk4ucWQGcUWBsOa0deEmgD+dxR4nKFfrEh7KE69+KaU9YoGRLDbekGxcRYi5QOMZE+u2pGbOL//wNJROAakwSYWLkVfacuuQSFMFVs0XuNw9kJakDPUpbqCwndvJKD2ML9vF7sOhpz8ZGEC4RgJmbYPPvtXP6zL/tZMTAybBIlXouc95hTeMsJ8iCROA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=cadence.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SI1PR02CA0034.apcprd02.prod.outlook.com (2603:1096:4:1f6::10)
- by TYQPR06MB8086.apcprd06.prod.outlook.com (2603:1096:405:2fa::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.19; Fri, 6 Mar
- 2026 09:32:42 +0000
-Received: from SG2PEPF000B66CB.apcprd03.prod.outlook.com
- (2603:1096:4:1f6:cafe::bc) by SI1PR02CA0034.outlook.office365.com
- (2603:1096:4:1f6::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.19 via Frontend Transport; Fri,
- 6 Mar 2026 09:32:41 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG2PEPF000B66CB.mail.protection.outlook.com (10.167.240.24) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9678.18 via Frontend Transport; Fri, 6 Mar 2026 09:32:40 +0000
-Received: from ZicharPC.. (unknown [172.16.64.205])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 13DCF41604E2;
-	Fri,  6 Mar 2026 17:32:39 +0800 (CST)
-From: Zichar Zhang <zichar.zhang@cixtech.com>
-To: linusw@kernel.org,
-	brgl@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	peter.chen@cixtech.com,
-	fugang.duan@cixtech.com,
-	jank@cadence.com
-Cc: cix-kernel-upstream@cixtech.com,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	"Zichar.Zhang" <zichar.zhang@cixtech.com>
-Subject: [PATCH 2/2] arm64: dts: cix: add FCH(S0)/S5 GPIO controllers for sky1
-Date: Fri,  6 Mar 2026 17:32:38 +0800
-Message-Id: <20260306093238.2715269-2-zichar.zhang@cixtech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260306093238.2715269-1-zichar.zhang@cixtech.com>
-References: <20260306093238.2715269-1-zichar.zhang@cixtech.com>
+	Fri, 06 Mar 2026 09:42:32 +0000
+Date: Fri, 6 Mar 2026 10:42:25 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1772790145;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=c5VUW8trjR/pt+wAGhG4nPXpBxsgItrdqPqtSJUhNGo=;
+	b=TM4Rdzu39Bd9EAADRCXrB648dHPFDbYqmHJbCPos+LO9cH+N8pmFEyN+hOFtV9Kt8vFREp
+	Vz2d+r04CS5ZPWOfQLcxGiyBvVHBxYRUtF0f1J9roudzSb1xR2chbQbxJSmHaEE+zr5Dkh
+	L980N3PTaFG/bNJvDDtnHT5s+qCpSi2kJ0polx7Ls3enbAQiD1TTXRK44vYDO2YjkASHPU
+	NcseRSNfevWaqtFyIOePiKkptS7YvDO+KHjX9sQrWXgbEsq3RysABGWDsVTq2zH0syqzaW
+	c2ZSYUco1APMwU44ZlLCRzJW8URBj5+vvYNvPlfpPRcw72zg8BDv8lqMl8a+Rw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1772790145;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=c5VUW8trjR/pt+wAGhG4nPXpBxsgItrdqPqtSJUhNGo=;
+	b=oyC+xISo6E2zXVjIcJcEaqD5pbEEgZsXJW0zYYh1sU9SGKFdilGyiunD6wDIAtY/VR2cdj
+	CPkN1r8IejPumgBA==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: "H. Peter Anvin" <hpa@zytor.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Russell King <linux@armlinux.org.uk>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <chleroy@kernel.org>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org
+Subject: Re: [PATCH 1/7] x86/vdso: Respect COMPAT_32BIT_TIME
+Message-ID: <20260306103113-ae63c668-2921-4ac1-84f6-35fbc8a6397d@linutronix.de>
+References: <20260227-vdso-compat_32bit_time-v1-0-3f0286a7bac3@linutronix.de>
+ <20260227-vdso-compat_32bit_time-v1-1-3f0286a7bac3@linutronix.de>
+ <c29f5e70-bd17-4e1b-a005-5a3282e70075@app.fastmail.com>
+ <03cd1e21-a2f2-46a1-a674-cbaef9712016@app.fastmail.com>
+ <20260227103226-cc3bb32c-0107-4c09-b81a-ca33ea03ad5c@linutronix.de>
+ <49b7c9f9-198a-49f7-880b-6ae74d7bd985@zytor.com>
+ <20260304081505-a2a3a376-20c9-46cb-8dc9-2c4deec1a55e@linutronix.de>
+ <6909A81E-AE50-459C-9604-3EEAEFE3838E@zytor.com>
+ <20260305080950-ff43457b-0551-480f-916e-6c252e6a64af@linutronix.de>
+ <2e609a1b-62de-4688-b363-58025ab9e703@zytor.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CB:EE_|TYQPR06MB8086:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 3056bb17-be06-4867-24b2-08de7b634fdd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|7416014|376014|82310400026;
-X-Microsoft-Antispam-Message-Info: 7rrqwBC0hvTQ8DvLS52x/d+LaG2kEv+0sL4OO6fgIRCVXPjGV1hQQQ9EPgHx/VImethJHgYh3gwiBPj1tWwHoVa7OYGye5mmVCivDQIal7JdzD4x5En2Ll/A/AohlWdkSad+unRc1465nslazbhFByhFYJJpy/0xYMI6cd8wsSTmVHcivWG31vpZhCiJ4f/ioHJi20QjM3Gjpd4fp86y7TGKtriIWqxth8boZ8Nj7xIQbEayZ0Fo3Oy3NBqeijiwHIPh/wFFm81wSZjyo4+YcHev20AmhktkfnH/41teOVl/Xy9ytKA6UTIvAyp4jGhBVdk0b+Oz28zVUbi1zFvGcv14eTPWCwhI+ImllCIWELT9KHrXpWhg2WuQUHM4izoTNMsdjP+yqGYo7qGKpd08czLTlvRBRvwpf/1aMNy1t0p5ruzMBYR+kwmR3A/dZ2IWcTjvaFyLR2xAZBAiPL+DJ2UH5MisZMSkLM24ZuwqqZzsLFff5iulMr9KOVm7Dja0ibLbLXXjg5g0g1m9H6KWsjm4kmqgkmZFoO1Oq5GQRt5dvTQA0Q81NjdDGk1DETXJD6J6F4PgCMHodPewkB2j6SmEKh4tAapkuq0NJpMhi9ghXR0oGuoL1iX11Z9UsP/6AxSHJCx9ByM9ruP7ktgfLtEUakkg9HM3OXJc66ikPPgnPLlO8cnxWqQ1RPJI+BeKKP1JwiHF46s2ujKDJC0EdrnSNB5xzbVbImDjLxTm7MZ4gc8HRrH5M2/KD2LdeWgBP2N/oSCerEkkT1lbzRz7jA==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(7416014)(376014)(82310400026);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: izl1Ss5JSNLo8+R4QKLfyZFTMHkRvgz5UYHK/BN/T+V/+6sWHZezOcjNW5PASYPpk5BUY/iRCqxiFxsCss724HR9EpqvZM5RtOEIYortvpjnqp+MeHM/QsYni3g8p9h7IbROhxYW1eHfuPz3MVfq9VvmqS2LCd3vfWs2GX1GahMxPJR4GPqe91UtAXnnk5nMaMblm4iEP6fimi3X4brhQWt4iNdBHE/BuCKdflM1aHpry8YsH+gpk060+b7uWEh+E/G4P/uX78B4zebOVLGsYa+yY7RIBR2eK9UipSJCso+wLYRgdHMHWWpmZN8pw/pXWsFr6F4sw51CqiUFAXJn6xVeHqyCIrwkouCodWuY8gDZTCiuxsoMfZKO9eKZG8M4ywYOguE/3vkNFLhhSqtKl9optzpanVEaDYjT63aBB/q57h6SEQyG6YblpWmYk4Co
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 09:32:40.0078
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3056bb17-be06-4867-24b2-08de7b634fdd
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CB.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYQPR06MB8086
+In-Reply-To: <2e609a1b-62de-4688-b363-58025ab9e703@zytor.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_013256_269256_9DEE862D 
-X-CRM114-Status: UNSURE (   8.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260306_014230_948219_37D3CDD7 
+X-CRM114-Status: GOOD (  17.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,202 +94,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Zichar.Zhang" <zichar.zhang@cixtech.com>
+On Thu, Mar 05, 2026 at 03:57:59PM -0800, H. Peter Anvin wrote:
+> On 2026-03-05 01:24, Thomas Weißschuh wrote:
+> > 
+> >> Weak references would be a way to work around the link failures. 
+> > 
+> > I am still not sure where "the link failures" should be coming from.
+> > The only sense I can make out of it, is if somebody manually and directly links
+> > to vdso.so. Like in the following example:
 
-Add Cadence GPIO controller nodes for Sky1 FCH(S0) and S5 domains in
-sky1.dtsi, and enable those controllers on sky1-orion-o6.
+(...)
 
-Signed-off-by: Zichar Zhang <zichar.zhang@cixtech.com>
----
- arch/arm64/boot/dts/cix/sky1-orion-o6.dts |  28 +++++
- arch/arm64/boot/dts/cix/sky1.dtsi         | 123 ++++++++++++++++++++++
- 2 files changed, 151 insertions(+)
+> > This actually works on glibc (not on musl). But it is highly non-standard and
+> > relies on multiple implementation details. Furthermore it can fail to run on
+> > systems without a vDSO, as mentioned before.
+> > 
+> > Is this the usage pattern you have in mind?
+> > Do you know of anybody doing things this way?
+> > 
+> 
+> Yes, and yes, I do.
 
-diff --git a/arch/arm64/boot/dts/cix/sky1-orion-o6.dts b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
-index 4dee8cd0b86d..4dc76e0135ee 100644
---- a/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
-+++ b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
-@@ -89,3 +89,31 @@ &pcie_x1_1_rc {
- &uart2 {
- 	status = "okay";
- };
-+
-+&s5_gpio0 {
-+	status = "okay";
-+};
-+
-+&s5_gpio1 {
-+	status = "okay";
-+};
-+
-+&s5_gpio2 {
-+	status = "okay";
-+};
-+
-+&fch_gpio0 {
-+	status = "okay";
-+};
-+
-+&fch_gpio1 {
-+	status = "okay";
-+};
-+
-+&fch_gpio2 {
-+	status = "okay";
-+};
-+
-+&fch_gpio3 {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
-index 72f3b195a927..9ceaf8f68e83 100644
---- a/arch/arm64/boot/dts/cix/sky1.dtsi
-+++ b/arch/arm64/boot/dts/cix/sky1.dtsi
-@@ -185,6 +185,13 @@ psci {
- 		method = "smc";
- 	};
- 
-+	s5_gpio_apb_clk: s5-gpio-apb-clk {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <100000000>;
-+		clock-output-names = "s5_gpio_apb_clk";
-+	};
-+
- 	soc@0 {
- 		compatible = "simple-bus";
- 		ranges = <0 0 0 0 0x20 0>;
-@@ -354,6 +361,74 @@ syscon: syscon@4160000 {
- 			#reset-cells = <1>;
- 		};
- 
-+		fch_gpio0: gpio-controller@4120000 {
-+			compatible = "cdns,gpio-r1p02";
-+			reg = <0x0 0x4120000 0x0 0x1000>;
-+			clocks = <&scmi_clk CLK_TREE_FCH_GPIO_APB>;
-+			clock-names = "fch_gpio_apb_clk";
-+
-+			interrupts = <GIC_SPI 304 IRQ_TYPE_LEVEL_HIGH 0>;
-+
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			ngpios = <32>;
-+
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			status = "disabled";
-+		};
-+
-+		fch_gpio1: gpio-controller@4130000 {
-+			compatible = "cdns,gpio-r1p02";
-+			reg = <0x0 0x4130000 0x0 0x1000>;
-+			clocks = <&scmi_clk CLK_TREE_FCH_GPIO_APB>;
-+			clock-names = "fch_gpio_apb_clk";
-+
-+			interrupts = <GIC_SPI 305 IRQ_TYPE_LEVEL_HIGH 0>;
-+
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			ngpios = <32>;
-+
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			status = "disabled";
-+		};
-+
-+		fch_gpio2: gpio-controller@4140000 {
-+			compatible = "cdns,gpio-r1p02";
-+			reg = <0x0 0x4140000 0x0 0x1000>;
-+			clocks = <&scmi_clk CLK_TREE_FCH_GPIO_APB>;
-+			clock-names = "fch_gpio_apb_clk";
-+
-+			interrupts = <GIC_SPI 306 IRQ_TYPE_LEVEL_HIGH 0>;
-+
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			ngpios = <32>;
-+
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			status = "disabled";
-+		};
-+
-+		fch_gpio3: gpio-controller@4150000 {
-+			compatible = "cdns,gpio-r1p02";
-+			reg = <0x0 0x4150000 0x0 0x1000>;
-+			clocks = <&scmi_clk CLK_TREE_FCH_GPIO_APB>;
-+			clock-names = "fch_gpio_apb_clk";
-+
-+			interrupts = <GIC_SPI 307 IRQ_TYPE_LEVEL_HIGH 0>;
-+
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			ngpios = <17>;
-+
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			status = "disabled";
-+		};
-+
- 		iomuxc: pinctrl@4170000 {
- 			compatible = "cix,sky1-pinctrl";
- 			reg = <0x0 0x04170000 0x0 0x1000>;
-@@ -587,6 +662,54 @@ s5_syscon: syscon@16000000 {
- 			#reset-cells = <1>;
- 		};
- 
-+		s5_gpio0: gpio-controller@16004000 {
-+			compatible = "cdns,gpio-r1p02";
-+			reg = <0x0 0x16004000 0x0 0x1000>;
-+			clocks = <&s5_gpio_apb_clk>;
-+
-+			interrupts = <GIC_SPI 372 IRQ_TYPE_LEVEL_HIGH 0>;
-+
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			ngpios = <32>;
-+
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			status = "disabled";
-+		};
-+
-+		s5_gpio1: gpio-controller@16005000 {
-+			compatible = "cdns,gpio-r1p02";
-+			reg = <0x0 0x16005000 0x0 0x1000>;
-+			clocks = <&s5_gpio_apb_clk>;
-+
-+			interrupts = <GIC_SPI 373 IRQ_TYPE_LEVEL_HIGH 0>;
-+
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			ngpios = <10>;
-+
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			status = "disabled";
-+		};
-+
-+		s5_gpio2: gpio-controller@16006000 {
-+			compatible = "cdns,gpio-r1p02";
-+			reg = <0x0 0x16006000 0x0 0x1000>;
-+			clocks = <&s5_gpio_apb_clk>;
-+
-+			interrupts = <GIC_SPI 374 IRQ_TYPE_LEVEL_HIGH 0>;
-+
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			ngpios = <10>;
-+
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			status = "disabled";
-+		};
-+
- 		iomuxc_s5: pinctrl@16007000 {
- 			compatible = "cix,sky1-pinctrl-s5";
- 			reg = <0x0 0x16007000 0x0 0x1000>;
--- 
-2.34.1
+Thanks.
 
+Do you know why it is done this way? Are these applications public and
+if so, could you point me to them?
+In case we stub out the vDSO functions with ENOSYS, would these
+applications be able to handle that error gracefully?
+
+Personally I am still in favor of removing these functions completely
+when !COMPAT_32BIT_TIME.
+
+
+Thomas
 
