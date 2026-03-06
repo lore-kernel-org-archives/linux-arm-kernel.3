@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37EDEFCB602
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:37:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3DBFFCB600
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:37:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+KUjQbuHQJ21p2RQALWJdLghrvcyrBZVXJ9cfGciG9M=; b=zLyOlWV4CreZun92bWkUmHzJJM
-	173U0dcf+v2U3U1365kouHi7qlUzQ0dJiTbBQGAdMrJyFprtt+0/bZItwhTXDpHUafj8ThxSOcGuq
-	QW4jc1Vp1CEgvc4ad+QLM7h5gfrqxj4YK4mzbG9c+JbKG3O2bczuD9QX6/cLvFDjHeH4YBKZt1e55
-	jT0qjh8r82TP4AbYKRUoMiIisbHr1Gn2UCTeU7gNI+fnK743b/wg7idoIntW49+4/Sg/mPoMCA3+f
-	L+5w0SkV/1WXpMyM7QZKcxIo21I1fHFsworXqpjO/4vkOniACLwnI36waphEio0ArJVQ94RU8KZqC
-	LlLV26lQ==;
+	bh=d8Z7WAdfX72ZQ1vrHpbOchqHWcE4sgC6MSulzPzgnyE=; b=L5fDJF8MMu0cOUfMRoYrv8QIy4
+	1EWymZSPbuP+a5yRCG3KJvkWGK10qDKlhkFdB5MzW6bxORkgRiQoZ3aXhNxt41j274NZ+icOIr+rl
+	AUhF8VfNtmpBNRybkh1oo0ffWkCR0vkbATA3eAZd/KoP2yD83SL+BzZxefapgXSXpW58BbOsI2wp5
+	pWt7c/dWSTQd+W7THES6T1JZ5+WhezMPQb0mmBVTZWr/VoHVu+/4nOQoqJYs8ScmuWS46FLU4q/Dj
+	OsE+hsI1RFx3PobEZH/Q1rNkc+zDgEWS2f5MSLAmFFkG2jxyB4MpavQzsCeUNQWfcvtqzOkuJPVxv
+	QLC0A7mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyWIQ-00000003vzr-1TMk;
-	Fri, 06 Mar 2026 14:36:54 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1vyWIL-00000003vtz-1vjJ;
+	Fri, 06 Mar 2026 14:36:49 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyWHp-00000003vDl-2TuN
+	id 1vyWHl-00000003vBc-3zII
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 14:36:23 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-439c4d71603so2182996f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 06:36:15 -0800 (PST)
+	Fri, 06 Mar 2026 14:36:20 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-48372facfedso83408795e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 06:36:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1772807775; x=1773412575; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1772807772; x=1773412572; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+KUjQbuHQJ21p2RQALWJdLghrvcyrBZVXJ9cfGciG9M=;
-        b=OSY9QEJXKUjFvt+bdJwpJhcAXQee1P3BBVKzMrjm4LPeXfkX1kgoMdjtRvk5HRyaJj
-         9mwyOWoAUwrgp/jWtgbgXjeujW50nkfo8M2dN7wkWHhiZl4wHQB4QMAKCwkxmdcF3NrP
-         0OUW5LcG+VWjeV4dOmlccXjsNtTmQjdJtRgfdcm2jmu7DRxmHMVqKU7Sg8h5khtHeW2s
-         S2EqGFPqoinRz7Jqt8/wPq0mzG9nAnpZwPX59iBnfCaSgAFJ6ebiZ5KZDcbX7228/ukF
-         DuMPLXBsuzLP+xJaL8t7xFc2VRZkylprcHCwtK0hHoUJ7C+8gHM0oaSzQ60HIwcJ7Nhg
-         vAVA==
+        bh=d8Z7WAdfX72ZQ1vrHpbOchqHWcE4sgC6MSulzPzgnyE=;
+        b=GFMTePTo++Mvv59MHJACDAM2280CtRGbEJ4vqmKrLarqDTWGwBwbVlmAUeNB3KKJk9
+         LZW0dbW0KdFYb3ADGnDiGjfP6SrSIlKTra+XAxuoezmUWfmSaPHmRQ0RHtMwUmv65g8D
+         ABKGli+r4DAFGLe+BJqNS4esUCGk8TPhO3Hl6vCNvC3+OmWBx1BwumaqDW4fxEkFxShN
+         QYmSla0TUyMv0zf0Bc7uM55A/7CQFJFtNjrpTNQYPssqN+JO7M+tNQ2I/xntoQ3hdrbr
+         MriKDfwkeAqnh5eIaeoFE0WpZS276AK8qnO8tPYe8N06RF42OFUBKunfnevlHyN2to2n
+         /d2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772807775; x=1773412575;
+        d=1e100.net; s=20230601; t=1772807772; x=1773412572;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+KUjQbuHQJ21p2RQALWJdLghrvcyrBZVXJ9cfGciG9M=;
-        b=E8Dfdohvj3PZRp/xp0l9Ofs0yfsRj0a+3EyHT9sveBvd5ODWMNgc0qJGblbei9HB0V
-         gJ8E12TaGKgC1HHsS/VPHki6MTcLWL6XgYi+HPuRCJFc+zWhKxrEApzEN/8f7pnVdw0M
-         9EWIGdxJ02Tev2HnQ+I4s8ZEo7y/RYtGiGBulAVutCA9SkVOrrFstZXCQABiqQSSl9bQ
-         bEc/bg6cYunCGKPqtfkBhdS0EIpcDXRrHZoulW/KHBc5Jf+MquhSG6JI8tKoH/5eMKaN
-         5Vb/S6IN3+M15O6uO4t3SM9P/0vLOYFi0AKLQB+OrRcvEP69SQpWuKcwZgDOD+TU41I0
-         mPqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVZAUOcnekii6xybvf5Ls1d3C0lcy99oNSxlRWx3O2X6PATmbVpO4WJdflHzHXi0Nk3yyEKa8g5BYOLOGPkUxwi@lists.infradead.org
-X-Gm-Message-State: AOJu0YzA9P//f99LV+ap/NF7JIgnu3ZnkM48gxcbyrDjHsKrMNBpwn/7
-	f/VF7C3p2vRTv7KEfDyKFvdqhv9GqIsXDBldxfg9Y5qjI4cfyQlmhnHvibQhmsI4yOGg32o39PQ
-	W2eeEfrJbPJp95Fi7ESoRIg==
-X-Received: from wmcn3-n1.prod.google.com ([2002:a05:600c:c0c3:10b0:479:2d82:5535])
+        bh=d8Z7WAdfX72ZQ1vrHpbOchqHWcE4sgC6MSulzPzgnyE=;
+        b=BK45ebtLdwJMdj1Lb8VZJBNH/eUGHaEO7k8JgImIgipSVmsop4FfenRxc55ASYATk9
+         37Ppa+k2I1rvMEI8RQdXwmSA3IWGjerOr+LrOnfySKRSbgvqxBfZlJdBszSMvQNLWk9F
+         iIpNYrQsiljzEynXfnOU2MshVSVp9A5m+dtVgQ72a3bmBVJwF/nDA5ODyi/xicN+bucA
+         MFS6fWCf6+70OAPWTSS8s8/58vHQcF3HbzY1K+HEjVviefJ2R24gG7bUUKvGEOaiWQ2T
+         xuss1lTRE2KpuBySgTdRXPaDF9fAwZZyPLa3dzGBDU0jDFEsep8Z4XLhch8wrFi5MVfR
+         G2MQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX+aSgwj7b079BzGA0PI9vJACv8083SE7ScejWd0SiEAMWYkXcWYNz+OX9VR8+eritRfwo4Yl6PVA63xUx6zfNg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyy/mKumzZqc0U8mL4+MzEbbUy2E8JUoh2XLIaumYAdx8f3+tRH
+	zotUdXkkMjWcXqZWiPXFQOmwu3u54o8yYP7XSSAX0oPwJXAaBHrw6RQCk6auPAVTvbpr1YzVXlu
+	2QEU4yddmuRqRsHLZsk82cQ==
+X-Received: from wrbby19.prod.google.com ([2002:a05:6000:993:b0:439:c3d1:a394])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4446:b0:483:29f4:26b3 with SMTP id 5b1f17b1804b1-48526715248mr36686515e9.1.1772807774527;
- Fri, 06 Mar 2026 06:36:14 -0800 (PST)
-Date: Fri,  6 Mar 2026 14:35:26 +0000
+ 2002:a7b:c7cd:0:b0:483:78e7:ce15 with SMTP id 5b1f17b1804b1-4851eea0e51mr82902955e9.13.1772807771399;
+ Fri, 06 Mar 2026 06:36:11 -0800 (PST)
+Date: Fri,  6 Mar 2026 14:35:23 +0000
 In-Reply-To: <20260306143536.339777-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20260306143536.339777-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.53.0.473.g4a7958ca14-goog
-Message-ID: <20260306143536.339777-23-vdonnefort@google.com>
-Subject: [PATCH v13 22/32] KVM: arm64: Support unaligned fixmap in the pKVM hyp
+Message-ID: <20260306143536.339777-20-vdonnefort@google.com>
+Subject: [PATCH v13 19/32] KVM: arm64: Add PKVM_DISABLE_STAGE2_ON_PANIC
 From: Vincent Donnefort <vdonnefort@google.com>
 To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
 	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
@@ -73,12 +73,12 @@ To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
 Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
 	jstultz@google.com, qperret@google.com, will@kernel.org, 
 	aneesh.kumar@kernel.org, kernel-team@android.com, 
-	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>
+	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>, 
+	Kalesh Singh <kaleshsingh@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_063617_745397_526C31AA 
-X-CRM114-Status: UNSURE (   8.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260306_063616_066166_6270D36A 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,34 +93,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Return the fixmap VA with the page offset, instead of the page base
-address. This allows to use hyp_fixmap_map() seamlessly regardless of
-the address alignment. While at it, do the same for hyp_fixblock_map().
+On NVHE_EL2_DEBUG, when using pKVM, the host stage-2 is relaxed to grant
+the kernel access to the stacktrace, hypervisor bug table and text to
+symbolize addresses. This is unsafe for production. In preparation for
+adding more debug options to NVHE_EL2_DEBUG, decouple the stage-2
+relaxation into a separate option.
 
+While at it, rename PROTECTED_NVHE_STACKTRACE into PKVM_STACKTRACE,
+following the same naming scheme as PKVM_DISABLE_STAGE2_ON_PANIC.
+
+Reviewed-by: Kalesh Singh <kaleshsingh@google.com>
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
-index 218976287d3f..c98cec0c150f 100644
---- a/arch/arm64/kvm/hyp/nvhe/mm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mm.c
-@@ -244,7 +244,7 @@ static void *fixmap_map_slot(struct hyp_fixmap_slot *slot, phys_addr_t phys)
+diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+index 7d1f22fd490b..14b2d0b0b831 100644
+--- a/arch/arm64/kvm/Kconfig
++++ b/arch/arm64/kvm/Kconfig
+@@ -42,9 +42,27 @@ menuconfig KVM
  
- void *hyp_fixmap_map(phys_addr_t phys)
- {
--	return fixmap_map_slot(this_cpu_ptr(&fixmap_slots), phys);
-+	return fixmap_map_slot(this_cpu_ptr(&fixmap_slots), phys) + offset_in_page(phys);
+ 	  If unsure, say N.
+ 
++if KVM
++
++config PTDUMP_STAGE2_DEBUGFS
++	bool "Present the stage-2 pagetables to debugfs"
++	depends on DEBUG_KERNEL
++	depends on DEBUG_FS
++	depends on ARCH_HAS_PTDUMP
++	select PTDUMP
++	default n
++	help
++	  Say Y here if you want to show the stage-2 kernel pagetables
++	  layout in a debugfs file. This information is only useful for kernel developers
++	  who are working in architecture specific areas of the kernel.
++	  It is probably not a good idea to enable this feature in a production
++	  kernel.
++
++	  If in doubt, say N.
++
+ config NVHE_EL2_DEBUG
+ 	bool "Debug mode for non-VHE EL2 object"
+-	depends on KVM
++	default n
+ 	help
+ 	  Say Y here to enable the debug mode for the non-VHE KVM EL2 object.
+ 	  Failure reports will BUG() in the hypervisor. This is intended for
+@@ -52,10 +70,23 @@ config NVHE_EL2_DEBUG
+ 
+ 	  If unsure, say N.
+ 
+-config PROTECTED_NVHE_STACKTRACE
+-	bool "Protected KVM hypervisor stacktraces"
+-	depends on NVHE_EL2_DEBUG
++if NVHE_EL2_DEBUG
++
++config PKVM_DISABLE_STAGE2_ON_PANIC
++	bool "Disable the host stage-2 on panic"
+ 	default n
++	help
++	  Relax the host stage-2 on hypervisor panic to allow the kernel to
++	  unwind and symbolize the hypervisor stacktrace. This however tampers
++	  the system security. This is intended for local EL2 hypervisor
++	  development.
++
++	  If unsure, say N.
++
++config PKVM_STACKTRACE
++	bool "Protected KVM hypervisor stacktraces"
++	depends on PKVM_DISABLE_STAGE2_ON_PANIC
++	default y
+ 	help
+ 	  Say Y here to enable pKVM hypervisor stacktraces on hyp_panic()
+ 
+@@ -65,21 +96,6 @@ config PROTECTED_NVHE_STACKTRACE
+ 
+ 	  If unsure, or not using protected nVHE (pKVM), say N.
+ 
+-config PTDUMP_STAGE2_DEBUGFS
+-	bool "Present the stage-2 pagetables to debugfs"
+-	depends on KVM
+-	depends on DEBUG_KERNEL
+-	depends on DEBUG_FS
+-	depends on ARCH_HAS_PTDUMP
+-	select PTDUMP
+-	default n
+-	help
+-	  Say Y here if you want to show the stage-2 kernel pagetables
+-	  layout in a debugfs file. This information is only useful for kernel developers
+-	  who are working in architecture specific areas of the kernel.
+-	  It is probably not a good idea to enable this feature in a production
+-	  kernel.
+-
+-	  If in doubt, say N.
+-
++endif # NVHE_EL2_DEBUG
++endif # KVM
+ endif # VIRTUALIZATION
+diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
+index cc7d5d1709cb..54aedf93c78b 100644
+--- a/arch/arm64/kvm/handle_exit.c
++++ b/arch/arm64/kvm/handle_exit.c
+@@ -539,7 +539,7 @@ void __noreturn __cold nvhe_hyp_panic_handler(u64 esr, u64 spsr,
+ 
+ 		/* All hyp bugs, including warnings, are treated as fatal. */
+ 		if (!is_protected_kvm_enabled() ||
+-		    IS_ENABLED(CONFIG_NVHE_EL2_DEBUG)) {
++		    IS_ENABLED(CONFIG_PKVM_DISABLE_STAGE2_ON_PANIC)) {
+ 			struct bug_entry *bug = find_bug(elr_in_kimg);
+ 
+ 			if (bug)
+diff --git a/arch/arm64/kvm/hyp/nvhe/host.S b/arch/arm64/kvm/hyp/nvhe/host.S
+index eef15b374abb..3092befcd97c 100644
+--- a/arch/arm64/kvm/hyp/nvhe/host.S
++++ b/arch/arm64/kvm/hyp/nvhe/host.S
+@@ -120,7 +120,7 @@ SYM_FUNC_START(__hyp_do_panic)
+ 
+ 	mov	x29, x0
+ 
+-#ifdef CONFIG_NVHE_EL2_DEBUG
++#ifdef PKVM_DISABLE_STAGE2_ON_PANIC
+ 	/* Ensure host stage-2 is disabled */
+ 	mrs	x0, hcr_el2
+ 	bic	x0, x0, #HCR_VM
+diff --git a/arch/arm64/kvm/hyp/nvhe/stacktrace.c b/arch/arm64/kvm/hyp/nvhe/stacktrace.c
+index 5b6eeab1a774..7c832d60d22b 100644
+--- a/arch/arm64/kvm/hyp/nvhe/stacktrace.c
++++ b/arch/arm64/kvm/hyp/nvhe/stacktrace.c
+@@ -34,7 +34,7 @@ static void hyp_prepare_backtrace(unsigned long fp, unsigned long pc)
+ 	stacktrace_info->pc = pc;
  }
  
- static void fixmap_clear_slot(struct hyp_fixmap_slot *slot)
-@@ -366,7 +366,7 @@ void *hyp_fixblock_map(phys_addr_t phys, size_t *size)
- #ifdef HAS_FIXBLOCK
- 	*size = PMD_SIZE;
- 	hyp_spin_lock(&hyp_fixblock_lock);
--	return fixmap_map_slot(&hyp_fixblock_slot, phys);
-+	return fixmap_map_slot(&hyp_fixblock_slot, phys) + offset_in_page(phys);
- #else
- 	*size = PAGE_SIZE;
- 	return hyp_fixmap_map(phys);
+-#ifdef CONFIG_PROTECTED_NVHE_STACKTRACE
++#ifdef CONFIG_PKVM_STACKTRACE
+ #include <asm/stacktrace/nvhe.h>
+ 
+ DEFINE_PER_CPU(unsigned long [NVHE_STACKTRACE_SIZE/sizeof(long)], pkvm_stacktrace);
+@@ -134,11 +134,11 @@ static void pkvm_save_backtrace(unsigned long fp, unsigned long pc)
+ 
+ 	unwind(&state, pkvm_save_backtrace_entry, &idx);
+ }
+-#else /* !CONFIG_PROTECTED_NVHE_STACKTRACE */
++#else /* !CONFIG_PKVM_STACKTRACE */
+ static void pkvm_save_backtrace(unsigned long fp, unsigned long pc)
+ {
+ }
+-#endif /* CONFIG_PROTECTED_NVHE_STACKTRACE */
++#endif /* CONFIG_PKVM_STACKTRACE */
+ 
+ /*
+  * kvm_nvhe_prepare_backtrace - prepare to dump the nVHE backtrace
+diff --git a/arch/arm64/kvm/stacktrace.c b/arch/arm64/kvm/stacktrace.c
+index af5eec681127..9724c320126b 100644
+--- a/arch/arm64/kvm/stacktrace.c
++++ b/arch/arm64/kvm/stacktrace.c
+@@ -197,7 +197,7 @@ static void hyp_dump_backtrace(unsigned long hyp_offset)
+ 	kvm_nvhe_dump_backtrace_end();
+ }
+ 
+-#ifdef CONFIG_PROTECTED_NVHE_STACKTRACE
++#ifdef CONFIG_PKVM_STACKTRACE
+ DECLARE_KVM_NVHE_PER_CPU(unsigned long [NVHE_STACKTRACE_SIZE/sizeof(long)],
+ 			 pkvm_stacktrace);
+ 
+@@ -225,12 +225,12 @@ static void pkvm_dump_backtrace(unsigned long hyp_offset)
+ 		kvm_nvhe_dump_backtrace_entry((void *)hyp_offset, stacktrace[i]);
+ 	kvm_nvhe_dump_backtrace_end();
+ }
+-#else	/* !CONFIG_PROTECTED_NVHE_STACKTRACE */
++#else	/* !CONFIG_PKVM_STACKTRACE */
+ static void pkvm_dump_backtrace(unsigned long hyp_offset)
+ {
+-	kvm_err("Cannot dump pKVM nVHE stacktrace: !CONFIG_PROTECTED_NVHE_STACKTRACE\n");
++	kvm_err("Cannot dump pKVM nVHE stacktrace: !CONFIG_PKVM_STACKTRACE\n");
+ }
+-#endif /* CONFIG_PROTECTED_NVHE_STACKTRACE */
++#endif /* CONFIG_PKVM_STACKTRACE */
+ 
+ /*
+  * kvm_nvhe_dump_backtrace - Dump KVM nVHE hypervisor backtrace.
 -- 
 2.53.0.473.g4a7958ca14-goog
 
