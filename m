@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54D0CF513F4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 04:15:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8896CF513F4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 04:26:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=+tRCLx1RcwGxf5Y2F3c26DMNubwbwjg17R25hyEILeQ=; b=HB/I3eDAqLPiSATiLC/ILe9kd8
-	iLU08D/7oPPv/QgkVjd5MHAkHknoY42aydt4WgAlZxWD4iHDGJUL0BcuSnWvk89IGskvA8xfa0cbP
-	jSfvZjB1YQdp3S+J37O4SJBKAL5CWtpNbQQUoOeQYeK9ZC3wzNzJS9P/wNAaxYNyqsz7NJGfZT6+P
-	0OgGm6UJ7fLapKANl7UzMUExMjuEisWnS0GDSxOTHY3RoJJQyCcbfUx9TpbHVIednQQbLK7fUMpxA
-	Sqguizhm93tPsWHEIh9/7Ci483lPsp+MH0v3G43wXoAFvq2U9heNPP7rb338YKQOz7/VhyHgZRvrl
-	RVcRIc5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jvulmaWHVHLTxELsaUcupjwHmyR9DBqU5/UhJVjUTkk=; b=eKh+9kqMrzqNb5fZhGVdNiPkTB
+	LuEw+iJoNHSTdMoN48VLDQoaYwUKncDSSD3BOV2G4ZXY6nYNfqyw3QEjydViRokg2VFgN6eO2HVqX
+	pHUJL3SqST0w3dTdYNZuYTzcA+ZjzRoiz13I0hRWjicqSVVD1HXYcU+Nw6Q+QIu9Rs84MnVJDnOt2
+	vmulN5xV+Xukhx/rmdgt/6rvZ9CQmNdXJCYxN/h5FJpoXK7p38D6PSwAfVK6a0zrEKJoKnXNKY62x
+	EtDT1eAIEwtuZ9/ZYa2UhG9ZkJrYg7kKTO4UTi601x4ASsMTOBNZkwnYuOXlWMcL3THBBRoMqdsaO
+	hRUd1jog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyMab-00000002zs4-1wHK;
-	Fri, 06 Mar 2026 04:15:01 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1vyMl8-000000030db-1RqG;
+	Fri, 06 Mar 2026 04:25:54 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyMaV-00000002zou-3Y4b
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 04:15:00 +0000
-Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20260306041446epoutp01ade695cba1c655cb489cd2ac7c51c4b1~aJV1P4vvm2889128891epoutp01i
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  6 Mar 2026 04:14:46 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20260306041446epoutp01ade695cba1c655cb489cd2ac7c51c4b1~aJV1P4vvm2889128891epoutp01i
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1772770486;
-	bh=+tRCLx1RcwGxf5Y2F3c26DMNubwbwjg17R25hyEILeQ=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=QB5fnevlgNbMjZgfQ80vgaoWYKpli/0/9pLsfEhCb56QRSY5fXmyXDMtz7ZSmSUDG
-	 1YV80XuVQdkNoD4OAWwEooGTCOTdlMrqNeUDpO8FfAmPxlC2PPu4DqBAcvwv+C2lct
-	 YtpnKaD/gzf/81wZM5dBPoXOk0LzITUZdC0hqItg=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20260306041445epcas5p28765e3c27445bfc69a732be8b3b0c745~aJV0Y8wYd2508125081epcas5p2I;
-	Fri,  6 Mar 2026 04:14:45 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.41.42]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4fRtN50VLPz2SSKg; Fri,  6 Mar
-	2026 04:14:45 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20260306041444epcas5p49a7e0fa0dc2f2eca16a083c848b0c8fb~aJV0KmYPF2830428304epcas5p4P;
-	Fri,  6 Mar 2026 04:14:44 +0000 (GMT)
-Received: from localhost.localdomain (unknown [107.97.243.203]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260306041442epsmtip2aec03f43ac9aaa7bbb3b6a2d05998c9e~aJVyGUIF32817928179epsmtip2H;
-	Fri,  6 Mar 2026 04:14:42 +0000 (GMT)
-From: Maninder Singh <maninder1.s@samsung.com>
-To: linux@armlinux.org.uk, mark.rutland@arm.com, luto@kernel.org,
-	geert@linux-m68k.org, schuster.simon@siemens-energy.com,
-	andreas@gaisler.com, brauner@kernel.org, keithpac@amazon.com,
-	linusw@kernel.org, ardb@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Maninder Singh <maninder1.s@samsung.com>
-Subject: [PATCH 1/1] arm: add try_get_task_stack() for __get_wchan
-Date: Fri,  6 Mar 2026 09:44:32 +0530
-Message-Id: <20260306041432.1026421-1-maninder1.s@samsung.com>
-X-Mailer: git-send-email 2.25.1
+	id 1vyMl5-000000030dH-2fB4
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 06 Mar 2026 04:25:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=jvulmaWHVHLTxELsaUcupjwHmyR9DBqU5/UhJVjUTkk=; b=aFzYSKfNpDK4g1CCGvw7X8T2jh
+	fISPftxcZZHFmW/uVYj00QjQoeOE+cnxCCfNGf60xcAITo155VewGg8b94KHAJDmgSmxDFO2xybGm
+	lS9KOpNbj3XTlNAgb2fA1YpjhDE8FN/l3OVKD83XpfLFxTVQpOieJ3IMP0XnnrB3IRERiRApue4lg
+	IdqoYajTIgG3LUGOW+QUYzwKSVc1bAPidLbWXo4yK4LXIhi9nuTQLcc/2qb5TalHrcpKGAtk2TQV7
+	IhT7WXpVDek3hi1swmixTb654rh4P0qCodoYra7NlWmKoya92mTQQ1VcLMa/i8nueZDSJfFlNUaF3
+	4LBCnnHw==;
+Received: from willy by casper.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vyMkv-0000000G8pR-0PfW;
+	Fri, 06 Mar 2026 04:25:41 +0000
+Date: Fri, 6 Mar 2026 04:25:40 +0000
+From: Matthew Wilcox <willy@infradead.org>
+To: Yin Tirui <yintirui@huawei.com>
+Cc: =?iso-8859-1?Q?J=FCrgen_Gro=DF?= <jgross@suse.com>,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, david@kernel.org,
+	catalin.marinas@arm.com, will@kernel.org, tglx@kernel.org,
+	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+	hpa@zytor.com, luto@kernel.org, peterz@infradead.org,
+	akpm@linux-foundation.org, lorenzo.stoakes@oracle.com,
+	ziy@nvidia.com, baolin.wang@linux.alibaba.com,
+	Liam.Howlett@oracle.com, npache@redhat.com, ryan.roberts@arm.com,
+	dev.jain@arm.com, baohua@kernel.org, lance.yang@linux.dev,
+	vbabka@suse.cz, rppt@kernel.org, surenb@google.com, mhocko@suse.com,
+	anshuman.khandual@arm.com, rmclure@linux.ibm.com,
+	kevin.brodsky@arm.com, apopple@nvidia.com, ajd@linux.ibm.com,
+	pasha.tatashin@soleen.com, bhe@redhat.com, thuth@redhat.com,
+	coxu@redhat.com, dan.j.williams@intel.com, yu-cheng.yu@intel.com,
+	baolu.lu@linux.intel.com, conor.dooley@microchip.com,
+	Jonathan.Cameron@huawei.com, riel@surriel.com,
+	Kefeng Wang <wangkefeng.wang@huawei.com>, chenjun102@huawei.com
+Subject: Re: [PATCH RFC v3 2/4] mm/pgtable: Make pfn_pte() filter out huge
+ page attributes
+Message-ID: <aapXRN4KjWtUUJ0g@casper.infradead.org>
+References: <20260228070906.1418911-1-yintirui@huawei.com>
+ <20260228070906.1418911-3-yintirui@huawei.com>
+ <5eaf3846-01db-471e-9903-b0b239d7838d@suse.com>
+ <e8d5ba16-3071-4b4a-b6a1-d492cc46e8c2@huawei.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260306041444epcas5p49a7e0fa0dc2f2eca16a083c848b0c8fb
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-X-CMS-RootMailID: 20260306041444epcas5p49a7e0fa0dc2f2eca16a083c848b0c8fb
-References: <CGME20260306041444epcas5p49a7e0fa0dc2f2eca16a083c848b0c8fb@epcas5p4.samsung.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_201457_339014_129B8C5C 
-X-CRM114-Status: GOOD (  17.30  )
+In-Reply-To: <e8d5ba16-3071-4b4a-b6a1-d492cc46e8c2@huawei.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,60 +87,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As per help menu of "THREAD_INFO_IN_TASK", try_get_task_stack()
-is needed for get_wchan.
-For ARM it was missed while enabling THREAD_INFO_IN_TASK.
-Adding try_get_task_stack() for ARM as well.
+On Thu, Mar 05, 2026 at 05:38:46PM +0800, Yin Tirui wrote:
+> On 3/4/2026 3:52 PM, Jürgen Groß wrote:
+> > Today it can either be used for a large page (which should be a pmd,
+> > of course), or - much worse - you'd strip the _PAGE_PAT bit, which is
+> > at the same position in PTEs.
+> > 
+> > So basically you are removing the ability to use some cache modes.
+> > 
+> > NACK!
+> > 
+> > 
+> > Juergen
+> 
+> Hi Willy and Jürgen,
+> 
+> Following up on the x86 _PAGE_PSE and _PAGE_PAT aliasing issue.
+> 
+> To achieve the goal of keeping pfn_pte() pure and completely eradicating the
+> pte_clrhuge() anti-pattern, we need a way to ensure pfn_pte() never receives
+> a pgprot with the huge bit set.
+> 
+> @Jürgen:
+> Just to be absolutely certain: is there any safe way to filter out the huge
+> page attributes directly inside x86's pfn_pte() without breaking PAT? Or
+> does the hardware bit-aliasing make this strictly impossible at the
+> pfn_pte() level?
+> 
+> @Willy @Jürgen:
+> Assuming it is impossible to filter this safely inside pfn_pte() on x86, we
+> must translate the pgprot before passing it down. To maintain strict
+> type-safety and still drop pte_clrhuge(), I plan to introduce two
+> arch-neutral wrappers:
+> 
+> x86:
+> /* Translates large prot to 4K. Shifts PAT back to bit 7, inherently
+> clearing _PAGE_PSE */
+> #define pgprot_huge_to_pte(prot)    pgprot_large_2_4k(prot)
+> /* Translates 4K prot to large. Shifts PAT to bit 12, strictly sets
+> _PAGE_PSE */
+> #define pgprot_pte_to_huge(prot)
+> __pgprot(pgprot_val(pgprot_4k_2_large(prot)) | _PAGE_PSE)
 
-Fixes: 18ed1c01a7dd ("ARM: smp: Enable THREAD_INFO_IN_TASK")
-Signed-off-by: Maninder Singh <maninder1.s@samsung.com>
----
- arch/arm/kernel/process.c | 20 ++++++++++++++------
- 1 file changed, 14 insertions(+), 6 deletions(-)
+I don't think we should have pgprot_large_2_4k().  Or rather, I think it
+should be embedded in pmd_pgprot() / pud_pgprot().  That is, we should
+have an 'ideal' pgprot which, on x86, perhaps matches that used by the
+4k level.  pfn_pmd() should be converting from the ideal pgprot to
+that actually used by PMDs (and setting _PAGE_PSE?)
 
-diff --git a/arch/arm/kernel/process.c b/arch/arm/kernel/process.c
-index d7aa95225c70..1a84ceb9f7d0 100644
---- a/arch/arm/kernel/process.c
-+++ b/arch/arm/kernel/process.c
-@@ -280,23 +280,31 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- unsigned long __get_wchan(struct task_struct *p)
- {
- 	struct stackframe frame;
--	unsigned long stack_page;
-+	unsigned long stack_page, ret = 0;
- 	int count = 0;
- 
-+	stack_page = (unsigned long)try_get_task_stack(p);
-+	if (!stack_page)
-+		return 0;
-+
- 	frame.fp = thread_saved_fp(p);
- 	frame.sp = thread_saved_sp(p);
- 	frame.lr = 0;			/* recovered from the stack */
- 	frame.pc = thread_saved_pc(p);
--	stack_page = (unsigned long)task_stack_page(p);
- 	do {
- 		if (frame.sp < stack_page ||
- 		    frame.sp >= stack_page + THREAD_SIZE ||
- 		    unwind_frame(&frame) < 0)
--			return 0;
--		if (!in_sched_functions(frame.pc))
--			return frame.pc;
-+			goto out;
-+		if (!in_sched_functions(frame.pc)) {
-+			ret = frame.pc;
-+			goto out;
-+		}
- 	} while (count ++ < 16);
--	return 0;
-+
-+out:
-+	put_task_stack(p);
-+	return ret;
- }
- 
- #ifdef CONFIG_MMU
--- 
-2.34.1
-
+> arm64:
+> /*
+>  * Drops Block marker, enforces Page marker.
+>  * Strictly preserves the PTE_VALID bit to avoid validating PROT_NONE pages.
+>  */
+> #define pgprot_huge_to_pte(prot) \
+>       __pgprot((pgprot_val(prot) & ~(PMD_TYPE_MASK & ~PTE_VALID)) | \
+>              (PTE_TYPE_PAGE & ~PTE_VALID))
+> /*
+>  * Drops Page marker, sets Block marker.
+>  * Strictly preserves the PTE_VALID bit.
+>  */
+> #define pgprot_pte_to_huge(prot) \
+>       __pgprot((pgprot_val(prot) & ~(PTE_TYPE_MASK & ~PTE_VALID)) | \
+>              (PMD_TYPE_SECT & ~PTE_VALID))
+> 
+> Usage:
+> 1.  Creating a huge pfnmap (remap_try_huge_pmd)
+> pgprot_t huge_prot = pgprot_pte_to_huge(prot);
+> 
+> /* No need for pmd_mkhuge() */
+> pmd_t entry = pmd_mkspecial(pfn_pmd(pfn, huge_prot));
+> set_pmd_at(mm, addr, pmd, entry);
+> 
+> 2. Splitting a huge pfnmap (__split_huge_pmd_locked)
+> pgprot_t small_prot = pgprot_huge_to_pte(pmd_pgprot(old_pmd));
+> 
+> /* No need for pte_clrhuge() */
+> pte_t entry = pfn_pte(pmd_pfn(old_pmd), small_prot);
+> set_ptes(mm, haddr, pte, entry, HPAGE_PMD_NR);
+> 
+> 
+> Willy, is there a better architectural approach to handle this and satisfy
+> the type-safety requirement given the x86 hardware constraints?
+> 
+> -- 
+> Thanks,
+> Yin Tirui
+> 
+> 
 
