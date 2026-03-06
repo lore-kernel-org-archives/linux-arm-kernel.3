@@ -4,86 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDD8EFCC04D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 17:35:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B5EAFCC04F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 17:43:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v5CiRKQ0iFjb+yZmoCiuGH5ayfkkNl11+lDvC+/dz2M=; b=eFwyx08QKbzg53l8tssXZ2qRbY
-	QPtzr5YZnaZbCIJuKLxmC7pkYw0c99Ha8retPhn80mPhFWo2QyfaDLrsKxNgE9ffyAtEe6hNnCqlJ
-	bzKxETdihMPY2oAksZn3n1yUG/MLSa6+99eFX63IWFOQZb+hjhCVXZI2xd6w9Pn1wx8xxqVWqx2Ee
-	ruFX6AacAASUMsrYkmM7KhPKWMdCrYqewhIZkiyIYS63hMS3ohssh7kapAf7A3+Gi7hdqnUTiUUIf
-	uJ7Hn9jxUFXfEUPJnQGcV5IFblwyXVKFxbIMwo5ipTiY6FcIHNyhqRHgokaSGhFE8N49vt6kUY0i9
-	r4NSEmfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q55ttwl0U4tShvF0ug8UI6faFSrHWNFSrZe9Rm8j+fQ=; b=4t628AkRAF6eRwJoRUqea6iO3X
+	ta2tJjhh1sDR27fJhXAHRFAVGJmWg+MMRl6OGycHBnBLd9+i6pV+jvthrwn4w299FYVjEMvmL5sKB
+	dVkhqZqEPawbG0AVMn70R/Ov1ehgxSDD6HSTw2EVDCP4ng9FKoNfK9RQbJktt38NjpxGiig+ZBGcv
+	X57UcbHsB2Joko09zh/nwpLpKh8ohIdo8xRbvLituFVvwR68mmT5A6skPBKOAqId6LBYe+1mQRSGr
+	7O5WajINjLem/OXjdfc1DpPdZt8CxbG6MdytL2gd4Z/f+EVWRyg2V5xGvHgfaHlbOp3bjBRBea3m7
+	0ukC8XRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyZ4m-00000004Hb1-2IUz;
-	Fri, 06 Mar 2026 17:35:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vyZCl-00000004I2L-306q;
+	Fri, 06 Mar 2026 17:43:15 +0000
+Received: from mail-swedencentralazon11013037.outbound.protection.outlook.com ([52.101.83.37] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyZ4j-00000004HaE-47j6
+	id 1vyZCj-00000004I1u-2sw1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 17:34:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 69A3A44403
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  6 Mar 2026 17:34:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37F4AC2BCB3
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  6 Mar 2026 17:34:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772818497;
-	bh=SR+mdgLhlOhUS2wbF1s2i9ovITikFxXdvE5yE1P9YdI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=IsUF/XTycn0CKydUrnqYikvqNO9ZMczOJtjO7TCzrOjWyt7xzMh8RLVcJR9Kcb+5q
-	 p1bmm3B7gLT9FCdqdxb2Mh4JrPsGdbFgezfpW2UGKyugg6Nmr2CsN753l7cMgg+0G8
-	 H97kSflQSfMoro7L5rGmLF+7FdVRGSAANOX0sfJI0pd/isMPuBj6paL/J0Tc1PmQiW
-	 x+SUG5lzK1HO6XXo9imEvaZGYe5GqG5j85GzWaIbRqlE/hAJybSxzOI+gdUO33z6WM
-	 I11kDz4Q6EEuhM7PS6k8a4ub5XAvMDUtyeRl66FGf1nxsF1KbxA7IjCRs4GuM0pJw3
-	 KpEjmfBqp9QNQ==
-Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-386fb2c31e2so153796421fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 09:34:57 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCULljXth2qapzEAGNyvDYm7UZ1eqhzKSh9exIOe0UraIgencgIttnwGcxTLn81o7Rt/djOEu071fGtU+0dA/aa2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8cUqESetFjQnhI7UgAhhmP/2w5FTuwsUHrnyW2JNYsemf62N8
-	MggtywGBlGVkknjCsH8mJnUDRtYzHhqKy31676ZAANDn/nHHqsVjK85SdjnxNeVUpESo4XQxoU9
-	Oe34n08zNxTxVIAL7M/6sdOHBPNbX7RY/DUHSIITynQ==
-X-Received: by 2002:a05:651c:893:b0:38a:519:f788 with SMTP id
- 38308e7fff4ca-38a40b388d2mr12029891fa.2.1772818495778; Fri, 06 Mar 2026
- 09:34:55 -0800 (PST)
+	Fri, 06 Mar 2026 17:43:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Gb9b/2ESkuTkPX7MqkTiRQ73ipXZIrcXC2EO+n7yJdsFJhL7FO2aaU7M53xQ7626SFkQWjz5nSGWnqdJR76UJHJObv5Nrqhh0/sRhhViX196AM77NI3F1pxM2SQyQZ29Gp9NNskzg03Dw+U3/b0b+Qlpr27vbG3ZO/sD95JAjxWKAM/EasL7nD73GJlEOICElT2QwgZWVteYPKNUwx6XxW3bWinnuMq+PU6pkHpHgSz3wRZ1EVStb2YLUyUCBp+Y5vg4VDSmA1Jitf3SK4dbUZMtyrT0sLNbALWmA7OLf6GbO6CPrYMjFCLSsQa1/iwqINyIsyQ5HSC03L8HlF8p4g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=q55ttwl0U4tShvF0ug8UI6faFSrHWNFSrZe9Rm8j+fQ=;
+ b=aLEjLfSeOfGzsqKkCxL/v3NpbI/cIxXlikBiJWhfeQoGcrzFUwzL6REeTaESTKZ3sFFrZe4Yy9bKaI99VZiA7xVKtSg/zV89G4TbC/lVMFOXtyp0JVa6A2D8ilRI/T8XFLA6VQ1K29zOAd4u+iaLkQnOK+WKNnMQoP5MmV938bUimVE8ZIM8T9FDIG5fwI3fH1bq5KyK2N/YDORpg6UkP8/m1kBXNw1zzLyhjuNMRVwx2L5MVJLGU99LWsSN+xcUBCtjLxIkpTIqsOInAXTv+DI8wqjDeZnN0HQmvjP+dFh/lSJ438umwVw5XXE/oEmfzwV7mMDTr/ofNFxv/CuBew==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=q55ttwl0U4tShvF0ug8UI6faFSrHWNFSrZe9Rm8j+fQ=;
+ b=EJEbvw7bHx7lQOw3V153o7WbDUcXzRvcoTSFEJexkJfhRc0D0DUE+V7Xs3wgX0qBMU31WemYjgEBSweKHwFVDuZbiU7zczkTwFN2sq+6+85Uo1mMLRupA7Awvz1OldbtR9C9lJDOgNFvwKqarCVv2zVH6dazlZTisIZytZIkwjTDaKsIMNqjKcgdIeKoQk14z7666olc/n52JKIbm551QsUWSpLNg5R30ek6GOIDVk6W0zTcXZLZ84nyqDZkDLELWoBc/bIp79jGi9OTvBkfclDnZ5gNtjXU8O6k7RG6ecV+SFJBp5N7f84VOfM+GrwbQcRct37rddHyO2j56ZAasw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by VI0PR04MB11575.eurprd04.prod.outlook.com (2603:10a6:800:2fd::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.19; Fri, 6 Mar
+ 2026 17:43:07 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9654.020; Fri, 6 Mar 2026
+ 17:43:06 +0000
+Date: Fri, 6 Mar 2026 12:42:59 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	Frieder Schrempf <frieder.schrempf@kontron.de>, imx@lists.linux.dev,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, Frieder Schrempf <frieder@fris.de>
+Cc: Annette Kobou <annette.kobou@kontron.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: Re: [PATCH v2 0/4] Kontron i.MX8MP OSM Devicetree Fixups
+Message-ID: <aasSIzf8JKPcI0xJ@lizhi-Precision-Tower-5810>
+References: <20260220103636.9697-1-frieder@fris.de>
+ <177281293090.267666.2279739168174022521.b4-ty@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <177281293090.267666.2279739168174022521.b4-ty@nxp.com>
+X-ClientProxiedBy: SA9P223CA0015.NAMP223.PROD.OUTLOOK.COM
+ (2603:10b6:806:26::20) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-References: <20260223-i2c-printk-helpers-v2-0-13b2a97762af@oss.qualcomm.com>
- <aaFcs1miP88QWmtH@hovoldconsulting.com> <aaFfEsfh0xTh0b1y@shikoro>
- <aaFsZbiLYSz_YEjw@hovoldconsulting.com> <CAMRc=MfcvD1nJy=zpoCkSkJq6WjyXQxFUZ4QE6vyCS+XFCn5AA@mail.gmail.com>
- <aaHI_VavZugXjVoL@hovoldconsulting.com> <CAMRc=MdKF29McBJ9U=qELkzf9GYV1CQpRF7U6OweDNtVzMXo7A@mail.gmail.com>
- <aacE-27iaYneKCJi@hovoldconsulting.com> <CAMRc=Mcx8Hu407arSEo3o-Xhmep_ZK4BM2TVi_55nXGwYcaijw@mail.gmail.com>
- <aar1PDUB2t7DgEP6@hovoldconsulting.com>
-In-Reply-To: <aar1PDUB2t7DgEP6@hovoldconsulting.com>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Fri, 6 Mar 2026 18:34:43 +0100
-X-Gmail-Original-Message-ID: <CAMRc=Mcv+ZMGaC_MD8WRH113rDuuxdiZXuW5JAXWga1V7vM_ng@mail.gmail.com>
-X-Gm-Features: AaiRm50UrSeiyZ4TiR6fS-QYqCuucHSEPqczNWdyNSw2yOiisqheMyZnUWDBliw
-Message-ID: <CAMRc=Mcv+ZMGaC_MD8WRH113rDuuxdiZXuW5JAXWga1V7vM_ng@mail.gmail.com>
-Subject: Re: [PATCH v2 00/13] i2c: add and start using i2c_adapter-specific
- printk helpers
-To: Johan Hovold <johan@kernel.org>
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Andi Shyti <andi.shyti@kernel.org>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Khalil Blaiech <kblaiech@nvidia.com>, 
-	Asmaa Mnebhi <asmaa@nvidia.com>, Jean Delvare <jdelvare@suse.com>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
-	=?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>, linux-i2c@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-actions@lists.infradead.org, linux-media@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI0PR04MB11575:EE_
+X-MS-Office365-Filtering-Correlation-Id: 65eabfc3-f061-41de-63f9-08de7ba7d324
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|1800799024|19092799006|376014|366016|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: 2Y6fWv2B+1fcGlgmIaJ2iwl/WWn4faaW97L41hmLZUcQa6eHqNfL47StBCXxX/vydmQlhNyCa9o3zhkwnocRkMzioIedivlBccVHyid1F4VXQmKEt5quFZ8PZhE6qrPy/1JfgUB6OojVS9dVhIw+l5zB56BYzzMG29wxCCwg5OLkOWHTVexPckBxhT3Qnb8tGLwc8FQvr2P7nd1lnQZkcLLVAW6OCTsZWkFPVvhWZFX3AD6Ii5BvLY+onjuaRRtkbeJp91MgIKxSCzV8R9Tv3ZG0NWsaYtsAr45Wnt+q0hiUWAQYDNmTqMNFyh6sRKGDyE2IgRj94+7UgamC623fV2QwBxrlo+g1Y+kIPRfWkAfUXtSR4WmPFKYR3eDe8WhFY2My5hZV9MEVBedILtjInL4THJPegBwrXJLCbf9vTouqcG0YKeH3HCXMk0SdRXT5n/PukRD4ZuZ2XdVcdg2/7gEtfHR5c4fv0/ALNvK7+Ugc+MbuJ4fCF3+U5cMqELBgdbmGRmrBONrKsYdmIh5HQ9S2K9UxFxY9oTOV8svN4+ERyfZGFOShNyPXUKP6cF6nfSCPaOW9IWgxSiFDAGVbA74mmrKL9L0OMwe7gdzV1QGAAnNfxkFFfQVQCsZX9AMc2y7UnKBxj1JInzHdh1Irkq/x7oNrPFfhRSJMgyuYTofVfQmPticBjY1wusuJ8RHHjihC/rc3bHVFUdCNFRCQx8eo9F9guagD7NbiKYGVqkyPKkWeq6VN+CiJL/XBL5igBRk2bRMvNprINKHlsTti0hkG94/Mu+YRhgYLgkYmV1eToQcmsVuukwZIkbJPHhhC
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(1800799024)(19092799006)(376014)(366016)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?M7ojAt4ZnIb8f7q6Qxqqp6hFFml7/M6pb48KcbwLY0aW8QpR6d3pZS22btsD?=
+ =?us-ascii?Q?TAgH1PmYjVv2V1WxPujlt4Mh4ychnNtWxO3YV9hLpYsrYbcKSU76Efv9mqs+?=
+ =?us-ascii?Q?mAhCaNhSaUnVPyo/hVAjUkxXvWHb1ouSNn/FlUNotGowpAIAQCBYoIcHAXBs?=
+ =?us-ascii?Q?p6dJk2kmBiezsGH1ekDcji3JoscSEWQIDa/YVwIFeVS2bnyJj6QWpQ+s0kiX?=
+ =?us-ascii?Q?ticoP485GyHI2W3d+RrBO9u3rQ2UAtE2p6BLK2prjBvKCzXXEF+A+7GqyQ7C?=
+ =?us-ascii?Q?zM81S0aHusPlTqbhUmYofeiEuBV2moffHiQxR5PwlIMT9ULoXHW0IBCl4FGc?=
+ =?us-ascii?Q?YeQ/Ie5yM37BOITHHJTYgDCWWCvMqQv13hG1WF5+oPYLI99gSKMsmLISjpyG?=
+ =?us-ascii?Q?JhtW7BvhmH8WGR9sYMp79RmS/cSdx0MemWiUT82e0laui5tphzlkEAlGJQvd?=
+ =?us-ascii?Q?O+hgDnVN2N75cPHo6h35980C9kVMkO9sizLbE+ThgSTSRK1yyv8kotHRbfaf?=
+ =?us-ascii?Q?TABscjwBXJPTPCkTOh0rSt6xLdMdzyio0jSkU8UHv8FtjVufriOa5X2cS/HL?=
+ =?us-ascii?Q?+gh7/3Kv8TyHzQbD/cdML6qISiH8z11DeqQaggBWSQPCpEiAwbN1EVjK27mM?=
+ =?us-ascii?Q?0kQ8lNN6/sXESS/+HP5imGH8kCEPuamp7g9FXPGETxyBPekxv9t/7B+LBQzN?=
+ =?us-ascii?Q?aKcrYu2jftfBK7IQAYrRGnTVzi6avuUUanC6Z2supPXy+OZh7I+AYcYbmcbV?=
+ =?us-ascii?Q?PQORdeevC15rFlQoTx+324NDYHrovAW3u8JedgXDPdJ+VUgul0rPBNuFaILs?=
+ =?us-ascii?Q?OQVSaGMI2X7EFWI6c3Whhg3Qpg0BFmR0wM9wR6N0enpn18sfWPcp7Fja83ET?=
+ =?us-ascii?Q?vUdDAdqSQrlL2OQSV1wcHlHKT9I1A+CKiFo0lQVo+RZcbdbokQrRSc0b4EZq?=
+ =?us-ascii?Q?oBxFLoi0BdNlWBHorxR1PQ+r/NfM+gmgMzBxuKpL0dos+Xz3I1p2rtfSQxAA?=
+ =?us-ascii?Q?jmz7DLHTp5zFFzwqHyMVt3naMm20UWtcmll1PL9bsBajEYbJvUNB9p6sYZph?=
+ =?us-ascii?Q?vg1Y3e+cZgJ43DgHNPxInfhBPsGozZp1fTCWwEBJ3h9Uz5Kj57PGeu6CoUTg?=
+ =?us-ascii?Q?dDYFd3VVn8O0qxjRAwVTQsBIv3fRpwZcOvU6OcZh58yN7djXGYUxcXFDB93+?=
+ =?us-ascii?Q?DMXaFaSD6CaDADNnQeH+BMNXAt4F9t4xMV16kW5QkoQAJA+ftuyQ/zMgYReE?=
+ =?us-ascii?Q?8L+DEaOTLhuYCS7op6jtirOt1+9vGD1g8xRHgFNxC3FtzTXDoJ2BWF/XI7Mx?=
+ =?us-ascii?Q?uQhhr//x28Wbr3/RnlPsHUdNZVw8mc2STKbqk2IrtSfa7JaCc2IzwJtQnSRW?=
+ =?us-ascii?Q?8PY5wIjX6fg7JVgPWIxs8RTuFSVGxF8PEEhT9evlW5rQGg+BjZoGRzUMHCOl?=
+ =?us-ascii?Q?WytVppqopISrKl8kiEPOsXS60U4jWJrNr14d50qpntxjnNhlUV+hjCJt4hsu?=
+ =?us-ascii?Q?/EvSEn/PdVtqpKXBQ9pfTx+v/UBw5En9DidcelF4UozmZ8dko19x7gkAu9dE?=
+ =?us-ascii?Q?8f76RUl54gsirFGMEYPG6SqufNG/H4mBN7FKwVXw7UgLmOC41zcLMw7zGQbb?=
+ =?us-ascii?Q?0+u/u6gxok1Hjd+9uHe0E/TUONJeWxZqAeFFhmfLxjTwwuhpTcrLbtzkh30N?=
+ =?us-ascii?Q?L2DvPbeeapfWORBbqGX8ly8Hl5tszvdAobumzA2In9TWiZbejUpnobf7JCoy?=
+ =?us-ascii?Q?h6xcIfH9lw=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 65eabfc3-f061-41de-63f9-08de7ba7d324
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 17:43:06.6617
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: swbC5yFAC0FLWyneDt+yEkh52wNFvz33qJhPiKmK2lO+9EEs+XgfKsayti7tRee1Sp7h2TITRm40L5S2KhAbTw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11575
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_093458_059231_F963BAD1 
-X-CRM114-Status: GOOD (  42.88  )
+X-CRM114-CacheID: sfid-20260306_094313_751057_B269711E 
+X-CRM114-Status: GOOD (  15.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,140 +142,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 6, 2026 at 4:39=E2=80=AFPM Johan Hovold <johan@kernel.org> wrot=
-e:
+On Fri, Mar 06, 2026 at 11:02:30AM -0500, Frank Li wrote:
 >
-> On Wed, Mar 04, 2026 at 01:55:14AM -0800, Bartosz Golaszewski wrote:
-> > On Tue, Mar 3, 2026 at 4:57=E2=80=AFPM Johan Hovold <johan@kernel.org> =
-wrote:
-> > >
-> > > On Mon, Mar 02, 2026 at 12:03:19PM -0600, Bartosz Golaszewski wrote:
-> > > > On Fri, Feb 27, 2026 at 5:41=E2=80=AFPM Johan Hovold <johan@kernel.=
-org> wrote:
-> > > > >
-> > > > > On Fri, Feb 27, 2026 at 04:42:09PM +0100, Bartosz Golaszewski wro=
-te:
-> > > > > > On Fri, Feb 27, 2026 at 11:06=E2=80=AFAM Johan Hovold <johan@ke=
-rnel.org> wrote:
-> > > > >
-> > > > > > > It seems all that is needed is to decouple the struct i2c_ada=
-pter from
-> > > > > > > the driver data and have core manage the lifetime of the form=
-er using
-> > > > > > > the reference count of the embedded struct device.
-> > > > >
-> > > > > > This is a weird pattern you sometimes see where a driver alloca=
-tes
-> > > > > > something and passes the ownership to the subsystem.
-> > > > >
-> > > > > It's not weird at all, this is the standard way to handle this. W=
-e have
-> > > > > these things called reference counts for a reason.
-> > > >
-> > > > I wouldn't say it's *the* standard way. There are at least several =
-different
-> > > > ways driver subsystems handle resource ownership. And even so: the =
-fact that
-> > > > something's done a lot does not make it automatically correct.
-> > >
-> > > It's the way the driver model works.
+> On Fri, 20 Feb 2026 11:36:15 +0100, Frieder Schrempf wrote:
+> > From: Frieder Schrempf <frieder.schrempf@kontron.de>
 > >
-> > No, it does not impose any specific pattern to use for subsystems other=
- than
-> > requiring each device that's been *initialized* to provide a .release()=
- callback
-> > called when the last reference is dropped.
->
-> Reference counting is a core part of the driver model and this is
-> reflected in the way subsystems manage lifetime.
->
-
-Seems like we've reached an agreement and can stop arguing but you
-make it sound here like I'm somehow against reference counting. I've
-never said anything like that and here, I just explained how reference
-counting works and what it imposes on users.
-
-> > > > I'm advocating for a hard split between the subsystem data (referen=
-ce-counted)
-> > > > and driver data (living from probe() until remove()). A logical str=
-uct device
-> > > > managed entirely by the subsystem should live in a separate structu=
-re than
-> > > > driver data and be allocated - and freed - by the subsystem module.
-> > >
-> > > It doesn't really matter what you think. You can't just go around
-> > > making up new subsystem specific rules at your whim. The linux driver
-> > > model uses reference counting and that's what developers expect to be
-> > > used.
-> > >
+> > This contains three fixes and one cosmetic change for
+> > the Kontron i.MX8MP OSM devices.
 > >
-> > And I've never said that it should not use reference counting. I'm not =
-sure
-> > what you're implying here.
->
-> You have posted changes that will prevent driver from accessing the
-> struct device of core i2c structures. This is unexpected, non-idiomatic
-> and subsystem specific and therefore a bad idea.
->
-
-That's not true, the changes provide a helper to that end.
-
-> > > > Let's put aside kernel code for a minute and work with an abstract =
-C example,
-> > > > where the equivalent of what you're proposing would look like this:
-> > > >
-> > > > struct bar {
-> > > >      struct foo foo;
-> > > >      ...
-> > > > };
-> > > >
-> > > > struct bar *bar =3D malloc(sizeof(*bar));
-> > > >
-> > > > ret =3D foo_register(&bar->foo);
-> > > >
-> > > > And the corresponding free() lives who knows where because foo_regi=
-ster()
-> > > > automagically introduces reference counting (nevermind the need to =
-calculate
-> > > > where bar is in relations to foo).
-> > >
-> > > No, that's not what I'm suggesting here, but it would be compatible w=
-ith
-> > > the driver model (ever heard of struct device which works exactly lik=
-e
-> > > this?).
+> > Changes for v2:
+> > * Add Frank's R-b tags (thanks)
+> > * Enhance commit message of patch 2
 > >
-> > I know how struct device works. I'm pointing out that this is a bad API=
- (just
-> > to be absolutely clear: not the reference counting of struct device its=
-elf but
-> > using it in a way tha looks like it's not refcounted but becomes so aft=
-er an
-> > API call) because it's confusing. I'm not buying the argument that if i=
-t
-> > confuses you then you should not be doing kernel development because it=
-'s not
-> > the goal of API design to make it as complex and confusing as possible =
-- quite
-> > the contrary. And it *is* confusing given the amount of misuse present.=
- I've
-> > heard Greg KH say on multiple occasions during his talks that we try to=
- offload
-> > complex code to subsystems so that drivers can remain fairly simple. I =
-agree
-> > with that.
+> > [...]
 >
-> Again, this is a core feature of the driver model. You can't just ignore
-> it and come up with random ways to work around just because you disagree
-> with design decisions that were made 25 years ago.
+> Applied, thanks!
 >
+> [1/4] arm64: dts: imx8mp-kontron: Fix touch reset configuration on DL devices
+>       commit: ed35f6162eb43e5dc232b91e903e6a76ee5f5601
+> [2/4] arm64: dts: imx8mp-kontron: Drop vmmc-supply to fix SD card on SMARC eval carrier
+>       commit: 02ef82e09f96a0f5c996cdd4d62e66cb80df9f0f
+> [3/4] arm64: dts: imx8mp-kontron: Fix boot order for PMIC and RTC
+>       commit: 0ab1f5f3652424de16b464488c3d3db3d88b1bd5
 
-It absolutely *can* be done differently. There's nothing that imposes
-a certain API design on susbsystems. If you design the subsystem code
-well, provider drivers don't need more than one reference (taken in
-probe(), released in remove(), for instance via the
-register()/unregister() pair) so the counting can be hidden within the
-subsystems that control them.
+Sorry, I have to drop this one because it cause dtb_check warning.
+'vdd-supply' is not allowed.
 
-Bartosz
+Although this small changes, please change binding firstly to allow
+vdd-supply, at lease binding change need get ACK from dt team firstly.
+
+Please make sure not new warning.
+
+Frank
+
+> [4/4] arm64: dts: imx8mp-kontron: Use GPIO/IRQ defines in DL devicetree
+>       commit: f7bbf27af999ed3f6568f0266e112eded96f225b
+>
+> Best regards,
+> --
+> Frank Li <Frank.Li@nxp.com>
 
