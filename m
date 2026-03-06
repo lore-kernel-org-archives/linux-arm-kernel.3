@@ -4,71 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9876F513EF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:24:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECED7F33A92
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:29:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iP/+KyLFxcqxA5l9rU9MI9S/9G1X3GO+0l1FGXNsyfQ=; b=pQhr5IKdwMRBg3eNN5R5Ce+78O
-	tcjHHU873Q2w7QEwXttZrT10gbEVzP5FUJtXItbrlPjyyCLMOyGkhKXnT3DHDjUhzb94v5cAl25DU
-	u5hhz+gAOtL4X9nV2WsrlK60aXLk7anWgAj40MejbkKV/U++On5H9qRFWm+nLxCP9kkdc6uvh51os
-	M1d8Jiis8IkPC4ffLAZak3XnV2HZg17B1qnwMT3MdJCrIyam2ed7JXu/ApSveXzb6NET4FKWw6IXx
-	svATTLh+Meufqc/f//tg0nnd3SYugfxx/Pc7l41BW8SbAmhv0fT+8Qcg/g6ogOhom4Wun4RVFY4c4
-	RevPEW0g==;
+	bh=Vxe/0TVFmxaf8mHBTWsMLG13SrpPSU1L6Aa1bLInUCs=; b=jxY3k9mRFJ8NNh+vEmzTHIcazT
+	Rl5IJ4WRYPwZ6a0hjsS0BActfteSTMlfzd3Wo4lLS7S22UJHcqWph1kJqiu1zGhQpS2d4kamH/8es
+	N3PQfSQpEIxF4N9PXaYlG8H0bq+l+G7moweL7mzNvGSM8NQJv7rIzhHLhZePj/+ge5iWKRIPKnYG/
+	26C5U8IW0Ess3NX9YRl925h9ZowFI9ouJXwiTVfMvxqW0w1rRgOG20w4d90iR0g9Mt5uUK0WRTN07
+	P2KLzZ20ZSZLbXdMV8uS8I33hI1U3nqmL8uCoPU6yrVGZXsHGEaJkclBwDQh93MXDutL9MxnroI4s
+	6ZAWkqNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyW6b-00000003uGY-11pE;
-	Fri, 06 Mar 2026 14:24:41 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vyWAv-00000003ub8-1jbt;
+	Fri, 06 Mar 2026 14:29:09 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyW6Z-00000003uGB-0SuA
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 14:24:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=iP/+KyLFxcqxA5l9rU9MI9S/9G1X3GO+0l1FGXNsyfQ=; b=V98CLCO4f2BlxzFF7j27+NDGzP
-	MUHc4RU4Jp2NxDPKV4Jt9hhoyRvN/Rbb2yOJ4xgG/pJes5IaA1WhQA2j4YiL6pIxjBvB0S/JHeS6N
-	UX+2NYTNArBvFyhwuaiFUfSZrboOr+yJolcZD6CfsVnqJsNO0kqGRSXAvhaY+h/GRuRY=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vyW6O-00AUTM-NT; Fri, 06 Mar 2026 15:24:28 +0100
-Date: Fri, 6 Mar 2026 15:24:28 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Shenwei Wang <shenwei.wang@nxp.com>
-Cc: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	arnaud.pouliquen@foss.st.com,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-gpio@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-imx@nxp.com
-Subject: Re: [PATCH v9 4/5] gpio: rpmsg: add support for NXP legacy firmware
- protocol
-Message-ID: <676cee35-b5ba-4a3c-a6d4-b9e06e0886dc@lunn.ch>
-References: <20260304211808.1437846-1-shenwei.wang@nxp.com>
- <20260304211808.1437846-5-shenwei.wang@nxp.com>
+	id 1vyWAq-00000003uaa-0EPI;
+	Fri, 06 Mar 2026 14:29:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1772807345; x=1804343345;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=hKQUf5WDJPETTYg6XgZVG0XAdpM/T+JEq/CFscr1Cys=;
+  b=WH1t20P1vdLsd9hntlbAQrywomREUiMG0KHKpGvMwukYTvKiko9Jvmf/
+   4BubcwVADtamXGTm09L2c7A0hJEN71eBGMWlhn6w8oAcqfI5/WqGne0Ou
+   YkYwq01FUKezmPEAvcfzZ029CJQcSlPIPGZnPA/yKUS/1O4uGloPEdaEJ
+   sXshgQNba9LHOU4PY3ehC6O6BnmBSfp+TGh24/pwPiIBwzyDWRksHA8g1
+   I21FutR0kbV0s6vndZLlmdpBYmr4D9DPf/Q7v/pMFlxFyIwk/LAo4WMuI
+   2bg7Y8VlCfdbKkFz1Oo8xhf67WkVX9+bQf5RXkHDMtmipcD3CO918YnUu
+   g==;
+X-CSE-ConnectionGUID: 7n4m+NhTTbSfMGDSaHVTZw==
+X-CSE-MsgGUID: B9g5IH/rSQClhE7Ix4kRYw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11721"; a="73788751"
+X-IronPort-AV: E=Sophos;i="6.23,104,1770624000"; 
+   d="scan'208";a="73788751"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Mar 2026 06:29:03 -0800
+X-CSE-ConnectionGUID: MTr7+eJASyulE9m7KCUGvw==
+X-CSE-MsgGUID: CljKMFE5RsuatuijuZIEVg==
+X-ExtLoop1: 1
+Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.1])
+  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Mar 2026 06:28:56 -0800
+Date: Fri, 6 Mar 2026 16:28:54 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>, Tejun Heo <tj@kernel.org>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Tobias Schrammm <t.schramm@manjaro.org>,
+	Sebastian Reichel <sre@kernel.org>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>,
+	Dzmitry Sankouski <dsankouski@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Benson Leung <bleung@chromium.org>,
+	Tzung-Bi Shih <tzungbi@kernel.org>,
+	Matti Vaittinen <mazziesaccount@gmail.com>,
+	driver-core@lists.linux.dev, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, chrome-platform@lists.linux.dev,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2 00/10] workqueue / drivers: Add device-managed
+ allocate workqueue
+Message-ID: <aarkpqHShro9kE6-@ashevche-desk.local>
+References: <20260305-workqueue-devm-v2-0-66a38741c652@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260304211808.1437846-5-shenwei.wang@nxp.com>
+In-Reply-To: <20260305-workqueue-devm-v2-0-66a38741c652@oss.qualcomm.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_062439_171031_EC0ACA7A 
-X-CRM114-Status: GOOD (  10.84  )
+X-CRM114-CacheID: sfid-20260306_062904_166053_8EAE4D0C 
+X-CRM114-Status: GOOD (  17.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,30 +103,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +static struct rpmsg_gpio_fixed_up imx_fixed_up_data = {
-> +	.recv_fixed_up = rpmsg_gpio_imx_recv_fixed_up,
-> +	.send_fixed_up = rpmsg_gpio_imx_send_fixed_up,
-> +};
-> +
->  static int rpmsg_gpio_send_message(struct rpmsg_gpio_port *port,
->  				   struct rpmsg_gpio_packet *msg,
->  				   bool sync)
-> @@ -572,6 +711,10 @@ static const struct of_device_id rpmsg_gpio_dt_ids[] = {
->  
->  static struct rpmsg_device_id rpmsg_gpio_channel_id_table[] = {
->  	{ .name = "rpmsg-io" },
-> +	{
-> +		.name   = "rpmsg-io-channel",
-> +		.driver_data = (kernel_ulong_t)(uintptr_t)&imx_fixed_up_data
-> +	},
+On Thu, Mar 05, 2026 at 10:45:39PM +0100, Krzysztof Kozlowski wrote:
+> Merging / Dependency
+> ====================
+> All further patches depend on the first one, thus this probably should
+> go via one tree, e.g. power supply.  The first patch might be needed for
+> other trees as well, e.g. if more drivers are discovered, so the best if
+> it is on dedicated branch in case it has to be shared.
+> 
+> Changes in v2:
+> ==============
+> - See individual patches
+> - Link to v1: https://patch.msgid.link/20260223-workqueue-devm-v1-0-10b3a6087586@oss.qualcomm.com
+> 
+> Description
+> ===========
+> Add a Resource-managed version of alloc_workqueue() to fix common
+> problem of drivers mixing devm() calls with destroy_workqueue.  Such
+> naive and discouraged driver approach leads to difficult to debug bugs
+> when the driver:
+> 
+> 1. Allocates workqueue in standard way and destroys it in driver
+> remove() callback,
+> 2. Sets work struct with devm_work_autocancel(),
+> 3. Registers interrupt handler with devm_request_threaded_irq().
+> 
+> Which leads to following unbind/removal path:
+> 
+> 1. destroy_workqueue() via driver remove(),
+> Any interrupt coming now would still execute the interrupt handler,
+> which queues work on destroyed workqueue.
+> 2. devm_irq_release(),
+> 3. devm_work_drop() -> cancel_work_sync() on destroyed workqueue.
+> 
+> devm_alloc_workqueue() has two benefits:
+> 1. Solves above problem of mix-and-match devres and non-devres code in
+> driver,
+> 2. Simplify any sane drivers which were correctly using
+> alloc_workqueue() + devm_add_action_or_reset().
 
-Its not clear to me how this gets applied. Don't you need a different
-compatible? fsl,rpmsg-gpio-legacy or something?
+Thanks, this version LGTM, FWIW,
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 
-I would also put it behind a CONFIG_ option, and in a different
-module. Nobody needs this code other than your legacy products. You
-don't need the bloat for your new devices and other vendors don't need
-it.
 
-    Andrew
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
