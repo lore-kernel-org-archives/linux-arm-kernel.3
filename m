@@ -4,78 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A93A9FCB625
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 16:57:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4FA3FCB625
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 17:00:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WshcvYtkXXe1rUX6+z4QlVhkmQAJ3iSCBEssBtgD1BA=; b=1Ft3Sd7GwRmVT/7uCZuW8UyW/W
-	6jOfuYtJPV3U/nQA0hmQxb0T0ak12+3B9FGMxKwUuHh90WgqQKZbIVAgOaWS9BuzshDn+anc54xOT
-	sCov5C6axfRZN+uuAWJ9QOiaoeDwu6ylzX/NVfmnjDyxEraL3voHahJ5mCTFd8C+H4TamSKX1EPt5
-	uGqTbJsrMP0UdkvJLQ0LYxxMLKqdKSjzv0l2RAJi8cqRSlg+vyJorJMmL+cVD+ngqQ8aLrSG8FTGN
-	GQOkHEC7XUf6LUyfCzbMO/5n0Jkmqt7t33qvIZvyjKgcStGrRf9OrkJroW9rqCJXBM0Uz7cHyP+4t
-	s1tJW2/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:
+	Content-Transfer-Encoding:Content-Type:Mime-Version:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uDPQ4R78d4QAe2vNvQqZ27IjqiJla9qhDYNsRAF5LJc=; b=b5AW31g+ochrBO
+	ysAIQiRt2/gLTlbJiwJBiVPYvtI4XbFzIprrEZ3QcQMEk4JiD8If3KZZY8W1mUAYeEPSeGsBV72DL
+	WXnarChD9GyAoYUmnA0M1DZaOLjHeIR9IhxutZTmpBiX0YymqCUJqmyrJLXcPQVvBiMzWiQgTu8++
+	DKBbun+Za+1mgSWa3w3bJvYn6mQWowPgVPOXUPgnPIFbkH4t3GqA51w0g6VFjL/YWUNX4TFPPkd95
+	WiYfM8lDrhlxMplB3zo6MELukTPXoOjMoaaQ6l6njat/4kbeJR8yj/hYu76EMbWmy435Z1mzYECbF
+	IAsGmP8axzCMFxB9KoSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyYU1-00000004BtO-3cXM;
-	Fri, 06 Mar 2026 16:57:01 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vyYWq-00000004C6N-3ray;
+	Fri, 06 Mar 2026 16:59:56 +0000
+Received: from mail.hugovil.com ([162.243.120.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyYTz-00000004Bsr-2Xlc
+	id 1vyYWo-00000004C60-0WOJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 16:57:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=WshcvYtkXXe1rUX6+z4QlVhkmQAJ3iSCBEssBtgD1BA=; b=EnZ7nDp6Vhm1GkvWzTfn4nSwP4
-	mvy9s71m8Cs6pMx1IfA1XvwYAqK6/kE2I9a2dvQEdd8snSHf7S6XwypDUc5YHR/HCEC/3cqhV3/Km
-	tyZCeMQkwyu4NMLtloJ/XsLkhVXfb8//uCGLIMSr86y/atlcUay6U7O21y2nOUA0bPXI=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vyYTl-00AVkK-Sf; Fri, 06 Mar 2026 17:56:45 +0100
-Date: Fri, 6 Mar 2026 17:56:45 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Shenwei Wang <shenwei.wang@nxp.com>
-Cc: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Frank Li <frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	"arnaud.pouliquen@foss.st.com" <arnaud.pouliquen@foss.st.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	dl-linux-imx <linux-imx@nxp.com>
-Subject: Re: [PATCH v9 4/5] gpio: rpmsg: add support for NXP legacy firmware
- protocol
-Message-ID: <8f83ba5c-bda0-485c-bf9b-052f1fc33879@lunn.ch>
-References: <20260304211808.1437846-1-shenwei.wang@nxp.com>
- <20260304211808.1437846-5-shenwei.wang@nxp.com>
- <676cee35-b5ba-4a3c-a6d4-b9e06e0886dc@lunn.ch>
- <AS8PR04MB91764DFDA8D3BEF64F583969897AA@AS8PR04MB9176.eurprd04.prod.outlook.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <AS8PR04MB91764DFDA8D3BEF64F583969897AA@AS8PR04MB9176.eurprd04.prod.outlook.com>
+	Fri, 06 Mar 2026 16:59:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
+	; s=x; h=Subject:Content-Transfer-Encoding:Mime-Version:Message-Id:Cc:To:From
+	:Date:subject:date:message-id:reply-to;
+	bh=uDPQ4R78d4QAe2vNvQqZ27IjqiJla9qhDYNsRAF5LJc=; b=dVEqJoFp0qDkeVMViNGKW524dJ
+	A6o5M5b6Omq4k1mD9ARkDhKxbGgz+815e+Yi++SOM7C+2Okbh4f464HKGgrI8n0/3UIH5nROyUAaY
+	zfcei1G/cDprZ68MrTHYkU4acA8qrBirOxx5glxoD2pw8d2uXHSDFImtHqC6UIvsIEeg=;
+Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168]:48162 helo=pettiford.lan)
+	by mail.hugovil.com with esmtpa (Exim 4.92)
+	(envelope-from <hugo@hugovil.com>)
+	id 1vyYWH-0002UD-Qt; Fri, 06 Mar 2026 11:59:22 -0500
+Date: Fri, 6 Mar 2026 11:59:20 -0500
+From: Hugo Villeneuve <hugo@hugovil.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
+ simona@ffwll.ch, Frank.Li@nxp.com, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, shawnguo@kernel.org,
+ laurent.pinchart+renesas@ideasonboard.com, antonin.godard@bootlin.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, Hugo Villeneuve
+ <hvilleneuve@dimonoff.com>
+Message-Id: <20260306115920.422ea4dc455cebafa8127194@hugovil.com>
+In-Reply-To: <20260306-observant-banana-wapiti-90adef@quoll>
+References: <20260305180651.1827087-1-hugo@hugovil.com>
+	<20260305180651.1827087-5-hugo@hugovil.com>
+	<20260306-observant-banana-wapiti-90adef@quoll>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 70.80.174.168
+X-SA-Exim-Mail-From: hugo@hugovil.com
+Subject: Re: [PATCH v2 04/15] dt-bindings: arm: fsl: change incorrect
+ VAR-SOM-MX6UL references
+X-SA-Exim-Version: 4.2.1 (built Wed, 08 May 2019 21:11:16 +0000)
+X-SA-Exim-Scanned: Yes (on mail.hugovil.com)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_085659_649258_7D841D55 
-X-CRM114-Status: UNSURE (   8.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260306_085954_277916_05018946 
+X-CRM114-Status: GOOD (  24.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,21 +84,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Other vendors may add fixed up handlers in the same way to support
-> their existing products.
+Hi Krzysztof,
 
-But that is exactly what we don't want. Why bother adding a generic
-protocol, if vendors then hack it around to make it compatible with
-whatever their legacy systems have? We want to discourage such bad
-behaviour.
+On Fri, 6 Mar 2026 09:00:18 +0100
+Krzysztof Kozlowski <krzk@kernel.org> wrote:
 
-How do we discourage this? We add the label 'legacy' everywhere we
-can, so it looks bad. We put the legacy code into a module, behind a
-symbol with LEGACY in its name, which is disabled by default.
+> On Thu, Mar 05, 2026 at 01:06:19PM -0500, Hugo Villeneuve wrote:
+> > From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+> > 
+> > There is no Variscite module named VAR-SOM-MX6UL, but there is VAR-SOM-MX6
+> 
+> And binding does not speak about VAR-SOM-MX6UL, so I find your commit
+> msg extra confusing. It took me way too much time to decipher why you
+> are doing this and this should be just simple correction of name to
+> match the product expressed by compatible.
 
-The messaging i've seen from ST is that they will use the generic
-protocol. We reward them for doing this by not bloating the code they
-need with legacy support for other vendors...
+Yes you are absolutely right. The origin of the confusion is that at first
+this patch was included with patch #3 of this serie:
 
-     Andrew
+Link: https://lore.kernel.org/all/20260305180651.1827087-4-hugo@hugovil.com/ [1]
+
+I split them to satisfy checkpatch for separate bindings patches, and copied the
+commit message from [1].
+
+I will simplify the commit title and message in the next version to:
+
+---------------
+dt-bindings: arm: fsl: fix SOM name description to match compatible
+
+Fix SOM name description to VAR-SOM-6UL to match the product expressed by
+compatible.
+---------------
+
+
+> 
+> BTW, the DTSI also has wrong name.
+
+This was fixed in patch #3 [1] just before this one.
+
+ 
+> > and also VAR-SOM-6UL, so it is confusing at first to know to which one it
+> > refers to. The imx6ul-var-som* dts/dtsi supports only the VAR-SOM-6UL [1],
+> > not VAR-SOM-MX6 [2], so modify comments and model descriptions accordingly.
+> > 
+> > Link  https://dev.variscite.com/var-som-6ul [1]
+> > Link: https://dev.variscite.com/var-som-mx6 [2]
+> > 
+> > Signed-off-by: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+> > ---
+> >  Documentation/devicetree/bindings/arm/fsl.yaml | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> 
+> Best regards,
+> Krzysztof
+> 
+
+
+-- 
+Hugo Villeneuve
 
