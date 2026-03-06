@@ -4,107 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2B12F0181F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:15:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36E97F01832
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:17:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wsd9xHQXwG0L/peVfvTrqZYVlLBD0w3lIYpT1q/1u0k=; b=4/59yBxhaPiZtkLzQjZ5cKZhjN
-	buc7IDgpsGxA0r8vlo9ufWg9BXlEqV4pMLHM7qX2ujlK+Z71ya9EDVIM7enAXPHnRnaXvRrvfesBx
-	io5wEsQrF3cU5zAIBawm/tc8RnfRK6Wvvaa51KcAMbTWKHW4a5EfBcHvV+huBOMs6Ib6FjZ1gNAHz
-	57fwCt1Prs8zhr9kEHRJYTWMzO6gruGcA2LOkobOrBzK/Mzhm4NOKuy1tdE74ObjviVAfFLhrp0zW
-	A59MjbIniSmlsitbsjoVGJg2XFoUCl/evVT93sUrrAN0CwT0bvqjHLKDzjndKq4CLGiMQnRDV6sgM
-	aD0+YzFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jelFKcEsWGxdfYafIZzvRBhn6i9tCGMxITSY571tQNs=; b=gQoUvKXjnA/9s5+ECdBNWxrelJ
+	b5UEL90tjPf80ma/PV+Nq3k1rwcCDiPgmvg8dEclbFnQklfTWxESY2pGba6ZJSpx12Hkoug88UCL/
+	T3x48mgPv5/qQbrwGsg2ll/JyGJmMW84biD02WHqvHIeUbCXdGuUc4FnG36aopGmDt2BPK9mIGNH5
+	tNgicaXBuocN5slrz+YWVfvwYBDGMKvk0X0aPlxlTJoYA9Jw2v9lx2iP1kYq3jRE27sqQXGtHXRrZ
+	elXhBwz4yAQRAkKyM74zST6RFRNKRO9V1qVO5P4kGbldtpSXuYgYJeEmc2hqgk6X5niyeefi8so42
+	0eYQF/VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVy2-00000003stl-3U4E;
-	Fri, 06 Mar 2026 14:15:50 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1vyVza-00000003tDA-1AMD;
+	Fri, 06 Mar 2026 14:17:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVxz-00000003ssz-40LY
+	id 1vyVzY-00000003tCw-2NbU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 14:15:49 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-660ea8bcb96so4890927a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 06:15:47 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772806546; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Wp7ZSSlGAKTGRwRGsapSqQ4GOxCH1a0IJ9vWJQoqye8bqkxOWOd1QS6ICeyhNg68mu
-         eMqW5Cn4V71wXkKnzT7K1YkT+hnCjUpWAiG4UovgC8JSu+b2qrP45XDhde3woWfhlXaj
-         Gwf4kRCrf8adga+EmltJXT2cv4tle8NotvA5Er5Z/mry/dg6Ze9BLjWCKmykOpvAUCnl
-         OudP+Xr5mfQHjROw/jf9fV4/CvmOsrlalSioWy1mT9+RPw3P8jyM5A4lJotJpOXsqUTU
-         u1rYe1HKRVITiwnBIwaa7iwKit9bmRfUx76DOkNOJifLym7cu8TS4QR7rWKNwIT84hl3
-         gb5Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=wsd9xHQXwG0L/peVfvTrqZYVlLBD0w3lIYpT1q/1u0k=;
-        fh=qG/34N04BHv7zZuVoeyp8+7EptLJNWvH0f/XUexbHTQ=;
-        b=btTsBoT4Xcdt0fhwt6pv2Ar0MTmR804vKwOYke+a7/WD2asPJYp+o1G6iqe2DGNC33
-         f81iQnh5RU021MXrRcB5q7p7eQh2pyUFC1UHWvrQip8p6SGHbojr29RrAduNUj+55hf+
-         nRgf5PWGE9fscaaKb/QcvPUX11T+do74cSxllcUZS9bedvt82Gush/pzOcFmtpKojEbP
-         BbMsNQhxUDcEPbTN3MtpwYJLntvhTMYU9oyiCwTGvIj7afwRprijoInO69YH1qwVQ+w9
-         v9P3usUB3FL7bp+XTG3LGbQwD/099lN/pbSfiCy+okbM2ocDgPokVQbwDgj+R/2OD+qn
-         V5fA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1772806546; x=1773411346; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=wsd9xHQXwG0L/peVfvTrqZYVlLBD0w3lIYpT1q/1u0k=;
-        b=ApLaZeji/RoZsJ1U2Sg/G/u6nX7C4cz8qqAtoGcuia+9PF4JMuXrF+pPvTfStxlmA1
-         BeWXSQlHcFw5g7f141+zhXSM8PcCiQ68z19gcV1cgbhSpoHYczgwzIE0y+5jQmfUmz/1
-         aVSYjPyorZ9z5n28t1/uSVk5j+D5jtB4CFtdGzhwVtqs3bN+ckRrlM3pTI5kXwqYK0RC
-         SM0DO8YMHi+Ay5zQ37FYWBesmqu25mvoNgQDV4e/ijgEvLXbwYj57y7Jap/iDTSuKQrU
-         hwLkYDgMuDbtcDyF8lNKH8WNUTi6u+g5aolfAttRuSWStCn2e43ti51Z4JeS4xuZdNUe
-         kGgQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772806546; x=1773411346;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wsd9xHQXwG0L/peVfvTrqZYVlLBD0w3lIYpT1q/1u0k=;
-        b=sSvfMyAHE6i1qUUt5Ps+Md0TnkhW1GyBuNw7mymr2jYgAzWDX55Rn1F8uM7vDza5hD
-         1dJQlTKeVZ/PpXDSxmcssLjv6S5539L/cNkjYNUzJxB90NA1P111nbI6zPjp1AaQ0GWX
-         65CyU5sUk0f/+6/yLBkeyJxpQ8mSzk749GznCOeMNLmM+6PyApgXLYYl43+BfLuSeWYe
-         AsrPo4uYgNuC5fcyvjqtD9Il798HwpS3Lo7oxRtul/s3G4AsFHMZljouV+CPX6oJpieL
-         ezw6adDXv9/HIdFgfJO76bkpNTS9cFZjntZAI302atSVbIfcVhqc0eOJT4UUkH97Lhb5
-         IcRw==
-X-Forwarded-Encrypted: i=1; AJvYcCX1saSsWaweEwyoa0rNg+GtnpLOazFMRBqEqYJpcVy22eColvHJyOsIHgB6rs3yC00m1SvS9CeDGHZHgJY/IMFo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw10ItaYTztzSGrOJ/3hDXyWoZCTwgtC6nmlEmbaZR3UcooEw2q
-	pY32FWfIxCSwwYMXIRip9vJh1fsSpdcKJLJc19KB2QwPhYun08XNMvnpLKNXaa1azbKjqG4wKwS
-	vasUxXi1wkXyblNFA7vsQBHEl4t68/cABBzMR97jsxQ==
-X-Gm-Gg: ATEYQzwT7LkL4Ai5MO4phJUYw4NtWSpftvpUBeEwiD2V5gvwr30KgsRWQ7Tkuf7wUW7
-	YFQEfC7xLsZt+gWzG0wklx/BIVVrfhMHWDx1ejjkENm8Z+HCawGCUsyQ7qHULI167QXFWj6kuSX
-	0G4RpXhf1t22cpK0/kWcD6iOla2NW1uRlow8Ozr/suCmwIkemRVCld35CIrUryOJtq7JHB8zxqs
-	Enhrrm1BEsjqQk8QY05EK54m7Tn+9sTxAO/1lbBGJHEFDJOUQGg2htgSTfyq2h5yuxFbFdSKMma
-	i8mZWRHD7OWl30gpAo6tWsYAtVGCYXIjJE/wdpHhsw==
-X-Received: by 2002:a17:907:97cc:b0:b94:1722:fe4c with SMTP id
- a640c23a62f3a-b942e0b51aamr127144266b.33.1772806545787; Fri, 06 Mar 2026
- 06:15:45 -0800 (PST)
+	Fri, 06 Mar 2026 14:17:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 70F4160018;
+	Fri,  6 Mar 2026 14:17:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDCE3C2BC86;
+	Fri,  6 Mar 2026 14:17:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772806643;
+	bh=7acBvzZBMqx2N2UBBZgx1paFciGfqBfHUzRPZm4ezhc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=DKkHTn5BB0EHEeUXE5nuyGUieM/myfuAACPGek5QXTrxgBac5hNiOhh9OS4O+ueSF
+	 RbtuNE5nU8TQsj/q7iZG5spLBjZZ4Q6BCmbcil6uaep2hZsdnEzFcQKn81uRv9kuJN
+	 oXn4RuEoj7j/lQ6BFE5engn0rT85k2ygZ/Zmz1Or73xh3xc8z9sBa84UJ4dKMBaCGN
+	 zOPHT+lo7Saxk/Z9W/FD28gY1v94X5TYV5lbTeSSzYN14ulCmP/2fwP5PV7gsTIpiU
+	 31/FUl0OqYBcJ6urDxVwcA3/ETljgLr9S+K/DOlpMeuMC2PJMZkYm/zCaE3MOcMW5/
+	 ehl4j4SBEDVfQ==
+Message-ID: <a75dab31-d59f-446a-a100-4a9f082027e5@kernel.org>
+Date: Fri, 6 Mar 2026 15:17:15 +0100
 MIME-Version: 1.0
-References: <20260226-exynos850-cpuhotplug-v1-0-71d7c4063382@linaro.org> <20260226-exynos850-cpuhotplug-v1-7-71d7c4063382@linaro.org>
-In-Reply-To: <20260226-exynos850-cpuhotplug-v1-7-71d7c4063382@linaro.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Fri, 6 Mar 2026 14:15:34 +0000
-X-Gm-Features: AaiRm50_59W0lqO5S3dEhyJtxjXmMUrxStP6qFX90WC4mn1HuOypqUtemGTXM44
-Message-ID: <CADrjBPoLCDnvWocLYrg-zGRZNcBvPVYnUi4L7DA78m7QmkmQdQ@mail.gmail.com>
-Subject: Re: [PATCH RFC 7/8] soc: samsung: exynos-pmu: add Exynos850 CPU
- hotplug support
-To: Alexey Klimov <alexey.klimov@linaro.org>
-Cc: Sam Protsenko <semen.protsenko@linaro.org>, linux-samsung-soc@vger.kernel.org, 
-	Krzysztof Kozlowski <krzk@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_061548_043363_6F13895A 
-X-CRM114-Status: GOOD (  28.82  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/9] dt-bindings: npu: Add NXP Neutron
+To: Ioana Ciocoi-Radulescu <ruxandra.radulescu@nxp.com>,
+ Oded Gabbay <ogabbay@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Sumit Semwal <sumit.semwal@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Frank Li <Frank.Li@nxp.com>, =?UTF-8?Q?Christian_K=C3=B6nig?=
+ <christian.koenig@amd.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+ linaro-mm-sig@lists.linaro.org, Jiwei Fu <jiwei.fu@nxp.com>,
+ Forrest Shi <xuelin.shi@nxp.com>, Alexandru Taran <alexandru.taran@nxp.com>,
+ Daniel Baluta <daniel.baluta@nxp.com>
+References: <20260306-neutron-v2-0-3019bd8c91ef@nxp.com>
+ <20260306-neutron-v2-3-3019bd8c91ef@nxp.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260306-neutron-v2-3-3019bd8c91ef@nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,163 +127,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexey,
+On 06/03/2026 14:27, Ioana Ciocoi-Radulescu wrote:
+> +
+> +  iommus:
+> +    maxItems: 1
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - memory-region
+> +  - interrupts
+> +  - clocks
+> +  - clock-names
 
-Thanks for your patch.
+Missing power-domains
 
-On Thu, 26 Feb 2026 at 15:47, Alexey Klimov <alexey.klimov@linaro.org> wrote:
->
-> Some Exynos-based SoCs require specific set of writes/updates to PMU
-> and PMU intr gen blocks in order to put a CPU or a group of CPUs into
-> a different sleep states or prepare these entities for a CPU_OFF.
-> The same is valid for a reverse procedures like wake-ups or CPU(s)
-> online. Without these writes/updates the CPU(s) wake-up or online
-> fails.
-> Add support for Exynos850-based SoCs for PMU and PMU intr gen write/update
-> sequences.
-> While at this, also add description of Exynos850 PMU registers.
->
-> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
-> ---
->  drivers/soc/samsung/exynos-pmu.c            | 86 +++++++++++++++++++++++++++--
->  include/linux/soc/samsung/exynos-regs-pmu.h |  5 ++
->  2 files changed, 87 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exynos-pmu.c
-> index 0967fa56708a..7b9b8e22d91b 100644
-> --- a/drivers/soc/samsung/exynos-pmu.c
-> +++ b/drivers/soc/samsung/exynos-pmu.c
-> @@ -118,6 +118,10 @@ static const struct regmap_config regmap_pmu_intr = {
->         .use_raw_spinlock = true,
->  };
->
-> +const struct exynos_pmu_data exynos850_pmu_data = {
-> +       .pmu_cpuhp = true,
-> +};
 > +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    bus {
+> +      #address-cells = <2>;
+> +      #size-cells = <2>;
+> +
+> +      npu@4ab00000 {
+> +        compatible = "nxp,imx95-neutron";
+> +        reg = <0x0 0x4ab00000 0x0 0x00000400>,
+> +              <0x0 0x4AB10000 0x0 0x00010000>,
+> +              <0x0 0x4AB08000 0x0 0x00008000>;
 
-You may want to consider having an e850-pmu.c file to contain the e850
-specific data and hooks.
+Keep consistent code, so lowercase hex.
 
-Andre recently moved some of the gs101-specific parts into gs101-pmu.c
-(although not the actual gs101 online/offline hooks). Now that more
-SoCs are being added it could be a good time for exynos-pmu to contain
-only the generic code and the <soc>-pmu.c file having the
-peculiarities/hooks for the specific SoC.
+With these two fixed:
 
->  /*
->   * PMU platform driver and devicetree bindings.
->   */
-> @@ -151,6 +155,7 @@ static const struct of_device_id exynos_pmu_of_device_ids[] = {
->                 .compatible = "samsung,exynos7-pmu",
->         }, {
->                 .compatible = "samsung,exynos850-pmu",
-> +               .data = &exynos850_pmu_data,
->         },
->         { /*sentinel*/ },
->  };
-> @@ -229,6 +234,65 @@ EXPORT_SYMBOL_GPL(exynos_get_pmu_regmap_by_phandle);
->  #define CPU_INFORM_CLEAR       0
->  #define CPU_INFORM_C2          1
->
-> +static int __exynos850_cpu_pmu_online(unsigned int cpu)
-> +       __must_hold(&pmu_context->cpupm_lock)
-> +{
-> +       u32 this_cluster = MPIDR_AFFINITY_LEVEL(read_cpuid_mpidr(), 2);
-> +       u32 cluster_cpu = MPIDR_AFFINITY_LEVEL(read_cpuid_mpidr(), 1);
-> +       unsigned int cpuhint = smp_processor_id();
-> +       u32 reg, mask;
-> +
-> +       /* clear cpu inform hint */
-> +       regmap_write(pmu_context->pmureg, EXYNOS850_CPU_INFORM(cpuhint),
-> +                    CPU_INFORM_CLEAR);
-> +
-> +       mask = BIT(cpu);
-> +
-> +       regmap_update_bits(pmu_context->pmuintrgen, EXYNOS_GRP2_INTR_BID_ENABLE,
-> +                          mask, (0 << cpu));
-> +
-> +       regmap_read(pmu_context->pmuintrgen, EXYNOS_GRP2_INTR_BID_UPEND, &reg);
-> +
-> +       regmap_write(pmu_context->pmuintrgen, EXYNOS_GRP2_INTR_BID_CLEAR,
-> +                    reg & mask);
-> +
-> +       regmap_update_bits(pmu_context->pmureg,
-> +                          EXYNOS850_CLUSTER_CPU_INT_EN(this_cluster, cluster_cpu),
-> +                          1 << 3, 0 << 3);
-> +       return 0;
-> +}
-> +
-> +static int __exynos850_cpu_pmu_offline(unsigned int cpu)
-> +       __must_hold(&pmu_context->cpupm_lock)
-> +{
-> +       u32 this_cluster = MPIDR_AFFINITY_LEVEL(read_cpuid_mpidr(), 2);
-> +       u32 cluster_cpu = MPIDR_AFFINITY_LEVEL(read_cpuid_mpidr(), 1);
-> +       unsigned int cpuhint = smp_processor_id();
-> +       u32 reg, mask;
-> +
-> +       /* set cpu inform hint */
-> +       regmap_write(pmu_context->pmureg, EXYNOS850_CPU_INFORM(cpuhint),
-> +                    CPU_INFORM_C2);
-> +
-> +       mask = BIT(cpu);
-> +       regmap_update_bits(pmu_context->pmuintrgen, EXYNOS_GRP2_INTR_BID_ENABLE,
-> +                          mask, BIT(cpu));
-> +
-> +       regmap_read(pmu_context->pmuintrgen, EXYNOS_GRP1_INTR_BID_UPEND, &reg);
-> +       regmap_write(pmu_context->pmuintrgen, EXYNOS_GRP1_INTR_BID_CLEAR,
-> +                    reg & mask);
-> +
-> +       mask = (BIT(cpu + 8));
-> +       regmap_read(pmu_context->pmuintrgen, EXYNOS_GRP1_INTR_BID_UPEND, &reg);
-> +       regmap_write(pmu_context->pmuintrgen, EXYNOS_GRP1_INTR_BID_CLEAR,
-> +                    reg & mask);
-> +
-> +       regmap_update_bits(pmu_context->pmureg,
-> +                          EXYNOS850_CLUSTER_CPU_INT_EN(this_cluster, cluster_cpu),
-> +                          1 << 3, 1 << 3);
-> +       return 0;
-> +}
-> +
->  /*
->   * __gs101_cpu_pmu_ prefix functions are common code shared by CPU PM notifiers
->   * (CPUIdle) and CPU hotplug callbacks. Functions should be called with IRQs
-> @@ -416,8 +480,12 @@ static int setup_cpuhp_and_cpuidle(struct device *dev)
->         void __iomem *virt_addr;
->         int ret, cpu;
->
-> -       intr_gen_node = of_parse_phandle(dev->of_node,
-> -                                        "google,pmu-intr-gen-syscon", 0);
-> +       intr_gen_node = of_parse_phandle(dev->of_node, "samsung,pmu-intr-gen-syscon", 0);
-> +
-> +       /* Fall back to the google pmu intr gen property for older DTBs */
-> +       if (!intr_gen_node)
-> +               intr_gen_node = of_parse_phandle(dev->of_node, "google,pmu-intr-gen-syscon", 0);
-> +
->         if (!intr_gen_node) {
->                 /*
->                  * To maintain support for older DTs that didn't specify syscon
-> @@ -427,9 +495,19 @@ static int setup_cpuhp_and_cpuidle(struct device *dev)
->                 return 0;
->         }
->
-> -       pmu_context->cpu_pmu_online = __gs101_cpu_pmu_online;
-> -       pmu_context->cpu_pmu_offline = __gs101_cpu_pmu_offline;
-> +       if (of_machine_is_compatible("google,gs101")) {
-> +               pmu_context->cpu_pmu_online = __gs101_cpu_pmu_online;
-> +               pmu_context->cpu_pmu_offline = __gs101_cpu_pmu_offline;
-> +       }
-> +
-> +       if (of_machine_is_compatible("samsung,exynos850")) {
-> +               pmu_context->cpu_pmu_online = __exynos850_cpu_pmu_online;
-> +               pmu_context->cpu_pmu_offline = __exynos850_cpu_pmu_offline;
->
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-There should be no compatibles inside probe (that rule applies to all
-drivers & subsystems). Instead use the driver match data
-(exynos_pmu_data).
-
-regards,
-
-Peter
+Best regards,
+Krzysztof
 
