@@ -4,65 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDF4CFCB611
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 15:10:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90DB8FCB611
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 15:12:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HJLp8YBkGvKp8/JnvM955cz2XdlMFg0G7oZa34dX7UE=; b=cqgjiLnjs5ZYWB3eD+pAxZ/rwg
-	fceOFd5NKBq4RjloE2RlzecXE1GE/fMKxwc4oo6HDhQ71y8CHfWCpMynhWNqSOs558sw5NvVr0NMv
-	oclJaRgAeaG19X8bxynDfLm9Ddril3aY1aIy6ajiW3+L89pxAQL9iDDrbo2qfh5NwOQw8ewWzA6i6
-	RoQ4wIG94JoGNdNnomMo9FO9QlGQjpSd1JqQq9dFwVkiR5BvT/8YqzYJd3NxNy+Ft8XmeI5Ym5fxV
-	rx5TxnBPzZOTC3NJgHnLIv9TXXDKFgfmjmwJVkqQykhay5rru5w2/0eFFqxr3+9+5BEr/uM1Ni6sv
-	l/a+SxVQ==;
+	bh=vlFRRb52j6fQV3xLc0/cExy8OrDKJcQvtwB8my/TLyw=; b=0wJrg5nDMAXMiC3SaHBTVLpTjI
+	4U3EdIfNzFCvEsWkEicmW2z05eRn9SxpbszcZQicGQOex0Y8z2wA7ZUCo8OqLYPBcrIsvavX9dgpc
+	MVu7A5/nWNEGQ8OU5XP2HexUksTcDSWMAwp+RmedBtWT8a/zZmi/h1izvk05d7vIn2rgQSBwI3ves
+	jG2zHhQQADcnr5ZrTX7/GoRn+tS5urUeVjE5gua0TeWj1NM8QFK1g7Vl/RqJzHGe7lwIa7i6021nL
+	xv1AD2djAYj7UpbLVWbEU2fDK4HpuEWsKEQvy1UsJeqeDDta/3HdllrVECduh9vwcCKDgMELpnxJ/
+	XEMiiIbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyWoV-00000003zYI-2C6V;
-	Fri, 06 Mar 2026 15:10:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vyWqO-00000003zi8-0hFG;
+	Fri, 06 Mar 2026 15:12:00 +0000
+Received: from mail-westeuropeazon11013032.outbound.protection.outlook.com ([52.101.72.32] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyWoT-00000003zXr-3ktv;
-	Fri, 06 Mar 2026 15:10:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 84B0E44097;
-	Fri,  6 Mar 2026 15:09:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE34BC4CEF7;
-	Fri,  6 Mar 2026 15:09:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772809799;
-	bh=GgoUw+SaJyllGA06GAIgRiDqdGje3nKOsdp/CsOdWJ8=;
-	h=From:Date:Subject:To:Cc:From;
-	b=DhzpAi3CoQh5QBzl/i/d0ZlPOmhmHdma6wDPKGaWVNqfKRIVkL/nQpuZXxFM7DYju
-	 B6k33hBk3hwbOZiriTqAyAHNCWdvSyPrFH69MWcRZXxAkYWhaipgPU/1ysgvTlTeST
-	 rWBcrdQAWyY4FVuzdWzoPbxqj3Pmr9QnLMbnnPEgNBZFMJ7abAx/1B4AGj/hMYLA3K
-	 IxSt4T0GX6guNElx5WFN5Y9i6ojmdOR234wh7H7/LzsqANrd8NUxa+CmOyD27OAVw5
-	 holmPDga0xVcX92eMoPbZL4DEh08kbdDbiZSK90a5zcxdSwTkN0cIu3m3wU1JwYFk/
-	 4weKS5/UeLGYg==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 06 Mar 2026 16:09:47 +0100
-Subject: [PATCH net-next] net: airoha: Move GDM forward port configuration
- in ndo_open/ndo_stop callbacks
+	id 1vyWqK-00000003zhO-46yD
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Mar 2026 15:11:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Gt8YhMDE2PE9IBQiNasv4i/x1hAJt3DzXI+NtIRxR/Y7xWg3m3JR2S/dY3JDWGScqpH5CVn36Filp6Jnfe4GK9wFapqULw/0onqFzOmxI/6OPwOTohQMahmfNvGcGK6lUOl+XZjwEJIXaVK6COHaHdHbdR2Hk+LA6oUCrTJ6Kkg5w/qD716BKSj6tzEI2eULTQ1IIiA1lxniLcnzvfeFn+mCsj5ggg0r0TD175ubIILPIqmh21bycRpdoeEfYBaVkJDl3A+/trKlATFhto9omYQucWi0Gu2HAmfVMq+vIoHb9Obx/6uxH5HUvhzy/iYyJDJAPtPCYWXh5cjjlGBv1w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vlFRRb52j6fQV3xLc0/cExy8OrDKJcQvtwB8my/TLyw=;
+ b=FoueVB0+KrSrbOMDdH9k16NL3E8XHk+xWFfRthgThxn+pP7DBA0x+YVP72MKxirK8jDUrYpOhBPEMktMtU3FhfJhPbQPdfs29S6Ls4kipFHYY2onHxrNxPLU1QL5SgCoy9ZSB36IzanLG8YuKUniKK8Jgx4GhtPibH0lP3L9Xnl9Y9wowk+jFV14IKNs6aG5CpXGhZfRgpN6p9lYPgL0p1iQLY5Pg/eUujAiE7+s9lAeBu6iHhHEu7Jr2KduMVMaulxLXVm1b8recHTGTmdwNSAgrNflDVFryoDHpzIgqe2qFvStDNQNSnI4YneFQ2lPYWMzoth8dMr/jX3yTK0bKA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vlFRRb52j6fQV3xLc0/cExy8OrDKJcQvtwB8my/TLyw=;
+ b=JT0bytKNI2uf7b/HuWhBCD8UCt0o9TpC11+rvAqL84g6MgBdqMw0MtCJsi5ECCtgsSkH5yIRkNPu2ZFp7UNGonJBRMVhZ9A2A2+J5BHM7wtEGIQdLGuphUgNYUc9UcUIXo4dDgqlGkFavrEYGQUdgxcgRP126wckBC5JX9VLIL36zP2wmbMBerOeWZ2muELl+vQj5bjHf8JoQGYJyyd9Ya283F17VsqOxjwB9sBmSc5lZimzJCDMRzP/WIioPHkeJVqghDL+JLseJUIxtdvD/4/Bc7143AmJXMWlQ0RAxIOR4z/lq8czBJ0RBYvSSyeCzMZK6jOPkA/h+nfdEoJPwQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU0PR04MB9251.eurprd04.prod.outlook.com (2603:10a6:10:352::15)
+ by AM0PR04MB7092.eurprd04.prod.outlook.com (2603:10a6:208:19c::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9632.14; Fri, 6 Mar
+ 2026 15:11:50 +0000
+Received: from DU0PR04MB9251.eurprd04.prod.outlook.com
+ ([fe80::5c3a:1a67:2e02:20d0]) by DU0PR04MB9251.eurprd04.prod.outlook.com
+ ([fe80::5c3a:1a67:2e02:20d0%5]) with mapi id 15.20.9654.022; Fri, 6 Mar 2026
+ 15:11:49 +0000
+From: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Haibo Chen <haibo.chen@nxp.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Lucas Stach <l.stach@pengutronix.de>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	s32@nxp.com,
+	Christophe Lizzi <clizzi@redhat.com>,
+	Alberto Ruiz <aruizrui@redhat.com>,
+	Enric Balletbo <eballetb@redhat.com>,
+	Eric Chanudet <echanude@redhat.com>,
+	Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+Subject: [PATCH v3 0/8] arm64: Add initial support for NXP S32N79 SoC
+Date: Fri,  6 Mar 2026 16:11:39 +0100
+Message-ID: <20260306151147.24446-1-ciprianmarian.costea@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR4P281CA0152.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:ba::19) To DU0PR04MB9251.eurprd04.prod.outlook.com
+ (2603:10a6:10:352::15)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260306-airoha-gdm-forward-ndo-open-stop-v1-1-7b7a20dd9ef0@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3NwQqDMAyA4VeRnBdoLbixVxkegomaw5qSDieI7
- 27x+F3+/4AqrlLh3R3gsmlVyw3x0cG0Ul4ElZuhD/0QUhiQ1G0lXPiLs/mfnDGzoRXJWH9WMKY
- UJ4r8TPyClikus+734jOe5wVqSMRUcgAAAA==
-X-Change-ID: 20260306-airoha-gdm-forward-ndo-open-stop-1331ca1d73d8
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9251:EE_|AM0PR04MB7092:EE_
+X-MS-Office365-Filtering-Correlation-Id: f4874998-14e1-4575-69fd-08de7b92b0d0
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|19092799006|366016|921020;
+X-Microsoft-Antispam-Message-Info: OnP6LhxkgKfrt3UNoV00ZzH7VJstIB0VgKIwX19m8SAVEQlKXFZLJRLhFxtlS1xFJck78spktJPNgqoSjCC/0q8g9SIrgHU8yHE7DNRh34pNqBEdeeK433MU/18li2eSdDONy8cpSs077Cc/qivjvwCzhtfUFZcZ88sub6SZsJ5Ld2YZ7DnpdddvivYPTAP4qo048yzDE9F2TVHEb/43/+U43oCsQRSUyL/0Kmg/Vz65fS+jkSNKYq+bjweGVBZr33n5PWS3eNl9IpNoLatjmugTpaw3WDTSM6rgiFB1y8nLDtHUNQJDKJrDZG3s/YGp00Fn5VfATC9r1ntIFoNcbLnsjCnC9XRwJqEwVC6R7T0tiuxqzBdpOMU1ETsWEeO/xtVJb+IyVMkWzyfx2SPJ7yfQbKpFYspKSMdeHa5X5TQDdfrXDpS1GIqlWOXNw76uTwLs4szQVQFWiqML+PHirPkgEKzTYJYeBX1R7HPuRqJ7M7g6W1yZykoEzOzp5i5v0Gw66u5PXVKBwPY2mlqtCXnpMdI4NEgH7tnnZhMgfeZZfgLzcNhU4nsBLsXRY27RluIx9iBAXPZdWSzX3unQB3/Pyy4P5T3ggqF5/mX7Vhg+/6frhlRBKyW51QM87Rl+v+U/MbxWbRb3Su/iRRwy62EUWRXITN5O5ge7CkhOmYkUxo2IACeTxlgEsklBkQMCufDVQAZ7k6ShFGA05TR8ImwUmLzt8y52oCJEnLJfLAQeGNLubPLt3fSJJSr5/GM7yBKo551fTxSInaHKcOrY0eeuMbcFlyAXKOaz+2OUUkE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9251.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(19092799006)(366016)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?emtFNGEyWkZPaEY4RlkvSHlLU3pES25waEZIUW4vTlo5MzN2ZDNaUGZxNFps?=
+ =?utf-8?B?TlRzK0NmVW5yUDhPYmkxN0x2aTJJRG9aNDhXQ1JmckNGVStYcXk0d2RRNmdy?=
+ =?utf-8?B?cCtoNE5uRXVnY2dLZmZBVTE5QnN0MEFMNHp3UEJlWXpuc0U3bm1xdVJOaVJa?=
+ =?utf-8?B?VVdUeFRFYkRRWFNOZXdUZ2pzM1RlOXllTGhsYldpMFRqWkE2SW5HTGs5dlow?=
+ =?utf-8?B?c1l3bU9jWHZEcGdwU082WWoybUk3eVhiOG0xNGgyN0UrUmlPK0lSWUdTZTZ3?=
+ =?utf-8?B?V3duV0wrRi85MDdZZVpaVC91STl5NTZKbHFzSG1BN3V2emtEWHBBSGNvdmN0?=
+ =?utf-8?B?QS9XU25GTkJ6WXRnTmRIeFZPUGZ3Mjc3TXMrZThjaHdZQlpDUTVWS0dSd09I?=
+ =?utf-8?B?RnI1bXdKeGt6MzZCc0E3bW9wMlJuZ0Ryc3drdWFSMnBhaHFOYTg1WlR6WjZT?=
+ =?utf-8?B?MHdsMVZLV0RYTU9xUkVYWm50dXpYT01IbXVuMUpFRVhaWldURFo1UnhGQko1?=
+ =?utf-8?B?L043aW5WTHBaV3pvTnpGWjV6R3lkN1QrLzd0bW8rSS9VNS9yWHl2WGlOMHVa?=
+ =?utf-8?B?MmM4aHhlMU8zTURMMTRsbU1KNkJ3N2NjZkdlSjc0RzhsNEdNRUZxRitQRWpI?=
+ =?utf-8?B?djgwVy9ubFFLSzBYSmgyUHhIWEh0cVpNZmhyNjBNdEc4cklRc0V4dkNBTUNr?=
+ =?utf-8?B?MFBrSEplaUE0REpTaVI1SGRWQ3dmMC9DMG9SSmMxYXROaGpwVW1STmJkSlVr?=
+ =?utf-8?B?bldRRW9ZZXh2VjVVV1pQMDlzUDBqdkEvUUZaWXVLYXlnb2RwQ0pOdHBrS0JU?=
+ =?utf-8?B?cDRZdTMvTG1pWXhzTzJ3Y0Z3OC83eTZXeTlQamNyODkvZDdWWWx0VStEMVBh?=
+ =?utf-8?B?Vmc5ZDAzVHZaZmQ2SlFJT0JoVGtsRUFuc0I2UWJZMGd5YUxSMFhIcUxDbHY2?=
+ =?utf-8?B?UlJpYlNYSFdiNTJEa3piK2JyOTBGOTZDUFgxbGRWYXlPUXFoOGpQdTlyOEdq?=
+ =?utf-8?B?THlxS1FEVzIzNG9tVGg0bHRqc1FWVGlUeU9wRXNNdW9XenRianVHWXNFZmox?=
+ =?utf-8?B?bEZmaGRJcjNPV2k5L1JkMXEybVBnUWI3N0lrVlNNUDFQRE0rTlQ1cUkwODJI?=
+ =?utf-8?B?Wi82Vlo0SFJIT3lGSE1JSzVJYWw2L1VwR2FLcG1TMWJvMmRIc2swN3dSeFdr?=
+ =?utf-8?B?V05SeFZMNVhXNTMzVHU5c0hMcGxCSFFzS3Z6dlJKRjdFek1zU3Rydm8yY0Z3?=
+ =?utf-8?B?eHBTT3gyWW8vR0t0VmZMUmhSUHJ6NXdsM0toMEhNVFBwcGpTQXJ5ZmxBWkN5?=
+ =?utf-8?B?Z055N1dEYi9MZnd4eXIycDlUWVpHSUZaZXNhcXpOMDdtNXZ0S2FVK1MwMG5V?=
+ =?utf-8?B?VUVlYmJnMmJYYnR4OUVtc2doaElEL3ptUVFxRnQ5RVh2T2Q0bXhsb0lmYVNO?=
+ =?utf-8?B?VXJ5Q3lsYkIxa2VZMENZbjlBS0NIblRDcERVR0VQYjEyTzd2OVM3M3Y1NGp4?=
+ =?utf-8?B?NEZuVWRBY3BaT0xaMU9WU0RqblJGL3hjWDhVTVVKbjNab1ZVUDBaMHNTMmlj?=
+ =?utf-8?B?SXZxVE9rNEdnTk52UFNkUytNaXVmSGZNaEFVbkxRWTlvQzl2QVJMdWxXbTdk?=
+ =?utf-8?B?Zk1TU0JyNFlDeWpUTVZIUjRrUDlqQkM4NFo2b3N3eTFYbGR3bDYyNEFBdi92?=
+ =?utf-8?B?TDNRcXU0RWVVSWpaVUdzcVBKN3JKRjY1R09RQ2o0UFBCNTAxNHJlQXArQ3Y1?=
+ =?utf-8?B?TFIzSm9kd3RJWjYxRFB2TXA1b3gzazlkbjJjdHU0bTJhZjVvZ0krM081MEVh?=
+ =?utf-8?B?L0tXUy9SQjd0UGJxaEo1WUl0TThNTEJKWnM1dVo4eDlnQkFhWlNzWWkxM1Zo?=
+ =?utf-8?B?bXd0SnJQSTQvamYzQTVkcWdjYlFQTEVIb3RrSm5hVGlJd1hTYkxWSElwM2VM?=
+ =?utf-8?B?bk5OMk43SDZ1OGRiN1Z0bVFxdGZpNHRlblJ3RUhkL3JJaUhhV2NiNVBaTFQz?=
+ =?utf-8?B?QnZ6R3Z1SlQwbzU3U1pzWklOQWpDM1RaWmV6ekVPT1l5TnJEQnRURXV0cG5F?=
+ =?utf-8?B?VGZMTndlTFByc3RkKzdtcTVhS0JpV3lQb0JXRk51MU5vcUVORzZ5a0tUSUZv?=
+ =?utf-8?B?NWJDUmlybk1Wc2w3Rm5pQ0dIMXZzVzJ4UVVlbnk5M3ZQQ201QnZqZ3MweEdS?=
+ =?utf-8?B?R2RzTUprVGk4MW9kS0VTN0NOTENyemR0S3hjRnpDOUhmOUtDU0ozWnVkSkVx?=
+ =?utf-8?B?OFE4OXdqTDFKbVVoTU93TU5NRE9lTWk4TmM2Mm9od0FTU3crN21yREE2ZlBE?=
+ =?utf-8?B?a3lmYWU3UWlnV2tTc0pkWEN6bmhlYXpZL0lIaEU3Z2tNMTZETjlNaGJZbjll?=
+ =?utf-8?Q?G5nnAmECw7eH7TY4=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f4874998-14e1-4575-69fd-08de7b92b0d0
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9251.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 15:11:49.7793
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: GyXU6J8FddY/Hp7d+YygjTDUAgfpyn2pPzclqDcC2ZFnbyWaNzvL3KMq1Yh0VS35h5F6fcOp6ny64BIR77tDip4HsmS5yt6F/Mtkwv5dqYI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7092
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_071001_995312_7743089E 
-X-CRM114-Status: GOOD (  12.44  )
+X-CRM114-CacheID: sfid-20260306_071157_028151_2D4EBFC7 
+X-CRM114-Status: GOOD (  13.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,93 +167,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This change allows to set GDM forward port configuration to
-FE_PSE_PORT_DROP stopping the network device. Hw design requires to stop
-packet forwarding putting the interface down.  Moreover, PPE firmware
-requires to use PPE1 for GDM3 or GDM4.
+From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 20 +++++++++++++++-----
- 1 file changed, 15 insertions(+), 5 deletions(-)
+This series introduces initial device tree support for the NXP S32N79
+automotive SoC and its Reference Design Board (RDB).
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 09acbe6695368132ddd92c3501f8711476db73f6..dc36b5b669108cc32c4fd5a5479d9024978ceeba 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -1611,6 +1611,7 @@ static int airoha_dev_open(struct net_device *dev)
- 	int err, len = ETH_HLEN + dev->mtu + ETH_FCS_LEN;
- 	struct airoha_gdm_port *port = netdev_priv(dev);
- 	struct airoha_qdma *qdma = port->qdma;
-+	u32 pse_port = FE_PSE_PORT_PPE1;
- 
- 	netif_tx_start_all_queues(dev);
- 	err = airoha_set_vip_for_gdm_port(port, true);
-@@ -1634,6 +1635,14 @@ static int airoha_dev_open(struct net_device *dev)
- 			GLOBAL_CFG_RX_DMA_EN_MASK);
- 	atomic_inc(&qdma->users);
- 
-+	if (port->id == AIROHA_GDM2_IDX &&
-+	    airoha_ppe_is_enabled(qdma->eth, 1)) {
-+		/* For PPE2 always use secondary cpu port. */
-+		pse_port = FE_PSE_PORT_PPE2;
-+	}
-+	airoha_set_gdm_port_fwd_cfg(qdma->eth, REG_GDM_FWD_CFG(port->id),
-+				    pse_port);
-+
- 	return 0;
- }
- 
-@@ -1651,6 +1660,9 @@ static int airoha_dev_stop(struct net_device *dev)
- 	for (i = 0; i < ARRAY_SIZE(qdma->q_tx); i++)
- 		netdev_tx_reset_subqueue(dev, i);
- 
-+	airoha_set_gdm_port_fwd_cfg(qdma->eth, REG_GDM_FWD_CFG(port->id),
-+				    FE_PSE_PORT_DROP);
-+
- 	if (atomic_dec_and_test(&qdma->users)) {
- 		airoha_qdma_clear(qdma, REG_QDMA_GLOBAL_CFG,
- 				  GLOBAL_CFG_TX_DMA_EN_MASK |
-@@ -1742,7 +1754,7 @@ static int airoha_dev_init(struct net_device *dev)
- 	struct airoha_gdm_port *port = netdev_priv(dev);
- 	struct airoha_qdma *qdma = port->qdma;
- 	struct airoha_eth *eth = qdma->eth;
--	u32 pse_port, fe_cpu_port;
-+	u32 fe_cpu_port;
- 	u8 ppe_id;
- 
- 	airoha_set_macaddr(port, dev->dev_addr);
-@@ -1763,7 +1775,7 @@ static int airoha_dev_init(struct net_device *dev)
- 		if (airoha_ppe_is_enabled(eth, 1)) {
- 			/* For PPE2 always use secondary cpu port. */
- 			fe_cpu_port = FE_PSE_PORT_CDM2;
--			pse_port = FE_PSE_PORT_PPE2;
-+			ppe_id = 1;
- 			break;
- 		}
- 		fallthrough;
-@@ -1772,13 +1784,11 @@ static int airoha_dev_init(struct net_device *dev)
- 
- 		/* For PPE1 select cpu port according to the running QDMA. */
- 		fe_cpu_port = qdma_id ? FE_PSE_PORT_CDM2 : FE_PSE_PORT_CDM1;
--		pse_port = FE_PSE_PORT_PPE1;
-+		ppe_id = 0;
- 		break;
- 	}
- 	}
- 
--	airoha_set_gdm_port_fwd_cfg(eth, REG_GDM_FWD_CFG(port->id), pse_port);
--	ppe_id = pse_port == FE_PSE_PORT_PPE2 ? 1 : 0;
- 	airoha_fe_rmw(eth, REG_PPE_DFT_CPORT0(ppe_id),
- 		      DFT_CPORT_MASK(port->id),
- 		      __field_prep(DFT_CPORT_MASK(port->id), fe_cpu_port));
+The S32N79 is an automotive-grade system-on-chip featuring eight Arm
+Cortex-A78AE cores organized in four dual-core clusters. It is designed
+for high-performance networking and gateway applications vehicle
+architectures [1]
 
----
-base-commit: e5e09233e8a9179b260460fdb28df5c24bcfbed6
-change-id: 20260306-airoha-gdm-forward-ndo-open-stop-1331ca1d73d8
+Hardware features included in this initial support:
+- 8x Arm Cortex-A78AE cores (4 clusters of 2 cores each)
+- 32GB DRAM Memory. 28GB are usable and 4GB are reserved for ECC logic
+- Three-level cache hierarchy (L1/L2 per core, L3 per cluster)
+- GICv3 interrupt controller with ITS
+- SMMUv3 for IOMMU support
+- Generic Timer
+- IRQ steering controller
+- PL011 UART controllers
+- uSDHC controller
 
-Best regards,
+This series also includes the necessary driver updates:
+- sdhci-esdhc-imx: Add S32N79 uSDHC controller support
+- irq-imx-irqsteer: Add S32N79 IRQ steering support
+- irqchip Kconfig: Add ARCH_S32 dependency for IMX_IRQSTEER
+
+Future patches will add support for additional peripherals such as
+networking controllers, PCIe, and other IP blocks.
+
+[1] https://www.nxp.com/products/processors-and-microcontrollers/s32-automotive-platform/s32n-vehicle-super-integration-processors:S32N
+
+v3 -> v2
+- Split S32N79 SoC dtsi into separate standalone commit
+- Renamed a memory node in the S32N79 board dts
+- Fixed IRQ STEER DT-Bindings support for S32N79 addition
+- Updated S32N79 usdhc driver support commit message
+
+v2 -> v1
+- added driver changes required for S32N79 uSDHC support
+- added driver changes required for S32N79 IRQ_STEER support
+- updated commit message for uSDHC dt-bindings
+- implemented fixes for 'dt-format' tool findings on newly added S32N79 dts files
+
+Ciprian Marian Costea (8):
+  dt-bindings: interrupt-controller: fsl,irqsteer: add S32N79 support
+  dt-bindings: mmc: fsl-imx-esdhc: add S32N79 support
+  dt-bindings: arm: fsl: Add NXP S32N79 SoC and RDB board
+  mmc: sdhci-esdhc-imx: add NXP S32N79 support
+  irqchip/imx-irqsteer: add NXP S32N79 support
+  irqchip: add ARCH_S32 dependency to Kconfig
+  arm64: dts: freescale: Add NXP S32N79 SoC support
+  arm64: dts: freescale: Add NXP S32N79-RDB board support
+
+ .../devicetree/bindings/arm/fsl.yaml          |   6 +
+ .../interrupt-controller/fsl,irqsteer.yaml    |   4 +-
+ .../bindings/mmc/fsl-imx-esdhc.yaml           |   1 +
+ arch/arm64/boot/dts/freescale/Makefile        |   1 +
+ arch/arm64/boot/dts/freescale/s32n79-rdb.dts  |  70 ++++
+ arch/arm64/boot/dts/freescale/s32n79.dtsi     | 362 ++++++++++++++++++
+ drivers/irqchip/Kconfig                       |   6 +-
+ drivers/irqchip/irq-imx-irqsteer.c            |  35 +-
+ drivers/mmc/host/sdhci-esdhc-imx.c            |   9 +
+ 9 files changed, 487 insertions(+), 7 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/s32n79-rdb.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/s32n79.dtsi
+
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.43.0
 
 
