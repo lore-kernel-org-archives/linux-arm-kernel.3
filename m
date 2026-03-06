@@ -4,84 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3DEDFCC04F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 17:30:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F68DFCC04F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 17:34:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zFElwYG1YsdXvOmcPnGwrLyjy/Z58J1iPJBpk5wjpc8=; b=FoWw/SMHi1v0uzWcdx/3oFylRt
-	lb0LAutmtCoJdmuoHCdo7/40FU3WtTgUZGleF6weCVESmhs8w5lRqiB1WOFnuHp740qvLqs/R4BrH
-	P1ManPNqIj2/tDJPN2Dstsi4KQcl0+nzEn8PIH6JRsaL6j58eW9voGcUrEa4fRkfMBEXawf8mNeTg
-	Cmls/VE7i8xXjHiEL21sl0JaKGGchPZYbNPtHCsinXyVnihOP+22vO2HKBe8JIUGxxPLYWX6c/5Or
-	dHfBVHLxSjX7EfzDCH+ETfQnGnrXR9koY0lwZt5/MLDY3OTDe2Z1fbpWob4Su+431DePfmsV/6aJu
-	RRqcyI0Q==;
+	bh=JoxUailnxqD4N5w8qXVcbIyyjDZ8Yddmk4m7LSP/xvQ=; b=fWUVVHcS76hWgl0uM2XEZe0PMa
+	Z+eyS1UkV+leyJXGTlRopunNyqFHBPd5FGxtCJ2K72xqZtoLJnovExf0hKpSSZgxGJqfy2IqEq/ad
+	G71HYGAB4mM49UccgbnD9gHMzSZktEsKUZfDGxzIvUVJK1bc2lNgBdLeNJwjVTVR1VhfHZk0TsfLx
+	M42bv31YH6b7GvBFEJXnWdFfvmSrlKHTXJazKITzDf1WBRzrq0rBiyhKuESwDC0bD6wBEgfwS6qdH
+	2UKrwtdwX68cGS1UTH0LIT/Zi+dEvXGyj1qfoq9PxZ5GzwN/OeK06pk4UMEzcXJc4/VAlP7AdgNnC
+	87DyhgHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyZ0Z-00000004HDS-0KZj;
-	Fri, 06 Mar 2026 17:30:39 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1vyZ3i-00000004HTL-3qYO;
+	Fri, 06 Mar 2026 17:33:54 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyZ0T-00000004HCc-37uK;
-	Fri, 06 Mar 2026 17:30:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1772818234; x=1804354234;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=8VmuFnYbiOKgaR+BBAUnY6HUkEujulh2Twpm6HK6CSU=;
-  b=WlbUfbrtdpW8UO0jqDLo4POvpY8U2GcYCDe94DBPZvZ2AqD6vwrHxsMU
-   IXyxD/T0EG9HyUZDiwKnY0/TIuNXbYauA0Obd9t9mkhoJ8C69IiSzhmDr
-   vJU0omO4MTTisiPpRIX5La++2YtwQrG5jBm87D+1I7p/BQHo7ybPKXpJq
-   yI8CKeJvIDJew2in9qIs1R+cXXYSNSCZfAdlLVq3IU/NTYidwPh/pNVtd
-   71AaMjXxzurC6pOpdtx91oM+FmW1RUxqoqsqg5b9CbEwbH/fVV64kW7Yb
-   2wDxI4qB7ZcLZBKFXgJ/y5OErBCdLapabZSOl+pdQOFTFa96ndW9PaIcj
-   g==;
-X-CSE-ConnectionGUID: FyIrSxaeTROzfckO1V22dw==
-X-CSE-MsgGUID: YvMyj8kWSAe+M4pwxzswqQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11721"; a="76536352"
-X-IronPort-AV: E=Sophos;i="6.23,105,1770624000"; 
-   d="scan'208";a="76536352"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Mar 2026 09:30:32 -0800
-X-CSE-ConnectionGUID: 0bx+XxIITUy/ALxxQyoj5Q==
-X-CSE-MsgGUID: qc/tcyJERO+MUV1m2NxX4Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,105,1770624000"; 
-   d="scan'208";a="218305101"
-Received: from lkp-server01.sh.intel.com (HELO 058beb05654c) ([10.239.97.150])
-  by orviesa010.jf.intel.com with ESMTP; 06 Mar 2026 09:30:26 -0800
-Received: from kbuild by 058beb05654c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vyZ0H-00000000197-44lO;
-	Fri, 06 Mar 2026 17:30:21 +0000
-Date: Sat, 7 Mar 2026 01:29:40 +0800
-From: kernel test robot <lkp@intel.com>
-To: Caleb James DeLisle <cjd@cjdns.fr>, linux-mips@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, naseefkm@gmail.com,
-	mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, cjd@cjdns.fr,
-	tsbogend@alpha.franken.de, ryder.lee@mediatek.com,
-	jianjun.wang@mediatek.com, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, mani@kernel.org, bhelgaas@google.com,
-	vkoul@kernel.org, neil.armstrong@linaro.org, p.zabel@pengutronix.de,
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
-	nbd@nbd.name, ansuelsmth@gmail.com, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 6/8] PCI: mediatek: Add support for EcoNet EN7528 SoC
-Message-ID: <202603070131.ufbXMWzw-lkp@intel.com>
-References: <20260303190948.694783-7-cjd@cjdns.fr>
-MIME-Version: 1.0
+	id 1vyZ3g-00000004HSo-3Kof;
+	Fri, 06 Mar 2026 17:33:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HhrCapx4B1EyEWUFJbYzysiINsJn5xKk6u4y146FdfbPq3AkiK32P1Wpk+yuBGhY35n4pahQXn+zecD1ANB1OXVEDB934VxRtDWWjpw6Z6KvyLuAQx7Ak4bQkrbvVmydBk+A+l1/u6HTJBqBharMBaXN3iaALcAcas/3GzQBLrHRBUicSfbfgreyW4K1YoNWITe+gMPO/XzjwzUHNoQigveq/f5jcWljCZyE5lEWvSRqJpUt/yAb/JV2Irl+yXMQ9WV1eKWuO5scJv00I9Mtb6gteleo/3O7GbgSUVpqVkmV5TFhGqAyOMLDiayb2hGx8zKMJKGmTkV8tnMs7lF9WA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JoxUailnxqD4N5w8qXVcbIyyjDZ8Yddmk4m7LSP/xvQ=;
+ b=B5Ageh7W4QxN2TElK0xHNWwIuxUhsUqzTc/r581S1LBY5k3IZ5AC8kK7JyIgzwDnn0Ux6TpIYOMsk+6BMNQ1EJbgSw1VlJSRCcLLCWElieCElNRs9+/qDeux4MQbOOPUCR1VdA9+c4Cmlmjr4gPxGvvtT8DQ1RvDPa65FPZzFY8lotWDhcffwehy9jmD6+pKCP/Dz3b6V5XNnsvu/s8vXLGb9WZiYgOg/vubrRGb/uZZKYUIWY4gicQUAxgTEki23wNwpLzDXhRZIvrAEhwpgl+S6/VTitrb49knLJEkG/icRK+P7L3vHOl2Ga2i9tBhWcvDsCAWmJQ1bbt74GrrXA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JoxUailnxqD4N5w8qXVcbIyyjDZ8Yddmk4m7LSP/xvQ=;
+ b=KH+kKFVagQe2Q/0Rb1RbTdDwpdoKs1OGAZMo4C/DS+FcapCfON6pTXj3b/gsWOMB7MQQVXZnMY4Beo9+FbAeeWxkx0mqoQy9l06LcGLQLc3L6oXW0bhSQ8HBDOyMguDEhpDHKJjl3HD+4cjpT8OwRq2mO8n9hLA2Dyr+1RamAhqcGSAr4+DsK59j1RSt52/+huMobE2C1kKBbacc8TV695TD+pKnsHZRzGmNsf+8XMtB50rs6MaNBUHyCCfcizUM6FQEDUlmRdX2hhc2azr+U9u1F/GgK98zsKCDWK/rdu5dZx6paL+GCG4Pi0H2XaWDBXCQEu3WLpFO5h82k44bRg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by PA4PR04MB9319.eurprd04.prod.outlook.com (2603:10a6:102:2a6::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.18; Fri, 6 Mar
+ 2026 17:33:44 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9654.020; Fri, 6 Mar 2026
+ 17:33:44 +0000
+Date: Fri, 6 Mar 2026 12:33:34 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: daniel.lezcano@linaro.org, tglx@kernel.org
+Cc: shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, chun-hung.wu@mediatek.com,
+	walter.chang@mediatek.com, jstultz@google.com,
+	amergnat@baylibre.com, aisheng.dong@nxp.com, jindong.yue@nxp.com,
+	xuegang.liu@nxp.com
+Subject: Re: [PATCH v5 3/4] clocksource/drivers/timer-mediatek: Convert
+ timer-mediatek to a loadable module
+Message-ID: <aasP7rlglXyghfYY@lizhi-Precision-Tower-5810>
+References: <20260306085021.1231032-4-zhipeng.wang_1@nxp.com>
+ <20260306165140.293012-1-Frank.Li@nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260303190948.694783-7-cjd@cjdns.fr>
+In-Reply-To: <20260306165140.293012-1-Frank.Li@nxp.com>
+X-ClientProxiedBy: PH8P223CA0007.NAMP223.PROD.OUTLOOK.COM
+ (2603:10b6:510:2db::10) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA4PR04MB9319:EE_
+X-MS-Office365-Filtering-Correlation-Id: fe5a00f8-e1da-4dd0-ef9a-08de7ba68387
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|19092799006|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: b8Cre9D2i0VS1oAPwmbD1yvuql/2i5B9lNEaJHuhFSkb4BU6xF92n8MFTWsrC3SVzB/emHaRx4jKdnp29LREhv3DxZy4sn493818aexcFEA0dnpWPhu/ijfKkM9E4b5Ieh5imBX7HPagZws3XAeMFl5jF9yUsRlS+gcMc9z3T46nBwl55NVHuOJRwIt4m1B8Xzv8LAcq7x3lWqKc+076hmce4BZ4V3AJrt1oOsVylSDaUKqmaoKZpVSM2UCoETdcQlry1CD+rPflRYEnuiA3arcKqmz3dNCbnhW/LrfMA7BgXzYJrSoR/bEI32wid60jeXGrBc07Smo0+dt/fWoSXyg9K23ScCiP9+n34kcacIohusb/Zx7G00FlDz8c+QPgQmIpxaIKDrolvi2I/ALRQruWh2iwXpjVWPUcOhWy79mgbm8WIT7ec6CKHoMlhhmfqpNjrm9DQoRmDUuth4/eAFYlEm4/y3c0S4fwlZxmswIbeztggISldwZT5CQwS6gyjUjFMXg41hbYYYvLpJzvDz657ZmL00ZRAlkKMu2dZI7c0HORHo7c9HFMqrLvjHxwMUKRyJ0LyzuJgqYPNEVl3CPYdqyCpydKalGAvQSTGoDDlqWBaHmsbyaJGcMfZ8bqY/ONQbV8UDzJpezToZYdCknJ+FUnHVzsOZi9QfHT/QOuET8xG+a3j/LM1c812whGHrOj37e9hOiETbPkR4gloofvKNqp3zE50RxdmYK9rPoC4UHGBxbVIKwqlZWmEgYqare3XPY0LUFuV+HlmjtyCV95AScAoEEAlwF7cvH46yw=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(19092799006)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?y9xpw3gOicZOHYTbk+KC5jHK7innEvouk5j12hI22iwt8jv/1Tow4lswKd4N?=
+ =?us-ascii?Q?izuDT7z+5jBl8cPluPMWtGRi2ApxMCWk/7cYercl+dM6apZBewbA30HPjknZ?=
+ =?us-ascii?Q?TSXzFEMQNMTtvCjZGfehdJ1pgaQmyN9hBCP4R7yDNkefzPUO1C9OxwFS4b8B?=
+ =?us-ascii?Q?TOt/sRuxll4wL7o/qmCJWPCRnOYwsEtV9yGo4/gisfzTy/NGewTSlE/m9HhE?=
+ =?us-ascii?Q?To8x/xbOzj76ms4PIo6em5+EUl1da8R7Jc+08m9BbfrDwkJCBAppJUR2Jsoh?=
+ =?us-ascii?Q?/mC1MUK5xSVuU7zY6l9DkPvyBc7tl2Qa4tF3ty2K74cx5jIYAu2KuYq/Al0o?=
+ =?us-ascii?Q?RPaJlDLkpYqzAWjdzy6yT9USHw/oknufg6eyhAFEZKTJ039IIxCrbrlbVwf4?=
+ =?us-ascii?Q?w1tJgcJwQeH564aZUHGyYfqkQeNRFslWOkHYn+nJoRe0ITrrodEZDxJVebJA?=
+ =?us-ascii?Q?RmPWJR7bP1xHQYwsSfhFIIkMYDU8AjfiD7bVAy2jVl+ADPIwiUrQG8kCtXsg?=
+ =?us-ascii?Q?hqOPPVtyQcvdvRaVtJ3nl8MBXf0ZHWBza+OnELxE77lHBWqAB8jXFTgJoAHu?=
+ =?us-ascii?Q?BvAvdFANV4sUWhetx8F7edRQabOjZU6OX+z6dwEy5dPvWjVgdUfGxRdWKJOf?=
+ =?us-ascii?Q?ZV9cEndudsg9Z2Nh2hBXjKGEOSzhJvS1k3wYWPLtH8P9WzogpZTVmgNcbdEL?=
+ =?us-ascii?Q?VGIeq7vfVUSwRUN8Scxe3ENM/dtpZ/9oTyaRTnRjAscSs0Y/J7UiHeCU23H7?=
+ =?us-ascii?Q?9TmWY3rsbYnmex5L1cklb65J5aLXIvmhMK62Iw/t9Jj3QkRMy3GkrT3jSQAx?=
+ =?us-ascii?Q?WPEh5dnpW0XuVQ9VW4F7uBYR/kkv9EYvjvIJCFTVZkZ108BfRTSnux/7is/I?=
+ =?us-ascii?Q?b/50mUlVLmhRsSLK5/HWy+1RWPHfehu2nLhVEmAtFwuHFgyswIDX+j8blnfO?=
+ =?us-ascii?Q?+ig95NaqRZ2pwWq0iCE0awigPrji4YP18yFzoy+V6EbqnPq2oO1fAyuxjLnA?=
+ =?us-ascii?Q?0W1UIsnYFozi9L5AHZfRzVEPcnVXkXvHyqRyDP0HJNVdYwEDJKJsjmGC17aV?=
+ =?us-ascii?Q?7Tqk+tdkZ2pROvZnmDVqyOoMXG31+wetFXiW/JfzGvD3z4EcrSMAKMreP3Ba?=
+ =?us-ascii?Q?FZuBCklay7qzarj/BIPez9Mm9h81jDkEj7b/wSPAKtXF2keNtoYHzq0MB4NS?=
+ =?us-ascii?Q?sKL95MQsq6D1FZMIjxEArgH6zwqQdik/Z7EDWsHiiTry2GHA45N+spx3kv1y?=
+ =?us-ascii?Q?FgTTGdmAB+q8nRyE2u8aHES0OHGTNd5C0Qn6ZvLsonD8Tx9NGIVHl99ZmKTq?=
+ =?us-ascii?Q?N2C9+Q5RJ0Tso273Wv9Ayg7fJtZuGeGY8isN6L0McUjhG/B5DE1AwXOHFfot?=
+ =?us-ascii?Q?KAh0BQrvmme6Igfl5corcTCVs+n98HCLGkOmWsCPfd6kPQudTsJMQzXgag73?=
+ =?us-ascii?Q?32K+Bdlno3S+rl4BZwMdsl8W45EhgR3J5rXPceUoiM4n3sySypndKETOhBWF?=
+ =?us-ascii?Q?MlAYobJ8+OvmcN2pt0nCwTndsioxmxLtDHIqqP0DI8F8bE7dKan/a7it+lEJ?=
+ =?us-ascii?Q?q/LU/AkgbmtyBev6Sz7jUofeuBzyG4Dlz4WbW6Kn/gFaxdc/K9+X7YhfhYuk?=
+ =?us-ascii?Q?9I1lSgAWj6cyCz7skpGOJoCYdImNFj0hB16J2lulwqoEP2AN8yBsjsTJWNJs?=
+ =?us-ascii?Q?/A5iA110RwGXwplTMaeZV+meJLeNUNlbgZrZKnOz3DGIhnTN?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fe5a00f8-e1da-4dd0-ef9a-08de7ba68387
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 17:33:43.5617
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aT/EVs+SP1WT3PrDxrEAlWT67FqDfmI3AATAk2S+J6oGH2COJ7hxKTf9P0rU6osvJjJr7MnqcGynbWhqPhaS7A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9319
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_093033_803797_A1924F9F 
-X-CRM114-Status: UNSURE (   8.82  )
+X-CRM114-CacheID: sfid-20260306_093352_865436_F40DBF62 
+X-CRM114-Status: UNSURE (   6.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,30 +142,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Caleb,
+On Fri, Mar 06, 2026 at 11:51:39AM -0500, Frank Li wrote:
+> From: Frank Li (AI-BOT) <frank.li@nxp.com>
+>
+> > +#include <linux/module.h>
+> > +#include <linux/of_device.h>
+> > +#include <linux/platform_device.h>
+>
+> AI: Include headers should be sorted alphabetically. "of_device.h" should come
+> before "platform_device.h".
 
-kernel test robot noticed the following build errors:
+Please forget it. Sorry for annoise.
 
-[auto build test ERROR on 3fa5e5702a82d259897bd7e209469bc06368bf31]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Caleb-James-DeLisle/dt-bindings-clock-reset-Add-econet-EN751221-bindings/20260304-031451
-base:   3fa5e5702a82d259897bd7e209469bc06368bf31
-patch link:    https://lore.kernel.org/r/20260303190948.694783-7-cjd%40cjdns.fr
-patch subject: [PATCH 6/8] PCI: mediatek: Add support for EcoNet EN7528 SoC
-config: parisc-allmodconfig (https://download.01.org/0day-ci/archive/20260307/202603070131.ufbXMWzw-lkp@intel.com/config)
-compiler: hppa-linux-gcc (GCC) 15.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260307/202603070131.ufbXMWzw-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202603070131.ufbXMWzw-lkp@intel.com/
-
-All errors (new ones prefixed by >>, old ones prefixed by <<):
-
->> ERROR: modpost: "pcie_retrain_link" [drivers/pci/controller/pcie-mediatek.ko] undefined!
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Frank
+>
+> Frank
 
