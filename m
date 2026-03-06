@@ -4,144 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A763F01825
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 10:32:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08650F01821
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 10:34:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v9kq8Rwj6Nj70RxlwjNL/YWOuGNBkH4XA9hyPzQZwSg=; b=FfDtHdbRh3et0mJykrJzwBXdBS
-	W8pCgBEkScHEGdnyXCamA9X15dPhd0Ks5vXMRqrBqxEFTKifv+Lz2vcwEDVUXyfNzTDSGk5wj5/eS
-	n8L9uUoBS66Dx+XDoeRlvAikN4X9QZH2dEjSWEWqO7hxgfArVW+PUAz0YnFjw68UKl+l+Ied90Z+0
-	StCf+w/hnlwRgsb0Uk5moL5uQARk1N7Vs/W118kmLQW0sW5aQF3AUguO+E7tDJpJcQh/0JMF0Y/Vx
-	awalUqqBdA8b0MsFNxBmd3slmVZetHorQLIts8HWBgcNSQiPcjGQSzpM5q2oN4dFtaz3iubTfJQhr
-	Adn168nA==;
+	bh=EIDMk5sYIxM9jDjgEtc6H1BIuvRMY37EOJ0pNtPs2r0=; b=HGYbKr8pBoIZeVVVe6D2WHeooa
+	jC+70ZHVfYQzlYEf8DvR71DDHNUFawB9UiGApNuAVxEpSsfhn+p4cpRf32jeYSO0fDahpK/7w2Un4
+	XdFtbcPEf9B7AEBJjqEvo4bkzHFxJhftm2696pfh9osoe5oGvzuimISDZTKdT0gMRXBAO9w7NsBHt
+	hc1Q1FNnTeTZLf6xewphY6vK5GfeOqCQ1y6pPVUz0aUDWnqtjQxlBLDLB8+5+e2nvg8iQTdLrOjab
+	j9ikNHQlpauu/TkaOcpKKAHzRhUs2rm8tTaZW1Fm1XeQOg8VFgCs/fNSHdaHd0HqRKVs1dSamNiow
+	Do5BZ8sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vySTQ-00000003TYf-38Zr;
-	Fri, 06 Mar 2026 10:32:00 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vySVS-00000003Tr8-1CO4;
+	Fri, 06 Mar 2026 10:34:06 +0000
+Received: from mail-norwayeastazon11013027.outbound.protection.outlook.com ([40.107.159.27] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vySTN-00000003TUl-3Yb8
+	id 1vySVP-00000003Tqg-1ttZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 10:31:59 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6264afLe265849
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 6 Mar 2026 10:31:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	v9kq8Rwj6Nj70RxlwjNL/YWOuGNBkH4XA9hyPzQZwSg=; b=ID5KbRuvUC1SoizJ
-	umuQ0puANJIk5HMtDv7fekJ4BBl2DaXH40Orl6y+Zc0Zt6unBEzS3YDVNPCk0em1
-	ZCyb2z11eHx3gM57wK2rbdoQc1hV4VEJI/uibL0Z+ZoeNM1y/Rq2Zu8OdhJfowEO
-	qBLW4VB4SM2SXULUEOzaff6DAzMYjDqw8nTjaeibkWWnI65mVKplnQByNEtk3Tio
-	X1NSyZEyLHPI8WvoD08QMNerJp1Zh6xwlbIRGY2CdVW99xDgjYu8oa+SFrpkS02X
-	slfB5qWOYr86Zf3pS2eo7iOFXo6ZeF3lvtRXRb5UEuAiIEem2guRfQpcXtiCkrmE
-	NMcyZA==
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cqdvku7c0-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 10:31:56 +0000 (GMT)
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-c738bebd53fso5817286a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 02:31:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1772793116; x=1773397916; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=v9kq8Rwj6Nj70RxlwjNL/YWOuGNBkH4XA9hyPzQZwSg=;
-        b=P78/27+Upsq1Hkv8JEWMNv7bNB0pkaJYo3nT4hiV8QMWDWiFG3ygisWXnjuKMkmyhK
-         ifpux4DhJbRJx9reshAevgKoFy4PEjI7jjZ2g4pxDRZPFjwnzqsY1f6GJ4t1rRIO52KJ
-         YurgTlV4bNn7LOjAd/qrsWWQm1ET9+LLEBvhfk5yUnFOyZzwP0ESgtzct7w8kxfK2h2t
-         WOG448NVDm/ORs6kGLF+Kd5WuL8XK1B/vUKOzgmd+5UeTf9WT87NrCPDkDyqQGam5jF8
-         u9PThfYsxJUi161KgIzulxNmXhn5rydle01KkSrGU3vHx58yxmf7AikEpc63f45WHgZO
-         TwbQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772793116; x=1773397916;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=v9kq8Rwj6Nj70RxlwjNL/YWOuGNBkH4XA9hyPzQZwSg=;
-        b=clSgdUSN0j8yAl1XWJtfEpsj+DNiPFE9oN/LdefnFNLLoStkhZzRrVacQfFdgXvGH5
-         vz0XXvfhm2Iv8KMiXtwE0RkUz0MKLThHsQsu5XSSanFZk5CsdqYEvplbsOWVf3elQkPc
-         fyvVwVAV/4FPY/qQ2MFa6V7wduTs2NSAvzxzERNy9khBoAXYOEbXUCQ4jtvWAUHVDRob
-         +GbGjj91fBCpTjxh1xLzJOtyWiYDE0xtGMcEzO/YU+T8dkGdj8uSWqivfH7YN7OvDg3L
-         RXjgDSYKPbfpNS57OEohB9ZZJTEAxePFFtaLHrx8W1PvXwO11z9GK0hds4O7RxF6X3ZR
-         DP4w==
-X-Forwarded-Encrypted: i=1; AJvYcCU7bI5JQxb54rrdBB4vWjPfH3BXQuXcjCyEKvh75WMy86eLEY5P+NHPOwcFv1OK3leuKk5q0ZFOBkZ5Lo+RUKQY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8+ExqbwnO/lcLw8cL3w3inp37hLjp7MO+wIX99f83dlypa2td
-	xTvBhEYCfxd1CvAqzD2lOwtADR8WDE8qob3BUFLbKEA2K5wM9FVBAg0UX7ADMxxmHuszYeMwsFk
-	AQ/gcym/SRREiLdeVBDXHsJBiTY0GZO2NuGtB7lDc9X35SjFDrX/190MI1sT2Oi/yrreE5yzO/L
-	qn9w==
-X-Gm-Gg: ATEYQzzgZ5G97JUAjHXSvxYdmimdTYsKhBRVjJOWsArfvjRrw5grxr1KnLrnhMV+WLp
-	HzCBPY/dRsNsgGJIhwTNmloplFYo68D5ZBhE3QQDvmxI/kdPtPvNhLMEQrHQcJifKIqwKASM02O
-	Ypu/qfMv903Dbz3JuDaNmTiaJ0aFiKW+Ppypi6y6fODb26IT13FB2SrOH3hyPCjhcYI6p8izQSe
-	B/54FG3A/mtwYhdd+NII9Vb94crejV8c75FrnZPMLCvCROREAQCm0w++Yh3JWjW78jk5QiYmhbx
-	yupvRD9BgCDTKppaFO6/5vCuD3U6oVH4X1JIiGPCdrlNoaXCVKR6eGOL//TY71IqfjuNZxld8gk
-	EcA/Yc3+FdmR27nJFyYcJ6QoSPvQ449mZDqV+Jj9FnrvwRgptpV+X3A==
-X-Received: by 2002:a05:6a21:2d44:b0:398:4b6a:90cc with SMTP id adf61e73a8af0-398590df8bcmr1886661637.70.1772793115759;
-        Fri, 06 Mar 2026 02:31:55 -0800 (PST)
-X-Received: by 2002:a05:6a21:2d44:b0:398:4b6a:90cc with SMTP id adf61e73a8af0-398590df8bcmr1886632637.70.1772793115260;
-        Fri, 06 Mar 2026 02:31:55 -0800 (PST)
-Received: from [10.218.35.45] ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-829a48dfc17sm1726877b3a.64.2026.03.06.02.31.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 06 Mar 2026 02:31:54 -0800 (PST)
-Message-ID: <aa97748a-cf72-464c-98f6-11d792551aba@oss.qualcomm.com>
-Date: Fri, 6 Mar 2026 16:01:48 +0530
+	Fri, 06 Mar 2026 10:34:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fSbQdIY45kyc4Sl0HLQ8jNCtWj5G5hI3PO2AThZUH7wCQIM3v+AeG58KjUceABtv0iLnyo9IUotfrFoIx203V7sdZjMvfHaQVHT8JUyBNcqg8aR4T/V4bOMp1isLSEJA9ztVc7kWzpA3zZttyJIc/rC/8BuiPR0O0t/YLSpsAiFWhQN9SdlqUz7hSRls183sReSr/mqptChpaS5mFsDIDeNNf1iSSwXJGgxkbQmHMAze1aE4FsqlANLJfQWKtlqsZEbQgSyznNGCSU0+IX5UH4wZjb0wxdIbBxc3kD85M95tLmsBXRhNUNKwCutTsyqhh1Lt1gNnlG3wMhQtF/B5XQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EIDMk5sYIxM9jDjgEtc6H1BIuvRMY37EOJ0pNtPs2r0=;
+ b=VhAhQSn9MD8hQo+pGKofPsYE71LlsUQ0WNFvDvwT37h4U5zkrsoiynAc7bDkkHottMpUD9HbkK7SOUPScyDjMACc6K1aAc7isLeML4IMQDi5bxBzXheuU38rJPNUfSWnq3SbIx5ijx6XGshYzkgeLyrNK7477YvBr1dOfmfakAzoXVPxEpq2MN9TlogCytTBBjK8B6W6TTbkxBd1pGGNeEescfTK2eEs9BvY81LqbOKJ7bkNY9xYm8tVmWCrXlIfqLn5ESe+2kkx2fqzpYS+OJiK3rOTkuUnkuus/8n2itGdJnr6pFL4zd2OSkJU2i4yDtAaGFprrgWIVpJZvF5beA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=arm.com smtp.mailfrom=foss.st.com; dmarc=fail
+ (p=none sp=none pct=100) action=none header.from=foss.st.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EIDMk5sYIxM9jDjgEtc6H1BIuvRMY37EOJ0pNtPs2r0=;
+ b=oQEe+1/kOZNo2W9T7vK3lmZAOHcyL2E0WJJqtBSkPyOqLiLmfSBqpOFS1yLmG3hp9Qwx0hqHgCCW6EYxgtrspP9hU5y364yIYg3NEsNKrC8csOvkOaMUTf4T82s1bctRxuw8oCD3USPavnTo4NAGANzMFHX+5hyUs+3g2Nv8qrqVV9JE1Yv/qCI5C0MWRrV3SDHBOtSnhzyAIMj+TucFkjpqGHG2Jtxffb6ekLKWg4mJS9ndCUq/kz4mOYLedddbuqnncGGS5FRoFHmBDnvLSndB5ku5x4QF2KjfuDt+dUBeqElXgiaz6v1m6RbMDOFshV1ipKBtGRQHkjQ8KkUGiw==
+Received: from DU2PR04CA0173.eurprd04.prod.outlook.com (2603:10a6:10:2b0::28)
+ by VI1PR10MB3327.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:803:12e::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.18; Fri, 6 Mar
+ 2026 10:33:56 +0000
+Received: from DU2PEPF0001E9C4.eurprd03.prod.outlook.com
+ (2603:10a6:10:2b0:cafe::1f) by DU2PR04CA0173.outlook.office365.com
+ (2603:10a6:10:2b0::28) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9654.23 via Frontend Transport; Fri,
+ 6 Mar 2026 10:33:56 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DU2PEPF0001E9C4.mail.protection.outlook.com (10.167.8.73) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9654.16 via Frontend Transport; Fri, 6 Mar 2026 10:33:56 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Fri, 6 Mar
+ 2026 11:36:19 +0100
+Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Fri, 6 Mar
+ 2026 11:33:53 +0100
+Message-ID: <00ca27b8-e1ae-475f-8082-92c8fd3da08a@foss.st.com>
+Date: Fri, 6 Mar 2026 11:33:52 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/5] PCI: qcom: Power down PHY via PARF_PHY_CTRL before
- disabling rails/clocks
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Jingoo Han <jingoohan1@gmail.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-        Will Deacon <will@kernel.org>, linux-pci@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, jonathanh@nvidia.com,
-        bjorn.andersson@oss.qualcomm.com
-References: <20260217-d3cold-v2-0-89b322864043@oss.qualcomm.com>
- <20260217-d3cold-v2-4-89b322864043@oss.qualcomm.com>
- <to6p7yf2oo5qh37hsye4zpputrc7p4bwgqvjc2plieuyapjdhp@7xshxghi4tzd>
- <313d2262-56e4-49b0-8455-2b46d0966976@oss.qualcomm.com>
- <ksd4ogzz2o5uuwnkvq6yzcwm3zsxiaeuotdj6aiqrew7jqrwl4@g3wcnqhviqwq>
+Subject: Re: [PATCH v6 00/12] bus: add stm32 debug bus and coresight support
+ for stm32mp1x platforms
+To: Gatien Chevallier <gatien.chevallier@foss.st.com>, Suzuki K Poulose
+	<suzuki.poulose@arm.com>, Mike Leach <mike.leach@linaro.org>, James Clark
+	<james.clark@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Mathieu Poirier
+	<mathieu.poirier@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	=?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>, "Linus
+ Walleij" <linusw@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	<cristian.marussi@arm.com>, <jens.wiklander@linaro.org>,
+	<etienne.carriere@foss.st.com>, Sudeep Holla <sudeep.holla@kernel.org>
+CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-gpio@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	Antonio Borneo <antonio.borneo@foss.st.com>
+References: <20260226-debug_bus-v6-0-5d794697798d@foss.st.com>
 Content-Language: en-US
-From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-In-Reply-To: <ksd4ogzz2o5uuwnkvq6yzcwm3zsxiaeuotdj6aiqrew7jqrwl4@g3wcnqhviqwq>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=M7xA6iws c=1 sm=1 tr=0 ts=69aaad1c cx=c_pps
- a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=EUspDBNiAAAA:8 a=uIgEQj9WjdynuVTCvEgA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=3WC7DwWrALyhR5TkjVHa:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzA2MDEwMCBTYWx0ZWRfX/JrVs3cPAp2R
- z0vCdq0PuaSPV5po991RGiiwOSBq0tM6DEhuz3QSAlhSoXW8V1Pzn4FN8iMyYFAxMGSYMhDAcCK
- 6kNK0kHdUlPxcJWVEfrYSI548+iMDj++eb9G0ZnFJ9OvcRf+7cEFfWBohIMO+pZ48dM/UcrVWp+
- 8sG2mx6qMpC13+4OhnJOc6ywwJi87fl57LbFoQZzDEVzs8DzyVHVS7rs1Ae+/My+NztvNR3ghD8
- h/O179G+FnuU45THfh8SXXk80z8QvgjLDY76hFiYrIJdY04B+HB4LIPeZHv9g9S7rNIaY0mj1S9
- 8DbLmVcWFo8Vg2NfvBF0SpZXaSZ6E6z4/TJXuL975xnFPR72Y4MFiJegKxN9P02e3TmIHtIodwK
- VHAgWNGqBaBWromyUgA5FzZkdx4E6w1EHJt8ldb322O978bIOeGC3D9v8cRy5Op5qaL9hOE8qe5
- RBO/zSWD7K4BYHBWp2A==
-X-Proofpoint-GUID: fDsI35mMyXfRVySiZ7LZpY8ZHfqR2mrN
-X-Proofpoint-ORIG-GUID: fDsI35mMyXfRVySiZ7LZpY8ZHfqR2mrN
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-06_03,2026-03-04_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 suspectscore=0 phishscore=0 malwarescore=0 lowpriorityscore=0
- priorityscore=1501 bulkscore=0 spamscore=0 clxscore=1015 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2603060100
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20260226-debug_bus-v6-0-5d794697798d@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.79]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PEPF0001E9C4:EE_|VI1PR10MB3327:EE_
+X-MS-Office365-Filtering-Correlation-Id: 599d778c-1f38-42c1-1183-08de7b6bdebd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|376014|7416014|82310400026|921020|13003099007;
+X-Microsoft-Antispam-Message-Info: OKyi5QyjofA+aNQzBjI5hcImYdWMkhboK/5S99Ro2Qz9eKTtpp6qDfDGlRZMepXkXHrb9ECGqe0WxLw0BumFydz8wXOQt8MAhqL1Hj0nUn79qR9uq87vqfsV7gTBNkUcDc/GPJfL5rd2wG9RSg3wtubQu/BpgkXDi0wY5wI4SxycyE+AllNl3TtLziEY/QHSVrqsT3xxfh5xey774SI4SUD9wqa/8/y56/XgVwGYXNv7MVT3qRgpfFvszMmNpae0gJlLJtAM6xN3fs3Z0NfuBPM6Se8UPZrtiLjdTJF4ZP7TrXtj6QJzUuupxhyclHZFmAygfqMg/yJKt9xu60shPHuwZSQ8Q0guP5Cf8vxOm5iMptgcwNQm/uzUxjVK30KLU1RZ+xEVwvSq1MWcxjxiWkKPa3ncReL+FjAQChW6CSnRLDiTw+RZeUhppc7PdDydfdbX1q0UnmpAIWhIN3DRdmW8I0iq03KzyMKQxSY/Ky+LZ4eygmzU/TznOvtYGC8iDw/bMMZ+3vhYcxUD4taXt+iRlDtgby34SNMqRRa8PkuT10mOv3jQpLaivh0jgeqBLjOXPjOenVmseIR4nHZmtihItIEPAas6LEp0Z7ZD6dbBkAkNqLmoTfHg89tjmm+Axl9/gu0RU6PHcEkYvbEZgU+ztN8tV6Aus4TWBSsLPXiCFhvy5YNi8iqPa0tcPBvzQ7lxR4jUqh9AOs8200LWqvlsZz5Tr+xMsjajZN1TDA+e1noD4LbQDFH8PvLDtOTTlwCfpnV5AEOEDacZovIB2v0Bz+e/459IwhPlaB1l+1U8aYRz+T2V/IiVZauTlyy80U/6sDx+B7AgGHSIYBk1kQ==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(376014)(7416014)(82310400026)(921020)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: f+WdFzAXdXaW9R4ZQSF2rPAF+L/e1yMvJjWu1vQER1JQT87ahnyal+jME9Zz5EwAMp5dWQADAO/7JNCOXOzVkSqVBvOy9h5maqhT66uW8+RGJENumXXSYW2c4kE4plXUMdEE3o1IELNFm9+ZG4x/AIzu6JBiGEI3MUWqPks8ZSUMQG1dy/1EXYEjtD2yhnMAFdwF8RyHoqoUt/I7z1ajXfEMStc3CzB5y6sPgtUIkWW6nbTIPgbjs9CvX7CA2XvjCpBF4yd5DHPvpSLaZIhhQoFk7NLvYFF0z/uFK513eft0SdctKV0M7sLnl3gS7lxSb3EfuyV6Yu2G15I/yGqauHXXSmO5mlZwzOXL8fARVFIpVBVPMU41x3CNQz7IsfBbSl80zPzTPFyx5mxcn4iLvQzZG4xgdLKL365JfYuBDlVCJx6azRw6YtzgfD08s2WJ
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 10:33:56.0673
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 599d778c-1f38-42c1-1183-08de7b6bdebd
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF0001E9C4.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR10MB3327
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_023157_976298_A649BE20 
-X-CRM114-Status: GOOD (  21.22  )
+X-CRM114-CacheID: sfid-20260306_023403_742571_C61E5809 
+X-CRM114-Status: GOOD (  21.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,61 +137,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Linus
 
+On 2/26/26 11:30, Gatien Chevallier wrote:
+> Stm32 SoCs embed debug peripherals such as Coresight. These peripherals
+> can monitor the activity of the cores. Because of that, they can be
+> used only if some features in the debug configuration are enabled.
+> Else, errors or firewall exceptions can be observed. Similarly to
+> the ETZPC(on stm32mp1x platforms) or the RIFSC(on stm32mp2x platforms),
+> debug-related peripherals access can be assessed at bus level to
+> prevent these issues from happening.
+> 
+> The debug configuration can only be accessed by the secure world.
+> That means that a service must be implemented in the secure world for
+> the kernel to check the firewall configuration. On OpenSTLinux, it is
+> done through a Debug access PTA in OP-TEE [1].
+> To represent the debug peripherals present on a dedicated debug bus,
+> create a debug bus node in the device tree and the associated driver
+> that will interact with this PTA.
+> 
+> [1]: https://github.com/OP-TEE/optee_os/pull/7673
+> 
+> Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
+> ---
+> Changes in v6:
+> - Fix use of platform_driver_register() in probe of the stm32 debug bus
+>    (unusable since dc23806a7c47 ("driver core: enforce device_lock for driver_match_device()"))
+> - Added all review tags
+> - Link to v5: https://lore.kernel.org/r/20260123-debug_bus-v5-0-90b670844241@foss.st.com
+> 
+> Changes in v5:
+> - Take into account Rob's comments for the debug bus documentation
+> - Link to v4: https://lore.kernel.org/r/20260122-debug_bus-v4-0-28f0f2a25f2c@foss.st.com
+> 
+> Changes in v4:
+> - Remove reg property from the debug bus and use ranges.
+> - Link to v3: https://lore.kernel.org/r/20260121-debug_bus-v3-0-4d32451180d0@foss.st.com
+> 
+> Changes in v3:
+> - Collect Rob's review tags
+> - Add stm32_firewall_get_grant_all_access() API and use it in the HDP
+>    driver.
+> - Link to v2: https://lore.kernel.org/r/20260114-debug_bus-v2-0-5475c7841569@foss.st.com
+> 
+> Changes in v2:
+> - Fix kernel robot error by documenting the access-controllers property
+>    in the missing coresight peripheral binding files.
+> - List the access controller items for HDP
+> - Various minor fixes in the debug bus binding file.
+> - Remove clock documentation and its presence in the DT node and driver.
+>    Bus clock will be handled by the child nodes' drivers.
+> - stm32 debug bus driver:
+> 	- Depopulate the bus when .remove() is called
+> 	- Remove trace when error on devm_kzalloc() as the trace
+> 	function does nothing in case of ENOMEM.
+> 	- Remove use of of_match_ptr()
+> 	- Use tee bus callbacks
+> - Link to v1: https://lore.kernel.org/r/20260109-debug_bus-v1-0-8f2142b5a738@foss.st.com
+> 
+> ---
+> Gatien Chevallier (12):
+>        dt-bindings: document access-controllers property for coresight peripherals
+>        dt-bindings: pinctrl: document access-controllers property for stm32 HDP
+>        dt-bindings: bus: document the stm32 debug bus
+>        bus: stm32_firewall: allow check on different firewall controllers
+>        bus: stm32_firewall: add stm32_firewall_get_grant_all_access() API
+>        drivers: bus: add the stm32 debug bus driver
+>        arm: dts: stm32: introduce the debug bus for stm32mp1x platforms
+>        arm: dts: stm32: enable the debug bus on stm32mp1x boards
+>        arm: dts: stm32: enable CoreSight on stm32mp15xx-dkx boards
+>        arm: dts: stm32: enable CoreSight on the stm32mp157c-ev1 board
+>        arm: dts: stm32: enable CoreSight on the stm32mp135f-dk board
+>        pinctrl: stm32: add firewall checks before probing the HDP driver
+> 
 
-On 3/5/2026 2:48 PM, Manivannan Sadhasivam wrote:
-> On Thu, Mar 05, 2026 at 02:26:22PM +0530, Krishna Chaitanya Chundru wrote:
->>
->> On 3/5/2026 1:19 PM, Manivannan Sadhasivam wrote:
->>> On Tue, Feb 17, 2026 at 04:49:09PM +0530, Krishna Chaitanya Chundru wrote:
->>>> Some Qcom PCIe controller variants bring the PHY out of test power-down
->>>> (PHY_TEST_PWR_DOWN) during init. When the link is later transitioned
->>>> towards D3cold and the driver disables PCIe clocks and/or regulators
->>>> without explicitly re-asserting PHY_TEST_PWR_DOWN, the PHY can remain
->>>> partially powered, leading to avoidable power leakage.
->>>>
->>>> Update the init-path comments to reflect that PARF_PHY_CTRL is used to
->>>> power the PHY on. Also, for controller revisions that enable PHY power
->>>> in init (2.3.2, 2.3.3, 2.7.0 and 2.9.0), explicitly power the PHY down
->>>> via PARF_PHY_CTRL in the deinit path before disabling clocks/regulators.
->>>>
->>>> This ensures the PHY is put into a defined low-power state prior to
->>>> removing its supplies, preventing leakage when entering D3cold.
->>>>
->>>> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
->>>> ---
->>>>    drivers/pci/controller/dwc/pcie-qcom.c | 30 +++++++++++++++++++++++++++---
->>>>    1 file changed, 27 insertions(+), 3 deletions(-)
->>>>
->>>> diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
->>>> index 2c4dc7134e006d3530a809f1bcc1a6488d4632ad..b02c19bbdf2ea5db252c2a0281a569bb3a0cc497 100644
->>>> --- a/drivers/pci/controller/dwc/pcie-qcom.c
->>>> +++ b/drivers/pci/controller/dwc/pcie-qcom.c
->>>> @@ -513,7 +513,7 @@ static int qcom_pcie_post_init_2_1_0(struct qcom_pcie *pcie)
->>>>    	u32 val;
->>>>    	int ret;
->>>> -	/* enable PCIe clocks and resets */
->>>> +	/* PHY power ON */
->>> This comment is confusing since we already have phy_power_on() API. What does
->>> really happen in the 'test power down' case?
->> QCOM PCIe controller wrapper has way to force the entire PHY into lowest
->> power
->> state by turning everything off, without this bit being cleared the phy will
->> not be
->> powered on even after phy_power_on(), we can think this as a kind of switch
->> from the controller side to power on phy.
->>
-> We never cared to set/clear this bit so far. So I'm assuming that if we simply
-> set it during init, it will not do any harm and allow the PHY to fully power
-> down itself when phy_power_off() is called?
-we are already doing set/clear of this bit, its not newly introduced 
-one, I am
-updating the  comment  to correctly reflect hw behaviour. PHY power on 
-looks little
-confusing I will update the commet to "Force PHY out of lowest mode".
+I plan to take DT & bus driver patches in my tree. Do you plan to take 
+pinctrl one or would you prefer I take it also ?
 
-- Krishna Chaitanya.
-> - Mani
->
+regards
+Alex
+
 
 
