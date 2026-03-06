@@ -4,113 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D3FAF513ED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 02:39:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92D02F513E9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 02:46:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ycJdScU7VQZBgNX8C+iWhq//vtAo4EZ9U6PbAPueQDA=; b=CCHuuqxMqhrNkJiNEHdIIXMzog
-	FoeKUbcCi1S9sLicR68nhPslfWOeNhkI9MmxkTYGABGlWRBThOPJlh4ANEP3i1yZANO2FEO2OFytw
-	SYie4Pva8ZA7eoDvGf1lI9UTS6j34Hyc4NG8KCJi8mpXK1ohEvzDszv/J3Zhv2nWOIXh0kD5fEfoL
-	hfml30Rsd8Iod+fw6k3l2c1CGGptEJkU2btqTlNKmTRLsPL0x4xPSYniPiq7M14uNdgaKpaQ+mJ+x
-	12F0YAXMwlGx+0Ew9VLFqRZRamrJqF6/zgEXinvO8HgVboDOGT/6FyfdCVhw2MfHRU5JsSAUwpywr
-	CVnqA+1w==;
+	bh=a2xsuPOlkpXJkxnBZO/kwFy+hjDmp8icPdTrY3Ycqwo=; b=ymDDMIoReq2M63gVQca1a3aqbr
+	GaVni7FR14Ni/nHxivXQ8l6FhPLQExjUuih63Dlmf8iBKiDpEVGf479aF2eRYsyJxFSe9Ep/MBS79
+	8uGQdsY09pRnXGowRMm6tspiXFLF4B+TbAfcCWGL3UMMRuvU0nOHnux+xZ8P2mfjwOhXmlz8ngigp
+	Wwu8Z53eR6tmnRO3fvMxnDGL955PkiUrsk+ptdJgM+UcPeA0gH4UzTsz09NY5EndWRMCBBvTckTCD
+	HJw+H6mHF2HKm5ikcNx5zEsPb3K+olcuCh9txeJVZ+jnXNIwPE83IliEaLqdGScoo1XKbmllPVzGB
+	6MZVvUEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyL5p-00000002tZR-2eNc;
-	Fri, 06 Mar 2026 02:39:09 +0000
-Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyL5n-00000002tZ6-0gNe
+	id 1vyLD0-00000002tpy-18Cv;
+	Fri, 06 Mar 2026 02:46:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vyLCx-00000002toc-3l5Q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 02:39:08 +0000
-Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-38a2cc31e20so33893011fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 18:39:06 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772764744; cv=none;
-        d=google.com; s=arc-20240605;
-        b=dIHqHQ2hwsc56EHwclQgj8Oq/FpE5p1fQuq7+3RFLpVNZtYsVKj7Uo67h/NuBVtnmI
-         aepdR/lduEBpKMOJ1OzPL5BQtSFupJDnAm44UOJu7cPsvc9zXjkzIJKNyegXyEo4vMrv
-         Eek/5wE6z6ewurOuq7AhFdw0wlmquelbIDnViatFKclCrVtJ5ih9vY8H1Y9pddUFeTN4
-         v/pgjBpSlHilyT1jPFPREoMceIAX455ELkBJY66MCQKETWg004LJqTv7t5/FddV+tkYU
-         QwaYsa/nj6a0/Qpnz084/EBoGuNzEIdcdOUuEtcKPeIEym/I3Zd5+0Sb3uOznlO4d1cS
-         nAHw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=ycJdScU7VQZBgNX8C+iWhq//vtAo4EZ9U6PbAPueQDA=;
-        fh=qBZGSEjZ0Pd0C8mqbXfiJICukz1oWcUXGW5n6BaW33U=;
-        b=fm3MTQ99VcrDMxzRF8QBewrtjAl6OUwu8xObMXpuhVDdnTU3Lh9jV0cIRpig/46yos
-         ZicXbkvI1JeOs/JXE0R86abm1/hcbdQq+qFl60uqAgWV71+xCHCeKWk1JUM4wGEMD4NX
-         PWWB71i0qNDaOe01qOO/TXg9bNF8M/x0xqE0fJIOSEL2+XFzdIlvJF+j08UTzJqaku/p
-         msxTo+aC4lXlfRaWnCVRz0I9c6SFobz8BiGmqWE/uLKNY/KvL5PqkcaJNtJuvF5oJnRH
-         mSzEflxu3IJh5U5pR6yP76QHvtTx2xSt/WXQ9IotFli7nJT9UfVK0OtX6g2TOH0uRZW+
-         OUAQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772764744; x=1773369544; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ycJdScU7VQZBgNX8C+iWhq//vtAo4EZ9U6PbAPueQDA=;
-        b=ItYgvqcCSr6UaUCOY9LwuzpQrg1CRTR8MRD6g5jJcFQVWyQTOW/vHjUiep8LUkaeD6
-         K01EEFQxqiG9unvde0kYQKqTbR2WGVrmGgy8t8ah40RVTsQHxzLte4rr8/lZ+9Mfgn+W
-         5amw+SmVOfZSc5QUQTvGaCur+5SKcdl6roav5SR83zKZrsK0Kc4ZvQoxFIC9WYeqxMEH
-         6F0IyhndSA4zqOsxJMuPH5kqPP2tOw704DrlO6U+izFAtEiwUtMFeIfe+RfPi2x5I/tQ
-         gKqcPH1fhDaj1+8VbRP2GWdY4fR+B6WSMlYWbxXYXJBoDydde2MwRfcBIfn6BSF85430
-         yqug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772764744; x=1773369544;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ycJdScU7VQZBgNX8C+iWhq//vtAo4EZ9U6PbAPueQDA=;
-        b=XNHuwLjxhOpPmfRQhLpSjcquzyqhGek6mhbCr048rmGCtQLflj3gNkYXRv2rxoTcvs
-         zbkwP/cOhV/sYls8unxEsIKlw5myjIvy967hbpkh/Ao0PzjYggYDfAn4ykuBJk+JSrzO
-         o6SRsW+8xTwHZe5oD8UkYjYhPN47fjGyoUIso5wCGyk+arW+eXSnBVe7ve+KvzzQPt1J
-         uJfuMzAXta2LUIAvM+8i6vYU2oP43l8Sg1yxSvPWWYLnaYJzuh7G8xkIjBQ/bGIlDLP+
-         qfviLyQA5JGQMjN3SJzpwrJtPkXny/+iQV8gEzMa0WrUetgC9EbLTDMciwhr9+/eyDBo
-         9KwQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV5OX92RRIQzZU/LlmfCegJkxGJ6ny4SmiJ5KwuYZYCPAsAe+V9uEeRG8sg8ZcplWVkimHlgOboY20POI7fIMmg@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwiT2/teZ+hsoJvVkPpAYMxFpwMGreVcK4BCqz7tVmgHJBhTfa
-	NeomWREqvNGg1/IXibUdzZz6lMSkuoaYNYWLXwbMtz1hHZnaKVQS1KsXHpN8c6ELu8Bz7Ntnqdy
-	0CQ6SSSrrpobXjN/EbXhIttkuAjD91+g=
-X-Gm-Gg: ATEYQzwkAHdTpz/UbLsV14mtpyr3IQQ0HggViemJsDbpRj0PE8/qk3q0cgEmrDNG3dj
-	0Mjb/SnB4jx5yK7xJTkkXCdBMzaPm8J3RGYAybS2eB3tQHYBWr98auLUitEGgq7N7+hWuMGK0IF
-	uRXI5+5MEj6rZU6476dqmJhfeHl9wMvqlyvfagOCNP1cUQoSZL+vTs4fzjJlgnKEstDuJqmCYn7
-	hK9ECPBKSm9E/ZXo6we8AAbzWVHo0PXh8KkHDmfs3ooaCb/BuZPz5Fp+enn3q+Rcc8qCYE9d40W
-	w+8PTIt81NYb9Zmm/VJfJrWhI71PM4HyA1N8p4JfsHKZjeqGm3WsB2pgmdAFFQWMj9MNlXzW
-X-Received: by 2002:a2e:be23:0:b0:385:c13b:5584 with SMTP id
- 38308e7fff4ca-38a40d6e2a7mr1475161fa.36.1772764743976; Thu, 05 Mar 2026
- 18:39:03 -0800 (PST)
+	Fri, 06 Mar 2026 02:46:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 025EC1655;
+	Thu,  5 Mar 2026 18:46:22 -0800 (PST)
+Received: from [10.164.18.48] (unknown [10.164.18.48])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C857D3F694;
+	Thu,  5 Mar 2026 18:46:25 -0800 (PST)
+Message-ID: <3e16b499-9209-4e62-99e9-791ef68d7b02@arm.com>
+Date: Fri, 6 Mar 2026 08:16:22 +0530
 MIME-Version: 1.0
-References: <20260306022406.760-1-ming.qian@oss.nxp.com>
-In-Reply-To: <20260306022406.760-1-ming.qian@oss.nxp.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Thu, 5 Mar 2026 23:38:52 -0300
-X-Gm-Features: AaiRm52GfF-aVTbn8TmD62YiOKnhcu-hzGhY6Qwg2C8seTj5WNPRzZ_mAb4wZdE
-Message-ID: <CAOMZO5BP2aLD+a1r7hVd3F4Qvfovxb8PgQfzcVRKknBHWYBmtg@mail.gmail.com>
-Subject: Re: [PATCH v3] media: verisilicon: Fix kernel panic due to
- __initconst misuse
-To: ming.qian@oss.nxp.com
-Cc: linux-media@vger.kernel.org, mchehab@kernel.org, hverkuil-cisco@xs4all.nl, 
-	nicolas@ndufresne.ca, benjamin.gaignard@collabora.com, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de, 
-	sebastian.fricke@collabora.com, shawnguo@kernel.org, ulf.hansson@linaro.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, m.felsch@pengutronix.de, 
-	fra.schnyder@gmail.com, linux-imx@nxp.com, l.stach@pengutronix.de, 
-	Frank.li@nxp.com, peng.fan@nxp.com, eagle.zhou@nxp.com, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V4 2/2] arm64/mm: Reject memory removal that splits a
+ kernel leaf mapping
+To: "David Hildenbrand (Arm)" <david@kernel.org>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Yang Shi <yang@os.amperecomputing.com>,
+ Christoph Lameter <cl@gentwo.org>, linux-kernel@vger.kernel.org
+References: <20260305053148.3765710-1-anshuman.khandual@arm.com>
+ <20260305053148.3765710-3-anshuman.khandual@arm.com>
+ <a2b81b60-eb8e-44a2-84fe-8c61bc5fadbe@kernel.org>
+ <3884dd41-8ab1-45ee-8daa-198384d59c20@kernel.org>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <3884dd41-8ab1-45ee-8daa-198384d59c20@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_183907_246304_8AD8269A 
-X-CRM114-Status: UNSURE (   7.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260305_184631_979229_7328A214 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,10 +70,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 5, 2026 at 11:26=E2=80=AFPM <ming.qian@oss.nxp.com> wrote:
 
-> -       { /* sentinel */ }
-> +       { /* sentinel */ },
 
-Drop this change. It is unrelated.
+On 05/03/26 6:09 PM, David Hildenbrand (Arm) wrote:
+> On 3/5/26 13:37, David Hildenbrand (Arm) wrote:
+>> On 3/5/26 06:31, Anshuman Khandual wrote:
+>>> Linear and vmemmap mappings that get torn down during a memory hot remove
+>>> operation might contain leaf level entries on any page table level. If the
+>>> requested memory range's linear or vmemmap mappings falls within such leaf
+>>> entries, new mappings need to be created for the remaining memory mapped on
+>>> the leaf entry earlier, following standard break before make aka BBM rules.
+>>> But kernel cannot tolerate BBM and hence remapping to fine grained leaves
+>>> would not be possible on systems without BBML2_NOABORT.
+>>>
+>>> Currently memory hot remove operation does not perform such restructuring,
+>>> and so removing memory ranges that could split a kernel leaf level mapping
+>>> need to be rejected.
+>>>
+>>> While memory_hotplug.c does appear to permit hot removing arbitrary ranges
+>>> of memory, the higher layers that drive memory_hotplug (e.g. ACPI, virtio,
+>>> ...) all appear to treat memory as fixed size devices. So it is impossible
+>>> to hot unplug a different amount than was previously hot plugged, and hence
+>>> we should never see a rejection in practice, but adding the check makes us
+>>> robust against a future change.
+>>>
+>>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>>> Cc: Will Deacon <will@kernel.org>
+>>> Cc: linux-arm-kernel@lists.infradead.org
+>>> Cc: linux-kernel@vger.kernel.org
+>>> Link: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
+>>> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+>>> Suggested-by: Ryan Roberts <ryan.roberts@arm.com>
+>>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>>> ---
+>>
+>> [...]
+>>
+>>> +
+>>> +	/*
+>>> +	 * PFN range's linear map edges are leaf entry aligned
+>>> +	 */
+>>
+>> Nit: single-line comments are usually written as
+>>
+>> /* ... */
+>>
+>>> +	start = __phys_to_virt(phys_start);
+>>> +	end =  __phys_to_virt(phys_end);
+>>> +	if (addr_splits_kernel_leaf(start) || addr_splits_kernel_leaf(end)) {
+>>> +		pr_warn("[%lx %lx] splits a leaf entry in linear map\n",
+>>> +			phys_start, phys_end);
+>>> +		return false;
+>>> +	}
+>>> +
+>>> +	/*
+>>> +	 * PFN range's vmemmap edges are leaf entry aligned
+>>> +	 */
+>>
+>> Dito.
+>>
+>> LGTM, thanks!
+>>
+>> Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+>>
+> 
+> In fact,
+> 
+> Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+> 
+> :)
+> 
+
+Thanks for the review. Sure, will respin with the comment fixes next week.
 
