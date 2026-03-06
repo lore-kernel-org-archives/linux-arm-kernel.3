@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8047F0182B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 12:07:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DAA8F0182B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 12:07:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=97jIgM6P/d9EfNIE9WeYwD3m3n8Lqle2XokpQhzkWdM=; b=q7WmOMLBXZkDZhJMYYYrgOWogs
-	X0NLeJYaWSCKVSPf2bf+q7140wjTuYyxCZPTu3DZDhXgiFys7p150UoEd2twD5QQYFxLhYWSmi81c
-	glrl1VqE8fyEsk2q0lWQW0QcA656ueQYlTH6mO+xRz9QmKLkQW0MPerPIsY+dBlovncT4JjgPrmLj
-	pSQV12K/A3dLG7JqdEKY/PObcaF3MXX57vovPyKQA9UATKegDVbL55gP5XZJn6EfUe1NGdaH+MDzB
-	Xlv2tJRqzu/w96HL9YtionUF41sSWyAKX93lYsfAsQFvp2j6+l1dcSzzJVDChwyAUB1rJWJmaWhgW
-	f8Vvysxg==;
+	bh=SlP4+/T8HO4OS9CBYj2Xq6DuqZPRSrnhT+fSfVGyrPw=; b=cWROLxroacVsaBW8ExlkO2fwY2
+	D2oTRUunvnxQR6mgNFdJydF58wgNESZ3wL595aPaObN/qZa60mJWlyX42rGQL3m0w8ffvmHFu7lsx
+	jVyZXsmds8g0jKcpaWUATCcr/1sLQip8qpxBUA0pT86zHsTUIzM8Qqf9P51ovmbBDk1OScBzdIuY8
+	Uzh5bMxuMWNIstZqodd8lPjkNu8GXbTOAfebfChpr2ueG9uKPp7Z3F/GFqJ2ggaieuXhx9MyWbwbt
+	tkG2WowuHkad+5HrLakSlOtFX0NI+g/eCzhbQWgJot1qUySIqySErePITvKuweUlxrEfGwdworFTD
+	YUAqJUlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyTxN-00000003bp7-3WLo;
-	Fri, 06 Mar 2026 12:07:01 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1vyTxY-00000003bwX-1nxK;
+	Fri, 06 Mar 2026 12:07:12 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyTxK-00000003bmM-2zrL
+	id 1vyTxV-00000003buI-49BM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 12:07:00 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-439b790af67so3396394f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 04:06:58 -0800 (PST)
+	Fri, 06 Mar 2026 12:07:11 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-439aeed8a5bso6270653f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 04:07:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772798817; x=1773403617; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1772798828; x=1773403628; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=97jIgM6P/d9EfNIE9WeYwD3m3n8Lqle2XokpQhzkWdM=;
-        b=OuKqq//Hy9DZhjsmAuhQRYPStAXyrxAgnpVpb3n2PEAdKODs2bgfPhyE+bLJwfHzbc
-         WhcGM6tGQqZ7MNkBdGMjFywz/EfobOtrh4GxtTfolh8g1EuTEttNf/aPaAJ7+NmWMyba
-         q5gzLD13BWLP7QX7/Lwag7OjzIFrzRDosnuHzljRGCRL5G3z6DmEH55F4Up5mhy67xjb
-         uWgbaLmgaYBpHd6U0WXosvN6hF/8ANEBWNbldLIYilH7+iHU/7+7r/YhDgH3nOzYMaOi
-         +XYhUtS7b21GrPUhUm98EtbuK0hXwp8958472n/TJqeNmtuVIeBAZOS4Znf7J1si4g+V
-         zbFA==
+        bh=SlP4+/T8HO4OS9CBYj2Xq6DuqZPRSrnhT+fSfVGyrPw=;
+        b=dxLSfoLrXyCQUYlfkeaZQudbKjOA6Kvs6qWYIM+BOlUeCcKwbAUrI/Z22QEMM+kFGg
+         LEHdpA8WViJOokwxJSPkcvsbKBS1SFtYRlzxlvbt0v5Vmna6LxXRRuI46z/NCRr7Q4/F
+         ql6D42dd3QD7979yo+n4nXQ8TnxCim2MjPtBP9b9AmTMnmTXagneT3mYMEPJWsg19MVY
+         SLBchBAZM04I13dqyEhqXmoIxt2+MOjOPb76M+7sBrqt5exB17VB1go3E65MsmTpkGzx
+         2FHM19gHgPMnIQWL4+3HYgVBEVB7pO7lNIalGrjctWfZS/IabF3Ok8rMZtvW5VbhvkvZ
+         Gqhw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772798817; x=1773403617;
+        d=1e100.net; s=20230601; t=1772798828; x=1773403628;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=97jIgM6P/d9EfNIE9WeYwD3m3n8Lqle2XokpQhzkWdM=;
-        b=TMJ/xpG5sDoUn++jj1XlW3Zg0pHTPSU22xJWKIvn+m5Sivx2ljA54lDxy0p8jfY2Da
-         b3gqOB/VDT0C+p4xNLF6thqPiFQ5sDrdVPF8rux+YzW3j0+JkX0zqpJHErzl3sraisWm
-         gwhk/Hw4FOqcCLkpL8dbY1exOywDRxono8uXhI8cuVM0I8QqjZh7qqaCq1AHUvJLxTgq
-         3r7/arkaINbpNLDHGrm6EnBb0rHpjhm3TFehecx+ROwi3Xf94HOLkgcYH+qyxZB21wmo
-         iABZm6htNk/ETCFjlVPupMT5z6mTM1GNiRWbsNVqhTFnbEBUcE/0cDSythCwkXI1S+1Y
-         hThg==
-X-Forwarded-Encrypted: i=1; AJvYcCVN3DHBRX+ybGlAwX2JM+L5l7iW0scR/LC8DB0V83SYRr02A4gJLRTgxJzSzr21NDXzDQfc63WviLtv+mN/bCyO@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqFEgYBBug63jfG9X3wqSjodb2Sa1jixoAej/60Vkaf1mk3igv
-	OJnj4xvXC2ppXOjpTCvSpMlNr/4AkVegSzGvv1nO2SWNNMiWL2pdK31g
-X-Gm-Gg: ATEYQzzD3DzpIJ/GE7vgjUqsGA+tx6E64SL6UGb0MaGfiKhlJKsA7TVLAw6qUXPYyJ9
-	qtvRycOlxmd+QzSUjT3LAkuGkXE3m9LiJebsBgdfkebaj6A1IxLdyeqXORZVAcaXIDlxHX1pBKC
-	YMeZXlJMfKiu1kauXx1kN8ABbVjHeHUN0AugYKZ1sbhsgtRA5qlTipOcSA+F2jFRLWC+7PnTu8W
-	TJzu6YoPrcilDyEHbHH8T1QZd4oesSy0KsGoYFWt/rxHi0AQ5V6hSYFXrv2QQzVYqCOEWPbCHIG
-	lPYD4srmPHIx6tviDQGBLmfMW8gzlZFTejKRt2ToHDLRoKeFt6nQsdltx+PllRdEocEkbMkqWCc
-	GcOGyc1A7uwV8Ngr507q8XNkLEpSkpa/2xEF5fbSFTH33ckRnI8ua413QO5DSJ32owPvmnyvOPd
-	63Rw1e4ZbuTipJNVydQ0U=
-X-Received: by 2002:a05:6000:40df:b0:439:c018:60e1 with SMTP id ffacd0b85a97d-439cfd76d02mr10149414f8f.21.1772798816912;
-        Fri, 06 Mar 2026 04:06:56 -0800 (PST)
+        bh=SlP4+/T8HO4OS9CBYj2Xq6DuqZPRSrnhT+fSfVGyrPw=;
+        b=jrGikr5a5fEsgnO4plMvR1dpnndWDPyui2kE1rSK7LaGSevsbxNrnXemVPpQS4gJ+M
+         6z6aSOtq1H+oSAcO/ZQB+x/QBU7myhJelHGj0UKFpm1ruw51DQY+SjpAvA7mUDwWoS4Z
+         5AA5tsorzvzIHjAFbYpErgVjxA5NxqwcQP3vU8GfOEKZfvzdk+bhGwaY/qAoPxtZIkq/
+         3Mtn0aTORFvS5STlFq/sXDV/1pEcwSSpAVXvJ+dUj+RtmHAjjOoDlvkax/Di8ftEnfsL
+         bURrj8KedxAX4CpVPZUPSEVv0mtKdT67vw/wtYC/OoXkM1/0fBBD+AOUTP7wC/BTJ1Aj
+         cztA==
+X-Forwarded-Encrypted: i=1; AJvYcCURSVHDAqpTLOWD+gq3JbCG8HNu00464FkgK0uTgm+KRvdkSnm/LppxAIezivYAyGlxK2bGttqryzCI8ENfR8Bd@lists.infradead.org
+X-Gm-Message-State: AOJu0YxGdMClna8dfDLh7VNf49lpuDfzpWh0HQDrmFrKmEv7xK8ROI0k
+	v1245Z33zMVMnb9AFo4ax54UwYFo084gQkeFitDafRH1ayqScclCjMM1
+X-Gm-Gg: ATEYQzw4gCvv9q5Dl1TOM33suQSY/K9nEDXifGmWCfcyaoi5Q6w+W+y1Uyv/i7WDIep
+	QrRS7hfYfC0/QSxEy1ifOPcAID8BmoImDsfMfzpLDzWfgys57/sYg1iaQYISdjjZhpp/djkUgCX
+	IZyJdMTMbPVh1kWOFyEGjiYKAyNcel78kVVpsLg2/axviFtm7quHAzauTX9yHhojvJIQBss7oiz
+	L6g4iGUhDiyPT+anFIlk+BAjMqb6d+ANcYEZL44XlkHTzSGed2Mq40NNmwn5CW7HF/OU73t8DiY
+	YQfwmMJLNwclGMgNJWH41N5MxmLxEf/eytTC9LFlRnkxpA8D3Am/6QEGwzds3gPHq96IGJZ/CQa
+	jo4IxMqaPV1cyf4SLh10p7V/saLOCNJaQdP+QAuw78qniCdAfEgmmgJidn7LvQ9hUROw5+kXdv7
+	m8zOfi55QDkG5gVsdPOks=
+X-Received: by 2002:a05:6000:4205:b0:439:c9d0:5fd4 with SMTP id ffacd0b85a97d-439da656affmr3257347f8f.16.1772798827969;
+        Fri, 06 Mar 2026 04:07:07 -0800 (PST)
 Received: from luca-vm.lan ([154.61.61.58])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439dae2b9d8sm3457225f8f.21.2026.03.06.04.06.55
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439dae2b9d8sm3457225f8f.21.2026.03.06.04.07.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Mar 2026 04:06:56 -0800 (PST)
+        Fri, 06 Mar 2026 04:07:07 -0800 (PST)
 From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 To: linux-mediatek@lists.infradead.org
 Cc: Val Packett <val@packett.cool>,
@@ -86,8 +86,8 @@ Cc: Val Packett <val@packett.cool>,
 	Liam Girdwood <lgirdwood@gmail.com>,
 	Mark Brown <broonie@kernel.org>,
 	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
-	Gary Bisson <bisson.gary@gmail.com>,
 	Julien Massot <julien.massot@collabora.com>,
+	Gary Bisson <bisson.gary@gmail.com>,
 	Fabien Parent <parent.f@gmail.com>,
 	Chen Zhong <chen.zhong@mediatek.com>,
 	linux-input@vger.kernel.org,
@@ -95,17 +95,17 @@ Cc: Val Packett <val@packett.cool>,
 	linux-kernel@vger.kernel.org,
 	linux-pm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 6/7] input: keyboard: mtk-pmic-keys: add MT6392 support
-Date: Fri,  6 Mar 2026 12:03:10 +0000
-Message-ID: <20260306120521.163654-7-l.scorcia@gmail.com>
+Subject: [PATCH v2 7/7] arm64: dts: mt6392: add mt6392 PMIC dtsi
+Date: Fri,  6 Mar 2026 12:03:11 +0000
+Message-ID: <20260306120521.163654-8-l.scorcia@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260306120521.163654-1-l.scorcia@gmail.com>
 References: <20260306120521.163654-1-l.scorcia@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_040658_793333_84FF6F52 
-X-CRM114-Status: GOOD (  12.15  )
+X-CRM114-CacheID: sfid-20260306_040710_059680_9D44BB68 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,55 +122,155 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Val Packett <val@packett.cool>
 
-Add support for the MT6392 PMIC to the keys driver.
+Add the dts to be included by all boards using the MT6392 PMIC.
 
 Signed-off-by: Val Packett <val@packett.cool>
 Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Acked-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
 ---
- drivers/input/keyboard/mtk-pmic-keys.c | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+ arch/arm64/boot/dts/mediatek/mt6392.dtsi | 134 +++++++++++++++++++++++
+ 1 file changed, 134 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt6392.dtsi
 
-diff --git a/drivers/input/keyboard/mtk-pmic-keys.c b/drivers/input/keyboard/mtk-pmic-keys.c
-index c78d9f6d97c4..3b9a5b6bc470 100644
---- a/drivers/input/keyboard/mtk-pmic-keys.c
-+++ b/drivers/input/keyboard/mtk-pmic-keys.c
-@@ -13,6 +13,7 @@
- #include <linux/mfd/mt6357/registers.h>
- #include <linux/mfd/mt6358/registers.h>
- #include <linux/mfd/mt6359/registers.h>
-+#include <linux/mfd/mt6392/registers.h>
- #include <linux/mfd/mt6397/core.h>
- #include <linux/mfd/mt6397/registers.h>
- #include <linux/module.h>
-@@ -69,6 +70,17 @@ static const struct mtk_pmic_regs mt6397_regs = {
- 	.rst_lprst_mask = MTK_PMIC_RST_DU_MASK,
- };
- 
-+static const struct mtk_pmic_regs mt6392_regs = {
-+	.keys_regs[MTK_PMIC_PWRKEY_INDEX] =
-+		MTK_PMIC_KEYS_REGS(MT6392_CHRSTATUS,
-+		0x2, MT6392_INT_MISC_CON, 0x10, MTK_PMIC_PWRKEY_RST),
-+	.keys_regs[MTK_PMIC_HOMEKEY_INDEX] =
-+		MTK_PMIC_KEYS_REGS(MT6392_CHRSTATUS,
-+		0x4, MT6392_INT_MISC_CON, 0x8, MTK_PMIC_HOMEKEY_RST),
-+	.pmic_rst_reg = MT6392_TOP_RST_MISC,
-+	.rst_lprst_mask = MTK_PMIC_RST_DU_MASK,
-+};
+diff --git a/arch/arm64/boot/dts/mediatek/mt6392.dtsi b/arch/arm64/boot/dts/mediatek/mt6392.dtsi
+new file mode 100644
+index 000000000000..c7e54c30bc3a
+--- /dev/null
++++ b/arch/arm64/boot/dts/mediatek/mt6392.dtsi
+@@ -0,0 +1,134 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2019 MediaTek Inc.
++ * Copyright (c) 2024 Val Packett <val@packett.cool>
++ */
 +
- static const struct mtk_pmic_regs mt6323_regs = {
- 	.keys_regs[MTK_PMIC_PWRKEY_INDEX] =
- 		MTK_PMIC_KEYS_REGS(MT6323_CHRSTATUS,
-@@ -301,6 +313,9 @@ static const struct of_device_id of_mtk_pmic_keys_match_tbl[] = {
- 	{
- 		.compatible = "mediatek,mt6397-keys",
- 		.data = &mt6397_regs,
-+	}, {
-+		.compatible = "mediatek,mt6392-keys",
-+		.data = &mt6392_regs,
- 	}, {
- 		.compatible = "mediatek,mt6323-keys",
- 		.data = &mt6323_regs,
++#include <dt-bindings/input/input.h>
++
++&pwrap {
++	pmic: pmic {
++		compatible = "mediatek,mt6392", "mediatek,mt6323";
++		interrupt-controller;
++		#interrupt-cells = <2>;
++
++		regulators {
++			compatible = "mediatek,mt6392-regulator";
++
++			mt6392_vproc_reg: buck_vproc {
++				regulator-name = "vproc";
++			};
++
++			mt6392_vsys_reg: buck_vsys {
++				regulator-name = "vsys";
++			};
++
++			mt6392_vcore_reg: buck_vcore {
++				regulator-name = "vcore";
++			};
++
++			mt6392_vxo22_reg: ldo_vxo22 {
++				regulator-name = "vxo22";
++			};
++
++			mt6392_vaud22_reg: ldo_vaud22 {
++				regulator-name = "vaud22";
++			};
++
++			mt6392_vcama_reg: ldo_vcama {
++				regulator-name = "vcama";
++			};
++
++			mt6392_vaud28_reg: ldo_vaud28 {
++				regulator-name = "vaud28";
++			};
++
++			mt6392_vadc18_reg: ldo_vadc18 {
++				regulator-name = "vadc18";
++			};
++
++			mt6392_vcn35_reg: ldo_vcn35 {
++				regulator-name = "vcn35";
++			};
++
++			mt6392_vio28_reg: ldo_vio28 {
++				regulator-name = "vio28";
++			};
++
++			mt6392_vusb_reg: ldo_vusb {
++				regulator-name = "vusb";
++			};
++
++			mt6392_vmc_reg: ldo_vmc {
++				regulator-name = "vmc";
++			};
++
++			mt6392_vmch_reg: ldo_vmch {
++				regulator-name = "vmch";
++			};
++
++			mt6392_vemc3v3_reg: ldo_vemc3v3 {
++				regulator-name = "vemc3v3";
++			};
++
++			mt6392_vgp1_reg: ldo_vgp1 {
++				regulator-name = "vgp1";
++			};
++
++			mt6392_vgp2_reg: ldo_vgp2 {
++				regulator-name = "vgp2";
++			};
++
++			mt6392_vcn18_reg: ldo_vcn18 {
++				regulator-name = "vcn18";
++			};
++
++			mt6392_vcamaf_reg: ldo_vcamaf {
++				regulator-name = "vcamaf";
++			};
++
++			mt6392_vm_reg: ldo_vm {
++				regulator-name = "vm";
++			};
++
++			mt6392_vio18_reg: ldo_vio18 {
++				regulator-name = "vio18";
++			};
++
++			mt6392_vcamd_reg: ldo_vcamd {
++				regulator-name = "vcamd";
++			};
++
++			mt6392_vcamio_reg: ldo_vcamio {
++				regulator-name = "vcamio";
++			};
++
++			mt6392_vm25_reg: ldo_vm25 {
++				regulator-name = "vm25";
++			};
++
++			mt6392_vefuse_reg: ldo_vefuse {
++				regulator-name = "vefuse";
++			};
++		};
++
++		rtc {
++			compatible = "mediatek,mt6392-rtc",
++				"mediatek,mt6397-rtc";
++		};
++
++		keys {
++			compatible = "mediatek,mt6392-keys";
++
++			key-power {
++				linux,keycodes = <KEY_POWER>;
++				wakeup-source;
++			};
++
++			key-home {
++				linux,keycodes = <KEY_HOME>;
++				wakeup-source;
++			};
++		};
++	};
++};
 -- 
 2.43.0
 
