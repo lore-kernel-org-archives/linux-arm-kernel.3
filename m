@@ -4,91 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EFCFF01828
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 11:29:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99B72F01827
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 11:33:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H4j4+q4eg1DQ8S+6+MlfSRMzb8mYN62U7bLHqrIqMUA=; b=XE00tjZvh5t0nH41cZXS9cUIg2
-	f5PpLXxkfb1jSY6hh8OQWUYf7lyWFODFYBfHapxmUq4OIhkfQgXGxZdTRMKMWK9LFOBU+09BnXylb
-	DsTvDwR0Lu+l8mtivdYRueUN5OkRRPnyczavCZ5bWaCuMhQA7TgJ3UFUpQiNpVzCwqN8RUzQnEOT9
-	+EkVSMXHPGm6QzZx/PG1VoalQAWHqL38yb+3TX9NsvNAWvYDqYObynot8hcnr2Ot4npGp/LMEhCA6
-	9cXNCy/juNPUEvzogLRmUCOq/dhBIOgCcnidGO3QleKo+7Gz1oKPZEiMkcSYoU5QYSIBImzG2faod
-	5MVVG/3g==;
+	bh=CVolvvkTEyujHVercdm410MzyNUUtSeVbkXvI+zNb7E=; b=wLBUTGUv/6iqZHjNY9E8Y9tp7M
+	9/6Q+DplEsDzY7xiE+O3CJSYeIYORlrqdjMpP9KqRQgDQ6/TxiZrSJVrKromd66pcgNqaPHXjzjwV
+	oKY5JitjnILY9vFLEi+iI99QmWRRDvo8QLRG6NlQVbtz9+W2zfN8dpQzXloYr+S+XzF6yHJHBB/xo
+	PZE6Z8AIY7PkeF6feFg+btJf2nDojQU81xkrZhH5kdGCjYGW3FWB6R0FVALN1os6PeGZg+3yMEJMs
+	Y5F61JoRufCISWaSzEJcc4seq7bIc8Iglc5rCGu9a82uAMXhF3bCCtHiwxFn1b/2hanBCAfMN9wO0
+	f9fkn19w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyTN7-00000003ZIK-2BUy;
-	Fri, 06 Mar 2026 11:29:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyTN5-00000003ZHd-0HwS
+	id 1vyTRI-00000003ZXA-0zY2;
+	Fri, 06 Mar 2026 11:33:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vyTRG-00000003ZWp-2Dlk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 11:29:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E6D7B43B66;
-	Fri,  6 Mar 2026 11:29:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEE51C4CEF7;
-	Fri,  6 Mar 2026 11:29:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772796569;
-	bh=XryNqzJpAbwoPPJDceu+o/RMktCv0sL78kkwIFXfp2Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KqRr2BgDwmSvs5Hlh9XDngsdSc53G1yIc7aGX1uFjRRiZqnxwB1lRMQoq7QTxqesg
-	 JLfbnw7piKywWe9WtsSPASsCyxqBVPcdadgdgT3IM8ZM5CnX6N5rvkonx1QbasGG2s
-	 rOhRetD5OuGYkCOvvj+lWOYRVK7S6HfjiFhA0xcOZd9JPaT8sATuB85OOD8aiJnfRX
-	 y5ayFUc3Fe6Q8fXtNA6kFZrQTFk7fF/KAxeM4RQp7S34+xaBsSDpmKw6i5ncas/DuK
-	 yUG1/h2o/p2YUu+Yaxam0qqlC+uixpO1i7fkgLzVRc7uyVhZAefMsB+SrgcbquCpaD
-	 A65RtASmO4M2g==
-Date: Fri, 6 Mar 2026 11:29:18 +0000
-From: Lee Jones <lee@kernel.org>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Mark Brown <broonie@kernel.org>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
-	Boqun Feng <boqun@kernel.org>, Waiman Long <longman@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Orson Zhai <orsonzhai@gmail.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Antonio Borneo <antonio.borneo@foss.st.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	linux-remoteproc@vger.kernel.org, linux-doc@vger.kernel.org,
-	driver-core@lists.linux.dev, linux-iio@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, linux-spi@vger.kernel.org
-Subject: Re: [PATCH v3 15/15] hwspinlock/treewide: refactor consumer.h from
- public header
-Message-ID: <20260306112918.GG183676@google.com>
-References: <20260303192600.7224-17-wsa+renesas@sang-engineering.com>
- <20260303192600.7224-32-wsa+renesas@sang-engineering.com>
+	Fri, 06 Mar 2026 11:33:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8DDF3497;
+	Fri,  6 Mar 2026 03:33:40 -0800 (PST)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A9B2D3F836;
+	Fri,  6 Mar 2026 03:33:43 -0800 (PST)
+Date: Fri, 6 Mar 2026 11:33:35 +0000
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH v2 07/35] KVM: arm64: Remove is_protected_kvm_enabled()
+ checks from hypercalls
+Message-ID: <aaq7j1RLviU_Oz0W@raptor>
+References: <20260119124629.2563-1-will@kernel.org>
+ <20260119124629.2563-8-will@kernel.org>
+ <aYtGWwcVrDQeGCma@raptor>
+ <aacCDMhYJLMWVaIQ@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260303192600.7224-32-wsa+renesas@sang-engineering.com>
+In-Reply-To: <aacCDMhYJLMWVaIQ@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_032931_153742_8E10CE9E 
-X-CRM114-Status: GOOD (  10.92  )
+X-CRM114-CacheID: sfid-20260306_033350_683570_E726B39E 
+X-CRM114-Status: GOOD (  39.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,34 +73,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 03 Mar 2026, Wolfram Sang wrote:
+Hi Will,
 
-> Factor out the entries only needed for consumers from the generic public
-> header. This allows for a clean separation between providers and
-> consumers. Also remove contact field in favor of MAINTAINERS entries.
-> Fix the users, too.
+On Tue, Mar 03, 2026 at 03:45:16PM +0000, Will Deacon wrote:
+> Hi Alex,
 > 
-> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
-> Acked-by: Mark Brown <broonie@kernel.org>
-> Acked-by: Jonathan Cameron <jonathan.cameron@huawei.com> # for IIO
-> ---
->  Documentation/locking/hwspinlock.rst              |  2 +-
->  MAINTAINERS                                       |  1 -
->  drivers/base/regmap/regmap.c                      |  2 +-
->  drivers/hwspinlock/hwspinlock_core.c              |  2 +-
->  drivers/iio/adc/sc27xx_adc.c                      |  2 +-
->  drivers/irqchip/irq-stm32mp-exti.c                |  2 +-
->  drivers/mfd/syscon.c                              |  2 +-
+> Thanks for having a look.
+> 
+> On Tue, Feb 10, 2026 at 02:53:15PM +0000, Alexandru Elisei wrote:
+> > On Mon, Jan 19, 2026 at 12:46:00PM +0000, Will Deacon wrote:
+> > > When pKVM is not enabled, the host shouldn't issue pKVM-specific
+> > > hypercalls and so there's no point checking for this in the pKVM
+> > > hypercall handlers.
+> > > 
+> > > Remove the redundant is_protected_kvm_enabled() checks from each
+> > > hypercall and instead rejig the hypercall table so that the
+> > > pKVM-specific hypercalls are unreachable when pKVM is not being used.
+> > > 
+> > > Reviewed-by: Quentin Perret <qperret@google.com>
+> > > Signed-off-by: Will Deacon <will@kernel.org>
+> > > ---
+> > >  arch/arm64/include/asm/kvm_asm.h   | 20 ++++++----
+> > >  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 63 ++++++++++--------------------
+> > >  2 files changed, 32 insertions(+), 51 deletions(-)
+> > > 
+> > > diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> > > index a1ad12c72ebf..2076005e9253 100644
+> > > --- a/arch/arm64/include/asm/kvm_asm.h
+> > > +++ b/arch/arm64/include/asm/kvm_asm.h
+> > > @@ -60,16 +60,9 @@ enum __kvm_host_smccc_func {
+> > >  	__KVM_HOST_SMCCC_FUNC___vgic_v3_init_lrs,
+> > >  	__KVM_HOST_SMCCC_FUNC___vgic_v3_get_gic_config,
+> > >  	__KVM_HOST_SMCCC_FUNC___pkvm_prot_finalize,
+> > > +	__KVM_HOST_SMCCC_FUNC_MIN_PKVM = __KVM_HOST_SMCCC_FUNC___pkvm_prot_finalize,
+> > >  
+> > >  	/* Hypercalls available after pKVM finalisation */
+> > 
+> > This comment should be removed, I think the functions that follow, up to
+> > and including __KVM_HOST_SMCCC_FUNC_MAX_NO_PKVM, are also available with
+> > kvm-arm.mode=nvhe.
+> >
+> > If you agree that the comment should be removed, maybe a different name for
+> > the define above would be more appropriate, one that does not imply pkvm?
+> 
+> I'd rather keep the comment, as it delimits the blocks of hypercalls and
+> is informative for the case when pKVM is enabled.
+> 
+> I suppose we could reword it like:
+> 
+> 
+> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> index c4246c34509a..6c79f7504d80 100644
+> --- a/arch/arm64/include/asm/kvm_asm.h
+> +++ b/arch/arm64/include/asm/kvm_asm.h
+> @@ -51,7 +51,7 @@
+>  #include <linux/mm.h>
+>  
+>  enum __kvm_host_smccc_func {
+> -       /* Hypercalls available only prior to pKVM finalisation */
+> +       /* Hypercalls that are unavailable once pKVM has finalised. */
+>         /* __KVM_HOST_SMCCC_FUNC___kvm_hyp_init */
+>         __KVM_HOST_SMCCC_FUNC___pkvm_init = __KVM_HOST_SMCCC_FUNC___kvm_hyp_init + 1,
+>         __KVM_HOST_SMCCC_FUNC___pkvm_create_private_mapping,
+> @@ -62,7 +62,7 @@ enum __kvm_host_smccc_func {
+>         __KVM_HOST_SMCCC_FUNC___pkvm_prot_finalize,
+>         __KVM_HOST_SMCCC_FUNC_MIN_PKVM = __KVM_HOST_SMCCC_FUNC___pkvm_prot_finalize,
+>  
+> -       /* Hypercalls available after pKVM finalisation */
+> +       /* Hypercalls that are always available and common to [nh]VHE/pKVM. */
+>         __KVM_HOST_SMCCC_FUNC___kvm_adjust_pc,
+>         __KVM_HOST_SMCCC_FUNC___kvm_vcpu_run,
+>         __KVM_HOST_SMCCC_FUNC___kvm_flush_vm_context,
+> @@ -76,7 +76,7 @@ enum __kvm_host_smccc_func {
+>         __KVM_HOST_SMCCC_FUNC___vgic_v3_restore_vmcr_aprs,
+>         __KVM_HOST_SMCCC_FUNC_MAX_NO_PKVM = __KVM_HOST_SMCCC_FUNC___vgic_v3_restore_vmcr_aprs,
+>  
+> -       /* Hypercalls available only when pKVM has finalised */
+> +       /* Hypercalls that are available only when pKVM has finalised. */
+>         __KVM_HOST_SMCCC_FUNC___pkvm_host_share_hyp,
+>         __KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_hyp,
+>         __KVM_HOST_SMCCC_FUNC___pkvm_host_donate_guest,
+> 
+> 
+> WDYT?
 
-Acked-by: Lee Jones <lee@kernel.org>
+Looks good to me (but you already figured that out in the updated series).
 
->  drivers/nvmem/sc27xx-efuse.c                      |  2 +-
->  drivers/nvmem/sprd-efuse.c                        |  2 +-
->  drivers/pinctrl/stm32/pinctrl-stm32.c             |  2 +-
->  drivers/soc/qcom/smem.c                           |  2 +-
->  drivers/spi/spi-sprd-adi.c                        |  2 +-
->  .../linux/{hwspinlock.h => hwspinlock/consumer.h} | 15 ++++++---------
+> 
+> > > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > index a7c689152f68..eb5cfe32b2c9 100644
+> > > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > @@ -169,9 +169,6 @@ static void handle___pkvm_vcpu_load(struct kvm_cpu_context *host_ctxt)
+> > >  	DECLARE_REG(u64, hcr_el2, host_ctxt, 3);
+> > >  	struct pkvm_hyp_vcpu *hyp_vcpu;
+> > >  
+> > > -	if (!is_protected_kvm_enabled())
+> > > -		return;
+> > > -
+> > >  	hyp_vcpu = pkvm_load_hyp_vcpu(handle, vcpu_idx);
+> > >  	if (!hyp_vcpu)
+> > >  		return;
+> > 
+> > I've always wondered about this. For some hypercalls, all the handler does is
+> > marshal the arguments for the actual function (for example,
+> > handle___kvm_adjust_pc() -> __kvm_adjust_pc()), but for others, like this one,
+> > the handler also has extra checks before calling the actual function.  Would you
+> > mind explaining what the rationale is?
+> 
+> Basically, any hypercall available post-pKVM finalisation needs to check
+> all pointer arguments that it takes. It's best to do this in the early
+> handler so that the backend code can just operate on a safe pointer
+> (either because the underlying memory has been pinned or because it's
+> been repainted to point at a hypervisor-managed data structure). That
+> also allows us to share a bunch of code (e.g. __kvm_vcpu_run()) with
+> nVHE.
+> 
+> The reason handle___kvm_adjust_pc() doesn't do this is simply because
+> this series focusses purely on the guest memory side of things; once
+> we've got that, then we can work on hardening the vCPU/VM structures and
+> these hypercalls will get tightened up by that work. In fact, that
+> specific hypercall will do _nothing_ for a protected VM!
 
--- 
-Lee Jones [李琼斯]
+
+That makes sense, thank you for the explanation.
+
+Alex
 
