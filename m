@@ -4,78 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87285FCB618
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 15:29:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C4A8FCB619
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 15:31:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+SgJSaoS3xBZpSKJEkAK1Alkfabvk0poTkSdP90aLcE=; b=xd8XSTdU0z3s0S3VgPOTYbvqc/
-	tDtIccb2zOgKKKVCtADuwGFCW2W+2N9bkPP5eAJQck87cBs/MxG4z3gZPCXBwif8beiKwYhYo4DpV
-	ILTzaMngi56KSSuMb6Sdp/dXWLuhDz4rjd7H6T2T2a4UdGVnxQB5dn7haCWaTL/wQfAbXf9qNiB/A
-	/iYGSc3VTkp6JphO5GOMaRCfnn1vECIakcK/E+LrfbSo1ABxZ540fIGF4RbaKNILcW7G0O+IoQx9X
-	zg1Vc08+9h8E4NmSyzseK3ZS2QL3Laj+A/AVdb59/whwjDtnG3nJZrJjvQzmTsoBMpzZy+09Qj161
-	hIVVEdIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oEcKE/Xry4U3uD1i7TPLQGRKNjLm+QJOilg4eN6K6Ig=; b=FXMZNbGJEe5ldU97c1+Dt6fMX6
+	GzpCulCclEPbHGDOccyLx+TK3f7zV59xmMe8Z56d7Erm7ljNPNNTksxQMyZC83lxPA8jl6dC/Izkc
+	7pk5mMwifHTdMhmYprGPnRuUvdT0RtQ3x+jkm02X1oEIc6zmplx1wLL8+0MOn4n0VaJdnWAS4af5N
+	tNl7eP8VMhLnl3rvI4tWvepKf1HkTeRb9pK7dT+VjgNElLQvAqG2ksLdQCBuUufPX9U68sxXsRe6T
+	exJ3rLuS/My4ggo3Oz3jkYl9HKgfhYrJQIAGta5N6pwUsRPTNqXo2rVpdrplN50OdUoOvC7iwLdWb
+	virrwFaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyX7V-000000042LY-44c2;
-	Fri, 06 Mar 2026 15:29:41 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vyX8j-000000042XB-2GTi;
+	Fri, 06 Mar 2026 15:30:57 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyX7S-000000042Ke-3rzG;
-	Fri, 06 Mar 2026 15:29:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1772810952; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=n2CYVx5JEDi0jk7OtgRi1swlscIlbUn5VPsdgz7NvVrgIfn+WMv2KXI/2JlE7nPHZ0TEvb8s4U+5tH1ltVfjH7JcuVDdh83lXrx48NZPhs1L5yuW7XF/ieT8XZIDpJLmcAAxVG/1oZSz6aIAMS3vW+h9ra/1prqmsvWCyzlLhIk=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1772810952; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=+SgJSaoS3xBZpSKJEkAK1Alkfabvk0poTkSdP90aLcE=; 
-	b=Pn7VofxnewzUyi1JWpxghspal6Amf0Tc59KQoiKS5EPXlyEQpHescP55ScfJt2wDZbBn2tx+EUIAIolRAvNC801wWPvaUXrbQEVKN4+V+9xZReScByZLctzHHQjasSLTLQqk+0wHAC1zuCoNGkdP8TOVATY8ZrYi2S07i5/wU3w=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
-	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772810952;
-	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=+SgJSaoS3xBZpSKJEkAK1Alkfabvk0poTkSdP90aLcE=;
-	b=QwtE9Q5iJGOpPOTY0pjt6t3wv0ZMo4y2eJia7JBnri7zdmVxnPhHc+Z2e7oHGeEd
-	49kTZ1WXWj8k4ha7p3uHhbSKsr7A6PkEg6KQUjq6PicJuWpKTbtYXgfS1ZKmY0/sBVy
-	C6bwC2oB9+pPHniMQD2eCPdr+Qo0ayjq8WducjEQ=
-Received: by mx.zohomail.com with SMTPS id 1772810949873805.2836907763226;
-	Fri, 6 Mar 2026 07:29:09 -0800 (PST)
-Message-ID: <2825e5b6dff6ed6319c70f9b1c4358a7e07487ad.camel@collabora.com>
-Subject: Re: [PATCH net-next 2/2] net: phy: Introduce Airoha AN8801/R
- Gigabit Ethernet PHY driver
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn	
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet	 <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni	 <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit	 <hkallweit1@gmail.com>,
- Russell King <linux@armlinux.org.uk>
-Cc: kevin-kw.huang@airoha.com, macpaul.lin@mediatek.com,
- matthias.bgg@gmail.com, 	kernel@collabora.com, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, 	linux-kernel@vger.kernel.org
-Date: Fri, 06 Mar 2026 16:29:03 +0100
-In-Reply-To: <32dd938b-2693-4efb-b70b-f713fbd8fefd@bootlin.com>
-References: <20260304-add-airoha-an8801-support-v1-0-0ae4ee5a2f9d@collabora.com>
-	 <20260304-add-airoha-an8801-support-v1-2-0ae4ee5a2f9d@collabora.com>
-	 <32dd938b-2693-4efb-b70b-f713fbd8fefd@bootlin.com>
-Organization: Collabora Ltd
+	id 1vyX8h-000000042Wi-0BUQ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Mar 2026 15:30:56 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-6615c461d3fso2850449a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 07:30:54 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772811053; cv=none;
+        d=google.com; s=arc-20240605;
+        b=UGaMHUaMyZiLiss0fsR78f/R1fSu/qPRDORZgogLvUO3ERWFPjPpCYcuLHBfEoZDZQ
+         CVNqGSEr8wOAwxfkqG+CCuIXAsyj3Rx4sFYlCVchoMLORZPrWwG6PCzLlpY7CZi6ZIDy
+         iwzu2HJnjbotYuTs58IdrsngfAfpZq+OGrqro/JThPNfzbv5CclV3e3rmfHy31MvMHCU
+         4I2yyld9J5P/Lrfg/idsljIBto47Nc2Ippmt9jgHlRIDjW/bUErEM0jC9MxqZZOlI6mw
+         Ms3Ana2RjEy2V+gc97KeoRE/8Mgidqdk2C9CltFVcLKzDFPoW4BDptoEqlOmgnsKP/wA
+         1otg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=oEcKE/Xry4U3uD1i7TPLQGRKNjLm+QJOilg4eN6K6Ig=;
+        fh=9b9tCmlkQiDa2ujc4CuUYFzszM1Y2t1Q0OlcFYDrYKg=;
+        b=kccwhDswvtsVn/3kf6OGrWFtFnma9MufRxpnvXl/SuoSmiyJ3339X2vzVF4+FG1XAJ
+         k751TXS1PUKXir7EsPegtjej+JCXHNbfZ2sfPem8ZeJ6GeEDZpil2JnuxUB8MDGNTg6Q
+         iiy5sAdyJQ717egMW/gobn/kKGJ3DKqBrFNg4PeyYS4o223WV3+V1lTakO7JFOpk6OnU
+         HwK+D+2FLFHm/t/tYAm1bTSgz3luoKt0jwx0KBhCiAwgDELOjfNc9aUX1uA3bo9LpCIc
+         1+M+VIHmLi4gWqMCnmtfXVa6alGT1zcwKtsaOD0w9swW9wa5Ri02MljhNns0L+OPy25v
+         3HfA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1772811053; x=1773415853; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=oEcKE/Xry4U3uD1i7TPLQGRKNjLm+QJOilg4eN6K6Ig=;
+        b=MHreZJP2torViExb7Qv5y7L7zHBj87s+fzI9k4pwV799Qd5Ugwq73SWg9pj7l7qehE
+         iidGFeMioOgcc8G/QiyV1vITLmaVoHpbLKp2RXDE0VxbHk1ElnjavqD/WA29vcf4noIV
+         9HwPHqQZJGuLvb0wuhlKbtAOCWgQWvFCvWBqZZqlVS473TTvH5zzxz8iYbRv86YZBMWH
+         +LNJXI7dvhU/JqJ4oZdvlHCB9awctpkBq5Oxf22IItAdER8iqthy9nKsQMBuhO8cWGUA
+         tfWAeUdX+DY/5xg7QY8G7jJj7Mvm3+NfBirVjkIyy00UL2mMeMCB9/A7HH1PVv6jEdMq
+         L+0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772811053; x=1773415853;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=oEcKE/Xry4U3uD1i7TPLQGRKNjLm+QJOilg4eN6K6Ig=;
+        b=iZteRyBAawLs/hugWx/md0QoOMUAux/Me6Mb+RZbNaMNXplpAbA3GKpnoy4inn6kCP
+         d2odeZBjCVrTu+lM9cr4MGu5sDDPG1xMxtRJtD4zDLKp0Uxs9+qGErkVn1MLqzza1amO
+         7vkI0UukqDUBf/B3ZxHU3iJ03l4MoJhgVYQ/4aa1Y6ZAPalSzZ0DylQ4bwvC6j17zBk/
+         4ZfB3NUxbe89wOhWAAqW0tCfRV7HELWXM4nEnQRUtUMwYJszdV4Ii8GY+tLcWMoIKcKD
+         z+LsD53Je4pDCkODp5MYXV15cH6j+inK33KjfjUv9HeWC768bBHKcbTI4D3J8x0cj7wb
+         BxlA==
+X-Forwarded-Encrypted: i=1; AJvYcCUZ/mZp3y4RG3B1oKO66R6MPOrPr0O0AoZh7fhERb+oENTch7Nx5n9eY26YS365J0I8rXKVrRpdKkOR7Vtb5A1h@lists.infradead.org
+X-Gm-Message-State: AOJu0YxfzCI259WWMEPzwDayl09ckLAz2h6+HosOMwy4onl5hps5JQLt
+	ILFheVnV9liDqrLMpBlrBWWvVOibATJtjZuL6/FOD61/mGlu9wMWqptl71uVoWrl3h9hIyM1ZT6
+	hou1rBfCUGzAu8R/aK1FcA8FpG3huZqCsrPc8JHLWOA==
+X-Gm-Gg: ATEYQzzgr4mzyi0yoFZLO4eF/56QdllupzvM0n4UK/InOowHXCP48EGfZnoV90bszO9
+	Wk3suXktbMDSolOoyPbmjZIpozjkNr9kL0QjhrqNNbz1gPbh35Aw6IYyVv9lfdTX8AWN5tvxQoO
+	meS9fCJlisiqPL3kpN9ckod6ty07xYgQR6bRZ8ELyeeCTZs43cGstoVn4G6VA0xvQcUWK9/OaKx
+	LC9B3s39tnbaPBDNRfpM6TWleYLbd9OXPrpi4JGNUtkEFn0yPCDhsPXePcAfwEe7x2vXguQaQDC
+	hq+b/h49yTQNZBKP1z7nvVp7KshkOUcT9mm3+orjlg==
+X-Received: by 2002:a05:6402:278f:b0:659:4099:877 with SMTP id
+ 4fb4d7f45d1cf-6619d2f6d81mr1512760a12.0.1772811052896; Fri, 06 Mar 2026
+ 07:30:52 -0800 (PST)
+MIME-Version: 1.0
+References: <20260306-gs101-pd-v7-0-03f7c7965ba5@linaro.org> <20260306-gs101-pd-v7-5-03f7c7965ba5@linaro.org>
+In-Reply-To: <20260306-gs101-pd-v7-5-03f7c7965ba5@linaro.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Fri, 6 Mar 2026 15:30:41 +0000
+X-Gm-Features: AaiRm50zapVukbutcTzczn3suOY9q3j1hR6w8wOK7BWF-RBJ1XR5B4U0Jjw-RuU
+Message-ID: <CADrjBPriZBKpBvZZ4ScNSd2NDT1Oa=y0Z7ZXTt1_ss3y4xkCcQ@mail.gmail.com>
+Subject: Re: [PATCH v7 05/10] pmdomain: samsung: convert to using regmap
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Juan Yescas <jyescas@google.com>, 
+	Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-pm@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
-MIME-Version: 1.0
-X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_072939_018893_5BD96774 
-X-CRM114-Status: GOOD (  24.70  )
+X-CRM114-CacheID: sfid-20260306_073055_134381_B6B4622D 
+X-CRM114-Status: GOOD (  36.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,524 +123,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime,
+On Fri, 6 Mar 2026 at 10:29, Andr=C3=A9 Draszik <andre.draszik@linaro.org> =
+wrote:
+>
+> On platforms such as Google gs101, direct mmio register access to the
+> PMU registers doesn't necessarily work and access must happen via a
+> regmap created by the PMU driver instead.
+>
+> In preparation for supporting such SoCs convert the existing mmio
+> accesses to using a regmap wrapper.
+>
+> With this change in place, a follow-up patch can update the driver to
+> optionally acquire the PMU-created regmap without having to change the
+> rest of the code.
+>
+> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+> ---
+> There is one checkpatch warning, relating to the non-const
+> regmap_config. It can not easily be made const at this stage, but a
+> follow-up patch allows us to make it const and the warning will go away
+> anyway.
+>
+> v4:
+> - rework the loop in exynos_pd_power() slightly, to not return 0 early
+>   to allow more code to be run after pd on/off register write without
+>   changing the loop again, required for gs101.
+> - add error message in case first regmap write in exynos_pd_power() fails
+> ---
 
-On Wed, 2026-03-04 at 10:58 +0100, Maxime Chevallier wrote:
-> Hi Louis-Alexis
->=20
-> On 04/03/2026 10:35, Louis-Alexis Eyraud wrote:
-> > From: AngeloGioacchino Del Regno
-> > <angelogioacchino.delregno@collabora.com>
-> >=20
-> > Introduce a driver for the Airoha AN8801R Series Gigabit Ethernet
-> > PHY; this currently supports setting up PHY LEDs, 10/100M, 1000M
-> > speeds, and Wake on LAN and PHY interrupts.
-> >=20
-> > Signed-off-by: AngeloGioacchino Del Regno
-> > <angelogioacchino.delregno@collabora.com>
-> > Signed-off-by: Louis-Alexis Eyraud
-> > <louisalexis.eyraud@collabora.com>
-> > ---
-> > =C2=A0drivers/net/phy/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=
-=A0=C2=A0 5 +
-> > =C2=A0drivers/net/phy/Makefile=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=
-=A0 1 +
-> > =C2=A0drivers/net/phy/air_an8801.c | 1059
-> > ++++++++++++++++++++++++++++++++++++++++++
-> > =C2=A03 files changed, 1065 insertions(+)
-> >=20
-> > diff --git a/drivers/net/phy/Kconfig b/drivers/net/phy/Kconfig
-> > index
-> > 7b73332a13d9520582fb45780528de4e17496f5e..53f451479509b7c11999beaf9
-> > 1ae08ed4ed01e86 100644
-> > --- a/drivers/net/phy/Kconfig
-> > +++ b/drivers/net/phy/Kconfig
-> > @@ -96,6 +96,11 @@ config AS21XXX_PHY
-> > =C2=A0	=C2=A0 AS21210PB1 that all register with the PHY ID 0x7500
-> > 0x7500
-> > =C2=A0	=C2=A0 before the firmware is loaded.
-> > =C2=A0
-> > +config AIR_AN8801_PHY
-> > +	tristate "Airoha AN8801 Gigabit PHY"
-> > +	help
-> > +	=C2=A0 Currently supports the Airoha AN8801R PHY.
-> > +
-> > =C2=A0config AIR_EN8811H_PHY
-> > =C2=A0	tristate "Airoha EN8811H 2.5 Gigabit PHY"
-> > =C2=A0	select PHY_COMMON_PROPS
-> > diff --git a/drivers/net/phy/Makefile b/drivers/net/phy/Makefile
-> > index
-> > 3a34917adea72d03342a8a4ef703ee5d087d229e..83516da36c9ffa4e3b077717e
-> > 9fc375e38ab2ea5 100644
-> > --- a/drivers/net/phy/Makefile
-> > +++ b/drivers/net/phy/Makefile
-> > @@ -29,6 +29,7 @@ obj-y				+=3D $(sfp-obj-y)
-> > $(sfp-obj-m)
-> > =C2=A0
-> > =C2=A0obj-$(CONFIG_ADIN_PHY)		+=3D adin.o
-> > =C2=A0obj-$(CONFIG_ADIN1100_PHY)	+=3D adin1100.o
-> > +obj-$(CONFIG_AIR_AN8801_PHY)	+=3D air_an8801.o
-> > =C2=A0obj-$(CONFIG_AIR_EN8811H_PHY)=C2=A0=C2=A0 +=3D air_en8811h.o
-> > =C2=A0obj-$(CONFIG_AMD_PHY)		+=3D amd.o
-> > =C2=A0obj-$(CONFIG_AMCC_QT2025_PHY)	+=3D qt2025.o
-> > diff --git a/drivers/net/phy/air_an8801.c
-> > b/drivers/net/phy/air_an8801.c
-> > new file mode 100644
-> > index
-> > 0000000000000000000000000000000000000000..86828c7d9716ee45832483d74
-> > f01f2764fcda408
-> > --- /dev/null
-> > +++ b/drivers/net/phy/air_an8801.c
-> > @@ -0,0 +1,1059 @@
-> > +// SPDX-License-Identifier: GPL-2.0+
-> > +/*
-> > + * Driver for the Airoha AN8801 Gigabit PHY.
-> > + *
-> > + * Copyright (C) 2025 Airoha Technology Corp.
-> > + * Copyright (C) 2025 Collabora Ltd.
-> > + *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 AngeloGioacchino Del Regno
-> > <angelogioacchino.delregno@collabora.com>
-> > + */
-> > +
-> > +#include <linux/bitfield.h>
-> > +#include <linux/bitops.h>
-> > +#include <linux/delay.h>
-> > +#include <linux/errno.h>
-> > +#include <linux/init.h>
-> > +#include <linux/netdevice.h>
-> > +#include <linux/of.h>
-> > +#include <linux/phy.h>
-> > +
-> > +#define AN8801R_PHY_ID			0xc0ff0421
-> > +
-> > +/* MII Registers */
-> > +#define AIR_EXT_PAGE_ACCESS		0x1f
-> > +#define=C2=A0=C2=A0 AIR_PHY_PAGE_STANDARD		0
-> > +#define=C2=A0=C2=A0 AIR_PHY_PAGE_EXTENDED_1	1
-> > +#define=C2=A0=C2=A0 AIR_PHY_PAGE_EXTENDED_4	4
-> > +
-> > +/* MII Registers - Airoha Page 1 */
-> > +#define AN8801_EXT_REG_PHY		0x14
-> > +#define=C2=A0=C2=A0 AN8801_EXT_PHY_STATUS0	GENMASK(1, 0)
-> > +#define=C2=A0=C2=A0 AN8801_EXT_PHY_DOWNSHIFT_CTL	GENMASK(3, 2) /* 2 to=
- 5 1G
-> > auto-neg attempts (0..3) */
-> > +#define=C2=A0=C2=A0 AN8801_EXT_PHY_DOWNSHIFT_EN	BIT(4)
-> > +#define=C2=A0=C2=A0 AN8801_EXT_PHY_CTRL0		BIT(5)
-> > +#define=C2=A0=C2=A0 AN8801_EXT_PHY_STATUS1	GENMASK(8, 6)
-> > +#define=C2=A0=C2=A0 AN8801_EXT_PHY_CTRL1		GENMASK(14, 9)
-> > +
-> > +/* MII Registers - Airoha Page 4 */
-> > +#define AN8801_PBUS_ACCESS		BIT(28)
-> > +#define AN8801_PBUS_EPHY_ACCESS		BIT(24)
-> > +#define AN8801_PBUS_CL22_ACCESS		BIT(23)
-> > +
-> > +#define AIR_BPBUS_MODE			0x10
-> > +#define AIR_BPBUS_WR_ADDR_HIGH		0x11
-> > +#define AIR_BPBUS_WR_ADDR_LOW		0x12
-> > +#define AIR_BPBUS_WR_DATA_HIGH		0x13
-> > +#define AIR_BPBUS_WR_DATA_LOW		0x14
-> > +#define AIR_BPBUS_RD_ADDR_HIGH		0x15
-> > +#define AIR_BPBUS_RD_ADDR_LOW		0x16
-> > +#define AIR_BPBUS_RD_DATA_HIGH		0x17
-> > +#define AIR_BPBUS_RD_DATA_LOW		0x18
-> > +
-> > +/* BPBUS Registers */
-> > +#define AN8801_BPBUS_REG_LED_GPIO	0x54
-> > +#define AN8801_BPBUS_REG_LED_ID_SEL	0x58
-> > +#define=C2=A0=C2=A0 LED_ID_GPIO_SEL(led, gpio)	((led) << ((gpio) * 3))
-> > +#define AN8801_BPBUS_REG_GPIO_MODE	0x70
-> > +#define AN8801_BPBUS_REG_PHY_IRQ_GPIO	0x7c
-> > +#define=C2=A0=C2=A0 AN8801_PHY_IRQ_GPIO_NUM_MASK	GENMASK(19, 16)
-> > +#define=C2=A0=C2=A0 AN8801_PHY_IRQ_GPIO_NUM	1
-> > +
-> > +#define AN8801_BPBUS_REG_CKO		0x1a4
-> > +#define AN8801_CKO_OUTPUT_MODE_AUTO	3
-> > +
-> > +#define AN8801_BPBUS_REG_LINK_MODE	0x5054
-> > +#define=C2=A0 AN8801_BPBUS_LINK_MODE_1000	BIT(0)
-> > +
-> > +#define AN8801_BPBUS_REG_BYPASS_PTP	0x21c004
-> > +#define=C2=A0=C2=A0 AN8801_BYP_PTP_SGMII_TO_GPHY	BIT(8)
-> > +#define=C2=A0=C2=A0 AN8801_BYP_PTP_RGMII_TO_GPHY	BIT(0)
-> > +
-> > +#define AN8801_BPBUS_REG_TXDLY_STEP	0x21c024
-> > +#define=C2=A0=C2=A0 RGMII_DELAY_STEP_MASK		GENMASK(2, 0)
-> > +#define=C2=A0=C2=A0 RGMII_TXDELAY_FORCE_MODE	BIT(24)
-> > +
-> > +#define AN8801_BPBUS_REG_RXDLY_STEP	0x21c02c
-> > +#define=C2=A0=C2=A0 RGMII_RXDELAY_ALIGN		BIT(4)
-> > +#define=C2=A0=C2=A0 RGMII_RXDELAY_FORCE_MODE	BIT(24)
-> > +
-> > +#define AN8801_BPBUS_REG_EFIFO_CTL(x)	(0x270004 + (0x100 * (x)))
-> > /* 0..2 */
-> > +#define=C2=A0=C2=A0 AN8801_EFIFO_ALL_EN		GENMASK(7, 0)
-> > +#define=C2=A0=C2=A0 AN8801_EFIFO_RX_EN		BIT(0)
-> > +#define=C2=A0=C2=A0 AN8801_EFIFO_TX_EN		BIT(1)
-> > +#define=C2=A0=C2=A0 AN8801_EFIFO_RX_CLK_EN	BIT(2)
-> > +#define=C2=A0=C2=A0 AN8801_EFIFO_TX_CLK_EN	BIT(3)
-> > +#define=C2=A0=C2=A0 AN8801_EFIFO_RX_EEE_EN	BIT(4)
-> > +#define=C2=A0=C2=A0 AN8801_EFIFO_TX_EEE_EN	BIT(5)
-> > +#define=C2=A0=C2=A0 AN8801_EFIFO_RX_ODD_NIBBLE_EN	BIT(6)
-> > +#define=C2=A0=C2=A0 AN8801_EFIFO_TX_ODD_NIBBLE_EN	BIT(7)
-> > +
-> > +#define AN8801_BPBUS_REG_WOL_MAC_16_47	0x285114
-> > +#define AN8801_BPBUS_REG_WOL_MAC_0_15	0x285118
-> > +
-> > +#define AN8801_BPBUS_REG_WAKEUP_CTL1	0x285400
-> > +#define=C2=A0=C2=A0 AN8801_WOL_WAKE_MAGIC_EN	GENMASK(3, 1)
-> > +
-> > +#define AN8801_BPBUS_REG_WAKEUP_CTL2	0x285404
-> > +#define=C2=A0=C2=A0 AN8801_WAKE_OUT_TYPE_PULSE	BIT(0) /* Set/Unset:
-> > Pulse/Static */
-> > +#define=C2=A0=C2=A0 AN8801_WAKE_OUT_POLARITY_NEG	BIT(1) /* Set/Unset:
-> > Negative/Positive */
-> > +#define=C2=A0=C2=A0 AN8801_WAKE_OUT_WIDTH		GENMASK(2, 3)
-> > +#define=C2=A0=C2=A0=C2=A0 AN8801_WAKE_OUT_84MS		0
-> > +#define=C2=A0=C2=A0=C2=A0 AN8801_WAKE_OUT_168MS	1
-> > +#define=C2=A0=C2=A0=C2=A0 AN8801_WAKE_OUT_336MS	2
-> > +#define=C2=A0=C2=A0=C2=A0 AN8801_WAKE_OUT_672MS	3
-> > +#define=C2=A0=C2=A0 AN8801_WAKE_OUT_EN		BIT(4)
-> > +#define=C2=A0=C2=A0 AN8801_PME_WAKEUP_CLR		BIT(8)
-> > +
-> > +#define AN8801_BPBUS_REG_WAKE_IRQ_EN	0x285700
-> > +#define AN8801_BPBUS_REG_WAKE_IRQ_STS	0x285704
-> > +#define=C2=A0=C2=A0 AN8801_IRQ_WAKE_LNKCHG	BIT(0) /* Wake on link
-> > change */
-> > +#define=C2=A0=C2=A0 AN8801_IRQ_WAKE_UNIPKT	BIT(1) /* Wake on unicast
-> > packet */
-> > +#define=C2=A0=C2=A0 AN8801_IRQ_WAKE_MULPKT	BIT(2) /* Wake on
-> > multicast packet */
-> > +#define=C2=A0=C2=A0 AN8801_IRQ_WAKE_BCPKT		BIT(3) /* Wake on
-> > broadcast packet */
-> > +#define=C2=A0=C2=A0 AN8801_IRQ_WAKE_MAGICPKT	BIT(4) /* Wake on magic
-> > packet */
-> > +#define=C2=A0=C2=A0 AN8801_IRQ_WAKE_ALL		GENMASK(4, 0)
-> > +
-> > +/* MDIO_MMD_VEND1 Registers */
-> > +#define AN8801_PHY_TX_PAIR_DLY_SEL_GBE	0x13
-> > +#define=C2=A0=C2=A0 AN8801_PHY_PAIR_DLY_SEL_A_GBE	GENMASK(14, 12)
-> > +#define=C2=A0=C2=A0 AN8801_PHY_PAIR_DLY_SEL_B_GBE	GENMASK(10, 8)
-> > +#define=C2=A0=C2=A0 AN8801_PHY_PAIR_DLY_SEL_C_GBE	GENMASK(6, 4)
-> > +#define=C2=A0=C2=A0 AN8801_PHY_PAIR_DLY_SEL_D_GBE	GENMASK(2, 0)
-> > +#define AN8801_PHY_RXADC_CTRL		0xd8
-> > +#define=C2=A0=C2=A0 AN8801_PHY_RXADC_SAMP_PHSEL_A	BIT(12)
-> > +#define=C2=A0=C2=A0 AN8801_PHY_RXADC_SAMP_PHSEL_B	BIT(8)
-> > +#define=C2=A0=C2=A0 AN8801_PHY_RXADC_SAMP_PHSEL_C	BIT(4)
-> > +#define=C2=A0=C2=A0 AN8801_PHY_RXADC_SAMP_PHSEL_D	BIT(0)
-> > +#define AN8801_PHY_RXADC_REV_0		0xd9
-> > +#define=C2=A0=C2=A0 AN8801_PHY_RXADC_REV_MASK_A	GENMASK(15, 8)
-> > +#define=C2=A0=C2=A0 AN8801_PHY_RXADC_REV_MASK_B	GENMASK(7, 0)
-> > +#define AN8801_PHY_RXADC_REV_1		0xda
-> > +#define=C2=A0=C2=A0 AN8801_PHY_RXADC_REV_MASK_C	GENMASK(15, 8)
-> > +#define=C2=A0=C2=A0 AN8801_PHY_RXADC_REV_MASK_D	GENMASK(7, 0)
-> > +
-> > +/* MDIO_MMD_VEND2 Registers */
-> > +#define LED_BCR				0x21
-> > +#define=C2=A0=C2=A0 LED_BCR_MODE_MASK		GENMASK(1, 0)
-> > +#define=C2=A0=C2=A0 LED_BCR_TIME_TEST		BIT(2)
-> > +#define=C2=A0=C2=A0 LED_BCR_CLK_EN		BIT(3)
-> > +#define=C2=A0=C2=A0 LED_BCR_EVT_ALL		BIT(4)
-> > +#define=C2=A0=C2=A0 LED_BCR_EXT_CTRL		BIT(15)
-> > +#define=C2=A0=C2=A0 LED_BCR_MODE_DISABLE		0
-> > +#define=C2=A0=C2=A0 LED_BCR_MODE_2LED		1
-> > +#define=C2=A0=C2=A0 LED_BCR_MODE_3LED_1		2
-> > +#define=C2=A0=C2=A0 LED_BCR_MODE_3LED_2		3
-> > +
-> > +#define LED_ON_DUR			0x22
-> > +#define=C2=A0=C2=A0 LED_ON_DUR_MASK		GENMASK(15, 0)
-> > +
-> > +#define LED_BLINK_DUR			0x23
-> > +#define=C2=A0=C2=A0 LED_BLINK_DUR_MASK		GENMASK(15, 0)
-> > +
-> > +#define LED_ON_CTRL(i)			(0x24 + ((i) * 2))
-> > +#define=C2=A0=C2=A0 LED_ON_EVT_MASK		GENMASK(6, 0)
-> > +#define=C2=A0=C2=A0 LED_ON_EVT_LINK_1000M		BIT(0)
-> > +#define=C2=A0=C2=A0 LED_ON_EVT_LINK_100M		BIT(1)
-> > +#define=C2=A0=C2=A0 LED_ON_EVT_LINK_10M		BIT(2)
-> > +#define=C2=A0=C2=A0 LED_ON_EVT_LINK_DN		BIT(3)
-> > +#define=C2=A0=C2=A0 LED_ON_EVT_FDX		BIT(4)
-> > +#define=C2=A0=C2=A0 LED_ON_EVT_HDX		BIT(5)
-> > +#define=C2=A0=C2=A0 LED_ON_EVT_FORCE		BIT(6)
-> > +#define=C2=A0=C2=A0 LED_ON_POL			BIT(14)
-> > +#define=C2=A0=C2=A0 LED_ON_EN			BIT(15)
-> > +
-> > +#define LED_BLINK_CTRL(i)		(0x25 + ((i) * 2))
-> > +#define LED_BLINK_EVT_MASK		GENMASK(9, 0)
-> > +#define LED_BLINK_EVT_1000M_TX		BIT(0)
-> > +#define LED_BLINK_EVT_1000M_RX		BIT(1)
-> > +#define LED_BLINK_EVT_100M_TX		BIT(2)
-> > +#define LED_BLINK_EVT_100M_RX		BIT(3)
-> > +#define LED_BLINK_EVT_10M_TX		BIT(4)
-> > +#define LED_BLINK_EVT_10M_RX		BIT(5)
-> > +#define LED_BLINK_EVT_COLLISION		BIT(6)
-> > +#define LED_BLINK_EVT_RX_CRC_ERR	BIT(7)
-> > +#define LED_BLINK_EVT_RX_IDLE_ERR	BIT(8)
-> > +#define LED_BLINK_EVT_FORCE		BIT(9)
-> > +
-> > +#define AN8801R_NUM_LEDS		3
-> > +#define AN8801_PERIOD_SHIFT		15
-> > +#define AN8801_PERIOD_UNIT		32768 /* (1 <<
-> > AN8801_PERIOD_SHIFT) */
-> > +#define AN8801_MAX_PERIOD_MS		2147
-> > +
-> > +#define LED_BLINK_DURATION_UNIT		780
-> > +#define LED_BLINK_DURATION(f)		(LED_BLINK_DURATION_UNIT
-> > << (f))
-> > +
-> > +#define AN8801_LED_DURATION_UNIT_US	32768
-> > +
-> > +#define AN8801_REG_PHY_INTERNAL0	0x600
-> > +#define AN8801_REG_PHY_INTERNAL1	0x601
-> > +#define=C2=A0=C2=A0 AN8801_PHY_INTFUNC_MASK	GENMASK(15, 0) /* PHY
-> > internal functions */
-> > +
-> > +enum an8801r_led_fn {
-> > +	AN8801R_LED_FN_NONE,
-> > +	AN8801R_LED_FN_LINK,
-> > +	AN8801R_LED_FN_ACTIVITY,
-> > +	AN8801R_LED_FN_MAX,
-> > +};
-> > +
-> > +static int an8801r_read_page(struct phy_device *phydev)
-> > +{
-> > +	return __phy_read(phydev, AIR_EXT_PAGE_ACCESS);
-> > +}
-> > +
-> > +static int an8801r_write_page(struct phy_device *phydev, int page)
-> > +{
-> > +	return __phy_write(phydev, AIR_EXT_PAGE_ACCESS, page);
-> > +}
-> > +
-> > +static int __air_buckpbus_reg_write(struct phy_device *phydev,
-> > +				=C2=A0=C2=A0=C2=A0 u32 addr, u32 data)
-> > +{
-> > +	int ret;
-> > +
-> > +	addr |=3D AN8801_PBUS_ACCESS;
-> > +
-> > +	ret =3D __phy_write(phydev, AIR_BPBUS_MODE,
-> > MII_MMD_CTRL_ADDR);
-> > +	if (ret < 0)
-> > +		return ret;
-> > +
-> > +	ret =3D __phy_write(phydev, AIR_BPBUS_WR_ADDR_HIGH,
-> > upper_16_bits(addr));
-> > +	if (ret < 0)
-> > +		return ret;
-> > +
-> > +	ret =3D __phy_write(phydev, AIR_BPBUS_WR_ADDR_LOW,
-> > lower_16_bits(addr));
-> > +	if (ret < 0)
-> > +		return ret;
-> > +
-> > +	ret =3D __phy_write(phydev, AIR_BPBUS_WR_DATA_HIGH,
-> > upper_16_bits(data));
-> > +	if (ret < 0)
-> > +		return ret;
-> > +
-> > +	ret =3D __phy_write(phydev, AIR_BPBUS_WR_DATA_LOW,
-> > lower_16_bits(data));
-> > +	if (ret < 0)
-> > +		return ret;
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static int __air_buckpbus_reg_read(struct phy_device *phydev,
-> > +				=C2=A0=C2=A0 u32 addr, u32 *data)
-> > +{
-> > +	int pbus_data_l, pbus_data_h;
-> > +	int ret;
-> > +
-> > +	addr |=3D AN8801_PBUS_ACCESS;
-> > +
-> > +	ret =3D __phy_write(phydev, AIR_BPBUS_MODE,
-> > MII_MMD_CTRL_ADDR);
-> > +	if (ret < 0)
-> > +		return ret;
-> > +
-> > +	ret =3D __phy_write(phydev, AIR_BPBUS_RD_ADDR_HIGH,
-> > upper_16_bits(addr));
-> > +	if (ret < 0)
-> > +		return ret;
-> > +
-> > +	ret =3D __phy_write(phydev, AIR_BPBUS_RD_ADDR_LOW,
-> > lower_16_bits(addr));
-> > +	if (ret < 0)
-> > +		return ret;
-> > +
-> > +	ret =3D __phy_read(phydev, AIR_BPBUS_RD_DATA_HIGH);
-> > +	if (pbus_data_h < 0)
-> > +		return pbus_data_h;
-> > +
-> > +	pbus_data_l =3D __phy_read(phydev, AIR_BPBUS_RD_DATA_LOW);
-> > +	if (pbus_data_l < 0)
-> > +		return pbus_data_l;
-> > +
-> > +	*data =3D (pbus_data_h << 16) | pbus_data_l;
-> > +	return 0;
-> > +}
-> > +
-> > +static int air_buckpbus_reg_rmw(struct phy_device *phydev,
-> > +				u32 addr, u32 mask, u32 set)
-> > +{
-> > +	u32 data_old, data_new;
-> > +	int prev_page, ret;
-> > +
-> > +	prev_page =3D phy_select_page(phydev,
-> > AIR_PHY_PAGE_EXTENDED_4);
-> > +	if (prev_page < 0)
-> > +		return prev_page;
-> > +
-> > +	ret =3D __air_buckpbus_reg_read(phydev, addr, &data_old);
-> > +	if (ret)
-> > +		return phy_restore_page(phydev, prev_page, ret);
-> > +
-> > +	data_new =3D data_old & ~mask;
-> > +	data_new |=3D set;
-> > +	if (data_new !=3D data_old)
-> > +		ret =3D __air_buckpbus_reg_write(phydev, addr,
-> > data_new);
-> > +
-> > +	return phy_restore_page(phydev, prev_page, ret);
-> > +}
-> > +
-> > +static int air_buckpbus_reg_set_bits(struct phy_device *phydev,
-> > +				=C2=A0=C2=A0=C2=A0=C2=A0 u32 addr, u32 mask)
-> > +{
-> > +	return air_buckpbus_reg_rmw(phydev, addr, mask, mask);
-> > +}
-> > +
-> > +static int air_buckpbus_reg_clear_bits(struct phy_device *phydev,
-> > +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 u32 addr, u32 mask)
-> > +{
-> > +	return air_buckpbus_reg_rmw(phydev, addr, mask, 0);
-> > +}
-> > +
-> > +static int air_buckpbus_reg_write(struct phy_device *phydev, u32
-> > addr, u32 data)
-> > +{
-> > +	int prev_page, ret =3D 0;
-> > +
-> > +	prev_page =3D phy_select_page(phydev,
-> > AIR_PHY_PAGE_EXTENDED_4);
-> > +	if (prev_page < 0)
-> > +		return prev_page;
-> > +
-> > +	ret =3D __air_buckpbus_reg_write(phydev, addr, data);
-> > +
-> > +	return phy_restore_page(phydev, prev_page, ret);
-> > +}
-> > +
-> > +static int air_buckpbus_reg_read(struct phy_device *phydev, u32
-> > addr, u32 *data)
-> > +{
-> > +	int prev_page, ret;
-> > +
-> > +	prev_page =3D phy_select_page(phydev,
-> > AIR_PHY_PAGE_EXTENDED_4);
-> > +	if (prev_page < 0)
-> > +		return prev_page;
-> > +
-> > +	ret =3D __air_buckpbus_reg_read(phydev, addr, data);
-> > +
-> > +	return phy_restore_page(phydev, prev_page, ret);
-> > +}
-> These buckplus accessors look very similar to what's in the existing
-> air_en8811h.c
-> driver, any chance the code can be shared ?
->=20
-The buckpbus accessors functions of air_en8811h driver have indeed very
-close function sequences and the defines usages to the ones in the
-an8801 patches.
-The main difference I see is this patch accessors do an additional
-operation by setting AN8801_PBUS_ACCESS bit on the address. But it can
-be done another way, so the en8811h accessors can be used without
-modifications.
-The existing buckpbus accessors seemed also rather generic, in
-exception of air_write_buf. It may need to be modified to remove
-firmware data type if it needs to be factorized (currently no need for
-an8801 code).
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
 
-For test purposes, I've tried to factorize the air_en8811h reg_read,
-reg_write and reg_modify in a common module (similar to the existing
-bcm-phy-lib used by Broadcom PHY drivers) and use them in this new
-driver.
-It seems to work with only a few modifications in the an8801 driver
-patch and it removes these new reg_read, reg_write and reg_rmw, and a
-dozen of duplicated defines.
-The air_phy_read_page/air_phy_write_page implemented by air_en8811h
-could also be commonized too.
-
-Would the creation of a new Airoha PHY common module (for instance
-air_phy_lib) in separate patches be the right way for this code
-factorization? Or is a there an alternative solution?
-> [...]
->=20
->=20
-> > +static int an8801r_rgmii_rxdelay(struct phy_device *phydev, u16
-> > delay_steps)
-> > +{
-> > +	u32 reg_val;
-> > +
-> > +	if (delay_steps > RGMII_DELAY_STEP_MASK)
-> > +		return -EINVAL;
-> > +
-> > +	reg_val =3D delay_steps & RGMII_DELAY_STEP_MASK;
-> > +	reg_val |=3D RGMII_RXDELAY_ALIGN;
-> > +	reg_val |=3D RGMII_RXDELAY_FORCE_MODE;
-> > +
-> > +	return air_buckpbus_reg_write(phydev,
-> > AN8801_BPBUS_REG_RXDLY_STEP,
-> > +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reg_val);
-> > +}
-> > +
-> > +static int an8801r_rgmii_txdelay(struct phy_device *phydev, u16
-> > delay_steps)
-> > +{
-> > +	u32 reg_val;
-> > +
-> > +	if (delay_steps > RGMII_DELAY_STEP_MASK)
-> > +		return -EINVAL;
-> > +
-> > +	reg_val =3D delay_steps & RGMII_DELAY_STEP_MASK;
-> > +	reg_val |=3D RGMII_TXDELAY_FORCE_MODE;
-> > +
-> > +	return air_buckpbus_reg_write(phydev,
-> > AN8801_BPBUS_REG_TXDLY_STEP,
-> > +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reg_val);
-> > +}
-> > +
-> > +static int an8801r_rgmii_delay_config(struct phy_device *phydev)
-> > +{
-> > +	switch (phydev->interface) {
-> > +	case PHY_INTERFACE_MODE_RGMII_TXID:
-> > +		return an8801r_rgmii_txdelay(phydev, 4);
-> > +	case PHY_INTERFACE_MODE_RGMII_RXID:
-> > +		return an8801r_rgmii_rxdelay(phydev, 0);
-> > +	case PHY_INTERFACE_MODE_RGMII_ID:
-> > +		return an8801r_rgmii_txdelay(phydev, 4);
-> > +		return an8801r_rgmii_rxdelay(phydev, 0);
-> > +	case PHY_INTERFACE_MODE_RGMII:
-> > +	default:
-> > +		return 0;
-> > +	}
->=20
-> Can you elaborate on these values for the steps ? Why is it 4 for TX
-> internal delays, but 0 for RX delays ?
-I tried to find about those values and what they mean.=C2=A0
-The values are indeed odd, you would expect something more similar for
-both rx and tx.
-They come from the downstream drivers (kernel and u-boot as well) that
-set them without much explanation.=C2=A0I did not find any info in the data
-sheet I have.
-
-I am going to look further into this.
-
-Regards,
-Louis-Alexis
->=20
-> Maxime
+>  drivers/pmdomain/samsung/exynos-pm-domains.c | 83 +++++++++++++++++++++-=
+------
+>  1 file changed, 62 insertions(+), 21 deletions(-)
+>
+> diff --git a/drivers/pmdomain/samsung/exynos-pm-domains.c b/drivers/pmdom=
+ain/samsung/exynos-pm-domains.c
+> index 5c3aa8983087..3bcba7d38ac1 100644
+> --- a/drivers/pmdomain/samsung/exynos-pm-domains.c
+> +++ b/drivers/pmdomain/samsung/exynos-pm-domains.c
+> @@ -9,15 +9,14 @@
+>  // conjunction with runtime-pm. Support for both device-tree and non-dev=
+ice-tree
+>  // based power domain support is included.
+>
+> -#include <linux/io.h>
+>  #include <linux/err.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/slab.h>
+>  #include <linux/pm_domain.h>
+>  #include <linux/delay.h>
+>  #include <linux/of.h>
+> -#include <linux/of_address.h>
+>  #include <linux/pm_runtime.h>
+> +#include <linux/regmap.h>
+>
+>  struct exynos_pm_domain_config {
+>         /* Value for LOCAL_PWR_CFG and STATUS fields for each domain */
+> @@ -28,7 +27,7 @@ struct exynos_pm_domain_config {
+>   * Exynos specific wrapper around the generic power domain
+>   */
+>  struct exynos_pm_domain {
+> -       void __iomem *base;
+> +       struct regmap *regmap;
+>         struct generic_pm_domain pd;
+>         u32 local_pwr_cfg;
+>  };
+> @@ -36,31 +35,42 @@ struct exynos_pm_domain {
+>  static int exynos_pd_power(struct generic_pm_domain *domain, bool power_=
+on)
+>  {
+>         struct exynos_pm_domain *pd;
+> -       void __iomem *base;
+>         u32 timeout, pwr;
+> -       char *op;
+> +       int err;
+>
+>         pd =3D container_of(domain, struct exynos_pm_domain, pd);
+> -       base =3D pd->base;
+>
+>         pwr =3D power_on ? pd->local_pwr_cfg : 0;
+> -       writel_relaxed(pwr, base);
+> +       err =3D regmap_write(pd->regmap, 0, pwr);
+> +       if (err) {
+> +               pr_err("Regmap write for power domain %s %sable failed: %=
+d\n",
+> +                      domain->name, power_on ? "en" : "dis", err);
+> +               return err;
+> +       }
+>
+>         /* Wait max 1ms */
+>         timeout =3D 10;
+> -
+> -       while ((readl_relaxed(base + 0x4) & pd->local_pwr_cfg) !=3D pwr) =
+{
+> -               if (!timeout) {
+> -                       op =3D (power_on) ? "enable" : "disable";
+> -                       pr_err("Power domain %s %s failed\n", domain->nam=
+e, op);
+> -                       return -ETIMEDOUT;
+> +       while (timeout-- > 0) {
+> +               unsigned int val;
+> +
+> +               err =3D regmap_read(pd->regmap, 0x4, &val);
+> +               if (err || ((val & pd->local_pwr_cfg) !=3D pwr)) {
+> +                       cpu_relax();
+> +                       usleep_range(80, 100);
+> +                       continue;
+>                 }
+> -               timeout--;
+> -               cpu_relax();
+> -               usleep_range(80, 100);
+> +
+> +               break;
+>         }
+>
+> -       return 0;
+> +       if (!timeout && !err)
+> +               /* Only return timeout if no other error also occurred. *=
+/
+> +               err =3D -ETIMEDOUT;
+> +       if (err)
+> +               pr_err("Power domain %s %sable failed: %d\n", domain->nam=
+e,
+> +                      power_on ? "en" : "dis", err);
+> +
+> +       return err;
+>  }
+>
+>  static int exynos_pd_power_on(struct generic_pm_domain *domain)
+> @@ -109,8 +119,18 @@ static int exynos_pd_probe(struct platform_device *p=
+dev)
+>         struct device_node *np =3D dev->of_node;
+>         struct of_phandle_args child, parent;
+>         struct exynos_pm_domain *pd;
+> +       struct resource *res;
+> +       void __iomem *base;
+> +       unsigned int val;
+>         int on, ret;
+>
+> +       struct regmap_config reg_config =3D {
+> +               .reg_bits =3D 32,
+> +               .val_bits =3D 32,
+> +               .reg_stride =3D 4,
+> +               .use_relaxed_mmio =3D true,
+> +       };
+> +
+>         pm_domain_cfg =3D of_device_get_match_data(dev);
+>         pd =3D devm_kzalloc(dev, sizeof(*pd), GFP_KERNEL);
+>         if (!pd)
+> @@ -120,9 +140,26 @@ static int exynos_pd_probe(struct platform_device *p=
+dev)
+>         if (!pd->pd.name)
+>                 return -ENOMEM;
+>
+> -       pd->base =3D of_iomap(np, 0);
+> -       if (!pd->base)
+> -               return -ENODEV;
+> +       /*
+> +        * The resource typically points into the address space of the PM=
+U.
+> +        * Therefore, avoid using devm_platform_get_and_ioremap_resource(=
+) and
+> +        * instead use platform_get_resource() and devm_ioremap() to avoi=
+d
+> +        * conflicts due to address space overlap.
+> +        */
+> +       res =3D platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> +       if (!res)
+> +               return dev_err_probe(dev, -ENXIO, "missing IO resources")=
+;
+> +
+> +       base =3D devm_ioremap(dev, res->start, resource_size(res));
+> +       if (!base)
+> +               return dev_err_probe(dev, -ENOMEM,
+> +                                    "failed to ioremap PMU registers");
+> +
+> +       reg_config.max_register =3D resource_size(res) - reg_config.reg_s=
+tride;
+> +       pd->regmap =3D devm_regmap_init_mmio(dev, base, &reg_config);
+> +       if (IS_ERR(pd->regmap))
+> +               return dev_err_probe(dev, PTR_ERR(base),
+> +                                    "failed to init regmap");
+>
+>         pd->pd.power_off =3D exynos_pd_power_off;
+>         pd->pd.power_on =3D exynos_pd_power_on;
+> @@ -137,7 +174,11 @@ static int exynos_pd_probe(struct platform_device *p=
+dev)
+>             of_device_is_compatible(np, "samsung,exynos4210-pd"))
+>                 exynos_pd_power_off(&pd->pd);
+>
+> -       on =3D readl_relaxed(pd->base + 0x4) & pd->local_pwr_cfg;
+> +       ret =3D regmap_read(pd->regmap, 0x4, &val);
+> +       if (ret)
+> +               return dev_err_probe(dev, ret, "failed to read status");
+> +
+> +       on =3D val & pd->local_pwr_cfg;
+>
+>         pm_genpd_init(&pd->pd, NULL, !on);
+>         ret =3D of_genpd_add_provider_simple(np, &pd->pd);
+>
+> --
+> 2.53.0.473.g4a7958ca14-goog
+>
 
