@@ -4,76 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C69D5F0180E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 09:02:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CEEFF01814
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 09:07:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZgDBXmEnVujJM8vulMEVYeA6ICqdKuQICuLq3YHevSE=; b=kXwO8+h5Nz5Wed/e/l5GBxmDpn
-	n12KPtmGgHQOFcLDAysPhEQdOQvyWecujRYCkOLAC3Ir5i4n/tEVTXoX/qI1WysbLo3r5A3xHpHqb
-	1pKdN1W2qdK8oy3/U0kZjSg6LpFjiF2OxIbBkHSpokMvbwWf/J8v1w+jv7qKUU9tvG8X5TZRuLVh3
-	BIDVcfydbK5rCWTNwDk6LxdxYccbB2wkYFOafzTpQaC4ChhPzvfqTmdf/h6EbzQTHHl8PjuBPQSTz
-	wVVU9BtYpRf3LjKMjAYsjLO1iFLIFurPZPh/xf7mR6zLR9hFcnrjFYJ8VkeLqu3u6d3jewuMBogCG
-	NGA6el1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=py/o6k0kY+IUYpIWRpIGTq1SpEeerbRk4nqi6/sW3IM=; b=wC68aqrZjUaZZ1HvYEnG0cW9ZZ
+	NnGBgnC9Ef8uVZBpzvWOLhke8R/N8eQMmVCAugBRMdHlTYJXdky8Vb2sLb27KytyOQcyIbkYh8K+r
+	kmQyOVb0VAuJhd/BscXQn7pWHoocclcM2tT9+MTXWQipE3CGdvecX1zt37CZiv20w+tdtkdy/w69D
+	HbdK21yV4Yw7iEIazUY0WkJB5MQ29Y/jElIbcaxBvcBWnEvggxYgOBn1jU/w28OdRcOTB8k1tKqX/
+	yJ1cOfLboEmKP4vZxZIuCyRwqRL2qT3Pqs/ckcBCTHpqgzwSB76LeYdlc7C/qWcvhxxXhH68gJ5Hq
+	8DXEj5pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyR4D-00000003JbA-0Owd;
-	Fri, 06 Mar 2026 09:01:53 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vyR9O-00000003JyA-0Ni7;
+	Fri, 06 Mar 2026 09:07:14 +0000
+Received: from mail-japanwestazon11022112.outbound.protection.outlook.com ([40.107.75.112] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyR4A-00000003JaK-2dd7
+	id 1vyR9I-00000003Jwe-3pur
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 09:01:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ZgDBXmEnVujJM8vulMEVYeA6ICqdKuQICuLq3YHevSE=; b=ahlOo+mh3t8qpxKXMd1PjHafv8
-	37m8cqehiUO9Z7eeLymK0NQLXS2kg/oIzYDJb/+pa/1UWGRgWbVrqrzTls5cEEWCNlrHOHM8cTYwQ
-	a5II4e0BX4jwm8RucqWkof7Cty24hFJL9ulS8FjKmCsGQN7FbTvSSZfsOuq6UAfECxPkKZRk/aJ/8
-	XbyLQLvyn0r0SFGP1co3x79I6CK5a2c/lL3xzvApaImX44AhUkUNRDimQ0ixXKyiyVJXayzafi+LL
-	2RQjiZdzN9d1XCKWHlaN+a9mSDe44Xinj4sdhoXz2tXjO0f+CtHT4Jrefqs2ytwtMX/ozvm4Z6pWd
-	3Y7Uo/bQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47666)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vyR40-000000000jm-29aw;
-	Fri, 06 Mar 2026 09:01:40 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vyR3w-000000001IO-41FR;
-	Fri, 06 Mar 2026 09:01:36 +0000
-Date: Fri, 6 Mar 2026 09:01:36 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, Chen-Yu Tsai <wens@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Samuel Holland <samuel@sholland.org>
-Subject: Re: [PATCH net-next v2 3/8] net: stmmac: mdio: simplify MDC clock
- divisor lookup
-Message-ID: <aaqX8IxLzZ7jGM4r@shell.armlinux.org.uk>
-References: <aald--qJquWGIvmO@shell.armlinux.org.uk>
- <E1vy6A9-0000000Btwp-0lxY@rmk-PC.armlinux.org.uk>
+	Fri, 06 Mar 2026 09:07:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fazaYfxLBaedJjwsIsL3vOzGedOP+a6M4/sqvQO1+Q0oWcKYf2Erwx6xyOzTeJWmN8rIzF2ZcL2wnBUm0f6NOm7RXMnpwyTiSmiFFkyWe9FoeaKNSUoh9IEfFq4imsVqqZ+25keH62D2hvgeMwqPLi+VANsnZuC3usQPjwnwM/Ohr7q3np5pOFhiIi5zp4AJ9s7hnPlGcH16A43UxDBHRwXW1c7rawrciPyGmg/cbf/PahpRhZWIB1+ztsbZoGpYLVyeNDVoZRXLANDT/lU+P+mkV9WN7PmrKgsxzlmRbW7tj7sDryzT0/N3u4yl+UqFLSaHuJbGlQx/mpskB3qlPA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=py/o6k0kY+IUYpIWRpIGTq1SpEeerbRk4nqi6/sW3IM=;
+ b=O4oi53CZ7JKGIXwmruoXMk4y81Ez2tsGr3I8nlaaNNwVx5/pyY8I3FypJjz1waoEGo8JjCXbP2kFdVy5/0dDMl/b11L+5q13LLAu5A9CC6s93JrE980/iGvJoAcl0GC40kLoUoEgUUMrpfFntK+Wq7PjmFwMds7dn/yI4eXh8z1vmAY6A5rEmV39yLDppRz7pV4ggdin7vGMbvc0S2oRW6hxsp43RqDTqI+4Hmg5gisPyedXTg0CIcX3CCdE7tmkTh6bu6i/ngT7qUYufFg9yMw2A/tfAodcxxW/o/bVPJEln6REBck0DJrIbTCuXa25DHAFypEWw05XtH6Ou2vEXw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SGXP274CA0001.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b8::13) by
+ TYZPR06MB6769.apcprd06.prod.outlook.com (2603:1096:400:453::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.18; Fri, 6 Mar
+ 2026 09:07:01 +0000
+Received: from SG2PEPF000B66CC.apcprd03.prod.outlook.com
+ (2603:1096:4:b8:cafe::a8) by SGXP274CA0001.outlook.office365.com
+ (2603:1096:4:b8::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.19 via Frontend Transport; Fri,
+ 6 Mar 2026 09:07:01 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG2PEPF000B66CC.mail.protection.outlook.com (10.167.240.25) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9678.18 via Frontend Transport; Fri, 6 Mar 2026 09:07:00 +0000
+Received: from localhost.localdomain (unknown [172.16.64.196])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 87B7F40A5A01;
+	Fri,  6 Mar 2026 17:06:59 +0800 (CST)
+From: Gary Yang <gary.yang@cixtech.com>
+To: peter.chen@cixtech.com,
+	fugang.duan@cixtech.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	cix-kernel-upstream@cixtech.com,
+	Gary Yang <gary.yang@cixtech.com>
+Subject: [PATCH] arm64: dts: cix: Add scmi powerdomain nodes for sky1
+Date: Fri,  6 Mar 2026 17:06:59 +0800
+Message-ID: <20260306090659.990527-1-gary.yang@cixtech.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <E1vy6A9-0000000Btwp-0lxY@rmk-PC.armlinux.org.uk>
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CC:EE_|TYZPR06MB6769:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: ef5f505d-aec5-448e-51c4-08de7b5fba3e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|36860700016;
+X-Microsoft-Antispam-Message-Info: RgRtSMV8f5VyUdNcxaSwwz3fQOXWVmVcNsX7otJJjEINF8NVmV8eTLMv6J9cipvIYgJZbwcaLgW5y2ThPsmDh5x/6OWvExFnunI1tkYk4POgrWGZJaiyObrIzRcPOiTVwg+VjG70NeX8naaffVkkv54gWbAajafiMJtaFP4SXKEHdYBgpiFc0nHah8pkJvjShKJzlW+VhKP9RF5L66nyKFHE+bNZ8ahfas+7/d8csQIVWyIsgcfcTOSHwPUG9lqSOTgOMo3K7dFeWgPpOl1z/jxRWq3h/hd3t3jknmtUeV3I+RYari8wIYh78t3hdtHFObk5ZA4mtrgBoSTLaBIAjlLB6aVJaRV3r9+afVG4gDmsHBwpOlft1Iqh7aqa2BM/MEwdVCt+6Rx67hCbdP9T0o9aIdKRwUX9YXJiMB/z9eAv7x7zutkDucbT23KQGn0Ol+L1JX0eL0spiKf//MncMuFeQPMw0/5Gv3a68JDaNWf+53nu3cdf3RZ8YuYJ9mGFkaEGdRuwYlflFmAEZKpWTSFuU6m8EpqQH1g3GmnhyJiWommDg9SRUiBHbsRY/2j7K/+GsP9Y1/A/mwKAd54iTyL6/BUzSst82cCrj5InZ4od3dKiMrMW7pW3/6Td6eeci4Nc7EtyV+Evt7DcbVtRUXdJn1UgENUBi8S1t5XAUponc+V0KSYHJ2t+TdVi9Nd3CwomqiX6lgRSosZ+JbelDgvPQ+S92mRttC1DHxI2OeXD9FDsm1vMLnkxF54rlSj0Thb/P41Sn3bv3DNn+VePcg==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(36860700016);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: T/vFtJRM0h2ZmgQPfGiKdz7GjBXChbrNLGQ/2140vGniTNk5fMyiNdyHu3O6JdaCn4osVcEhznaHqVBaKIIqVSYBLjhkFqqC9jtq5VZydr+xgGYWGEohT2YJXq5OJzu0ZgbVHJcx+sS4tHpxjSfjiaazBfzt8Eg9OzouoDyKxQUS0pg1q+FU1I+MohH5qId+00xRV4VlE1hxcIz9Jk1oNBVJqTx0PZS9a0sTBchFRr+ZksTEy3fnW5oFTy7tcenCjwbbAVdgHgHDZsdwnlYGWGsCUzrrYupI8XA+/zsWHuoiyovKqnJA+sKTzGNGud+MlbDSPPRBjXUDfCsZtf7elLZrDNF4lWKEBZ/yjYkKB4yw3XD/DoR6pi+EcnOTe2BuUjpeU8sTA/iAeSru2CFM2cMIIqff28HajtOcL51OYq8GxIydysk+X1sjNuz3E7l0
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 09:07:00.8079
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ef5f505d-aec5-448e-51c4-08de7b5fba3e
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CC.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB6769
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_010150_671508_DEBC5B4A 
-X-CRM114-Status: GOOD (  22.16  )
+X-CRM114-CacheID: sfid-20260306_010708_955682_97BE1C45 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,78 +117,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 05, 2026 at 10:42:37AM +0000, Russell King (Oracle) wrote:
-> As each lookup now iterates over each table in the same way, simplfy
-> the code to select the table, and then walk that table.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->  .../net/ethernet/stmicro/stmmac/stmmac_mdio.c | 29 +++++++------------
->  1 file changed, 11 insertions(+), 18 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-> index 6292911fb54b..c9f0b8b601d2 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-> @@ -535,6 +535,7 @@ static const struct stmmac_clk_rate stmmac_xgmac_csr_to_mdc[] = {
->   */
->  static u32 stmmac_clk_csr_set(struct stmmac_priv *priv)
->  {
-> +	const struct stmmac_clk_rate *rates;
->  	unsigned long clk_rate;
->  	u32 value = ~0;
->  	int i;
-> @@ -548,25 +549,17 @@ static u32 stmmac_clk_csr_set(struct stmmac_priv *priv)
->  	 * the frequency of clk_csr_i. So we do not change the default
->  	 * divider.
->  	 */
-> -	for (i = 0; stmmac_std_csr_to_mdc[i].rate; i++)
-> -		if (clk_rate > stmmac_std_csr_to_mdc[i].rate)
-> -			break;
-> -	if (stmmac_std_csr_to_mdc[i].cr != (u8)~0)
-> -		value = stmmac_std_csr_to_mdc[i].cr;
-> -
-> -	if (priv->plat->flags & STMMAC_FLAG_HAS_SUN8I) {
-> -		for (i = 0; stmmac_sun8i_csr_to_mdc[i].rate; i++)
-> -			if (clk_rate > stmmac_sun8i_csr_to_mdc[i].rate)
-> -				break;
-> -		value = stmmac_sun8i_csr_to_mdc[i].cr;
-> -	}
-> +	rates = stmmac_std_csr_to_mdc;
-> +	if (priv->plat->flags & STMMAC_FLAG_HAS_SUN8I)
-> +		rates = stmmac_sun8i_csr_to_mdc;
-> +	if (priv->plat->core_type == DWMAC_CORE_XGMAC)
-> +		rates = stmmac_xgmac_csr_to_mdc;
->  
-> -	if (priv->plat->core_type == DWMAC_CORE_XGMAC) {
-> -		for (i = 0; stmmac_xgmac_csr_to_mdc[i].rate; i++)
-> -			if (clk_rate > stmmac_xgmac_csr_to_mdc[i].rate)
-> -				break;
-> -		value = stmmac_xgmac_csr_to_mdc[i].cr;
-> -	}
-> +	for (i = 0; rates[i].rate; i++)
-> +		if (clk_rate > rates[i].rate)
-> +			break;
-> +	if (rates[i].cr != (u8)~0)
-> +		value = rates[i].cr;
+Add a second SCMI channel using SMC transport to communicate with TF-A
+for power domain management on the Sky1 SoC.
 
-Looking at the AI review, it seems to me that the AI review is
-incorrect.
+Signed-off-by: Gary Yang <gary.yang@cixtech.com>
+---
+ arch/arm64/boot/dts/cix/sky1-power.h | 34 ++++++++++++++++++++++++++++
+ arch/arm64/boot/dts/cix/sky1.dtsi    | 19 ++++++++++++++++
+ 2 files changed, 53 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/cix/sky1-power.h
 
-With reference to the full original code which can be seen in:
-https://patchwork.kernel.org/project/netdevbpf/patch/E1vy69y-0000000Btwd-3oq7@rmk-PC.armlinux.org.uk/
-
-If we look at the original code, then we can see that the intention
-is that if clk_rate is smaller than the last real entry for the
-sun8i and xgmac cases, the value should end up as zero - and this is
-exactly what the new code does. So, the behaviour is preserved, even
-though AI thinks it isn't.
-
-AI seems to think that reaching the last entry for sun8i and xgmac
-means we have an invalid rate. That is where AI is going wrong -
-that is an incorrect "assumption".
-
+diff --git a/arch/arm64/boot/dts/cix/sky1-power.h b/arch/arm64/boot/dts/cix/sky1-power.h
+new file mode 100644
+index 000000000000..743c0e5558ee
+--- /dev/null
++++ b/arch/arm64/boot/dts/cix/sky1-power.h
+@@ -0,0 +1,34 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright 2026 Cix Technology Group Co., Ltd.
++ */
++
++#ifndef __SKY1_POWER_H__
++#define __SKY1_POWER_H__
++
++/* The Rich OS need flow the macro */
++#define SKY1_PD_AUDIO		0
++#define SKY1_PD_PCIE_CTRL0	1
++#define SKY1_PD_PCIE_DUMMY	2
++#define SKY1_PD_PCIEHUB		3
++#define SKY1_PD_MMHUB		4
++#define SKY1_PD_MMHUB_SMMU	5
++#define SKY1_PD_DPU0		6
++#define SKY1_PD_DPU1		7
++#define SKY1_PD_DPU2		8
++#define SKY1_PD_DPU3		9
++#define SKY1_PD_DPU4		10
++#define SKY1_PD_VPU_TOP		11
++#define SKY1_PD_VPU_CORE0	12
++#define SKY1_PD_VPU_CORE1	13
++#define SKY1_PD_VPU_CORE2	14
++#define SKY1_PD_VPU_CORE3	15
++#define SKY1_PD_NPU_CORE0	16
++#define SKY1_PD_NPU_CORE1	17
++#define SKY1_PD_NPU_CORE2	18
++#define SKY1_PD_NPU_TOP		19
++#define SKY1_PD_ISP0		20
++#define SKY1_PD_GPU		21
++#define SKY1_PD_MAX		22
++
++#endif
+diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
+index 64b76905cbff..d37ab16ad9b6 100644
+--- a/arch/arm64/boot/dts/cix/sky1.dtsi
++++ b/arch/arm64/boot/dts/cix/sky1.dtsi
+@@ -168,6 +168,19 @@ scmi_clk: protocol@14 {
+ 				#clock-cells = <1>;
+ 			};
+ 		};
++
++		ap_to_tfa_scmi: scmi-1 {
++			compatible = "arm,scmi-smc";
++			arm,smc-id = <0xc2000001>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			shmem = <&ap_tfa_scmi_mem>;
++
++			smc_devpd: protocol@11 {
++				reg = <0x11>;
++				#power-domain-cells = <1>;
++			};
++		};
+ 	};
+ 
+ 	pmu-a520 {
+@@ -572,6 +585,12 @@ iomuxc_s5: pinctrl@16007000 {
+ 			compatible = "cix,sky1-pinctrl-s5";
+ 			reg = <0x0 0x16007000 0x0 0x1000>;
+ 		};
++
++		ap_tfa_scmi_mem: shmem@84380000 {
++			compatible = "arm,scmi-shmem";
++			reg = <0x0 0x84380000 0x0 0x80>;
++			reg-io-width = <4>;
++		};
+ 	};
+ 
+ 	timer {
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.49.0
+
 
