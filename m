@@ -4,95 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9DB6FCC065
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 19:35:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76FC0FCC065
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 19:36:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wh5Z913UZEh7i6f061EXZd6SLJhL4kwsCncFeqW4SCA=; b=oTMYpTJXpIvasIRujLNF8fTAJW
-	XNg2L4WXq/+PiKgxoqr9LPrLky8FkkAtFZ2nNsI4ng4hwU6d+mYnL7/k8qcaTBXgBjI+UGft0qBQV
-	AYDQ76Uy+FmpUgfarZqjhbC7MzaBb74cpG74XSzJHf89vjClm8BKMH1YEjBTC3F2v8x8Va+ZqCyUT
-	gHLjrcuOtPx9zWG7f5pc5DUmDYnpd8ApVCNT1w90KVLcKs8Y594vlfzdHF3pN9WMn09NsqLBEzOwH
-	dkAI9tnD6oAH3uR/anXiRnREQ25KVNA1yXbz1YRXZTTdwvT/lKKgrY0FIgYZHZzUVtT/4FWk8G9Ah
-	QkO93Ofg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/oFep3QUMArP/Mg+XO3iZqRWYbfwWlvGA+rkFHJ1kfo=; b=hmptVr2albIGsFJ8tBYrJrvvR7
+	vUqcP6IVIcYU3aFoWnA3wU0IArvBsnwlszxum8qXZJdxWxkyEPLu1uHHPc9fsmUWPBErJwya85j2M
+	ThTRxOcQZD95ruEqJsXAHolhzZ4kfTlj1bEgIIcxXhoow4Eeja2+NguhsimvMfc/2rPo76GsbuAcx
+	bNLyjA2OcZJZMDSSFlJc8rYeeTPf4lC4OTANkMs/vpplKGeDRKQnTEU4toX3rXC5eyzCYdaHauABX
+	3h/f94ISUjGblH/+vz+kZ91pfqe5v+vrY7QrK29haIDpYBpN5iOhAwCEYb0KIcPJScvUnEqpRAGnS
+	PvjZNSpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyaxN-00000004PIe-3sUp;
-	Fri, 06 Mar 2026 19:35:29 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1vyayD-00000004POy-2WKW;
+	Fri, 06 Mar 2026 19:36:21 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyaxL-00000004PIH-11u0
+	id 1vyayA-00000004PNs-3C5U
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 19:35:28 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2ae3f822163so10275ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 11:35:26 -0800 (PST)
+	Fri, 06 Mar 2026 19:36:19 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-b941ec6a368so229047466b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 11:36:18 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772825777; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Oi4HkEcdwGCyF+ZoETRtQiNP6F/ExQSouVlW0uwr+NaCLqA4lw697rMvfY0qmPaJxg
+         lb0NteiPN+O9B63E5mGzdxn8i5qU31uHkhRdsBaq5jLg/rDXS52VEqaK2FySsbhyb2yW
+         IIeQqE+YkRhbsfFuGqKJrYYSdhm/Vs8/GVESKJ48PNiTIQBUqNiwT03lw7eeo9+zlCYF
+         FzwY7VMhJld/FWFX6mKCxCzhMaZ7HBLiKMeWc7IxYQVUZbkgkYK0AkgktS886Jo04MW9
+         eDBgYwGtNFQSlYEIMoQeJhphCho1TfoV80hfdgwKdQrlF1qemzKEjfM3zYk+6HFuVRS9
+         bSAg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=/oFep3QUMArP/Mg+XO3iZqRWYbfwWlvGA+rkFHJ1kfo=;
+        fh=2dufbKFSi5VtN8OVnsAMi27Zf5K5XDwU7Xa+PxAbcFw=;
+        b=PgjgmszzYzRqWVvVSndr2BH7xfbavF1P0enkKWiR9g1hxSiw9HJZgmpufnuK48cJXE
+         Gd3OBdqmosu71AYZoi2Pw0jB/BJr9jm8/TDMyKFg+aoF5y4x7I4MhzRUIcHUTIg9MzUZ
+         P4K7+qAVphAFgTVMG/CxTbn6LNNHSKoHNHuWukzBBDW3Bu9uDQ8VdnPyhNjL/fouem14
+         YQvEYfSPOyIMVbhPx8SjYi14wDNocab86qbDTi3nlhBV/ssgiQ4bBdZrgG8PGl3rTFsr
+         9pMv1v66z2lVTXyJdYpPm/Uzgf0gb3YK1MYGplHUXgBTTfZZ1crCWRMd/RsFojmplGiJ
+         k/qQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1772825725; x=1773430525; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Wh5Z913UZEh7i6f061EXZd6SLJhL4kwsCncFeqW4SCA=;
-        b=Tf19WXaKL/VIO2mihsGBnSgG+ukd4tVHyMb9mNhOcj55gSu2215AMQio085Y4bSYkN
-         V117CQ5O1lXWcyaigEXV56SL+s/9zXnkBNdmhCnAizB5m6UDVDTPgcnDdwV28gHqBzgX
-         rB5jxLVyGNYjT+ywpux5nhWRVzlqQrLKeZxpmKfRfsy0rzHPt32D4aNiIg9MvXFWhNJY
-         TAKPWskbKsElmr2CMbMbkcnEt4PDZQBTvIMQisJ1vTGHwK3RXVkbMyM5sVsSLtXVSnjI
-         i8d7DiRhg4tN5OGvx1LY1XcL0DSf/OWFrtkAT6q47dRPwBZ3YFcOPOzqxXlA5zjW+Lsy
-         DWrg==
+        d=gmail.com; s=20230601; t=1772825777; x=1773430577; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/oFep3QUMArP/Mg+XO3iZqRWYbfwWlvGA+rkFHJ1kfo=;
+        b=MYy5KFbprOtZDhbed9EyTsMOegDe+wKMmkltZCDMd8QT4JGrrdGzXSKoLMkKGTRwgz
+         ZMwlXfgRsCGeeaX3OLLI9U5LAJyvj9h6xzgve4s2j5x7K0gUbLnM5g6J1lrYI7fZ0lfR
+         SZbl72PGMaxpWQL12cre57naA5d59MRhUftzaYiltTJAuNNUXZ7u0R89KJpYkpnU7d1K
+         wsiyUbVl2ty8qkKWSTbnkrCa91x9zkL4s+SWLbVD0YYP2vDbQ5V4t93hFJfaWZGmL3pK
+         ynDS/M5TqJH9uhSEhXYeWpRgUCIELOhSZ9FaPbTHVfDuS1vEsqIEbElrshnKUJ5j+iXH
+         QBRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772825725; x=1773430525;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Wh5Z913UZEh7i6f061EXZd6SLJhL4kwsCncFeqW4SCA=;
-        b=GowiN7lh2MJCSRLXCN5Sf8DalTrxfxYaDCQHa5av939+PCFLLcZjyGWK7z9LrzqjSD
-         W3J7oX+R39TJKK80TMPabxoWfPrBY6/ZV1Gmx75NBLVEC7NVBCT01ZVPL6W2EUkD24w/
-         srItMg/arybuoaz3JSbu/cbHRnteH3W+sqcPApBSQpp4nRbwG0cq9709u3QhbK8ZjgJc
-         j4H3gtuo5CrNKYBOgrbS48RZTRYtFqdBKRF40ZDscK+F1ghy5pW0ruvKa8aEAkxgHzzO
-         ar4GYaWHG5R/p5DQttULmxzoaP3VU6l+IRiwLmIe1Ydrvq+Yy2xRLDXiiptY9zrdjfhx
-         k65Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUpXpOgfKN8f0nr7vFSk9x2Wn2pfT+2U8V9Xbbf95UM/p6zThUDJ4+Sjw6j0g5c4+N//G+C5u41p8nrF6Sw8N9r@lists.infradead.org
-X-Gm-Message-State: AOJu0YwdPJ9haDzqmheqo4HFGTKGtRNpdFM8s4lkCs/I36oUaJttF7JN
-	K/NqK5e5ax6NpTzmatp4HuNnHI0s6bclZk/93ZE1BPpPDHngCtGOwnr2uPumDobjBR83sULC/Om
-	OPky7S0BH
-X-Gm-Gg: ATEYQzwymXcExwnF6zaX6Wjj+HeQYeTXcv6bVWs3cW2dV3jaR1j5NFIXRHZZc/Lc5CL
-	dECKlWdffLlucpHpYZbnBYuE4GIsys6nLAE5IjFMlzpROezmx0qcte7Egw/O3FeLz0exQ86DJvd
-	ekF/jJughoGis1fbldisYdQljKB8+m7tOIpSVgi6bOzzJ8MSM39BUrHuWUQC0vkoftZkAm/KOS9
-	KZRP4OyjAeXm8GAZb4dPEKqg/wWQVocFQ45Yl+/vjUMKm6KGOVipb6SvUOQisYsZS2IwE5EE3A2
-	heC/Dq77LlWEzjki4x/q8Wjq81HMv7x3lCW+td+Fjp6ldufuOCy4lij3nM0l3hg+Oo51ecebhA8
-	Ne9inPMw6b1pLOURFCGjp61P7QVuMeKa9cat0BEODv5K59ix7sXh66FVL9M/XcKiXup8CaHHiuC
-	7lWBJq5MkNPqH8aj/rh9xkZGE2X/xWp1D8MoUMolFfypTTGayYCcYF6mZZR9eY+g==
-X-Received: by 2002:a17:902:f545:b0:2a7:d266:d84a with SMTP id d9443c01a7336-2ae8ae4e111mr191585ad.17.1772825724928;
-        Fri, 06 Mar 2026 11:35:24 -0800 (PST)
-Received: from google.com (168.136.83.34.bc.googleusercontent.com. [34.83.136.168])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae83fb3cc3sm27116245ad.73.2026.03.06.11.35.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Mar 2026 11:35:24 -0800 (PST)
-Date: Fri, 6 Mar 2026 19:35:19 +0000
-From: Samiullah Khawaja <skhawaja@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Baolu Lu <baolu.lu@linux.intel.com>, 
-	Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, 
-	bhelgaas@google.com, rafael@kernel.org, lenb@kernel.org, praan@google.com, 
-	kees@kernel.org, smostafa@google.com, Alexander.Grest@microsoft.com, 
-	kevin.tian@intel.com, miko.lenczewski@arm.com, linux-arm-kernel@lists.infradead.org, 
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, 
-	linux-pci@vger.kernel.org, vsethi@nvidia.com
-Subject: Re: [PATCH v1 2/2] iommu/arm-smmu-v3: Recover ATC invalidate timeouts
-Message-ID: <aasmWvA-sqi0KJwO@google.com>
-References: <cover.1772686998.git.nicolinc@nvidia.com>
- <ca7ab934bf0f433b62a5c15d42241632c4cb9366.1772686998.git.nicolinc@nvidia.com>
- <20260305153911.GT972761@nvidia.com>
- <6416b7fe-0190-4c7b-9a62-5da7d5eea794@linux.intel.com>
- <20260306130006.GF1651202@nvidia.com>
+        d=1e100.net; s=20230601; t=1772825777; x=1773430577;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=/oFep3QUMArP/Mg+XO3iZqRWYbfwWlvGA+rkFHJ1kfo=;
+        b=eFW42q/R2/FRtbzg7zhe8csNXfBBaaCd8Ss67U6V666R4GV4f0eKIoabt7jOy8zw9J
+         4ZENMchjL0e0dpmq2ceFMiEQLXOIJwUECN89pJJKFLBztcQcg+fWehyLmraf738mHwcn
+         pdV+bKcHrxGUGJDunmA/WQdCitYuL9Z+oOpm8BPh7T0uzBWoivThtd0Hpmxmsztg59LK
+         4nO0j9eG+kx8czcWP43PeY6QLlrfRCtmMavD6Kc9ra/04trWbF4hnMPvrPOeB2mZLicT
+         +R/7xiFOnuBtpFfFWChjEkKyWspq8R8iFt1h7b7yMYbm/Q+nVXppE91Ysqt72R050np3
+         tmBg==
+X-Forwarded-Encrypted: i=1; AJvYcCW25Y6geOpJxksBYFrDQ5wNDFw2hQrSQzdqMcAljKd3ghN71OxF5GRv5Z0m+Bqq0x52sXtuuSrwYVMaRIhmcmkC@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcFh6+eYZiDhJ9kIShNnjWs3fJQ2KQdNvD7I+bWQ99/CmqetiH
+	U0wXbNOgfECYufRF+5AfvPLDf+5k5RlLgrhMFAwogsEWUdSyL3I/4B5tfEiAC7m3CPxLK0bk//k
+	I+PMtXudKZ1Hkr/J9wsqCkYPTrHeZy+U=
+X-Gm-Gg: ATEYQzyvaligBvwm58WTkp334sU0RIMYqAcKnIqYaWDWS2JCvJ/4AM5kXqqFRTgJIvq
+	XRdlKmNCPJqsp52oKJsnyap+TR+VgQo/t3Z6Rcm2YJ2T84Ly9i/3CCdSEuueyK73iOIWYPuCRUh
+	wsgEXdtIJvO8Y8XbN452ewRnB3XQzEGlsOFCJcRU4DPkC9Bs+yFZmGU8vsiAmfSYGVXeEQbKyDY
+	UVswZh81MqSPo7iMv4tm7tO/gcZvPPHvzimjZpIOEMFB7esJ1goZQQUhibTllO5qRil2XpSkKkR
+	0Gi70Z42LgSaOqFvA+BX364Xtmy5LsI5MwIFpcxBBn81Weg3X2KeK7AX8HKIszB32cUYEHR4HEG
+	M+SJb9Q==
+X-Received: by 2002:a17:906:9f89:b0:b8d:bf38:7025 with SMTP id
+ a640c23a62f3a-b942dcec7dbmr224391366b.16.1772825776547; Fri, 06 Mar 2026
+ 11:36:16 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
-In-Reply-To: <20260306130006.GF1651202@nvidia.com>
+References: <20260304232848.469446-1-rosenp@gmail.com> <72e8b51c-4dcc-4c42-9e26-8ad8f9299c76@embeddedor.com>
+In-Reply-To: <72e8b51c-4dcc-4c42-9e26-8ad8f9299c76@embeddedor.com>
+From: Rosen Penev <rosenp@gmail.com>
+Date: Fri, 6 Mar 2026 11:36:05 -0800
+X-Gm-Features: AaiRm52MbBKFLewPkU2F6yezblScaa4YRJUtrHXt3-c7p3yL5wyd8k_-nrQOniE
+Message-ID: <CAKxU2N-+hE8BZ=cf3VF0Kkac8G9KWrmvQaCnWfcVSzv3MCm7CQ@mail.gmail.com>
+Subject: Re: [PATCH] phy: miphy28lp: kzalloc + kcalloc to single kzalloc
+To: "Gustavo A. R. Silva" <gustavo@embeddedor.com>
+Cc: linux-phy@lists.infradead.org, 
+	Patrice Chotard <patrice.chotard@foss.st.com>, Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+	"moderated list:ARM/STI ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>, 
+	"open list:KERNEL HARDENING (not covered by other areas):Keyword:b__counted_by(_le|_be)?b" <linux-hardening@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_113527_289557_E98D4058 
-X-CRM114-Status: GOOD (  14.41  )
+X-CRM114-CacheID: sfid-20260306_113618_811687_955272F4 
+X-CRM114-Status: GOOD (  17.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,31 +122,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 09:00:06AM -0400, Jason Gunthorpe wrote:
->On Fri, Mar 06, 2026 at 11:22:52AM +0800, Baolu Lu wrote:
->> I believe this issue is not unique to the arm-smmu-v3 driver. Device ATC
->> invalidation timeout is a generic challenge across all IOMMU
->> architectures that support PCI ATS. Would it be feasible to implement a
->> common 'fencing and recovery' mechanism in the IOMMU core so that all
->> IOMMU drivers could benefit?
+On Fri, Mar 6, 2026 at 11:28=E2=80=AFAM Gustavo A. R. Silva
+<gustavo@embeddedor.com> wrote:
 >
->I think yes, for parts, but the driver itself has to do something deep
->inside it's invalidation to allow the flush to complete without
->exposing the system to memory corruption - meaning it has to block
->translated requests before completing the flush
-
-Yes and currently the underlying drivers have software timeouts
-(AMD=100millisecond, arm-smmu-v3=1second) defined which could timeout
-before the actual ATC invalidation timeout occurs. Do you think maybe
-the timeout needs to be propagated to the caller (flush callback) so the
-memory/IOVA is not allocated to something else? Or blocking translated
-requests for such devices should be enough?
 >
->I don't see how that can be made too generalized since we are running
->this flush stuff in irq and reclaim contexts, it has to be very small
->and targtted without memory allocation or sleeping locks.
 >
-
->Jason
+> On 3/5/26 08:28, Rosen Penev wrote:
+> > Use flex array to simplify allocation.
+> >
+> > Allows using __counted_by for extra runtime analysis.
+> >
+> > Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> > ---
+> >   drivers/phy/st/phy-miphy28lp.c | 12 +++++-------
+> >   1 file changed, 5 insertions(+), 7 deletions(-)
+> >
+> > diff --git a/drivers/phy/st/phy-miphy28lp.c b/drivers/phy/st/phy-miphy2=
+8lp.c
+> > index 43cef89af55e..fd931ede7162 100644
+> > --- a/drivers/phy/st/phy-miphy28lp.c
+> > +++ b/drivers/phy/st/phy-miphy28lp.c
+> > @@ -224,8 +224,8 @@ struct miphy28lp_dev {
+> >       struct device *dev;
+> >       struct regmap *regmap;
+> >       struct mutex miphy_mutex;
+> > -     struct miphy28lp_phy **phys;
+> >       int nphys;
+> > +     struct miphy28lp_phy *phys[] __counted_by(nphys);
+> >   };
+> >
+> >   enum miphy_sata_gen { SATA_GEN1, SATA_GEN2, SATA_GEN3 };
+> > @@ -1168,16 +1168,14 @@ static int miphy28lp_probe(struct platform_devi=
+ce *pdev)
+> >       struct phy_provider *provider;
+> >       struct phy *phy;
+> >       int ret, port =3D 0;
+> > +     size_t nphys;
+> >
+> > -     miphy_dev =3D devm_kzalloc(&pdev->dev, sizeof(*miphy_dev), GFP_KE=
+RNEL);
+> > +     nphys =3D of_get_child_count(np);
+> > +     miphy_dev =3D devm_kzalloc(&pdev->dev, struct_size(wiphy_dev, phy=
+s, nphys) ,TGFP_KERNEL);
+>
+> This is bad... it looks like you didn't build any of these patches.
+Missing COMPILE_TEST on this driver. Will fix.
+>
+> -Gustavo
+>
+> >       if (!miphy_dev)
+> >               return -ENOMEM;
+> >
+> > -     miphy_dev->nphys =3D of_get_child_count(np);
+> > -     miphy_dev->phys =3D devm_kcalloc(&pdev->dev, miphy_dev->nphys,
+> > -                                    sizeof(*miphy_dev->phys), GFP_KERN=
+EL);
+> > -     if (!miphy_dev->phys)
+> > -             return -ENOMEM;
+> > +     miphy_dev->nphys =3D nphys;
+> >
+> >       miphy_dev->regmap =3D syscon_regmap_lookup_by_phandle(np, "st,sys=
+cfg");
+> >       if (IS_ERR(miphy_dev->regmap)) {
 >
 
