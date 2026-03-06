@@ -4,128 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62BCDFCC073
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 20:35:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20665FCC076
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 20:53:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U8ufeJsa3MK8ser2lwzc90T9eH+rxIPlpcgTt8VhutU=; b=kq5TiQAWj0/4XOyDeKXLl5wCMH
-	eebpzoFtVjxYPhpuUaZRha8AggcCScnLLSYPR3bF1hWSZA1cz1VK7cQ80xuATkVR/6y4HvKQS38lb
-	xbWX56Lw5aodeYlRWwAMAr9w1aoquG+zKwcNpSWCtKC1MdVeKkEGADaN595p4J1c8Ex3jgmbQbIl3
-	IbBIu9PLqLfY6BrRp7b01+ohXfhO6GSU6ym75CRMCOTa4VwTswHZKXoD9Jy5Q+YPWypX3ebBTMfz9
-	dDCITKZ8jvPffgjRGFgGILzRejO+YpYoVFw7SFeNi97UaxU/RcwYS2NcEukBqo18uKMq6rJ2JSn7r
-	Q6gzAXPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t5jttNPZKFxy6e3UDlTOBng4frqdcf3GdkXXjwI4w+M=; b=kCmabTPtBoZpll4OFRLAA9EeCn
+	AtRpTxUvGl3VHg5hlrnyKW3LE4Pgt5DFO9LAU3EpzgsAfn7x1/n/PICZWGkrnaeeKEh7FIN4nDjJb
+	+8K76iiJzrzvtUgPFKvHwkPLl2QKIAUaMKOzPRvRSCD5eE24kZd+h4sAM2B0zITvx7LBaxjMeDQ1h
+	YGdTJGHbbZscd+WpZrMAjt+TSZyz7RFEf0rPY5Ka3td4aKlRZA7KwzdP4cjCsPOQ4NbpaHcnBKVcL
+	U8E38trA6z/Iz0vXc4vSCzHxPOApbnlO6UYMy/YZqVdL0uqaOty/OtWbWOS+xeQ/5bYQ/67nrBH2B
+	ERCD7F1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vybsr-00000004U4C-23s7;
-	Fri, 06 Mar 2026 20:34:53 +0000
-Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1vycAm-00000004Uig-2rhT;
+	Fri, 06 Mar 2026 20:53:24 +0000
+Received: from terminus.zytor.com ([2607:7c80:54:3::136] helo=mail.zytor.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vybso-00000004U3q-45pe
+	id 1vycAl-00000004UiK-0AZJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 20:34:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=p5cR+1CPbhBerugUnk+h94l92a2aYcNxaNVXP5Oa7y4rRYIZxi6CIuoNKiUqIa9vjrBZv89o8mgNJYH177gG0d3znDgHodENNfuq5D2+z4yQwLdWY1AJ06DaHOKzPQCYTkf93SVx7YqaVOWwil3asmbKB9LpeejedqsSmOd5Z5LQKfw29l5A+z98dMXJygXg5ObjrsreD/9AbuK3RK9KLGiScAlaI2o4GfNibV3c3eom3zy0Yi6M7EA1S2TP+MLqtAERuJIAIG8f2r6KWvhg632fESf1N5d9OSGkXchhtwWK1gowd67uTgHHxKyuh/v1OfgMpuQjgj2s5VebtdhyeQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=U8ufeJsa3MK8ser2lwzc90T9eH+rxIPlpcgTt8VhutU=;
- b=DXH2l7kuuEdloImaeD1T0F0JPOWNP34C7Sjz8I/j2ECBSwk2ASn+qogAL8QPk1dacjDamAAioSeRfd09X2o8e0+r0NpEwdw47bDZl7XufdFg5SBkdFvpqgtNeqv9DaYCjgqQAHDH9fYhbKHKtYFfZPOKAT8Cnk0+fvYeMwKqOmn72ge6dg9NFbdX41y+I2+nbysHAW/rKaw6UOmp66oQW5BY71vXInUrEE+5U6USOMuHagkj+4lBbR3TmuUoTyvbU1H6q1MPYwWCUWzH59HsKTP8F0R3MRkT2gychAXGnDhJ6KCCso8cXr7dDZOPtqYdybIlAaRu4pf9Y67XbMJmAg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=U8ufeJsa3MK8ser2lwzc90T9eH+rxIPlpcgTt8VhutU=;
- b=nuHoKtiPcV2A/3wVNMRgdjUkiMYL3jqYlBQa/v18h7GqSsCTKJRwhx6/CU9nCrhFCoheXWeMGFEr2E9XiK0aty6JtLD4f6WM4XYqTV/R7wzPVeQoydv0bFn9yZU4MNKUfgmYBu93j2BF8StxmhuJPeiNe65R2NHYgpAzg/vQGUjUq+wOQ87+CnBmetbf5oQBVBTg65RkDIhiZZd3IwhYCYYKCb3HpnbULYvIqYiTqwPfM/QGesa3/3yQTduWFGJxZoWPIIRPEWVI/oiOaiAvTSp+p/oOZLafG8Ov33SaMlOI5Iof0kD6tkkT96GxoqMtxhCaoq2LM/zsonyAKyaPjQ==
-Received: from PH8P223CA0025.NAMP223.PROD.OUTLOOK.COM (2603:10b6:510:2db::13)
- by LV3PR12MB9094.namprd12.prod.outlook.com (2603:10b6:408:19e::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.17; Fri, 6 Mar
- 2026 20:34:44 +0000
-Received: from SA2PEPF000015CB.namprd03.prod.outlook.com
- (2603:10b6:510:2db:cafe::db) by PH8P223CA0025.outlook.office365.com
- (2603:10b6:510:2db::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.18 via Frontend Transport; Fri,
- 6 Mar 2026 20:34:43 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- SA2PEPF000015CB.mail.protection.outlook.com (10.167.241.201) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9678.18 via Frontend Transport; Fri, 6 Mar 2026 20:34:43 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 6 Mar
- 2026 12:34:27 -0800
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 6 Mar
- 2026 12:34:27 -0800
-Received: from Asurada-Nvidia (10.127.8.10) by mail.nvidia.com (10.129.68.9)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 6 Mar 2026 12:34:25 -0800
-Date: Fri, 6 Mar 2026 12:34:24 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Robin Murphy <robin.murphy@arm.com>, <will@kernel.org>, <joro@8bytes.org>,
-	<bhelgaas@google.com>, <rafael@kernel.org>, <lenb@kernel.org>,
-	<praan@google.com>, <kees@kernel.org>, <baolu.lu@linux.intel.com>,
-	<smostafa@google.com>, <Alexander.Grest@microsoft.com>,
-	<kevin.tian@intel.com>, <miko.lenczewski@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <vsethi@nvidia.com>
-Subject: Re: [PATCH v1 2/2] iommu/arm-smmu-v3: Recover ATC invalidate timeouts
-Message-ID: <aas6UO1BNfhfY2hl@Asurada-Nvidia>
-References: <cover.1772686998.git.nicolinc@nvidia.com>
- <ca7ab934bf0f433b62a5c15d42241632c4cb9366.1772686998.git.nicolinc@nvidia.com>
- <20260305153911.GT972761@nvidia.com>
- <aanygWWZLA1htDdQ@Asurada-Nvidia>
- <20260305234158.GB1651202@nvidia.com>
- <60d77adc-d5a6-40e2-a497-a57004f23e7e@arm.com>
- <20260306140115.GH1651202@nvidia.com>
- <aas2kHcjJPYFbKSD@Asurada-Nvidia>
- <20260306202216.GO1651202@nvidia.com>
+	Fri, 06 Mar 2026 20:53:24 +0000
+Received: from ehlo.thunderbird.net (c-76-133-66-138.hsd1.ca.comcast.net [76.133.66.138])
+	(authenticated bits=0)
+	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 626KqRb51958825
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
+	Fri, 6 Mar 2026 12:52:28 -0800
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 626KqRb51958825
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
+	s=2026022301; t=1772830352;
+	bh=t5jttNPZKFxy6e3UDlTOBng4frqdcf3GdkXXjwI4w+M=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=EQ2m+UyIgHt4NPpBkDK9oDRl5sriE4QzwZICCF14NYbr9o9jnA4P5x6Ki7PI/c1Pq
+	 MuB2CVSSZ1iN8/dlczEbnC0/V+ODW0STv+tMDFCGAqTNta3kvUwK3wx7igCIxtYepf
+	 WP4Xgt2sBbl4oyXlo1NEh/P7iQ1F8nGYKsh0x45/4ix+F4yHgCtkuzJkzYrwYPKOfj
+	 ZGBQDFMVCSRv3f1XvPA5D4Ut5gSR5N9/iNyb0omf0tkCFi13Z6kw+SSDHf0RObIZBO
+	 eFidDjr3ZT6lb7idOI/GLFTlUAcnpNsbe7YnJMV2SZmCjXKy6cCOrXgsYEUmxi7GJ3
+	 06pqSMGXttJhQ==
+Date: Fri, 06 Mar 2026 12:52:21 -0800
+From: "H. Peter Anvin" <hpa@zytor.com>
+To: =?ISO-8859-1?Q?Thomas_Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+CC: Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>,
+        Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+        Borislav Petkov <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+        Russell King <linux@armlinux.org.uk>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Christophe Leroy <chleroy@kernel.org>,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        Vincenzo Frascino <vincenzo.frascino@arm.com>,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org
+Subject: Re: [PATCH 1/7] x86/vdso: Respect COMPAT_32BIT_TIME
+User-Agent: K-9 Mail for Android
+In-Reply-To: <20260306103113-ae63c668-2921-4ac1-84f6-35fbc8a6397d@linutronix.de>
+References: <20260227-vdso-compat_32bit_time-v1-0-3f0286a7bac3@linutronix.de> <20260227-vdso-compat_32bit_time-v1-1-3f0286a7bac3@linutronix.de> <c29f5e70-bd17-4e1b-a005-5a3282e70075@app.fastmail.com> <03cd1e21-a2f2-46a1-a674-cbaef9712016@app.fastmail.com> <20260227103226-cc3bb32c-0107-4c09-b81a-ca33ea03ad5c@linutronix.de> <49b7c9f9-198a-49f7-880b-6ae74d7bd985@zytor.com> <20260304081505-a2a3a376-20c9-46cb-8dc9-2c4deec1a55e@linutronix.de> <6909A81E-AE50-459C-9604-3EEAEFE3838E@zytor.com> <20260305080950-ff43457b-0551-480f-916e-6c252e6a64af@linutronix.de> <2e609a1b-62de-4688-b363-58025ab9e703@zytor.com> <20260306103113-ae63c668-2921-4ac1-84f6-35fbc8a6397d@linutronix.de>
+Message-ID: <F10E5A68-4D63-41A5-B281-3AD52FF6F6D8@zytor.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260306202216.GO1651202@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF000015CB:EE_|LV3PR12MB9094:EE_
-X-MS-Office365-Filtering-Correlation-Id: 834f47ab-7d7c-4441-0024-08de7bbfccca
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|7416014|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: HMRlHGT6z5pto6/zzRTFcbHQ3SouFD47MwcI3KO/2rQmmAn8sfL/93jkzpExyoz4KaaD8J+sJEMG2p+ayk2wLRbnPzNmdYbP+BYO31tm0MqG9XPde48prY+NlaK/srLfqd+80qkGscJtVpb4b54Q/zBw9OhT7lHw/lb4/PDf7JXxp2W4kJoCLldjvn7JRH1/M/kQIHxPrhIhOBJc4hDm87GwPwK31Zb0tdELb6rZCs4OC7zB3tdIHOLsM9p9isAltf0zI0bChrJcuoxAg5Bp9s8zOoOMvzP8i96qvx+jmEoCbfVH1YdUHGy+bl0k6/4loMS0UBDlQqNKkjOlpywCDSum7Jm5KD1oFqo3gmi+etxyUEaVcVbbyT9LEUzNjMMIfGy7BC9fBWTtEcBbFNyl7Pf5sPRXVmgVfXaSYK0qMMTO5jzYjgLckRDoUTdowqRiz8E/nsD6CUmuVCzNnZ22RED/RaqRGwwgbyJTFwoWd10OMHl6n+8FJYuetk8hekfdeKU2eWkx9VKJQSr02ZDDgyLSGuBCs7+lU30ibDX6Ei++GX8Q7DVZxvMWsVZ0jw6ui6t5ZcQMuE5GDG3ot6s0jEGy8Z4n9SNPxZKRtUO10dcJjRJT+q4wtq90Ffq6K5qSa3LQkhD3IZqEiz3nDF1cYvE+OAOuOI+rPgmBsZcQ83IboSS1ZZW4OTDfd52yWQPaj18I671DzSFzUowcM2ChkiYeq2MVnAiqoI7KGTqc/P+4DqqJEcfzWZUE23N7kTnbJh5dWNXx3rwi4UJ5wdfDog==
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: AklOSyOY3YvtRp5LTuAQyLnEgUe/ffNjiTuQI7RShON2l6lizvgdhnx1CgGdvcSId4jfJ9Ziz2urplggiEacpReLiJ56zsi2Kd5/6T2mPlYGqZqZsJw7v7wVeNIWsdtpvstQmAmNVyUbhMkM8SIVB90jIQnicrTjC02PnJ6tzcVG/rUg6LG4YEpHnJXH5/w1Mw59y4ab3vPUIfBMwN7q6ihCvraJVp0vwLM5BPbhRIijeRYRavrMs+bv6YCSGHROIrPjh+pb0xnKznL5MP27190Gxe+fQo64j1XACpEMVFptc8MVnkkFY7xv64+h3n+oD4+PitZIVnhSgRkFKFnEMrQMwBF2JwJ79PoS6lICLk3/guX0bKKp2cSO/pDoe0x4q7aBfAp05DNFyIgWOVfh0scK5AF44zlij1NJqtKOhkvNzq06M7TFTnxMYyL2H4VI
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 20:34:43.6739
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 834f47ab-7d7c-4441-0024-08de7bbfccca
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF000015CB.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9094
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_123451_037447_4BBE3E6C 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20260306_125323_086985_92DB8716 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,26 +87,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 04:22:16PM -0400, Jason Gunthorpe wrote:
-> On Fri, Mar 06, 2026 at 12:18:24PM -0800, Nicolin Chen wrote:
-> 
-> > IIUIC, we would have two timeouts to identify the device(s), so we
-> > wouldn't need to give away the optimization of batching ATCI cmds?
-> 
-> Yes we should not harm success path performance to compensate for a
-> RAS error case.
-> 
-> > Will letting a faulty device time out once again give it a window
-> > to corrupt the memory?
-> 
-> No, you are doing this within the flush callback so everything relying
-> on that flush should remain held.
+On March 6, 2026 1:42:25 AM PST, "Thomas Wei=C3=9Fschuh" <thomas=2Eweisssch=
+uh@linutronix=2Ede> wrote:
+>On Thu, Mar 05, 2026 at 03:57:59PM -0800, H=2E Peter Anvin wrote:
+>> On 2026-03-05 01:24, Thomas Wei=C3=9Fschuh wrote:
+>> >=20
+>> >> Weak references would be a way to work around the link failures=2E=
+=20
+>> >=20
+>> > I am still not sure where "the link failures" should be coming from=
+=2E
+>> > The only sense I can make out of it, is if somebody manually and dire=
+ctly links
+>> > to vdso=2Eso=2E Like in the following example:
+>
+>(=2E=2E=2E)
+>
+>> > This actually works on glibc (not on musl)=2E But it is highly non-st=
+andard and
+>> > relies on multiple implementation details=2E Furthermore it can fail =
+to run on
+>> > systems without a vDSO, as mentioned before=2E
+>> >=20
+>> > Is this the usage pattern you have in mind?
+>> > Do you know of anybody doing things this way?
+>> >=20
+>>=20
+>> Yes, and yes, I do=2E
+>
+>Thanks=2E
+>
+>Do you know why it is done this way? Are these applications public and
+>if so, could you point me to them?
+>In case we stub out the vDSO functions with ENOSYS, would these
+>applications be able to handle that error gracefully?
+>
+>Personally I am still in favor of removing these functions completely
+>when !COMPAT_32BIT_TIME=2E
+>
+>
+>Thomas
 
-Oh, right! I didn't see that coming..
-
-I will rebase the next version on the invalidation series as we
-have multiple things relying on that now.
-
-Thanks
-Nicolin
+I think I agree with you (and sadly, no, I can't point at them directly=2E=
+)
 
