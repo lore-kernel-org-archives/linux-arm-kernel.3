@@ -4,63 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 234A7F01812
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 08:58:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C69D5F0180E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 09:02:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yi5utj0VkHiYl9//1i2hhjQIWgRw7Dr/IOKczfuhQ38=; b=SlGO73z1v1757CBwmPnNZIjkhR
-	vTbz0zftvcLcx9o6QYB5ga1kuiWMPo7dV/+rl+r9OYs8OD2sqGtGJeFWYvaH8L70GfgBOjBP17Pd4
-	ynk0mrm5/S0woKVsOv+4EYEU4oDmR6sSWcJdTWRF7c4osy3lJV3fzEBXW441IGggVDPUCDqZDbEKp
-	yds5cdqcdNcH7tHvUGV9e2f8N83DOTFnX/PpD4LMHaU2NtGtZrrY1IVjiNcMYdqaBk4PTfnGAG5l9
-	tXZUG7I+KQuJBoSkshuDrzAuhVDIkwdVAh7wGLLnTacMKpDicHzIa+P/EC+SF4sAFSAcqsiFV7a7B
-	4gA+NQgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZgDBXmEnVujJM8vulMEVYeA6ICqdKuQICuLq3YHevSE=; b=kXwO8+h5Nz5Wed/e/l5GBxmDpn
+	n12KPtmGgHQOFcLDAysPhEQdOQvyWecujRYCkOLAC3Ir5i4n/tEVTXoX/qI1WysbLo3r5A3xHpHqb
+	1pKdN1W2qdK8oy3/U0kZjSg6LpFjiF2OxIbBkHSpokMvbwWf/J8v1w+jv7qKUU9tvG8X5TZRuLVh3
+	BIDVcfydbK5rCWTNwDk6LxdxYccbB2wkYFOafzTpQaC4ChhPzvfqTmdf/h6EbzQTHHl8PjuBPQSTz
+	wVVU9BtYpRf3LjKMjAYsjLO1iFLIFurPZPh/xf7mR6zLR9hFcnrjFYJ8VkeLqu3u6d3jewuMBogCG
+	NGA6el1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyR0R-00000003JID-0gmk;
-	Fri, 06 Mar 2026 08:57:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vyR4D-00000003JbA-0Owd;
+	Fri, 06 Mar 2026 09:01:53 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyR0Q-00000003JI3-0SL7
+	id 1vyR4A-00000003JaK-2dd7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 08:57:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C69636012B;
-	Fri,  6 Mar 2026 08:57:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6518CC19425;
-	Fri,  6 Mar 2026 08:57:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772787475;
-	bh=83o4Me6So3lEG2vi0PcYD2aOl1HkS7WlUbaRJqiwFSQ=;
-	h=From:Date:Subject:To:Cc:From;
-	b=uNW7PKwmWVRqMZd6RyvLsNnIT9RzDevJHKWNCSdl33+BrawmO3jMy4BiQYbCkOgot
-	 6F23u5QB3NSr8X5VwJz1tgP2QCBMuEq6mJwHwQMYbAMyvMamBQhQe/fAu/rzXzHdJp
-	 fLVWmg7L8AxlLlO3tKJ8aPe14nr99OMux3DNxl1PYQrsKkf0WOfxmX0hlXvh3RzwCA
-	 +DW6PVT4iXVH3CcPAl3tqwJL7UDryV5UcXQvUKx4aZM0ch5iwLzAyxV5+GssxSYPfX
-	 9K4IZyT3BQOzQHZ1Uc1suB7HeHYvF9668BnMQKl5oBEbw0J0Mh9wAoL2pyCx6R7lwP
-	 BqgQkXyW4QyMA==
-From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 06 Mar 2026 09:57:50 +0100
-Subject: [PATCH] arm64: clear_page[s] using memset
+	Fri, 06 Mar 2026 09:01:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=ZgDBXmEnVujJM8vulMEVYeA6ICqdKuQICuLq3YHevSE=; b=ahlOo+mh3t8qpxKXMd1PjHafv8
+	37m8cqehiUO9Z7eeLymK0NQLXS2kg/oIzYDJb/+pa/1UWGRgWbVrqrzTls5cEEWCNlrHOHM8cTYwQ
+	a5II4e0BX4jwm8RucqWkof7Cty24hFJL9ulS8FjKmCsGQN7FbTvSSZfsOuq6UAfECxPkKZRk/aJ/8
+	XbyLQLvyn0r0SFGP1co3x79I6CK5a2c/lL3xzvApaImX44AhUkUNRDimQ0ixXKyiyVJXayzafi+LL
+	2RQjiZdzN9d1XCKWHlaN+a9mSDe44Xinj4sdhoXz2tXjO0f+CtHT4Jrefqs2ytwtMX/ozvm4Z6pWd
+	3Y7Uo/bQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47666)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vyR40-000000000jm-29aw;
+	Fri, 06 Mar 2026 09:01:40 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vyR3w-000000001IO-41FR;
+	Fri, 06 Mar 2026 09:01:36 +0000
+Date: Fri, 6 Mar 2026 09:01:36 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, Chen-Yu Tsai <wens@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Samuel Holland <samuel@sholland.org>
+Subject: Re: [PATCH net-next v2 3/8] net: stmmac: mdio: simplify MDC clock
+ divisor lookup
+Message-ID: <aaqX8IxLzZ7jGM4r@shell.armlinux.org.uk>
+References: <aald--qJquWGIvmO@shell.armlinux.org.uk>
+ <E1vy6A9-0000000Btwp-0lxY@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260306-aarch64-clear-pages-c-v1-1-77c1bb0f1c21@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MwQpAQBCA4VfRnE0ti/AqcpjG2J0Smi0peXeb4
- 3f4/weSmEqCsXjA5NKkx55RlQVwpD0I6pINtas7512LRMaxa5A3IcOTgiRkbAe3kAw9e+8ht6f
- Jqvf/neb3/QBDeSyuZwAAAA==
-X-Change-ID: 20260305-aarch64-clear-pages-c-590dae98c333
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
- Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- Linus Walleij <linusw@kernel.org>
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <E1vy6A9-0000000Btwp-0lxY@rmk-PC.armlinux.org.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260306_010150_671508_DEBC5B4A 
+X-CRM114-Status: GOOD (  22.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,165 +88,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is no need to try to second-guess the compiler when
-clearing memory. Just call memset() like everyone else.
+On Thu, Mar 05, 2026 at 10:42:37AM +0000, Russell King (Oracle) wrote:
+> As each lookup now iterates over each table in the same way, simplfy
+> the code to select the table, and then walk that table.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
+>  .../net/ethernet/stmicro/stmmac/stmmac_mdio.c | 29 +++++++------------
+>  1 file changed, 11 insertions(+), 18 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+> index 6292911fb54b..c9f0b8b601d2 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+> @@ -535,6 +535,7 @@ static const struct stmmac_clk_rate stmmac_xgmac_csr_to_mdc[] = {
+>   */
+>  static u32 stmmac_clk_csr_set(struct stmmac_priv *priv)
+>  {
+> +	const struct stmmac_clk_rate *rates;
+>  	unsigned long clk_rate;
+>  	u32 value = ~0;
+>  	int i;
+> @@ -548,25 +549,17 @@ static u32 stmmac_clk_csr_set(struct stmmac_priv *priv)
+>  	 * the frequency of clk_csr_i. So we do not change the default
+>  	 * divider.
+>  	 */
+> -	for (i = 0; stmmac_std_csr_to_mdc[i].rate; i++)
+> -		if (clk_rate > stmmac_std_csr_to_mdc[i].rate)
+> -			break;
+> -	if (stmmac_std_csr_to_mdc[i].cr != (u8)~0)
+> -		value = stmmac_std_csr_to_mdc[i].cr;
+> -
+> -	if (priv->plat->flags & STMMAC_FLAG_HAS_SUN8I) {
+> -		for (i = 0; stmmac_sun8i_csr_to_mdc[i].rate; i++)
+> -			if (clk_rate > stmmac_sun8i_csr_to_mdc[i].rate)
+> -				break;
+> -		value = stmmac_sun8i_csr_to_mdc[i].cr;
+> -	}
+> +	rates = stmmac_std_csr_to_mdc;
+> +	if (priv->plat->flags & STMMAC_FLAG_HAS_SUN8I)
+> +		rates = stmmac_sun8i_csr_to_mdc;
+> +	if (priv->plat->core_type == DWMAC_CORE_XGMAC)
+> +		rates = stmmac_xgmac_csr_to_mdc;
+>  
+> -	if (priv->plat->core_type == DWMAC_CORE_XGMAC) {
+> -		for (i = 0; stmmac_xgmac_csr_to_mdc[i].rate; i++)
+> -			if (clk_rate > stmmac_xgmac_csr_to_mdc[i].rate)
+> -				break;
+> -		value = stmmac_xgmac_csr_to_mdc[i].cr;
+> -	}
+> +	for (i = 0; rates[i].rate; i++)
+> +		if (clk_rate > rates[i].rate)
+> +			break;
+> +	if (rates[i].cr != (u8)~0)
+> +		value = rates[i].cr;
 
-Since memset() already has an architecture-local MOPS
-optimization, we do not need to do anything else to preserve
-the MOPS optimization.
+Looking at the AI review, it seems to me that the AI review is
+incorrect.
 
-While at it, implement the shorthand for directly calling
-the new prototype clear_pages() for larger page chunks.
+With reference to the full original code which can be seen in:
+https://patchwork.kernel.org/project/netdevbpf/patch/E1vy69y-0000000Btwd-3oq7@rmk-PC.armlinux.org.uk/
 
-No performance regressions can be seen, the fastpath
-benchmarks differences are in the noise.
+If we look at the original code, then we can see that the intention
+is that if clk_rate is smaller than the last real entry for the
+sun8i and xgmac cases, the value should end up as zero - and this is
+exactly what the new code does. So, the behaviour is preserved, even
+though AI thinks it isn't.
 
-Suggested-by: Will Deacon <will@kernel.org>
-Link: https://lore.kernel.org/linux-arm-kernel/20260303-aarch64-clear-pages-v1-1-ad0c3ee9a555@kernel.org/
-Signed-off-by: Linus Walleij <linusw@kernel.org>
----
- arch/arm64/include/asm/page.h    | 13 +++++++++-
- arch/arm64/kernel/image-vars.h   |  1 -
- arch/arm64/kvm/hyp/nvhe/Makefile |  2 +-
- arch/arm64/lib/Makefile          |  2 +-
- arch/arm64/lib/clear_page.S      | 53 ----------------------------------------
- 5 files changed, 14 insertions(+), 57 deletions(-)
+AI seems to think that reaching the last entry for sun8i and xgmac
+means we have an invalid rate. That is where AI is going wrong -
+that is an incorrect "assumption".
 
-diff --git a/arch/arm64/include/asm/page.h b/arch/arm64/include/asm/page.h
-index b39cc1127e1f..d6ae2e53bf4a 100644
---- a/arch/arm64/include/asm/page.h
-+++ b/arch/arm64/include/asm/page.h
-@@ -13,6 +13,7 @@
- #ifndef __ASSEMBLER__
- 
- #include <linux/personality.h> /* for READ_IMPLIES_EXEC */
-+#include <linux/string.h> /* for memset() */
- #include <linux/types.h> /* for gfp_t */
- #include <asm/pgtable-types.h>
- 
-@@ -20,7 +21,17 @@ struct page;
- struct vm_area_struct;
- 
- extern void copy_page(void *to, const void *from);
--extern void clear_page(void *to);
-+
-+static inline void clear_pages(void *addr, unsigned int npages)
-+{
-+	memset(addr, 0, npages * PAGE_SIZE);
-+}
-+#define clear_pages clear_pages
-+
-+static inline void clear_page(void *addr)
-+{
-+	clear_pages(addr, 1);
-+}
- 
- void copy_user_highpage(struct page *to, struct page *from,
- 			unsigned long vaddr, struct vm_area_struct *vma);
-diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
-index d7b0d12b1015..7890454d595d 100644
---- a/arch/arm64/kernel/image-vars.h
-+++ b/arch/arm64/kernel/image-vars.h
-@@ -117,7 +117,6 @@ KVM_NVHE_ALIAS(__start___kvm_ex_table);
- KVM_NVHE_ALIAS(__stop___kvm_ex_table);
- 
- /* Position-independent library routines */
--KVM_NVHE_ALIAS_HYP(clear_page, __pi_clear_page);
- KVM_NVHE_ALIAS_HYP(copy_page, __pi_copy_page);
- KVM_NVHE_ALIAS_HYP(memcpy, __pi_memcpy);
- KVM_NVHE_ALIAS_HYP(memset, __pi_memset);
-diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
-index a244ec25f8c5..4d7f3faf1da2 100644
---- a/arch/arm64/kvm/hyp/nvhe/Makefile
-+++ b/arch/arm64/kvm/hyp/nvhe/Makefile
-@@ -17,7 +17,7 @@ ccflags-y += -fno-stack-protector	\
- hostprogs := gen-hyprel
- HOST_EXTRACFLAGS += -I$(objtree)/include
- 
--lib-objs := clear_page.o copy_page.o memcpy.o memset.o
-+lib-objs := copy_page.o memcpy.o memset.o
- lib-objs := $(addprefix ../../../lib/, $(lib-objs))
- 
- CFLAGS_switch.nvhe.o += -Wno-override-init
-diff --git a/arch/arm64/lib/Makefile b/arch/arm64/lib/Makefile
-index 633e5223d944..1840e417dd9a 100644
---- a/arch/arm64/lib/Makefile
-+++ b/arch/arm64/lib/Makefile
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0
- lib-y		:= clear_user.o delay.o copy_from_user.o		\
- 		   copy_to_user.o copy_page.o				\
--		   clear_page.o csum.o insn.o memchr.o memcpy.o		\
-+		   csum.o insn.o memchr.o memcpy.o			\
- 		   memset.o memcmp.o strcmp.o strncmp.o strlen.o	\
- 		   strnlen.o strchr.o strrchr.o tishift.o
- 
-diff --git a/arch/arm64/lib/clear_page.S b/arch/arm64/lib/clear_page.S
-deleted file mode 100644
-index bd6f7d5eb6eb..000000000000
---- a/arch/arm64/lib/clear_page.S
-+++ /dev/null
-@@ -1,53 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0-only */
--/*
-- * Copyright (C) 2012 ARM Ltd.
-- */
--
--#include <linux/linkage.h>
--#include <linux/const.h>
--#include <asm/assembler.h>
--#include <asm/page.h>
--
--/*
-- * Clear page @dest
-- *
-- * Parameters:
-- *	x0 - dest
-- */
--SYM_FUNC_START(__pi_clear_page)
--#ifdef CONFIG_AS_HAS_MOPS
--	.arch_extension mops
--alternative_if_not ARM64_HAS_MOPS
--	b	.Lno_mops
--alternative_else_nop_endif
--
--	mov	x1, #PAGE_SIZE
--	setpn	[x0]!, x1!, xzr
--	setmn	[x0]!, x1!, xzr
--	seten	[x0]!, x1!, xzr
--	ret
--.Lno_mops:
--#endif
--	mrs	x1, dczid_el0
--	tbnz	x1, #4, 2f	/* Branch if DC ZVA is prohibited */
--	and	w1, w1, #0xf
--	mov	x2, #4
--	lsl	x1, x2, x1
--
--1:	dc	zva, x0
--	add	x0, x0, x1
--	tst	x0, #(PAGE_SIZE - 1)
--	b.ne	1b
--	ret
--
--2:	stnp	xzr, xzr, [x0]
--	stnp	xzr, xzr, [x0, #16]
--	stnp	xzr, xzr, [x0, #32]
--	stnp	xzr, xzr, [x0, #48]
--	add	x0, x0, #64
--	tst	x0, #(PAGE_SIZE - 1)
--	b.ne	2b
--	ret
--SYM_FUNC_END(__pi_clear_page)
--SYM_FUNC_ALIAS(clear_page, __pi_clear_page)
--EXPORT_SYMBOL(clear_page)
-
----
-base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-change-id: 20260305-aarch64-clear-pages-c-590dae98c333
-
-Best regards,
 -- 
-Linus Walleij <linusw@kernel.org>
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
