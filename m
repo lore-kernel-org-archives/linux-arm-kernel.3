@@ -4,111 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 065E4FCB615
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 15:21:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10EDDFCB615
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 15:22:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fVf18GuOCj4KUJQyL5+kDdyR0nQ8PeWTy0/PXRvmRP0=; b=YKl/ir2nSGExfYxjUnlCZWiQHT
-	7zvufiN7P3FNIIt6r3AktKAVWE7NeLxlRzRSttZ51bYwo0/ArscqK2S61nwB/q+94ih0q4iwRc1I+
-	wkCI3wE8uzl1bIJzyf6RFq7S+Xz9+iOeVuR7LGdXxgcwjtw2poWvDlfE7Hdomzx0gCqqkl6kHhlW5
-	jcVUsyJLWFJJMMj4mk1hDJzY6VyrRRkN0MaD3fz0OEmUuw2KgFUPIm0Vy4RR1uOaxlMSAZCOj6PY8
-	oMUol1gAs3NgQTpz02r1ciqWhwZrCvGP8P/xVkj3hBFJ/SsovuITuz0jZQd/1U3DRs52Mv4B4Y9wV
-	W+aNX0Ig==;
+	bh=Z6XDLuG2g5D0dtVulOb92ZhTkqEZkXM/BQ7MGxoQVFU=; b=WkduKsgO07ApimQz4lbkCGvT3+
+	PckLqDpRNTIERKTYVs9SER/mLfgFMKvM0+063H8xspcMau94ZAfHO16Et1tO6ypeGG/DAr9LZKjuR
+	flB3QjZ6eQPLgM0uK/T4Ipt3STMEuQOURIkJlRsFP10smnHl1/GblVfWCkDAGIO3XOnSDZfph0++v
+	BHrHKJDSLf07+Bmg9xMxN9UmFegEw6qaFvQZnJX1SwLHNZklvCPPt4dONYdLN+57LfyneWbbziluh
+	B3yGTtKlaHWmUE9r0DfXQyttvafP4TLvTG3hxzdHDcYGINY4r7zE3jDkjDBA1SHmOFbY3mOEUInE7
+	MYCRXe3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyWzT-0000000417D-2SVs;
-	Fri, 06 Mar 2026 15:21:23 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1vyX0d-000000041Gs-29Sc;
+	Fri, 06 Mar 2026 15:22:35 +0000
+Received: from mail-dl1-x1235.google.com ([2607:f8b0:4864:20::1235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyWzP-0000000416Q-4278
+	id 1vyX0a-000000041G6-2MrK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 15:21:22 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b9358dd7f79so507017166b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 07:21:19 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772810478; cv=none;
-        d=google.com; s=arc-20240605;
-        b=K23BqXUua+DpzNt4qT0tMj/vyag4gvSpQV+1Q2Kv9KDZUo5FbeIL3eSFIVk1ngCCHZ
-         bQqOT8j7TbVBrDv+/62SSdqgP0qY8CuONh/FP8rOlrNkUFQBQ49Th1GTroNk535D5w3s
-         gE38kKyk/QFUrSp9z+NQC3ejsMG7AjG27dWqOqd1MiMzCSv9Drll9BkyGwdKoasubF/9
-         aZhiHbv9VhriHHjeikrW6ftM8THcLYgz9Egf1Gj8SxOjuoZnPnL7PamrOL8A/YJqvaoL
-         mBzaZKuwQcZUM/1VzDfTg7dRFFMJFBSeCyL9x8g5r2hbRBqcX+z51yKRIsH7PSdzKHTp
-         cJdg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=fVf18GuOCj4KUJQyL5+kDdyR0nQ8PeWTy0/PXRvmRP0=;
-        fh=PgZu+AKUUTOXI8fvItj2bJHBBfRXBwAKvA14s8frv9c=;
-        b=FM/MjZ8pqaI+RTXdhpi9jF99yhu2wqzuTXwNtaQjqgDeBxoFtZpNaDp/cA6yfXPgE8
-         QyoOTmBsvZokVbKzEeSkRxqGz/sl/oZMpzRhZZ1kaOTAhT2pcfh6SA2TL5CbOkFEiyQ9
-         7N06wQrQY0bnxZ8lokWuUA2jH/vTtN+SU5RRqGqyTr2El1hQu+4mcmaSWn2lI1XvdwJS
-         ZPn2ipEYg4rTTz8mVafYvLiMKmJNoFigswuoR4/yp5XqosLfVEs+tT+2j2Q/8jcodNvD
-         MxDxTkL8PkZ2hK5BONwpGRYFdD2WdHgwzDtgzrdt9xK62VGbYNXD92KmK48EfdL6BERK
-         cu0A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Fri, 06 Mar 2026 15:22:34 +0000
+Received: by mail-dl1-x1235.google.com with SMTP id a92af1059eb24-1271257ae53so11323452c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 07:22:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1772810478; x=1773415278; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fVf18GuOCj4KUJQyL5+kDdyR0nQ8PeWTy0/PXRvmRP0=;
-        b=m5t4SSRd/JKzhcb4j+2cCi+mEbBs4+32jma7QikwwQzSphnlzi2XQ5SLWW9lGVzVpL
-         mtNd+lyOT9HSWYyvMOmqbeGDZ4Xq5Hdy6nP9Zxu4QxBfjND/x5zSzLNdYzRafJMwEtSj
-         z6vD7p2QOGzwhcbVq9DBFW1qGVfJDt0pKQFrBRizmrg5xpWqnkqMD5Ly0jDkAFCTkjZG
-         vgAvGX/KZXy9ByrNSyupkvBCWaC/R59McOPv42sxnccI8RLjuxeShsUFXbt6JVbPK/ag
-         5RQ9P2Ust6z03COWprWz9kguyUStA7Fnh7hCWR0rs/WBEpuhW2lvfZWhF3c8IhNDV4ND
-         Jvcw==
+        d=gmail.com; s=20230601; t=1772810551; x=1773415351; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=Z6XDLuG2g5D0dtVulOb92ZhTkqEZkXM/BQ7MGxoQVFU=;
+        b=nb1WESQj9i0Gj7lNg4helJp9EHf5iVGOgvdspK7LpOqC/ChGaRai9ANd56O6TLUquR
+         BitEpwmREZIBzr1qQ+7zTmzjC03JJwmNYJTdx8n6MZAzzJnXjuavEStPQqtYIqeVbs8x
+         EyJ4kCCRKOC+2ckPHbwZgHrKsxhz0NPnUu2qqyR/TBTHnI/lJj3V3kF2CsJRPuZCL5oP
+         Vgyv3Yk7+GRREDilJjtQ7kQwBHwqSWgpSq5Y4GyoeaqW+ZtbuTDZtpniFkBelfw+oiLy
+         5MWW3L5RuBSMgrC/bCDq8QKua6Ld8S2vckFt9pBY21DiTKtuOhM6JKRFiSrjWnZkoBo0
+         ibWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772810478; x=1773415278;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=fVf18GuOCj4KUJQyL5+kDdyR0nQ8PeWTy0/PXRvmRP0=;
-        b=JTiTEAN6EL3bBjzE1jIEXby0GVmBSbK3dwPnP9/VfKFGIbPYWS1dvhIBa8FAg1aBeW
-         qWFd022Da8dZbnMHyNmfkHzzfMyGi27q6d5PEggJ/g2HN/rMGTDX3JuwiApO0Emrn+ZY
-         mKIqAWWxxYXwOJOiI7lSpLkbA3jcYcTilnohvDqAuEzW1d9MKSe5iK9H4p3fw8PoNIEi
-         PP6cDEwvJfdyVVbsCJQoR8IN91FE7b68aWo62ut5vRjGMCqi3PSceITis+4FyUIvTA2+
-         WsQs5gUQdAHcMikOrxneQjjLy/hm7YeStX7X7h3GV8O3EPlNQIVZE+SYEvYZH2mduFld
-         PPQQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXmISshx2CD33QxZ+M5JHPmk7iW+jH7N1gLJPfV80y8Dt92q2GRPjcS6tqpDILwTDy8VIov+JmQib0obb93qsff@lists.infradead.org
-X-Gm-Message-State: AOJu0YynZLEp8uz8Gd+LCzVQ2naUen4Txjwevg+/0Tk5lazBKuJU58W8
-	895OoHtY0UZOV5qfgLvnUKImg64wf1tD0EKtbJr1j0IY9PKFlQJJRFpDI61yJH8/uD5GABzRx1D
-	YO5doMjZtDbKWdpKC/V2PcOR7ogHrHGa2pb91N+ixKg==
-X-Gm-Gg: ATEYQzwFnUP/8oZh1tnxnxQqPb/IwUUP4ZLCKgwiDrf65hT+ZtdgfRlSTloKxyfVH+M
-	J2jxo2MNXphYhmjJfZgWik8sMr7F+vpeBauQGwSW0exWMM8bZwc6PbJ4ox+pvHLkJocuiYTDUP/
-	6hINm0vVOAGTFRzbi+ofwYlECAmK71Oqxmi1hA2KIJ3YvvXumS+4gfYJVt0EMl4W+ac2HLmpXIn
-	LDWvQvMqnfPEx3Kpqik4c+RUiPw25gncdshAp27e1/4vo90yPc1wyGcA9kgJLxr9xQ+jdCPzjU/
-	KrPOV/kAQQsGi/XtucqrEBuuf/Iu20k/CKbNSN46SQ==
-X-Received: by 2002:a17:906:6a0c:b0:b8e:3d49:25db with SMTP id
- a640c23a62f3a-b942e00db25mr143796466b.54.1772810477794; Fri, 06 Mar 2026
- 07:21:17 -0800 (PST)
+        d=1e100.net; s=20230601; t=1772810551; x=1773415351;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Z6XDLuG2g5D0dtVulOb92ZhTkqEZkXM/BQ7MGxoQVFU=;
+        b=U4DtNLsd/yl14R3dJXVs6HfNIiSa+ufLSaUEvCiQsacm78wqn57zAXG7kLKzEzVRuM
+         hIhawcVzGokLmNN2eR5umair2g0bMfTqnz0C4Hs3ADUukYTPtygFZTU7yRpmgRCqmXbR
+         3vGWyEYNIROhx/GNtaZk/2tRYV2fx//dJGMlovvD++Oe7/tHeh/fGcKbbqrDRKIGn5RH
+         uTj6NfbAz0abzbEGOrdMv2YAkQ6oY5VBuMzvqUcmSb9zgh3IL9dPF5yQHS8dR31w0mRk
+         4O4efvBpZzG6MaGYv7a21f93gChhgQa0lmB1zU3C5//B6rD85XBr9iIc2IfnEYmBYVAj
+         Dkvg==
+X-Forwarded-Encrypted: i=1; AJvYcCUInUFO10z1l1M46n/+a0ZjfI5vGJXvlIoCIbZyv4/Srf0/VGrLkYB8ouZ/y52NCu/2whyJVhfW2AVPfpLWVCEq@lists.infradead.org
+X-Gm-Message-State: AOJu0YydXIGjULYjV+IHw0yJFgg5VM7r8dbuQ49XsRfBjuQZO3A37MPR
+	Gfmy7UIFBRljXFLBJeVcQxgOUAcFEv+zG/KBd6F8HEjWtSr4FG1lLg61oHCYMmFK
+X-Gm-Gg: ATEYQzzRAyP421ZOmC5qKEI2xs2q98BwdQ4FZy6FHnKA4oLLtI91j2pdQXCeQsAtPkh
+	Ez36IewwTjcisSSkZO72o+mgjawxEsLyFKbz01uWGXCKruU2EVX2OtC8tOD/l4ciRrMkgF6X74D
+	2Khx06rEuk/jACtd8kzdmm/BGWH/qpaWGDh7R3grXCR/x5Z8DBate8dZVVrnvfxJvbDQzu7K2iH
+	joq/WlHXRpK876DmDeLKn4S+mg+Pq3X2ux6YQufxLOikVswazHMiFlPUA11KX1xSgmq2Iimm3Is
+	LqHaH17uVXLpcWYXviYJqEOG0Tf0w+4GIy1m4sVRc74aigTknoIobM1j5/NVez1xsr5zz6njAzE
+	JpJAJtoQ8Zp4ZaiwPeJrhxIEIniNB+iM/v//h9Ip2OpC1Z/8E3YUdEOyS90CcXQwKe9i0nSSlaL
+	HLtw/Ta5F/8iP4B5sTwGZOmZPZKbF169Kxs8iUSdigMLvRzur5ZooPRMHYSW/65DKHhMeQ+Yvn
+X-Received: by 2002:a05:7022:e28:b0:11b:9d52:9102 with SMTP id a92af1059eb24-128c2d9b28cmr1184560c88.6.1772810551074;
+        Fri, 06 Mar 2026 07:22:31 -0800 (PST)
+Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-128c3f5a102sm1441985c88.13.2026.03.06.07.22.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 06 Mar 2026 07:22:30 -0800 (PST)
+Message-ID: <b4629b96-2e5b-45b7-a72c-dc090a5c15b4@roeck-us.net>
+Date: Fri, 6 Mar 2026 07:22:28 -0800
 MIME-Version: 1.0
-References: <20260306-gs101-pd-v7-0-03f7c7965ba5@linaro.org> <20260306-gs101-pd-v7-8-03f7c7965ba5@linaro.org>
-In-Reply-To: <20260306-gs101-pd-v7-8-03f7c7965ba5@linaro.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Fri, 6 Mar 2026 15:21:06 +0000
-X-Gm-Features: AaiRm53NoJSram8HquKNMruwU8Hhr-XYeKCTUDRI7ADZLhZOeyB6oV1YUnbVV6A
-Message-ID: <CADrjBPqnf9YVeOgY=uSETnbcQLgi5OY2N3usPOjzJx4o0hGEPA@mail.gmail.com>
-Subject: Re: [PATCH v7 08/10] pmdomain: samsung: use dev_err() instead of pr_err()
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Juan Yescas <jyescas@google.com>, 
-	Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pm@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] hwmon: (aspeed-g6-pwm-tach): fix driver data handling in
+ probe/remove
+To: Billy Tsai <billy_tsai@aspeedtech.com>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: linux-hwmon@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+References: <20260306-pwm_fixes-v1-1-e8ede6fbaf47@aspeedtech.com>
+Content-Language: en-US
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
+In-Reply-To: <20260306-pwm_fixes-v1-1-e8ede6fbaf47@aspeedtech.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_072120_031176_D00986B8 
-X-CRM114-Status: GOOD (  18.51  )
+X-CRM114-CacheID: sfid-20260306_072232_609897_036F22E1 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,76 +146,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 6 Mar 2026 at 10:29, Andr=C3=A9 Draszik <andre.draszik@linaro.org> =
-wrote:
->
-> dev_err() gives us more consistent error messages, which include the
-> device. Switch to using dev_err().
->
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+On 3/5/26 22:44, Billy Tsai wrote:
+> Ensure proper association of driver data by setting and retrieving
+> the platform device's driver data during probe and remove.
+> 
+> Fixes: 7e1449cd15d1 ("hwmon: (aspeed-g6-pwm-tacho): Support for ASPEED g6 PWM/Fan tach")
+> Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
 > ---
+>   drivers/hwmon/aspeed-g6-pwm-tach.c | 4 +++-
+>   1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/hwmon/aspeed-g6-pwm-tach.c b/drivers/hwmon/aspeed-g6-pwm-tach.c
+> index 44e1ecba205d..0c03d272279a 100644
+> --- a/drivers/hwmon/aspeed-g6-pwm-tach.c
+> +++ b/drivers/hwmon/aspeed-g6-pwm-tach.c
+> @@ -490,6 +490,7 @@ static int aspeed_pwm_tach_probe(struct platform_device *pdev)
+>   	if (IS_ERR(chip))
+>   		return PTR_ERR(chip);
+>   
+> +	platform_set_drvdata(pdev, chip);
+>   	pwmchip_set_drvdata(chip, priv);
+>   	chip->ops = &aspeed_pwm_ops;
+>   
+> @@ -519,7 +520,8 @@ static int aspeed_pwm_tach_probe(struct platform_device *pdev)
+>   
+>   static void aspeed_pwm_tach_remove(struct platform_device *pdev)
+>   {
+> -	struct aspeed_pwm_tach_data *priv = platform_get_drvdata(pdev);
+> +	struct pwm_chip *chip = platform_get_drvdata(pdev);
+> +	struct aspeed_pwm_tach_data *priv = aspeed_pwm_chip_to_data(chip);
+>   
+>   	reset_control_assert(priv->reset);
+>   }
+> 
 
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+The probe function registers aspeed_pwm_tach_reset_assert() with
+devm_add_action_or_reset(). Why is the remove function needed in
+the first place ? It seems redundant to me, and even buggy since
+it asserts reset before its users (pwm and hwmon) are disabled/removed.
 
->  drivers/pmdomain/samsung/exynos-pm-domains.c | 12 ++++++++----
->  1 file changed, 8 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/pmdomain/samsung/exynos-pm-domains.c b/drivers/pmdom=
-ain/samsung/exynos-pm-domains.c
-> index 2214d9f32d59..41a232b3cdaf 100644
-> --- a/drivers/pmdomain/samsung/exynos-pm-domains.c
-> +++ b/drivers/pmdomain/samsung/exynos-pm-domains.c
-> @@ -30,6 +30,7 @@ struct exynos_pm_domain_config {
->   */
->  struct exynos_pm_domain {
->         struct regmap *regmap;
-> +       struct device *dev;
->         struct generic_pm_domain pd;
->         u32 local_pwr_cfg;
->         u32 configuration_reg;
-> @@ -47,8 +48,9 @@ static int exynos_pd_power(struct generic_pm_domain *do=
-main, bool power_on)
->         pwr =3D power_on ? pd->local_pwr_cfg : 0;
->         err =3D regmap_write(pd->regmap, pd->configuration_reg, pwr);
->         if (err) {
-> -               pr_err("Regmap write for power domain %s %sable failed: %=
-d\n",
-> -                      domain->name, power_on ? "en" : "dis", err);
-> +               dev_err(pd->dev,
-> +                       "Regmap write for power domain %s %sable failed: =
-%d\n",
-> +                       domain->name, power_on ? "en" : "dis", err);
->                 return err;
->         }
->
-> @@ -71,8 +73,8 @@ static int exynos_pd_power(struct generic_pm_domain *do=
-main, bool power_on)
->                 /* Only return timeout if no other error also occurred. *=
-/
->                 err =3D -ETIMEDOUT;
->         if (err)
-> -               pr_err("Power domain %s %sable failed: %d\n", domain->nam=
-e,
-> -                      power_on ? "en" : "dis", err);
-> +               dev_err(pd->dev, "Power domain %s %sable failed: %d\n",
-> +                       domain->name, power_on ? "en" : "dis", err);
->
->         return err;
->  }
-> @@ -140,6 +142,8 @@ static int exynos_pd_probe(struct platform_device *pd=
-ev)
->         if (!pd)
->                 return -ENOMEM;
->
-> +       pd->dev =3D dev;
-> +
->         pd->pd.name =3D exynos_get_domain_name(dev, np);
->         if (!pd->pd.name)
->                 return -ENOMEM;
->
-> --
-> 2.53.0.473.g4a7958ca14-goog
->
+Thanks,
+Guenter
+
 
