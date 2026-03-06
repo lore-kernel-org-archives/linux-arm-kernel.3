@@ -4,92 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 397B9F513F3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 04:46:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB70AF513F7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 05:07:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qG3UCHbICIKoqorE0OwQsqzoYP9iJFn4dnjoO73bdjs=; b=fbG+KJbtDZm1ZgbRQETw4peimi
-	i/fn5QBSZaXgOz+vv2ma9TltqO1ej1Ryko3FAspAKIULeOfXtW46IN6VbMJtBmvBAmA0qpu6zl9J8
-	VLfQ3dA2oqerChjtjowMojbRdSDD6RA92eRhKrL7JV80g5M74bsA2yP2U0Fu5BL363XYP3akeAYIg
-	OHbXlys+iujFVSWX1M6rSNwD8V+DfhBr9WCQCj1mW7wV9tKLNg9oXOkI9EOhtdPT3sLCQXbLz3nQj
-	xlhykWvB0XML/PtQK90EDajMQOvZrrkmNvhGbhpA08hJPUUDrcTXv9eLsznuFVD0WcUGKYBLzOGVJ
-	OsSRkkNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SJiF6BmglK0AeTwjDbUxxQND8SoI8hUjkKHETrw/fmU=; b=BsOKLELjOcUYk7IFDnWw3HtFPI
+	vb+JXDcYPkgnX/bzpvGYQ4NqKKdRXbu7PfQVWUyU7WTEw/z9vdJ1HOuy8Ze0KYLTWfIPrEqw2Yqg5
+	AfbzJN+gJw56AmYVfEbiOf5IosfijFu50+ds47ZnOYOYS7BSDwbY3BhTtmqI/wRuZ6ndr7GCr4wJ8
+	1n/q3hWmdxUyxEO3VsnUJKp1i4ZBA3ALMr+h4DBieHh7noS4dHRHnH38vTIZai10E1ewFyF+QczIw
+	4x6kDpMcD2gQ2OAuOvsybAg79eknBzXhPw6nT4EMvY7lZOBzwn5EkF3XYIOKNfLw+bbzSCBhdoEi0
+	uedJPkqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyN4b-0000000317N-0kz6;
-	Fri, 06 Mar 2026 04:46:01 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1vyNOq-000000031hA-3FVC;
+	Fri, 06 Mar 2026 05:06:56 +0000
+Received: from mail-eastusazon11012062.outbound.protection.outlook.com ([52.101.53.62] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyN4X-0000000316n-2Drf
+	id 1vyNOn-000000031gm-0fid
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 04:45:59 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2ae527552acso19188455ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 20:45:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772772356; x=1773377156; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=qG3UCHbICIKoqorE0OwQsqzoYP9iJFn4dnjoO73bdjs=;
-        b=F8GIA7GiYSyo95ecRWG0l2S05LC4Kfm+hwNPvlqvfa8I/9rXKMdvNjxIVBOXEi0lzr
-         3yfjp0Ir2wkZZF0Nw95KPbdd+TgsTWQ4p8ZRI3LGhifqlMJwv6K1G48PkgLm6xMpAM0E
-         7uTC+ta5F78Y7pm/JLr9P3CnW2PdBzFP3sywSLb2JGGnOk3xLsmyBn0mGZ1Q0H4Gh6Sl
-         hncLd3QE3u3O+P4yZG+xwFb+P9tDmfGn9haN2nIXR9RypSZf6ObBbQ0s/R1D5oxbiHqE
-         Y84fvzv/46QGw+qvlsu8KVeey60nFSHIjjmqGIUC4VIefgsZFRH2uPmAslHXO5LfbRN4
-         wqpw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772772356; x=1773377156;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qG3UCHbICIKoqorE0OwQsqzoYP9iJFn4dnjoO73bdjs=;
-        b=fq7l86L06yryUuRHQD0Pq6txUpXk4MqDnMjlxGx2V7prbH3RRDyOTYdiCzX6llZ8qd
-         7yg5yQyS+wOh5D/NQZEvndDyVgMT5/wZluQzaGyxk97gW7uZBak+RUICKj0++Z1jzq1Q
-         MS7mZX1m8Y/XxGX3JJa8K8bxaci1AhF/e7XVD/KaNT2G/Tvg1cPEQThr6bc1c/HCZuq3
-         7g2uAnB6Nkp5K5Iw/fQACXSrrP1bL9m+2acQ1cU1yGyOluIbXyzvic0Tx8JndiALR1DQ
-         Gg7YggO2a81Yvf1tmKG56NJp21oJT9S4uHDBSlqOkGH5o/pivJaWVfdHacz6F914TmJJ
-         W55w==
-X-Forwarded-Encrypted: i=1; AJvYcCUslq/77USCfzKpst3Q3kZWPfbY4nedpS/IqyGbyzJeDL+lEggdqTF5Kh6V67PEzpi9joQqCkIRtdSCmarggcRN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3TgVONbyBTTJkJ7j5539Ja4j2cFrkszHxREdAT92tnHGHPFiv
-	1keSqx7Dg+Ns/sB+/UtXUokmHu5ZKlFVX8TS5VWjbwApKPiVhlaBgkaa
-X-Gm-Gg: ATEYQzwFJhHNQN81Qak+b8ibPPL7lTnzHBoAfgYEGjYZDEueK7fyET4yjyUGq4NLChy
-	xQGMYuBWCnRy8/WFWxxp9cbFAiPoog+drt9fd7G5tY7jkkStPOm+qTULeWI5srzj4Ii1D0/QXnU
-	SiYg45m1tCTln68tYKwEaJ8kux/P+De82i2N5Zf1zG2uSwjLQxlEaD+EDFtV1fMH4Y/P7ihG/ux
-	j32HSG2Qmn5UX3lNjXuGABM8+2fk6YVzWaR45xUwKYxuIjHHu+AOBEAUFKaT5Q00jqEbKMuOvqu
-	jRnUphD5jS0kxxA2UViNaMMNd3jySI/wD2QILHLPYIShuU7L190NuewW9wEUypXPQLISwO44S21
-	ilpHMDpdu2yAlCziqPi8tXOv2JUAIsgUi3iRhCzMyKuacIdAUon2FqRJ5UO2UpszVn7aHvRVDYW
-	kWxUSPscovAV3idht6cv8PI9w/BG6QdGVXoKEXEgKLcOgnWb06R8bFYmc=
-X-Received: by 2002:a17:903:2986:b0:2ae:8092:e212 with SMTP id d9443c01a7336-2ae823ffc26mr10568555ad.8.1772772356318;
-        Thu, 05 Mar 2026 20:45:56 -0800 (PST)
-Received: from ryzen ([2601:644:8000:56f5::8bd])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae83e57cb1sm3927375ad.9.2026.03.05.20.45.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Mar 2026 20:45:55 -0800 (PST)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-media@vger.kernel.org
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	linux-hardening@vger.kernel.org,
-	gustavoars@kernel.org,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] media: nxp: imx8-isi: remove kzalloc_objs
-Date: Thu,  5 Mar 2026 20:45:36 -0800
-Message-ID: <20260306044536.149204-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	Fri, 06 Mar 2026 05:06:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nVFXwGi/SPe4v7rM7MLd0137eME+XSu3JaHFSTE+apW23hqQ/FSNzHM1cS9Ogo//toonKOQAMna4W044PqMOBMyPASkvoxo59DKZQ7AVpqHxvAdeO7bAY6m5FIXRNmM8RJEvLvIuYKDaEm3O+3bh3/eDqqL31bRlMp8RDCtWyQB/AmJnf26wgDO4/c5iapUL7GwDmdjo+EcgFz8SNTUNaryj1cgk7Voas/QaPnBbmkC7xaBpm67brj1/xMbAnpT2amE0RKA4Xrqn+0oKaCWzHtdVCEssciNadhsVb5bBleDUYAtX7T4QAr3zvGCLudXBy2qQe7We9HxZ4Vp+n5PiUA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SJiF6BmglK0AeTwjDbUxxQND8SoI8hUjkKHETrw/fmU=;
+ b=qy/4t6vTUfHnXVthVeeVZSKKSlyO8CxD/ALtjCodo6mtwJ7N550DL3w+xsxR7OWoVwHrfm9R51wGc38jeNwDED3dQIi5ojvFzmTTWuEKiAsCGtiiK0VMir4L9yBj0XxVu+keDOAA6JiV3gPIwD9bjEjFpfNbwbgB77uJ33y8df2oQHpYP29eyfrrbvJ7OPqzRA13u2UiSKo2lPGNkvVvN5rR2dflvWxHgs+5tuUk0lC/Rs0Jrvf0buYbHMBvNxxnO4F8bkLZEr3JA4pCy6vGJDD5o8fORtNUDX7jmnf4mtR87T+6Lwg6hZ4Tqg7Vov8jiacG80XDTdwt1Y301NSUHw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SJiF6BmglK0AeTwjDbUxxQND8SoI8hUjkKHETrw/fmU=;
+ b=sSyMr2tl1HVeAh0PBYr9Imp/7NiBkUO0ZFjvF9Uln2SaRpXzqc66tt2HulKvclbP6qbV8xMKgGOBlKZR+2wYhxdKWwQE9GoOYOmDQHFq7RY+Xi+K9XzSRMFQFoXG+OuPs6sNKgYg1EPvOcB4rkRX0CpvGeNgzhvl+YskyBwXMOnMSqjpDoePM9Iqw1PoNKcoMgLmBOL7BwRCnn407vHDAbHShCdttf2MRwwm3Qi5ILb2Nu1Hj8se/ARQzaRpNlVQVv4pPOpYIUvXR1oCsF4U614J8qJhSfYNzzln8NnRrGpfRfEHLwg77pj+a3p95gBDp+r8c2a/5ShYLshSvKbaeQ==
+Received: from BN1PR10CA0021.namprd10.prod.outlook.com (2603:10b6:408:e0::26)
+ by DM4PR12MB6422.namprd12.prod.outlook.com (2603:10b6:8:b9::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.18; Fri, 6 Mar
+ 2026 05:06:45 +0000
+Received: from BN2PEPF000044A7.namprd04.prod.outlook.com
+ (2603:10b6:408:e0:cafe::1a) by BN1PR10CA0021.outlook.office365.com
+ (2603:10b6:408:e0::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9654.23 via Frontend Transport; Fri,
+ 6 Mar 2026 05:06:16 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BN2PEPF000044A7.mail.protection.outlook.com (10.167.243.101) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9678.18 via Frontend Transport; Fri, 6 Mar 2026 05:06:45 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 5 Mar
+ 2026 21:06:21 -0800
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 5 Mar
+ 2026 21:06:20 -0800
+Received: from Asurada-Nvidia (10.127.8.10) by mail.nvidia.com (10.129.68.9)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 5 Mar 2026 21:06:19 -0800
+Date: Thu, 5 Mar 2026 21:06:17 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<bhelgaas@google.com>, <rafael@kernel.org>, <lenb@kernel.org>,
+	<praan@google.com>, <kees@kernel.org>, <baolu.lu@linux.intel.com>,
+	<smostafa@google.com>, <Alexander.Grest@microsoft.com>,
+	<kevin.tian@intel.com>, <miko.lenczewski@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-pci@vger.kernel.org>, <vsethi@nvidia.com>
+Subject: Re: [PATCH v1 2/2] iommu/arm-smmu-v3: Recover ATC invalidate timeouts
+Message-ID: <aapgyXadT1TEz29u@Asurada-Nvidia>
+References: <cover.1772686998.git.nicolinc@nvidia.com>
+ <ca7ab934bf0f433b62a5c15d42241632c4cb9366.1772686998.git.nicolinc@nvidia.com>
+ <20260305153911.GT972761@nvidia.com>
+ <aanygWWZLA1htDdQ@Asurada-Nvidia>
+ <20260305234158.GB1651202@nvidia.com>
+ <aaot8uRsli5jNPzH@Asurada-Nvidia>
+ <20260306013347.GD1651202@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260306013347.GD1651202@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF000044A7:EE_|DM4PR12MB6422:EE_
+X-MS-Office365-Filtering-Correlation-Id: 84bec189-2798-469f-e428-08de7b3e29f6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|7416014|376014|82310400026;
+X-Microsoft-Antispam-Message-Info: ZRT9IG6o6SsaFE4LrMUccnG+hcw0lQMbIKF+3pSGxfaQ1L7N1QTdR0AN8VfgCEpQwq18+i/oKPAdWkX7BeYEcx8E29BfExtifjQf+yva8pt7cm+z64HpMjKYpnjA4Xy60W8lWF4qGp8RuOpnxAZv9qlAmkR2xXaS56TGSFyJs+pH9mCpvkBhmqjBQVbsINkP36S4IxwFl5wYJKxAC4+CupovYrDE99CgAcbkIXnTNqIGVIh8HQH57w/C6cL2v7FdyZtZqpjDZmbXicdThazhUf/D6RlS2P7dPpIKTQ5o2G/+fukCH0b1Fq7Bq4/t31mCYLe5rf7t/j9FQLhNxy+8ph4+NEUa7HeXIAPIMbIG6f1GhNpxFhRe9FDzJyOAKukQsUNEXXJYCWRIda+jFE2m8dZqWZYezALCZZneNAjDrcupy59W2HNGaq/efkj8PzI/I1WthNEedfg1sqK9biR8Fgx2N2tpylSotQq/ctuqOCUROqDuFXlxDT5xQ+d77g6Tq4hFnWq3+Kut2rid8FSKTMfZaYqarLh7pneHcMErNHdPOyUaYDEQqgXGkmpwhsRHCT9l0FvmKzQGncpXRtUTIJ3fLxjXtuxBhR+Ku17smRIjtvj5OCeJXGYgkRZfX8U5yv/rGJgXyqvq1fqshODenOit2+fAES1EI4TsFV2x5tEljsv/wlbJllivZgND5ejmSmVu8eOYhc9rTAPpyFtax5t3I0hoZQClW8RPcT+3n/PSkyG/43yXpnUxnFfTyUoCooaLSQa1jmg+Q6IV6dIYaw==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(7416014)(376014)(82310400026);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: +dnWQc1Uhzag1LQdoDThz5TAr7VU12ghebGoupo6LvbWuB8kaPOtdj3RSm0gLvnRRnEBVORi0t9Cnd9uyZLr1itUZS8zQTJxANpHxxN5f5xXjDg28DgJGMtwzs2YYYMvZ76zRjsWeiUR+6zkPg7ZEPKJhI7Nhbpi9nrs3xELdSQ1ZsmTzKyQyPkNVhbllf7dQkZVzAWTvnDwjyC4LjON/RkBlri4NyGbU54cDhbE8IutU1E7Pc2qiPl6SYuIdgqpmCjJ+Lf3tfQ/VKICKaZ830nbsRyQdco10urQ1OLfRraw2Mhk3/wvf4JGvwzj5M3CRXaj8FnaMJ897pb982akV03qpkRZgmwmmjOC5/ov6ww36U1ObqfPLBCL9dI1RvhacGW1qlCZSFGHlDLecDWv3zJrOD/scxAZvcETopAs2MheHv32RwH4KR8WKbQqhoMa
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 05:06:45.2597
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 84bec189-2798-469f-e428-08de7b3e29f6
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A7.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6422
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_204557_568891_85D29648 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20260305_210653_225293_EFD34423 
+X-CRM114-Status: GOOD (  14.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,80 +138,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use a flexible arraay member to combine allocations.
+On Thu, Mar 05, 2026 at 09:33:47PM -0400, Jason Gunthorpe wrote:
+> On Thu, Mar 05, 2026 at 05:29:22PM -0800, Nicolin Chen wrote:
+> 
+> > But arm_smmu_cmdq_issue_cmdlist() doesn't know when to push another
+> > CMD. In my case where ATC_INV irq occurs, the return value from the
+> > arm_smmu_cmdq_poll_until_sync() in the Step 5 is 0, and prods/cons
+> > are also matched. Actually, at this point that NOP ISR has already
+> > finished.
+> 
+> Yes, you'd need a sneaky way to convay the error from the ISR to the
+> cmdlist code that didn't harm performance. Maybe we could come up with
+> something, but if it works replacing the NOP with flush sounds fairly
+> appealing - though can you do a single WORD edit to the STE that will
+> block translated requests? Zero EATS?
 
-It looks like pipes never gets freed anywhere. Meaning this effectively
-fixes a memory leak.
+Yea. I can give that a try.
 
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c | 11 ++++-------
- drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h |  3 ++-
- 2 files changed, 6 insertions(+), 8 deletions(-)
+> Also, will the SMMU start spamming with blocked translation events or
+> something that will need suppression too?
 
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-index 16392420903a..657ffecc4d7e 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-@@ -459,25 +459,21 @@ static const struct dev_pm_ops mxc_isi_pm_ops = {
- 
- static int mxc_isi_probe(struct platform_device *pdev)
- {
-+	const struct mxc_isi_plat_data *pdata;
- 	struct device *dev = &pdev->dev;
- 	struct mxc_isi_dev *isi;
- 	unsigned int dma_size;
- 	unsigned int i;
- 	int ret = 0;
- 
--	isi = devm_kzalloc(dev, sizeof(*isi), GFP_KERNEL);
-+	pdata = of_device_get_match_data(dev);
-+	isi = devm_kzalloc(dev, struct_size(isi, pipes, pdata->num_channels), GFP_KERNEL);
- 	if (!isi)
- 		return -ENOMEM;
- 
- 	isi->dev = dev;
- 	platform_set_drvdata(pdev, isi);
- 
--	isi->pdata = of_device_get_match_data(dev);
--
--	isi->pipes = kzalloc_objs(isi->pipes[0], isi->pdata->num_channels);
--	if (!isi->pipes)
--		return -ENOMEM;
--
- 	isi->num_clks = devm_clk_bulk_get_all(dev, &isi->clks);
- 	if (isi->num_clks < 0)
- 		return dev_err_probe(dev, isi->num_clks, "Failed to get clocks\n");
-@@ -487,6 +483,7 @@ static int mxc_isi_probe(struct platform_device *pdev)
- 		return dev_err_probe(dev, PTR_ERR(isi->regs),
- 				     "Failed to get ISI register map\n");
- 
-+	isi->pdata = pdata;
- 	if (isi->pdata->gasket_ops) {
- 		isi->gasket = syscon_regmap_lookup_by_phandle(dev->of_node,
- 							      "fsl,blk-ctrl");
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-index 3cbd35305af0..99532efa4e41 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-@@ -286,7 +286,6 @@ struct mxc_isi_dev {
- 	struct regmap			*gasket;
- 
- 	struct mxc_isi_crossbar		crossbar;
--	struct mxc_isi_pipe		*pipes;
- 	struct mxc_isi_m2m		m2m;
- 
- 	struct media_device		media_dev;
-@@ -294,6 +293,8 @@ struct mxc_isi_dev {
- 	struct v4l2_async_notifier	notifier;
- 
- 	struct dentry			*debugfs_root;
-+
-+	struct mxc_isi_pipe		pipes[];
- };
- 
- extern const struct mxc_gasket_ops mxc_imx8_gasket_ops;
--- 
-2.53.0
+CD.R=0 can suppress fault records, but we would need to override
+that in every CD of the device.
 
+Thanks
+Nicolin
 
