@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6413AFCC062
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 19:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC290FCC06B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 19:59:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PabYKucFhlAPL24rWY9exRhx841+oNvFcXCQw1AMR9c=; b=lip1o4r3ghWCVuvy8x/l5O5VIZ
-	PMU3wrCwQ+B583a0pXabz+wJposXhiRWaLL/bq8Pw2GwLrXCjSoavOiaXsmOXDFNpd1V+ibWsCsDS
-	KMfO8r7oDu3xqutJ04welfZ+EmHU4yMRi3D7UMJTSCfI0lF6jPX6RqSoxxdUw3Xouqm3dDunS3Fc/
-	aZiwCD2MgGeUrUD29bAZR0HUFOI+BzPWddJvwtpI4yAVeSvn2AjaBRtxXRyLorFGVGKoH/9iC80ts
-	0AsIAX3I7M88E5ZN219bTvLutkoHY6+0rW7qNWk4NHMfLnX1EJSK6wGRZTo2wTt44vbnjfiH7y1rl
-	gfJnTBJg==;
+	bh=Q40sieppdqWC0Pb0LgkBOiCq1+WdogMkkdM87+FLk/0=; b=OCJ/ni0upQZsGYx9bgqS6A7Pat
+	WIL+cDlSccavONUkII4roaA6OlGr2UQhc8LwDLseg5/NMchIYQNECM36uMDe1FwMesRpCgMpeJFeK
+	vYVQDsSlNJI74zXNftyk9I0dKr+PpB3d4whFaRWG7K83Zlua7YUtSPLiMju6z5HBoOgdogHFX345P
+	3/mjkZZ7kHJ/xBbXMtdvLs1c7Zz3r4NEady1Bhpo7MU8aAZAOzk/UDILNBDZLz/YudsHa+OVYxgVb
+	e3B7iFOfPXo2djVIDEgzfcXTZnfVcxjHN0oYMtutLUqsqE/Pulgs/0U+bVTThugnd1oEcDmvwWAoQ
+	E3I/iQBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vybJx-00000004Qdx-0Kvy;
-	Fri, 06 Mar 2026 19:58:50 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1vybK0-00000004QhR-0s8j;
+	Fri, 06 Mar 2026 19:58:52 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vybJt-00000004QaP-1Fij
+	id 1vybJv-00000004QcQ-3uKD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 19:58:46 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-48374014a77so115713215e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 11:58:44 -0800 (PST)
+	Fri, 06 Mar 2026 19:58:50 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-439c4bde55cso2642433f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 11:58:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772827123; x=1773431923; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1772827126; x=1773431926; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=PabYKucFhlAPL24rWY9exRhx841+oNvFcXCQw1AMR9c=;
-        b=QzrGQwOTTysPUyJECn4D+3hMk1pttujCKBCXlHd665aJeql2Br2JdHtAn2DWIhFWnB
-         1pPRNgLC3+M/fWHL9+MwVOd56ryuM05zS/DiFcyNNmD0yotdCs1Jmxk4mT0iJO/sXSIe
-         RmLKbmXCH5OGXdrIeXOLkQ8IrQxtZW4jZc4O+6kd4Q0Cj8BjC1stVA8PyPR2w99tFoPS
-         0hOY1IY5+bFOm3B8sTUhjV2Z4ofgeYHP9sHbJMDC28fsCNqx9urdTWw1Tk2hEXmyOtt4
-         LVzhATCQxhRz85BKvgrPT75jz5nrKGkaX7IZIWBn1wgoRIyommaxxbojWvPmOh8KCOlC
-         x2rw==
+        bh=Q40sieppdqWC0Pb0LgkBOiCq1+WdogMkkdM87+FLk/0=;
+        b=YMTNzNn7Ck41tpqS0BXMhNAh7KPR5yLBh3y7wAVwcau8q5tqhaq4tC/dXcBS6wjsp9
+         9M1Pahmx9WX7VVWPFa/p+ZM3FlTC+MuRnNy8l1jjU7gtDV8ArxnAzG8smFvPqZ/vTFaq
+         YY6iORCoxJJqcJzqvHeqFBy56w09QTSOIrya/wbgpJjOYjLJv53YvIFhPTk3AM11iwbY
+         YeNPqWH38yQcCHylT3Xo0056JjfLBa9h3NbG/z0UjrZrYQnrNCQZtSwOBdWpNJdz5onf
+         UNHGcvYXv3+5BNqaDFMOU5P2xWEwWcJpJnqLpc7h11yHj59qMO67RBBgGZkWMWBw5mol
+         Ppog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772827123; x=1773431923;
+        d=1e100.net; s=20230601; t=1772827126; x=1773431926;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=PabYKucFhlAPL24rWY9exRhx841+oNvFcXCQw1AMR9c=;
-        b=gAOo9a0rn/+hJfvG0vlxvD/kBjcBBwxzZWKvAWZyp2AMhIQLIM1uaOOaMA3yE6GqQt
-         GGMT16zfBWQJXPRknQmg61D2Bx0ZXJI8XYWnY7ibeYLHBvCMrpY48wp7dJIR2LQeVYxg
-         FDHyc+DmX8+ZKcuR5zDnY3e3NSRIAsbMBctymthWFKBYPa0X3DEiD1DZGHxofpNtcoKD
-         z95K1uPX1KebuNwWKh53uBXhyO1JUWiYgdoHMkBBI2AjxesatBq6GgrFnbHLlpkFzkJ0
-         gtRRZN7ve486F6u5x2Qi0/CbMovCiLEu0uFVBX81Py6JDIw1R+jyBpz2jUDT5ejTPien
-         W1nQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWKNbceuKViGzdERP0g0AQZRgCN3DbSXq/uscPNB4sdZXPn868p+zVdFQbgdEHAEyMpw8Iu7Xf4iMWtk/QG0EPc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5nN6sCG1aXSCXJt4XOoZGeoRieB2ZPoM5gonLOk+VWd10ho4h
-	JbQwIAkHTJqWFQALC1k8G9+NW1mcL+f+f9aczsAzdZ/xzQVLJNY3/SZ2
-X-Gm-Gg: ATEYQzzRmYZAWxt4l7zNu3FIVAV+CL3nBduxhCRFP0OxFhZM+fkN2o+Gb3mX13Ira4h
-	yHV2xA7XXLCBWCD7O0bEoSHv8vyNvCZxJ0MQNzWWFAzLCd7HTeh65skLSvdiUw+qxFIhRtCKa1Q
-	2HFN279N+P6WH1QnNDDMSiOdVCfdhOZDTDiQYLa7x6H+39Tlmbn6ztK+wOh9J9Ug/HZ4YW+jsSN
-	R9Q7p9L0gC2void+OBnVObjlpvpYT+yyjdgeCNakK3NSf8nVr/y/ujkuJoceNQMxNok9TyClRZl
-	IJ9f+eQw0czt9yZs18IA8oa3YVkJ1qPEoDYRR5aeYUtJtBBDxUVPYhTDNljFTpzOELTkkS8wQdx
-	BoiAfM+O98wNuNMzYdNC4pC18KxWZRqhjK1rLw1us9JLYll4mpJ+oE7aEwBTeB4EjGtKEmvHnkv
-	cNd5a1dEClTXVlHsCP0O0vqvYkXdX0HMjXZselbTFiGff3+zep7YI7aPa6w0+mha2Hg5S/Auxa3
-	fTpy2Z59KGTLLhpwJLb20TYqDZfbqf9MNBS2tg=
-X-Received: by 2002:a05:600c:8a1b:10b0:485:2af3:3f91 with SMTP id 5b1f17b1804b1-4852af3406emr19423515e9.14.1772827123274;
-        Fri, 06 Mar 2026 11:58:43 -0800 (PST)
+        bh=Q40sieppdqWC0Pb0LgkBOiCq1+WdogMkkdM87+FLk/0=;
+        b=djuHvwHXPdhTOP0QwsR1DFKXabs5y/UVscvEg/XVTiKRA9Evmkh//VWFIE86FmGKxD
+         Lfj4uGYX0bKU8acjVtQul+1yyaWueF4qHPRGWPFjFNt5c1sbL/urrPOcNNHT+cvqJJQT
+         GNp1zYtP0kA0hM1IkjmIVviKTgu9Q0WQb5jzBF4JYO3LcB1cut4qW9m6fpIbTxA+cmAC
+         cYwioWXtRsJofGJSHpuikCTmWAZ5SMgjR8IswLh0oO2yXW1pbMbWiakJJ1qIfw+O068J
+         MBUNR4AhsGhyJbC4/dFc7MfAm5KD8v6Lro5v4IyPepbfD2uRJZrMrGt2xMRBY2BLmG2J
+         d2Yw==
+X-Forwarded-Encrypted: i=1; AJvYcCVYkyNS4w0vSkMA/HrwJ4Cwi8yS/EEmH2Gga8XguTR+YHNW25/BnBSppertwenNVLVMJHh6hk94C+cUCliWWr7h@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz++TqNu4NxRYaROTO1iCjMDXMC4cVdswdfYOU8EBqxrADDX7Ji
+	LQ1E+w/FV1px9l3glmDoBUcG625pCWs/ULc0ryhcwzofavu1ieoDLcfw
+X-Gm-Gg: ATEYQzwm7CzTxKF3NR1oEHl+S+jHvT/IMSJjZjLAVj3Ffdt3yBnjRsiGY1pEIuGHlxk
+	Ez1Se4mu5YGMR/86skTHQ+ZDkUhOskDThv3d43qRpB3I0aZw5SgqntUl39q6IP1Iehlv9cpy0c8
+	4W1AYOLgaLiZYmG4ddFejc//FqmZ2hrQ1ezai906pfPqxM1rbBtDvnUohwgyu8sJ9rp7qQdQEs8
+	1FBYVZriygt6UTJqC9srNsknEI0MchkwODsCluec47XYKmNlPoNwWzF5mtUA8ouN8PotLbvPQAH
+	2yE5k4Bw6sB0iu1ckag5MezuE3rqzErpkU0rSCqSHYyvqzzCMaBiPCZKSi0Nz0Iu79gMm64swwR
+	eJ49aUsPJiBjFsCTIL2NLdQya1e0fqjFdCY8arAgSMXe/6h7NPT+jD6No8AJXV4gPJZFgqoooSj
+	z5mqFIgMgVEjQoR7J0mLY7z68BRLVdj3nTaN3ySPxgnNcSdTukPr4pXd1Fg9ij2Nnf9Wrig5fcK
+	vf6RP4AkWFTgzMWbjJ4H3SI61U0TYrutdwtw28=
+X-Received: by 2002:a05:600c:8b0d:b0:483:c490:8ed with SMTP id 5b1f17b1804b1-48526982c54mr51288945e9.32.1772827126037;
+        Fri, 06 Mar 2026 11:58:46 -0800 (PST)
 Received: from Lord-Beerus.station (net-188-152-100-94.cust.dsl.teletu.it. [188.152.100.94])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48523803b5fsm25167265e9.7.2026.03.06.11.58.42
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48523803b5fsm25167265e9.7.2026.03.06.11.58.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Mar 2026 11:58:42 -0800 (PST)
+        Fri, 06 Mar 2026 11:58:45 -0800 (PST)
 From: Stefano Radaelli <stefano.radaelli21@gmail.com>
 X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
 To: linux-kernel@vger.kernel.org,
@@ -85,17 +85,17 @@ Cc: pierluigi.p@variscite.com,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH v2 04/11] arm64: dts: freescale: imx8mm-var-som: Add support for WM8904 audio codec
-Date: Fri,  6 Mar 2026 20:58:23 +0100
-Message-ID: <bb76d92b9bfb164827f53eafceada37fb3312145.1772826534.git.stefano.r@variscite.com>
+Subject: [PATCH v2 06/11] arm64: dts: freescale: imx8mm-var-som: Update WiFi/BT with variants
+Date: Fri,  6 Mar 2026 20:58:25 +0100
+Message-ID: <7c84625f82c562bb9cd2b455465d63a1a25bf19e.1772826534.git.stefano.r@variscite.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1772826534.git.stefano.r@variscite.com>
 References: <cover.1772826534.git.stefano.r@variscite.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_115845_366939_12ACA9DD 
-X-CRM114-Status: GOOD (  14.91  )
+X-CRM114-CacheID: sfid-20260306_115847_998449_CCD77E41 
+X-CRM114-Status: GOOD (  18.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,169 +112,139 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Stefano Radaelli <stefano.r@variscite.com>
 
-The VAR-SOM-MX8MM can integrate the WM8904, a high-performance
-ultra-low-power stereo codec optimized for portable audio applications.
+The VAR-SOM-MX8MM currently integrates the NXP IW61x wireless module,
+providing WiFi over SDIO and Bluetooth over UART.
 
-This patch adds the WM8904 device to the appropriate I2C bus, enables
-the SAI peripheral, and introduces the sound node to expose the
-sound card to the system.
+Move the wireless module configuration out of the base
+imx8mm-var-som.dtsi and provide dedicated variant includes.
+The IW61x configuration is moved to imx8mm-var-som-wifi-bt-iw61x.dtsi
+and used by the Symphony evaluation board device tree.
+
+A separate imx8mm-var-som-wifi-brcm-legacy.dtsi include is added to keep
+the configuration for the legacy Broadcom SDIO WiFi module used on
+earlier SOM revisions.
+The Broadcom-based SOM revision is no longer in production, but the
+configuration is kept separately to preserve compatibility with existing
+boards.
 
 Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
 ---
 v1->v2:
- - 
+ - Added Wifi/BT dtsi variants for both iw61x and brcm legacy modules
 
- .../boot/dts/freescale/imx8mm-var-som.dtsi    | 100 +++++++++++++++++-
- 1 file changed, 97 insertions(+), 3 deletions(-)
+ .../dts/freescale/imx8mm-var-som-symphony.dts |  1 +
+ .../imx8mm-var-som-wifi-brcm-legacy.dtsi      | 12 +++++
+ .../imx8mm-var-som-wifi-bt-iw61x.dtsi         | 45 +++++++++++++++++++
+ .../boot/dts/freescale/imx8mm-var-som.dtsi    |  6 ---
+ 4 files changed, 58 insertions(+), 6 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-var-som-wifi-brcm-legacy.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-var-som-wifi-bt-iw61x.dtsi
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-var-som.dtsi
-index 24924ee1e8c7..7cedef8add32 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-var-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-var-som.dtsi
-@@ -14,6 +14,14 @@ memory@40000000 {
- 		reg = <0x0 0x40000000 0 0x80000000>;
- 	};
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts
+index 712892edba8f..51ac8ee34c3b 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts
+@@ -7,6 +7,7 @@
  
-+	reg_audio_supply: regulator-3p3v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "wm8904-supply";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
+ #include <dt-bindings/leds/common.h>
+ #include "imx8mm-var-som.dtsi"
++#include "imx8mm-var-som-wifi-bt-iw61x.dtsi"
+ 
+ / {
+ 	model = "Variscite VAR-SOM-MX8MM Symphony evaluation board";
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-var-som-wifi-brcm-legacy.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-var-som-wifi-brcm-legacy.dtsi
+new file mode 100644
+index 000000000000..f44a846ea6f9
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8mm-var-som-wifi-brcm-legacy.dtsi
+@@ -0,0 +1,12 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright 2026 Variscite Ltd.
++ */
++
++/* WIFI */
++&usdhc1 {
++	brcmf: wifi@1 {
++		reg = <1>;
++		compatible = "brcm,bcm4329-fmac";
 +	};
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-var-som-wifi-bt-iw61x.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-var-som-wifi-bt-iw61x.dtsi
+new file mode 100644
+index 000000000000..15990d141d2a
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8mm-var-som-wifi-bt-iw61x.dtsi
+@@ -0,0 +1,45 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright 2026 Variscite Ltd.
++ */
 +
- 	reg_eth_phy: regulator-eth-phy {
- 		compatible = "regulator-fixed";
- 		pinctrl-names = "default";
-@@ -31,6 +39,34 @@ reg_phy_vddio: regulator-phy-vddio {
- 		regulator-min-microvolt = <1800000>;
- 		regulator-max-microvolt = <1800000>;
- 	};
-+
-+	sound {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,bitclock-master = <&codec_dai>;
-+		simple-audio-card,format = "i2s";
-+		simple-audio-card,frame-master = <&codec_dai>;
-+		simple-audio-card,mclk-fs = <256>;
-+		simple-audio-card,name = "wm8904-audio";
-+		simple-audio-card,routing =
-+			"Headphone Jack", "HPOUTL",
-+			"Headphone Jack", "HPOUTR",
-+			"IN2L", "Line In Jack",
-+			"IN2R", "Line In Jack",
-+			"IN1L", "Microphone Jack",
-+			"IN1R", "Microphone Jack";
-+		simple-audio-card,widgets =
-+			"Microphone", "Microphone Jack",
-+			"Headphone", "Headphone Jack",
-+			"Line", "Line In Jack";
-+
-+		codec_dai: simple-audio-card,codec {
-+			sound-dai = <&wm8904>;
-+		};
-+
-+		simple-audio-card,cpu {
-+			sound-dai = <&sai5>;
-+		};
++/ {
++	iw61x_pwrseq: wifi-pwrseq {
++		compatible = "mmc-pwrseq-simple";
++		post-power-on-delay-ms = <100>;
++		power-off-delay-us = <10000>;
++		reset-gpios = <&gpio2 10 GPIO_ACTIVE_LOW>, /* WIFI_RESET */
++			      <&gpio2 20 GPIO_ACTIVE_LOW>; /* WIFI_PWR_EN */
 +	};
- };
- 
- &A53_0 {
-@@ -257,18 +293,57 @@ ldo6_reg: LDO6 {
- 
- &i2c3 {
- 	clock-frequency = <400000>;
--	pinctrl-names = "default";
-+	pinctrl-names = "default", "gpio";
- 	pinctrl-0 = <&pinctrl_i2c3>;
-+	pinctrl-1 = <&pinctrl_i2c3_gpio>;
-+	scl-gpios = <&gpio5 18 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	sda-gpios = <&gpio5 19 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
- 	status = "okay";
- 
--	/* TODO: configure audio, as of now just put a placeholder */
- 	wm8904: codec@1a {
- 		compatible = "wlf,wm8904";
- 		reg = <0x1a>;
--		status = "disabled";
-+		#sound-dai-cells = <0>;
-+		clocks = <&clk IMX8MM_CLK_SAI5_ROOT>;
-+		clock-names = "mclk";
-+		AVDD-supply = <&ldo5_reg>;
-+		CPVDD-supply = <&ldo5_reg>;
-+		DBVDD-supply = <&reg_audio_supply>;
-+		DCVDD-supply = <&ldo5_reg>;
-+		MICVDD-supply = <&ldo5_reg>;
-+		wlf,drc-cfg-names = "default", "peaklimiter", "tradition",
-+				    "soft", "music";
-+		/*
-+		 * Config registers per name, respectively:
-+		 * KNEE_IP = 0,   KNEE_OP = 0,     HI_COMP = 1,   LO_COMP = 1
-+		 * KNEE_IP = -24, KNEE_OP = -6,    HI_COMP = 1/4, LO_COMP = 1
-+		 * KNEE_IP = -42, KNEE_OP = -3,    HI_COMP = 0,   LO_COMP = 1
-+		 * KNEE_IP = -45, KNEE_OP = -9,    HI_COMP = 1/8, LO_COMP = 1
-+		 * KNEE_IP = -30, KNEE_OP = -10.5, HI_COMP = 1/4, LO_COMP = 1
-+		 */
-+		wlf,drc-cfg-regs = /bits/ 16 <0x01af 0x3248 0x0000 0x0000>,
-+				   /bits/ 16 <0x04af 0x324b 0x0010 0x0408>,
-+				   /bits/ 16 <0x04af 0x324b 0x0028 0x0704>,
-+				   /bits/ 16 <0x04af 0x324b 0x0018 0x078c>,
-+				   /bits/ 16 <0x04af 0x324b 0x0010 0x050e>;
-+		/* GPIO1 = DMIC_CLK, don't touch others */
-+		wlf,gpio-cfg = <0x0018>, <0xffff>, <0xffff>, <0xffff>;
- 	};
- };
- 
-+&sai5 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_sai5>;
-+	assigned-clocks = <&clk IMX8MM_CLK_SAI5>;
-+	assigned-clock-parents = <&clk IMX8MM_AUDIO_PLL1_OUT>;
-+	assigned-clock-rates = <1536000>;
-+	#sound-dai-cells = <0>;
-+	dmas = <&sdma2 8 25 0>, <&sdma2 9 25 0>;
-+	dma-names = "rx", "tx";
-+	fsl,sai-mclk-direction-output;
-+	status = "okay";
 +};
 +
- &snvs_pwrkey {
++&uart2 {
++	pinctrl-0 = <&pinctrl_uart2>, <&pinctrl_bt>;
++
++	bluetooth_iw61x: bluetooth {
++		compatible = "nxp,88w8987-bt";
++	};
++};
++
++/* WIFI */
++&usdhc1 {
++	pinctrl-0 = <&pinctrl_usdhc1>, <&pinctrl_wifi>;
++	pinctrl-1 = <&pinctrl_usdhc1_100mhz>, <&pinctrl_wifi>;
++	pinctrl-2 = <&pinctrl_usdhc1_200mhz>, <&pinctrl_wifi>;
++	mmc-pwrseq = <&iw61x_pwrseq>;
++};
++
++&iomuxc {
++	pinctrl_bt: bluetoothgrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_SD1_DATA4_GPIO2_IO6	0xc1
++		>;
++	};
++
++	pinctrl_wifi: wifigrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_SD2_WP_GPIO2_IO20		0x140
++			MX8MM_IOMUXC_SD1_RESET_B_GPIO2_IO10	0xc1
++		>;
++	};
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-var-som.dtsi
+index 21a4d87c0e26..c37badc4cf27 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-var-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mm-var-som.dtsi
+@@ -390,7 +390,6 @@ &usbotg2 {
  	status = "okay";
  };
-@@ -413,6 +488,13 @@ MX8MM_IOMUXC_I2C3_SDA_I2C3_SDA			0x400001c3
- 		>;
- 	};
  
-+	pinctrl_i2c3_gpio: i2c3gpiogrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_I2C3_SCL_GPIO5_IO18		0x1c3
-+			MX8MM_IOMUXC_I2C3_SDA_GPIO5_IO19		0x1c3
-+		>;
-+	};
-+
- 	pinctrl_pmic: pmicirqgrp {
- 		fsl,pins = <
- 			MX8MM_IOMUXC_SD1_DATA6_GPIO2_IO8		0x141
-@@ -431,6 +513,18 @@ MX8MM_IOMUXC_GPIO1_IO03_GPIO1_IO3		0x1c0
- 		>;
- 	};
+-/* WIFI */
+ &usdhc1 {
+ 	#address-cells = <1>;
+ 	#size-cells = <0>;
+@@ -402,11 +401,6 @@ &usdhc1 {
+ 	non-removable;
+ 	keep-power-in-suspend;
+ 	status = "okay";
+-
+-	brcmf: wifi@1 {
+-		reg = <1>;
+-		compatible = "brcm,bcm4329-fmac";
+-	};
+ };
  
-+	pinctrl_sai5: sai5grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_SAI5_RXD1_SAI5_TX_SYNC		0xd6
-+			MX8MM_IOMUXC_SAI5_RXFS_SAI5_RX_SYNC		0xd6
-+			MX8MM_IOMUXC_SAI5_RXD3_SAI5_TX_DATA0		0xd6
-+			MX8MM_IOMUXC_SAI5_RXD0_SAI5_RX_DATA0		0xd6
-+			MX8MM_IOMUXC_SAI5_RXC_SAI5_RX_BCLK		0xd6
-+			MX8MM_IOMUXC_SAI5_RXD2_SAI5_TX_BCLK		0xd6
-+			MX8MM_IOMUXC_SAI5_MCLK_SAI5_MCLK		0xd6
-+		>;
-+	};
-+
- 	pinctrl_uart2: uart2grp {
- 		fsl,pins = <
- 			MX8MM_IOMUXC_SAI3_TXFS_UART2_DCE_RX		0x140
+ /* SD */
 -- 
 2.47.3
 
