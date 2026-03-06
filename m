@@ -4,144 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3F54F01804
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 08:16:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01D40F01808
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 08:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pwh0o1lL3AUtAxFQNMWY+SCvWbnn2SAiTSS6N7Kb0mQ=; b=MI/LxZ999+BEotMgX467HkEigN
-	UB4D8CA2cYcBIN0K9SLBO0dc1ZP3trh3BNilCqkKK2vn0f4Om5bFn0AhkhhiusU5US5pJKwMHL194
-	ucP3CZUuwqw52fa2n2HA5wfhHdU4CjQKxYM1vnNPMkC63K6YXaF3L4wl+1wX5bMfuALK/ycOCzUBG
-	KgiT/XFShL1Ev5LJT1JfNIe7s/34JGGr7tcwfhWQPT+uWf766CcAjNyquChM8guHWl4pmZ/RVfvYh
-	hWGiXiM0pJ9uhVFJ4ggS0crVvqaMXPoQGYISw/jXZbRYwWZJ2Nr9wD9IhafFCDf8umhLMDN1h3WOj
-	suFjRUCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bGxa2/VJPSkh1nIhBiAQBxjO2GHPkYam/Srnb3Gacrc=; b=5EyagfpA9Mi2Xy+NQlYVVBQIfK
+	eWl4OvG0x5Mk/o6P98L1eJSiLfb4j4otlgagC6hcJWL6YXeJ7pIVdvtgkjFznYzEvOIzoqFHEhsPC
+	lPdYVfSB2Ad8fyPGBm+HT6JEidvvefBATOMf040XvPCGIT7Eh0Ce5aeOCVzxQs+hvC71AYjqN94Mv
+	f0khh564/cBdVymn4TPXhYpznvVZRHHv3AtlF1TbLmwMgs++6OsJkw1+mMWKUhBPPvqbxEAtboIKw
+	lAbGzi3U6QckjU4OEwqIQmsDDHhBWy2jRbpN3kvxg61tSeonSXL5LEyWHU+HQSKFDcuZemlo+GXRZ
+	TFy7K2Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyQMc-00000003FO9-2VAV;
-	Fri, 06 Mar 2026 08:16:50 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vyQNE-00000003FT4-3sHh;
+	Fri, 06 Mar 2026 08:17:28 +0000
+Received: from mail-eastusazon11011055.outbound.protection.outlook.com ([52.101.52.55] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyQMa-00000003FNc-2NKO
+	id 1vyQNB-00000003FS4-3SNy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 08:16:49 +0000
+	Fri, 06 Mar 2026 08:17:27 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vYcvfYn1qgrRh5AONgVCe/w7BesYKyREJmIKCXeV2UEg6fsL06WHR1SbcS+xxbkFBPKkfD6oN/9yJ1azc+M3UyXMRiwTJqjIkqkRn0Ed6yZV2/XYe/+NBTM3Yh9O17bNOJRufYRPuEw5T+xifnOaU2LmUnm/me9cdhCoGpr5O/91qoidwdAwy5N+KHXxq26FOI+cC+uIsG5lySdqXMdTb/LD19qxTDLx/nnsqsK2nhTg2xz8/CBvooU9sc2O9mbmt16hTefrMai54FBtSTF5eOCziq3dWCxsA+eFvgDpCP0QuvBa8U2oqTYuZ1N6G0Tg32SD0mrTbZPsaW0IYLnHeA==
+ b=dxwbc2wgRga+SKYn7b5Q99S6hhxUX7wZumnC9x494hm5BslcLHMyeGm5uzAVRLvZOTF1FEA8rn0DjDn1f55e1yBV8pLC1IYoE+tL8gcmoLrbr30sNc+Z027Ev/NYAooO0q9uTwgGf7JU2b6RLa+7NxQ/bMvDiIDfLgYfbL0AqLh4/dMNVq50bInFX2cNbQ61PwvwaMEpluDfm4WEOeOYVyrd8Up9tS7HhTirtaMGuScfNphX8X2ZoQTinavMZ0oqR/U5LlFAyumUR/YRZDSdS5b7gTZzOcpiCfJH5hM+5RiGddH/Ds44Muav7cxK7Nj83IbPZOnR+eheTzT+8jaBCQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Pwh0o1lL3AUtAxFQNMWY+SCvWbnn2SAiTSS6N7Kb0mQ=;
- b=Ar4L44tCWc1pNOrnOgSFrK1eWZTi7orvqtCTTlgAOeQBaNMDvnK3GjQ01dOcodh8HpE+xXt/JXf5eapKT6bMyXlvT/kaOdKJcgbuzTQDaeEca5W7lu71Z9eW6sQU0vCiH/4UAnlyRfBZaTfwP1nH8SPxCglqk6+/z5bqHaOgfM4khgN54lBGPibIuxSa5yOvVSM/B9GB653daEbMd+ljrfQopQxa5Ahmao1gLuea/jT91VDKI41ZTbhq0rQaVdEkN/nbGiy/QfmMS+OjhHEOEN+SqNX1nLnlTAKjY1FTKlPyihZPrMi5B+Jm69XIg/TDKXJh/KnEX+Cr2IExFtfisQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ bh=bGxa2/VJPSkh1nIhBiAQBxjO2GHPkYam/Srnb3Gacrc=;
+ b=YefQ3tum8r0wJeUqD5XfcK3DIAfYvFSe20G2wVudLouCALJLcABjAzyLLco//yxEmaZcPqIJzRqtIiywStHTo+D1o1pkzm3xLifQKIgm1nnPVaP12+zwaSH3tDaiXl8nrsEJf2xXtjzLuchonMGk3/8iw5RXN8E9hir2ph4hfjxlvW5lhNnIbLC5Ai+jZC6WbHdXsyYSlI5lcRJCcoJ+z8DzAfKHl8rCMBStJM3uHuP3iWfDvBi4p9dBdwUIPks/WzCIEjPD7ZLfadeZA4UqT4laAw0Mqe0SBv8l625w/UAd1kO4f9sIHBWuqNOZUY9/95i+g2F3KMoJl3zLDMR1VA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Pwh0o1lL3AUtAxFQNMWY+SCvWbnn2SAiTSS6N7Kb0mQ=;
- b=iAdwQd/rz9ZLDenoYrfvP0WTg94nm6Ljx9E3GYTB8pGAyDDcRd+Jd2MxKBpJqrvFRP9SbaKjXp3tBKENBQu2hmoSKWrwq59AhC6pJ2kr7Hw7DeYNjbwD4idS24pzdyRTl7BubpgomAVK7kLzrmycQzTgfpssRhqXi5UcL9tHb87EF4t1b0muchcNzFx17TalCYxNv2Jdk2waYkyUZWYEuPOusqJF9gQDnsNZPFgHkyh9X2SDR/TPq6KYeJml9Y+OAqx420aBsGsqH5ecTnKxV2/QOOmR2HIMR2X64UKJ2Z+v41+cJpYo+A5FUL3N+j1MeVKu7f+Nm2rQcfRBxsB3Dw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by DU6PR04MB11136.eurprd04.prod.outlook.com (2603:10a6:10:5c0::18) with
+ bh=bGxa2/VJPSkh1nIhBiAQBxjO2GHPkYam/Srnb3Gacrc=;
+ b=ngc859bgiW3Xbui4vUgWCb5mK8ZFgkDNh7L9SrtqM8cnjMqQ/gbRWW7v4FkVhx7h4gUoogNy8xwE/Wt/F/tAST7AVleIoU1blLKW34r4Yuj3sOBH4S8fQeRiM7eKzMA+csG6DIHVY153xD7Kf1RCj9azvzb0zaugZhSwVVbWKKI=
+Received: from BLAPR03CA0131.namprd03.prod.outlook.com (2603:10b6:208:32e::16)
+ by SN7PR10MB7002.namprd10.prod.outlook.com (2603:10b6:806:344::20) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.18; Fri, 6 Mar
- 2026 08:16:41 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64%4]) with mapi id 15.20.9678.017; Fri, 6 Mar 2026
- 08:16:41 +0000
-Message-ID: <64f9ad81-9a09-4e97-a0f8-5c6dc5295b64@nxp.com>
-Date: Fri, 6 Mar 2026 16:17:47 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 6/9] dt-bindings: clock: nxp,imx95-blk-ctl: Add ldb
- child node
-To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>, imx@lists.linux.dev,
- Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Marco Felsch <m.felsch@pengutronix.de>
-References: <20260304-dcif-upstreaming-v8-0-bec5c047edd4@oss.nxp.com>
- <20260304-dcif-upstreaming-v8-6-bec5c047edd4@oss.nxp.com>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <20260304-dcif-upstreaming-v8-6-bec5c047edd4@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI2PR02CA0027.apcprd02.prod.outlook.com
- (2603:1096:4:195::14) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.17; Fri, 6 Mar
+ 2026 08:17:21 +0000
+Received: from BN2PEPF000044A8.namprd04.prod.outlook.com
+ (2603:10b6:208:32e:cafe::bb) by BLAPR03CA0131.outlook.office365.com
+ (2603:10b6:208:32e::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9654.23 via Frontend Transport; Fri,
+ 6 Mar 2026 08:17:21 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ BN2PEPF000044A8.mail.protection.outlook.com (10.167.243.102) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9678.18 via Frontend Transport; Fri, 6 Mar 2026 08:17:19 +0000
+Received: from DFLE207.ent.ti.com (10.64.6.65) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 6 Mar
+ 2026 02:17:11 -0600
+Received: from DFLE206.ent.ti.com (10.64.6.64) by DFLE207.ent.ti.com
+ (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 6 Mar
+ 2026 02:17:11 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE206.ent.ti.com
+ (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 6 Mar 2026 02:17:11 -0600
+Received: from [172.24.231.225] (a0507033-hp.dhcp.ti.com [172.24.231.225])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6268H7FO3453730;
+	Fri, 6 Mar 2026 02:17:08 -0600
+Message-ID: <ea32ebe2-09e4-4d74-8279-ec3bc9f8e98f@ti.com>
+Date: Fri, 6 Mar 2026 13:47:07 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 3/4] PCI/DOE: Add DOE mailbox support for endpoint
+ functions
+To: Manivannan Sadhasivam <mani@kernel.org>
+CC: <linux-pci@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<bhelgaas@google.com>, <corbet@lwn.net>, <cassel@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<s-vadapalli@ti.com>, <danishanwar@ti.com>, <srk@ti.com>
+References: <20260213123603.420941-1-a-garg7@ti.com>
+ <20260213123603.420941-4-a-garg7@ti.com>
+ <p57x6jleaim5w7t2k3v7tioujnaxuovfpj5euop5ogefvw23se@y5fw3che5p5d>
+Content-Language: en-US
+From: Aksh Garg <a-garg7@ti.com>
+In-Reply-To: <p57x6jleaim5w7t2k3v7tioujnaxuovfpj5euop5ogefvw23se@y5fw3che5p5d>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|DU6PR04MB11136:EE_
-X-MS-Office365-Filtering-Correlation-Id: 842f4a6a-444f-4155-dacf-08de7b58b234
+X-MS-TrafficTypeDiagnostic: BN2PEPF000044A8:EE_|SN7PR10MB7002:EE_
+X-MS-Office365-Filtering-Correlation-Id: 03bb3ff0-29f2-404c-4ae4-08de7b58c94e
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|19092799006|1800799024|921020;
-X-Microsoft-Antispam-Message-Info: xK6zYJZwaZfhBFz0VzsaPpGSEdPFmB2o3kT7XFf5iq1Q4/eYfrqJ0qRiCiwcSguOoTvHPGuIE6ab6lvuog5WJoiU2D3n9Rz/kAZIN4Ap/uAFlrgxvgRRQtT4SepArLihRmxA9wlQ7C0imZiZ7/mEANsNHd7xn+a37Sz6cwppy/nPXfvNh1i9aAee2QvcdK/0bjxQLjTBBa+X2R8xz5Zt/WKBDYVF68Od76TQntDB3JWZIwSYmFOFWfJQX8aGbp5dhcpL151TNpS5RnFltKTkeIwwks3fe0i0xrAKH3ik79YQUEGnjGbAjjz22BNh5uY45qdssq5KyMXvjwG0ml/Yzh5s2CJt91ybkn0ycZl2Rq3oIlogzYqjbJzV14UJUFtQ2QOP6ZkQVRpfYokc9lkR8PSg7fgnTFnhs/3oRzTyElkzelElQpV4y4KXy9HRaEgd4qABfzGUwXP9GRrkqaCowUOe7LuP+o85lMUdRsVH53Xj4meCvCA5Qq6Lepn7ujXC4nGlVyK56mlPx4gbG/q9kO15kpG50yjBYU6g4KRKumUx955yNDt++0q+CDzZUHOdoEozLk9SbBlHQ7Jw0QDewWFiucIJgslndlsqFfL142xWnlASiF6GR/U4Xig+gYnkjirQTLmSoIBRh0EYkPIQ9hKJgmOMqG3nsp8bsWN1chXgGxagOXbAV/oeUuD3CSYzYTGxHo2bsIbvhe5N9obCWWLFID3kDTJh0CzEWdCQEpAQuVpnszNYNzeny9p4P5TjBowlk7Os3mJ4qACNw6GPJg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(19092799006)(1800799024)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|36860700016|82310400026|34020700016;
+X-Microsoft-Antispam-Message-Info: r7nJlkSvOWEHavNhoIhXT21rhS4/xaAFWTmbuH3v7vjrnIaTs5mH6VA3paacqrEuJhck7064qmTbHtvJ9Cj+zielA63Zl0e7FkvYmN/ZGYTsT5kJ6JuPHsO0LkF80XIWG+M2lOZ+IyshiKaTtJ2DVnlWTm40ruryeyhaHW/bzzHef/6L6HLjRePsgEPZ8lbIBAuizSNzbpnPRd49TyiJW8vSkVUT3ZKgG/D3Shx6+PCSdNvnvsAAQAyJaQ4Q2LnClDkWwy5E0pwZZK3sJ0OW+c4DIi2iAzT+N1Z6i6stpWfqDgaZ2cMooIzK1Fy0DtXeUItB03KEz1RiIGvqrLP+VfN/255CiQmBo4PPHamodq9PEQFhTgZy5GdnH/pjvv/JVoaQmIztmHgOngIQPrfZBB9u6/qQVdm+AWHmTqUObDh1MEnPf3l1iLx1g7NUwYdhU+5NOk6/Yo1WQViRPfq5LXinjijPXRpkSQYqF6emCliOuuPWkZe8JSOY3We33I7pIrCX2iIJYT75IELUatcw7TaTOVypTQA9b8QKDUaFe6NMspzEAd+pjLGY+b3b4A2AiM8Gf5x37DqYAFuCPCpikybwoegtcuR7NS0F7TXqUH6Ay3p6At5MLKO/NZXxjG6ngvdr2H/sh8dnKTq/Uuycqz65hz6oE546n7gMlVVf7wmcXNWFxf3xUmrmGhUF7SU6ZSsswW1UwEO1Smx774zIH7OslZ2pOO5A9/dUSpPbSQ/Q+NdhLaaKvHqwOMVdhjcZqYbtDuKqKXhPmfjytPr1UQ==
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(376014)(36860700016)(82310400026)(34020700016);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U25SbkF2dGpLdWlZV2JPWHloTG1OWW1nbDdzK0dpZG41ZGN6MXdGUndDTkhS?=
- =?utf-8?B?amQ5VDVNS2J3R3VJam5kMzZWYXJoWnNPVU5nbzJBV0RFSUxLcGtTVFZjKzhC?=
- =?utf-8?B?UlhpMzNpWkx2NFoxVVF4dks1VFA0UUtPY1BBak1rQ2E1bTlCbnNwVFZEUzRq?=
- =?utf-8?B?ZnNhbmlXQlUyeHZLa2YwUmc5dDUyNHByNTZVWEpHZ3pxdkRibWpNSWdSZlBl?=
- =?utf-8?B?Kzl5THE4cDBXeGNVSGVFZS9FZUdtdVM0QVN1cmRiQTVIVzJ5RTdRbFVQblpp?=
- =?utf-8?B?eXh0dzRxVjZDeVo5M2pRWDVlM3ZKaXRxNmJza1dsejNZQ1NzSjRHekRXTjcy?=
- =?utf-8?B?VjVHREo5OXFzMlluUXVvYmNaVkpkUDhKWHFrWHZxVEdrNE13bVh6T21HczdN?=
- =?utf-8?B?ek1pcTdGQVRvUkZMTU1wdTM2bTVCb0ltOVVBdnJxUGc2NUlJQ3NodWZjRm5W?=
- =?utf-8?B?UU1aNXU5L0JTZmxicmJpdUs5V1NKRE0wV2pzM1EyODFuUlFuL2lGZEpDWC9w?=
- =?utf-8?B?WWxOYWluNUJtRzNNSGsrZTlrbERuTzRrSmhwR1gzM0tNZ0JuRzM5ZkVmazRj?=
- =?utf-8?B?b1Y5a2lybGQ2RnZET3QwUXJ4eHg1MXo4WGk0WXFpY2t2MkNCK011RnBXS0FY?=
- =?utf-8?B?VzNCWkp5QUpDdHRiT3RwbWx1NFl1M3hTcEhoMm1lc3BZUmJsSStabTZUcGlO?=
- =?utf-8?B?VjBZZDBrakhaQ0VhN0NoeS9SK3UwSjdvWjZ1eUVKYzZRUEtycHhZNS9zWXl0?=
- =?utf-8?B?azlkdVJGMVB1QmFwWEcrZWVuQzYyWjgwdG83UU9SbDh2UlZxQjEzaVFpcmxW?=
- =?utf-8?B?MkVvSUVhSjhDa1RZZ3dmeGVyOWtzVlBoUFBRRXcvVnd1eTkzQzZOK0xoR1ZZ?=
- =?utf-8?B?Zmd3NUtQV001WFhER2J1QWtzTHRyNTJWdXdiTlU3a0xiU3dTeEN2YzhCQ05B?=
- =?utf-8?B?dWNISXIzMnk4c3hRaWk1a1dZOGNrUHZ6S3o4WjJScW5SNHg1UEovNG5panlr?=
- =?utf-8?B?Um9qeUN1SzN1YWVYdUJWOEk1VytmVk9EQThDMHpSemZPNTExNjZqZmVnSlhu?=
- =?utf-8?B?S1RUV3lFMDB2OUV2bGsyaHJoMGFISStSMEVxWjdvWGpMMWlXR2FqRHhDQXlD?=
- =?utf-8?B?VW83OWIwS2F2a0pZZE1CRDhhbk96VjFLaGMyN1YvM3FlMExyVmwzREJBcDk1?=
- =?utf-8?B?dGRTRldFMWF5bTJXVWdFaEE3L09WeWIwRUNFeHk3R2VyQ1QzQkpReHpDay90?=
- =?utf-8?B?SXg2RVpmZzZzclFMQWxEa29kY2psUWwvMWVia0svOGFPWW9YQVA0OXZzOGNm?=
- =?utf-8?B?cTM1ZmMrWTV2MHVjS1U3eVJoczFjbGJhWGhjZktaUVdLYlUrN1B4aWR1ZS84?=
- =?utf-8?B?ZU5hT2dnZmVwSFlHYWVTdU1ybGZudVBkRVZUc0pQL0U0N29CL0pibzJMSVhS?=
- =?utf-8?B?Uk85NVl2ZzEwVG56VjZLR3FuSkx0cGlPbHdsMFNjdEJnZ0Q4aHpybXpxanMv?=
- =?utf-8?B?Q3lHZWhIeGl2WGYrTU5yV0U5V0pVRDdNY0U0bHJWQ2tCZnVIMWtUMWc0RjJ2?=
- =?utf-8?B?aFBwNytpOXlhK0pGT2tOVHg3TU4weUg2Wmp2QnNqcE1BUEJkVG5iODdaKysv?=
- =?utf-8?B?QVBRUHZaajZJTXF6RjloZ3pMY2dJNHZ1VjRmZk9mSWg1UU9MZ1gwU2RYMW4x?=
- =?utf-8?B?TEVrNDAwbjFGcHAxTEhhK2EzQVEyRXpZd2VsZitnYkpzaG5waEJ2MlhyREhu?=
- =?utf-8?B?dEp2Z2RTaVExUDdRZW0yZGhmSk1tR0VIK0Fib3VKNGlSU25tWWl4ZytEVXBS?=
- =?utf-8?B?U3BycTJsYnRBa2VxdHJrUHFZVC8raFZqN0FlRGltRnQ5WFRQUDZxM05IUHl5?=
- =?utf-8?B?VFhjODBmR3NaaVdzYUhEdnc0TXQ1Mk9HbW1WOXoyTGN3NUt6USt0VVRVZFgy?=
- =?utf-8?B?aFlIZXlBOFVIeE50MWdMMTE0NE1oRDE1WGVoTkJiVmtvTE1UUEI3a1d3UElM?=
- =?utf-8?B?YWUxMm1GTWtCSjBCZk9sODBqaGVxUHl3WnN5dDVENjRTQ2dRb3c2Smg5MlJt?=
- =?utf-8?B?YThZdGdpQjRyL09vb1BxYW5mbGN1aTd6RXRyYWpUR1JQUlRSWS9IbkVqalBi?=
- =?utf-8?B?ZVFvSit1R1piMXU4Wk1SdFFVT3ZVbUJNbkt0Y3F5YldNNTJxb0M2dlRrUWRB?=
- =?utf-8?B?V1QrUlA1SThsV3lhWWtrNVZRanhZUHA1T2FqdjZMcnNhTVBuVy9rSnpRT0Jn?=
- =?utf-8?B?dS9mbFIzekNYQ3VJaHZxNkhDSnJFb1hCQzR2VHZ4SGJTdmZwYkV0Vy9scXJa?=
- =?utf-8?B?d3pFNUtZR25JZ3hwUnBsWW4rZHVZWnJiMmxUc3dLcFJTV2hFeEk2Zz09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 842f4a6a-444f-4155-dacf-08de7b58b234
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 08:16:41.3797
+X-MS-Exchange-AntiSpam-MessageData-0: 7irO5OTPWO8MaqEQtAQdlU+BhXDFDoHuEGadt3ck1+/ncWHHjVk2uqFMaTGhePi9R4cfHtQZ3uYxW6wLEOaycl5LSb3PTWJELHyyoTuc8FRTC76j2k5EP5vrm442eVFSL1LoQ4ujKI15R60ebNyD1cmd7+Uhk4WAxhrd87ZAOqeIhEV9y4AfBTvf4FdeUuu1MVvda1hDM4QuBqAN0aMvyOXSMm3TcDn8sS9gxM/HyC7M5lvQm2WrF7TgHFHLfxS8zSLMPy/+TuKw2teyGfzN4TpfqXkzO6LIn6dukdwmWPEmB6eJrGBoSg1bY7C43T9gLnKrYL/bFPF70bCEhDikDviNnHTVrrHAt5TV2f+PzoGMklLag7Ca7CkPq0YKyJR+aXElI6YTZnOWp0sGXg6j0OymRg+5tfkNwUKdNkWzQnTwPjOwzeWJlSDvPJsodmZD
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 08:17:19.6668
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: n06LPdgMdePAqchsfqhSFVLQo8tWX6n6v10bN7gcSXzwJZD9ARmDshSKRQQ3Jqeg+QcBYDaPDUNOuzoOIUv1/w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU6PR04MB11136
+X-MS-Exchange-CrossTenant-Network-Message-Id: 03bb3ff0-29f2-404c-4ae4-08de7b58c94e
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A8.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR10MB7002
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_001648_623506_8D8AF7F4 
-X-CRM114-Status: GOOD (  14.97  )
+X-CRM114-CacheID: sfid-20260306_001725_974644_4BD5E459 
+X-CRM114-Status: GOOD (  23.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,75 +135,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 04, 2026 at 11:34:15AM +0000, Laurentiu Palcu wrote:
-> Since the BLK CTL registers, like the LVDS CSR, can be used to control the
-> LVDS Display Bridge controllers, add 'ldb' child node to handle
-> these use cases.
-> 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-> ---
->  .../bindings/clock/nxp,imx95-blk-ctl.yaml          | 26 ++++++++++++++++++++++
->  1 file changed, 26 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml b/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml
-> index 27403b4c52d62..85d64c4daf4c9 100644
-> --- a/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml
-> +++ b/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml
-> @@ -26,6 +26,12 @@ properties:
->    reg:
->      maxItems: 1
->  
-> +  "#address-cells":
-> +    const: 1
-> +
-> +  "#size-cells":
-> +    const: 1
-> +
->    power-domains:
->      maxItems: 1
->  
-> @@ -39,6 +45,11 @@ properties:
->        ID in its "clocks" phandle cell. See
->        include/dt-bindings/clock/nxp,imx95-clock.h
->  
-> +patternProperties:
-> +  "^ldb@[0-9a-f]+$":
 
-Same to patch 1 comment, Marco said that LDB node should not have reg
-property...
 
-> +    type: object
-> +    $ref: /schemas/display/bridge/fsl,ldb.yaml#
-> +
->  required:
->    - compatible
->    - reg
-> @@ -46,6 +57,21 @@ required:
->    - power-domains
->    - clocks
->  
-> +allOf:
-> +  - if:
-> +      not:
-> +        properties:
-> +          compatible:
-> +            contains:
-> +              const: nxp,imx94-lvds-csr
-> +    then:
-> +      patternProperties:
-> +        "^ldb@[0-9a-f]+$": false
-> +    else:
-> +      required:
-> +        - '#address-cells'
-> +        - '#size-cells'
-> +
->  additionalProperties: false
->  
->  examples:
+On 04/03/26 19:47, Manivannan Sadhasivam wrote:
+> On Fri, Feb 13, 2026 at 06:06:02PM +0530, Aksh Garg wrote:
+>> From: Aksh Garg <a-garg7@ti.com>
+>>
+>> +/**
+>> + * pci_ep_doe_add_mailbox() - Add a DOE mailbox for a physical function
+>> + * @epc: PCI endpoint controller
+>> + * @func_no: Physical function number
+>> + * @cap_offset: Offset of the DOE capability
+>> + *
+>> + * Create and register a DOE mailbox for the specified physical function
+>> + * and capability offset. The controller driver should call this for each
+>> + * DOE capability it finds in its config space.
 > 
+> Why can't we call this helper from the EPC core driver instead? We may have to
+> introduce a new callback in 'struct pci_epc_ops' to read the endpoint config
+> space from the EPC core driver. But it will avoid duplicating the code across
+> the EPC drivers.
+> 
+> End of the day, we can read the config space of the device and identify the
+> capability in a generic way.
 
--- 
+Thank you for the feedback. This looks better to me. Please let me know
+if the following flow would be correct:
+
+'struct pci_epc_ops' would have a new callback to find the extended
+capability, taking inputs as struct pci_epc *epc, u8 func_no, u8 cap.
+The EPC core driver would have an API, taking struct pci_epc* as
+argument. This would find the extended DOE capability offsets for the
+mailboxes for all the functions in epc->max_functions, and call
+pci_ep_doe_add_mailbox() for each of them.
+
+This newly created API would be called by the controller driver if it is
+DOE capable. The DOE capability feature can be added in the 'struct
+pci_epc_features' as well based on which this API would be called.
+
+> 
+>> + *
+>> + * RETURNS: 0 on success, -errno on failure
+>> + */
+>> +int pci_ep_doe_add_mailbox(struct pci_epc *epc, u8 func_no, u16 cap_offset)
+>> +{
+>> +	struct pci_ep_doe_mb *doe_mb;
+>> +	unsigned long key;
+>> +	int ret;
+>> +
+>> +	if (!epc)
+>> +		return -EINVAL;
+>> +
+>> +	doe_mb = kzalloc(sizeof(*doe_mb), GFP_KERNEL);
+>> +	if (!doe_mb)
+>> +		return -ENOMEM;
+>> +
+>> +	doe_mb->epc = epc;
+>> +	doe_mb->func_no = func_no;
+>> +	doe_mb->cap_offset = cap_offset;
+>> +
+>> +	doe_mb->work_queue = alloc_ordered_workqueue("pci_ep_doe[%s:pf%d:offset%x]", 0,
+>> +						     dev_name(&epc->dev),
+>> +						     func_no, cap_offset);
+> 
+> I believe you are trying to use cap_offset to differentiate between multiple DOE
+> mailbox instances within a single function. In that case, I'd use a simple index
+> instead of cap_offset.
+
+Yes, the cap_offset is used to differentiate between the mailboxes.
+
+There were two reasons I chose this as a differentiator instead of a
+simple index:
+- doe.c uses cap_offset as differentiator, hence I used the same to make
+   doe-ep.c code compatible with it
+- Because the cap_offset would be unique across the mailboxes for a
+   single function, we do not have to create and manage an index for the
+   uniqueness of the mailbox, which doesn't add the redundancy of
+   introducing an index variable just as a differentiator.
+
+
 Regards,
-Liu Ying
+Aksh Garg
+
+> 
+> Rest looks OK from a high level design perspective.
+> 
+> - Mani
+> 
+
 
