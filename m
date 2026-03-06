@@ -4,81 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15EC6FCB601
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:37:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB048FCB602
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:44:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dmLqPW/eDHkunk54emb2m2JdJcZj8L4sjcALmrPjxRU=; b=MD+rpv3fd6fv/KPRIQMJnXAVps
-	0u3J+ONJ/DuY3eZcUu3jYHt1D6WfiekKCo5BipLONpLWGIgXZxl8PigKDZp8CANW3nDz1Fn9yEky1
-	dlM2Cce6LN3bZ6+vR4rq8vSfwTYjKt/QAXe8lCs8c8jpjxMMFPOwxb3xjicJRxZOQb4r6UX7me9dc
-	Zjye509j4Yik8pepyaIk2Qv4qzAcE/SkJ3/PrsvCFrmJq/5dP8d3OvZQe2wcAVAgiCt+KYppZW9UL
-	bV+5GDhsFwrDh5mXGk+vsPmmnTXgfoQCdP5ryJRzbSCROcp6Ej0ELPbrWBO77n7W/pqOAoGvviHfU
-	W65dz6Hg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rVOuRHzbb78rDghmOzdwXp0BBGM5x6oDTSHJ79QBAbE=; b=Qr/tyejZgyaxxWEeZbt+WioBBT
+	1srIYl0aAfKfDDEc7yhp8U5Kd19y3O2p4tBUVObHQOH1/NonVXD4LEMrqErbrNna90ISD53AUdjy/
+	8yNTZ9VVvC30btnmIr/MYbtayH5Shwl+cHUH8RsFJUyRT8bG0WQ3jR0COSukDuTzXTnQHR0hZlb47
+	BLpGduGX1vr0QvApoOHmztqobnW2fqziHimfZGkbtpU7c+U9ZpBqKWG91jNHm0ZGMI1bQWcJBb3pv
+	d1fDnUKeihYzFbPGVbTtkb2IpXZSsclPy22ykQYr32IO5XMKTQIs1w8x56GKio/Duvbc0qowqJqGa
+	/LHyJ7/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyWIj-00000003wR0-2NKA;
-	Fri, 06 Mar 2026 14:37:13 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1vyWPs-00000003xwc-3GO0;
+	Fri, 06 Mar 2026 14:44:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyWHv-00000003vLe-0R5W
+	id 1vyWPq-00000003xvh-3bO1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 14:36:29 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-483a24db6ecso117551295e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 06:36:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1772807781; x=1773412581; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=dmLqPW/eDHkunk54emb2m2JdJcZj8L4sjcALmrPjxRU=;
-        b=upNgAVVSfbU1iL0YAciTntxUHCabbmOHyOuajXFCMls57rxJe2n4JvoJ2O36l7MMF+
-         oofswr79vMJDF/2xVvTwPsokZbbdoxBzGPpl/Rlc6ymHXnFDIfaDdNjuvWnq/F9i9JVY
-         eYpf0dQl9HTqur+GjpUT23GoM4YrLilZkRU1TFT3jn6H8Nh49pf2zCtSmHYV/hNP86lA
-         eiVcdh0kLOu1sM2uNMZHY7X0Vx+tz58RBJPeLP3DOw8f0r0CkQmUbOnKG+KdrtlVM8el
-         8CyLnMtZuWy7tgOgy/xZzzmET5zCREJgSSXLkjzZbiYXFtj55jALvlTboRvf/bFpxZJ+
-         BGow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772807781; x=1773412581;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=dmLqPW/eDHkunk54emb2m2JdJcZj8L4sjcALmrPjxRU=;
-        b=brB4HYE7ublsw+mB+X6/Ud0ykHQVfS3zhG4Wy7Mi8B5JPKbRdZWi3Agd/irp7w8T04
-         h4csYJ//NGWUkBfnZ52Way1ejD6exq+PMW1l8WHzCcUOeOpdCELnl+zyH+SL69WzjqjA
-         CtUa3oO2dqwndaP0OvYAW9n9aoX0P8MOXuGoamFM85DKS4UBhdDBf8TQW/yTYxhVACp+
-         bLOjsnzOROLtU9IQm/Dayr6+phQ6/I7bQPU4JP7DWMNnfbxDjoV49duGYu2S/6TE4La8
-         g2/UZJoCLrhLr310+3Bk68CnnuH+OK9LkGSbSeMXGJyVdcRBMNPCKqUrCtZwFIM2rfbb
-         Kz4g==
-X-Forwarded-Encrypted: i=1; AJvYcCW1HxvwbPBi17dp72x4zGZ/1Hrca09R1ko54tQQbE0LcQNgtdsnzViMYM8G+hVx+x5yZM3RofEN6BCPR/YtxKKC@lists.infradead.org
-X-Gm-Message-State: AOJu0YymsdZJ3UisQBnodYncj5Bs3gJQWS4j6YvlDUhvCVyvD5ksOARS
-	LTrn2OKyBAh1ZYRiOHRLoJELi5YNWg2NJOXcUtGZc4MxJNNgMvCwO28XGz+Elwbqo0vKXPcEJLt
-	3Og7SJ/D78QkFsLabw8Peag==
-X-Received: from wmmr3.prod.google.com ([2002:a05:600c:4243:b0:480:6bfa:f515])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:608f:b0:483:8e43:6dce with SMTP id 5b1f17b1804b1-4852696937cmr36224375e9.29.1772807780854;
- Fri, 06 Mar 2026 06:36:20 -0800 (PST)
-Date: Fri,  6 Mar 2026 14:35:32 +0000
-In-Reply-To: <20260306143536.339777-1-vdonnefort@google.com>
-Mime-Version: 1.0
-References: <20260306143536.339777-1-vdonnefort@google.com>
-X-Mailer: git-send-email 2.53.0.473.g4a7958ca14-goog
-Message-ID: <20260306143536.339777-29-vdonnefort@google.com>
-Subject: [PATCH v13 28/32] KVM: arm64: Add hyp_enter/hyp_exit events to
- nVHE/pKVM hyp
-From: Vincent Donnefort <vdonnefort@google.com>
-To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
-	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	jstultz@google.com, qperret@google.com, will@kernel.org, 
-	aneesh.kumar@kernel.org, kernel-team@android.com, 
-	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 06 Mar 2026 14:44:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2623A40AA2;
+	Fri,  6 Mar 2026 14:44:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 558F2C4CEF7;
+	Fri,  6 Mar 2026 14:44:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772808274;
+	bh=h+9NOHTHb670Zu/LaAQoajYcmVO5KayLeLmuYtsBpI8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=s5IavVUMaXkrwKQN2iEP03w/Ma20tNYqh5/cw7vFEa3F2Yzq0z8E64Db5UxXuXLWU
+	 SV3VAt3ex/Ny8k60RFhUmy/PSSZOBqxCKUvsAWOIlmbs61bdWP1x0n39RoHRnXsAUf
+	 hO14BWZmF2RwY7umyNLWacoxeGw9KmZTAmliY0f82LjFe1W+9Tl8W4O6v3lLc11x6f
+	 VwwjkElBr4tn40lpGnbCfZh18u2CTYg67SxqPKwMgUOerITGkyJjJe1cQenHbw9cEt
+	 r6NZnhNlstCYXoBs04er4pNstLade/z245MgEOUqrmEDkvQNHpZkwjIzgavqLPw9Zb
+	 baZZX52Hb10Yg==
+Message-ID: <c04b32be-c5f9-42a4-9f4f-0e890f515d68@kernel.org>
+Date: Fri, 6 Mar 2026 15:44:23 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 5/6] mm: support batched checking of the young flag for
+ MGLRU
+To: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org
+Cc: catalin.marinas@arm.com, will@kernel.org, lorenzo.stoakes@oracle.com,
+ ryan.roberts@arm.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
+ rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
+ harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
+ baohua@kernel.org, dev.jain@arm.com, axelrasmussen@google.com,
+ yuanchu@google.com, weixugc@google.com, hannes@cmpxchg.org,
+ zhengqi.arch@bytedance.com, shakeel.butt@linux.dev, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <cover.1772778858.git.baolin.wang@linux.alibaba.com>
+ <378f4acf7d07410aa7c2e4b49d56bb165918eb34.1772778858.git.baolin.wang@linux.alibaba.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <378f4acf7d07410aa7c2e4b49d56bb165918eb34.1772778858.git.baolin.wang@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_063623_277994_D86DA0F0 
-X-CRM114-Status: GOOD (  18.54  )
+X-CRM114-CacheID: sfid-20260306_064434_938768_E1862CFC 
+X-CRM114-Status: GOOD (  17.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,438 +125,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The hyp_enter and hyp_exit events are logged by the hypervisor any time
-it is entered and exited.
+On 3/6/26 07:43, Baolin Wang wrote:
+> Use the batched helper test_and_clear_young_ptes_notify() to check and clear
+> the young flag to improve the performance during large folio reclamation when
+> MGLRU is enabled.
+> 
+> Meanwhile, we can also support batched checking the young and dirty flag
+> when MGLRU walks the mm's pagetable to update the folios' generation
+> counter. Since MGLRU also checks the PTE dirty bit, use folio_pte_batch_flags()
+> with FPB_MERGE_YOUNG_DIRTY set to detect batches of PTEs for a large folio.
+> 
+> Then we can remove the ptep_test_and_clear_young_notify() since it has
+> no users now.
+> 
+> Note that we also update the 'young' counter and 'mm_stats[MM_LEAF_YOUNG]'
+> counter with the batched count in the lru_gen_look_around() and walk_pte_range().
+> However, the batched operations may inflate these two counters, because in
+> a large folio not all PTEs may have been accessed. (Additionally, tracking
+> how many PTEs have been accessed within a large folio is not very meaningful,
+> since the mm core actually tracks access/dirty on a per-folio basis, not per
+> page). The impact analysis is as follows:
+> 
+> 1. The 'mm_stats[MM_LEAF_YOUNG]' counter has no functional impact and is
+> mainly for debugging.
+> 
+> 2. The 'young' counter is used to decide whether to place the current PMD
+> entry into the bloom filters by suitable_to_scan() (so that next time we
+> can check whether it has been accessed again), which may set the hash bit
+> in the bloom filters for a PMD entry that hasn’t seen much access. However,
+> bloom filters inherently allow some error, so this effect appears negligible.
+> 
+> Reviewed-by: Rik van Riel <riel@surriel.com>
+> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+> ---
 
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+Thanks!
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 2ca264b3db5f..b50ac3bb4bc9 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -920,6 +920,9 @@ struct kvm_vcpu_arch {
- 
- 	/* Per-vcpu TLB for VNCR_EL2 -- NULL when !NV */
- 	struct vncr_tlb	*vncr_tlb;
-+
-+	/* Hyp-readable copy of kvm_vcpu::pid */
-+	pid_t pid;
- };
- 
- /*
-diff --git a/arch/arm64/include/asm/kvm_hypevents.h b/arch/arm64/include/asm/kvm_hypevents.h
-index d6e033c96c52..221a1dacb2f0 100644
---- a/arch/arm64/include/asm/kvm_hypevents.h
-+++ b/arch/arm64/include/asm/kvm_hypevents.h
-@@ -7,4 +7,43 @@
- #include <nvhe/trace.h>
- #endif
- 
-+#ifndef __HYP_ENTER_EXIT_REASON
-+#define __HYP_ENTER_EXIT_REASON
-+enum hyp_enter_exit_reason {
-+	HYP_REASON_SMC,
-+	HYP_REASON_HVC,
-+	HYP_REASON_PSCI,
-+	HYP_REASON_HOST_ABORT,
-+	HYP_REASON_GUEST_EXIT,
-+	HYP_REASON_ERET_HOST,
-+	HYP_REASON_ERET_GUEST,
-+	HYP_REASON_UNKNOWN	/* Must be last */
-+};
-+#endif
-+
-+HYP_EVENT(hyp_enter,
-+	HE_PROTO(struct kvm_cpu_context *host_ctxt, u8 reason),
-+	HE_STRUCT(
-+		he_field(u8, reason)
-+		he_field(pid_t, vcpu)
-+	),
-+	HE_ASSIGN(
-+		__entry->reason = reason;
-+		__entry->vcpu = __tracing_get_vcpu_pid(host_ctxt);
-+	),
-+	HE_PRINTK("reason=%s vcpu=%d", __hyp_enter_exit_reason_str(__entry->reason), __entry->vcpu)
-+);
-+
-+HYP_EVENT(hyp_exit,
-+	HE_PROTO(struct kvm_cpu_context *host_ctxt, u8 reason),
-+	HE_STRUCT(
-+		he_field(u8, reason)
-+		he_field(pid_t, vcpu)
-+	),
-+	HE_ASSIGN(
-+		__entry->reason = reason;
-+		__entry->vcpu = __tracing_get_vcpu_pid(host_ctxt);
-+	),
-+	HE_PRINTK("reason=%s vcpu=%d", __hyp_enter_exit_reason_str(__entry->reason), __entry->vcpu)
-+);
- #endif
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 87a3d28d5f0f..04c43c9eb764 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -707,6 +707,8 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
- 
- 	if (!cpumask_test_cpu(cpu, vcpu->kvm->arch.supported_cpus))
- 		vcpu_set_on_unsupported_cpu(vcpu);
-+
-+	vcpu->arch.pid = pid_nr(vcpu->pid);
- }
- 
- void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/arm-smccc.h b/arch/arm64/kvm/hyp/include/nvhe/arm-smccc.h
-new file mode 100644
-index 000000000000..1258bc84477f
---- /dev/null
-+++ b/arch/arm64/kvm/hyp/include/nvhe/arm-smccc.h
-@@ -0,0 +1,23 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef __ARM64_KVM_HYP_NVHE_ARM_SMCCC_H__
-+#define __ARM64_KVM_HYP_NVHE_ARM_SMCCC_H__
-+
-+#include <asm/kvm_hypevents.h>
-+
-+#include <linux/arm-smccc.h>
-+
-+#define hyp_smccc_1_1_smc(...)					\
-+	do {							\
-+		trace_hyp_exit(NULL, HYP_REASON_SMC);		\
-+		arm_smccc_1_1_smc(__VA_ARGS__);			\
-+		trace_hyp_enter(NULL, HYP_REASON_SMC);		\
-+	} while (0)
-+
-+#define hyp_smccc_1_2_smc(...)					\
-+	do {							\
-+		trace_hyp_exit(NULL, HYP_REASON_SMC);		\
-+		arm_smccc_1_2_smc(__VA_ARGS__);			\
-+		trace_hyp_enter(NULL, HYP_REASON_SMC);		\
-+	} while (0)
-+
-+#endif /* __ARM64_KVM_HYP_NVHE_ARM_SMCCC_H__ */
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/trace.h b/arch/arm64/kvm/hyp/include/nvhe/trace.h
-index 802a18b77c56..8813ff250f8e 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/trace.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/trace.h
-@@ -6,6 +6,18 @@
- 
- #include <asm/kvm_hyptrace.h>
- 
-+static inline pid_t __tracing_get_vcpu_pid(struct kvm_cpu_context *host_ctxt)
-+{
-+	struct kvm_vcpu *vcpu;
-+
-+	if (!host_ctxt)
-+		host_ctxt = host_data_ptr(host_ctxt);
-+
-+	vcpu = host_ctxt->__hyp_running_vcpu;
-+
-+	return vcpu ? vcpu->arch.pid : 0;
-+}
-+
- #define HE_PROTO(__args...)	__args
- #define HE_ASSIGN(__args...)	__args
- #define HE_STRUCT		RE_STRUCT
-diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index 94161ea1cd60..1af722771178 100644
---- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-+++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -26,10 +26,10 @@
-  * the duration and are therefore serialised.
-  */
- 
--#include <linux/arm-smccc.h>
- #include <linux/arm_ffa.h>
- #include <asm/kvm_pkvm.h>
- 
-+#include <nvhe/arm-smccc.h>
- #include <nvhe/ffa.h>
- #include <nvhe/mem_protect.h>
- #include <nvhe/memory.h>
-@@ -147,7 +147,7 @@ static int ffa_map_hyp_buffers(u64 ffa_page_count)
- {
- 	struct arm_smccc_1_2_regs res;
- 
--	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+	hyp_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
- 		.a0 = FFA_FN64_RXTX_MAP,
- 		.a1 = hyp_virt_to_phys(hyp_buffers.tx),
- 		.a2 = hyp_virt_to_phys(hyp_buffers.rx),
-@@ -161,7 +161,7 @@ static int ffa_unmap_hyp_buffers(void)
- {
- 	struct arm_smccc_1_2_regs res;
- 
--	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+	hyp_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
- 		.a0 = FFA_RXTX_UNMAP,
- 		.a1 = HOST_FFA_ID,
- 	}, &res);
-@@ -172,7 +172,7 @@ static int ffa_unmap_hyp_buffers(void)
- static void ffa_mem_frag_tx(struct arm_smccc_1_2_regs *res, u32 handle_lo,
- 			     u32 handle_hi, u32 fraglen, u32 endpoint_id)
- {
--	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+	hyp_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
- 		.a0 = FFA_MEM_FRAG_TX,
- 		.a1 = handle_lo,
- 		.a2 = handle_hi,
-@@ -184,7 +184,7 @@ static void ffa_mem_frag_tx(struct arm_smccc_1_2_regs *res, u32 handle_lo,
- static void ffa_mem_frag_rx(struct arm_smccc_1_2_regs *res, u32 handle_lo,
- 			     u32 handle_hi, u32 fragoff)
- {
--	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+	hyp_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
- 		.a0 = FFA_MEM_FRAG_RX,
- 		.a1 = handle_lo,
- 		.a2 = handle_hi,
-@@ -196,7 +196,7 @@ static void ffa_mem_frag_rx(struct arm_smccc_1_2_regs *res, u32 handle_lo,
- static void ffa_mem_xfer(struct arm_smccc_1_2_regs *res, u64 func_id, u32 len,
- 			  u32 fraglen)
- {
--	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+	hyp_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
- 		.a0 = func_id,
- 		.a1 = len,
- 		.a2 = fraglen,
-@@ -206,7 +206,7 @@ static void ffa_mem_xfer(struct arm_smccc_1_2_regs *res, u64 func_id, u32 len,
- static void ffa_mem_reclaim(struct arm_smccc_1_2_regs *res, u32 handle_lo,
- 			     u32 handle_hi, u32 flags)
- {
--	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+	hyp_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
- 		.a0 = FFA_MEM_RECLAIM,
- 		.a1 = handle_lo,
- 		.a2 = handle_hi,
-@@ -216,7 +216,7 @@ static void ffa_mem_reclaim(struct arm_smccc_1_2_regs *res, u32 handle_lo,
- 
- static void ffa_retrieve_req(struct arm_smccc_1_2_regs *res, u32 len)
- {
--	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+	hyp_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
- 		.a0 = FFA_FN64_MEM_RETRIEVE_REQ,
- 		.a1 = len,
- 		.a2 = len,
-@@ -225,7 +225,7 @@ static void ffa_retrieve_req(struct arm_smccc_1_2_regs *res, u32 len)
- 
- static void ffa_rx_release(struct arm_smccc_1_2_regs *res)
- {
--	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+	hyp_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
- 		.a0 = FFA_RX_RELEASE,
- 	}, res);
- }
-@@ -728,7 +728,7 @@ static int hyp_ffa_post_init(void)
- 	size_t min_rxtx_sz;
- 	struct arm_smccc_1_2_regs res;
- 
--	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs){
-+	hyp_smccc_1_2_smc(&(struct arm_smccc_1_2_regs){
- 		.a0 = FFA_ID_GET,
- 	}, &res);
- 	if (res.a0 != FFA_SUCCESS)
-@@ -737,7 +737,7 @@ static int hyp_ffa_post_init(void)
- 	if (res.a2 != HOST_FFA_ID)
- 		return -EINVAL;
- 
--	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs){
-+	hyp_smccc_1_2_smc(&(struct arm_smccc_1_2_regs){
- 		.a0 = FFA_FEATURES,
- 		.a1 = FFA_FN64_RXTX_MAP,
- 	}, &res);
-@@ -788,7 +788,7 @@ static void do_ffa_version(struct arm_smccc_1_2_regs *res,
- 	 * first if TEE supports it.
- 	 */
- 	if (FFA_MINOR_VERSION(ffa_req_version) < FFA_MINOR_VERSION(hyp_ffa_version)) {
--		arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+		hyp_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
- 			.a0 = FFA_VERSION,
- 			.a1 = ffa_req_version,
- 		}, res);
-@@ -824,7 +824,7 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
- 		goto out_unlock;
- 	}
- 
--	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+	hyp_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
- 		.a0 = FFA_PARTITION_INFO_GET,
- 		.a1 = uuid0,
- 		.a2 = uuid1,
-@@ -939,7 +939,7 @@ int hyp_ffa_init(void *pages)
- 	if (kvm_host_psci_config.smccc_version < ARM_SMCCC_VERSION_1_2)
- 		return 0;
- 
--	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+	hyp_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
- 		.a0 = FFA_VERSION,
- 		.a1 = FFA_VERSION_1_2,
- 	}, &res);
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index fc5953f31b4b..547d63679022 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -12,6 +12,7 @@
- #include <asm/kvm_emulate.h>
- #include <asm/kvm_host.h>
- #include <asm/kvm_hyp.h>
-+#include <asm/kvm_hypevents.h>
- #include <asm/kvm_mmu.h>
- 
- #include <nvhe/ffa.h>
-@@ -137,6 +138,8 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- 	hyp_vcpu->vcpu.arch.vsesr_el2	= host_vcpu->arch.vsesr_el2;
- 
- 	hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3 = host_vcpu->arch.vgic_cpu.vgic_v3;
-+
-+	hyp_vcpu->vcpu.arch.pid = host_vcpu->arch.pid;
- }
- 
- static void sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
-@@ -728,7 +731,9 @@ static void handle_host_hcall(struct kvm_cpu_context *host_ctxt)
- 
- static void default_host_smc_handler(struct kvm_cpu_context *host_ctxt)
- {
-+	trace_hyp_exit(host_ctxt, HYP_REASON_SMC);
- 	__kvm_hyp_host_forward_smc(host_ctxt);
-+	trace_hyp_enter(host_ctxt, HYP_REASON_SMC);
- }
- 
- static void handle_host_smc(struct kvm_cpu_context *host_ctxt)
-@@ -815,15 +820,19 @@ void handle_trap(struct kvm_cpu_context *host_ctxt)
- {
- 	u64 esr = read_sysreg_el2(SYS_ESR);
- 
-+
- 	switch (ESR_ELx_EC(esr)) {
- 	case ESR_ELx_EC_HVC64:
-+		trace_hyp_enter(host_ctxt, HYP_REASON_HVC);
- 		handle_host_hcall(host_ctxt);
- 		break;
- 	case ESR_ELx_EC_SMC64:
-+		trace_hyp_enter(host_ctxt, HYP_REASON_SMC);
- 		handle_host_smc(host_ctxt);
- 		break;
- 	case ESR_ELx_EC_IABT_LOW:
- 	case ESR_ELx_EC_DABT_LOW:
-+		trace_hyp_enter(host_ctxt, HYP_REASON_HOST_ABORT);
- 		handle_host_mem_abort(host_ctxt);
- 		break;
- 	case ESR_ELx_EC_SYS64:
-@@ -833,4 +842,6 @@ void handle_trap(struct kvm_cpu_context *host_ctxt)
- 	default:
- 		BUG();
- 	}
-+
-+	trace_hyp_exit(host_ctxt, HYP_REASON_ERET_HOST);
- }
-diff --git a/arch/arm64/kvm/hyp/nvhe/psci-relay.c b/arch/arm64/kvm/hyp/nvhe/psci-relay.c
-index c3e196fb8b18..ab4c7bddb163 100644
---- a/arch/arm64/kvm/hyp/nvhe/psci-relay.c
-+++ b/arch/arm64/kvm/hyp/nvhe/psci-relay.c
-@@ -6,11 +6,12 @@
- 
- #include <asm/kvm_asm.h>
- #include <asm/kvm_hyp.h>
-+#include <asm/kvm_hypevents.h>
- #include <asm/kvm_mmu.h>
--#include <linux/arm-smccc.h>
- #include <linux/kvm_host.h>
- #include <uapi/linux/psci.h>
- 
-+#include <nvhe/arm-smccc.h>
- #include <nvhe/memory.h>
- #include <nvhe/trap_handler.h>
- 
-@@ -65,7 +66,7 @@ static unsigned long psci_call(unsigned long fn, unsigned long arg0,
- {
- 	struct arm_smccc_res res;
- 
--	arm_smccc_1_1_smc(fn, arg0, arg1, arg2, &res);
-+	hyp_smccc_1_1_smc(fn, arg0, arg1, arg2, &res);
- 	return res.a0;
- }
- 
-@@ -206,6 +207,7 @@ asmlinkage void __noreturn __kvm_host_psci_cpu_entry(bool is_cpu_on)
- 	struct kvm_cpu_context *host_ctxt;
- 
- 	host_ctxt = host_data_ptr(host_ctxt);
-+	trace_hyp_enter(host_ctxt, HYP_REASON_PSCI);
- 
- 	if (is_cpu_on)
- 		boot_args = this_cpu_ptr(&cpu_on_args);
-@@ -221,6 +223,7 @@ asmlinkage void __noreturn __kvm_host_psci_cpu_entry(bool is_cpu_on)
- 	write_sysreg_el1(INIT_SCTLR_EL1_MMU_OFF, SYS_SCTLR);
- 	write_sysreg(INIT_PSTATE_EL1, SPSR_EL2);
- 
-+	trace_hyp_exit(host_ctxt, HYP_REASON_PSCI);
- 	__host_enter(host_ctxt);
- }
- 
-diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
-index 779089e42681..ca60721501d1 100644
---- a/arch/arm64/kvm/hyp/nvhe/switch.c
-+++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-@@ -7,7 +7,6 @@
- #include <hyp/switch.h>
- #include <hyp/sysreg-sr.h>
- 
--#include <linux/arm-smccc.h>
- #include <linux/kvm_host.h>
- #include <linux/types.h>
- #include <linux/jump_label.h>
-@@ -21,6 +20,7 @@
- #include <asm/kvm_asm.h>
- #include <asm/kvm_emulate.h>
- #include <asm/kvm_hyp.h>
-+#include <asm/kvm_hypevents.h>
- #include <asm/kvm_mmu.h>
- #include <asm/fpsimd.h>
- #include <asm/debug-monitors.h>
-@@ -308,10 +308,13 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
- 	__debug_switch_to_guest(vcpu);
- 
- 	do {
-+		trace_hyp_exit(host_ctxt, HYP_REASON_ERET_GUEST);
-+
- 		/* Jump in the fire! */
- 		exit_code = __guest_enter(vcpu);
- 
- 		/* And we're baaack! */
-+		trace_hyp_enter(host_ctxt, HYP_REASON_GUEST_EXIT);
- 	} while (fixup_guest_exit(vcpu, &exit_code));
- 
- 	__sysreg_save_state_nvhe(guest_ctxt);
-diff --git a/arch/arm64/kvm/hyp_trace.c b/arch/arm64/kvm/hyp_trace.c
-index 0144cd26703e..1ad6a55ba95c 100644
---- a/arch/arm64/kvm/hyp_trace.c
-+++ b/arch/arm64/kvm/hyp_trace.c
-@@ -364,8 +364,26 @@ static struct trace_remote_callbacks trace_remote_callbacks = {
- 	.enable_event		= hyp_trace_enable_event,
- };
- 
-+static const char *__hyp_enter_exit_reason_str(u8 reason);
-+
- #include <asm/kvm_define_hypevents.h>
- 
-+static const char *__hyp_enter_exit_reason_str(u8 reason)
-+{
-+	static const char strs[][12] = {
-+		"smc",
-+		"hvc",
-+		"psci",
-+		"host_abort",
-+		"guest_exit",
-+		"eret_host",
-+		"eret_guest",
-+		"unknown",
-+	};
-+
-+	return strs[min(reason, HYP_REASON_UNKNOWN)];
-+}
-+
- static void __init hyp_trace_init_events(void)
- {
- 	struct hyp_event_id *hyp_event_id = __hyp_event_ids_start;
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+
 -- 
-2.53.0.473.g4a7958ca14-goog
+Cheers,
 
+David
 
