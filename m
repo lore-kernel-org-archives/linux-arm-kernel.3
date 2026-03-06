@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAA92F0180C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 08:07:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CC35F01807
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 08:08:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q57wOGgcZdGO8Qi6ke0EVo4ZqKPCH7+05dehr5k2jno=; b=Ll+hjXDWXlihU5txLPi7C+lloR
-	my9VvPuI2J2LmMteFfBNWEUgAoc8YHpVUmqhLV8jgwtTVrp3IMz7fwEqqVA3xKTKS1GuS5xzRmGr9
-	Ir2Q+TQMg90fwwONLIgmQQdPyCjRllgFk911/wqIi29yZGPgcWyqo0aIRE8soNyGmgxeX+Dc0ZN8p
-	SD70h4+bIAxtRYiiJNOzmZgYUBitX9Vt3ryJKtpOF8bOnTCg9ISQ8VfRJYbE2p60Ogs1jqqsRFYOl
-	cqNPhlCjhhta20KX9bCJTZVEfuby1viuQsI0DnhIO/EqMpIk5VEXo4gMN23NhnSaFrzsQn0ejzC5l
-	tTM2zPVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=O9A2qr2mPCYu7zq8Xo/Aefj367eyhATdHpRyW+OzPD0=; b=1/ja4IiP+vdV4iQSSMZFT0FtpN
+	xiaTOjR0Er8Fg1b++5lg9pvz8spQkZTP0cCfKfnGlJwQGeQpqO/uT9tyDDwne0sK7IY0LIEfPDTtj
+	HBnfFkyqfAh6Hm+b1VJiwMwnSgBR9a0ZlaaqS/FWfAr/cBWRL0S8nSfmFCJ1Rbx7+Kb89wWbeZc4j
+	MIbWqMdm9pY9rKom1za70Xn5dPXCv16Y/w9Si2cVrEDqcrIXSHUJPPiQjHNE9jqOkFFQE2QRaW8JI
+	/zyJV/Es3RpeS5qLk3hGHegDOKcjUbw4nT41DwzI02N9AG7uQWg9KsECWLOfvtA2xKuVkKnrZF0d5
+	u+dwATXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyQDs-00000003Dis-3vsA;
-	Fri, 06 Mar 2026 08:07:48 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1vyQDv-00000003Dlz-3ASI;
+	Fri, 06 Mar 2026 08:07:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyQDm-00000003DUo-3ehl;
-	Fri, 06 Mar 2026 08:07:44 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 6 Mar
- 2026 16:07:24 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Fri, 6 Mar 2026 16:07:24 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-Date: Fri, 6 Mar 2026 16:07:27 +0800
-Subject: [PATCH v2 5/5] dt-bindings: interrupt-controller: aspeed: Remove
- AST2700-A0 support
+	id 1vyQDq-00000003Det-0NWE;
+	Fri, 06 Mar 2026 08:07:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1FD9460127;
+	Fri,  6 Mar 2026 08:07:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DCF8C19422;
+	Fri,  6 Mar 2026 08:07:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772784464;
+	bh=w4YyGty+4MjVaZXa4YhrFXoqiPmZ1FzsE7rE0bfYb40=;
+	h=From:Date:Subject:To:Cc:From;
+	b=gC65MniC1ninb+IVM7axLnpe5Hvxmusxe9kGd3ixC/VE0V6PAST6MKogy+led8Lth
+	 v128XxXNNEuaycyr5RLq5SzeJLR38Hw4HcHmgiV9VxTxcmaJM4e0gWYGxKLYWVtpdu
+	 DO1HzkuDNMJD7rcKYwvcjnUH36E13EqYbfCgAKFyVucAQ9oXVesEuABd35ZnctzIOS
+	 tdj7z3mAak55b6zSiI6fCy0mnpXpu2ctq6epVNAASQB3xAT1nUuUNN5kHfwgL5esWA
+	 5i8fsfpjRdkSiLVN5CrNZ8R55WctRHWgRp/J+OPocC5qOLsr3vlNOoOygpjvPwXOZG
+	 RGAfONVR7sIJA==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Fri, 06 Mar 2026 09:07:27 +0100
+Subject: [PATCH net-next v2] net: airoha: Make flow control source port
+ mapping dependent on nbq parameter
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260306-irqchip-v2-5-f8512c09be63@aspeedtech.com>
-References: <20260306-irqchip-v2-0-f8512c09be63@aspeedtech.com>
-In-Reply-To: <20260306-irqchip-v2-0-f8512c09be63@aspeedtech.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
- Jeffery" <andrew@codeconstruct.com.au>, Paul Walmsley <pjw@kernel.org>,
-	"Palmer Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	"Alexandre Ghiti" <alex@ghiti.fr>, Thomas Gleixner <tglx@kernel.org>, Thomas
- Gleixner <tglx@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>, Ryan Chen <ryan_chen@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772784444; l=4783;
- i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
- bh=3E1xw0HsueF+u/KGpP5CYluFLpq97aaG2OP77KelhBs=;
- b=kn3OWDXDQmtIRzIJ+vraA5kn3sCgavptGJTCroJCF5tKMdeBxGWqFh6O/g3qUTIV5PITffJCm
- x6t6XR7doW0DCAxoEbGTDatBhB49uxvPlTHJYMShILaxIWY7BloaU+0
-X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
- pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_000742_961198_BFE2B381 
-X-CRM114-Status: GOOD (  10.31  )
+Message-Id: <20260306-airoha-fix-loopback-for-usb-serdes-v2-1-319de9c96826@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5WNSw6DMAwFr4K8rqskony64h4VCwMGIhBGTotaI
+ e7elBt0OU9PMzsEVs8B7skOypsPXpYI7pJAO9IyMPouMjjjMuNcgeRVRsLev3EWWRtqJ+xF8RU
+ ajK6OA7osN2RsmtnyBlG0Ksf7GXnUkUcfnqKfs7nZ3/qXfrNokcq0YdMXZd5RNbEuPF9FB6iP4
+ /gC4GyyZtUAAAA=
+X-Change-ID: 20260228-airoha-fix-loopback-for-usb-serdes-2670a0146195
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,131 +75,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The existing AST2700 interrupt controller binding
-("aspeed,ast2700-intc-ic") was written against the A0 pre-production
-design.
+Flow control source port mapping for USB serdes needs to be configured
+according to the GDM port nbq parameter. This is a preliminary patch
+since nbq parameter is specific for the given port serdes and needs to
+be read from the DTS (in the current codebase is assigned statically).
 
-In A0, the interrupt hierarchy effectively converged at the Primary
-Service Processor (PSP): INTC1 instances fed into INTC0, and INTC0 was
-wired to the PSP GIC. The binding therefore described a fixed, PSP
-aggregation model.
-
-From A1 onwards (retained in the A2 production silicon), the interrupt
-fabric was re-architected: interrupt routing is programmable and
-interrupt outputs can be directed to multiple upstream controllers
-(PSP GIC, Secondary Service Processor (SSP) NVIC, Tertiary Service
-Processor (TSP) NVIC, and Boot MCU interrupt controller). This design
-requires route resolution and a controller hierarchy model which the
-A0 binding cannot represent.
-
-Remove the binding for the pre-production A0 design in favour of the
-binding for the A2 production design. There is no significant user
-impact from the removal as there are no existing devicetrees in any
-of Linux, u-boot or Zephyr that make use of the A0 binding.
-
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- .../interrupt-controller/aspeed,ast2700-intc.yaml  | 90 ----------------------
- 1 file changed, 90 deletions(-)
+Changes in v2:
+- Rely __field_prep for non-constant mask
+- Update commit log
+- Link to v1: https://lore.kernel.org/r/20260228-airoha-fix-loopback-for-usb-serdes-v1-1-a94be0f897da@kernel.org
+---
+ drivers/net/ethernet/airoha/airoha_eth.c  | 10 ++++++----
+ drivers/net/ethernet/airoha/airoha_regs.h |  5 +----
+ 2 files changed, 7 insertions(+), 8 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
-deleted file mode 100644
-index 258d21fe6e35..000000000000
---- a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
-+++ /dev/null
-@@ -1,90 +0,0 @@
--# SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause
--%YAML 1.2
-----
--$id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml#
--$schema: http://devicetree.org/meta-schemas/core.yaml#
--
--title: Aspeed AST2700 Interrupt Controller
--
--description:
--  This interrupt controller hardware is second level interrupt controller that
--  is hooked to a parent interrupt controller. It's useful to combine multiple
--  interrupt sources into 1 interrupt to parent interrupt controller.
--
--maintainers:
--  - Kevin Chen <kevin_chen@aspeedtech.com>
--
--properties:
--  compatible:
--    enum:
--      - aspeed,ast2700-intc-ic
--
--  reg:
--    maxItems: 1
--
--  interrupt-controller: true
--
--  '#interrupt-cells':
--    const: 1
--    description:
--      The first cell is the IRQ number, the second cell is the trigger
--      type as defined in interrupt.txt in this directory.
--
--  interrupts:
--    minItems: 1
--    maxItems: 10
--    description: |
--      Depend to which INTC0 or INTC1 used.
--      INTC0 and INTC1 are two kinds of interrupt controller with enable and raw
--      status registers for use.
--      INTC0 is used to assert GIC if interrupt in INTC1 asserted.
--      INTC1 is used to assert INTC0 if interrupt of modules asserted.
--      +-----+   +-------+     +---------+---module0
--      | GIC |---| INTC0 |--+--| INTC1_0 |---module2
--      |     |   |       |  |  |         |---...
--      +-----+   +-------+  |  +---------+---module31
--                           |
--                           |   +---------+---module0
--                           +---| INTC1_1 |---module2
--                           |   |         |---...
--                           |   +---------+---module31
--                          ...
--                           |   +---------+---module0
--                           +---| INTC1_5 |---module2
--                               |         |---...
--                               +---------+---module31
--
--required:
--  - compatible
--  - reg
--  - interrupt-controller
--  - '#interrupt-cells'
--  - interrupts
--
--additionalProperties: false
--
--examples:
--  - |
--    #include <dt-bindings/interrupt-controller/arm-gic.h>
--
--    bus {
--        #address-cells = <2>;
--        #size-cells = <2>;
--
--        interrupt-controller@12101b00 {
--            compatible = "aspeed,ast2700-intc-ic";
--            reg = <0 0x12101b00 0 0x10>;
--            #interrupt-cells = <1>;
--            interrupt-controller;
--            interrupts = <GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 193 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 194 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 195 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 196 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 198 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 199 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 200 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 201 IRQ_TYPE_LEVEL_HIGH>;
--        };
--    };
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 09acbe6695368132ddd92c3501f8711476db73f6..7b47d9e066cee75609501f87b0e97d936325517c 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -1729,10 +1729,12 @@ static int airhoha_set_gdm2_loopback(struct airoha_gdm_port *port)
+ 		      SP_CPORT_MASK(val),
+ 		      __field_prep(SP_CPORT_MASK(val), FE_PSE_PORT_CDM2));
+ 
+-	if (port->id != AIROHA_GDM3_IDX && airoha_is_7581(eth))
+-		airoha_fe_rmw(eth, REG_SRC_PORT_FC_MAP6,
+-			      FC_ID_OF_SRC_PORT24_MASK,
+-			      FIELD_PREP(FC_ID_OF_SRC_PORT24_MASK, 2));
++	if (port->id == AIROHA_GDM4_IDX && airoha_is_7581(eth)) {
++		u32 mask = FC_ID_OF_SRC_PORT_MASK(nbq);
++
++		airoha_fe_rmw(eth, REG_SRC_PORT_FC_MAP6, mask,
++			      __field_prep(mask, AIROHA_GDM2_IDX));
++	}
+ 
+ 	return 0;
+ }
+diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
+index ed4e3407f4a0e8b6a630ea1213ef155604479b66..29878b954c77c79ae45e63357840a10c23c517f2 100644
+--- a/drivers/net/ethernet/airoha/airoha_regs.h
++++ b/drivers/net/ethernet/airoha/airoha_regs.h
+@@ -376,10 +376,7 @@
+ #define SP_CPORT_MASK(_n)		GENMASK(3 + ((_n) << 2), ((_n) << 2))
+ 
+ #define REG_SRC_PORT_FC_MAP6		0x2298
+-#define FC_ID_OF_SRC_PORT27_MASK	GENMASK(28, 24)
+-#define FC_ID_OF_SRC_PORT26_MASK	GENMASK(20, 16)
+-#define FC_ID_OF_SRC_PORT25_MASK	GENMASK(12, 8)
+-#define FC_ID_OF_SRC_PORT24_MASK	GENMASK(4, 0)
++#define FC_ID_OF_SRC_PORT_MASK(_n)	GENMASK(4 + ((_n) << 3), ((_n) << 3))
+ 
+ #define REG_CDM5_RX_OQ1_DROP_CNT	0x29d4
+ 
 
+---
+base-commit: e5e09233e8a9179b260460fdb28df5c24bcfbed6
+change-id: 20260228-airoha-fix-loopback-for-usb-serdes-2670a0146195
+
+Best regards,
 -- 
-2.34.1
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
