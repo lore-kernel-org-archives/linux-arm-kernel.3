@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B3DF01836
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 13:26:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07337F01832
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 13:27:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oMRShPh8EeevtTIDGH1GxM1MbJ6VL1Z6nVzBZFRjU9Y=; b=oj64YCfxdifOzow8JCjizns3Tm
-	Z8ObgyISx5OLwl0fJXWIHCf/UcHblr1+KZRgMcIsoaZumDgBgGUCQNc1S8rN+sOgCHWb+ZW5C/dgX
-	VK9cC4EMKngKF/jkSf/S4D7K1gTznFVy2HopeJTjwleUolHcIsaG6FOu+7BaJeLq7BBcZ4xaV8RVW
-	hU/uPQuvH+HWBg8S9ZUfWmWi71VLmdmrgxv6pCT7YJRweWgwd9+4M6dmvfa1sSet7FOB4jCHGol/a
-	6Xq/P1ypIvwhQa66eC5K5Nr6wTOImbudnyDMgh7+WRt79o1CM2sDvNQPlStkLxf7C0d5ITe4mNPeM
-	zDRp12BA==;
+	bh=/sEbnTP6mjprc+lvmLAb38b+csIauS2bw1X07zMWkGg=; b=OJhR15Y4r03L+H+SIEIbPhTv86
+	nxb64W+sADb1myTzditHs3VMdqAYBw8hDS/kAciqf3SMb6A2rZ9/C1cmmCi1aVvl5EYx9sGW0XOgM
+	lfK6l2oLoJr0jgZDuLLkJ1LID/pnDUq8QX3FBfOABoZbXb93cj6Anh0+7lLCQPIOf7Rmsy8tjdGxo
+	zH09AwMKLWumy67KUIfZT9ORvG3m7fafOZGwxDDE2GUNvJgHWSIaeSFG4B6liLaHWnGrpNfA3Wthn
+	+XTDeVOTH1lIva7iIeQqX2bEHPG6uQ0Ar23WGQffhso4R0oC29wqXNGVxaQiV+lCJCu6VVuEyhgc4
+	sCZjPdMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVCY-00000003lBM-34rS;
-	Fri, 06 Mar 2026 13:26:46 +0000
+	id 1vyVD1-00000003lYT-39vB;
+	Fri, 06 Mar 2026 13:27:15 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVCS-00000003l6H-3KCJ;
-	Fri, 06 Mar 2026 13:26:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1772803571; cv=none; 
+	id 1vyVCz-00000003lX1-3Lde;
+	Fri, 06 Mar 2026 13:27:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1772803599; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=cknFmIZnziuF0r1Ynlpzf4OhSxLPoD8WaKN3X/hwgfU1vSVx9U3BTv3cnG6F5P/GEsT+JWTw5t6XgkL032MeRaKEviZVcgkiBiJICvYBFZcGnrDcAhcdSA1kZItsUOjIHgkJPjN2T0oKkeMm6a2irn5dSzIXpOUyn+ARzz6DIUE=
+	b=JydZtb6FD2Ac7RoUwr6cYvOUJTtYWi3CQSpSp5zD/uN5RMefcCJIeDrkhvBgKXTzFNAK0r8vCPLUWOWLkrV9uXbD1QBQgbslaR1iO8mkUCDj+g+i/Q9pBkoeDdDw/qu8R8q6o+Rw08p4KcroK5AadprfUey2Wn/wtA880NG9ApU=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1772803571; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=oMRShPh8EeevtTIDGH1GxM1MbJ6VL1Z6nVzBZFRjU9Y=; 
-	b=Oqqku1fXZjufH0S396Toa8/5hwM0vyusAWC4V5SjwlW81PkTaAzoZRPoHfaZbM867D/QTDGqlxW4xzkATxSD268wokQX2tsztSk5dWqK2k49LQKE6C6MLp6iOIIJ+00QK3C56YoXoOgkTFHrgSKwePcFNmuGfyG4/+b7xP2J8tM=
+	t=1772803599; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=/sEbnTP6mjprc+lvmLAb38b+csIauS2bw1X07zMWkGg=; 
+	b=LFomU/+XetnrHLJmDfeisIDQtCyYcsE1K1Eji17x48Vh0qzWcVrb5Cttr6VOwCM1lkdEou6jRWTRm52HHjzxD7QIUir3N+JYeox3bhenVW3D3a4l5J40jQeAT4Gf9YZHAlQEXKSzwq082UpdW4RV2e8lJVaJdVdpO+DZ0jLuUJo=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772803571;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772803599;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=oMRShPh8EeevtTIDGH1GxM1MbJ6VL1Z6nVzBZFRjU9Y=;
-	b=Fje2KcRCTv202XDSxuC+OUlPSu7YvcEBeAJFeJytESzrAyNn31+uT6kCSxhwAsT8
-	pHQMW7vB97A5wxKujTCcHIkjCtWULOjtBp3GQUmN9VPr5Ygh4ve7UjawulNzZwXAP8g
-	nneeKbox7d583kRX+HO2oa10jonzRzLTcN2XNPhg=
-Received: by mx.zohomail.com with SMTPS id 1772803570893122.34285192902564;
-	Fri, 6 Mar 2026 05:26:10 -0800 (PST)
+	bh=/sEbnTP6mjprc+lvmLAb38b+csIauS2bw1X07zMWkGg=;
+	b=OC1v41G+BtRYEBVFUxshQNKqa/J0u77vYoCx8p2yK7ImZuN6uWkR2pfgVj2tuZtH
+	vW68IcnWDG/fjFpNgsVOlehG2CnMDNOW7TJCmert9Wm7MjFpq37PMEOayFcDcsLHIkI
+	YseJCABpiM/fZyDiJP+MBGsJOJkr4iLk0NmYzzTQ=
+Received: by mx.zohomail.com with SMTPS id 1772803597852879.7693043464217;
+	Fri, 6 Mar 2026 05:26:37 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Fri, 06 Mar 2026 14:24:53 +0100
-Subject: [PATCH v9 12/23] scsi: ufs: mediatek: Remove vendor kernel quirks
- cruft
+Date: Fri, 06 Mar 2026 14:24:56 +0100
+Subject: [PATCH v9 15/23] scsi: ufs: mediatek: Rework _ufs_mtk_clk_scale
+ error paths
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260306-mt8196-ufs-v9-12-55b073f7a830@collabora.com>
+Message-Id: <20260306-mt8196-ufs-v9-15-55b073f7a830@collabora.com>
 References: <20260306-mt8196-ufs-v9-0-55b073f7a830@collabora.com>
 In-Reply-To: <20260306-mt8196-ufs-v9-0-55b073f7a830@collabora.com>
 To: Alim Akhtar <alim.akhtar@samsung.com>, 
@@ -75,12 +75,11 @@ Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
  linux-phy@lists.infradead.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_052641_400103_A5070DEB 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20260306_052713_893514_CDF50478 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,105 +94,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Both ufs_mtk_vreg_fix_vcc and ufs_mtk_vreg_fix_vccqx look like they are
-vendor kernel hacks to work around existing downstream device trees.
-Mainline does not need or want them, so remove them.
+Errors should be printed at the correct log level. Additionally, it
+looks like some "goto out"'s were omitted in the scale up case, which
+looks like a mistake, as the scale down branch of the code does use
+them.
+
+Rework the error messages to make them nicer and at the correct
+verbosity, and add the missing gotos.
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Reviewed-by: Peter Wang <peter.wang@mediatek.com>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/ufs/host/ufs-mediatek.c | 69 -----------------------------------------
- 1 file changed, 69 deletions(-)
+ drivers/ufs/host/ufs-mediatek.c | 41 +++++++++++++++++++----------------------
+ 1 file changed, 19 insertions(+), 22 deletions(-)
 
 diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index 6b4db7c09bbc..cb120dd52fb8 100644
+index 909e4ea2d92c..c236a833fe9a 100644
 --- a/drivers/ufs/host/ufs-mediatek.c
 +++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -1017,73 +1017,6 @@ static void ufs_mtk_init_clocks(struct ufs_hba *hba)
- 	}
- }
+@@ -1961,16 +1961,16 @@ static void _ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up)
  
--#define MAX_VCC_NAME 30
--static int ufs_mtk_vreg_fix_vcc(struct ufs_hba *hba)
--{
--	struct ufs_vreg_info *info = &hba->vreg_info;
--	struct device_node *np = hba->dev->of_node;
--	struct device *dev = hba->dev;
--	char vcc_name[MAX_VCC_NAME];
--	struct arm_smccc_res res;
--	int err, ver;
--
--	if (info->vcc)
--		return 0;
--
--	if (of_property_read_bool(np, "mediatek,ufs-vcc-by-num")) {
--		ufs_mtk_get_vcc_num(res);
--		if (res.a1 > UFS_VCC_NONE && res.a1 < UFS_VCC_MAX)
--			snprintf(vcc_name, MAX_VCC_NAME, "vcc-opt%lu", res.a1);
--		else
--			return -ENODEV;
--	} else if (of_property_read_bool(np, "mediatek,ufs-vcc-by-ver")) {
--		ver = (hba->dev_info.wspecversion & 0xF00) >> 8;
--		snprintf(vcc_name, MAX_VCC_NAME, "vcc-ufs%u", ver);
--	} else {
--		return 0;
--	}
--
--	err = ufshcd_populate_vreg(dev, vcc_name, &info->vcc, false);
--	if (err)
--		return err;
--
--	err = ufshcd_get_vreg(dev, info->vcc);
--	if (err)
--		return err;
--
--	err = regulator_enable(info->vcc->reg);
--	if (!err) {
--		info->vcc->enabled = true;
--		dev_info(dev, "%s: %s enabled\n", __func__, vcc_name);
--	}
--
--	return err;
--}
--
--static void ufs_mtk_vreg_fix_vccqx(struct ufs_hba *hba)
--{
--	struct ufs_vreg_info *info = &hba->vreg_info;
--	struct ufs_vreg **vreg_on, **vreg_off;
--
--	if (hba->dev_info.wspecversion >= 0x0300) {
--		vreg_on = &info->vccq;
--		vreg_off = &info->vccq2;
--	} else {
--		vreg_on = &info->vccq2;
--		vreg_off = &info->vccq;
--	}
--
--	if (*vreg_on)
--		(*vreg_on)->always_on = true;
--
--	if (*vreg_off) {
--		regulator_disable((*vreg_off)->reg);
--		devm_kfree(hba->dev, (*vreg_off)->name);
--		devm_kfree(hba->dev, *vreg_off);
--		*vreg_off = NULL;
--	}
--}
--
- static void ufs_mtk_setup_clk_gating(struct ufs_hba *hba)
- {
- 	unsigned long flags;
-@@ -1981,8 +1914,6 @@ static void ufs_mtk_fixup_dev_quirks(struct ufs_hba *hba)
- 		hba->dev_quirks &= ~UFS_DEVICE_QUIRK_DELAY_BEFORE_LPM;
+ 	ret = clk_prepare_enable(clki->clk);
+ 	if (ret) {
+-		dev_info(hba->dev,
+-			 "clk_prepare_enable() fail, ret: %d\n", ret);
++		dev_err(hba->dev, "%s: Failed to enable clock: %pe\n", __func__, ERR_PTR(ret));
+ 		return;
  	}
  
--	ufs_mtk_vreg_fix_vcc(hba);
--	ufs_mtk_vreg_fix_vccqx(hba);
- 	ufs_mtk_fix_ahit(hba);
- 	ufs_mtk_fix_clock_scaling(hba);
- }
+ 	if (clk_fde_scale) {
+ 		ret = clk_prepare_enable(fde_clki->clk);
+ 		if (ret) {
+-			dev_info(hba->dev,
+-				 "fde clk_prepare_enable() fail, ret: %d\n", ret);
++			dev_err(hba->dev, "%s: Failed to enable FDE clock: %pe\n",
++				__func__, ERR_PTR(ret));
++			clk_disable_unprepare(clki->clk);
+ 			return;
+ 		}
+ 	}
+@@ -1979,51 +1979,48 @@ static void _ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up)
+ 		if (clk_bind_vcore) {
+ 			ret = regulator_set_voltage(reg, volt, INT_MAX);
+ 			if (ret) {
+-				dev_info(hba->dev,
+-					"Failed to set vcore to %d\n", volt);
++				dev_err(hba->dev, "Failed to set vcore to %d\n", volt);
+ 				goto out;
+ 			}
+ 		}
+ 
+ 		ret = clk_set_parent(clki->clk, mclk->ufs_sel_max_clki->clk);
+ 		if (ret) {
+-			dev_info(hba->dev, "Failed to set clk mux, ret = %d\n",
+-				ret);
++			dev_err(hba->dev, "%s: Failed to set clock mux: %pe\n",
++				__func__, ERR_PTR(ret));
++			goto out;
+ 		}
+ 
+ 		if (clk_fde_scale) {
+-			ret = clk_set_parent(fde_clki->clk,
+-				mclk->ufs_fde_max_clki->clk);
++			ret = clk_set_parent(fde_clki->clk, mclk->ufs_fde_max_clki->clk);
+ 			if (ret) {
+-				dev_info(hba->dev,
+-					"Failed to set fde clk mux, ret = %d\n",
+-					ret);
++				dev_err(hba->dev, "%s: Failed to set fde clock mux: %pe\n",
++					__func__, ERR_PTR(ret));
++				goto out;
+ 			}
+ 		}
+ 	} else {
+ 		if (clk_fde_scale) {
+-			ret = clk_set_parent(fde_clki->clk,
+-				mclk->ufs_fde_min_clki->clk);
++			ret = clk_set_parent(fde_clki->clk, mclk->ufs_fde_min_clki->clk);
+ 			if (ret) {
+-				dev_info(hba->dev,
+-					"Failed to set fde clk mux, ret = %d\n",
+-					ret);
++				dev_err(hba->dev, "%s: Failed to set fde clock mux: %pe\n",
++					__func__, ERR_PTR(ret));
+ 				goto out;
+ 			}
+ 		}
+ 
+ 		ret = clk_set_parent(clki->clk, mclk->ufs_sel_min_clki->clk);
+ 		if (ret) {
+-			dev_info(hba->dev, "Failed to set clk mux, ret = %d\n",
+-				ret);
++			dev_err(hba->dev, "%s: Failed to set clock mux: %pe\n",
++				__func__, ERR_PTR(ret));
+ 			goto out;
+ 		}
+ 
+ 		if (clk_bind_vcore) {
+ 			ret = regulator_set_voltage(reg, 0, INT_MAX);
+ 			if (ret) {
+-				dev_info(hba->dev,
+-					"failed to set vcore to MIN\n");
++				dev_err(hba->dev, "%s: Failed to set vcore to minimum: %pe\n",
++					__func__, ERR_PTR(ret));
+ 			}
+ 		}
+ 	}
 
 -- 
 2.53.0
