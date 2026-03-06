@@ -4,138 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1FFCFCC062
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 19:47:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 353EDFCC062
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 19:58:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WAOKyXShYjh9nBkYylKWHu1KXaBbTK/7OaOjCLQk9Q0=; b=nIYn1KO0AV8cTTiDwSlj3j0nF4
-	+90vpa8Lei5rR4Vplb5UBegra4emI4rPVva+NKw+FvpUYBpYYpRwFNqEG1KFXJlKoU86QPkjoo+Yu
-	u7GHe4EiUH/wv8kBLe+sP3VbJuXpbxkZsd3jMvpQElL3MbjDr6ue484kglWXhsje5q3CnFz76U2eZ
-	gYzIOa233fUN3HQ9ATe2yUTfhuPdviPy62THHiILIaXL2JOXh4RTYWQ6Xdjqm6ZX2t6cNyiSqqsUg
-	xV1riANZurZS4f5TARhxEf0p4oU9dK4VQonD6EwSAq2swzPoz88HNnKOjcKsXk/efaUU1zX95aTpN
-	qxGUd21g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pygklHzPZCvqH88rpK8Mu6BNLua8aC7oKSSLfM/aNbo=; b=mDs9xTYttL7KWGiAAFwJFWl1AD
+	276qpui3GbOwzfCzzHohQAVbqwkHf975ESg2mlzoOvI7wFdlJUlIKN+lUuGjM8JudBA/mfh4Yn2W/
+	Qjw/t8STXFG0NV3w2a2NGTdpD2p4tRs9r70kWDX+DaxzRPUa6hXw+l9zhBGKs8nJVSUgpvOwsoxZl
+	o69mDLD15DqnNjTlPb/PJbWEbnmiFc2CdJagIjbWErCP6S8juHlzBxuNrqE4K2aOS7vpSjr5YFsgS
+	6e0OlNMTluVfGXLTdAWtPa1VtMnBb3G7qxhhIVMUBMjbsxqsUuQXaryeLFtDGg5ewmPQpMdKJVWlt
+	7zJh0haA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyb8m-00000004Q8o-1Re2;
-	Fri, 06 Mar 2026 19:47:16 +0000
-Received: from mail-eastusazon11011044.outbound.protection.outlook.com ([52.101.52.44] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1vybJp-00000004QZ2-1WsB;
+	Fri, 06 Mar 2026 19:58:41 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyb8j-00000004Q83-1CvN
+	id 1vybJn-00000004QYg-2j4k
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 19:47:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bwFgPnNOB4BkIlrZVbbwgdLaH5t+UHLXQ9wjsyY8/gkY+YlSomVtBafb/1AQhEqP5HAX5lUG+JgNQxH4Ogvk3RnQ6OgvSEfaMIyeu00E5XlPZ1fvIWrvdM2ZJWvIwaDiYiE4UZbB5tiKbbhuLcIF2IcBObWOf8R/AMwzFTK6LpsavxsGvZqv5OXowebzpZmJvOz2XPJvnXkrsZuwD7q3mjib3d/x9xmmXRIOuG1sEz8Vakd42LgUrs/jIP04imQ2zpIM56scPrCRRHp5umwRF2zFaTBNlMCYsM9wuF2cyb407ErL9q+ZAv84fejr6Z12diZlBS6akZ48UTHU2E+3kA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WAOKyXShYjh9nBkYylKWHu1KXaBbTK/7OaOjCLQk9Q0=;
- b=onGjsj0/bMCYL3K+kZDLWELg3MYbO7oEqisjUOSvqYbEREfy/KRT4ftzU7yhEG+0EdO4598M7xBQLdO6t0eqTejIBQS7T7QzTu9A/qLMld4QmAYvRfuG7+jfrpqsa7P3h5b7WZZ2VcvvE4aa9k+29u8m89zsL3uTjN2RY3+8VwqC9Q1wz38l84PDWY1iTt13KM+aWEs+LI00eY3K9vlu9WZUqdH2Duh+Lh+EV/nqlSDezY6urtAmpEwOM06k/XT35KKWqCmP/in6yXn+1xLNnsesu0asXZZhlCOPKexMzNHwiUJfz19UnNQT8p402Qku+y9e2GdPQGDFR1BLwikPtw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WAOKyXShYjh9nBkYylKWHu1KXaBbTK/7OaOjCLQk9Q0=;
- b=JNodDgfMWheqBCgOHVm1Fa2Q1WwMG1TF2HCZohPNUYxIy6EbfKUIYVxERQl3GYnlqcin2VRDNFKAsU+g7fZH7xfmbvuVncqslygpHb4t6rlQsmEQTcig732412eF1l33xdZ0v0xf9gCgMl98G6MyPOtV+zwT2kC20wYmrt4yMpk2PUgdh6hbUhVlwkluPM4G9+Qyi37K8e6wuX0FMHhHqH4JJXuX3otgGcqWn0M/YYIQCZEMUQ4VjpLHaHsZE6RyXQdINI3FxnpQN67zGyaqj5w42Bd+LhJaOJ6FoQUCq3xxFphbOR0EkJ74WPlK7IxG37uI0eFM25u4tXVZEEEHBw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by PH8PR12MB7302.namprd12.prod.outlook.com (2603:10b6:510:221::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.5; Fri, 6 Mar
- 2026 19:47:08 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9654.022; Fri, 6 Mar 2026
- 19:47:08 +0000
-Date: Fri, 6 Mar 2026 15:47:07 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
-	bhelgaas@google.com, rafael@kernel.org, lenb@kernel.org,
-	praan@google.com, kees@kernel.org, baolu.lu@linux.intel.com,
-	smostafa@google.com, Alexander.Grest@microsoft.com,
-	kevin.tian@intel.com, miko.lenczewski@arm.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-pci@vger.kernel.org, vsethi@nvidia.com
-Subject: Re: [PATCH v1 2/2] iommu/arm-smmu-v3: Recover ATC invalidate timeouts
-Message-ID: <20260306194707.GM1651202@nvidia.com>
-References: <20260305153911.GT972761@nvidia.com>
- <aanygWWZLA1htDdQ@Asurada-Nvidia>
- <20260305234158.GB1651202@nvidia.com>
- <aaot8uRsli5jNPzH@Asurada-Nvidia>
- <20260306013347.GD1651202@nvidia.com>
- <aapgyXadT1TEz29u@Asurada-Nvidia>
- <20260306130202.GG1651202@nvidia.com>
- <aaspAx9NiXmtRg11@Asurada-Nvidia>
- <20260306192211.GK1651202@nvidia.com>
- <aastXbRlJ+SNdush@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aastXbRlJ+SNdush@Asurada-Nvidia>
-X-ClientProxiedBy: MN2PR19CA0033.namprd19.prod.outlook.com
- (2603:10b6:208:178::46) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Fri, 06 Mar 2026 19:58:40 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-48334ee0aeaso79852685e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 11:58:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772827117; x=1773431917; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=pygklHzPZCvqH88rpK8Mu6BNLua8aC7oKSSLfM/aNbo=;
+        b=dvWLi/KwTANObI4tmkYx2jgILRrZGKnfREVIS/RavzZqYrBNcdiPgN2M36MB8mHJ9B
+         k+p3lZifkMki+zPn9Ez+kmb2mK+7BKo0gwMNG1vcKsZB2WGmcI1fkozkYZm0xhalVek5
+         ZaoTuB7hSxV7AjqN0QdKKytkTqR/tBayQFOoejPbYy4THXp6zhpzjpIfaUyQBC+u0rDC
+         8Qfn86EJ6M2JYGdANXBNAcJab8aZlPdtkbVSRjSfMLP2TNgYzy9quLZGv8HiHHCj+ESF
+         04n8w988pytZVpSFnXybpSegu4TusE5G3TbX63ptpYCAwBGPLb77OWdW+/o4ThWnVMjg
+         mjqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772827117; x=1773431917;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pygklHzPZCvqH88rpK8Mu6BNLua8aC7oKSSLfM/aNbo=;
+        b=eXn8pgL/dVIPIcSW5Vhi1QfrTYSz57accy5msU8U1c9yiE0ufPnDUNyQqhKZtYHzz0
+         qjsCsrZcpw4DE3mK7k0l1amCBKWHDzPrh/AWtaXCi8CzsYcoeWkHO6yinlkNPfRQbzGy
+         EpEkSyFy+6JtGCavl4/I2g5OYNA3JTONqbZ/lAY/TXbGGEIcIc4R8Uoqhrxkq4/9eGEh
+         d0h9JhN/9x2gyxKMrKqEejaKPw2q1fixi7q+UmCzw0lemb0FGZ9NxHvInmhWjYIKK6Cw
+         x28QzRdXoXhRlLP/Asvg1QQgQqFTD9TbrOQEspqQ+cX2QXPo0vl3M5gaub5zf1P7jkpb
+         5GCg==
+X-Forwarded-Encrypted: i=1; AJvYcCUCXi6v7PXDt25XjFzVhCMVynrbzpPTjqBaiSqAmXE9bgTolPhTKGHowEzrTMmINLFC9yzHltfBZt6iqjbk6G3O@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDBY2e2k7cL32Eaia8MrDmEAfRp7A8wv/M3Auci9FU3SqJlbAp
+	grxuChZQGvQKOxJw9PGr6L9isJ4jOr0Ba00Ls1+/ndy9C8lfjKqLo9uM
+X-Gm-Gg: ATEYQzx6abJ2Nhh9VhjCjbNx5sz7vWBsNklqH3twMtn/RLCSZU4BndG22zgI3/o76W8
+	7Sjcfblk2kG59QDuyiAAFbStLahO+uU0OwsmDNFGMZ7EgDx2st+uUZiifIv8y4xG32UdphFJ9ds
+	eDMJr0kscy/hqE7X7WCiiSUkZKccTpd9Drq1udQ3pc+k08RgxkkEfm5pbz+ZciYu5XX+9ONkwbL
+	JRdvuCc68yenDqyrg4hCG1XVf72IrfcHNF9lCPvQ9+vzHlXGcnYS97Lo3Z3oO/3C1KrQ5M+XZq3
+	nrMnhJr8Cmo3J3pkd/RZ5Qq1I97NkKZzAgrT2Q+kn+99yMLWSBC6d3rE612MSpvZgRKM8ba8U4v
+	K4/K3XyJpXKx8H+RnMWcH3xMyzMyfdl6QTX5c1qufGT/7FzVrQA3JT2yznyU2QUG5XNe6D1RjiU
+	KhQkL8Jl4W6fxZt0POa4NKQWAeMG0wRHk1nbpL6vqA2E31y689oVqEDsPH5ZnvNZLoq9Yc2doH1
+	WeMbMuhhAPKPP5BlHBU8L3PQdpdMP9bofIt7gU=
+X-Received: by 2002:a05:600c:8b5b:b0:46e:4e6d:79f4 with SMTP id 5b1f17b1804b1-48526927a4dmr57513635e9.15.1772827116958;
+        Fri, 06 Mar 2026 11:58:36 -0800 (PST)
+Received: from Lord-Beerus.station (net-188-152-100-94.cust.dsl.teletu.it. [188.152.100.94])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48523803b5fsm25167265e9.7.2026.03.06.11.58.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Mar 2026 11:58:36 -0800 (PST)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Subject: [PATCH v2 00/11] arm64: dts: freescale: imx8mm-var-som: Align SOM and Symphony DTSs
+Date: Fri,  6 Mar 2026 20:58:19 +0100
+Message-ID: <cover.1772826534.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH8PR12MB7302:EE_
-X-MS-Office365-Filtering-Correlation-Id: 52bec159-113a-4207-ab98-08de7bb9269d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: op5vNGS5T1A6aiewlrQcSQBF5ubMmxIGLH3hfs8dqXenrfRLhaJIklZSiUi865vSn6Bvc7q7gNEUIiM1pob6x0njbEC+SkIebJmTdIAIAx5yPBP/x+Lt+uXZDgprLrO1eIh7VpgpRpkOphHdl5S/lFDRv0qEQiYymwXtvWuGtGpz2PM6OVE2S/t9XWyc2Y3bLjW1olOhZFg6sRc12qnrVxwJ2boi5YUpOa+4qVeO39h6m1HkCwigyyYY+ogjMQS4TyNFYl7z2PgQhjTLwfr3lSqqRIW+eQLmF0WmwfYhjA7tMmhNh7Wv11dlBirlECO419RFGqw1QGGpcL0fOutoICGRzXT24P4BWsU+xu65QKSPVHg+W4Aozs9TaV5yqGyOTTf6oUhbOGNmgEQcXie5cnyQeaFep/eJkadVd+bdg/6zZfckwqEtdv4E49+TH5LoUPBZpfXxP9IQ7E187ja23kjsJhdQf/MYHWy7fnK76FOCzy+B9DaOcZmACeUxQf5U4qtx6lSXZ5sL3vlyDx8nIo72MtvP5ACxUum1pg29DOzQ4p65sc2NBFC1zqiP2Xv/CV6kwLY9vpps7AV4bwAsAlQiS/92FUHcDxdLk3/ATMUIrJ0EtgPc7oNAAjTnWCPLuHgYU7kHSAaTUk7a8BZCCK/NN+cAnov1rm3vtPgA4bYK2rt+OqubeImAPMxFzvO7omMRmQSR4f0Mk37mKD/eHsUZu9wpsGYuCFOOZwUAe9w=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8qARfTRHN9t081F62wap/drcJ0a/+NWg7n38pT3+QjS2AOFO/5j82op4JYjx?=
- =?us-ascii?Q?CzNHh0MxvWPBGA454b9iKH7h16tKmGwob+0N/wlCUOE2V0nXyKuhnywjx9NI?=
- =?us-ascii?Q?5ghpgitcfImKDAwVYf/+d0F4dJqqQOiIqXQvA8vs/JsyzJBjt+cTUB0uaIEl?=
- =?us-ascii?Q?qGiyWgkLYU+kg1p5+eoXYeF0QpbTXGJJFpMCPDYS01sYV0U6C8hZmoFwv61A?=
- =?us-ascii?Q?gl4GJmpaqIjFWvjP37FeqQBp+FFzUwHTqbCKRaR1eOid7zLbwxfCZ0I+YLx5?=
- =?us-ascii?Q?n0Us4k2Is2PogqfSUKiyntPzXH+RzHDeOZn8gYi2cCLDoD5JsutlzR78sgfO?=
- =?us-ascii?Q?e7B0zpoHTBoE9gwHAHcG/MCxxJd9RrKRvYMksv1lTCEB9TD00Ye/6e+XvB2k?=
- =?us-ascii?Q?4c3lyGxpOkSra/GZC6RT1P4ilEYRIUa4Na4wI0PIopkG8cVOKLgdFfmVSMGo?=
- =?us-ascii?Q?3RCxbvvQ/YuvUpOdJ2hKextieMvL8zTseYiJ6S+KqJdEjyMPU/0aQsc9dVDu?=
- =?us-ascii?Q?9XNK7UbE6Qxqt6L8NLt1EWQSxJY5hlNmCJM5Zp/el2ZSIZ0U3mdkbaucakNS?=
- =?us-ascii?Q?SYEGXeK7OdYYqCZfkw0ZpurZCVDnN2ll3KLceLuC+yTEGXUtlqWzaeAAwM6w?=
- =?us-ascii?Q?3vWU9zRGBiZUtzu35Xpvmv0SgmtBMY+1eIxCRO9kQT8Pj387eZfcviQaKmys?=
- =?us-ascii?Q?ALAdYegGD//9FrvajH5gRECK+R5JI1u8F/9UlIOcMfIkxaASSPpqsrhQNuiY?=
- =?us-ascii?Q?glmqUCuKErX/YqxSw74tFyBIEJgfjvukP3rp+XvimfajRGF8Y0qnAzrDsWJ3?=
- =?us-ascii?Q?jIGgF3h/cc10r1c9j8VtgempI9lOrqiGdnqiHlMlDgVCMoTCFp+em0D/mTiH?=
- =?us-ascii?Q?9wHwIUJm7N0ZySCVHB+0F8taG3wAGp4B3pP7a01KP5yrr5ZxbSihLT+rgB0y?=
- =?us-ascii?Q?P2RBPzfl65hJRmDGs+aUQYjDANKKrTPnyJtfOL/Pnd3RgRZINzKntIlNGeTD?=
- =?us-ascii?Q?ah/HxkFlmIeLy9AyZX/il3+mCqaLifGuNS/0xhNpFljsDRu9QQmgFYJ1iJko?=
- =?us-ascii?Q?uF++58Vwn5T+qEUARXTmSkNdMuPE6ySwtQE22hA1Z92nFL46KGP8qsEEtB5l?=
- =?us-ascii?Q?cZZ8eXgbuPjAkVrF7XKSWGP9EKtohvu58yE4Q0eqXPqs2KfDv1rCyzh6RTvO?=
- =?us-ascii?Q?Z2WdB2g/q3SLdR9Q+er1em4T1FqVXW3HmQJmV/O+8MXhNAra50VtzNnSwl88?=
- =?us-ascii?Q?36X63uGMuVeCAc4e0Zd1BPgtincFf/UbWbf1cXURJmms/1Sh2jK2xga85WSj?=
- =?us-ascii?Q?iLTwuqkKpp9mcazjY2PAehb290BIsOgLPi8Sh/PlmsBp1LjaB4mJ1z5Ts//p?=
- =?us-ascii?Q?uJA7QggZJxPepvx6d1DIy8Uxdqpnd7GQcST+/gxgcoKoAuaGRD4dxtmku2xT?=
- =?us-ascii?Q?Eg7vQRwRZPePt6+mub94SAJdYXKKhfBojUeMIS0F930+O1Om7vmSY72Q+w5w?=
- =?us-ascii?Q?37OvlG6mJC2Dc1uX9evp5svSzTj+/aa3/iLYWVVRAdhco0Gans0adD6b0YD1?=
- =?us-ascii?Q?T2x0ypkLM6kcbgHP77O+rf47l+kOM2anxVwI26VGbARKrzuyuDmRoK34Rep7?=
- =?us-ascii?Q?6mavTbp8RfE1AbpK7iVspmtg1g8XL047QkmidJf9yzVw1msluIAviBk4yd3j?=
- =?us-ascii?Q?ahuVmq8N3WasdtO90LVB/BxPC2VKKF3b45UBOZX8HN5hF0WOc48AgyDcahRP?=
- =?us-ascii?Q?gXV36sI3iQ=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 52bec159-113a-4207-ab98-08de7bb9269d
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 19:47:08.2017
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: sS79tdkCWc5lg5YDIvmHkZRJsauyCedX0CHUSYqLH0PwwG+u7g9YM4ruQfpPQQuo
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7302
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_114713_365395_B44C462C 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20260306_115839_722930_AA81B02B 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,37 +107,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 11:39:09AM -0800, Nicolin Chen wrote:
-> On Fri, Mar 06, 2026 at 03:22:11PM -0400, Jason Gunthorpe wrote:
-> > On Fri, Mar 06, 2026 at 11:20:35AM -0800, Nicolin Chen wrote:
-> > 
-> > > In general, the maximum users count of an INV_TYPE_ATS would be 1.
-> > > So, an unref() would be sufficient to mute it, though it'd require
-> > > the unref() API to support a mismatched users counter, because the
-> > > PCI reset in the WQ would block ATS, which would try to unref the
-> > > removed command once again.
-> > 
-> > INV_TYPE_ATS_DISABLED could be made to work too..
-> 
-> Overriding the type.. hmm, that's brilliant.
-> 
-> Rechecking the unref API, I realized that even the "users" in the
-> latest version isn't atomic anymore. I recall that we are fine to
-> do READ_ONCE/WRITE_ONCE on an int type because invalidation array
-> is serialized by the asid mutex, which wouldn't work either in an
-> ISR or just in the arm_smmu_master/domain_atc_inv()?
+This series aligns the i.MX8MM VAR-SOM and VAR-SOM Symphony device
+trees with the latest hardware revisions.
 
-I think doing anything from an ISR is dead at this point, you'll be in
-a flush context instead
+The update consolidates the device tree descriptions to better reflect
+the actual hardware partitioning between the SOM and the carrier board.
+Nodes describing peripherals physically present on the SOM are kept in
+the SOM dtsi, while carrier-specific components are described in the
+corresponding carrier dts.
 
-We can be sloppy with locking here because the goal is to
-opportunistically inhibit future ATS invalidations, if one leaks
-through because of sloppy locking then it will get handled anyhow.
+The changes were tested on the latest VAR-SOM and Symphony hardware
+revision.
 
-So you can WRITE_ONCE the type and READ_ONCE from the merge side and
-that is close enough. Just document why the race is OK. We also hold a
-lock around the ATS invalidation push so maybe it can be fully locked
-anyhow?
+v1->v2:
+ - Moved phy LED configurations to symphony dts
+ - Added Wifi/BT dtsi variants for both iw61x and brcm legacy modules
 
-Jason
+Stefano Radaelli (11):
+  arm64: dts: freescale: imx8mm-var-som: Move UART4 description to
+    Symphony
+  arm64: dts: freescale: imx8mm-var-som: Align fsl,pins tables
+  arm64: dts: freescale: imx8mm-var-som: Update FEC support with
+    MaxLinear PHY
+  arm64: dts: freescale: imx8mm-var-som: Add support for WM8904 audio
+    codec
+  arm64: dts: freescale: imx8mm-var-som: Add MCP251xFD CAN controller
+  arm64: dts: freescale: imx8mm-var-som: Update WiFi/BT with variants
+  arm64: dts: imx8mm-var-som-symphony: Move USB configuration from SOM
+  arm64: dts: imx8mm-var-som-symphony: Enable uSD on USDHC2
+  arm64: dts: imx8mm-var-som-symphony: Add TPM2 support
+  arm64: dts: imx8mm-var-som-symphony: Enable I2C4
+  arm64: dts: imx8mm-var-som-symphony: Enable PCIe
+
+ .../dts/freescale/imx8mm-var-som-symphony.dts | 223 ++++++++++-
+ .../imx8mm-var-som-wifi-brcm-legacy.dtsi      |  12 +
+ .../imx8mm-var-som-wifi-bt-iw61x.dtsi         |  45 +++
+ .../boot/dts/freescale/imx8mm-var-som.dtsi    | 366 ++++++++++++------
+ 4 files changed, 501 insertions(+), 145 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-var-som-wifi-brcm-legacy.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-var-som-wifi-bt-iw61x.dtsi
+
+
+base-commit: 37a93dd5c49b5fda807fd204edf2547c3493319c
+-- 
+2.47.3
+
 
