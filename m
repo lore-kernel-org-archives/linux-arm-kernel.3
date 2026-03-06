@@ -4,88 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BFC7F513EB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 02:20:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F26EF513E9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 02:26:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=63G8v1SmaEgTYdfJTyL6ai9ialxWPrLA+2LQvndcIO8=; b=fDXbnjNQd8DSa2PSOF18A2kijb
-	ttSVd27PRGbjeSdulXXoah/9X8DyO6zQfAfthxCb5NwJG7W5XF+3jcFBilt0w6dbqzp7k20wdYSp9
-	BCSrpcWhm9cQ9GhadusdFrt1nShg1ktjAvH8B8KEizr3w84P0Ye3e1FSVURzOdfTvzBYN2wEm22Ks
-	szQe5+9Y4oswjaDwmADHGVOcBOcMDQc4ACTF336XniILxH/8HdjxDAsyryhe8laqsb3TN9BYtJnBh
-	fz2pPPyz4nMiKsbBeAH5Yp6L0WBQHCNPav+Hi+0Zaz3i9LN0pwL6dRwtO9CbHHIQuRcHgVXn6bOQN
-	EtlldIAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=v9EOJ9QxdvnD07sevCFdSS05l0S8kqLisCiR4ReOwjw=; b=RmqtyanRkXGcX8qDTsBqcJLns0
+	EMEtdGt5DU2HvmOeAjWmCN1JS/JjPXnkADTBAJ1ge1XX01iIJlPv86x2g71/z8zEJdIDyaO5z81Jl
+	qV6EiBHFVSKQO8fDCkBRaRhktGkIXvC6nCMY2sjMb86pUPz8Z424C6xxHjpQxjFM0isptcx7MUeil
+	g/ToZNYcTPxJJQneLyR9Cw22QjB52BtcDx731b8tNIojz0kIsjjgrCcBQTbZITJ1xft3SS5OoxJca
+	Q8+t//dSO6x08n8JQE8hIzQQ2NfJXbPiCmiTNsHxvSlZi9K3foxxR7Tmv6U5+IQNHqwetbJTqKBlf
+	aOgiZEtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyKo6-00000002sml-1IfV;
-	Fri, 06 Mar 2026 02:20:50 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1vyKtE-00000002t6s-1t7h;
+	Fri, 06 Mar 2026 02:26:08 +0000
+Received: from mail-northeuropeazon11012004.outbound.protection.outlook.com ([52.101.66.4] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyKo4-00000002sln-0y77;
-	Fri, 06 Mar 2026 02:20:49 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=63G8v1SmaEgTYdfJTyL6ai9ialxWPrLA+2LQvndcIO8=;
-	b=mwQ0hElsHFrGBY+A3e2KK7IjK1rv0TAkhpGRCNBsH64nmtcpuKi+oWynKmiaLosb7CItekbvd
-	7Ur566TDm1xinylYA/X8Q+XD14TchvZjfjiy4Cw81UnxzrRRUjK7AmWvdX6Y/jbCiVwouEIKPd8
-	GTSznfAxZkaV5F0QVZ6bA9E=
-Received: from mail.maildlp.com (unknown [172.19.162.140])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4fRqkq3J7bz1prLV;
-	Fri,  6 Mar 2026 10:15:47 +0800 (CST)
-Received: from kwepemk500009.china.huawei.com (unknown [7.202.194.94])
-	by mail.maildlp.com (Postfix) with ESMTPS id DF7C52022B;
-	Fri,  6 Mar 2026 10:20:41 +0800 (CST)
-Received: from [10.67.121.161] (10.67.121.161) by
- kwepemk500009.china.huawei.com (7.202.194.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 6 Mar 2026 10:20:40 +0800
-Message-ID: <e33affb0-e8f8-48fc-b344-90fea722d30b@huawei.com>
-Date: Fri, 6 Mar 2026 10:20:40 +0800
+	id 1vyKt8-00000002t66-3Q68
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Mar 2026 02:26:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MjKGRU+EUH39upYK7wykzCIcXgFbMS2YUpqiu3i3yfHxhhLGrA1AZGbvSiGnTfP8MUlM3quv2fSfMHF1O0wVSlhp7S0gPyH18fwmmX+T5jTZhcRh5ygJEReXMG00se+UC25PTishogazEX6kGfW3TZ5LkI5yVzEzDpxfG92pcHPG9SRHwG5LCPm8CTcVJeCbxSK0tqg7AnBKs12eHKtXnqIAX95SKjEAsYZAuhvBXegVCoN/5Y2uTx0Ld+lhcPwDVdUcf+Q1jzkvBXKp0gi9Fz9z5DYA3neBYbOn+3cYg+ShFBaSXAencxVzwsU5dObNWNKoCpkLZKpv8qq3dZDh5g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=v9EOJ9QxdvnD07sevCFdSS05l0S8kqLisCiR4ReOwjw=;
+ b=bOCZQiAoZWewBYQKsuy+Vm0hgBblhpXsmHEjrzb9+saDSffTNzeD4VMJbfVafwDOKoHnvGXPnx3ix10gOqsLMV5nlkfazOkzqiqtdtX9zKOjqse6V5pQNuse/LRrECBPJ2ebqmnQfchV/D8wkQ1EF0SDVGY2lqaMXEB9bqf6dooe1SuZpK7SboVdrA+G4pzQ0RFopIGvFJP4DFi5apvhN7EDjAnlXcQOAUwNlWBWbz2Iv5ZVq5wMYo4zNxkocuFK1n8IRZ0fWcl2crJBPWsHprGXJW1jooXxXunaF+bh3E1YL3gW48mqDPWSGrFlYR+ZXRJcffU4x7NWFjspEVfjZA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=v9EOJ9QxdvnD07sevCFdSS05l0S8kqLisCiR4ReOwjw=;
+ b=EEnAfYX/NowdE/URqVcHDUPHF4bWJ0XWqcJreQnCVbAsbluT3wIuhVXPe9iczaEme0tkFGmJCVPMXO/R83VTn16EuE5Y0EGd7ZQfypZ/V4uOhyzYJ88W5rZ4aHHDAY9TinIEl3pDvSnXqyk54Ti3je5oYK39i5bzhccKGwhNMxEwmh27MsG5jL8aipt8tPGZOxyovz3UVy/2S2CZZX6XXE24lUxC/HCMF9xcr2AtuVBx4UauBvOSUiL28tfISTG02FaR32sTSl4od8Kn+9xEmxUihBGYcJZwCkf3eEcQ2Py+GFchziXiJ2cEhwqKxG7nXl0qRvgpbaIQas5oyCwc/A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
+ by GV2PR04MB11633.eurprd04.prod.outlook.com (2603:10a6:150:2b0::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.18; Fri, 6 Mar
+ 2026 02:25:57 +0000
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::20db:4017:28ea:911b]) by PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::20db:4017:28ea:911b%4]) with mapi id 15.20.9678.017; Fri, 6 Mar 2026
+ 02:25:57 +0000
+From: ming.qian@oss.nxp.com
+To: linux-media@vger.kernel.org
+Cc: mchehab@kernel.org,
+	hverkuil-cisco@xs4all.nl,
+	nicolas@ndufresne.ca,
+	benjamin.gaignard@collabora.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	p.zabel@pengutronix.de,
+	sebastian.fricke@collabora.com,
+	shawnguo@kernel.org,
+	ulf.hansson@linaro.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	m.felsch@pengutronix.de,
+	fra.schnyder@gmail.com,
+	linux-imx@nxp.com,
+	l.stach@pengutronix.de,
+	Frank.li@nxp.com,
+	peng.fan@nxp.com,
+	eagle.zhou@nxp.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v3] media: verisilicon: Fix kernel panic due to __initconst misuse
+Date: Fri,  6 Mar 2026 10:24:04 +0800
+Message-ID: <20260306022406.760-1-ming.qian@oss.nxp.com>
+X-Mailer: git-send-email 2.48.1.windows.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SG2PR01CA0176.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:28::32) To PAXPR04MB8254.eurprd04.prod.outlook.com
+ (2603:10a6:102:1cd::24)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] PCI/TPH: Fix get cpu steer-tag fail on ARM64 platform
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-CC: Huacai Chen <chenhuacai@kernel.org>, <linux-pci@vger.kernel.org>,
-	<bhelgaas@google.com>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
-	<skhan@linuxfoundation.org>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Thomas Gleixner
-	<tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
-	<bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, <x86@kernel.org>,
-	"H. Peter Anvin" <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Andy Gospodarek
-	<andrew.gospodarek@broadcom.com>, Eric Van Tassell <Eric.VanTassell@amd.com>,
-	Ajit Khaparde <ajit.khaparde@broadcom.com>, Somnath Kotur
-	<somnath.kotur@broadcom.com>, <linux-acpi@vger.kernel.org>,
-	<wei.huang2@amd.com>, <wangzhou1@hisilicon.com>, <wanghuiqiang@huawei.com>,
-	<liuyonglong@huawei.com>, <stable@vger.kernel.org>, <jeremy.linton@arm.com>,
-	<sunilvl@ventanamicro.com>, <sunilvl@oss.qualcomm.com>,
-	<chenhuacai@loongson.cn>, <wangliupu@loongson.cn>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <loongarch@lists.linux.dev>,
-	<linux-riscv@lists.infradead.org>
-References: <20260303003625.39035-1-fengchengwen@huawei.com>
- <20260305083650.54611-1-fengchengwen@huawei.com>
- <CAAhV-H4xZsyLdzswPxPGHoQNd4LKXrTOL-oPGZHyVt8dj0xu6A@mail.gmail.com>
- <795a9167-6c49-4c7c-9a36-385bf543cacf@huawei.com>
- <20260305145403.0000394e@huawei.com>
-Content-Language: en-US
-From: fengchengwen <fengchengwen@huawei.com>
-In-Reply-To: <20260305145403.0000394e@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.161]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemk500009.china.huawei.com (7.202.194.94)
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|GV2PR04MB11633:EE_
+X-MS-Office365-Filtering-Correlation-Id: 66fd469c-d713-401b-889e-08de7b27b28a
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|52116014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: wBcWOMgCe5Q7/NwIW7h6cODMhfdZRiun3HDA4Y8AaIsy3AGRNIpeN70ciKabuGa6HHbzoXkHqt0bkGs/795I4JpsOX55WYZhBHoPPgr84QYYMYcoA2wShwLlZwtsPNEvkpiShVqlXUz0SArMTNRYliczqFJSY83Okq7EC16A/5MxyDcEHExV6jIbYYGzgIZsZRYiTQcCnHhJ28OY6gwtrbsWFns8K8tAzBEB2F3fzloqGEqI/LZjSc1Zpy2tNEjtFzPqvAOVXN2bXiaQ68cJmSPuRI5WsuBEsV1v9DZiiqwdxfHXt2RU0EopYn3Dsbs0ulpANXnyPKxanbC7sySYtRw+j1Re9+kqClxihLP47KUYRUbnum7Y7bJsvXwZa7hw2g7OTvwjgicqALI2320JUgbsn7/DsoxDs0v1F0Cdi2n5xTinUUyMfS0USGdfrevsbUIlkVT9BsIpjZT+4fC1IXnY+5cqOdvTxnYwjrG+ca1VY3h7j6ETj7gZeE9FCdfxze90kY8WrQwNaMEINiLzKDZoGbnNHpvUoBWNMaN4tACCTGM6SyLkCaZBVJsAj9KL2mXAY5jhTKa4zqjZuIIuOzuZ7jiEkYaZwxLhU2dH4d8xKT9Es/Gi/ecVy/JLya1l41/cLYWTDkNDYLszOKo1pWO23f5xprqcBar9Lp/kot0UA+U9v3MwBCE7KL1rtv+ZXfW6NU5y5x+cdOecMSgeae16MDeIkqvUWwE6raM4SH01ENU16rL+M2KlsYLnKeyKlcyG4AEdJ53pKcPB4Rb3mJgHIRA82MXbF/4/ROaQM5aKu60n7eqPVEK6X4ywOX/7
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FR18+UYAZhJyDJ4mVEB0DxOdMGMA8Mieb+0XvfxRjO57EfVUJd2gmCR9JJOh?=
+ =?us-ascii?Q?vkUMI5+n60+4QCYXUTHvBBCXHVm/e/hcx+L0QLnT9QdICPqZl/lDzmVn0g79?=
+ =?us-ascii?Q?DnIRpseJP4/+rd64hIbjQVgs2FahDWfaWRAl0FTeEkeaidHWilmClt3i8Abm?=
+ =?us-ascii?Q?1Bhdv3ypUbN8WT+J+TR0ro/vpiaAsXUd6GhEuy5+qW34lYQzCFrC3oKz8j5w?=
+ =?us-ascii?Q?MMTjNj5HRsINZRVT4bXNv3KxX1VFZY7QgkNmRqd7P8zYZl39tPKzkY8ZzTIQ?=
+ =?us-ascii?Q?HqONPd82fAb+LhTwcFmQ3w6g70jRX7okzIEELHvjb2hj5EIg+IMC2xT619ki?=
+ =?us-ascii?Q?owaVHOOzv17O8+qO6+mtXrMp5InIZD5s+Gb4vG0oYSq9lkd+10vXBwc9NO2G?=
+ =?us-ascii?Q?2jWhJ/QnvDTJUCDbp4ZDdKGDIYwrbz9PolS9yJDgGBVjfQeeFanHOcEPWHhV?=
+ =?us-ascii?Q?ycC1yrZXJ68x6vjiZ+eelV+miKpkRA7tqpdziOvYXkAqJXuuBsM7I4wmYjXv?=
+ =?us-ascii?Q?9SCW3zCnwuCuT4fTD1QvNhp9cAf/CYJgNLioCe4eMP/+BhR/13xLnJxup/Tr?=
+ =?us-ascii?Q?fSEU2Hbdn7sErAZpXrE5MULAHlcrp2fHXEQmoU1DpbsQa5DoYW7oQWJR/hGp?=
+ =?us-ascii?Q?P9jjb6uiXxRyFFiCtZIULq8qNBvWY9mht+zvCPB336iJhjSJ1VWsKWHktfpZ?=
+ =?us-ascii?Q?SDGBGkFIgOJFpOGUmlnZrrjf9rsMZjXTstK5JvNT1LY0LGF4DxmLfR51Djfb?=
+ =?us-ascii?Q?y+s1MEC1Z5gHOQqxG08NRKGL/E8QiOOdTVhX3YgMNaEsjSveQDA8eUx5ASgM?=
+ =?us-ascii?Q?taomvHRi0ibdruz1N0z1d/tqkk+Jc+zbOPVKPJ+xUjLeH3vBrXu4kw7xWtrx?=
+ =?us-ascii?Q?j7yafWe3iEhF8wfUBXYL/VpCg1zcJZPTrt1SxSdoPxzVBWgLf8sfjM8V2vfd?=
+ =?us-ascii?Q?gjXOgkCL/S3dHHZHNTlk3oeBoDR7T4xOyAnlWr9+66oANySvZ1jYa7tyEjyD?=
+ =?us-ascii?Q?8LZXvzarYNmkLZh4vJGDQYq4Rp9rs//GOomirWWX+bD0nP9QGCgtM7nicOts?=
+ =?us-ascii?Q?0htdyHuvxOFHGDAByH1OZWge55m7+WeAD2VNcuhldZ8/91W50pZjQj7UZAlW?=
+ =?us-ascii?Q?ruDasjJl5wBVuNo//Mooz2UmE50m1rL2a48Igh5iloR3sUrCJeVuysXxwmXR?=
+ =?us-ascii?Q?cTnF/mxm89jFIu/aiSNjPZQOrZYMjSJU69b87CMqYRbSwh3S1wPeLXWEI4ET?=
+ =?us-ascii?Q?5aRdpQ3050ZnHWXpZUFCNw0ZYkIs6FeSsEnsj2al6Z3qgoAcsR5qGJBfvp38?=
+ =?us-ascii?Q?4Ms6g49I/pksvf2b2nbKsamBMaxKH8+/p5KLzTgtzKlj2Gc25Iq0QY/ufq/C?=
+ =?us-ascii?Q?RGsVQmHZiWIhFscwltQE2fvFS3Hjzx4osjy4WVBQwbDvkrZ01Po2RSnO7wl3?=
+ =?us-ascii?Q?N8nkiV585KFD82T0SADAQAEvHXQm7994ktatnbXQCiDZ92mq0bDzOkP+Eqrc?=
+ =?us-ascii?Q?geQCKW54HgfmoGfdsQYTHPD1qnaDeici0tchGGNEjY02dBt2j/oXlcY/aAZO?=
+ =?us-ascii?Q?cEsfbFaT/Q/uMYEcbhGy9oAUKA/mtHnvE4jd+JutXOkZ/xqj3Sv/STDKCEM9?=
+ =?us-ascii?Q?3K576xgEz12LSeB3Z79jSK/Xp7dAGrvdYbuekoa95pWPXQRFZ/cOmTRbt6tS?=
+ =?us-ascii?Q?e1dIYoZLu4zI+uD2sn4cxmmAc40v9MBDVfY+Wvi9ukylu6NTW+GHgbbjMv69?=
+ =?us-ascii?Q?O8+ZW9XDOQ=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 66fd469c-d713-401b-889e-08de7b27b28a
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 02:25:57.1299
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: PSqTrvAalCByVjZ4T3Z+u2mm5MUser/eiicCYNVtSyiMYnnl5y3XsHcPWl9POkiq7nNPG0EfrD8wXGSvVEvsTA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11633
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_182048_426777_6BEAC296 
-X-CRM114-Status: UNSURE (   8.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260305_182604_280706_251CBDFD 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,26 +160,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/5/2026 10:54 PM, Jonathan Cameron wrote:
-> 
->>>> +       ret = acpi_get_cpu_acpi_id(cpu);  
->>> Can we use get_acpi_id_for_cpu() directly? Then just x86 needs a wrapper.  
->>
->> Yes, it indeed simple.
->>
->> But I prefer to have the acpi_ prefix for such API names because it's a cross-subsystem API reference.
-> 
-> Can we just do a global rename of get_acpi_id_for_cpu() as a precursor
-> patch?  Then this just becomes adding x86 implementation and using
-> it on all architectures.
+From: Ming Qian <ming.qian@oss.nxp.com>
 
-Sounds good, done in v3
+Fix a kernel panic when probing the driver as a module:
 
-Thanks
+  Unable to handle kernel paging request at virtual address
+  ffffd9c18eb05000
+  of_find_matching_node_and_match+0x5c/0x1a0
+  hantro_probe+0x2f4/0x7d0 [hantro_vpu]
 
-> 
-> J
-> 
-> 
+The imx8mq_vpu_shared_resources array is referenced by variant
+structures through their shared_devices field. When built as a
+module, __initconst causes this data to be freed after module
+init, but it's later accessed during probe, causing a page fault.
+
+The imx8mq_vpu_shared_resources is referenced from non-init code,
+so keeping __initconst or __initconst_or_module here is wrong.
+
+Drop the __initconst annotation and let it live in the normal .rodata
+section.
+
+A bug of __initconst called from regular non-init probe code
+leading to bugs during probe deferrals or during unbind-bind cycles.
+
+Reported-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Closes: https://lore.kernel.org/all/68ef934f-baa0-4bf6-93d8-834bbc441e66@kernel.org/
+Reported-by: Franz Schnyder <franz.schnyder@toradex.com>
+Closes: https://lore.kernel.org/all/n3qmcb62tepxltoskpf7ws6yiirc2so62ia23b42rj3wlmpl67@rvkbuirx7kkp/
+Fixes: e0203ddf9af7 ("media: verisilicon: Avoid G2 bus error while decoding H.264 and HEVC")
+Suggested-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Suggested-by: Marco Felsch <m.felsch@pengutronix.de>
+Reviewed-by: Marco Felsch <m.felsch@pengutronix.de>
+Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+---
+v3
+- Add missing Reported-by and Suggested-by tag
+- Add commas to pass checkpatch
+v2
+- Remove __initconst
+- Add missing Reported-by tag
+- Add missing Suggested-by tag
+- Remove comments of sentinel to pass checkpatch.pl
+
+ drivers/media/platform/verisilicon/imx8m_vpu_hw.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
+index 6f8e43b7f157..763bb2c7c815 100644
+--- a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
++++ b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
+@@ -343,10 +343,10 @@ const struct hantro_variant imx8mq_vpu_variant = {
+ 	.num_regs = ARRAY_SIZE(imx8mq_reg_names)
+ };
+ 
+-static const struct of_device_id imx8mq_vpu_shared_resources[] __initconst = {
++static const struct of_device_id imx8mq_vpu_shared_resources[] = {
+ 	{ .compatible = "nxp,imx8mq-vpu-g1", },
+ 	{ .compatible = "nxp,imx8mq-vpu-g2", },
+-	{ /* sentinel */ }
++	{ /* sentinel */ },
+ };
+ 
+ const struct hantro_variant imx8mq_vpu_g1_variant = {
+
+base-commit: f505e978d1a0442adbbde48aed38c084ddea6d6e
+prerequisite-patch-id: 0000000000000000000000000000000000000000
+-- 
+2.52.0
 
 
