@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6446AF01838
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 13:27:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA65F01832
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 13:27:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IAF/l57nO+6QZLwSMMtbTuYm6N4vbkm0CDZqM3ek6jQ=; b=CmPVFoN7KhtCHFpci19qDgwtrJ
-	2TyMUOgT30BgMfsrbbyzxyBFY8HPqu1Bm99fDurVnCmQbrk7NFfKvQ6IEXwDnUb2lBpQQCNYKLJHB
-	nW33G6PhFWVKgPCRawcMu957v+V6SOI88wgoG7bZt7ppqdA9LrixfIYX6rioEDjNiNfpOd0CXU8nH
-	9ReIjdTEqw5alIs4Pa0a3B2NnwdreZDdqD89S/+Vuum+oMS53SRr6Iiy+7hv4+Mdchx2VIcAOL+br
-	578rLlgvl16hU1RLg8ACsGXKpsL/c65EWNiR6CX3q3Rja8pPa1c0ZRR5KFZMgmGeaXufRlHGF5NBt
-	fmwjF0Aw==;
+	bh=BRkb+f/7veQdxldPpEZNcXSVFzpkVw9KRJ0+qC8KImo=; b=qHZUIc0waQr2YP5pJg6cteSkey
+	AzZwR9Ormu7XG+BC6MA5tdioeoTJ9O1UC18TQwduxVG4FzovJ/UTplxCdpLzNtUaqTtIyA1xc4HRd
+	LKUzqr35qMg77E/3wD92ds8Fa5xZz4IIN6RuF4uAdtSxJ2ToMEwdsEBT1As9HwR6CUfiORzneRmys
+	+9lYSiJ87RdhQr/Vt0/xHCh/bmwHMtk7jXUxoy0MPUYoBF085ZBHFaHV291r1mPjOVbfPVWyWLcYm
+	ix4h3a9tufP/gT6x2oWJMW1KRKHIe0L1pF43cFOlewO40+jjNhTLrd0yrxt8ZLyZXORemaN0x42gs
+	WxIzmDzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVDU-00000003lth-1yOD;
-	Fri, 06 Mar 2026 13:27:44 +0000
+	id 1vyVDW-00000003lwK-1eVd;
+	Fri, 06 Mar 2026 13:27:46 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVDN-00000003ll9-0FLC;
-	Fri, 06 Mar 2026 13:27:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1772803611; cv=none; 
+	id 1vyVDO-00000003lmD-1C8N;
+	Fri, 06 Mar 2026 13:27:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1772803621; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=k583RSh6Y3UfeAjYZvyWI4DGowX0YC1DyrW00eiejNzRJY+bQOMfZYRBZo0xA12MhATU4MkaYA24ePGjfH+CMDehYoGwIHG3LWtnRZw++ETiM5DTKHabN+U0Rz2a3pa2U758v1TpyYFT1fBHDCikmt2T9hhxlYrZ7AtcDucNikY=
+	b=amqRCVq38ytRK5gj9h8saABpDNuezO0j3lDp3s2pwjLBBp2W2Tw/PGQlpUE7MJ3WEfF/UovhmEX2M08x++w0gTqL/7/nNtMDnItEkvMeCwTQanvT0bgs6J7OzNjsMTwzRgXFwnJ1Y9SIPqtrwcnhaTew4pnx70IXuvmhlzsBx3I=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1772803611; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=IAF/l57nO+6QZLwSMMtbTuYm6N4vbkm0CDZqM3ek6jQ=; 
-	b=U3j4Quuc8GXHZlWHbXVMJvKqqJNoPqOKWH0Cjf4/XKTgFGCA4c+QnfHLqG7GF6pKSbdeukKIlnc1t0vtmp7mERuTHWNMjRE1Jnj30pySps0rg4dqVuqPdNN+2781j7Wci0oXsnmXfEOyR9JzfX3TxXfG3ZoPiCWrS0Sb/pitYtI=
+	t=1772803621; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=BRkb+f/7veQdxldPpEZNcXSVFzpkVw9KRJ0+qC8KImo=; 
+	b=evTa2X3HblLzCnyVpgBqL3XX3Z4lmMraGvsNsZKaaNIzrHauhiLHYQsEtqKmPCp/4QhRXv7ZI0LZCKstG0SRv6P1/6YtFH4gjC+AQqb68N6TILxl3oe0JYUTQaFpg/71g8ox8ZjtIQbEMthcerib9C0DbcC8zbJu9uzGKqXSREE=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772803611;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772803621;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=IAF/l57nO+6QZLwSMMtbTuYm6N4vbkm0CDZqM3ek6jQ=;
-	b=i0R181b8Z21pFgMT5L74yLPTwtex8c1AgF+iRcx6ijE49a3kE3UHu0LoMvNC7GPk
-	wTf9Lpk8MKBLIq725ryd1wcqbWq6G/yW05F0C15gqGUmzZdy/zDy5CbQeTjNbY08u4z
-	YzubHfueFSlRPyPbNrgiNgbydr70o7GJFaea60UE=
-Received: by mx.zohomail.com with SMTPS id 1772803609130513.4701164865604;
-	Fri, 6 Mar 2026 05:26:49 -0800 (PST)
+	bh=BRkb+f/7veQdxldPpEZNcXSVFzpkVw9KRJ0+qC8KImo=;
+	b=eMmB9J6SSjQcm3JINa7jo5AX1Tfh0/jRFQCGdZaJgUp1kpNmf45NCPfPfR+I9Izr
+	9sqL9qH4u3nrnl6odG1vi5IGAgyx6oKcJgxJeLMuNG/sbYbgVI3KTK3YDT/SQ+lF6t3
+	ULFhgMOlcLbpajtC339FbPC5AbGmtD/jtN3D6SVg=
+Received: by mx.zohomail.com with SMTPS id 1772803620404954.1350790467341;
+	Fri, 6 Mar 2026 05:27:00 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Fri, 06 Mar 2026 14:24:58 +0100
-Subject: [PATCH v9 17/23] scsi: ufs: mediatek: Rework
- ufs_mtk_wait_idle_state
+Date: Fri, 06 Mar 2026 14:25:00 +0100
+Subject: [PATCH v9 19/23] scsi: ufs: mediatek: Rework hardware version
+ reading
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260306-mt8196-ufs-v9-17-55b073f7a830@collabora.com>
+Message-Id: <20260306-mt8196-ufs-v9-19-55b073f7a830@collabora.com>
 References: <20260306-mt8196-ufs-v9-0-55b073f7a830@collabora.com>
 In-Reply-To: <20260306-mt8196-ufs-v9-0-55b073f7a830@collabora.com>
 To: Alim Akhtar <alim.akhtar@samsung.com>, 
@@ -78,8 +78,8 @@ Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_052737_155250_440555E1 
-X-CRM114-Status: GOOD (  18.15  )
+X-CRM114-CacheID: sfid-20260306_052738_375510_C2F68F2A 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,135 +94,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While ufs_mtk_wait_idle state has some code smells for me (the
-VS_HCE_BASE early exit seems racey at best), it can still benefit from
-some general cleanup to make the code flow less convoluted.
+Split assignment to the host struct out from the read function, and
+utilise bitfield helpers to simplify the code. Also move the debug print
+out of the legacy version helper, which means it no longer has to take a
+struct ufs_hba as an input, and can be rewritten as a pure function.
 
-Use the iopoll helpers, for one, and specifically the one that sleeps
-and does not busy delay, as it's being done for up to 5ms.
-
-The register read is split out to a helper function that branches
-between new and old style flow.
-
-Every called uses the same 5ms timeout value, so there is no point in
-making this a parameter. Just assume a 5ms timeout in the function.
-
-Reviewed-by: Peter Wang <peter.wang@mediatek.com>
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: Peter Wang <peter.wang@mediatek.com>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/ufs/host/ufs-mediatek.c | 71 +++++++++++++++++------------------------
- 1 file changed, 30 insertions(+), 41 deletions(-)
+ drivers/ufs/host/ufs-mediatek.c | 65 +++++++++++++++++++++--------------------
+ 1 file changed, 33 insertions(+), 32 deletions(-)
 
 diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index 8d2aa3d9a6e2..c2a044a70466 100644
+index 5573e7f8bd13..c4e70fb99e82 100644
 --- a/drivers/ufs/host/ufs-mediatek.c
 +++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -10,6 +10,7 @@
- #include <linux/bitfield.h>
- #include <linux/clk.h>
- #include <linux/delay.h>
-+#include <linux/iopoll.h>
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
-@@ -380,51 +381,39 @@ static void ufs_mtk_dbg_sel(struct ufs_hba *hba)
- 	}
+@@ -797,50 +797,47 @@ static void ufs_mtk_mcq_set_irq_affinity(struct ufs_hba *hba, unsigned int cpu)
+ 	dev_dbg(hba->dev, "set irq %d affinity to CPU %d\n", irq, _cpu);
  }
  
--static int ufs_mtk_wait_idle_state(struct ufs_hba *hba,
--			    unsigned long retry_ms)
-+static u32 ufs_mtk_read_state(struct ufs_hba *hba, bool old_style)
+-static bool ufs_mtk_is_legacy_chipset(struct ufs_hba *hba, u32 hw_ip_ver)
++static bool __pure ufs_mtk_is_legacy_chipset(u32 hw_ip_ver)
  {
--	u64 timeout, time_checked;
--	u32 val, sm;
--	bool wait_idle;
--	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
+-	bool is_legacy = false;
 -
--	/* cannot use plain ktime_get() in suspend */
--	timeout = ktime_get_mono_fast_ns() + retry_ms * 1000000UL;
--
--	/* wait a specific time after check base */
--	udelay(10);
--	wait_idle = false;
-+	u32 val;
- 
--	do {
--		time_checked = ktime_get_mono_fast_ns();
--		if (host->legacy_ip_ver || host->ip_ver < IP_VER_MT6899) {
--			ufs_mtk_dbg_sel(hba);
--			val = ufshcd_readl(hba, REG_UFS_PROBE);
--		} else {
--			val = ufshcd_readl(hba, REG_UFS_UFS_MMIO_OTSD_CTRL);
--			val = val >> 16;
--		}
-+	if (old_style) {
-+		ufs_mtk_dbg_sel(hba);
-+		val = ufshcd_readl(hba, REG_UFS_PROBE);
-+	} else {
-+		val = ufshcd_readl(hba, REG_UFS_UFS_MMIO_OTSD_CTRL) >> 16;
-+	}
- 
--		sm = val & 0x1f;
-+	return FIELD_GET(0x1f, val);
-+}
- 
--		/*
--		 * if state is in H8 enter and H8 enter confirm
--		 * wait until return to idle state.
--		 */
--		if ((sm >= VS_HIB_ENTER) && (sm <= VS_HIB_EXIT)) {
--			wait_idle = true;
--			udelay(50);
--			continue;
--		} else if (!wait_idle)
--			break;
-+static int ufs_mtk_wait_idle_state(struct ufs_hba *hba)
-+{
-+	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
-+	bool old_style = (host->legacy_ip_ver || host->ip_ver < IP_VER_MT6899);
-+	u32 val;
-+	int ret;
- 
--		if (wait_idle && (sm == VS_HCE_BASE))
--			break;
--	} while (time_checked < timeout);
-+	/* If the device isn't in a hibernate state after 10us, don't wait. */
-+	udelay(10);
-+	val = ufs_mtk_read_state(hba, old_style);
-+	if (val < VS_HIB_ENTER || val > VS_HIB_EXIT)
-+		return 0;
- 
--	if (wait_idle && sm != VS_HCE_BASE) {
--		dev_info(hba->dev, "wait idle tmo: 0x%x\n", val);
--		return -ETIMEDOUT;
-+	/* Poll to wait for idle */
-+	ret = read_poll_timeout(ufs_mtk_read_state, val, (val == VS_HCE_BASE),
-+				50, 5 * USEC_PER_MSEC, false, hba, old_style);
-+	if (ret) {
-+		dev_err(hba->dev, "Timed out waiting for idle state, val = 0x%x\n", val);
-+		return ret;
+ 	switch (hw_ip_ver) {
+ 	case IP_LEGACY_VER_MT6893:
+ 	case IP_LEGACY_VER_MT6781:
+ 		/* can add other legacy chipset ID here accordingly */
+-		is_legacy = true;
+-		break;
+-	default:
+-		break;
++		return true;
  	}
+-	dev_dbg(hba->dev, "IP version 0x%x, legacy = %s", hw_ip_ver,
+-		str_true_false(is_legacy));
+ 
+-	return is_legacy;
++	return false;
+ }
+ 
+-/*
+- * HW version format has been changed from 01MMmmmm to 1MMMmmmm, since
+- * project MT6878. In order to perform correct version comparison,
+- * version number is changed by SW for the following projects.
+- * IP_VER_MT6983	0x00360000 to 0x10360000
+- * IP_VER_MT6897	0x01440000 to 0x10440000
+- * IP_VER_MT6989	0x01450000 to 0x10450000
+- * IP_VER_MT6991	0x01460000 to 0x10460000
++#define MTK_UFS_VER_PREFIX_M (0xFF << 24)
++
++/**
++ * ufs_mtk_get_hw_ip_version - read and return adjusted hardware version
++ * @hba: pointer to this device's &struct ufs_hba
++ *
++ * Reads, transforms and returns the hardware version.
++ *
++ * Since MT6878, the versioning scheme was changed from 01MMmmmm to 1MMMmmmm.
++ * In order to support version comparisons across these different versioning
++ * schemes, this function transforms the older style to the newer one.
++ *
++ * For example:
++ *  MT6983 is transformed from 0x00360000 to 0x10360000
++ *  MT6897 is transformed from 0x01440000 to 0x10440000
++ *  MT6989 is transformed from 0x01450000 to 0x10450000
++ *  MT6991 is transformed from 0x01460000 to 0x10460000
++ *
++ * Returns a u32 representing the hardware version.
+  */
+-static void ufs_mtk_get_hw_ip_version(struct ufs_hba *hba)
++static u32 ufs_mtk_get_hw_ip_version(struct ufs_hba *hba)
+ {
+-	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
+-	u32 hw_ip_ver;
++	u32 version = ufshcd_readl(hba, REG_UFS_MTK_IP_VER);
++	u32 prefix = FIELD_GET(MTK_UFS_VER_PREFIX_M, version);
+ 
+-	hw_ip_ver = ufshcd_readl(hba, REG_UFS_MTK_IP_VER);
++	if (prefix <= 1)
++		FIELD_MODIFY(MTK_UFS_VER_PREFIX_M, &version, BIT(28));
+ 
+-	if (((hw_ip_ver & (0xFF << 24)) == (0x1 << 24)) ||
+-	    ((hw_ip_ver & (0xFF << 24)) == 0)) {
+-		hw_ip_ver &= ~(0xFF << 24);
+-		hw_ip_ver |= (0x1 << 28);
+-	}
+-
+-	host->ip_ver = hw_ip_ver;
+-
+-	host->legacy_ip_ver = ufs_mtk_is_legacy_chipset(hba, hw_ip_ver);
++	return version;
+ }
+ 
+ static void ufs_mtk_get_controller_version(struct ufs_hba *hba)
+@@ -1191,7 +1188,11 @@ static int ufs_mtk_init(struct ufs_hba *hba)
+ 
+ 	ufs_mtk_setup_clocks(hba, true, POST_CHANGE);
+ 
+-	ufs_mtk_get_hw_ip_version(hba);
++	host->ip_ver = ufs_mtk_get_hw_ip_version(hba);
++	host->legacy_ip_ver = ufs_mtk_is_legacy_chipset(host->ip_ver);
++
++	dev_dbg(hba->dev, "IP version 0x%x, legacy = %s", host->ip_ver,
++		str_true_false(host->legacy_ip_ver));
  
  	return 0;
-@@ -1389,7 +1378,7 @@ static int ufs_mtk_auto_hibern8_disable(struct ufs_hba *hba)
- 	ufshcd_writel(hba, 0, REG_AUTO_HIBERNATE_IDLE_TIMER);
  
- 	/* wait host return to idle state when auto-hibern8 off */
--	ret = ufs_mtk_wait_idle_state(hba, 5);
-+	ret = ufs_mtk_wait_idle_state(hba);
- 	if (ret)
- 		goto out;
- 
-@@ -1593,7 +1582,7 @@ static int ufs_mtk_link_set_hpm(struct ufs_hba *hba)
- 		return err;
- 
- 	/* Check link state to make sure exit h8 success */
--	err = ufs_mtk_wait_idle_state(hba, 5);
-+	err = ufs_mtk_wait_idle_state(hba);
- 	if (err) {
- 		dev_err(hba->dev, "Failed to wait for idle: %pe\n", ERR_PTR(err));
- 		return err;
 
 -- 
 2.53.0
