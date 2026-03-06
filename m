@@ -4,115 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FBB4F51418
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 07:16:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA2B7F01801
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 07:35:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RO+hW5DsPat01iSLwvjUZnsBTZosHb04SXI/ZIXX2GE=; b=4JMEe5Ss6Xh+x7C5/iGfoe0ISy
-	fj/w0b84e6djUfBGTS3b8UnV6g/xPt0HGiYnNMjADRBIMLrjIX2tfR16w7PmC++D2QqwLTLAdam0X
-	FpH5DJvxXam/JPf4YBCCxyD7XqerIREvDKrO8EoGp1C+EjjXRpSG52NPo9YDdXXyqseqF4Iz/+qQK
-	0AzPNtXVEw+LSLIVAPy6qQp94gAj9qhUqIPGszKOdwsWNJIPE5INhuBf3HM56vgrakOiznIiK72nD
-	mHrvtTGsXaBj5jAsP/BQK2Ftm9Z1Vnax1uuAvJ2RExBOKPXD3IRMgLnzU4gljNJnpThDHWLc3/ms7
-	paON3/EQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=Y6XoprPGy2obVCQE2uQgSeOts5auhhet8rC7x7T+9nI=; b=PPdww0v/Ftpm6r
+	ECqb4v6ZAxu8SIaW6mEazRYRHJssCJpMCcIXSzvnjwOhvzIP82RcSVSo/duJA63DzbgbQCIlKU8gg
+	u47wNb52uH+447GCG71FFZLIuF5983rG7EQPFhbiQzfwm4lrkx/YiAGqy2t3FvJ5qEaQ6iWFhH85e
+	kURb9rCIe3F3dUdopW2/vhlT57I0sCt/u18BOfB1roJxz7eHyMnykM74RA5ruusn4W/frCUIi1oRV
+	UrGyhn3uYC0oV2G9oP6Hs7QX7KAOmvXsNZNo1UlqUvfZ4p4sBx7vR9qMZnwvxSHy/2yX0M5yvB7UO
+	C5u9rrjR41BX31f6K1Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyPQU-000000038h6-3B5d;
-	Fri, 06 Mar 2026 07:16:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vyPiQ-000000039dH-1Hzl;
+	Fri, 06 Mar 2026 07:35:18 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyPQQ-000000038gd-0zdY
+	id 1vyPiN-000000039cm-1qno
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 07:16:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5794743EFA;
-	Fri,  6 Mar 2026 07:16:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D2B6C19422;
-	Fri,  6 Mar 2026 07:16:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772781401;
-	bh=+CSZ/lxHhezXtn9zq2t5/nDJXac/JaET+DDAkLJYycM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Sjbtmlt5YVdHFOSshJZ5HUZpMCqZtEGBKB2AkNyder91svEkNhhdFoKhyqyT80TSr
-	 6OTFazsF+J5SNAsWos1xgowhROzVYR9QWgeT8QvhB5IgFCYArQEfzWi6BPQZwaRfGP
-	 2To+qJgVm/slYjcJv1Vsm6O3DemMy8sauAoCzWoJt3pVHk1h+lXBIqSdyYedL7bxOc
-	 H3bPT+3EFocULYjL6D3KT9zyr6UBRzM6mFsZIxo1g5x9SrKvsTRezrEaYiJ2CLgHjZ
-	 zo1BKzp6HT6QTfJXzdvEcxC2n3TVytdKUysP6j8Ucs8NmaIvmmjyrRX3J33/oqzbmS
-	 o3LeLmyze2cFg==
-Message-ID: <20d37ab7-308e-4f07-96dc-7ae011af76d0@kernel.org>
-Date: Fri, 6 Mar 2026 08:16:37 +0100
+	Fri, 06 Mar 2026 07:35:16 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4807068eacbso74464115e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Mar 2026 23:35:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1772782513; x=1773387313; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Y6XoprPGy2obVCQE2uQgSeOts5auhhet8rC7x7T+9nI=;
+        b=rllcYGjekX9HybottKFZJHYNBRfptUjGpNDy3RSxDwBGnrtVYaWt/ecD9xwYE2HNjs
+         h0Khbq7w4WRzP5F4T/VgqA+xJKyS2nThY6j543E+tv2rl0C2T3ZYOPm0U+3KgkABr9W7
+         dKoJsvF83jBfSukd7MXjweTPBA1otCLxgl+VshpuFXTQvFUKZJqf2SNqRmzFHImSz8wr
+         kJz95axnJ7kuSIGfCFP4aTHR5zWnysr7Y/3YDr3NItZ2bE2ydKhW/hxSER1TKeBm0VUV
+         sIapLkwHRNjpObHDBdI3ntPXJuaibOpPgLG+x3oNgeVHRiOjUfxK3KXstn19JMiKmSYy
+         cEmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772782513; x=1773387313;
+        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Y6XoprPGy2obVCQE2uQgSeOts5auhhet8rC7x7T+9nI=;
+        b=vwUSFlp5pBkbiwPBQ4P6m0MX+jmKhhOy/kXvKDwB295lvPOXFMieM5TLANuiKf+11G
+         /KUc3e9TETCYNHz98Fgho7lVEj+phTOtj7nhTcWU4A2Aj51JUqDwEVVF1SreQZ44c/l/
+         WeRO5fDq+6sH1w4f8q02hG5Y0k2h+1zymzBqFqglSIORuLUe/zWCRg3K8n2S0Dj+WYE/
+         YMghjVpZ9wlYjQ7JboYDLzqDEDIVQwluX/q7T26P6d6iKGethX9u0//+te2oUm8Ebiin
+         xa9Bud8VPNr6nrjFP2ZP/bd4sj0p5visuQA6MlJmiyumJ5DtzYdKM94jdXjHgH0ORTYv
+         2QMw==
+X-Forwarded-Encrypted: i=1; AJvYcCXRLo5s9tXb4f1b9TqVKiTzxridxuo+7JuLdaC1EoAYidGpbtQ2AkQlGS1P02U5HRrsOPRoKIET8bC7kyUaSOPK@lists.infradead.org
+X-Gm-Message-State: AOJu0YxF8lypEY6qNI8EJD1usWQ/2gt3axIqwjktPNrQ56GVFTISJpox
+	Oc+gf9mwVwyTFcgoSRNY2LE2KSWaPEdyWXW37PEYxJSAq2+d/bPB3dz0dGsNxwuQL6w=
+X-Gm-Gg: ATEYQzwJ5KcPskUSW+QU31P1pesfQR8Adi9wyS4ptWmPIPmn+QwWASDlDkt7Bs5w3sw
+	h9DHKm+dZ8UK2WQXb7N27F962AVKDZw5/pe5YwFAt02KR0sYGaoUZ3/xw0fFWB5jpRiMJUAdps4
+	NAnqE9vzUcRspOLa8brYX6wRdn59Ll2et5EHG/QtpL35RywwZi4yEQUZwDPvqJQhXAZV4WiN1u/
+	HzpoLS9uZYmmkHjbMwUbSCHXLNppLPKnIGD6Arvo6HQLG1YeLxB/BMsgxrwJS+RhUkZ5ne7vsyJ
+	Vrgqeo58+gcGe3UOMfy+FuwcPKR3Qj62O2utjWCOKYkTgfnNAshXnEZutkEIYOJsQzMOhHOzlCd
+	GruSeLaZTHqGzuDBWb47do8fKyDMojtiszaKiKu8PI6zFjjAAXwwjffAISl+8p9HxrfoRYkzpi3
+	8brki4+BCtmERRWr4Av2mkDR70ssY6vlGS8wlspDM=
+X-Received: by 2002:a05:600c:4e89:b0:45d:d97c:236c with SMTP id 5b1f17b1804b1-48526951430mr16785555e9.21.1772782512990;
+        Thu, 05 Mar 2026 23:35:12 -0800 (PST)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439dae2bdf8sm1953812f8f.25.2026.03.05.23.35.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Mar 2026 23:35:12 -0800 (PST)
+Date: Fri, 6 Mar 2026 10:35:09 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: oe-kbuild@lists.linux.dev, Shenwei Wang <shenwei.wang@nxp.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	arnaud.pouliquen@foss.st.com
+Cc: lkp@intel.com, oe-kbuild-all@lists.linux.dev,
+	Shuah Khan <skhan@linuxfoundation.org>, linux-gpio@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shenwei Wang <shenwei.wang@nxp.com>, Peng Fan <peng.fan@nxp.com>,
+	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-imx@nxp.com
+Subject: Re: [PATCH v9 4/5] gpio: rpmsg: add support for NXP legacy firmware
+ protocol
+Message-ID: <202603060910.Q5zBquzF-lkp@intel.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] ARM: dts: imx6sx: remove fallback compatible string
- fsl,imx28-lcdif
-To: Frank Li <Frank.li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
- "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>, Liu Ying <victor.liu@nxp.com>
-References: <20260305212312.4053922-1-Frank.Li@nxp.com>
- <c64ee6d6-d948-4146-8463-0e68ba542404@kernel.org>
- <aaoIKmhcgIZdFvbz@lizhi-Precision-Tower-5810>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <aaoIKmhcgIZdFvbz@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260304211808.1437846-5-shenwei.wang@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_231642_339907_F23E51A5 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20260305_233515_503577_834BDDB1 
+X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,31 +114,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/03/2026 23:48, Frank Li wrote:
-> On Thu, Mar 05, 2026 at 10:34:18PM +0100, Krzysztof Kozlowski wrote:
->> On 05/03/2026 22:23, Frank Li wrote:
->>> i.MX6SX uses the v6 LCDIF controller, while i.MX28 uses the older v4
->>> version. The driver has supported the "fsl,imx6sx-lcdif" compatible string
->>> since the initial commit:
->>>
->>>    commit 45d59d704080 ("drm: Add new driver for MXSFB controller")
->>>
->>> Therefore the fallback compatible string "fsl,imx28-lcdif" is not required
->>> and can be removed.
->>
->> It is required - you are changing the ABI and possibly impacting other
->> users without valid reason ("not required and can be removed" is not a
->> reason).
-> 
-> In https://lore.kernel.org/imx/42eb2d42-47b0-46b6-92e9-c59473113c2d@nxp.com/
-> 
-> other known user barebox/uboot already fix it.
-> 
-> https://lore.barebox.org/barebox/20251107210033.2229781-3-a.fatoum@barebox.org/T/#u
-> https://git.pengutronix.de/cgit/barebox/commit/?id=c99b937f3a31
+Hi Shenwei,
 
-And you have entire commit msg to explain the ABI impact...
+kernel test robot noticed the following build warnings:
 
-Best regards,
-Krzysztof
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Shenwei-Wang/docs-driver-api-gpio-rpmsg-gpio-driver-over-rpmsg-bus/20260305-052440
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux.git gpio/for-next
+patch link:    https://lore.kernel.org/r/20260304211808.1437846-5-shenwei.wang%40nxp.com
+patch subject: [PATCH v9 4/5] gpio: rpmsg: add support for NXP legacy firmware protocol
+config: x86_64-randconfig-161-20260306 (https://download.01.org/0day-ci/archive/20260306/202603060910.Q5zBquzF-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+smatch: v0.5.0-9004-gb810ac53
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
+| Closes: https://lore.kernel.org/r/202603060910.Q5zBquzF-lkp@intel.com/
+
+smatch warnings:
+drivers/gpio/gpio-rpmsg.c:188 rpmsg_gpio_imx_send_fixed_up() error: buffer overflow 'imx_std_cmd_map' 7 <= 27
+
+vim +/imx_std_cmd_map +188 drivers/gpio/gpio-rpmsg.c
+
+49a0cb20cd49a59 Shenwei Wang 2026-03-04  176  static int rpmsg_gpio_imx_send_fixed_up(struct rpmsg_gpio_info *info,
+49a0cb20cd49a59 Shenwei Wang 2026-03-04  177  				   struct rpmsg_gpio_packet *msg)
+49a0cb20cd49a59 Shenwei Wang 2026-03-04  178  {
+49a0cb20cd49a59 Shenwei Wang 2026-03-04  179  	struct rpmsg_gpio_nxp_packet imx_msg;
+49a0cb20cd49a59 Shenwei Wang 2026-03-04  180  
+49a0cb20cd49a59 Shenwei Wang 2026-03-04  181  	if (msg->cmd >= sizeof(imx_std_cmd_map))
+
+This looks like a sizeof() vs ARRAY_SIZE() bug.
+
+49a0cb20cd49a59 Shenwei Wang 2026-03-04  182  		return -EINVAL;
+49a0cb20cd49a59 Shenwei Wang 2026-03-04  183  
+49a0cb20cd49a59 Shenwei Wang 2026-03-04  184  	imx_msg.id = IMX_RPMSG_ID;
+49a0cb20cd49a59 Shenwei Wang 2026-03-04  185  	imx_msg.vendor = IMX_RPMSG_VENDOR;
+49a0cb20cd49a59 Shenwei Wang 2026-03-04  186  	imx_msg.version = IMX_RPMSG_VERSION;
+49a0cb20cd49a59 Shenwei Wang 2026-03-04  187  	imx_msg.type = msg->type;
+49a0cb20cd49a59 Shenwei Wang 2026-03-04 @188  	imx_msg.cmd = imx_std_cmd_map[msg->cmd];
+                                                                              ^^^^^^^^
+Out of bounds.
+
+49a0cb20cd49a59 Shenwei Wang 2026-03-04  189  	imx_msg.port_idx = msg->port_idx;
+49a0cb20cd49a59 Shenwei Wang 2026-03-04  190  	imx_msg.line = msg->line;
+49a0cb20cd49a59 Shenwei Wang 2026-03-04  191  	imx_msg.val1 = msg->val1;
+49a0cb20cd49a59 Shenwei Wang 2026-03-04  192  	imx_msg.val2 = msg->val2;
+49a0cb20cd49a59 Shenwei Wang 2026-03-04  193  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
 
