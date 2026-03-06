@@ -4,62 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86C69FC9EC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 23:50:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CDAFFC9EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 23:50:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f9pjXvyRRcThaWJkb12xlpbDTCbnuFtSX6s/rAoQAk0=; b=PgJpi6IzZ4MbufcqbNaFPacK0H
-	PLjLc94jp2WRNkY/YTQ/vWEhGwZPJ8ZHIE7u206cpIMx4fjupVV4IIPJ6bdQLezBsT6ZBmJj8uvz1
-	C4mgRc/ITiJEbgiyuZaMeVK3eRTrJmHabAEEzuU0T1SAnuuhEMwqemTzvSTGUTBmka6hAvZ96NVVl
-	Xe66wgH460V14xF89TMDQLSq+vVvW5G1cG8NMLi/AMDCHYL/LiAAB7AxBDbs9zUVQC/azqOLNqmyw
-	U3ivCKs+K/Nf3MB6bL4Ab8K+KNI5yR8HraIcpWKfuge3xUpkTzQ5ObFX9MFl/32ZDISCatrhfXdOf
-	rFXC67tQ==;
+	bh=7TpbWWX1cj1QogQtOXMz884aeH8NNZvqQ7fJ4Elb1a4=; b=L66axTXISwkIB/FEaNnRsHEi4X
+	pZuBeYfVksS1p1+H9PzVgKXuvUItEw6V+WPMo7MJJIuRe9E9am00CgrQWeGxCiwfInA+jkS5gqZ5A
+	nR3waS/R41lN+C5X2gdg17TJvw8zFb5WpVN1apOQB/sf0B4D9UWogcCtsFJvH0YtJOCAc/85Pm6Vl
+	CklwmTvhIg/t/ASjpfQWxAB7hxk5WVOxG3ATk10X6aGVD3wCn2xJwJkxhg0hFBUGav9EkuRhhlvYj
+	GD1zbrEG2ZxbJs8B1577Uq97OypII9Re5+Iyxwd9Z7guODwNFbNVfdrQXaHZUeqSTxBX9e9gxXpKV
+	pyRUe6Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyew0-00000004gLk-2pRW;
-	Fri, 06 Mar 2026 23:50:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vyewA-00000004gOK-4AD1;
+	Fri, 06 Mar 2026 23:50:30 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyevz-00000004gLd-117f
+	id 1vyew8-00000004gMr-243o
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 23:50:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7ED9E60018;
-	Fri,  6 Mar 2026 23:50:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2844AC4CEF7;
-	Fri,  6 Mar 2026 23:50:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772841018;
-	bh=BQW73dxoFvf8W9lwbY5JOxppl2jq+PcUgOfCJhuasFc=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=AZeceoFWUBzHrcZ1cwO/gNZKKGnTGYzoaTq4ZcmJ3PkLhzEbo1YHEm2P3D5sQjNah
-	 JjVGGBxD6egmPXbetoSy8xZDIcG7gkwDbLTv3d/Vdx9zRojsBKqtn/KbKJrrR9mW+6
-	 MIV9N1wlDdcbQPQuhvlxyWU+0t50ePLZCkAUFTaj2K0//qhaOvAvcWsz8Jcc54ruep
-	 jmY9pkf1Wox7Jr4uIiIbFPmyYyKeHR3AMV/JyMKulw/n+PpejERXJxN5BzHzb1rq2e
-	 3xAf9jv6V2j0O2tQhW0Zek11e/SysJwH3PkaOZ1yaV1orDHOOdjKJP/RgKNtSEUT2f
-	 9p25rXvQLGR7w==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7CF413808200;
-	Fri,  6 Mar 2026 23:50:18 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Fri, 06 Mar 2026 23:50:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: References: Cc:
+ To: From: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1772841025;
+ bh=7TpbWWX1cj1QogQtOXMz884aeH8NNZvqQ7fJ4Elb1a4=;
+ b=WLz4UxpZz2cHHWeIlEpaCrfGVGI6FsAwm7Uvq+dNTfgASzhQLiBkt9QYdpJ0q8WPyOaF8Yqzl
+ wOwQWc8akhsYi94HwyDVYK/UPVgPIEnZM1ru9OE4X7hDztLtE4ChcS5MQxVFNlDe2mnAeDxPsjZ
+ dzQqhWgpo9+L5RhImdSwRMU4s1Z/boRMRKDRlJ1nDPRqGPjfSwZFQc7gTavlaDz9qYCCC34NXww
+ aA7aURNXjEPkZwEeok+dNx844lSZFcUBqv3Hj8GuCpyK0oQ8xA6ud76HLCuaP2Bat/kbZgEcOeB
+ 2J5gPvwjelC4ORK3nbojiOKMqo62Bq85wMDi5pfkRyiw==
+X-Forward-Email-ID: 69ab683dce06037f1b6bb7be
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 2.6.39
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <3a42ce98-b552-43d2-aaf3-8ca071c3afd3@kwiboo.se>
+Date: Sat, 7 Mar 2026 00:50:16 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v2 0/8] net: stmmac: mdio related cleanups
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <177284101730.95361.6178473364485118037.git-patchwork-notify@kernel.org>
-Date: Fri, 06 Mar 2026 23:50:17 +0000
-References: <aald--qJquWGIvmO@shell.armlinux.org.uk>
-In-Reply-To: <aald--qJquWGIvmO@shell.armlinux.org.uk>
-To: Russell King (Oracle) <linux@armlinux.org.uk>
-Cc: andrew@lunn.ch, alexandre.torgue@foss.st.com, andrew+netdev@lunn.ch,
- wens@kernel.org, davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev,
- netdev@vger.kernel.org, pabeni@redhat.com, samuel@sholland.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 0/6] Raspberry Pi HEVC decoder driver
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Cc: John Cox <john.cox@raspberrypi.com>, Dom Cobley <dom@raspberrypi.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ review list <kernel-list@raspberrypi.com>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ John Cox <jc@kynesim.co.uk>, Stefan Wahren <wahrenst@gmx.net>,
+ linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, Krzysztof Kozlowski <krzk@kernel.org>
+References: <20260304-media-rpi-hevc-dec-v6-0-93868ae6dff8@raspberrypi.com>
+ <1d666c43-688b-4cc1-aeed-5296d2608327@kwiboo.se>
+Content-Language: en-US
+In-Reply-To: <1d666c43-688b-4cc1-aeed-5296d2608327@kwiboo.se>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260306_155028_619749_FFAB8E8B 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,45 +90,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hi again,
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+[snip]
 
-On Thu, 5 Mar 2026 10:42:03 +0000 you wrote:
-> Hi,
+>> Testing is with a downstream patchset to FFmpeg. I'm told FFmpeg
+>> currently has no stateless decode support, but we will be reviewing
+>> works that have been in progress and our downstream patches to see
+>> whether that can be pushed onwards.
 > 
-> The first four patches clean up the MDC clock divisor selection code,
-> turning the three different ways we choose a divisor into tabular form,
-> rather than doing the selection purely in code.
+> Please see FFmpeg PR20847 "Add V4L2 Request API hwaccels for MPEG2,
+> H.264, HEVC, VP8, VP9 and AV1" [1] for pending upstream FFmpeg work.
 > 
-> Convert MDIO to use field_prep() which allows a non-constant mask to be
-> used when preparing fields.
+> My 4l2request-v3-pixfmts branch [2] also contains extra commit to make
+> it work with downstream rpi kernel version, using non-MT pixfmts.
 > 
-> [...]
+> I will give this a spin together with the FFmpeg PR, adding support for
+> the MT based pixfmts should hopefully be easy.
 
-Here is the summary with links:
-  - [net-next,v2,1/8] net: stmmac: mdio: convert MDC clock divisor selection to tables
-    https://git.kernel.org/netdev/net-next/c/4c7e0e081889
-  - [net-next,v2,2/8] net: stmmac: mdio: use same test for MDC clock divisor lookups
-    https://git.kernel.org/netdev/net-next/c/b6687ef97603
-  - [net-next,v2,3/8] net: stmmac: mdio: simplify MDC clock divisor lookup
-    https://git.kernel.org/netdev/net-next/c/506f78f43c58
-  - [net-next,v2,4/8] net: stmmac: mdio: convert field prep to use field_prep()
-    https://git.kernel.org/netdev/net-next/c/58bd0039002b
-  - [net-next,v2,5/8] net: stmmac: use u32 for MDIO register field masks
-    https://git.kernel.org/netdev/net-next/c/df388b4d3913
-  - [net-next,v2,6/8] net: stmmac: use GENMASK_U32() for mdio bitfields
-    https://git.kernel.org/netdev/net-next/c/a64d927aecf1
-  - [net-next,v2,7/8] net: stmmac: mdio_bus_data->default_an_inband is boolean
-    https://git.kernel.org/netdev/net-next/c/3cd963fa915c
-  - [net-next,v2,8/8] net: stmmac: make pcs_mask and phy_mask u32
-    https://git.kernel.org/netdev/net-next/c/e4fd855c52ec
+My FFmpeg v4l2request-v3-pixfmts branch [2] got a small update that adds
+support for this decoder and pix formats. Tested on a rpi5 using the
+downstream rpi-6.18 kernel and kodi-gbm for visual playback confirmation.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+  [AVHWFramesContext @ 0x7ffeb81abc50] Using V4L2 media driver rpi-hevc-dec (6.18.15) for S265
+  [AVHWFramesContext @ 0x7ffeb81abc50] Using CAPTURE buffer format Nc12 (1920x1088)
+  [V4L2RequestContext @ 0x7ffeb81abb00] frame-based decoder with SLICE_PARAMS=600, ENTRY_POINT_OFFSETS=0 and SCALING_MATRIX=1 controls
 
+Will update the main FFmpeg PR (and backport branches) with the required
+changes after some more testing.
 
+Regards,
+Jonas
+
+> [1] https://code.ffmpeg.org/FFmpeg/FFmpeg/pulls/20847
+> [2] https://code.ffmpeg.org/Kwiboo/FFmpeg/commits/branch/v4l2request-v3-pixfmts
+> 
+> Regards,
+> Jonas
+
+[snip]
 
