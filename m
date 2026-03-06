@@ -4,86 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77F69F0180C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 07:55:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE0FAF01807
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 08:00:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fqong6ONpLV7i4pGQx7rPiXI4yfULcIEHX9UrfhOolE=; b=jr6dyybH3/R/Qmn5kza34+bmcV
-	bpodok3iTUGoC0obZzyU5FNqfBq2LvdIS/2oFWGZqLFJJXwxxQvBUnEvjrb+5BuKq6gR0dSm5c6g6
-	OPfIisDU1IgPdEP0h84b4pbxMN2fJoDSQES4lh7PVU9TyDhEUl3tSWGrzgGzcUdHl6u+/k6a/BpYg
-	ULuCmrSotnXZHUNFXApxNZXWNnFIUE9I/VVg4jEPtzgmUw8wDEOekQ34ehSKuFXObLhXicU3GLsUt
-	9yUNmzcVhfURcMTyoSC6We9sxEP8qE5tzARb3hEzAmwyP8i3pmSX8MHKysygxj2i4PgSlh9yXh1rt
-	/NsH7x8Q==;
+	bh=FTDhRSomg8rz7nCouJ9UcvE6lJ4VpWjCS1f4Ir4/3cg=; b=BlZCrDEucQrzT+PhPqiaCzL5sc
+	Yez3tTHAFyG72PghgnMFoS+NlkwrPWPuDgJzoPeNbnIxyxQhGpgG1ac/wwev/w4nwhT617aN6dq0A
+	mXIyORx/XHRCi4fwq4QeiY5hH+DrH/RbMfkMzVxhzJ3U7GmUQAx2QGQwaX0tMaYeKB3uav7pWNHZj
+	Mj4m4LlYLd3W8R+Y6J/V+5RE9HYOCJ+bQMMWGrtPU48LoJPXxV2CQPMmhGm95q9tFnFJcnQz5VcNB
+	zrM+qyd/6jMyx5K7KhsG0qRGy/clt/79eKmWb5YTbSdKsUJc1SbxS1xPDjozskt6GNWs+zUKl60th
+	4q3r28Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyQ2E-00000003C34-2x43;
-	Fri, 06 Mar 2026 07:55:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vyQ6l-00000003D0S-2Ulm;
+	Fri, 06 Mar 2026 08:00:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyQ22-00000003Bnd-3i9o;
-	Fri, 06 Mar 2026 07:55:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=fqong6ONpLV7i4pGQx7rPiXI4yfULcIEHX9UrfhOolE=; b=DFWEH9THTwPR2zC+Yom8PY88+U
-	ApMNflFssXEweBPdnWCps7uZMfml2m3ADyjh3KJVJgIaNwlcdfwXoWg2+uuCzSongunT2LzrUoKpz
-	CkK5B1zQYqzUXhCE5qzxzWRUTOQbuIl4cdNPy1/8IHtcrJVgOJ1aGqF7onQYhF63F536AFaD5GCRq
-	b9UbkiB/5tfqRFUQgTSs/JEfRJwCaCT1Tol/txUNBfXPMF6q5KIQeqwLKpTTLspCgR7LJ2k+sacXO
-	ieeoL/xTaV1FXHTfScxaTMUhZhT6nNrwZLMhvLCuuX/TDGqSE/YUZoIhFBj0kOZDQ5JMsBpaOQLFU
-	5l/Cb+zQ==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyQ1m-00000008ELP-2pvu;
-	Fri, 06 Mar 2026 07:55:32 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6267qkunF2977157, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1772783566; bh=fqong6ONpLV7i4pGQx7rPiXI4yfULcIEHX9UrfhOolE=;
-	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=gkNeZCYKpgdHd0vqbMG7lRGCvKE8g34E5N8OPNrA7k4ttWahPbyGPMcszVf3ClWqm
-	 gjusY4q8pN1GlsPuDcIFglvuACMW/kkbppEVfpWHx8M4ZDExwSWpfoOoCpuzVOBdRg
-	 AbdQPO8h/ObMA+n+USgCkKsn98QeH1ZmDz++B6DmTB3noZCoiNkm3jV7Fal1fupEdZ
-	 HsJzShQQGdVLh6WtC/aGEQ2Xgs3Vl6MZh7dzFoe7BjfqLFQ5faZwLPEKCqf7HK8SuD
-	 AGlyEd7CjVkrU/vjOA7JeYf6rEw92bNC7l4/fl/EOFHc8f5HH7k/zoJbUYvo9K4Z+q
-	 JxjOUKJ1QUUVg==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.21/5.94) with ESMTPS id 6267qkunF2977157
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 6 Mar 2026 15:52:46 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Fri, 6 Mar 2026 15:52:46 +0800
-Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
- (10.21.1.56) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Fri, 6 Mar 2026 15:52:46 +0800
-From: Yu-Chun Lin <eleanor.lin@realtek.com>
-To: <linusw@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <bartosz.golaszewski@oss.qualcomm.com>,
-        <afaerber@suse.com>
-CC: <james.tai@realtek.com>, <cy.huang@realtek.com>,
-        <stanley_chang@realtek.com>, <eleanor.lin@realtek.com>,
-        <tychang@realtek.com>, <linux-gpio@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-realtek-soc@lists.infradead.org>
-Subject: [PATCH v2 05/14] pinctrl: realtek: Fix grammar in error messages
-Date: Fri, 6 Mar 2026 15:52:35 +0800
-Message-ID: <20260306075244.1170399-6-eleanor.lin@realtek.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260306075244.1170399-1-eleanor.lin@realtek.com>
-References: <20260306075244.1170399-1-eleanor.lin@realtek.com>
+	id 1vyQ6g-00000003D01-1XGP
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Mar 2026 08:00:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5EBD140700;
+	Fri,  6 Mar 2026 08:00:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA98CC4CEF7;
+	Fri,  6 Mar 2026 08:00:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772784021;
+	bh=iD/VzlwDTwkJdaLubLGKVtxVDTiATyldptYt3Eq4+W4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aGLxPXBEPp4RLYM+7FzuxdhtMJt2EG85Qr6Y7+8IOyLDCQ5sdzHvaxmcZMw4zeUHq
+	 O/rMnUHNJxeACFOaI7z6W5N0C6QjPjpuMt1qK03C8NVzvn1xqisygTzEP+mO/Lggm5
+	 XQryoRPXV5Byzv8ON+wizR5s9ENCmsYLiWClAmL2BA/84MKyPPdo4Wlgive7/2pNMU
+	 DQMbN+EL+vy2HKkGb8J2fdNaaR+qBCz5cEGfZMQ5ydBQeCYfq+m7e8ONO8636bYqd4
+	 rk8fCVoteI0IPeDkQJOXw6Z74wVIWgpsroBs9lVXCAYgDk7cTd0Nl2KAFRuhBrOmON
+	 bN87DPyCATJOQ==
+Date: Fri, 6 Mar 2026 09:00:18 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Hugo Villeneuve <hugo@hugovil.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org, 
+	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, 
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, 
+	simona@ffwll.ch, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, shawnguo@kernel.org, laurent.pinchart+renesas@ideasonboard.com, 
+	antonin.godard@bootlin.com, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>
+Subject: Re: [PATCH v2 04/15] dt-bindings: arm: fsl: change incorrect
+ VAR-SOM-MX6UL references
+Message-ID: <20260306-observant-banana-wapiti-90adef@quoll>
+References: <20260305180651.1827087-1-hugo@hugovil.com>
+ <20260305180651.1827087-5-hugo@hugovil.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260305180651.1827087-5-hugo@hugovil.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_075519_611705_FF67C1A8 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20260306_000022_428963_B2EA8C03 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,118 +80,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Correct the grammar in dev_err() messages. Change "Not support <feature>..."
-to "<feature> unsupported..." to improve readability and comply with
-standard English usage.
+On Thu, Mar 05, 2026 at 01:06:19PM -0500, Hugo Villeneuve wrote:
+> From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+> 
+> There is no Variscite module named VAR-SOM-MX6UL, but there is VAR-SOM-MX6
 
-Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
----
- drivers/pinctrl/realtek/pinctrl-rtd.c | 22 +++++++++++-----------
- 1 file changed, 11 insertions(+), 11 deletions(-)
+And binding does not speak about VAR-SOM-MX6UL, so I find your commit
+msg extra confusing. It took me way too much time to decipher why you
+are doing this and this should be just simple correction of name to
+match the product expressed by compatible.
 
-diff --git a/drivers/pinctrl/realtek/pinctrl-rtd.c b/drivers/pinctrl/realtek/pinctrl-rtd.c
-index 382bdae54bf3..5888a36babba 100644
---- a/drivers/pinctrl/realtek/pinctrl-rtd.c
-+++ b/drivers/pinctrl/realtek/pinctrl-rtd.c
-@@ -293,14 +293,14 @@ static int rtd_pconf_parse_conf(struct rtd_pinctrl *data,
- 
- 	config_desc = rtd_pinctrl_find_config(data, pinnr);
- 	if (!config_desc) {
--		dev_err(data->dev, "Not support pin config for pin: %s\n", name);
-+		dev_err(data->dev, "Pin config unsupported for pin: %s\n", name);
- 		return -ENOTSUPP;
- 	}
- 	switch ((u32)param) {
- 	case PIN_CONFIG_INPUT_SCHMITT:
- 	case PIN_CONFIG_INPUT_SCHMITT_ENABLE:
- 		if (config_desc->smt_offset == NA) {
--			dev_err(data->dev, "Not support input schmitt for pin: %s\n", name);
-+			dev_err(data->dev, "Input schmitt unsupported for pin: %s\n", name);
- 			return -ENOTSUPP;
- 		}
- 		smt_off = config_desc->base_bit + config_desc->smt_offset;
-@@ -313,7 +313,7 @@ static int rtd_pconf_parse_conf(struct rtd_pinctrl *data,
- 
- 	case PIN_CONFIG_DRIVE_PUSH_PULL:
- 		if (config_desc->pud_en_offset == NA) {
--			dev_err(data->dev, "Not support push pull for pin: %s\n", name);
-+			dev_err(data->dev, "Push pull unsupported for pin: %s\n", name);
- 			return -ENOTSUPP;
- 		}
- 		pulen_off = config_desc->base_bit + config_desc->pud_en_offset;
-@@ -325,7 +325,7 @@ static int rtd_pconf_parse_conf(struct rtd_pinctrl *data,
- 
- 	case PIN_CONFIG_BIAS_DISABLE:
- 		if (config_desc->pud_en_offset == NA) {
--			dev_err(data->dev, "Not support bias disable for pin: %s\n", name);
-+			dev_err(data->dev, "Bias disable unsupported for pin: %s\n", name);
- 			return -ENOTSUPP;
- 		}
- 		pulen_off = config_desc->base_bit + config_desc->pud_en_offset;
-@@ -337,7 +337,7 @@ static int rtd_pconf_parse_conf(struct rtd_pinctrl *data,
- 
- 	case PIN_CONFIG_BIAS_PULL_UP:
- 		if (config_desc->pud_en_offset == NA) {
--			dev_err(data->dev, "Not support bias pull up for pin:%s\n", name);
-+			dev_err(data->dev, "Bias pull up unsupported for pin:%s\n", name);
- 			return -ENOTSUPP;
- 		}
- 		pulen_off = config_desc->base_bit + config_desc->pud_en_offset;
-@@ -350,7 +350,7 @@ static int rtd_pconf_parse_conf(struct rtd_pinctrl *data,
- 
- 	case PIN_CONFIG_BIAS_PULL_DOWN:
- 		if (config_desc->pud_en_offset == NA) {
--			dev_err(data->dev, "Not support bias pull down for pin: %s\n", name);
-+			dev_err(data->dev, "Bias pull down unsupported for pin: %s\n", name);
- 			return -ENOTSUPP;
- 		}
- 		pulen_off = config_desc->base_bit + config_desc->pud_en_offset;
-@@ -384,7 +384,7 @@ static int rtd_pconf_parse_conf(struct rtd_pinctrl *data,
- 				return -EINVAL;
- 			break;
- 		case NA:
--			dev_err(data->dev, "Not support drive strength for pin: %s\n", name);
-+			dev_err(data->dev, "Drive strength unsupported for pin: %s\n", name);
- 			return -ENOTSUPP;
- 		default:
- 			return -EINVAL;
-@@ -394,7 +394,7 @@ static int rtd_pconf_parse_conf(struct rtd_pinctrl *data,
- 
- 	case PIN_CONFIG_POWER_SOURCE:
- 		if (config_desc->power_offset == NA) {
--			dev_err(data->dev, "Not support power source for pin: %s\n", name);
-+			dev_err(data->dev, "Power source unsupported for pin: %s\n", name);
- 			return -ENOTSUPP;
- 		}
- 		reg_off = config_desc->reg_offset;
-@@ -411,7 +411,7 @@ static int rtd_pconf_parse_conf(struct rtd_pinctrl *data,
- 	case RTD_DRIVE_STRENGH_P:
- 		sconfig_desc = rtd_pinctrl_find_sconfig(data, pinnr);
- 		if (!sconfig_desc) {
--			dev_err(data->dev, "Not support P driving for pin: %s\n", name);
-+			dev_err(data->dev, "P driving unsupported for pin: %s\n", name);
- 			return -ENOTSUPP;
- 		}
- 		set_val = arg;
-@@ -428,7 +428,7 @@ static int rtd_pconf_parse_conf(struct rtd_pinctrl *data,
- 	case RTD_DRIVE_STRENGH_N:
- 		sconfig_desc = rtd_pinctrl_find_sconfig(data, pinnr);
- 		if (!sconfig_desc) {
--			dev_err(data->dev, "Not support N driving for pin: %s\n", name);
-+			dev_err(data->dev, "N driving unsupported for pin: %s\n", name);
- 			return -ENOTSUPP;
- 		}
- 		set_val = arg;
-@@ -445,7 +445,7 @@ static int rtd_pconf_parse_conf(struct rtd_pinctrl *data,
- 	case RTD_DUTY_CYCLE:
- 		sconfig_desc = rtd_pinctrl_find_sconfig(data, pinnr);
- 		if (!sconfig_desc || sconfig_desc->dcycle_offset == NA) {
--			dev_err(data->dev, "Not support duty cycle for pin: %s\n", name);
-+			dev_err(data->dev, "Duty cycle unsupported for pin: %s\n", name);
- 			return -ENOTSUPP;
- 		}
- 		set_val = arg;
--- 
-2.34.1
+BTW, the DTSI also has wrong name.
+
+> and also VAR-SOM-6UL, so it is confusing at first to know to which one it
+> refers to. The imx6ul-var-som* dts/dtsi supports only the VAR-SOM-6UL [1],
+> not VAR-SOM-MX6 [2], so modify comments and model descriptions accordingly.
+> 
+> Link  https://dev.variscite.com/var-som-6ul [1]
+> Link: https://dev.variscite.com/var-som-mx6 [2]
+> 
+> Signed-off-by: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+> ---
+>  Documentation/devicetree/bindings/arm/fsl.yaml | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+Best regards,
+Krzysztof
 
 
