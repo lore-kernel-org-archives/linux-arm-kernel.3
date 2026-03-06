@@ -4,56 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DF57FCC050
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 18:26:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACC68FCC056
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 18:27:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nKcS5jIjZiM8pheqy5ggM9oxVmpCdMDyZKlqv6qVaWI=; b=GonOtTdnsi9Uy/ETdNDO4BD2Y/
-	AJU/xblrAZMc/RoNgvXJtGn5p/1kX93VL5kV01ofA6lDTSLC8m06ds4MZ0aLtM01g5ls4iY3NiS1x
-	LARlkFk4WLp47zSvtYX0SZ8cwZgk8+7OvuG97u3jhCb3OJoi1se2QBdNgbRAqUW05YwhSjOKklmzs
-	jWOU7bU7khk9zkvosblJSDFb7zFsMk+fZMK6SzkLRt3ULKl3ox3PvA0tDPlFOOHkZh5vmDbxLjqL6
-	g1sMReuRKv9u1I306et7xALuM3scZHQUTk9sw59DlrxvWiXFGH7a2k1QZ4+jWBQ8Naf6LcI1csgtt
-	hVYh+qWg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=on2bJXzG7VhknnVi3RS1//dvdy30GtppvlJb/YQMk+0=; b=zs7NDeeDlfrQ9Ylj9FkCl1pGvG
+	5528W+0GnLwDXfIQkygQanR4EiZEJOvNKdX9YM/duuK9smkCmDsf8OJ77cmifcKgxraPdQdYqZ8Xi
+	/HKLW72FQlZjh5Z8Ac0a8bstR97f6ZYjNa5NzFBtgtvLdKhm9INp4CKRXAdjcFiGKGLHyJCHEKa6M
+	e8mNNkyZJx9v5Q60b5JfdIaRiX9a51yf1V5yPMhw9sEsg+q0QnnBnb6CN42iFuPA391SCmE5cjoVU
+	hMZiFwWc2fi7LOjZmoCMmxfAbjffWaCf04TET19OKP1euYswFa0+Og2GXm2nkLhwxqbWyZu3cwXez
+	KmagEHSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyZsp-00000004JrZ-1CWY;
-	Fri, 06 Mar 2026 18:26:43 +0000
+	id 1vyZtd-00000004JyQ-0UYI;
+	Fri, 06 Mar 2026 18:27:33 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyZsm-00000004JrA-1Blc
+	id 1vyZta-00000004Jxx-2rW0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 18:26:42 +0000
+	Fri, 06 Mar 2026 18:27:31 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BBB52497;
-	Fri,  6 Mar 2026 10:26:29 -0800 (PST)
-Received: from [10.1.196.96] (eglon.cambridge.arm.com [10.1.196.96])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F2A313F7BD;
-	Fri,  6 Mar 2026 10:26:34 -0800 (PST)
-Message-ID: <969b0700-9603-4e1c-b15c-e509e4d1b0ce@arm.com>
-Date: Fri, 6 Mar 2026 18:26:32 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] arm_mpam: Force __iomem casts
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Ben Horgan <ben.horgan@arm.com>, Reinette Chatre
- <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260216110240.159691-3-krzysztof.kozlowski@oss.qualcomm.com>
- <7b5e4218-5961-4874-bbb1-89770cd2c744@arm.com>
- <18f3f73a-9bc6-4518-b3e4-730fa0793146@oss.qualcomm.com>
-Content-Language: en-GB
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 06195497;
+	Fri,  6 Mar 2026 10:27:23 -0800 (PST)
+Received: from eglon.cambridge.arm.com (eglon.cambridge.arm.com [10.1.196.96])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2AAA93F7BD;
+	Fri,  6 Mar 2026 10:27:28 -0800 (PST)
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <18f3f73a-9bc6-4518-b3e4-730fa0793146@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Ben Horgan <ben.horgan@arm.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	James Morse <james.morse@arm.com>
+Subject: [PATCH 0/3] v7.0-rc2+ Fixes for mpam driver
+Date: Fri,  6 Mar 2026 18:27:15 +0000
+Message-ID: <20260306182718.150569-1-james.morse@arm.com>
+X-Mailer: git-send-email 2.51.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_102640_369179_A5ADC778 
-X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-CacheID: sfid-20260306_102730_763354_78C61387 
+X-CRM114-Status: UNSURE (   9.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -69,48 +64,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof, Ben,
+Hi Will, Catalin,
 
-On 27/02/2026 14:51, Krzysztof Kozlowski wrote:
-> On 27/02/2026 15:06, Ben Horgan wrote:
->> On 2/16/26 11:02, Krzysztof Kozlowski wrote:
->>> Code allocates standard kernel memory to pass to the MPAM, which expects
->>> __iomem.  The code is safe, because __iomem accessors should work fine
->>> on kernel mapped memory, however leads to sparse warnings:
->>>
->>>   test_mpam_devices.c:327:42: warning: incorrect type in initializer (different address spaces)
->>>   test_mpam_devices.c:327:42:    expected char [noderef] __iomem *buf
->>>   test_mpam_devices.c:327:42:    got void *
->>>   test_mpam_devices.c:342:24: warning: cast removes address space '__iomem' of expression
->>>
->>> Cast the pointer to memory via __force to silence them.
+How do you want to handle fixes for the mpam driver? Currently its hidden
+behind CONFIG_EXPERT as there is no user-interface to it yet, but these are
+the issues that can be hit with mainline today.
 
->>> diff --git a/drivers/resctrl/test_mpam_devices.c b/drivers/resctrl/test_mpam_devices.c
->>> index 3e8d564a0c64..2de41b47c138 100644
->>> --- a/drivers/resctrl/test_mpam_devices.c
->>> +++ b/drivers/resctrl/test_mpam_devices.c
->>> @@ -324,7 +324,7 @@ static void test_mpam_enable_merge_features(struct kunit *test)
->>>  
->>>  static void test_mpam_reset_msc_bitmap(struct kunit *test)
->>>  {
->>> -	char __iomem *buf = kunit_kzalloc(test, SZ_16K, GFP_KERNEL);
->>> +	char __iomem *buf = (__force char __iomem *)kunit_kzalloc(test, SZ_16K, GFP_KERNEL);
->>>  	struct mpam_msc fake_msc = {};
->>>  	u32 *test_result;
->>>  
-
->> This change looks good to me.
-
-[...]
-
->> Acked-by: Ben Horgan <ben.horgan@arm.com>
+The first fixes a dereference of an uninitialised variable when restoring state
+following cpuhp. The other two are warnings in the kunit code. (which I wouldn't
+send now without the first one).
 
 
-Thanks! I've picked this for a fixes branch. I'm not sure what Will or Catalin will think
-this needs fixing during the release as the driver is behind CONFIG_EXPERT. I'll ask...
+If its helpful, there is a signed tag with some verbage here:
+git://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/fixes/v7.0-rc2
+---
+mpam driver fixes for v7.0
+ - Fix dereference of an uninitialised variable when restoring state.
+
+ - Fix a pre-empt warning in kunit tests.
+
+ - Fix a sparse warning in kunit tests.
+---
+
+Let me know if a proper pull request is the right way to go.
 
 
 Thanks,
 
 James
+
+
+Ben Horgan (2):
+  arm_mpam: Fix null pointer dereference when restoring bandwidth
+    counters
+  arm_mpam: Disable preemption when making accesses to fake MSC in kunit
+    test
+
+Krzysztof Kozlowski (1):
+  arm_mpam: Force __iomem casts
+
+ drivers/resctrl/mpam_devices.c      |  2 ++
+ drivers/resctrl/test_mpam_devices.c | 22 +++++++++++++++-------
+ 2 files changed, 17 insertions(+), 7 deletions(-)
+
+-- 
+2.51.0
+
 
