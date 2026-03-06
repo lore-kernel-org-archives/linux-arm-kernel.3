@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD225F51403
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 06:19:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0010F513F6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 06:19:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nQZfmhFpO2PaeLV2doN+DKk+tr5bMg1j0V9pwujGq+0=; b=ipE8TyQncYqQNpqOze6AouTu8z
-	Oi40OPadKl7i2IAMJ2plQe8RKpgu+E0/+lyNHaz+Z4utcCxWKaGGXPIsL9ftlvoTKA1+fSQRDbQjN
-	Kzj7QLBSnJHHhNunuNF3KMt692KXZyteVXeu5VZQIqMhZeIbd8aQx2iSnW+XfFYiYB+ImdLsXi4ek
-	PL9dF0DSAaTu/tnWwqC0k5KN2rYkmHuF6ytIA8dkJ1zhnZulNUPfuUBp8eJCptpMeo4JzG8ENjYJo
-	bI+Kdfnc+lP8MUvv/T49ZZn2yDk+FlJWNpr26zluk2pfkfCRJYPHmJdTTCStisI4FPSGgq3LzMcX4
-	z9AloD4g==;
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g+cy5y32ATiIV01zvDxtKwM7LdknHJj8gpmPldCOyPU=; b=nHltYADura3ftFodrUjB03vWmF
+	JbdSPD2CE9BcvZYcHjCjdhJsIm6PkGpts9EvBqyvxFVPR3wAKsvy+b3KCMSUFq0vbdlNMVvUZiy2F
+	XXQlDYIEMIe8Q2A6RXaAkjsj+Z+jNN5OV+b/iPZUU71VqT3z9aTqUx9ZCBifTUHSzdmeOgq6T7WZA
+	INwl8FGr2iIRSqvUyZYDdp36QPUPk9p4lMTHvxREl2WSt9XnZ7SbsRgZqs3XbfZTib23ZvE5G1ejK
+	ITCqndcnQG+q2kMds6MDwYanIAKBuPFDrZNyXKjDiZ/bEzhH70i0HZcscenMVIekVqOg7AJ4lGzfL
+	hZY2rfOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyOWX-000000034pz-0iK9;
-	Fri, 06 Mar 2026 06:18:57 +0000
-Received: from mail-westeuropeazon11013039.outbound.protection.outlook.com ([52.101.72.39] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1vyOWa-000000034rh-3BzV;
+	Fri, 06 Mar 2026 06:19:00 +0000
+Received: from mail-northeuropeazon11012000.outbound.protection.outlook.com ([52.101.66.0] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyOWT-000000034pJ-2Yfl
+	id 1vyOWZ-000000034q7-12fs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 06:18:54 +0000
+	Fri, 06 Mar 2026 06:19:00 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AG2IbSxxCxkro8xtIvBqQPV0EI2YY6ewNdBha17Ic1iveEyfIwXzwgBP6EDPmOPEturv1iv38JLCmddBa1Tj/7vwlevmEtuMKWPs5xVSLKZeIDXHHl/kRxIQBChmuY07Pp4/km4azfcwWolwUxIMoEFHCBEqdr8JmtoLdsYjIdq9D4EwJP4blhnFfKD8HqmKibgd281bbD9SiivYF1Yp/VXY3XUInkGo2srMM/Lh53xV9VoWlQbMmKi6LXbRP2btVv6Bjb45tjlSQ+XzT0wm/t+r8kRVPYlvKEjFikF3HTR2U8fKXHypA7eNUfNuCQNzKB0EGzoBbsmccAFlngoVfQ==
+ b=iZyTgswN1NHI27psiP6Rv3bKjanhG84wHKzIiY31e3Oi5pQF+L2ZeE9/F3Gp75Udr5s2Fw8O25u4xi50s2IyFfovIqxy7/l9M0HDeNc1g0TGBYPl3JtP1d9r+jWms0XT/6hwlCE16Oe/mUAdkX34NV7jABMvdvnLm672HuyLvPgWLqqGOlV4Kc40ILEM7B3BXKUAWS8czYNL0IWqRBoT8kXYrN6p96oPViZ3cULy97D9WOhXQ5s5Hw/z4n/U3WBL3y22BfjBRtbreM+FZikm/Co0crI1tYSEtP20oslmCP2EUArBV7KDNzuTreXZzaHQL7aT2Rjh3MPodOCXGH3kEg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nQZfmhFpO2PaeLV2doN+DKk+tr5bMg1j0V9pwujGq+0=;
- b=kJ6xJUH+qKg/pOm16DmgHpTxCCim9DzOdkrBxaU5mi9KQPyLnJnPInamfuTnXWzhgQr9odwUlc9a5Zew7VphFyo3FekJy8HMLHsCyKfCnXYpsRZ1Lic2JwuoZT7qDrkgAKD9kJP6EaoYAJW6UW9AyasbTm7mF3k+bI7Cqa0H9FKMfvjDfRLo4XqMJTGM+tHW2J8DGXUQIfPVNrTEq4nOJRWkx1gHq1ZHN+JHpuvMsP2r3QOGZqKTkmB5EMpMIHBpZ7bedirkVtuVj6dQ/I+Nm/GqD0XXOg8We7Cl8NROyLKLrGgT2Fx7HWMPAtBcrqUBkhIWOEeDUOUBklMKgGVl3g==
+ bh=g+cy5y32ATiIV01zvDxtKwM7LdknHJj8gpmPldCOyPU=;
+ b=EYtkKGYJtBHtKFlf+GGiKeJiKH9K19FMCx4hi1etYwr1nWxU5Pca+C2eY3g3Ap27NUZuIBYEqggGKxY6a+FO3yzXpbiYrK9LUwMEOAafl6YAiotb1QMcPuZKY/6GZwgbJsgrNhKeZthXZklUn2i+ghNq9mFSMr4OIsNJShrRGsbZy87qB6CJu/03EGZF3XkzQ1DKrNQN6XPlPeSadCeEteVFq2uOXuZSlWyjurRiVv/nINc/67DZaQge/dHJbXCvJMqGTkc/ivuG28fqC968QOV84dPuOUghMsIV3B/XiEvzg/axybMwaQxq6cZf9dz6Ke/jDXpPr8kSV2cO6mz9RA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nQZfmhFpO2PaeLV2doN+DKk+tr5bMg1j0V9pwujGq+0=;
- b=D7zZyn8huVa5jn2+IXSyIpVzW4V0XdsWdNlcq3FDHj9oGtB5Td3mwBk44QnTmlDXoXOZ1Mw3xuFT8h6YB+VIB13EwNZaAGTwzFux+oly0cj39smNtJgAqIvTIoUP6kiKYYOVbKutSH0Y9AQyzDixYE7CCiXWQB3OubJdY16lvBE2xvNh1VoIzDT0BkSNNyr8G3SxFk3alytcO4jdRCeD7PZ8KIFHhtAZ37KZfX5v8vgH3WS1YwDfwwX5CqNiW9nOO0XxOSGxUkOHlAXTe7D2jetY2mpXSGXmYrHlSVyE2a39jXUyhU/fgF2QtOTSfmiECoOe/3LV6ACbTplmZ8BfMg==
+ bh=g+cy5y32ATiIV01zvDxtKwM7LdknHJj8gpmPldCOyPU=;
+ b=kxujx3rs1gOLOGB4VYlp++sLMDoaqq3x//gxWP0AjRlg96ZxSYga0XRDr01EbfywZQ502vAMFO8WGadrMnvbQlTlMb++K65dnYbm/UCIAghl6IRS211pv9BAGV58pxnq5pXt7IPSVCcZGAgbwq0Q3hkSlefWUERvo4yjQgOK/Yz2h8rNEK49fttiY1FI1El/bFCj20wBf1ftpf5hBAlzCXidbCSiSiXCGEeM4clVxPy9f+unSzjjw1BQoxXBv486XQPxXXjzkSYVgtIPkJDw0h3GHADSWYIoEjwlenl4O0yga/5+TnYNSZaV+/QwP/pDvxigu2mZn7RE5fBKvenfOA==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
  by AS8PR04MB8771.eurprd04.prod.outlook.com (2603:10a6:20b:42c::7) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.19; Fri, 6 Mar
- 2026 06:18:46 +0000
+ 2026 06:18:55 +0000
 Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
  ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
  ([fe80::4972:7eaa:b9f6:7b5e%7]) with mapi id 15.20.9678.017; Fri, 6 Mar 2026
- 06:18:46 +0000
+ 06:18:55 +0000
 From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Subject: =?utf-8?q?=5BPATCH_RFC_0/2=5D_clk=3A_scmi=3A_DT_support_for_SCMI?=
- =?utf-8?q?_clock_rate_rounding_modes_=28per=E2=80=91clock_policy=29?=
-Date: Fri, 06 Mar 2026 14:20:11 +0800
-Message-Id: <20260306-scmi-clk-round-v1-0-61e2a5df9051@nxp.com>
+Date: Fri, 06 Mar 2026 14:20:13 +0800
+Subject: [PATCH RFC 2/2] clk: scmi: Add support for two #clock-cells to
+ pass rate rounding mode
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIABxyqmkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDYwMz3eLk3Ezd5Jxs3aL80rwUXUMzQ1MjU4vkNIO0RCWgpoKi1LTMCrC
- B0UpBbs5KsbW1AGrzH2hlAAAA
-X-Change-ID: 20260306-scmi-clk-round-1615258cf0fa
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260306-scmi-clk-round-v1-2-61e2a5df9051@nxp.com>
+References: <20260306-scmi-clk-round-v1-0-61e2a5df9051@nxp.com>
+In-Reply-To: <20260306-scmi-clk-round-v1-0-61e2a5df9051@nxp.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
  Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -80,67 +78,67 @@ MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AS8PR04MB8771:EE_
-X-MS-Office365-Filtering-Correlation-Id: ed478777-80f2-454e-c7a3-08de7b483980
+X-MS-Office365-Filtering-Correlation-Id: e4809c66-252e-4503-605b-08de7b483e7e
 X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|19092799006|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: 4PWGE1sm6WV+6hkDLfKtDKRWte8PTGdtmgYaVcC/fnNnG4NqOlHDhsANTZMJ5icmYpN0kx1bh12/129gJkhIPU98NLMHDBN54x9Du3/YwBUrl3Z4pW8N9KX66i3ymNn3ygYr2wHdJVC7V4OVY+vQowp/xs1yYk6Rci4R5odtJaae5BHrPjjLePC4ovOl7eWhf533HAKzNdl0Q7ON0yjm9lGTBPOB35gtbGvfithGaumzDnhymbdRl6McBoDFlN01/sOvft1wCY3O6mVoOEI1nTcj0qQdBFwrVuBTt6mcCCRS4zTgnmkM4f/Jl5QwngJ57w2iLiLKhzQlGeY8bEYnHOMLoDHyt+HBqntlzkF1hXNoPvhDZzzKBNeL0fqwyn4EcJzvnKGIz07D+Db5l9zdGRg7OTao3JbrSFrNltROHC29aZtyi6rFyf49XzIDMwhbjaHwlHGnDPV2JmyTqoZ0ihyhOW8Kl3bRQFK/iw3bqzzt2MdFr1+ZAp8WdhSqqgCQIC4HBdpFdYg7O4sT4sh+4WUQMkEzlSHieLmXeAuw4XzReamTKI5u17xOSQB1/yMWfR1sXWkVvwToUQiX6aemh+/j84MOu70YLfAZF327y7j4tIzq+2WnQcUNwqoOpuN25rJ0ynwhWODVr995vr0cNudYD3n8C4Fva2GWfxR+iWD4xhLjQUgAU8bvpHp9SjFFZ4DLWIxaDFzCJAyKPL6eqJWE9ALxbJWoGjjR427sYnffjfodK8k2C54J5HmcfaI7Vcdm+GgixpHXVrGm7Vv5pF3sudwXz7jASxE6Q4al7wk=
+X-Microsoft-Antispam-Message-Info: wUHv/Tr24KC7U/UMwEhpIJypmbUSofmzs2aSVLVtzCCXIASRJzfKWdOBE+jI8m/YI0SmdN4tvEB3/pGn1FPqKQlSCXxkNz8p6SGavY7kczVIMlyyxH6+5sJtDLKE4VvSJhnExNIJ+Nl5jcydnND7txO0Qj1/l/4SRBdTEyNRgmwnwnZWPJDcI8lgy2LrWDnRQvh4RhuV/ENPDTYZrKLJbA3EO2YwEU/SHUA6dOwmvnONw744eIs6ZbUakDfu0sEryg++ARVkedDwfALJsjqLx9L6RtcVPWqPXaf3oaX0Mcyo+EdxRl2pfCdvDFe416Ae4kJggYTktDE8DW2jUDP3m//YPoL3HlmktQ9vSfMVP2qrhc2pz/zG7TSf8VHdSbYlI9uHZ54h+Onrw8HfPzQLzOUBc3rko0uS0ZMuvviMRnGjLbw1ZCmYQxQ9s+i8H0IbFB+Ho+1Ht8VQszICRczwsBdKQkYsi8IJseOJo2vGdJRcBwsT1C+DL2KkBuaZtWrqEt2G7AX0u5zB22rJpEzZ1r6fwQzTrfHsrBcnnUpS96dEK7EBJnLi/Pl1v2k6PaesQSjzdchpSrK7fJB5xPQsgupZCs2bNYma06JimLgOQZdb7CLbFHcaKaAuP++ntUbGXgjcuFZfzgFMnzg9VrfYhf2NVXZ5d1ELqCb1Kr/+s9Gf/qaB6zfH/xql5mXilV9txXi2XSHh133U4XGdFyVpetjCUNI1QFY8UG/rDN/o+m3ql9aR3gT442FYzK6F9qIz1achSCr7flFeBogDpRdrwStAFnh4c3Ez41TaOAsbOS8=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(19092799006)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QWVIUlkrbmQ4c0NsNzA1VUs1SENhancyS3pMQU04RFduY3dkU214U0xmZHdI?=
- =?utf-8?B?cHovWnJPY0FGc3VXR0JwSjhtdHNpVFd2MVpWcFRDUkpTemw1T2tjSGtrSHVk?=
- =?utf-8?B?aktneDkzNmxrT1NtWWhHUlNKaEdjSnRISjJVbisvQVBVdVBhR0ZoSS9uTTBh?=
- =?utf-8?B?RVl3RXMrWE1velJoSHdsV2Q4VjFWcnVQaVJVUlVVSlNGd2cvMWV3S2VzYkVs?=
- =?utf-8?B?eXZrV01Fa3dNcVZ6cUtxNncvQUFJM2xtUS9zQkh1YjdKTVZvSFpRTzVJaVV2?=
- =?utf-8?B?aU12MHJiMEpVM2dhWHNvSk9wM1QwZHJlS0lMTHY4ZW84dzdCMTJ3dDQwU0ps?=
- =?utf-8?B?dlEwNit3aFlud2JaRlROWUNVYzV2QzVkVXhGNzhHTCtheVNDb3hDMmo2alFF?=
- =?utf-8?B?Q3lHSHZaaUU3VVNROVRoNlBweUxXRzhWQ1cySndXN2FWYnNUSG5zNnlVRzRQ?=
- =?utf-8?B?b3pSUGxrdlZqT0UyeHVGSlpyQU9ITVlNVGh1RjlUV3k0dm5ONUlpYlFYa0xZ?=
- =?utf-8?B?YWYyaGVLZEFQTVBZWUFVZzNlQlQxdzgrdnIvdG40MUQ0UXE3NEc1OW1QSFNp?=
- =?utf-8?B?OWVsc0NvQmo1eFpiUUx3dWcybHUrV0hhcWtBc2YyQ2ExSGhCUGtMYmMxMndS?=
- =?utf-8?B?RzlQSWVmU1UvSFZjWFRaZVFLenBacmxLY1RMMDkrbkF6Q0pITmhlM0hTV29V?=
- =?utf-8?B?TFFxWXkvUklEUGo0QXBBT2JFSkFQOXpVcW5pM1lOWC85Q3d3VjFpTEtkdVdq?=
- =?utf-8?B?NUpFTlMrOGF6bG90Ykx3Znc0UEZ0REE5Y0Y1VkoxQ1J4NlFrREQyamhoZVlx?=
- =?utf-8?B?dktjdjdYd1Y3Ry91K2E5TFFqZ2wrM3BTQllkZ2N4QllLNlBYd0p3OW9kS05n?=
- =?utf-8?B?UFhqbkF3MXR1ekkxdWlLTy81MzZFU1RwZVBtUUo2dWhiNEt4N0twUUEySWpq?=
- =?utf-8?B?bmk4ZTJWU29pc1N3TnlCUVlqZkEzVFVuY0pHcVJ1cmkrQWxkdTJQNCtKN2tU?=
- =?utf-8?B?TVJtTXZZZWx5NkhlUmhWeXpmYk85VmlBVXVoOUEzN0d5WE14UUJxVFFoUHBT?=
- =?utf-8?B?STJPNS9qUTZoakhoNDFmMUppdVhVUVJ5Q0t0ODRKaE9GVnBnMldudTJXLzZ4?=
- =?utf-8?B?WDZsQWQ5MjFJRWdXZUZ5TnVNcU1jN1dwTEh1RjFTZWtvY0hkSlF5bnNXRjRI?=
- =?utf-8?B?NCtlWWVMOS9hOThnRVdLeE4wVHcwTjVmV3loRXYrR0hmYzkrcWZPNVlEdVZJ?=
- =?utf-8?B?TkxJVEI1TFROUjZnNWdZOG9IUlBGdTBiVk0xNlFYSHYwZUp0OXBrdTcxQUdy?=
- =?utf-8?B?YjNISk9QZXVxSFY1VGpid08rNCtKbWNlVTZ5azlITjc4ZDA1Q3MwaW91MlNl?=
- =?utf-8?B?UVI2eEZEMXRTa0kyb1BsdXRrYnU4OTlFWUxEbjNRZmpSZTl2Mm5EQTJhckdr?=
- =?utf-8?B?ZHJFYm9ycEhqREJ4VHRlUit3VVBXdmMveFN0QTRwTy9rK1E2clFQZXJnZUdz?=
- =?utf-8?B?OTI1YWJzMjFPeTIyWTJEaEs0TUxPRGg5bzkwOFBhUER1d2F5ZkVzcGJ2YW5G?=
- =?utf-8?B?SDk3OUg0bmZCeG1mQ09jVDArTGdqbjBRRzcwOHFHV1lPKzRIQktGcGtqVmVs?=
- =?utf-8?B?WTRkR1ZZM3hyMEhCNC96WTAyT2xvZHN1TXU4WGNXQnU2T1Jhc0ZkZkZMbTN2?=
- =?utf-8?B?bG1hdVhFOUtpUmxEenhBYkNwc1JDTTRLd0xNYm9hdzRlUzRzSmh4N1BHazdP?=
- =?utf-8?B?ZDQvMENBNTYrUUVIb1FPR0ZFVHBpa3ZvYnI3cE1ZdnZyR2tkdkpPakswZkYr?=
- =?utf-8?B?QzdycnJyUkZxTTZ1Zkptc1dvYzRQdS80ZS92RCs1M3BMMFI4SDlOMkFNQ3B4?=
- =?utf-8?B?cXpqZDJaUWlTTE0vVmdHUmdlS094SHdjN3ovTjMyV0k4ZVhpUkZRK1pjNTlI?=
- =?utf-8?B?RVdUendqcElPMURCM2E2OTRNajJodlByT3o2RWhyR2s1SEIxL25Nc1JCSlVl?=
- =?utf-8?B?czAwTUN1cFdxQVV6ZGJydXI5SnNxUXIrOVRybWtyNDRlRlpvbHVPamYrODZL?=
- =?utf-8?B?RDBCU0xtYWxYL1J4dDVad1krZnlNdFcxUHFZMmZoWWlxc0pyeVl2Vlo3S0pN?=
- =?utf-8?B?N3hUOWRWMlJFZkhEcjc1TlJiNXR3TlFNVm5UbEZFSDdOWGVNQjNqS0lkd3dB?=
- =?utf-8?B?bGlmU05iYzB0VjNYclpxK1VhYXdRcDFxbzFLNXFyajhiSHVoUW5RR2RIWmhr?=
- =?utf-8?B?SWtob1dGNDd4bk54bjFCdkpHQjdIM0dVMDhsZGtsMERQNkYyaUZNUTFtRTc1?=
- =?utf-8?B?ZTcwOWtodVJidXQ1cW5pQTVlVFBkMGxwejBGY2drdXZRN09ZdFl2UT09?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MWlHUllDR1doaGJzelB1N1Z5MHk1dzQ1dE83SnR5NkdOT21YZUdlNXp5WWlX?=
+ =?utf-8?B?SWppM21sZnNZekFVYzlValhyOCtnTGQwcExBYk9jdzJmTzJjK2pyOTlvNmFj?=
+ =?utf-8?B?dnIvUVhPWXB0RDY5Tm04OUJTdWlDd1FIa1VtMG5MTjQ2UjkxbHU3NVdNTE40?=
+ =?utf-8?B?YWd2eTl0Q2lENCtUK0ZnWnhYS01OS3BvWjdGQTkyMllzRHYyZVFYcmFnRzlZ?=
+ =?utf-8?B?N2JZckJrWnJ0Ulk3Y0Z2NGJvZ2p3UFVsS2E4VjBsNHBHRklVd25OWjViQ2tu?=
+ =?utf-8?B?ZG1oOHlaNEI2M2RPdFFmc0YxU2hwUnQvbnFubFZHeUVzQlF4bGRhdytyYVhS?=
+ =?utf-8?B?MVdaZlFOVVMwemlQWFNueHpWYXhvNWdxd2JCcXcrUzhMaWhzT1ZoVWxDam93?=
+ =?utf-8?B?QWROZFFuMmF3QW11YmpEZVlRNzNnKytWWXpjdkRRWGVLakxTNzBadmlxN1Vv?=
+ =?utf-8?B?QmRtaUtkZ2N0THJtY2Rjd3MvdnRObnk1VHgrZEhpaS9seXM3ZzYxSVFIYmx5?=
+ =?utf-8?B?N1BZOFFSQ2JWZWdPVDRROFJFY1lyaTBOZ1Z4U3NUU1hQUjIwZnNCMVBkN2Z2?=
+ =?utf-8?B?blVSSmlsd3YwZ3JrelVpZmpUL21VRFNCVzJQd2dEWEgxZmZERzBqNUNlRzA5?=
+ =?utf-8?B?TDhyRjJ4VTFYV1NRVmFlLyttYUw4ZDFGOTUzVW9MeldXMnl1d3NPQlpGNlVa?=
+ =?utf-8?B?eXpnVXdqNC85Ulg1R1NjUFM1UDV0alI3RWZwd0ZJNGxvLzRKMFZDbVJlejZo?=
+ =?utf-8?B?S3pTM0dON2VFUDVEWmdIV0N0NjVFM0hndUU1MTdiT1ZaeDkvUnhuWWc1bzQ0?=
+ =?utf-8?B?WFJ5M1BNVlV5aExvc0ZZK3hWVUlHRmJibmpGSGRHYUkwakp2V2U2aXBJMkRQ?=
+ =?utf-8?B?TU1xSi8wSWF4Rko0TjNrU1FGNmxHWEJLOFcwdlliQWZVSEhaZ3dRRUFQeVFS?=
+ =?utf-8?B?MHdkR0xsUjQxSVdZWmhOV1NNVmpWZnFiTGpEWWxjUW1zMFlnNXZXUXJ3M01j?=
+ =?utf-8?B?V1VpbEIrNlZTNitrTXNHWjlDOEFUME1wM1BGRGZRVmtmWHVoRXdXeDVJSHpX?=
+ =?utf-8?B?c2NTcTlZbW5iWkp6NzVzVStUYW53ZW90RGxHaVpaaTVvT2R6bUF1RUhtYzZu?=
+ =?utf-8?B?OFBnMlRFeHlUQUprQk5maGR6UUwyL2dYTC9qMU9lUG5TSityeUJQdnRRa05j?=
+ =?utf-8?B?YTBWTFdWY0QrWVBhMlNGR2VtWWtSeWFtdlMzaGVEdGR3bW02eTI5TzhoTG9W?=
+ =?utf-8?B?RkQvZklzTWM0bGJTdDhvUG0yK1dua1NSZnNTcXV0N0I2N3VsYURPZWhHLzlt?=
+ =?utf-8?B?bGhYY2czTmk1K0ZJNmptQzQrdGdaOVBhNFBDUjRnMDRIMmVra054S2JnSUg2?=
+ =?utf-8?B?eW9XNld5c25IeTFlZWpxaTRhcFJ6TmZac2phbEZYMTdCZWxNMEtRakppeUxz?=
+ =?utf-8?B?OTNZcFlOcGhmTENONk9vS2hEdm12L21PbXNpSVZNMW0xdHlQMGppZnBHRkh3?=
+ =?utf-8?B?SGxzREdGME1KUU9JMHlBMmFKZUM4OFNXZGhLVGtFOTZOaWtmQzVEdWVCYlNI?=
+ =?utf-8?B?ZVNiOE5Fb1hZUCt5VFpjakJUa09USzFUM3E1ZTlyMjlGcUFwT1BPS21aZllI?=
+ =?utf-8?B?Yml2QUZ3QitTMlRvT211TWNFa2hZdE5vcitIcEM2NklZMDFVWXdVckhtemZG?=
+ =?utf-8?B?USs4OFEwMTVwenRDWlZSTVExWFhnRzFEZzlVSU5ocXpuOFBVU2JYQjdkKzFx?=
+ =?utf-8?B?SitXRWtQV3BNQnVkWS9KUXBIT1dvaHcxUDdGOVJMTE9IVUg5MUJ3bDFuWnpm?=
+ =?utf-8?B?S01ERjE2WENicGk1K2pGZ0tRNno4YTNUSktNWDF2TGxQM0dWZjlMRGpiYU9v?=
+ =?utf-8?B?VHdETkJYSStYRlJSZlpMUUx1c3VxS1B1bTc3VmNZS3JuRVVpYytSOW9jcXdV?=
+ =?utf-8?B?MzZuOWxwZDJIOEVYMWdOZUsxWjBOT2NVYzgxcitnU2JYVFlkaW8vT0dEZ2g2?=
+ =?utf-8?B?ZEFPTWRMOU5mb0oxUkx3ajgzbGNSTVBuMHA5NlNlMzdack5TcFZKemtzWTBR?=
+ =?utf-8?B?bzNYWmw2dkhON0tRWExHRGdzTWxjUkNMaVFjZmRTL1pPa0tyZDZGNGNQYXFj?=
+ =?utf-8?B?SFhWcDhqM2szbXdxaEUzT0VBMTUzYmsrRUVNMVdtZU1xVWQyMzNjaU1PZnJ3?=
+ =?utf-8?B?aUtQZ2JiTUtEa3U1S0k1YllBb3FCVGpCd0lZYW1PMWFRN0JFVDY4dkhNTVJs?=
+ =?utf-8?B?aUdDU1NPNEcvWXRxSHlWc3JsdmhGMzU2Y1p4cjlLd1kvYkdnODNNaGJFdys4?=
+ =?utf-8?B?UzhUUGtwZDVuSGlRbW82eWFaSDZ0NmhLZGVJTkV1RWcvdUJnWXY4dz09?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ed478777-80f2-454e-c7a3-08de7b483980
+X-MS-Exchange-CrossTenant-Network-Message-Id: e4809c66-252e-4503-605b-08de7b483e7e
 X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 06:18:46.7436
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 06:18:55.0691
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: asjugPjyhtI9Wk4cSotPYJZ8+66Wedgi7X8YpONRVshS6fKBDplhS9e2wSQmdV/toXqa4oFNnUu2VF7Nm2L7qg==
+X-MS-Exchange-CrossTenant-UserPrincipalName: f8Z4pE9+NfPSSRjZ7tqQF/G2cE0+X3Na9kGgmY1Z+Co4MGbh0ecOfMd0Oe2ou0KkutGu6bP0MwKEq6hpSmIXww==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8771
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_221853_682846_40A72F05 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20260305_221859_441755_5AE2BF2B 
+X-CRM114-Status: GOOD (  20.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,56 +153,212 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ARM SCMI specification (DEN0056E) defines rounding‑mode flags for the
-CLOCK_RATE_SET command, allowing a client to request that the firmware
-round a requested clock rate down, up, or autonomously choose the
-closest achievable rate.
-This series introduces DT support in the SCMI clock provider to carry a
-per‑clock rounding policy from the device tree into the SCMI protocol.
+From: Peng Fan <peng.fan@nxp.com>
 
-Patch 1 adds dt‑bindings constants for rounding modes:
-ROUND_DOWN, ROUND_UP, ROUND_AUTO.
+SCMI CLOCK_RATE_SET allows the caller to specify the rounding behaviour
+when setting a clock rate. The previously added dt-bindings header
+defines three modes:
 
-Patch 2 extends the SCMI clock provider to optionally support
-"#clock-cells = <2>", where the second cell encodes the rounding mode.
-The first consumer that references a given clock latches the per‑clock
-policy. Subsequent consumers of the same clock must specify the same
-mode; otherwise, the request is rejected to avoid non‑deterministic
-behavior. The selected mode is passed through to the SCMI Clock protocol
-and mapped to the corresponding CLOCK_SET_* flag.
+  ROUND_DOWN / ROUND_UP / ROUND_AUTO
 
-Patch 2 includes changes to drivers/clk/clk-scmi.c and drivers/firmware
-arm_scmi/clock.c, it is hard to separate the changes without breaking,
-so I put the changes in one patch.
+To enable device tree clients to select a rounding mode, extend the
+SCMI clock provider to support "#clock-cells = <2>", where the second
+cell encodes the desired rounding mode. The default remains
+ROUND_DOWN for backwards compatibility with existing device trees.
 
-This design adopts a per‑clock policy model, not per‑consumer. The rounding
-mode is applied by the provider per clock (index).
-All consumers of the same clock must agree on the rounding mode.
-Conflicting per‑consumer requests for the same clock are invalid and
-are rejected during phandle translation.
+When two cells are used, scmi_clk_two_cells_get() extracts the rounding
+mode and stores it per clock. The SCMI clk driver then passes this
+value to the SCMI Clock protocol, which maps it to the appropriate
+CLOCK_SET_* flag.
 
-This avoids silent clobbering and preserves deterministic behavior.
-
-Existing device trees using #clock-cells = <1> continue to work and
-default to ROUND_DOWN, exactly as before.
+Existing DTs using "#clock-cells = <1>" are also being supported.
 
 Signed-off-by: Peng Fan <peng.fan@nxp.com>
 ---
-Peng Fan (2):
-      dt-bindings: clock: Add SCMI clock rounding mode declarations
-      clk: scmi: Add support for two #clock-cells to pass rate rounding mode
-
  drivers/clk/clk-scmi.c            | 62 +++++++++++++++++++++++++++++++++++++--
  drivers/firmware/arm_scmi/clock.c | 15 ++++++++--
- include/dt-bindings/clock/scmi.h  | 13 ++++++++
  include/linux/scmi_protocol.h     |  8 ++++-
- 4 files changed, 92 insertions(+), 6 deletions(-)
----
-base-commit: 3f9cd19e764b782706dbaacc69e502099cb014ba
-change-id: 20260306-scmi-clk-round-1615258cf0fa
+ 3 files changed, 79 insertions(+), 6 deletions(-)
 
-Best regards,
+diff --git a/drivers/clk/clk-scmi.c b/drivers/clk/clk-scmi.c
+index 6b286ea6f1218c802d0ebb782c75a19057581c20..16547a1fa1a0f1595323b0f89753b38315743150 100644
+--- a/drivers/clk/clk-scmi.c
++++ b/drivers/clk/clk-scmi.c
+@@ -5,6 +5,7 @@
+  * Copyright (C) 2018-2024 ARM Ltd.
+  */
+ 
++#include <dt-bindings/clock/scmi.h>
+ #include <linux/bits.h>
+ #include <linux/clk-provider.h>
+ #include <linux/device.h>
+@@ -32,6 +33,8 @@ static const struct scmi_clk_proto_ops *scmi_proto_clk_ops;
+ 
+ struct scmi_clk {
+ 	u32 id;
++	u32 round;
++	bool round_set;	/* policy latched once */
+ 	struct device *dev;
+ 	struct clk_hw hw;
+ 	const struct scmi_clock_info *info;
+@@ -94,8 +97,20 @@ static int scmi_clk_set_rate(struct clk_hw *hw, unsigned long rate,
+ 			     unsigned long parent_rate)
+ {
+ 	struct scmi_clk *clk = to_scmi_clk(hw);
++	u32 round;
++
++	switch (clk->round) {
++	case ROUND_UP:
++		round = SCMI_CLOCK_ROUND_UP;
++		break;
++	case ROUND_AUTO:
++		round = SCMI_CLOCK_ROUND_AUTO;
++		break;
++	default:
++		round = SCMI_CLOCK_ROUND_DOWN;
++	}
+ 
+-	return scmi_proto_clk_ops->rate_set(clk->ph, clk->id, rate);
++	return scmi_proto_clk_ops->rate_set(clk->ph, clk->id, round, rate);
+ }
+ 
+ static int scmi_clk_set_parent(struct clk_hw *hw, u8 parent_index)
+@@ -396,6 +411,41 @@ scmi_clk_ops_select(struct scmi_clk *sclk, bool atomic_capable,
+ 	return ops;
+ }
+ 
++static struct clk_hw *
++scmi_clk_two_cells_get(struct of_phandle_args *clkspec, void *data)
++{
++	struct clk_hw_onecell_data *hw_data = data;
++	unsigned int idx = clkspec->args[0];
++	u32 round = clkspec->args[1];
++	struct scmi_clk *clk;
++	struct clk_hw *hw;
++
++	if (idx >= hw_data->num) {
++		pr_err("%s: invalid index %u\n", __func__, idx);
++		return ERR_PTR(-EINVAL);
++	}
++
++	if (round > ROUND_AUTO) {
++		pr_err("%s: invalid round method %u\n", __func__, round);
++		return ERR_PTR(-EINVAL);
++	}
++
++	hw = hw_data->hws[idx];
++	clk = to_scmi_clk(hw);
++
++	/* per-clock policy: latch on first use, refuse conflicts */
++	if (clk->round_set && clk->round != round) {
++		pr_warn("%s: conflicting rounding mode for clk idx %u: %u != %u\n",
++			__func__, idx, clk->round, round);
++		return ERR_PTR(-EINVAL);
++	}
++
++	clk->round = round;
++	clk->round_set = true;
++
++	return hw;
++}
++
+ static int scmi_clocks_probe(struct scmi_device *sdev)
+ {
+ 	int idx, count, err;
+@@ -409,6 +459,7 @@ static int scmi_clocks_probe(struct scmi_device *sdev)
+ 	struct scmi_protocol_handle *ph;
+ 	const struct clk_ops *scmi_clk_ops_db[SCMI_MAX_CLK_OPS] = {};
+ 	struct scmi_clk *sclks;
++	u32 cells = 1;
+ 
+ 	if (!handle)
+ 		return -ENODEV;
+@@ -456,6 +507,8 @@ static int scmi_clocks_probe(struct scmi_device *sdev)
+ 		sclk->id = idx;
+ 		sclk->ph = ph;
+ 		sclk->dev = dev;
++		sclk->round = ROUND_DOWN;
++		sclk->round_set = false;
+ 
+ 		/*
+ 		 * Note that the scmi_clk_ops_db is on the stack, not global,
+@@ -495,8 +548,11 @@ static int scmi_clocks_probe(struct scmi_device *sdev)
+ 		}
+ 	}
+ 
+-	return devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get,
+-					   clk_data);
++	of_property_read_u32(np, "#clock-cells", &cells);
++	if (cells == 2)
++		return devm_of_clk_add_hw_provider(dev, scmi_clk_two_cells_get, clk_data);
++
++	return devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, clk_data);
+ }
+ 
+ static const struct scmi_device_id scmi_id_table[] = {
+diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
+index ab36871650a1ff890c4cb7f67d3ded2622a72868..1548b6611f7f6c4ac60e740bb36f2377568d06dd 100644
+--- a/drivers/firmware/arm_scmi/clock.c
++++ b/drivers/firmware/arm_scmi/clock.c
+@@ -570,10 +570,10 @@ scmi_clock_rate_get(const struct scmi_protocol_handle *ph,
+ }
+ 
+ static int scmi_clock_rate_set(const struct scmi_protocol_handle *ph,
+-			       u32 clk_id, u64 rate)
++			       u32 clk_id, u32 round, u64 rate)
+ {
+ 	int ret;
+-	u32 flags = 0;
++	u32 flags;
+ 	struct scmi_xfer *t;
+ 	struct scmi_clock_set_rate *cfg;
+ 	struct clock_info *ci = ph->get_priv(ph);
+@@ -590,6 +590,17 @@ static int scmi_clock_rate_set(const struct scmi_protocol_handle *ph,
+ 	if (ret)
+ 		return ret;
+ 
++	switch (round) {
++	case SCMI_CLOCK_ROUND_UP:
++		flags = CLOCK_SET_ROUND_UP;
++		break;
++	case SCMI_CLOCK_ROUND_AUTO:
++		flags = CLOCK_SET_ROUND_AUTO;
++		break;
++	default:
++		flags = 0;
++	}
++
+ 	if (ci->max_async_req &&
+ 	    atomic_inc_return(&ci->cur_async_req) < ci->max_async_req)
+ 		flags |= CLOCK_SET_ASYNC;
+diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+index aafaac1496b06a6e4f0ca32eee58a9edf7d4a70f..d0b7186177f49dea9c4b0030927782e6fd819ad0 100644
+--- a/include/linux/scmi_protocol.h
++++ b/include/linux/scmi_protocol.h
+@@ -83,6 +83,12 @@ enum scmi_clock_oem_config {
+ 	SCMI_CLOCK_CFG_OEM_END = 0xFF,
+ };
+ 
++enum scmi_clock_round {
++	SCMI_CLOCK_ROUND_DOWN = 0x0,
++	SCMI_CLOCK_ROUND_UP = 0x1,
++	SCMI_CLOCK_ROUND_AUTO = 0x2,
++};
++
+ /**
+  * struct scmi_clk_proto_ops - represents the various operations provided
+  *	by SCMI Clock Protocol
+@@ -107,7 +113,7 @@ struct scmi_clk_proto_ops {
+ 	int (*rate_get)(const struct scmi_protocol_handle *ph, u32 clk_id,
+ 			u64 *rate);
+ 	int (*rate_set)(const struct scmi_protocol_handle *ph, u32 clk_id,
+-			u64 rate);
++			u32 round, u64 rate);
+ 	int (*enable)(const struct scmi_protocol_handle *ph, u32 clk_id,
+ 		      bool atomic);
+ 	int (*disable)(const struct scmi_protocol_handle *ph, u32 clk_id,
+
 -- 
-Peng Fan <peng.fan@nxp.com>
+2.37.1
 
 
