@@ -4,131 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 852CBF0181D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 10:12:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4F5DF01822
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 10:22:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tv4dJ/4VMXcAmevXlUG/734DLVWUrC6bvT8eqbpexP4=; b=omAaivZJrMEiP1L7eBM/KP5Zh8
-	TW/5anTH/nvbTNLj/6RdaqHIJuc6UyzbMNoH2LBKglI0CPUBGRnboVmJQFt6pH7u761qlReyj8Nr3
-	Hvk97qgVZhNIxXPk0XCdOhEGDB1EYM5e/tl46Sk1NAl633amAqcjEul5bYIKoSXIuoewHvvg5swnE
-	YyCkLgHjOfgHpVM6ETuGwOGcv6mcaKTmq+5YWToSL4ewjgjKTq2yndj3Tueit0ZvpuV2L1YhTgo6n
-	08TFlybpLf9yY2vD4zGG2bZo1SGhrK1i4XU77rrivxfeCP5pYpQCxvNO7J4WfcmxNCmT3pLRscXF5
-	RtRj7w5A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wz/G6pIcGzUXqImwOHN+SRnsHkmtJI/E8Bl+l6suG/Y=; b=FVdLboLOJVBRcu65NmuysCoMX6
+	v1m+pXsK9Dqn56Mum6i8txoerpYyyYl/T+lUIX50Ef1E+xqtR0G5/oXoL5alhzW50S9vwXSG1dRhs
+	ES2QPZlUmXnqC2aeldrjTYjH4dYX8c4jMVcQ5TE6GqTERhJqiV0Bdx62pe0e0DwYo67Coqtir8YBd
+	jZ+a7CsbBu8ZN3RPxQgw5dgeBjpPy0cnVjsGynyYyTXyQyZ3aJzLd99i5GKRCASP/Ls8kWmk8jkMo
+	T2QI1yDz4BPaF3PpPpywEfGONFfFHKtQTa3+0Lf4CYC4PO8yp24zNLpC/hSR1trTzDUH7L1d/an/J
+	wfDmTirg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vySAS-00000003QMD-2HFX;
-	Fri, 06 Mar 2026 10:12:24 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1vySJl-00000003R9P-3vbd;
+	Fri, 06 Mar 2026 10:22:01 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vySAP-00000003QLL-3DhP
+	id 1vySJj-00000003R8v-308o
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 10:12:23 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-439b73f4ab4so5873155f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 02:12:21 -0800 (PST)
+	Fri, 06 Mar 2026 10:22:00 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6264acS33886718
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 6 Mar 2026 10:21:59 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	wz/G6pIcGzUXqImwOHN+SRnsHkmtJI/E8Bl+l6suG/Y=; b=QRuHzsMB6ejFuCNR
+	uv4Xki46Vx2Eeps0zF/VafV0n5SBtF8MHA2jq6B9awW+VviYhp3Qqjyh+rYoZhMc
+	Yw5U0rN/m94pFKNLRxTRFrpV3xrhWYTpgdDmFAAjhy9GjPI6z7Dr0RW2mtfkcKB7
+	Mupwstj5dm4r17uzM3jmN0cqBA1cgLfi5t6vcNELbVyIB0ry6+aCNxR6C+S8LvQd
+	zoKaJ+KxepGz8LmkTlKJAbyTF0B8jpyB/X+EBG79xnZ7K7VulXlH0aCu4OKKYeh6
+	3N9L3ufCGp38fEIctBTv/PAEMcqVy9I67Z+wXk6EjasMyMZ0keDimgP34v3S4CXq
+	aT7Msg==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cqj4sa8nn-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 10:21:58 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2ae42659a39so371535255ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 02:21:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1772791940; x=1773396740; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Tv4dJ/4VMXcAmevXlUG/734DLVWUrC6bvT8eqbpexP4=;
-        b=uLAT0JzVZwZK8P8HbyYFdPQ27CLJbRKsXBzPOu32iEPvuN08GO4OdjCoEOpkLy2EMr
-         w7WuXBuKTEBOnLlIuFMy5XphwHW3544MnVMatHMsrYOdrtWECsG517kRx11DKO8BrP3C
-         DCi8ZtzSayALz5ytVX6xGZQ49HV3J/XWn93G5MQG4nk2HJD//wDCFZoaGO6IBd2OTHSh
-         RIgGIyIxmARIcYwJJ91Qd2vfhPL4hQXWjKZ29c44k+FHgX6Mhn7i+/DuIVWhhU231sm9
-         RizHsEx3+51AXWiZ+hCNV1aEmdhknIdskAQ48UgvIFLQKNwN5AXwrXm+YMv3dF+88B0+
-         shqA==
+        d=oss.qualcomm.com; s=google; t=1772792518; x=1773397318; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=wz/G6pIcGzUXqImwOHN+SRnsHkmtJI/E8Bl+l6suG/Y=;
+        b=ZQEBfNJZ43O5jMt9Z4cSxYhTW3CkPC3dRcuw/wmklykjev+q+8hQp2wxUrv/NPi0Rx
+         iTc79Em+07xTEipPRHYzr+ryJXaCS5v0QEwDBChnYJxCg+eCcqZ3Jf8dPd55/L17ld1i
+         s+PD3MYaZV9clctmkdvA9zISV/z6u5LOKR7jHbWMCoUmAbwE6FuNm/LVZ7L93wpnGOpG
+         4rZmYVQpPb5KI4uAkdofn5+1KArK1iexVbxmWt9sTV4+03hX6EckmKiKSkXtvSYJR0cu
+         Z20VXcc+qAJRF4Pn7dM0OgOgKRBexhy806yFzcUtZ12Qt5GYHzOX1uCjZUWV6lIcrfto
+         P1vw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772791940; x=1773396740;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Tv4dJ/4VMXcAmevXlUG/734DLVWUrC6bvT8eqbpexP4=;
-        b=ao1CF3AFE3e8DBTMWQIfY4H2nX73YzT+Z8vwgBM7Jq9nXk6RxfmM5LezQQwt1YN7sZ
-         yMncOMoM58IF6AAyO3lEiWVRjHNRUdKHUNOjLbZd/EHx/SrO/sZ7yFTAjkAQxYTjDpAk
-         RCWUy8CaQmTVysNyBp0EPbuSzzugM95IU9lVwCf4Z1XLi4CZHrE8X7SN8J3mmOs+szh/
-         kFES4sngaAS166X3FY5EkE5MQxka38a+qAw9+XuSre9VvcWh36anu9dVhhsDVv2Pj4rx
-         tESXUkddUmIgy0ndypugbBGSquphlKd1oWN64bdAkkTFO+tk1FhJJyW2pCiO36O3hIlw
-         eo9w==
-X-Gm-Message-State: AOJu0YwEhPpn9DEGhpmeYYLlljFoqLX/dLAE6MeHu4AkGrKeQ4rUyPJO
-	CWvFVqUwVNHQb5Sk402sWae3Uzwl43xARxusRWeXvEKFlW6pbKdEguSYP7+mLk1Vzvk=
-X-Gm-Gg: ATEYQzyirNc7r6CfjhR6CNg8lgeqYFW2lAbnqzIyK8fpU/gXqwwL9BqdrVYhiZ5ot2f
-	ae4hDgNdmOSRZ+KH6fPny6l0bNnQUWIqhlDxEJtxfViVobCj2jNeLxLOA1Z2gF5yQQT/QnXcyQO
-	/6DGIGP3HWZNS1FZAVDNk+nn1vDqvZwtQZqh+c2uCVBe56Sgt6z1RE6g8eLJnC+JTARL5vQLgjL
-	W8ESyPdmCHwcfo1jUUDy5ZO2ie9wJdP+ww1ZUyxjGG2b7kvWLE8fEOJoFlqZDaqUjc9IiWVycxy
-	lTX/qFwOa8B5DyHokvLbVDJC5G0bMQT6YKhvtGxWy9mKZeGTl1j8eFEYyQGcOj02EiRhQYBWj+j
-	+JPx08Zp/+h6UmIniIYu9cwaNNVPQokPSsIagYQMmRfdZMbLawryNeNTk8VztORLQahgpdQM6Y9
-	wZxKRB+8nJS89kmZtR5B5Bfz8wh13oqa9HOQwEC+qSO7HA5Yxa1bHbtjDmXAWkSl5I5/vKSDn+r
-	5tQ
-X-Received: by 2002:a05:6000:1acf:b0:439:d752:8bf9 with SMTP id ffacd0b85a97d-439da8a0219mr2636932f8f.58.1772791939641;
-        Fri, 06 Mar 2026 02:12:19 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:106d:1080:cbfe:649:7f17:8b95? ([2a01:e0a:106d:1080:cbfe:649:7f17:8b95])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439dad8d968sm2529820f8f.6.2026.03.06.02.12.18
+        d=1e100.net; s=20230601; t=1772792518; x=1773397318;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wz/G6pIcGzUXqImwOHN+SRnsHkmtJI/E8Bl+l6suG/Y=;
+        b=QM1SJB9Fwjr0wIshr3670LLHdHVoH1Rzt8FM//tnDkVQ3WHtiltXFRXS2H3DLekcSY
+         grH7gzSSKF7kVVW2SlpGRpMMveH/7oG9LvECGTlW/v9OSgXlvQJvPGbE43dyP9Hj92u4
+         aTOXXvxh+9hGHLk3V8pNdXQFLAiQQ3uX8prlCFaQ7zeTBhGcxwPnpUUJzgEDpFt5KO7t
+         DZV+K1cIlvowFyeaeMW+RnxMMJOISWwBU9Yxcljiq/EV8J2qS1Ut7U7Tlzpr3Vt9GG65
+         2rZyBN6d/0sqG63kLVtfVNkHj96nj36jSCXsksdvhL0D/58t2qWBqrbbywr9TSv4x8I0
+         5CBg==
+X-Forwarded-Encrypted: i=1; AJvYcCVhdINlw3PDGQFuOToFO6xvBnlce340qYCDECQpuIqSZvNjHGEDEhdEd/PaHuS72dxTwA2FmLQpSkV2n2gCkE0N@lists.infradead.org
+X-Gm-Message-State: AOJu0YzxklinJ1CmaX+Y3IJqmn+7T8+SC0vOtR5bPEB6Jbod3vRWxL8e
+	uJhcNqvONL1xAqxD8KAT+ePPout2UGuEnLtFK65g52hYOI32UvHiXI+X61X147P2xoPDoRcNasW
+	SAiBl4maLnrUH3801hiQ7gSJlsUzMIzPpValCY2b9hlwxTomtB6V0hbkCC64l6JIe6wZPSlB+Da
+	dEdQ==
+X-Gm-Gg: ATEYQzwTAkwbdFbTIdRqXpAEbM2iWe7U1cKB4IW8my/zF3HwVlb6mM6hHIU7tZagIpx
+	1dK5iGPRMoMen+4/jXnsoJLkNINKpaeJOsc7Z7BpOfV4iCAVUAge5QsYBq25+y7O9c/xE97sgEI
+	Ez2ay8vjO8PeGheq2xhw8zYQwCgh/O67HXBMfTevSIs85DwuZIe4ovbj7ozj/c35+J6EYbtoSmB
+	U1pox4dQrRK/EeQ0uZd0n+Fnfmc+ZihBsgnPS4WrMZnB+l3WFGEQuTMwk43NIh5A9NtnpgZp5Gk
+	eANFZGagYGi91iu43KLVFFtGKodrczmRGs9HkMSs7HYfYeManKXy0durXe42ApMVqdObQ12PnXX
+	Q2xFHRvSLh7w68sKKMiI8PWYZ0Piu0Odt2kGJwHaFk46h5Ag4cKOGf+xeKYiA9TtNEDRrEiPvFg
+	0l+PF/ucrxH24=
+X-Received: by 2002:a17:903:2441:b0:2ae:4fdb:d596 with SMTP id d9443c01a7336-2ae82367db1mr19360665ad.11.1772792518195;
+        Fri, 06 Mar 2026 02:21:58 -0800 (PST)
+X-Received: by 2002:a17:903:2441:b0:2ae:4fdb:d596 with SMTP id d9443c01a7336-2ae82367db1mr19360355ad.11.1772792517552;
+        Fri, 06 Mar 2026 02:21:57 -0800 (PST)
+Received: from [10.133.33.199] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae840c8171sm18614755ad.89.2026.03.06.02.21.51
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 06 Mar 2026 02:12:19 -0800 (PST)
-Message-ID: <6b4ea910-1a73-421e-8a38-8827a506b937@linaro.org>
-Date: Fri, 6 Mar 2026 11:12:18 +0100
+        Fri, 06 Mar 2026 02:21:56 -0800 (PST)
+Message-ID: <2ca7cd98-796a-4e1d-a4cf-acbb8ffe22af@oss.qualcomm.com>
+Date: Fri, 6 Mar 2026 18:21:50 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH 1/7] arm64: dts: amlogic: s6: Drop CPU masks from GICv3
- PPI interrupts
-To: Geert Uytterhoeven <geert+renesas@glider.be>,
- Marc Zyngier <marc.zyngier@arm.com>, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Dinh Nguyen <dinguyen@kernel.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Thierry Reding <treding@nvidia.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <cover.1772643434.git.geert+renesas@glider.be>
- <f9c6eddebebcd2e128edd2dbc51706e23589f9e8.1772643434.git.geert+renesas@glider.be>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <f9c6eddebebcd2e128edd2dbc51706e23589f9e8.1772643434.git.geert+renesas@glider.be>
+Subject: Re: [PATCH v13 7/8] coresight: tmc: integrate byte-cntr's sysfs_ops
+ with tmc sysfs file_ops
+To: Mike Leach <Mike.Leach@arm.com>, Jie Gan <jie.gan@oss.qualcomm.com>,
+        Suzuki Poulose <Suzuki.Poulose@arm.com>,
+        James Clark
+ <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+Cc: "coresight@lists.linaro.org" <coresight@lists.linaro.org>,
+        "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>,
+        "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+        nd <nd@arm.com>
+References: <20260223-enable-byte-cntr-for-ctcu-v13-0-9cb44178b250@oss.qualcomm.com>
+ <20260223-enable-byte-cntr-for-ctcu-v13-7-9cb44178b250@oss.qualcomm.com>
+ <PAVPR08MB967411CF6B2247456F362AC58C7AA@PAVPR08MB9674.eurprd08.prod.outlook.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <PAVPR08MB967411CF6B2247456F362AC58C7AA@PAVPR08MB9674.eurprd08.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzA2MDA5OCBTYWx0ZWRfX7qFXmRbm3uDE
+ oeOziiO82tPfxOCIbPzo6VZz/WGNp3WmCMm2kypWN/HviHobLf351xDHNqrlO1k0Tq5Q7g8nZ7E
+ Ql9CEJr2gbCvIqzI0d3PXICQEJCQiNup4aBxpgTQtfA57cY/V3vWqn5ObFj6liruqy+hqqJ6CYE
+ ybUJlLKXJqgiYGJa0t9DOLFPRUdSeJOFh1Cgz4rdFSbvfgQ4JPgCAZy6O7kDVaxxr/7OXS12zcb
+ Xxtg1t2B89wXSmSZI2PEt6yx7MGy8d/fLTke+FvmdVplG+5cQAyuZGJN4wqI2W+kSiUBwU+GV/t
+ LceZmHbypCinc3Z87002GnG1w1UCQRAf0Um9OTgIRXtnmOeDwkmDUNTH4mAZ+BIfYZJcRMhmDjI
+ S/lr5SNWgbMuRzUZBo52UFrmsIkLR01EoYVMBJJCmyOFNVfFljx6kI0iqBOfJ5fAbomD/+f9zmQ
+ kK+et+hiMCrdI4EiRAw==
+X-Proofpoint-ORIG-GUID: 8WgQRMN9ZOpwTY7BXzwjOkbZL-PxEicD
+X-Proofpoint-GUID: 8WgQRMN9ZOpwTY7BXzwjOkbZL-PxEicD
+X-Authority-Analysis: v=2.4 cv=T8uBjvKQ c=1 sm=1 tr=0 ts=69aaaac6 cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=EUspDBNiAAAA:8 a=7CQSdrXTAAAA:8 a=KKAkSRfTAAAA:8 a=QyXUC8HyAAAA:8
+ a=VwQbUJbxAAAA:8 a=JfrnYn6hAAAA:8 a=7p5ZsVVZITTIZxtcy0gA:9 a=QEXdDO2ut3YA:10
+ a=324X-CrmTo6CU4MGRt3R:22 a=a-qgeE7W1pNrGK8U0ZQC:22 a=cvBusfyB2V15izCimMoJ:22
+ a=1CNFftbPRP8L7MoqJWF3:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-06_03,2026-03-04_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 phishscore=0 lowpriorityscore=0 adultscore=0 spamscore=0
+ impostorscore=0 priorityscore=1501 malwarescore=0 suspectscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2603060098
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_021221_853024_7927EB08 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20260306_022159_771680_F4FACF0E 
+X-CRM114-Status: GOOD (  26.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,52 +164,186 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/4/26 18:10, Geert Uytterhoeven wrote:
-> Unlike older GIC variants, the GICv3 DT bindings do not support
-> specifying a CPU mask in PPI interrupt specifiers.  Drop the masks.
-> While at it, replace the magic number for IRQ_TYPE_LEVEL_HIGH by its
-> symbolic definition.
-> 
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> ---
->   arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi | 10 +++++-----
->   1 file changed, 5 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi
-> index 8ef6319390331fcf..ab3acef2b147e62c 100644
-> --- a/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi
-> @@ -53,10 +53,10 @@ pwrc: power-controller {
->   
->   	timer {
->   		compatible = "arm,armv8-timer";
-> -		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> -			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> -			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> -			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
-> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
->   	};
->   
->   	psci {
-> @@ -84,7 +84,7 @@ gic: interrupt-controller@ff200000 {
->   			interrupt-controller;
->   			reg = <0x0 0xff200000 0 0x10000>,
->   			      <0x0 0xff240000 0 0x80000>;
-> -			interrupts = <GIC_PPI 9 0xf04>;
-> +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
->   		};
->   
->   		apb: bus@fe000000 {
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+
+On 3/6/2026 5:44 PM, Mike Leach wrote:
+> 
+> Hi,
+>> -----Original Message-----
+>> From: Jie Gan <jie.gan@oss.qualcomm.com>
+>> Sent: Monday, February 23, 2026 6:56 AM
+>> To: Suzuki Poulose <Suzuki.Poulose@arm.com>; Mike Leach
+>> <Mike.Leach@arm.com>; James Clark <james.clark@linaro.org>; Alexander
+>> Shishkin <alexander.shishkin@linux.intel.com>; Rob Herring
+>> <robh@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley
+>> <conor+dt@kernel.org>; Tingwei Zhang
+>> <tingwei.zhang@oss.qualcomm.com>; Mao Jinlong
+>> <jinlong.mao@oss.qualcomm.com>; Bjorn Andersson
+>> <andersson@kernel.org>; Konrad Dybcio <konradybcio@kernel.org>
+>> Cc: coresight@lists.linaro.org; linux-arm-kernel@lists.infradead.org; linux-
+>> kernel@vger.kernel.org; linux-arm-msm@vger.kernel.org;
+>> devicetree@vger.kernel.org; Jie Gan <jie.gan@oss.qualcomm.com>
+>> Subject: [PATCH v13 7/8] coresight: tmc: integrate byte-cntr's sysfs_ops with
+>> tmc sysfs file_ops
+>>
+>> Add code logic to invoke byte-cntr's tmc_sysfs_ops if the byte-cntr
+>> is enabled.
+>>
+>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>> ---
+>>   drivers/hwtracing/coresight/coresight-tmc-core.c | 53
+>> +++++++++++++++++++++++-
+>>   1 file changed, 52 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c
+>> b/drivers/hwtracing/coresight/coresight-tmc-core.c
+>> index 32ca2ec994de..6486bdafdddc 100644
+>> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
+>> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
+>> @@ -31,6 +31,7 @@
+>>
+>>   #include "coresight-priv.h"
+>>   #include "coresight-tmc.h"
+>> +#include "coresight-ctcu.h"
+>>
+>>   DEFINE_CORESIGHT_DEVLIST(etb_devs, "tmc_etb");
+>>   DEFINE_CORESIGHT_DEVLIST(etf_devs, "tmc_etf");
+>> @@ -228,15 +229,47 @@ static int tmc_prepare_crashdata(struct
+>> tmc_drvdata *drvdata)
+>>   	return 0;
+>>   }
+>>
+>> +/* Return the byte-cntr's tmc_sysfs_ops if in using */
+>> +static const struct tmc_sysfs_ops *tmc_get_byte_cntr_sysfs_ops(struct
+>> tmc_drvdata *drvdata)
+>> +{
+>> +	struct ctcu_byte_cntr *byte_cntr_data;
+>> +	struct ctcu_drvdata *ctcu_drvdata;
+>> +	struct coresight_device *ctcu;
+>> +	int port;
+>> +
+>> +	ctcu = tmc_etr_get_ctcu_device(drvdata);
+>> +	if (!ctcu)
+>> +		return NULL;
+>> +
+>> +	port = coresight_get_in_port(drvdata->csdev, ctcu);
+>> +	if (port < 0)
+>> +		return NULL;
+>> +
+>> +	ctcu_drvdata = dev_get_drvdata(ctcu->dev.parent);
+>> +	byte_cntr_data = &ctcu_drvdata->byte_cntr_data[port];
+>> +	if (byte_cntr_data && byte_cntr_data->thresh_val)
+>> +		return ctcu_drvdata->byte_cntr_sysfs_ops;
+>> +
+>> +	return NULL;
+>> +}
+>> +
+> 
+> Should be in a CTCU source file, not part of the common tmc code
+> 
+>>   static int tmc_read_prepare(struct tmc_drvdata *drvdata)
+>>   {
+>> +	const struct tmc_sysfs_ops *byte_cntr_sysfs_ops;
+>>   	int ret = 0;
+>>
+>> +	byte_cntr_sysfs_ops = tmc_get_byte_cntr_sysfs_ops(drvdata);
+>> +	if (byte_cntr_sysfs_ops) {
+>> +		ret = byte_cntr_sysfs_ops->read_prepare(drvdata);
+>> +		goto out;
+>> +	}
+>> +
+>>   	if (drvdata->sysfs_ops)
+>>   		ret = drvdata->sysfs_ops->read_prepare(drvdata);
+>>   	else
+>>   		ret = -EINVAL;
+>>
+> 
+> I understand ctcu usage is per session & per device, but at the start of the session would it not be better to have a function in the ctcu code that takes the drvdata->sysfs_ops and substitutes the callback directly, restoring it at the end.
+> 
+
+Hi Mike,
+
+Thanks for the suggestion. That would be a better solution, and this 
+patch is no longer needed.
+I will export etr_sysfs_ops in tmc header file so the CTCU driver can 
+retrieve the pointer and restore to the etr_sysfs_ops.
+With this solution, sysfs_ops will be switched to byte_cntr_sysfs_ops in 
+ctcu_enable and restored in ctcu_disable.
 
 Thanks,
-Neil
+Jie
+
+> 
+>> +out:
+>>   	if (!ret)
+>>   		dev_dbg(&drvdata->csdev->dev, "TMC read start\n");
+>>
+>> @@ -245,13 +278,21 @@ static int tmc_read_prepare(struct tmc_drvdata
+>> *drvdata)
+>>
+>>   static int tmc_read_unprepare(struct tmc_drvdata *drvdata)
+>>   {
+>> +	const struct tmc_sysfs_ops *byte_cntr_sysfs_ops;
+>>   	int ret = 0;
+>>
+>> +	byte_cntr_sysfs_ops = tmc_get_byte_cntr_sysfs_ops(drvdata);
+>> +	if (byte_cntr_sysfs_ops) {
+>> +		ret = byte_cntr_sysfs_ops->read_unprepare(drvdata);
+>> +		goto out;
+>> +	}
+>> +
+>>   	if (drvdata->sysfs_ops)
+>>   		ret = drvdata->sysfs_ops->read_unprepare(drvdata);
+>>   	else
+>>   		ret = -EINVAL;
+>>
+> 
+> Again override / restore over the session.
+> 
+> Regards
+> 
+> Mike
+> 
+>> +out:
+>>   	if (!ret)
+>>   		dev_dbg(&drvdata->csdev->dev, "TMC read end\n");
+>>
+>> @@ -277,6 +318,12 @@ static int tmc_open(struct inode *inode, struct file
+>> *file)
+>>   static ssize_t tmc_get_sysfs_trace(struct tmc_drvdata *drvdata, loff_t pos,
+>> size_t len,
+>>   				   char **bufpp)
+>>   {
+>> +	const struct tmc_sysfs_ops *byte_cntr_sysfs_ops;
+>> +
+>> +	byte_cntr_sysfs_ops = tmc_get_byte_cntr_sysfs_ops(drvdata);
+>> +	if (byte_cntr_sysfs_ops)
+>> +		return byte_cntr_sysfs_ops->get_trace_data(drvdata, pos,
+>> len, bufpp);
+>> +
+>>   	return drvdata->sysfs_ops->get_trace_data(drvdata, pos, len, bufpp);
+>>   }
+>>
+>> @@ -297,7 +344,11 @@ static ssize_t tmc_read(struct file *file, char __user
+>> *data, size_t len,
+>>   		return -EFAULT;
+>>   	}
+>>
+>> -	*ppos += actual;
+>> +	if (drvdata->reading_node)
+>> +		drvdata->reading_node->pos += actual;
+>> +	else
+>> +		*ppos += actual;
+>> +
+>>   	dev_dbg(&drvdata->csdev->dev, "%zu bytes copied\n", actual);
+>>
+>>   	return actual;
+>>
+>> --
+>> 2.34.1
+> 
+
 
