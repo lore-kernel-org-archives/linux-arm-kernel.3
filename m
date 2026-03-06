@@ -4,82 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9516F51406
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:10:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D2EFF0183A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:14:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aTmhdpcwzlmJrsF527Wxo39i/GfPTpgqP88iG67JnWg=; b=Py6LWF9KSNA1IY61Zmhz0zzqax
-	N4auiPfvhNu6qVVJ6cUrc3FB9IBrByVXgp7kuY0jn1LywtvDzhmXC4nLdY9/wGiTEJ4E9DUXB030Q
-	zngJeY7aBg/7u/Z8A2nK14CIM5SEDZ32a4+f19Ph+yVzVVE6QeNa2+p5yM2DEdLSWPHkWxKrDeAlF
-	00uz/sLVzr9nSkcEiWPOq7FR8JA75TaKXGwwuM+RWiUX9eXC/7qYgV2PSgSk3Aall7jB6NGcXoDUU
-	Gv6zEpJITga3uenTCZ2SN0MdKesmVNRxwboXjGJiEDfnLAq0Tl3ypiwsNOwxnPrl/IbcfH2nzKr9C
-	wAqKofag==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YXGlJMtwlNbzmIK4AsQF7tf4SFG4KHJRxXMi3UOORvw=; b=N+ZTmeVZVADo/cozNX6BJkygqh
+	vkUPFw+qt+pI9Y8G9tTnv9CXB47mqLV8RxTjwCwOX21yYrkzqJZOYF9quMLyBZb7BwfJEfF99/sfC
+	A67BW0l6q6EiiQHBDC+9pXWQzhHoF3+MW0jNoEgnDbfBERFjMwpHkIQyErmPr1reUTYqa3tRImir3
+	n5P4eXT0Oj7w/ffjKdlxG1cgRbHYqwqVhxAeWyuflQMNupNHs5Vfpv/qXMsLBsz0BzB08qEOLVJUE
+	EJRjHofCYKpDMDFfYIGRSWDxqJJrplLOk2nk0vukqyzf7twLaid0C2AvwcpHh70ITHQqkWx+xhQ0N
+	domMfElg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVsL-00000003rvm-26BB;
-	Fri, 06 Mar 2026 14:09:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vyVwa-00000003sfW-2nMF;
+	Fri, 06 Mar 2026 14:14:20 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVsG-00000003rrT-0MDU;
-	Fri, 06 Mar 2026 14:09:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F08E943317;
-	Fri,  6 Mar 2026 14:09:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C063EC4CEF7;
-	Fri,  6 Mar 2026 14:09:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772806190;
-	bh=QAEkleb6IVGK5L78+HXxLeZCePSBUtX84+LuF5RCLcQ=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=IQRlj30TaF5FwIKhWPfQrnBwYLtspSXKjdkakMyqSka9OqdS+2ziLg8DEAc3Y1Hoy
-	 dDLYOQ7AQgI3SAVtzdZeTW/C5e2Z3gLgyJfk1sA+pr55R9TXDcaVR+WWOLGoLp4hp7
-	 5Lyy12R6EcxInUYa5TbTI1OQaPjJ19MttN8zCMjlxDhUx5qPOH+S2ysSXlWQCY9j9q
-	 QOeWn48T2O2DCKbDpsZCK6XVLG58+p7geej/6cVLM2pVY1/sccY4ciPgCYPtmAuq6r
-	 IvkwCpvJv3XTlyR02IsaDxWkfKzp6IMEE1CTRNHroYL3KUEQmBOJ/GQJdZDYdUcN1Z
-	 NLTvPdJ0+Hpeg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AD5DFF0181F;
-	Fri,  6 Mar 2026 14:09:50 +0000 (UTC)
-From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
-Subject: [PATCH 0/4] media: synopsys: csi2rx: add support for rk3588
- variant
-Date: Fri, 06 Mar 2026 15:09:47 +0100
-Message-Id: <20260305-rk3588-csi2rx-v1-0-0cd8d2bf28c0@collabora.com>
+	id 1vyVwX-00000003seq-3hk7
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Mar 2026 14:14:19 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 626BbFeE4150967
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 6 Mar 2026 14:14:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	YXGlJMtwlNbzmIK4AsQF7tf4SFG4KHJRxXMi3UOORvw=; b=NcbHDJJQW/xr23HL
+	K80Rd9I2mBgtFGG6KsJXj0GBODHAV0rflxvT7L8C5nCUBWJiXlc0zoaDinnMsUBY
+	yAqd2+Tkq549Gv4CiHs9puYpOc9ouNp+H5R4Gup76+t4YUPEFA/Mcjrtt0mUp3H9
+	/SfDOezBDmkAPM9Y6hcsKrNmFZQM8z83CQn+49TS4f8XoyvuPNe5qQ77X/tO/0AR
+	fZgtdF17cN/B+qU5TEQtlDKXt5Xx5C8tEW0Cs39zIoBeLRkvEjxPeG78vG+nnBwe
+	Bcd1QfDBBk845dUA2NWujogKmLFZMkjWBRbiK5Cpocsizo5YbA56GIVpFTGrFxYB
+	yC2npw==
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cqf25ue0q-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 14:14:17 +0000 (GMT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2ae4f27033cso57938915ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 06:14:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1772806456; x=1773411256; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=YXGlJMtwlNbzmIK4AsQF7tf4SFG4KHJRxXMi3UOORvw=;
+        b=MRnjdJym1rbCFGpgkgHiIhOBaFKY4grv2IKmnuiyMICBhMp2DYmCYqtshSGS0c1Xh9
+         5xw9Ln3AolkZq/CQI8WJm28vMXzpFFR2TbnywnhSu2MhNR6xSQzs+wbKNlFdwUHAZ+Wf
+         35mt3mhzvW73hWhXx1gyOKjlUYd3j0Y6pLesUyhiXpOokmjNP27jXZuuvjhe6p5lY3H2
+         lX7XDS36qT2KwklTDl6la2h5CmRuqODKlwNN3WGAypGqdPyXX1EA0vB3JpbL0YqaTBl3
+         q9WIb1bauygBG0qImCf7GEfnVI1zauDrwOX487u4hFamdKEGlO+VKyAWi4hZsje98dts
+         4nVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772806456; x=1773411256;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YXGlJMtwlNbzmIK4AsQF7tf4SFG4KHJRxXMi3UOORvw=;
+        b=MC71pXioBVNJSvje2UL/JVbZPPw5xq+DTXDIKz7PTrtOkTiytAoiByV4FzhsK8eJ9l
+         NBWYVQaK67P+G1lnTAWKPN5YY1imMKlkymE2aw0BrnKrJvVssvqv1csFp+1cTd48eIWG
+         CcT8PSo1BYxsM92EJGW3ELgq1vVcvx2OOZFY9M855bVlyf5Sv6ogxyYDajqDWeR41wim
+         ycMkk5HD+cFbazMe7ENsh5O1Gue8eb+M5+cv/ojnuDbitiWDrra1OH5jw7feP/EJpxIm
+         Xa60g13X3rI+RhwbJMijue5VRv+Qc5MIdbdMmoiZ9ofzG18JoXO6gyUAooIMdGyCZuc9
+         r3Eg==
+X-Forwarded-Encrypted: i=1; AJvYcCW3IGOfKhMzzSzdWBHvG1DO/CGZ1cipZV++4lkwDpmkDXPRtG2J5pefrOzTP8eANHlyipeIMfyv+Hs+lqPALfPW@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLH/7xgrVWm1+zsVHiwk59a1jkKHRpIplorp9DSrd1H0Ms/pPs
+	cxtkZdPcVu4R1DPlUVw7pQaNs0kWV0kziLeURMrDmD/UcGzn+FjRDfWbr+ZeSY0BYztyrZ5aZJB
+	HPyvj/l/iA0N3I7TW/2Qt5kE/pB9kadc9I2G/e64oWHcZyL7CloA0o+MuIA9sI+vQWVEHwV76KL
+	n7fw==
+X-Gm-Gg: ATEYQzxTuRh53/rHoApQtAfMMxGXXqlduElyNeQiJ3vhzj8dxlzNFWiJhk8YOF0KgZP
+	pw+SWDWdf7JoHsGB0iPh8viqHJ3xlrJQQGXxBz9ibeshFfm08wQO5cr/KtQ6RIrGXGrqST/VFj/
+	1/XMRBUtW0PAr33O8Ie4AVrIFNpKHczgYUPir2Rjr5CIY2f5smXw8hQA43FzeRSsEn8A4aaTXa9
+	3iQ0g2MZ4vrqEOX8pjHzMwba2qD/bB3s+KSClcusZ0eZBihxo9i4tFN/YlkGZmEVuDBwCnWrEgI
+	bp3K53kY7y4Usy+WLuU/dHeF4wv4+4pRb3XM8qW2xfrvpFsn4UuFOo7sZhWlZIruoEWceu7RhR1
+	gR6vruCn+IQvQ+1AnpabmuuTzn/iACcmYqoIPC1ZPElTY8M9/bRN28mcacyFffB4X9+RJKXwKeE
+	Fk5fXOufC/NYM=
+X-Received: by 2002:a17:903:1108:b0:2ae:5426:da46 with SMTP id d9443c01a7336-2ae82432d71mr25502795ad.29.1772806456440;
+        Fri, 06 Mar 2026 06:14:16 -0800 (PST)
+X-Received: by 2002:a17:903:1108:b0:2ae:5426:da46 with SMTP id d9443c01a7336-2ae82432d71mr25502415ad.29.1772806455714;
+        Fri, 06 Mar 2026 06:14:15 -0800 (PST)
+Received: from [10.133.33.226] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae83e585b3sm24906255ad.10.2026.03.06.06.14.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 06 Mar 2026 06:14:15 -0800 (PST)
+Message-ID: <072aa8b3-151f-4b6b-85c4-eb9c9f50b859@oss.qualcomm.com>
+Date: Fri, 6 Mar 2026 22:14:10 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIACvgqmkC/x2NQQqDQAwAvyI5N7C7uir9SukhbmMNlW1JaBHEv
- zd4nIFhdjBWYYNrs4PyT0ze1SFeGigL1SejPJwhhdSHNmTUV5vHEYtJ0g0pxnkoMVMXCLyZyBg
- npVoWr+p3XV1+lGfZzsntfhx/AsxoBXQAAAA=
-To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Frank Li <Frank.li@nxp.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Kever Yang <kever.yang@rock-chips.com>, 
- Collabora Kernel Team <kernel@collabora.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Michael Riesch <michael.riesch@collabora.com>
-X-Mailer: b4 0.12.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772806189; l=2252;
- i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
- bh=QAEkleb6IVGK5L78+HXxLeZCePSBUtX84+LuF5RCLcQ=;
- b=+z1lAM+K34CYNMrpDG4Vre36ujGjSJtdNTMfHFjGBxHcLTuD65Qq7K+Px6e8p2q3OwnGFIp62
- NqLrn7qvsTHBOWIwzloMo39o8x8PtoJjfJAz4fBU1hvQX/HBnS8oizi
-X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
- pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
-X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
- with auth_id=371
-X-Original-From: Michael Riesch <michael.riesch@collabora.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 00/11] scsi: ufs: Add TX Equalization support for UFS
+ 5.0
+To: Bean Huo <beanhuo@iokpp.de>, avri.altman@wdc.com, bvanassche@acm.org,
+        beanhuo@micron.com, martin.petersen@oracle.com
+Cc: linux-scsi@vger.kernel.org, Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        "open list:ARM/Mediatek SoC support:Keyword:mediatek"
+ <linux-kernel@vger.kernel.org>,
+        "moderated list:ARM/Mediatek SoC support:Keyword:mediatek"
+ <linux-arm-kernel@lists.infradead.org>,
+        "moderated list:ARM/Mediatek SoC support:Keyword:mediatek"
+ <linux-mediatek@lists.infradead.org>
+References: <20260304135313.413688-1-can.guo@oss.qualcomm.com>
+ <e116e78ad9590f5845aaaf7d4e26833a7a0194d0.camel@iokpp.de>
+Content-Language: en-US
+From: Can Guo <can.guo@oss.qualcomm.com>
+In-Reply-To: <e116e78ad9590f5845aaaf7d4e26833a7a0194d0.camel@iokpp.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-ORIG-GUID: cbR80RdyKOUJNy39i2Uk9uCki4s6CFTJ
+X-Authority-Analysis: v=2.4 cv=Uvdu9uwB c=1 sm=1 tr=0 ts=69aae139 cx=c_pps
+ a=cmESyDAEBpBGqyK7t0alAg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=i1lnRYMTL1kKw9KRX74A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=1OuFwYUASf3TG4hYMiVC:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzA2MDEzNiBTYWx0ZWRfX8s95CjIlO1PL
+ 3jSdA7oRm37ogWTPe4xAdiGyw4MT4Wn9F4ZHBdK1uCtl8hjCtEvsvqOE70xqgfMTTYhbbfL1z4P
+ tOD4MLJQjY2tvD+NAnLHsGw0vn4bAddDRNrbBa5y6QdOJqtpr3rYaqPg8AAe/PeRfXxIoznsY9h
+ VkH5w1tuxJGX7d11fWJSZNrTj6yudrTtukV9op+LTjKspOANgzluGVMajIVJe3xNBVn03PWRayU
+ RvsVciysLngEJWMtFXqVp0eUNWbGFCREcmQGBlkfRGS6L7MvHBSwfUUCVsY9E4WhrwDxbZPWwqj
+ hwx0lNeaOYQHXoZfL9lMJ2wLqaXS0/W9nwK7JwNZMCW+YVtypAev/tVkyNMWI9ET/P7zQIJJorT
+ O50crALYRHWMs0esoN+LpgItv8dyjxndp9zor328kY89510Gce7GmiOZSgb9E9l64qjWcaCMHFZ
+ Ic8ddBxaPdCxg/W3PGA==
+X-Proofpoint-GUID: cbR80RdyKOUJNy39i2Uk9uCki4s6CFTJ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-06_04,2026-03-06_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 bulkscore=0 clxscore=1015 malwarescore=0 spamscore=0
+ priorityscore=1501 suspectscore=0 impostorscore=0 phishscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2603060136
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_060952_195371_73D59FB3 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20260306_061417_929593_B73E4B57 
+X-CRM114-Status: GOOD (  17.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,69 +152,68 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Habidere,
 
-The Rockchip RK3588 features six MIPI CSI-2 receiver units:
- - MIPI0: connected to MIPI DCPHY0
- - MIPI1: connected to MIPI DCPHY1
- - MIPI2: connected to MIPI DPHY0
- - MIPI3: connected to MIPI DPHY0-1 (only with split DPHY0)
- - MIPI4: connected to MIPI DPHY1
- - MIPI5: connected to MIPI DPHY1-1 (only with split DPHY1)
 
-The MIPI DCPHYs (at least the CSI-2 features of them) as well
-as the split DPHY mode of the DPHYs are not yet supported by
-mainline. However, we can already provide support for the
-MIPI2 and MIPI4 units.
+On 3/5/2026 11:04 PM, Bean Huo wrote:
+> Can,
+>
+> On Wed, 2026-03-04 at 05:53 -0800, Can Guo wrote:
+>> Hi,
+>>
+>> The UFS 5.0 standard was published today,
+> Myabe replace time sensitive wording “published today” with stable wording?
+That is also my plan for next version, thanks!
+>
+>
+>> introducing support for HS-G6
+>> (23.2 Gbps per lane) through the new UniPro V3.0 interconnect layer and
+>> M-PHY V6.0 physical layer specifications. To achieve reliable operation
+>> at these higher speeds, UniPro V3.0 introduces TX Equalization and
+>> Pre-Coding mechanisms that are essential for signal integrity.
+>>
+>> This patch series implements TX Equalization support in the UFS core
+>> driver as specified in UFSHCI v5.0, along with the necessary vendor
+>> operations and a reference implementation for Qualcomm UFS host
+>> controllers.
+>>
+>> Background
+>> ==========
+>>
+>> TX Equalization is a signal conditioning technique that compensates for
+>> channel impairments at high data rates (HS-G4 through HS-G6). It works
+>> by adjusting two key parameters:
+>>
+>> - PreShoot: Pre-emphasis applied before the main signal transition
+>> - DeEmphasis: De-emphasis applied after the main signal transition
+>>
+>> UniPro V3.0 defines TX Equalization Training (EQTR) procedure to
+>> automatically discover optimal TX Equalization settings. The EQTR
+>> procedure:
+>>
+>> 1. Starts from the most reliable link state (HS-G1)
+>> 2. Iterates through all possible PreShoot and DeEmphasis combinations
+>> 3. Evaluates signal quality using Figure of Merit (FOM) measurements
+>> 4. Selects the best settings for both host and device TX lanes
+>>
+> what happens when EQTR fails, mabye you have this comments in the patch.
+This is a good question. In this version, once TX EQTR fails, 
+ufshcd_config_pwr_mode()
+would bail with error before calling ufshcd_change_power_mode(). But I 
+am planning
+to loosen it in next version, that is, if TX EQTR fails the TX 
+Equalization settings will remain
+unchanged and ufshcd_config_pwr_mode() would anyways go ahead change 
+power mode.
 
-When support for the split DPHY mode is introduced, the DPHY
-nodes should have the property
-    #phy-cells = <1>;
-and the MIPI CSI-2 receiver nodes should have the property
-    phys = <&csi_dphy{0,1} {0,1}>;
-in case the split mode is desired. Since this is a board
-specific hardware design, the properties need to be changed
-in the board device tree (or any overlays).
-
-As reasonable default, however, we can define, e.g., 
-    #phy-cells = <0>;
-and
-    phys = <&csi_dphy{0,1}>;
-in the SoC device tree include.
-This series introduces initial support for this default
-configuration.
-
-In a related note, the split DPHY allows for different
-integrations of the MIPI CSI-2 receiver into the different
-SoCs. Therefore, we introduce a separate compatible (and not
-only a fallback compatible) in the DT bindings.
-
-Looking forward to your comments!
-
-Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
----
-Michael Riesch (4):
-      media: dt-bindings: rockchip,rk3568-mipi-csi2: add rk3588 compatible
-      media: synopsys: csi2rx: add support for rk3588 variant
-      arm64: dts: rockchip: add mipi csi-2 receiver nodes to rk3588
-      arm64: defconfig: enable designware mipi csi-2 receiver
-
- .../bindings/media/rockchip,rk3568-mipi-csi2.yaml  |  1 +
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      | 52 ++++++++++++++++++++++
- arch/arm64/configs/defconfig                       |  1 +
- drivers/media/platform/synopsys/dw-mipi-csi2rx.c   |  3 ++
- 4 files changed, 57 insertions(+)
----
-base-commit: 11439c4635edd669ae435eec308f4ab8a0804808
-change-id: 20260305-rk3588-csi2rx-a11f7c15a40a
-
-Best regards,
--- 
-Michael Riesch <michael.riesch@collabora.com>
-
+Thanks,
+Can Guo.
+>
+> Kind regards,
+> Bean
+>
+>
 
 
