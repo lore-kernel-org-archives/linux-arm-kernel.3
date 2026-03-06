@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ABF6F01835
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 13:50:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E181F01835
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 13:54:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c20mkraPRlwGY3oRHlW+Mslb5VLebC/91Q18kftMfIc=; b=N38SgP9ZfT6ZklGqp5uh5N7/j+
-	sEFG2iLsHxT1KaiXWkXhYj7p3DIoxF2zBuZEACCfx+LnOoRPUEqiTrmssOH8Wsgy1A5WHiNRxpYZP
-	aDcJnta0gdProTb8RfWr4nygNI0k0w3blX6K67GzoGJkdAiNJOCt+fdqweh1zzEGaeZPniaXzQOPS
-	jWd0ckR8HdEajfAENp6airWRpNj8IkrK4z9UihLc6y7PPplOcGHLLwwPD4PFqjbTKH/dA3xhtTqr+
-	Ci/UMllCSBSnsbRCaTxAD/9snEgnmJ0qvUwhH6ObAE1Avbe5mWoZhep43twlXe3nRfGWzQrgu0Pm2
-	53oJAv6w==;
+	bh=7ZRjQYItBA2DRAhsau54MVW/2ObSKsTdsjgSHQao8Yc=; b=P0QOUlBsFOGmN2o4eyu7hwMdKf
+	PIrscNU+2ylB9lqm/H6BG8UG0aQt5uha9x44BavAs4YhhMvHESWEJiYntYz15umSBcbklpenDkJ+m
+	W79gIpE+9RN2yDxQf2vQyHPHDl7TaVkO3b7EuozlgNrbda1dtZonGi8Vow4EVBfXM4cczQHRn//gC
+	p4F9fVLpFCe4weh4L28OtyBakprAPZjO2j1Y2SeM3RXFT7iyF5fQ0F0LDDVq7CZzIVv6U/RUZ4WSB
+	B2zUODKegZHBlN0Qb2c3+5pdHx2CSl1CX5ALgMRV3JzKhaQsDvjgUVPxM1/Du2gjl8Fuzy2zHEqrd
+	rXxaGnpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVYx-00000003pFo-0voV;
-	Fri, 06 Mar 2026 13:49:55 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vyVdC-00000003pUf-01Ku;
+	Fri, 06 Mar 2026 13:54:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVYu-00000003pFI-0XiC
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 13:49:54 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 1A76F4E4259E;
-	Fri,  6 Mar 2026 13:49:50 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D6AF35FF92;
-	Fri,  6 Mar 2026 13:49:49 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 47679103699EA;
-	Fri,  6 Mar 2026 14:49:44 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1772804988; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=c20mkraPRlwGY3oRHlW+Mslb5VLebC/91Q18kftMfIc=;
-	b=V+Lc+Q3YI20csUK/+es6cMzQASPQbm3w0yg/676z9/NKiipGSIEG+Xm0iztANxCElgi6ho
-	3SetuUv4madjjCv8utjMBKnn2LX9XiLztVnv7/xWOTO3FBB/DAIF0xnkxbDOHaUocQKppe
-	TLNSBuLsBbamRXcb9fA/myymZx6gqKHxZWim+hdnIKkWusoxhfcmm6Wi6OV7KY7+9uFLLi
-	yR8gUKiFUkq3C8uZU3g4sgtTQkN4C6bbWGuCPXMC84gv/ViTnEgv/WM8uKDd6WfqINtslQ
-	WR4Tw59PXLXt9GIhLJp1Hq2cg8/8OzgRvf1x9aVACnZvpAgc7f4H9soUuirqfA==
-Message-ID: <ff7fc863-0f8a-49e2-8e75-ee446a43df34@bootlin.com>
-Date: Fri, 6 Mar 2026 14:49:43 +0100
+	id 1vyVd9-00000003pUE-0I9N;
+	Fri, 06 Mar 2026 13:54:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6B0E44445E;
+	Fri,  6 Mar 2026 13:54:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A370CC4CEF7;
+	Fri,  6 Mar 2026 13:54:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772805254;
+	bh=vbb0ZDwFV8ZYPJsVeXVfnr4nd375ty8LMqoFu3YrUes=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=hhH1kgkJ6XdEDguQFaA484Pqw/xlqEFtRFwIEjMK7CHfvmCdbiAoswDlhv/6TTfgb
+	 fov2CmxpniKD0hU8cM7bUcubpd9dvdG96lfn/laUEIwKbMWbBufBEXgwjY7ZPN3Pg2
+	 g4AmLhfZdq9srZuc3yFWcooTgS77TdmooWMBWB4bhbTsKUZHyZTHVei1iu/RUxOr2T
+	 z26ANScXRfZgFopSBj1ZjZ7lDqSI3VZAWGyGtVNNLzpaqYD2x6oBvP/1FC/6tw5VM8
+	 aFOZoV31ndQGOMBy8VoOaSEVwJhWU+eY4HsJTG45/vA4JBkYaG6xNs6qozcL7KFezK
+	 4PxvfpmJf6Dng==
+From: Lee Jones <lee@kernel.org>
+To: lee@kernel.org, Akari Tsuyukusa <akkun11.open@gmail.com>
+Cc: matthias.bgg@gmail.com, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ y.oudjana@protonmail.com, angelogioacchino.delregno@collabora.com
+In-Reply-To: <20260302140045.651727-1-akkun11.open@gmail.com>
+References: <20260302140045.651727-1-akkun11.open@gmail.com>
+Subject: Re: (subset) [PATCH v2] mfd: mt6397: Properly fix CID of MT6328,
+ MT6331 and MT6332
+Message-Id: <177280525240.1050023.10810002029954904296.b4-ty@kernel.org>
+Date: Fri, 06 Mar 2026 13:54:12 +0000
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 0/8] net: stmmac: mdio related cleanups
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>,
- Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, Chen-Yu Tsai <wens@kernel.org>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev,
- netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
- Samuel Holland <samuel@sholland.org>
-References: <aald--qJquWGIvmO@shell.armlinux.org.uk>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <aald--qJquWGIvmO@shell.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.15-dev-52d38
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_054952_755280_E70240A3 
-X-CRM114-Status: GOOD (  14.55  )
+X-CRM114-CacheID: sfid-20260306_055415_128831_39E56B3B 
+X-CRM114-Status: UNSURE (   5.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,50 +74,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 05/03/2026 11:42, Russell King (Oracle) wrote:
-> Hi,
+On Mon, 02 Mar 2026 23:00:45 +0900, Akari Tsuyukusa wrote:
+> CIDs set for MT6328, MT6331 and MT6332 are not appropriate.
+> Many Android downstream kernels define CID as below,
 > 
-> The first four patches clean up the MDC clock divisor selection code,
-> turning the three different ways we choose a divisor into tabular form,
-> rather than doing the selection purely in code.
+> MT6328:
 > 
-> Convert MDIO to use field_prep() which allows a non-constant mask to be
-> used when preparing fields.
+>     #define PMIC6328_E1_CID_CODE    0x2810
+>     #define PMIC6328_E2_CID_CODE    0x2820
+>     #define PMIC6328_E3_CID_CODE    0x2830
 > 
-> Then use u32 and the associated typed GENMASK for MDIO register field
-> definitions.
-> 
-> Finally, an extra couple of patches that use appropriate types in
-> struct mdio_bus_data.
-> 
-> v2:
-> - add comments about 300MHz to commit message in patch 1
-> - fix incorrect usage of stmmac_sun8i_csr_to_mdc in patch 3
-> - fix BIT_u32()->BIT_U32() in patch 8
+> [...]
 
-I have tested this series as a whole on 2 platforms using the dwmac mdio
-driver (socfpga - KSZ9031 / imx8mp + KSZ9131), no regressions found. I'm
-not stressing the 300M case though.
+Applied, thanks!
 
-feel free to add my :
+[1/1] mfd: mt6397: Properly fix CID of MT6328, MT6331 and MT6332
+      commit: f59b2bc3e6dbcd75c53f1881c1f08a6d3c2a72e5
 
-Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-Maxime
-
->  drivers/net/ethernet/stmicro/stmmac/common.h       |  10 +-
->  drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c  |   2 +-
->  .../net/ethernet/stmicro/stmmac/dwmac-loongson.c   |  11 +--
->  drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c  |   9 +-
->  .../net/ethernet/stmicro/stmmac/dwmac1000_core.c   |   9 +-
->  .../net/ethernet/stmicro/stmmac/dwmac100_core.c    |   9 +-
->  drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c  |   9 +-
->  .../net/ethernet/stmicro/stmmac/dwxgmac2_core.c    |  18 ++--
->  drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c  | 106 ++++++++++++---------
->  include/linux/stmmac.h                             |   6 +-
->  10 files changed, 92 insertions(+), 97 deletions(-)
-> 
+--
+Lee Jones [李琼斯]
 
 
