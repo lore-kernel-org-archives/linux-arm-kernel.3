@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E510F513E9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 00:45:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27BA5F513E9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 00:47:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TKhjG2ju+3n6EJEqWYuXaeTyKqx3a2E7quAxba74Ht4=; b=stjxskrHQqqq/E3LOPV9fKIcll
-	drewMbPOF5ac/qKDw/SxRfVUD0O80xGwXzLtiGunG5NGAX6Wjp+gc1Vol2udf3ceHW6DrkR459SYu
-	1n3d5ABiAJGm761eCdVMvAMbRsYRelx85A/MUJuTtCyPxLaFsWg/1L1MEe+tY6aC0Vb6JMljFdu4/
-	mGRI0DcwsEAUwDQna78pGvzTl+iGjuyPOgkpYDdVJNA7sUpw5T49qJyseyymhWfW7YVbrMOIcNS3n
-	kWIZ35UkeCebScNRwQf066fv3gv0eC6hV3PHM0AIxkFKOwIgP6q64m7l2g5Rf13C2GcCFBjFW2pYv
-	HmkiJGQg==;
+	bh=gn7w0ccREMOF+J7DNwqJycqp/bXjUCrtSvPENYYs064=; b=Gmkr6dbbp52lKwtAj+Y/j4JmJN
+	O91I/uJdNzFYpV9XNgojvWWfsRpQpWBLwer765Fkrdk7e21zIuv2oC45JW4tMzWFCWs4fAHbSZyfT
+	aTprelKch7Uj1Pmgo1dWa6q8OWSb2S/MEW2LpQn92doHh8BuROsB1zLKT19UH8h0og4Bx5/HYTlRv
+	Hy7fvvyBYWOtl16eFTh4rb9wP54BBy+ySsjh4/6LsRLsqSA4iGPqcN0ivBqkGCZd/YKuQp0P94Dqu
+	AmPdSiR8y9Fyr73ZpR9EWqUZ6U0NiW/MoTbRv5kWCLCoNWKLZ5sOoRdVy4/MPwQlgW6g9yt3imfAc
+	c8CPD2tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyJJw-00000002nVZ-2bMx;
-	Fri, 06 Mar 2026 00:45:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vyJLZ-00000002nhT-2VD7;
+	Fri, 06 Mar 2026 00:47:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyJJv-00000002nVK-340m
+	id 1vyJLX-00000002nh9-1sWX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 00:45:35 +0000
+	Fri, 06 Mar 2026 00:47:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BB8EC600B0;
-	Fri,  6 Mar 2026 00:45:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49A96C116C6;
-	Fri,  6 Mar 2026 00:45:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AFEB643863;
+	Fri,  6 Mar 2026 00:47:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E3F1C116C6;
+	Fri,  6 Mar 2026 00:47:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772757934;
-	bh=RfZ6JfMteBUvtPa+L1il2dXvDwwhTUW7cGhcZfzVpl0=;
+	s=k20201202; t=1772758034;
+	bh=41HneZpqdxSPUGTmYllaKhbcIbsLHd2mvz+gz7Cu4GA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=F7PFHuzxFF2xXjeSHFWX9UKCutem6Sp6gftOvOM80oDAJlI5qKbdGXhziaAjxDOqb
-	 juukfdodr41K3ImYrEeas+GnrL9FrrcyveNHXn5tgXQpPIW1YHOY/kFFYf+YXfBVY9
-	 sRYMqE6K/uim4woWg8ygo8Dot5HRkAquC/LH5D8+qKEuKN+SvXgInXAPgVrRj2d+32
-	 OxtYCaadBseZsR/VmsTYmIwZmBFwUP/OgMGjjrDIkgdZfJpQ2TNSGHy5OXQjfQbOAL
-	 1U4qAnFk5mKaMzfPbuVJMoQrzfUdBa03R1oy9uJUiiZJPosuE0rnVzjcVVyCuuyuS+
-	 MMeqIALwU9PXQ==
-Date: Thu, 5 Mar 2026 18:45:33 -0600
-From: Rob Herring <robh@kernel.org>
+	b=L0R9ZvIDnO9byn3IdhEhtqB2rAkSaBf545dfLFR1ZiPp4CFcKAw0q/OizBmobAHLh
+	 yx5GecIRO5b64rWW3ia6Lut9L81Q59KQvjCvixdNOKOFRe0v8UUbcAI0wNk+D6RPwx
+	 qzOY7rI7xJdHXk9l713+v5w2CLEHuEkOTgBzhatM5jmAagjXIPBLLqb0DcrquXxBns
+	 ApHhPhZFIybngg1qF/TCt54cgXTFS72qRFoVtjWPXpys/q/C9HiRzYDFUml0iQTzaY
+	 WMw0CJFPEk8XFfbG9/vsQV47iGY43ew+H4GHyxuN2YzSsq+dYIhmRua63wI2lErsWo
+	 Am8fW0/+XkvYQ==
+Date: Thu, 5 Mar 2026 18:47:13 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Charan Pedumuru <charan.pedumuru@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
 	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] dt-bindings: usb: generic-ohci: add AT91RM9200
- OHCI binding support
-Message-ID: <20260306004533.GA870954-robh@kernel.org>
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	devicetree@vger.kernel.org,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Herve Codina <herve.codina@bootlin.com>
+Subject: Re: [PATCH v2 2/4] dt-bindings: usb: generic-ehci: fix schema
+ structure and add at91sam9g45 constraints
+Message-ID: <177275803136.874627.15836602722441191770.robh@kernel.org>
 References: <20260224-atmel-usb-v2-0-6d6a615c9c47@gmail.com>
- <20260224-atmel-usb-v2-1-6d6a615c9c47@gmail.com>
+ <20260224-atmel-usb-v2-2-6d6a615c9c47@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260224-atmel-usb-v2-1-6d6a615c9c47@gmail.com>
+In-Reply-To: <20260224-atmel-usb-v2-2-6d6a615c9c47@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260305_164715_525370_44426C45 
+X-CRM114-Status: UNSURE (   8.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,75 +82,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 24, 2026 at 01:12:58PM +0000, Charan Pedumuru wrote:
-> Add binding support for the Atmel AT91RM9200 OHCI USB host controller
-> to the generic OHCI schema.
+
+On Tue, 24 Feb 2026 13:12:59 +0000, Charan Pedumuru wrote:
+> Add clock and phy constraints for atmel,at91sam9g45-ehci and reorganize
+> the allOf section to fix dtbs_check warnings.
 > 
 > Signed-off-by: Charan Pedumuru <charan.pedumuru@gmail.com>
 > ---
->  .../devicetree/bindings/usb/generic-ohci.yaml      | 27 ++++++++++++++++++++++
->  1 file changed, 27 insertions(+)
+>  .../devicetree/bindings/usb/generic-ehci.yaml      | 46 ++++++++++++++++------
+>  1 file changed, 33 insertions(+), 13 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/usb/generic-ohci.yaml b/Documentation/devicetree/bindings/usb/generic-ohci.yaml
-> index 961cbf85eeb5..ab8a49142386 100644
-> --- a/Documentation/devicetree/bindings/usb/generic-ohci.yaml
-> +++ b/Documentation/devicetree/bindings/usb/generic-ohci.yaml
-> @@ -55,6 +55,7 @@ properties:
->            - ti,ohci-omap3
->        - items:
->            - enum:
-> +              - atmel,at91rm9200-ohci
->                - cavium,octeon-6335-ohci
->                - nintendo,hollywood-usb-ohci
->                - nxp,ohci-nxp
-> @@ -137,6 +138,16 @@ properties:
->        The associated ISP1301 device. Necessary for the UDC controller for
->        connecting to the USB physical layer.
->  
-> +  atmel,vbus-gpio:
-> +    description: GPIO used to control or sense the USB VBUS power.
-> +    minItems: 1
-> +    maxItems: 3
-> +
-> +  atmel,oc-gpio:
-> +    description: GPIO used to signal USB overcurrent condition.
-> +    minItems: 1
-> +    maxItems: 3
-> +
->  required:
->    - compatible
->    - reg
-> @@ -144,6 +155,22 @@ required:
->  
->  allOf:
->    - $ref: usb-hcd.yaml
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: atmel,at91rm9200-ohci
-> +    then:
-> +      properties:
-> +        clock-names:
-> +          items:
-> +            - const: ohci_clk
-> +            - const: hclk
-> +            - const: uhpck
-> +
-> +      required:
-> +        - clocks
-> +        - clock-names
 
-       else:
-         properties:
-           atmel,vbus-gpio: false
-           atmel,oc-gpio: false
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
->    - if:
->        not:
->          properties:
-> 
-> -- 
-> 2.53.0
-> 
 
