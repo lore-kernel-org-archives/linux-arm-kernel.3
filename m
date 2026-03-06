@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52B9FF51411
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D4C1F5140F
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 06:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CmeKu3kFQGo6glaHzn6GIz9FtScBZUYLt4OdvSQRdYA=; b=LZVx1nv/Z5WLOmwohfltQPH2Xx
-	vEIxtQnTxP75APhai8Ryccr191Ca0znU/L1uxA/B2LMYpmHQWD8d3+eFIp+HRvAcBa6EkpwCxd3xe
-	bgD/9AB8GAnEIWoyhgi0VdsASRdfVoWnKARXoiAMzH31r0Y8rTX6BCbzqmDH/knkFQUgoVe6XURas
-	xNJGP1fTRGV96Zi/GYX4zMQkP4nbProkDU46YY3QQbrS2B1mcYaYeapaeCU3i/Mp8zzr+3iIrpTNM
-	Q9SlYAF68khcuFaXT8BgPCPNsBVzCOKD4n1/8rJbuh3uqOTA1BCYo/g1qLyHdJzxJtO/ZlCnbIy+D
-	wcRslCrw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8kKRK+KpINJy/hP8loLkF6pCSehJDKosql8DLGWhzAI=; b=3wh/RHKEzs5uHjXpujLegdwHbG
+	QwLb2NrGOT2DRDMpJpPj7GDROzhdOSDGrpJocNHtXguCYcWoRz677qq94MhlC8Cu/bVa4jlbidn6q
+	yJRZLdoV4a8Its/nz7hW784OzWKVNRPhKnAgktmfyZr0ok6gcda5vXqrPXuIED8t3xVEdGavh4vnB
+	KhbMWsR5R8e7BucVG4yczrHs96ZJl7dB3pVpOQTulh35gsijnzxtF21W4uaUb9tB9axLnZ6tH1xkn
+	f0BQbcj6ibrNIBKHFdhRsYHjdUQEvGUzDAJN9QQ3csc50Io1mR718FGrl/UyECQJbI7ckLg9x0LoL
+	RH81Djlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyOuy-000000035yh-2ted;
+	id 1vyOuy-000000035yR-1ZQt;
 	Fri, 06 Mar 2026 06:44:12 +0000
-Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
+Received: from out30-111.freemail.mail.aliyun.com ([115.124.30.111])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyOuu-000000035vS-0dNR
+	id 1vyOuu-000000035vn-0yri
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 06 Mar 2026 06:44:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1772779440; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	bh=CmeKu3kFQGo6glaHzn6GIz9FtScBZUYLt4OdvSQRdYA=;
-	b=rCHwBcYKYxqqLCgeotDAHfd7ljpsrHI1oCNUdPzZTiQKym1X3GfPq711vD0L8Y04G3uFWqk4Ct5GGpPgDvhfbBSxGls/d2mQ04NYioqIObjlgzFVWNdiwwBobw9yCeBTq8UcA3Ne3ebkVfrL9vpYtllUULKnetXDqzviZZLNTus=
-Received: from localhost(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0X-ML2rg_1772779436 cluster:ay36)
+	t=1772779443; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=8kKRK+KpINJy/hP8loLkF6pCSehJDKosql8DLGWhzAI=;
+	b=OQ2ZLqgaRo245nGM0sWABYeGVod200qWhXaKmHstUQ5GZQyDlKzw1jJJcV7n3g9BdLf0yT1yiZRxYoUjjHf9aMYNXKxDhaX/NEmXLjj3JnixD+NcWM8vWF81ve4ijQV8pnhOHB0x6G7MLrugefOvZM2zAtK7O2YwJVAfox3royk=
+Received: from localhost(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0X-MKhDB_1772779440 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Fri, 06 Mar 2026 14:43:57 +0800
+          Fri, 06 Mar 2026 14:44:00 +0800
 From: Baolin Wang <baolin.wang@linux.alibaba.com>
 To: akpm@linux-foundation.org,
 	david@kernel.org
@@ -63,17 +63,17 @@ Cc: catalin.marinas@arm.com,
 	linux-mm@kvack.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 0/6] support batched checking of the young flag for MGLRU
-Date: Fri,  6 Mar 2026 14:43:36 +0800
-Message-ID: <cover.1772778858.git.baolin.wang@linux.alibaba.com>
+Subject: [PATCH v3 2/6] mm: rename ptep/pmdp_clear_young_notify() to ptep/pmdp_test_and_clear_young_notify()
+Date: Fri,  6 Mar 2026 14:43:38 +0800
+Message-ID: <b3454077ce88745e6f88386b1763721746884565.1772778858.git.baolin.wang@linux.alibaba.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <cover.1772778858.git.baolin.wang@linux.alibaba.com>
+References: <cover.1772778858.git.baolin.wang@linux.alibaba.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_224408_896657_B88D63A8 
-X-CRM114-Status: UNSURE (   9.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260305_224408_896577_A0CCD5FE 
+X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,60 +88,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is a follow-up to the previous work [1], to support batched checking
-of the young flag for MGLRU.
+Rename ptep/pmdp_clear_young_notify() to ptep/pmdp_test_and_clear_young_notify()
+to make the function names consistent.
 
-Similarly, batched checking of young flag for large folios can improve
-performance during large-folio reclamation when MGLRU is enabled. I
-observed noticeable performance improvements (see patch 5) on an Arm64
-machine that supports contiguous PTEs. All mm-selftests are passed.
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+Suggested-by: David Hildenbrand (Arm) <david@kernel.org>
+Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+---
+ mm/internal.h | 8 ++++----
+ mm/vmscan.c   | 8 ++++----
+ 2 files changed, 8 insertions(+), 8 deletions(-)
 
-Patch 1 - 3: cleanup patches.
-Patch 4: add a new generic batched PTE helper: test_and_clear_young_ptes().
-Patch 5: support batched young flag checking for MGLRU.
-Patch 6: implement the Arm64 arch-specific test_and_clear_young_ptes().
-
-[1] https://lore.kernel.org/all/cover.1770645603.git.baolin.wang@linux.alibaba.com/
-
-Changes from v2:
-v2: https://lore.kernel.org/all/cover.1772185080.git.baolin.wang@linux.alibaba.com/
- - Update the commit message of patch 5 (per David).
- - Fix some coding style issues (per David).
- - Remove 'cur_pte' variable in lru_gen_look_around() (per David).
- - Move 'ptes += nr;' to the suitable place in folio_referenced_one() (per David).
- - Add acked tag from David. Thanks.
-
-Changes from v1:
-v1: https://lore.kernel.org/all/cover.1771897150.git.baolin.wang@linux.alibaba.com/
- - Update some commit message (per David).
- - Fix some coding style issues (per David).
- - Use VM_WARN_ON_ONCE_FOLIO() instead of VM_WARN_ON_FOLIO() (per Rik).
- - Define a generic ptep_test_and_clear_young_notify() (per David).
- - Remove redundant 'nr > 1' check in folio_referenced_one() (per David).
- - Rename some variables' to make code more clear (per David).
- - Add a new patch to rename some functions (per David).
- - Update the young counters with the batched count for MGLRU.
- - Collect reviewed tags from Rik, Barry, Alistair and David. Thanks.
-
-Baolin Wang (6):
-  mm: use inline helper functions instead of ugly macros
-  mm: rename ptep/pmdp_clear_young_notify() to
-    ptep/pmdp_test_and_clear_young_notify()
-  mm: rmap: add a ZONE_DEVICE folio warning in folio_referenced()
-  mm: add a batched helper to clear the young flag for large folios
-  mm: support batched checking of the young flag for MGLRU
-  arm64: mm: implement the architecture-specific
-    test_and_clear_young_ptes()
-
- arch/arm64/include/asm/pgtable.h | 18 +++++++----
- include/linux/mmu_notifier.h     | 54 --------------------------------
- include/linux/mmzone.h           |  5 +--
- include/linux/pgtable.h          | 37 ++++++++++++++++++++++
- mm/internal.h                    | 52 ++++++++++++++++++++++++++++++
- mm/rmap.c                        | 29 ++++++++---------
- mm/vmscan.c                      | 45 +++++++++++++++++++-------
- 7 files changed, 152 insertions(+), 88 deletions(-)
-
+diff --git a/mm/internal.h b/mm/internal.h
+index 05eb0303f277..f45f97df0d28 100644
+--- a/mm/internal.h
++++ b/mm/internal.h
+@@ -1819,7 +1819,7 @@ static inline int pmdp_clear_flush_young_notify(struct vm_area_struct *vma,
+ 	return young;
+ }
+ 
+-static inline int ptep_clear_young_notify(struct vm_area_struct *vma,
++static inline int ptep_test_and_clear_young_notify(struct vm_area_struct *vma,
+ 		unsigned long addr, pte_t *ptep)
+ {
+ 	int young;
+@@ -1829,7 +1829,7 @@ static inline int ptep_clear_young_notify(struct vm_area_struct *vma,
+ 	return young;
+ }
+ 
+-static inline int pmdp_clear_young_notify(struct vm_area_struct *vma,
++static inline int pmdp_test_and_clear_young_notify(struct vm_area_struct *vma,
+ 		unsigned long addr, pmd_t *pmdp)
+ {
+ 	int young;
+@@ -1843,8 +1843,8 @@ static inline int pmdp_clear_young_notify(struct vm_area_struct *vma,
+ 
+ #define clear_flush_young_ptes_notify	clear_flush_young_ptes
+ #define pmdp_clear_flush_young_notify	pmdp_clear_flush_young
+-#define ptep_clear_young_notify	ptep_test_and_clear_young
+-#define pmdp_clear_young_notify	pmdp_test_and_clear_young
++#define ptep_test_and_clear_young_notify	ptep_test_and_clear_young
++#define pmdp_test_and_clear_young_notify	pmdp_test_and_clear_young
+ 
+ #endif /* CONFIG_MMU_NOTIFIER */
+ 
+diff --git a/mm/vmscan.c b/mm/vmscan.c
+index 52adb37d1b01..e3425b4db755 100644
+--- a/mm/vmscan.c
++++ b/mm/vmscan.c
+@@ -3504,7 +3504,7 @@ static bool walk_pte_range(pmd_t *pmd, unsigned long start, unsigned long end,
+ 		if (!folio)
+ 			continue;
+ 
+-		if (!ptep_clear_young_notify(args->vma, addr, pte + i))
++		if (!ptep_test_and_clear_young_notify(args->vma, addr, pte + i))
+ 			continue;
+ 
+ 		if (last != folio) {
+@@ -3595,7 +3595,7 @@ static void walk_pmd_range_locked(pud_t *pud, unsigned long addr, struct vm_area
+ 		if (!folio)
+ 			goto next;
+ 
+-		if (!pmdp_clear_young_notify(vma, addr, pmd + i))
++		if (!pmdp_test_and_clear_young_notify(vma, addr, pmd + i))
+ 			goto next;
+ 
+ 		if (last != folio) {
+@@ -4185,7 +4185,7 @@ bool lru_gen_look_around(struct page_vma_mapped_walk *pvmw)
+ 	lockdep_assert_held(pvmw->ptl);
+ 	VM_WARN_ON_ONCE_FOLIO(folio_test_lru(folio), folio);
+ 
+-	if (!ptep_clear_young_notify(vma, addr, pte))
++	if (!ptep_test_and_clear_young_notify(vma, addr, pte))
+ 		return false;
+ 
+ 	if (spin_is_contended(pvmw->ptl))
+@@ -4237,7 +4237,7 @@ bool lru_gen_look_around(struct page_vma_mapped_walk *pvmw)
+ 		if (!folio)
+ 			continue;
+ 
+-		if (!ptep_clear_young_notify(vma, addr, pte + i))
++		if (!ptep_test_and_clear_young_notify(vma, addr, pte + i))
+ 			continue;
+ 
+ 		if (last != folio) {
 -- 
 2.47.3
 
