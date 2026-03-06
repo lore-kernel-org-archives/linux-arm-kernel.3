@@ -4,79 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21811F0183C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:03:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DD34F0183C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:06:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CtHGmGW+kuNXfpqkwV8R0QzbahP6BhHBAQuRE9dnG2k=; b=pAUrASf010Zju0wFN3iSQtI7q3
-	OlUALIHa/657/S0eW932wpbQh478rjcvB6sWWCvyHEaHEDKpZAhxgaGM1KMTVa6pEGsC3xE6SfkH0
-	2bGpKWgoaVGmvtVoXU7dcIMf2wYXGJSKVgR84L4gh7UvJ0pcBU2q27BSLMigtka0wmrSkpW7s/9n6
-	5XbGSrD1B3LnjdqQ9aBqwoGmtxeWK3u78h42N54RE3TXl30w23X/svjI5+wxus8LK4GVp7ac5wDvI
-	jxml/JsrO0eW0nKTeh4OpQRSnQBnIodn1q4sYF2Mq7ztUildElwVqTM/JiqxPzpUooWQ5ccLaB/rO
-	lXC1v1Kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ExBm7X4LeD8yHFHTHdMuN48+RLwJUYvIfkSB0xzjRAc=; b=nOe6i7GZTIk1QeHBWjF0V93Czy
+	4GA9dmRWnoR9gjrO07w9M4o0/FXI1pZJBMz/kBx2AiKpF1rBjc/e6BTNvdXyExo+l7wbcfSDotJ2+
+	4rPLOkteTPJI9jPz0YuNpP7GA0c3JUb6mUrEGDCjV3bNUUnWsCHrxn8AGMzaiPOj+hKyh8brthpnT
+	fVERSNv2EGNbaZgI+PjcKvFWu0NC+jQ1L4YxECqF/TOL5SByr4bt9DXCudOVh3ptv38mHB23RCQap
+	ncSK5Y2xxneDAaoHq8K+DsL7LsdK188fQdX9/jVucrrx0YGgdHv1jrJb8KVLR6sJ68HvWo1irx8zG
+	4QNrzPDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVlf-00000003qSO-0L7B;
-	Fri, 06 Mar 2026 14:03:03 +0000
-Received: from mail-ed1-x54a.google.com ([2a00:1450:4864:20::54a])
+	id 1vyVos-00000003rOK-2IUu;
+	Fri, 06 Mar 2026 14:06:22 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVlV-00000003qE7-0Fc2
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 14:02:54 +0000
-Received: by mail-ed1-x54a.google.com with SMTP id 4fb4d7f45d1cf-6613679e8cbso2915580a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 06:02:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1772805769; x=1773410569; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=CtHGmGW+kuNXfpqkwV8R0QzbahP6BhHBAQuRE9dnG2k=;
-        b=FSZHszg6nhGufkYiXe069KP3AruMsgEYci3ZrzmMj6B+w3oqXnHxrDZYRjgiSvxO8n
-         Pwy77oVxvc+BlWSL0MaYj1fJ/i/WozvO/390qkK6DkFVs4tu0ANbSdmaHUyIG6emQC51
-         CdE++Zjz0uO3tA790E6ywZHDZSDIE/kr2yjiA07Wp4a73UWpSo8r+JHzdHifdeJaMPVJ
-         vryflQY8bIA1xBnrerdMo/jZ+08lbTZUYjeUfnPAa/A11HgI2Fb/SxtgFuFUmlSoo/Nj
-         ejZXNJsQqDnyzZwKRMYj082ejWuVKpnWFbyM1rUNOKzTAKqYncSZe8z+b3IoElStPbFk
-         Cn2A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772805769; x=1773410569;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=CtHGmGW+kuNXfpqkwV8R0QzbahP6BhHBAQuRE9dnG2k=;
-        b=VE+hrUcfdqGKyPfxXo1vVEpTx2DYOm41dZNRLpoB1i7Dh4loTZ8C1eSEwWhdnyC5z5
-         6a4J8RcD/xBUUUd6oBvRhzLo1Qe695ikHPbe6vltCJ/OYiKWBEaoVd2sWyTOJOKr2Ui7
-         1GfewsMY9SdvnpsJvg1QwHa4WFG0iokjuhwAJDsm5FUxSDoSIYcl5oPVR7Fi4HpFbnnP
-         mXZmmlZ/Rz4Psw5Dpkgsioc5iKL8H/mox6SgYGlxd2N/iXOZ9/jHD1mu9bV9oPB3dD6Q
-         rqoJW7xXCDvV+37ejSsiMcme6eikno4qTomtl02krUI4+rj1o11DqK6piLaaCdi46dsD
-         J0Iw==
-X-Forwarded-Encrypted: i=1; AJvYcCXkl+QkCuKoJ49WiIiszqYDhqM1QMLTK7eL+w9VgphULiJKFaeeQl9HnyhurJR2j5CbRldJAdTyfL+h0RrQpAST@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHa8P33dhOlOoBbFnjR6tT3bRWvTfAangyMoO9vbd+mUNggVl6
-	nWG8nf3ktWSClhdq73vsUzQXssAP9HffaQeTrp+m8darqmApoNrNCsgDq/dMNguv1jJx3JnPBgc
-	gew==
-X-Received: from edoy18.prod.google.com ([2002:aa7:c252:0:b0:660:e9bd:31af])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:2807:b0:658:1304:b699
- with SMTP id 4fb4d7f45d1cf-6619d50626dmr1271444a12.31.1772805768583; Fri, 06
- Mar 2026 06:02:48 -0800 (PST)
-Date: Fri,  6 Mar 2026 14:02:31 +0000
-In-Reply-To: <20260306140232.2193802-1-tabba@google.com>
-Mime-Version: 1.0
-References: <20260306140232.2193802-1-tabba@google.com>
-X-Mailer: git-send-email 2.53.0.473.g4a7958ca14-goog
-Message-ID: <20260306140232.2193802-13-tabba@google.com>
-Subject: [PATCH v1 12/13] KVM: arm64: Hoist MTE validation check out of MMU
- lock path
-From: Fuad Tabba <tabba@google.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org, qperret@google.com, vdonnefort@google.com, tabba@google.com
-Content-Type: text/plain; charset="UTF-8"
+	id 1vyVoq-00000003rNe-0dN3;
+	Fri, 06 Mar 2026 14:06:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1772805977;
+	bh=KxkuNcTNtwFFBbBEE6JntkXBu0J6pcUOGJNm9O+XtBA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=k2wmXZHrG7GI1x85gXFhg1mHU8cPh3cbwtIljogJFm52FsUHN5wydW1/I/EnSv3q7
+	 Wrm3YRy+2PcAbOnNji8+zj3ZtM9P7nlrCsJboj8P5fEvf90+4vnKr3/ntgvH+7xWbM
+	 QLFbXseWnKkLCH+qaOczOYHw0kY6frGriPMP6VcgG8ujGNpnELKvuvMCW116Zm9g2f
+	 OJI7TywGKiYKXhdXNIeh0B1X5/h6WM1FTef4fys14Ra0H7Z1uHzUhm2Jn6hhouou2a
+	 sBEJ1s0lUTx+C1MCT8m0zYPK8DRHigTtZgCHUL2qIA9+flZpqDCj6l5+xhYjZtc5AK
+	 SkROGa9hKvtLQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A014217E05B5;
+	Fri,  6 Mar 2026 15:06:16 +0100 (CET)
+Message-ID: <0994fef0-88f2-4277-aa46-0b6a33c53bfa@collabora.com>
+Date: Fri, 6 Mar 2026 15:06:16 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] arm: dts: mediatek: mt6589: add basic support for
+ Lenovo B8000-F
+To: Akari Tsuyukusa <akkun11.open@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, sean.wang@mediatek.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20260304192417.818211-1-akkun11.open@gmail.com>
+ <20260304192417.818211-3-akkun11.open@gmail.com>
+ <94465ca7-b3dc-4736-9d58-4024f2494e54@collabora.com>
+ <CAKr_iV5cmE-GBp679Q-=bZi+186BvMvD41ctxnxNC3mTKEzuRw@mail.gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <CAKr_iV5cmE-GBp679Q-=bZi+186BvMvD41ctxnxNC3mTKEzuRw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_060253_238908_5CFAE184 
-X-CRM114-Status: GOOD (  14.65  )
+X-CRM114-CacheID: sfid-20260306_060620_342097_CED17CC5 
+X-CRM114-Status: GOOD (  43.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,69 +80,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Simplify the non-cacheable attributes assignment by using a ternary
-operator. Additionally, hoist the MTE validation check (mte_allowed) out
-of kvm_s2_fault_map() and into kvm_s2_fault_compute_prot(). This allows
-us to fail faster and avoid acquiring the KVM MMU lock unnecessarily
-when the VMM introduces a disallowed VMA for an MTE-enabled guest.
+Il 05/03/26 16:49, Akari Tsuyukusa ha scritto:
+> Hi Angelo, thanks for the feedback.
+> 
+> On Thu, Mar 5, 2026 at 6:46 PM AngeloGioacchino Del Regno
+> <angelogioacchino.delregno@collabora.com> wrote:
+>> Okay, but this is just a simple framebuffer and a UART; while it may be in some
+>> way useful, there's already one device based on MT6589 that was upstreamed with
+>> just a framebuffer and a serial port, but then didn't receive any more support.
+>>
+>> Could you please extend your efforts a little and push at least some support for
+>> clock controllers and power domains for the MT6589 SoC to make it at least barely
+>> useful?
+> 
+> Your point is valid. I saw similar minimal Device Trees in
+> "arch/arm/boot/dts/mediatek/" . Currently, I am actively working on
+> MT6589 kernel mainlining and Lenovo YOGA Tablet support, so I submitted
+> this patch as initial support for this device.
+> 
+> I will send patches to add the following features in the near future
+> (preferably within this month):
+> 
+> - Clock
+> I wrote drivers and they seem to be working.
+> However, some parent clocks are unknown.
 
-Signed-off-by: Fuad Tabba <tabba@google.com>
----
- arch/arm64/kvm/mmu.c | 28 ++++++++++++----------------
- 1 file changed, 12 insertions(+), 16 deletions(-)
+Ouch. Well, it's mostly done then, hopefully sooner than later :-)
 
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 9265a7fc43f7..cc6b35efcee5 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1870,18 +1870,21 @@ static int kvm_s2_fault_compute_prot(struct kvm_s2_fault *fault)
- 	if (fault->exec_fault)
- 		fault->prot |= KVM_PGTABLE_PROT_X;
- 
--	if (fault->s2_force_noncacheable) {
--		if (fault->vm_flags & VM_ALLOW_ANY_UNCACHED)
--			fault->prot |= KVM_PGTABLE_PROT_NORMAL_NC;
--		else
--			fault->prot |= KVM_PGTABLE_PROT_DEVICE;
--	} else if (cpus_have_final_cap(ARM64_HAS_CACHE_DIC)) {
-+	if (fault->s2_force_noncacheable)
-+		fault->prot |= (fault->vm_flags & VM_ALLOW_ANY_UNCACHED) ?
-+			       KVM_PGTABLE_PROT_NORMAL_NC : KVM_PGTABLE_PROT_DEVICE;
-+	else if (cpus_have_final_cap(ARM64_HAS_CACHE_DIC))
- 		fault->prot |= KVM_PGTABLE_PROT_X;
--	}
- 
- 	if (fault->nested)
- 		adjust_nested_exec_perms(kvm, fault->nested, &fault->prot);
- 
-+	if (!fault->fault_is_perm && !fault->s2_force_noncacheable && kvm_has_mte(kvm)) {
-+		/* Check the VMM hasn't introduced a new disallowed VMA */
-+		if (!fault->mte_allowed)
-+			return -EFAULT;
-+	}
-+
- 	return 0;
- }
- 
-@@ -1918,15 +1921,8 @@ static int kvm_s2_fault_map(struct kvm_s2_fault *fault, void *memcache)
- 		}
- 	}
- 
--	if (!fault->fault_is_perm && !fault->s2_force_noncacheable && kvm_has_mte(kvm)) {
--		/* Check the VMM hasn't introduced a new disallowed VMA */
--		if (fault->mte_allowed) {
--			sanitise_mte_tags(kvm, fault->pfn, fault->vma_pagesize);
--		} else {
--			ret = -EFAULT;
--			goto out_unlock;
--		}
--	}
-+	if (!fault->fault_is_perm && !fault->s2_force_noncacheable && kvm_has_mte(kvm))
-+		sanitise_mte_tags(kvm, fault->pfn, fault->vma_pagesize);
- 
- 	/*
- 	 * Under the premise of getting a FSC_PERM fault, we just need to relax
--- 
-2.53.0.473.g4a7958ca14-goog
+> 
+> - Pinctrl
+> I refactored it to common-v2, paris and it's working.
+> A little more work is needed to add support for R0, TDSEL, RDSEL, and
+> device tree binding.
 
+Okay, almost done there too, then.
+
+> 
+> - PWRAP and MT6320 PMIC RTC
+> PWRAP is working fine. This seems to be almost the same as MT8135.
+> MT6320 PMIC has confirmed RTC operation, but it will take a little more
+> time as I haven't written the regulator driver yet.
+> 
+
+Start upstreaming the RTC (and MFD parts) right now maybe?
+That all depends on the actual state of things, of course.
+
+Remember that you can upstream whatever is clean and works fine, that doesn't
+have hard dependencies on other components.
+
+> Additional time is required to add the following features:
+> 
+> - Power Domains (scpsys)
+> I've written a driver, but I haven't checked that it works yet.
+> And, some features are missing for full support.
+> 
+
+The power domains should be handled by mtk-pm-domains.c - not sure what you wrote
+but if you did it on mtk-scpsys.c that's wrong.
+
+> - eMMC/SD (MSDC)
+> Likely compatible with "mtk-sd.c". I have written in Device Tree, but
+> it is not working on the device. It needs debug mode.
+> 
+
+I can confirm that the MSDC controller in MT6589 will work with mtk-sd, there may
+be some very small modifications to be done.... if any.
+The mtk-sd driver does support "very old" SoCs already :-)
+
+> - USB
+> Almost certainly compatible with "mediatek,mtk-musb" and
+> "mediatek,generic-tphy-v1". The device is not recognized by the PC,
+> and there are logs saying "couldn't find an available UDC".
+> It may take more time.
+> 
+
+I can suggest to try host mode. Usually that's the one that easily wants to work.
+That may help you to validate that the PHY is actually working.
+
+> - UART DMA
+> Boots without any errors, but I can't confirm its operation because
+> I haven't soldered UART.
+> 
+
+UART DMA on smartphones and tablets is usually used by Bluetooth, but if your
+device does not have any UART DMA device, you will be unable to validate.
+
+Soldering a UART for the console won't help you to validate UART DMA, as the
+one you select for that excludes DMA.
+
+> - I2C
+> I don't know the details, but the clock is supplied from the PMIC,
+> but PMIC clock driver does not exist. Fortunately, MediaTek engineers
+> implemented MT6589 compatibility in the I2C driver (but it is not added
+> in the MT6589 Device Tree).
+> 
+> - I2C devices (only in mainline)
+> Touchscreen: syna,rmi4-i2c
+> Accelerometer: bosch,bma255
+> Magnetometer: bosch,bmm150
+> Fuel Gauge: ti,bq27541
+> Battery Charger: ti,bq24196
+> 
+> - SPI
+> Like I2C, there is a driver (it seems that the PMIC clock is not
+> required for SPI), but  I don't know what devices are connected.
+> 
+
+For SPI and I2C, the IPs didn't really change all that much from the old era
+to MT6795/MT8173, so I'm confident that you won't have any problem with the
+IP driver itself (be it SPI or I2C).
+
+> I am committed to making MT6589 and the Lenovo YOGA Tablet fully
+> functional in the mainline kernel. I will send these additional patches
+> as soon as they are ready for review.
+> 
+
+I really appreciate seeing those old devices getting new life with upstream,
+as much as seeing new ones upstreamed. That's really nice.
+
+Keep up the good work!
+
+Cheers,
+Angelo
 
