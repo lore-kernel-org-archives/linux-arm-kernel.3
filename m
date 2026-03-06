@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5BFDF01832
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 12:42:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FFBBF0182E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 12:42:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fBrsdJ4dnS+r6WgToQIDR0U5A7RpsD4F+UWhnBl6RyE=; b=R9nxecyE+RvAGR6jhAWN6cUa64
-	iLpFEF4UlZ6vvLpheSOx8ynH2vkSraGGxOaNUyemin8OBUhpjJzCHa8PxMe3suuibe14flVsKx4x8
-	154qm7FHjoJOOP3WKVGBjA6sTbFndpEwF4IZIr++183cbzQi0xksTU4b+QcII1JySFfjgWK7NqlyN
-	GZuMD1AAJYxjhruF+onQtBbhJ9fSCVne6UFjVbMhc0Za30GQM9yZ2rJFGIzPd2Iw9FbUi8dC8FqeD
-	i13XyLzwnPnjyksFcN+iiUY991cUUE08JguTEAjKX8dYSzN4bhNIUh/y3+Q/wvYf7JQQsy6jz2AV+
-	tJLhJsNA==;
+	bh=4AVQ0hUB4ngyF23NsUyeNBdmNSfADrMFybIJYclgQKQ=; b=wg8jswYBqk/ikRcE4kOvnnFZ3i
+	cXb1/2OvOIpWyNDvhMZeSeDDsW0ZVJ9aPT0W8QBKYTB4a9H3Zs5XzpQ8xwjAbE3vNVA7kZuCXsvwW
+	RYLTXxh+E3+CqUT5rnBh9t/IED9ir17e92TQG+5dF38Jqk37IO2Bi9WbmT7yAFZ12na0ujNe1iNZ6
+	SwNyRjk5Pds7PYzF2Ho6Lt30F1FzYHVIZHY+UOg9YGgSDoLvM7YhOQangfNsSUtrIWAm7I9rwvLck
+	A9zQKeoDxB5LomJYwrigkJOjCAc36/sYemYeKNsbwVzpjCIG5ThHUdhPGEmWCldMNNWv2aTSJWH91
+	1n/Vgltw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyUVg-00000003fQH-2QU2;
+	id 1vyUVg-00000003fPv-17IP;
 	Fri, 06 Mar 2026 12:42:28 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyUVd-00000003fMc-0q92
+	id 1vyUVb-00000003fMc-2q6V
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 12:42:26 +0000
+	Fri, 06 Mar 2026 12:42:24 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 6 Mar
@@ -35,13 +35,13 @@ Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
  Transport; Fri, 6 Mar 2026 20:42:14 +0800
 From: Billy Tsai <billy_tsai@aspeedtech.com>
-Date: Fri, 6 Mar 2026 20:40:26 +0800
-Subject: [PATCH v4 2/3] dt-bindings: pinctrl: Add
- aspeed,ast2700-soc0-pinctrl
+Date: Fri, 6 Mar 2026 20:40:25 +0800
+Subject: [PATCH v4 1/3] dt-bindings: mfd: aspeed,ast2x00-scu: Support
+ AST2700 SoC0 pinctrl
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260306-upstream_pinctrl-v4-2-ad4e8ab8b489@aspeedtech.com>
+Message-ID: <20260306-upstream_pinctrl-v4-1-ad4e8ab8b489@aspeedtech.com>
 References: <20260306-upstream_pinctrl-v4-0-ad4e8ab8b489@aspeedtech.com>
 In-Reply-To: <20260306-upstream_pinctrl-v4-0-ad4e8ab8b489@aspeedtech.com>
 To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
@@ -54,16 +54,16 @@ CC: Andrew Jeffery <andrew@aj.id.au>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <openbmc@lists.ozlabs.org>,
 	<linux-gpio@vger.kernel.org>, <linux-clk@vger.kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772800933; l=3826;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772800933; l=1122;
  i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
- bh=mPT8n+MaX4Lh4CkPfpwTkyH556XOL8xul6h5uB8F66k=;
- b=r8CRLYKKssCEgJyYltzECKcfCQ1H2FB/QUpDzWdO0pUk13xIh9akUiRbohD2istSQDNo3E1/7
- EcIKmmVOjd8AYue9aWrT6NEiTm+cHgwa6L3AYUhU0L1VaIzq78lkaHm
+ bh=314hIvYZ5Ps/HYLvsDhYMXMgiWn25qxrQ4Kdet/mmeA=;
+ b=qGih07n/ZivAzmbGQFAdgHyM72AntHdyfs/VJNp5MPNTCpmFvB7e51DyT15ivjT6XyBxJazhz
+ 3kSNFGRnaFRAW+0rUQcpUoULq0fHeUxO++NW2kjxZQgHbrhLM4UibJd
 X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
  pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_044225_256087_62726C9F 
-X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-CacheID: sfid-20260306_044223_724728_AE112ED9 
+X-CRM114-Status: UNSURE (   6.54  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,152 +79,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a device tree binding for the pin controller found in the
-ASPEED AST2700 SoC0.
+The AST2700 SoC integrates two interconnected SoC instances, each
+managed by its own System Control Unit (SCU).
 
-The controller manages various peripheral functions such as eMMC, USB,
-VGA DDC, JTAG, and PCIe root complex signals.
+Allow the AST2700 SoC0 pin controller to be described as a child
+node of the SCU by extending the compatible strings accepted by
+the SCU binding.
 
-Describe the AST2700 SoC0 pin controller using standard pin multiplexing
-and configuration properties.
+There are no functional changes to the SCU binding beyond permitting
+the AST2700 SoC0 pinctrl compatible string.
 
 Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
 ---
- .../pinctrl/aspeed,ast2700-soc0-pinctrl.yaml       | 126 +++++++++++++++++++++
- 1 file changed, 126 insertions(+)
+ Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml
-new file mode 100644
-index 000000000000..caf8616c70e3
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml
-@@ -0,0 +1,126 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: ASPEED AST2700 SoC0 Pin Controller
-+
-+maintainers:
-+  - Billy Tsai <billy_tsai@aspeedtech.com>
-+
-+description:
-+  The AST2700 features a dual-SoC architecture with two interconnected SoCs,
-+  each having its own System Control Unit (SCU) for independent pin control.
-+  This pin controller manages the pin multiplexing for SoC0.
-+
-+  The SoC0 pin controller manages pin functions including eMMC, VGA DDC,
-+  dual USB3/USB2 ports (A and B), JTAG, and PCIe root complex interfaces.
-+
-+properties:
-+  compatible:
-+    const: aspeed,ast2700-soc0-pinctrl
-+
-+patternProperties:
-+  '-state$':
-+    type: object
-+    allOf:
-+      - $ref: pinmux-node.yaml#
-+      - $ref: pincfg-node.yaml#
-+    additionalProperties: false
-+
-+    properties:
-+      function:
-+        enum:
-+          - EMMC
-+          - JTAGDDR
-+          - JTAGM0
-+          - JTAGPCIEA
-+          - JTAGPCIEB
-+          - JTAGPSP
-+          - JTAGSSP
-+          - JTAGTSP
-+          - JTAGUSB3A
-+          - JTAGUSB3B
-+          - PCIERC0PERST
-+          - PCIERC1PERST
-+          - TSPRSTN
-+          - UFSCLKI
-+          - USB2AD0
-+          - USB2AD1
-+          - USB2AH
-+          - USB2AHP
-+          - USB2AHPD0
-+          - USB2AXH
-+          - USB2AXH2B
-+          - USB2AXHD1
-+          - USB2AXHP
-+          - USB2AXHP2B
-+          - USB2AXHPD1
-+          - USB2BD0
-+          - USB2BD1
-+          - USB2BH
-+          - USB2BHP
-+          - USB2BHPD0
-+          - USB2BXH
-+          - USB2BXH2A
-+          - USB2BXHD1
-+          - USB2BXHP
-+          - USB2BXHP2A
-+          - USB2BXHPD1
-+          - USB3AXH
-+          - USB3AXH2B
-+          - USB3AXHD
-+          - USB3AXHP
-+          - USB3AXHP2B
-+          - USB3AXHPD
-+          - USB3BXH
-+          - USB3BXH2A
-+          - USB3BXHD
-+          - USB3BXHP
-+          - USB3BXHP2A
-+          - USB3BXHPD
-+          - VB
-+          - VGADDC
-+
-+      groups:
-+        enum:
-+          - EMMCCDN
-+          - EMMCG1
-+          - EMMCG4
-+          - EMMCG8
-+          - EMMCWPN
-+          - JTAG0
-+          - PCIERC0PERST
-+          - PCIERC1PERST
-+          - TSPRSTN
-+          - UFSCLKI
-+          - USB2A
-+          - USB2AAP
-+          - USB2ABP
-+          - USB2ADAP
-+          - USB2AH
-+          - USB2AHAP
-+          - USB2B
-+          - USB2BAP
-+          - USB2BBP
-+          - USB2BDBP
-+          - USB2BH
-+          - USB2BHBP
-+          - USB3A
-+          - USB3AAP
-+          - USB3ABP
-+          - USB3B
-+          - USB3BAP
-+          - USB3BBP
-+          - VB0
-+          - VB1
-+          - VGADDC
-+
-+required:
-+  - compatible
-+
-+allOf:
-+  - $ref: pinctrl.yaml#
-+
-+additionalProperties: false
+diff --git a/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml b/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
+index a87f31fce019..685b1c77e729 100644
+--- a/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
++++ b/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
+@@ -87,6 +87,7 @@ patternProperties:
+             - aspeed,ast2400-pinctrl
+             - aspeed,ast2500-pinctrl
+             - aspeed,ast2600-pinctrl
++            - aspeed,ast2700-soc0-pinctrl
+ 
+     required:
+       - compatible
 
 -- 
 2.34.1
