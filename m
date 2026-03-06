@@ -4,112 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F23EFCB61A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 15:51:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0A35FCB61C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 15:55:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xzcKbGMLVorHlsZLyV1rvqs6i8R7J8sRM6aIMH0+nN8=; b=YAZmHmoXTJc+B5XQtYXYMyf7JO
-	WvSUDSeaSZWFg+GpukmTXmpdiLM6CNjHh/ARAkQgodcFBriCHd0j8uHb8lhptwawA1ZImg3XjsElM
-	DulzHqgvqG+iiKKPxYiwau6TQIrU9L0RdLdf8DENHoUu424bcGR0DHaKHWsHzChcDYI0fA4tZqf8t
-	HB9OeM2WmtYwzza8aDJlOz33WyogkqKWzmqHWlER/7PF2AFUk53RepwGdiYgO4DsWRbHbkNOLCFGu
-	8V4Wbji7O7j3XPYpymgzE/eB3bxw8XIxeJhLv3hvOzAMJ+uDO1YcEoimdYapiR8svYdiyokzt2wM8
-	flndwEhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZDC1bvv766jK85yPMeIbrjQkPNPu9yUqHXpCfrBNPIc=; b=vHzWOEQVsxArE4bc6JMiCVPSyS
+	ZO3Vn+lCyAdfqlj4Cx4T4+EtW6kitLMYkdR0WPKL+syxVSeBV73XfOENYbJoUjXDjH1wD/+dPrM2w
+	xxNnXFXRROjuONtFqp4gG+8iBW+eh2fwfuYzG32PP1IOasVuMCZlaYr2rZhNke6zZwdbKJIQaYZSf
+	S6hvhOZjeqj0quroa4I62EzFtBXeZVOKQi3fNoDJI7WOiibBPw/nYl/+5OSp3E0/5slQPFJ0W5JRb
+	yJZqhPEk4mjh+AqA9cVp7e2tABWdCJFeaXU2rV2CUxi5siaJ77fAtaMKuDpxa55TqjaUXYaGaAQbA
+	qOy4XacA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyXSs-000000045cN-13xC;
-	Fri, 06 Mar 2026 15:51:46 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1vyXWa-000000045yL-0cga;
+	Fri, 06 Mar 2026 15:55:36 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyXSp-000000045bC-0z2J
+	id 1vyXWX-000000045xb-3dBz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 15:51:44 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-660d2e4846cso5208165a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 07:51:42 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772812301; cv=none;
-        d=google.com; s=arc-20240605;
-        b=CtY4pf+7myLi3MUr6TXZ9i5gLdBgwPQshm/iIh4vY4B7ERo2GUE6QMVoXJpkXtvsQv
-         OIstlqLRMclB9n//fHEIKaJvB88Z5B7K5LZGClib0xBzoj6wtNKY90mnjSOyAZ9ota4b
-         VmBiL4fKIs2Sn8n+/t7i21fhKwxMcZEoTzmDkMG7O5g/T7yndOgDd0LxcI12FW5Ks6ja
-         VCyqcqrvR0fSFu20YrefRd86u+X9Z+/KGm46xntdEE+Ec0ToqSMOFjNAcRajZYJRzOqE
-         M6QaoxHS1yTARpmK/L+xX8dIeSbWkcldv4cjbt5J6QUpZlfij7rU+wESBs+yOpd40DHF
-         3FZQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=xzcKbGMLVorHlsZLyV1rvqs6i8R7J8sRM6aIMH0+nN8=;
-        fh=ShjSaoLo+WxnNdnocVbmwLQz2PubYuAEnLO82vc+DHo=;
-        b=Az6UWDbsYiQxg830Rt4hDMOcefpzwkoSmD/alnuI1M6EWVZq+xcyLAJfUdqjKf+uNT
-         0WKr7n8APlpjJKTLkBrFwko9w9wnkVqK7VpDyGMLzWYZaFgvBzRBWHgB0oKqLgv5y92G
-         TM+U6ffS6wDlKSrc97+pRRK5q65Hr3wQFO4FXfniD1LUDbHRn8J417HdrtORSCS3kAkJ
-         JxgZOdO7Cpsc2EqANn1PQUXu3qVCxAoCs6yKAXQfVQ8YiOYV/kzrL988XMfoHp90l953
-         jwBDBSkoI8pRx6hi1S3d2iRrnTCeJAuuiMePYsNvJmmzx9zJlg+NKXLrcYr3xBoL3qsh
-         rszg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1772812301; x=1773417101; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xzcKbGMLVorHlsZLyV1rvqs6i8R7J8sRM6aIMH0+nN8=;
-        b=edIx36nxQYuG9tg2eAqLUP0EurWO5Vf5b8NbIozDHaohck4GcrfHO/KfrQtZ6UtPb9
-         f3yIjhjEDcdqwSDHAi4o/jelA2Pbkwp15KXXwNg3Unk2ohvqmLoqQ7prQOc4OBN5K1iW
-         tnR3A1hJo66wFoRKv1GWTCLy5RrjhD7P9gB2jLl/bzv1I/nDOLr6ifg1hVl1F1qc1O+0
-         TQnEJDnpo165XPBwF2o13HDmgzPyk4rDzBcgHeEIcPkyT262f9uXiAYJeqrW/IwqWAVW
-         iNgxP49/3aXBD7830lGQ8Kj9k6/ncVNnY5x2OPx328fdPYq/Qd/7r+82sFHGoqCAMafH
-         SG9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772812301; x=1773417101;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=xzcKbGMLVorHlsZLyV1rvqs6i8R7J8sRM6aIMH0+nN8=;
-        b=uzZl6HmSLx/rPJ2mUJIoPRFgJcijAAiS/EjcpKkWZ2nKZH2cqWGJ1/bguodg6kGfrU
-         0U/GXNOFVEIgS+xh5N1CHZP/q245eHAOLP2ANXxa8hrwHr/GAQ86kcDkWSLfOaAEOPCj
-         fipEdG1ZPxRBZ38KNXMkwrfjvDdyLMj4WL1jClkWg2wgctmyVtEfWBMCpmKhbhQpX9c2
-         GGwrJ/kDoWkTK2SP0FWVvHX7+uCrC7NDuZ0FJVWUW6Bgx7GQHoZjXLuMuAi8muZ4c1LM
-         Rm1XaAQXCuc7wenMwjSGsC4/SlyTwYHyDxkFxM4wzPfcd6kvQqRxvJ/GCoVUO3XPCfvT
-         pt7A==
-X-Forwarded-Encrypted: i=1; AJvYcCUUJ4uxaJR2nl2VGHkodwWSFggPg3JFM0UieriFQYokGfDP/OyKZ/xb6xQzwCw4vattoCK6sGiujKBZRGUsSBGU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz6o/SLJFDlhMN1Xe1u2Nv/96+FKy/z+uxsiywbCsuk/tjxn12Q
-	NXgxrAz8/LQjpeekOy7Rm0OwhLXA/JPylKFpFKXGPYimPiCrYPdth4SjieqpTjHZIcV/k0x9qWE
-	WRIrqSlBn62peAr5yWe0zI5sbbqYMiU584HR8Socr0g==
-X-Gm-Gg: ATEYQzzORznMEXRrQl73uejSexq0srpaN7FmG3azGYTMtQXx7F+oHYLIT8hTQ5y1XvE
-	XbVL27hnRl+vXW3/EAC7CMMi6uBiAauSQNq/73B2rFxLdIUpbmO7/knpMf0Gz037o/nr5rre+fl
-	BxIuldsHCNgl5wjfxB3V5SNx2k+2BH+JCFMUWG87dMQVGf12BTzZBfybA8r966HJqMgJ8pDWwTS
-	RvhA8py4GxKrdCOQq4ip3sPRkGyvmtPI6uShejm0PDvgzeM0vuz2hovTqabn70f2URB7n+65hWi
-	Ka13qFt9REvxB6EowwY59M8KUsDtTgmjqEAxnqNe3w==
-X-Received: by 2002:a05:6402:440b:b0:65c:354e:94f0 with SMTP id
- 4fb4d7f45d1cf-6619d467bf2mr1553000a12.8.1772812301052; Fri, 06 Mar 2026
- 07:51:41 -0800 (PST)
+	Fri, 06 Mar 2026 15:55:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=COQNWWfRVaL0oJW7OhI2DpQS+K5UKF3Y2cnvuPRiv/r/6gs0l3U3udW1iLvZ1h8xMaDwAXYszvpQli3zM5UVbxknTMia3mtOCq+MOUOBKAhE0GMjyecKAXYerd47m/K8kHVC3Y6Oj7ojJ6VWOgf0EFqo49iJaMo93aVJa0RNFXZtIcbsMyZGs4aB1RFH/FTKh1QFqrLHr/9dD/jLAj3+CtlUM/LmQcXQHUaU8/MzsJG0NN7H0soOxJLI0+b6Q4hsC5WYgachUbIzZBNpaiVrAcZqCGvvGHfWQOwfA2huKxFVJU/fldy/kAbZYCi/0Q88sWOfz3lm+QjPs3lMV+xFJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZDC1bvv766jK85yPMeIbrjQkPNPu9yUqHXpCfrBNPIc=;
+ b=tQh1VYmOXwZ0VjQrmZkPX6EjdQ6HOoGuN7rTUmjUU+CPHenXXtFDL9Pa+Dd27B7JFlzaPruTSiq+WzP2oMtvZ2x0wWgvc3dcDoNfiEpVSNQ6pg/EQzKexu8XS5hd8kd7DTT7+8yfpKmO72L+YBdAxAMIo76WIlRO6LeLZEs4mM968pGFLspViF8mHjZOwhtJjpQUCAVYa0NXTstZczrtILBpEdon7TKPhJt/VhE8dyC3w0+aya/lGm0+PdS03YCsw8q1lJERP+lzYXyr2GKSysAzqLCdWl8lklnUGALlSR1jMCbEnc8+7GKxr79hwXrcOR/K7Rd8COwCQKMmjfF/Rw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZDC1bvv766jK85yPMeIbrjQkPNPu9yUqHXpCfrBNPIc=;
+ b=hYJvcoyHwYnjRD/cEfGTKF+OdWgKTKkeEufM1upoxztObSuDW4yl+3cvkXuIkMmILJXiqPnrMpjBqBaPm5bLPISG28vYlHTYKa+PS+jQzb9vQ39ysMsxBWBUMKyS4nKbhVXH1SZ5tficGt3CqxGThQnhsLD9jZGHWd+3SM4473Fe3KFTpkDyZb7fvMiPf+A886lhtxA4p0pg63jzeBzM9U91FJIxNjTS5TDcSHSt6nqo/nnUnfPlY9m7Vc0U4gHRp3dQhhRnluoXWL9a9EA0E6j1kthXUE5IBwO2WKDJ2l+5mrLJ8p4XtyMkpYL0HjSPDaiOqc5T4YF6yJ7P36RVvQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by DU4PR04MB10720.eurprd04.prod.outlook.com (2603:10a6:10:58c::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.18; Fri, 6 Mar
+ 2026 15:55:27 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9654.020; Fri, 6 Mar 2026
+ 15:55:27 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Ian Ray <ian.ray@gehealthcare.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH V2 0/5] ARM: dts: imx: {bx50v3,b850v3}: Update device trees
+Date: Fri,  6 Mar 2026 10:55:07 -0500
+Message-ID: <177281203001.262555.3373988433657530450.b4-ty@nxp.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260217135521.65742-1-ian.ray@gehealthcare.com>
+References: <20260217135521.65742-1-ian.ray@gehealthcare.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SJ0PR05CA0192.namprd05.prod.outlook.com
+ (2603:10b6:a03:330::17) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-References: <20260306-gs101-pd-v7-0-03f7c7965ba5@linaro.org> <20260306-gs101-pd-v7-6-03f7c7965ba5@linaro.org>
-In-Reply-To: <20260306-gs101-pd-v7-6-03f7c7965ba5@linaro.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Fri, 6 Mar 2026 15:51:29 +0000
-X-Gm-Features: AaiRm50XSyJAhZxudj29YJ-AfLARk18pjf_9-ZTH2qd-aJZzO76tWKTXAR6KLlw
-Message-ID: <CADrjBPqB60UtWpZjBdsGtijw+OSq76vfBaiKoJg8We2na-ixhQ@mail.gmail.com>
-Subject: Re: [PATCH v7 06/10] pmdomain: samsung: don't hard-code offset for
- registers to 0 and 4
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Juan Yescas <jyescas@google.com>, 
-	Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pm@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DU4PR04MB10720:EE_
+X-MS-Office365-Filtering-Correlation-Id: 273ff0ae-59f4-434a-38ae-08de7b98c937
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|376014|7416014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: lEwFNpY2Ja5v4mznHDJXc/Yc9XDPYIgJQi1lhPXig+blPYGp8+YBQJ5O8rfa8UW1EuvrHZg9v0oCwcuae2qHaeEQojhVGbMCZ42C+EE2DoHTW/Ukq07OE3RCKjxdXMlmqCtPj76D3R2NYE8ZjcDKsu567HlFC36iRgLYAYg7l3XVwN39gBkOddCq7rMPOuzWcLKK6u2AKXKm+t86YJJMSKU3XiX2f6/BNmh+vfyFYWQMpevJKOCLetmKRxybtPsQOIHG/351o0MLea84wD2XW72EaTHoLYyY71ds2EesyewX5VDaym0Lfa3dlgMHuvnGwzooaX305tYwTeYQp2/PuxGcfu/bN18q4MijUYAYEeNJGibvTMV/3EcspQguCHN1FhUttdg83sw7crzni9Y9XLyf45aHDsBB2ftUQxATSIa26ZO++IF9tQRdGXfU4KLhmeh02gD22v7Y9AWXvQB8UkVAGRJTHpn5+xI46T4rG0HEIdQJLVMyEAW6prLWZpVmUgdPkcpollcxXRXz66uvFtibnZBwd1ukwISts3EzGDyX/pPvwl9Nc6ujW4NrtpTkcG6KaMJ/3lgDxUeno15L0PeaZkrdtbBb+hZfJF6RgotKxnPClDKNojHpE8O6yfaXjy9/9q3DNhv/7vd9ITK4Odv/wr3KsrQbBParjhV/wwIZLc94FBhD25YOpa0ig3YnnSl9NpHoeN1i27MP6CVY3QEG0+ELlr9xSCs/3EMwwC8rRuUw6PLKrQmRINafmj7WHan9JgqbgpCgNzlsh58LXNr6e564816zmvUdqHww7oA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dlMyZ3hHeWQ4K3ZucCtZQ0FBRUJWYkpoL1QvZkh3ckpBbEhLd01Ub3BtUzFZ?=
+ =?utf-8?B?WWE0cGpOdzR0U2ZPaXlURGR5NU5ORnRSOXhDU2tkMFZFWllENmRaNDdHeUFi?=
+ =?utf-8?B?UU5sM0kydk1ER2RtMXFYMXBOekhnN3BITHgvZHZWeDluNXZJdTJDQVVBU2Jy?=
+ =?utf-8?B?NENDVEhjY0ZsVnN2NXZOc2s0ajl1NnlyMVY2S2ZwVTNNVDJ5TllHUERueEc4?=
+ =?utf-8?B?Q0ZDSlRVcEQ2YlhGZlRDRTl5RVMzSGFSZDlUL2xEWElObVRDQ1VRN3NhQ1Z0?=
+ =?utf-8?B?Y0x1L25zenRmWkdjbWxVZW9Eemg1Vjk4bnpyM1BnSzM3MUFUZm4vZWJnRzBj?=
+ =?utf-8?B?bVhhZjZFUHJFelpmYjNwT0NVem50TWFDWlJCYXllZ01DRXNxak44TVVkVjRW?=
+ =?utf-8?B?bktZdHRlbTBjVDVTQmZBdEd3TWE5SitkbmV4UWlQMG5jaEFubm9rVnhsV2Js?=
+ =?utf-8?B?VWN5Z1cydGpwakI3YWYyTlVWVThTRXpjU1poUHVaR3N0Wi9wWHBpcDljb2pO?=
+ =?utf-8?B?aC8xRE1wK3JOblYrZU0vWUVNRHIyaHh1YUNqTWc1OFFNTEwxTG13Vzc5UGE3?=
+ =?utf-8?B?bCtmWG4zL1BqRnpqUFcrUlB3ZlN1NndFeHpQRjZqRENzSmpmbXZoT0NvV1pl?=
+ =?utf-8?B?bG1jcWExcVlUcXlFK2k2QmNkZGdHYk9ZUTdSbFliMjRVb0dDaTVQZzI4MXRX?=
+ =?utf-8?B?S0wxY3JVK29yWHRSZkwwcjJTbzlRVUsyQkUwc29mQk9aS09NckpxWlA4VFJN?=
+ =?utf-8?B?VnlpeXYxNUdZbnUzSHpHZWM4WXV4c0paWHVGVnkxREM4Qjh2UmdOTHIyRitv?=
+ =?utf-8?B?a2hoQmk0aysvYzhkaTNiZitLVE5udlBUQmlMOUtJbzBlY0NiUU5NbzJXYXNh?=
+ =?utf-8?B?NXJITkJqankwcjBpY29vckV2YUFFckhCU2xSU3B6M3k3UytzaHZyNU5BdW52?=
+ =?utf-8?B?Ym56RW93S1Z3TXZBUklYdzFvY2hpaFFJWkltbThlTkg2TTdGYVJqYmJxejRx?=
+ =?utf-8?B?cGVVUXh2K2RSamYvNzVKY0FNWlZjNUgydkJ3NlZlTU5sazNKT2c3SXV0SlUw?=
+ =?utf-8?B?dld3QUVpUjBFWUJQWGVvdk00QXRVMFNaV2xZN01PVW50aDVyR0RWMS9UWEFP?=
+ =?utf-8?B?MCtYc0RHNVcrT3kvb0JSbWxPUEc2NzhUbUU4eWFENlcySmVRTWI0UlNheEdv?=
+ =?utf-8?B?dytTM1o3cTIvZU4rV3R5L3JrYnZncmhXeE13RFlIMlQ0M2hKdlgwSVordndE?=
+ =?utf-8?B?YUhjT2tDYllBcGErZ0lqd016NjRlSy9JRXFzUjFkT1lEQjNCcmFFWXhQUmhV?=
+ =?utf-8?B?RG1uT0pPL3poWHQxY29XTE9XSXpvR0tiRjFCNzNERkswdUpucG5jRGNvYjg3?=
+ =?utf-8?B?WlZoSkpZQ3lmeXJkc293bkxJVlQ2bG5aWVRFbFFNazR5M2JtZzM0Ui80dito?=
+ =?utf-8?B?aTZnekZqeGhHV3BhRVdiTkc5VWx6NG9NQXF5TkhvYlNRZitrdGkra0xpejRu?=
+ =?utf-8?B?SUxsbFpiQXo3UllVKzIvS2lJSHhsMXZMSUhjaUhLUHZxQ3hmZ2NlOG8wZHZ4?=
+ =?utf-8?B?MGlhTFlUb1QxamdTUXgvSmpFVlc5bllnbXh5RGdOa0FGM3JJZEhiVnZna2Iy?=
+ =?utf-8?B?TG5lVjdtQVdMRGlrSS81VXdjd0E5c3ZuQlU5TDRQZG8zd3luajZPdy9XcDZU?=
+ =?utf-8?B?Si9sUlZ6cGI2K1ExeWZzb2p2aU5xYkVKd3AwOWZ2c2tXM0crNFBSa1dWMFBF?=
+ =?utf-8?B?RkNieFZkTGRvdHhFY0hqcVZJbTZHQ0FISWx6NThqQ211Uzdzc0xJYVB6bS9i?=
+ =?utf-8?B?b2FkZkdkTlNhM0EzLzNuTWV6MDZXZ1FhdkFpZWNuaUx0NkcxblIzTVJLMFh5?=
+ =?utf-8?B?OTUwcG15a1MwOWhqS2Q1bXA0TE1tMEV2RS82L2tENHNXQVQ1NGdEVGNCd0Z2?=
+ =?utf-8?B?MHg5dXlRRXE4M2lQNUU5SzBIcTgxR0p6UHNUdVVuQ1FEMWhvWWJTaXA4eTF5?=
+ =?utf-8?B?aXVaVmtrV01rM00zd1NBZXg5YXJZVUVabVBmWXNmcDY4ZHdNRTdUVWxRWWxH?=
+ =?utf-8?B?M2hFZzhIeWtMclgwT3VyaWFhUTBuL0xqTVhZNUVKNVdhUDdjajJZZDRjMHhK?=
+ =?utf-8?B?YVZlT0dBQkJPL25nYTJWMjFaMUI5R2dpN2svNlZXN240K2MycExGYlV1V2ND?=
+ =?utf-8?B?NXlvVGdCcjN6UTF6SmwwU1IvaHB1WHkvcjJ4WXFMQUtJWTh0NEJ3R0NJMEQy?=
+ =?utf-8?B?OXlmL1NZZjM3MWxiZThMNFh1bWZjUU5GNlIvWllqenUvSVc2NFVEWW8rOUh6?=
+ =?utf-8?Q?4wfynPW8VmHRyVh7HS?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 273ff0ae-59f4-434a-38ae-08de7b98c937
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 15:55:27.6897
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: oQdbtBohf/SuvCNjW9Q5SxoDg2rGStz82hA/8B1iBO3leEkTu3wC9/UR/+o/0jFPZzPDaNE6Gugx2T0muRMJ8w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10720
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_075143_304348_E40C17F7 
-X-CRM114-Status: GOOD (  23.03  )
+X-CRM114-CacheID: sfid-20260306_075533_917753_88B077D5 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,89 +154,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 6 Mar 2026 at 10:29, Andr=C3=A9 Draszik <andre.draszik@linaro.org> =
-wrote:
->
-> On platforms such as Google gs101, direct mmio register access to the
-> PMU registers doesn't necessarily work and access must happen via a
-> regmap created by the PMU driver instead.
->
-> When such a regmap is used it will cover the complete PMU memory region
-> rather than individual power domains. This means the register offsets
-> for the configuration and status registers will have to take the power
-> domain offsets into account, rather than unconditionally hard-coding 0
-> and 4 respectively.
->
-> Update the code to allow that.
->
-> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> ---
 
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+On Tue, 17 Feb 2026 15:55:15 +0200, Ian Ray wrote:
+> Configure PHY speed and mode.
+> Configure b850v3 gpio4 line name.
+> Disable b850v3 usdhc4 interface.
+>
+> Changes since v1:
+> - Clarify the exact warning message in patch 2
+> - Add patch 3 to order reference modififcations correctly
+> - Correct the ordering of reference modification in patch 4
+>
+> [...]
 
->  drivers/pmdomain/samsung/exynos-pm-domains.c | 10 +++++++---
->  1 file changed, 7 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/pmdomain/samsung/exynos-pm-domains.c b/drivers/pmdom=
-ain/samsung/exynos-pm-domains.c
-> index 3bcba7d38ac1..8df46b41f9bc 100644
-> --- a/drivers/pmdomain/samsung/exynos-pm-domains.c
-> +++ b/drivers/pmdomain/samsung/exynos-pm-domains.c
-> @@ -30,6 +30,8 @@ struct exynos_pm_domain {
->         struct regmap *regmap;
->         struct generic_pm_domain pd;
->         u32 local_pwr_cfg;
-> +       u32 configuration_reg;
-> +       u32 status_reg;
->  };
->
->  static int exynos_pd_power(struct generic_pm_domain *domain, bool power_=
-on)
-> @@ -41,7 +43,7 @@ static int exynos_pd_power(struct generic_pm_domain *do=
-main, bool power_on)
->         pd =3D container_of(domain, struct exynos_pm_domain, pd);
->
->         pwr =3D power_on ? pd->local_pwr_cfg : 0;
-> -       err =3D regmap_write(pd->regmap, 0, pwr);
-> +       err =3D regmap_write(pd->regmap, pd->configuration_reg, pwr);
->         if (err) {
->                 pr_err("Regmap write for power domain %s %sable failed: %=
-d\n",
->                        domain->name, power_on ? "en" : "dis", err);
-> @@ -53,7 +55,7 @@ static int exynos_pd_power(struct generic_pm_domain *do=
-main, bool power_on)
->         while (timeout-- > 0) {
->                 unsigned int val;
->
-> -               err =3D regmap_read(pd->regmap, 0x4, &val);
-> +               err =3D regmap_read(pd->regmap, pd->status_reg, &val);
->                 if (err || ((val & pd->local_pwr_cfg) !=3D pwr)) {
->                         cpu_relax();
->                         usleep_range(80, 100);
-> @@ -164,6 +166,8 @@ static int exynos_pd_probe(struct platform_device *pd=
-ev)
->         pd->pd.power_off =3D exynos_pd_power_off;
->         pd->pd.power_on =3D exynos_pd_power_on;
->         pd->local_pwr_cfg =3D pm_domain_cfg->local_pwr_cfg;
-> +       pd->configuration_reg +=3D 0;
-> +       pd->status_reg +=3D 4;
->
->         /*
->          * Some Samsung platforms with bootloaders turning on the splash-=
-screen
-> @@ -174,7 +178,7 @@ static int exynos_pd_probe(struct platform_device *pd=
-ev)
->             of_device_is_compatible(np, "samsung,exynos4210-pd"))
->                 exynos_pd_power_off(&pd->pd);
->
-> -       ret =3D regmap_read(pd->regmap, 0x4, &val);
-> +       ret =3D regmap_read(pd->regmap, pd->status_reg, &val);
->         if (ret)
->                 return dev_err_probe(dev, ret, "failed to read status");
->
->
-> --
-> 2.53.0.473.g4a7958ca14-goog
->
+Applied, thanks!
+
+[1/5] ARM: dts: imx: bx50v3: Configure switch PHY max-speed
+      (no commit info)
+
+    ARM: dts: imx: bx50v3: Configure switch PHY max-speed to 100Mbps
+
+    Configure maximum speed for the switch PHYs according to the electrical
+    connections from PHY to RJ45 connector.
+
+Update commit message by Frank
+
+[2/5] ARM: dts: imx: bx50v3: Configure phy-mode
+
+    ARM: dts: imx: bx50v3: Configure phy-mode to eliminate a warning
+
+    Set `phy-mode' on network switch CPU ports to eliminate a warning:
+      mv88e6085 gpio-0:00: OF node /mdio-gpio/switch@0/ports/port@4 of CPU port 4 lacks the required "phy-mode" property
+
+Update commit message by Frank
+
+[3/5] ARM: dts: imx: b850v3: Use alphabetical sorting
+      commit: be700cabe4c485ef629f8087c43183cf106f7e5b
+[4/5] ARM: dts: imx: b850v3: Define GPIO line names
+      commit: 26ad38fce6d8ef50316ea59f1ba3f2811b11a16a
+
+[5/5] ARM: dts: imx: b850v3: Disable usdhc4
+
+    ARM: dts: imx: b850v3: Disable unused usdhc4
+
+    Disable the unused interface, to fix print an error message during boot:
+      mmc3: Failed to initialize a non-removable card
+
+Update commit message by Frank
+
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
 
