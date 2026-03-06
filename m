@@ -4,159 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B67CFCB619
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 15:27:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87285FCB618
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 15:29:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZrXKJx/LPC8KGC0hxXhELZvufGKE0Ey6sYq/g0s1XHY=; b=vjPr22HOe8jVmkRiWbinUkmqrD
-	PVA5+c5lgFhT6rxUUf+bYSdeKNtOXoI115jEQDviAQIQuGWkDQxZCAZpt70puHmjp/ALNYWvzG5uF
-	7WHDShk6F76dSKuoPyp5fw5B4i9HE18XtG+3iv/JD3ISBSsvSmuruea3nlMkHxaJVrHlfKd9d0l6S
-	TTFVH4/3hK6JWzSLh30Y749l6wQaMk9H65YVFcrisOtlLzHveO5jXji4vNO+DqNg/JM3Dn9LXDQ/7
-	du8AqJNdf6xLzsHJYFpjnuN9JHEJYTluBpHl9YGvZ0qgn7v74oL9ubkeNb2Q1EvKw8o52XX9RyQjQ
-	bK7aQVcw==;
+	bh=+SgJSaoS3xBZpSKJEkAK1Alkfabvk0poTkSdP90aLcE=; b=xd8XSTdU0z3s0S3VgPOTYbvqc/
+	tDtIccb2zOgKKKVCtADuwGFCW2W+2N9bkPP5eAJQck87cBs/MxG4z3gZPCXBwif8beiKwYhYo4DpV
+	ILTzaMngi56KSSuMb6Sdp/dXWLuhDz4rjd7H6T2T2a4UdGVnxQB5dn7haCWaTL/wQfAbXf9qNiB/A
+	/iYGSc3VTkp6JphO5GOMaRCfnn1vECIakcK/E+LrfbSo1ABxZ540fIGF4RbaKNILcW7G0O+IoQx9X
+	zg1Vc08+9h8E4NmSyzseK3ZS2QL3Laj+A/AVdb59/whwjDtnG3nJZrJjvQzmTsoBMpzZy+09Qj161
+	hIVVEdIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyX5I-00000004203-3Vsg;
-	Fri, 06 Mar 2026 15:27:24 +0000
-Received: from mail-westeuropeazon11011005.outbound.protection.outlook.com ([52.101.70.5] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1vyX7V-000000042LY-44c2;
+	Fri, 06 Mar 2026 15:29:41 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyX5G-000000041wz-1YRX
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 15:27:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Uuft1OQoh6ia83ldHOaW7yPzHYNCeEx1tXsycXYV4X3kdN3/U7BCeZbAx7cGwu+qNFfokphCyZxwbh4SF/3w8hBC/anEuFWs8gUh5Mx8fQlNf0ZL8ZzTNJ33vmpk2Y3M6nHD8wbk3iYhyQ8CsRh+CyTmLMmzON+blncA0OYAac86gdXpmLXEAr5+J8KWObPGRpRgUzTo96J40HtfQOTIGSVdJU3XUvHhm862e3MZoxHDv7y01O8iIMz7T2c9GGAvpNfpuIfmk36tf8nS0piJKyfDGQRqaORVhwjpoGHh7AypdZS7TX6El5mLt9peT3267ZQpJKs37Ht08ArXZhSPzw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZrXKJx/LPC8KGC0hxXhELZvufGKE0Ey6sYq/g0s1XHY=;
- b=er1r4k/ZXctbYzNPInl6BfNqoDSqdNFhkw8NFTyhxsaselZ16h8gpLKiZKgT/o0simf5mMjNYdViqGrf2CynT1xLbBDvYQd9/094fhm94beEfge2Jdy2K2j5/7Qrgrwfj+ZMTnyFYZPaol892jGDqbLiuriUuq+e72co9RqPx5acjphfKScZ37TVtV6aXA4QGUOGD4l/SKUj7+91Vjkx4FHOP2mKRbX/MflYSYONXIw98eIGpUhET0T2TFwUSMMA3cxezSJxxn/FOIzgo//utxOgzY6QhWuD5eEndfM2S339tbmKd6jvc70d6ubVPIe4s77HDII8GdZEb/nriQfwmQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZrXKJx/LPC8KGC0hxXhELZvufGKE0Ey6sYq/g0s1XHY=;
- b=dAd5rV4T4L1i9af++vIa4LazSFbKzRxbKt+GLNzBEGW6wG119mY/YkEdDr3vavm0m+FTXxJljSfsDpI2ZT91f9/x17vcaJYVHY8FArOAI4FXTKVsGTi0LQgAKe+cvDft3EFN3MZpniPJVQEMZWA7wNwJt29zbtbd9/6Supm1uvQUsJBhAjN1clJ0hc1jrWUSUrBWk8Q0+9MCvVpUeIwJmF1hNrE0aFfxhAigdVEjDl/XbQ31i899UAW9elFQZ7KWfH5yYV+XvEoTo/Iea4Xf7r+0o7URmK+fHAWLLdgEx4erbVCF36h0vNNuEVZgLeQ6be45RX3myjlMZtStYAdPQA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU0PR04MB9251.eurprd04.prod.outlook.com (2603:10a6:10:352::15)
- by DU4PR04MB11908.eurprd04.prod.outlook.com (2603:10a6:10:61c::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.18; Fri, 6 Mar
- 2026 15:11:55 +0000
-Received: from DU0PR04MB9251.eurprd04.prod.outlook.com
- ([fe80::5c3a:1a67:2e02:20d0]) by DU0PR04MB9251.eurprd04.prod.outlook.com
- ([fe80::5c3a:1a67:2e02:20d0%5]) with mapi id 15.20.9654.022; Fri, 6 Mar 2026
- 15:11:55 +0000
-From: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Haibo Chen <haibo.chen@nxp.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Lucas Stach <l.stach@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	s32@nxp.com,
-	Christophe Lizzi <clizzi@redhat.com>,
-	Alberto Ruiz <aruizrui@redhat.com>,
-	Enric Balletbo <eballetb@redhat.com>,
-	Eric Chanudet <echanude@redhat.com>,
-	Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>,
-	Larisa Grigore <larisa.grigore@nxp.com>
-Subject: [PATCH v3 3/8] dt-bindings: arm: fsl: Add NXP S32N79 SoC and RDB board
-Date: Fri,  6 Mar 2026 16:11:42 +0100
-Message-ID: <20260306151147.24446-4-ciprianmarian.costea@oss.nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260306151147.24446-1-ciprianmarian.costea@oss.nxp.com>
-References: <20260306151147.24446-1-ciprianmarian.costea@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR4P281CA0155.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:ba::9) To DU0PR04MB9251.eurprd04.prod.outlook.com
- (2603:10a6:10:352::15)
+	id 1vyX7S-000000042Ke-3rzG;
+	Fri, 06 Mar 2026 15:29:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1772810952; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=n2CYVx5JEDi0jk7OtgRi1swlscIlbUn5VPsdgz7NvVrgIfn+WMv2KXI/2JlE7nPHZ0TEvb8s4U+5tH1ltVfjH7JcuVDdh83lXrx48NZPhs1L5yuW7XF/ieT8XZIDpJLmcAAxVG/1oZSz6aIAMS3vW+h9ra/1prqmsvWCyzlLhIk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1772810952; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=+SgJSaoS3xBZpSKJEkAK1Alkfabvk0poTkSdP90aLcE=; 
+	b=Pn7VofxnewzUyi1JWpxghspal6Amf0Tc59KQoiKS5EPXlyEQpHescP55ScfJt2wDZbBn2tx+EUIAIolRAvNC801wWPvaUXrbQEVKN4+V+9xZReScByZLctzHHQjasSLTLQqk+0wHAC1zuCoNGkdP8TOVATY8ZrYi2S07i5/wU3w=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
+	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772810952;
+	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=+SgJSaoS3xBZpSKJEkAK1Alkfabvk0poTkSdP90aLcE=;
+	b=QwtE9Q5iJGOpPOTY0pjt6t3wv0ZMo4y2eJia7JBnri7zdmVxnPhHc+Z2e7oHGeEd
+	49kTZ1WXWj8k4ha7p3uHhbSKsr7A6PkEg6KQUjq6PicJuWpKTbtYXgfS1ZKmY0/sBVy
+	C6bwC2oB9+pPHniMQD2eCPdr+Qo0ayjq8WducjEQ=
+Received: by mx.zohomail.com with SMTPS id 1772810949873805.2836907763226;
+	Fri, 6 Mar 2026 07:29:09 -0800 (PST)
+Message-ID: <2825e5b6dff6ed6319c70f9b1c4358a7e07487ad.camel@collabora.com>
+Subject: Re: [PATCH net-next 2/2] net: phy: Introduce Airoha AN8801/R
+ Gigabit Ethernet PHY driver
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn	
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet	 <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
+ Abeni	 <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit	 <hkallweit1@gmail.com>,
+ Russell King <linux@armlinux.org.uk>
+Cc: kevin-kw.huang@airoha.com, macpaul.lin@mediatek.com,
+ matthias.bgg@gmail.com, 	kernel@collabora.com, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, 	linux-kernel@vger.kernel.org
+Date: Fri, 06 Mar 2026 16:29:03 +0100
+In-Reply-To: <32dd938b-2693-4efb-b70b-f713fbd8fefd@bootlin.com>
+References: <20260304-add-airoha-an8801-support-v1-0-0ae4ee5a2f9d@collabora.com>
+	 <20260304-add-airoha-an8801-support-v1-2-0ae4ee5a2f9d@collabora.com>
+	 <32dd938b-2693-4efb-b70b-f713fbd8fefd@bootlin.com>
+Organization: Collabora Ltd
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU0PR04MB9251:EE_|DU4PR04MB11908:EE_
-X-MS-Office365-Filtering-Correlation-Id: 67f8210f-4aeb-4b12-99f0-08de7b92b3fc
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|376014|7416014|921020;
-X-Microsoft-Antispam-Message-Info: EGLRQMmy7UY+6fUJJJxCC3DoFLRdv67SRYiWUOoXEWYMt2P+eXKE1OBqFQMTalClFe6+zfWX7idK5qxOHYr5Tk/3T8BQFcJunkVBh3jI746Ntoe1sbAYe2v8u9uYJ5vaftmqR2ylTHopHHNrnZm9GvJ6xaH/d8fGAmMjcAnOSl8nc4z09IFvtbCIluWmQ5DcVs6+z7qlRY6y9w4hH9bF/uvUQ3oNbLZf9Nm4RTVhsNG+cKj061dVQXmOEVjjfcWqv4uB/9dTxXd5rZXYwDXIkIn2ebyiuxVio+y5x3LiupuBIOkJUtFlhHXiqHVxZKglgQbHHTY3kUK5cVP6SMWkPSwxxN9mTTMJEC3dKBYTV5O4H/E0Ckt4for9EWJDqzbFAji06LwJwSt0wgLdhyYvnB3c3+yNgOYorLGNmW1XVc/IqGD4zkZTgqec6OKSw+IRd4tAM2fyJbkU/22u+Fwg6Pg8Tmy+VW7ZjTlmlG01+c4SnWtk3xsdythQi1UpLLb5PASj2q7BXrTYFGDJvXWwCed2XXpWbq5U56icM7tMCgdbzp9RlxQdg0bAZxI6JOY2ffmSqDLq7X1OJ8zmNpv/0pDNdOTz7dlQR20PGrDCvqcxWhEbYakSvsEfz3FYvGKVWCVEd3nmgpMX1GaWfWs9vxwPoCWGH60Ubvo1REzdQrPc0BD+YDkW/3T3WofVORic8W5nvjwk9FT2NAHA0tdzVa8y49cgoaO5FgwpHMtFVRRiKz3b/1VV0+iU2GPNd5uQvwrICZK2EleCmnmF6MB5tw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9251.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(376014)(7416014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c0VzYVlqbkZFSU1QQXgvTFkzengwSUFCcFowb0FHQXJ5bTNIU1Q2cTlYYWZm?=
- =?utf-8?B?Ulp4WnIyK1FQNFM4RHd1NGFVbkdSdkdoR2hGRzIwcUtCTmdOY2tRSXJlUEdE?=
- =?utf-8?B?dldVWjJXeDVUbTgyQWN0TG43RTBtYlEwK0ttNjZTdHF5Y0ozNEV1NEJ2ZHdO?=
- =?utf-8?B?NGsyWjA4dlRNM1lGdVczWU40R1doYnlRN2h0bVJMZ2JnRythTzRhSnQ3dCs0?=
- =?utf-8?B?SlhnYWFHRG5WLzJmYWVUbGo2ckNrdThIV3dhVmFqUVYxbzIweHNCMThMTFZY?=
- =?utf-8?B?Q3l3elVsbmhMQ1k5b2hPaDFPSEZBTnRpUFhIZ3RxaE9JdC9VNzFMT1lnNjU0?=
- =?utf-8?B?Y1M0ZXB1V0hENnNpdDZQWTdYN29mN3Vnc1pwelorTVJkL3JkbVdLQlpvUnRo?=
- =?utf-8?B?Q3FMd1lTMzdCVUR4VWkrR1ZwZzZrcHpmUkt1YkhtYUlPM1BpWEw2TzJ6REhM?=
- =?utf-8?B?RTFuOWR3TExvdWF0ZjJ5ZllsWHA5NW1UQU5HMGQyZVNmM2lScHlGYzh0RVRF?=
- =?utf-8?B?aEFxQVJRemFPSnVsMmRiSm5QaEFqeTYwcXdwdWF2NHF0cDB3TGJTbWJCQmNo?=
- =?utf-8?B?THZOSU40L3E0Z2hXY0UrSlhuK2NsVDhxVFVnVzVCNVY4TVhQNDY2anhXRStn?=
- =?utf-8?B?THB6Q2NqSUpSUlFZZUxCRytZVDZER3J0N1ZZNHFlRDRKZi85bnZGWjJ5WTBM?=
- =?utf-8?B?ZHJaQ0hVcVZkdkZBdVR6bENGSHVCeTRMVThRZGxIT3BTdkdaRHJSbmNlZXF6?=
- =?utf-8?B?RUU1eUNMRXN3R2ZuK083WFJCTldTb3Q2dWo5Ulk0a1VSVkh3dFl1SjBBNUVr?=
- =?utf-8?B?UDRVWDRsaVpJVDBqOVFkMDNzQTdqSVZ5K2ZGYjFZcEk4dXF5OFlIcUhodkNN?=
- =?utf-8?B?Tk15czlWRExENUhhNHI1SU9EVVJSK2o2NitJZkFSZVFpd0tPZXhiRkJkem1V?=
- =?utf-8?B?cmU1NDFOTDlNWUROQXZDRkRoZXc1NlVCeFhyQkNuUmNEWTVtZkdJbmpMVDFv?=
- =?utf-8?B?WWpKWUM4NUx0QmpHWmFQTW5peUdlS01xVHBQSll0UHFheWVJS2Y4MnZabGZz?=
- =?utf-8?B?aFpWelVCM2RHdCtFWis3QVZYd0Z4Q09jYWZMUUhkcU9FRndUakxNOXpOZXdC?=
- =?utf-8?B?T3R5Q0NVVUloY2IxWTdTUEhZWkNucktkTm05VllxaDg2RUE2UW91UTlaUHJ1?=
- =?utf-8?B?UlFPZmNSRDVUSWI0Nm9qczdQV2FZZzNDN1JLdGh3NnJIRU9QMXY5dThzY1Jq?=
- =?utf-8?B?R1puOU40a0lhUmc4bFpVSzk0ME5oa29FWXFNSTZtRFpQMzB5MVNVUy9vckFq?=
- =?utf-8?B?OWtsV2h6b0p6TElUUEFTTmFLeGtnVlBFdExtK25aM0IvbWkzanNEWHFtLzZP?=
- =?utf-8?B?eTBxeXluazhJZ1k1MWJpL09qSmJNZzdRMG9UMWo1UGwyVWp5Y25xZnJ4YnlP?=
- =?utf-8?B?R0NTc3NIOG1VZ1pHVDNhaWRKdXVmZUpka1NyMTJBN1FDZ0ZuUTJTTGxVekhv?=
- =?utf-8?B?RWJrOWhsSUZRQzlLM2hoTC9uVFQ2Snl0MGN0WFlvQ3czbmdhNmYrSEdmM29s?=
- =?utf-8?B?Tlo2SCtoNzhXZVRmUFVyc3V3Y2hvVDdpTDV0Qm53RWg2SnVMZDFEYVV1cmhy?=
- =?utf-8?B?QVRtbGc0bG44WkRIUjU4NVQvd3U1RXUzR2xOUk8raGVhKzY1emFPbUZWbVFk?=
- =?utf-8?B?MThQYmhPT3ZpTURiTXhKb1paMER3VzF3VEFySkxGWjdTYTdVdDNqYzV4YUUy?=
- =?utf-8?B?TFowSGNJaWl2a2VTQXcwL2J4bmJOdTdQYitoKzZWclFZZ1hXbmNtY1NmSVE0?=
- =?utf-8?B?Smg3VktCckVQTWtQcHN6NlVmaDFrT1JEaWljbDVFZkt0KzllZnZkelpBV0tw?=
- =?utf-8?B?bU1uc1JOYlBROUVLeVRxQ0RpRnoxc1J3cXRQaTFLMHhlajNhSHZhdUsxa0ZT?=
- =?utf-8?B?cEpYNEg4aE1YMm1qY0tDUHhBZU9ONjJUTTdGaHBCMzZqNlhHcXJvbmxVWE1m?=
- =?utf-8?B?ZTJoTENIQ2RpNGlhMlZaQnNZd2xVaWQ1NmxIT1RqbG5DWU5xd2ZIN1hRVGta?=
- =?utf-8?B?Y2duNVFNOTd4aFB4QzFQbFZ3bGpRTlE1NGRLRk5pS2NuK0lUSGJZWGNHc0JB?=
- =?utf-8?B?eGU5L2xIMlAzZ3R0dDBvc0FmVWpSWnYzUW9ORWtNYmdWYlVoWllyTGdqWko4?=
- =?utf-8?B?VUpHZTI1WkllM01Nd1A4Z2ZmcTFCWlJRaHJYQmpIWTMzZzlLR3RyVG52VGFO?=
- =?utf-8?B?T2lFVm8wTDNGa2wzK0UyVHYyblowTSs2UWNUc2tBNS9NMDU5RStoRnNZOTVi?=
- =?utf-8?B?bUR5ZGlHOElsaFJDQzc2NjNaclRVamFNM1Jad29lamhONjdLTTR5bHlFbUp0?=
- =?utf-8?Q?XjUuPOhPw6r1iq4I=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 67f8210f-4aeb-4b12-99f0-08de7b92b3fc
-X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9251.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 15:11:55.0190
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Lc3SD08napj3uMlwCiRcmDWGRO28yGNdZqZInvd7zFDcEw57fg0Zkd825FcszRY99JAdz7fznSoR4dk16JcR6E6z72dUU9YXvxfzj0sJ5jo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11908
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_072722_404482_A9ED9738 
-X-CRM114-Status: UNSURE (   8.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260306_072939_018893_5BD96774 
+X-CRM114-Status: GOOD (  24.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,40 +90,524 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+Hi Maxime,
 
-Add device tree binding documentation for the NXP S32N79 automotive SoC
-and the S32N79 Reference Design Board (S32N79-RDB).
+On Wed, 2026-03-04 at 10:58 +0100, Maxime Chevallier wrote:
+> Hi Louis-Alexis
+>=20
+> On 04/03/2026 10:35, Louis-Alexis Eyraud wrote:
+> > From: AngeloGioacchino Del Regno
+> > <angelogioacchino.delregno@collabora.com>
+> >=20
+> > Introduce a driver for the Airoha AN8801R Series Gigabit Ethernet
+> > PHY; this currently supports setting up PHY LEDs, 10/100M, 1000M
+> > speeds, and Wake on LAN and PHY interrupts.
+> >=20
+> > Signed-off-by: AngeloGioacchino Del Regno
+> > <angelogioacchino.delregno@collabora.com>
+> > Signed-off-by: Louis-Alexis Eyraud
+> > <louisalexis.eyraud@collabora.com>
+> > ---
+> > =C2=A0drivers/net/phy/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=
+=A0=C2=A0 5 +
+> > =C2=A0drivers/net/phy/Makefile=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=
+=A0 1 +
+> > =C2=A0drivers/net/phy/air_an8801.c | 1059
+> > ++++++++++++++++++++++++++++++++++++++++++
+> > =C2=A03 files changed, 1065 insertions(+)
+> >=20
+> > diff --git a/drivers/net/phy/Kconfig b/drivers/net/phy/Kconfig
+> > index
+> > 7b73332a13d9520582fb45780528de4e17496f5e..53f451479509b7c11999beaf9
+> > 1ae08ed4ed01e86 100644
+> > --- a/drivers/net/phy/Kconfig
+> > +++ b/drivers/net/phy/Kconfig
+> > @@ -96,6 +96,11 @@ config AS21XXX_PHY
+> > =C2=A0	=C2=A0 AS21210PB1 that all register with the PHY ID 0x7500
+> > 0x7500
+> > =C2=A0	=C2=A0 before the firmware is loaded.
+> > =C2=A0
+> > +config AIR_AN8801_PHY
+> > +	tristate "Airoha AN8801 Gigabit PHY"
+> > +	help
+> > +	=C2=A0 Currently supports the Airoha AN8801R PHY.
+> > +
+> > =C2=A0config AIR_EN8811H_PHY
+> > =C2=A0	tristate "Airoha EN8811H 2.5 Gigabit PHY"
+> > =C2=A0	select PHY_COMMON_PROPS
+> > diff --git a/drivers/net/phy/Makefile b/drivers/net/phy/Makefile
+> > index
+> > 3a34917adea72d03342a8a4ef703ee5d087d229e..83516da36c9ffa4e3b077717e
+> > 9fc375e38ab2ea5 100644
+> > --- a/drivers/net/phy/Makefile
+> > +++ b/drivers/net/phy/Makefile
+> > @@ -29,6 +29,7 @@ obj-y				+=3D $(sfp-obj-y)
+> > $(sfp-obj-m)
+> > =C2=A0
+> > =C2=A0obj-$(CONFIG_ADIN_PHY)		+=3D adin.o
+> > =C2=A0obj-$(CONFIG_ADIN1100_PHY)	+=3D adin1100.o
+> > +obj-$(CONFIG_AIR_AN8801_PHY)	+=3D air_an8801.o
+> > =C2=A0obj-$(CONFIG_AIR_EN8811H_PHY)=C2=A0=C2=A0 +=3D air_en8811h.o
+> > =C2=A0obj-$(CONFIG_AMD_PHY)		+=3D amd.o
+> > =C2=A0obj-$(CONFIG_AMCC_QT2025_PHY)	+=3D qt2025.o
+> > diff --git a/drivers/net/phy/air_an8801.c
+> > b/drivers/net/phy/air_an8801.c
+> > new file mode 100644
+> > index
+> > 0000000000000000000000000000000000000000..86828c7d9716ee45832483d74
+> > f01f2764fcda408
+> > --- /dev/null
+> > +++ b/drivers/net/phy/air_an8801.c
+> > @@ -0,0 +1,1059 @@
+> > +// SPDX-License-Identifier: GPL-2.0+
+> > +/*
+> > + * Driver for the Airoha AN8801 Gigabit PHY.
+> > + *
+> > + * Copyright (C) 2025 Airoha Technology Corp.
+> > + * Copyright (C) 2025 Collabora Ltd.
+> > + *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 AngeloGioacchino Del Regno
+> > <angelogioacchino.delregno@collabora.com>
+> > + */
+> > +
+> > +#include <linux/bitfield.h>
+> > +#include <linux/bitops.h>
+> > +#include <linux/delay.h>
+> > +#include <linux/errno.h>
+> > +#include <linux/init.h>
+> > +#include <linux/netdevice.h>
+> > +#include <linux/of.h>
+> > +#include <linux/phy.h>
+> > +
+> > +#define AN8801R_PHY_ID			0xc0ff0421
+> > +
+> > +/* MII Registers */
+> > +#define AIR_EXT_PAGE_ACCESS		0x1f
+> > +#define=C2=A0=C2=A0 AIR_PHY_PAGE_STANDARD		0
+> > +#define=C2=A0=C2=A0 AIR_PHY_PAGE_EXTENDED_1	1
+> > +#define=C2=A0=C2=A0 AIR_PHY_PAGE_EXTENDED_4	4
+> > +
+> > +/* MII Registers - Airoha Page 1 */
+> > +#define AN8801_EXT_REG_PHY		0x14
+> > +#define=C2=A0=C2=A0 AN8801_EXT_PHY_STATUS0	GENMASK(1, 0)
+> > +#define=C2=A0=C2=A0 AN8801_EXT_PHY_DOWNSHIFT_CTL	GENMASK(3, 2) /* 2 to=
+ 5 1G
+> > auto-neg attempts (0..3) */
+> > +#define=C2=A0=C2=A0 AN8801_EXT_PHY_DOWNSHIFT_EN	BIT(4)
+> > +#define=C2=A0=C2=A0 AN8801_EXT_PHY_CTRL0		BIT(5)
+> > +#define=C2=A0=C2=A0 AN8801_EXT_PHY_STATUS1	GENMASK(8, 6)
+> > +#define=C2=A0=C2=A0 AN8801_EXT_PHY_CTRL1		GENMASK(14, 9)
+> > +
+> > +/* MII Registers - Airoha Page 4 */
+> > +#define AN8801_PBUS_ACCESS		BIT(28)
+> > +#define AN8801_PBUS_EPHY_ACCESS		BIT(24)
+> > +#define AN8801_PBUS_CL22_ACCESS		BIT(23)
+> > +
+> > +#define AIR_BPBUS_MODE			0x10
+> > +#define AIR_BPBUS_WR_ADDR_HIGH		0x11
+> > +#define AIR_BPBUS_WR_ADDR_LOW		0x12
+> > +#define AIR_BPBUS_WR_DATA_HIGH		0x13
+> > +#define AIR_BPBUS_WR_DATA_LOW		0x14
+> > +#define AIR_BPBUS_RD_ADDR_HIGH		0x15
+> > +#define AIR_BPBUS_RD_ADDR_LOW		0x16
+> > +#define AIR_BPBUS_RD_DATA_HIGH		0x17
+> > +#define AIR_BPBUS_RD_DATA_LOW		0x18
+> > +
+> > +/* BPBUS Registers */
+> > +#define AN8801_BPBUS_REG_LED_GPIO	0x54
+> > +#define AN8801_BPBUS_REG_LED_ID_SEL	0x58
+> > +#define=C2=A0=C2=A0 LED_ID_GPIO_SEL(led, gpio)	((led) << ((gpio) * 3))
+> > +#define AN8801_BPBUS_REG_GPIO_MODE	0x70
+> > +#define AN8801_BPBUS_REG_PHY_IRQ_GPIO	0x7c
+> > +#define=C2=A0=C2=A0 AN8801_PHY_IRQ_GPIO_NUM_MASK	GENMASK(19, 16)
+> > +#define=C2=A0=C2=A0 AN8801_PHY_IRQ_GPIO_NUM	1
+> > +
+> > +#define AN8801_BPBUS_REG_CKO		0x1a4
+> > +#define AN8801_CKO_OUTPUT_MODE_AUTO	3
+> > +
+> > +#define AN8801_BPBUS_REG_LINK_MODE	0x5054
+> > +#define=C2=A0 AN8801_BPBUS_LINK_MODE_1000	BIT(0)
+> > +
+> > +#define AN8801_BPBUS_REG_BYPASS_PTP	0x21c004
+> > +#define=C2=A0=C2=A0 AN8801_BYP_PTP_SGMII_TO_GPHY	BIT(8)
+> > +#define=C2=A0=C2=A0 AN8801_BYP_PTP_RGMII_TO_GPHY	BIT(0)
+> > +
+> > +#define AN8801_BPBUS_REG_TXDLY_STEP	0x21c024
+> > +#define=C2=A0=C2=A0 RGMII_DELAY_STEP_MASK		GENMASK(2, 0)
+> > +#define=C2=A0=C2=A0 RGMII_TXDELAY_FORCE_MODE	BIT(24)
+> > +
+> > +#define AN8801_BPBUS_REG_RXDLY_STEP	0x21c02c
+> > +#define=C2=A0=C2=A0 RGMII_RXDELAY_ALIGN		BIT(4)
+> > +#define=C2=A0=C2=A0 RGMII_RXDELAY_FORCE_MODE	BIT(24)
+> > +
+> > +#define AN8801_BPBUS_REG_EFIFO_CTL(x)	(0x270004 + (0x100 * (x)))
+> > /* 0..2 */
+> > +#define=C2=A0=C2=A0 AN8801_EFIFO_ALL_EN		GENMASK(7, 0)
+> > +#define=C2=A0=C2=A0 AN8801_EFIFO_RX_EN		BIT(0)
+> > +#define=C2=A0=C2=A0 AN8801_EFIFO_TX_EN		BIT(1)
+> > +#define=C2=A0=C2=A0 AN8801_EFIFO_RX_CLK_EN	BIT(2)
+> > +#define=C2=A0=C2=A0 AN8801_EFIFO_TX_CLK_EN	BIT(3)
+> > +#define=C2=A0=C2=A0 AN8801_EFIFO_RX_EEE_EN	BIT(4)
+> > +#define=C2=A0=C2=A0 AN8801_EFIFO_TX_EEE_EN	BIT(5)
+> > +#define=C2=A0=C2=A0 AN8801_EFIFO_RX_ODD_NIBBLE_EN	BIT(6)
+> > +#define=C2=A0=C2=A0 AN8801_EFIFO_TX_ODD_NIBBLE_EN	BIT(7)
+> > +
+> > +#define AN8801_BPBUS_REG_WOL_MAC_16_47	0x285114
+> > +#define AN8801_BPBUS_REG_WOL_MAC_0_15	0x285118
+> > +
+> > +#define AN8801_BPBUS_REG_WAKEUP_CTL1	0x285400
+> > +#define=C2=A0=C2=A0 AN8801_WOL_WAKE_MAGIC_EN	GENMASK(3, 1)
+> > +
+> > +#define AN8801_BPBUS_REG_WAKEUP_CTL2	0x285404
+> > +#define=C2=A0=C2=A0 AN8801_WAKE_OUT_TYPE_PULSE	BIT(0) /* Set/Unset:
+> > Pulse/Static */
+> > +#define=C2=A0=C2=A0 AN8801_WAKE_OUT_POLARITY_NEG	BIT(1) /* Set/Unset:
+> > Negative/Positive */
+> > +#define=C2=A0=C2=A0 AN8801_WAKE_OUT_WIDTH		GENMASK(2, 3)
+> > +#define=C2=A0=C2=A0=C2=A0 AN8801_WAKE_OUT_84MS		0
+> > +#define=C2=A0=C2=A0=C2=A0 AN8801_WAKE_OUT_168MS	1
+> > +#define=C2=A0=C2=A0=C2=A0 AN8801_WAKE_OUT_336MS	2
+> > +#define=C2=A0=C2=A0=C2=A0 AN8801_WAKE_OUT_672MS	3
+> > +#define=C2=A0=C2=A0 AN8801_WAKE_OUT_EN		BIT(4)
+> > +#define=C2=A0=C2=A0 AN8801_PME_WAKEUP_CLR		BIT(8)
+> > +
+> > +#define AN8801_BPBUS_REG_WAKE_IRQ_EN	0x285700
+> > +#define AN8801_BPBUS_REG_WAKE_IRQ_STS	0x285704
+> > +#define=C2=A0=C2=A0 AN8801_IRQ_WAKE_LNKCHG	BIT(0) /* Wake on link
+> > change */
+> > +#define=C2=A0=C2=A0 AN8801_IRQ_WAKE_UNIPKT	BIT(1) /* Wake on unicast
+> > packet */
+> > +#define=C2=A0=C2=A0 AN8801_IRQ_WAKE_MULPKT	BIT(2) /* Wake on
+> > multicast packet */
+> > +#define=C2=A0=C2=A0 AN8801_IRQ_WAKE_BCPKT		BIT(3) /* Wake on
+> > broadcast packet */
+> > +#define=C2=A0=C2=A0 AN8801_IRQ_WAKE_MAGICPKT	BIT(4) /* Wake on magic
+> > packet */
+> > +#define=C2=A0=C2=A0 AN8801_IRQ_WAKE_ALL		GENMASK(4, 0)
+> > +
+> > +/* MDIO_MMD_VEND1 Registers */
+> > +#define AN8801_PHY_TX_PAIR_DLY_SEL_GBE	0x13
+> > +#define=C2=A0=C2=A0 AN8801_PHY_PAIR_DLY_SEL_A_GBE	GENMASK(14, 12)
+> > +#define=C2=A0=C2=A0 AN8801_PHY_PAIR_DLY_SEL_B_GBE	GENMASK(10, 8)
+> > +#define=C2=A0=C2=A0 AN8801_PHY_PAIR_DLY_SEL_C_GBE	GENMASK(6, 4)
+> > +#define=C2=A0=C2=A0 AN8801_PHY_PAIR_DLY_SEL_D_GBE	GENMASK(2, 0)
+> > +#define AN8801_PHY_RXADC_CTRL		0xd8
+> > +#define=C2=A0=C2=A0 AN8801_PHY_RXADC_SAMP_PHSEL_A	BIT(12)
+> > +#define=C2=A0=C2=A0 AN8801_PHY_RXADC_SAMP_PHSEL_B	BIT(8)
+> > +#define=C2=A0=C2=A0 AN8801_PHY_RXADC_SAMP_PHSEL_C	BIT(4)
+> > +#define=C2=A0=C2=A0 AN8801_PHY_RXADC_SAMP_PHSEL_D	BIT(0)
+> > +#define AN8801_PHY_RXADC_REV_0		0xd9
+> > +#define=C2=A0=C2=A0 AN8801_PHY_RXADC_REV_MASK_A	GENMASK(15, 8)
+> > +#define=C2=A0=C2=A0 AN8801_PHY_RXADC_REV_MASK_B	GENMASK(7, 0)
+> > +#define AN8801_PHY_RXADC_REV_1		0xda
+> > +#define=C2=A0=C2=A0 AN8801_PHY_RXADC_REV_MASK_C	GENMASK(15, 8)
+> > +#define=C2=A0=C2=A0 AN8801_PHY_RXADC_REV_MASK_D	GENMASK(7, 0)
+> > +
+> > +/* MDIO_MMD_VEND2 Registers */
+> > +#define LED_BCR				0x21
+> > +#define=C2=A0=C2=A0 LED_BCR_MODE_MASK		GENMASK(1, 0)
+> > +#define=C2=A0=C2=A0 LED_BCR_TIME_TEST		BIT(2)
+> > +#define=C2=A0=C2=A0 LED_BCR_CLK_EN		BIT(3)
+> > +#define=C2=A0=C2=A0 LED_BCR_EVT_ALL		BIT(4)
+> > +#define=C2=A0=C2=A0 LED_BCR_EXT_CTRL		BIT(15)
+> > +#define=C2=A0=C2=A0 LED_BCR_MODE_DISABLE		0
+> > +#define=C2=A0=C2=A0 LED_BCR_MODE_2LED		1
+> > +#define=C2=A0=C2=A0 LED_BCR_MODE_3LED_1		2
+> > +#define=C2=A0=C2=A0 LED_BCR_MODE_3LED_2		3
+> > +
+> > +#define LED_ON_DUR			0x22
+> > +#define=C2=A0=C2=A0 LED_ON_DUR_MASK		GENMASK(15, 0)
+> > +
+> > +#define LED_BLINK_DUR			0x23
+> > +#define=C2=A0=C2=A0 LED_BLINK_DUR_MASK		GENMASK(15, 0)
+> > +
+> > +#define LED_ON_CTRL(i)			(0x24 + ((i) * 2))
+> > +#define=C2=A0=C2=A0 LED_ON_EVT_MASK		GENMASK(6, 0)
+> > +#define=C2=A0=C2=A0 LED_ON_EVT_LINK_1000M		BIT(0)
+> > +#define=C2=A0=C2=A0 LED_ON_EVT_LINK_100M		BIT(1)
+> > +#define=C2=A0=C2=A0 LED_ON_EVT_LINK_10M		BIT(2)
+> > +#define=C2=A0=C2=A0 LED_ON_EVT_LINK_DN		BIT(3)
+> > +#define=C2=A0=C2=A0 LED_ON_EVT_FDX		BIT(4)
+> > +#define=C2=A0=C2=A0 LED_ON_EVT_HDX		BIT(5)
+> > +#define=C2=A0=C2=A0 LED_ON_EVT_FORCE		BIT(6)
+> > +#define=C2=A0=C2=A0 LED_ON_POL			BIT(14)
+> > +#define=C2=A0=C2=A0 LED_ON_EN			BIT(15)
+> > +
+> > +#define LED_BLINK_CTRL(i)		(0x25 + ((i) * 2))
+> > +#define LED_BLINK_EVT_MASK		GENMASK(9, 0)
+> > +#define LED_BLINK_EVT_1000M_TX		BIT(0)
+> > +#define LED_BLINK_EVT_1000M_RX		BIT(1)
+> > +#define LED_BLINK_EVT_100M_TX		BIT(2)
+> > +#define LED_BLINK_EVT_100M_RX		BIT(3)
+> > +#define LED_BLINK_EVT_10M_TX		BIT(4)
+> > +#define LED_BLINK_EVT_10M_RX		BIT(5)
+> > +#define LED_BLINK_EVT_COLLISION		BIT(6)
+> > +#define LED_BLINK_EVT_RX_CRC_ERR	BIT(7)
+> > +#define LED_BLINK_EVT_RX_IDLE_ERR	BIT(8)
+> > +#define LED_BLINK_EVT_FORCE		BIT(9)
+> > +
+> > +#define AN8801R_NUM_LEDS		3
+> > +#define AN8801_PERIOD_SHIFT		15
+> > +#define AN8801_PERIOD_UNIT		32768 /* (1 <<
+> > AN8801_PERIOD_SHIFT) */
+> > +#define AN8801_MAX_PERIOD_MS		2147
+> > +
+> > +#define LED_BLINK_DURATION_UNIT		780
+> > +#define LED_BLINK_DURATION(f)		(LED_BLINK_DURATION_UNIT
+> > << (f))
+> > +
+> > +#define AN8801_LED_DURATION_UNIT_US	32768
+> > +
+> > +#define AN8801_REG_PHY_INTERNAL0	0x600
+> > +#define AN8801_REG_PHY_INTERNAL1	0x601
+> > +#define=C2=A0=C2=A0 AN8801_PHY_INTFUNC_MASK	GENMASK(15, 0) /* PHY
+> > internal functions */
+> > +
+> > +enum an8801r_led_fn {
+> > +	AN8801R_LED_FN_NONE,
+> > +	AN8801R_LED_FN_LINK,
+> > +	AN8801R_LED_FN_ACTIVITY,
+> > +	AN8801R_LED_FN_MAX,
+> > +};
+> > +
+> > +static int an8801r_read_page(struct phy_device *phydev)
+> > +{
+> > +	return __phy_read(phydev, AIR_EXT_PAGE_ACCESS);
+> > +}
+> > +
+> > +static int an8801r_write_page(struct phy_device *phydev, int page)
+> > +{
+> > +	return __phy_write(phydev, AIR_EXT_PAGE_ACCESS, page);
+> > +}
+> > +
+> > +static int __air_buckpbus_reg_write(struct phy_device *phydev,
+> > +				=C2=A0=C2=A0=C2=A0 u32 addr, u32 data)
+> > +{
+> > +	int ret;
+> > +
+> > +	addr |=3D AN8801_PBUS_ACCESS;
+> > +
+> > +	ret =3D __phy_write(phydev, AIR_BPBUS_MODE,
+> > MII_MMD_CTRL_ADDR);
+> > +	if (ret < 0)
+> > +		return ret;
+> > +
+> > +	ret =3D __phy_write(phydev, AIR_BPBUS_WR_ADDR_HIGH,
+> > upper_16_bits(addr));
+> > +	if (ret < 0)
+> > +		return ret;
+> > +
+> > +	ret =3D __phy_write(phydev, AIR_BPBUS_WR_ADDR_LOW,
+> > lower_16_bits(addr));
+> > +	if (ret < 0)
+> > +		return ret;
+> > +
+> > +	ret =3D __phy_write(phydev, AIR_BPBUS_WR_DATA_HIGH,
+> > upper_16_bits(data));
+> > +	if (ret < 0)
+> > +		return ret;
+> > +
+> > +	ret =3D __phy_write(phydev, AIR_BPBUS_WR_DATA_LOW,
+> > lower_16_bits(data));
+> > +	if (ret < 0)
+> > +		return ret;
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static int __air_buckpbus_reg_read(struct phy_device *phydev,
+> > +				=C2=A0=C2=A0 u32 addr, u32 *data)
+> > +{
+> > +	int pbus_data_l, pbus_data_h;
+> > +	int ret;
+> > +
+> > +	addr |=3D AN8801_PBUS_ACCESS;
+> > +
+> > +	ret =3D __phy_write(phydev, AIR_BPBUS_MODE,
+> > MII_MMD_CTRL_ADDR);
+> > +	if (ret < 0)
+> > +		return ret;
+> > +
+> > +	ret =3D __phy_write(phydev, AIR_BPBUS_RD_ADDR_HIGH,
+> > upper_16_bits(addr));
+> > +	if (ret < 0)
+> > +		return ret;
+> > +
+> > +	ret =3D __phy_write(phydev, AIR_BPBUS_RD_ADDR_LOW,
+> > lower_16_bits(addr));
+> > +	if (ret < 0)
+> > +		return ret;
+> > +
+> > +	ret =3D __phy_read(phydev, AIR_BPBUS_RD_DATA_HIGH);
+> > +	if (pbus_data_h < 0)
+> > +		return pbus_data_h;
+> > +
+> > +	pbus_data_l =3D __phy_read(phydev, AIR_BPBUS_RD_DATA_LOW);
+> > +	if (pbus_data_l < 0)
+> > +		return pbus_data_l;
+> > +
+> > +	*data =3D (pbus_data_h << 16) | pbus_data_l;
+> > +	return 0;
+> > +}
+> > +
+> > +static int air_buckpbus_reg_rmw(struct phy_device *phydev,
+> > +				u32 addr, u32 mask, u32 set)
+> > +{
+> > +	u32 data_old, data_new;
+> > +	int prev_page, ret;
+> > +
+> > +	prev_page =3D phy_select_page(phydev,
+> > AIR_PHY_PAGE_EXTENDED_4);
+> > +	if (prev_page < 0)
+> > +		return prev_page;
+> > +
+> > +	ret =3D __air_buckpbus_reg_read(phydev, addr, &data_old);
+> > +	if (ret)
+> > +		return phy_restore_page(phydev, prev_page, ret);
+> > +
+> > +	data_new =3D data_old & ~mask;
+> > +	data_new |=3D set;
+> > +	if (data_new !=3D data_old)
+> > +		ret =3D __air_buckpbus_reg_write(phydev, addr,
+> > data_new);
+> > +
+> > +	return phy_restore_page(phydev, prev_page, ret);
+> > +}
+> > +
+> > +static int air_buckpbus_reg_set_bits(struct phy_device *phydev,
+> > +				=C2=A0=C2=A0=C2=A0=C2=A0 u32 addr, u32 mask)
+> > +{
+> > +	return air_buckpbus_reg_rmw(phydev, addr, mask, mask);
+> > +}
+> > +
+> > +static int air_buckpbus_reg_clear_bits(struct phy_device *phydev,
+> > +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 u32 addr, u32 mask)
+> > +{
+> > +	return air_buckpbus_reg_rmw(phydev, addr, mask, 0);
+> > +}
+> > +
+> > +static int air_buckpbus_reg_write(struct phy_device *phydev, u32
+> > addr, u32 data)
+> > +{
+> > +	int prev_page, ret =3D 0;
+> > +
+> > +	prev_page =3D phy_select_page(phydev,
+> > AIR_PHY_PAGE_EXTENDED_4);
+> > +	if (prev_page < 0)
+> > +		return prev_page;
+> > +
+> > +	ret =3D __air_buckpbus_reg_write(phydev, addr, data);
+> > +
+> > +	return phy_restore_page(phydev, prev_page, ret);
+> > +}
+> > +
+> > +static int air_buckpbus_reg_read(struct phy_device *phydev, u32
+> > addr, u32 *data)
+> > +{
+> > +	int prev_page, ret;
+> > +
+> > +	prev_page =3D phy_select_page(phydev,
+> > AIR_PHY_PAGE_EXTENDED_4);
+> > +	if (prev_page < 0)
+> > +		return prev_page;
+> > +
+> > +	ret =3D __air_buckpbus_reg_read(phydev, addr, data);
+> > +
+> > +	return phy_restore_page(phydev, prev_page, ret);
+> > +}
+> These buckplus accessors look very similar to what's in the existing
+> air_en8811h.c
+> driver, any chance the code can be shared ?
+>=20
+The buckpbus accessors functions of air_en8811h driver have indeed very
+close function sequences and the defines usages to the ones in the
+an8801 patches.
+The main difference I see is this patch accessors do an additional
+operation by setting AN8801_PBUS_ACCESS bit on the address. But it can
+be done another way, so the en8811h accessors can be used without
+modifications.
+The existing buckpbus accessors seemed also rather generic, in
+exception of air_write_buf. It may need to be modified to remove
+firmware data type if it needs to be factorized (currently no need for
+an8801 code).
 
-The S32N79 is an automotive-grade SoC featuring eight ARM Cortex-A78AE
-cores organized for high-performance networking and gateway applications
-in vehicles.
+For test purposes, I've tried to factorize the air_en8811h reg_read,
+reg_write and reg_modify in a common module (similar to the existing
+bcm-phy-lib used by Broadcom PHY drivers) and use them in this new
+driver.
+It seems to work with only a few modifications in the an8801 driver
+patch and it removes these new reg_read, reg_write and reg_rmw, and a
+dozen of duplicated defines.
+The air_phy_read_page/air_phy_write_page implemented by air_en8811h
+could also be commonized too.
 
-Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
-Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
-Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
----
- Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+Would the creation of a new Airoha PHY common module (for instance
+air_phy_lib) in separate patches be the right way for this code
+factorization? Or is a there an alternative solution?
+> [...]
+>=20
+>=20
+> > +static int an8801r_rgmii_rxdelay(struct phy_device *phydev, u16
+> > delay_steps)
+> > +{
+> > +	u32 reg_val;
+> > +
+> > +	if (delay_steps > RGMII_DELAY_STEP_MASK)
+> > +		return -EINVAL;
+> > +
+> > +	reg_val =3D delay_steps & RGMII_DELAY_STEP_MASK;
+> > +	reg_val |=3D RGMII_RXDELAY_ALIGN;
+> > +	reg_val |=3D RGMII_RXDELAY_FORCE_MODE;
+> > +
+> > +	return air_buckpbus_reg_write(phydev,
+> > AN8801_BPBUS_REG_RXDLY_STEP,
+> > +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reg_val);
+> > +}
+> > +
+> > +static int an8801r_rgmii_txdelay(struct phy_device *phydev, u16
+> > delay_steps)
+> > +{
+> > +	u32 reg_val;
+> > +
+> > +	if (delay_steps > RGMII_DELAY_STEP_MASK)
+> > +		return -EINVAL;
+> > +
+> > +	reg_val =3D delay_steps & RGMII_DELAY_STEP_MASK;
+> > +	reg_val |=3D RGMII_TXDELAY_FORCE_MODE;
+> > +
+> > +	return air_buckpbus_reg_write(phydev,
+> > AN8801_BPBUS_REG_TXDLY_STEP,
+> > +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reg_val);
+> > +}
+> > +
+> > +static int an8801r_rgmii_delay_config(struct phy_device *phydev)
+> > +{
+> > +	switch (phydev->interface) {
+> > +	case PHY_INTERFACE_MODE_RGMII_TXID:
+> > +		return an8801r_rgmii_txdelay(phydev, 4);
+> > +	case PHY_INTERFACE_MODE_RGMII_RXID:
+> > +		return an8801r_rgmii_rxdelay(phydev, 0);
+> > +	case PHY_INTERFACE_MODE_RGMII_ID:
+> > +		return an8801r_rgmii_txdelay(phydev, 4);
+> > +		return an8801r_rgmii_rxdelay(phydev, 0);
+> > +	case PHY_INTERFACE_MODE_RGMII:
+> > +	default:
+> > +		return 0;
+> > +	}
+>=20
+> Can you elaborate on these values for the steps ? Why is it 4 for TX
+> internal delays, but 0 for RX delays ?
+I tried to find about those values and what they mean.=C2=A0
+The values are indeed odd, you would expect something more similar for
+both rx and tx.
+They come from the downstream drivers (kernel and u-boot as well) that
+set them without much explanation.=C2=A0I did not find any info in the data
+sheet I have.
 
-diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-index 5716d701292c..415081423a30 100644
---- a/Documentation/devicetree/bindings/arm/fsl.yaml
-+++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-@@ -1827,6 +1827,12 @@ properties:
-               - fsl,s32v234-evb           # S32V234-EVB2 Customer Evaluation Board
-           - const: fsl,s32v234
- 
-+      - description: S32N79 based Boards
-+        items:
-+          - enum:
-+              - nxp,s32n79-rdb
-+          - const: nxp,s32n79
-+
-       - description: Traverse LS1088A based Boards
-         items:
-           - enum:
--- 
-2.43.0
+I am going to look further into this.
 
+Regards,
+Louis-Alexis
+>=20
+> Maxime
 
