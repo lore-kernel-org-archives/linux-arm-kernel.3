@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99F41F01827
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 10:30:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82706F01825
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 10:30:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bsgk7ZObqyZr/3jbiTlB5XfU/jafWS+xFJNQ3TVojOs=; b=H9/AmzsfT0A3+RLQwR0UA5A9HU
-	HWWS5W2XJJM99vVQfyJtZnB0o6uhx9NMrgaCYTyw2i81XhQ6O7DvMp8NCII8v4dImGL8j6pCQarIQ
-	+fkYM7KLJeCD8wn4aCOUnegR/9MqME1N7VcpTQVpUpRdfNWtZ3AB77oBNZySnyxCRbQz9EdIgmbMK
-	aaT0qsswL1tOx6lVpWcN8P/EIOIYXnpUjGwwJslSrpzQbDcxtPKMKaPCVp28gijsqDgSlH7odyPFL
-	e8qmrCqXeBZc5Amc/J25q0cYMDLRhUq6YvVnovl2IIXkSByULQNH0EWEv+kLe4eBytsEuqQtz6qxi
-	LQxdBK6A==;
+	bh=aes9Ymy2SVK6T0USFDpwiCwEp+iOTQGnFHuH7w4M/To=; b=0G5axoNF/53QtMK746Pp/2grFc
+	2ZEpQdzGUJhKlBBPINF2cIvkFj/d77FeW90+Cg8jHqDwOR9krvllebrDnmu4zwRkvo8dUJUmkWS2b
+	jhonipeTajicH6rWBlLUrzwiVjSHYvhPWlm1/akMBzVXutjfjess73JUtBgJ4Tewqom+zWNfUXcwi
+	VxuJ4++JPUhBsvEintv0J0UD8E5Vz6NO+K56LUcNeQFIUIbvNg3KfzyaBzjVIxsYE9y+dh0vwnaMV
+	x5tZhROBl1XEW6yrARw7rVpY5UUonsXVssLLy32W0YYdfltZmP2yF4vR5jp87ehTu1mfXKmhR24dh
+	AbzIkqsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vySRY-00000003SbZ-29zI;
-	Fri, 06 Mar 2026 10:30:04 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1vySRZ-00000003ScY-0xgN;
+	Fri, 06 Mar 2026 10:30:05 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vySRT-00000003SVD-0Wbj
+	id 1vySRU-00000003SW4-1emI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 10:30:00 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-b8fbb24a9a9so1481434066b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 02:29:58 -0800 (PST)
+	Fri, 06 Mar 2026 10:30:01 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-b941d924534so120587766b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 02:29:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1772792997; x=1773397797; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1772792998; x=1773397798; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=bsgk7ZObqyZr/3jbiTlB5XfU/jafWS+xFJNQ3TVojOs=;
-        b=xT3OhBygumsUfEK6Jc4XPHQVUDqwnytaBQsophGszD/felTFz5xJi/No4txdgROnF2
-         8HRXdLo0Rodn102LfpPthnxAXdvTXkm/2ySpVVJyIS1QontJ6+xIsJIhdHhq6BnBBQty
-         RZ9Yn7bo1LeCSdF8EzwozPtzdIvboh3ivCpSOWX6KU8ZV6aYsUOvrxIoREKFN/kvb+1/
-         ovGIjyOEyD/zXMcI7EtsT64/rvav481qXWicru6318PqKAKWbllu83lS73LD4WVKuY8x
-         /AP642wCNxt/5IEoklJl/YPXORBAb3XyJw1FgHmgfencEkfeTAgNRtHsIixpQ1Vd/Fiy
-         p5Cw==
+        bh=aes9Ymy2SVK6T0USFDpwiCwEp+iOTQGnFHuH7w4M/To=;
+        b=NLUTNDddhq1LckxM5y82x+DLOEBGZNpg1WfEduVVGwH56yN6xWpnTu4G0wIexyrH6A
+         PYrvOu/H1Mq381pq8ClQa8BXIVfwe4LfjUogFVfepxWGtWupoLCoxBKkugFkwoQs0A7r
+         iPizk+widvxHC6a0BpehJKnvUym17uz8ieauMMQGqisEO3aSs9xhyIjDyYqJuvmb3Err
+         k53Do/GjlfgCCQG7VT/uoZkyH40F+rWGCKpf45PSJw8I5g+FsFKc607vTzfqTW4WfaSK
+         5myCMPDQMXyC41X6HIyVTwLNFujjhYCIh7Jib3qdK4178vepXZv5K56SDDJI86Tqz7Et
+         FdpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772792997; x=1773397797;
+        d=1e100.net; s=20230601; t=1772792998; x=1773397798;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=bsgk7ZObqyZr/3jbiTlB5XfU/jafWS+xFJNQ3TVojOs=;
-        b=LzeoAwbd2FQmE7wvSZZ5HNa+KykN3t+lATApwNMvu/VdrhOZJzykUhZzgccgd/iHTT
-         G6H5rgn8SWRHbJY/dtnk68EaiNq4W15VukhCRHsufJudYQfHae2dsc2ChZtEQpk9sizf
-         6yGg/YfDhb5jt393z7Kn3BtxF9XUQ3sP/IU2YvHB4KrO3kxH5E5HFLHSSIhxWBh4Q5uP
-         3J8AMy9VDmlO85sjgbSYFsyxVyv0v+blBtDsSR4anaNJ3OBwClq4ofWA1BrsekssTQGP
-         cJpdRuDyn652GJuHcwhk5euyb+4U7/EXPMjR4Gq8l7Ab2JHS7iIcgxBflcY0MwC7u7R9
-         BXsg==
-X-Forwarded-Encrypted: i=1; AJvYcCV9y/RpeqMM2kh/wrYrfJeNK6TzWDBNHXpbJvQDAgWy05mMl3P/IuWbz96GUJddnRrXZWrqaCAoMQoyD03NS9QF@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywov7rHbx7FuEmMbpbhUTJHX6Oq3OLkGGAnZn3rrW4CX3z8KuHn
-	j6Od9I0G1UEsmu0wvFU0xsbfJNZ+uSeOTFpxzUcUscNDnUlXSl/MZqEnEo8poPgghAo=
-X-Gm-Gg: ATEYQzwvWGtKVBb2JVbUKiqDXZb7YsJrBEy5zQCR0ZyhhNUkII6vq2NE2qdQZgUJ02O
-	LJCIOfesT2azQM4uclzAx82SdgdO6k8R4ZGwCxwSRjjmISvX6y9NjEAHO0sAL7en8bY08249BgV
-	YI5dYJHAmNLgkUR+65sIRHbKHuURqJCMhZUXJRpcoOY7mmQ97l3vvIlIj4hR85ItBBLiMZIbNNd
-	G8a8IBpz/8SNyq4NqKnazH2cGVdi223JvsnLX8BwxyNMKe6CvsIxtdCLhphIf103gk0trt1e1rI
-	21ot7SH0i1oY36i9iPzXlf6B/DIsLpUrb4B4ozpN+Ph35PsBIB/1WCh8/IV/uHgylByOiPk+szr
-	dgA6AfZKZyh+PZbnIWLC7Cby93yIIDnOdMU63sGyV1cCyP0RHd7hcLdQ9XXdbo4doG7sVHOQ162
-	tPkZ+XnaA1EHZyP8xBu2XuDei36YNuYu5VV80DImNXJF5tB2tyRzMNqoUZwmYM2XOL8hhU9UCvG
-	5oE9qwulsI5sSusnzJo49cJqA==
-X-Received: by 2002:a17:907:8690:b0:b8f:c684:db28 with SMTP id a640c23a62f3a-b942d06f624mr92068866b.12.1772792997027;
-        Fri, 06 Mar 2026 02:29:57 -0800 (PST)
+        bh=aes9Ymy2SVK6T0USFDpwiCwEp+iOTQGnFHuH7w4M/To=;
+        b=Sw8G1myBPLun3ufETC73Y+WhxlApYC+MxZhm9xdU9E7C7Au8IxN7ktDEhAoQrO1GL8
+         1549GgAV0k9D3oFbZ5htaOlQI5jQ5bfpktPVbCpOBTmdZjG0M1xXG+n87KERN9FS6eS4
+         8OOGz+awtXRzCVDtlTYAbOuyNBJ+SGs8j9w1TFhQ8a/rFcqtYXIJSOulIa+0roLMDVBZ
+         ALU+0Kc8DPIjYGPSumDZHDOTOzRyZBnotICh+39/WEMVZlETV1C9BDkwCRBylxquNy0w
+         F07JrlbxdJ+cM8NP6DlIv6HyceCP6AUARkbENcuHTqAZ7PDoneFjGhZL49AjHCKVk5wB
+         9wgA==
+X-Forwarded-Encrypted: i=1; AJvYcCUxjlQbdcf7LbhOWSTzAKKaqUGWbBbnaJtnaqt/7rdv7CF/ysBiU6CkpRVRzopXFKOHUVhkxKdM5zRpn6rYLeNS@lists.infradead.org
+X-Gm-Message-State: AOJu0YyA4Gx47YG7LkwuFSaSPNdAUfDJUnmwaknN18qgdW46XMvjMPSl
+	ewsNpjIce157oZOQKZFw+dBcgcR5AGDT5Nw1lidTnXmevXS6maH8nWUQNKy+HDShcA4=
+X-Gm-Gg: ATEYQzwVKej8AkD5UvhgUI9vsYhX+mjENS60H+rXb+9GGU4Nx1wWWF0SLSryzZp04AE
+	Zefn1jsBAwb/0+XWeZZyqCkWjWQLdE+AYISTrEg/vMf+HdC+At/9a8ydNg/vhBbL5e2MXT+yzDQ
+	ehtJW6YKDi5sh/UbISZVUlV2aagN15bDbztktOYkR8uJsBifqWBd1Cf/qw75sRm5As0ul73bbpg
+	FaPhSu0ackvyWvhyO85Y5tMKJyLYlVc4rrcmsibHY1iQvnCdtLRBYu+nvE8Duo90SLz1+bCnFPb
+	ZjfPr1uxToWhQXfyKhSnRjKwfbREN6y+r58B9+9OwrExlUwnT1jzPxr9Zqmm6OLODtr5lEJo4OZ
+	94Zql/MvHqXFiV+XDez9OywoYmkTz2B9TwuyYZto5wWqxFoAFvZikhBjYKyskiENH4SnOKKvp2O
+	FYXMIhP10xIT0YFsDb23b+IJUwCAaMXwJnkQK+AjzNgihl3qPcU3D0Dy3jNAKkqn3hh1k2gkYrJ
+	2u2rcjtvp0gjLM=
+X-Received: by 2002:a17:906:9f8e:b0:b8e:7dcb:7f1b with SMTP id a640c23a62f3a-b942dbdc76fmr87190666b.21.1772792998248;
+        Fri, 06 Mar 2026 02:29:58 -0800 (PST)
 Received: from puffmais2.c.googlers.com (221.210.91.34.bc.googleusercontent.com. [34.91.210.221])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b942ef8c95csm42907266b.21.2026.03.06.02.29.56
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b942ef8c95csm42907266b.21.2026.03.06.02.29.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Mar 2026 02:29:56 -0800 (PST)
+        Fri, 06 Mar 2026 02:29:57 -0800 (PST)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Fri, 06 Mar 2026 10:29:55 +0000
-Subject: [PATCH v7 04/10] dt-bindings: soc: google: gs101-pmu: allow power
- domains as children
+Date: Fri, 06 Mar 2026 10:29:57 +0000
+Subject: [PATCH v7 06/10] pmdomain: samsung: don't hard-code offset for
+ registers to 0 and 4
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260306-gs101-pd-v7-4-03f7c7965ba5@linaro.org>
+Message-Id: <20260306-gs101-pd-v7-6-03f7c7965ba5@linaro.org>
 References: <20260306-gs101-pd-v7-0-03f7c7965ba5@linaro.org>
 In-Reply-To: <20260306-gs101-pd-v7-0-03f7c7965ba5@linaro.org>
 To: Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -92,11 +92,12 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-pm@vger.kernel.org, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_022959_203236_8AACE6D3 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20260306_023000_451928_45754DDD 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,100 +112,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The power domains are a property of / implemented in the PMU. As such,
-they should be modelled as child nodes of the PMU.
+On platforms such as Google gs101, direct mmio register access to the
+PMU registers doesn't necessarily work and access must happen via a
+regmap created by the PMU driver instead.
 
+When such a regmap is used it will cover the complete PMU memory region
+rather than individual power domains. This means the register offsets
+for the configuration and status registers will have to take the power
+domain offsets into account, rather than unconditionally hard-coding 0
+and 4 respectively.
+
+Update the code to allow that.
+
+Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
 ---
-v7:
-- really be consistent with quoting (Krzysztof)
-- drop invalid tested-by tag (Krzysztof)
+ drivers/pmdomain/samsung/exynos-pm-domains.c | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
 
-v4:
-- consistent quoting using " (Krzysztof)
-- add samsung,dtzpc to example
-
-Note:
-Because the properties added are 'required', this commit breaks DT
-validation of the existing DT for Pixel 6, but a) that's simply because
-the DT is incomplete and b) a DT update will be posted once the binding
-is accepted.
-It is not possible to write the binding such that it supports old
-(incomplete) DTs in addition to the full version, but as per above
-it's not required to keep supporting old DTs.
----
- .../bindings/soc/google/google,gs101-pmu.yaml      | 41 ++++++++++++++++++++++
- 1 file changed, 41 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/soc/google/google,gs101-pmu.yaml b/Documentation/devicetree/bindings/soc/google/google,gs101-pmu.yaml
-index a06bd8ec3c20..dfe6f87e5949 100644
---- a/Documentation/devicetree/bindings/soc/google/google,gs101-pmu.yaml
-+++ b/Documentation/devicetree/bindings/soc/google/google,gs101-pmu.yaml
-@@ -16,6 +16,14 @@ properties:
-   reg:
-     maxItems: 1
+diff --git a/drivers/pmdomain/samsung/exynos-pm-domains.c b/drivers/pmdomain/samsung/exynos-pm-domains.c
+index 3bcba7d38ac1..8df46b41f9bc 100644
+--- a/drivers/pmdomain/samsung/exynos-pm-domains.c
++++ b/drivers/pmdomain/samsung/exynos-pm-domains.c
+@@ -30,6 +30,8 @@ struct exynos_pm_domain {
+ 	struct regmap *regmap;
+ 	struct generic_pm_domain pd;
+ 	u32 local_pwr_cfg;
++	u32 configuration_reg;
++	u32 status_reg;
+ };
  
-+  "#address-cells":
-+    const: 1
-+
-+  "#size-cells":
-+    const: 1
-+
-+  ranges: true
-+
-   reboot-mode:
-     $ref: /schemas/power/reset/syscon-reboot-mode.yaml
-     type: object
-@@ -39,9 +47,23 @@ properties:
-     description:
-       Phandle to PMU interrupt generation interface.
+ static int exynos_pd_power(struct generic_pm_domain *domain, bool power_on)
+@@ -41,7 +43,7 @@ static int exynos_pd_power(struct generic_pm_domain *domain, bool power_on)
+ 	pd = container_of(domain, struct exynos_pm_domain, pd);
  
-+patternProperties:
-+  "^power-domain@[0-9a-f]+$":
-+    type: object
-+    description: Child node describing one power domain within the PMU
-+
-+    additionalProperties: true
-+
-+    properties:
-+      compatible:
-+        const: google,gs101-pd
-+
- required:
-   - compatible
-   - reg
-+  - "#address-cells"
-+  - "#size-cells"
-+  - ranges
-   - google,pmu-intr-gen-syscon
+ 	pwr = power_on ? pd->local_pwr_cfg : 0;
+-	err = regmap_write(pd->regmap, 0, pwr);
++	err = regmap_write(pd->regmap, pd->configuration_reg, pwr);
+ 	if (err) {
+ 		pr_err("Regmap write for power domain %s %sable failed: %d\n",
+ 		       domain->name, power_on ? "en" : "dis", err);
+@@ -53,7 +55,7 @@ static int exynos_pd_power(struct generic_pm_domain *domain, bool power_on)
+ 	while (timeout-- > 0) {
+ 		unsigned int val;
  
- additionalProperties: false
-@@ -51,6 +73,25 @@ examples:
-     system-controller@17460000 {
-         compatible = "google,gs101-pmu";
-         reg = <0x17460000 0x10000>;
-+        #address-cells = <1>;
-+        #size-cells = <1>;
-+        ranges;
+-		err = regmap_read(pd->regmap, 0x4, &val);
++		err = regmap_read(pd->regmap, pd->status_reg, &val);
+ 		if (err || ((val & pd->local_pwr_cfg) != pwr)) {
+ 			cpu_relax();
+ 			usleep_range(80, 100);
+@@ -164,6 +166,8 @@ static int exynos_pd_probe(struct platform_device *pdev)
+ 	pd->pd.power_off = exynos_pd_power_off;
+ 	pd->pd.power_on = exynos_pd_power_on;
+ 	pd->local_pwr_cfg = pm_domain_cfg->local_pwr_cfg;
++	pd->configuration_reg += 0;
++	pd->status_reg += 4;
  
-         google,pmu-intr-gen-syscon = <&pmu_intr_gen>;
-+
-+        pd_g3d: power-domain@1e00 {
-+            compatible = "google,gs101-pd";
-+            reg = <0x1e00 0x80>;
-+            #power-domain-cells = <0>;
-+            label = "g3d";
-+            samsung,dtzpc = <&pd_g3d>;
-+        };
-+
-+        power-domain@2000 {
-+            compatible = "google,gs101-pd";
-+            reg = <0x2000 0x80>;
-+            #power-domain-cells = <0>;
-+            power-domains = <&pd_g3d>;
-+            label = "embedded_g3d";
-+        };
-     };
+ 	/*
+ 	 * Some Samsung platforms with bootloaders turning on the splash-screen
+@@ -174,7 +178,7 @@ static int exynos_pd_probe(struct platform_device *pdev)
+ 	    of_device_is_compatible(np, "samsung,exynos4210-pd"))
+ 		exynos_pd_power_off(&pd->pd);
+ 
+-	ret = regmap_read(pd->regmap, 0x4, &val);
++	ret = regmap_read(pd->regmap, pd->status_reg, &val);
+ 	if (ret)
+ 		return dev_err_probe(dev, ret, "failed to read status");
+ 
 
 -- 
 2.53.0.473.g4a7958ca14-goog
