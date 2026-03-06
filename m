@@ -4,69 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF213F51416
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 22:13:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C1D6FCC076
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 22:25:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KBmD4NXPUsxxTTp0OSGawp+IRgdUVfl5iOS8JR3dK/A=; b=pTzrB/YHVRfxgBnucVsP3OPMRV
-	dCTBjJkKUQiyiqa4Kgmm7Nd5ZhhjUlU07+0At1oXwceyC7rxyFXzIM0uzFJxjFtS4CukHSh+yKWta
-	VP6us2xikbwjGUNDSyzCu6EUYXXsd+jUKHp+nwqztcPBLJyYvI/uX9+lRIY3EEBX8mcNd6FWAzCUc
-	ZaBWDhsGVFHNxMtEkznXR9YYF6yUTSjU6lXwAVGTxuu/K44tezB7GGkDbtQtvN4+S91oaYfbUYO0n
-	Bg1iZC3qy0bEQdpfvdz+PIzNj5yYJdFxf8YEttlQFnN+uwoOcGp/4VsQm3PIZ8M7FAc5dRYFcHZYl
-	DAtfWGXw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=70n5+CscedgHuQY8j6Ny+fc74LTriuFCTgPmi/5/RQ0=; b=azG2fRgAeErIFXdChkQ97eEQYn
+	EBk3mhjIijGGeKTz40K5Mznu34AD0nOlKdSa+594UreJWmdT5/jhBtca+aQkZMRxZIz/vak6kC4Ed
+	GHKQwL/DQCGHxsAcA7cemTY6JzB8Uc/EmoaIIWj/AvbmSMKtqwwjRpzoPiUHhouugZyG6DwRyOBgS
+	uFDIQuDb7cqE/4pU5Le0+e/iZSvSe4YeLWIYMzrjdyfczJMR4yzggSlRwwoiALV/g5OssuD9U0If7
+	WlmMBKcnf1Ong+zv/qfITT1g4G9EBxJucKvggueqpS2Mx55yMhC78tdOsIwsEfifF8LZf0W8eRjuX
+	jsZYNSFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vydQa-00000004ZRJ-1ypX;
-	Fri, 06 Mar 2026 22:13:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vydQX-00000004ZPu-1fUb
+	id 1vydbi-00000004aPj-40Uq;
+	Fri, 06 Mar 2026 22:25:18 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vydbf-00000004aOc-3zq0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 22:13:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A6127175D;
-	Fri,  6 Mar 2026 14:13:37 -0800 (PST)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 69CCA3F7BD;
-	Fri,  6 Mar 2026 14:13:41 -0800 (PST)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: ast@kernel.org,
-	daniel@iogearbox.net,
-	john.fastabend@gmail.com,
-	andrii@kernel.org,
-	martin.lau@linux.dev,
-	eddyz87@gmail.com,
-	song@kernel.org,
-	yonghong.song@linux.dev,
-	kpsingh@kernel.org,
-	sdf@fomichev.me,
-	haoluo@google.com,
-	jolsa@kernel.org,
-	puranjay@kernel.org,
-	xukuohai@huaweicloud.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	richardcochran@gmail.com,
-	a.s.protopopov@gmail.com,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH 3/3] bpf: arm64: fix BTI exception when execute gotox instruction
-Date: Fri,  6 Mar 2026 22:13:30 +0000
-Message-Id: <20260306221330.630971-4-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260306221330.630971-1-yeoreum.yun@arm.com>
-References: <20260306221330.630971-1-yeoreum.yun@arm.com>
+	Fri, 06 Mar 2026 22:25:17 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-359832fc558so4985188a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 14:25:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772835915; x=1773440715; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=70n5+CscedgHuQY8j6Ny+fc74LTriuFCTgPmi/5/RQ0=;
+        b=Vj6/4q+4ZtUVsD5cp+0d0wYaU6Pkt53iK4DYUEQtiuTew7g+KegAzsabMh7bnIMflg
+         8lRLIXtclzaXc3vXtUUKGyOrX+fSmcUJohKbgmlku2sf52kUw/HfRVFk9sWKQv/rSECr
+         FB+DrUIRPXVGRD5uiAGvdeeUZtF3LJajv1Hi7nXxmf7aEWa1duGbuKgLJ7Hh/cJbsMuN
+         WSm5m4YOja4DrqwdaqUlQdMUlveR0VWtxMZmH5JOMoijjaDQvzC6wUjEpkkvQzxt+UJT
+         7JdIrGxRGDPdcU/krkYS+/xrirVbSXfLYyhDHR9wn/dlslV2dsMGU7Y3mg+eA/UEiM+e
+         iVJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772835915; x=1773440715;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=70n5+CscedgHuQY8j6Ny+fc74LTriuFCTgPmi/5/RQ0=;
+        b=qSz5IGGuYPOSk2/ZWgH+3IlhZV0qPKrIf1ixfZ33TKpu4zktU5NHK3BEU3n+kyFnYL
+         Fzcy5gZCPjhvn5pDS6Ym/QN9OxLGRJdOFzqwABBFOOPh2elus8wfpEpuYHOOOPkHmocg
+         sZCQmxu+P/t96zwnj+wSHePd4YSYus2l+UhuI5qpFu+u0nZP50vLvkOyM9r/5lFMdPzX
+         gzAkJElokweD+t+KesETgYseb+LlT9/anKmiB/P4F0VmfbR9g3dz6J+DluRkjEJryUqv
+         VyX3ihtJmtXBqr5W/ovaBJ/alPQxsKDr4XYQrFKJ1tLRgG/OmqB336N6Ds4WRlRP8U7j
+         u5Rw==
+X-Forwarded-Encrypted: i=1; AJvYcCXaaSZxRfIOTV0KJ6vrnfkvFWTzk1B55PNZfzS2V8lDpgmHGaU+1zpblTkovWLSmPTKe268RZw1uVwFz9aa9fb5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2i0ofK0maX7KbkUyq/vcEADMzPcsEvgjOYE5Vp7WXrWzvwZKc
+	qvM9A/eJHz3f4l68thc2IIaPxGOE7Pa81PTo7gaKywrGb/Xs6Ax6H40sQl8VdeMSs7Y=
+X-Gm-Gg: ATEYQzxQwq8Cg1ULAqI0kRhC2APBaveOVj45/eump63z9RPDyPdPPEiZ4AJAL9mcg17
+	5I9o6g4WX/StokqEgel4XBIKnR2jRGrL1jPfIUp/0v+0BFmfvcM2lJC6zDCUjIKq5HKt9W8NOig
+	1HvOfd2UZvGPoQZ0y7wZXaJaN4go7Xpc8tfTxObJ9+zPmutEfkAI5vVOnoWinSPufS4l5Z0t+XA
+	5iP6DRIPmKOx2DiViSbLHiQqy4C866MYu425d6ODc03UGThACsybHL2GvvQ9LJES/ucxbR1Dqfu
+	KOmdUu2wSGHr/cuBY/6N2FG/2X76G+HTqu7xwMnpb/dZ7/UE22rqzG79rafQM1XCtTp/nX+ylrd
+	TYvaS9lSIpE64UY4bwS48mRIq2bIVKLLifmfzmfUlAhUDPkmi/sAmIlUksrFvB8kw2E0O7UyMR+
+	fsfhkr5fbidRwzzdOsWi1i4UaXl7GbUwaNDgKEQVzkCA4I7lZvTmZw8vo=
+X-Received: by 2002:a17:902:f541:b0:2aa:d65f:47a2 with SMTP id d9443c01a7336-2ae824671c6mr37988545ad.41.1772835914901;
+        Fri, 06 Mar 2026 14:25:14 -0800 (PST)
+Received: from ryzen ([2601:644:8000:56f5::8bd])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae83e7c58asm32516605ad.25.2026.03.06.14.25.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Mar 2026 14:25:14 -0800 (PST)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-phy@lists.infradead.org
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Patrice Chotard <patrice.chotard@foss.st.com>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-kernel@vger.kernel.org (open list),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STI ARCHITECTURE),
+	linux-hardening@vger.kernel.org (open list:KERNEL HARDENING (not covered by other areas):Keyword:\b__counted_by(_le|_be)?\b)
+Subject: [PATCHv2 0/2] phy: miphy28lp: build and simplify allocation
+Date: Fri,  6 Mar 2026 14:24:55 -0800
+Message-ID: <20260306222457.8400-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_141345_524313_89BBD275 
-X-CRM114-Status: GOOD (  14.16  )
+X-CRM114-CacheID: sfid-20260306_142515_996578_F6F6490F 
+X-CRM114-Status: UNSURE (   7.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,120 +102,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On systems where FEAT_BTI is enabled, running the verifier_gotox testcase
-triggers a BTI exception:
+First patch allows compilation on at least x86.
 
-  [  257.920598] Internal error: Oops - BTI: 0000000036000003 [#1]  SMP
-  [  257.920740] Modules linked in:
-  [  257.920860] CPU: 4 UID: 0 PID: 239 Comm: test_progs Not tainted 7.0.0-rc2+ #602 PREEMPT(full)
-  [  257.921061] Hardware name:  , BIOS
-  [  257.921160] pstate: 161402c09 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=j-)
-  [  257.921337] pc : bpf_prog_0a2b4e44c75a3cb4_jump_table_ok+0x40/0x60
-  [  257.921491] lr : bpf_test_run+0x1e8/0x460
-  [  257.921639] sp : ffff80008435b7f0
-  [  257.921736] x29: ffff80008435b800 x28: ffff80008435b858 x27: ffff80008435b870
-  [  257.921991] x26: ffff80008435b7f0 x25: f8ff000803478000 x24: 0000000000000001
-  [  257.922243] x23: f0ff8000839bd000 x22: f4ff000801f7f200 x21: ffff80008435b9a4
-  [  257.922498] x20: ffff80008435b9a0 x19: 0000000000000000 x18: 0000000000000000
-  [  257.922743] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
-  [  257.922992] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
-  [  257.923232] x11: 000000000000dd86 x10: 0000000000000000 x9 : ffff8000814f06f0
-  [  257.923480] x8 : ffff800083d9d888 x7 : ffff800083d9d8c8 x6 : 0000000000000000
-  [  257.923731] x5 : 0000000000000000 x4 : ffff80008435b9a0 x3 : 0000000000000000
-  [  257.923976] x2 : 0000000000000000 x1 : f0ff8000839bd060 x0 : f4ff000801f7f200
-  [  257.924226] Call trace:
-  [  257.924307]  bpf_prog_0a2b4e44c75a3cb4_jump_table_ok+0x40/0x60 (P)
-  [  257.924481]  bpf_test_run+0x1e8/0x460
-  [  257.924644]  bpf_prog_test_run_skb+0x424/0x708
-  [  257.924820]  bpf_prog_test_run+0xf4/0x218
-  [  257.924978]  __sys_bpf+0x3c4/0x498
-  [  257.925124]  __arm64_sys_bpf+0x30/0x58
-  [  257.925312]  invoke_syscall+0x68/0xe8
-  [  257.925490]  el0_svc_common+0x94/0xf8
-  [  257.925668]  do_el0_svc+0x28/0x48
-  [  257.925840]  el0_svc+0x40/0x100
-  [  257.925998]  el0t_64_sync_handler+0x84/0x140
-  [  257.926172]  el0t_64_sync+0x1bc/0x1c0
-  [  257.926359] Code: f28bea07 910020e7 f94000e7 d61f00e0 (d2800027)
-  [  257.926489] ---[ end trace 0000000000000000 ]---
-  [  257.926612] Kernel panic - not syncing: Oops - BTI: Fatal exception in interrupt
-  [  257.926755] SMP: stopping secondary CPUs
-  [  257.927208] Kernel Offset: disabled
-  [  257.927300] CPU features: 0x0000000,00040f05,dffb65e1,976ff727
-  [  257.927437] Memory Limit: none
-  [  257.927540] ---[ end Kernel panic - not syncing: Oops - BTI: Fatal exception in interrupt ]---
+Second uses a flexible array member to simplify allocation.
 
-This occurs because the target of the gotox instruction
-(BPF_JMP | BPF_JA | BPF_X) does not begin with a BTI instruction.
+v2: add first patch and fix second.
 
-To fix this, emit a BTI J instruction at the beginning of
-the gotox destination block.
+Rosen Penev (2):
+  phy: miphy28lp: add COMPILE_TEST
+  phy: miphy28lp: kzalloc + kcalloc to single kzalloc
 
-after this patch verifier_gotox passes without exception:
+ drivers/phy/st/Kconfig         |  2 +-
+ drivers/phy/st/phy-miphy28lp.c | 12 +++++-------
+ 2 files changed, 6 insertions(+), 8 deletions(-)
 
-  # ./test_progs -a verifier_gotox
-  ...
-  #540/1   verifier_gotox/jump_table_ok:OK
-  #540/2   verifier_gotox/jump_table_reserved_field_src_reg:OK
-  #540/3   verifier_gotox/jump_table_reserved_field_non_zero_off:OK
-  #540/4   verifier_gotox/jump_table_reserved_field_non_zero_imm:OK
-  #540/5   verifier_gotox/jump_table_no_jump_table:OK
-  #540/6   verifier_gotox/jump_table_incorrect_dst_reg_type:OK
-  #540/7   verifier_gotox/jump_table_invalid_read_size_u32:OK
-  #540/8   verifier_gotox/jump_table_invalid_read_size_u16:OK
-  #540/9   verifier_gotox/jump_table_invalid_read_size_u8:OK
-  #540/10  verifier_gotox/jump_table_misaligned_access:OK
-  #540/11  verifier_gotox/jump_table_invalid_mem_acceess_pos:OK
-  #540/12  verifier_gotox/jump_table_invalid_mem_acceess_neg:OK
-  #540/13  verifier_gotox/jump_table_add_sub_ok:OK
-  #540/14  verifier_gotox/jump_table_no_writes:OK
-  #540/15  verifier_gotox/jump_table_use_reg_r0:OK
-  #540/16  verifier_gotox/jump_table_use_reg_r1:OK
-  #540/17  verifier_gotox/jump_table_use_reg_r2:OK
-  #540/18  verifier_gotox/jump_table_use_reg_r3:OK
-  #540/19  verifier_gotox/jump_table_use_reg_r4:OK
-  #540/20  verifier_gotox/jump_table_use_reg_r5:OK
-  #540/21  verifier_gotox/jump_table_use_reg_r6:OK
-  #540/22  verifier_gotox/jump_table_use_reg_r7:OK
-  #540/23  verifier_gotox/jump_table_use_reg_r8:OK
-  #540/24  verifier_gotox/jump_table_use_reg_r9:OK
-  #540/25  verifier_gotox/jump_table_outside_subprog:OK
-  #540/26  verifier_gotox/jump_table_contains_non_unique_values:OK
-  #540     verifier_gotox:OK
-
-Fixes: f4a66cf1cb14 ("bpf: arm64: Add support for indirect jumps")
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- arch/arm64/net/bpf_jit_comp.c | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
-
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index adf84962d579..e54e45b35015 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -1223,6 +1223,21 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
- 	int off_adj;
- 	int ret;
- 	bool sign_extend;
-+	struct bpf_prog_aux *aux = ctx->prog->aux;
-+
-+	/*
-+	 * In some cases, insn_aux_data is not passed,
-+	 * and it does not need to be. For example, the embedded
-+	 * program in ptp_classifier_init().
-+	 * Therefore, we need to check whether insn_aux_data is present.
-+	 */
-+	if (aux->insn_aux_data) {
-+		/*
-+		 * emit BTI J for (BPF_JMP | BPF_X)'s destination.
-+		 */
-+		if (aux->insn_aux_data[i].gotox_point)
-+			emit_bti(A64_BTI_J, ctx);
-+	}
- 
- 	switch (code) {
- 	/* dst = src */
--- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+--
+2.53.0
 
 
