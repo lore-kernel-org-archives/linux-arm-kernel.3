@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E77E9F0183C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:02:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B5EEF0183E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:02:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sHiziDrbrII1tYwtdt9uLufHtIuF7NAMU9T1cNEOC3I=; b=eHqC+dQ9NGgJMXUkNVnOriyRgd
-	JdEVspqQg1YfIKru+t5nVLXVZepaMfgBFR8akalMAFPMuRS3CYriaVL9OzW5OBHD2w8OZ/vYbghH4
-	+znMh5JKXvnU8BfhocWG9UF6y4jDUEceaT+gJxEg+AZ16x93CakclqAwjerG2jqg0T0TaBGcM/yOW
-	OgwXxYv7fRctwJvqO0BM8+wuSfbGxKxeq5fap/BQtVOrU3TrEOzbgkSL2qOKQqwH7sl0KeCPVC2PZ
-	ftiGVVNyUowbodwT0AFvjNA/ykqsFRom1ETuj3iGHtsHwN2fYt7xxeFJqEnVw7DSuASk+U0cEPyTs
-	GzV47nIg==;
+	bh=KT44YeiLTJyOwAcprGitUZ5uZxYG91k2apEts1OjnSo=; b=YDxAwY+8aws/pLe2RbQWLZ0uwf
+	AHVb2o5c2rjuhfgivctJzH5WFWC7+F3beeDmSelUqkHCo1cMo/d9de7QnIO9uVKTlt1fLeoHcR59r
+	4mfUK9wx3zjMTJ2I3B/xwkuVBLHdnh03bv3+wpqyYS6Mc7VRGRXow+rtceszJO8ELLaU4+nvKuYWZ
+	diBx7dNbdc+4Vm/A5prsu94tZePbuXre9lRN96WNwzXVvflvsy4bUZbyo9XitoZq39lrP72h+Qzn0
+	2Qv+64AM9BnJxJIG0c9ZvbItyHbosRJASUmLWKyl9su/wqWZtGOyBCWZNSb7zWeXoVMylTmAuvDr1
+	7X+uuvgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVlP-00000003qBI-2Grt;
-	Fri, 06 Mar 2026 14:02:47 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1vyVlR-00000003qE5-1nit;
+	Fri, 06 Mar 2026 14:02:49 +0000
+Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyVlK-00000003q4y-1jwn
+	id 1vyVlN-00000003q7D-1m9D
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 14:02:43 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4836bf1a920so99520485e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 06:02:40 -0800 (PST)
+	Fri, 06 Mar 2026 14:02:46 +0000
+Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-b938cb02038so217543766b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 06:02:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1772805759; x=1773410559; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1772805763; x=1773410563; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=sHiziDrbrII1tYwtdt9uLufHtIuF7NAMU9T1cNEOC3I=;
-        b=rtdQQLUzublQS/SV65D+fGHhN51kz+MnfYW82Iimje6YJG0UlE4ld/vUTZxsREWhhB
-         /1hgzCRpTTFKF4qXgT/sOezscudnvPJYO7C8ZkH19BdiKqfzU2ECH8LyPy7dTUDGtVNk
-         0Ux+0SBN1uMTrHJqXr/UtAxH16V1hGjnQIkRDIF8M08OXANACpxbPIlUS9B6DJvICVit
-         wDwyw7qU6JUCIIKZ0aVemHBaMukDAoYfpXb76X9GI0PcnPUTfFWtz+R1Nv4dwCeYAxDl
-         uWIVahBcrvyYU18OLYe8R7tSZblw586X6uiJwQFnRWHn+MoQXZqOj5hRew/fgqCGP5eV
-         P8Zw==
+        bh=KT44YeiLTJyOwAcprGitUZ5uZxYG91k2apEts1OjnSo=;
+        b=WuRJlMeR98cGa1TjZtDrWErPxXd5kqUzNyqfFWvegffnKMo3e+LVwnq14FIA39iRIU
+         QUMXMv0UFpv9Po5nOHLqGxuev1Q4VGIc4mWFMAr4GM7f69rVO2pgysOhQLDgUUhk375r
+         rn9ThNU40GQ9emLvDzotVZJSnkuZ2Yz09Qo6o1YWLGD2X39Lcqp7Ce2l7ba7dmo6AKCC
+         RnRVYnIyqTgQttZI/nmvUzjXE5RF0q2x3ClbKw8mPgDMaAQSG53KO/ozV2Xvv0RjCOsH
+         AIvKpn3Rxy4yOCCS33QOWpaXfOjQzKpKpll4ZRVq1V8KZ0wfT5qS5s2FqtxfosGMmwgx
+         bVeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772805759; x=1773410559;
+        d=1e100.net; s=20230601; t=1772805763; x=1773410563;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=sHiziDrbrII1tYwtdt9uLufHtIuF7NAMU9T1cNEOC3I=;
-        b=XryEG+qbIR4p7U37Ktky+DjHoB7mqlDn/Y5E6ecA+/ZrjGZQ9MxUURiWxz7quElXhh
-         NuK93H8sO/hfICf/CEe/GOFZN/pMxuRzbRqslXhWjegJgvLZ+0KlDAUpuxPxWFgbrUmt
-         fTK6rxOGp7ez1Afv4FcT81ZXYu7DKVbAEK7fYedj0KN2L2CmrjYzx5TvcAop+Cq9+kC/
-         oJTxgq4MCqpNjOoHzTpgF1MPKVP3RbzFgv75ooew688k6pYd/Dtd2AB2JZkwWuAl7SbL
-         NlOCBhvcjXNNResyEQ5ikcS4PaL0NgFmQfrN+ntxj4JxDHsQ+DjJOTJr3zY2THUrI28S
-         yVoA==
-X-Forwarded-Encrypted: i=1; AJvYcCXsTVlXAQH67q4nxBqZsmqyKjq2ruehJmCRUrUa39lFpFW1R61vzxGZsmv1Qk1gh/f0DplcstvCtTPKqnrqfOEp@lists.infradead.org
-X-Gm-Message-State: AOJu0YzK8Gs8acHpDmDoTuvxCqm3QHYd/J9fa1l5tkx0ak+FAEtJbp3P
-	LrqAnxd1RotqSnJur9ClA1I8p4EEfPIHZkh7mNeZ0mVtMg4NtCn6JnmS7zJidr5kXapmGLVDCWA
-	X1Q==
-X-Received: from wmjk6.prod.google.com ([2002:a7b:c306:0:b0:483:7b48:cd99])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:a0d:b0:485:1878:7b8c
- with SMTP id 5b1f17b1804b1-4852695b6fcmr34660805e9.18.1772805758953; Fri, 06
- Mar 2026 06:02:38 -0800 (PST)
-Date: Fri,  6 Mar 2026 14:02:23 +0000
+        bh=KT44YeiLTJyOwAcprGitUZ5uZxYG91k2apEts1OjnSo=;
+        b=afvYeE53MG2JLBqv5r4VyvFZt08Mc3o1E78LG1fmS3TixYvn4VAw7e9KRVSuhjaXoh
+         N8pZIdpgNVy5rMy0ZJE/lWRDCu6y+Yvuo6chFpsw31SFuDO0JPJ5Fkoh21i901qDKnTS
+         l6ZyL4qyTVjSe3Q+W+GDPPJxcH8hlPNvotDbOK1HabdU5oUDTLMqM6tCd5yMDxiN5coB
+         Zym7e9y3/gjGMaVbvw/YnbmmleppljrB5NeofSosVfp0BC+VxyGtS8sH1/cp2n0rpyEY
+         OtecY+drEvv59BQ2dnb22XvdgtkCEwYXmKqx5nX7IpoPWS8Erge9R7sx1QxYl3N+kCt8
+         NBjw==
+X-Forwarded-Encrypted: i=1; AJvYcCWND2zZ2i6uWhkJ1mf/XNA6zSqT0Mvr5bc0LQpuWVf9hL4965OaFpvEafEgUD+yvCtCOidOr874Io+sXTWlhe38@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2uHSn9ZtOCwdUYDVtHYx67ukuSRXAvtYUz9cWxZQr1wcTRL1c
+	/Juw5eA2mJZRv9WHt+EjrczqbpLpv0vIAZiWb5Vzw8F4Wi1AeO6VWElTTjcgYu0vj1mS+ssYT/J
+	HFA==
+X-Received: from ejfw12.prod.google.com ([2002:a17:906:a0c:b0:b94:f06:dc6e])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a17:906:d54b:b0:b93:5ef5:904f
+ with SMTP id a640c23a62f3a-b942d1b1bebmr143967466b.26.1772805762935; Fri, 06
+ Mar 2026 06:02:42 -0800 (PST)
+Date: Fri,  6 Mar 2026 14:02:26 +0000
 In-Reply-To: <20260306140232.2193802-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20260306140232.2193802-1-tabba@google.com>
 X-Mailer: git-send-email 2.53.0.473.g4a7958ca14-goog
-Message-ID: <20260306140232.2193802-5-tabba@google.com>
-Subject: [PATCH v1 04/13] KVM: arm64: Isolate mmap_read_lock inside new
- kvm_s2_fault_get_vma_info() helper
+Message-ID: <20260306140232.2193802-8-tabba@google.com>
+Subject: [PATCH v1 07/13] KVM: arm64: Simplify nested VMA shift calculation
 From: Fuad Tabba <tabba@google.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
@@ -75,8 +74,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
 	will@kernel.org, qperret@google.com, vdonnefort@google.com, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_060242_468996_A26D1B31 
-X-CRM114-Status: GOOD (  14.91  )
+X-CRM114-CacheID: sfid-20260306_060245_481590_1884B9EF 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,69 +90,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extract the VMA lookup and metadata snapshotting logic from
-kvm_s2_fault_pin_pfn() into a tightly-scoped sub-helper.
+In the kvm_s2_resolve_vma_size() helper, the local variable vma_pagesize
+is calculated from vma_shift, only to be used to bound the vma_pagesize
+by max_map_size and subsequently convert it back to a shift via __ffs().
 
-This refactoring structurally fixes a TOCTOU (Time-Of-Check to
-Time-Of-Use) vulnerability and Use-After-Free risk involving the vma
-pointer. In the previous layout, the mmap_read_lock is taken, the vma is
-looked up, and then the lock is dropped before the function continues to
-map the PFN. While an explicit vma = NULL safeguard was present, the vma
-variable was still lexically in scope for the remainder of the function.
-
-By isolating the locked region into kvm_s2_fault_get_vma_info(), the vma
-pointer becomes a local variable strictly confined to that sub-helper.
-Because the pointer's scope literally ends when the sub-helper returns,
-it is not possible for the subsequent page fault logic in
-kvm_s2_fault_pin_pfn() to accidentally access the vanished VMA,
-eliminating this bug class by design.
+Because vma_pagesize and max_map_size are both powers of two, we can
+simplify the logic by omitting vma_pagesize entirely and bounding the
+vma_shift directly using the shift of max_map_size. This achieves the
+same result while keeping the size-to-shift conversion out of the helper
+logic.
 
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- arch/arm64/kvm/mmu.c | 16 ++++++++++++----
- 1 file changed, 12 insertions(+), 4 deletions(-)
+ arch/arm64/kvm/mmu.c | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
 
 diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index d56c6422ca5f..344a477e1bff 100644
+index 833a7f769467..090a906d3a12 100644
 --- a/arch/arm64/kvm/mmu.c
 +++ b/arch/arm64/kvm/mmu.c
-@@ -1740,7 +1740,7 @@ struct kvm_s2_fault {
- 	vm_flags_t vm_flags;
- };
- 
--static int kvm_s2_fault_pin_pfn(struct kvm_s2_fault *fault)
-+static int kvm_s2_fault_get_vma_info(struct kvm_s2_fault *fault)
+@@ -1646,7 +1646,6 @@ static short kvm_s2_resolve_vma_size(struct vm_area_struct *vma,
+ 				     bool *force_pte, phys_addr_t *ipa)
  {
- 	struct vm_area_struct *vma;
- 	struct kvm *kvm = fault->vcpu->kvm;
-@@ -1774,9 +1774,6 @@ static int kvm_s2_fault_pin_pfn(struct kvm_s2_fault *fault)
+ 	short vma_shift;
+-	long vma_pagesize;
  
- 	fault->is_vma_cacheable = kvm_vma_is_cacheable(vma);
+ 	if (*force_pte)
+ 		vma_shift = PAGE_SHIFT;
+@@ -1677,8 +1676,6 @@ static short kvm_s2_resolve_vma_size(struct vm_area_struct *vma,
+ 		WARN_ONCE(1, "Unknown vma_shift %d", vma_shift);
+ 	}
  
--	/* Don't use the VMA after the unlock -- it may have vanished */
--	vma = NULL;
+-	vma_pagesize = 1UL << vma_shift;
 -
- 	/*
- 	 * Read mmu_invalidate_seq so that KVM can detect if the results of
- 	 * vma_lookup() or __kvm_faultin_pfn() become stale prior to
-@@ -1788,6 +1785,17 @@ static int kvm_s2_fault_pin_pfn(struct kvm_s2_fault *fault)
- 	fault->mmu_seq = kvm->mmu_invalidate_seq;
- 	mmap_read_unlock(current->mm);
+ 	if (nested) {
+ 		unsigned long max_map_size;
  
-+	return 0;
-+}
-+
-+static int kvm_s2_fault_pin_pfn(struct kvm_s2_fault *fault)
-+{
-+	int ret;
-+
-+	ret = kvm_s2_fault_get_vma_info(fault);
-+	if (ret)
-+		return ret;
-+
- 	fault->pfn = __kvm_faultin_pfn(fault->memslot, fault->gfn,
- 				       fault->write_fault ? FOLL_WRITE : 0,
- 				       &fault->writable, &fault->page);
+@@ -1703,8 +1700,7 @@ static short kvm_s2_resolve_vma_size(struct vm_area_struct *vma,
+ 			max_map_size = PAGE_SIZE;
+ 
+ 		*force_pte = (max_map_size == PAGE_SIZE);
+-		vma_pagesize = min_t(long, vma_pagesize, max_map_size);
+-		vma_shift = __ffs(vma_pagesize);
++		vma_shift = min_t(short, vma_shift, __ffs(max_map_size));
+ 	}
+ 
+ 	return vma_shift;
 -- 
 2.53.0.473.g4a7958ca14-goog
 
