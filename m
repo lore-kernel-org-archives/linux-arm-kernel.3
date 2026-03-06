@@ -4,88 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05610F33A92
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:23:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9876F513EF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 14:24:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dueXMGXpxv0xbCVmzWXvE/Ffw9BJfJL0ZtVGlTEf6/0=; b=YRuh2sb+4+5vLd+1bvRfmP4xJr
-	9ZzyUFOyj3YBpuQCpv8z96kTYDK5P9G/Fp3VgCWSpwBOf77I7RX9EJurpxtibM4dwASe0YHoDsMDY
-	hFuw97y0RCf7LNtLNH4DREwYhnOHeOT4CCrIWbgKMWGi4XQQEqsjtg60BqxVDfA/y71rYi3CCByL4
-	dTwP6tHCNfSsQxvTatDRBirBEQ2RKnzD8/bELhKM7GMnOaAUXyRQcUBHEQw67eOAu6WAcSJRrkfzJ
-	YLyfvDmxIirBu6ZbHnvKy2njLPwTBr7IkWlBS7qtdLtGa0aRXPpsEOr9t2uJaoHYxUIsDcJ8AeDX3
-	5HVWzjyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iP/+KyLFxcqxA5l9rU9MI9S/9G1X3GO+0l1FGXNsyfQ=; b=pQhr5IKdwMRBg3eNN5R5Ce+78O
+	tcjHHU873Q2w7QEwXttZrT10gbEVzP5FUJtXItbrlPjyyCLMOyGkhKXnT3DHDjUhzb94v5cAl25DU
+	u5hhz+gAOtL4X9nV2WsrlK60aXLk7anWgAj40MejbkKV/U++On5H9qRFWm+nLxCP9kkdc6uvh51os
+	M1d8Jiis8IkPC4ffLAZak3XnV2HZg17B1qnwMT3MdJCrIyam2ed7JXu/ApSveXzb6NET4FKWw6IXx
+	svATTLh+Meufqc/f//tg0nnd3SYugfxx/Pc7l41BW8SbAmhv0fT+8Qcg/g6ogOhom4Wun4RVFY4c4
+	RevPEW0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyW54-00000003u1B-3ex6;
-	Fri, 06 Mar 2026 14:23:06 +0000
-Received: from mail-vs1-xe32.google.com ([2607:f8b0:4864:20::e32])
+	id 1vyW6b-00000003uGY-11pE;
+	Fri, 06 Mar 2026 14:24:41 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyW52-00000003tzr-3Ddy
+	id 1vyW6Z-00000003uGB-0SuA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 14:23:05 +0000
-Received: by mail-vs1-xe32.google.com with SMTP id ada2fe7eead31-5ffa277c156so763244137.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 06:23:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772806983; x=1773411783; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=dueXMGXpxv0xbCVmzWXvE/Ffw9BJfJL0ZtVGlTEf6/0=;
-        b=RbDckSNcOxBQpGjY7JgCYJr5V6Qn/mY4f2Ykqq/qSBlXpHoQaqfqd8tLVNmQwDDzDI
-         guJ4liocggJRKlkS7pYvynqrQAeXK2WGL4xCAHBgH9U1YWXjx4g7Xg0ykuEN9/snogtk
-         tpmaWAJcGTQfLNmG8NKEDKFV0NmIAbAePPothKiY5m6p7uUKlC76nDsuda4/JZuQv7oM
-         M7kXkiYozC5SysbQJ0oLDoiVtar9Gv4kv1FlAr5uddoS7cHDT9LML0x2a6q9I4mfK2W9
-         nvSQZkwPdmN73g86KH60/lz5O4XobwoJjw4vkPTbT3c2wkLq7xzHg/8TS6AJWE1bzSJX
-         ciGQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772806983; x=1773411783;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dueXMGXpxv0xbCVmzWXvE/Ffw9BJfJL0ZtVGlTEf6/0=;
-        b=wHU3kRD6swJATofEGP2rQrNz4SQTngFVz9mcJqF8QP2MFGXCYqkHhUyCuKhSZqwmzd
-         RH1c01TkNHAZQiE79YpLB4QglisXIIu5qxlR1YEzVYZmW9bvPaTGuPgZHOQPSi2H7QcE
-         Qqb6hIo+4R0JBRKyBNUd4H3s4ndXThOlVy3oszkv+7lYucV0KApxKk72ULuldv8Y+Mke
-         BMfwylX75Urw471rTlf2NSGn0jA2YXEIcN4JKsytIUWEKFIcy5Ec9wGvq/frhmFR8cFO
-         7/cs3If5ndE+uQZourqve3vUmxnkfzXEj4amqHe2Wqb/WxFCKMHm6uvq8dCTpidMNY8h
-         wDOw==
-X-Forwarded-Encrypted: i=1; AJvYcCUoGVZknS/PHp2VcdfxXy02FsbcYgSXZlG0wfmmSptccevZS4xPob3sAr0fuVDioPioWqAMH/WcENmr/FDvqnMi@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyy+eA5A1GYIH8kNVIGw/vZn5byVsP4duy1MWHHfG88UhNQXHrl
-	pieRqLk5BEw3otb7kcSE/LjDzcwiUTi0vb9qPFIX8UHb7MWM5jHq8KYC
-X-Gm-Gg: ATEYQzyjHZs3DEycXvjQApzGIR+ZM9V9PRB3ZLhOgtCRJBwf00EM2Vbrg8G21R7dAao
-	P+eeJxihf9gfHqO7X3KnQK+hC1wiSE+qQlCXfhSIphlPfGLAs2vQyhABZLpGiJ9P4RFzvNjg5H8
-	uMa4aqq7H+QOL1uqwSIWUo9X4pL7/W+kKV0nMHwbpf28UuaJs+IAQgu3Fe4+WvedO3Hcs9kQ88j
-	o4KDWx2riDtp1wq64cyF+gA0BEWNoLdwPAPkF7597kNFO0pK9W8IGVgO5us+GLcLOEu9zcLDQSz
-	SW6wc+FR/ocaJ/Iw0+uaDQSu982deu/8CkcK75ZjTNlPe/Uey5ceKDurUQ6op9DQ362pWKdwYjV
-	4WnTxfKhkZHnzJHfky4ySiqEuKTPP+OHBWSl8T+QuvFN5UHHo31l3kk3PdfEbu2sd8QsG0dDiQM
-	bghMvk+MU6GNj+/00K89HZjK4wACNo1w81nLtvsGhmtxaeBgsQ4B9UhpGv0rcoVojnW4kYympsE
-	5qbqXY=
-X-Received: by 2002:a05:6102:1613:b0:5ff:22f5:e37e with SMTP id ada2fe7eead31-5ffe5f5af8bmr731824137.10.1772806983101;
-        Fri, 06 Mar 2026 06:23:03 -0800 (PST)
-Received: from fabio-Precision-3551.. ([2804:1b3:a802:8875:ddd6:ede8:90d6:abeb])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-94e7b36d64bsm1540781241.6.2026.03.06.06.23.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Mar 2026 06:23:02 -0800 (PST)
-From: Fabio Estevam <festevam@gmail.com>
-To: srini@kernel.org
-Cc: imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Christian Eggers <ceggers@arri.de>,
-	stable@vger.kernel.org,
-	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH] nvmem: imx: assign nvmem_cell_info::raw_len
-Date: Fri,  6 Mar 2026 11:22:35 -0300
-Message-Id: <20260306142235.1401319-1-festevam@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Fri, 06 Mar 2026 14:24:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=iP/+KyLFxcqxA5l9rU9MI9S/9G1X3GO+0l1FGXNsyfQ=; b=V98CLCO4f2BlxzFF7j27+NDGzP
+	MUHc4RU4Jp2NxDPKV4Jt9hhoyRvN/Rbb2yOJ4xgG/pJes5IaA1WhQA2j4YiL6pIxjBvB0S/JHeS6N
+	UX+2NYTNArBvFyhwuaiFUfSZrboOr+yJolcZD6CfsVnqJsNO0kqGRSXAvhaY+h/GRuRY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vyW6O-00AUTM-NT; Fri, 06 Mar 2026 15:24:28 +0100
+Date: Fri, 6 Mar 2026 15:24:28 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Shenwei Wang <shenwei.wang@nxp.com>
+Cc: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	arnaud.pouliquen@foss.st.com,
+	Shuah Khan <skhan@linuxfoundation.org>, linux-gpio@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-imx@nxp.com
+Subject: Re: [PATCH v9 4/5] gpio: rpmsg: add support for NXP legacy firmware
+ protocol
+Message-ID: <676cee35-b5ba-4a3c-a6d4-b9e06e0886dc@lunn.ch>
+References: <20260304211808.1437846-1-shenwei.wang@nxp.com>
+ <20260304211808.1437846-5-shenwei.wang@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260304211808.1437846-5-shenwei.wang@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_062304_813060_8EA7D356 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20260306_062439_171031_EC0ACA7A 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,50 +83,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Christian Eggers <ceggers@arri.de>
+> +static struct rpmsg_gpio_fixed_up imx_fixed_up_data = {
+> +	.recv_fixed_up = rpmsg_gpio_imx_recv_fixed_up,
+> +	.send_fixed_up = rpmsg_gpio_imx_send_fixed_up,
+> +};
+> +
+>  static int rpmsg_gpio_send_message(struct rpmsg_gpio_port *port,
+>  				   struct rpmsg_gpio_packet *msg,
+>  				   bool sync)
+> @@ -572,6 +711,10 @@ static const struct of_device_id rpmsg_gpio_dt_ids[] = {
+>  
+>  static struct rpmsg_device_id rpmsg_gpio_channel_id_table[] = {
+>  	{ .name = "rpmsg-io" },
+> +	{
+> +		.name   = "rpmsg-io-channel",
+> +		.driver_data = (kernel_ulong_t)(uintptr_t)&imx_fixed_up_data
+> +	},
 
-Avoid getting error messages at startup like the following on i.MX6ULL:
+Its not clear to me how this gets applied. Don't you need a different
+compatible? fsl,rpmsg-gpio-legacy or something?
 
-nvmem imx-ocotp0: cell mac-addr raw len 6 unaligned to nvmem word size 4
-nvmem imx-ocotp0: cell mac-addr raw len 6 unaligned to nvmem word size 4
+I would also put it behind a CONFIG_ option, and in a different
+module. Nobody needs this code other than your legacy products. You
+don't need the bloat for your new devices and other vendors don't need
+it.
 
-This shouldn't cause any functional change as this alignment would
-otherwise be done in nvmem_cell_info_to_nvmem_cell_entry_nodup().
-
-Cc: stable@vger.kernel.org
-Fixes: 4327479e559c ("nvmem: core: verify cell's raw_len")
-Signed-off-by: Christian Eggers <ceggers@arri.de>
-Signed-off-by: Fabio Estevam <festevam@gmail.com>
----
- drivers/nvmem/imx-ocotp-ele.c | 1 +
- drivers/nvmem/imx-ocotp.c     | 1 +
- 2 files changed, 2 insertions(+)
-
-diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
-index 7807ec0e2d18..4585da51f7f4 100644
---- a/drivers/nvmem/imx-ocotp-ele.c
-+++ b/drivers/nvmem/imx-ocotp-ele.c
-@@ -131,6 +131,7 @@ static int imx_ocotp_cell_pp(void *context, const char *id, int index,
- static void imx_ocotp_fixup_dt_cell_info(struct nvmem_device *nvmem,
- 					 struct nvmem_cell_info *cell)
- {
-+	cell->raw_len = round_up(cell->bytes, 4);
- 	cell->read_post_process = imx_ocotp_cell_pp;
- }
- 
-diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
-index 7bf7656d4f96..108d78d7f6cb 100644
---- a/drivers/nvmem/imx-ocotp.c
-+++ b/drivers/nvmem/imx-ocotp.c
-@@ -589,6 +589,7 @@ MODULE_DEVICE_TABLE(of, imx_ocotp_dt_ids);
- static void imx_ocotp_fixup_dt_cell_info(struct nvmem_device *nvmem,
- 					 struct nvmem_cell_info *cell)
- {
-+	cell->raw_len = round_up(cell->bytes, 4);
- 	cell->read_post_process = imx_ocotp_cell_pp;
- }
- 
--- 
-2.34.1
-
+    Andrew
 
