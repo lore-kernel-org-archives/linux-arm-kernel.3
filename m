@@ -4,84 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B3E3F01825
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 11:08:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7DBAF01826
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 11:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NTYdTeBjMr6XpI5HTAxWxrD66RVzOSfkMwRE+gHfKWY=; b=Tr9v01txxULegSCCQUmL8We5pN
-	7dB6qkvZCowJVWtgKGR+aO89UqnqEziihCE1434vVypHbwu7+ovFKZ0IiUrK+eLSjRMDjIZxUsr1a
-	+l/rmgh7aG4cNJnkvh0nxu16kXBqYetS2ifrE1RsBJEyme6/giPW2ljH7w1VQTWk4Jc/pjuNlnQTj
-	GofosY2xWa/KVk6kFCKpFnjBIH+TYthAUscY/kczxsI18lipEH7csGiziCP1RvvZuZvL97TFGc9EE
-	Dq5YPMVrCDsDIgM3x0pTePDUfFZfX+apW7bIggVKmaxUjjZKfJbdP1MUqvPiVDgxkvgNZpBh9P8UR
-	1eu1gNqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UjS1Og5gKK4ReP4lGIT4DmFRNJFBZxs5KC6Dsv0aCwk=; b=SQ9S4IvBS91oNTpLUI5CmCQ7ec
+	+7++WVDHnTDLCTncRJdWGktX0De/DiuFoGK2p0Gqs2c14oTWyRKlkQobe42I5aRAXQ5TESRv60BYs
+	PtOPMU6pN2NftMQYXzhMrIJzQuwjlnWFYU54wJ6ECMrPV+GuwKgEiDcKO5AwEPDWogjge+EHHp7mW
+	l5S6cyzoKE/EFuT9MiFz5NW5KHibqY6Qv0h8pKfodfAXtdXSLO2ftilP8Nni0cM3d6T81J45KEa4c
+	Hp9Xq2fCZVsYFDKFjlXeDCc6zFjbrRwzT/7TBx8YRLKv/6KJhRHfjsGHDW48k3ys2qfsmuf+o3Y+U
+	L0QTE6yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyT2R-00000003XbG-2m33;
-	Fri, 06 Mar 2026 11:08:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyT2P-00000003Xab-2KSG
+	id 1vyT9j-00000003Y6M-3z24;
+	Fri, 06 Mar 2026 11:15:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vyT9h-00000003Y5I-2Qfc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 11:08:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6A9B74451E
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  6 Mar 2026 11:08:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AF70C4CEF7
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  6 Mar 2026 11:08:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772795288;
-	bh=zvGkoOu6sc3DwKuM9+tCXqq+dXf2cC7y58uKtjKrGkA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=enhnqn0cQZOEfPg4lbr5H0FcIOxP/gaxG/zy4LHsHbA4Y//gAslwnbfUUjaIeSPwd
-	 /XqGAc1zKK9l/RwY+YKBm0jm2/l5eZ8bBH84Vl9gXweq54jTLN7PSUoS5wkA+sj52M
-	 OgrSO3Yc8VMOPu3u81jUj+NfsgMOtFEoNikq6bspa78MHsrfxKrY2l7pWKZc8O6DsX
-	 /kH3ojHcyPUAyuaR6CUWEXqo+2wa9wyMT8+h8PiUpnnAtMeoRI5n355eulvZupV3aQ
-	 OICqI7Ot9BXmBXN1FpeBIotaIPwdFoAwwGcAHoQHXlmbuZJgb7wZoYFsWqk3W4OCfo
-	 QmkMfSQbe73LA==
-Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5a131e8a236so2022422e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 03:08:08 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXrMmcVp+UIfx5UaUj6PAYAQF3rtRk4iMT3ieLzGb6DCIPormd2YSnsm+URPRZrsZEWW/bOUz/r7UPSwsWJtlkK@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIHPSv4fh/KgAEjasYNWaKLA3NlOKmj+N3HKdZ9uhvPz+Q7xIP
-	q8EbIfgR4tSwOAtlli8DF5u6ePjuOeKxWdG7wf6X2CIB6GGLBfOFF7bskJIvQjqLPux3o8qx/ZD
-	Ze0go82z0FJVoZ8obfBnhhA5kGHOSA2Cf8T+/Ek4/SQ==
-X-Received: by 2002:a05:6512:3719:b0:5a1:3b28:42fd with SMTP id
- 2adb3069b0e04-5a13cd58785mr456080e87.47.1772795286638; Fri, 06 Mar 2026
- 03:08:06 -0800 (PST)
+	Fri, 06 Mar 2026 11:15:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1D08F497;
+	Fri,  6 Mar 2026 03:15:32 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C5E403F836;
+	Fri,  6 Mar 2026 03:15:36 -0800 (PST)
+Date: Fri, 6 Mar 2026 11:15:34 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev
+Subject: Re: [PATCH 2/4] arm64: tlb: Pass the corresponding mm to
+ __tlbi_sync_s1ish()
+Message-ID: <aaq3Vun0ZSSdXyXV@arm.com>
+References: <20260302165801.3014607-1-catalin.marinas@arm.com>
+ <20260302165801.3014607-3-catalin.marinas@arm.com>
+ <aamULrOkm8jd_9UY@willie-the-truck>
+ <aanXM7YWMAJW6qk7@arm.com>
 MIME-Version: 1.0
-References: <20260302-qcom-qce-cmd-descr-v11-0-4bf1f5db4802@oss.qualcomm.com>
- <scr5qvxa7f7k22pms4c6k5gwiky7lhssrw6qryfngexlek44g2@rayinnnwqgbt>
- <aalwMwN3qMlzrql5@linaro.org> <CAMRc=MfjknN1AYF_NPLzR0YbdWuoET25D9o0zsvx56VN+u59HQ@mail.gmail.com>
- <aamIf8JethKzLW93@linaro.org> <CAMRc=Mf=NjCqf0eqmM800Q3MEUC48V_DZ3ts6+4=qMCtrbvzzQ@mail.gmail.com>
- <aamsL4uh58Fv5een@linaro.org>
-In-Reply-To: <aamsL4uh58Fv5een@linaro.org>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Fri, 6 Mar 2026 12:07:54 +0100
-X-Gmail-Original-Message-ID: <CAMRc=MfMJzVrRBo0kbgDbznRexFn2bc6GBkNh75k3L4Kw25VJg@mail.gmail.com>
-X-Gm-Features: AaiRm50SYPFbrtvBCgqbAD5XV2pariKnEghQc2LIPzo-Ehg13xkHUxUA3b9Bzso
-Message-ID: <CAMRc=MfMJzVrRBo0kbgDbznRexFn2bc6GBkNh75k3L4Kw25VJg@mail.gmail.com>
-Subject: Re: [PATCH RFC v11 00/12] crypto/dmaengine: qce: introduce BAM
- locking and use DMA for register I/O
-To: Stephan Gerhold <stephan.gerhold@linaro.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	"David S. Miller" <davem@davemloft.net>, Udit Tiwari <quic_utiwari@quicinc.com>, 
-	Md Sadre Alam <mdalam@qti.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
-	Peter Ujfalusi <peter.ujfalusi@gmail.com>, Michal Simek <michal.simek@amd.com>, 
-	Frank Li <Frank.Li@kernel.org>, dmaengine@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Bjorn Andersson <andersson@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aanXM7YWMAJW6qk7@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_030809_632266_2EF23793 
-X-CRM114-Status: GOOD (  24.54  )
+X-CRM114-CacheID: sfid-20260306_031541_739931_2D73D8DD 
+X-CRM114-Status: GOOD (  32.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,51 +71,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 5, 2026 at 5:16=E2=80=AFPM Stephan Gerhold
-<stephan.gerhold@linaro.org> wrote:
->
-> >
-> > You'd think so but the HPG actually does use the word "dummy" to
-> > describe the write operation with lock/unlock bits set. Though it does
-> > not recommend any particular register to do it.
-> >
->
-> I guess the documentation I'm looking at (8.7.3.4 BAM operation in the
-> public APQ8016E TRM) might be an excerpt from some older version of the
-> BAM HPG. Is also has a note about "dummy" command descriptors:
->
->   "NOTE: Pipe locking and unlocking should appear only in
->    command-descriptor. In case a lock is required on a data descriptor
->    this can be implemented by a dummy command descriptor with
->    lock/unlock bit asserted preceding/following the data descriptor."
->
-> This one doesn't make any difference between READ and WRITE command
-> descriptors (and both are documented in the chapter).
->
-> Personally, I would prefer using a read over a write if possible. Unless
-> you can confirm that the register used for the dummy write is actually
-> read-only *and* write-ignore, writing to the register is essentially
-> undefined behavior. It will probably do the right thing on most
-> platforms, but there could also be one out there where writing to the
-> register triggers an error or potentially even silently ends up writing
-> into another register. Register logic can be fun in practice, commit
-> e9a48ea4d90b ("irqchip/qcom-pdc: Workaround hardware register bug on
-> X1E80100") [1] is a good example of that. :')
->
-> [1]: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/c=
-ommit/?id=3De9a48ea4d90be251e0d057d41665745caccb0351
+On Thu, Mar 05, 2026 at 07:19:15PM +0000, Catalin Marinas wrote:
+> On Thu, Mar 05, 2026 at 02:33:18PM +0000, Will Deacon wrote:
+> > On Mon, Mar 02, 2026 at 04:57:55PM +0000, Catalin Marinas wrote:
+> > > @@ -391,7 +391,7 @@ static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
+> > >   */
+> > >  static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
+> > >  {
+> > > -	__tlbi_sync_s1ish();
+> > > +	__tlbi_sync_s1ish(NULL);
+> > 
+> > Hmm, it seems a bit rubbish to pass NULL here as that means that we'll
+> > deploy the mitigation regardless of the mm flags when finishing the
+> > batch.
+> > 
+> > It also looks like we could end up doing the workaround multiple times
+> > if arch_tlbbatch_add_pending() is passed a large enough region that we
+> > call __flush_tlb_range_limit_excess() fires.
+> > 
+> > So perhaps we should stash the mm in 'struct arch_tlbflush_unmap_batch'
+> > alongside some state to track whether or not we have uncompleted TLB
+> > maintenance in flight?
+> 
+> The problem is that arch_tlbbatch_flush() can be called to synchronise
+> multiple mm structures that were touched by TTU. We can't have the mm in
+> arch_tlbflush_unmap_batch. But we can track if any of the mms had
+> MMCF_SME_DVMSYNC flag set, something like below (needs testing, tidying
+> up). TBH, I did not notice any problem in benchmarking as I guess we
+> haven't exercised the TTU path much, so did not bother to optimise it.
+> 
+> For the TTU case, I don't think we need to worry about the excess limit
+> and doing the IPI twice. But I'll double check the code paths tomorrow.
+> 
+> diff --git a/arch/arm64/include/asm/tlbbatch.h b/arch/arm64/include/asm/tlbbatch.h
+> index fedb0b87b8db..e756eaca6cb8 100644
+> --- a/arch/arm64/include/asm/tlbbatch.h
+> +++ b/arch/arm64/include/asm/tlbbatch.h
+> @@ -7,6 +7,8 @@ struct arch_tlbflush_unmap_batch {
+>  	 * For arm64, HW can do tlb shootdown, so we don't
+>  	 * need to record cpumask for sending IPI
+>  	 */
+> +
+> +	bool sme_dvmsync;
+>  };
+> 
+>  #endif /* _ARCH_ARM64_TLBBATCH_H */
+> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+> index e3ea0246a4f4..c1141a684854 100644
+> --- a/arch/arm64/include/asm/tlbflush.h
+> +++ b/arch/arm64/include/asm/tlbflush.h
+> @@ -201,10 +201,15 @@ do {										\
+>   * Complete broadcast TLB maintenance issued by the host which invalidates
+>   * stage 1 information in the host's own translation regime.
+>   */
+> -static inline void __tlbi_sync_s1ish(struct mm_struct *mm)
+> +static inline void __tlbi_sync_s1ish_no_sme_dvmsync(void)
+>  {
+>  	dsb(ish);
+>  	__repeat_tlbi_sync(vale1is, 0);
+> +}
+> +
+> +static inline void __tlbi_sync_s1ish(struct mm_struct *mm)
+> +{
+> +	__tlbi_sync_s1ish_no_sme_dvmsync();
+>  	sme_dvmsync(mm);
+>  }
+> 
+> @@ -408,7 +413,11 @@ static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
+>   */
+>  static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
+>  {
+> -	__tlbi_sync_s1ish(NULL);
+> +	__tlbi_sync_s1ish_no_sme_dvmsync();
+> +	if (batch->sme_dvmsync) {
+> +		batch->sme_dvmsync = false;
+> +		sme_dvmsync(NULL);
+> +	}
+>  }
+> 
+>  /*
+> @@ -613,6 +622,8 @@ static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *b
+>  		struct mm_struct *mm, unsigned long start, unsigned long end)
+>  {
+>  	__flush_tlb_range_nosync(mm, start, end, PAGE_SIZE, true, 3);
+> +	if (test_bit(ilog2(MMCF_SME_DVMSYNC), &mm->context.flags))
+> +		batch->sme_dvmsync = true;
+>  }
 
-I agree in general but I also learned from the QCE team at Qualcomm
-that apparently there were some issues with register reads over DMA,
-which makes writes preferable. While the VERSION register is
-officially read-only, I've been told writing to it is safe. So it's a
-choice between doing a READ that may not work on some platforms and
-doing a WRITE that may theoretically not work on some platforms.
+While writing a reply to your other comments, I realised why this
+wouldn't work (I had something similar but dropped it) - we can have the
+flag cleared here (or mm_cpumask() if we are to track per-mm) but we
+have not issued the DVMSync yet. The task may start using SME before
+arch_tlbbatch_flush() and we just missed it. Any checks on whether to
+issue the IPI like reading flags needs to be after the DVMSync.
 
-I'll send v12 which will be a proper series with using register
-metadata and correctly freeing resources and we can rediscuss. Doing
-one or the other is actually a minor details of the whole thing after
-all.
+Anyway, more on the next patch where you asked about the DMB.
 
-Bart
+-- 
+Catalin
 
