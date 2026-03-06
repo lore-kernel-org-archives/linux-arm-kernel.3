@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A3C6F01808
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 07:55:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCFF9F0180A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 07:55:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kvsbkapSH1ZeXX8TYyMwoJWoLzro86VTxqRZYx/ykEo=; b=BPlpX2G/4eYLzBKQEfvlYfUWfs
-	0F4igUd0mwVb5smz3dkBif5S1pnU7+aNKULdQ2LNeWVjCgLp8laRTtgUrUBggNTicNNhqL0a2mlmX
-	W2WQrG5ruIEJIRFMAcVbaAOuX/94JMCRL1yBAbCi3RzbzJffn5ZnEt7C+tD2zxyROrBYOWs61Lblz
-	3BAGZOZvyXeQTLaqJzIOiRykA0TFeAw7psb6g6hR/DpFF8EtYQAd/06kRkkQKDnPMboRlLESkzl05
-	V14W18J69BnC/lUDsw1oEGSLUOIG9X17sZAASXDAKTa3S6hPDaPd5oySUWSM8AJs1RYkfewjyeFEl
-	wzUmqSIQ==;
+	bh=WJvGQh9/qkP51py8oaMsEfWIP7KI2cB/foFt0+/X0LQ=; b=MppM3B2J1dVgsUS93xFh4Uktx0
+	2Xj8RVoAfA/hr+4sZbP1DUPfD1nkhwj0fRS24f5awnYheMAbR+UgUqW45R9naQtf50P09KtKbTahW
+	Ef4JxNW62oHHhfnTwCo5IsNPdxfMlYX5Jx9fxxngKpdTSzebAmS6xoKWFdaA74VWhjiERlmqgZJ0M
+	oj1aMP0b9FI+/zdmc5ofmOko8+mwSPl3dyDZKHMtqBuNBW8Q9monGDH0erzqEfj0HbsPx3u/FRjMP
+	aFykzW1AciwT3V/2DzohVPVLSg2LYQx/5FA7Kt6dwgRyuq/VI6pdocr5Gm+WFl0mib3UfFAPyywNJ
+	Vp5Pfp8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyQ1y-00000003BhW-0OtA;
-	Fri, 06 Mar 2026 07:55:30 +0000
+	id 1vyQ2E-00000003C24-0YsQ;
+	Fri, 06 Mar 2026 07:55:46 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyQ1s-00000003Baf-26bw;
-	Fri, 06 Mar 2026 07:55:24 +0000
+	id 1vyQ22-00000003BnY-3ZwV;
+	Fri, 06 Mar 2026 07:55:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=kvsbkapSH1ZeXX8TYyMwoJWoLzro86VTxqRZYx/ykEo=; b=fik8gRhSdLJKxxtuQ6e9uiRAvC
-	0Fl8d3D5Mps0urnBUGLiUSfvQXK/UHnkYhZNpmoJibEBUTF4fPfY8YzMukDeaAO4hpYsVSxJYyxUb
-	C14VuAkhU1P/zQ/DDLFwgqpDs8k+Hv7xCMzBoW1pO701GnBKuUZ3ACeUI//I0FPJdZ7QmcgF++lL/
-	gR8GUQRr4bo4Np3XRtX7cSD7uGx9boo3/m3MlexIuGyVYHRwHQ0fMoHixqnbbi0QpscnpydDQTLgy
-	2G//N6QKtRQzEJnP+TGR7vllf5Il460LMXnrnZFALHcPkUj8iVidodPGE8B9gPfC/ospL61/mZ1yy
-	tWMfkL/w==;
+	bh=WJvGQh9/qkP51py8oaMsEfWIP7KI2cB/foFt0+/X0LQ=; b=d/fpGzoO5vagZ3tnRvKoc90FNX
+	IdMZlbUyszG6B8ZCtee5wyKu6MLbVhAd2fSfXHWVCKQeLBOQyWN++wDcGnYUKttFw8qm8gyFLZ5Nr
+	eJ9iV61Ek7iPZKvBn+QKV0sXFF0rdXMcZgRkWBNERswnEyW/9VhV6lHI+u3R8XDeXqUraZE4aaMOu
+	qvOeHLuuy1DnKJmN2gNp+/r7lcY25SUpx9cS2zQyzdZJzsYLHJBMGZOgF7oCZ7W3/vdBzpP7uEkxM
+	JBINhW8V01a2ZSd7l6Bp9ATyTb7zb4UUiP2NopF/zwN0tTlITuB4u3bvHwtakHLr3dbnkQIkvDR/q
+	LCnsEyhQ==;
 Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyQ1m-00000008ELJ-2prZ;
-	Fri, 06 Mar 2026 07:55:22 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6267qkheF2977159, This message is accepted by code: ctloc85258
+	id 1vyQ1m-00000008ELM-2pov;
+	Fri, 06 Mar 2026 07:55:32 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6267qoVbB2977171, This message is accepted by code: ctloc85258
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1772783566; bh=kvsbkapSH1ZeXX8TYyMwoJWoLzro86VTxqRZYx/ykEo=;
+	t=1772783570; bh=WJvGQh9/qkP51py8oaMsEfWIP7KI2cB/foFt0+/X0LQ=;
 	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=eSTa0Wxx/mLvAFgYErtdMBsdUcc4CixH3kzWu2jOr5TzVqF+1/hetmEECucLgQYnc
-	 URjfc+/HOByyiqGJWlHQ9C+lgI4utnD4XSm5yfbJKJ6BbbAh1uAu1FfE7edSM+sH0a
-	 DCPVQbpzyH1PvZj83rjjRgB+V4EYCyxUVasJCkwt81lqN6RJbjIZWqWpH0FZegGxCV
-	 4G4Yr7pAxd28/LjFWCjm8k04vKl0VINFLBv/RKVSeWQdvFoyguwnolBKF6Odn/2nXD
-	 fC/wFRTUEPuKoRZslEvv50M0l3YGlckmuMKHMbHJtmUtnm7/I7y5ee26y7GYf8FsIs
-	 k3EmSyiR1OLeA==
+	b=SCTfiDPIfa+vXExhjr7Yv0e9nIhmLs8JwL9O+2v54zq3kWtFe5eaijN/UxOC5qyYS
+	 aHUb0h78rC3tMlovdtqb8KVAzFIeup+i7uK3DSIRUa/7yrgkjXheT8Ku3rUX7qBJP0
+	 g+YxgXgekMvZafcTBrXod3wN3VutYMxtGSNLSYxrp6J1afYf+zI4VgcbrPiPJ6ZS3c
+	 kYbRftvXcAlHM/yDzw0p7im/3B6Wiribi8eeXfumD0M0av2yxtiD88rwPQkeY2MRZ7
+	 H6X+Pe17vc+rXGb/OqLVTbDD6Q/mo5vgfWLjfPsSmmUBvAFBloiTm5Razc4/OT6z2Q
+	 RgI4oNFRSfR8g==
 Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.21/5.94) with ESMTPS id 6267qkheF2977159
+	by rtits2.realtek.com.tw (8.15.2/3.21/5.94) with ESMTPS id 6267qoVbB2977171
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 6 Mar 2026 15:52:46 +0800
+	Fri, 6 Mar 2026 15:52:50 +0800
 Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
  RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Fri, 6 Mar 2026 15:52:46 +0800
+ 15.2.1748.10; Fri, 6 Mar 2026 15:52:47 +0800
 Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
  (10.21.1.56) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Fri, 6 Mar 2026 15:52:46 +0800
+ Transport; Fri, 6 Mar 2026 15:52:47 +0800
 From: Yu-Chun Lin <eleanor.lin@realtek.com>
 To: <linusw@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
         <conor+dt@kernel.org>, <bartosz.golaszewski@oss.qualcomm.com>,
@@ -72,9 +72,9 @@ CC: <james.tai@realtek.com>, <cy.huang@realtek.com>,
         <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
         <linux-arm-kernel@lists.infradead.org>,
         <linux-realtek-soc@lists.infradead.org>
-Subject: [PATCH v2 06/14] pinctrl: realtek: Support system suspend and resume
-Date: Fri, 6 Mar 2026 15:52:36 +0800
-Message-ID: <20260306075244.1170399-7-eleanor.lin@realtek.com>
+Subject: [PATCH v2 11/14] dt-bindings: pinctrl: realtek: Add RTD1625 pinctrl binding
+Date: Fri, 6 Mar 2026 15:52:41 +0800
+Message-ID: <20260306075244.1170399-12-eleanor.lin@realtek.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260306075244.1170399-1-eleanor.lin@realtek.com>
 References: <20260306075244.1170399-1-eleanor.lin@realtek.com>
@@ -82,8 +82,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_075519_561561_05F25DC0 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20260306_075519_617966_53EBAFF8 
+X-CRM114-Status: GOOD (  17.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,180 +100,291 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Tzuyi Chang <tychang@realtek.com>
 
-Add system suspend and resume capabilities to the common Realtek pinctrl
-library. This enables saving and restoring pin configurations during the
-noirq phase for SoCs that define register ranges.
+Add device tree bindings for RTD1625.
 
 Signed-off-by: Tzuyi Chang <tychang@realtek.com>
 Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 ---
 Changes in v2:
-- Remove stray newlines.
-- Simplify rtd_pinctrl_init_pm() error handling: return -ENOMEM directly instead
-of using dev_err_probe().
+- Rename property 'realtek,duty-cycle' to 'realtek,pulse-width-adjust'.
+- Change 'realtek,high-vil' from boolean to enum 'realtek,high-vil-microvolt'
+(value: 1100000).
+- Use common property 'input-voltage-microvolt' instead of custom property.
+- Improve descriptions for 'realtek,pulse-width-adjust',
+'realtek,high-vil-microvolt', 'realtek,drive-strength-p', and
+'realtek,drive-strength-n'.
 
- drivers/pinctrl/realtek/pinctrl-rtd.c | 98 +++++++++++++++++++++++++++
- drivers/pinctrl/realtek/pinctrl-rtd.h | 13 ++++
- 2 files changed, 111 insertions(+)
+ .../pinctrl/realtek,rtd1625-pinctrl.yaml      | 260 ++++++++++++++++++
+ 1 file changed, 260 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/realtek,rtd1625-pinctrl.yaml
 
-diff --git a/drivers/pinctrl/realtek/pinctrl-rtd.c b/drivers/pinctrl/realtek/pinctrl-rtd.c
-index 5888a36babba..60dfb39bc986 100644
---- a/drivers/pinctrl/realtek/pinctrl-rtd.c
-+++ b/drivers/pinctrl/realtek/pinctrl-rtd.c
-@@ -30,6 +30,7 @@ struct rtd_pinctrl {
- 	struct pinctrl_desc desc;
- 	const struct rtd_pinctrl_desc *info;
- 	struct regmap *regmap_pinctrl;
-+	u32 **saved_regs;
- };
- 
- /* custom pinconf parameters */
-@@ -540,6 +541,30 @@ static const struct regmap_config rtd_pinctrl_regmap_config = {
- 	.use_relaxed_mmio = true,
- };
- 
-+static int rtd_pinctrl_init_pm(struct rtd_pinctrl *data)
-+{
-+	const struct rtd_pin_range *pin_range = data->info->pin_range;
-+	struct device *dev = data->pcdev->dev;
-+	const struct rtd_reg_range *range;
-+	size_t num_entries;
-+	int i;
+diff --git a/Documentation/devicetree/bindings/pinctrl/realtek,rtd1625-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/realtek,rtd1625-pinctrl.yaml
+new file mode 100644
+index 000000000000..7b7c064362b9
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pinctrl/realtek,rtd1625-pinctrl.yaml
+@@ -0,0 +1,260 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++# Copyright 2025 Realtek Semiconductor Corporation
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/realtek,rtd1625-pinctrl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+	data->saved_regs = devm_kcalloc(dev, pin_range->num_ranges, sizeof(u32 *), GFP_KERNEL);
-+	if (!data->saved_regs)
-+		return -ENOMEM;
++title: Realtek DHC RTD1625 Pin Controller
 +
-+	for (i = 0; i < pin_range->num_ranges; i++) {
-+		range = &pin_range->ranges[i];
-+		num_entries = range->len / 4;
++maintainers:
++  - Tzuyi Chang <tychang@realtek.com>
++  - Yu-Chun Lin <eleanor.lin@realtek.com>
 +
-+		data->saved_regs[i] = devm_kzalloc(dev, num_entries * sizeof(u32), GFP_KERNEL);
-+		if (!data->saved_regs[i])
-+			return -ENOMEM;
-+	}
++description:
++  The Realtek DHC RTD1625 is a high-definition media processor SoC. The
++  RTD1625 pin controller is used to control pin function, pull-up/down
++  resistors, drive strength, slew rate, Schmitt trigger, power source
++  (I/O output voltage), input threshold domain selection and a higher-VIL mode.
 +
-+	return 0;
-+}
++properties:
++  compatible:
++    items:
++      - enum:
++          - realtek,rtd1625-iso-pinctrl
++          - realtek,rtd1625-main2-pinctrl
++          - realtek,rtd1625-isom-pinctrl
++          - realtek,rtd1625-ve4-pinctrl
 +
- int rtd_pinctrl_probe(struct platform_device *pdev, const struct rtd_pinctrl_desc *desc)
- {
- 	struct rtd_pinctrl *data;
-@@ -579,9 +604,82 @@ int rtd_pinctrl_probe(struct platform_device *pdev, const struct rtd_pinctrl_des
- 
- 	dev_dbg(&pdev->dev, "probed\n");
- 
-+	if (data->info->pin_range) {
-+		if (rtd_pinctrl_init_pm(data))
-+			return -ENOMEM;
-+	}
++  reg:
++    maxItems: 1
 +
- 	return 0;
- }
- EXPORT_SYMBOL(rtd_pinctrl_probe);
- 
-+static int realtek_pinctrl_suspend(struct device *dev)
-+{
-+	struct rtd_pinctrl *data = dev_get_drvdata(dev);
-+	const struct rtd_pin_range *pin_range = data->info->pin_range;
-+	const struct rtd_reg_range *range;
-+	u32 *range_regs;
-+	int count;
-+	int i, j;
-+	int ret;
++patternProperties:
++  '-pins$':
++    type: object
++    allOf:
++      - $ref: pincfg-node.yaml#
++      - $ref: pinmux-node.yaml#
 +
-+	if (!data->saved_regs)
-+		return 0;
++    properties:
++      pins:
++        items:
++          enum: [gpio_0, gpio_1, gpio_2, gpio_3, gpio_4, gpio_5, gpio_6,
++                 gpio_7, gpio_8, gpio_9, gpio_10, gpio_11, gpio_12, gpio_13,
++                 gpio_14, gpio_15, gpio_16, gpio_17, gpio_18, gpio_19, gpio_20,
++                 gpio_21, gpio_22, gpio_23, gpio_24, gpio_25, gpio_28, gpio_29,
++                 gpio_30, gpio_31, gpio_32, gpio_33, gpio_34, gpio_35, gpio_40,
++                 gpio_41, gpio_42, gpio_43, gpio_44, gpio_45, gpio_46, gpio_47,
++                 gpio_48, gpio_49, gpio_50, gpio_51, gpio_52, gpio_53, gpio_54,
++                 gpio_55, gpio_56, gpio_57, gpio_58, gpio_59, gpio_60, gpio_61,
++                 gpio_62, gpio_63, gpio_64, gpio_65, gpio_66, gpio_67, gpio_80,
++                 gpio_81, gpio_82, gpio_83, gpio_84, gpio_85, gpio_86, gpio_87,
++                 gpio_88, gpio_89, gpio_90, gpio_91, gpio_92, gpio_93, gpio_94,
++                 gpio_95, gpio_96, gpio_97, gpio_98, gpio_99, gpio_100,
++                 gpio_101, gpio_102, gpio_103, gpio_104, gpio_105, gpio_106,
++                 gpio_107, gpio_108, gpio_109, gpio_110, gpio_111, gpio_112,
++                 gpio_128, gpio_129, gpio_130, gpio_131, gpio_132, gpio_133,
++                 gpio_134, gpio_135, gpio_136, gpio_137, gpio_138, gpio_139,
++                 gpio_140, gpio_141, gpio_142, gpio_143, gpio_144, gpio_145,
++                 gpio_146, gpio_147, gpio_148, gpio_149, gpio_150, gpio_151,
++                 gpio_152, gpio_153, gpio_154, gpio_155, gpio_156, gpio_157,
++                 gpio_158, gpio_159, gpio_160, gpio_161, gpio_162, gpio_163,
++                 gpio_164, gpio_165, ai_i2s1_loc, ao_i2s1_loc, arm_trace_dbg_en,
++                 csi_vdsel, ejtag_acpu_loc, ejtag_aucpu0_loc, ejtag_aucpu1_loc,
++                 ejtag_pcpu_loc, ejtag_scpu_loc, ejtag_ve2_loc, emmc_clk,
++                 emmc_cmd, emmc_data_0, emmc_data_1, emmc_data_2, emmc_data_3,
++                 emmc_data_4, emmc_data_5, emmc_data_6, emmc_data_7,
++                 emmc_dd_sb, emmc_rst_n, etn_phy_loc, hif_clk, hif_data,
++                 hif_en, hif_rdy, hi_width, i2c6_loc, ir_rx_loc, rgmii_vdsel,
++                 sf_en, spdif_in_mode, spdif_loc, uart0_loc, usb_cc1, usb_cc2,
++                 ve4_uart_loc]
 +
-+	for (i = 0; i < pin_range->num_ranges; i++) {
-+		range = &pin_range->ranges[i];
-+		range_regs = data->saved_regs[i];
-+		count = range->len / 4;
++      function:
++        enum: [gpio, ai_i2s0, ai_i2s2, ai_tdm0, ai_tdm1, ai_tdm2, ao_i2s0,
++               ao_i2s2, ao_tdm0, ao_tdm1, ao_tdm2, csi0, csi1, csi_1v2, csi_1v8,
++               csi_2v5, csi_3v3, dmic0, dmic1, dmic2, dptx_hpd, edptx_hdp, emmc,
++               gspi0, gspi1, gspi2, hi_width_1bit, hi_width_disable, i2c0, i2c1,
++               i2c3, i2c4, i2c5, i2c7, iso_tristate, pcie0, pcie1, pcm, pctrl,
++               pwm4, pwm5, pwm6, rgmii, rgmii_1v2, rgmii_1v8, rgmii_2v5,
++               rgmii_3v3, rmii, sd, sdio, sf_disable, sf_enable,
++               spdif_in_coaxial, spdif_in_gpio, spdif_out, spi, ts0, ts1, uart1,
++               uart2, uart3, uart4, uart5, uart6, uart7, uart8, uart9, uart10,
++               usb_cc1, usb_cc2, vi0_dtv, vi1_dtv, vtc_ao_i2s, vtc_dmic,
++               vtc_i2s, ai_i2s1_loc0, ai_i2s1_loc1, ao_i2s0_loc0, ao_i2s0_loc1,
++               ao_i2s1_loc0, ao_i2s1_loc1, ao_tdm1_loc0, ao_tdm1_loc1,
++               etn_led_loc0, etn_led_loc1, etn_phy_loc0, etn_phy_loc1,
++               i2c6_loc0, i2c6_loc1, ir_rx_loc0, ir_rx_loc1, pwm0_loc0,
++               pwm0_loc1, pwm0_loc2, pwm0_loc3, pwm1_loc0, pwm1_loc1, pwm2_loc0,
++               pwm2_loc1, pwm3_loc0, pwm3_loc1, spdif_loc0, spdif_loc1,
++               uart0_loc0, uart0_loc1, ve4_uart_loc0, ve4_uart_loc1,
++               ve4_uart_loc2, acpu_ejtag_loc0, acpu_ejtag_loc1, acpu_ejtag_loc2,
++               aucpu0_ejtag_loc0, aucpu0_ejtag_loc1, aucpu0_ejtag_loc2,
++               aucpu1_ejtag_loc0, aucpu1_ejtag_loc1, aucpu1_ejtag_loc2,
++               aupu0_ejtag_loc1, aupu1_ejtag_loc1, gpu_ejtag_loc0,
++               pcpu_ejtag_loc0, pcpu_ejtag_loc1, pcpu_ejtag_loc2,
++               scpu_ejtag_loc0, scpu_ejtag_loc1, scpu_ejtag_loc2,
++               ve2_ejtag_loc0, ve2_ejtag_loc1, ve2_ejtag_loc2, pll_test_loc0,
++               pll_test_loc1, dbg_out1, isom_dbg_out, arm_trace_debug_disable,
++               arm_trace_debug_enable]
 +
-+		for (j = 0; j < count; j++) {
-+			ret = regmap_read(data->regmap_pinctrl, range->offset + (j * 4),
-+					  &range_regs[j]);
-+			if (ret) {
-+				dev_err(dev, "failed to store register 0x%x: %d\n",
-+					range->offset + (j * 4), ret);
-+				return ret;
-+			}
-+		}
-+	}
++      drive-strength:
++        enum: [4, 8]
 +
-+	return 0;
-+}
++      bias-pull-down: true
 +
-+static int realtek_pinctrl_resume(struct device *dev)
-+{
-+	struct rtd_pinctrl *data = dev_get_drvdata(dev);
-+	const struct rtd_pin_range *pin_range = data->info->pin_range;
-+	const struct rtd_reg_range *range;
-+	u32 *range_regs;
-+	int count;
-+	int i, j;
-+	int ret;
++      bias-pull-up: true
 +
-+	if (!data->saved_regs)
-+		return 0;
++      bias-disable: true
 +
-+	for (i = 0; i < pin_range->num_ranges; i++) {
-+		range = &pin_range->ranges[i];
-+		range_regs = data->saved_regs[i];
-+		count = range->len / 4;
++      input-schmitt-enable: true
 +
-+		for (j = 0; j < count; j++) {
-+			ret = regmap_write(data->regmap_pinctrl, range->offset + (j * 4),
-+					   range_regs[j]);
-+			if (ret) {
-+				dev_err(dev, "failed to restore register 0x%x: %d\n",
-+					range->offset + (j * 4), ret);
-+				return ret;
-+			}
-+		}
-+	}
-+	return 0;
-+}
++      input-schmitt-disable: true
 +
-+const struct dev_pm_ops realtek_pinctrl_pm_ops = {
-+	NOIRQ_SYSTEM_SLEEP_PM_OPS(realtek_pinctrl_suspend, realtek_pinctrl_resume)
-+};
-+EXPORT_SYMBOL_GPL(realtek_pinctrl_pm_ops);
++      input-voltage-microvolt:
++        description: |
++          Select the input receiver voltage domain for the pin.
++          Valid arguments are:
++          - 1800000: 1.8V input logic level
++          - 3300000: 3.3V input logic level
++        enum: [1800000, 3300000]
 +
- MODULE_DESCRIPTION("Realtek DHC SoC pinctrl driver");
- MODULE_LICENSE("GPL");
-diff --git a/drivers/pinctrl/realtek/pinctrl-rtd.h b/drivers/pinctrl/realtek/pinctrl-rtd.h
-index e15130896abc..7fb0955ce749 100644
---- a/drivers/pinctrl/realtek/pinctrl-rtd.h
-+++ b/drivers/pinctrl/realtek/pinctrl-rtd.h
-@@ -47,6 +47,16 @@ struct rtd_pin_sconfig_desc {
- 	unsigned int pdrive_maskbits;
- };
- 
-+struct rtd_reg_range {
-+	unsigned int offset;
-+	size_t len;
-+};
++      drive-push-pull: true
 +
-+struct rtd_pin_range {
-+	const struct rtd_reg_range *ranges;
-+	const int num_ranges;
-+};
++      power-source:
++        description: |
++          Valid arguments are described as below:
++          0: power supply of 1.8V
++          1: power supply of 3.3V
++        enum: [0, 1]
 +
- struct rtd_pin_desc {
- 	const char *name;
- 	unsigned int mux_offset;
-@@ -119,6 +129,9 @@ struct rtd_pinctrl_desc {
- 	unsigned int num_sconfigs;
- 	struct rtd_pin_reg_list *lists;
- 	unsigned int num_regs;
-+	const struct rtd_pin_range *pin_range;
- };
- 
- int rtd_pinctrl_probe(struct platform_device *pdev, const struct rtd_pinctrl_desc *desc);
++      slew-rate:
++        description: |
++          Valid arguments are described as below:
++            0: ~1ns falling time
++            1: ~10ns falling time
++            2: ~20ns falling time
++            3: ~30ns falling time
++        enum: [0, 1, 2, 3]
 +
-+extern const struct dev_pm_ops realtek_pinctrl_pm_ops;
++      realtek,drive-strength-p:
++        description: |
++          Some of pins can be driven using the P-MOS and N-MOS transistor to
++          achieve finer adjustments. The block-diagram representation is as
++          follows:
++                         VDD
++                          |
++                      ||--+
++               +-----o||     P-MOS-FET
++               |      ||--+
++          IN --+          +----- out
++               |      ||--+
++               +------||     N-MOS-FET
++                      ||--+
++                          |
++                         GND
++          The driving strength of the P-MOS/N-MOS transistors impacts the
++          waveform's rise/fall times. Greater driving strength results in
++          shorter rise/fall times. Each P-MOS and N-MOS transistor offers
++          8 configurable levels (0 to 7), with higher values indicating
++          greater driving strength, contributing to achieving the desired
++          speed.
++
++          The realtek,drive-strength-p is used to control the driving strength
++          of the P-MOS output.
++
++          This value is not a simple count of transistors. Instead, it
++          represents a weighted configuration. There is a base driving
++          capability (even at value 0), and each bit adds a different weight to
++          the total strength. The resulting current is non-linear and varies
++          significantly based on the IO voltage (1.8V vs 3.3V) and the specific
++          pad group.
++        $ref: /schemas/types.yaml#/definitions/uint32
++        minimum: 0
++        maximum: 7
++
++      realtek,drive-strength-n:
++        description: |
++          Similar to the realtek,drive-strength-p, the realtek,drive-strength-n
++          is used to control the driving strength of the N-MOS output.
++
++          This property uses the same weighted configuration logic where values
++          0-7 represent non-linear strength adjustments rather than a transistor
++          count.
++
++          Higher values indicate greater driving strength, resulting in shorter
++          fall times.
++        $ref: /schemas/types.yaml#/definitions/uint32
++        minimum: 0
++        maximum: 7
++
++      realtek,pulse-width-adjust:
++        description: |
++          An integer describing the level to adjust the output pulse width, it
++          provides a fixed nanosecond-level adjustment to the rising/falling
++          edges of an existing signal. It is used for Signal Integrity tuning
++          (adding/subtracting delay to fine-tune the high/low duration), rather
++          than generating a specific PWM frequency.
++
++          Valid arguments are described as below:
++          0: 0ns
++          2: + 0.25ns
++          3: + 0.5ns
++          4: -0.25ns
++          5: -0.5ns
++        $ref: /schemas/types.yaml#/definitions/uint32
++        enum: [0, 2, 3, 4, 5]
++
++      realtek,high-vil-microvolt:
++        description: |
++          The threshold value for the input receiver's LOW recognition (VIL).
++
++          This property is used to address specific HDMI I2C compatibility
++          issues where some sinks (TVs) have weak pull-down capabilities and
++          fail to pull the bus voltage below the standard VIL threshold
++          (~0.7V).
++
++          Setting this property to 1100000 (1.1V) enables a specialized input
++          receiver mode that raises the effective VIL threshold to improve
++          detection.
++        enum: [1100000]
++
++    required:
++      - pins
++
++    additionalProperties: false
++
++required:
++  - compatible
++  - reg
++
++additionalProperties: false
++
++examples:
++  - |
++    pinctrl@4e000 {
++        compatible = "realtek,rtd1625-iso-pinctrl";
++        reg = <0x4e000 0x130>;
++
++        emmc-hs200-pins {
++            pins = "emmc_clk",
++                   "emmc_cmd",
++                   "emmc_data_0",
++                   "emmc_data_1",
++                   "emmc_data_2",
++                   "emmc_data_3",
++                   "emmc_data_4",
++                   "emmc_data_5",
++                   "emmc_data_6",
++                   "emmc_data_7";
++            function = "emmc";
++            realtek,drive-strength-p = <0x2>;
++            realtek,drive-strength-n = <0x2>;
++        };
++
++        i2c-0-pins {
++            pins = "gpio_12",
++                   "gpio_13";
++            function = "i2c0";
++            drive-strength = <4>;
++        };
++    };
 -- 
 2.34.1
 
