@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E61BEF01812
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 08:51:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5649F01812
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 08:51:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ynAS0eWEy3UKmc6VFbP2xJivzKk3iDrWzs5NNMed9wU=; b=QRdxfHvN922b3fGy5kLbcFguKv
-	t95kARpV9swfc6a1TmremqCoDgLlYxp9++ecNVT5ezOgNgqIzKOAOD+vFA7KWrTZp3oG9FcZ5SboV
-	b9UXKqJ0mZDWxq7tbXegafh5/OW/ElVWaMLY4+ORIsowg5S+ytWGj2/52KYW7UXHzrsAujuaIRGSr
-	XuR8KP4kcvqTyxYIIJI5KeVjoAftJW7Wt33xfKARrYcdr1eVvc8PiQ41xFFnA0LwbvflsU5GuaZrQ
-	R9MlalAsuw6TwxS+oM+/Uh43U9ZBw0k61+HxLSyer+tLok6uwT2mwvv+TRZdBg5RIW0h1u0HLHZgT
-	HCfZqFsw==;
+	bh=fBlOfnmWBK4QHq82YF5U1aVXSuD5P0SQ9nMAVaPgVnE=; b=pfyKFB4WfUUVI3BWF0x2tpnXKa
+	DsSJiqtl1WMD93f0qhigVHeW6ISwt+3CY8kDnMmkuOfncvPmb4BsyUsjsSE3q7vIthabOGvJEGuTK
+	Kk+FN873CbBWVzUDmKTrGaEcaIBqLxZ7CWeAZM97yJO5mwto4zLD2MHz3Z1/dY48S/xcIcgPeFGLe
+	fBLopZcYRDXxG6n3yeyFIeaYTQydSNxWwo+4FDPECq//q0nUUSzhYL/qrw5F9KYK67UhJMEQvVf+j
+	pSt6jvJn7Ts9yj2iYzMGT84j3skrBHQU8VxAYmSK2rnDstQuv5idKVpy7UL112Rati4c8qkFDkQRX
+	euBUDEjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyQtm-00000003HsT-2AIc;
-	Fri, 06 Mar 2026 08:51:06 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vyQtv-00000003Hx7-0ZcL;
+	Fri, 06 Mar 2026 08:51:15 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyQtk-00000003Hqd-083x;
-	Fri, 06 Mar 2026 08:51:05 +0000
+	id 1vyQts-00000003HvJ-3R0y;
+	Fri, 06 Mar 2026 08:51:13 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gQrMCwGwfgg/daFMTwxBTNvrsH+qL7Rfu2qJotiTUj1X/YTtNdvyviAK9q56fjeah4df7IzVrGBTMS0j7i3yFsKpUbGxKw3gMK31pOm9Bkq9K9Gn00ix1fsyJjNYw0iguXUn6m6/yMRySNUUkjCpUpSNLnTXTDfIIHU9/ZnTOYhrkQL290dtXUOzskblbTYhe9Xk76icuSSQ8FgavzajLhVn4ppJ4fpiL/NEr5GrfmV4xQ6w9rTyu8E71Hnx7xOO9AfMYAkMMM5yRNJvrsi7/iljfSK0FsRVDN6x0ROuolLNM2wg7MWPn8YVV9I7VWEsA6zYDzPXDFzgUe0rorA18w==
+ b=E+jCEs6ciKKQ27yyw3kPx4a3jMlJxhFLH+Ua8//qL+Wz659oHDKSdTFAIJ5c2N4HzHIVd7Uzaz7zHWleWpuQT5MTvKZq1ZQRcQ3/T9ynXmMW2zzzgV0+CgP/96qJUVWRfpK0Gjb3idpErcyDKfN1GJEePiEdsFD+IXrghkQnlErRpw3x5T08go3aVKnB62JmF458b9myFugnfCoA8/+o9M2vQNA3ycSXtfgDyp2/rttSafQTy6RSJrdL3OVFv5M/ylVGFBHdP2+sbO/wBSfZppyaBE5+3k8hPuRc9PVvpRULO03IMrKP3q+hziiJTwHgpiA0j8vFiG/cTCid9wLT1g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ynAS0eWEy3UKmc6VFbP2xJivzKk3iDrWzs5NNMed9wU=;
- b=MWmxUeTgxJTxVOKMlyeOovbjj82O01RoBrjIiRuCE89FdzFfd82SZTaFOg20YzCCza0GglmbABkNdJz0Qe/kBfwLPsqY39va1SDQFqirl9VHm4O0OYndJAahZCpuhp2+SL3BIc/cRLFm4PG9x8wzMaLWeQmJEVYQPj0eEuWA6e+QCbLGibSz9LIYaByo+unloFTZ54VzgP4xPpcvoJlLgPThdCqNBchr3nWs3Yu3mcx1Xh8/IP5QakdC5JgQtebhOtQrBpz/mgZNPkaof4mb9nikLEm9sT3VoBjIqbQgvk4URonqGoX3RtsvgWjmRwgYutUOLSVRCfmb77eBlXntsA==
+ bh=fBlOfnmWBK4QHq82YF5U1aVXSuD5P0SQ9nMAVaPgVnE=;
+ b=UD6amkPZ6YIfWk4Ab3X2aORycf11/xhckkiTc8qydZ5m880ma2XYPPqnrBOpJXx+uJlbDYQxcwX798eXoB8QcLmJ/pguiQm4i4+oPMrojxjmbnPDD0OuVVLSfO+rkJCp8cHAWdZpqNxgbD01ixXiTay0XUuouGUz8SSBGORrZeWi1k69MhWCI1rD8XNwskSAthi/d+fW3hu1V1qiYn/I7TzPAn5wq+uoOWtcvrncXFlaIGHKEl4KcnJ1eHxRMp2ul1xPNidf+UVgFW3HFNqLsnctqED47WHKWFWGNO6+bUCbgNgly856Aleib3vsiwlymaySKggWHfOU/VLxOT4/mw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ynAS0eWEy3UKmc6VFbP2xJivzKk3iDrWzs5NNMed9wU=;
- b=mvHet6hk/YQwiS+kj4WpnnuTgzgl7RMlSLSHF77g3HJVIvjDGyrsfznFdzuze5Y4d29K44ZiopbrwuhNQHVXaSk8wvv5WdAvdztCPYIGKYApqBEKPHa2COW71PyLxEPe8ISriSGhhRc8Q0sQw6nDdaIy/smcw4WrcMJ/tzldFfCdPP/dirPwXCwFNgvlb4UNl5PUqigTON07wSXZIt2oqV80XXAPesNKmfJVYTuy1JcqTJT2KJ44opleZYNzcaNThPGjIWxDZnjRkZ5AI6YhEfBcwSIE43FC9VHMV2JYzNydASPjf9SaOfNTQqf8QkXo+RVw+WCC/r2aJovDpIKheg==
+ bh=fBlOfnmWBK4QHq82YF5U1aVXSuD5P0SQ9nMAVaPgVnE=;
+ b=HoB1h8uXPBXCmjtwsmv80sxIPPg9xH0eyGrZki8dmNiElyAhrU/bXU2pHkYw2clKHlo5Fs22kjUfnsA1GsoXdiosUMusrjYEfcgQcubHWdnJ4eb1iR83k/JRcXyeYvYX2hbh6WPK1qhqZzb617kznRuEmGVueb8Q2KOgyvgZGkvfGgu1pq/lxFInmIbWlZ4zFffso0Uf2iTkHh2pfcd/RKI2Rmz0oEQPEKVmtD0511wof3xSi/a9syUu55Sz5Z3e9g9HlVV3EzFhrVchwlOc/LuwF3mhMbs1rUdMzTudUtDF8dvimMMM+BhFekdLwN5JCzDw3QchLuqMn5L7wzKVmQ==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from AS8PR04MB8420.eurprd04.prod.outlook.com (2603:10a6:20b:3fd::16)
  by DB9PR04MB8122.eurprd04.prod.outlook.com (2603:10a6:10:25d::17) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.17; Fri, 6 Mar
- 2026 08:50:59 +0000
+ 2026 08:51:09 +0000
 Received: from AS8PR04MB8420.eurprd04.prod.outlook.com
  ([fe80::3f0f:857:96a5:17f]) by AS8PR04MB8420.eurprd04.prod.outlook.com
  ([fe80::3f0f:857:96a5:17f%3]) with mapi id 15.20.9678.017; Fri, 6 Mar 2026
- 08:50:59 +0000
+ 08:51:06 +0000
 From: Zhipeng Wang <zhipeng.wang_1@nxp.com>
 To: daniel.lezcano@linaro.org,
 	tglx@kernel.org
@@ -71,9 +71,9 @@ Cc: shawnguo@kernel.org,
 	aisheng.dong@nxp.com,
 	jindong.yue@nxp.com,
 	xuegang.liu@nxp.com
-Subject: [PATCH v5 2/4] clocksource/drivers/timer-of: Remove __init markings
-Date: Fri,  6 Mar 2026 17:50:19 +0900
-Message-Id: <20260306085021.1231032-3-zhipeng.wang_1@nxp.com>
+Subject: [PATCH v5 3/4] clocksource/drivers/timer-mediatek: Convert timer-mediatek to a loadable module
+Date: Fri,  6 Mar 2026 17:50:20 +0900
+Message-Id: <20260306085021.1231032-4-zhipeng.wang_1@nxp.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260306085021.1231032-1-zhipeng.wang_1@nxp.com>
 References: <20260306085021.1231032-1-zhipeng.wang_1@nxp.com>
@@ -85,57 +85,57 @@ X-ClientProxiedBy: SI2PR06CA0002.apcprd06.prod.outlook.com
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AS8PR04MB8420:EE_|DB9PR04MB8122:EE_
-X-MS-Office365-Filtering-Correlation-Id: 02a36f44-85a7-4fbb-b567-08de7b5d7d48
+X-MS-Office365-Filtering-Correlation-Id: eff31a14-a6cb-4de0-a9a8-08de7b5d8176
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|52116014|366016|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: tjAGtNcn/WT9V45qJcFAIXK2w/Csg1rTESkCJeGyeJeL6SAxXOPbRuFUoWlEJOxr763qzzQzRyT5rh/6GUHw1jLqmmX2HhK0w6zbfdooZsEoN82s+7L67zOGKnsnyfIZJlpRaTbUKGpNWVE/i/PWxkaJhpOHCIPy6uMRN0R8DCN2JdWv1we2IfEpbxtpKmTYBTLqGkER9UGz9yBIxBVNxEkBMV5uX+Bg9QpS7qdWk5wfOFA4+C03XOAcJsqKFAJOY2rqEaPZWWI7yUlx2RC92JX8CYIkNoOCaiUVazcCpiPfzNe6VbelAZ0HeFQU3TTeGdPe29ZFc3b18lLy+55enYJruo95UakVYfz6QJDd4pp9tylyUUZs+y7eRrvtAWGuaX8zHzC3z0wGlRBVnNYuPWoqfZrP1lWbpaiXLTziL/4ZhPN6zwayK+W6b8aG2KrCF7DeRSLMYrpvjDhpALUzL64tOXq9/8mn8h6SEmKehlwD2CEunVGROV9nn+1qk50pS/nOvzvzs2QD33F+Ei+d1ZwMVi5uCAUDCE/XJ3vQIrjiAGEkaAqvr27LpZTR+u+gXar/Ep3B/wB+P+ZwUzQClS+9PdUU+Q4W+YyjqdO4mcQXB4MKHZPFk4NOqzbF4MkcgpZn1eJnniEQXDbXGIwPn4x4ftmZi7sM7B/pkWZJa8+Z42ROn4XcB3KikiU4n0hn8TMU372QrY8r6KFSilHEi5YnUL08WoWw1jZRjH/AEewM3/ov7a50A7lC2JS6o/IhDPxV+ffPahLZyWIXOb/w/ZZiWCi67IVi/buoFYO1zig=
+X-Microsoft-Antispam-Message-Info: X4kPxyRAUW8ZaXmNzbG51CN0l4LzG9PqO8+l8SeQpwTtuQjwSrx17IHan5zv5iUqxLp8aL+UhNe4ShnnoYVERJ9njTCcldvfWwysgVhvOuFXvft3H3GcNFiaR2dYqbWIrJ0uHd3pQwJukbcVx/ZTxm3KKQdw6wDT7gOFIj/BEMBfErX+cR4VQRWhVur7MZuGOt34b0k4cD7WAJLXbSDxlG5+CTSDWl5oeVKxVinVE2Omp99+DT1lJMZzn05HXbEJn+74+mher0ncKXEZnUimvAimbyN3shprHQhX55Ed+c57/TcqY3T8UL0bN9ea2yM1iSAiL241tsMFGBthiudYHQ1kyoUPfpku2IwxIa0oVGe0eh8dGQgT6CjslbxEnzYs9/m3JdMbtBk4KToGyej8B3/swpuXchZZwsDWqX1d3HkEUGPSZVGyQ8gT3J0vmhznvoFV+hbyFsZ/T/QI/SMMEo3+O27Yikmv8mM4QxBCRb+T5FJt5lY6q/5rn2GR1XE/7F4yyve6a8eF6/FACV0FsudRnqneCyOkFu8Pk6W6GGn3rjQJh5pjjXXZAOBDpA5Yi0eE7DN9zjDSmVaZYNiM1XmDEvWNSjCjibXnJOnDJEZCBzoYwoWfrPSIEYEkv0bwo66ADT086mXiKnF/QLL1vUkxHGnFeQbp+vQJKDNLkNsgb13u1c1LvstHd/SyKayewQ+01R49i4d1Tg4ti4XhBF18kgRGn4XF6DtC+Ckjq+3bk1Navmm4x9ZDebnnpeFL2sOd+Ej7digZTlFp7PfdwpP96gQ8uJ22FTmaZ85c3ow=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8420.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(52116014)(366016)(7416014)(38350700014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dTrBQo9bBCwd09Yns8KDHzYtxZuRfmgiA+6HwnQLI0Gc3SAk2HdNP94v4rAi?=
- =?us-ascii?Q?Ooh10S+Z/wULEAiDroek9qgcweTywQTdSLSMryCyOKmw/4Vv+e3Vdea7JIAD?=
- =?us-ascii?Q?tYduBIbaVF6e+Cmthtl5qcwoX3xgGEPui1TSsM/lQSywfaNYkjEugiv/B7rA?=
- =?us-ascii?Q?dY6RRjvAlDyeHKVwoT23VSuB7MU4UbnHkHUO3128au7lIiK1/ord/I64tOxX?=
- =?us-ascii?Q?Ib7LsdGRro9yOFE2hlZgwCiYdxj87p1yWx1yXdcHIDjWQOX5CHLZetzNOeC3?=
- =?us-ascii?Q?c4g19I+oxYhKoIju17NgFHIew5vjSRe42ik106GRaiM9ND8b1045VhqkqqLc?=
- =?us-ascii?Q?WdaXhXjL8Sg1rdBNDB70x4Kwl8vgLP4D4HqktDEVwORqrhy/ykxjNg+m43eu?=
- =?us-ascii?Q?gbv/Qd4Vxt7UI0b5zujJrB8vgjbmvOtn/vMUOoX5AUcxE03sJivzEarNu16w?=
- =?us-ascii?Q?en7IZa/FCKwL0O1IiTL+0uBagjGxxqbjEjrLeS74BDKZ1ippXwniCE8x3vfC?=
- =?us-ascii?Q?KV3rDN9nIDX0eMXMiEOjwbSY2LlcOoBHGuQL7TevjIo8s6NQ97VK6bUX1ib9?=
- =?us-ascii?Q?U26aOBv0xkZ8ghjB7dHv9qRCKHRCIUmrK56uDynARW1rp2aJE13eBTUIxPco?=
- =?us-ascii?Q?XAp00vQTdGv3HVXk+HC/KYJrvCIEqL/5ya+BaQHZO0bty6ryeEw/5QnIIL0F?=
- =?us-ascii?Q?ThnsTl64WX8+fYepHflqeHPepaAdU4m3QYzvdgVgOmFnvaa0YHPg1PX1rJjK?=
- =?us-ascii?Q?rNDtGTfqaQ2oEgXgXA84KJoiIvBaL2N2maP6ZVWkWouEGw3YIvJnXgU8juXl?=
- =?us-ascii?Q?Z/Q17IZA7ty5E8aSi256GtwJwF1+QwNLLfH6/z3BVls5SDJMD77Da2JMzsNm?=
- =?us-ascii?Q?X5fCyATdsCLhJzR42AOqc/Bg+BOUXRAULovg2lOPJn9vaqDGMUgf55mX9z5Y?=
- =?us-ascii?Q?w/2P0fxIf+dqbPbaUBWPA0yatoTZEbXawKmEccytOMBm+uHf0VZJVPbIRE15?=
- =?us-ascii?Q?jhkCO8emKFBGdurQDR7KaHQZWsrsL/OP6C/5+zuJ+FJZJ14oUAhMqH3/IfLP?=
- =?us-ascii?Q?6b9KaY+2S9lKF+WTYWpYvX1Q+AZpChOi3MJSlNigj28V+DOwCkJ89X7gdID2?=
- =?us-ascii?Q?JvHkWFRmaVPE8phWa9Y0fsyrqseBvZeVxhPNdtitIECb0/lvxKuEyRfz1nW8?=
- =?us-ascii?Q?8OZIfypSfuc/ceyzVxAk0DFXD6vRPGF/Ql0hzaRwHnsmOpZ3OEVY6TwPlsk9?=
- =?us-ascii?Q?b60B8KlkOBlZiDtw5ceou//uGV7xFJv8QKYrOIWGPWugByUDeQv01NEGsn6F?=
- =?us-ascii?Q?EHHmSh6WiziP6a+rOipjUzty+jdQdNa1sfIly3JdXl1jxtXmO1G7ul73wBBl?=
- =?us-ascii?Q?TTPLxQJN+b4HMedbT2pKfS22km/bs+391Gnbi6bUEQmCvFhbwQNrHi2XiYY9?=
- =?us-ascii?Q?P/WwZgq4JeEINA5WxWQDRrak+I6yQhAB9x9/5INvtxl+bVrqa1sq9Mh31anH?=
- =?us-ascii?Q?+4bjbH9BV9CnWu6CUiQ/TBuAg1c26QBfJiqX9Zo6dlDBYOnzXGn8Ge+TbU5o?=
- =?us-ascii?Q?86DdZPiqHTJqO3KMxopZn4huVzdaNPZty4yrasEKTN6aJz0R87xWMmBXe4b8?=
- =?us-ascii?Q?qvLDzpKQtBslkcH1XiI4BgFHwns99LC4+jNgCBVRbuOoT3oZmew8NSIaXO0y?=
- =?us-ascii?Q?RsYBbvjGoymAdbjZtEVfNlnvra+fv9XyB6fNzLJYYC9Gqq0r8B7SSdgfS7NE?=
- =?us-ascii?Q?TQZIejJzpw=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5bGAkAjJAVCwo7ChOsptuZ8uFF8ji6u5MT/2z7pAQ1s6aCU3MimG0EKCHHGX?=
+ =?us-ascii?Q?9YUBVjis8LYYQnAFZTJPOCo1XW9hQm38oB2282LHYPq3PvP6modzxlnOUREw?=
+ =?us-ascii?Q?GJzOuz33xmH8KO/Vd2N6kXsxJMGvcJwSr7eIaGIsx+WNUdcysiofN2PpXw8Y?=
+ =?us-ascii?Q?zIoS1Cq5kI2YO3FTWwOAx74vsoc/2Rr8pzFOAk4sbLgfDCx+E6C82k4grWMw?=
+ =?us-ascii?Q?SEQwme/MYtf9jgjRdBzJBuvHeOWGP7s/pFkZr1lpnSFQ24mgaGuWAWpr6rKc?=
+ =?us-ascii?Q?A++TfHIZZ4v5k6o/Pqi1b0SWc1o4HmtGzNTMLnfp7ZjZI0XYnUZQqhf9QZpY?=
+ =?us-ascii?Q?zsd2Gk4zUUQQQrC0t5XwvKG+XZUI5N43GLeMvIgoDqSDLWTN6Hc5awU1iXtJ?=
+ =?us-ascii?Q?O5mUBxBRlu6ch1SEMBjbfe5C9N+v4tlpZKIXIXwSRvQYCSFRXMs0xw3Vz0Le?=
+ =?us-ascii?Q?5gBzxQJkiEn+453lUyEjV8wb6Ih3aUaI3BDR6XVREh+TUhBkxKciVpas0hCh?=
+ =?us-ascii?Q?vUwhQp4Et9aHpV1pd4s5U3IogtjuxnjB59BDN8zQ2Lf/tlS8i8+iVAW7SUPZ?=
+ =?us-ascii?Q?tApkFDHvbveb0uVQ9H5scfSVDyeIKCylUX+VfbKwXoRFaOXt7nid5dAuLMVu?=
+ =?us-ascii?Q?J+7lMQTi+6NbCrPklCw+RD9oAtIO9gstTNqcIIm94DBC143R8eOkT8xSSU19?=
+ =?us-ascii?Q?zYDv1kSH7+p/9Mckbnh9eQV5SE5cu5tuXIzOrNSzXoBeWq4hpn5vn2zTpkl8?=
+ =?us-ascii?Q?4H8fPMQFGhtqayrup7AVdThLJt93JbGypTORzD3vbxCI9jw6IT2eBZ8XdlgI?=
+ =?us-ascii?Q?xDTCjq5/RcrXfSBNXhOxzGy0sUPFVzOSHg6Mx5go/9Svv6v5byhu2DLLOePj?=
+ =?us-ascii?Q?1ZQiFjp3EApD/kcmJAONwO++IKk13QBgLPrJyL535f2D9jMiARpD1tuVfEGb?=
+ =?us-ascii?Q?vMdkpgW5LVDV6byYn4084k2zCZbK5moi+m3DeXx5TA6lr7IAQj5YMUd076os?=
+ =?us-ascii?Q?OH3jsvoSPAoD8m0XHRjNNTOVQC8a5V0HfcEks7mwWcBl7ZHCj22/puRSZbxz?=
+ =?us-ascii?Q?mOaT/dI7AAu9Rl9hH05jkG3Ekh/rALfWg0he0Lixs+jCv4WQ+M73lT3D8PW3?=
+ =?us-ascii?Q?QwSKr4oxI7gDJFbnQPH5FvxXEzuuyGlEXzrp3+w0tu9MydLSiiMlXbRASeGO?=
+ =?us-ascii?Q?7IpEE4ie/zAvZEn2CM3dQ5bJQySs+lYsKFuA0Ly+5q+rrVRU112roM9soB9f?=
+ =?us-ascii?Q?5jMBXL8uPTl0laz1epIPb3OYxdp+htE/4nyPAKqxGu/oXoskp2XTwZfrpzHd?=
+ =?us-ascii?Q?+Rt/6bsVrRwen/BSl7M7YALqvdrY855e4rW0EXLPgdWyLZAkcvh3dvitf9Gn?=
+ =?us-ascii?Q?a3nYckndPENV/mL8rf9zE1AzNiQvCsMLYncFk2CMkR6ZQpIfowmRPYMu7Ipg?=
+ =?us-ascii?Q?AlBmRt1rAUZGn6aHw2jw9amOQo5gi1AY8z3G+0kvP5t4HO1swxWe7grQXenc?=
+ =?us-ascii?Q?CirHjYX21UNta2pbrmaKjQJE/I2gLq/Cv6RhQrUEa/h8HDp5RY/uFeAs8rQO?=
+ =?us-ascii?Q?gdhBmMh1/Rd+7Jrf4MHSqs0wq3lmBBVvpoF6R8M8z8e2gYYSratYZKZb5/zF?=
+ =?us-ascii?Q?WrkFDxeGReCOOcTa+7dzC1T6OsPlasquNV/mVz6xxl6zjWFgDYJmtyNX6qjR?=
+ =?us-ascii?Q?s9u1fuybA5tCHhfrzPgbcjCPrK91JYPXSqfikErO+rk0E1KtWBjq6j9oDuIy?=
+ =?us-ascii?Q?4VcZfYwIAg=3D=3D?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 02a36f44-85a7-4fbb-b567-08de7b5d7d48
+X-MS-Exchange-CrossTenant-Network-Message-Id: eff31a14-a6cb-4de0-a9a8-08de7b5d8176
 X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8420.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 08:50:59.8989
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2026 08:51:06.9245
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qbcF+8Fm1qzKt8xpwUHbTPCkr4UnIgpQLnQk3IWuhXlmnJp429MvRCpTBhAmvTIIrey7MeNW68/A/EXhkAc1Cg==
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3njjXWjnbPNU5VSXkSz4GmPQXHBUv3i6SnjgWye4geqz/CBjWtDqvNdpaVrUYosaIUeFE4BDtWSlKZb3N+sk6Q==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8122
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_005104_068585_EA8181B4 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20260306_005112_856045_B84517FA 
+X-CRM114-Status: GOOD (  16.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,122 +152,85 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chun-Hung Wu <chun-hung.wu@mediatek.com>
 
-Remove __init markings to allow timer drivers
-can be compiled as modules.
+Convert the timer-mediatek driver into a loadable module so that it
+can register an always-on timer as the tick_broadcast_device on
+MediaTek SoCs. This helps support GKI(Generic Kernel Image) modular
+configurations.
 
 Signed-off-by: Chun-Hung Wu <chun-hung.wu@mediatek.com>
 Signed-off-by: Walter Chang <walter.chang@mediatek.com>
-Acked-by: John Stultz <jstultz@google.com>
+Tested-by: Walter Chang <walter.chang@mediatek.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: Alexandre Mergnat <amergnat@baylibre.com>
 Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
 ---
- drivers/clocksource/timer-of.c | 23 ++++++++++++-----------
- drivers/clocksource/timer-of.h |  6 +++---
- 2 files changed, 15 insertions(+), 14 deletions(-)
+ drivers/clocksource/Kconfig          |  2 +-
+ drivers/clocksource/timer-mediatek.c | 33 ++++++++++++++++++++++++++++
+ 2 files changed, 34 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/clocksource/timer-of.c b/drivers/clocksource/timer-of.c
-index 420202bf76e4..b7c186dc83da 100644
---- a/drivers/clocksource/timer-of.c
-+++ b/drivers/clocksource/timer-of.c
-@@ -19,7 +19,7 @@
-  *
-  * Free the irq resource
-  */
--static __init void timer_of_irq_exit(struct of_timer_irq *of_irq)
-+static void timer_of_irq_exit(struct of_timer_irq *of_irq)
- {
- 	struct timer_of *to = container_of(of_irq, struct timer_of, of_irq);
+diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
+index fd9112706545..2112efb85029 100644
+--- a/drivers/clocksource/Kconfig
++++ b/drivers/clocksource/Kconfig
+@@ -488,7 +488,7 @@ config SYS_SUPPORTS_SH_CMT
+ 	bool
  
-@@ -41,8 +41,8 @@ static __init void timer_of_irq_exit(struct of_timer_irq *of_irq)
-  *
-  * Returns 0 on success, < 0 otherwise
-  */
--static __init int timer_of_irq_init(struct device_node *np,
--				    struct of_timer_irq *of_irq)
-+static int timer_of_irq_init(struct device_node *np,
-+			     struct of_timer_irq *of_irq)
- {
- 	int ret;
- 	struct timer_of *to = container_of(of_irq, struct timer_of, of_irq);
-@@ -82,7 +82,7 @@ static __init int timer_of_irq_init(struct device_node *np,
-  *
-  * Disables and releases the refcount on the clk
-  */
--static __init void timer_of_clk_exit(struct of_timer_clk *of_clk)
-+static void timer_of_clk_exit(struct of_timer_clk *of_clk)
- {
- 	of_clk->rate = 0;
- 	clk_disable_unprepare(of_clk->clk);
-@@ -98,8 +98,8 @@ static __init void timer_of_clk_exit(struct of_timer_clk *of_clk)
-  *
-  * Returns 0 on success, < 0 otherwise
-  */
--static __init int timer_of_clk_init(struct device_node *np,
--				    struct of_timer_clk *of_clk)
-+static int timer_of_clk_init(struct device_node *np,
-+			     struct of_timer_clk *of_clk)
- {
- 	int ret;
+ config MTK_TIMER
+-	bool "Mediatek timer driver" if COMPILE_TEST
++	tristate "MediaTek timer driver"
+ 	depends on HAS_IOMEM
+ 	select TIMER_OF
+ 	select CLKSRC_MMIO
+diff --git a/drivers/clocksource/timer-mediatek.c b/drivers/clocksource/timer-mediatek.c
+index 7bcb4a3f26fb..4ad4bac6f34b 100644
+--- a/drivers/clocksource/timer-mediatek.c
++++ b/drivers/clocksource/timer-mediatek.c
+@@ -13,6 +13,9 @@
+ #include <linux/clocksource.h>
+ #include <linux/interrupt.h>
+ #include <linux/irqreturn.h>
++#include <linux/module.h>
++#include <linux/of_device.h>
++#include <linux/platform_device.h>
+ #include <linux/sched_clock.h>
+ #include <linux/slab.h>
+ #include "timer-of.h"
+@@ -337,5 +340,35 @@ static int __init mtk_gpt_init(struct device_node *node)
  
-@@ -137,13 +137,13 @@ static __init int timer_of_clk_init(struct device_node *np,
- 	goto out;
- }
- 
--static __init void timer_of_base_exit(struct of_timer_base *of_base)
-+static void timer_of_base_exit(struct of_timer_base *of_base)
- {
- 	iounmap(of_base->base);
- }
- 
--static __init int timer_of_base_init(struct device_node *np,
--				     struct of_timer_base *of_base)
-+static int timer_of_base_init(struct device_node *np,
-+			      struct of_timer_base *of_base)
- {
- 	of_base->base = of_base->name ?
- 		of_io_request_and_map(np, of_base->index, of_base->name) :
-@@ -156,7 +156,7 @@ static __init int timer_of_base_init(struct device_node *np,
  	return 0;
  }
- 
--int __init timer_of_init(struct device_node *np, struct timer_of *to)
-+int timer_of_init(struct device_node *np, struct timer_of *to)
- {
- 	int ret = -EINVAL;
- 	int flags = 0;
-@@ -200,6 +200,7 @@ int __init timer_of_init(struct device_node *np, struct timer_of *to)
- 		timer_of_base_exit(&to->of_base);
- 	return ret;
- }
-+EXPORT_SYMBOL_GPL(timer_of_init);
- 
- /**
-  * timer_of_cleanup - release timer_of resources
-@@ -208,7 +209,7 @@ int __init timer_of_init(struct device_node *np, struct timer_of *to)
-  * Release the resources that has been used in timer_of_init().
-  * This function should be called in init error cases
-  */
--void __init timer_of_cleanup(struct timer_of *to)
-+void timer_of_cleanup(struct timer_of *to)
- {
- 	if (to->flags & TIMER_OF_IRQ)
- 		timer_of_irq_exit(&to->of_irq);
-diff --git a/drivers/clocksource/timer-of.h b/drivers/clocksource/timer-of.h
-index 01a2c6b7db06..367d7023c623 100644
---- a/drivers/clocksource/timer-of.h
-+++ b/drivers/clocksource/timer-of.h
-@@ -65,9 +65,9 @@ static inline unsigned long timer_of_period(struct timer_of *to)
- 	return to->of_clk.period;
- }
- 
--extern int __init timer_of_init(struct device_node *np,
--				struct timer_of *to);
-+extern int timer_of_init(struct device_node *np,
-+			 struct timer_of *to);
- 
--extern void __init timer_of_cleanup(struct timer_of *to);
-+extern void timer_of_cleanup(struct timer_of *to);
- 
- #endif
++
++#ifndef MODULE
+ TIMER_OF_DECLARE(mtk_mt6577, "mediatek,mt6577-timer", mtk_gpt_init);
+ TIMER_OF_DECLARE(mtk_mt6765, "mediatek,mt6765-timer", mtk_syst_init);
++#else
++static int mtk_timer_probe(struct platform_device *pdev)
++{
++	int (*timer_init)(struct device_node *node);
++	struct device_node *np = pdev->dev.of_node;
++
++	timer_init = of_device_get_match_data(&pdev->dev);
++	return timer_init(np);
++}
++
++static const struct of_device_id mtk_timer_match_table[] = {
++	{ .compatible = "mediatek,mt6577-timer", .data = mtk_gpt_init },
++	{ .compatible = "mediatek,mt6765-timer", .data = mtk_syst_init },
++	{ /* sentinel */ }
++};
++
++static struct platform_driver mtk_timer_driver = {
++	.probe = mtk_timer_probe,
++	.driver = {
++		.name = "mediatek-timer",
++		.of_match_table = mtk_timer_match_table,
++	},
++};
++module_platform_driver(mtk_timer_driver);
++
++MODULE_DESCRIPTION("MediaTek Timer driver");
++MODULE_LICENSE("GPL");
++#endif
 -- 
 2.34.1
 
