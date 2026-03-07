@@ -4,95 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E30FFC9EFE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 14:31:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18B63F513ED
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 14:35:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DVhycCAQhjB5+p0XAMFhZeGMfvAqhDk5umDLeanGzsA=; b=MHnoDClHTFPD8sKT6iJ38fMOt0
-	EA1XZ5WD/7G3Rv64xOQF2Gz2KbZAUXtJXMvrSxOD6dC7iZPzVy3kVoLIdRLXyB+oDJqPy2+ATw2yk
-	h85nRQN0859cLmdCTBPufJiDGKTXxV1aBcDex2QciEI8YEmaJj/0jLCBjTGv5GBDi4E53ch6in4lD
-	6BrCn/JwZVKo2u6JrN4nhHA3twCNnYc1J5PTJe8tNbRp3/TxwEmgv/DcJ3NhdLK9/x8vPWDzKakR6
-	qdS/yQVW4NIc3GGvc4Dw+p8oz1cchN2xKy21Fn0a3iRGrp/1XVscsQ6hLst+7tGP73Wplfc8NlLhF
-	NXpRVbqw==;
+	bh=7FeSeMVGmiBmUUh+28J1mJpe3obybhw9+jiCLpL1n1Q=; b=L3cLjgPkm0ep9dh8v1dm7aly2W
+	LrPZXhqZcceIfG59sYayxfso8hEUABT56Eyx3RBJ6XJXcD6nQ2Md4WndXC1Z6DmqW24AHCXaU0sbI
+	8Y7H8qiyKagVdgcgRPAegautQleXxr2bIUkUEymOpnuvPn/vw6JMLvy/Rlz/8CXpR3oXHH9TXQa0C
+	a7tcPJaqh2sbPDBngrkljtMZubtvHWoIoilJ0EYabTsn+RdULtiAyUZp/PzTL70h5ze7ZArwQr/aq
+	hOZP1G4YkT1FpSyzGRKOqREH+WgNB/3xpERQ8TpvyV3exFtSEEfedjQaSu5J8xAvAjpUoVGFjQkHt
+	Em7kzV/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vysgr-00000005GRv-46xA;
-	Sat, 07 Mar 2026 14:31:37 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1vyskA-00000005GjW-0hZ5;
+	Sat, 07 Mar 2026 14:35:02 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vysgp-00000005GR0-37ah
+	id 1vysk7-00000005Git-13Jd
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Mar 2026 14:31:36 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4852b81c73aso7322185e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 07 Mar 2026 06:31:35 -0800 (PST)
+	Sat, 07 Mar 2026 14:35:00 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-439cd6b0aedso2450259f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 07 Mar 2026 06:34:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1772893894; x=1773498694; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1772894097; x=1773498897; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=DVhycCAQhjB5+p0XAMFhZeGMfvAqhDk5umDLeanGzsA=;
-        b=AlclJpEBP4U+7xPn1RCONhThnZ4+A7Uk65hnrNb0twmNtIMkRjHGlwUPO4UHsbvL5l
-         OO9ayJZ4Ga1e/9SP7ljRCCOByzzzf4xdKjLXigxLmSI8S2bQv/LXbrlwNWPazB7Pbs8G
-         QZAJbayOKRRq/mZEapJqobvd6tj/tz59l9tLw/rKXl5Q9DkfCPiXpNCxHgHNR/O0Eb/o
-         NbVCOmG8iMG8OgNWt31sYZWnM6oFgKx4XPFQ7a8krdNsBomuPSE9Eb+w0y1xEjs9htfI
-         Yig1kAizjtK7tZKy3ZrrRhd1kH7p51n4cTGGCQfRkg8+dM/YW+hUGiEX4PwplWoX+v2/
-         82OA==
+        bh=7FeSeMVGmiBmUUh+28J1mJpe3obybhw9+jiCLpL1n1Q=;
+        b=k3wQtxFWBrCNV7SL3Y+ZSjDJ0lb2Zp0DADJ/uiYj94Ia6BYTUCFuS9Rpl6oK8Rb74v
+         lnns6GnS+wPsMQIJS/FcmdDlZY1yeoV81MZ0GVjtKD12Vbt4o642YVoeS7MKutdcQ5qW
+         UF/H3pHOKJvgCclOm7YU8eZ3I9CphpoSl9FtRDPvvhEYCYB71qI8vjrzVshvGDORTd4S
+         fNwgcP3uDCCJF1lQT5ciFPCqXtEEhSX9WcX3zn6IHZBy4MIbRKF2r+s0y4DCU2hv8ytz
+         /+zssD6fKTvf5d+nxw8UfmdOESTcuTJYYPFdLBI6iLlenRZpgpGM14L/pEUC4RMLIwFb
+         d7fA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772893894; x=1773498694;
+        d=1e100.net; s=20230601; t=1772894097; x=1773498897;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=DVhycCAQhjB5+p0XAMFhZeGMfvAqhDk5umDLeanGzsA=;
-        b=umOd7Rci+r+k3fPWWFoM3Kt3DrUaW3Ma60HLtXTkSvUTcrgS9uvQpguPXm6ZycNX2t
-         XqJnPhNPqqfhA1y8Ip428vFFR0WssyY3QoELsRx4P0tMzKsLuw4/HO11sVLJHj8bgLjQ
-         N+anIHk0n+VJeuoWn0aba0+V0Uyes1IwXswsz/ltfl9nRAfrfzOEQBtaB05OfLEGuYkI
-         ErhdlgQsRF9ntulFHjTeC9B5LKTjosexVOMXdcxM4TVVEW69bYNJQIsy4rJIzAOHNp9o
-         74XZdHQJtK6crtDpL8qVTSiA20yOKGU9NTAbWc94BlIZx4spxSWfjfce3I9BwbTJ5zYy
-         5KGw==
-X-Forwarded-Encrypted: i=1; AJvYcCVfHinPHARpNpCqmhQjGEzW8Ba3gsi2IO36v5w7+lNC7To3WHyrFKt2Li3mcv2nDN1MLMkdQUf4zGjs3uxNEwEy@lists.infradead.org
-X-Gm-Message-State: AOJu0YzzHcv2tr2qHgGWKDFEzWU/dLiRgAouDnOP+YO7HbnWkNU5XjZP
-	eLfcAiD/sp+pcqo57e+DVHFwlJOFlx+3Hys0Jvi9GnNWvl9DcyQn8TLwUItH135qBWk=
-X-Gm-Gg: ATEYQzxv/aXzIPhXCuLbFavAcgmYqDhUx0bF7TEMyxOSVs4b2jYiIMaRmCIZJl3KeEn
-	Sxbmzt4wq/jsd3YQh5yu5zbrKtbnAxVXZcL4yAY4Suavs0ipdXLxY3tcfR10LO24yOQjG+ynktH
-	bL+Jjquf1ipKZixVimoebXntUbduKIFoquwEoxP1mOMAuHRUwCapfTfMYjmTHvj7QUMzdz05WyM
-	7WTDINBwHnwuYRvTQRscEp64q1k7jjdh9dy8Ukd0xJaMrssYG5KZl0SfnppdWxhlLQbR1WJn+Tt
-	2fzDTza+SDbFjYt9yRdCBbYfq19P8PG84GSKNonmh+kUSjqZhJBgAZysoSQwDlYI1/4Bnmk6KoS
-	Pfn3hYBcOd0UYb+qERfugsRMexJH2/WhxAwZfg1jL7d/fG9Mw37LGAuih8YfgILWfMDNbTFyuXn
-	kRgltdxbBdVgQLNjLQsgd0liLaabxT6g==
-X-Received: by 2002:a05:600c:8b0d:b0:482:dbd7:a1c1 with SMTP id 5b1f17b1804b1-48526984289mr91782915e9.34.1772893893631;
-        Sat, 07 Mar 2026 06:31:33 -0800 (PST)
+        bh=7FeSeMVGmiBmUUh+28J1mJpe3obybhw9+jiCLpL1n1Q=;
+        b=Flq3N4G4kdqhQA6JmU8h8hX9Mho71owumWurXhnlpC3uaX/PAp3FfPwCaeS/jIOblz
+         j2GM91CYj8kGIR1+8GQjvgKGzXciFxEuigLtl7deHogwoEc+cjLrtCrLwS7Zk9JZBzS3
+         BsWhzHvi3g5Ru3wyyzdZTlc3QQUZoIWU+gXYnpoYQgbDbAj5nj7tifEvTZrXbzg169Et
+         JkcR1dGvtjUr9ZRfgh3ypp2zmjhitiBqOAeMlHZIysblLmBUU2dIxuCVaBbQG7MjWa8J
+         xCD90IWF8uF2qk5SuBeKYTt8T4cL+0R56RoGj13VWYQOuRJ+zFaRsZ6Xj9f2oxotS5Yv
+         Qb3g==
+X-Forwarded-Encrypted: i=1; AJvYcCUD2HigzXgZe3qlsC85NB9YRsRClFS8LcrmmawWY1IDA+L6DMb3zbflgHuy/jj55kwqGodhqSttjEce4Ra2uh3J@lists.infradead.org
+X-Gm-Message-State: AOJu0YzgCap9aqcaAik3OsoZ7ieBOkaslJGwLYs1UWezlE+DUJgoNmVD
+	LN4AN+g1/4IjiQZuK3najnV+rinad8AhDrzphWvAosO3CTGuYoatm88YuEKM0jEMqyk=
+X-Gm-Gg: ATEYQzziJs4KuwZ+H1z3o6XOwvUktUv+1aovxIfwV7UuC0itH/SBDG3TDMKXAT2eH2E
+	28vs+J87digfvxvhMqdkU5aeTbyi2mJAoup4ER0Q/vt1uKa4UKaLIZvcO6V9tyv2ABPL66EdXZO
+	ifKaXvZ+Wqdb8PAvPlzKLwRJbFR8mdNaGdLKjAV2XoU6iU3h886Y4BHwYfZinwhEaTcweU0aTj9
+	pQN8ypzrgm1Qgx87ldea65eSwRO6Z9Ufqjdhw2/18Ujgu7b+cfXGid/XOG1sCiapgOQKuHdD50b
+	BeTNEzQ6Zj8qAW6x78Oj5+HeX5KeqtwTmLISUuzVTy9a3J806Wd41qU7cdoPyYxGx297wuDgrID
+	pIpaBRhhr/KKTI8Nmmv3z6gvfH5ckawbMVIOLvy3pWJzflP8fVSmBfV2xPELmKzVpAAd6yM+htH
+	OXHbDK+NLouIHQMeZRnwvii0Bg+2tLl0Uhrig+fEzy
+X-Received: by 2002:a05:600c:a12:b0:477:6d96:b3c8 with SMTP id 5b1f17b1804b1-485269648fcmr86295495e9.23.1772894097126;
+        Sat, 07 Mar 2026 06:34:57 -0800 (PST)
 Received: from [192.168.50.4] ([82.78.167.98])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-485246fd237sm77122865e9.7.2026.03.07.06.31.32
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48527686bcesm186927115e9.7.2026.03.07.06.34.56
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 07 Mar 2026 06:31:33 -0800 (PST)
-Message-ID: <aacb74f1-5d4a-4ed1-92fe-0c5536691274@tuxon.dev>
-Date: Sat, 7 Mar 2026 16:31:32 +0200
+        Sat, 07 Mar 2026 06:34:56 -0800 (PST)
+Message-ID: <3477d2c1-31b9-4b97-8633-df02ddf71e08@tuxon.dev>
+Date: Sat, 7 Mar 2026 16:34:55 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/5] dt-bindings: arm: microchip,sam9x60-pit64b :
- convert to DT schema
+Subject: Re: [PATCH v4 5/5] dt-bindings: arm: atmel,at91rm9200-sdramc: convert
+ to DT schema
 To: Akhila YS <akhilayalmati@gmail.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>,
  Alexandre Belloni <alexandre.belloni@bootlin.com>
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Conor Dooley <conor.dooley@microchip.com>
+ linux-arm-kernel@lists.infradead.org
 References: <20260227-arm-microchip-v4-0-7e2ae1c5b5d6@gmail.com>
- <20260227-arm-microchip-v4-3-7e2ae1c5b5d6@gmail.com>
+ <20260227-arm-microchip-v4-5-7e2ae1c5b5d6@gmail.com>
 Content-Language: en-US
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <20260227-arm-microchip-v4-3-7e2ae1c5b5d6@gmail.com>
+In-Reply-To: <20260227-arm-microchip-v4-5-7e2ae1c5b5d6@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260307_063135_802314_3BC103C3 
-X-CRM114-Status: GOOD (  17.08  )
+X-CRM114-CacheID: sfid-20260307_063459_324285_01A462FB 
+X-CRM114-Status: UNSURE (   6.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,77 +108,10 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
 On 2/27/26 17:14, Akhila YS wrote:
-> Convert Atmel Periodic interval timer of 64bit (PIT64b) binding to YAML
-> format.
-> Changes during conversion:
-> - Add missing compatible "microchip,sama7g5-pit64b" along with a fallback
-> compatible "microchip,sam9x60-pit64b".
+> Convert RAMC SDRAM/DDR controller binding to YAML format.
 > 
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
 > Signed-off-by: Akhila YS <akhilayalmati@gmail.com>
-> ---
->   .../devicetree/bindings/arm/atmel-sysregs.txt      |  8 ---
->   .../bindings/arm/microchip,sam9x60-pit64b.yaml     | 68 ++++++++++++++++++++++
->   2 files changed, 68 insertions(+), 8 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/atmel-sysregs.txt b/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
-> index 70059f66f2b4..d0561f7f465c 100644
-> --- a/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
-> +++ b/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
-> @@ -1,13 +1,5 @@
->   Atmel system registers
->   
-> -PIT64B Timer required properties:
-> -- compatible: Should be "microchip,sam9x60-pit64b" or
-> -			"microchip,sam9x7-pit64b", "microchip,sam9x60-pit64b"
-> -			"microchip,sama7d65-pit64b", "microchip,sam9x60-pit64b"
-> -- reg: Should contain registers location and length
-> -- interrupts: Should contain interrupt for PIT64B timer
-> -- clocks: Should contain the available clock sources for PIT64B timer.
-> -
->   System Timer (ST) required properties:
->   - compatible: Should be "atmel,at91rm9200-st", "syscon", "simple-mfd"
->   - reg: Should contain registers location and length
-> diff --git a/Documentation/devicetree/bindings/arm/microchip,sam9x60-pit64b.yaml b/Documentation/devicetree/bindings/arm/microchip,sam9x60-pit64b.yaml
-> new file mode 100644
-> index 000000000000..f00ac7e858d9
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/arm/microchip,sam9x60-pit64b.yaml
-> @@ -0,0 +1,68 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/arm/microchip,sam9x60-pit64b.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Microchip PIT64B 64-bit Periodic Interval Timer
-> +
-> +maintainers:
-> +  - Nicolas Ferre <nicolas.ferre@microchip.com>
-> +  - Claudiu Beznea <claudiu.beznea@tuxon.dev>
-> +
-> +description:
-> +  The Microchip PIT64B is a 64-bit periodic interval timer used in
-> +  several modern Microchip ARM SoCs including SAM9X60, SAM9X7 and
-> +  SAMA7D65 families. It provides extended timing range, flexible
-> +  clock selection and supports both periodic and one-shot interrupt
-> +  generation modes.
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - const: microchip,sam9x60-pit64b
-> +      - items:
-> +          - enum:
-> +              - microchip,sama7d65-pit64b
-> +              - microchip,sama7g5-pit64b
-> +              - microchip,sam9x7-pit64b
-
-Same here, I'll adjust this list to be alphanumerically sorted, thus, 
-microchip,sam9x7-pit64b first. Other than that:
 
 Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-
 
