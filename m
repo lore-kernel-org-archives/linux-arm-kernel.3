@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7437BFC9EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 13:13:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2114FC9EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 13:14:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p5Z4+4ztu56jp219ZTmQ+GCPrjCD1lh2pVH7KvLJdrE=; b=21THYxw+wTPDYvvKQgpBQJu0Ic
-	hOf3uLs1IfzY03OsyvhZQW6YUqLVvX/01nTSLfFVt253iCRvjHRUCo9IH9xSpAsu744Ut2rOXGfU+
-	q7lUyZWe9ccUBXJYnDKKk8FBkr6IZ8fOd+v+f3dUMpx1xliWpchycv7pou/WVdsufyZWg065qU7c0
-	rdHq3xxAa9ofT9iYzqVUYwsK0r0IsP8XB8YXIVAWh/zcUdSsxYVIaqqr2hjh3r3kHLlg8vy0oJt3I
-	sf2lMdtZRtgZqdqa8mMV3H5BbxT36sOEx4aqEx9Jcb3JQNjrETA0FpFk0WCoHufcYEJN1dHAtWwWm
-	pWbSMGig==;
+	bh=//g81zaHopU+0vvh6+xKDGSxSBMz+BJt8bMVAzeSb2U=; b=FynDpIynzffqKlIE+ySzjxid7b
+	55+roTs1DAdvirzEObMJyVHQGuMYaZsBVHCQ2xQKNBsM5Pq6YUaIRghPW5gTASDIXA4qhRU9YQfKy
+	2QJRFqPZqC8j9D72EvLvW9vgaDHra4N10hPUu/dcp8Ob9ZgmYZ9BBbKgpXaulzvd4ZghqYoUNaD8D
+	pFBLhiO4E5+1EeJE816F62tvijQW8T2TJVsWR/uDx5N0sN2isZIthuVtN/QeoGixtYbQG0krhycX+
+	Sy6jIP08TuGwghGDgRB3a3j2VWklSlS6NjcKt5I8dTpBkwOvoBGERovFFRyuOTT3zGDVldbczUXr3
+	qmFchyKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyrT2-00000005DSy-3PJ5;
-	Sat, 07 Mar 2026 13:13:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vyrTq-00000005DYB-1ecy;
+	Sat, 07 Mar 2026 13:14:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyrT1-00000005DSq-2cNr
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Mar 2026 13:13:15 +0000
+	id 1vyrTp-00000005DXb-0fz9;
+	Sat, 07 Mar 2026 13:14:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F3EBC600B0;
-	Sat,  7 Mar 2026 13:13:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC592C19422;
-	Sat,  7 Mar 2026 13:13:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 22324600CB;
+	Sat,  7 Mar 2026 13:14:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1105DC2BC86;
+	Sat,  7 Mar 2026 13:13:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772889194;
-	bh=6F3IQUZ9kGrgjLHewcu+TLHHVj6wQ1EtsvruLGle5HI=;
+	s=k20201202; t=1772889243;
+	bh=XlMEEXzB+WjMvOB+Oy4SuOD48pHVsx3JOsZamGOtvwA=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=DL+TkF+P7hIVCgBAAJVaW+Hf3k0bkGuLug81wjF7cM2vt9mo6ra6Wr+Ppq+mhs3Pg
-	 dgAp9YFMXSSrlRAoJ9++GahFUiH6Dt5JzhD7oKa2r6w1hEiLgqNpAoUHGwxoMFSooj
-	 cFNXwCQFb3br6bqG/qQXRlIZ7rFJkSGLC2/TFLutjacfQn6J4iWa5Uc05A2KEeXehy
-	 V91cDfE021KCmWR+1QuTuxekk6uGR/xngjvvCjtjyWdr/WUSkc2q55esMTvvXeoYVJ
-	 TrFXNdTdU/YBhuqdkuXF95HOnX277iPImgDBYv8dA+3gVU1PtVwWJ2WJEfxK6adt6b
-	 +mONHy6SfoM1A==
-Date: Sat, 7 Mar 2026 13:13:06 +0000
+	b=P56EtmRSfaz3NuXB7SKevKkNm9qHV4u/7m9Y66Ng8pdfeFqD0HmRDY+Mxj1UUFIG7
+	 VKpWpbbwikK+8YJLtI/18IMvDhDhvXCr81YX2YqQbV74g1VQJj1435XZyP0fpWQm+9
+	 VMcxdj2/ViO8pvPNi+Lf+P4unxo5/Y7PtSlQ4d18A6AWNGFS2oIR6N9rUqUlMPAVCR
+	 wpZIVtmliRd10p4QcNRS30S6KpgKi/BvEhBuudTfRDTVX08Z5F92hTKfLc4IfYj0o0
+	 wUuGKbnfhaSFqgpB6He7oOumkr+08PywZ0IJf//iPOKRKCmjQrRNxerBGV+DyiDwsQ
+	 2njXV40/glG3Q==
+Date: Sat, 7 Mar 2026 13:13:54 +0000
 From: Jonathan Cameron <jic23@kernel.org>
 To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-iio@vger.kernel.org, Eugen Hristev <eugen.hristev@linaro.org>,
- David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Nicolas Ferre
- <nicolas.ferre@microchip.com>, Alexandre Belloni
- <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- linux-arm-kernel@lists.infradead.org (moderated list:ARM/Microchip (AT91)
- SoC support), linux-kernel@vger.kernel.org (open list)
-Subject: Re: [PATCH] iio: adc: at91-sama5d2_adc: no devm for nvmem_cell_get
-Message-ID: <20260307131306.4684bfbc@jic23-huawei>
-In-Reply-To: <20260304041843.7709-1-rosenp@gmail.com>
-References: <20260304041843.7709-1-rosenp@gmail.com>
+Cc: linux-iio@vger.kernel.org, David Lechner <dlechner@baylibre.com>, Nuno
+ =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman
+ <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, Martin
+ Blumenstingl <martin.blumenstingl@googlemail.com>, Xichao Zhao
+ <zhao.xichao@vivo.com>, linux-arm-kernel@lists.infradead.org (moderated
+ list:ARM/Amlogic Meson SoC support), linux-amlogic@lists.infradead.org
+ (open list:ARM/Amlogic Meson SoC support), linux-kernel@vger.kernel.org
+ (open list)
+Subject: Re: [PATCH] iio: adc: meson: no devm for nvmem_cell_get
+Message-ID: <20260307131354.1875ff4b@jic23-huawei>
+In-Reply-To: <20260304041716.7631-1-rosenp@gmail.com>
+References: <20260304041716.7631-1-rosenp@gmail.com>
 X-Mailer: Claws Mail 4.3.1 (GTK 3.24.51; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
@@ -74,16 +75,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue,  3 Mar 2026 20:18:43 -0800
+On Tue,  3 Mar 2026 20:17:16 -0800
 Rosen Penev <rosenp@gmail.com> wrote:
 
-> There is absolutely no reason to pospone cleanup of this post driver
-> removal. Just do it immediately.
+> There is no reason to extend the lifetime of this post removal of the
+> driver when it's only needed in one spot.
+> 
+> Moved tsc_regmap assignment to avoid two nvmem_cell_put calls.
 > 
 > Signed-off-by: Rosen Penev <rosenp@gmail.com>
-Applied.
-
-Thanks,
-
-J
+Applied. Thanks,
 
