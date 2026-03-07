@@ -4,98 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8C46FC9ED3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 07:02:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F076FC9ED9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 07:08:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kh2DkldBCZcuhkrQEQ5HtmK6HQyMLyLxXOGQNeopz2M=; b=oUaJ1R3bPFxcV4woxxy5MIwoXK
-	YfG/I9K0EI42K8JJVKWmySisFr9u20LJVxn506rz2uTZHsecPyD+ZJilQHoZNrdGRW5DmmleYrTJD
-	d9AA9hN98yRkRrnv6tixUAikUo+Yfwmn87O8tGLLg5how99GeiwtMbe7G2LzcQojh1xqnbgnFpILQ
-	tSktkopY0GXcNFTCb237VADjVBG9Y07PwW0TZVpg7ByqCh0jqBZqt93NjP4IOh4IsOsCRjo5ejzpo
-	pirMIR7DF8iGvYUgSghPHOzOQ0xQclvOWjJO96txLnVOQwE4rIizeyJfddEzf6Xk6QEi/Ixxn/Rme
-	GWIQiJiA==;
+	bh=csar4R8Mms37q1FO+Z1m04NigIS9iSsqIq0R/vlsczQ=; b=tEx4sq6+mucPwYIKaGnbd07JHb
+	c8yfN/1L2qhm0qzy93FSqyZByEW2W2oEs38qV+SXjljDzaFzw9uKvGIuGklqQn0KJm5ltLc8u7flZ
+	jJeU/34eKYwXCZpRWsnbcC6HIl0lpioWXH/M9ZMZZ0fPR1pUFpCDNTqhuiMUOTpzJyvT2cY8UtuOV
+	4Yo9wq1VPlMC8wCoknBBDSL29iKknRDuOJpnGmTV5IBkJulXtxaXMDiE8rFftvwwRN4B/ucLhYeNQ
+	gwxYGOkzLshmPetyl++uVNq5JMi0dXnAg9GqD1y2sJt/mH/Q0aUPvt2dDpmrELXXWvezHQUhgwAWi
+	w6442csg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vylfv-00000004xYq-2zvV;
-	Sat, 07 Mar 2026 07:02:11 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1vylmN-00000004xoN-1LmW;
+	Sat, 07 Mar 2026 07:08:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vylft-00000004xYT-3qsq
+	id 1vylmI-00000004xnd-2dtQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Mar 2026 07:02:11 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-c7358a7a8d1so4102484a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 23:02:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772866928; x=1773471728; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=kh2DkldBCZcuhkrQEQ5HtmK6HQyMLyLxXOGQNeopz2M=;
-        b=MoeyureeriB9UgDiSNB+tu6Xa9uCShZy4Y2zgs8NPynzZ95EJUyyYzko045svSx/xn
-         b1yCIFHZKy+EX0TRJxzY/QbrP+qVPa5d+ii8VxLz5MQpWJ3CXIJruMEomzf6AR/2wlhQ
-         W7ctDtT9rNLhmA1RKlOCr7cjJ5HnrwMulHTqjihO0trF0gkUDg2+bvQiTMR7luS2kHNZ
-         5kRGg22eWsonTqq4z6p31AiOdZ2/ISJyaD0amd4ujRuhUfAnNtJJltcJ2WLzRcrdZC4P
-         QvS9ongmvUrltIbcDPGdeU5vpzBtwuyWcqee4JNet44cHvvrYTzdMuG/wRuacs2tvnil
-         N43w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772866928; x=1773471728;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=kh2DkldBCZcuhkrQEQ5HtmK6HQyMLyLxXOGQNeopz2M=;
-        b=YhUxJ8z0VyMFMNm5n/ih58pYh2uBtqozRxnHO9tYWpKIjeFNP9LRPqa4lyfdAOOOk/
-         a/HqzzCPLsSe1/MWOqMWoBgbHp4DRNUCQxLCIFB0VejYRsD2IccVCzvDNyqe0eEC/6nR
-         nBfIBHGDSlMXfc/UNqTECt8NVz0h2uQzn0319xSIStob9z1mp6o4O1Wg9/aYwdm8XaTp
-         evV3QfHZCRw5TbYIwLI3AGTZIdGaLhBderw5oE95OB5QBA8hzKbPZhqhm2cCxVh2To3c
-         Y1Ve6QGxqw7KdaEw4xe6FEep/5oDJou+QRBTUTJy9FHizIgpwOtttRKKKWRv6LKvDXsA
-         1ubg==
-X-Forwarded-Encrypted: i=1; AJvYcCUxNoDkH/JEzxJZUVmae73pngrk0kzYteWUL8i7j6SE3bpm4uo0ycJmXAeTUGWVnoLqaKm9aeZL22Q8mfVrIGky@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhxaGCDM8rWt/+aCJRe2buoB+FCtKopnDOkOjOSt5BX3rKYdHl
-	/fKy1ccpsGq1V8R713dctKAaY514n9xhrR3P6mZ7qwE5oLJl9HZMTAXN
-X-Gm-Gg: ATEYQzxDKTtT6vKNnh7Ny3yV4ic9NQw1FU+Pf5zhxWB0wiMaH3/i1TVh5IfOFUNGvQ3
-	rUjR4HjeZYiXT0NJ24Or+xxa3Pu9M83FHvwdvHv7SR6tvBC4rrt+GrOdFKWEtJs9/t5iH0FuECR
-	kPxnhEruCCYQMe8mXC4OjgaLOu1WR8gda8RPHesaDkHOytNytBRCVP/uYdJ17mILp2LM/PkUHPY
-	QJW8b+hTd5Lu3DHeFRjmkZnZ+RdLbMVI6MyKNkFuJ3y3rB6el4AsJ0hMHZ2SgoDuVAwnzpRGlc6
-	Gj/AepJkRgKs5nQK8xpyiyqAUsehld9zoE8aoHWWROBGrZ1pIPt/4kYzYPjQxCaWXSdN2gSVAd/
-	u5iX3WGOKxZrtS2el46UJIAUkVw/D3gdachRhpHmf6r9ZIpAwF8GBuA3u813VQc/pIA0C/Gr1K5
-	PO9RxbzSBaEpVY2oV69ePJymVXGTuhSCy5op+dy/t1KR3Z
-X-Received: by 2002:a17:902:d2d0:b0:2a9:451d:a69 with SMTP id d9443c01a7336-2ae823677famr45582915ad.10.1772866928475;
-        Fri, 06 Mar 2026 23:02:08 -0800 (PST)
-Received: from [192.168.1.5] ([27.7.215.222])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae840ccb6csm54633905ad.92.2026.03.06.23.02.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 06 Mar 2026 23:02:07 -0800 (PST)
-Message-ID: <2ba9bca7-e71c-4371-89f0-15295781b147@gmail.com>
-Date: Sat, 7 Mar 2026 12:32:00 +0530
+	Sat, 07 Mar 2026 07:08:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E78C644552
+	for <linux-arm-kernel@lists.infradead.org>; Sat,  7 Mar 2026 07:08:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B98D1C2BCB8
+	for <linux-arm-kernel@lists.infradead.org>; Sat,  7 Mar 2026 07:08:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772867324;
+	bh=+PW4vo+de0ZspckgLm9CKwYH4siMtdUDVAFkcNGdTis=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=NgqfRAcCG6pYkr1mXkaBARHGF6rS0MADuHvkm6Fl7W1bUJoypY8UPBbhQS4bn5779
+	 ru0VyK6I/lOLTk6Nkrw1oDd0U475cEAVv0hEa2U6YZzdOSX6DYgqp90cIho7vqoa3t
+	 cTC3YEfpdb2kbm4rMMFg7y2FZLXvrJ7SW/D00OjE+csT3J+YNo61NwtQc8asy80nPg
+	 6oZSQ/Y0A9dQu3wmjgIj7j15MnJhkHdGboaZ9uf7ct7W6ZXXdov0mQZGK3KA/yEK6y
+	 nFDuV9dSdYnomVJ8njxp5HcqNa9tVW/ZrWzyyuwjjHpOJV2QQZr2eOKmzvIRfrYDhX
+	 KFIJL87ts1ReA==
+Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-38a3f6da741so12021151fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 23:08:44 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXdrExfpZhxmX7vTQWSyuM03hTCdD7EPaKnmPCwtc74RbcmGVKmxH1qXSyFmhr0dw3v2KkRheTchAsfhkIiJOBL@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHV8YuWwAgIjG9G9XMFC26PKrw3ZJzu1yXq3vmJLZv40znMQdg
+	Yuihq+T1OZKLh5FP3vAz7WTN7uPj9iMhaQYnzzzFjZA/alDhXym0xcpxJnlRW8sWIeLp6MAv/5R
+	fML9Gz/xkxCAq3KXsvVSbaQDZ0foF1pM=
+X-Received: by 2002:a05:6512:b08:b0:5a1:3f52:8601 with SMTP id
+ 2adb3069b0e04-5a13f528650mr1073576e87.47.1772867322919; Fri, 06 Mar 2026
+ 23:08:42 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] dt-bindings: usb: generic-ohci: add AT91RM9200
- OHCI binding support
-To: Rob Herring <robh@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Herve Codina <herve.codina@bootlin.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260224-atmel-usb-v2-0-6d6a615c9c47@gmail.com>
- <20260224-atmel-usb-v2-1-6d6a615c9c47@gmail.com>
- <20260306004533.GA870954-robh@kernel.org>
-Content-Language: en-US
-From: Charan Pedumuru <charan.pedumuru@gmail.com>
-In-Reply-To: <20260306004533.GA870954-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260306-mt7927-wifi-support-v1-0-c77e7445511d@jetm.me>
+In-Reply-To: <20260306-mt7927-wifi-support-v1-0-c77e7445511d@jetm.me>
+From: Sean Wang <sean.wang@kernel.org>
+Date: Sat, 7 Mar 2026 01:08:31 -0600
+X-Gmail-Original-Message-ID: <CAGp9Lzq1motdBxa9uk59Nhx0rxt4XJAp5OynpWVsB_sAm6Lx8Q@mail.gmail.com>
+X-Gm-Features: AaiRm51FdRaT5F8eM2wYPfbZq4D4Kq301mf_pEP4qcp863zlhdRNAb0csgHWPYU
+Message-ID: <CAGp9Lzq1motdBxa9uk59Nhx0rxt4XJAp5OynpWVsB_sAm6Lx8Q@mail.gmail.com>
+Subject: Re: [PATCH 00/18] wifi: mt76: mt7925: add MT7927 (Filogic 380) support
+To: Javier Tia <floss@jetm.me>
+Cc: linux-wireless@vger.kernel.org, Felix Fietkau <nbd@nbd.name>, 
+	Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, 
+	Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Deren Wu <deren.wu@mediatek.com>, 
+	Ming Yen Hsieh <mingyen.hsieh@mediatek.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	Marcin FM <marcin@lgic.pl>, Cristian-Florin Radoi <radoi.chris@gmail.com>, 
+	George Salukvadze <giosal90@gmail.com>, Evgeny Kapusta <3193631@gmail.com>, 
+	Samu Toljamo <samu.toljamo@gmail.com>, Ariel Rosenfeld <ariel.rosenfeld.750@gmail.com>, 
+	Chapuis Dario <chapuisdario4@gmail.com>, =?UTF-8?Q?Thibaut_Fran=C3=A7ois?= <tibo@humeurlibre.fr>, 
+	=?UTF-8?B?5byg5pet5ra1?= <Loong.0x00@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_230210_022641_3F9EC8EA 
-X-CRM114-Status: GOOD (  14.25  )
+X-CRM114-CacheID: sfid-20260306_230846_714773_5B6E0F19 
+X-CRM114-Status: GOOD (  31.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,86 +92,228 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Javier,
 
+On Fri, Mar 6, 2026 at 6:33=E2=80=AFPM Javier Tia <floss@jetm.me> wrote:
+>
+> This series adds support for the MediaTek MT7927 (Filogic 380) combo
+> WiFi 7 + BT 5.4 module to the mt7925 driver. The MT7927 uses PCI ID
+> 14c3:7927 (some hardware reports 14c3:6639) and shares the mt7925
+> firmware interface but requires different DMA ring layout, IRQ mapping,
+> chip initialization, and power management handling.
+>
+> Tested hardware:
+> - ASUS ROG Crosshair X870E Hero (BT 0489:e13a, WiFi 14c3:6639)
+> - ASUS ProArt X870E-Creator WiFi (BT 0489:e13a / 13d3:3588, WiFi 14c3:663=
+9)
+> - ASUS ROG Strix X870E-E (BT 0489:e13a, WiFi 14c3:7927)
+> - Gigabyte X870E Aorus Master X3D (BT 0489:e10f, WiFi 14c3:7927)
+> - Gigabyte Z790 AORUS MASTER X (BT 0489:e10f, WiFi 14c3:7927)
+> - Lenovo Legion Pro 7 16ARX9 (BT 0489:e0fa, WiFi 14c3:7927)
+> - TP-Link Archer TBE550E PCIe (BT 0489:e116, WiFi 14c3:7927)
+> - EDUP EP-MT7927BE M.2 card (WiFi 14c3:7927)
+> - Foxconn/Azurewave M.2 modules (WiFi 14c3:6639)
+> - AMD RZ738 reference design (WiFi 14c3:0738)
+>
 
-On 06-03-2026 06:15, Rob Herring wrote:
-> On Tue, Feb 24, 2026 at 01:12:58PM +0000, Charan Pedumuru wrote:
->> Add binding support for the Atmel AT91RM9200 OHCI USB host controller
->> to the generic OHCI schema.
->>
->> Signed-off-by: Charan Pedumuru <charan.pedumuru@gmail.com>
->> ---
->>  .../devicetree/bindings/usb/generic-ohci.yaml      | 27 ++++++++++++++++++++++
->>  1 file changed, 27 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/usb/generic-ohci.yaml b/Documentation/devicetree/bindings/usb/generic-ohci.yaml
->> index 961cbf85eeb5..ab8a49142386 100644
->> --- a/Documentation/devicetree/bindings/usb/generic-ohci.yaml
->> +++ b/Documentation/devicetree/bindings/usb/generic-ohci.yaml
->> @@ -55,6 +55,7 @@ properties:
->>            - ti,ohci-omap3
->>        - items:
->>            - enum:
->> +              - atmel,at91rm9200-ohci
->>                - cavium,octeon-6335-ohci
->>                - nintendo,hollywood-usb-ohci
->>                - nxp,ohci-nxp
->> @@ -137,6 +138,16 @@ properties:
->>        The associated ISP1301 device. Necessary for the UDC controller for
->>        connecting to the USB physical layer.
->>  
->> +  atmel,vbus-gpio:
->> +    description: GPIO used to control or sense the USB VBUS power.
->> +    minItems: 1
->> +    maxItems: 3
->> +
->> +  atmel,oc-gpio:
->> +    description: GPIO used to signal USB overcurrent condition.
->> +    minItems: 1
->> +    maxItems: 3
->> +
->>  required:
->>    - compatible
->>    - reg
->> @@ -144,6 +155,22 @@ required:
->>  
->>  allOf:
->>    - $ref: usb-hcd.yaml
->> +  - if:
->> +      properties:
->> +        compatible:
->> +          contains:
->> +            const: atmel,at91rm9200-ohci
->> +    then:
->> +      properties:
->> +        clock-names:
->> +          items:
->> +            - const: ohci_clk
->> +            - const: hclk
->> +            - const: uhpck
->> +
->> +      required:
->> +        - clocks
->> +        - clock-names
-> 
->        else:
->          properties:
->            atmel,vbus-gpio: false
->            atmel,oc-gpio: false
+Thanks for coordinating the work and delivering the driver.
 
-Sure, I will add it.
+> Tested on Arch Linux, CachyOS, EndeavourOS, Fedora (Bazzite), NixOS,
+> openSUSE Tumbleweed, and Ubuntu across kernels 6.13-6.19.
+>
+> What works:
+> - WiFi 7 with EHT 320MHz on 2.4/5/6 GHz bands
+> - 320MHz data path verified at 841 Mbps (iperf3 -t30 -P8)
+> - PCIe initialization with CBTOP remap and MT7927-specific DMA layout
+> - Runtime power management and suspend/resume (S3)
+> - DBDC (dual-band concurrent) mode
+> - Explicit band_idx assignment for stable 5GHz/6GHz operation
+> - ASPM disabled for MT7927 to prevent throughput collapse
+>
+> Known limitations (planned as follow-up series):
+> - MLO (Multi-Link Operation): tested working on 5GHz+2.4GHz STR
+>   (776 Mbps) but requires additional patches for link lifetime
+>   and error handling. Sean Wang's series [1] addresses these;
+>   MLO support will be submitted as a follow-up on top of that.
+>
+> [1] https://lore.kernel.org/linux-wireless/20260306232238.2039675-1-sean.=
+wang@kernel.org/
+> - TX retransmissions: elevated retry rate on all bands, firmware-side
+>   rate adaptation issue not addressable in the driver.
+>
+> Patches 1-11 bring up the basic driver (chip ID, firmware, DMA, init,
+> power management, 320MHz MCS, mac_reset guard, IRQ map, probe fix).
+> Patch 12 advertises EHT 320MHz capabilities, guarded by is_mt7927().
+> Patches 13-14 fix DMASHDL PM wake and disable ASPM.
+> Patch 15 adds 320MHz bandwidth handling in RXV/TXS status reporting.
+> Patch 16 fixes stale pointer comparisons in change_vif_links.
+> Patch 17 assigns explicit band_idx for stable 5GHz/6GHz operation.
+> Patch 18 adds the missing 320MHz case in bss_rlm_tlv() so firmware
+> receives the correct bandwidth when associated to a 320MHz BSS.
+>
+> The WiFi firmware ships as part of the linux-firmware package
+> (mediatek/mt6639/ directory - the firmware uses the mobile SoC codename).
+>
+> To: linux-wireless@vger.kernel.org
+> To: Felix Fietkau <nbd@nbd.name>
+> To: Lorenzo Bianconi <lorenzo@kernel.org>
+> To: Ryder Lee <ryder.lee@mediatek.com>
+> To: Shayne Chen <shayne.chen@mediatek.com>
+> To: Sean Wang <sean.wang@mediatek.com>
+> To: Matthias Brugger <matthias.bgg@gmail.com>
+> To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> To: Deren Wu <deren.wu@mediatek.com>
+> To: Ming Yen Hsieh <mingyen.hsieh@mediatek.com>
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-mediatek@lists.infradead.org
+> Tested-by: Marcin FM <marcin@lgic.pl>
+> Tested-by: Cristian-Florin Radoi <radoi.chris@gmail.com>
+> Tested-by: George Salukvadze <giosal90@gmail.com>
+> Tested-by: Evgeny Kapusta <3193631@gmail.com>
+> Tested-by: Samu Toljamo <samu.toljamo@gmail.com>
+> Tested-by: Ariel Rosenfeld <ariel.rosenfeld.750@gmail.com>
+> Tested-by: Chapuis Dario <chapuisdario4@gmail.com>
+> Tested-by: Thibaut Fran=C3=A7ois <tibo@humeurlibre.fr>
+> Tested-by: =E5=BC=A0=E6=97=AD=E6=B6=B5 <Loong.0x00@gmail.com>
+>
+> Signed-off-by: Javier Tia <floss@jetm.me>
+> ---
+> Javier Tia (18):
+>       wifi: mt76: mt7925: add MT7927 chip ID helpers
+>       wifi: mt76: mt7925: add MT7927 firmware paths and PCI device IDs
+>       wifi: mt76: mt7925: add MT7927 CBTOP remap and chip initialization
+>       wifi: mt76: mt7925: add MT7927 DMA ring layout, IRQ map, and prefet=
+ch
+>       wifi: mt76: mt7925: skip CLR_OWN in mt7925e_mcu_init for MT7927
+>       wifi: mt76: mt7925: add MT7927 power management, DBDC, and CNM fixe=
+s
+>       wifi: mt76: mt7925: use irq_map fields instead of MT_INT_RX_DONE_AL=
+L
+>       wifi: mt76: mt7925: guard mac_reset against MT7927 DMA destruction
+>       wifi: mt76: mt7925: populate EHT 320MHz MCS map in sta_rec
+>       wifi: mt76: mt7925: enable MT7927 runtime power management
+>       wifi: mt76: mt7925: fix uninitialized is_mt7927_hw in probe
+>       wifi: mt76: mt7925: advertise EHT 320MHz capabilities for 6GHz band
+>       wifi: mt76: mt7925: restore FW_DWLD_BYPASS_DMASHDL in MT7927 PM wak=
+e path
+>       wifi: mt76: mt7925: disable ASPM for MT7927 to fix throughput colla=
+pse
+>       wifi: mt76: mt7925: handle 320MHz bandwidth in RXV and TXS
+>       wifi: mt76: mt7925: fix stale pointer comparisons in change_vif_lin=
+ks
+>       wifi: mt76: mt7925: fix MT7927 band_idx for stable 5GHz/6GHz operat=
+ion
+>       wifi: mt76: mt7925: add 320MHz bandwidth to bss_rlm_tlv
+>
 
-> 
->>    - if:
->>        not:
->>          properties:
->>
->> -- 
->> 2.53.0
->>
+The patchset should be ordered so that common changes (e.g., enabling
+320 MHz support) are added first,
+while chip-specific changes are introduced later (e.g.,
+MT7927-specific IRQ, DMA, and hardware initialization sequences).
+Before introducing chip-specific logic, try to make the functions
+generic enough so that other chips can reuse them in the same way.
+Checks such as is_mt7927 and duplicated function should only be added
+if they cannot be avoided
 
--- 
-Best Regards,
-Charan.
+The more code we can reuse across chips, the fewer maintenance
+concerns there will be, and we can focus more effort on the
+chip-specific parts.
 
+Please reorganize the patchset order as follows:
+
+1. Common patches that can be reused by other chipsets (now or in the
+future) should come first we don't need to mention mt7927
+
+"wifi: mt76: mt7925: fix stale pointer comparisons in change_vif_links"
+"wifi: mt76: mt7925: add 320MHz bandwidth to bss_rlm_tlv"
+"wifi: mt76: mt7925: handle 320MHz bandwidth in RXV and TXS"
+"wifi: mt76: mt7925: populate EHT 320MHz MCS map in sta_rec"
+"wifi: mt76: mt7925: advertise EHT 320MHz capabilities for 6GHz band"
+
+Here we can add a helper like is_320MHz_supported() and then advertise
+EHT 320MHz capabilities, but do not need to mention is_mt7927() yet.
+
+2. Then introduce MT7927-related changes
+
+wifi: mt76: mt7925: add MT7927 chip ID helpers
+Keep the MCU part of "wifi: mt76: mt7925: add MT7927 firmware paths
+and PCI device IDs" but leave enabling the PCI device table for the
+last patch.
+
+3. IRQ handling
+
+Combine
+
+wifi: mt76: mt7925: use irq_map fields instead of MT_INT_RX_DONE_ALL
+the IRQ part of wifi: mt76: mt7925: add MT7927 DMA ring layout, IRQ
+map, and prefetch
+into one patch about irq_map handling, trying to reuse mt7925_irq as
+much as possible.
+
+4. DMA handling
+
+Combine
+
+the DMA part of "wifi: mt76: mt7925: add MT7927 DMA ring layout, IRQ
+map, and prefetch"
+"wifi: mt76: mt7925: restore FW_DWLD_BYPASS_DMASHDL in MT7927 PM wake path"
+into one patch about DMA handling, trying to reuse mt7925_dma_init as
+much as possible.
+
+5. Hardware initialization
+
+Combine
+
+"wifi: mt76: mt7925: add MT7927 CBTOP remap and chip initialization"
+"wifi: mt76: mt7925: fix uninitialized is_mt7927_hw in probe"
+"wifi: mt76: mt7925: skip CLR_OWN in mt7925e_mcu_init for MT7927"
+"wifi: mt76: mt7925: add MT7927 power management, DBDC, and CNM fixes"
+
+into one or more patches focused on pure hardware initialization in
+logical order. If the register definition is used by MT7927, add
+MT7927_ as the prefix.
+
+6. Band index fix
+
+"wifi: mt76: mt7925: fix MT7927 band_idx for stable 5GHz/6GHz operation"
+This is worth introducing helper functions and using them instead of
+implementing the logic inline.
+
+7. Low power support
+
+Combine
+
+"wifi: mt76: mt7925: enable MT7927 runtime power management"
+"wifi: mt76: mt7925: disable ASPM for MT7927 to fix throughput collapse"
+
+into one or more patches related to enabling or disabling low power support=
+.
+
+8. Final patch
+The last patch should enable the MT7927 PCI device table.
+
+>  drivers/net/wireless/mediatek/mt76/mt76_connac.h   |   8 +-
+>  drivers/net/wireless/mediatek/mt76/mt7925/init.c   |  12 +
+>  drivers/net/wireless/mediatek/mt76/mt7925/mac.c    |   9 +
+>  drivers/net/wireless/mediatek/mt76/mt7925/main.c   |  72 +++++-
+>  drivers/net/wireless/mediatek/mt76/mt7925/mcu.c    |  59 ++++-
+>  drivers/net/wireless/mediatek/mt76/mt7925/mt7925.h |  12 +
+>  drivers/net/wireless/mediatek/mt76/mt7925/pci.c    | 248 +++++++++++++++=
++++++-
+>  .../net/wireless/mediatek/mt76/mt7925/pci_mac.c    |  13 +-
+>  .../net/wireless/mediatek/mt76/mt7925/pci_mcu.c    |  19 +-
+>  drivers/net/wireless/mediatek/mt76/mt792x.h        |   6 +
+>  drivers/net/wireless/mediatek/mt76/mt792x_dma.c    |  26 ++-
+>  drivers/net/wireless/mediatek/mt76/mt792x_regs.h   |  30 +++
+>  12 files changed, 479 insertions(+), 35 deletions(-)
+> ---
+> base-commit: 97492c019da4b62df83255e968b23b81c0315530
+> change-id: 20260305-mt7927-wifi-support-02f9738a3962
+>
+> Best regards,
+> --
+> Javier Tia <floss@jetm.me>
+>
+>
 
