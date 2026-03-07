@@ -4,98 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6D8AF55104
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 18:48:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AB5EF55102
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 19:10:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fePtVH1XrSdcxkm/f3Lu86HTCbPhsyR6IapTe3JHplY=; b=snuqlS6R+J42FkuAo2flwPCY1b
-	Eg1cBx4oBRwf+HkgPlIevmskWAK8ua4/vM3U8xjcFRyPQn9GUw5NwMMzJzdD4g29evb+nYaYRH0Ko
-	/Xe2yvbu6lxmz4R4kSt+lAUAwpQ1ioUBfojMe/rJzb/IkF3ZvLQqrm4pEUy0xTv2jWcCDY8n1hxww
-	fD4ngVLkea+1NDgXlmVfI5I2AYsbpVzX6KZE+6Idrxc5NtrnQym3ykiRZXQVjWMD0cDK0N5owI+h4
-	5Hvmwq703VnZks6a+4r1QkiEafMdIp0z8Ac9BP7XQKTw0MVXuVRIWPfL7My/awPSOCmyBQFKafmjQ
-	xSJm89HA==;
+	bh=zTb4E3pUzS6vEiYtanocqXEzVCCuozujnsHYdDNObA8=; b=sSCYWvINs09LmvV1M3NCcYffei
+	n6gcUUbNNDtu0oAuPXxIyt05UeiRZi8zL4cBJdMTrKvxwP/TdVXCG2UgFlIjpaD2JOEHa11BZBBdn
+	Idm567fYPeg859vXSUg+dwrFs7HOrgQjbEj5LWEqdwa6lnQZbo+P5af5Sr4MSjez/gpE1cPC3+Cwu
+	dEv0gzvaR+NGsomW+qhCcICLHFcVzmj0sDWT8GU3kKOOyZLojh+PRn7hw78elYl30/ucWhoABLity
+	dPbDk9nEtjQ5EDCDllq1omp4xit9l3xsZFBq4yLJuXiXxZMm81VrJVujPcYK7LPFLkateeIVs6VZR
+	C7mNXJdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vywh0-00000005R6q-0zzX;
-	Sat, 07 Mar 2026 18:48:02 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1vyx2e-00000005Rdw-18AB;
+	Sat, 07 Mar 2026 19:10:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vywgx-00000005R6B-3y1T
+	id 1vyx2c-00000005Rdq-10IB
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Mar 2026 18:48:01 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-439c9eb5d36so3643518f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 07 Mar 2026 10:47:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772909278; x=1773514078; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=fePtVH1XrSdcxkm/f3Lu86HTCbPhsyR6IapTe3JHplY=;
-        b=J57077D7n5pIETQRzwE1rHg+R/bpwicJrwlTYTxOmBZrioATAR7LqL74WthG+baTqa
-         s0n+VhyIY6y5yVjQDHL8pDAE/CvtPX7zJYy2uwPJMMnGaeCppQCAgiZgnYPk7aW0u7Ud
-         AFs/g/l5k7qPCneqMLMydZ0cHmJ+McwmU0KR2ituJnbBc+ifWAaOELmi8hY0sruZNnS+
-         l4EX40iT5iF8ceM9aQohseO3JtWOBia9UVu566zxHsbdvS93kEeNmld54JJCk8YBnUIh
-         75dfh5vZ+it10Ne3ZUZr91KxpX9ZK9hyZp7escajVTieL9qDKn/3VZNpY/awomXdpAHd
-         d0Ag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772909278; x=1773514078;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=fePtVH1XrSdcxkm/f3Lu86HTCbPhsyR6IapTe3JHplY=;
-        b=ivbbNBp69zpw2wlFjFL/gcIM6lbQrVdjR2Wc/1U0j62/jHlv4Nf6XDP6/dZz4RKbmN
-         PlQqoqKUQNLrPrzgP/TjHItePKw6ePcyD378/xfbE/ADTMcZ7VWWutPOYJ/W8SLkyGT7
-         OMHiqyrVc55rO1o+PC9gqEUZo6vr+zEku2T1ZI789puohtodmpl0Hr6AMiI2sCijBrHy
-         daDhssEAFTWnBkIT9pCOsxj1+gqITeloq1/L7Tz0UBry5NeG8RaTInRKzjESSPJlLmra
-         nq2rAmiQTa0T+Q6nMaTBqz7oUQz4UAVIeLxK8JPg21CSU6oNiZ8nIoTBf0QdEURZbVPl
-         oODw==
-X-Forwarded-Encrypted: i=1; AJvYcCV2QDfDTqhqcvnH9/GfJgX6qQyYGYtFPDOqzedbL9qfzIPxQW43uL1xWj77zS6mtNaIsb4STysRmSLVCG6nUF61@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6F4GFzGeljKSVSeck8hVnpf4gbs7+53T/x+4MAzsr7UzOEMPY
-	9hXVBzQ1kCjcjNlLQGTJLlwbswYDT4Z7tW7lC7nqDeRZowLKoIAt/W0E
-X-Gm-Gg: ATEYQzxkcJ/yMQXW1xG7BTHf3lZivXOHHq2lJhW0YF8pvE0xQHt9l2BbiRqencI17vN
-	9w7y3r9IWgHbivHxF5d6WJLkfaH+7dJ5GUTuMyGLPZMlbxiUA7GECzPeOhtHTREbZOZQ+Z9+P8Z
-	k0da4lMbBeddypm4Y4iiQyznishS2HnFujOndk3PZRmZCxPbnzX47MZyvvm4f8sbvqi66EzUcwh
-	4yPmbulOvUSf+VQA9Ghc/ogUzqZCLTHFPGIq/5kbMMdP7Kc2DhI8CwUwNOcYSXDo0oAFtS2q+JH
-	RLMI0C+CdsVb3H81luc5aynUur0UgwLVHk86kIzLa2DkNZESmPh9pDsxVHtMIFbx67D0yvjiHh6
-	2qN+RHOlNoUnaxoorPZ6ggn2CwkssY9gRF7N1uurr15s70kWw0fjXD5QxZ7z72t3xUwr657qWVn
-	vZX/nMmTMiu3blO+6CTuzWxrpX3ok0QiVcXa9lpCJ1YD5ZP4A75hcr7g==
-X-Received: by 2002:a05:6000:401e:b0:439:b3f1:8011 with SMTP id ffacd0b85a97d-439da35f838mr11120861f8f.29.1772909277570;
-        Sat, 07 Mar 2026 10:47:57 -0800 (PST)
-Received: from Ansuel-XPS. (93-34-88-122.ip49.fastwebnet.it. [93.34.88.122])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439dae3c80esm11455641f8f.29.2026.03.07.10.47.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 07 Mar 2026 10:47:57 -0800 (PST)
-Message-ID: <69ac72dd.df0a0220.a3fa6.8d4f@mx.google.com>
-X-Google-Original-Message-ID: <aaxy2m9QxsbU0hRM@Ansuel-XPS.>
-Date: Sat, 7 Mar 2026 19:47:54 +0100
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 4/4] phy: airoha: Add support for Airoha AN7581 USB PHY
-References: <20260306190156.22297-1-ansuelsmth@gmail.com>
- <20260306190156.22297-5-ansuelsmth@gmail.com>
- <20260307-otter-of-imminent-merriment-d3475d@quoll>
- <69abffe6.050a0220.18164c.58d6@mx.google.com>
- <52123051-0d2d-42b2-b677-99a5de0f2c4e@kernel.org>
- <69ac04a6.5d0a0220.2969f9.9d81@mx.google.com>
- <abbf81f7-556b-4fb0-9fb7-41f4c730f1d6@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <abbf81f7-556b-4fb0-9fb7-41f4c730f1d6@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260307_104800_036671_BE07854D 
-X-CRM114-Status: GOOD (  31.45  )
+	Sat, 07 Mar 2026 19:10:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5461360053;
+	Sat,  7 Mar 2026 19:10:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 026E4C19422;
+	Sat,  7 Mar 2026 19:10:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772910621;
+	bh=uKa6WLWDHwdq/7UThrztciV8wxtG930MrTaMOemvGkE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=D2yF8BInsXByWczjZiFjRH3ju0lQH6uX4PxVTlnhqSRbZI9JemF0HyZJn6AI9lMT9
+	 WgFuBECLkplojEs2oCGawoUJxR53rY1iBrwGQDSgjW5WK2xeFswhe1DzUPckUtYc7u
+	 xnafL7oNEgE52k6VR3Pr/7lZFQjPc+k9+mZpGiiGu7FpAbEuWxB2Z+1valkrzSvOnW
+	 HeXslEVGw5nSGUJJDEDcIV5iK+BxXdw4lbnFAN/4kIJij1FkDDCLNpU1Mb5tyYeivK
+	 gmFX7ICTmB/l3lLopNBtKXo+WNxvEHRClSrzpEjROx66dzATM+J1B3V7IIxgNfGf1r
+	 wxtgvvldGHD/A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vyx2Y-0000000HDjs-1b7x;
+	Sat, 07 Mar 2026 19:10:18 +0000
+Date: Sat, 07 Mar 2026 19:10:17 +0000
+Message-ID: <87y0k3cv6u.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Valentine Burley <valentine.burley@collabora.com>
+Cc: "tabba" <tabba@google.com>,
+	"broonie" <broonie@kernel.org>,
+	"stable" <stable@vger.kernel.org>,
+	"oupton" <oupton@kernel.org>,
+	"joey.gouly" <joey.gouly@arm.com>,
+	"suzuki.poulose" <suzuki.poulose@arm.com>,
+	"yuzenghui" <yuzenghui@huawei.com>,
+	"catalin.marinas" <catalin.marinas@arm.com>,
+	"will" <will@kernel.org>,
+	"Sascha.Bischoff" <Sascha.Bischoff@arm.com>,
+	"sebott" <sebott@redhat.com>,
+	"linux-arm-kernel" <linux-arm-kernel@lists.infradead.org>,
+	"kvmarm" <kvmarm@lists.linux.dev>,
+	"linux-kernel" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] KVM: arm64: Skip interrupts in LRs during EOIcount replay
+In-Reply-To: <19cc98f6bc6.30a0020a4990004.9101239855762576863@collabora.com>
+References: <20260307115955.369455-1-valentine.burley@collabora.com>
+	<871phveh17.wl-maz@kernel.org>
+	<19cc98f6bc6.30a0020a4990004.9101239855762576863@collabora.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: valentine.burley@collabora.com, tabba@google.com, broonie@kernel.org, stable@vger.kernel.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, Sascha.Bischoff@arm.com, sebott@redhat.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,74 +94,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 07, 2026 at 05:38:25PM +0100, Krzysztof Kozlowski wrote:
-> On 07/03/2026 11:57, Christian Marangi wrote:
-> > On Sat, Mar 07, 2026 at 11:40:48AM +0100, Krzysztof Kozlowski wrote:
-> >> On 07/03/2026 11:37, Christian Marangi wrote:
-> >>>>> +
-> >>>>> +		if (phy_type == PHY_TYPE_USB3) {
-> >>>>> +			ret = of_property_read_u32(dev->of_node, "airoha,usb3-serdes",
-> >>>>> +						   &priv->serdes_port);
-> >>>>> +			if (ret)
-> >>>>> +				return dev_err_probe(dev, ret, "missing serdes line for USB 3.0\n");
-> >>>>> +
-> >>>>> +			priv->scu = syscon_regmap_lookup_by_compatible("airoha,en7581-scu");
-> >>>>
-> >>>> Nope, you need phandle to express proper device links.
-> >>>>
-> >>>> Don't sprinkle compatible lookups for new code which does not need to
-> >>>> keep things backwards compatible. How do you manage device links
-> >>>> without phandle? How do you manage device probe ordering?
-> >>>>
-> >>>
-> >>> Hi,
-> >>>
-> >>> the phandle to SCU was present in old implementation but later dropped as it was
-> >>> said that it wouldn't describe the HW.
-> >>
-> >>
-> >> I went through v3 review and I did not find such said arguments. Can you
-> >> point me to it?
-> >>
-> >>
-> > 
-> > Here was v2 [0] that was clock + USB PHY. (there were clock stuff as the SCU
-> > implementation was different) The link wasn't added in the changelog as it's
-> > quite different than this current series.
-> > 
-> > In patch 7 Rob pointed out that serdes-port + scu was a bit unusual.
-> > 
-> > Then the implementation changed in favor of a more simple one where it's the PHY
-> > that configure everything and in this new version the usage of the SCU phandle
-> > is really to just get the regmap and modify the single bit to select the PHY
-> > path/mode for USB 3.0. (it's mainly the reason the SCU is referenced directly
-> > with a compatible instead of a phandle, in the previous implementation we used a
-> > function exposed by the SCU SSR, while in this it's just a regmap that can
-> > PROBE_DEFER)
-> > 
-> > Rob suggested an additional layer (a PHY) to handle this but I don't feel it
-> > would actually describe the HW this way as that bit doesn't modify another PHY
-> > but it just toggle the mode to the related USB 3.0 PHY.
-> > 
-> > This is really another case of not-so-organized register mapping on the SoC.
-> > 
-> > [0] https://lore.kernel.org/all/20250320130054.4804-1-ansuelsmth@gmail.com/
+On Sat, 07 Mar 2026 18:29:05 +0000,
+Valentine Burley <valentine.burley@collabora.com> wrote:
 > 
+> Hi Marc,
 > 
-> That's the cover letter. I guess you did not implement Rob's feedback,
-> either. This is either phy (for phy) as Rob asked or scu phandle.
-> Removing scu phandle and not implementing phy is not what Rob proposed.
+> Thanks a lot for your reply.
 > 
+> On Sat, 07 Mar 2026 17:33:08 +0100  Marc Zyngier <maz@kernel.org> wrote
+>  > I can't reproduce it locally, but in a crap integration, where the GIC
+>  > is clocked at a few dozen MHz, this is far more likely to happen. I
+>  > should dig that Lazor out of the bin and put it back in the test rig.
+>  > 
+>  > In retrospect, it is obvious. I just couldn't see it until then. Many
+>  > thanks for going the extra mile and pointing out the core issue.
+> 
+> Appreciate the clarification!
+> 
+> We also have a few Lazor boards in our CI, and the Trogdors are indeed
+> legendary for hitting all kinds of edge cases.
 
-It was to give the full series. The specific comment from Rob was [0].
+Right. Time to have a look at SBoyd's u-boot patches from last year!
 
-SCU phandle is going back to the old dual binding that Rob was against but PHY
-for PHY would not be descriptive of the HW.
+> 
+> <snip>
+> 
+>  > Could you please give the hack below a go on your setup? It seems to
+>  > work for me, but given that I never observed the issue the first
+>  > place...
+> 
+> I've tested this on my sc7180 Trogdor setup, and it completely 
+> resolves the issue. The Cuttlefish VM now boots reliably.
+>
+> Tested-by: Valentine Burley <valentine.burley@collabora.com>
 
-I can do that but would it be correct?
+Awesome. I have since tweaked the patch a tiny bit to keep the restart
+pointer per CPU instead of per vcpu, as this doesn't live beyond the
+load/put sequence. I'll post it formally for you to confirm that the
+updated version is still correct.
 
-[0] https://lore.kernel.org/all/20250324154919.GA101272-robh@kernel.org/
+Thanks,
+
+	M.
 
 -- 
-	Ansuel
+Jazz isn't dead. It just smells funny.
 
