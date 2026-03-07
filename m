@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D180AF55104
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 17:24:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00F2DF55102
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 17:24:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Gl/VOSOlOrNo6DIDYz+dDNJzC5Lj/WYFMYT30b/oDE=; b=ZLQgJe4VXBOl/rB9ygqUSeDGLZ
-	HfjUSHzO3lYooGpkCqedZj4xHuoc/Z5q2pGPtqIOPuZPRxxRpMAhcHxUNA+V/41FakcHk6QUvM9rw
-	Cm6D4/+JzI3TCfa73ohzF3JE6BoiyTJTHMk6WhiOZtWJAOBm1B6heid7iq9vjecB1XKsjgdisre+P
-	vOsjpRqtil3UPB8J5bIVLNqMp38sS3kcx4MeD7r/alOD44yztsYutOBybv/YyeBfvk9s8eweMArk8
-	ZLLGtwI5tutR9PXZZ5Whjr1ZN4nmAqzC24JSHQ5Nb5mxL/DdM6tYIrbWfdhLaEHWYPBmXtysB4cTz
-	YJ+S9lmQ==;
+	bh=NgXAP8H0aVDR3gLzwH7upHC7+KUR4japSk1GwBjKI3I=; b=DqiFlw/ZXEI80bUD4GRXcYnIpW
+	dtMrntWACiEbLsQqVmlVv0x9OekL8S+igJfEFNiq4iIGKmP52OdArb0PrUR0V6sbw2pP00GO+lyV4
+	/zj0WApY+9cHx9Ri11gtGOcEqwvFIUGi/OYCmTE9WW+XiAGLwvT2SjCq6AzhtmJDp+ozPJ7Vg5BNr
+	aSX9xNc08XPSP7Czy6ktt3fVZT0bvV/x59HVEsP+w0IlGJpMVCDHPAH5R/86CReL6UWTybohwf3So
+	mltJzuNzHyJKJyI/RIM6DmgpjsDc6UytDa6LKbsyOL8iLRavdD6JJNO/SRcOn0NvZPbLINn9ZjpDJ
+	Q+DXrJpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyvNh-00000005Om3-1Zpp;
+	id 1vyvNf-00000005Olr-1pQa;
 	Sat, 07 Mar 2026 17:24:01 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyvNc-00000005Ol9-1AXG
+	id 1vyvNc-00000005OlA-1bUa
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Mar 2026 17:23:58 +0000
+	Sat, 07 Mar 2026 17:23:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1772904237; x=1804440237;
+  t=1772904236; x=1804440236;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=1mNp8Car79u1dPnTpl5JYKumOp3Byg/lTv+u5frcbbY=;
-  b=mmdE6qHzHmUvwFWUcgnbNj3LR/hj5g2IKeShb1Wf8TbHkgUC+QJVK5Uw
-   niBh3Swz2T8RPbG+5Lz+KwJeijk+js3nfwZKjnnSCDzZSJ0AmWkRvkvjx
-   E1LFYZTl8Hr1Byb/efFCw7e1VBrQQOZhpb90DNOudT6dzdBnCXMMsdl7Z
-   i3ldB0b+tPadqy40bSOKv5aHPpAo1liyNDploLjhAWJeGD6xoCOkL4Ryg
-   v2ycVwt3Xmig+eNYsTy04ZXtN9FMOc6U6Av7xc+ZKM85beKG0QDYmKM1O
-   w5W07tvlnnhZeyyPfiShqS9RX8pM+032YT23kaDhXWxGS9hM395FyMSJ0
+  bh=old0xdZwgrJsWukz3od9fCjMaLFlhCHt0yZChfgcuCA=;
+  b=F/QSGJmXB4DCTQ5gk36tUropUMIBiSiUHDfrF0DO5RRpYvlp4VdjduRy
+   oHa7bYdTO3U5A7k+rmAhyfcPVFa6gq3r25XGC22M1UqlKoG95a2jsZAmQ
+   82VrxRmFtsxCHWMYTF1ayPlbhnTCb0KeSWPaxjwoAOGRxDMsFcyhsN7wr
+   sTBlOYtPy5vf9sVTb1Or1TtsSr18lISdNvB+zEuvaBXqb2OmkFONIj3qr
+   AYMre3l2y5P+YND/MCVyFgOaeVnEL8wHMkvDUilXTGOndT+DGDVdaGTVM
+   o8Q+04ATn1vu7FdaA0Aon8y/zl6VMgE/fIPSXSPmbbMNlCjVck1w1tXrF
    g==;
-X-CSE-ConnectionGUID: t2Fbs8h9SDusJEvxVJAsZw==
-X-CSE-MsgGUID: CFHTEK08SjiojHlmtKw9rA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11722"; a="73890286"
+X-CSE-ConnectionGUID: h9AJOQ6cThuPPRUa9HZTog==
+X-CSE-MsgGUID: igPTTliqRRKg/zmgQjqLXw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11722"; a="73183968"
 X-IronPort-AV: E=Sophos;i="6.23,107,1770624000"; 
-   d="scan'208";a="73890286"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Mar 2026 09:23:56 -0800
-X-CSE-ConnectionGUID: eRuBoaDXQkGBhP43tBdBuA==
-X-CSE-MsgGUID: YKXOwP8STeeImnVsW+QVOA==
+   d="scan'208";a="73183968"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Mar 2026 09:23:53 -0800
+X-CSE-ConnectionGUID: /k0cv0owQL6cuijTy6RHUQ==
+X-CSE-MsgGUID: s1luV+E7QoeRiJ16/xAD0g==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,107,1770624000"; 
-   d="scan'208";a="257234263"
 Received: from lkp-server01.sh.intel.com (HELO 058beb05654c) ([10.239.97.150])
-  by orviesa001.jf.intel.com with ESMTP; 07 Mar 2026 09:23:48 -0800
+  by fmviesa003.fm.intel.com with ESMTP; 07 Mar 2026 09:23:47 -0800
 Received: from kbuild by 058beb05654c with local (Exim 4.98.2)
 	(envelope-from <lkp@intel.com>)
-	id 1vyvNP-000000002Nj-3cnD;
+	id 1vyvNP-000000002Nh-3Gha;
 	Sat, 07 Mar 2026 17:23:43 +0000
-Date: Sun, 8 Mar 2026 01:23:16 +0800
+Date: Sun, 8 Mar 2026 01:23:15 +0800
 From: kernel test robot <lkp@intel.com>
 To: Xu Kuohai <xukuohai@huaweicloud.com>, bpf@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Alexei Starovoitov <ast@kernel.org>,
+Cc: oe-kbuild-all@lists.linux.dev, Alexei Starovoitov <ast@kernel.org>,
 	Daniel Borkmann <daniel@iogearbox.net>,
 	Andrii Nakryiko <andrii@kernel.org>,
 	Martin KaFai Lau <martin.lau@linux.dev>,
@@ -89,15 +86,15 @@ Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
 	Wang YanQing <udknight@gmail.com>
 Subject: Re: [bpf-next v7 1/5] bpf: Move constants blinding from JIT to
  verifier
-Message-ID: <202603080126.Lh5uvLLo-lkp@intel.com>
+Message-ID: <202603080148.tjqluX6P-lkp@intel.com>
 References: <20260307103949.2340104-2-xukuohai@huaweicloud.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <20260307103949.2340104-2-xukuohai@huaweicloud.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260307_092356_370652_BDE9D53E 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20260307_092356_432905_DB0CA5FD 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,21 +119,21 @@ url:    https://github.com/intel-lab-lkp/linux/commits/Xu-Kuohai/bpf-Move-consta
 base:   https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git master
 patch link:    https://lore.kernel.org/r/20260307103949.2340104-2-xukuohai%40huaweicloud.com
 patch subject: [bpf-next v7 1/5] bpf: Move constants blinding from JIT to verifier
-config: riscv-randconfig-002-20260307 (https://download.01.org/0day-ci/archive/20260308/202603080126.Lh5uvLLo-lkp@intel.com/config)
-compiler: clang version 23.0.0git (https://github.com/llvm/llvm-project c32caeec8158d634bb71ab8911a6031248b9fc47)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260308/202603080126.Lh5uvLLo-lkp@intel.com/reproduce)
+config: m68k-defconfig (https://download.01.org/0day-ci/archive/20260308/202603080148.tjqluX6P-lkp@intel.com/config)
+compiler: m68k-linux-gcc (GCC) 15.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260308/202603080148.tjqluX6P-lkp@intel.com/reproduce)
 
 If you fix the issue in a separate patch/commit (i.e. not just a new version of
 the same patch/commit), kindly add following tags
 | Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202603080126.Lh5uvLLo-lkp@intel.com/
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603080148.tjqluX6P-lkp@intel.com/
 
 All errors (new ones prefixed by >>):
 
->> kernel/bpf/verifier.c:23100:9: error: call to undeclared function 'bpf_jit_blind_constants'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-    23100 |                 err = bpf_jit_blind_constants(env);
-          |                       ^
-   1 error generated.
+   kernel/bpf/verifier.c: In function 'fixup_call_args':
+>> kernel/bpf/verifier.c:23100:23: error: implicit declaration of function 'bpf_jit_blind_constants' [-Wimplicit-function-declaration]
+   23100 |                 err = bpf_jit_blind_constants(env);
+         |                       ^~~~~~~~~~~~~~~~~~~~~~~
 
 
 vim +/bpf_jit_blind_constants +23100 kernel/bpf/verifier.c
