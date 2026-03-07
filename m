@@ -4,98 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA8FFC9EDA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 07:47:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1693CFC9ED9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 07:47:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uO/7x1mKXgItzdyCiS372PCikfzpIVhgGhN++3lTYuc=; b=VEIDnkBHPSh3lA/tYqWLY9tDTF
-	k7o2uRurMr/IAhO3a6LynxWzpZ0v6z0dIi0bK5vUXmC3LxC4EUlHG8BCUe1r1qp1UngMVVx6+xAFB
-	IMYvGCQwpC1kfWc3uQ1jDLEHDrCICrRaFB3+wDMbK0ogy3BklHJJjYIpPvW7Apso2yt7no1hR1Ye1
-	2pdX92tegJ5BE7emBxTzveIxL3oDPu7mm4S026EJMjwh46ZIJFvSsBS2cYE3/t63Xr3imaWpL/byK
-	5HPOYCd4th3ds6PynhGk3SviQred4s7ppto/ARNPdoaPeQ/VNiICe617jiZ37aShpdScp7sCFcMfN
-	sTabNt8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nmJQIvtiaxODiCsUsq3Jno3CVTZP2FwDaPbHG1QOL54=; b=K8bfxY715WuEjfx5v322rxGbf/
+	iyTP9sFlRLpJ+iA/UL7jTcUr/e3dEtAQ2AB+n2yK/DlUqoFmAAC4dqAmR7tWN4TjM6dxCFw+NUiOw
+	hTzE3bEJxuTGZh+j3ulk7gRyiGTfwY1WZlxtbfipGUeYsfxybWO7Jv7Lo0nWI+sqg+EKTbMyWm4Ee
+	wscEc1VjRGJYa78g/H8jaDh8bLtMExV9i52irWDRte6Ba52AoS1Qoq8h/zh2vG2VlR4+RmldEmHjI
+	VjUbymy4OOyhEcWlQhVXVvP2UuJ/AjW/FEDSM9/qQ6Wh8Ltm1E2V0ce9/yYT7XL0RnrKMp91YwBp7
+	3Yc345yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vymNF-00000004zD8-08D5;
-	Sat, 07 Mar 2026 07:46:57 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1vymNj-00000004zGD-06HQ;
+	Sat, 07 Mar 2026 07:47:27 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vymNC-00000004zCn-0134
+	id 1vymNf-00000004zFg-1JkN
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Mar 2026 07:46:55 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2ae3a2f6007so53231675ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 23:46:53 -0800 (PST)
+	Sat, 07 Mar 2026 07:47:25 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-8299f1ca894so903135b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 23:47:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772869613; x=1773474413; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=uO/7x1mKXgItzdyCiS372PCikfzpIVhgGhN++3lTYuc=;
-        b=ePvpzfTuFbskdC4t3XDc/rnoOM/udg0MreBNBUx77cG4IKN7p4uy655D5jf6HBlmKd
-         aZ+zkhOwT94LiNRlTV7lx6LYSttY0S9+WRwrZaNb68vSnTJRIAJXVScU9fLmYF0yureF
-         i/+lLX2Nb79jQ2++xqQmYBiLxIkPlO0KVgyIpV8FJI9dYRZKHNxynIEoURnoIdEVV/ke
-         E8VbiNHEREvvhfWGj+IBhDWuFXAfXuNNOiHz1fmkhk/hWCgYbwFSRk1cOM2Wcpxn/m1Q
-         1+YNDwoZK/f7d4Q4KCBdg/dLX9L+MUdTYaMeLHqkuWmJb651pjCTRdhDd2sEhF7lc3Gl
-         9enA==
+        d=gmail.com; s=20230601; t=1772869642; x=1773474442; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=nmJQIvtiaxODiCsUsq3Jno3CVTZP2FwDaPbHG1QOL54=;
+        b=VoqT51N5xDlK5fElQkEJXcQ00TTpk6dO2Wkq+OpsCjIEkOzfsJIk3jVpjKl7Gqh3Dj
+         Ic9f4FCu7ySEVl6tTzICQpV5sViTYqJz6KRCWZKF2y/I4tM1jcG5oRYc7HNMCjur83hu
+         s8+2baAjpAySV0mNIghSL4KxCxuxcs0Qih9QXpTodvNnm8QBNKZdskHf+bJtXb9NxaRA
+         iK0ElVCuNlMRETZxfuvcLOZ3rNm6JBCx94hmljw0+atPRCrPKsbvPGKEoiOOWzwO1OIh
+         FekWTE8z0cATpZ4NcaTTD4uQmMuLotjmmz5F+gIBven68ayWbYUtqW7w6MVG5A58O9Jm
+         Yh8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772869613; x=1773474413;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=uO/7x1mKXgItzdyCiS372PCikfzpIVhgGhN++3lTYuc=;
-        b=nMvqV2jTHEOfhq5eHIQJ9kxg1rCOVFBi0fiPvO6Oz7iHozp0vYBOxA9I/yi7rvD5eF
-         /gOMHtSmDEvDTQBnb9wqgJOaMHDnra+1yf6E2ONiV6ILUZIwUEo6wXbE0JWgTdHIaF+A
-         4SpVPxs26+/oZaIi5Wv2sF0gqSt5Zvg48UhVAMcqhZkJNJ3tLCNPB9Q8M5u1lQQ0m3jp
-         0xaJnDvuTlrq6vhX1xDYz7N068p8xOFTHMJUeseWPvD8wkTREjv9c2lFPCKOb81ThhK4
-         yvNULapP3m+W7qSssMK6aQkFGHO4Cil6IJyLEG49ObbM2usBokeg7MDVqFFEugWMxd6t
-         11sA==
-X-Forwarded-Encrypted: i=1; AJvYcCUgVov2JxWFTmzaiaXVNjHwV5dMmOJF2WrxNbJUOB5QqZtPzS0imvRM7cbx90NBZdTGLZ0CEnorU4QFy3tTgvTb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzwhbp0erBi6FoqHh9lMQdjRQKEdc1vZOvNBzUKCjzjh1od0G8P
-	V+ai9eByHRxrnMsR3n1dKkw7ydTARRYgM70V/J0pSCO4/R0tV+OspjSwGglfHw==
-X-Gm-Gg: ATEYQzyU6FI3xla4QRiaUruBqpDkdBKLlTEuPSNcQmZasw4KiZeN16s4uFp61xfqSVP
-	vekDFXpnm6ypAYh578G+1HWnOqSIeX84pG5x0oIzB8QZQN5TlXmse3uh0UN6wqhT6jnQNYslYZ0
-	XpiG3dtMy2EId6TiaAghUiL3ED1IzLg9EiMyMWx7/WlgT4Yioitcv8snFMACRtP+2KNaDkZ96Bs
-	7cjqPcPEToF0vFqZ+nwbQBaCeleTtSJ3da0yfboS18Nc5+3GfYh52fXfXG38NfCSDNNNLuLoB+u
-	lxPc+Mw0/71byBuZBr/NJbxr2CMp/q6pmWD+ybFIuX4xiNJnkQonKaS+Wb6oWPZIyGhcz17JOE4
-	PQ8fGkH43gZ43d3g7kW078pABw1XHDOwoimnuZxffEyzxQPjw7gusylI1axdQMhb6200rWUl1BW
-	QOfNS0EiHuykuwQ3d04RdT+Fh2KoVJrrqz7ZtPex2S27T9
-X-Received: by 2002:a17:903:244f:b0:2a7:6aa5:68f3 with SMTP id d9443c01a7336-2ae824eb3d1mr48380995ad.34.1772869612670;
-        Fri, 06 Mar 2026 23:46:52 -0800 (PST)
-Received: from [192.168.1.5] ([27.7.215.222])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae83f9d4d3sm41634435ad.69.2026.03.06.23.46.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 06 Mar 2026 23:46:52 -0800 (PST)
-Message-ID: <924b7631-0b75-4ecc-bae2-162abb4bdc31@gmail.com>
-Date: Sat, 7 Mar 2026 13:16:46 +0530
+        d=1e100.net; s=20230601; t=1772869642; x=1773474442;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nmJQIvtiaxODiCsUsq3Jno3CVTZP2FwDaPbHG1QOL54=;
+        b=wN/NXcjZibBG9EkT2RwLh1CC2TezWEXqiALxnOSWsZWdHhfxs6RYnyBjKzDQeUP3Os
+         PWpLEus1mg6ecreCrdzQ1qmxW1o/elk8fbmEsGNuEdUm0GmdGye5DMRFhQUZY/83ySNS
+         1XIEdIX7Lw1tEU+JYM2rKSXj4ic/pSOriLLdujT5uco8pfhCfkcPETqHmC1HKkM8iauH
+         bm7ezfGrzFVI+uq4YNST2MjB+E56z2gaUO+uYbPnynnFIO5MUmAM3yUq8dfVOR/xMUXq
+         j+4e5chVJHI1iGjUU1iD0D/+eGyoIpMCSSatCpHqt/5Rhb1IXVObZCOm+GTIDUYo1lP2
+         j2eA==
+X-Forwarded-Encrypted: i=1; AJvYcCWKpKjw0L7nvPAoPB6djLv1Jfvh+d3qfxNrP7CjfJ4NWCFfqNISb2sKGa2eNLnzZ/Qm+AAFsPfyYCnEfVmNMS3C@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4T24HvU3Jlbv3Nk5nhcWz5JIVsPx4Z1X9WJVSSyE58XXNSj47
+	srP6WFWEngO1GPjT/p6ETeB+GOCKmG6hrpuhBhz3acZ+vB6rBpWSqIDc7eZyLf6sXIM=
+X-Gm-Gg: ATEYQzzaAL0Onswl4cBMPpMI5w9/GssrvI0hWc/IKfSBSCJmGQvfXJ2oWxkFXD5gV4A
+	jYfQoSfAF5WPkNeyXOebpUjXn2ciI7G6xh3FuuJ5/2Aw+MTiPD4mWf8mQs5Ep2j9ELwSYZVYzZ4
+	G79fBunvDgsn1aeNp6UNm9GRmcSzAVoogvL5z+km6gGqJhokLMRRjVlgiiTW4Oz39EPX20GNg2y
+	hKBkdNxvc34lMqX46oDgtGaWMu8pUNQZxtLb5dIpZYa1McITdKwIqoPKZq3C2w5uWZa56kC+raN
+	3pkygavJE5m3QnKh34Uq3Uv1FzPxhrdBg4siDKtIuP6PCitS9O+tlQzkH1jJQcYLe4UOaYY8ouI
+	+NMeJXP1QiKtnSOn51ZCMRDDArlq5VrQS/W01K29dzhJoPK9XcHeKOUTeDtYpHqEdT9dqy1Qju6
+	lqspy7NRuErmw0QoxhMzmBulB/lyCZehTEhjc=
+X-Received: by 2002:a05:6a00:2d19:b0:827:4372:dd1f with SMTP id d2e1a72fcca58-829a2f348e2mr4772406b3a.41.1772869641947;
+        Fri, 06 Mar 2026 23:47:21 -0800 (PST)
+Received: from junjungu-PC.localdomain ([2408:820c:9009:3f2:59cb:c81:de53:1143])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-829a4657445sm3970820b3a.17.2026.03.06.23.47.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Mar 2026 23:47:20 -0800 (PST)
+From: Felix Gu <ustc.gu@gmail.com>
+Date: Sat, 07 Mar 2026 15:47:15 +0800
+Subject: [PATCH] spi: axiado: Remove redundant pm_runtime_mark_last_busy()
+ call
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] dt-bindings: usb: atmel,at91sam9rl-udc: convert to
- DT schema
-To: Rob Herring <robh@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Herve Codina <herve.codina@bootlin.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260224-atmel-usb-v2-0-6d6a615c9c47@gmail.com>
- <20260224-atmel-usb-v2-4-6d6a615c9c47@gmail.com>
- <20260306004931.GA875708-robh@kernel.org>
-Content-Language: en-US
-From: Charan Pedumuru <charan.pedumuru@gmail.com>
-In-Reply-To: <20260306004931.GA875708-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260307-axiado-1-v1-1-e90aa1b6dd9b@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAALYq2kC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDYwNz3cSKzMSUfF1DXbNkCxMjS7OkVJNEIyWg8oKi1LTMCrBR0bG1tQD
+ gdghEWgAAAA==
+X-Change-ID: 20260307-axiado-1-6c84296be4a2
+To: Vladimir Moravcevic <vmoravcevic@axiado.com>, 
+ Tzu-Hao Wei <twei@axiado.com>, Swark Yang <syang@axiado.com>, 
+ Prasad Bolisetty <pbolisetty@axiado.com>, Mark Brown <broonie@kernel.org>, 
+ Harshit Shah <hshah@axiado.com>
+Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Felix Gu <ustc.gu@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772869637; l=1011;
+ i=ustc.gu@gmail.com; h=from:subject:message-id;
+ bh=75e1lv9Zspk1Yn0ZaGCEQTR5dnPaiJ708BBDY7KFgho=;
+ b=2/Bv0N9XW6gxyCPmTUnBk/9Q3k+xdUY5JCrXf/I2nuBVZwXriVFmO+IsoPc5uwksPKv9TisXF
+ R712Si5ImMpClUWifArZ2bpP+lMC7Z8XADU8hLFYzsNMod19xsIjdru
+X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
+ pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_234654_050055_910F7CC8 
-X-CRM114-Status: GOOD (  10.82  )
+X-CRM114-CacheID: sfid-20260306_234723_362547_EA6A28BB 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,23 +111,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The pm_runtime_mark_last_busy() call is redundant in the probe function
+as pm_runtime_put_autosuspend() already calls pm_runtime_mark_last_busy()
+internally to update the last access time of the device before queuing
+autosuspend.
 
+Fixes: e75a6b00ad79 ("spi: axiado: Add driver for Axiado SPI DB controller")
+Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+---
+ drivers/spi/spi-axiado.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-On 06-03-2026 06:19, Rob Herring wrote:
-> On Tue, Feb 24, 2026 at 01:13:01PM +0000, Charan Pedumuru wrote:
->> Convert Atmel High-Speed USB Device Controller (USBA) binding to DT schema.
->> Changes during conversion:
->> - Include "#address-cells" and "#size-cells" in the properties since they
->>   are required by existing in-tree DTS definitions.
-> 
-> The DTS files are wrong unless there are child nodes and there aren't.
+diff --git a/drivers/spi/spi-axiado.c b/drivers/spi/spi-axiado.c
+index 8cea81432c5b..bd5f67acc4f6 100644
+--- a/drivers/spi/spi-axiado.c
++++ b/drivers/spi/spi-axiado.c
+@@ -850,7 +850,6 @@ static int ax_spi_probe(struct platform_device *pdev)
+ 
+ 	ctlr->bits_per_word_mask = SPI_BPW_MASK(8);
+ 
+-	pm_runtime_mark_last_busy(&pdev->dev);
+ 	pm_runtime_put_autosuspend(&pdev->dev);
+ 
+ 	ctlr->mem_ops = &ax_spi_mem_ops;
 
-Yes, there is no child node but these properties are defined in sam9x60.dtsi for the compatible "microchip,sam9x60-udc" and the yaml fails dtbs_check if I remove them, can I send an another patch for removing these properties from sam9x60.dtsi?
+---
+base-commit: a0ae2a256046c0c5d3778d1a194ff2e171f16e5f
+change-id: 20260307-axiado-1-6c84296be4a2
 
-> Drop those.
-
+Best regards,
 -- 
-Best Regards,
-Charan.
+Felix Gu <ustc.gu@gmail.com>
 
 
