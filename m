@@ -4,164 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AFFBFC9ED3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 06:41:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43F1DFC9ED9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 06:57:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bUwvs3YmBkJluMeea6zqS1ZVwpc0OoPp2woJCB4hyQI=; b=vr62NRgXWqKIkQ3ZYQ6PL/+N5k
-	KeNLEjMlrfIiAsaylSrIqAdGneBH3eBwhFrg9lvg3VPc8GRXJ1ZgIIiydQOVsx4NRWVGLlXpD02Gg
-	hbEsiDzou7j84ywOZbYW5FCoC+rSeXLr9tTkFlFjaAAs0OGtTVxxvEod142mumVaDh01GI6b3wgnF
-	b9u/tjoHtL+MhdkiCMAqtVX5owQwYS8HCNq72F3vY45ByQO6iJ4SxrgxpkrUO5Dqn42Ax2B/iIF6p
-	fl1bOTrNhqodjPun+7FWvAI4WmE4nH969Yj4J7a4LGKoOd9pAqlJWyvVts/qc38D+fw0pJ+DzUDKh
-	UwBfYKPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FrbZblL2O8OksWGIeGPYfpkevizsVemsC95k6jYaDls=; b=HXSVNEHl/hFl48VLxWdmxlasbD
+	SzOwudIEMYO1HxG5Ana/rejxELMZysecIpDqLoBTV4KlouVqqX4yOCATYXvfwzCNuzbZIAgfnO3Mb
+	ncp4ygc/x8ToEP/BfZeW5BCD6mUYee0qaxoyKZnEhMaD/if7de04Pbh6DSroc2wL4vf6HQ3J6+8So
+	OhUyH/y73cdAjdLJrXLkWCx/v2ffiMRf53cklkALdtsD7dmJSwFdwyb9F/u97TwX8UMt8FHpVBn+G
+	83viV5qe4Ffgh2kGcnD+v3u13H+jLxxdJZuAGiVvfveWKIMmZvU4+xbj8ZhCBUVixSVi32jWn3tfc
+	3lFh5MpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vylM1-00000004wnR-24gX;
-	Sat, 07 Mar 2026 06:41:37 +0000
-Received: from mail-francesouthazon11011000.outbound.protection.outlook.com ([40.107.130.0] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1vylbI-00000004xMO-04V4;
+	Sat, 07 Mar 2026 06:57:24 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vylLy-00000004wn6-3Yyb
+	id 1vylbE-00000004xM4-411C
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Mar 2026 06:41:36 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=af0oT415cpKjN74XCl3V53ot6q53Cwq6/lDYD2N3ceQWxOdNq2qtgs2xk30urK4u55KuWBZtESX0Kf8Y1bC+7oVNl1q9JtVg9ElbnpzrbEPXMdmO5hE16OADZ6Js8eoH8jG0HVzpSKMDV7uZTbz2drUaG4HY1g+WUy172pIObj6gu2Zluv/TwY5nVJpV2G6DcjJ+N/cbboeFsehSILpER/8HjOEroBG79+L8v2zcsPDXa7vJiJ9BjE+bRyZgm4YGw36ZrT4UyJBrpnO6Hn3WtqwMjS4DyoLm1K6t/UC3i7vt+XDZRaU8qu9tK4PcUuyrqpAvug4xEzOFgBTnbyNEnA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bUwvs3YmBkJluMeea6zqS1ZVwpc0OoPp2woJCB4hyQI=;
- b=QUrOdduAD9PEsuZwL3p0MtHlg9WpSsWSjb4ywL0jQpak4x2NWlZwD9kJYGuiKcRBliGI8Uhh9y0etJK/6CZC3tmFTDGgZrWjU1URVzvFvf7pnZqYljJnupvo0FGYZmF393QB1y4/W1078sJR17aVQnGmL3d/H0tPkD50jKmb0vKzb801rosRQljyvIMSY5RR3hjnS84DOGSrUAQoBMJLfTZl5cgAMU8bBhldeAxM4sDzH96eg/oZ49l88O32gk2VwPNjJG4Ow/keK1BjUBKtd4op8fvaPEbXHVcj9M3VkyR+hnL5B8qbcCsyZgAMNoKBkJTUPwo7kOARk96K7L06lQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=huaweicloud.com smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bUwvs3YmBkJluMeea6zqS1ZVwpc0OoPp2woJCB4hyQI=;
- b=e8INY/630JA4nMwEfAPopFP79S0L+Wog/T7S+/hVEPyonLAcz4P9vBM7sgBEz0+KYdT/J0qTSQDKjI49yENjzX35RZE/XOPkgMJZBJFyBBBWpICHPIEMfs2sUnU1R7d163zyGmYx3jsrXJLLtvJ4qxvY/DNejTsGM3zcQ1I3iiw=
-Received: from DUZPR01CA0201.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b6::12) by PAWPR08MB10308.eurprd08.prod.outlook.com
- (2603:10a6:102:369::18) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.22; Sat, 7 Mar
- 2026 06:41:28 +0000
-Received: from DU6PEPF00009523.eurprd02.prod.outlook.com
- (2603:10a6:10:4b6:cafe::5b) by DUZPR01CA0201.outlook.office365.com
- (2603:10a6:10:4b6::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.19 via Frontend Transport; Sat,
- 7 Mar 2026 06:41:28 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU6PEPF00009523.mail.protection.outlook.com (10.167.8.4) with Microsoft SMTP
- Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.18 via
- Frontend Transport; Sat, 7 Mar 2026 06:41:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gBqG+46vEmu1kxdnWYc/aSw24fJ259FM9kI0RZx1VziGIiALXVu969NpZdfNHKsxsyKYdJFIdQ6RV3kDxQRozLeRfyklBBujT7mjdjE8HsqROYqi9mvtUDHnKVOzBjEucWIi+pROqlt7n8Ull4ZtgWZkrLScaT0c0n1Y4SONzcFDKOeMQ9LDsCwUrziAWU66sjN4Bhf+vN+9TKTm/xavYf0qxSv0bqJDBzBVmNiLf2KNLZjNSGszO3cUy+pLttAMmO7hdRyrUBqP9ZaBPLImPaAgXXmV6XNvZ/x6eWtONyX8x6HFa+5zTt4o7o2wMjLHd5Rik/91zRda3YJoqkjRkQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bUwvs3YmBkJluMeea6zqS1ZVwpc0OoPp2woJCB4hyQI=;
- b=Tt896Gnl95VMp4rZ5EZ1Y6hmQq9riBfQhukQVwWEwBK6NYUUU0jcl9KGEXoFnmREb9F4PamIP9KqErEWt6hSwwi9gyybZH6/BSYnOrJ4EoUyyXI+KjYdxp0lwKh6Qvzem9rC9BmXFILzBARB4dAZHpW18HFobvW/Sek3n1PtYeIulLkbulst37hnUffVOprKRNYhxByEiqsaBWu1m+JZddp4StKKVex515Y7rn0cj4WBSGMcq4bnXgbSPbd218QifKSU1TG4bzuAQNNydLSmgluFBJOs3SwsoNPtjMsmwfd8yeAcJgH7TpLmz+VjkJc3Zn5gBlfGdgyKnPG7HiwHmQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bUwvs3YmBkJluMeea6zqS1ZVwpc0OoPp2woJCB4hyQI=;
- b=e8INY/630JA4nMwEfAPopFP79S0L+Wog/T7S+/hVEPyonLAcz4P9vBM7sgBEz0+KYdT/J0qTSQDKjI49yENjzX35RZE/XOPkgMJZBJFyBBBWpICHPIEMfs2sUnU1R7d163zyGmYx3jsrXJLLtvJ4qxvY/DNejTsGM3zcQ1I3iiw=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by DBBPR08MB6074.eurprd08.prod.outlook.com
- (2603:10a6:10:1f6::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.22; Sat, 7 Mar
- 2026 06:40:23 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::8c9b:58d2:2080:eb98]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::8c9b:58d2:2080:eb98%3]) with mapi id 15.20.9654.022; Sat, 7 Mar 2026
- 06:40:23 +0000
-Date: Sat, 7 Mar 2026 06:40:20 +0000
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Xu Kuohai <xukuohai@huaweicloud.com>
-Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Anton Protopopov <a.s.protopopov@gmail.com>,
-	Shahab Vahedi <list+bpf@vahedi.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Tiezhu Yang <yangtiezhu@loongson.cn>,
-	Hengqi Chen <hengqi.chen@gmail.com>,
-	Johan Almbladh <johan.almbladh@anyfinetworks.com>,
-	Paul Burton <paulburton@kernel.org>,
-	Hari Bathini <hbathini@linux.ibm.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	Naveen N Rao <naveen@kernel.org>,
-	Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	Pu Lehui <pulehui@huawei.com>, Ilya Leoshkevich <iii@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Wang YanQing <udknight@gmail.com>
+	Sat, 07 Mar 2026 06:57:22 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.177])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4fSYwt1mF8zKHLvD
+	for <linux-arm-kernel@lists.infradead.org>; Sat,  7 Mar 2026 14:57:02 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.75])
+	by mail.maildlp.com (Postfix) with ESMTP id 755AE4058C
+	for <linux-arm-kernel@lists.infradead.org>; Sat,  7 Mar 2026 14:57:12 +0800 (CST)
+Received: from [10.67.111.192] (unknown [10.67.111.192])
+	by APP2 (Coremail) with SMTP id Syh0CgD3IQdGzKtpILwSAA--.8561S2;
+	Sat, 07 Mar 2026 14:57:12 +0800 (CST)
+Message-ID: <1ca67134-011b-416e-b632-4ad061b76c28@huaweicloud.com>
+Date: Sat, 7 Mar 2026 14:57:10 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [bpf-next v6 2/5] bpf: Pass bpf_verifier_env to jit
-Message-ID: <aavIVDaVYy/tr7/s@e129823.arm.com>
+Content-Language: en-US
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
+ <eddyz87@gmail.com>, Yonghong Song <yonghong.song@linux.dev>,
+ Puranjay Mohan <puranjay@kernel.org>,
+ Anton Protopopov <a.s.protopopov@gmail.com>,
+ Shahab Vahedi <list+bpf@vahedi.org>, Russell King <linux@armlinux.org.uk>,
+ Tiezhu Yang <yangtiezhu@loongson.cn>, Hengqi Chen <hengqi.chen@gmail.com>,
+ Johan Almbladh <johan.almbladh@anyfinetworks.com>,
+ Paul Burton <paulburton@kernel.org>, Hari Bathini <hbathini@linux.ibm.com>,
+ Christophe Leroy <chleroy@kernel.org>, Naveen N Rao <naveen@kernel.org>,
+ Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+ Pu Lehui <pulehui@huawei.com>, Ilya Leoshkevich <iii@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ "David S . Miller" <davem@davemloft.net>, Wang YanQing <udknight@gmail.com>
 References: <20260306102329.2056216-1-xukuohai@huaweicloud.com>
  <20260306102329.2056216-3-xukuohai@huaweicloud.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260306102329.2056216-3-xukuohai@huaweicloud.com>
-X-ClientProxiedBy: LO2P265CA0512.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:13b::19) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
-MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|DBBPR08MB6074:EE_|DU6PEPF00009523:EE_|PAWPR08MB10308:EE_
-X-MS-Office365-Filtering-Correlation-Id: caa0cf3c-26ef-41e7-fb05-08de7c148f3a
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info-Original: F0agj/WKd8bEIRUl+gyrZ85VdRgR/h97AT778fzpSP5WJE49AyUrio+XZjrEKvKh3PpT1oXvsBtUzbuRY3qFtELGdcAtknPen48B6FsH+yTJQjkeO7WxjUq1VHIRIwTkX6zQsX7sWOa6s2UNoMVg9eN/4i04aaNmws+zHlP4Lt3lCu3Zpl4hEtbTUAVYQMqun8Bw9+wZpp4Jv8zy3dyHPPEaUyNibYStSS70n7OAj3k4TSehB61JRfeJHzg77bHJNRUkDXcKc5fWjaYQz5MnNNuK+9OE5WUPZcs0/CP0CuJ42QO20FvuAhulerzBA/EJalNJPEDXsP0glwKawPVWPX9BFmYirKb96XxyI3BTq/JG2HV3MTCHLJcZsie8ukDDUR5EUwHjRAeQiTWBXIHH/xkRJZhI0MQd1cwBWU3evZ6QPxpFd59TVyUBv0kfFvF36Q/725wA3A/7K3WLEjVjYDi3EBh4DDvEkqXHZhRtTtl4IsKbOHX51HsFI9uvYt6uyFp4oXpOot2OjPsrYyzn4bkULqZpIv2OkOtAjgaERZd1pyIAICCg/XBvtM4WWcmjszcs3CsxAi3YSyuALCK30WtPQEJuc0w8xHlUJjexxIFU8jvA7B2GK0155pBZlwzl53KHVWwMuf3ZTE1VFVmytPEy2+qqoMQT41VaiJen+uOpe+QOEV3MV9HY0IS+SfLgaB7yB14p+yRTEqtnI+Tbatlz+/Mb2dpb7hnnv86mkq4=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: atBU5yPOVOqR3IyX9fietxO3SIadS+/XmDuZL1qtOIVeGPMrBc+Mol/AheP4d4gNCS6+wmory3VXY00Jzrb2caHiDPRmpBgXub2ej/88ycVFZAB+EMAqJVmGl+jpAb9grCTi9smtBIqMmyIVeJzAQY5x+Ey1YxcL0LYSjJv3HnwHtRMvGIljA0Z7eMoGB8uIxE0mL02rd6liw7KK1Ps3jm5x91CWyh8jb2wKsO0X4Ndeuxk1BCavL04fP3o0zGoBfQQmZCgphxSMCp/BjyWxrQGz5W26DlSGO4Tz4s4shAdE9VGZTlf/A8Gw68pZtbohqNzjrGYMn/KiPAl2lP7n0A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR08MB6074
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF00009523.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: acb8a4b7-4c4e-4ffd-4fc7-08de7c1468f0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|14060799003|35042699022|36860700016|1800799024;
-X-Microsoft-Antispam-Message-Info: ICPIlfwb3o8gycLojk7R8tfangwcfVi9EkdlerWzdu1SURMU2Hky8eofLpkZX2RyilFAt7jiCPv+U7UeOO9ctgSI4JL0gF4msXx7WD59e58G9TKRqoXIuUthoNR4EoiWlp/Sxp25tdzqg278dvoT9u6zj4I7rwyO4uOlD9VSuSLhnQWEmq+3n1uVn1jcbX7HDa9Ses8hSH2NzBDi0Zkkx6b6rmTnP21L97GI0Xt39n7kgUfV/EozEee5mN4rNRtu0xoHu3MaprLPGDmOGyc0eOvsvNgtOHwDzAgbiHufBQMcbgoEPYPVkjGnMcM7xQGOLB82lVWrAn3ZQgZzTicBA0XkYl4JpPkkvzynwloc+FSqW2m8alAaijlIL3JPe+n36zktxQ8kXm0+55meFvuoUhqgz81+SEIphOJDa7GpX+bOtjYtr6/6JfaimkUpiWf+G87erkiRSdhL/7ldYdp/1MWEGOBKQYcvbYmF0hPqjW7W/CZzTv2awtumSQjyes2XunoFDX119zldKOaBgmEk2HBbbaFIpQnPVLDGFtITErEZzotc2+xUFjrzCSgdHY5aP2JdFip/xeq0eBXnJiEU/Q2pvI9Ca2KkFDdwsVcmXYzTjw8RogaRENa2YRKiCLrnCEp6P2ri6ED8kMNXDi0Yb0smxmBj5T8H8xnjP4/dQYtHM6alyrhG+/MvoMLKJIGJuvUDD5AxcbpIHPIASyWAfZzddcKjHQp/faIQtMRcO2UdB47btZJEU7QVYut6TGL6SaEDvuUf0Qja0NMbC/SE5A==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(14060799003)(35042699022)(36860700016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: lALykVqjGhQW79fDlVUu/KtFFYjRmxDzRQ65kc+54GI36Dc5yaUHoY3v9FnT0gWm+1YH/FN+aaBK83Z1Ede6p8PTe+JQ3pAyLzDwXATFgzToAFZ0Z14AwT4NpwQ/E5llbYxNb31tVZSSF0LQrD1Lh9151mdQFfkH5naebwJLBiUm6X+wqa3pW2DyVkidqP/BIfDOWAZPRjaX5sO2c/A+4ZiM55JoKg/BUdftCRQfiJc34HZmLc7p3l26TQejpsh7nq6767ZAJN4U3z+LHcVIFZsjq0l0OHkPs8nFeohUKj+FvLoeBLMQ2MSGbPzw2ODOGcdfmj30Ayow6IoiO7UFTvabmq5knE3qed9tgGpIpUypoDOhQwWPUnk4CBQBWwv6dqi8YGBG7vma+/hG7zvldrJvIMqr8lx4hUZxKs2qzgBhH/aGUUwB+Sg7leJXE0M9
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Mar 2026 06:41:27.5776
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: caa0cf3c-26ef-41e7-fb05-08de7c148f3a
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF00009523.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR08MB10308
+ <aavIVDaVYy/tr7/s@e129823.arm.com>
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+In-Reply-To: <aavIVDaVYy/tr7/s@e129823.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: Syh0CgD3IQdGzKtpILwSAA--.8561S2
+X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUYV7kC6x804xWl14x267AKxVWrJVCq3wAF
+	c2x0x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII
+	0Yj41l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xv
+	wVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7
+	xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
+	FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr
+	0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY
+	04v7MxAIw28IcxkI7VAKI48JMxAqzxv26xkF7I0En4kS14v26r4a6rW5MxC20s026xCaFV
+	Cjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWl
+	x4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r
+	1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_
+	JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYx
+	BIdaVFxhVjvjDU0xZFpf9x07UAkuxUUUUU=
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_224134_918685_43931DCD 
-X-CRM114-Status: UNSURE (   5.48  )
+X-CRM114-CacheID: sfid-20260306_225721_199013_21637B58 
+X-CRM114-Status: UNSURE (   8.91  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -177,22 +101,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 3/7/2026 2:40 PM, Yeoreum Yun wrote:
+> Hi,
+> 
+> [...]
+> 
+>> -struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
+>> +struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
+> 
+> Does this also work for bpf_prepare_filter()?
+> For example, ptp_classifier_init() calls it without invoking bpf_check(),
+> so there is no env available in that context.
+>
 
-[...]
+It works. The original bpf_prog_select_runtime() is preserved for
+cbpf and test code, and passes NULL env to bpf_int_jit_compile().
 
-> -struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
-> +struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
+> [...]
+> 
+> Thanks.
+> 
+> --
+> Sincerely,
+> Yeoreum Yun
+> 
+> 
 
-Does this also work for bpf_prepare_filter()?
-For example, ptp_classifier_init() calls it without invoking bpf_check(),
-so there is no env available in that context.
-
-[...]
-
-Thanks.
-
---
-Sincerely,
-Yeoreum Yun
 
