@@ -4,129 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4987FC9EC3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 00:33:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00476FC9EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 00:33:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:Cc:To
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CApY8Np2oV4416ggobGvSdXqIAdQQmVHjuoAm9JeX8c=; b=098eMIpS+0+yy5TqwIyIqgiJiK
-	hcGRY8UO76nzJlDSCHTZgahA0DfxMyWSqZnYg4MaMuUSz/Xj6vWSv9Clhz0d+ef2awfoweYnGNm30
-	17PbY34k8DxFKc4GIfKBLoW/d4nfqD7bZAkme9Xok46oL6lGpIbAWx+klmuEGggaslLqPyKhXQQk8
-	H/91zNKa4DajVcHjUzYo9Aekm6fQ+pT62cbmfE9Hoxekxk6A9KLYnJkklVoMNGOcmdy7FmfARPatv
-	K53+z1BzxK+3Xg32Jg0D5GMcRDm1OiZiUXNE4Au7oZ8Ltk8085loyKJZukits5UogqAVV8PM/KAsw
-	jBayYaCA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GOlXSBA3zV57VB94c1E22HBSC9q4AY+u2q4LW416Y5U=; b=dWjryCS/vTFgax
+	MShtpw4b4zAczc2KUDnhkVzEYqXvPSaMxH7gBWhA3kodaPqZSOk8Its/Qv5ElbAte++bbdLuWWLcb
+	ZVa7YE2Ut15D0qbGri4Cm7UhTS5cHAVy8Nv0qQF83EJY8TtsuAOTMTAZSM1BY6wDVEoYWLLon7+Ux
+	fK4FV4RASer/+VRmd2V6IHYbm4Aop5jSMkE5qx8Xujz8seUpZp+jZBYmilqguS6BVxTAGJDR8BUfV
+	01g9VxNDRa65YaaC1y5MlAGMINrbYgOP9pPstk/XnLiJTy0J7p7rSyhMijkKvvCUuJ4P5RSMYIk6s
+	n0v4s7d4sBu40AAeSUyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyfbp-00000004iCr-3NDw;
+	id 1vyfbp-00000004iCe-12Ff;
 	Sat, 07 Mar 2026 00:33:33 +0000
 Received: from flow-a2-smtp.messagingengine.com ([103.168.172.137])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyfbm-00000004iBf-2T3A;
+	id 1vyfbl-00000004iBe-2Zwp;
 	Sat, 07 Mar 2026 00:33:31 +0000
 Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailflow.phl.internal (Postfix) with ESMTP id 2E6DB1380A0D;
-	Fri,  6 Mar 2026 19:33:28 -0500 (EST)
+	by mailflow.phl.internal (Postfix) with ESMTP id 58FA41380783;
+	Fri,  6 Mar 2026 19:33:25 -0500 (EST)
 Received: from phl-imap-07 ([10.202.2.97])
-  by phl-compute-02.internal (MEProxy); Fri, 06 Mar 2026 19:33:28 -0500
+  by phl-compute-02.internal (MEProxy); Fri, 06 Mar 2026 19:33:25 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jetm.me; h=cc:cc
 	:content-transfer-encoding:content-type:content-type:date:date
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1772843608;
-	 x=1772850808; bh=CApY8Np2oV4416ggobGvSdXqIAdQQmVHjuoAm9JeX8c=; b=
-	QGRkcMAfcY/ghrQGIvoHQmM8GjfwwdGmJmoq1FOLB1bs86wgq7LDd6Uqhe+DK1VO
-	INpqtzvNaG/ZKXM3yEo4lnyVRB16Px522AQxEnVj6mQHJk0atS2fzRTC6bZSelu1
-	UGvKuEbggfk3k4EwB6V2EAdXLCtuMsvU5zrRm2Jv146PUrindkF58sYqpTf+ibTp
-	pn60SRFqe4bNhZVtZPfKSfkNWGUSbOXjyrN8Xb1HQQacDCgSRNeaAP615Brn7ljB
-	lBJBIvo9NNrQLqpOM6nK5PLS0NuELANpm/JwmEpfjdH42AmC0ZubTC09bxzG7tad
-	aK0RffcQUvS17fWrbtSDeA==
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to; s=fm3; t=1772843605; x=1772850805; bh=GOlXSBA3zV
+	57VB94c1E22HBSC9q4AY+u2q4LW416Y5U=; b=XCYiAcn12BFy0qTXwey+ORjo+e
+	Sq4FdfqGrvHQNUnIoSu36+bSelX+XjJ1rC3aRf6efeJjUe0zjf96fHn4uheL/QH+
+	P9Lu1Iw6KnNx/Zk669ueXcG4qWXjQYzb7ztvm1Qesbfcl2tm8wC6oWugbvttLpo0
+	dl65hgHJ/M6n5KQ6gzqHUbaTiJf2XyuuyvKjLxJj+8HlzexWD8UzJcfWhGXBHLrb
+	YCmlfgLdchDn//o/mu2UfPXvmTE1k2o107hDt83vAbQf0iMEB9cckPRsIlNVrFjK
+	rqrwQG9fHmPYFssZr99befDVf74TiVHAeTNfofz5ohBU5BqC1H9pvXNlFA4A==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1772843608; x=
-	1772850808; bh=CApY8Np2oV4416ggobGvSdXqIAdQQmVHjuoAm9JeX8c=; b=C
-	wX8a0niabfUFHJFWXR0A9+KecDCUoXVd3d5qxTZzU49XQS0UUU5zYi5uWm+DvBQU
-	gPU8UOXd2P8DRyg0UErtZ/CMq5iuXRnNDPIR6h43aTjF61wXwOVvHSf9oGFDJyZS
-	igGFy+tsJfVxu8xbCKtTc3b1J3NtGBtMW0bX5/Ul8a4eGnfe4+MvJuneTLmztbea
-	YLpYxdZWBMjLKaJW8ql14XPBtkV1Gob+GyZxbjcvyPXuFoG7hNuRgxapaFBuDGtP
-	T1vZ2uLW1p6aDvgRUMy7hFtHZMCwi5i42r9XrBkTT0FEvCUdlXWz6fZentRIakxr
-	WaR3/PAJIYyNqbeTfb5cA==
-X-ME-Sender: <xms:WHKraQIyKKCKJWoF-8cejLuKwhHn_L3lQG__dFbFNqwzlpBiUZT5eg>
-    <xme:WHKraa_qcf8GYwiCxC_QCZifo3hiVwiV1ffViy6pca7HzKkG5z-tlcoP5s-GCZsux
-    2N9pfukgYgnevQx26Hr-JqpCQiMNgQxTfKdOoBNvpg3Yl3okqCZC74>
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm1; t=1772843605; x=1772850805; bh=GOlXSBA3zV57VB94c1E22HBSC9q4
+	AY+u2q4LW416Y5U=; b=bom4cPxPK4yI7StpEaesVEVlIwa2tzcFk+oORs8s93kf
+	dbg5HZN24SgHuZrP4bj1GjWcilqUJ421gaLMUC5J+3pLfNzYnZvVOynUQ6TyxDx9
+	LDs78CAnYBI64JoZ+tkRzqU8Wkjxqk8wTA8Z63fCN4quwtsk9ggd9yFsupFRbmCq
+	j+2nNYltMPQWoLAL5c1cZ9AN902WZ+doX/0Rps1xp6465Eqlo38gmlotE7dagiFT
+	L6izzx54nmubTO43h0yR3TSnSOMJ7RrU75JNVZX+AEa/oavYqxFcVw7+IS57LV7H
+	wVM+M7pOyzSG05+uWgrbSgAw42MO6BJqMnUYIBnrrQ==
+X-ME-Sender: <xms:VHKraZY6PB-cYV4sBhHC9Uj8LzlPHT2J-3aFwts7-ZPBpQaPscglNQ>
+    <xme:VHKrabOJHls4LQsx7-ZpfR7KwdytzjOVlquOsQS70SwjJH0LLR8oSqLuS1EMiE48m
+    DPmNh7LVBVwDM3o5JHruWa3k5S1NVlWJ98ofrG6YWHXLhpSjMNttvM>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvjedtjeehucetufdoteggodetrf
     dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
     rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepoffhfffugggtgffkvfevofgjfhesthekredtredtjeenucfhrhhomheplfgrvhhi
-    vghrucfvihgruceofhhlohhsshesjhgvthhmrdhmvgeqnecuggftrfgrthhtvghrnhepve
-    ektdfhffevuddtgfetieevtddvheduhfeggfekveejlefhleefieevueefiefhnecuvehl
-    uhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepfhhlohhsshesjh
-    gvthhmrdhmvgdpnhgspghrtghpthhtohepvdefpdhmohguvgepshhmthhpohhuthdprhgt
-    phhtthhopegrnhhgvghlohhgihhorggttghhihhnohdruggvlhhrvghgnhhosegtohhllh
-    grsghorhgrrdgtohhmpdhrtghpthhtohepfeduleefieefudesghhmrghilhdrtghomhdp
-    rhgtphhtthhopehlohhonhhgrddtgidttdesghhmrghilhdrtghomhdprhgtphhtthhope
-    grrhhivghlrdhrohhsvghnfhgvlhgurdejhedtsehgmhgrihhlrdgtohhmpdhrtghpthht
-    oheptghhrghpuhhishgurghrihhogeesghhmrghilhdrtghomhdprhgtphhtthhopehgih
-    hoshgrlheltdesghhmrghilhdrtghomhdprhgtphhtthhopehmrghtthhhihgrshdrsghg
-    ghesghhmrghilhdrtghomhdprhgtphhtthhopehrrgguohhirdgthhhrihhssehgmhgrih
-    hlrdgtohhmpdhrtghpthhtohepshgrmhhurdhtohhljhgrmhhosehgmhgrihhlrdgtohhm
-X-ME-Proxy: <xmx:WHKraYIiEz3BUqbsHFLg2TkRiZjeUMS-P-w0RJaEfPHAydxaRPEEfg>
-    <xmx:WHKradBwT8Dxn5gZ15ITggGhLLZdoTIFjIGOiwfhwqUi3Ux1WPFbIg>
-    <xmx:WHKraWT5GfnIhcS3tpYPn5JmLfsER3ihUkEwLGyF1R1IQ5az0DManw>
-    <xmx:WHKraXfX8RJzyVkv8ti0sKcBj3Gm4ZWP1rnnB3Hc1nweEuD_WQ0nxA>
-    <xmx:WHKracUf5B8CB8vKtI9Zx6PHdAO97cEVMUAcQtEDnEsdpnU5jiXu1O8n>
+    gurhepoffhufffkfggtgfgvfevofesthekredtredtjeenucfhrhhomheplfgrvhhivghr
+    ucfvihgruceofhhlohhsshesjhgvthhmrdhmvgeqnecuggftrfgrthhtvghrnhepgfeggf
+    etueehleduhedvvddtleevffeukedvffehgeduhedvteejveethfekueelnecuffhomhgr
+    ihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
+    epmhgrihhlfhhrohhmpehflhhoshhssehjvghtmhdrmhgvpdhnsggprhgtphhtthhopedv
+    fedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheprghnghgvlhhoghhiohgrtggthh
+    hinhhordguvghlrhgvghhnohestgholhhlrggsohhrrgdrtghomhdprhgtphhtthhopeef
+    udelfeeifedusehgmhgrihhlrdgtohhmpdhrtghpthhtoheplhhoohhnghdrtdigtddtse
+    hgmhgrihhlrdgtohhmpdhrtghpthhtoheprghrihgvlhdrrhhoshgvnhhfvghlugdrjeeh
+    tdesghhmrghilhdrtghomhdprhgtphhtthhopegthhgrphhuihhsuggrrhhiohegsehgmh
+    grihhlrdgtohhmpdhrtghpthhtohepghhiohhsrghlledtsehgmhgrihhlrdgtohhmpdhr
+    tghpthhtohepmhgrthhthhhirghsrdgsghhgsehgmhgrihhlrdgtohhmpdhrtghpthhtoh
+    eprhgrughoihdrtghhrhhishesghhmrghilhdrtghomhdprhgtphhtthhopehsrghmuhdr
+    thholhhjrghmohesghhmrghilhdrtghomh
+X-ME-Proxy: <xmx:VHKraRSdVbvMVEVtl00KqaU-dRWtY7305pryyAhTKatxP72VpV3irg>
+    <xmx:VHKraVjqLy1-8fZqoEdmohf05xRbe8zZ3RFMe7Inb6eLh-3WvFJPbg>
+    <xmx:VHKraVuntK_dEp5HpX7EmCpagOp3A9ZJlnHPB-89qJ9bB5Gevqm0vw>
+    <xmx:VHKrafxcc-zeCqTGIwvA-5PlF-nRObsAPDNdJpfdSU-A5GIUdnQ3UA>
+    <xmx:VXKraVlV-k2DrfwcC39kzPN_BN7Cy1Taa_hoj1vyqkGDkToGiyqYIlY->
 Feedback-ID: i9dde48b3:Fastmail
 Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 058661EA006B; Fri,  6 Mar 2026 19:33:28 -0500 (EST)
+	id 48E2E1EA0070; Fri,  6 Mar 2026 19:33:24 -0500 (EST)
 X-Mailer: MessagingEngine.com Webmail Interface
 From: Javier Tia <floss@jetm.me>
-Date: Fri, 06 Mar 2026 18:33:20 -0600
-Subject: [PATCH 01/18] wifi: mt76: mt7925: add MT7927 chip ID helpers
+Subject: [PATCH 00/18] wifi: mt76: mt7925: add MT7927 (Filogic 380) support
+Date: Fri, 06 Mar 2026 18:33:19 -0600
+Message-Id: <20260306-mt7927-wifi-support-v1-0-c77e7445511d@jetm.me>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260306-mt7927-wifi-support-v1-1-c77e7445511d@jetm.me>
-To: linux-wireless@vger.kernel.org, Felix Fietkau <nbd@nbd.name>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>,
- Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Deren Wu <deren.wu@mediatek.com>,
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MTQ5AMBBA4avIrE1S01B1FbEQpswCTesvEXfXW
+ H6L9x6IHIQjNNkDgU+Jsq0JRZ7BMPfrxChjMpCiSmlV4rIbSwYvcYLx8H4LOypy1ui617YiSKU
+ P7OT+r233vh/wCB5pZQAAAA==
+X-Change-ID: 20260305-mt7927-wifi-support-02f9738a3962
+To: linux-wireless@vger.kernel.org, Felix Fietkau <nbd@nbd.name>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, 
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Deren Wu <deren.wu@mediatek.com>, 
  Ming Yen Hsieh <mingyen.hsieh@mediatek.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, Marcin FM <marcin@lgic.pl>,
- Cristian-Florin Radoi <radoi.chris@gmail.com>,
- George Salukvadze <giosal90@gmail.com>, Evgeny Kapusta <3193631@gmail.com>,
- Samu Toljamo <samu.toljamo@gmail.com>,
- Ariel Rosenfeld <ariel.rosenfeld.750@gmail.com>,
- Chapuis Dario <chapuisdario4@gmail.com>,
- =?utf-8?q?Thibaut_Fran=C3=A7ois?= <tibo@humeurlibre.fr>,
- =?utf-8?q?=E5=BC=A0=E6=97=AD=E6=B6=B5?= <Loong.0x00@gmail.com>,
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Marcin FM <marcin@lgic.pl>, 
+ Cristian-Florin Radoi <radoi.chris@gmail.com>, 
+ George Salukvadze <giosal90@gmail.com>, Evgeny Kapusta <3193631@gmail.com>, 
+ Samu Toljamo <samu.toljamo@gmail.com>, 
+ Ariel Rosenfeld <ariel.rosenfeld.750@gmail.com>, 
+ Chapuis Dario <chapuisdario4@gmail.com>, 
+ =?utf-8?q?Thibaut_Fran=C3=A7ois?= <tibo@humeurlibre.fr>, 
+ =?utf-8?q?=E5=BC=A0=E6=97=AD=E6=B6=B5?= <Loong.0x00@gmail.com>, 
  Javier Tia <floss@jetm.me>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1809; i=floss@jetm.me;
- h=from:subject:message-id; bh=1AevVC/l4SWg1OI7JWyQr1m70K/Jf4abzrWW5VnF5BA=;
- b=owEB7QES/pANAwAKAbXuwwuoZ3cfAcsmYgBpq3JPxiLy9/rnyv8/hU2nOrG1NZ1F8LD/n7PFx
- Bh53bFgIQSJAbMEAAEKAB0WIQSbE7ILzw7eI0VKk8m17sMLqGd3HwUCaatyTwAKCRC17sMLqGd3
- H3uvC/43mvQr4QalBZx9Pbd2/1hQVJJQ5Tl5fu0Ffa0NvmJm5IPtXgPaLXGHNFON4NtV47j0A1O
- VwFB5TLFLuHu+au5zpXARB+apbqjm6yxIcfKqFFUAP+cll7hFbFBLcrQebAJG+6C1NagR0wMg9V
- KsT+GAtJ2zqJe8xnzh/EeGMlMZpPmQqtnTgLui1AYrYBEWMlkxhh2ceWDMj+77UWf+MQNU0Zi6Q
- uMCthEI/VFEeFbQ62YUYh9Aywdbc94pg411Z1miGUPChPuLDOs1UFo2UU6SyE68esGjHDiKqpRQ
- L6d0x2YHZSlVSczopkhJ6DmUe8NlibVMDhNgu0anUMkNJYMc3dogNQfg2adAGInt9oSOSxupd40
- yMKE0nVAgh7cw9T3km/jJJdSg43bPkiZAcfqYx+N5pebffAdTgSahjLfaL7z27Y4U7WN3bq9VkD
- 88Vrv+THzz6MwHiZsT6Q/3TwGmkSWzFXkTFfQA+fEKRhhvcRcpKNYe73/xxS0CNpd7wGo=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6110; i=floss@jetm.me;
+ h=from:subject:message-id; bh=50UnPn89MYhFyhdErxVao3WQFDS1/s5aVZ8ZoQ0YUp8=;
+ b=owEB7AET/pANAwAKAbXuwwuoZ3cfAcsmYgBpq3JPDdKOscH2RgtMLSUrvXsSMIuexxd6u/3OP
+ yr5i5auHQ6JAbIEAAEKAB0WIQSbE7ILzw7eI0VKk8m17sMLqGd3HwUCaatyTwAKCRC17sMLqGd3
+ H5HGC/Yqg7petJX15L0HpaeYdq3QsPWJVjeEJPSsGvqA8G0DDICSLejbmXdfrQlD8+i5HtMJ5ul
+ XVJkZYM+lW35KnbWXQ/v6lou73D9NDuws5mJGbVXGJUtHgUzLmHRpY8abX3Losm8StleSj3Umm4
+ jbK8KUDouR18qm2yFGujcCw8FeclaT7JxrgmRuRzzBGEN6gvI++9XogFrufO4q3q3SsoI1kiDFQ
+ LYUaWNAO8Vxb1mJO72fznhYlAx96+2vz31BJUbHuTs4eFV6SsClPe+LO5VqCfntBUsUF6nqOVxZ
+ lcDkTCJjh9HvBzAjm7nXtEqa1265vm3fJcBge5yibcfFqOOuxPLKkTVldZaEnsL9+TaReg7D5Ul
+ SvMHjDsiUi9UKpmMu4tgb7UkShoLNQsYOw6keqFIDmWV2a9VKU5WRkCuhhNZqi7LGTH3vFyiTFQ
+ lYmA2HMkcTzy75zYjdAUvYUEfJdpd1Gq/LFo1W5ne9KTv2MCX7k4reLWtUerI/N0Ym9A==
 X-Developer-Key: i=floss@jetm.me; a=openpgp;
  fpr=9B13B20BCF0EDE23454A93C9B5EEC30BA867771F
-In-Reply-To: <20260306-mt7927-wifi-support-v1-0-c77e7445511d@jetm.me>
-References: <20260306-mt7927-wifi-support-v1-0-c77e7445511d@jetm.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_163330_690992_63DDCB06 
-X-CRM114-Status: UNSURE (   8.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260306_163330_085890_9A9557BD 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,13 +141,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MediaTek MT7927 (Filogic 380) combo chip uses MT7927 WiFi silicon
-that is architecturally compatible with MT7925. Extend is_mt7925() to
-match chip ID 0x7927, and add is_mt7927() for code paths that need
-MT7927-specific handling.
+This series adds support for the MediaTek MT7927 (Filogic 380) combo
+WiFi 7 + BT 5.4 module to the mt7925 driver. The MT7927 uses PCI ID
+14c3:7927 (some hardware reports 14c3:6639) and shares the mt7925
+firmware interface but requires different DMA ring layout, IRQ mapping,
+chip initialization, and power management handling.
 
-Also add 0x7927 to is_mt76_fw_txp() to match MT7925's TXP format.
+Tested hardware:
+- ASUS ROG Crosshair X870E Hero (BT 0489:e13a, WiFi 14c3:6639)
+- ASUS ProArt X870E-Creator WiFi (BT 0489:e13a / 13d3:3588, WiFi 14c3:6639)
+- ASUS ROG Strix X870E-E (BT 0489:e13a, WiFi 14c3:7927)
+- Gigabyte X870E Aorus Master X3D (BT 0489:e10f, WiFi 14c3:7927)
+- Gigabyte Z790 AORUS MASTER X (BT 0489:e10f, WiFi 14c3:7927)
+- Lenovo Legion Pro 7 16ARX9 (BT 0489:e0fa, WiFi 14c3:7927)
+- TP-Link Archer TBE550E PCIe (BT 0489:e116, WiFi 14c3:7927)
+- EDUP EP-MT7927BE M.2 card (WiFi 14c3:7927)
+- Foxconn/Azurewave M.2 modules (WiFi 14c3:6639)
+- AMD RZ738 reference design (WiFi 14c3:0738)
 
+Tested on Arch Linux, CachyOS, EndeavourOS, Fedora (Bazzite), NixOS,
+openSUSE Tumbleweed, and Ubuntu across kernels 6.13-6.19.
+
+What works:
+- WiFi 7 with EHT 320MHz on 2.4/5/6 GHz bands
+- 320MHz data path verified at 841 Mbps (iperf3 -t30 -P8)
+- PCIe initialization with CBTOP remap and MT7927-specific DMA layout
+- Runtime power management and suspend/resume (S3)
+- DBDC (dual-band concurrent) mode
+- Explicit band_idx assignment for stable 5GHz/6GHz operation
+- ASPM disabled for MT7927 to prevent throughput collapse
+
+Known limitations (planned as follow-up series):
+- MLO (Multi-Link Operation): tested working on 5GHz+2.4GHz STR
+  (776 Mbps) but requires additional patches for link lifetime
+  and error handling. Sean Wang's series [1] addresses these;
+  MLO support will be submitted as a follow-up on top of that.
+
+[1] https://lore.kernel.org/linux-wireless/20260306232238.2039675-1-sean.wang@kernel.org/
+- TX retransmissions: elevated retry rate on all bands, firmware-side
+  rate adaptation issue not addressable in the driver.
+
+Patches 1-11 bring up the basic driver (chip ID, firmware, DMA, init,
+power management, 320MHz MCS, mac_reset guard, IRQ map, probe fix).
+Patch 12 advertises EHT 320MHz capabilities, guarded by is_mt7927().
+Patches 13-14 fix DMASHDL PM wake and disable ASPM.
+Patch 15 adds 320MHz bandwidth handling in RXV/TXS status reporting.
+Patch 16 fixes stale pointer comparisons in change_vif_links.
+Patch 17 assigns explicit band_idx for stable 5GHz/6GHz operation.
+Patch 18 adds the missing 320MHz case in bss_rlm_tlv() so firmware
+receives the correct bandwidth when associated to a 320MHz BSS.
+
+The WiFi firmware ships as part of the linux-firmware package
+(mediatek/mt6639/ directory - the firmware uses the mobile SoC codename).
+
+To: linux-wireless@vger.kernel.org
+To: Felix Fietkau <nbd@nbd.name>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Ryder Lee <ryder.lee@mediatek.com>
+To: Shayne Chen <shayne.chen@mediatek.com>
+To: Sean Wang <sean.wang@mediatek.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: Deren Wu <deren.wu@mediatek.com>
+To: Ming Yen Hsieh <mingyen.hsieh@mediatek.com>
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-mediatek@lists.infradead.org
 Tested-by: Marcin FM <marcin@lgic.pl>
 Tested-by: Cristian-Florin Radoi <radoi.chris@gmail.com>
 Tested-by: George Salukvadze <giosal90@gmail.com>
@@ -157,39 +216,48 @@ Tested-by: Ariel Rosenfeld <ariel.rosenfeld.750@gmail.com>
 Tested-by: Chapuis Dario <chapuisdario4@gmail.com>
 Tested-by: Thibaut François <tibo@humeurlibre.fr>
 Tested-by: 张旭涵 <Loong.0x00@gmail.com>
+
 Signed-off-by: Javier Tia <floss@jetm.me>
 ---
- drivers/net/wireless/mediatek/mt76/mt76_connac.h | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+Javier Tia (18):
+      wifi: mt76: mt7925: add MT7927 chip ID helpers
+      wifi: mt76: mt7925: add MT7927 firmware paths and PCI device IDs
+      wifi: mt76: mt7925: add MT7927 CBTOP remap and chip initialization
+      wifi: mt76: mt7925: add MT7927 DMA ring layout, IRQ map, and prefetch
+      wifi: mt76: mt7925: skip CLR_OWN in mt7925e_mcu_init for MT7927
+      wifi: mt76: mt7925: add MT7927 power management, DBDC, and CNM fixes
+      wifi: mt76: mt7925: use irq_map fields instead of MT_INT_RX_DONE_ALL
+      wifi: mt76: mt7925: guard mac_reset against MT7927 DMA destruction
+      wifi: mt76: mt7925: populate EHT 320MHz MCS map in sta_rec
+      wifi: mt76: mt7925: enable MT7927 runtime power management
+      wifi: mt76: mt7925: fix uninitialized is_mt7927_hw in probe
+      wifi: mt76: mt7925: advertise EHT 320MHz capabilities for 6GHz band
+      wifi: mt76: mt7925: restore FW_DWLD_BYPASS_DMASHDL in MT7927 PM wake path
+      wifi: mt76: mt7925: disable ASPM for MT7927 to fix throughput collapse
+      wifi: mt76: mt7925: handle 320MHz bandwidth in RXV and TXS
+      wifi: mt76: mt7925: fix stale pointer comparisons in change_vif_links
+      wifi: mt76: mt7925: fix MT7927 band_idx for stable 5GHz/6GHz operation
+      wifi: mt76: mt7925: add 320MHz bandwidth to bss_rlm_tlv
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt76_connac.h b/drivers/net/wireless/mediatek/mt76/mt76_connac.h
-index 813d61bffc2c..bfd5b05c2b20 100644
---- a/drivers/net/wireless/mediatek/mt76/mt76_connac.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt76_connac.h
-@@ -174,7 +174,12 @@ extern const struct wiphy_wowlan_support mt76_connac_wowlan_support;
- 
- static inline bool is_mt7925(struct mt76_dev *dev)
- {
--	return mt76_chip(dev) == 0x7925;
-+	return mt76_chip(dev) == 0x7925 || mt76_chip(dev) == 0x7927;
-+}
-+
-+static inline bool is_mt7927(struct mt76_dev *dev)
-+{
-+	return mt76_chip(dev) == 0x7927;
- }
- 
- static inline bool is_mt7920(struct mt76_dev *dev)
-@@ -272,6 +277,7 @@ static inline bool is_mt76_fw_txp(struct mt76_dev *dev)
- 	case 0x7920:
- 	case 0x7922:
- 	case 0x7925:
-+	case 0x7927:
- 	case 0x7663:
- 	case 0x7622:
- 		return false;
+ drivers/net/wireless/mediatek/mt76/mt76_connac.h   |   8 +-
+ drivers/net/wireless/mediatek/mt76/mt7925/init.c   |  12 +
+ drivers/net/wireless/mediatek/mt76/mt7925/mac.c    |   9 +
+ drivers/net/wireless/mediatek/mt76/mt7925/main.c   |  72 +++++-
+ drivers/net/wireless/mediatek/mt76/mt7925/mcu.c    |  59 ++++-
+ drivers/net/wireless/mediatek/mt76/mt7925/mt7925.h |  12 +
+ drivers/net/wireless/mediatek/mt76/mt7925/pci.c    | 248 ++++++++++++++++++++-
+ .../net/wireless/mediatek/mt76/mt7925/pci_mac.c    |  13 +-
+ .../net/wireless/mediatek/mt76/mt7925/pci_mcu.c    |  19 +-
+ drivers/net/wireless/mediatek/mt76/mt792x.h        |   6 +
+ drivers/net/wireless/mediatek/mt76/mt792x_dma.c    |  26 ++-
+ drivers/net/wireless/mediatek/mt76/mt792x_regs.h   |  30 +++
+ 12 files changed, 479 insertions(+), 35 deletions(-)
+---
+base-commit: 97492c019da4b62df83255e968b23b81c0315530
+change-id: 20260305-mt7927-wifi-support-02f9738a3962
 
+Best regards,
 -- 
-2.53.0
+Javier Tia <floss@jetm.me>
 
 
