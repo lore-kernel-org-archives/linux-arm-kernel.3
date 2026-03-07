@@ -4,72 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39DCCFC9EF5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 10:55:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA2BBFC9EF9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 10:55:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GfNekjph7q7LXyyIy0Z8aqKol/fBgQeMMk9zE7ThleU=; b=r2BGUADPtE74y4MywmmhkcDRvc
-	9LFKQwuHXMcikSE771YzuNJe6k6p47ppe2HqKz/AgMGQVmcsXauwzkITapgz86urafxYNEgn7CieY
-	LAZt5Cb2HF83RMT2O+Z/TzGB/8teKltlJMU6UopfZp0eUCTD2AHRSEI1JZ/A/9lhZgNv2IU/6WCTh
-	Nfrm9k9nWGYnXCIZXvOLIGJxXbT2psrpu9LE6Y5Npnq+q6NJQcc3bdX/p/wdXQs/2xxM+TtZwJqst
-	xBOKNnVTyn5xsrioJQNt9hOvcLa0f7hO2VvivA9UEN1Sal55AIQyrJQmiMrvDdvr+OlhtHOP6MzUZ
-	dVLYxfrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VPjCzpZwhzvEIRjxFR+lnnsQkRJjsbFMQyF1ixNeFiI=; b=JTqR503V9WYp0m9Ful2vwhSRWk
+	m7X7EyRWMG7S6iVA9whecWXtANei8Ljl/1/+Ovqb7sxxaum0iQa+CTPL9NhS3rSGyNWr//z2zsl2q
+	3XMeg2Hl/68DA5kz6gRxdzEFZeGdHiXLLy10+X76FJE6kbZbLDCEJ9nVqAnbZCl6V50Pxn6g0qae0
+	axZ0nsXryWuKCST4SbJC2j7ku8fgmG/+PBsGqoweZlsiZnt3df3MPCcU1AueB1kjNPhPxgj2NgHmk
+	kTjHPfHB69RErkZ4oAYfUZTqwMxa5+kJeM0iWRGEBCREheqUl9CAXWxf5Xx9AjoJQY81zWnXo/0dv
+	ohnKQBPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vypJU-000000057XV-0vpQ;
-	Sat, 07 Mar 2026 10:55:16 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vypJp-000000057aJ-2JLB;
+	Sat, 07 Mar 2026 10:55:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vypJS-000000057XB-1IAZ
+	id 1vypJm-000000057Zo-1flJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Mar 2026 10:55:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
-	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
-	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=GfNekjph7q7LXyyIy0Z8aqKol/fBgQeMMk9zE7ThleU=; b=WxF3aTDCUrRJBwIbMzjWFYbU0r
-	33/vaxd8Ym3gLdVk6F2Ccz6xDxmHvVfBPBdlgWd/VUKwH+jnd0vaf/+DY5iPoQ5sa+xJEy4MkYBD6
-	/54XR4kbG9E3r1V+4jSWmztu7BdDPKXjoMfGv3rx5Zwj+Tm0i+Hqrmz5/5zr1oeA7nc/q7fjp4iMd
-	6LBAn/f0zvfpJnr60lNxC5ARqKaYvKT4vgExZR5b/khhSIR266U2pAxP+q55YLS2EjHxwc6G5zxO8
-	sOgh947rwpB95S9nICy0Vr2pkv2RWEAYw5VzSGpLsnmwdXa/YG5Frm4YcoHN1xr8BLN3MFbch4c48
-	+U725hGQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:40590 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vypJN-0000000025f-2pMA;
-	Sat, 07 Mar 2026 10:55:09 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vypJM-0000000CSiJ-48yO;
-	Sat, 07 Mar 2026 10:55:09 +0000
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next] net: stmmac: remove stmmac_dwmac4_get_mac_addr()
+	Sat, 07 Mar 2026 10:55:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A88014095C;
+	Sat,  7 Mar 2026 10:55:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFC4DC19422;
+	Sat,  7 Mar 2026 10:55:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772880933;
+	bh=0owm4mKObWbnUeGHMN4y2SQdPXnXIhv9skTRR518J/8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gBwF1jyaAvo+N9jckDoGQIt0wrQcCufpP7DMH9TRanNgHbvOTlB96BFmvXNJL2fQz
+	 eTm/ZClYSUzv5tAxOhY1lKB+Wqxr8/XAPSofHt7JHe3VMZs2UTSzqmD+aaLvp9b4TU
+	 JwmwqQrBFm1rTXolEfdIeDvaenB8Lo0XGpK8/2doz9If0QCrrityNU9A2wSdM9wbUc
+	 SvWF92XmE5YttrtY/S+gGPj5ksxJ+QsPG4Fhp+OHBftrI0nmV0AUHUDnsH8w8lIaZJ
+	 WbWdogZaLuawLZ/n7metr92eUMxo4zfwA6lB/LXyaCyCFO1pkzsPHHTuen2Zu0SPe3
+	 vUVl6OT8W6B7Q==
+Date: Sat, 7 Mar 2026 11:55:30 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Billy Tsai <billy_tsai@aspeedtech.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+	Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
+	Ryan Chen <ryan_chen@aspeedtech.com>, Andrew Jeffery <andrew@aj.id.au>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+	openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH v4 2/3] dt-bindings: pinctrl: Add
+ aspeed,ast2700-soc0-pinctrl
+Message-ID: <20260307-weightless-quirky-spoonbill-dacd89@quoll>
+References: <20260306-upstream_pinctrl-v4-0-ad4e8ab8b489@aspeedtech.com>
+ <20260306-upstream_pinctrl-v4-2-ad4e8ab8b489@aspeedtech.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vypJM-0000000CSiJ-48yO@rmk-PC.armlinux.org.uk>
-Date: Sat, 07 Mar 2026 10:55:08 +0000
+In-Reply-To: <20260306-upstream_pinctrl-v4-2-ad4e8ab8b489@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260307_025514_372943_C70D4E4B 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20260307_025534_461037_29FAF54A 
+X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,57 +79,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stmmac_dwmac4_get_mac_addr() is identical to stmmac_get_mac_addr().
-Remove stmmac_dwmac4_get_mac_addr() to avoid this code duplication.
+On Fri, Mar 06, 2026 at 08:40:26PM +0800, Billy Tsai wrote:
+> +          - USB2BDBP
+> +          - USB2BH
+> +          - USB2BHBP
+> +          - USB3A
+> +          - USB3AAP
+> +          - USB3ABP
+> +          - USB3B
+> +          - USB3BAP
+> +          - USB3BBP
+> +          - VB0
+> +          - VB1
+> +          - VGADDC
+> +
+> +required:
+> +  - compatible
+> +
+> +allOf:
+> +  - $ref: pinctrl.yaml#
+> +
+> +additionalProperties: false
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../net/ethernet/stmicro/stmmac/dwmac4_core.c  |  4 ++--
- .../net/ethernet/stmicro/stmmac/dwmac4_lib.c   | 18 ------------------
- 2 files changed, 2 insertions(+), 20 deletions(-)
+I guess the mess with examples is partially my fault of imprecise
+feedback. Rob asked you to add the example to main MFD device, but:
+1. maybe he assumed there will be separate binding for parent device?
+2. you added it in wrong patch (pinctrl patch changing MFD!),
+3. it was also incomplete that time.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
-index 602771e19d0f..e6bcb77b22a2 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
-@@ -373,8 +373,8 @@ static void dwmac4_get_umac_addr(struct mac_device_info *hw,
- {
- 	void __iomem *ioaddr = hw->pcsr;
- 
--	stmmac_dwmac4_get_mac_addr(ioaddr, addr, GMAC_ADDR_HIGH(reg_n),
--				   GMAC_ADDR_LOW(reg_n));
-+	stmmac_get_mac_addr(ioaddr, addr, GMAC_ADDR_HIGH(reg_n),
-+			    GMAC_ADDR_LOW(reg_n));
- }
- 
- static int dwmac4_set_lpi_mode(struct mac_device_info *hw,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
-index 8c87a20880c4..a0249715fafa 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
-@@ -226,21 +226,3 @@ void stmmac_dwmac4_set_mac(void __iomem *ioaddr, bool enable)
- 	if (value != old_val)
- 		writel(value, ioaddr + GMAC_CONFIG);
- }
--
--void stmmac_dwmac4_get_mac_addr(void __iomem *ioaddr, unsigned char *addr,
--				unsigned int high, unsigned int low)
--{
--	unsigned int hi_addr, lo_addr;
--
--	/* Read the MAC address from the hardware */
--	hi_addr = readl(ioaddr + high);
--	lo_addr = readl(ioaddr + low);
--
--	/* Extract the MAC address from the high and low words */
--	addr[0] = lo_addr & 0xff;
--	addr[1] = (lo_addr >> 8) & 0xff;
--	addr[2] = (lo_addr >> 16) & 0xff;
--	addr[3] = (lo_addr >> 24) & 0xff;
--	addr[4] = hi_addr & 0xff;
--	addr[5] = (hi_addr >> 8) & 0xff;
--}
--- 
-2.47.3
+The example - if you tested your v3 - was needed to actually validate
+and point errors. My bad I asked to drop it.
+
+So now you have a mess - incorrect, non-validated (example-less) and
+maybe even incomplete binding.
+
+Please post complete ast2700 SCU binding - what children do you have? If
+none of ones mentioned in the binding apply, then why the binding
+mentions them? why do you allow p2a if 2700 does not have it? And
+smp-ram?
+
+And if 2700 has silicon-id, interrupt controller, pinctrl etc, then why
+none of them were present in the example you added?
+
+But more importantly, none of this was actually built tested/checked
+against DTS thus I cannot accept it. We are back to basics... post your
+COMPLETE DTS somewhere and provide link to it.
+
+Best regards,
+Krzysztof
 
 
