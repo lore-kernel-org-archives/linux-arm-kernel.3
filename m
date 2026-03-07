@@ -4,60 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 392D8FC9EC0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 02:23:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2018FC9EC3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 03:10:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f6brpWh0agx2nPIas22wWd/mLtb7xMp58wMN9DhKRy4=; b=Iqw87ufh0swgZ7ErTcuuPTAAPg
-	IsbWjPBnx4vFcRF1I2bF+c+NTCLPF29brsWQlL9ZFHvuhLPQrouYg7qhf41ZNoOaXcRfuzEdndIGc
-	UKVp7QFmMIecqw9mLqJyXWJ4pELNIsl4VPS51tYLxConACpTTSWdNChjlXu77y/t7H8COul+OaeSK
-	wxRMuhru6UUQrEyg2rBJC8ybkDV5cf7hlUNUFNpR8TZT3hFW9XMjXPtSY531kcwGcINjW3/JGT+Jb
-	94AsajJA8JIbubD5eNO5lQ7uokICDmAbM/XK/eDonFvCNMqR662v4GTZqwX7NJ+mLTCEjzVTJTWbO
-	8478NRFw==;
+	bh=Q1ODKkXflwhWuLNZEq4BEntBhvkwLtv+Z1Q6fx2lDE4=; b=4TsD3NPZvPPCrqiRY9IvpLIc8x
+	MfpNr3dwVPUSxNRcme+AOlkvbEy1EdyoKisiYRFx7eF/asWlll8TPNSpq2vgL2NJkbQ/GBSgV0+aQ
+	i822JwRjBMAHzhOm1kLm62MjCtnJZG54LzUmzk48A3aTMNugNyYadjMiPKQQwW/AVO85q9Mg3S5te
+	A93L/5Ys9tsOUkLjyV5rLEsnox8kjr41us+2ycHkEwF1gguwnI7leQm8NuPSwFyVEXhCt+fy7bu2o
+	1TwpV9vVE+7DdMRdhZueFn46oJCEsndNEYd6v0dUlnpYd3k+ElUqoMUf03Pu262JlXsbdqRTe+3bo
+	EHmnSx3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyhJk-00000004oFI-0iz1;
-	Sat, 07 Mar 2026 02:23:00 +0000
-Received: from out30-130.freemail.mail.aliyun.com ([115.124.30.130])
+	id 1vyi3p-00000004ply-34R9;
+	Sat, 07 Mar 2026 03:10:39 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyhJh-00000004oEn-27kV
+	id 1vyi3k-00000004pkT-3TPb
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Mar 2026 02:22:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1772850174; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=f6brpWh0agx2nPIas22wWd/mLtb7xMp58wMN9DhKRy4=;
-	b=Z91tLAMvJSbBoyfw3l1/nNxzPEAlxdr8NVr6yXhg+RmuKK9BNpF0AXWVsoPmlr41GFECph4ReecMBtkoPsRhzBWrvmdJeDmku80N2U/Eppo37OvLlSQCoIKlNm+HdYS02WHUcIV3fbe2C/gF4kQfCI5/vTMH8cA6vuOvaEPY1kI=
-Received: from 30.42.98.36(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0X-OZDWt_1772850172 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Sat, 07 Mar 2026 10:22:52 +0800
-Message-ID: <a4d7cf56-eab4-431d-886b-a32456e44736@linux.alibaba.com>
-Date: Sat, 7 Mar 2026 10:22:51 +0800
+	Sat, 07 Mar 2026 03:10:35 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.198])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4fSStc0TzszYQtk3
+	for <linux-arm-kernel@lists.infradead.org>; Sat,  7 Mar 2026 11:09:44 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id 1059A40576
+	for <linux-arm-kernel@lists.infradead.org>; Sat,  7 Mar 2026 11:10:24 +0800 (CST)
+Received: from [10.67.111.192] (unknown [10.67.111.192])
+	by APP1 (Coremail) with SMTP id cCh0CgAH42wel6tpvdAAAA--.1963S2;
+	Sat, 07 Mar 2026 11:10:23 +0800 (CST)
+Message-ID: <fec87624-2d73-45e1-8c45-6f98e2fcbf95@huaweicloud.com>
+Date: Sat, 7 Mar 2026 11:10:22 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 1/5] mm: rmap: support batched checks of the references
- for large folios
-To: Barry Song <21cnbao@gmail.com>
-Cc: akpm@linux-foundation.org, david@kernel.org, catalin.marinas@arm.com,
- will@kernel.org, lorenzo.stoakes@oracle.com, ryan.roberts@arm.com,
- Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org, surenb@google.com,
- mhocko@suse.com, riel@surriel.com, harry.yoo@oracle.com, jannh@google.com,
- willy@infradead.org, dev.jain@arm.com, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1770645603.git.baolin.wang@linux.alibaba.com>
- <12132694536834262062d1fb304f8f8a064b6750.1770645603.git.baolin.wang@linux.alibaba.com>
- <CAGsJ_4yEWn3kVZPQZatOJX7NLLv-OK9pAqUDuWz25XxG5hpV=w@mail.gmail.com>
-From: Baolin Wang <baolin.wang@linux.alibaba.com>
-In-Reply-To: <CAGsJ_4yEWn3kVZPQZatOJX7NLLv-OK9pAqUDuWz25XxG5hpV=w@mail.gmail.com>
+Subject: Re: [bpf-next v6 1/5] bpf: Move constants blinding from JIT to
+ verifier
+Content-Language: en-US
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: bpf <bpf@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
+ <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>,
+ Yonghong Song <yonghong.song@linux.dev>, Puranjay Mohan
+ <puranjay@kernel.org>, Anton Protopopov <a.s.protopopov@gmail.com>,
+ Shahab Vahedi <list+bpf@vahedi.org>, Russell King <linux@armlinux.org.uk>,
+ Tiezhu Yang <yangtiezhu@loongson.cn>, Hengqi Chen <hengqi.chen@gmail.com>,
+ Johan Almbladh <johan.almbladh@anyfinetworks.com>,
+ Paul Burton <paulburton@kernel.org>, Hari Bathini <hbathini@linux.ibm.com>,
+ Christophe Leroy <chleroy@kernel.org>, Naveen N Rao <naveen@kernel.org>,
+ Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+ Pu Lehui <pulehui@huawei.com>, Ilya Leoshkevich <iii@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ "David S . Miller" <davem@davemloft.net>, Wang YanQing <udknight@gmail.com>
+References: <20260306102329.2056216-1-xukuohai@huaweicloud.com>
+ <20260306102329.2056216-2-xukuohai@huaweicloud.com>
+ <CAADnVQLv1+8SePM9K0A0gS+zqjePafSmwtNAo=Sh7cEEy99Xkw@mail.gmail.com>
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+In-Reply-To: <CAADnVQLv1+8SePM9K0A0gS+zqjePafSmwtNAo=Sh7cEEy99Xkw@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: cCh0CgAH42wel6tpvdAAAA--.1963S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7tFWfWFyrWw47XFWfWr1kAFb_yoW8ur15pF
+	9xCw13Cr4vgFn7ur1aqF48Jryaqr48Xr47ZF1akryrJFnIvry7Xrs8Kw1rZFZ8ArWxtw1F
+	vrWYkrn8Ca4kZ37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUv2b4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26F4j6r4UJwA2z4x0Y4vEx4A2jsIEc7
+	CjxVAFwI0_Gr1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAq
+	x4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6x
+	CaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0E
+	n4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I
+	0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8
+	ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcV
+	CY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAF
+	wI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa
+	7IU04xRDUUUUU==
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_182257_906479_31973354 
-X-CRM114-Status: GOOD (  20.79  )
+X-CRM114-CacheID: sfid-20260306_191033_237527_74A5C8EE 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,131 +103,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 3/7/26 5:07 AM, Barry Song wrote:
-> On Mon, Feb 9, 2026 at 10:07 PM Baolin Wang
-> <baolin.wang@linux.alibaba.com> wrote:
+On 3/7/2026 2:30 AM, Alexei Starovoitov wrote:
+> On Fri, Mar 6, 2026 at 1:56 AM Xu Kuohai <xukuohai@huaweicloud.com> wrote:
 >>
->> Currently, folio_referenced_one() always checks the young flag for each PTE
->> sequentially, which is inefficient for large folios. This inefficiency is
->> especially noticeable when reclaiming clean file-backed large folios, where
->> folio_referenced() is observed as a significant performance hotspot.
+>> From: Xu Kuohai <xukuohai@huawei.com>
 >>
->> Moreover, on Arm64 architecture, which supports contiguous PTEs, there is already
->> an optimization to clear the young flags for PTEs within a contiguous range.
->> However, this is not sufficient. We can extend this to perform batched operations
->> for the entire large folio (which might exceed the contiguous range: CONT_PTE_SIZE).
+>> During the JIT stage, constants blinding rewrites instructions but only
+>> rewrites the private instruction copy of the JITed subprog, leaving the
+>> global instructions and insn_aux_data unchanged. This causes a mismatch
+>> between subprog instructions and the global state, making it difficult
+>> to look up the global insn_aux_data in the JIT.
 >>
->> Introduce a new API: clear_flush_young_ptes() to facilitate batched checking
->> of the young flags and flushing TLB entries, thereby improving performance
->> during large folio reclamation. And it will be overridden by the architecture
->> that implements a more efficient batch operation in the following patches.
+>> To avoid this mismatch, and given that all arch-specific JITs already
+>> support constants blinding, move it to the generic verifier code, and
+>> switch to rewrite the global env->insnsi with the global states
+>> adjusted, as other rewrites in the verifier do.
 >>
->> While we are at it, rename ptep_clear_flush_young_notify() to
->> clear_flush_young_ptes_notify() to indicate that this is a batch operation.
+>> This removes the constant blinding calls in each JIT, which are largely
+>> duplicated code across architectures.
 >>
->> Reviewed-by: Harry Yoo <harry.yoo@oracle.com>
->> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
->> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
-> 
-> LGTM,
-> 
-> Reviewed-by: Barry Song <baohua@kernel.org>
-
-Thanks.
-
+>> And the prog clone functions and insn_array adjustment for the JIT
+>> constant blinding are no longer needed, remove them too.
+>>
+>> Signed-off-by: Xu Kuohai <xukuohai@huawei.com>
 >> ---
->>   include/linux/mmu_notifier.h |  9 +++++----
->>   include/linux/pgtable.h      | 35 +++++++++++++++++++++++++++++++++++
->>   mm/rmap.c                    | 28 +++++++++++++++++++++++++---
->>   3 files changed, 65 insertions(+), 7 deletions(-)
->>
->> diff --git a/include/linux/mmu_notifier.h b/include/linux/mmu_notifier.h
->> index d1094c2d5fb6..07a2bbaf86e9 100644
->> --- a/include/linux/mmu_notifier.h
->> +++ b/include/linux/mmu_notifier.h
->> @@ -515,16 +515,17 @@ static inline void mmu_notifier_range_init_owner(
->>          range->owner = owner;
->>   }
->>
->> -#define ptep_clear_flush_young_notify(__vma, __address, __ptep)                \
->> +#define clear_flush_young_ptes_notify(__vma, __address, __ptep, __nr)  \
->>   ({                                                                     \
->>          int __young;                                                    \
->>          struct vm_area_struct *___vma = __vma;                          \
->>          unsigned long ___address = __address;                           \
->> -       __young = ptep_clear_flush_young(___vma, ___address, __ptep);   \
->> +       unsigned int ___nr = __nr;                                      \
->> +       __young = clear_flush_young_ptes(___vma, ___address, __ptep, ___nr);    \
->>          __young |= mmu_notifier_clear_flush_young(___vma->vm_mm,        \
->>                                                    ___address,           \
->>                                                    ___address +          \
->> -                                                       PAGE_SIZE);     \
->> +                                                 ___nr * PAGE_SIZE);   \
->>          __young;                                                        \
->>   })
->>
->> @@ -650,7 +651,7 @@ static inline void mmu_notifier_subscriptions_destroy(struct mm_struct *mm)
->>
->>   #define mmu_notifier_range_update_to_read_only(r) false
->>
->> -#define ptep_clear_flush_young_notify ptep_clear_flush_young
->> +#define clear_flush_young_ptes_notify clear_flush_young_ptes
->>   #define pmdp_clear_flush_young_notify pmdp_clear_flush_young
->>   #define ptep_clear_young_notify ptep_test_and_clear_young
->>   #define pmdp_clear_young_notify pmdp_test_and_clear_young
->> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
->> index 21b67d937555..a50df42a893f 100644
->> --- a/include/linux/pgtable.h
->> +++ b/include/linux/pgtable.h
->> @@ -1068,6 +1068,41 @@ static inline void wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
->>   }
->>   #endif
->>
->> +#ifndef clear_flush_young_ptes
->> +/**
->> + * clear_flush_young_ptes - Mark PTEs that map consecutive pages of the same
->> + *                         folio as old and flush the TLB.
->> + * @vma: The virtual memory area the pages are mapped into.
->> + * @addr: Address the first page is mapped at.
->> + * @ptep: Page table pointer for the first entry.
->> + * @nr: Number of entries to clear access bit.
->> + *
->> + * May be overridden by the architecture; otherwise, implemented as a simple
->> + * loop over ptep_clear_flush_young().
->> + *
->> + * Note that PTE bits in the PTE range besides the PFN can differ. For example,
->> + * some PTEs might be write-protected.
->> + *
->> + * Context: The caller holds the page table lock.  The PTEs map consecutive
->> + * pages that belong to the same folio.  The PTEs are all in the same PMD.
->> + */
->> +static inline int clear_flush_young_ptes(struct vm_area_struct *vma,
->> +               unsigned long addr, pte_t *ptep, unsigned int nr)
->> +{
->> +       int young = 0;
->> +
->> +       for (;;) {
->> +               young |= ptep_clear_flush_young(vma, addr, ptep);
->> +               if (--nr == 0)
->> +                       break;
->> +               ptep++;
->> +               addr += PAGE_SIZE;
->> +       }
->> +
->> +       return young;
->> +}
->> +#endif
+>>   arch/arc/net/bpf_jit_core.c      |  20 +--
+>>   arch/arm/net/bpf_jit_32.c        |  41 +----
+>>   arch/arm64/net/bpf_jit_comp.c    |  59 ++-----
+>>   arch/loongarch/net/bpf_jit.c     |  50 ++----
+>>   arch/mips/net/bpf_jit_comp.c     |  20 +--
+>>   arch/parisc/net/bpf_jit_core.c   |  38 +----
+>>   arch/powerpc/net/bpf_jit_comp.c  |  45 ++----
+>>   arch/riscv/net/bpf_jit_core.c    |  45 ++----
+>>   arch/s390/net/bpf_jit_comp.c     |  41 +----
+>>   arch/sparc/net/bpf_jit_comp_64.c |  41 +----
+>>   arch/x86/net/bpf_jit_comp.c      |  40 +----
+>>   arch/x86/net/bpf_jit_comp32.c    |  33 +---
+>>   include/linux/filter.h           |   3 -
+>>   kernel/bpf/core.c                | 263 -------------------------------
+>>   kernel/bpf/verifier.c            | 215 +++++++++++++++++++++++--
+>>   15 files changed, 288 insertions(+), 666 deletions(-)
 > 
-> We might have an opportunity to batch the TLB synchronization,
-> using flush_tlb_range() instead of calling flush_tlb_page()
-> one by one. Not sure the benefit would be significant though,
-> especially if only one entry among nr has the young bit set.
+> JIT changes are fine, but pls don't move main
+> bpf_jit_blind* logic from core.c.
+> It makes the diff unnecessary big.
+>
 
-Yes. In addition, this will involve many architectures’ implementations 
-and their differing TLB flush mechanisms, so it’s difficult to make a 
-reasonable per-architecture measurement. If any architecture has a more 
-efficient flush method, I’d prefer to implement an architecture‑specific 
-clear_flush_young_ptes().
+ok, will leave it there
+
+> pw-bot: cr
+
 
