@@ -4,53 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B030FC9EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 10:53:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39DCCFC9EF5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 10:55:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eZByVWOPK5ttZJFgRSm0Ifxd/gEF6TSQDdAxyvu8aiQ=; b=FUDuwXddvAYJ7oyeEWSf1Lgp/3
-	mUnau/jLOGfSwixH0HwmEXWv2yZj1o1p3M737C19QH7nU94sU3etGjHdGUVVmNaveIfRy9au1WFJW
-	PHe6wnfzqR8s5+8QeM2ctDaEbnvmtU5ytHbzf9wuKrji+KHTDD1DZ+W4SbAE8cBj3HVGsQUVW5qsd
-	aWs3Pwy0cWlH9hBnmGCqgdFGm9Vws4VzDHCs6DKqJUdhzhEgxCUSAe0wMY5ZUfVDIaLBMnW9TiZuW
-	yWhZH+xAeBqSTKJhcIRNqxdmDUijd7ipyJ0fNThxh8tshDT9WMnlIu340LgOgYfCIG5ipeZiQEhw4
-	+7elU84A==;
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GfNekjph7q7LXyyIy0Z8aqKol/fBgQeMMk9zE7ThleU=; b=r2BGUADPtE74y4MywmmhkcDRvc
+	9LFKQwuHXMcikSE771YzuNJe6k6p47ppe2HqKz/AgMGQVmcsXauwzkITapgz86urafxYNEgn7CieY
+	LAZt5Cb2HF83RMT2O+Z/TzGB/8teKltlJMU6UopfZp0eUCTD2AHRSEI1JZ/A/9lhZgNv2IU/6WCTh
+	Nfrm9k9nWGYnXCIZXvOLIGJxXbT2psrpu9LE6Y5Npnq+q6NJQcc3bdX/p/wdXQs/2xxM+TtZwJqst
+	xBOKNnVTyn5xsrioJQNt9hOvcLa0f7hO2VvivA9UEN1Sal55AIQyrJQmiMrvDdvr+OlhtHOP6MzUZ
+	dVLYxfrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vypHl-000000057HQ-1Egj;
-	Sat, 07 Mar 2026 10:53:29 +0000
+	id 1vypJU-000000057XV-0vpQ;
+	Sat, 07 Mar 2026 10:55:16 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vypHj-000000057GR-1MXX
+	id 1vypJS-000000057XB-1IAZ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Mar 2026 10:53:28 +0000
+	Sat, 07 Mar 2026 10:55:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
+	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
+	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=eZByVWOPK5ttZJFgRSm0Ifxd/gEF6TSQDdAxyvu8aiQ=; b=PAJGbZzB0YYtWulTCT7vwtolYD
-	qGVLnWWhzgd+uf5R92VO5h/SSIC1q1wYcIw7Yy7zbYlwJZEZrXdNN3sulnyUJA78NqrOSKKT+wJxt
-	S/6dA0MEqaLnDp0BcpmOpFcIfaZRr35dK51eZ1WZ8UnTt2Wy0PDhBrsxa8ojuEviAOF8B8IpydRGM
-	nXww/9+GiZVg/aJKw5sCQeuUvIfHFJ6yv9+H57Jeax/9nNXEzTck6FppJ3+AfKW/4mb6pd6wUZ5qH
-	7x0xzFEKFFDiDZFeph0SVzpZe1RzLGZqnjHcmrdwb5ztPpMZ5XcAJOuaiPw5cEgPeWe/aefvdDJqP
-	HNBDKC9Q==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:34482 helo=rmk-PC.armlinux.org.uk)
+	bh=GfNekjph7q7LXyyIy0Z8aqKol/fBgQeMMk9zE7ThleU=; b=WxF3aTDCUrRJBwIbMzjWFYbU0r
+	33/vaxd8Ym3gLdVk6F2Ccz6xDxmHvVfBPBdlgWd/VUKwH+jnd0vaf/+DY5iPoQ5sa+xJEy4MkYBD6
+	/54XR4kbG9E3r1V+4jSWmztu7BdDPKXjoMfGv3rx5Zwj+Tm0i+Hqrmz5/5zr1oeA7nc/q7fjp4iMd
+	6LBAn/f0zvfpJnr60lNxC5ARqKaYvKT4vgExZR5b/khhSIR266U2pAxP+q55YLS2EjHxwc6G5zxO8
+	sOgh947rwpB95S9nICy0Vr2pkv2RWEAYw5VzSGpLsnmwdXa/YG5Frm4YcoHN1xr8BLN3MFbch4c48
+	+U725hGQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:40590 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vypHd-00000000258-0hEc;
-	Sat, 07 Mar 2026 10:53:21 +0000
+	id 1vypJN-0000000025f-2pMA;
+	Sat, 07 Mar 2026 10:55:09 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vypHc-0000000CSbl-1X6v;
-	Sat, 07 Mar 2026 10:53:20 +0000
-In-Reply-To: <aawDiK7DjcSXSs1X@shell.armlinux.org.uk>
-References: <aawDiK7DjcSXSs1X@shell.armlinux.org.uk>
+	id 1vypJM-0000000CSiJ-48yO;
+	Sat, 07 Mar 2026 10:55:09 +0000
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 To: Andrew Lunn <andrew@lunn.ch>
 Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
@@ -62,17 +60,16 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 2/2] net: stmmac: ptp: remove redundant
- priv->pps[].available
+Subject: [PATCH net-next] net: stmmac: remove stmmac_dwmac4_get_mac_addr()
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vypHc-0000000CSbl-1X6v@rmk-PC.armlinux.org.uk>
-Date: Sat, 07 Mar 2026 10:53:20 +0000
+Message-Id: <E1vypJM-0000000CSiJ-48yO@rmk-PC.armlinux.org.uk>
+Date: Sat, 07 Mar 2026 10:55:08 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260307_025327_366721_F3F6CB80 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20260307_025514_372943_C70D4E4B 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,82 +84,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-priv->pps[].available is set in stmmac_ptp_register() for all PPS
-outputs reported by hardware up to STMMAC_PPS_MAX.
-
-Since we now set priv->ptp_clock_ops.n_per_out to the number of PPS
-outputs that both the hardware and driver can support to prevent
-array overflow in stmmac_enable(), this makes priv->pps[].available
-redundant. Remove this struct member.
+stmmac_dwmac4_get_mac_addr() is identical to stmmac_get_mac_addr().
+Remove stmmac_dwmac4_get_mac_addr() to avoid this code duplication.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac5.c        | 2 --
- drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c | 2 --
- drivers/net/ethernet/stmicro/stmmac/stmmac.h        | 1 -
- drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c    | 4 ----
- 4 files changed, 9 deletions(-)
+ .../net/ethernet/stmicro/stmmac/dwmac4_core.c  |  4 ++--
+ .../net/ethernet/stmicro/stmmac/dwmac4_lib.c   | 18 ------------------
+ 2 files changed, 2 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac5.c b/drivers/net/ethernet/stmicro/stmmac/dwmac5.c
-index 1c431b918719..f1bb981cab7c 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac5.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac5.c
-@@ -525,8 +525,6 @@ int dwmac5_flex_pps_config(void __iomem *ioaddr, int index,
- 	u32 val = readl(ioaddr + MAC_PPS_CONTROL);
- 	u64 period;
- 
--	if (!cfg->available)
--		return -EINVAL;
- 	if (tnsec & TRGTBUSY0)
- 		return -EBUSY;
- 	if (!sub_second_inc || !systime_flags)
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-index 915e7c2ab11f..efa76b147f9e 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-@@ -1162,8 +1162,6 @@ static int dwxgmac2_flex_pps_config(void __iomem *ioaddr, int index,
- 	u32 val = readl(ioaddr + XGMAC_PPS_CONTROL);
- 	u64 period;
- 
--	if (!cfg->available)
--		return -EINVAL;
- 	if (tnsec & XGMAC_TRGTBUSY0)
- 		return -EBUSY;
- 	if (!sub_second_inc || !systime_flags)
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index 1fe96cd24b4f..335e60439b42 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -181,7 +181,6 @@ struct stmmac_tc_entry {
- 
- #define STMMAC_PPS_MAX		4
- struct stmmac_pps_cfg {
--	bool available;
- 	struct timespec64 start;
- 	struct timespec64 period;
- };
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-index 654d04f8c373..960249960004 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-@@ -336,7 +336,6 @@ void stmmac_ptp_register(struct stmmac_priv *priv)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
+index 602771e19d0f..e6bcb77b22a2 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
+@@ -373,8 +373,8 @@ static void dwmac4_get_umac_addr(struct mac_device_info *hw,
  {
- 	unsigned int pps_out_num = priv->dma_cap.pps_out_num;
- 	unsigned int n_ext_ts;
--	int i;
+ 	void __iomem *ioaddr = hw->pcsr;
  
- 	if (pps_out_num > STMMAC_PPS_MAX) {
- 		dev_warn(priv->device,
-@@ -345,9 +344,6 @@ void stmmac_ptp_register(struct stmmac_priv *priv)
- 		pps_out_num = STMMAC_PPS_MAX;
- 	}
+-	stmmac_dwmac4_get_mac_addr(ioaddr, addr, GMAC_ADDR_HIGH(reg_n),
+-				   GMAC_ADDR_LOW(reg_n));
++	stmmac_get_mac_addr(ioaddr, addr, GMAC_ADDR_HIGH(reg_n),
++			    GMAC_ADDR_LOW(reg_n));
+ }
  
--	for (i = 0; i < pps_out_num; i++)
--		priv->pps[i].available = true;
+ static int dwmac4_set_lpi_mode(struct mac_device_info *hw,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
+index 8c87a20880c4..a0249715fafa 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
+@@ -226,21 +226,3 @@ void stmmac_dwmac4_set_mac(void __iomem *ioaddr, bool enable)
+ 	if (value != old_val)
+ 		writel(value, ioaddr + GMAC_CONFIG);
+ }
 -
- 	/* Calculate the clock domain crossing (CDC) error if necessary */
- 	priv->plat->cdc_error_adj = 0;
- 	if (priv->plat->core_type == DWMAC_CORE_GMAC4)
+-void stmmac_dwmac4_get_mac_addr(void __iomem *ioaddr, unsigned char *addr,
+-				unsigned int high, unsigned int low)
+-{
+-	unsigned int hi_addr, lo_addr;
+-
+-	/* Read the MAC address from the hardware */
+-	hi_addr = readl(ioaddr + high);
+-	lo_addr = readl(ioaddr + low);
+-
+-	/* Extract the MAC address from the high and low words */
+-	addr[0] = lo_addr & 0xff;
+-	addr[1] = (lo_addr >> 8) & 0xff;
+-	addr[2] = (lo_addr >> 16) & 0xff;
+-	addr[3] = (lo_addr >> 24) & 0xff;
+-	addr[4] = hi_addr & 0xff;
+-	addr[5] = (hi_addr >> 8) & 0xff;
+-}
 -- 
 2.47.3
 
