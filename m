@@ -4,63 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49E2DFC9EF5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 10:46:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C5B8FC9EF5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 10:53:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SXuyckBYLtwIY7dFkWyl9sWSGd1W5P+XTpcE5D1/nWs=; b=J1j0KSJKwYALDkvteuE/trOjfx
-	AlL4Xj5+yZQVviSbSSmUZ3dFu1V7wrjG7ebgb5gN6vhw2nDcjAKJ0o/6YYRRXbt/sYlQ1x/kXpc4e
-	c5r+t41B5++uV7QRN4Kpf9dbfLQpIUGQD1to365bYioupX+XorGqSD9auzfNZ/0pBLXx8wTHy3bna
-	7Zz7dgYDtAGVU9xTSdP9sZIdvXRRXQyrYOyoNGRO9rs3L+zbojnuqv9FnXeVNGPx7MroIvnmYqCGu
-	DlQF19XUpqXIn8RSiLCMz8/5P3105nFdt+LN/WOGmHEEobIVfBbYNAujXz/cCDXF5vABttZ0vvU6e
-	9kGSWXPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yeRFLAMIYNkcai4uXKjM2O8dKLKiiCy/NlMEOTbW5Ww=; b=Fv6zAgf4URoppzQprjElS1L0PP
+	3j8TWIK0fVlCH8Klk1xqHoeNSUM8G0TaJKy8IgzCy/tMNgEYbjxc/qw/GUyPnCm6VySO9YhXZOc2v
+	Lkgp2rMdR2NicSjHlRn4WSCsOw4l63vBUSpPkRogz7Q+pw+ZIV/qDcxnlCviK4/IHM3qWREkvjNRd
+	GwkRQ1+F3q1E/jONr9KNFiYVvCHm1SZzohaaIEdyXhnMFHSoz51bGCQOoFM53H79LlU1HC8W1kFcK
+	k1IscTZmgSaA9E7tvMY8g1cZM8c2YUnvmmV47OJq5KHuB04lv6+f59g7+F8lOduwR4DFSK/dGzblp
+	xxZVT3jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vypAV-000000056xb-3ipB;
-	Sat, 07 Mar 2026 10:45:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vypHV-000000057EZ-30Zr;
+	Sat, 07 Mar 2026 10:53:13 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vypAU-000000056xT-0St2
+	id 1vypHS-000000057EE-2JfH
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Mar 2026 10:45:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2497A60018;
-	Sat,  7 Mar 2026 10:45:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4530EC19422;
-	Sat,  7 Mar 2026 10:45:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772880356;
-	bh=DdRhW/Ebu6ObLgaVXVQOgiAe0HAEyztDCaZQo72MRmk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=u6nmCR95KNIU0YfUVfVzt1d+1ZQjl5pVhYcgMjKgohKJHpjb9WFjWanAK5qtZ7ZqG
-	 JAUCPGRvJuleUn82VWHgAFg25omEtmz2BBpK1AxLe1h7sK6TmygsY7SwES1hREY7YC
-	 EhDXMJTNqC7EHd1VfYve4FtCGkvANhJJbYaF6l8e65/eXeklpF/g67ZV795i4Z0N/2
-	 /oDO3aDgR3xgB169FQGWRnywm7yMlf3DBOkRlJM+ju3C/aDnbqNPWtdv01onOZOvxM
-	 dHmoze+vlwLGbnUOmvZJTs6a2Qa82+xqt6/Wpb03E9M05nfNKe80zePYqQlH2m7TK3
-	 TzosQHpKI+YSw==
-Date: Sat, 7 Mar 2026 11:45:54 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Billy Tsai <billy_tsai@aspeedtech.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
-	Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Ryan Chen <ryan_chen@aspeedtech.com>, Andrew Jeffery <andrew@aj.id.au>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
-	openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH v4 1/3] dt-bindings: mfd: aspeed,ast2x00-scu: Support
- AST2700 SoC0 pinctrl
-Message-ID: <20260307-dexterous-resolute-camel-cbae39@quoll>
-References: <20260306-upstream_pinctrl-v4-0-ad4e8ab8b489@aspeedtech.com>
- <20260306-upstream_pinctrl-v4-1-ad4e8ab8b489@aspeedtech.com>
+	Sat, 07 Mar 2026 10:53:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=yeRFLAMIYNkcai4uXKjM2O8dKLKiiCy/NlMEOTbW5Ww=; b=u5ZwaofJIqqBLjeQ1U3FwXMTKC
+	Az1vIdPWDvYoR0lNFmb+NYlMk+bJSq4douV5yF4Yz6S9gvF+edMwqrleODK1fbQ9BtU55MkahcEoy
+	yMbx0v518TNVf6G9wLW3xO9atiPGUu3ITLAq6RSjJicLBuLwLhXp0KyoDHE5Rt5e6I7HGXZsBbSc5
+	IeGu8umS5jIwvrE06EvWhAVcIajeBIrrXt1DRelZf5lrBVYSAam4Ttzq4+r7BjRu47ChaxZr0Zr5D
+	QPTchbUBnd4HfsxCZ1ylCzZfHiUVf+Os2VmjwJ0FCEOKbPk40yBi5zdlIHc2zAgdtHzN9/LiP0mgv
+	pWPM2DtQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58536)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vypHI-0000000024g-1VQ4;
+	Sat, 07 Mar 2026 10:53:00 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vypHE-000000002K0-40VV;
+	Sat, 07 Mar 2026 10:52:56 +0000
+Date: Sat, 7 Mar 2026 10:52:56 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next 0/2] net: stmmac: further ptp cleanups
+Message-ID: <aawDiK7DjcSXSs1X@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260306-upstream_pinctrl-v4-1-ad4e8ab8b489@aspeedtech.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260307_025310_597912_213850A4 
+X-CRM114-Status: UNSURE (   7.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,25 +83,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 08:40:25PM +0800, Billy Tsai wrote:
-> The AST2700 SoC integrates two interconnected SoC instances, each
-> managed by its own System Control Unit (SCU).
-> 
-> Allow the AST2700 SoC0 pin controller to be described as a child
-> node of the SCU by extending the compatible strings accepted by
-> the SCU binding.
-> 
-> There are no functional changes to the SCU binding beyond permitting
-> the AST2700 SoC0 pinctrl compatible string.
-> 
-> Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
-> ---
->  Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml | 1 +
->  1 file changed, 1 insertion(+)
+Hi,
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+A couple of extra PTP cleanup patches.
 
-Best regards,
-Krzysztof
+The first uses a local variable when setting n_ext_ts which is a minor
+simplification of the code. The second removes the now unnecessary
+"available" flag for the PPS outputs.
 
+ drivers/net/ethernet/stmicro/stmmac/dwmac5.c        |  2 --
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c |  2 --
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h        |  1 -
+ drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c    | 10 ++++------
+ 4 files changed, 4 insertions(+), 11 deletions(-)
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
