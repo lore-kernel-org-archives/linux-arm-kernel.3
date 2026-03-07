@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67B42FC9EDE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 09:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B37D6FC9EDE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 09:16:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7ycKvNZw221jxVdyVNWLOsWUbPtsOR7YJ3JJodsI6vE=; b=wLe5i5ro+LhAsBHe0rnUFJeDlg
-	55/jkhR8se/DP43CL7jkiT+QE4iSGZus2lAZhBKGwcuDclTJaxmfHGmZAipyj0Zt9abW6pHL41iTv
-	Wj/NbStZerPsjFyP/uFy5rr2EOGarb0CJtIJFMDl6xvrcSpkzkRnrbtKmXdeTl48UeDiHHeUE0o63
-	5psvHknSRcSDdxrJ6isVfZImHI0p5Kalx5vBd0C1ul2scvWPFAabnrQaexK7dO5gPyIOs4tknR+Wj
-	+6SsddaC8NLTOwisQRQh4V+dnlgYDffVy3xv/SaVh2rq47JV2lHH2rLjDfNanW1Uq/XkQiNZy8cwt
-	KXaT8Tdg==;
+	bh=bW3VZiLdDmix0hxhYvm5DhZwcyWfk2K5eWWffGvWYiM=; b=wtOeOvTjEitfcQz8YwHvUIgzgK
+	Otf+Dh6NODyQnN5Jnd8fIx86buc39w1TBxlNO9TH8b+RUVL0mHzn/TvSVdtIAI4afQh/ZXclVAR+8
+	yHomxpCO39oN/6kttE1DGZjta7kmZBIzBRKdQX/EbCQ24KYCs6thYUevv3SdIMvapzA8g3Vw29DpF
+	Oy6AJMrSmGbpZfATYXKCuoME2rVqQsDtzQXyVaj/pf880v7k/HK7WQL5g/9+2oMBRyqQas3oUy79O
+	t77yTPCVCM2yjqSdW7TfTYEzeyQzZd3MLnfplHYlIOZr7UrHOxBuwugQhjdYNnIiWd5CVZw5g1tPz
+	XUpskOvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vynlz-000000052Fd-1NZJ;
-	Sat, 07 Mar 2026 09:16:35 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1vynm5-000000052Hd-2d0O;
+	Sat, 07 Mar 2026 09:16:41 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vynlu-000000052EL-436O
+	id 1vynlz-000000052Fi-3NnE
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Mar 2026 09:16:32 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2ad21f437eeso72158585ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 07 Mar 2026 01:16:30 -0800 (PST)
+	Sat, 07 Mar 2026 09:16:40 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2a9296b3926so76082345ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 07 Mar 2026 01:16:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772874990; x=1773479790; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1772874995; x=1773479795; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=7ycKvNZw221jxVdyVNWLOsWUbPtsOR7YJ3JJodsI6vE=;
-        b=CG8IRjGROf9TN0gYvpTUKCzev2oWfhtNCqGt/o6HCAZm1T6VNoYbroG+N8KIr2/BPX
-         iWT/4hzy64ETaoFe9A5ilkNTUG1kWrChtum8jWaN6JGHqihk3V68JCCAlIFc9RJdoOVY
-         4HrO4Ktk0v7hbFUeCZ08wGyBb0zkWTwJOOOhZS1ljuZsZStdV37C9wSE/gTXF9wgKG2A
-         JEt9ofMPSrL3bhgRUbGA2yeyOArvGyn9cZcL5bdxUel1yAmaIzeEBHYIif5PiddhXlHm
-         XCzSIuoLTEO3srrbHeZhur3NywTHxeNV6aslRTefU8mQdoO9UvycYQh91ecEL/rqhE+V
-         OLwQ==
+        bh=bW3VZiLdDmix0hxhYvm5DhZwcyWfk2K5eWWffGvWYiM=;
+        b=RVUwH8xzIO0j1eAjh9jSeNeeRkxmRUqpStlb1dWX9olc6eGcFs4yxm5NdxlBwZGPW4
+         +1RyqPbSQWaIP1tyStipGUDRZwZ9VNss4tNceGpSZdkv4oH+U0SoPimdtiQQfpMJhdQj
+         QAFeDBlfWjn3e7LMLWJSnJwPZPQTGezoyLC78VAFiFOQXIjEeEs4Anv4CWahC5WnJJ/i
+         ujWU3ye+6EjBaKp7AcO3oJGs8k+3a/VzbefdXbYmjInVhzWLWjwnDB99udPp2YeqE8JT
+         REXFOTBnsSJ09ataaUc0r2pGyy+qdnM/nExgpenJlbicauBuihD6ldBxWgpX/CLA+Rsq
+         i2Fg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772874990; x=1773479790;
+        d=1e100.net; s=20230601; t=1772874995; x=1773479795;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=7ycKvNZw221jxVdyVNWLOsWUbPtsOR7YJ3JJodsI6vE=;
-        b=G6sfTZ9WoKL1ZS1PLogo5mq1QG+vBNLGLOd+2iF2GHaeaJUFyEkEjRSx5vKxVeTdXh
-         Z4zUPjTWccdcDEWG63WGP1y2b4teoVnfPwvhfZR1r9JuIZXkmsIZZTmWA37zbBljp2uK
-         2C6ZkuHx0E+u5eDRnzV8uXrYNhI4HbieoDKShMhZtSplXlk/kmV+7ajt3amXkvkUA4uV
-         fyKDW13h+NxBjjyeMQ91hQgvRt0bv5kdX6dZGL9C5CqoGfgI/t7R3v2XM2dsMBpXFzDH
-         sopDfs70Aoey12vJqj2Fn37WxAA1YhS5zp4h/j5A3zFjKEseUteA1/XaFt32f8unrJQF
-         4Npw==
-X-Forwarded-Encrypted: i=1; AJvYcCWZXiFurw0g58SEhcbEXImJxlpDFv+pOTG6eVhk3rxp5POR6KXRz9l6i3b246ouwmRXwPrIQ7BfAz2iYovXLMnt@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqsQaHUuHG7ZhTTcjwYYGifnitIOlsId8Ps7M2Y71MiujWZQHM
-	5v2a90It+WLHyHaCSHZX2rzzQEzutIl+iEAgIguFtgWBjLpPkVPAtzYk
-X-Gm-Gg: ATEYQzyyXWqbhOmhtI6N1DqAEU8xtP2dEa6t9HPuipSJHKV6QsYOphlRiWC5gjZ+e4O
-	lW7rNH7+9yZ0WqLdhK3e/r03mMOR/7qHSBRfYyvJR6HX+pR0y2stOe1IjijtIxcd4J/a3sq5QR9
-	Y77Kdon6MQiacJsyheHsPKhCGRFT6xkyhpa8tw7+IyATgjqIEUtBHr0gA+FdyPf1p7iTOZT9PRs
-	GCHufbw0U6cA1W4fnlZcBhP1TXEzE726vPiK7dqV6jauJMPjUfHfL1pHpoqm8X8fJhGnSvfu85C
-	X8qBEgtD3E/IngymVTlUUg0anavCz1hj4KcDCFcgsi9tCjmzJ973guBwNrDorKLYg7xcZUCz2Dm
-	uInMAGq4vul3jPIDZLHKfOqdLiHAnJQoIxRTmLmxd8fHdvOrGqj9oZ0y3uhA2Z4yIcCbh/Py3uK
-	NLCd029FV40oLRyYfuiGnbFBUNgPbk7YuVaqVtfbcz+Io=
-X-Received: by 2002:a17:903:3c23:b0:2ae:4ef0:168e with SMTP id d9443c01a7336-2ae75b7e02emr98819375ad.13.1772874990333;
-        Sat, 07 Mar 2026 01:16:30 -0800 (PST)
+        bh=bW3VZiLdDmix0hxhYvm5DhZwcyWfk2K5eWWffGvWYiM=;
+        b=sanR9+n/HSBxOYgw/w5/Yn2dcPJxY6GSeVSrB1hA3fkBEEoqYT0wZ9m/imgCzP7C7m
+         vudbYFwZNnVOU5V3J8oq4Ei7PeiorBA1NXqdTu4zFlNY3agPNcE2bTAfx/LsEyBuWEaE
+         EnkeMvhLY5Dkh6DIf0CcF2kBz4KLzKUdZ/YjAHSc1HSOLubkXNC63rpgSrnq7hHftBCf
+         QmamSgOoWigXzdnCKvITmVnislpMuTMHKfC+lZRHilMm+ZjcMQOmvq61WIlSUTgsoXpd
+         +pAjYceLT7Wze0seFuURAsNBg4eiFX92rGU6pTFKGY3K12x7CN4FP+RmRgCW6Y9P+6Du
+         ptKg==
+X-Forwarded-Encrypted: i=1; AJvYcCWG1IE1Pp9FWJ6tSVIDZPnCB8RBDaMO3L1Hx6cU7kpIkz50KbkXSVCc9vniEr7/U6j4R3kVFNf15hGIUcf4Ea76@lists.infradead.org
+X-Gm-Message-State: AOJu0YyKCM+fG6Zw41vzMlbewXKGwXJ4TcZDZn/7N/aVYSPMN5mLIgkk
+	ERftInRhbI94L23LIbkyVfciEh1ldKdH3zKNy8/aB4VfBwtd+0VYcNmX
+X-Gm-Gg: ATEYQzz634Rck/buNFOx1+uMXa1b6pJpbP8cFd90jhHw5Z8LB6oUu+4iwGXb6z2ga92
+	PgkfLxqwLoDOiPPiPQJMUzjYacs1S2V41pgTuMzssxwgw7Q0EPdGyXUI+1Qxz4ddgRc6voVsFLE
+	5RHbb0JTaPAtpCdyp+ANrDZW3CWKp0Hd1oXH5EJc0oSHZJy0nvSS/IlcGKIsQhVEuBbjzCPFsWK
+	IY8Qxnjx7zD3UQoVPF5nIgP2H5oQwoXNkPcmfFOlZzMDYu2oeX/Wh2YQBhf/9f8rMi2v/LFJNKW
+	U7poh4k6lr1y4Bf6PSy5X2jmAbB1JR4y45J2eJ6m+yxczjih4KjqYd/MQyO+DEvNhHNWNG6Ei4b
+	01LOx0Aj7RtQl7cNr7CehrneIQ3y5wh6/Kx/sfqzvpB5TSuRYM87iv0s5X+5DEaNzDEcPORSHdF
+	4LumwQeWGMssfczLdXqSffNxG4CSlQf4c8Anfx8ADcdKuGZWZWLDhUOA==
+X-Received: by 2002:a17:903:120f:b0:2ae:670e:309f with SMTP id d9443c01a7336-2ae824f4d5fmr50056685ad.34.1772874994942;
+        Sat, 07 Mar 2026 01:16:34 -0800 (PST)
 Received: from Black-Pearl.localdomain ([27.7.215.222])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2ae83f74e4fsm45569385ad.58.2026.03.07.01.16.25
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2ae83f74e4fsm45569385ad.58.2026.03.07.01.16.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 07 Mar 2026 01:16:29 -0800 (PST)
+        Sat, 07 Mar 2026 01:16:34 -0800 (PST)
 From: Charan Pedumuru <charan.pedumuru@gmail.com>
-Date: Sat, 07 Mar 2026 09:16:18 +0000
-Subject: [PATCH v3 1/5] arm: dts: at91: remove unused
- #address-cells/#size-cells from sam9x60 udc node
+Date: Sat, 07 Mar 2026 09:16:19 +0000
+Subject: [PATCH v3 2/5] dt-bindings: usb: generic-ohci: add AT91RM9200 OHCI
+ binding support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260307-atmel-usb-v3-1-3dc48fe772be@gmail.com>
+Message-Id: <20260307-atmel-usb-v3-2-3dc48fe772be@gmail.com>
 References: <20260307-atmel-usb-v3-0-3dc48fe772be@gmail.com>
 In-Reply-To: <20260307-atmel-usb-v3-0-3dc48fe772be@gmail.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -91,8 +91,8 @@ Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
  Charan Pedumuru <charan.pedumuru@gmail.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260307_011631_008012_186274E5 
-X-CRM114-Status: GOOD (  10.71  )
+X-CRM114-CacheID: sfid-20260307_011635_854990_7B607E17 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,28 +107,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The UDC node does not define any child nodes, so the "#address-cells" and
-"#size-cells" properties are unnecessary. Remove these unused properties
-to simplify the devicetree node and keep it consistent with DT conventions.
+Add binding support for the Atmel AT91RM9200 OHCI USB host controller
+to the generic OHCI schema.
 
 Signed-off-by: Charan Pedumuru <charan.pedumuru@gmail.com>
 ---
- arch/arm/boot/dts/microchip/sam9x60.dtsi | 2 --
- 1 file changed, 2 deletions(-)
+ .../devicetree/bindings/usb/generic-ohci.yaml      | 33 ++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
 
-diff --git a/arch/arm/boot/dts/microchip/sam9x60.dtsi b/arch/arm/boot/dts/microchip/sam9x60.dtsi
-index b075865e6a76..e708b3df4ccd 100644
---- a/arch/arm/boot/dts/microchip/sam9x60.dtsi
-+++ b/arch/arm/boot/dts/microchip/sam9x60.dtsi
-@@ -75,8 +75,6 @@ ahb {
- 		ranges;
+diff --git a/Documentation/devicetree/bindings/usb/generic-ohci.yaml b/Documentation/devicetree/bindings/usb/generic-ohci.yaml
+index 961cbf85eeb5..a8a94b9c1fee 100644
+--- a/Documentation/devicetree/bindings/usb/generic-ohci.yaml
++++ b/Documentation/devicetree/bindings/usb/generic-ohci.yaml
+@@ -55,6 +55,7 @@ properties:
+           - ti,ohci-omap3
+       - items:
+           - enum:
++              - atmel,at91rm9200-ohci
+               - cavium,octeon-6335-ohci
+               - nintendo,hollywood-usb-ohci
+               - nxp,ohci-nxp
+@@ -137,6 +138,16 @@ properties:
+       The associated ISP1301 device. Necessary for the UDC controller for
+       connecting to the USB physical layer.
  
- 		usb0: gadget@500000 {
--			#address-cells = <1>;
--			#size-cells = <0>;
- 			compatible = "microchip,sam9x60-udc";
- 			reg = <0x00500000 0x100000
- 				0xf803c000 0x400>;
++  atmel,vbus-gpio:
++    description: GPIO used to control or sense the USB VBUS power.
++    minItems: 1
++    maxItems: 3
++
++  atmel,oc-gpio:
++    description: GPIO used to signal USB overcurrent condition.
++    minItems: 1
++    maxItems: 3
++
+ required:
+   - compatible
+   - reg
+@@ -144,6 +155,28 @@ required:
+ 
+ allOf:
+   - $ref: usb-hcd.yaml
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: atmel,at91rm9200-ohci
++    then:
++      properties:
++        clock-names:
++          items:
++            - const: ohci_clk
++            - const: hclk
++            - const: uhpck
++
++      required:
++        - clocks
++        - clock-names
++
++    else:
++      properties:
++        atmel,vbus-gpio: false
++        atmel,oc-gpio: false
++
+   - if:
+       not:
+         properties:
 
 -- 
 2.53.0
