@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA2BBFC9EF9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 10:55:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7D9AFC9EF5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 10:57:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VPjCzpZwhzvEIRjxFR+lnnsQkRJjsbFMQyF1ixNeFiI=; b=JTqR503V9WYp0m9Ful2vwhSRWk
-	m7X7EyRWMG7S6iVA9whecWXtANei8Ljl/1/+Ovqb7sxxaum0iQa+CTPL9NhS3rSGyNWr//z2zsl2q
-	3XMeg2Hl/68DA5kz6gRxdzEFZeGdHiXLLy10+X76FJE6kbZbLDCEJ9nVqAnbZCl6V50Pxn6g0qae0
-	axZ0nsXryWuKCST4SbJC2j7ku8fgmG/+PBsGqoweZlsiZnt3df3MPCcU1AueB1kjNPhPxgj2NgHmk
-	kTjHPfHB69RErkZ4oAYfUZTqwMxa5+kJeM0iWRGEBCREheqUl9CAXWxf5Xx9AjoJQY81zWnXo/0dv
-	ohnKQBPw==;
+	bh=znSWkqRW15uQMOwR1bsF13m17m1rgrDzmwHSdo5tfk0=; b=yh91YLp6JH4rUM2l9QJQ4Waxha
+	z+Z5uU3uIzAGJeZyxcuIxtycEpHmDqx1ubM/sYBUQofXyM64rciNugZwlDAFkm3hKUzcQE6N9nVEg
+	V70Vp9AwvIfloOi8IrpMuJJMy2hkgwyoMKG3Fa/t6yWDO1cfCtQsxEoeNGAA9wbmzU/oVRT8hSZYk
+	TaPpE9wKMFqqROeMjGMJIt6vYVpbx+thJPbqAZxRNJPQfoEy9aCJFZJKU6nWpMkah45ipx+VO7N4U
+	26VkLhcQPK0pH7NJjBzSCELpCSg5hPkqUX7yNXSOzMazZ7c1Ertqd5/dZIx91c6dx5iZMidsZSNWe
+	FR3BuqFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vypJp-000000057aJ-2JLB;
-	Sat, 07 Mar 2026 10:55:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vypLM-000000057k7-08b6;
+	Sat, 07 Mar 2026 10:57:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vypJm-000000057Zo-1flJ
+	id 1vypLK-000000057jm-1ATR
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Mar 2026 10:55:35 +0000
+	Sat, 07 Mar 2026 10:57:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A88014095C;
-	Sat,  7 Mar 2026 10:55:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFC4DC19422;
-	Sat,  7 Mar 2026 10:55:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 86518440AF;
+	Sat,  7 Mar 2026 10:57:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C764AC19422;
+	Sat,  7 Mar 2026 10:57:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772880933;
-	bh=0owm4mKObWbnUeGHMN4y2SQdPXnXIhv9skTRR518J/8=;
+	s=k20201202; t=1772881029;
+	bh=DovIk0OvW87b8a1GeeXSGXxoenbkGtrgVNP6Cd7cLAE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gBwF1jyaAvo+N9jckDoGQIt0wrQcCufpP7DMH9TRanNgHbvOTlB96BFmvXNJL2fQz
-	 eTm/ZClYSUzv5tAxOhY1lKB+Wqxr8/XAPSofHt7JHe3VMZs2UTSzqmD+aaLvp9b4TU
-	 JwmwqQrBFm1rTXolEfdIeDvaenB8Lo0XGpK8/2doz9If0QCrrityNU9A2wSdM9wbUc
-	 SvWF92XmE5YttrtY/S+gGPj5ksxJ+QsPG4Fhp+OHBftrI0nmV0AUHUDnsH8w8lIaZJ
-	 WbWdogZaLuawLZ/n7metr92eUMxo4zfwA6lB/LXyaCyCFO1pkzsPHHTuen2Zu0SPe3
-	 vUVl6OT8W6B7Q==
-Date: Sat, 7 Mar 2026 11:55:30 +0100
+	b=sFO/GhYiB3zwCdTMYkhDR0OMOKq0X95Kmkch+SCzSXhuP8qQlYvkupLYQgMumW7Ui
+	 s2dD7D/Qo+ILK0qaCWmI/9Ur0Mx+Bj7LDRkRmFZY/LMSXyI5ynMXXxrrZWSDPAOZ1e
+	 hKQbOk8QMTxYo+kn6p1KPqKrw/CxCdZQasvB9E5rFwPIon8bregOIztgabiPtf9G+o
+	 Rgxin8sHstUFmk2YSjc25cX9DPPCPXmpZZdBZlDVy3yPAZeozXNNARwOyysyMICs30
+	 S7Jxu8v1+xDbLpL0JxpCJxyZ4EAB5qVzRxtPhbCIUXpicVP8h03gDwcgk1itmmRIn2
+	 wn/mmOTMAbHEw==
+Date: Sat, 7 Mar 2026 11:57:06 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Billy Tsai <billy_tsai@aspeedtech.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
+Cc: Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
-	Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Ryan Chen <ryan_chen@aspeedtech.com>, Andrew Jeffery <andrew@aj.id.au>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
-	openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH v4 2/3] dt-bindings: pinctrl: Add
- aspeed,ast2700-soc0-pinctrl
-Message-ID: <20260307-weightless-quirky-spoonbill-dacd89@quoll>
-References: <20260306-upstream_pinctrl-v4-0-ad4e8ab8b489@aspeedtech.com>
- <20260306-upstream_pinctrl-v4-2-ad4e8ab8b489@aspeedtech.com>
+	Thomas Gleixner <tglx@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Shawn Guo <shawnguo@kernel.org>, 
+	Lucas Stach <l.stach@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, s32@nxp.com, 
+	Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>, 
+	Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>, 
+	Larisa Grigore <larisa.grigore@nxp.com>
+Subject: Re: [PATCH v4 1/8] dt-bindings: interrupt-controller: fsl,irqsteer:
+ add S32N79 support
+Message-ID: <20260307-stimulating-parakeet-of-science-ef1b78@quoll>
+References: <20260306161555.9000-1-ciprianmarian.costea@oss.nxp.com>
+ <20260306161555.9000-2-ciprianmarian.costea@oss.nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260306-upstream_pinctrl-v4-2-ad4e8ab8b489@aspeedtech.com>
+In-Reply-To: <20260306161555.9000-2-ciprianmarian.costea@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260307_025534_461037_29FAF54A 
-X-CRM114-Status: UNSURE (   9.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260307_025710_335621_A9DD1FBE 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,51 +83,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 08:40:26PM +0800, Billy Tsai wrote:
-> +          - USB2BDBP
-> +          - USB2BH
-> +          - USB2BHBP
-> +          - USB3A
-> +          - USB3AAP
-> +          - USB3ABP
-> +          - USB3B
-> +          - USB3BAP
-> +          - USB3BBP
-> +          - VB0
-> +          - VB1
-> +          - VGADDC
-> +
-> +required:
-> +  - compatible
-> +
-> +allOf:
-> +  - $ref: pinctrl.yaml#
-> +
-> +additionalProperties: false
+On Fri, Mar 06, 2026 at 05:15:48PM +0100, Ciprian Costea wrote:
+> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+> 
+> Add compatible string for the interrupt steering controller used in NXP
+> S32N79 SoC.
+> 
+> The S32N79 SoC differs from the i.MX version by not implementing the
+> CHANCTRL register, but otherwise maintains the same programming model and
+> register layout.
+> 
+> Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
+> Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
 
-I guess the mess with examples is partially my fault of imprecise
-feedback. Rob asked you to add the example to main MFD device, but:
-1. maybe he assumed there will be separate binding for parent device?
-2. you added it in wrong patch (pinctrl patch changing MFD!),
-3. it was also incomplete that time.
+Co-developed for adding one compatible string is a bit stretch, but what
+do I know...
 
-The example - if you tested your v3 - was needed to actually validate
-and point errors. My bad I asked to drop it.
+> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+> ---
+>  .../bindings/interrupt-controller/fsl,irqsteer.yaml           | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 
-So now you have a mess - incorrect, non-validated (example-less) and
-maybe even incomplete binding.
-
-Please post complete ast2700 SCU binding - what children do you have? If
-none of ones mentioned in the binding apply, then why the binding
-mentions them? why do you allow p2a if 2700 does not have it? And
-smp-ram?
-
-And if 2700 has silicon-id, interrupt controller, pinctrl etc, then why
-none of them were present in the example you added?
-
-But more importantly, none of this was actually built tested/checked
-against DTS thus I cannot accept it. We are back to basics... post your
-COMPLETE DTS somewhere and provide link to it.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
 Krzysztof
