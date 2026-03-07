@@ -4,82 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2504FFC9ED3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 09:29:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F61DFC9ED3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 10:12:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Itfyi6buFhW0nHsJ4qojlX1bMfsgLsC91Ah779lyCrk=; b=y91+TV8hZ0TJHCRvB3JUXIrGDB
-	IJtcGzw35Pn7Q0kF7y8PQerS82ub6M9vU7cwR/2GRiGwEPdv3HK8h2yYONZWLGQ2D5t9AJBJs+Ezo
-	lfPG5P216b6Dr4uB7UuKf/ruKxpmxA1KsvGM3M+OozlPVA7splApwRto5+bHR9gFOBt43FaSoiZZ9
-	8U+hn8zVhzUwAGca66ghX85MuHaK0Ncu5pVV9deUvEUZTHBp43+/FW9lNau5+ViQs90pw36XykzOx
-	e0NRongbHEXeov08p0DreMcTjSxlsJtXxps1AQK917Db2rqUQzp6K94JARed6sgRcrlj6tr+i2JrX
-	DFIPdFBw==;
+	bh=cAHXkVYgpWGyWPPK+cOuE8x3ceZgipjd5Ksbt9qDqHs=; b=a69DbOM7exrfSbtql8LSRVoF72
+	TKaxPg2ShW6JZvefQpWDIDf6AoizlOPwzwDFuHHdZfoArINdiu8ERINQao/G7X3mDmZX2UEOCUahu
+	jraF++9DUSXqHlTVe+fyqECq9rj4CBm3tRFlXz6x1kebybk9b4Ovz0hCPQCCmBpQUC2XIdbddh9aC
+	qwbw+PjEPCMMVqLVPPvt8XPmyR6kX7IUsNHs5PwR1zt7mANDP9sFUna4e8MOdANQfO10F37BK2gBU
+	eAI4C5iaVtC4LH4c3YZNI69I0HVZr9B2p4V0N/WQnNVylNMERW5EE7jzEjoccN2bnDz7FI62Sq4FH
+	gfzpE1jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vynya-00000005332-24UH;
-	Sat, 07 Mar 2026 09:29:37 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1vyoeJ-000000054Hi-0v1y;
+	Sat, 07 Mar 2026 10:12:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vynyV-0000000532e-1OWC
+	id 1vyoeG-000000054HN-3dre
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Mar 2026 09:29:34 +0000
-dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Itfyi6buFhW0nHsJ4qojlX1bMfsgLsC91Ah779lyCrk=;
-	b=Fs11xKyQ7nYIUgH7UvxH6gth0KfIDoXe3uaHwUa+hP2mJzVZJigFyib1O/8y8bMWZ9PynqOJq
-	LeDP3LD9iI2HZWoHuWR/+AH7FhJ+VYRsBva+lTGdx7OXB8Qp3JRCwAsF1AfzAwAczndgMMb+Si9
-	peMQSuEjhf5GAUkAIcxM3i4=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4fSdCD6B2Rz12LCy;
-	Sat,  7 Mar 2026 17:24:40 +0800 (CST)
-Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
-	by mail.maildlp.com (Postfix) with ESMTPS id 971AB40561;
-	Sat,  7 Mar 2026 17:29:15 +0800 (CST)
-Received: from [10.174.179.37] (10.174.179.37) by
- kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Sat, 7 Mar 2026 17:29:13 +0800
-Message-ID: <96ffc81d-3f37-7f48-f9f4-6a58da3e0f99@huawei.com>
-Date: Sat, 7 Mar 2026 17:29:13 +0800
+	Sat, 07 Mar 2026 10:12:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6822D40229;
+	Sat,  7 Mar 2026 10:12:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0556C19422;
+	Sat,  7 Mar 2026 10:12:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772878359;
+	bh=eUQNtOaM5l9D1b93eFj3kCCwDlN+rPF8wPvNCP8OYEI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JsJjsHvNIxJlJovCxfa/JfpOBXm5YliJKMRtYfE4vxyMXdIjQ4u2szIIb0N+oD6I2
+	 LAUCn6zVjPi5uaqOZqFK7nNN3U+JtY6CZXbO+HvU6hfXqo+bwBTrGJMWKorfG1sUxb
+	 nnlxl9HAZwIMQBBdKXgxKEx81jDFn9QQZZRhUEY0ja0OqSsDAhf2yuSQnuvLzUyxx0
+	 IqPYCsxvciFKRrrH7YFKg/uQK1kFA6RuXSJzL75VSOSAPCZgmTpCHOoN2mIwPh77av
+	 Vg5XkntWeXOLQE5x0NZoaBIdMYlOzRJvMQlQQ6kiURY477oRUeIToFtviASLV/LQFa
+	 jmNDvs1dlBRqQ==
+Message-ID: <4d016247-7060-48cc-ac86-1103df6a9b08@kernel.org>
+Date: Sat, 7 Mar 2026 11:12:34 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH v5 31/41] arm_mpam: resctrl: Add resctrl_arch_rmid_read()
- and resctrl_arch_reset_rmid()
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: defconfig: Enable configurations for Toradex
+ Aquila AM69
+To: Francesco Dolcini <francesco@dolcini.it>, Arnd Bergmann <arnd@arndb.de>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Linus Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>,
+ Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Tero Kristo <kristo@kernel.org>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ soc@lists.linux.dev
+References: <20260306153130.102972-1-francesco@dolcini.it>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-To: Ben Horgan <ben.horgan@arm.com>, James Morse <james.morse@arm.com>
-CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
-	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
-	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
-	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
-	<jonathan.cameron@huawei.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
-	<quic_jiles@quicinc.com>, <reinette.chatre@intel.com>,
-	<rohit.mathew@arm.com>, <scott@os.amperecomputing.com>,
-	<sdonthineni@nvidia.com>, <tan.shaopeng@fujitsu.com>,
-	<xhao@linux.alibaba.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<corbet@lwn.net>, <maz@kernel.org>, <oupton@kernel.org>,
-	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>,
-	<linux-doc@vger.kernel.org>, Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
-	Kefeng Wang <wangkefeng.wang@huawei.com>
-References: <20260224175720.2663924-1-ben.horgan@arm.com>
- <20260224175720.2663924-32-ben.horgan@arm.com>
-From: Zeng Heng <zengheng4@huawei.com>
-In-Reply-To: <20260224175720.2663924-32-ben.horgan@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260306153130.102972-1-francesco@dolcini.it>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.179.37]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260307_012932_042245_B9DA571A 
-X-CRM114-Status: GOOD (  15.11  )
+X-CRM114-CacheID: sfid-20260307_021240_952825_0929098B 
+X-CRM114-Status: UNSURE (   8.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,117 +123,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
-
-On 2026/2/25 1:57, Ben Horgan wrote:
-> From: James Morse <james.morse@arm.com>
+On 06/03/2026 16:31, Francesco Dolcini wrote:
+> From: Francesco Dolcini <francesco.dolcini@toradex.com>
 > 
-> resctrl uses resctrl_arch_rmid_read() to read counters. CDP emulation means
-> the counter may need reading in three different ways. The same goes for
-> reset.
+> Enable the configurations needed for Aquila AM69 SoM and compatible
+> carrier boards.
 > 
-> The helpers behind the resctrl_arch_ functions will be re-used for the ABMC
-> equivalent functions.
+>  - CONFIG_SENSORS_AMC6821, needed for the fan controller on the clover
+>    and dev carrier board (as module).
+>  - CONFIG_POWER_RESET_GPIO and CONFIG_POWER_RESET_GPIO_RESTART needed
+>    for poweroff and restart functionalities (as built-in, it's not
+>    possible to set them as 'm').
 > 
-> Add the rounding helper for checking monitor values while we're here.
-> 
-> Tested-by: Gavin Shan <gshan@redhat.com>
-> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Tested-by: Peter Newman <peternewman@google.com>
-> Tested-by: Zeng Heng <zengheng4@huawei.com>
-> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> ---
+> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-[...]
-
-> +
-> +static int read_mon_cdp_safe(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
-> +			     enum mpam_device_features mon_type,
-> +			     int mon_idx, u32 closid, u32 rmid, u64 *val)
-> +{
-> +	if (cdp_enabled) {
-
-While reviewing the resctrl limbo handling code, I noticed a issue in
-__check_limbo() that could lead to premature RMID release when CDP is
-enabled.
-
-In __check_limbo(), RMIDs in limbo state undergo L3 occupancy checks
-before being released. This check is performed via
-resctrl_arch_rmid_read(), on arm64 MPAM, which relies on the cdp_enabled
-state to determine to check which PARTID.
-
-The concern arises in the following scenario: Filesystem is mounted with
-CDP enabled. During normal operation, some RMIDs enter limbo. On umount,
-cdp_enabled is reset to false. __check_limbo() may then run and perform
-L3 checks with cdp_enabled = false. This could cause RMIDs to be
-incorrectly released from limbo while still effectively busy after
-remount.
-
-Apologies for not providing a ready-made fix in this email. However,
-I would appreciate to hear the community's thoughts on this issue.
-
-
-> +		u64 code_val = 0, data_val = 0;
-> +		int err;
-> +
-> +		err = __read_mon(mon, mon_comp, mon_type, mon_idx,
-> +				 CDP_CODE, closid, rmid, &code_val);
-> +		if (err)
-> +			return err;
-> +
-> +		err = __read_mon(mon, mon_comp, mon_type, mon_idx,
-> +				 CDP_DATA, closid, rmid, &data_val);
-> +		if (err)
-> +			return err;
-> +
-> +		*val += code_val + data_val;
-> +		return 0;
-> +	}
-> +
-> +	return __read_mon(mon, mon_comp, mon_type, mon_idx,
-> +			  CDP_NONE, closid, rmid, val);
-> +}
-> +
-> +/* MBWU when not in ABMC mode, and CSU counters. */
-> +int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_domain_hdr *hdr,
-> +			   u32 closid, u32 rmid, enum resctrl_event_id eventid,
-> +			   void *arch_priv, u64 *val, void *arch_mon_ctx)
-> +{
-> +	struct mpam_resctrl_dom *l3_dom;
-> +	struct mpam_component *mon_comp;
-> +	u32 mon_idx = *(u32 *)arch_mon_ctx;
-> +	enum mpam_device_features mon_type;
-> +	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
-> +
-> +	resctrl_arch_rmid_read_context_check();
-> +
-> +	if (eventid >= QOS_NUM_EVENTS || !mon->class)
-> +		return -EINVAL;
-> +
-> +	l3_dom = container_of(hdr, struct mpam_resctrl_dom, resctrl_mon_dom.hdr);
-> +	mon_comp = l3_dom->mon_comp[eventid];
-> +
-> +	switch (eventid) {
-> +	case QOS_L3_OCCUP_EVENT_ID:
-> +		mon_type = mpam_feat_msmon_csu;
-> +		break;
-> +	case QOS_L3_MBM_LOCAL_EVENT_ID:
-> +	case QOS_L3_MBM_TOTAL_EVENT_ID:
-> +		mon_type = mpam_feat_msmon_mbwu;
-> +		break;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +
-> +	return read_mon_cdp_safe(mon, mon_comp, mon_type, mon_idx,
-> +				 closid, rmid, val);
-> +}
-> +
-
+Please follow standard defconfig submission rules, so as explained in
+maintainer soc profile - not sending directly to soc@. How did you even
+get that email address?
 
 Best regards,
-Zeng Heng
+Krzysztof
 
