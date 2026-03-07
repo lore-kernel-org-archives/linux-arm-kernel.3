@@ -4,93 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E61E1FC9EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 11:00:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFAB6FC9EF4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 11:02:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QCI1kb7TlrpTPNFKPwflk45oBxqy/E4b7hXMBF9DXnE=; b=f1Fiqd6ZfC4PRqK208ua74Fw0y
-	XksruWFk3+mcIjOYzpDQxiwp9KA6pdAL6ktORWHWI9uCNVXO8LTeTd9oN2MDSQL4jcwXKOG/3KtrB
-	0pT3I5JHnxnd4tkz4nITuPdXadu9i6ZOedCiEYFYFDqs87ejTjszHIcykjBSdf1SlvoHhGkLSHaTj
-	MdtDN4NFiO042etSHfZE3/UfUwbP08NOkQorFxrfh5lWOoR3cTlz2BK2MiNjV8LEeVR34JfZHX2os
-	XAoq8jYJVsckQ1iynUA25zXrcWn78vsfmzYv5EOy5RmKc7mnV7W7AQqyho7yZPwVg3Dg8Cz9/dc85
-	SDLzou2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=142mbsECCtXmYpR3GC+jVCceuUhe350k8xSDlqgPjOw=; b=MNm7UL/SEfDZ2DSg9ZvE2Uo6m4
+	8H44VfunaJBGBLbuDs/EURyAhms3bcJOlHRpiOKD5mNE6bEXqS99di7PTfxzw+vmKoTgpT3UftnyH
+	x7hd0RVTLDJFlWZStQow1U8iNX++pIQx+HFo4n564x769rH58jsEJYKLFusoKSBy2Mc3X1ldalPMj
+	p2K1LMR4wWYb7lOpAQeNjx1r4aisJ5cUdNtxgHXAztb+vlExmAj64FqPJ4KUFLa0mpdhkm01sRcKa
+	0qV2OM1SBE0bZDPRuaA233Oi1BLsd0W4m2y8LHz8RSuIs6BOpb+1+knbZBTk5OHYobXvqWGdd4muI
+	W20yeEFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vypOO-000000058Do-2jfY;
-	Sat, 07 Mar 2026 11:00:20 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1vypQc-000000058NI-1aYU;
+	Sat, 07 Mar 2026 11:02:38 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vypOJ-000000058CV-3xrG
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Mar 2026 11:00:17 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-483a233819aso99676555e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 07 Mar 2026 03:00:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772881214; x=1773486014; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=QCI1kb7TlrpTPNFKPwflk45oBxqy/E4b7hXMBF9DXnE=;
-        b=Op0mgIbC9/qL4l3f0NsbLBjZJPT8iUhBq+JnAjyOXVcMG2WTeczWYU9Ye6TVPT2NKj
-         1rkAhcn4hwKQDKNO6nY6MFhc38oICFialtCnly7PSLy2K3SaWushcFHMoFx3dIQz8SAH
-         oez6HbAoB+k60zZT54xakh1ODXtboWwMg6QrxsxHA+spS1PceCJKfBwzdXfLg7KXLYZe
-         6ULRsMdbjxh4DsDINaKvbc3sHceVFLJKJGi/vm3C2AZbV9mtOBYpcHgQ4blIRvmsf95m
-         NRzQnGLlrQ/Bz1lBwlmEvhQdVz+rn8tb0mMw9eUd/99eaqd95ZkcwfG2BfL0yOtrmFJI
-         +Hww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772881214; x=1773486014;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=QCI1kb7TlrpTPNFKPwflk45oBxqy/E4b7hXMBF9DXnE=;
-        b=Z7jBlBRa4RmURL0QykqVkkVHiQA33TfBNt8SJQ1eU3VgdE2CMHWpmTk33HNv5udn4B
-         HxKomYH1JNvCaQ1o5mSkMMV8zb2wTmD0kmlrECdaxfndri42Tp9W7fp6J+O5q/DUyy5Z
-         i6oYBzEzwZKJmi5cU89dvf6EjukELQTTlzQI12ZvCV25ndWINitHTn86VpQyOowBMdnn
-         gcbZm4IJNhzTUtVSxuBJjKZMyA32kmrvjrbZ/9KbrDsIJ0M0CeBZXsErir+lN/ZA/9Ws
-         NDbbtTjV/+GsC3wWCCEYyine/MS5+NpDmDbD9RTfijExTpxLsWYYg7KdFKJgWzkEvqIu
-         S5MA==
-X-Forwarded-Encrypted: i=1; AJvYcCUeGDQobzlNi9Fx6oFQQPn31TgJDcv3rLPJlGQl91rNcNhV9jsQgzwEhlIt2zwiw+abiWGUj8wMi+ObJ9djy2we@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/U081khJ5A9iUFXInEWVpTZ+YSXuHk7BQnVht0fbCIVCX5WZ8
-	OiiAopvYnQj4z3NbaG1U3Tq3nwRWAhTqKMyldM3eXAIAKfUBtBGE4awl
-X-Gm-Gg: ATEYQzyiduX8FyIZi6IbgYsoxJgSNFhDb8XMK642QGphkuVmB41tMi+Rct89h/isbd1
-	vrL0UJrglpoWt5r7CHMG4HE061E1YdB2w65d3b3Y/TsUwdVM49qzdaP3nCz0anc02nze4GYxS2z
-	3aKOj/vJhMMOkUqjLCgNmwtF16AYv9rcwiRB/NfDQHhXhztPJNo6FdDZMaZUcEpFpFcvM09/UPA
-	TeJgOL65UXRq5t7IT+M/1ICO3M1UIqO5v2TkywCwo0qhMwLJZX9Zjykg0R9BYffaYZ9t6K+MVsh
-	2q2PbNFjc38d1gr8fxvhneKEDK29YciTt15OBpyS+rWEPsVco/M8oXLl2Ktw0flPkYmC+iBYq7x
-	X8Aae6acksmx6MOacweDb6b7ww/bDdTvTDn5p538X/kWMDSpt7JgQfUIEMZwg14pRezH7awJrJZ
-	rp6z54p0PZjvLeoWWzQszIwg3Kxf5AfjlQuHO9c8yFVLq14t1azZvxYmn0DIoF7MsY
-X-Received: by 2002:a05:600c:45c6:b0:483:c35d:3662 with SMTP id 5b1f17b1804b1-48526957c37mr81366225e9.18.1772881213827;
-        Sat, 07 Mar 2026 03:00:13 -0800 (PST)
-Received: from Ansuel-XPS. (93-34-88-122.ip49.fastwebnet.it. [93.34.88.122])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4852e38c013sm84256225e9.8.2026.03.07.03.00.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 07 Mar 2026 03:00:13 -0800 (PST)
-Message-ID: <69ac053d.050a0220.24143c.6b14@mx.google.com>
-X-Google-Original-Message-ID: <aawFO9rx_7g3C7eg@Ansuel-XPS.>
-Date: Sat, 7 Mar 2026 12:00:11 +0100
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 0/4] airoha: an7581: USB support
-References: <20260306190156.22297-1-ansuelsmth@gmail.com>
- <20260307-poetic-salmon-of-order-33a4d0@quoll>
+	id 1vypQZ-000000058Mw-05Du;
+	Sat, 07 Mar 2026 11:02:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=142mbsECCtXmYpR3GC+jVCceuUhe350k8xSDlqgPjOw=; b=SdgJq7HZDkthwcLffkabiqe7/L
+	sVRi0TWbOnfG4FDOdk9YshJkajdUpAuuaBVgEGoVXAkcGqZP9nWrJdUi4ElpaBfBaLYqh568xKrHK
+	dAyyfwXh4pXUJHcXZ5+WJ+BqL0QC8AnBGTxtJknaOpbZKPFt+Rgr4nnS0GEZ/x1s+R+OHeZK55PjP
+	OoHQvHcCCm9m3LQls+55nAc406l/5NFbNKqAxkYmo9WlNHs0b1jBfDS8vFCKIhhjY0o+fNop32W7I
+	yGSGolQz0MYaC7DYfbAdDyv77h00yLcnuGczzIVAhxpiXaSi9UB6KwamL1kDmPLUHXMUOWf0z0KAZ
+	jnXoCHPw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:57216)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vypQM-00000000279-187T;
+	Sat, 07 Mar 2026 11:02:22 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vypQI-000000002KG-0k1L;
+	Sat, 07 Mar 2026 11:02:18 +0000
+Date: Sat, 7 Mar 2026 11:02:17 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Frank Li <Frank.Li@nxp.com>,
+	imx@lists.linux.dev, Jakub Kicinski <kuba@kernel.org>,
+	Jan Petrous <jan.petrous@oss.nxp.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>, s32@nxp.com,
+	Samuel Holland <samuel@sholland.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, Yao Zi <me@ziyao.cc>
+Subject: [PATCH net-next 0/7] net: stmmac: start to shrink memory usage
+Message-ID: <aawFuXTVAgVOrw4k@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260307-poetic-salmon-of-order-33a4d0@quoll>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260307_030016_003515_9B7C6AA8 
-X-CRM114-Status: GOOD (  25.22  )
+X-CRM114-CacheID: sfid-20260307_030235_087577_C23E3FF9 
+X-CRM114-Status: UNSURE (   9.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,65 +93,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 07, 2026 at 11:28:29AM +0100, Krzysztof Kozlowski wrote:
-> On Fri, Mar 06, 2026 at 08:01:49PM +0100, Christian Marangi wrote:
-> > This is a major rework of the old v2 series.
-> > 
-> > The SoC always support USB 2.0 but for USB 3.0 it needs additional
-> > configuration for the Serdes port. Such port can be either configured
-> > for USB usage or for PCIe lines or HSGMII and these are configured
-> > in the SCU space.
-> > 
-> > The previous implementation of a dedicated SSR driver was too
-> > complex and fragile for the simple task of configuring a register
-> > hence it was dropped and the handling is entirely in the PHY driver.
-> > 
-> > Everything was reducted to the dt-bindings to describe the Serdes line.
-> > 
-> > Also the property for the PHY are renamed to a more suitable name and
-> > everything is now mandatory to simplify the implementation.
-> > (the PHY are always present and active on the SoC)
-> > 
-> > Also other unrelated patch are dropped from this series.
-> > 
-> > Changes v6:
-> > - Fix kernel test robot (sparse warning)
-> > 
-> > Changes v5:
-> > - Add Ack and Review tag from Connor
-> > - Implement Ethernet support in the USB driver
-> >   (testing support for this Serdes on a special reference board)
-> > - Use an7581 prefix for USB PHY driver
-> >   Link: https://lore.kernel.org/all/20251107160251.2307088-1-ansuelsmth@gmail.com/
-> > 
-> > Changes v4:
-> > - Rename PCIe and USB PHY to AN7581
-> > - Drop airoha,scu (handled directly in driver)
-> > - Drop dt-bindings for monitor clock in favor of raw values
-> > - Better describe the usage of airoha,usb3-serdes
-> > - Simplify values of dt-bindings SSR SERDES
-> >   Link: https://lore.kernel.org/all/20251107160251.2307088-1-ansuelsmth@gmail.com/
-> 
-> Why is this the same link as v5?
->
+Hi,
 
-Sorry a copy paste error. Here [0]
+Start shrinking stmmac's memory usage by avoiding using "int" for
+members that are only used for 0/1 (boolean) values, or values that
+can't be larger than 255.
 
-[0] https://lore.kernel.org/all/20260304005843.2680-1-ansuelsmth@gmail.com/
- 
-> > 
-> > Changes v3:
-> > - Drop clk changes
-> > - Drop SSR driver
-> > - Rename property in Documentation
-> > - Simplify PHY handling
-> > - Move SSR handling inside the PHY driver
-> >   Link: https://lore.kernel.org/all/20251029173713.7670-1-ansuelsmth@gmail.com/
-> 
-> Best regards,
-> Krzysztof
-> 
+In addition, as struct stmmac_dma_cfg is approximately a cache line,
+shrinks below a cache line as a result of this patch set, and is
+required, there is no point separately allocating this from
+struct plat_stmmacenet_data. Embed it into the end of this struct
+and set the existing pointer to avoid large wide-spread changes.
+
+Lastly, add documentation for struct stmmac_dma_cfg, and document
+the stmmac clocks as best we can given the driver history.
+
+ drivers/net/ethernet/stmicro/stmmac/common.h       |   4 +-
+ .../ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c    |   2 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c    |   2 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c  |   7 +-
+ .../net/ethernet/stmicro/stmmac/dwmac-loongson.c   |   6 +-
+ .../net/ethernet/stmicro/stmmac/dwmac-mediatek.c   |   8 +-
+ .../net/ethernet/stmicro/stmmac/dwmac-motorcomm.c  |   4 -
+ .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    |   4 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c    |   2 +-
+ .../net/ethernet/stmicro/stmmac/dwmac-socfpga.c    |   2 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c  |   4 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sunxi.c  |   2 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac-tegra.c  |   2 +-
+ .../net/ethernet/stmicro/stmmac/dwmac1000_core.c   |   2 +-
+ .../net/ethernet/stmicro/stmmac/dwmac100_core.c    |   2 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c  |   4 +-
+ .../net/ethernet/stmicro/stmmac/dwxgmac2_core.c    |   4 +-
+ drivers/net/ethernet/stmicro/stmmac/hwif.h         |   2 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h       |   2 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 227 +++++++++++----------
+ drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c   |  11 +-
+ .../net/ethernet/stmicro/stmmac/stmmac_platform.c  |  43 ++--
+ include/linux/stmmac.h                             |  93 +++++++--
+ 23 files changed, 239 insertions(+), 200 deletions(-)
 
 -- 
-	Ansuel
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
