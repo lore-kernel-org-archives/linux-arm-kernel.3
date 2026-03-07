@@ -4,93 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8356AFC9EFB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 13:34:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFDF1F513ED
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 13:59:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6wzaShk9EeMNa1XUsBArJvrMzEpjudqxehsDLFg0Ul8=; b=HqqmYqEC3eqpSmyN7AGDrYUT1C
-	kRDC0ODgdF4SxnJu7aSm/RzIieWTKmd5jupygtN5BeSquhXATwnahDIlAogzgBbxu3+Lbf3Xtes2+
-	7FSgoPnh0i/vjYXO8ve40F0VZzBQPN/WN/P//ECPGQFVfDZvkIL3E8IuyQriX4Z73MTZJ/AjNyO4Q
-	eAb6iHPzLz/QQikIpoBUITgD3Jpf9o2nGRKtQ2osWBnJEHZC6kAAwHQ89xE8gY2nLHpz7UbVkh5fX
-	FFy44mKdsbs58dHHo5Ok8k56x0ASte5w08epMof/7Ow/BQRbXOn0v30++sO03bZ4adhXOUqwFrUmq
-	4SLl5N+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ObkqC6JeKczN+XsPAQiHdTfYRX0KkAhUsLcs6RbDm+0=; b=GD1lmd3bCfYJKFv1c7s1VMcNOT
+	PyLv19/9OefJ3pewiCSC8Tz3Sus4ikIYRc9jfsac5GwdnrfJ1UdmRnI6IfmeCsBdAuB+0nucJ0Fjn
+	z/7i7+fcoe1oj2RyKwuSLudzyWmR/E0dxtQ+BK1dRXBqTajdoXWDiQ7gTTqB7HzUqy3YqLMxrCf+R
+	B3s3wCF9Gdoigq1mLyGHITLTbh70opmL79o84fCyfAjuQ4+e3qQAFnZg5C1go5gHICgh6faami8JA
+	eDchqtgFVDw+DTrrC8i4VPIf/FAPlR0jtP9ZGSPU9Cfo4mycDgFFWi+dgI8eA42eRHf9yUvveBm6w
+	Y8ctNFUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyrn7-00000005EQu-0Cz6;
-	Sat, 07 Mar 2026 13:34:01 +0000
-Received: from server.couthit.com ([162.240.164.96])
+	id 1vysBg-00000005F1D-3dkm;
+	Sat, 07 Mar 2026 13:59:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyrn4-00000005EQ2-16Uq
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Mar 2026 13:33:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject
-	:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=6wzaShk9EeMNa1XUsBArJvrMzEpjudqxehsDLFg0Ul8=; b=QD7TN6/Kr1lA0jVILsKiMXXyVA
-	wTya+6yK8NsRcVp+QOYzhfBxLMQnIZMKbNN8EZTyI2u2H1aFYndnIND+1V3+MKwmrgTqABbecy3gA
-	DAVhhzraJ66fWGr5MfgtOANoOlb/S0q4ru8kIDZyXYDs81V1rcWJKsiWXRRfczn+Q+I/hDy6Yo+em
-	fdIgXnmc1AykkuPLyyADHnoPIK4uNzLGaegSAeUtIrNzkKrGTvzrz3OLN33JwkRKdimfftIPdbnU3
-	gk0ExEgL/82OKMGXddjevmScNELdcDZ5YqhDSUx+atzZtw5dx+kl0Ol0aZVf2lCH9jenVa2bTqWuI
-	j4kZ+RSA==;
-Received: from [122.175.9.182] (port=35204 helo=cypher.couthit.local)
-	by server.couthit.com with esmtpa (Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1vyrmI-00000000qlU-3glV;
-	Sat, 07 Mar 2026 08:33:11 -0500
-From: Parvathi Pudi <parvathi@couthit.com>
-To: nm@ti.com,
-	vigneshr@ti.com,
-	linux@armlinux.org.uk,
-	ebiggers@kernel.org,
-	ardb@kernel.org,
-	khilman@baylibre.com,
-	arnd@arndb.de,
-	krzysztof.kozlowski@oss.qualcomm.com,
-	kory.maincent@bootlin.com,
-	parvathi@couthit.com,
-	tiwai@suse.de,
-	andreas@kemnade.info,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	twoerner@gmail.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	pratheesh@ti.com,
-	j-rameshbabu@ti.com,
-	praneeth@ti.com,
-	srk@ti.com,
-	rogerq@ti.com,
-	danishanwar@ti.com,
-	m-malladi@ti.com,
-	krishna@couthit.com,
-	mohan@couthit.com,
-	pmohan@couthit.com,
-	basharath@couthit.com
-Subject: [PATCH v2] arm: multi_v7_defconfig: Enable BRIDGE and DP83848_PHY for TI AM57xx, AM437x and AM335x
-Date: Sat,  7 Mar 2026 19:02:13 +0530
-Message-ID: <20260307133237.743059-1-parvathi@couthit.com>
-X-Mailer: git-send-email 2.43.0
+	id 1vysBf-00000005F14-3wF1;
+	Sat, 07 Mar 2026 13:59:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DEC2260018;
+	Sat,  7 Mar 2026 13:59:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19A85C19422;
+	Sat,  7 Mar 2026 13:59:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772891962;
+	bh=17VMiHgUST28gqV1LVY05XoOYBeoqqpg16VhStBb1bQ=;
+	h=From:Date:Subject:To:Cc:From;
+	b=V0DsEfh7iMNnVVZG5fBUfZPwhwBeo2F7G9lKiy9lspZa2n/Lm1VGVTGp8bg5fmK2t
+	 h1KMOwpjzdmlaWQiY7zDW5gc1wjmeXZCw2viVCsU23nxdUwnQVb2qWyY2vxkc8fA7k
+	 4NGVCu26Qoz67WVzjk4oqODuvkgRWU9FQ0y2iY3oMksvB0M6sIBOqLBqMZmgOd41/o
+	 t+Vp5iNyv2sPbT2QX88JS+FGlqgISYAeM/+sdYet2ZJJWsFT1hpBjajVRrfhoAujPK
+	 I7aInXZ7QUsufmG+cbbh6C0X82N6v67TaP7hwAnthn0+TxayNmjEEGtGHwF1PVchaA
+	 w+gNxl8LwMrTA==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Sat, 07 Mar 2026 14:59:12 +0100
+Subject: [PATCH mt76] wifi: mt76: mt7996: Switch deflink to seclink only if
+ link lookup does not fail
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
-X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260307_053358_326903_6D045295 
-X-CRM114-Status: UNSURE (   4.33  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260307-mt7996-sta-sec-link-fix-v1-1-d9c4ed7a85d8@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MSQqAMAwAvyI5G6hbS/2KeFAbNahVGhFB/LvF4
+ wzMPCAUmATq5IFAFwvvPkKWJjDMnZ8I2UWGXOVaFcrgdhprNcrZodCAK/sFR77ROO1KS5WmvoR
+ YH4Gi/s9N+74fZkvNxWkAAAA=
+X-Change-ID: 20260307-mt7996-sta-sec-link-fix-7d6d49e56eb4
+To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,37 +74,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch enables BRIDGE and DP83848_PHY as kernel modules for AM57xx,
-AM437x and AM335x SoCs. BRIDGE is to support STP/RSTP Switch mode using
-PRU-ICSS which got recently merged and DP83848 PHY driver to support
-TI TLK10X PHY.
+Do not switch default link to the secondary link in
+mt7996_mac_sta_remove_links routine if the lookup for the secondary
+msta_link fails.
 
-Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+Fixes: d7e5444f9eb02 ("wifi: mt76: mt7996: Switch to the secondary link if the default one is removed")
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- arch/arm/configs/multi_v7_defconfig | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/net/wireless/mediatek/mt76/mt7996/main.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
-index c102c4acdd8f..037df0c9eb5e 100644
---- a/arch/arm/configs/multi_v7_defconfig
-+++ b/arch/arm/configs/multi_v7_defconfig
-@@ -149,6 +149,7 @@ CONFIG_INET6_IPCOMP=m
- CONFIG_IPV6_MIP6=m
- CONFIG_IPV6_TUNNEL=m
- CONFIG_IPV6_MULTIPLE_TABLES=y
-+CONFIG_BRIDGE=m
- CONFIG_NET_DSA=m
- CONFIG_QRTR=m
- CONFIG_QRTR_SMD=m
-@@ -289,6 +290,7 @@ CONFIG_ICPLUS_PHY=y
- CONFIG_MARVELL_PHY=y
- CONFIG_AT803X_PHY=y
- CONFIG_ROCKCHIP_PHY=y
-+CONFIG_DP83848_PHY=m
- CONFIG_DP83867_PHY=y
- CONFIG_CAN_AT91=m
- CONFIG_CAN_FLEXCAN=m
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+index e1e51c9a0767be5a15dae48d627fb45b6f12af21..00e0e5915afe32b70205f1128f32a07ac02223e8 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+@@ -1122,21 +1122,22 @@ mt7996_mac_sta_remove_links(struct mt7996_dev *dev, struct ieee80211_vif *vif,
+ 
+ 		mphy->num_sta--;
+ 		if (msta->deflink_id == link_id) {
+-			if (msta->seclink_id == msta->deflink_id) {
++			msta->deflink_id = IEEE80211_LINK_UNSPECIFIED;
++			if (msta->seclink_id == link_id) {
+ 				/* no secondary link available */
+-				msta->deflink_id = IEEE80211_LINK_UNSPECIFIED;
+ 				msta->seclink_id = msta->deflink_id;
+ 			} else {
+ 				struct mt7996_sta_link *msta_seclink;
+ 
+ 				/* switch to the secondary link */
+-				msta->deflink_id = msta->seclink_id;
+ 				msta_seclink = mt76_dereference(
+ 						msta->link[msta->seclink_id],
+ 						mdev);
+-				if (msta_seclink)
++				if (msta_seclink) {
++					msta->deflink_id = msta->seclink_id;
+ 					mt7996_sta_init_txq_wcid(sta,
+ 						msta_seclink->wcid.idx);
++				}
+ 			}
+ 		} else if (msta->seclink_id == link_id) {
+ 			msta->seclink_id = msta->deflink_id;
+
+---
+base-commit: 030eea77accf40477be540445fc5a5be52d810a3
+change-id: 20260307-mt7996-sta-sec-link-fix-7d6d49e56eb4
+
+Best regards,
 -- 
-2.43.0
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
