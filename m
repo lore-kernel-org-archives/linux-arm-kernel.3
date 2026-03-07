@@ -4,97 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EF28FCB602
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 15:46:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C37CFCB602
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 15:55:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uIuoqWZv8tHnvu9QNytBoqL4NkVScPssH158PsBBt80=; b=pYcCtXx7OkCluzcADuTwXIhn64
-	UsUBzrSt0PlCnY8uhuRxt5IJLCGr1DI/sKTnoMA9ziJnigxQ3xzd3+xrW+mIi5iX1sP+GyPs6pTz/
-	ESq23HqYKZf8GoHeDXvrSfBad2TC44yZf0AkZ8ARuvAvc9AKW3aVK15448gNlpT+G3dbEGd1/0z/8
-	W/I9OFZLd/SLQ51620A8d5QrzXzBglZr0KxgqGpEyfhkP2r1HJc2iMGPOeBa0RxfbR66vooWkB2HD
-	1LtKMChyhZvLSkn4w4AUyHpSfqlG3dESx5ej78ajeKdmsxq88fKDaBnza9Hh4mUz6LgtXkK9nTsV+
-	Hq2lStug==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=W9oa0AHQoPurBACCzWUh4c9uWAceyEmwnMnCZmzmFq8=; b=awMTspkgFDpOxCrOENrRO44Vwz
+	gRVKf3GK9glN7aiA5Wj0ZZINMR0Ll9h2jeAP8lEzejwQm77vDKywiGoj7KqFqriMu3o8+kbrqxdA3
+	Wpp34o9Tdv4E5KtDHhIfOE1bYgocjSnOdW9jpLdB0IG+LqtJzGZPao8FvFk6W2nJJvdxYyAVBHyjf
+	swW1MfKqYTSXluzuYuh3p5RJbwiLtWYdNpPVWSiVg1tiYaGgsQtpVt3viIwysEVTGnUkw5w51ir62
+	mNKG/9Ns6bKwyGJ/q2wx5jx5cge82e6o5WxHs5ymW9aT86avICYvKBqGG9BF6/ahQmR2ORi2sy/fi
+	vnXhEY2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vytrf-00000005Jit-12ox;
-	Sat, 07 Mar 2026 15:46:51 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1vytzn-00000005Jxx-17lo;
+	Sat, 07 Mar 2026 15:55:15 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vytrb-00000005JiK-32he
+	id 1vytzl-00000005JxM-13fA
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Mar 2026 15:46:50 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-359a5d8b3f8so2620921a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 07 Mar 2026 07:46:47 -0800 (PST)
+	Sat, 07 Mar 2026 15:55:14 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-483a233819aso101141245e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 07 Mar 2026 07:55:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772898407; x=1773503207; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=uIuoqWZv8tHnvu9QNytBoqL4NkVScPssH158PsBBt80=;
-        b=avkNFKhf/qAiZW26OnDI7SYvh4LIjRL2UdJr2/1WBZJoOIX+Z3KDE+dHvxWoJzwyky
-         W0zAG6jAX0Dm7LFugddpZQWivRgjatN6JN+jsgGvHWKn9SsdncA+9qXrY6iMrTawU7/c
-         y3I7Hx8tMsLbvm/bNmPCHgWJ379ZIviPBNJwAzPMFXw3H2AQSCPe5JXilhdj6D88sglB
-         Eih+cmK9ZmICMdQG9YYKr3YSJhKOpwCFRZcFOdfjrh+xozT1zNhgLc8hUh5EWkS14zlN
-         NFYIXr/R5c7Nap5RYS4Kt4u0uy0PAM2/9VsVGOHHx0HnKuQHjvu2oDu0ZwYBbzubsXWh
-         Lbnw==
+        d=gmail.com; s=20230601; t=1772898911; x=1773503711; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=W9oa0AHQoPurBACCzWUh4c9uWAceyEmwnMnCZmzmFq8=;
+        b=XV1jpoW4jxk3XIYGm9fBxkL9oUypzO3nG3yE88tdIdCS2f6QMF17zbjojlBv0/8tlM
+         aOLgXYvtcMPA8wksnuyrZs81osZ99htqWy5vOyFTF7I/D6l1S181R5ejOQR/QNjxe2Of
+         DNT0gOYlyU2N8mVgvaW8zFvyObdSx/GUfMbrOcgNMONE1+7xjsbEntzQdgnrKP6GfLFn
+         za/9+WdzsweptI4Mly/2izK0FgqMvcAAsEVSq+yw9vdlsOBPO5NVM3mWGgdbhRxn4JwF
+         BEZW8X1D2Yv1UVB8o+R3bgVS+PuF5Nzrkn1kjZ79p6uLRcNf6ejKt3LxKt/rNpjVget0
+         sNEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772898407; x=1773503207;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=uIuoqWZv8tHnvu9QNytBoqL4NkVScPssH158PsBBt80=;
-        b=E3m4g/daPaREvCPXxREIijuCHThFGp2gFDPyT4ENVkq1z9wxTGjq02kDEzqjsJl15t
-         XsPk/v4lgDplcLfGt7VQhx2KPX9qZ8AqRZEmdwaenyJYzk9jAL0q1o2cSaVuPec3i+fF
-         0uAvssq7NTeXerApOV/pm3BHKa3Un+PIbonRcUiydZFiug59SpQ89iuh94t5jAELKbuT
-         +33gTfKIVojesgzmaYPqWK1XcXqAaMlQENbfw+mYW85wbDdggXENM0Q/dUIuGONvBuxv
-         LUXpng13kxldFJEfrRcpebKlSMteYNbLvgutAqyeE1M1jWK1DD0Z4p6AukuZt8mDGdb6
-         FfvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXXDs5B+5QP8WT7xTySiEdwEJvWn9YhLqAvmvqdex5LGu5THY0N9Lf3/4SZVhQbi769IC4N+oWLP4ts5LezKIIV@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNvnHIjTGzDRUFtHcdsK3E5gBp+3++87NzxsfYXECpNPPIuAzt
-	bW/1J5fJuBn/pxa67ECh25lw6KOVc3+UMSyI4WvzMUKJls9ymSr1bAto
-X-Gm-Gg: ATEYQzzxElD73H9mplKUpq1Wzmo0HJ8E1LGzEh47ktYzt3lRPM4TNAc7vVXiNeZBt74
-	JvzqncQSbC3MKZdxiZ7qkl+TEJ5A7sMDEXLzg1sj/w6CS2msgXxeofIpiVJgJIoqwUyG0r2hlH7
-	bqjRmVoiAIpCwgB5AXjDQq2CRPOwwdnjek+0wb7ztQM4bOSFFZ2p/JeeESZBNFvu779IBX1S7T1
-	5Xdh4EQTh0Rz2IfqgtpzzyWFgwLL9pZb2pIVKa05Xwy6CFN1lPWeRb4vsqeB8I1G0RtTMNFyE6r
-	JDiWMU5Jk3dBbNbQbqct1yUdCsGRQXA5THuY/N8WcdMpTzmr2T/8JzoFz1eiSPkLwwBbB939tmS
-	ggA2wvrIrsbc/UprVN0D/oGq/1ueZ/jS7yNOeZOPikOzz+CuxkScYwrWSdYZu66EKB41KTmcYvV
-	eKiOgQd7/Tt86c6eoUMgREcEusD5marcXFjhqKrD2M5dej18WFSbBtMytmmx6huV4q7KY1tmagp
-	YXFga0+0KU=
-X-Received: by 2002:a17:90b:5410:b0:352:ba0f:fb28 with SMTP id 98e67ed59e1d1-359be23398cmr5286986a91.1.1772898406660;
-        Sat, 07 Mar 2026 07:46:46 -0800 (PST)
-Received: from ?IPV6:2409:40f2:2133:57ee:dd51:fda6:69f8:15b9? ([2409:40f2:2133:57ee:dd51:fda6:69f8:15b9])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-359bcb2abecsm1943723a91.9.2026.03.07.07.46.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 07 Mar 2026 07:46:46 -0800 (PST)
-Message-ID: <2185210c-d407-4019-a364-9e72df93029a@gmail.com>
-Date: Sat, 7 Mar 2026 21:16:39 +0530
+        d=1e100.net; s=20230601; t=1772898911; x=1773503711;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=W9oa0AHQoPurBACCzWUh4c9uWAceyEmwnMnCZmzmFq8=;
+        b=BugZWoJvwz3KOonZSA3bw45q4Adil+2IDewL22cffe1zukU6Y7HWkBi7gsrK9WT92M
+         wwXbfJnH3wbtGBHxBrQmUIysQdITIIJ6tq9eqypykJtQpVEx2RtyUw5PVj2nEAjMT7Jm
+         hab1MADSkoUZYjk8q6MkEKRtzvldNXHDm2X1KMusT1JDWBq1Hpx44H5EoN2mcZq3CHmx
+         1/CZ2Hd6bBnm+/Zhpc3kIF9TylVm4gYUlC96p2cyfgEY5MTIFuzvtXEAmgFzqVv02x51
+         mGBqnn4zY4SPTOdm9I+Cz/i8KkKb6Oda08WrguMj3PzbFs/dL0wjnKOUBCb6aPD98K++
+         z1zQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWPbHz+K59FgAUY79R3HHbbAjtncfOj9GXzlw/T8W9rlop1qF57aS+9ZnkBA1j9ol08q/N5D/YbwXPlDZF6XTB4@lists.infradead.org
+X-Gm-Message-State: AOJu0YxdEp9X1T/xrQqcOW+tQjOs4JST+r5rDqH72sWYXHAAq33icR1H
+	mjytIjO1f3jdsB9meTFnjBWq3RGZyLkZS7gDOHm/Y0MFSZmRj2atNIFo
+X-Gm-Gg: ATEYQzzOcK8EKlvQW6Dhu7iWQl8pwJmdL6hRx4DgmooWaEX+1AxgvmpjiicKLwU+jGn
+	JbkcQSsCoYn+MISCvmOXJGYdCX5/6Z7eJqb9Sl4cSexuC5tM1LcUR5qAwbLarRaGGlLxY/NbHTI
+	hFKCh+1T6xSavIfanRVGs2PgpHztgNWv6BBI5C7jZMn7Y7P6EQFU0XUOBm6UN3u4zFURhelI8kv
+	x2EHtRgITRgns10/6V2ZjRHhXAMsIZ25nn1JdkWlAwHdNu96y9DLnW16d3wI5Hn8mQzSvOp51YN
+	Jaxcc/ytFgZlYKEluB5pjSefwzH1pEKl6IF/c/W0sRiY+J1rLzeCza2BkkEK38sXHC3xAVKy/gu
+	IKjAphi1Nmh2VPao68HWzB/WYziyrX8+pzYqOO7gtem0h7b+dudJCXlKZoZHkLmhVErs3Zh79MJ
+	V/6/qXDVJeL2wd1LKOxC7t3SCkKsOE9Zz0vW66pC9jZ77ED5cdTA0WSAQgaM7qcUj+CLm9GwXy5
+	7RJXvBjOEkog+5pfJIW7nA7aw==
+X-Received: by 2002:a05:600c:c4a3:b0:483:9139:4c1d with SMTP id 5b1f17b1804b1-4852692c943mr101324685e9.14.1772898910962;
+        Sat, 07 Mar 2026 07:55:10 -0800 (PST)
+Received: from GLaDOS.lan (93-35-179-236.ip56.fastwebnet.it. [93.35.179.236])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48527681a3esm261097785e9.4.2026.03.07.07.55.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 07 Mar 2026 07:55:10 -0800 (PST)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+To: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.radaelli21@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Subject: [PATCH v3 00/11] arm64: dts: freescale: imx8mm-var-som: Align SOM and Symphony DTSs
+Date: Sat,  7 Mar 2026 16:54:36 +0100
+Message-ID: <cover.1772898346.git.stefano.radaelli21@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/5] dt-bindings: arm: microchip,sam9x60-pit64b :
- convert to DT schema
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Conor Dooley <conor.dooley@microchip.com>
-References: <20260227-arm-microchip-v4-0-7e2ae1c5b5d6@gmail.com>
- <20260227-arm-microchip-v4-3-7e2ae1c5b5d6@gmail.com>
- <aacb74f1-5d4a-4ed1-92fe-0c5536691274@tuxon.dev>
-Content-Language: en-US
-From: Akhila YS <akhilayalmati@gmail.com>
-In-Reply-To: <aacb74f1-5d4a-4ed1-92fe-0c5536691274@tuxon.dev>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260307_074648_759298_E6FCBC0A 
-X-CRM114-Status: GOOD (  15.51  )
+X-CRM114-CacheID: sfid-20260307_075513_328413_6A0BB35D 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,93 +106,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series aligns the i.MX8MM VAR-SOM and VAR-SOM Symphony device
+trees with the latest hardware revisions.
 
-On 07-03-2026 20:01, Claudiu Beznea wrote:
->
->
-> On 2/27/26 17:14, Akhila YS wrote:
->> Convert Atmel Periodic interval timer of 64bit (PIT64b) binding to YAML
->> format.
->> Changes during conversion:
->> - Add missing compatible "microchip,sama7g5-pit64b" along with a
->> fallback
->> compatible "microchip,sam9x60-pit64b".
->>
->> Acked-by: Conor Dooley <conor.dooley@microchip.com>
->> Signed-off-by: Akhila YS <akhilayalmati@gmail.com>
->> ---
->>   .../devicetree/bindings/arm/atmel-sysregs.txt      |  8 ---
->>   .../bindings/arm/microchip,sam9x60-pit64b.yaml     | 68
->> ++++++++++++++++++++++
->>   2 files changed, 68 insertions(+), 8 deletions(-)
->>
->> diff --git a/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
->> b/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
->> index 70059f66f2b4..d0561f7f465c 100644
->> --- a/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
->> +++ b/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
->> @@ -1,13 +1,5 @@
->>   Atmel system registers
->>   -PIT64B Timer required properties:
->> -- compatible: Should be "microchip,sam9x60-pit64b" or
->> -            "microchip,sam9x7-pit64b", "microchip,sam9x60-pit64b"
->> -            "microchip,sama7d65-pit64b", "microchip,sam9x60-pit64b"
->> -- reg: Should contain registers location and length
->> -- interrupts: Should contain interrupt for PIT64B timer
->> -- clocks: Should contain the available clock sources for PIT64B timer.
->> -
->>   System Timer (ST) required properties:
->>   - compatible: Should be "atmel,at91rm9200-st", "syscon", "simple-mfd"
->>   - reg: Should contain registers location and length
->> diff --git
->> a/Documentation/devicetree/bindings/arm/microchip,sam9x60-pit64b.yaml
->> b/Documentation/devicetree/bindings/arm/microchip,sam9x60-pit64b.yaml
->> new file mode 100644
->> index 000000000000..f00ac7e858d9
->> --- /dev/null
->> +++
->> b/Documentation/devicetree/bindings/arm/microchip,sam9x60-pit64b.yaml
->> @@ -0,0 +1,68 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/arm/microchip,sam9x60-pit64b.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Microchip PIT64B 64-bit Periodic Interval Timer
->> +
->> +maintainers:
->> +  - Nicolas Ferre <nicolas.ferre@microchip.com>
->> +  - Claudiu Beznea <claudiu.beznea@tuxon.dev>
->> +
->> +description:
->> +  The Microchip PIT64B is a 64-bit periodic interval timer used in
->> +  several modern Microchip ARM SoCs including SAM9X60, SAM9X7 and
->> +  SAMA7D65 families. It provides extended timing range, flexible
->> +  clock selection and supports both periodic and one-shot interrupt
->> +  generation modes.
->> +
->> +properties:
->> +  compatible:
->> +    oneOf:
->> +      - const: microchip,sam9x60-pit64b
->> +      - items:
->> +          - enum:
->> +              - microchip,sama7d65-pit64b
->> +              - microchip,sama7g5-pit64b
->> +              - microchip,sam9x7-pit64b
->
-> Same here, I'll adjust this list to be alphanumerically sorted, thus,
-> microchip,sam9x7-pit64b first. Other than that: 
+The update consolidates the device tree descriptions to better reflect
+the actual hardware partitioning between the SOM and the carrier board.
+Nodes describing peripherals physically present on the SOM are kept in
+the SOM dtsi, while carrier-specific components are described in the
+corresponding carrier dts.
+
+The changes were tested on the latest VAR-SOM and Symphony hardware
+revision.
+
+v2->v3:
+ - Add clock-names porperty along with clocks
+
+v1->v2:
+ - Moved phy LED configurations to symphony dts
+ - Added Wifi/BT dtsi variants for both iw61x and brcm legacy modules
+
+Stefano Radaelli (11):
+  arm64: dts: freescale: imx8mm-var-som: Move UART4 description to
+    Symphony
+  arm64: dts: freescale: imx8mm-var-som: Align fsl,pins tables
+  arm64: dts: freescale: imx8mm-var-som: Update FEC support with
+    MaxLinear PHY
+  arm64: dts: freescale: imx8mm-var-som: Add support for WM8904 audio
+    codec
+  arm64: dts: freescale: imx8mm-var-som: Add MCP251xFD CAN controller
+  arm64: dts: freescale: imx8mm-var-som: Update WiFi/BT with variants
+  arm64: dts: imx8mm-var-som-symphony: Move USB configuration from SOM
+  arm64: dts: imx8mm-var-som-symphony: Enable uSD on USDHC2
+  arm64: dts: imx8mm-var-som-symphony: Add TPM2 support
+  arm64: dts: imx8mm-var-som-symphony: Enable I2C4
+  arm64: dts: imx8mm-var-som-symphony: Enable PCIe
+
+ .../dts/freescale/imx8mm-var-som-symphony.dts | 225 ++++++++++-
+ .../imx8mm-var-som-wifi-brcm-legacy.dtsi      |  12 +
+ .../imx8mm-var-som-wifi-bt-iw61x.dtsi         |  45 +++
+ .../boot/dts/freescale/imx8mm-var-som.dtsi    | 366 ++++++++++++------
+ 4 files changed, 503 insertions(+), 145 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-var-som-wifi-brcm-legacy.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-var-som-wifi-bt-iw61x.dtsi
 
 
-Thank you claudiu.
-
->
-> Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
->
+base-commit: 37a93dd5c49b5fda807fd204edf2547c3493319c
 -- 
-Best Regards,
-Akhila.
+2.47.3
 
 
