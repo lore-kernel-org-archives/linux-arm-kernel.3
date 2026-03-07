@@ -4,64 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05691F55104
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 21:13:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC716F55104
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 21:49:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w8t269qI4kdA1DU9l5jve4mAHmOdAC9k1jnaSrHc+Rc=; b=Uq3XsZRGABMef8gkdCrGQ4t2Vv
-	qYnhQKdtY5rov6L7846qujTFxfMJEYCzPHJ7dvw7nPtO+klC8vR4gSXaWCrMUbGDQLv+UT1MkoEma
-	w6UCtI3hokE1uTC5VSyIHw0CS1I16x31O7ouzDTfJjUx0HRgsGVU3eN9fSFmUaD7d34O9bvNaVnuQ
-	ix848BNAt/rSO6ENGF82nD7rUqljLhiTyP08Mhm6Pe9nR+n4v7rjm2fPQQzHvsbxOgtI0LwdUGbja
-	run+bRfXZ2oEEajj/Klt3MgnaUOjmTxWH6To9kq8aSjpE1hPHGsaGEC77MVLPthCYwBA7+9WWnHK3
-	SKunA5cA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aV56FIn/w0hjVO78zZPuHp2/9LWepwy44VDkDoSi+RU=; b=ys2bKY8i9y/kscuMo/jOxpFSRj
+	sKS/N9PlkuxlPD95S2sNG19kLlTJNGNagvRm7cEGpN00s+znKiTssYkBJmU/Xia4/IeW3IYozBMMo
+	O1e5Yh/TF0OAH/FGSCTqKANZ0CjrsIzMGnYTnNl2JfNo4QNdAsStjfP5RN2m8gPBE6E+JOh/EOrC7
+	SMipa9xInFbM0R1d0X4hyXkJnKaCWmam4Tn1e8YrUlsSMKWUr1w/V9FizmPbUqMBg1qYCir2FDTjE
+	u455tZvA7Ta1Kg+Hcw4T4h6ntve9cAcc5lyLcKyBp3SKtR5KNeQ1A838NdmV4YmEFfQmmUwi6rSqJ
+	Th5XsEiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyyxe-00000005VsQ-3Fsu;
-	Sat, 07 Mar 2026 21:13:22 +0000
-Received: from mout01.posteo.de ([185.67.36.65])
+	id 1vyzWO-00000005Wz9-28JW;
+	Sat, 07 Mar 2026 21:49:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyyxb-00000005Vrw-2XO7
+	id 1vyzWL-00000005Wyn-3Osu
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Mar 2026 21:13:20 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout01.posteo.de (Postfix) with ESMTPS id 3B999240027
-	for <linux-arm-kernel@lists.infradead.org>; Sat,  7 Mar 2026 22:13:13 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de; s=2017;
-	t=1772917994; bh=w8t269qI4kdA1DU9l5jve4mAHmOdAC9k1jnaSrHc+Rc=;
-	h=Date:From:To:cc:Subject:Message-ID:MIME-Version:Content-Type:
-	 From;
-	b=i+7+xMyUaRyLma3TOZp6aKmBCzp+qx5AvH3jRwQ+7OTt8+QGu3bHpFia0dZUX+UxJ
-	 UmmWUP6r7B9/42G2K0b7VdwBuvleh9rKr0XxHmtvKx5UwBfzUDJNnAHCiY8NGcK4OA
-	 2smb7y5boa3tZWP3MASz6eFrrCydqCOgVz/Kc/6CanqerTlaAuR8bkgESzWPfv9tyj
-	 wqlaqphECY0c2E/NFZaabujyXQHXKh8LDoJXV6+TJFwQ46G9c8djJn1CHEcapcMQk4
-	 f6NTcDeyk996Sfgu+jwemfAGP98w5UXCYdWHo51e+Achp83WCPiS7iJ1Fcjf1AUigi
-	 QBu86GytgtMrQ==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4fSwwl4JjWz6tw2;
-	Sat,  7 Mar 2026 22:13:11 +0100 (CET)
-Date: Sat, 07 Mar 2026 21:13:12 +0000
-From: Marc Dietrich <marvin24@posteo.de>
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-cc: Thierry Reding <thierry.reding@gmail.com>, Arnd Bergmann <arnd@kernel.org>, 
-    Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-    Conor Dooley <conor+dt@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
-    devicetree@vger.kernel.org, linux-tegra@vger.kernel.org, 
-    linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] ARM: tegra: paz00: configure WiFi rfkill switch through
- device tree
-In-Reply-To: <aaSsgDqmTLEQQqK0@google.com>
-Message-ID: <78b4684a-0e97-ebac-c955-6c77c3edc47f@posteo.de>
-References: <aY_BpRQmLdqOOW2K@google.com> <82f24afb-1fd2-bfc9-2215-4526aff372ba@gmx.de> <07c024a6-d2f9-5805-4ae7-cbc89cda53bf@gmx.de> <aZvdDIYlCjg8sVGT@google.com> <99ddd816-f19f-cda8-15a9-6273e26e9e8b@gmx.de> <4a1bcdfd-e308-e357-2409-8bc82f115928@gmx.de>
- <aaSsgDqmTLEQQqK0@google.com>
+	Sat, 07 Mar 2026 21:49:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3C4FB44293;
+	Sat,  7 Mar 2026 21:49:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16919C19422;
+	Sat,  7 Mar 2026 21:49:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772920150;
+	bh=JWLxBlGMmNnVczOuCHRUgXf0FzVigXkQFSML94D6Cx0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=fQCA5/MlBKXDR4oXT1l9H/9pTCP8+w2vPahmkWTT1tPbTrstPQnMQEQvlGG0dp13w
+	 UeFQ7/Bk0n1Gi9YpGSkBsKKwEU8KJh8z+yo1tnxm6xwAPZ7hHoxmrVrRdKKf9Vk718
+	 HzBWarD2cwC2F0as3IUOiRQtnxEMvkXtmTX2x+JrhNQB0SBDRJ4ep7einjzlyn/xN0
+	 iLm0ye2Hy7JmIWp+BElVNKJzXUkQ/dbW6XCiI9Q6aNgtjtrxJEARCFPXuL8dOrWf4q
+	 x5KvsAsYL9QM1Te8c2oEdL+TuIIamrE8558JayF2RRYzsCUl0ca1zlmHD16Ihnfq8Y
+	 cemFG3saEpgRw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vyzWF-0000000HExA-36SL;
+	Sat, 07 Mar 2026 21:49:07 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Valentine Burley <valentine.burley@collabora.com>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: vgic: Pick EOIcount deactivations from AP-list tail
+Date: Sat,  7 Mar 2026 21:49:02 +0000
+Message-ID: <177292012643.3782537.4761110161677625245.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260307191151.3781182-1-maz@kernel.org>
+References: <20260307191151.3781182-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII; format=flowed
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, valentine.burley@collabora.com, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260307_131319_808455_3BCA8240 
-X-CRM114-Status: GOOD (  14.03  )
+X-CRM114-CacheID: sfid-20260307_134913_864818_E845097B 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,25 +88,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat, 07 Mar 2026 19:11:51 +0000, Marc Zyngier wrote:
+> Valentine reports that their guests fail to boot correctly, losing
+> interrupts, and indicates that the wrong interrupt gets deactivated.
+> 
+> What happens here is that if the maintenance interrupt is slow enough
+> to kick us out of the guest, extra interrupts can be activated from
+> the LRs. We then exit and proceed to handle EOIcount deactivations,
+> picking active interrupts from the AP list. But we start from the
+> top of the list, potentially deactivating interrupts that were in
+> the LRs, while EOIcount only denotes deactivation of interrupts that
+> are not present in an LR.
+> 
+> [...]
 
+Applied to fixes, thanks!
 
-On Sun, 1 Mar 2026, Dmitry Torokhov wrote:
+[1/1] KVM: arm64: vgic: Pick EOIcount deactivations from AP-list tail
+      commit: 6da5e537f5afe091658e846da1949d7e557d2ade
 
-> Hi Marc,
->
-> On Sun, Mar 01, 2026 at 09:55:45PM +0100, Marc Dietrich wrote:
->>
->> thinking about all this a bit more, I guess your approach to just convert
->> the driver to device-tree and not change any functionally beside it, is the
->> best solution for now (and good pratice in general).
->> Maybe I can get access to a machine with bluetooth (or some other user steps
->> up), so we can try to find a better solution, if required at all.
->
-> Thank you. I believe your tested-by is applicable to the current version
-> of the patch as well, so maybe Thierry can simply pick it up.
+Cheers,
 
-yes sure, thanks!
+	M.
+-- 
+Without deviation from the norm, progress is not possible.
 
-Marc
 
 
