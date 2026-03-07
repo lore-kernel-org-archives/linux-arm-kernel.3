@@ -4,80 +4,165 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F076FC9ED9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 07:08:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55594FC9ED9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 07:24:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=csar4R8Mms37q1FO+Z1m04NigIS9iSsqIq0R/vlsczQ=; b=tEx4sq6+mucPwYIKaGnbd07JHb
-	c8yfN/1L2qhm0qzy93FSqyZByEW2W2oEs38qV+SXjljDzaFzw9uKvGIuGklqQn0KJm5ltLc8u7flZ
-	jJeU/34eKYwXCZpRWsnbcC6HIl0lpioWXH/M9ZMZZ0fPR1pUFpCDNTqhuiMUOTpzJyvT2cY8UtuOV
-	4Yo9wq1VPlMC8wCoknBBDSL29iKknRDuOJpnGmTV5IBkJulXtxaXMDiE8rFftvwwRN4B/ucLhYeNQ
-	gwxYGOkzLshmPetyl++uVNq5JMi0dXnAg9GqD1y2sJt/mH/Q0aUPvt2dDpmrELXXWvezHQUhgwAWi
-	w6442csg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k4XCuvnU7cY8J93aYGxX/++iV4bRQmSsHuUVkKNJbdU=; b=Gw0DWaERR+OphIStZwVhWe+89A
+	KXLNYdlCUSfuPKBrVPLFX1jL/D4IbwgEU8BjOI31drtgT97SyRpWS5YrUlXm23MwIaO9Bdf4SMz/N
+	kH7oIvzeAhggv48PCgFjTwiD0j9P0hsZASfljqtfsfpprEG/w/VMK95oZZnY4WRjjt70E4b1qbzZZ
+	LeuPSQwfAhZnTLDE5dB680uejvh58/j7VN9lT2ercCoQBYMzivGy6QIsBGIUCwOHiHFF/oOZ0Q2AL
+	MtKXw2Zapd2kF/J311Hw24lMBQBG9hmvUp1ZJhSjWnSxaJgpK0L3rX8uKTrw8PcKTwhmxzklHKCLG
+	go/fZbjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vylmN-00000004xoN-1LmW;
-	Sat, 07 Mar 2026 07:08:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vym0t-00000004yTE-3RCL;
+	Sat, 07 Mar 2026 07:23:51 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vylmI-00000004xnd-2dtQ
+	id 1vym0q-00000004ySt-0s0r
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Mar 2026 07:08:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E78C644552
-	for <linux-arm-kernel@lists.infradead.org>; Sat,  7 Mar 2026 07:08:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B98D1C2BCB8
-	for <linux-arm-kernel@lists.infradead.org>; Sat,  7 Mar 2026 07:08:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772867324;
-	bh=+PW4vo+de0ZspckgLm9CKwYH4siMtdUDVAFkcNGdTis=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=NgqfRAcCG6pYkr1mXkaBARHGF6rS0MADuHvkm6Fl7W1bUJoypY8UPBbhQS4bn5779
-	 ru0VyK6I/lOLTk6Nkrw1oDd0U475cEAVv0hEa2U6YZzdOSX6DYgqp90cIho7vqoa3t
-	 cTC3YEfpdb2kbm4rMMFg7y2FZLXvrJ7SW/D00OjE+csT3J+YNo61NwtQc8asy80nPg
-	 6oZSQ/Y0A9dQu3wmjgIj7j15MnJhkHdGboaZ9uf7ct7W6ZXXdov0mQZGK3KA/yEK6y
-	 nFDuV9dSdYnomVJ8njxp5HcqNa9tVW/ZrWzyyuwjjHpOJV2QQZr2eOKmzvIRfrYDhX
-	 KFIJL87ts1ReA==
-Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-38a3f6da741so12021151fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Mar 2026 23:08:44 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXdrExfpZhxmX7vTQWSyuM03hTCdD7EPaKnmPCwtc74RbcmGVKmxH1qXSyFmhr0dw3v2KkRheTchAsfhkIiJOBL@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHV8YuWwAgIjG9G9XMFC26PKrw3ZJzu1yXq3vmJLZv40znMQdg
-	Yuihq+T1OZKLh5FP3vAz7WTN7uPj9iMhaQYnzzzFjZA/alDhXym0xcpxJnlRW8sWIeLp6MAv/5R
-	fML9Gz/xkxCAq3KXsvVSbaQDZ0foF1pM=
-X-Received: by 2002:a05:6512:b08:b0:5a1:3f52:8601 with SMTP id
- 2adb3069b0e04-5a13f528650mr1073576e87.47.1772867322919; Fri, 06 Mar 2026
- 23:08:42 -0800 (PST)
+	Sat, 07 Mar 2026 07:23:50 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=euVdubGfqRNiPAbjYMghKjASCo+8B2t39iLSmUVCtKQJzZDtxkgosPEJUMGJlbnzkaCIZN1GJZvFytrkQrhNmX5PfytIG8QLI/VrdzqLqFZGTMF0BVwlBpZpI6+sbUOm/yADE7fyRJ2NcKowLGRWl52K3aG8UXsME7/CEb3BGNLdfWvJG1+1VU3om1Rsh3MVUhPrxV0tbYOt/p7HQ2w97TUg4WBj17gc+BlIdvAg2d7a4XpIt7brQmDMslTI1ZmRoRs/r/LKT1ECH7LrjVDrZ7hqjGYD65MF8NhY/R0vo+LX3bWfcqjW6Mwt2q0yxiY+hLilZQOaeR123XFnkoYo3A==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=k4XCuvnU7cY8J93aYGxX/++iV4bRQmSsHuUVkKNJbdU=;
+ b=tbynhf+tKSA5gSFTjwLFsMYjot4n1LJgICKFhAy7i+kDWbimMTOeKW9J+W+m4o1Wofg3Bxf9s9Okfi/ysJGjSg8qvoJJJjUo8CK3uTOu1xlope5aykMDr9tTbZUlaVhL5Zw5AMPdDa0aqPDKgi24FrjNDubrQJZl76HebzUyEIm/DLvh38SN88LAOuiNr/zz81qwDJxErdcxBe1bif36XXd2BuBSv0ha2BW1VuD6VWo77mBJVXZrsw3Z0XNTWFzYppv6MG7Y79PiAA3MGZi60AoF8vC4f4txwq/e7sbTiF8DS/8nErctULMzXfNA2+sy9MtuhVsdvNLb1SMP0cTWWw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=huaweicloud.com smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=k4XCuvnU7cY8J93aYGxX/++iV4bRQmSsHuUVkKNJbdU=;
+ b=lsWSWnOFtCbhzJhs0Och+Bukw0IQMUTkX/Em7ZWzI4QdTDov6qNqR7Y2E05x1UuyhEvLkKFO3Fl/F/w+O3G90upOKwMruL7Gr95lVXFtmpVvyIXeISpQQINURRcTmoBGNy4OV2gINxnDMU6E+wxiSTKWTuHnEoWY3stnKTb4VWs=
+Received: from AS9P194CA0015.EURP194.PROD.OUTLOOK.COM (2603:10a6:20b:46d::14)
+ by DB9PR08MB9948.eurprd08.prod.outlook.com (2603:10a6:10:3d0::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.19; Sat, 7 Mar
+ 2026 07:23:41 +0000
+Received: from AM3PEPF00009B9F.eurprd04.prod.outlook.com
+ (2603:10a6:20b:46d:cafe::7a) by AS9P194CA0015.outlook.office365.com
+ (2603:10a6:20b:46d::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.22 via Frontend Transport; Sat,
+ 7 Mar 2026 07:23:41 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AM3PEPF00009B9F.mail.protection.outlook.com (10.167.16.24) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.18
+ via Frontend Transport; Sat, 7 Mar 2026 07:23:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eT+LzjTqlBbNnybqaprULBMjQQN17/8bkh844kAheXIaT1oNr0Hvjqe70j//33T9jdaB1mjjDY9jWSpzthilwwKKdYuMaqtaYanN3scg0X2btVyB/8oyGi/vi727SdEyecC+1DHgIEDB86a5qXA3vx6cmx7x2VJl5q0FP2TNUnB21tgDymqMf0mcLB18s44r0PsDgR+DqTIgJ4i5hgiijdGk9Fk8mNHm1ye1i+4mIcPLIjK4MSYZfUf7p2j93mDVAuRl/+6+/0xFBxDrIvaE1kr2Yy2zft9/3z/MKM1S3bdQOlnARjJITVVMtjeww5uhxYb/6S1EoJN7JAfhdqWzLg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=k4XCuvnU7cY8J93aYGxX/++iV4bRQmSsHuUVkKNJbdU=;
+ b=snuhQEo1ivAsbyHfOKBomRlqRedC9n9CzCwOsrfbOcK5Bho/t0EpZQbO2oHMHq0n4LRfmYx+tY9yPyO7eCoiljx6nXnSU5k2bJZ5AW7rDGC/SDE1hntFjb820LBPlVQDPDqc+ZzGtT4KbQZ/9i1iG1jwRdyScCuCqhUhqked79778g4jZZhmzxtCnte+rasRjyF20NbzVK82nZjpsLkp4V7fKddCwQU+PhrT16mzGTa6ydRee4NeLEtN78o1Y8DAXWImzWux0I45shsuxdRmO+1LP/A92wUhSlpoZZWU1jLOD7tYP+kr3tBhWhp3sDVFt4g+3DAfKg4QiT/Xl82HaA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=k4XCuvnU7cY8J93aYGxX/++iV4bRQmSsHuUVkKNJbdU=;
+ b=lsWSWnOFtCbhzJhs0Och+Bukw0IQMUTkX/Em7ZWzI4QdTDov6qNqR7Y2E05x1UuyhEvLkKFO3Fl/F/w+O3G90upOKwMruL7Gr95lVXFtmpVvyIXeISpQQINURRcTmoBGNy4OV2gINxnDMU6E+wxiSTKWTuHnEoWY3stnKTb4VWs=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20) by DU0PR08MB7994.eurprd08.prod.outlook.com
+ (2603:10a6:10:3e1::14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.19; Sat, 7 Mar
+ 2026 07:22:36 +0000
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::8c9b:58d2:2080:eb98]) by GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::8c9b:58d2:2080:eb98%3]) with mapi id 15.20.9654.022; Sat, 7 Mar 2026
+ 07:22:35 +0000
+Date: Sat, 7 Mar 2026 07:22:31 +0000
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Xu Kuohai <xukuohai@huaweicloud.com>
+Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Anton Protopopov <a.s.protopopov@gmail.com>,
+	Shahab Vahedi <list+bpf@vahedi.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>,
+	Hengqi Chen <hengqi.chen@gmail.com>,
+	Johan Almbladh <johan.almbladh@anyfinetworks.com>,
+	Paul Burton <paulburton@kernel.org>,
+	Hari Bathini <hbathini@linux.ibm.com>,
+	Christophe Leroy <chleroy@kernel.org>,
+	Naveen N Rao <naveen@kernel.org>,
+	Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
+	Pu Lehui <pulehui@huawei.com>, Ilya Leoshkevich <iii@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Wang YanQing <udknight@gmail.com>
+Subject: Re: [bpf-next v6 2/5] bpf: Pass bpf_verifier_env to jit
+Message-ID: <aavSNxiY3PlGNeWV@e129823.arm.com>
+References: <20260306102329.2056216-1-xukuohai@huaweicloud.com>
+ <20260306102329.2056216-3-xukuohai@huaweicloud.com>
+ <aavIVDaVYy/tr7/s@e129823.arm.com>
+ <1ca67134-011b-416e-b632-4ad061b76c28@huaweicloud.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1ca67134-011b-416e-b632-4ad061b76c28@huaweicloud.com>
+X-ClientProxiedBy: LO4P123CA0328.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:18c::9) To GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20)
 MIME-Version: 1.0
-References: <20260306-mt7927-wifi-support-v1-0-c77e7445511d@jetm.me>
-In-Reply-To: <20260306-mt7927-wifi-support-v1-0-c77e7445511d@jetm.me>
-From: Sean Wang <sean.wang@kernel.org>
-Date: Sat, 7 Mar 2026 01:08:31 -0600
-X-Gmail-Original-Message-ID: <CAGp9Lzq1motdBxa9uk59Nhx0rxt4XJAp5OynpWVsB_sAm6Lx8Q@mail.gmail.com>
-X-Gm-Features: AaiRm51FdRaT5F8eM2wYPfbZq4D4Kq301mf_pEP4qcp863zlhdRNAb0csgHWPYU
-Message-ID: <CAGp9Lzq1motdBxa9uk59Nhx0rxt4XJAp5OynpWVsB_sAm6Lx8Q@mail.gmail.com>
-Subject: Re: [PATCH 00/18] wifi: mt76: mt7925: add MT7927 (Filogic 380) support
-To: Javier Tia <floss@jetm.me>
-Cc: linux-wireless@vger.kernel.org, Felix Fietkau <nbd@nbd.name>, 
-	Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, 
-	Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Deren Wu <deren.wu@mediatek.com>, 
-	Ming Yen Hsieh <mingyen.hsieh@mediatek.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	Marcin FM <marcin@lgic.pl>, Cristian-Florin Radoi <radoi.chris@gmail.com>, 
-	George Salukvadze <giosal90@gmail.com>, Evgeny Kapusta <3193631@gmail.com>, 
-	Samu Toljamo <samu.toljamo@gmail.com>, Ariel Rosenfeld <ariel.rosenfeld.750@gmail.com>, 
-	Chapuis Dario <chapuisdario4@gmail.com>, =?UTF-8?Q?Thibaut_Fran=C3=A7ois?= <tibo@humeurlibre.fr>, 
-	=?UTF-8?B?5byg5pet5ra1?= <Loong.0x00@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|DU0PR08MB7994:EE_|AM3PEPF00009B9F:EE_|DB9PR08MB9948:EE_
+X-MS-Office365-Filtering-Correlation-Id: 34cc3f5f-e27b-48c4-46ba-08de7c1a750f
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info-Original: 6jg8+F+1nWYvIuNRqn6jfL6aTHnoaKEkx5109epUX533GAJN4q4uDldNOkkLNAjqI2VcQuE39Z23FS5WrKxRPGbX02JGKHWemOCiLuglo+FJ2neY1NcfoGycomicByDK6+SVSARYk7AABho/bwkCkyFLkUGpqwShiWWokUIZHauBjcILgCgooK65jp1uWa5AKMDray4L2pjjoaLW56Iw/akS/+Mhz6PRvgZUHkYcSkPrOByzM9crZoQkPhMaM+dYhbgUz70gCVuNbILHWQIQphkH7BMAeGOq0Dg4WjSYWQVgWHRzAXMVl+WAogg+2dafzFzL3Mt31564eeS0or5/qowZNLORYYP2gGAyoi2AAbGnYfQdllsarup/cC2Ze21RhWGtaByE16GpBTjfa9y1E9n6FA98PKYmNBxMk0EuNgp0OKQ2kBYmYg59MOxBhGpywOjRfyMQz1hPnjpTXx9/y4tu9sifsIekVJTE3O4NIZKjVr8FaXc1BGsrnmmLuyY1v5qbDNnjXeSsbxuu+i6PwPy8YAe6O8B8PatUMVDiMjFjx0npv3N4VgSg4AW8YHrZd2ipAjI03iJUJb/kWQQRiHrwZnR/jrq/eEM/Kjcs0DMdQpAdRx51308R9b+w9jdT9NFl5ySrx3hokXQa1EIBpi0HylmqgDE9o3fOwY25EOAWaeXEYeUHqyrUspen8Qxm2AYUMKMwYwx/e1HVHea7cwEE0M0l157nSVu9caSg3CA=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB7994
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM3PEPF00009B9F.eurprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 284254b8-5116-4afc-0a51-08de7c1a4e1b
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|14060799003|376014|35042699022|1800799024|7416014|36860700016;
+X-Microsoft-Antispam-Message-Info: KVmTMDSHT8hLh23DXpJlo66/vwC2ODS9yhtQHX3o2+UZK+by5iD5CjBR5cQuQtFc30Ir95Q7xX7yytC8foUSAZ+Xtt1pi1zkwsoMwwN4rxktXLD6hr8EoyXHBVrLJTydc3oEzjqlplHMvMSZb5I39OQzuIkBZoovpIDwgm6OwQEiC/weNxVGWrqlbSGw4R+y9bFLA5gg2ebNfCnE+C7MjgiW0YGZ8ikk8nTC6cJjTx7Lj/bCSz2HYQJguuseM6GwNmKEaXgIEWNp0w1gl4bgT/pAgVPjrnx6yh1rk+1F6irnTfEgSeiE+FPk5PyX81rx3pdeJxX2E5zNEBBH5EksQfNmTqRwtHirF2BkWrJ2BADBYPo/Fcx91cYm3C41QVNDVFXIpS164UV0SM80v1ZQgZb7+/hrVrQI3kVO0+Lqkh18psHphCFZfk8OOw8BtykkPj6v7N5P0T2f0xy8nnJqL0Xzv/f8UKn9sb5F3jd367jnmKPuHGZNL69BgkQTwpyr0TsTlnqGH43BgRxwMx/G/zhKNRfEiHf4Vz8yuyElaNP+Xd+oSf+qO5nhVWgU+JwiLboW6RikQ8CAvJY8g1f77Mu2ipvg/dFBxlnQCEBBBEBFv3vGbOChp37Zq3ZE08NfsF4iY7tBv7qFMn9Dep4qLyHq8Zvlv5OQhFAgzUYSaD3AlImfqWu35jHAltinBzhgqFP4at0LOi0RlMXNBn1JQ8/I9ux70rqVU7xvHUzGfqoMqFmy233xY292RhwSEwbduv66A+4cRIGOc9HGt3KDNw==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(14060799003)(376014)(35042699022)(1800799024)(7416014)(36860700016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: n3+upi6yQTi0CCnr2PVkQPYE937pOc9NkGoMeK1FC+wN5NvmrqY0BnZSItlXOUDatUGvAgfwTdetaQSyjdAvtdXuxoymgYiWKdDuIFMImOKDltqDCtZmEnJ/fPni1TdxVePf+cj1IxNbUksdGqRRK90rZ0h4Quk9XiQfbKutduAR2eOHaIjPrTVhkd0fbC+WtTNdpunI8Q+jLAxBCNBXxLo48RmlEsm/gsuOqpo9PVTLlsT6N/yw01maGmrMQiXCsBXgHDPQ9iWvioA7rdhu4ZMTyRtE4rtNEShN25+pFHudYw+rHCEMEiZAdX3rc14xTFn7n3KdWWCZ5y9js4yBRjCAA5suWxyFk7pMhqDXZBU60lTIpcPngZDLnl+mvuLBggJHo/GbvWEJMu+Rv5pAZfuCZ3HynTcIPcLgoPPFq1FojNe8V1+QjzqPAgwDsIo/
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Mar 2026 07:23:40.7182
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 34cc3f5f-e27b-48c4-46ba-08de7c1a750f
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF00009B9F.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB9948
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_230846_714773_5B6E0F19 
-X-CRM114-Status: GOOD (  31.20  )
+X-CRM114-CacheID: sfid-20260306_232348_337062_231B6AC5 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,228 +177,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Javier,
+Hi,
 
-On Fri, Mar 6, 2026 at 6:33=E2=80=AFPM Javier Tia <floss@jetm.me> wrote:
+> On 3/7/2026 2:40 PM, Yeoreum Yun wrote:
+> > Hi,
+> >
+> > [...]
+> >
+> > > -struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
+> > > +struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
+> >
+> > Does this also work for bpf_prepare_filter()?
+> > For example, ptp_classifier_init() calls it without invoking bpf_check(),
+> > so there is no env available in that context.
+> >
 >
-> This series adds support for the MediaTek MT7927 (Filogic 380) combo
-> WiFi 7 + BT 5.4 module to the mt7925 driver. The MT7927 uses PCI ID
-> 14c3:7927 (some hardware reports 14c3:6639) and shares the mt7925
-> firmware interface but requires different DMA ring layout, IRQ mapping,
-> chip initialization, and power management handling.
->
-> Tested hardware:
-> - ASUS ROG Crosshair X870E Hero (BT 0489:e13a, WiFi 14c3:6639)
-> - ASUS ProArt X870E-Creator WiFi (BT 0489:e13a / 13d3:3588, WiFi 14c3:663=
-9)
-> - ASUS ROG Strix X870E-E (BT 0489:e13a, WiFi 14c3:7927)
-> - Gigabyte X870E Aorus Master X3D (BT 0489:e10f, WiFi 14c3:7927)
-> - Gigabyte Z790 AORUS MASTER X (BT 0489:e10f, WiFi 14c3:7927)
-> - Lenovo Legion Pro 7 16ARX9 (BT 0489:e0fa, WiFi 14c3:7927)
-> - TP-Link Archer TBE550E PCIe (BT 0489:e116, WiFi 14c3:7927)
-> - EDUP EP-MT7927BE M.2 card (WiFi 14c3:7927)
-> - Foxconn/Azurewave M.2 modules (WiFi 14c3:6639)
-> - AMD RZ738 reference design (WiFi 14c3:0738)
->
+> It works. The original bpf_prog_select_runtime() is preserved for
+> cbpf and test code, and passes NULL env to bpf_int_jit_compile().
 
-Thanks for coordinating the work and delivering the driver.
+Yes, I agree it work with the NULL when I see you patch but
+I mean I couldn't find out modification in bpf_prepare_filter()
+-- bpf_jit_compile(fp) -> bpf_jit_compile(NULL, fp)
 
-> Tested on Arch Linux, CachyOS, EndeavourOS, Fedora (Bazzite), NixOS,
-> openSUSE Tumbleweed, and Ubuntu across kernels 6.13-6.19.
+
+
+
 >
-> What works:
-> - WiFi 7 with EHT 320MHz on 2.4/5/6 GHz bands
-> - 320MHz data path verified at 841 Mbps (iperf3 -t30 -P8)
-> - PCIe initialization with CBTOP remap and MT7927-specific DMA layout
-> - Runtime power management and suspend/resume (S3)
-> - DBDC (dual-band concurrent) mode
-> - Explicit band_idx assignment for stable 5GHz/6GHz operation
-> - ASPM disabled for MT7927 to prevent throughput collapse
->
-> Known limitations (planned as follow-up series):
-> - MLO (Multi-Link Operation): tested working on 5GHz+2.4GHz STR
->   (776 Mbps) but requires additional patches for link lifetime
->   and error handling. Sean Wang's series [1] addresses these;
->   MLO support will be submitted as a follow-up on top of that.
->
-> [1] https://lore.kernel.org/linux-wireless/20260306232238.2039675-1-sean.=
-wang@kernel.org/
-> - TX retransmissions: elevated retry rate on all bands, firmware-side
->   rate adaptation issue not addressable in the driver.
->
-> Patches 1-11 bring up the basic driver (chip ID, firmware, DMA, init,
-> power management, 320MHz MCS, mac_reset guard, IRQ map, probe fix).
-> Patch 12 advertises EHT 320MHz capabilities, guarded by is_mt7927().
-> Patches 13-14 fix DMASHDL PM wake and disable ASPM.
-> Patch 15 adds 320MHz bandwidth handling in RXV/TXS status reporting.
-> Patch 16 fixes stale pointer comparisons in change_vif_links.
-> Patch 17 assigns explicit band_idx for stable 5GHz/6GHz operation.
-> Patch 18 adds the missing 320MHz case in bss_rlm_tlv() so firmware
-> receives the correct bandwidth when associated to a 320MHz BSS.
->
-> The WiFi firmware ships as part of the linux-firmware package
-> (mediatek/mt6639/ directory - the firmware uses the mobile SoC codename).
->
-> To: linux-wireless@vger.kernel.org
-> To: Felix Fietkau <nbd@nbd.name>
-> To: Lorenzo Bianconi <lorenzo@kernel.org>
-> To: Ryder Lee <ryder.lee@mediatek.com>
-> To: Shayne Chen <shayne.chen@mediatek.com>
-> To: Sean Wang <sean.wang@mediatek.com>
-> To: Matthias Brugger <matthias.bgg@gmail.com>
-> To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> To: Deren Wu <deren.wu@mediatek.com>
-> To: Ming Yen Hsieh <mingyen.hsieh@mediatek.com>
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-mediatek@lists.infradead.org
-> Tested-by: Marcin FM <marcin@lgic.pl>
-> Tested-by: Cristian-Florin Radoi <radoi.chris@gmail.com>
-> Tested-by: George Salukvadze <giosal90@gmail.com>
-> Tested-by: Evgeny Kapusta <3193631@gmail.com>
-> Tested-by: Samu Toljamo <samu.toljamo@gmail.com>
-> Tested-by: Ariel Rosenfeld <ariel.rosenfeld.750@gmail.com>
-> Tested-by: Chapuis Dario <chapuisdario4@gmail.com>
-> Tested-by: Thibaut Fran=C3=A7ois <tibo@humeurlibre.fr>
-> Tested-by: =E5=BC=A0=E6=97=AD=E6=B6=B5 <Loong.0x00@gmail.com>
->
-> Signed-off-by: Javier Tia <floss@jetm.me>
-> ---
-> Javier Tia (18):
->       wifi: mt76: mt7925: add MT7927 chip ID helpers
->       wifi: mt76: mt7925: add MT7927 firmware paths and PCI device IDs
->       wifi: mt76: mt7925: add MT7927 CBTOP remap and chip initialization
->       wifi: mt76: mt7925: add MT7927 DMA ring layout, IRQ map, and prefet=
-ch
->       wifi: mt76: mt7925: skip CLR_OWN in mt7925e_mcu_init for MT7927
->       wifi: mt76: mt7925: add MT7927 power management, DBDC, and CNM fixe=
-s
->       wifi: mt76: mt7925: use irq_map fields instead of MT_INT_RX_DONE_AL=
-L
->       wifi: mt76: mt7925: guard mac_reset against MT7927 DMA destruction
->       wifi: mt76: mt7925: populate EHT 320MHz MCS map in sta_rec
->       wifi: mt76: mt7925: enable MT7927 runtime power management
->       wifi: mt76: mt7925: fix uninitialized is_mt7927_hw in probe
->       wifi: mt76: mt7925: advertise EHT 320MHz capabilities for 6GHz band
->       wifi: mt76: mt7925: restore FW_DWLD_BYPASS_DMASHDL in MT7927 PM wak=
-e path
->       wifi: mt76: mt7925: disable ASPM for MT7927 to fix throughput colla=
-pse
->       wifi: mt76: mt7925: handle 320MHz bandwidth in RXV and TXS
->       wifi: mt76: mt7925: fix stale pointer comparisons in change_vif_lin=
-ks
->       wifi: mt76: mt7925: fix MT7927 band_idx for stable 5GHz/6GHz operat=
-ion
->       wifi: mt76: mt7925: add 320MHz bandwidth to bss_rlm_tlv
+> > [...]
+> >
+> > Thanks.
+> >
+> > --
+> > Sincerely,
+> > Yeoreum Yun
+> >
+> >
 >
 
-The patchset should be ordered so that common changes (e.g., enabling
-320 MHz support) are added first,
-while chip-specific changes are introduced later (e.g.,
-MT7927-specific IRQ, DMA, and hardware initialization sequences).
-Before introducing chip-specific logic, try to make the functions
-generic enough so that other chips can reuse them in the same way.
-Checks such as is_mt7927 and duplicated function should only be added
-if they cannot be avoided
-
-The more code we can reuse across chips, the fewer maintenance
-concerns there will be, and we can focus more effort on the
-chip-specific parts.
-
-Please reorganize the patchset order as follows:
-
-1. Common patches that can be reused by other chipsets (now or in the
-future) should come first we don't need to mention mt7927
-
-"wifi: mt76: mt7925: fix stale pointer comparisons in change_vif_links"
-"wifi: mt76: mt7925: add 320MHz bandwidth to bss_rlm_tlv"
-"wifi: mt76: mt7925: handle 320MHz bandwidth in RXV and TXS"
-"wifi: mt76: mt7925: populate EHT 320MHz MCS map in sta_rec"
-"wifi: mt76: mt7925: advertise EHT 320MHz capabilities for 6GHz band"
-
-Here we can add a helper like is_320MHz_supported() and then advertise
-EHT 320MHz capabilities, but do not need to mention is_mt7927() yet.
-
-2. Then introduce MT7927-related changes
-
-wifi: mt76: mt7925: add MT7927 chip ID helpers
-Keep the MCU part of "wifi: mt76: mt7925: add MT7927 firmware paths
-and PCI device IDs" but leave enabling the PCI device table for the
-last patch.
-
-3. IRQ handling
-
-Combine
-
-wifi: mt76: mt7925: use irq_map fields instead of MT_INT_RX_DONE_ALL
-the IRQ part of wifi: mt76: mt7925: add MT7927 DMA ring layout, IRQ
-map, and prefetch
-into one patch about irq_map handling, trying to reuse mt7925_irq as
-much as possible.
-
-4. DMA handling
-
-Combine
-
-the DMA part of "wifi: mt76: mt7925: add MT7927 DMA ring layout, IRQ
-map, and prefetch"
-"wifi: mt76: mt7925: restore FW_DWLD_BYPASS_DMASHDL in MT7927 PM wake path"
-into one patch about DMA handling, trying to reuse mt7925_dma_init as
-much as possible.
-
-5. Hardware initialization
-
-Combine
-
-"wifi: mt76: mt7925: add MT7927 CBTOP remap and chip initialization"
-"wifi: mt76: mt7925: fix uninitialized is_mt7927_hw in probe"
-"wifi: mt76: mt7925: skip CLR_OWN in mt7925e_mcu_init for MT7927"
-"wifi: mt76: mt7925: add MT7927 power management, DBDC, and CNM fixes"
-
-into one or more patches focused on pure hardware initialization in
-logical order. If the register definition is used by MT7927, add
-MT7927_ as the prefix.
-
-6. Band index fix
-
-"wifi: mt76: mt7925: fix MT7927 band_idx for stable 5GHz/6GHz operation"
-This is worth introducing helper functions and using them instead of
-implementing the logic inline.
-
-7. Low power support
-
-Combine
-
-"wifi: mt76: mt7925: enable MT7927 runtime power management"
-"wifi: mt76: mt7925: disable ASPM for MT7927 to fix throughput collapse"
-
-into one or more patches related to enabling or disabling low power support=
-.
-
-8. Final patch
-The last patch should enable the MT7927 PCI device table.
-
->  drivers/net/wireless/mediatek/mt76/mt76_connac.h   |   8 +-
->  drivers/net/wireless/mediatek/mt76/mt7925/init.c   |  12 +
->  drivers/net/wireless/mediatek/mt76/mt7925/mac.c    |   9 +
->  drivers/net/wireless/mediatek/mt76/mt7925/main.c   |  72 +++++-
->  drivers/net/wireless/mediatek/mt76/mt7925/mcu.c    |  59 ++++-
->  drivers/net/wireless/mediatek/mt76/mt7925/mt7925.h |  12 +
->  drivers/net/wireless/mediatek/mt76/mt7925/pci.c    | 248 +++++++++++++++=
-+++++-
->  .../net/wireless/mediatek/mt76/mt7925/pci_mac.c    |  13 +-
->  .../net/wireless/mediatek/mt76/mt7925/pci_mcu.c    |  19 +-
->  drivers/net/wireless/mediatek/mt76/mt792x.h        |   6 +
->  drivers/net/wireless/mediatek/mt76/mt792x_dma.c    |  26 ++-
->  drivers/net/wireless/mediatek/mt76/mt792x_regs.h   |  30 +++
->  12 files changed, 479 insertions(+), 35 deletions(-)
-> ---
-> base-commit: 97492c019da4b62df83255e968b23b81c0315530
-> change-id: 20260305-mt7927-wifi-support-02f9738a3962
->
-> Best regards,
-> --
-> Javier Tia <floss@jetm.me>
->
->
+--
+Sincerely,
+Yeoreum Yun
 
