@@ -4,78 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CDAFFC9EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Mar 2026 23:50:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D22FFC9EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 00:18:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7TpbWWX1cj1QogQtOXMz884aeH8NNZvqQ7fJ4Elb1a4=; b=L66axTXISwkIB/FEaNnRsHEi4X
-	pZuBeYfVksS1p1+H9PzVgKXuvUItEw6V+WPMo7MJJIuRe9E9am00CgrQWeGxCiwfInA+jkS5gqZ5A
-	nR3waS/R41lN+C5X2gdg17TJvw8zFb5WpVN1apOQB/sf0B4D9UWogcCtsFJvH0YtJOCAc/85Pm6Vl
-	CklwmTvhIg/t/ASjpfQWxAB7hxk5WVOxG3ATk10X6aGVD3wCn2xJwJkxhg0hFBUGav9EkuRhhlvYj
-	GD1zbrEG2ZxbJs8B1577Uq97OypII9Re5+Iyxwd9Z7guODwNFbNVfdrQXaHZUeqSTxBX9e9gxXpKV
-	pyRUe6Ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IoCse67t9ZQYRxM/3ERn0+Yk7GU6FFs+s1CV/52QRpw=; b=IK/45gW9k/bi+eQNFb3og3jrcH
+	rbmJbYnIei7M5Q3HKjwcEABQ/MI6fCF9QMdfS+IJbpNEzuKc3QUnRY7eUlocDLFl+NsN7AzsB4Dwe
+	aLdjPH2pwtp90o6pzBobTnwC0LhlqGK4jHIOSiH/z9LQxi19Z560ai5RxaMNy92FgkOzX8ppfysL2
+	NpGt+gUOuu68+nKysAOZyt5rRYeyU8ck0NW3oLqYyaCq355u2jv/u29D2uU1cEgMu1kLwV2Syk20p
+	sWXqd+yuvu+O0JCB1rpPgPFfBPzR4HoLLuOnEJREsurshv1DflQyI+Tsm+hQs+iIsFTamiKATY5IN
+	nuGmyG7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyewA-00000004gOK-4AD1;
-	Fri, 06 Mar 2026 23:50:30 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1vyfNI-00000004hIy-3dGf;
+	Sat, 07 Mar 2026 00:18:32 +0000
+Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyew8-00000004gMr-243o
+	id 1vyfNF-00000004hHO-0xZM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Mar 2026 23:50:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: References: Cc:
- To: From: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1772841025;
- bh=7TpbWWX1cj1QogQtOXMz884aeH8NNZvqQ7fJ4Elb1a4=;
- b=WLz4UxpZz2cHHWeIlEpaCrfGVGI6FsAwm7Uvq+dNTfgASzhQLiBkt9QYdpJ0q8WPyOaF8Yqzl
- wOwQWc8akhsYi94HwyDVYK/UPVgPIEnZM1ru9OE4X7hDztLtE4ChcS5MQxVFNlDe2mnAeDxPsjZ
- dzQqhWgpo9+L5RhImdSwRMU4s1Z/boRMRKDRlJ1nDPRqGPjfSwZFQc7gTavlaDz9qYCCC34NXww
- aA7aURNXjEPkZwEeok+dNx844lSZFcUBqv3Hj8GuCpyK0oQ8xA6ud76HLCuaP2Bat/kbZgEcOeB
- 2J5gPvwjelC4ORK3nbojiOKMqo62Bq85wMDi5pfkRyiw==
-X-Forward-Email-ID: 69ab683dce06037f1b6bb7be
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 2.6.39
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <3a42ce98-b552-43d2-aaf3-8ca071c3afd3@kwiboo.se>
-Date: Sat, 7 Mar 2026 00:50:16 +0100
+	Sat, 07 Mar 2026 00:18:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BJ7kQEAbOjw22DIaOwYwHZNCuyIMiP/+94AE/6xaRriA1yPxO6J46gvoqirUHslL9tx+VUwIw0RcOJwUmOe+TSca2OxpxqBl/EDKOHTCorprgvDuDAjfLVNg5L/fFpzE6VNgRMfE6gB8gfCC15Kuht1KbZWcY9ZgubBOBy7ljVii7Vyc/CsMsuko0zl1l6PrZgmCbRrcvxU1WefmyZaHvZ9RuQef3ffvJ9zlzKuIDQJ1hzmGF6UubsOj1qtLmPNmwZtWooyKwFPao1nDmqk3u/MUjnDkiKoO/n7jpNRxOQuThfrk7t8dDc3RriUrZRAklD6/R7YcUKboiBYeofwlOw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IoCse67t9ZQYRxM/3ERn0+Yk7GU6FFs+s1CV/52QRpw=;
+ b=NLrJot94OpahL9fXEYCdNiiuLCKR6u2/5Nh+m7Zprs7DYfMlQUj5UnFXpSMrj1T0lUY3d6OzdLjBtdmXiqK3IHmZGSPKordk59yCd+3WnkGjF5mG+4T/h0Ba4OWA2MkobOCXHybHso8XLZWhoUuYTf+lQZtiOqdopFo5Ir5ZT1Ul41clqZtwiefl/7o6IvV+2fn5pMFRBBV5qe6nJJRzNzVWUMJWOtuTGJGqW/Vu8DXA0BH6pkWy40sWLEVcYg9ysRay0X9bDS+kAZx6Tsh3cvoTpoVJj+KzFe8Rk/2jQ9xCiMN3cryP4A+LBROWnYluXat/l/jOrjoXcMr7jyuwXg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IoCse67t9ZQYRxM/3ERn0+Yk7GU6FFs+s1CV/52QRpw=;
+ b=qws0/qV7GozBtXUthXveRPRjwLgzF68l3tSLrl2Pv9UgRJofBzmbOzMtDzur5g8T6CihKzRB+l/TIMRZwz2BIPGXJ/wISlrd8Am4UCWHdvQ5auFik+2/LW0rL0GjEbPBCbcLwA+0t7yxERXyhrwNRBM49AU9bRit0tMgtfFngL8bNfBrtobIUqA6FmohNJSTgCxu0M/Zk7buhY2VAjw/Ta4R22y30p5Qm8X2z9WmRpW1JNS9DE9avrin+kK+sYKwy+32k01VMrR38Xa1PgzEKDTtYHpc1fM+EwB8oP4ef/x5BihdBWa908EMwYE0ZsO0wKKcmMUNi7C6MSp/nnfDQQ==
+Received: from SA1P222CA0120.NAMP222.PROD.OUTLOOK.COM (2603:10b6:806:3c5::16)
+ by DS0PR12MB7876.namprd12.prod.outlook.com (2603:10b6:8:148::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.5; Sat, 7 Mar
+ 2026 00:18:19 +0000
+Received: from SN1PEPF0002636C.namprd02.prod.outlook.com
+ (2603:10b6:806:3c5:cafe::56) by SA1P222CA0120.outlook.office365.com
+ (2603:10b6:806:3c5::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.19 via Frontend Transport; Sat,
+ 7 Mar 2026 00:18:19 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SN1PEPF0002636C.mail.protection.outlook.com (10.167.241.137) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9678.18 via Frontend Transport; Sat, 7 Mar 2026 00:18:19 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 6 Mar
+ 2026 16:18:01 -0800
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 6 Mar
+ 2026 16:18:01 -0800
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.10) by mail.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
+ Transport; Fri, 6 Mar 2026 16:18:00 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <will@kernel.org>
+CC: <robin.murphy@arm.com>, <joro@8bytes.org>, <jgg@nvidia.com>,
+	<praan@google.com>, <mmarrid@nvidia.com>, <kees@kernel.org>,
+	<Alexander.Grest@microsoft.com>, <baolu.lu@linux.intel.com>,
+	<smostafa@google.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>, <bbiber@nvidia.com>,
+	<skaestle@nvidia.com>
+Subject: [PATCH rc] iommu/arm-smmu-v3: Drain in-flight fault handlers
+Date: Fri, 6 Mar 2026 16:17:23 -0800
+Message-ID: <20260307001723.964956-1-nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/6] Raspberry Pi HEVC decoder driver
-From: Jonas Karlman <jonas@kwiboo.se>
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: John Cox <john.cox@raspberrypi.com>, Dom Cobley <dom@raspberrypi.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- review list <kernel-list@raspberrypi.com>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- John Cox <jc@kynesim.co.uk>, Stefan Wahren <wahrenst@gmx.net>,
- linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, Krzysztof Kozlowski <krzk@kernel.org>
-References: <20260304-media-rpi-hevc-dec-v6-0-93868ae6dff8@raspberrypi.com>
- <1d666c43-688b-4cc1-aeed-5296d2608327@kwiboo.se>
-Content-Language: en-US
-In-Reply-To: <1d666c43-688b-4cc1-aeed-5296d2608327@kwiboo.se>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF0002636C:EE_|DS0PR12MB7876:EE_
+X-MS-Office365-Filtering-Correlation-Id: 85dc58f6-0aba-4d9c-a148-08de7bdf08f9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|376014|82310400026|7416014;
+X-Microsoft-Antispam-Message-Info: 3wvd45/QvLhTQuiVrh+8yv7ctc3cYnknK8jqwBSKDJ0qLTY1q9DSn2t1G4ZRk8/09xJ5BBMB8vId8iliRpN8npX/AC6fyhjTYPmBbFMuM0X/KOWWgLYhgleyVbgU8Ng47usMJ4ITv73CtW+GXEdHuLb0PX0rbcRlLMzPtlN0E008sSdmS49jduF55yVZiOn+mdrhIN3tFX0GnI1KwWf1vsjeHA1kUNeWuw0B/1W9En4O+ADvz+h3hOrWmb9t6ggSUn9nTGLk2248hk3rlUqfhkGjfEBuyzSXOQrf2HpA03QupPIyVFgGqDfFlrdf+jSrXpCkLqk9ytmkJzs93JFw5T/D1iBEdrL+iZyw0+F+tTyGTYiWN1QvgUv04vPCvOgiWE7QH/WpHQvd0xEPgMatX9C//wrVfHUiBAiq11f31/gkVF38/9rVhlLZY+YlkEH9syNgYRKMlLwbOHJImTp21eGSGWQPi0+w8LRIRC8CAgWfcIxi5uv+ykrpvPY0yaY8vKpKalQjCmcEEK/TUhIGcxGC1KfpY5+TJijE3Iky1tNAUDr+bNg9290VG2qxxd+XYX3JggAjRQfZ1idrtT5si9l1up1jVcioK6Ud7EDZokC7ZzPTpR6EBFDSbnub7m6aS+LgHdT90fq9wWSo6LgRyR/OF/B0G9A/zRbytEgLY3ZQtrGEvEbtl+x8VMMgBF/b96Wv63gTVbBsguylP+92kvi6R5W3brHkiaWoaYT5VfyNGdsf17yAuf+LvGBfEWeJxsoEfr3J2J9O30mbRghyUw==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(376014)(82310400026)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: LggFxkK3aAzEWY/V6OtWRgit1tqnRONJ28/d3YGVGsTHQxqA0XWgyye3eV8xMUerL88FMPg90dPGSdbHrhoQ8JJHGAgme0cSILLqcszYXrYymht6t1tbiSfab2wV83FPe2+yu5lMIakLY2YaKSpMDKCZMaBHUh7l85KeATEt6cdAGWhE9qQNGR1rKYFeBJ251a+Xy/TuPmTyy15GbzMU/up/WqUoNFwUOehdS3TBSO9BvG84uVc+o0syNRvKNbRO5YpD7H2rlA8BpUhi1rSMXoiTFTOVK2OUfyQUiudvHhciZXfMFE61B1Gvgull//pAf1N+AcEE090r+TW8TiarPwCBppZK3xxknhkXX1tmk9CdoIBoMikTpB6xd9PnmVh4mArpjapVz26qPY2Fo/Dmo8NssMlHoJWxKn6PDBUB3LLTFGMzQ4TCe+1cDHIYgzsw
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Mar 2026 00:18:19.0239
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 85dc58f6-0aba-4d9c-a148-08de7bdf08f9
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002636C.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7876
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_155028_619749_FFAB8E8B 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20260306_161829_583691_50E8C0CF 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,43 +128,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi again,
+From: Malak Marrid <mmarrid@nvidia.com>
 
-[snip]
+When a device is switching away from a domain, either through a detach or a
+replace operation, it must drain its IOPF queue that only contains the page
+requests for the old domain.
 
->> Testing is with a downstream patchset to FFmpeg. I'm told FFmpeg
->> currently has no stateless decode support, but we will be reviewing
->> works that have been in progress and our downstream patches to see
->> whether that can be pushed onwards.
-> 
-> Please see FFmpeg PR20847 "Add V4L2 Request API hwaccels for MPEG2,
-> H.264, HEVC, VP8, VP9 and AV1" [1] for pending upstream FFmpeg work.
-> 
-> My 4l2request-v3-pixfmts branch [2] also contains extra commit to make
-> it work with downstream rpi kernel version, using non-MT pixfmts.
-> 
-> I will give this a spin together with the FFmpeg PR, adding support for
-> the MT based pixfmts should hopefully be easy.
+Currently, the IOPF infrastructure is used by master->stall_enabled. So the
+stalled transaction for the old domain should be resumed/terminated. Fix it
+properly.
 
-My FFmpeg v4l2request-v3-pixfmts branch [2] got a small update that adds
-support for this decoder and pix formats. Tested on a rpi5 using the
-downstream rpi-6.18 kernel and kodi-gbm for visual playback confirmation.
+Fixes: cfea71aea921 ("iommu/arm-smmu-v3: Put iopf enablement in the domain attach path")
+Cc: stable@vger.kernel.org
+Co-developed-by: Barak Biber <bbiber@nvidia.com>
+Signed-off-by: Barak Biber <bbiber@nvidia.com>
+Co-developed-by: Stefan Kaestle <skaestle@nvidia.com>
+Signed-off-by: Stefan Kaestle <skaestle@nvidia.com>
+Signed-off-by: Malak Marrid <mmarrid@nvidia.com>
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
 
-  [AVHWFramesContext @ 0x7ffeb81abc50] Using V4L2 media driver rpi-hevc-dec (6.18.15) for S265
-  [AVHWFramesContext @ 0x7ffeb81abc50] Using CAPTURE buffer format Nc12 (1920x1088)
-  [V4L2RequestContext @ 0x7ffeb81abb00] frame-based decoder with SLICE_PARAMS=600, ENTRY_POINT_OFFSETS=0 and SCALING_MATRIX=1 controls
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 4d00d796f0783..2176ee8bec767 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -2843,6 +2843,12 @@ static int arm_smmu_enable_iopf(struct arm_smmu_master *master,
+ 	if (master->iopf_refcount) {
+ 		master->iopf_refcount++;
+ 		master_domain->using_iopf = true;
++		/*
++		 * If the device is already on the IOPF queue (domain replace),
++		 * drain in-flight fault handlers so nothing will hold the old
++		 * domain when the core switches the attach handle.
++		 */
++		iopf_queue_flush_dev(master->dev);
+ 		return 0;
+ 	}
+ 
+@@ -2866,8 +2872,11 @@ static void arm_smmu_disable_iopf(struct arm_smmu_master *master,
+ 		return;
+ 
+ 	master->iopf_refcount--;
+-	if (master->iopf_refcount == 0)
++	if (master->iopf_refcount == 0) {
++		/* Drain in-flight fault handlers before removing device */
++		iopf_queue_flush_dev(master->dev);
+ 		iopf_queue_remove_device(master->smmu->evtq.iopf, master->dev);
++	}
+ }
+ 
+ static void arm_smmu_remove_master_domain(struct arm_smmu_master *master,
+-- 
+2.43.0
 
-Will update the main FFmpeg PR (and backport branches) with the required
-changes after some more testing.
-
-Regards,
-Jonas
-
-> [1] https://code.ffmpeg.org/FFmpeg/FFmpeg/pulls/20847
-> [2] https://code.ffmpeg.org/Kwiboo/FFmpeg/commits/branch/v4l2request-v3-pixfmts
-> 
-> Regards,
-> Jonas
-
-[snip]
 
