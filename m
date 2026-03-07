@@ -4,73 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41668FC9EFB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 12:02:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50131FC9EF9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 12:41:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XQD1v2qhVZp8NhPQPu8txdDVmzh6ba/4NY1ZmUZwUTc=; b=Sy52zcRMJIEFkfgS/NzSVwDyVH
-	7OvUJK9wrrFtEb0rq+sImjTwTe7goS2dGfMzzVlJiTENl63yyJMvA2e90IoeAVUHY0WCh91otXd6+
-	y4gSw2mshW++abqVI/C3DYLMDL+4mH7f6+KwSkisdKT/vk/3quZJ9IDkXrHiTXGB23CaMzeTbp7o/
-	Bbfl3blnHrUNqh7KzZdoY6j/p/bHgVjgzQDCea698HX/lWSPtuopzbOdZi8Mc44lWNKPCNUsF/dxI
-	ErxyhFe/2NNSF2VJoBwEkcRHpv7JjBOyZZB13x11Tcp6PzFYqagf1rd/+whkr82LG8z1GXi88aRuy
-	2VjlRxpQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Jw0BSHmnce+T9m/nuiRmjnv6Vq6GQqbCLhHiTRnUepc=; b=C3hM9++/f4wlK1o5qAn70WCUyW
+	2bBqG+7O3r29r6jWfTpEn9qk7A6oqPL8b5OuUFGXTfONHcSC6Otkcim+PXoZgk3pjiIoUXta2a4Au
+	ROjhS/Ti7BVxADeqAKpXoHaD6NdNonYgV5H1M4plNG1SsqxnaJ5lqg6dn0KKorS8peXUk93lzTlhe
+	yq2vp/iFBDZcm7sayTxL05twjPLwyPZl54DrL90NpPpV1q3xJQRDYBNSScYp+WsbiNHTJkvLOYRPX
+	7QbXU132ytQNjDYUAqNau65qwKDMIcrTRQ/PV1F31c4R7jngNoY2YJZDypgje/+ejlhkXOeJhOxc1
+	SQbKlPMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyqMi-00000005Aun-0JPm;
-	Sat, 07 Mar 2026 12:02:40 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vyqyI-00000005CNB-01yp;
+	Sat, 07 Mar 2026 12:41:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyqMd-00000005AuS-3ySD
+	id 1vyqyG-00000005CN3-2C7K
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Mar 2026 12:02:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1772884951;
-	bh=ZMGMoK71DW20ifGmPRAf0tsM9kerlbBDYGNdYE6Seuk=;
-	h=From:To:Cc:Subject:Date:From;
-	b=UJB3qnuXI42oSBRk7xI1SOpFfXw381UJW+gSgAWuqkwXiXKeDrKfy5IB533dkr+xb
-	 62gAw8gDof7m7vhVQLFudvWzXLXOqXc/QneNxxxnBN01O/nD+0f0rtkOA5lA1R3fA8
-	 AHj+714VMoBUtxPXPMThbMrbPThEFnBqQG/uJMb3ZCaJMohZADOEWa+n5dLKXHOaqo
-	 C+mnP80vwN0VOXMsQcOA2bFPVBoljmJW4UFsRFqQDZfpUJj9Mo5rPx6Q3ld1lhzvfO
-	 5+1BXaZYyy4NMSYHggb5dNNimDURXiVkkB3sWqAeSFY+5RQGICdNM/glOw/YgAd+xg
-	 GBD0YtA9JMjFQ==
-Received: from thinkpad (20014C4E2782E40079F207E35B989CE7.dsl.pool.telekom.hu [IPv6:2001:4c4e:2782:e400:79f2:7e3:5b98:9ce7])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: valentine)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 33A4317E12A2;
-	Sat,  7 Mar 2026 13:02:31 +0100 (CET)
-From: Valentine Burley <valentine.burley@collabora.com>
-To: maz@kernel.org
-Cc: tabba@google.com,
-	broonie@kernel.org,
-	Valentine Burley <valentine.burley@collabora.com>,
-	stable@vger.kernel.org,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	Sascha.Bischoff@arm.com,
-	sebott@redhat.com,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] KVM: arm64: Skip interrupts in LRs during EOIcount replay
-Date: Sat,  7 Mar 2026 12:59:50 +0100
-Message-ID: <20260307115955.369455-1-valentine.burley@collabora.com>
-X-Mailer: git-send-email 2.51.0
+	Sat, 07 Mar 2026 12:41:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5FAF260018;
+	Sat,  7 Mar 2026 12:41:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEA09C19422;
+	Sat,  7 Mar 2026 12:41:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772887286;
+	bh=cohMBJH2d1BVbpUwzitQc8rDzCnYSvKbs9OXEa4sgqw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=AGDkphF9NBOJWhRSQ2if2XUnZ9H5dw6ibncSjdIWFCmQqIFUcQdAqqk+5gg+66H0R
+	 eF0GvvNF9VAD4S1bGO5JtnSDydZzkBbtlqgvbvIfPJq7LgCF0mI/iYZZTIn/SDMzBv
+	 n3cqoW+M22vs+xJsuTcYpeuhXf5IHBUK2eupsbVyXonLPkqpgZDTJzaSgHW4E1dZ6R
+	 wKUoX0RKn8Fmh/yr1eOZxvOPySV9+H2/574N7+h7/olIrK5bZF4hOPonQhTt1R6LbA
+	 aBsnZHXNXRExAvuubWBOT6SjDS6EpCio/pP3ojkDSwVCfexIvGmEVdarS9w8P+wthE
+	 05yvlaWcrD+UQ==
+Date: Sat, 7 Mar 2026 12:41:18 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Christofer Jonason <christofer.jonason@guidelinegeo.com>
+Cc: lars@metafoo.de, dlechner@baylibre.com, nuno.sa@analog.com,
+ andy@kernel.org, michal.simek@amd.com, victor.jonsson@guidelinegeo.com,
+ linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in
+ postdisable for dual mux
+Message-ID: <20260307124118.1d527749@jic23-huawei>
+In-Reply-To: <20260304090727.1800289-1-christofer.jonason@guidelinegeo.com>
+References: <20260304090727.1800289-1-christofer.jonason@guidelinegeo.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.51; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260307_040237_646689_CA24D535 
-X-CRM114-Status: UNSURE (   9.57  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,87 +72,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 05984ba67eb6 ("KVM: arm64: Invert ap_list sorting to push active
-interrupts out") allowed active interrupts to be evicted from LRs to
-make room for pending ones.
+On Wed,  4 Mar 2026 10:07:27 +0100
+Christofer Jonason <christofer.jonason@guidelinegeo.com> wrote:
 
-When an evicted interrupt is deactivated by the guest, the GIC
-increments EOIcount. KVM replays this by finding an active interrupt
-in the ap_list to deactivate. However, the replay logic may pick an
-interrupt that is currently residing in an LR, leading to a spurious
-deactivation and leaving the actually finished interrupt active.
-This results in interrupt storms and boot failures (seen in Cuttlefish
-guests on Qualcomm SC7180).
+> xadc_postdisable() unconditionally sets the sequencer to continuous
+> mode. For dual external multiplexer configurations this is incorrect:
+> simultaneous sampling mode is required so that ADC-A samples through
+> the mux on VAUX[0-7] while ADC-B simultaneously samples through the
+> mux on VAUX[8-15]. In continuous mode only ADC-A is active, so
+> VAUX[8-15] channels return incorrect data.
+> 
+> Since postdisable is also called from xadc_probe() to set the initial
+> idle state, the wrong sequencer mode is active from the moment the
+> driver loads.
+> 
+> The preenable path already uses xadc_get_seq_mode() which returns
+> SIMULTANEOUS for dual mux. Fix postdisable to do the same.
+> 
+> Fixes: bdc8cda1d010 ("iio:adc: Add Xilinx XADC driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Christofer Jonason <christofer.jonason@guidelinegeo.com>
 
-Fix this by skipping interrupts that are currently assigned to an LR
-during EOIcount replay.
+I'll leave this on list for a little longer as I'd really like a confirmation
+of this one from the AMD Xilinx folk.
 
-This allows booting Android VMs in Cuttlefish again.
+Thanks,
 
-Fixes: 05984ba67eb6 ("KVM: arm64: Invert ap_list sorting to push active interrupts out")
-Cc: stable@vger.kernel.org
-Signed-off-by: Valentine Burley <valentine.burley@collabora.com>
----
- arch/arm64/kvm/vgic/vgic-v2.c | 14 ++++++++++++++
- arch/arm64/kvm/vgic/vgic-v3.c | 19 +++++++++++++++++++
- 2 files changed, 33 insertions(+)
+Jonathan
 
-diff --git a/arch/arm64/kvm/vgic/vgic-v2.c b/arch/arm64/kvm/vgic/vgic-v2.c
-index 585491fbda80..821cf5bc30da 100644
---- a/arch/arm64/kvm/vgic/vgic-v2.c
-+++ b/arch/arm64/kvm/vgic/vgic-v2.c
-@@ -135,6 +135,20 @@ void vgic_v2_fold_lr_state(struct kvm_vcpu *vcpu)
- 			      irq->active))
- 				continue;
- 
-+			bool was_in_lr = false;
-+
-+			for (int i = 0; i < cpuif->used_lrs; i++) {
-+				u32 intid = cpuif->vgic_lr[i] & GICH_LR_VIRTUALID;
-+
-+				if (intid == irq->intid) {
-+					was_in_lr = true;
-+					break;
-+				}
-+			}
-+
-+			if (was_in_lr)
-+				continue;
-+
- 			lr = vgic_v2_compute_lr(vcpu, irq) & ~GICH_LR_ACTIVE_BIT;
- 		}
- 
-diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-index 1d6dd1b545bd..00d9bc39bffb 100644
---- a/arch/arm64/kvm/vgic/vgic-v3.c
-+++ b/arch/arm64/kvm/vgic/vgic-v3.c
-@@ -179,6 +179,25 @@ void vgic_v3_fold_lr_state(struct kvm_vcpu *vcpu)
- 			      irq->active))
- 				continue;
- 
-+			bool was_in_lr = false;
-+
-+			for (int i = 0; i < cpuif->used_lrs; i++) {
-+				u32 intid;
-+
-+				if (vcpu->kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V3)
-+					intid = cpuif->vgic_lr[i] & ICH_LR_VIRTUAL_ID_MASK;
-+				else
-+					intid = cpuif->vgic_lr[i] & GICH_LR_VIRTUALID;
-+
-+				if (intid == irq->intid) {
-+					was_in_lr = true;
-+					break;
-+				}
-+			}
-+
-+			if (was_in_lr)
-+				continue;
-+
- 			lr = vgic_v3_compute_lr(vcpu, irq) & ~ICH_LR_ACTIVE_BIT;
- 		}
- 
--- 
-2.51.0
+> ---
+> Changes in v2:
+>   - Align continuation line to opening parenthesis (Andy)
+>  drivers/iio/adc/xilinx-xadc-core.c | 11 +++++++++--
+>  1 file changed, 9 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/iio/adc/xilinx-xadc-core.c b/drivers/iio/adc/xilinx-xadc-core.c
+> index e257c1b94..3980dfacb 100644
+> --- a/drivers/iio/adc/xilinx-xadc-core.c
+> +++ b/drivers/iio/adc/xilinx-xadc-core.c
+> @@ -817,6 +817,7 @@ static int xadc_postdisable(struct iio_dev *indio_dev)
+>  {
+>  	struct xadc *xadc = iio_priv(indio_dev);
+>  	unsigned long scan_mask;
+> +	int seq_mode;
+>  	int ret;
+>  	int i;
+>  
+> @@ -824,6 +825,12 @@ static int xadc_postdisable(struct iio_dev *indio_dev)
+>  	for (i = 0; i < indio_dev->num_channels; i++)
+>  		scan_mask |= BIT(indio_dev->channels[i].scan_index);
+>  
+> +	/*
+> +	 * Use the correct sequencer mode for the idle state: simultaneous
+> +	 * mode for dual external mux configurations, continuous otherwise.
+> +	 */
+> +	seq_mode = xadc_get_seq_mode(xadc, scan_mask);
+> +
+>  	/* Enable all channels and calibration */
+>  	ret = xadc_write_adc_reg(xadc, XADC_REG_SEQ(0), scan_mask & 0xffff);
+>  	if (ret)
+> @@ -834,11 +841,11 @@ static int xadc_postdisable(struct iio_dev *indio_dev)
+>  		return ret;
+>  
+>  	ret = xadc_update_adc_reg(xadc, XADC_REG_CONF1, XADC_CONF1_SEQ_MASK,
+> -		XADC_CONF1_SEQ_CONTINUOUS);
+> +				  seq_mode);
+>  	if (ret)
+>  		return ret;
+>  
+> -	return xadc_power_adc_b(xadc, XADC_CONF1_SEQ_CONTINUOUS);
+> +	return xadc_power_adc_b(xadc, seq_mode);
+>  }
+>  
+>  static int xadc_preenable(struct iio_dev *indio_dev)
 
 
