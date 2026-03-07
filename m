@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33047F513F1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 15:35:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F014FCB638
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 15:35:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NlSe8298HoOpJ/atUz7AIES/xI874DseDR7tDuvxLUA=; b=iC1bw2hh1NwmwineQj5QRpCHMH
-	hJIN8vMPVrp1A7HG0VeVNrhtOZzGQL8lK/IcG2Ksyt13BnEDMuN8gqR3dg5nA066mJE1nF+uc+dy8
-	ZRmrlQC9hsPacgQlDnxiRyVpY4eHMEeba20a8uBPWLZeQQMKOlM24njfTz7GvHrZcg/7X4H+PQTYK
-	cGKQOyNMExiCPlT/zoMJwi6aSovFpgi2kbOGEQmbztU2LY/gwRHoYMifdxt8bljhAVwpRh4pXnZz1
-	eWlnfMjsFlJFhBjAc68QZABeu8PG0F2SITqad09/3igpW4cMokgXWg2kj3fGHTvXCGk+beOl5HnHT
-	B9mdg6Jw==;
+	bh=YKC5zfjM/IoMOY95+u6tBOEtiXEaledxbgKFHxxepOU=; b=t2hgpw/uGtr4avdX1AfbATA9wH
+	3y6yRgcqbh4IUYmplsgcmJt6og0vbb07W9EYsmzRHizCsgt4skxmgmUQL2sIViAbc+fbDTSxLAc3i
+	Ay/zZh2LO0dDtxJR7jW6NL09tQeCEQhtYHSozeeB4vD2J+aIlxX8QAccu0m5zroIULSiLZFY0onVg
+	P9YQLSpCQ8wWSOKYWHusDDZ05kAQklNR/pFq4zbh3KXTQiyzTahLZ8QmUxu6gj9tNU58vdbbVBaxe
+	TUxCqvNAe4UpTAnp2hVq+zh0wbwXwfrIODwWtmYlGDpzIUW1HPcA1N3y1Itbrzeh1b6E3k97lBdGO
+	SHaMp1pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vytgC-00000005J9v-2qRl;
-	Sat, 07 Mar 2026 15:35:00 +0000
+	id 1vytgw-00000005JGd-17a5;
+	Sat, 07 Mar 2026 15:35:46 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vytgB-00000005J9K-12Ib;
-	Sat, 07 Mar 2026 15:35:00 +0000
+	id 1vytgt-00000005JFt-3HRv;
+	Sat, 07 Mar 2026 15:35:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6052F44186;
-	Sat,  7 Mar 2026 15:34:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3627C19422;
-	Sat,  7 Mar 2026 15:34:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 753C043E2F;
+	Sat,  7 Mar 2026 15:35:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC06AC19422;
+	Sat,  7 Mar 2026 15:35:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772897698;
-	bh=NlSe8298HoOpJ/atUz7AIES/xI874DseDR7tDuvxLUA=;
+	s=k20201202; t=1772897743;
+	bh=RhsV1o0tx6qDW0oNLBHCTGUNLy9Nze20CKSCrkhYlSs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RwKTHS7NunaS8JEfiQf1l+yBHHF1hw5LQrLaGuPzJnMLwTB5LqI+ydhdI/ZQcTySX
-	 MZCzLycHI8fBKVVlszMOnsW35Z5Vc0/x3lcmmKCDcAxWsd5t6PG85q1/yF6d4C7f6g
-	 VnefBH7SrSHngDZ6Ow2P1l5YGoL+ZR/ZFjyVtRCB86NAtQ0hqBif7JFlEnk7bLefDm
-	 x7MyWzXAmUcu5hRgBdpAX595HtreMVMqYyx1lWF/7J/Tw17mBhOObwqqq9EDWYtcfZ
-	 JNSxJZnQjm8dV0sn4d62WUrzb5tGJet6lU0R3yz3fiCXVUXuwHOdpiwayHqNaSERuS
-	 RFZeL5paowfiA==
-Date: Sat, 7 Mar 2026 16:34:55 +0100
+	b=O9RJ8MLJbnpuO7ZK/6PWRfHB1qsnnaavMYfpbJTU95QdDTTrXGNK2waRGplZ/SNCV
+	 1jwaE5YWYpJb58W/RJAyHnMw1264Agd78+A7GsCqbNAQjG+OjWUwnR0z7IwmlpkV6n
+	 y67g+L+emeLezYdrdXqpQYcc4YcHYlekIvCAvYDxzWnipFxQ1O+H6g2rHRkbo/LtmJ
+	 XmieY7PiDV0buFrf7kjA0dZo4nyzEwdlCsp/QD+tgF3uxdskhbdxoMqVojEi8ObCeq
+	 TmQrKX2BuoXNYgb2hXcIQHcISNqT68RRzTYa5HN1geElgqrcJrqv8t+LvpIHrOuLr6
+	 e0RVIKWPoSfIg==
+Date: Sat, 7 Mar 2026 16:35:41 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Michael Riesch <michael.riesch@collabora.com>
 Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
@@ -51,19 +51,18 @@ Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
 	Heiko Stuebner <heiko@sntech.de>, Kever Yang <kever.yang@rock-chips.com>, 
 	Collabora Kernel Team <kernel@collabora.com>, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/4] arm64: defconfig: enable designware mipi csi-2
- receiver
-Message-ID: <20260307-majestic-otter-of-contentment-eeba71@quoll>
+Subject: Re: [PATCH 2/4] media: synopsys: csi2rx: add support for rk3588
+ variant
+Message-ID: <20260307-gleaming-loose-boobook-d75820@quoll>
 References: <20260305-rk3588-csi2rx-v1-0-0cd8d2bf28c0@collabora.com>
- <20260305-rk3588-csi2rx-v1-4-0cd8d2bf28c0@collabora.com>
+ <20260305-rk3588-csi2rx-v1-2-0cd8d2bf28c0@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260305-rk3588-csi2rx-v1-4-0cd8d2bf28c0@collabora.com>
+In-Reply-To: <20260305-rk3588-csi2rx-v1-2-0cd8d2bf28c0@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260307_073459_324457_8F05AC77 
-X-CRM114-Status: UNSURE (   9.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260307_073544_243283_7838877A 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,15 +77,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 03:09:51PM +0100, Michael Riesch wrote:
-> The Synopsys DesignWare MIPI CSI-2 Receiver is integrated into
-> recent Rockchip SoCs, such as the RK3568 and the RK3588.
+On Fri, Mar 06, 2026 at 03:09:49PM +0100, Michael Riesch wrote:
+> Add support for the RK3588 variant of the Synopsys MIPI CSI-2
+> Receiver.
+> 
+> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+> ---
+>  drivers/media/platform/synopsys/dw-mipi-csi2rx.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+> index 170346ae1a59..45ec815b0fba 100644
+> --- a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+> +++ b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+> @@ -609,6 +609,9 @@ static const struct of_device_id dw_mipi_csi2rx_of_match[] = {
+>  	{
+>  		.compatible = "rockchip,rk3568-mipi-csi2",
+>  	},
+> +	{
+> +		.compatible = "rockchip,rk3588-mipi-csi2",
 
-... and used on boards foo bar.
-
-(becuse we take defconfig for boards, not for SoCs - if there is no
-single board using it, then it should not be enabled because it means
-you do it for downstream which simply does not exist for us).
+So device is fully compatible? Drop the entry then... or your bindings
+patch is really not explained correctly.
 
 Best regards,
 Krzysztof
