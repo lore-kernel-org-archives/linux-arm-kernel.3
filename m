@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C5B8FC9EF5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 10:53:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF582FC9EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 10:53:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yeRFLAMIYNkcai4uXKjM2O8dKLKiiCy/NlMEOTbW5Ww=; b=Fv6zAgf4URoppzQprjElS1L0PP
-	3j8TWIK0fVlCH8Klk1xqHoeNSUM8G0TaJKy8IgzCy/tMNgEYbjxc/qw/GUyPnCm6VySO9YhXZOc2v
-	Lkgp2rMdR2NicSjHlRn4WSCsOw4l63vBUSpPkRogz7Q+pw+ZIV/qDcxnlCviK4/IHM3qWREkvjNRd
-	GwkRQ1+F3q1E/jONr9KNFiYVvCHm1SZzohaaIEdyXhnMFHSoz51bGCQOoFM53H79LlU1HC8W1kFcK
-	k1IscTZmgSaA9E7tvMY8g1cZM8c2YUnvmmV47OJq5KHuB04lv6+f59g7+F8lOduwR4DFSK/dGzblp
-	xxZVT3jQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=702wOfxhINsK5kpNSdhf3nuVOhqS4fpKbmE3wnxb/5E=; b=NVVfJQ4VsH9R+efAxDlpk4UJEv
+	6w/dwRQ4h8lUEErEMIs3OE6d96C0JtOFkYfmAsLFgTnv7KHOfraThutkV7AKMI3aOLYgo4Y+qRMvY
+	vtTMICM2Tp5hLC9tmmAUeJgVpvct4uFzl6isNwr0KFx03qfsSIn/JZWrMQV5eQIElyyaIix0K1qgd
+	vIjV9CLQM7+G2nUZBvVfN1czO2+yImL2iHzhOdd+QHwOXwtef8Fizai8hy2Z0af89d/t4jPYNpgxH
+	1TowsnCZNhmy1ih6V0g/YqABvKN31tBrGe+l/RV3cudVgI3IQrVi6mjK0StUl1RlfC0X8yXsxfFqt
+	uhBa2IxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vypHV-000000057EZ-30Zr;
-	Sat, 07 Mar 2026 10:53:13 +0000
+	id 1vypHh-000000057Fz-03CW;
+	Sat, 07 Mar 2026 10:53:25 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vypHS-000000057EE-2JfH
+	id 1vypHf-000000057FM-2beI
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Mar 2026 10:53:12 +0000
+	Sat, 07 Mar 2026 10:53:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=yeRFLAMIYNkcai4uXKjM2O8dKLKiiCy/NlMEOTbW5Ww=; b=u5ZwaofJIqqBLjeQ1U3FwXMTKC
-	Az1vIdPWDvYoR0lNFmb+NYlMk+bJSq4douV5yF4Yz6S9gvF+edMwqrleODK1fbQ9BtU55MkahcEoy
-	yMbx0v518TNVf6G9wLW3xO9atiPGUu3ITLAq6RSjJicLBuLwLhXp0KyoDHE5Rt5e6I7HGXZsBbSc5
-	IeGu8umS5jIwvrE06EvWhAVcIajeBIrrXt1DRelZf5lrBVYSAam4Ttzq4+r7BjRu47ChaxZr0Zr5D
-	QPTchbUBnd4HfsxCZ1ylCzZfHiUVf+Os2VmjwJ0FCEOKbPk40yBi5zdlIHc2zAgdtHzN9/LiP0mgv
-	pWPM2DtQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58536)
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=702wOfxhINsK5kpNSdhf3nuVOhqS4fpKbmE3wnxb/5E=; b=zp8DijVfcZtlxs1VZOj203boBT
+	EwdhwEwD2iFXynI2iHVd8aFWjUBuyL5wg7XqUmXymxPsBLEoB4Bvror9Z7GQSTKpIwk93qeSLZoVX
+	6CflVvA8vqFg5eMu76YzFXevfVnYRjBIDVAYHtPo6VDF99f3SQHtvphp4F7VbefZD6CZThx6uDe1t
+	OFFv7ehbJ5oVkmbJiQysJMIqXR5rbHcHYXWdW0g56PcYj8MbApxy4haBIL3YOM1oO1LTehmyy7x3i
+	S6WY2zBI1EwQvDtbOZNSSdp1bLHeRRVVlnSNTMtLX1QEl6JpJPvww3pWqWoPdLcckYv2jeJbZDvPi
+	YGcLDkEg==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:43718 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vypHI-0000000024g-1VQ4;
-	Sat, 07 Mar 2026 10:53:00 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vypHE-000000002K0-40VV;
-	Sat, 07 Mar 2026 10:52:56 +0000
-Date: Sat, 7 Mar 2026 10:52:56 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1vypHY-0000000024v-01SQ;
+	Sat, 07 Mar 2026 10:53:16 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1vypHX-0000000CSbc-123K;
+	Sat, 07 Mar 2026 10:53:15 +0000
+In-Reply-To: <aawDiK7DjcSXSs1X@shell.armlinux.org.uk>
+References: <aawDiK7DjcSXSs1X@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 To: Andrew Lunn <andrew@lunn.ch>
 Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -58,16 +59,20 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Eric Dumazet <edumazet@google.com>,
 	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 0/2] net: stmmac: further ptp cleanups
-Message-ID: <aawDiK7DjcSXSs1X@shell.armlinux.org.uk>
+Subject: [PATCH net-next 1/2] net: stmmac: ptp: rearrange n_ext_ts
+ initialisation
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1vypHX-0000000CSbc-123K@rmk-PC.armlinux.org.uk>
+Date: Sat, 07 Mar 2026 10:53:15 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260307_025310_597912_213850A4 
-X-CRM114-Status: UNSURE (   7.64  )
+X-CRM114-CacheID: sfid-20260307_025323_663687_1938977E 
+X-CRM114-Status: UNSURE (   9.87  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,21 +88,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Use local variables for n_ext_ts rather than referencing the DMA
+capability several times.
 
-A couple of extra PTP cleanup patches.
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-The first uses a local variable when setting n_ext_ts which is a minor
-simplification of the code. The second removes the now unnecessary
-"available" flag for the PPS outputs.
-
- drivers/net/ethernet/stmicro/stmmac/dwmac5.c        |  2 --
- drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c |  2 --
- drivers/net/ethernet/stmicro/stmmac/stmmac.h        |  1 -
- drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c    | 10 ++++------
- 4 files changed, 4 insertions(+), 11 deletions(-)
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+index 98da499ba3b1..654d04f8c373 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+@@ -335,6 +335,7 @@ const struct ptp_clock_info dwmac1000_ptp_clock_ops = {
+ void stmmac_ptp_register(struct stmmac_priv *priv)
+ {
+ 	unsigned int pps_out_num = priv->dma_cap.pps_out_num;
++	unsigned int n_ext_ts;
+ 	int i;
+ 
+ 	if (pps_out_num > STMMAC_PPS_MAX) {
+@@ -358,8 +359,9 @@ void stmmac_ptp_register(struct stmmac_priv *priv)
+ 	if (pps_out_num)
+ 		priv->ptp_clock_ops.n_per_out = pps_out_num;
+ 
+-	if (priv->dma_cap.aux_snapshot_n)
+-		priv->ptp_clock_ops.n_ext_ts = priv->dma_cap.aux_snapshot_n;
++	n_ext_ts = priv->dma_cap.aux_snapshot_n;
++	if (n_ext_ts)
++		priv->ptp_clock_ops.n_ext_ts = n_ext_ts;
+ 
+ 	if (priv->plat->ptp_max_adj)
+ 		priv->ptp_clock_ops.max_adj = priv->plat->ptp_max_adj;
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.47.3
+
 
