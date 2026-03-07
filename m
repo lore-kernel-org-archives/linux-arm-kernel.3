@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06DCCF55104
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 20:35:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53378F55105
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Mar 2026 20:56:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pjqnMz7iTzJ2GtXS3sOBAaXrLUpb5WBurCzc81cKQ5I=; b=gyOPRZj+XG8J9RgWaoTTgqgEwC
-	3H56KMyFAzuTkkuaawmzfJiqLuKe98okQ8cmCHIlYTpcJnsRn8d4hs63NZtItlgvdv77IMtXTHa9c
-	pW1XUNvmjcvUCLwgy8WW5qL6IBXkDYPwwnYvwaMK8tC0CI8tdIyS0FTft60IFKahL+vKCgnmV/ncq
-	oR2N28uZTM6yvxuIxxqiFsRBnyi56FbSvSF0b5fjgPL9RrrTDdndDEc8twPe6bUaEBobyKeMcU9wU
-	fIjSdrATYOKKwf+/zo/8o96l9Evi3QFTW2qdY6HFFblctrBYpFHdGOIJSOteFc3/PZ0RM0lvC6Woj
-	ecUScCTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5zBkG3bRWjfaR2r6dkEHen401YtUYDgTYZk5g8WjyLg=; b=NFiUs0M9u3XetndtBLqXPCxNzE
+	lJeYpDJ8reOi1jO5jqGy6ZK2ZW+bT9Quq+yYGw6Rj6UzF+UnPm9YVfi9D1Cm02rFF0pCd9usSxxsu
+	xDu9OZrwTbEORDLn4McOl1Kfy/gBMayhG9ZREWHYi7Offb9joA3LukOu8Qubf7GnoEeQonb08sH0S
+	PTX3ClPPU2ARwFQ7hm5v4dWBJBO4wv8vYB/dVM8I1gqS2BMOYUj3h1jOB7B/cJ0yjdtDI+i/f3M5B
+	SFneX8Yn53V3RvTNHyfsdDN3u4z0VrgwHt132sIzdgiRpMbeddkpjnqWRD3pOXKrOJEra5DpqpPlR
+	erp2QZlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyyMv-00000005Ugq-2pgL;
-	Sat, 07 Mar 2026 20:35:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vyyhB-00000005VGF-1OdJ;
+	Sat, 07 Mar 2026 20:56:21 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyyMq-00000005UgH-3X83
+	id 1vyyh7-00000005VFu-3T7g
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Mar 2026 20:35:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DFFE643716;
-	Sat,  7 Mar 2026 20:35:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E94DC19422;
-	Sat,  7 Mar 2026 20:35:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772915718;
-	bh=un14T0IT/vIqcYm6aN8xOLPJnlapIRXG/s+nnWU1kqE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fv3jG6JBv75N4xFs3hP3/xuPfMcJfEmgzLxtHA1/0aBvtRCg1GamFg0WRHTl1VfTT
-	 W9ACjsPMPLYWQrfKKpz+6uz24D/uggUV0a+0G9qGqtv5eDXbjcm3bCyczwfsOzbdOP
-	 1moudz6U3cYKoVxc2nm9W051L9fmJApiixzy3/iWnQ8NojskWhU54NzItkTLcUhX/9
-	 OkyRJbjkwRxR0M13mJx9jwEAitNTIM8Tly6TE3Esj1WzMX1soHZcnPHqDwOgw6D5rK
-	 pcK3r+cS+o9G3okXQVTUV2ZGxUR50Harvo1UPy8o1XYlAKzJ3RJPlBe4UH5U05MRO6
-	 bjn/SKVoRzJFQ==
-Date: Sun, 8 Mar 2026 02:05:14 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Thara Gopinath <thara.gopinath@gmail.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Udit Tiwari <quic_utiwari@quicinc.com>,
-	Daniel Perez-Zoghbi <dperezzo@quicinc.com>,
-	Md Sadre Alam <mdalam@qti.qualcomm.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Peter Ujfalusi <peter.ujfalusi@gmail.com>,
-	Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>,
-	dmaengine@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH RFC v11 07/12] crypto: qce - Communicate the base
- physical address to the dmaengine
-Message-ID: <aayMAlkJNxp9h4KO@vaman>
-References: <20260302-qcom-qce-cmd-descr-v11-0-4bf1f5db4802@oss.qualcomm.com>
- <20260302-qcom-qce-cmd-descr-v11-7-4bf1f5db4802@oss.qualcomm.com>
- <aahEMjjBRINXL5zC@vaman>
- <CAMRc=Md2G7k7DGMZv2Du75ososQtsAutw2WwwAQ3WL8pC_-LmQ@mail.gmail.com>
+	Sat, 07 Mar 2026 20:56:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1772916973; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=IY/JOUjU0BSbHYgyUE2n1iSklSZ3vUVHq/1oA0/9b1oQK7eWx4IPIxsCHBJhp9fCW1orHgLy526Yfq4eru1++JGqP3wzDYqYqHjHtkW2VsP346TiZPIZf5LVnPYxJcIwT8Y5YcU6DRiuYhjSDMJWAjVtKezhhk1L2pG8RqFE5IM=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1772916973; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=5zBkG3bRWjfaR2r6dkEHen401YtUYDgTYZk5g8WjyLg=; 
+	b=ltu7QXqkbCS6apVNzObPC3bbKgIhihcP0QfESvRyaQlj4TOAgqXwcEXmjHvCAvqBH9+NHVDbdqboS7uhcdIc0xRNuJPUCewBOPJaiZij9LQISCKCkIVtCt+YE21W1TThvMPKwrGSgxtiuruVQShecpYK3Q7TnIH01QLOa23e8gA=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=valentine.burley@collabora.com;
+	dmarc=pass header.from=<valentine.burley@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772916973;
+	s=zohomail; d=collabora.com; i=valentine.burley@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Message-ID:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=5zBkG3bRWjfaR2r6dkEHen401YtUYDgTYZk5g8WjyLg=;
+	b=hBVBPo9s5YJbTw2rBZA4HkfnRcaVB3KV8+Wa21ppW/bzc6bs1gATHfGIDDPGGv1M
+	IfoS5Q44csFDMkiYbz3DUe561Heuq/Qgi3EYrj2+iKxMx4vOUVbg/jVbISfnxo+pYJk
+	kRhnWDZTJUdNKh4XxZhRDez6we5/Gz53ZYZ8Y03I=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1772916971944637.5840052500968; Sat, 7 Mar 2026 12:56:11 -0800 (PST)
+Date: Sat, 07 Mar 2026 21:56:11 +0100
+From: Valentine Burley <valentine.burley@collabora.com>
+To: "Marc Zyngier" <maz@kernel.org>
+Cc: "kvmarm" <kvmarm@lists.linux.dev>,
+	"linux-arm-kernel" <linux-arm-kernel@lists.infradead.org>,
+	"Joey Gouly" <joey.gouly@arm.com>,
+	"Suzuki K Poulose" <suzuki.poulose@arm.com>,
+	"Oliver Upton" <oupton@kernel.org>,
+	"Zenghui Yu" <yuzenghui@huawei.com>,
+	"stable" <stable@vger.kernel.org>
+Message-ID: <19cca161997.6f32ad1e5004303.2690428975656613167@collabora.com>
+In-Reply-To: <20260307191151.3781182-1-maz@kernel.org>
+References: <20260307191151.3781182-1-maz@kernel.org>
+Subject: Re:[PATCH] KVM: arm64: vgic: Pick EOIcount deactivations from
+ AP-list tail
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMRc=Md2G7k7DGMZv2Du75ososQtsAutw2WwwAQ3WL8pC_-LmQ@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260307_123521_297416_C1D18BE9 
-X-CRM114-Status: GOOD (  19.81  )
+X-CRM114-CacheID: sfid-20260307_125617_952390_9B4132A8 
+X-CRM114-Status: GOOD (  16.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,42 +85,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04-03-26, 16:05, Bartosz Golaszewski wrote:
-> On Wed, Mar 4, 2026 at 3:39 PM Vinod Koul <vkoul@kernel.org> wrote:
-> >
-> > On 02-03-26, 16:57, Bartosz Golaszewski wrote:
-> > > In order to let the BAM DMA engine know which address is used for
-> > > register I/O, call dmaengine_slave_config() after requesting the RX
-> > > channel and use the config structure to pass that information to the
-> > > dmaengine core. This is done ahead of extending the BAM driver with
-> > > support for pipe locking, which requires performing dummy writes when
-> > > passing the lock/unlock flags alongside the command descriptors.
-> > >
-> > > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> > > ---
-> > >
-> > >       dma->txchan = devm_dma_request_chan(dev, "tx");
-> > >       if (IS_ERR(dma->txchan))
-> > > @@ -121,6 +123,12 @@ int devm_qce_dma_request(struct qce_device *qce)
-> > >               return dev_err_probe(dev, PTR_ERR(dma->rxchan),
-> > >                                    "Failed to get RX DMA channel\n");
-> > >
-> > > +     cfg.dst_addr = qce->base_phys;
-> > > +     cfg.direction = DMA_MEM_TO_DEV;
-> >
-> > So is this the address of crypto engine address where dma data is
-> > supposed to be pushed to..?
-> 
-> No. In case I wasn't clear enough in the cover letter: this is the
-> address of the *crypto engine* register which we use as a scratchpad
-> for the dummy write when issuing the lock/unlock command. Mani
-> suggested under the cover letter to use the descriptor metadata for
-> that.
+On Sat, 07 Mar 2026 20:11:51 +0100  Marc Zyngier <maz@kernel.org> wrote
+ > Valentine reports that their guests fail to boot correctly, losing
+ > interrupts, and indicates that the wrong interrupt gets deactivated.
+ > 
+ > What happens here is that if the maintenance interrupt is slow enough
+ > to kick us out of the guest, extra interrupts can be activated from
+ > the LRs. We then exit and proceed to handle EOIcount deactivations,
+ > picking active interrupts from the AP list. But we start from the
+ > top of the list, potentially deactivating interrupts that were in
+ > the LRs, while EOIcount only denotes deactivation of interrupts that
+ > are not present in an LR.
+ > 
+ > Solve this by tracking the last interrupt that made it in the LRs,
+ > and start the EOIcount deactivation walk *after* that interrupt.
+ > Since this only makes sense while the vcpu is loaded, stash this
+ > in the per-CPU host state.
+ > 
+ > Huge thanks to Valentine for doing all the detective work and
+ > providing an initial patch.
+ > 
+ > Fixes: 3cfd59f81e0f3 ("KVM: arm64: GICv3: Handle LR overflow when EOImode==0")
+ > Fixes: 281c6c06e2a7b ("KVM: arm64: GICv2: Handle LR overflow when EOImode==0")
+ > Reported-by: Valentine Burley <valentine.burley@collabora.com>
+ > Signed-off-by: Marc Zyngier <maz@kernel.org>
+ > Link: https://lore.kernel.org/r/20260307115955.369455-1-valentine.burley@collabora.com
+ > Cc: stable@vger.kernel.org
 
-This is overloading of address field. If we go this was I would add a
-comment in code explaining this and why in the setup the engine does not
-need peripheral address. Meta data sounds okay as well.
+Tested-by: Valentine Burley <valentine.burley@collabora.com>
 
--- 
-~Vinod
+Thanks a lot again for the quick fix!
+
+Cheers,
+Valentine
 
