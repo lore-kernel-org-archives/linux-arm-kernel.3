@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2E2DEA8543
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 20:54:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB2B5EA8543
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 20:55:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=96NRgRZ6Yx/IlrnWJQYOnXdwtojlOMhFGbF3AS3qmj4=; b=oEqx0KUsMlLodx+iBm8RCJMasc
-	qvjgSBOgSNx+SnvQFHDM61I8hABGHGSWhy0oqjLnW9Db3fNW/523HTnuUiqKLtqwwwgmU0E8S70a/
-	Ul7cemzseCE+D1aBhUsJDyTo3Aeh6NlIBTwTDVvhdoYhZWkb7RRe5Es4DVr3KhylTgJfl5yhygv3Y
-	gAVeKj0g3SWuYJe34dPUasv7cikyWoxdcKvZkGciaM1tsLsOSkZPBMPjxAwQCcwxD8nm5qNa37KzQ
-	iVEluhCPyBPHnG2tP9Q5qaAG5XiOG1uN07PQbII+lU1Pa1F0A45Us1YaRFvX8e9FuZ/tZ+DZHy6D5
-	XEcZYNeQ==;
+	bh=FBUrHeN7pt7If3s/g1D19NPCVcCwFWVOjJ7so+/1iBA=; b=RM74JrUznZ71Gm8nHS4ISGeS1M
+	ZtIm4RwKvmxoDrPLWVdMBy6iq9nJ294h36e5ly75juVbkN09kXcpPlJjDSfwuROJ0w/nCDFjqh144
+	nxKG8mobdf2W5/o/tU6378eN6fuxEW53/Lb29Wz/V7sNdaUqQSz3+NTvzKl+B5xLOA8C5rCB++7sH
+	DauHUBnpO10ZmSmVlzWdspoNdHgfvZZXb2bKk8R218SmGrEaWBjJvUel/y1Vui1JJHIveestxddod
+	VbqBvJ6eArRWRhs5tilGJ6jfbRt4pRau0kuu/geHmA2uPk/2+tYO5da19tWDh76/mv562Y+kkYNIk
+	yEpaZMlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzL8P-00000006Lgy-36uT;
-	Sun, 08 Mar 2026 20:53:57 +0000
-Received: from mail-westcentralusazon11010022.outbound.protection.outlook.com ([40.93.198.22] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1vzL9M-00000006Lpz-3Of5;
+	Sun, 08 Mar 2026 20:54:56 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzL8N-00000006LgX-08hR
+	id 1vzL9K-00000006LpX-23O9
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Mar 2026 20:53:56 +0000
+	Sun, 08 Mar 2026 20:54:55 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jZrQubr4ODuTFm67kqQC2IC3FswamX72wGIlF2uLm7yQsiaA66RZONq70LWK5Ty2imBYGn7K19cW7NDadwkOLbsfAaudcsY3yHz5v0RyLA4yLz+yAzlpKYZAojF9WFHw89esDBfJoKV7buQ2CyHLUzuJOMdJmERkjJAyyVrPjY7aXmkIKJhyCl/cc6UzQg709SRSPO3u6P3iKDipbmSubx9XVOkMcA9pQQ4g+19aw5pMAnww3HsUS3S4LaRlc3w5GB45uUJcXWtnfydRM3aquKDb85ZJXry6UMsWRDTf0674+r2stVEjEPU/cpex+5s8YZ5ueTGG+X0PSYOreNkoow==
+ b=tKhanG3cHuMl7wxxYr1gCqgCq4dC7PBXHpplmId5iucQ7BNWgtwMoW7tE0XVasnI4nB1L0kBYzfATymmE99haEzmkpL7sEbRdtrOVlSEJd2USWH6oQiEOV0ArwvsCT2nvJGEELtUM4wOw5Xo4thon/jh2MLYSTz7ONeo7PWSox4m7Oie98UJKGIz3+NlyD5GHlFX/ACCC1WkrOdyUV86MeJaCNVZ2lpowAgNMo3BJXZbOoq89Lj2hLx8Bcn0zBf0e5G7m5fbZG8Obje7IoWjImxwgZCsXC4xyEtIMsdLDbbOhRHBVKOD/vy7Ch0vgwuymte+IDbi7cuHWpDd5QnhMA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=96NRgRZ6Yx/IlrnWJQYOnXdwtojlOMhFGbF3AS3qmj4=;
- b=nfUwNbstut5Db7TgEQkG+9MuJNYHoLF75H4OjB9GJcrar5DbB6c+6MJtDCxXF+PIqAOxpjRn2GDAZHdOFdCzjcdEZh6kS8OXqCJq1jhlyCoCpzj5+XlHpKcCWb3xVru03XWjTyWMakDEGl/Q/z4EeAd+rmF6WF+bHo37yVg2jbkJy7OY81JDrS+BNZ5/YSJncXaYNWLEYJxAi7HGpoJ/ZYmGHsWQ0CU8Zv56kg15P38qD7GSrDSVlLP0+JZHLAOQOWZS8sN7NneO4nRqDpeu8P/AmbzWSLxqQ2nWVX6OF/P2iXtkEwpm6VNBT5LaAB7IvbQjbzvXz6Xl8+9tGqLN5w==
+ bh=FBUrHeN7pt7If3s/g1D19NPCVcCwFWVOjJ7so+/1iBA=;
+ b=mMRNNbdTiAc5YCQNAs+BT95nXa8Kk2/dxqZDjKjat/BJZUylBJUi175WkTu8B8h8zvwYLTFjLeMAQn/GuBHxe2PN1bAEexq9pQflqV0DdXJvPFT4LO9v1FxXHyG+qCplAAaP4hcABfVtMfpdVj5GkxiOSzdDmg3ruvRW7TCjkResyudaQSERcSruAdyKlH4mS9XwDoFUMJ7A5si1NTlfgPJ4UFoG8vCM6fw7ZoSILbGbZxmLFgYlEZjZWJxVEYvvNE7XeSPdPC8guiftx1H3M/uAIDxH6qveVZyevfPgo1NsoC4NbrhNakowyDH1J2A/3CIy80I+mQlNndlbgyiAYg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=huawei.com smtp.mailfrom=nvidia.com;
+ 216.228.117.160) smtp.rcpttodomain=huawei.com smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=96NRgRZ6Yx/IlrnWJQYOnXdwtojlOMhFGbF3AS3qmj4=;
- b=GGpc5Mav0fgaeiYwAEeWOrRtpnLvV9W6YCkhSgEasweG024HXIAnXlxvTWko3Tkbvy+OsbVKIYwElQMc3rbByZTtGZlMbFEJoZqBJsQRshVzxW9svHwVGk9chfiiaORa2RgJZKjXEERDBVsQQzMKupHlm/Tw/K8HDoMyiaVMDL0hekcb3lZcbdDP44nME1RFFKFeSzHyQiMwCv/tAcBX3YHRr8PiqYAxNSTxZvr1ruzBUV9i/KZn4FQ97tDGFhQYlJ2UcWuohwm+Xu3CMSdwNDg1OmJPped1TK9r5843Lg6Tb9zLgxGlD0ae80fa2S6J9/V09OA2OEeNRx3nLk2HzA==
-Received: from BY5PR17CA0008.namprd17.prod.outlook.com (2603:10b6:a03:1b8::21)
- by CY8PR12MB8214.namprd12.prod.outlook.com (2603:10b6:930:76::19) with
+ bh=FBUrHeN7pt7If3s/g1D19NPCVcCwFWVOjJ7so+/1iBA=;
+ b=c+8500Wua19fGBdv12kAyc4TiNChpzToqCouBp3wVKnnV0KCHcDlT6o+JlbPlJ7QCGi9Ykc0jQZ+dNSyYJcsDB3o2vTp7dkf5tjHMVQOnbJgXUV+8knT2Ukk9Twq6LuaArpkKbxWFDDCUKk752aI8JzfRVNEr4wHNOYNyQQt0QpX4583I2OP+f7xpNq1P4vOYW0XctZxKs6NXGwXaaYkGv6u5bnmYlO+S/HE8xab4tlo/GO1BYeHV88n7y8VTbIQlITu+h8j3QaQ67tChLBCsB10C6qXMEPnOLVoXbvRoYl67GBEv8plMwWhwR+A+IO9p0ZkVk5sKGBtCOYyRnGcpA==
+Received: from PH7P223CA0029.NAMP223.PROD.OUTLOOK.COM (2603:10b6:510:338::30)
+ by DS5PPF5A66AFD1C.namprd12.prod.outlook.com (2603:10b6:f:fc00::64d) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.10; Sun, 8 Mar
- 2026 20:53:48 +0000
-Received: from CO1PEPF000075F2.namprd03.prod.outlook.com
- (2603:10b6:a03:1b8:cafe::55) by BY5PR17CA0008.outlook.office365.com
- (2603:10b6:a03:1b8::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.22 via Frontend Transport; Sun,
- 8 Mar 2026 20:53:49 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.8; Sun, 8 Mar
+ 2026 20:54:46 +0000
+Received: from SN1PEPF00036F41.namprd05.prod.outlook.com
+ (2603:10b6:510:338:cafe::6c) by PH7P223CA0029.outlook.office365.com
+ (2603:10b6:510:338::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.26 via Frontend Transport; Sun,
+ 8 Mar 2026 20:54:32 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
 Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- CO1PEPF000075F2.mail.protection.outlook.com (10.167.249.41) with Microsoft
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ SN1PEPF00036F41.mail.protection.outlook.com (10.167.248.25) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9678.18 via Frontend Transport; Sun, 8 Mar 2026 20:53:47 +0000
+ 15.20.9678.18 via Frontend Transport; Sun, 8 Mar 2026 20:54:44 +0000
 Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 8 Mar
- 2026 13:53:32 -0700
+ 2026 13:54:34 -0700
 Received: from [10.221.136.116] (10.126.231.35) by rnnvmail201.nvidia.com
  (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 8 Mar
- 2026 13:53:28 -0700
-Message-ID: <8dc03385-aede-4774-9951-e76fc5cb2628@nvidia.com>
-Date: Sun, 8 Mar 2026 21:53:25 +0100
+ 2026 13:54:30 -0700
+Message-ID: <3d8f1e72-6098-43e8-aefa-e60f07bb81e7@nvidia.com>
+Date: Sun, 8 Mar 2026 21:54:22 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] PCI: Allow ATS to be always on for CXL.cache
- capable devices
+Subject: Re: [PATCH v3 2/3] PCI: Allow ATS to be always on for pre-CXL devices
 From: Nirmoy Das <nirmoyd@nvidia.com>
 To: Nicolin Chen <nicolinc@nvidia.com>, <jgg@nvidia.com>, <will@kernel.org>,
 	<robin.murphy@arm.com>, <bhelgaas@google.com>
@@ -87,10 +86,10 @@ CC: <joro@8bytes.org>, <praan@google.com>, <baolu.lu@linux.intel.com>,
 	<dan.j.williams@intel.com>, <jonathan.cameron@huawei.com>,
 	<vsethi@nvidia.com>, <linux-cxl@vger.kernel.org>
 References: <cover.1772833963.git.nicolinc@nvidia.com>
- <a0dd3e4cc5260f55bbec5b3ed6791def33028735.1772833963.git.nicolinc@nvidia.com>
- <2d523f6d-a4a5-44f5-b588-e6ad520322ff@nvidia.com>
+ <c715b10b49d50eea5429454108d4221c1a78efaf.1772833963.git.nicolinc@nvidia.com>
+ <50281260-62e4-427f-bd66-e8be58062a03@nvidia.com>
 Content-Language: en-US
-In-Reply-To: <2d523f6d-a4a5-44f5-b588-e6ad520322ff@nvidia.com>
+In-Reply-To: <50281260-62e4-427f-bd66-e8be58062a03@nvidia.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
 X-Originating-IP: [10.126.231.35]
@@ -98,28 +97,28 @@ X-ClientProxiedBy: rnnvmail201.nvidia.com (10.129.68.8) To
  rnnvmail201.nvidia.com (10.129.68.8)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000075F2:EE_|CY8PR12MB8214:EE_
-X-MS-Office365-Filtering-Correlation-Id: 448f261c-efe9-44d0-8048-08de7d54cb43
+X-MS-TrafficTypeDiagnostic: SN1PEPF00036F41:EE_|DS5PPF5A66AFD1C:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4b5d2a7a-d26e-4db6-432d-08de7d54ed47
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|36860700016|1800799024;
-X-Microsoft-Antispam-Message-Info: YsWJAjStiRXbqKpyX7XNvxF0Yv2iXaZDCSghKKQE2yYAlYLfHW3RH5Rv0/dxkKBHbFycX/FNjQ1m/y5x1ASLHdALIUKSjh/qvaYUsAnR7qJSsUo8KC8hRjZc/NtARCJ10fx9YDnsymKUuAH7HmU5ezEdH6zo3xJjGqdjVtjcY5sLfPdX01RoKWNGNTjfwi6ucscv4X+479KsOP+qP2wNIL+6Y3UvDkbcSJAVx0Hf5gharyFdHmQSZFJPgZhGmH0s+Z/PFTEAfLf1JLchaQ3CvJjQKdaKUdqSiwtVoHSmCWk5VyZ/j+joZuUU8uTIPDUOb5g4ykjFneiuBQ2wq4giBzWumC7ymzkFeE2yF0T/wZFvSXasKPqNjFVR76OvA2auq+LPTSZabPIsK3n0ZxKmXYTMWuicbghe1OyIzlmq6wWx18uL9AvaPrY06XQUACFBwOdRxTG0dZwDBWXHg6k4xg9uQdIG9RtYmPsAs3UPvLTUYgBy/fwUTT1wMJ3ZbPnKdJXNaiiWsrMyQCJiAKYYyWMlXQJvG32JehIRu2MEPXqYagKSCnQEdAoKZW/1cdshZyXkpZapC6o9azvgsps4djUmQd4r1Pj4K3JqWbROSfwr5dDeQ5wPF2nBwiBdh84+Hm7MzfYPCqG3OfKH8yXrIOvwOelcIBLgftxJh+aVUlc3U4r/OxYYyItTE+jS89uFTHZWwnVeUtnxtigvCkbWWsMPSrLdq5tvdDQyhve3+83liE5ovugUuLVmI2kAW35ttRsBJYv7KVuoCGmCa9hH2w==
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(36860700016)(1800799024);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|7416014|376014;
+X-Microsoft-Antispam-Message-Info: XBwDY31l9UqNH9zjG+csORGDNY5NIEaX+Ad2XzxAlHB9hXj8vkNaorf8ABiUYQw2+Lkdo0JTKsCH6Qpnfk+4mgIWyVXbwH+9mB+viVNy0eJrW5kNU7mE9Kj6PV/IELbRMTuvPTb/j+V9jXlqnr4r4+rhHuuPNnARL/ngZZy0LaZ6CE9UBnTCVz+jaMO1SpaKLYTrNeNYrSV8qSHM2/GGNGPY2eSI6vWn9SJRqanjRdXuQcdnmSYpw9tvAxHqtYVuEyu+YB3TpUdPBhQ/ph7ssDKvJvKA2zeaY7x0QyoIpkIirMhpVOvs0NHg0U67Xg7EjFWQTeZrt8oZ3mkghgCwGNl6EwuWktuJ1xp6vdwBS99wVH+io+YP3NZTn7F/omPBdl0ejrmkOWv6DhvQqXjlHkKfHpeHHCkbjNRZwDChOC9fTezBDzJQ5m5K6m4jnxeT88uVI6UmCXIYa+jU8UDWsJi5FXb6v8jEa6ucDfI4WW/xpmZFyFWBKMdqcgI/OkapvPZNJci3TcIRRDZp4gLcdnEj2JBcBdKZHVi06ydK3hUb4bD4Ep9a9nvJzFjgd6Q38TS9dADzv75mQ1hvLqTxtbMxCo6Kt3EHSnG7/Jc+XC+LyO3shdfDvckjvdHhXexqnzriEaOMrMcLKzZ/cOZQAT2lZWBJkV7NjtaleSrT8300x9yM3xyVcN8UmakQmcDH25LF67eMfV+p2DOOKuTNAIrp7I07TXPRjG7wf8wCLPjbqybGJBUC38VNhFKIGolfNatNhAXfYUoDjDhHnPC74g==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(7416014)(376014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Y/+xpEQvzKuyyn3rjhP6XHjATC0eNFHg+8JEkj28MgfaPBS6BUw8yzD/GzLXBxHgjK/3m1i6cly6roiVpDI+5AiF0Pj4n2XvFvs1NMkjSDkzITKYjGLXr0F6SWBKpqJW2JTliwR5TkKa9PLooBG/tOKR6PHtFpXbltBNfwcWwkIhKDI9pjdSx4jo79z+584DujsYvROzhABREvtsUvIKswNnjlLWbGVe5jEF55hIr2/MLXsqs9/ypsEVFSD1xJFAdAO2RejKQUJIgtbXtNQspqm2SvOsluc+jE/d6voy8QEriprxtlpbhGBIKVRVApoWqId/DrD40mei08DnGpR5/F3erZPO1RkqgG3elOtOOvfCyxVAyl5OzFZN6KOUemDTHnwPikvYmjGDV3i3pr5qv0sIuqmZrmOnLZTvkgM0Sk68/u+184US/rupRN+xYzD4
+X-MS-Exchange-AntiSpam-MessageData-0: xkvd0rUeDMEd6cYnPCLgpvoUdgwJExNQDGpaLuhWuJvABgRu5+0C5lbCWDbK//E3mIDOq8L8KaiVcTQxn5STowAkqO+W3/zbXK4oOFq688HTrWwuRTO7wONjzC4WGaaJ+rUBeTTy8tWklUSzCi/gUsE7GpS7aqCOZ/nioOvo5kNIHrWtvuhr4e2wuNfbfnEazlbo8jyMcSbujtTSY7TWxyc2ZmFl631/bS10LSl1hALJtLZU0ArL+BcNlGCYQUfN0NA9wncGd/+U8Emer3izGmT9dqJ7JWRf/WbJLtib3WJ9adKGxIFEKqB54V7ZWZbXGpDUF7u/gmejLIjNhDmyt3avlDekI39rRAmRomQIk17DGUleVwGtRMZsCOCJVFmGxCKA0ae/PX8+ntAsFk1NG+ZkRJW0bwhDyRjGYzbgDA98NX8ZBETsneLIoOLuqFYO
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Mar 2026 20:53:47.3189
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Mar 2026 20:54:44.3399
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 448f261c-efe9-44d0-8048-08de7d54cb43
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4b5d2a7a-d26e-4db6-432d-08de7d54ed47
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000075F2.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00036F41.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB8214
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS5PPF5A66AFD1C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260308_135355_073922_8473EC5A 
-X-CRM114-Status: GOOD (  18.89  )
+X-CRM114-CacheID: sfid-20260308_135454_569877_EBC5B597 
+X-CRM114-Status: GOOD (  16.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,154 +134,115 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 08.03.26 21:49, Nirmoy Das wrote:
+On 08.03.26 21:50, Nirmoy Das wrote:
 >
 > On 07.03.26 00:41, Nicolin Chen wrote:
->> Controlled by the IOMMU driver, ATS is usually enabled "on demand" 
->> when a
->> device requests a translation service from its associated IOMMU HW 
->> running
->> on the channel of a given PASID. This is working even when a device 
->> has no
->> translation on its RID (i.e., the RID is IOMMU bypassed).
+>> Some NVIDIA GPU/NIC devices, although don't implement the CXL config 
+>> space,
+>> they have many CXL-like properties. Call this kind "pre-CXL".
 >>
->> However, certain PCIe devices require non-PASID ATS on their RID even 
->> when
->> the RID is IOMMU bypassed. Call this "always on".
+>> Similar to CXL.cache capaiblity, these pre-CXL devices also require 
+>> the ATS
+>> function even when their RIDs are IOMMU bypassed, i.e. keep ATS 
+>> "always on"
+>> v.s. "on demand" when a non-zero PASID line gets enabled in SVA use 
+>> cases.
 >>
->> For instance, the CXL spec notes in "3.2.5.13 Memory Type on CXL.cache":
->> "To source requests on CXL.cache, devices need to get the Host Physical
->> Address (HPA) from the Host by means of an ATS request on CXL.io."
+>> Introduce pci_dev_specific_ats_always_on() quirk function to scan a 
+>> list of
+>> IDs for these device. Then, include it pci_ats_always_on().
 >>
->> In other words, the CXL.cache capability requires ATS; otherwise, it 
->> can't
->> access host physical memory.
->>
->> Introduce a new pci_ats_always_on() helper for the IOMMU driver to 
->> scan a
->> PCI device and shift ATS policies between "on demand" and "always on".
->>
->> Add the support for CXL.cache devices first. Pre-CXL devices will be 
->> added
->> in quirks.c file.
->>
->> Note that pci_ats_always_on() validates against pci_ats_supported(), 
->> so we
->> ensure that untrusted devices (e.g. external ports) will not be 
->> always on.
->> This maintains the existing ATS security policy regarding potential 
->> side-
->> channel attacks via ATS.
->>
->> Cc: linux-cxl@vger.kernel.org
->> Suggested-by: Vikram Sethi <vsethi@nvidia.com>
 >> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
 >> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 >
-> Tested the series with a Type 2 CXL device.
->
 > Tested-by: Nirmoy Das <nirmoyd@nvidia.com>
 >
-> Acked-by: Nirmoy Das <nirmoy@nvidia.com>
+> Reviewed-by: Nirmoy Das <nirmoy@nvidia.com>
+
+
 Sent with wrong email address
-Acked-by: Nirmoy Das <nirmoyd@nvidia.com>
+
+Reviewed-by: Nirmoy Das <nirmoyd@nvidia.com>
 >
 >> ---
->>   include/linux/pci-ats.h       |  3 +++
->>   include/uapi/linux/pci_regs.h |  1 +
->>   drivers/pci/ats.c             | 42 +++++++++++++++++++++++++++++++++++
->>   3 files changed, 46 insertions(+)
+>>   drivers/pci/pci.h    |  9 +++++++++
+>>   drivers/pci/ats.c    |  3 ++-
+>>   drivers/pci/quirks.c | 26 ++++++++++++++++++++++++++
+>>   3 files changed, 37 insertions(+), 1 deletion(-)
 >>
->> diff --git a/include/linux/pci-ats.h b/include/linux/pci-ats.h
->> index 75c6c86cf09dc..d14ba727d38b3 100644
->> --- a/include/linux/pci-ats.h
->> +++ b/include/linux/pci-ats.h
->> @@ -12,6 +12,7 @@ int pci_prepare_ats(struct pci_dev *dev, int ps);
->>   void pci_disable_ats(struct pci_dev *dev);
->>   int pci_ats_queue_depth(struct pci_dev *dev);
->>   int pci_ats_page_aligned(struct pci_dev *dev);
->> +bool pci_ats_always_on(struct pci_dev *dev);
->>   #else /* CONFIG_PCI_ATS */
->>   static inline bool pci_ats_supported(struct pci_dev *d)
->>   { return false; }
->> @@ -24,6 +25,8 @@ static inline int pci_ats_queue_depth(struct 
->> pci_dev *d)
->>   { return -ENODEV; }
->>   static inline int pci_ats_page_aligned(struct pci_dev *dev)
->>   { return 0; }
->> +static inline bool pci_ats_always_on(struct pci_dev *dev)
->> +{ return false; }
->>   #endif /* CONFIG_PCI_ATS */
->>     #ifdef CONFIG_PCI_PRI
->> diff --git a/include/uapi/linux/pci_regs.h 
->> b/include/uapi/linux/pci_regs.h
->> index 14f634ab9350d..6ac45be1008b8 100644
->> --- a/include/uapi/linux/pci_regs.h
->> +++ b/include/uapi/linux/pci_regs.h
->> @@ -1349,6 +1349,7 @@
->>   /* CXL r4.0, 8.1.3: PCIe DVSEC for CXL Device */
->>   #define PCI_DVSEC_CXL_DEVICE                0
->>   #define  PCI_DVSEC_CXL_CAP                0xA
->> +#define   PCI_DVSEC_CXL_CACHE_CAPABLE            _BITUL(0)
->>   #define   PCI_DVSEC_CXL_MEM_CAPABLE            _BITUL(2)
->>   #define   PCI_DVSEC_CXL_HDM_COUNT            __GENMASK(5, 4)
->>   #define  PCI_DVSEC_CXL_CTRL                0xC
+>> diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
+>> index 13d998fbacce6..13fa71f965900 100644
+>> --- a/drivers/pci/pci.h
+>> +++ b/drivers/pci/pci.h
+>> @@ -1150,6 +1150,15 @@ static inline int 
+>> pci_dev_specific_reset(struct pci_dev *dev, bool probe)
+>>   }
+>>   #endif
+>>   +#if defined(CONFIG_PCI_QUIRKS) && defined(CONFIG_PCI_ATS)
+>> +bool pci_dev_specific_ats_always_on(struct pci_dev *dev);
+>> +#else
+>> +static inline bool pci_dev_specific_ats_always_on(struct pci_dev *dev)
+>> +{
+>> +    return false;
+>> +}
+>> +#endif
+>> +
+>>   #if defined(CONFIG_PCI_QUIRKS) && defined(CONFIG_ARM64)
+>>   int acpi_get_rc_resources(struct device *dev, const char *hid, u16 
+>> segment,
+>>                 struct resource *res);
 >> diff --git a/drivers/pci/ats.c b/drivers/pci/ats.c
->> index ec6c8dbdc5e9c..cf262eb6e6890 100644
+>> index cf262eb6e6890..e6995b536ad4c 100644
 >> --- a/drivers/pci/ats.c
 >> +++ b/drivers/pci/ats.c
->> @@ -205,6 +205,48 @@ int pci_ats_page_aligned(struct pci_dev *pdev)
->>       return 0;
+>> @@ -243,7 +243,8 @@ bool pci_ats_always_on(struct pci_dev *pdev)
+>>       if (pdev->is_virtfn)
+>>           pdev = pci_physfn(pdev);
+>>   -    return pci_cxl_ats_always_on(pdev);
+>> +    return pci_cxl_ats_always_on(pdev) ||
+>> +           pci_dev_specific_ats_always_on(pdev);
 >>   }
->>   +/*
->> + * CXL r4.0, sec 3.2.5.13 Memory Type on CXL.cache notes: to source 
->> requests on
->> + * CXL.cache, devices need to get the Host Physical Address (HPA) 
->> from the Host
->> + * by means of an ATS request on CXL.io.
->> + *
->> + * In other world, CXL.cache devices cannot access host physical 
->> memory without
->> + * ATS.
->> + */
->> +static bool pci_cxl_ats_always_on(struct pci_dev *pdev)
+>>   EXPORT_SYMBOL_GPL(pci_ats_always_on);
+>>   diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
+>> index 48946cca4be72..21451e62f284e 100644
+>> --- a/drivers/pci/quirks.c
+>> +++ b/drivers/pci/quirks.c
+>> @@ -5714,6 +5714,32 @@ DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_INTEL, 
+>> 0x1457, quirk_intel_e2000_no_ats);
+>>   DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_INTEL, 0x1459, 
+>> quirk_intel_e2000_no_ats);
+>>   DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_INTEL, 0x145a, 
+>> quirk_intel_e2000_no_ats);
+>>   DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_INTEL, 0x145c, 
+>> quirk_intel_e2000_no_ats);
+>> +
+>> +static const struct pci_dev_ats_always_on {
+>> +    u16 vendor;
+>> +    u16 device;
+>> +} pci_dev_ats_always_on[] = {
+>> +    /* NVIDIA GPUs */
+>> +    { PCI_VENDOR_ID_NVIDIA, 0x2e12, },
+>> +    { PCI_VENDOR_ID_NVIDIA, 0x2e2a, },
+>> +    { PCI_VENDOR_ID_NVIDIA, 0x2e2b, },
+>> +    /* NVIDIA CX10 Family NVlink-C2C */
+>> +    { PCI_VENDOR_ID_MELLANOX, 0x2101, },
+>> +    { 0 }
+>> +};
+>> +
+>> +/* Some pre-CXL devices require ATS on the RID when it is 
+>> IOMMU-bypassed */
+>> +bool pci_dev_specific_ats_always_on(struct pci_dev *pdev)
 >> +{
->> +    u16 cap = 0;
->> +    int offset;
+>> +    const struct pci_dev_ats_always_on *i;
 >> +
->> +    offset = pci_find_dvsec_capability(pdev, PCI_VENDOR_ID_CXL,
->> +                       PCI_DVSEC_CXL_DEVICE);
->> +    if (!offset)
->> +        return false;
+>> +    for (i = pci_dev_ats_always_on; i->vendor; i++) {
+>> +        if (i->vendor == pdev->vendor && i->device == pdev->device)
+>> +            return true;
+>> +    }
 >> +
->> +    pci_read_config_word(pdev, offset + PCI_DVSEC_CXL_CAP, &cap);
->> +
->> +    return cap & PCI_DVSEC_CXL_CACHE_CAPABLE;
+>> +    return false;
 >> +}
->> +
->> +/**
->> + * pci_ats_always_on - Whether the PCI device requires ATS to be 
->> always enabled
->> + * @pdev: the PCI device
->> + *
->> + * Returns true, if the PCI device requires ATS for basic functional 
->> operation.
->> + */
->> +bool pci_ats_always_on(struct pci_dev *pdev)
->> +{
->> +    if (pci_ats_disabled() || !pci_ats_supported(pdev))
->> +        return false;
->> +
->> +    /* A VF inherits its PF's requirement for ATS function */
->> +    if (pdev->is_virtfn)
->> +        pdev = pci_physfn(pdev);
->> +
->> +    return pci_cxl_ats_always_on(pdev);
->> +}
->> +EXPORT_SYMBOL_GPL(pci_ats_always_on);
->> +
->>   #ifdef CONFIG_PCI_PRI
->>   void pci_pri_init(struct pci_dev *pdev)
->>   {
+>>   #endif /* CONFIG_PCI_ATS */
+>>     /* Freescale PCIe doesn't support MSI in RC mode */
 >
 
