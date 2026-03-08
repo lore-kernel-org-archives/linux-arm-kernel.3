@@ -4,89 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66F5DF55106
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 02:16:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8217CF55130
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 05:18:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iIcO5BEsmaavjxp3pWNdUOixbx6V+gvKfNkKSDPbOxY=; b=j/+N0m9+r6FDYGRZirSZGgRVsC
-	8bydFZeEkStrawL6I80LrVt5x2ysrRRf2RH3kZKV9vs3ThLnNcBq3B1caw3i06/TRt4sLi0gZmleV
-	6OisqlMCHBkvNZcqXPwQ0jDIxKH9DCELGyTZCVKplckXkfzPjkkw47TEODxLgQa+GMIQXKmH3LGeS
-	v/h+Vryt45XzNBKooVaLCs9+gGipOFN0kg6376s8DIcN26SlRuzmu3ID/jKjyty1q36GK51GOr0Ou
-	TAh9MWuTh3nzD15WcdADas785RnNP4pszW0lSRWnsYqxKWphNs4vcleUAG5PakuGmLeEutMzKIfdc
-	19ywBe5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HyQYqF8dm9dm7F4KAv5Bd3+xVsMbty6DU/nWv1RHZ2Y=; b=H/acOJqimUR2sKnzFTLCUEJqJx
+	GYjN/oyqKYOXg2JMq3ycHzfcSlUJ0cYpT3PsihR2G4RDcmn0G1LymQ/fDfN8nPkiP+AedlBGXKj83
+	6lcN4hJZbZJR5Qe7BVaPYb9FAN8rFkBS/O1535WvyWWHpHtb/O3IWEwsKLoE35lAWA8pE77L6vXIo
+	w2MVdJ3v+9t6I19oAra4ColrVGCx1SPjfYVu/EwnZZMkS8cyfEqR6Xqncu3VdGtACXmnRMHutSi1F
+	36BNEhvKsltqLHHLV+fWydKSea6VnHq+InjwhQroBOo8o7b4swJYhJFKUxs1fCdn3dN0DYWXcMPfG
+	AJuq8zVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vz3gT-00000005dqd-1NPE;
-	Sun, 08 Mar 2026 02:15:57 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1vz6We-00000005iaC-1TwJ;
+	Sun, 08 Mar 2026 05:18:00 +0000
+Received: from s106b.cyber-folks.pl ([195.78.66.88])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vz3gQ-00000005dqB-3Med
+	id 1vz6WV-00000005iXr-2grr
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Mar 2026 02:15:55 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-359894e17b8so4921099a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 07 Mar 2026 18:15:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772936153; x=1773540953; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=iIcO5BEsmaavjxp3pWNdUOixbx6V+gvKfNkKSDPbOxY=;
-        b=eovU4NyFV0v9vvBp2g4osQaQg2FZFYmqoy2fHvtrRtqFSMChp4u6WJpvsxRS8OMEdE
-         2MxnjZwp1NXe97SJhXjTT7Y/s98Gy5n7EIITJCq0+4fmDii76Rz63Ve4HId7gikAwdxZ
-         0qcVW6UR2DQeLgbAblszTz1Cw0NKCx2KWg7a/Szj+TjhwUJe37w64q1Fbg36VKZU7mbB
-         4iNcyN2MhP5jG56nDzCHYu0j01fASnEufGgh9bFjzZbTQB9Oo40Uhnpj7/c7s4rglGQ/
-         hnXj5WxdKxW8UP05PdwKudHpwdYiTIPAEJPeOH5jykSacylK1FZCGfQgF2oe95w2+yB2
-         bC7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772936153; x=1773540953;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iIcO5BEsmaavjxp3pWNdUOixbx6V+gvKfNkKSDPbOxY=;
-        b=ZOPyj8fTH2h4TogbbZv6H2eWeG9ElScoHPWakgQyw5miAq28QAY4OfJqZVNmG4UwOt
-         eF5sbBY3mD6sZFfOteOhVpXYJ3F+5HcC38HBaYKdA50O3v5pfO+J6s4PMm/RcZXuiw/v
-         jHrSG9KgI4zGgLgUtcaOzLF+Y1QIAEXTRN3x1mEFLxdpXC+5n9O6zF0B1VHqdl9f32bm
-         QR0hjV4zHHpT3PSyY2XKtseSHMvLHjNMbpotyUXTNmNlPALGLraMUSU1tLz12Bp0AIMz
-         BnHMciirkeolHm+mCXAnRZ/yXScqTC70clkKgDhKtiLIZLvxWsaXo7Dl9jFu7e/4G3j6
-         yAJg==
-X-Forwarded-Encrypted: i=1; AJvYcCWSp4Za5O8ecxUpCUAnuitIqFP3qmUu+98k36d1Q2eRAAQTzhSgmZgzBStjMJpnGZdalbTOIC3jljt9KRN/EvL9@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSiChidqavOMM92tm1XY5E6K8ZY69bLvYWZYO+3If/9tb/57PF
-	n1+wxoeekZW2A843d6JA4oIziSM7/jnqzSnEHNFQJmdjQkUeQunn9RCCKfsQnxvzeXA=
-X-Gm-Gg: ATEYQzyzpvyUP+ZZPDoPZjOi1bynCjFi5m84Lf4HLS1l9/K/RnuJ+Y6Br+p8Fo84tQT
-	faqC2OudkDlU4aPbHiVdHqoQzyQSPSCvYgQ7E8bfJ0NIyBNOb0PdsHdk1J5RxEbIajfLHB/uUxG
-	8R3F3Dh27TL7QYglaNSKIPp32aKN1ULlqdTSAFel9fgr6/HBHJ9QIZoP9ke0NARAi7phWxy6UTs
-	PE8Ft3m+1dKf6OZJVqTD4y4fVefs63ahYoZMo3yyb/xrdro4zltdem/EXXjAovhTamKOGdPIyy2
-	UU4376nArQ5i1FExZfsg8L1tSlunXRrOaapFUR6MqQtobekxC8liRxeuY91ddNfQ/RD73OxYSei
-	nV6lMksN2jVduCVbqpmZHUxjftaa/Okc6Zx0SKZUG/FEFE3QVDrQMBbTvbomtZG81UdU21kpMqh
-	KBpeqFBGOL/Fvbjp9eRPall8HFhG+DGLTMPDTxL9Tim2TUYaqk6O1blA==
-X-Received: by 2002:a17:902:ce8e:b0:2ad:ca3a:ecb0 with SMTP id d9443c01a7336-2ae823ac6ebmr70405345ad.25.1772936153317;
-        Sat, 07 Mar 2026 18:15:53 -0800 (PST)
-Received: from ryzen ([2601:644:8000:56f5::8bd])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae840adb42sm85962385ad.81.2026.03.07.18.15.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 07 Mar 2026 18:15:52 -0800 (PST)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-gpio@vger.kernel.org
-Cc: Daniel Palmer <daniel@thingy.jp>,
-	linux-hardening@vger.kernel.org,
-	gustavoars@kernel.org,
-	Romain Perier <romain.perier@gmail.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/MStar/Sigmastar Armv7 SoC support),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] gpio: msc313: remove kcalloc
-Date: Sat,  7 Mar 2026 18:15:35 -0800
-Message-ID: <20260308021535.48098-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	Sun, 08 Mar 2026 05:17:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=mmpsystems.pl; s=x; h=Cc:To:In-Reply-To:References:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=HyQYqF8dm9dm7F4KAv5Bd3+xVsMbty6DU/nWv1RHZ2Y=; b=Sypk/RGmy/2OwnJ2n/6Z+dG65n
+	y6v+fRnPmZFOzE3mRDOcVFGPjlAUQCK+CXZoLHlzUG8YaJKuV5MKMHuVWsf5+d0lG/mJti0J3t7UB
+	kyO0vOXf9CwdSjEfpcYSI7jkZExSV4Hb+4gHYYHISvM+KoTzMdzUpx1RqIgsUpaUVf2wUvvskcgxu
+	YQxdroVSytfyVXLcJmPj8bHNOVuXPmtevtBU3sLfJECcUNQdTPFCcUhrasYfaV5Uy/sMl1LPTzHrB
+	rrmhYPLjjUpG4yGmj8npSvLTVCjkaVl7/E4iFl9FOYJF7APY3izQnfaIR2oFKaMyd9IBKNVc7mnQp
+	7fGz6oAg==;
+Received: from user-5-173-16-20.play-internet.pl ([5.173.16.20] helo=localhost)
+	by s106.cyber-folks.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <michal.piekos@mmpsystems.pl>)
+	id 1vz6WS-00000007XHz-3Z9X;
+	Sun, 08 Mar 2026 06:17:48 +0100
+From: Michal Piekos <michal.piekos@mmpsystems.pl>
+Date: Sun, 08 Mar 2026 06:16:52 +0100
+Subject: [PATCH 2/2] arm64: dts: allwinner: orangepi-zero3: fix axp313
+ interrupt parrent
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260308-rc2-boot-hang-v1-2-d792d1a78dfd@mmpsystems.pl>
+References: <20260308-rc2-boot-hang-v1-0-d792d1a78dfd@mmpsystems.pl>
+In-Reply-To: <20260308-rc2-boot-hang-v1-0-d792d1a78dfd@mmpsystems.pl>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Andre Przywara <andre.przywara@arm.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Michal Piekos <michal.piekos@mmpsystems.pl>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772947022; l=1582;
+ i=michal.piekos@mmpsystems.pl; s=20260301; h=from:subject:message-id;
+ bh=wRlY9EhqdoRo+41ZkIEaclvfQ9HpOHyVOUVlbpFpXv4=;
+ b=pbuhMCrHOMEGAFSJbb1V7QGKXHtzhaT91KrYMOK1Yfr+uWNG9ydw6rLmkbfTUUUSU5gkE91BA
+ MvPVAonUMA3Al7zj34PPrctkWCcldNR42mfies4N8cZmEt011I+XI2d
+X-Developer-Key: i=michal.piekos@mmpsystems.pl; a=ed25519;
+ pk=Aixyx03If7ZDamiKKN0lsa+0mtA+WjIuIf2ZQVYNBqg=
+X-Authenticated-Id: michal.piekos@mmpsystems.pl
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260307_181554_843167_529AAF5F 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20260307_211752_345418_53D31C05 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,45 +89,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use a flexible array member to combine kzalloc and kcalloc.
+The AXP313 PMIC interrupt on Orange Pi Zero 3 is connected to PL bank
+GPIO handled by the R_PIO controller. However current dts routes the
+interrupts to PIO controller. This causes the kernel to select wrong
+pinctrl instance when configuring the interrupt which leads to invalid
+register access and a kernel hang during boot.
 
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
+The problem existed previously but became visible after the commit
+01e10d0272b9 ("pinctrl: sunxi: Implement gpiochip::get_direction()"),
+which causes gpiolib to call the gpiochip::get_direction() callback
+during interrupt setup.
+
+Route the interrupt thrpugh R_PIO so the PL bank GPIO is handled by
+correct controller.
+
+Fixes: f1b3ddb3ecc2 ("arm64: dts: allwinner: h616: Add OrangePi Zero 3 board support")
+
+Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
+Tested-by: Michal Piekos <michal.piekos@mmpsystems.pl>
 ---
- drivers/gpio/gpio-msc313.c | 8 ++------
- 1 file changed, 2 insertions(+), 6 deletions(-)
+ arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/gpio/gpio-msc313.c b/drivers/gpio/gpio-msc313.c
-index 7345afdc78de..de3e6da2a089 100644
---- a/drivers/gpio/gpio-msc313.c
-+++ b/drivers/gpio/gpio-msc313.c
-@@ -483,7 +483,7 @@ MSC313_GPIO_CHIPDATA(ssd20xd);
- struct msc313_gpio {
- 	void __iomem *base;
- 	const struct msc313_gpio_data *gpio_data;
--	u8 *saved;
-+	u8 saved[];
- };
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts
+index c51d4d9120de..c46ae00aed5c 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts
+@@ -48,7 +48,7 @@ axp313: pmic@36 {
+ 		reg = <0x36>;
+ 		#interrupt-cells = <1>;
+ 		interrupt-controller;
+-		interrupt-parent = <&pio>;
++		interrupt-parent = <&r_pio>;
+ 		interrupts = <2 9 IRQ_TYPE_LEVEL_LOW>;	/* PC9 */
  
- static int msc313_gpio_set(struct gpio_chip *chip, unsigned int offset, int value)
-@@ -631,16 +631,12 @@ static int msc313_gpio_probe(struct platform_device *pdev)
- 	if (!parent_domain)
- 		return -ENODEV;
- 
--	gpio = devm_kzalloc(dev, sizeof(*gpio), GFP_KERNEL);
-+	gpio = devm_kzalloc(dev, struct_size(gpio, saved, match_data->num), GFP_KERNEL);
- 	if (!gpio)
- 		return -ENOMEM;
- 
- 	gpio->gpio_data = match_data;
- 
--	gpio->saved = devm_kcalloc(dev, gpio->gpio_data->num, sizeof(*gpio->saved), GFP_KERNEL);
--	if (!gpio->saved)
--		return -ENOMEM;
--
- 	gpio->base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(gpio->base))
- 		return PTR_ERR(gpio->base);
+ 		vin1-supply = <&reg_vcc5v>;
+
 -- 
-2.53.0
+2.43.0
 
 
