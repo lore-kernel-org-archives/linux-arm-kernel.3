@@ -4,71 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14142EA8543
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 22:22:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D023EA852F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 22:58:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V7iguEGvSAeCrsoCk63xlZmYsHCT1eQLEiCEKw29MV0=; b=pv06X0hUKhAcuCAuP2rqgboMX/
-	Y3bh4f8vHHk71RyyXpLTvkGxbIpbMaucUC4lcjJa4Y1FeOm9sTKJzUSQAnayWmX8nmMOI9HiXz2Sx
-	WfsYK/sVzda5xelzm/7Ws0/GAh7dIcuZXKRZJrpciIYHpEQAsa2vqfdVSFru3HIdEcMp0rkFjTShx
-	S4RmmdWLy/pgggBuVcH3U/y2mwsNVCuoOCIWidMiyRG9nmd3Wa5YYPfmczRxDtRjK0xyfw8j7tf8j
-	nIcDZvNxl/iQz3ve7gf7kytX44TvFAxVIHWw5k1vkqHXV63L3gHFGCI6B+Ue6nx0fGG/SOdqJmUv+
-	YK9OiFTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lvTBwkRpzv/+iflKpNtT/Sc3/8hKIuGMHkVUOsvJCnA=; b=RSQNaN5TAn96qz+QXzr6OjW2aZ
+	Tyy+QO/XoFo0uov7fG82y+uigFTFNtLrDvsLezsWxXAf0FKzfRAUSlOcn5/jWOq1Smc+zBJ7eLF6Y
+	OyfMyY6WmCUh9Bl2bxsEvfA1gJ2dOpH0zMUAysqNAFQPOiVX4m1AqR2zbZdYNpBEaBGSDC1lup5iI
+	2vZ8AzVB3UMtcCGuwCxTK7rXcwhiSL96rNLOSVZpOVO639OM7zsFK/qKw577qogfNkgFRsFuHJKgr
+	fop6zjOS0aO6IYzIWotOi2PhTzOfxLf/th4qEBjo8CRATB2VUEpNRVFlHv5G5+VBFkJZq9/2c0Svx
+	kNQ5xNrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzMW4-00000006P6E-0HUE;
-	Sun, 08 Mar 2026 22:22:28 +0000
-Received: from smtprelay0015.hostedemail.com ([216.40.44.15] helo=relay.hostedemail.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzMW1-00000006P5S-2NhD;
-	Sun, 08 Mar 2026 22:22:26 +0000
-Received: from omf03.hostedemail.com (a10.router.float.18 [10.200.18.1])
-	by unirelay06.hostedemail.com (Postfix) with ESMTP id 42DD81B91B3;
-	Sun,  8 Mar 2026 22:22:21 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: joe@perches.com) by omf03.hostedemail.com (Postfix) with ESMTPA id BD6C56000E;
-	Sun,  8 Mar 2026 22:22:14 +0000 (UTC)
-Message-ID: <9fd14d166e860f26febfbc9061a6dcae6a166961.camel@perches.com>
-Subject: Re: [PATCH v2 phy-next 24/24] MAINTAINERS: add regexes for linux-phy
-From: Joe Perches <joe@perches.com>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>, Neil
- Armstrong <neil.armstrong@linaro.org>, dri-devel@lists.freedesktop.org, 
-	freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-can@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev, 
-	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org,
- netdev@vger.kernel.org, 	spacemit@lists.linux.dev,
- UNGLinuxDriver@microchip.com
-Date: Sun, 08 Mar 2026 15:22:13 -0700
-In-Reply-To: <20260308205623.5trrqdmdrzj744hi@skbuf>
-References: <20260308114009.2546587-1-vladimir.oltean@nxp.com>
-	 <20260308114009.2546587-25-vladimir.oltean@nxp.com>
-	 <ca170cbaf2f8bcbc89bbda68914d8e0d7640f0e7.camel@perches.com>
-	 <20260308191017.kcyi7ka5pktq5jl4@skbuf>
-	 <8c4c5d0c5d014d5cc19eb10906ca1bd83ffb3ce5.camel@perches.com>
-	 <20260308205623.5trrqdmdrzj744hi@skbuf>
-Content-Type: text/plain; charset="ISO-8859-1"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	id 1vzN4d-00000006Q2g-3hFT;
+	Sun, 08 Mar 2026 22:58:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vzN4a-00000006Q2C-1YFS
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 08 Mar 2026 22:58:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 907971D13;
+	Sun,  8 Mar 2026 15:57:57 -0700 (PDT)
+Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 70B3B3F694;
+	Sun,  8 Mar 2026 15:58:02 -0700 (PDT)
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Cc: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: [PATCH 0/2] KVM: arm64: nv: Expose shadow page tables in debugfs
+Date: Sun,  8 Mar 2026 22:56:59 +0000
+Message-ID: <20260308225701.863369-1-weilin.chang@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-Stat-Signature: zgtxuwsb3363ai68tf6p7s8zp8seinzy
-X-Rspamd-Server: rspamout04
-X-Rspamd-Queue-Id: BD6C56000E
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Session-ID: U2FsdGVkX19wsONHcaef5rI729O90pckRr9dLrQEYXs=
-X-HE-Tag: 1773008534-677296
-X-HE-Meta: U2FsdGVkX19zIqgNUKb+c+5Mu7Q3C+Gpl/B+X8eI5i6bGv7WE3zpj355qMm6YCbRSW7Vrhs2aumEBIt791syA8wOI3oaCj+46xwg3qNvWJkp2gLycZfqNtZEDdNuGCB0y349Wog5E09dSEbmxlYo3wEry6L0kQTHpHQi1eemnMz3eHRJ8lW0g+PBe0pZnw/seBVjwauSFyG+tNp9GhFkZXlt5WBWbJRv4eXsvXAwTvZLp/ToUvk9BlaA2J9NhuyWc4djQ+wNnPyIbjEf3YbjCt97pmlbZeZatO9Oxpnpbki4SgQq7YX4GOxv15JoA/1s08cXIoR5CaQiUuDxwOWahT02urVywBVxEzsYACoHDQg9R+OY8J92EbaYAELi/zOh
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260308_152225_664156_C300E744 
-X-CRM114-Status: GOOD (  17.14  )
+X-CRM114-CacheID: sfid-20260308_155808_556224_15735757 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,59 +68,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 2026-03-08 at 22:56 +0200, Vladimir Oltean wrote:
-> On Sun, Mar 08, 2026 at 12:25:32PM -0700, Joe Perches wrote:
-> > On Sun, 2026-03-08 at 21:10 +0200, Vladimir Oltean wrote:
-> On Sun, Mar 08, 2026 at 11:40:44AM -0700, Joe Perches wrote:
-> > > Perhaps if matching only the include uses:
-> > > > (/ is escaped because get_maintainer is stupid)
-> > > > something like:
-> > > >=20
-> > > > K:	include\s*\<linux\/phy\/phy(?:-common-props|-provider)?\.h\>
->=20
-> > > Why is get_maintainer stupid?
-> >=20
-> > The get_maintainer code used to match keywords is
-> >=20
-> 	    foreach my $line (keys %keyword_hash) {
-> 		if ($text =3D~ m/$keyword_hash{$line}/x) {
-> >=20
-> > so it seems the first / in the K: <foo> regex would terminate
-> > the match.
-> >=20
-> > It might have been better to use a different delimiter.
-> > Maybe:
-> >=20
-> 		if ($text =3D~ m{$keyword_hash{$line}}/x
->=20
-> So why does it match in my example?
+Hi,
 
-Not sure really.  But it does match exactly.
-Maybe the regex code scans forward until the last /
-as the / character is not a "real" metacharacter.
+This series exposes shadow page tables in debugfs to improve the
+debugability and testability of NV. First we teach the KVM ptdump code
+to handle different s2 mmus, then shadow page tables are exposed. This
+is gated also behind CONFIG_PTDUMP_STAGE2_DEBUGFS, like the canonical
+stage-2 page table.
 
-I added some test code and it produced:
+The file names for the shadow page tables are formatted
+0x<vttbr>-0x<vtcr>-s2-{en,dis}abled, which is the most intuitive way of
+identifying the s2 mmus but not terribly clear. For now I don't think of
+other options that are meaningfully better, any suggestion welcome.
 
-line:	<+#include <linux/phy/phy.h>>
-kw:	<(?:linux/phy/phy\.h|phy-props\.h|phy-provider\.h)>
-test:	<^[+-].*(?:linux/phy/phy\.h|phy-props\.h|phy-provider\.h)>
-match:	<+#include <linux/phy/phy.h>
+I realized I tend to write long variable and function names, happy to
+change if anyone finds it too verbose.
 
-From https://perldoc.perl.org/perlrequick
+Thanks!
 
-Not all characters can be used 'as is' in a match.
-Some characters, called metacharacters, are considered special,
-and reserved for use in regex notation. The metacharacters are
 
-{}[]()^$.|*+?\
+Wei-Lin Chang (2):
+  KVM: arm64: nv: Expose shadow page tables in debugfs
+  basic L2 selftest
 
-A metacharacter can be matched literally by putting a backslash before it:
+ arch/arm64/include/asm/kvm_host.h             |   7 +
+ arch/arm64/include/asm/kvm_mmu.h              |   4 +
+ arch/arm64/kvm/nested.c                       |   6 +-
+ arch/arm64/kvm/ptdump.c                       |  27 ++
+ tools/testing/selftests/kvm/Makefile.kvm      |   1 +
+ .../selftests/kvm/arm64/nested_reverse_map.c  | 236 ++++++++++++++++++
+ .../selftests/kvm/include/arm64/processor.h   |  28 +++
+ .../selftests/kvm/lib/arm64/processor.c       |   2 +
+ tools/testing/selftests/kvm/lib/kvm_util.c    |  13 +
+ 9 files changed, 323 insertions(+), 1 deletion(-)
+ create mode 100644 tools/testing/selftests/kvm/arm64/nested_reverse_map.c
 
-"2+2=3D4" =3D~ /2+2/;    # doesn't match, + is a metacharacter
-"2+2=3D4" =3D~ /2\+2/;   # matches, \+ is treated like an ordinary +
-'C:\WIN32' =3D~ /C:\\WIN/;                       # matches
-"/usr/bin/perl" =3D~ /\/usr\/bin\/perl/;  # matches
+-- 
+2.43.0
 
-In the last regex, the forward slash '/' is also backslashed, because it is=
- used to delimit the regex.
 
