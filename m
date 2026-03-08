@@ -4,109 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E18CEA8545
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 21:40:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97FAEEA8546
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 22:07:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l/5v+Crp++VTBrLnHYqmqlg39N1g9UgV39jx8JRu1pY=; b=ew+GtP9lfobhJrmNS21S6hBNQ0
-	PCyUJQYIUr/Qax4oNDFbU27jhRO/cHkb+8e1XCEJk6kZvXnWhim5LC24RJdOadNDVoT+3YtJDpxXO
-	MAGko3DbhZt33nqRgCQ9kjktC6MXYqShBK2SXPXWHwvqgyMe0a9V1vOwDjaCs1FIs7QEc2PgFG940
-	sTtfkKFImoGEk662W6B9bIi4G78BuUgiM/wR/w1jtdUcjVv2LmtN+VevMCgsvDyjEO4fB/IUrvfPd
-	ruHO29doORcvp2HFcfI03bC+tAd8p34zLWmh+lnwTPpw6LEbySgNWqY4MtRhx7+gRQiX5Adnc0QN6
-	ZnPAB1Cg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ftcpbjh6p3nPyd9FYgD5ANvcMgJCdJh9w2K7lp47ksM=; b=rcHy75MAAsvCgSkhfscbDEgOGA
+	QDDs+OESFt4k7VeKnamzlnSB8n9rwf2pH7/O2tiJCErI/5aT5oc2nws+yFSmkCnkX4g239/DYNcKa
+	UcYIY3C4YEO2vlBQ1SrFuSnfeEpR4Oy+Ux/+E+TRGycW4JUpRgoKMat4bSb/W7Lqs4c9XOnvkbbu5
+	oX8r0AuzLlhuTQTo3yjMCibhO28PMgH+gIKH1W/HyjfGrk0vz17y1cd2P2M0fmS9ROhKpdtdr9tRx
+	+VU3ixngyyDIpaSpyVppT4iylZeprqKCKftnkisSHZE2I51rBW/fz6ICfWgnKHQGUkc5N3r5s4/IQ
+	3VQbumpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzLrL-00000006NYW-0yPM;
-	Sun, 08 Mar 2026 21:40:23 +0000
-Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
+	id 1vzMHv-00000006OP0-0QNI;
+	Sun, 08 Mar 2026 22:07:51 +0000
+Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzLrF-00000006NXi-0g1R
+	id 1vzMHr-00000006OOe-1obF
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Mar 2026 21:40:22 +0000
-Received: by mail-qk1-x734.google.com with SMTP id af79cd13be357-8cd73c4a827so211791185a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 08 Mar 2026 14:40:16 -0700 (PDT)
+	Sun, 08 Mar 2026 22:07:49 +0000
+Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-798374d0f44so156862987b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 08 Mar 2026 15:07:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1773006015; x=1773610815; darn=lists.infradead.org;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:to
-         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=l/5v+Crp++VTBrLnHYqmqlg39N1g9UgV39jx8JRu1pY=;
-        b=mdnnqSmCE65ls9SX9WcggWshLNHdeloZbEk5KllajWjFiCO16lGO8HQStfi6ej8Ncz
-         WNLgAXvYCc0vyu89CCVn5b8f+X52wA0O+Ha6roA7RUyGiXJ8o1tD4qTxrX4EKLzzRvqb
-         YJ+VIzwzxzgCrXJ2YYxC+oUIgaiYQ4VS4wTkZ75VDv3C6LI+yElsNopCOcZOFiGjuzv4
-         qrQxGazvfIeOd6z3bIoFBZ/eAZks4qdllJ9P7MTE+ECTdojPWm6knSL1e5a1m1uyfp83
-         NWWBuyTaYqMg/36NUKmG06maH6Uovr7CNoL37HwyA2W9imv9skpHF0Q0cexA8EtyZQey
-         oAVQ==
+        d=gmail.com; s=20230601; t=1773007666; x=1773612466; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ftcpbjh6p3nPyd9FYgD5ANvcMgJCdJh9w2K7lp47ksM=;
+        b=VFGalU2PtnP6FSuhfFYrHLHIgjGqzR82NdWELmV8JI2BhOX6LAZPCdvA5FbJ16+yUY
+         xrjcm9+ZMVM0mhkjMCSR+XH1WxxdZC3INv0oIQeUuJXYXQBcRyh6sm6ToAADUZUuxW2F
+         XDLwhG2N8HHBe6HzzIjv13CDQtH+3b0pDlx8KNl67FEvHkNsYxyvkrHh31l6/OaYWq+I
+         Z1W2vttsK1doKfjGf56sSlh5OHBPo9Jq1KmfcTkdF2O3AxPUFlk0L9ODVj7v4sAkoNu/
+         h+fVWBkdJBgcB5JmiMaN017WUbMkEvDZjA2pFUmZ7IheGuLn20OGARYfA8Q603NGM5e6
+         fWAQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773006015; x=1773610815;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:to
-         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=l/5v+Crp++VTBrLnHYqmqlg39N1g9UgV39jx8JRu1pY=;
-        b=jR/NBhlB5xPgT+MN64zVaqPOY7r19qTc+7gbZGro+NQG+pTARN69HcFYyluwKr+ZnK
-         LIVWuhKq5BYKUGkld/9HjDi14M4eXI3S7QxmbT5Z255ZhEdwbc1ZmhGah9f3eB3flmTA
-         rsJMrnOwISa6Th3oXyvWjQ6ybnGNVH0/iBNTs70itAAp7lQetw3dl3G9qO04Enw8R417
-         LMKnGOxA7aft1Nz+v1v9ydzIo1A6nAJxdog7fNLcJX72RHONh0ZMVkGonycydImYUHie
-         nOr5S68CPmtz9GljCpGGldt/RCoSFGDbK4qI25YkuA2ocxeCn9P59B1lgCF7a709e+5R
-         0EBw==
-X-Forwarded-Encrypted: i=1; AJvYcCUJlBL5FMYoIuESHl7jMY2a5s3CrWT9oUcR+ZLz9EOzpwoDsl2YVOKwp973Z/FRV8sIIoIwLAiZzLnz3+fiS70Z@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy1WbZGZ9vznpYDKRbxGVPwRx/mYmcQ78iow9C6IE96ccMpTJNW
-	lQsEhfR7kdC3fG5NIcVfFa79u3TPqp06RNsjbbTSI53Z2C2/ZUY/PouedS+22dUUFD0=
-X-Gm-Gg: ATEYQzyk2ey90sUztRT8S1+NJXdor6OFfgZvcn7M4Y48PiAz4wW0Pcn1UWyJrF0dCVl
-	ASeRzMw8OUOPkgDbeLeWagYzH6WlnOpjTswDGdBlC5q43e8XGhHda76eEQKP+s5cPzZczYvEQu4
-	FTdnxCJ1Yq+66MmZ1EG9HOug4jPIfGVhP9tmATsZ7iaUw4JKzNqux1jvJuG3QVHPDcwbfWXC9Hr
-	eW9mQsa9LsuU+SXNkfPghchtQbDW0/cA8jbPFHA7yJnEXiuyHMXGjCzXqsI6rrgMfXVuQsU5uVx
-	h5lgyd3lac+qlQCp5TM/T6r1Nmr/AJzEM1MR5TQ3ScT7TazP0bNQTLK99o908j6L45rOOXykBb5
-	HY9g9K1n8OEDjX3PYqEPhcsZwk5krdoRjc3IRuA6v+XjDDCphkouasLtZaY1vCsiSRVvLUO8bS2
-	L4y5ll3hqbv4ydx01bPfvxooeA81gr
-X-Received: by 2002:a05:620a:1a9a:b0:89e:99b3:2eaa with SMTP id af79cd13be357-8cd6d40d37fmr1134703485a.8.1773006014866;
-        Sun, 08 Mar 2026 14:40:14 -0700 (PDT)
-Received: from [10.120.58.110] ([192.252.136.7])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cd8cad692csm21257585a.19.2026.03.08.14.40.12
+        d=1e100.net; s=20230601; t=1773007666; x=1773612466;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ftcpbjh6p3nPyd9FYgD5ANvcMgJCdJh9w2K7lp47ksM=;
+        b=cr/TGbITd6m0IDKaquczu4wGGyTALUcbK7UGPwML2SVulKMEYMQ+A88IlmsH2YQZpg
+         t0tQ+EB+gzYinZeWADKS4t3elgZ9/VpsW0EzDmfzEeHblTgRSLr5wIvUMjl8mkG6UfoL
+         vP2fiDgDLgILls5TaAV3TO9WybejjyHEae91fk7Ec5TOxy/pAxsUmmu6p2uMeARYemvN
+         Q9EdV7IrxHSX/SLn86SQGrGE7p1xQwBErVEA71gRBF8IeOO3wwwDE0ewGtsxT4gPhwFd
+         mASFCv5073+sMBxXx495nBvL7JmN8Qe3Q1orbDcZ+0nm1wRyv2mzh0wMEN0m3tD7oYEc
+         8Gog==
+X-Forwarded-Encrypted: i=1; AJvYcCUJnv2NgMcpT2rhvENDQv0GtVnOtwDTkP1g/zikjGrVivZYttdkSBgqkqKR+pWly78mNMwSXHrSEUuAISy5Pp7y@lists.infradead.org
+X-Gm-Message-State: AOJu0YyP8tbHckIhzjIYj1cSijPVXg+Zu7SDoCdUEFT7l2L1RNTNBUgq
+	EGMsVcbd3mLKBtd5aOlykXVhq+eCr4fdkZkKgjFOjl6ai2OdBkLtb86W
+X-Gm-Gg: ATEYQzwxwvq9fe5QBjbwvFm1Us3p0bCBfyGhxriGpPqztScXRiYHcuMHfgXJbj/GUVH
+	q+vyHodDN5KUTKTmLvQYZCug70oeU8Dksx36JhYPq9ZL4gWQ+MYc64Vc5eTla4SFR6xmLoB28F4
+	yrI94LCe1G5hhlSNEvWYvl/IQ7ami0afJX4Q7dhANG1zaGIfrwhtzkEIJbjg7+40LjxtlKWz1l4
+	GFp42OovKaPIeK5ntW8aI9/j9MFNOcPj3S4koAzvAGKnsUxxszd3D0y3zeRFa6mqE/QugjjSpzq
+	Zzwx887M/jB6tJuJXCbJxEK7JZjg7fBwKF4J3TJtJyV37lod+ANkdU4BndNMlXduhwKvWsxJI7d
+	c1mql1wg6vlHjKTnDV7mqPkKT9/NET6DX0zz/wrleoL2TGC5i3xbxGMb/y4owx1fMB169w1cdUB
+	UAPP7SstGH33haMzxhX2SaiVpq9PjeaWYb43oFvbAKawJj4/E9ExLV7A==
+X-Received: by 2002:a05:690c:ed3:b0:796:3f8a:9607 with SMTP id 00721157ae682-798d1f07dbfmr126573077b3.30.1773007665815;
+        Sun, 08 Mar 2026 15:07:45 -0700 (PDT)
+Received: from ryzen ([2601:644:8000:56f5::8bd])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-798dee8ac51sm36771577b3.49.2026.03.08.15.07.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 08 Mar 2026 14:40:13 -0700 (PDT)
-Message-ID: <ee0fd1ecc6c940811cae743f087e96d348909c9a.camel@ndufresne.ca>
-Subject: Re: [PATCH v2 0/3] media: rockchip: rkvdec: add support for the
- VDPU346 variant
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Christian Hewitt <christianshewitt@gmail.com>, Detlev Casanova	
- <detlev.casanova@collabora.com>, Olivier =?ISO-8859-1?Q?Cr=EAte?=	
- <olivier.crete@collabora.com>, Ezequiel Garcia
- <ezequiel@vanguardiasur.com.ar>,  Mauro Carvalho Chehab	
- <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner	
- <heiko@sntech.de>, Diederik de Haas <diederik@cknow-tech.com>, Dmitry
- Osipenko	 <dmitry.osipenko@collabora.com>, Thomas Gleixner
- <tglx@linutronix.de>,  Dragan Simic <dsimic@manjaro.org>, Chukun Pan
- <amadeus@jmu.edu.cn>, linux-media@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Sun, 08 Mar 2026 17:40:11 -0400
-In-Reply-To: <20251226113140.573759-1-christianshewitt@gmail.com>
-References: <20251226113140.573759-1-christianshewitt@gmail.com>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-8MH3FGNDEj7hU0SQaMwz"
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+        Sun, 08 Mar 2026 15:07:45 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: dmaengine@vger.kernel.org
+Cc: Lizhi Hou <lizhi.hou@amd.com>,
+	Brian Xu <brian.xu@amd.com>,
+	Raj Kumar Rampelli <raj.kumar.rampelli@amd.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ZYNQ ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list),
+	linux-hardening@vger.kernel.org (open list:KERNEL HARDENING (not covered by other areas):Keyword:\b__counted_by(_le|_be)?\b)
+Subject: [PATCH] maengine: xilinx: use kzalloc_flex
+Date: Sun,  8 Mar 2026 15:07:26 -0700
+Message-ID: <20260308220726.45270-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260308_144018_737928_2B243549 
-X-CRM114-Status: GOOD (  23.30  )
+X-CRM114-CacheID: sfid-20260308_150747_886322_E1D891B5 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,108 +104,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Changing descs to a flexible array member allows one fewer allocation.
 
---=-8MH3FGNDEj7hU0SQaMwz
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Aadded __counted_by for extra runtime analysis.
 
-Hi Christian,
+Changed error path to a simple kfree. descs in all paths are not
+allocated. No reason to call xdma_free_desc. A single kfree is enough.
 
-Le vendredi 26 d=C3=A9cembre 2025 =C3=A0 11:31 +0000, Christian Hewitt a =
-=C3=A9crit=C2=A0:
-> This series depends upon Detlev Casanova's current v7 series for VDPU381 =
-and
-> VDPU383 support [0]. It adds support for the VDPU346 IP block used for H2=
-64,
-> HEVC and (in active work) VP9 on the RK356X boards. VDPU346 appears to be=
- a
-> close relation to VDPU381 used with RK3588, except with a single core, ou=
-tput
-> limited to 4K, and minor feature differences, e.g. HEVC level 5.1 on VDPU=
-346
-> vs 6.1 on VDPU381. To handle differences we declare a new compatible.
->=20
-> The device-tree changes are derived from prior-art in Detlev's patches fo=
-r
-> RK3576 and RK3588, the vendor kernel [1], and some earlier patch attempts
-> from Piotr Oniszczuk and Diederik de Haas.
->=20
-> The register differences between VDPU346 and VDPU381 appear to be minimal=
- so
-> we currently and intentionally reuse the VDPU381 h264, hevc, and regs fil=
-es
-> to avoid duplicating code. There is some evidence of buffer size changes =
-in
-> testing which still need to be explored. If further register analysis nee=
-ds
-> separate files for VDPU346 the refactoring will be beyond my current n00b
-> coding skills and I will either need some coaching or would be happy to p=
-ass
-> the series over to a more experienced developer.
->=20
-> NB: Testing with the v1 series showed lower mbps bitrate performance. Thi=
-s
-> appears to be resolved though it's unclear to me whether this results fro=
-m
-> kernel changes or the ongoing reworking of ffmpeg v4l2_request support [2=
-].
-> However with my current Linux 6.19-rc2 test branch [3] I'm now able to pl=
-ay
-> Jellyfish H264 and HEVC test media over 100mbps.
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ drivers/dma/xilinx/xdma.c | 17 ++++++-----------
+ 1 file changed, 6 insertions(+), 11 deletions(-)
 
-A fluster score and explained error report is missing your this cover lette=
-r.=20
-This will probably highlight some of the instability issues reported in thi=
-s
-series. I'll mark the series are "Change Request", as you have few review
-comments and now this test.
+diff --git a/drivers/dma/xilinx/xdma.c b/drivers/dma/xilinx/xdma.c
+index d02a4dac2291..14fbc7200a6d 100644
+--- a/drivers/dma/xilinx/xdma.c
++++ b/drivers/dma/xilinx/xdma.c
+@@ -80,7 +80,6 @@ struct xdma_chan {
+  * @vdesc: Virtual DMA descriptor
+  * @chan: DMA channel pointer
+  * @dir: Transferring direction of the request
+- * @desc_blocks: Hardware descriptor blocks
+  * @dblk_num: Number of hardware descriptor blocks
+  * @desc_num: Number of hardware descriptors
+  * @completed_desc_num: Completed hardware descriptors
+@@ -90,12 +89,12 @@ struct xdma_chan {
+  * @period_size: Size of a period in bytes in cyclic transfers
+  * @frames_left: Number of frames left in interleaved DMA transfer
+  * @error: tx error flag
++ * @desc_blocks: Hardware descriptor blocks
+  */
+ struct xdma_desc {
+ 	struct virt_dma_desc		vdesc;
+ 	struct xdma_chan		*chan;
+ 	enum dma_transfer_direction	dir;
+-	struct xdma_desc_block		*desc_blocks;
+ 	u32				dblk_num;
+ 	u32				desc_num;
+ 	u32				completed_desc_num;
+@@ -105,6 +104,7 @@ struct xdma_desc {
+ 	u32				period_size;
+ 	u32				frames_left;
+ 	bool				error;
++	struct xdma_desc_block		desc_blocks[] __counted_by(dblk_num);
+ };
+ 
+ #define XDMA_DEV_STATUS_REG_DMA		BIT(0)
+@@ -254,7 +254,6 @@ static void xdma_free_desc(struct virt_dma_desc *vdesc)
+ 			      sw_desc->desc_blocks[i].virt_addr,
+ 			      sw_desc->desc_blocks[i].dma_addr);
+ 	}
+-	kfree(sw_desc->desc_blocks);
+ 	kfree(sw_desc);
+ }
+ 
+@@ -275,26 +274,22 @@ xdma_alloc_desc(struct xdma_chan *chan, u32 desc_num, bool cyclic)
+ 	void *addr;
+ 	int i, j;
+ 
+-	sw_desc = kzalloc_obj(*sw_desc, GFP_NOWAIT);
++	dblk_num = DIV_ROUND_UP(desc_num, XDMA_DESC_ADJACENT);
++	sw_desc = kzalloc_flex(*sw_desc, desc_blocks, dblk_num, GFP_NOWAIT);
+ 	if (!sw_desc)
+ 		return NULL;
+ 
++	sw_desc->dblk_num = dblk_num;
+ 	sw_desc->chan = chan;
+ 	sw_desc->desc_num = desc_num;
+ 	sw_desc->cyclic = cyclic;
+ 	sw_desc->error = false;
+-	dblk_num = DIV_ROUND_UP(desc_num, XDMA_DESC_ADJACENT);
+-	sw_desc->desc_blocks = kzalloc_objs(*sw_desc->desc_blocks, dblk_num,
+-					    GFP_NOWAIT);
+-	if (!sw_desc->desc_blocks)
+-		goto failed;
+ 
+ 	if (cyclic)
+ 		control = XDMA_DESC_CONTROL_CYCLIC;
+ 	else
+ 		control = XDMA_DESC_CONTROL(1, 0);
+ 
+-	sw_desc->dblk_num = dblk_num;
+ 	for (i = 0; i < sw_desc->dblk_num; i++) {
+ 		addr = dma_pool_alloc(chan->desc_pool, GFP_NOWAIT, &dma_addr);
+ 		if (!addr)
+@@ -314,7 +309,7 @@ xdma_alloc_desc(struct xdma_chan *chan, u32 desc_num, bool cyclic)
+ 	return sw_desc;
+ 
+ failed:
+-	xdma_free_desc(&sw_desc->vdesc);
++	kfree(desc);
+ 	return NULL;
+ }
+ 
+-- 
+2.53.0
 
-Overall, I'd like to see probably investigations of the problem before goin=
-g
-ahead.
-
-regards,
-Nicolas
-
->=20
-> Changes since v1:
-> - Drop DO-NOT-MERGE patch as changes included in Detvlev v7 series
-> - Adapt to variant/capability changes in Detlev's v7 series
-> - Add bindings ack from Rob
-> - Add rkvdec ack from Nicolas
-> - Rebase against Linux 6.19-rc2
->=20
-> [0] https://patchwork.kernel.org/project/linux-rockchip/list/?series=3D10=
-34794
-> [1]
-> https://github.com/rockchip-linux/kernel/blob/develop-6.6/arch/arm64/boot=
-/dts/rockchip/rk356x.dtsi#L1539
-> [2] https://code.ffmpeg.org/Kwiboo/FFmpeg/commits/branch/v4l2request-v3
-> [3] https://github.com/chewitt/linux/commits/rockchip-6.19.y
->=20
-> Christian Hewitt (3):
-> =C2=A0 media: dt-bindings: rockchip: Add RK3568 Video Decoder bindings
-> =C2=A0 media: rkvdec: Add support for the VDPU346 variant
-> =C2=A0 arm64: dts: rockchip: Add the vdpu346 Video Decoders on RK356X
->=20
-> =C2=A0.../bindings/media/rockchip,vdec.yaml=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 2 +
-> =C2=A0arch/arm64/boot/dts/rockchip/rk356x-base.dtsi |=C2=A0 49 +++++++++
-> =C2=A0.../media/platform/rockchip/rkvdec/rkvdec.c=C2=A0=C2=A0 | 103 +++++=
-+++++++++++++
-> =C2=A03 files changed, 154 insertions(+)
-
---=-8MH3FGNDEj7hU0SQaMwz
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaa3suwAKCRDZQZRRKWBy
-9P8tAQD6X8K1OVv800JKuX4SsoOPaPlRfvbbnmOa6xHYfpuvYgEAuMC1QOrMqK1D
-hcJLVPMGRf61xg3w0Zlr9mqYZ8vjFAg=
-=8LZ4
------END PGP SIGNATURE-----
-
---=-8MH3FGNDEj7hU0SQaMwz--
 
