@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54A76F55102
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 11:44:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4058CF55102
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 11:44:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OIuv7xfAiGi/g8HMIs+Sm5UJ2WMH+94b+U2ZPe3K2pk=; b=Tb3hAn7zCEepfltpyrEGFz1zt/
-	NTFEj+ET2Sre38TpYGbQpm7iPWdHwQ2H8RM7Ix5Lk0efEY2s5iNHgm7E8zTcI3fbsHJuRBWOqT8Gy
-	eO/31wFwKRAzseoTzW1tk6UVeH94v5zA2BAYHfgMz7WFEJ5C+B8lREV56pmo+k207RMUyzaAXoKrY
-	I1Y1b0ZP0oWbKNwZVq43iPbcsB+5SQWFCfLfptWHA1rdt43OEj72GmrSA/K0+9eb2GU4r+omRDJQ8
-	2d9nMLzNhB7WghmqJxnuPr8xLshsKZREqUemlZ+W3gQTpQEDRxf+DjlPFnkwnCTGmXnBdxtlYtbbN
-	1r4eOR0w==;
+	bh=yTP9dkav8JweRW1U3kqjtUz7WSqgJOl3e+FPpj3lzjA=; b=nqhk3x/Nc6t31k144p8Su/w3nG
+	1whpVv5XRIRDlfLcM9heTmTICCXE7mW5QPmmuUqLHmaHK+W9zl77KLa23FD46d4tv2FDBld4/dIb4
+	KIzpM2sQQmADDupv5E4CfB7mBieU7uiHMLltFHqA1qSN+vssyztHx/anYrvmWcZK5j9jfnsp9C0an
+	4TUnjFul5anolsBvPgDppaRHY3G8mWu0u1spQcGYNCv2dj4Ty+03F2ggo6j6/2MH5CxsSHtAa6N7x
+	OI6As9U4MGJ9y1byKRcWvbBqYxHJC4PBJ/iZvm5QkoYpKjKAigJtIOmWzkQit4uLLVNknAAC8TeVr
+	+NlBS/Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzCYS-00000005vV4-3Ndv;
-	Sun, 08 Mar 2026 11:44:16 +0000
-Received: from mail-norwayeastazon11013013.outbound.protection.outlook.com ([40.107.159.13] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1vzCYU-00000005vX9-2zSp;
+	Sun, 08 Mar 2026 11:44:18 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzCXc-00000005uRe-3iCz;
-	Sun, 08 Mar 2026 11:43:26 +0000
+	id 1vzCXd-00000005uAU-3Dyl;
+	Sun, 08 Mar 2026 11:43:27 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yGzIhjuW1NsKGhEaLs79c19Ho4TjyHr1ShLEDPohJOMLPdvh3pgGn2XsdZ13UY2Q8XTt4eqLaNqx3J1PmGBKsDADRxYqeDhuLQXevS9dgZT1cSeggcx2qAQE7DMHrPlpMdvhuygbVvIam9riqDVn6EPPHRiHjfVgeCDfY2dfYySDdbYZEDkJMHrunyuD5huSieHYIUFO+29PEB99g9E/iB4fqh8pX/S8YP/twxM+g9DWbQCqrGbTBBsHrzXPGbbYZirn+Pj8r0oi/9ogbgWRrQaFzX0H2nr5xse3EZVLsU7mIHXnkJct76xAH06NdFize4xaOlY4k1PRwTRo/wDg8w==
+ b=ipt6HcEcKc79kxSV8v+AlH0XfGEODeZP6bNNtuR00PgUQvODPE/6Eb3bp4u97LBJRXOsuqlqPCgSgfAJGqJKRY/O5GVAbMA9RmLOE7UrKM7kbnoqGvv3/HZI/DTQlS/k6gFIzemleezgOpX6sCh4wQRV9BM3/I6yFPQ3jaqbd89/FwYZWFcdqhp54eWHoA1+KxqaeljdDIdekEWhsZMz6G/v8IsfJJY8x6g1tpoAEFjbVamB0nxK2yjg38oLMHc5mkfN4AjwMFMYX3kQgJ7i3kS6+66q3FfbLwh5Xen8iTzLPN38ufZ2oeSANO63PzJ8S5HIV5D2h3aR6eaJd3fsOQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OIuv7xfAiGi/g8HMIs+Sm5UJ2WMH+94b+U2ZPe3K2pk=;
- b=GEDFQpVP4Js1wShohGbiQUiy49rPHJwH3TUVkdN4T3vRHeWYGQQHoz3m84bohWlo38RkosM67ooS49b8ZJo+8y6WRDHV/aPd+0li0Cl3cG32pwnVNwQpTRGVNFtwQcnDkuuyefyG41NCTYFEK3bENG7j05NbeTbnVBW8FumXLllZE06fp6JCK3HFXUTJPVT1jQg21LDzfJx/jqz0DWu4qiOyd5Ab7w7tZRVEh5GVwuwn3u+VhmB/UzX/UPo1M5ZXp62jJAbk3+H58SJp7+zzvBq+PHg7FXEqVssH68oq1ot8l6DSReifwj2o6S1qXZOfjREZmF3YwiDUtiqr8gGesQ==
+ bh=yTP9dkav8JweRW1U3kqjtUz7WSqgJOl3e+FPpj3lzjA=;
+ b=dptsulbdeeDRrGzG2ZzSC4RxigfNMXZ2Pkyj6gaVdmBK80bEpzLyDmM8CnToX+sVBlePKsXkG1z4MU+kWCXR+uqxmX8gU0PXTQAeCn0NdVbwXr07++BIUVMVNFCBdFh1sEhAQIjOr8tEv3urVwxH55Zl1JNWEdZ/kiexLzH3cRbvmLlmE6RM4vPNboqIVa1X4/hCqbiWVt5u1+EEyzeM1AHhgjmwGWD0SLasnm8r96gfNpmS3cfj53WkT+FxVPegqT+AI+aeng6vnC/wa72wr1kNzrT1PuM+coMQaamfLTa4v3/PoCGI9QmFectRC6/RqCBAclBwUb6MSDRG9gXpgA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OIuv7xfAiGi/g8HMIs+Sm5UJ2WMH+94b+U2ZPe3K2pk=;
- b=ZJzjd0pog2puD2DIfkf/JcTIXjmfmFYF23lWE7yKFVHdCeHVfG2lwSB1TjWDhm0hahBBuwmlb98bNFNTDTRyPzwb7v0BcbtnFLjxrIwnVfE6DAiga4mUhJo3YCk9i5mU+tPaXMnBCcCM3F0tdX6OSmDe2ihlSDXNN2+re9a3iSSjeZ5LSEzZVbFvKnsuphXCl8unTaZN/4kiRg035LWrSDUCqshCQnHKunZIW5K84DLkd4Q5AfSUsdhSNqyGcHe64w5bYR9RJYHmn2ZQa7HoAW7JuaQ4Pa6tZlton3LuI5v7XWGPQ3Pilp4QTXmeLGdGu3Sn7IUDBX2BgEgVRwti3w==
+ bh=yTP9dkav8JweRW1U3kqjtUz7WSqgJOl3e+FPpj3lzjA=;
+ b=AReJZvP7qzaDiRMfPhFDgNcrtcxP+JPOVwsRY19P55cea4JPH/OASpDaRS9ykv/AqO1ZExihbhjDqky+QgGcGVhC50ReJulf+pcdm72y2jQ9RYmc4GSJHnJdEZ/NecKp/0M/psKAk1tSEjv7JR9ArrYD/NnTDI+zXpOcAPFyyboIez2pcCyvYVdQ61y0LtnW+94l/ZghrXEm5qzpoyE9FkJgCD6TrAhNYVIrd2AW7Y5Wvkf7MQ0Syh9TO3XXa/hzzpay/Kuotay0UFryx3+ichouSHbvZwHBefKgRRW1dci2zjlbWLZPddC2B++1BIr77+jcJQ6ye02mfioXVbChTw==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
  by DB9PR04MB12426.eurprd04.prod.outlook.com (2603:10a6:10:614::12) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.23; Sun, 8 Mar
- 2026 11:43:11 +0000
+ 2026 11:43:15 +0000
 Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
  ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
  ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9678.023; Sun, 8 Mar 2026
- 11:43:12 +0000
+ 11:43:16 +0000
 From: vladimir.oltean@nxp.com
 To: linux-phy@lists.infradead.org
 Cc: Vinod Koul <vkoul@kernel.org>,
@@ -75,89 +75,90 @@ Cc: Vinod Koul <vkoul@kernel.org>,
 	netdev@vger.kernel.org,
 	spacemit@lists.linux.dev,
 	UNGLinuxDriver@microchip.com,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>
-Subject: [PATCH v2 phy-next 08/24] PCI: Remove device links to PHY
-Date: Sun,  8 Mar 2026 13:39:53 +0200
-Message-ID: <20260308114009.2546587-9-vladimir.oltean@nxp.com>
+	Sandy Huang <hjc@rock-chips.com>,
+	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>
+Subject: [PATCH v2 phy-next 10/24] drm/rockchip: dw_hdmi: avoid direct dereference of phy->dev.of_node
+Date: Sun,  8 Mar 2026 13:39:55 +0200
+Message-ID: <20260308114009.2546587-11-vladimir.oltean@nxp.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260308114009.2546587-1-vladimir.oltean@nxp.com>
 References: <20260308114009.2546587-1-vladimir.oltean@nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: WA2P291CA0031.POLP291.PROD.OUTLOOK.COM
- (2603:10a6:1d0:1f::12) To AM9PR04MB8585.eurprd04.prod.outlook.com
+X-ClientProxiedBy: VI1PR0102CA0036.eurprd01.prod.exchangelabs.com
+ (2603:10a6:802::49) To AM9PR04MB8585.eurprd04.prod.outlook.com
  (2603:10a6:20b:438::13)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|DB9PR04MB12426:EE_
-X-MS-Office365-Filtering-Correlation-Id: ab4e078f-bae5-45ff-6a1e-08de7d07e0b4
+X-MS-Office365-Filtering-Correlation-Id: d21bdca4-b0aa-4b80-669c-08de7d07e2e4
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|19092799006|10070799003|1800799024;
-X-Microsoft-Antispam-Message-Info: tA7AggBo6pr42ZXpJ8096XcW0Y3zmKEd0l4mmbGp+sA98lCvd0WBNKB52OGBT7eOYptOg9E3XwTbfjprd9G3Kcwt5O10wqUyOIniTOk5sVsrS57HmQpvrRN/dJ9M8fdJjSLaJPZVcqTkxIJ8Qh15jOh0guX0/jvjWNPI62G+xVrwQk2xq1wa1WnSI2vrwMztBsBzxyu9iY/QXRD1Fb6t4ulz/OAV6IrTC9yIcWdkQnf4yGw7MLfLrxmuD62QbnU5RajSYZFhEM1TIiEQlA8V4WK8FbmWA3eAXG6XsK5gE8Nh6bWoK9Uuc31DbG8pyeHCLmVi+jDGdslBP2KkFsk8kKgYSYb6pm7UIHUPpgb99Tld7Q+EmfJUlCClD23p6Ui0MB8UU+E4tmZ99XqAbCp11j6OeYPXho8LJasE08xMCsvgun8fhstX7ckSrx3SxcAfxfXKOAmdFK+pYc+TIzAjaAQCSVcvOCnI+7uPXQMeSqjLDE0XRKrRETVUomEBL91Muvhk822FF5OV7y5LqGE7QzLcxrb/721Sy4v5kR122BOKfWJC+YubI8ZNkUAaTyWYih9ZH8LLPu3KmPJma2GI/PRw6Ec+y/tC47dk/+FxPSMD2AjtzMenDSlkdfGAJfWXidvVSRcdcD8a46hjG2jQbRkjpaF4fAOm7su+gYYxZYo/K20rFDgLwVDc5ShftqG4WwKxT91tSwShIJSW8Sxl7XnO5b2HxUxucRVU2Sq5rRI=
+X-Microsoft-Antispam-Message-Info: h9aXll0nJKxzP0Q8Qv4nw6Tm6gca1xHHlYnyGTt0aYhuVXumaTHALHJ2Yu9jJKjWU+a7TG6+PQzOvTR40lnWF2xtoDqOZvZbAzYkhR8+1VSOcksUUYipxza4ZKsvF1/kVkTiQWYUKNJarrX0GZKw+q7uXwI4ydsbIycDYwMCl7s3oP2MHOD+cURHtdX7LodPVkwt/O70iEVaJeJQQZ2I2n14c7VqpmW3Z7ZBgP07C7KkKfprECUcdvSMcho/G7BC231SiIG6VPMRH5T5eSxGMdWq3LYzDqlKuiyihcDYxjAlc2vbRyJatbGBFqv6L6IMf5VAjHz7u/Y45wPs7L68+ch5jvC96UBbR5fkKMYQuYXKCrXYvjCkc/AmW2GTqXGP+KpFbuRaCDXMtUoHstCFSTeLMOlsQJsIh7HkqYjd7vJl2lzPNtsWi8sxl7JG7arc4OELLrQVMRD0Ljohwr2VIMcsDABc2liOHHiNVT682FLMcHleaBv47LR5Wc1v12wd+yExN8baOtC/ylsTJegqlth+g3xNyFaT8Xp+Yw1CAsTrhD1brLcRcdN04VSOb6wymfkL7/h3n82qK7TrVJYXKRk1iwrqB27/LiLE075jqlO8pRc8BtDIRiQ3dEBr75grbC/hydP38EMXFtuFHOkQ5ZyiGj1LZyJ4/F6vEVomEpXtV05ltmCghCeCGQZmA6CnPlN1qNohE47nvyQGJlA0WHibhJx1fPqoQVVr0rmUiIk=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(19092799006)(10070799003)(1800799024);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VGgvbjRuR3BrckdYYXdoZGRVdmh6ZjRsSjJhU3pmY25GWjRSU3NJQkFnMWQ1?=
- =?utf-8?B?UEhIS0NjbS9KNVF5UzBpVGltNnR6WmtoTzFJNGNTRXVTMmRkOTZRMlFuMFRj?=
- =?utf-8?B?SytVMU1URm9PdC9kRzBtNGxKbGl5UzhkN0xHSStQUjlNcUJETEM1YUtmV0E5?=
- =?utf-8?B?cmtNdk5qbmpxOUk5R0FkODVrNm5nekdWa0FWenh4ZUR5VmNWSmR0SWozYVZW?=
- =?utf-8?B?cU1taDJDQzBJazlwR2FrQURWWEl4VGdQUUpMWXFHR21OWXZ3QVFsNWpISkZi?=
- =?utf-8?B?Y1VVbVdwcW02ZElUNGNaOUZDRnZmWWNqbDQwRHZYOHgyYnZFaDZ0d2d3Q1Yw?=
- =?utf-8?B?Z2IyRVpvRWFGOEFtVXZreDI5ZDZmWnp5Qk9kcmxUZlczM1BHd09zTmx3L093?=
- =?utf-8?B?TUhKMkFscUxzRzdZaWF1b1Btc09wYWhlYmt1dXY0WmFxelFOMG51R2VOdWh4?=
- =?utf-8?B?M1BSTU9OajhaV21RMXRiaDJyU2VYZG13R2gvL3lLYXVZM09PSEFTWTlSb2lN?=
- =?utf-8?B?aTVmVTErTmtRSkcrdUdpeGthOWNIVVVsaW9yZm4rK2dTNm55aGdhK2paNG8y?=
- =?utf-8?B?K05GTVF2Y3NKQ2dRWlk1c05KWUJEK2F2dCtvWnBCeXZnSlhpNS8wY3F5Ty9h?=
- =?utf-8?B?cGxieFkvSTV2b1lNVHZOK0w1M2hwR1p2WnVXQUlRUG9JR0JhSmxoSlcrT1VN?=
- =?utf-8?B?V1NZWFIvVTVJSUxhK2N0akFlejgwOVgxVVp0Q2hUY2JzclM5ckRVWDJ6eDNS?=
- =?utf-8?B?RFdrRFpneUt2MSsyU0l6RmljU0laOFBpR3UxTnp3RTdCK2lna3h3S283QWNZ?=
- =?utf-8?B?aVIwQ3UxTlB4aTU0b2JzSjErQjVraEdYMlphK011UlRybmp4WDJoLzY2ckw2?=
- =?utf-8?B?NWxpM014WWZndGZrRlBLTlJoaGR2bWFaUmxjQ2hubS9KaHJ3SDlWUXBuNXpp?=
- =?utf-8?B?QnVMVmFSVS9oWENVa2VmeTMyVEZEcEZPOStyTmNib3dFZUdsVGtXR1ZoaWpm?=
- =?utf-8?B?S2hxY1cxVUIyNVpLYU5TM0RMRnJKUG9kR0wwb2xIM2N0aHJadVBQWTF1NS9D?=
- =?utf-8?B?VVJObG41VmJtVFRCelZsZE5IUldGdGo5ZFFQZ2FTRDdsTlZCLytKcCtKaUdE?=
- =?utf-8?B?dDA5bE91MDR0WlM2NHgxTWgxNFpUZTloZCsyS3M2SzMvMjlmQXVFYmI0S2VQ?=
- =?utf-8?B?OVBrU0hmN0g3bjRhV25lYUs1NzRweTJPREVRTXhoTHRoOXQxdlBwSllhd0Yv?=
- =?utf-8?B?ZjRRb2FqbjBhNnJCQ0FLOStvOUVOOXFRSDdka0REN1I5azh0WWlhbE9EOUpv?=
- =?utf-8?B?Q3BpaVE5N21kdURFWFRkQ0Q2dS9JRW9IRWhRT1ZvR2JvOGwrMXhob3hETzhV?=
- =?utf-8?B?UGlwTGRESWJwaDU2SlF1dzgxUUN5ZnR5T2Y3WWdLVnoxeHdGT1dCTEJhY2pH?=
- =?utf-8?B?R0ZWVldxNVozdi9OT0ttRlZ5WjR1RFd4d09tK0NSaWFBUDNvNXpUODFNV2pN?=
- =?utf-8?B?eDlYUVkyVnhVMCt6SGowMk1wS255NngzdjZaQ3RHT1doVC9nQ0ZJVG9LczVo?=
- =?utf-8?B?RFhIOEprN0ZKak80Yi95clpPaFdhTXR3Z3cyM3J1bFZDWkFDTkxIeCswTkJ2?=
- =?utf-8?B?TnNnQXEwMm1hdXVqc2RHY3JXYTdHbzNBSU5Ha2ppUG1Ga3N0cjVwK21QNS9P?=
- =?utf-8?B?dk5UdVo2UVIvbnBqcjRDTXd1RXhCNVBkYktqWnMvUi80QnZ6MnVpTXdyUXFL?=
- =?utf-8?B?K0FyS2dvWUhVc1ExWGliL0xJcjlYOEgwMUVEQzMrMUNtdFdYdk1uZUJQaHVI?=
- =?utf-8?B?VjRZVlF5ajdGdHdVempFQXpKY1JxSWdtUWpkU1BMRHpSR1g4K2ZKdUxWOW9L?=
- =?utf-8?B?emIwbVNFWGdJbE1QbjRqRTdTWjJIbkZlbitBanM4dzZDZUplRkFYN1ZkK0VD?=
- =?utf-8?B?WlFLdnVFOXl5akF3U1BLa1k3Y2wxSXVLTnRGb09jY3VXQ1BKcVc2dDh2c1hZ?=
- =?utf-8?B?UFQ4Q1BUVFl1OEc2d3JVMHlYcWRZTjU4TjNDdngxdC92U0phN3h4UTZyM0dE?=
- =?utf-8?B?dDh6SkdMU3ZoU1I4UGJ4NFpwWS82UDF5Q0xLVmVlWm9KU0Y2T3VoWXM4WGxO?=
- =?utf-8?B?OCsrVjh4UFFvSEJxcFVWZ2hSL0dac3FFZERrWkNFeUovWjRQRjVuRWFjOVd3?=
- =?utf-8?B?U21JS0NzMnVMcGQwcDE3Z3pnQlFOZXZHSXJUSmxES0grbWs2VzV3NDg4Smor?=
- =?utf-8?B?bWlpRjZCREkxODJrWU0xTHhyL2kxRnpBV0VYbzllNzF2cEJrWkVrbDhOYk5I?=
- =?utf-8?B?elB0dmFoaEwwdkxRNmV3TFoxbFdCMUlPUHhJMWwzQURjQzdkZUhnNk5HUGhk?=
- =?utf-8?Q?MmoSbVMOGHxyzjEYBupsEDHc6d+Q99t/STDaKr1IRabd/?=
-X-MS-Exchange-AntiSpam-MessageData-1: QyqwqrKmKDE8BG/nYx7PX7l/HHLdHVB5hVc=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UXNMQ3BsSE10TkEwNTJScm1ZOWt1a1VIdWppeVJydE9sODhWUTU3SlBMQXAy?=
+ =?utf-8?B?VUJpa0VOVnpqY1ZqVjlTL2t1MFEzWXMzR2d1M2ZuMGllUU5CaHNFYjRjNiti?=
+ =?utf-8?B?aHZLTTJyM3kyY0VhOG9MQWc4cjk5eWxSTk1rcG96cVN3VE0yK1g5ZVlrdFNE?=
+ =?utf-8?B?M2ZKYmtnZDJXSXgrbS8zVzh4YTd1ZFMxelpyMVJEd0pHcW1mVGM5TmJHMXVp?=
+ =?utf-8?B?VXJ4N2FvSjFTMEdzRE5DbmlCc0dJZXIrR3ppL3FyNGN1bVBrdzNMODhnZnNx?=
+ =?utf-8?B?eEdvSUdvYjF1TzVjL3o1amdwcFozV1pQbnJLUytpcWRwSHZ3SXR6UG5KMVpI?=
+ =?utf-8?B?WEMza3ViWXFicGZCcWdQMlVWUURkaHg5b0d3b2d4MW1JZ1FlL3FWdmJmZDZ3?=
+ =?utf-8?B?WkFaQmVuVjN0U3QveEVjczF2Z29ZcHZ2Ykx3ZXp2Mk82UnF3MUNUK1FZcHBz?=
+ =?utf-8?B?ZEdxQkxCY1lOUVhHU2VtcEVwc203cjJWWldabzMydmc4QzlJbWJNbE5BdFZy?=
+ =?utf-8?B?VzNUeUQveE9JYjBxelRvQmFocWxsR2Z3bFBMc24zdVVyL2F5ZzdnRktvK3ZP?=
+ =?utf-8?B?OTJ5WVJwN2dhaUNrVDRTdmprVjc3R1U1dkkrY2JCWDVmaUZ4UHFaRXZmRUpn?=
+ =?utf-8?B?VXBMUStsT1kwMXIxWExkR0h3QlJkY2NHa2w4bjJ0ZEtGajAyU1F6dHBsaGdj?=
+ =?utf-8?B?MllVWXhNRmZ0dWFSTHJZWitqK1hIM2tkTFN6Y0VzT1ZTZXprbXRuN2l6MXBt?=
+ =?utf-8?B?NFp1Z0MzRXpaR3NzeVZjdEJueDlGeDd0eFNsSFpRbU9pcmtMak9JZmI1dUht?=
+ =?utf-8?B?UkhLSmpVR2I0KzRuamp6LzdoREVhVUZ4cFVWNXBDOWtjZTROeFN3Uis0OUhp?=
+ =?utf-8?B?TGpjZDNLbUxHelpFc3R5Qm1OQ1BKWWphM09mM1JEaDlGQjJFMElhTlJpaFJx?=
+ =?utf-8?B?NG9SQzd0WEROdm9jajdqeVVnS0pucFF6Q1J1S09pM0lpdHlLWHBaSXc4MWNH?=
+ =?utf-8?B?SWhBOCtpMHVBS3dsMytyZEgwVTVKNUhzbjUvOEJCeXlUM25MZmhxczdHZ1Iy?=
+ =?utf-8?B?Y0pDcUNLUFNES3ZpTk4vY2ZjZVlHa0JOQlZSZ0dUbm0vcXEzNExKekZJQ0ZQ?=
+ =?utf-8?B?ZTAvQmZnK2Z2S0Jsd3Q2NWl0YjMzck8wTXBJR3pSZksyOU04ejViV3JVREZr?=
+ =?utf-8?B?c3QrUjBzQVdrVWhNS2VXUmRDQUt3ZnRBL3daQ2VYdjNwa3EzVjRiQUFGOGhT?=
+ =?utf-8?B?dVVScVNSVC9RREpKMWhHVXBwWXdSQ2VMdmFON2M4MEJYSTV6bWIzbXA3N3J6?=
+ =?utf-8?B?bDBRVUlpQytqQVdDd0hCYzhNeWw1Y3gxMmI4SzJkcFpNdlNHSU9oYWZ1UHN5?=
+ =?utf-8?B?VVRVWFdiZmpLd3MrZndjVXFkL0I3NTVsM3F3dTR5dmRnR1E0TVBtODFmVUtk?=
+ =?utf-8?B?ckhBNTJwZ3ZXRjZ5QVV6bkt2bnorNEVjaEtlL2s3eWZzUVlka2MrVGNWOGVJ?=
+ =?utf-8?B?NDB2SkVDN2JlbmlvOWhiSGtlL3k0VldPZC9PeWhWeE1Ob1dteTRqbXgzeExs?=
+ =?utf-8?B?NHR0NU5FQVFsc0FMOVBZQW9zWDZxT1J2NFVQbVZtajRWc1pxQmxCQ2NUSEto?=
+ =?utf-8?B?cWVNbW5XVXJvY1QyT2lsd3ROcFhuazR2WEtoUm1taUtENlBiSm5sd1V3cjJB?=
+ =?utf-8?B?SFNnaVJqVDZNT25mMlg4MHV6ZjYydVhFemJsR052MlV2RzV4NTNVZ1BXekpR?=
+ =?utf-8?B?SThuWDJXbzhYc09CRzZqNmNUK0tRZFJMUC9NbHF2WjRNcWtHVG83WEoweGhl?=
+ =?utf-8?B?b1hsOFprWUNSWVI1eEdIdWVtdTNjRVJISUNhV0w3S0JrSDFUbkQ0V1c3QVZX?=
+ =?utf-8?B?bmpudUlSUVY2MTdkOHRkenFoS1hsdVJXdUVud1MvZXp2Y0FMY3RHSVJBdUor?=
+ =?utf-8?B?RXdUTTNBbXRnTUwzelBLL2FWOE1RU2FEOS9jV0dpQXVWUzlEdXVqWExzK0Fm?=
+ =?utf-8?B?OTJjUkZuR0hwUnlZMmt1Q0x5WjJ6aE9MZUVPb2RaNTJxaW9ia1lUM0lCK0lH?=
+ =?utf-8?B?UDl5MWRNdmFuekZPeVl3anRVaEhoYzVTVE14akdUMGFRQWlWa0NCVktBMHgy?=
+ =?utf-8?B?eHYyNlRIYVNJajc1ODRBbkNIQS9NeDhPWXZQV3NsbVBVYnRXeEpySmtQWjVm?=
+ =?utf-8?B?dGV0c1pqbWxhblZPZ2xQSGdLUlFNZjJOcDF0Q2JETXA0ZERCOXh3MUh5SDd2?=
+ =?utf-8?B?R1VMQXRtQlY3RkFvZ25CR2JqdGRXQzg2UlNiRzRLN3BYSjJJTlRIQlR4bzFQ?=
+ =?utf-8?B?R3NlbzBGUk9ZWkpTYWp6elJJNndKc1duUFFtNW1TMlA0UGhraWNvSlZhM0dV?=
+ =?utf-8?Q?m4Uo5ZUwPodXd/0oQ9F0qw+MGq3VvpYaFv+9sQkT7gGtF?=
+X-MS-Exchange-AntiSpam-MessageData-1: +J8fEwIZ4PP2jkCx10gk9DzMYkP9pW3FvwQ=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ab4e078f-bae5-45ff-6a1e-08de7d07e0b4
+X-MS-Exchange-CrossTenant-Network-Message-Id: d21bdca4-b0aa-4b80-669c-08de7d07e2e4
 X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Mar 2026 11:43:12.3094
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Mar 2026 11:43:15.9924
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FfB0WVqP9QZyFuDusDDwHp7T+9SQjeGbhdnJpOk/qCx06QlFFQ652wNiY8ZyfNyGhE9xz5PYgY4Mslq757pKRg==
+X-MS-Exchange-CrossTenant-UserPrincipalName: LiCnO+kOA5S3loEfF6X4OJ+jqh8BPpa1sxZg0TSZiMY6hfQhOXdYAzDBjAhBhALLS1nmjHAU8M4FUbgCkA3qag==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB12426
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260308_044325_193408_E6BE1E03 
-X-CRM114-Status: GOOD (  17.13  )
+X-CRM114-CacheID: sfid-20260308_044325_898680_0E51794E 
+X-CRM114-Status: GOOD (  15.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,283 +173,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is practically a full revert of commit
-7a4db656a635 ("PCI: dra7xx: Create functional dependency between PCIe and PHY")
-and a partial revert of the device link pieces from commits
-dfb80534692d ("PCI: cadence: Add generic PHY support to host and EP drivers")
-49229238ab47 ("PCI: keystone: Cleanup PHY handling")
+The dw_hdmi-rockchip driver validates pixel clock rates against the
+HDMI PHY's internal clock provider on certain SoCs like RK3328.
+This is currently achieved by dereferencing hdmi->phy->dev.of_node
+to obtain the provider node, which violates the Generic PHY API's
+encapsulation (the goal is for struct phy to be an opaque pointer).
 
-The trouble with these commits is that they dereference fields inside
-struct phy from a consumer driver, which will become no longer possible.
-
-Since commit 987351e1ea77 ("phy: core: Add consumer device link
-support") from 2019, the PHY core also adds a device link to order PHY
-provider and consumer suspend/resume operations. All reverted commits
-are from 2017-2018, and what they do should actually be redundant now.
+Refactor dw_hdmi_rockchip_bind() to perform a manual phandle lookup
+on the "hdmi" PHY index within the controller's DT node. This provides
+a parallel path to the clock provider's OF node without relying on the
+internal structure of the struct phy handle.
 
 Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-Acked-by: Bjorn Helgaas <bhelgaas@google.com>
 ---
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: "Krzysztof Wilczyński" <kwilczynski@kernel.org>
-Cc: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>
-Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: Sandy Huang <hjc@rock-chips.com>
+Cc: "Heiko Stübner" <heiko@sntech.de>
+Cc: Andy Yan <andy.yan@rock-chips.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+Cc: Maxime Ripard <mripard@kernel.org>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: David Airlie <airlied@gmail.com>
+Cc: Simona Vetter <simona@ffwll.ch>
 
-v1->v2:
-- fully remove struct device link **link from struct cdns_pcie and from
-  cdns_plat_pcie_probe() error path
-- collect tag
-- adjust commit title
+v1->v2: none
 ---
- .../controller/cadence/pcie-cadence-plat.c    |  2 --
- drivers/pci/controller/cadence/pcie-cadence.c | 16 +---------
- drivers/pci/controller/cadence/pcie-cadence.h |  2 --
- drivers/pci/controller/dwc/pci-dra7xx.c       | 16 ----------
- drivers/pci/controller/dwc/pci-keystone.c     | 31 +++----------------
- 5 files changed, 5 insertions(+), 62 deletions(-)
+ drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c | 25 ++++++++++++---------
+ 1 file changed, 15 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/pci/controller/cadence/pcie-cadence-plat.c b/drivers/pci/controller/cadence/pcie-cadence-plat.c
-index b067a3296dd3..54531f86bf45 100644
---- a/drivers/pci/controller/cadence/pcie-cadence-plat.c
-+++ b/drivers/pci/controller/cadence/pcie-cadence-plat.c
-@@ -123,8 +123,6 @@ static int cdns_plat_pcie_probe(struct platform_device *pdev)
- 	pm_runtime_disable(dev);
- 	cdns_pcie_disable_phy(cdns_plat_pcie->pcie);
- 	phy_count = cdns_plat_pcie->pcie->phy_count;
--	while (phy_count--)
--		device_link_del(cdns_plat_pcie->pcie->link[phy_count]);
- 
- 	return 0;
- }
-diff --git a/drivers/pci/controller/cadence/pcie-cadence.c b/drivers/pci/controller/cadence/pcie-cadence.c
-index a1eada56edba..0ac980249941 100644
---- a/drivers/pci/controller/cadence/pcie-cadence.c
-+++ b/drivers/pci/controller/cadence/pcie-cadence.c
-@@ -222,7 +222,6 @@ int cdns_pcie_init_phy(struct device *dev, struct cdns_pcie *pcie)
- 	struct device_node *np = dev->of_node;
- 	int phy_count;
- 	struct phy **phy;
--	struct device_link **link;
- 	int i;
- 	int ret;
- 	const char *name;
-@@ -238,10 +237,6 @@ int cdns_pcie_init_phy(struct device *dev, struct cdns_pcie *pcie)
- 	if (!phy)
- 		return -ENOMEM;
- 
--	link = devm_kcalloc(dev, phy_count, sizeof(*link), GFP_KERNEL);
--	if (!link)
--		return -ENOMEM;
--
- 	for (i = 0; i < phy_count; i++) {
- 		of_property_read_string_index(np, "phy-names", i, &name);
- 		phy[i] = devm_phy_get(dev, name);
-@@ -249,17 +244,10 @@ int cdns_pcie_init_phy(struct device *dev, struct cdns_pcie *pcie)
- 			ret = PTR_ERR(phy[i]);
- 			goto err_phy;
- 		}
--		link[i] = device_link_add(dev, &phy[i]->dev, DL_FLAG_STATELESS);
--		if (!link[i]) {
--			devm_phy_put(dev, phy[i]);
--			ret = -EINVAL;
--			goto err_phy;
--		}
- 	}
- 
- 	pcie->phy_count = phy_count;
- 	pcie->phy = phy;
--	pcie->link = link;
- 
- 	ret =  cdns_pcie_enable_phy(pcie);
- 	if (ret)
-@@ -268,10 +256,8 @@ int cdns_pcie_init_phy(struct device *dev, struct cdns_pcie *pcie)
- 	return 0;
- 
- err_phy:
--	while (--i >= 0) {
--		device_link_del(link[i]);
-+	while (--i >= 0)
- 		devm_phy_put(dev, phy[i]);
--	}
- 
- 	return ret;
- }
-diff --git a/drivers/pci/controller/cadence/pcie-cadence.h b/drivers/pci/controller/cadence/pcie-cadence.h
-index 443033c607d7..35b0b33bc6fb 100644
---- a/drivers/pci/controller/cadence/pcie-cadence.h
-+++ b/drivers/pci/controller/cadence/pcie-cadence.h
-@@ -82,7 +82,6 @@ struct cdns_plat_pcie_of_data {
-  * @is_rc: tell whether the PCIe controller mode is Root Complex or Endpoint.
-  * @phy_count: number of supported PHY devices
-  * @phy: list of pointers to specific PHY control blocks
-- * @link: list of pointers to corresponding device link representations
-  * @ops: Platform-specific ops to control various inputs from Cadence PCIe
-  *       wrapper
-  * @cdns_pcie_reg_offsets: Register bank offsets for different SoC
-@@ -95,7 +94,6 @@ struct cdns_pcie {
- 	bool			             is_rc;
- 	int			             phy_count;
- 	struct phy		             **phy;
--	struct device_link	             **link;
- 	const  struct cdns_pcie_ops          *ops;
- 	const  struct cdns_plat_pcie_of_data *cdns_pcie_reg_offsets;
- };
-diff --git a/drivers/pci/controller/dwc/pci-dra7xx.c b/drivers/pci/controller/dwc/pci-dra7xx.c
-index d5d26229063f..b91ab37845c9 100644
---- a/drivers/pci/controller/dwc/pci-dra7xx.c
-+++ b/drivers/pci/controller/dwc/pci-dra7xx.c
-@@ -9,7 +9,6 @@
- 
- #include <linux/clk.h>
- #include <linux/delay.h>
--#include <linux/device.h>
- #include <linux/err.h>
- #include <linux/interrupt.h>
- #include <linux/irq.h>
-@@ -683,7 +682,6 @@ static int dra7xx_pcie_probe(struct platform_device *pdev)
- 	int i;
- 	int phy_count;
- 	struct phy **phy;
--	struct device_link **link;
- 	void __iomem *base;
- 	struct dw_pcie *pci;
- 	struct dra7xx_pcie *dra7xx;
-@@ -731,10 +729,6 @@ static int dra7xx_pcie_probe(struct platform_device *pdev)
- 	if (!phy)
- 		return -ENOMEM;
- 
--	link = devm_kcalloc(dev, phy_count, sizeof(*link), GFP_KERNEL);
--	if (!link)
--		return -ENOMEM;
--
- 	dra7xx->clk = devm_clk_get_optional(dev, NULL);
- 	if (IS_ERR(dra7xx->clk))
- 		return dev_err_probe(dev, PTR_ERR(dra7xx->clk),
-@@ -749,12 +743,6 @@ static int dra7xx_pcie_probe(struct platform_device *pdev)
- 		phy[i] = devm_phy_get(dev, name);
- 		if (IS_ERR(phy[i]))
- 			return PTR_ERR(phy[i]);
--
--		link[i] = device_link_add(dev, &phy[i]->dev, DL_FLAG_STATELESS);
--		if (!link[i]) {
--			ret = -EINVAL;
--			goto err_link;
--		}
- 	}
- 
- 	dra7xx->base = base;
-@@ -856,10 +844,6 @@ static int dra7xx_pcie_probe(struct platform_device *pdev)
- 	pm_runtime_disable(dev);
- 	dra7xx_pcie_disable_phy(dra7xx);
- 
--err_link:
--	while (--i >= 0)
--		device_link_del(link[i]);
--
- 	return ret;
- }
- 
-diff --git a/drivers/pci/controller/dwc/pci-keystone.c b/drivers/pci/controller/dwc/pci-keystone.c
-index 642e4c45eefc..07698c645e02 100644
---- a/drivers/pci/controller/dwc/pci-keystone.c
-+++ b/drivers/pci/controller/dwc/pci-keystone.c
-@@ -130,7 +130,6 @@ struct keystone_pcie {
- 	int			num_lanes;
- 	u32			num_viewport;
- 	struct phy		**phy;
--	struct device_link	**link;
- 	struct			device_node *msi_intc_np;
- 	struct irq_domain	*intx_irq_domain;
- 	struct device_node	*np;
-@@ -1118,7 +1117,6 @@ static int ks_pcie_probe(struct platform_device *pdev)
- 	enum dw_pcie_device_mode mode;
- 	struct dw_pcie *pci;
- 	struct keystone_pcie *ks_pcie;
--	struct device_link **link;
- 	struct gpio_desc *gpiod;
- 	struct resource *res;
- 	void __iomem *base;
-@@ -1189,31 +1187,17 @@ static int ks_pcie_probe(struct platform_device *pdev)
- 	if (!phy)
- 		return -ENOMEM;
- 
--	link = devm_kcalloc(dev, num_lanes, sizeof(*link), GFP_KERNEL);
--	if (!link)
--		return -ENOMEM;
--
- 	for (i = 0; i < num_lanes; i++) {
- 		snprintf(name, sizeof(name), "pcie-phy%d", i);
- 		phy[i] = devm_phy_optional_get(dev, name);
- 		if (IS_ERR(phy[i])) {
- 			ret = PTR_ERR(phy[i]);
--			goto err_link;
--		}
--
--		if (!phy[i])
--			continue;
--
--		link[i] = device_link_add(dev, &phy[i]->dev, DL_FLAG_STATELESS);
--		if (!link[i]) {
--			ret = -EINVAL;
--			goto err_link;
-+			goto err;
- 		}
- 	}
- 
- 	ks_pcie->np = np;
- 	ks_pcie->pci = pci;
--	ks_pcie->link = link;
- 	ks_pcie->num_lanes = num_lanes;
- 	ks_pcie->phy = phy;
- 
-@@ -1223,7 +1207,7 @@ static int ks_pcie_probe(struct platform_device *pdev)
- 		ret = PTR_ERR(gpiod);
- 		if (ret != -EPROBE_DEFER)
- 			dev_err(dev, "Failed to get reset GPIO\n");
--		goto err_link;
-+		goto err;
- 	}
- 
- 	/* Obtain references to the PHYs */
-@@ -1238,7 +1222,7 @@ static int ks_pcie_probe(struct platform_device *pdev)
- 
- 	if (ret) {
- 		dev_err(dev, "failed to enable phy\n");
--		goto err_link;
-+		goto err;
- 	}
- 
- 	platform_set_drvdata(pdev, ks_pcie);
-@@ -1325,25 +1309,18 @@ static int ks_pcie_probe(struct platform_device *pdev)
- 	pm_runtime_disable(dev);
- 	ks_pcie_disable_phy(ks_pcie);
- 
--err_link:
--	while (--i >= 0 && link[i])
--		device_link_del(link[i]);
--
-+err:
- 	return ret;
- }
- 
- static void ks_pcie_remove(struct platform_device *pdev)
+diff --git a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+index 0dc1eb5d2ae3..7abb42e486c0 100644
+--- a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+@@ -537,21 +537,22 @@ static int dw_hdmi_rockchip_bind(struct device *dev, struct device *master,
+ 				 void *data)
  {
- 	struct keystone_pcie *ks_pcie = platform_get_drvdata(pdev);
--	struct device_link **link = ks_pcie->link;
--	int num_lanes = ks_pcie->num_lanes;
- 	struct device *dev = &pdev->dev;
+ 	struct platform_device *pdev = to_platform_device(dev);
++	struct device_node *np = dev_of_node(dev);
+ 	struct dw_hdmi_plat_data *plat_data;
+ 	const struct of_device_id *match;
+ 	struct drm_device *drm = data;
+ 	struct drm_encoder *encoder;
+ 	struct rockchip_hdmi *hdmi;
+-	int ret;
++	int ret, index;
  
- 	pm_runtime_put(dev);
- 	pm_runtime_disable(dev);
- 	ks_pcie_disable_phy(ks_pcie);
--	while (num_lanes--)
--		device_link_del(link[num_lanes]);
- }
+-	if (!pdev->dev.of_node)
++	if (!np)
+ 		return -ENODEV;
  
- static struct platform_driver ks_pcie_driver = {
+ 	hdmi = devm_kzalloc(&pdev->dev, sizeof(*hdmi), GFP_KERNEL);
+ 	if (!hdmi)
+ 		return -ENOMEM;
+ 
+-	match = of_match_node(dw_hdmi_rockchip_dt_ids, pdev->dev.of_node);
++	match = of_match_node(dw_hdmi_rockchip_dt_ids, np);
+ 	plat_data = devm_kmemdup(&pdev->dev, match->data,
+ 					     sizeof(*plat_data), GFP_KERNEL);
+ 	if (!plat_data)
+@@ -564,9 +565,9 @@ static int dw_hdmi_rockchip_bind(struct device *dev, struct device *master,
+ 	plat_data->priv_data = hdmi;
+ 	encoder = &hdmi->encoder.encoder;
+ 
+-	encoder->possible_crtcs = drm_of_find_possible_crtcs(drm, dev->of_node);
++	encoder->possible_crtcs = drm_of_find_possible_crtcs(drm, np);
+ 	rockchip_drm_encoder_set_crtc_endpoint_id(&hdmi->encoder,
+-						  dev->of_node, 0, 0);
++						  np, 0, 0);
+ 
+ 	/*
+ 	 * If we failed to find the CRTC(s) which this encoder is
+@@ -588,13 +589,17 @@ static int dw_hdmi_rockchip_bind(struct device *dev, struct device *master,
+ 		return dev_err_probe(hdmi->dev, ret, "failed to get phy\n");
+ 	}
+ 
+-	if (hdmi->phy) {
++	index = of_property_match_string(np, "phy-names", "hdmi");
++	if (index >= 0) {
+ 		struct of_phandle_args clkspec;
+ 
+-		clkspec.np = hdmi->phy->dev.of_node;
+-		hdmi->hdmiphy_clk = of_clk_get_from_provider(&clkspec);
+-		if (IS_ERR(hdmi->hdmiphy_clk))
+-			hdmi->hdmiphy_clk = NULL;
++		if (!of_parse_phandle_with_args(np, "phys", "#phy-cells", index,
++						&clkspec)) {
++			hdmi->hdmiphy_clk = of_clk_get_from_provider(&clkspec);
++			of_node_put(clkspec.np);
++			if (IS_ERR(hdmi->hdmiphy_clk))
++				hdmi->hdmiphy_clk = NULL;
++		}
+ 	}
+ 
+ 	if (hdmi->chip_data == &rk3568_chip_data) {
 -- 
 2.43.0
 
