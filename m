@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 739E3EA8549
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 23:19:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B0A0EA852F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 23:25:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ntda+MBP91HPhaHbKmG4hChcd2maFzFL5UYvpzab5rU=; b=Ti/ny+sulQZky7E/Eb0H0j1P/u
-	5FwqIqDZHubtyqAnbOaqxwqy2IH3sFmKqKhzTG2v+NVOjw12Qa6MUFfvTfofIvoIvN/yqQuRdzlDn
-	acRQE/J3+dFR3PWUT4ESjuwiD2FInrctOUW35twF9YThRKJBOxrJj6E6nr8EvactopZfc/byVJj0W
-	Am9BNi14OF13a8COdtB11huYScoWcj9kEQg7VHq0vHEEHHVrkN3RZv98GzLyZm02uXsaiSvE87d7K
-	Ib4EWkS7UQqyeCa+m2YK05PoRVaS1lrX4vRjBiDlffG8VuA0EW9lw5oH1iMFmZkQwjJ6ac/F1Hh4/
-	O23h5yrA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iTPXCABkEggbDIGuCh1IV5kp7+i1+yPmZYrmuxmytjM=; b=Nz9tB35QH0gg2OheXrGSAlWKmz
+	k5iGsQYm+YWcEmGR7Uq5jhhhvgdDLficJylP+DgQJQ1GpBmnnv1d5UJAopg0jtYc8ngF9vw1+Qu4k
+	+USkKbmcKomqJM/uaNume4N2erdh+BjAy+Q3U6NJtN1iMl3dpGxyyrU/CC775qYbfxENQDaakhrND
+	pTvUoUlOMzGvRrVyFGczw2LdCtWD1g+jPfrDYScvVeZs3UQSXEPHvqyb9cjqlYJPQDcHpwblkG5q2
+	DKN/Rgo7/BSNIGIulfuCvm0d4YD4FjrV4ka6HXvTdLfudim4/fmkd4oJ2oX2YkATR/SdeHO/0s3cl
+	lgoDGoZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzNPR-00000006QkY-3NXg;
-	Sun, 08 Mar 2026 23:19:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzNPO-00000006Qjh-0ehm
+	id 1vzNUs-00000006REn-2ikG;
+	Sun, 08 Mar 2026 23:25:18 +0000
+Received: from mta1.migadu.com ([2001:41d0:203:375::] helo=out-182.mta1.migadu.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vzNUp-00000006REP-0RtL
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Mar 2026 23:19:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 64A321D31;
-	Sun,  8 Mar 2026 16:19:31 -0700 (PDT)
-Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 047543F5CA;
-	Sun,  8 Mar 2026 16:19:35 -0700 (PDT)
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
+	Sun, 08 Mar 2026 23:25:17 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1773012309;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=iTPXCABkEggbDIGuCh1IV5kp7+i1+yPmZYrmuxmytjM=;
+	b=JP3dI2psjPagAtQyZKtKh9NlHT+UdTW+78Qf2AuEq/Jj+EKOI7vuKDqm6YBouy9JeoXw6L
+	IOA+OYn6Zc8CuKBA+KXfyLT3NeLSCF2z56RHuO7jdibraqj2PWFTn+clBvAs224baB08aa
+	7lt/NXJxE1NZ0o04cQbhgoMXbHZPg80=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: Thorsten Blum <thorsten.blum@linux.dev>,
+	linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Cc: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: [PATCH RESEND 2/2] KVM: arm64: nv: Expose shadow page tables in debugfs
-Date: Sun,  8 Mar 2026 23:18:29 +0000
-Message-ID: <20260308231829.864983-3-weilin.chang@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260308231829.864983-1-weilin.chang@arm.com>
-References: <20260308231829.864983-1-weilin.chang@arm.com>
+Subject: [PATCH] crypto: atmel - use list_first_entry_or_null to simplify find_dev
+Date: Mon,  9 Mar 2026 00:22:32 +0100
+Message-ID: <20260308232230.544209-3-thorsten.blum@linux.dev>
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1160; i=thorsten.blum@linux.dev; h=from:subject; bh=nqj4YND/KgmZUOiN5flyhdGVD/KL8lrlWmefXh7ljAE=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDJnrWLZpnpZjmmTkv8DIx1zd4mvWNbbsk3pyByf81Xwfz uSq9yW6o5SFQYyLQVZMkeXBrB8zfEtrKjeZROyEmcPKBDKEgYtTACZi0srIcNJfccokhXIX8YU+ 18zM7i9WLHp4/3DDPVn7gPNPJD6rtjMyfKqSdl9XPf1ltbyRlopxSOnmKQpJXwTF3365PZdx7Ts vfgA=
+X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
 Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260308_161938_855052_0CC323E5 
-X-CRM114-Status: GOOD (  20.01  )
+X-CRM114-CacheID: sfid-20260308_162515_451881_BFC9A9F3 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,144 +72,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Exposing shadow page tables in debugfs improves the debugability and
-testability of NV. With this patch a new directory "nested" is created
-for each VM created if the host is NV capable. Within the directory each
-valid s2 mmu will have its shadow page table exposed as a readable file
-with the file name formatted as 0x<vttbr>-0x<vtcr>-s2-{en,dis}abled. The
-creation and removal of the files happen at the points when an s2 mmu
-becomes valid, or the context it represents change. In the future the
-"nested" directory can also hold other NV related information.
+Use list_first_entry_or_null() to simplify atmel_sha_find_dev() and
+remove the now-unused local variable 'struct atmel_sha_dev *tmp'.
 
-This is gated behind CONFIG_PTDUMP_STAGE2_DEBUGFS.
-
-Suggested-by: Marc Zyngier <maz@kernel.org>
-Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
 ---
- arch/arm64/include/asm/kvm_host.h |  7 +++++++
- arch/arm64/include/asm/kvm_mmu.h  |  4 ++++
- arch/arm64/kvm/nested.c           |  6 +++++-
- arch/arm64/kvm/ptdump.c           | 27 +++++++++++++++++++++++++++
- 4 files changed, 43 insertions(+), 1 deletion(-)
+ drivers/crypto/atmel-sha.c | 17 +++++------------
+ 1 file changed, 5 insertions(+), 12 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 5d5a3bbdb95e..f88f6c4d646e 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -217,6 +217,10 @@ struct kvm_s2_mmu {
- 	 */
- 	bool	nested_stage2_enabled;
+diff --git a/drivers/crypto/atmel-sha.c b/drivers/crypto/atmel-sha.c
+index 1f1341a16c42..002b62902553 100644
+--- a/drivers/crypto/atmel-sha.c
++++ b/drivers/crypto/atmel-sha.c
+@@ -404,20 +404,13 @@ static void atmel_sha_fill_padding(struct atmel_sha_reqctx *ctx, int length)
  
-+#ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
-+	struct dentry *shadow_pt_debugfs_dentry;
-+#endif
-+
- 	/*
- 	 * true when this MMU needs to be unmapped before being used for a new
- 	 * purpose.
-@@ -405,6 +409,9 @@ struct kvm_arch {
- 	 * the associated pKVM instance in the hypervisor.
- 	 */
- 	struct kvm_protected_vm pkvm;
-+
-+	/* Nested virtualization info */
-+	struct dentry *debugfs_nv_dentry;
- };
- 
- struct kvm_vcpu_fault_info {
-diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
-index d968aca0461a..01e9c72d6aa7 100644
---- a/arch/arm64/include/asm/kvm_mmu.h
-+++ b/arch/arm64/include/asm/kvm_mmu.h
-@@ -393,8 +393,12 @@ static inline bool kvm_supports_cacheable_pfnmap(void)
- 
- #ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
- void kvm_s2_ptdump_create_debugfs(struct kvm *kvm);
-+void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu);
-+void kvm_nested_s2_ptdump_remove_debugfs(struct kvm_s2_mmu *mmu);
- #else
- static inline void kvm_s2_ptdump_create_debugfs(struct kvm *kvm) {}
-+static inline void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu) {}
-+static inline void kvm_nested_s2_ptdump_remove_debugfs(struct kvm_s2_mmu *mmu) {}
- #endif /* CONFIG_PTDUMP_STAGE2_DEBUGFS */
- 
- #endif /* __ASSEMBLER__ */
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index eeea5e692370..31d74ed8449e 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -730,8 +730,10 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
- 	kvm->arch.nested_mmus_next = (i + 1) % kvm->arch.nested_mmus_size;
- 
- 	/* Make sure we don't forget to do the laundry */
--	if (kvm_s2_mmu_valid(s2_mmu))
-+	if (kvm_s2_mmu_valid(s2_mmu)) {
-+		kvm_nested_s2_ptdump_remove_debugfs(s2_mmu);
- 		s2_mmu->pending_unmap = true;
-+	}
- 
- 	/*
- 	 * The virtual VMID (modulo CnP) will be used as a key when matching
-@@ -745,6 +747,8 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
- 	s2_mmu->tlb_vtcr = vcpu_read_sys_reg(vcpu, VTCR_EL2);
- 	s2_mmu->nested_stage2_enabled = vcpu_read_sys_reg(vcpu, HCR_EL2) & HCR_VM;
- 
-+	kvm_nested_s2_ptdump_create_debugfs(s2_mmu);
-+
- out:
- 	atomic_inc(&s2_mmu->refcnt);
- 
-diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
-index 98763b291956..3a70f633fc8b 100644
---- a/arch/arm64/kvm/ptdump.c
-+++ b/arch/arm64/kvm/ptdump.c
-@@ -10,6 +10,7 @@
- #include <linux/kvm_host.h>
- #include <linux/seq_file.h>
- 
-+#include <asm/cpufeature.h>
- #include <asm/kvm_mmu.h>
- #include <asm/kvm_pgtable.h>
- #include <asm/ptdump.h>
-@@ -277,6 +278,29 @@ static const struct file_operations kvm_pgtable_levels_fops = {
- 	.release	= kvm_pgtable_debugfs_close,
- };
- 
-+void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu)
-+{
-+	struct dentry *dent;
-+	/* format: 0x<vttbr>-0x<vtcr>-s2-{en, dis}abled\0 */
-+	char file_name[2 + 16 + 1 + 2 + 16 + 4 + 3 + 6];
-+
-+	snprintf(file_name, sizeof(file_name), "0x%llx-0x%llx-s2-%sabled",
-+		 mmu->tlb_vttbr,
-+		 mmu->tlb_vtcr,
-+		 mmu->nested_stage2_enabled ? "en" : "dis");
-+
-+	dent = debugfs_create_file(file_name, 0400,
-+				   mmu->arch->debugfs_nv_dentry, mmu,
-+				   &kvm_ptdump_guest_fops);
-+
-+	mmu->shadow_pt_debugfs_dentry = dent;
-+}
-+
-+void kvm_nested_s2_ptdump_remove_debugfs(struct kvm_s2_mmu *mmu)
-+{
-+	debugfs_remove(mmu->shadow_pt_debugfs_dentry);
-+}
-+
- void kvm_s2_ptdump_create_debugfs(struct kvm *kvm)
+ static struct atmel_sha_dev *atmel_sha_find_dev(struct atmel_sha_ctx *tctx)
  {
- 	debugfs_create_file("stage2_page_tables", 0400, kvm->debugfs_dentry,
-@@ -285,4 +309,7 @@ void kvm_s2_ptdump_create_debugfs(struct kvm *kvm)
- 			    &kvm->arch.mmu, &kvm_pgtable_range_fops);
- 	debugfs_create_file("stage2_levels", 0400, kvm->debugfs_dentry,
- 			    &kvm->arch.mmu, &kvm_pgtable_levels_fops);
-+	if (cpus_have_final_cap(ARM64_HAS_NESTED_VIRT))
-+		kvm->arch.debugfs_nv_dentry =
-+			debugfs_create_dir("nested", kvm->debugfs_dentry);
- }
--- 
-2.43.0
-
+-	struct atmel_sha_dev *dd = NULL;
+-	struct atmel_sha_dev *tmp;
++	struct atmel_sha_dev *dd;
+ 
+ 	spin_lock_bh(&atmel_sha.lock);
+-	if (!tctx->dd) {
+-		list_for_each_entry(tmp, &atmel_sha.dev_list, list) {
+-			dd = tmp;
+-			break;
+-		}
+-		tctx->dd = dd;
+-	} else {
+-		dd = tctx->dd;
+-	}
+-
++	if (!tctx->dd)
++		tctx->dd = list_first_entry_or_null(&atmel_sha.dev_list,
++						    struct atmel_sha_dev, list);
++	dd = tctx->dd;
+ 	spin_unlock_bh(&atmel_sha.lock);
+ 
+ 	return dd;
 
