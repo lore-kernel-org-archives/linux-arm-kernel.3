@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D023EA852F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 22:58:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B569EA8549
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 22:58:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lvTBwkRpzv/+iflKpNtT/Sc3/8hKIuGMHkVUOsvJCnA=; b=RSQNaN5TAn96qz+QXzr6OjW2aZ
-	Tyy+QO/XoFo0uov7fG82y+uigFTFNtLrDvsLezsWxXAf0FKzfRAUSlOcn5/jWOq1Smc+zBJ7eLF6Y
-	OyfMyY6WmCUh9Bl2bxsEvfA1gJ2dOpH0zMUAysqNAFQPOiVX4m1AqR2zbZdYNpBEaBGSDC1lup5iI
-	2vZ8AzVB3UMtcCGuwCxTK7rXcwhiSL96rNLOSVZpOVO639OM7zsFK/qKw577qogfNkgFRsFuHJKgr
-	fop6zjOS0aO6IYzIWotOi2PhTzOfxLf/th4qEBjo8CRATB2VUEpNRVFlHv5G5+VBFkJZq9/2c0Svx
-	kNQ5xNrg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RNUU87v2GXx+7s4Kek1NmXOTPHHpG1QoU7CCMxL3XDU=; b=IV1umbgAz5BvyUz7zCuqly31Kg
+	4ZBpxk0p4J3uS1AolUmSBhzYREJJiGA3Fnx3hJtrFbCustdW7MUO9Vz265GBV2lW00SgQbeomRrTt
+	AsWjDadF4DwjQ8Qzz58F36k1c/SL/JMSGTt61sHtEHWwzfxYLf1YjpGOWnEi16Hob0WwcGRfpFHmW
+	s51YLeft2vZZXwBYwiqWlI7N1dvMBVVsIQsPX8EnZDYeH9f7NxKiaB46ASsg1o7esEVV7yqa3cVTC
+	uWVpDK5CxH3nty6LlG2eqoLwnLN3isrVaCRKxBjX/jCOoXtRUgukKWdmSBxSC7OPL7lBcp0tIF8g4
+	VLgGNOJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzN4d-00000006Q2g-3hFT;
-	Sun, 08 Mar 2026 22:58:11 +0000
+	id 1vzN4i-00000006Q3q-3BOf;
+	Sun, 08 Mar 2026 22:58:18 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzN4a-00000006Q2C-1YFS
+	id 1vzN4g-00000006Q2x-1JuF
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Mar 2026 22:58:10 +0000
+	Sun, 08 Mar 2026 22:58:15 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 907971D13;
-	Sun,  8 Mar 2026 15:57:57 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 211E11D13;
+	Sun,  8 Mar 2026 15:58:06 -0700 (PDT)
 Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 70B3B3F694;
-	Sun,  8 Mar 2026 15:58:02 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0034D3F694;
+	Sun,  8 Mar 2026 15:58:10 -0700 (PDT)
 From: Wei-Lin Chang <weilin.chang@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
@@ -44,16 +44,17 @@ Cc: Marc Zyngier <maz@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>
-Subject: [PATCH 0/2] KVM: arm64: nv: Expose shadow page tables in debugfs
-Date: Sun,  8 Mar 2026 22:56:59 +0000
-Message-ID: <20260308225701.863369-1-weilin.chang@arm.com>
+Subject: [PATCH 1/2] KVM: arm64: ptdump: Make KVM ptdump code s2 mmu aware
+Date: Sun,  8 Mar 2026 22:57:00 +0000
+Message-ID: <20260308225701.863369-2-weilin.chang@arm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260308225701.863369-1-weilin.chang@arm.com>
+References: <20260308225701.863369-1-weilin.chang@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260308_155808_556224_15735757 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260308_155814_454955_5539E4DB 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,41 +69,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+To reuse the ptdump code for shadow page table dumping later, let's pass
+s2 mmu as the private data, so we have the freedom to select which page
+table to print.
 
-This series exposes shadow page tables in debugfs to improve the
-debugability and testability of NV. First we teach the KVM ptdump code
-to handle different s2 mmus, then shadow page tables are exposed. This
-is gated also behind CONFIG_PTDUMP_STAGE2_DEBUGFS, like the canonical
-stage-2 page table.
+Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+---
+ arch/arm64/kvm/ptdump.c | 33 +++++++++++++++++----------------
+ 1 file changed, 17 insertions(+), 16 deletions(-)
 
-The file names for the shadow page tables are formatted
-0x<vttbr>-0x<vtcr>-s2-{en,dis}abled, which is the most intuitive way of
-identifying the s2 mmus but not terribly clear. For now I don't think of
-other options that are meaningfully better, any suggestion welcome.
-
-I realized I tend to write long variable and function names, happy to
-change if anyone finds it too verbose.
-
-Thanks!
-
-
-Wei-Lin Chang (2):
-  KVM: arm64: nv: Expose shadow page tables in debugfs
-  basic L2 selftest
-
- arch/arm64/include/asm/kvm_host.h             |   7 +
- arch/arm64/include/asm/kvm_mmu.h              |   4 +
- arch/arm64/kvm/nested.c                       |   6 +-
- arch/arm64/kvm/ptdump.c                       |  27 ++
- tools/testing/selftests/kvm/Makefile.kvm      |   1 +
- .../selftests/kvm/arm64/nested_reverse_map.c  | 236 ++++++++++++++++++
- .../selftests/kvm/include/arm64/processor.h   |  28 +++
- .../selftests/kvm/lib/arm64/processor.c       |   2 +
- tools/testing/selftests/kvm/lib/kvm_util.c    |  13 +
- 9 files changed, 323 insertions(+), 1 deletion(-)
- create mode 100644 tools/testing/selftests/kvm/arm64/nested_reverse_map.c
-
+diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
+index 6cbe018fd6fd..98763b291956 100644
+--- a/arch/arm64/kvm/ptdump.c
++++ b/arch/arm64/kvm/ptdump.c
+@@ -18,7 +18,7 @@
+ #define KVM_PGTABLE_MAX_LEVELS	(KVM_PGTABLE_LAST_LEVEL + 1)
+ 
+ struct kvm_ptdump_guest_state {
+-	struct kvm		*kvm;
++	struct kvm_s2_mmu	*mmu;
+ 	struct ptdump_pg_state	parser_state;
+ 	struct addr_marker	ipa_marker[MARKERS_LEN];
+ 	struct ptdump_pg_level	level[KVM_PGTABLE_MAX_LEVELS];
+@@ -112,10 +112,9 @@ static int kvm_ptdump_build_levels(struct ptdump_pg_level *level, u32 start_lvl)
+ 	return 0;
+ }
+ 
+-static struct kvm_ptdump_guest_state *kvm_ptdump_parser_create(struct kvm *kvm)
++static struct kvm_ptdump_guest_state *kvm_ptdump_parser_create(struct kvm_s2_mmu *mmu)
+ {
+ 	struct kvm_ptdump_guest_state *st;
+-	struct kvm_s2_mmu *mmu = &kvm->arch.mmu;
+ 	struct kvm_pgtable *pgtable = mmu->pgt;
+ 	int ret;
+ 
+@@ -133,7 +132,7 @@ static struct kvm_ptdump_guest_state *kvm_ptdump_parser_create(struct kvm *kvm)
+ 	st->ipa_marker[1].start_address = BIT(pgtable->ia_bits);
+ 	st->range[0].end		= BIT(pgtable->ia_bits);
+ 
+-	st->kvm				= kvm;
++	st->mmu				= mmu;
+ 	st->parser_state = (struct ptdump_pg_state) {
+ 		.marker		= &st->ipa_marker[0],
+ 		.level		= -1,
+@@ -149,8 +148,8 @@ static int kvm_ptdump_guest_show(struct seq_file *m, void *unused)
+ {
+ 	int ret;
+ 	struct kvm_ptdump_guest_state *st = m->private;
+-	struct kvm *kvm = st->kvm;
+-	struct kvm_s2_mmu *mmu = &kvm->arch.mmu;
++	struct kvm_s2_mmu *mmu = st->mmu;
++	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
+ 	struct ptdump_pg_state *parser_state = &st->parser_state;
+ 	struct kvm_pgtable_walker walker = (struct kvm_pgtable_walker) {
+ 		.cb	= kvm_ptdump_visitor,
+@@ -169,14 +168,15 @@ static int kvm_ptdump_guest_show(struct seq_file *m, void *unused)
+ 
+ static int kvm_ptdump_guest_open(struct inode *m, struct file *file)
+ {
+-	struct kvm *kvm = m->i_private;
++	struct kvm_s2_mmu *mmu = m->i_private;
++	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
+ 	struct kvm_ptdump_guest_state *st;
+ 	int ret;
+ 
+ 	if (!kvm_get_kvm_safe(kvm))
+ 		return -ENOENT;
+ 
+-	st = kvm_ptdump_parser_create(kvm);
++	st = kvm_ptdump_parser_create(mmu);
+ 	if (IS_ERR(st)) {
+ 		ret = PTR_ERR(st);
+ 		goto err_with_kvm_ref;
+@@ -194,7 +194,7 @@ static int kvm_ptdump_guest_open(struct inode *m, struct file *file)
+ 
+ static int kvm_ptdump_guest_close(struct inode *m, struct file *file)
+ {
+-	struct kvm *kvm = m->i_private;
++	struct kvm *kvm = kvm_s2_mmu_to_kvm(m->i_private);
+ 	void *st = ((struct seq_file *)file->private_data)->private;
+ 
+ 	kfree(st);
+@@ -229,14 +229,15 @@ static int kvm_pgtable_levels_show(struct seq_file *m, void *unused)
+ static int kvm_pgtable_debugfs_open(struct inode *m, struct file *file,
+ 				    int (*show)(struct seq_file *, void *))
+ {
+-	struct kvm *kvm = m->i_private;
++	struct kvm_s2_mmu *mmu = m->i_private;
++	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
+ 	struct kvm_pgtable *pgtable;
+ 	int ret;
+ 
+ 	if (!kvm_get_kvm_safe(kvm))
+ 		return -ENOENT;
+ 
+-	pgtable = kvm->arch.mmu.pgt;
++	pgtable = mmu->pgt;
+ 
+ 	ret = single_open(file, show, pgtable);
+ 	if (ret < 0)
+@@ -256,7 +257,7 @@ static int kvm_pgtable_levels_open(struct inode *m, struct file *file)
+ 
+ static int kvm_pgtable_debugfs_close(struct inode *m, struct file *file)
+ {
+-	struct kvm *kvm = m->i_private;
++	struct kvm *kvm = kvm_s2_mmu_to_kvm(m->i_private);
+ 
+ 	kvm_put_kvm(kvm);
+ 	return single_release(m, file);
+@@ -279,9 +280,9 @@ static const struct file_operations kvm_pgtable_levels_fops = {
+ void kvm_s2_ptdump_create_debugfs(struct kvm *kvm)
+ {
+ 	debugfs_create_file("stage2_page_tables", 0400, kvm->debugfs_dentry,
+-			    kvm, &kvm_ptdump_guest_fops);
+-	debugfs_create_file("ipa_range", 0400, kvm->debugfs_dentry, kvm,
+-			    &kvm_pgtable_range_fops);
++			    &kvm->arch.mmu, &kvm_ptdump_guest_fops);
++	debugfs_create_file("ipa_range", 0400, kvm->debugfs_dentry,
++			    &kvm->arch.mmu, &kvm_pgtable_range_fops);
+ 	debugfs_create_file("stage2_levels", 0400, kvm->debugfs_dentry,
+-			    kvm, &kvm_pgtable_levels_fops);
++			    &kvm->arch.mmu, &kvm_pgtable_levels_fops);
+ }
 -- 
 2.43.0
 
