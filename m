@@ -4,78 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CF8BEA8529
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 15:21:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A888EA852A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 15:42:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+hKz4oZxaXFlYnxidKhF297T0Odp1J8970g3IHYrFIE=; b=HL1xdbuyDFukZqdA+WEkTPwwhv
-	vHTFVDEyjOOigyIzpTVnS14nLdswbQqoKOfZpx7IEib62VO2j1Nx0ITnIoPtiv6SZCMtKqcCI7eRC
-	czgHGYUMFcd673XgMeNk/0gaNW/8h/yH5+W69ilBAUYOVSk5nMEKTh42RH+C9yWvXBARDGjZYN7ri
-	+3XXVJ49hZEfWuav37BYiQRzzxjRIJP8PO8ITIPPGpHLuc4ZqPSFYVh/t/C3+myqnGIN7zuP9xXLk
-	PyWLgiMCWCD6RIthqECCkr5c+8/FHJCudlZpebUaosP4P6GpAvUulJ8xe5H+JY/wPbV2a/ICOgaTB
-	mwdareBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gZ6iCM7yxSZV5Nk8ZnuGGhKeR0PrNeZiCFj3I5oNWU0=; b=Gcs7k/EFCPYOMn5vqPrX4jwMfB
+	NvOmC9DNOd+a5q58U5f53f+DMJRCQOxLq2rW+Z6HMSYrsWg+71Txvf96jpxce87W0In9X0Cwpu2m6
+	xr2QMT7CfBpo/CF5f7zcDFmm/mVFlyJDpo7WXX1t5pi/yoJ1MrS8OtnisCvuIjGJpqosYqyVOW3yk
+	QzIQkMD3TZ5OOukwZVR/7UU7FPWYMdh4YWzBB8FmorD1XU85l44ssuOu+kTxY0/py7Fj5yjCf+9vx
+	8N+2h9JtoLAZvoxzwnAatQll2t/S+ccbvZuIKXIVinJ67HFv9cUwLJQuczIWp28S2nDQhPEIjlsEy
+	Kw9twsEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzFw8-000000068Jo-38EG;
-	Sun, 08 Mar 2026 15:20:56 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1vzGGY-000000068me-23NL;
+	Sun, 08 Mar 2026 15:42:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzFw5-000000068JU-1gAK
+	id 1vzGGX-000000068mY-0mgF
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Mar 2026 15:20:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1772983245; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=E0b/616QuJYpt+5dG3PHA7BaD2UQxlThM3sNExvTa/m5t4QsQXhvP9vqPrRwD3NUH3RWBen0MXs10o6vhySlr6BMOP71a9SetXUq5YAwZST/u4nMPECCOBsvoX9AyqGihRc4uJ952+zSApUyy3pzNL0dYER0ff+NYS5qGn3B7m4=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1772983245; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=+hKz4oZxaXFlYnxidKhF297T0Odp1J8970g3IHYrFIE=; 
-	b=eYEx+igyWReCAsO9J4fXPo2QWARgVvHi6yiQBIY6AWT8vviLcWx0dvT6tCPvAMAwI4oG3GI0k7eba4AunT+R27gBTupO6AZNYaTKYmLWOTLj93y7gWV/g9yMYd9zkLB+i3hoCJF3L+1SYPhgDEho6SJTTdXTtYmHMSks8eISSSk=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1772983245;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=+hKz4oZxaXFlYnxidKhF297T0Odp1J8970g3IHYrFIE=;
-	b=Jac2YNsOrupNnEN24BELCwMdKjxBGl/oENO8ewgTxgkZowKZYUsjbXJnEDwWNFFZ
-	jNmCmB+qiKwspRAaPg+OcvMD8gFtXK4IZekgl8/7vaKKzEoH4mp7uFt9d69Xskcqp/s
-	xGxvDGz2JMkQXJmWBpZ1gFzI/YDCkmnSvUNFpKdpiGsTcWGsT1jiH8VDEVbya5h6iWm
-	QmCly3CCBM05OEjbwQNRQG8FWMqEqypGMgBOtOAIk7KxjEVUd6fxPU5J8bX1Ssb5tVK
-	I7PE0BtDTZPWMmBXiU+yiojiMDaulC4OSQngrQqGis/YThpGkBqeTKHQsVu8pIeYn6V
-	uypBs2vmew==
-Received: by mx.zohomail.com with SMTPS id 177298324197880.90920625778244;
-	Sun, 8 Mar 2026 08:20:41 -0700 (PDT)
-Message-ID: <550775ac1f2abe555da6854cb7477e7813d5a20b.camel@icenowy.me>
-Subject: Re: [PATCH v2 3/3] drm/nuvoton: add MA35D1 display controller driver
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Joey Lu <a0987203069@gmail.com>, airlied@gmail.com, simona@ffwll.ch, 
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
-	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Sun, 08 Mar 2026 23:20:33 +0800
-In-Reply-To: <b69d5393-f122-44e9-96d9-342f458c3487@gmail.com>
-References: <20260129040532.382693-1-a0987203069@gmail.com>
-	 <20260129040532.382693-4-a0987203069@gmail.com>
-	 <8806eaf82fbef4cd51bb4e4bb44d60894b3504b4.camel@icenowy.me>
-	 <f556ef68-dac3-4652-ac21-ea4bbb4e912c@gmail.com>
-	 <9cccf8cd84b394f66b85e2af3bef0a3ecd154747.camel@icenowy.me>
-	 <b69d5393-f122-44e9-96d9-342f458c3487@gmail.com>
-Organization: Anthon Open-Source Community
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	Sun, 08 Mar 2026 15:42:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 25A1260054;
+	Sun,  8 Mar 2026 15:42:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23BDEC116C6;
+	Sun,  8 Mar 2026 15:41:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772984519;
+	bh=TSpPKiCerxzd2pkzhg7hERmhkyjTYQc7zYDY9Y9mYoY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=r+QK2NLT/9BxQeHjpBvh62ddejnkt4NPUmmCx1cnzLh9fTDnkk8lMq2Od4KEyx0jo
+	 UR9SAZbUiStWWAT/REjO5mJhLYBVcEFnbf85NGV7yFjJnlLi8qmFJdaa3nCmpxPX+B
+	 DVotu2YJM+hWJUfLbHAOcA2iZu7k93FPXna18okJZPu/hnAD5H83Lc7BO8vrM0zqd+
+	 SP6GDGeEqW3hrftECQ84mhjafLz1Zl5vBfIjxSJn6LVVtpRfbmp2559LmqP7JbXCOs
+	 GE0wtkjlOT48elEmcH3pG0+nu1tYv/AnD2xXBl3Ir+hLFzNlTrA+qFPLz8+4F6e06R
+	 L/l/8oqfdEczA==
+Message-ID: <c7124cf5-f20a-4d6f-8f2e-388127c4ad2a@kernel.org>
+Date: Sun, 8 Mar 2026 16:41:55 +0100
 MIME-Version: 1.0
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260308_082053_473543_D33D3433 
-X-CRM114-Status: GOOD (  37.59  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] arm64: dts: zena: Add support for Zena CSS
+To: Debbie Horsfall <debbie.horsfall@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
+ Sudeep Holla <sudeep.holla@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Linus Walleij <linusw@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260212-zena-css-v2-0-d33ea23cb9c2@arm.com>
+ <20260212-zena-css-v2-2-d33ea23cb9c2@arm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260212-zena-css-v2-2-d33ea23cb9c2@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,162 +118,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-03-03=E4=BA=8C=E7=9A=84 16:15 +0800=EF=BC=8CJoey Lu=E5=86=99=
-=E9=81=93=EF=BC=9A
->=20
-> On 2/10/2026 8:02 PM, Icenowy Zheng wrote:
-> > =E5=9C=A8 2026-02-09=E6=98=9F=E6=9C=9F=E4=B8=80=E7=9A=84 16:45 +0800=EF=
-=BC=8CJoey Lu=E5=86=99=E9=81=93=EF=BC=9A
-> > > On 2/6/2026 11:09 PM, Icenowy Zheng wrote:
-> > > > =E5=9C=A8 2026-01-29=E6=98=9F=E6=9C=9F=E5=9B=9B=E7=9A=84 12:05 +080=
-0=EF=BC=8CJoey Lu=E5=86=99=E9=81=93=EF=BC=9A
-> > > > > =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D 8< =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D
-> > > > > +#endif
-> > > > > diff --git a/drivers/gpu/drm/nuvoton/ma35_regs.h
-> > > > > b/drivers/gpu/drm/nuvoton/ma35_regs.h
-> > > > > new file mode 100644
-> > > > > index 000000000000..0f4a7a13e7d8
-> > > > > --- /dev/null
-> > > > > +++ b/drivers/gpu/drm/nuvoton/ma35_regs.h
-> > > > > @@ -0,0 +1,88 @@
-> > > > > +/* SPDX-License-Identifier: GPL-2.0+ */
-> > > > > +/*
-> > > > > + * Nuvoton DRM driver
-> > > > > + *
-> > > > > + * Copyright (C) 2026 Nuvoton Technology Corp.
-> > > > > + *
-> > > > > + * Author: Joey Lu <a0987203069@gmail.com>
-> > > > > + */
-> > > > > +
-> > > > > +#ifndef _MA35_REGS_H_
-> > > > > +#define _MA35_REGS_H_
-> > > > > +
-> > > > > +#define MA35_FRAMEBUFFER_CONFIG=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
- 0x1518
-> > > > Please check my Verisilicon DC8200 driver, which is already
-> > > > part of
-> > > > drm-misc-next now.
-> > > >=20
-> > > > The display controller here seems to be a earlier one from
-> > > > Verisilicon.it looks like a DC8000, or maybe a more earlier
-> > > > one?
-> > > The DCU is a Vivante DCUltra IP rather than a DC8000 series.
-> > >=20
-> > > It's an earlier generation display controller and was customized
-> > > for
-> > > Nuvoton, so it doesn't have a public model ID.
-> > >=20
-> > > Because of that lineage, parts of the register layout and
-> > > functionality
-> > > remain similar to older DC IPs.
-> > The kernel seems to dislike different drivers for similar IPs.
-> >=20
-> > > Please refer to MA35D1 datasheet for more details.
-> > I checked it, and the register definitions looks compatible with
-> > DC8000
-> > registers at [1]. However no identification information is shown in
-> > the
-> > manual.
+On 12/02/2026 12:16, Debbie Horsfall wrote:
+> Introduce the Zena CSS Fixed Virtual Platform (FVP) dts. This is
+> currently the only Zena CSS variant, however the common definitions are
+> included in a common dtsi for extensibility.
+> 
+> Signed-off-by: Debbie Horsfall <debbie.horsfall@arm.com>
 
-I brought up my MYIR MYD-LMA35 (with its stock OS yet), and I got the
-following register value readings:
+...
 
-```
-root@myd-lma35-emmc:~# ./busybox-armv7l devmem 0x40260020
-0x00000000 # chip id
-root@myd-lma35-emmc:~# ./busybox-armv7l devmem 0x40260024
-0x00005560 # chip rev
-root@myd-lma35-emmc:~# ./busybox-armv7l devmem 0x40260028
-0x20200807 # date code
-root@myd-lma35-emmc:~# ./busybox-armv7l devmem 0x40260030
-0x00000305 # customer id
-root@myd-lma35-emmc:~# ./busybox-armv7l devmem 0x40260098
-0x0000000C # patch rev
-root@myd-lma35-emmc:~# ./busybox-armv7l devmem 0x402600a4
-0x00211110 # info
-root@myd-lma35-emmc:~# ./busybox-armv7l devmem 0x402600a8
-0x02000002 # product id
-root@myd-lma35-emmc:~# ./busybox-armv7l devmem 0x402600e8
-0x00000000
-```
+> +
+> +	timer {
+> +		compatible = "arm,armv8-timer";
+> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+> +			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+> +			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
+> +			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+> +	};
+> +
+> +	sram: sram@104000 {
 
-Most of these values look okay, although the chip id register reads out
-0x0 (although this is weird, this matches how this IP is called --
-DCUltraLite, without any number).
+This belongs in the soc node.
 
-Decoding 0xA4 with the the document from Eswin results:
-- DC is included (of course ;-) )
-- Single AXI
-- AHB interface
-- SingleGPU configuration
-- AXI bus width 128bit
+> +		compatible = "mmio-sram";
+> +		reg = <0x0 0x00104000 0x0 0x00001000>;
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +		ranges = <0 0x0 0x00104000 0x00001000>;
+> +
+> +		scmi_shmem_tx: scpshmem-sram-section@0 {
+> +			compatible = "arm,scmi-shmem";
+> +			reg = <0x0 0x100>;
+> +		};
+> +
+> +		scmi_shmem_rx: scpshmem-sram-section@100 {
+> +			compatible = "arm,scmi-shmem";
+> +			reg = <0x100 0x100>;
+> +		};
+> +	};
+> +
+> +	memory@80000000 {
 
-Decoding 0xA8 (which seems to be a more new and detailed IP name
-related register) results:
-- Extra letter is "L-Lite" (well a little odd, because it should be =20
-"UL-UltraLite"?)
-- Product number is 0
-- Product type is DC
+And placing this in DTSI means that zena-css comes with this memory
+mounted and it is not customizable in final FVP board.
 
-Looks like the only bad thing here is the IP's numerical name is 0, but
-matching revision 5560 customer 305 should be okay for this IP?
+> +		device_type = "memory";
+> +
+> +		/* ~2GB mapped at 2GB, another 2GB at 2TB */
+> +		reg = <0x00000000 0x80000000 0x00000000 0x7f000000>,
+> +		      <0x00000200 0x00000000 0x00000000 0x80000000>;
+> +	};
+> +};
+> 
 
-(BTW the revision number is between two recognized numbers in DC8000
-driver from Eswin [1] (5551/5701), and the two numbers in DC8000 driver
-are strictly smaller than the two numbers in DC8200 driver from T-Head
-[2] (5720/5721), indicates that it should be something similar to
-DC8000, which matches my previous thoughts; note that these two drivers
-both only match the 2 known numbers, so this IP is surely neither
-DC8000 nor DC8200)
 
-[1]
-https://github.com/rockos-riscv/rockos-kernel/blob/rockos-v6.6.y/drivers/gp=
-u/drm/eswin/es_dc_hw.c
-[2]
-https://github.com/revyos/th1520-linux-kernel/blob/th1520-lts/drivers/gpu/d=
-rm/verisilicon/vs_dc_hw.c
-
-> >=20
-> > I may get a MA35D1 board after the Lunar New Year (although it
-> > looks a
-> > little expensive), is it easy to bring up mainline kernal on
-> > arbitary
-> > MA35D1 boards?
-> >=20
-> > [1]
-> > https://github.com/milkv-megrez/rockos-u-boot/blob/c9221cf2fa77d39c0b24=
-1ab4b030c708e7ebe279/drivers/video/eswin/eswin_dc_reg.h
-> Our team is actively working on upstreaming support for MA35D1. It is
-> possible to bring up the mainline kernel on arbitrary MA35D1 boards,
-> but=20
-> for the best experience I strongly recommend using our Buildroot[1]
-> or=20
-> Yocto[2] tooling available on the official GitHub. These provide=20
-> board-specific configurations and greatly simplify the process.
->=20
-> If you decide to get an MA35D1 board yourself, our Buildroot/Yocto
-> setup=20
-> will help you get started quickly and ensure you have the right
-> patches=20
-> and configurations in place.
->=20
-> Currently, the mainline kernel version is 6.6, which is sufficient
-> for=20
-> checking registers and basic functionality. For more complete feature
-> support, our Buildroot/Yocto tooling remains the recommended path.
-
-Ah I mean upstream kernel here. But it looks like it has at least
-decent support? (Well I think otherwise the display driver won't be
-sent to mailing list either)
-
->=20
-> [1] https://github.com/OpenNuvoton/buildroot_2024
->=20
-> [2] https://github.com/OpenNuvoton/MA35D1_yocto-v5.0
->=20
-> Best regards,
->=20
-> Joey
+Best regards,
+Krzysztof
 
