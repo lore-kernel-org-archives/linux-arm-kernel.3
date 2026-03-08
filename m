@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E26B0EA853C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 18:00:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67073EA8540
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 18:41:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=COX7CpTb/27v5+RAJjpmWzEICJkLOwS/U54SdgdwvJ0=; b=xwV2hppIlMCxbL/zadsBnuV/GT
-	oeJm+xpMal1OxATjYnQkkFifL+Xtaos7a7OxnR/eGBmc45Hnl8xcznKDwp1tfCBD0zDrDprgEYdE1
-	XKItQTgVhLXZRDBBq1F2w7fbHw7Nvu/hykJO0ONugJPcorPvRBWeaTrR+SXIuQyF28cGf8HiAfKeM
-	WMA1f2/+ZjDj6oYVVOaqbCJBbLn58XH6nMJy5MD2timTlN/zWdtnUcVJOeEZpDxfXh0yIuszULjWe
-	sNpv5ju37XMHicuFaeMQ/NoyQ6Y23wpg06T5RUQRZFQYqHk5S7yCnE8RC3fl8udzixgDSmrzbzA8t
-	7FmxrjzA==;
+	bh=0hgoV2lEzPIPhEFtV1EnA1yw19JYkkmQMQkF79YemlQ=; b=dTj0ufE1GU1dAhFc4WvPlwlJzW
+	igZfZjjqK20DRPF2FHCYaJnVpuLe9bb02KILd26qL4JzlwOxmylWvUeBGYsZevizXLDaVp3sh+2H1
+	eb0P33BrndalxJ39DW/TLt0umiSbvjJASFntz+iWWuCqvzBLKH7W2zacZDS/Y20ri2ttcBgq00XOh
+	Ke213vhi1+g1Ms000wCRX3qp9g8LN9yNVWaBuRJUBlvv5UY/NaIrVlR8AlaN00L0SzIl/T1IXD/PI
+	4DaU6OZIWHBKyqxG8rrAopwb0jgzIKM4f5kGZZul50ew09MbZpa7Cf/osMNi1SlOLY4CaViQkGgYW
+	ArA6IN4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzIQA-00000006Ef5-3lsr;
-	Sun, 08 Mar 2026 18:00:07 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vzJ3k-00000006GPL-1AHX;
+	Sun, 08 Mar 2026 18:41:00 +0000
+Received: from smtprelay0010.hostedemail.com ([216.40.44.10] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzIQ7-00000006Edn-3TDG;
-	Sun, 08 Mar 2026 18:00:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=COX7CpTb/27v5+RAJjpmWzEICJkLOwS/U54SdgdwvJ0=; b=dT
-	Mvt5zreya8sYFTIdBVn+u2Cr+TZpKI2sHjC2eOz50+u7Z9bcgWi9rBmOKKmEgNT9xNvbN2WV71V+Y
-	MTg2bknSvJlEcZlhzC8/RD+LOfjFVJwRy0Suiwp0bqKJXu0GL9C9yJfORHH9scM7YznnM23vGIC03
-	WMxQMzpeato1q7o=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vzIPq-00Ajv8-GI; Sun, 08 Mar 2026 18:59:46 +0100
-Date: Sun, 8 Mar 2026 18:59:46 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: =?utf-8?B?5ZC05Yeh?= <12321260@zju.edu.cn>
-Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org,
-	edumazet@google.com, pabeni@redhat.com, andrew+netdev@lunn.ch,
-	heiko@sntech.de, romain.perier@gmail.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, stable@vger.kernel.org
-Subject: Re: Re: [PATCH] net: ethernet: arc: fix use-after-free in probe
- error path
-Message-ID: <1bb942f0-d512-4834-bf01-49f9a9d7fd77@lunn.ch>
-References: <20260304025303.145493-1-fanwu01@zju.edu.cn>
- <b6ac1471-e33a-41d3-9e67-e6463612f05b@lunn.ch>
- <54c76f66.7eea7.19ccca93975.Coremail.12321260@zju.edu.cn>
+	id 1vzJ3h-00000006GOq-3SZq;
+	Sun, 08 Mar 2026 18:40:59 +0000
+Received: from omf19.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay09.hostedemail.com (Postfix) with ESMTP id D43C38CD9E;
+	Sun,  8 Mar 2026 18:40:51 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: joe@perches.com) by omf19.hostedemail.com (Postfix) with ESMTPA id 6CBA920025;
+	Sun,  8 Mar 2026 18:40:45 +0000 (UTC)
+Message-ID: <ca170cbaf2f8bcbc89bbda68914d8e0d7640f0e7.camel@perches.com>
+Subject: Re: [PATCH v2 phy-next 24/24] MAINTAINERS: add regexes for linux-phy
+From: Joe Perches <joe@perches.com>
+To: vladimir.oltean@nxp.com, linux-phy@lists.infradead.org
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
+ <neil.armstrong@linaro.org>, 	dri-devel@lists.freedesktop.org,
+ freedreno@lists.freedesktop.org, 	linux-arm-kernel@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org, 	linux-can@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev, 
+	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org,
+ netdev@vger.kernel.org, 	spacemit@lists.linux.dev,
+ UNGLinuxDriver@microchip.com
+Date: Sun, 08 Mar 2026 11:40:44 -0700
+In-Reply-To: <20260308114009.2546587-25-vladimir.oltean@nxp.com>
+References: <20260308114009.2546587-1-vladimir.oltean@nxp.com>
+	 <20260308114009.2546587-25-vladimir.oltean@nxp.com>
+Content-Type: text/plain; charset="ISO-8859-1"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <54c76f66.7eea7.19ccca93975.Coremail.12321260@zju.edu.cn>
+X-Stat-Signature: mibobo4wkbramau4qyjthmehkiqudojz
+X-Rspamd-Server: rspamout01
+X-Rspamd-Queue-Id: 6CBA920025
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Session-ID: U2FsdGVkX1/1oqpGv8s8V8RuGZRFC80nZh9ljOj3ohI=
+X-HE-Tag: 1772995245-174125
+X-HE-Meta: U2FsdGVkX1+4XRzz60ugpVFQWsQctyjPh9D8dWNkk9O80wKikqTLI//fEpSwY7VKkjTAQqCbvy/bDztttYzuNBQP3PDd6DE18CINvDdnHew5cXtwNDDJn4KiBH3EXroYIs/0V5C/aytRQmLMTGCZZlkmVqa0mog1lMlvYoTUOPxP3MIGj9+OItuBdGt7SwG+E1NN8A/Yc9Sq4U8TJPe/XcW25BuE6rH2bXBjLakvy2b4imYLaL6YRBqKlFvDSAukFbzkOlERn3vJJPcvYBJiMotKjWx2PYK5v4pDPHYsRlN9R//2k7hsjvl6B3t7ELpdAjuD6CN+C7OKO7KQLV3bHimDBNhwcxGB9M1yVBNLk9v9/I7LPCcJRUT7SR2W+eai
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260308_110003_871549_AF835207 
-X-CRM114-Status: GOOD (  14.95  )
+X-CRM114-CacheID: sfid-20260308_114057_922174_ADE746D6 
+X-CRM114-Status: UNSURE (   6.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,62 +80,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 08, 2026 at 04:56:08PM +0800, 吴凡 wrote:
-> You are right that normal device interrupt generation is enabled in arc_emac_open() via R_ENABLE, so we certainly don't expect regular RX/TX traffic interrupts during probe.
-> 
-> My main concern here is the lifetime ordering in the error path. arc_emac_probe() installs the IRQ handler via devm_request_irq(..., ndev), but if emac_rockchip_probe() fails later, it explicitly calls free_netdev(ndev) well before the devres cleanup routine runs.
-> 
-> In that specific gap, if an IRQ is somehow delivered—perhaps from a pending/latched line left by the firmware/bootloader, or other non-traffic anomalies—arc_emac_intr() will immediately dereference dev_id as a struct net_device *. Since ndev has already been manually freed, this results in a UAF.
-> 
-> So while I completely agree this isn't a normal pre-open traffic path, the mixed lifetime management (managed IRQ vs. manual netdev free) still creates a real race window.
-> 
-> Switching to devm_alloc_etherdev() puts both resources under devres management, permanently fixing this teardown ordering issue. I would be happy to send a v2 and reword the commit log to emphasize this as a potential race window and a hardening fix. Let me know what you think.
+On Sun, 2026-03-08 at 13:40 +0200, vladimir.oltean@nxp.com wrote:
+> diff --git a/MAINTAINERS b/MAINTAINERS
+[]
+> @@ -10713,6 +10713,17 @@ F:	Documentation/devicetree/bindings/phy/
+> +K:	(?:linux/phy/phy\.h|phy-props\.h|phy-provider\.h)
 
-https://www.kernel.org/doc/html/latest/process/maintainer-netdev.html#clean-up-patches
+phy-props.h and phy-provider.h don't seem to exist.
+Are these going to be added later?
+Maybe this should be phy-common-props.h ?
 
-  1.7.4. Clean-up patches¶
+Perhaps if matching only the include uses:
+(/ is escaped because get_maintainer is stupid)
+something like:
 
-  Netdev discourages patches which perform simple clean-ups, which are
-  not in the context of other work. For example:
-
-  Addressing checkpatch.pl, and other trivial coding style warnings
-
-  Addressing Local variable ordering issues
-
-  Conversions to device-managed APIs (devm_ helpers)
-
-  This is because it is felt that the churn that such changes produce
-  comes at a greater cost than the value of such clean-ups.
-
-
-Some percentage of devm_ conversation patches break drivers. We
-Reviewers need to look at all such patches and try to detect such
-breakage. In general, it is nor worth it. Hence we generally reject
-patches like this.
-
-This is however slightly different. It looks like this driver was
-broken from the beginning. The race you point out has always been
-there. That is something worth pointing out in the commit message.
-
-But take a step back. Think about interrupt handling in general. Do
-you think it is good practice to request interrupts before configuring
-the hardware about what interrupts it will deliver?
-
-If the driver wrote to R_ENABLE in probe, before requesting the
-interrupt, enabled the needed interrupts in open, disabled the
-interrupts in close, the different lifetimes would not matter.
-
-So, for stable, please add code to put interrupts into a well known
-state before requesting the interrupt. Please use the net tree, and
-add a Fixes: tag.
-
-You can submit this patch to net-next, but we might reject it, because
-of the policy. If you are working on this driver, adding other
-features, this patch is part of a bigger patchset, we are more likely
-to accept it.
-
-    Andrew
-
----
-pw-bot: cr
+K:	include\s*\<linux\/phy\/phy(?:-common-props|-provider)?\.h\>
 
