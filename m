@@ -4,93 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30E95F55126
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 08:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7412F55137
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 08:56:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z8aMocQM9u6X2gsio5xSbmOAH1sSfPIdUgMQJD6cnQY=; b=I9GaureV8Q2M/g3JTnY+PoVADY
-	vtCJyUyLLSfLWqjNCDMG5x+iGDtb5tARb7bOPniev7Ku1Rq0tTf3PNnoKQudy4EamYRBoEluZwkcZ
-	RLF2NZaiwJOnizSSzPbWnv9IwoaCMlLrIl49oDNw0O+fE/VEQ+MycVQh7b3VWv3rpP0+kNquE0h9X
-	poR/ftZk1pxdYm4wZOci/MKB86zabqs9fnH5/CcQ657mHpSgqMq4a6ptlWmSADzJkzckkh+GSB6Oj
-	CUCJDZyHYJpAEsiCoOhLySLr+pFEECKBltZr496YmVJ47gu/jxFly8r+ciI2T6AqBoZ+lJJWGhD+2
-	/Z/Z/ymw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F1zjlA/klZlSHnIVdLeEaaV4ufSsDSYcjiWhkuDStlk=; b=priGQbt6XzP+gFTXOzVPhT2xwS
+	td1hqtXFzOofgic1CajnTUaBQlyrnK1DyM8sC0gwgpLXLLx1wiSQd0rhKBgAASsNtv7rift91dMXF
+	m8Jjk0civBS0FZv5ODk5jHvNpJHlVeC9HdU7tTT6/1w6BD66UsZrbiO3bWelnDPvHmGjxEKs0ZlWU
+	LKIUWJQq5Div0QCAcuHl4bioKtYhfREDNHGN3o9ys3dHRmCFfmbM1YCnDrVuzzJpC/cJRoQVQiOmz
+	gk9WwZdcHtY5HoqYMUw6V6Tsw/a6QahynhJxxu2kES1K1dtdhN07CD1RsaR8am6ld517JSTjJky8r
+	mHsEpEGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vz9Pq-00000005oAR-0vPU;
-	Sun, 08 Mar 2026 08:23:10 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vz9Pm-00000005o9z-1OAC
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Mar 2026 08:23:08 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-439b2965d4bso5994409f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 08 Mar 2026 00:23:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772958183; x=1773562983; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=z8aMocQM9u6X2gsio5xSbmOAH1sSfPIdUgMQJD6cnQY=;
-        b=bbJahniQFT9+z0IZ/YUSR72aBao/oLRRYRlenOe33CCj1Itmedi2PrTO4k0peJOVj7
-         sM+0kr8NAt0T+AGUusYy9YU/Pche//o/MZIgvsXa/eU8NKc102p6szB2jQrg5hbfproZ
-         zT2HWhUlchV2CWyv9Z+ZCaVeXvbZpanH1O8ocn/RGc0eSd14Ky6qMhitHG7GHW/RdWph
-         tH8NVpqB1ebL/cBu78A657uKsxOX7Y7vmF3O4XKebVVYshElyZ7zRIObRQe16kW4dXWk
-         +A4cLlOX5yMFnZEiaEc5nZZyfKHehkAm87DvrEBfe7bYPKCI/Ex2tPOv2BfNQ4FVqlZD
-         kYsw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772958183; x=1773562983;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=z8aMocQM9u6X2gsio5xSbmOAH1sSfPIdUgMQJD6cnQY=;
-        b=ldgSNIP04No7FoOCfVm/nekgFrPL0rFi/As3pi8X53RMHXVo8li+tJoXxkoIiFRAPg
-         z23lGPXfU1J5bj3FhCduK5iiCaTz/MPmx4bIV6hFV+t67EmaIFZn2rER+xXJwxCWjuQR
-         jl/VaaO7Hyowv1xb9LG9lrSLqcu/HvaqnATLAkrCtjyWHJnNZGg8Dze2YT+rs5v/8g92
-         +iq7y6kiIM19xr/DKCA7UqGFczDrmNrNR2aqBbHlPy9Pmczje3V3/sfI+Ed3K+WJdWbX
-         SovpNgMq4gJTiGAAfIYYFVXyaD45fXziWNKdqmAWn03FolJVi7C3x4lo6qrsApCQmJjE
-         E1BQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUpWShYQuCXLXcqbHb95ZXfohR0a5its6f5vGwTjdb4Ela21ZQkuhRFAjmaIxmACCWJTM6Y5wbYPLwgDdGo1NNc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5R60RZiNT0sgm3u1MLlsEEA5KCu0OHOgimhF8XDt5/qFQxw2E
-	SS98iWLkCXA5Hl+ZGZfiYvDClr8Bw5QiYT7ji9lBMe9CKixFhEivavd+
-X-Gm-Gg: ATEYQzyaX4wSTcUE3VzIA/Wjvxy58TQ5nFWdYiduEYGEFtD8TngjF+M2CDgVn19bWr8
-	jNDK7G8RRBbnkGjzg/9kBVb58xglh/VIWftDsw73Z2Q+YhFQJ8I6kfQdL/MizO57bsuuKdAI90z
-	HFIhOJbh0VHpaKlrpIpexMcKtLCDZQbdEQTeWVIY9ZPhn3ZaF24w+GmSN7/eIDQUyqeCzpW+KvP
-	g7SmMewwuFn4Lz2H09RvFSpCG0rW/OrTsmJ9ZNHrHTscb/MLqrOSKWAWW67IT8uja9iY+u5hfnW
-	LtuqdoOrbb4h5Ddndxugtl7w9T+2nGiZ27KTDPZvbE/BmnFhbgk2K77QoC1acF0Uvz6eioaKXOb
-	WVLAVfc071PRbd12bxphOD2v310uIdEbTwdXHNa5guFF2mh4ijbXgvlISDZ0rP8PCXZHntni3/w
-	drQrB4nJwnIWA4MDJtk3nXyeLKSQ9H7nsCkDmKJ5OL9m7P98KqrAT8+KdJwSANtJmGU4CAzy4On
-	LsYhw==
-X-Received: by 2002:a05:6000:609:b0:439:cb10:dfcd with SMTP id ffacd0b85a97d-439da67982fmr12882158f8f.39.1772958182927;
-        Sun, 08 Mar 2026 00:23:02 -0800 (PST)
-Received: from jernej-laptop.localnet (86-58-12-163.dynamic.telemach.net. [86.58.12.163])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439dae2bdf8sm16891038f8f.25.2026.03.08.00.23.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 08 Mar 2026 00:23:02 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Samuel Holland <samuel@sholland.org>,
- Andre Przywara <andre.przywara@arm.com>,
- Michal Piekos <michal.piekos@mmpsystems.pl>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- Michal Piekos <michal.piekos@mmpsystems.pl>
-Subject: Re: [PATCH 0/2] arm64: dts: allwinner: fix Orange Pi Zero 3 PMIC interrupt
- routing
-Date: Sun, 08 Mar 2026 09:23:01 +0100
-Message-ID: <3404622.44csPzL39Z@jernej-laptop>
-In-Reply-To: <20260308-rc2-boot-hang-v1-0-d792d1a78dfd@mmpsystems.pl>
-References: <20260308-rc2-boot-hang-v1-0-d792d1a78dfd@mmpsystems.pl>
+	id 1vz9w6-00000005p0K-0754;
+	Sun, 08 Mar 2026 08:56:30 +0000
+Received: from zg8tmja2lje4os4yms4ymjma.icoremail.net ([206.189.21.223])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vz9w1-00000005ozp-1NQT;
+	Sun, 08 Mar 2026 08:56:28 +0000
+Received: from zju.edu.cn (unknown [10.190.130.78])
+	by mtasvr (Coremail) with SMTP id _____wB3LryoOa1pXPYbAQ--.12670S3;
+	Sun, 08 Mar 2026 16:56:09 +0800 (CST)
+Received: from 12321260$zju.edu.cn ( [10.190.130.78] ) by
+ ajax-webmail-mail-app1 (Coremail) ; Sun, 8 Mar 2026 16:56:08 +0800
+ (GMT+08:00)
+X-Originating-IP: [10.190.130.78]
+Date: Sun, 8 Mar 2026 16:56:08 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: =?UTF-8?B?5ZC05Yeh?= <12321260@zju.edu.cn>
+To: "Andrew Lunn" <andrew@lunn.ch>
+Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org,
+	edumazet@google.com, pabeni@redhat.com, andrew+netdev@lunn.ch,
+	heiko@sntech.de, romain.perier@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, stable@vger.kernel.org
+Subject: Re: Re: [PATCH] net: ethernet: arc: fix use-after-free in probe
+ error path
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2024.3-cmXT6 build
+ 20250620(94335109) Copyright (c) 2002-2026 www.mailtech.cn zju.edu.cn
+In-Reply-To: <b6ac1471-e33a-41d3-9e67-e6463612f05b@lunn.ch>
+References: <20260304025303.145493-1-fanwu01@zju.edu.cn>
+ <b6ac1471-e33a-41d3-9e67-e6463612f05b@lunn.ch>
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Message-ID: <54c76f66.7eea7.19ccca93975.Coremail.12321260@zju.edu.cn>
+X-Coremail-Locale: en_US
+X-CM-TRANSID: yy_KCgAHo92oOa1pWuiGBg--.30391W
+X-CM-SenderInfo: qrstjiaswqq6lmxovvfxof0/1tbiAhIDDWmrLgoMEQADsm
+X-CM-DELIVERINFO: =?B?gEDuYgXKKxbFmtjJiESix3B1w3vZ3A9ovKVTomAyoQazvoRs/NHSP8GI2EvgeEEW7R
+	sfnavhLs56Y63gVsH20GwZZ/AGh8Wv4MBZHO6jCuJQoOblPSuqe12vv9oeen2DneSXRdoI
+	7tVbAR91em3WWX0heT2vHM8yIkrmq1SNzgYBL9NM1zZZwJgA5uvlZHJ5sOtPkQ==
+X-Coremail-Antispam: 1Uk129KBj93XoW7Zw4kCryDXr4DXFyUZr4kXwc_yoW8Kryxpa
+	yDXF9YkrWDGF10qw4DGas7uFW8X3yxGws8CasYy39xuw15JFyftry7KrWY9r15urWUGw15
+	XrWqy34DZa4DX3gCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUH2b4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AK
+	xVW0oVCq3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc804V
+	CY07AIYIkI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AK
+	xVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48Icx
+	kI7VAKI48JM4x0Y48IcxkI7VAKI48G6xCjnVAKz4kxM4xvF2IEb7IF0Fy264kE64k0F24l
+	FcxC0VAYjxAxZF0Ex2IqxwACI402YVCY1x02628vn2kIc2xKxwCF04k20xvY0x0EwIxGrw
+	CFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE
+	14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2
+	IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxK
+	x2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI
+	0_Gr0_Gr1UMVCEFcxC0VAYjxAxZFUvcSsGvfC2KfnxnUUI43ZEXa7IU8zMNUUUUUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260308_002307_158213_B6363777 
-X-CRM114-Status: GOOD (  18.94  )
+X-CRM114-CacheID: sfid-20260308_005625_687698_3CDD65B3 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,62 +95,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michal,
-
-Dne nedelja, 8. marec 2026 ob 06:16:50 Srednjeevropski standardni =C4=8Das =
-je Michal Piekos napisal(a):
-> This fixes a kernel hang during boot on the Orange Pi Zero 3 caused by
-> incorrect interrupt routing for the AXP313A PMIC.
->=20
-> The PMIC interrupt on is connected to PL bank GPIO handled by the R_PIO
-> controller. However current dts routes the interrupts to PIO controller.
-> This causes the kernel to select wrong pinctrl instance when configuring
-> the interrupt which leads to invalid register access and a kernel hang
-> during boot.
-
-Where did you get that info? Publicly available schematic clearly shows
-PMIC interrupt pin being connected to PC9. Additionally, R_PIO controller
-on H616 is very basic and has only pins PL0 and PL1, which are used for
-PMIC communication already. Neither of those pins is interrupt capable.
-
->=20
-> The problem existed previously but became visible after the commit
-> 01e10d0272b9 (pinctrl: sunxi: Implement gpiochip::get_direction()),
-> which causes gpiolib to call the gpiochip::get_direction() callback
-> during interrupt setup.
-
-I think proposed solution just bypasses the problem, not actually fixes
-it. Can you share kernel crash report?
-
-Sidenote: Tested-by: tag doesn't have any value if you're also the author
-of the patch. It's already implied that you tested your solution/improvemen=
-ts.
-
-Best regards,
-Jernej
-
->=20
-> Patch 1 declares R_PIO node as interrupt controller so it can be used as
-> interrupt parrent.
->=20
-> Patch 2 fixes the board device tree by routing the interrupt to R_PIO
->=20
-> ---
-> Michal Piekos (2):
->       arm64: dts: allwinner: h616: declare r_pio as interrupt controller
->       arm64: dts: allwinner: orangepi-zero3: fix axp313 interrupt parrent
->=20
->  arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi               | 2 ++
->  arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts | 2 +-
->  2 files changed, 3 insertions(+), 1 deletion(-)
-> ---
-> base-commit: 4ae12d8bd9a830799db335ee661d6cbc6597f838
-> change-id: 20260308-rc2-boot-hang-269e8546635b
->=20
-> Best regards,
->=20
-
-
-
+WW91IGFyZSByaWdodCB0aGF0IG5vcm1hbCBkZXZpY2UgaW50ZXJydXB0IGdlbmVyYXRpb24gaXMg
+ZW5hYmxlZCBpbiBhcmNfZW1hY19vcGVuKCkgdmlhIFJfRU5BQkxFLCBzbyB3ZSBjZXJ0YWlubHkg
+ZG9uJ3QgZXhwZWN0IHJlZ3VsYXIgUlgvVFggdHJhZmZpYyBpbnRlcnJ1cHRzIGR1cmluZyBwcm9i
+ZS4KCk15IG1haW4gY29uY2VybiBoZXJlIGlzIHRoZSBsaWZldGltZSBvcmRlcmluZyBpbiB0aGUg
+ZXJyb3IgcGF0aC4gYXJjX2VtYWNfcHJvYmUoKSBpbnN0YWxscyB0aGUgSVJRIGhhbmRsZXIgdmlh
+IGRldm1fcmVxdWVzdF9pcnEoLi4uLCBuZGV2KSwgYnV0IGlmIGVtYWNfcm9ja2NoaXBfcHJvYmUo
+KSBmYWlscyBsYXRlciwgaXQgZXhwbGljaXRseSBjYWxscyBmcmVlX25ldGRldihuZGV2KSB3ZWxs
+IGJlZm9yZSB0aGUgZGV2cmVzIGNsZWFudXAgcm91dGluZSBydW5zLgoKSW4gdGhhdCBzcGVjaWZp
+YyBnYXAsIGlmIGFuIElSUSBpcyBzb21laG93IGRlbGl2ZXJlZOKAlHBlcmhhcHMgZnJvbSBhIHBl
+bmRpbmcvbGF0Y2hlZCBsaW5lIGxlZnQgYnkgdGhlIGZpcm13YXJlL2Jvb3Rsb2FkZXIsIG9yIG90
+aGVyIG5vbi10cmFmZmljIGFub21hbGllc+KAlGFyY19lbWFjX2ludHIoKSB3aWxsIGltbWVkaWF0
+ZWx5IGRlcmVmZXJlbmNlIGRldl9pZCBhcyBhIHN0cnVjdCBuZXRfZGV2aWNlICouIFNpbmNlIG5k
+ZXYgaGFzIGFscmVhZHkgYmVlbiBtYW51YWxseSBmcmVlZCwgdGhpcyByZXN1bHRzIGluIGEgVUFG
+LgoKU28gd2hpbGUgSSBjb21wbGV0ZWx5IGFncmVlIHRoaXMgaXNuJ3QgYSBub3JtYWwgcHJlLW9w
+ZW4gdHJhZmZpYyBwYXRoLCB0aGUgbWl4ZWQgbGlmZXRpbWUgbWFuYWdlbWVudCAobWFuYWdlZCBJ
+UlEgdnMuIG1hbnVhbCBuZXRkZXYgZnJlZSkgc3RpbGwgY3JlYXRlcyBhIHJlYWwgcmFjZSB3aW5k
+b3cuCgpTd2l0Y2hpbmcgdG8gZGV2bV9hbGxvY19ldGhlcmRldigpIHB1dHMgYm90aCByZXNvdXJj
+ZXMgdW5kZXIgZGV2cmVzIG1hbmFnZW1lbnQsIHBlcm1hbmVudGx5IGZpeGluZyB0aGlzIHRlYXJk
+b3duIG9yZGVyaW5nIGlzc3VlLiBJIHdvdWxkIGJlIGhhcHB5IHRvIHNlbmQgYSB2MiBhbmQgcmV3
+b3JkIHRoZSBjb21taXQgbG9nIHRvIGVtcGhhc2l6ZSB0aGlzIGFzIGEgcG90ZW50aWFsIHJhY2Ug
+d2luZG93IGFuZCBhIGhhcmRlbmluZyBmaXguIExldCBtZSBrbm93IHdoYXQgeW91IHRoaW5rLgoK
+Cj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlcy0tLS0tCj4gRnJvbTogIkFuZHJldyBMdW5uIiA8YW5k
+cmV3QGx1bm4uY2g+Cj4gU2VuZCB0aW1lOlRodXJzZGF5LCAwNS8wMy8yMDI2IDA2OjI5OjA1Cj4g
+VG86ICJGYW4gV3UiIDxmYW53dTAxQHpqdS5lZHUuY24+Cj4gQ2M6IG5ldGRldkB2Z2VyLmtlcm5l
+bC5vcmcsIGRhdmVtQGRhdmVtbG9mdC5uZXQsIGt1YmFAa2VybmVsLm9yZywgZWR1bWF6ZXRAZ29v
+Z2xlLmNvbSwgcGFiZW5pQHJlZGhhdC5jb20sIGFuZHJldytuZXRkZXZAbHVubi5jaCwgaGVpa29A
+c250ZWNoLmRlLCByb21haW4ucGVyaWVyQGdtYWlsLmNvbSwgbGludXgtYXJtLWtlcm5lbEBsaXN0
+cy5pbmZyYWRlYWQub3JnLCBsaW51eC1yb2NrY2hpcEBsaXN0cy5pbmZyYWRlYWQub3JnLCBzdGFi
+bGVAdmdlci5rZXJuZWwub3JnCj4gU3ViamVjdDogUmU6IFtQQVRDSF0gbmV0OiBldGhlcm5ldDog
+YXJjOiBmaXggdXNlLWFmdGVyLWZyZWUgaW4gcHJvYmUgZXJyb3IgcGF0aAo+IAo+IE9uIFdlZCwg
+TWFyIDA0LCAyMDI2IGF0IDAyOjUzOjAzQU0gKzAwMDAsIEZhbiBXdSB3cm90ZToKPiA+IFRoZSBh
+cmNfZW1hY19wcm9iZSgpIGZ1bmN0aW9uIGNhbGxzIGRldm1fcmVxdWVzdF9pcnEoKSB3aXRoIHRo
+ZQo+ID4gbmV0X2RldmljZSBhcyB0aGUgZGV2X2lkLiBIb3dldmVyLCBpbiB0aGUgZXJyb3IgcGF0
+aCBvZgo+ID4gZW1hY19yb2NrY2hpcF9wcm9iZSgpLCBmcmVlX25ldGRldihuZGV2KSBpcyBjYWxs
+ZWQgYmVmb3JlIHRoZSBkZXZtCj4gPiBjbGVhbnVwIGhhcHBlbnMuIFRoaXMgY3JlYXRlcyBhIHJh
+Y2Ugd2luZG93IHdoZXJlIGFuIGludGVycnVwdCBjYW4KPiA+IGZpcmUgYW5kIHRoZSBJU1IgKGFy
+Y19lbWFjX2ludHIpIHdpbGwgYWNjZXNzIHRoZSBhbHJlYWR5IGZyZWVkCj4gPiBuZXRfZGV2aWNl
+IHN0cnVjdHVyZS4KPiAKPiBJdCBsb29rcyBsaWtlIGludGVycnVwdHMgYXJlIG9ubHkgZW5hYmxl
+ZCBpbiBhcmNfZW1hY19vcGVuKCkuIEhhdmUgeW91Cj4gc2VlbiBpbnRlcnJ1cHRzIGJlZm9yZSB0
+aGlzPwo+IAo+ICAgICAgQW5kcmV3Cg==
 
 
