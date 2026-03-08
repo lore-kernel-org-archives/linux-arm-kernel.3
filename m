@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B80DF55138
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 09:23:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBE9BF55132
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 09:27:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JXngfF65hS04GfOACT7lxz/4s398V++RkR6b3PhHSnw=; b=Y+8G9G+tuo4bi+HIYLE7RLcPhP
-	LMmso8Fizv+dEJqxR00a5es8VTcdHLBAn0JctRZevLJQWffBfAEnoxvFgUwjMkkOBvh/MY/4ziwIF
-	TPVjs6eK9kWlWbNjzq6ZftAxhM4jMMBZP8nsEinrcLRKmGAPbY171pZ36nfts+DVebVVmoK5e98qX
-	lkl13MQdfwsvcxFedEJx4eq9/Fxyo6iz/C2kfs0GfUQ7lTMbZb465Bxl92zIJ6SiU9zZOCSAuaQf6
-	nmkvMi2L8J0c2lazhCrQiVnMIfyclhUkeyolF7sX8+ZdcidQH6pcpUfRwg+vf98fUFH7D+VMLXE+F
-	GWXMHYRw==;
+	bh=RlWXu/rLAS3mBKEqNx4CTWv/+cZnwHU9vXsidCDVTkE=; b=pWHBjjg6rwlYwPAwh8C5ZY3mPj
+	brcVTG2AeRbpnwu2KvRk11QUhN5xxhStu9aOBlH0+xPM0VUDGoU7qs2AZAqgoROdMU+git+3RSTGF
+	HFtSSk0KBglED5xrjBcZ+z+v+EwvqU1MGTn2kab+n+bmWxbBTKoQF8qoIMuY+iyEcYPL/c8KVZFgy
+	xR3hCg81/zJaa3YyMjLs+J3VxCp+Shv4SzHip/bZnCHQNhgGApE30jN99U4i8+4oEcOnRJPFpbyuK
+	bd1px7bu6R06ez1SvELGiqhHuP5CAg+/gJUxbkQJushgu8U+/AbuG7RkUqTsjtkh5GsxfZLwBDaZG
+	AFPXXpww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzAM7-00000005q5f-0FFC;
-	Sun, 08 Mar 2026 09:23:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vzAQC-00000005qHF-30Ql;
+	Sun, 08 Mar 2026 09:27:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzAM4-00000005q5I-1ETA
+	id 1vzAQA-00000005qGu-2kIK
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Mar 2026 09:23:21 +0000
+	Sun, 08 Mar 2026 09:27:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1F7F243AB2;
-	Sun,  8 Mar 2026 09:23:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 954F3C116C6;
-	Sun,  8 Mar 2026 09:23:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9699141632;
+	Sun,  8 Mar 2026 09:27:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3D6EC116C6;
+	Sun,  8 Mar 2026 09:27:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772961797;
-	bh=NEB1M50nTMnxvScDgTWtPQCJnftjAXFrgFRMMp7y984=;
+	s=k20201202; t=1772962053;
+	bh=FmWpFmZ13fR3hYtUujD4lsXKYHTLZYGMygU0qXXXEnc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=M37YQ8edEOeCCWj5Up3vBaddVLy3OxGfpBbuUN3cAGBqO+rZLYvK04JWOpeo4EgnT
-	 FanZLNVcW2wawRgZXMpVgpuFwvnDBhKwkHz7KT6UEgseuDpeGBMK0aTE6C8bFRpudQ
-	 /CX7DfMdH1/T2QI81qOIEDHUUDbfsqaOuwzfVnuTvyrSXvspFvu0nENC1e1heB8bV7
-	 syPsb9fKkrbsK7fUHtFUQLQ1Ifhm0PSlvzCNF9WRczGI3VaHtRoY+3oIQMC+3UqAnd
-	 bUCXZuAj5zNtocaRwFACIpc8QT2v6TqONIGnB3AWJ/+05Ur4QYtuvTz1aDR9duiLou
-	 Tb4CiIWgwYHzw==
-Date: Sun, 8 Mar 2026 10:23:14 +0100
+	b=PpOmJHC1w17i0api2p0aZyqZeZltSaCZ/xrlRba3HtrZxGZRB9cnlDc/Ls/M7T+j9
+	 BjFD0/L6ekeegL5mTx/AivoGnLp37E3cfTCsQuTc3XzHp8HZ/Dz1sQxvawDl6iNp1t
+	 9I3MO+lFWC7acPhS86o6Yf/ULWIltpIeu5eWHR/jK7ZtDgtR3QPawSCm+2Zyip10e2
+	 FJ1B5WUNqYM8mlRbSbUtQy2mWGG8ZWTzj/RkPagWDcOJgDEJqbX29BDkUdZD+7Y3w3
+	 6fr9P9dgIBQpGDjJTp21UOMh8AEQiORi+3C7UrgOALC0qXUxLyRzG+l5gpVIaq2ZtI
+	 TbrBiEAjcbHdA==
+Date: Sun, 8 Mar 2026 10:27:30 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Charan Pedumuru <charan.pedumuru@gmail.com>
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -51,18 +51,18 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Herve Codina <herve.codina@bootlin.com>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
 	Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/5] dt-bindings: usb: generic-ohci: add AT91RM9200
- OHCI binding support
-Message-ID: <20260308-camouflaged-sage-warthog-fdbb7d@quoll>
+Subject: Re: [PATCH v3 4/5] dt-bindings: usb: atmel,at91rm9200-udc: convert
+ to DT schema
+Message-ID: <20260308-nifty-honest-buzzard-ccde9b@quoll>
 References: <20260307-atmel-usb-v3-0-3dc48fe772be@gmail.com>
- <20260307-atmel-usb-v3-2-3dc48fe772be@gmail.com>
+ <20260307-atmel-usb-v3-4-3dc48fe772be@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260307-atmel-usb-v3-2-3dc48fe772be@gmail.com>
+In-Reply-To: <20260307-atmel-usb-v3-4-3dc48fe772be@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260308_012320_369955_D94EA3DC 
-X-CRM114-Status: GOOD (  20.41  )
+X-CRM114-CacheID: sfid-20260308_012734_766930_1D7C0A59 
+X-CRM114-Status: GOOD (  18.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,94 +77,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 07, 2026 at 09:16:19AM +0000, Charan Pedumuru wrote:
-> Add binding support for the Atmel AT91RM9200 OHCI USB host controller
-> to the generic OHCI schema.
+On Sat, Mar 07, 2026 at 09:16:21AM +0000, Charan Pedumuru wrote:
+> Convert Atmel AT91 USB Device Controller (UDC) binding to DT schema.
+> Changes during conversion:
+> - Include "atmel,pullup-gpio" and "atmel,matrix" in the properties since
+>   they are required by existing in-tree DTS definitions.
 > 
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 > Signed-off-by: Charan Pedumuru <charan.pedumuru@gmail.com>
 > ---
->  .../devicetree/bindings/usb/generic-ohci.yaml      | 33 ++++++++++++++++++++++
->  1 file changed, 33 insertions(+)
+>  .../bindings/usb/atmel,at91rm9200-udc.yaml         | 77 ++++++++++++++++++++++
+
+Where is the actual conversion? You are supposed to remove other file
+for this to be a "convert".
+
+>  1 file changed, 77 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/usb/generic-ohci.yaml b/Documentation/devicetree/bindings/usb/generic-ohci.yaml
-> index 961cbf85eeb5..a8a94b9c1fee 100644
-> --- a/Documentation/devicetree/bindings/usb/generic-ohci.yaml
-> +++ b/Documentation/devicetree/bindings/usb/generic-ohci.yaml
-> @@ -55,6 +55,7 @@ properties:
->            - ti,ohci-omap3
->        - items:
->            - enum:
-> +              - atmel,at91rm9200-ohci
->                - cavium,octeon-6335-ohci
->                - nintendo,hollywood-usb-ohci
->                - nxp,ohci-nxp
-> @@ -137,6 +138,16 @@ properties:
->        The associated ISP1301 device. Necessary for the UDC controller for
->        connecting to the USB physical layer.
->  
+> diff --git a/Documentation/devicetree/bindings/usb/atmel,at91rm9200-udc.yaml b/Documentation/devicetree/bindings/usb/atmel,at91rm9200-udc.yaml
+> new file mode 100644
+> index 000000000000..6961cd5d5d89
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/usb/atmel,at91rm9200-udc.yaml
+> @@ -0,0 +1,77 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/usb/atmel,at91rm9200-udc.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Atmel AT91 USB Device Controller (UDC)
+> +
+> +maintainers:
+> +  - Nicolas Ferre <nicolas.ferre@microchip.com>
+> +  - Alexandre Belloni <alexandre.belloni@bootlin.com>
+> +
+> +description:
+> +  The Atmel AT91 USB Device Controller provides USB gadget (device-mode)
+> +  functionality on AT91 SoCs. It requires a peripheral clock and an AHB
+> +  clock for operation and may optionally control VBUS power through a GPIO.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - atmel,at91rm9200-udc
+> +      - atmel,at91sam9260-udc
+> +      - atmel,at91sam9261-udc
+> +      - atmel,at91sam9263-udc
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    minItems: 2
+
+Drop
+
+> +    maxItems: 2
+> +
+> +  clock-names:
+> +    items:
+> +      - const: pclk
+> +      - const: hclk
+> +
 > +  atmel,vbus-gpio:
-
-gpio is deprecated. All bindings use gpios. Also, pins do not use vendor
-prefixes.
-
-
-> +    description: GPIO used to control or sense the USB VBUS power.
-> +    minItems: 1
-> +    maxItems: 3
-
-Why is this flexible? There is only one VBUS, no? Which pin is it
-exactly on this device?
-
+> +    description: GPIO used to enable or control VBUS power for the USB bus.
+> +    maxItems: 1
 > +
-> +  atmel,oc-gpio:
-> +    description: GPIO used to signal USB overcurrent condition.
-> +    minItems: 1
-> +    maxItems: 3
-
-Same question here - how is the pin called in the schematics?
-
+> +  atmel,matrix:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description: Phandle to the Atmel bus matrix controller.
 > +
->  required:
->    - compatible
->    - reg
-> @@ -144,6 +155,28 @@ required:
->  
->  allOf:
->    - $ref: usb-hcd.yaml
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: atmel,at91rm9200-ohci
-> +    then:
-> +      properties:
-> +        clock-names:
-> +          items:
-> +            - const: ohci_clk
-> +            - const: hclk
-> +            - const: uhpck
+> +  atmel,pullup-gpio:
+> +    description:
+> +      GPIO controlling the USB D+ pull-up resistor used to signal device
+> +      connection to the host.
+> +    maxItems: 1
 > +
-> +      required:
-> +        - clocks
-> +        - clock-names
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - clocks
+> +  - clock-names
+> +
+> +unevaluatedProperties: false
 
-There is already if:then:else covering clocks, so this makes multiple
-clauses being applied to same device. That's not really readable.
-Unfortunately that's a bit of a mess from existing binding. This can be
-solved by moving this to separate schema, especially that you want to
-add some specific properties to this device.
+additionalProperties
 
-> +
-> +    else:
-> +      properties:
-> +        atmel,vbus-gpio: false
-> +        atmel,oc-gpio: false
-> +
->    - if:
->        not:
->          properties:
-> 
-> -- 
-> 2.53.0
-> 
+Best regards,
+Krzysztof
+
 
