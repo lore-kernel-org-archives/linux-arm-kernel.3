@@ -4,97 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D6D6EA8537
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 16:40:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 930E0EA8537
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 16:43:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3PyMN9ppxtG+J2rzulMPcaCg1huHspZ+ZEiksw/I16M=; b=L/bNaz2fBT/X9/rCaXOAatTKaT
-	uI84ngMpe9UsiJEheUn3ASr6yId4CuirX4CKQNG2jmPrCC8Lole5tVf/caTo7OXAlomtTIj1J+7QK
-	qH3x+Vxdm8s9fciStKnhdou/vfCIRYS4onkMV8gn9HfTu9ueZP2woDafRS7HvlcMW3AmyJ8SnQ9zQ
-	mIvanBP4NQsngyYojsIJdhMDbVvQjvUBOrKU/G/Pc5gF9ZOPSb/fv+l8CYOPPAgC478vWu5v5Tes0
-	4S57R6UIDG6RzO95KvU6qKQRpncnn++9tiCRmAdS8uv3liqF1PEBgxRbIMixa6/BBw6iHUNcrbK8M
-	C7d1dhdQ==;
+	bh=A2k+tUSmAU+cizjj171ExMhB4UUnW5oz5jUnwF8rErI=; b=CMayoV+XkbtrH0P6/YcikcKMM6
+	YbRXQPnU1+T0lIPWf6bfmud8ho+kfmE5vHaNhTuZ1O7sj6BTWTUI9p/bMDhekdy8csySKemaoNSAq
+	Slalwl2HY7Q3vWAWrAK8CBa74ntFx2KgxOSYUtUS80lN+njieZpsLUlhC5E2+OYlJbdtBzDCf3JCV
+	GICBBJyC+uzWtzzr1MRsnm6+b9mPh8CF7gGnThBIj1c7kwthD4H0fY/wOgYd8BFU9rNNZaDcL1Iln
+	ueoZASuGRSZDDMQkMRvSPIXTfreQM9tJbQxee1xVQ8RS2HurD5ueT2OC+2B5it1mDpvU8M5rQ1qxH
+	kG4Jj5Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzHBP-00000006BAy-2LjN;
-	Sun, 08 Mar 2026 16:40:47 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1vzHDU-00000006BNp-0GoN;
+	Sun, 08 Mar 2026 16:42:56 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzHBM-00000006BAa-0Pj2
+	id 1vzHDR-00000006BN1-2wNW
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Mar 2026 16:40:45 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4853510b4f3so8068425e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 08 Mar 2026 09:40:43 -0700 (PDT)
+	Sun, 08 Mar 2026 16:42:54 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-439c944bb62so3371698f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 08 Mar 2026 09:42:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1772988042; x=1773592842; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1772988172; x=1773592972; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:to:subject:user-agent:mime-version:date:message-id:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=3PyMN9ppxtG+J2rzulMPcaCg1huHspZ+ZEiksw/I16M=;
-        b=K85x3lhRe8bX8dIT1bZVbt/VkxWkRn5rjKLPgMh51CclJ5sUuiEBvW5qmHRzV7iJo5
-         g6lLsU1E/zgOBBWqtdyXpgzjVrUB8tKMaZgFYXDJoH/0ZzxeeEtaxX00O9BcrH/MmLYn
-         5SkHZ5NpReBC8ZqFRMOVu2UgDLUx+z8pEMCi0Iu6PK71bZiJp0iPWQRMC3TNenH+kgUs
-         jHeQzlJ4mV8fbW4pMzucfgHTd4bPI8YSOaTOiswLvSFcnMsDX/wYjt+ZtfwiGeDYzjbC
-         OcdMjb1qK+izp4jO9XBocfc3YgiBzfxgDBnBOJ1Opvl01yeRDUhNK2ztL28qrJBo9KZi
-         xtyw==
+        bh=A2k+tUSmAU+cizjj171ExMhB4UUnW5oz5jUnwF8rErI=;
+        b=qw2urZnesUBmRYCeEFM52ButbeGV8On9Mo+LBtpR+kT0YrWvNfnioSBermCWez/erf
+         hARu4ErARIR67A0Urog16PvX2KS5UaV/brSilyAjRDOjp+TCSGPC+0m/9rmmbIp7yo6O
+         czi9z9Mmxh+sIuln81T2n825p0W27f1QHSbYrZZtGRouUXetg1Qw7GIPBO5mu+LeszJq
+         ebYolcPGwvHk5NEWFICxZ6+s1ydcXzitOab3ZhJlHM72EfnUyEyxUhROx0m2CdFBl64G
+         D84JS14n7pnXJc8f+S8tJMwZlzPzu2VaGoxv5/r+EEDgd4VsfcDSNmrbqH9iQynYXqQ3
+         qxKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772988042; x=1773592842;
+        d=1e100.net; s=20230601; t=1772988172; x=1773592972;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=3PyMN9ppxtG+J2rzulMPcaCg1huHspZ+ZEiksw/I16M=;
-        b=Do+IYvTnQv3a2D+fPTMjn1nnwwJVuxdmpmYcQBsdy/WvQM66fCm/PM/+5uKZHbI4jM
-         +L5wWzenTi8fTfPFTqjdliQW92R2YJhRXbUHSSIMVgIy/j9h7/dZT3/LQDc3m6MppggJ
-         xR0dLnmRLIWVZdF0CMYVt12rS7rwQgHJ+qjGIxZMjY+uCl0bKemAPju5+PQGA7hj3uVP
-         57b3TtSHe5o91EufZZBX+mmInzDBlxh2PyvFfghjFZOPsD435FIfTfIvCewFmItBFQWi
-         UKtwxxK28NfDWVq+qVssK6yrilwogvU4ZxCCvFCwrxIU2B2v+BaRcUA5tFslbU3KUv0F
-         el9g==
-X-Forwarded-Encrypted: i=1; AJvYcCV3tyyop1ZgkVPSMU5/UvZbvBbGKgk9SLOKvCXaf1+lCAQdQxSUSuTFuFbcMibXd9XEyQqHyYdMZbPb19ugkdBe@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQVIw/9wdXZwdKGlRjzW0CemozT0tPnk9OOxLQzE6zGYGRIEE/
-	gX71EAsMOO3yVeVKjk8Gpc7ErlBvHEbKRApz8AlwcPf3gk4szRelpixF+shJL2HLRgg=
-X-Gm-Gg: ATEYQzyOP1gnTcmHHvx0xxbcq1RNAE/o1FZZeMJNEJ1YeV0MxmWdzsW6Cqt901iOC6G
-	LH2OlPPL8yMj/SsPl6jKQuf3UifYckOCgrfo4LpkxXOOGgWekvqW9vzgxr4kknJWN5gBb0MX/6j
-	Nxp90QtCdvWdqMkl7ujTqvpRpB8hY6JS7G1gPwq3RCwzue3evnxlAWyald8XPq7Tz2scfrHX0Fb
-	MbjwdAa6HWZPGcQ11nd3iuHOdK3ySzDh39FisNpT3GN1+LS1HCTdA0w7tpIg9SlICIGxO3QIIsd
-	mqXBI+coMSs8VHRbzp2080T4takp4hst455c1TuoTMEgm7aeVwF1BTLq73WrqGjH6xt2OHM+BeB
-	dQnJ3uuazSCzTalhpIels3D7u/ybnxdkKGxxnYjTjjJ2a7I1eK3i/U9EgBhqQQWyujqGMcXb4nj
-	gdJ/7eWonWLsYbm2GT83HBS55NcwFIyA==
-X-Received: by 2002:a05:600c:34d2:b0:483:badb:6191 with SMTP id 5b1f17b1804b1-48526923595mr140938685e9.8.1772988041927;
-        Sun, 08 Mar 2026 09:40:41 -0700 (PDT)
+        bh=A2k+tUSmAU+cizjj171ExMhB4UUnW5oz5jUnwF8rErI=;
+        b=ihTotuAfP6uDev+s78yLCpaJvwk1DQSVGG4f9FAgqw4i1jIBhbCEGzwimnEuhl3BTF
+         5RMWuVjwjE9vWi+zU123g/IwJ8kwW+LltiPFZdLCml7Aiyb44cBPU5PvC1c6ql/0ZHk4
+         WcUS9NGa3TzcvASkR2sOOL1i3Bg3bYitxvHnq4njC7Mpz73gSnjhzQaUl87eYU2pQvaC
+         05N/dQYlhcXP5wAxZOZXETbElU00kwE0Ysluj1M4R85+FqVhvuUwR69ZjWhFJ8Hi688S
+         9rZqvPAiaSnBe8TYKOud19NyFPpUXDBbxyPW+H6vK2Q0qkx0Fy/hPay734sTkc1HYBK2
+         Gr1w==
+X-Forwarded-Encrypted: i=1; AJvYcCU163RxtQHvsBEFvTeVRCgRU7yKlYuXj6KfNfEMU+CCvWAVBZvHbA3y9WSPAIplGeeHlQPZFu9nHTcAUeFJfwXz@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVpwQbkzCoCHWllaoqW1jrIYhAQbijxLqTSehsDdFETo30wfHT
+	Bzt2jb/x9Mdzhcz8jpq6klId0ayxBgfpkUR4jx1bQOpxqXSvHWvNFrJcwD6eEBE2A8o=
+X-Gm-Gg: ATEYQzyMyu7FG60mKD1BhQlaS9aQ5RjRh9cYrcGVhhV2nNIwcJCypS0N/4zwLrlwb9e
+	Rkj6hOsglOZfdJjuoMoAOITjkhlJxvycpBftxBhR/mq2a7lC46m2KB82Tp+CAkc1pymoCwJZqCB
+	jUvdSa4xjO91ynm++g1aof7hZqYpWns/kzciqRel5hbe3uro+qRqMvdxusCR2uVx5zgILGuICXy
+	QG5UzeSdzmVTDmQ/aFB9QNfixoVeJA04TIdGiQH9OaxDTR5zAtBnRSFYE84MfJ0SEVfKe0AtYTl
+	m/9tKOoIso97zDucKtrjxbrB3CYuV7Cfv8qnehqBZ5GnkQpLmQzvLKnWDFBUE2YIlMd+pFcn6uD
+	xW4ONrOBFNmF7u/gjIZqRoYxLjion4kodfek6Ltax6remBgB0//u658dSso3m8MyvXADPwRkQj9
+	B9E78z/acrkFTrZPZc4ZCv8jiF66tiAw==
+X-Received: by 2002:a5d:5f93:0:b0:439:b791:f920 with SMTP id ffacd0b85a97d-439da656af4mr15645490f8f.17.1772988171670;
+        Sun, 08 Mar 2026 09:42:51 -0700 (PDT)
 Received: from [192.168.50.4] ([82.78.167.98])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-485244b6e9esm112420115e9.5.2026.03.08.09.40.40
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439dadb85b8sm19331707f8f.17.2026.03.08.09.42.50
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 08 Mar 2026 09:40:41 -0700 (PDT)
-Message-ID: <9157e13f-909b-430f-b2cf-b520bcbd56a9@tuxon.dev>
-Date: Sun, 8 Mar 2026 18:40:40 +0200
+        Sun, 08 Mar 2026 09:42:51 -0700 (PDT)
+Message-ID: <cebf4298-4dff-481d-9a77-09d4fb4f7fbd@tuxon.dev>
+Date: Sun, 8 Mar 2026 18:42:49 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 14/19] nvmem: microchip-otpc: Expose UID registers as
- 2nd nvmem device
+Subject: Re: [PATCH v3 09/19] dt-bindings: nvmem: microchip-otpc: Add required
+ clocks
 To: Nicolas Ferre <nicolas.ferre@microchip.com>,
  Alexandre Belloni <alexandre.belloni@bootlin.com>,
  Ryan Wanner <ryan.wanner@microchip.com>,
  linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- Srinivas Kandagatla <srini@kernel.org>, Alexander Dahl <ada@thorsis.com>
+ Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
 References: <20260120143759.904013-1-ada@thorsis.com>
  <20260120154502.1280938-1-ada@thorsis.com>
- <20260120154502.1280938-8-ada@thorsis.com>
- <05128a16-553d-49d5-b09d-2c3e03cb4421@tuxon.dev>
- <20260220-maximize-glance-a0abd1806c44@thorsis.com>
+ <20260120154502.1280938-3-ada@thorsis.com>
+ <f406abde-c7d1-4ed6-b7dd-5336956bc795@tuxon.dev>
+ <20260220-bloomers-runny-e69ab1966b9c@thorsis.com>
 Content-Language: en-US
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <20260220-maximize-glance-a0abd1806c44@thorsis.com>
+In-Reply-To: <20260220-bloomers-runny-e69ab1966b9c@thorsis.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260308_094044_186324_0B05372D 
-X-CRM114-Status: GOOD (  15.61  )
+X-CRM114-CacheID: sfid-20260308_094253_756234_11282DDD 
+X-CRM114-Status: GOOD (  18.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,61 +112,47 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi, Alexander,
 
-On 2/20/26 12:38, Alexander Dahl wrote:
+On 2/20/26 11:58, Alexander Dahl wrote:
 > Hello Claudiu,
 > 
-> thanks for your feedback on this, see my remarks inline below.
-> 
-> Am Sat, Jan 31, 2026 at 06:11:56PM +0200 schrieb Claudiu Beznea:
+> Am Sat, Jan 31, 2026 at 05:47:05PM +0200 schrieb Claudiu Beznea:
 >>
 >>
 >> On 1/20/26 17:44, Alexander Dahl wrote:
->>> For SAM9X60 the Product UID x Register containing the Unique Product ID
->>> is part of the OTPC registers.
->>
->> SAMA7G5 as well.
->>
->>> We have everything at hand here to just
->>> create a trivial nvmem device for those.
->>
->> Please massage a bit the patch description to match https://www.kernel.org/doc/html/v6.13/process/submitting-patches.html#describe-your-changes
->>
+>>> The OTPC requires both the peripheral clock through PMC and the main RC
+>>> oscillator.  Seemed to work without explicitly enabling those clocks on
+>>> sama7g5 before, but did not on sam9x60.
 >>>
->>> Signed-off-by: Alexander Dahl <ada@thorsis.com>
->>> ---
+>>> Older datasheets were not clear and explicit about this, but recent are,
+>>> e.g. SAMA7G5 series datasheet (DS60001765B),
+>>> section 30.4.1 Power Management:
 >>>
->>> Notes:
->>>       v3:
->>>       - no changes
->>>       v2:
->>>       - Use dev_err_probe() for error reporting (thanks Claudiu)
->>>       - Move required register definition over here from removed patch
->>>
->>>    drivers/nvmem/microchip-otpc.c | 38 +++++++++++++++++++++++++++++++++-
->>>    1 file changed, 37 insertions(+), 1 deletion(-)
->>>
->>> diff --git a/drivers/nvmem/microchip-otpc.c b/drivers/nvmem/microchip-otpc.c
->>> index 34c0d7611f3e4..b35ed13b004bb 100644
->>> --- a/drivers/nvmem/microchip-otpc.c
->>> +++ b/drivers/nvmem/microchip-otpc.c
->>> @@ -25,10 +25,14 @@
->>>    #define MCHP_OTPC_HR			(0x20)
->>>    #define MCHP_OTPC_HR_SIZE		GENMASK(15, 8)
->>>    #define MCHP_OTPC_DR			(0x24)
->>> +#define MCHP_OTPC_UID0R			(0x60)
->>>    #define MCHP_OTPC_NAME			"mchp-otpc"
->>>    #define MCHP_OTPC_SIZE			(11 * 1024)
->>> +#define MCHP_OTPC_UID_NAME		"mchp-uid"
->>> +#define MCHP_OTPC_UID_SIZE		16
+>>>> The OTPC is clocked through the Power Management Controller (PMC).
+>>>> The user must power on the main RC oscillator and enable the
+>>>> peripheral clock of the OTPC prior to reading or writing the OTP
+>>>> memory.
 >>
->> I think you can drop these as they are used (individually) in a single place.
+>> As this was not mentioned in the previous datasheet versions, the current
+>> driver don't handle those clocks, and it probably worked as the clocks were
+>> enabled by bootloaders, I think the clocks should be marked as required and
+>> this patch to be propagated as a fix along with fixes on driver and device
+>> trees.
 > 
-> If you don't mind I would rather keep it here together with already
-> present similar definitions, instead of sprinkling new literals over
-> this c file.
+> What do you mean by "clocks should be marked as required"?  Where?
 
-OK for me.
+In the bindings as you found that the IP don't work if the clocks are not enabled?
+
+> How?  Is something more necessary, than already done here?
+
+Update the required section in the yaml file with clocks, at least for the 
+sam9x60, as you found it is not working w/o it.
+
+I presume it has to be done for SAMA7G5 as well (as this is what the newer 
+datasheets states) but that would involve adding required clocks now which were 
+not needed later. I'm not sure what is the procedure here. I'll let DT 
+maintainers comment on this.
 
 Thank you,
 Claudiu
+
 
