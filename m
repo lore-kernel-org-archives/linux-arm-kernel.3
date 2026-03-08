@@ -4,99 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9E9FEA8537
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 16:45:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E26B0EA853C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Mar 2026 18:00:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eUsdONGIuqr07rjgXiFXfrB4ESlzFRwcXKo6efQ80SA=; b=NMQcnXsVTpI1GPy02zje/IAArV
-	mc+dsp9QyJxSK55zKx4ddd0QTcYiqWH49Ric3c6teuY9wwjpztq82W1TOvClE3w7zh8AgAsThdhoO
-	YZ/Xx5RWBexRoSL0XsKk/jiP1Noa0EQY9bRmgF3O7Jpak9C6/hg1GmIOeYITM6Y50wxvosUgQzWIE
-	gLnXnGJdOhIuHK4aE2XMDav9whzcq7WdA4/eXpampfgHnKaqPKgT1ZSKrJYNie9vkLmdn/CpsBNsy
-	ndhQIouH2TQY3A9HYttD3E606ZgvTrlRMTU7IIY99qTJ3Ws2dkseuuH/wKuKi2y3hnmRz8SlJPRWN
-	A2pJjMiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=COX7CpTb/27v5+RAJjpmWzEICJkLOwS/U54SdgdwvJ0=; b=xwV2hppIlMCxbL/zadsBnuV/GT
+	oeJm+xpMal1OxATjYnQkkFifL+Xtaos7a7OxnR/eGBmc45Hnl8xcznKDwp1tfCBD0zDrDprgEYdE1
+	XKItQTgVhLXZRDBBq1F2w7fbHw7Nvu/hykJO0ONugJPcorPvRBWeaTrR+SXIuQyF28cGf8HiAfKeM
+	WMA1f2/+ZjDj6oYVVOaqbCJBbLn58XH6nMJy5MD2timTlN/zWdtnUcVJOeEZpDxfXh0yIuszULjWe
+	sNpv5ju37XMHicuFaeMQ/NoyQ6Y23wpg06T5RUQRZFQYqHk5S7yCnE8RC3fl8udzixgDSmrzbzA8t
+	7FmxrjzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzHGA-00000006BeU-3a4a;
-	Sun, 08 Mar 2026 16:45:42 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1vzIQA-00000006Ef5-3lsr;
+	Sun, 08 Mar 2026 18:00:07 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzHG9-00000006Be9-0vnG
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Mar 2026 16:45:42 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4853aec185aso1757695e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 08 Mar 2026 09:45:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1772988339; x=1773593139; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :to:from:subject:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=eUsdONGIuqr07rjgXiFXfrB4ESlzFRwcXKo6efQ80SA=;
-        b=Zhds5g5bPrw2Pv7MnJwJ9xtXh85CXM6v+QJ02uqzpER01lmTi3zVd4f+V8iYRRlyq7
-         OrG7ym8nuE8jLUf6jgxXf1dU+LXoEfaEY3XVK6PLOvlXlsIdaS0/+33VFpCCpOhaKaW4
-         dOiIl+gz/02kiuA7fcs9XT9nMeRIjdsHopT0JCBiWlDfRr9B5ycNivMdSrz4H2ZQ5uiO
-         ATetFqU7BaE5j6c9QoiZvyFg70q8riggGHK23ebw9/GPQVc7YbUCoG3bmh7nJuVCzQLB
-         XFyci05USNsowoaWjP22WnCVMaweH1yju6W6LyyBsV8syVe055oO16CS5SGHMHvHnA+S
-         Xgjg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772988339; x=1773593139;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :to:from:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=eUsdONGIuqr07rjgXiFXfrB4ESlzFRwcXKo6efQ80SA=;
-        b=Xk/aOTBxCz1kFfqPhnI2zvpzCop4T/+HkaO+sySMRASS2aKIzW6jK8Qb8WqSboSgAZ
-         2mIoPf0UAvo119t8rbaNolSS8t8xq2wpga8SsGuKQlylO7FhxIMFaJMJPZPtGgv0colP
-         FJdrKmTwfKNfJ9rvV2pWBgqeGv5KXrYJnUApycLHraKHUqQKtKnEM1V1jiAtgS27fqIv
-         ONQ6kvHibElVNv6+Ea8HUT4lUR6bKM9f9XjEd2zJAMOMbjuREPrwTo6eqDT7sK5dy+wW
-         kz1VmuYfHgIrUB4Ss9Vhkg6fBS/Iljhw3ANFlsrKcL01ZigccIP3WjjUn3LeQPMKqx9n
-         T6wA==
-X-Forwarded-Encrypted: i=1; AJvYcCWoCM7EtCl9bS3kQXEjrdW0bVF8QtuuO6V3F7Q+120tRklJ5tzEBBCChdL6dnjmkLndEMrXbqkznhhGLyg4EwM2@lists.infradead.org
-X-Gm-Message-State: AOJu0YwE9PvJsVZudnYsEEY+L4Gf1wqIw3HXrI2f1CXaiZ1IGWAhcymH
-	SESxPHqucyGjIae8N9qu+usljkORHpcHYarJ20jP9XGr84GbFItBHrjlsb9AkUYsxmI=
-X-Gm-Gg: ATEYQzwDXPNTdC8B0U/wRComJK2DqV2yjly3+kle+Oiq3yzlkXTv1wkF/m7bxGQx7Y2
-	tYBIuu1KbQ5mjJwZCixs4sjptdbdsPRNf0nwlk4YWnYDV8icqi0iWqCQT5dB/U0Yc7eKeQ++c3K
-	0XNo5yNqGicdlImWoCihIs7iVab+aCf5TrZ0PL7WngFsf5xyBHSCQEkxewBnQz/LHlpQwBWZ5nX
-	K6tPZyPLB5TRhBFScZl0bYEh7Z4vEADgbvD/36gESvY1pftojIhhrBcOCtEOmtSGJ0spaaNG85/
-	gJvO5R5r3Q0VrTbNaqyoTeHnFvia223G9KTWJZSLf1cxKSPtZZmjLMrmfI5FMuBYa8ZbdPwpRsc
-	gfzSndtToPxQ+y84fOUKr6jRFlwU6CWbC/y76dKMUHsw/jyrZBdXs6HXxMhv5iDp4c8I3zWbJs6
-	xljB721y2/6H51b/L6QgfxVMS0fpr7gw==
-X-Received: by 2002:a05:600c:4fc2:b0:477:a1a2:d829 with SMTP id 5b1f17b1804b1-4852692bfa5mr139387065e9.13.1772988339042;
-        Sun, 08 Mar 2026 09:45:39 -0700 (PDT)
-Received: from [192.168.50.4] ([82.78.167.98])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48539e574b5sm40900765e9.8.2026.03.08.09.45.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 08 Mar 2026 09:45:38 -0700 (PDT)
-Message-ID: <203fb24b-9ea4-476e-a866-0befcdcd6224@tuxon.dev>
-Date: Sun, 8 Mar 2026 18:45:37 +0200
+	id 1vzIQ7-00000006Edn-3TDG;
+	Sun, 08 Mar 2026 18:00:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=COX7CpTb/27v5+RAJjpmWzEICJkLOwS/U54SdgdwvJ0=; b=dT
+	Mvt5zreya8sYFTIdBVn+u2Cr+TZpKI2sHjC2eOz50+u7Z9bcgWi9rBmOKKmEgNT9xNvbN2WV71V+Y
+	MTg2bknSvJlEcZlhzC8/RD+LOfjFVJwRy0Suiwp0bqKJXu0GL9C9yJfORHH9scM7YznnM23vGIC03
+	WMxQMzpeato1q7o=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vzIPq-00Ajv8-GI; Sun, 08 Mar 2026 18:59:46 +0100
+Date: Sun, 8 Mar 2026 18:59:46 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: =?utf-8?B?5ZC05Yeh?= <12321260@zju.edu.cn>
+Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org,
+	edumazet@google.com, pabeni@redhat.com, andrew+netdev@lunn.ch,
+	heiko@sntech.de, romain.perier@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, stable@vger.kernel.org
+Subject: Re: Re: [PATCH] net: ethernet: arc: fix use-after-free in probe
+ error path
+Message-ID: <1bb942f0-d512-4834-bf01-49f9a9d7fd77@lunn.ch>
+References: <20260304025303.145493-1-fanwu01@zju.edu.cn>
+ <b6ac1471-e33a-41d3-9e67-e6463612f05b@lunn.ch>
+ <54c76f66.7eea7.19ccca93975.Coremail.12321260@zju.edu.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 09/19] dt-bindings: nvmem: microchip-otpc: Add required
- clocks
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-To: Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Ryan Wanner <ryan.wanner@microchip.com>,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alexander Dahl <ada@thorsis.com>
-References: <20260120143759.904013-1-ada@thorsis.com>
- <20260120154502.1280938-1-ada@thorsis.com>
- <20260120154502.1280938-3-ada@thorsis.com>
- <f406abde-c7d1-4ed6-b7dd-5336956bc795@tuxon.dev>
- <20260220-bloomers-runny-e69ab1966b9c@thorsis.com>
- <cebf4298-4dff-481d-9a77-09d4fb4f7fbd@tuxon.dev>
-Content-Language: en-US
-In-Reply-To: <cebf4298-4dff-481d-9a77-09d4fb4f7fbd@tuxon.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <54c76f66.7eea7.19ccca93975.Coremail.12321260@zju.edu.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260308_094541_279569_6224FBB9 
-X-CRM114-Status: GOOD (  20.47  )
+X-CRM114-CacheID: sfid-20260308_110003_871549_AF835207 
+X-CRM114-Status: GOOD (  14.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,53 +74,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+ Alexander Dahl
+On Sun, Mar 08, 2026 at 04:56:08PM +0800, 吴凡 wrote:
+> You are right that normal device interrupt generation is enabled in arc_emac_open() via R_ENABLE, so we certainly don't expect regular RX/TX traffic interrupts during probe.
+> 
+> My main concern here is the lifetime ordering in the error path. arc_emac_probe() installs the IRQ handler via devm_request_irq(..., ndev), but if emac_rockchip_probe() fails later, it explicitly calls free_netdev(ndev) well before the devres cleanup routine runs.
+> 
+> In that specific gap, if an IRQ is somehow delivered—perhaps from a pending/latched line left by the firmware/bootloader, or other non-traffic anomalies—arc_emac_intr() will immediately dereference dev_id as a struct net_device *. Since ndev has already been manually freed, this results in a UAF.
+> 
+> So while I completely agree this isn't a normal pre-open traffic path, the mixed lifetime management (managed IRQ vs. manual netdev free) still creates a real race window.
+> 
+> Switching to devm_alloc_etherdev() puts both resources under devres management, permanently fixing this teardown ordering issue. I would be happy to send a v2 and reword the commit log to emphasize this as a potential race window and a hardening fix. Let me know what you think.
 
-On 3/8/26 18:42, Claudiu Beznea wrote:
-> Hi, Alexander,
-> 
-> On 2/20/26 11:58, Alexander Dahl wrote:
->> Hello Claudiu,
->>
->> Am Sat, Jan 31, 2026 at 05:47:05PM +0200 schrieb Claudiu Beznea:
->>>
->>>
->>> On 1/20/26 17:44, Alexander Dahl wrote:
->>>> The OTPC requires both the peripheral clock through PMC and the main RC
->>>> oscillator.  Seemed to work without explicitly enabling those clocks on
->>>> sama7g5 before, but did not on sam9x60.
->>>>
->>>> Older datasheets were not clear and explicit about this, but recent are,
->>>> e.g. SAMA7G5 series datasheet (DS60001765B),
->>>> section 30.4.1 Power Management:
->>>>
->>>>> The OTPC is clocked through the Power Management Controller (PMC).
->>>>> The user must power on the main RC oscillator and enable the
->>>>> peripheral clock of the OTPC prior to reading or writing the OTP
->>>>> memory.
->>>
->>> As this was not mentioned in the previous datasheet versions, the current
->>> driver don't handle those clocks, and it probably worked as the clocks were
->>> enabled by bootloaders, I think the clocks should be marked as required and
->>> this patch to be propagated as a fix along with fixes on driver and device
->>> trees.
->>
->> What do you mean by "clocks should be marked as required"?  Where?
-> 
-> In the bindings as you found that the IP don't work if the clocks are not enabled?
-> 
->> How?  Is something more necessary, than already done here?
-> 
-> Update the required section in the yaml file with clocks, at least for the 
-> sam9x60, as you found it is not working w/o it.
-> 
-> I presume it has to be done for SAMA7G5 as well (as this is what the newer 
-> datasheets states) but that would involve adding required clocks now which were 
-> not needed later. I'm not sure what is the procedure here. I'll let DT 
-> maintainers comment on this.
-> 
-> Thank you,
-> Claudiu
-> 
+https://www.kernel.org/doc/html/latest/process/maintainer-netdev.html#clean-up-patches
 
+  1.7.4. Clean-up patches¶
+
+  Netdev discourages patches which perform simple clean-ups, which are
+  not in the context of other work. For example:
+
+  Addressing checkpatch.pl, and other trivial coding style warnings
+
+  Addressing Local variable ordering issues
+
+  Conversions to device-managed APIs (devm_ helpers)
+
+  This is because it is felt that the churn that such changes produce
+  comes at a greater cost than the value of such clean-ups.
+
+
+Some percentage of devm_ conversation patches break drivers. We
+Reviewers need to look at all such patches and try to detect such
+breakage. In general, it is nor worth it. Hence we generally reject
+patches like this.
+
+This is however slightly different. It looks like this driver was
+broken from the beginning. The race you point out has always been
+there. That is something worth pointing out in the commit message.
+
+But take a step back. Think about interrupt handling in general. Do
+you think it is good practice to request interrupts before configuring
+the hardware about what interrupts it will deliver?
+
+If the driver wrote to R_ENABLE in probe, before requesting the
+interrupt, enabled the needed interrupts in open, disabled the
+interrupts in close, the different lifetimes would not matter.
+
+So, for stable, please add code to put interrupts into a well known
+state before requesting the interrupt. Please use the net tree, and
+add a Fixes: tag.
+
+You can submit this patch to net-next, but we might reject it, because
+of the policy. If you are working on this driver, adding other
+features, this patch is part of a bigger patchset, we are more likely
+to accept it.
+
+    Andrew
+
+---
+pw-bot: cr
 
