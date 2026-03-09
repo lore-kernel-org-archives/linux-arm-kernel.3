@@ -4,113 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57A2DF417EB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 14:39:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02B4AF417E7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 14:39:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FJJogOm7mAlsex83R1hkauB1mXrgfQo2P5H45OLn0pU=; b=wcBJ9K8Nz7NLp0vsM+57savpdY
-	iunHWbvn56UkvqS2jYccKryBeEmjRc3LpNjPYMJS9f3SwPgQ5kmusGvJ4x28KN5ZhbSc9OkL3rxfZ
-	VpyZTgw3/OGNJLLxaLIxs1ThAS9qTcFdsnvWvWjjUIHj1lYgZxhE8IIBURqjqe24wexrxX3PEcxIu
-	5C4vRZwhTphE3a4TJvgS6Qsnw9XinVts/WLZu/LESeTZqWHm3E70XUzpDTMjz3qk7MUfyc1V4U6xI
-	qJW56ZYBnMV++rlJLl1vW4Sgzb41ebyNbw2mL8DxG4q2/xR+Qbgdmn2ZYiHgJt+GGJFuPNxEHjoeL
-	hZpdWwMw==;
+	bh=ax2e3nDwsvw9ILVHvWERWqTLhgIowHpeGr3SQn+CkPI=; b=E/9ObsTcHqrd0e61yNCkYzjt9J
+	9CkZnD1pxaS5c9VcIQH9b5vJP4gR5hVHhNsvUI4sf97TIStFviVHyy+MgmeRCBfDzN+8iwOey860L
+	whtCvLOE6EURpDhc1iAxVXX2zGi1+8YpOqohlQOXvydPP3JLNjgtCFbVDZ/of+B1EIe8livT9/aMK
+	GWJnVnEoPtMW2ZWpJEXkzVGEZWw+LL26iOC7srtEFbzJh7+4xbCiX7DndtquIJRV0/NgXekOVJ/ZI
+	veXJ6hw4fKt1N9LimcfLzrF9oCDMPF/LCqa2Twvvdu9L2OlkI3nu8AvF7SH4ZmCXe3711r8jaVjQ5
+	VuU+rDjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzblk-00000007Ubc-1nn1;
-	Mon, 09 Mar 2026 14:39:40 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vzble-00000007UXP-3B2w;
+	Mon, 09 Mar 2026 14:39:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzblh-00000007UYr-0buI
+	id 1vzblc-00000007UVz-2JKc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 14:39:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1773067176;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FJJogOm7mAlsex83R1hkauB1mXrgfQo2P5H45OLn0pU=;
-	b=IlzwUbMLYyvOay7dxHEsbotBO4UrtlsynbHn6eS91gMH357ExK8mxAEyH55OOnmmYI1KX+
-	4MDJNqavM4wWRpnapRK4IpoA4z+neMqvyoxkyAhFtMFTSZXBBSlU9uIZuPPjirz5FHQgv5
-	X+52VhElUP5drF5QfFjvyyVIKuIimmg=
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com
- [209.85.222.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-665-5IZzpOsvMTe-ykL_6QK5fw-1; Mon, 09 Mar 2026 10:39:34 -0400
-X-MC-Unique: 5IZzpOsvMTe-ykL_6QK5fw-1
-X-Mimecast-MFC-AGG-ID: 5IZzpOsvMTe-ykL_6QK5fw_1773067174
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8cd827a356aso743455285a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 07:39:34 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773067174; x=1773671974;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=FJJogOm7mAlsex83R1hkauB1mXrgfQo2P5H45OLn0pU=;
-        b=GwHYW4IIaS+a1EJonj2/TNjLGxeM9FjyHkRfKC2rAmGKkEbX1giActClvmOQtsrOpo
-         D0QYP2t0UGwxI73APnDLrhp3KcsSJhdPHajF58sgdXCyLj7LF3JCn0S2gUgwAXCyt4hp
-         QKBBerqBbbc6jkhKmsn72dslUW0cbtmSQCi2nB6921jrB2kkkRoQrGwz01LEhroQcdci
-         TE/oHAzxphwF4VZcHU/aSjaSKLDaqie8Sx/LbbzA/KZrmxzhkGMy9tZD4ftNbrP3I2Rx
-         rtVCL68CkR8pGZo8J2GEcU9yiBvqUeELttnN9o/U40iDFyU2KKmghXns9L77aqGHCvlg
-         TaZw==
-X-Forwarded-Encrypted: i=1; AJvYcCX/tkDvugWbtH4LvJzG0TWJdcAs6LrIpbkeZ8euIsRpXtxPodH2zIxikUvYkRm+P0lo5MTi+MgkFk/7LP+N3UxI@lists.infradead.org
-X-Gm-Message-State: AOJu0YyL7lGh6jGPi6vCPmJpCfQmN1ZKMtrXJWWavYaCEWVSK84O9CzP
-	+CZ6K6zuWMqS4PicAD3pcAyrnebIrCUVdtrNTjav+lSc4/MPx/JRplsm2wdPAruVRosLpnLwZav
-	DqLO1+SdWzAJtwRxrwQWd/mzsYd1IgRxWnPAHInwWFQDTXL8dtqHEs5HGTDUG/mi5oAkXzpGlIj
-	64
-X-Gm-Gg: ATEYQzyLItGSZIVhcFqgQHLnw66y2jr2YRKXc6yPdj+bWf4LqzVyh865DFXgytfPueR
-	oIEVMlL1ayUEWsPxtd4Jf/BCMEILJWoTzGKgvY/EKrqqKkZcFc65e+vPBv5ExWUfN4uYOMhIDTM
-	WNQ+e0E2nRNzeoN/iL2muHM6/Po+mfDpvRWs4naVQsyK9JyMN51XEWnxWQm+PgUzBnaq9/saYGe
-	H7HwR4FBtGYxmdD2wBupxO2P5wC+vbI8yJf0FcpZ/GjCy9lOsRExHmkVOKCwRLto+Dq7+ucXDck
-	MeAAL0RBSCE6OmAzEvAr1Io2c2DFCbA8rdrqbj4Z7JLijFg82OUTMyy92qp+TIxmtTLvjbEDT9g
-	eqxz6uoReGtN9i3mmoWa5Zrcax0ROPLinPt2ZvOFmjfiNX1W+vGI9Y9STRpTsBA==
-X-Received: by 2002:a05:620a:bcd:b0:8c9:ebf3:7623 with SMTP id af79cd13be357-8cd6d3847f8mr1387164885a.20.1773067174203;
-        Mon, 09 Mar 2026 07:39:34 -0700 (PDT)
-X-Received: by 2002:a05:620a:bcd:b0:8c9:ebf3:7623 with SMTP id af79cd13be357-8cd6d3847f8mr1387160185a.20.1773067173790;
-        Mon, 09 Mar 2026 07:39:33 -0700 (PDT)
-Received: from [192.168.1.15] (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cd6f49fcafsm756064985a.16.2026.03.09.07.39.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Mar 2026 07:39:33 -0700 (PDT)
-From: Brian Masney <bmasney@redhat.com>
-Date: Mon, 09 Mar 2026 10:38:46 -0400
-Subject: [PATCH v2 07/12] clk: imx: scu: drop determine_rate op and use
- CLK_ROUNDING_NOOP flag
+	Mon, 09 Mar 2026 14:39:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EEF0D443B2;
+	Mon,  9 Mar 2026 14:39:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54697C2BCB4;
+	Mon,  9 Mar 2026 14:39:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773067171;
+	bh=9PukcKOFazN0dG+ZH11NZrXPlcPN2/bdDpO63eNNTeM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=J1RRaJsjFoPPzLLr+uhbPsnz4s6HEiGtDUliOig0I6SGfRKOs6wSvlzLJb4/GiJhD
+	 O87gKny2z+59fQSrPq0OpUbuXNOz2YjE+3mJ8tXxiuvSKRaG9x4hYFcAjcX8aKOq8W
+	 +KOuL/Lnlo6fJKFqOw5ouWYPRW1vccwAW9VyGXFoFV+PF98W9TEHARAXUiTcqhiaJp
+	 2eynJFn5+FPYRGCrD3lTK2oWYT1Lb6D2CjwpquUhL7AYCnK52bv49oSzW/pzMXI0j8
+	 t2k414mb6oDPC8cJb/Ivs5I8kOhx+bHIC8miqqFrQJUOTr8l9DuiaI/FzvE+dgtkH+
+	 kXI+vX0aZe5Tg==
+Message-ID: <92376758-5bb5-4391-8904-cd0e2f72acf8@kernel.org>
+Date: Mon, 9 Mar 2026 15:39:22 +0100
 MIME-Version: 1.0
-Message-Id: <20260309-clk-det-rate-fw-managed-v2-7-c48ef5a3100a@redhat.com>
-References: <20260309-clk-det-rate-fw-managed-v2-0-c48ef5a3100a@redhat.com>
-In-Reply-To: <20260309-clk-det-rate-fw-managed-v2-0-c48ef5a3100a@redhat.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>
-Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Brian Masney <bmasney@redhat.com>, Peng Fan <peng.fan@nxp.com>, 
- Abel Vesa <abelvesa@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2909; i=bmasney@redhat.com;
- s=20250903; h=from:subject:message-id;
- bh=GIQeCWpXzFUtNJp/mJUZgo1pJ+8bxueWsKYYeUgP+vk=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGDLX3Z4oJ3R3zSTjPU8qrm2YlCE1aVbV7+2GsQknTcoOH
- u/9VXNgX0cpC4MYF4OsmCLLklyjgojUVbb37miywMxhZQIZwsDFKQATydvN8JttUR6/67KHqj2N
- jU02NcpW0pUXDouve7JATG36Du4NTmEM/wz5HP7ZnliZvbBZeUPmgSXZZuwM3VuKa/ydc/JZFjP
- p8gIA
-X-Developer-Key: i=bmasney@redhat.com; a=openpgp;
- fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 0iHHEWTdY-ZWNEzOaSdp56r3T5Iol2j_4QmflXZfdI8_1773067174
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 6/6] arm64: mm: implement the architecture-specific
+ test_and_clear_young_ptes()
+To: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org
+Cc: catalin.marinas@arm.com, will@kernel.org, lorenzo.stoakes@oracle.com,
+ ryan.roberts@arm.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
+ rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
+ harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
+ baohua@kernel.org, dev.jain@arm.com, axelrasmussen@google.com,
+ yuanchu@google.com, weixugc@google.com, hannes@cmpxchg.org,
+ zhengqi.arch@bytedance.com, shakeel.butt@linux.dev, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <cover.1772778858.git.baolin.wang@linux.alibaba.com>
+ <7f891d42a720cc2e57862f3b79e4f774404f313c.1772778858.git.baolin.wang@linux.alibaba.com>
+ <6305e05e-2911-42b0-b6f5-7fdde787b778@kernel.org>
+ <c607b6fd-a682-4400-a7fd-abe83152db10@linux.alibaba.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <c607b6fd-a682-4400-a7fd-abe83152db10@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_073937_263312_9E62A71B 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20260309_073932_632975_E71EC22F 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,91 +127,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This clk driver has a noop determine_rate clk op. Drop this empty
-function, and enable the CLK_ROUNDING_NOOP flag.
+>>
+>> (b) The first pte is !pte_cont(), but some others in there are?
+> 
+> IMO they can’t be handled in a single batch. Since the folio_pte_batch()
+> will group consecutive !cont PTEs into one batch and consecutive cont
+> PTEs into another (assume all PTEs belong to a single large folio),
+> because their PTE entries have different CONT bits.
+Interesting, thanks. I thought that folio_pte_batch() would be able to
+batch that.
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
-Signed-off-by: Brian Masney <bmasney@redhat.com>
----
-To: Abel Vesa <abelvesa@kernel.org>
-To: Michael Turquette <mturquette@baylibre.com>
-To: Stephen Boyd <sboyd@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-To: Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Peng Fan <peng.fan@nxp.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: Fabio Estevam <festevam@gmail.com>
-Cc: linux-clk@vger.kernel.org
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
----
- drivers/clk/imx/clk-scu.c | 22 +---------------------
- 1 file changed, 1 insertion(+), 21 deletions(-)
+But yes, pte_batch_hint() relies on the CONT bit still being set after a
+ptep_get(). I wonder whether we should document somewhere that the arm
+implementation depends on that.
 
-diff --git a/drivers/clk/imx/clk-scu.c b/drivers/clk/imx/clk-scu.c
-index a39c68d664655537e81df55c7e6d32304de9338a..13fb77562b031bb82d6fa2d19f9092ed33966aa4 100644
---- a/drivers/clk/imx/clk-scu.c
-+++ b/drivers/clk/imx/clk-scu.c
-@@ -262,23 +262,6 @@ static unsigned long clk_scu_recalc_rate(struct clk_hw *hw,
- 	return le32_to_cpu(msg.data.resp.rate);
- }
- 
--/*
-- * clk_scu_determine_rate - Returns the closest rate for a SCU clock
-- * @hw: clock to round rate for
-- * @req: clock rate request
-- *
-- * Returns 0 on success, a negative error on failure
-- */
--static int clk_scu_determine_rate(struct clk_hw *hw,
--				  struct clk_rate_request *req)
--{
--	/*
--	 * Assume we support all the requested rate and let the SCU firmware
--	 * to handle the left work
--	 */
--	return 0;
--}
--
- static int clk_scu_atf_set_cpu_rate(struct clk_hw *hw, unsigned long rate,
- 				    unsigned long parent_rate)
- {
-@@ -436,7 +419,6 @@ static void clk_scu_unprepare(struct clk_hw *hw)
- 
- static const struct clk_ops clk_scu_ops = {
- 	.recalc_rate = clk_scu_recalc_rate,
--	.determine_rate = clk_scu_determine_rate,
- 	.set_rate = clk_scu_set_rate,
- 	.get_parent = clk_scu_get_parent,
- 	.set_parent = clk_scu_set_parent,
-@@ -446,7 +428,6 @@ static const struct clk_ops clk_scu_ops = {
- 
- static const struct clk_ops clk_scu_cpu_ops = {
- 	.recalc_rate = clk_scu_recalc_rate,
--	.determine_rate = clk_scu_determine_rate,
- 	.set_rate = clk_scu_atf_set_cpu_rate,
- 	.prepare = clk_scu_prepare,
- 	.unprepare = clk_scu_unprepare,
-@@ -454,7 +435,6 @@ static const struct clk_ops clk_scu_cpu_ops = {
- 
- static const struct clk_ops clk_scu_pi_ops = {
- 	.recalc_rate = clk_scu_recalc_rate,
--	.determine_rate = clk_scu_determine_rate,
- 	.set_rate    = clk_scu_set_rate,
- };
- 
-@@ -491,7 +471,7 @@ struct clk_hw *__imx_clk_scu(struct device *dev, const char *name,
- 	 * clock status from HW instead of using the possible invalid
- 	 * cached rate.
- 	 */
--	init.flags = CLK_GET_RATE_NOCACHE;
-+	init.flags = CLK_GET_RATE_NOCACHE | CLK_ROUNDING_NOOP;
- 	clk->hw.init = &init;
- 
- 	hw = &clk->hw;
+This might be something to look into in the future. (make
+folio_pte_batch() ignore cont information when comparing and make the
+arm implementation be able to deal with that).
+
+Assume we unmapped the last page of a large folio. Ideally, we'd be able
+to process the remaining THP pieces (all ptes) in a single operation. I
+guess right now it would be two.
 
 -- 
-2.53.0
+Cheers,
 
+David
 
