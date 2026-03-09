@@ -4,138 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50211F417E7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 14:43:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC47F417E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 14:50:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KWVo1TJT3MQBKOWl7Pad2WNZ0erW4Q2tJQx83FA9H48=; b=lqLEkOqV0b7jbe5Qp2C7SnsLHL
-	Xnoco+XE3IEJJZRr9TmB6c2ETfjlHH+TwDvPoSdwUDrz6/KRLgDvwfqGvT4J9GQu6ttY01xQjPGqu
-	nnJmBIFaPOaVZNAZg34z9ryU3K6blUQmLm3WI1UkmXg1bun28yMsHcuQyDu65ygWUslX9YyQHPXHr
-	/tewFCeYYOrc6YD/MgV+rn7rhMmYJMiE8rPLXDUOeZfuzwmxoulLH2yWgpTuz7KJ+lpQeqqnltFwJ
-	FHxDnw9jlgloiAk0yrJmFTEVt5oVVN/c3VeMV+e8WSN0okd0V/XohR9/0OCKE6EZqdCcrm0ApiM6v
-	wFg8s4jA==;
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R2TLoFWv8BY+7A2YLPRtDsKrLz3J10IhJwGMYNqIO8k=; b=Hb1ByOtQyOQaoBajvu3hdolP9P
+	zS6SqtkMaik24KyUZjkDSK1DwdxbXYXuqDz0ITS1tzQbNbMauBL+5807NsHCFnkN6IHWsCwTv52HI
+	XXCUhSx+TvLl/zNPwsWDMCmCheNTjM5UzFeHC7YVm8sA21FlqdCbdHTE/7zVQl+PIix9KGmjU3mz8
+	rnDriDBtiXlYk9x+/gKx/H//bh69V1YNfe2KKuaBCFQg/hsP870BMR1tJY6PTr7sjWTnZLFUOfDOG
+	qK2rDZ3UAzJE0S9ZJriMgu2nK0QvXJkYYN2h7GmAHlRi4weiVgO+77evF6rD8QosA7TNg8kcMvpOq
+	eoboKttQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzbp5-00000007VXA-45qH;
-	Mon, 09 Mar 2026 14:43:07 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vzbvr-00000007W4s-1jDs;
+	Mon, 09 Mar 2026 14:50:07 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzbp3-00000007VWI-0eeO;
-	Mon, 09 Mar 2026 14:43:06 +0000
+	id 1vzbvo-00000007W4V-2FAy
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Mar 2026 14:50:06 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tYm5HTL2NuBEYs88TDtzIYw8P7DH3KufdD5BXu/y5ddHW+uA8TGlezwf45h++sN3cCQWS4/xCvw1kt9Q9Uz5RzKWy3jqJHBbD9YhavMUHjAutL1tUoG0WnnuNZdus2ZfjhWlNAHAWJsqxyeXBerQCni30JT341cwMNwBhqIMsd4PYCB91rFg4bWKmC3PBT54Sbyf/MjTLLVN1bUlhfMRYxUuyEvztsmAfjMzH0P0HVib652niyStZGwZuUZtq8C9W6/f9mcGSsJrUEysXRGJKb3KxiMZNogLlXajOodAZ2NslEwbpa+WKLdwcDRXsZmpYLKVj5VA3Yngn5eyMsWDeA==
+ b=TPyOX1PSq7C6Qg11kmP0T2vRQadYPqtKvrDHRrAas5rSUZiMPzvrSnzeenLGIc6LcwR4vhMS+bge5vyqiSz7F7DoYXuM+exhxNs1XxMrql8aibbriamgwXV79X0FAyPUvKTDoq58CeDHveu7R6yeXVeAl4d6Uua4Dq8rPliSne1O/zdApHYRmMIy8yEBp7am13RIVoT/XoJJBQnaldVLqeDzPBRCXifbyBBcq351m/KTSiJr1Yp20brUkinf/5RLLN/nYcdbYkmsrJLIW+lL6QXuBIKYfIG/rYnXEDF5PtJ58Hn8+4Pz2UVQry7dVbxAeUl0Wbw84cx6CeaZKFzkEQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KWVo1TJT3MQBKOWl7Pad2WNZ0erW4Q2tJQx83FA9H48=;
- b=tXkJAt9A1yA28uYEVbcATrfh6LhyBccQqbhMhA1cWeFbmXkrO3Rj4Qs/c7KtfnFvhHPu92/exkwyKIotEs+3RUu18iQNxhz0kpdEXhZ68D/vMGWt7wMGj+p9rzLyLBdXospS4Txvt/3FW7bCrxXjVrYnYybSCasDi1y0FXpcHV5k/8Wd3LxoEK4alUFYv1bfPOrkFkXWPp//GAEWd/I4cmJc44Kv/mTWzvTUccnJnuU9dzPomogGid8Cjcl6aUS60YNGmT8IMI6gSV985S7l8a19OWUCbz7KhRY/4MVauk7ky3YzaBgANzuGcstFwzuaTQHlexR4lf+defL6NTRtaA==
+ bh=R2TLoFWv8BY+7A2YLPRtDsKrLz3J10IhJwGMYNqIO8k=;
+ b=kJXSlHzh1/fVmBEbXDopG/FkdQOdTNKu/ZVTC/y24ZDGnd0ooXdrt+fIR6oaWXPFHdMejHjAH9gnTfRM9gWq6rq5Ykz+Mn5/BoTXWOvTTFF9eR/xipmXGzLvNmqM0s8PyOfHcRRAuxz6ngKNdnTsFxasQPbqanZY3Zui1liZ0vgYL23VTEuqCnkJ/c5hOmBeWQ1YTVuuBFc2TMGqC6hIzbHKeB1ZYbXkmhv4RLRFsFtpO74nRGkYju91Fg8mlX/b/44kOtgy4gk7RounCAgM3LIN+lPYNRUvu8k+COrkWyJXL4Puix4ciwsJiw6kpK6yof6Tg/NjuDuxJ9+jUyd+eA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KWVo1TJT3MQBKOWl7Pad2WNZ0erW4Q2tJQx83FA9H48=;
- b=nbnXOE5//q3a92bTity49kCPTAiX5PE7MFoypZNgaILYdeM4jfXourHVpUEI6neQeFXCrot62XJBt1UHc0knV8B/+hvUDi98vnPN4tMVAx8W5M876SicpIXOLldGfpVFpi9+F9O9WqbmWb+vuncGLJHZGziiMr0vZnLFKiOlfu/R4uyvnxMa9Qi4u9hsd1D4tM2uTyBpLLITjGjj51Jfs6PymyTHnK+jdcaCE0956411M7a7BrnFE+3fiGcgSyX2cpCk1jxD1aBqlTBoEj+cHEgyieOjjyUJOXyk8MtiQvsLGV+CO4NH7HFDDhRMTZloOFefZZLdIb52yn2rs2G8Jw==
+ bh=R2TLoFWv8BY+7A2YLPRtDsKrLz3J10IhJwGMYNqIO8k=;
+ b=P9oiIogXg5WwDXvbS3BQ7Lr3uC91LAe9TLBSEp54ttb8Y+quWLs9T1xtwrvG2Tb8q1lMoSmJL1MJMq3ZOw0s89iXLcs89VnV4Cda+Bm7616djlziffFlDyAVD+JUW6XfonzpnuOTopTOnnxfLqfpcUIZVPQLB42GUBhUGQbvAPwDjWek7qezFy3RYYPEXwKDFZfq18lhxUV6MqpvTXBCeeQPy5pBef6tb2o35+3hTSL5BFMjUYv8+1ABSzxebhNkMD2gIahRMgbf/8UEse1XFLSi84+5NARxDFXPPVpLBeT9JRwwKCCim4jghGW2XZpqeajXcKv/mPKwx/v8ZfDtew==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by PAXPR04MB8224.eurprd04.prod.outlook.com (2603:10a6:102:1cb::23) with
+ by GV2PR04MB11447.eurprd04.prod.outlook.com (2603:10a6:150:29f::5) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.25; Mon, 9 Mar
- 2026 14:43:00 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.23; Mon, 9 Mar
+ 2026 14:49:57 +0000
 Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
  ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
  ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9678.017; Mon, 9 Mar 2026
- 14:43:00 +0000
-Date: Mon, 9 Mar 2026 10:42:52 -0400
+ 14:49:57 +0000
+Date: Mon, 9 Mar 2026 10:49:50 -0400
 From: Frank Li <Frank.li@nxp.com>
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Manivannan Sadhasivam <mani@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>, Christoph Hellwig <hch@lst.de>,
-	Sagi Grimberg <sagi@grimberg.me>,
-	Chaitanya Kulkarni <kch@nvidia.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Koichiro Den <den@valinux.co.jp>, Niklas Cassel <cassel@kernel.org>,
-	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org,
-	mhi@lists.linux.dev, linux-arm-msm@vger.kernel.org,
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev
-Subject: Re: [PATCH v2 1/8] dmaengine: Add API to combine configuration and
- preparation (sg and single)
-Message-ID: <aa7cbL-B5sbjZr_l@lizhi-Precision-Tower-5810>
-References: <20251218-dma_prep_config-v2-0-c07079836128@nxp.com>
- <20251218-dma_prep_config-v2-1-c07079836128@nxp.com>
- <aa6pW-zpxnrZnfPn@vaman>
-Content-Type: text/plain; charset=us-ascii
+To: Max Krummenacher <max.oss.09@gmail.com>
+Cc: max.krummenacher@gmx.de,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Max Krummenacher <max.krummenacher@toradex.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] Revert "ARM: dts: imx: move nand related property under
+ nand@0"
+Message-ID: <aa7eDrTocupx-tAB@lizhi-Precision-Tower-5810>
+References: <aZcz1vRg4KtAKUd_@lizhi-Precision-Tower-5810>
+ <aZdDF6BObEu_C4KJ@toolbox>
+ <aZdnhv2QC1szMCVl@lizhi-Precision-Tower-5810>
+ <aZ80BWH6DRu8_W_S@toolbox>
+ <aZ82pG3PO1HxD18B@lizhi-Precision-Tower-5810>
+ <aaBA65_zLu8S6WMS@toolbox>
+ <aaBi9lipWTG5l0hs@lizhi-Precision-Tower-5810>
+ <bd0bd330d140f9d9d222c72c3797f79d08fcae1d.camel@active.ch>
+ <aaWxiERQ4u6IhO7Q@lizhi-Precision-Tower-5810>
+ <aa6j55-WbdkGKaU3@toolbox>
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <aa6pW-zpxnrZnfPn@vaman>
-X-ClientProxiedBy: SA1P222CA0198.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:3c4::22) To PA4PR04MB9366.eurprd04.prod.outlook.com
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aa6j55-WbdkGKaU3@toolbox>
+X-ClientProxiedBy: SA1P222CA0035.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:2d0::10) To PA4PR04MB9366.eurprd04.prod.outlook.com
  (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PAXPR04MB8224:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7e6767a0-972c-4821-8eff-08de7dea299d
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GV2PR04MB11447:EE_
+X-MS-Office365-Filtering-Correlation-Id: ce8591d3-b580-4c18-269a-08de7deb21e9
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|19092799006|7416014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: V1l9+RLgAt4QNl9Zr7CUsnJca0tKXBRkHdPDxpCVmlz89obACBzBJDYu6wk8pPp7diSOrsQZY1ZcW5dHsdFbLKV6r5XVQ7wjkvR42OHJ0FdhbMc6jzeuqNN9paAFp+7oKNWY9XHhmiJM66K/ODHRZkQmOUY4VVkuP7tOFICJb5Gy6Eog5RKy7tT2UHCFwQUZLvNP4BMStMSuU/mzQYpLKcdCd8MxGjyJ8b5Ja+I8Fg2DgPuJPkeydmdLGAoecLIkXf6QIPu7CNoNqv+d+RIL9jJepXk1HZn0VO7afEjwFO4HBt8YCHZoH0S5gdvDgj2sPUe7Tsx6duaJ5O7JnbckMd4pMh2rRZTYdw5ovCzxEY0H/W5bcYYtLaWYuWUk/OyO1O8bYDgw9HfJ8Xth6Whf8PptC5VJBn1YFnrGS4RqXBALyzfcsOjuSEe1WjtTS3RRDFpsGh+BYEowj74azk8kcfl0u4JmwVMCqy/lxeU0CzEbDxERPGqm3Lr70CNcLF3e99g4+yQFKad8r9XdJ6Cne03MyK72JxTaPd3G1qQ/H01WcOTGaGv6faxQASzK7V4JRJE7WXV12ftGhVxdJ/jEisx+djBh8jn+bXDtRHOrMkvttbCcwgnugrZ2uxHhou3U55q820EpE8qBVj2CFvcuXbgBKpk4LkgaLKKwSQSMPGXVK45abczIrI/JoOUW+nTfBCruwonaT4buE7lb1XVUTf8hsETzbAEmrRpM+FIuoiMfqgMRwGiUwKhBUkCgL6jTo4xEEvKrec35eBINWIENDkeSX7huetH0WPVYQFaOVN8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(19092799006)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|52116014|7416014|376014|366016|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: C/tEDAMBySAY6urNyKMTHNenxM+3GJrd9NdPYKJOnABsLWe+53ws06Le1zxBWHJSie1a+PZMGGeszNEISoUNaBL2GO8KgiPMZ/TsMBEHyEVhLC7qAF1evFRH59NfNDCaR+zOLuCjcVUJbAmzUVKxpCu8GS+z+0q0Y+Koc5Y1S91mgcfAEaZYQ2uXo9Sgr4iZjDiXfTQDYrLdPiQ3NNwaYHHdLt091ZY90vCHvpWsOggcuioYQh0dQZVzV9bvcTdd4YWZEiecOGzWESy3aGJ+RCu/i6ER04bFq8AJf2hxCmZKWBxgf7eQFHBsJDriXqlnB9NxBdPgx2H4oejyxvdaAnxV8R5wjITZCto0to/pt0jryzpGbl8VfGKSx2DPKIMf/oFX7Junub5/NjmqB2bqGRE4vivTh7fB9ae/1+eBsa3kqcwPxv8bffYW50RAbaETHau8fuTPdMJFZaUfdGXvb7JkFtrWGTMNkfwbA9QuOXTDlLlKZDDmzfRgucl+mzEuqWXPZHhse+bc7Rd2hR96qQKejS34Cl4GkMYJMyg+E2+yyxgeFSY3hKNRPvCEZ4Pwpy5EHCpHoUSscVqJaRlCa6C9sPVgyL3TFTmRt6oseYb48IlX8nOmY//D3M59DR3Of5UsFtrENRxDJK7FRLb6t/yMtHZWylsoZZNlUgGotvtimktj4faiGei+kUJth+60CyMsUSRwsCjX4rZAgbRKG8wSJtYSNVK/29ii7SS14Xve/g9bhrkj7o5SO2XFflLzeho5ceBK1OBoqmbqCKMsAtelkOXxxMPUzKZPtfBOFMA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(52116014)(7416014)(376014)(366016)(38350700014)(7053199007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iRqe6L41q7/vDif2IY/UuKhjxPa/xZv6FCNtekgGGxeei007XYHQ9F3u8zFI?=
- =?us-ascii?Q?fzMF37kcttjy8nOYWk4n3OpdzCoIsqxePhBRvjsz33drinQJMMo29H0pLn5T?=
- =?us-ascii?Q?BxrmycaLs4J6BlourMaqY3TTUu7B5bUoHkwQYH3oyDyEExSRGzlkO14x18CZ?=
- =?us-ascii?Q?VR/0nkmZxiR6J+Q9FTAyRxwpEwibqJljG3La7KP1rBxSKNS/tswhurUllHmw?=
- =?us-ascii?Q?UIm4EFHzLvtGxmJ49sbMlk3TZy5YezXeTQ3pBIu041CEtkW8GRmwvwRMt+vN?=
- =?us-ascii?Q?lHAiwABr4lbH8Mf3i1HZOFSSnoHBf+kXdgIECalT0SHkby5BcgpmxhSaPlVK?=
- =?us-ascii?Q?bPQG2ETLd5JMjXImCUaG5WNUSIhD9vstTzrYuLnui1UPtSYHzrIksbIeyUvx?=
- =?us-ascii?Q?VqFXNYnroOXkkTm2GEl7xIo7v8Jut4ByBArEKTES+llRyhUrCXxaCP4IH4r+?=
- =?us-ascii?Q?Xqo3ZvB3SFyQn6W5F9AZFeFl/Q9hqG06uU7gEBqE3fQAgnBM8IRhzDTnZDen?=
- =?us-ascii?Q?VJ+UypV3hz8bJ2BinVDEWnCiwn2vc3zr1I6n+KoJvAeK1tbaI3dsV4O5n4WK?=
- =?us-ascii?Q?Vm2KzUXnIj3BS5KiVZmKCr4NgXQDoGo8M2Hw2dhxb6s/424mNmZHw5PUAoUh?=
- =?us-ascii?Q?m/ARYGSqHohV6anRy0ymAntkXaA9nEVVi1cXZroumC+6TEywpf7n7i0+MpRD?=
- =?us-ascii?Q?n3+3AFFxx8oeKi9d3HTZHHEB7g8Ihn1svwn8IPA631cu7y48sXoJf3MVWwSS?=
- =?us-ascii?Q?kwwCLCU4Hv2WqnHbuRJCUq7Cl0lOG2FNQYK4OwihNbEK7O9WtdvUyLG6O5ay?=
- =?us-ascii?Q?rAyBkTpETb/U/aL8udQuhz1hYRRi0bp5G88N4GdNSRieeQpE2hW1hLMqQf/M?=
- =?us-ascii?Q?YWVQ69c9SUedGhBZwpKcH5xf40jNEjXmoGpUMQt235K3a2KTZ2oRVdOVqIiT?=
- =?us-ascii?Q?lyfVe7QuqHRJkVZlvMzoinCO70237H+Av6B07g7f1tY+IeN7wdcQjicpVrCr?=
- =?us-ascii?Q?hJkXw98oUAWJ9CCrhzhPnQKzRWfMBBGpIAKAKipqZL3V8CW55PpnzZBgGsfm?=
- =?us-ascii?Q?11ljrPs5rwa+j64EBBvrx0f5vljpD42fBGLQO1ZQ1WM62qakJ27D/EgS8sP+?=
- =?us-ascii?Q?9rdyxug/yuzs/Gf8ZH4bp1leRhN9Mn7pVarFmHdAP2vwRbOtqM3t/hg9+qot?=
- =?us-ascii?Q?GtLWg8nPvb2tKZqNWH3H/qmGyJ+LQNthOm8w7oIlz5GV7kEUg3V7jF7rI3Hz?=
- =?us-ascii?Q?L0J2FbB8f7fmPGsFZ+FvlchAZT1FPYQuTNHnDYNFcNhizS8affWoDbuQKKXj?=
- =?us-ascii?Q?SXeQ4I0kEkhRMOHEveoroAuCT/zUDk4yOLvuvNWbBdPH4UVGD3Vj+jrYyd/W?=
- =?us-ascii?Q?XiEVbCTtGlFbYmKNngetnZeSved1uWSiy+AiewGLrcOAEfxo0XXlLYWA2UwW?=
- =?us-ascii?Q?U6vYwcCtQc9eJloGhsRIH4pKgdx131y+yR8I2w7NrtXij7rBgwCmbqVoVH5s?=
- =?us-ascii?Q?nyY+AirguVh4bZP4d+eXOCaIRFH00P+a95KmPfEsDqr396KB/bE2q98pVXwD?=
- =?us-ascii?Q?ricUyWBpn/qih5VgRy3EUnlilyUUpHHZUdayGmAMieop3Nc7UgMR2mqbwErX?=
- =?us-ascii?Q?L+exHN0/V9OVnNy+YSxL4S71rBYfYVRATKFy3l0mEZNq49opt70Dix1Y0TwX?=
- =?us-ascii?Q?OKXUSfjezOAcKIY3alx4MSY+PXexrhtQVqP2F1Xo/5ANyJMr?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y2RuanVHKzBUTGJXQWMxY0p6Y1Q4SENEZTFXdFdKckVUTDlQMFloU0NRSzhW?=
+ =?utf-8?B?LzYwMXk5d1NoZHpNUE95c1ptci9HMk9IQjJVa2h1MW8zV0hUZDR4cElvVU94?=
+ =?utf-8?B?UGJIK2hmNzI3eFltMWx0ZGx1MDYwdUt2TlhNRkVqbkZhQnRYSlpZRWxma3dD?=
+ =?utf-8?B?Q2VIejdLMjFoRmk2RFJyZ2RwamlNallyMk90S0JTOUxVZXltaFFPUFJyNGQx?=
+ =?utf-8?B?Z2pZYnR4VXZwTEQvUGU0c2RRK3lqT0I0UXI5ODE1QVY3YWNXcFBkMnFhNVVt?=
+ =?utf-8?B?Nm0xUEFGclk2TXBHSk1GMlk2ODA0amIrcnVmMm1GNmhVcFZFaGxRdHNnZ3Vm?=
+ =?utf-8?B?RWlJMkN5ODVEZmxqQ05uY2I1VStWdDlGYlM2NUtmTUZuSy9MM04xZCtKR1hC?=
+ =?utf-8?B?YXJwU1RSZENjTUtTT1lKYlc0OE1jUHY5TDh5ZnUzbyt4Z2ZXTkRzQldCZGc1?=
+ =?utf-8?B?U2FKWFd6YkNvN05ZUHcyNis0enVMWWdjdTNMMS95NXBsSFFxQzVJWmlZS2hn?=
+ =?utf-8?B?MkZzS29QVDNwRVBsaU1FbmRHaE1NVGhXd3doQkFLU09ReXFjT0llQlZkTjNW?=
+ =?utf-8?B?WGlISHArVWVsWTg3YjZGRDZoNVZHTVZweDJmdHBOMmYzQndZTkJkc1U2TDRj?=
+ =?utf-8?B?eWZBbkJHdEFMc1hET3JqTEN5d0owSDkwbGltUkVPNmY1eFFtTzdIYnNBVC9L?=
+ =?utf-8?B?WEVRb3N3MmdyZkpWQnBROHArTmZKd2NQZGRuY25TUG9RVkloVzZodWNPV1Q3?=
+ =?utf-8?B?Z3I2K2hjYkJzc2FaS3pWNWwrQ2s5bUhxdk9pajYwY0M2aSt4aXg1a3FvSmZh?=
+ =?utf-8?B?am1VY0o1MEFqMW5RM3N5OXJaSEY0THRqZ0thb2lKbU9qTGpIOC9zWnFmQkIy?=
+ =?utf-8?B?ZHdpV0VYaldrbCsxaGlyVysvSGV1UjY2ZVYrVit3cGhOR3BhbGI2UVZDdjky?=
+ =?utf-8?B?bm1qdkNOVzVhaTNPOXJnTDkxZ2VqNis3WUExQWVEcjlsZjUvQXBhR3BXZkY3?=
+ =?utf-8?B?VUVhbzltTUEvNjhydVZqV2h3QmZhQ2hJUmR3UTBUazN2SWtYNldRTW1BU3ZQ?=
+ =?utf-8?B?bkhUY3NwZGxtb3MzZ2ZjdndlMnJ1UFJxM0FHTjViNlZFRkJiVkdEWkRlTkJ4?=
+ =?utf-8?B?QmJOeElPUGkvdi9NTVU1UTY3bDVzdy9uWEpiY0Rya21BeFY1RWZjR1ZoVHZE?=
+ =?utf-8?B?NHR4cFlHSEladFYrSmd5WGdxbTdrZnBSYlB2R085c0xHUWM4cUh2NkFFSUNz?=
+ =?utf-8?B?c0cwV1Q1TmpIa0p6NnFkZWNkWmJvSVNpTEdST0t4cTJ4MU9lTDZFODJuYXVl?=
+ =?utf-8?B?bE1sZXVQdHJYSzBnYzcvS2JZb29zUFF2SkZCMnlvR1FZOWhXOFF3MyszQUdG?=
+ =?utf-8?B?dEV1T244SjdwUDcvdk1TNExjcXFpb2UxSUtrcVdWQ1FHdlI0MG5RQXhRbC9n?=
+ =?utf-8?B?cFo0OSt1RXUwYmdVbkxOSHBtTTEyM05mYXlPNDIxRCt4WmQ4b1AxV0hpWnFK?=
+ =?utf-8?B?MDdsQXU5aXZDa3hjSDJkZGtaRjY5WEVRRzNnODRaRXhPTW5aNStTMTFMSi9o?=
+ =?utf-8?B?Y0VCbGVxeERyd05Lc0lva0R1cTdWRlpTcnlhUmtHMUh1SGJpcVNXQnAwQmFv?=
+ =?utf-8?B?T0RyVFcyU3NMY2NaRUxGOGp1WGMxQ2NTbCtZS2RMVjVFWDVyWmF6MTQrT2Y5?=
+ =?utf-8?B?dklSR0hZWUoydTF4dzZaSHh2QUp3S3dtb0lJYW55Ylp5QUZGRkhPNmlzMkdj?=
+ =?utf-8?B?Vy9OVHR2SkRkaTRzKzF1M2srcGJ2QXBSVll6R1JWeW5oakgzZ2kzSHZoVTM5?=
+ =?utf-8?B?R1RqNzZHcUdyN1R3RHJ5TllJR1ROQnN1OENCV2gxOGUyZkZSUndLUXRYMVd1?=
+ =?utf-8?B?ZXQ0VXJWM2hCRnIvaHF0dFVkeDFZWUlTTXdFVnJVNkh1MzdvOE5CeTJJeGc2?=
+ =?utf-8?B?V0FXZHlxbkNBS3JyZ2g0M0JVdTZub1FONFZkOHF3VXU4K2l5RmtxMTRRc1dz?=
+ =?utf-8?B?blRHamZZd095U256c1RPU1NGVlF2TzBUWDg2a0VDbDd4K3g4VnAyWWtEbit6?=
+ =?utf-8?B?cGViNDB6Y3hDNEVhOFYyMjYrQTZkdnphdWlXZ2JDbnF5ZUZ4N21NWVBIeThF?=
+ =?utf-8?B?SjZRZmtQUEJjdWNjZHVaWTJqU0pMWEVBYjczVnZybUtuNWpkdDROVGU5YzFO?=
+ =?utf-8?B?dEQ0cFdIVlR3elFIS1o5cGVudXgxOXdhNkNuTng0MkRlcHI5U0dDMDN5Z3VJ?=
+ =?utf-8?B?WUI4TkV5M0laRXFkSnY5czRVcVR0N1NMNUsxZUhNQURPM1FzS3RaVkwwSnQx?=
+ =?utf-8?Q?tu5x5bNKY06A1k+37B?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7e6767a0-972c-4821-8eff-08de7dea299d
+X-MS-Exchange-CrossTenant-Network-Message-Id: ce8591d3-b580-4c18-269a-08de7deb21e9
 X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Mar 2026 14:43:00.8722
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Mar 2026 14:49:57.6315
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HjcwjvZBgxJ0sKInHt1n4heS9jEHl1MPWd51WcjppvW3QtL2H4iXCkGjdfm0rqSns8usOovErA/lT63f5HS0sQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8224
+X-MS-Exchange-CrossTenant-UserPrincipalName: sEDmqnrQgsbqRKtZE//zJwk5M6w+Irsn1PjjlARl0Vr16qUhhTmRB6udWSziS2YB7xpRlSwzwNzviT+z7uEBdw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11447
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_074305_200069_C9A53E28 
-X-CRM114-Status: GOOD (  24.52  )
+X-CRM114-CacheID: sfid-20260309_075004_765432_37F67FED 
+X-CRM114-Status: GOOD (  48.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,68 +166,552 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 09, 2026 at 12:04:59PM +0100, Vinod Koul wrote:
-> On 18-12-25, 10:56, Frank Li wrote:
-> > Previously, configuration and preparation required two separate calls. This
-> > works well when configuration is done only once during initialization.
+On Mon, Mar 09, 2026 at 11:41:43AM +0100, Max Krummenacher wrote:
+> On Mon, Mar 02, 2026 at 10:49:28AM -0500, Frank Li wrote:
+> > On Mon, Mar 02, 2026 at 11:53:00AM +0100, Max Krummenacher wrote:
+> > > Am Donnerstag, dem 26.02.2026 um 10:12 -0500 schrieb Frank Li:
+> > > > On Thu, Feb 26, 2026 at 01:47:39PM +0100, Max Krummenacher wrote:
+> > > > > On Wed, Feb 25, 2026 at 12:51:32PM -0500, Frank Li wrote:
+> > > > > > On Wed, Feb 25, 2026 at 06:40:21PM +0100, Max Krummenacher wrote:
+> > > > > > > On Thu, Feb 19, 2026 at 02:41:58PM -0500, Frank Li wrote:
+> > > > > > > > On Thu, Feb 19, 2026 at 06:06:31PM +0100, Max Krummenacher wrote:
+> > > > > > > > > Hi Frank
+> > > > > > > > >
+> > > > > > > > > On Thu, Feb 19, 2026 at 11:01:26AM -0500, Frank Li wrote:
+> > > > > > > > > > On Thu, Feb 19, 2026 at 04:11:49PM +0100, max.oss.09@gmail.com wrote:
+> > > > > > > > > > > From: Max Krummenacher <max.krummenacher@toradex.com>
+> > > > > > > > > > >
+> > > > > > > > > > > This reverts commit 8124b4a4a96b57d6cc3705a9df9623c52baa047b.
+> > > > > > > > > > >
+> > > > > > > > > > > The change introduced a regression: at least Colibri iMX6ULL and
+> > > > > > > > > > > Colibri iMX7 no longer boot with that commit applied, while they boot
+> > > > > > > > > > > again after reverting it.
+> > > > > > > > > > >
+> > > > > > > > > > > Although this has only been verified on these two modules, the issue
+> > > > > > > > > > > is expected to affect all device trees using the gpmi-nand driver.
+> > > > > > > > > > >
+> > > > > > > > > > > [    0.876938] Creating 5 MTD partitions on "gpmi-nand":
+> > > > > > > > > > > [    0.876974] 0x000000000000-0x000000080000 : "mx7-bcb"
+> > > > > > > > > > > [    0.879860] 0x000000080000-0x000000200000 : "u-boot1"
+> > > > > > > > > > > [    0.884761] 0x000000200000-0x000000380000 : "u-boot2"
+> > > > > > > > > > > [    0.886993] 0x000000380000-0x000000400000 : "u-boot-env"
+> > > > > > > > > > > [    0.894686] 0x000000400000-0x000020000000 : "ubi"
+> > > > > > > > > > > [    0.899054] gpmi-nand 33002000.nand-controller: driver registered.
+> > > > > > > > > > > ...
+> > > > > > > > > > > [    0.960443] ubi0: default fastmap pool size: 200
+> > > > > > > > > > > [    0.960476] ubi0: default fastmap WL pool size: 100
+> > > > > > > > > > > [    0.960500] ubi0: attaching mtd4
+> > > > > > > > > > > [    1.636355] ubi0 error: scan_peb: bad image sequence number 1588722158 in PEB 4060, expected 1574791632
+> > > > > > > > > > > ...
+> > > > > > > > > > > [    1.649889] ubi0 error: ubi_attach_mtd_dev: failed to attach mtd4, error -22
+> > > > > > > > > > > [    1.650029] UBI error: cannot attach mtd4
+> > > > > > > > > > > ...
+> > > > > > > > > > > [    1.670262] Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,253)
+> > > > > > > > > >
+> > > > > > > > > > Can you help found the real reason why not boot?
+> > > > > > > > > > nand@0 is preferred format for MTD raw nand.
+> > > > > > > > > >
+> > > > > > > > > > Frank
+> > > > > > > > >
+> > > > > > > > > I guess the root cause is that the driver for gpmi-nand predates the
+> > > > > > > > > update of the binding rules which want the nand device described in
+> > > > > > > > > a child node 'nand@0' also for nand controllers which only can
+> > > > > > > > > control one nand chip.
+> > > > > > > > >
+> > > > > > > > > While it is possible to update the driver in the same patch set as
+> > > > > > > > > changing the device tree to understand the new dtb rules, maybe even
+> > > > > > > > > falling back to the old definitions this likely breaks other users,
+> > > > > > > > > most notable U-Boot.
+> > > > > > > >
+> > > > > > > > GPMI is widely used, include i.MX8 still use GPMI. Does below patch fix
+> > > > > > > > boot problem?
+> > > > > > >
+> > > > > > > My concern is that the new device tree (with the nand@0 subnode) is not
+> > > > > > > yet understood by other consumers of the DT sources, e.g. U‑Boot, older
+> > > > > > > Linux kernels (before the driver change), possibly barebox, and any
+> > > > > > > other consumer that relies on the kernel DT files.
+> > > > > >
+> > > > > > I understand, but we need move forward. we can keep both for transition.
+> > > > > >
+> > > > > > >
+> > > > > > > Updating only the Linux driver to support both the new and old bindings
+> > > > > > > therefore solves only part of the problem. As long as these other
+> > > > > > > consumers do not understand both bindings as well, we cannot safely
+> > > > > > > update the shared DT sources. So I think the commit needs to be reverted.
+> > > > > > >
+> > > > > > > In addition, the proposed fix in the driver is likely incomplete:
+> > > > > > > with the old binding there may be child nodes (i.e for partitions).
+> > > > > > > 'np = of_get_next_child(this->pdev->dev.of_node, NULL);' does then find
+> > > > > > > a node whcih is not the node that actually describes the single NAND
+> > > > > > > chip.
+> > > > > >
+> > > > > > I know it is incomplete, just want to check if it is the reason cause
+> > > > > > boot failure.
+> > > > > >
+> > > > > > >
+> > > > > > > An alternative approach could be to update the binding documentation
+> > > > > > > so that, specifically for the GPMI driver, the older binding is also
+> > > > > > > considered valid.
+> > > > > >
+> > > > > > Not easy to do that, I try many method to update yaml file. common nand
+> > > > > > flash detect node node "nand-controller".
+> > > > > >
+> > > > > > > Once the driver supports both the old and the new binding, the old
+> > > > > > > form could be marked as deprecated, but still allowed for compatibility.
+> > > > > > > This would avoid breaking existing consumers while giving us a path
+> > > > > > > to migrate DTs over time.
+> > > > > >
+> > > > > > Needn't revert all, just revert delete part, keep both to help migrate.
+> > > > > >
+> > > > > > anyways, I need know if of_get_next_child(this->pdev->dev.of_node, NULL);
+> > > > > > fix your problem.
+> > > > >
+> > > > > I tested the following on Colibri iMX7.
+> > > > >
+> > > > > kernel 7.0-rc1 and DTB are built from an untouched kernel at commit
+> > > > > 7dff99b35460 ("Remove WARN_ALL_UNSEEDED_RANDOM kernel config option").
+> > > > >
+> > > > > kernel 7.0-rc1 patched has the sources as above plus the changes you
+> > > > > propose to the gpmi-nand driver.
+> > > > >
+> > > > > DTB-reverted has the sources as above plus commit 8124b4a4a96b ("ARM:
+> > > > > dts: imx: move nand related property under nand@0") reverted.
+> > > > >
+> > > > >                               DTB        DTB-reverted
+> > > > >
+> > > > > kernel 7.0-rc1                fail       boots
+> > > > >
+> > > > > kernel 7.0-rc1 patched        boots      boots
+> > > >
+> > > > Thanks you for testing. I will work a formal patch for it. Can you help
+> > > > rework you patch, which keep both properties, just revert deleted part
+> > > > and keep everything nand@0, so it help transistion. you also start work
+> > > > uboot part.
+> > >
+> > > We are happy to test any patch proposals on our hardware for U-Boot
+> > > and Linux, with and without the nand@0 subnode.
+> > >
+> > > Please note that the current state as of Linux v7.0-rc2 is broken
+> > > for our NAND-based modules, and our CI no longer produces any useful
+> > > results as a consequence.
+> > >
+> > > I strongly believe that, as an immediate first step, the commit
+> > > that moved the DT NAND chip configuration into its subnode should
+> > > be reverted.
 > >
-> > However, in cases where the burst length or source/destination address must
-> > be adjusted for each transfer, calling two functions is verbose and
-> > requires additional locking to ensure both steps complete atomically.
+> > As my previous said, can do partial revert? Just add back property under
+> > gpmi and keep nand@0 node.
 > >
-> > Add a new API dmaengine_prep_config_single() and dmaengine_prep_config_sg()
-> > and callback device_prep_config_sg() that combines configuration and
-> > preparation into a single operation. If the configuration argument is
-> > passed as NULL, fall back to the existing implementation.
+> > For example
 > >
-> > Add a new API dmaengine_prep_config_single_safe() and
-> > dmaengine_prep_config_sg_safe() for re-entrancy, which require driver
-> > implement callback device_prep_config_sg().
+> > --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
+> > +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
+> > @@ -260,14 +260,10 @@ fixed-link {
+> > &gpmi {
+> >   	pinctrl-names = "default";
+> >   	pinctrl-0 = <&pinctrl_gpmi_nand>;
+> > +	nand-on-flash-bbt;
+> >   	#address-cells = <1>;
+> >  	#size-cells = <0>;
+> >   	status = "okay";
+> >
+> > Remove "- nand@0" part.  You can use "git add -p" to do that.
+> >
+> > Frank
 >
-> Okay to add API
+> Sorry for the delay, was AFK last week.
 >
-> > +	struct dma_async_tx_descriptor *(*device_prep_config_sg)(
-> > +		struct dma_chan *chan, struct scatterlist *sgl,
-> > +		unsigned int sg_len, enum dma_transfer_direction direction,
-> > +		unsigned long flags, struct dma_slave_config *config,
-> > +		void *context);
+> I tried the partial revert of having the properties configuring the
+> nand chip both at the nand controller node level directly and
+> additionally in the subnode nand@0.
+> I.e. revert what your patch removes but keep what it adds.
 >
-> Do we want to have drivers implement one more callback. It does not make
-> sense to me. Why not handle this in framework and have it call the
-> respective lower level APIs.
-
-To avoid use addtional lock! suppose each API is re-entriable.
-
-thread 1:  call dmaengine_prep_config_sg_safe()
-thread 2:  call dmaengine_prep_config_sg_safe()
-
-If DMA engine driver implement device_prep_config_sg, thread 1 and thread 2
-can run parallel.
-
-If driver have not implement this callback, it have to use mutex make sure
-config and prep atomic.
-
-https://lore.kernel.org/dmaengine/20260109-edma_dymatic-v1-0-9a98c9c98536@nxp.com/
-show finial opitimziation result, which depend on this. If can't call
-prep() function parallel, which will kill performace.
-
+> This works with the existing gpmi driver and the patched gpmi driver:
 >
-> Drivers should implement simple apis and collectively the functionality
-> can come from the framework.
->
-> Would you consider revising as such. Bonus all existing drivers can
-> start using this API, no change required for drivers in that case'
+>                               DTB        DTB-reverted DTB-partially-reverted
+> kernel 7.0-rc1                fail       boots        boots
+> kernel 7.0-rc1 patched        boots      boots        boots
 
-Not that simple, some devices just call config at probe, especial fix
-FIFO address and burst length.
-
-Call config and prep only need for the case, which need adjust src/dst
-address, burst length or other parameter for each transfer.
+Thanks! I already appled revert patch. If you sent out partially revert
+patch, I can replace my fixes branch before I send out pull-reqeust
+(plan in this Friday)
 
 Frank
 
 >
+> Regards
+> Max[A
 >
-> --
-> ~Vinod
+> >
+> >
+> > >
+> > > Regards
+> > > Max
+> > >
+> > > >
+> > > > I plan give additional 1 year to do transistion. This type layout actually
+> > > > exist for long time.
+> > > >
+> > > > Frank
+> > > >
+> > > > >
+> > > > > Regards
+> > > > > Max
+> > > > >
+> > > > > >
+> > > > > > Frank
+> > > > > > >
+> > > > > > > Regards,
+> > > > > > > Max
+> > > > > > >
+> > > > > > > >
+> > > > > > > > diff --git a/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c b/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
+> > > > > > > > index 51f595fbc834e..fb126a7c4a61e 100644
+> > > > > > > > --- a/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
+> > > > > > > > +++ b/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
+> > > > > > > > @@ -2680,6 +2680,7 @@ static int gpmi_nand_init(struct gpmi_nand_data *this)
+> > > > > > > >  {
+> > > > > > > >         struct nand_chip *chip = &this->nand;
+> > > > > > > >         struct mtd_info  *mtd = nand_to_mtd(chip);
+> > > > > > > > +       struct device_node *np;
+> > > > > > > >         int ret;
+> > > > > > > >
+> > > > > > > >         /* init the MTD data structures */
+> > > > > > > > @@ -2688,7 +2689,10 @@ static int gpmi_nand_init(struct gpmi_nand_data *this)
+> > > > > > > >
+> > > > > > > >         /* init the nand_chip{}, we don't support a 16-bit NAND Flash bus. */
+> > > > > > > >         nand_set_controller_data(chip, this);
+> > > > > > > > -       nand_set_flash_node(chip, this->pdev->dev.of_node);
+> > > > > > > > +       np = of_get_next_child(this->pdev->dev.of_node, NULL);
+> > > > > > > > +       if (!np)
+> > > > > > > > +               np = this->pdev->dev.of_node;
+> > > > > > > > +       nand_set_flash_node(chip, np);
+> > > > > > > >         chip->legacy.block_markbad = gpmi_block_markbad;
+> > > > > > > >         chip->badblock_pattern  = &gpmi_bbt_descr;
+> > > > > > > >         chip->options           |= NAND_NO_SUBPAGE_WRITE;
+> > > > > > > >
+> > > > > > > > Frank
+> > > > > > > > >
+> > > > > > > > >
+> > > > > > > > > So I don't see a quick fix other than reverting and living with the
+> > > > > > > > > dtb_check warning.
+> > > > > > > > >
+> > > > > > > > > Regards,
+> > > > > > > > > Max
+> > > > > > > > >
+> > > > > > > > > > >
+> > > > > > > > > > > Fixes: 8124b4a4a96b ("ARM: dts: imx: move nand related property under nand@0")
+> > > > > > > > > > > Signed-off-by: Max Krummenacher <max.krummenacher@toradex.com>
+> > > > > > > > > > >
+> > > > > > > > > > > ---
+> > > > > > > > > > >
+> > > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx6-logicpd-som.dtsi      |  6 +-----
+> > > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx6qdl-icore.dtsi         |  6 +-----
+> > > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-pfla02.dtsi |  6 +-----
+> > > > > > > > > > >  .../boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi |  6 +-----
+> > > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi      |  6 +-----
+> > > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi           |  6 +-----
+> > > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx6ul-geam.dts            |  6 +-----
+> > > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx6ul-isiot.dtsi          |  6 +-----
+> > > > > > > > > > >  .../boot/dts/nxp/imx/imx6ul-phytec-phycore-som.dtsi  |  6 +-----
+> > > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi          |  6 +-----
+> > > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi       | 12 ++++--------
+> > > > > > > > > > >  .../boot/dts/nxp/imx/imx6ull-engicam-microgea.dtsi   | 12 ++++--------
+> > > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx6ull-myir-mys-6ulx.dtsi |  6 +-----
+> > > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts     |  6 +-----
+> > > > > > > > > > >  arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi          |  8 ++------
+> > > > > > > > > > >  15 files changed, 22 insertions(+), 82 deletions(-)
+> > > > > > > > > > >
+> > > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6-logicpd-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6-logicpd-som.dtsi
+> > > > > > > > > > > index f452764fae00..547fb141ec0c 100644
+> > > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6-logicpd-som.dtsi
+> > > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6-logicpd-som.dtsi
+> > > > > > > > > > > @@ -36,12 +36,8 @@ &clks {
+> > > > > > > > > > >  &gpmi {
+> > > > > > > > > > >  	pinctrl-names = "default";
+> > > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
+> > > > > > > > > > > +	nand-on-flash-bbt;
+> > > > > > > > > > >  	status = "okay";
+> > > > > > > > > > > -
+> > > > > > > > > > > -	nand@0 {
+> > > > > > > > > > > -		reg = <0>;
+> > > > > > > > > > > -		nand-on-flash-bbt;
+> > > > > > > > > > > -	};
+> > > > > > > > > > >  };
+> > > > > > > > > > >
+> > > > > > > > > > >  &i2c3 {
+> > > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-icore.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-icore.dtsi
+> > > > > > > > > > > index 58ecdb87c6d4..9975b6ee433d 100644
+> > > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-icore.dtsi
+> > > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-icore.dtsi
+> > > > > > > > > > > @@ -172,12 +172,8 @@ eth_phy: ethernet-phy@0 {
+> > > > > > > > > > >  &gpmi {
+> > > > > > > > > > >  	pinctrl-names = "default";
+> > > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
+> > > > > > > > > > > +	nand-on-flash-bbt;
+> > > > > > > > > > >  	status = "okay";
+> > > > > > > > > > > -
+> > > > > > > > > > > -	nand@0 {
+> > > > > > > > > > > -		reg = <0>;
+> > > > > > > > > > > -		nand-on-flash-bbt;
+> > > > > > > > > > > -	};
+> > > > > > > > > > >  };
+> > > > > > > > > > >
+> > > > > > > > > > >  &i2c1 {
+> > > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-pfla02.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-pfla02.dtsi
+> > > > > > > > > > > index 6f3becd33a5b..aa9a442852f4 100644
+> > > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-pfla02.dtsi
+> > > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-pfla02.dtsi
+> > > > > > > > > > > @@ -102,12 +102,8 @@ ethphy: ethernet-phy@0 {
+> > > > > > > > > > >  &gpmi {
+> > > > > > > > > > >  	pinctrl-names = "default";
+> > > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
+> > > > > > > > > > > +	nand-on-flash-bbt;
+> > > > > > > > > > >  	status = "okay";
+> > > > > > > > > > > -
+> > > > > > > > > > > -	nand@0 {
+> > > > > > > > > > > -		reg = <0>;
+> > > > > > > > > > > -		nand-on-flash-bbt;
+> > > > > > > > > > > -	};
+> > > > > > > > > > >  };
+> > > > > > > > > > >
+> > > > > > > > > > >  &i2c1 {
+> > > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
+> > > > > > > > > > > index f2140dd8525f..85e278eb2016 100644
+> > > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
+> > > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
+> > > > > > > > > > > @@ -73,12 +73,8 @@ ethphy: ethernet-phy@3 {
+> > > > > > > > > > >  &gpmi {
+> > > > > > > > > > >  	pinctrl-names = "default";
+> > > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
+> > > > > > > > > > > +	nand-on-flash-bbt;
+> > > > > > > > > > >  	status = "disabled";
+> > > > > > > > > > > -
+> > > > > > > > > > > -	nand@0 {
+> > > > > > > > > > > -		reg = <0>;
+> > > > > > > > > > > -		nand-on-flash-bbt;
+> > > > > > > > > > > -	};
+> > > > > > > > > > >  };
+> > > > > > > > > > >
+> > > > > > > > > > >  &i2c3 {
+> > > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
+> > > > > > > > > > > index 131a3428ddb8..c93dbc595ef6 100644
+> > > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
+> > > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
+> > > > > > > > > > > @@ -260,14 +260,10 @@ fixed-link {
+> > > > > > > > > > >  &gpmi {
+> > > > > > > > > > >  	pinctrl-names = "default";
+> > > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
+> > > > > > > > > > > +	nand-on-flash-bbt;
+> > > > > > > > > > >  	#address-cells = <1>;
+> > > > > > > > > > >  	#size-cells = <0>;
+> > > > > > > > > > >  	status = "okay";
+> > > > > > > > > > > -
+> > > > > > > > > > > -	nand@0 {
+> > > > > > > > > > > -		reg = <0>;
+> > > > > > > > > > > -		nand-on-flash-bbt;
+> > > > > > > > > > > -	};
+> > > > > > > > > > >  };
+> > > > > > > > > > >
+> > > > > > > > > > >  &i2c3 {
+> > > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi
+> > > > > > > > > > > index d29adfef5fdb..57297d6521cf 100644
+> > > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi
+> > > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi
+> > > > > > > > > > > @@ -252,13 +252,9 @@ etnphy: ethernet-phy@0 {
+> > > > > > > > > > >  &gpmi {
+> > > > > > > > > > >  	pinctrl-names = "default";
+> > > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
+> > > > > > > > > > > +	nand-on-flash-bbt;
+> > > > > > > > > > >  	fsl,no-blockmark-swap;
+> > > > > > > > > > >  	status = "okay";
+> > > > > > > > > > > -
+> > > > > > > > > > > -	nand@0 {
+> > > > > > > > > > > -		reg = <0>;
+> > > > > > > > > > > -		nand-on-flash-bbt;
+> > > > > > > > > > > -	};
+> > > > > > > > > > >  };
+> > > > > > > > > > >
+> > > > > > > > > > >  &i2c1 {
+> > > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-geam.dts b/arch/arm/boot/dts/nxp/imx/imx6ul-geam.dts
+> > > > > > > > > > > index 40d530c1dc29..2a6bb5ff808a 100644
+> > > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6ul-geam.dts
+> > > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6ul-geam.dts
+> > > > > > > > > > > @@ -133,12 +133,8 @@ ethphy1: ethernet-phy@1 {
+> > > > > > > > > > >  &gpmi {
+> > > > > > > > > > >  	pinctrl-names = "default";
+> > > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
+> > > > > > > > > > > +	nand-on-flash-bbt;
+> > > > > > > > > > >  	status = "okay";
+> > > > > > > > > > > -
+> > > > > > > > > > > -	nand@0 {
+> > > > > > > > > > > -		reg = <0>;
+> > > > > > > > > > > -		nand-on-flash-bbt;
+> > > > > > > > > > > -	};
+> > > > > > > > > > >  };
+> > > > > > > > > > >
+> > > > > > > > > > >  &i2c1 {
+> > > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-isiot.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-isiot.dtsi
+> > > > > > > > > > > index 776f6f78ee46..e34c8cbe36ae 100644
+> > > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6ul-isiot.dtsi
+> > > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6ul-isiot.dtsi
+> > > > > > > > > > > @@ -101,12 +101,8 @@ ethphy0: ethernet-phy@0 {
+> > > > > > > > > > >  &gpmi {
+> > > > > > > > > > >  	pinctrl-names = "default";
+> > > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
+> > > > > > > > > > > +	nand-on-flash-bbt;
+> > > > > > > > > > >  	status = "disabled";
+> > > > > > > > > > > -
+> > > > > > > > > > > -	nand@0 {
+> > > > > > > > > > > -		reg = <0>;
+> > > > > > > > > > > -		nand-on-flash-bbt;
+> > > > > > > > > > > -	};
+> > > > > > > > > > >  };
+> > > > > > > > > > >
+> > > > > > > > > > >  &i2c1 {
+> > > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-phytec-phycore-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-phytec-phycore-som.dtsi
+> > > > > > > > > > > index 27e4d2aec137..a3ea1b208462 100644
+> > > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6ul-phytec-phycore-som.dtsi
+> > > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6ul-phytec-phycore-som.dtsi
+> > > > > > > > > > > @@ -63,12 +63,8 @@ ethphy1: ethernet-phy@1 {
+> > > > > > > > > > >  &gpmi {
+> > > > > > > > > > >  	pinctrl-names = "default";
+> > > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
+> > > > > > > > > > > +	nand-on-flash-bbt;
+> > > > > > > > > > >  	status = "disabled";
+> > > > > > > > > > > -
+> > > > > > > > > > > -	nand@0 {
+> > > > > > > > > > > -		reg = <0>;
+> > > > > > > > > > > -		nand-on-flash-bbt;
+> > > > > > > > > > > -	};
+> > > > > > > > > > >  };
+> > > > > > > > > > >
+> > > > > > > > > > >  &i2c1 {
+> > > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
+> > > > > > > > > > > index dc53f9286ffe..1992dfb53b45 100644
+> > > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
+> > > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
+> > > > > > > > > > > @@ -296,13 +296,9 @@ &fec2 {
+> > > > > > > > > > >  &gpmi {
+> > > > > > > > > > >  	pinctrl-names = "default";
+> > > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
+> > > > > > > > > > > +	nand-on-flash-bbt;
+> > > > > > > > > > >  	fsl,no-blockmark-swap;
+> > > > > > > > > > >  	status = "okay";
+> > > > > > > > > > > -
+> > > > > > > > > > > -	nand@0 {
+> > > > > > > > > > > -		reg = <0>;
+> > > > > > > > > > > -		nand-on-flash-bbt;
+> > > > > > > > > > > -	};
+> > > > > > > > > > >  };
+> > > > > > > > > > >
+> > > > > > > > > > >  &i2c2 {
+> > > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi
+> > > > > > > > > > > index eaed2cbf0c82..ec3c1e7301f4 100644
+> > > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi
+> > > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi
+> > > > > > > > > > > @@ -160,15 +160,11 @@ &gpmi {
+> > > > > > > > > > >  	pinctrl-names = "default";
+> > > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
+> > > > > > > > > > >  	fsl,use-minimum-ecc;
+> > > > > > > > > > > +	nand-on-flash-bbt;
+> > > > > > > > > > > +	nand-ecc-mode = "hw";
+> > > > > > > > > > > +	nand-ecc-strength = <8>;
+> > > > > > > > > > > +	nand-ecc-step-size = <512>;
+> > > > > > > > > > >  	status = "okay";
+> > > > > > > > > > > -
+> > > > > > > > > > > -	nand@0 {
+> > > > > > > > > > > -		reg = <0>;
+> > > > > > > > > > > -		nand-on-flash-bbt;
+> > > > > > > > > > > -		nand-ecc-mode = "hw";
+> > > > > > > > > > > -		nand-ecc-strength = <8>;
+> > > > > > > > > > > -		nand-ecc-step-size = <512>;
+> > > > > > > > > > > -	};
+> > > > > > > > > > >  };
+> > > > > > > > > > >
+> > > > > > > > > > >  /* I2C3_SDA/SCL on SODIMM 194/196 (e.g. RTC on carrier board) */
+> > > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea.dtsi
+> > > > > > > > > > > index 3dfd43b32055..43518bf07602 100644
+> > > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea.dtsi
+> > > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea.dtsi
+> > > > > > > > > > > @@ -43,15 +43,11 @@ ethphy0: ethernet-phy@0 {
+> > > > > > > > > > >  &gpmi {
+> > > > > > > > > > >  	pinctrl-names = "default";
+> > > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
+> > > > > > > > > > > +	nand-ecc-mode = "hw";
+> > > > > > > > > > > +	nand-ecc-strength = <0>;
+> > > > > > > > > > > +	nand-ecc-step-size = <0>;
+> > > > > > > > > > > +	nand-on-flash-bbt;
+> > > > > > > > > > >  	status = "okay";
+> > > > > > > > > > > -
+> > > > > > > > > > > -	nand@0 {
+> > > > > > > > > > > -		reg = <0>;
+> > > > > > > > > > > -		nand-ecc-mode = "hw";
+> > > > > > > > > > > -		nand-ecc-strength = <0>;
+> > > > > > > > > > > -		nand-ecc-step-size = <0>;
+> > > > > > > > > > > -		nand-on-flash-bbt;
+> > > > > > > > > > > -	};
+> > > > > > > > > > >  };
+> > > > > > > > > > >
+> > > > > > > > > > >  &iomuxc {
+> > > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-myir-mys-6ulx.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ull-myir-mys-6ulx.dtsi
+> > > > > > > > > > > index fc298f57bfff..83b9de17cee2 100644
+> > > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6ull-myir-mys-6ulx.dtsi
+> > > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6ull-myir-mys-6ulx.dtsi
+> > > > > > > > > > > @@ -60,12 +60,8 @@ ethphy0: ethernet-phy@0 {
+> > > > > > > > > > >  &gpmi {
+> > > > > > > > > > >  	pinctrl-names = "default";
+> > > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
+> > > > > > > > > > > +	nand-on-flash-bbt;
+> > > > > > > > > > >  	status = "disabled";
+> > > > > > > > > > > -
+> > > > > > > > > > > -	nand@0 {
+> > > > > > > > > > > -		reg = <0>;
+> > > > > > > > > > > -		nand-on-flash-bbt;
+> > > > > > > > > > > -	};
+> > > > > > > > > > >  };
+> > > > > > > > > > >
+> > > > > > > > > > >  &uart1 {
+> > > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts b/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts
+> > > > > > > > > > > index 8ec18eae98a4..2d9f495660c9 100644
+> > > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts
+> > > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts
+> > > > > > > > > > > @@ -25,12 +25,8 @@ usdhc2_pwrseq: usdhc2-pwrseq {
+> > > > > > > > > > >  &gpmi {
+> > > > > > > > > > >  	pinctrl-names = "default";
+> > > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
+> > > > > > > > > > > +	nand-on-flash-bbt;
+> > > > > > > > > > >  	status = "okay";
+> > > > > > > > > > > -
+> > > > > > > > > > > -	nand@0 {
+> > > > > > > > > > > -		reg = <0>;
+> > > > > > > > > > > -		nand-on-flash-bbt;
+> > > > > > > > > > > -	};
+> > > > > > > > > > >  };
+> > > > > > > > > > >
+> > > > > > > > > > >  &snvs_poweroff {
+> > > > > > > > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi b/arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi
+> > > > > > > > > > > index a41dc4edfc0d..8666dcd7fe97 100644
+> > > > > > > > > > > --- a/arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi
+> > > > > > > > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi
+> > > > > > > > > > > @@ -375,14 +375,10 @@ &gpio7 {
+> > > > > > > > > > >  /* NAND on such SKUs */
+> > > > > > > > > > >  &gpmi {
+> > > > > > > > > > >  	fsl,use-minimum-ecc;
+> > > > > > > > > > > +	nand-ecc-mode = "hw";
+> > > > > > > > > > > +	nand-on-flash-bbt;
+> > > > > > > > > > >  	pinctrl-names = "default";
+> > > > > > > > > > >  	pinctrl-0 = <&pinctrl_gpmi_nand>;
+> > > > > > > > > > > -
+> > > > > > > > > > > -	nand@0 {
+> > > > > > > > > > > -		reg = <0>;
+> > > > > > > > > > > -		nand-ecc-mode = "hw";
+> > > > > > > > > > > -		nand-on-flash-bbt;
+> > > > > > > > > > > -	};
+> > > > > > > > > > >  };
+> > > > > > > > > > >
+> > > > > > > > > > >  /* On-module Power I2C */
+> > > > > > > > > > > --
+> > > > > > > > > > > 2.42.0
+> > > > > > > > > > >
 
