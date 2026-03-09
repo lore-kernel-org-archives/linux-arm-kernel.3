@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE010EA854B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 09:11:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9502AF513F1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 09:12:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EVbLqC+4Biq7XTYqXV48JqP8aRgnJM/1t95bNV7lUm8=; b=zd0o782RoOmzpZ6Q3cgb5ESbxY
-	hVKvxgh+CnnLTaCytdr5OfrDbDvcRDJA9fwoN6rMv9RpkFWBexoIZA4N8num9eOLYnma/ijpwBY+C
-	Ss7iPfrfIUoz19oRtScGDXrnRbUIVNAMeZn6t7JcfjJOR9OZy0Q/4jWUqjuo4cYBTeW8+/mgJCk4Z
-	PnouIgswasWEu2la4OCubOnIFJbRDiSAcJ61QnjZMpAdz5wxd9wJCKhXLnOJhuhO9jpbkn1Ff/vX9
-	t0AM4LPZ7PsKrYK1p39SHjOryLHmxNMq+JatdfViga54EImzgQ//bKqsgkiBg1T+xNat+oY5xl+Y+
-	hIXI3nWA==;
+	bh=9H23S0Vgfm0KecHNu/GUtQq4ETdb3UnUAZwg45hSr3s=; b=AuK7O4CqvtJpDKqcgKOLi5i+U1
+	MbcBLQsWBIi77gwgWxJAGGhV1OlHaHWw6bAGlVDY2JZrWYmspKXVaWEWIOmFzKOsUJHsRbUnVV0Jp
+	pnT0OmQs+Lj7UYGoy0nHkS4Xr8fJDInZWOrvzb8gkrIxQqbYWHKLWcsANWJcysSKXiYlaqoJid2cW
+	sYPsbBLxKmOMFADHBYIbLKEogl3ZxvjE2f+i6zW+Qqf43PI7Wh7gSgDXZWOpaXE1+7XzUBuzzJX1F
+	UKvSEsxjxjCMttXTyRlXqAo5pAp4X5hToE8U3xH7+Aoxyc7rvMhEiImq+44EEnx6M4oV4odsS7GGt
+	YmPdilZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzWdw-00000006wAS-35Eh;
-	Mon, 09 Mar 2026 09:11:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vzWed-00000006wJW-3ZJs;
+	Mon, 09 Mar 2026 09:11:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzWdt-00000006w9f-3K19;
-	Mon, 09 Mar 2026 09:11:14 +0000
+	id 1vzWec-00000006wJE-22nY;
+	Mon, 09 Mar 2026 09:11:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 03630416C0;
-	Mon,  9 Mar 2026 09:11:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D50FC4CEF7;
-	Mon,  9 Mar 2026 09:11:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E81C0600AD;
+	Mon,  9 Mar 2026 09:11:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50ED7C19423;
+	Mon,  9 Mar 2026 09:11:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773047472;
-	bh=LqnKpQar+kSPIji5sD0bxfK6E/mHm3UIXP2WG8gE0ug=;
+	s=k20201202; t=1773047517;
+	bh=iPr4qYp3dfzXiyECcKtCMgP1dliTtDzwJPDCs64lnOY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CLvuFUE4c95Ak35F4mFBNi+Bka11UkzpQPtBIKNzXzrmFaXAgaOVsJ8JJo2Pz/Piy
-	 XNCHrgCW0QHy+3RQBe5/RotLUayN4faFlH54z6665ELUY1H1MocdG7ZChBU0j78+4u
-	 69/EDa3eSDTdqogAZX3PaPAIUWRI5/mvGUOqudODBrw6nbSXMiVUhDoam+5sDprUyL
-	 HrJ+qwD/xRdGmJgVSmNpqt/yHND4pMeCM1U6V/yQYBXDD6g+0HsbCzYL64iVfuYxf0
-	 HKh1sqZe7/2Foa2cavixaf5iW17xeSPfMY/nRovu8A1WUZ7xKbL2vb4wQ1IWAPzhlf
-	 5tf0OaN51rQwg==
-Message-ID: <7a48529e-009f-40ef-810d-b90226bade0d@kernel.org>
-Date: Mon, 9 Mar 2026 10:11:07 +0100
+	b=AFC0alUaCdCnqlz226lExP6EPryHCG56DVHb9zr6A+UoSDFWg89tOZ/JcJZCUMY4U
+	 QVf/d2labC8kKQKngkPOdsF/Ig5cuG8roe1m8Qq0q5LMFw/20L4fnHp0q6MBxeG2aL
+	 fnfl4igTnIF3tma2yJNtYHBmuT3fIfUmW6d/qAO+yTWzq2iqG86Qy5Bcs7jbDTJqBJ
+	 EjZvL3JVUhiSFzBpmMaTkpEVFJh5AmH/rzULkWLTVmaR0XHzF6FpplI+cHhHrzgr3T
+	 KrjPTxA9cs3+TDds5py3gZV4Te9LuhPBT0nMa65tS8CueeZOpvq3OhGCTYAMb0KDm6
+	 fWs4asSzzXKjQ==
+Message-ID: <3b70ccee-98e0-4894-945c-1572cc971ab3@kernel.org>
+Date: Mon, 9 Mar 2026 10:11:52 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] media: dt-bindings: rockchip,rk3568-mipi-csi2: add
- rk3588 compatible
+Subject: Re: [PATCH 4/4] arm64: defconfig: enable designware mipi csi-2
+ receiver
 To: Michael Riesch <michael.riesch@collabora.com>
 Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
  Sakari Ailus <sakari.ailus@linux.intel.com>,
@@ -59,9 +59,9 @@ Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20260305-rk3588-csi2rx-v1-0-0cd8d2bf28c0@collabora.com>
- <20260305-rk3588-csi2rx-v1-1-0cd8d2bf28c0@collabora.com>
- <20260307-complex-finicky-skua-bf52bd@quoll>
- <eaec4b1c-469c-4f81-884b-3308aa85633f@collabora.com>
+ <20260305-rk3588-csi2rx-v1-4-0cd8d2bf28c0@collabora.com>
+ <20260307-majestic-otter-of-contentment-eeba71@quoll>
+ <d670a203-6fc1-4fbc-a7b2-c2366745d794@collabora.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,12 +107,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <eaec4b1c-469c-4f81-884b-3308aa85633f@collabora.com>
+In-Reply-To: <d670a203-6fc1-4fbc-a7b2-c2366745d794@collabora.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_021113_877755_4338EE1A 
-X-CRM114-Status: GOOD (  20.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,52 +124,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/03/2026 09:50, Michael Riesch wrote:
+On 09/03/2026 10:02, Michael Riesch wrote:
 > Hi Krzysztof,
 > 
-> On 3/7/26 16:33, Krzysztof Kozlowski wrote:
->> On Fri, Mar 06, 2026 at 03:09:48PM +0100, Michael Riesch wrote:
->>> The RK3588 MIPI CSI-2 receivers are compatible to the ones found in
->>> the RK3568. However, their integration in the respective SoC may be
->>> different when it comes to the (currently not implemented) split
+> On 3/7/26 16:34, Krzysztof Kozlowski wrote:
+>> On Fri, Mar 06, 2026 at 03:09:51PM +0100, Michael Riesch wrote:
+>>> The Synopsys DesignWare MIPI CSI-2 Receiver is integrated into
+>>> recent Rockchip SoCs, such as the RK3568 and the RK3588.
 >>
->> All this says they are compatible, so express it.
+>> ... and used on boards foo bar.
 > 
-> ..express it... how exactly? In the commit message? Or what do you mean
-> exactly?
-
-See DTS 101 presentation or DT spec. Compatibility is expressed by using
-fallbacks.
-
-
+> foo bar = pretty much any recent board with a Rockchip SoC on it...
+> (plus NXP users, as there is a series by Frank in the works)
 > 
->>> DPHY feature. Therefore, add the RK3588 compatible to allow for
->>> future differentiation.
 >>
->> This I do not understand. If you just copy standard rules from
->> writing-bindings, then no, don't do that. It's obvious and there is
->> never a need to repeat any standard/common rule. If you want to say
->> devices are not compatible, then say that explicitly.
+>> (becuse we take defconfig for boards, not for SoCs - if there is no
+>> single board using it, then it should not be enabled because it means
+>> you do it for downstream which simply does not exist for us).
 > 
-> It's a bit of a complicated story. To keep it short, the RK3568 and the
-> RK3588 MIPI CSI-2 receivers are compatible at least right now. In
-> future, this may or may not change. This depends on how this split DPHY
-> integration is implemented -- and we won't know that for some time.
-> Right now I expect that the phys property will become optional when this
-> happens (at least for the RK3568).
+> ... but there is not yet a mainline example. Next item on my TODO list
 
-This does not match at all commit msg. Using fallback allows future
-differentiation, so "I will not use fallback for future differentiation"
-is obviously incorrect argument.
+Then why do we want it in the mainline? Answer: there is no reason.
 
-> 
-> What is the safe bet here? Going for a fallback compatible and adjust
-> everything when the split DPHY feature is implemented?
-> 
-> Best regards,
-> Michael
-> 
+We do not support downstream setups with mainline defconfigs.
 
+> is to send out basic RK3588 VICAP support including the device tree bits
+> for the Radxa ROCK 5B+ plus camera modules. Should I include the patch
+> in that series? Or wait until that series has been accepted? Or will you
+> just take my word for it that there will be plenty of boards using that
+> receiver in near future?
 
 Best regards,
 Krzysztof
