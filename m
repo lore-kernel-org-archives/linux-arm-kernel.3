@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7EFEFCA16D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 17:55:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9825DFCA16A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 17:55:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j13v2Qxbcrhyi5s6XenU5OvTOnjjK64uIjL+lU8fYrQ=; b=nn0RsuuVJ69uauzMEkijlnKwus
-	ZsQb2rid3ZuoGruuDdk9nkSkeyUR10UcImYSYN5uZGVCjq9NN+nNHADoIebCzZDv+oIc5y3MAIx4s
-	9Bf6UHVo6ne0d2w91IWjCPsqlnf1DsZHEfo3t1CjtSXS1dUxq7UqgS56erBjaMpzBZQHMxpzmubDw
-	jDrlhorJfT5taVz62w3Wkk8q//5WBCyY6fHdgTjEec220igFI/uv8606ffGblQD4YgPysghRVI9f7
-	tOck2rTilAdDRr+Gvl7eefCmCyyZz5Y4PFuPuvGsdZophn9P0eBFuEe8lb/K35LYXFA76EltDl+D+
-	eA+VcDLQ==;
+	bh=Yg2wJ8fgNB2iam2O5pRUFbOX+Wuq04Yjwsp4hQkgz8k=; b=FtfM9MDVFAZNBHE/Ah6nTpGwH+
+	a0W0xfrRvoM/CpgOG6z67YC/IU4fIB3vqXeQYjHrisHkvk1ZySepwC5z5NUD7Z7UsI1Pk29KGPv0m
+	/gBtqnsNGXQ4JgiwHsiQ18rjdYr+X9DAs4kTXKLWxsnHCKa262reJjyc2wH9xK+F5niiIjq3/O4jS
+	GZTEfbcjF+t5O8xfKP/hf4o2C+psRsosOajdYa8wDOlg6MVnFBgllKtXr7qpkGAQjujlju+cZrMD8
+	e8OVyqgB4+Y3bfJwIgWR8I+Z1Q4hAtzBfjU24L/nLSTZYwZYy0hrE7ruOP+zi6VA7EQf3cVBugXzE
+	LPyC23fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzepW-00000007qpt-0eOv;
+	id 1vzepW-00000007qqM-1yiE;
 	Mon, 09 Mar 2026 17:55:46 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzepN-00000007qmf-3AmN
+	id 1vzepO-00000007qmi-1YOp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 17:55:39 +0000
+	Mon, 09 Mar 2026 17:55:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 51BBE4458D;
+	by sea.source.kernel.org (Postfix) with ESMTP id 6FB514427F;
 	Mon,  9 Mar 2026 17:55:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 2878FC2BCAF;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 412FDC2BC87;
 	Mon,  9 Mar 2026 17:55:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1773078936;
-	bh=KLueA/c6Dz81/C8ynUU6RVHQqxMTLTUtghgfet0J2Ow=;
+	bh=tVDFFZNNq+3cx8vwsO+uDpr3OUAYyGNXUn5yFrn4B/A=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=NWT2VJzjI7rUn6ThArNkkVhm+veNCDjx9zTf5LZEC5g5duRryVHwdAgB2Q8WPqKde
-	 gTVdLiMZiE3TsXYYE0VK4Rl47bFqqZLVEb6j7bIHUscX+R4q7nHWRGJ00nNbRhKcD6
-	 0pBEcUtnA26zTtfKpfZ+jz3c3y3fYGRpq+zVSOfO7Jp0NxWc24JS0d0E1G2ovXmbi5
-	 3PG5aoEj2ueqGOQIN1+L0gxMQtKbezmpgewieuSj3L3I7jShDayEQDarTiOaNkZyq6
-	 dDcqHk8+z8i1hhyjUqQcrxN8OZAonZrZefQ3kJwwMkzjrT5DuQTVDyNJM79MmlDNAD
-	 G1SH6E7fKrJCw==
+	b=n0FYS2z7jiGBg4DOJZ7LSyxEMh4sKKlt7ejVuuvb8VXwm222dPC99FjS3G9aL27gU
+	 lYAJkcT2Z9RyX0YEgi70fK8SfD0uQ2ox4HHPWBswMiNlVTSfdmUsYk16EwXE4FKqlJ
+	 HZLlJaIHrtqtAojq4LBrikrkNKu/l31VnbZ23Vxs1XZqiGo+R7jFnkIP+DOwMqdC1B
+	 PSKAPCV9gMbZGyYssIAMWzER13+BdkiFuk2a5B7nv1DbdSxAIUvJWPPbK5fO44euSC
+	 /ABITc5Li0dPeBhxSo9ZzzgHvv7lRp/6i18hlD86ocU6nWkj9XCeG4HXH3fCuKhini
+	 7D94T7HlDK5Cg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 17CC0FCA170;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 385C2FCA173;
 	Mon,  9 Mar 2026 17:55:36 +0000 (UTC)
 From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Date: Mon, 09 Mar 2026 18:55:21 +0100
-Subject: [PATCH v8 2/5] net: stmmac: platform: read channels irq
+Date: Mon, 09 Mar 2026 18:55:23 +0100
+Subject: [PATCH v8 4/5] dt-bindings: net: nxp,s32-dwmac: Declare per-queue
+ interrupts
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260309-dwmac_multi_irq-v8-2-f0cc5bc811a7@oss.nxp.com>
+Message-Id: <20260309-dwmac_multi_irq-v8-4-f0cc5bc811a7@oss.nxp.com>
 References: <20260309-dwmac_multi_irq-v8-0-f0cc5bc811a7@oss.nxp.com>
 In-Reply-To: <20260309-dwmac_multi_irq-v8-0-f0cc5bc811a7@oss.nxp.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -73,19 +74,19 @@ Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
  vladimir.oltean@nxp.com, boon.khai.ng@altera.com, 
  "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773078934; l=2726;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773078934; l=3455;
  i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=/ncF81mYqriMzIkXDHCjmpdMkczIZjJbkswTEDIvT3Y=;
- b=EEY2RABUzz4sng03Nd2qT3obzQpPPoTeNQaOhH84h3l0S0WqTxsqd94iBOVl8n25CaMMSaPth
- NsBhGyKJ/HnDWx4eNPPLMDxjE64GUDdA+DS8GERCQk4pRLc+TLf0Pac
+ bh=Ulgz8SoBFJZWXNyBqoPUpgpX/c4gObaapFU2nTXzIJo=;
+ b=ergnlc+wxNhdFd9fZAaVc89ycrqccTBtO+1Fv3e7Lq+1bN5IceECAGwLw26cK3xmGS7ggv8sC
+ iXraSEw3XS3CwNqXm6V86D1O/JaLuthvSIkWM66/8W6KfSBCbc17rwL
 X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
  pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
 X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
  auth_id=217
 X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_105537_850996_5C4D2EF8 
-X-CRM114-Status: GOOD (  15.18  )
+X-CRM114-CacheID: sfid-20260309_105538_483710_251C87A3 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,93 +104,92 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 
-Read IRQ resources for all rx/tx channels, to allow Multi-IRQ mode
-for platform glue drivers.
+The DWMAC IP on NXP S32G/R SoCs has connected queue-based IRQ lines,
+set them to allow using Multi-IRQ mode.
 
 Reviewed-by: Matthias Brugger <mbrugger@suse.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
 ---
- .../net/ethernet/stmicro/stmmac/stmmac_platform.c  | 57 +++++++++++++++++++++-
- 1 file changed, 56 insertions(+), 1 deletion(-)
+ .../devicetree/bindings/net/nxp,s32-dwmac.yaml     | 44 +++++++++++++++++++---
+ 1 file changed, 39 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-index 5c9fd91a1db9..7c299e47ff14 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-@@ -697,9 +697,47 @@ struct clk *stmmac_pltfr_find_clk(struct plat_stmmacenet_data *plat_dat,
- }
- EXPORT_SYMBOL_GPL(stmmac_pltfr_find_clk);
+diff --git a/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml b/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
+index 1b2934f3c87c..3a0e41b63c3d 100644
+--- a/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
+@@ -1,5 +1,5 @@
+ # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+-# Copyright 2021-2024 NXP
++# Copyright 2021-2026 NXP
+ %YAML 1.2
+ ---
+ $id: http://devicetree.org/schemas/net/nxp,s32-dwmac.yaml#
+@@ -16,6 +16,8 @@ description:
+   the SoC S32R45 has two instances. The devices can use RGMII/RMII/MII
+   interface over Pinctrl device or the output can be routed
+   to the embedded SerDes for SGMII connectivity.
++  The DWMAC instances have connected all RX/TX queues interrupts,
++  enabling load balancing of data traffic across all CPU cores.
  
-+/**
-+ * stmmac_pltfr_get_irq_array - Read per-channel IRQs from platform device
-+ * @pdev: platform device
-+ * @fmt: IRQ name format string (e.g., "tx-queue-%d")
-+ * @irqs: array to store IRQ numbers
-+ * @num: maximum number of IRQs to read
-+ *
-+ * Return: 0 on success, -EPROBE_DEFER if IRQ is deferred, -EINVAL on error.
-+ * Missing IRQs are set to 0 and iteration stops at first missing IRQ.
-+ */
-+static int stmmac_pltfr_get_irq_array(struct platform_device *pdev,
-+				      const char *fmt, int *irqs, size_t num)
-+{
-+	char name[16];
-+	int i;
-+
-+	STMMAC_FOREACH_MTL_QUEUE(i, num) {
-+		if (snprintf(name, sizeof(name), fmt, i) >= sizeof(name))
-+			return -EINVAL;
-+
-+		irqs[i] = platform_get_irq_byname_optional(pdev, name);
-+		if (irqs[i] == -EPROBE_DEFER)
-+			return -EPROBE_DEFER;
-+
-+		if (irqs[i] <= 0) {
-+			dev_dbg(&pdev->dev, "IRQ %s not found\n", name);
-+
-+			/* Stop on first unset irq */
-+			irqs[i] = 0;
-+			break;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
- int stmmac_get_platform_resources(struct platform_device *pdev,
- 				  struct stmmac_resources *stmmac_res)
- {
-+	int ret;
-+
- 	memset(stmmac_res, 0, sizeof(*stmmac_res));
+ properties:
+   compatible:
+@@ -45,10 +47,22 @@ properties:
+       FlexTimer Modules connect to GMAC_0.
  
- 	/* Get IRQ information early to have an ability to ask for deferred
-@@ -735,7 +773,24 @@ int stmmac_get_platform_resources(struct platform_device *pdev,
+   interrupts:
+-    maxItems: 1
++    minItems: 11
++    maxItems: 11
  
- 	stmmac_res->addr = devm_platform_ioremap_resource(pdev, 0);
+   interrupt-names:
+-    const: macirq
++    items:
++      - const: macirq
++      - const: tx-queue-0
++      - const: rx-queue-0
++      - const: tx-queue-1
++      - const: rx-queue-1
++      - const: tx-queue-2
++      - const: rx-queue-2
++      - const: tx-queue-3
++      - const: rx-queue-3
++      - const: tx-queue-4
++      - const: rx-queue-4
  
--	return PTR_ERR_OR_ZERO(stmmac_res->addr);
-+	if (IS_ERR(stmmac_res->addr))
-+		return PTR_ERR(stmmac_res->addr);
-+
-+	/* TX channels irq */
-+	ret = stmmac_pltfr_get_irq_array(pdev, "tx-queue-%d",
-+					 stmmac_res->tx_irq,
-+					 MTL_MAX_TX_QUEUES);
-+	if (ret)
-+		return ret;
-+
-+	/* RX channels irq */
-+	ret = stmmac_pltfr_get_irq_array(pdev, "rx-queue-%d",
-+					 stmmac_res->rx_irq,
-+					 MTL_MAX_RX_QUEUES);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
- }
- EXPORT_SYMBOL_GPL(stmmac_get_platform_resources);
- 
+   clocks:
+     items:
+@@ -88,8 +102,28 @@ examples:
+               <0x0 0x4007c004 0x0 0x4>;    /* GMAC_0_CTRL_STS */
+         nxp,phy-sel = <&gpr 0x4>;
+         interrupt-parent = <&gic>;
+-        interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
+-        interrupt-names = "macirq";
++        interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>,
++                     /* CHN 0: tx, rx */
++                     <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>,
++                     /* CHN 1: tx, rx */
++                     <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>,
++                     /* CHN 2: tx, rx */
++                     <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>,
++                     /* CHN 3: tx, rx */
++                     <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 65 IRQ_TYPE_LEVEL_HIGH>,
++                     /* CHN 4: tx, rx */
++                     <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>;
++        interrupt-names = "macirq",
++                          "tx-queue-0", "rx-queue-0",
++                          "tx-queue-1", "rx-queue-1",
++                          "tx-queue-2", "rx-queue-2",
++                          "tx-queue-3", "rx-queue-3",
++                          "tx-queue-4", "rx-queue-4";
+         snps,mtl-rx-config = <&mtl_rx_setup>;
+         snps,mtl-tx-config = <&mtl_tx_setup>;
+         clocks = <&clks 24>, <&clks 17>, <&clks 16>, <&clks 15>;
 
 -- 
 2.47.0
