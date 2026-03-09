@@ -4,86 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4E5CEFCD84
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 10:31:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65002EFCD93
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 10:39:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ysvPiqp562qCZQnJw5l8TL8cq4IhZO2GmAxe8p0UZ7I=; b=LizVXhlkTgpR0384BmGbCo7FV5
-	PpbLwXHTCc+yiV8u3Tc3UFYV8mp1LXMBE5x7HqC7ak5F2bnZpIYkfCVAW7Dbhm8XhEQopexVjzf+8
-	GKe5vl2xptxG4ojJygR78EY+1E6Vzjl3C+44mHGpSPWurbW53sOPgBQ4uTNeFGAJFagcr0vt136z3
-	yoaauZK40o7dONOtPaEc/qiz5gFW1abSguqscn4Dup+j5+WdnVIx4ZevnC2Kpl1GPIhr/pdy6lWvY
-	qLacjyEB9J/Zpa/wWhHQCMMEvrODfFAsqmVDQ5NyVyBs9TMVlX9niM4oahGap1mqezdRWAotAMzoq
-	/D74eE4w==;
+	bh=MG7FOIWjqj+xthGjaourrD3jCTwI9c9sb8toKScfFlg=; b=dcPnRdvajmFolSyEAR4ngUHk6q
+	296GXiHeXxdgs1opfCGvVuoS/r7prFaQMPCaFIbYRXahqm5wYaknY5JrqEdouOy40+AxewqTwltPi
+	+R/uj+Bp1gsFxyfAFAQNzO2T4JO/H2WZbvEJ3MsggdoOpfobLhvp+oJjHl5okS1+/FJoD4Y3vPspb
+	nDnbQlLFsa/JM0ow1O423eIMq3RIUcdVdD5o/XaCAU9P9P6gmpa5jwYzlQBZXSIsM3MAOn2DSTSmn
+	qcpRtmUQQHOvoA9cHqyMYJ1mgs3M6ZsNuqA88dBUgAqBYcR0H7XWxCYta9Eg1AgU+yAhvVKf147Ss
+	6GHH9+mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzXtO-0000000769W-3yzk;
-	Mon, 09 Mar 2026 10:31:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vzY1g-000000076hb-1mHM;
+	Mon, 09 Mar 2026 10:39:52 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzXtN-0000000769C-30aM;
-	Mon, 09 Mar 2026 10:31:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C257B600AD;
-	Mon,  9 Mar 2026 10:31:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71FDCC4CEF7;
-	Mon,  9 Mar 2026 10:31:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773052276;
-	bh=1dv+XhP5OwvToCXeXxaL6H6crc5uBccvLhwiXF5Big4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=X6j5855B86hH8+1MUUbQdzfRXXIEh36roQzDmNtZdLVlt+VtMSp7FWhuEC7HxLg+4
-	 3ASrEfhKmLdpAm/VP1gGb5GQPHRZyzlA9Wv0XEN1P9t9gflLXWiWM6s0bOGH7yvuC+
-	 bzFzU3sZ14p5clqbm5EJMcExCvTp6B+pn4mlEtyJ/vArl5P4gUHyApQeDYt0UIVnjD
-	 fa5DgkOvoLJmWeP1nzIlE2PZbnVc5lUB/zjgDz6l71LVoy9/1JqpjV41i5czOq4RpO
-	 WHnzI5JOAaJobCwW4FNmaOORDUiIpodIFsZfZXzTtQ7X18XgT4XUH6FBc26i7cEHtL
-	 xVdATdgxh1BHQ==
-Received: from johan by xi.lan with local (Exim 4.98.2)
-	(envelope-from <johan@kernel.org>)
-	id 1vzXtJ-000000006A5-3p2H;
-	Mon, 09 Mar 2026 11:31:13 +0100
-Date: Mon, 9 Mar 2026 11:31:13 +0100
-From: Johan Hovold <johan@kernel.org>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Andi Shyti <andi.shyti@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Khalil Blaiech <kblaiech@nvidia.com>,
-	Asmaa Mnebhi <asmaa@nvidia.com>, Jean Delvare <jdelvare@suse.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-actions@lists.infradead.org,
-	linux-media@vger.kernel.org
-Subject: Re: [PATCH v2 00/13] i2c: add and start using i2c_adapter-specific
- printk helpers
-Message-ID: <aa6hcT7MROZqxF1j@hovoldconsulting.com>
-References: <aaFcs1miP88QWmtH@hovoldconsulting.com>
- <aaFfEsfh0xTh0b1y@shikoro>
- <aaFsZbiLYSz_YEjw@hovoldconsulting.com>
- <CAMRc=MfcvD1nJy=zpoCkSkJq6WjyXQxFUZ4QE6vyCS+XFCn5AA@mail.gmail.com>
- <aaHI_VavZugXjVoL@hovoldconsulting.com>
- <CAMRc=MdKF29McBJ9U=qELkzf9GYV1CQpRF7U6OweDNtVzMXo7A@mail.gmail.com>
- <aacE-27iaYneKCJi@hovoldconsulting.com>
- <CAMRc=Mcx8Hu407arSEo3o-Xhmep_ZK4BM2TVi_55nXGwYcaijw@mail.gmail.com>
- <aar1PDUB2t7DgEP6@hovoldconsulting.com>
- <CAMRc=Mcv+ZMGaC_MD8WRH113rDuuxdiZXuW5JAXWga1V7vM_ng@mail.gmail.com>
+	id 1vzY1e-000000076gd-37Dq
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Mar 2026 10:39:51 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vzY1b-0005pX-P5; Mon, 09 Mar 2026 11:39:47 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vzY1Z-004W4o-1u;
+	Mon, 09 Mar 2026 11:39:46 +0100
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vzY1a-000000006kZ-3XVB;
+	Mon, 09 Mar 2026 11:39:46 +0100
+Message-ID: <4777a26fa1406067d8e7126851ba0b56b32038c3.camel@pengutronix.de>
+Subject: Re: [PATCH 1/3] dt-bindings: soc/reset: ti: add binding for k3
+ platforms reset module
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: "A. Sverdlin" <alexander.sverdlin@siemens.com>, 
+	linux-arm-kernel@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>, Vignesh
+ Raghavendra <vigneshr@ti.com>,  Tero Kristo <kristo@kernel.org>, Santosh
+ Shilimkar <ssantosh@kernel.org>, Andrew Davis <afd@ti.com>,  Jayesh
+ Choudhary <j-choudhary@ti.com>, Siddharth Vadapalli <s-vadapalli@ti.com>,
+ Abraham I <kishon@kernel.org>,  Roger Quadros <rogerq@kernel.org>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Mon, 09 Mar 2026 11:39:46 +0100
+In-Reply-To: <20260309100800.1134701-2-alexander.sverdlin@siemens.com>
+References: <20260309100800.1134701-1-alexander.sverdlin@siemens.com>
+	 <20260309100800.1134701-2-alexander.sverdlin@siemens.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMRc=Mcv+ZMGaC_MD8WRH113rDuuxdiZXuW5JAXWga1V7vM_ng@mail.gmail.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260309_033950_802600_A1F6DBBE 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,31 +84,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 06:34:43PM +0100, Bartosz Golaszewski wrote:
-> On Fri, Mar 6, 2026 at 4:39 PM Johan Hovold <johan@kernel.org> wrote:
+On Mo, 2026-03-09 at 11:07 +0100, A. Sverdlin wrote:
+> From: Alexander Sverdlin <alexander.sverdlin@siemens.com>
+>=20
+> Add DT binding for Texas Instruments K3 Multicore SoC platforms reset
+> module present on AM64x and newer members of the K3 family and consists o=
+f
+> the RST_CTRL, RST_STAT, RST_SRC and RST_MAGIC_WORD registers.
+>=20
+> The planned usage is to provide reset reason information.
+>=20
+> Signed-off-by: Alexander Sverdlin <alexander.sverdlin@siemens.com>
+> ---
+>  .../bindings/reset/ti,am64-rst.yaml           | 39 +++++++++++++++++++
 
-> > You have posted changes that will prevent driver from accessing the
-> > struct device of core i2c structures. This is unexpected, non-idiomatic
-> > and subsystem specific and therefore a bad idea.
-> 
-> That's not true, the changes provide a helper to that end.
+I think this might belong in .../bindings/power/reset instead.
+Or maybe .../bindings/soc/(ti/)?
 
-That was supposed to say "prevent drivers from accessing the struct
-device *directly*".
+Like 'device', the term 'reset' is a bit overloaded.
 
-> > Again, this is a core feature of the driver model. You can't just ignore
-> > it and come up with random ways to work around just because you disagree
-> > with design decisions that were made 25 years ago.
-> 
-> It absolutely *can* be done differently. There's nothing that imposes
-> a certain API design on susbsystems. If you design the subsystem code
-> well, provider drivers don't need more than one reference (taken in
-> probe(), released in remove(), for instance via the
-> register()/unregister() pair) so the counting can be hidden within the
-> subsystems that control them.
+The existing binding docs in .../bindings/reset/ describe peripheral
+reset controllers that provide reset signals to other hardware blocks.
+See Documentation/devicetree/bindings/reset/reset.txt.
 
-Yes, there is nothing preventing you from diverting from the idiomatic
-way of doing things. But my point is that that's not a good idea.
+Since your bindings don't contain #reset-cells, I assume the RST_CTRL
+register does not contain direct control of reset signals that need to
+be operated during runtime.
 
-Johan
+System reset (restart/poweroff) machinery related bindings are found in
+.../bindings/power/reset.
+
+regards
+Philipp
 
