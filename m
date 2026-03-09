@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34303F417EA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57A2DF417EB
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 14:39:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,76 +12,76 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:
 	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ic9NeBlXF4wU+xW1snaCZS2ez+lmS5fgnxG5sCV4mQg=; b=AShFB9L1IE8pOGEtinMckgBHMI
-	/bBpghkp5B/LH+cDoqhcAwt05QM5e+9RRh7auCfoC2wPv3xC+yZLrIjBX2z3D1FFU3p3k7uY248vX
-	Htq88q3klGrXHHn4B+vkJaePwjhPmNomtycqDoNGlk0ldE/kYq4Gc5RlhHmrZ0qvBNFOKIJu91fkp
-	f45CbvwhALLCSZ3lkwjVaQq8lxkk8mnMZoQiqCNXHy74Jf4JPS3HRhOPWv9Nk1P/a+MsKCZG1hMS9
-	ZjAJ+FAyury40lD/qtkp7qBiC3vPd+OCboHK+yzLFqkprMWePsxJFFFbb33akMK4ZG7LOysd8ky65
-	sTXA7C6w==;
+	bh=FJJogOm7mAlsex83R1hkauB1mXrgfQo2P5H45OLn0pU=; b=wcBJ9K8Nz7NLp0vsM+57savpdY
+	iunHWbvn56UkvqS2jYccKryBeEmjRc3LpNjPYMJS9f3SwPgQ5kmusGvJ4x28KN5ZhbSc9OkL3rxfZ
+	VpyZTgw3/OGNJLLxaLIxs1ThAS9qTcFdsnvWvWjjUIHj1lYgZxhE8IIBURqjqe24wexrxX3PEcxIu
+	5C4vRZwhTphE3a4TJvgS6Qsnw9XinVts/WLZu/LESeTZqWHm3E70XUzpDTMjz3qk7MUfyc1V4U6xI
+	qJW56ZYBnMV++rlJLl1vW4Sgzb41ebyNbw2mL8DxG4q2/xR+Qbgdmn2ZYiHgJt+GGJFuPNxEHjoeL
+	hZpdWwMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzblk-00000007Ub6-0RtX;
+	id 1vzblk-00000007Ubc-1nn1;
 	Mon, 09 Mar 2026 14:39:40 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzblf-00000007UX7-0tvO
+	id 1vzblh-00000007UYr-0buI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 14:39:36 +0000
+	Mon, 09 Mar 2026 14:39:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1773067174;
+	s=mimecast20190719; t=1773067176;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Ic9NeBlXF4wU+xW1snaCZS2ez+lmS5fgnxG5sCV4mQg=;
-	b=Ifa35TkTCQZ6V/Lke6It70lf4Y3/R3IBxd2zlw8g6IM17eDGZQkrzI9GAPsbJKzBfi97+y
-	zWjnr0O3oW77WkL89gaoqgNxQl4YGblbq7uVTW1YJwOddGJUbRX++p9oiiRltm5pI4OaQ5
-	oAmPTqyO6al8pSYTymtg0AhDJdVN/oY=
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com
- [209.85.222.199]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=FJJogOm7mAlsex83R1hkauB1mXrgfQo2P5H45OLn0pU=;
+	b=IlzwUbMLYyvOay7dxHEsbotBO4UrtlsynbHn6eS91gMH357ExK8mxAEyH55OOnmmYI1KX+
+	4MDJNqavM4wWRpnapRK4IpoA4z+neMqvyoxkyAhFtMFTSZXBBSlU9uIZuPPjirz5FHQgv5
+	X+52VhElUP5drF5QfFjvyyVIKuIimmg=
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com
+ [209.85.222.198]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-630-RLdvs8WyP-eWxcVk9Rci_Q-1; Mon, 09 Mar 2026 10:39:32 -0400
-X-MC-Unique: RLdvs8WyP-eWxcVk9Rci_Q-1
-X-Mimecast-MFC-AGG-ID: RLdvs8WyP-eWxcVk9Rci_Q_1773067172
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8cd81be6f05so833988885a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 07:39:32 -0700 (PDT)
+ us-mta-665-5IZzpOsvMTe-ykL_6QK5fw-1; Mon, 09 Mar 2026 10:39:34 -0400
+X-MC-Unique: 5IZzpOsvMTe-ykL_6QK5fw-1
+X-Mimecast-MFC-AGG-ID: 5IZzpOsvMTe-ykL_6QK5fw_1773067174
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8cd827a356aso743455285a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 07:39:34 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773067172; x=1773671972;
+        d=1e100.net; s=20230601; t=1773067174; x=1773671974;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=Ic9NeBlXF4wU+xW1snaCZS2ez+lmS5fgnxG5sCV4mQg=;
-        b=DU+j3ODV3TXDtfJrjhMDZ79dUoMCAj/kQm7GkbhM6Nvt0E0IGbF4P+aMdN1V+8pSqi
-         NqPceSpvVwBi5EAhR40ITMq0O50UhkQYVWHH0r68e5Cp5vucBROq8IkMmrHVuKdbd5k3
-         qPO+/Ii3tFZ2SjiNK6crVJ4d6j+s5R8eslKhyVoh11oSjDQ15ribqU1wLouuSfOtUTuE
-         GmoKY42ZuyxBhg4GrJo6QfSyTDDvjecQFsfNcPhx9UsKi3zpa6d8/1dE6CBu2LuLSMW2
-         P8ELAR5hoglCBWkDCB6fwTpqeHbETzXOji5fo1b9csZJeXF4J/L9a/fpK5FmHv9+hubZ
-         3YIw==
-X-Forwarded-Encrypted: i=1; AJvYcCUJUvmhOW5m7cyOmHdn5HIiXWnT1PLkoJimKbsIgvHIiNOzU4R6bXm9YYSEKLdtIWCm+V6J2od95mPXne6VZWLW@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEYMCSzO5QtBqvqBJj4bx+/9aBvkAErDsX8h9Bx9mkRfOL1wxo
-	8m4uwOlo+YJzmqy44uc6TVyzQGZZ4Z1OiZjRonvpilB691wJroSwRX4Z3Q6QVi+FpJF7uh6wFXz
-	BeJvTVgfBEe+B8xr9HeNxAFGE1UGo+tLMUlGuRI6wO4mPI/gqMJJ52plh/ORZdHd1XqeCk8J/Il
-	O6
-X-Gm-Gg: ATEYQzzJGfgiU+o9VvZ2APiwHIP7fXXrZDieboGWfkt1czNnno/e+NviqS6RP9jWX9o
-	TP42KG+kio2c1T6U4NDz7yXaSz8MhbUwyVMcpJF7eqWKBambIsSFFLAAKZMNLtuA+/k1XIoc3FH
-	fBvr3YSm48+O3NwrOzJBP9z71InYJA4dKGKBs8zR2Bz777NjUKmh+hQ7S9Lk2fUBZKBiVrAHq9a
-	PDYZxpdh1oqFHHDS4B3ZacbYrgxmSf3HsCNZJCidt4WjLVOz2g0QK7GRyTfUyCfUzjNMfkHWOJ4
-	IchF0h8+alSZlCtJ+pJjmku3ITF7U5Hb1W1exRxRPcVZRFo3ylyG0ZnlPtugAFf1ju6dps0oxkF
-	+kkXTfLz+UXKYvyu1Gu18mWoIi4xF9sJjcA/WQ8cC62wdAp8xi+D7N5MYggofIw==
-X-Received: by 2002:a05:620a:bd5:b0:8cb:baea:89cd with SMTP id af79cd13be357-8cd6d3d9a52mr1391295885a.8.1773067172051;
-        Mon, 09 Mar 2026 07:39:32 -0700 (PDT)
-X-Received: by 2002:a05:620a:bd5:b0:8cb:baea:89cd with SMTP id af79cd13be357-8cd6d3d9a52mr1391292985a.8.1773067171586;
-        Mon, 09 Mar 2026 07:39:31 -0700 (PDT)
+        bh=FJJogOm7mAlsex83R1hkauB1mXrgfQo2P5H45OLn0pU=;
+        b=GwHYW4IIaS+a1EJonj2/TNjLGxeM9FjyHkRfKC2rAmGKkEbX1giActClvmOQtsrOpo
+         D0QYP2t0UGwxI73APnDLrhp3KcsSJhdPHajF58sgdXCyLj7LF3JCn0S2gUgwAXCyt4hp
+         QKBBerqBbbc6jkhKmsn72dslUW0cbtmSQCi2nB6921jrB2kkkRoQrGwz01LEhroQcdci
+         TE/oHAzxphwF4VZcHU/aSjaSKLDaqie8Sx/LbbzA/KZrmxzhkGMy9tZD4ftNbrP3I2Rx
+         rtVCL68CkR8pGZo8J2GEcU9yiBvqUeELttnN9o/U40iDFyU2KKmghXns9L77aqGHCvlg
+         TaZw==
+X-Forwarded-Encrypted: i=1; AJvYcCX/tkDvugWbtH4LvJzG0TWJdcAs6LrIpbkeZ8euIsRpXtxPodH2zIxikUvYkRm+P0lo5MTi+MgkFk/7LP+N3UxI@lists.infradead.org
+X-Gm-Message-State: AOJu0YyL7lGh6jGPi6vCPmJpCfQmN1ZKMtrXJWWavYaCEWVSK84O9CzP
+	+CZ6K6zuWMqS4PicAD3pcAyrnebIrCUVdtrNTjav+lSc4/MPx/JRplsm2wdPAruVRosLpnLwZav
+	DqLO1+SdWzAJtwRxrwQWd/mzsYd1IgRxWnPAHInwWFQDTXL8dtqHEs5HGTDUG/mi5oAkXzpGlIj
+	64
+X-Gm-Gg: ATEYQzyLItGSZIVhcFqgQHLnw66y2jr2YRKXc6yPdj+bWf4LqzVyh865DFXgytfPueR
+	oIEVMlL1ayUEWsPxtd4Jf/BCMEILJWoTzGKgvY/EKrqqKkZcFc65e+vPBv5ExWUfN4uYOMhIDTM
+	WNQ+e0E2nRNzeoN/iL2muHM6/Po+mfDpvRWs4naVQsyK9JyMN51XEWnxWQm+PgUzBnaq9/saYGe
+	H7HwR4FBtGYxmdD2wBupxO2P5wC+vbI8yJf0FcpZ/GjCy9lOsRExHmkVOKCwRLto+Dq7+ucXDck
+	MeAAL0RBSCE6OmAzEvAr1Io2c2DFCbA8rdrqbj4Z7JLijFg82OUTMyy92qp+TIxmtTLvjbEDT9g
+	eqxz6uoReGtN9i3mmoWa5Zrcax0ROPLinPt2ZvOFmjfiNX1W+vGI9Y9STRpTsBA==
+X-Received: by 2002:a05:620a:bcd:b0:8c9:ebf3:7623 with SMTP id af79cd13be357-8cd6d3847f8mr1387164885a.20.1773067174203;
+        Mon, 09 Mar 2026 07:39:34 -0700 (PDT)
+X-Received: by 2002:a05:620a:bcd:b0:8c9:ebf3:7623 with SMTP id af79cd13be357-8cd6d3847f8mr1387160185a.20.1773067173790;
+        Mon, 09 Mar 2026 07:39:33 -0700 (PDT)
 Received: from [192.168.1.15] (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cd6f49fcafsm756064985a.16.2026.03.09.07.39.29
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cd6f49fcafsm756064985a.16.2026.03.09.07.39.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Mar 2026 07:39:31 -0700 (PDT)
+        Mon, 09 Mar 2026 07:39:33 -0700 (PDT)
 From: Brian Masney <bmasney@redhat.com>
-Date: Mon, 09 Mar 2026 10:38:45 -0400
-Subject: [PATCH v2 06/12] clk: imx: scu: drop redundant init.ops variable
- assignment
+Date: Mon, 09 Mar 2026 10:38:46 -0400
+Subject: [PATCH v2 07/12] clk: imx: scu: drop determine_rate op and use
+ CLK_ROUNDING_NOOP flag
 MIME-Version: 1.0
-Message-Id: <20260309-clk-det-rate-fw-managed-v2-6-c48ef5a3100a@redhat.com>
+Message-Id: <20260309-clk-det-rate-fw-managed-v2-7-c48ef5a3100a@redhat.com>
 References: <20260309-clk-det-rate-fw-managed-v2-0-c48ef5a3100a@redhat.com>
 In-Reply-To: <20260309-clk-det-rate-fw-managed-v2-0-c48ef5a3100a@redhat.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -94,23 +94,23 @@ Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
  Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1478; i=bmasney@redhat.com;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2909; i=bmasney@redhat.com;
  s=20250903; h=from:subject:message-id;
- bh=uC9B74/6YaJgtC1tOqhWle/wJGIWD2whJTfl6Yd1DCo=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGDLX3Z7w5nrBvNsrTNMf3kl1rDhwMu7USnYjFrM7VqlPE
- 9822AYKd5SyMIhxMciKKbIsyTUqiEhdZXvvjiYLzBxWJpAhDFycAjCRJw2MDBM5l//X/rRn0Qm3
- pYasHy02rHWyfBlY6LnwWt3DlAmhvW8Y/oc2pO0tOi6vMcFY/sPuqitLmx1ZUzxdnfMbDDx4bQU
- b+AE=
+ bh=GIQeCWpXzFUtNJp/mJUZgo1pJ+8bxueWsKYYeUgP+vk=;
+ b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGDLX3Z4oJ3R3zSTjPU8qrm2YlCE1aVbV7+2GsQknTcoOH
+ u/9VXNgX0cpC4MYF4OsmCLLklyjgojUVbb37miywMxhZQIZwsDFKQATydvN8JttUR6/67KHqj2N
+ jU02NcpW0pUXDouve7JATG36Du4NTmEM/wz5HP7ZnliZvbBZeUPmgSXZZuwM3VuKa/ydc/JZFjP
+ p8gIA
 X-Developer-Key: i=bmasney@redhat.com; a=openpgp;
  fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: WVq4VcfbmjKF96keK-uFojI8r8p2TvmNll-BPbzc0JE_1773067172
+X-Mimecast-MFC-PROC-ID: 0iHHEWTdY-ZWNEzOaSdp56r3T5Iol2j_4QmflXZfdI8_1773067174
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_073935_338172_7902F534 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20260309_073937_263312_9E62A71B 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,11 +125,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The init.ops is assigned a default value, however right below it is an
-if, else if, and else where all of them also assign a value to init.ops.
-Drop the redundant init.ops assignment at the top.
+This clk driver has a noop determine_rate clk op. Drop this empty
+function, and enable the CLK_ROUNDING_NOOP flag.
 
-Fixes: 3b9ea606cda53 ("clk: imx: scu: add cpu frequency scaling support")
 Reviewed-by: Peng Fan <peng.fan@nxp.com>
 Signed-off-by: Brian Masney <bmasney@redhat.com>
 ---
@@ -146,21 +144,70 @@ Cc: imx@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org
 ---
- drivers/clk/imx/clk-scu.c | 1 -
- 1 file changed, 1 deletion(-)
+ drivers/clk/imx/clk-scu.c | 22 +---------------------
+ 1 file changed, 1 insertion(+), 21 deletions(-)
 
 diff --git a/drivers/clk/imx/clk-scu.c b/drivers/clk/imx/clk-scu.c
-index a85ec48a798b58a12f893587c85709bbd8476310..a39c68d664655537e81df55c7e6d32304de9338a 100644
+index a39c68d664655537e81df55c7e6d32304de9338a..13fb77562b031bb82d6fa2d19f9092ed33966aa4 100644
 --- a/drivers/clk/imx/clk-scu.c
 +++ b/drivers/clk/imx/clk-scu.c
-@@ -475,7 +475,6 @@ struct clk_hw *__imx_clk_scu(struct device *dev, const char *name,
- 	clk->clk_type = clk_type;
+@@ -262,23 +262,6 @@ static unsigned long clk_scu_recalc_rate(struct clk_hw *hw,
+ 	return le32_to_cpu(msg.data.resp.rate);
+ }
  
- 	init.name = name;
--	init.ops = &clk_scu_ops;
- 	if (rsrc_id == IMX_SC_R_A35 || rsrc_id == IMX_SC_R_A53 || rsrc_id == IMX_SC_R_A72)
- 		init.ops = &clk_scu_cpu_ops;
- 	else if (rsrc_id == IMX_SC_R_PI_0_PLL)
+-/*
+- * clk_scu_determine_rate - Returns the closest rate for a SCU clock
+- * @hw: clock to round rate for
+- * @req: clock rate request
+- *
+- * Returns 0 on success, a negative error on failure
+- */
+-static int clk_scu_determine_rate(struct clk_hw *hw,
+-				  struct clk_rate_request *req)
+-{
+-	/*
+-	 * Assume we support all the requested rate and let the SCU firmware
+-	 * to handle the left work
+-	 */
+-	return 0;
+-}
+-
+ static int clk_scu_atf_set_cpu_rate(struct clk_hw *hw, unsigned long rate,
+ 				    unsigned long parent_rate)
+ {
+@@ -436,7 +419,6 @@ static void clk_scu_unprepare(struct clk_hw *hw)
+ 
+ static const struct clk_ops clk_scu_ops = {
+ 	.recalc_rate = clk_scu_recalc_rate,
+-	.determine_rate = clk_scu_determine_rate,
+ 	.set_rate = clk_scu_set_rate,
+ 	.get_parent = clk_scu_get_parent,
+ 	.set_parent = clk_scu_set_parent,
+@@ -446,7 +428,6 @@ static const struct clk_ops clk_scu_ops = {
+ 
+ static const struct clk_ops clk_scu_cpu_ops = {
+ 	.recalc_rate = clk_scu_recalc_rate,
+-	.determine_rate = clk_scu_determine_rate,
+ 	.set_rate = clk_scu_atf_set_cpu_rate,
+ 	.prepare = clk_scu_prepare,
+ 	.unprepare = clk_scu_unprepare,
+@@ -454,7 +435,6 @@ static const struct clk_ops clk_scu_cpu_ops = {
+ 
+ static const struct clk_ops clk_scu_pi_ops = {
+ 	.recalc_rate = clk_scu_recalc_rate,
+-	.determine_rate = clk_scu_determine_rate,
+ 	.set_rate    = clk_scu_set_rate,
+ };
+ 
+@@ -491,7 +471,7 @@ struct clk_hw *__imx_clk_scu(struct device *dev, const char *name,
+ 	 * clock status from HW instead of using the possible invalid
+ 	 * cached rate.
+ 	 */
+-	init.flags = CLK_GET_RATE_NOCACHE;
++	init.flags = CLK_GET_RATE_NOCACHE | CLK_ROUNDING_NOOP;
+ 	clk->hw.init = &init;
+ 
+ 	hw = &clk->hw;
 
 -- 
 2.53.0
