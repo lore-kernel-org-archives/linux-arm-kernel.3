@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EE73EFCD99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 10:58:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6488BEFCD99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 11:02:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7z1uNloZFcK2P1RS0CY2jk67G7pL+sNFuIKN/if5Dm0=; b=ajh16uJ5/dVd2GiJoBFX0oOziE
-	ectbT2aC/sTaFzGzBubtV+DRODW+SDUmLWEPU1yDHNQJVn2IzV6Mx5DqeYYc4MRq427qty6Uc5DzZ
-	lg/pI8r5udKnK0UIwtKzWac5WR849FmfxhwgTqv0H5cKudm68cl4bl3UDrdUudrIWfcpswsnkvOp8
-	4rCseguFKGnYtsubMfdQKBIm6u+vCd6d0eLDIICAqPioiOKOCcxumn9rPww9aps6Ef7PwUfBOgkyU
-	vw0xIVb9o+UFfkgzmFIEdshgmvXAkjh3br+FCy/ytSyXOMeYuUEtJA3mh7c5F2dEOHLeKBlmWTGDs
-	nFiIm3sg==;
+	bh=sAkRjP9jYISvdMSyBJJw0ajApQvAkfVgmNZbtMfYkuE=; b=Gdf0Kelf5f6XgSVDQb+iHNpBnx
+	v4znVbS7V+LWkhhq4NMN31OWO3iL6ONIiBhfqwxpeDlA12qy/NyW+Zk9kDx6xQdHHdlw7/hPzBY6M
+	biUXHD3p9ZXbagl+q+mO/4eA2QocXrhGcnVbef+bIAyjSNTk6a9FzWcsddjaEbsmJeuWYBpbH423O
+	9DI4TH0eA89+pbAcfS62nSxyHSC1fCxnugjrE7tQEaWF9/WxniIMpliO7XnrpHFisW4WRB/2Iqy/Y
+	VMkcl3g5OMIPT+jdxjCyChaG+KTm9Dk+zrp36OOpw/GOf5NDMq7mYZgitJUAzsn++egpLi0DTpoSX
+	BWgYWF4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzYJC-000000077j9-3mhN;
-	Mon, 09 Mar 2026 10:57:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vzYNs-000000077ys-1Yku;
+	Mon, 09 Mar 2026 11:02:48 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzYJB-000000077j3-2qho
+	id 1vzYNp-000000077yK-396X
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 10:57:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BC1BC60133;
-	Mon,  9 Mar 2026 10:57:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DE20C4CEF7;
-	Mon,  9 Mar 2026 10:57:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773053876;
-	bh=IlyaL0xzcKbFXRcCNMmKvq3YIxGlatU2bZ5oGniuBKo=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=raxXtsjynu4dcdS3YUuTzvfa0gfWyO/zp4f8tgmpFQ1aj/1BJUK1icZEKf8Kxu392
-	 XfjkBSGCpDCUgWKe0t5Gz08v4hEl/q6j2by35/VpUuiZur0EtgLrICYNSugMguM8lP
-	 tLgrd8H+8dA35Uk85gnxU3550ji8l2VTSiDWSVsbPzlbSrmOkJaZYxvkvvWgLInrpC
-	 4fCueOAuXga34xva5d0FgSF/S65XJjaicqowrXp1GfEM9bjkGpsz9OBG+LUFDcNCFU
-	 u2CA9dG+VIxjNRmhtq4/GE0xec6KTEcg5JhCKptIOOcb6a0ZTSX6aafZLQ6uVt+O/k
-	 ZPLKI40i+yPwQ==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>
-Subject: [PATCH v3 0/2] Switch Arm CCA to use an auxiliary device from a
- platform device
-In-Reply-To: <20260309100507.2303361-1-aneesh.kumar@kernel.org>
-References: <20260309100507.2303361-1-aneesh.kumar@kernel.org>
-Date: Mon, 09 Mar 2026 16:27:49 +0530
-Message-ID: <yq5av7f51d8y.fsf@kernel.org>
+	Mon, 09 Mar 2026 11:02:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=sAkRjP9jYISvdMSyBJJw0ajApQvAkfVgmNZbtMfYkuE=; b=kQnBDvz0laLdm0pWRVN8e4/E3s
+	IgESKlZ6AMDuT1IePF3BZzZWkfTma4/fS3zWrngtkKycV66UO8DR32Z8ppv8fNyqJB2NcNvhn0/oA
+	b37FxopH4vF7Q8NVEulkxinLjgcyzw6sEVaMb1BnM3FvouqcBdLAoibT5BK39sQNi8URpXjSpHNmJ
+	PFh5V5zYBHZKMSKE2tfdnaiq4OQw1KvkuoQNg+Scb/k1AF//X2KqmHkEDJeNaz1l4fBH1e/fAV9Qs
+	hER0s+tKnKBpcebWKfkEibAqcTdfrKVvcFI0lO1YB1A22xf72DsEBrDHexqtpnCLr5Oj9q66wM82z
+	XPom7/Xg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:46846)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vzYNj-000000003dG-0zT3;
+	Mon, 09 Mar 2026 11:02:39 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vzYNg-000000004FS-1Hwk;
+	Mon, 09 Mar 2026 11:02:36 +0000
+Date: Mon, 9 Mar 2026 11:02:36 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
+	Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH RFC net-next v2 0/7] net: stmmac: improve PCS support
+Message-ID: <aa6ozPBP_OlayFs9@shell.armlinux.org.uk>
+References: <aafxqCvJ_XY4YbWw@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aafxqCvJ_XY4YbWw@shell.armlinux.org.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260309_040245_795493_4ACFA39A 
+X-CRM114-Status: GOOD (  19.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,29 +86,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Mar 04, 2026 at 08:47:36AM +0000, Russell King (Oracle) wrote:
+> Resending this as the original RFC now conflicts with net-next.
+> 
+> This series is the next of the three part series sorting out the PCS
+> support in stmmac, building on part 2, which was posted yesterday:
+> 
+> 	net: stmmac: qcom-ethqos: further serdes reorganisation
+> 
+> Similar patches have been posted previously. This series does away with
+> the common SerDes PHY support, instead using a flag to indicate whether
+> 2500Mbps mode is supported (STMMAC_FLAG_SERDES_SUPPORTS_2500M.) At this
+> time, I have no plans to resurect the common SerDes PHY support - the
+> generic PHY layer implementations are just too random to consider that,
+> and I certainly do not want the extra work of fixing that.
 
-As discussed here:
-https://lore.kernel.org/all/20250728135216.48084-12-aneesh.kumar@kernel.org
+I'm intending to tweak this patch series slightly. First, reordering
+the patches, moving patches 4 and 5 to the beginning of the series,
+followed by patch 1, 3 and 2.
 
-The generic feedback was that a platform device should not be used when
-there is no underlying platform resource to represent. The existing CCA
-support uses a platform device solely to anchor the TSM interface in the
-device hierarchy, which is not an appropriate use of a platform device.
-Instead, introduce an auxiliary device to track CCA support.
+The first two add support for reading the SGMII status from hardware
+which we don't currently use, then we add support for BASE-X and
+start using it for 2500BASE-X for qcom-ethqos. This should result in
+no change at this point.
 
-The TSM framework uses the device abstraction to provide cross-architecture
-TSM and TEE I/O functionality, including:
-  Enumerating available platform TEE I/O capabilities
-  Provisioning connections between the platform TSM and device DSM
+Next, I'm intending to add a new patch which sets
+plat_dat->mdio_bus_data->default_an_inband = true; which will enable
+in-band mode, and thus start using the SGMII link state. This will
+be used where the inband caps indicates both the PHY and PCS suport
+inband. For 2500BASE-X, because the PCS reports a value of 0x01,
+that will switch phylink automatically out of inband mode.
 
-For the CCA platform, the resulting device hierarchy appears as follows:
+This should mean that phylink will switch to inband mode for SGMII,
+and outband for 2500BASE-X, which will eliminate the PCS configuration
+change done by qcom-ethqos.
 
-# cd /sys/class/tsm/
-# ls -al
-total 0
-drwxr-xr-x  2 root root 0 Jan  1 00:01 .
-drwxr-xr-x 23 root root 0 Jan  1 00:00 ..
-lrwxrwxrwx  1 root root 0 Jan  1 00:01 tsm0 -> ../../devices/platform/arm-smccc/arm_cca_host.arm-rmi-dev.0/tsm/tsm0
+I've also changed the "report PCS configuration changes" as I
+suggested, although this should no longer trigger.
 
--aneesh
+I'll post this shortly.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
