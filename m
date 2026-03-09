@@ -4,78 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63629F417F3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 15:54:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8D03F417F3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 15:54:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WuwhvHPE2tCeD+MbeMecD1Z+QOEOnL8/jIQcurr77Rk=; b=Ldpr/40eCgmbDY+Atuk7DXp23u
-	OQrYKR/+82KVvCSzC2Etme7R8XHxEHizq1Y39aFURHoALe0gzL4bAkLaicg4LZ4gbuUXCEwbS8HIv
-	nCHiDYadstjdfUnrrPgNX/8FPCtHIqZd2tuW2Cioi5zW5jjNXZdPWSESrjBjMEtCZPaGyTry5iqLg
-	n6hWMD6uUkxmf4z6qVhDLmLRwlEf7tEacKEOvTjwlELoOERxqZCOYkgtO73+vWkLcHMzQk3jzDcOP
-	CVDAOr7178dRelzUzeRAXztwzxSREJloaEw0depjVuy/ALMkT5VdRNh29QBlVuRPnkLxhYDqXmp56
-	gIWZIQWA==;
+	bh=rdbvGrVH2yMgMDRB+YxDHGAbmep4Kjf6MOzjQ3ke/FQ=; b=sDBZwSGz/ZqVJtFK+pd7dqoep/
+	GLxXZ8OmLz0yV7S4nncjlm0VXVAuXMShzsDRE9bJXRBtzNHy6B8Cco+RWjU5xGClYxy6BmN6c2Zb9
+	TdgEEjnnxrgu95HiOcVQ03NoQCcUFACwOQ8KSdKQ9BM+nc/EMV6vqasku8s22mFujz0eZgeq1SSV7
+	gNCfUOWp6PsByEI1wzz/ufKK5W6NhFQMY/PRE/HLLWljANiuTLPbBTOQor5qU0bc+Gjmduq7CaS6z
+	rPMwvmXYL5qv42Up/10Zn8017fSjDrXkuXvaKPjMpgsUyVcJD3rxvCBYlCJyILo/RvjBSSwIGWMmJ
+	6roNoQcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzcw3-00000007eDd-1MzC;
-	Mon, 09 Mar 2026 15:54:23 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1vzcwJ-00000007eFa-2nOr;
+	Mon, 09 Mar 2026 15:54:39 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzcw1-00000007eDU-3CKu
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 09 Mar 2026 15:54:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=WuwhvHPE2tCeD+MbeMecD1Z+QOEOnL8/jIQcurr77Rk=; b=GlBrQPlqU5iLwKcN7lJxKCjXBu
-	0+sYnmCuC4zpwRVThOflesG91VafOFtr6VKfQ+hCl707hZUY0BokwoSKvTE4Fqc87AsoX8K5FosJA
-	MOaMtqM7lSZFgVNcQuPcoEUVovtBS5PNcurc+5LlHFlstKO+0SzY5YzUWmY3HCSG2HGHmQCU694Sk
-	plITWKEOUvQJzr3HdUcNKrlYASyddGPFtzzc15fKiBxMiA9nUmxb3jE4pDVhL8pqObWRR6HjOhIVI
-	G2m/LDU+zNoEqzULYywm6m7sZAXglXzXTgzC+nNinxB+Lyz7zR+UVIR08f4yYWzdtl96HCqG2WCmC
-	h6Vj9tqw==;
-Received: from glittertind.blackshift.org ([2a01:4f8:1c1c:29e9::1])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzcvx-00000006Bbk-2YPg
+	id 1vzcwH-00000007eEr-0tqf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 15:54:19 +0000
-Received: from bjornoya.blackshift.org (unknown [IPv6:2003:102:af0b:fa00:dea6:32ff:feb1:177a])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature ECDSA (secp384r1) server-digest SHA384
-	 client-signature RSA-PSS (4096 bits) client-digest SHA256)
-	(Client CN "bjornoya.blackshift.org", Issuer "R12" (verified OK))
-	by glittertind.blackshift.org (Postfix) with ESMTPS id DFED777AAF4;
-	Mon, 09 Mar 2026 15:53:57 +0000 (UTC)
-Received: from pengutronix.de (p4ffb2dc6.dip0.t-ipconnect.de [79.251.45.198])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 7E2F84FC771;
-	Mon, 09 Mar 2026 15:53:57 +0000 (UTC)
-Date: Mon, 9 Mar 2026 16:53:57 +0100
-From: Marc Kleine-Budde <mkl@blackshift.org>
+	Mon, 09 Mar 2026 15:54:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=caRTnyzC1hqr+2PR5Dbti3Hu+b2rQJmOzhX8GqxPpu6+4S68Mi1dBSU5yBQzroIzqY3lQAeepSg1Tsq4oh0yd7JgKYRtYTZq9VgZ/mG9U2Uq4ffvjwCvrcXLmjsDA7EAcs0qrDBUp0/qgB8M53ucCtvGATRWoWnl2b9vQis8hd99tT0T7gjdJLD8it5EM0RsIg4hdk8iezWodwUImVcATgzTGuVanG5xrrNGGlQvPXsEcXOn3Rd7vAbbBj2USAzvIUp5hagv9cb7wDHY77bYFtD7AuW/jvfg0mx+wDRcjBIQHdCSlYNvv7l2C960heMGHiWvyq7gTWzXPgANXlVxyg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rdbvGrVH2yMgMDRB+YxDHGAbmep4Kjf6MOzjQ3ke/FQ=;
+ b=wwVDXjEJaLYkAEGxKGqZMxQr/SRTJiSinKbwJZ13vxv+RN0NOn1a010M6AOO0vGMy+FsMoqTfZR29aFUayVKdHACoWExxzvZ0ZqESI8toZOrbFoLuJliTdSfEagr74PVEw4PmWDTseX8BYggGxMcBW8DfkRoCCXdRBJLHKgvlsbRq8F5MVcyGUuot/b0xWDxkG4CyOzV1/xanyzCOpgDrPery1qAG80oYrbPkiDpfrNYqcV+L3gaeHlwPxtdjcbfrVxsevMmNuObW47jpweKJMnwnW8baVhRnzTnDZHz4w8OZPM62Ptbo4F6l3aThkvw8NW3iQ40ZS8OJmdVrygMYg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rdbvGrVH2yMgMDRB+YxDHGAbmep4Kjf6MOzjQ3ke/FQ=;
+ b=S+L8f5d2Z1XKlJTL3T1xhom2QnnZ2Z1IapvOAql0E43QIXu3JEJiHxrCB9RbUW5QBebI5ZId/u7jjrP9UduqmxBSC4jLqbDJLqRZJFCNC8DCrpfVe3ok7GEhvRKQVGUPv9pdLOF4yEfvy0+uwSXkrj01VzUuuW8mI6ZIZfW/UJwcpJrRsuGekvnKI3pescQ7qktPfhp4nYihqgZDMjMSeBCn9aDNDkdMCW0Jr3ER/N8BkbExu1yBd7PP3mw5fd91CkkeMlUnEeXOTcGDHi99+syAHbLB1wkC4+7DqNMjCJ9D46iw6jZlg7nRSSnCt1QfBd1F6Lf/m9T4kQeF/bVYMA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by AS8PR04MB8053.eurprd04.prod.outlook.com (2603:10a6:20b:2ad::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.25; Mon, 9 Mar
+ 2026 15:54:27 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9678.017; Mon, 9 Mar 2026
+ 15:54:26 +0000
+Date: Mon, 9 Mar 2026 11:54:20 -0400
+From: Frank Li <Frank.li@nxp.com>
 To: Sanjay Chitroda <sanjayembeddedse@gmail.com>
-Cc: mirela.rabulea@nxp.com, mchehab@kernel.org, Frank.Li@nxp.com, 
-	s.hauer@pengutronix.de, linux-kernel@vger.kernel.org, kernel@pengutronix.de, 
-	skhan@linuxfoundation.org, festevam@gmail.com, linux-arm-kernel@lists.infradead.org, 
-	linux-media@vger.kernel.org
-Subject: Re: [PATCH v2] media: imx-jpeg: convert kzalloc_obj() to
- devm_kzalloc()
-Message-ID: <20260309-excellent-lionfish-of-symmetry-5c1a77-mkl@blackshift.org>
-X-AI: stop_reason: "refusal"
-References: <20260308060554.1764128-1-sanjayembedded@gmail.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="rwfq522xc3dm3ibc"
+Cc: mirela.rabulea@nxp.com, mchehab@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com,
+	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, skhan@linuxfoundation.org
+Subject: Re: [PATCH] media: imx-jpeg: convert kzalloc() to devm_kzalloc()
+Message-ID: <aa7tLI_S2VYrrKdL@lizhi-Precision-Tower-5810>
+References: <20260307210404.1428894-1-sanjayembedded@gmail.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260308060554.1764128-1-sanjayembedded@gmail.com>
+In-Reply-To: <20260307210404.1428894-1-sanjayembedded@gmail.com>
+X-ClientProxiedBy: SN6PR04CA0078.namprd04.prod.outlook.com
+ (2603:10b6:805:f2::19) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AS8PR04MB8053:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9f4c6df2-0380-4d92-a902-08de7df4242b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|52116014|366016|1800799024|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: BFBi9EhGo7LRf49u756bU8lhNwPosQheWR8Ew8nfxJ3ers5xPpuEsByncSWrdJP9jtD3Qs4AkTKP1ktgWZrY7Uuu6+O19cyus3huDksUS22QderzG3sHysl2Ezeru73Nzi/Jb9ydevFw0VHTf9R7bNFImzHlDpfXoPK/JFC7Cy1zoSuNdDqfMZC6t48oDw5pee2m90yedQlJydTbw5uMijSIRYCoCz1Ls5TlGHMJkjMOskhiRqjK5E7nC+2/YZNo+BCKf/tVQ6nrXXBvFpT2LChZ98HG4KHwm2ec5RXo5OptrDH6eHWk2ZIJQiMkjECktiqAix5w5r+P2IwrBRdOwCGIbgNJRVGoT0QD0XiXtJVahMvFZWhRr8sf1peeh2Hopg+h31GGFVKRjd/JLxV8GZOlX+YMOo4dpcTnDQ3LtMGrprQzwM6LPo4Tb5B6pz0xxvAUwmgERw1rK0GaEDl+AlDlHsZHPXpbGPRlLf47MLqhTb3AWo6D1ixRdlbUsGIgONaxFqyeSoZ1jYaRA8bI5E5aj+pcpB2KbLRf6v1zNG7GFgrFS1CX/22oKrenYV10e1Xdy+WGG3jpS6E99t53GoDOgmrY4NcRqWlGHfmCLYhbBNA5piRVDFKyEb6keHg69v5pgWKulx2zyynRL/c0H71p0bPB+cSiVcLfjhzmcXxe18MHhrA0qUNMmVzdo6kBG9C/i04DFbnXbRkkwcxJueGSEISuDxvndvlgg8Lx4e7AZFuoEGO7LEKlhJGnN3pLHxCWSHY5XfLfXeybdf1NUGhMa0VvG9/HktFIB62pEoU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(52116014)(366016)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aABvtIwbZv3+1Zx6YqqCtJN6Gn05Svb2iN0Elsxf283jRsvcVl2Jz3rQnWOb?=
+ =?us-ascii?Q?52cxgosZPlLE+5IUe6EoBX18u7BAI7k9LCg+Ssc+VJSXow+i22FeLPsiAoLS?=
+ =?us-ascii?Q?jt+d9OOVvp7JwAywrchUJN4RIsixK/L3RlBN0Q60wR2ZCp9K5WAmIbYJapJr?=
+ =?us-ascii?Q?DegN3TNaE4RTqcd/Db06lTJjDi6HZvLtHnUTG/Ad+Y25cupkbQiNjCbn8rDg?=
+ =?us-ascii?Q?7gBvP0SNM5ZgQKqKKozqRwjPCfRQHpUcxoMi5oxsxo9voApjnPw6OgwJVgBL?=
+ =?us-ascii?Q?Z6PZH8EEVF1jpZFBl9loCrXTv9oyz+1AxsC2FYmiGmbz2Tco6bB8fogWp9JL?=
+ =?us-ascii?Q?N0AcTyX90tQjHiLT0q9yZqg0agHVytHDMbiqsRQDTm5KwZZOR7fRTsOOohGm?=
+ =?us-ascii?Q?KSYUKHJIklUT0Wg7VpEIHIMQDN5mfhssRVCMkRBHlbAYdyVtuwEJ5GNf180b?=
+ =?us-ascii?Q?TbxHLTyALn1uiLcjJ+gJVrTLN4QbcSkWW/uLXRlfaZ1esp2+4fYRTgKNkhPO?=
+ =?us-ascii?Q?nA7+A6QWE0s7/UeEJ/3MN+WaX3tIGn061WYTNTwcZfVmYkwT7NHTRDXIAnU+?=
+ =?us-ascii?Q?D5DDXWhgoYURpmjUHV+EOqnaqK/+DBKflWlBXHFbKD5UF+2uzfJGsQS+B84o?=
+ =?us-ascii?Q?yrgAVsJ71x6lKtSNNCXv+WJnml98m6h8G+Jt0Iifgj87CvC+Br1omdXtaxSO?=
+ =?us-ascii?Q?Wqzm0GMTUC+11zJbNnHtPLm6Wy/hR326nvs45d2xMufEyXcRNiYc+F68tE0x?=
+ =?us-ascii?Q?AJdoAuB8yZ7nRn/GxLY+YQKhLAdNZAA1H5DI+hDHgTdqPG1OItj95M3owAT5?=
+ =?us-ascii?Q?qSzLa0Y+zhCjZNnNzAnqJmWGDGme3dIwuhVzUf/izOgSqavnssGiYZOgfT2W?=
+ =?us-ascii?Q?t73OKRMb8ABkffrnujGbQu0mkfOvpA5UGY7M9zycTmHvcw19xcWUySikIoi1?=
+ =?us-ascii?Q?jQPymx86qbjWa7q4tucOGVKoJsfBIKG4q+03Qac6hCRFHdAtoV+akHoeRp7T?=
+ =?us-ascii?Q?d4KRAfY+S692lBwftpN92dvX3GhFFGOlOkvblBDlNMYwOkYpA5axnJP/6aRk?=
+ =?us-ascii?Q?GH4bt7MfE+D0hCTKVAVSNGuLLJf2Mv/t48jPvE8u1bhXYgLGhh+ZsUPmqL1v?=
+ =?us-ascii?Q?/MazIrSVGl+bsdz+ES3i1w122EnHpfY7XB5HNTVuHzxv8QQxYICz0nXzv/7p?=
+ =?us-ascii?Q?GpGdiwFWtYBYTUBe1B6UKSgNyFQiKqalcoZqIgRT+Euj/iJ+Vgtvf+ZVuKOL?=
+ =?us-ascii?Q?tcCR669QfMy5KWYXz+QAE6IOPSUPnU7Gr9PJGbLua+iJWXrprlKVBLBZorPb?=
+ =?us-ascii?Q?aQ9N4u/PUAC0p340Ed9m9C0NZVnAmfL/HUjWTIs6UY2+sdRBVu2IRKcXyuKj?=
+ =?us-ascii?Q?ZdllylHyN3VG8c8PPyaPWL0GFALx846zEEJK2P43En7OrnIKViVTMZ+g7zMy?=
+ =?us-ascii?Q?51CwssownXcJLrHEORJbasig+uMvouI+LznJy1hvZnmR/dCaXlcFXps9R5LQ?=
+ =?us-ascii?Q?6XTtzOTAaawpdKjCp/0roTFWB7hB3W6VBf9pQkGiz1Wn/Q9Eo83F/yIPbJPq?=
+ =?us-ascii?Q?Hd1nZcWA4nG20N2iL/CkPbfTwk+tqHSyax1znGpvO2usrTj3M3TFL4EJiEJG?=
+ =?us-ascii?Q?CC+mFCn9AXCz1jGKxgViznOLTrBRWr9qamWrEBFkGbz28lnSYQ+8eYaDGQAW?=
+ =?us-ascii?Q?+FKVbAdvuokpNtQuZbvr2pcHqD7IB79qM8XOBKveDDHpxkF3?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9f4c6df2-0380-4d92-a902-08de7df4242b
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Mar 2026 15:54:26.9022
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: twzFU6iZVWbM61vJ3DnnvqSDcWklbW9SfaQ8P0iJtWOFsMGqSAry5emEYw1gomjVRUHa667ItnzRfr2TCQo+Yw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8053
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_155417_711558_01DA0278 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20260309_085437_257623_36C0ED48 
+X-CRM114-Status: GOOD (  21.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,49 +135,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---rwfq522xc3dm3ibc
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2] media: imx-jpeg: convert kzalloc_obj() to
- devm_kzalloc()
-MIME-Version: 1.0
-
-On 08.03.2026 11:35:54, Sanjay Chitroda wrote:
+On Sun, Mar 08, 2026 at 02:34:04AM +0530, Sanjay Chitroda wrote:
 > From: Sanjay Chitroda <sanjayembeddedse@gmail.com>
 >
-> The driver allcoates memory using kzalloc_obj() and frees it in the relase
+> The driver allcoates memory using kzalloc() and frees it in the relase
 > path. since the allocated memory is tied to the lifetime of the device,
 > devm_kzalloc() can be used instead.
 
-What happens if you issue multiple open()/close() cycles per device
-lifetime? Will the memory pile up, until the mxc_jpeg_remove() function
-is called?
+static const struct v4l2_file_operations mxc_jpeg_fops = {
+        .owner          = THIS_MODULE,
+        .open           = mxc_jpeg_open,
+        .release        = mxc_jpeg_release,
+        .poll           = v4l2_m2m_fop_poll,
+        .unlocked_ioctl = video_ioctl2,
+        .mmap           = v4l2_m2m_fop_mmap,
+};
 
+Look like it is not true. .open() should be called only when device open,
+not at probe()?
+
+Frank
+
+>
 > Using device-managed allocation simplifies the error handling paths and
 > remove the need for manual cleanup.
 >
 > No functional change intended.
-
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---rwfq522xc3dm3ibc
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCaa7tEgAKCRDMOmT6rpmt
-0sDRAP0WU8x/a6pZA9ver9FOcvuFQgp4w76tuUH0fxv5Q5oK7AEA2nC/ZdCd6qJ7
-qPjF2o2RBxHPuXk33kjBxpUC0D7hMAA=
-=ttro
------END PGP SIGNATURE-----
-
---rwfq522xc3dm3ibc--
+>
+> Signed-off-by: Sanjay Chitroda <sanjayembeddedse@gmail.com>
+> ---
+>  drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c | 11 +++--------
+>  1 file changed, 3 insertions(+), 8 deletions(-)
+>
+> diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+> index b558700d1d96..bd4b5f08a85c 100644
+> --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+> +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+> @@ -2200,14 +2200,12 @@ static int mxc_jpeg_open(struct file *file)
+>  	struct mxc_jpeg_ctx *ctx;
+>  	int ret = 0;
+>
+> -	ctx = kzalloc(sizeof(*ctx), GFP_KERNEL);
+> +	ctx = devm_kzalloc(dev, sizeof(*ctx), GFP_KERNEL);
+>  	if (!ctx)
+>  		return -ENOMEM;
+>
+> -	if (mutex_lock_interruptible(&mxc_jpeg->lock)) {
+> -		ret = -ERESTARTSYS;
+> -		goto free;
+> -	}
+> +	if (mutex_lock_interruptible(&mxc_jpeg->lock))
+> +		return -ERESTARTSYS;
+>
+>  	v4l2_fh_init(&ctx->fh, mxc_vfd);
+>  	v4l2_fh_add(&ctx->fh, file);
+> @@ -2246,8 +2244,6 @@ static int mxc_jpeg_open(struct file *file)
+>  	v4l2_fh_del(&ctx->fh, file);
+>  	v4l2_fh_exit(&ctx->fh);
+>  	mutex_unlock(&mxc_jpeg->lock);
+> -free:
+> -	kfree(ctx);
+>  	return ret;
+>  }
+>
+> @@ -2754,7 +2750,6 @@ static int mxc_jpeg_release(struct file *file)
+>  	v4l2_m2m_ctx_release(ctx->fh.m2m_ctx);
+>  	v4l2_fh_del(&ctx->fh, file);
+>  	v4l2_fh_exit(&ctx->fh);
+> -	kfree(ctx);
+>  	mutex_unlock(&mxc_jpeg->lock);
+>
+>  	return 0;
+> --
+> 2.34.1
+>
 
