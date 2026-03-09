@@ -4,149 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8155FEFCD71
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 09:43:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13DB0EFCD72
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 09:43:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cwj5Ko6s6gY5xpLSkyXqOm4jMGA+u9EJI0q9kS7VJAM=; b=ezEn6qrJIuBXIMrAs3LGi+gw+m
-	bsjkPp3QQfCv440uyU5+D+D402vObTeCD0SqkHTLpe/UmeqmPz6q0BDrK17DUiUNnx3M2Z7CYqAmf
-	GcMv0rWjlEZ/arQ+gApE463gVzCxBQnE2KjuarhhFfi8yxVJM3+HIHuKW+OlfqmgehiJeTg57UJgy
-	y1k+SsDTRUJo42sk/77CFcQn2Q6Xca6k3+AyWTv9+kFrFM4tyH6Zj5fzwyV93cqR00UwTmnICLZ3h
-	bkyBaCyOyeBGjSvLuyvKfns/TqoKtUTafXdvL1YcOj8wiIC/yJHgTN8n1qkCzUbUJrITkIAmok0HH
-	R7ic/DlA==;
+	bh=S0/jxou5Z/2zFSjfwQLQTsJh2V5dQtxGaZy3PbdIvjU=; b=o+nVhf6fj3mILF3YhNzA7bCHJO
+	s1LlPFN0RBkkXB2ox22K3+u0pB6+bURoP7bx7tVu1tE0EnT0o9Qm6BFctwx5YEQw76g4mFY+ZFprl
+	lbnCGc0h/gVB7/uGX4YocQOhZ1lgxT5vni72p+vYtbJ4yhoUzdVt6JD3QWvdqfYbB1LTmSsMkDuvf
+	+85IWNHk82kOz/c4/a7xLsECwJEEj9WyhbdpI1ao4xFO0GMdX47MryfFpt7jbJbqiqNaUoW6QW6uF
+	ShpfSXOfSqbOCcTvbbK22XfL8Gl4mRAA1zzI3lXMULJXrHRpPYa8BrVMACIdu4Mqbumh0NkPUsZaN
+	JC4mqTnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzX8y-000000070Vv-13hf;
-	Mon, 09 Mar 2026 09:43:20 +0000
-Received: from mail-francecentralazon11013065.outbound.protection.outlook.com ([40.107.162.65] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vzX9D-000000070YG-2VtG;
+	Mon, 09 Mar 2026 09:43:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzX8v-000000070VM-1eCM
+	id 1vzX9B-000000070XW-07MJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 09:43:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DjYcZ8Fh1+CqlEG+/XGyp8tGiI2XWJUF3rW3uOWwE9mmTOs6GieY15Yvh1DPOh/hEeqG76o126zkyK5ZrSHqmnFzvFcGnLDYNZ9POjBhI8+8T48As/KDCryqYCcFOFgxKiss3vr2EbTLlZo/9RVCX/fa7Ne5jOJeY34DipEGhiSz/lW1nJUHL+wcU8Y7aHMxbwQl1yJYcTj5v511zARO/ee95l+dyO1QtNE8Xuadow1JRplBkMY36xqlGLD+gxv8OFFhV8+Hd/SZqkJ/KGe5icO9Pe5sXgfZuyDEHWiwHHr3jKb37jUVIycxJbF78AsYJ428OeaMBManFDlld9agDQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cwj5Ko6s6gY5xpLSkyXqOm4jMGA+u9EJI0q9kS7VJAM=;
- b=EPBm0S03hqP0U8W9S7clZahJWMiF7tkNRC35qvedd61pzcz/XlXA/R/t1nv3jFLxzKHt3yUSuDYQyKpod6OPqDhaKn1DpXl5yrCDLjizT3xSDjk/JLqqNc89KStmTWQy7/NktB7nf3f5E1CWPbZplLjsS8cfo3fG5ZRJgo7XEmBbDnP1BRvGnz6FK5Xl1PEgPcOrZ5kaq9cQsGP3Z65NwbbE7kZdHveOskyIR2UW7pr5SsUC9/8BM2UTgfrR/3oCfTOjqBaoJ5CkoYAhVCnoWwrH3fgcVB9lVqZPRsQBfoh4MTjePycc4QIcpS2TtaT6oPCUjnvUALkH4aEqzkpKNQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cwj5Ko6s6gY5xpLSkyXqOm4jMGA+u9EJI0q9kS7VJAM=;
- b=tND3gL+K8XqBlFz28DB606bBdHDtDJt6ZKsRXpKZ9+mHIGrwrLIn98hoBxWdXv2aVeC9HpP1jdLsn65iOEi7bL9BZK1l6K5GKlcceTSStpUwSoMNZS6KRbgu3bwCMw2VLDLxes6E5zvbiJ6poY3qEJqCX+zo86oFRFRPctryjgpcPWAuKPPweYszfd5KUCvN4l3ErfdHDufS8ZFAwQpVckHRWoA3hKj9odsHvZW+E55ivBgaA3lmFzGZFgCU7+Tsq9qzBctK7C0yM7Rth9RbTTxRHK7LN88PwDjULEmQI3LhqhNicCFgkyakyIXBiLIgQGWIQG7nr9kkfjPkKeKqqg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU0PR04MB9251.eurprd04.prod.outlook.com (2603:10a6:10:352::15)
- by VI2PR04MB10738.eurprd04.prod.outlook.com (2603:10a6:800:277::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.23; Mon, 9 Mar
- 2026 09:42:54 +0000
-Received: from DU0PR04MB9251.eurprd04.prod.outlook.com
- ([fe80::5c3a:1a67:2e02:20d0]) by DU0PR04MB9251.eurprd04.prod.outlook.com
- ([fe80::5c3a:1a67:2e02:20d0%5]) with mapi id 15.20.9678.024; Mon, 9 Mar 2026
- 09:43:01 +0000
-Message-ID: <5136bdf2-b089-41ef-b7c5-21a826982b18@oss.nxp.com>
-Date: Mon, 9 Mar 2026 11:43:01 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 6/8] irqchip: add ARCH_S32 dependency to Kconfig
-To: Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
- Adrian Hunter <adrian.hunter@intel.com>, Shawn Guo <shawnguo@kernel.org>,
- Lucas Stach <l.stach@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mmc@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, s32@nxp.com,
- Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>,
- Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>
-References: <20260306161555.9000-1-ciprianmarian.costea@oss.nxp.com>
- <20260306161555.9000-7-ciprianmarian.costea@oss.nxp.com>
- <87h5qps67d.ffs@tglx>
-Content-Language: en-US
-From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-In-Reply-To: <87h5qps67d.ffs@tglx>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AS4P189CA0032.EURP189.PROD.OUTLOOK.COM
- (2603:10a6:20b:5dd::18) To DU0PR04MB9251.eurprd04.prod.outlook.com
- (2603:10a6:10:352::15)
+	Mon, 09 Mar 2026 09:43:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 31A2D4182B;
+	Mon,  9 Mar 2026 09:43:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FA2AC4CEF7;
+	Mon,  9 Mar 2026 09:43:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773049412;
+	bh=2lGo3t1RntZTSXyLwgxBc8rDVEWOtf0wRiWH5p0NqEY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pi6uSJTdeVJsjuruAOk6ckUNvZwU3AXUYiYYYsSIhq6opeYHnuE4gmuquMR0cztRC
+	 nqRC6Nc4GX3YqCXsk4+LDu5O8cSqWyxa5w0fGkan6fcfvpN1m7+rozTfLyZQo7p1TK
+	 kiB+oUtdGmqD2+jeRMBSCA7fAcdsTDGaLUPSvjbTJk0AT3ZMpGngJXhNICQJhEK78h
+	 GfvXcXwopHYTxuIJWxDjnWeuZOjYGAlJ1C7Kix6np6FgK1kYHs5PKlDvQH/XKv6lXY
+	 ypyFQ/amMNOemvj5SRkTKHLdIQf53sPwLCdI1PupnY/u/abcZ2olOEWqkzv00NtF06
+	 brit18q6B1LkA==
+Date: Mon, 9 Mar 2026 09:43:27 +0000
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Philip Radford <philip.radford@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Sudeep Holla <sudeep.holla@kernel.org>, arm-scmi@vger.kernel.org,
+	linux-pm@vger.kernel.org, james.quinlan@broadcom.com,
+	f.fainelli@gmail.com, vincent.guittot@linaro.org,
+	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
+	quic_sibis@quicinc.com, dan.carpenter@linaro.org, d-gole@ti.com,
+	souvik.chakravarty@arm.com, cristian.marussi@arm.com
+Subject: Re: [PATCH v2 5/9] firmware: arm_scmi: Add SCMIv4.0 Powercap FCs
+ support
+Message-ID: <20260309-jade-salmon-of-education-7c901c@sudeepholla>
+References: <20260204111950.3648160-1-philip.radford@arm.com>
+ <20260204111950.3648160-6-philip.radford@arm.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU0PR04MB9251:EE_|VI2PR04MB10738:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4e621cdf-e686-44db-4334-08de7dc040e1
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|376014|7416014|1800799024|921020;
-X-Microsoft-Antispam-Message-Info: M2df8imyhuR0ZiRUR0/O2DOE0QjoDIBDKEW2c4VZlj9sUZM0jrEdnXjEMewxz9PEBAA7bC7pqp6o4JPQZYYgHxPHsO+4QT433BYFNTY/UVhJN1Aq7IdHZmp4MC6JpK55J+ZwJC4eMwLYKbcUT/FTyD+l8I3fsdgda7RGJWM+cjsklzhT8gSdwomQRgftTIVKbQt0B8sdh8Hzv6P6aFzPBhBI/RKaqorStnQuakynWN5LRqHNK0hZglIpZg8HcZvhkuusiK+d+sJDUcAaVhN17gtNEHv2PBtZ4bSglz07EYb9EC01eNt3V+UX76WbfXBJYmjUlhSUWowrIqY9J7bDsAQ99U/Dc+OjqzF5k0Y7ivmHg9AfzhkMpGIn2v3Kb4D2W/A80SZMTJOj2ZMQyj67pCEQZHOFuq2oN5YlBiSEiHf9e0jcJkcVsnSTLo/EwG7WtuoH8QKhyhDniKduiQXrHjo9NYlrGxQ5vG6te27FXuzCO22Lbgdw14lvqNFfZzKaXxtHP/ZPDuKDNhbxNDqKbTihv4MSXIBvcFfonwMFJ7u6p8GNXFEoigWANOkwEmyDB8d1tkPr1+OTtnpSqbhY57oEayBHI4m3BW1PMWHAnL0uI3KApqzlAHHjQ8tQFNGL08mQHFF+qd8Uzf5LnXgTdA2ZR3oYin2PafBg52+QlBiQjyBnPlBV35fNvHPXlEZ8LpedIqMCfET9Z/TzDKI6ltFf3YMkV8CBAEnYB1eGUoSy+kgMSiqCOBfS6X7B45LKj7DCyFuUQxTEgX2XhRg+4g==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9251.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(7416014)(1800799024)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Q2d5RHlHZi9scDE3NnFFajVRTkVQOEZUTjNIbW05R01TNXZWd0FoWTFxREJx?=
- =?utf-8?B?S1F0RXlhTmpIdjl5S1V3WnZjRUlXZ1NpQVpMbkdOY3NPeWM4L09iSHd4djhx?=
- =?utf-8?B?NjBDdE54bXBkc2dHQUowemxDQkR3bUJabHJFZDh5dVJRYVljZXFSZXYrR2Q1?=
- =?utf-8?B?L0YzeUxscWJzTTVWZ1haRXBnalFFS0IrelJ0VllMbmF5b09lQ011Nm1pV29I?=
- =?utf-8?B?cW1FRktUQ2paV2RkZ3NhY3J3Z1JVQ0t2bGRraTZvNlZoUXpPZDBNRkFEcGJC?=
- =?utf-8?B?dGhHRXhXK2NzcWVKU0c0QlVjdjhPZHFab2pIZ093OGJ3UTJPRlJVek81TTd5?=
- =?utf-8?B?NUJ5ZWpFVWlpTHhoSWNLSGVVdEpNUTJ5aThmSGlWdkRxNmpUTEVUOFl6VUJV?=
- =?utf-8?B?bWcyKzc2bUtqRy8ya3pnNGFaaDExdzFNM2U3UXNsUENUb2xJemVsYXduVlo5?=
- =?utf-8?B?UUFoY044OGlRWWRMYUMwS2RMeGpYYzN2ZjJ0NHBYMWpnSk0zR0hLNDdDcWZH?=
- =?utf-8?B?SzZzOUp6dnk0TitxZ0F1NGF1SzNha3pPVE9QZUx3R1NwdG5ZeGdaSnNxMTJo?=
- =?utf-8?B?cWlYRURab1h3bGVSWWF0dmxSaVkrcUl0UytvQytMdGdnaFNIeGJvNG5sVGN2?=
- =?utf-8?B?a2lDeVZwK3YrUHE5WGxHa3QvaTB0RUFPNHEvcHVrdklmQ0ZPRUk0LzJLdHY4?=
- =?utf-8?B?OFdwK1h2WlkvTklTZ1p5R3l3NVdndENtblptM3NnZnZrcXFUeEprN1p4em1E?=
- =?utf-8?B?Q3JsU2NDNTVRby8rZ0RRUHAwTk81TnFlQ0RiRFRXY0Z1SlVhZnh0eTRUSTc3?=
- =?utf-8?B?WUFhdkZiaWVLNTZqR1FTdHZUV1ZIaDdWa0lKM2UwTElYYXFmZExHQnB0VWRL?=
- =?utf-8?B?SzZsYjg2NnhGQ01UaTNLSXFkZ0wwZFEzTjR0dVJ0U0E2NkZUaGdVZTVsTVR0?=
- =?utf-8?B?WXAySnh6NnhmQlowTStzcjdkamlqVm5KU0p3V25mcUovaXZIamhpSE9rQkZK?=
- =?utf-8?B?Qkx0b3ZKN3dhb1M0b2VFb0U4Zno5WEdCOFNOOUxjYVpscHQrcDJNVGdlb2x2?=
- =?utf-8?B?V0VRZFhtaEdzWndvRlpjaSthY3FKdWJ2N2ttdjhYLzVGRUNlbTFzL041NkZz?=
- =?utf-8?B?bTlVQ1JpTko0a2ZMUkJuK2xaMS9rNnBOMzJaZlRUcDJsUlhNUlJSNXllNmpV?=
- =?utf-8?B?VzIyKy8zYXFsb25zM2tWYWQ2bldxR2J0RENyaS9lSDhIaWs1NDNtK0tzaHVI?=
- =?utf-8?B?bE5oYnhzRFZaazZMVFhFbzNuc0ZVMm1reU8zaUJGYkJiTlE2VGU3MmYzK3NI?=
- =?utf-8?B?MFRZN2daVW5RcnU1dytaVUJoaE56MGpaQmdxZk03K2FheHdFcXFOczFVUnBC?=
- =?utf-8?B?WGFDQkNWNDk2dG5HSlozUDJsbUlSbWtvQzNLUDN0Z3pjeFFNdmFaRUlxTGlv?=
- =?utf-8?B?Nm5uNnFUbGU4c0laUGJPNm5SS0dXOWRydzFNVko5V3VXVzNVK2QyL0NIbHM2?=
- =?utf-8?B?VDdFdG9QQlRRUXRyejVXQ0k4YXI0SE5Ua1E5eHhiRi9OUStXY294QWxVQzM3?=
- =?utf-8?B?eTRacmdrVHZTb3hiSHg1QlpESFdNK0tkTE9rdUM3SzBOcUY0K3BtVzA5TzYr?=
- =?utf-8?B?ZnRlaERVZmZTZ0tPQ21UWmxsa21aQ0hGdXhsd1pqYUsvOE5lSmxUWE5EMDFr?=
- =?utf-8?B?Wld3dUREM1o4S2xsTG9xMXBhZVJIQnZ6VTdOMGtLK2E3VVFwTDI2TWhYTWhQ?=
- =?utf-8?B?MmZnTFpqbVE2TEZ3NXViZ05EZlhwWWYydXZOdkNkZ01Ca0pTMlJTUHBVR1M0?=
- =?utf-8?B?UFVScWVXamFYSUFUZ0NaN0hERCtqZ3pMK2p3RzFkSm9EdHArVWhEQWwxVlRk?=
- =?utf-8?B?aGdncG0xOXROakRqWUdwVDNCVFJPYmFRaC9WZ2tZaGpIRFhLZTBCR09VZStw?=
- =?utf-8?B?c0VpYlJsN2hlOW4zazc2Q0d3REQ1cE1wZHQybm1iNUlrTVdva20zOHdzZUNw?=
- =?utf-8?B?YjFjTzVSOGxLQ01tQVYyNnp1eWdxN3ZvMmo0NEJ2RnBLV0NjNVd5aFBXSVBR?=
- =?utf-8?B?Y0NUeVBFR2dGZnBQVk5xbWhOTHJuK0tjbzUvMU5OZk4yVml3eGxqRnhsREpF?=
- =?utf-8?B?d3hOREV6elNHU0k3ZllqaWI5ZVJiQ0dzWkhhdi9RRVZmTVhRQ241NHBEcytE?=
- =?utf-8?B?K3dwT3QzVUx2cEUwdVFwYVFHdnVvL2Q4V1pJWGZOQzV5TjZla2xPOVZLd0lP?=
- =?utf-8?B?NGJQQllCUHdRWGxoSE5UZGIzTVczZGVHUk5rV1FieW41VUxrbmJhKzRwWjhK?=
- =?utf-8?B?U1RFZk1MZ3ZsRjNyNGY0d21zTUtIeVRYM0dkeWVESnpFaGM2OWRBYXFyODhy?=
- =?utf-8?Q?3wU2FaBOitBf3rM0=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4e621cdf-e686-44db-4334-08de7dc040e1
-X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9251.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Mar 2026 09:43:01.0746
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: U7e5I9iHDcOQTDRjUEX/545won0RR5LyK8doTfmIlLKD7BeyIL3pmogKrqG1ST6sYkGqIPMOZ6lDN5mFuYTpCXEVzx0kH+xkHswGO2FPlEs=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10738
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260204111950.3648160-6-philip.radford@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_024317_439331_5E8E1606 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20260309_024333_118773_B0F3DB6B 
+X-CRM114-Status: GOOD (  20.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,24 +78,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/9/2026 11:27 AM, Thomas Gleixner wrote:
-> On Fri, Mar 06 2026 at 17:15, Ciprian Costea wrote:
+On Wed, Feb 04, 2026 at 11:19:46AM +0000, Philip Radford wrote:
+> From: Cristian Marussi <cristian.marussi@arm.com>
 > 
-> That subject line is useless. It says that it adds a random dependency
-> to Kconfig, which tells nothing. Subject lines have to be descriptive
-> and useful on their own w/o the need to decode them through the actual
-> change log.
+> Add support for new SCMIv4.0 Powercap Fastchannels.
 > 
-> Just fold this change into the previous patch which adds the ARCH_S32
-> support into the driver.
+> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> [Philip: removed reference to old versioning logic]
+> Signed-off-by: Philip Radford <philip.radford@arm.com>
+> ---
+> V1->V2
+> - Removed creation of pi powercap_info struct due to legacy code
+>   change
+> ---
+>  drivers/firmware/arm_scmi/powercap.c | 323 ++++++++++++++++++---------
+>  1 file changed, 221 insertions(+), 102 deletions(-)
 > 
-> Thanks,
-> 
->          tglx
+> diff --git a/drivers/firmware/arm_scmi/powercap.c b/drivers/firmware/arm_scmi/powercap.c
+> index 3291bde78367..22bf8e480450 100644
+> --- a/drivers/firmware/arm_scmi/powercap.c
+> +++ b/drivers/firmware/arm_scmi/powercap.c
+>  
 
-Makes sense. Thanks for pointing this out.
-Will squash this commit with the irqchip driver changes in V5.
+[...]
 
-Best Regards,
-Ciprian
+> @@ -1019,37 +1092,77 @@ static const struct scmi_powercap_proto_ops powercap_proto_ops = {
+>  };
+>  
+>  static void scmi_powercap_domain_init_fc(const struct scmi_protocol_handle *ph,
+> -					 u32 domain, struct scmi_fc_info **p_fc)
+> +					 struct scmi_powercap_info *dom_info)
+>  {
+> -	struct scmi_fc_info *fc;
+> -
+> -	fc = devm_kcalloc(ph->dev, POWERCAP_FC_MAX, sizeof(*fc), GFP_KERNEL);
+> -	if (!fc)
+> -		return;
+> -
+> -	ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
+> -				   POWERCAP_CAP_SET, 4, domain, NULL,
+> -				   &fc[POWERCAP_FC_CAP].set_addr,
+> -				   &fc[POWERCAP_FC_CAP].set_db,
+> -				   &fc[POWERCAP_FC_CAP].rate_limit);
+> -
+> -	ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
+> -				   POWERCAP_CAP_GET, 4, domain, NULL,
+> -				   &fc[POWERCAP_FC_CAP].get_addr, NULL,
+> -				   &fc[POWERCAP_FC_CAP].rate_limit);
+> -
+> -	ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
+> -				   POWERCAP_PAI_SET, 4, domain, NULL,
+> -				   &fc[POWERCAP_FC_PAI].set_addr,
+> -				   &fc[POWERCAP_FC_PAI].set_db,
+> -				   &fc[POWERCAP_FC_PAI].rate_limit);
+> -
+> -	ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
+> -				   POWERCAP_PAI_GET, 4, domain, NULL,
+> -				   &fc[POWERCAP_FC_PAI].get_addr, NULL,
+> -				   &fc[POWERCAP_FC_PAI].rate_limit);
+> -
+> -	*p_fc = fc;
+> +	for (int id = 0; id < dom_info->num_cpli; id++) {
+> +		struct scmi_fc_info *fc;
+> +		u32 *cpl_id, zero_cpl_id = 0;
+> +
+> +		fc = devm_kcalloc(ph->dev, POWERCAP_FC_MAX, sizeof(*fc), GFP_KERNEL);
+> +		if (!fc)
+> +			return;
+> +
+> +		/* NOTE THAT when num_cpli == 1 the arg *cpl_id is 0 */
+> +		cpl_id = (PROTOCOL_REV_MAJOR(ph->version) >= 0x3) ? &id : NULL;
+> +
+> +		ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
+> +					   POWERCAP_CAP_SET, 4, dom_info->id,
+> +					   cpl_id,
+> +					   &fc[POWERCAP_FC_CAP].set_addr,
+> +					   &fc[POWERCAP_FC_CAP].set_db,
+> +					   &fc[POWERCAP_FC_CAP].rate_limit);
+> +
+> +		ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
+> +					   POWERCAP_CAP_GET, 4, dom_info->id,
+> +					   cpl_id,
+> +					   &fc[POWERCAP_FC_CAP].get_addr, NULL,
+> +					   &fc[POWERCAP_FC_CAP].rate_limit);
+> +
+> +		if (PROTOCOL_REV_MAJOR(ph->version) < 0x3) {
+> +			ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
+> +						   POWERCAP_PAI_SET, 4,
+> +						   dom_info->id, NULL,
+> +						   &fc[POWERCAP_FC_XAI].set_addr,
+> +						   &fc[POWERCAP_FC_XAI].set_db,
+> +						   &fc[POWERCAP_FC_XAI].rate_limit);
+> +
+> +			ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
+> +						   POWERCAP_PAI_GET, 4,
+> +						   dom_info->id, NULL,
+> +						   &fc[POWERCAP_FC_XAI].get_addr, NULL,
+> +						   &fc[POWERCAP_FC_XAI].rate_limit);
+> +		} else {
+> +			ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
+> +						   POWERCAP_CAI_SET, 4,
+> +						   dom_info->id, &id,
+> +						   &fc[POWERCAP_FC_XAI].set_addr,
+> +						   &fc[POWERCAP_FC_XAI].set_db,
+> +						   &fc[POWERCAP_FC_XAI].rate_limit);
+> +			ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
+> +						   POWERCAP_CAI_GET, 4,
+> +						   dom_info->id, &id,
+> +						   &fc[POWERCAP_FC_XAI].get_addr, NULL,
+> +						   &fc[POWERCAP_FC_XAI].rate_limit);
+
+Can the above "&id" changed to cpl_id like the first 2 instance for consistency
+unless I am reading it wrong.
+
+> +			ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
+> +						   POWERCAP_MAI_SET, 4,
+> +						   dom_info->id, &zero_cpl_id,
+> +						   &fc[POWERCAP_FC_MAI].set_addr,
+> +						   &fc[POWERCAP_FC_MAI].set_db,
+> +						   &fc[POWERCAP_FC_MAI].rate_limit);
+> +			ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
+> +						   POWERCAP_MAI_GET, 4,
+> +						   dom_info->id, &zero_cpl_id,
+> +						   &fc[POWERCAP_FC_MAI].get_addr, NULL,
+> +						   &fc[POWERCAP_FC_MAI].rate_limit);
+> +			ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
+> +						   POWERCAP_MEASUREMENTS_GET, 4,
+> +						   dom_info->id, &zero_cpl_id,
+> +						   &fc[POWERCAP_FC_MEASUREMENT].get_addr, NULL,
+> +						   &fc[POWERCAP_FC_MEASUREMENT].rate_limit);
+
+Also why should the above 3 as well as the NULL cpl_id calls be inside this
+loop ?
+
+-- 
+Regards,
+Sudeep
 
