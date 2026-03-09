@@ -4,73 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EC6DF3C264
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 13:42:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62268F3C267
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 13:55:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dYCVj9FOVuINcVWSh8M7sE+cs2K2DH+OErpTWPY9/Og=; b=j/yQ4xOeCO/ZOg3etHRHjljsqA
-	gdsny1tP/2JGH/1ZHvUuBawRpPseaBhSajSMBnVxfUGBOtZNSBtSsGc9omWCD0UpbEEUEy+Acf0AO
-	U/pFOvI9e2yAdXGNefuBP58pcA7CZWwqd+6mAzjpOso/sPd58eJXP4Py0DLoT1Jt4h3/j7WUE/3fO
-	UdzGrJCzz0OQHAsXdHU9ABBFD/fEpSHK1Aq6TFWo3jg0hjs5ueL6WMDY+HPqgT3qC69pj6W2Lg5uZ
-	MPVFleK9SakBguWLHLXcCa8Ms3P/J4D0/okLeOt5WqKtHLrq280PVtFkVqX6neEIG0q7zXiuMevju
-	vq7i5Prw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i6qjLp0d65RnZNJt6UpWG0KQYMg46znpc9PenevJrSw=; b=jyr5Or7kwJ9XL+bC3IYY19mC90
+	jDUWRgbEBYQnIMkht+tpTIITZy/2LTZhv6MDmMAjbP7G7wmEi8dq+AWe43QhUIKSGiPQ2C8BG0BAx
+	LcL6uzQjCdn92CWjs31C0I6oyWuXP0FumtUlT0OilzLeVPrN3UyLZHKBSDrU3RUUXZCgpatorIlzS
+	aK/C2YzHp4vhvg+WuOpRGED/Y4COUCA3wChXGwM3jUGBbIObk/4uWrfwEqNc8loaolHeICs0MlL/6
+	X2JJ/feTMrFoB/Mq++G+N4w3PKlEFvdU4oG27KFwAJxkguuT7w2nCeajqb1AdHDxcfSnlVt+LlW58
+	bU2awgrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzasZ-00000007QBc-2Sle;
-	Mon, 09 Mar 2026 13:42:39 +0000
-Received: from mail-m32122.qiye.163.com ([220.197.32.122])
+	id 1vzb5C-00000007R68-1El2;
+	Mon, 09 Mar 2026 13:55:42 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzasW-00000007Q8H-2GL9;
-	Mon, 09 Mar 2026 13:42:37 +0000
-Received: from [172.16.12.43] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3645d2e29;
-	Mon, 9 Mar 2026 21:42:31 +0800 (GMT+08:00)
-Message-ID: <f755bdc8-7324-4dcc-8fc7-8d6224bc89d6@rock-chips.com>
-Date: Mon, 9 Mar 2026 21:42:31 +0800
+	id 1vzb56-00000007R5I-3xhR
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Mar 2026 13:55:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1773064537; x=1804600537;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=LYU7f1W/6Y4395TuspVKH8/dYPrHUxLAvCr+I0YcG2Q=;
+  b=ecJoKpRCsP2mJYgTZ33IkYtBRTIbkiO71Want7nYHC/h/maEX4BRWOrV
+   1uAs7/NRopGZ1a9jY8sFUjsyOWE1lNgYKjz+zu0VNU/gU6vGe8akUqudI
+   vcT3t5wL38w3UBhbxNRhDJlfUDdOVqzEC0Cdt+1/e3fFUcqtxI2w326e2
+   Hfz9OAazu6Rka4oWchHbA7cCuwZpV7sFvw4v7DDyRHCIwgijVZJ0PzOs+
+   m/ErIWbncGcbdppR+p5hhs8+e3kSaWCnMCwGPtI06lzYoCUTDMJFakL6d
+   0YycWeFYZDxXSh92We+3bwPQ90vtGVvBlf+a7rSn5XCH6jRcPc5lhmoCU
+   A==;
+X-CSE-ConnectionGUID: mZ/hocnwS3qMAwpnmepKcA==
+X-CSE-MsgGUID: 7aqHPtB5Sna0GbKlUttH3g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11723"; a="74165426"
+X-IronPort-AV: E=Sophos;i="6.23,109,1770624000"; 
+   d="scan'208";a="74165426"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Mar 2026 06:55:33 -0700
+X-CSE-ConnectionGUID: 35g/1QXiQFu65Eoij268DQ==
+X-CSE-MsgGUID: 5uUJPd0tQe+JQv+ZTet5LA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,109,1770624000"; 
+   d="scan'208";a="218965824"
+Received: from igk-lkp-server01.igk.intel.com (HELO 9958d990ccf2) ([10.211.93.152])
+  by orviesa010.jf.intel.com with ESMTP; 09 Mar 2026 06:55:29 -0700
+Received: from kbuild by 9958d990ccf2 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vzb4w-000000002rB-41r0;
+	Mon, 09 Mar 2026 13:55:26 +0000
+Date: Mon, 9 Mar 2026 14:54:35 +0100
+From: kernel test robot <lkp@intel.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Cc: oe-kbuild-all@lists.linux.dev,
+	"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>
+Subject: Re: [PATCH v3 2/3] swiotlb: dma: its: Enforce host page-size
+ alignment for shared buffers
+Message-ID: <202603091444.4H1PFs01-lkp@intel.com>
+References: <20260309102625.2315725-3-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 10/15] drm/bridge: analogix_dp: Add new API
- analogix_dp_finish_probe()
-From: Damon Ding <damon.ding@rock-chips.com>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>, andrzej.hajda@intel.com,
- neil.armstrong@linaro.org, rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
- kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
- jingoohan1@gmail.com, p.zabel@pengutronix.de, hjc@rock-chips.com,
- heiko@sntech.de, andy.yan@rock-chips.com, dmitry.baryshkov@oss.qualcomm.com,
- dianders@chromium.org, m.szyprowski@samsung.com, jani.nikula@intel.com,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-References: <20260210071225.2566099-1-damon.ding@rock-chips.com>
- <20260210071225.2566099-11-damon.ding@rock-chips.com>
- <DGT20ZJ3Q4WP.3OTQJYWGSYGUD@bootlin.com>
- <01983e92-dabb-47f7-ba01-988ea41641db@rock-chips.com>
-Content-Language: en-US
-In-Reply-To: <01983e92-dabb-47f7-ba01-988ea41641db@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9cd2d5c65c03a3kunmaaae204b2e0d75
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkpJTVYeSU5NTx4eQ0tJQ0JWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
-	1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=QLJRBN+1lBKotyDGfES/FQ1dQd0Hseec/2zNw/086u6K9Sb1Ig22Tw8gsND7iIO4YlRcsIuWEhuy2I93KTOkG9nhe/cY4xwFBhbCPcM/8HUFEfyDRJ5w0kengu/iNDGUepsMWf5yMeWgdMD6OB9QDWnJNsCfYMwUY/EFI6FV5vE=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=dYCVj9FOVuINcVWSh8M7sE+cs2K2DH+OErpTWPY9/Og=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260309102625.2315725-3-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_064236_764861_6A8EA567 
-X-CRM114-Status: GOOD (  20.41  )
+X-CRM114-CacheID: sfid-20260309_065537_376751_64A508AA 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,146 +98,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Luca,
+Hi Aneesh,
 
-On 3/9/2026 7:51 PM, Damon Ding wrote:
-> Hi Luca,
-> 
-> On 3/3/2026 5:54 PM, Luca Ceresoli wrote:
->> Hello Damon,
->>
->> On Tue Feb 10, 2026 at 8:12 AM CET, Damon Ding wrote:
->>> Since the panel/bridge should logically be positioned behind the
->>> Analogix bridge in the display pipeline, it makes sense to handle
->>> the panel/bridge parsing on the Analogix side. Therefore, we add
->>> a new API analogix_dp_finish_probe(), which combines the panel/bridge
->>> parsing with component addition, to do it.
->>>
->>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->>> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
->>> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
->>> Tested-by: Heiko Stuebner <heiko@sntech.de> (on rk3588)
->>
->> ...
->>
->>> @@ -1581,6 +1583,52 @@ struct drm_dp_aux *analogix_dp_get_aux(struct 
->>> analogix_dp_device *dp)
->>>   }
->>>   EXPORT_SYMBOL_GPL(analogix_dp_get_aux);
->>>
->>> +static int analogix_dp_aux_done_probing(struct drm_dp_aux *aux)
->>> +{
->>> +    struct analogix_dp_device *dp = to_dp(aux);
->>> +    struct analogix_dp_plat_data *plat_data = dp->plat_data;
->>> +    int port = plat_data->dev_type == EXYNOS_DP ? 0 : 1;
->>> +    int ret;
->>> +
->>> +    /*
->>> +     * If drm_of_find_panel_or_bridge() returns -ENODEV, there may 
->>> be no valid panel
->>> +     * or bridge nodes. The driver should go on for the driver-free 
->>> bridge or the DP
->>> +     * mode applications.
->>> +     */
->>> +    ret = drm_of_find_panel_or_bridge(dp->dev->of_node, port, 0,
->>> +                      &plat_data->panel, &plat_data->next_bridge);
->>> +    if (ret && ret != -ENODEV)
->>> +        return ret;
->>> +
->>> +    return component_add(dp->dev, plat_data->ops);
->>> +}
->>> +
->>> +int analogix_dp_finish_probe(struct analogix_dp_device *dp)
->>> +{
->>> +    int ret;
->>> +
->>> +    ret = devm_of_dp_aux_populate_bus(&dp->aux, 
->>> analogix_dp_aux_done_probing);
->>> +    if (ret) {
->>> +        /*
->>> +         * If devm_of_dp_aux_populate_bus() returns -ENODEV, the 
->>> done_probing() will
->>> +         * not be called because there are no EP devices. Then the 
->>> callback function
->>> +         * analogix_dp_aux_done_probing() will be called directly in 
->>> order to support
->>> +         * the other valid DT configurations.
->>> +         *
->>> +         * NOTE: The devm_of_dp_aux_populate_bus() is allowed to 
->>> return -EPROBE_DEFER.
->>
->> Uhm, if it is allowed to return -EPROBE_DEFER...
->>
->>> +         */
->>> +        if (ret != -ENODEV) {
->>> +            dev_err(dp->dev, "failed to populate aux bus\n");
->>> +            return ret;
->>> +        }
->>
->> ...then you shouldn't dev_err() when -EPROBE_DEFER is returned.
->>
->> Either use dev_err_probe() (which would also simplify your code) or check
->> for if (ret != -ENODEV && ret != -EPROBE_DEFER).
-> 
-> Will fix in v10.
-> 
->>
->>> +
->>> +        return analogix_dp_aux_done_probing(&dp->aux);
->>> +    }
->>> +
->>> +    return 0;
->>> +}
->>> +EXPORT_SYMBOL_GPL(analogix_dp_finish_probe);
->>> +
->>>   MODULE_AUTHOR("Jingoo Han <jg1.han@samsung.com>");
->>>   MODULE_DESCRIPTION("Analogix DP Core Driver");
->>>   MODULE_LICENSE("GPL v2");
->>> diff --git a/include/drm/bridge/analogix_dp.h b/include/drm/bridge/ 
->>> analogix_dp.h
->>> index 3428ffff24c5..bae969dec63a 100644
->>> --- a/include/drm/bridge/analogix_dp.h
->>> +++ b/include/drm/bridge/analogix_dp.h
->>> @@ -30,6 +30,7 @@ struct analogix_dp_plat_data {
->>>       struct drm_bridge *next_bridge;
->>>       struct drm_encoder *encoder;
->>>       struct drm_connector *connector;
->>> +    const struct component_ops *ops;
->>
->> Is adding a new stored field a good idea? Can it be instead passed as an
->> argument to analogix_dp_finish_probe()?
->>
->> Note I don't have a strong opinion here, just the added struct field 
->> seems
->> overkill for being used just once.
->>
-> 
-> I agree this is a better approach, since the &component_ops is only used 
-> during probing.
+kernel test robot noticed the following build errors:
 
-Sorry for another shamefully incorrect reply!
+[auto build test ERROR on arm64/for-next/core]
+[also build test ERROR on tip/irq/core arm/for-next arm/fixes kvmarm/next soc/for-next linus/master v7.0-rc3 next-20260306]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-The &dp_aux_ep_device_with_data.done_probing only supports passing the 
-&drm_dp_aux parameter, meaning we can't directly pass &component_ops.
+url:    https://github.com/intel-lab-lkp/linux/commits/Aneesh-Kumar-K-V-Arm/dma-direct-swiotlb-handle-swiotlb-alloc-free-outside-__dma_direct_alloc_pages/20260309-182834
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/core
+patch link:    https://lore.kernel.org/r/20260309102625.2315725-3-aneesh.kumar%40kernel.org
+patch subject: [PATCH v3 2/3] swiotlb: dma: its: Enforce host page-size alignment for shared buffers
+config: x86_64-rhel-9.4-rust (https://download.01.org/0day-ci/archive/20260309/202603091444.4H1PFs01-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+rustc: rustc 1.88.0 (6b00bc388 2025-06-23)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260309/202603091444.4H1PFs01-lkp@intel.com/reproduce)
 
-I'll also add extra context to the commit msg – similar to what I did 
-for v9 patch 9/15 – so everyone understands why this change was made and 
-avoids confusion.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603091444.4H1PFs01-lkp@intel.com/
 
-> 
->>> @@ -49,5 +50,6 @@ int analogix_dp_stop_crc(struct drm_connector 
->>> *connector);
->>>
->>>   struct analogix_dp_plat_data *analogix_dp_aux_to_plat_data(struct 
->>> drm_dp_aux *aux);
->>>   struct drm_dp_aux *analogix_dp_get_aux(struct analogix_dp_device *dp);
->>> +int analogix_dp_finish_probe(struct analogix_dp_device *dp);
->>>
->>>   #endif /* _ANALOGIX_DP_H_ */
->>
-> 
+All errors (new ones prefixed by >>):
 
-Best regards,
-Damon
+   In file included from arch/x86/kernel/asm-offsets.c:9:
+   In file included from include/linux/crypto.h:15:
+   In file included from include/linux/completion.h:12:
+   In file included from include/linux/swait.h:7:
+   In file included from include/linux/spinlock.h:59:
+   In file included from include/linux/irqflags.h:18:
+   In file included from arch/x86/include/asm/irqflags.h:5:
+   In file included from arch/x86/include/asm/processor-flags.h:6:
+>> include/linux/mem_encrypt.h:60:9: error: use of undeclared identifier 'PAGE_SIZE'
+      60 |         return PAGE_SIZE;
+         |                ^
+>> include/linux/mem_encrypt.h:66:9: error: call to undeclared function 'ALIGN'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+      66 |         return ALIGN(size, mem_decrypt_granule_size());
+         |                ^
+   In file included from arch/x86/kernel/asm-offsets.c:14:
+   In file included from include/linux/suspend.h:5:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:13:
+   In file included from include/linux/cgroup.h:17:
+   In file included from include/linux/fs.h:5:
+   In file included from include/linux/fs/super.h:5:
+   In file included from include/linux/fs/super_types.h:13:
+   In file included from include/linux/percpu-rwsem.h:7:
+   In file included from include/linux/rcuwait.h:6:
+   In file included from include/linux/sched/signal.h:6:
+   include/linux/signal.h:98:11: warning: array index 3 is past the end of the array (that has type 'unsigned long[1]') [-Warray-bounds]
+      98 |                 return (set->sig[3] | set->sig[2] |
+         |                         ^        ~
+   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+      24 |         unsigned long sig[_NSIG_WORDS];
+         |         ^
+   In file included from arch/x86/kernel/asm-offsets.c:14:
+   In file included from include/linux/suspend.h:5:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:13:
+   In file included from include/linux/cgroup.h:17:
+   In file included from include/linux/fs.h:5:
+   In file included from include/linux/fs/super.h:5:
+   In file included from include/linux/fs/super_types.h:13:
+   In file included from include/linux/percpu-rwsem.h:7:
+   In file included from include/linux/rcuwait.h:6:
+   In file included from include/linux/sched/signal.h:6:
+   include/linux/signal.h:98:25: warning: array index 2 is past the end of the array (that has type 'unsigned long[1]') [-Warray-bounds]
+      98 |                 return (set->sig[3] | set->sig[2] |
+         |                                       ^        ~
+   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+      24 |         unsigned long sig[_NSIG_WORDS];
+         |         ^
+   In file included from arch/x86/kernel/asm-offsets.c:14:
+   In file included from include/linux/suspend.h:5:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:13:
+   In file included from include/linux/cgroup.h:17:
+   In file included from include/linux/fs.h:5:
+   In file included from include/linux/fs/super.h:5:
+   In file included from include/linux/fs/super_types.h:13:
+   In file included from include/linux/percpu-rwsem.h:7:
+   In file included from include/linux/rcuwait.h:6:
+   In file included from include/linux/sched/signal.h:6:
+   include/linux/signal.h:99:4: warning: array index 1 is past the end of the array (that has type 'unsigned long[1]') [-Warray-bounds]
+      99 |                         set->sig[1] | set->sig[0]) == 0;
+         |                         ^        ~
+   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+      24 |         unsigned long sig[_NSIG_WORDS];
+         |         ^
+   In file included from arch/x86/kernel/asm-offsets.c:14:
+   In file included from include/linux/suspend.h:5:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:13:
+   In file included from include/linux/cgroup.h:17:
+   In file included from include/linux/fs.h:5:
+   In file included from include/linux/fs/super.h:5:
+   In file included from include/linux/fs/super_types.h:13:
+   In file included from include/linux/percpu-rwsem.h:7:
+   In file included from include/linux/rcuwait.h:6:
+   In file included from include/linux/sched/signal.h:6:
+   include/linux/signal.h:101:11: warning: array index 1 is past the end of the array (that has type 'unsigned long[1]') [-Warray-bounds]
+     101 |                 return (set->sig[1] | set->sig[0]) == 0;
+         |                         ^        ~
+   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+      24 |         unsigned long sig[_NSIG_WORDS];
+         |         ^
+   In file included from arch/x86/kernel/asm-offsets.c:14:
+   In file included from include/linux/suspend.h:5:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:13:
+   In file included from include/linux/cgroup.h:17:
+   In file included from include/linux/fs.h:5:
+   In file included from include/linux/fs/super.h:5:
+   In file included from include/linux/fs/super_types.h:13:
+   In file included from include/linux/percpu-rwsem.h:7:
+   In file included from include/linux/rcuwait.h:6:
+   In file included from include/linux/sched/signal.h:6:
+   include/linux/signal.h:114:11: warning: array index 3 is past the end of the array (that has type 'const unsigned long[1]') [-Warray-bounds]
+     114 |                 return  (set1->sig[3] == set2->sig[3]) &&
+         |                          ^         ~
+   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+      24 |         unsigned long sig[_NSIG_WORDS];
+         |         ^
+   In file included from arch/x86/kernel/asm-offsets.c:14:
+   In file included from include/linux/suspend.h:5:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:13:
+   In file included from include/linux/cgroup.h:17:
+   In file included from include/linux/fs.h:5:
+   In file included from include/linux/fs/super.h:5:
+   In file included from include/linux/fs/super_types.h:13:
+   In file included from include/linux/percpu-rwsem.h:7:
+   In file included from include/linux/rcuwait.h:6:
+   In file included from include/linux/sched/signal.h:6:
+   include/linux/signal.h:114:27: warning: array index 3 is past the end of the array (that has type 'const unsigned long[1]') [-Warray-bounds]
+     114 |                 return  (set1->sig[3] == set2->sig[3]) &&
 
+
+vim +/PAGE_SIZE +60 include/linux/mem_encrypt.h
+
+    56	
+    57	#ifndef mem_decrypt_granule_size
+    58	static inline size_t mem_decrypt_granule_size(void)
+    59	{
+  > 60		return PAGE_SIZE;
+    61	}
+    62	#endif
+    63	
+    64	static inline size_t mem_decrypt_align(size_t size)
+    65	{
+  > 66		return ALIGN(size, mem_decrypt_granule_size());
+    67	}
+    68	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
