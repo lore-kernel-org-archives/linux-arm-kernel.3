@@ -4,62 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 999FAF417F3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 15:24:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2045F41807
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 15:25:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JSKon7KOnWBP0LJ2cGOvfjSkyGFqecN346MquezPp8s=; b=z9newCLoZy4CUFN4kig0+iDz+N
-	ioff++w3IudUjxzJ52Cur/t35ZvwHGb7O3wpqQ7y7gDWtFxqxqE3t56LJFvmypwQnfk1z74gwVeYi
-	JMeJcU/2jzE7IhzpNSEfP5gyz1rbL7OQfTSNwr2evNc5271HTdve08u+Q2UZzgbC9KpsZvUxHs3Eh
-	rOs4qU19pACYbAc+t6UWT62KM342bTEVqqAlEkBpTVsIr7mZN2yFNhvga0YWzCeH/MzDIeJlJgIfr
-	/H/r6qGtC3P+pX3XUyqbkgJwDt649qjZodfxvq3kL3KqAVODupnR82EDMJXLdiknnuoj1ZezP1E59
-	nFFVOG9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U0e7ZBxH0n6WseIMVe/V23eOrkRrhfvDMB468TVycw0=; b=RNuwcS/IGbPFtgHEnDUPYvrIfl
+	u+62JotOrKEhThxrkB+Iam931/vvtfk5qsCbjsB+1bKzM9OzGFPybwNtsRR6Z8e88IiG6JTdnKbPO
+	rTTKf0ihdxp7I6dCfsDHuL929nrirlfb4CDk8M8oPyFbArQQgrFF9pvv28sGsDsAQny99Xq2kZVJZ
+	y7UP8hkdU8AOJ20W24i4zyJEVjwUIqzOADoTeTp5g1/LtcEHnj1LPxJ8+Qk1sol3zxEqAXy1jzTqU
+	k87X81EG55Vl5XhEjTXbyHFB5PqixXJ+niUL4NwRcY5kuQ2Gc9hTwT+qZ2WuljOOW9CHT5b9T4f7x
+	/RyRzDuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzcT4-00000007asG-0vZq;
-	Mon, 09 Mar 2026 15:24:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vzcU4-00000007b0s-3U8U;
+	Mon, 09 Mar 2026 15:25:28 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzcT2-00000007aru-3zTm;
-	Mon, 09 Mar 2026 15:24:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0E1A660054;
-	Mon,  9 Mar 2026 15:24:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 692CAC2BC86;
-	Mon,  9 Mar 2026 15:24:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773069863;
-	bh=sE7CqWgrb+zFP0Cr5jOTclWiaWDkF1Z32PDAvIwjeuU=;
-	h=From:Date:Subject:To:Cc:From;
-	b=StIOsqFWXfbZVtGbJOoV/8SKumKR7F8HtQXaecihqzAAH0OOUwGBfx82SQEGsMAdb
-	 DVTM5HsrJqBniAitHZ4QWn2A63Z8CTgu1IkE++yH3yhJVmn3xauYXEisDlVlDQhsBN
-	 o1DWAW00rIGOvrKM3qhr/LqBKR/46s9ll0bf5rDXMq+Yk5QDjOOoRzhxbIIRxFf522
-	 aljfq3ZIjKkKwNQbw8Zn36SBVCXm1AqYaAk1c0VSLf7UZNm+SgWRESZdQzZmQ6Uw6v
-	 4+3QmNl0Qvkhkr4RXdWE7mara2hdfcKXt711eCF3l1vlGdpa0gXeuW5sYaoPpQy2rF
-	 iqttA/lfVhQCA==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Mon, 09 Mar 2026 16:24:15 +0100
-Subject: [PATCH] arm64: dts: airoha: en7581: Add wdt node to to EN7581 SoC
+	id 1vzcU3-00000007b0P-06fc
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Mar 2026 15:25:28 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-35990245493so5264440a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 08:25:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773069925; x=1773674725; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=U0e7ZBxH0n6WseIMVe/V23eOrkRrhfvDMB468TVycw0=;
+        b=drEILRQbd/+8Bv7hv/wrCXHK10I5MtB6kiwhGE6bDKU0WdSTCPzfgzL07A2DqtyUp7
+         /kQupQD9YLAq4alvv4Kv7CKKeK1ryIni1YRhuiRIiFkgYNMJpxGDt25LtOIcG6tCELQe
+         NeCeEqQpol2uAkFUEwnHJhdYUmT6lm+JL5neE50n0xggrMwnqgMk6xaIeumkp0z0H5Dw
+         Gfmu4+riFdeTVC4gxO4wxwhBZlJdwgLoO9PR0Jxuxt16BJ8ANEFr+MozSCZ5le2ZzGQX
+         ouZ5+ZFiZUhPIm+JsTfDyI5cV0uRtFL6oPae5cSizBOCLNkt5aSjycuaYpVuwrNu87p5
+         NQWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773069925; x=1773674725;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=U0e7ZBxH0n6WseIMVe/V23eOrkRrhfvDMB468TVycw0=;
+        b=cvto2jb0nsqACQbRoXzo5OJjqQHfFeOzt5gwQ2DZuFY9Ev7yykDwQv0g+MmgN5N27G
+         7tA4N1vHCjCXKVIU7L2WjftaulW1zj1CBarNI1gexeXhjGWT0rJA8gtFVLt3kGgR4iuE
+         g2EJq9Q1uusBgwZUKWyHYjZ0sEufER4XkrObSK5D1rjr7kpxXXiiNAmo0ONPjpbCXYuW
+         SYUDYdZJ9iDIgW8AvfvzSKTjleASDDWf2gSDRXYmnP5+NAceJsTsuxVxQtM2J47TAZcY
+         MJdcqgMJHBjv1bnt5YN7yYCj3+1B47Ybe5I32C0kWaJt32I+x5snOl/MhjCMXhbZ/wg/
+         regQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWNgtYSRw5gJLGGuL5SMNQmLXoAMrE4VR9m07SLsI8VzJytEjmde7TMT+oDrEMHpMl/UV7E7b9VW6iNjqG40fey@lists.infradead.org
+X-Gm-Message-State: AOJu0YwsuMvxHNHHSM1+D7fR3sOPU7nLpLt+I5d+dQZLLC0bagYjiMC7
+	wtWe0bE670qCZ3LGXJQNF5geJkHwpYlQLYr0oUHx7939Dh3VDQAiGL5K
+X-Gm-Gg: ATEYQzyTFohbFEJyW3efThwGmdg3Yei+05ML3HXF+tt2uVWCpOLF9bUSnNGrTI+gfje
+	b4HpsH2d2BcrihgUWTbcbc+IdnAwCbAfO8gcaS2RmU+wvSoAZfTrwQcLwwLnAXLrye0436aA/FB
+	52nJNb4vzGUlcPvAH8uYyqztYVBMfwKvLPk093IxVZOj0ReCY3X3HBrVJXkBX7/0r4cPRimb8hw
+	IMgX8bEYEyL6iewFmnjKeL5FeR9DVS34s/OM4ptaHk7E9gikQdbpJAJ9/lEF5G5bZZ4FvTWMgRP
+	sd3XMYwHi+399GmanC3xMKw00H0wM/hEhLLQslJF0bz5b7pYDW3vAt6/eW/n43WVlzR0O8GEdzj
+	20S3ZOmdZqCSEnilNHrPX3F4yBpffmr8GKMEkqcxzxMdYuz5tq87wjwDZo2jusycXv2UAWbTEOC
+	ibB6QtoxXX+oNfwjubEPShXWC1RDqOo2xIHP5+nWA65vYO06Z+8eG31roHQcoh9+0KJVCGoz6QK
+	VOdZRUFW5Jlrroihnl1iA==
+X-Received: by 2002:a17:90b:3f83:b0:354:a608:30a2 with SMTP id 98e67ed59e1d1-359be374609mr10108216a91.35.1773069925388;
+        Mon, 09 Mar 2026 08:25:25 -0700 (PDT)
+Received: from nickhuang.. (2001-b400-e259-af20-21bd-50bb-eafd-d6d1.emome-ip6.hinet.net. [2001:b400:e259:af20:21bd:50bb:eafd:d6d1])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-359bcb2abbcsm4285036a91.7.2026.03.09.08.25.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Mar 2026 08:25:24 -0700 (PDT)
+From: Nick Huang <sef1548@gmail.com>
+To: macro@orcam.me.uk
+Cc: davidgow@google.com,
+	dongsheng.yang@linux.dev,
+	dory85109@gmail.com,
+	ebiggers@kernel.org,
+	idryomov@gmail.com,
+	jlayton@kernel.org,
+	john.g.garry@oracle.com,
+	kusogame68@gmail.com,
+	likerockman102@hotmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux@armlinux.org.uk,
+	linux@weissschuh.net,
+	namhyung@kernel.org,
+	robh@kernel.org,
+	sef1548@gmail.com,
+	squid@squidspirit.com,
+	wdhh6@aliyun.com,
+	wqu@suse.com,
+	yot4106@gmail.com
+Subject: Re: [PATCH v2] arm: Replace ASSEMBLY with ASSEMBLER in uapi
+Date: Mon,  9 Mar 2026 15:24:23 +0000
+Message-ID: <20260309152423.2582-1-sef1548@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <alpine.DEB.2.21.2603011816460.44093@angie.orcam.me.uk>
+References: <alpine.DEB.2.21.2603011816460.44093@angie.orcam.me.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260309-airoha-7581-wdt-v1-1-ee5f09dbd7af@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MQQqAIBAAvxJ7bmE1LOsr0UFqq71oaFQQ/j3pO
- AMzLySOwgmG6oXIlyQJvoCqK5h35zdGWQqDJt1SQz06iWF32Bmr8F5OLJpJWzLMDkp1RF7l+Y/
- jlPMH+6nmCWEAAAA=
-X-Change-ID: 20260309-airoha-7581-wdt-260e02805eea
-To: Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260309_082527_064017_E4AEB954 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,39 +117,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce watchdog controller node to EN7581 SoC.
+Add a compatibility shim for __ASSEMBLER__ to support older GCC versions.
+This bridge ensures that toolchains defining only __ASSEMBLY__ can correctly identify assembly stages.
+This block can be removed once consensus is reached to drop support for these legacy compilers. If this version is acceptable, I will send it out in the v3 patch.
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- arch/arm64/boot/dts/airoha/en7581.dtsi | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/airoha/en7581.dtsi b/arch/arm64/boot/dts/airoha/en7581.dtsi
-index ff6908a76e8eb6cf91343495d1fe531a868e41fb..97d0ee5d8315c2c838eff46efe57bf7657e60c68 100644
---- a/arch/arm64/boot/dts/airoha/en7581.dtsi
-+++ b/arch/arm64/boot/dts/airoha/en7581.dtsi
-@@ -150,6 +150,14 @@ gic: interrupt-controller@9000000 {
- 			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_LOW>;
- 		};
+diff --git a/arch/arm/include/uapi/asm/ptrace.h b/arch/arm/include/uapi/asm/ptrace.h
+index 8896c23cc..427eb70bd 100644
+--- a/arch/arm/include/uapi/asm/ptrace.h
++++ b/arch/arm/include/uapi/asm/ptrace.h
+@@ -119,7 +119,11 @@
+ #define PT_DATA_ADDR		0x10004
+ #define PT_TEXT_END_ADDR	0x10008
  
-+		watchdog@1fbf0100 {
-+			compatible = "airoha,en7581-wdt";
-+			reg = <0x0 0x1fbf0100 0x0 0x38>;
+-#ifndef __ASSEMBLY__
++#if !defined(__ASSEMBLER__) && defined(__ASSEMBLY__)
++#define __ASSEMBLER__ __ASSEMBLY__
++#endif
 +
-+			clocks = <&scuclk EN7523_CLK_BUS>;
-+			clock-names = "bus";
-+		};
-+
- 		spi@1fa10000 {
- 			compatible = "airoha,en7581-snand";
- 			reg = <0x0 0x1fa10000 0x0 0x140>,
-
----
-base-commit: 405c09548a695ca7be58b5b9d3ac8388630e907f
-change-id: 20260309-airoha-7581-wdt-260e02805eea
-
-Best regards,
++#ifndef __ASSEMBLER__ 
+ 
+ /*
+  * This struct defines the way the registers are stored on the
+@@ -158,6 +162,6 @@ struct pt_regs {
+ #define ARM_VFPREGS_SIZE ( 32 * 8 /*fpregs*/ + 4 /*fpscr*/ )
+ 
+ 
+-#endif /* __ASSEMBLY__ */
++#endif /* __ASSEMBLER__  */
+ 
+ #endif /* _UAPI__ASM_ARM_PTRACE_H */
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.43.0
 
 
