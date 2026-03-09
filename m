@@ -4,123 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8D03F417F3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 15:54:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ECF5F417F3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 15:55:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rdbvGrVH2yMgMDRB+YxDHGAbmep4Kjf6MOzjQ3ke/FQ=; b=sDBZwSGz/ZqVJtFK+pd7dqoep/
-	GLxXZ8OmLz0yV7S4nncjlm0VXVAuXMShzsDRE9bJXRBtzNHy6B8Cco+RWjU5xGClYxy6BmN6c2Zb9
-	TdgEEjnnxrgu95HiOcVQ03NoQCcUFACwOQ8KSdKQ9BM+nc/EMV6vqasku8s22mFujz0eZgeq1SSV7
-	gNCfUOWp6PsByEI1wzz/ufKK5W6NhFQMY/PRE/HLLWljANiuTLPbBTOQor5qU0bc+Gjmduq7CaS6z
-	rPMwvmXYL5qv42Up/10Zn8017fSjDrXkuXvaKPjMpgsUyVcJD3rxvCBYlCJyILo/RvjBSSwIGWMmJ
-	6roNoQcA==;
+	bh=n9JcU5fbVxz+0mq1Kn9hTezBW9aMTR5oBMZPxk6dwBk=; b=XpFYco0t3vkiripUNEzF4MNHma
+	wIE+csU6RrwvdBp61JnjbBRNrwMduMBdar6yoScR/0utoInEt7WQN06p8QXF/b4FXXo8T5LFQEcd1
+	gLup7MANoDtXc5gihYd8k5w4FWV7N9n0Uonnzu8wk+Ki5L7zGN3DbG3G3Wh5tTFek4H5MJYzaabY6
+	zbg9im39xmUUt2r6ZI/wtv3/4Em5m37AGjLhCa07kME+7i9xq1ry6w3XzKNRkOjNJihpJqFUQFxA7
+	HQrCIx7d5ABqsTnRPgQ1+hvhRIx7tvyjHnG+Hj5LjKjp2Ji18mVJgsMwenMm6VdHYy98TBi8xvlQV
+	Q1+xVFdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzcwJ-00000007eFa-2nOr;
-	Mon, 09 Mar 2026 15:54:39 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1vzcxQ-00000007eS1-2jCK;
+	Mon, 09 Mar 2026 15:55:48 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzcwH-00000007eEr-0tqf
+	id 1vzcxO-00000007eRQ-0ARV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 15:54:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=caRTnyzC1hqr+2PR5Dbti3Hu+b2rQJmOzhX8GqxPpu6+4S68Mi1dBSU5yBQzroIzqY3lQAeepSg1Tsq4oh0yd7JgKYRtYTZq9VgZ/mG9U2Uq4ffvjwCvrcXLmjsDA7EAcs0qrDBUp0/qgB8M53ucCtvGATRWoWnl2b9vQis8hd99tT0T7gjdJLD8it5EM0RsIg4hdk8iezWodwUImVcATgzTGuVanG5xrrNGGlQvPXsEcXOn3Rd7vAbbBj2USAzvIUp5hagv9cb7wDHY77bYFtD7AuW/jvfg0mx+wDRcjBIQHdCSlYNvv7l2C960heMGHiWvyq7gTWzXPgANXlVxyg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rdbvGrVH2yMgMDRB+YxDHGAbmep4Kjf6MOzjQ3ke/FQ=;
- b=wwVDXjEJaLYkAEGxKGqZMxQr/SRTJiSinKbwJZ13vxv+RN0NOn1a010M6AOO0vGMy+FsMoqTfZR29aFUayVKdHACoWExxzvZ0ZqESI8toZOrbFoLuJliTdSfEagr74PVEw4PmWDTseX8BYggGxMcBW8DfkRoCCXdRBJLHKgvlsbRq8F5MVcyGUuot/b0xWDxkG4CyOzV1/xanyzCOpgDrPery1qAG80oYrbPkiDpfrNYqcV+L3gaeHlwPxtdjcbfrVxsevMmNuObW47jpweKJMnwnW8baVhRnzTnDZHz4w8OZPM62Ptbo4F6l3aThkvw8NW3iQ40ZS8OJmdVrygMYg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rdbvGrVH2yMgMDRB+YxDHGAbmep4Kjf6MOzjQ3ke/FQ=;
- b=S+L8f5d2Z1XKlJTL3T1xhom2QnnZ2Z1IapvOAql0E43QIXu3JEJiHxrCB9RbUW5QBebI5ZId/u7jjrP9UduqmxBSC4jLqbDJLqRZJFCNC8DCrpfVe3ok7GEhvRKQVGUPv9pdLOF4yEfvy0+uwSXkrj01VzUuuW8mI6ZIZfW/UJwcpJrRsuGekvnKI3pescQ7qktPfhp4nYihqgZDMjMSeBCn9aDNDkdMCW0Jr3ER/N8BkbExu1yBd7PP3mw5fd91CkkeMlUnEeXOTcGDHi99+syAHbLB1wkC4+7DqNMjCJ9D46iw6jZlg7nRSSnCt1QfBd1F6Lf/m9T4kQeF/bVYMA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by AS8PR04MB8053.eurprd04.prod.outlook.com (2603:10a6:20b:2ad::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.25; Mon, 9 Mar
- 2026 15:54:27 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9678.017; Mon, 9 Mar 2026
- 15:54:26 +0000
-Date: Mon, 9 Mar 2026 11:54:20 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Sanjay Chitroda <sanjayembeddedse@gmail.com>
-Cc: mirela.rabulea@nxp.com, mchehab@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com,
-	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, skhan@linuxfoundation.org
-Subject: Re: [PATCH] media: imx-jpeg: convert kzalloc() to devm_kzalloc()
-Message-ID: <aa7tLI_S2VYrrKdL@lizhi-Precision-Tower-5810>
-References: <20260307210404.1428894-1-sanjayembedded@gmail.com>
+	Mon, 09 Mar 2026 15:55:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1773071746; x=1804607746;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=mYM6eVrFUhdSWr3mlHcbAK70RSLcf4BMY+A9fLfwNlE=;
+  b=ZujkD91BApESwxHPgW0cSzFMSPrgPgAKJ0BoBUY6gUzZr/OMXppK+/Fm
+   Ce0Pbmh8Zfd91VtEe5ztWkLWteIAcbwcW9+jvOVgFgxWukpwHGtC2olSP
+   K8a9DRMnA2tkjxRjdT/mEiWafj0b4hFlkTMDaEQ1wzkMXYxMrbOB/NGHs
+   cmIzoEQz0ZR5c5RIXOfVrGyeN5UqaM087pUYETRQ85bdg+yRxn74DgqX8
+   VbyD5WpBVHjqPxzHX9ZmR9Ni5i+jq9jy9CGv5RgWkIZMMOLEbRbvN6Zjm
+   gbR6h8sycFuNZ7uZiiuDeltwN+bprbYAMyZwrqjno6Lvy1Lofk1eLjjmH
+   w==;
+X-CSE-ConnectionGUID: 4DgMhfqkTj6bgd6DoY9gpQ==
+X-CSE-MsgGUID: 57acKII+Ssa0z0PgvXbSSw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11723"; a="73977168"
+X-IronPort-AV: E=Sophos;i="6.23,109,1770624000"; 
+   d="scan'208";a="73977168"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Mar 2026 08:55:43 -0700
+X-CSE-ConnectionGUID: 2CNkCHFXS324uPm/rBOOLg==
+X-CSE-MsgGUID: GJTuWVI7T3uKGoPGm3xP8w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,109,1770624000"; 
+   d="scan'208";a="245731448"
+Received: from lkp-server01.sh.intel.com (HELO 434e41ea3c86) ([10.239.97.150])
+  by fmviesa001.fm.intel.com with ESMTP; 09 Mar 2026 08:55:39 -0700
+Received: from kbuild by 434e41ea3c86 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vzcxE-000000000T2-1YnH;
+	Mon, 09 Mar 2026 15:55:36 +0000
+Date: Mon, 9 Mar 2026 23:55:13 +0800
+From: kernel test robot <lkp@intel.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>
+Subject: Re: [PATCH v3 2/3] swiotlb: dma: its: Enforce host page-size
+ alignment for shared buffers
+Message-ID: <202603092320.JgtItJg0-lkp@intel.com>
+References: <20260309102625.2315725-3-aneesh.kumar@kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260307210404.1428894-1-sanjayembedded@gmail.com>
-X-ClientProxiedBy: SN6PR04CA0078.namprd04.prod.outlook.com
- (2603:10b6:805:f2::19) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AS8PR04MB8053:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9f4c6df2-0380-4d92-a902-08de7df4242b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|52116014|366016|1800799024|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: BFBi9EhGo7LRf49u756bU8lhNwPosQheWR8Ew8nfxJ3ers5xPpuEsByncSWrdJP9jtD3Qs4AkTKP1ktgWZrY7Uuu6+O19cyus3huDksUS22QderzG3sHysl2Ezeru73Nzi/Jb9ydevFw0VHTf9R7bNFImzHlDpfXoPK/JFC7Cy1zoSuNdDqfMZC6t48oDw5pee2m90yedQlJydTbw5uMijSIRYCoCz1Ls5TlGHMJkjMOskhiRqjK5E7nC+2/YZNo+BCKf/tVQ6nrXXBvFpT2LChZ98HG4KHwm2ec5RXo5OptrDH6eHWk2ZIJQiMkjECktiqAix5w5r+P2IwrBRdOwCGIbgNJRVGoT0QD0XiXtJVahMvFZWhRr8sf1peeh2Hopg+h31GGFVKRjd/JLxV8GZOlX+YMOo4dpcTnDQ3LtMGrprQzwM6LPo4Tb5B6pz0xxvAUwmgERw1rK0GaEDl+AlDlHsZHPXpbGPRlLf47MLqhTb3AWo6D1ixRdlbUsGIgONaxFqyeSoZ1jYaRA8bI5E5aj+pcpB2KbLRf6v1zNG7GFgrFS1CX/22oKrenYV10e1Xdy+WGG3jpS6E99t53GoDOgmrY4NcRqWlGHfmCLYhbBNA5piRVDFKyEb6keHg69v5pgWKulx2zyynRL/c0H71p0bPB+cSiVcLfjhzmcXxe18MHhrA0qUNMmVzdo6kBG9C/i04DFbnXbRkkwcxJueGSEISuDxvndvlgg8Lx4e7AZFuoEGO7LEKlhJGnN3pLHxCWSHY5XfLfXeybdf1NUGhMa0VvG9/HktFIB62pEoU=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(52116014)(366016)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aABvtIwbZv3+1Zx6YqqCtJN6Gn05Svb2iN0Elsxf283jRsvcVl2Jz3rQnWOb?=
- =?us-ascii?Q?52cxgosZPlLE+5IUe6EoBX18u7BAI7k9LCg+Ssc+VJSXow+i22FeLPsiAoLS?=
- =?us-ascii?Q?jt+d9OOVvp7JwAywrchUJN4RIsixK/L3RlBN0Q60wR2ZCp9K5WAmIbYJapJr?=
- =?us-ascii?Q?DegN3TNaE4RTqcd/Db06lTJjDi6HZvLtHnUTG/Ad+Y25cupkbQiNjCbn8rDg?=
- =?us-ascii?Q?7gBvP0SNM5ZgQKqKKozqRwjPCfRQHpUcxoMi5oxsxo9voApjnPw6OgwJVgBL?=
- =?us-ascii?Q?Z6PZH8EEVF1jpZFBl9loCrXTv9oyz+1AxsC2FYmiGmbz2Tco6bB8fogWp9JL?=
- =?us-ascii?Q?N0AcTyX90tQjHiLT0q9yZqg0agHVytHDMbiqsRQDTm5KwZZOR7fRTsOOohGm?=
- =?us-ascii?Q?KSYUKHJIklUT0Wg7VpEIHIMQDN5mfhssRVCMkRBHlbAYdyVtuwEJ5GNf180b?=
- =?us-ascii?Q?TbxHLTyALn1uiLcjJ+gJVrTLN4QbcSkWW/uLXRlfaZ1esp2+4fYRTgKNkhPO?=
- =?us-ascii?Q?nA7+A6QWE0s7/UeEJ/3MN+WaX3tIGn061WYTNTwcZfVmYkwT7NHTRDXIAnU+?=
- =?us-ascii?Q?D5DDXWhgoYURpmjUHV+EOqnaqK/+DBKflWlBXHFbKD5UF+2uzfJGsQS+B84o?=
- =?us-ascii?Q?yrgAVsJ71x6lKtSNNCXv+WJnml98m6h8G+Jt0Iifgj87CvC+Br1omdXtaxSO?=
- =?us-ascii?Q?Wqzm0GMTUC+11zJbNnHtPLm6Wy/hR326nvs45d2xMufEyXcRNiYc+F68tE0x?=
- =?us-ascii?Q?AJdoAuB8yZ7nRn/GxLY+YQKhLAdNZAA1H5DI+hDHgTdqPG1OItj95M3owAT5?=
- =?us-ascii?Q?qSzLa0Y+zhCjZNnNzAnqJmWGDGme3dIwuhVzUf/izOgSqavnssGiYZOgfT2W?=
- =?us-ascii?Q?t73OKRMb8ABkffrnujGbQu0mkfOvpA5UGY7M9zycTmHvcw19xcWUySikIoi1?=
- =?us-ascii?Q?jQPymx86qbjWa7q4tucOGVKoJsfBIKG4q+03Qac6hCRFHdAtoV+akHoeRp7T?=
- =?us-ascii?Q?d4KRAfY+S692lBwftpN92dvX3GhFFGOlOkvblBDlNMYwOkYpA5axnJP/6aRk?=
- =?us-ascii?Q?GH4bt7MfE+D0hCTKVAVSNGuLLJf2Mv/t48jPvE8u1bhXYgLGhh+ZsUPmqL1v?=
- =?us-ascii?Q?/MazIrSVGl+bsdz+ES3i1w122EnHpfY7XB5HNTVuHzxv8QQxYICz0nXzv/7p?=
- =?us-ascii?Q?GpGdiwFWtYBYTUBe1B6UKSgNyFQiKqalcoZqIgRT+Euj/iJ+Vgtvf+ZVuKOL?=
- =?us-ascii?Q?tcCR669QfMy5KWYXz+QAE6IOPSUPnU7Gr9PJGbLua+iJWXrprlKVBLBZorPb?=
- =?us-ascii?Q?aQ9N4u/PUAC0p340Ed9m9C0NZVnAmfL/HUjWTIs6UY2+sdRBVu2IRKcXyuKj?=
- =?us-ascii?Q?ZdllylHyN3VG8c8PPyaPWL0GFALx846zEEJK2P43En7OrnIKViVTMZ+g7zMy?=
- =?us-ascii?Q?51CwssownXcJLrHEORJbasig+uMvouI+LznJy1hvZnmR/dCaXlcFXps9R5LQ?=
- =?us-ascii?Q?6XTtzOTAaawpdKjCp/0roTFWB7hB3W6VBf9pQkGiz1Wn/Q9Eo83F/yIPbJPq?=
- =?us-ascii?Q?Hd1nZcWA4nG20N2iL/CkPbfTwk+tqHSyax1znGpvO2usrTj3M3TFL4EJiEJG?=
- =?us-ascii?Q?CC+mFCn9AXCz1jGKxgViznOLTrBRWr9qamWrEBFkGbz28lnSYQ+8eYaDGQAW?=
- =?us-ascii?Q?+FKVbAdvuokpNtQuZbvr2pcHqD7IB79qM8XOBKveDDHpxkF3?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9f4c6df2-0380-4d92-a902-08de7df4242b
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Mar 2026 15:54:26.9022
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: twzFU6iZVWbM61vJ3DnnvqSDcWklbW9SfaQ8P0iJtWOFsMGqSAry5emEYw1gomjVRUHa667ItnzRfr2TCQo+Yw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8053
+In-Reply-To: <20260309102625.2315725-3-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_085437_257623_36C0ED48 
-X-CRM114-Status: GOOD (  21.31  )
+X-CRM114-CacheID: sfid-20260309_085546_123795_20C94025 
+X-CRM114-Status: GOOD (  12.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,78 +98,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 08, 2026 at 02:34:04AM +0530, Sanjay Chitroda wrote:
-> From: Sanjay Chitroda <sanjayembeddedse@gmail.com>
->
-> The driver allcoates memory using kzalloc() and frees it in the relase
-> path. since the allocated memory is tied to the lifetime of the device,
-> devm_kzalloc() can be used instead.
+Hi Aneesh,
 
-static const struct v4l2_file_operations mxc_jpeg_fops = {
-        .owner          = THIS_MODULE,
-        .open           = mxc_jpeg_open,
-        .release        = mxc_jpeg_release,
-        .poll           = v4l2_m2m_fop_poll,
-        .unlocked_ioctl = video_ioctl2,
-        .mmap           = v4l2_m2m_fop_mmap,
-};
+kernel test robot noticed the following build errors:
 
-Look like it is not true. .open() should be called only when device open,
-not at probe()?
+[auto build test ERROR on arm64/for-next/core]
+[also build test ERROR on tip/irq/core arm/for-next arm/fixes kvmarm/next soc/for-next linus/master v7.0-rc3 next-20260306]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Frank
+url:    https://github.com/intel-lab-lkp/linux/commits/Aneesh-Kumar-K-V-Arm/dma-direct-swiotlb-handle-swiotlb-alloc-free-outside-__dma_direct_alloc_pages/20260309-182834
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/core
+patch link:    https://lore.kernel.org/r/20260309102625.2315725-3-aneesh.kumar%40kernel.org
+patch subject: [PATCH v3 2/3] swiotlb: dma: its: Enforce host page-size alignment for shared buffers
+config: i386-randconfig-012-20260309 (https://download.01.org/0day-ci/archive/20260309/202603092320.JgtItJg0-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260309/202603092320.JgtItJg0-lkp@intel.com/reproduce)
 
->
-> Using device-managed allocation simplifies the error handling paths and
-> remove the need for manual cleanup.
->
-> No functional change intended.
->
-> Signed-off-by: Sanjay Chitroda <sanjayembeddedse@gmail.com>
-> ---
->  drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c | 11 +++--------
->  1 file changed, 3 insertions(+), 8 deletions(-)
->
-> diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-> index b558700d1d96..bd4b5f08a85c 100644
-> --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-> +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-> @@ -2200,14 +2200,12 @@ static int mxc_jpeg_open(struct file *file)
->  	struct mxc_jpeg_ctx *ctx;
->  	int ret = 0;
->
-> -	ctx = kzalloc(sizeof(*ctx), GFP_KERNEL);
-> +	ctx = devm_kzalloc(dev, sizeof(*ctx), GFP_KERNEL);
->  	if (!ctx)
->  		return -ENOMEM;
->
-> -	if (mutex_lock_interruptible(&mxc_jpeg->lock)) {
-> -		ret = -ERESTARTSYS;
-> -		goto free;
-> -	}
-> +	if (mutex_lock_interruptible(&mxc_jpeg->lock))
-> +		return -ERESTARTSYS;
->
->  	v4l2_fh_init(&ctx->fh, mxc_vfd);
->  	v4l2_fh_add(&ctx->fh, file);
-> @@ -2246,8 +2244,6 @@ static int mxc_jpeg_open(struct file *file)
->  	v4l2_fh_del(&ctx->fh, file);
->  	v4l2_fh_exit(&ctx->fh);
->  	mutex_unlock(&mxc_jpeg->lock);
-> -free:
-> -	kfree(ctx);
->  	return ret;
->  }
->
-> @@ -2754,7 +2750,6 @@ static int mxc_jpeg_release(struct file *file)
->  	v4l2_m2m_ctx_release(ctx->fh.m2m_ctx);
->  	v4l2_fh_del(&ctx->fh, file);
->  	v4l2_fh_exit(&ctx->fh);
-> -	kfree(ctx);
->  	mutex_unlock(&mxc_jpeg->lock);
->
->  	return 0;
-> --
-> 2.34.1
->
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603092320.JgtItJg0-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from arch/x86/kernel/asm-offsets.c:9:
+   In file included from include/linux/crypto.h:15:
+   In file included from include/linux/completion.h:12:
+   In file included from include/linux/swait.h:7:
+   In file included from include/linux/spinlock.h:59:
+   In file included from include/linux/irqflags.h:18:
+   In file included from arch/x86/include/asm/irqflags.h:5:
+   In file included from arch/x86/include/asm/processor-flags.h:6:
+>> include/linux/mem_encrypt.h:60:9: error: use of undeclared identifier 'PAGE_SIZE'
+      60 |         return PAGE_SIZE;
+         |                ^
+>> include/linux/mem_encrypt.h:66:9: error: call to undeclared function 'ALIGN'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+      66 |         return ALIGN(size, mem_decrypt_granule_size());
+         |                ^
+   In file included from arch/x86/kernel/asm-offsets.c:14:
+   In file included from include/linux/suspend.h:5:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:13:
+   In file included from include/linux/cgroup.h:17:
+   In file included from include/linux/fs.h:5:
+   In file included from include/linux/fs/super.h:5:
+   In file included from include/linux/fs/super_types.h:13:
+   In file included from include/linux/percpu-rwsem.h:7:
+   In file included from include/linux/rcuwait.h:6:
+   In file included from include/linux/sched/signal.h:6:
+   include/linux/signal.h:98:11: warning: array index 3 is past the end of the array (that has type 'unsigned long[2]') [-Warray-bounds]
+      98 |                 return (set->sig[3] | set->sig[2] |
+         |                         ^        ~
+   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+      24 |         unsigned long sig[_NSIG_WORDS];
+         |         ^
+   In file included from arch/x86/kernel/asm-offsets.c:14:
+   In file included from include/linux/suspend.h:5:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:13:
+   In file included from include/linux/cgroup.h:17:
+   In file included from include/linux/fs.h:5:
+   In file included from include/linux/fs/super.h:5:
+   In file included from include/linux/fs/super_types.h:13:
+   In file included from include/linux/percpu-rwsem.h:7:
+   In file included from include/linux/rcuwait.h:6:
+   In file included from include/linux/sched/signal.h:6:
+   include/linux/signal.h:98:25: warning: array index 2 is past the end of the array (that has type 'unsigned long[2]') [-Warray-bounds]
+      98 |                 return (set->sig[3] | set->sig[2] |
+         |                                       ^        ~
+   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+      24 |         unsigned long sig[_NSIG_WORDS];
+         |         ^
+   In file included from arch/x86/kernel/asm-offsets.c:14:
+   In file included from include/linux/suspend.h:5:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:13:
+   In file included from include/linux/cgroup.h:17:
+   In file included from include/linux/fs.h:5:
+   In file included from include/linux/fs/super.h:5:
+   In file included from include/linux/fs/super_types.h:13:
+   In file included from include/linux/percpu-rwsem.h:7:
+   In file included from include/linux/rcuwait.h:6:
+   In file included from include/linux/sched/signal.h:6:
+   include/linux/signal.h:114:11: warning: array index 3 is past the end of the array (that has type 'const unsigned long[2]') [-Warray-bounds]
+     114 |                 return  (set1->sig[3] == set2->sig[3]) &&
+         |                          ^         ~
+   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+      24 |         unsigned long sig[_NSIG_WORDS];
+         |         ^
+   In file included from arch/x86/kernel/asm-offsets.c:14:
+   In file included from include/linux/suspend.h:5:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:13:
+   In file included from include/linux/cgroup.h:17:
+   In file included from include/linux/fs.h:5:
+   In file included from include/linux/fs/super.h:5:
+   In file included from include/linux/fs/super_types.h:13:
+   In file included from include/linux/percpu-rwsem.h:7:
+   In file included from include/linux/rcuwait.h:6:
+   In file included from include/linux/sched/signal.h:6:
+   include/linux/signal.h:114:27: warning: array index 3 is past the end of the array (that has type 'const unsigned long[2]') [-Warray-bounds]
+     114 |                 return  (set1->sig[3] == set2->sig[3]) &&
+         |                                          ^         ~
+   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+      24 |         unsigned long sig[_NSIG_WORDS];
+         |         ^
+   In file included from arch/x86/kernel/asm-offsets.c:14:
+   In file included from include/linux/suspend.h:5:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:13:
+   In file included from include/linux/cgroup.h:17:
+   In file included from include/linux/fs.h:5:
+   In file included from include/linux/fs/super.h:5:
+   In file included from include/linux/fs/super_types.h:13:
+   In file included from include/linux/percpu-rwsem.h:7:
+   In file included from include/linux/rcuwait.h:6:
+   In file included from include/linux/sched/signal.h:6:
+   include/linux/signal.h:115:5: warning: array index 2 is past the end of the array (that has type 'const unsigned long[2]') [-Warray-bounds]
+     115 |                         (set1->sig[2] == set2->sig[2]) &&
+         |                          ^         ~
+   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+      24 |         unsigned long sig[_NSIG_WORDS];
+         |         ^
+   In file included from arch/x86/kernel/asm-offsets.c:14:
+   In file included from include/linux/suspend.h:5:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:13:
+   In file included from include/linux/cgroup.h:17:
+   In file included from include/linux/fs.h:5:
+   In file included from include/linux/fs/super.h:5:
+   In file included from include/linux/fs/super_types.h:13:
+   In file included from include/linux/percpu-rwsem.h:7:
+   In file included from include/linux/rcuwait.h:6:
+   In file included from include/linux/sched/signal.h:6:
+   include/linux/signal.h:115:21: warning: array index 2 is past the end of the array (that has type 'const unsigned long[2]') [-Warray-bounds]
+     115 |                         (set1->sig[2] == set2->sig[2]) &&
+
+
+vim +/PAGE_SIZE +60 include/linux/mem_encrypt.h
+
+    56	
+    57	#ifndef mem_decrypt_granule_size
+    58	static inline size_t mem_decrypt_granule_size(void)
+    59	{
+  > 60		return PAGE_SIZE;
+    61	}
+    62	#endif
+    63	
+    64	static inline size_t mem_decrypt_align(size_t size)
+    65	{
+  > 66		return ALIGN(size, mem_decrypt_granule_size());
+    67	}
+    68	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
