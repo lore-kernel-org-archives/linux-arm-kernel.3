@@ -4,67 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5C02EFCD77
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 10:05:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7D41EFCD77
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 10:06:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZUCWKhTa7EOpHE/mW6VCeQHSBgGwi3T4hXafRQ71YmI=; b=N9ufpHMLeqbw3R47g/d0cT2RUf
-	Syd7oIx/uwQ9RYPkuLmPeYTeNWymBVAjbSwOLZeCxiAIrBKswxR2N6RHm4NhrDcwXwJO/IkDRSo8z
-	Lqd8nHdhUxyNiOuezmbWjXMySOMy7boJ8R2xTIuyzT84ikZK5G1x1T8UPHuSWLgYS3kwz1Xqf2aqW
-	s5AAK7qxghHqcX01lW2mjaL5Yp+5J3m/iQkkmYfXz34cNIVpzJhy8Wus3bcnmKPaBdestaLxjPWQj
-	yNvU8IgfdkhhXVO9hccx91Nb5j0kG5RMQ1ZOXJXgHR4h9/QGg7wETp46Xrc9dsWAfOHpU1OcLQh7P
-	4SJv9hwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=w/4zKHWkBZrGdSJcmQqAtpxrbcjYGFb9bwBD4bKU6do=; b=2ExeE2vH3udovIU77bQqxmGD8k
+	mD/N5QHBXIkRSIxfCuhVPYaf4o8RBz5R4gKP84qL9qLOWPEl2Z6/+Etv6IVE2Y38+LO/ZN+S94C8e
+	vsXUDqwxEJepbL8ALF8C8CJfUtSLq2pJEFu11luRFC1DOObuhqPcJ26SyZMLWN5+g2/fAgrJBkiN0
+	w9xhXdG5dmTIs2v8DyDt9zho1ek/XCHHUbtzx0uBFbFPyt/scxyHpTnqtFkRfgOrwOGS5Posfxlkh
+	eIEpre63tcjaHQDArJHj2Y/Y7WwjAaQsRhqYawtkURypNpnnBKiD+r3qQnkB4q5dCtPq5cbtNbSuW
+	Qq7lGMQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzXUa-000000072wL-40R8;
-	Mon, 09 Mar 2026 10:05:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vzXVK-0000000735p-1XBJ;
+	Mon, 09 Mar 2026 10:06:26 +0000
+Received: from mail-norwayeastazon11013059.outbound.protection.outlook.com ([40.107.159.59] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzXUZ-000000072vZ-0As8
+	id 1vzXVI-0000000733k-0Oem
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 10:05:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8130340A06;
-	Mon,  9 Mar 2026 10:05:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2D72C4CEF7;
-	Mon,  9 Mar 2026 10:05:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773050738;
-	bh=C/zPRRsYTBI8Qp8SK8L/HdVnrLbMCEtXVMtLu+bv/Ow=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=C5TTbvDhdKkkIIebpGB2cvg1VfJRLrHhJ8LT2UlCzDeI7R7L2RV2PgKstpFjDfRA4
-	 ofcnLr55pDiyURX/MM1tjBl13RwxYN+t5DWAieNpxU0mmEdSrHxcRcZMAm1ygh9VYp
-	 UoJhvdEPMcephwyaKi/2fCzFzLioDV8Ayifltu5b608OjCjvbbPwJg3PXICHkhcTuK
-	 zxpktAzjm2ve3ouzUenlicK+7U0jW4yO+O/CmzcNv48S+yZzJqxIi1McgBCI5Vpnr4
-	 g7iWwYZ/gz9b+lYpyRxyf+cQ4gKZpbvz8iddP5uAOAvqLwqQimlaQHUi/0c8LRnpqS
-	 C/pIrSnnSHZSg==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>
-Subject: [PATCH v3 2/2] coco: guest: arm64: Drop dummy RSI platform device stub
-Date: Mon,  9 Mar 2026 15:35:07 +0530
-Message-ID: <20260309100507.2303361-2-aneesh.kumar@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260309100507.2303361-1-aneesh.kumar@kernel.org>
-References: <20260309100507.2303361-1-aneesh.kumar@kernel.org>
-MIME-Version: 1.0
+	Mon, 09 Mar 2026 10:06:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tLZwqfFK3mDINWW9a9WW5Rrm673EMUX/MFjxJxlCOOCsYXk0GBvv6mZRsMX5YHzIeU0Raq3kfVCQlwvCtpTzoiPWjIY+y2vol9yEMkhtmAJm2NDP8+C/U0G0BKGAInbmiwOEuJ/xvizgacNdroPHignek1krr3vkH9Yx98HANAsZncIEdbdIX8NhiVLCQ7ej65p7zMbZX0hUliKP3LdCDgA2LwtXRnalJXCersiPT2Vi56lRHF4U9mSjRFvBuDgqFLGNNQA63TYBShpITiGzeL1FaqdK8YyymAeBvgsbyo0pDYeoet1Ef1n0vmaisUf+GkLAqIXyzIT5VDODMMBAdg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=w/4zKHWkBZrGdSJcmQqAtpxrbcjYGFb9bwBD4bKU6do=;
+ b=KYol5fMU1YVBr6kQ020H/OuXd0i++gHZMh4NqxlCoeSPt90SjDTWdmNht3UyquV2AcesSAE7i7vBS1UFm8NXyC1nuh3JMla+yNtIiOfViIBrjq4a0avNRFcV8olTdLtqh2aWkx2a0Yda0cUcAW+3gWLS/zrBDzeJRAMM3eZDPmyXoiX5xjs1ErcTIcVIMmSX/jwusb9/gEfUW9CwAyTeqoxmdlmnQAEp83hYT5KHlDAWeDL/SzXgBCfBvy/htnK+NQi8VknnltBcGBxNbXv5yvOzpGG+25h66xv+7/K64P822McoeLwlZKovV8mo5nDdrznymCUYgp2R//VF5IR2Yw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=w/4zKHWkBZrGdSJcmQqAtpxrbcjYGFb9bwBD4bKU6do=;
+ b=dajMwEgo3kd7OOvtrKQFcv99uVb4aRgmAWzINnq83fehTpi9ndlfC95Rplg9QtlivAiPsrqg8xyng5kaulMbFoG6uII0LbD1460+mPl8Jvld0ght2v0taP1R8psCC6gLrM+55azWWCUs2/HiUfeJ8lyo2pUpvRg1Dkg11CAqqChHfBmXqN+l5THf8Cg9J+J9t2EJYuk3pHyWGme1dO4Pmt/Deri/E5oDYKPcBolJQZK3wgnTVzIjAavRArazEpVOV9DKSxvTxHkCksxK4QmVScoTGaH7dZKUncTKNbjreKEtd8oaKBWykkrZvlE2MPGGRKyee6zXsG5c+f9NjJHIZw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
+ by GVXPR04MB10970.eurprd04.prod.outlook.com (2603:10a6:150:21b::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.25; Mon, 9 Mar
+ 2026 10:06:15 +0000
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::c67b:71cd:6338:9dce]) by DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::c67b:71cd:6338:9dce%5]) with mapi id 15.20.9678.023; Mon, 9 Mar 2026
+ 10:06:15 +0000
+From: Xu Yang <xu.yang_2@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	jun.li@nxp.com
+Subject: [PATCH v3 1/2] arm64: dts: imx94: add USB nodes
+Date: Mon,  9 Mar 2026 18:08:06 +0800
+Message-Id: <20260309100807.2844925-1-xu.yang_2@nxp.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MA5P287CA0188.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1b6::15) To DU2PR04MB8822.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e1::11)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|GVXPR04MB10970:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0a1657e5-761f-4595-91ec-08de7dc37fb4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|19092799006|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: p8uReNwbd7X0Bkrw6fqzn/YD7EeJ0s6O4/aNjK6MqZHyBRffvu6rWB20CYruuadVD3EmTMRQbwydGY8kiMoAaIHp1Peq0HdKkcV0fwwzjytKfr3awhxwcxOcdC4W3pZmX17Jcoeop7VklW2zbFtHG9yasSkQE83a2TyJFr+R24FczCGrFv4YhMWR5OPtu4d5I9GTxkSwl6NMxJnmSsoBKeUMV6dGTyj6r4sRYib1YNcUjsnuOnhQvf+pBdMa0ggR6zmqdT2AQjOsPux2scCiDzgOC+fVDfyliX6cDIwaxhR6s7GnuXmO0blaWDPK9a9kI4DSuUg0xprd7AeY4AMuFsorkHON4EJ4OBbxR+FBJ8dCgjmzUqdeJ9X59MpunoKJvQsFXSBzAljBdHV/FpS7vrwG6YH43MG8USMZ/GeWiMHnnATJpV7aqo0y8TKzqwQitby+YwpKMTBj0ZzUAGC+z8ndhCMNHvy+ollSzwYuWwuLsQlYu6+rEL8Rji0J+KG8oZfbzbyPLK85XDybvBR21UGBAaCfCtOCr+q2LO4j5VBkf5xGeKbOq6Tw8uC46IdDehsXPhJWq3cYfyKa/Cy5vWCaDGeg6cGkxOdn5iPkBAbdVg8V2fX/hCpfnMDvP0XtgekgR6HnksOQDoxFm5nKTHEbsD5Q0NwCBlvEx7FPVuIvJxcF0jYnvMcWKytjTQxXrIjq+QyhsIuepazZOybTzGOrl9s0OVzmnSRZikww4D3FGkM1jnCdJ98w40STzFmYr+milblc9dwI6oJzMu86m77IocnmHfNyj6C61MPy+lU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(19092799006)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bDJ0qtzfb+yN/AnGqyEuLIKmkIP+xJXvc6HXW6YbGxC6YQ7ayjsi0G+cVU6F?=
+ =?us-ascii?Q?OPUw9nNScWbKp1xtERvodU09SsFkTy5AylQUvqlv5OkvduO/Q1Iw3r5iHFNY?=
+ =?us-ascii?Q?nkGT5pLOgv2wbgKNox0TXpAmLFQW95JE6102SoIyuzN4P1oGxARmSLWX8Dl5?=
+ =?us-ascii?Q?QLyrdMEqnTPDOJOzihNtdU2yiMjLKm32wXY6d8lgHE5oSrET6rENeDtwA19m?=
+ =?us-ascii?Q?sauMJPutJj6sWrdiLoUoBT0wfrRY/urn7y7W/5p6x06/khv7lfgFuyEoGkvd?=
+ =?us-ascii?Q?BDs7cbSFZgioxXQmNQPPRdp+X7PIAXDyzqy32on7pxOrzLEyoH7L3j/kamLN?=
+ =?us-ascii?Q?/5f+/r14YK63Umb8z9kNkTBKvocp8rSXt+1G7D/f1IT1VFFWVvJX8MDVJFbI?=
+ =?us-ascii?Q?hawwXFumSO9eN+BbFM4bSS3K/SlP1N/4I6dTjwcE4ptIaFTN7ozsTIaNM/yI?=
+ =?us-ascii?Q?+H7MbwmOguIBLSfHwmDLx8I9flOc8TQrHGzKd3RilXKahh2RUjJGw0gwEm/+?=
+ =?us-ascii?Q?xcUJfXyGu0R45p+sq4RDaQ+t7IPQKdZ5NWtcx2d+7OLaoOMaZyB7cux/Hdp+?=
+ =?us-ascii?Q?H6POu9xiZ2iXzkVWM5qGn9yymmis7MzLBr40IYJWU+0tqwpOfRcqHG5KzLgq?=
+ =?us-ascii?Q?uuvo74pzVijAM+QILd3iDDf5PpunUpUKjFBrjW4RRumQC+lY3UAfbGgbQ/C3?=
+ =?us-ascii?Q?9RQHQeUX1oyDMLxfK5kf3vGy05fiGluaCWhj0DBk3FqI+peu/ovS5+EuUURR?=
+ =?us-ascii?Q?Lr3ZsWvQH2dK6/wIzBz2m3q+8ZwZzRlqyJFPwzRZGwchrUVoTrfobO7mblT/?=
+ =?us-ascii?Q?OWwDTniaiRDeTRfiRnalrrvCakAeZoNumlOnOFMQbDrcbHz6zfm1H14fwutp?=
+ =?us-ascii?Q?by7R4Y9+7LP5BJ3NT8RqHeeAAgybPCQn7J3PqPmPlmnNNcreaCryZ4BiMLVP?=
+ =?us-ascii?Q?1osMK2RaW2ZTcgnhu5OlTbNf1oYrkRgj528YBXyyTq8vs6xDL1kgY4Q8NKU0?=
+ =?us-ascii?Q?sGI1kry8Stider9m8MzAnO6HAsJd3Xy4sfNBe2KLTVSAF+nxSZFpAAm03g3I?=
+ =?us-ascii?Q?x814aqGfcui4KUW09tcmqixs8UhNUoKIDWQNPlM/wYTwzWhjS0+EU/IG/1L3?=
+ =?us-ascii?Q?hWL9Rvd0A8e8JOb2aJn7MrhT7WK03ArDRpdM9U733ZHkFiR/AVlswoqqNipX?=
+ =?us-ascii?Q?MgYaP0g2/02F+db1nhc5UZVNOWj+kbd1DFjZ5EJ21pG2ISEsUhXJZwDytIsH?=
+ =?us-ascii?Q?KVoBseNTYl5OyiGfuyGG3HY8jvaYZs/cmUtg6SlMByVBBXiTKZjx4TigVD6F?=
+ =?us-ascii?Q?4olzQeOfmOsEw3jVd45mrPxy8GgU1Lg02E7VOVC0Ys9t4OK4OOvpcHKJrt61?=
+ =?us-ascii?Q?/ARabjtVto03sVbbAyy9rE/KpeFbeCig7q8Ox2SQk/V++CqvyfMdvc5wZecw?=
+ =?us-ascii?Q?ZvTHmw3k9KX9rRa+G4uqp06X5QwU709vYDUEiGeMArBrlKfHfBFTlpu7LIf0?=
+ =?us-ascii?Q?DOimVfgZCIEk4wW1liEFcagEO4wCOClvpj9IYz3fVqLwVgtq23dhxVQ3QUfb?=
+ =?us-ascii?Q?443ZIP2vsbCX4iT5cb8BSCjrlYQSC+dV0IfgS8b0NoPMaP0LcUBh17rql8Lc?=
+ =?us-ascii?Q?SMNzSetT1P3ERMj2NJqvAlbZAJs1QpI7+AU1WUCHPOKRSp8fJN5v6dJ7MY0c?=
+ =?us-ascii?Q?2sIGu3kgIWRL1P0Xb3XnRKqAIlrcvRwHET31xxp4m3WSaQaDdBSeUNcXOWPJ?=
+ =?us-ascii?Q?FVBdHKYBtg=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0a1657e5-761f-4595-91ec-08de7dc37fb4
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Mar 2026 10:06:15.0580
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xgxWq5VTmHEtNY2UGNdZVhzgpDL96Sh0h/S1HFXPeuQyt7RqWLjKJqvz2EBtiSBdXtKU1L9l2r9kb2+xIwHSzw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10970
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_030539_096718_5D88595C 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20260309_030624_209777_D37D58C8 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,57 +142,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SMCCC firmware driver now creates the `arm-smccc` platform device
-and also creates the CCA auxiliary devices once the RSI ABI is
-discovered. This makes the arch-specific arm64_create_dummy_rsi_dev()
-helper redundant. Remove the arm-cca-dev platform device registration
-and let the SMCCC probe manage the RSI device.
+add USB2.0, USB3.0 controller and USB phy nodes.
 
-systemd match on platform:arm-cca-dev for confidential vm detection [1].
-Losing the platform device registration can break that. Keeping this
-removal in its own change makes it easy to revert if that regression
-blocks the rollout.
+Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
 
-[1] https://lore.kernel.org/all/4a7d84b2-2ec4-4773-a2d5-7b63d5c683cf@arm.com
-
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Jeremy Linton <jeremy.linton@arm.com>
-Cc: Greg KH <gregkh@linuxfoundation.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- arch/arm64/kernel/rsi.c | 15 ---------------
- 1 file changed, 15 deletions(-)
+Changes in v2:
+ - move usbphynop behind of clock-sai4-mclk1
+Changes in v3:
+ - move usbphynop ahead of interrupt-controller
+---
+ arch/arm64/boot/dts/freescale/imx94.dtsi | 61 ++++++++++++++++++++++++
+ 1 file changed, 61 insertions(+)
 
-diff --git a/arch/arm64/kernel/rsi.c b/arch/arm64/kernel/rsi.c
-index 5d711942e543..1b716d18b80e 100644
---- a/arch/arm64/kernel/rsi.c
-+++ b/arch/arm64/kernel/rsi.c
-@@ -158,18 +158,3 @@ void __init arm64_rsi_init(void)
+diff --git a/arch/arm64/boot/dts/freescale/imx94.dtsi b/arch/arm64/boot/dts/freescale/imx94.dtsi
+index d2f31c8caf6e..38488147a3ef 100644
+--- a/arch/arm64/boot/dts/freescale/imx94.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx94.dtsi
+@@ -139,6 +139,13 @@ timer {
+ 		arm,no-tick-in-suspend;
+ 	};
  
- 	static_branch_enable(&rsi_present);
- }
--
--static struct platform_device rsi_dev = {
--	.name = "arm-cca-dev",
--	.id = PLATFORM_DEVID_NONE
--};
--
--static int __init arm64_create_dummy_rsi_dev(void)
--{
--	if (is_realm_world() &&
--	    platform_device_register(&rsi_dev))
--		pr_err("failed to register rsi platform device\n");
--	return 0;
--}
--
--arch_initcall(arm64_create_dummy_rsi_dev)
++	usbphynop: usbphynop {
++		compatible = "usb-nop-xceiv";
++		clocks = <&scmi_clk IMX94_CLK_HSIO>;
++		clock-names = "main_clk";
++		#phy-cells = <0>;
++	};
++
+ 	gic: interrupt-controller@48000000 {
+ 		compatible = "arm,gic-v3";
+ 		reg = <0 0x48000000 0 0x10000>,
+@@ -1223,6 +1230,60 @@ wdog3: watchdog@49220000 {
+ 			};
+ 		};
+ 
++		usb3: usb@4c100000 {
++			compatible = "nxp,imx94-dwc3", "nxp,imx8mp-dwc3";
++			reg = <0x0 0x4c100000 0x0 0x10000>,
++			      <0x0 0x4c010010 0x0 0x04>,
++			      <0x0 0x4c1f0000 0x0 0x20>;
++			reg-names = "core", "blkctl", "glue";
++			clocks = <&scmi_clk IMX94_CLK_HSIO>,
++				 <&scmi_clk IMX94_CLK_HSIO>,
++				 <&scmi_clk IMX94_CLK_24M>,
++				 <&scmi_clk IMX94_CLK_32K>;
++			clock-names = "hsio", "bus_early", "ref", "suspend";
++			interrupts = <GIC_SPI 180 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 386 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "dwc_usb3", "wakeup";
++			power-domains = <&scmi_devpd IMX94_PD_HSIO_TOP>;
++			phys = <&usb3_phy>, <&usb3_phy>;
++			phy-names = "usb2-phy", "usb3-phy";
++			snps,gfladj-refclk-lpm-sel-quirk;
++			snps,parkmode-disable-ss-quirk;
++			status = "disabled";
++		};
++
++		usb3_phy: phy@4c1f0040 {
++			compatible = "fsl,imx95-usb-phy", "fsl,imx8mp-usb-phy";
++			reg = <0x0 0x4c1f0040 0x0 0x40>,
++			      <0x0 0x4c1fc000 0x0 0x100>;
++			clocks = <&scmi_clk IMX94_CLK_HSIO>;
++			clock-names = "phy";
++			#phy-cells = <0>;
++			power-domains = <&scmi_devpd IMX94_PD_HSIO_TOP>;
++			status = "disabled";
++		};
++
++		usb2: usb@4c200000 {
++			compatible = "fsl,imx95-usb", "fsl,imx7d-usb", "fsl,imx27-usb";
++			reg = <0x0 0x4c200000 0x0 0x200>;
++			interrupts = <GIC_SPI 181 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 387 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&scmi_clk IMX94_CLK_HSIO>,
++				 <&scmi_clk IMX94_CLK_32K>;
++			clock-names = "usb_ctrl_root", "usb_wakeup";
++			power-domains = <&scmi_devpd IMX94_PD_HSIO_TOP>;
++			phys = <&usbphynop>;
++			fsl,usbmisc = <&usbmisc 0>;
++			status = "disabled";
++		};
++
++		usbmisc: usbmisc@4c200200 {
++			compatible = "fsl,imx95-usbmisc", "fsl,imx7d-usbmisc", "fsl,imx6q-usbmisc";
++			reg = <0x0 0x4c200200 0x0 0x200>,
++			      <0x0 0x4c010014 0x0 0x04>;
++			#index-cells = <1>;
++		};
++
+ 		netc_blk_ctrl: system-controller@4ceb0000 {
+ 			compatible = "nxp,imx94-netc-blk-ctrl";
+ 			reg = <0x0 0x4ceb0000 0x0 0x10000>,
 -- 
-2.43.0
+2.34.1
 
 
