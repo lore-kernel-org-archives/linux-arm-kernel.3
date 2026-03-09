@@ -4,57 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6252EA854A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 02:57:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FF4AEA854A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 03:03:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dV6rN6wJGEGhX76L1tLL+S50brKK/SeiWBmYpmhZ6W8=; b=R64tN8gY4Do6x/Nyfa3cNEXkGE
-	YxV2qk1qdowIhSvFY0+Rjowu4ogt9CVSRKygJ1F0PcD2Fa5e1+xzdIUnB4kPc3ySQML1e/DPAjwcu
-	ychSjeEqskX3eL0cflfswOXWL808uOgtItmxVP/FH03OuTxvtQlURLdzQYYgE1n49aY+S4KOnCYJU
-	+jZ29uHnE4qxkWtx2CVjeh9/hdRcNIbGn8xA2WzQkLH5cJ1YFwrspjuM+uOjWLUfldAyKMsfr+AKq
-	FflbvSvR8JlpnzQ2uUhmxZLrmoJZchCNroWQzP8m4c8DLGJwFqmff/0nVFaWMn11GcYDGDu2nQgV0
-	pbPP+RVQ==;
+	bh=DRC/SSBoLNJpBv7w3HXObuyQkJlK3e7PgCYEr0NFv4U=; b=fPp37Qds87GyGiS4BjqTJ6P6D/
+	gleUW2F2TJLGpQ042D5D7JBPyDAsD2mef998Dlu5CKFamk4wuE8ZxNf7xSKeU8GCq0SgXDcuglDlo
+	NOvHlRJESw+F4kBa0Xk0CYF43aWCkFF77kE1cHhUCP3t0OOetfmHbweTCEyG8Fu65UmnD8f5Irr18
+	4Je5tq8inko0EVr7Nd9a8rowazVtPDClkS3RkKbUNUgjcPpjVBZEEiR1r2AdEct6Tz41WWR2kX9a/
+	00Dfq1DfIYvR3wsjUrVo8zJ793JXNuKZomVDrpclQxrF9Cu4EjAXkqDz1wkvO1Sh6JRBr0TMcMDsI
+	Odu9NYdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzQoO-00000006ZGk-0qr5;
-	Mon, 09 Mar 2026 02:57:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzQoJ-00000006ZFX-39Dl
+	id 1vzQtV-00000006ZnW-2inS;
+	Mon, 09 Mar 2026 03:02:57 +0000
+Received: from mail-yx1-xb133.google.com ([2607:f8b0:4864:20::b133])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vzQtS-00000006Zn1-45H6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 02:57:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E26961D15;
-	Sun,  8 Mar 2026 19:57:26 -0700 (PDT)
-Received: from ergosum.cambridge.arm.com (ergosum.cambridge.arm.com [10.1.196.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A16943F694;
-	Sun,  8 Mar 2026 19:57:31 -0700 (PDT)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Christoph Lameter <cl@gentwo.org>,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH V5 1/2] arm64/mm: Enable batched TLB flush in unmap_hotplug_range()
-Date: Mon,  9 Mar 2026 02:57:24 +0000
-Message-Id: <20260309025725.455004-2-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20260309025725.455004-1-anshuman.khandual@arm.com>
-References: <20260309025725.455004-1-anshuman.khandual@arm.com>
+	Mon, 09 Mar 2026 03:02:56 +0000
+Received: by mail-yx1-xb133.google.com with SMTP id 956f58d0204a3-64c9cabfe5dso13740857d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 08 Mar 2026 20:02:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1773025373; x=1773630173; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=DRC/SSBoLNJpBv7w3HXObuyQkJlK3e7PgCYEr0NFv4U=;
+        b=voB/MGYJfi7m32sG+yiQxUJ2+ss/OMx3GyPMvTRnA+uzOXx218sHIocz6EhvC1Zd7a
+         VHtCYMizvpmWEgELPOnnKqM8qmv3N2X4zY4ABTmKVOhWKip/m73GrNNV3+DzsbUhf6LT
+         RgtedGQvomRDYIOS5NPLX+pkr8LBdpV6gupT9WeGtDjudRs500GNMrWjeMRw71JKn9MO
+         01TvM3Ozx1SVj4ojHpfF7cliGU100JAZe1hWrsmgKD7Qht3rLadkwqWLcjxiO4MFRsnS
+         PBDz3zTaCVY5vL29bmMUa3u57RyohAVdZuDNWsXpyCF4jflYwSEkypCnqCbJvXp0sxuf
+         uowA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773025373; x=1773630173;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=DRC/SSBoLNJpBv7w3HXObuyQkJlK3e7PgCYEr0NFv4U=;
+        b=h9cLfGiPi92zLKNu+ELCVAhoLH6CEufwvfTGrwApuGiQYRx+YsBy4X7uGsPVsLg/NO
+         HRWUsyIn7silxpvBBj1g1Y9CvI/L4cQoqUGfunSa8paeyXrYh4HzcEnrIR0fPRkjAEct
+         jhmL92fp4xa+ER8x0qsBuoiLrpahHne/Pa5M1OjBi+k/vKAcpsUVro1CdzRLOPFspN5M
+         K15OlLUc+uKcLbV8F43zBW0alOhOToU4cc6G7uiMtW5EvF3cW6HMTQsM3WIX2m1RCO01
+         Zjfmr19gg61xPIvHyO9v8xVtauFV2SvinV8ceyjBXcjp1aWln7hQnSviQX4hrtSfuK/n
+         umqA==
+X-Forwarded-Encrypted: i=1; AJvYcCWIleZOlMPAbgd4am4emk8+jgv9z6AgDjWrPkHh5Bvpg8bS5NTJc/9tBmryOLJmy0vx7ggTwJY85j4/SyfS79qD@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMVP/fy8EbamJXFM7qCtWQyltQMAPS4PiZS2g8irUOC73OI2xl
+	71FGIHIP8YxbcJ2V1tB6pnivxBod6vMYnAQs2040jjDuLjp7W3AV2o4YRaJ24MeTMA==
+X-Gm-Gg: ATEYQzzh5UHTmxOU/wLLcZDoOirZ5uJodScNxIP+ST0OyvcMXLGniq8JcfT2bJvyQkK
+	FLiK+J7/vQcHJC+x5O4MkslTZvV+BLCU/o5LFYwPbw+TaH/44x0ry0yW8eOMjR2SrA8gjyDe62e
+	wNikyxoEnRQxiAu7JaMHmP3m+PrQ4m7r3CJDK9RAPVNyFKO0ZNLdm44d0/MIk5JP4bnakvp2O7K
+	3SGIXSBAAv6igSgN8EvxJVejhe5xDiRellcn/rHDWLYTvmesxnDnM3IqJCLcSHXE8xsWWHDFRWr
+	fUpWsGc+H1j3lTbgASouB+BMpGrim2Fw3JJNq/oQrATAEoBpP2Y/uZVZ1+0sw8Ku7xIEDvZEVli
+	5b6elL8zj34yb+QkxaKPxhIPOYOTXkrEjKblEJ6RnPTKAn4mqVLkpQzZ9GQPNSg1yJZgrCGFbbN
+	+mA1DiQzLgUJq3uEhNS/YZlWhhJ13Yr122r8RwVT1Ku7t2wOYdXDGXvPYWd1mQgCOnEUGQUoE=
+X-Received: by 2002:a05:690e:1186:b0:64a:7bf2:3afa with SMTP id 956f58d0204a3-64d0715a07dmr12447389d50.28.1773025372369;
+        Sun, 08 Mar 2026 20:02:52 -0700 (PDT)
+Received: from ?IPV6:2600:1700:4570:89a0:3329:ea09:3c41:e7ec? ([2600:1700:4570:89a0:3329:ea09:3c41:e7ec])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-64d176c59dbsm4094408d50.11.2026.03.08.20.02.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 08 Mar 2026 20:02:51 -0700 (PDT)
+Message-ID: <103a2828-c567-4b95-8583-e2358ccfc1f6@google.com>
+Date: Sun, 8 Mar 2026 20:02:42 -0700
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 3/6] mfd: max77759: add register bitmasks and modify
+ irq configs for charger
+To: Lee Jones <lee@kernel.org>
+Cc: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
+ <andre.draszik@linaro.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Badhri Jagan Sridharan <badhri@google.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Mark Brown <broonie@kernel.org>,
+ Matti Vaittinen <mazziesaccount@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, RD Babiera <rdbabiera@google.com>,
+ Kyle Tso <kyletso@google.com>
+References: <20260224-max77759-charger-v8-0-eb86bd570e9c@google.com>
+ <20260224-max77759-charger-v8-3-eb86bd570e9c@google.com>
+ <20260306130031.GK183676@google.com>
+From: Amit Sunil Dhamne <amitsd@google.com>
+Content-Language: en-US
+In-Reply-To: <20260306130031.GK183676@google.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260308_195735_889066_DAF990E8 
-X-CRM114-Status: GOOD (  16.63  )
+X-CRM114-CacheID: sfid-20260308_200255_016563_6D63B51D 
+X-CRM114-Status: GOOD (  13.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,131 +117,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During a memory hot remove operation, both linear and vmemmap mappings for
-the memory range being removed, get unmapped via unmap_hotplug_range() but
-mapped pages get freed only for vmemmap mapping. This is just a sequential
-operation where each table entry gets cleared, followed by a leaf specific
-TLB flush, and then followed by memory free operation when applicable.
+Hi Lee,
 
-This approach was simple and uniform both for vmemmap and linear mappings.
-But linear mapping might contain CONT marked block memory where it becomes
-necessary to first clear out all entire in the range before a TLB flush.
-This is as per the architecture requirement. Hence batch all TLB flushes
-during the table tear down walk and finally do it in unmap_hotplug_range().
+On 3/6/26 5:00 AM, Lee Jones wrote:
+> On Tue, 24 Feb 2026, Amit Sunil Dhamne via B4 Relay wrote:
+>
+>> From: Amit Sunil Dhamne <amitsd@google.com>
+>>
+>> Add register bitmasks for charger function.
+>> In addition split the charger IRQs further such that each bit represents
+>> an IRQ downstream of charger regmap irq chip. In addition populate the
+>> ack_base to offload irq ack to the regmap irq chip framework.
+>>
+>> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
+>> Reviewed-by: André Draszik <andre.draszik@linaro.org>
+>> ---
+>>  drivers/mfd/max77759.c       |  91 ++++++++++++++++++++--
+>>  include/linux/mfd/max77759.h | 176 ++++++++++++++++++++++++++++++++++++-------
+>>  2 files changed, 230 insertions(+), 37 deletions(-)
+> Does this patch have any dependents or dependencies?
+>
+This patch does not depend on any other patch.
 
-Prior to this fix, it was hypothetically possible for a speculative access
-to a higher address in the contiguous block to fill the TLB with shattered
-entries for the entire contiguous range after a lower address had already
-been cleared and invalidated. Due to the table entries being shattered, the
-subsequent TLB invalidation for the higher address would not then clear the
-TLB entries for the lower address, meaning stale TLB entries could persist.
+The patch that depends on this one is:
+https://lore.kernel.org/all/20260224-max77759-charger-v8-5-eb86bd570e9c@google.com/
 
-Besides it also helps in improving the performance via TLBI range operation
-along with reduced synchronization instructions. The time spent executing
-unmap_hotplug_range() improved 97% measured over a 2GB memory hot removal
-in KVM guest.
 
-This scheme is not applicable during vmemmap mapping tear down where memory
-needs to be freed and hence a TLB flush is required after clearing out page
-table entry.
+Thanks,
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Closes: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
-Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
-Cc: stable@vger.kernel.org
-Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
- arch/arm64/mm/mmu.c | 36 ++++++++++++++++++++----------------
- 1 file changed, 20 insertions(+), 16 deletions(-)
+Amit
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index a6a00accf4f9..5dbf988120c8 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -1458,10 +1458,14 @@ static void unmap_hotplug_pte_range(pmd_t *pmdp, unsigned long addr,
- 
- 		WARN_ON(!pte_present(pte));
- 		__pte_clear(&init_mm, addr, ptep);
--		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
--		if (free_mapped)
-+		if (free_mapped) {
-+			/* CONT blocks are not supported in the vmemmap */
-+			WARN_ON(pte_cont(pte));
-+			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
- 			free_hotplug_page_range(pte_page(pte),
- 						PAGE_SIZE, altmap);
-+		}
-+		/* unmap_hotplug_range() flushes TLB for !free_mapped */
- 	} while (addr += PAGE_SIZE, addr < end);
- }
- 
-@@ -1482,15 +1486,14 @@ static void unmap_hotplug_pmd_range(pud_t *pudp, unsigned long addr,
- 		WARN_ON(!pmd_present(pmd));
- 		if (pmd_sect(pmd)) {
- 			pmd_clear(pmdp);
--
--			/*
--			 * One TLBI should be sufficient here as the PMD_SIZE
--			 * range is mapped with a single block entry.
--			 */
--			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
--			if (free_mapped)
-+			if (free_mapped) {
-+				/* CONT blocks are not supported in the vmemmap */
-+				WARN_ON(pmd_cont(pmd));
-+				flush_tlb_kernel_range(addr, addr + PMD_SIZE);
- 				free_hotplug_page_range(pmd_page(pmd),
- 							PMD_SIZE, altmap);
-+			}
-+			/* unmap_hotplug_range() flushes TLB for !free_mapped */
- 			continue;
- 		}
- 		WARN_ON(!pmd_table(pmd));
-@@ -1515,15 +1518,12 @@ static void unmap_hotplug_pud_range(p4d_t *p4dp, unsigned long addr,
- 		WARN_ON(!pud_present(pud));
- 		if (pud_sect(pud)) {
- 			pud_clear(pudp);
--
--			/*
--			 * One TLBI should be sufficient here as the PUD_SIZE
--			 * range is mapped with a single block entry.
--			 */
--			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
--			if (free_mapped)
-+			if (free_mapped) {
-+				flush_tlb_kernel_range(addr, addr + PUD_SIZE);
- 				free_hotplug_page_range(pud_page(pud),
- 							PUD_SIZE, altmap);
-+			}
-+			/* unmap_hotplug_range() flushes TLB for !free_mapped */
- 			continue;
- 		}
- 		WARN_ON(!pud_table(pud));
-@@ -1553,6 +1553,7 @@ static void unmap_hotplug_p4d_range(pgd_t *pgdp, unsigned long addr,
- static void unmap_hotplug_range(unsigned long addr, unsigned long end,
- 				bool free_mapped, struct vmem_altmap *altmap)
- {
-+	unsigned long start = addr;
- 	unsigned long next;
- 	pgd_t *pgdp, pgd;
- 
-@@ -1574,6 +1575,9 @@ static void unmap_hotplug_range(unsigned long addr, unsigned long end,
- 		WARN_ON(!pgd_present(pgd));
- 		unmap_hotplug_p4d_range(pgdp, addr, next, free_mapped, altmap);
- 	} while (addr = next, addr < end);
-+
-+	if (!free_mapped)
-+		flush_tlb_kernel_range(start, end);
- }
- 
- static void free_empty_pte_table(pmd_t *pmdp, unsigned long addr,
--- 
-2.30.2
 
 
