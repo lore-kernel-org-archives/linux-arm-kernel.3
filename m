@@ -4,58 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 456A7FCA19E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 22:40:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACAE9EFCD72
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 22:44:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6sEa2EbLg9kRxYDC+wk5lG4h9pBDhKw3v7ZVTXod9Z0=; b=jOQ5CSB6YwGlOy3uOTELUaYXKL
-	srxAm247WXCgXTU8JkGga9b1RI3oM9Idd+G/+M2eawCOJqPIoCPOMaWzs9xPpN1QLBafhiaO1FvvR
-	1FpVhluLBofibQe8ds/TPf2tI74IVxRCa0ydzlxLomFGi3cX7Sa6Kw9ern/zHK3zUIDgeKTx26FVm
-	vf9Nz0EGX//DauUqhNYMitCaqPXHKaQVe+ugrYYwUdtErt7JXINHIlJz8NJqxemXSgC/6lvQDmS1x
-	/24C0VrzQxb+JfVyVLiYKihlZed/OYdmk/TPi3802jx1q/KMIaz4R5ce58pB/tufcX5+52UnGuNPM
-	giNYg6mQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=oce+0JRH7oP95lMsb9LbT/mHsEvUzOv0UTqoZ9TUMP4=; b=jpvMCAxo8hlhci
+	SxD7FcijGQWeAh3FxmSt8xMmjWqd9ImaijVY/ZDaJnCP8SiAMyJ6xL/qJ2FCoAg884fDZSHsj/dz0
+	dbEwHmN8kMg3GxzqjwmMliDWdXlFykSuGTXZShE7N9jJBwEIUMNoPL+axLG1QluHrr/QyGX+NaDsU
+	pqnjp+txSHxQnGLIBxjfjtYBRLhevYVA6rpM/AYhn8I5oTgTkrcsko1gvjXgZctnvkYwTz1hF9CE3
+	lCwJ6/FfJxh4wPY1FYkNcO2zvPSnHxAf3hZsohA+MKZQ1qs5qohLYjvzOoeqQJPbQXUliR2ODE16U
+	lACV/qTtlcFF4D8mi7XQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzjGr-00000008EmF-02G0;
-	Mon, 09 Mar 2026 22:40:17 +0000
-Received: from out-178.mta1.migadu.com ([95.215.58.178])
+	id 1vzjL8-00000008F1F-14XF;
+	Mon, 09 Mar 2026 22:44:42 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzjGo-00000008Elv-2qef
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 22:40:15 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1773096010;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=6sEa2EbLg9kRxYDC+wk5lG4h9pBDhKw3v7ZVTXod9Z0=;
-	b=JQTSDRRm9vnyqZZGdY6s0b4nQjjICVmFVwlyzrX9I47jfrkZlWYh612iJzxz9pqqqbbDh+
-	/dGUzYblpitIxHSgGJfs5T3y6gJR/gCTn2GEUtMKgotOlFCluc0Kt+0+EdO0kXIpH64XrD
-	FU8SjSXFEpE2xajsE08pncz0qmeL92w=
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Gatien Chevallier <gatien.chevallier@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Thorsten Blum <thorsten.blum@linux.dev>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH RESEND] bus: rifsc: Replace snprintf("%s") with strscpy
-Date: Mon,  9 Mar 2026 23:39:24 +0100
-Message-ID: <20260309223923.84283-3-thorsten.blum@linux.dev>
+	id 1vzjL4-00000008Eyo-105a;
+	Mon, 09 Mar 2026 22:44:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1773096275;
+	bh=ielanxfO36OKZ6/DK4dhhEI8R7wMWkeZYXUkCFDY5f4=;
+	h=From:Subject:Date:To:Cc:From;
+	b=TIKRFETGF4gqBG8nw+65qMjKzLK/GMPgUAtO1NtCVG2y7Kz9TPkQSfYZsupqe+8id
+	 pFEtSyZNp42WMeVMP+jYeWj5iJ1pW/zczJPY1ueOUHezVXxrvtGU6c9ZYhaerlKPNR
+	 9kIdVKKTbYD9K7feDVa+xZ3yNgcg081ipZJYN893Gx8hyqKLFGu/o+CPA5EdX1y+6x
+	 u/KFN+nDkUPPH1e7PadyWekFQO89cfqi9i9XfLl7TyhSVH8fLVQ0cSYYibHO0ev/vj
+	 gUf49wl4WfjopbbDX1g7SzNTxn3pfb9cwUw0fXp+u7u3YZ3Mea22dMbzxTpTjqTBsW
+	 kjYhIfcqKa5cw==
+Received: from localhost (unknown [86.123.23.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EE81F17E01B1;
+	Mon,  9 Mar 2026 23:44:34 +0100 (CET)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Subject: [PATCH v2 0/8] Rockchip DRM use-after-free & null-ptr-deref fixes
+Date: Tue, 10 Mar 2026 00:44:28 +0200
+Message-Id: <20260310-drm-rk-fixes-v2-0-645ecfb43f49@collabora.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1803; i=thorsten.blum@linux.dev; h=from:subject; bh=se/9XM5LaxmsF9U1ffuqXFfNsRE3YhF8LwOaSh6U6vU=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDJnrfaQjwjxfVGnc8cvbt2GajMLbm9sWSR74Ic2yY8EmR pZG5dUzOkpZGMS4GGTFFFkezPoxw7e0pnKTScROmDmsTCBDGLg4BWAiqjcY/kpufPbTqbvnTaR4 2jpts8u3d1psD5r0aU7L4uTsF6+Ntk5h+MPFqfihuCxoCbt5e7nBnSvCVmVXtP2FIj2E7xzjuWq 1jQMA
-X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WMQQ6CMBBFr0Jm7Zh2sFRdeQ/DopZBGoGaqSEa0
+ rtb2bt8/+e9FRJL4ATnagXhJaQQ5wK0q8APbr4zhq4wkKJGaSLsZEJ5YB/enNDZhshbbUzNUJS
+ n8HYU49oWHkJ6Rfls9UX/1j+hRaPC+nSgXh+NNYovPo6ju0Vxex8naHPOX1g2iWqsAAAA
+X-Change-ID: 20260122-drm-rk-fixes-a7622c71553e
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Dmitry Baryshkov <lumag@kernel.org>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_154014_873154_55B17F07 
-X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-CacheID: sfid-20260309_154438_462129_0EC464F2 
+X-CRM114-Status: UNSURE (   8.28  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,43 +88,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace snprintf("%s", ...) with the faster and more direct strscpy().
+The first three patches in the series are fixes for use-after-free &
+null-ptr-deref related issues found in dw_dp and inno-hdmi Rockchip DRM
+drivers.
 
-Acked-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
-Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+The following three patches provide a few minor improvements to dw_dp
+and dw_hdmi_qp, while the remaining two address use-after-free and
+memory allocation in DW DP core library.
+
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/bus/stm32_rifsc.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Changes in v2:
+- Fixed conflicts while rebasing onto latest drm-misc-next
+- Added two more patches:
+ * drm/bridge: synopsys: dw-dp: Unregister AUX channel on bridge detach
+ * drm/bridge: synopsys: dw-dp: Drop useless memory allocation
+- Link to v1: https://lore.kernel.org/r/20260122-drm-rk-fixes-v1-0-3942f185750e@collabora.com
 
-diff --git a/drivers/bus/stm32_rifsc.c b/drivers/bus/stm32_rifsc.c
-index debeaf8ea1bd..ba65ad21434b 100644
---- a/drivers/bus/stm32_rifsc.c
-+++ b/drivers/bus/stm32_rifsc.c
-@@ -15,6 +15,7 @@
- #include <linux/of.h>
- #include <linux/of_platform.h>
- #include <linux/platform_device.h>
-+#include <linux/string.h>
- #include <linux/types.h>
- 
- #include "stm32_firewall.h"
-@@ -450,7 +451,7 @@ static void stm32_rifsc_fill_rimu_dbg_entry(struct rifsc_dbg_private *rifsc,
- 	const struct stm32_rifsc_resources_names *dbg_names = rifsc->res_names;
- 	u32 rimc_attr = readl_relaxed(rifsc->mmio + RIFSC_RIMC_ATTR0 + 0x4 * i);
- 
--	snprintf(dbg_entry->m_name, sizeof(dbg_entry->m_name), "%s", dbg_names->initiator_names[i]);
-+	strscpy(dbg_entry->m_name, dbg_names->initiator_names[i]);
- 	dbg_entry->m_cid = FIELD_GET(RIFSC_RIMC_MCID_MASK, rimc_attr);
- 	dbg_entry->cidsel = rimc_attr & RIFSC_RIMC_CIDSEL;
- 	dbg_entry->m_sec = rimc_attr & RIFSC_RIMC_MSEC;
-@@ -469,8 +470,7 @@ static void stm32_rifsc_fill_dev_dbg_entry(struct rifsc_dbg_private *rifsc,
- 	sec_cfgr = readl_relaxed(rifsc->mmio + RIFSC_RISC_SECCFGR0 + 0x4 * reg_id);
- 	priv_cfgr = readl_relaxed(rifsc->mmio + RIFSC_RISC_PRIVCFGR0 + 0x4 * reg_id);
- 
--	snprintf(dbg_entry->dev_name, sizeof(dbg_entry->dev_name), "%s",
--		 dbg_names->device_names[i]);
-+	strscpy(dbg_entry->dev_name, dbg_names->device_names[i]);
- 	dbg_entry->dev_id = i;
- 	dbg_entry->dev_cid_filt_en = cid_cfgr & CIDCFGR_CFEN;
- 	dbg_entry->dev_sem_en = cid_cfgr & CIDCFGR_SEMEN;
+---
+Cristian Ciocaltea (8):
+      drm/rockchip: inno-hdmi: Switch to drmm_kzalloc()
+      drm/rockchip: dw_dp: Switch to drmm_kzalloc()
+      drm/rockchip: dw_dp: Fix null-ptr-deref in dw_dp_remove()
+      drm/rockchip: dw_dp: Simplify error handling
+      drm/rockchip: dw_dp: Drop unnecessary #include
+      drm/rockchip: dw_hdmi_qp: Switch to drmm_encoder_init()
+      drm/bridge: synopsys: dw-dp: Unregister AUX channel on bridge detach
+      drm/bridge: synopsys: dw-dp: Drop useless memory allocation
+
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c        | 12 ++++++---
+ drivers/gpu/drm/rockchip/dw_dp-rockchip.c      | 35 ++++++++++----------------
+ drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 13 +++++-----
+ drivers/gpu/drm/rockchip/inno_hdmi-rockchip.c  |  3 ++-
+ 4 files changed, 29 insertions(+), 34 deletions(-)
+---
+base-commit: bfb18fd193e2413f02ad934e46887f415f0ce4ec
+change-id: 20260122-drm-rk-fixes-a7622c71553e
+
 
