@@ -4,113 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A750EF36E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 06:46:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9794CEF36E7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 06:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g/VoQtoxtMjinR0wQxRIglh5sEAwoToR0YD9sANGcxY=; b=UbDwmhKSpzdZksBQyG4turzyWK
-	EgbktYBEWPxE9embh2WfYcfBZ4spa7rR3Ds1GIG6GNPvIMlg2T7vcTspQNrcMHQj13RiKhki8uHmT
-	xXWSW3L5ct0gFcpW5ald5RWVpxbhZaooDS0NA5gw8BulfYMtKk/AKSeSDuzv7OWjP3pZI5g+decdU
-	4Nju/NzXjetA5ngDgzkyzz2/FrQEDLQ7+Jyg+ndP51gSH/TpZwp9DPfg1WXkRrrjTBgUZJp65qsBy
-	5wwElFIuhOM+2dOinERuT9B8xrvRY+UmXCYbFaswRrKVomZU5Sa/WUy1mGwZckv/3Mbq0kDVD2tcH
-	FRJbWzDA==;
+	bh=rVVXAnIRVaSxFm5PMF+o7ZkokKwZJQ09G10aHMWjxe0=; b=28WW7SuVGoC2Ys4CojjvUGSYWR
+	FjV3gK3G9xtCBa8eq7TCgzWtUp8kDsJnkNdR5qBU/WU6F40Wn3l1nuDp709evr/swTM8bRoILaUop
+	Fr3E4vqocpWAYCY16BE4YRGAH8aVY/tYDYzAySyHjgiUeOM4Q+KTEs8SBR+YNXaWVmo9CP74wjHyt
+	EnOouO3h4XlS/1JbG2dXM3hPmNgbra/XKPQQuX6d8HMO8f9zIK8gncauqczuhmbhc6nNfqz/ZnT2w
+	adNBYcDl/2LZ/RAJ9AnBJ0bZuyJv6s0wnVegyKJ0U9cWz9Szkwm5cXJX57UBO5EY44g5MqWmIS0Xj
+	b+oL6KmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzUNS-00000006l2l-2Vjy;
-	Mon, 09 Mar 2026 06:46:09 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vzUQX-00000006lGI-3YxT;
+	Mon, 09 Mar 2026 06:49:17 +0000
+Received: from mail-northeuropeazon11011060.outbound.protection.outlook.com ([52.101.65.60] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzUNO-00000006l1Z-0zWr
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 06:46:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1773038761;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=g/VoQtoxtMjinR0wQxRIglh5sEAwoToR0YD9sANGcxY=;
-	b=hgY+E/Iq+A6xeGG1Uzh/JzOpklN6SXHZmwlnp4zQbKZWElo9riqOowLFR1Uo6FHVOzPOZP
-	21wDTHnY9+xtoJ0Y/0UJpY98IS8ltiLWRlnoVWkOECVKnESgkhyRS2rhPBc9OH0GIKPKGv
-	JH2BzZFNHz0jev66uRPrfiU4eOu0doQ=
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com
- [209.85.210.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-443-Tr-F4yOlP_mv8rQXJAB_gw-1; Mon, 09 Mar 2026 02:43:39 -0400
-X-MC-Unique: Tr-F4yOlP_mv8rQXJAB_gw-1
-X-Mimecast-MFC-AGG-ID: Tr-F4yOlP_mv8rQXJAB_gw_1773038618
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-829b8bb5173so361465b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 08 Mar 2026 23:43:39 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773038618; x=1773643418;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=g/VoQtoxtMjinR0wQxRIglh5sEAwoToR0YD9sANGcxY=;
-        b=NjAGdZ3ceh6R304RMbv9gH0mXJs2WoVUkONz4MZl+LVYwYgfnL6CbYUywmpRN7vVXT
-         2YfaVpXxxBXzAKpnC/hoFKBQOAPkZZRWZ9tTP4ChnZkRG+BHuSCIhdr08WQ4XcfFtaQE
-         4KzxnFLLdpfEMa1modtxUz99Xd/xtvlFJzfwBWkyCG0lA9OruRGLzWncw4ZbnClHA/pL
-         cPZEnsnzA0GZcP4MJATTyDC+i2iJzz5QJ4MwOedc+fq6K6jzNpMq19DRQZp1N8k2z63n
-         o6WHWY9R3XETBjbQv+Ci+pkLrec+7eUT7nIOC5Uo/+dFYYCT88bTdGlTXX4ftRBtwpOc
-         2zqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXdJPIDQsbGGyoekziJ+QPToGjZHkw+EdvW3h6ZxBnTibttZlXnGh50vnObpjt2kftrGHiZ97T+GkJmI38WosYq@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBwEIT7reqCsMbWneoCysRKo5kMR17ZJqsuE1kwRKumqyBUEki
-	pUU9mBv6GfumV3zeqgH3DnkSGsNEc8JaWx4CoYtG/isstrkxuunzJBGPjTM2OamAdK9rCvO3f2X
-	6oisTjOUi2GUorfHypFz7ynRMp8lcIz8zmRJOty7o0Xb/D2nbVQEmSZ5CDftcA/+8vdmKzcxmBr
-	mN
-X-Gm-Gg: ATEYQzyYKVt7zq1gTpigwJBlqo1a/2XhiMFy+nDyk7YZhgD7YhXa5uqHWzxwOC7BiAo
-	5c1gvCc/o8R/nDOsXMnYaQnGZ+GvjuvM50+RvO790yotRnfm1yjcrOtOvuRRKweW1nwRt3QyhyC
-	NgdhhyHG1/gi91BQL1oAW4jTTwpZMGd+EX0SXdSPoc0UrppKQXPhutiAKAlUzsq9DBdx8ily0x8
-	Hf4XDiW0enGwr/npsrfhSrHS0XpJnX8fo+IjRAlhHvz9yVT8tyV5rRAx/jfvY0zuiDycljK6ei+
-	afKLLnjezHHdVSEmj+W8RUBCECqOF9QhuMHzqAFFwg5GAgGl9W77BZvtxdR3FF2CVi0jYTMI0P6
-	nIZSXLP/T6tYbNfCjN2hz6lVBC12uqK+NbxVU385e1i3ct/IabbNyQDgLcGLAnqRI
-X-Received: by 2002:a05:6a00:3e14:b0:827:2995:3ba0 with SMTP id d2e1a72fcca58-829a2f67981mr8452998b3a.32.1773038618123;
-        Sun, 08 Mar 2026 23:43:38 -0700 (PDT)
-X-Received: by 2002:a05:6a00:3e14:b0:827:2995:3ba0 with SMTP id d2e1a72fcca58-829a2f67981mr8452979b3a.32.1773038617730;
-        Sun, 08 Mar 2026 23:43:37 -0700 (PDT)
-Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-829a48d3871sm9235407b3a.60.2026.03.08.23.43.21
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 08 Mar 2026 23:43:37 -0700 (PDT)
-Message-ID: <57dbec80-4cfe-468e-b32d-7dc0f872ed67@redhat.com>
-Date: Mon, 9 Mar 2026 16:43:19 +1000
+	id 1vzUQU-00000006lFh-02yp;
+	Mon, 09 Mar 2026 06:49:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ana9S4hrWBDe1PlkvOKc+tqmLpuHkoXJnObRWuzNWTr/G3JlJkhNIx/bj0Kzka8jH2YPGrLcKW+O5Wy1vn23XHHa+n+lAg6rWni9iev1v9t76DmhyzHhr2NbyMhutqQrtX1/HbsV1/aQ1jP1oS3ILLUCuZOL+h5IZ2lEwhFR1viXpE/yBj0CNoY/NhVEukXUECHhUY+KdvUWOzb+w6v+f5i3mJ/d+gtz8dqcSI0DEg+WMmH0JWDZijX97XO5D8bpC8kDn7u69J/3hmROIOyoLuGJ/uHBMKT4nqKM56FDntu1A6Ycw7mwhOAVUcvUWyhMTdJMC0rTSqHj/hApY+Pnzg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rVVXAnIRVaSxFm5PMF+o7ZkokKwZJQ09G10aHMWjxe0=;
+ b=uoBzFHHyf4cgp1ZwkvwkQAapI/1a0ZEfNXhUsx3WY7nSUCBLin8Avex7GvCIUOu6SiqpOTnWGSb5msO2Kgm1iHEo3PsD3lGt7VehIq35ERPUd72gOZqcDGA1zUMyfcQfyJpHtIpLClxchuxhCbP+b/8lYNjmYMDeIJp6W585lFsDMAcdFCNzPUsgVD0qLiI5x8fz8Hp/6kYAGuH0V7rKShL+2aXbjQwA4s6vHWEkap5EWw5/4tIDrTpTKcnFGVs+jP59rKGd+T6biAOw1umkZAnyrvsjdaUWoW+H7mS5uuuz9HqRqjExp8E4e141fvszn1dMuSl026/nRUzsTp1drw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rVVXAnIRVaSxFm5PMF+o7ZkokKwZJQ09G10aHMWjxe0=;
+ b=hSlCY1sY9QMv5oit4Sj3oSwV5jMCnxedne7tJUpnH5drQ+l34WThQzP1PuyXPgpKn+2N9cruT+erPy/1cCpmxQEmWHirc36/UpzBxFOKEBjVVOtBRgutYjFbcPU7LlqGHtSsVaAH00KUmdgi8I0iQHt4ZQkcM+L+zw+sneCduYsimFjMnb/bErnxDjOjUiPfDAjhaqGbSIbbQNs7swreMgRITWCSom0b/MBU2OkNAaK4M7yiUtnoqJcp+3j6K0zMf/2UhbLEtKq3Ldfjin5fz3+I8mQlaRn+1rrLvMGYXsa6x5XXNGUbaYb1zhUGFFsIk/CqmTsD/45zrY9ySKaPmg==
+Received: from DUZPR01CA0264.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4b9::20) by GV2PR10MB6209.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:150:76::8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.22; Mon, 9 Mar
+ 2026 06:49:03 +0000
+Received: from DB1PEPF000509FE.eurprd03.prod.outlook.com
+ (2603:10a6:10:4b9:cafe::51) by DUZPR01CA0264.outlook.office365.com
+ (2603:10a6:10:4b9::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.25 via Frontend Transport; Mon,
+ 9 Mar 2026 06:49:02 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DB1PEPF000509FE.mail.protection.outlook.com (10.167.242.40) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9654.16 via Frontend Transport; Mon, 9 Mar 2026 06:49:02 +0000
+Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 9 Mar
+ 2026 07:51:29 +0100
+Received: from [10.48.87.93] (10.48.87.93) by STKDAG1NODE1.st.com
+ (10.75.128.132) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 9 Mar
+ 2026 07:49:01 +0100
+Message-ID: <70cf60db-52df-481c-881c-5b63959876d6@foss.st.com>
+Date: Mon, 9 Mar 2026 07:49:02 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 07/41] arm64: mpam: Advertise the CPUs MPAM limits to
- the driver
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, james.morse@arm.com, jonathan.cameron@huawei.com,
- kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
- zengheng4@huawei.com, linux-doc@vger.kernel.org,
- Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-References: <20260224175720.2663924-1-ben.horgan@arm.com>
- <20260224175720.2663924-8-ben.horgan@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260224175720.2663924-8-ben.horgan@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: mHuQF3KkjxMrvW0Z3GIcsDa48voWuuGVUilTssWEDt0_1773038618
-X-Mimecast-Originator: redhat.com
+Subject: Re: [PATCHv2 1/2] phy: miphy28lp: add COMPILE_TEST
+To: Rosen Penev <rosenp@gmail.com>, <linux-phy@lists.infradead.org>
+CC: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+	Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	open list <linux-kernel@vger.kernel.org>, "moderated list:ARM/STI
+ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, "open list:KERNEL
+ HARDENING (not covered by other areas):Keyword:b__counted_by(_le|_be)?b"
+	<linux-hardening@vger.kernel.org>
+References: <20260306222457.8400-1-rosenp@gmail.com>
+ <20260306222457.8400-2-rosenp@gmail.com>
 Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <20260306222457.8400-2-rosenp@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.93]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE1.st.com
+ (10.75.128.132)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB1PEPF000509FE:EE_|GV2PR10MB6209:EE_
+X-MS-Office365-Filtering-Correlation-Id: dd51eac0-7205-4c79-8ffc-08de7da7f357
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|376014|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: 0clEI7yc/JE6rXnjny8XrjhBfDL/+FgQM0u03TM9azAwqgxzTc+JOEVpPYO4KaLu02V0xQ6R23vqbYHiBdbmuwZTeGoDAFSQK+l/G8aD3srYtudhqOrJmAEAwwVleSbQ8OigCuLfRvZARx02QCFpt286C82t66III7QVuxM1fjytTvzAR+win59NUdm1BkkMz+HMuJkjjW890NxpebCYGXhbJgxhAcQUkAvI7vUaZh+8CLNpNP4VKi74gRw8H5i64UfdtE5OfPZH16fXNxI0NzhHiCHRw8WUiFUGxu695kfY16Gp5ZPt+wLTiOv/88GmKmVUFlCvtvRt/wgjsv2E2LDX17G/QsAco4YAAijYaSNOOTHEO5ILhj9zve8Oq66J9x+un2bwIC0kx7U5Gwe89MtvssMdAOwWb5hnMB1kaHZQ7YAF7CMfOLMMVgnnXEXG+L5cO/EQsvYQbT16NOC6CNgx7/FUayv6OvL+F/DvDAGiXNnMmq7shzypl/cGDzmGfr67wpVRjqAykE2gCpPMixalaAK9DY2gLkeH1MYVfQxmguc9x7a8JE/KBYWYEhj12pm4JEJbGjYYCrRussYu78Ek/hYKZKX4QXqzexwKV1s1UAt9ANC6V0Xd4XG0PWK/xNYibph5RHKgRZf8mlLbMzPdSdZuM1UXe1Qy+szahXGBMKO1vSfnL+M5Wt8mhfwgrqg9Bp93E/D1/NWQNHoOFN7wuBBG2mhprp+rPACQmf3/tMfxlmptEIn3suOzGLetJ/r2FwlMs6E5/JYGmsAd+g==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(376014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: ZWpd0lI+0oeLmU2iBRVe6HxgiYw6ztMYuhK2OSTGfywbKBC3F8mC7OCDRCHWHVRB+Z5FqIHo49bMLMbrVR2pcmzr9fKJGn7tsKRf485LU9iyYGsW5TU2jVA5p5UEHOZ8XVJS2CFKlJ6wB74Al1O98VMNOujMfq4KfIDMWU6GVRSDkzNVZaG2BrNS+2cVcw5yxe7Z2dhx16xfkEcjvdkxeiHSATBULOELMBFf0Rqv/NxnQxSa0EtOInSh2zdURzZjamHKG2UVYMypeddxOlIW2epD6z0lVN7x1+GWD7tsULLAIegM+akXTIptGGa0mi6j9sEoyIV8E8nQAeDtj4KFyhPt1Agw12j3otBJ5FBqKVVI3etCFCzv48uxbmPUyaWPi5bbn1wpJqPlzMflyPsfHZWN76PYCuizkGceVTHWg+JCECrnIu/ye88plS3U7oQ4
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Mar 2026 06:49:02.7733
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: dd51eac0-7205-4c79-8ffc-08de7da7f357
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509FE.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR10MB6209
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260308_234604_354511_03798C5E 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20260308_234915_282177_1D3325B1 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,37 +130,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/25/26 3:56 AM, Ben Horgan wrote:
-> From: James Morse <james.morse@arm.com>
+
+
+On 3/6/26 23:24, Rosen Penev wrote:
+> There's nothing special here to prevent compilation on non ARM hosts.
 > 
-> Requestors need to populate the MPAM fields for any traffic they send on
-> the interconnect. For the CPUs these values are taken from the
-> corresponding MPAMy_ELx register. Each requestor may have a limit on the
-> largest PARTID or PMG value that can be used. The MPAM driver has to
-> determine the system-wide minimum supported PARTID and PMG values.
+> Matches every other st phy driver.
 > 
-> To do this, the driver needs to be told what each requestor's limit is.
-> 
-> CPUs are special, but this infrastructure is also needed for the SMMU and
-> GIC ITS. Call the helper to tell the MPAM driver what the CPUs can do.
-> 
-> The return value can be ignored by the arch code as it runs well before the
-> MPAM driver starts probing.
-> 
-> Tested-by: Gavin Shan <gshan@redhat.com>
-> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Tested-by: Peter Newman <peternewman@google.com>
-> Tested-by: Zeng Heng <zengheng4@huawei.com>
-> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
 > ---
->   arch/arm64/kernel/mpam.c | 12 ++++++++++++
->   1 file changed, 12 insertions(+)
+>  drivers/phy/st/Kconfig | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/phy/st/Kconfig b/drivers/phy/st/Kconfig
+> index 304614b6dabf..49206185e563 100644
+> --- a/drivers/phy/st/Kconfig
+> +++ b/drivers/phy/st/Kconfig
+> @@ -4,7 +4,7 @@
+>  #
+>  config PHY_MIPHY28LP
+>  	tristate "STMicroelectronics MIPHY28LP PHY driver for STiH407"
+> -	depends on ARCH_STI
+> +	depends on ARCH_STI || COMPILE_TEST
+>  	select GENERIC_PHY
+>  	help
+>  	  Enable this to support the miphy transceiver (for SATA/PCIE/USB3)
+> --
+> 2.53.0
 > 
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
 
+Thanks
+Patrice
 
