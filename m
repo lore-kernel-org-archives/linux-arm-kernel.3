@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49E7FEFCD7C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 10:09:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24428EFCD80
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 10:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iwcbSGp09t7fYDLIc6ZTHBDejH8ml8Uwme+4NuDlzy4=; b=pAptJzA+3mr2R277IwByxI0Dgm
-	zEIXXM6W4BUwIRVmzGforw9lysSsxhR9Mr7UCGpxyA8oyypYkqYvac3WMO+e0DHAmKlVLVUstzP3S
-	rBG2QtGfjTYItsqW47mi2oz0cTsWYH+npwBvaS712M2c1X1MKupB6Hxq5WCygv9WpRP6AZ9vqsQ8Y
-	MrWgufWFQdrALJn1J63AF/Jd4mUkZJWp1Adlv4Blo8T8MzvNI1uNU2IAH70KPVie70R/kcNTQCRgB
-	y2EWw0ne+HbQH2z1Qy9JqjOjDYj7iOqWsRnBEyVa4OnlD/DvVeFGpW7zCFw3hbd7N/BvCsTQ0Z1jb
-	ZZSEecdg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jSLZtLPFNYP99Gp43k1eVbX2dL2LT8yQcf9WKPjt9q4=; b=CeH+CwvQLEjzjDvjsX0btDvGhN
+	Utg7x2CGn1ZQT1DZX1ZFbOSs00iN2/lPxYZIZ/A1YIvQBw65/TL6Xx15ufu6R16lZBsuJdrUbtFhP
+	WhKe/jQl7ybfcHYqXAtBYmDu8tPoPETabltn15Wys7n5LbpFaKleLPBiqj0L4+D1ppceT5v3NbIZ+
+	RThu0HamHPPeNJmjQhci79MmnvMkA2Y2Uy0aAzl2siuzPWV2k8/9YPxHkvGKhKN6P9PxGY1VdsjVS
+	8iCM0hFJL5+sAbFW3Qwu8mikAJ7I5REPYk+hwiO5A/KNbZKZM5KVbS+sAhXsWRzCF1hHYLhhkBiod
+	JZchn44A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzXXw-000000073QY-3WgU;
-	Mon, 09 Mar 2026 10:09:08 +0000
-Received: from mta-65-225.siemens.flowmailer.net ([185.136.65.225])
+	id 1vzXXx-000000073Qc-0aDQ;
+	Mon, 09 Mar 2026 10:09:09 +0000
+Received: from mta-64-227.siemens.flowmailer.net ([185.136.64.227])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzXXr-000000073OL-0xIW
+	id 1vzXXr-000000073OG-197L
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 09 Mar 2026 10:09:06 +0000
-Received: by mta-65-225.siemens.flowmailer.net with ESMTPSA id 20260309100858d29447162f00020745
+Received: by mta-64-227.siemens.flowmailer.net with ESMTPSA id 202603091008574b4224d0b70002078f
         for <linux-arm-kernel@lists.infradead.org>;
-        Mon, 09 Mar 2026 11:08:59 +0100
+        Mon, 09 Mar 2026 11:08:57 +0100
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm1;
  d=siemens.com; i=alexander.sverdlin@siemens.com;
- h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc:References:In-Reply-To;
- bh=iwcbSGp09t7fYDLIc6ZTHBDejH8ml8Uwme+4NuDlzy4=;
- b=gE2T+R5HEGKddmuIw9d1finp+OO0LMtJFyHANmtCWX1Ro0EYP75YZ4b6I/X4JhV7l6XAJR
- pynHSjdVAcHXyW4KeKa5/Lr3vVHZi4ff3uXbC4uEmJl25lZkzesqhC0rEvZynnqkKuROtYBK
- mvD9LnA0AKnFQ7IX8xK2XtHiKREyqBS6Ptin2Wz52PrRAkEg7UL7vYZ8iGrj/HZxuOxac6Se
- BnTOhca+tBHRkEciDLaBH+/O/wiCLf5cZqXku6+6TaGtTsh9mumCr77BdhxObolW/TxMnr4V
- CE/l4cW+PC6FoC5XiiD+n/552AqSZBNJW+TW/lwbvXXInMOfwkh5Qk4w==;
+ h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc;
+ bh=jSLZtLPFNYP99Gp43k1eVbX2dL2LT8yQcf9WKPjt9q4=;
+ b=BKMdqH/qcRjY7+zvRPudjerq6dfqp8IlajHtYlGpOLRV/YqMwsOtTVCw+8d7I4qDM3oLEM
+ nht9zNeNNn41vU2TVMiB+5/XCNjN2nX6365V9xn1ltl72Ly6CoRW9zLtDk3DKhdFsAqa07lm
+ oJwndfwH5YHjF0TjVcl+4znQKQdyN8q5tjJp+Wecu9eZr4LfeInVTy7RZa2tLa0Ao6pFp9/x
+ Xj1NESmLM52ozfGF9VxgGA2AqzG4wMHGBQMNiv4tyPQ0wwLfeUNWnbGNo/W3aJM0icCbGo+Q
+ W0aGlrPOR+dz14tyEgELKmw+4J+VZKL0GVbAz9jzniZlnxFw5hNEnQrg==;
 From: "A. Sverdlin" <alexander.sverdlin@siemens.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Alexander Sverdlin <alexander.sverdlin@siemens.com>,
@@ -57,18 +57,16 @@ Cc: Alexander Sverdlin <alexander.sverdlin@siemens.com>,
 	Roger Quadros <rogerq@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/3] arm64: dts: ti: k3-*: Add am64x and newer reset module
-Date: Mon,  9 Mar 2026 11:07:54 +0100
-Message-ID: <20260309100800.1134701-3-alexander.sverdlin@siemens.com>
-In-Reply-To: <20260309100800.1134701-1-alexander.sverdlin@siemens.com>
-References: <20260309100800.1134701-1-alexander.sverdlin@siemens.com>
+Subject: [PATCH 0/3] ARM: soc: ti: k3: Provide reset cause information
+Date: Mon,  9 Mar 2026 11:07:52 +0100
+Message-ID: <20260309100800.1134701-1-alexander.sverdlin@siemens.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Flowmailer-Platform: Siemens
 Feedback-ID: 519:519-456497:519-21489:flowmailer
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_030904_768537_D7AE5ACC 
-X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-CacheID: sfid-20260309_030904_766641_D83F2DFA 
+X-CRM114-Status: UNSURE (   8.73  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,64 +84,42 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Alexander Sverdlin <alexander.sverdlin@siemens.com>
 
-Add the reset module present on AM64x and newer SoCs carrying reset cause
-information.
+Newer TI SoCs from K3 family (AM64x and newer) provide a detailed reset
+cause information in RST_SRC register in the reset module within memory
+mapped control registers. To make this information available in user space:
 
-Signed-off-by: Alexander Sverdlin <alexander.sverdlin@siemens.com>
----
- arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi  | 5 +++++
- arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi | 5 +++++
- arch/arm64/boot/dts/ti/k3-am64-main.dtsi    | 5 +++++
- 3 files changed, 15 insertions(+)
+- provide the DT bindings for the reset module
+- add the rest module to the device trees of the corresponding SoCs
+- conditionally add custom SYSFS attribute group (if particular SoC
+  supports it) with "reset_reason" attribute providing the textual
+  form of the reset cause as documented in AM62x Processors Technical
+  Reference Manual.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
-index 75aed3a88284d..954130e8f37ba 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
-@@ -41,6 +41,11 @@ usb1_phy_ctrl: syscon@4018 {
- 			compatible = "ti,am62-usb-phy-ctrl", "syscon";
- 			reg = <0x4018 0x4>;
- 		};
-+
-+		rst@18170 {
-+			compatible = "ti,am64-rst";
-+			reg = <0x18170 0x10>;
-+		};
- 	};
- 
- 	target-module@2b300050 {
-diff --git a/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi
-index 23877dadc98dc..7c94e6e16c069 100644
---- a/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi
-@@ -39,6 +39,11 @@ usb1_phy_ctrl: syscon@4018 {
- 			compatible = "ti,am62-usb-phy-ctrl", "syscon";
- 			reg = <0x4018 0x4>;
- 		};
-+
-+		rst@18170 {
-+			compatible = "ti,am64-rst";
-+			reg = <0x18170 0x10>;
-+		};
- 	};
- 
- 	target-module@2b300050 {
-diff --git a/arch/arm64/boot/dts/ti/k3-am64-main.dtsi b/arch/arm64/boot/dts/ti/k3-am64-main.dtsi
-index 1b1d3970888b8..acbc7243cb16a 100644
---- a/arch/arm64/boot/dts/ti/k3-am64-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am64-main.dtsi
-@@ -74,6 +74,11 @@ epwm_tbclk: clock-controller@4130 {
- 			reg = <0x4130 0x4>;
- 			#clock-cells = <1>;
- 		};
-+
-+		rst@18170 {
-+			compatible = "ti,am64-rst";
-+			reg = <0x18170 0x10>;
-+		};
- 	};
- 
- 	gic500: interrupt-controller@1800000 {
+The location for the newly provided information was inspired by
+drivers/soc/tegra/pmc.c.
+
+The series has been tested on AM623 (relevant DT is k3-am62-wakeup.dtsi).
+Interestingly, K3 can have multiple bits asserted, for instance in case of
+WDT-triggered reset:
+
+$ cat /sys/bus/soc/devices/soc0/reset_reason
+Reset Caused by MCU ESM Error
+Reset Caused by Main ESM Error
+
+Alexander Sverdlin (3):
+  dt-bindings: soc/reset: ti: add binding for k3 platforms reset module
+  arm64: dts: ti: k3-*: Add am64x and newer reset module
+  soc: ti: k3-socinfo: Provide reset reason information
+
+ .../bindings/reset/ti,am64-rst.yaml           | 39 ++++++++
+ .../soc/ti/ti,j721e-system-controller.yaml    | 11 +++
+ arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi    |  5 ++
+ arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi   |  5 ++
+ arch/arm64/boot/dts/ti/k3-am64-main.dtsi      |  5 ++
+ drivers/soc/ti/k3-socinfo.c                   | 88 +++++++++++++++++++
+ 6 files changed, 153 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/reset/ti,am64-rst.yaml
+
 -- 
 2.52.0
 
