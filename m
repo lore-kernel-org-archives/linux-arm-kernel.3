@@ -4,65 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1CE8FCC074
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 09:12:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F9ECEFCD68
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 09:15:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NjcBONkMoVYNk/I2oLylena5NUCF0ifyGHKNjVOiQpw=; b=XMw+hNopfo+hAcH7AUblrl6k2n
-	USSnH73F6SiOgI+zVnfuDQ1sf5U0jLX7Lqf/GgVFcgJk1dsIZ6ElOQR7qy5Vyy3EaCDIBww85e5PL
-	CDsR5XtFnTzW1JnCkBwdIcV48e+90OSZXjrTn1HbAmpdCCQKL90Tm7R/c5gZnrudIBkmdz1B1CQu5
-	nibRghMJqVYxncavBBX7QjlPoQLdWlGkduVTKJSDl9whynCUKaqvnAxhrMNtc3Et9Et0LN1zqMP0S
-	K3TXtjQ3aeTD6zuIzNizWqpHTxfbRoWUeroPmGqAW+7P54KexhLrO0eMlv3DjIBmxa3GhJ8XDvxuD
-	8AtxpC6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JgjMfWaODspJLnY+C6cx+a77p1z5R63MX8u70I4pM70=; b=28/5ItMwSO7ZGWApbF4Xv8Zy84
+	ZsRkWQA81h2h+NLLHRmU6y9HHjzllDRNjFgnfOKOGpkUjSrcdzE4J1+J4Yn5HVriNAlHEhUpynXC9
+	8OnBHHLBthtgMyT8Qqk/WSXsBIGCvSQCa9sssT1ppSRnIQIzuFQb6kXp0S09tw9d+lruynbEPw7ce
+	obgHGtTvbDmYBccPk2qwRQd9/hRK/8F9k3MBgGrLeAolprRz1FrQNUx7BWYgcZXm4VP7ZCnvEXERo
+	rWp4pqpdTA3o9EwggVXSFdKT1nLnhrxyvYR/PMtWK8Moy1j4nrJD+nl57S1LjwBsMQnqWS1DaLb2K
+	ExfISv/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzWfD-00000006wV7-48BO;
-	Mon, 09 Mar 2026 09:12:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vzWiH-00000006wma-2mVf;
+	Mon, 09 Mar 2026 09:15:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzWfA-00000006wTu-3Wk0
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 09:12:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0EC064342E;
-	Mon,  9 Mar 2026 09:12:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8036CC4CEF7;
-	Mon,  9 Mar 2026 09:12:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773047551;
-	bh=HK8Ldfq8Pz6rymjol0HQgiezb+xF7m+IWcWEVqkrwPo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=osAjhPxEJia2EOi8ZPOlx4CD9iddFzLdOTdYOFApXBcBA4zWxXG46mX46XiHqeBPW
-	 HMr1NN7+10CMdg02MExioESsxczW9QRZNNHWHnx28AsqCSCT83zxV1RcVVYoMhPhhs
-	 QJKq99CNjiB4RIdf/Icg/+6r2g6pLOp5Gaz04GC/Fl9bXjP/CtjsEts8nZjKJEdBXX
-	 XX5f6pNZ+8fNhjCApJ7fz+5mLdYryEozXv2XPoL3f1pJVR92CLhDYg6+3G0HF0c5Q/
-	 Zkwk1lJQggJ7EFKejdpplPIYwm1Q+8DEeOM2x+yvons8TzZNo1ylUPt62mXvuZa87I
-	 5j34UViKs423Q==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Cristian Marussi <cristian.marussi@arm.com>,
-	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH] firmware: arm_scmi: base: Simplify protocol list size calculation
-Date: Mon,  9 Mar 2026 09:12:26 +0000
-Message-ID: <177304751104.1268411.8740611706535429825.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260228-scmi-check-v1-1-4935b58bb2db@nxp.com>
-References: <20260228-scmi-check-v1-1-4935b58bb2db@nxp.com>
-MIME-Version: 1.0
+	id 1vzWiE-00000006wmQ-2WtA;
+	Mon, 09 Mar 2026 09:15:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=JgjMfWaODspJLnY+C6cx+a77p1z5R63MX8u70I4pM70=; b=qmAdK8Coopzr6XcSU3b0fGIzIC
+	QHyAZsU0TC0YyMVkpXEqN9svm/L86ZgJG9B+BiPwqozudzPy11ABrB1xVrHxNyB1tAdiwm/Onva2J
+	P/24vqDCTwGh6dM45AJuB7QURR9gVuxCgR+fltGyR1FpKuVNbWuLfnodTiwrDXe6RQvxQgu76Fjj1
+	nuxLCIgovwd1PlrrUOpjg06B9K8peM7CpRjrldt6cIBvGgz/4RT01x3TvzrOI+smI5deLOV4pCtd0
+	QJQ6kglElSZosAvFX3d185GrplzCOdbxkzu3zJv9Qriy/NnIqLXwPwyJt+hQgHtNeCjiqohSE3+KJ
+	lXwRWKCA==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vzWiA-0000000BkpZ-33Nt;
+	Mon, 09 Mar 2026 09:15:41 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6299CnnvE261338, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1773047569; bh=JgjMfWaODspJLnY+C6cx+a77p1z5R63MX8u70I4pM70=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=N7fFowUQ3mQeqTSFgo4jQBDcSvxnLdDmNjiqxUPqdZxOGBW8q2R9i46IraMQjxdTp
+	 NpBStgYteoqLJsAwJamsiGjjWt9b0jFj/8gNwMe0XQwIankiytgqwd41+nDIyzDR1Z
+	 0Q1KGkFujUdNpZu9Mo57pUOubFvY8lHOLXkS2ZlsmJb03PF8tjBnjWV4A98dFqTe1c
+	 VKc14SMyapJvxN8oQ4dCY40lrNORNYxj9oeoHoX+uhmczlbmN8PW0QlOelWVJafPee
+	 K+DURJbggU6TW9i4XWdYnF93PmguecBWz2vhEmQJ9md8VesMlL7Db8jodUA1x7p7m4
+	 OhkTDDyYYe5Bw==
+Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
+	by rtits2.realtek.com.tw (8.15.2/3.21/5.94) with ESMTPS id 6299CnnvE261338
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 9 Mar 2026 17:12:49 +0800
+Received: from RTKEXHMBS01.realtek.com.tw (172.21.6.40) by
+ RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Mon, 9 Mar 2026 17:12:50 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS01.realtek.com.tw (172.21.6.40) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Mon, 9 Mar 2026 17:12:49 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([fe80::4cbd:6c6c:b92b:3913]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::4cbd:6c6c:b92b:3913%10]) with mapi id
+ 15.02.1748.010; Mon, 9 Mar 2026 17:12:49 +0800
+From: =?utf-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: "linusw@kernel.org" <linusw@kernel.org>,
+        "robh@kernel.org"
+	<robh@kernel.org>,
+        "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+        "conor+dt@kernel.org" <conor+dt@kernel.org>,
+        "bartosz.golaszewski@oss.qualcomm.com"
+	<bartosz.golaszewski@oss.qualcomm.com>,
+        "afaerber@suse.com"
+	<afaerber@suse.com>,
+        =?utf-8?B?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?=
+	<james.tai@realtek.com>,
+        =?utf-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?=
+	<cy.huang@realtek.com>,
+        =?utf-8?B?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?=
+	<stanley_chang@realtek.com>,
+        =?utf-8?B?VFlfQ2hhbmdb5by15a2Q6YC4XQ==?=
+	<tychang@realtek.com>,
+        "linux-gpio@vger.kernel.org"
+	<linux-gpio@vger.kernel.org>,
+        "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>,
+        "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>,
+        "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+        "linux-realtek-soc@lists.infradead.org"
+	<linux-realtek-soc@lists.infradead.org>
+Subject: RE: [PATCH v2 07/14] dt-bindings: pincfg-node: Add
+ input-voltage-microvolt property
+Thread-Topic: [PATCH v2 07/14] dt-bindings: pincfg-node: Add
+ input-voltage-microvolt property
+Thread-Index: AQHcrT45a/bUsKCH9kyRea3Awrcd97WigcSAgANtK/A=
+Date: Mon, 9 Mar 2026 09:12:49 +0000
+Message-ID: <74152b7e8de7470dac6555ef22e6bc64@realtek.com>
+References: <20260306075244.1170399-1-eleanor.lin@realtek.com>
+ <20260306075244.1170399-8-eleanor.lin@realtek.com>
+ <20260307-astonishing-helpful-grouse-b7e968@quoll>
+In-Reply-To: <20260307-astonishing-helpful-grouse-b7e968@quoll>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+x-originating-ip: [172.21.6.42]
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_021232_897380_BFCFD4F8 
-X-CRM114-Status: UNSURE (   6.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260309_091539_375953_C918CA88 
+X-CRM114-Status: GOOD (  21.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,24 +129,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 28 Feb 2026 11:37:33 +0800, Peng Fan (OSS) wrote:
-> Replace the open-coded round-up calculation with the kernel's round_up()
-> helper function for better readability.
-> 
-> The original expression:
->   (1 + (loop_num_ret - 1) / sizeof(u32)) * sizeof(u32)
-> 
-> is equivalent to rounding up loop_num_ret to the nearest multiple of
-> sizeof(u32), which is exactly what round_up() does.
-> 
-> [...]
-
-Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
-
-[1/1] firmware: arm_scmi: base: Simplify protocol list size calculation
-      https://git.kernel.org/sudeep.holla/c/09bb95d63ade
---
-Regards,
-Sudeep
-
+PiBPbiBGcmksIE1hciAwNiwgMjAyNiBhdCAwMzo1MjozN1BNICswODAwLCBZdS1DaHVuIExpbiB3
+cm90ZToNCj4gPiBGcm9tOiBUenV5aSBDaGFuZyA8dHljaGFuZ0ByZWFsdGVrLmNvbT4NCj4gPg0K
+PiA+IEFkZCBhIGdlbmVyaWMgcGluIGNvbmZpZ3VyYXRpb24gcHJvcGVydHkgImlucHV0LXZvbHRh
+Z2UtbWljcm92b2x0IiB0bw0KPiA+IHNwZWNpZnkgdGhlIGlucHV0IHZvbHRhZ2UgbGV2ZWwgb2Yg
+YSBwaW4gaW4gbWljcm92b2x0cy4NCj4gDQo+IFdoeT8NCj4gDQo+ID4NCj4gPiBTaWduZWQtb2Zm
+LWJ5OiBUenV5aSBDaGFuZyA8dHljaGFuZ0ByZWFsdGVrLmNvbT4NCj4gPiBDby1kZXZlbG9wZWQt
+Ynk6IFl1LUNodW4gTGluIDxlbGVhbm9yLmxpbkByZWFsdGVrLmNvbT4NCj4gPiBTaWduZWQtb2Zm
+LWJ5OiBZdS1DaHVuIExpbiA8ZWxlYW5vci5saW5AcmVhbHRlay5jb20+DQo+ID4gLS0tDQo+ID4g
+IERvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9waW5jdHJsL3BpbmNmZy1ub2RlLnlh
+bWwgfCA0ICsrKysNCj4gPiAgMSBmaWxlIGNoYW5nZWQsIDQgaW5zZXJ0aW9ucygrKQ0KPiA+DQo+
+ID4gZGlmZiAtLWdpdA0KPiA+IGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Bp
+bmN0cmwvcGluY2ZnLW5vZGUueWFtbA0KPiA+IGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2Jp
+bmRpbmdzL3BpbmN0cmwvcGluY2ZnLW5vZGUueWFtbA0KPiA+IGluZGV4IGE5MTZkMGZjNzlhOS4u
+ZGExODJjOGExZDAwIDEwMDY0NA0KPiA+IC0tLSBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9i
+aW5kaW5ncy9waW5jdHJsL3BpbmNmZy1ub2RlLnlhbWwNCj4gPiArKysgYi9Eb2N1bWVudGF0aW9u
+L2RldmljZXRyZWUvYmluZGluZ3MvcGluY3RybC9waW5jZmctbm9kZS55YW1sDQo+ID4gQEAgLTE2
+Miw2ICsxNjIsMTAgQEAgcHJvcGVydGllczoNCj4gPiAgICAgICAgdGhpcyBhZmZlY3RzIHRoZSBl
+eHBlY3RlZCBkZWxheSBpbiBwcyBiZWZvcmUgbGF0Y2hpbmcgYSB2YWx1ZSB0bw0KPiA+ICAgICAg
+ICBhbiBvdXRwdXQgcGluLg0KPiA+DQo+ID4gKyAgaW5wdXQtdm9sdGFnZS1taWNyb3ZvbHQ6DQo+
+ID4gKyAgICBkZXNjcmlwdGlvbjogU3BlY2lmaWVzIHRoZSBpbnB1dCB2b2x0YWdlIGxldmVsIG9m
+IHRoZSBwaW4gaW4gbWljcm92b2x0cy4NCj4gPiArICAgICAgVGhpcyBkZWZpbmVzIHRoZSByZWZl
+cmVuY2UgZm9yIFZJSC9WSUwuDQo+IA0KPiBXaGF0IGlzIFZJSC9WSUw/IFdoeSBnZW5lcmljIGJp
+bmRpbmcgd291bGQgZGVmaW5lIHRoZSB2b2x0YWdlIG9mIHBpbnMgZm9yIHBpbg0KPiBjb250cm9s
+Pw0KPiANCj4gVGhpcyBwYXRjaCBtaXNzZXMgYWN0dWFsIGJhY2tncm91bmQgd2h5IHlvdSBhcmUg
+ZG9pbmcgaXQgYW5kIHdoYXQgc29ydCBvZg0KPiBjb21tb24vdHlwaWNhbCBwaW5jdHJsIHNldHVw
+IHlvdSBkZXNjcmliZS4NCj4gDQo+IEJlc3QgcmVnYXJkcywNCj4gS3J6eXN6dG9mDQoNCkFncmVl
+ZCwgdGhlIGNvbW1pdCBtZXNzYWdlIGFuZCBkZXNjcmlwdGlvbiBsYWNrZWQgc3VmZmljaWVudCBj
+b250ZXh0LiBJDQp3aWxsIGltcHJvdmUgdGhlIGV4cGxhbmF0aW9uIGluIHYzLg0KDQpWSUggaXMg
+SW5wdXQgSGlnaCBWb2x0YWdlLCBhbmQgVklMIGlzIElucHV0IExvdyBWb2x0YWdlLg0KDQpUaGUg
+cmVhc29uIGZvciBpbnRyb2R1Y2luZyAnaW5wdXQtdm9sdGFnZS1taWNyb3ZvbHQnIGluICdwaW5j
+Zmctbm9kZS55YW1sJyBpcw0KdG8gc3VwcG9ydCBoYXJkd2FyZSBkZXNpZ25zIHdoZXJlIHRoZSAi
+SW5wdXQgTG9naWMgVGhyZXNob2xkIiBpcyBkZWNvdXBsZWQNCmZyb20gdGhlICJQb3dlciBTdXBw
+bHkgVm9sdGFnZSIuDQoNCkZvciBleGFtcGxlLCBhIHBpbiBtaWdodCBiZSBwb3dlcmVkIGJ5IGEg
+Zml4ZWQgMy4zViBzdXBwbHkgYnV0IG5lZWRzIHRvIGJlDQpjb25maWd1cmVkIHRvIGFjY2VwdCAx
+LjhWIGxvZ2ljIHNpZ25hbHMuIFRoaXMgcHJvcGVydHkgYWxsb3dzIHRoZSBwaW5jdHJsDQpkcml2
+ZXIgdG8gc2V0IHRoZSBjb3JyZWN0IGludGVybmFsIHJlZmVyZW5jZS4NCg0KVGhpcyBjaGFuZ2Ug
+Zm9sbG93cyB0aGUgc3VnZ2VzdGlvbiBmcm9tIExpbnVzIFdhbGxlaWogWzFdIHRvIG1ha2UgdGhl
+IHByb3BlcnR5DQpnZW5lcmljIGluc3RlYWQgb2YgdmVuZG9yLXNwZWNpZmljICgncmVhbHRlayxp
+bnB1dC12b2x0YWdlJyksIGFzIHRoZSBjb25jZXB0DQpvZiBzZWxlY3RpbmcgaW5wdXQgdGhyZXNo
+b2xkcyBpcyBub3QgdW5pcXVlIHRvIFJlYWx0ZWsuDQoNClsxXTogaHR0cHM6Ly9sb3JlLmtlcm5l
+bC5vcmcvYWxsL2Q1YmUzNTdjMTRiODQxNTVhZGZhOGE5ZjAwYTY0ZDgzQHJlYWx0ZWsuY29tLw0K
+DQpCZXN0IHJlZ2FyZHMsDQpZdS1DaHVuDQo=
 
