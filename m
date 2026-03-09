@@ -4,101 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89E5DF41807
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 15:44:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2444FF417F3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 15:45:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qcTW7+6Cg2+gxZdrQfqfkBSqoWwEQDXBlUTitYt0Mio=; b=jnkuy+v/BBI30s+fIal9VDjlue
-	jgXV8uCw86kUNKDRfWhAE3xStImMBoYi7jnZxw4akSP6fk9DTeOD78/OkCPWAQ32FHEoFNHeWdGFs
-	u3Q408h37GXmk17r57l51VsLPzjRz22LEvvdVyM0UwWebD7UkyHyiACdnU7sSz9gCzmUhWSfGxMFV
-	RzIWZ6fRzWGzzj/o3O8HLv2LUrgfYAr2oTpILailkd2EqxervXAfd/QD3JasES9nqOziw0HFYGjq4
-	ZIr1ErwHvEaRcNbMHwTi7fCDeC3ujwWk7eaZDRsv0czq9rA8GzzPlAeb7SPKWgVitOmuJm/yje2z6
-	dg9ENgEQ==;
+	bh=XubodAVkj7PrSIyTr4R3wi/xhRAzOLjaemhOt4Py5Lk=; b=P2ycNjknFrMouuANvikx83TFqX
+	HSqGhDWlxQNdWZNsktrtEukMeigOcPn60H193mKEI435dBfUo7IN1xEEpDb+kDEAu0vA2oAqc4DdT
+	21IyVAbg09EW/V8wT0XLoYprWL/bLf1846d2QWGO62sZjJxkOEzcXZbjaOFf92C48q90zCgIsea1X
+	GognPXf4GjXGt103wkSyQbkZr+7QNH+VLfxNlTRm0pYkPn3ZiyqBOMBD7kvU5ulQmZCgsCowBs28f
+	sx5Es+upMvCIMY21X+SM7pKU6ubN80BwvyCnve+XWM1KcmEh2NpAsftZHhBMd6RX4Smmz21mK50lJ
+	w63hgknw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzcme-00000007dLk-40xt;
-	Mon, 09 Mar 2026 15:44:40 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1vzcnh-00000007daM-3sj8;
+	Mon, 09 Mar 2026 15:45:45 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzcmb-00000007dJi-3xcO
+	id 1vzcnd-00000007dZ9-0L4o
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 15:44:39 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-48371104ffdso15402625e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 08:44:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773071076; x=1773675876; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qcTW7+6Cg2+gxZdrQfqfkBSqoWwEQDXBlUTitYt0Mio=;
-        b=BD98Y2lOpXgX2PE5DwfTI8TfJjXNDzAxHOdPxLsJq4s/F1H3cSojwpq0CyDTFwE0C3
-         FUYtN1kU1pG9Shaw4cYn/fhIOTM22/uci6uT+H5QaPzzP11F42B3XsHV/NIEoxNJ1pHO
-         tDYQXy88/GyNLomtPNXNNHm0vJBLQXEtaE2Tt+rojedWasP3hZ/ms8da7ajNuwxdNbNK
-         kjZmjl3iGZvLWsTylUsg6UgUwR/SVqr4M8TNg4zK0Pz4q1Uroygdf+z1mup4nrh+86bd
-         qCPqd+3dQ4JlvofUYUyW7qww1eEmaob/5hs163amBVuiht/0WF8N6sryLX2ojetPBmnD
-         jlkw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773071076; x=1773675876;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qcTW7+6Cg2+gxZdrQfqfkBSqoWwEQDXBlUTitYt0Mio=;
-        b=K9AKlXn8HWJPpC/0J/GKQY0cvJFDW1+p1UJKQbwEs/t0A/ehCm510z2smo6KoWbpmd
-         /8YBepXoDAMeDhubx4EaVJzl4xYfTGWhdh3NkIHW56b8BRo8JO/NsznD8i3sRhhyxJfh
-         QO+dyJ8BrWOD9lXQfT5jI08hASczM3mzCiN0EpKUVHqgibxgRhoB1BjPkPc7uNPGIh7J
-         1/+5MsEZnpBiJDTeDgOElPFWDuq2y7Lbls8SK6cwpMqGgPIW0mW+7yxkm+8LQpR602Jt
-         mzCufPJa5LxRH9jNExbKbCCcZpUzoZZBmfDj4jWNhRAI/EWhjzZYbr6bd5eVdTDtgOF5
-         Z4Mg==
-X-Forwarded-Encrypted: i=1; AJvYcCWGv8A5+PT2LXPIOJRhtQSjGddCBXrxRVYT4l1vn668NnEt2XlbAP6tykOeqyGa625EpNyPqvWD0E6Baifm9AnW@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMj1SEOsYrYmY7lfKJnJEPI3a94wy/S/S2Z6dfoxLKIr27zhCQ
-	K8zdKR0S0fcrSKxxQkH3pid1hGxmhRGfusU6dCmVUv9HQBydiDfFjpgB
-X-Gm-Gg: ATEYQzzAWlTqbCc+IODqKTbqzMi0wCKPLCnkkdUxQ2RwaOb80+z9DIPXzlxNsP4YWkl
-	etTURymS1JHfVxfN0yAV96S8Wa+4p6fT04ycoEzScisdXaM9xgpQc0t1NwNVzyjr32CVqfNYFhX
-	sjBT2Pe1fHaCvLUs/pwjlXjTPVWtiYnQ3Is/PxIZhEuW07/JDGEi8Y/FHNNuKZUiQkYsHDCX8qd
-	ysDXsiOgX8OcvschR3+oQfcK+3Q4692KB6jDTAMQNwHlJEs/epB/ROgszLs/92t3oYxq+tVFsIt
-	zpg/U8INKKKy4v/axMYc+RLbNgM5qDiEB1Qj/OuujDZx9apPQWiL//tcoRARSfzkyaqaTLV7SUx
-	6OdMfClNVPkC33eD2b6ZumKsturo2tvC4MwGESxRSNiw2Eb5OXwg9IQTz1GJw4zM1bkasNBdEmq
-	vCZ77bSqC5qzwoZA==
-X-Received: by 2002:a05:600c:c4a2:b0:471:ab1:18f5 with SMTP id 5b1f17b1804b1-48526978618mr112712015e9.7.1773071075458;
-        Mon, 09 Mar 2026 08:44:35 -0700 (PDT)
-Received: from skbuf ([2a02:2f04:d00a:e00:8799:3a7d:3c86:3200])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48541a6bbcesm439845e9.3.2026.03.09.08.44.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Mar 2026 08:44:34 -0700 (PDT)
-Date: Mon, 9 Mar 2026 17:44:32 +0200
-From: Vladimir Oltean <olteanv@gmail.com>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH RESEND2 net-next 0/8] net: stmmac: qcom-ethqos: further
- serdes reorganisation
-Message-ID: <20260309154432.b3dbantow3e3tkry@skbuf>
-References: <aaDSJAc-x2-klvHJ@shell.armlinux.org.uk>
- <aaIysVxy-WxbiJz9@shell.armlinux.org.uk>
- <20260227165556.5cf9e844@kernel.org>
- <20260228083111.5df8550c@kernel.org>
- <aaRBjWhP4-7Kru9D@shell.armlinux.org.uk>
- <20260302155736.1fd2980e@kernel.org>
+	Mon, 09 Mar 2026 15:45:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1773071141; x=1804607141;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=C0IERCaiDhJjwjRH+GzcWKFQytEH7/GbdqP3ydZUU+A=;
+  b=bpUKGqMTgAUokgOGeZxdHHJjR1yO/jLxE1zKdjADJO2WDvGUohQkB3qS
+   N5VDkqqa50a6oXXdQ7K1oeyElnuTpnxGo1GrL4l9d89rLhbFugn+wajvB
+   5UbLO1+7IzfnmcWM5/jgBSOsA+z+MFg+Y+j8+oLJYQyfeknBX0OFsM+jT
+   UI7K4PW7nB0iYxbvA2WPAdTQLacdFXtuhhL/tAty6ZjMBFnTqAnAE0PV8
+   6NsJM+K51FVpgMrqob8/UJqljRIrfiNk0bXViYg5n4Ca/4cqCNA9KveIV
+   mGgwVlDkMGL1sWOzvLdT9be+6CsyzlNnkGB2W1BNtewmHvh/SwQ9wH7Gg
+   g==;
+X-CSE-ConnectionGUID: +n4a4oKVSym++BFH5I8S3Q==
+X-CSE-MsgGUID: xK78QqMqQhmwnQexQ9Qyzg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11723"; a="84425148"
+X-IronPort-AV: E=Sophos;i="6.23,109,1770624000"; 
+   d="scan'208";a="84425148"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Mar 2026 08:45:40 -0700
+X-CSE-ConnectionGUID: C4FrXierQmyhlsz5uk+0cA==
+X-CSE-MsgGUID: xknhvzjeTO2fAxTcp1vAPg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,109,1770624000"; 
+   d="scan'208";a="218939086"
+Received: from lkp-server01.sh.intel.com (HELO 434e41ea3c86) ([10.239.97.150])
+  by orviesa006.jf.intel.com with ESMTP; 09 Mar 2026 08:45:36 -0700
+Received: from kbuild by 434e41ea3c86 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vzcnV-000000000Ry-19GY;
+	Mon, 09 Mar 2026 15:45:33 +0000
+Date: Mon, 9 Mar 2026 23:44:48 +0800
+From: kernel test robot <lkp@intel.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Cc: oe-kbuild-all@lists.linux.dev,
+	"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>
+Subject: Re: [PATCH v3 2/3] swiotlb: dma: its: Enforce host page-size
+ alignment for shared buffers
+Message-ID: <202603092323.myqT3tXw-lkp@intel.com>
+References: <20260309102625.2315725-3-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260302155736.1fd2980e@kernel.org>
+In-Reply-To: <20260309102625.2315725-3-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_084437_993167_5F8BDF97 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20260309_084541_251340_F3E6B724 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,25 +98,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 02, 2026 at 03:57:36PM -0800, Jakub Kicinski wrote:
-> Alright, I think the best we can do here is to merge patch 2 
-> in a "stable tag" way. The rest will have to go via net-next.
-> 
-> I applied patch 2, Russell please rebase the rest on net-next 
-> and repost. Patch 2 should disappear. I don't want to merge it
-> now as is without an explicit nod from Vinod. He did ask for 
-> a tag and we won't provide one.
-> 
-> Vinod / Vladimir, to merge the "stable tag" of patch 2:
-> 
-> tag_name=phy-qcom-sgmii-eth-add-set_mode-and-validate-methods
-> git fetch https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git
-> git tag $tag_name 0e8147f4da00
-> git merge $tag_name
-> git tag -d $tag_name
-> 
-> I think this should work.
+Hi Aneesh,
 
-Thanks for the anonymous tag. I think you mean sha1sum
-4ff5801f45b494ad8251a16ec06c9f303ed3b9a0, not 0e8147f4da00.
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on arm64/for-next/core]
+[also build test ERROR on tip/irq/core arm/for-next arm/fixes kvmarm/next soc/for-next linus/master v7.0-rc3 next-20260306]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Aneesh-Kumar-K-V-Arm/dma-direct-swiotlb-handle-swiotlb-alloc-free-outside-__dma_direct_alloc_pages/20260309-182834
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/core
+patch link:    https://lore.kernel.org/r/20260309102625.2315725-3-aneesh.kumar%40kernel.org
+patch subject: [PATCH v3 2/3] swiotlb: dma: its: Enforce host page-size alignment for shared buffers
+config: i386-randconfig-013-20260309 (https://download.01.org/0day-ci/archive/20260309/202603092323.myqT3tXw-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260309/202603092323.myqT3tXw-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603092323.myqT3tXw-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from arch/x86/include/asm/processor-flags.h:6,
+                    from arch/x86/include/asm/irqflags.h:5,
+                    from include/linux/irqflags.h:18,
+                    from include/linux/spinlock.h:59,
+                    from include/linux/swait.h:7,
+                    from include/linux/completion.h:12,
+                    from include/linux/crypto.h:15,
+                    from arch/x86/kernel/asm-offsets.c:9:
+   include/linux/mem_encrypt.h: In function 'mem_decrypt_granule_size':
+>> include/linux/mem_encrypt.h:60:16: error: 'PAGE_SIZE' undeclared (first use in this function)
+      60 |         return PAGE_SIZE;
+         |                ^~~~~~~~~
+   include/linux/mem_encrypt.h:60:16: note: each undeclared identifier is reported only once for each function it appears in
+   include/linux/mem_encrypt.h: In function 'mem_decrypt_align':
+>> include/linux/mem_encrypt.h:66:16: error: implicit declaration of function 'ALIGN' [-Wimplicit-function-declaration]
+      66 |         return ALIGN(size, mem_decrypt_granule_size());
+         |                ^~~~~
+   make[3]: *** [scripts/Makefile.build:184: arch/x86/kernel/asm-offsets.s] Error 1 shuffle=4157930943
+   make[3]: Target 'prepare' not remade because of errors.
+   make[2]: *** [Makefile:1333: prepare0] Error 2 shuffle=4157930943
+   make[2]: Target 'prepare' not remade because of errors.
+   make[1]: *** [Makefile:248: __sub-make] Error 2 shuffle=4157930943
+   make[1]: Target 'prepare' not remade because of errors.
+   make: *** [Makefile:248: __sub-make] Error 2 shuffle=4157930943
+   make: Target 'prepare' not remade because of errors.
+
+
+vim +/PAGE_SIZE +60 include/linux/mem_encrypt.h
+
+    56	
+    57	#ifndef mem_decrypt_granule_size
+    58	static inline size_t mem_decrypt_granule_size(void)
+    59	{
+  > 60		return PAGE_SIZE;
+    61	}
+    62	#endif
+    63	
+    64	static inline size_t mem_decrypt_align(size_t size)
+    65	{
+  > 66		return ALIGN(size, mem_decrypt_granule_size());
+    67	}
+    68	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
