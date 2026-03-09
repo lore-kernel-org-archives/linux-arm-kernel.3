@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02B4AF417E7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 14:39:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5AB1F417E7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 14:40:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ax2e3nDwsvw9ILVHvWERWqTLhgIowHpeGr3SQn+CkPI=; b=E/9ObsTcHqrd0e61yNCkYzjt9J
-	9CkZnD1pxaS5c9VcIQH9b5vJP4gR5hVHhNsvUI4sf97TIStFviVHyy+MgmeRCBfDzN+8iwOey860L
-	whtCvLOE6EURpDhc1iAxVXX2zGi1+8YpOqohlQOXvydPP3JLNjgtCFbVDZ/of+B1EIe8livT9/aMK
-	GWJnVnEoPtMW2ZWpJEXkzVGEZWw+LL26iOC7srtEFbzJh7+4xbCiX7DndtquIJRV0/NgXekOVJ/ZI
-	veXJ6hw4fKt1N9LimcfLzrF9oCDMPF/LCqa2Twvvdu9L2OlkI3nu8AvF7SH4ZmCXe3711r8jaVjQ5
-	VuU+rDjQ==;
+	bh=78XiyVEUg7vGrertM04znCvlNpOyYSbTOnnNBeQMIco=; b=t4nAk8vWG2P2IZio89zKgZ+tWl
+	5Y2BISM763ae6eoHRPSuo2d5R+Khcuu1iURyivIsH5LSkpDrclvwgwfHjRHq2pXG0ofzYaKt3myIi
+	FAH7BM2BcQYgP/us9coMhzJvBEOycmfAk0ReH8b524PuzAhb94N3jPlg52imkr1WdQSTARaZtw3zl
+	Vb0AMOzduv8V2JEnz/LxWZY+xa8V4Zpgq05TJfwAoXlW6kQP5tCNvkhcXXvb0mIzh022nHX+xlfJC
+	snEjDdgS3ANL7lN/z5kOUt+OeuRHxoQ4WjGkdho5nx6mYquW53rgfChl4PX5LClyoXsTumWwnRiuO
+	VwKxvWLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzble-00000007UXP-3B2w;
-	Mon, 09 Mar 2026 14:39:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vzbmM-00000007Uvy-1cxx;
+	Mon, 09 Mar 2026 14:40:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzblc-00000007UVz-2JKc
+	id 1vzbmK-00000007UuW-36x9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 14:39:33 +0000
+	Mon, 09 Mar 2026 14:40:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EEF0D443B2;
-	Mon,  9 Mar 2026 14:39:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54697C2BCB4;
-	Mon,  9 Mar 2026 14:39:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EA3C860131;
+	Mon,  9 Mar 2026 14:40:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BCCCC4CEF7;
+	Mon,  9 Mar 2026 14:40:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773067171;
-	bh=9PukcKOFazN0dG+ZH11NZrXPlcPN2/bdDpO63eNNTeM=;
+	s=k20201202; t=1773067215;
+	bh=ZLLLkW/s1i8/71ePIXo/PKDXbD9ammGF3iP8su6Z7Ac=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=J1RRaJsjFoPPzLLr+uhbPsnz4s6HEiGtDUliOig0I6SGfRKOs6wSvlzLJb4/GiJhD
-	 O87gKny2z+59fQSrPq0OpUbuXNOz2YjE+3mJ8tXxiuvSKRaG9x4hYFcAjcX8aKOq8W
-	 +KOuL/Lnlo6fJKFqOw5ouWYPRW1vccwAW9VyGXFoFV+PF98W9TEHARAXUiTcqhiaJp
-	 2eynJFn5+FPYRGCrD3lTK2oWYT1Lb6D2CjwpquUhL7AYCnK52bv49oSzW/pzMXI0j8
-	 t2k414mb6oDPC8cJb/Ivs5I8kOhx+bHIC8miqqFrQJUOTr8l9DuiaI/FzvE+dgtkH+
-	 kXI+vX0aZe5Tg==
-Message-ID: <92376758-5bb5-4391-8904-cd0e2f72acf8@kernel.org>
-Date: Mon, 9 Mar 2026 15:39:22 +0100
+	b=WKVmyBqz6CznqEnFUEpNoZ8OOwktJHVXETw5slKol1Q5o5AxE9VyPdjR0SjA77on2
+	 +v6KL2KikLGQtFQ5seBiJrmr14KsMvtR0+qgxMU1T3CGQKOZOQauZiF2f4a48JN7ff
+	 +YaNHyEaBi9PTbJcQsswv9X5wK3dyRPfN7eFT7QteKTn430P+AqtBkaG9EtcHWJG5i
+	 uk/WM09jkhiffuaswXCI4UQL0fS2Xhu1uc7MAAgRD3GZEEnNGYgOwxSrKwsrwZGQ7v
+	 iFeZUNeEt4gnXKnqbwZY0pWBJVWNXHpHzlEo0Lrt5I5AqiDt4X+WZWQv31v4H/oPQW
+	 /O3ng9otzZVkw==
+Message-ID: <7c5295ae-4546-4e33-9074-8c2adfd2bc13@kernel.org>
+Date: Mon, 9 Mar 2026 15:40:05 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v3 6/6] arm64: mm: implement the architecture-specific
@@ -59,8 +59,6 @@ Cc: catalin.marinas@arm.com, will@kernel.org, lorenzo.stoakes@oracle.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <cover.1772778858.git.baolin.wang@linux.alibaba.com>
  <7f891d42a720cc2e57862f3b79e4f774404f313c.1772778858.git.baolin.wang@linux.alibaba.com>
- <6305e05e-2911-42b0-b6f5-7fdde787b778@kernel.org>
- <c607b6fd-a682-4400-a7fd-abe83152db10@linux.alibaba.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -107,12 +105,9 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <c607b6fd-a682-4400-a7fd-abe83152db10@linux.alibaba.com>
+In-Reply-To: <7f891d42a720cc2e57862f3b79e4f774404f313c.1772778858.git.baolin.wang@linux.alibaba.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_073932_632975_E71EC22F 
-X-CRM114-Status: GOOD (  10.04  )
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,27 +122,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->>
->> (b) The first pte is !pte_cont(), but some others in there are?
+On 3/6/26 07:43, Baolin Wang wrote:
+> Implement the Arm64 architecture-specific test_and_clear_young_ptes() to enable
+> batched checking of young flags, improving performance during large folio
+> reclamation when MGLRU is enabled.
 > 
-> IMO they can’t be handled in a single batch. Since the folio_pte_batch()
-> will group consecutive !cont PTEs into one batch and consecutive cont
-> PTEs into another (assume all PTEs belong to a single large folio),
-> because their PTE entries have different CONT bits.
-Interesting, thanks. I thought that folio_pte_batch() would be able to
-batch that.
+> While we're at it, simplify ptep_test_and_clear_young() by calling
+> test_and_clear_young_ptes(). Since callers guarantee that PTEs are present
+> before calling these functions, we can use pte_cont() to check the CONT_PTE
+> flag instead of pte_valid_cont().
+> 
+> Performance testing:
+> Enable MGLRU, then allocate 10G clean file-backed folios by mmap() in a memory
+> cgroup, and try to reclaim 8G file-backed folios via the memory.reclaim interface.
+> I can observe 60%+ performance improvement on my Arm64 32-core server (and about
+> 15% improvement on my X86 machine).
+> 
+> W/o patchset:
+> real	0m0.470s
+> user	0m0.000s
+> sys	0m0.470s
+> 
+> W/ patchset:
+> real	0m0.180s
+> user	0m0.001s
+> sys	0m0.179s
+> 
+> Reviewed-by: Rik van Riel <riel@surriel.com>
+> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+> ---
 
-But yes, pte_batch_hint() relies on the CONT bit still being set after a
-ptep_get(). I wonder whether we should document somewhere that the arm
-implementation depends on that.
-
-This might be something to look into in the future. (make
-folio_pte_batch() ignore cont information when comparing and make the
-arm implementation be able to deal with that).
-
-Assume we unmapped the last page of a large folio. Ideally, we'd be able
-to process the remaining THP pieces (all ptes) in a single operation. I
-guess right now it would be two.
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
 
 -- 
 Cheers,
