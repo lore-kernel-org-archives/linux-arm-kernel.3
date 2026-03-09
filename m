@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA95CEFCD9F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 22:44:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 938C6EFCD7A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 22:44:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ulCqZJ2F1BtpCMWjJ6Yl76Pff0fD9orco/4tOsO3/q4=; b=0O0V87/v5XJplVKRuqoS3jWeHc
-	if/j/0ce3tBofYhhxtl5Hnh6rKs0eA7H4FgjGhkZ33u5E5rPWYhuVa/ZDDkCOtT4cEfGIVUF4jxwr
-	bbVLJ9KQeTtr8RDmF8X6ADAh+VeWC/E8IRGQ/yGW8pR8ePrCTV3RqHAh5m7rTr4EfS7Mnpke4JT8t
-	3y5ytm6DvHCb8ddqiVLI71rSrHlAUj7sg9LlBsB6HFt/UqftqZ1GM2jWF7JWMRhUr3zrMGD1EopcS
-	FmqPmr4ym0chHCuanLgLJSh7qmxXILqk8OtKj/3xfmlBuUnxrtt2wyQMbagYT5eqm6SvxAepesZ+S
-	GQnRE0Rg==;
+	bh=Fz8+4FV8YXuPKhVJdG3Ez89m/0ehU0siWyJfO122j+E=; b=KJ63sL2YsIQvv1ZtTp7NvGlLDb
+	x3AkxGp4pFy1ADe8Hqu6OEBYYGaqOEUCsRf/Hry2tvmDHxvcx8q80zzEjrMJXYZKVC2BcxiXgXE2F
+	mJFXwrRWFY6xf5OPVS0FX8AeeYSIzSy2WiZ6zeqgIqPLaDf0HISKxaPi68pggl+vhQ55teCYoPfwi
+	0uB7iEglk/LWkNHVY1h4KMiXZC1kuKGqiXIoch713oP9ytxWE7tALuIwXWyY52rpVWROjJe0+mkUc
+	6fDFIML5vEXFYJRew/+QdXG4nXk7IFxQud3sgykTpgnnyNqo/RrWv1wMJqMCYvRKVHKrL54xUaCaN
+	fy0pbe+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzjLB-00000008F5S-1RTA;
-	Mon, 09 Mar 2026 22:44:45 +0000
+	id 1vzjLI-00000008FBx-0NSq;
+	Mon, 09 Mar 2026 22:44:52 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzjL6-00000008Ez4-0Vae;
-	Mon, 09 Mar 2026 22:44:41 +0000
+	id 1vzjL7-00000008F03-3F5Q;
+	Mon, 09 Mar 2026 22:44:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1773096276;
-	bh=rYpWUQ3mqz6uob7ZfihmWRD74dfEUvjuf4DnktKdAMg=;
+	s=mail; t=1773096279;
+	bh=sNdKtno5ECegmJwsSLYZy9+Ay7ieHE0bT5CiSOlA5ag=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=aunrSO1MagiS8C5tdB6lao0fJGtJOnXf+tTwv/et9GTZoYycDr8PMTsWq0kD1VA7l
-	 OvywJCKo9oa6KL9wHuxLc+VOFQ0zCMakhXHHkubEqmQ/pb6p44XGywsK1iAnKAmZjI
-	 Ye3+RBr5S0S48Fzb+JnWIkLF0lsByfB7n/bj54ksU/Eh3q75TQqWLBYW9zeFVxrHaE
-	 82/lL9PaWjBy9opQOeiazGpttp7lz+hD1c1vdwEq11Iz9c1eJBhBaRbfAfBZwDbnzX
-	 FieQ8r6tBTMwWfmEcGfBXhui/GWC4nYeVmjyc2CDtRl4GdFNK4NJ3M+33s63Adyuss
-	 Oh7t3d3cY8IIg==
+	b=UDS4aDeSzvFEedKicj1N2faotsMbVqMgvpsACPDxW3cVghSbfAdOKxzu3SLaP4DFs
+	 fM1tml9fIoVv9/ez5TVrjXrrRnyyZSCAIKMxzwVfMrcG5u5snO1BtDP7WpOB7x7+Xh
+	 tQM3GrpLB6dPeFk5Ddy2ieeQx4jT/Z975CinOqah4MHkSc0RZawR6ov9rR/uWhB5/I
+	 EQHociu7cjTIGvAdF8gcdkkK9CAC3CAK1/nQZuUUbwVqlQL+EV+k/STWaYuNQpSFaI
+	 x1Ngc14RY5LoYpG8rRNiqebEbGXXDChtzemd7A7c8tDI+Xww1XgH4FhVnZHYgIckZv
+	 kdaXw6JtENFCA==
 Received: from localhost (unknown [86.123.23.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C29A217E048B;
-	Mon,  9 Mar 2026 23:44:36 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 436CC17E0E91;
+	Mon,  9 Mar 2026 23:44:39 +0100 (CET)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 10 Mar 2026 00:44:30 +0200
-Subject: [PATCH v2 2/8] drm/rockchip: dw_dp: Switch to drmm_kzalloc()
+Date: Tue, 10 Mar 2026 00:44:33 +0200
+Subject: [PATCH v2 5/8] drm/rockchip: dw_dp: Drop unnecessary #include
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260310-drm-rk-fixes-v2-2-645ecfb43f49@collabora.com>
+Message-Id: <20260310-drm-rk-fixes-v2-5-645ecfb43f49@collabora.com>
 References: <20260310-drm-rk-fixes-v2-0-645ecfb43f49@collabora.com>
 In-Reply-To: <20260310-drm-rk-fixes-v2-0-645ecfb43f49@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -69,8 +69,9 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_154440_318418_A32BF4EB 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20260309_154441_963589_AD0F671B 
+X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,51 +86,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Driver makes use of drmm_encoder_init() to initialize the encoder and
-automatically handle the cleanup by registering drm_encoder_cleanup()
-with drmm_add_action().
+Included header "rockchip_drm_vop.h" is not directly used, drop it.
 
-However, the internal structure containing the encoder part gets
-allocated with devm_kzalloc(), which happens while component_bind_all()
-is being called from Rockchip DRM driver.  The component framework
-further ensures it is deallocated as part of releasing all the resources
-claimed during bind, which is triggered from component_unbind_all().
+While at it, ensure #include directives are ordered alphabetically.
 
-When the reference to the DRM device gets eventually dropped via
-drm_dev_put() in rockchip_drm_unbind(), drmm_encoder_alloc_release()
-attempts to access the now released encoder structure, leading to
-use-after-free.
-
-Ensure driver's internal structure is still reachable on encoder cleanup
-by switching from a device-managed allocation to a drm-managed one.
-
-Fixes: d68ba7bac955 ("drm/rockchip: Add RK3588 DPTX output support")
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/rockchip/dw_dp-rockchip.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/rockchip/dw_dp-rockchip.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-index dac3d202971e..532af476d250 100644
+index fafefee8370d..22c0911f1896 100644
 --- a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-@@ -13,6 +13,7 @@
+@@ -7,8 +7,11 @@
+  */
+ 
+ #include <linux/component.h>
++#include <linux/media-bus-format.h>
+ #include <linux/of_device.h>
+ #include <linux/platform_device.h>
++#include <linux/videodev2.h>
++
+ #include <drm/bridge/dw_dp.h>
  #include <drm/drm_atomic_helper.h>
  #include <drm/drm_bridge.h>
- #include <drm/drm_bridge_connector.h>
-+#include <drm/drm_managed.h>
- #include <drm/drm_of.h>
- #include <drm/drm_print.h>
+@@ -19,11 +22,7 @@
  #include <drm/drm_probe_helper.h>
-@@ -82,7 +83,7 @@ static int dw_dp_rockchip_bind(struct device *dev, struct device *master, void *
- 	struct drm_connector *connector;
- 	int ret;
+ #include <drm/drm_simple_kms_helper.h>
  
--	dp = devm_kzalloc(dev, sizeof(*dp), GFP_KERNEL);
-+	dp = drmm_kzalloc(drm_dev, sizeof(*dp), GFP_KERNEL);
- 	if (!dp)
- 		return -ENOMEM;
+-#include <linux/media-bus-format.h>
+-#include <linux/videodev2.h>
+-
+ #include "rockchip_drm_drv.h"
+-#include "rockchip_drm_vop.h"
  
+ struct rockchip_dw_dp {
+ 	struct dw_dp *base;
 
 -- 
 2.52.0
