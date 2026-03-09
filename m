@@ -4,86 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 171DBF417F1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 14:56:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66337F417EE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 14:57:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1bGxNnu/NuRAUbSDNyoh/O1TV+Wc2lJj+jO4jIS/Jqs=; b=DQqC/cuaIO34JP4vnBTrKgMEbZ
-	c7cJrKKNZFM6U4cyvCmcroz+JCqCRQMRDPcRoz1ECPsr/0Ez8Pr66VZ/Ew3ufveys3qxwyDRufqjG
-	IRFxfmUUX5AEhR16QDDo4H7EsA+fNVmMVu7rqmNxRL6VBs0UlpcdiWX//XMgz91smTosaaZ8mzL3e
-	A6UyEVlbt8ZrmC1vlYRESUr/6VvlIwJpU0RS4Z/HjtlTc9uZFT3H19NwfTwhs0jNgc3yX8g4gLwTh
-	OrPHz7bBNw0kJBIel/Z0KTcwO7Y7u1ZgAuOllFXfJuInG7rGGXlJnPdH2sHvllpn2A0RPf0Hv3IwA
-	bL+fNksQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=203p8V8fa1O69uWIwahNnr1A5Lm4LwlXFs1SL4Pk5u8=; b=Mn0JwUHrfyPGDb0HDaq/ERmr/E
+	MNdWs5CBshnw3sLVM7DFym7MannrkTiHhpjWdl6Jryt3l1K3Wc/hq7gugtgXX7AU9LZw97aj+RHA3
+	kDqO9SgaOCpX6BKGw5uGQ4e1sfHo++wkKI9CBMiWAhOigFKTdCDRfz+ArsZlVMVseq0NdzIEf0LrG
+	fZaaP7SmUc+YDyMJFnocNFdqTfv12UKvWBSnbQgME6wrfO2QCCZbIo8317+Azlvf3qKQznUYam8wd
+	79d2XHLBU0XtJDj+XGhn6uuusZg96zVVZSUnbdqx+VFbPyG0zmYziuE6GN82zv+nr0NpKrewce+Zf
+	Uex6AuPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzc2A-00000007WyX-0B9k;
-	Mon, 09 Mar 2026 14:56:38 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1vzc33-00000007XBF-2oSf;
+	Mon, 09 Mar 2026 14:57:33 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzc27-00000007Wy6-3Y0m
+	id 1vzc31-00000007XAC-0ZSp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 14:56:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1773068196; x=1804604196;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=PoL/RgNXwrNphLvs7PMzEUNTz2yJHtGScrZkcIXw6Kk=;
-  b=mY8dfJE6BLc/q2q+q3pa7HwDQLOPDcwx4rv3x4EeVpsbvcokzS6iLW/c
-   1U7cNf31squlkWlG7iwoJEhMkjcpP09XV00O9dphK8/7ebGy7eBqwk5Mg
-   PLCuIPa9OmFhOsE/j42gceprN/Xvw0A22FRGUjIz2/Dt4dCfuaw29kVzJ
-   krPFZh58vcpzkOJZcXxkiaGaWl5Zva0QyjkC62pVEWryVoTL9MKTzkehW
-   NfLukKNhDcehHlQKx9JAwde9Pdn8cXlDOpCiZxJjx2iZZ7kRGVLIKyWDj
-   H8lkcCxFo6CGQQ9zEvAfZSsmq1iZtM7/XLqF9koo932y1NFiOkpdibZ8j
-   g==;
-X-CSE-ConnectionGUID: EX2LumVoQmGja9gGCtTYzQ==
-X-CSE-MsgGUID: qcEogTANSrmbkv9aT86ayA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11723"; a="99563859"
-X-IronPort-AV: E=Sophos;i="6.23,109,1770624000"; 
-   d="scan'208";a="99563859"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Mar 2026 07:56:34 -0700
-X-CSE-ConnectionGUID: NFt3wrsXQPKq6hWDp/kCeg==
-X-CSE-MsgGUID: gLqp2eh/TBizXqUAxt8SBA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,109,1770624000"; 
-   d="scan'208";a="224219446"
-Received: from igk-lkp-server01.igk.intel.com (HELO 9958d990ccf2) ([10.211.93.152])
-  by orviesa004.jf.intel.com with ESMTP; 09 Mar 2026 07:56:30 -0700
-Received: from kbuild by 9958d990ccf2 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vzc20-000000002sv-0s97;
-	Mon, 09 Mar 2026 14:56:28 +0000
-Date: Mon, 9 Mar 2026 15:55:54 +0100
-From: kernel test robot <lkp@intel.com>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Cc: oe-kbuild-all@lists.linux.dev,
-	"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: Re: [PATCH v3 2/3] swiotlb: dma: its: Enforce host page-size
- alignment for shared buffers
-Message-ID: <202603091555.ZRQIMCqJ-lkp@intel.com>
-References: <20260309102625.2315725-3-aneesh.kumar@kernel.org>
+	Mon, 09 Mar 2026 14:57:32 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5a140efd2d5so2794222e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 07:57:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773068248; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Fh50E4Hn/FapfMOI6Mizmm9/HwcgfdZHjI79WJD0ImV6s2n+Wr8/NLOqIcEVzX35Bv
+         WGVmN7punURkrEP65H08qj543IGrlFcrpsXT7ozhnRDbSMAx9sv3QuH4ntsiyZf5DhxA
+         vjDXsqi3Bd3kZeEKH7QdVQmpfEFl/zw3lt5W2JJbnS8nsELUUgUxGElI1wn388LS/cun
+         uoH0aklVKVv3ayRj104Rt7ZsH6ChzfUCT8deL3yzvX0MH8JYDpb6Nzvm0H0C/nSgECc9
+         xovf6EeRsxnBDSghZZ1ZeNHDs96tg5GPTy0B0Q/Q2hE/qGhsVjCBffaLGzjrI62Z4pOi
+         eaYw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=203p8V8fa1O69uWIwahNnr1A5Lm4LwlXFs1SL4Pk5u8=;
+        fh=yJ7FNxARf4vQ+JKeFVKEQJxQS9juppKbat/xn8w2TUQ=;
+        b=TDrryk0aX00H9if9jEIn3sK9NQrDcB5u867cXL6cFNzt0+tsPgBb3N9xmNoQR9FuL6
+         pA+f+J8amc+s9HzqMcnWiEGeRJJfbuxG7zV70Ba1XNADXXF078NgECLSfW2m4g0OAHj2
+         esd2VnsByrTvjS/OhnS8Vfpnr/zoMRzlDQ4CujSvlMwFzCIuWpjyq42MrgPhZNydDlJN
+         G+53fCqFapjRDSKQPvLA1R7SP+y8nO+TksNPLzogZTBASHGQhNgk3+mzly/qzTAOlyfl
+         tb0i3hJwXCjE/FB1p+4bMhTZocrj5Ot3WccLQG+IhqqPLqYlhzS+0exs2/0JB2A7hfAE
+         /6cg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773068248; x=1773673048; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=203p8V8fa1O69uWIwahNnr1A5Lm4LwlXFs1SL4Pk5u8=;
+        b=gw+erpeZNBrL1hYlPXo1PUnOucAVuM+TLZLw93KcWP5IupRncxgTlNfwyYgxS2yds2
+         +9z5Ur9Vsl/s2D+xuB0pys7Je3pqo7IQ2dbgiYJiuOlLUzLPZYpuNDNXPym2RFCureb+
+         4f6JXAp62y8v/rH4t5lqCblOkQ8OCJsxn4ZTsy2LxNZA/FBe1I8q+SH7UK7mGu4T3zVC
+         nmxvVQmscQTdOz64OrJDlOVzOZTTDOGwxXuS9OGtIPRjbyEzzv1aFBV/FNkQYd0Heal3
+         UPxnEnQEi70RW+kh5q6m082ZlJS2h6Y2e3GX7XJOujhK/YU5lLqkLtxrNPDOIQRldU9m
+         0PtQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773068248; x=1773673048;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=203p8V8fa1O69uWIwahNnr1A5Lm4LwlXFs1SL4Pk5u8=;
+        b=ba+I9esPC6PQqSC5eBlSJlWsG+367dw0z2SGZhaMeV/A2++Gs2iV3yFGsRLdKx03S1
+         IhDIrublk0tNbmBVP28fe+lNw/IgoohDRSK4sa0gkk4Bnohf9uRmT3p4ZFfDMya3bA0j
+         ASZie+SjTvIWv46Ttck/kvJTJSQd41hDbU1fmtvGi2ro63odDVv8taD8iUPfhShIDx+T
+         bfrW55qh9LgHy8GKRmeVspxEh2RfH49PT4LEkDAi6OnJySzUyjs85SLVNh9pNlLle1jI
+         yaE0ZroVGiXp+JVO0gey42p8iO4KAb7rMjUIjDd/dfAj7C9gdLfq1fIBRERwlTZ7QwuM
+         Nh9g==
+X-Forwarded-Encrypted: i=1; AJvYcCW3YxQ10ser/U5A7j2QXvtxyWHN+YpRXHjBtgHRCDizPxGFAqSqNwwKofduPhzLY7DTujDtmqTmI25f82daJ+aF@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwSiyJMPkixqECkV5zf7+u+q+uInRE6WWwNPB9/hsMz8YEI8v8
+	ImJgMYM9APjNm6Fq0mwdnkIRS5EMNvCGNguP0JWbwb4RR5sBV6DWaIBa6WTXtrYfSVKEwoejR4W
+	fVSn502SwUfFmHrWgKMFdeneqp3T0k64=
+X-Gm-Gg: ATEYQzy5sXSvKCau1NWk0pt8oewe7tOBEjx3qjRmTCi/5ew04bM1z1T+J9Utuy8yiaW
+	sJABJ95vrmjL+ZXxiwL/njigI6RpSGwSUEGGp3MMvwUXWEvATKIwhLrYLP+DPK2xzGMPPn0Azox
+	C/Dh942fMzGzVwSZSxKL1qd7Mt2Do3S/ZGaA1GkVQq4ytOfeq9xKaFYHQlb12nmp4jLM3XU11yY
+	FCvkE6R8TnZlL05gzda2j1Edng0JbmWHdLSuZQMGR+z6t3C/6DLbhhQF+J7SQps5pJ1J4UKrpcB
+	j5XoRC/ZrsYZRybGXuDT731AOwzwaonXvoVyIPgZ3hEp0mETDitTo9r0/LZdANj/ibiju2dc0WH
+	4ByDynPw=
+X-Received: by 2002:a05:651c:2114:b0:38a:2e66:c9f8 with SMTP id
+ 38308e7fff4ca-38a40da3e0dmr40369381fa.32.1773068248273; Mon, 09 Mar 2026
+ 07:57:28 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260309102625.2315725-3-aneesh.kumar@kernel.org>
+References: <20260216010219.2131484-1-festevam@gmail.com>
+In-Reply-To: <20260216010219.2131484-1-festevam@gmail.com>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Mon, 9 Mar 2026 11:57:17 -0300
+X-Gm-Features: AaiRm53IxFEt-LOkrgzXXjheCaCCVTZVH7guavkF2brnrHw-jNlZBEZtsHWY-9E
+Message-ID: <CAOMZO5CNB25j=JoK6C7CGsXFq5Vg2j=nfrbaL163qjeWYa4J5g@mail.gmail.com>
+Subject: Re: [PATCH v5 1/4] dt-bindings: soc: rockchip: grf: Add RV1103B compatibles
+To: heiko@sntech.de
+Cc: jonas@kwiboo.se, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Fabio Estevam <festevam@nabladev.com>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_075635_898998_D84A708C 
-X-CRM114-Status: GOOD (  16.27  )
+X-CRM114-CacheID: sfid-20260309_075731_191904_E202D8F8 
+X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,75 +121,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Aneesh,
+Hi Heiko,
 
-kernel test robot noticed the following build errors:
+On Sun, Feb 15, 2026 at 10:02=E2=80=AFPM Fabio Estevam <festevam@gmail.com>=
+ wrote:
+>
+> From: Fabio Estevam <festevam@nabladev.com>
+>
+> Add the PMU GRF and IOC compatible strings for the RV1103B SoC.
+>
+> Signed-off-by: Fabio Estevam <festevam@nabladev.com>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-[auto build test ERROR on arm64/for-next/core]
-[also build test ERROR on tip/irq/core arm/for-next arm/fixes kvmarm/next soc/for-next linus/master v7.0-rc3 next-20260306]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+I'm sorry to bother you, but can you please let me know if you are
+happy with this series?
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Aneesh-Kumar-K-V-Arm/dma-direct-swiotlb-handle-swiotlb-alloc-free-outside-__dma_direct_alloc_pages/20260309-182834
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/core
-patch link:    https://lore.kernel.org/r/20260309102625.2315725-3-aneesh.kumar%40kernel.org
-patch subject: [PATCH v3 2/3] swiotlb: dma: its: Enforce host page-size alignment for shared buffers
-config: x86_64-rhel-9.4 (https://download.01.org/0day-ci/archive/20260309/202603091555.ZRQIMCqJ-lkp@intel.com/config)
-compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260309/202603091555.ZRQIMCqJ-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202603091555.ZRQIMCqJ-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from arch/x86/include/asm/processor-flags.h:6,
-                    from arch/x86/include/asm/irqflags.h:5,
-                    from include/linux/irqflags.h:18,
-                    from include/linux/spinlock.h:59,
-                    from include/linux/swait.h:7,
-                    from include/linux/completion.h:12,
-                    from include/linux/crypto.h:15,
-                    from arch/x86/kernel/asm-offsets.c:9:
-   include/linux/mem_encrypt.h: In function 'mem_decrypt_granule_size':
->> include/linux/mem_encrypt.h:60:16: error: 'PAGE_SIZE' undeclared (first use in this function)
-      60 |         return PAGE_SIZE;
-         |                ^~~~~~~~~
-   include/linux/mem_encrypt.h:60:16: note: each undeclared identifier is reported only once for each function it appears in
-   include/linux/mem_encrypt.h: In function 'mem_decrypt_align':
->> include/linux/mem_encrypt.h:66:16: error: implicit declaration of function 'ALIGN' [-Wimplicit-function-declaration]
-      66 |         return ALIGN(size, mem_decrypt_granule_size());
-         |                ^~~~~
-   make[3]: *** [scripts/Makefile.build:184: arch/x86/kernel/asm-offsets.s] Error 1
-   make[3]: Target 'prepare' not remade because of errors.
-   make[2]: *** [Makefile:1333: prepare0] Error 2
-   make[2]: Target 'prepare' not remade because of errors.
-   make[1]: *** [Makefile:248: __sub-make] Error 2
-   make[1]: Target 'prepare' not remade because of errors.
-   make: *** [Makefile:248: __sub-make] Error 2
-   make: Target 'prepare' not remade because of errors.
-
-
-vim +/PAGE_SIZE +60 include/linux/mem_encrypt.h
-
-    56	
-    57	#ifndef mem_decrypt_granule_size
-    58	static inline size_t mem_decrypt_granule_size(void)
-    59	{
-  > 60		return PAGE_SIZE;
-    61	}
-    62	#endif
-    63	
-    64	static inline size_t mem_decrypt_align(size_t size)
-    65	{
-  > 66		return ALIGN(size, mem_decrypt_granule_size());
-    67	}
-    68	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Thanks
 
