@@ -4,72 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD1DCEFCD9C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 11:51:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE1D4EFCD9C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 11:51:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hduUfmGwgnKMskaDKeGcgwJWohiGVW+qVStYTESGB2U=; b=cb1aMetEGGtHd3gDbYkoU9FYF8
-	PclAQ7kYzWLNP4JFyBqTa6Xm+xWigxdBnhHvHuYxsiIclF5jRGY1TM7W7hrGAuOLD37S87jD/13F8
-	nKbyqBAnrTLneXjaELk08WRrPFDQGhiy7VS2ZxucT6sWeadqVZRFwLA6/9FCKoK4c9GJyhei4FubF
-	m+4v8ynJPsM55h/XpGmOuAgX4PcokQT6IhaWeZkzVcE2ID447wI98oLYVIW38moP6aIKUiaQJ9mjA
-	QqaOOoDNx4uHWAwNY6ge96mkBnn/TIDCYtfR/YTjZzwuX/MTPMlgLxyUb92863evpKmnTKFPclQCX
-	4YPA4anQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9Obo8Gy0XA25wtJr5nUH75+SmBoDD9gzbxy0pse51zo=; b=0WbOrB3MZp0NLc2Jw9FNmVPpxF
+	8iYmSkj90PFFFdCgPKtJWu0WhgR+scaOY5+xN6CV7DlcbxLVjGXNeGCEhq9xQ2Jsi2dk3AMe0ZLpq
+	Qy24uTvuwUxFtK33qZVB0vSrbQb1UTpqqOMDlbMjABbS6Rvdtw1EKSbnMQWN5G1umJcJy0hlX3uXX
+	y/IUKUmIlMN0lbSI1f27ExAjy0EmXXQz6YPssVHQn77yiiUfRPDiOekpNz/Q94vn1g76Apid6ztKE
+	ZNVpVi9RjcM9WSQYgifLDJQxjkjqTl/+ruNFiasHNoACcCuEVTqihVqe2GFmv5Mw7w4CDJSPGzJoW
+	AVmZMEAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzZ92-00000007EO0-3BSs;
-	Mon, 09 Mar 2026 11:51:32 +0000
-Received: from mail-m3269.qiye.163.com ([220.197.32.69])
+	id 1vzZ98-00000007ER6-3RzR;
+	Mon, 09 Mar 2026 11:51:38 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzZ8y-00000007EMy-37O2;
-	Mon, 09 Mar 2026 11:51:30 +0000
-Received: from [172.16.12.43] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 36434b970;
-	Mon, 9 Mar 2026 19:51:23 +0800 (GMT+08:00)
-Message-ID: <01983e92-dabb-47f7-ba01-988ea41641db@rock-chips.com>
-Date: Mon, 9 Mar 2026 19:51:24 +0800
+	id 1vzZ94-00000007EOQ-1ECy
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 09 Mar 2026 11:51:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=9Obo8Gy0XA25wtJr5nUH75+SmBoDD9gzbxy0pse51zo=; b=Occxz7TgsNxH8kymTciFymAsav
+	11F8WElBkIpXzycCIXM1KyTVQw3WjF1D0J7UHOlJ6Y/w8A7ryMJ+gMVT3c36m9h3K8QTRLFNThK2f
+	QZrOGeHOz7HJEJgLJZpP3CVeGY4331PHAvLXoVrGeePrUPaMT3SrbI8Hn4JTBAKMNGBEFIIioMqlw
+	Bz9P4pzBFDYkQweSThcbWhF3MHnl3M0zqbT1Xr/YjbZ59Ev1aO7ZZSumRMRdKKINTlCOrEx/yX0JG
+	8Eh+3ehJIE6hs9w0yRFiuXdzsjsA4xiZAX/5tUo0DbeM+IDZDca160yBKoW8oM7KKpQ/N7i/9Mqqe
+	8lZuIzMA==;
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vzZ91-0000000C2Tz-25QZ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Mar 2026 11:51:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=9Obo
+	8Gy0XA25wtJr5nUH75+SmBoDD9gzbxy0pse51zo=; b=SG4bHQQmR0rX7VosFKnI
+	NElZQF8NdYgOe6TZz/zGTk1VPqhuefyIBm986kOuXEbLJyoUtjAg5041Z+EkkKZf
+	4ePH4CzS1xgHvbO3mQL86Ls2+SDzm7nzk55wJKUo+v3KXq0/Rvw5VfIQKT3KG1/4
+	uIcnJJEQNdmNDIUvQEsxWY9RFjKycq1zHcstssectbzJXGPr/ce0HvwyMwDtKpD5
+	R5DoL5RAMLa2YblMV71ZYCGqsKzHBIQn4jmf0IzKEZ9cdUoDykSTCUeNbAQkB9D7
+	KYqzk3Pp+blknRp5JwyNhRu7bGiAkuIskoATFCvKQxbufrTiTWzSgkWCoYFj4GaE
+	Lg==
+Received: (qmail 2760960 invoked from network); 9 Mar 2026 12:51:25 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 9 Mar 2026 12:51:25 +0100
+X-UD-Smtp-Session: l3s3148p1@NX63BZZMwKMgAwDPXzF+ANZpdrMKUeLI
+Date: Mon, 9 Mar 2026 12:51:24 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Johan Hovold <johan@kernel.org>
+Cc: Bartosz Golaszewski <brgl@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Andi Shyti <andi.shyti@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Khalil Blaiech <kblaiech@nvidia.com>,
+	Asmaa Mnebhi <asmaa@nvidia.com>, Jean Delvare <jdelvare@suse.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org, linux-actions@lists.infradead.org,
+	linux-media@vger.kernel.org
+Subject: Re: [PATCH v2 00/13] i2c: add and start using i2c_adapter-specific
+ printk helpers
+Message-ID: <aa60PCE3wsEAZbcu@shikoro>
+References: <aaFcs1miP88QWmtH@hovoldconsulting.com>
+ <aaFfEsfh0xTh0b1y@shikoro>
+ <aaFsZbiLYSz_YEjw@hovoldconsulting.com>
+ <CAMRc=MfcvD1nJy=zpoCkSkJq6WjyXQxFUZ4QE6vyCS+XFCn5AA@mail.gmail.com>
+ <aaHI_VavZugXjVoL@hovoldconsulting.com>
+ <CAMRc=MdKF29McBJ9U=qELkzf9GYV1CQpRF7U6OweDNtVzMXo7A@mail.gmail.com>
+ <aacE-27iaYneKCJi@hovoldconsulting.com>
+ <CAMRc=Mcx8Hu407arSEo3o-Xhmep_ZK4BM2TVi_55nXGwYcaijw@mail.gmail.com>
+ <aagSewpM88KAZDcJ@shikoro>
+ <aar3rj7Db6NmTVS_@hovoldconsulting.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 10/15] drm/bridge: analogix_dp: Add new API
- analogix_dp_finish_probe()
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>, andrzej.hajda@intel.com,
- neil.armstrong@linaro.org, rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
- kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
- jingoohan1@gmail.com, p.zabel@pengutronix.de, hjc@rock-chips.com,
- heiko@sntech.de, andy.yan@rock-chips.com, dmitry.baryshkov@oss.qualcomm.com,
- dianders@chromium.org, m.szyprowski@samsung.com, jani.nikula@intel.com,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-References: <20260210071225.2566099-1-damon.ding@rock-chips.com>
- <20260210071225.2566099-11-damon.ding@rock-chips.com>
- <DGT20ZJ3Q4WP.3OTQJYWGSYGUD@bootlin.com>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <DGT20ZJ3Q4WP.3OTQJYWGSYGUD@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9cd270098c03a3kunm26e3dc7b2d81c9
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ05OS1YeHkxLSkgYQkNDTE9WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
-	1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=C4os9YqNIUC3dEyjyzM/hCxvk1F4fWa1S7B31zMJjMRFJW7ZEsZL+m85ptIf9IWCeuLLhar9IN001x4s5PBLTMGuQlDb+GzAX3aXtbXJrDmPNAb2GPzyOvS/jIXmdi0MK0cJdB+IiAiLNeWa/7D2wdMUSjFWtZYZZb4qvAyF1AM=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=hduUfmGwgnKMskaDKeGcgwJWohiGVW+qVStYTESGB2U=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aar3rj7Db6NmTVS_@hovoldconsulting.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_045129_339413_7FDE15BD 
-X-CRM114-Status: GOOD (  22.81  )
+X-CRM114-CacheID: sfid-20260309_115131_648273_539ABDDA 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,120 +110,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Luca,
+Hi Johan,
 
-On 3/3/2026 5:54 PM, Luca Ceresoli wrote:
-> Hello Damon,
-> 
-> On Tue Feb 10, 2026 at 8:12 AM CET, Damon Ding wrote:
->> Since the panel/bridge should logically be positioned behind the
->> Analogix bridge in the display pipeline, it makes sense to handle
->> the panel/bridge parsing on the Analogix side. Therefore, we add
->> a new API analogix_dp_finish_probe(), which combines the panel/bridge
->> parsing with component addition, to do it.
->>
->> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
->> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
->> Tested-by: Heiko Stuebner <heiko@sntech.de> (on rk3588)
-> 
-> ...
-> 
->> @@ -1581,6 +1583,52 @@ struct drm_dp_aux *analogix_dp_get_aux(struct analogix_dp_device *dp)
->>   }
->>   EXPORT_SYMBOL_GPL(analogix_dp_get_aux);
->>
->> +static int analogix_dp_aux_done_probing(struct drm_dp_aux *aux)
->> +{
->> +	struct analogix_dp_device *dp = to_dp(aux);
->> +	struct analogix_dp_plat_data *plat_data = dp->plat_data;
->> +	int port = plat_data->dev_type == EXYNOS_DP ? 0 : 1;
->> +	int ret;
->> +
->> +	/*
->> +	 * If drm_of_find_panel_or_bridge() returns -ENODEV, there may be no valid panel
->> +	 * or bridge nodes. The driver should go on for the driver-free bridge or the DP
->> +	 * mode applications.
->> +	 */
->> +	ret = drm_of_find_panel_or_bridge(dp->dev->of_node, port, 0,
->> +					  &plat_data->panel, &plat_data->next_bridge);
->> +	if (ret && ret != -ENODEV)
->> +		return ret;
->> +
->> +	return component_add(dp->dev, plat_data->ops);
->> +}
->> +
->> +int analogix_dp_finish_probe(struct analogix_dp_device *dp)
->> +{
->> +	int ret;
->> +
->> +	ret = devm_of_dp_aux_populate_bus(&dp->aux, analogix_dp_aux_done_probing);
->> +	if (ret) {
->> +		/*
->> +		 * If devm_of_dp_aux_populate_bus() returns -ENODEV, the done_probing() will
->> +		 * not be called because there are no EP devices. Then the callback function
->> +		 * analogix_dp_aux_done_probing() will be called directly in order to support
->> +		 * the other valid DT configurations.
->> +		 *
->> +		 * NOTE: The devm_of_dp_aux_populate_bus() is allowed to return -EPROBE_DEFER.
-> 
-> Uhm, if it is allowed to return -EPROBE_DEFER...
-> 
->> +		 */
->> +		if (ret != -ENODEV) {
->> +			dev_err(dp->dev, "failed to populate aux bus\n");
->> +			return ret;
->> +		}
-> 
-> ...then you shouldn't dev_err() when -EPROBE_DEFER is returned.
-> 
-> Either use dev_err_probe() (which would also simplify your code) or check
-> for if (ret != -ENODEV && ret != -EPROBE_DEFER).
+> I don't know what was said a conference some years ago or whether there
+> was any misunderstanding on either side. What matters is what was
+> posted.
 
-Will fix in v10.
+What was posted was in accordance with what was discussed at said
+conference. The people in the room (including gkh) were OK with the
+compromise solution. If you are not and willing to provide a better
+solution...
 
-> 
->> +
->> +		return analogix_dp_aux_done_probing(&dp->aux);
->> +	}
->> +
->> +	return 0;
->> +}
->> +EXPORT_SYMBOL_GPL(analogix_dp_finish_probe);
->> +
->>   MODULE_AUTHOR("Jingoo Han <jg1.han@samsung.com>");
->>   MODULE_DESCRIPTION("Analogix DP Core Driver");
->>   MODULE_LICENSE("GPL v2");
->> diff --git a/include/drm/bridge/analogix_dp.h b/include/drm/bridge/analogix_dp.h
->> index 3428ffff24c5..bae969dec63a 100644
->> --- a/include/drm/bridge/analogix_dp.h
->> +++ b/include/drm/bridge/analogix_dp.h
->> @@ -30,6 +30,7 @@ struct analogix_dp_plat_data {
->>   	struct drm_bridge *next_bridge;
->>   	struct drm_encoder *encoder;
->>   	struct drm_connector *connector;
->> +	const struct component_ops *ops;
-> 
-> Is adding a new stored field a good idea? Can it be instead passed as an
-> argument to analogix_dp_finish_probe()?
-> 
-> Note I don't have a strong opinion here, just the added struct field seems
-> overkill for being used just once.
-> 
+> Bartosz seems to agree that my suggestion to decouple the driver data
+> from the i2c_adapter would be better, and I'm willing to do the job.
 
-I agree this is a better approach, since the &component_ops is only used 
-during probing.
+... you get all my support.
 
->> @@ -49,5 +50,6 @@ int analogix_dp_stop_crc(struct drm_connector *connector);
->>
->>   struct analogix_dp_plat_data *analogix_dp_aux_to_plat_data(struct drm_dp_aux *aux);
->>   struct drm_dp_aux *analogix_dp_get_aux(struct analogix_dp_device *dp);
->> +int analogix_dp_finish_probe(struct analogix_dp_device *dp);
->>
->>   #endif /* _ANALOGIX_DP_H_ */
-> 
+Thanks and happy hacking,
 
-Best regards,
-Damon
-
+   Wolfram
 
