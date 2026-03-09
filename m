@@ -4,94 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33FA4FCA19A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 22:24:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 757BEFCA19A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 22:26:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hrSbyZBA5Px2iidq6W57qtYbXFOmMx8uhJF7gt5CJ8A=; b=A1462nzOvJa1Gty9YEnFQpLeza
-	ndzxjBvbnJTpe7Pxi7r30uHzyCX//pJhpSY/JGw54GIXx1FnwjDeDbu3QTt+8cD9Zv7xbcH2TLibW
-	lHj7wejWr7wOGg58zp2YyhddekuGA2vRQCjUBqvUWeS+opq9n93OgV2YMUkZUz25VybkNaLXZL+wI
-	hubWUncwhM2mFfAD9Oj+LUEgNShpmGmhA4gOUUZfLkEdrRh9oE2rRsYu8pMP5BwVEzt8WbHs8aH2h
-	A2gr0uOrZWgc+IqPhCDePibZPXkozIsjosGA4AFi2JpfzWpNsErroxaWnHI+9s5d4rN9A7yue6RB+
-	KqMyeZww==;
+	bh=b0qmAnC6DnZWfkO5AOHdxhn/T13J7DQN3esTSP9cxW4=; b=kRYp5XxP0KxjZKc0t4/wkGWI/h
+	G+dNHZENZaYfwyAsVZ7x16n9Rik+BEzhPb0p4KOXckCGyTQ1J9z31HMB+ZD9YIDbT5EREAnLyhKWJ
+	MnGM0MmO1gy7k87nF4O4twcqmgD+V3m0jbrVnWVqy4exeDws/qRP4SJ1luiRdNgSPizbpsCTFEDLe
+	ngaw1IaVkTVoO20lIyXnWlkxaIy0pxK83CRYndQjpUxOGtoP45tKqBxg/TGKWZpC4xzzZrF8FVP03
+	55CvlkGm3ijgUIuY+uZV6Eo7/wfgHnoEHQS/Q+HOap/zvj11wbC0dZzcJPzX2vfHVZUm8Cvi8cMOA
+	1FdxsjqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzj1V-00000008Ddo-3ZgB;
-	Mon, 09 Mar 2026 22:24:25 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1vzj3p-00000008Drs-2WL8;
+	Mon, 09 Mar 2026 22:26:49 +0000
+Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzj1T-00000008DdH-2dxa
+	id 1vzj3m-00000008DrA-3ook
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 22:24:25 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2aaf43014d0so89994575ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 15:24:23 -0700 (PDT)
+	Mon, 09 Mar 2026 22:26:48 +0000
+Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-8cd8c6e365eso126964385a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 15:26:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1773095063; x=1773699863; darn=lists.infradead.org;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=hrSbyZBA5Px2iidq6W57qtYbXFOmMx8uhJF7gt5CJ8A=;
-        b=YqiRhu2hntooiKOHpC23pcmGPc96zqCvRSUtfc2+rWWRHQ6PKR0llWXgKZYuav6Maj
-         2aXR7Yd0yFFH3qScvaPSLIILdYYsdPVup4dISljZCoAkIpIpljjpoFIPOBt2476y048t
-         VEnSNBPLiew+1va/FFzt1bGnaZA+W3lLC/pYrnx7a10HpV/IESH2F4OawebMGqWg+RFI
-         uTN4zDUVmxioUqferK4a6Ak8R+GmiROefKw9S6zaqRicEdtQ0xpxjF1IlLjAOGnmdz+m
-         S8klOdm3JUow0GhQ91+m/TZ4diOB1oylp1owBG89ynsZH9YehQyP1g+qxmgRnavEBqe/
-         J3Ng==
+        d=gmail.com; s=20230601; t=1773095205; x=1773700005; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=b0qmAnC6DnZWfkO5AOHdxhn/T13J7DQN3esTSP9cxW4=;
+        b=Sv8W27fNaelMqW3EbQeHaL5PSCKPl7iYzQY/fwXpTBwPEcIasJxZuWisoI9zbqebfn
+         yI+Qe4H/5EbEJ7JgggGgRXo7+W/oxA+ihvKICC16kMUJHruG9TPMHhFhMK7f83XoLd1b
+         InvpRp8p6PgiVwygaEzTlUPAs3rAtc72lYxANO/hn3T79ZCaTH6xA51cokw7Sti8XqiR
+         u39yd1GpCk9gLIXjLOtqxRAVW+5KRniqZKd8eJ55TR/1M9/9ax+ks52jcEC1yohx/O7M
+         5z1C3KIdXiY/rzZ9IUaJExvJXuxpXO3CFLLdMVcNoQGS8cRpoweMPJbfj0YPuJdpCDoH
+         TGmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773095063; x=1773699863;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hrSbyZBA5Px2iidq6W57qtYbXFOmMx8uhJF7gt5CJ8A=;
-        b=PZINB2Fo55YeP1lEVPcYTK7FMVI8KDz66wdtR0bwOldK9XRAU7Yl1wvsf6mwZTjUUc
-         pr67jX2TqN4KlpF65T+8p3KVLqpGsvTv0+wTMkgUNSjuoY9Gkdjc23YBj28v+Y1T57lE
-         BRqO4bVtGBKlqyNgMC1ZxDYHgoFr0n0+7WZ8FbMezCrjPefwg7XINx162ZPVD4UNrH86
-         WZ0DeeTPQuGCB332DC8mSPbGAKaTMJcjZ7rXTB4XSUv8SGKeVffK52Iuqe+6RbBI2eKt
-         dxSSgGuWpy7XyvPURfB5/DjhpnKoEDqqRnn1Xsk90RzbVSawMk0YotAa0XEyEkICi/iK
-         FnVg==
-X-Forwarded-Encrypted: i=1; AJvYcCXvm9utsoEKJvNJHX8PoUSpFxjCRpVmusH3t3kEdi2Bs2RBtJ1MK6a1HlUJ7nYHPBQI0rbT5k+bskdCE9DksUuu@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwFoHCIClV3djMEgVQq/y6nPb4Pm3kK6HHVe8ZyiJsKf3bufaU
-	4UJfFiLuMEd1W97ORbj8kbqlqFposCksiZvMXw7MDuORQMJ8wvy9O91gWpFbjpBatgc=
-X-Gm-Gg: ATEYQzzqAvhrA7CqHS45nAmIKHjX6brPB6pfE9Zj0Cv2zb7lm4j6yhBdO2dAh0FNBp8
-	XoRJeBLqVWOvXqiI8wcua4pSnrHG9Su74NSHS/0sUNFzfs9WQVq9jGJq3cUqurcfaYmbsDwgR37
-	C/Ude0E8r97WIUQ3HODTX4eJEwrNT65BSku0KNt4J0JUKrGkNghuEnNkb+YbSVurA4wZBRkh5Wx
-	BfkEA3NqFRjiu1WEG+qDXkv9CvxQEZSKpBKta7ONTGi5ag6DFoUcvxbtPrqh0srJlGk+WAvSo89
-	bXC4kxi+RIYScVJ1xA7eeFhdTmKtM9BSeF+cBNORfA+ObktrXVY0NEJlkGQ5/hAcBYT41PnP6XN
-	ui04gGgE/GLhVxGtgdxM2ta5CvXMCAO5/rZe0599ThAJo/fd8wu7uqqqd3jmaf4XPt9KSTXRMZI
-	i1omkosqQinydsKq39Vfwa
-X-Received: by 2002:a17:902:f78b:b0:2ae:55c1:ba8a with SMTP id d9443c01a7336-2ae823851bamr116227635ad.14.1773095062734;
-        Mon, 09 Mar 2026 15:24:22 -0700 (PDT)
-Received: from localhost ([71.212.200.220])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae83fa2fa5sm130946135ad.70.2026.03.09.15.24.21
+        d=1e100.net; s=20230601; t=1773095205; x=1773700005;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=b0qmAnC6DnZWfkO5AOHdxhn/T13J7DQN3esTSP9cxW4=;
+        b=m6aRzp/NQItPd/YDI+j4lojVawhYSnOZkmzLeYjKwxXc6If/AJTQ/wEYG9A4ojaxc8
+         If5s8wReEGN52Pf+9fkYVsgISEG02vkXiHCFtjrLEhi4sD+fnUVE7bcWdItixDcooAXK
+         X+TpUZhaMcnpbd5B6lpewAK+gPxQ6g1p/cdU3yz7hSp+y1o0LrqyB58OggAGi1tAgxpn
+         sA/Az9Kgovia4dA7MZZVwgcfmBhAnnfDFil5cv172K1/6I/G6HawThDHachYRbJPfMbx
+         fPchYsz7YkV7KG3dnTJ2PZ+NiVbNey09+DAxyM8QNZcjWIXpKwP/JOKgRPSo0v6LN9sY
+         ml2w==
+X-Forwarded-Encrypted: i=1; AJvYcCX/UgS3jbBD3r3YzPpAacKpGx4ZLAQKcs+Wzw7lai807sU0akkIrngXMbfi9u8kxTxW3g749jvr9E1U5hbltHvf@lists.infradead.org
+X-Gm-Message-State: AOJu0YyKVCbPOQ+Wk+iHyShIkH7SBlb4xhXZcz3zQudY9Ypdz9ApTCTI
+	RcADlG/ZQBd5/KMa7YwVRozBJqmm5GfnqdLI4Nd5HeM0nu3Ka/8X1VeH
+X-Gm-Gg: ATEYQzzoqenH8q+fEJXrbc13AhOAt4n0VE7WExgRFuAh/GQgQooBskBvfOFd+FMkOrH
+	xioIPJ9h+M5qkDvTSTAtwBmOrQSCAq7gI8oyL/BFno2HybNmVJ0+oudztZRZtK3l73r2SZGwcMP
+	EecroS28S8B8SBEw0t1lA8fVKDrjiReTByoixYesTlHcblF277+hSgUFf5yi5hfrb3ujbYw5y6I
+	7xWRlSepm3zer2JByR4IIfnrQUPkl0xAzKd2WZyhkPO7joFXDjR5bTpQ2ZAklKch84/cGcpRWco
+	ATradE3BO9D2I1CzJF6W+vU7kS0vWrAKEs63VhbAgC60zgO6XF1C5gADpouc+iMBXoid9b2HE0g
+	kv1jCmARf7ADqF1HM3CGE/LCkCIQBr7BcWXyctMrZTkmhs2v0bk7DleCpeHuh83xgMm14auL+AB
+	dJAVziKLvkeY4FxuhNX/qz0gArOYvyUsafxw==
+X-Received: by 2002:a05:620a:c55:b0:8cb:4289:6c1a with SMTP id af79cd13be357-8cd6d549b1fmr1572894885a.75.1773095205343;
+        Mon, 09 Mar 2026 15:26:45 -0700 (PDT)
+Received: from localhost ([2001:19f0:8001:1b2d:5400:5ff:fefa:a95d])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cd866f7074sm325445485a.6.2026.03.09.15.26.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Mar 2026 15:24:22 -0700 (PDT)
-From: Kevin Hilman <khilman@baylibre.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Rob Herring
- <robh@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Sudeep Holla
- <sudeep.holla@arm.com>, Cristian Marussi <cristian.marussi@arm.com>,
- devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
- arm-scmi@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RFC v5 1/2] pmdomain: core: support domain hierarchy via
- power-domain-map
-In-Reply-To: <CAPDyKFq0JAKc693d+RrPEBCAH--r+gobf822dQ5Ao6f2gnjRrw@mail.gmail.com>
-References: <20260122-pmdomain-hierarchy-onecell-v5-0-76855ec856bd@baylibre.com>
- <20260122-pmdomain-hierarchy-onecell-v5-1-76855ec856bd@baylibre.com>
- <20260127151735.GA1699112-robh@kernel.org> <7hjywtzaiy.fsf@baylibre.com>
- <CAMuHMdURxN=kBQHJKnsTVEQPeuB41r5kZy4sgFNqg=U2ynuZMw@mail.gmail.com>
- <7hv7flrb36.fsf@baylibre.com>
- <CAPDyKFq0JAKc693d+RrPEBCAH--r+gobf822dQ5Ao6f2gnjRrw@mail.gmail.com>
-Date: Mon, 09 Mar 2026 15:24:21 -0700
-Message-ID: <7hqzpszlnu.fsf@baylibre.com>
+        Mon, 09 Mar 2026 15:26:44 -0700 (PDT)
+Date: Tue, 10 Mar 2026 06:26:07 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>, 
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Yao Zi <me@ziyao.cc>, Yanteng Si <siyanteng@cqsoftware.com.cn>, 
+	Vladimir Oltean <vladimir.oltean@nxp.com>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	Shangjuan Wei <weishangjuan@eswincomputing.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+	Chen-Yu Tsai <wens@kernel.org>, Boon Khai Ng <boon.khai.ng@altera.com>, 
+	Quentin Schulz <quentin.schulz@cherry.de>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next v8 3/3] net: stmmac: Add glue layer for Spacemit
+ K3 SoC
+Message-ID: <aa9I4pIZs5-TDdXo@inochi.infowork>
+References: <20260309004305.315018-1-inochiama@gmail.com>
+ <20260309004305.315018-4-inochiama@gmail.com>
+ <aa62FTHMOJGhVKTv@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aa62FTHMOJGhVKTv@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_152423_677255_6D4BF0E3 
-X-CRM114-Status: GOOD (  36.65  )
+X-CRM114-CacheID: sfid-20260309_152646_954442_4627049D 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,127 +115,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ulf Hansson <ulf.hansson@linaro.org> writes:
+On Mon, Mar 09, 2026 at 11:59:17AM +0000, Russell King (Oracle) wrote:
+> >  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 +
+> >  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+> >  .../ethernet/stmicro/stmmac/dwmac-spacemit.c  | 227 ++++++++++++++++++
+> 
+> One last point, please add another patch which adds a MAINTAINERS entry
+> for this file, so you can be Cc'd with future stmmac developments.
+> 
+> Thanks.
+> 
 
-> On Wed, 25 Feb 2026 at 00:11, Kevin Hilman <khilman@baylibre.com> wrote:
->>
->> Geert Uytterhoeven <geert@linux-m68k.org> writes:
->>
->> > Hi Kevin,
->> >
->> > Thanks for your series! I became aware of it only recently, and read
->> > it and its history with great interest...
->> >
->> > On Wed, 4 Feb 2026 at 00:13, Kevin Hilman <khilman@baylibre.com> wrote:
->> >> Rob Herring <robh@kernel.org> writes:
->> >> > On Thu, Jan 22, 2026 at 05:14:00PM -0800, Kevin Hilman (TI) wrote:
->> >> >> Add of_genpd_[add|remove]_subdomain_map() helper functions to support
->> >> >> hierarchical PM domains defined by using power-domains-map
->> >> >
->> >> > power-domain-map. No 's'.
->> >> >
->> >> >> property (c.f. nexus node maps in DT spec, section 2.5.1).
->> >> >>
->> >> >> This enables PM domain providers with #power-domain-cells > 0 to
->> >> >> establish subdomain relationships via the power-domain-map property,
->> >> >> which was not previously possible.
->> >> >>
->> >> >> These new helper functions:
->> >> >> - uses an OF helper to iterate to over entries in power-domain-map
->> >> >> - For each mapped entry: extracts child specifier, resolves parent phandle,
->> >> >>   extracts parent specifier args, and establishes subdomain relationship
->> >> >> - Calls genpd_[add|remove]_subdomain() with proper gpd_list_lock mutex protection
->> >> >>
->> >> >> Example from k3-am62l.dtsi:
->> >> >>
->> >> >>   scmi_pds: protocol@11 {
->> >> >>       #power-domain-cells = <1>;
->> >> >>       power-domain-map = <15 &MAIN_PD>,  /* TIMER0 */
->> >> >>                          <19 &WKUP_PD>;  /* WKUP_TIMER0 */
->> >> >>   };
->> >> >>
->> >> >>   MAIN_PD: power-controller-main {
->> >> >>       #power-domain-cells = <0>;
->> >> >>   };
->> >> >>
->> >> >>   WKUP_PD: power-controller-main {
->> >> >>       #power-domain-cells = <0>;
->> >> >>   };
->> >> >>
->> >> >> This allows SCMI power domain 15 to become a subdomain of MAIN_PD, and
->> >> >> domain 19 to become a subdomain of WKUP_PD.
->> >> >
->> >> > One concern I have here is generally *-map is transparent meaning when
->> >> > you lookup <&scmi_pds 15>, &MAIN_PD is returned as the provider. It's
->> >> > also possible to have a map point to another map until you get to the
->> >> > final provider. The only way we have to support both behaviors is the
->> >> > consumer has to specify (i.e. with of_parse_phandle_with_args_map() vs.
->> >> > of_parse_phandle_with_args()), but the consumer shouldn't really know
->> >> > this detail.
->> >
->> > This is also the first thing I was worried about, when I noticed you are
->> > not doing transparent mapping, but add an explicit hierarchy instead,
->> > based on the map.
->>
->> Yeah, the map wasn't my original idea, and TBH, I had never really even
->> heard of nexus node maps before it was suggested by Rob[1] that I could
->> use it to describe hierarchy.
->>
->> But... I'm gathering from Rob's and your recent feedback that my current
->> approach to using a map is an abuse/misuse of the map because it's just
->> being used to describe hierarchy, and because it's not transparent.
->>
->> I'm still waiting to hear from Rob to see if I understood that right,
->> but your feedback is making me think that's the case.
->>
->> If so, I'm honestly not sure where to go next.
->>
->> >> > Maybe a transparent map of power-domains would never make sense. IDK. If
->> >> > so, then there's not really any issue since the pmdomain core handles
->> >> > everyone the same way.
->> >
->> > AFAIUI, SCMI is not limited to the SoC, but may be used for the whole
->> > hardware platform, so it could control power to external devices, too.
->> > Once we need to map a power domain through a connector, we need
->> > support for transparent mapping through a nexus node.
->> >
->> >> I don't really know enough about potential usage of maps to know if
->> >> there's ever a usecase for transparent maps.  However, the problem I'm
->> >> trying to solve is less about transparent maps, and more about
->> >> describing hierarchy in a situation where "leaf" domains of the same
->> >> type (e.g. SCMI) can have different parent domains.
->> >
->> > Hierarchy is indeed something that cannot be described with the current
->> > SCMI power domain management protocol.  This includes external hierarchy
->> > (your use case), and internal hierarchy: AFAIK, Linux cannot be made
->> > aware of the hierarchical relationship among the different power
->> > domains controlled through SCMI either.
->>
->> Yes, the limitations of SCMI (both the protocol, and the Linux
->> implementation) are the root cause here.  In case you didn't see it,
->> before I posted the original version of this series, I started a thread
->> on the arm-scmi list to discuss implementation options[2]
->>
->> So since this is primarily and SCMI limitation, maybe I should just go
->> back to the original proposal of using power-domains-child-ids[3]?
->>
->> I'm definitely open to suggestions here as I'm a bit out of my depth
->> here.
->
-> FWIW, I favor re-trying the "power-domains-child-ids" [3] approach.
->
-> The main reason is that we already have the "power-domains" property,
-> which allows us to describe parents using a list of phandles.
->
-> To me, it seems more sensible to extend this with a new
-> "power-domains-child-ids" property, which can be used when needed,
-> rather than inventing an entirely new property, that would replace the
-> existing one.
+OK, I will add a MAINTAINERS entry for both this file and
+binding file.
 
-OK, in the absence of any feedback from the DT maintainers, I'll go back
-to the original approach of using `power-domain-child-ids`.
-
-Kevin
-
-
+Regards,
+Inochi
 
