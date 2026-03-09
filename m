@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A532CEFCD99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 11:20:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4606FEFCD99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 11:21:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QLrzcOgBdh9SWNZ88PcuD4QPZfRZTAt20JyH8b5V4Nc=; b=rwYfUyQhbwXkNeImOyCC97Jn9Z
-	uxUBcoUPgy2Up01DohN4xF8AQtGmvx4NiDWi5c0/mFpiPuJv+Yp93SpcfOLgZjIPujiEVOFLA/+cP
-	YP0N6oGOkLOgJOKU34WmXLor2WL+sJEqv39YLTguh0YBBVef77bcG88nzXH4exuHSei1CMjnBGO+M
-	seM2Z1sC9d/CL13q5qKP9WdNECG4jAGsumGn1I1bFzVkDuaMGXtU4ibETXz/neR5ZxrZWaqWyXlse
-	PpV5PWCAz8OXeY2XMrEVOCn9uDhE02CShzI4Fvw70x1fzrJMxBGI7bEkxVyPgUYCyB6lkWgH8A7tt
-	it0tr+wg==;
+	bh=bDZWyRUOmwSxEJ8NSDbK8w5frKrjb03mKJAu6i0DDIo=; b=dU5tvBr9x+xIO8Mdvg5hPUwRAO
+	lrGdosSNW8w0v5JoXICdgORDbeGcraEUP+M79f8BEmfWalnRCvCBdSmCedW0UJa+bGLRpeX4AFlDJ
+	GcmPm/ODlwGOKu+sEZSwrcJwZE7de0RFIXwnXHYc2gVn4skTmnn7Z8hWAPpxj5sitUlsHIaA10J+y
+	ZiMxXyRVazDceI3oYUQDdZ//99cy11Qd6jPD1cStVx41/N9P86akxye76QdpVTj5xochdPpnTJhjk
+	ipdZcWqo+rRCtQ6yYArffzKmGLcUmAWs1N1Ox54zsP/YnvAJI3/oS+3xbHfAkrNBJv6T5zQVrwmuq
+	yYO/r0Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzYfM-00000007AsU-0TtO;
-	Mon, 09 Mar 2026 11:20:52 +0000
+	id 1vzYfT-00000007AwB-1uLN;
+	Mon, 09 Mar 2026 11:20:59 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzYfJ-00000007AqH-2uie
+	id 1vzYfP-00000007Atq-3Qj8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 11:20:50 +0000
+	Mon, 09 Mar 2026 11:20:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=QLrzcOgBdh9SWNZ88PcuD4QPZfRZTAt20JyH8b5V4Nc=; b=l9n+GHY+g6PM9wzSPFpkGNC46h
-	L75CfzioCHzoRlRtagPzTB6Eqo3mJGynIwLIcWtEkI65hCgEsKXAbwqBGA960x4TkRoZWfgm2IX7/
-	RJ0lTjmpuKKJFss+Xb0g1DQ/pYJP11fNbw4Mv/7015WISUYm+QwPw+GxYUhxNhcKMxsFAYwe50BkM
-	SOYxThs+Px3ecZHeHdBOH7I/nrCx36LzFQWUaD6WCZ+KsuMndYv3Hq/OG2YnmtBPALpfdSUCqeOQC
-	ZVJ4MUoqMJL2WNnmhNtt8OLba5qOR8Oq8oO58+dFyUi2YOHQMJpbXc2hJOobWKsRDlPn+32lEmkTG
-	EizCm07Q==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:49944 helo=rmk-PC.armlinux.org.uk)
+	bh=bDZWyRUOmwSxEJ8NSDbK8w5frKrjb03mKJAu6i0DDIo=; b=mWMHAMT0ILBrbK43jA10uck3iG
+	A8WfXml9b6JjDH7Iy59XHi00iWDwp25ysY5XbzXuq442DH1Ftq7w5RSlkOmCsVtKukGxpf72VTmoc
+	AjQ88SjtGcW6QZUiXJHPVDETe8vVc1KfbYLtmiDVhqhWaitCn6iYfyy1zS1SgoD8xqSX3cjfV1dAE
+	mqv1yV4yKgzs+T+zTs+cwK3Dn0ZczzAFKf8yV7ROW0TyuIfJK3+BRAWzE5zlMeVQgL3niitkR844H
+	NVilXj/lu2GBgyeMaCd9jjTqk1uroF32fwSZywT7vTvpjUeb2XAsFAa1Ols72xPHMBEVTB0H9gATG
+	BKLh04fQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:49960 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vzYfD-000000003gQ-2pji;
-	Mon, 09 Mar 2026 11:20:43 +0000
+	id 1vzYfJ-000000003gi-08au;
+	Mon, 09 Mar 2026 11:20:49 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vzYfC-0000000CZyn-2DDs;
-	Mon, 09 Mar 2026 11:20:42 +0000
+	id 1vzYfH-0000000CZyt-2mMs;
+	Mon, 09 Mar 2026 11:20:47 +0000
 In-Reply-To: <aa6sofjFxyi2nkpr@shell.armlinux.org.uk>
 References: <aa6sofjFxyi2nkpr@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -64,17 +64,18 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH RFC net-next v3 4/8] net: stmmac: use integrated PCS for
- BASE-X modes
+Subject: [PATCH RFC net-next v3 5/8] net: stmmac: qcom-ethqos: enable
+ 2500BASE-X
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vzYfC-0000000CZyn-2DDs@rmk-PC.armlinux.org.uk>
-Date: Mon, 09 Mar 2026 11:20:42 +0000
+Message-Id: <E1vzYfH-0000000CZyt-2mMs@rmk-PC.armlinux.org.uk>
+Date: Mon, 09 Mar 2026 11:20:47 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_042049_733318_008C402B 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20260309_042055_859859_ACBD4AB9 
+X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,71 +90,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-dwmac-qcom-ethqos supports SGMII and 2500BASE-X using the integrated
-PCS, so we need to expand the PCS support to include support for
-BASE-X modes.
+Enable 2500BASE-X support in qcom-ethqos to support the 2.5G speed with
+the integrated PCS.
 
-Add support to the prereset configuration to detect 2500BASE-X, and
-arrange for stmmac_mac_select_pcs() to return the integrated PCS if
-its supported_interfaces bitmap reports support for the interface mode.
-
-This results in priv->hw->pcs now being write-only, so remove it.
-
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/common.h      | 4 ----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 8 ++------
- 2 files changed, 2 insertions(+), 10 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
-index 46454e2886ce..b7d29a621db1 100644
---- a/drivers/net/ethernet/stmicro/stmmac/common.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/common.h
-@@ -278,9 +278,6 @@ struct stmmac_safety_stats {
- #define FLOW_TX		2
- #define FLOW_AUTO	(FLOW_TX | FLOW_RX)
- 
--/* PCS defines */
--#define STMMAC_PCS_SGMII	(1 << 1)
--
- #define SF_DMA_MODE 1		/* DMA STORE-AND-FORWARD Operation Mode */
- 
- /* DMA HW feature register fields */
-@@ -632,7 +629,6 @@ struct mac_device_info {
- 	unsigned int unicast_filter_entries;
- 	unsigned int mcast_bits_log2;
- 	unsigned int rx_csum;
--	unsigned int pcs;
- 	unsigned int num_vlan;
- 	u32 vlan_filter[32];
- 	bool vlan_fail_q_en;
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index f0160ff54a59..7b5ba672cc0e 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -946,11 +946,8 @@ static struct phylink_pcs *stmmac_mac_select_pcs(struct phylink_config *config,
- 			return pcs;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+index cb1c074c2053..f4b63544895e 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+@@ -828,6 +828,7 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
+ 	if (ethqos->serdes_phy) {
+ 		plat_dat->serdes_powerup = qcom_ethqos_serdes_powerup;
+ 		plat_dat->serdes_powerdown  = qcom_ethqos_serdes_powerdown;
++		plat_dat->flags |= STMMAC_FLAG_SERDES_SUPPORTS_2500M;
  	}
  
--	/* The PCS control register is only relevant for SGMII, TBI and RTBI
--	 * modes. We no longer support TBI or RTBI, so only configure this
--	 * register when operating in SGMII mode with the integrated PCS.
--	 */
--	if (priv->hw->pcs & STMMAC_PCS_SGMII && priv->integrated_pcs)
-+	if (priv->integrated_pcs &&
-+	    test_bit(interface, priv->integrated_pcs->pcs.supported_interfaces))
- 		return &priv->integrated_pcs->pcs;
- 
- 	return NULL;
-@@ -1209,7 +1206,6 @@ static void stmmac_check_pcs_mode(struct stmmac_priv *priv)
- 
- 	if (priv->dma_cap.pcs && interface == PHY_INTERFACE_MODE_SGMII) {
- 		netdev_dbg(priv->dev, "PCS SGMII support enabled\n");
--		priv->hw->pcs = STMMAC_PCS_SGMII;
- 
- 		switch (speed) {
- 		case SPEED_10:
+ 	/* Enable TSO on queue0 and enable TBS on rest of the queues */
 -- 
 2.47.3
 
