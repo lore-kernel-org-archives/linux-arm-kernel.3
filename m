@@ -4,105 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60739EA855A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 05:25:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7149EEA8557
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 05:30:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DUExVCyNdG5YpObz2nxsxQo/pWFxavqjeF1Iya74LKQ=; b=SVSEsSqpslaBhoOkqCbaOuXZHx
-	tJKxby2JFRVYP3jtRrnExlBz5MVkttFPivdRIJFmgobf1C4J4jbDbqpkljFj0xVjq15lSEaz6jqjR
-	BjFaK7RaY2Y1zJzFSv/rIRSHohmdGR/AlOlCUTN1qwQ2IBU601Dzkb3IMJEq1JD+AAnRPhZcLMofA
-	mLFF7wcPKJFUG5/4Kxj37rjMmxGwRc4bOCRr7lOcWz7nbU8eYjd3efADsqpU00xjRftOconJAwFWx
-	rcSTc8qvITOp3EyYuOhsK9dogyB2BNXlh3AlNY3rAKSlz17kwk8HadngI/NPqODJgT9w+zs+TZV3S
-	j33UhUsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PNeD+GDRfvfC163fk97XXvGbw+Jo2OUnbtzurN4RsaA=; b=EVhws0ShELdQ93xie70BPyPv2A
+	40ww9R2JlB5Vxxjv8IWNBrIuuLI9JPRgm35KNHvmB6kbfmmHytcTUbHBUDm8e3J3Kw+P3agmo/8OC
+	S1Hkuijeh1fTPX1rV5tDuXmrxtl5MvjO9EM8a9swtnLTE2n1ArEMvyMvYFuzYH2nEj074UX4nJGFE
+	T7Rgg4ajTqKaDecagTsx/Hgscbc8qie9OJg0WsbYaHp+L6yzZJyhLteBrj8FQYXsMyHNyjyHB5mdG
+	ECRqsQn9rx5psjNLPId9+dgTmLx5rE7ZQo3ZpTbVh5pR+KRKlpgHqQN6QJDfIYcKJJJpu73CArfZU
+	fLqMh9gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzT7X-00000006gVD-3N9E;
-	Mon, 09 Mar 2026 05:25:35 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1vzTCK-00000006gkm-0Q1p;
+	Mon, 09 Mar 2026 05:30:32 +0000
+Received: from s106b.cyber-folks.pl ([195.78.66.88])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzT7S-00000006gUA-0jnI
+	id 1vzTC6-00000006gjg-3ZqX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 05:25:34 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-5a12cc20e71so3840764e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 08 Mar 2026 22:25:29 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773033928; cv=none;
-        d=google.com; s=arc-20240605;
-        b=EHOmygWm5DR/zw+n2PRfGtBUN51K/mfdT1bzn+Z9DAFU60rrCmuxGX6hGVGG3arpy4
-         9YpxkCJhCDFQcrSN37OOMGPeNy7IfTE40ZAE059kGCTrEnn3tuU1IDjtqVFKHsqBvgSo
-         CYVAojw5iexm28ESiEb7oTOJN3IohQIsAsHSLfUYDHArNcHYNL/UG+r9rlChueef8YNa
-         kUq9caTPmaWuGr3z1h463M9LT2TZruQd8NMXVWvW3YdSxJPFPOjJuIcRlZstbRfGgsGx
-         GwghvguXJ2Q9KQgKuGZGuqhHQ9bfU0yS/olVyEObbq2nOLJWtMV6cplL1VZRJQXvqGbz
-         2ioA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=DUExVCyNdG5YpObz2nxsxQo/pWFxavqjeF1Iya74LKQ=;
-        fh=WFLXl/FPosxiM9m0gat9GGuRis4dSj7IOwE0GhOzSUc=;
-        b=OWRT6hzh0lXSQGltvrqiL5iMbGpk15x91oCDZ3nFmUZKrYgADGf5FGzG1uurIhAaqr
-         QWtvq+s5lwqG6fNEXAfFN39Nd88uuV4/VEX7B40L/F9uq92w3RNUgvMQipjTL6eUW2vj
-         LAlxuu4PRYaR07gzMFZ+65lJlijzv8n9S2aIHVL61aRBX/zjXJQnZ6gLkvPMcZO+VpAa
-         flEA2NnnTFR0gbZqdEZkD6IKe8C3PJ12nN8YdaB4Y30PIJl23ttDbXQofBAnOQ6Vx+lL
-         1LeDIJ+ANSpRTtsPckMhU5alrzJxb4bW4fm0Q/SCINL8yAarCjGBCAaBNiBdVdO8X+MK
-         fctA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1773033928; x=1773638728; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DUExVCyNdG5YpObz2nxsxQo/pWFxavqjeF1Iya74LKQ=;
-        b=XAE8oOP1LGUmEqTPdHOZmVIijoCkUNkxoy5TlTSI6q1JDELDg2IQ4bvTDETs8del7x
-         zfLtXG86aEnKVxj6xB8I4geBKEdMiFTfSU9348mH9J3KeeJgTb7dVJLA9JkSeBV67pTo
-         SfOqnz7RTpJJIc4KeaJN0ykY+OzDkkmu8a3uE=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773033928; x=1773638728;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=DUExVCyNdG5YpObz2nxsxQo/pWFxavqjeF1Iya74LKQ=;
-        b=gvOYUtVovR3C3aMdkXvwGEejOrGftg2o9whBzkQOPGcIzlxWl3sJwVErWjpq7UEV04
-         Rt9PNl+0l3lBZpDAw2cPVOMJNZuEwYDI/BCj9veGEdhrTFhsU/TSD3pRmHBe6zEStgFV
-         xWbWyIP6ONEH2bM6OBXZBcfZsHnXMCd6un9NoHEAYKuMBeruiKvNN63wngdeomlvrLx2
-         Nbidyv0u7TV/axor9QCkLE0p9GnttK6jZuaCmp+yMJ+Oa9syg2kZvhDw0Wsw49Be3JGm
-         Az5pL/DwVu6YhkJgMMqIp0z3tL89sggRhV84NDpGuML9EmCEHRfOZJ+QGxp9b359fwB8
-         UDYA==
-X-Forwarded-Encrypted: i=1; AJvYcCW2OltoJswf/TI1cyftBudgfxsHbGHZQ5vzoQUA6DtU2gKz38hNIsrsw2EEdJvrYEck8jcEPQyQh5yZ0WLSc+gb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxjpp9nnXqm9Xh9VOQT+3KMiSg9Gy6pkV2IPdlwvLVXibyq9M87
-	x6r/iUAy1EFc8WvHXuHbNa51zk/kJG+GgQzmzHEaySavjiI4jmPprcNRi3W/7GNyZwa9PdI7SZg
-	V/PD+322L0e3d9W9u9DVoGDOTbuCdJ4GJa/C8FKwd
-X-Gm-Gg: ATEYQzx5dnDeBjnnDkCGCCMWHrq+Wq2MWufBuqRBdOg+odO+FCwqnf4udv3YoO8p+eg
-	IfiQs17LcG/M6Rbee0pf5jb1gw8WgwS0aoP8dMaXTHrF+ojUkEE5rJauaIK3MDTGhZkcA8UsD8j
-	FmxeMSEoBiX52wT/c6858NirbJmW7jnes9v/Ur1NI4VgVFIXDbak7bwegjCwaUifDGwgp8ir4CA
-	l4BxTyz3Fmipk5l26s/FXeSZflfdk5qVOdvbi7YAQH1VqKWxNt7qgVl2/QlxO2XkBLU9KzyEyko
-	gaDdxA0xokW8VNv4DVuKx7QRJSFC3IBHIMwCPXHJhXpadJRl
-X-Received: by 2002:a05:6512:1554:10b0:5a1:3f54:b3db with SMTP id
- 2adb3069b0e04-5a13f54b53bmr1623132e87.8.1773033928040; Sun, 08 Mar 2026
- 22:25:28 -0700 (PDT)
+	Mon, 09 Mar 2026 05:30:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=mmpsystems.pl; s=x; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=PNeD+GDRfvfC163fk97XXvGbw+Jo2OUnbtzurN4RsaA=; b=f0eOdXQyFKMkguvkn34E3Xua0g
+	Bb1HoHUvOp6/i0mokX4C1D2tti8SZSeNi/F8NVTGZtj9uQBnydmZ2mVd4TbKXdCnZTCbngSj3tBAX
+	DhnRXbNsdmi1RzlCSshHcHo3OhkrcddJLsyxmP+WUKGB7n6o4zIukG9CaUT+tRCeC6OQYh2lursuZ
+	gqcXU43yidC6ZrXTQ/dXtXtJS2bdoWNKqEZyTLOUCpvlC5tUBIPcPcPk5JuJkIedMrs6zUm++tlB0
+	hYfPxgsDLaQiY+QOIF5w8UZFuHrK8qgE6iVezAUE9LlBbFdmPLc78lAUq0Hk5IitGGu66gVdY1wY0
+	EM8EpBrA==;
+Received: from user-5-173-16-20.play-internet.pl ([5.173.16.20] helo=localhost)
+	by s106.cyber-folks.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <michal.piekos@mmpsystems.pl>)
+	id 1vzTC4-00000009tKp-24g7;
+	Mon, 09 Mar 2026 06:30:16 +0100
+Date: Mon, 9 Mar 2026 06:29:38 +0100
+From: Michal Piekos <michal.piekos@mmpsystems.pl>
+To: Chen-Yu Tsai <wens@kernel.org>
+Cc: Linus Walleij <linusw@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Andrey Skvortsov <andrej.skvortzov@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Andre Przywara <andre.przywara@arm.com>, devicetree@vger.kernel.org, 
+	Bartosz Golaszewski <brgl@kernel.org>
+Subject: Re: [PATCH v2] pinctrl: sunxi: fix gpiochip_lock_as_irq() failure
+ when pinmux is unknown
+Message-ID: <jbxovdxkqgg7jnbryzvtrk2df4cgtzee3f6deqxu47nruotaau@254vefkw2gxk>
+References: <20260308-rc2-boot-hang-v2-1-516fdb820953@mmpsystems.pl>
+ <CAGb2v67FO1bt3yee2SXn1LTt7O10z1EHHw7F0xQ0bKbpUqch4w@mail.gmail.com>
 MIME-Version: 1.0
-References: <20260304181024.738391-1-akkun11.open@gmail.com> <20260304181024.738391-2-akkun11.open@gmail.com>
-In-Reply-To: <20260304181024.738391-2-akkun11.open@gmail.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Mon, 9 Mar 2026 13:25:17 +0800
-X-Gm-Features: AaiRm50OIiHuDB6An0GfjyAzF0gVfkfGW4EfH-a3Pnq4RMgefi_HoUtnuYAX_9Q
-Message-ID: <CAGXv+5HnCqNsQxnW0oKV52A9xYVQg-ur018S3=TzhVR2Jhfqzw@mail.gmail.com>
-Subject: Re: [PATCH 1/3] clk: mediatek: clk-mtk: Add cpumux support to common
- probe/remove helpers
-To: Akari Tsuyukusa <akkun11.open@gmail.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, matthias.bgg@gmail.com, 
-	angelogioacchino.delregno@collabora.com, linux-clk@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAGb2v67FO1bt3yee2SXn1LTt7O10z1EHHw7F0xQ0bKbpUqch4w@mail.gmail.com>
+X-Authenticated-Id: michal.piekos@mmpsystems.pl
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260308_222530_900652_C4935336 
-X-CRM114-Status: UNSURE (   8.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260308_223024_753385_E57A9125 
+X-CRM114-Status: GOOD (  36.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,14 +83,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 5, 2026 at 2:11=E2=80=AFAM Akari Tsuyukusa <akkun11.open@gmail.=
-com> wrote:
->
-> Extend __mtk_clk_simple_probe() and __mtk_clk_simple_remove() to support
-> cpumux clocks. This reduces boilerplate code in drivers for SoCs that
-> require cpumux registration, such as mt6795-infracfg.
->
-> Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
+On Sun, Mar 08, 2026 at 10:06:42PM +0800, Chen-Yu Tsai wrote:
+> On Sun, Mar 8, 2026 at 9:42 PM Michal Piekos
+> <michal.piekos@mmpsystems.pl> wrote:
+> >
+> > Fixes kernel hang during boot due to inability to set up IRQ on AXP313a.
+> >
+> > The issue is caused by gpiochip::get_direction() which was returning
+> > -ENODEV when gpio is in unitialized state.
+> >
+> > Instead of failing when the current muxval is at default value, report
+> > the line as input.
+> 
+> I don't really like this "fix". It's really lying.
+> 
+> Also, this problem only occurs if the interrupt is taken directly using
+> the DT "interrupts" property, as that mostly bypasses the GPIO subsystem,
+> especially the gpio request part.
+> 
+> If the consumer does gpiod_request() followed by gpiod_to_irq(), then
+> the pin is already muxed to either one of the GPIO functions and this
+> won't error out.
+> 
+> I also found that if the interrupt is taken directly through the device
+> tree, the pin itself is not locked out (like for GPIOs, on sunxi we also
+> don't do pinctrl settings for pins used for interrupts).
+> 
+> I think the proper fix would be to somehow be able to request the pin
+> as GPIO if it hasn't been requested already. And then either
+> sunxi_pinctrl_irq_request_resources() can use that to request the pin
+> and mux the pin before calling gpiochip_lock_as_irq().
+> 
+> Hope Linus and Bartosz have some suggestions.
+> 
+> 
+> Thanks
+> ChenYu
+> 
 
-Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
+I will prepare new version with your suggestion.
+
+Michal
+
+> 
+> > Tested on Orange Pi Zero 3.
+> >
+> > Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
+> > Suggested-by: Andrey Skvortsov <andrej.skvortzov@gmail.com>
+> > ---
+> > This fixes a kernel hang during boot on the Orange Pi Zero 3 caused by
+> > inability to set up interrupt for the AXP313A PMIC.
+> >
+> > The issue is caused by gpiochip::get_direction() which was returning
+> > -ENODEV when gpio is in unitialized state and its muxval is at default
+> > value.
+> >
+> > Instead of failing, report the line as input.
+> >
+> > To: Rob Herring <robh@kernel.org>
+> > To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> > To: Conor Dooley <conor+dt@kernel.org>
+> > To: Chen-Yu Tsai <wens@kernel.org>
+> > To: Jernej Skrabec <jernej.skrabec@gmail.com>
+> > To: Samuel Holland <samuel@sholland.org>
+> > To: Andre Przywara <andre.przywara@arm.com>
+> > To: Linus Walleij <linusw@kernel.org>
+> > Cc: devicetree@vger.kernel.org
+> > Cc: linux-arm-kernel@lists.infradead.org
+> > Cc: linux-sunxi@lists.linux.dev
+> > Cc: linux-kernel@vger.kernel.org
+> > Cc: linux-gpio@vger.kernel.org
+> >
+> > Changes in v2:
+> > - Dropped the previous faulty solution which was forcing the axp313 to
+> >   use r_pio as interrupt controller as pointed out by Jernej Škrabec.
+> > - Implemented suggestion from Andrey Skvortsov to return default
+> >   direction as input
+> > - Link to v1: https://lore.kernel.org/r/20260308-rc2-boot-hang-v1-0-d792d1a78dfd@mmpsystems.pl
+> > ---
+> >  drivers/pinctrl/sunxi/pinctrl-sunxi.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> > index c990b6118172..e438cf35ff28 100644
+> > --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> > +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> > @@ -971,7 +971,7 @@ static int sunxi_pinctrl_gpio_get_direction(struct gpio_chip *chip,
+> >
+> >         func = sunxi_pinctrl_desc_find_function_by_pin_and_mux(pctl, pin, muxval);
+> >         if (!func)
+> > -               return -ENODEV;
+> > +               return GPIO_LINE_DIRECTION_IN;
+> >
+> >         if (!strcmp(func->name, "gpio_out"))
+> >                 return GPIO_LINE_DIRECTION_OUT;
+> >
+> > ---
+> > base-commit: 4ae12d8bd9a830799db335ee661d6cbc6597f838
+> > change-id: 20260308-rc2-boot-hang-269e8546635b
+> >
+> > Best regards,
+> > --
+> > Michal Piekos <michal.piekos@mmpsystems.pl>
+> >
+> >
 
