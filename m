@@ -4,56 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 856E8FCA17E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 19:41:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A85DFCA17E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 19:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TqSEwB6ftB6EChAdYtUSEYjrVcG+vsVX3U1TnmfLdZE=; b=LKG3GQJs1ne9v86F4vfx0dglP3
-	lc9fUtUXPbqBazQKt6vbW6lHGAgnsCPmnm6IO1qQQeo7DCoYAUwriZrwLG6zaO4YFbw+jmnba5XrA
-	nMxbnQL9DfrK/MXTaFA+b3j9e5U2sVBG4DcYI17XEf9zyzm++n3CCDI+okaM0+Mmh6elpmM8a290a
-	5prtuYxP6unKkct6l8yDlIV+BqIlJgALc9YhMWxxBpoNOKYHY8q9dRcVhzZCSUgJnQ/EeSypuBjA5
-	6MqbSwk9AfhTysDYUrQL7sXWpXSQh6kViJYDebbQtwKPJbijfWz7bYg4jhnjSwmwIOJdVf6G61U5Z
-	Bubbm1qg==;
+	bh=aAmcXWlI8Mr9sTH5PMSRTMe1lFI2sZP4CAoxZHDW6UQ=; b=uMHEKmjgFXR5i+n40sXNaLTlvp
+	QqnCNjGt08iMuOPlM1MoTve02FShBrNI8hQuJH4ykHElr7oPoVLCUObo2KYoQjcBdaUoCNKYEOary
+	l81YqtNsT6h27P7oBA1NlZMc/jpsYx1G/RuDN5tlh9JRNXoGwHqVUj1Tj35oWW2kCO69aYE+nlK+1
+	c/T17yLgl/xDnsKlDIJat1ziUTveO3hPDsz75kQq4cNaxhiuHPrekFDDZNsy9KgfZ9sDxlWla075T
+	rvi8ZY8zX4ysavmT5E/v1+0jyG1pqizKMGtQTxx+0+Qgn9dPMHJsxAgcnVwAm5F0mMqzv6UF+qn4Y
+	6FGtMMkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzgTH-000000084UN-33xO;
-	Mon, 09 Mar 2026 19:40:55 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vzgaz-000000084rT-0neH;
+	Mon, 09 Mar 2026 19:48:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzgTF-000000084TN-0inS;
-	Mon, 09 Mar 2026 19:40:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=TqSEwB6ftB6EChAdYtUSEYjrVcG+vsVX3U1TnmfLdZE=; b=D+Tb9Ckm3akoSkL/fOwXmDknrd
-	NU3bx2vX9RW2gSfQNPT61jNCz2IYx6othdpqaycogPnwHqhkNtqjlR5tnB6Pn3+vvIm/0uZqY+5UI
-	U3pVwNRRE7Lj2VKGlq+HiPCKSROJCC3pyBKqiaif5nSNODbcRcReIQFlFcMWU6TlLFiy1Gihl1Y8s
-	9xXzTEl+VEH2gbI1pSMBFurZb/SvbaboxcCSuwVrxEITTTLIH6oLVv8SifuQiUm8iabS0dR7hPM3E
-	+qcpGaluXDqKLy5jxYjIT/hbHW0ZU/MJCKcRmwaGUzDok8MR9+Rfm8lKItnVuMfJsTQ6BOnFVZNYk
-	uGYvoKcg==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: jonas@kwiboo.se, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Fabio Estevam <festevam@nabladev.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v5 1/4] dt-bindings: soc: rockchip: grf: Add RV1103B compatibles
-Date: Mon, 09 Mar 2026 20:40:40 +0100
-Message-ID: <1996728.taCxCBeP46@phil>
-In-Reply-To: <CAOMZO5CNB25j=JoK6C7CGsXFq5Vg2j=nfrbaL163qjeWYa4J5g@mail.gmail.com>
-References: <20260216010219.2131484-1-festevam@gmail.com>
- <CAOMZO5CNB25j=JoK6C7CGsXFq5Vg2j=nfrbaL163qjeWYa4J5g@mail.gmail.com>
+	id 1vzgax-000000084r9-408f;
+	Mon, 09 Mar 2026 19:48:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 107BD60054;
+	Mon,  9 Mar 2026 19:48:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06832C2BC87;
+	Mon,  9 Mar 2026 19:48:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773085730;
+	bh=hLn046K7Bbtakbf/CSH1PdqAYCPfjzoSWSGucaaZ4zc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZEU2OqxKE4K4U2w0B0f0ZnSiumP9hTWhEYqMesO6/EeglKejq+0Fs3FlFQO1YYmag
+	 zx5jQOmymPt32QKibei5WQbnchlYAB6bGaDVr/0L+r3ixSUOjBo6HkHRO/2iM7pEAE
+	 X/wDSsYOZpiniiTg8LypoTl1ToihM37nGPn8hQBMmvwBiY/H/sgeGAH3Pg1HoMvNU3
+	 3u0dWnoRjgxj0mxfPM7nUSzbxyW5CU9C2dD7bJ+ek0ukm/HnKkdKO6cpGK7Z6NNCQz
+	 p8G28iQ3UEGfOWFk1rXgaYzTg2hduLXtjgcCPbuNaWoq1s4KyJU+FWOr3y9qjjyGFr
+	 j8fIJW5b2a3yw==
+Date: Mon, 9 Mar 2026 20:48:47 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: airoha: en7581: Add switch node to to EN7581
+ SoC
+Message-ID: <aa8kH8_4NO3y2zeJ@lore-desk>
+References: <20260309-airoha-7581-dsa-switch-v1-1-448530b7f91f@kernel.org>
+ <a9638d70-c474-4c03-b57c-5c15e9ef273e@lunn.ch>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_124053_291971_4D27DB2A 
-X-CRM114-Status: GOOD (  11.67  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="84AudNwnjjFunWL9"
+Content-Disposition: inline
+In-Reply-To: <a9638d70-c474-4c03-b57c-5c15e9ef273e@lunn.ch>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,39 +75,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fabio,
 
-Am Montag, 9. M=C3=A4rz 2026, 15:57:17 Mitteleurop=C3=A4ische Normalzeit sc=
-hrieb Fabio Estevam:
-> On Sun, Feb 15, 2026 at 10:02=E2=80=AFPM Fabio Estevam <festevam@gmail.co=
-m> wrote:
-> >
-> > From: Fabio Estevam <festevam@nabladev.com>
-> >
-> > Add the PMU GRF and IOC compatible strings for the RV1103B SoC.
-> >
-> > Signed-off-by: Fabio Estevam <festevam@nabladev.com>
-> > Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+--84AudNwnjjFunWL9
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+> > +				gsw_phy1: ethernet-phy@1 {
+> > +					compatible =3D "ethernet-phy-ieee802.3-c22";
+> > +					reg =3D <9>;
 >=20
-> I'm sorry to bother you, but can you please let me know if you are
-> happy with this series?
+> The @1 should match the reg value. So this is wrong.
 
-At least the uart compatible "rockchip,rv1103b-uart" is not yet visible
-in next [0]. Last I remember, you were asked to re-send that binding
-separately.
+ack, I will fix it in v2.
 
-Similarly, please also create a binding patch for the watchdog [1].
+>=20
+> > +					phy-mode =3D "internal";
+>=20
+> phy-mode is actually a MAC property, not a PHY property. It is not
+> listed in
+> Documentation/devicetree/bindings/net/ethernet-phy.yaml. Which also
+> suggest this has not been tested using the DT validation tools.
 
+ack, right. I guess this just a leftover of a previous implementation, I wi=
+ll
+remove it in v2. Anyway I compiled the dts with the command below:
 
-Heiko
+$make CHECK_DTBS=3Dy W=3D1 airoha/en7581-evb.dtb
 
+Regards,
+Lorenzo
 
+>=20
+> 	Andrew
+>=20
 
-[0] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tre=
-e/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tre=
-e/Documentation/devicetree/bindings/watchdog/snps,dw-wdt.yaml#n20
+--84AudNwnjjFunWL9
+Content-Type: application/pgp-signature; name=signature.asc
 
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaa8kHwAKCRA6cBh0uS2t
+rGw+APoDgNAVNaQq61XtrlM++fJOEhoVovfOQwUr54rfo6BNcwD8DwS4HIbPsbVx
+sKWaXxv0PB5hdpZk63vRIclsFxBBVQs=
+=UIg7
+-----END PGP SIGNATURE-----
 
+--84AudNwnjjFunWL9--
 
