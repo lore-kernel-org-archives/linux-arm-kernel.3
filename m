@@ -4,90 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 249CDEFCD6D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 09:23:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E49AFEFCD6D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 09:23:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rj2ktCp1iqm1uh0Yv7MkjHprk28OEL5B2GGopfX9QQA=; b=GcQX2EPkb6SJ9bwAfEOi0adJLN
-	0mr32Vvq4I1PxYRrtscO68GCsF2nooCKBldjW7CL0vm6h+TXGrmiGqIB3pnJ+o9ffjlSuGbKQovoP
-	yiDx6pRO4RJGY+r8jQTJTXFZ2OFXAFJIxazlrY4ufiKVx0hAjyMPJHEBOYHD2Wq4dlShWABVpKtgL
-	geRXxMKn/xSYEXLCUUyvZXNR62y8UwKt+fdyB4MMVGhpreHQj+okk+NZ4v0uTb+s8nCipNuWMl1sE
-	/osSILzgnmt0ITrQzHMiIzcGWeVGaNFn4VFyScdjLaV9Q5YXsKFdAldUp/75Q1gefzIm/f9opVtvR
-	9MdNSf3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DFjvF6ANCaUypXQZWwGugidl1LIo9umNiCQTrHapw/E=; b=jzO5WVowcXc0nR5h8pgty4oMC6
+	03mvuTZWW+MCZBkhmCvejudS5UChRPpo1aVc/khR7HqgmcV5Mqd6wr54UUtxT8JRmILCUNF8/ab9t
+	OPHz2NiPHa1GyJmxPs9M8njqsl0B1AAlVupNz8CsJqfDmEc8iXM7LY+2KooMt9HGQhoMiwd7ioCgm
+	pTSgdYWf8HuXSeqIvL5e4P/lWNknlYQnzhWZyzZl76j5AHK7bcw+Vy/oeKzhsaIHxHekVAdb/ESQx
+	6YZpw6+YC8Hp5auXSdT8mlOriTffQ2XwJVeH9NoCEBSd1lWrT5jzoPIIzrQUCWWlictusjm/PgU+5
+	Q6n+iQtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzWpa-00000006xok-2HEb;
-	Mon, 09 Mar 2026 09:23:18 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
+	id 1vzWpv-00000006xrg-3yZk;
+	Mon, 09 Mar 2026 09:23:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzWpX-00000006xoH-0EA1
+	id 1vzWpt-00000006xqw-0sJV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 09:23:17 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.177])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4fTs4F01ZfzKHMsg
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  9 Mar 2026 17:22:53 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id 8043340590
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  9 Mar 2026 17:23:06 +0800 (CST)
-Received: from [10.67.111.192] (unknown [10.67.111.192])
-	by APP4 (Coremail) with SMTP id gCh0CgBHIUxuka5pnygTAQ--.6481S2;
-	Mon, 09 Mar 2026 17:22:54 +0800 (CST)
-Message-ID: <3b2d9b4b-099c-411f-9bc7-b4cbd11f01ee@huaweicloud.com>
-Date: Mon, 9 Mar 2026 17:22:54 +0800
+	Mon, 09 Mar 2026 09:23:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D73D34362D;
+	Mon,  9 Mar 2026 09:23:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC431C4CEF7;
+	Mon,  9 Mar 2026 09:23:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773048214;
+	bh=HdpYv+AK/YGT3wtX9pT1P3XlHW6w2YeAT+IqCsoGv0s=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=hVoNSA6VbeUuOvEG/YRgGoQiIZ14lpU77V6B1mvJhk/nFVFKx9hcsVlGxBF2N/gwf
+	 xc2YpBcFA0BeItIW0YP1PQano5iDKE84YGZ8/Ki+izwCfu98+Pnqrolkv4SjPKT15v
+	 mXIv6Nf4GrhBbpMA/3JHI81W+mDbkShlX0ApQaoI+i1P/QpU4W3JwzBVToVDPOb5Cd
+	 CrF1FcH3OGqlAleb8yIczwiMoM8y9nDA05Si4T9Qz65xRwWIVe6E+k1itqqzUm+KEZ
+	 tychkPaNiQlcquXMPOY0uANFx5DKElbbLnh92GcRPqy98Dr/rZhkzK+E2j1javF4Ry
+	 w+UNDjKzdUAfg==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, Frank Li
+ <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam
+ <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>, Adrian Hunter
+ <adrian.hunter@intel.com>, Shawn Guo <shawnguo@kernel.org>, Lucas Stach
+ <l.stach@pengutronix.de>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mmc@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, s32@nxp.com, Christophe Lizzi
+ <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>, Enric Balletbo
+ <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>, Ciprian Marian
+ Costea <ciprianmarian.costea@oss.nxp.com>, Larisa Grigore
+ <larisa.grigore@nxp.com>
+Subject: Re: [PATCH v4 5/8] irqchip/imx-irqsteer: add NXP S32N79 support
+In-Reply-To: <20260306161555.9000-6-ciprianmarian.costea@oss.nxp.com>
+References: <20260306161555.9000-1-ciprianmarian.costea@oss.nxp.com>
+ <20260306161555.9000-6-ciprianmarian.costea@oss.nxp.com>
+Date: Mon, 09 Mar 2026 10:23:31 +0100
+Message-ID: <87jyvls6ek.ffs@tglx>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [bpf-next v7 1/5] bpf: Move constants blinding from JIT to
- verifier
-Content-Language: en-US
-To: kernel test robot <lkp@intel.com>, bpf@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
- <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>,
- Yonghong Song <yonghong.song@linux.dev>, Puranjay Mohan
- <puranjay@kernel.org>, Anton Protopopov <a.s.protopopov@gmail.com>,
- Shahab Vahedi <list+bpf@vahedi.org>, Russell King <linux@armlinux.org.uk>,
- Tiezhu Yang <yangtiezhu@loongson.cn>, Hengqi Chen <hengqi.chen@gmail.com>,
- Johan Almbladh <johan.almbladh@anyfinetworks.com>,
- Paul Burton <paulburton@kernel.org>, Hari Bathini <hbathini@linux.ibm.com>,
- Christophe Leroy <chleroy@kernel.org>, Naveen N Rao <naveen@kernel.org>,
- Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
- Pu Lehui <pulehui@huawei.com>, Ilya Leoshkevich <iii@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- "David S . Miller" <davem@davemloft.net>, Wang YanQing <udknight@gmail.com>
-References: <20260307103949.2340104-2-xukuohai@huaweicloud.com>
- <202603071836.igZbCyrE-lkp@intel.com>
-From: Xu Kuohai <xukuohai@huaweicloud.com>
-In-Reply-To: <202603071836.igZbCyrE-lkp@intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: gCh0CgBHIUxuka5pnygTAQ--.6481S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxGFWfCrW7uw4DtF1rKw1Utrb_yoW5KFW7pa
-	y8Wr9Ikr4qqr1I939rKr4kCFn8t395Jw13K3WUu34rCFsrZFZrGFyxK3yavFya9r95G3yS
-	qrZxZ3s7t34DGa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvFb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
-	14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
-	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWrXVW8
-	Jr1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7
-	CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AK
-	xVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvj
-	xU4R6zUUUUU
-X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_022315_532040_024B3536 
-X-CRM114-Status: GOOD (  17.29  )
+X-CRM114-CacheID: sfid-20260309_022337_296635_5B5C50D7 
+X-CRM114-Status: GOOD (  14.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,94 +83,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/8/2026 1:08 AM, kernel test robot wrote:
-> Hi Xu,
-> 
-> kernel test robot noticed the following build errors:
-> 
-> [auto build test ERROR on bpf-next/master]
-> 
-> url:    https://github.com/intel-lab-lkp/linux/commits/Xu-Kuohai/bpf-Move-constants-blinding-from-JIT-to-verifier/20260307-181538
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git master
-> patch link:    https://lore.kernel.org/r/20260307103949.2340104-2-xukuohai%40huaweicloud.com
-> patch subject: [bpf-next v7 1/5] bpf: Move constants blinding from JIT to verifier
-> config: x86_64-kexec (https://download.01.org/0day-ci/archive/20260307/202603071836.igZbCyrE-lkp@intel.com/config)
-> compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260307/202603071836.igZbCyrE-lkp@intel.com/reproduce)
-> 
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202603071836.igZbCyrE-lkp@intel.com/
-> 
-> All errors (new ones prefixed by >>):
-> 
->>> kernel/bpf/verifier.c:23100:9: error: call to undeclared function 'bpf_jit_blind_constants'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
->      23100 |                 err = bpf_jit_blind_constants(env);
->            |                       ^
->     1 error generated.
->
+On Fri, Mar 06 2026 at 17:15, Ciprian Costea wrote:
+> +/* SoC does not implement the CHANCTRL register */
+> +#define IRQSTEER_QUIRK_NO_CHANCTRL	BIT(0)
+> +
+> +struct irqsteer_devtype_data {
+> +	u32 quirks;
+> +};
+> +
+>  struct irqsteer_data {
+>  	void __iomem		*regs;
+>  	struct clk		*ipg_clk;
+> @@ -37,8 +44,22 @@ struct irqsteer_data {
+>  	struct irq_domain	*domain;
+>  	u32			*saved_reg;
+>  	struct device		*dev;
+> +	const struct irqsteer_devtype_data *devtype_data;
 
-oops, it's not defined when CONFIG_BPF_JIT is not enabled
+The struct was perfectly tabular formatted before....
 
-> 
-> vim +/bpf_jit_blind_constants +23100 kernel/bpf/verifier.c
-> 
->   23087	
->   23088	static int fixup_call_args(struct bpf_verifier_env *env)
->   23089	{
->   23090	#ifndef CONFIG_BPF_JIT_ALWAYS_ON
->   23091		struct bpf_prog *prog = env->prog;
->   23092		struct bpf_insn *insn = prog->insnsi;
->   23093		bool has_kfunc_call = bpf_prog_has_kfunc_call(prog);
->   23094		int i, depth;
->   23095	#endif
->   23096		int err = 0;
->   23097	
->   23098		if (env->prog->jit_requested &&
->   23099		    !bpf_prog_is_offloaded(env->prog->aux)) {
->   23100			err = bpf_jit_blind_constants(env);
->   23101			if (err)
->   23102				return err;
->   23103			err = jit_subprogs(env);
->   23104			if (err == 0)
->   23105				return 0;
->   23106			if (err == -EFAULT)
->   23107				return err;
->   23108		}
->   23109	#ifndef CONFIG_BPF_JIT_ALWAYS_ON
->   23110		if (has_kfunc_call) {
->   23111			verbose(env, "calling kernel functions are not allowed in non-JITed programs\n");
->   23112			return -EINVAL;
->   23113		}
->   23114		if (env->subprog_cnt > 1 && env->prog->aux->tail_call_reachable) {
->   23115			/* When JIT fails the progs with bpf2bpf calls and tail_calls
->   23116			 * have to be rejected, since interpreter doesn't support them yet.
->   23117			 */
->   23118			verbose(env, "tail_calls are not allowed in non-JITed programs with bpf-to-bpf calls\n");
->   23119			return -EINVAL;
->   23120		}
->   23121		for (i = 0; i < prog->len; i++, insn++) {
->   23122			if (bpf_pseudo_func(insn)) {
->   23123				/* When JIT fails the progs with callback calls
->   23124				 * have to be rejected, since interpreter doesn't support them yet.
->   23125				 */
->   23126				verbose(env, "callbacks are not allowed in non-JITed programs\n");
->   23127				return -EINVAL;
->   23128			}
->   23129	
->   23130			if (!bpf_pseudo_call(insn))
->   23131				continue;
->   23132			depth = get_callee_stack_depth(env, insn, i);
->   23133			if (depth < 0)
->   23134				return depth;
->   23135			bpf_patch_call_args(insn, depth);
->   23136		}
->   23137		err = 0;
->   23138	#endif
->   23139		return err;
->   23140	}
->   23141	
-> 
+https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#struct-declarations-and-initializers
 
+>  };
+>  
+> +static const struct irqsteer_devtype_data imx_data = {
+> +	.quirks = 0,
+> +};
+> +
+> +static const struct irqsteer_devtype_data s32n79_data = {
+> +	.quirks = IRQSTEER_QUIRK_NO_CHANCTRL,
+> +};
+> +
+> +static bool irqsteer_has_chanctrl(const struct irqsteer_devtype_data *data)
+> +{
+> +	return !(data->quirks & IRQSTEER_QUIRK_NO_CHANCTRL);
+> +}
+> +
+>  static int imx_irqsteer_get_reg_index(struct irqsteer_data *data,
+>  				      unsigned long irqnum)
+>  {
+> @@ -188,6 +209,10 @@ static int imx_irqsteer_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		return ret;
+>  
+> +	data->devtype_data = device_get_match_data(&pdev->dev);
+> +	if (!data->devtype_data)
+> +		return dev_err_probe(&pdev->dev, -ENODEV,
+> +				"failed to match device data\n");
+
+No point for this line break. You have 100 characters. If you have the
+line break, then this needs curly brackets. See the bracket rules in the
+above linked document.
+
+>  static const struct of_device_id imx_irqsteer_dt_ids[] = {
+> -	{ .compatible = "fsl,imx-irqsteer", },
+> +	{ .compatible = "fsl,imx-irqsteer", .data = &imx_data },
+> +	{ .compatible = "nxp,s32n79-irqsteer", .data = &s32n79_data },
+
+Tabular layout please for readability sake.
+
+Thanks,
+
+        tglx
 
