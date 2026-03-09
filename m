@@ -4,67 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E597F4180E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 16:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0B93F4180E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 16:45:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mo5eyEf02gshc9EGdWQc9VluFss2+Rg8wVJmBxg5PIY=; b=JkadpJvlakA5wDY7ZPF3CArVRL
-	wU+TtbnaeDT7I1BPBnTmAPLRVinIqPB86aL6UOZemqwrKzvQyI3fAVONVz+k5ZDr5e59BZw5UBtAM
-	ZFu29x1LaBjKJ7uxPn3PLXj3RMKLKz5lh358aaJTysdhmsaKWsabcKnknUD6hfuhjEXADPFtJOqYk
-	4PGxsqwq3GrK1S+mNDCbetg5Pzp2ONIJ+I9c0n8+jfy/KqItI8884Lx5pV3CV3s1fEVNBkNHP1E5w
-	ux+f3ZqBmRnEXzy7uRoZQaUSNlcYDesJvWDS+sOJo46bylbvKz0uHU4nxzNbmux0AZJWHBBOlnowD
-	VpvUWo/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WhjtHnFf/hIxrVIQM+BrOpsPRKG1BIEFG+TyCXYeUa4=; b=uWTKn0fFvXgnfYH+EV1N1MDnTI
+	pDCc/v3TuxnzBGKEBDOrBLZZ0GViCEsGyV8kL3n/EDqHBVkKry9PhQupyTUujw9gURmBOyeEjMUFN
+	hm4wHaHWpjgDQGWeoKQ5mMslBn/igx6R208jK3HzIG1JKLzWVEJ1B3DP5et+pcu6qRhtWjjZuwheU
+	bIFpGNVfiPJ4k2sO6nIXpP6ZL35X6u3CDOzt0UJQBG3YltcoeoqbA2OfaOUBeLO45Rz+Uz56hYoqV
+	n4KpeROL1xqpgLrRhAnYTlONq32AXVssuOhfPV2DSyEaBVsUJS+R/Jc63rKvM8JhDjUwaG2m9D7sR
+	slNBX8Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzdUr-00000007jh8-2kjE;
-	Mon, 09 Mar 2026 16:30:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzdUn-00000007jfJ-41UK
+	id 1vzdjg-00000007krX-0Aru;
+	Mon, 09 Mar 2026 16:45:40 +0000
+Received: from mail-norwayeastazon11013050.outbound.protection.outlook.com ([40.107.159.50] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vzdje-00000007kqi-0RQt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 16:30:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D250D1570;
-	Mon,  9 Mar 2026 09:30:08 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5744C3F7BD;
-	Mon,  9 Mar 2026 09:30:10 -0700 (PDT)
-Message-ID: <b95077d7-c036-4a8f-8e42-8f1dc0288075@arm.com>
-Date: Mon, 9 Mar 2026 16:30:08 +0000
+	Mon, 09 Mar 2026 16:45:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hCdueGXF+yzy6eSmvxkuBotf/Lw/KH5LcPmTV2KrZz8TvHCUSylt7w2+me+ybv6z9I1sgouxgIcq6kp/rNzLYEM5WQgjzUjvFFLeHUUjYwEOyLedLN4e181yUW3Hi7ta8R3MPnI/jwCSote/Rqu/jY6HY/Qa4n9C+YerVvPIam3rkRlzVZVTNgsgW6tsKmJuChpujS7PrOxKkuQwTqPaNNGqyssbOA66GkfqZBvimDdezXls4x8OqqG4ZJfIaIFQOVMlVLFbZvQmnoUoT655JVYqhy3iNgWH+0uPdBlr1XRb6Nwt6dywaPFur9d7/5iDpUDkCG+X5OpzBaWI1ZBDMw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WhjtHnFf/hIxrVIQM+BrOpsPRKG1BIEFG+TyCXYeUa4=;
+ b=tK4L/87zFTGkV4p5AzE0nv5pinGqTbBoYAiAzo6Xejv8TUpeGsClBFN9kB1fnrBX1XIU5s6a32yo7HYKLRhs39equiPy2miacBlFQnTZe5Caz1IbaNE2C7pa32eTexf9QSb1q+KT6+NyoA4u9zFscKSC3DA+8oaxtGrXUPr6yrRAyG+c72SrSB906nMkTJ3p+bVJ8MvmbelaBHQCBz2f87UvFhW9LTcqXf8rTvkyhU98u56IJzXKk2o37VEWbuP4tyktX3cXf08bnBwD36oYanUw+bl9eFfNI0mTg8YLtM+qVacrSXjT54gCcQzntsuQfAAcn3afdLCKgQ1VZMVLPg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WhjtHnFf/hIxrVIQM+BrOpsPRKG1BIEFG+TyCXYeUa4=;
+ b=KWbXM5RJubi4MV9EhLJ9xDEJ4vl+mQFpA8N4Vy2DfOH/aHU2dRCUNEhT4TfUdOsIzfBAw1Aqv9bxoGSoKWPewWv6wSxmUtLwFRpojMG4AvyT++e0CFFIBTJCvkwQ4AlgP7SCvTH7GxXd+ldZJcqZrxPWIEIzMgtIIxsoyX79Ds1wtKohVU814Nbx6AH2qqCQ2YEOfLhmwZ/Cx4YGmOqQ5kZ8zzuTJNu6HkRzHuJEAMIcRNCV+4M8JTBsu3L2lkMXOtYTkzfrX1pwhJnWg+TWKXoY28P7narsYQ7flbWUaFCqATDWKty4pq65W+OLjkAz+Afh8hE5wfF8Vn/SVYwZ8Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by PA4PR04MB7581.eurprd04.prod.outlook.com (2603:10a6:102:f3::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.17; Mon, 9 Mar
+ 2026 16:45:32 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9678.017; Mon, 9 Mar 2026
+ 16:45:32 +0000
+Date: Mon, 9 Mar 2026 12:45:24 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Yannic Moog <y.moog@phytec.de>,
+	Markus Niebel <Markus.Niebel@tq-group.com>,
+	Primoz Fiser <primoz.fiser@norik.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 3/3] arm64: dts: imx95-var-dart: Add support for
+ Variscite Sonata board
+Message-ID: <aa75JLEUDLsKtgdC@lizhi-Precision-Tower-5810>
+References: <20260225170347.77841-1-stefano.r@variscite.com>
+ <20260225170347.77841-4-stefano.r@variscite.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260225170347.77841-4-stefano.r@variscite.com>
+X-ClientProxiedBy: SA1P222CA0167.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:3c3::15) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v5 31/41] arm_mpam: resctrl: Add resctrl_arch_rmid_read()
- and resctrl_arch_reset_rmid()
-To: Zeng Heng <zengheng4@huawei.com>, James Morse <james.morse@arm.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, gshan@redhat.com, jonathan.cameron@huawei.com,
- kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
- linux-doc@vger.kernel.org, Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
- Kefeng Wang <wangkefeng.wang@huawei.com>
-References: <20260224175720.2663924-1-ben.horgan@arm.com>
- <20260224175720.2663924-32-ben.horgan@arm.com>
- <96ffc81d-3f37-7f48-f9f4-6a58da3e0f99@huawei.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <96ffc81d-3f37-7f48-f9f4-6a58da3e0f99@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA4PR04MB7581:EE_
+X-MS-Office365-Filtering-Correlation-Id: acedf666-6cd8-4721-6923-08de7dfb47ad
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|376014|7416014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: dcKawTTGBb06cQXGd4nTRU+RCm+lsyW+8w9awBeAbU2mUAAg4I00FKwTssd9jcKbXCrvR/XSy1flArlhpxihErfEU83N0FsFtz0EHFwD1y7la1IdYeyaJaUDxt+d+1Hw1FFuCltFl2FiI9punjk0Kqv4kBVIVi4tFsvYo0sxrVHxZgRLwblBGfED0Br4Nb0Dc8mxH5UxXJ8rjK9TAaFqQfy8X3olH1fBlrf0nvFyaFa9kKQIe2CoARVtjYnCiyru4i2t3vikwEiBCDVykgTc5tguVjH0rhuTcOXzw5c0fitrii2i8oCuD8fOu8cvsnemAIAw9k7c1Yf7+dS1eckkAxNONUZwhb1hkr2MqCrhLtl/+kzkEKM8khfLkD6e1tJi5fuVHXZ03vg+hDzucWaCdaZ3e9KRrC/JL9nWaEJNgKdH2So97JY5oL6DsNts0qD85xgLzzu6QMVHOWYRizZlnt4oJsXCY2Tr7QO3c6rgvO7N+F4oU9AEZnHNprtvGkz2qudjdi6EVGu6M2Y4/imyK42Q85HXQ3uAwZs7VeieYer6lZaniiro2LEf78OcdY6MA7qOxjVh0nS7+K0kk43eA2pRAhPP7XjSPx83lG+fqVj3A2M90gbeLj8W26rqRTfvgF0QYOGtg0FhMVK8CINItq45n83+CA+nF6WJg3uEVzX9cLMPwcCCJoPc75K9tS6DUG3GcxNqV15qVivnPmTSrJS0eA0N6LcHQz57mlFLTlEXHX2FA580WCj8t2RxJ+af
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?N98ddsdqMX/jMAHlAf2tjr7u7RdIhrgrYv0bJjLNe0buUYyS8iAZNGl3n1Kj?=
+ =?us-ascii?Q?j4mDb/P1AalnlQM5vdQjXh3tjYPZ1SYKVfU7ANAbqE4Biz+qYKg5xG9Cus3T?=
+ =?us-ascii?Q?sf3qOIgxEXKyQNDvvl1wb9EMESuPPHXm8yaK3uqciP1SL1/6gjCnY5WKyyNU?=
+ =?us-ascii?Q?8ijBbSJvpzRmH3YixT7g7kfDsNd/3ld4yF38HTNOk+xdEMooewZkzcAJ72HN?=
+ =?us-ascii?Q?F8PA5BBdvJ3XPKplhIg96EUpXhQeUSIgJOfELaS6TPkQyswEr53mlWJnIPV3?=
+ =?us-ascii?Q?1pUV+7FMJiRPSJN65PP9gAQNvo4gnoA9dMLmGL+yPRHxJrJAUaS97UEjAXPB?=
+ =?us-ascii?Q?O6utPkLyLEnxYQGCTYZXNdpFYxFL/wnuxzQfy2iyJiv53bnNDqDHPtq3GCtv?=
+ =?us-ascii?Q?lUUtvgBGiqcf3a7rO8mVN9zZQC3dCVmSLyKnM8rAmNeJ+ZKgSCRrK1Sj+OYh?=
+ =?us-ascii?Q?omBlrrjmmZQInOrN8kKdWU5dgpMWsa8FjRp0ZTNbhUOCvyCB7KibmhxAObr9?=
+ =?us-ascii?Q?/P22pPGi0yc8+tpK4xmx7XqWy+KdkFRzcC7pEpaWTdWk+KfZQUh4aXIyTHgd?=
+ =?us-ascii?Q?VCAN5sdXYweZTFBtL4QLxc1l+yauTNuIfwbLrwXmI5s7y7ouP5RtYIJ2FKBK?=
+ =?us-ascii?Q?9L/kaiE2SPxGc4SoV3tTSTg8IIQC0HriTWudNMltLX9iPT4nTpBYR9xdgnxX?=
+ =?us-ascii?Q?JsIoAnyOfUqoxKAseEE6pqJE8/J3dZge2FgNaAVCpVmFt1P6eXGnfW/gAjhU?=
+ =?us-ascii?Q?C1a9xqaiRA7LBeei5mLERYfyIA1kU8fG7Q0ZzWBDMNG5aeUuzIAH+tUUjNnY?=
+ =?us-ascii?Q?K9p3syWpOjWkhl6BzcYiUV+DP+OAhIsNay7RGwl0gdZl7Jw4EnhyT0zq+lJV?=
+ =?us-ascii?Q?7Xi0S+2YEDpiG6DHXEPhPFZyo45BwZW5LE4rLe75B6Swi5eTn67Blud6rzDs?=
+ =?us-ascii?Q?yqmb21zXEDxPtNRpE6XSj/815ZWbmhWYhX9sVSxLWoLoJ9r7m8JqAp9VoToM?=
+ =?us-ascii?Q?Q7OEmD1GIY5nXwrJ4syBo14Z6tAyCJtqj7BCAzQ78sxCAk+EE4SjkjQTvfOL?=
+ =?us-ascii?Q?p4V2CRt+CSRiSNwKRazPH9kvF9v18y0NONWRGB63JsDovL6pxTiyLwqxgfXe?=
+ =?us-ascii?Q?opEcRMc3fEE72qIuwdpCJovVFNnbvd/QquDYEcEhszwa30Zn6KNE916vZWBg?=
+ =?us-ascii?Q?UiGAYWsD8pbTVQqdTDTd7WU8yJtLr6FVcqxjlMBMsEfvQA4yQz0S8JqBHKO+?=
+ =?us-ascii?Q?jiwIWPjSnnxIwUS0AqVKGu7qI0eRloW1agO3/B27UQApVeYSOadQGmEbrJVn?=
+ =?us-ascii?Q?oWFQ2U/AvoZo8CAOzk55lSPBcNvuCHjRmqdR2HdFEJXnm1RHqy72GC/31fXU?=
+ =?us-ascii?Q?sop9yT2YYjhCLgjU86DRsqN6wwabKAJNm2hi9fSI4yvAyieVCHMGyaczucsC?=
+ =?us-ascii?Q?BbjJi8XGGzC589RA+FPeP3NcD4pFcilCm+oJ4mPjL0VbQf0gQuXKRMCBPs+J?=
+ =?us-ascii?Q?c27422qBkqy1qPzNXWff7lGDPKrL8Z+mPrpYvGKGdE20A6oT+Rg3gOceOxxZ?=
+ =?us-ascii?Q?uFFr/5usKVyUaEL9DYsKZ3MIazLUcmJGsE6jer7manh1oxZfXFsh39V8eYvh?=
+ =?us-ascii?Q?ZcvnTrz1aR8/MthMwblFUad5SwG7ePkuaaShOb14pg30wjTv2G09DHBoXqvA?=
+ =?us-ascii?Q?PW1h/3A7vuEcRRPk5OXFrtG+4XI8t1wB+q8lNt4halK8qr4l?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: acedf666-6cd8-4721-6923-08de7dfb47ad
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Mar 2026 16:45:32.8384
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: woOtNXJ5hqkXYNV6csn9tmiVGNPq0O8PK77nAoFwqeEhj0G2icfczDvt0yPI50iOValny2OycEDicdi/sTLS5A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7581
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_093018_080724_948B8BFD 
-X-CRM114-Status: GOOD (  25.57  )
+X-CRM114-CacheID: sfid-20260309_094538_165357_A35F5702 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,143 +150,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Zeng,
+On Wed, Feb 25, 2026 at 06:03:38PM +0100, Stefano Radaelli wrote:
+> From: Stefano Radaelli <stefano.r@variscite.com>
+>
+> Add device tree support for the Variscite Sonata carrier board with
+> the DART-MX95 system on module.
+>
+> The Sonata board includes
+> - uSD Card support
+> - USB ports and OTG
+> - Additional Gigabit Ethernet interface
+> - 10Gb Ethernet SFP+ connector
+> - Uart interfaces
+> - OV5640 Camera support
+> - GPIO Expanders
+> - RTC module
+> - TPM module
+> - PCIE support
+>
+> Link: https://variscite.com/carrier-boards/sonata-board/
+> Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+> ---
+...
+> +	};
+> +
+> +	gpio-leds {
+> +		compatible = "gpio-leds";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_gpio_leds>;
+> +
+> +		led-heartbeat {
+> +			label = "Heartbeat";
+> +			gpios = <&gpio3 27 GPIO_ACTIVE_HIGH>;
+> +			linux,default-trigger = "heartbeat";
+> +		};
+> +	};
 
-On 3/7/26 09:29, Zeng Heng wrote:
-> Hi Ben,
-> 
-> On 2026/2/25 1:57, Ben Horgan wrote:
->> From: James Morse <james.morse@arm.com>
->>
->> resctrl uses resctrl_arch_rmid_read() to read counters. CDP emulation
->> means
->> the counter may need reading in three different ways. The same goes for
->> reset.
->>
->> The helpers behind the resctrl_arch_ functions will be re-used for the
->> ABMC
->> equivalent functions.
->>
->> Add the rounding helper for checking monitor values while we're here.
->>
->> Tested-by: Gavin Shan <gshan@redhat.com>
->> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
->> Tested-by: Peter Newman <peternewman@google.com>
->> Tested-by: Zeng Heng <zengheng4@huawei.com>
->> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
->> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
->> Signed-off-by: James Morse <james.morse@arm.com>
->> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
->> ---
-> 
-> [...]
-> 
->> +
->> +static int read_mon_cdp_safe(struct mpam_resctrl_mon *mon, struct
->> mpam_component *mon_comp,
->> +                 enum mpam_device_features mon_type,
->> +                 int mon_idx, u32 closid, u32 rmid, u64 *val)
->> +{
->> +    if (cdp_enabled) {
-> 
-> While reviewing the resctrl limbo handling code, I noticed a issue in
-> __check_limbo() that could lead to premature RMID release when CDP is
-> enabled.
-> 
-> In __check_limbo(), RMIDs in limbo state undergo L3 occupancy checks
-> before being released. This check is performed via
-> resctrl_arch_rmid_read(), on arm64 MPAM, which relies on the cdp_enabled
-> state to determine to check which PARTID.
-> 
-> The concern arises in the following scenario: Filesystem is mounted with
-> CDP enabled. During normal operation, some RMIDs enter limbo. On umount,
-> cdp_enabled is reset to false. __check_limbo() may then run and perform
-> L3 checks with cdp_enabled = false. This could cause RMIDs to be
-> incorrectly released from limbo while still effectively busy after
-> remount.
+gpio-leds should be after gpio-keys.
 
-I think a stale limbo list cause more problems than that. If you mount
-with cdp disabled, cause some rmids to be dirty, unmount and then
-remount with cdp enabled then you may have some of the entries in upper
-half marked as busy but when the limbo code checks them it ends up using
-an out of range partid and may trigger an mpam error interrupt.
+Can you run https://github.com/lznuaa/dt-format to avoid manual check
+such nodes orders.
 
-To avoid a stale list we could disable the limbo checking at unmount and
-at remount remake the bitmap. This would involve some resctrl changes
-which I will have a further look into. For now, to avoid the dependency
-without a lot of patch churn in this series I think we can hide the cdp
-enablement behind CONFIG_EXPERT. Does that sound ok to you?
+In past, duplicated nodes was added in sequency update because it is hard
+to find duplicate nodes by patch. So we try to enhance node orders for
+new dts file to avoid duplicate nodes added in future.
 
-Thanks,
-
-Ben
-
-> 
-> Apologies for not providing a ready-made fix in this email. However,
-> I would appreciate to hear the community's thoughts on this issue.
-> 
-> 
->> +        u64 code_val = 0, data_val = 0;
->> +        int err;
->> +
->> +        err = __read_mon(mon, mon_comp, mon_type, mon_idx,
->> +                 CDP_CODE, closid, rmid, &code_val);
->> +        if (err)
->> +            return err;
->> +
->> +        err = __read_mon(mon, mon_comp, mon_type, mon_idx,
->> +                 CDP_DATA, closid, rmid, &data_val);
->> +        if (err)
->> +            return err;
->> +
->> +        *val += code_val + data_val;
->> +        return 0;
->> +    }
->> +
->> +    return __read_mon(mon, mon_comp, mon_type, mon_idx,
->> +              CDP_NONE, closid, rmid, val);
->> +}
->> +
->> +/* MBWU when not in ABMC mode, and CSU counters. */
->> +int resctrl_arch_rmid_read(struct rdt_resource *r, struct
->> rdt_domain_hdr *hdr,
->> +               u32 closid, u32 rmid, enum resctrl_event_id eventid,
->> +               void *arch_priv, u64 *val, void *arch_mon_ctx)
->> +{
->> +    struct mpam_resctrl_dom *l3_dom;
->> +    struct mpam_component *mon_comp;
->> +    u32 mon_idx = *(u32 *)arch_mon_ctx;
->> +    enum mpam_device_features mon_type;
->> +    struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
->> +
->> +    resctrl_arch_rmid_read_context_check();
->> +
->> +    if (eventid >= QOS_NUM_EVENTS || !mon->class)
->> +        return -EINVAL;
->> +
->> +    l3_dom = container_of(hdr, struct mpam_resctrl_dom,
->> resctrl_mon_dom.hdr);
->> +    mon_comp = l3_dom->mon_comp[eventid];
->> +
->> +    switch (eventid) {
->> +    case QOS_L3_OCCUP_EVENT_ID:
->> +        mon_type = mpam_feat_msmon_csu;
->> +        break;
->> +    case QOS_L3_MBM_LOCAL_EVENT_ID:
->> +    case QOS_L3_MBM_TOTAL_EVENT_ID:
->> +        mon_type = mpam_feat_msmon_mbwu;
->> +        break;
->> +    default:
->> +        return -EINVAL;
->> +    }
->> +
->> +    return read_mon_cdp_safe(mon, mon_comp, mon_type, mon_idx,
->> +                 closid, rmid, val);
->> +}
->> +
-> 
-> 
-> Best regards,
-> Zeng Heng
-
+Frank
+> +
+> +	gpio-keys {
+> +		compatible = "gpio-keys";
+> +
+...
+> 2.47.3
+>
 
