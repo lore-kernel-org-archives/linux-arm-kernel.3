@@ -4,130 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2009DF417E7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 14:39:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B39FAF417E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 14:39:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:MIME-Version:Message-Id:Date:Subject:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SoS+3CWZlZnGbnfPaYdYtldz6vhvlQlhdk/Ns0DT5PM=; b=uNWWnSeTOmnFTZVH+dqPVam0Zr
-	AiUJI6vAY5YisSk7jwPVYnfpMAy9ozDjgAyJ0A/PRz9HrPwqnQG4hxMxS+T2ZO9YshBFnTd8dM156
-	dYE2Fgdn1+ZoRHh1AYR/m4K9AKQz+M1QLyjG7nRWbP4LwPdD+TZzm5xiLW3CSN10wcRJoKX1YKQTV
-	/qGZHZ1y+3vXSC+N74masOXMIUgWgUvN04sEcLNx5u6vtdDkskTA9BTijlFGYMBmdewalnpu2tBoA
-	AQ2y+5fYe+8xIbnl9Y97fFEoGQISPybOqQi0SZyfjiIlf7ZxmLWfczmp5h0n98o4STGa6aK1Mq52I
-	f+X7QI5Q==;
+	Content-Type:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TKRdIQSuF0YF0hFHlaN5osUy3+6J9BqzDRRtNXtYusM=; b=FgkeZCyKzoCl+drHeMYohi2FWy
+	2uuBX1OT5+hflEX/rgxiaYt9FaVD5IzgHp/AqUw8uvy0v2fodpBiNuzbwZH2WwBcTgYOB9sbnzijE
+	5bCEtw6LrlZRbfSOSPHA29zVmaygMtCejpWCYdOYlleL7zvI5Bt4L4GIHxz6REHIaQnldmJYbeRol
+	uwVny18wkAzyaAh2qVkRI7LSBZPKMXWU+lWKtgvtFHN4qJ+3xmwv+ko6IrJ4LF8bq1rHUFC/dzwmi
+	+4BORaBWCWb7bZvEWHSVO0hqoB+9ofFa5SL8A2t/DVVtEJ4m/VJQSa6OSgvtbMFy4spYhLoIBHRIH
+	195rBxFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzblZ-00000007UUP-2aER;
-	Mon, 09 Mar 2026 14:39:29 +0000
+	id 1vzble-00000007UX5-1rWL;
+	Mon, 09 Mar 2026 14:39:34 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzblW-00000007UTG-2gES
+	id 1vzblb-00000007UVA-1Tdg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 14:39:28 +0000
+	Mon, 09 Mar 2026 14:39:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1773067163;
+	s=mimecast20190719; t=1773067170;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=SoS+3CWZlZnGbnfPaYdYtldz6vhvlQlhdk/Ns0DT5PM=;
-	b=O0a2H3qkPlQvBh4QXtqIY97BvkliFa0NqOTmY6A+sqN5Bqz9EWwuS0u2y+JntG3rypSkE1
-	oq+jclRjQSUU4/mDBmAf52Ik7i50pN1CCr7XVpgWsggB2iN62hPJLqU5EBuw2usSl3CXFQ
-	6hT2Qsblcqd1jkGGLTb0M/uv1LIR6jg=
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com
- [209.85.222.198]) by relay.mimecast.com with ESMTP with STARTTLS
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TKRdIQSuF0YF0hFHlaN5osUy3+6J9BqzDRRtNXtYusM=;
+	b=ZE7UZBGPKD+sCWlT4D1+hJWPF3rk0Ka13UI+m4G4DuRP3DHMv08DLs2uOtgrTXezLPV5ad
+	ht2Zr2Uwvm9Z98IUZuzzvZmvRvW44OOWEQaxfVbfF6L2SIIT2+4Ly6iUOvgglCWYJHjbKt
+	3qP12pEH8scOw7kKzn0Xad7hAc3bSzY=
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com
+ [209.85.222.199]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-205-wzS_SrGrPjO6vKT5H8VqmQ-1; Mon, 09 Mar 2026 10:39:22 -0400
-X-MC-Unique: wzS_SrGrPjO6vKT5H8VqmQ-1
-X-Mimecast-MFC-AGG-ID: wzS_SrGrPjO6vKT5H8VqmQ_1773067162
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8cd820c6a4fso1218455085a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 07:39:22 -0700 (PDT)
+ us-mta-631-I8EBl9_ON7Grk67GHSiiwQ-1; Mon, 09 Mar 2026 10:39:29 -0400
+X-MC-Unique: I8EBl9_ON7Grk67GHSiiwQ-1
+X-Mimecast-MFC-AGG-ID: I8EBl9_ON7Grk67GHSiiwQ_1773067169
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8cd7f6ac239so957881485a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 07:39:29 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773067162; x=1773671962;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SoS+3CWZlZnGbnfPaYdYtldz6vhvlQlhdk/Ns0DT5PM=;
-        b=jY2ZDp+4bHnea14pFP817hZEF4z7ENM+MBlCybMvO6aRiV4l/lrFR6cD5gNtq8OcIm
-         27rk0oJ0Z1kf+Iw2WxZsrcDBBV/sr/rsl+gND7M0FTxkqbFc404EDhI0u/2e7fHKGYD+
-         vdnRMs/n7CSwYwvW6VkLuASyuQFW0IQkGhnhop7A3S77Ud+IUhbn/JyP7IXkutEWlv72
-         uKdyucLxKfe0BXVMAH3ik+0R2w9w9QomU7lPg06XYJBf0C8+3ln4zcHeE02d/f1AanlE
-         4Cw98wIN1cjsDYbKsSu6nK9h5hxOdnQDteM1BViF3CVuAfh6SAoXhVa1Tgu1ehbSmmOb
-         9Ycw==
-X-Forwarded-Encrypted: i=1; AJvYcCVGfe4uCylGXQY4LTttiAxDNLBSqJTQttQ3PQH2i15m/IGVBQo53JditwgdOd3kc6WZVsG7xTpole5Mie+sFL53@lists.infradead.org
-X-Gm-Message-State: AOJu0YwO4XD2CrBdfji/kNubXhuWQgk9J5ols3rhCXpbeLZbpc1qNls5
-	nD/DPvhZH6EhusxIwGrptEA34y6/weksHEtSwStMpI4zZ2sUTX3hHwHL+TnOJOBTNAIDSDseezZ
-	HzxFSfAKDhujkNeABImbPwZKTNuLuVPHSvgaMobLf1jISbJq+TknKCD21e8SYwv2H8AFteVdRjx
-	rs
-X-Gm-Gg: ATEYQzxAtcczwnHMEjFgirZYWS6Tib7iBkwRgizxLtxhKGkQAX3mvEnxaMZUbp0ldlZ
-	RUZUG4/LUF/Uly4vhBI3JNc5599iGlXtdiTjhs9JGucw+Cn1IEe/iZ/1o6DB9lpEIdml8aUgIRb
-	aAf9KvYdVfkYkgnO1fRQltEZpdEV7fZp9XQSRl6whCYvEl8Qack7o/jG7X7rhAnYcH1Dv0lUdVb
-	Rxy49iuBxwaT9NGVQHNwjiVqcfm3DUTyhz2v1/4UxIDoAeuVqod77VRHyp/kED1aqYhcnCclJKI
-	qB72LK1FguFRvZn6JaKs9Cqrqiyw42qJq/Ye91/g8hXyMURuNVkSkhm+T6WSvtmgk+Cth2/Ea2E
-	325nrr9d5AC2s8Z5IL4FaKFKUsi/YlvBcqiWhKUCAxusvz9WrowZX0AuhlFYfxA==
-X-Received: by 2002:a05:620a:40c3:b0:8cd:8da1:d655 with SMTP id af79cd13be357-8cd8da1dd9fmr294094485a.66.1773067161795;
-        Mon, 09 Mar 2026 07:39:21 -0700 (PDT)
-X-Received: by 2002:a05:620a:40c3:b0:8cd:8da1:d655 with SMTP id af79cd13be357-8cd8da1dd9fmr294088585a.66.1773067161333;
-        Mon, 09 Mar 2026 07:39:21 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1773067169; x=1773671969;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=TKRdIQSuF0YF0hFHlaN5osUy3+6J9BqzDRRtNXtYusM=;
+        b=ayMgbBN7bDV3j0R00I/312oZoJ90jRVFXst55KXoX/MTiiLIgLNPvznKGyENqE34fy
+         qEbWRZkSxd6BwP3TbsQX1IYgz51k0QNWR3TsfOPG4FEvfhoVtHh1iMDaRPoZYC6LYDE6
+         Vj0qCf8FqCOQ8NlkHBRaOF4maeAEV4tB0lZ2B+/jwjnhoY7y8gtoBKnC3nNBObjmeIJ2
+         2PaggGVajTSbzCzv+INbt+CgN972bZ31hjZ94LG0hpevkoQ+duW4cx+KGCcnRRdDOmuB
+         thooz9XH5HwfdEpTfJ+HpQbHNxf5eBLV7SA6fFqqdvuMPkhEZmIGVaNUuhmQ3iEjyMeK
+         8Vtw==
+X-Forwarded-Encrypted: i=1; AJvYcCXBN7Ipxebzvjd+MqpUvFQcaIJ+c84eA6+4jEKP3TBCcy+BaBXVZGuugxNoS9I/OuYzgYB9YEwOb6LGVvymwTNq@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBR+Zyl/TYOjdYMDoupGfJaPKUfS9bQ0Q/SXk/h5SZ0TbZP8BI
+	D5rLzwlExFeUAvi0ks96x2/hHSwjefs3hh/jCU786U7hk23ij/UqHJCVqFOfq5k23UByL/6Hkca
+	iC/NWhQ68K11SM0WSrz7C1Nvb4SmosznMuA6VMfihwxIa0wlEJWeidrFvm8kXc0eRkCZv6d4mld
+	0L
+X-Gm-Gg: ATEYQzy/0H2CRM0mIKJOYs368PO1+ZoXcI0Ma7cNnfAsiLJUsSox60T4ArLG88IIu5W
+	zyyG9yMFP6wutVRM/v9lXk9eWoLOydPv2keW/48AIZOCp9v1Fs12dMd06SZ+bewEwS6f/H4HeAv
+	KkvkKkkUC9gcBChlJ1R/S3gQ0PI/ontutwSzAe1+0+9++/yGe/fMdQXeNiwxujcEiq8QZEZZXNJ
+	wov39awiG3OtSMVg+lMyw54napi+wUxMqWqp9LjWLLXAQmgHm7iBAcgAoCtvNIuSf7n2R5RrW+0
+	+ICWtQ7sZAIpx3r2gGDWnrHOpA4yl9rn4eh4mZssRNnDBUis3DlkLT+So7zAzrb+TXqyWcBGH9Y
+	ij03ZC2EJbCfXpnchkWIE8LXVfptfqpQ2drcxoY6UOjmVtfCUaz6P4Vz7jyFEmg==
+X-Received: by 2002:a05:620a:3726:b0:8cd:91f5:7a10 with SMTP id af79cd13be357-8cd91f57b74mr118055485a.82.1773067168706;
+        Mon, 09 Mar 2026 07:39:28 -0700 (PDT)
+X-Received: by 2002:a05:620a:3726:b0:8cd:91f5:7a10 with SMTP id af79cd13be357-8cd91f57b74mr118051085a.82.1773067168174;
+        Mon, 09 Mar 2026 07:39:28 -0700 (PDT)
 Received: from [192.168.1.15] (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cd6f49fcafsm756064985a.16.2026.03.09.07.39.18
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cd6f49fcafsm756064985a.16.2026.03.09.07.39.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Mar 2026 07:39:20 -0700 (PDT)
+        Mon, 09 Mar 2026 07:39:27 -0700 (PDT)
 From: Brian Masney <bmasney@redhat.com>
-Subject: [PATCH v2 00/12] clk: add new flag CLK_ROUNDING_NOOP
-Date: Mon, 09 Mar 2026 10:38:39 -0400
-Message-Id: <20260309-clk-det-rate-fw-managed-v2-0-c48ef5a3100a@redhat.com>
+Date: Mon, 09 Mar 2026 10:38:43 -0400
+Subject: [PATCH v2 04/12] clk: scpi: drop determine_rate op and use
+ CLK_ROUNDING_NOOP flag
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WQy04DMQxFf6XKmqA4Lydd8R+oCyd2mBH0wcxQQ
- FX/nXQqIbFieW2fa19f1CzTKLPabi5qkvM4j8dDF/Zho+pAhxfRI3etrLHRWBt1fXvVLIueaBH
- dPvWeDvQirH1JbCI0B0VUp0+TtPFrdX7e3fUk7x99wXIvqhMtdej2203IkJNwzYEqJUs2O4vgk
- NhSS1YqOJtDiavvL5X6lACa6DMCMFIyNSAmb5wjh42IOUAuf6kMFQukADUwogTjq89VYmngi2u
- pJC/JRrpRhWbR9bjfj8t2gxxjhISuxRJ8xW4dMBnypjcKsWOfLKembmmHcV6O0/f61jOscf/94
- Bm00d5bYLYtco1Pk/BAy2O/QO2u1+sPBLaoPq0BAAA=
-X-Change-ID: 20260226-clk-det-rate-fw-managed-4b8d061f31be
+Message-Id: <20260309-clk-det-rate-fw-managed-v2-4-c48ef5a3100a@redhat.com>
+References: <20260309-clk-det-rate-fw-managed-v2-0-c48ef5a3100a@redhat.com>
+In-Reply-To: <20260309-clk-det-rate-fw-managed-v2-0-c48ef5a3100a@redhat.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
  Stephen Boyd <sboyd@kernel.org>
 Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Brian Masney <bmasney@redhat.com>, Sudeep Holla <sudeep.holla@kernel.org>, 
- Abel Vesa <abelvesa@kernel.org>, Andrea della Porta <andrea.porta@suse.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Bjorn Andersson <andersson@kernel.org>, 
- Chanwoo Choi <cw00.choi@samsung.com>, Frank Li <Frank.Li@nxp.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Krzysztof Kozlowski <krzk@kernel.org>, Orson Zhai <orsonzhai@gmail.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, arm-scmi@vger.kernel.org, 
- Chunyan Zhang <zhang.lyra@gmail.com>, 
- Cristian Marussi <cristian.marussi@arm.com>, 
- Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
- linux-renesas-soc@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
- Peng Fan <peng.fan@nxp.com>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3788; i=bmasney@redhat.com;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2083; i=bmasney@redhat.com;
  s=20250903; h=from:subject:message-id;
- bh=RXu3NphZGUJJazeYHAThPbRn9NwLQx4SYJlxf+ZptIY=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGDLX3e66+SC7zE6hgIdj/dIW3U+zT8tcCfZ+eipU+4TX9
- wfSj6PNOkpZGMS4GGTFFFmW5BoVRKSusr13R5MFZg4rE8gQBi5OAZiIfBQjw7z3W7R3Wuxylu+4
- fiOxTkAphlfb8O7FuM6HpgnPH6TLJDD8FdY5/qVtl8YMod7Q58vbnVKPG0+PUTsjL7FQYcbZN08
- deAA=
+ bh=tymwA6aOVgvpUXCdRW570073ObBEekDbhvu93ohwWbM=;
+ b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGDLX3e7f+/+TCVedu1DA7rYTEY2FXtOcK9p1t8meYGKJ2
+ n9KUbGro5SFQYyLQVZMkWVJrlFBROoq23t3NFlg5rAygQxh4OIUgIkUBzP8zwtgvM55yW21VvxW
+ OyX2HX1rfHZu1pnevWm2S/f73nruSEaGSbcXxbmu3RHcpZyvUcPbfzpy2UenzFkTc27vK9mxVvU
+ mIwA=
 X-Developer-Key: i=bmasney@redhat.com; a=openpgp;
  fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: fMgQZaPAKenMOjspoAB1WaBiy45yHf7MofELKtkbiY0_1773067162
+X-Mimecast-MFC-PROC-ID: 5_yk2Kmx0aIUKGBPNSoOrgsXb1xJYV6o-ay0UyWM_A0_1773067169
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_073926_760559_615949D1 
-X-CRM114-Status: GOOD (  17.83  )
+X-CRM114-CacheID: sfid-20260309_073931_486124_9A3FF2C7 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,82 +122,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are some clocks where the determine_rate clk op is just an empty
-function that returns 0. This can be either because the rounding is
-managed by the firmware, or the clock is capable of any rate. Add a
-new flag for these type of clocks, and update the clk core so that the
-determine_rate() clk op is not required when this flag is set.
+This clk driver has a noop determine_rate clk op. Drop this empty
+function, and enable the CLK_ROUNDING_NOOP flag.
 
-Based on discussions with Stephen at Linux Plumbers Conference, he
-suggested adding a flag for this particular case. So let's add a new
-flag, and update the clk core so that the determine_rate() clk op is
-not required when this flag is set.
-
-This series adds the flag, some kunit tests, and updates all of the
-relevant drivers under drivers/clk to use the new flag.
-
-Once this is merged, and in Linus's tree, I can update the few remaining
-clk drivers that are outside of drivers/clk via those subsystems at a
-later time.
-
-Merge Strategy
---------------
-All of this needs to be directly merged by Stephen as one series into
-his tree. Subsystem maintainers: please leave a Reviewed-by or Acked-by.
-To reduce the noise, I am only CCing people on their respective drivers.
-
-Note this series depends on 3 previously-posted patches in this git pull
-to Stephen for v7.1.
-https://lore.kernel.org/linux-clk/aZuK4-QJCXUeSxtL@redhat.com/
-
+Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
 Signed-off-by: Brian Masney <bmasney@redhat.com>
 ---
-Changes in v2:
-- Renamed CLK_ROUNDING_FW_MANAGED to CLK_ROUNDING_NOOP
-- In clk.c, give an error on probe if the clk implements a
-  determine_rate() op and has CLK_ROUNDING_NOOP set.
-- Dropped renesas/rzg2l-cpg change since they plan to fill out this
-  driver's determine_rate op.
-- Link to v1: https://lore.kernel.org/r/20260226-clk-det-rate-fw-managed-v1-0-4421dd2f6dc6@redhat.com
-
+To: Sudeep Holla <sudeep.holla@kernel.org>
+To: Michael Turquette <mturquette@baylibre.com>
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>
+Cc: arm-scmi@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-clk@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
 ---
-Brian Masney (12):
-      clk: add new flag CLK_ROUNDING_NOOP
-      clk: test: add test suite for CLK_ROUNDING_NOOP flag
-      clk: rp1: drop determine_rate op and use CLK_ROUNDING_NOOP flag
-      clk: scpi: drop determine_rate op and use CLK_ROUNDING_NOOP flag
-      clk: hisilicon: hi3660-stub: drop determine_rate op and use CLK_ROUNDING_NOOP flag
-      clk: imx: scu: drop redundant init.ops variable assignment
-      clk: imx: scu: drop determine_rate op and use CLK_ROUNDING_NOOP flag
-      clk: qcom: rpm: drop determine_rate op and use CLK_ROUNDING_NOOP flag
-      clk: qcom: rpmh: drop determine_rate op and use CLK_ROUNDING_NOOP flag
-      clk: qcom: smd-rpm: drop determine_rate op and use CLK_ROUNDING_NOOP flag
-      clk: samsung: acpm: drop determine_rate op and use CLK_ROUNDING_NOOP flag
-      clk: sprd: drop determine_rate op and use CLK_ROUNDING_NOOP flag
+ drivers/clk/clk-scpi.c | 14 +-------------
+ 1 file changed, 1 insertion(+), 13 deletions(-)
 
- drivers/clk/clk-rp1.c                   | 11 +----
- drivers/clk/clk-scpi.c                  | 14 +-----
- drivers/clk/clk.c                       | 31 ++++++++++--
- drivers/clk/clk_test.c                  | 85 +++++++++++++++++++++++++++++++++
- drivers/clk/hisilicon/clk-hi3660-stub.c | 14 +-----
- drivers/clk/imx/clk-scu.c               | 23 +--------
- drivers/clk/qcom/clk-rpm.c              | 16 ++-----
- drivers/clk/qcom/clk-rpmh.c             |  8 +---
- drivers/clk/qcom/clk-smd-rpm.c          | 15 +-----
- drivers/clk/samsung/clk-acpm.c          | 14 +-----
- drivers/clk/sprd/pll.c                  |  7 ---
- drivers/clk/sprd/pll.h                  |  2 +-
- include/linux/clk-provider.h            |  2 +
- 13 files changed, 129 insertions(+), 113 deletions(-)
----
-base-commit: 7d6661873f6b54c75195780a40d66bad3d482d8f
-change-id: 20260226-clk-det-rate-fw-managed-4b8d061f31be
-prerequisite-patch-id: 59198edc95aca82a29327137ad2af82ec13295b6
-prerequisite-patch-id: 8932e170649711d7a80c57784033a37faadd519b
-prerequisite-patch-id: 91c7b1851c5d77e504c49ce6bf14b3f8b84e826a
+diff --git a/drivers/clk/clk-scpi.c b/drivers/clk/clk-scpi.c
+index 7806569cd0d5c4e32700edb10e4edf2185610a81..f5d0234ad4ad77e4333613139a8ee034b949d01f 100644
+--- a/drivers/clk/clk-scpi.c
++++ b/drivers/clk/clk-scpi.c
+@@ -32,18 +32,6 @@ static unsigned long scpi_clk_recalc_rate(struct clk_hw *hw,
+ 	return clk->scpi_ops->clk_get_val(clk->id);
+ }
+ 
+-static int scpi_clk_determine_rate(struct clk_hw *hw,
+-				   struct clk_rate_request *req)
+-{
+-	/*
+-	 * We can't figure out what rate it will be, so just return the
+-	 * rate back to the caller. scpi_clk_recalc_rate() will be called
+-	 * after the rate is set and we'll know what rate the clock is
+-	 * running at then.
+-	 */
+-	return 0;
+-}
+-
+ static int scpi_clk_set_rate(struct clk_hw *hw, unsigned long rate,
+ 			     unsigned long parent_rate)
+ {
+@@ -54,7 +42,6 @@ static int scpi_clk_set_rate(struct clk_hw *hw, unsigned long rate,
+ 
+ static const struct clk_ops scpi_clk_ops = {
+ 	.recalc_rate = scpi_clk_recalc_rate,
+-	.determine_rate = scpi_clk_determine_rate,
+ 	.set_rate = scpi_clk_set_rate,
+ };
+ 
+@@ -156,6 +143,7 @@ scpi_clk_ops_init(struct device *dev, const struct of_device_id *match,
+ 		if (IS_ERR(sclk->info))
+ 			return PTR_ERR(sclk->info);
+ 	} else if (init.ops == &scpi_clk_ops) {
++		init.flags |= CLK_ROUNDING_NOOP;
+ 		if (sclk->scpi_ops->clk_get_range(sclk->id, &min, &max) || !max)
+ 			return -EINVAL;
+ 	} else {
 
-Best regards,
 -- 
-Brian Masney <bmasney@redhat.com>
+2.53.0
 
 
