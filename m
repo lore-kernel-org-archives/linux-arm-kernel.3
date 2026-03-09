@@ -4,74 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6D7EEFCD7E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 10:30:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4E5CEFCD84
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 10:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GrtPvBz5BO5OVJK1N3GqiMDHuB3EZrHaMP8uGfCduio=; b=FIiKn/t0GglfvYiA4fvUrzQ4k1
-	R0cdws6xQa3S2r3cmEBiMYit7EGZwtQJpdaiNPNPrtbwY1Ej5FkG4l/yRl+sC8QeQARtHlns3wLfj
-	Tynf2YY9Z7Y20HpJrHco8P8ZMjDr8NhMPJ9xNAZ7fTPmSR1nbmNBvPG65lrQSU4tRFFFGJR3ULG/B
-	sYs8OqZIO/veOQKVMwrktnHC34d9GH5rA4XFSo64TtX7oDZkQtFEeKd9NXCiF2D2iI7K56ueQNLs5
-	xIJP5Uc8wN7Trr/ckEQ2RLLY+i/+/ccb+yq0OJB1DXd9gcL23k47ZipsEoj77woQXSBOe6oOIkltA
-	cCv89XCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ysvPiqp562qCZQnJw5l8TL8cq4IhZO2GmAxe8p0UZ7I=; b=LizVXhlkTgpR0384BmGbCo7FV5
+	PpbLwXHTCc+yiV8u3Tc3UFYV8mp1LXMBE5x7HqC7ak5F2bnZpIYkfCVAW7Dbhm8XhEQopexVjzf+8
+	GKe5vl2xptxG4ojJygR78EY+1E6Vzjl3C+44mHGpSPWurbW53sOPgBQ4uTNeFGAJFagcr0vt136z3
+	yoaauZK40o7dONOtPaEc/qiz5gFW1abSguqscn4Dup+j5+WdnVIx4ZevnC2Kpl1GPIhr/pdy6lWvY
+	qLacjyEB9J/Zpa/wWhHQCMMEvrODfFAsqmVDQ5NyVyBs9TMVlX9niM4oahGap1mqezdRWAotAMzoq
+	/D74eE4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzXsY-000000075yM-283I;
-	Mon, 09 Mar 2026 10:30:26 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vzXtO-0000000769W-3yzk;
+	Mon, 09 Mar 2026 10:31:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzXsV-000000075xQ-3WwN;
-	Mon, 09 Mar 2026 10:30:25 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fTtYy5PyzzHnHKh;
-	Mon,  9 Mar 2026 18:30:14 +0800 (CST)
-Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4D32140086;
-	Mon,  9 Mar 2026 18:30:18 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
- (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 9 Mar
- 2026 10:30:16 +0000
-Date: Mon, 9 Mar 2026 10:30:15 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Chengwen Feng <fengchengwen@huawei.com>
-CC: <linux-pci@vger.kernel.org>, <bhelgaas@google.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Huacai Chen
-	<chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, "Rafael J. Wysocki"
-	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Sunil V L
-	<sunilvl@ventanamicro.com>, Mark Rutland <mark.rutland@arm.com>,
-	<linux-acpi@vger.kernel.org>, <wei.huang2@amd.com>,
-	<Eric.VanTassell@amd.com>, <wangzhou1@hisilicon.com>,
-	<wanghuiqiang@huawei.com>, <liuyonglong@huawei.com>,
-	<stable@vger.kernel.org>, <jeremy.linton@arm.com>,
-	<sunilvl@oss.qualcomm.com>, <chenhuacai@loongson.cn>,
-	<wangliupu@loongson.cn>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<linux-riscv@lists.infradead.org>, <linux-perf-users@vger.kernel.org>
-Subject: Re: [PATCH v4 1/2] ACPI: Rename get_acpi_id_for_cpu() to
- acpi_get_cpu_acpi_id() on non-x86
-Message-ID: <20260309103015.000070c3@huawei.com>
-In-Reply-To: <20260309041659.18815-2-fengchengwen@huawei.com>
-References: <20260303003625.39035-1-fengchengwen@huawei.com>
-	<20260309041659.18815-1-fengchengwen@huawei.com>
-	<20260309041659.18815-2-fengchengwen@huawei.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1vzXtN-0000000769C-30aM;
+	Mon, 09 Mar 2026 10:31:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C257B600AD;
+	Mon,  9 Mar 2026 10:31:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71FDCC4CEF7;
+	Mon,  9 Mar 2026 10:31:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773052276;
+	bh=1dv+XhP5OwvToCXeXxaL6H6crc5uBccvLhwiXF5Big4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=X6j5855B86hH8+1MUUbQdzfRXXIEh36roQzDmNtZdLVlt+VtMSp7FWhuEC7HxLg+4
+	 3ASrEfhKmLdpAm/VP1gGb5GQPHRZyzlA9Wv0XEN1P9t9gflLXWiWM6s0bOGH7yvuC+
+	 bzFzU3sZ14p5clqbm5EJMcExCvTp6B+pn4mlEtyJ/vArl5P4gUHyApQeDYt0UIVnjD
+	 fa5DgkOvoLJmWeP1nzIlE2PZbnVc5lUB/zjgDz6l71LVoy9/1JqpjV41i5czOq4RpO
+	 WHnzI5JOAaJobCwW4FNmaOORDUiIpodIFsZfZXzTtQ7X18XgT4XUH6FBc26i7cEHtL
+	 xVdATdgxh1BHQ==
+Received: from johan by xi.lan with local (Exim 4.98.2)
+	(envelope-from <johan@kernel.org>)
+	id 1vzXtJ-000000006A5-3p2H;
+	Mon, 09 Mar 2026 11:31:13 +0100
+Date: Mon, 9 Mar 2026 11:31:13 +0100
+From: Johan Hovold <johan@kernel.org>
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Andi Shyti <andi.shyti@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Khalil Blaiech <kblaiech@nvidia.com>,
+	Asmaa Mnebhi <asmaa@nvidia.com>, Jean Delvare <jdelvare@suse.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org, linux-actions@lists.infradead.org,
+	linux-media@vger.kernel.org
+Subject: Re: [PATCH v2 00/13] i2c: add and start using i2c_adapter-specific
+ printk helpers
+Message-ID: <aa6hcT7MROZqxF1j@hovoldconsulting.com>
+References: <aaFcs1miP88QWmtH@hovoldconsulting.com>
+ <aaFfEsfh0xTh0b1y@shikoro>
+ <aaFsZbiLYSz_YEjw@hovoldconsulting.com>
+ <CAMRc=MfcvD1nJy=zpoCkSkJq6WjyXQxFUZ4QE6vyCS+XFCn5AA@mail.gmail.com>
+ <aaHI_VavZugXjVoL@hovoldconsulting.com>
+ <CAMRc=MdKF29McBJ9U=qELkzf9GYV1CQpRF7U6OweDNtVzMXo7A@mail.gmail.com>
+ <aacE-27iaYneKCJi@hovoldconsulting.com>
+ <CAMRc=Mcx8Hu407arSEo3o-Xhmep_ZK4BM2TVi_55nXGwYcaijw@mail.gmail.com>
+ <aar1PDUB2t7DgEP6@hovoldconsulting.com>
+ <CAMRc=Mcv+ZMGaC_MD8WRH113rDuuxdiZXuW5JAXWga1V7vM_ng@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
- dubpeml500005.china.huawei.com (7.214.145.207)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_033024_035885_D44E360D 
-X-CRM114-Status: UNSURE (   7.33  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMRc=Mcv+ZMGaC_MD8WRH113rDuuxdiZXuW5JAXWga1V7vM_ng@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,19 +98,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 9 Mar 2026 12:16:57 +0800
-Chengwen Feng <fengchengwen@huawei.com> wrote:
+On Fri, Mar 06, 2026 at 06:34:43PM +0100, Bartosz Golaszewski wrote:
+> On Fri, Mar 6, 2026 at 4:39 PM Johan Hovold <johan@kernel.org> wrote:
 
-> To unify the CPU ACPI ID retrieval interface across architectures,
-> rename the existing get_acpi_id_for_cpu() function to
-> acpi_get_cpu_acpi_id() on arm64/riscv/loongarch platforms.
+> > You have posted changes that will prevent driver from accessing the
+> > struct device of core i2c structures. This is unexpected, non-idiomatic
+> > and subsystem specific and therefore a bad idea.
 > 
-> This is a pure rename with no functional change, preparing for a
-> consistent ACPI Processor UID retrieval interface across all ACPI-enabled
-> platforms.
-> 
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Chengwen Feng <fengchengwen@huawei.com>
+> That's not true, the changes provide a helper to that end.
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+That was supposed to say "prevent drivers from accessing the struct
+device *directly*".
+
+> > Again, this is a core feature of the driver model. You can't just ignore
+> > it and come up with random ways to work around just because you disagree
+> > with design decisions that were made 25 years ago.
+> 
+> It absolutely *can* be done differently. There's nothing that imposes
+> a certain API design on susbsystems. If you design the subsystem code
+> well, provider drivers don't need more than one reference (taken in
+> probe(), released in remove(), for instance via the
+> register()/unregister() pair) so the counting can be hidden within the
+> subsystems that control them.
+
+Yes, there is nothing preventing you from diverting from the idiomatic
+way of doing things. But my point is that that's not a good idea.
+
+Johan
 
