@@ -4,120 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F306EF36F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 07:27:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 310B7EF36F7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 07:28:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ndE/BvTBhpf2XzEwuxhr+ULMKWuUcSk21gfW/Tqnv3w=; b=xi5Vke0QYvJpD02yBXiZaQ/tqc
-	ut1JF39/moKO4N/x33G0PHDC0fqsB/TfKzAR/Y4BWkA85rqss8S13PLyffW4Gy5HBjGX0eqEQTnRb
-	1VdtH17y/o1IGwlQLFjA5kOJNhRf0vCZinI30GGGXw0nGrm3KCWJpPKReIyKB09jYtywfFc+BqqXK
-	zybk1ZQEY0vSBEuXbYkKxQJjKL8YOFhwBMyOBCJFM4WW7VbHdQGWKhw9+mkRPHK/qaYGFvKpD218/
-	OIVNhgo6jg/h1wz4xQ6yDwaTBI3FRdyVufHuKijr4ZCh5e6LgY7riTlEDR4bk50NojJusHMlv8TFI
-	9cYWFDiQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xqsxFLuyxJhQEEmd0utJQ36IBqsBbSUDIMj7Ym8aJFg=; b=CBeG9bnk9/+FMErNdHprKEp4D4
+	l3zeugTgwNrzg1K2870zOAa3FrAgqliW6tbECanCPi6CF4zjRO91QVbrvyTDwNE74KO/euZ0xy+I3
+	Mwu60dNZi0vBiMA6cYUDaoqVgWDgEJVNOb2+NHoefdSdsY9meiX/EMmIv3dmgX5KBVukpl1gItl3o
+	BN4Cie7k+C64rrZanboz/bU/TiKdCN0tpSA+1o0tduK50+CYBN0Wj8vlCQKP+6pm5f8Lo34kAzIZB
+	5rShyscq8FaLp1EWNqgTU9n4Ylzsv6XxBL2eJzTq5/FUIXT1x2odFXWxIWgv+9rsnmObUSc5Oeolj
+	UV8dRxgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzV1n-00000006nu9-36mt;
-	Mon, 09 Mar 2026 07:27:47 +0000
-Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1vzV2b-00000006o0m-2qnH;
+	Mon, 09 Mar 2026 07:28:37 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzV1l-00000006ntk-0erf
+	id 1vzV2a-00000006o0L-0sMO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 07:27:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=D38KCRUkZu04+xPXey9EYB7uFfUY2oeIwfsE/XGzR2MmTb3GQgajhBTgF1p+nR2jGIY5bl+T5WFu6uVGh4yj8ihz6nuwGBqYTUy4upd5+dPptMOnkrk7/VZEIDd5M3GPjCnFi7tRjlPjfB5AXfGDK3OtdvkYbX8moYvgOYiAO+OgSGMFBcuG8xAt+ktK43y1ZRmnHyUkNMf6jpNG8JG9zwpaaCcvMALUUPm4HXT4RZQvvqZqeo881J8WFgtCtr7qJWJ/ev+1xip7rmIoQ0cZrWBPl50RXhYxFzL/wYXkLY+M/I4/8EzHNhcrff6XYXORHOjIBdzO/yOmAWH70f257Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ndE/BvTBhpf2XzEwuxhr+ULMKWuUcSk21gfW/Tqnv3w=;
- b=vgF41i4lo0KlSY2Got3uhEQJOw5K7tN2eVcs8Z9psJ6o/IYc/obndeC5kZKN1b87bkXPiqW9oEgKhslNGDCEEB2HjqnNl1yTIoFJ0y/DDGbrW5Mv7Urkbn7aX8pp7O5Ap6ZLBbkWKM6ITsm5RDY88S+URx6HQUbWCxgI+HjiK8PFgoQRxEELiYqceQEtlrvUr/xAmXw5r7aRWbLXNu26OpgABvaMC0DlnzH9dJe+nbM353q4E2Q53postC3a5hEaOx3zjZu7iLADmhxzo9Bl48/zKZ6K4saJF/tgUn9Y8NQ6DrANb/0QjGioTw52d0MF5TwvxySjkR1igEYZ+61IOw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ndE/BvTBhpf2XzEwuxhr+ULMKWuUcSk21gfW/Tqnv3w=;
- b=arg2EJeAMooje1J4r+6KLTtDraJYJm3mWHG/px7GzkhNb/E8WxN6VxCkvqi6LvTWe0OlxFcnPnuwk7zgZQiC4AozLivxYo0Jf1nGLRWrhSiofQXlwE+YbSzgud1+NMsUUy4ax9eKX8AMS2zuQ+WGGqWoTdkE4pwo12bmw3h9SQo=
-Received: from SJ0PR05CA0148.namprd05.prod.outlook.com (2603:10b6:a03:33d::33)
- by SJ0PR10MB4640.namprd10.prod.outlook.com (2603:10b6:a03:2af::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.25; Mon, 9 Mar
- 2026 07:27:35 +0000
-Received: from SJ5PEPF0000020A.namprd05.prod.outlook.com
- (2603:10b6:a03:33d:cafe::ca) by SJ0PR05CA0148.outlook.office365.com
- (2603:10b6:a03:33d::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.19 via Frontend Transport; Mon,
- 9 Mar 2026 07:27:30 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- SJ5PEPF0000020A.mail.protection.outlook.com (10.167.244.43) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9678.18 via Frontend Transport; Mon, 9 Mar 2026 07:27:35 +0000
-Received: from DLEE212.ent.ti.com (157.170.170.114) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 9 Mar
- 2026 02:27:34 -0500
-Received: from DLEE206.ent.ti.com (157.170.170.90) by DLEE212.ent.ti.com
- (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 9 Mar
- 2026 02:27:34 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE206.ent.ti.com
- (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 9 Mar 2026 02:27:34 -0500
-Received: from [172.24.233.103] (uda0132425.dhcp.ti.com [172.24.233.103])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6297RV9B659938;
-	Mon, 9 Mar 2026 02:27:31 -0500
-Message-ID: <89c40ed3-50a4-419e-872b-5cde8b26b8a3@ti.com>
-Date: Mon, 9 Mar 2026 12:57:30 +0530
+	Mon, 09 Mar 2026 07:28:37 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2aae4816912so74785065ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 00:28:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773041315; x=1773646115; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xqsxFLuyxJhQEEmd0utJQ36IBqsBbSUDIMj7Ym8aJFg=;
+        b=XQs43jII5Dc+ohqXmXTGVo95b5OE9jIR+KJuz3wyjDPeu1kd+yhE6+wX76Xma3VVJk
+         odPWsT7mHy1wL/ZZ2ngO7ycFTcDhFHq8F7hnrmSMUAgp9zZ8Je8uNfKLpsLDnRVQLJCn
+         VCtJKQNlxcaBpbO6SiHi80kL3h8fDOW1L3y60liTcMGcYJvLvCR880ezeEw6LLEn+RYC
+         eNylI4Y8BJHHJj/f4+XUiRf6J6hHZVy48jw8OOR/+RDXBrry6oB1Fl00Yo5jV4FvZ1YK
+         lR7FuPZlyrKs0tnxBnUdUxdhITV72AneZUXPIElpXjTHGipi5feU56pPyy51RxUQrWd6
+         E+6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773041315; x=1773646115;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=xqsxFLuyxJhQEEmd0utJQ36IBqsBbSUDIMj7Ym8aJFg=;
+        b=DOxzMX4TZEN673VCwdVW+XiYUueFEWNaaRZOYiBzpand8jaarpJPk2oRLSZQdnt2dv
+         +Ul10iQUU/0VNYaGV7laikBfnUuieZR/8Py6Mg0uUqNhyMcoMsIOvazsLrzy8Jn+Q1L8
+         cStjUZ8iPEzNADBDoUzrfz/uTkLeG+1NWxqmhJb0iCI9gPrXso69A8d86fS/sgba/d1d
+         WijibcszA/YfPkKSXCexzy8m81vtjemtsec23QWIIRPg+5+4z+FPhq57ChNtGRmhaim6
+         M5DqCbw/4p0VOuFPvF4Pa14QX9p3Yeb72U0In8827bPAPdKTB8Lf6WXH9S58z4czK8Cn
+         QjIA==
+X-Forwarded-Encrypted: i=1; AJvYcCXIKY42tGXnek3vTToHhC6tnsCCLW8TTPBdVkU93AlzlYtJRoJbR74orUoO6rnW7ChBeM37VpJP9Qi4VY3Hdlti@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCbHiWJ6zBF8P6HKFodMAc3V4XWZlDKnTZFjwld2Zr3MpYrsvD
+	3hqw1K/df8qqyz0HSIVfQ/THugAIJeYnv5L6h2AFKN5Od84n57sagENs
+X-Gm-Gg: ATEYQzzcuJqGE9byrCkT/N9YJFdouQMSeJK7NbaB5rWirj775CO3bpN9cQzgpXafWk8
+	WcobhNxV7OkylCdc6N7Wazw1FlDrajll4ReODCW1RsgdkjCnnOzSwXJ8F0QHwSJ+JP0k7g/c4JT
+	BnLUZzEg82SlSqgZcZtv46B1MFrwpZv0go8xEYOVYCrCsZjRJmkaEhuG7iOxUt70a4qBKeRNY3e
+	WBab8R7aHKTCbNDYEXv3zaAwNn0k9CPTkrqpvyuFz7iEAbPtslSZ3G/IzjV9dYffW/cuUpuGLav
+	m5wBt+zXFpaxlweSGelYIXBEW3uyfwQMvEhh49F+mJtXlfynnEpp8G1H1yIapHvMq3C+kwFGA0O
+	ebjtxmfGKznkV0MglKLjqtKD/53qh81P/Br1za6tkfN4/6TS0dBfzPd38w3SnR3uvFoDDFPhxPP
+	TsGwatS5ViwAIWP/25qUth/T9p
+X-Received: by 2002:a17:903:32c9:b0:2ad:d5ea:4c89 with SMTP id d9443c01a7336-2ae823a296emr99041725ad.22.1773041314889;
+        Mon, 09 Mar 2026 00:28:34 -0700 (PDT)
+Received: from bsp.. ([2401:4900:190e:b060:a09b:ad6e:b90e:b5ba])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae83e575f3sm138471255ad.8.2026.03.09.00.28.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Mar 2026 00:28:34 -0700 (PDT)
+From: Rahul Navale <rahulnavale04@gmail.com>
+To: Folker Schwesinger <dev@folker-schwesinger.de>
+Cc: Rahul Navale <rahul.navale@ifm.com>,
+	dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	vkoul@kernel.org,
+	Frank.Li@kernel.org,
+	michal.simek@amd.com,
+	suraj.gupta2@amd.com,
+	thomas.gessler@brueckmann-gmbh.de,
+	radhey.shyam.pandey@amd.com,
+	tomi.valkeinen@ideasonboard.com,
+	rahulnavale04@gmail.com,
+	marex@nabladev.com,
+	marex@denx.de
+Subject: Re: [RFC PATCH] dmaengine: xilinx_dma: Fix per-channel direction reporting via device_caps
+Date: Mon,  9 Mar 2026 12:58:21 +0530
+Message-ID: <20260309072822.5016-1-rahulnavale04@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <DGHGTCJRRZCW.9TGXQW44V6RR@folker-schwesinger.de>
+References: <DGHGTCJRRZCW.9TGXQW44V6RR@folker-schwesinger.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] arm64: dts: ti: k3-j721s2-main: Add mmio-sram node to
- main_navss
-To: Brandon Brnich <b-brnich@ti.com>, <nm@ti.com>, <kristo@kernel.org>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20260302181800.445653-1-b-brnich@ti.com>
-Content-Language: en-US
-From: Vignesh Raghavendra <vigneshr@ti.com>
-In-Reply-To: <20260302181800.445653-1-b-brnich@ti.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF0000020A:EE_|SJ0PR10MB4640:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6cf56efe-e82e-472a-9560-08de7dad558f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|376014;
-X-Microsoft-Antispam-Message-Info: rheRtfbHTugkp0MZNaPCkt49m1zCyDePuWTQW6SOWwVQth90dE4SjIAB02vtZ67E/RPmwvIZ4297RW/y7S4a5+46Fc/hxYYjSJUOAsAiE2f0p1TEqXt9WC5XAeCx8mBWrHhlz7/cQz6OW1zr17XAoSxASrFb5NfkUC19BR/a1meGe4zPkvXFRT5tqV8UHArpenlDkPwUq2GYX2opEwdqLee6ObqQoPHdKbEchEIGMDPwmbDUSpVmD8DTyijM+y7CxcdsRP//2dMPlIioiO8/LDhv/kp6+Y9xcwidzXmIkj3F7l50sY3zMKPJAJxwsWVPkxe9QTSPMs6wSXHTbksgm2fFTeYYIJVi2j9EaRt7Mi1IMvOJs1T6xSz+ZuWmy0hmARPv5gyMvxvN/rHogzZqFsgslhjEeQS0tuupnU0zvy+MGPqDllpSGrY927d5PXlzOP4nDJuZct13qPF+clGOgntkyGq3sp+7W8Poo6JhwCSvYo5egsVApEGy0OAcaXLTTZ3Nuba7mYK7ykx93/fynFE+C7rkK6KB6yhiU1iqObooEUrsKvTjgdyCp4ErEBuXSkjGPDwjvdMm5pv/cNNl2DAh9MqaidS4Qosg4el0IWJuuf68UknGDsRpD5M0nqtaasZeU0Da9Q0NwPyLBctkzCFw/qGNBrRI5YDnAsQbpj1KQAJGdr6P3ze+3eEO102ZwyXdL6acHnQwgwkjgyA4xIKWByrs90tN9zHfpPFcgyRMbH7jNBTMr/ahEvfO6NJ2iaFB/q9JTNn1w5GbvcGUPw==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: E09Ik7qd0mAiuQi6Kz+lIYFZYrauMYMRbW+ZewahOk+99zsY8JslKDpQ16hGDFAh08UpdRgg5doUJArdsEvmZci+/iYlCzwj/WuVn5AG8bhxyLjzk3GQQ61MORboG/V/7McIyBKKQ1BERN3BdoaeXfCyWG/e2D1RKLmxASuT6RQ4MgPIXis9YDlj4n+Pb2AnbOnfqLR6RaplNpbJIfuy2P36fWJKVLJkyhBtFwzmQmvuhG6CYHQ3Whiq3HabAaTJpE1/y3hWrM98E621bdlLcbO4GiCKHKTZ03N7tp9QZzcPFzkwYzCec3MrTTpKpYk+1A+hmNAwFHf0Vk8ey9MXOx/JtVuDTA9KAtdcUYyCZNcAzytDN1rEVcsnkDW8exLNuXwqnq/J/YekP/fTrh52qD+nHWzQWqFRV+WXf5ROs72rFJzDW8mwHY1HrKMazB3X
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Mar 2026 07:27:35.0077
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6cf56efe-e82e-472a-9560-08de7dad558f
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF0000020A.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB4640
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_002745_237304_0D8D5EBD 
-X-CRM114-Status: GOOD (  11.71  )
+X-CRM114-CacheID: sfid-20260309_002836_249500_FD8FA5E4 
+X-CRM114-Status: UNSURE (   7.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,44 +111,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Rahul Navale <rahul.navale@ifm.com>
+
+>Please undo the latest Xilinx DMA patch I sent.
+>To get some more data, could you apply the following patch (keep RFC
+>patch and debug stuff) and rerun with 7e01511443c3 a) applied and b)
+>reverted and post logs for both cases:
+
+I have applied provided patch (with kept RFC patch and debug stuff) and with
+7e01511443c3 applied. logs:
+
+root@pdm3:~# dmesg | grep xilinx_dma_device_caps                                                                                                                                         
+[    0.285057] xilinx_dma_device_caps: caps->directions = 0x00000001
+[    0.285060] xilinx_dma_device_caps: caps->directions = 0x00000001
+[    0.285759] xilinx_dma_device_caps: caps->directions = 0x00000002
+[    0.285763] xilinx_dma_device_caps: caps->directions = 0x00000002
+[    7.535143] xilinx_dma_device_caps: caps->directions = 0x00000001
+[    7.535147] xilinx_dma_device_caps: caps->directions = 0x00000001
+root@pdm3:~# dmesg | grep ptr_res
+root@pdm3:~# aplay closetoyou.wav 
+Playing WAVE 'closetoyou.wav' : Signed 16 bit Little Endian, Rate 48000 Hz, Stereo
+^CAborted by signal Interrupt...
+aplay: pcm_write:2178: write error: Interrupted system call
+root@pdm3:~# 
+root@pdm3:~# dmesg | grep ptr_res
+[  198.997591] ptr_res: ptr = 0x00000000
+[  199.002885] ptr_res: ptr = 0x00000000
+[  199.002900] ptr_res: ptr = 0x00000000
+[  199.002925] ptr_res: ptr = 0x00000000
+[  199.002946] ptr_res: ptr = 0x00000000
+[  199.117775] ptr_res: ptr = 0x00000000
+[  199.117818] ptr_res: ptr = 0x00000000
+[  199.117839] ptr_res: ptr = 0x00000000
+[  199.242766] ptr_res: ptr = 0x00000000
+[  199.242800] ptr_res: ptr = 0x00000000
+[  199.242820] ptr_res: ptr = 0x00000000
 
 
-On 02/03/26 23:47, Brandon Brnich wrote:
-> The NavigatorSS (NAVSS) address space contains a 64 KiB on-chip SRAM
-> region at its base address. Add an mmio-sram node to expose this region
-> to consumers via the generic SRAM allocator API.
-> 
-> Signed-off-by: Brandon Brnich <b-brnich@ti.com>
-> ---
->  arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi | 8 ++++++++
->  1 file changed, 8 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
-> index 80c51b11ac9f..7b1ba34ab719 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
-> @@ -785,6 +785,14 @@ main_navss: bus@30000000 {
->  		dma-coherent;
->  		dma-ranges;
->  
-> +		main_navss_sram: navss-sram@30000000 {
+Also I have applied provided patch (with kept RFC patch and debug stuff) and with
+7e01511443c3 reverted. logs:
 
-This fails make dtbs_check
+root@pdm3:~# dmesg | grep xilinx_dma_device_caps
+root@pdm3:~# dmesg | grep ptr_res
+root@pdm3:~# aplay closetoyou.wav 
+Playing WAVE 'closetoyou.wav' : Signed 16 bit Little Endian, Rate 48000 Hz, Stereo
+^CAborted by signal Interrupt...
+aplay: pcm_write:2178: write error: Interrupted system call
+root@pdm3:~# 
+root@pdm3:~# dmesg | grep ptr_res
+[   60.480754] ptr_res_no: ptr = 0x00000000
+[   60.486058] ptr_res_no: ptr = 0x00000000
+[   60.486070] ptr_res_no: ptr = 0x00000000
+[   60.486094] ptr_res_no: ptr = 0x00000000
+[   60.486113] ptr_res_no: ptr = 0x00000000
+[   60.600877] ptr_res_no: ptr = 0x00001770
+[   60.600920] ptr_res_no: ptr = 0x00001770
+[   60.600939] ptr_res_no: ptr = 0x00001770
+[   60.600948] ptr_res_no: ptr = 0x00001770
+[   60.600968] ptr_res_no: ptr = 0x00001770
+[   60.602739] ptr_res_no: ptr = 0x00001770
+[   60.602750] ptr_res_no: ptr = 0x00001770
+[   60.725869] ptr_res_no: ptr = 0x00002ee0
+[   60.725904] ptr_res_no: ptr = 0x00002ee0
+[   60.725921] ptr_res_no: ptr = 0x00002ee0
+[   60.725931] ptr_res_no: ptr = 0x00002ee0
+[   60.725949] ptr_res_no: ptr = 0x00002ee0
+[   60.727667] ptr_res_no: ptr = 0x00002ee0
+[   60.727677] ptr_res_no: ptr = 0x00002ee0
+[   60.850877] ptr_res_no: ptr = 0x00000000
+[   60.850939] ptr_res_no: ptr = 0x00000000
+[   60.850960] ptr_res_no: ptr = 0x00000000
+[   60.850969] ptr_res_no: ptr = 0x00000000
+[   60.851000] ptr_res_no: ptr = 0x00000000
+[   60.852750] ptr_res_no: ptr = 0x00000000
+[   60.852760] ptr_res_no: ptr = 0x00000000
+[   60.975869] ptr_res_no: ptr = 0x00001770
+[   60.975905] ptr_res_no: ptr = 0x00001770
+[   60.975923] ptr_res_no: ptr = 0x00001770
+...
+...
 
-> +			compatible = "mmio-sram";
-> +			reg = <0x00 0x30000000 0x00 0x10000>;
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +			ranges = <0x0 0x00 0x30000000 0x10000>;
-> +		};
-> +
->  		main_navss_intr: interrupt-controller@310e0000 {
->  			compatible = "ti,sci-intr";
->  			reg = <0x00 0x310e0000 0x00 0x4000>;
-
--- 
-Regards
-Vignesh
-https://ti.com/opensource
 
 
