@@ -4,148 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A655EFCD98
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 10:52:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EE73EFCD99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 10:58:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kSr+ISUjhyY647e53JhkotixEBm++WU/2UZRlXF4DdA=; b=lpwd4+b87ghoF+pXcCajWWRNsH
-	Uug1pBEFS9kWzUBa4e5cQ2D7DV/2sD24thw79ImmeipjZS6Ec5HGTK+ezTftangYfHVcFVqqciXA4
-	ej4FjqQGW9e2Qx+BgTJziie1Fg6jWqEFj43ApBbVzhrvDuG1RY0nQ83S0HfY0FOxwpmU5keRFxsbU
-	3IociySGHowAtc2/97+is4HY7J6cYgbVdVzateo1bsBX3pl3GdtIvP+pDDsmL7rLvjW/P0ZiX7fwc
-	DT7QFB19sA6VDfl3tzvMhUSENIctxjkjAlw/1Vzwiza+ejQlqHUx0kDfPuk8enG20TPN7cTXm5aSE
-	PEKmI09w==;
+	bh=7z1uNloZFcK2P1RS0CY2jk67G7pL+sNFuIKN/if5Dm0=; b=ajh16uJ5/dVd2GiJoBFX0oOziE
+	ectbT2aC/sTaFzGzBubtV+DRODW+SDUmLWEPU1yDHNQJVn2IzV6Mx5DqeYYc4MRq427qty6Uc5DzZ
+	lg/pI8r5udKnK0UIwtKzWac5WR849FmfxhwgTqv0H5cKudm68cl4bl3UDrdUudrIWfcpswsnkvOp8
+	4rCseguFKGnYtsubMfdQKBIm6u+vCd6d0eLDIICAqPioiOKOCcxumn9rPww9aps6Ef7PwUfBOgkyU
+	vw0xIVb9o+UFfkgzmFIEdshgmvXAkjh3br+FCy/ytSyXOMeYuUEtJA3mh7c5F2dEOHLeKBlmWTGDs
+	nFiIm3sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzYDK-000000077Iv-16Ru;
-	Mon, 09 Mar 2026 10:51:54 +0000
-Received: from mail-westeuropeazon11011045.outbound.protection.outlook.com ([52.101.70.45] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1vzYJC-000000077j9-3mhN;
+	Mon, 09 Mar 2026 10:57:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzYDI-000000077IM-1LTT
+	id 1vzYJB-000000077j3-2qho
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 10:51:53 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=v1mwg3MTMBROVsl1kwaem3/LYq5pSFUzQZo7ma320u8Sg9c9h4kXQ0XswZ5aN8+UtuAGMFAUN5PQDiFZSlRhNDI70BK6uaxwCLxjDgEjJ3Ie3YHGQg6r4nR+GYHNLFLmbxa8zSBEPmKtqO11QtTn4kUy9qYD1SDcTeNv5VA78RJVQRUGOCS83VN/TYqdIRVIjLhR6mQSxgVfXHEy2ZRJ+MmHKRY7tUOdf9nwP8N9xrBQm3yYeEUPwXri9wihbWdTnZsnNInJWuprPOhExalNCjrD5Lm11yHnKEXw+u7NfOKgU39iF/1Cwhj0CsWSU6l6JU1Bg3+7os9wdm1Vc/lVzA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kSr+ISUjhyY647e53JhkotixEBm++WU/2UZRlXF4DdA=;
- b=lAZq4vI8LD3eu3X3n9bGPUF0vnAKGEwSnGOBlFG/m4a8OuZstoBqEp0dkZTdDgdjw6dqIFmnktKyZBQI8b7qyNmEHVGCpZJlygvIz4nB1jN7uxaFcnqPiCV6C/NBKY6lR6BoTGlEVIzZLV0Hyqf1gTHydREaIy3DImfa8uUBe30boYLxVOo9qV1uLMc9gJ+WbX03UxgZPFFjRfLW1GrbQOGwPYolJl0avbUNbSaaYsVTBRWm5T7lt8XRwfvwd5IrpcuNdhbV+woVWt8DM5ih0JkC/HLo0IQh+7X5SwcL0+ZeFcARcXHPUoxEvTfQUPRp6ULJ5pMGt4S8MKa1L2prFw==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kSr+ISUjhyY647e53JhkotixEBm++WU/2UZRlXF4DdA=;
- b=qlo6e/eksXOzRbnFv4eCps1bZCQWCofFTaw1iulKNOzU7gim1W/fU90vPbGuOi56SCw5joInQQMzHmRw7yEp+1gwIKcAPcmHs7Hs0j1d89HKiIvknNq13Za5VV74VOpQKL2czUcxU6OxE/JiqLiq2eWlXS900snzo1xOhmMamSM=
-Received: from DU2P250CA0006.EURP250.PROD.OUTLOOK.COM (2603:10a6:10:231::11)
- by AS2PR08MB9872.eurprd08.prod.outlook.com (2603:10a6:20b:593::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.22; Mon, 9 Mar
- 2026 10:51:47 +0000
-Received: from DB5PEPF00014B9D.eurprd02.prod.outlook.com
- (2603:10a6:10:231:cafe::67) by DU2P250CA0006.outlook.office365.com
- (2603:10a6:10:231::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.24 via Frontend Transport; Mon,
- 9 Mar 2026 10:51:42 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB5PEPF00014B9D.mail.protection.outlook.com (10.167.8.164) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.18
- via Frontend Transport; Mon, 9 Mar 2026 10:51:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EhpIGvAn0JthGCPOGdRUaHZx200NNBKGnLNYKLyUCDHcQbl8M/aYScjsOn3tmY55N2ea+kG2NJ901gZ8PDMSTv6GJESeHyHT5moVYUkEi4FMnut5NYXL/Q/+pOQMJ+EA07kXk/I3BWM8Mx2HxnuvmPNfsrqDfaXZmSp0HjXdHGoSLpF9NuPc1N7poHjmHOy3HwzWu39h79ONvZeh2mDMl9yQM6R+X1BN9sYGETv3Fa7Taa+p3l9HAy55IEE6S1veOxbKXWTBTpIL2CsLnZt2Lz+OJ1o232a/K4cTljoiEd3QET17EI7y8qBWBa26BMO8dvr5dnd5EZRxpGvo03dv3w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kSr+ISUjhyY647e53JhkotixEBm++WU/2UZRlXF4DdA=;
- b=P3uCNB3ssfF7oqGr9gSrcKKRVhhX1icIBIYglMt2eCUk32sUVPwyQ5SYX/CsqdrNtoPJ26sD568ZY421VV/nmvE7HX0LtxNfElcGUVvztMVEDo+7FvHyfBJAECVH3ZZs+8a19u3FLvEgGK06bSWww18oK7POONUa44TaQFFyCpVwt8e1qqr7AjUBFnuSra5AQMJ4YnrFN2SLlVTzb/GHHZMpKMoLtQCmgaxYOQSEV95Lh+kib2HvQE3AsxEmP+qdtbejbhOeFaY6tF/yFL9RtbXpuN2xk2a7WSRHw3DWzJPhXPy026bD9SjMLC0Bpawol0cGxJB8u8eicgxe5CtZeg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kSr+ISUjhyY647e53JhkotixEBm++WU/2UZRlXF4DdA=;
- b=qlo6e/eksXOzRbnFv4eCps1bZCQWCofFTaw1iulKNOzU7gim1W/fU90vPbGuOi56SCw5joInQQMzHmRw7yEp+1gwIKcAPcmHs7Hs0j1d89HKiIvknNq13Za5VV74VOpQKL2czUcxU6OxE/JiqLiq2eWlXS900snzo1xOhmMamSM=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from AM0PR08MB11754.eurprd08.prod.outlook.com (2603:10a6:20b:743::9)
- by DB9PR08MB6538.eurprd08.prod.outlook.com (2603:10a6:10:23d::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.25; Mon, 9 Mar
- 2026 10:50:43 +0000
-Received: from AM0PR08MB11754.eurprd08.prod.outlook.com
- ([fe80::3427:f97c:862d:1850]) by AM0PR08MB11754.eurprd08.prod.outlook.com
- ([fe80::3427:f97c:862d:1850%4]) with mapi id 15.20.9678.017; Mon, 9 Mar 2026
- 10:50:43 +0000
-Message-ID: <c25f3615-c835-493d-8262-ff5541dee4e0@arm.com>
-Date: Mon, 9 Mar 2026 10:50:42 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/3] coco: guest: arm64: Add Realm Host Interface and
- hostconf RHI
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
- linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
- linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Jason Gunthorpe <jgg@ziepe.ca>, Marek Szyprowski <m.szyprowski@samsung.com>,
- Robin Murphy <robin.murphy@arm.com>, Steven Price <steven.price@arm.com>
-References: <20260309102625.2315725-1-aneesh.kumar@kernel.org>
- <20260309102625.2315725-4-aneesh.kumar@kernel.org>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260309102625.2315725-4-aneesh.kumar@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO4P123CA0662.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:316::18) To AM0PR08MB11754.eurprd08.prod.outlook.com
- (2603:10a6:20b:743::9)
+	Mon, 09 Mar 2026 10:57:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id BC1BC60133;
+	Mon,  9 Mar 2026 10:57:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DE20C4CEF7;
+	Mon,  9 Mar 2026 10:57:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773053876;
+	bh=IlyaL0xzcKbFXRcCNMmKvq3YIxGlatU2bZ5oGniuBKo=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=raxXtsjynu4dcdS3YUuTzvfa0gfWyO/zp4f8tgmpFQ1aj/1BJUK1icZEKf8Kxu392
+	 XfjkBSGCpDCUgWKe0t5Gz08v4hEl/q6j2by35/VpUuiZur0EtgLrICYNSugMguM8lP
+	 tLgrd8H+8dA35Uk85gnxU3550ji8l2VTSiDWSVsbPzlbSrmOkJaZYxvkvvWgLInrpC
+	 4fCueOAuXga34xva5d0FgSF/S65XJjaicqowrXp1GfEM9bjkGpsz9OBG+LUFDcNCFU
+	 u2CA9dG+VIxjNRmhtq4/GE0xec6KTEcg5JhCKptIOOcb6a0ZTSX6aafZLQ6uVt+O/k
+	 ZPLKI40i+yPwQ==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>
+Subject: [PATCH v3 0/2] Switch Arm CCA to use an auxiliary device from a
+ platform device
+In-Reply-To: <20260309100507.2303361-1-aneesh.kumar@kernel.org>
+References: <20260309100507.2303361-1-aneesh.kumar@kernel.org>
+Date: Mon, 09 Mar 2026 16:27:49 +0530
+Message-ID: <yq5av7f51d8y.fsf@kernel.org>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: AM0PR08MB11754:EE_|DB9PR08MB6538:EE_|DB5PEPF00014B9D:EE_|AS2PR08MB9872:EE_
-X-MS-Office365-Filtering-Correlation-Id: 548e42ac-720c-49bd-ed51-08de7dc9dc1a
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info-Original: weQkGPxCK7YWzkEobu5oHXByGMkFSVSKUcii6z7+tAMvCDE2Ur75B2KZ2GI2r/V9SjSUHyatmf5lbsmYNizxeEleQXRFTWzVrdDPRdRmQLG8xJicKxRK/thwqK4FpGvNAXa/ngf24Cz71bVSJhFLzw8clS/o2SHmJQsmTK1t42V/bbIY1jY98VZYp1/5Z2G/NB0MgpnnDkMcRNpx70dByQEY7DMvhIqQZKVixbqfFmHs4VTP448gcsCCh37wgIvaQIRS65gYYrqQG7iig1p0/Uv3dlXW7MR7+Zhzy/4lxvwGheySpQNTj2QexEK/HbD2nVM8qxa+ajsHTgumVLKUZ4RHMYx/bDg3dhY+YVXIcBqy+roTl4vXBjsGfAoEkbj5U/dntrvQsPBPxo1ZMJnwuVLRnQgbSvZRlUW9Gp8qgBI9OGn6HWnuj5bqEWZBoGfkCz9KQhd709gJnHVWkta7HSHC3T8A8a8Aj+O9s1ZhoXTsyJdkegRzw0GTzWO1og3YgnaTlihCV87XNjke0SV8+SaW6CEmEL8gLuXiDVMRhqH8TWGpH/I7E3VjmShslS1x1y3KfGgK1uGJBixUwFTJpIbpGelHikkiHkQqA3SSxzSiX/C54FxX4OUW6uerM83067jOqk3C1O1Uyro1+iNsEdNSCDej3FSbO474YeijpNboXp9/BX4abYnWdZa6Npxn30RFlnJRP/533S4qaLZkysSe9lZv7N1rS5U/fbGtFg8=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR08MB11754.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: ZFVkFXPKpREDKe4NBimosTJITlbQPJrCySKiXOkQZweK8/ZlZ+Fyvfipy0XcuBQFyjXppOXJXJd6KUM4xX31o5I1G2Je2QBs1UscV/8rlFhqWEMbMXMDcawLhRUzNaydV6c5woYa/8l1WQZ+cmFqongkeFmz+Z3m/i7rtRUB3eL56ndpXTgLNZ4jhkS9kTHQTO+VWG9es/Q484R81MssADHjO0DgjMc8g1SocOd5URS/Qg59OAEtFhBazs0z0P2t+c68xSICUeIo0O29Rc8+S3ksG0+cZBQw9U6/UGv1n0dIjeAHGebui4uRK5xiDXdti5zHs/Qs1mFtl1TeNd+vxg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB6538
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB5PEPF00014B9D.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: a7194dc9-6204-4512-c8f2-08de7dc9b621
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|14060799003|82310400026|35042699022|36860700016|7053199007;
-X-Microsoft-Antispam-Message-Info: tV/jK0sA5KTIMAD3lfGlkBC31kggv4JsI25x7qkNac4WsrGsYyldMWwDm3TTLFcM1ShyS6l64eWONmlkbcdO7NavY0+n6NndgPQEKJEFxlQYDbVbocAoa22mtk5l1IpuklZaShp5FL9p/ZKqDV8cPdQRooqL4G3fVRXrt6/VbxCZeztLBtGlQYICnRbiUwzbxvL/N+Wo0VzGw6K03zsqhoOJLCn00mplBYSffgpxR/HlnawAcEabdVVf0Pxwy3lNJhYS75y/bsvS0cF2FJ9L5oiuJryZT19/ORrETYqgViKCQoTmySjKIwGHZcpFwJAgknKJHdoDsbLUoDqLN7D9RwaQB8dAng2v6GKYY0CH8lpg6KnL+142MUS7zkSSxJOJjuzDkFnYLLO9FmZMvHmNyRAvSn0egKsyYVdAfQfB+cm0IAN6cZhNSsYBybUvHtZbGozBEmX+fLkqPttIG8ewpvd/EW5Rh8GljNClT3HGcdkKTzrtOUn/4GdHoc8C0OevmyvCIK2Xx1X7Vc8SfKgk3Wk8CrkrPC0nrtVdNE8xhbEpD99qc14P6YyV9tnTAHFMgHYNtJY7Gn1kfFOjNUVr0l0rHAYmJ454tmT6jHjeuTrFZEjOXhJLwrW3UrNBCedH55AIaAuu4/DZI8pQ5LNUrIPDdKgcoQAid5sIISK6OJBThhKHUBYgBKs+Y3uh22OizBw4pXp+K984HF+BPlZq3zH9uLvIP9ybePtNKCMVPyKnFkKDxOVi74ZprjDsygj6UfZc4GhgkwqBrfAyex0oFA==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(14060799003)(82310400026)(35042699022)(36860700016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: NF8ShY/43xUKWWY+9iuRHbI4MeySAz4axsbv/dcsJ6RzJWV8TUILw3Q0mhL9FjA5pUY0n1F71wwA2xPsC+bD0KVz0O4SjPHFUCMVVPW+h9tmxrvkEZE34VeCcQUTyUxyOrQYq/nELAztIVKykQGuvwLezFWCguK/uhUqgLpNgpb8sQzbpUYwV6+1h8y6mLfnK7WtqORbfYfFglJeQ3+5Eg/NYdi6A0l0PVfiNeqBVw8URpNZ0Bh6TfvemAVPhxmZp1WNTF5UsVurlvlTTjokY+vQ8EyZNSbtryN0heaanBai6Xv3W0ASLHrobsthcokxUNexfHbK9JowpjxykFXnojEWsIhfBKPwuP51pSB9Gh9em+oBisfp3mOf/4nSoumndCly7ZdRAdnRd11Z6W7lfAgaNcOLvnkM1TM1doplMoPOhIyWJ9ZVkKDLPi4FAPdr
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Mar 2026 10:51:46.6599
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 548e42ac-720c-49bd-ed51-08de7dc9dc1a
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B9D.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB9872
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_035152_530693_EB00CDA8 
-X-CRM114-Status: GOOD (  21.39  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,280 +75,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Aneesh
 
-On 09/03/2026 10:26, Aneesh Kumar K.V (Arm) wrote:
-> - describe the Realm Host Interface SMC IDs and result codes in a new
->    asm/rhi.h header
-> - expose struct rsi_host_call plus an rsi_host_call() helper so we can
->    invoke SMC_RSI_HOST_CALL from C code
->   - add RHI hostconf SMC IDs and helper to query version, features, and IPA
->     change alignment
->   - derive the realm hypervisor page size during init and abort realm setup
->     on invalid alignment
-> 
-> This provides the host page-size discovery needed by previous patch that
-> align shared buffer allocation/decryption to host requirements.
-> 
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Thomas Gleixner <tglx@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Jason Gunthorpe <jgg@ziepe.ca>
-> Cc: Marek Szyprowski <m.szyprowski@samsung.com>
-> Cc: Robin Murphy <robin.murphy@arm.com>
-> Cc: Steven Price <steven.price@arm.com>
-> Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> ---
->   arch/arm64/include/asm/mem_encrypt.h |  3 ++
->   arch/arm64/include/asm/rhi.h         | 24 +++++++++++++
->   arch/arm64/include/asm/rsi.h         |  2 ++
->   arch/arm64/include/asm/rsi_cmds.h    | 10 ++++++
->   arch/arm64/include/asm/rsi_smc.h     |  7 ++++
->   arch/arm64/kernel/Makefile           |  2 +-
->   arch/arm64/kernel/rhi.c              | 53 ++++++++++++++++++++++++++++
->   arch/arm64/kernel/rsi.c              | 13 +++++++
->   arch/arm64/mm/mem_encrypt.c          |  8 +++++
->   9 files changed, 121 insertions(+), 1 deletion(-)
->   create mode 100644 arch/arm64/include/asm/rhi.h
->   create mode 100644 arch/arm64/kernel/rhi.c
-> 
-> diff --git a/arch/arm64/include/asm/mem_encrypt.h b/arch/arm64/include/asm/mem_encrypt.h
-> index 314b2b52025f..5541911eb028 100644
-> --- a/arch/arm64/include/asm/mem_encrypt.h
-> +++ b/arch/arm64/include/asm/mem_encrypt.h
-> @@ -16,6 +16,9 @@ int arm64_mem_crypt_ops_register(const struct arm64_mem_crypt_ops *ops);
->   int set_memory_encrypted(unsigned long addr, int numpages);
->   int set_memory_decrypted(unsigned long addr, int numpages);
->   
-> +#define mem_decrypt_granule_size mem_decrypt_granule_size
-> +size_t mem_decrypt_granule_size(void);
-> +
->   int realm_register_memory_enc_ops(void);
->   
->   static inline bool force_dma_unencrypted(struct device *dev)
-> diff --git a/arch/arm64/include/asm/rhi.h b/arch/arm64/include/asm/rhi.h
-> new file mode 100644
-> index 000000000000..0895dd92ea1d
-> --- /dev/null
-> +++ b/arch/arm64/include/asm/rhi.h
-> @@ -0,0 +1,24 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2026 ARM Ltd.
-> + */
-> +
-> +#ifndef __ASM_RHI_H_
-> +#define __ASM_RHI_H_
-> +
-> +#include <linux/types.h>
-> +
-> +#define SMC_RHI_CALL(func)				\
-> +	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,		\
-> +			   ARM_SMCCC_SMC_64,		\
-> +			   ARM_SMCCC_OWNER_STANDARD_HYP,\
-> +			   (func))
-> +
-> +unsigned long rhi_get_ipa_change_alignment(void);
-> +#define RHI_HOSTCONF_VER_1_0		0x10000
-> +#define RHI_HOSTCONF_VERSION		SMC_RHI_CALL(0x004E)
-> +
-> +#define __RHI_HOSTCONF_GET_IPA_CHANGE_ALIGNMENT BIT(0)
-> +#define RHI_HOSTCONF_FEATURES		SMC_RHI_CALL(0x004F)
-> +#define RHI_HOSTCONF_GET_IPA_CHANGE_ALIGNMENT	SMC_RHI_CALL(0x0050)
-> +#endif
-> diff --git a/arch/arm64/include/asm/rsi.h b/arch/arm64/include/asm/rsi.h
-> index 88b50d660e85..ae54fb3b1429 100644
-> --- a/arch/arm64/include/asm/rsi.h
-> +++ b/arch/arm64/include/asm/rsi.h
-> @@ -67,4 +67,6 @@ static inline int rsi_set_memory_range_shared(phys_addr_t start,
->   	return rsi_set_memory_range(start, end, RSI_RIPAS_EMPTY,
->   				    RSI_CHANGE_DESTROYED);
->   }
-> +
-> +unsigned long realm_get_hyp_pagesize(void);
->   #endif /* __ASM_RSI_H_ */
-> diff --git a/arch/arm64/include/asm/rsi_cmds.h b/arch/arm64/include/asm/rsi_cmds.h
-> index 2c8763876dfb..a341ce0eeda1 100644
-> --- a/arch/arm64/include/asm/rsi_cmds.h
-> +++ b/arch/arm64/include/asm/rsi_cmds.h
-> @@ -159,4 +159,14 @@ static inline unsigned long rsi_attestation_token_continue(phys_addr_t granule,
->   	return res.a0;
->   }
->   
-> +static inline unsigned long rsi_host_call(struct rsi_host_call *rhi_call)
-> +{
-> +	phys_addr_t addr = virt_to_phys(rhi_call);
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RSI_HOST_CALL, addr, &res);
-> +
-> +	return res.a0;
-> +}
-> +
->   #endif /* __ASM_RSI_CMDS_H */
-> diff --git a/arch/arm64/include/asm/rsi_smc.h b/arch/arm64/include/asm/rsi_smc.h
-> index e19253f96c94..9ee8b5c7612e 100644
-> --- a/arch/arm64/include/asm/rsi_smc.h
-> +++ b/arch/arm64/include/asm/rsi_smc.h
-> @@ -182,6 +182,13 @@ struct realm_config {
->    */
->   #define SMC_RSI_IPA_STATE_GET			SMC_RSI_FID(0x198)
->   
-> +struct rsi_host_call {
-> +	union {
-> +		u16 imm;
-> +		u64 padding0;
-> +	};
-> +	u64 gprs[31];
-> +} __aligned(0x100);
->   /*
->    * Make a Host call.
->    *
-> diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
-> index 76f32e424065..fcb67f50ea89 100644
-> --- a/arch/arm64/kernel/Makefile
-> +++ b/arch/arm64/kernel/Makefile
-> @@ -34,7 +34,7 @@ obj-y			:= debug-monitors.o entry.o irq.o fpsimd.o		\
->   			   cpufeature.o alternative.o cacheinfo.o		\
->   			   smp.o smp_spin_table.o topology.o smccc-call.o	\
->   			   syscall.o proton-pack.o idle.o patching.o pi/	\
-> -			   rsi.o jump_label.o
-> +			   rsi.o jump_label.o rhi.o
->   
->   obj-$(CONFIG_COMPAT)			+= sys32.o signal32.o			\
->   					   sys_compat.o
-> diff --git a/arch/arm64/kernel/rhi.c b/arch/arm64/kernel/rhi.c
-> new file mode 100644
-> index 000000000000..d2141b5283e1
-> --- /dev/null
-> +++ b/arch/arm64/kernel/rhi.c
-> @@ -0,0 +1,53 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2026 ARM Ltd.
-> + */
-> +
-> +#include <asm/rsi.h>
-> +#include <asm/rhi.h>
-> +
-> +/* we need an aligned rhicall for rsi_host_call. slab is not yet ready */
-> +static struct rsi_host_call hyp_pagesize_rhicall;
-> +unsigned long rhi_get_ipa_change_alignment(void)
-> +{
-> +	long ret;
-> +	unsigned long ipa_change_align;
-> +
-> +	hyp_pagesize_rhicall.imm = 0;
-> +	hyp_pagesize_rhicall.gprs[0] = RHI_HOSTCONF_VERSION;
-> +	ret = rsi_host_call(&hyp_pagesize_rhicall);
-> +	if (ret != RSI_SUCCESS)
-> +		goto err_out;
-> +
-> +	if (hyp_pagesize_rhicall.gprs[0] != RHI_HOSTCONF_VER_1_0)
-> +		goto err_out;
-> +
-> +	hyp_pagesize_rhicall.imm = 0;
-> +	hyp_pagesize_rhicall.gprs[0] = RHI_HOSTCONF_FEATURES;
-> +	ret = rsi_host_call(&hyp_pagesize_rhicall);
-> +	if (ret != RSI_SUCCESS)
-> +		goto err_out;
-> +
-> +	if (!(hyp_pagesize_rhicall.gprs[0] & __RHI_HOSTCONF_GET_IPA_CHANGE_ALIGNMENT))
-> +		goto err_out;
-> +
-> +	hyp_pagesize_rhicall.imm = 0;
-> +	hyp_pagesize_rhicall.gprs[0] = RHI_HOSTCONF_GET_IPA_CHANGE_ALIGNMENT;
-> +	ret = rsi_host_call(&hyp_pagesize_rhicall);
-> +	if (ret != RSI_SUCCESS)
-> +		goto err_out;
-> +
-> +	ipa_change_align = hyp_pagesize_rhicall.gprs[0];
-> +	/* This error needs special handling in the caller */
-> +	if (ipa_change_align & (SZ_4K - 1))
-> +		return 0;
-> +
-> +	return ipa_change_align;
-> +
-> +err_out:
-> +	/*
-> +	 * For failure condition assume host is built with 4K page size
-> +	 * and hence ipa change alignment can be guest PAGE_SIZE.
-> +	 */
-> +	return PAGE_SIZE;
-> +}
-> diff --git a/arch/arm64/kernel/rsi.c b/arch/arm64/kernel/rsi.c
-> index c64a06f58c0b..6e35cb947745 100644
-> --- a/arch/arm64/kernel/rsi.c
-> +++ b/arch/arm64/kernel/rsi.c
-> @@ -13,8 +13,10 @@
->   #include <asm/io.h>
->   #include <asm/mem_encrypt.h>
->   #include <asm/rsi.h>
-> +#include <asm/rhi.h>
->   
->   static struct realm_config config;
-> +static unsigned long ipa_change_alignment = PAGE_SIZE;
->   
->   unsigned long prot_ns_shared;
->   EXPORT_SYMBOL(prot_ns_shared);
-> @@ -138,6 +140,11 @@ static int realm_ioremap_hook(phys_addr_t phys, size_t size, pgprot_t *prot)
->   	return 0;
->   }
->   
-> +unsigned long realm_get_hyp_pagesize(void)
-> +{
-> +	return ipa_change_alignment;
-> +}
-> +
->   void __init arm64_rsi_init(void)
->   {
->   	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_SMC)
-> @@ -146,6 +153,12 @@ void __init arm64_rsi_init(void)
->   		return;
->   	if (WARN_ON(rsi_get_realm_config(&config)))
->   		return;
-> +
-> +	ipa_change_alignment = rhi_get_ipa_change_alignment();
+As discussed here:
+https://lore.kernel.org/all/20250728135216.48084-12-aneesh.kumar@kernel.org
 
-minor nit: We reset the alignment to 0 if this fails. see below.
+The generic feedback was that a platform device should not be used when
+there is no underlying platform resource to represent. The existing CCA
+support uses a platform device solely to anchor the TSM interface in the
+device hierarchy, which is not an appropriate use of a platform device.
+Instead, introduce an auxiliary device to track CCA support.
 
-> +	/* If we don't get a correct alignment response, don't enable realm */
+The TSM framework uses the device abstraction to provide cross-architecture
+TSM and TEE I/O functionality, including:
+  Enumerating available platform TEE I/O capabilities
+  Provisioning connections between the platform TSM and device DSM
 
-Do we need to enforce this ? If the Host doesn't implement this, we 
-could proceed and the guest might encounter failures in "sharing" in
-the worst case. Otherwise, it could proceed. Eitherway, RMM guarantees
-that the "state" of the PFNs are stable as reported by the RSI
-calls and the Guest knows exactly what has happened.
+For the CCA platform, the resulting device hierarchy appears as follows:
 
-Suzuki
+# cd /sys/class/tsm/
+# ls -al
+total 0
+drwxr-xr-x  2 root root 0 Jan  1 00:01 .
+drwxr-xr-x 23 root root 0 Jan  1 00:00 ..
+lrwxrwxrwx  1 root root 0 Jan  1 00:01 tsm0 -> ../../devices/platform/arm-smccc/arm_cca_host.arm-rmi-dev.0/tsm/tsm0
 
-
-> +	if (!ipa_change_alignment)
-> +		return;
-> +
-
-
-
->   	prot_ns_shared = BIT(config.ipa_bits - 1);
->   
->   	if (arm64_ioremap_prot_hook_register(realm_ioremap_hook))
-> diff --git a/arch/arm64/mm/mem_encrypt.c b/arch/arm64/mm/mem_encrypt.c
-> index 38c62c9e4e74..f5d64bc29c20 100644
-> --- a/arch/arm64/mm/mem_encrypt.c
-> +++ b/arch/arm64/mm/mem_encrypt.c
-> @@ -59,3 +59,11 @@ int set_memory_decrypted(unsigned long addr, int numpages)
->   	return crypt_ops->decrypt(addr, numpages);
->   }
->   EXPORT_SYMBOL_GPL(set_memory_decrypted);
-> +
-> +size_t mem_decrypt_granule_size(void)
-> +{
-> +	if (is_realm_world())
-> +		return max(PAGE_SIZE, realm_get_hyp_pagesize());
-> +	return PAGE_SIZE;
-> +}
-> +EXPORT_SYMBOL_GPL(mem_decrypt_granule_size);
-
+-aneesh
 
