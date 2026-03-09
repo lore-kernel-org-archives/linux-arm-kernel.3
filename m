@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC2EFFCA19C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 22:37:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 456A7FCA19E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 22:40:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hzT1x7udiRauncNcHrEy3D+oQPbWR/PeNre1rcvnuDw=; b=c9DcY52I5Zd01oNH0lvoHi2nZj
-	9NnuB8l9ybyKNQaS4GDNlhUzrqViPoLXdX84Bb9EzABDmy1Ht7NxEnnOQAGQXBt6eI460Nja3zYDD
-	ODEgVbKY+PRfMxvhmezL6FbdL+8EzNa65QPKTjHUP+4pM/oxjiUTq/SJhj+3HDZ4/Ld9EjMMlZjbM
-	KKH2t4wzDtWEf5yJFcu3m7PXOOdumIrvL2RF2E7IPyGqbbKkNfJQeu2TXJFTs/KAvcIkHodFjFvLk
-	3HwsPwBdN+m8ktpPsM4YsyScEK38AIH4Pw575xZV3fefSX8DWly9xJ7t1ZDvvAl/rISfnuGkvogCm
-	JGAwQSCw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6sEa2EbLg9kRxYDC+wk5lG4h9pBDhKw3v7ZVTXod9Z0=; b=jOQ5CSB6YwGlOy3uOTELUaYXKL
+	srxAm247WXCgXTU8JkGga9b1RI3oM9Idd+G/+M2eawCOJqPIoCPOMaWzs9xPpN1QLBafhiaO1FvvR
+	1FpVhluLBofibQe8ds/TPf2tI74IVxRCa0ydzlxLomFGi3cX7Sa6Kw9ern/zHK3zUIDgeKTx26FVm
+	vf9Nz0EGX//DauUqhNYMitCaqPXHKaQVe+ugrYYwUdtErt7JXINHIlJz8NJqxemXSgC/6lvQDmS1x
+	/24C0VrzQxb+JfVyVLiYKihlZed/OYdmk/TPi3802jx1q/KMIaz4R5ce58pB/tufcX5+52UnGuNPM
+	giNYg6mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzjDx-00000008EZg-0wNC;
-	Mon, 09 Mar 2026 22:37:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vzjGr-00000008EmF-02G0;
+	Mon, 09 Mar 2026 22:40:17 +0000
+Received: from out-178.mta1.migadu.com ([95.215.58.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzjDu-00000008EZX-16HB;
-	Mon, 09 Mar 2026 22:37:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6210260054;
-	Mon,  9 Mar 2026 22:37:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC18EC4CEF7;
-	Mon,  9 Mar 2026 22:37:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773095833;
-	bh=6BnqkIlhVLViOxVryE2C/8Z+o2ZWDSXu/1ZvCYaDXaI=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=tf3H4xezIDRsTefv5vg+Fi29V0HK0hXba7SX8Qjpff2LIMJyrIdAUlfUphLpz0vXt
-	 VQpGFEczR5IAjz3w0nxB8MKfbmHs4/aNlNfd+DGOIIOp6l134w/5Rp2To/2e5JfMwX
-	 jka3hl9HgNEm6orCxeH/SfP3w8jvX/m5fYle80bUygWWmiwJcRPR27vaKPH8K2+jSn
-	 2iA8h2SwCIPEPEdAOWaWyB1A1B9vQ5bLuZBgaON2BkDvHjIYMQS0GC1DnqWefCyonN
-	 /H0sDUjE5hGE9wW/AFoF2BHq5ToC8S60Ncuv3QlHZK5gJX2tIU+UUy0yH9Lc0MEaig
-	 BwfzfclgNVaDg==
-From: Mark Brown <broonie@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>, Jon Lin <jon.lin@rock-chips.com>, 
- Felix Gu <ustc.gu@gmail.com>
-Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260310-sfc-v2-1-67fab04b097f@gmail.com>
-References: <20260310-sfc-v2-1-67fab04b097f@gmail.com>
-Subject: Re: [PATCH v2] spi: rockchip-sfc: Fix double-free in remove()
- callback
-Message-Id: <177309583151.321088.16829523155005247397.b4-ty@kernel.org>
-Date: Mon, 09 Mar 2026 22:37:11 +0000
+	id 1vzjGo-00000008Elv-2qef
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Mar 2026 22:40:15 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1773096010;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=6sEa2EbLg9kRxYDC+wk5lG4h9pBDhKw3v7ZVTXod9Z0=;
+	b=JQTSDRRm9vnyqZZGdY6s0b4nQjjICVmFVwlyzrX9I47jfrkZlWYh612iJzxz9pqqqbbDh+
+	/dGUzYblpitIxHSgGJfs5T3y6gJR/gCTn2GEUtMKgotOlFCluc0Kt+0+EdO0kXIpH64XrD
+	FU8SjSXFEpE2xajsE08pncz0qmeL92w=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Gatien Chevallier <gatien.chevallier@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Thorsten Blum <thorsten.blum@linux.dev>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH RESEND] bus: rifsc: Replace snprintf("%s") with strscpy
+Date: Mon,  9 Mar 2026 23:39:24 +0100
+Message-ID: <20260309223923.84283-3-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-83dbb
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1803; i=thorsten.blum@linux.dev; h=from:subject; bh=se/9XM5LaxmsF9U1ffuqXFfNsRE3YhF8LwOaSh6U6vU=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDJnrfaQjwjxfVGnc8cvbt2GajMLbm9sWSR74Ic2yY8EmR pZG5dUzOkpZGMS4GGTFFFkezPoxw7e0pnKTScROmDmsTCBDGLg4BWAiqjcY/kpufPbTqbvnTaR4 2jpts8u3d1psD5r0aU7L4uTsF6+Ntk5h+MPFqfihuCxoCbt5e7nBnSvCVmVXtP2FIj2E7xzjuWq 1jQMA
+X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260309_154014_873154_55B17F07 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,43 +71,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 10 Mar 2026 02:01:34 +0800, Felix Gu wrote:
-> The driver uses devm_spi_register_controller() for registration, which
-> automatically unregisters the controller via devm cleanup when the
-> device is removed. The manual call to spi_unregister_controller() in
-> the remove() callback can lead to a double-free.
-> 
-> And to make sure controller is unregistered before DMA buffer is
-> unmapped, switch to use spi_register_controller() in probe().
-> 
-> [...]
+Replace snprintf("%s", ...) with the faster and more direct strscpy().
 
-Applied to
+Acked-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+---
+ drivers/bus/stm32_rifsc.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
-
-Thanks!
-
-[1/1] spi: rockchip-sfc: Fix double-free in remove() callback
-      commit: 111e2863372c322e836e0c896f6dd9cf4ee08c71
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+diff --git a/drivers/bus/stm32_rifsc.c b/drivers/bus/stm32_rifsc.c
+index debeaf8ea1bd..ba65ad21434b 100644
+--- a/drivers/bus/stm32_rifsc.c
++++ b/drivers/bus/stm32_rifsc.c
+@@ -15,6 +15,7 @@
+ #include <linux/of.h>
+ #include <linux/of_platform.h>
+ #include <linux/platform_device.h>
++#include <linux/string.h>
+ #include <linux/types.h>
+ 
+ #include "stm32_firewall.h"
+@@ -450,7 +451,7 @@ static void stm32_rifsc_fill_rimu_dbg_entry(struct rifsc_dbg_private *rifsc,
+ 	const struct stm32_rifsc_resources_names *dbg_names = rifsc->res_names;
+ 	u32 rimc_attr = readl_relaxed(rifsc->mmio + RIFSC_RIMC_ATTR0 + 0x4 * i);
+ 
+-	snprintf(dbg_entry->m_name, sizeof(dbg_entry->m_name), "%s", dbg_names->initiator_names[i]);
++	strscpy(dbg_entry->m_name, dbg_names->initiator_names[i]);
+ 	dbg_entry->m_cid = FIELD_GET(RIFSC_RIMC_MCID_MASK, rimc_attr);
+ 	dbg_entry->cidsel = rimc_attr & RIFSC_RIMC_CIDSEL;
+ 	dbg_entry->m_sec = rimc_attr & RIFSC_RIMC_MSEC;
+@@ -469,8 +470,7 @@ static void stm32_rifsc_fill_dev_dbg_entry(struct rifsc_dbg_private *rifsc,
+ 	sec_cfgr = readl_relaxed(rifsc->mmio + RIFSC_RISC_SECCFGR0 + 0x4 * reg_id);
+ 	priv_cfgr = readl_relaxed(rifsc->mmio + RIFSC_RISC_PRIVCFGR0 + 0x4 * reg_id);
+ 
+-	snprintf(dbg_entry->dev_name, sizeof(dbg_entry->dev_name), "%s",
+-		 dbg_names->device_names[i]);
++	strscpy(dbg_entry->dev_name, dbg_names->device_names[i]);
+ 	dbg_entry->dev_id = i;
+ 	dbg_entry->dev_cid_filt_en = cid_cfgr & CIDCFGR_CFEN;
+ 	dbg_entry->dev_sem_en = cid_cfgr & CIDCFGR_SEMEN;
 
