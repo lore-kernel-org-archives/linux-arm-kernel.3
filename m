@@ -4,77 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 635FCF4180C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 16:05:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEB23F4180E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 16:13:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NkHqaF0Voln2FOHGSJG+Xa2sIZ5mFTGWevzJaf7mGg4=; b=FGmxVjjYcScywYKQLA98cRbmzk
-	0DsOASYolwtcYuvv9TneCj6hrgSbgsToMfz4zc4vp555S2BNuzw4sW3QMPViUCrDf/eMH9lZiIIxf
-	2SpunS3fiGQGTDLHNl+aXOaR+BbuzR9fwJsBZC2e981c3zd5+Ex4QdmcLYz1ypHksR1/LzbKD1Yua
-	Ogi76gfPQRhfuFmlooebTJ//roEirETp4NE8+xoupO8x0aTfBd+3hFA/F7PZ8IJtjiNrd9Womc8gu
-	a6i/XBYsrPM7WEf7JFZz2Ln4USqL6HG1xu7noXtjljVjI705WEH58umeHgTLQma1TpWbLX6Utzp6q
-	1grCB6uA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JnCBEOn9UghTjv37MgYliDO540vBGlnS5ohIQs64Uws=; b=GRgIwSY1e4j4lNMOoaErtoGvXG
+	gi2HeABizD2koHWvZ7X9BPnKrs9Bx19i6K1I8Zj0kdgBH2gXCHRw5+eJ58HiWtayM/PEfwhYfkEsZ
+	oHcEw0Jv21C2Asn0kFo/2naq7fAWSaDZV7J9Lrluk5pG4k8p73QYKwfWrK12FLJjOjRGLt7V0QO5p
+	j9+vjT7wo6tB82DdJ5nqJ7aR4ycufdemahjfEt9KgiQBc41rb1I22a7wsI/iOKobZaGDqzsvJQV4S
+	4WgOAHrNBN6p36IbbqnGRx6cLTP2C24fubQvsNXc/jm9OWtMYN6kkpzyrApqhv0mxzGK4z67r2tCY
+	U/Br0Agw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzd6R-00000007fB1-2S0J;
-	Mon, 09 Mar 2026 16:05:07 +0000
-Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
+	id 1vzdE5-00000007fbB-247c;
+	Mon, 09 Mar 2026 16:13:01 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzd6O-00000007fAf-3x2h
+	id 1vzdE3-00000007fam-07GB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 16:05:06 +0000
-Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-b943a60ee02so288816966b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 09:05:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1773072302; x=1773677102; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=NkHqaF0Voln2FOHGSJG+Xa2sIZ5mFTGWevzJaf7mGg4=;
-        b=f4bQ4A3HodLN2OaP9a6f4Tl9fRVPJi72N9S44TOwvLV39NRkNQ6k6f5+YSg+LmaFsq
-         wyHTlLJSPpPVHIsWXkx4OzxK3Kjo5bBXIowCYpV28SsVpZqeaUH/e+hQrShvWRuiGAYY
-         J65sqmN3cvdlf2fSCTcl3emguFGGDlAVj4LtT5z5Vc8lGzdXGddJEVYlDrG9R2BIK1cM
-         5Yrzi989VMg5vMmf19B1YrEdjHmTOzbKBh45pk7rN2pbyP2kEqN7xLAcAwYshhJ3vD9p
-         NRFsaV6QkWOm8MFb4STiha6ksiQOHPuT/GRBwm5/AVFjtR8mdJgmLkV12g4RnVBuzI6c
-         piGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773072302; x=1773677102;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=NkHqaF0Voln2FOHGSJG+Xa2sIZ5mFTGWevzJaf7mGg4=;
-        b=IHQrn0kSKVtaSascweeJRX0rkhfDtRgtx6oJ3aUI2RVuQYIWTNJb9zxDe2CHQTWMhF
-         jTsnxgSLnEoPuYvuZq/ndocQSWQKQr7ogNb97+Owb1saxIBLnwNPRlz0rLEwf8hovowC
-         z3G7W+O94X33DmRTshjSbNBOKVl1dgUcQl4QzjomGkFlXZMoxTEwbmwBxTm4VALx3er4
-         /HAjo22vdypq3E4KHgUbCdOwfEqto+o5GK99IhQTt3HyXmEQNuR/qgQ4Hk56QPPvhEcY
-         9N3ciI1/XrAAuD2LzNP3SfTTI6BmT6HwttlY2BAu0frFnXpSjlDA/mrzrGwPLR8AJZki
-         K+2g==
-X-Forwarded-Encrypted: i=1; AJvYcCXb6AuvOz7sxJHLIj4C31qVYcFFyDAdcRqRhnMHO+nEmVUuR8eS/Ez5QMpOsmJNNWfjKRW3SbKuqNO2isXmc7OH@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfAxfBSVhiTk1X+9venHorjawomlFwWNOR6MR4XhRDohlQDGTh
-	EUHybOrOCv1gqWMWQyOtgFgwwatfOzETNYpQ3GnmXu/1m4FCMq9koooCNEnNWdwQ/atuB3bIxp3
-	XlwKXiBGZ39Qj+pLt1Yf0HA==
-X-Received: from ejcgj34.prod.google.com ([2002:a17:907:7422:b0:b93:5286:36e5])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:906:6a0c:b0:b8a:f7ec:d995 with SMTP id a640c23a62f3a-b942da27c31mr679712466b.9.1773072302063;
- Mon, 09 Mar 2026 09:05:02 -0700 (PDT)
-Date: Mon,  9 Mar 2026 16:04:50 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.53.0.473.g4a7958ca14-goog
-Message-ID: <20260309160450.2610295-1-vdonnefort@google.com>
-Subject: [PATCH] KVM: arm64: Fix ICV_DIR_EL1 trapping detection for pKVM
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org
-Cc: qperret@google.com, tabba@google.com, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kernel-team@android.com, 
-	Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Mon, 09 Mar 2026 16:13:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Z1VyRTasy24CtRlLc64cyHev3HfhInZFqVY/NeEWHL0QK5XV+VhQroY63jjcHA9wvq+Fyb0nftJB4gpoIOphpZa/YsrLnUSMcPnAcxUu9fg23ndRiBEQA2JrTbl8QLakKG4n+zAKj0I13Y2XJsPo/1qudn/o8x1Q9uatK0wzT+v/9FoF97J2p4Zal34ssHLn1Kuabu4/T3uOeTl/LUiftgt9L4vQK0i1Sfq+PyVcWJhIxlj3ZbvGnfvXTdg7xWLhsmsFcgZIcklSOjq3uJKB1jnfxyfGv1XL4nZLC+YG4b9UPt1yNTfKpFrS5si3ZJCdb0bdi527UFKCLIBLh3rRzQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JnCBEOn9UghTjv37MgYliDO540vBGlnS5ohIQs64Uws=;
+ b=F0zOPDBXfAibNdqtdi4Y8vJ6Q4ToAiZobUqYAKM9tyhfJ2oeAN4bzcmzBSD0QpQITpOtupQNu5NQinIKNBNk21sgn6kxQ69K2HOe82QqmgsnowAqgXAd9U7Nt62qVSO5BRgcELh8pVwm/IbV+N5jQvGIHNtzwDPsj9bP6G6LqRBStJX+xoax8Ozz/DGP6COitvADD5JU00YZKkiB8pr8LKoW9+fBiWSO5TluLc+hWsBTtoyjKnFP6XVzd4M75gr6m6vZeh3uO6VFgI6LjYsDg98tEmFybMtuN/OhFd/eeVwppqW8JiiFcm8SSPlpXJeHs3wrWaBSKAgSQgPslbBD4A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JnCBEOn9UghTjv37MgYliDO540vBGlnS5ohIQs64Uws=;
+ b=YziGFwUQ0IMD+TI/NNW0hXbxFopbOUMCMTXlOMr6UEVQG1tJwNgdtsH508pu3KcCg+IhnHdq8GssaeixkJs3uWgi0GpzzMoqYQRgY80q0BNUo1Cy4QjK2AP05ZFDuL3t0HreYjPpztLcKt2UB+3+4UC5Dv3q+2NN/bSKs2/aIa0oJ6DtyK+ynb6gqjzHNx17PF6ON49zHud2TwORImn1IAW4YvU7sU8GJPNeTbmJdhS70QrCTRZyRRgVsavd8ks9IbKhcJ+ycsrHIBqmOUI+MMWByQ6CZkFHZytMO+IcJ8P4HoYn37TlJtCLnbx6kYWqfreePUFLkd92K3HY/caAhw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by VI1PR04MB7008.eurprd04.prod.outlook.com (2603:10a6:803:13b::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.25; Mon, 9 Mar
+ 2026 16:12:51 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9678.017; Mon, 9 Mar 2026
+ 16:12:50 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"A.s. Dong" <aisheng.dong@nxp.com>,
+	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Peng Fan <peng.fan@nxp.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: (subset) [PATCH v3 0/2] ARM: dts: Add CPU clock and OPP table for i.MX7ULP
+Date: Mon,  9 Mar 2026 12:12:31 -0400
+Message-ID: <177307270421.1707510.7834228185612661282.b4-ty@nxp.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260302-imx7ulp-v3-0-26b708aecc59@nxp.com>
+References: <20260302-imx7ulp-v3-0-26b708aecc59@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PH1PEPF0001330D.namprd07.prod.outlook.com
+ (2603:10b6:518:1::1c) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI1PR04MB7008:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4a0edef5-269f-49e2-6544-08de7df6b618
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|52116014|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: Iw9Ebe0QAnNu2KhSir/APScnMUp13pN3PpNgrHbtmMnBHVaVpBjblh9r3uJGcd+I1rr9vLWMbWoF/Ya2MmKZWxDUn7B5nm3q6MVtLociPdpWAIKPvfR3mo3A0A23bGucNlFcgYqN6RH4DBVt6/80avGmAzqs8gAu+bmPWgyG6VLc3XDsI2w9mZgevvJXNktFYA3QJrTTKEOtXrFH8uREK8lEN9nNUJ56C/lcgUDssU7+wdWYMAb+e9LPVPicyD2tv6P+k1XYFWV/05ZfpMhGc2+KpjKYrFc9xnZpE2n2OHfBkk25VB04Hu5gaFgqWQFF0m7NH9QqC5V4+TMdtz/K436PD4Tlw9oEgmbOQ2ra88h2ohTM1qZ35yOiXv+PlQTDegOI7TUqyTJSOo75oTF80FB2qL+fM8iTuN7v0eJAjUQFZBLjKtsn2LWmN1Aq1fE/h5ssBL+HRkmGiyUnFnOd8xJB1Jy4eRr/IJB46/h0B/NPaqO3Pqp2vduY0g+hgQWJ3cmcffzOGhy1QewKOWJg8/bk927lyP4bkR7ho1mqhmTic1ifYw8OxlKgKzjyTErmj1rQGKhkyWqEpV8/T5XPOVm9O1y1rV5re/TFFAJ6ujekExLo0fCzYUxoMezSggslYUUTn5RtEfuTB71RCkTsji3GHqVfK8WoErqGassxybXs2WrrLawQlC4QK+T5/CaJ5Tirj5+jS9mNvD2JmQFfhoyvnbYcu9n1e/SC9j87cU0zMbQWLQ0LoqBt+kkVCpXVdh9otqj/mx4PuoMgHi+KB1c4RZefx/Y3z/IcYoz0uSI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YldBOExueUtWakZYRExFOE1qc2lwRmJQNWR6TGxjSDM4WVU0TVNUWmlid2VK?=
+ =?utf-8?B?alpMTGFXNFJRRmw0Y2tDMFkxb0M5UXVCeTNHTUhPWEsrRTBDaU9aTTIxbFhJ?=
+ =?utf-8?B?OUJoR2dsaWNLdTk1UXRzRGVsaFcrMURGSDduK2JkWDYvNjkvamdTV1loeFZH?=
+ =?utf-8?B?eVZMdDB1d3JFUTYwZHoyelppUlNtR0JnRTlVRnBReWZYcjhUZWZaTURDdTUw?=
+ =?utf-8?B?dnJ4Y1kzTjNmQXVBMlU2aUh1QjFYQnJUdXExaHVsZHh5Y0ZCdzQ1WmtMdFpy?=
+ =?utf-8?B?Uk15WWlDdEhGVFFKQm13N1JhRzdmc1NlSUN3cVg4SFFsUytDVkV1SFFCUlJn?=
+ =?utf-8?B?bmhpWU1samhrTnVVTTdJTDZtbUNubXhNdGNqam1TZ3lBQmxuamo2cmdsWm5i?=
+ =?utf-8?B?VTBPYjNickc1cnpvSTZzNlJvakZjNWJENXREdTF6ZWNNcFRQekxHU3ZTaGRC?=
+ =?utf-8?B?cTA3ZTFjTm82YUlWc0F2SUdYL0UycGtySHJPMVJGK3VGckJraXVYMGdFelFw?=
+ =?utf-8?B?UW5SLzQ2b3k5dXg4TlJKS2h2MVJicVU3VkJGM0MxUXFKbHoxV21TMGhWYVZR?=
+ =?utf-8?B?V3UvMzc3bnNVYVBiYWdrVGV1NDFPTDJ5Q01BYk5vbkVzY1AzNGVKdWFzUU1N?=
+ =?utf-8?B?ODVWclpZejU2S2VNeVgrVHZtQUdzSnhuaDZLMGNEL3Uya3hWOFNjZGpzdGdh?=
+ =?utf-8?B?S01wMFdqRkEzblBweWVrMWZJYUFXZU1tWmVKUVBhVnNZMEROa2RYdHF4R1Yr?=
+ =?utf-8?B?dmdrTjJEdk1DN0dVODZOVG1lR2t3eGFmZFZ4OXFvTFJtMG5Ka2E3a0ZSK1Np?=
+ =?utf-8?B?enhmR1ZHckRQNzRyKzhpTEdCODZ2dVljampQUWt4SHdxaUNzWkJVaUsrcGJs?=
+ =?utf-8?B?OWMzYThzZ1VtNFVYODdDM0FZMWFkVm5iY0hlMGs1dTk5RHBmbTgrV0MzMUpv?=
+ =?utf-8?B?Y3FwcE1LK3RWV281K3A5eU5hTjJ4ajVXSXAxeVNPMlVkb3hGV3Q1TC94OW1S?=
+ =?utf-8?B?QllEUEVqRjlUbHZ0MktHcHlWeHRvdkdCZGVJOWIybmhjaGJiWW95eUdNOUs2?=
+ =?utf-8?B?Y0Q2S0l5QTFWdFkwVm1nbGZPUXV6MzhVc1g3RmVUVGVBVHlXbExsSDBiNEhT?=
+ =?utf-8?B?ZHlIVnpLeURpN2I4MUhJMUIwdk5rV0NqczNlNjFNckxMLzdXWjVGcFpjMEhx?=
+ =?utf-8?B?aWd3YlMxektKTFVoMG85cHAyQk1ORmZHbXV4dGdYYVo3T3YxQkVpdkZyK21t?=
+ =?utf-8?B?T29RVzd1T1hzR1hxWlhWNVhTd0FDWE9IK0NYMENXNm10emxVZE50V3ZpNGI3?=
+ =?utf-8?B?cXpBQjRTTVJ4MDB2UTZvdno1djQzcVlJWkNJMTBIMWhMRlZWbTQ5Slo0RHVE?=
+ =?utf-8?B?bHNtVlBsVC95WHJwNHU2M2VHNVFWcGpJUE1rMlVjM3ZmWWpLU2FoU043b212?=
+ =?utf-8?B?cVpNZFEyNEZWenZmUkFhSlg1aHVjRXQ4VDBHclpOYWwzNlZQSUo5L3VBU0N3?=
+ =?utf-8?B?d2dDeStBUkM4MUJ4VUFUUCtCWi9SVHliZFZnMzFzYld5V3FoOFRKV3NKUmsw?=
+ =?utf-8?B?SjJnR093Ung2SlMrNnQ3OWd3Mm95N0tJeTFiRFBIOFZtQTdVcGhrU0ZEOWwr?=
+ =?utf-8?B?QWxzaDRsTktFcUFxejhtUTVyVUw5dXUxTnNoWUJ3WXJweDVCZUZFZzV0ckVP?=
+ =?utf-8?B?NzRtcUJpYlVRbVh5STRXdE02STlHVUpxYTY1MUNiRG83NnBHNWlHOTVHeWJk?=
+ =?utf-8?B?VC9YQjBka2c2MlA5SXdOdDFJT211L202cS9RVExDbDdQRUhnVW9FT0I4MTRt?=
+ =?utf-8?B?blR4bWwvVVZoQ0tGYXBCL3AwRmJ5Wi9IeHhDdGpWbTVwWGxoTmVQcnUwdVlR?=
+ =?utf-8?B?bE9vK1J6Y3VkWkFXKzZKUEt1Y0RHOU0zcFVDRUJOMDFyNEM1bm9zOTYrVitM?=
+ =?utf-8?B?cDcyQ2dTaXVBTW5xWERvVVloV0ovUVNNWkdCWm44YWs4azhDT1pLTHRMTVUx?=
+ =?utf-8?B?TTUyOENuWHQybnV4d2NVSVEvd052VkdqVlQzNFNHY1c0TkVyalRGZ1UvTktP?=
+ =?utf-8?B?UjIyYnFrZDcrK1ZNblBZWElraVpNRzdKQnFRUHBUaEZxajN4UVljS3dUSTNi?=
+ =?utf-8?B?SEwySGp0dmN6RkdzTmdnUzM1ODd2L2hxYzJPQ1F0WWNHNzNrWEx0VXp1dnlq?=
+ =?utf-8?B?QUFVejNYVng4ZUVQVmErLzFRYXllN1hoVUYvSlRWeWkwNXpxa0pGdUkyWDh1?=
+ =?utf-8?B?ODdYMzRQSk9mUnZmL25tMXRScTQ0eWFuNjg1cFpucVVHcUtLMEdZdlNLRURV?=
+ =?utf-8?Q?js9r/9YeZOz5KqZiBr?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4a0edef5-269f-49e2-6544-08de7df6b618
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Mar 2026 16:12:50.7967
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: RlTuo0xf15SPcmHqO0UBRFyRP0siNHeOjGQzSru5RQaGpoG9f4948e1M62aQtvyuZMJeZjmU0bt4MORW8jYaSA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7008
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_090505_019676_CD5A11A0 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20260309_091259_089855_654912D8 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,87 +156,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For non-VHE KVM, can_trap_icv_dir_el1() relies on a hyp-stub HVC to
-read the ICH_VTR_EL2 register. This isn't compatible with pKVM enabled
-devices which are failing late calls to verify_local_cpu_caps() when
-hotplugging a CPU.
 
-In verify_local_cpu_caps(), system_has_cap initialised before pKVM kills
-the hyp-stub is most likely set, while cpu_has_cap fails to probe the
-feature creates a capability conflict and prevents the CPU from going
-online.
+On Mon, 02 Mar 2026 23:07:40 +0800, Peng Fan (OSS) wrote:
+> Patch 1 is a binding update to add missing #clock-cells, otherwise
+> there is CHECK_DTBS warning.
+> clock-controller@40410000 (fsl,imx7ulp-smc1): '#clock-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
+> 
+> And the clock will be used for cpufreq as done in patch 2.
+> 
+> 
+> [...]
 
-Add an HVC to get the ICH_VTR_EL2 register and use it in for ICV_DIR_EL1
-trapping detection.
+Applied, thanks!
 
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+[1/2] dt-bindings: fsl: imx7ulp-smc1: Add #clock-cells property
+      commit: cb794619c2d29b882f6eec3b6ad4a1ca5afab312
 
-diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-index a1ad12c72ebf..81bac8faec44 100644
---- a/arch/arm64/include/asm/kvm_asm.h
-+++ b/arch/arm64/include/asm/kvm_asm.h
-@@ -81,6 +81,7 @@ enum __kvm_host_smccc_func {
- 	__KVM_HOST_SMCCC_FUNC___kvm_timer_set_cntvoff,
- 	__KVM_HOST_SMCCC_FUNC___vgic_v3_save_aprs,
- 	__KVM_HOST_SMCCC_FUNC___vgic_v3_restore_vmcr_aprs,
-+	__KVM_HOST_SMCCC_FUNC___vgic_v3_get_ich_vtr_el2,
- 	__KVM_HOST_SMCCC_FUNC___pkvm_reserve_vm,
- 	__KVM_HOST_SMCCC_FUNC___pkvm_unreserve_vm,
- 	__KVM_HOST_SMCCC_FUNC___pkvm_init_vm,
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index c31f8e17732a..0bca57c1cbe0 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2345,13 +2345,17 @@ static bool can_trap_icv_dir_el1(const struct arm64_cpu_capabilities *entry,
- 	    !is_midr_in_range_list(has_vgic_v3))
- 		return false;
- 
--	if (is_kernel_in_hyp_mode())
-+	if (is_kernel_in_hyp_mode()) {
- 		res.a1 = read_sysreg_s(SYS_ICH_VTR_EL2);
--	else
-+	} else if (system_capabilities_finalized() && is_protected_kvm_enabled()) {
-+		arm_smccc_1_1_hvc(KVM_HOST_SMCCC_FUNC(__vgic_v3_get_ich_vtr_el2), &res);
-+		if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
-+			return false;
-+	} else {
- 		arm_smccc_1_1_hvc(HVC_GET_ICH_VTR_EL2, &res);
--
--	if (res.a0 == HVC_STUB_ERR)
--		return false;
-+		if (res.a0 == HVC_STUB_ERR)
-+			return false;
-+	}
- 
- 	return res.a1 & ICH_VTR_EL2_TDS;
- }
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index e7790097db93..0432852228f9 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -463,6 +463,11 @@ static void handle___vgic_v3_get_gic_config(struct kvm_cpu_context *host_ctxt)
- 	cpu_reg(host_ctxt, 1) = __vgic_v3_get_gic_config();
- }
- 
-+static void handle___vgic_v3_get_ich_vtr_el2(struct kvm_cpu_context *host_ctxt)
-+{
-+	cpu_reg(host_ctxt, 1) = read_sysreg_s(SYS_ICH_VTR_EL2);
-+}
-+
- static void handle___vgic_v3_init_lrs(struct kvm_cpu_context *host_ctxt)
- {
- 	__vgic_v3_init_lrs();
-@@ -622,6 +627,7 @@ static const hcall_t host_hcall[] = {
- 	HANDLE_FUNC(__kvm_timer_set_cntvoff),
- 	HANDLE_FUNC(__vgic_v3_save_aprs),
- 	HANDLE_FUNC(__vgic_v3_restore_vmcr_aprs),
-+	HANDLE_FUNC(__vgic_v3_get_ich_vtr_el2),
- 	HANDLE_FUNC(__pkvm_reserve_vm),
- 	HANDLE_FUNC(__pkvm_unreserve_vm),
- 	HANDLE_FUNC(__pkvm_init_vm),
-
-base-commit: 1f318b96cc84d7c2ab792fcc0bfd42a7ca890681
+Best regards,
 -- 
-2.53.0.473.g4a7958ca14-goog
-
+Frank Li <Frank.Li@nxp.com>
 
