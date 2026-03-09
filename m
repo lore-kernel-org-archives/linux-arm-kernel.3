@@ -4,84 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95B04EF36E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 06:44:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F745EF36E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 06:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xHOnhMTOgxuYQIm/RtVPW9fCDLVlAoRkKypHVQyrpc8=; b=hS1Xdw+j3E91DuTtPdGvmcHt8b
-	+klbdzddF/dreDspQNsD/3rdk3VCB19vSWduiBl7OIILpgwrLRyBwDBvtbzBawjcRJZKBAgscJKpS
-	X4B80ffVegNejVfhJQb9dVhvUB+kue/tSYDTkTTMHGJxLoskcKoHAST1BxUQJmOFeuxAOwPvcJOtv
-	TppOacg0NUappVaiIxhZx9Rx4zXjhlV1GkdAo/pPZeO8jPDs1hUQ8TVLSUTrScoQ84qCtSSqFNKni
-	OoInln+sM+ed4th2tZcpY4m9ppr8AU9YMhtNJ5iSfrdse0UIGf5ZnCOxdVlWs5u8VsU4heRxTmSdA
-	p+6mNCwQ==;
+	bh=FmyjTIiffZpRJPT+RQ+3fTrkf/WN2/enrX5xBacS+iI=; b=JNa/f4RxXP2GUH95Y+Ux9SC4BV
+	GgDnHknL1tPGSXcqjNQQ1FjZIecEC65JM9HupCR7Bn2Ueeh4Dksy5chpJjh4pN/ciYboXqy3ZvOCt
+	qzx62kIaLxH+LN/MCvT3n0WZ9SdMlne9wjsC9nQTXnCRrNVMXyHmL9fn43HVmUynMPuZMunljuSKd
+	9SCNxxgTRTPohcktdmANPFhJ/7aq848khkbtbGr2JO+ukBEG5HLCA9e0CPE1qqrGvEs4ypIBB45l7
+	FzEIRUDc+bWhhCPzaFaSAr0U+e+IFuoZ+N/Z3Umw5du+QWrdM8u55X06sgM2ffEREU4H80vhK76zM
+	rk+0dVWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzULz-00000006ke5-2huy;
-	Mon, 09 Mar 2026 06:44:35 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vzUMC-00000006kgS-07d9;
+	Mon, 09 Mar 2026 06:44:48 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzULw-00000006kdY-2MI3
+	id 1vzUM9-00000006kfo-41lA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 06:44:34 +0000
+	Mon, 09 Mar 2026 06:44:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1773038670;
+	s=mimecast20190719; t=1773038685;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=xHOnhMTOgxuYQIm/RtVPW9fCDLVlAoRkKypHVQyrpc8=;
-	b=eGO5wnvP1jDUoEHZavUsWzqunEeayAyAv6D2eSyO6bs2dOaRnw3pS/GfTzwYej29XJvT+H
-	T/5/56rST4Auw1+EjXzg5uY1XI9sb8SUle8F6QcNuYTw3sXw/KUn8aN6tSeH3Pt6xiaqHm
-	oC41TFBKxPKpUmbOlM6s7CEHut/XGgA=
-Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com
- [209.85.210.199]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=FmyjTIiffZpRJPT+RQ+3fTrkf/WN2/enrX5xBacS+iI=;
+	b=dt7gBblBNujXao6MSRhtJ+zbVHg2KPJmUEdxaItd4Q2u7CFLa2/7xnyKlw+vqLqfsu9yCY
+	zCQfwG57pYZE3hf5jt/2d8TfmuvLJWmDbxotldyrKjiWC+aGIaKq658ABsfVjGq3u61PUf
+	m3Y+GpC2KTgWJcZ0fyndnHS9lwMvb5Y=
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com
+ [209.85.216.72]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-416-WyiJuaxrOTm8ME98i3aJ1w-1; Mon, 09 Mar 2026 02:42:56 -0400
-X-MC-Unique: WyiJuaxrOTm8ME98i3aJ1w-1
-X-Mimecast-MFC-AGG-ID: WyiJuaxrOTm8ME98i3aJ1w_1773038575
-Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-829c331b4ebso282464b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 08 Mar 2026 23:42:56 -0700 (PDT)
+ us-mta-211-1RMsomRxOC-hyiYtBrwxdQ-1; Mon, 09 Mar 2026 02:44:43 -0400
+X-MC-Unique: 1RMsomRxOC-hyiYtBrwxdQ-1
+X-Mimecast-MFC-AGG-ID: 1RMsomRxOC-hyiYtBrwxdQ_1773038682
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-35980affbf3so5600133a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 08 Mar 2026 23:44:43 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773038575; x=1773643375;
+        d=1e100.net; s=20230601; t=1773038682; x=1773643482;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=xHOnhMTOgxuYQIm/RtVPW9fCDLVlAoRkKypHVQyrpc8=;
-        b=i+csF13GsJ/9Jip3aFQHpScCGTlkbO9sIPOxfyILKMJHPpbo+p0+6F8im976BNnpb9
-         SNsG/Umuab7PWk3fdzoMmYpvLcuQqmEJQoOo2tcWXlEudERrPFvqvT9yMyEa53LPiZe9
-         M7s1qSGLvnpdZ5xMTYQi7fbSFEqJCMCu2usnx13UuE9CCE+UtR/BTDtbiCaaa9e/xc0c
-         NTb6QQuV62WHJch1+Z084BgaH88Ouscs93sWb95Zjt6vNjLUME5UCbKqJQ2LfAjqtjZV
-         QRsYHr1VGNNcxGgw+b+Dt8olro/clkGcUtxrn93GYEGY5/IASUgMUsQke1/jYU9jF2JQ
-         iqeg==
-X-Forwarded-Encrypted: i=1; AJvYcCV9Dm7/z2ACX503n3dcjjCoye/99ceoNHv7HlK0DYpvA/yE+MbOxwT25KI/pFUqCoS0mrvbn0TynGvvpxSUrkB+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVHiUehO6Eq5Dmdkk0nsUqR7unzU1aR6o3gRHHr8adZL9LNfqC
-	dr+92KkxnMeetG9iARWfJ2LCvCStFgxNnI8+m7JUc2eCu5rggdCmhJxkz4BuUUjxabTYatjio0S
-	Gw5iz3rrPmrLiYOVBpnfQM5VsBXElm+eNr3Wi+PurZahL/eDa2F2VMZc49pOjlAe362Q0IvOE2r
-	6Q
-X-Gm-Gg: ATEYQzyhrFx6xyL7l7UE+3JbB7PeH5SokskMVigYT6YTlzCJD34APiWL8/uek2kVplP
-	Fstkr16hLf0sJKXjSRPztY+8Nj116ACvYgia/DfvUOJ2bpZTHr8C8x1j+mC2NSk2a03kZUX3xo/
-	2cDncGALGRtyoilVNAiW2CjybA/una5P42+I1PKP7q1uIcI1s5r1wQDh+CCtEs3X1oGUHp+5zRI
-	j/tezq8Gwa2Kjb9krIX0L1tQChsygll/9ros6Xp2JDiBDa5a3EnJbLwvkMPpb4gkwsHSHIFaI3K
-	dchWc0WkImc7sTEfoyvO9qf4N4ZyAKUemDcgo5QfzMz4A4gXqWRDyxZIpb2igpuWHjI19QTpt6m
-	ODpCTbIQfcGFqXGqVJ4W3Jl5LSPfAeKjrO1AIJtkPkUnnG2/1jcC+CB9HwHLk0IXm
-X-Received: by 2002:a05:6a00:7586:b0:829:9f46:280d with SMTP id d2e1a72fcca58-829a2d81dd0mr7344334b3a.1.1773038575177;
-        Sun, 08 Mar 2026 23:42:55 -0700 (PDT)
-X-Received: by 2002:a05:6a00:7586:b0:829:9f46:280d with SMTP id d2e1a72fcca58-829a2d81dd0mr7344309b3a.1.1773038574824;
-        Sun, 08 Mar 2026 23:42:54 -0700 (PDT)
+        bh=FmyjTIiffZpRJPT+RQ+3fTrkf/WN2/enrX5xBacS+iI=;
+        b=SDFaHx6H4+t0NIXrH2WbvUQDFU+eNR8CS0jWXTc5OW/BxJfn/wWTDEL9hCwd5115ps
+         K6fdE7ZiCZ9D2Qqi3lpNdhbftpChVHql4ykqrBDwMaK1q/oFR+3dZWk37YjFxkqZHE/K
+         +WJgW8P31oYRAiiygecx9dIjgI55UWMQktSXNtJDSnuN8PUWfAbNg6WomTzoG3RQWCAQ
+         Y9iqu3Y8MrHjw3pmxi+rrMDBxex0aHlh+EA/8/z/ENvJuUbGfoo3oXyELv/3icSKFLH5
+         7O12DzOorz7rSPG/OI6nx2CvkCO5Op9aCHy2kLhadbTTuApNh9305W22bryeA1ie5kLs
+         acVg==
+X-Forwarded-Encrypted: i=1; AJvYcCW9AtY4WNtm+gLAuceK1swD0z2KdtObpeUZIOCKVPuHaTPFlCvfGPGz0YwZmevJ48VtBFTIRVPpGED2xKOjWPCA@lists.infradead.org
+X-Gm-Message-State: AOJu0YyqXXWrEpYvXoF7oGhsMr4Wn9aLZlJcXX1l4tKOw2ZCzhGXW9iz
+	sHtKrymLb7kWHqEdV/S0WTpufFSvlZkhMYLf5yrebe8Wjvx/c+jsFAWSR5V497EuzKkWtfXgAcO
+	iaXTDZ6fo84SOCIlJQOw3l5GchlQafTqXOCwEKpH8uYjGalVUOgV4mu9WxdWvFBosITZOZtgyz+
+	bZ
+X-Gm-Gg: ATEYQzzFqEEU39B1KPMfXZFUJPXV8tn2jUnzE/bqJWKyoTHEB3N6WMf/3T6c4TOmMQy
+	2fSLukjY5RdY50sNN3YGgOKFdmwTzjz//fbMeF8FhrRzwlyk6OJVdEzUiMF7vgGVV9gl9WKkEdu
+	ImhwUNWmKOvKWHpls5le+0s7wVdcjLn8EUtc7Nik4iOFd7zQ7DqZSmhTViRiJo0uzpmNt7ONIuz
+	W+WQaJD0h4rKQJUZAFj4XJ0zU/fs2m8cnNRfotEak1V59gg6VOoM75/YVfhiy6IMk5VFoTawfiC
+	bEh0FPPDhWfzG9ZMxifxCx8mVWmxca8PJHPLUy3r99YZ7l+6iCeNFwm7XYVK2xWUmQxF7CuoT8T
+	FbR+306cAdu4gYCEH+Dx0PuHp/UNYrJzHJUNJgqMYsQOiozxIvUKyEdcLkk1HrVK+
+X-Received: by 2002:a17:90b:4c09:b0:359:8632:5e39 with SMTP id 98e67ed59e1d1-359be233b87mr8593296a91.5.1773038682467;
+        Sun, 08 Mar 2026 23:44:42 -0700 (PDT)
+X-Received: by 2002:a17:90b:4c09:b0:359:8632:5e39 with SMTP id 98e67ed59e1d1-359be233b87mr8593284a91.5.1773038682083;
+        Sun, 08 Mar 2026 23:44:42 -0700 (PDT)
 Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-829a48de551sm9217887b3a.57.2026.03.08.23.42.38
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-359b2d50ebdsm12993555a91.5.2026.03.08.23.44.25
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 08 Mar 2026 23:42:53 -0700 (PDT)
-Message-ID: <43723d39-0ac8-4a79-81fe-1edacbec293d@redhat.com>
-Date: Mon, 9 Mar 2026 16:42:35 +1000
+        Sun, 08 Mar 2026 23:44:40 -0700 (PDT)
+Message-ID: <c9a544ef-5c12-4ad5-8503-39c28375b419@redhat.com>
+Date: Mon, 9 Mar 2026 16:44:23 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 06/41] arm64: mpam: Drop the CONFIG_EXPERT restriction
+Subject: Re: [PATCH v5 10/41] arm64: mpam: Add helpers to change a task or
+ cpu's MPAM PARTID/PMG values
 To: Ben Horgan <ben.horgan@arm.com>
 Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
  baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
@@ -98,19 +99,18 @@ Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
  zengheng4@huawei.com, linux-doc@vger.kernel.org,
  Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 References: <20260224175720.2663924-1-ben.horgan@arm.com>
- <20260224175720.2663924-7-ben.horgan@arm.com>
+ <20260224175720.2663924-11-ben.horgan@arm.com>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260224175720.2663924-7-ben.horgan@arm.com>
+In-Reply-To: <20260224175720.2663924-11-ben.horgan@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: QoPW-sc1nCdWiOv8GR9L7rMDoGdn1FRMH5XSw46Wpfk_1773038575
+X-Mimecast-MFC-PROC-ID: ImHu9Vg2pSMOrndZaGi_pab8B-GdLoXpGH_JWFgGCIU_1773038682
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260308_234432_700639_0CBFFD3C 
-X-CRM114-Status: UNSURE (   9.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260308_234446_078077_AEEE1BD6 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,17 +126,37 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 2/25/26 3:56 AM, Ben Horgan wrote:
-> In anticipation of MPAM being useful remove the CONFIG_EXPERT restriction.
+> From: James Morse <james.morse@arm.com>
 > 
+> Care must be taken when modifying the PARTID and PMG of a task in any
+> per-task structure as writing these values may race with the task being
+> scheduled in, and reading the modified values.
+> 
+> Add helpers to set the task properties, and the CPU default value.  These
+> use WRITE_ONCE() that pairs with the READ_ONCE() in mpam_get_regval() to
+> avoid causing torn values.
+> 
+> Tested-by: Gavin Shan <gshan@redhat.com>
+> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Tested-by: Peter Newman <peternewman@google.com>
 > Tested-by: Zeng Heng <zengheng4@huawei.com>
+> CC: Dave Martin <Dave.Martin@arm.com>
 > Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 > Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
 > Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 > ---
->   arch/arm64/Kconfig      | 2 +-
->   drivers/resctrl/Kconfig | 2 +-
->   2 files changed, 2 insertions(+), 2 deletions(-)
+> Changes since rfc:
+> Keep comment attached to mpam_get_regval()
+> Add internal helper, __mpam_regval() (Jonathan)
+> 
+> Changes since v3:
+> Remove extra CONFIG_ARM64_MPAM guarding
+> Extend CONFIG_ARM64_MPAM guarding
+> ---
+>   arch/arm64/include/asm/mpam.h | 28 +++++++++++++++++++++++++++-
+>   1 file changed, 27 insertions(+), 1 deletion(-)
 > 
 
 Reviewed-by: Gavin Shan <gshan@redhat.com>
