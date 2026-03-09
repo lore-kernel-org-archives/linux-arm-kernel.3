@@ -4,99 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99951FCA19C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 22:32:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC2EFFCA19C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 22:37:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IBkcZ4vNzPnscp2wv/tDrm8if6LphvMnNawG/F/pvx8=; b=NcZQoggENxVU5sS4Xf+5SekQqq
-	/67HHJ2nBxPVv1ts9duJuszs7DCPAo+UGhBqCb4N31RHKfn0k/jot+0MkMUreFRSB+sXGJYCo4VlT
-	LapSQ55muvaHm5jSAusqUL778hmkK1usnDnD9Wk+5jQKnHrUCZzcq754nk7nxdmIUl4bwi6ydgiAr
-	FxoLoQiGFUpLrtGCU+BjkOtvB2QCZuUXMlcFzI+v1h/abtyh7ZAwYPWLeuVAv8uiLY6OPqQ7WwF99
-	tlz7/LNoGfO1id/SdG2Xdc+8MCzYMZ+ciziGgshNEoMPXoUxjGCEGLNlXIUKL5xxdZJzmkwLMw2vP
-	bWEKt0og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hzT1x7udiRauncNcHrEy3D+oQPbWR/PeNre1rcvnuDw=; b=c9DcY52I5Zd01oNH0lvoHi2nZj
+	9NnuB8l9ybyKNQaS4GDNlhUzrqViPoLXdX84Bb9EzABDmy1Ht7NxEnnOQAGQXBt6eI460Nja3zYDD
+	ODEgVbKY+PRfMxvhmezL6FbdL+8EzNa65QPKTjHUP+4pM/oxjiUTq/SJhj+3HDZ4/Ld9EjMMlZjbM
+	KKH2t4wzDtWEf5yJFcu3m7PXOOdumIrvL2RF2E7IPyGqbbKkNfJQeu2TXJFTs/KAvcIkHodFjFvLk
+	3HwsPwBdN+m8ktpPsM4YsyScEK38AIH4Pw575xZV3fefSX8DWly9xJ7t1ZDvvAl/rISfnuGkvogCm
+	JGAwQSCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzj8y-00000008ENS-2DBB;
-	Mon, 09 Mar 2026 22:32:08 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1vzjDx-00000008EZg-0wNC;
+	Mon, 09 Mar 2026 22:37:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzj8w-00000008EMi-3AMy
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 22:32:07 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2aea4ebb048so5605ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 15:32:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1773095525; x=1773700325; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=IBkcZ4vNzPnscp2wv/tDrm8if6LphvMnNawG/F/pvx8=;
-        b=LbK1SMRS3KMe1w41cblbXXzj1mJOjlidFGc5ENz9ZXU9RsNtL4pv9HkCjEJFREuK3v
-         N+48LvxKMEtLPsqJc9Kr9H/agCiKcvX/j7l8OFDWHss5tEGNlL4e3JtMgC4jedzdN2qj
-         ZFR1+SnWswx/Mf9l3+9BcwM0ZupJIyrIXQ5vapGiEnhRZA0C+pOBYu+Zw6kZQoJrTjcU
-         gfBv9UlQp94pwRXngTseYAAqWYoWR6CFSFG2yYLc4mcE+hzuee6d9LQ9GjdT7npS3dLL
-         DqWJeq3AOxRCuMZLkZptxD2XZjX6tcPcINDvdwSvPoC7mq+lCPTCQLACNcQcXnfujK/b
-         6QVA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773095525; x=1773700325;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=IBkcZ4vNzPnscp2wv/tDrm8if6LphvMnNawG/F/pvx8=;
-        b=BW9FH3n6vqitMcfqdaRZ439p6zIusIYYEMmcL/E02a73bsCyuqV2xQq2Me66ISnRNf
-         6qOuR5zzmLu+WqwD5xwzVFPzHsK0WKzuVRBluR43z/uHKdYbdQintFf699ledccBk4vq
-         sU8kg+zzsfKyQDQHF0e/X+WTUaR3CDqGRcuxfT7chBQZzS4klImszEgvnCrPVgU/nAjN
-         q0sqm3eCtSzAMoRGksTPg8N1NVdxWeifOOIBs8EUe45Lifz4ra1zLOcLDhM2weZS+xvY
-         pMDQxLze64za1XQ1lfGGFXxmM+j6ba7tWZoxH5l8r/VionLEahKjlL30etht8ufFs2aO
-         68og==
-X-Forwarded-Encrypted: i=1; AJvYcCVcq0So2U1+kL4VPPiB9JjuYqnny9wicwTaYnrn6lqHPkfbVG2ST/5QeDtmjEjEVlJzVNqZQeRyWhhJU4/Rqgcf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+PbYK+BlAOqEknzQGJPHqzZSvC6f1nknmvG4yrtUCBsSr81sY
-	Mwh/uEewK26hTjx2PtiH727ixw5dbYEyPfZREBtuDnvjM41YSpG9LvWjcfTylG4nZw==
-X-Gm-Gg: ATEYQzzqETqG00M/k0z0WpJq82DGgJCqPwByZzWKsvnmc4FNx8d0/YwZD5FMbxn0RW4
-	R745gpMlyJoGMvM0WGVM7YNH/JZgVx5wyZJGb3J1rAgNBgsZ8pwWx7KJvqUyD9g9oxkUs4FOC6d
-	AR/sn5qcz8ZouoVtIy1ecdsmzkVyKsiBjDbKW43fIHrBr9o3eC8hy/bliWkyqCff0uEyTPT4bXn
-	HS5qQNW/HpHoefiKbWQzANKwzabWev67PshYQCYkTDgHIBwNXxgTQ6WHJ5vMLpY2W6eNLJnHITL
-	lINodafVK5u8lOszVmrDG2HiXUAEINP3E5gpevCFOQha847uUkusbgp5SRknbz7aopUa6/0yfr3
-	+CkAq1JwCPZbMbudxhqm+kJby/0Tn2Xnb8ihjkcaromCO6QDxnywWmOYtqEX/4UirtKbndhvf/Q
-	r/qwZcDQLXrLU8cZf+p3rfUHDyHpPEpWdykb5DzIOIuMDeYYGLO9Xy+aXP4RYea9aeU8nFalYQG
-	yXFcA==
-X-Received: by 2002:a17:903:46c7:b0:2a7:5652:50b2 with SMTP id d9443c01a7336-2aea456730emr562725ad.9.1773095524481;
-        Mon, 09 Mar 2026 15:32:04 -0700 (PDT)
-Received: from google.com (197.23.125.34.bc.googleusercontent.com. [34.125.23.197])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-829a4867e54sm11494132b3a.35.2026.03.09.15.32.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Mar 2026 15:32:02 -0700 (PDT)
-Date: Mon, 9 Mar 2026 22:31:56 +0000
-From: Sami Tolvanen <samitolvanen@google.com>
-To: Carlos Llamas <cmllamas@google.com>
-Cc: Kees Cook <keescook@chromium.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Sean Christopherson <seanjc@google.com>,
-	LKML <linux-kernel@vger.kernel.org>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	kvmarm <kvmarm@lists.cs.columbia.edu>, kvm@vger.kernel.org,
-	Will McVicker <willmcvicker@google.com>
-Subject: Re: [PATCH v4 09/17] perf/core: Use static_call to optimize
- perf_guest_info_callbacks
-Message-ID: <20260309223156.GA73501@google.com>
-References: <20211111020738.2512932-1-seanjc@google.com>
- <20211111020738.2512932-10-seanjc@google.com>
- <YfrQzoIWyv9lNljh@google.com>
- <CABCJKufg=ONNOvF8+BRXfLoTUfeiZZsdd8TnpV-GaNK_o-HuaA@mail.gmail.com>
- <202202061011.A255DE55B@keescook>
- <YgAvhG4wvnslbTqP@hirez.programming.kicks-ass.net>
- <202202061854.B5B11282@keescook>
- <aa8fNT3P54t5W53T@google.com>
+	id 1vzjDu-00000008EZX-16HB;
+	Mon, 09 Mar 2026 22:37:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6210260054;
+	Mon,  9 Mar 2026 22:37:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC18EC4CEF7;
+	Mon,  9 Mar 2026 22:37:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773095833;
+	bh=6BnqkIlhVLViOxVryE2C/8Z+o2ZWDSXu/1ZvCYaDXaI=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=tf3H4xezIDRsTefv5vg+Fi29V0HK0hXba7SX8Qjpff2LIMJyrIdAUlfUphLpz0vXt
+	 VQpGFEczR5IAjz3w0nxB8MKfbmHs4/aNlNfd+DGOIIOp6l134w/5Rp2To/2e5JfMwX
+	 jka3hl9HgNEm6orCxeH/SfP3w8jvX/m5fYle80bUygWWmiwJcRPR27vaKPH8K2+jSn
+	 2iA8h2SwCIPEPEdAOWaWyB1A1B9vQ5bLuZBgaON2BkDvHjIYMQS0GC1DnqWefCyonN
+	 /H0sDUjE5hGE9wW/AFoF2BHq5ToC8S60Ncuv3QlHZK5gJX2tIU+UUy0yH9Lc0MEaig
+	 BwfzfclgNVaDg==
+From: Mark Brown <broonie@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>, Jon Lin <jon.lin@rock-chips.com>, 
+ Felix Gu <ustc.gu@gmail.com>
+Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20260310-sfc-v2-1-67fab04b097f@gmail.com>
+References: <20260310-sfc-v2-1-67fab04b097f@gmail.com>
+Subject: Re: [PATCH v2] spi: rockchip-sfc: Fix double-free in remove()
+ callback
+Message-Id: <177309583151.321088.16829523155005247397.b4-ty@kernel.org>
+Date: Mon, 09 Mar 2026 22:37:11 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aa8fNT3P54t5W53T@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_153206_839019_7D290D7B 
-X-CRM114-Status: GOOD (  23.44  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-83dbb
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,68 +70,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Carlos,
-
-On Mon, Mar 09, 2026 at 07:27:49PM +0000, Carlos Llamas wrote:
-> On Sun, Feb 06, 2022 at 06:55:56PM -0800, Kees Cook wrote:
-> > On Sun, Feb 06, 2022 at 09:28:52PM +0100, Peter Zijlstra wrote:
-> > > On Sun, Feb 06, 2022 at 10:45:15AM -0800, Kees Cook wrote:
-> > > 
-> > > > I'm digging through the macros to sort this out, but IIUC, an example of
-> > > > the problem is:
-> > > > 
-> > > 
-> > > > so the caller is expecting "unsigned int (*)(void)" but the prototype
-> > > > of __static_call_return0 is "long (*)(void)":
-> > > > 
-> > > > long __static_call_return0(void);
-> > > > 
-> > > > Could we simply declare a type-matched ret0 trampoline too?
-> > > 
-> > > That'll work for this case, but the next case the function will have
-> > > arguments we'll need even more nonsense...
-> > 
-> > Shouldn't the typeof() work there too, though? I.e. as long as the
-> > return value can hold a "0", it'd work.
+On Tue, 10 Mar 2026 02:01:34 +0800, Felix Gu wrote:
+> The driver uses devm_spi_register_controller() for registration, which
+> automatically unregisters the controller via devm cleanup when the
+> device is removed. The manual call to spi_unregister_controller() in
+> the remove() callback can lead to a double-free.
 > 
-> I gave this a shot but then hit a wall with the arguments indeed:
+> And to make sure controller is unregistered before DMA buffer is
+> unmapped, switch to use spi_register_controller() in probe().
 > 
-> typedef int (perf_snapshot_branch_stack_t)(struct perf_branch_entry *entries,
-> 					   unsigned int cnt);
 > [...]
-> DEFINE_STATIC_CALL_RET0(perf_snapshot_branch_stack, perf_snapshot_branch_stack_t);
-> 
-> I can generate a stub with the matching return type using typeof() but
-> the arguments have to be fixed e.g. to (void):
-> 
-> #define DEFINE_STATIC_CALL_RET0(name, _func)				\
-> 	static inline typeof(((typeof(_func)*)0)())			\
-> 		__static_call_ret0_##name(void) { return 0; }		\
-> 	__DEFINE_STATIC_CALL(name, _func, __static_call_ret0_##name)
-> 
-> I believe this would work for most perf callbacks cases except the one
-> above because the arguments would generate a different hash for CFI.
 
-If you need a stub with a matching CFI type for an arbitrary function,
-perhaps you can do something like this (arm64, untested):
+Applied to
 
-  #define DEFINE_TYPED_STUB_RET0(name, reffunc)			\
-	typeof(reffunc) name;					\
-	__ADDRESSABLE(name);					\
-	asm(							\
-	"	" __ALIGN_STR "				\n"	\
-	"	.4byte	__kcfi_typeid_" #name "		\n"	\
-	#name ":					\n"	\
-	"	bti c					\n"	\
-	"	mov x0, xzr				\n"	\
-	"	ret					"	\
-	)
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
 
-For the !CONFIG_CFI case, or architectures that implement static calls,
-you can probably just point the stub to __static_call_return0:
+Thanks!
 
-  #define DEFINE_TYPED_STUB_RET0(name, reffunc) \
-	typeof(reffunc) name __asm__("__static_call_return0")
+[1/1] spi: rockchip-sfc: Fix double-free in remove() callback
+      commit: 111e2863372c322e836e0c896f6dd9cf4ee08c71
 
-Sami
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
