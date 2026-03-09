@@ -4,145 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2904BEA854C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 03:29:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4036CEA8525
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 03:29:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YzeyrJr4qQbp4VcnfMka12y/pocBRdEm9ebG9oRQk3A=; b=aBEBf+UmZD3CAxqvU3ZFOhLE+u
-	J5ORyijWUkt+Wh09cy2QueXmSdA1mNLtqpeavLTYA8pWHbco7LSoxkvCZR+jLmo1V7rsOf9Iw68A/
-	WQrLyBDfgE8ylRkHATu1CaYHEqWRlV1S5paND9thtFHwBl1+vj2kmG4L7B9pKJDAeuduxW/4Glevt
-	ymyyVg+V1Nm7pYv98yQW3NWbNSCZWe0zLMYOx+wdxcAwitCBcaUmqQ2FTxLI513+BJXxIyNN5ZSxf
-	SpcDB5JZ7o9ootr2qQkd4P37w79Ui/1eOgaff+MKVHwXeIBX68KVdCGcxRuUCGktNx23bqP2DPnam
-	i4QSH9xA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JLBDSc/qArG4gyDHuMh0dfrINi0JDhK7HO9pbAg3ye4=; b=QySNR8HIgLSC+3JOjM++ixnzPJ
+	gxrEfCRUka4tjkJr0QS9NAHmgeMT468vlJDRzwijN2QhwkZqoqAW8+NQVlUktr/EGbKpZeLX/XAgd
+	Zsd5PyaUZJB7r9CHxCcDsReTD44vnK15WuvbgbJ5JSUfq6CctllsqFAxBcyiR2NgVnVv3bBQb91+/
+	G38VdnQJcOtcp2iqdZlfm5Lq0jwYOfwJR+EG+c4rZ80jnrfj8y6n4306Sd03XLiJCkOtH/tmHLLlR
+	ut8h26mzo0vEkncuUQ9710KyumbakO0SPGSVsNC6eE5LUEyzueRc6xjoTp0f+Vxp4RuvApQLLXrH+
+	2WYZZo5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzRIu-00000006aul-3OL4;
-	Mon, 09 Mar 2026 03:29:12 +0000
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1vzRJR-00000006b69-30EV;
+	Mon, 09 Mar 2026 03:29:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzRIr-00000006auI-34PF;
-	Mon, 09 Mar 2026 03:29:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yVI3Gnk9xFyYVnC9qH4u9xn6mzsti9ATsMzxbGERxgzyN/LeuodzGsImIoPl4UdZUPdIeZkhZ/1oAAtwIxRPS4h76BjxfedoWdDcQSjdrKzNuCbVJhRJRHBPmk+10HVT1DXh5lqgtbaS6yCwYdJ357Kc30PSxnPZ/GclN0KCVfGKPupAWOsfAtR8UV5S38L7cbUJOKduUfV8vMNn8mGkdlPRlDxCAvopX9vH/ulZY1NqLctIItHN9zJpYSKa00vTIYKaQCY3TehnrTUlkn0peg+lwCutJtGPfOircDj+tX+cCMFjfX/gzH32Cq94kp1Q4YOZ/QOdd3cmwHI9X8/dww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YzeyrJr4qQbp4VcnfMka12y/pocBRdEm9ebG9oRQk3A=;
- b=p6xFUSswjzJFh4ANx7VNGZoC7Ht6VDkunXBfOSV7R5nrF633JHKygshNOqtIRaY4UGtucB0diD9uNV/QDOxEcliC/E8Cj8EZreULaVX/G9nmjNAg9kKOGDiaR+cIf/wPug8ybJgRR2hER6wOKstwusWkYRKQhAgiNDjP5q/66ssC3zu4gOkG8hXo7PNAFFEVQwdi1jeYsLaHCD8+FFglRs3qEDk8RBlVneC65pQGPH23Hmy1R5ujZwXrQRapHVjWB0yq4b7YzgFx0bOqSMHfqOxVH4+nDErBBzE0UwL80/ee1Ynd7MXqTTrDST/uOvUqu5/CVzcvwBLZ68Q9VvZMEA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YzeyrJr4qQbp4VcnfMka12y/pocBRdEm9ebG9oRQk3A=;
- b=krelTXMlhRc88UNQlcEg3qzUI5l4i5LxNI+NXIwwZEbsMFMhJQkk5Q5bVwOm1I+UX4knoztmkNyHo2KOMe0Txi81SGMg54BBJKIQUUBnokn7tWBSs464IFVzgwFVjrt1OrVcSW2IGFZ1tHnM3jSoACqEkwmeAstIyEDSURfbJtFxFTCXQiqGK1/JAZoX+L9Tdnby+2YrbRMsTVNyIoJXsu/3AD9iANjEU9sKOvLb+KeUX49xvgG2x8f9NPODcCl1KddkZ80DBhH3wEfgyUIzaOVU/iYcBZWBfbqPZSbIP40lGTEGOOuhDD3NL9j4WmlGCpmTsqi+aaiC1iiQzPce+Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
- by SEYPR03MB6813.apcprd03.prod.outlook.com (2603:1096:101:68::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.25; Mon, 9 Mar
- 2026 03:28:56 +0000
-Received: from KL1PR03MB7149.apcprd03.prod.outlook.com
- ([fe80::2f06:12a:fff0:6506]) by KL1PR03MB7149.apcprd03.prod.outlook.com
- ([fe80::2f06:12a:fff0:6506%5]) with mapi id 15.20.9678.024; Mon, 9 Mar 2026
- 03:28:56 +0000
-Message-ID: <737408c1-e887-43b4-b977-df8f328c9518@amlogic.com>
-Date: Mon, 9 Mar 2026 11:28:54 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: clock: amlogic: Fix a typo
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Jerome Brunet <jbrunet@baylibre.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Stephen Boyd <sboyd@kernel.org>, Michael Turquette
- <mturquette@baylibre.com>, robh+dt <robh+dt@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, devicetree <devicetree@vger.kernel.org>,
- linux-clk <linux-clk@vger.kernel.org>,
- linux-amlogic <linux-amlogic@lists.infradead.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- Ronald Claveau <linux-kernel-dev@aliel.fr>
-References: <20260305074328.639993-1-jian.hu@amlogic.com>
- <20260305074328.639993-2-jian.hu@amlogic.com>
- <20260306-primitive-lilac-catfish-fbbf9e@quoll>
-From: Jian Hu <jian.hu@amlogic.com>
-In-Reply-To: <20260306-primitive-lilac-catfish-fbbf9e@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SG2PR04CA0202.apcprd04.prod.outlook.com
- (2603:1096:4:187::20) To KL1PR03MB7149.apcprd03.prod.outlook.com
- (2603:1096:820:ca::7)
+	id 1vzRJP-00000006b4Z-2U9p
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Mar 2026 03:29:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9F6D860131;
+	Mon,  9 Mar 2026 03:29:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 49392C2BC9E;
+	Mon,  9 Mar 2026 03:29:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773026982;
+	bh=VXVNmCClSvOwGpmi61YhHWESdYYhdf74iA37qmcxNDY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=LJZZ3fJ1fzhlMwc3mByIv+IenATWisW3tyGnJFlqSfme6o5dc3Y8UE2iU0bCQtXOV
+	 RLf+feLAwBn4KDL39NotG8FR/8ZEWpU23cdMWTFnW0mDLwou8i9DRpLah4EaaqsZXs
+	 2P/keSAq5JJdvyrLP07qkJHtJhpcwPPDg3fPK7jtqC+36JymuuVgCVBBBKb/NegUBT
+	 TcKylZSoFc9HVlOWIJjqigTQFKv+3/zaXkE6OEcc+5wy2Pm9mSIfN1vseAMw0U0agQ
+	 dsGcEw92S8Oh1mC11lhk3s897fc5MPZBdu8aYquNlTpHnDpk+YbVG6+IZfibLvUlWg
+	 HBffZqXMM5OaQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3572BEA854D;
+	Mon,  9 Mar 2026 03:29:42 +0000 (UTC)
+From: Carl Lee via B4 Relay <devnull+carl.lee.amd.com@kernel.org>
+Date: Mon, 09 Mar 2026 11:29:28 +0800
+Subject: [PATCH 2/2] ARM: dts: aspeed: anacapa: Add eeprom device node for
+ NFC adaptor board
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB7149:EE_|SEYPR03MB6813:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0840db75-5c6b-4bd4-7c87-08de7d8bfed7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: yZ0hcRaL0OMakIQh5yaBBaqEIdAVQzDUTrqblnFR8lW5zV9e40w4qqeQ46ymADTu6bHr8jqei6PI08LEJQZfrLUaXNIiIf2zaW6lXQ6hZAY0xtZDJ5DK+XMklTbfPE/dmqGKqaN6JSfhV0KhiXW9VWbAlQdwPnNszI/vutDiqoXljlFPGd2RHS7LbwgT7+6t2dZ67qrNCfybJd5FOcJIV4gIjDks0drXfwrgc4qZz+WmX+S1C3m9af1ACl3v1o21nHDTioQ3zD1heLbQZbKpgtPSNUjbacIoGm37oF91LhJJkAZB23JCbTvALA+i2XPnJ1+OwydGysB1tN85xrgGlbb/1zcxeLaf3X4gkr0vgELQOG1NPstxny3ibmMzJMgMOTtRkBuO7Ol5yQLl8TGmqrogP6KTvIZMeNpHUY8MX3bCXnazQsL1vuUxydUavAz0wsL2JFLgVLHxoqkaT+xAr9+nK7GOJT24B0DqRoXyue3Az3fqYeIkF/sx4gee70EZeXIbUMZrRNmwBW35sPjYMeI2oYxzAduXVvjb91KtqBjeP53Um3qlevsKGf+gr9U0iI0uQqHf7sPLa0J4tcMAdl2q7ULereG/fjJcP1YeWYrVlOqkQlqILddj0x6iVY8XM96cM4n4eLJciWmEbJqrWIAulxagOjIOvu4yQPgIhNruIBtWS9NcT968Iu7YOkZoYZWl3Ht1JD3vezLaOVKsTf/c1uQ/z3dpfpQID9JOL4g=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB7149.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UmZpeTBVU0haSlExVTZ6eXcyR2lqeWtyOGJxSVdzRUUzTldIVEtSckxkRkRM?=
- =?utf-8?B?UmFUdnlVYmIrLzE3US82R2NMR0FDbVJPSytTeSs0akVCclNrMlA5RXZmbnRX?=
- =?utf-8?B?MFQxZGpRZ2VjalFvaXNISWhPazQrREhyV2dQckVUMTR5OUdOb1BJN1FjUy9l?=
- =?utf-8?B?TDgrbXJ1Nkp4SmY4czNYYTVwT2k2SUREckVhVTJ4cW5aV1dwa2ZYQm9oaURU?=
- =?utf-8?B?RHEwNHp2R0c5a0ZnSm9XejlkQ0N6emlyTHYwVWJjclhCbk80OFduVlVaWlEr?=
- =?utf-8?B?U1Z4RzBPOVpTSWlSMWNnaUhMQTVjdXlPTUdCaDFPZkNzS3EvazE5VEtHMFJW?=
- =?utf-8?B?R05Zb3BYM1hFN2RJK0RSdEdYZ05NSkNHNkdMUVdpWUE2R1hUZWE1a1NLOWlC?=
- =?utf-8?B?d3hxRlNYa3RsZFJDZ0tESEZiRnBhYVJ4UndqeTRXQXpKVXFGOU9SV25GbWg0?=
- =?utf-8?B?RVR6aHkycGRzcThTUVhxQTQ0VTBjcTdTeGhSZ1ordnRqS0g3QnBqalI1VjN2?=
- =?utf-8?B?S0VPK1VyS2YyV0d6THJIdk9GN2xFRUxvK0QxVklUdUhMcWIrSWFkd3MxRWRq?=
- =?utf-8?B?TjhsWUkrTVBOb1YzbWd4Uy8zQzFrUE1ScmxNSDhMRXdyN2hqaUhjemVWcDFt?=
- =?utf-8?B?bk1QZlNHYmJLRE5LMXpRZ3BWUnlrOWowZkRZdDhlZXdsV2pyRHZESEdEZnR3?=
- =?utf-8?B?eFdQWmo2YVY5bndhMU4xVEl2eG9PcFdZenkzYlhOaHNoK09qaTgxVC9icThB?=
- =?utf-8?B?djlrSnFKNytOZWZzV2RmQ202R2FIczk3VHVDSm4zMUhELzMvdUZaZnV3KzBm?=
- =?utf-8?B?UFZ2dU1BVm9xZDdQSzE5UDlzV1oyRFBGak10YkxIaGpGUk5McU9EQndyOVBh?=
- =?utf-8?B?a3dVYk04UmNJZDJRanEwRXhHeExJK1RZRDA2eTQ2MUxha0c0alN6OW9pVnJS?=
- =?utf-8?B?YU9VVDNFQnRGVkR4L20rUjdjTEdRcWZpRmdrajMxTUFrSVFiQy8vam0rQVc5?=
- =?utf-8?B?d2FFMzdUUk9KNGJoUnFURjFXRVJSR05xWkQvY1NkRDgrTHQ3NEMwZ1JKOEVl?=
- =?utf-8?B?QSswN2FDc2RnRm8vREt2TjJCcy9Lbjl6by9hSzQzODUvUVBXRlI3aTJnOVc5?=
- =?utf-8?B?czFtUzZDT2llQ2QrVkxYK1ZZVjdET2xmaWhjVElBK0xRMHhtVEI1b1pETVdS?=
- =?utf-8?B?ODdvd0RsaDNxQ2NtZC9lQW1Edm5XbGVyQitXQ1BRcG54ZnkxSDNrU0FxVG9V?=
- =?utf-8?B?OEhqaDJIejVockxKOGVBZnJSU2xRWUVtK1dDdkl4SHdGMi9wSEZWakdTQkp2?=
- =?utf-8?B?eWdEQlQrdnNFOC9KcktoOFZoRnllK211a1NZcG1JOFVjOG9SdjU4WVc1TE1R?=
- =?utf-8?B?SVBublpjNWlMQ0hoOWhxYkpGZVlVYWo2KytEbmtwdXZuRzNkRnVSblFZU1dz?=
- =?utf-8?B?QnFMU3l3NWt4Z3lMYXZtNkNTT0pzSGNERWdDSUNYeFRmVE5rSlYzVWlRM1p5?=
- =?utf-8?B?bHo0RTYxOUMybHZCOG5za0ZINnFDZng3dWJGd1RaUk54ZThlU3c2Q0J2RHhn?=
- =?utf-8?B?VVliVG01OFVYRG5yNzN1V1hEaktGZnpHRUJtMUN2WmxLckNXdjlsS21yY01i?=
- =?utf-8?B?eGN2amZ1MzhpK21vemZiRFhqWFJXeXdPd1JPUDAvOHhSYjMraXlkNHZnVDlC?=
- =?utf-8?B?NHkwakRRVjZWdGlOVE1TR1laNDdXcysvRFVId1lXU3BTMFZaRWJaUjhiTmRt?=
- =?utf-8?B?Qm0zenB6SXFtb3ppVHJXMzBQd0JXa0ZheGgvSiszUTZFQnZXakN4aG9qdHQx?=
- =?utf-8?B?NCtXQWlYdit0UGVlT3l2TEJSa09vT2hMU3FvYXVpdHFTa2VRc2tERGx3ZDkv?=
- =?utf-8?B?bEw2aHAwZWFZdTVUblNobFVuaCt3RGg3aHZiaTU3bUQydHdGalNWRUIzMXZu?=
- =?utf-8?B?Yk5VVk0raU50SzkrTXFmSFlrdTFIVFVEaGk4M3NBajQrcCtjWmZtZXZUT0FI?=
- =?utf-8?B?QjhtbFJEK1BWNEV4cTk0blpuVkVUbTB6RjlKaXhKbXJTWERWNk92bkY2bWor?=
- =?utf-8?B?Y2ZrNXlsbkx1Ui81TER0d21mWnZTY0NTYS9XR25mand6ZWtWakZrMGk2elIz?=
- =?utf-8?B?eEVSdDZKNHMzaDZpUDVYeVlrUmo3azJaQms3cERKZHo5ZlpGc3paSWFXUytN?=
- =?utf-8?B?OGdaZDVCYmp4cVhlK2NUL09lR3U2aVA5UytiVG44NUh4OEdnM3JyMytuRzIw?=
- =?utf-8?B?eFBGdGRUZS93c0hCM2k1N3VHWGUyd3ZOOXk1S0txUjczS25pQzhtb0t3TnNs?=
- =?utf-8?B?TDBLcmYrTmdUeDNhSUlMQi9UL0oxS1VYUVJhYzhVSTRzL2Fwem9JZz09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0840db75-5c6b-4bd4-7c87-08de7d8bfed7
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7149.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Mar 2026 03:28:56.6021
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3kGHTYn5WfudtMOoP7/uTg2zRgYbLBa72WKKY3bxteoPYKBYVovJxX9sCp1ZFdlrQZxJdtM6Qs+TWzooHl7v/w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR03MB6813
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260308_202909_785926_0127AF7B 
-X-CRM114-Status: GOOD (  12.97  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260309-arm-dts-aspeed-anacapa-add-eeprom-device-v1-2-45092310e0e6@amd.com>
+References: <20260309-arm-dts-aspeed-anacapa-add-eeprom-device-v1-0-45092310e0e6@amd.com>
+In-Reply-To: <20260309-arm-dts-aspeed-anacapa-add-eeprom-device-v1-0-45092310e0e6@amd.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ carl.lee@amd.com, peter.shen@amd.com, colin.huang2@amd.com
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773026981; l=774;
+ i=carl.lee@amd.com; s=20260203; h=from:subject:message-id;
+ bh=D46maPLCWSRhTgMfwUROFSf7IKYisSBqz2ghfKsQhBw=;
+ b=hpjKx7Eau2uIwosBxKKNezj3WUOTJpS7Yy3dVZ3PCMzUp9UwtT5YxbTEWxVTj/+IJQpYSVmns
+ Ht0/v19zq/hDXnBtIDGAtDjYW2OPLHcqCt58fD3cUJvvbI+JsIjXeTU
+X-Developer-Key: i=carl.lee@amd.com; a=ed25519;
+ pk=pyq7QaQvoxMg806KVkRwpCbiah+7ncWr4MBpK1AEyjA=
+X-Endpoint-Received: by B4 Relay for carl.lee@amd.com/20260203 with
+ auth_id=623
+X-Original-From: Carl Lee <carl.lee@amd.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,49 +83,38 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: carl.lee@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Krzysztof
+From: Carl Lee <carl.lee@amd.com>
+
+Add eeprom device node for NFC adaptor board FRU.
+
+Signed-off-by: Carl Lee <carl.lee@amd.com>
+---
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
+index 680108b00664..e1dc13cd3cd2 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
+@@ -820,6 +820,11 @@ i2c13mux0ch7: i2c@7 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 
++			eeprom@50 {
++				compatible = "atmel,24c128";
++				reg = <0x50>;
++			};
++
+ 			nfc@28 {
+ 				compatible = "nxp,nxp-nci-i2c";
+ 				reg = <0x28>;
+
+-- 
+2.34.1
 
 
-Thanks for your review.
-
-On 3/6/2026 4:11 PM, Krzysztof Kozlowski wrote:
-> [You don't often get email from krzk@kernel.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
->
-> [ EXTERNAL EMAIL ]
->
-> On Thu, Mar 05, 2026 at 03:43:25PM +0800, Jian Hu wrote:
->> Fix a typo for T7 gp1 pll.
->>
-> And also Fixes tag.
-
-
-Ok, I will add the Fixes tag:
-
-Fixes: 5437753728ac ("dt-bindings: clock: add Amlogic T7 PLL clock 
-controller")
-
->> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
->> ---
->>   .../devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml          | 2 +-
->>   1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml b/Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
->> index 49c61f65deff..b488d92b7984 100644
->> --- a/Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
->> +++ b/Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
->> @@ -72,7 +72,7 @@ allOf:
->>             contains:
->>               enum:
->>                 - amlogic,t7-gp0-pll
->> -              - amlogic,t7-gp1--pll
->> +              - amlogic,t7-gp1-pll
->>                 - amlogic,t7-hifi-pll
->>                 - amlogic,t7-pcie-pll
->>                 - amlogic,t7-mpll
->> --
->> 2.47.1
->>
 
