@@ -4,109 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C088EF3718
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 17:26:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD2D9F4181C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 17:34:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8jXCW9TlCZ3hHSi9kSS7Ek8EU10bJr55LqLcA1zyr+4=; b=Rry4MhvTXI35oi5b1oIP7hTDp4
-	oL8ckPG2sZm2uqnfSL1028creordVUohvGn/f8RN7ZSvyKaEcumwxxjYML190r9LRTH8j/ravxlS7
-	twXU79aJt64/cINfnyjeW0sf0dlef3rTcvuLV7xnwEZByZyv7BH+qj/jqPddJi+cQsHCemz1KBZxM
-	7fxeZQzEA8f7ty4bgdq+yiH9GBegP/X/YX01BOUuewr9wFNj3imkYqGplq6XkJU/ZFBdFIjZBHgmm
-	jgbbLg/NTGXQTBNihh7tcoBLKEUE7C8BN5efC4fJYDlFOqTDSfg2aKzTuyMX6RyCQpDhIi4d0WaR7
-	IYF17skQ==;
+	bh=UkVp5p+EyHzYxl20mkArWDCxcrrAf38UPx9PSZxnzWw=; b=Da6prRjgQgaFbLtDjME0ZVxsh8
+	MIiF/B3gnQtnspaFH/oEdJXhrF54Vr/ByKINOBMuFwyfpiEt6k0ntS83JbJ8WoNd4VOe1sD0EEQ3u
+	BwR/LWrS3+QOsWliCWZwB2dmXlgcPRyaM7ydhoE8pmAa2Zwi+KN5MbuwjLUl9dayjyvYNGB6kEbEu
+	vss+Lv17hnIh+U+4xD+N4mBKx3ypnRMNFNwfjlEVBE7ux55xXVlQu7+tXoi4CpOsjSdgOCPaiBD/a
+	0icipXrCIJE4Qzl1Lq/MO9v0iuUWuFuBtgXAe5zuxXrmr+jZe27qF+V1vfSoX0ec8A+owY3E3+pXx
+	/4aTiuFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzeN9-00000007pHI-1oRT;
-	Mon, 09 Mar 2026 17:26:27 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1vzeUL-00000007pfp-1BJb;
+	Mon, 09 Mar 2026 17:33:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzeN6-00000007pGu-2OCV
+	id 1vzeUJ-00000007pfA-0IfH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 17:26:25 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-8cd7aab92dfso230899885a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 10:26:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773077183; x=1773681983; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=8jXCW9TlCZ3hHSi9kSS7Ek8EU10bJr55LqLcA1zyr+4=;
-        b=eMalXAfgcu53QjdPJUS6jbYzl2mb1eS3+VCRZ260NfBGk1MaLbGlrEMhmuj3acEvfn
-         oIWIcvu4XPj2NzqYiUf3LwRB1SCDromcPiMT7O3ib1GaMpnLNa3BHO2j1dDqhcML+Qk2
-         JlGSV5kLA6u97CEshEAjzrbvbY4Dt9NeLz4L0enIU/Peja8UU73yixMiRp/OoFMw4MCJ
-         OjqYlAUEi2AIsnuOVJfOxR3m8xp8qoaSCiPP2FlQg5hpDPxVb43dnUZMb36XhgEoNzqj
-         038L8pPbm+CHr+ZSUa8lk4FKTMRoUIDvH6VXyat0MCbU0uiHdVJkJRzczWrwBwqbgx69
-         T1HA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773077183; x=1773681983;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8jXCW9TlCZ3hHSi9kSS7Ek8EU10bJr55LqLcA1zyr+4=;
-        b=DhnKaOXS7h7vHnyCe7EdDMr6owRGYoF/cPHXkqv5g7w8a+1ePcJPJtkceECcSuA6W7
-         s3z3ZE+9xfrdUZowvrCtpgXu957xgavmIxRhZSsq+raBEafLTCnE3TS5y3eaYrQztHL0
-         IoOgCcJjDS63qggPTUx91B0600naLsVx1V1NXoHLfxHNxY2JlqVYjw21rDf8M9T/gUrO
-         64CyKcyRbgY7vDmt4LZG2NOY0KJm5sFyd02+a6btapxoN0v+bGZQZSOlQ1IBHPwB99B2
-         wFIEEWIyuePuGxx0dUK8xwq/ppQMOmo50jwLZAt93QzYvUI6pYqFXubDzYMxtrSMCeEC
-         u3Yw==
-X-Forwarded-Encrypted: i=1; AJvYcCWzcIWuW+Wi9QJB3VYGAiQ4taWqDZ7NdaFRcTz5HAzVLsWrc2jgx9Yo4LJUOLRaz4f0973DyoDtkJNikgdiL1Fg@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlUXgUZSx8F3AVmzNhmTZCXLCNeRXQNjIKWzJXkM07F7e7+dFB
-	m0IZ/rWpYDNVJYRMJys7mKycWSq7eklPt+NrZni3ZiKUaLUY/jskZDQn
-X-Gm-Gg: ATEYQzxppWgtaQoHUQt5JImlSxqokkNrxvPM7IdblMoBYej+oHH3oP9k0bZOkTAe75x
-	5SLexSTSQw8xwkGih1Ca1eI9hkoF9urX+g5CY9yUmA+7RLomrb9EDlOdsYpEOQRatBh+t/AfZJd
-	BBe/DbVFm1dXNs0NP18PfLhB7y1H0hYKFBTUfXpnCSh9dCrRT6uoRnlU9WyP8x91ZMbwOci7wzV
-	Ab4vutkrKajFJ6k7xqE3P2DRYYjhL8x1YbTC3L8qnEg9SIlwnQJkL7hvxPNqlEL2DWRYvhzxVxW
-	BrRA2yy/ICDLO2A8RD+tj9tSvTxlL8QYHr/o8mGYzvXvnI/Y4E4VJMV7MFgx+NLeoL+NZDy9bRs
-	IaViEzxxKpJ8PwSp9iZiOa7X9dFHbx6fQgEW5Qv6EhPzlE1kx+brcI6EvT8jgfRzwGU7U7pbJHb
-	mSGsT8EYbC+N6so/o0dLYGYsdWZF5y2IdBdr1dFdTjwr4=
-X-Received: by 2002:a05:620a:414a:b0:8b2:1fa8:4684 with SMTP id af79cd13be357-8cd93b4cec5mr56470085a.2.1773077182874;
-        Mon, 09 Mar 2026 10:26:22 -0700 (PDT)
-Received: from mail.gmail.com ([2a04:ee41:4:b2de:1ac0:4dff:fe0f:3782])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cd90aae370sm114447185a.28.2026.03.09.10.26.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Mar 2026 10:26:21 -0700 (PDT)
-Date: Mon, 9 Mar 2026 17:34:49 +0000
-From: Anton Protopopov <a.s.protopopov@gmail.com>
-To: Xu Kuohai <xukuohai@huaweicloud.com>
-Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Mon, 09 Mar 2026 17:33:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8AE4240499;
+	Mon,  9 Mar 2026 17:33:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61F1CC2BC9E;
+	Mon,  9 Mar 2026 17:33:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773077629;
+	bh=hakByczqTTOCC3dDLy2o9AhSeGLwX0Wh5hMgqvcn8Kc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=lSSBaehIbE4OA+NhgIwOwlJy/lL4ixwPUnzNU4PgpHC6POnKmru79zVQlwNHhJ5OF
+	 inejQPMIRhD4VBnXGjpWkuXpJ3qjWb300yVCsGK6/neZeF33g+vD+YZmvwqMcWUKIM
+	 qQxngcww2U41JEhbyCsQ7xR1X1E6wOvMi0aZVEYiJQLKSACe48qy7phV0GQ/GbLpb8
+	 qNMwqj4eBj2UjEAguCiixEuYG1TuVtVLunB7sWWXMNfQSJUBrUphIvq0eAojEzO/h4
+	 DayK1gU5raHChNWFPZWiY9N2nzgmrKeWmnoezPsHmqNOTKRUw9hEnU239EyHj7EpH0
+	 a7AkOCVxdH9UQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vzeUF-0000000088G-0GCq;
+	Mon, 09 Mar 2026 17:33:47 +0000
+Date: Mon, 09 Mar 2026 17:33:46 +0000
+Message-ID: <86h5qo7vr9.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	qperret@google.com,
+	tabba@google.com,
 	linux-arm-kernel@lists.infradead.org,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Shahab Vahedi <list+bpf@vahedi.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Tiezhu Yang <yangtiezhu@loongson.cn>,
-	Hengqi Chen <hengqi.chen@gmail.com>,
-	Johan Almbladh <johan.almbladh@anyfinetworks.com>,
-	Paul Burton <paulburton@kernel.org>,
-	Hari Bathini <hbathini@linux.ibm.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	Naveen N Rao <naveen@kernel.org>,
-	Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	Pu Lehui <pulehui@huawei.com>, Ilya Leoshkevich <iii@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Wang YanQing <udknight@gmail.com>
-Subject: Re: [bpf-next v8 0/5] emit ENDBR/BTI instructions for indirect jump
- targets
-Message-ID: <aa8EuW4fcwOXnIP7@mail.gmail.com>
-References: <20260309140044.2652538-1-xukuohai@huaweicloud.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260309140044.2652538-1-xukuohai@huaweicloud.com>
+	kvmarm@lists.linux.dev,
+	kernel-team@android.com
+Subject: Re: [PATCH] KVM: arm64: Fix ICV_DIR_EL1 trapping detection for pKVM
+In-Reply-To: <20260309160450.2610295-1-vdonnefort@google.com>
+References: <20260309160450.2610295-1-vdonnefort@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: vdonnefort@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, qperret@google.com, tabba@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kernel-team@android.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_102624_626337_B63E719E 
-X-CRM114-Status: GOOD (  19.18  )
+X-CRM114-CacheID: sfid-20260309_103351_174236_DC6E854D 
+X-CRM114-Status: GOOD (  27.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,91 +92,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/03/09 10:00PM, Xu Kuohai wrote:
-> On architectures with CFI protection enabled that require landing pad
-> instructions at indirect jump targets, such as x86 with CET/IBT eanbled
-                                                                  ^ enabled
-> and arm64 with BTI enabled, kernel panics when an indirect jump lands on
-> a target witout landing pad. Therefore, the JIT must emit landing pad
-           ^ without
-> instructions for indirect jump targets.
+On Mon, 09 Mar 2026 16:04:50 +0000,
+Vincent Donnefort <vdonnefort@google.com> wrote:
 > 
-> The verifier already recognizes which instructions are indirect jump
-> targets during the verification phase. So we can stores this information
-                                                   ^ store
-> in env->insn_aux_data and pass it to the JIT as new parameter, so the JIT
-> knows which instructions are indirect jump targets.
+> For non-VHE KVM, can_trap_icv_dir_el1() relies on a hyp-stub HVC to
+> read the ICH_VTR_EL2 register. This isn't compatible with pKVM enabled
+> devices which are failing late calls to verify_local_cpu_caps() when
+> hotplugging a CPU.
 > 
-> During JIT, constants blinding is performed. It rewrites the private copy
-> of instructions for the JITed program, but it does not adjust the global
-> env->insn_aux_data array. As a result, after constants blinding, the
-> instruction indexes used by JIT may no longer match the indexes in
-> env->insn_aux_data, so the JIT can not lookup env->insn_aux_data directly.
+> In verify_local_cpu_caps(), system_has_cap initialised before pKVM kills
+> the hyp-stub is most likely set, while cpu_has_cap fails to probe the
+> feature creates a capability conflict and prevents the CPU from going
+> online.
 > 
-> To avoid this mistach, and considering that all existing arch-specific JITs
-                ^ mismatch?
-> already implement constants blinding with largely duplicated code, move
-> constants blinding from JIT to generic code, before copying instructions
-> for each subprog.
+> Add an HVC to get the ICH_VTR_EL2 register and use it in for ICV_DIR_EL1
+> trapping detection.
 > 
-> v8:
-> - Define void bpf_jit_blind_constants() function when CONFIG_BPF_JIT is not set 
-> - Move indirect_target fixup for insn patching from bpf_jit_blind_constants()
->   to adjust_insn_aux_data()
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 > 
-> v7: https://lore.kernel.org/bpf/20260307103949.2340104-1-xukuohai@huaweicloud.com
-> - Move constants blinding logic back to bpf/core.c
-> - Compute ip address before switch statement in x86 JIT
-> - Clear JIT state from error path on arm64 and loongarch 
+> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> index a1ad12c72ebf..81bac8faec44 100644
+> --- a/arch/arm64/include/asm/kvm_asm.h
+> +++ b/arch/arm64/include/asm/kvm_asm.h
+> @@ -81,6 +81,7 @@ enum __kvm_host_smccc_func {
+>  	__KVM_HOST_SMCCC_FUNC___kvm_timer_set_cntvoff,
+>  	__KVM_HOST_SMCCC_FUNC___vgic_v3_save_aprs,
+>  	__KVM_HOST_SMCCC_FUNC___vgic_v3_restore_vmcr_aprs,
+> +	__KVM_HOST_SMCCC_FUNC___vgic_v3_get_ich_vtr_el2,
+>  	__KVM_HOST_SMCCC_FUNC___pkvm_reserve_vm,
+>  	__KVM_HOST_SMCCC_FUNC___pkvm_unreserve_vm,
+>  	__KVM_HOST_SMCCC_FUNC___pkvm_init_vm,
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index c31f8e17732a..0bca57c1cbe0 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -2345,13 +2345,17 @@ static bool can_trap_icv_dir_el1(const struct arm64_cpu_capabilities *entry,
+>  	    !is_midr_in_range_list(has_vgic_v3))
+>  		return false;
+>  
+> -	if (is_kernel_in_hyp_mode())
+> +	if (is_kernel_in_hyp_mode()) {
+>  		res.a1 = read_sysreg_s(SYS_ICH_VTR_EL2);
+> -	else
+> +	} else if (system_capabilities_finalized() && is_protected_kvm_enabled()) {
+> +		arm_smccc_1_1_hvc(KVM_HOST_SMCCC_FUNC(__vgic_v3_get_ich_vtr_el2), &res);
+> +		if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
+> +			return false;
+> +	} else {
+>  		arm_smccc_1_1_hvc(HVC_GET_ICH_VTR_EL2, &res);
+> -
+> -	if (res.a0 == HVC_STUB_ERR)
+> -		return false;
+> +		if (res.a0 == HVC_STUB_ERR)
+> +			return false;
+> +	}
+>  
+>  	return res.a1 & ICH_VTR_EL2_TDS;
+>  }
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index e7790097db93..0432852228f9 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -463,6 +463,11 @@ static void handle___vgic_v3_get_gic_config(struct kvm_cpu_context *host_ctxt)
+>  	cpu_reg(host_ctxt, 1) = __vgic_v3_get_gic_config();
+>  }
+>  
+> +static void handle___vgic_v3_get_ich_vtr_el2(struct kvm_cpu_context *host_ctxt)
+> +{
+> +	cpu_reg(host_ctxt, 1) = read_sysreg_s(SYS_ICH_VTR_EL2);
+> +}
+> +
+>  static void handle___vgic_v3_init_lrs(struct kvm_cpu_context *host_ctxt)
+>  {
+>  	__vgic_v3_init_lrs();
+> @@ -622,6 +627,7 @@ static const hcall_t host_hcall[] = {
+>  	HANDLE_FUNC(__kvm_timer_set_cntvoff),
+>  	HANDLE_FUNC(__vgic_v3_save_aprs),
+>  	HANDLE_FUNC(__vgic_v3_restore_vmcr_aprs),
+> +	HANDLE_FUNC(__vgic_v3_get_ich_vtr_el2),
+>  	HANDLE_FUNC(__pkvm_reserve_vm),
+>  	HANDLE_FUNC(__pkvm_unreserve_vm),
+>  	HANDLE_FUNC(__pkvm_init_vm),
 > 
-> v6: https://lore.kernel.org/bpf/20260306102329.2056216-1-xukuohai@huaweicloud.com/
-> - Move constants blinding from JIT to verifier
-> - Move call to bpf_prog_select_runtime from bpf_prog_load to verifier
-> 
-> v5: https://lore.kernel.org/bpf/20260302102726.1126019-1-xukuohai@huaweicloud.com/
-> - Switch to pass env to JIT directly to get rid of coping private insn_aux_data for
->   each prog
-> 
-> v4: https://lore.kernel.org/all/20260114093914.2403982-1-xukuohai@huaweicloud.com/
-> - Switch to the approach proposed by Eduard, using insn_aux_data to indentify indirect
->   jump targets, and emit ENDBR on x86
-> 
-> v3: https://lore.kernel.org/bpf/20251227081033.240336-1-xukuohai@huaweicloud.com/
-> - Get rid of unnecessary enum definition (Yonghong Song, Anton Protopopov)
-> 
-> v2: https://lore.kernel.org/bpf/20251223085447.139301-1-xukuohai@huaweicloud.com/
-> - Exclude instruction arrays not used for indirect jumps (Anton Protopopov)
-> 
-> v1: https://lore.kernel.org/bpf/20251127140318.3944249-1-xukuohai@huaweicloud.com/
-> 
-> Xu Kuohai (5):
->   bpf: Move constants blinding from JIT to verifier
->   bpf: Pass bpf_verifier_env to JIT
->   bpf: Add helper to detect indirect jump targets
->   bpf, x86: Emit ENDBR for indirect jump targets
->   bpf, arm64: Emit BTI for indirect jump target
-> 
->  arch/arc/net/bpf_jit_core.c      |  37 +++-----
->  arch/arm/net/bpf_jit_32.c        |  43 ++--------
->  arch/arm64/net/bpf_jit_comp.c    |  86 +++++++------------
->  arch/loongarch/net/bpf_jit.c     |  58 ++++---------
->  arch/mips/net/bpf_jit_comp.c     |  22 +----
->  arch/parisc/net/bpf_jit_core.c   |  40 ++-------
->  arch/powerpc/net/bpf_jit_comp.c  |  47 +++-------
->  arch/riscv/net/bpf_jit_core.c    |  47 +++-------
->  arch/s390/net/bpf_jit_comp.c     |  43 ++--------
->  arch/sparc/net/bpf_jit_comp_64.c |  43 ++--------
->  arch/x86/net/bpf_jit_comp.c      |  68 +++++----------
->  arch/x86/net/bpf_jit_comp32.c    |  35 ++------
->  include/linux/bpf.h              |   2 +
->  include/linux/bpf_verifier.h     |   9 +-
->  include/linux/filter.h           |  15 +++-
->  kernel/bpf/core.c                | 142 +++++++++----------------------
->  kernel/bpf/syscall.c             |   4 -
->  kernel/bpf/verifier.c            |  45 +++++++---
->  18 files changed, 233 insertions(+), 553 deletions(-)
-> 
-> -- 
-> 2.47.3
-> 
+
+This looks incredibly complicated. Since pKVM forbids late onlining of
+CPUs, you are absolutely sure that you have already seen the CPU being
+hot-plugged on.
+
+So it would make a lot more sense to just return the current value of
+the property you are trying to re-evaluate: you know for sure it
+cannot change under your feet.
+
+I have quickly tested the following hack:
+
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index c31f8e17732a3..947ff71b3b66b 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -2345,6 +2345,9 @@ static bool can_trap_icv_dir_el1(const struct arm64_cpu_capabilities *entry,
+ 	    !is_midr_in_range_list(has_vgic_v3))
+ 		return false;
+ 
++	if (system_capabilities_finalized() && is_protected_kvm_enabled())
++		return cpus_have_final_cap(ARM64_HAS_ICH_HCR_EL2_TDIR);
++
+ 	if (is_kernel_in_hyp_mode())
+ 		res.a1 = read_sysreg_s(SYS_ICH_VTR_EL2);
+ 	else
+
+which works for me. Could you please give it a go?
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
