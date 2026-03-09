@@ -4,73 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FB31EF371A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 09:02:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8E62EF371E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 09:03:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c5QwIr/NMDBTqHPpCNhWiL1TK1y661uRtIfeb4dwjqE=; b=Fvk8JKqpt0pRBNH/+s9IROsh97
-	BYIyzRU8EdtqTvXX9D5z+c7dZKknAVkg6OXp0vu7dLCXmp7cIkE1J4AFFJDjvbkOZgzUNOcyJHFim
-	QNlOmxpHWjPQMaJjK/7CEDGUuUjp35zulhfHUkE0Hs0fhrCBVrbBJmszQgAPFOqmrVPwpw82SdWH2
-	kJSGiLzR0+Zs9pbuqTAT61P5T4aabSAB9yPV63GEM5qdDZ4CrvDoviBKkITmMJ3oHrb9yGiPRGbsG
-	QsAteEF7fCtLj/grMRkrjscXDF/8sD9oIMjG8bi78SL1Q1tGztPEwnyW0P7KT5Ymy7YoE5RcUeV3/
-	IfOdBsAw==;
+	bh=D9/kcK7HCenaqmPZLEj+cxswmECBHG4Q51v27n6bUNA=; b=cXbUHUo64PilrHl7ixFQLQT0t+
+	REixLbml9fsnt+ru/zPIcK7pZPlYR7TOE4jjawvSzr47Vem7AoLsVW/QTGDxVlSLlX0fz0TjPcV3K
+	nUgE9Bm/Dq3Af9k7nX3eFUWzZMVARvwlGlMoi6BVJp5KIxAI9j1hdH8FFTK/bCNI73AAzK0v8EIF6
+	3HLtmwidwbku7apsbf2ZiR0GhFcxz8eHKBtAjvO3gV1bHAiN2Xz7xeJOcXEK3xOVB4Urt4JEN5bGs
+	Pm+gSmk6yRoGNWCxzL+av14N2G/xffrrwh/ZigIcpdZwDli3Zxjs0rD1hJmI7Ll+DxKjuY8eYgSe3
+	7nKs+75A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzWVf-00000006vYU-2Yl3;
-	Mon, 09 Mar 2026 09:02:43 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vzWWf-00000006vgq-1Dya;
+	Mon, 09 Mar 2026 09:03:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzWVc-00000006vY5-3yNA;
-	Mon, 09 Mar 2026 09:02:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1773046956;
-	bh=pMsimM0jrkN9TClCZtebv47wyhydHL/nRiqxAuKIOX4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kGAJK6pZNHnQh5u7UzYcZET/DCDJE/EIbrUvrqe2ovExMpFvnCGAYGpBYR5QzZ9FM
-	 FlqoKEyBFyYNeHgSKX8IUaZgMpU2xuZW4b1/RzRSS1mSrxlHjz30bch7QHvDnHODc0
-	 z0heRGeyJ1UqNnFZci0T4W9QR7tajqWb/uWEKU3IY1zKDqSUZfVJLwEukfAOVBTB5u
-	 whNBUy9UwE8BbmCp90sQFzvQUty3jwkC3hMa3ANaXNDGU1+6vJTTXFfKiPOEPyzLje
-	 xNwzRS7TeaNQFj8NOunvoF3NYZnpBIeh+7A8nNFfgISwHYKqjALFYTEH9ApC6qiC1u
-	 F0Pqd1WmJX4XQ==
-Received: from [10.40.0.100] (185-67-175-126.lampert.tv [185.67.175.126])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: mriesch)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 33C2717E0EFE;
-	Mon,  9 Mar 2026 10:02:36 +0100 (CET)
-Message-ID: <d670a203-6fc1-4fbc-a7b2-c2366745d794@collabora.com>
-Date: Mon, 9 Mar 2026 10:02:35 +0100
+	id 1vzWWe-00000006vgZ-3ATF
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Mar 2026 09:03:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D2786600CB
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  9 Mar 2026 09:03:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D7E4C4AF0D
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  9 Mar 2026 09:03:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773047023;
+	bh=NHqpSEZVsWbWgIja3kieVVuxwiNnL7EaRmas6HJUsWc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=rQ101iWkne4GQpFROza0W41V7NDreoF6+XeGG7jzew41PPHodNBGCEQSFkylBBJQJ
+	 hDc8XJ99mE5qnngXrp1vm3YfpGgcKcxBG+BCbiQQy7lIGEV/ej8ER5JpbRJcpQUV5O
+	 GD9znMOb31xlZcaGDM5ctl0lvO9/QKGkze9duLfAIcqd8AxYXvg6dt34D2jJyGLfbh
+	 dmqEPhCAbEsk8E7iHQlmnyk6SuF9bIzsAIYWk1Uum7s8ny4tT4hcAvc12ZMFBe7rt+
+	 d5zoXA531kIM8nAifg1diwPgQdU7bYuhUV4sYx13PsT1yxks47B7Mu80WhvpQomW9y
+	 fLDYdQMJyQcag==
+Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-38a439f9b43so14511061fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 02:03:43 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXZCabRKz0ij5zLs13Z1/7Cjz3hoJ4CVHx/yDc28tXLHfHXUy+2OLVbIbNNmn8FWYdGXuX54suk5B/rxVQwjrBH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzdf6R2/9boBfGQciwNmjDQY9NeKm1hyL6JgRdZMV4CiqCfzVB9
+	p3zKTWmChlRnqOZ11IAxsE5R3/6VRkY5bK9HJNsIFTWiz93jw1sBfYFKXkb5mrlX8oKM6oRm9/K
+	qML68HhWg1dYmmxRSD3x0MlRdbSPPVBXNIDjFsEP0Lg==
+X-Received: by 2002:a05:651c:41c8:b0:387:15c9:379a with SMTP id
+ 38308e7fff4ca-38a40b5ff81mr28921681fa.26.1773047022054; Mon, 09 Mar 2026
+ 02:03:42 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/4] arm64: defconfig: enable designware mipi csi-2
- receiver
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Frank Li <Frank.li@nxp.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Kever Yang <kever.yang@rock-chips.com>,
- Collabora Kernel Team <kernel@collabora.com>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260305-rk3588-csi2rx-v1-0-0cd8d2bf28c0@collabora.com>
- <20260305-rk3588-csi2rx-v1-4-0cd8d2bf28c0@collabora.com>
- <20260307-majestic-otter-of-contentment-eeba71@quoll>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <20260307-majestic-otter-of-contentment-eeba71@quoll>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_020241_181589_F2A9B360 
-X-CRM114-Status: GOOD (  14.97  )
+References: <20260308021535.48098-1-rosenp@gmail.com> <CAD++jLkLj235Q=U_9E-hSneW5E42JjU=dRBJxKJNnqwgBLCm=w@mail.gmail.com>
+ <CAKxU2N9JbAzEYfmLpbw5b9Y6MsYUZ1FfLirfy8Hg8MCOUY6PAg@mail.gmail.com>
+In-Reply-To: <CAKxU2N9JbAzEYfmLpbw5b9Y6MsYUZ1FfLirfy8Hg8MCOUY6PAg@mail.gmail.com>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Mon, 9 Mar 2026 10:03:30 +0100
+X-Gmail-Original-Message-ID: <CAMRc=Me+oUX5xbNY7PX43cTH0e5ouu=Ex3TqhvWvoefmR7jYYQ@mail.gmail.com>
+X-Gm-Features: AaiRm51GDQM7nWXlWiIub7pxCbmgBaQ0riecFovbemyWgkXzu2HGDohc6qR3JdA
+Message-ID: <CAMRc=Me+oUX5xbNY7PX43cTH0e5ouu=Ex3TqhvWvoefmR7jYYQ@mail.gmail.com>
+Subject: Re: [PATCH] gpio: msc313: remove kcalloc
+To: Rosen Penev <rosenp@gmail.com>
+Cc: Linus Walleij <linusw@kernel.org>, linux-gpio@vger.kernel.org, 
+	Daniel Palmer <daniel@thingy.jp>, linux-hardening@vger.kernel.org, gustavoars@kernel.org, 
+	Romain Perier <romain.perier@gmail.com>, 
+	"moderated list:ARM/MStar/Sigmastar Armv7 SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,31 +83,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Mon, Mar 9, 2026 at 2:27=E2=80=AFAM Rosen Penev <rosenp@gmail.com> wrote=
+:
+>
+> On Sun, Mar 8, 2026 at 5:06=E2=80=AFPM Linus Walleij <linusw@kernel.org> =
+wrote:
+> >
+> > On Sun, Mar 8, 2026 at 3:15=E2=80=AFAM Rosen Penev <rosenp@gmail.com> w=
+rote:
+> >
+> > > Use a flexible array member to combine kzalloc and kcalloc.
+> > >
+> > > Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> > (...)
+> > >  struct msc313_gpio {
+> > >         void __iomem *base;
+> > >         const struct msc313_gpio_data *gpio_data;
+> >
+> > Do you wanna add:
+> >
+> > const unsigned int saved_size;
+> So in the code there's
+>
+> for (i =3D 0; i < gpio->gpio_data->num; i++)
+>
+> which is equivalent to match->num.
+>
+> __counted_by doesn't support pointers AFAIK.
+> >
 
-On 3/7/26 16:34, Krzysztof Kozlowski wrote:
-> On Fri, Mar 06, 2026 at 03:09:51PM +0100, Michael Riesch wrote:
->> The Synopsys DesignWare MIPI CSI-2 Receiver is integrated into
->> recent Rockchip SoCs, such as the RK3568 and the RK3588.
-> 
-> ... and used on boards foo bar.
+This is a regular flexible array of u8. It should work fine with
+__counted_by and I too am in favor of using it as it has become
+standard for flexible arrays.
 
-foo bar = pretty much any recent board with a Rockchip SoC on it...
-(plus NXP users, as there is a series by Frank in the works)
-
-> 
-> (becuse we take defconfig for boards, not for SoCs - if there is no
-> single board using it, then it should not be enabled because it means
-> you do it for downstream which simply does not exist for us).
-
-... but there is not yet a mainline example. Next item on my TODO list
-is to send out basic RK3588 VICAP support including the device tree bits
-for the Radxa ROCK 5B+ plus camera modules. Should I include the patch
-in that series? Or wait until that series has been accepted? Or will you
-just take my word for it that there will be plenty of boards using that
-receiver in near future?
-
-Best regards,
-Michael
-
+Bart
 
