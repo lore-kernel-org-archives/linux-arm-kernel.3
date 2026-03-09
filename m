@@ -4,65 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD8B1EA854B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 09:11:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE010EA854B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 09:11:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A8oIwYfb33qiclTPcfWWyQsiQRrYjyN5cJw/36JWcko=; b=Gfl79IG+SJjr+WYB4eGcrGGAoQ
-	buEAXo+GqgAgUt3ncR1PVYyQ16N518Uyi6R/dtXZPHlm8dfbDPzbh/40gjGwtpn4DcZhdtAKQlZW3
-	00vQ44LARpgxFZWJiXYbFpq7eXfQo0A8huL4aGL2Y9cOrL5YbZQW85LIc4HHNxmFGsPZyzaNpI7sc
-	Hfx3vhw5mnn77lF5h89miiwQ8DPJ2qakFB/KCscNeBMkGCAcfBetzlCdTpWeKnLDCXw9gOFZEd/Vh
-	oX0PhGOODPGBIB4xDZ3ac2WV9ZU4soCg5mj9Ugeo3/wAGRjd++iR++meW/LdtN2PxNBx5zot+9DXa
-	mhi8QudQ==;
+	bh=EVbLqC+4Biq7XTYqXV48JqP8aRgnJM/1t95bNV7lUm8=; b=zd0o782RoOmzpZ6Q3cgb5ESbxY
+	hVKvxgh+CnnLTaCytdr5OfrDbDvcRDJA9fwoN6rMv9RpkFWBexoIZA4N8num9eOLYnma/ijpwBY+C
+	Ss7iPfrfIUoz19oRtScGDXrnRbUIVNAMeZn6t7JcfjJOR9OZy0Q/4jWUqjuo4cYBTeW8+/mgJCk4Z
+	PnouIgswasWEu2la4OCubOnIFJbRDiSAcJ61QnjZMpAdz5wxd9wJCKhXLnOJhuhO9jpbkn1Ff/vX9
+	t0AM4LPZ7PsKrYK1p39SHjOryLHmxNMq+JatdfViga54EImzgQ//bKqsgkiBg1T+xNat+oY5xl+Y+
+	hIXI3nWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzWds-00000006w9P-1pUu;
-	Mon, 09 Mar 2026 09:11:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vzWdw-00000006wAS-35Eh;
+	Mon, 09 Mar 2026 09:11:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzWdp-00000006w97-0Jjw
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 09:11:09 +0000
+	id 1vzWdt-00000006w9f-3K19;
+	Mon, 09 Mar 2026 09:11:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5D94E600CB;
-	Mon,  9 Mar 2026 09:11:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 118DDC4CEF7;
-	Mon,  9 Mar 2026 09:11:04 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 03630416C0;
+	Mon,  9 Mar 2026 09:11:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D50FC4CEF7;
+	Mon,  9 Mar 2026 09:11:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773047467;
-	bh=WLv9qqLZ/btidVarDfm4uY8aB7MnPY0EpCVnateUiGc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WDo8xpt36yqSDDveDKlkl4R/SIZL/veYsmg35mJAhMPg7YRldiExyNtinsj/PPTly
-	 VSmcZPI3Z9MCCGSd6qNfxh5TOA1jpadFRYEAVDc+7dr7pUnpCKq3NjqO5Z4KySEP/e
-	 3L6xA7wkCB/bGFOAWOsTLeAlOQ905MRZDf3T4zVXPHF9Fs+4ic5fmghXgOLuS83rzo
-	 qCoD3K2nUiyb5kwDk3gQ54/DlPP4X/LmsMaGIVjibq6eOkJifQ69gzPez2ZWjqn20H
-	 Lm1MH1llAmrHZlm9qPfSOMG+WiNdVOVtFRWmO6DpIGJtAv4mpZ5ISYoMiw5VHbUcwU
-	 4FJa/iKytuUjA==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: arm-scmi@vger.kernel.org,
-	Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	"Rob Herring (Arm)" <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v4 1/2] dt-bindings: firmware: arm,scmi: Document arm,no-completion-irq property
-Date: Mon,  9 Mar 2026 09:10:59 +0000
-Message-ID: <177304738934.1267831.4681471282641940772.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260117010241.186685-1-marek.vasut+renesas@mailbox.org>
-References: <20260117010241.186685-1-marek.vasut+renesas@mailbox.org>
+	s=k20201202; t=1773047472;
+	bh=LqnKpQar+kSPIji5sD0bxfK6E/mHm3UIXP2WG8gE0ug=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=CLvuFUE4c95Ak35F4mFBNi+Bka11UkzpQPtBIKNzXzrmFaXAgaOVsJ8JJo2Pz/Piy
+	 XNCHrgCW0QHy+3RQBe5/RotLUayN4faFlH54z6665ELUY1H1MocdG7ZChBU0j78+4u
+	 69/EDa3eSDTdqogAZX3PaPAIUWRI5/mvGUOqudODBrw6nbSXMiVUhDoam+5sDprUyL
+	 HrJ+qwD/xRdGmJgVSmNpqt/yHND4pMeCM1U6V/yQYBXDD6g+0HsbCzYL64iVfuYxf0
+	 HKh1sqZe7/2Foa2cavixaf5iW17xeSPfMY/nRovu8A1WUZ7xKbL2vb4wQ1IWAPzhlf
+	 5tf0OaN51rQwg==
+Message-ID: <7a48529e-009f-40ef-810d-b90226bade0d@kernel.org>
+Date: Mon, 9 Mar 2026 10:11:07 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] media: dt-bindings: rockchip,rk3568-mipi-csi2: add
+ rk3588 compatible
+To: Michael Riesch <michael.riesch@collabora.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Frank Li <Frank.li@nxp.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Kever Yang <kever.yang@rock-chips.com>,
+ Collabora Kernel Team <kernel@collabora.com>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260305-rk3588-csi2rx-v1-0-0cd8d2bf28c0@collabora.com>
+ <20260305-rk3588-csi2rx-v1-1-0cd8d2bf28c0@collabora.com>
+ <20260307-complex-finicky-skua-bf52bd@quoll>
+ <eaec4b1c-469c-4f81-884b-3308aa85633f@collabora.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <eaec4b1c-469c-4f81-884b-3308aa85633f@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260309_021113_877755_4338EE1A 
+X-CRM114-Status: GOOD (  20.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,26 +127,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 17 Jan 2026 02:02:28 +0100, Marek Vasut wrote:
-> Document new property arm,no-completion-irq . This optional property
-> is intended for hardware that does not generate completion interrupts
-> and can be used to unconditionally enable forced polling mode of
-> operation.
+On 09/03/2026 09:50, Michael Riesch wrote:
+> Hi Krzysztof,
 > 
-> With this property set, such implementations which do not generate
-> interrupts can be interacted with, until they are fixed to generate
-> interrupts properly.
+> On 3/7/26 16:33, Krzysztof Kozlowski wrote:
+>> On Fri, Mar 06, 2026 at 03:09:48PM +0100, Michael Riesch wrote:
+>>> The RK3588 MIPI CSI-2 receivers are compatible to the ones found in
+>>> the RK3568. However, their integration in the respective SoC may be
+>>> different when it comes to the (currently not implemented) split
+>>
+>> All this says they are compatible, so express it.
 > 
-> [...]
+> ..express it... how exactly? In the commit message? Or what do you mean
+> exactly?
 
-Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
+See DTS 101 presentation or DT spec. Compatibility is expressed by using
+fallbacks.
 
-[1/2] dt-bindings: firmware: arm,scmi: Document arm,no-completion-irq property
-      https://git.kernel.org/sudeep.holla/c/0c5453bf8437
-[2/2] firmware: arm_scmi: Implement arm,no-completion-irq property
-      https://git.kernel.org/sudeep.holla/c/d8283ac2c8fb
---
-Regards,
-Sudeep
 
+> 
+>>> DPHY feature. Therefore, add the RK3588 compatible to allow for
+>>> future differentiation.
+>>
+>> This I do not understand. If you just copy standard rules from
+>> writing-bindings, then no, don't do that. It's obvious and there is
+>> never a need to repeat any standard/common rule. If you want to say
+>> devices are not compatible, then say that explicitly.
+> 
+> It's a bit of a complicated story. To keep it short, the RK3568 and the
+> RK3588 MIPI CSI-2 receivers are compatible at least right now. In
+> future, this may or may not change. This depends on how this split DPHY
+> integration is implemented -- and we won't know that for some time.
+> Right now I expect that the phys property will become optional when this
+> happens (at least for the RK3568).
+
+This does not match at all commit msg. Using fallback allows future
+differentiation, so "I will not use fallback for future differentiation"
+is obviously incorrect argument.
+
+> 
+> What is the safe bet here? Going for a fallback compatible and adjust
+> everything when the split DPHY feature is implemented?
+> 
+> Best regards,
+> Michael
+> 
+
+
+Best regards,
+Krzysztof
 
