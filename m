@@ -4,55 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34B50FCA191
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 21:25:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7DDBFCA192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 21:25:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oVHmmg5PbGhBJcH1DiEgCgltbKf4t8SXuZF/r8goSLw=; b=UGpKdJfbVKF9+8d8uG84qNwgWm
-	iAPR5huk0GJq4tSgAUrtcsQjQ+/yP5VuPC1SPDXj+QMWhB5UDAs6kmYR1OsTJSdubzjiKeESGMq8y
-	+/5GAlvMpJQBc8TGlpJW9GnaWJKy92aWEE1qgOuYh6U8/7y69+gKsrRSrNAa2gIqNwzCxYXKZCWRq
-	+SyqTb3i99zDDUxWv5HJJbCuIy/CJawVVNYfcExagLr0c9Bs/0kTIYuyfFAr6CcYo1/gkgBm5dNVc
-	8zJ1zFenWewgKTm9ESB6sjWXBw+mCZaKqXj5vXRz1J3pfd5FlI8hcgd54000NGw9RRJeN8g/zk/R8
-	DApqo+Ug==;
+	bh=FAHsQdzzN+FG3XbYUMM1my4gp2tn4lNHzdIDSZZfH4o=; b=yZ8Aixs4PjeL93+Z9XLvu4CsYE
+	+db6yXpFRzWRpcm6ZQ2VjfGFlmCDRWEcmAzYDCFckDDM74e0OeeQp52blXg4YK0u854Hz/lkV8znx
+	+L6rUEQElh/L/k4bGYN2STe1SbXMq6XQ24+WUHlYgxpafdRPw/i1yKV7ZU8yyQnAtRQ8B/NpVmTmD
+	NIh7yMSceenupVTDzoboPi9H4TpjQo6P86uWBa0xlgtwk6/OV5JYdxRkn+u5rMLxVH+ZsnjvKntuc
+	5p+AT0xbEdiufnqP0840/+77yIhPtw1eeKdQD8b0Y5PbQfysHyRSRgVYHokbphnCdNbrQxaH54DJ6
+	6WbKzgPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzi68-00000008BIg-0hgG;
-	Mon, 09 Mar 2026 21:25:08 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vzi6K-00000008BLZ-37Bg;
+	Mon, 09 Mar 2026 21:25:20 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzi65-00000008BHz-17FM;
-	Mon, 09 Mar 2026 21:25:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=oVHmmg5PbGhBJcH1DiEgCgltbKf4t8SXuZF/r8goSLw=; b=m65ga86fwWwLPFyKsNOsIcX0n5
-	t+hFSKHitbRnnM6HTltcGkOw/tM+icOJ6Po2iUWNNoMiJy7a7u9GvU+ZLT4CbtQ+QmzRISrhVkYzh
-	cQUak1ZcIUurAZjCLi4UO0smzo1imi2Ysvh7okKiSYqWTtGPpv+8yHWpsPWHuuieDuCO75OyKuHvz
-	DjrRpGK2Pp1QNKhrQVJeKkstBhNDvU/Rw0wPiS/sDuXiraKj1nOI0eE+ovUGNXPsnWjN7qtXi8EdK
-	/oH4O1VDXio5inTRlf0oHSGLGY+jUWpVOtYVGr0BGnBIW1yQQKz1UMNJeiXOCIUocG6Kmbv/tNul7
-	KHMXW2IQ==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: jonas@kwiboo.se, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Fabio Estevam <festevam@nabladev.com>
-Subject: Re: [PATCH v5 2/4] ARM: dts: rockchip: Add support for RV1103B
-Date: Mon, 09 Mar 2026 22:24:52 +0100
-Message-ID: <47923648.fMDQidcC6G@phil>
-In-Reply-To: <20260216010219.2131484-2-festevam@gmail.com>
-References: <20260216010219.2131484-1-festevam@gmail.com>
- <20260216010219.2131484-2-festevam@gmail.com>
-MIME-Version: 1.0
+	id 1vzi6I-00000008BKk-1dS8
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 09 Mar 2026 21:25:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=FAHsQdzzN+FG3XbYUMM1my4gp2tn4lNHzdIDSZZfH4o=; b=Fr0ptvbNPneZaRJ36mFZ+C3Fvu
+	MyBRHAjA9Hbx3XexQwNygm/Pr5iBk3/Mq/iJRDey1QNYOOFsOJxToJ5Yn0ScVzMZKqTp/zvowSw5A
+	JskdQ0R6NNtFONA+HQ2nQpKkTHryI0jaJ6m/0s11N68cpneaFGkd7lfAMZGxW1AGXFY0Vk3ipMbpX
+	k/1f5e5JSe078QiVamzvDKG1XwcC/zgAvhIhxCPJAXIi7FUhDmZfxLbQM4hLNaePbhOLM8sNUJt8D
+	ZHg2lUc3tqcKEm1PYNC7M4cYIuc9SJtOdTu+5H//o4j8bt3xF7G8HXnxErK86xe4hzshbPNdgvi9+
+	dsIrA/Kw==;
+Received: from mail-dl1-x1229.google.com ([2607:f8b0:4864:20::1229])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vzi6F-00000006bR0-1RHR
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Mar 2026 21:25:17 +0000
+Received: by mail-dl1-x1229.google.com with SMTP id a92af1059eb24-12732e6a123so3757301c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 14:25:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773091512; x=1773696312; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=FAHsQdzzN+FG3XbYUMM1my4gp2tn4lNHzdIDSZZfH4o=;
+        b=F5vbrs/khDz2wKD3DaugnTz7Is5n0eME7NNWR38pLWlAnwtdphdwNeoY+iZCyCF6qm
+         1yq+rSRerUXLHMshOumnEd40IO7TQGBYulLs7jcITEqfkup4rstKuF2py3YP5D5erAbs
+         S/mKXzErz7udwdRTPiAMm3vsTmE2TTnLl9yimoZIrh6kur7aTZCWNeTKR4LjRsY5Pl7L
+         u460F4kcGrSIP6wTIq/vo97X+ZAfUZSboHLpnncNK9VMV74ZCRRJlrNLA4+KScRFJvPJ
+         DtNaYO/GntpdNP7jRlEwuJOrSzdsO4Bsr2hFRhobmS1gNIXaOoaXnmJvS6XPdZE1ACdn
+         9vaQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773091512; x=1773696312;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=FAHsQdzzN+FG3XbYUMM1my4gp2tn4lNHzdIDSZZfH4o=;
+        b=JGWbxH/WbRUz8mjgbkMNAVhEXF6k4Z7Kwl4WcOAojPIZr38sUCKOaeOWnwtXrySnh1
+         DCDsi89UuhuHLqOIGkychZ762APNC6YbikrNj168++Tt6zP3gdw0tseZ1ns2XcFNFb/C
+         tKPMgX5WpJKFp92KamUqYItnHxgtAUvcafnYeIiaGIk6v/L2DC7FRPnPB/on4fpqncIM
+         XBPDOAtP/uyzwCJ/NQY0SM7uC7wtnEPLQGyfy1psg0DemTaO8vjMZb+VIg/RM3FI43K1
+         oLhnMoVZn1QCKaPW/DH6R8ybVDZiilxgTA43WKLsTlav61XUmYC6iry08iltjKaGfRnT
+         faBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXhLFoyRsNFbsrxnNESXmwFntyG0ZzkFB3Zl8hpEFyt1YscwvuvRDr01TZlCpR1LxGSrcy2u+OfdfdIywD5Q0Vm@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7idTr+cr2vJ3WwQrMcfRH6qUVxIzd+rrBCHnN+bDssNMVvlmU
+	3nSRBiF7QW/j0vNEYu3oQkNbY831i+mMJb/frsnRd3xsA8Zyv19OhfpR
+X-Gm-Gg: ATEYQzwc0kbTox3zRddQSyQjA6Ezqcwt4wvLyWGqDFWJqJmhzFoA1yB8nTKg4PsQfeA
+	t1E1QKAtrwh4YNM4V5aAX6J+IbCF9e5bOZXWbYk7VvWr4bMVVJ3faAY/nmGjzSbq17aHJnQ7Xn4
+	N0+lYzLAtHtBmFBmiRoDe367qDVqom/BJPb3Laxv4UmB3j0j4cJxMLSd8EXpjmtZ3NivejBfQuc
+	SEH/0Z9Yn2WOwKcaVkuJXTMqQjmITzjSqgnSEFRChOYuyHHrg4oIgCP9tVQtGe+prwoqQHXk1te
+	/3FgxMyjrFKIRrUpb4jsiS/6bLnTZpCYKsjr5IXOEsyJ+Rr+T9fsh87+VumABxqBFuEvIF65OsL
+	BXlRN0JR7bzqGGx3I07CqCXWhMTi1eVdd3VwyszYtAvLm+WSq+KR7H2WqL9yGJ3Ok2DnWWXb8N2
+	XE4GFvTAWer+ykMrdeiiW4WJuWuok4s8YqlVhcCjFoMIc2PuSxev1+ZXy1DhlFHOwAjTo3fQaE1
+	tCC+t8=
+X-Received: by 2002:a05:7022:6620:b0:127:345c:439c with SMTP id a92af1059eb24-128c2eeaf9fmr5484444c88.45.1773091511897;
+        Mon, 09 Mar 2026 14:25:11 -0700 (PDT)
+Received: from ?IPv6:2a03:83e0:115c:1:9362:b19:e25f:7640? ([2620:10d:c090:500::2:405f])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2be7cdfc6c9sm349706eec.23.2026.03.09.14.25.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Mar 2026 14:25:11 -0700 (PDT)
+Message-ID: <7905ed2d99a46a2f7a4eb41d4cb9f1dec108ecd3.camel@gmail.com>
+Subject: Re: [bpf-next v8 1/5] bpf: Move constants blinding from JIT to
+ verifier
+From: Eduard Zingerman <eddyz87@gmail.com>
+To: Xu Kuohai <xukuohai@huaweicloud.com>, bpf@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
+ <daniel@iogearbox.net>,  Andrii Nakryiko <andrii@kernel.org>, Martin KaFai
+ Lau <martin.lau@linux.dev>, Yonghong Song	 <yonghong.song@linux.dev>,
+ Puranjay Mohan <puranjay@kernel.org>, Anton Protopopov
+ <a.s.protopopov@gmail.com>, Shahab Vahedi <list+bpf@vahedi.org>, Russell
+ King	 <linux@armlinux.org.uk>, Tiezhu Yang <yangtiezhu@loongson.cn>, Hengqi
+ Chen	 <hengqi.chen@gmail.com>, Johan Almbladh
+ <johan.almbladh@anyfinetworks.com>,  Paul Burton <paulburton@kernel.org>,
+ Hari Bathini <hbathini@linux.ibm.com>, Christophe Leroy	
+ <chleroy@kernel.org>, Naveen N Rao <naveen@kernel.org>, Luke Nelson	
+ <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, 
+ =?ISO-8859-1?Q?Bj=F6rn_T=F6pel?=	 <bjorn@kernel.org>, Pu Lehui
+ <pulehui@huawei.com>, Ilya Leoshkevich	 <iii@linux.ibm.com>, Heiko Carstens
+ <hca@linux.ibm.com>, Vasily Gorbik	 <gor@linux.ibm.com>, "David S . Miller"
+ <davem@davemloft.net>, Wang YanQing	 <udknight@gmail.com>
+Date: Mon, 09 Mar 2026 14:25:07 -0700
+In-Reply-To: <20260309140044.2652538-2-xukuohai@huaweicloud.com>
+References: <20260309140044.2652538-1-xukuohai@huaweicloud.com>
+	 <20260309140044.2652538-2-xukuohai@huaweicloud.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_142505_328740_D8A2C826 
-X-CRM114-Status: GOOD (  20.10  )
+X-CRM114-CacheID: sfid-20260309_212515_400467_9EDA3578 
+X-CRM114-Status: GOOD (  12.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,204 +131,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 16. Februar 2026, 02:02:17 Mitteleurop=C3=A4ische Normalzeit sch=
-rieb Fabio Estevam:
-> From: Fabio Estevam <festevam@nabladev.com>
->=20
-> Add the initial RV1103B devicetree.
->=20
-> Based on the 5.10 Rockchip vendor kernel.
->=20
-> Signed-off-by: Fabio Estevam <festevam@nabladev.com>
-> ---
-> The <dt-bindings/clock/rockchip,rv1103b-cru.h> header comes from another
-> series:
->=20
-> https://lore.kernel.org/linux-devicetree/20260210022620.172570-1-festevam=
-@gmail.com/
->=20
-> Maybe Heiko could apply the clock series as well?
->=20
-> Changes since v4:
-> - None.
->=20
->  .../boot/dts/rockchip/rv1103b-pinctrl.dtsi    | 816 ++++++++++++++++++
->  arch/arm/boot/dts/rockchip/rv1103b.dtsi       | 257 ++++++
->  2 files changed, 1073 insertions(+)
->  create mode 100644 arch/arm/boot/dts/rockchip/rv1103b-pinctrl.dtsi
->  create mode 100644 arch/arm/boot/dts/rockchip/rv1103b.dtsi
+On Mon, 2026-03-09 at 22:00 +0800, Xu Kuohai wrote:
 
+This was discussed some time ago in [1]. In that message Daniel notes
+the following:
 
-> diff --git a/arch/arm/boot/dts/rockchip/rv1103b.dtsi b/arch/arm/boot/dts/=
-rockchip/rv1103b.dtsi
-> new file mode 100644
-> index 000000000000..5955b249d4ce
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/rockchip/rv1103b.dtsi
-> @@ -0,0 +1,257 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * Copyright (c) 2024 Rockchip Electronics Co., Ltd.
-> + */
-> +
-> +#include <dt-bindings/clock/rockchip,rv1103b-cru.h>
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/interrupt-controller/irq.h>
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include <dt-bindings/pinctrl/rockchip.h>
-> +#include <dt-bindings/soc/rockchip,boot-mode.h>
-> +
-> +/ {
-> +	#address-cells =3D <1>;
-> +	#size-cells =3D <1>;
-> +
-> +	compatible =3D "rockchip,rv1103b";
-> +
-> +	interrupt-parent =3D <&gic>;
-> +
-> +	arm-pmu {
-> +		compatible =3D "arm,cortex-a7-pmu";
-> +		interrupts =3D <GIC_SPI 127 IRQ_TYPE_LEVEL_HIGH>;
-> +		interrupt-affinity =3D <&cpu0>;
-> +	};
-> +
-> +	xin32k: oscillator-32k {
-> +		compatible =3D "fixed-clock";
-> +		clock-frequency =3D <32768>;
-> +		clock-output-names =3D "xin32k";
-> +		#clock-cells =3D <0>;
-> +	};
+  > constant blinding needs to work from native bpf(2) as well as from
+  > cbpf->ebpf (seccomp-bpf, filters, etc)
 
-Please double-check where that xin32k is coming from in device-schematics.
-Yes the xin24m is normally a dedicated oscillator, but the xin32k in
-most cases is generated from the system-pmic.
+It appears this patch does not address the cbpf->ebpf part, or did I
+miss something?
 
-So please check and most likely move that to the board dts.
-
-Also, please sort node-names alphabetically (if there is no address)
-
-
-> +	xin24m: oscillator-24m {
-> +		compatible =3D "fixed-clock";
-> +		clock-frequency =3D <24000000>;
-> +		clock-output-names =3D "xin24m";
-> +		#clock-cells =3D <0>;
-> +	};
-> +
-> +	cpus {
-> +		#address-cells =3D <1>;
-> +		#size-cells =3D <0>;
-> +
-> +		cpu0: cpu@0 {
-> +			device_type =3D "cpu";
-> +			compatible =3D "arm,cortex-a7";
-> +			reg =3D <0x0>;
-> +			clocks =3D <&cru ARMCLK>;
-> +		};
-> +	};
-> +
-> +	timer {
-> +		compatible =3D "arm,armv7-timer";
-> +		interrupts =3D <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_HI=
-GH)>,
-> +			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_HIGH)>;
-> +		clock-frequency =3D <24000000>;
-> +	};
-> +
-> +	pinctrl: pinctrl {
-> +		compatible =3D "rockchip,rv1103b-pinctrl";
-> +		rockchip,grf =3D <&ioc>;
-> +		#address-cells =3D <1>;
-> +		#size-cells =3D <1>;
-> +		ranges;
-> +
-> +		gpio0: gpio@20520000 {
-> +			compatible =3D "rockchip,gpio-bank";
-> +			reg =3D <0x20520000 0x200>;
-> +			interrupts =3D <GIC_SPI 75 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks =3D <&cru PCLK_PMU_GPIO0>, <&cru DBCLK_PMU_GPIO0>;
-> +			gpio-controller;
-> +			#gpio-cells =3D <2>;
-> +			interrupt-controller;
-> +			#interrupt-cells =3D <2>;
-> +		};
-> +
-> +		gpio1: gpio@20d80000 {
-> +			compatible =3D "rockchip,gpio-bank";
-> +			reg =3D <0x20d80000 0x200>;
-> +			interrupts =3D <GIC_SPI 79 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks =3D <&cru PCLK_GPIO1>, <&cru DBCLK_GPIO1>;
-> +			gpio-controller;
-> +			#gpio-cells =3D <2>;
-> +			interrupt-controller;
-> +			#interrupt-cells =3D <2>;
-> +		};
-> +
-> +		gpio2: gpio@20840000 {
-> +			compatible =3D "rockchip,gpio-bank";
-> +			reg =3D <0x20840000 0x200>;
-> +			interrupts =3D <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks =3D <&cru PCLK_GPIO2>, <&cru DBCLK_GPIO2>;
-> +			gpio-controller;
-> +			#gpio-cells =3D <2>;
-> +			interrupt-controller;
-> +			#interrupt-cells =3D <2>;
-> +		};
-> +	};
-> +
-> +	soc {
-> +		compatible =3D "simple-bus";
-> +		#address-cells =3D <1>;
-> +		#size-cells =3D <1>;
-> +		ranges;
-> +
-> +		cru: clock-controller@20000000 {
-> +			compatible =3D "rockchip,rv1103b-cru";
-> +			reg =3D <0x20000000 0x81000>;
-> +			#clock-cells =3D <1>;
-> +			#reset-cells =3D <1>;
-> +			bootph-all;
-
-I don't think we want u-boot-specific properties in mainline.
-They are normally kept in separate -u-boot.dtsi files
-
-> +		};
+[1] https://lore.kernel.org/bpf/284404c7-c6e0-4cf9-8ada-71ebfc681541@iogear=
+box.net/
 
 [...]
 
-> +		uart1: serial@20870000 {
-> +			compatible =3D "rockchip,rv1103b-uart", "snps,dw-apb-uart";
-
-uart compatible, does not seem to have landed in the uart tree
-
-> +			reg =3D <0x20870000 0x100>;
-> +			interrupts =3D <GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>;
-> +			reg-shift =3D <2>;
-> +			reg-io-width =3D <4>;
-> +			clocks =3D <&cru SCLK_UART1>, <&cru PCLK_UART1>;
-> +			clock-names =3D "baudclk", "apb_pclk";
-> +			pinctrl-names =3D "default";
-> +			pinctrl-0 =3D <&uart1m0_xfer>;
-> +			status =3D "disabled";
-> +		};
+> diff --git a/arch/powerpc/net/bpf_jit_comp.c b/arch/powerpc/net/bpf_jit_c=
+omp.c
+> index 52162e4a7f84..7a7c49640a2f 100644
+> --- a/arch/powerpc/net/bpf_jit_comp.c
+> +++ b/arch/powerpc/net/bpf_jit_comp.c
 
 [...]
 
-> +		wdt: watchdog@208d0000 {
-> +			compatible =3D "snps,dw-wdt";
+> @@ -272,7 +250,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog =
+*fp)
+>  				       extra_pass)) {
+>  			bpf_arch_text_copy(&fhdr->size, &hdr->size, sizeof(hdr->size));
+>  			bpf_jit_binary_pack_free(fhdr, hdr);
+> -			fp =3D org_fp;
 
-please add a new compatible to the dw-wdt watchdog binding
+Is it necessary to set `...; fp->jited =3D 0; ...` here?
+It seems it does if extra_pass is set.
 
-> +			reg =3D <0x208d0000 0x100>;
-> +			clocks =3D <&cru TCLK_WDT_NS>, <&cru PCLK_WDT_NS>;
-> +			clock-names =3D "tclk", "pclk";
-> +			interrupts =3D <GIC_SPI 29 IRQ_TYPE_LEVEL_HIGH>;
-> +			status =3D "disabled";
-> +		};
-> +
+>  			goto out_addrs;
+>  		}
+>  		bpf_jit_build_epilogue(code_base, &cgctx);
+> @@ -301,7 +278,9 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog =
+*fp)
+> =20
+>  	if (!fp->is_func || extra_pass) {
+>  		if (bpf_jit_binary_pack_finalize(fhdr, hdr)) {
+> -			fp =3D org_fp;
+> +			fp->bpf_func =3D NULL;
+> +			fp->jited =3D 0;
+> +			fp->jited_len =3D 0;
+>  			goto out_addrs;
+>  		}
+>  		bpf_prog_fill_jited_linfo(fp, addrs);
 
+[...]
 
-Heiko
+> diff --git a/arch/s390/net/bpf_jit_comp.c b/arch/s390/net/bpf_jit_comp.c
+> index 1f9a6b728beb..d6de2abfe4a7 100644
+> --- a/arch/s390/net/bpf_jit_comp.c
+> +++ b/arch/s390/net/bpf_jit_comp.c
 
+[...]
 
+> @@ -2383,7 +2360,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_pro=
+g *fp)
+>  	if (!fp->is_func || extra_pass) {
+>  		if (bpf_jit_binary_lock_ro(header)) {
+>  			bpf_jit_binary_free(header);
+> -			fp =3D orig_fp;
+
+In the similar condition for powerpc you reset `...; prog->jited =3D 0; ...=
+`,
+is this case different?
+
+>  			goto free_addrs;
+>  		}
+>  	} else {
+
+[...]
 
