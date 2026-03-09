@@ -4,99 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2261F3C245
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 12:43:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D65DCF3C241
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 12:43:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4+44pNLvKD6wmlyUHopw7JCev4MUbKdOMecmtcoK78I=; b=zZO96NLf/CQb5jIhWiPlZo3ymx
-	hHj9Hg0kpf/2AYrRRM04Vpo4ftcwBlXS1UruCeNZGh5p1jnZ/dsZUJbmaPBjiaEnXIWIV5tSTTzdO
-	w9navwzOFuBGIXQv1PNkKAGy9fKYj/VzoKn5qkJMT2IoLJcmqKBx4RxbeYp3o1EGSk++jMMbuxLlf
-	IqWGdgMmpznmv9k36rVStWbpGX/dsaW3F8JF8menxxU0Ih+7QpenXcb8bXiN9xRB1pZeU0BSubgBe
-	YVP1iiRu8hV8CrsjxdZygUnp0Fm2MDxzkzCVh5fKUswzQKuNFB+XkYrDHtCFQMB1FpDAKLorb0dU/
-	MrJigINA==;
+	bh=l5nIeS9X1YbhohJRIffAt90+vLpOah8/bJUe3CSaJyU=; b=kaRCK3cpt+NMGdFs/XIpO7Kmas
+	qzVp7TPgPoqTYeby2e8iM4Kc7mSVjZvttkyymUBGYYqpF7uxBXszYERvGhUVGeY9lBruyDlk8Hb05
+	2yd1aUAV6UeIWDPZtwfWj7IwCVarxYbUt5akJojgptGyaRf1UHQkpTahWbt3auKsq/1T36+yg4UTZ
+	kTLtStnWEe4q8OpWvJ2njmpKecJoLXr5SVepHgL9ejZCVY9YCeggcIDjaqjIy0rOk2MgY8VMXXyrO
+	cSUkgkeWRcl2kObgBnzO3UOg9feTpzlX4EX/ZlsqIXvO5ru+W0zlL2b6lpuzfEKmKajmvsQw96Bzh
+	Iu0SKhaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzZx5-00000007KWs-3gkO;
-	Mon, 09 Mar 2026 12:43:16 +0000
+	id 1vzZx5-00000007KWQ-2II5;
+	Mon, 09 Mar 2026 12:43:15 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzZx2-00000007KTU-0FQf
+	id 1vzZx0-00000007KSG-11fl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 12:43:13 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 629C5dmV526826
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 9 Mar 2026 12:43:11 GMT
+	Mon, 09 Mar 2026 12:43:11 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6298WHrd3773507
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 9 Mar 2026 12:43:09 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	4+44pNLvKD6wmlyUHopw7JCev4MUbKdOMecmtcoK78I=; b=keI0l7AZufa5NJR9
-	FxGOQJ82CTfr4mFRHFugkpK3cXX+IIsYH5lra08dS+9AK9XSvgBD5JKR2q6iWWuZ
-	G8MRhRAlcnvmPlUbQKn47suu4v6aPEvDVZv8G8kqBAA05GiP/GR3mwa/R6A0hBk8
-	DvgFbcQbQ/V/rgisY+O9yAaHxvTChxp8wpZ8PVrlzO1OPGydIInKtfEhGUhftXU6
-	eUiH8X4FzkJMa/99XU6OgK67g3k5UqBsez9pUt6e04/tmfM0KdwodjRo3xWzoqs+
-	lgk29vdKF1kcH+bRQQBndZoexA0ScP6R/hBdKJRSK5k1SzCBs9R9qf94OesuLpDa
-	1EIqxw==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cswwkg41e-1
+	l5nIeS9X1YbhohJRIffAt90+vLpOah8/bJUe3CSaJyU=; b=a71wUr1pe4R5IEa8
+	iSygIp4wnj5qqTTJPqGOhK+aYYo7Cw2zreCRcO89hfNNn3LzGoViM3kFxy4dtvtb
+	klXS5g3nnay5U+/kKE2PJStRpbmuBpEpqs7f55uUHXRlCg1WVwVw3huhJpYKI6mI
+	RU48Bv9snpSqu/J7BEd3HbcmiTyLIliDKgMrQ6Hd3R3qt+GWK+/n+wP+PqVowCk4
+	7Ut1SVvEpVrjiJACPEuonRem4fz16fQvrjWl/NbqeX4oua2BIoh1L2BHDtdgUJYO
+	f1pI+VpqKAhZw5BS3uqHmqYqmTdWVvGfPvt/zAeebjQXUQHIA5MmFEI1M4e7tHCd
+	wmhs4A==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cstsa8ur8-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 12:43:11 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8cd7de0e161so970240085a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 05:43:10 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 12:43:09 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8cd820c6a4fso1163408485a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 05:43:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1773060190; x=1773664990; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1773060189; x=1773664989; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=4+44pNLvKD6wmlyUHopw7JCev4MUbKdOMecmtcoK78I=;
-        b=DVVct7O+bqepLB08MM0LPsLIrxv14yGm06hMbEE3DSbFojIOs3JAbyDgeUD9JlocrM
-         DDwA7GUfIvzAulHqmGpfgBql8aXl9QBOnBCS/799REH3nn0KpLT3cKRz17nHC0waMXIi
-         SIERGFoutAiU0pjggLhTZmgXrWxhdWyfn/MVGH19ld9+pOUARQtqw4ZgLLP85vmZF00S
-         LY6ZitSXq7DkmFHjK5YeDI8DSZ5PnvJNRLDe4key5z59n49k4pweyjBZsB4/hZWDtd2E
-         ScBUhHfU34mUXBeEejvJu1AerKq43IcV2df8nt3+EKcq9JjJzQlBb4MaUDmGQwpVDmBy
-         WEJw==
+        bh=l5nIeS9X1YbhohJRIffAt90+vLpOah8/bJUe3CSaJyU=;
+        b=IQofSXdznkxrKgPBISzEmSB0sZA/iA0DhfofklNt5hrVogCQ15XBplc/W2ejhow6Bp
+         5M++G6obuttQ24cyRE4JsubJ83F3R1Sss8gl+T9AkSSW1czPQ9I6BTeToOM2g3l3N0M+
+         oYLd3XtVe7WU+RQtWYOc5TxEbdfQlZyTtJoy0EAr9w9GKO8BsBuipGU4T6jqzskE7Ko6
+         kxgCcB0MraMFPwwLJ5+4blOoyJSsA8Z07bxzHVDCRgDzFL0sZcl17kxLZhgaGSwMun6C
+         3Zod2Nc1USTngJoStvflcCW3xLd9CSSxHA3S9DLw7j46GUGgroPFP6zKV7kaZiE5Fyjv
+         Olfg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773060190; x=1773664990;
+        d=1e100.net; s=20230601; t=1773060189; x=1773664989;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=4+44pNLvKD6wmlyUHopw7JCev4MUbKdOMecmtcoK78I=;
-        b=SGjPku1OmzoERIXbrIpJjC4p7XI63vnSb5U8xZjw+tQ2u/J/yeBK1sAGCrOzYVFH9E
-         GFLKrnpcoGrMwSEfRYeARwnk+kQx5QZ+7t/GK8lBH8bdNTlwlTS317ONaLqNHK8INwMX
-         z23/ZkbPNTOq3gaR9j/y0h2ELh2xtUTcJmkJMavh1Yzwd2CDqYrBmEG0+IunHuupRykb
-         MBqZ2rlsDue6daaX8fu+vSmVpG6YbkJhoKNSmDYKxfov5bpvz5hhSEHnfKkNbmT07fZE
-         2Ciz0AMQuZi291oVnoHE7g3Ik+0VV1zhzlruVK5e3oZE5EBoEC5wq21RjOpjr0bNoA/w
-         ShrQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUjQ5xmurmbZ7DsiNx0l17knbDl8VNxr8EzE0ntYmF5HZFktz3O9GGESlUXS9MTD7sMHdmkWqYcVcdYgZU+knJ0@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEUXUELDsmzMCsJNoVttEu1qcZlZ42yK/bT2lpOJHcLYeYGAK7
-	M5WcjXET5cMaaXSrwXI9mZpncx9fVy2QpwyWiUVBd7UlszBbaibv6M1v3BAnaxT38OkZAJS4bmL
-	SCyyL3rhDucqJpfDP5o5domwqyqRM2ETEwoUUn1f9HYQnijIpWChMONxaWFGRG3ZDuUtAe6jTko
-	xqpw==
-X-Gm-Gg: ATEYQzwyqNYSLqjK8EWieNg+r3prUcERjt/y4P1taEZhXTcvOx4e2GZsl8qK6fXdO39
-	fJMuT7xhfm+AoksK+kFMFhISCWLfeSEREPpF2zy8yUFrBGc2y1fh7YEk52Ij+va3FHrW1SB/7Wb
-	dMvkyBo61Fhba3dsHiQUj2f9ST4qHDj63sP2sFLwl5ls0QbWQkDiDpHMo9vayL5vkxpgbk/SdCm
-	AaVJc8tgWnf/PyD6UhwF3qpMFvXWldc9w65IHv0YXSkbe9cVbNWkKDrh4Lofuw6yfpNwqbEC0IT
-	nDABKz+4TDOlldanD408CBDX6dlp1Ow1BBauhjo6M5YzFTPkyyia6PMVsof59euLbldIRw0vJWZ
-	UqPGnGr1IiRgcamNejoTmFQqFxAPEL65T0yW0SiDOzmZ0NFr1epgc
-X-Received: by 2002:a05:620a:400b:b0:8cd:8efb:b7d9 with SMTP id af79cd13be357-8cd8efbbe47mr163770085a.28.1773060190442;
-        Mon, 09 Mar 2026 05:43:10 -0700 (PDT)
-X-Received: by 2002:a05:620a:400b:b0:8cd:8efb:b7d9 with SMTP id af79cd13be357-8cd8efbbe47mr163765685a.28.1773060189835;
-        Mon, 09 Mar 2026 05:43:09 -0700 (PDT)
+        bh=l5nIeS9X1YbhohJRIffAt90+vLpOah8/bJUe3CSaJyU=;
+        b=nN6JeS8H8PDwky/ewBiqgr8wp33lXPmRnvnDrZUV7GyP2lUuf29MpKeXw/zG4x/qjN
+         VTHO6WKn/M+oquG0aQ6NqcOIA2LONfO7MkiKFs0xoiBZjvYJ1nxRxRHb9/+NitypUReX
+         67W1eh3p+7mZQzaqiL597uS+awR3Mddf4gMQLOW6BTuxBoeuKV38GfDAehKsWnkuS6HG
+         q2dnSTgqzZMqyQGRj6kYFU5aP+dyV2fU6VU+kDIoEwGSVS34hClGSgyD5tG2HpBqH8cf
+         XejAo6o8vpThv7dbajSj6F3ndmRQifA3Eeca/WNRkZtq3CtF9hsDDCmOykBD8zinuY33
+         +Mcg==
+X-Forwarded-Encrypted: i=1; AJvYcCXxNexwVWS9jPrg/K5dRIbkqYpu3AruUBxGaxQhat99dMHqXR0B3xZ/go3UKeRRla6MYxVI8yXN7dfTikjj+tuj@lists.infradead.org
+X-Gm-Message-State: AOJu0YzN280vD4YocYhGR/bFpWFn4Ou3F9qcnGv4qze+wvzAoL2zaSVw
+	5khQ60wecYFm3u477z3qrVrwD3Rc4fO7uJJuyaeqlLKRp8oRTSKk4z6GelrGmLdaqxipjWIUPGQ
+	Pz3CrgEflKZNFyiwKNFecwpMDsuPywmWHlHkSkGhWhXaJEZcibjQIIqynmIDSLZk6awbGXmP1Jz
+	+QFg==
+X-Gm-Gg: ATEYQzwzjpj6b98ZqFRRQ+CbeZVufwMPZSYjsL6d4EasMb+q88LjKU56R+wcJRGf46G
+	l6jGW7wSPp7ptZ7QwWomihKct6eX7gfN7I6y9+FRRhAhj6tvRTSLbXYbc0GpBwTB1FDKrOzfJae
+	lUsHltFoegyJzEiFEMY/TfMu5IQxTbxDdQR1Dqsaf5FUA3DLSWVfOhm9Ckqo+eh72vBPhk+sjow
+	ubCdl8AnjD+c5Ztb8hcf2w9eypVms0YmG229LANiDdNhO6kSvOFdCmR+7lRlmaVGpAJwee6shUR
+	H++YeB+fan8waEUgrWdu8igVe0+0iwb8YNj+e2cgIzFOXqYTiVV3XjJWdhfStTK9cFpunABt28s
+	mLs4EETnRhIKYSDtD98gt7Z+meOO0fk5FH/qA5EP5LRQF2dSltS9L
+X-Received: by 2002:a05:620a:4586:b0:8cb:72b2:2a01 with SMTP id af79cd13be357-8cd6d42728emr1388186985a.18.1773060188416;
+        Mon, 09 Mar 2026 05:43:08 -0700 (PDT)
+X-Received: by 2002:a05:620a:4586:b0:8cb:72b2:2a01 with SMTP id af79cd13be357-8cd6d42728emr1388181585a.18.1773060187916;
+        Mon, 09 Mar 2026 05:43:07 -0700 (PDT)
 Received: from brgl-qcom.local ([2a01:cb1d:dc:7e00:494a:62d9:d95b:cb98])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48539e574b5sm107803345e9.8.2026.03.09.05.43.08
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48539e574b5sm107803345e9.8.2026.03.09.05.43.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Mar 2026 05:43:09 -0700 (PDT)
+        Mon, 09 Mar 2026 05:43:07 -0700 (PDT)
 From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Date: Mon, 09 Mar 2026 13:42:42 +0100
-Subject: [PATCH v2 6/6] gpio: sim: allow to define the active-low setting
- of a simulated hog
+Date: Mon, 09 Mar 2026 13:42:41 +0100
+Subject: [PATCH v2 5/6] gpio: remove machine hogs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260309-gpio-hog-fwnode-v2-6-4e61f3dbf06a@oss.qualcomm.com>
+Message-Id: <20260309-gpio-hog-fwnode-v2-5-4e61f3dbf06a@oss.qualcomm.com>
 References: <20260309-gpio-hog-fwnode-v2-0-4e61f3dbf06a@oss.qualcomm.com>
 In-Reply-To: <20260309-gpio-hog-fwnode-v2-0-4e61f3dbf06a@oss.qualcomm.com>
 To: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
@@ -114,50 +113,50 @@ Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
         linux-omap@vger.kernel.org, linux-doc@vger.kernel.org, brgl@kernel.org,
         Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2420;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7227;
  i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
- bh=R4Ywu/pAKIvIVEZDR6pAqvPYf0v/XCn2dkIco/jqnjY=;
- b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBprsBNxYsA8Q1LF5HZoRzIH4kwEDuPpcFPljJRv
- aDgYFtdqiKJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCaa7ATQAKCRAFnS7L/zaE
- wzp8D/sFgjA+zH/WzHB4KtIHoXip9zBsEn/LDT+Fc0zQjsN9Pq30alODEdm8KQ+4kbj30kiNHoX
- dstNie7A4CFOFdJPwCFC30iLABL/O3LGw0GcuGqDLpQyrQzw4wvdqKrSTu4mtdwyiivYzCRq8os
- u0H8OQF4+84yB9DQkNLZeGhmzmvXwz6+k/kpqHKJOzFIV5SHNHdwPV4n0+GKX0dM1YnGl9ggY7y
- isMrdgdf2mRdxkcuoHIq5Rj6e0TbaRn0noJig2+VwRyCSYbvQBCj88TIvDvzed0M+mp9Gwp2EnP
- x3fzOCgD8Gsava3M/x+mNa8MI3AGFCYHBrEGa3ST13BvF5u1P7NyvfgbHLY3qhafqoSd6Wk7WHw
- HUxKt/9nSykSy5BiCq8bbEr/Regwj3eWvVt0kOmfUNkz7oN5aFhS30szutYVtyIv+pyz//vvlvf
- PIVRWLbKRPH+narFofUFn7ynAgZf5cS/RKt89sbbM7qbCPisCZRLuX/kHvgtAujYbJy8N4cM0U+
- mrzJYamb4ipvmCxMdOG+2WG+3LqW/9omjYlWFhOzZ2v6+VJa+yxmVSfptO5zH1GoTfymaly/vir
- 6u5EXCUzF9qDtPLwu6tfIR25m1CcmZU5WRnXPt9lPRFZ8NNZmctQoaUAdle8rpzM7F7e/dp0JPJ
- Mt+lWwKr5E+YH+Q==
+ bh=4BnEUtmMiOiwXU1lQlZ9yMyJWb+fawm1Al0WC9Bh4bA=;
+ b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBprsBM34X8qWjOEe+ZIX7SQxEMQg+Byczj+gL/y
+ 9GR18NPlZaJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCaa7ATAAKCRAFnS7L/zaE
+ w+JFD/9QC8D34cOdqUHb/kJTimscTHraiX+HApC9PJcT8Ybsb9sRAhOhzU8XdLexeM9OyapI3IL
+ ftjBOhqv7huCWsA5ChENpkS/mhZyFmjNZCpDgf9Mc/dHJIl5cKwYYIGSTNmTZ2bN4ONtQMoagfa
+ gz7Kfe64CE3mayaZKIQq97j431fJPAYCdfusPtQZimHCFkPKPLQ/LDf0Sxl5buLpl7gQMLai36z
+ aY1wG5XpLxhM5/NRicW56ARQg2DxOZbKGdLWkxQTkd4jVuZGNB2ef9dzmamHYRxqMVG23U81/JB
+ XQTdpbY8q0boVBQTi8M8B/1kHxA/Hr12CQhxMEon0ZwM8WIop3/30+N1SJBJgSpXK+BaSuvrS86
+ yJ4nbV/KRmCwHcptGuGZ5vQ3tBKm0yRpYA7/DO9iigjXJvciROMp69HCS7Yonv4JfHFBpEzt3zZ
+ yzO8FK+TTWKZpjdoy7vEQQHbpftOmJv5KRo5pdnZTSejilcUfNn6wZK2Opj4VvJFxwuwsZkyq5D
+ 8E6xChvRWAn1p8FHOxz/hH9WfUkOY5KzNaCo6Ue8S4iovjzAHCIii2vnZ2bfxjIJIV4dctBKNwx
+ YpzfO9YDXGcNa9zWTdgBBhaSwRRhymFfk3hoLBhr31i7DBeuDBHkAkDeyvLKqVoxrE5TUDi286f
+ 08Oz7S3X9LtMxIg==
 X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
-X-Authority-Analysis: v=2.4 cv=cZ/fb3DM c=1 sm=1 tr=0 ts=69aec05f cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+X-Proofpoint-GUID: DEGySdgl6r9ooiFaSzI28qRVREbH2yYB
+X-Authority-Analysis: v=2.4 cv=I+Vohdgg c=1 sm=1 tr=0 ts=69aec05d cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
  a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=VwQbUJbxAAAA:8
- a=QyXUC8HyAAAA:8 a=EUspDBNiAAAA:8 a=Z_vE--IGminT9Q5MwdQA:9 a=QEXdDO2ut3YA:10
- a=PEH46H7Ffwr30OY-TuGO:22
-X-Proofpoint-ORIG-GUID: 7t_OxDW6MbUNLVfov3BxBm6f0SuN_40I
-X-Proofpoint-GUID: 7t_OxDW6MbUNLVfov3BxBm6f0SuN_40I
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzA5MDExNiBTYWx0ZWRfXzMqunMUa6sOa
- N6i68IQcisvji4vj8JuoLJyIu5gtZ+HKhEb2oTWANWxA8DRyr0dJLdoUjgaT2fsJJdWCGo/kKW6
- uoRH7vDWe+cvjddl8NVlILi9+QpOWsxYGf+Emsu69XqaJzHNOPdc+PZgbbH6sdU7SwL0Om4HkWW
- rlm6x2FDc8LuDc8eYwXyJJaP+J8HqxYMASeNU0aNPYB1jHm0dlSIWTJ1hplUHAvM34kB8gIH4T1
- 2c8KcqG/j/GxPB4ujLi5QzsOUuWfier10PL0E/3RjbhKxWVmDtS9lMKJWT5toTxhOkKDdXxikgH
- 8jzEniSFqxnd9JrhshLKg5zLSZ5mJRVYdToR1epfywYsoHG2eJjCcakCrhGoUzNEcT1WfB9Alx+
- TffKG2vt4QZwtzRCN5QaidT+jQ/DLlQaGJcVZuE2C7x7PdTkspWaZ0r5TqxxzLePEMWtVJdGKDo
- w2jhb1pqgdlfzmeBSdQ==
+ a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=VwQbUJbxAAAA:8
+ a=QyXUC8HyAAAA:8 a=EUspDBNiAAAA:8 a=EJ0IlyYtn7jNkuMCNfoA:9 a=QEXdDO2ut3YA:10
+ a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzA5MDExNiBTYWx0ZWRfX8hfiuGCiwzZi
+ MGtsJd0FjbNPYK9boJDp1OcCiADEX4VExUNiQGSu0Mb4oAkwL3BW5uQjfvjXHkACzSFsGfDzAoz
+ Bnjna3OLDP/vuENGNeU5kA8RhmHgwo6Oco67IJB1HBwe9yvw03k8kwR8LYHz7er1TZFlmu3qE42
+ 4ZHgI4WOFxn5sbPPTEzmZppzJaj1PO8J6+Igm5uJbF9DNmZ6HCtXpVuw5EKYank8my+E5bM0ap/
+ yOscB+LoS7ORWlilu5QAU4LDYFlYIb9u3M+vEl+6V7/foACDUwjS0FvcyE8+rM3QsupbdWgNhez
+ GnUTFpInUgkxtY74z1iCSGHSlw16bjP9A/k8wHPE0Y6/c16Y2CzoLO0+ldxl2pRA6s8llSeMfBn
+ itgv8RafJmsqeNMbFgmusRcd5yh1C5OiiLC7/OwgV+X2rA98J0xQZ+Y548qOMsOQ3dDCjUURzMI
+ OIYTPKDZS2vVmWnbjtg==
+X-Proofpoint-ORIG-GUID: DEGySdgl6r9ooiFaSzI28qRVREbH2yYB
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-03-09_03,2026-03-06_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 suspectscore=0 impostorscore=0 adultscore=0 priorityscore=1501
- phishscore=0 malwarescore=0 lowpriorityscore=0 clxscore=1015 bulkscore=0
+ phishscore=0 impostorscore=0 spamscore=0 malwarescore=0 suspectscore=0
+ bulkscore=0 lowpriorityscore=0 clxscore=1015 priorityscore=1501 adultscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2603090116
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_054312_226381_355EC5B1 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20260309_054310_411510_A0280FED 
+X-CRM114-Status: GOOD (  26.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,85 +171,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new configfs attribute to the hog group allowing to configure the
-active-low lookup flag for hogged lines. This will allow us to extend
-tests to also cover the line config of hogs set up using software nodes.
+With no more users, remove legacy machine hog API from the kernel.
 
 Reviewed-by: Linus Walleij <linusw@kernel.org>
 Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 ---
- drivers/gpio/gpio-sim.c | 40 +++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 39 insertions(+), 1 deletion(-)
+ Documentation/driver-api/gpio/board.rst | 16 --------
+ drivers/gpio/gpiolib.c                  | 71 ---------------------------------
+ include/linux/gpio/machine.h            | 33 ---------------
+ 3 files changed, 120 deletions(-)
 
-diff --git a/drivers/gpio/gpio-sim.c b/drivers/gpio/gpio-sim.c
-index 51bcbdd91b4b027b7a340971a11cce5280ca1295..f32674230237eb08bbf8dd1337a79b5d0aa13259 100644
---- a/drivers/gpio/gpio-sim.c
-+++ b/drivers/gpio/gpio-sim.c
-@@ -654,6 +654,7 @@ struct gpio_sim_hog {
+diff --git a/Documentation/driver-api/gpio/board.rst b/Documentation/driver-api/gpio/board.rst
+index 069b54d8591bdeb975a6c650d643db4f7eb98ab7..0993cac891fb5e4887a1aee6deae273197c6aae1 100644
+--- a/Documentation/driver-api/gpio/board.rst
++++ b/Documentation/driver-api/gpio/board.rst
+@@ -239,22 +239,6 @@ mapping and is thus transparent to GPIO consumers.
+ A set of functions such as gpiod_set_value() is available to work with
+ the new descriptor-oriented interface.
  
- 	char *name;
- 	int dir;
-+	bool active_low;
+-Boards using platform data can also hog GPIO lines by defining GPIO hog tables.
+-
+-.. code-block:: c
+-
+-        struct gpiod_hog gpio_hog_table[] = {
+-                GPIO_HOG("gpio.0", 10, "foo", GPIO_ACTIVE_LOW, GPIOD_OUT_HIGH),
+-                { }
+-        };
+-
+-And the table can be added to the board code as follows::
+-
+-        gpiod_add_hogs(gpio_hog_table);
+-
+-The line will be hogged as soon as the gpiochip is created or - in case the
+-chip was created earlier - when the hog table is registered.
+-
+ Arrays of pins
+ --------------
+ In addition to requesting pins belonging to a function one by one, a device may
+diff --git a/drivers/gpio/gpiolib.c b/drivers/gpio/gpiolib.c
+index b993cdae79e6dc389ca42ed079b3e39d1f9fed5a..829774322f3595d191e13e89ef83001507f6fdea 100644
+--- a/drivers/gpio/gpiolib.c
++++ b/drivers/gpio/gpiolib.c
+@@ -103,9 +103,6 @@ static DEFINE_MUTEX(gpio_devices_lock);
+ /* Ensures coherence during read-only accesses to the list of GPIO devices. */
+ DEFINE_STATIC_SRCU(gpio_devices_srcu);
+ 
+-static DEFINE_MUTEX(gpio_machine_hogs_mutex);
+-static LIST_HEAD(gpio_machine_hogs);
+-
+ const char *const gpio_suffixes[] = { "gpios", "gpio", NULL };
+ 
+ static void gpiochip_free_hogs(struct gpio_chip *gc);
+@@ -930,36 +927,6 @@ static int gpiochip_setup_dev(struct gpio_chip *gc)
+ 	return ret;
+ }
+ 
+-static void gpiochip_machine_hog(struct gpio_chip *gc, struct gpiod_hog *hog)
+-{
+-	struct gpio_desc *desc;
+-	int rv;
+-
+-	desc = gpiochip_get_desc(gc, hog->chip_hwnum);
+-	if (IS_ERR(desc)) {
+-		gpiochip_err(gc, "%s: unable to get GPIO desc: %ld\n",
+-			     __func__, PTR_ERR(desc));
+-		return;
+-	}
+-
+-	rv = gpiod_hog(desc, hog->line_name, hog->lflags, hog->dflags);
+-	if (rv)
+-		gpiod_err(desc, "%s: unable to hog GPIO line (%s:%u): %d\n",
+-			  __func__, gc->label, hog->chip_hwnum, rv);
+-}
+-
+-static void gpiochip_machine_hog_lines(struct gpio_chip *gc)
+-{
+-	struct gpiod_hog *hog;
+-
+-	guard(mutex)(&gpio_machine_hogs_mutex);
+-
+-	list_for_each_entry(hog, &gpio_machine_hogs, list) {
+-		if (!strcmp(gc->label, hog->chip_label))
+-			gpiochip_machine_hog(gc, hog);
+-	}
+-}
+-
+ int gpiochip_add_hog(struct gpio_chip *gc, struct fwnode_handle *fwnode)
+ {
+ 	struct fwnode_handle *gc_node = dev_fwnode(&gc->gpiodev->dev);
+@@ -1047,8 +1014,6 @@ static int gpiochip_hog_lines(struct gpio_chip *gc)
+ 			return ret;
+ 	}
+ 
+-	gpiochip_machine_hog_lines(gc);
+-
+ 	return 0;
+ }
+ 
+@@ -4582,42 +4547,6 @@ void gpiod_remove_lookup_table(struct gpiod_lookup_table *table)
+ }
+ EXPORT_SYMBOL_GPL(gpiod_remove_lookup_table);
+ 
+-/**
+- * gpiod_add_hogs() - register a set of GPIO hogs from machine code
+- * @hogs: table of gpio hog entries with a zeroed sentinel at the end
+- */
+-void gpiod_add_hogs(struct gpiod_hog *hogs)
+-{
+-	struct gpiod_hog *hog;
+-
+-	guard(mutex)(&gpio_machine_hogs_mutex);
+-
+-	for (hog = &hogs[0]; hog->chip_label; hog++) {
+-		list_add_tail(&hog->list, &gpio_machine_hogs);
+-
+-		/*
+-		 * The chip may have been registered earlier, so check if it
+-		 * exists and, if so, try to hog the line now.
+-		 */
+-		struct gpio_device *gdev __free(gpio_device_put) =
+-				gpio_device_find_by_label(hog->chip_label);
+-		if (gdev)
+-			gpiochip_machine_hog(gpio_device_get_chip(gdev), hog);
+-	}
+-}
+-EXPORT_SYMBOL_GPL(gpiod_add_hogs);
+-
+-void gpiod_remove_hogs(struct gpiod_hog *hogs)
+-{
+-	struct gpiod_hog *hog;
+-
+-	guard(mutex)(&gpio_machine_hogs_mutex);
+-
+-	for (hog = &hogs[0]; hog->chip_label; hog++)
+-		list_del(&hog->list);
+-}
+-EXPORT_SYMBOL_GPL(gpiod_remove_hogs);
+-
+ static bool gpiod_match_lookup_table(struct device *dev,
+ 				     const struct gpiod_lookup_table *table)
+ {
+diff --git a/include/linux/gpio/machine.h b/include/linux/gpio/machine.h
+index 44e5f162973eb6f6e85188f56ec34e1e3e2beab6..5eb88f5d0630f83b6a3a0e6727103c319e139b27 100644
+--- a/include/linux/gpio/machine.h
++++ b/include/linux/gpio/machine.h
+@@ -46,23 +46,6 @@ struct gpiod_lookup_table {
+ 	struct gpiod_lookup table[];
  };
  
- static struct gpio_sim_hog *to_gpio_sim_hog(struct config_item *item)
-@@ -836,7 +837,7 @@ static int gpio_sim_bank_add_hogs(struct gpio_sim_bank *bank)
- 		hog = line->hog;
+-/**
+- * struct gpiod_hog - GPIO line hog table
+- * @chip_label: name of the chip the GPIO belongs to
+- * @chip_hwnum: hardware number (i.e. relative to the chip) of the GPIO
+- * @line_name: consumer name for the hogged line
+- * @lflags: bitmask of gpio_lookup_flags GPIO_* values
+- * @dflags: GPIO flags used to specify the direction and value
+- */
+-struct gpiod_hog {
+-	struct list_head list;
+-	const char *chip_label;
+-	u16 chip_hwnum;
+-	const char *line_name;
+-	unsigned long lflags;
+-	int dflags;
+-};
+-
+ /*
+  * Helper for lookup tables with just one single lookup for a device.
+  */
+@@ -95,24 +78,10 @@ static struct gpiod_lookup_table _name = {				\
+ 	.flags = _flags,                                                  \
+ }
  
- 		gpios[0] = line->offset;
--		gpios[1] = 0;
-+		gpios[1] = hog->active_low ? 1 : 0;
+-/*
+- * Simple definition of a single GPIO hog in an array.
+- */
+-#define GPIO_HOG(_chip_label, _chip_hwnum, _line_name, _lflags, _dflags)  \
+-(struct gpiod_hog) {                                                      \
+-	.chip_label = _chip_label,                                        \
+-	.chip_hwnum = _chip_hwnum,                                        \
+-	.line_name = _line_name,                                          \
+-	.lflags = _lflags,                                                \
+-	.dflags = _dflags,                                                \
+-}
+-
+ #ifdef CONFIG_GPIOLIB
+ void gpiod_add_lookup_table(struct gpiod_lookup_table *table);
+ void gpiod_add_lookup_tables(struct gpiod_lookup_table **tables, size_t n);
+ void gpiod_remove_lookup_table(struct gpiod_lookup_table *table);
+-void gpiod_add_hogs(struct gpiod_hog *hogs);
+-void gpiod_remove_hogs(struct gpiod_hog *hogs);
+ #else /* ! CONFIG_GPIOLIB */
+ static inline
+ void gpiod_add_lookup_table(struct gpiod_lookup_table *table) {}
+@@ -120,8 +89,6 @@ static inline
+ void gpiod_add_lookup_tables(struct gpiod_lookup_table **tables, size_t n) {}
+ static inline
+ void gpiod_remove_lookup_table(struct gpiod_lookup_table *table) {}
+-static inline void gpiod_add_hogs(struct gpiod_hog *hogs) {}
+-static inline void gpiod_remove_hogs(struct gpiod_hog *hogs) {}
+ #endif /* CONFIG_GPIOLIB */
  
- 		memset(properties, 0, sizeof(properties));
- 
-@@ -1315,9 +1316,46 @@ gpio_sim_hog_config_direction_store(struct config_item *item,
- 
- CONFIGFS_ATTR(gpio_sim_hog_config_, direction);
- 
-+static ssize_t gpio_sim_hog_config_active_low_show(struct config_item *item,
-+						   char *page)
-+{
-+	struct gpio_sim_hog *hog = to_gpio_sim_hog(item);
-+	struct gpio_sim_device *dev = gpio_sim_hog_get_device(hog);
-+
-+	guard(mutex)(&dev->lock);
-+
-+	return sprintf(page, "%c\n", hog->active_low ? '1' : '0');
-+}
-+
-+static ssize_t
-+gpio_sim_hog_config_active_low_store(struct config_item *item,
-+				     const char *page, size_t count)
-+{
-+	struct gpio_sim_hog *hog = to_gpio_sim_hog(item);
-+	struct gpio_sim_device *dev = gpio_sim_hog_get_device(hog);
-+	bool active_low;
-+	int ret;
-+
-+	guard(mutex)(&dev->lock);
-+
-+	if (gpio_sim_device_is_live(dev))
-+		return -EBUSY;
-+
-+	ret = kstrtobool(page, &active_low);
-+	if (ret)
-+		return ret;
-+
-+	hog->active_low = active_low;
-+
-+	return count;
-+}
-+
-+CONFIGFS_ATTR(gpio_sim_hog_config_, active_low);
-+
- static struct configfs_attribute *gpio_sim_hog_config_attrs[] = {
- 	&gpio_sim_hog_config_attr_name,
- 	&gpio_sim_hog_config_attr_direction,
-+	&gpio_sim_hog_config_attr_active_low,
- 	NULL
- };
- 
+ #endif /* __LINUX_GPIO_MACHINE_H */
 
 -- 
 2.47.3
