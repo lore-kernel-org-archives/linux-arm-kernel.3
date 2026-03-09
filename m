@@ -4,68 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1592EFCD74
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 10:27:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA8EEFCD82
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 10:27:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0KD0ouTnSQGvpB7h3UrXyRsyDqqxNJKUHn+KycvkDKE=; b=ieFI2QU0Qdk+HJBEbz79fM+XSG
-	inHdtGhDOVHE4XwHVPAtUX2xCQjxg4F3BY4oRINPe/zZHlDEA4hCWhHsglyme1md5HaRqPT0E6vnc
-	EUpp8qJKZotRWiggcgaLsXeKetYxVs7aPsZ1ht0Vv1EuT4T36/4VXaDgotcHJuKmJAl2F+N/HPam3
-	5/6xDO4rJRcGZ6HSFXJa1JQ6BDHvqp4Kwuvk8GZG/gvoiFPk/9CLh56GUo8+35CCMhOOhg25IeXn+
-	aLm4zBg/bAbRjfd7Q/X5wF6H5PdZQjL9cEs0+wxpRE0+c/rawn37vZXxCAv1uLkXjd+7bCmBh9rgX
-	mb6HAHsA==;
+	bh=B5Bl/CcfOoD/YcwIGB95IJzr0daTjYmyc7JgdasMSjs=; b=fRW9k8mBrL9/LUkXPO1cb3j853
+	YSj4uRQrsHTbXdkMfbv/XBWANFt+Xd6WDpHlCHvao1wMb8F9T0Ri+DejQeUJ+kcghZSrYK/3PMOyF
+	6WrOHS6EFy8JqqA2XSboK470vtlOeXYWzmkyM6lSYkl5yiFhMoDCUWR11+E8X+dG9ck6IJxX5Rief
+	eN1l5SEtWdIAym1bACGHcmORaVii4LNRCvuTAURx+yk4ed6W2rjUrn1tN1wcANF8bKVRzbHKCqm7r
+	+RQZHz3hu1IAeZMCyLN7uJqJk4UDcdk3T7aTt1IPEv08dhKQj1TzqWwtX6GmzztxtLENmylFDy7fh
+	CriL+zbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzXpe-000000075MA-0jaj;
-	Mon, 09 Mar 2026 10:27:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vzXpj-000000075P6-27eX;
+	Mon, 09 Mar 2026 10:27:31 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzXpd-000000075Lj-0wVb
+	id 1vzXph-000000075NZ-0Smz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 10:27:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9B42A6013F;
-	Mon,  9 Mar 2026 10:27:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D118CC2BCB1;
-	Mon,  9 Mar 2026 10:27:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773052044;
-	bh=U8KMVDhCdCRR46uKVZyF+IY0pUAxZ+MW0TRjxXNFwc4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZkXOP2IF+fZeolZeJDoWcCInM9zFsWlI4r2Qqct29NvUYfl2t3NQLL8p5jF1dHxQv
-	 namsjETaddjGozCYsIsYLxdVKMO5nliwieQhRoiwzKBiPYJB0u7ouzq2UM+4tJtraJ
-	 5ZFtsld42uvOx+LvR6IZzgSMoRQNJxrPMRJ268g5EyrL7EnvHZLiuZaOQDE+svaW6w
-	 1l1hqIG08ZHszctDytzL+IQUHKr0t9XIunx313TqyRuC47zS3Y0TY2B9X1JatGZN43
-	 oAx/AvfcYTmWjfluiany8Vp4fRU1DyP9HcdYxbv48gN6bD2zNO9YXUpsdfoR68dm4M
-	 87BJ1RR4vs53A==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev,
-	linux-coco@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: [PATCH v3 3/3] coco: guest: arm64: Add Realm Host Interface and hostconf RHI
-Date: Mon,  9 Mar 2026 15:56:25 +0530
-Message-ID: <20260309102625.2315725-4-aneesh.kumar@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260309102625.2315725-1-aneesh.kumar@kernel.org>
-References: <20260309102625.2315725-1-aneesh.kumar@kernel.org>
+	Mon, 09 Mar 2026 10:27:30 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6298WAfp3773176
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 9 Mar 2026 10:27:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	B5Bl/CcfOoD/YcwIGB95IJzr0daTjYmyc7JgdasMSjs=; b=p0vgh6UKCspttP+x
+	fPE+azhQMsW98g8r8SH3nMipXPUPrcn28Rv/wBFjWLXqSJ/rcbr9W8EwYCkuG/kx
+	G8pYsArPnq2snDQJFbHwtWnykC5neyIUQGA37ezii/s7MPdetOmZeOmhoBX4ohJs
+	pVS5vKT4nhY+0iynALJSLHwVVGjWge5gUCiuRJ2EgMGb+ZzzEJysH5iLxg0j95n3
+	3juPO17mrYozXBmCEyFzQ73qDldgGbXQ+7Ze3CIzf+KOWlklezzK/AIaltmZkeFv
+	WYTG47FAicqNdh2fnEhAetMSZZGySfdCNOEeQ62jdR68/P/FHT4QnSiB8q6Enf/H
+	EHCzUQ==
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cstsa8dx0-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 10:27:27 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3598007eb74so42794145a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 03:27:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1773052047; x=1773656847; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=B5Bl/CcfOoD/YcwIGB95IJzr0daTjYmyc7JgdasMSjs=;
+        b=QTsHm9vTenVCJvhh1v/YUzvU6e+ggbIyfIiU2znoraUUk/ld8aWV0GnbyXurU67HT3
+         YEgVwqWOy5HIJ0l7knnbKCj3uhnrAO8QDb6bmVdk89/Flf0WgSTfmXByyzxL9da7F0dZ
+         85ePU2zIlrIpeYlfY2z+KYeqc9iIOxSOkAv/RfqgKKmdBMOnemZC7wPWn1RN4UAgajzk
+         47LXlJq7qbx6GLKNa5TCLtuRR07iL9XbrWj5Nwq4Me4sE4KtiI2V+JHtAxcYnkMtYISa
+         lQ48sZRm7vtrbNa4OvOYak0LqnGL1JXsBCIbx49fgyAaXKQmsySEaGZBfb+swMQLacvU
+         td+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773052047; x=1773656847;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=B5Bl/CcfOoD/YcwIGB95IJzr0daTjYmyc7JgdasMSjs=;
+        b=hYzUpFMODo+B42Z3ZgRgwVjen72ouMqyaYjocOAyCiFfuIC0YtEqNQT1NhFkkz1Wk8
+         8qntLz7Ybtkw2Gkn1FfQUri373P1fyWjaktRLdfszwxrtbG6OYW5QiNrwrdf7oahDTHu
+         wY35m8T8mwyilaZqD8+rORKEJXGt4XGxTMvbNpgcWDISBhpfywULNzP9VDbj+JV6/2Td
+         BTbwzHVkHuQ/XcNd3EVmnmsfd27NLSr8UlOE389JtDoLEi9ZddP39EMwYdpyTA+6ibWn
+         GYoX6RLs0Xr0cLpFUu3YHVexBYo6ZuUE94Upu4SuCPsg3Rg67dR/hLshDUd4NGioR0sy
+         Yr2w==
+X-Forwarded-Encrypted: i=1; AJvYcCWRR1RBJLU0wpg9bAOZ8cvN6tiyTJUk5FxDr8jj/gnSa2lW4JbbMlIn9BzPgP8fiyb/N47PX8r3YNR5/85zmdXy@lists.infradead.org
+X-Gm-Message-State: AOJu0YxaLOjxyZ3mCLpLe8BFOm5tVHdP36gGoHeaw7H73mTV6+s9yIO0
+	6pYXGjsz8wLWGZi67DfwwNvcvXf2U3Ze5bPDH0iOasc2+R3Q3WrmONDosRgA7FMlW1zAE00IDcp
+	QmBLUsfI9ZWpUb2C//DFxmqIhJyIYFhkNeoP9POKls/E/tU/8KlCYwwAVYHW2UbEF+K9BBHhpOq
+	OjcQ==
+X-Gm-Gg: ATEYQzyd4x9LgLI6g7WOmE3K3fyoBvfo4+U9EIoP0/u27Z0KMeYZBr7HAU52KoEa8ns
+	FMLqqTAxtHKhcRpSySAjm21AhONs9a/fziRXb887V7Se76gcBVUnmMvnTtypU2nv0ltle4WfLXS
+	czJmjG+qLy2BdgDDrzvWhmFzdj2CGWoWcL2dSKLEBFlMfI3rAXtOWBA37So6aBg9XZg+Tw0LCsI
+	/0ZoKvwFNk689Aat+nubFP2xGzlsM6AmQunGzaNyCKkY0Grv322AAGI59SU0YPlpVlTpqN1xHDd
+	M9CBrtrrmhdE3Fo0PUmTKx47U+FRKyj8xadweyI0hEFDxY8xmTun03mhlj7ovT1lCaKVsviote0
+	zHQSxEN5G8yOZTYrte24LOt+e1aJhL7cZ7ySuvIAcskz9WwfwQPLz1SmpqlOv40jgg4MPBiCafz
+	fhCkYVp3QDig8=
+X-Received: by 2002:a17:90b:4a8a:b0:359:8293:67f2 with SMTP id 98e67ed59e1d1-359be34419amr10117575a91.32.1773052046609;
+        Mon, 09 Mar 2026 03:27:26 -0700 (PDT)
+X-Received: by 2002:a17:90b:4a8a:b0:359:8293:67f2 with SMTP id 98e67ed59e1d1-359be34419amr10117555a91.32.1773052046095;
+        Mon, 09 Mar 2026 03:27:26 -0700 (PDT)
+Received: from [10.133.33.101] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c739e182d72sm8652277a12.25.2026.03.09.03.27.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 09 Mar 2026 03:27:25 -0700 (PDT)
+Message-ID: <94da5711-7bd2-48fe-b1d4-8d8542b75843@oss.qualcomm.com>
+Date: Mon, 9 Mar 2026 18:27:18 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v14 2/7] coresight: tmc: add create/clean functions for
+ etr_buf_list
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Jie Gan <jie.gan@oss.qualcomm.com>, Mike Leach <mike.leach@arm.com>,
+        James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org
+References: <20260309-enable-byte-cntr-for-ctcu-v14-0-c08823e5a8e6@oss.qualcomm.com>
+ <20260309-enable-byte-cntr-for-ctcu-v14-2-c08823e5a8e6@oss.qualcomm.com>
+ <03705fdb-e13d-4b5b-8ee4-af9348469b42@arm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <03705fdb-e13d-4b5b-8ee4-af9348469b42@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: LcFGTEqjgF-nrCa-tiKhq03vflATxxPl
+X-Authority-Analysis: v=2.4 cv=I+Vohdgg c=1 sm=1 tr=0 ts=69aea08f cx=c_pps
+ a=0uOsjrqzRL749jD1oC5vDA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8 a=b4jqt5UQwNLUUHEC-OMA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=mQ_c8vxmzFEMiUWkPHU9:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzA5MDA5NiBTYWx0ZWRfXwZM2mn6OawMz
+ 8a/p3skAWUvUMUSe8TjnKvU4gmo0501V5CqO8YGe/Q6aqTwkUqSGLiLwutokkAm/f3zLHZ4kC0I
+ V6mq2/6D0Er/HMFT/HAcVa504twqZR/YfEiArh0bOKLfNNCKcyKvG3ttFP6nUB8X7ZKQcs6+Fdc
+ 5NL6iT43ug30NT3GX0VRANOuyrjmwYVJRdoYvbaLVrO1ot7FP8DCTuUXhYReCbw2rBuX8F2mwif
+ joJHooay9y7OOvSwuMxWvlv+ttMvhjHhO6D7okiLv2aD2dwO523HxO1V3T3lqQ1E33vePqec1mA
+ a72ehpFBB9SgwnQBrhZirWW/FmzBoaJCOd5gaojPkW1WOeoRx901Dt9IgV+WR4L3JZtx/mDErkD
+ auZtJ+I/PVM98W1SWno8tIC2qWT+Sp1WAwm+6eRvQNys5c+8igr05bwDcvZmEnDm8jOQ6h4TkVe
+ pc1OzL/NOYPfM94wcgQ==
+X-Proofpoint-ORIG-GUID: LcFGTEqjgF-nrCa-tiKhq03vflATxxPl
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-09_03,2026-03-06_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 impostorscore=0 spamscore=0 malwarescore=0 suspectscore=0
+ bulkscore=0 lowpriorityscore=0 clxscore=1015 priorityscore=1501 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2603090096
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260309_032729_273252_6E5721A8 
+X-CRM114-Status: GOOD (  25.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,263 +159,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-- describe the Realm Host Interface SMC IDs and result codes in a new
-  asm/rhi.h header
-- expose struct rsi_host_call plus an rsi_host_call() helper so we can
-  invoke SMC_RSI_HOST_CALL from C code
- - add RHI hostconf SMC IDs and helper to query version, features, and IPA
-   change alignment
- - derive the realm hypervisor page size during init and abort realm setup
-   on invalid alignment
 
-This provides the host page-size discovery needed by previous patch that
-align shared buffer allocation/decryption to host requirements.
 
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Thomas Gleixner <tglx@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Robin Murphy <robin.murphy@arm.com>
-Cc: Steven Price <steven.price@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
----
- arch/arm64/include/asm/mem_encrypt.h |  3 ++
- arch/arm64/include/asm/rhi.h         | 24 +++++++++++++
- arch/arm64/include/asm/rsi.h         |  2 ++
- arch/arm64/include/asm/rsi_cmds.h    | 10 ++++++
- arch/arm64/include/asm/rsi_smc.h     |  7 ++++
- arch/arm64/kernel/Makefile           |  2 +-
- arch/arm64/kernel/rhi.c              | 53 ++++++++++++++++++++++++++++
- arch/arm64/kernel/rsi.c              | 13 +++++++
- arch/arm64/mm/mem_encrypt.c          |  8 +++++
- 9 files changed, 121 insertions(+), 1 deletion(-)
- create mode 100644 arch/arm64/include/asm/rhi.h
- create mode 100644 arch/arm64/kernel/rhi.c
+On 3/9/2026 6:02 PM, Suzuki K Poulose wrote:
+> On 09/03/2026 09:47, Jie Gan wrote:
+>> Introduce functions for creating and inserting or removing the
+>> etr_buf_node to/from the etr_buf_list.
+>>
+>> The byte-cntr functionality requires two etr_buf to receive trace data.
+>> The active etr_buf collects the trace data from source device, while the
+>> byte-cntr reading function accesses the deactivated etr_buf after is
+>> has been filled and synced, transferring data to the userspace.
+>>
+>> Reviewed-by: Mike Leach <mike.leach@linaro.org>
+>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>> ---
+>>   drivers/hwtracing/coresight/coresight-tmc-core.c |  1 +
+>>   drivers/hwtracing/coresight/coresight-tmc-etr.c  | 94 ++++++++++++++ 
+>> ++++++++++
+>>   drivers/hwtracing/coresight/coresight-tmc.h      | 17 +++++
+>>   3 files changed, 112 insertions(+)
+>>
+>> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/ 
+>> drivers/hwtracing/coresight/coresight-tmc-core.c
+>> index c89fe996af23..bac3278ef4dd 100644
+>> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
+>> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
+>> @@ -835,6 +835,7 @@ static int __tmc_probe(struct device *dev, struct 
+>> resource *res)
+>>           idr_init(&drvdata->idr);
+>>           mutex_init(&drvdata->idr_mutex);
+>>           dev_list = "tmc_etr";
+>> +        INIT_LIST_HEAD(&drvdata->etr_buf_list);
+>>           break;
+>>       case TMC_CONFIG_TYPE_ETF:
+>>           desc.groups = coresight_etf_groups;
+>> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/ 
+>> drivers/hwtracing/coresight/coresight-tmc-etr.c
+>> index 4dc1defe27a5..15c0874ff641 100644
+>> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
+>> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+>> @@ -1918,6 +1918,100 @@ const struct coresight_ops tmc_etr_cs_ops = {
+>>       .panic_ops    = &tmc_etr_sync_ops,
+>>   };
+>> +/**
+>> + * tmc_clean_etr_buf_list - clean the etr_buf_list.
+>> + * @drvdata:    driver data of the TMC device.
+>> + *
+>> + * Remove the allocated node from the list and free the extra buffer.
+>> + */
+>> +void tmc_clean_etr_buf_list(struct tmc_drvdata *drvdata)
+>> +{
+> ...
+> 
+>> +}
+>> +EXPORT_SYMBOL_GPL(tmc_clean_etr_buf_list);
+>> +
+>> +/**
+>> + * tmc_create_etr_buf_list - create a list to manage the etr_buf_node.
+>> + * @drvdata:    driver data of the TMC device.
+>> + * @num_nodes:    number of nodes want to create with the list.
+>> + *
+>> + * Return 0 upon success and return the error number if fail.
+>> + */
+>> +int tmc_create_etr_buf_list(struct tmc_drvdata *drvdata, int num_nodes)
+>> +{
+> 
+> ...
+> 
+> 
+>> +EXPORT_SYMBOL_GPL(tmc_create_etr_buf_list);
+> 
+> Given the above functions are "EXPORTED" please could you make sure that
+> the locking requirements are documented and asserted (lockdep_assert)
+> in the functions ?
+> 
 
-diff --git a/arch/arm64/include/asm/mem_encrypt.h b/arch/arm64/include/asm/mem_encrypt.h
-index 314b2b52025f..5541911eb028 100644
---- a/arch/arm64/include/asm/mem_encrypt.h
-+++ b/arch/arm64/include/asm/mem_encrypt.h
-@@ -16,6 +16,9 @@ int arm64_mem_crypt_ops_register(const struct arm64_mem_crypt_ops *ops);
- int set_memory_encrypted(unsigned long addr, int numpages);
- int set_memory_decrypted(unsigned long addr, int numpages);
- 
-+#define mem_decrypt_granule_size mem_decrypt_granule_size
-+size_t mem_decrypt_granule_size(void);
-+
- int realm_register_memory_enc_ops(void);
- 
- static inline bool force_dma_unencrypted(struct device *dev)
-diff --git a/arch/arm64/include/asm/rhi.h b/arch/arm64/include/asm/rhi.h
-new file mode 100644
-index 000000000000..0895dd92ea1d
---- /dev/null
-+++ b/arch/arm64/include/asm/rhi.h
-@@ -0,0 +1,24 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2026 ARM Ltd.
-+ */
-+
-+#ifndef __ASM_RHI_H_
-+#define __ASM_RHI_H_
-+
-+#include <linux/types.h>
-+
-+#define SMC_RHI_CALL(func)				\
-+	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,		\
-+			   ARM_SMCCC_SMC_64,		\
-+			   ARM_SMCCC_OWNER_STANDARD_HYP,\
-+			   (func))
-+
-+unsigned long rhi_get_ipa_change_alignment(void);
-+#define RHI_HOSTCONF_VER_1_0		0x10000
-+#define RHI_HOSTCONF_VERSION		SMC_RHI_CALL(0x004E)
-+
-+#define __RHI_HOSTCONF_GET_IPA_CHANGE_ALIGNMENT BIT(0)
-+#define RHI_HOSTCONF_FEATURES		SMC_RHI_CALL(0x004F)
-+#define RHI_HOSTCONF_GET_IPA_CHANGE_ALIGNMENT	SMC_RHI_CALL(0x0050)
-+#endif
-diff --git a/arch/arm64/include/asm/rsi.h b/arch/arm64/include/asm/rsi.h
-index 88b50d660e85..ae54fb3b1429 100644
---- a/arch/arm64/include/asm/rsi.h
-+++ b/arch/arm64/include/asm/rsi.h
-@@ -67,4 +67,6 @@ static inline int rsi_set_memory_range_shared(phys_addr_t start,
- 	return rsi_set_memory_range(start, end, RSI_RIPAS_EMPTY,
- 				    RSI_CHANGE_DESTROYED);
- }
-+
-+unsigned long realm_get_hyp_pagesize(void);
- #endif /* __ASM_RSI_H_ */
-diff --git a/arch/arm64/include/asm/rsi_cmds.h b/arch/arm64/include/asm/rsi_cmds.h
-index 2c8763876dfb..a341ce0eeda1 100644
---- a/arch/arm64/include/asm/rsi_cmds.h
-+++ b/arch/arm64/include/asm/rsi_cmds.h
-@@ -159,4 +159,14 @@ static inline unsigned long rsi_attestation_token_continue(phys_addr_t granule,
- 	return res.a0;
- }
- 
-+static inline unsigned long rsi_host_call(struct rsi_host_call *rhi_call)
-+{
-+	phys_addr_t addr = virt_to_phys(rhi_call);
-+	struct arm_smccc_res res;
-+
-+	arm_smccc_1_1_invoke(SMC_RSI_HOST_CALL, addr, &res);
-+
-+	return res.a0;
-+}
-+
- #endif /* __ASM_RSI_CMDS_H */
-diff --git a/arch/arm64/include/asm/rsi_smc.h b/arch/arm64/include/asm/rsi_smc.h
-index e19253f96c94..9ee8b5c7612e 100644
---- a/arch/arm64/include/asm/rsi_smc.h
-+++ b/arch/arm64/include/asm/rsi_smc.h
-@@ -182,6 +182,13 @@ struct realm_config {
-  */
- #define SMC_RSI_IPA_STATE_GET			SMC_RSI_FID(0x198)
- 
-+struct rsi_host_call {
-+	union {
-+		u16 imm;
-+		u64 padding0;
-+	};
-+	u64 gprs[31];
-+} __aligned(0x100);
- /*
-  * Make a Host call.
-  *
-diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
-index 76f32e424065..fcb67f50ea89 100644
---- a/arch/arm64/kernel/Makefile
-+++ b/arch/arm64/kernel/Makefile
-@@ -34,7 +34,7 @@ obj-y			:= debug-monitors.o entry.o irq.o fpsimd.o		\
- 			   cpufeature.o alternative.o cacheinfo.o		\
- 			   smp.o smp_spin_table.o topology.o smccc-call.o	\
- 			   syscall.o proton-pack.o idle.o patching.o pi/	\
--			   rsi.o jump_label.o
-+			   rsi.o jump_label.o rhi.o
- 
- obj-$(CONFIG_COMPAT)			+= sys32.o signal32.o			\
- 					   sys_compat.o
-diff --git a/arch/arm64/kernel/rhi.c b/arch/arm64/kernel/rhi.c
-new file mode 100644
-index 000000000000..d2141b5283e1
---- /dev/null
-+++ b/arch/arm64/kernel/rhi.c
-@@ -0,0 +1,53 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2026 ARM Ltd.
-+ */
-+
-+#include <asm/rsi.h>
-+#include <asm/rhi.h>
-+
-+/* we need an aligned rhicall for rsi_host_call. slab is not yet ready */
-+static struct rsi_host_call hyp_pagesize_rhicall;
-+unsigned long rhi_get_ipa_change_alignment(void)
-+{
-+	long ret;
-+	unsigned long ipa_change_align;
-+
-+	hyp_pagesize_rhicall.imm = 0;
-+	hyp_pagesize_rhicall.gprs[0] = RHI_HOSTCONF_VERSION;
-+	ret = rsi_host_call(&hyp_pagesize_rhicall);
-+	if (ret != RSI_SUCCESS)
-+		goto err_out;
-+
-+	if (hyp_pagesize_rhicall.gprs[0] != RHI_HOSTCONF_VER_1_0)
-+		goto err_out;
-+
-+	hyp_pagesize_rhicall.imm = 0;
-+	hyp_pagesize_rhicall.gprs[0] = RHI_HOSTCONF_FEATURES;
-+	ret = rsi_host_call(&hyp_pagesize_rhicall);
-+	if (ret != RSI_SUCCESS)
-+		goto err_out;
-+
-+	if (!(hyp_pagesize_rhicall.gprs[0] & __RHI_HOSTCONF_GET_IPA_CHANGE_ALIGNMENT))
-+		goto err_out;
-+
-+	hyp_pagesize_rhicall.imm = 0;
-+	hyp_pagesize_rhicall.gprs[0] = RHI_HOSTCONF_GET_IPA_CHANGE_ALIGNMENT;
-+	ret = rsi_host_call(&hyp_pagesize_rhicall);
-+	if (ret != RSI_SUCCESS)
-+		goto err_out;
-+
-+	ipa_change_align = hyp_pagesize_rhicall.gprs[0];
-+	/* This error needs special handling in the caller */
-+	if (ipa_change_align & (SZ_4K - 1))
-+		return 0;
-+
-+	return ipa_change_align;
-+
-+err_out:
-+	/*
-+	 * For failure condition assume host is built with 4K page size
-+	 * and hence ipa change alignment can be guest PAGE_SIZE.
-+	 */
-+	return PAGE_SIZE;
-+}
-diff --git a/arch/arm64/kernel/rsi.c b/arch/arm64/kernel/rsi.c
-index c64a06f58c0b..6e35cb947745 100644
---- a/arch/arm64/kernel/rsi.c
-+++ b/arch/arm64/kernel/rsi.c
-@@ -13,8 +13,10 @@
- #include <asm/io.h>
- #include <asm/mem_encrypt.h>
- #include <asm/rsi.h>
-+#include <asm/rhi.h>
- 
- static struct realm_config config;
-+static unsigned long ipa_change_alignment = PAGE_SIZE;
- 
- unsigned long prot_ns_shared;
- EXPORT_SYMBOL(prot_ns_shared);
-@@ -138,6 +140,11 @@ static int realm_ioremap_hook(phys_addr_t phys, size_t size, pgprot_t *prot)
- 	return 0;
- }
- 
-+unsigned long realm_get_hyp_pagesize(void)
-+{
-+	return ipa_change_alignment;
-+}
-+
- void __init arm64_rsi_init(void)
- {
- 	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_SMC)
-@@ -146,6 +153,12 @@ void __init arm64_rsi_init(void)
- 		return;
- 	if (WARN_ON(rsi_get_realm_config(&config)))
- 		return;
-+
-+	ipa_change_alignment = rhi_get_ipa_change_alignment();
-+	/* If we don't get a correct alignment response, don't enable realm */
-+	if (!ipa_change_alignment)
-+		return;
-+
- 	prot_ns_shared = BIT(config.ipa_bits - 1);
- 
- 	if (arm64_ioremap_prot_hook_register(realm_ioremap_hook))
-diff --git a/arch/arm64/mm/mem_encrypt.c b/arch/arm64/mm/mem_encrypt.c
-index 38c62c9e4e74..f5d64bc29c20 100644
---- a/arch/arm64/mm/mem_encrypt.c
-+++ b/arch/arm64/mm/mem_encrypt.c
-@@ -59,3 +59,11 @@ int set_memory_decrypted(unsigned long addr, int numpages)
- 	return crypt_ops->decrypt(addr, numpages);
- }
- EXPORT_SYMBOL_GPL(set_memory_decrypted);
-+
-+size_t mem_decrypt_granule_size(void)
-+{
-+	if (is_realm_world())
-+		return max(PAGE_SIZE, realm_get_hyp_pagesize());
-+	return PAGE_SIZE;
-+}
-+EXPORT_SYMBOL_GPL(mem_decrypt_granule_size);
--- 
-2.43.0
+Will checking the locking scenario here and asserted with 
+lockdep_assert_held.
+
+These two functions should be protected with tmc_drvdata->spinlock.
+
+Thanks,
+Jie
+
+> 
+> Suzuki
+> 
+> 
+>> +
+>>   int tmc_read_prepare_etr(struct tmc_drvdata *drvdata)
+>>   {
+>>       int ret = 0;
+>> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/ 
+>> hwtracing/coresight/coresight-tmc.h
+>> index 319a354ede9f..5ac07e8dd5ff 100644
+>> --- a/drivers/hwtracing/coresight/coresight-tmc.h
+>> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
+>> @@ -208,6 +208,19 @@ struct tmc_resrv_buf {
+>>       s64        len;
+>>   };
+>> +/**
+>> + * @sysfs_buf:    Allocated sysfs_buf.
+>> + * @is_free:    Indicates whether the buffer is free to choose.
+>> + * @pos:    Position of the buffer.
+>> + * @node:    Node in etr_buf_list.
+>> + */
+>> +struct etr_buf_node {
+>> +    struct etr_buf        *sysfs_buf;
+>> +    bool            is_free;
+>> +    loff_t            pos;
+>> +    struct list_head    node;
+>> +};
+>> +
+>>   /**
+>>    * struct tmc_drvdata - specifics associated to an TMC component
+>>    * @atclk:    optional clock for the core parts of the TMC.
+>> @@ -245,6 +258,7 @@ struct tmc_resrv_buf {
+>>    *        (after crash) by default.
+>>    * @crash_mdata: Reserved memory for storing tmc crash metadata.
+>>    *         Used by ETR/ETF.
+>> + * @etr_buf_list: List that is used to manage allocated etr_buf.
+>>    */
+>>   struct tmc_drvdata {
+>>       struct clk        *atclk;
+>> @@ -275,6 +289,7 @@ struct tmc_drvdata {
+>>       struct etr_buf        *perf_buf;
+>>       struct tmc_resrv_buf    resrv_buf;
+>>       struct tmc_resrv_buf    crash_mdata;
+>> +    struct list_head        etr_buf_list;
+>>   };
+>>   struct etr_buf_operations {
+>> @@ -447,5 +462,7 @@ struct etr_buf *tmc_etr_get_buffer(struct 
+>> coresight_device *csdev,
+>>                      enum cs_mode mode,
+>>                      struct coresight_path *path);
+>>   extern const struct attribute_group coresight_etr_group;
+>> +void tmc_clean_etr_buf_list(struct tmc_drvdata *drvdata);
+>> +int tmc_create_etr_buf_list(struct tmc_drvdata *drvdata, int num_nodes);
+>>   #endif
+>>
+> 
+> 
 
 
