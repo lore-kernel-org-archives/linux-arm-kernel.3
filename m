@@ -4,96 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A261EF36E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 06:49:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4323FEF36E7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 06:54:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9rea/vjeMUUW3SPeWNeQvX4Qfy/WVzcqQb0NrtwQ8Ck=; b=r7sFbR63yKiSDwqiM6iUfF90Wm
-	mP0u3xwlChVKvxH2D3RrZFQUJd6WN/obqdmjbpA1lTYunQh2Wk38W8VJoaEdtNd2y8p79dEBctbj4
-	/PuumDkNCzsiQV97SnUBWseXT7q1MCoTNlrgtPrvkThuXUNEWjQxveg2NYysdzaYB0xShOHtQ40Gc
-	g8Nhj2mPyLljEE4wgzFDVQMdhNOV+x2EGUby70T6WsIaUR0MLA0ksmAfx1kQhpcRken9Ssr3ioNAw
-	NGgPkX7iNYaRFLbLS6vYt3dcMCHqX1ERMuHG8KmzmB/qO2C8aQSXofsVIWUvhkerF69Jz0RO5KK+F
-	B3wK8mRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=F3GneSJ/eSLV9BWkBnyzoYiagFbOfZJMgRRm18h1loE=; b=HLfVbNK5KoD3t7
+	RsgZTEDNU0OIbEKj//cVY+K0fbNVA54xcNd6yP1FIi2kvsElM9nxnqEr3K3Vs8absLjG/t86Pdt78
+	69fwKz630KGTVwrzGkEchfTqTyQ2fcUGF0pQb0p2rvGhWeUN0Juc5X8Jos4mfED72rJs/KGa9pSmh
+	K9wRSOc+38dUeA/BsgPU0HAJXYuJMAtNWOwbjyg0i3XpQ6DcA9N801v2NIBi9hDAtb8DQO2fVECwB
+	WD09OdYXVWt5mARpDfuj5iZoD/6rH0of6LUOqPrlUlaUC/I2vdrEVqOkL+CGWn0NlXh5H7DnE9IJ7
+	RlbQhY23iFzQxuiNup9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzUQf-00000006lJC-3mct;
-	Mon, 09 Mar 2026 06:49:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vzUVB-00000006lbz-2Hy8;
+	Mon, 09 Mar 2026 06:54:05 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzUQd-00000006lHr-0k6w
+	id 1vzUV8-00000006lb9-29yA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 06:49:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 11FFB4411F;
-	Mon,  9 Mar 2026 06:49:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A789C4CEF7;
-	Mon,  9 Mar 2026 06:49:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773038961;
-	bh=mBGAy+m59z4WIEXrNU6lVwn2ubiB5FyyhHyt/vKyIwQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SAHCok30el3I22tEqGLE1AsTFRcIxNAv18AGEYQTYGnuLynlmwQV37mqVXirUlEej
-	 z4I4v2lMrfd9uGw2WKlMubgUAX/oKqjPAYO0K5hKm6yXr25Y5FotuZ0D/r+YEkSdAM
-	 0EZY59yCS3qEnIhTmaI5ofWEtmyWNmIa2iEt45YWJ2h7IDT4in6/Z2FsGx8l0OqNn+
-	 gCQVwJ8jSVG5Qv5KjuL62+1sfKbp1nVDoJRB0C79e9WFAazt8pc1FLS/lNZQSYuPVI
-	 X+0LuwPPOLpnusHuaR0u/h3HuW/1BocPwfNrtCLot/ti//rWfPsZdw4Rp1z4IzG5jQ
-	 8a5GB68SEb+ag==
-From: Nicolas Schier <nsc@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Nicolas Schier <nsc@kernel.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	Helge Deller <deller@gmx.de>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Kees Cook <kees@kernel.org>,
-	linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	linux-efi@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH 0/2] kbuild: Switch from '-fms-extensions' to '-fms-anonymous-structs' when available
-Date: Mon,  9 Mar 2026 07:49:13 +0100
-Message-ID: <177303890212.240716.12941791284325631253.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260223-fms-anonymous-structs-v1-0-8ee406d3c36c@kernel.org>
-References: <20260223-fms-anonymous-structs-v1-0-8ee406d3c36c@kernel.org>
+	Mon, 09 Mar 2026 06:54:04 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Mon, 9 Mar
+ 2026 14:53:52 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Mon, 9 Mar 2026 14:53:52 +0800
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+Subject: [PATCH v26 0/4] Add ASPEED AST2600 I2C controller driver
+Date: Mon, 9 Mar 2026 14:53:51 +0800
+Message-ID: <20260309-upstream_i2c-v26-0-5fedcff8ffe8@aspeedtech.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAH9urmkC/1WMQQ6CMBBFr0JmbU0zULCuuIchBtqpzAJo2ko0h
+ LtbSVy4fO/nvw0iBaYI12KDQCtHXuYMWJ8KMGM/P0iwzQJQYi0RS/H0MQXqpzujETRY2biLbkp
+ tIF98IMevo3frMo8c0xLeR35F9dW/kvov5VVIoV01WKtV5UrX9tET2URmPJtlgm7f9w+PW1hBs
+ AAAAA==
+X-Change-ID: 20260223-upstream_i2c-ebd07f89739c
+To: <jk@codeconstruct.com.au>, <andriy.shevchenko@linux.intel.com>, Andi Shyti
+	<andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
+	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, "Benjamin
+ Herrenschmidt" <benh@kernel.crashing.org>, Rayn Chen
+	<rayn_chen@aspeedtech.com>, Philipp Zabel <p.zabel@pengutronix.de>
+CC: <linux-i2c@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-kernel@vger.kernel.org>, <openbmc@lists.ozlabs.org>, Ryan Chen
+	<ryan_chen@aspeedtech.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773039232; l=13257;
+ i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
+ bh=TUvt7xWl6Qkv3+Sod/WS115fEfzYoCpjCn74Z5XgclQ=;
+ b=1P8L88ksIMJ2Y9NIFQRiNIHjyCdO2UnbeR19ZcHmUnmXO7ItB5b5pYgCrzV8OH1xei9R/gb8q
+ oRPWxEvaAaDCIkTYNb+zeiwfJo5ooDbOzwHv8PsqWaOU53CWZc+2guo
+X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
+ pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260308_234923_256532_BF2A1F4F 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20260308_235402_628630_56080C76 
+X-CRM114-Status: GOOD (  28.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,43 +81,308 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 23 Feb 2026 12:10:27 -0700, Nathan Chancellor wrote:
-> The kernel enabled '-fms-extensions' in commit c4781dc3d1cf ("Kbuild:
-> enable -fms-extensions") in 6.19 to gain access to a Microsoft
-> (originally Plan 9) extension around including a tagged structure/union
-> anonymously in an other structure/union. Since then, Clang 23.0.0
-> (current main) has added a flag to enable only that extension, rather
-> than all Microsoft extensions, '-fms-anonymous-structs' [1]. Using this
-> narrower compiler option would have avoided the build error fixed by
-> commit a6773e6932cb ("jfs: Rename _inline to avoid conflict with clang's
-> '-fms-extensions'"). While these errors are not expected to be common,
-> using the narrower option when available has no drawbacks because the
-> kernel only cares about this extension in '-fms-extensions', no others.
-> While this could result in build errors for folks using
-> '-fms-anonymous-structs' if a developer uses another extension in
-> '-fms-extensions' (either intentionally or unintentionally), flagging
-> these uses for further scrutiny seems worthwhile.
-> 
-> [...]
+This series adds support for the AST2600 I2C controller “new register
+set” implementation.
 
-Applied to kbuild/linux.git (kbuild-next-unstable), thanks!
+The AST2600 I2C controller introduces a revised register layout which
+separates controller and target functionality into distinct register
+blocks, and extends clock divider configuration, packet-based transfer
+support, and DMA capabilities compared to the legacy mixed register
+layout used on earlier ASPEED SoCs.
 
-[1/2] kbuild: Consolidate C dialect options
-      https://git.kernel.org/kbuild/c/f3fead1c
-[2/2] kbuild: Use '-fms-anonymous-structs' if it is available
-      https://git.kernel.org/kbuild/c/c14d8386
+The current driver implementation for the AST2600 I2C peripheral is
+through the hardware's "compatibility mode", which exposes a register
+set that matches the previous generation hardware (AST2500 and earlier).
 
-Acks and review trailers are still welcome!
+Instead, add a driver that works in new-register-set mode, to allow the
+new features, and will provide support for future hardware that will
+not implement compatibility mode.
 
-Please look out for regression or issue reports or other follow up
-comments, as they may result in the patch/series getting dropped,
-reverted or modified (e.g. trailers). Patches applied to the
-kbuild-next-unstable branch are accepted pending wider testing in
-linux-next and any post-commit review; they will generally be moved
-to the kbuild-next branch in about a week if no issues are found.
+In order to support the new mode, we need a couple of DT binding changes
+to reflect the expanded hardware interfaces: references to a global
+register set, and buffer mode selection. Since the binding still
+represents the same (AST2600 SoC) physical hardware, we continue to use
+the existing compatible string of "aspeed,ast2600-i2c-bus".
+
+However: since we're changing semantics for an existing binding, we
+allow backwards compatibility by selecting on presence/absence of the
+newly-added properties, and fall back to the old driver (ie., in
+compatibility mode) when we detect a DT using the old binding spec.
+
+Specifically:
+
+- ast2600-i2c-bus nodes that provide the `aspeed,global-regs` property
+  (which is mandatory in the new binding and absent in the legacy
+  binding) will be successfully probed by the new driver
+
+- ast2600-i2c-bus nodes without `aspeed,global-regs` continue to use the
+  existing driver (in legacy register mode), ensuring that platforms
+  with the current DTBs remain functional
+
+Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+---
+Changes in v26:
+- 1/4: binding reworks based on review feedback
+- Link to v25: https://lore.kernel.org/r/20260225-upstream_i2c-v25-0-9f4bdd954f3f@aspeedtech.com
+
+Changes in v25:
+- Use b4 to send series.
+- Rebase on v7.0-rc1.
+- Clarify cover letter and commit logs based on review feedback.
+- Remove the i2c-aspeed-core multiplexer infrastructure and
+  implement driver selection via conditional -ENODEV handling
+  in individual probe() functions.
+- 3/4: incorporate review feedback and refactor new driver
+- Link to v24: https://lore.kernel.org/r/20251118014034.820988-1-ryan_chen@aspeedtech.com
+
+Changes in v24:
+- aspeed,ast2600-i2c.yaml
+ - fix make dt_binding_check blank warning.
+- Link to v23: https://lore.kernel.org/all/20251117025040.3622984-1-ryan_chen@aspeedtech.com/
+
+Changes in v23:
+- update typo patch (1/4) commit message.
+- aspeed,ast2600-i2c.yaml
+ - update reg and description.
+- i2c-ast2600.c controller
+ - replace ast2600_select_i2c_clock to ast2600_i2c_ac_timing_config.
+- i2c-ast2600.c target
+ - I2C_TARGET_MSG_BUF_SIZE 256 to 4096
+ - remove blank line.
+ - refine Master comment description to controller
+- Link to v22: https://lore.kernel.org/all/20251112085649.1903631-1-ryan_chen@aspeedtech.com/
+
+Changes in v22:
+- update patch (1/4) commit message add dts example reason.
+- aspeed,ast2600-i2c.yaml @patch (1/4)
+ - rename ast2600-i2c.yaml to aspeed,ast2600-i2c.yaml.
+ - update reg, clock-frequency description.
+- aspeed,ast2600-i2c.yaml @patch (2/4)
+ - aspeed,transfer-mode, aspeed,transfer-mode add for ast2600.
+- i2c-aspeed-core.c,h @patch (3/4)
+ - add i2c-aspeed-core allow both old and new device trees using the
+   same compatible string "aspeed,ast2600-i2c-bus".
+- Link to v21: https://lore.kernel.org/all/20251027061240.3427875-1-ryan_chen@aspeedtech.com/
+
+Changes in v21:
+- update patch (1/4) commit message
+- i2c-ast2600.c
+ - move rst to local variable in ast2600_i2c_probe().
+- Link to v20: https://lore.kernel.org/all/20251021013548.2375190-1-ryan_chen@aspeedtech.com/
+
+Changes in v20:
+- ast2600-i2c.yaml
+ - fix warning at make dt_binding_check.
+- Link to v19: https://lore.kernel.org/all/20251020013200.1858325-1-ryan_chen@aspeedtech.com/
+
+Changes in v19:
+- Split AST2600 binding into its own YAML file
+ - Removed `aspeed,ast2600-i2c-bus` from `aspeed,i2c.yaml`
+ - Added `aspeed,global-regs` and `aspeed,transfer-mode` to AST2600 binding
+- Link to v18: https://lore.kernel.org/all/20250820051832.3605405-1-ryan_chen@aspeedtech.com/
+
+Changes in v18:
+- refine patch (1/3) commit message (reason for commit not list.)
+- i2c-ast2600.c
+ - remove redundant reset_control_deassert in driver probe.
+ - remove reset_control_assert(i2c_bus->rst) in driver remove.
+- Link to v17: https://lore.kernel.org/all/20250814084156.1650432-1-ryan_chen@aspeedtech.com/
+
+Changes in v17:
+- move i2c new mode register and feature into driver commit message.
+- aspeed,i2c.yaml
+ - remove multi-master properties.
+ - use aspeed,transfer-mode properties for aspeed,enable-byte/enable-dma.
+-i2c-ast2600.c
+ - rename dma_safe_buf to controller_dma_safe_buf.
+ - fix ast2600_i2c_recover_bus return overflow warnings.
+ - add ast2600_i2c_target_packet_buff_irq unhandle case.
+ - add parameter "cmd" in ast2600_i2c_setup_dma_rx,
+   ast2600_i2c_setup_buff_rx, ast2600_i2c_setup_byte_rx
+ - use reset_control_deassert replace
+   devm_reset_control_get_shared_deasserted.
+ - useaspeed,transfer-mode properties for transfer mode setting.
+ - change compatible = "aspeed,ast2600-i2cv2" to "aspeed,ast2600-i2c-bus".
+- Link to v16: https://lore.kernel.org/all/20250224055936.1804279-1-ryan_chen@aspeedtech.com/
+
+Changes in v16:
+- aspeed,i2c.yaml: add aspeed,enable-byte properties for force byte mode.
+- i2c-ast2600.c
+ - change include asm/unaligned.h to linux/unaligned.h.
+ - add reset timeout councter when slave active timeout.
+ - modify issue i2c_recovery_bus before slave re-enable.
+ - add aspeed,enable-byte properties.
+- Link to v15: https://lore.kernel.org/all/20241007035235.2254138-1-ryan_chen@aspeedtech.com/
+
+Changes in v15:
+- i2c-ast2600.c
+ - add include unaligned.h
+ - rename all master -> controller, slave -> target.
+ - keep multi-master to align property.
+ - remove no used element in ast2600_i2c_bus.
+- Link to v14: https://lore.kernel.org/all/20241002070213.1165263-1-ryan_chen@aspeedtech.com/
+
+Changes in v14:
+- aspeed,i2c.yaml
+ - v13 change people reviewed-by tag, v14 fixed to original people tag,
+   modify to Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+ - struct ast2600_i2c_bus layout optimal.
+ - ast2600_select_i2c_clock refine.
+ - ast2600_i2c_recover_bus overridden fix.
+ - dma_mapping_error() returned error code shadowed modify.
+ - buffer register in a 4-byte aligned simplified
+ - remove smbus alert
+- Link to v13: https://lore.kernel.org/all/20240819092850.1590758-1-ryan_chen@aspeedtech.com/
+
+Changes in v13:
+ - separate i2c master and slave driver to be two patchs.
+ - modify include header list, add bits.h include. remove of*.h
+ - modify (((x) >> 24) & GENMASK(5, 0)) to (((x) & GENMASK(29, 24)) >> 24)
+ - modify ast2600_select_i2c_clock function implement.
+ - modify ast2600_i2c_recover_bus function u32 claim to
+   u32 state = readl(i2c_bus->reg_base + AST2600_I2CC_STS_AND_BUFF);
+- Link to v12: https://lore.kernel.org/all/20230714074522.23827-1-ryan_chen@aspeedtech.com/
+
+Changes in v12:
+- aspeed,i2c.yaml
+ - add Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+- i2c-ast2600.c
+ - update include by alphabetical order
+ - make just a one TAB and put the last two lines on the single one
+ - remove no used timing_table structre
+ - remove enum explicit assinment
+ - rewritten to avoid this and using loop in ast2600_select_i2c_clock
+ - use GENMASK for most 0xffff
+ - remove too many parentheses
+ - use str_read_write replace read write string
+ - remove redundant blank line after ast2600_i2c_bus_of_table
+ - fix wrong multi-line style of the comment
+ - use macro for i2c standard speeds
+ - remove useless noise dev_info
+- Link to v11: https://lore.kernel.org/all/20230430041712.3247998-1-ryan_chen@aspeedtech.com/
+
+Changes in v11:
+- aspeed,i2c.yaml
+ - no change, the same with v10.
+- i2c-ast2600.c
+ - modify alert_enable from int -> boolean.
+ - modify dbg string recovery -> recover.
+ - remove no need to init 0.
+ - remove new line after break.
+ - remove unneeded empty line.
+ - modify dma_alloc_coherent to dmam_alloc_coherent
+ - modify probe nomem return dev_err_probe
+ - modify i2c_add_adapter to devm_i2c_adapter
+ - modify checkpatch: Alignment should match open parenthesis
+ - modify checkpatch: braces {} should be used on all arms of this statement
+ - modify checkpatch: Unbalanced braces around else statement
+- Link to v10: https://lore.kernel.org/all/20230415012848.1777768-1-ryan_chen@aspeedtech.com/
+
+Changes in v10:
+- aspeed,i2c.yaml
+ - move unevaluatedProperties after allOf.
+ - remove extra one blank line.
+- i2c-ast2600.c
+ - no change, the same with v8.
+- Link to v9: https://lore.kernel.org/all/20230405022825.333246-1-ryan_chen@aspeedtech.com/
+
+Changes in v9:
+- aspeed,i2c.yaml
+ - backoff to v7.
+  - no fix typo in maintainer's name and email. this would be another patch.
+  - no remove address-cells, size-cells, this would be another patch.
+ - use aspeed,enable-dma property instead of aspeed,xfer-mode selection.
+ - fix allOf and else false properties for aspeed,ast2600-i2cv2.
+- i2c-ast2600.c
+ - no change, the same with v8
+- Link to v8: https://lore.kernel.org/all/20230330073259.485606-1-ryan_chen@aspeedtech.com/
+
+Changes in v8:
+- aspeed,i2c.yaml
+ - modify commit message.
+ - Fix typo in maintainer's name and email.
+ - remove address-cells, size-cells.
+- i2c-ast2600.c
+ - move "i2c timeout counter" comment description before property_read.
+ - remove redundant code "return ret" in probe end.
+- Link to v7: https://lore.kernel.org/all/20230327092524.3916389-1-ryan_chen@aspeedtech.com/
+
+Changes in v7:
+- aspeed,i2c.yaml
+ - Update ASPEED I2C maintainers email.
+ - use aspeed,enable-dma property instead of aspeed,xfer-mode selection.
+ - fix allOf and else false properties for aspeed,ast2600-i2cv2.
+- i2c-ast2600.c
+ - remove aspeed,xfer-mode instead of aspeed,enable-dma mode. buffer mode
+   is default.
+ - remove aspeed,timeout instead of i2c-scl-clk-low-timeout-us for
+   timeout setting.
+- Link to v6: https://lore.kernel.org/all/20230226031321.3126756-1-ryan_chen@aspeedtech.com/
+
+Changes in v6:
+- remove aspeed,i2cv2.yaml, merge to aspeed,i2c.yaml -add support for
+  i2cv2 properites.
+- i2c-ast2600.c
+ - fix ast2600_i2c_remove ordering.
+ - remove ast2600_i2c_probe goto labels, and add dev_err_probe -remove
+   redundant deb_dbg debug message.
+ - rename gr_regmap -> global_regs
+- Link to v5: https://lore.kernel.org/all/20230220061745.1973981-1-ryan_chen@aspeedtech.com/
+
+Changes in v5:
+- remove ast2600-i2c-global.yaml, i2c-ast2600-global.c.
+- i2c-ast2600.c
+ - remove legacy clock divide, all go for new clock divide.
+ - remove duplicated read isr.
+ - remove no used driver match
+ - fix probe return for each labels return.
+ - global use mfd driver, driver use phandle to regmap read/write.
+- rename aspeed,i2c-ast2600.yaml to aspeed,i2cv2.yaml -remove bus-frequency.
+- add required aspeed,gr
+- add timeout, byte-mode, buff-mode properites.
+- Link to v4: https://lore.kernel.org/all/20230201103359.1742140-1-ryan_chen@aspeedtech.com/
+
+Changes in v4:
+- fix i2c-ast2600.c driver buffer mode use single buffer conflit in
+  master slave mode both enable.
+- fix kmemleak issue when use dma mode.
+- fix typo aspeed,i2c-ast2600.yaml compatible is "aspeed,ast2600-i2c"
+- fix typo aspeed,i2c-ast2600.ymal to aspeed,i2c-ast2600.yaml
+- Link to v3: https://lore.kernel.org/all/20220516064900.30517-1-ryan_chen@aspeedtech.com/
+
+Changes in v3:
+- fix i2c global clock divide default value.
+- remove i2c slave no used dev_dbg info.
+- Link to v2: https://lore.kernel.org/all/20220413101735.27678-1-ryan_chen@aspeedtech.com/
+
+Changes in v2:
+- add i2c global ymal file commit.
+- rename file name from new to ast2600.
+  aspeed-i2c-new-global.c -> i2c-ast2600-global.c
+  aspeed-i2c-new-global.h -> i2c-ast2600-global.h
+  i2c-new-aspeed.c -> i2c-ast2600.c
+- rename all driver function name to ast2600.
+- Link to v1: https://lore.kernel.org/all/20220323004009.943298-1-ryan_chen@aspeedtech.com/
+
+---
+Ryan Chen (4):
+      dt-bindings: i2c: Split AST2600 binding into a new YAML
+      dt-bindings: i2c: ast2600-i2c.yaml: Add global-regs and transfer-mode properties
+      i2c: ast2600: Add controller driver for AST2600 new register set
+      i2c: ast2600: Add target mode support
+
+ .../bindings/i2c/aspeed,ast2600-i2c.yaml           |   91 ++
+ .../devicetree/bindings/i2c/aspeed,i2c.yaml        |    3 +-
+ drivers/i2c/busses/Makefile                        |    2 +-
+ drivers/i2c/busses/i2c-aspeed.c                    |    5 +
+ drivers/i2c/busses/i2c-ast2600.c                   | 1551 ++++++++++++++++++++
+ 5 files changed, 1649 insertions(+), 3 deletions(-)
+---
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+change-id: 20260223-upstream_i2c-ebd07f89739c
 
 Best regards,
 -- 
-Nicolas
+Ryan Chen <ryan_chen@aspeedtech.com>
 
 
