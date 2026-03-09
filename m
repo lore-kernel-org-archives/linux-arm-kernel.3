@@ -4,74 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98DD4FCA19E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 22:45:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AD80FCC9A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 23:51:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W3FB9PxYLglauAJeExvi/YQHsazHpOfV3fK1W0xFt8M=; b=AVDav1eq5xzaF+gOXxGnzORRm/
-	jntNbwxMA3d6BZBwI/y/Z2DdJlvS4Bp7m8yiqw6uLXSkMXs04kI3I0sRRIJWcXgK05YGrhjFQEY9v
-	nXMiKgmpjuUMtJVxO0VRsJ4QlRtxldLuVc4s2Ufxij9SVmGOques8TBCJQpHghocn1NMh2/0fnn6K
-	NO6bi1cE7b1dME/6HuuCz0A3CDlvtC2uknzfgtG48wf7giW4y9z3bWKtTn99HHOLD2FJxw9SG4ytM
-	mGVt68OHIiYI2HXBYxG52vK8STh64+FzNz7c3Em23FGj6PhwKnmR3Uwy30hIfGiut8N3jP2jNF1yv
-	RmRa0sCw==;
+	bh=z/ZWVyYX32YKvOG2ZJ940B6UEx622VWePb40GDDuyqk=; b=eYCkIGWYKt1lGbM/0J/Dy2OStI
+	2brL3cSQhr4E5+VDGN56MgjUYSAd9voKD3Kxr0HXJJeexCGAUbb145Lm9PfUwEzttzasJzwkso/Wa
+	D/AhDI+hrG3/A9rKr1A6ghx3PqOnOi8RFbVEVgUfGPxUivI+qV0FyK/h5Xq+8rYGG8FhZ9yj+6hSY
+	87MkfntgZRjGV/crdpEYeCc2X9jYATEaI0A/ZO9r4mYqzbYSB9I1z8MF9zTp172y+wdcMVEQISUoO
+	5gNb+iGwJRKVqW1YVqLWisKVz1tnX2OYyo/WE2218kpRW96/R+J8CFCOaa1k03pdEY+CB+FIVwYYZ
+	JNTU+JQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzjLK-00000008FFt-0GXu;
-	Mon, 09 Mar 2026 22:44:54 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vzkNq-00000008K0E-2R65;
+	Mon, 09 Mar 2026 23:51:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzjL9-00000008F1H-37R7;
-	Mon, 09 Mar 2026 22:44:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1773096281;
-	bh=js3wV5z5S67zy6eAdYjU4FSDvTWxhLq5Wlg/JpSyxbc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=hX2Kp8DhyhPRCcKiJzDzrIyyf2lMlUIsKinKqG4ZfHf445gkpBhg/sY5GCsC85979
-	 7UsCibJY8NwgcBnBKkHDBdVB7tSIMnfUrMyPZ3ZyFGqkIroloydspd7+dtMm7PxUk7
-	 uzHTdooz/oBOIYJyG53N5nz4JlXRVXrQNP7Jq4K82U49VkSrVX5AEpwhcJ2B7XX8X2
-	 9BOr7JvLMcJOovHaJGEHeOL+tgX6biLxo4Kw8EY5MOgBSPQ0SKed051Erm8SQFn3pQ
-	 gjGp98/wi8Eq4KzpezAeObRY7k0XcZ09lxG6yF/nHF+/BPiedWi34IYJdjAkakKhju
-	 ymG8qzUxY+Lxw==
-Received: from localhost (unknown [86.123.23.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9EFB717E13F9;
-	Mon,  9 Mar 2026 23:44:41 +0100 (CET)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 10 Mar 2026 00:44:36 +0200
-Subject: [PATCH v2 8/8] drm/bridge: synopsys: dw-dp: Drop useless memory
- allocation
+	id 1vzkNo-00000008K00-2Eqz;
+	Mon, 09 Mar 2026 23:51:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 98DE460054;
+	Mon,  9 Mar 2026 23:51:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A15ACC4CEF7;
+	Mon,  9 Mar 2026 23:51:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773100291;
+	bh=AnnEM0AEOjnmbxyb5EEXI/jarl/KqCoDW6tKbthKBzI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=OWqoBoPbJ/5DcO1AV6iEqZmg6nt85hulv2RU0E+PcvElbhF323SzKwlItX3PiQ4LL
+	 vPGKR1akbwYB+pqE3Hz9f8cnHLGNkIGwbsMEN5KtbhdxEnOl+SWtMm23ab6Bn4om2J
+	 m2/8afU5ehT8Um47o0q6lzRZw1ypUPWpRXjHuFb9TnZm4VaZwwF0jyLAFud+E5TkeQ
+	 9zxDTRlRIyIDR8Bjdh9RfvqQd5KlmYOvlKmwmgGPVmUraqDf/gELZyZaZUTVrQefre
+	 jlV0++9qBD9A/NM6O44+SCIE9cIiYsPewUW01e3jb6m+VfDLAg2TyWFeMn19b4GSU/
+	 TXwHFj/PFrlKw==
+Date: Mon, 9 Mar 2026 16:51:29 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Vladimir Oltean <olteanv@gmail.com>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, Andrew Lunn
+ <andrew@lunn.ch>, Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew
+ Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, linux-arm-kernel@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, Mohd Ayaan Anwar
+ <mohd.anwar@oss.qualcomm.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>, Vinod Koul
+ <vkoul@kernel.org>
+Subject: Re: [PATCH RESEND2 net-next 0/8] net: stmmac: qcom-ethqos: further
+ serdes reorganisation
+Message-ID: <20260309165129.78d656c1@kernel.org>
+In-Reply-To: <20260309154432.b3dbantow3e3tkry@skbuf>
+References: <aaDSJAc-x2-klvHJ@shell.armlinux.org.uk>
+	<aaIysVxy-WxbiJz9@shell.armlinux.org.uk>
+	<20260227165556.5cf9e844@kernel.org>
+	<20260228083111.5df8550c@kernel.org>
+	<aaRBjWhP4-7Kru9D@shell.armlinux.org.uk>
+	<20260302155736.1fd2980e@kernel.org>
+	<20260309154432.b3dbantow3e3tkry@skbuf>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260310-drm-rk-fixes-v2-8-645ecfb43f49@collabora.com>
-References: <20260310-drm-rk-fixes-v2-0-645ecfb43f49@collabora.com>
-In-Reply-To: <20260310-drm-rk-fixes-v2-0-645ecfb43f49@collabora.com>
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Dmitry Baryshkov <lumag@kernel.org>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_154444_013085_7FEB886E 
-X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,36 +81,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The bridge gets allocated and initialized implicitly via the
-devm_drm_bridge_alloc() helper in dw_dp_bind().  However, this is
-preceded by an explicit allocation for the same dw_dp struct, which is
-never used anywhere as the return from devm_kzalloc() gets immediately
-overwritten by the aforementioned helper.
+On Mon, 9 Mar 2026 17:44:32 +0200 Vladimir Oltean wrote:
+> On Mon, Mar 02, 2026 at 03:57:36PM -0800, Jakub Kicinski wrote:
+> > Alright, I think the best we can do here is to merge patch 2 
+> > in a "stable tag" way. The rest will have to go via net-next.
+> > 
+> > I applied patch 2, Russell please rebase the rest on net-next 
+> > and repost. Patch 2 should disappear. I don't want to merge it
+> > now as is without an explicit nod from Vinod. He did ask for 
+> > a tag and we won't provide one.
+> > 
+> > Vinod / Vladimir, to merge the "stable tag" of patch 2:
+> > 
+> > tag_name=phy-qcom-sgmii-eth-add-set_mode-and-validate-methods
+> > git fetch https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git
+> > git tag $tag_name 0e8147f4da00
+> > git merge $tag_name
+> > git tag -d $tag_name
+> > 
+> > I think this should work.  
+> 
+> Thanks for the anonymous tag. I think you mean sha1sum
+> 4ff5801f45b494ad8251a16ec06c9f303ed3b9a0, not 0e8147f4da00.
 
-Get rid of the unnecessary and confusing memory allocation.
+Ah, I guess I misunderstood what Linus once told me.
+I thought the signed tag remain in the history once
+merged even if no longer named.
 
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- drivers/gpu/drm/bridge/synopsys/dw-dp.c | 4 ----
- 1 file changed, 4 deletions(-)
-
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 8d02f047693a..9e7ace6be3a0 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -1977,10 +1977,6 @@ struct dw_dp *dw_dp_bind(struct device *dev, struct drm_encoder *encoder,
- 	void __iomem *res;
- 	int ret;
- 
--	dp = devm_kzalloc(dev, sizeof(*dp), GFP_KERNEL);
--	if (!dp)
--		return ERR_PTR(-ENOMEM);
--
- 	dp = devm_drm_bridge_alloc(dev, struct dw_dp, bridge, &dw_dp_bridge_funcs);
- 	if (IS_ERR(dp))
- 		return ERR_CAST(dp);
-
--- 
-2.52.0
-
+Anyway, I pushed the tag to kuba/linux.git
+phy-qcom-sgmii-eth-add-set_mode-and-validate-methods
+if you prefer the real / signed thing. I don't like
+having these random tags in netdev trees.
 
