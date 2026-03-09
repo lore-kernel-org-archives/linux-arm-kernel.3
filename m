@@ -4,146 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84C12FCA179
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 19:11:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0533AFCA178
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 19:21:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DOw6Pkngx2WT+Gzjm+ogmiIOf5qJIWSxRkOultIhyAA=; b=b3AHmcSZJ71UtfRM/10nLiHKp7
-	XUCCZxg+rjXs6Iv+dbCZ9q8tMVW5LCt+J57W4ZOuhE4HcmITgU3T77dSUR+V/u6gJ2Cr7MV96OdSD
-	EAtfJREp2H/AS12vsF4Qgd4pf3/RA7KARb7D5nWgMWIDUbvpp+xsKTnlGG6qDp21IrDrdzSI4UNPg
-	f2TJ5rPsL19MWEAXY0nSSStC86C2rbbUpF8ofH4sSH1wLfNJJAvvmKtJBTSr1JztcB8JISEJ+nvPg
-	FQMJ0zEhF66Q9zMoZoL6VREPgBdtUWxbfdhsmeqYCbFPvfEugxhNkWtC7PUu8697IFIu01rl/kxys
-	piJh+jQA==;
+	bh=MQTDSprH+FaVQrcFrlINVmzG5JwePTf8BTEVdOsZhTQ=; b=KZ16hLjIqjxJCH1FmS9GNd/g36
+	yNLNja8f/c7xWOR84XYg4hMYja/6WQeg4NO53p66OLcjUct+lumukwEczGri+ycfzD8cmEiWcN+x5
+	zCIIJLx1+rgkKiQptYg9b0+NnaNXow80BpFymwbJlVlFaxfD4f+/LxKoBR+a8gjaW6gWRdLQUkjQx
+	47q6olbI3y0JD7bfSGP0pX+aid73vFqidMao00h3/IhqGl0/6gdOjM4bps3PPDAAfVhCf9Igz+Hq7
+	0KG7jN8EVLDsnLgf1x+S5Q8r/L0hx4E4wcmNxSeSHrdKc54gQpSGsT0WbsWNSd9+GXrnUG/duNKsi
+	sR32a37A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzg10-000000081GC-33pb;
-	Mon, 09 Mar 2026 19:11:42 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzfzr-00000007ynK-0a6D;
-	Mon, 09 Mar 2026 19:10:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=r7eVHkRrseupnnewOugmD+XjCOe8cmPJ7NIiZy7vIfdnqS3Ov7Bbip4Yxf2m3Gsr4EQVy6gyexroBcCJLLYwMZ05yunuiZexta67p/outnmqD7hrXv6nz1rClAjykc3mTFUz34+lhoTA117xmpjzGAS1Mc1dFKGy9K2WBMA0B8t8vNCtrNfXW2PpqkyocHnGsoORuxDShKvnSlgBhNSy7HPhp4Hwa85FKJjgItb7ArWeCn6D9qcY8H7dve36L4zQKJT4t9we34QJ8lcQgNO6mir0/eDv1Fk8f4udNLJ74sDlTNRIOjuIp0gls5dX7Syb1AV89+NWkAmGbtHJloHSxA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DOw6Pkngx2WT+Gzjm+ogmiIOf5qJIWSxRkOultIhyAA=;
- b=giA83RKuCDaVqeB/c+Oko2xZt3jjbqmyN+KPb2d04smrOqp6JyCQmqYUT03Kh1OoVrXRGMofbkIOUcC1DL5ABf4F6uSRB/NpCSLDtRkhAjrQYDimpAsxVNyKEFp5BaCLPKFRQkKuxyjm86EBtqokSROG9KSvQlNDVINkOqTZYY+leMft+oRDd7+5PQCYMHU7DKGYSTiciE63+LMdf+jgx4hX5TeMweUGhB6Y9j07GP3zth1zCrdKBaQT1EAN8Q16Grm5q+iMw3uE0daS1kLNkTdAhymIWTIEhBJaDQe7vgnrf4xfDdFTDVA+uM/VyfMxsnukiZjQOiTjaq0GmG6p0w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DOw6Pkngx2WT+Gzjm+ogmiIOf5qJIWSxRkOultIhyAA=;
- b=CyHbtV8K8usCJm6m5/0HO6Wc7GAb/kdiBTU7AQ6YuBzRa589cqX3HKUR4YF6Pt9A9LKjg8D7krIVnUnlDMw003nmPsGF+xMmQavLR5MB1YUhnp/9I8a5D1IQfj2ethxTz1cLI8ZJiZtJqKADzL361QRQYC+NtcZzx1l9hMcf/VezUWeA9HBp10upReF3eqhSj0XaEKjyLJfzL8r+QlE2P2lMQO0JmCamQLkoaET01AKuKY/WsWzDOjGhw5HyNDSW3+y+YleShnECcr4jmbsONnHT5Z7KKUa8ZGnZOOJu6a9MJPP5w63O6ZwrT+widB4REdG6MryzkJLTmQyugEHM1w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
- by PA4PR04MB9390.eurprd04.prod.outlook.com (2603:10a6:102:2a9::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.19; Mon, 9 Mar
- 2026 19:10:17 +0000
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9678.023; Mon, 9 Mar 2026
- 19:10:17 +0000
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: linux-phy@lists.infradead.org
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	dri-devel@lists.freedesktop.org,
-	freedreno@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-can@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-ide@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	linux-usb@vger.kernel.org,
-	netdev@vger.kernel.org,
-	spacemit@lists.linux.dev,
-	UNGLinuxDriver@microchip.com,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Shawn Lin <shawn.lin@rock-chips.com>
-Subject: [PATCH v3 phy-next 22/24] phy: include PHY provider header (2/2)
-Date: Mon,  9 Mar 2026 21:08:40 +0200
-Message-ID: <20260309190842.927634-23-vladimir.oltean@nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260309190842.927634-1-vladimir.oltean@nxp.com>
-References: <20260309190842.927634-1-vladimir.oltean@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: WA2P291CA0014.POLP291.PROD.OUTLOOK.COM
- (2603:10a6:1d0:1e::25) To AM9PR04MB8585.eurprd04.prod.outlook.com
- (2603:10a6:20b:438::13)
+	id 1vzgAP-000000082yv-0vbz;
+	Mon, 09 Mar 2026 19:21:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vzgAL-000000082yC-2KvG
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Mar 2026 19:21:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3132A1516;
+	Mon,  9 Mar 2026 12:21:11 -0700 (PDT)
+Received: from [10.1.196.85] (e121345-lin.cambridge.arm.com [10.1.196.85])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D54AB3F694;
+	Mon,  9 Mar 2026 12:21:14 -0700 (PDT)
+Message-ID: <16782c8d-ab55-4ac0-bd4d-56d440e43d33@arm.com>
+Date: Mon, 9 Mar 2026 19:21:06 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|PA4PR04MB9390:EE_
-X-MS-Office365-Filtering-Correlation-Id: a3c2578e-9344-46c1-05bc-08de7e0f8012
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|10070799003|1800799024|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info: m18Bfc/cI6bKylTmzUq1RHzdP35lJ4knEcI2t9fFRuuw0G6qHnAcxLSuqwqLWKP2qtUenA1xVgF9/m17SH/hhteBdG/GCdH6hFynluZ4Pl1krgr55MHzApTEGpuA1uUbBdwUMjj6Tx3LdBbojWiePjobbLBonsctxN/Tn9RPtn4hjK7vUh9XwlYPAu86ZyXzMWZBrfVifl7m0NzCG5nDAnYQGqJVBfrkDmH48ZqK2EYcxTxnc23y32dKK3Kd/RJR22z6KsVIbSLkVEYk8MTT3ab49aSqyGhpY0xv9nWHBYBKyqk1eL4/xWzU7DlyxaQRHHB8Cd3gB+xwgQ2BkdNjoGzDVHcM49zk4BB1+5K+S9VK5IXbYn/EC24Di7qRkENyDE+QqIdYP3uKoZpPksW/ojIF3wc7BOgskcR/C9HTsgIoeTndLHBpe430kkDx84tXh4LBJvDuxuWSg5IeejRxWyZnvpDtJS74Bc2RUp1NYRoeWocIRP7f3OJiqWcm9K3WmQGBzj1iYNo47o51ov6r+f2SDSh//+hsya5PUznnjofWIPfpe72UuLxh0M903FGQZ2ltcdtQ8hv0nH9YVYZTBYZ05zzozB9F7590ZK/vXDQwErCQsoTA2RQ4fxy+2dSiv0waAbmaIN/JihIaziSbakgq13vI8/Fszp68q4HWKbyADTcUPpbMCSZlVUfpc90Bd1ISAkkcW8FZPfyi75w2TxMjy7Ixk2Y2lzyxg7+Zuy4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(10070799003)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CGC9hxMYei+xPXsq1ePGdwUhIzQcXaZx7x9VWc3hK/bXJ0DeHDNpfGQbT6LS?=
- =?us-ascii?Q?5dMzuQhuzucPLIxHAYFJYwOIyaMMRLFb7LS94VVheGzZjeB4ASEVOcduRea+?=
- =?us-ascii?Q?vjxr2hfbj5PULeSv6QRzeunQmASZo/oV9OaRiikwXilxlNJGIVEFLlCXrXiL?=
- =?us-ascii?Q?6Jf6KeA+E1OCpznisJXwC+5WIkeVgWC38/nLOE9JxaDPqkQo4Rm2BzOzX7It?=
- =?us-ascii?Q?3Lj0U7QPbyqOuPYSE7ssmUBcMokiJTUjsbSEOo0j1AMpzPhlsNUv7weU/ZK8?=
- =?us-ascii?Q?gyY42xxw9xBID8K1og42LGARYxkIx8CvTM7OryudhNerJ44nlU0OWINClGuD?=
- =?us-ascii?Q?MWmI33VSDdhvLjL8Fc2p1pmdTlu8QYB/GfA+PQnHfIkaDQAdlNuldJYaUlNQ?=
- =?us-ascii?Q?kxBh5CRpWY8yN4aR21j0J9q9h+IZCgYZ1qhfb0t8zVc+vYBTS6df+jzSaTWU?=
- =?us-ascii?Q?d8H//gDSiwK4k2pp72kI7ZcK3LWJZbLMO0XG6KW4pxOB+96mktPanraDWr6Z?=
- =?us-ascii?Q?BumnSwSrAkZUS8F5LW5dp9OVFuO4Vho5vUrQj52cv2qhvkxyizmlDMel38yN?=
- =?us-ascii?Q?ztoDyQq+2mEhzJxgGSjJTzmPR2uVsxcSRUeuyhy3PNttz2oQdTZ9A30NVOu3?=
- =?us-ascii?Q?uQbDj1A4gkwGbqEdC+yqXSHjuGf8/mhS57PfXBEUolS3BoTiOx1RsfDVv8kw?=
- =?us-ascii?Q?rJpcdxorgd9kbVuo5hC/um2RL5Rt/J0S4yrovGU0AjdmC4vQg8X7MszWkTm2?=
- =?us-ascii?Q?7m+vpXjd/A/hih4lv4NkDWTA0E8n7cGAybyry7HMruw/uLghE+HpsBjqY+Q9?=
- =?us-ascii?Q?A0aknCAFTDW1VtePrxiHUfLSBeFRXmmDmagKR+mKjkDyA87vG30hPiNTAlPU?=
- =?us-ascii?Q?aEH8aPQum20uyfM10ITFeNQD1R90zFEMOiRiMU7T09GJNPnvr5OueMbcT9uT?=
- =?us-ascii?Q?NflwG12Zw7Vu53o/vhv7o+GGhxyudVJPidnceP1UtI3a+4N9hkf7VEjeqb9v?=
- =?us-ascii?Q?PUqvm5aYUPoO2lRP+Zqmhpt4f/KtEAIb4cRvsx0dsrsRWdHc38uDWOp6u3H9?=
- =?us-ascii?Q?Ii46DjcV7YqgrPSntxMCDYteW/n5LixioEH+0ghgB3Z6mEEFAbaJTZieOiL/?=
- =?us-ascii?Q?rKBLv4ZMpNZ9aIAPX6ST4chxUxb239f1bAetD22nmNJCCoig44oUOsyRdYQu?=
- =?us-ascii?Q?OH4LPJVDrzMH++tePGYS76c7YiNvAwBVfoKkhuoamxNRiE5pYy6pHOJcIxcA?=
- =?us-ascii?Q?xUORSJ98Qlq7vuIQSvkrS+6EYtkqmKwoOroiB3vUnytRvmCp3PI0i0bEOszy?=
- =?us-ascii?Q?YKhuQ7QTYKOJSC2Wl5hlGfNas4UGQuFrOORzUULXee1ck6nHslwwttQ+wiVp?=
- =?us-ascii?Q?XSN21N33cwHNJ+3rP3pYjPlGvNRtRODneeueI9WOJ0l6oIop3uJVsz6fS96q?=
- =?us-ascii?Q?S4LhcoSyp5ifpx6pEWq/WIc860npWqfiVU41/mPkmpaKeozlOkbt9AeCXgNq?=
- =?us-ascii?Q?ef1zPyqj1PjHlNOJvGRUWpyrTgefexKl322jUHI6geqrnZ1gTDluiqUUIYOX?=
- =?us-ascii?Q?9cst0acWOsrUaTTrZNZtf33MfX/jL6RJwSxEp0gaHxrOGS95gfRQFUTLIojE?=
- =?us-ascii?Q?h8Nh781ex1p9ErL8rwOWeJVfU/ljoMx06wJO441AP6E7aBLrFpDTCqpJ2PW1?=
- =?us-ascii?Q?fcsKZOVF0XBLt2qL/eczDp/aAiO4p8K2uQP01XUHvhtuJb+w1A0zxRV8tcGZ?=
- =?us-ascii?Q?NwqZYVvYMMqZIk1XuAVjQlZ/3ya4K7H8RZ+YFv4y5/ByefZZQ9luVBkhGfPz?=
-X-MS-Exchange-AntiSpam-MessageData-1: UqHK5NDfSUJ0Juf2HXqnkh360IrkIwSiUcs=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a3c2578e-9344-46c1-05bc-08de7e0f8012
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Mar 2026 19:10:17.3406
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7rB8wjam8J7W68t5z6suS2zsY5dpr6aDet+7GWvKTFd1XETUtdhBx/G35HT/MoXMjIHa/5NKofxmQ1yzGVHmPA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9390
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 15/16] ras: AEST: support vendor node CMN700
+To: Ruidong Tian <tianruidong@linux.alibaba.com>, catalin.marinas@arm.com,
+ will@kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com,
+ sudeep.holla@arm.com, rafael@kernel.org, mark.rutland@arm.com,
+ tony.luck@intel.com, bp@alien8.de, tglx@linutronix.de, peterz@infradead.org
+Cc: lenb@kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, linux-edac@vger.kernel.org,
+ mchehab@kernel.org, xueshuai@linux.alibaba.com, zhuo.song@linux.alibaba.com,
+ oliver.yang@linux.alibaba.com
+References: <20260122094656.73399-1-tianruidong@linux.alibaba.com>
+ <20260122094656.73399-16-tianruidong@linux.alibaba.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260122094656.73399-16-tianruidong@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_121031_859144_A0A97D62 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20260309_122121_745869_7BBBC2CA 
+X-CRM114-Status: GOOD (  44.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,1895 +71,764 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The majority of PHY drivers are PHY providers (obviously).
+On 22/01/2026 9:46 am, Ruidong Tian wrote:
+> The CMN (Coherent Mesh Network) architecture incorporates five distinct
+> device types. Each device type is associated with an error group register
+> set. The struct aest_cmn_700 models a single CMN instance, while struct
+> aest_cmn_700_child represents an individual CMN device.
+> 
+> CMN's error records utilize a memory-mapped single error record view [1].
+> Critically, one error record corresponds to one AEST node, implying that
+> a single CMN instance can generate hundreds of AEST nodes. To manage this
+> scale, this driver introduces a virtual AEST node, which represents an
+> entire CMN device, such as an HNI or HNF. This allows an HNF AEST node,
+> for instance, to leverage its errgsr register to pinpoint which specific
+> error record has reported an error.
+> 
+> During the AEST probe phase, the CMN AEST driver identifies the CMN node
+> type using the cmn_node_info register. It then reorganizes all AEST nodes
+> belonging to the same CMN node type into a cohesive CMN AEST node
+> structure. To locate the relevant CMN register addresses, the CMN's
+> presence in the DSDT is required, along with the CMN node offset
+> specified in the AEST vendor specification data [1].
 
-Some are chained PHY provider+consumer (phy-qcom-m31-eusb2.c,
-phy-exynos5-usbdrd.c).
+That sounds wrong - IIRC, each AEST interface entry should point to the 
+node's RAS register block directly (i.e. the ERRFR address), then the 
+vendor-specific data indicates the relative offset such that a consumer 
+could work backwards from there to other CMN registers if it really 
+needs to. There should not be any dependency on DSDT for discovery.
 
-Others include <linux/phy/phy.h> because they call consumer functions
-such as phy_pm_runtime_get() - phy-mapphone-mdm6600.c. See commit
-2ad2af081622 ("phy: mapphone-mdm6600: Improve phy related runtime PM
-calls") for the story behind that. My understanding is it's a pragmatic
-shortcut, but it doesn't bother much.
+For reference, the missing link to that spec is:
 
-Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com> #phy/qualcomm
-Acked-by: Shawn Lin <shawn.lin@rock-chips.com>
----
-Conflicts in drivers/phy/spacemit/phy-k1-pcie.c with commit 75fb1a33f9ac
-("phy: move spacemit pcie driver to its subfolder"). The recommendation
-is to patch drivers/phy/phy-spacemit-k1-pcie.c with the change found
-here, in order for the branch to build cleanly on top of v7.0-rc1.
-Then remember to patch back drivers/phy/spacemit/phy-k1-pcie.c during
-the merge to linux-phy/next. VERY IMPORTANT: on v7.0-rc1, the header
-path is "phy-provider.h", whereas in phy-next it is "../phy-provider.h",
-due to the spacemit folder move.
+https://developer.arm.com/documentation/den0093/latest/
 
-Conflicts trivially in drivers/phy/qualcomm/phy-qcom-sgmii-eth.c with
-commit 4ff5801f45b4 ("phy: qcom-sgmii-eth: add .set_mode() and
-.validate() methods").
-The recommended resolution is to keep their newly introduced adjacent
-line ("+#include <linux/phy.h>" - network PHY) while removing our
-"#include <linux/phy/phy.h>" - generic PHY.
-This was previously brought up here:
-https://lore.kernel.org/netdev/aa1lIBO3j_apIPjb@shell.armlinux.org.uk/
+and what it actually says is not at all what this patch has implemented.
 
-v2->v3: none
-v1->v2: split in two parts to pass through linux-phy mailing list
-moderation. The split is at letter 'q' (Qualcomm)
----
- drivers/phy/qualcomm/phy-ath79-usb.c               | 3 ++-
- drivers/phy/qualcomm/phy-qcom-apq8064-sata.c       | 3 ++-
- drivers/phy/qualcomm/phy-qcom-edp.c                | 3 ++-
- drivers/phy/qualcomm/phy-qcom-eusb2-repeater.c     | 3 ++-
- drivers/phy/qualcomm/phy-qcom-ipq4019-usb.c        | 3 ++-
- drivers/phy/qualcomm/phy-qcom-ipq806x-sata.c       | 3 ++-
- drivers/phy/qualcomm/phy-qcom-ipq806x-usb.c        | 3 ++-
- drivers/phy/qualcomm/phy-qcom-m31-eusb2.c          | 2 ++
- drivers/phy/qualcomm/phy-qcom-m31.c                | 3 ++-
- drivers/phy/qualcomm/phy-qcom-pcie2.c              | 3 ++-
- drivers/phy/qualcomm/phy-qcom-qmp-combo.c          | 3 ++-
- drivers/phy/qualcomm/phy-qcom-qmp-pcie-msm8996.c   | 3 ++-
- drivers/phy/qualcomm/phy-qcom-qmp-pcie.c           | 3 ++-
- drivers/phy/qualcomm/phy-qcom-qmp-ufs.c            | 3 ++-
- drivers/phy/qualcomm/phy-qcom-qmp-usb-legacy.c     | 3 ++-
- drivers/phy/qualcomm/phy-qcom-qmp-usb.c            | 3 ++-
- drivers/phy/qualcomm/phy-qcom-qmp-usbc.c           | 3 ++-
- drivers/phy/qualcomm/phy-qcom-qusb2.c              | 4 ++--
- drivers/phy/qualcomm/phy-qcom-sgmii-eth.c          | 3 ++-
- drivers/phy/qualcomm/phy-qcom-snps-femto-v2.c      | 3 ++-
- drivers/phy/qualcomm/phy-qcom-uniphy-pcie-28lp.c   | 3 ++-
- drivers/phy/qualcomm/phy-qcom-usb-hs-28nm.c        | 3 ++-
- drivers/phy/qualcomm/phy-qcom-usb-hs.c             | 3 ++-
- drivers/phy/qualcomm/phy-qcom-usb-hsic.c           | 3 ++-
- drivers/phy/qualcomm/phy-qcom-usb-ss.c             | 3 ++-
- drivers/phy/ralink/phy-mt7621-pci.c                | 3 ++-
- drivers/phy/ralink/phy-ralink-usb.c                | 3 ++-
- drivers/phy/realtek/phy-rtk-usb2.c                 | 3 ++-
- drivers/phy/realtek/phy-rtk-usb3.c                 | 3 ++-
- drivers/phy/renesas/phy-rcar-gen2.c                | 3 ++-
- drivers/phy/renesas/phy-rcar-gen3-pcie.c           | 3 ++-
- drivers/phy/renesas/phy-rcar-gen3-usb2.c           | 3 ++-
- drivers/phy/renesas/phy-rcar-gen3-usb3.c           | 3 ++-
- drivers/phy/renesas/phy-rzg3e-usb3.c               | 3 ++-
- drivers/phy/renesas/r8a779f0-ether-serdes.c        | 3 ++-
- drivers/phy/rockchip/phy-rockchip-dp.c             | 3 ++-
- drivers/phy/rockchip/phy-rockchip-dphy-rx0.c       | 3 ++-
- drivers/phy/rockchip/phy-rockchip-emmc.c           | 3 ++-
- drivers/phy/rockchip/phy-rockchip-inno-csidphy.c   | 3 ++-
- drivers/phy/rockchip/phy-rockchip-inno-dsidphy.c   | 4 ++--
- drivers/phy/rockchip/phy-rockchip-inno-hdmi.c      | 2 ++
- drivers/phy/rockchip/phy-rockchip-inno-usb2.c      | 3 ++-
- drivers/phy/rockchip/phy-rockchip-naneng-combphy.c | 3 ++-
- drivers/phy/rockchip/phy-rockchip-pcie.c           | 2 +-
- drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c  | 3 ++-
- drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c  | 2 ++
- drivers/phy/rockchip/phy-rockchip-snps-pcie3.c     | 3 ++-
- drivers/phy/rockchip/phy-rockchip-typec.c          | 4 ++--
- drivers/phy/rockchip/phy-rockchip-usb.c            | 3 ++-
- drivers/phy/rockchip/phy-rockchip-usbdp.c          | 2 ++
- drivers/phy/samsung/phy-exynos-dp-video.c          | 3 ++-
- drivers/phy/samsung/phy-exynos-mipi-video.c        | 3 ++-
- drivers/phy/samsung/phy-exynos-pcie.c              | 3 ++-
- drivers/phy/samsung/phy-exynos4210-usb2.c          | 3 ++-
- drivers/phy/samsung/phy-exynos4x12-usb2.c          | 3 ++-
- drivers/phy/samsung/phy-exynos5-usbdrd.c           | 2 ++
- drivers/phy/samsung/phy-exynos5250-sata.c          | 3 ++-
- drivers/phy/samsung/phy-exynos5250-usb2.c          | 3 ++-
- drivers/phy/samsung/phy-s5pv210-usb2.c             | 3 ++-
- drivers/phy/samsung/phy-samsung-ufs.c              | 2 +-
- drivers/phy/samsung/phy-samsung-ufs.h              | 3 ++-
- drivers/phy/samsung/phy-samsung-usb2.c             | 2 ++
- drivers/phy/samsung/phy-samsung-usb2.h             | 3 ++-
- drivers/phy/socionext/phy-uniphier-ahci.c          | 3 ++-
- drivers/phy/socionext/phy-uniphier-pcie.c          | 3 ++-
- drivers/phy/socionext/phy-uniphier-usb2.c          | 3 ++-
- drivers/phy/socionext/phy-uniphier-usb3hs.c        | 3 ++-
- drivers/phy/socionext/phy-uniphier-usb3ss.c        | 3 ++-
- drivers/phy/sophgo/phy-cv1800-usb2.c               | 3 ++-
- drivers/phy/spacemit/phy-k1-pcie.c                 | 4 ++--
- drivers/phy/spacemit/phy-k1-usb2.c                 | 3 ++-
- drivers/phy/st/phy-miphy28lp.c                     | 4 ++--
- drivers/phy/st/phy-spear1310-miphy.c               | 3 ++-
- drivers/phy/st/phy-spear1340-miphy.c               | 3 ++-
- drivers/phy/st/phy-stih407-usb.c                   | 3 ++-
- drivers/phy/st/phy-stm32-combophy.c                | 3 ++-
- drivers/phy/st/phy-stm32-usbphyc.c                 | 2 ++
- drivers/phy/starfive/phy-jh7110-dphy-rx.c          | 3 ++-
- drivers/phy/starfive/phy-jh7110-dphy-tx.c          | 3 ++-
- drivers/phy/starfive/phy-jh7110-pcie.c             | 3 ++-
- drivers/phy/starfive/phy-jh7110-usb.c              | 3 ++-
- drivers/phy/sunplus/phy-sunplus-usb2.c             | 3 ++-
- drivers/phy/tegra/phy-tegra194-p2u.c               | 3 ++-
- drivers/phy/tegra/xusb-tegra124.c                  | 2 +-
- drivers/phy/tegra/xusb-tegra186.c                  | 2 +-
- drivers/phy/tegra/xusb-tegra210.c                  | 2 +-
- drivers/phy/tegra/xusb.c                           | 2 +-
- drivers/phy/ti/phy-am654-serdes.c                  | 3 ++-
- drivers/phy/ti/phy-da8xx-usb.c                     | 3 ++-
- drivers/phy/ti/phy-dm816x-usb.c                    | 3 ++-
- drivers/phy/ti/phy-gmii-sel.c                      | 3 ++-
- drivers/phy/ti/phy-omap-usb2.c                     | 3 ++-
- drivers/phy/ti/phy-ti-pipe3.c                      | 3 ++-
- drivers/phy/ti/phy-twl4030-usb.c                   | 3 ++-
- drivers/phy/xilinx/phy-zynqmp.c                    | 4 ++--
- include/linux/phy/phy-sun4i-usb.h                  | 2 +-
- include/linux/phy/ulpi_phy.h                       | 2 +-
- 97 files changed, 186 insertions(+), 96 deletions(-)
+> [1]: https://developer.arm.com/documentation/102308/latest/
+> 
+> Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
+> ---
+>   arch/arm64/include/asm/arm-cmn.h |  47 +++++
+>   drivers/perf/arm-cmn.c           |  37 +---
+>   drivers/ras/aest/Makefile        |   1 +
+>   drivers/ras/aest/aest-cmn.c      | 330 +++++++++++++++++++++++++++++++
+>   drivers/ras/aest/aest-core.c     |  42 ++--
+>   drivers/ras/aest/aest.h          |  39 ++++
+>   6 files changed, 444 insertions(+), 52 deletions(-)
+>   create mode 100644 arch/arm64/include/asm/arm-cmn.h
+>   create mode 100644 drivers/ras/aest/aest-cmn.c
+> 
+> diff --git a/arch/arm64/include/asm/arm-cmn.h b/arch/arm64/include/asm/arm-cmn.h
+> new file mode 100644
+> index 000000000000..1b9f50679794
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/arm-cmn.h
+> @@ -0,0 +1,47 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2015 ARM Ltd.
+> + */
+> +#ifndef __ASM_ARM_CMN_H
+> +#define __ASM_ARM_CMN_H
+> +
+> +#include <asm/sysreg.h>
 
-diff --git a/drivers/phy/qualcomm/phy-ath79-usb.c b/drivers/phy/qualcomm/phy-ath79-usb.c
-index f8d0199c6e78..2f07241be600 100644
---- a/drivers/phy/qualcomm/phy-ath79-usb.c
-+++ b/drivers/phy/qualcomm/phy-ath79-usb.c
-@@ -8,9 +8,10 @@
- #include <linux/mod_devicetable.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
--#include <linux/phy/phy.h>
- #include <linux/reset.h>
- 
-+#include "../phy-provider.h"
-+
- struct ath79_usb_phy {
- 	struct reset_control *reset;
- 	/* The suspend override logic is inverted, hence the no prefix
-diff --git a/drivers/phy/qualcomm/phy-qcom-apq8064-sata.c b/drivers/phy/qualcomm/phy-qcom-apq8064-sata.c
-index cae290a6e19f..dd73ecbb6c1e 100644
---- a/drivers/phy/qualcomm/phy-qcom-apq8064-sata.c
-+++ b/drivers/phy/qualcomm/phy-qcom-apq8064-sata.c
-@@ -13,7 +13,8 @@
- #include <linux/clk.h>
- #include <linux/slab.h>
- #include <linux/platform_device.h>
--#include <linux/phy/phy.h>
-+
-+#include "../phy-provider.h"
- 
- /* PHY registers */
- #define UNIPHY_PLL_REFCLK_CFG		0x000
-diff --git a/drivers/phy/qualcomm/phy-qcom-edp.c b/drivers/phy/qualcomm/phy-qcom-edp.c
-index 7372de05a0b8..faddba0f20c7 100644
---- a/drivers/phy/qualcomm/phy-qcom-edp.c
-+++ b/drivers/phy/qualcomm/phy-qcom-edp.c
-@@ -13,7 +13,6 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/phy/phy-dp.h>
- #include <linux/platform_device.h>
- #include <linux/regulator/consumer.h>
-@@ -22,6 +21,8 @@
- 
- #include <dt-bindings/phy/phy.h>
- 
-+#include "../phy-provider.h"
-+
- #include "phy-qcom-qmp-dp-phy.h"
- #include "phy-qcom-qmp-qserdes-com-v4.h"
- #include "phy-qcom-qmp-qserdes-com-v6.h"
-diff --git a/drivers/phy/qualcomm/phy-qcom-eusb2-repeater.c b/drivers/phy/qualcomm/phy-qcom-eusb2-repeater.c
-index efeec4709a15..5783bdabc287 100644
---- a/drivers/phy/qualcomm/phy-qcom-eusb2-repeater.c
-+++ b/drivers/phy/qualcomm/phy-qcom-eusb2-repeater.c
-@@ -8,7 +8,8 @@
- #include <linux/regulator/consumer.h>
- #include <linux/regmap.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
-+
-+#include "../phy-provider.h"
- 
- /* eUSB2 status registers */
- #define EUSB2_RPTR_STATUS		0x08
-diff --git a/drivers/phy/qualcomm/phy-qcom-ipq4019-usb.c b/drivers/phy/qualcomm/phy-qcom-ipq4019-usb.c
-index da6f290af722..f1c1c2969e37 100644
---- a/drivers/phy/qualcomm/phy-qcom-ipq4019-usb.c
-+++ b/drivers/phy/qualcomm/phy-qcom-ipq4019-usb.c
-@@ -14,10 +14,11 @@
- #include <linux/module.h>
- #include <linux/mutex.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/reset.h>
- 
-+#include "../phy-provider.h"
-+
- struct ipq4019_usb_phy {
- 	struct device		*dev;
- 	struct phy		*phy;
-diff --git a/drivers/phy/qualcomm/phy-qcom-ipq806x-sata.c b/drivers/phy/qualcomm/phy-qcom-ipq806x-sata.c
-index f5eb0bdac418..1a9d4dae6a33 100644
---- a/drivers/phy/qualcomm/phy-qcom-ipq806x-sata.c
-+++ b/drivers/phy/qualcomm/phy-qcom-ipq806x-sata.c
-@@ -13,7 +13,8 @@
- #include <linux/clk.h>
- #include <linux/slab.h>
- #include <linux/platform_device.h>
--#include <linux/phy/phy.h>
-+
-+#include "phy-provider.h"
- 
- struct qcom_ipq806x_sata_phy {
- 	void __iomem *mmio;
-diff --git a/drivers/phy/qualcomm/phy-qcom-ipq806x-usb.c b/drivers/phy/qualcomm/phy-qcom-ipq806x-usb.c
-index f22c0000479f..54144f0547f0 100644
---- a/drivers/phy/qualcomm/phy-qcom-ipq806x-usb.c
-+++ b/drivers/phy/qualcomm/phy-qcom-ipq806x-usb.c
-@@ -5,13 +5,14 @@
- #include <linux/io.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/delay.h>
- #include <linux/regmap.h>
- #include <linux/mfd/syscon.h>
- #include <linux/bitfield.h>
- 
-+#include "../phy-provider.h"
-+
- /* USB QSCRATCH Hardware registers */
- #define QSCRATCH_GENERAL_CFG		(0x08)
- #define HSUSB_PHY_CTRL_REG		(0x10)
-diff --git a/drivers/phy/qualcomm/phy-qcom-m31-eusb2.c b/drivers/phy/qualcomm/phy-qcom-m31-eusb2.c
-index 68f1ba8fec4a..9e3a911023cd 100644
---- a/drivers/phy/qualcomm/phy-qcom-m31-eusb2.c
-+++ b/drivers/phy/qualcomm/phy-qcom-m31-eusb2.c
-@@ -18,6 +18,8 @@
- 
- #include <linux/regulator/consumer.h>
- 
-+#include "../phy-provider.h"
-+
- #define USB_PHY_UTMI_CTRL0		(0x3c)
- #define SLEEPM				BIT(0)
- 
-diff --git a/drivers/phy/qualcomm/phy-qcom-m31.c b/drivers/phy/qualcomm/phy-qcom-m31.c
-index 168ea980fda0..1a63a5807d37 100644
---- a/drivers/phy/qualcomm/phy-qcom-m31.c
-+++ b/drivers/phy/qualcomm/phy-qcom-m31.c
-@@ -10,11 +10,12 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/reset.h>
- #include <linux/slab.h>
- 
-+#include "../phy-provider.h"
-+
- #define USB2PHY_PORT_UTMI_CTRL1		0x40
- 
- #define USB2PHY_PORT_UTMI_CTRL2		0x44
-diff --git a/drivers/phy/qualcomm/phy-qcom-pcie2.c b/drivers/phy/qualcomm/phy-qcom-pcie2.c
-index 11a2bb958681..4c74d8e7722d 100644
---- a/drivers/phy/qualcomm/phy-qcom-pcie2.c
-+++ b/drivers/phy/qualcomm/phy-qcom-pcie2.c
-@@ -8,11 +8,12 @@
- #include <linux/clk.h>
- #include <linux/iopoll.h>
- #include <linux/module.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/reset.h>
- #include <linux/slab.h>
- 
-+#include "../phy-provider.h"
-+
- #include <dt-bindings/phy/phy.h>
- 
- #define PCIE20_PARF_PHY_STTS         0x3c
-diff --git a/drivers/phy/qualcomm/phy-qcom-qmp-combo.c b/drivers/phy/qualcomm/phy-qcom-qmp-combo.c
-index b9ea7d058e93..04c54c229f08 100644
---- a/drivers/phy/qualcomm/phy-qcom-qmp-combo.c
-+++ b/drivers/phy/qualcomm/phy-qcom-qmp-combo.c
-@@ -14,7 +14,6 @@
- #include <linux/of.h>
- #include <linux/of_address.h>
- #include <linux/of_graph.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/regulator/consumer.h>
-@@ -28,6 +27,8 @@
- 
- #include <dt-bindings/phy/phy-qcom-qmp.h>
- 
-+#include "../phy-provider.h"
-+
- #include "phy-qcom-qmp-common.h"
- 
- #include "phy-qcom-qmp.h"
-diff --git a/drivers/phy/qualcomm/phy-qcom-qmp-pcie-msm8996.c b/drivers/phy/qualcomm/phy-qcom-qmp-pcie-msm8996.c
-index a7c65cfe31df..df38d5b6d5be 100644
---- a/drivers/phy/qualcomm/phy-qcom-qmp-pcie-msm8996.c
-+++ b/drivers/phy/qualcomm/phy-qcom-qmp-pcie-msm8996.c
-@@ -13,12 +13,13 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regulator/consumer.h>
- #include <linux/reset.h>
- #include <linux/slab.h>
- 
-+#include "../phy-provider.h"
-+
- #include "phy-qcom-qmp-common.h"
- 
- #include "phy-qcom-qmp.h"
-diff --git a/drivers/phy/qualcomm/phy-qcom-qmp-pcie.c b/drivers/phy/qualcomm/phy-qcom-qmp-pcie.c
-index fed2fc9bb311..06680151360e 100644
---- a/drivers/phy/qualcomm/phy-qcom-qmp-pcie.c
-+++ b/drivers/phy/qualcomm/phy-qcom-qmp-pcie.c
-@@ -15,7 +15,6 @@
- #include <linux/of.h>
- #include <linux/of_address.h>
- #include <linux/phy/pcie.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- #include <linux/regulator/consumer.h>
-@@ -24,6 +23,8 @@
- 
- #include <dt-bindings/phy/phy-qcom-qmp.h>
- 
-+#include "../phy-provider.h"
-+
- #include "phy-qcom-qmp-common.h"
- 
- #include "phy-qcom-qmp.h"
-diff --git a/drivers/phy/qualcomm/phy-qcom-qmp-ufs.c b/drivers/phy/qualcomm/phy-qcom-qmp-ufs.c
-index df138a5442eb..75cd5b10fdb2 100644
---- a/drivers/phy/qualcomm/phy-qcom-qmp-ufs.c
-+++ b/drivers/phy/qualcomm/phy-qcom-qmp-ufs.c
-@@ -13,7 +13,6 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regulator/consumer.h>
- #include <linux/reset.h>
-@@ -21,6 +20,8 @@
- 
- #include <ufs/unipro.h>
- 
-+#include "../phy-provider.h"
-+
- #include "phy-qcom-qmp-common.h"
- 
- #include "phy-qcom-qmp.h"
-diff --git a/drivers/phy/qualcomm/phy-qcom-qmp-usb-legacy.c b/drivers/phy/qualcomm/phy-qcom-qmp-usb-legacy.c
-index 2bd5862c5ba8..a682b30db03e 100644
---- a/drivers/phy/qualcomm/phy-qcom-qmp-usb-legacy.c
-+++ b/drivers/phy/qualcomm/phy-qcom-qmp-usb-legacy.c
-@@ -14,13 +14,14 @@
- #include <linux/of.h>
- #include <linux/of_device.h>
- #include <linux/of_address.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/regulator/consumer.h>
- #include <linux/reset.h>
- #include <linux/slab.h>
- 
-+#include "../phy-provider.h"
-+
- #include "phy-qcom-qmp.h"
- #include "phy-qcom-qmp-pcs-misc-v3.h"
- #include "phy-qcom-qmp-pcs-usb-v4.h"
-diff --git a/drivers/phy/qualcomm/phy-qcom-qmp-usb.c b/drivers/phy/qualcomm/phy-qcom-qmp-usb.c
-index d88b8a415e85..3db0a5282dbf 100644
---- a/drivers/phy/qualcomm/phy-qcom-qmp-usb.c
-+++ b/drivers/phy/qualcomm/phy-qcom-qmp-usb.c
-@@ -13,13 +13,14 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/regulator/consumer.h>
- #include <linux/reset.h>
- #include <linux/slab.h>
- 
-+#include "../phy-provider.h"
-+
- #include "phy-qcom-qmp-common.h"
- 
- #include "phy-qcom-qmp.h"
-diff --git a/drivers/phy/qualcomm/phy-qcom-qmp-usbc.c b/drivers/phy/qualcomm/phy-qcom-qmp-usbc.c
-index f62e1f6ecc07..b77007f8fee3 100644
---- a/drivers/phy/qualcomm/phy-qcom-qmp-usbc.c
-+++ b/drivers/phy/qualcomm/phy-qcom-qmp-usbc.c
-@@ -14,7 +14,6 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/regmap.h>
-@@ -25,6 +24,8 @@
- #include <linux/usb/typec_mux.h>
- #include <dt-bindings/phy/phy-qcom-qmp.h>
- 
-+#include "../phy-provider.h"
-+
- #include "phy-qcom-qmp-common.h"
- 
- #include "phy-qcom-qmp.h"
-diff --git a/drivers/phy/qualcomm/phy-qcom-qusb2.c b/drivers/phy/qualcomm/phy-qcom-qusb2.c
-index 191040f6d60f..e5516099b911 100644
---- a/drivers/phy/qualcomm/phy-qcom-qusb2.c
-+++ b/drivers/phy/qualcomm/phy-qcom-qusb2.c
-@@ -3,6 +3,7 @@
-  * Copyright (c) 2017, 2019, The Linux Foundation. All rights reserved.
-  */
- 
-+#include <dt-bindings/phy/phy-qcom-qusb2.h>
- #include <linux/clk.h>
- #include <linux/delay.h>
- #include <linux/err.h>
-@@ -12,7 +13,6 @@
- #include <linux/module.h>
- #include <linux/nvmem-consumer.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/regmap.h>
-@@ -20,7 +20,7 @@
- #include <linux/reset.h>
- #include <linux/slab.h>
- 
--#include <dt-bindings/phy/phy-qcom-qusb2.h>
-+#include "../phy-provider.h"
- 
- #define QUSB2PHY_PLL			0x0
- #define QUSB2PHY_PLL_TEST		0x04
-diff --git a/drivers/phy/qualcomm/phy-qcom-sgmii-eth.c b/drivers/phy/qualcomm/phy-qcom-sgmii-eth.c
-index 5b1c82459c12..4f8ffc6524ab 100644
---- a/drivers/phy/qualcomm/phy-qcom-sgmii-eth.c
-+++ b/drivers/phy/qualcomm/phy-qcom-sgmii-eth.c
-@@ -7,10 +7,11 @@
- #include <linux/ethtool.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- 
-+#include "../phy-provider.h"
-+
- #include "phy-qcom-qmp-pcs-sgmii.h"
- #include "phy-qcom-qmp-qserdes-com-v5.h"
- #include "phy-qcom-qmp-qserdes-txrx-v5.h"
-diff --git a/drivers/phy/qualcomm/phy-qcom-snps-femto-v2.c b/drivers/phy/qualcomm/phy-qcom-snps-femto-v2.c
-index 8915fa250e81..17a33e545008 100644
---- a/drivers/phy/qualcomm/phy-qcom-snps-femto-v2.c
-+++ b/drivers/phy/qualcomm/phy-qcom-snps-femto-v2.c
-@@ -10,7 +10,6 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/regmap.h>
-@@ -18,6 +17,8 @@
- #include <linux/reset.h>
- #include <linux/slab.h>
- 
-+#include "../phy-provider.h"
-+
- #define USB2_PHY_USB_PHY_UTMI_CTRL0		(0x3c)
- #define SLEEPM					BIT(0)
- #define OPMODE_MASK				GENMASK(4, 3)
-diff --git a/drivers/phy/qualcomm/phy-qcom-uniphy-pcie-28lp.c b/drivers/phy/qualcomm/phy-qcom-uniphy-pcie-28lp.c
-index 324c0a5d658e..13828d4f788e 100644
---- a/drivers/phy/qualcomm/phy-qcom-uniphy-pcie-28lp.c
-+++ b/drivers/phy/qualcomm/phy-qcom-uniphy-pcie-28lp.c
-@@ -12,12 +12,13 @@
- #include <linux/module.h>
- #include <linux/of_device.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- #include <linux/reset.h>
- #include <linux/units.h>
- 
-+#include "../phy-provider.h"
-+
- #define RST_ASSERT_DELAY_MIN_US		100
- #define RST_ASSERT_DELAY_MAX_US		150
- #define PIPE_CLK_DELAY_MIN_US		5000
-diff --git a/drivers/phy/qualcomm/phy-qcom-usb-hs-28nm.c b/drivers/phy/qualcomm/phy-qcom-usb-hs-28nm.c
-index a52a9bf13b75..ce317deaeacb 100644
---- a/drivers/phy/qualcomm/phy-qcom-usb-hs-28nm.c
-+++ b/drivers/phy/qualcomm/phy-qcom-usb-hs-28nm.c
-@@ -11,12 +11,13 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_graph.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regulator/consumer.h>
- #include <linux/reset.h>
- #include <linux/slab.h>
- 
-+#include "../phy-provider.h"
-+
- /* PHY register and bit definitions */
- #define PHY_CTRL_COMMON0		0x078
- #define SIDDQ				BIT(2)
-diff --git a/drivers/phy/qualcomm/phy-qcom-usb-hs.c b/drivers/phy/qualcomm/phy-qcom-usb-hs.c
-index 98a18987f1be..95581926023f 100644
---- a/drivers/phy/qualcomm/phy-qcom-usb-hs.c
-+++ b/drivers/phy/qualcomm/phy-qcom-usb-hs.c
-@@ -8,11 +8,12 @@
- #include <linux/clk.h>
- #include <linux/regulator/consumer.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/reset.h>
- #include <linux/extcon.h>
- #include <linux/notifier.h>
- 
-+#include "../phy-provider.h"
-+
- #define ULPI_PWR_CLK_MNG_REG		0x88
- # define ULPI_PWR_OTG_COMP_DISABLE	BIT(0)
- 
-diff --git a/drivers/phy/qualcomm/phy-qcom-usb-hsic.c b/drivers/phy/qualcomm/phy-qcom-usb-hsic.c
-index 20f6dd37c7c1..fe9315a2f207 100644
---- a/drivers/phy/qualcomm/phy-qcom-usb-hsic.c
-+++ b/drivers/phy/qualcomm/phy-qcom-usb-hsic.c
-@@ -5,12 +5,13 @@
- #include <linux/module.h>
- #include <linux/ulpi/driver.h>
- #include <linux/ulpi/regs.h>
--#include <linux/phy/phy.h>
- #include <linux/pinctrl/consumer.h>
- #include <linux/pinctrl/pinctrl-state.h>
- #include <linux/delay.h>
- #include <linux/clk.h>
- 
-+#include "../phy-provider.h"
-+
- #define ULPI_HSIC_CFG		0x30
- #define ULPI_HSIC_IO_CAL	0x33
- 
-diff --git a/drivers/phy/qualcomm/phy-qcom-usb-ss.c b/drivers/phy/qualcomm/phy-qcom-usb-ss.c
-index a3a6d3ce7ea1..17ca14a0b34d 100644
---- a/drivers/phy/qualcomm/phy-qcom-usb-ss.c
-+++ b/drivers/phy/qualcomm/phy-qcom-usb-ss.c
-@@ -11,12 +11,13 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regulator/consumer.h>
- #include <linux/reset.h>
- #include <linux/slab.h>
- 
-+#include "../phy-provider.h"
-+
- #define PHY_CTRL0			0x6C
- #define PHY_CTRL1			0x70
- #define PHY_CTRL2			0x74
-diff --git a/drivers/phy/ralink/phy-mt7621-pci.c b/drivers/phy/ralink/phy-mt7621-pci.c
-index a591ad95347c..4865a264136d 100644
---- a/drivers/phy/ralink/phy-mt7621-pci.c
-+++ b/drivers/phy/ralink/phy-mt7621-pci.c
-@@ -10,11 +10,12 @@
- #include <linux/bitops.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- #include <linux/sys_soc.h>
- 
-+#include "../phy-provider.h"
-+
- #define RG_PE1_PIPE_REG				0x02c
- #define RG_PE1_PIPE_RST				BIT(12)
- #define RG_PE1_PIPE_CMD_FRC			BIT(4)
-diff --git a/drivers/phy/ralink/phy-ralink-usb.c b/drivers/phy/ralink/phy-ralink-usb.c
-index 0ff07e210769..cc61139ce157 100644
---- a/drivers/phy/ralink/phy-ralink-usb.c
-+++ b/drivers/phy/ralink/phy-ralink-usb.c
-@@ -14,11 +14,12 @@
- #include <linux/module.h>
- #include <linux/mutex.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- #include <linux/reset.h>
- 
-+#include "../phy-provider.h"
-+
- #define RT_SYSC_REG_SYSCFG1		0x014
- #define RT_SYSC_REG_CLKCFG1		0x030
- #define RT_SYSC_REG_USB_PHY_CFG		0x05c
-diff --git a/drivers/phy/realtek/phy-rtk-usb2.c b/drivers/phy/realtek/phy-rtk-usb2.c
-index 248550ef98ca..a0431f11972e 100644
---- a/drivers/phy/realtek/phy-rtk-usb2.c
-+++ b/drivers/phy/realtek/phy-rtk-usb2.c
-@@ -16,9 +16,10 @@
- #include <linux/regmap.h>
- #include <linux/sys_soc.h>
- #include <linux/mfd/syscon.h>
--#include <linux/phy/phy.h>
- #include <linux/usb.h>
- 
-+#include "../phy-provider.h"
-+
- /* GUSB2PHYACCn register */
- #define PHY_NEW_REG_REQ BIT(25)
- #define PHY_VSTS_BUSY   BIT(23)
-diff --git a/drivers/phy/realtek/phy-rtk-usb3.c b/drivers/phy/realtek/phy-rtk-usb3.c
-index cce453686db2..3f565c4d96be 100644
---- a/drivers/phy/realtek/phy-rtk-usb3.c
-+++ b/drivers/phy/realtek/phy-rtk-usb3.c
-@@ -16,9 +16,10 @@
- #include <linux/regmap.h>
- #include <linux/sys_soc.h>
- #include <linux/mfd/syscon.h>
--#include <linux/phy/phy.h>
- #include <linux/usb.h>
- 
-+#include "../phy-provider.h"
-+
- #define USB_MDIO_CTRL_PHY_BUSY BIT(7)
- #define USB_MDIO_CTRL_PHY_WRITE BIT(0)
- #define USB_MDIO_CTRL_PHY_ADDR_SHIFT 8
-diff --git a/drivers/phy/renesas/phy-rcar-gen2.c b/drivers/phy/renesas/phy-rcar-gen2.c
-index 6c671254c625..ca5498986120 100644
---- a/drivers/phy/renesas/phy-rcar-gen2.c
-+++ b/drivers/phy/renesas/phy-rcar-gen2.c
-@@ -12,11 +12,12 @@
- #include <linux/io.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/spinlock.h>
- #include <linux/atomic.h>
- 
-+#include "../phy-provider.h"
-+
- #define USBHS_LPSTS			0x02
- #define USBHS_UGCTRL			0x80
- #define USBHS_UGCTRL2			0x84
-diff --git a/drivers/phy/renesas/phy-rcar-gen3-pcie.c b/drivers/phy/renesas/phy-rcar-gen3-pcie.c
-index 3e2cf59ad480..747a1cd74639 100644
---- a/drivers/phy/renesas/phy-rcar-gen3-pcie.c
-+++ b/drivers/phy/renesas/phy-rcar-gen3-pcie.c
-@@ -9,11 +9,12 @@
- #include <linux/io.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/spinlock.h>
- 
-+#include "../phy-provider.h"
-+
- #define PHY_CTRL		0x4000		/* R8A77980 only */
- 
- /* PHY control register (PHY_CTRL) */
-diff --git a/drivers/phy/renesas/phy-rcar-gen3-usb2.c b/drivers/phy/renesas/phy-rcar-gen3-usb2.c
-index cfc2a8d9028d..48ae5a507752 100644
---- a/drivers/phy/renesas/phy-rcar-gen3-usb2.c
-+++ b/drivers/phy/renesas/phy-rcar-gen3-usb2.c
-@@ -19,7 +19,6 @@
- #include <linux/mutex.h>
- #include <linux/mux/consumer.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/regulator/consumer.h>
-@@ -29,6 +28,8 @@
- #include <linux/usb/of.h>
- #include <linux/workqueue.h>
- 
-+#include "../phy-provider.h"
-+
- /******* USB2.0 Host registers (original offset is +0x200) *******/
- #define USB2_INT_ENABLE		0x000
- #define USB2_AHB_BUS_CTR	0x008
-diff --git a/drivers/phy/renesas/phy-rcar-gen3-usb3.c b/drivers/phy/renesas/phy-rcar-gen3-usb3.c
-index 0420f5b283ce..3511831e95d2 100644
---- a/drivers/phy/renesas/phy-rcar-gen3-usb3.c
-+++ b/drivers/phy/renesas/phy-rcar-gen3-usb3.c
-@@ -10,10 +10,11 @@
- #include <linux/io.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- 
-+#include "../phy-provider.h"
-+
- #define USB30_CLKSET0		0x034
- #define USB30_CLKSET1		0x036
- #define USB30_SSC_SET		0x038
-diff --git a/drivers/phy/renesas/phy-rzg3e-usb3.c b/drivers/phy/renesas/phy-rzg3e-usb3.c
-index 6b3453ea0004..1c9e2276bb73 100644
---- a/drivers/phy/renesas/phy-rzg3e-usb3.c
-+++ b/drivers/phy/renesas/phy-rzg3e-usb3.c
-@@ -11,11 +11,12 @@
- #include <linux/iopoll.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/reset.h>
- 
-+#include "../phy-provider.h"
-+
- #define USB3_TEST_RESET				0x0000
- #define USB3_TEST_UTMICTRL2			0x0b04
- #define USB3_TEST_PRMCTRL5_R			0x0c10
-diff --git a/drivers/phy/renesas/r8a779f0-ether-serdes.c b/drivers/phy/renesas/r8a779f0-ether-serdes.c
-index c34427ac4fdb..807af518aeda 100644
---- a/drivers/phy/renesas/r8a779f0-ether-serdes.c
-+++ b/drivers/phy/renesas/r8a779f0-ether-serdes.c
-@@ -10,11 +10,12 @@
- #include <linux/kernel.h>
- #include <linux/of.h>
- #include <linux/phy.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/reset.h>
- 
-+#include "../phy-provider.h"
-+
- #define R8A779F0_ETH_SERDES_NUM			3
- #define R8A779F0_ETH_SERDES_OFFSET		0x0400
- #define R8A779F0_ETH_SERDES_BANK_SELECT		0x03fc
-diff --git a/drivers/phy/rockchip/phy-rockchip-dp.c b/drivers/phy/rockchip/phy-rockchip-dp.c
-index 592aa956eead..63e972969379 100644
---- a/drivers/phy/rockchip/phy-rockchip-dp.c
-+++ b/drivers/phy/rockchip/phy-rockchip-dp.c
-@@ -10,10 +10,11 @@
- #include <linux/mfd/syscon.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- 
-+#include "../phy-provider.h"
-+
- #define GRF_SOC_CON12                           0x0274
- 
- #define GRF_EDP_REF_CLK_SEL_INTER_HIWORD_MASK   BIT(20)
-diff --git a/drivers/phy/rockchip/phy-rockchip-dphy-rx0.c b/drivers/phy/rockchip/phy-rockchip-dphy-rx0.c
-index e6a768bbb9b3..de7e00580e20 100644
---- a/drivers/phy/rockchip/phy-rockchip-dphy-rx0.c
-+++ b/drivers/phy/rockchip/phy-rockchip-dphy-rx0.c
-@@ -21,11 +21,12 @@
- #include <linux/mfd/syscon.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/phy/phy-mipi-dphy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- 
-+#include "../phy-provider.h"
-+
- #define RK3399_GRF_SOC_CON9		0x6224
- #define RK3399_GRF_SOC_CON21		0x6254
- #define RK3399_GRF_SOC_CON22		0x6258
-diff --git a/drivers/phy/rockchip/phy-rockchip-emmc.c b/drivers/phy/rockchip/phy-rockchip-emmc.c
-index 5187983c58e5..fd292f063f48 100644
---- a/drivers/phy/rockchip/phy-rockchip-emmc.c
-+++ b/drivers/phy/rockchip/phy-rockchip-emmc.c
-@@ -13,10 +13,11 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- 
-+#include "../phy-provider.h"
-+
- /*
-  * The higher 16-bit of this register is used for write protection
-  * only if BIT(x + 16) set to 1 the BIT(x) can be written.
-diff --git a/drivers/phy/rockchip/phy-rockchip-inno-csidphy.c b/drivers/phy/rockchip/phy-rockchip-inno-csidphy.c
-index c79fb53d8ee5..3b5d86b07564 100644
---- a/drivers/phy/rockchip/phy-rockchip-inno-csidphy.c
-+++ b/drivers/phy/rockchip/phy-rockchip-inno-csidphy.c
-@@ -13,13 +13,14 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_platform.h>
--#include <linux/phy/phy.h>
- #include <linux/phy/phy-mipi-dphy.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/regmap.h>
- #include <linux/reset.h>
- 
-+#include "../phy-provider.h"
-+
- /* GRF */
- #define RK1808_GRF_PD_VI_CON_OFFSET	0x0430
- 
-diff --git a/drivers/phy/rockchip/phy-rockchip-inno-dsidphy.c b/drivers/phy/rockchip/phy-rockchip-inno-dsidphy.c
-index 30d5e5ddff4a..5613b34958fe 100644
---- a/drivers/phy/rockchip/phy-rockchip-inno-dsidphy.c
-+++ b/drivers/phy/rockchip/phy-rockchip-inno-dsidphy.c
-@@ -15,13 +15,13 @@
- #include <linux/mfd/syscon.h>
- #include <linux/module.h>
- #include <linux/of.h>
-+#include <linux/phy/phy-mipi-dphy.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/reset.h>
- #include <linux/time64.h>
- 
--#include <linux/phy/phy.h>
--#include <linux/phy/phy-mipi-dphy.h>
-+#include "../phy-provider.h"
- 
- #define UPDATE(x, h, l)	(((x) << (l)) & GENMASK((h), (l)))
- 
-diff --git a/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c b/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
-index 1483907413fa..82b5e7434f83 100644
---- a/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
-+++ b/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
-@@ -20,6 +20,8 @@
- #include <linux/phy/phy.h>
- #include <linux/slab.h>
- 
-+#include "../phy-provider.h"
-+
- #define UPDATE(x, h, l)		(((x) << (l)) & GENMASK((h), (l)))
- 
- /* REG: 0x00 */
-diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-index 8f4c08e599aa..f88e09f61994 100644
---- a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-+++ b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-@@ -18,7 +18,6 @@
- #include <linux/mutex.h>
- #include <linux/of.h>
- #include <linux/of_irq.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/power_supply.h>
- #include <linux/regmap.h>
-@@ -27,6 +26,8 @@
- #include <linux/usb/of.h>
- #include <linux/usb/otg.h>
- 
-+#include "../phy-provider.h"
-+
- #define BIT_WRITEABLE_SHIFT	16
- #define SCHEDULE_DELAY		(60 * HZ)
- #define OTG_SCHEDULE_DELAY	(2 * HZ)
-diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-index b60d6bf3f33c..2deb2666acb1 100644
---- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-+++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-@@ -9,12 +9,13 @@
- #include <linux/clk.h>
- #include <linux/mfd/syscon.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- #include <linux/reset.h>
- #include <linux/units.h>
- 
-+#include "../phy-provider.h"
-+
- #define BIT_WRITEABLE_SHIFT		16
- #define REF_CLOCK_24MHz			(24 * HZ_PER_MHZ)
- #define REF_CLOCK_25MHz			(25 * HZ_PER_MHZ)
-diff --git a/drivers/phy/rockchip/phy-rockchip-pcie.c b/drivers/phy/rockchip/phy-rockchip-pcie.c
-index 126306c01454..604ff00653b0 100644
---- a/drivers/phy/rockchip/phy-rockchip-pcie.c
-+++ b/drivers/phy/rockchip/phy-rockchip-pcie.c
-@@ -13,12 +13,12 @@
- #include <linux/mfd/syscon.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/property.h>
- #include <linux/regmap.h>
- #include <linux/reset.h>
- 
-+#include "../phy-provider.h"
- 
- #define PHY_MAX_LANE_NUM      4
- #define PHY_CFG_DATA_MASK     GENMASK(10, 7)
-diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c b/drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c
-index 0f69060aa5d5..78a0446b81df 100644
---- a/drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c
-+++ b/drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c
-@@ -15,12 +15,13 @@
- #include <linux/module.h>
- #include <linux/mod_devicetable.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/regmap.h>
- #include <linux/reset.h>
- 
-+#include "../phy-provider.h"
-+
- #define BIAS_CON0		0x0000
- #define I_RES_CNTL_MASK		GENMASK(6, 4)
- #define I_RES_CNTL(x)		FIELD_PREP(I_RES_CNTL_MASK, x)
-diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 2d973bc37f07..01801a4dc436 100644
---- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-+++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -21,6 +21,8 @@
- #include <linux/regmap.h>
- #include <linux/reset.h>
- 
-+#include "../phy-provider.h"
-+
- #define GRF_HDPTX_CON0			0x00
- #define LC_REF_CLK_SEL			BIT(11)
- #define HDPTX_I_PLL_EN			BIT(7)
-diff --git a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
-index 4e8ffd173096..029566330aa0 100644
---- a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
-+++ b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
-@@ -14,11 +14,12 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/phy/pcie.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- #include <linux/reset.h>
- 
-+#include "../phy-provider.h"
-+
- /* Register for RK3568 */
- #define GRF_PCIE30PHY_CON1			0x4
- #define GRF_PCIE30PHY_CON6			0x18
-diff --git a/drivers/phy/rockchip/phy-rockchip-typec.c b/drivers/phy/rockchip/phy-rockchip-typec.c
-index 0a318ccf1bbf..4a9756ca4f68 100644
---- a/drivers/phy/rockchip/phy-rockchip-typec.c
-+++ b/drivers/phy/rockchip/phy-rockchip-typec.c
-@@ -43,6 +43,7 @@
- #include <linux/io.h>
- #include <linux/iopoll.h>
- #include <linux/kernel.h>
-+#include <linux/mfd/syscon.h>
- #include <linux/module.h>
- #include <linux/mutex.h>
- #include <linux/of.h>
-@@ -53,8 +54,7 @@
- #include <linux/regmap.h>
- #include <linux/reset.h>
- 
--#include <linux/mfd/syscon.h>
--#include <linux/phy/phy.h>
-+#include "../phy-provider.h"
- 
- #define CMN_SSM_BANDGAP			(0x21 << 2)
- #define CMN_SSM_BIAS			(0x22 << 2)
-diff --git a/drivers/phy/rockchip/phy-rockchip-usb.c b/drivers/phy/rockchip/phy-rockchip-usb.c
-index cef96739cf3f..0652f821332b 100644
---- a/drivers/phy/rockchip/phy-rockchip-usb.c
-+++ b/drivers/phy/rockchip/phy-rockchip-usb.c
-@@ -14,7 +14,6 @@
- #include <linux/module.h>
- #include <linux/mutex.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/property.h>
- #include <linux/regulator/consumer.h>
-@@ -23,6 +22,8 @@
- #include <linux/mfd/syscon.h>
- #include <linux/delay.h>
- 
-+#include "../phy-provider.h"
-+
- static int enable_usb_uart;
- 
- #define UOC_CON0					0x00
-diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index fba35510d88c..cf2abf29512f 100644
---- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
-+++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -25,6 +25,8 @@
- #include <linux/usb/typec_dp.h>
- #include <linux/usb/typec_mux.h>
- 
-+#include "../phy-provider.h"
-+
- /* USBDP PHY Register Definitions */
- #define UDPHY_PCS				0x4000
- #define UDPHY_PMA				0x8000
-diff --git a/drivers/phy/samsung/phy-exynos-dp-video.c b/drivers/phy/samsung/phy-exynos-dp-video.c
-index a636dee07585..00d0ed82a620 100644
---- a/drivers/phy/samsung/phy-exynos-dp-video.c
-+++ b/drivers/phy/samsung/phy-exynos-dp-video.c
-@@ -12,11 +12,12 @@
- #include <linux/module.h>
- #include <linux/mfd/syscon.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- #include <linux/soc/samsung/exynos-regs-pmu.h>
- 
-+#include "../phy-provider.h"
-+
- struct exynos_dp_video_phy_drvdata {
- 	u32 phy_ctrl_offset;
- };
-diff --git a/drivers/phy/samsung/phy-exynos-mipi-video.c b/drivers/phy/samsung/phy-exynos-mipi-video.c
-index be925508ed97..ce8a258a104e 100644
---- a/drivers/phy/samsung/phy-exynos-mipi-video.c
-+++ b/drivers/phy/samsung/phy-exynos-mipi-video.c
-@@ -11,13 +11,14 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- #include <linux/spinlock.h>
- #include <linux/soc/samsung/exynos-regs-pmu.h>
- #include <linux/mfd/syscon.h>
- 
-+#include "../phy-provider.h"
-+
- enum exynos_mipi_phy_id {
- 	EXYNOS_MIPI_PHY_ID_NONE = -1,
- 	EXYNOS_MIPI_PHY_ID_CSIS0,
-diff --git a/drivers/phy/samsung/phy-exynos-pcie.c b/drivers/phy/samsung/phy-exynos-pcie.c
-index 53c9230c2907..9dd3a4a90fa7 100644
---- a/drivers/phy/samsung/phy-exynos-pcie.c
-+++ b/drivers/phy/samsung/phy-exynos-pcie.c
-@@ -12,9 +12,10 @@
- #include <linux/mfd/syscon.h>
- #include <linux/of_platform.h>
- #include <linux/platform_device.h>
--#include <linux/phy/phy.h>
- #include <linux/regmap.h>
- 
-+#include "../phy-provider.h"
-+
- #define PCIE_PHY_OFFSET(x)		((x) * 0x4)
- 
- /* Sysreg FSYS register offsets and bits for Exynos5433 */
-diff --git a/drivers/phy/samsung/phy-exynos4210-usb2.c b/drivers/phy/samsung/phy-exynos4210-usb2.c
-index 3898a7f58217..beb2f96bebbf 100644
---- a/drivers/phy/samsung/phy-exynos4210-usb2.c
-+++ b/drivers/phy/samsung/phy-exynos4210-usb2.c
-@@ -8,8 +8,9 @@
- 
- #include <linux/delay.h>
- #include <linux/io.h>
--#include <linux/phy/phy.h>
- #include <linux/regmap.h>
-+
-+#include "../phy-provider.h"
- #include "phy-samsung-usb2.h"
- 
- /* Exynos USB PHY registers */
-diff --git a/drivers/phy/samsung/phy-exynos4x12-usb2.c b/drivers/phy/samsung/phy-exynos4x12-usb2.c
-index b528a5d037fe..a402f80d0aab 100644
---- a/drivers/phy/samsung/phy-exynos4x12-usb2.c
-+++ b/drivers/phy/samsung/phy-exynos4x12-usb2.c
-@@ -8,8 +8,9 @@
- 
- #include <linux/delay.h>
- #include <linux/io.h>
--#include <linux/phy/phy.h>
- #include <linux/regmap.h>
-+
-+#include "../phy-provider.h"
- #include "phy-samsung-usb2.h"
- 
- /* Exynos USB PHY registers */
-diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-index 5a181cb4597e..cb476d007e3f 100644
---- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
-+++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-@@ -26,6 +26,8 @@
- #include <linux/usb/typec.h>
- #include <linux/usb/typec_mux.h>
- 
-+#include "../phy-provider.h"
-+
- /* Exynos USB PHY registers */
- #define EXYNOS5_FSEL_9MHZ6		0x0
- #define EXYNOS5_FSEL_10MHZ		0x1
-diff --git a/drivers/phy/samsung/phy-exynos5250-sata.c b/drivers/phy/samsung/phy-exynos5250-sata.c
-index 595adba5fb8f..0f85ae0a5901 100644
---- a/drivers/phy/samsung/phy-exynos5250-sata.c
-+++ b/drivers/phy/samsung/phy-exynos5250-sata.c
-@@ -15,12 +15,13 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- #include <linux/spinlock.h>
- #include <linux/mfd/syscon.h>
- 
-+#include "../phy-provider.h"
-+
- #define SATAPHY_CONTROL_OFFSET		0x0724
- #define EXYNOS5_SATAPHY_PMU_ENABLE	BIT(0)
- #define EXYNOS5_SATA_RESET		0x4
-diff --git a/drivers/phy/samsung/phy-exynos5250-usb2.c b/drivers/phy/samsung/phy-exynos5250-usb2.c
-index 21b06072f866..04815633f290 100644
---- a/drivers/phy/samsung/phy-exynos5250-usb2.c
-+++ b/drivers/phy/samsung/phy-exynos5250-usb2.c
-@@ -8,8 +8,9 @@
- 
- #include <linux/delay.h>
- #include <linux/io.h>
--#include <linux/phy/phy.h>
- #include <linux/regmap.h>
-+
-+#include "../phy-provider.h"
- #include "phy-samsung-usb2.h"
- 
- /* Exynos USB PHY registers */
-diff --git a/drivers/phy/samsung/phy-s5pv210-usb2.c b/drivers/phy/samsung/phy-s5pv210-usb2.c
-index 32be62e49804..4d72559d29a9 100644
---- a/drivers/phy/samsung/phy-s5pv210-usb2.c
-+++ b/drivers/phy/samsung/phy-s5pv210-usb2.c
-@@ -8,7 +8,8 @@
- 
- #include <linux/delay.h>
- #include <linux/io.h>
--#include <linux/phy/phy.h>
-+
-+#include "../phy-provider.h"
- #include "phy-samsung-usb2.h"
- 
- /* Exynos USB PHY registers */
-diff --git a/drivers/phy/samsung/phy-samsung-ufs.c b/drivers/phy/samsung/phy-samsung-ufs.c
-index ee665f26c236..b55a726cd44e 100644
---- a/drivers/phy/samsung/phy-samsung-ufs.c
-+++ b/drivers/phy/samsung/phy-samsung-ufs.c
-@@ -15,10 +15,10 @@
- #include <linux/iopoll.h>
- #include <linux/mfd/syscon.h>
- #include <linux/module.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- 
-+#include "../phy-provider.h"
- #include "phy-samsung-ufs.h"
- 
- #define for_each_phy_lane(phy, i) \
-diff --git a/drivers/phy/samsung/phy-samsung-ufs.h b/drivers/phy/samsung/phy-samsung-ufs.h
-index f2c2e744e5ba..90f4d4cef631 100644
---- a/drivers/phy/samsung/phy-samsung-ufs.h
-+++ b/drivers/phy/samsung/phy-samsung-ufs.h
-@@ -10,9 +10,10 @@
- #ifndef _PHY_SAMSUNG_UFS_
- #define _PHY_SAMSUNG_UFS_
- 
--#include <linux/phy/phy.h>
- #include <linux/regmap.h>
- 
-+#include "../phy-provider.h"
-+
- #define PHY_COMN_BLK	1
- #define PHY_TRSV_BLK	2
- #define END_UFS_PHY_CFG { 0 }
-diff --git a/drivers/phy/samsung/phy-samsung-usb2.c b/drivers/phy/samsung/phy-samsung-usb2.c
-index d2749b67cf8f..362dd4ae3cab 100644
---- a/drivers/phy/samsung/phy-samsung-usb2.c
-+++ b/drivers/phy/samsung/phy-samsung-usb2.c
-@@ -13,6 +13,8 @@
- #include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/spinlock.h>
-+
-+#include "../phy-provider.h"
- #include "phy-samsung-usb2.h"
- 
- static int samsung_usb2_phy_power_on(struct phy *phy)
-diff --git a/drivers/phy/samsung/phy-samsung-usb2.h b/drivers/phy/samsung/phy-samsung-usb2.h
-index ebaf43bfc5a2..515c7938fccd 100644
---- a/drivers/phy/samsung/phy-samsung-usb2.h
-+++ b/drivers/phy/samsung/phy-samsung-usb2.h
-@@ -10,12 +10,13 @@
- #define _PHY_EXYNOS_USB2_H
- 
- #include <linux/clk.h>
--#include <linux/phy/phy.h>
- #include <linux/device.h>
- #include <linux/regmap.h>
- #include <linux/spinlock.h>
- #include <linux/regulator/consumer.h>
- 
-+#include "../phy-provider.h"
-+
- #define KHZ 1000
- #define MHZ (KHZ * KHZ)
- 
-diff --git a/drivers/phy/socionext/phy-uniphier-ahci.c b/drivers/phy/socionext/phy-uniphier-ahci.c
-index 28cf3efe0695..6b3ce56c7f0c 100644
---- a/drivers/phy/socionext/phy-uniphier-ahci.c
-+++ b/drivers/phy/socionext/phy-uniphier-ahci.c
-@@ -12,10 +12,11 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_platform.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/reset.h>
- 
-+#include "../phy-provider.h"
-+
- struct uniphier_ahciphy_priv {
- 	struct device *dev;
- 	void __iomem  *base;
-diff --git a/drivers/phy/socionext/phy-uniphier-pcie.c b/drivers/phy/socionext/phy-uniphier-pcie.c
-index c19173492b79..00f6cdf846f1 100644
---- a/drivers/phy/socionext/phy-uniphier-pcie.c
-+++ b/drivers/phy/socionext/phy-uniphier-pcie.c
-@@ -12,12 +12,13 @@
- #include <linux/mfd/syscon.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- #include <linux/reset.h>
- #include <linux/resource.h>
- 
-+#include "../phy-provider.h"
-+
- /* PHY */
- #define PCL_PHY_CLKCTRL		0x0000
- #define PORT_SEL_MASK		GENMASK(11, 9)
-diff --git a/drivers/phy/socionext/phy-uniphier-usb2.c b/drivers/phy/socionext/phy-uniphier-usb2.c
-index c49d432e526b..6ee566478be0 100644
---- a/drivers/phy/socionext/phy-uniphier-usb2.c
-+++ b/drivers/phy/socionext/phy-uniphier-usb2.c
-@@ -10,11 +10,12 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_platform.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- #include <linux/regulator/consumer.h>
- 
-+#include "../phy-provider.h"
-+
- #define SG_USBPHY1CTRL		0x500
- #define SG_USBPHY1CTRL2		0x504
- #define SG_USBPHY2CTRL		0x508
-diff --git a/drivers/phy/socionext/phy-uniphier-usb3hs.c b/drivers/phy/socionext/phy-uniphier-usb3hs.c
-index 8c8673df0084..a08db863223f 100644
---- a/drivers/phy/socionext/phy-uniphier-usb3hs.c
-+++ b/drivers/phy/socionext/phy-uniphier-usb3hs.c
-@@ -17,12 +17,13 @@
- #include <linux/nvmem-consumer.h>
- #include <linux/of.h>
- #include <linux/of_platform.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regulator/consumer.h>
- #include <linux/reset.h>
- #include <linux/slab.h>
- 
-+#include "../phy-provider.h"
-+
- #define HSPHY_CFG0		0x0
- #define HSPHY_CFG0_HS_I_MASK	GENMASK(31, 28)
- #define HSPHY_CFG0_HSDISC_MASK	GENMASK(27, 26)
-diff --git a/drivers/phy/socionext/phy-uniphier-usb3ss.c b/drivers/phy/socionext/phy-uniphier-usb3ss.c
-index f402ed8732fd..8829305e9d4c 100644
---- a/drivers/phy/socionext/phy-uniphier-usb3ss.c
-+++ b/drivers/phy/socionext/phy-uniphier-usb3ss.c
-@@ -16,11 +16,12 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_platform.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regulator/consumer.h>
- #include <linux/reset.h>
- 
-+#include "../phy-provider.h"
-+
- #define SSPHY_TESTI		0x0
- #define TESTI_DAT_MASK		GENMASK(13, 6)
- #define TESTI_ADR_MASK		GENMASK(5, 1)
-diff --git a/drivers/phy/sophgo/phy-cv1800-usb2.c b/drivers/phy/sophgo/phy-cv1800-usb2.c
-index 6fe846534e9c..1fd7bba498ad 100644
---- a/drivers/phy/sophgo/phy-cv1800-usb2.c
-+++ b/drivers/phy/sophgo/phy-cv1800-usb2.c
-@@ -12,10 +12,11 @@
- #include <linux/of.h>
- #include <linux/of_address.h>
- #include <linux/platform_device.h>
--#include <linux/phy/phy.h>
- #include <linux/regmap.h>
- #include <linux/spinlock.h>
- 
-+#include "../phy-provider.h"
-+
- #define REG_USB_PHY_CTRL		0x048
- 
- #define PHY_VBUS_POWER_EN		BIT(0)
-diff --git a/drivers/phy/spacemit/phy-k1-pcie.c b/drivers/phy/spacemit/phy-k1-pcie.c
-index 75477bea7f70..6f8f2f39f7f8 100644
---- a/drivers/phy/spacemit/phy-k1-pcie.c
-+++ b/drivers/phy/spacemit/phy-k1-pcie.c
-@@ -5,6 +5,7 @@
-  * Copyright (C) 2025 by RISCstar Solutions Corporation.  All rights reserved.
-  */
- 
-+#include <dt-bindings/phy/phy.h>
- #include <linux/bitfield.h>
- #include <linux/clk.h>
- #include <linux/clk-provider.h>
-@@ -12,12 +13,11 @@
- #include <linux/kernel.h>
- #include <linux/mfd/syscon.h>
- #include <linux/module.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- #include <linux/reset.h>
- 
--#include <dt-bindings/phy/phy.h>
-+#include "../phy-provider.h"
- 
- /*
-  * Three PCIe ports are supported in the SpacemiT K1 SoC, and this driver
-diff --git a/drivers/phy/spacemit/phy-k1-usb2.c b/drivers/phy/spacemit/phy-k1-usb2.c
-index 14a02f554810..f482b6c9b6d4 100644
---- a/drivers/phy/spacemit/phy-k1-usb2.c
-+++ b/drivers/phy/spacemit/phy-k1-usb2.c
-@@ -9,11 +9,12 @@
- #include <linux/bitfield.h>
- #include <linux/clk.h>
- #include <linux/iopoll.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- #include <linux/usb/of.h>
- 
-+#include "../phy-provider.h"
-+
- #define PHY_RST_MODE_CTRL		0x04
- #define  PHY_PLL_RDY			BIT(0)
- #define  PHY_CLK_CDR_EN			BIT(1)
-diff --git a/drivers/phy/st/phy-miphy28lp.c b/drivers/phy/st/phy-miphy28lp.c
-index 43cef89af55e..e9792deb629a 100644
---- a/drivers/phy/st/phy-miphy28lp.c
-+++ b/drivers/phy/st/phy-miphy28lp.c
-@@ -7,6 +7,7 @@
-  * Author: Alexandre Torgue <alexandre.torgue@st.com>
-  */
- 
-+#include <dt-bindings/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/io.h>
- #include <linux/iopoll.h>
-@@ -16,13 +17,12 @@
- #include <linux/of_platform.h>
- #include <linux/of_address.h>
- #include <linux/clk.h>
--#include <linux/phy/phy.h>
- #include <linux/delay.h>
- #include <linux/mfd/syscon.h>
- #include <linux/regmap.h>
- #include <linux/reset.h>
- 
--#include <dt-bindings/phy/phy.h>
-+#include "../phy-provider.h"
- 
- /* MiPHY registers */
- #define MIPHY_CONF_RESET		0x00
-diff --git a/drivers/phy/st/phy-spear1310-miphy.c b/drivers/phy/st/phy-spear1310-miphy.c
-index c661ab63505f..86acc2412c46 100644
---- a/drivers/phy/st/phy-spear1310-miphy.c
-+++ b/drivers/phy/st/phy-spear1310-miphy.c
-@@ -14,10 +14,11 @@
- #include <linux/mfd/syscon.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- 
-+#include "../phy-provider.h"
-+
- /* SPEAr1310 Registers */
- #define SPEAR1310_PCIE_SATA_CFG			0x3A4
- 	#define SPEAR1310_PCIE_SATA2_SEL_PCIE		(0 << 31)
-diff --git a/drivers/phy/st/phy-spear1340-miphy.c b/drivers/phy/st/phy-spear1340-miphy.c
-index 85a60d64ebb7..4dbd3158c060 100644
---- a/drivers/phy/st/phy-spear1340-miphy.c
-+++ b/drivers/phy/st/phy-spear1340-miphy.c
-@@ -14,10 +14,11 @@
- #include <linux/mfd/syscon.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- 
-+#include "../phy-provider.h"
-+
- /* SPEAr1340 Registers */
- /* Power Management Registers */
- #define SPEAR1340_PCM_CFG			0x100
-diff --git a/drivers/phy/st/phy-stih407-usb.c b/drivers/phy/st/phy-stih407-usb.c
-index 7a3e4584895c..497f9aa4139d 100644
---- a/drivers/phy/st/phy-stih407-usb.c
-+++ b/drivers/phy/st/phy-stih407-usb.c
-@@ -16,7 +16,8 @@
- #include <linux/regmap.h>
- #include <linux/reset.h>
- #include <linux/mfd/syscon.h>
--#include <linux/phy/phy.h>
-+
-+#include "../phy-provider.h"
- 
- #define PHYPARAM_REG	0
- #define PHYCTRL_REG	1
-diff --git a/drivers/phy/st/phy-stm32-combophy.c b/drivers/phy/st/phy-stm32-combophy.c
-index 607b4d607eb5..8757b1993e90 100644
---- a/drivers/phy/st/phy-stm32-combophy.c
-+++ b/drivers/phy/st/phy-stm32-combophy.c
-@@ -10,12 +10,13 @@
- #include <linux/clk.h>
- #include <linux/mfd/syscon.h>
- #include <linux/platform_device.h>
--#include <linux/phy/phy.h>
- #include <linux/pm_runtime.h>
- #include <linux/regmap.h>
- #include <linux/reset.h>
- #include <dt-bindings/phy/phy.h>
- 
-+#include "../phy-provider.h"
-+
- #define SYSCFG_COMBOPHY_CR1 0x4c00
- #define SYSCFG_COMBOPHY_CR2 0x4c04
- #define SYSCFG_COMBOPHY_CR4 0x4c0c
-diff --git a/drivers/phy/st/phy-stm32-usbphyc.c b/drivers/phy/st/phy-stm32-usbphyc.c
-index b44afbff8616..647fbbe5c734 100644
---- a/drivers/phy/st/phy-stm32-usbphyc.c
-+++ b/drivers/phy/st/phy-stm32-usbphyc.c
-@@ -18,6 +18,8 @@
- #include <linux/reset.h>
- #include <linux/units.h>
- 
-+#include "../phy-provider.h"
-+
- #define STM32_USBPHYC_PLL	0x0
- #define STM32_USBPHYC_MISC	0x8
- #define STM32_USBPHYC_MONITOR(X) (0x108 + ((X) * 0x100))
-diff --git a/drivers/phy/starfive/phy-jh7110-dphy-rx.c b/drivers/phy/starfive/phy-jh7110-dphy-rx.c
-index 0b039e1f71c5..099a1ebf6194 100644
---- a/drivers/phy/starfive/phy-jh7110-dphy-rx.c
-+++ b/drivers/phy/starfive/phy-jh7110-dphy-rx.c
-@@ -13,11 +13,12 @@
- #include <linux/io.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/reset.h>
- 
-+#include "../phy-provider.h"
-+
- #define STF_DPHY_APBCFGSAIF_SYSCFG(x)		(x)
- 
- #define STF_DPHY_ENABLE_CLK			BIT(6)
-diff --git a/drivers/phy/starfive/phy-jh7110-dphy-tx.c b/drivers/phy/starfive/phy-jh7110-dphy-tx.c
-index c64d1c91b130..a5faf06b6d14 100644
---- a/drivers/phy/starfive/phy-jh7110-dphy-tx.c
-+++ b/drivers/phy/starfive/phy-jh7110-dphy-tx.c
-@@ -15,12 +15,13 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_device.h>
--#include <linux/phy/phy.h>
- #include <linux/phy/phy-mipi-dphy.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/reset.h>
- 
-+#include "../phy-provider.h"
-+
- #define STF_DPHY_APBIFSAIF_SYSCFG(x)			(x)
- 
- #define STF_DPHY_AON_POWER_READY_N_ACTIVE		0
-diff --git a/drivers/phy/starfive/phy-jh7110-pcie.c b/drivers/phy/starfive/phy-jh7110-pcie.c
-index 734c8e007727..d68d396ac3cc 100644
---- a/drivers/phy/starfive/phy-jh7110-pcie.c
-+++ b/drivers/phy/starfive/phy-jh7110-pcie.c
-@@ -12,10 +12,11 @@
- #include <linux/io.h>
- #include <linux/module.h>
- #include <linux/mfd/syscon.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- 
-+#include "../phy-provider.h"
-+
- #define PCIE_KVCO_LEVEL_OFF		0x28
- #define PCIE_USB3_PHY_PLL_CTL_OFF	0x7c
- #define PCIE_KVCO_TUNE_SIGNAL_OFF	0x80
-diff --git a/drivers/phy/starfive/phy-jh7110-usb.c b/drivers/phy/starfive/phy-jh7110-usb.c
-index b505d89860b4..5762586e5c7d 100644
---- a/drivers/phy/starfive/phy-jh7110-usb.c
-+++ b/drivers/phy/starfive/phy-jh7110-usb.c
-@@ -12,11 +12,12 @@
- #include <linux/io.h>
- #include <linux/mfd/syscon.h>
- #include <linux/module.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- #include <linux/usb/of.h>
- 
-+#include "../phy-provider.h"
-+
- #define USB_125M_CLK_RATE		125000000
- #define USB_CLK_MODE_OFF		0x0
- #define USB_CLK_MODE_RX_NORMAL_PWR	BIT(1)
-diff --git a/drivers/phy/sunplus/phy-sunplus-usb2.c b/drivers/phy/sunplus/phy-sunplus-usb2.c
-index 637a5fbae6d9..2ddbc37d09ee 100644
---- a/drivers/phy/sunplus/phy-sunplus-usb2.c
-+++ b/drivers/phy/sunplus/phy-sunplus-usb2.c
-@@ -17,10 +17,11 @@
- #include <linux/module.h>
- #include <linux/nvmem-consumer.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/reset.h>
- 
-+#include "../phy-provider.h"
-+
- #define HIGH_MASK_BITS				GENMASK(31, 16)
- #define LOW_MASK_BITS				GENMASK(15, 0)
- #define OTP_DISC_LEVEL_DEFAULT			0xd
-diff --git a/drivers/phy/tegra/phy-tegra194-p2u.c b/drivers/phy/tegra/phy-tegra194-p2u.c
-index f49b417c9eb6..467b6b97e53d 100644
---- a/drivers/phy/tegra/phy-tegra194-p2u.c
-+++ b/drivers/phy/tegra/phy-tegra194-p2u.c
-@@ -11,9 +11,10 @@
- #include <linux/io.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- 
-+#include "../phy-provider.h"
-+
- #define P2U_CONTROL_CMN			0x74
- #define P2U_CONTROL_CMN_ENABLE_L2_EXIT_RATE_CHANGE		BIT(13)
- #define P2U_CONTROL_CMN_SKP_SIZE_PROTECTION_EN			BIT(20)
-diff --git a/drivers/phy/tegra/xusb-tegra124.c b/drivers/phy/tegra/xusb-tegra124.c
-index 70b6213370a8..21686c6fb2d7 100644
---- a/drivers/phy/tegra/xusb-tegra124.c
-+++ b/drivers/phy/tegra/xusb-tegra124.c
-@@ -8,7 +8,6 @@
- #include <linux/mailbox_client.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regulator/consumer.h>
- #include <linux/reset.h>
-@@ -16,6 +15,7 @@
- 
- #include <soc/tegra/fuse.h>
- 
-+#include "../phy-provider.h"
- #include "xusb.h"
- 
- #define FUSE_SKU_CALIB_HS_CURR_LEVEL_PADX_SHIFT(x) ((x) ? 15 : 0)
-diff --git a/drivers/phy/tegra/xusb-tegra186.c b/drivers/phy/tegra/xusb-tegra186.c
-index 1ddf11265974..e017cb1ff484 100644
---- a/drivers/phy/tegra/xusb-tegra186.c
-+++ b/drivers/phy/tegra/xusb-tegra186.c
-@@ -7,7 +7,6 @@
- #include <linux/io.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/regulator/consumer.h>
- #include <linux/platform_device.h>
- #include <linux/clk.h>
-@@ -15,6 +14,7 @@
- 
- #include <soc/tegra/fuse.h>
- 
-+#include "../phy-provider.h"
- #include "xusb.h"
- 
- /* FUSE USB_CALIB registers */
-diff --git a/drivers/phy/tegra/xusb-tegra210.c b/drivers/phy/tegra/xusb-tegra210.c
-index 1abc5913ec49..006aba47b93d 100644
---- a/drivers/phy/tegra/xusb-tegra210.c
-+++ b/drivers/phy/tegra/xusb-tegra210.c
-@@ -12,7 +12,6 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_platform.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- #include <linux/regulator/consumer.h>
-@@ -21,6 +20,7 @@
- 
- #include <soc/tegra/fuse.h>
- 
-+#include "../phy-provider.h"
- #include "xusb.h"
- 
- #define FUSE_SKU_CALIB_HS_CURR_LEVEL_PADX_SHIFT(x) \
-diff --git a/drivers/phy/tegra/xusb.c b/drivers/phy/tegra/xusb.c
-index 9d74c0ecc31b..07a2f5a4dbee 100644
---- a/drivers/phy/tegra/xusb.c
-+++ b/drivers/phy/tegra/xusb.c
-@@ -9,7 +9,6 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_platform.h>
--#include <linux/phy/phy.h>
- #include <linux/phy/tegra/xusb.h>
- #include <linux/platform_device.h>
- #include <linux/regulator/consumer.h>
-@@ -19,6 +18,7 @@
- 
- #include <soc/tegra/fuse.h>
- 
-+#include "../phy-provider.h"
- #include "xusb.h"
- 
- static struct phy *tegra_xusb_pad_of_xlate(struct device *dev,
-diff --git a/drivers/phy/ti/phy-am654-serdes.c b/drivers/phy/ti/phy-am654-serdes.c
-index 5b6c27aa7e8b..8990b715525e 100644
---- a/drivers/phy/ti/phy-am654-serdes.c
-+++ b/drivers/phy/ti/phy-am654-serdes.c
-@@ -15,11 +15,12 @@
- #include <linux/mfd/syscon.h>
- #include <linux/mux/consumer.h>
- #include <linux/of_address.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/regmap.h>
- 
-+#include "../phy-provider.h"
-+
- #define CMU_R004		0x4
- #define CMU_R060		0x60
- #define CMU_R07C		0x7c
-diff --git a/drivers/phy/ti/phy-da8xx-usb.c b/drivers/phy/ti/phy-da8xx-usb.c
-index 62fa6f89c0e6..261b65abd38b 100644
---- a/drivers/phy/ti/phy-da8xx-usb.c
-+++ b/drivers/phy/ti/phy-da8xx-usb.c
-@@ -11,12 +11,13 @@
- #include <linux/mfd/da8xx-cfgchip.h>
- #include <linux/mfd/syscon.h>
- #include <linux/module.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_data/phy-da8xx-usb.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/regmap.h>
- 
-+#include "../phy-provider.h"
-+
- #define PHY_INIT_BITS	(CFGCHIP2_SESENDEN | CFGCHIP2_VBDTCTEN)
- 
- struct da8xx_usb_phy {
-diff --git a/drivers/phy/ti/phy-dm816x-usb.c b/drivers/phy/ti/phy-dm816x-usb.c
-index d274831b731c..515ef7812bde 100644
---- a/drivers/phy/ti/phy-dm816x-usb.c
-+++ b/drivers/phy/ti/phy-dm816x-usb.c
-@@ -12,10 +12,11 @@
- #include <linux/err.h>
- #include <linux/pm_runtime.h>
- #include <linux/delay.h>
--#include <linux/phy/phy.h>
- 
- #include <linux/mfd/syscon.h>
- 
-+#include "../phy-provider.h"
-+
- /*
-  * TRM has two sets of USB_CTRL registers.. The correct register bits
-  * are in TRM section 24.9.8.2 USB_CTRL Register. The TRM documents the
-diff --git a/drivers/phy/ti/phy-gmii-sel.c b/drivers/phy/ti/phy-gmii-sel.c
-index 6213c2b6005a..ce7dc692d7be 100644
---- a/drivers/phy/ti/phy-gmii-sel.c
-+++ b/drivers/phy/ti/phy-gmii-sel.c
-@@ -14,9 +14,10 @@
- #include <linux/of_address.h>
- #include <linux/of_net.h>
- #include <linux/phy.h>
--#include <linux/phy/phy.h>
- #include <linux/regmap.h>
- 
-+#include "../phy-provider.h"
-+
- /* AM33xx SoC specific definitions for the CONTROL port */
- #define AM33XX_GMII_SEL_MODE_MII	0
- #define AM33XX_GMII_SEL_MODE_RMII	1
-diff --git a/drivers/phy/ti/phy-omap-usb2.c b/drivers/phy/ti/phy-omap-usb2.c
-index 1eb252604441..318f51d09c28 100644
---- a/drivers/phy/ti/phy-omap-usb2.c
-+++ b/drivers/phy/ti/phy-omap-usb2.c
-@@ -16,7 +16,6 @@
- #include <linux/of_platform.h>
- #include <linux/phy/omap_control_phy.h>
- #include <linux/phy/omap_usb.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/property.h>
-@@ -25,6 +24,8 @@
- #include <linux/sys_soc.h>
- #include <linux/usb/phy_companion.h>
- 
-+#include "../phy-provider.h"
-+
- #define USB2PHY_ANA_CONFIG1		0x4c
- #define USB2PHY_DISCON_BYP_LATCH	BIT(31)
- 
-diff --git a/drivers/phy/ti/phy-ti-pipe3.c b/drivers/phy/ti/phy-ti-pipe3.c
-index b5543b5c674c..d63c8e872d5b 100644
---- a/drivers/phy/ti/phy-ti-pipe3.c
-+++ b/drivers/phy/ti/phy-ti-pipe3.c
-@@ -10,7 +10,6 @@
- #include <linux/platform_device.h>
- #include <linux/property.h>
- #include <linux/slab.h>
--#include <linux/phy/phy.h>
- #include <linux/of.h>
- #include <linux/clk.h>
- #include <linux/err.h>
-@@ -22,6 +21,8 @@
- #include <linux/mfd/syscon.h>
- #include <linux/regmap.h>
- 
-+#include "../phy-provider.h"
-+
- #define	PLL_STATUS		0x00000004
- #define	PLL_GO			0x00000008
- #define	PLL_CONFIGURATION1	0x0000000C
-diff --git a/drivers/phy/ti/phy-twl4030-usb.c b/drivers/phy/ti/phy-twl4030-usb.c
-index a26aec3ab29e..67c9883691fc 100644
---- a/drivers/phy/ti/phy-twl4030-usb.c
-+++ b/drivers/phy/ti/phy-twl4030-usb.c
-@@ -20,7 +20,6 @@
- #include <linux/io.h>
- #include <linux/delay.h>
- #include <linux/usb/otg.h>
--#include <linux/phy/phy.h>
- #include <linux/pm_runtime.h>
- #include <linux/usb/musb.h>
- #include <linux/usb/ulpi.h>
-@@ -29,6 +28,8 @@
- #include <linux/err.h>
- #include <linux/slab.h>
- 
-+#include "../phy-provider.h"
-+
- /* Register defines */
- 
- #define MCPC_CTRL			0x30
-diff --git a/drivers/phy/xilinx/phy-zynqmp.c b/drivers/phy/xilinx/phy-zynqmp.c
-index fe6b4925d166..db40594622da 100644
---- a/drivers/phy/xilinx/phy-zynqmp.c
-+++ b/drivers/phy/xilinx/phy-zynqmp.c
-@@ -12,6 +12,7 @@
-  * PCIe should also work but that is experimental as of now.
-  */
- 
-+#include <dt-bindings/phy/phy.h>
- #include <linux/clk.h>
- #include <linux/debugfs.h>
- #include <linux/delay.h>
-@@ -19,12 +20,11 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/slab.h>
- 
--#include <dt-bindings/phy/phy.h>
-+#include "../phy-provider.h"
- 
- /*
-  * Lane Registers
-diff --git a/include/linux/phy/phy-sun4i-usb.h b/include/linux/phy/phy-sun4i-usb.h
-index f3e7b13608e4..66612be0dac5 100644
---- a/include/linux/phy/phy-sun4i-usb.h
-+++ b/include/linux/phy/phy-sun4i-usb.h
-@@ -6,7 +6,7 @@
- #ifndef PHY_SUN4I_USB_H_
- #define PHY_SUN4I_USB_H_
- 
--#include "phy.h"
-+struct phy;
- 
- /**
-  * sun4i_usb_phy_set_squelch_detect() - Enable/disable squelch detect
-diff --git a/include/linux/phy/ulpi_phy.h b/include/linux/phy/ulpi_phy.h
-index 7054b440347c..0f9e8430d398 100644
---- a/include/linux/phy/ulpi_phy.h
-+++ b/include/linux/phy/ulpi_phy.h
-@@ -1,5 +1,5 @@
- /* SPDX-License-Identifier: GPL-2.0 */
--#include <linux/phy/phy.h>
-+#include "../../drivers/phy/phy-provider.h"
- 
- /**
-  * Helper that registers PHY for a ULPI device and adds a lookup for binding it
--- 
-2.43.0
+That is not relevant to CMN...
+
+> +/* Common register stuff */
+> +#define CMN_NODE_INFO			0x0000
+> +#define CMN_NI_NODE_TYPE		GENMASK_ULL(15, 0)
+> +#define CMN_NI_NODE_ID			GENMASK_ULL(31, 16)
+> +#define CMN_NI_LOGICAL_ID		GENMASK_ULL(47, 32)
+> +
+> +enum cmn_node_type {
+> +	CMN_TYPE_INVALID,
+> +	CMN_TYPE_DVM,
+> +	CMN_TYPE_CFG,
+> +	CMN_TYPE_DTC,
+> +	CMN_TYPE_HNI,
+> +	CMN_TYPE_HNF,
+> +	CMN_TYPE_XP,
+> +	CMN_TYPE_SBSX,
+> +	CMN_TYPE_MPAM_S,
+> +	CMN_TYPE_MPAM_NS,
+> +	CMN_TYPE_RNI,
+> +	CMN_TYPE_RND = 0xd,
+> +	CMN_TYPE_RNSAM = 0xf,
+> +	CMN_TYPE_MTSX,
+> +	CMN_TYPE_HNP,
+> +	CMN_TYPE_CXRA = 0x100,
+> +	CMN_TYPE_CXHA,
+> +	CMN_TYPE_CXLA,
+> +	CMN_TYPE_CCRA,
+> +	CMN_TYPE_CCHA,
+> +	CMN_TYPE_CCLA,
+> +	CMN_TYPE_CCLA_RNI,
+> +	CMN_TYPE_HNS = 0x200,
+> +	CMN_TYPE_HNS_MPAM_S,
+> +	CMN_TYPE_HNS_MPAM_NS,
+> +	CMN_TYPE_APB = 0x1000,
+> +	/* Not a real node type */
+> +	CMN_TYPE_WP = 0x7770
+> +};
+
+...and the majority of this is irrelevant to the RAS feature, not to 
+mention that at least some of it being purely internal implementation 
+detail of the PMU driver which has no business being exposed outside the 
+PMU driver at all.
+
+> +
+> +#endif /* __ASM_ARM_CMN_H */
+> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+> index 23245352a3fc..989482096dfb 100644
+> --- a/drivers/perf/arm-cmn.c
+> +++ b/drivers/perf/arm-cmn.c
+> @@ -2,6 +2,7 @@
+>   // Copyright (C) 2016-2020 Arm Limited
+>   // ARM CMN/CI interconnect PMU driver
+>   
+> +#include <asm/arm-cmn.h>
+
+And to top it all off, this would break COMPILE_TEST for other 
+architectures.
+
+Honestly, for the couple of node type values that matter for RAS, just 
+give the RAS driver its own appropriate definitions.
+
+>   #include <linux/acpi.h>
+>   #include <linux/bitfield.h>
+>   #include <linux/bitops.h>
+> @@ -19,11 +20,6 @@
+>   #include <linux/sort.h>
+>   
+>   /* Common register stuff */
+> -#define CMN_NODE_INFO			0x0000
+> -#define CMN_NI_NODE_TYPE		GENMASK_ULL(15, 0)
+> -#define CMN_NI_NODE_ID			GENMASK_ULL(31, 16)
+> -#define CMN_NI_LOGICAL_ID		GENMASK_ULL(47, 32)
+> -
+>   #define CMN_CHILD_INFO			0x0080
+>   #define CMN_CI_CHILD_COUNT		GENMASK_ULL(15, 0)
+>   #define CMN_CI_CHILD_PTR_OFFSET		GENMASK_ULL(31, 16)
+> @@ -241,37 +237,6 @@ enum cmn_revision {
+>   	REV_CI700_R2P0,
+>   };
+>   
+> -enum cmn_node_type {
+> -	CMN_TYPE_INVALID,
+> -	CMN_TYPE_DVM,
+> -	CMN_TYPE_CFG,
+> -	CMN_TYPE_DTC,
+> -	CMN_TYPE_HNI,
+> -	CMN_TYPE_HNF,
+> -	CMN_TYPE_XP,
+> -	CMN_TYPE_SBSX,
+> -	CMN_TYPE_MPAM_S,
+> -	CMN_TYPE_MPAM_NS,
+> -	CMN_TYPE_RNI,
+> -	CMN_TYPE_RND = 0xd,
+> -	CMN_TYPE_RNSAM = 0xf,
+> -	CMN_TYPE_MTSX,
+> -	CMN_TYPE_HNP,
+> -	CMN_TYPE_CXRA = 0x100,
+> -	CMN_TYPE_CXHA,
+> -	CMN_TYPE_CXLA,
+> -	CMN_TYPE_CCRA,
+> -	CMN_TYPE_CCHA,
+> -	CMN_TYPE_CCLA,
+> -	CMN_TYPE_CCLA_RNI,
+> -	CMN_TYPE_HNS = 0x200,
+> -	CMN_TYPE_HNS_MPAM_S,
+> -	CMN_TYPE_HNS_MPAM_NS,
+> -	CMN_TYPE_APB = 0x1000,
+> -	/* Not a real node type */
+> -	CMN_TYPE_WP = 0x7770
+> -};
+> -
+>   enum cmn_filter_select {
+>   	SEL_NONE = -1,
+>   	SEL_OCCUP1ID,
+> diff --git a/drivers/ras/aest/Makefile b/drivers/ras/aest/Makefile
+> index 5ee10fc8b2e9..e5a45fde6d36 100644
+> --- a/drivers/ras/aest/Makefile
+> +++ b/drivers/ras/aest/Makefile
+> @@ -5,3 +5,4 @@ obj-$(CONFIG_AEST) 	+= aest.o
+>   aest-y		:= aest-core.o
+>   aest-y		+= aest-sysfs.o
+>   aest-y		+= aest-inject.o
+> +aest-y		+= aest-cmn.o
+> diff --git a/drivers/ras/aest/aest-cmn.c b/drivers/ras/aest/aest-cmn.c
+> new file mode 100644
+> index 000000000000..ad82ed163a8c
+> --- /dev/null
+> +++ b/drivers/ras/aest/aest-cmn.c
+> @@ -0,0 +1,330 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * ARM Error Source Table CMN700 Support
+> + *
+> + * Copyright (c) 2025, Alibaba Inc
+> + */
+> +
+> +#include <asm/arm-cmn.h>
+> +
+> +#include "aest.h"
+> +
+> +/*
+> + * CMN include 5 device types, each device type has an error group register set
+> + * which contains a set of error records. The struct aest_cmn_700 represents
+> + * one CMN Instance, and the struct aest_cmn_700_child represent one CMN device.
+> + * The error record of CMN use memory-mapped single error record view, so one
+> + * record is correspond to one AEST node, it means there will be hundreds of
+> + * AEST node of CMN. As described in chapters 2.6.3.4 of Arm ACPI Spec[1], we
+> + * use vendor define data to recognize the device type of an AEST node. So AEST
+> + * driver can enumerate all CMN AEST node to initialize struct aest_cmn_700 and
+> + * aest_cmn_700_child with HID, UID and other CMN info described in AEST or CMN
+> + * register.
+> + *
+> + * Each CMN Instance has their own error interrupt and the struct aest_cmn_700
+> + * is passed to interrupt context. OS check error group register set to locate
+> + * record which report error. All procedure is similar with chapters 3.8 in
+> + * Arm CMN Spec[2].
+> + *
+> + * The CMN RAS architecture is showed as follow:
+> + *
+> + *                     +----+
+> + *                  -->|XP  |     ......
+> + *                  |  +----+
+> + *                  |
+> + *                  |  +----+     ......
+> + *                  |  |HNI |     +----------------+
+> + *                  |  +----+   ->|record/AEST node|
+> + *                  |           | +----------------+
+> + *  +------------+  |  +----+   |    .
+> + *  |CMN Instance|--|  |HNF |---|    .
+> + *  +------------+  |  +----+   |    .
+> + *                  |           | +----------------+
+> + *                  |  +----+   ->|record/AEST node|
+> + *                  |  |SBSX|     +----------------+
+> + *                  |  +----+     ......
+> + *                  |
+> + *                  |  +----+
+> + *                  -->|CCG |     ......
+> + *                     +----+
+> + *
+> + * [1]: https://developer.arm.com/documentation/den0093/latest
+> + * [2]: https://developer.arm.com/documentation/102308/latest
+> + */
+> +
+> +#define CMN_RAS_DEV_NUM 6
+> +#define CMN700_ERRGSR_NUM 8
+> +#define CMN_MAX_UID 8
+
+What's that based on?
+
+> +#define CMN_ERRDEVARCH 0x3FB8
+> +#define CMN_ERRDEVARCH_REV GENMASK(19, 16)
+> +#define CMN_ERRGSR_OFFSET 0x3000
+> +
+> +struct cmn_vendor_data {
+> +	int node_type;
+> +	int node_id;
+> +	int logic_id;
+> +};
+> +
+> +struct cmn_config {
+> +	int errgsr_num;
+> +	int dev_num;
+> +	int ras_ver;
+> +	const int *node_id_map;
+> +	const char *const *node_name;
+> +	int (*errgsr_mapping)(int errgsr_bit);
+> +	u64 (*errgsr_offset)(u64 hnd_ofset, int node_idx);
+> +};
+> +
+> +static const char *const cmn700_node_name[] = {
+> +	[CMN_TYPE_HNI] = "HNI",	 [CMN_TYPE_HNF] = "HNF",
+> +	[CMN_TYPE_XP] = "XP",	 [CMN_TYPE_SBSX] = "SBSX",
+> +	[CMN_TYPE_CXRA] = "RND", [CMN_TYPE_MTSX] = "MTSX",
+> +};
+> +
+> +static const int cmn700_node_id_map[] = {
+> +	[CMN_TYPE_HNI] = 1,  [CMN_TYPE_HNF] = 2,  [CMN_TYPE_XP] = 0,
+> +	[CMN_TYPE_SBSX] = 3, [CMN_TYPE_CXRA] = 4, [CMN_TYPE_MTSX] = 5,
+> +};
+> +
+> +static u64 cmn_dev_array[CMN_MAX_UID];
+> +static struct cmn_config *cmn_config;
+> +
+> +static u64 cmn700_errgsr_offset(u64 hnd_offset, int node_idx)
+> +{
+> +	return hnd_offset + CMN_ERRGSR_OFFSET +
+> +	       (node_idx * 2) * CMN700_ERRGSR_NUM * 8;
+> +}
+
+I would say it's not worth bothering with the ERRGSRs at all - more than 
+just being confusingly different from the RAS architecture concept of 
+the same name, they're also at least 50% totally broken and useless (see 
+erratum #2732981). Thus if we have to treat HN-I, HN-S and SBSX RAS 
+nodes as just a bunch of independent single records which happen to 
+share an IRQ, we may as well just do that for everything.
+
+> +static struct cmn_config cmn700_config = {
+> +	.errgsr_num = CMN700_ERRGSR_NUM,
+> +	.dev_num = CMN_RAS_DEV_NUM,
+> +	.ras_ver = 1,
+> +	.node_name = cmn700_node_name,
+> +	.node_id_map = cmn700_node_id_map,
+> +	.errgsr_mapping = cmn700_errgsr_mapping,
+> +	.errgsr_offset = cmn700_errgsr_offset,
+> +};
+> +
+> +static acpi_status aest_cmn_700_resource_ioremap(struct acpi_resource *res,
+> +						 void *data)
+> +{
+> +	struct acpi_resource_address64 addr64;
+> +	u32 *uid = data;
+> +	acpi_status status;
+> +
+> +	status = acpi_resource_to_address64(res, &addr64);
+> +	if (ACPI_FAILURE(status) || (addr64.resource_type != ACPI_MEMORY_RANGE))
+> +		return AE_OK;
+> +
+> +	cmn_dev_array[*uid] = (u64)ioremap(addr64.address.minimum,
+> +					   addr64.address.address_length);
+> +
+> +	pr_debug("CMN device resource [%llx-%llx] ioremap to %llx\n",
+> +		 addr64.address.minimum, addr64.address.maximum,
+> +		 cmn_dev_array[*uid]);
+> +
+> +	return AE_CTRL_TERMINATE;
+> +}
+> +
+> +static acpi_status aest_cmn_get_dev_by_uid(acpi_handle handle, u32 level,
+> +					   void *data, void **return_value)
+> +{
+> +	u32 *match_uid = data;
+> +	acpi_status status;
+> +	unsigned long long uid;
+> +
+> +	status = acpi_evaluate_integer(handle, METHOD_NAME__UID, NULL, &uid);
+
+Who says CMN _UIDs cant be arbitrary Strings? The binding doesn't (it 
+merely happens to use Integers in its examples).
+
+> +	if (ACPI_FAILURE(status)) {
+> +		pr_err("Do not find devive\n");
+> +		return_ACPI_STATUS(status);
+> +	}
+> +
+> +	if (uid != *match_uid)
+> +		return AE_OK;
+> +
+> +	pr_debug("CMN device instance %llx, walk through resource\n", uid);
+> +
+> +	status = acpi_walk_resources(handle, METHOD_NAME__CRS,
+> +				     aest_cmn_700_resource_ioremap, data);
+> +
+> +	if (ACPI_FAILURE(status)) {
+> +		pr_err("Device do not have resource\n");
+> +		return_ACPI_STATUS(status);
+> +	}
+> +
+> +	return AE_CTRL_TERMINATE;
+> +}
+
+Again, poking through some other device's resources is nonsense, but I 
+don't see that we really need anything outside the invididual node 
+registers anyway, since as well as ERRGSR...
+
+> +
+> +static inline int aest_cmn_node_ver(void *base)
+> +{
+> +	return FIELD_GET(CMN_ERRDEVARCH_REV,
+> +			 readl_relaxed(base + CMN_ERRDEVARCH));
+
+...ERRDEVARCH is also of dubious value here, given that the register 
+layout alone is quite blatantly not that of the RAS system architecture 
+v1.0 (as the register value boldly claims), nor indeed any other 
+version. Even at best, this isn't saying any more than the hard-coded 
+".ras_ver = 1" above already does.
+
+> +}
+> +
+> +static int aest_cmn_init_node(struct aest_device *adev,
+> +			      struct aest_node *cmn_node,
+> +			      struct acpi_aest_node *anode, u64 type,
+> +			      u64 errgsr_addr)
+> +{
+> +	cmn_node->info = anode;
+> +	cmn_node->name = devm_kasprintf(adev->dev, GFP_KERNEL, "%s",
+> +					cmn_config->node_name[type]);
+> +	if (!cmn_node->name)
+> +		return -ENOMEM;
+> +	cmn_node->errgsr = (void *)errgsr_addr;
+> +	cmn_node->type = anode->type;
+> +	cmn_node->adev = adev;
+> +	cmn_node->version = cmn_config->ras_ver;
+> +	cmn_node->errgsr_num = cmn_config->errgsr_num;
+> +	cmn_node->errgsr_mapping = cmn_config->errgsr_mapping;
+> +	cmn_node->record_count = cmn_node->errgsr_num * BITS_PER_LONG / 2;
+> +	cmn_node->record_implemented = devm_bitmap_zalloc(
+> +		adev->dev, cmn_node->record_count, GFP_KERNEL);
+> +	if (!cmn_node->record_implemented)
+> +		return -ENOMEM;
+> +	bitmap_set(cmn_node->record_implemented, 0, cmn_node->record_count);
+> +
+> +	cmn_node->status_reporting = devm_bitmap_zalloc(
+> +		adev->dev, cmn_node->record_count, GFP_KERNEL);
+> +	if (!cmn_node->status_reporting)
+> +		return -ENOMEM;
+> +	bitmap_set(cmn_node->status_reporting, 0, cmn_node->record_count);
+> +
+> +	cmn_node->records = devm_kcalloc(adev->dev, cmn_node->record_count,
+> +					 sizeof(struct aest_record),
+> +					 GFP_KERNEL);
+> +	if (!cmn_node->records)
+> +		return -ENOMEM;
+> +
+> +	aest_node_dbg(cmn_node, "Node init with errgsr %llx\n", errgsr_addr);
+> +
+> +	return 0;
+> +}
+> +
+> +static int aest_cmn_reorgnize_node(struct aest_device *adev,
+> +				   struct acpi_aest_node *anode, u64 base)
+> +{
+> +	struct aest_node *cmn_node;
+> +	u64 hnd_offset, cmn_node_offset, reg, logic_id, type, node_id;
+> +	u64 errgsr_addr, hnd_base;
+> +	struct aest_record *record;
+> +	int ret, node_index;
+> +	struct cmn_vendor_data *vendor_data;
+> +
+> +	if (anode->interface_hdr->type !=
+> +	    ACPI_AEST_NODE_SINGLE_RECORD_MEMORY_MAPPED) {
+> +		aest_dev_err(adev, "CMN just use single memory mapping\n");
+> +		return -ENODEV;
+> +	}
+> +
+> +	hnd_offset = *((u64 *)anode->vendor->vendor_specific_data);
+> +	cmn_node_offset = *((u64 *)&anode->vendor->vendor_specific_data[8]);
+> +
+> +	reg = readq_relaxed((void *)base + cmn_node_offset + CMN_NODE_INFO);
+> +
+> +	logic_id = FIELD_GET(CMN_NI_LOGICAL_ID, reg);
+> +	type = FIELD_GET(CMN_NI_NODE_TYPE, reg);
+> +	node_id = FIELD_GET(CMN_NI_NODE_ID, reg);
+> +
+> +	hnd_base = base + hnd_offset;
+> +	node_index = cmn_config->node_id_map[type];
+> +	errgsr_addr = base + cmn_config->errgsr_offset(hnd_offset, node_index);
+> +
+> +	// node not register, create it
+> +	cmn_node = &adev->nodes[node_index];
+> +	if (!cmn_node->errgsr) {
+> +		ret = aest_cmn_init_node(adev, cmn_node, anode, type,
+> +					 errgsr_addr);
+> +		if (ret)
+> +			return -ENOMEM;
+> +	}
+> +
+> +	aest_dev_dbg(adev, "node type %llx, id %llx, offset %llx\n", type,
+> +		     logic_id, cmn_node_offset);
+> +
+> +	if (!test_bit(0, anode->record_implemented))
+> +		clear_bit(logic_id, cmn_node->record_implemented);
+> +
+> +	if (!test_bit(0, anode->status_reporting))
+> +		clear_bit(logic_id, cmn_node->status_reporting);
+> +
+> +	record = &cmn_node->records[logic_id];
+> +	record->name =
+> +		devm_kasprintf(adev->dev, GFP_KERNEL, "record%lld", logic_id);
+> +	if (!record->name)
+> +		return -ENOMEM;
+> +	record->regs_base = devm_ioremap(
+> +		adev->dev, (resource_size_t)anode->interface_hdr->address,
+> +		sizeof(struct ras_ext_regs));
+> +	if (!record->regs_base)
+> +		return -ENOMEM;
+> +	record->addressing_mode = test_bit(0, anode->addressing_mode);
+> +	record->node = cmn_node;
+> +	record->index = logic_id;
+> +	record->access = &aest_access[anode->interface_hdr->type];
+> +
+> +	vendor_data = devm_kzalloc(adev->dev, sizeof(struct cmn_vendor_data),
+> +				   GFP_KERNEL);
+> +	vendor_data->node_type = type;
+> +	vendor_data->node_id = node_id;
+> +	vendor_data->logic_id = logic_id;
+> +
+> +	record->vendor_data = vendor_data;
+> +	record->vendor_data_size = sizeof(struct cmn_vendor_data);
+> +
+> +	aest_record_dbg(record, "base %llx\n", anode->interface_hdr->address);
+> +
+> +	return 0;
+> +}
+> +
+> +// reorgnize cmn node
+> +static int aest_cmn_probe(struct aest_device *adev, struct aest_hnode *ahnode)
+> +{
+> +	acpi_status status;
+> +	u64 base;
+> +	int ret = 0;
+> +	struct acpi_aest_node *anode;
+> +	char name[9];
+> +
+> +	anode = list_first_entry(&ahnode->list, struct acpi_aest_node, list);
+> +	if (!anode)
+> +		return -ENODEV;
+> +
+> +	if (!cmn_dev_array[anode->vendor->acpi_uid]) {
+> +		snprintf(name, 9, "%s", anode->vendor->acpi_hid);
+> +		status = acpi_get_devices(name, aest_cmn_get_dev_by_uid,
+> +					  &anode->vendor->acpi_uid, NULL);
+> +		if (ACPI_FAILURE(status)) {
+> +			aest_dev_err(adev, "Can not find base\n");
+> +			return_ACPI_STATUS(status);
+> +		}
+> +	}
+> +	base = cmn_dev_array[anode->vendor->acpi_uid];
+> +	if (!base) {
+> +		aest_dev_err(adev, "Device base invalid\n");
+> +		return -ENODEV;
+> +	}
+> +
+> +	adev->type = anode->type;
+> +	adev->node_cnt = cmn_config->dev_num;
+> +	adev->nodes = devm_kcalloc(adev->dev, adev->node_cnt,
+> +				   sizeof(struct aest_node), GFP_KERNEL);
+> +	if (!adev->nodes)
+> +		return -ENOMEM;
+> +	aest_set_name(adev, ahnode);
+> +
+> +	list_for_each_entry(anode, &ahnode->list, list) {
+> +		ret = aest_cmn_reorgnize_node(adev, anode, base);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +int aest_cmn700_probe(struct aest_device *adev, struct aest_hnode *ahnode)
+> +{
+> +	cmn_config = &cmn700_config;
+> +
+> +	return aest_cmn_probe(adev, ahnode);
+> +}
+> diff --git a/drivers/ras/aest/aest-core.c b/drivers/ras/aest/aest-core.c
+> index 047c9a8cffe4..bbf8b1142be7 100644
+> --- a/drivers/ras/aest/aest-core.c
+> +++ b/drivers/ras/aest/aest-core.c
+> @@ -152,6 +152,8 @@ static void init_aest_event(struct aest_event *event,
+>   	memcpy(&event->regs, regs, sizeof(*regs));
+>   	event->index = record->index;
+>   	event->addressing_mode = record->addressing_mode;
+> +	event->vendor_data_size = record->vendor_data_size;
+> +	event->vendor_data = record->vendor_data;
+>   }
+>   
+>   static int aest_node_gen_pool_add(struct aest_device *adev,
+> @@ -341,10 +343,9 @@ void aest_proc_record(struct aest_record *record, void *data, bool fake)
+>   	record_write(record, ERXSTATUS, regs.err_status);
+>   }
+>   
+> -static void aest_node_foreach_record(void (*func)(struct aest_record *, void *,
+> -						  bool),
+> -				     struct aest_node *node, void *data,
+> -				     unsigned long *bitmap)
+> +void aest_node_foreach_record(void (*func)(struct aest_record *, void *, bool),
+> +			      struct aest_node *node, void *data,
+> +			      unsigned long *bitmap)
+
+This change doesn't seem to be needed, or at least doesn't belong to 
+this patch.
+
+>   {
+>   	int i;
+>   
+> @@ -359,7 +360,7 @@ static void aest_node_foreach_record(void (*func)(struct aest_record *, void *,
+>   
+>   static int aest_proc(struct aest_node *node)
+>   {
+> -	int count = 0, i, j, size = node->record_count;
+> +	int count = 0, i, j, size = node->record_count, record_idx;
+>   	u64 err_group = 0;
+>   
+>   	aest_node_dbg(node, "Poll bitmap %*pb\n", size,
+> @@ -374,19 +375,21 @@ static int aest_proc(struct aest_node *node)
+>   		      node->status_reporting);
+>   	for (i = 0; i < BITS_TO_U64(size); i++) {
+>   		err_group = readq_relaxed((void *)node->errgsr + i * 8);
+> -		aest_node_dbg(node, "errgsr[%d]: 0x%llx\n", i, err_group);
+> -
+>   		for_each_set_bit(j, (unsigned long *)&err_group,
+>   				 BITS_PER_LONG) {
+> +			record_idx =
+> +				node->errgsr_mapping(i * BITS_PER_LONG + j);
+> +			aest_node_dbg(node, "errgsr[%d]: bit %d occur error\n",
+> +				      i, record_idx);
+>   			/*
+>   			 * Error group base is only valid in Memory Map node,
+>   			 * so driver do not need to write select register and
+>   			 * sync.
+>   			 */
+> -			if (test_bit(i * BITS_PER_LONG + j,
+> -				     node->status_reporting))
+> +			if (test_bit(record_idx, node->status_reporting))
+>   				continue;
+> -			aest_proc_record(&node->records[j], &count, false);
+> +			aest_proc_record(&node->records[record_idx], &count,
+> +					 false);
+>   		}
+>   	}
+>   
+> @@ -398,8 +401,11 @@ static irqreturn_t aest_irq_func(int irq, void *input)
+>   	struct aest_device *adev = input;
+>   	int i;
+>   
+> -	for (i = 0; i < adev->node_cnt; i++)
+> +	for (i = 0; i < adev->node_cnt; i++) {
+> +		if (!adev->nodes[i].record_count)
+> +			continue;
+>   		aest_proc(&adev->nodes[i]);
+> +	}
+>   
+>   	return IRQ_HANDLED;
+>   }
+> @@ -776,6 +782,7 @@ static int aest_init_node(struct aest_device *adev, struct aest_node *node,
+>   	node->info = anode;
+>   	node->type = anode->type;
+>   	node->version = get_aest_node_ver(node);
+> +	node->errgsr_mapping = default_errgsr_mapping;
+>   	node->name = alloc_aest_node_name(node);
+>   	if (!node->name)
+>   		return -ENOMEM;
+> @@ -828,6 +835,7 @@ static int aest_init_node(struct aest_device *adev, struct aest_node *node,
+>   	if (!node->records)
+>   		return -ENOMEM;
+>   
+> +	node->errgsr_num = DIV_ROUND_UP(node->record_count, BITS_PER_LONG);
+>   	for (i = 0; i < node->record_count; i++) {
+>   		ret = aest_init_record(&node->records[i], i, node);
+>   		if (ret)
+> @@ -923,11 +931,12 @@ static int aest_setup_irq(struct platform_device *pdev,
+>   }
+>   
+>   static struct aest_vendor_match vendor_match[] = {
+> -	{  },
+> +	{ "ARMHC700", &aest_cmn700_probe },
+
+The RAS identifier for CMN-700 is ARMCH701, and that is what should be 
+in the AEST entry. ARMHC700 is only for the PMU. A RAS driver should 
+probe off AEST entries, it should not depend on both the PMU happening 
+to be advertised to the OS *and* the AEST being wrong.
+
+Thanks,
+Robin.
+
+> +	{},
+>   };
+>   
+> -static int
+> -aest_vendor_probe(struct aest_device *adev, struct aest_hnode *ahnode)
+> +static int aest_vendor_probe(struct aest_device *adev,
+> +			     struct aest_hnode *ahnode)
+>   {
+>   	int i;
+>   	struct acpi_aest_node *anode;
+> @@ -936,13 +945,14 @@ aest_vendor_probe(struct aest_device *adev, struct aest_hnode *ahnode)
+>   	if (!anode)
+>   		return -ENODEV;
+>   
+> -	aest_dev_dbg(adev, "Try to probe vendor node %s\n", anode->vendor->acpi_hid);
+> +	aest_dev_dbg(adev, "Try to probe vendor node %s\n",
+> +		     anode->vendor->acpi_hid);
+>   	for (i = 0; i < ARRAY_SIZE(vendor_match); i++) {
+>   		if (!strncmp(vendor_match[i].hid, anode->vendor->acpi_hid, 8))
+>   			return vendor_match[i].probe(adev, ahnode);
+>   	}
+>   
+> -	return -ENODEV;
+> +	return 0;
+>   }
+>   
+>   static int aest_device_probe(struct platform_device *pdev)
+> diff --git a/drivers/ras/aest/aest.h b/drivers/ras/aest/aest.h
+> index 304c03839d31..9d67d79eb4a2 100644
+> --- a/drivers/ras/aest/aest.h
+> +++ b/drivers/ras/aest/aest.h
+> @@ -94,8 +94,16 @@ struct aest_event {
+>   	/* Vendor node	: hardware ID. */
+>   	char *hid;
+>   	u32 index;
+> +	u64 ce_threshold;
+>   	int addressing_mode;
+>   	struct ras_ext_regs regs;
+> +
+> +	/*
+> +	 * This field is used to store vendor specific data for decoding error
+> +	 * record by EDAC driver.
+> +	 */
+> +	void *vendor_data;
+> +	size_t vendor_data_size;
+>   };
+>   
+>   struct aest_access {
+> @@ -147,6 +155,9 @@ struct aest_record {
+>   	enum ras_ce_threshold threshold_type;
+>   	struct record_count count;
+>   	struct dentry *debugfs;
+> +
+> +	void *vendor_data;
+> +	size_t vendor_data_size;
+>   };
+>   
+>   struct aest_group {
+> @@ -208,6 +219,19 @@ struct aest_node {
+>   	 */
+>   	unsigned long *status_reporting;
+>   	int version;
+> +	/*
+> +	 * Usually bit[n] in errgsr indicates [n]th error record within this
+> +	 * error node report error. But some compoent may have different rules.
+> +	 * For example, CMN700 TRM 4.3.5.12 say:
+> +	 *	``` Error occurs when the index is even and Fault
+> +	 *	    occurs when the index is odd. ```
+> +	 *	Bit[n]: record[n] report ERROR.
+> +	 *	Bit[n + 1]: record[n] report FAULT.
+> +	 * errgsr_mapping function is used to map errgsr bit to record index
+> +	 * for various components.
+> +	 */
+> +	int (*errgsr_mapping)(int errgsr_bit);
+> +	int errgsr_num;
+>   
+>   	const struct aest_group *group;
+>   	struct aest_device *adev;
+> @@ -366,6 +390,21 @@ static inline bool aest_dev_is_oncore(struct aest_device *adev)
+>   	return adev->type == ACPI_AEST_PROCESSOR_ERROR_NODE;
+>   }
+>   
+> +static inline int default_errgsr_mapping(int errgsr_bit)
+> +{
+> +	return errgsr_bit;
+> +}
+> +
+> +static inline int cmn700_errgsr_mapping(int errgsr_bit)
+> +{
+> +	return errgsr_bit / 2;
+> +}
+> +
+>   void aest_dev_init_debugfs(struct aest_device *adev);
+>   void aest_inject_init_debugfs(struct aest_record *record);
+>   void aest_proc_record(struct aest_record *record, void *data, bool fake);
+> +void aest_node_foreach_record(void (*func)(struct aest_record *, void *, bool),
+> +			      struct aest_node *node, void *data,
+> +			      unsigned long *bitmap);
+> +
+> +int aest_cmn700_probe(struct aest_device *adev, struct aest_hnode *ahnode);
 
 
