@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DB67EA854C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 02:57:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6252EA854A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 02:57:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vkkW63rd7Ov2/idT11bBKBSlwE8v+ZjzfAfwhUTAfEQ=; b=Jm4+Z4H8h1xSd5MAwhjN1xzuX/
-	XuHqeatyCYw+XZrroK8OGa4mr9osJh+c09n4blbGTiMwTQlh3iSxQagukqsZ9EE99kdb7ZziEIAP5
-	snR0S62Ddt/99/TBHL+Os8nz0WJo6ZzNyQ/us+JB1P6IesYVzL68p3N2cL/5ZWSodXiWWqNdbQXXH
-	Z4beWC/Fn+J3v5CZa6jvcWw8PJxRAH6sXKrYLxrQji+GMePcDQHOuKvhsVcNenJ/6IkqU87cEVQ2n
-	uZdFdUeIFL5XE66QsnY6wTnqumLtvr86ZcvKscZTz6Q75yYzXtK53e5PbX1MnKv+qKBsgiBD0aZMd
-	/8li9ngw==;
+	bh=dV6rN6wJGEGhX76L1tLL+S50brKK/SeiWBmYpmhZ6W8=; b=R64tN8gY4Do6x/Nyfa3cNEXkGE
+	YxV2qk1qdowIhSvFY0+Rjowu4ogt9CVSRKygJ1F0PcD2Fa5e1+xzdIUnB4kPc3ySQML1e/DPAjwcu
+	ychSjeEqskX3eL0cflfswOXWL808uOgtItmxVP/FH03OuTxvtQlURLdzQYYgE1n49aY+S4KOnCYJU
+	+jZ29uHnE4qxkWtx2CVjeh9/hdRcNIbGn8xA2WzQkLH5cJ1YFwrspjuM+uOjWLUfldAyKMsfr+AKq
+	FflbvSvR8JlpnzQ2uUhmxZLrmoJZchCNroWQzP8m4c8DLGJwFqmff/0nVFaWMn11GcYDGDu2nQgV0
+	pbPP+RVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzQoS-00000006ZHz-2lzv;
-	Mon, 09 Mar 2026 02:57:44 +0000
+	id 1vzQoO-00000006ZGk-0qr5;
+	Mon, 09 Mar 2026 02:57:40 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzQoK-00000006ZG3-220T
+	id 1vzQoJ-00000006ZFX-39Dl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 02:57:39 +0000
+	Mon, 09 Mar 2026 02:57:38 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 89E5B1D6F;
-	Sun,  8 Mar 2026 19:57:28 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E26961D15;
+	Sun,  8 Mar 2026 19:57:26 -0700 (PDT)
 Received: from ergosum.cambridge.arm.com (ergosum.cambridge.arm.com [10.1.196.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 69BF73F694;
-	Sun,  8 Mar 2026 19:57:33 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A16943F694;
+	Sun,  8 Mar 2026 19:57:31 -0700 (PDT)
 From: Anshuman Khandual <anshuman.khandual@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
@@ -42,18 +42,19 @@ Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
 	David Hildenbrand <david@kernel.org>,
 	Yang Shi <yang@os.amperecomputing.com>,
 	Christoph Lameter <cl@gentwo.org>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH V5 2/2] arm64/mm: Reject memory removal that splits a kernel leaf mapping
-Date: Mon,  9 Mar 2026 02:57:25 +0000
-Message-Id: <20260309025725.455004-3-anshuman.khandual@arm.com>
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH V5 1/2] arm64/mm: Enable batched TLB flush in unmap_hotplug_range()
+Date: Mon,  9 Mar 2026 02:57:24 +0000
+Message-Id: <20260309025725.455004-2-anshuman.khandual@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20260309025725.455004-1-anshuman.khandual@arm.com>
 References: <20260309025725.455004-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260308_195736_846182_5C383207 
-X-CRM114-Status: GOOD (  19.90  )
+X-CRM114-CacheID: sfid-20260308_195735_889066_DAF990E8 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,206 +69,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Linear and vmemmap mappings that get torn down during a memory hot remove
-operation might contain leaf level entries on any page table level. If the
-requested memory range's linear or vmemmap mappings falls within such leaf
-entries, new mappings need to be created for the remaining memory mapped on
-the leaf entry earlier, following standard break before make aka BBM rules.
-But kernel cannot tolerate BBM and hence remapping to fine grained leaves
-would not be possible on systems without BBML2_NOABORT.
+During a memory hot remove operation, both linear and vmemmap mappings for
+the memory range being removed, get unmapped via unmap_hotplug_range() but
+mapped pages get freed only for vmemmap mapping. This is just a sequential
+operation where each table entry gets cleared, followed by a leaf specific
+TLB flush, and then followed by memory free operation when applicable.
 
-Currently memory hot remove operation does not perform such restructuring,
-and so removing memory ranges that could split a kernel leaf level mapping
-need to be rejected.
+This approach was simple and uniform both for vmemmap and linear mappings.
+But linear mapping might contain CONT marked block memory where it becomes
+necessary to first clear out all entire in the range before a TLB flush.
+This is as per the architecture requirement. Hence batch all TLB flushes
+during the table tear down walk and finally do it in unmap_hotplug_range().
 
-While memory_hotplug.c does appear to permit hot removing arbitrary ranges
-of memory, the higher layers that drive memory_hotplug (e.g. ACPI, virtio,
-...) all appear to treat memory as fixed size devices. So it is impossible
-to hot unplug a different amount than was previously hot plugged, and hence
-we should never see a rejection in practice, but adding the check makes us
-robust against a future change.
+Prior to this fix, it was hypothetically possible for a speculative access
+to a higher address in the contiguous block to fill the TLB with shattered
+entries for the entire contiguous range after a lower address had already
+been cleared and invalidated. Due to the table entries being shattered, the
+subsequent TLB invalidation for the higher address would not then clear the
+TLB entries for the lower address, meaning stale TLB entries could persist.
+
+Besides it also helps in improving the performance via TLBI range operation
+along with reduced synchronization instructions. The time spent executing
+unmap_hotplug_range() improved 97% measured over a 2GB memory hot removal
+in KVM guest.
+
+This scheme is not applicable during vmemmap mapping tear down where memory
+needs to be freed and hence a TLB flush is required after clearing out page
+table entry.
 
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Will Deacon <will@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org
-Link: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
+Closes: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
+Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
+Cc: stable@vger.kernel.org
 Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
 Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-Suggested-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
- arch/arm64/mm/mmu.c | 120 +++++++++++++++++++++++++++++++++++++++++---
- 1 file changed, 114 insertions(+), 6 deletions(-)
+ arch/arm64/mm/mmu.c | 36 ++++++++++++++++++++----------------
+ 1 file changed, 20 insertions(+), 16 deletions(-)
 
 diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 5dbf988120c8..5fb9a66f0754 100644
+index a6a00accf4f9..5dbf988120c8 100644
 --- a/arch/arm64/mm/mmu.c
 +++ b/arch/arm64/mm/mmu.c
-@@ -2014,6 +2014,107 @@ void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
- 	__remove_pgd_mapping(swapper_pg_dir, __phys_to_virt(start), size);
+@@ -1458,10 +1458,14 @@ static void unmap_hotplug_pte_range(pmd_t *pmdp, unsigned long addr,
+ 
+ 		WARN_ON(!pte_present(pte));
+ 		__pte_clear(&init_mm, addr, ptep);
+-		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+-		if (free_mapped)
++		if (free_mapped) {
++			/* CONT blocks are not supported in the vmemmap */
++			WARN_ON(pte_cont(pte));
++			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+ 			free_hotplug_page_range(pte_page(pte),
+ 						PAGE_SIZE, altmap);
++		}
++		/* unmap_hotplug_range() flushes TLB for !free_mapped */
+ 	} while (addr += PAGE_SIZE, addr < end);
  }
  
-+
-+static bool addr_splits_kernel_leaf(unsigned long addr)
-+{
-+	pgd_t *pgdp, pgd;
-+	p4d_t *p4dp, p4d;
-+	pud_t *pudp, pud;
-+	pmd_t *pmdp, pmd;
-+	pte_t *ptep, pte;
-+
-+	/*
-+	 * If the given address points at a the start address of
-+	 * a possible leaf, we certainly won't split. Otherwise,
-+	 * check if we would actually split a leaf by traversing
-+	 * the page tables further.
-+	 */
-+	if (IS_ALIGNED(addr, PGDIR_SIZE))
-+		return false;
-+
-+	pgdp = pgd_offset_k(addr);
-+	pgd = pgdp_get(pgdp);
-+	if (!pgd_present(pgd))
-+		return false;
-+
-+	if (IS_ALIGNED(addr, P4D_SIZE))
-+		return false;
-+
-+	p4dp = p4d_offset(pgdp, addr);
-+	p4d = p4dp_get(p4dp);
-+	if (!p4d_present(p4d))
-+		return false;
-+
-+	if (IS_ALIGNED(addr, PUD_SIZE))
-+		return false;
-+
-+	pudp = pud_offset(p4dp, addr);
-+	pud = pudp_get(pudp);
-+	if (!pud_present(pud))
-+		return false;
-+
-+	if (pud_leaf(pud))
-+		return true;
-+
-+	if (IS_ALIGNED(addr, CONT_PMD_SIZE))
-+		return false;
-+
-+	pmdp = pmd_offset(pudp, addr);
-+	pmd = pmdp_get(pmdp);
-+	if (!pmd_present(pmd))
-+		return false;
-+
-+	if (pmd_cont(pmd))
-+		return true;
-+
-+	if (IS_ALIGNED(addr, PMD_SIZE))
-+		return false;
-+
-+	if (pmd_leaf(pmd))
-+		return true;
-+
-+	if (IS_ALIGNED(addr, CONT_PTE_SIZE))
-+		return false;
-+
-+	ptep = pte_offset_kernel(pmdp, addr);
-+	pte = __ptep_get(ptep);
-+	if (!pte_present(pte))
-+		return false;
-+
-+	if (pte_cont(pte))
-+		return true;
-+
-+	return !IS_ALIGNED(addr, PAGE_SIZE);
-+}
-+
-+static bool can_unmap_without_split(unsigned long pfn, unsigned long nr_pages)
-+{
-+	unsigned long phys_start, phys_end, start, end;
-+
-+	phys_start = PFN_PHYS(pfn);
-+	phys_end = phys_start + nr_pages * PAGE_SIZE;
-+
-+	/* PFN range's linear map edges are leaf entry aligned */
-+	start = __phys_to_virt(phys_start);
-+	end =  __phys_to_virt(phys_end);
-+	if (addr_splits_kernel_leaf(start) || addr_splits_kernel_leaf(end)) {
-+		pr_warn("[%lx %lx] splits a leaf entry in linear map\n",
-+			phys_start, phys_end);
-+		return false;
-+	}
-+
-+	/* PFN range's vmemmap edges are leaf entry aligned */
-+	BUILD_BUG_ON(!IS_ENABLED(CONFIG_SPARSEMEM_VMEMMAP));
-+	start = (unsigned long)pfn_to_page(pfn);
-+	end = (unsigned long)pfn_to_page(pfn + nr_pages);
-+	if (addr_splits_kernel_leaf(start) || addr_splits_kernel_leaf(end)) {
-+		pr_warn("[%lx %lx] splits a leaf entry in vmemmap\n",
-+			phys_start, phys_end);
-+		return false;
-+	}
-+	return true;
-+}
-+
- /*
-  * This memory hotplug notifier helps prevent boot memory from being
-  * inadvertently removed as it blocks pfn range offlining process in
-@@ -2022,8 +2123,11 @@ void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
-  * In future if and when boot memory could be removed, this notifier
-  * should be dropped and free_hotplug_page_range() should handle any
-  * reserved pages allocated during boot.
-+ *
-+ * This also blocks any memory remove that would have caused a split
-+ * in leaf entry in kernel linear or vmemmap mapping.
-  */
--static int prevent_bootmem_remove_notifier(struct notifier_block *nb,
-+static int prevent_memory_remove_notifier(struct notifier_block *nb,
- 					   unsigned long action, void *data)
- {
- 	struct mem_section *ms;
-@@ -2069,11 +2173,15 @@ static int prevent_bootmem_remove_notifier(struct notifier_block *nb,
- 			return NOTIFY_DONE;
+@@ -1482,15 +1486,14 @@ static void unmap_hotplug_pmd_range(pud_t *pudp, unsigned long addr,
+ 		WARN_ON(!pmd_present(pmd));
+ 		if (pmd_sect(pmd)) {
+ 			pmd_clear(pmdp);
+-
+-			/*
+-			 * One TLBI should be sufficient here as the PMD_SIZE
+-			 * range is mapped with a single block entry.
+-			 */
+-			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+-			if (free_mapped)
++			if (free_mapped) {
++				/* CONT blocks are not supported in the vmemmap */
++				WARN_ON(pmd_cont(pmd));
++				flush_tlb_kernel_range(addr, addr + PMD_SIZE);
+ 				free_hotplug_page_range(pmd_page(pmd),
+ 							PMD_SIZE, altmap);
++			}
++			/* unmap_hotplug_range() flushes TLB for !free_mapped */
+ 			continue;
  		}
- 	}
-+
-+	if (!can_unmap_without_split(pfn, arg->nr_pages))
-+		return NOTIFY_BAD;
-+
- 	return NOTIFY_OK;
- }
- 
--static struct notifier_block prevent_bootmem_remove_nb = {
--	.notifier_call = prevent_bootmem_remove_notifier,
-+static struct notifier_block prevent_memory_remove_nb = {
-+	.notifier_call = prevent_memory_remove_notifier,
- };
- 
- /*
-@@ -2123,7 +2231,7 @@ static void validate_bootmem_online(void)
- 	}
- }
- 
--static int __init prevent_bootmem_remove_init(void)
-+static int __init prevent_memory_remove_init(void)
+ 		WARN_ON(!pmd_table(pmd));
+@@ -1515,15 +1518,12 @@ static void unmap_hotplug_pud_range(p4d_t *p4dp, unsigned long addr,
+ 		WARN_ON(!pud_present(pud));
+ 		if (pud_sect(pud)) {
+ 			pud_clear(pudp);
+-
+-			/*
+-			 * One TLBI should be sufficient here as the PUD_SIZE
+-			 * range is mapped with a single block entry.
+-			 */
+-			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+-			if (free_mapped)
++			if (free_mapped) {
++				flush_tlb_kernel_range(addr, addr + PUD_SIZE);
+ 				free_hotplug_page_range(pud_page(pud),
+ 							PUD_SIZE, altmap);
++			}
++			/* unmap_hotplug_range() flushes TLB for !free_mapped */
+ 			continue;
+ 		}
+ 		WARN_ON(!pud_table(pud));
+@@ -1553,6 +1553,7 @@ static void unmap_hotplug_p4d_range(pgd_t *pgdp, unsigned long addr,
+ static void unmap_hotplug_range(unsigned long addr, unsigned long end,
+ 				bool free_mapped, struct vmem_altmap *altmap)
  {
- 	int ret = 0;
++	unsigned long start = addr;
+ 	unsigned long next;
+ 	pgd_t *pgdp, pgd;
  
-@@ -2131,13 +2239,13 @@ static int __init prevent_bootmem_remove_init(void)
- 		return ret;
- 
- 	validate_bootmem_online();
--	ret = register_memory_notifier(&prevent_bootmem_remove_nb);
-+	ret = register_memory_notifier(&prevent_memory_remove_nb);
- 	if (ret)
- 		pr_err("%s: Notifier registration failed %d\n", __func__, ret);
- 
- 	return ret;
+@@ -1574,6 +1575,9 @@ static void unmap_hotplug_range(unsigned long addr, unsigned long end,
+ 		WARN_ON(!pgd_present(pgd));
+ 		unmap_hotplug_p4d_range(pgdp, addr, next, free_mapped, altmap);
+ 	} while (addr = next, addr < end);
++
++	if (!free_mapped)
++		flush_tlb_kernel_range(start, end);
  }
--early_initcall(prevent_bootmem_remove_init);
-+early_initcall(prevent_memory_remove_init);
- #endif
  
- pte_t modify_prot_start_ptes(struct vm_area_struct *vma, unsigned long addr,
+ static void free_empty_pte_table(pmd_t *pmdp, unsigned long addr,
 -- 
 2.30.2
 
