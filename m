@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2227EEFCD93
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 11:20:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D755BEFCD99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 11:20:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NSBeYxdYjgC4Vzna+A8GaXQDRcNg0c9jOio/ZRLiqxE=; b=BVQKJkn4HSqs1gaZ2A5/WPfpPm
-	rOCv8tlVFBeK7X6yTCDN672wtsnzofLaxXnzXcsy3qDSaMCDua3WfhT+dhxC81ExaaRnqjhWxMs2y
-	Bu70uPnqFsXXT7RztlN73f7DM1nmqSOUY+oPwLYaIyc1QxO6uK1JHs1wQRprp/Gx8OsR7T8N3ZAdw
-	CE+8yO8MaNuX6rBz53xEdeT4g+/rawD+1fugAbwJQY8t0z2jn0wwjvToDiY27TkOdXsyUquUb9EbP
-	AFYmn/z9phqyiLCOwjf87QzR+cKR1Ncvnx4g1d6FA5Sm+gRtTYTunkHlWuQMu54VSwXsvjezACpZa
-	rk82FNqA==;
+	bh=sHIfZLxXXzlg28O2tzFJWzH47vbUnSdgvG5c9Hv7nbI=; b=gnKi1Lp3JVZffZIiEWd6q8eaBN
+	rTUXE5f+JyPjffWRg+LGkcZSGjGkojooXeFIBHikXWyiErj0+WOaoOdC8DjkstAAl3Lfm5ZCxLniK
+	z///g5bIzh576D4kAJuKf7m0WqFcIBnhHXbbEaivqOq4PBtYCILFdjvEEbuodvEBxGrSY8s7gapl/
+	sOH2UVt9Ai3mGushHpjzhQQ4eJ6xRICKLGJE3Y1ukOCfVFAZkEP66xG/Ao9nxaRBkkVQrXTId3psV
+	gSAAa6NibrRXWnHjlYBzWsi2mvkF3Qac8xRdYkedXR3Rj0icmaPkznDSRHTZTpsAcO2fj4SDqSqgU
+	8qhFTMkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzYf5-00000007Alg-0dC7;
-	Mon, 09 Mar 2026 11:20:35 +0000
+	id 1vzYfB-00000007AnJ-21eT;
+	Mon, 09 Mar 2026 11:20:41 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzYf2-00000007Al3-2zMj
+	id 1vzYf9-00000007AmF-0Kju
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 11:20:33 +0000
+	Mon, 09 Mar 2026 11:20:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=NSBeYxdYjgC4Vzna+A8GaXQDRcNg0c9jOio/ZRLiqxE=; b=QXLFGGJRPb12B0W9vsRfjcqBpq
-	hQdxVzuLa6kCbbrULNZ6nJC9MwHeuH7dYCOrv7uW6jCc9MXmFnKxl3sUIQ25lrmte9QW+mNwqyZkK
-	v1ElLCSNF99BiX3Xa5XlZx2Nha1+eP3qnTPRRvT6ghBTorlwGUtXN3Bzg4lRhJwrbj37ENmr1RSMw
-	SJv9zuomTx+E2LKJ23AFlfEAQ9c4LemL9sJnXMSI5B+fwfJZI58bT8f//ZbqZeNJzrqQayLslbAD8
-	F6/8nHiw/J9S05PR8CawRrwszZ94qgXKG2CzGKbUdsM/krA5l67hFWrlcXtnlai3imvCRvizWQGZB
-	Hk7UZbKw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:35908 helo=rmk-PC.armlinux.org.uk)
+	bh=sHIfZLxXXzlg28O2tzFJWzH47vbUnSdgvG5c9Hv7nbI=; b=y4D+xuEykbRblTKqYfJO+YUw2/
+	GVwJ+ZD6RvbvKaI+wQxl2cdwtA7F9llD76AANpWpTFp4/qiBkKL/OT7iBYqD5kcRTCmy6Z+Ippzrj
+	q5XNwhV24A5nSc+JXjThzhJixhBCGKNgt8LOw5Nxq4nk8w65Jh3yrTx4ddnX1pQgt11ZgsZRgrjHd
+	xwRrHEILYiFxRHEP+KBmoxOxsFfOUQyVE2EjXAh896CuZfRrZTqv6pBUL3G4/Mf2511XnFEW/x5LT
+	tUIl+eAn1Shxy6bwwmzNJBtBAE1H2XiBxQdpia6QBNMGXBGom5IXgUdjKNO3ciEEOzf8af8CeMH8b
+	o/qfaDHQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:50422 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vzYex-000000003fc-3qMr;
-	Mon, 09 Mar 2026 11:20:27 +0000
+	id 1vzYf3-000000003fo-0C3f;
+	Mon, 09 Mar 2026 11:20:33 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vzYex-0000000CZyV-0lkx;
-	Mon, 09 Mar 2026 11:20:27 +0000
+	id 1vzYf2-0000000CZyb-1CLV;
+	Mon, 09 Mar 2026 11:20:32 +0000
 In-Reply-To: <aa6sofjFxyi2nkpr@shell.armlinux.org.uk>
 References: <aa6sofjFxyi2nkpr@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -64,16 +64,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH RFC net-next v3 1/8] net: stmmac: add struct stmmac_pcs_info
+Subject: [PATCH RFC net-next v3 2/8] net: stmmac: add support for reading
+ inband SGMII status
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vzYex-0000000CZyV-0lkx@rmk-PC.armlinux.org.uk>
-Date: Mon, 09 Mar 2026 11:20:27 +0000
+Message-Id: <E1vzYf2-0000000CZyb-1CLV@rmk-PC.armlinux.org.uk>
+Date: Mon, 09 Mar 2026 11:20:32 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_042032_786113_D9F35DF9 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20260309_042039_276974_25F35BC4 
+X-CRM114-Status: GOOD (  16.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,120 +89,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We need to describe one more register (offset and field bitmask) to
-the PCS code. Move the existing PCS offset and interrupt enable bits
-to a new struct and pass that in to stmmac_integrated_pcs_init().
+Report the link, speed and duplex for SGMII links, read from the
+SGMII, RGMII and SMII status and control register.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c | 9 ++++++---
- drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c    | 8 ++++++--
- drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c     | 8 ++++----
- drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h     | 9 +++++++--
- 4 files changed, 23 insertions(+), 11 deletions(-)
+rfc->v1: fix setting SGMII's link status - depend on both link status.
+v2:
+ - fill in rsgmii offset and status fields in dwmac cores
+ - rename new GMAC_RGSMIII_xxx constants to GMAC_RGSMII_xxx
+---
+ .../net/ethernet/stmicro/stmmac/dwmac1000.h   | 12 +----
+ .../ethernet/stmicro/stmmac/dwmac1000_core.c  |  2 +
+ drivers/net/ethernet/stmicro/stmmac/dwmac4.h  | 10 +---
+ .../net/ethernet/stmicro/stmmac/dwmac4_core.c |  2 +
+ .../net/ethernet/stmicro/stmmac/stmmac_pcs.c  | 49 ++++++++++++++++++-
+ .../net/ethernet/stmicro/stmmac/stmmac_pcs.h  |  4 ++
+ 6 files changed, 58 insertions(+), 21 deletions(-)
 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h b/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
+index 9fe639fb06bb..1de1f929d61c 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
+@@ -70,18 +70,8 @@ enum power_event {
+ #define GMAC_RGSMIIIS		0x000000d8	/* RGMII/SMII status */
+ 
+ /* SGMII/RGMII status register */
+-#define GMAC_RGSMIIIS_LNKMODE		BIT(0)
+-#define GMAC_RGSMIIIS_SPEED		GENMASK(2, 1)
+-#define GMAC_RGSMIIIS_LNKSTS		BIT(3)
+-#define GMAC_RGSMIIIS_JABTO		BIT(4)
+-#define GMAC_RGSMIIIS_FALSECARDET	BIT(5)
++#define GMAC_RSGMIIIS_MASK		GENMASK(15, 0)
+ #define GMAC_RGSMIIIS_SMIDRXS		BIT(16)
+-/* LNKMOD */
+-#define GMAC_RGSMIIIS_LNKMOD_MASK	0x1
+-/* LNKSPEED */
+-#define GMAC_RGSMIIIS_SPEED_125		0x2
+-#define GMAC_RGSMIIIS_SPEED_25		0x1
+-#define GMAC_RGSMIIIS_SPEED_2_5		0x0
+ 
+ /* GMAC Configuration defines */
+ #define GMAC_CONTROL_2K 0x08000000	/* IEEE 802.3as 2K packets */
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
-index c7cb30672604..ba7de26e6a15 100644
+index ba7de26e6a15..834a6ff4ea69 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
-@@ -22,14 +22,17 @@
- #include "stmmac_ptp.h"
- #include "dwmac1000.h"
+@@ -24,6 +24,8 @@
  
-+static const struct stmmac_pcs_info dwmac1000_pcs_info = {
-+	.pcs_offset = GMAC_PCS_BASE,
-+	.int_mask = GMAC_INT_DISABLE_PCSLINK | GMAC_INT_DISABLE_PCSAN,
-+};
-+
- static int dwmac1000_pcs_init(struct stmmac_priv *priv)
- {
- 	if (!priv->dma_cap.pcs)
- 		return 0;
+ static const struct stmmac_pcs_info dwmac1000_pcs_info = {
+ 	.pcs_offset = GMAC_PCS_BASE,
++	.rgsmii_offset = GMAC_RGSMIIIS,
++	.rgsmii_status_mask = GMAC_RSGMIIIS_MASK,
+ 	.int_mask = GMAC_INT_DISABLE_PCSLINK | GMAC_INT_DISABLE_PCSAN,
+ };
  
--	return stmmac_integrated_pcs_init(priv, GMAC_PCS_BASE,
--					  GMAC_INT_DISABLE_PCSLINK |
--					  GMAC_INT_DISABLE_PCSAN);
-+	return stmmac_integrated_pcs_init(priv, &dwmac1000_pcs_info);
- }
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4.h b/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
+index d797d936aee1..ffcd036d4c02 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
+@@ -470,15 +470,7 @@ static inline u32 mtl_low_credx_base_addr(const struct dwmac4_addrs *addrs,
+ #define GMAC_PHYIF_CTRLSTATUS_TC		BIT(0)
+ #define GMAC_PHYIF_CTRLSTATUS_LUD		BIT(1)
+ #define GMAC_PHYIF_CTRLSTATUS_SMIDRXS		BIT(4)
+-#define GMAC_PHYIF_CTRLSTATUS_LNKMOD		BIT(16)
+-#define GMAC_PHYIF_CTRLSTATUS_SPEED		GENMASK(18, 17)
+-#define GMAC_PHYIF_CTRLSTATUS_LNKSTS		BIT(19)
+-#define GMAC_PHYIF_CTRLSTATUS_JABTO		BIT(20)
+-#define GMAC_PHYIF_CTRLSTATUS_FALSECARDET	BIT(21)
+-/* LNKSPEED */
+-#define GMAC_PHYIF_CTRLSTATUS_SPEED_125		0x2
+-#define GMAC_PHYIF_CTRLSTATUS_SPEED_25		0x1
+-#define GMAC_PHYIF_CTRLSTATUS_SPEED_2_5		0x0
++#define GMAC_PHYIF_CTRLSTATUS_RSGMII_MASK	GENMASK(31, 16)
  
- static void dwmac1000_core_init(struct mac_device_info *hw,
+ extern const struct stmmac_dma_ops dwmac4_dma_ops;
+ extern const struct stmmac_dma_ops dwmac410_dma_ops;
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
-index 602771e19d0f..360e5ab410c0 100644
+index 360e5ab410c0..83e988db561c 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
-@@ -22,13 +22,17 @@
- #include "dwmac4.h"
- #include "dwmac5.h"
+@@ -24,6 +24,8 @@
  
-+static const struct stmmac_pcs_info dwmac4_pcs_info = {
-+	.pcs_offset = GMAC_PCS_BASE,
-+	.int_mask = GMAC_INT_PCS_LINK | GMAC_INT_PCS_ANE,
-+};
-+
- static int dwmac4_pcs_init(struct stmmac_priv *priv)
- {
- 	if (!priv->dma_cap.pcs)
- 		return 0;
+ static const struct stmmac_pcs_info dwmac4_pcs_info = {
+ 	.pcs_offset = GMAC_PCS_BASE,
++	.rgsmii_offset = GMAC_PHYIF_CONTROL_STATUS,
++	.rgsmii_status_mask = GMAC_PHYIF_CTRLSTATUS_RSGMII_MASK,
+ 	.int_mask = GMAC_INT_PCS_LINK | GMAC_INT_PCS_ANE,
+ };
  
--	return stmmac_integrated_pcs_init(priv, GMAC_PCS_BASE,
--					  GMAC_INT_PCS_LINK | GMAC_INT_PCS_ANE);
-+	return stmmac_integrated_pcs_init(priv, &dwmac4_pcs_info);
- }
- 
- static void dwmac4_core_init(struct mac_device_info *hw,
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
-index 88fa359ea716..2695e0b9ed03 100644
+index 2695e0b9ed03..df72f7c5a6a7 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
-@@ -90,8 +90,8 @@ int stmmac_integrated_pcs_get_phy_intf_sel(struct phylink_pcs *pcs,
- 	return -EINVAL;
+@@ -16,6 +16,16 @@
+ #define GMAC_ANE_LPA	0x0c	/* ANE link partener ability */
+ #define GMAC_TBI	0x14	/* TBI extend status */
+ 
++/*
++ * RGSMII status bitfield definitions.
++ */
++#define GMAC_RGSMII_LNKMOD		BIT(0)
++#define GMAC_RGSMII_SPEED_MASK		GENMASK(2, 1)
++#define GMAC_RGSMII_SPEED_125		2
++#define GMAC_RGSMII_SPEED_25		1
++#define GMAC_RGSMII_SPEED_2_5		0
++#define GMAC_RGSMII_LNKSTS		BIT(3)
++
+ static int dwmac_integrated_pcs_enable(struct phylink_pcs *pcs)
+ {
+ 	struct stmmac_pcs *spcs = phylink_pcs_to_stmmac_pcs(pcs);
+@@ -36,7 +46,42 @@ static void dwmac_integrated_pcs_get_state(struct phylink_pcs *pcs,
+ 					   unsigned int neg_mode,
+ 					   struct phylink_link_state *state)
+ {
+-	state->link = false;
++	struct stmmac_pcs *spcs = phylink_pcs_to_stmmac_pcs(pcs);
++	u32 status, rgsmii;
++
++	status = readl(spcs->base + GMAC_AN_STATUS);
++
++	if (phy_interface_mode_is_8023z(state->interface)) {
++		state->link = false;
++	} else {
++		rgsmii = field_get(spcs->rgsmii_status_mask,
++				   readl(spcs->rgsmii));
++
++		state->link = status & BMSR_LSTATUS &&
++			      rgsmii & GMAC_RGSMII_LNKSTS;
++
++		if (state->link && neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED) {
++			state->duplex = rgsmii & GMAC_RGSMII_LNKMOD ?
++					DUPLEX_FULL : DUPLEX_HALF;
++			switch (FIELD_GET(GMAC_RGSMII_SPEED_MASK, rgsmii)) {
++			case GMAC_RGSMII_SPEED_2_5:
++				state->speed = SPEED_10;
++				break;
++
++			case GMAC_RGSMII_SPEED_25:
++				state->speed = SPEED_100;
++				break;
++
++			case GMAC_RGSMII_SPEED_125:
++				state->speed = SPEED_1000;
++				break;
++
++			default:
++				state->link = false;
++				break;
++			}
++		}
++	}
  }
  
--int stmmac_integrated_pcs_init(struct stmmac_priv *priv, unsigned int offset,
--			       u32 int_mask)
-+int stmmac_integrated_pcs_init(struct stmmac_priv *priv,
-+			       const struct stmmac_pcs_info *pcs_info)
- {
- 	struct stmmac_pcs *spcs;
- 
-@@ -100,8 +100,8 @@ int stmmac_integrated_pcs_init(struct stmmac_priv *priv, unsigned int offset,
- 		return -ENOMEM;
+ static int dwmac_integrated_pcs_config(struct phylink_pcs *pcs,
+@@ -101,6 +146,8 @@ int stmmac_integrated_pcs_init(struct stmmac_priv *priv,
  
  	spcs->priv = priv;
--	spcs->base = priv->ioaddr + offset;
--	spcs->int_mask = int_mask;
-+	spcs->base = priv->ioaddr + pcs_info->pcs_offset;
-+	spcs->int_mask = pcs_info->int_mask;
+ 	spcs->base = priv->ioaddr + pcs_info->pcs_offset;
++	spcs->rgsmii = priv->ioaddr + pcs_info->rgsmii_offset;
++	spcs->rgsmii_status_mask = pcs_info->rgsmii_status_mask;
+ 	spcs->int_mask = pcs_info->int_mask;
  	spcs->pcs.ops = &dwmac_integrated_pcs_ops;
  
- 	__set_bit(PHY_INTERFACE_MODE_SGMII, spcs->pcs.supported_interfaces);
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
-index 23bbd4f10bf8..f1ee473d8e3e 100644
+index f1ee473d8e3e..09e609f111b1 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
-@@ -27,6 +27,11 @@
+@@ -29,12 +29,16 @@ struct stmmac_priv;
  
- struct stmmac_priv;
+ struct stmmac_pcs_info {
+ 	unsigned int pcs_offset;
++	unsigned int rgsmii_offset;
++	u32 rgsmii_status_mask;
+ 	u32 int_mask;
+ };
  
-+struct stmmac_pcs_info {
-+	unsigned int pcs_offset;
-+	u32 int_mask;
-+};
-+
  struct stmmac_pcs {
  	struct stmmac_priv *priv;
  	void __iomem *base;
-@@ -44,8 +49,8 @@ void stmmac_integrated_pcs_irq(struct stmmac_priv *priv, u32 status,
- 			       struct stmmac_extra_stats *x);
- int stmmac_integrated_pcs_get_phy_intf_sel(struct phylink_pcs *pcs,
- 					   phy_interface_t interface);
--int stmmac_integrated_pcs_init(struct stmmac_priv *priv, unsigned int offset,
--			       u32 int_mask);
-+int stmmac_integrated_pcs_init(struct stmmac_priv *priv,
-+			       const struct stmmac_pcs_info *pcs_info);
- 
- /**
-  * dwmac_ctrl_ane - To program the AN Control Register.
++	void __iomem *rgsmii;
++	u32 rgsmii_status_mask;
+ 	u32 int_mask;
+ 	struct phylink_pcs pcs;
+ };
 -- 
 2.47.3
 
