@@ -4,80 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEDB6F3C25C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 13:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ED49F3C260
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 13:34:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lwcBc7L9XkoIvgS8x3SaMlaO6p2yTy/gP4Rj9VvTNYs=; b=y51jh3bYKQ4ZR/P4ARbBIlRuL8
-	GFiJBFldCAbtinc9q0ilMUN8aYUJfh6wdmGhjORhgSSWp7gfCXh2z2Ngi0uu66YiPGr7iyNjv9gcv
-	3HQyvJf9c7/gbE3kkdQsxn5ZNaRqHyJR7wLl4qEtmrbmJ6bbUMJebz5TQiNnjpFoJJ3CD+AXoifJJ
-	G3A+iwCwu5y1qsSPgtMrPdWfL55SKpUf+SQRWVNEAbOuWl+0iTPPyaOKCUv2uw4z17EAOaIe0sxk/
-	jBG0wnRYSzCiNYBymmlvskS6uokkqJYeB7iFAQrFhtRnVs1U/qo200sBipdwbXW5HtffYo1iU5a9K
-	V4wUiw7A==;
+	bh=Vy7wWQoUTkbF2GstTvGJUdobEiswPlGipo6NYkEFhPk=; b=mjCgKMul2///hWBLbm47oQNNFt
+	Xeermha6qmV9jrnqSBjTQc/hcc+8biKaYrC9tt/e7//ctsY4I+d6NJ/DHN3gFV6q41OKkLMpizrfK
+	JxnWjuMQAKnQJV8qEZ4TLAJl2OBZObrk0dAfwGqUOJM3Aho9WDOuRJVJMkTFjntlKr39M5eDKvyWj
+	9PKAjdxmiR9l3vFZuMtNI7FujogbGt1+NHEWZI+4TsjuVYTw5tzca+p6XYegY9zTxyXxqmYRDek8K
+	wONpoECUQirfBeYlnXz5x99NtlZibLd2XclPp+fzqgX48HdEf0DRZtcPFLkUBFEjRWD/gxr3amvOk
+	AReSE3Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzagP-00000007Ofd-2eif;
-	Mon, 09 Mar 2026 13:30:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vzakH-00000007P1N-2k4P;
+	Mon, 09 Mar 2026 13:34:05 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzagO-00000007OfG-0H2J
+	id 1vzakF-00000007OzI-1ImV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 13:30:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 135E26013C
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  9 Mar 2026 13:30:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6D9DC2BCB1
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  9 Mar 2026 13:30:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773063002;
-	bh=/UpE9x4v0F+CNAUIdLtq+XMTp7Kikc6ThmOhH3qFRSU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=l0dcdh/UsmikM8MhM7nnR9sFSwzhhnHrl5yw3ultKfrvKHqgLOPe7/BW9hdQAoOpy
-	 2Jagib5TrJblrZ+MwYWhCwOlsEKFr5tiqHf2B4RgcY4YPgnSU/j6abw1W4rr/SrCtp
-	 JquQI0E00Vm3CrfF9UO5M2Kd06qBxfeXDtxYUe19rW3uccesip9eGAdc4f877FcIYk
-	 KuYxa3VsYebvqPtfvjUpPzU3BVa0qGHWfflqKVGSCTV4EblYvn7dvpEyvAon+iGnad
-	 wTLQTTJDsWmUXfDWDAe+5vZIZcWeI+3fLilJuh1zyd8f083A0ym0NZLLJIWixwJek/
-	 c9scmPFxwT/fQ==
-Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-b940f962a82so656060066b.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 06:30:02 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUjFXqzpPlFihxNDSteW+8KTd5D2hwTcEPZuLsKnCfimuEPkBob0MRyaO2+e2yzTYcqkykWpH+2uRjxzGPFOhp9@lists.infradead.org
-X-Gm-Message-State: AOJu0YzNuDSIcG0CQ/bW4uzx+iwd3y5fRgEwNOd8X7GLqrrru6/8b9lm
-	h9WY8ouVyooz4c0oDtvvTT6uMangyW8M8S8ulJYLH9OyXRocs1p1OexapG1Cnuj5g3M2rcYe5hf
-	TLAXlB6huPjlAcSYHKm6TT9j1nRv1h04=
-X-Received: by 2002:a17:906:6a0c:b0:b8e:3d49:25db with SMTP id
- a640c23a62f3a-b942e00db25mr648759166b.54.1773063000939; Mon, 09 Mar 2026
- 06:30:00 -0700 (PDT)
+	Mon, 09 Mar 2026 13:34:05 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.177])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4fTydf2P4XzKHMfp
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  9 Mar 2026 21:33:42 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.75])
+	by mail.maildlp.com (Postfix) with ESMTP id 1CC8840595
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  9 Mar 2026 21:33:56 +0800 (CST)
+Received: from k01.k01 (unknown [10.67.174.197])
+	by APP2 (Coremail) with SMTP id Syh0CgA3YAU_zK5pnMwkAQ--.55892S4;
+	Mon, 09 Mar 2026 21:33:55 +0800 (CST)
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+To: bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Anton Protopopov <a.s.protopopov@gmail.com>,
+	Shahab Vahedi <list+bpf@vahedi.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>,
+	Hengqi Chen <hengqi.chen@gmail.com>,
+	Johan Almbladh <johan.almbladh@anyfinetworks.com>,
+	Paul Burton <paulburton@kernel.org>,
+	Hari Bathini <hbathini@linux.ibm.com>,
+	Christophe Leroy <chleroy@kernel.org>,
+	Naveen N Rao <naveen@kernel.org>,
+	Luke Nelson <luke.r.nels@gmail.com>,
+	Xi Wang <xi.wang@gmail.com>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Pu Lehui <pulehui@huawei.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Wang YanQing <udknight@gmail.com>
+Subject: [bpf-next v8 2/5] bpf: Pass bpf_verifier_env to JIT
+Date: Mon,  9 Mar 2026 22:00:41 +0800
+Message-ID: <20260309140044.2652538-3-xukuohai@huaweicloud.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260309140044.2652538-1-xukuohai@huaweicloud.com>
+References: <20260309140044.2652538-1-xukuohai@huaweicloud.com>
 MIME-Version: 1.0
-References: <20260303003625.39035-1-fengchengwen@huawei.com>
- <20260309041659.18815-1-fengchengwen@huawei.com> <20260309041659.18815-2-fengchengwen@huawei.com>
-In-Reply-To: <20260309041659.18815-2-fengchengwen@huawei.com>
-From: Huacai Chen <chenhuacai@kernel.org>
-Date: Mon, 9 Mar 2026 21:29:50 +0800
-X-Gmail-Original-Message-ID: <CAAhV-H7Cy1OuReaoGotZvdvHWLic_ECESFVZgbvNpk2HVjPjuw@mail.gmail.com>
-X-Gm-Features: AaiRm53999Ro86GVlT52rErQab9_tcwK7Kxxf4dLpRSgjEOSn5mzv7jn4vq_ISk
-Message-ID: <CAAhV-H7Cy1OuReaoGotZvdvHWLic_ECESFVZgbvNpk2HVjPjuw@mail.gmail.com>
-Subject: Re: [PATCH v4 1/2] ACPI: Rename get_acpi_id_for_cpu() to
- acpi_get_cpu_acpi_id() on non-x86
-To: Chengwen Feng <fengchengwen@huawei.com>
-Cc: linux-pci@vger.kernel.org, bhelgaas@google.com, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	WANG Xuerui <kernel@xen0n.name>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
-	Sunil V L <sunilvl@ventanamicro.com>, Mark Rutland <mark.rutland@arm.com>, 
-	linux-acpi@vger.kernel.org, wei.huang2@amd.com, Eric.VanTassell@amd.com, 
-	jonathan.cameron@huawei.com, wangzhou1@hisilicon.com, wanghuiqiang@huawei.com, 
-	liuyonglong@huawei.com, stable@vger.kernel.org, jeremy.linton@arm.com, 
-	sunilvl@oss.qualcomm.com, chenhuacai@loongson.cn, wangliupu@loongson.cn, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: Syh0CgA3YAU_zK5pnMwkAQ--.55892S4
+X-Coremail-Antispam: 1UD129KBjvAXoW3Zr43Ar4kZF43Wr4Utw43ZFb_yoW8XrW8Go
+	W3tFn0yF48t3ykGrW7trn7JF1UXw17G3yxZr4fWan5Wayxt34jkr9rWrsrt3WSqa1rJrWD
+	uFy8Ga15ArnxKFZxn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
+	AaLaJ3UjIYCTnIWjp_UUUO07kC6x804xWl14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK
+	8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr
+	yl82xGYIkIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AK
+	xVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ew
+	Av7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY
+	6r1j6r4UM4x0Y48IcxkI7VAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14
+	v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8C
+	rVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXw
+	CIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x02
+	67AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r
+	4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjxU
+	IID7DUUUU
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260309_063403_735434_FD633D95 
+X-CRM114-Status: GOOD (  20.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,217 +110,389 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Chengwen,
+From: Xu Kuohai <xukuohai@huawei.com>
 
-On Mon, Mar 9, 2026 at 12:17=E2=80=AFPM Chengwen Feng <fengchengwen@huawei.=
-com> wrote:
->
-> To unify the CPU ACPI ID retrieval interface across architectures,
-> rename the existing get_acpi_id_for_cpu() function to
-> acpi_get_cpu_acpi_id() on arm64/riscv/loongarch platforms.
-Can we also rename cpu_acpi_id() to acpi_get_cpu_acpi_id() for x86?
+Pass bpf_verifier_env to bpf_int_jit_compile(). The follow-up patch will
+use env->insn_aux_data in the JIT stage to detect indirect jump targets.
 
-Huacai
+Since bpf_prog_select_runtime() can be called by cbpf and test code
+without verifier, introduce helper function __bpf_prog_select_runtime()
+to accept the env parameter.
 
->
-> This is a pure rename with no functional change, preparing for a
-> consistent ACPI Processor UID retrieval interface across all ACPI-enabled
-> platforms.
->
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Chengwen Feng <fengchengwen@huawei.com>
-> ---
->  arch/arm64/include/asm/acpi.h      |  4 ++--
->  arch/loongarch/include/asm/acpi.h  |  2 +-
->  arch/riscv/include/asm/acpi.h      |  2 +-
->  arch/riscv/kernel/acpi_numa.c      |  2 +-
->  drivers/acpi/pptt.c                | 16 ++++++++--------
->  drivers/acpi/riscv/rhct.c          |  2 +-
->  drivers/perf/arm_cspmu/arm_cspmu.c |  2 +-
->  7 files changed, 15 insertions(+), 15 deletions(-)
->
-> diff --git a/arch/arm64/include/asm/acpi.h b/arch/arm64/include/asm/acpi.=
-h
-> index c07a58b96329..202107aeb05b 100644
-> --- a/arch/arm64/include/asm/acpi.h
-> +++ b/arch/arm64/include/asm/acpi.h
-> @@ -114,7 +114,7 @@ static inline bool acpi_has_cpu_in_madt(void)
->  }
->
->  struct acpi_madt_generic_interrupt *acpi_cpu_get_madt_gicc(int cpu);
-> -static inline u32 get_acpi_id_for_cpu(unsigned int cpu)
-> +static inline u32 acpi_get_cpu_acpi_id(unsigned int cpu)
->  {
->         return  acpi_cpu_get_madt_gicc(cpu)->uid;
->  }
-> @@ -125,7 +125,7 @@ static inline int get_cpu_for_acpi_id(u32 uid)
->
->         for (cpu =3D 0; cpu < nr_cpu_ids; cpu++)
->                 if (acpi_cpu_get_madt_gicc(cpu) &&
-> -                   uid =3D=3D get_acpi_id_for_cpu(cpu))
-> +                   uid =3D=3D acpi_get_cpu_acpi_id(cpu))
->                         return cpu;
->
->         return -EINVAL;
-> diff --git a/arch/loongarch/include/asm/acpi.h b/arch/loongarch/include/a=
-sm/acpi.h
-> index 7376840fa9f7..89c6c8f52cc3 100644
-> --- a/arch/loongarch/include/asm/acpi.h
-> +++ b/arch/loongarch/include/asm/acpi.h
-> @@ -40,7 +40,7 @@ extern struct acpi_madt_core_pic acpi_core_pic[MAX_CORE=
-_PIC];
->
->  extern int __init parse_acpi_topology(void);
->
-> -static inline u32 get_acpi_id_for_cpu(unsigned int cpu)
-> +static inline u32 acpi_get_cpu_acpi_id(unsigned int cpu)
->  {
->         return acpi_core_pic[cpu_logical_map(cpu)].processor_id;
->  }
-> diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.=
-h
-> index 6e13695120bc..1d23681b61b5 100644
-> --- a/arch/riscv/include/asm/acpi.h
-> +++ b/arch/riscv/include/asm/acpi.h
-> @@ -61,7 +61,7 @@ static inline void arch_fix_phys_package_id(int num, u3=
-2 slot) { }
->
->  void acpi_init_rintc_map(void);
->  struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu);
-> -static inline u32 get_acpi_id_for_cpu(int cpu)
-> +static inline u32 acpi_get_cpu_acpi_id(int cpu)
->  {
->         return acpi_cpu_get_madt_rintc(cpu)->uid;
->  }
-> diff --git a/arch/riscv/kernel/acpi_numa.c b/arch/riscv/kernel/acpi_numa.=
-c
-> index 130769e3a99c..c2eb4824d0f7 100644
-> --- a/arch/riscv/kernel/acpi_numa.c
-> +++ b/arch/riscv/kernel/acpi_numa.c
-> @@ -40,7 +40,7 @@ static inline int get_cpu_for_acpi_id(u32 uid)
->         int cpu;
->
->         for (cpu =3D 0; cpu < nr_cpu_ids; cpu++)
-> -               if (uid =3D=3D get_acpi_id_for_cpu(cpu))
-> +               if (uid =3D=3D acpi_get_cpu_acpi_id(cpu))
->                         return cpu;
->
->         return -EINVAL;
-> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
-> index de5f8c018333..c1a8fba4c2b2 100644
-> --- a/drivers/acpi/pptt.c
-> +++ b/drivers/acpi/pptt.c
-> @@ -459,7 +459,7 @@ static void cache_setup_acpi_cpu(struct acpi_table_he=
-ader *table,
->  {
->         struct acpi_pptt_cache *found_cache;
->         struct cpu_cacheinfo *this_cpu_ci =3D get_cpu_cacheinfo(cpu);
-> -       u32 acpi_cpu_id =3D get_acpi_id_for_cpu(cpu);
-> +       u32 acpi_cpu_id =3D acpi_get_cpu_acpi_id(cpu);
->         struct cacheinfo *this_leaf;
->         unsigned int index =3D 0;
->         struct acpi_pptt_processor *cpu_node =3D NULL;
-> @@ -546,7 +546,7 @@ static int topology_get_acpi_cpu_tag(struct acpi_tabl=
-e_header *table,
->                                      unsigned int cpu, int level, int fla=
-g)
->  {
->         struct acpi_pptt_processor *cpu_node;
-> -       u32 acpi_cpu_id =3D get_acpi_id_for_cpu(cpu);
-> +       u32 acpi_cpu_id =3D acpi_get_cpu_acpi_id(cpu);
->
->         cpu_node =3D acpi_find_processor_node(table, acpi_cpu_id);
->         if (cpu_node) {
-> @@ -622,7 +622,7 @@ static int find_acpi_cpu_topology_tag(unsigned int cp=
-u, int level, int flag)
->  static int check_acpi_cpu_flag(unsigned int cpu, int rev, u32 flag)
->  {
->         struct acpi_table_header *table;
-> -       u32 acpi_cpu_id =3D get_acpi_id_for_cpu(cpu);
-> +       u32 acpi_cpu_id =3D acpi_get_cpu_acpi_id(cpu);
->         struct acpi_pptt_processor *cpu_node =3D NULL;
->         int ret =3D -ENOENT;
->
-> @@ -671,7 +671,7 @@ int acpi_get_cache_info(unsigned int cpu, unsigned in=
-t *levels,
->
->         pr_debug("Cache Setup: find cache levels for CPU=3D%d\n", cpu);
->
-> -       acpi_cpu_id =3D get_acpi_id_for_cpu(cpu);
-> +       acpi_cpu_id =3D acpi_get_cpu_acpi_id(cpu);
->         cpu_node =3D acpi_find_processor_node(table, acpi_cpu_id);
->         if (!cpu_node)
->                 return -ENOENT;
-> @@ -797,7 +797,7 @@ int find_acpi_cpu_topology_cluster(unsigned int cpu)
->         if (!table)
->                 return -ENOENT;
->
-> -       acpi_cpu_id =3D get_acpi_id_for_cpu(cpu);
-> +       acpi_cpu_id =3D acpi_get_cpu_acpi_id(cpu);
->         cpu_node =3D acpi_find_processor_node(table, acpi_cpu_id);
->         if (!cpu_node || !cpu_node->parent)
->                 return -ENOENT;
-> @@ -872,7 +872,7 @@ static void acpi_pptt_get_child_cpus(struct acpi_tabl=
-e_header *table_hdr,
->         cpumask_clear(cpus);
->
->         for_each_possible_cpu(cpu) {
-> -               acpi_id =3D get_acpi_id_for_cpu(cpu);
-> +               acpi_id =3D acpi_get_cpu_acpi_id(cpu);
->                 cpu_node =3D acpi_find_processor_node(table_hdr, acpi_id)=
-;
->
->                 while (cpu_node) {
-> @@ -966,7 +966,7 @@ int find_acpi_cache_level_from_id(u32 cache_id)
->         for_each_possible_cpu(cpu) {
->                 bool empty;
->                 int level =3D 1;
-> -               u32 acpi_cpu_id =3D get_acpi_id_for_cpu(cpu);
-> +               u32 acpi_cpu_id =3D acpi_get_cpu_acpi_id(cpu);
->                 struct acpi_pptt_cache *cache;
->                 struct acpi_pptt_processor *cpu_node;
->
-> @@ -1030,7 +1030,7 @@ int acpi_pptt_get_cpumask_from_cache_id(u32 cache_i=
-d, cpumask_t *cpus)
->         for_each_possible_cpu(cpu) {
->                 bool empty;
->                 int level =3D 1;
-> -               u32 acpi_cpu_id =3D get_acpi_id_for_cpu(cpu);
-> +               u32 acpi_cpu_id =3D acpi_get_cpu_acpi_id(cpu);
->                 struct acpi_pptt_cache *cache;
->                 struct acpi_pptt_processor *cpu_node;
->
-> diff --git a/drivers/acpi/riscv/rhct.c b/drivers/acpi/riscv/rhct.c
-> index caa2c16e1697..c15ce8c13136 100644
-> --- a/drivers/acpi/riscv/rhct.c
-> +++ b/drivers/acpi/riscv/rhct.c
-> @@ -44,7 +44,7 @@ int acpi_get_riscv_isa(struct acpi_table_header *table,=
- unsigned int cpu, const
->         struct acpi_rhct_isa_string *isa_node;
->         struct acpi_table_rhct *rhct;
->         u32 *hart_info_node_offset;
-> -       u32 acpi_cpu_id =3D get_acpi_id_for_cpu(cpu);
-> +       u32 acpi_cpu_id =3D acpi_get_cpu_acpi_id(cpu);
->
->         BUG_ON(acpi_disabled);
->
-> diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/=
-arm_cspmu.c
-> index 34430b68f602..506b661c60fd 100644
-> --- a/drivers/perf/arm_cspmu/arm_cspmu.c
-> +++ b/drivers/perf/arm_cspmu/arm_cspmu.c
-> @@ -1115,7 +1115,7 @@ static int arm_cspmu_acpi_get_cpus(struct arm_cspmu=
- *cspmu)
->         if (affinity_flag =3D=3D ACPI_APMT_FLAGS_AFFINITY_PROC) {
->                 for_each_possible_cpu(cpu) {
->                         if (apmt_node->proc_affinity =3D=3D
-> -                           get_acpi_id_for_cpu(cpu)) {
-> +                           acpi_get_cpu_acpi_id(cpu)) {
->                                 cpumask_set_cpu(cpu, &cspmu->associated_c=
-pus);
->                                 break;
->                         }
-> --
-> 2.17.1
->
+Remove the call to bpf_prog_select_runtime() in bpf_prog_load(), and
+switch to call __bpf_prog_select_runtime() in the verifier, with env
+variable passed. The original bpf_prog_select_runtime() is preserved for
+cbpf and test code, where env is NULL.
+
+Signed-off-by: Xu Kuohai <xukuohai@huawei.com>
+---
+ arch/arc/net/bpf_jit_core.c      | 17 ++++++++--------
+ arch/arm/net/bpf_jit_32.c        |  2 +-
+ arch/arm64/net/bpf_jit_comp.c    |  2 +-
+ arch/loongarch/net/bpf_jit.c     |  2 +-
+ arch/mips/net/bpf_jit_comp.c     |  2 +-
+ arch/parisc/net/bpf_jit_core.c   |  2 +-
+ arch/powerpc/net/bpf_jit_comp.c  |  2 +-
+ arch/riscv/net/bpf_jit_core.c    |  2 +-
+ arch/s390/net/bpf_jit_comp.c     |  2 +-
+ arch/sparc/net/bpf_jit_comp_64.c |  2 +-
+ arch/x86/net/bpf_jit_comp.c      |  2 +-
+ arch/x86/net/bpf_jit_comp32.c    |  2 +-
+ include/linux/filter.h           |  4 +++-
+ kernel/bpf/core.c                | 34 +++++++++++++++++++-------------
+ kernel/bpf/syscall.c             |  4 ----
+ kernel/bpf/verifier.c            |  8 ++++++--
+ 16 files changed, 49 insertions(+), 40 deletions(-)
+
+diff --git a/arch/arc/net/bpf_jit_core.c b/arch/arc/net/bpf_jit_core.c
+index 12facf5750da..cf708c308adb 100644
+--- a/arch/arc/net/bpf_jit_core.c
++++ b/arch/arc/net/bpf_jit_core.c
+@@ -153,7 +153,8 @@ static void jit_dump(const struct jit_context *ctx)
+ }
+ 
+ /* Initialise the context so there's no garbage. */
+-static int jit_ctx_init(struct jit_context *ctx, struct bpf_prog *prog)
++static int jit_ctx_init(struct jit_context *ctx, struct bpf_verifier_env *env,
++			struct bpf_prog *prog)
+ {
+ 	memset(ctx, 0, sizeof(*ctx));
+ 
+@@ -1317,7 +1318,7 @@ static int jit_patch_relocations(struct jit_context *ctx)
+  * to get the necessary data for the real compilation phase,
+  * jit_compile().
+  */
+-static struct bpf_prog *do_normal_pass(struct bpf_prog *prog)
++static struct bpf_prog *do_normal_pass(struct bpf_verifier_env *env, struct bpf_prog *prog)
+ {
+ 	struct jit_context ctx;
+ 
+@@ -1325,7 +1326,7 @@ static struct bpf_prog *do_normal_pass(struct bpf_prog *prog)
+ 	if (!prog->jit_requested)
+ 		return prog;
+ 
+-	if (jit_ctx_init(&ctx, prog)) {
++	if (jit_ctx_init(&ctx, env, prog)) {
+ 		jit_ctx_cleanup(&ctx);
+ 		return prog;
+ 	}
+@@ -1356,7 +1357,7 @@ static struct bpf_prog *do_normal_pass(struct bpf_prog *prog)
+  * again to get the newly translated addresses in order to resolve
+  * the "call"s.
+  */
+-static struct bpf_prog *do_extra_pass(struct bpf_prog *prog)
++static struct bpf_prog *do_extra_pass(struct bpf_verifier_env *env, struct bpf_prog *prog)
+ {
+ 	struct jit_context ctx;
+ 
+@@ -1364,7 +1365,7 @@ static struct bpf_prog *do_extra_pass(struct bpf_prog *prog)
+ 	if (check_jit_context(prog))
+ 		return prog;
+ 
+-	if (jit_ctx_init(&ctx, prog)) {
++	if (jit_ctx_init(&ctx, env, prog)) {
+ 		jit_ctx_cleanup(&ctx);
+ 		return prog;
+ 	}
+@@ -1393,15 +1394,15 @@ static struct bpf_prog *do_extra_pass(struct bpf_prog *prog)
+  * (re)locations involved that their addresses are not known
+  * during the first run.
+  */
+-struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
++struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
+ {
+ 	vm_dump(prog);
+ 
+ 	/* Was this program already translated? */
+ 	if (!prog->jited)
+-		return do_normal_pass(prog);
++		return do_normal_pass(env, prog);
+ 	else
+-		return do_extra_pass(prog);
++		return do_extra_pass(env, prog);
+ 
+ 	return prog;
+ }
+diff --git a/arch/arm/net/bpf_jit_32.c b/arch/arm/net/bpf_jit_32.c
+index e6b1bb2de627..1628b6fc70a4 100644
+--- a/arch/arm/net/bpf_jit_32.c
++++ b/arch/arm/net/bpf_jit_32.c
+@@ -2142,7 +2142,7 @@ bool bpf_jit_needs_zext(void)
+ 	return true;
+ }
+ 
+-struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
++struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
+ {
+ 	struct bpf_binary_header *header;
+ 	struct jit_ctx ctx;
+diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+index 566809be4a02..5c785eab4b5a 100644
+--- a/arch/arm64/net/bpf_jit_comp.c
++++ b/arch/arm64/net/bpf_jit_comp.c
+@@ -2013,7 +2013,7 @@ static void clear_jit_state(struct bpf_prog *prog)
+ 	prog->jited_len = 0;
+ }
+ 
+-struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
++struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
+ {
+ 	int image_size, prog_size, extable_size, extable_align, extable_offset;
+ 	struct bpf_binary_header *header;
+diff --git a/arch/loongarch/net/bpf_jit.c b/arch/loongarch/net/bpf_jit.c
+index 57dd24d53c77..0ac69bac9d3c 100644
+--- a/arch/loongarch/net/bpf_jit.c
++++ b/arch/loongarch/net/bpf_jit.c
+@@ -1909,7 +1909,7 @@ int arch_bpf_trampoline_size(const struct btf_func_model *m, u32 flags,
+ 	return ret < 0 ? ret : ret * LOONGARCH_INSN_SIZE;
+ }
+ 
+-struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
++struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
+ {
+ 	bool extra_pass = false;
+ 	u8 *image_ptr, *ro_image_ptr;
+diff --git a/arch/mips/net/bpf_jit_comp.c b/arch/mips/net/bpf_jit_comp.c
+index d2b6c955f18e..6ee4abe6a1f7 100644
+--- a/arch/mips/net/bpf_jit_comp.c
++++ b/arch/mips/net/bpf_jit_comp.c
+@@ -909,7 +909,7 @@ bool bpf_jit_needs_zext(void)
+ 	return true;
+ }
+ 
+-struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
++struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
+ {
+ 	struct bpf_binary_header *header = NULL;
+ 	struct jit_context ctx;
+diff --git a/arch/parisc/net/bpf_jit_core.c b/arch/parisc/net/bpf_jit_core.c
+index 4d339636a34a..90d081734d0f 100644
+--- a/arch/parisc/net/bpf_jit_core.c
++++ b/arch/parisc/net/bpf_jit_core.c
+@@ -41,7 +41,7 @@ bool bpf_jit_needs_zext(void)
+ 	return true;
+ }
+ 
+-struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
++struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
+ {
+ 	unsigned int prog_size = 0, extable_size = 0;
+ 	bool extra_pass = false;
+diff --git a/arch/powerpc/net/bpf_jit_comp.c b/arch/powerpc/net/bpf_jit_comp.c
+index 7a7c49640a2f..a6fd7ef249da 100644
+--- a/arch/powerpc/net/bpf_jit_comp.c
++++ b/arch/powerpc/net/bpf_jit_comp.c
+@@ -129,7 +129,7 @@ bool bpf_jit_needs_zext(void)
+ 	return true;
+ }
+ 
+-struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
++struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *fp)
+ {
+ 	u32 proglen;
+ 	u32 alloclen;
+diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
+index c77e8aba14d3..bffaf584226c 100644
+--- a/arch/riscv/net/bpf_jit_core.c
++++ b/arch/riscv/net/bpf_jit_core.c
+@@ -41,7 +41,7 @@ bool bpf_jit_needs_zext(void)
+ 	return true;
+ }
+ 
+-struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
++struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
+ {
+ 	unsigned int prog_size = 0, extable_size = 0;
+ 	bool extra_pass = false;
+diff --git a/arch/s390/net/bpf_jit_comp.c b/arch/s390/net/bpf_jit_comp.c
+index d6de2abfe4a7..061f16d1e3b1 100644
+--- a/arch/s390/net/bpf_jit_comp.c
++++ b/arch/s390/net/bpf_jit_comp.c
+@@ -2303,7 +2303,7 @@ static struct bpf_binary_header *bpf_jit_alloc(struct bpf_jit *jit,
+ /*
+  * Compile eBPF program "fp"
+  */
+-struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
++struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *fp)
+ {
+ 	struct bpf_binary_header *header;
+ 	struct s390_jit_data *jit_data;
+diff --git a/arch/sparc/net/bpf_jit_comp_64.c b/arch/sparc/net/bpf_jit_comp_64.c
+index 86abd84d4005..eca9365c72e7 100644
+--- a/arch/sparc/net/bpf_jit_comp_64.c
++++ b/arch/sparc/net/bpf_jit_comp_64.c
+@@ -1477,7 +1477,7 @@ struct sparc64_jit_data {
+ 	struct jit_ctx ctx;
+ };
+ 
+-struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
++struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
+ {
+ 	struct sparc64_jit_data *jit_data;
+ 	struct bpf_binary_header *header;
+diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
+index de51ab3a11ee..b95f23ad1093 100644
+--- a/arch/x86/net/bpf_jit_comp.c
++++ b/arch/x86/net/bpf_jit_comp.c
+@@ -3713,7 +3713,7 @@ struct x64_jit_data {
+ #define MAX_PASSES 20
+ #define PADDING_PASSES (MAX_PASSES - 5)
+ 
+-struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
++struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
+ {
+ 	struct bpf_binary_header *rw_header = NULL;
+ 	struct bpf_binary_header *header = NULL;
+diff --git a/arch/x86/net/bpf_jit_comp32.c b/arch/x86/net/bpf_jit_comp32.c
+index 5f259577614a..852baf2e4db4 100644
+--- a/arch/x86/net/bpf_jit_comp32.c
++++ b/arch/x86/net/bpf_jit_comp32.c
+@@ -2518,7 +2518,7 @@ bool bpf_jit_needs_zext(void)
+ 	return true;
+ }
+ 
+-struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
++struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
+ {
+ 	struct bpf_binary_header *header = NULL;
+ 	int proglen, oldproglen = 0;
+diff --git a/include/linux/filter.h b/include/linux/filter.h
+index 2484d85be63d..d1bacfbbd02b 100644
+--- a/include/linux/filter.h
++++ b/include/linux/filter.h
+@@ -1108,6 +1108,8 @@ static inline int sk_filter_reason(struct sock *sk, struct sk_buff *skb,
+ 	return sk_filter_trim_cap(sk, skb, 1, reason);
+ }
+ 
++struct bpf_prog *__bpf_prog_select_runtime(struct bpf_verifier_env *env, struct bpf_prog *fp,
++					   int *err);
+ struct bpf_prog *bpf_prog_select_runtime(struct bpf_prog *fp, int *err);
+ void bpf_prog_free(struct bpf_prog *fp);
+ 
+@@ -1153,7 +1155,7 @@ u64 __bpf_call_base(u64 r1, u64 r2, u64 r3, u64 r4, u64 r5);
+ 	((u64 (*)(u64, u64, u64, u64, u64, const struct bpf_insn *)) \
+ 	 (void *)__bpf_call_base)
+ 
+-struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog);
++struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog);
+ void bpf_jit_compile(struct bpf_prog *prog);
+ bool bpf_jit_needs_zext(void);
+ bool bpf_jit_inlines_helper_call(s32 imm);
+diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
+index c692213b1fdf..88a1834030a0 100644
+--- a/kernel/bpf/core.c
++++ b/kernel/bpf/core.c
+@@ -2432,18 +2432,8 @@ static bool bpf_prog_select_interpreter(struct bpf_prog *fp)
+ 	return select_interpreter;
+ }
+ 
+-/**
+- *	bpf_prog_select_runtime - select exec runtime for BPF program
+- *	@fp: bpf_prog populated with BPF program
+- *	@err: pointer to error variable
+- *
+- * Try to JIT eBPF program, if JIT is not available, use interpreter.
+- * The BPF program will be executed via bpf_prog_run() function.
+- *
+- * Return: the &fp argument along with &err set to 0 for success or
+- * a negative errno code on failure
+- */
+-struct bpf_prog *bpf_prog_select_runtime(struct bpf_prog *fp, int *err)
++struct bpf_prog *__bpf_prog_select_runtime(struct bpf_verifier_env *env, struct bpf_prog *fp,
++					   int *err)
+ {
+ 	/* In case of BPF to BPF calls, verifier did all the prep
+ 	 * work with regards to JITing, etc.
+@@ -2471,7 +2461,7 @@ struct bpf_prog *bpf_prog_select_runtime(struct bpf_prog *fp, int *err)
+ 		if (*err)
+ 			return fp;
+ 
+-		fp = bpf_int_jit_compile(fp);
++		fp = bpf_int_jit_compile(env, fp);
+ 		bpf_prog_jit_attempt_done(fp);
+ 		if (!fp->jited && jit_needed) {
+ 			*err = -ENOTSUPP;
+@@ -2497,6 +2487,22 @@ struct bpf_prog *bpf_prog_select_runtime(struct bpf_prog *fp, int *err)
+ 
+ 	return fp;
+ }
++
++/**
++ *	bpf_prog_select_runtime - select exec runtime for BPF program
++ *	@fp: bpf_prog populated with BPF program
++ *	@err: pointer to error variable
++ *
++ * Try to JIT eBPF program, if JIT is not available, use interpreter.
++ * The BPF program will be executed via bpf_prog_run() function.
++ *
++ * Return: the &fp argument along with &err set to 0 for success or
++ * a negative errno code on failure
++ */
++struct bpf_prog *bpf_prog_select_runtime(struct bpf_prog *fp, int *err)
++{
++	return __bpf_prog_select_runtime(NULL, fp, err);
++}
+ EXPORT_SYMBOL_GPL(bpf_prog_select_runtime);
+ 
+ static unsigned int __bpf_prog_ret1(const void *ctx,
+@@ -2984,7 +2990,7 @@ const struct bpf_func_proto bpf_tail_call_proto = {
+  * It is encouraged to implement bpf_int_jit_compile() instead, so that
+  * eBPF and implicitly also cBPF can get JITed!
+  */
+-struct bpf_prog * __weak bpf_int_jit_compile(struct bpf_prog *prog)
++struct bpf_prog * __weak bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
+ {
+ 	return prog;
+ }
+diff --git a/kernel/bpf/syscall.c b/kernel/bpf/syscall.c
+index 274039e36465..fb07be46c936 100644
+--- a/kernel/bpf/syscall.c
++++ b/kernel/bpf/syscall.c
+@@ -3090,10 +3090,6 @@ static int bpf_prog_load(union bpf_attr *attr, bpfptr_t uattr, u32 uattr_size)
+ 	if (err < 0)
+ 		goto free_used_maps;
+ 
+-	prog = bpf_prog_select_runtime(prog, &err);
+-	if (err < 0)
+-		goto free_used_maps;
+-
+ 	err = bpf_prog_mark_insn_arrays_ready(prog);
+ 	if (err < 0)
+ 		goto free_used_maps;
+diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+index e290c9b7d13d..fc3ba380b74a 100644
+--- a/kernel/bpf/verifier.c
++++ b/kernel/bpf/verifier.c
+@@ -22977,7 +22977,7 @@ static int jit_subprogs(struct bpf_verifier_env *env)
+ 		func[i]->aux->might_sleep = env->subprog_info[i].might_sleep;
+ 		if (!i)
+ 			func[i]->aux->exception_boundary = env->seen_exception;
+-		func[i] = bpf_int_jit_compile(func[i]);
++		func[i] = bpf_int_jit_compile(env, func[i]);
+ 		if (!func[i]->jited) {
+ 			err = -ENOTSUPP;
+ 			goto out_free;
+@@ -23021,7 +23021,7 @@ static int jit_subprogs(struct bpf_verifier_env *env)
+ 	}
+ 	for (i = 0; i < env->subprog_cnt; i++) {
+ 		old_bpf_func = func[i]->bpf_func;
+-		tmp = bpf_int_jit_compile(func[i]);
++		tmp = bpf_int_jit_compile(env, func[i]);
+ 		if (tmp != func[i] || func[i]->bpf_func != old_bpf_func) {
+ 			verbose(env, "JIT doesn't support bpf-to-bpf calls\n");
+ 			err = -ENOTSUPP;
+@@ -26227,6 +26227,10 @@ int bpf_check(struct bpf_prog **prog, union bpf_attr *attr, bpfptr_t uattr, __u3
+ 		convert_pseudo_ld_imm64(env);
+ 	}
+ 
++	env->prog = __bpf_prog_select_runtime(env, env->prog, &ret);
++	if (ret)
++		goto err_release_maps;
++
+ 	adjust_btf_func(env);
+ 
+ err_release_maps:
+-- 
+2.47.3
+
 
