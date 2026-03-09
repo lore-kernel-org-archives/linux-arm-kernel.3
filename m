@@ -4,153 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D75BBEA855B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 05:32:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D22F3EA855F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 05:53:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XrwHnd1I8Xj7Dd6tDZy1Vp/Jd2bNFW4kbVkcZy5ydBY=; b=W90jgfOVP+SP5zefJVDbPJnwyK
-	LgwltAJyXsGzWheT0ghkvE0RGooXFm3VN+sDPp7EIMlco5YgPYcYWJXSSJmlvmNFx0gaSSkHXDSPq
-	nUu/UG0jXYs9JWbJ59yvir1blk9NwRiICGZIpGZf8S+5bjHZQIZ/Dq3h9tZUnyNDmxubDpSxvOrpb
-	L6o2jMIO+P95tkEkNMCPgYLWvlf4CEGdTq1mBbNzgqioOfScdaKRw1hbY7Mswfz+jJ/CKO6T1wuVB
-	UJ8MON//k6yHghd5H9v9chO5kRbrShAKkdyirZTa8MPoCtwJ+SoPsNl8ke2jGNHBYBJX/rowDomLc
-	/lH+ENmw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	Content-Type:Content-Transfer-Encoding:Date:Message-ID:In-Reply-To:CC:To:From
+	:Subject:Mime-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ruhENHRq3MyvC0eNDlJwB6hgLWsmtwvw7jdAy3CyXEQ=; b=t0caWxHpmuQmxzhr96vn3n994v
+	2vJmPwc/lmRYWpsNJsHwc85VBTADHakd+pObsAAUCvdR2UMLhOu/NlD/sBJLDUqNtHyhZCyvazi9L
+	+8iloaaxq0dFNsQ2bnN+1cdgZCtN/YfeRe0dVhqV1y2WA6zLB/wBBbUwGe1viij3Zxnr1csOeyaX6
+	pL4Sk8xe1ut4VMNV6Z8Xki+Vg/5yR2jGPtgMpZw97sXuTspnc6+s+kI2m9nUYS89utSUzCBH1gOjE
+	bBT5bR0VMTVDbU6T2xtQAd6lkJwy5faCXASmhJMyqVfSQVzgq3gqu85UHvQ9RETn1/DvKN69HF9Sh
+	IYdGIKxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzTDf-00000006guR-0Al7;
-	Mon, 09 Mar 2026 05:31:55 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1vzTYm-00000006hXR-0xic;
+	Mon, 09 Mar 2026 05:53:44 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzTDc-00000006gtn-1ZsG;
-	Mon, 09 Mar 2026 05:31:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qfKAN05V0riyYERd8D8z5W0+5+v5Er7pitKJifssmmhJMiJjuR/8Ii6GfJSFoIq5bYmmc64q1q2comhKXgFK2X8uazAlWHG3VDgGaAVqzL9/EUVycNc6QePuCT3izSHEBb65jh6bkWGQqdfP0DQzJJzSmJAERhrrRE1U22WHsZFl0MHwBwgARlhy5Oq90SA9E3klfyGoqzuwe6nrp6JOvP2SdAxPaTyl+oazznJaeKCHLpFzp4EDwvMitznZXJyra/jiFcSS8xMcQyu3HlPW+WCB6ctGrJFx/wE98IM76WK3YpvruyiS4rNQC1K6lLnKU3ZIGRBMnJr6/I9kPFyYkg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XrwHnd1I8Xj7Dd6tDZy1Vp/Jd2bNFW4kbVkcZy5ydBY=;
- b=U3o+v5pfSaj8mOhSeAbOhAW0eXDiYsIrPjZbYU/5XRPBOzy3gCdm5rjNw2UGjmBROdKw/j76nANtoKVXk0El1HRUGXcUts2vUHflI7u9nmDtt1EhXLW03CJCTwnQj3Gzfs58OU56+074DsE534ILoKE7viOVs3QXAL+Gf0R/zXaXJCRBdl9JP21mibpi0u0ZIguDDMjjrrWyEL7t1IdqLPEfjWRVYIbIepPFwL7lBrSHzHDUXQiS4xYQ3TpfmkFILeY2GrR2PDqixBBQC06bidjdRQkq7VmV4FQSQRFZASN7CCdOkJ4eh7khX/OMNyG8UwRrw1SEc3OUkTyutbRWIA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XrwHnd1I8Xj7Dd6tDZy1Vp/Jd2bNFW4kbVkcZy5ydBY=;
- b=E9sU1dwCr8i4IznVcQcVK06FgLeLvBKWQ2jSme42Dleq199Htz8ChS4GL7VaoH5oSh7EY8f9gWsberQQQjVxPb8ItMS6Xm9xSbrgbgFBztjHmrNqdGu0y0hPFYXnsM4YVnRQVuN0O0kzbe7irCh/7WkJdV2ltuV0aD6tUXd1Zg7cdYAhDXPbG5UcyFW1EZYEKCDXLLyojgrZu1VN4pON6jCyiMuXeHoeEhc0D3dLy6guzF2P4UdVenIzMwHHsNLicts6pfH1mYfpUTWn9wQ0dkszFaqUJrM0qO7cz4X4JNWVSDKRFjjYAUGwuwDxsCqmWsblHnGd0mDuozml5bZhOw==
-Received: from AS8PR04MB8420.eurprd04.prod.outlook.com (2603:10a6:20b:3fd::16)
- by GVXPR04MB10828.eurprd04.prod.outlook.com (2603:10a6:150:227::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.24; Mon, 9 Mar
- 2026 05:31:30 +0000
-Received: from AS8PR04MB8420.eurprd04.prod.outlook.com
- ([fe80::3f0f:857:96a5:17f]) by AS8PR04MB8420.eurprd04.prod.outlook.com
- ([fe80::3f0f:857:96a5:17f%3]) with mapi id 15.20.9678.024; Mon, 9 Mar 2026
- 05:31:41 +0000
-From: Zhipeng Wang <zhipeng.wang_1@nxp.com>
-To: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
-CC: "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>, "tglx@kernel.org"
-	<tglx@kernel.org>, "shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de"
-	<kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"angelogioacchino.delregno@collabora.com"
-	<angelogioacchino.delregno@collabora.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	id 1vzTYf-00000006hWe-11by
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Mar 2026 05:53:42 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20260309055329epoutp02edd561f442c4edde6361f10a81fb830d~bFn4bPDPR2462524625epoutp02j
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  9 Mar 2026 05:53:29 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20260309055329epoutp02edd561f442c4edde6361f10a81fb830d~bFn4bPDPR2462524625epoutp02j
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1773035609;
+	bh=ruhENHRq3MyvC0eNDlJwB6hgLWsmtwvw7jdAy3CyXEQ=;
+	h=Subject:Reply-To:From:To:CC:In-Reply-To:Date:References:From;
+	b=nW2BNq5CJ+gPyQWusb/WYHbSpIkljcOkMzdwIcUva/OYipLEq5QLqcOYCDIF45NBr
+	 f8/E4F3KsI0Bw58oqvULWmj1cSouChQdpv4vilfbIM6fehjOgY3OfcdmU1yAhSkeoO
+	 LUpwNYZCaokhyQjikIIN4GABH7Evd+2/iHsrbxhs=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20260309055328epcas5p35f33f77f135a7d153e4627e3ea58306a~bFn4HJodU0532305323epcas5p3M;
+	Mon,  9 Mar 2026 05:53:28 +0000 (GMT)
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4fTmQc5mWkz2SSKX; Mon,  9 Mar
+	2026 05:53:28 +0000 (GMT)
+Mime-Version: 1.0
+Subject: RE: [PATCH 1/1] arm: get task_stack reference before dump_backtrace
+From: Maninder Singh <maninder1.s@samsung.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+CC: "bigeasy@linutronix.de" <bigeasy@linutronix.de>, "peterz@infradead.org"
+	<peterz@infradead.org>, "kees@kernel.org" <kees@kernel.org>,
+	"ardb@kernel.org" <ardb@kernel.org>, "keithpac@amazon.com"
+	<keithpac@amazon.com>, "linusw@kernel.org" <linusw@kernel.org>,
 	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "chun-hung.wu@mediatek.com"
-	<chun-hung.wu@mediatek.com>, "walter.chang@mediatek.com"
-	<walter.chang@mediatek.com>, "jstultz@google.com" <jstultz@google.com>,
-	"amergnat@baylibre.com" <amergnat@baylibre.com>, Aisheng Dong
-	<aisheng.dong@nxp.com>, Jindong Yue <jindong.yue@nxp.com>, Xuegang Liu
-	<xuegang.liu@nxp.com>, Greg Kroah-Hartman <gregkh@google.com>
-Subject: RE: [EXT] Re: [PATCH v4 3/4] clocksource/drivers/timer-mediatek:
- Convert timer-mediatek to a loadable module
-Thread-Topic: [EXT] Re: [PATCH v4 3/4] clocksource/drivers/timer-mediatek:
- Convert timer-mediatek to a loadable module
-Thread-Index: AQHcq67R/jfgdFFso0+2DI4r/Bm39LWeu40AgAI93KCABBkHAIAAaeug
-Date: Mon, 9 Mar 2026 05:31:41 +0000
-Message-ID: <AS8PR04MB84209F4103D8D4FD495F5B26EB79A@AS8PR04MB8420.eurprd04.prod.outlook.com>
-References: <20260304081207.4030882-1-zhipeng.wang_1@nxp.com>
- <20260304081207.4030882-4-zhipeng.wang_1@nxp.com>
- <aaiByowtXrTxPsd7@mai.linaro.org>
- <AS8PR04MB84206CF559371D3966653F8EEB7AA@AS8PR04MB8420.eurprd04.prod.outlook.com>
- <6255aa0f-529c-41cb-be32-e5d54a839125@oss.qualcomm.com>
-In-Reply-To: <6255aa0f-529c-41cb-be32-e5d54a839125@oss.qualcomm.com>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS8PR04MB8420:EE_|GVXPR04MB10828:EE_
-x-ms-office365-filtering-correlation-id: b0ebcb3f-e22a-43b3-27ae-08de7d9d24ed
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|19092799006|1800799024|38070700021|7053199007;
-x-microsoft-antispam-message-info: DbrwkBCSufP81wdq7i4UH3Vbo+rT/ZLd5IpjsKtzY/aUg/fak7nIsJbe0bnTMBwohRWBDxWYU68IjKxZVAOje9pi0srK8GmzauFuwR9kkImakPMN4nL7AyJX6ST2WhXt+d9GVtfhH7nNoG1e1os5SZDVfT5dnMM4+PTv06EKA6QgwzQU93cOazFXI61JBmKu4wpWnf2cer39Gh2uoDv3TVuT+wE8LWqe3UmJeXfMKNz5RK9nZ9QWficncrV7WNExunxSaDMe6U+s47dZFmvFjtJY0gzDQgREiZoJVNxKvmVXS9ONmwRoBu05r1fy7sj/5DcEo0d2F2SpN+tX2XB70HsTZYsW50SQe1rY90jIwluKTyJBKXj+aLjySfPrSaz/vhyu7+V8QdtWkBvhhhxRDwr6nj/o6jIJ1FNY8FmWGeVFUjY7jKQb6vGyNv/SIA8eyubdeqgd+FV9TsGeyV1e570s1xvhA9OQRIJowlYXW91j7ZeSD5X2dZOHs+Al/usk5TEd05X/8cYxszoZpx8B07LiyTyPHDGV7N1JN9CN2qZzmM2IFwPsOu8RXpfnD5Qtz9N+vHaY2PRb1nl9QJaVAyjJndqPRmyZSwIaxmssd9U/0+JM/sLHaG78HDd2zhapvvI+jZeT5RbBFsEdc97cI4gikX4MDJaNSINSW2lbtQ/0uWbui1oR4beao5xv+0w6YYKuUpV2qQXXyDkN09Z8pxP0zVZARTwUKRkmChCVnPpcaixlD/3vTh4Mhd6hGbDhWETTZHL5IUgyIjXKUhdqWkjRnkjh7N/LyKS853jeDWo=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8420.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(19092799006)(1800799024)(38070700021)(7053199007);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?gb2312?B?dTZWckd5VzllU0poaEQzUWdzSk4xbllOQ3RQOG5yUzNyME9PUFV5RmpvYWlp?=
- =?gb2312?B?bitsTGJCWHlJUE1ERCt6Mld6TXFtYnorVUFhWVlMNTA1VWxucjlYb0Vnb2dn?=
- =?gb2312?B?MmR4VWJWelc3WXEzZ21WVDF4NXRiaGxaU24zSUJXWWpnNm1TZ2xPYVhSaXhz?=
- =?gb2312?B?L3dvdFdLYXY2L09iTVI3M2tjOU5UZ1VoUEV3UE5rcFY4bE1oL2RWMUxBdmJH?=
- =?gb2312?B?WS9FM1kvczErQVFpaWdacjg4YWY5cGNvaVRIU2ZJUkFEc3h6UnFLeWl1ZWNF?=
- =?gb2312?B?M29WVktsLzZyNHhKYXFGTEplV1Z0S2hYajBvZ1JaY2VIVi9ZVEdCYlpMOGJl?=
- =?gb2312?B?RHY1c2FWS0tXeFlJcVNROFRPU3g4LzczdzBpc3JSblp4K1NjZHpNVE8wR0FS?=
- =?gb2312?B?RXJwYjhHWitUOFBBbTBHenZlTk8wVTJXOGRyVExjUHFaeTNlSTA5c3ZxSEh4?=
- =?gb2312?B?NUVUd2dwSEltaVZSVktkNWpKcyswSjhlOFBxRkxhNjFRWThiMGh5WEI0d0JM?=
- =?gb2312?B?U3VJR2FzUzlGSmFYRFdCNXZtN3hzaS9oNFArVlBHeXZpNC9OTWRIZnhDOGNY?=
- =?gb2312?B?YTNVSEdrQUNvZ2JFcUFNNVFuU3BrZ3g0YkY2a09Nb09Ka0hqUHZWSHh5OE1X?=
- =?gb2312?B?cmpyUkFSTHJYZU5YVkRlUGdCYUtZRGJ3U0k5a004VEF6UWQ3b0lmNWZ1TXQ1?=
- =?gb2312?B?ZTVwWHBLQzJLa2hWM1lNOTA5bllwTFBEZmpmN1N2dGRrcCtWNUQzTnU2cWtj?=
- =?gb2312?B?UHNxZXVQeXpqMUNIMW5FSXluSzVLWHA1S3hYdC9jb3NrWWpjdEVsREhrOUF0?=
- =?gb2312?B?VDVZVi9NVkVibFAzek5INnB6ZnFLNkJWSUZOcUROOUZVbHpiRlFOTWVaMzU5?=
- =?gb2312?B?Y2I1WnhXWm5JMlAyajhUcGdCQVJ6OW9meEZOaDRJQmhBaUd0UFN6WW9jcnB2?=
- =?gb2312?B?U0VHMHpZR0RyT2tUZnNWVmZmUW5STFJyWDh0UDJYbjFBbXdDTUQ4dTZmRWFV?=
- =?gb2312?B?elZnTXVmWjZTRmlWRWFrV3pVdi9KN0QwZ1EvZVVKQm1jWVplaUVGcC9SMzRs?=
- =?gb2312?B?YkNPM1dUd3R0cC9RbTEyR1NWd2Q3YTVHM1BoTHVSVjFVZFVnc1RPN1k5VnBu?=
- =?gb2312?B?dFJ4RjNxK0ozRTZ2YmZxdmlmYW1sSmhnRHk4WUtkTEpyc0s4ZW1LZXZSa2V0?=
- =?gb2312?B?MlA3NzB5VFUvZjRkWktmbWlsaHpKdzJrS0x6RmVmREQ3UWtWZXlqQkE2aGd6?=
- =?gb2312?B?d2ZoZTVSY25XMWZ6UXpLNmIxallTV25CbnhPa1EvTDg4enNZUFNkci9JRkYv?=
- =?gb2312?B?UnZaRm1WNjdIM0FLb0xlZ1dVUGlnOVNsWDNsUzhzQ0ZCZU9QaEY2MmlMck43?=
- =?gb2312?B?VWVrUjRSV0xsNUJicVhmbW9rVWxoRmNoOUMrcVdCbTB0OHVtK3cxU041ZGRZ?=
- =?gb2312?B?YVFSL3h6K2l4NS9Cdy9RZFNtenBOQXZHTnZEZGlkb2Zsa2lYb0tNd29ld3pn?=
- =?gb2312?B?RkNNbjVkT2tBdXB4dHlTZmtTRlRmNGpLM3puVDZLSmVGcEwrNUZYWjdCYk40?=
- =?gb2312?B?eHVVMEEzRFlGbWhsalJQcXYrdFRxWXRoZG5OWGpma3FwSTUxWlF5RVRLWEho?=
- =?gb2312?B?eWp6YTNQQXpzdERERVQ2OE1jSElRVXdQTHpJUUx4WGlWd0pTUStjNVdwUVBt?=
- =?gb2312?B?ekhiS3A3SWlCSHhjTVlyT3FabmJUQXEwUERYR2lFeWgzbDd6M0NQS3pyS2Qx?=
- =?gb2312?B?OVFxL3VYUTRRY1B4S1N6U2NSYjMraXJ2Y2ZKaDZYNmdnY1U5c3FTRzUvVWZN?=
- =?gb2312?B?QWFOSVdDeFp6b0JMcUI3M1hlKzV1L0NIZVlCKzdnWHdSYW16b0hXOHBJMmRG?=
- =?gb2312?B?eHZQdHo4SXRlR2N4Y3Frd3JjSXRNOVpNV1lHSTI3TG9yMFpjbUFBTTBOZEl4?=
- =?gb2312?B?QjRQTE5PWlg4WkRpUEswcXBzN3JEWGM2YTU2RXY0TUlHYVA1Smg2cE96NVdh?=
- =?gb2312?B?NHZrdGU0VGhEQ2xycjdPeXRZRlo4OGtENXpCZjRJSDRBZ1lHTERqTStacU13?=
- =?gb2312?B?RDNlTXorNGtWUURKMVNnK3lNU3d6TkUwTHVqNTM3NHU4YkRueURqZTQxK09Z?=
- =?gb2312?B?MlhKL3BFMXVITGNQVndKcUc2bHNxNzA4UnZCVWtrWFU5ell0OS9ocTF4Ri96?=
- =?gb2312?B?ald2andvNktmUlhQVStVK1ZFQlY0d1krV3FWVHQvK1A4WGNiYzdwY0hOQ0Vr?=
- =?gb2312?B?TUZ3QytLS0pNMU5vZUZZNHRsNkNJTndhbkp1T2VUNHBjQjNmUkFPN3cyRkFH?=
- =?gb2312?B?bElqMm1yZkN1dDNyWm1zSkgxUk9UbE4vV2pTZ0p4L3JMbEFDeGQ1UT09?=
-Content-Type: text/plain; charset="gb2312"
-Content-Transfer-Encoding: base64
-MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8420.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b0ebcb3f-e22a-43b3-27ae-08de7d9d24ed
-X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Mar 2026 05:31:41.5756
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: GA981gYgd4cd+Dgw3IHWQ8vYlitQzyvw428p15YC9LOLgGYATm4fIYK2WAKGPzmDylDiZVG1CDEIj8b+As9oYw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10828
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+X-Priority: 3
+X-Content-Kind-Code: NORMAL
+In-Reply-To: <aa4Lo30Nq_t7qDqK@shell.armlinux.org.uk>
+X-Drm-Type: N,general
+X-Msg-Generator: Mail
+X-Msg-Type: PERSONAL
+X-Reply-Demand: N
+Message-ID: <20260309055328epcms5p56d16f6cb1e3a5295987c935f35be1d2e@epcms5p5>
+Date: Mon, 09 Mar 2026 11:23:28 +0530
+X-CMS-MailID: 20260309055328epcms5p56d16f6cb1e3a5295987c935f35be1d2e
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+X-CMS-RootMailID: 20260305070534epcas5p378bb22ef9f1a895d7736ed2272c19ec6
+References: <aa4Lo30Nq_t7qDqK@shell.armlinux.org.uk>
+	<20260305070527.719073-1-maninder1.s@samsung.com>
+	<CGME20260305070534epcas5p378bb22ef9f1a895d7736ed2272c19ec6@epcms5p5>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260308_223152_456509_15444507 
-X-CRM114-Status: GOOD (  31.34  )
+X-CRM114-CacheID: sfid-20260308_225337_964972_A009B89D 
+X-CRM114-Status: GOOD (  25.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,60 +87,140 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: maninder1.s@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGVsbG8gRGFuaWVsLA0KDQpJJ2QgYmUgdmVyeSBoYXBweSB0byBjb2xsYWJvcmF0ZSBvbiB0aGlz
-IQ0KDQpNeSBhdmFpbGFiaWxpdHk6IEkgY2FuIGRlZGljYXRlIHRpbWUgdG8gd29yayBvbiB0aGlz
-IG92ZXIgdGhlIG5leHQgZmV3IHdlZWtzLiBJJ20gaGFwcHkgdG8gaGVscCB3aXRoOg0KICAgLSBU
-ZXN0aW5nIHRoZSBuZXcgbWFjcm9zIHdpdGggSU1YIHRpbWVyIGRyaXZlcnMNCiAgIC0gQ29udmVy
-dGluZyBleGlzdGluZyBkcml2ZXJzIGFzIGV4YW1wbGVzDQogICAtIFJldmlld2luZyBhbmQgdGVz
-dGluZyBwYXRjaGVzDQogICAtIERvY3VtZW50YXRpb24NCg0KTXkgdW5kZXJzdGFuZGluZyBpcyB0
-aGF0LCBiYXNlZCBvbiB5b3VyIFJGQywgd2Ugc2hvdWxkIHVzZSB0d28gbWFjcm9zIKGqIFRJTUVS
-X09GX0RFQ0xBUkVfUERFViBhbmQgVElNRVJfT0ZfREVDTEFSRV9QTEFURk9STV9EUklWRVIuDQoN
-CkJScywNClpoaXBlbmcNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gRnJvbTogRGFu
-aWVsIExlemNhbm8gPGRhbmllbC5sZXpjYW5vQG9zcy5xdWFsY29tbS5jb20+DQo+IFNlbnQ6IDIw
-MjbE6jPUwjnI1SAzOjUxDQo+IFRvOiBaaGlwZW5nIFdhbmcgPHpoaXBlbmcud2FuZ18xQG54cC5j
-b20+DQo+IENjOiBkYW5pZWwubGV6Y2Fub0BsaW5hcm8ub3JnOyB0Z2x4QGtlcm5lbC5vcmc7IHNo
-YXduZ3VvQGtlcm5lbC5vcmc7DQo+IHMuaGF1ZXJAcGVuZ3V0cm9uaXguZGU7IGtlcm5lbEBwZW5n
-dXRyb25peC5kZTsgZmVzdGV2YW1AZ21haWwuY29tOw0KPiBtYXR0aGlhcy5iZ2dAZ21haWwuY29t
-OyBhbmdlbG9naW9hY2NoaW5vLmRlbHJlZ25vQGNvbGxhYm9yYS5jb207DQo+IGxpbnV4LWtlcm5l
-bEB2Z2VyLmtlcm5lbC5vcmc7IGlteEBsaXN0cy5saW51eC5kZXY7DQo+IGxpbnV4LWFybS1rZXJu
-ZWxAbGlzdHMuaW5mcmFkZWFkLm9yZzsgbGludXgtbWVkaWF0ZWtAbGlzdHMuaW5mcmFkZWFkLm9y
-ZzsNCj4gY2h1bi1odW5nLnd1QG1lZGlhdGVrLmNvbTsgd2FsdGVyLmNoYW5nQG1lZGlhdGVrLmNv
-bTsNCj4ganN0dWx0ekBnb29nbGUuY29tOyBhbWVyZ25hdEBiYXlsaWJyZS5jb207IEFpc2hlbmcg
-RG9uZw0KPiA8YWlzaGVuZy5kb25nQG54cC5jb20+OyBKaW5kb25nIFl1ZSA8amluZG9uZy55dWVA
-bnhwLmNvbT47IFh1ZWdhbmcgTGl1DQo+IDx4dWVnYW5nLmxpdUBueHAuY29tPjsgR3JlZyBLcm9h
-aC1IYXJ0bWFuIDxncmVna2hAZ29vZ2xlLmNvbT4NCj4gU3ViamVjdDogUmU6IFtFWFRdIFJlOiBb
-UEFUQ0ggdjQgMy80XSBjbG9ja3NvdXJjZS9kcml2ZXJzL3RpbWVyLW1lZGlhdGVrOg0KPiBDb252
-ZXJ0IHRpbWVyLW1lZGlhdGVrIHRvIGEgbG9hZGFibGUgbW9kdWxlDQo+IA0KPiBbWW91IGRvbid0
-IG9mdGVuIGdldCBlbWFpbCBmcm9tIGRhbmllbC5sZXpjYW5vQG9zcy5xdWFsY29tbS5jb20uIExl
-YXJuDQo+IHdoeSB0aGlzIGlzIGltcG9ydGFudCBhdCBodHRwczovL2FrYS5tcy9MZWFybkFib3V0
-U2VuZGVySWRlbnRpZmljYXRpb24gXQ0KPiANCj4gQ2F1dGlvbjogVGhpcyBpcyBhbiBleHRlcm5h
-bCBlbWFpbC4gUGxlYXNlIHRha2UgY2FyZSB3aGVuIGNsaWNraW5nIGxpbmtzIG9yDQo+IG9wZW5p
-bmcgYXR0YWNobWVudHMuIFdoZW4gaW4gZG91YnQsIHJlcG9ydCB0aGUgbWVzc2FnZSB1c2luZyB0
-aGUgJ1JlcG9ydA0KPiB0aGlzIGVtYWlsJyBidXR0b24NCj4gDQo+IA0KPiBPbiAzLzYvMjYgMDY6
-NDYsIFpoaXBlbmcgV2FuZyB3cm90ZToNCj4gPiBIaSBEYW5pZWwsDQo+ID4NCj4gPiBUaGFuayB5
-b3UgZm9yIHNoYXJpbmcgeW91ciBSRkMgcGF0Y2guIEkgdGhpbmsgdGhlIGFwcHJvYWNoIGlzIHZl
-cnkNCj4gPiBpbnRlcmVzdGluZyBhbmQgYWRkcmVzc2VzIGEgcmVhbCBwcm9ibGVtIGluIHRoZSB0
-aW1lciBzdWJzeXN0ZW0uDQo+ID4NCj4gPiBGb3IgdGhlIE1lZGlhVGVrIGFuZCBJTVggdGltZXIg
-ZHJpdmVyLCBJIHNlZSBhIGZldyBjb25zaWRlcmF0aW9uczoNCj4gPg0KPiA+IDEuIEN1cnJlbnQg
-YXBwcm9hY2g6IE15IGN1cnJlbnQgcGF0Y2ggdXNlcyB0aGUgZXhpc3RpbmcgcGF0dGVybg0KPiA+
-ICAgICAoc2ltaWxhciB0byByZW5lc2FzLW9zdG0uYykgd2l0aCAjaWZkZWYgTU9EVUxFLiBJdCdz
-IHNpbXBsZSBhbmQNCj4gPiAgICAgd29ya3MsIGJ1dCBJIGFncmVlIGl0J3Mgbm90IGlkZWFsLg0K
-PiA+IDIuIFlvdXIgYXBwcm9hY2g6IFlvdXIgVElNRVJfT0ZfREVDTEFSRV9QREVWIGFwcHJvYWNo
-IHdvdWxkIGJlDQo+ID4gICAgIGNsZWFuZXIgYW5kIGFsbG93IHVzIHRvIHVzZSBkZXZtXyBmdW5j
-dGlvbnMsIHdoaWNoIHdvdWxkIGJlIGENCj4gPiAgICAgbmljZSBpbXByb3ZlbWVudC4NCj4gPiAz
-LiBNZWRpYVRlayBhbmQgSU1YIHRpbWVyIHNwZWNpZmljczogVGhlIElNWCB0aW1lciBkb2Vzbid0
-IHJlcXVpcmUNCj4gPiAgICAgZWFybHkgaW5pdGlhbGl6YXRpb24gb24gbW9kZXJuIHBsYXRmb3Jt
-cyAod2UgaGF2ZSBhcmNoIHRpbWVycyBvbg0KPiA+ICAgICBBUk02NCksIHNvIGl0IHdvdWxkIGZp
-dCB3ZWxsIHdpdGggeW91cg0KPiBUSU1FUl9PRl9ERUNMQVJFX1BMQVRGT1JNX0RSSVZFUg0KPiA+
-ICAgICBtYWNybyAoaWYgeW91IGdvIHdpdGggdGhlIHR3by1tYWNybyBhcHByb2FjaCkuDQo+ID4N
-Cj4gPiBJJ20gdmVyeSBpbnRlcmVzdGVkIGluIHlvdXIgYXBwcm9hY2guIE1heSBJIGFzayB3aGF0
-IHRpbWVsaW5lIHlvdSdyZQ0KPiA+IGNvbnNpZGVyaW5nIGZvciB5b3VyIHBhdGNoIHNlcmllcz8N
-Cj4gPiBUaGUgcmVhc29uIEkgYXNrIGlzIHRoYXQgd2UncmUgd29ya2luZyB0b3dhcmRzIEdLSSBz
-dXBwb3J0IGFuZCBJIHdhbnQNCj4gPiB0byBtYWtlIHN1cmUgSSBjaG9vc2UgdGhlIHJpZ2h0IGFw
-cHJvYWNoLg0KPiANCj4gV2VsbCwgaWYgeW91IGFyZSB3aWxsaW5nIHRvIGNvbGxhYm9yYXRlLCB3
-ZSBjYW4gc3RhcnQgcmlnaHQgbm93IHRvIHRoaW5rIGFib3V0IGl0DQo+IGFuZCBwcm9wb3NlIGFu
-IHVuaWZpZWQgc29sdXRpb24NCj4gDQo+IA0KPiANCj4gDQo+IA0KDQo=
+Hi,
+
+>> With Support of THREAD_INFO_IN_TASK, stack of task can be
+>> freed earlier than task (even if task's reference is taken),
+>> and it needs separate reference with try_get_task_stack()
+>> before using the stack.
+>> Otherwise if someone calls show_stack() for task, it can oops
+>> the kernel like below: (Tried with normal race of show_stack when
+>> task still exists, but its stack is freed)
+>
+> Looking at x86, it also has THREAD_INFO_IN_TASK, but I see nothing like
+> this in show_stack(). How come x86 isn't similarly buggy?
+
+I think x86 also has same issue, some of other architectures which supports
+THREAD_INFO_IN_TASK has added try_get_task_stack() in show_stack(), but not *all*
+
+   8   2293  arch/powerpc/kernel/process.c <<show_stack>>
+             if (!try_get_task_stack(tsk))
+
+   4    488  arch/arm64/kernel/stacktrace.c <<dump_backtrace>>
+             if (!try_get_task_stack(tsk))
+
+
+>> 
+>> ...
+>
+>"otherwise if someone calls show_stack() for task" ... and the stack
+>trace given stops at show_stack() and doesn't show the "someone".
+>
+>I'd like to know _how_ this happens, and why ARM64 and now 32-bit ARM
+>are different from x86.
+
+I tried to simulate same thing on x86_64, it is also crashing.
+
+Just a dummy code to save task_struct to reproduce the race:
+
++       rcu_read_lock();
++       for_each_process(p) {
++               if (!strcmp(p->comm, "sleep")) {
++                       check_task = p;
++                       get_task_struct(p);
++                       pr_emerg("get done for %s %d\n", p->comm, p->pid);
++               }
++       }
++       rcu_read_unlock();
+
+// in mean time here sleep binary will be exited.
+
++       show_stack(check_task,  NULL, KERN_EMERG);
+
+//OOPs
+
+/ # cat /proc/meminfo
+[   49.885891] Call Trace:
+[   49.887151] BUG: unable to handle page fault for address: ffffb57400213de8
+[   49.887563] #PF: supervisor read access in kernel mode
+[   49.887737] #PF: error_code(0x0000) - not-present page
+[   49.887999] PGD 1000067 P4D 1000067 PUD 113b067 PMD 1bcb067 PTE 0
+[   49.888588] Oops: Oops: 0000 [#1] SMP NOPTI
+[   49.889329] CPU: 0 UID: 0 PID: 68 Comm: cat Not tainted 7.0.0-rc2-next-20260302-00003-gb7e059f3a5ae-dirty #49 PREEMPT(lazy)
+[   49.889789] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.15.0-1 04/01/2014
+[   49.890204] RIP: 0010:__unwind_start+0x118/0x1c0
+[   49.890471] Code: 75 28 48 8d b8 ff 0f 00 00 48 81 e7 00 f0 ff ff e8 ed ce fb ff 85 c0 75 ae eb 9c 48 8b 86 08 0c 00 00 48 8d 78 38 48 89 7d 48 <48> 8b 50 28 48 89 55 50 48 8b 4c
+[   49.891163] RSP: 0018:ffffb57400207b00 EFLAGS: 00000246
+[   49.891385] RAX: ffffb57400213dc0 RBX: ffffb57400213dc0 RCX: 0000000000000000
+[   49.891615] RDX: 0000000000000000 RSI: ffff99ec41b6cc40 RDI: ffffb57400213df8
+[   49.891867] RBP: ffffb57400207b68 R08: ffffffffae53e908 R09: 00000000ffffdfff
+[   49.892101] R10: ffffffffae45e920 R11: ffffffffae50e920 R12: 0000000000000000
+[   49.892332] R13: ffff99ec41b6f298 R14: ffffb57400207b68 R15: ffffffffae24615e
+[   49.892670] FS:  00000000081ed3c0(0000) GS:ffff99ec9887b000(0000) knlGS:0000000000000000
+[   49.892950] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   49.893147] CR2: ffffb57400213de8 CR3: 0000000001d2d000 CR4: 00000000000006f0
+[   49.893485] Call Trace:
+[   49.893700]  <TASK>
+[   49.893810]  __show_trace_log_lvl+0x31f/0x360
+[   49.893988]  ? mas_store_prealloc+0x99/0x2c0
+[   49.894169]  meminfo_proc_show+0xdd/0x9a0
+[   49.894312]  ? seq_open+0x3b/0x60
+[   49.894435]  ? __pfx_meminfo_proc_show+0x10/0x10
+[   49.894568]  ? file_ra_state_init+0x10/0x30
+[   49.894731]  ? __pte_offset_map+0x16/0xd0
+[   49.894871]  ? seq_read_iter+0x38e/0x4b0
+[   49.895004]  seq_read_iter+0x109/0x4b0
+[   49.895125]  copy_splice_read+0x18f/0x330
+[   49.895272]  splice_direct_to_actor+0xb4/0x250
+[   49.895420]  ? __pfx_direct_splice_actor+0x10/0x10
+[   49.895582]  do_splice_direct+0x71/0xb0
+[   49.895730]  ? __pfx_direct_file_splice_eof+0x10/0x10
+[   49.895908]  do_sendfile+0x361/0x420
+[   49.896049]  do_syscall_64+0xf1/0x520
+[   49.896197]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[   49.896375] RIP: 0033:0x4a8d3e
+[   49.896634] Code: c3 0f 1f 00 4c 89 d2 4c 89 c6 e9 fd fd ff ff 0f 1f 44 00 00 31 c0 c3 0f 1f 44 00 00 f3 0f 1e fa 49 89 ca b8 28 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c8
+[   49.897221] RSP: 002b:00007ffe75342478 EFLAGS: 00000246 ORIG_RAX: 0000000000000028
+[   49.897486] RAX: ffffffffffffffda RBX: 0000000001000000 RCX: 00000000004a8d3e
+[   49.897747] RDX: 0000000000000000 RSI: 0000000000000003 RDI: 0000000000000001
+[   49.897977] RBP: 0000000000000003 R08: 0000000000000001 R09: 0000000000000000
+[   49.898221] R10: 0000000001000000 R11: 0000000000000246 R12: 0000000000000003
+[   49.898489] R13: 0000000000000001 R14: 0000000000000000 R15: 0000000000000001
+[   49.898764]  </TASK>
+[   49.898898] Modules linked in:
+[   49.899259] CR2: ffffb57400213de8
+[   49.899762] ---[ end trace 0000000000000000 ]---
+[   49.900187] RIP: 0010:__unwind_start+0x118/0x1c0
+[   49.900391] Code: 75 28 48 8d b8 ff 0f 00 00 48 81 e7 00 f0 ff ff e8 ed ce fb ff 85 c0 75 ae eb 9c 48 8b 86 08 0c 00 00 48 8d 78 38 48 89 7d 48 <48> 8b 50 28 48 89 55 50 48 8b 4c
+[   49.901001] RSP: 0018:ffffb57400207b00 EFLAGS: 00000246
+[   49.901188] RAX: ffffb57400213dc0 RBX: ffffb57400213dc0 RCX: 0000000000000000
+[   49.901431] RDX: 0000000000000000 RSI: ffff99ec41b6cc40 RDI: ffffb57400213df8
+[   49.901680] RBP: ffffb57400207b68 R08: ffffffffae53e908 R09: 00000000ffffdfff
+[   49.901918] R10: ffffffffae45e920 R11: ffffffffae50e920 R12: 0000000000000000
+[   49.902182] R13: ffff99ec41b6f298 R14: ffffb57400207b68 R15: ffffffffae24615e
+[   49.902417] FS:  00000000081ed3c0(0000) GS:ffff99ec9887b000(0000) knlGS:0000000000000000
+[   49.902694] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   49.902896] CR2: ffffb57400213de8 CR3: 0000000001d2d000 CR4: 00000000000006f0
+
+
+So It has to be same way for all archs, as mentioned in Help of THREAD_INFO_IN_TASK
+
+config THREAD_INFO_IN_TASK
+        bool
+        help
+          Select this to move thread_info off the stack into task_struct.  To
+          make this work, an arch will need to remove all thread_info fields
+          except flags and fix any runtime bugs.
+
+          One subtle change that will be needed is to use try_get_task_stack()
+          and put_task_stack() in save_thread_stack_tsk() and save_thread_stack_tsk().
+
+alongwith save_thread_stack_tsk and save_thread_stack_tsk, same thing shall be done for show_stack also.
+
+Thanks & Regards,
+Maninder Singh
 
