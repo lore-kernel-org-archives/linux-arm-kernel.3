@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 938C6EFCD7A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 22:44:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40A08FCA19E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 22:44:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fz8+4FV8YXuPKhVJdG3Ez89m/0ehU0siWyJfO122j+E=; b=KJ63sL2YsIQvv1ZtTp7NvGlLDb
-	x3AkxGp4pFy1ADe8Hqu6OEBYYGaqOEUCsRf/Hry2tvmDHxvcx8q80zzEjrMJXYZKVC2BcxiXgXE2F
-	mJFXwrRWFY6xf5OPVS0FX8AeeYSIzSy2WiZ6zeqgIqPLaDf0HISKxaPi68pggl+vhQ55teCYoPfwi
-	0uB7iEglk/LWkNHVY1h4KMiXZC1kuKGqiXIoch713oP9ytxWE7tALuIwXWyY52rpVWROjJe0+mkUc
-	6fDFIML5vEXFYJRew/+QdXG4nXk7IFxQud3sgykTpgnnyNqo/RrWv1wMJqMCYvRKVHKrL54xUaCaN
-	fy0pbe+g==;
+	bh=tS7Syzz6CebtVtGlaI2nOBjZZcmCRRpyjNVFrCrYcU0=; b=KB87GtyUJ8KoINoippq0USVlT9
+	hZe7K6uB36QJ8vA0agOyboH1QqcWD7gGfVFjwJH5sMadwmOaTHCciAn1VagzoiHfw36RKAwzIjd8U
+	IDbKKJM6fNCkWzRf8T8OEM3VF134vsc6gJWHICKZoLsSj5TFu/OIs6yDBGlKgYYT8PyhZidTbOWGU
+	m9GDTyUp280Kdxb6lSornIrDt8QB7JRYCPsBcUYjJNDJiJFTJgHl3XDoe0AWPys3O83ZrBPnIVOk4
+	41y6bMn0YvY4BaunGS7dYEp0iw2TrqwKJIgKJCKpwxkm0Dg6eGT2RGwYc448j1FC4RTrpPbcwbhlX
+	rOvY5ouQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzjLI-00000008FBx-0NSq;
-	Mon, 09 Mar 2026 22:44:52 +0000
+	id 1vzjLJ-00000008FEL-1Wze;
+	Mon, 09 Mar 2026 22:44:53 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzjL7-00000008F03-3F5Q;
-	Mon, 09 Mar 2026 22:44:43 +0000
+	id 1vzjL9-00000008F0Y-0XYi;
+	Mon, 09 Mar 2026 22:44:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1773096279;
-	bh=sNdKtno5ECegmJwsSLYZy9+Ay7ieHE0bT5CiSOlA5ag=;
+	s=mail; t=1773096281;
+	bh=G0L1ZFdJ8ipmt4Cudovn7XKwjKaSlysZ1PuC86cYCI0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=UDS4aDeSzvFEedKicj1N2faotsMbVqMgvpsACPDxW3cVghSbfAdOKxzu3SLaP4DFs
-	 fM1tml9fIoVv9/ez5TVrjXrrRnyyZSCAIKMxzwVfMrcG5u5snO1BtDP7WpOB7x7+Xh
-	 tQM3GrpLB6dPeFk5Ddy2ieeQx4jT/Z975CinOqah4MHkSc0RZawR6ov9rR/uWhB5/I
-	 EQHociu7cjTIGvAdF8gcdkkK9CAC3CAK1/nQZuUUbwVqlQL+EV+k/STWaYuNQpSFaI
-	 x1Ngc14RY5LoYpG8rRNiqebEbGXXDChtzemd7A7c8tDI+Xww1XgH4FhVnZHYgIckZv
-	 kdaXw6JtENFCA==
+	b=omj7jF6uFnTcbRu1si/OQtMQudraGEkTfgicmtwrBTIcIk91vZ9o2rPp7+dhtIMhh
+	 jhYexQp1MkrWyaTi1zd6iNXne+OJIr+1g8jAqhYb7QvfTbgXWdIUu2Ga+JGXVUjsjs
+	 vNChTJf/KeQ7O+oSrAeLbmH+PBVgyBKCuE9mYFYyUv1R9rwBlniF6wZTIuwMM9XnAY
+	 NvhCsfp7TQ0YwpObix5nkJbA46RrFGdywvgHNHUiAmDNR6FwiHl8fu5XA8FQRol1ob
+	 9btMxmtl6ZKDFyRncU+k2pRiDoXeQVLEiWgm42TuAR1RSSmI1oNAIOuW8YZqPZvkEO
+	 nrv95qDQ4Um+Q==
 Received: from localhost (unknown [86.123.23.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 436CC17E0E91;
-	Mon,  9 Mar 2026 23:44:39 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D282117E13CB;
+	Mon,  9 Mar 2026 23:44:40 +0100 (CET)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 10 Mar 2026 00:44:33 +0200
-Subject: [PATCH v2 5/8] drm/rockchip: dw_dp: Drop unnecessary #include
+Date: Tue, 10 Mar 2026 00:44:35 +0200
+Subject: [PATCH v2 7/8] drm/bridge: synopsys: dw-dp: Unregister AUX channel
+ on bridge detach
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260310-drm-rk-fixes-v2-5-645ecfb43f49@collabora.com>
+Message-Id: <20260310-drm-rk-fixes-v2-7-645ecfb43f49@collabora.com>
 References: <20260310-drm-rk-fixes-v2-0-645ecfb43f49@collabora.com>
 In-Reply-To: <20260310-drm-rk-fixes-v2-0-645ecfb43f49@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -69,9 +70,8 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_154441_963589_AD0F671B 
-X-CRM114-Status: UNSURE (   8.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260309_154443_415486_B945F37A 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,43 +86,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Included header "rockchip_drm_vop.h" is not directly used, drop it.
+The DisplayPort AUX channel gets initialized and registered during
+dw_dp_bind(), but it is never unregistered, which may lead to resource
+leaks and/or use-after-free:
 
-While at it, ensure #include directives are ordered alphabetically.
+[  224.661371] BUG: KASAN: slab-use-after-free in device_is_dependent+0xe0/0x2b0
+[  224.662015] Read of size 8 at addr ffff00011aee8550 by task modprobe/658
+...
+[  224.662796]  device_is_dependent+0xe0/0x2b0
+[  224.662802]  device_is_dependent+0x108/0x2b0
+[  224.662808]  device_link_add+0x1f8/0x10b0
+[  224.662813]  devm_of_phy_get_by_index+0x120/0x200
+[  224.662819]  dw_dp_bind+0x34c/0xb10 [dw_dp]
+[  224.662830]  dw_dp_rockchip_bind+0x194/0x250 [rockchipdrm]
+[  224.662864]  component_bind_all+0x3a8/0x720
+[  224.662869]  rockchip_drm_bind+0x120/0x390 [rockchipdrm]
+[  224.662899]  try_to_bring_up_aggregate_device+0x76c/0x838
+[  224.662904]  component_master_add_with_match+0x1f4/0x230
+[  224.662909]  rockchip_drm_platform_probe+0x420/0x538 [rockchipdrm]
+[  224.662939]  platform_probe+0xe8/0x168
+[  224.662945]  really_probe+0x340/0x828
+[  224.662950]  __driver_probe_device+0x2e0/0x350
+[  224.662954]  driver_probe_device+0x80/0x140
+[  224.662959]  __driver_attach+0x398/0x460
+[  224.662964]  bus_for_each_dev+0xe0/0x198
+[  224.662968]  driver_attach+0x50/0x68
+[  224.662972]  bus_add_driver+0x2a0/0x4c0
+[  224.662977]  driver_register+0x294/0x360
+[  224.662982]  __platform_driver_register+0x7c/0x98
+[  224.662987]  rockchip_drm_init+0xc4/0xff8 [rockchipdrm]
+...
 
+Unregister the AUX adapter on bridge detach.
+
+Fixes: 86eecc3a9c2e ("drm/bridge: synopsys: Add DW DPTX Controller support library")
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/rockchip/dw_dp-rockchip.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-index fafefee8370d..22c0911f1896 100644
---- a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-@@ -7,8 +7,11 @@
-  */
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+index e7bef9150f6a..8d02f047693a 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+@@ -1751,6 +1751,13 @@ static const struct drm_edid *dw_dp_bridge_edid_read(struct drm_bridge *bridge,
+ 	return edid;
+ }
  
- #include <linux/component.h>
-+#include <linux/media-bus-format.h>
- #include <linux/of_device.h>
- #include <linux/platform_device.h>
-+#include <linux/videodev2.h>
++static void dw_dp_bridge_detach(struct drm_bridge *bridge)
++{
++	struct dw_dp *dp = bridge_to_dp(bridge);
 +
- #include <drm/bridge/dw_dp.h>
- #include <drm/drm_atomic_helper.h>
- #include <drm/drm_bridge.h>
-@@ -19,11 +22,7 @@
- #include <drm/drm_probe_helper.h>
- #include <drm/drm_simple_kms_helper.h>
++	drm_dp_aux_unregister(&dp->aux);
++}
++
+ static u32 *dw_dp_bridge_atomic_get_output_bus_fmts(struct drm_bridge *bridge,
+ 						    struct drm_bridge_state *bridge_state,
+ 						    struct drm_crtc_state *crtc_state,
+@@ -1824,6 +1831,7 @@ static const struct drm_bridge_funcs dw_dp_bridge_funcs = {
+ 	.atomic_disable = dw_dp_bridge_atomic_disable,
+ 	.detect = dw_dp_bridge_detect,
+ 	.edid_read = dw_dp_bridge_edid_read,
++	.detach = dw_dp_bridge_detach,
+ };
  
--#include <linux/media-bus-format.h>
--#include <linux/videodev2.h>
--
- #include "rockchip_drm_drv.h"
--#include "rockchip_drm_vop.h"
- 
- struct rockchip_dw_dp {
- 	struct dw_dp *base;
+ static int dw_dp_link_retrain(struct dw_dp *dp)
 
 -- 
 2.52.0
