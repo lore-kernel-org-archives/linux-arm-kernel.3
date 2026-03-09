@@ -4,151 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FBABEF371A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 09:04:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD8B1EA854B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 09:11:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Z8qGmzUBHOvAl26UuX2PJhjLULW44NQujMQRepQv6q4=; b=N8+9JW+v+LGi4nzKxlJFNspnnY
-	//1IKHUJ/yEjvLKwXUaTKvoKfLOOibiPVpJJ+bP7EVGZVnXfrbPODi3cHTNzzF/vt/5muZI/kGprw
-	MnYPaufVX+64iRD/bQxJ2AMz9Nvg+2oImLYT4T6lid4HlUpaQBaa/K5LqR7M/UCE68oCRJrRqPgYx
-	iuenIAynQ0DCkx09g3ZTRVCnI+Tz2GetXcdEKeORlgL4pEqztopVNt1tPds6rTALtpJtnCL/ZPeTa
-	fU6Y+wvv2ap1DfwzjLbuhwlAGMuGhy+/4Toj1c6t+IgcMcfOfQMeLmPUlP7Hu7gXsq1+rD3k0rysA
-	OPthiudQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A8oIwYfb33qiclTPcfWWyQsiQRrYjyN5cJw/36JWcko=; b=Gfl79IG+SJjr+WYB4eGcrGGAoQ
+	buEAXo+GqgAgUt3ncR1PVYyQ16N518Uyi6R/dtXZPHlm8dfbDPzbh/40gjGwtpn4DcZhdtAKQlZW3
+	00vQ44LARpgxFZWJiXYbFpq7eXfQo0A8huL4aGL2Y9cOrL5YbZQW85LIc4HHNxmFGsPZyzaNpI7sc
+	Hfx3vhw5mnn77lF5h89miiwQ8DPJ2qakFB/KCscNeBMkGCAcfBetzlCdTpWeKnLDCXw9gOFZEd/Vh
+	oX0PhGOODPGBIB4xDZ3ac2WV9ZU4soCg5mj9Ugeo3/wAGRjd++iR++meW/LdtN2PxNBx5zot+9DXa
+	mhi8QudQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzWXL-00000006vnN-32Pz;
-	Mon, 09 Mar 2026 09:04:27 +0000
-Received: from mail-swedencentralazon11013043.outbound.protection.outlook.com ([52.101.83.43] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vzWds-00000006w9P-1pUu;
+	Mon, 09 Mar 2026 09:11:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzWXI-00000006vm0-3StY
+	id 1vzWdp-00000006w97-0Jjw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 09:04:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FsV2br7Z3RKUiEZmqfWQMaOwGHMPmFD0k6T9Xwov6/nw5nMQ8T7IpZXSHtR9KkET0vJsVchYgpt2qSBl3iikPE3ngp8zKuOeuTGq5iMEqpzhT6+pxSF8OBgnyDNpt6xXm5nlrigP44dmst0L6HBhrB9TyWQKq7jQ61lj4E02/RdJpG9YjqkpSaDi5dc45rMNaCHx0lA6Kn11k32AIq1OUL64NA1rKL4vhTzblvbkjBQ4bX19jySiLZh59GNPFtqC1NlNTKQyMLgg+97vPykrRhoCUGMhiIKoLFzEC2RHSdovvbWhoBy7rNNCWNl3KTyjxFU66VW1BjRPVNiAAUWvmg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Z8qGmzUBHOvAl26UuX2PJhjLULW44NQujMQRepQv6q4=;
- b=L7VRIjKmD09xMmPILIIklrdSzU3OGd0lEZJwqEfkx2Irll/+wgmyPzLYDMglAHF/AiQN0d3iOC2DbZOVMyaadtF93qE34vxAZHYcRxdePG5JZJ25h0qtHFcUpgBLTdFCRHLSg0S8iK6JLt7H83wnqbZ71tRTmVFF11ciRnxZk16zCoR5Sf00FYaGBM/NUbSaftmLtMuZPwDYfrIsHt7PZB9cvUW3HW5HUePfv7ckjB5PqvW5pFp9S33z0gOd1I9asPPHy4M2Btp53P1ohr3SYblnjYr+EdKa1J1zwPLtUFkC1yLuoA5Y558vW4FI99DAh/frj8LTdKUfxWofHBVTng==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Z8qGmzUBHOvAl26UuX2PJhjLULW44NQujMQRepQv6q4=;
- b=GcSBWqZHB2fYfgjq2V9uBwQSjbCWhO+SJjoSSdfE7H17z7PawmdfyD74OiOREP8g2a0/MCpBDALAxbHWwc8kkD7q19Jt3Brw6dZIqY5Li5BURXg4g7IrmfjXhrXY/apMi5vmuuFhNNyDXmg2yk2FdIFgmtKoiLm2ouzIFlde6ASQPrPgrAPXsE7wI8FOhcms7EeFJIqFGdAxMIgEx8CM+nF4wTsCFMdMk6NzcBjmBxB0e/9d6NArixfVXdc+zUxUocXM29rhico0N2M1zCvW/RixtqXlz5mBCi1+QN86mgutTLXQqhp44ZqAiIe3DKn0ZwZWK/ZNaQop1NwnR3l3AQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
- by DBBPR04MB7548.eurprd04.prod.outlook.com (2603:10a6:10:20c::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.25; Mon, 9 Mar
- 2026 09:04:13 +0000
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::92c2:2e03:bf99:68eb]) by AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::92c2:2e03:bf99:68eb%4]) with mapi id 15.20.9678.016; Mon, 9 Mar 2026
- 09:04:13 +0000
-From: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Date: Mon, 09 Mar 2026 17:05:57 +0800
-Subject: [PATCH] media: nxp: imx8-isi: Add virtual channel support
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260309-isi_vc-v1-1-fd0b8035d1cd@nxp.com>
-X-B4-Tracking: v=1; b=H4sIAHSNrmkC/yWMywqDMBBFf0WyrpCHY6K/UqRMkpmahY+qlYL47
- 03r8lzOPYdYaUm0irY4xEJ7WtM0ZlC3QoQexyeVKWYWWupaGtmU2XjsodQOODoFqpIksjwvxOn
- zD927ixd6vbO9XaOYcQt9rrVFzco0qCJUjIZkbXT0jXdoTY2krTQ2AFeAv67HlcowDUPa8jGSN
- uwUAknnybFnIBctNUw+WI3ggbVl0Z3nF3daxzTaAAAA
-X-Change-ID: 20260309-isi_vc-285fd815140e
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-media@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Guoniu Zhou <guoniu.zhou@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773047181; l=4946;
- i=guoniu.zhou@nxp.com; s=20250815; h=from:subject:message-id;
- bh=ReyhulE5ApaTAOc+1sZHikSsVp944CVccrPKon5jy08=;
- b=04oxx40m3MUVytO1wzWoZPQ36wDH5x6niQYog/u2vbVWJMNIMXLiXWlkvlfovLRM7W7+4dFoP
- Z0kibwG6GWhCYucd5efVAJNJustnV/3eECV3wemKdpvolayeKzJcyn/
-X-Developer-Key: i=guoniu.zhou@nxp.com; a=ed25519;
- pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
-X-ClientProxiedBy: MA5PR01CA0193.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1b2::17) To AS8PR04MB9080.eurprd04.prod.outlook.com
- (2603:10a6:20b:447::16)
+	Mon, 09 Mar 2026 09:11:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5D94E600CB;
+	Mon,  9 Mar 2026 09:11:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 118DDC4CEF7;
+	Mon,  9 Mar 2026 09:11:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773047467;
+	bh=WLv9qqLZ/btidVarDfm4uY8aB7MnPY0EpCVnateUiGc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=WDo8xpt36yqSDDveDKlkl4R/SIZL/veYsmg35mJAhMPg7YRldiExyNtinsj/PPTly
+	 VSmcZPI3Z9MCCGSd6qNfxh5TOA1jpadFRYEAVDc+7dr7pUnpCKq3NjqO5Z4KySEP/e
+	 3L6xA7wkCB/bGFOAWOsTLeAlOQ905MRZDf3T4zVXPHF9Fs+4ic5fmghXgOLuS83rzo
+	 qCoD3K2nUiyb5kwDk3gQ54/DlPP4X/LmsMaGIVjibq6eOkJifQ69gzPez2ZWjqn20H
+	 Lm1MH1llAmrHZlm9qPfSOMG+WiNdVOVtFRWmO6DpIGJtAv4mpZ5ISYoMiw5VHbUcwU
+	 4FJa/iKytuUjA==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: arm-scmi@vger.kernel.org,
+	Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH v4 1/2] dt-bindings: firmware: arm,scmi: Document arm,no-completion-irq property
+Date: Mon,  9 Mar 2026 09:10:59 +0000
+Message-ID: <177304738934.1267831.4681471282641940772.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260117010241.186685-1-marek.vasut+renesas@mailbox.org>
+References: <20260117010241.186685-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB9080:EE_|DBBPR04MB7548:EE_
-X-MS-Office365-Filtering-Correlation-Id: faab4a1a-54dd-45ff-e150-08de7dbad5b7
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|52116014|376014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: iSv3BkyZKzDeNHt71bW669KzVkuOuQJ2QXs+glqSEFSg2C4yZhZNIW18ExCUKyg4feV8dqcBvEHRJ2P1PCNo0mg+Z6TiGQbdS92jHgKHmKteo+nld15pIvdf857QqHRhO3CH/zSqJFRc14v493UkKMt/bRq5pKvmJEoTjs/xYSGCHBjCdHNm0t8LsvwvUFMgRK3iqZGGjsAojsXSVxtwa4bdgNy1Ueg9/VPuPwu+ZSI5rzKhxlkmOVlRQ0c2Oo8swn1VUzROBkz6gFIR+3mvd/g2XNqK0mkHLlN/z1d29079dRuJoTq6o9ZTNzLWmXcbyPxF3lssQC3D3g4KL6cvL9VqAAfLyppSv7kNyhHDHbg4NYc1ahGK5R2o2PzZ8N+4ObNXj8iY0B+K2vLoQu7yf8waWKVSKZIjGxuaiX/6iY9s8ATpCCvB/wWD5INjm0yCbibWZzRFufPMOsZhcAD6MFqKHz6JjIDhldUVY6r9qNlDrhDDJqmqwdgVd8Xg8IxSQmw67dO6HQ/fLSdUg0swVJ8g6x7VfNP+6MEtvYSyFXnSgtsx5Sv1RJfpGPL6khJnA2FebvYyf9oott6GTBvMXVlxIbm0j1G0Q6oRYgWlfm+tZjUOW3E1srFUcQGuB+07BavV43ainuwqNkCc5FCg2zyufcFH5xy6zTJOO214gUimm4nupdv0puErlh+3vs294mjPcsu1Tl5ZkbEa90Xp02aEWIttmOkGXPrsNCyYXoc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(52116014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eitPOTdXSEV2VnJQY2dzVVY0VlFRU1VVVnZLQ25pMS9DNUl3Q0hRNjcwRFoz?=
- =?utf-8?B?S2xvWVRWS1Y1SGN2b2kxMkhsaWdTb0hWL0phM0k5TWRKSlZFRDhweU9RMFZ5?=
- =?utf-8?B?N1N4ZE9ZVExDS0ZQYUZFRnppUFA2Qk5VTTBZeUlJY2gwTHczOWFRbTBFTHlH?=
- =?utf-8?B?TFNEdm0vWTBzNUdmbWpsQzFGT0xzLzJ1ZEtKbWVrTjRCTVQzcnp0czhYaFFY?=
- =?utf-8?B?YlhtZFlkakp3aWx3cER1UTNkb0lyT3NvVUk3ZkdNYitwNk9UVjRyNlJKRWlE?=
- =?utf-8?B?TlFvTDQ4OVRxcjNlc1hXOGJqeGh1Wkw1dlh4YnJmUXdnYjROZXFwM1AraEJn?=
- =?utf-8?B?WlZXU3pjU3JoMnE5aHZQZGFIL25oVjRXaEowZllYWUZUMyszR0lXc01xS1Ba?=
- =?utf-8?B?dXJEWG5KT28xaURNVUFjL05yd28ydGwrWHBod3VFVldyck16VmF1cnl4VnpR?=
- =?utf-8?B?TkU4R0hFL1p1bXZrQWNJcldib2dMOUJ1QVZZNFd4aGhIRXlWc2EzWENHdUxY?=
- =?utf-8?B?ZlZNWHRnTkdzdVpiVkl1ZE9YNitZTXhkM2dLTWFOK0t3L0l4UnZUY0Z1eC9p?=
- =?utf-8?B?WHJ4L2g3MFB5Z0pmbm82TGc0YndrZVVQUVU0TlF6TWxpQTN5WmN2YjY2djdC?=
- =?utf-8?B?Mkp1cVBpVEkvODU4YTBiU2VkbFZmcDRoNUg5RnRKcVV3VE9tMGxUQzBwVDJw?=
- =?utf-8?B?ZHo3SGhlTkt2RndGOTNsQi9XUkRCYU9CUW1iWFBLdkNEQmw2blo0MDdaVE50?=
- =?utf-8?B?UlY3TW1xZGhDZ3p5LzZ2NUJESzN1VzBKTlZTUlFKV0JSMk5ZOHBUazM5U1Qw?=
- =?utf-8?B?ZDdFK0NSZ0Y0QUo5VzI4OEp2MUZiR3M1V0s5K0t3RnNVTE4rUFJ1ZEYrajdI?=
- =?utf-8?B?SnZ1YXpuSXp1UVczK29rMVZyeVFBRi9yVFFrQmJIWUo5dWE5OFVhcTU1QVZC?=
- =?utf-8?B?MVd4NVZrdUdVYzZMTEZEeTdjMXVLNktwSkRabWZGaVM3dUFFQ1BZYVJKY01j?=
- =?utf-8?B?STAzSTRoYmtpNGVRMEZFMU9RVFAwRWo5amQ3Tjg1SjRRRENPM3F3WXZpSWdz?=
- =?utf-8?B?M0ptcEVVV1B6UDR2Wm1NNFBlSlVVOWtXdmt4bkFQeVM4ODNTTU9zR2hSTm4v?=
- =?utf-8?B?WE5uWTVxdGFIRElJRklOSDVZc0U5aXVBSEh5TVIvbElzOVFDNkNmdHhpSmM5?=
- =?utf-8?B?QUNDY0ZwN0lZZkFHZkdpRXp1b29rQW9tZ0dITHFHcmI0ZDRwU2R2dFVmVVZ5?=
- =?utf-8?B?WmxoUGMzcERaVm9lVkhTQmlxTWNnWERDVmF5Zjd4Zis0Y3gxQmcrdjdJU2RZ?=
- =?utf-8?B?cXJzdExPWXduUzdvMVBoM1RMOXNDZ2FaUVV2S3pXWlc2UzJSNU1XZG9qN3RJ?=
- =?utf-8?B?VklVTVFSampxb3hLVHlZZmdoNzNSaHVJQUpuYklmb2xRQXdTenAvVTVzcWR0?=
- =?utf-8?B?ZlNtaUo4TENtZElWbGtNRkJwNWQ4akdjQWR2UWZacVNEclFQYTAxZEJIYTF5?=
- =?utf-8?B?bStwbFVnZ3dFUGZNNlN2TTc3S3dkckcyMnJ6UEVLbkd3cldlVDBRVzY5VW8z?=
- =?utf-8?B?eTNqMzBaaXc2YUdIWUpvQmRxUTY1OUlmNGJDTCs4anB2U1p3YzZSeExJcm95?=
- =?utf-8?B?ZFRlLzlQOHpIZkpMUnp1S1QwajJibGlvNGZJd3FBRnF6dVR6c0l5TGZGL3do?=
- =?utf-8?B?RzhqM2E5ZGdFODREWFpZNkczSWF5eG1Ddm5BNnZUNGJ5M0EvTHVMTWtYUUY4?=
- =?utf-8?B?UnZCWFhGY1NZSStTWmJxeURLY2QyRmJTM0FnMHRmUEZwS01sLzhTQVZFdm5E?=
- =?utf-8?B?UU94V0NYV0k3NDdwT1cvdGhiRWFUWXM3aUkyMnM2VjV2ZEt6SmtQMFc0RWFH?=
- =?utf-8?B?UWhtVEZRTUhGSlorSC8xNjNKK3hzeFhxQ2pqQlNzcHRXTkZhSmJHdmJTcTVH?=
- =?utf-8?B?aGhIRVZnV0xsdmlPMUZuQ3ZTdzJrWnBPS1Z1TThNTFNJaWI0N0ZtbVR6QVRV?=
- =?utf-8?B?TThvSXlmRzF3SEV1UlYvZmJHazZUTGZaU2d5K1M0UG16djNjTnVaa1J5Yk1x?=
- =?utf-8?B?aVRzOGZBZlVXNFd4dXo3azVBYmt6dGs0cGUyWFBnOHNOWlRiMGh5azFWK0Qv?=
- =?utf-8?B?WFd5WG1iNFZhaUJoSkdJRGdNUU5JWDV4N0h6dGtGNGJKMW4yVHZZeUNPTkUv?=
- =?utf-8?B?WDgwRGN1SnpyUFdBdlZBSFc2YWxjcDJ4MGczKzF1TlBlOFIvUGppZWNoaXNN?=
- =?utf-8?B?a2IzT1EzZ0xPVmlsR0tUVWJtVUp1b1IrdGlLNzNBZkhNNURTOWY1R25mZHJa?=
- =?utf-8?B?ak05cTUxTDBOREExTXF6SDVrVjNOWEJKTXJPdk40OWp1eW1NK1poUT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: faab4a1a-54dd-45ff-e150-08de7dbad5b7
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Mar 2026 09:04:13.7902
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Gzi11IwZm8guS6SVNEb6b6UncdXBQUmiGntiw9EZEFETRmiukIc1Ml89ndlXUm+9R0WxBaCv8UNtBEx6yEw7BA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7548
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_020424_879576_05FA487E 
-X-CRM114-Status: GOOD (  20.23  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,135 +77,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Guoniu Zhou <guoniu.zhou@nxp.com>
+On Sat, 17 Jan 2026 02:02:28 +0100, Marek Vasut wrote:
+> Document new property arm,no-completion-irq . This optional property
+> is intended for hardware that does not generate completion interrupts
+> and can be used to unconditionally enable forced polling mode of
+> operation.
+> 
+> With this property set, such implementations which do not generate
+> interrupts can be interacted with, until they are fixed to generate
+> interrupts properly.
+> 
+> [...]
 
-Add virtual channel support for ISI.
+Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
 
-Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
----
-Changes in v1:
-- Depends on https://lore.kernel.org/linux-media/20251105-isi_imx95-v3-2-3987533cca1c@nxp.com/
----
- .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |  3 ++
- drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c  |  4 +-
- .../media/platform/nxp/imx8-isi/imx8-isi-pipe.c    | 43 ++++++++++++++++++++++
- .../media/platform/nxp/imx8-isi/imx8-isi-regs.h    |  5 +--
- 4 files changed, 51 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-index 3cbd35305af0f8026c4f76b5eb5d0864f8e36dc3..11a5e395792f11752c44d73818c825f2f175aa1d 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-@@ -256,6 +256,9 @@ struct mxc_isi_pipe {
- 	u8				acquired_res;
- 	u8				chained_res;
- 	bool				chained;
-+
-+	/* Virtual channel ID for the ISI channel */
-+	u8				vc;
- };
- 
- struct mxc_isi_m2m {
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
-index 0187d4ab97e8e28fca9013f6864a094e08f2c570..4d830fc1f913a825a29232739813f7e6d38018b7 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
-@@ -338,7 +338,9 @@ static void mxc_isi_channel_set_control(struct mxc_isi_pipe *pipe,
- 	} else {
- 		val |= CHNL_CTRL_SRC_TYPE(CHNL_CTRL_SRC_TYPE_DEVICE);
- 		val |= CHNL_CTRL_SRC_INPUT(input);
--		val |= CHNL_CTRL_MIPI_VC_ID(0); /* FIXME: For CSI-2 only */
-+		val |= CHNL_CTRL_MIPI_VC_ID(pipe->vc);
-+		/* Platform like i.MX95, ISI support 8 virtual channels */
-+		val |= CHNL_CTRL_VC_ID_1(pipe->vc >> 2);
- 	}
- 
- 	mxc_isi_write(pipe, CHNL_CTRL, val);
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-index a41c51dd9ce0f2eeb779e9aa2461593b0d635f41..cc4348ea6006ee19243aae3abceb235d00beea4d 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-@@ -232,6 +232,45 @@ static inline struct mxc_isi_pipe *to_isi_pipe(struct v4l2_subdev *sd)
- 	return container_of(sd, struct mxc_isi_pipe, sd);
- }
- 
-+static int mxc_isi_get_vc(struct mxc_isi_pipe *pipe)
-+{
-+	struct mxc_isi_crossbar *xbar = &pipe->isi->crossbar;
-+	struct device *dev = pipe->isi->dev;
-+	struct v4l2_mbus_frame_desc source_fd;
-+	struct v4l2_mbus_frame_desc_entry *entry = NULL;
-+	unsigned int i;
-+	int ret;
-+
-+	ret = v4l2_subdev_call(&xbar->sd, pad, get_frame_desc,
-+			       xbar->num_sinks + pipe->id, &source_fd);
-+	if (ret < 0) {
-+		dev_err(dev, "Failed to get source frame desc from pad %u\n",
-+			xbar->num_sinks + pipe->id);
-+		return ret;
-+	}
-+
-+	for (i = 0; i < source_fd.num_entries; i++) {
-+		if (source_fd.entry[i].stream == 0) {
-+			entry = &source_fd.entry[i];
-+			break;
-+		}
-+	}
-+
-+	if (!entry) {
-+		dev_err(dev, "Failed to find stream from source frame desc\n");
-+		return -EPIPE;
-+	}
-+
-+	if (entry->bus.csi2.vc >= pipe->isi->pdata->num_channels) {
-+		dev_err(dev, "Virtual channel(%d) out of range\n",
-+			entry->bus.csi2.vc);
-+		return -EINVAL;
-+	}
-+
-+	pipe->vc = entry->bus.csi2.vc;
-+	return 0;
-+}
-+
- int mxc_isi_pipe_enable(struct mxc_isi_pipe *pipe)
- {
- 	struct mxc_isi_crossbar *xbar = &pipe->isi->crossbar;
-@@ -280,6 +319,10 @@ int mxc_isi_pipe_enable(struct mxc_isi_pipe *pipe)
- 
- 	v4l2_subdev_unlock_state(state);
- 
-+	ret = mxc_isi_get_vc(pipe);
-+	if (ret)
-+		return ret;
-+
- 	/* Configure the ISI channel. */
- 	mxc_isi_channel_config(pipe, input, &in_size, &scale, &crop,
- 			       sink_info->encoding, src_info->encoding);
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
-index 1b65eccdf0da4bbc3a77c91e06fccc35d6c7e022..b2bcebc254b223b1085fe5bc2cc252eb7e272e1b 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
-@@ -19,9 +19,8 @@
- #define CHNL_CTRL_CHAIN_BUF_NO_CHAIN				0
- #define CHNL_CTRL_CHAIN_BUF_2_CHAIN				1
- #define CHNL_CTRL_SW_RST					BIT(24)
--#define CHNL_CTRL_BLANK_PXL(n)					((n) << 16)
--#define CHNL_CTRL_BLANK_PXL_MASK				GENMASK(23, 16)
--#define CHNL_CTRL_MIPI_VC_ID(n)					((n) << 6)
-+#define CHNL_CTRL_VC_ID_1(n)					FIELD_PREP(BIT(16), (n))
-+#define CHNL_CTRL_MIPI_VC_ID(n)					FIELD_PREP(GENMASK(7, 6), (n))
- #define CHNL_CTRL_MIPI_VC_ID_MASK				GENMASK(7, 6)
- #define CHNL_CTRL_SRC_TYPE(n)					((n) << 4)
- #define CHNL_CTRL_SRC_TYPE_MASK					BIT(4)
-
----
-base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-change-id: 20260309-isi_vc-285fd815140e
-prerequisite-patch-id: 6f139a1d54fa3e0632db9b8a736ae27037c5f45a
-
-Best regards,
--- 
-Guoniu Zhou <guoniu.zhou@nxp.com>
+[1/2] dt-bindings: firmware: arm,scmi: Document arm,no-completion-irq property
+      https://git.kernel.org/sudeep.holla/c/0c5453bf8437
+[2/2] firmware: arm_scmi: Implement arm,no-completion-irq property
+      https://git.kernel.org/sudeep.holla/c/d8283ac2c8fb
+--
+Regards,
+Sudeep
 
 
