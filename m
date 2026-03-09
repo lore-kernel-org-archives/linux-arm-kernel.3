@@ -4,121 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A95EEA854C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 00:43:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4916EA8542
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 01:27:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PjA77pToB3Hfq307snqYtTPSiBkdeTdC0aw7kzmt+xc=; b=lgeMUqLOsroBLrDgEx6CnZTkCF
-	06i06r9GylqnVsIoRFMfbSBm4veKKv2CMyg8Vf/pMQPxppytrs1sxuVq+TJjYz7zf6VN37IKsv2WW
-	e0WR837punv0FzgeNa0lQg6l86CLPvah/DGFURlGuljn1w6eWKtBgqzOYuaCxaectf4ovFdw0zXiO
-	CxznNLT3u3quzhgjoh2hoAKOWdqyc0Dok1+xBK3X7vnNBzliGOcnnLJuZxSw9Ivikyf3wRSG5pyYl
-	QCodX2NUNSZrCDk/WAOOXJXyYztdf4pSU5PCWM5LXD3cMDAfWVwo7Li5o6nTNXiEuaoNJZajYlM0m
-	0xI4wU9Q==;
+	bh=AmrXqlRa6XqcxgRZeLfPo4HT+SM6fCIjFFPpzWuCXEI=; b=dNoqkpoB2tf7QqluCAFABIPFOY
+	ERy3NRjbWi39x8uIRE61xsEx53hkv+6nBRqtR8FlLCfimwHkfbsS8UzSoe29pADsIf/uD3Zm3XVoJ
+	BzzPfqvGOJjzHcOOhcq5p7ojbj0ZGcgUcM7BUQYbozXx09z+QnjlXKFoZ970w4PsDLTe57QeVtnsE
+	B9EtEDLx591X2et7zBs/yD7SBmjb8CbgY/oDzFgHDNAHzP9zShi7WzbdVr98afjGecsBvlUxVKKLM
+	DcNizrAMmfttNfHS/YKr5cnjY0BAp0JOiglKKbWCJ4fEDC5BM8lUuoRHES/8BmD5BpkMruvju671e
+	nWTu5ztw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzOio-00000006Tpm-3Ao3;
-	Mon, 09 Mar 2026 00:43:46 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1vzPPF-00000006W9J-3Uzo;
+	Mon, 09 Mar 2026 01:27:38 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzOim-00000006Tp0-2UDF
+	id 1vzPPC-00000006W8s-3Vl8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 00:43:45 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-8299f1ca86fso1085476b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 08 Mar 2026 17:43:44 -0700 (PDT)
+	Mon, 09 Mar 2026 01:27:36 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-660f1a1e977so5578543a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 08 Mar 2026 18:27:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773019653; cv=none;
+        d=google.com; s=arc-20240605;
+        b=BAdrREpM3MMOdiLZoAkJhQ8Gcp4heauGnR38F4adoLkRjeoVjHF0xkwBf3qzNlAPHC
+         JrUCPuF2h//YBGWYGRdKPUDEHJGhOi7cdCLIpSqSMvw2k7rJpOue/Hfth8WYq6Yvx4hB
+         vc70EXvUYdasStuhPPxF8Pv0pxU3NM63YDI+IxNmkjo7CKnlTKw69vKRCF1ZJ8ZFCRkL
+         j64a1HdlPu6cMpXRINcpWPJ25CeHuqX2fzM41S9s+tzm3vZUIiZtPn15ZQah+EwFduh9
+         jDFoafrPxSGr1L6MgyQhML3OsT5/03tSsM3Toxapggr7Kp1n+V4ILxG08gv1pFH5etq7
+         m5ig==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=AmrXqlRa6XqcxgRZeLfPo4HT+SM6fCIjFFPpzWuCXEI=;
+        fh=MQf5tLSPN8SXJDOOqAz7GfSy2ujMQe+luTfMz6+jdC0=;
+        b=jk8ao8J+BaxvWED8rUzIzTvHBZlf0vCGrSaoYwmYrCySDRPpUkYEtqUaJe1RdKXcGQ
+         MvN51U0Gf5eiFFm08nzLCV5epZw+N0p7uDFyVgxXcT2Q+ZzNrbHBhc62AB12e7bFhoSV
+         0ZQLCV0EFmG5CYyUOV/1N2ON7LJBhUIEBkQKnw0Lra+2qB//a/nxxJOPGP6ykms+wyua
+         42IUyAJlFtBx4Xk//gwX9zTPXr3jZ5efpKjLX02nbQs/8v47coB8PqVfKEkoOHdtYj7a
+         jIi0NvJD3bM4CF4WRxuw4zAbygf5btLeDvlRyF6hvFa5Yf4k6LnakzzuLcyHg/+FrV5t
+         3P1A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773017024; x=1773621824; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1773019653; x=1773624453; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=PjA77pToB3Hfq307snqYtTPSiBkdeTdC0aw7kzmt+xc=;
-        b=aTPqaDZVHQs0FvusCHv4sd/gEvcR0k8kIXVlWoqGtZ4X7tD0oQN1P0k58tma05MoRg
-         QnMyIiEoiONv/WLM2W3S3HVOUVocH/SJPpR/mkIfT+Tfkr/T+fljXAnke5AIPRTH1k/r
-         V+7Hoku8x2YPp5Q9WVxhEohItJrGpwOx2GCbY8CQneSQNG7FHZyDP7P6CPwiO5H9C5my
-         7SkZMiC6mi+v23GrSFZlDJ9bUU5R8a7QvWstUdNVm8HjpZZTJ1SP11wE+R4KuZs+soo6
-         Y+El4b0LY/aII+4efLMdWp1E4qTpWjBHVfHvSlLK+LXKbqm3RG5DxL1uO0ETffQakvIp
-         prcg==
+        bh=AmrXqlRa6XqcxgRZeLfPo4HT+SM6fCIjFFPpzWuCXEI=;
+        b=QVyNf5WbjD1cu+VHMuA1knc/P0IW6uYKCJq10S36TwbmOxpPSSDdN9YfWFDGs7Uft2
+         p+OgYUNwP3HNKjlIiqAzzeyU/DGA+oMOHzu5mgqBAOLySKB3cfRfwz/iElWAEcwDK9oT
+         BgPyj0/u58fq7Rv1tRJ8fCllfWKOcBcuDZrUWHpLv+1nfTevgS4prDJpAwRyw0Umt04z
+         BKvdIt/IdWT+1I1n6cKKs9F111rFExHbRvBI9gOGRHtIrf+4yYE6xrDgTIjTxWh6H4a3
+         K7WZ7g7BEz+K5z3EWmzOQY3zFYUC8oS35kFr2+iBf3OKQxHX9dPwAs16s9IG375DF0Qp
+         pGbg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773017024; x=1773621824;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+        d=1e100.net; s=20230601; t=1773019653; x=1773624453;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=PjA77pToB3Hfq307snqYtTPSiBkdeTdC0aw7kzmt+xc=;
-        b=rmTBXDL0eL9fs/o8iz5B3Pfk3VpQNiB31ff6eV8K2f+T5Aojy2GIATVPdTXnsNdEwY
-         bLO2eUC/zqnKtaaOhE3dslxjOrYSD1LKXvbFw8g8UDxmxSJjPlF2gJ6IxdnItO1u7jTu
-         5SbNZ3AGC2zU37apmux4Vq1KoLK3ipXcC4XihLwzUnkZB3JoUdLH1jta4peZgfHOtQFW
-         opLNsBpGDw3e4ywKjHIrkKLGEBVLg2+OtnOZjS7dmvU6BFZUH+055oxn5KoEu+9d+Y5S
-         obbtdmReVDUXnYNNZRtpHISN02m2+/+GHV7Q0SypK3oZ86X/oi6NMdiHiLUoA+yXLENB
-         +J1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVim1vLaE+SW+xHv+Zbh6crtJAwrkSkAOJjttijj6XTQYRZQJLRohSE8Vm1vbxLvKUMctfFzNvQk8B/jemz4pNy@lists.infradead.org
-X-Gm-Message-State: AOJu0YyhtDKsJG4XxnX9GHf1L43cIuIGNe5BY7MyRXO1eGn2bWuTx8/l
-	Pr+AGJoVUbhx5WlnYMPqld66HBN/Ct/Amyk4o+w5QQ7ZvpWxZbFSTiJE
-X-Gm-Gg: ATEYQzzz4ARHMT66VFDq1wm90aQyxoIMneRXbA8Lb7NTQ5cjXsx/tRNusk0zIMHGwWC
-	n+8q4IhfrwBOZk4yf+neYmsFpazgrZqqKITKaHWkaT5KLsMquDNyTt1zNeyHpFo8+ckBNrTBFKO
-	qWQwNaJ0tJRCt5V4riA4HFT5jd0+v2szC9293i+4L84RfLLm5sH2pH0/IAQjFRKnVjYQNDrPU8I
-	p/4kBD66AtywJlGei7uT032AzXEN5Ypo8m0UfKkXlE5Bacdzwzyn8/TKDbasv52kFsmjxy/FmbR
-	aQsgBmWNvOJKbD6LU5MH9mWQm5AYgYSU6UWgEhI0nc+p0fMf1ki8MKwhhwzyUqUnmTrkLXjKays
-	cKgOBv2ClWhZQ4EriWdjsH7Fo3ldt2YWGFHuWXYsFG8+t1bmmtqG9xltpylvwTD3z8bLdeOdAad
-	bTyVJ/STvvjnWZTiSfnkGOk0A=
-X-Received: by 2002:a05:6a00:1581:b0:829:a131:8318 with SMTP id d2e1a72fcca58-829a2f813f7mr6833727b3a.44.1773017023904;
-        Sun, 08 Mar 2026 17:43:43 -0700 (PDT)
-Received: from localhost ([2001:19f0:8001:1b2d:5400:5ff:fefa:a95d])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-829a4635d62sm8441226b3a.5.2026.03.08.17.43.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 08 Mar 2026 17:43:43 -0700 (PDT)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Yixun Lan <dlan@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Yao Zi <me@ziyao.cc>,
-	Yanteng Si <siyanteng@cqsoftware.com.cn>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Shangjuan Wei <weishangjuan@eswincomputing.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Boon Khai Ng <boon.khai.ng@altera.com>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>
-Cc: netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH net-next v8 1/3] dt-bindings: net: Add support for Spacemit K3 dwmac
-Date: Mon,  9 Mar 2026 08:42:42 +0800
-Message-ID: <20260309004305.315018-2-inochiama@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260309004305.315018-1-inochiama@gmail.com>
-References: <20260309004305.315018-1-inochiama@gmail.com>
+        bh=AmrXqlRa6XqcxgRZeLfPo4HT+SM6fCIjFFPpzWuCXEI=;
+        b=RNJm9W6Eb3PQLYoBNMnP/9Rm0CsyTZS3IhZ8I0pDsX24ZwZqXm/63ltsu8DL8ctgKd
+         SjQY+n9KDcHbBUjZeQCmtl5v8o2ut2AS/8Nha7uFi+lV9EAmo8bSv9ftoljr74rTkFls
+         XJeSfuoJG7tBA/ghev+tOlwET7sEVNPP9O7xGBoHvAI0iFD00vMozK951L717FvYm9Yv
+         fTLD/QG3lOaRuS+kdbjnbASBg2mBWKGOVQFciAgzgISimgkE9k7Se+jcGlvUcLNYiau4
+         QM0j6gku8shdT4rWWxFSWgJjBuU0BTfuqtrJGI5fYmajhjCrW1pZIXpKydf4ErbJs/cU
+         uEfQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVyBSq4loCuQ61qatCwCPD9mS5DjhZgmb7MFamGyhVQD23kLqXLToknjcf1E2nJEcXFaivLdrb87ispkc9cHiCG@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFkO+2C6Fc/Kz3nlC1wAmFzTNxxW17akpK0xui+EFMJHf4gmVy
+	Vf6FrY+W7cpROpxs4WvYv+KfriG674yB001M1FoGZE4sGF6XOE05uIZyy1cH9OhrzjuvpxcFpU3
+	PnjDvpK4TCsd1I8qW94rx4pX8REUrE0I=
+X-Gm-Gg: ATEYQzxT5u7K3paxV/g1LORFmj5bUhYkl0lMIiV0idG122iJMEHmc70819vjUwVPDz2
+	nG0VMw/B497DTJcN/EMLEx1apRLOWR45df9s2G+R9W8sCTF3Fw1IHtbRK2vjE+QbvhM3yCqwgxH
+	yqmvejDkXO6sbGV4VT30ywv6/k3C74Pw1g498xkJKZh2PU4WITMIx+Z75Ds5VKDrEtBwF+DzCsq
+	UXX36qlOCJdWHMfWNkW3XIK59bEDndz3VnslVDEMBxgWE19Zr/yVZyGQKaKTMCRWSkhOcaKnmv4
+	AZXIeLv8a0XmjQMbygKpyg3Ppd10YMUEB1+UJLWciIhtOcW5FVBY9go1R68LwsvLVZFuOaa5Txl
+	StqmrG18GfsblGGjS
+X-Received: by 2002:a17:907:a03:b0:b88:5bbc:3658 with SMTP id
+ a640c23a62f3a-b942e02cf9dmr525408666b.52.1773019652375; Sun, 08 Mar 2026
+ 18:27:32 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260308021535.48098-1-rosenp@gmail.com> <CAD++jLkLj235Q=U_9E-hSneW5E42JjU=dRBJxKJNnqwgBLCm=w@mail.gmail.com>
+In-Reply-To: <CAD++jLkLj235Q=U_9E-hSneW5E42JjU=dRBJxKJNnqwgBLCm=w@mail.gmail.com>
+From: Rosen Penev <rosenp@gmail.com>
+Date: Sun, 8 Mar 2026 18:27:21 -0700
+X-Gm-Features: AaiRm51DHUN2l4LTGqNpI9x37mFL5UP6Qa3rL8znqPALUSc2sV8jWzO7K995iBA
+Message-ID: <CAKxU2N9JbAzEYfmLpbw5b9Y6MsYUZ1FfLirfy8Hg8MCOUY6PAg@mail.gmail.com>
+Subject: Re: [PATCH] gpio: msc313: remove kcalloc
+To: Linus Walleij <linusw@kernel.org>
+Cc: linux-gpio@vger.kernel.org, Daniel Palmer <daniel@thingy.jp>, 
+	linux-hardening@vger.kernel.org, gustavoars@kernel.org, 
+	Romain Perier <romain.perier@gmail.com>, Bartosz Golaszewski <brgl@kernel.org>, 
+	"moderated list:ARM/MStar/Sigmastar Armv7 SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260308_174344_656315_7FD544F9 
-X-CRM114-Status: GOOD (  16.03  )
+X-CRM114-CacheID: sfid-20260308_182734_917102_7370B4FB 
+X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,148 +120,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The GMAC IP on Spacemit K3 is almost a standard Synopsys DesignWare
-MAC (version 5.40a) with some extra clock.
+On Sun, Mar 8, 2026 at 5:06=E2=80=AFPM Linus Walleij <linusw@kernel.org> wr=
+ote:
+>
+> On Sun, Mar 8, 2026 at 3:15=E2=80=AFAM Rosen Penev <rosenp@gmail.com> wro=
+te:
+>
+> > Use a flexible array member to combine kzalloc and kcalloc.
+> >
+> > Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> (...)
+> >  struct msc313_gpio {
+> >         void __iomem *base;
+> >         const struct msc313_gpio_data *gpio_data;
+>
+> Do you wanna add:
+>
+> const unsigned int saved_size;
+So in the code there's
 
-Add necessary compatible string for this device.
+for (i =3D 0; i < gpio->gpio_data->num; i++)
 
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../devicetree/bindings/net/snps,dwmac.yaml   |   2 +
- .../bindings/net/spacemit,k3-dwmac.yaml       | 102 ++++++++++++++++++
- 2 files changed, 104 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+which is equivalent to match->num.
 
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index 38bc34dc4f09..98ebb6276bc6 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -109,6 +109,7 @@ properties:
-         - snps,dwmac-5.10a
-         - snps,dwmac-5.20
-         - snps,dwmac-5.30a
-+        - snps,dwmac-5.40a
-         - snps,dwxgmac
-         - snps,dwxgmac-2.10
-         - sophgo,sg2042-dwmac
-@@ -656,6 +657,7 @@ allOf:
-                 - snps,dwmac-5.10a
-                 - snps,dwmac-5.20
-                 - snps,dwmac-5.30a
-+                - snps,dwmac-5.40a
-                 - snps,dwxgmac
-                 - snps,dwxgmac-2.10
-                 - st,spear600-gmac
-diff --git a/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
-new file mode 100644
-index 000000000000..678eccf044f9
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
-@@ -0,0 +1,102 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/spacemit,k3-dwmac.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Spacemit K3 DWMAC glue layer
-+
-+maintainers:
-+  - Inochi Amaoto <inochiama@gmail.com>
-+
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        const: spacemit,k3-dwmac
-+  required:
-+    - compatible
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: spacemit,k3-dwmac
-+      - const: snps,dwmac-5.40a
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: GMAC application clock
-+      - description: PTP clock
-+      - description: TX clock
-+
-+  clock-names:
-+    items:
-+      - const: stmmaceth
-+      - const: ptp_ref
-+      - const: tx
-+
-+  interrupts:
-+    minItems: 1
-+    items:
-+      - description: MAC interrupt
-+      - description: MAC wake interrupt
-+
-+  interrupt-names:
-+    minItems: 1
-+    items:
-+      - const: macirq
-+      - const: eth_wake_irq
-+
-+  resets:
-+    maxItems: 1
-+
-+  reset-names:
-+    const: stmmaceth
-+
-+  spacemit,apmu:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    items:
-+      - items:
-+          - description: phandle to the syscon node which control the glue register
-+          - description: offset of the control register
-+          - description: offset of the dline register
-+    description:
-+      A phandle to syscon with offset to control registers for this MAC
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - interrupts
-+  - interrupt-names
-+  - resets
-+  - reset-names
-+  - spacemit,apmu
-+
-+allOf:
-+  - $ref: snps,dwmac.yaml#
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    ethernet@cac80000 {
-+      compatible = "spacemit,k3-dwmac", "snps,dwmac-5.40a";
-+      reg = <0xcac80000 0x2000>;
-+      clocks = <&syscon_apmu 66>, <&syscon_apmu 68>,
-+               <&syscon_apmu 69>;
-+      clock-names = "stmmaceth", "ptp_ref", "tx";
-+      interrupts = <131 IRQ_TYPE_LEVEL_HIGH>, <276 IRQ_TYPE_LEVEL_HIGH>;
-+      interrupt-names = "macirq", "eth_wake_irq";
-+      phy-mode = "rgmii-id";
-+      phy-handle = <&phy0>;
-+      resets = <&syscon_apmu 67>;
-+      reset-names = "stmmaceth";
-+      spacemit,apmu = <&syscon_apmu 0x384 0x38c>;
-+    };
--- 
-2.53.0
-
+__counted_by doesn't support pointers AFAIK.
+>
+> > -       u8 *saved;
+> > +       u8 saved[];
+>
+> u8 saved[] __counted_by(saved_size);
+>
+> >  static int msc313_gpio_set(struct gpio_chip *chip, unsigned int offset=
+, int value)
+> > @@ -631,16 +631,12 @@ static int msc313_gpio_probe(struct platform_devi=
+ce *pdev)
+> >         if (!parent_domain)
+> >                 return -ENODEV;
+> >
+> > -       gpio =3D devm_kzalloc(dev, sizeof(*gpio), GFP_KERNEL);
+> > +       gpio =3D devm_kzalloc(dev, struct_size(gpio, saved, match_data-=
+>num), GFP_KERNEL);
+> >         if (!gpio)
+> >                 return -ENOMEM;
+>
+> gpio->saved_size =3D match_data->num;
+>
+> I know it takes some bytes more but it feels way safer.
+>
+> Yours,
+> Linus Walleij
 
