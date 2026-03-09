@@ -4,121 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B498F41808
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 15:42:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77798F41807
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 15:44:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VnEGf/sLIBXUAtn+f95VeJPPC7kDQPm1KTdc6gtRpSg=; b=HtZdAcHNifmQL+pSSihOQxX5Cy
-	3qFrUc3x9itHPgqcOmMFFq4Ik8K8Yutcc11wUs2LKArbtyVN/LdTSBxr2TouMI73Ft+k8nlmXwxu7
-	PU7kT0uzRz/iqk9T/tWDpLfU+Ywru5hyCu0tUdWHsmYDuLN+89FqKJMhLRTb/OQdB7JldRyS5KIuC
-	S3Ci4La0vDD/+xgqfgdSIOF74E3OqOl17UZa2PWLrg9HKts5IO2vcTfj58xxET+eQxTvGd+Jw2WwN
-	rttkwi01O0mQ9cJjBw28qwEwNDPO6JOVonJZch70IcLVhQMa/ONliknMEcXdtHeM7JtEoymP7u33u
-	YGygjKcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ONjNyIvvgn7E5Jg42iaZ6/0S+bu9qMCYQ3pfMsMsFRg=; b=OZK9h90P4fh7fF1D4lvqdi4ctN
+	nSwbt5Rb/6Lk87kosA+Nk1oxS8jY3HyQ4AM+oHCvexZZuZ+Owg8R9H5EGbrpfl13sywx353ZVACyg
+	bDE0lYPdTKGNoGHXMqOHPp7EgrknO0H8pe5lc3QfhwqGAkKuLXT/oQ5sEwDRzd+LszjmrppIK83q8
+	uc6y+X5hYeLQVy6Q++BmgSKN0bFRQqFmJ4fYjdxBD3SJ5MZLBywl94GnYbsl/NPWkFCHdG8/xSiSL
+	5NDsrV1mKfT16vOKvyC9toB7LI4/z7ZDcuu2gtuY7UkJDMeQzL3DI00VLinnFBliAeugWW2bZnNlP
+	IBRu942w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzckc-00000007d3M-35qi;
-	Mon, 09 Mar 2026 15:42:34 +0000
-Received: from mail-westus2azon11012048.outbound.protection.outlook.com ([52.101.48.48] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1vzcmZ-00000007dJD-0glL;
+	Mon, 09 Mar 2026 15:44:35 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzckZ-00000007d2E-1c4i
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 15:42:33 +0000
+	id 1vzcmX-00000007dIm-1xna;
+	Mon, 09 Mar 2026 15:44:34 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=T4QQTae24ya55RFwfsbl/XyZ1IvefqVucJm6F4WwfnIPxDJ250+eUuO2WChlJq8gRCZzwlDZMPxHj448q2U3rXh7ofZmqzwERg0dOX7+sPcU42WgoamUYWH8gJkfXwxc55yr/ZCaSe2ZuoAQQEMMljT1KIwCZ5dQwpeDKc+McBAkGnfKNEpw9b+YlZneiecWMirtcA8fcZpduYvqbad362wrJBlBqbObd07Cd8xRjlSN/ddjKWgmIkuCJ0Y7QtwgDAAcEH+LLOHG+rBQqxyttrpNXKv21jancgtZQI7AAB4ggje6d2z09+i+V3q/PSuCKgLJOR8k6FXV+IhQkcg0Mw==
+ b=sc2KplmDrqyl0CUx5phKWpc7lkYfFgLyokwVWu7v3/c1nGEgQ3odzyiAN5fVs0hoq4QXcIbO+ek9fFx6e47HhfWLGuGYBUYkcH5Ewpe1teKaZfBEgqJHwE8DWTqqFNb1ZZgn0En9lZM3VJZsn2jOzVLOzkF+ZdPitVKOBl8GtRgXth/9Oo/JgPFY3F179Sqsa9fifpzhkLsjX5UrH5R0IgJ/TTqKtRgAEyIZBOlm/EcERP7LePdnhCx5lWaTU1p1r3ybb9KlxPiemAE4Pgko0z5bEHbkilKigckDCfLxM0dF4Elal+IWnz4iYMhV+rItvKigM/eMqqla7qD4bYGdfg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VnEGf/sLIBXUAtn+f95VeJPPC7kDQPm1KTdc6gtRpSg=;
- b=x2F6NWfQuKyVqZvF6CDQTydTNL7WWb0qE809mCaphhJqEul7suQMLquEf+9sB2sYCWYu5WQ/Y+XFuzeINobrO2F+M/QooPi0wpXbhQcQqpme0l8qN+2fCSceO43pwILesG1F3b1hfZViBgOXNuHJW978ONd3Do+8bLSNnmTcQqETeYjydhXb/XruVxMmYliBs3XW9ZFOcsez1awyxlA9aPEn7cKHbkiu62k+ZzfUYfvv3qfaAZuPJ5MIDX/wfMNOxxap2rrEtWOUWn95TMq+QynYq+/K3lWt1qem+qP9Z2o7SovpaD0lGa3HEi3swRP6bvLkIBps2rAKMEPvWkadAQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ bh=ONjNyIvvgn7E5Jg42iaZ6/0S+bu9qMCYQ3pfMsMsFRg=;
+ b=o5aWJ2L9IwXOUsSzI34K62AAHKrAz0aBB0YRoIUUb9XxVAonM/FeRLDCkWHlaG1IKc2/xfuTRGof/RVAJPtXtLyr17hB+E2XtJvoNyHEL5V7+W8eIKalQ10JCjliw9aPsT9m+jPo76Glnpeme5kIokiMl0QbLo8BnNKDcoKQeGRTioGyEJAtNQ8I61fEFJWMkBKDOCekyLl7YFEGerwus2Jh5YeEniz5qf93WVmZJB2WFpeZlPMDnKEBrVH32urDWqtsl3nY/3bXpXVm9Vmz67YglwfDLqZsElOTucwboh9LbA1cSy/+K+0uCOTv2L38w1NAIUPOxMZegriJqKhW9Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VnEGf/sLIBXUAtn+f95VeJPPC7kDQPm1KTdc6gtRpSg=;
- b=mmreoXmgh++RCCnocGzWegFOnadWAjTP88zw7bttcCSnXTKxmaHNv6xJnu5kNABUzwjZa+QR70413pW4fsmnGsRGvMXEsX+8dE8AEdH3pilcWY5Ny/icNukD7h8wZ5AaFkrwp+roE+KW9D2HdqW0O4DCrCmzuB+9rRc/0cp9RIQ=
-Received: from CH2PR08CA0010.namprd08.prod.outlook.com (2603:10b6:610:5a::20)
- by IA1PR10MB6028.namprd10.prod.outlook.com (2603:10b6:208:388::8) with
+ bh=ONjNyIvvgn7E5Jg42iaZ6/0S+bu9qMCYQ3pfMsMsFRg=;
+ b=VoGhq3QMm5m23WGx4H5nmXgar6L3dRZIRWH5jcx9LGCUfvKwkDn/jASBYfd7JwWODGID0X8jXBX+D5V+HBMILB8gKG1TM8weZ1blYDbzgOYQVYxQP1qIOw2ZDCHq9PosJPE3VkFXZ3lpa1lhriddDOQN6d6rC07Ep/IZTXMKM1InnZgOiOH03WVn8+42VpAoB8WGX4OmGappv5D60EnswARv57GzfV5u1lO52ZDKGM5ZTgavEIgAS0GmFwknoAlx0bJEWKRuJHeDWGhtP49Kod+2QrbdcN9mAFMOiFKUgbf1896ZIBaGwSG9gLmqZdkZlrKpy3ZncKFk3reYiki8OQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by GV1PR04MB10941.eurprd04.prod.outlook.com (2603:10a6:150:201::8) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.25; Mon, 9 Mar
- 2026 15:42:16 +0000
-Received: from CH1PEPF0000A347.namprd04.prod.outlook.com
- (2603:10b6:610:5a:cafe::3) by CH2PR08CA0010.outlook.office365.com
- (2603:10b6:610:5a::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.22 via Frontend Transport; Mon,
- 9 Mar 2026 15:42:09 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- CH1PEPF0000A347.mail.protection.outlook.com (10.167.244.7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9678.18 via Frontend Transport; Mon, 9 Mar 2026 15:42:15 +0000
-Received: from DLEE215.ent.ti.com (157.170.170.118) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 9 Mar
- 2026 10:42:13 -0500
-Received: from DLEE210.ent.ti.com (157.170.170.112) by DLEE215.ent.ti.com
- (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 9 Mar
- 2026 10:42:13 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE210.ent.ti.com
- (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 9 Mar 2026 10:42:13 -0500
-Received: from [128.247.81.69] (b-brnich.dhcp.ti.com [128.247.81.69])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 629FgDPK1370223;
-	Mon, 9 Mar 2026 10:42:13 -0500
-Message-ID: <a87cbeb2-528a-4c92-877b-fbb9c0f09534@ti.com>
-Date: Mon, 9 Mar 2026 10:42:13 -0500
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.22; Mon, 9 Mar
+ 2026 15:44:27 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9678.017; Mon, 9 Mar 2026
+ 15:44:27 +0000
+Date: Mon, 9 Mar 2026 11:44:20 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: michael.riesch@collabora.com
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Collabora Kernel Team <kernel@collabora.com>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/4] media: dt-bindings: rockchip,rk3568-mipi-csi2: add
+ rk3588 compatible
+Message-ID: <aa7q1DDzUQZRORyk@lizhi-Precision-Tower-5810>
+References: <20260305-rk3588-csi2rx-v1-0-0cd8d2bf28c0@collabora.com>
+ <20260305-rk3588-csi2rx-v1-1-0cd8d2bf28c0@collabora.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260305-rk3588-csi2rx-v1-1-0cd8d2bf28c0@collabora.com>
+X-ClientProxiedBy: SA1P222CA0038.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:2d0::19) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] arm64: dts: ti: k3-j721s2-main: Add mmio-sram node to
- main_navss
-To: Vignesh Raghavendra <vigneshr@ti.com>, <nm@ti.com>, <kristo@kernel.org>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20260302181800.445653-1-b-brnich@ti.com>
- <89c40ed3-50a4-419e-872b-5cde8b26b8a3@ti.com>
-Content-Language: en-US
-From: Brandon Brnich <b-brnich@ti.com>
-In-Reply-To: <89c40ed3-50a4-419e-872b-5cde8b26b8a3@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000A347:EE_|IA1PR10MB6028:EE_
-X-MS-Office365-Filtering-Correlation-Id: e5eabdeb-5f0a-4ff0-eec5-08de7df270a9
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GV1PR04MB10941:EE_
+X-MS-Office365-Filtering-Correlation-Id: fa372642-d02b-4ac3-f0a8-08de7df2bee4
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|376014|82310400026;
-X-Microsoft-Antispam-Message-Info: yghwJarOY0VDxq9RQch8Rn3VwX2Nd3d4DLEAKPxuU1WGbVhyXmvHtlk1n68mNeIp4+iruyaTULj/EXpRKh49VykDE4rh2Cgj1UCe8+sbbrnV43GUMmUvPKNVGbWOEitQ3VD3HwbtaQhtVXfyTDSM+H1MzJifdK++LGg8Z1y/D+CWBPJVAHdhpVZMkA7uYQbcID5SHSX5bZKf943kpFaRUufIcjqBFTZZoewix44OVTVB1VH6ktsdYkuD9gru6Jv1OvQk4uxPkYL66JaOZ4EB3gz/VaiVWEnbz1q/Dlyx97QYushhNgfEhu7NducyrcbGn3vkhpjckNmfB57tFdBXLErM/lJ7wTwn/sa95B2Un/8seeu4w1uk0lxM73CI6h21k6+mRGSH9TleiRMeRAPF4tIk9kJIF/+G5+106Ljj7x2B1COSJmYnaBvZwhH24Fpyigp6JGQvQPYRQahABZeDktslk2iHpWW7ehs7AZqCEJX6u0XY7QN2pI0AYHlYFvEnaN13VfGdU2p5DSyEHsqUjkyJDVEX2w+N08tv2NfTbMncfjulwKIkhebGSHOCi9ajvXqzp8YHSzbYJtzw/EUX5RZFQVjMAWKhOaNR0byIMFHollWKj0v5L5tDW4oB8vBjUV2hbHjaPXHAu8NOZ4xSQkdtNc/UkNl3y/9pMnl+alb0esK2gs5VTCcGg+CstcaNMguCxt7OFTHmILGgD2Z7TcHuCRjjlcX2Y6aB6Fxdyws0jP68v7L4VCSVoJ0nwqR6fNZcKq2pUhnUg+zXDok0tw==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(376014)(82310400026);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|1800799024|19092799006|376014|366016|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: AKq7KIQpofOA63Xahfzf1P6myI5suG+57RRr66zuRdRVOzMrE6aGuK5qwiGMzRs1leq6+WG3TBPnll0ClCZq72yroeGQeFch/Zy9tfvhfmSaFUC5IUVNd1Mwr/rI9yu5zR0L1Dn0NmE2K7YvrBhVyHAnDLTmNbbFf5fiQHzzSnQZ2gEAKc36yPyXdbf+F5OuhVBTyTyp48xwKPmCHROiK+trkntA6DBDz4tiiBUUI8GETrHnaEsn7RIMKkCMS9upkXSKdg/HLz3CyCLzMRsxnQVrkuhEzCnEvC00c7FltFJ1c2O4fBoYgnIwx4bAhXHNrejnDcUWJFjdvVIhC8inkHjRMhyQWbZXd1rd1RY5C4wbIoeaKycABmhwTFdCpqtxdNd5qwSEArPHdCmF18MjtXvJihhPbbfpr2g0u4NvB4RK/NI6jTFbflWEqgFJuGDrcR70z7NYSd1LMbzrE6tLlOQXq2PklYBw0hPLqaLAl3z00sq10Xj1i78BkV6RmP4TIab0jOQ/ZUObS6xr4nSXmNa7GLdqZfaCVmPJINSxgMkw/vW6VLJY9r4SyLkJmLivQUwCVdYltLTomsjDHeOvBOUoUODCQc0H+e9u1YG86aLURLMzv3qyMG1m6/y5SDVFL88rboEKJT8pG5aZbM8cS5WwKqm0sLP0esWtjUPz4VF+Hys0HlupE5MP/pLtSVMxvAHDe/l7wyY15Tqh0sRj9imAR3q6peooOzlsOtCZ4WOcmp3T/ozvSPeBP6eqSb5ifHXSYUTyectHYfeE+5tT+9pIQ2ScTLRzAqfbqIstpkg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(1800799024)(19092799006)(376014)(366016)(38350700014)(7053199007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: vDFzTZKUTilt0Ol6G4d8auDmMqSydPX5l67X7YLfdcf1JHTzPtvBZuawkNarH33AQSDYri1nER41lRhzcI7zWppsJRR5Sr29D8hIgSZn2Css7nw9Lhkce3YCGQ3Mhj1zoCQUhAroDwzlJzDpO6m/FJrxhQosmeWB7GN4R/irUY8lgXMRoDtwRYiTw2X3K1yxNXBuDh+wZcXcCZa/KmYGzkzblSNKBX/lUo59lA0c5Mv9Yvba+2BA1yqBEB6BMgq7SDN6JgrLCmwtda4jOdTe4Qiu3TzM9WOz15jB0M0rFLMMODdeg5Y2LysL6J7xncKOOg1y9OQyBV5cfwFyWbG2sMMh8EhcvFnSAHAMi5hUydyy+SfL/ycX5AWgGEOWi5XC6OxGxPZ9exjNct6IMUbe6p4CLuVYrb+RbEtHD62tFCFWmKErN0zg/K4i7z+fQ2dj
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Mar 2026 15:42:15.8000
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DtVDFvjOQXZRtkCOY0Kfdn1BSfT3ntnPdLOtgcGHwr58rWI/RsUcl9A0h6d5?=
+ =?us-ascii?Q?XLrLfEvGHwzFwPcfMBm64T+8r13RnyXMOkzrcetLGmSyahZSLdn5ti1QKDWG?=
+ =?us-ascii?Q?M8qO7zre/tXpuTqFUJgd8z/zqgDUDmKp9gF4UqXHK8cxO3WnNH/Cs1hho8bw?=
+ =?us-ascii?Q?02FhwRSAT7+6oPJHwPQRRg1XUON5l6lZUIIJ0BF3etBmRFpxG/qZ/pKPsNwp?=
+ =?us-ascii?Q?58eMpuws4AQP6IHRafVWXfJ4H4XVIxtdm5qTRlw6T4asqdN+OrAMrRrrQL8P?=
+ =?us-ascii?Q?16TgkyDWZHUEWwLl7+I49od9MK/xlojiz10rA4rKc+IdvVVVXEGi5iVygPLv?=
+ =?us-ascii?Q?EKE/7LpcTx5Sf30HlG8m9ZkSXW1PJsCle3dWRHVM+lcUDc1EYb33TOf+9XnM?=
+ =?us-ascii?Q?aH/gtpJ9c+hLBDehTVxvBccWu1P7MSS3UV7uSskzbeJmDnWL2FFR8NBDt0gO?=
+ =?us-ascii?Q?k21bFn2g7Wrcy014c95KgE8+sYqthKKFDQCfGzrkAjUrHOg+2mgo6fns0M8W?=
+ =?us-ascii?Q?BHHisl+PraPqPkjH9n0f+sBeKlLjnHvCi7ITx3IPP94AAElDr9srSvCFajYg?=
+ =?us-ascii?Q?Jdw+b3PwCQUdDwr0b66+BdFsS26m/LSQKKvJDjbcqJmlc/O5ewHHYb6ahfQH?=
+ =?us-ascii?Q?B7rh7ias7gjkGCLTlnsfoeYcG/1a60Ov1r3RXxfxc++YPRMYuvlGAT3CU3H3?=
+ =?us-ascii?Q?blVRYBickxQ5ap+S3APtzD3OxxA2iecx+fPkJgSZoGLA9tmf5HwuF+VDje0f?=
+ =?us-ascii?Q?D6M/3JCBANz0Mye4eH9nye2PWzv1/+4uFUc2uvsN3LIjs9cs8FrXYaOkzQO2?=
+ =?us-ascii?Q?AO0YxCC8e+Y0zP6oxsUXFfolpH0fUSYgXue5G8iKSyj8YDo11yzkLjO/h+Np?=
+ =?us-ascii?Q?RAk/+MU8o4PV0AJnIhumo9I4qU3AP6Io8AudY/vDFDIc2x/NPp8d0JvZIcAd?=
+ =?us-ascii?Q?I3+p0RjVtv8nIFo/pO0OlN79kQ7mq2+0oK1VBwQEe9f3Vs1MCQse8o2gOlMQ?=
+ =?us-ascii?Q?EqgglRrUOsTtyoZvDQFnJ1Bc9B9kZ09ec4bV0sjY7Fl03hnrkxBxb/xGRE2T?=
+ =?us-ascii?Q?aajbkUpt94Oat11tH7swyAc7hwKjObWsLzJ6FuUt8z4GK4QnXJpQ0bY2bYJh?=
+ =?us-ascii?Q?WNgPLXPWakSTRoGhoKWa0LJ5VmM2TVFUBXFtlvckxJgHk7Wd8IdxaO94hdhx?=
+ =?us-ascii?Q?VDJg+eZOLi1ONwata4mLsdEjHwc/H9YFIS4D0ATrYLdH/pMyr4C/h+gQo8mU?=
+ =?us-ascii?Q?xfCF2VUcAh3JvmO7egVWiSEPFndQfa5nXCurvLXjSdTsN4ggQP5BXysQ9BvO?=
+ =?us-ascii?Q?6FRJ6VtuyTn+O7gbKn1B0PklfK1oPBMLB9uo32+zGZngPCuAbZ3xUPjHaooU?=
+ =?us-ascii?Q?9iLgo6Y3BdsOimD9f8w+ZgM5hub1jDwoOZ/QRrraFmRPE1zYfXnMCTkNDZFL?=
+ =?us-ascii?Q?DIlSTcPCmeoi+GojYusb6f8F1x870ErC3XY32IGKepBVhlNJQhl19SEfgOaV?=
+ =?us-ascii?Q?YsmUhBxz0+0stYAvPr7sQR4LRMe1Mc+FjlbKG2ZDEc44nxk5H1ZNyiwOOT7R?=
+ =?us-ascii?Q?CKny/jgGttmYEGnJOkaWLsefXFKp+cLU7DyCmBiywFxNHW5lA+nAbfp/kSbU?=
+ =?us-ascii?Q?S2i8mqUmzyZr63wEmkPCbhXq9bZcKWrb6UHI8zhqWccVjcn9f/X/GaRe7K+/?=
+ =?us-ascii?Q?fYLnp8+9TQnt28F0iqDB4jYmbcTSRzoKoGyDnn0xBuqBRpSp1xw8900CsCig?=
+ =?us-ascii?Q?wUzieggKzw=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fa372642-d02b-4ac3-f0a8-08de7df2bee4
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Mar 2026 15:44:27.4915
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e5eabdeb-5f0a-4ff0-eec5-08de7df270a9
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000A347.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR10MB6028
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: pejKcNmqd39MF0LsRjgRocGp7Kxgul3g0/L8CdQt920zhfYVhgsqVezOvs2KnH1YJOVgpOf80jcKW5XgdBWrhg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10941
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_084231_643976_81AE37D3 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20260309_084433_531058_070A0B78 
+X-CRM114-Status: GOOD (  17.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,50 +146,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vignesh,
+On Fri, Mar 06, 2026 at 03:09:48PM +0100, Michael Riesch via B4 Relay wrote:
+> From: Michael Riesch <michael.riesch@collabora.com>
+>
+> The RK3588 MIPI CSI-2 receivers are compatible to the ones found in
+> the RK3568. However, their integration in the respective SoC may be
+> different when it comes to the (currently not implemented) split
+> DPHY feature. Therefore, add the RK3588 compatible to allow for
+> future differentiation.
+>
+> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+> ---
+>  Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
+> index 2c2bd87582eb..5f8014da31ca 100644
+> --- a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
+> +++ b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
+> @@ -18,6 +18,7 @@ properties:
+>    compatible:
+>      enum:
+>        - rockchip,rk3568-mipi-csi2
+> +      - rockchip,rk3588-mipi-csi2
 
-On 3/9/26 02:27, Vignesh Raghavendra wrote:
-> 
-> 
-> On 02/03/26 23:47, Brandon Brnich wrote:
->> The NavigatorSS (NAVSS) address space contains a 64 KiB on-chip SRAM
->> region at its base address. Add an mmio-sram node to expose this region
->> to consumers via the generic SRAM allocator API.
->>
->> Signed-off-by: Brandon Brnich <b-brnich@ti.com>
->> ---
->>   arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi | 8 ++++++++
->>   1 file changed, 8 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
->> index 80c51b11ac9f..7b1ba34ab719 100644
->> --- a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
->> +++ b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
->> @@ -785,6 +785,14 @@ main_navss: bus@30000000 {
->>   		dma-coherent;
->>   		dma-ranges;
->>   
->> +		main_navss_sram: navss-sram@30000000 {
-> 
-> This fails make dtbs_check
+Since driver is exact same as rockchip,rk3568-mipi-csi2, so
 
-I ran kpv but must be having configuration issues because all of these 
-cases passed. I will fixup the node and send a v2 shortly.
+oneOf:
+  enum
+    - rockchip,rk3568-mipi-csi2
+  items:
+    - enum
+        - rockchip,rk3588-mipi-csi2
+    - const: rockchip,rk3568-mipi-csi2
 
-Best,
-Brandon
+So, needn't change drivers.
 
-> 
->> +			compatible = "mmio-sram";
->> +			reg = <0x00 0x30000000 0x00 0x10000>;
->> +			#address-cells = <1>;
->> +			#size-cells = <1>;
->> +			ranges = <0x0 0x00 0x30000000 0x10000>;
->> +		};
->> +
->>   		main_navss_intr: interrupt-controller@310e0000 {
->>   			compatible = "ti,sci-intr";
->>   			reg = <0x00 0x310e0000 0x00 0x4000>;
-> 
-
+Frank
+>
+>    reg:
+>      maxItems: 1
+>
+> --
+> 2.39.5
+>
+>
 
