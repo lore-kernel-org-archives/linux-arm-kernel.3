@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3200EA8554
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 04:45:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5774EA8554
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 04:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dHEdEOxGByr6bGA8sg6khd2bdgx9Enw39YnWx6fUXYI=; b=K59RwsVd5O8EoH+MvjlWTMhRSo
-	3c6F9a2UUabsDVtDgUKrJmO7kvjcMl6bdzT+NepXdtlKV8WzW64PQdyheEQE/uQGwwiluZ66YWXhQ
-	h5Wg+QBokEiKtiVJ8LzD+A3SBLAaOBdui7i8N1W7ez2G++DmhAAkWmEzQpPSlWsM8bGuixGOVekR0
-	Hbm9l1folrILGrP/2c/YiWr/NQqBmv1dMPwC5CPBsL2fVqkLLF1ZNULw3+RoL+K2T2cir5todgDxI
-	fUf1nBhxVEGgChN6jWmqCQ3yuhPFHXx6BOW3dki97cfdbYh097V21EQ7Ezu23z3GKVAE+vMNUHkVw
-	dxmZp7mw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mSi1yTq6L4fwXsdzr9g+PaFvQ4XFZ9/hutjmcWkBAIo=; b=ZpPW1dmCT0Pj3zzu4d0f9GClPl
+	y0IBH4oCcEAmKiJlB2eHTg/n5rUR3vONMl/A/OwXPp0uy9z/jRvTv1ejkMNRU8OcyHvx0Gavk3Zi3
+	spJFFgxs5wfMIL/TS88Q2WveKd9YEv0atvUfjcJcVanT3KF5bptopBt+Hog1JH8fVJVzUjmgnBlay
+	Q7Ux3Xoja41Yyck0rCoWua5penbT1aL0yGimi4qqxb+KqdqnnkLx8cxKTnJAfudLlyyuw/FcG1CjS
+	RN8hGGaHYH/x087HosVq0KbagqPt7HyQLB9mKUTujod3dbXwoxMbslZ5ZTu5hBFW3pHzFf9RAqIH3
+	9ceH5ZlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzSUP-00000006epF-3wqf;
-	Mon, 09 Mar 2026 04:45:09 +0000
-Received: from mail-centralusazon11010066.outbound.protection.outlook.com ([52.101.61.66] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1vzSd7-00000006f4K-0MmI;
+	Mon, 09 Mar 2026 04:54:09 +0000
+Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzSUM-00000006eol-42vn
+	id 1vzSd4-00000006f3z-1NeE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 04:45:08 +0000
+	Mon, 09 Mar 2026 04:54:07 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Xh4eHnkRhQEG+g/BY5AbYa7nvWbc66jaPQu/mMriPFBx/D0tCyd/96IJFlOwR4LG7WIvN4we7r+dI3BMCvQwvydUmD5pDBta5wbKoKFc4pHICnBLBKCuIovENW//1lK2DxsnN7DzmKhG/Z1D8HlTwkqB+eF3az1EXZEJ1dCJ9U74suKkXUHR3z9ME+DQ0V1Yx2nT9YiE08HHk2SRobxshO9HZV809yK0OJhNGS/BJ40iYImCVvZ7Tn5SfOc4U+/9jULyHn7SKS8ALmCiooSH2VA1OBLA1Jg2pp0k5w1KGR5r1Z5IOzfOMgJTLFXmWgdtDHvORgqPesHWODQ8Bwu/6g==
+ b=xY1LoqAXRnQ0Cf1HH3K0avvC58lwl+S4zoGwgJuC8C7ay1zG3eFrVLQmgyj8lrlWhWh5Z5OLbT071H06zCm4Ju0bD7Xwq8LQ/aTy/Wej5Vovvmi3kD0FBwuEj+SfwGOTjVZLWgT8Ve08bGS6IXXqJ/7vvWEtJBdbmDQPVU+WKcF4nmnkIrK6Ba90bkeshY4Xz/AjNyTHDHZMk5UGMWbQ2ANOymKnBRmpuyO+A5OirS8AYnScBZKrott1qfVhUGMN7vXwMng5w+U4h6qBXYYQyWI0I7reku8U5x4vh7xOSWrT8BLJqbVfWXS2fFzBmaqECnC1SEiZesrqK1LOyNi/0g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dHEdEOxGByr6bGA8sg6khd2bdgx9Enw39YnWx6fUXYI=;
- b=VhzxzdFatZTo1cPqfnNs3pwKB1NspbhznuKaHFV4A3yi9+vbetOp2UzLQ3JwVDmYKgC4M+tESrmD12XImqHEQAdzv+3wfrhPleMUOovnDYkRWxhHXitst9v8I5VKWM7TUsD81TvLxymsfGnSdVgfGt1W2RbjaaxZ3eEIYP3nIQ1JyKupppK9NoF4TKc3Q9z6oaNO2i+V6NSfgP4CZ+fONrzjjLf7qAanteCLtlLbG4UAF8SW8PzRKrQ+dPzKTttvMEiqr5mgBp7iLv+vXbmtPX7Fg5r4qBuGPQKNgudDnLXqn0/vFUaIcsJvK6r7eiK4RCSYLykjXgIpbAU6mbF9sQ==
+ bh=mSi1yTq6L4fwXsdzr9g+PaFvQ4XFZ9/hutjmcWkBAIo=;
+ b=J0mN/SffteHzARhFMV33m1Vht4PQQyd/TR+5zbMkC6+yjXVAgYF9yAXcwGdLRzOq4rFLuhmUGUFNNEB8Zo5Wc7GhNUt6obKLWt4yrPePXkphnQAky55axQ6AalfESRqGGCCqUQnkX3s1Gh33lQ160pZ6qbjxdTXg266ZEKskeKXSn6C3v06khnyKLAhU95X0otWaVbfFz8F28KUrJZOkJGL1uvCvYydvbaoSZuVOceIAhIKeBh8K8f42Pe2XP3uCXzqMBMhl0EmOIQcA/T9d1IM8yVNgupJjiLs+71Z40OYnzt5iIiGC8W4knaxi4ylKjLz0ULLK9bD1I/fEFpdoTA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=kernel.org smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
+ 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dHEdEOxGByr6bGA8sg6khd2bdgx9Enw39YnWx6fUXYI=;
- b=CxctiYZA9u4rVx1vYEfRzxxc8l4T3SJfMmjdDz12mzW8c9oGp+cm/2BPwNCbckfH+vC2T+dQv/2XGtNZMEobHxoURMYt8Pqgz/3gMcARoezHmzsMVMGREEgDRthnidItpatwhBXXIctbxoDfdN9QUeAAuYBHrL4vCONjzdo9KiE=
-Received: from DM6PR12CA0033.namprd12.prod.outlook.com (2603:10b6:5:1c0::46)
- by DM6PR10MB4347.namprd10.prod.outlook.com (2603:10b6:5:211::11) with
+ bh=mSi1yTq6L4fwXsdzr9g+PaFvQ4XFZ9/hutjmcWkBAIo=;
+ b=K9z7S7p7LQ+X82lMsyCRnTAUGJlpWMqFjVn2w6ivCTvU/yBefYe1DAK9YvW98Vi75OdsrAX20NVIMyVIm3HTrK5v4FionkF3GROafGblXxCxr7UNuF45BTNWSjysaydDsXNHUunHfQu9zKfQFoO7QFI12g89wWjITGcZ6SUxM8c=
+Received: from BN9PR03CA0054.namprd03.prod.outlook.com (2603:10b6:408:fb::29)
+ by IA3PR10MB8090.namprd10.prod.outlook.com (2603:10b6:208:50e::22) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.25; Mon, 9 Mar
- 2026 04:45:01 +0000
-Received: from DS1PEPF00017093.namprd03.prod.outlook.com
- (2603:10b6:5:1c0:cafe::f) by DM6PR12CA0033.outlook.office365.com
- (2603:10b6:5:1c0::46) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.24; Mon, 9 Mar
+ 2026 04:54:00 +0000
+Received: from BN2PEPF000044AA.namprd04.prod.outlook.com
+ (2603:10b6:408:fb:cafe::a2) by BN9PR03CA0054.outlook.office365.com
+ (2603:10b6:408:fb::29) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.24 via Frontend Transport; Mon,
- 9 Mar 2026 04:45:01 +0000
+ 9 Mar 2026 04:53:54 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
  smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
  action=none header.from=ti.com;
@@ -59,68 +59,62 @@ Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
  198.47.21.195 as permitted sender) receiver=protection.outlook.com;
  client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
 Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- DS1PEPF00017093.mail.protection.outlook.com (10.167.17.136) with Microsoft
+ BN2PEPF000044AA.mail.protection.outlook.com (10.167.243.105) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9678.18 via Frontend Transport; Mon, 9 Mar 2026 04:45:00 +0000
-Received: from DFLE206.ent.ti.com (10.64.6.64) by flwvzet201.ext.ti.com
+ 15.20.9678.18 via Frontend Transport; Mon, 9 Mar 2026 04:53:59 +0000
+Received: from DFLE201.ent.ti.com (10.64.6.59) by flwvzet201.ext.ti.com
  (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 8 Mar
- 2026 23:45:00 -0500
-Received: from DFLE204.ent.ti.com (10.64.6.62) by DFLE206.ent.ti.com
- (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 23:53:52 -0500
+Received: from DFLE213.ent.ti.com (10.64.6.71) by DFLE201.ent.ti.com
+ (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 8 Mar
- 2026 23:44:59 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE204.ent.ti.com
- (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 23:53:52 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE213.ent.ti.com
+ (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Sun, 8 Mar 2026 23:44:59 -0500
-Received: from [172.24.233.103] (uda0132425.dhcp.ti.com [172.24.233.103])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6294itqq4087808;
-	Sun, 8 Mar 2026 23:44:56 -0500
-Message-ID: <6eecd173-0a58-483e-9af3-881118576b44@ti.com>
-Date: Mon, 9 Mar 2026 10:14:55 +0530
+ Transport; Sun, 8 Mar 2026 23:53:52 -0500
+Received: from toolbox.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.73.74])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6294rmTt410971;
+	Sun, 8 Mar 2026 23:53:48 -0500
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <jm@ti.com>, <afd@ti.com>
+CC: <stable@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<srk@ti.com>, <s-vadapalli@ti.com>
+Subject: [PATCH v2] arm64: dts: ti: k3-am62a7-sk: Fix pin name in comment from M19 to N22
+Date: Mon, 9 Mar 2026 10:25:32 +0530
+Message-ID: <20260309045539.2070793-1-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.51.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] arm64: dts: ti: k3-am642-evm: Add ICSSG0 overlay
- for dual EMAC support
-To: Meghana Malladi <m-malladi@ti.com>, <nm@ti.com>
-CC: <conor+dt@kernel.org>, <krzk+dt@kernel.org>, <robh@kernel.org>,
-	<kristo@kernel.org>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<netdev@vger.kernel.org>, <srk@ti.com>, Roger Quadros <rogerq@kernel.org>,
-	<danishanwar@ti.com>
-References: <20260228113203.498839-1-m-malladi@ti.com>
- <20260228113203.498839-2-m-malladi@ti.com>
-From: Vignesh Raghavendra <vigneshr@ti.com>
-Content-Language: en-US
-In-Reply-To: <20260228113203.498839-2-m-malladi@ti.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS1PEPF00017093:EE_|DM6PR10MB4347:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7e3410a0-b4dd-48e9-ed03-08de7d969f4b
+X-MS-TrafficTypeDiagnostic: BN2PEPF000044AA:EE_|IA3PR10MB8090:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2c65619f-0a18-4104-bb9d-08de7d97e07c
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700016|1800799024;
-X-Microsoft-Antispam-Message-Info: jEwzfniLIpsdXOerTOcCttsIa/mZ+hrpnj5af6D0hrw1vH2FPR/OqW1c1ONsQuKptibRMjgo0nKUcfCXmDcCgM/QQvV0QfrKL1b8KXIPk7ZOjw3F8nuLtSDhImfyf/cqYlhhEVG/1LHsgS22SWO/Whi7eobbMp56NO3WosFs+yNSBCudd04nv8lARKb7YMzptHrrKJLtu9xXTVI3fRMSKNywKjUhDeV81HDNk8MLg2hKy3qARZeJ1k6ZVN0BGJ/MQ9tkDctKYNsZ3tlqAAe9Vki+Cv0Tkm06GgKQ+cQRWbvECnsv29x32ffjBFtrZfrCNF9HwZY3X1RHLKKsFA3vpi2kAl+BRQHoAaYMT/JROHR4HWkm8w816AkO4jGNA6pkNg2pp153moozDIDy+mphooVztEHzVqWeYR+kqnWcG4FlNAKQHTPQCoExou1xNNmKAZl4CU4iWJ/JlRoYV7YbNgvr/9WP3GeTFd3vvnvOQCr44Jg4ZdboYhm5oqvO5eeAX3F6qiXqLT9JXcvDV90JPWDHIv24zskTzqg1Y/iFxC/e0UZ3snmlxaTulG/YSKGKlZFh2l7h5ClTN2epRhymVBHx+KILZvnh0ltcl/eLNGHoBC0ZaKVF6/Ljvxqy+BKRSqw7PtdDPWDeFNZ0RPSfVPKH8GDtOEg024S/dAOhiCQjg1YLFV8jl8PuamqAQwbOn2rQji0sn6wzNpxuUhnMy5CSlEP2DWxXs9Pb0PcgUZI=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700016)(1800799024);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|82310400026|376014;
+X-Microsoft-Antispam-Message-Info: no0eww1wAejO//458qEWE8RDkWnQTp4qz0h6dfjxIUx467ti4AZjI5d2p1dAbbcRkVqQ6U5T9b7v5PuHRNUW+Ix4tXGwr4M0b7KjbsXpmqYKFocDHn8dWBPPKIZojzhlhsOifOSwcC1b0XyRNqCVqYA3MovXI6w3td3KBku3FoZz0W07LWyJDtHSCICqtCEZ48z4g2kGjgKswHiI5Hmap3uQqHISCpPzYtC9aQD5eOgiGVvySZ3+MT0TGhEyNAHwx3DwN7tjV0jdIW+uIoVsMVOhhn1qmWIlAYJbLsECNKloPKjoTnNQX9K1qDsbiaBzovEWMIIj3uudliKVSQkZ0bGY3CbXUSX2bNZZR90/+o2koi2eufI6w6zfof6U5JD8j2IlqhGLVz+HCqxofCu5oOzovUQvEr61knX8n0iG5KfeWs4aHCCK2Du0ovGV4E9o+2Qgr1fRvM9faKPsbmkMUC1bL0S+oQ3ZaVorPAovfPAE+LW0B4HsY+H+G5ZZyUoC5tPrXC8I0e8YDKZlQTlfiK97dPPDqotClQTTeLyWuzxJOPGARNucNyFhUv/fN/l49yZDfX1xDxNcns6KvO0eJoXvnK88IiINjlCNTqVBp845uWfg4AEb+n8T5JAOnPFfnsgsdthrV+r2lEdWZ357d84RPVQuOO7YXyDF8lwnIFTPmsHcsJjnWndgrHLaSqTvsx4rDHDaoNth8HGnhFHvmHimbWbF/34frU5LNS10CXM=
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(82310400026)(376014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: q7OXTix6Sai8fUMjIUKhwOeXFGv4UD+kqzYgIvJGUWHYR6YcwvPF02TNB2DrldBSLFjhrdnew4l0Gw33Wu26G3QUimiPvkAkchw9QvVGDOwyjDlF5vbFwa7eWuqEZki0uZ+w9smRXObxWlaiD6L8tQ3F76e8a9C4GqQzzTaX+CK5/j7iM5wss/qc/GoQs1UBLDauRo+cVeG/o2gRYdVAoTp4YZcx+SGbvlON2pwsv8xmiSKcuTf9dCiXJ92y//R0fUiOCsMw9M+JsYNS1zFBUIwv1p7tJh7y9kkT8qmYyI58mWc5h5jpTUi8lGMogkI73w4Jy9ZYGxU8d7etVdgZygn2qgtogxfvASV4Tgmzda9WmT6NZ9ErjkOBzq4PE8j1QWqzJih/X+LTnSRN8MeDlqlGGlb2Zr3P8zvOu6UTzLmLi8B13vgyKZfDbzY8R7kk
+X-MS-Exchange-AntiSpam-MessageData-0: LsRCsHpBwTI0LMIqf+J2ibSJKnIgcY0a8Ecju5YZaI+l5q5TYAtuQBJ0jdTk5YPJHwOWDi+pY8J0kgI3omccoD2obk13b1arPcfYFMrI7HYVqLM9nCg/DZn3wIuU3lWuXgm0174ylfI9PWqKS+68iWQ+SBnZl7ig2tLE+J/NSPbQIha+DPPAmOE3/yI29md1c2zi73iUmeFVPkHJG+qyQS96tchSZVkBEOU0hlzpSM+2Do3TMTVQmXYIleJzMVlfhgGpEpkElZa9hTCRJ9D9cobYzLQORE2iEWEVkusucoU+1FqV6qhpaonEbd4Ad9JJ0U5OSiIL/qlt5LIwn28kedDICTFWXnP7ZDEGNSwj0Ql9Mw5oJPru7vmuPMvtIUd58aoMfH7lyBW6cINkcQF3+UBenc4V8Ujfnkai+fziXWdX29J/xVdsT1yo/xAG8NV0
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Mar 2026 04:45:00.3395
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Mar 2026 04:53:59.1902
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7e3410a0-b4dd-48e9-ed03-08de7d969f4b
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2c65619f-0a18-4104-bb9d-08de7d97e07c
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017093.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044AA.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR10MB4347
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA3PR10MB8090
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260308_214507_067044_6A2D1318 
-X-CRM114-Status: GOOD (  18.16  )
+X-CRM114-CacheID: sfid-20260308_215406_447916_BD1C4B84 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,294 +129,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The pin for GPMC0_CLK.GPIO0_31 at address 0x000F407C is N22 and not M19.
+Hence, fix the pin name in the comment to avoid confusion.
 
+Fixes: 8f023012eb4a ("arm64: dts: ti: k3-am62a: Enable UHS mode support for SD cards")
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+---
 
-On 28/02/26 17:02, Meghana Malladi wrote:
-> Add device tree overlay to enable ICSSG0 dual EMAC support on AM642 EVM.
-> This overlay enables both ICSSG0 Ethernet interfaces (port0 and port1) in
-> dual EMAC mode.
-> 
-> Users can combine this with the existing ICSSG1 overlay to enable all four
-> ICSSG interfaces if needed.
-> 
-> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
-> ---
-> 
-> v1: https://lore.kernel.org/all/20260226115454.1730618-1-m-malladi@ti.com/
-> v2-v1:
-> - Drop bringing up ICSSG1 support in this overlay as suggested by
->   MD Danish Anwar <danishanwar@ti.com>
-> 
->  arch/arm64/boot/dts/ti/Makefile               |   4 +
->  .../boot/dts/ti/k3-am642-evm-icssg0.dtso      | 203 ++++++++++++++++++
->  2 files changed, 207 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am642-evm-icssg0.dtso
-> 
-> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-> index ba01a929e06f..d2cd124a5b08 100644
-> --- a/arch/arm64/boot/dts/ti/Makefile
-> +++ b/arch/arm64/boot/dts/ti/Makefile
-> @@ -62,6 +62,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62x-sk-hdmi-audio.dtbo
->  
->  # Boards with AM64x SoC
->  dtb-$(CONFIG_ARCH_K3) += k3-am642-evm.dtb
-> +dtb-$(CONFIG_ARCH_K3) += k3-am642-evm-icssg0.dtbo
->  dtb-$(CONFIG_ARCH_K3) += k3-am642-evm-icssg1-dualemac.dtbo
->  dtb-$(CONFIG_ARCH_K3) += k3-am642-evm-icssg1-dualemac-mii.dtbo
->  dtb-$(CONFIG_ARCH_K3) += k3-am642-evm-pcie0-ep.dtbo
-> @@ -218,6 +219,8 @@ k3-am62p5-sk-csi2-ov5640-dtbs := k3-am62p5-sk.dtb \
->  	k3-am62x-sk-csi2-ov5640.dtbo
->  k3-am62p5-sk-csi2-tevi-ov5640-dtbs := k3-am62p5-sk.dtb \
->  	k3-am62x-sk-csi2-tevi-ov5640.dtbo
-> +k3-am642-evm-icssg0-dtbs := \
-> +	k3-am642-evm.dtb k3-am642-evm-icssg0.dtbo
->  k3-am642-evm-icssg1-dualemac-dtbs := \
->  	k3-am642-evm.dtb k3-am642-evm-icssg1-dualemac.dtbo
->  k3-am642-evm-icssg1-dualemac-mii-dtbs := \
-> @@ -306,6 +309,7 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
->  	k3-am62p5-sk-csi2-imx219.dtb \
->  	k3-am62p5-sk-csi2-ov5640.dtb \
->  	k3-am62p5-sk-csi2-tevi-ov5640.dtb \
-> +	k3-am642-evm-icssg0.dtb \
->  	k3-am642-evm-icssg1-dualemac.dtb \
->  	k3-am642-evm-icssg1-dualemac-mii.dtb \
->  	k3-am642-evm-pcie0-ep.dtb \
-> diff --git a/arch/arm64/boot/dts/ti/k3-am642-evm-icssg0.dtso b/arch/arm64/boot/dts/ti/k3-am642-evm-icssg0.dtso
-> new file mode 100644
-> index 000000000000..425a16948cc1
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/ti/k3-am642-evm-icssg0.dtso
-> @@ -0,0 +1,203 @@
-> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
-> +/**
-> + * DT overlay for enabling ICSSG0 dual EMAC on AM642 EVM
-> + *
-> + * AM642 EVM Product link: https://www.ti.com/tool/TMDS64EVM
-> + * DP83TG720 daughter card link: https://www.ti.com/tool/DP83TG720-IND-SPE-EVM
-> + *
-> + * Copyright (C) 2020-2024 Texas Instruments Incorporated - https://www.ti.com/
+Base-Commit: 1f318b96cc84 Linux 7.0-rc3
 
-		    2020-2026
-> + */
-> +
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include "k3-pinctrl.h"
-> +
-> +&{/aliases} {
-> +	ethernet0 = &icssg0_emac0;
-> +	ethernet1 = &icssg0_emac1;
-> +};
-> +
-> +&{/} {
-> +	icssg0_eth: icssg0-eth {
-> +		compatible = "ti,am642-icssg-prueth";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pru_icssg0_rgmii1_pins_default>, <&pru_icssg0_rgmii2_pins_default>;
-> +
-> +		sram = <&oc_sram>;
-> +		ti,prus = <&pru0_0>, <&rtu0_0>, <&tx_pru0_0>, <&pru0_1>, <&rtu0_1>, <&tx_pru0_1>;
-> +		firmware-name = "ti-pruss/am64x-sr2-pru0-prueth-fw.elf",
-> +				"ti-pruss/am64x-sr2-rtu0-prueth-fw.elf",
-> +				"ti-pruss/am64x-sr2-txpru0-prueth-fw.elf",
-> +				"ti-pruss/am64x-sr2-pru1-prueth-fw.elf",
-> +				"ti-pruss/am64x-sr2-rtu1-prueth-fw.elf",
-> +				"ti-pruss/am64x-sr2-txpru1-prueth-fw.elf";
-> +
-> +		ti,pruss-gp-mux-sel = <2>,	/* MII mode */
-> +				      <2>,
-> +				      <2>,
-> +				      <2>,	/* MII mode */
-> +				      <2>,
-> +				      <2>;
-> +
-> +		ti,mii-g-rt = <&icssg0_mii_g_rt>;
-> +		ti,mii-rt = <&icssg0_mii_rt>;
-> +		ti,pa-stats = <&icssg0_pa_stats>;
-> +		ti,iep = <&icssg0_iep0>,  <&icssg0_iep1>;
-> +
+v1:
+https://lore.kernel.org/r/20260212130843.1054100-1-s-vadapalli@ti.com/
+Changes since v1:
+- Corrected pin name in comment to N22 instead of updating address to match
+  the incorrect pin M19.
 
-Please Sort properties as per
-Documentation/devicetree/bindings/dts-coding-style.rst
+ arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Example vendor specific properties come after generic ones
-
-> +		interrupt-parent = <&icssg0_intc>;
-> +		interrupts = <24 0 2>, <25 1 3>;
-> +		interrupt-names = "tx_ts0", "tx_ts1";
-> +
-> +		dmas = <&main_pktdma 0xc100 0>, /* egress slice 0 */
-> +		       <&main_pktdma 0xc101 0>, /* egress slice 0 */
-> +		       <&main_pktdma 0xc102 0>, /* egress slice 0 */
-> +		       <&main_pktdma 0xc103 0>, /* egress slice 0 */
-> +		       <&main_pktdma 0xc104 0>, /* egress slice 1 */
-> +		       <&main_pktdma 0xc105 0>, /* egress slice 1 */
-> +		       <&main_pktdma 0xc106 0>, /* egress slice 1 */
-> +		       <&main_pktdma 0xc107 0>, /* egress slice 1 */
-> +		       <&main_pktdma 0x4100 0>, /* ingress slice 0 */
-> +		       <&main_pktdma 0x4101 0>, /* ingress slice 1 */
-> +		       <&main_pktdma 0x4102 0>, /* mgmnt rsp slice 0 */
-> +		       <&main_pktdma 0x4103 0>; /* mgmnt rsp slice 1 */
-> +		dma-names = "tx0-0", "tx0-1", "tx0-2", "tx0-3",
-> +			    "tx1-0", "tx1-1", "tx1-2", "tx1-3",
-> +			    "rx0", "rx1",
-> +			    "rxmgm0", "rxmgm1";
-> +
-> +		ethernet-ports {
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			icssg0_emac0: port@0 {
-> +				reg = <0>;
-> +				phy-handle = <&icssg0_phy00>;
-> +				phy-mode = "rgmii-id";
-> +				syscon-rgmii-delay = <&main_conf 0x4100>;
-> +				/* Filled in by bootloader */
-> +				local-mac-address = [00 00 00 00 00 00];
-> +			};
-> +
-> +			icssg0_emac1: port@1 {
-> +				reg = <1>;
-> +				phy-handle = <&icssg0_phy01>;
-> +				phy-mode = "rgmii-id";
-> +				syscon-rgmii-delay = <&main_conf 0x4104>;
-> +				/* Filled in by bootloader */
-> +				local-mac-address = [00 00 00 00 00 00];
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&main_pmx0 {
-> +	pru_icssg0_mdio_pins_default: pru-icssg0-mdio-pins-default {
-
-
-These pmx nodes will fail make dtbs_check
-
-> +		pinctrl-single,pins = <
-> +			/* (P3) PRG0_MDIO0_MDC */
-> +			AM64X_IOPAD(0x0204, PIN_OUTPUT, 0)
-> +			/* (P2) PRG0_MDIO0_MDIO */
-> +			AM64X_IOPAD(0x0200, PIN_INPUT, 0)
-> +			/* (P16) GPIO0_32 - GPMC0_ADVn_ALE - GPIO_ETH0/1_RESETn# */
-> +			AM64X_IOPAD(0x0084, PIN_OUTPUT, 7)
-> +		>;
-> +	};
-> +
-> +	pru_icssg0_rgmii1_pins_default: pru-icssg0-rgmii1-pins-default {
-> +		pinctrl-single,pins = <
-> +			/* (module-sitara) */
-
-What does this comment mean?
-
-> +			/* (a14-y1) PRG0_PRU0_GPO0.PRG0_RGMII1_RD0 */
-
-What does a14-y1 mean?
-
-> +			AM64X_IOPAD(0x0160, PIN_INPUT, 2)
-> +			/* (b14-r4) PRG0_PRU0_GPO1.PRG0_RGMII1_RD1 */
-> +			AM64X_IOPAD(0x0164, PIN_INPUT, 2)
-> +			/* (d14-u2) PRG0_PRU0_GPO2.PRG0_RGMII1_RD2 */
-> +			AM64X_IOPAD(0x0168, PIN_INPUT, 2)
-> +			/* (e14-v2) PRG0_PRU0_GPO3.PRG0_RGMII1_RD3 */
-> +			AM64X_IOPAD(0x016c, PIN_INPUT, 2)
-> +			/* (e13-t3) PRG0_PRU0_GPO6.PRG0_RGMII1_RXC */
-> +			AM64X_IOPAD(0x0178, PIN_INPUT, 2)
-> +			/* (b13-aa2) PRG0_PRU0_GPO4.PRG0_RGMII1_RX_CTL */
-> +			AM64X_IOPAD(0x0170, PIN_INPUT, 2)
-> +
-> +			/* (a11-y3) PRG0_PRU0_GPO11.PRG0_RGMII1_TD0 */
-> +			AM64X_IOPAD(0x018c, PIN_OUTPUT, 2)
-> +			/* (c11-aa3) PRG0_PRU0_GPO12.PRG0_RGMII1_TD1 */
-> +			AM64X_IOPAD(0x0190, PIN_OUTPUT, 2)
-> +			/* (d11-r6) PRG0_PRU0_GPO13.PRG0_RGMII1_TD2 */
-> +			AM64X_IOPAD(0x0194, PIN_OUTPUT, 2)
-> +			/* (b10-v4) PRG0_PRU0_GPO14.PRG0_RGMII1_TD3 */
-> +			AM64X_IOPAD(0x0198, PIN_OUTPUT, 2)
-> +			/* (e10-u4) PRG0_PRU0_GPO16.PRG0_RGMII1_TXC */
-> +			AM64X_IOPAD(0x01a0, PIN_OUTPUT, 2)
-> +			/* (c10-t5) PRG0_PRU0_GPO15.PRG0_RGMII1_TX_CTL */
-> +			AM64X_IOPAD(0x019c, PIN_OUTPUT, 2)
-> +		>;
-> +	};
-> +
-> +	pru_icssg0_rgmii2_pins_default: pru-icssg0-rgmii2-pins-default {
-> +		pinctrl-single,pins = <
-> +			/* (e9-y2) PRG0_PRU1_GPO0.PRG0_RGMII2_RD0 */
-> +			AM64X_IOPAD(0x01b0, PIN_INPUT, 2)
-> +			/* (a8-w2) PRG0_PRU1_GPO1.PRG0_RGMII2_RD1 */
-> +			AM64X_IOPAD(0x01b4, PIN_INPUT, 2)
-> +			/* (c8-v3) PRG0_PRU1_GPO2.PRG0_RGMII2_RD2 */
-> +			AM64X_IOPAD(0x01b8, PIN_INPUT, 2)
-> +			/* (d8-t4) PRG0_PRU1_GPO3.PRG0_RGMII2_RD3 */
-> +			AM64X_IOPAD(0x01bc, PIN_INPUT, 2)
-> +			/* (e7-r5) PRG0_PRU1_GPO6.PRG0_RGMII2_RXC */
-> +			AM64X_IOPAD(0x01c8, PIN_INPUT, 2)
-> +			/* (b7-w3) PRG0_PRU1_GPO4.PRG0_RGMII2_RX_CTL */
-> +			AM64X_IOPAD(0x01c0, PIN_INPUT, 2)
-> +
-> +			/* (a5-w4) PRG0_PRU1_GPO11.PRG0_RGMII2_TD0 */
-> +			AM64X_IOPAD(0x01dc, PIN_OUTPUT, 2)
-> +			/* (c5-y4) PRG0_PRU1_GPO12.PRG0_RGMII2_TD1 */
-> +			AM64X_IOPAD(0x01e0, PIN_OUTPUT, 2)
-> +			/* (d5-t6) PRG0_PRU1_GPO13.PRG0_RGMII2_TD2 */
-> +			AM64X_IOPAD(0x01e4, PIN_OUTPUT, 2)
-> +			/* (b4-u6) PRG0_PRU1_GPO14.PRG0_RGMII2_TD3 */
-> +			AM64X_IOPAD(0x01e8, PIN_OUTPUT, 2)
-> +			/* (a3-aa4) PRG0_PRU1_GPO16.PRG0_RGMII2_TXC */
-> +			AM64X_IOPAD(0x01f0, PIN_OUTPUT, 2)
-> +			/* (c4-u5) PRG0_PRU1_GPO15.PRG0_RGMII2_TX_CTL */
-> +			AM64X_IOPAD(0x01ec, PIN_OUTPUT, 2)
-> +		>;
-> +	};
-> +
-> +	icssg0_iep0_pins_default: icssg0-iep0-pins-default {
-> +		pinctrl-single,pins = <
-> +			AM64X_IOPAD(0x01ac, PIN_OUTPUT, 2) /* (W1) PRG0_PRU0_GPO19.PRG0_IEP0_EDC_SYNC_OUT0 */
-> +		>;
-> +	};
-> +};
-> +
-> +&icssg0_mdio {
-> +	pinctrl-names = "default";
-> +	status = "okay";
-> +	pinctrl-0 = <&pru_icssg0_mdio_pins_default>;
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	icssg0_phy00: ethernet-phy@0 {
-> +		reg = <0x0>;
-> +	};
-> +
-> +	icssg0_phy01: ethernet-phy@1 {
-> +		reg = <0xA>;
-
-Small caps for hex digits.
-
-Please run all DT checks before posting. reg doesnt match node address here.
-
-> +	};
-> +};
-> +
-> +&icssg0_iep0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&icssg0_iep0_pins_default>;
-> +};
-> +
-> +&main_gpio0 {
-> +	phy-line-hog {
-> +		gpio-hog;
-> +		gpios = <32 GPIO_ACTIVE_HIGH>;
-> +		output-high;
-> +		line-name = "phy-hog-line";
-> +	};
-> +};
-
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+index e99bdbc2e0cb..b1a6f10adf26 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+@@ -398,7 +398,7 @@ AM62AX_IOPAD(0x01d4, PIN_INPUT, 7) /* (C15) UART0_RTSn.GPIO1_23 */
+ 
+ 	vddshv_sdio_pins_default: vddshv-sdio-default-pins {
+ 		pinctrl-single,pins = <
+-			AM62AX_IOPAD(0x07c, PIN_OUTPUT, 7) /* (M19) GPMC0_CLK.GPIO0_31 */
++			AM62AX_IOPAD(0x07c, PIN_OUTPUT, 7) /* (N22) GPMC0_CLK.GPIO0_31 */
+ 		>;
+ 	};
+ 
 -- 
-Regards
-Vignesh
-https://ti.com/opensource
+2.51.1
 
 
