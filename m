@@ -4,113 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC017EF36F3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 07:11:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F306EF36F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Mar 2026 07:27:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0y7rxMpniYjvuxQ20qz3ZswRASSypUZ/2rZXGkMOVU0=; b=KZ0hDgoYnEdKV/fr0Gn4ac1Agw
-	iKd9X25I98zZW+O2MB1C/9WyUKd3u/4Z5EvGRmg4UIg3mwZXV+YoWt/rtepA4gPqllhyKICT5aCwY
-	PAoDH4CFTeYqmLql5xCZuqdplOfTkvwOXVEyAQ6IWKy5Tfd74bgXhE3/qc6ktthBnueLIyokO8tMa
-	S+177g2aC+l1yvvM8L/A/BtFqD10zj7TmpBMeMNQ0XYd1kpJcUa7JbGkbuhKvjb4qN82GPwi+j8s+
-	2jiVUecOVliO0SDlMSs4iJXBomlERPWi498Jzh95c55JMlTu0PSLAvr5qK1gf4oxT8lr73qv1Jlru
-	m4Te3z8w==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ndE/BvTBhpf2XzEwuxhr+ULMKWuUcSk21gfW/Tqnv3w=; b=xi5Vke0QYvJpD02yBXiZaQ/tqc
+	ut1JF39/moKO4N/x33G0PHDC0fqsB/TfKzAR/Y4BWkA85rqss8S13PLyffW4Gy5HBjGX0eqEQTnRb
+	1VdtH17y/o1IGwlQLFjA5kOJNhRf0vCZinI30GGGXw0nGrm3KCWJpPKReIyKB09jYtywfFc+BqqXK
+	zybk1ZQEY0vSBEuXbYkKxQJjKL8YOFhwBMyOBCJFM4WW7VbHdQGWKhw9+mkRPHK/qaYGFvKpD218/
+	OIVNhgo6jg/h1wz4xQ6yDwaTBI3FRdyVufHuKijr4ZCh5e6LgY7riTlEDR4bk50NojJusHMlv8TFI
+	9cYWFDiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzUlu-00000006mqa-2Rrj;
-	Mon, 09 Mar 2026 07:11:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vzV1n-00000006nu9-36mt;
+	Mon, 09 Mar 2026 07:27:47 +0000
+Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzUls-00000006mqB-095C
+	id 1vzV1l-00000006ntk-0erf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Mar 2026 07:11:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3A4C243A4F;
-	Mon,  9 Mar 2026 07:11:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF41EC4CEF7;
-	Mon,  9 Mar 2026 07:11:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773040279;
-	bh=6wHR6sh3G6Ih/39bGIMUhBZAsgEso2O+cX3T4JrfcfM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZlTf14exJlxTGS1hv4LWAou6hBiBFHnYTY9VeLdhRVS6l5t5nxc18TfMdzM1Iomsn
-	 mN/qXmFD37i6eBYO6ofW9Dq6Ao8jgBapjKwun2QWAeWCXlbFX0mTBTGTk6NGptKVyq
-	 PD5BPhmyvgGs5dzZGZIxKPN/NLq3i+fwj+25mSCU7fUonQVJHDG3zmDSvcNwXeoaeG
-	 scJrpm5xEp/MWkkFHgSP8ce5WRpdAZ00AI7FAzNl8HRoebaED4ED+tNnKq3mRMECHL
-	 IdiXNn0rAj+LW3Mi96eFNsbQpIS82w9MF2hpnBV+y/HQHYJeTm4kVHVtypWApETiEp
-	 vB6xwtRlFDPlA==
-Message-ID: <35d95042-62dc-467b-b9f4-012ed0cd76f8@kernel.org>
-Date: Mon, 9 Mar 2026 08:11:15 +0100
+	Mon, 09 Mar 2026 07:27:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=D38KCRUkZu04+xPXey9EYB7uFfUY2oeIwfsE/XGzR2MmTb3GQgajhBTgF1p+nR2jGIY5bl+T5WFu6uVGh4yj8ihz6nuwGBqYTUy4upd5+dPptMOnkrk7/VZEIDd5M3GPjCnFi7tRjlPjfB5AXfGDK3OtdvkYbX8moYvgOYiAO+OgSGMFBcuG8xAt+ktK43y1ZRmnHyUkNMf6jpNG8JG9zwpaaCcvMALUUPm4HXT4RZQvvqZqeo881J8WFgtCtr7qJWJ/ev+1xip7rmIoQ0cZrWBPl50RXhYxFzL/wYXkLY+M/I4/8EzHNhcrff6XYXORHOjIBdzO/yOmAWH70f257Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ndE/BvTBhpf2XzEwuxhr+ULMKWuUcSk21gfW/Tqnv3w=;
+ b=vgF41i4lo0KlSY2Got3uhEQJOw5K7tN2eVcs8Z9psJ6o/IYc/obndeC5kZKN1b87bkXPiqW9oEgKhslNGDCEEB2HjqnNl1yTIoFJ0y/DDGbrW5Mv7Urkbn7aX8pp7O5Ap6ZLBbkWKM6ITsm5RDY88S+URx6HQUbWCxgI+HjiK8PFgoQRxEELiYqceQEtlrvUr/xAmXw5r7aRWbLXNu26OpgABvaMC0DlnzH9dJe+nbM353q4E2Q53postC3a5hEaOx3zjZu7iLADmhxzo9Bl48/zKZ6K4saJF/tgUn9Y8NQ6DrANb/0QjGioTw52d0MF5TwvxySjkR1igEYZ+61IOw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ndE/BvTBhpf2XzEwuxhr+ULMKWuUcSk21gfW/Tqnv3w=;
+ b=arg2EJeAMooje1J4r+6KLTtDraJYJm3mWHG/px7GzkhNb/E8WxN6VxCkvqi6LvTWe0OlxFcnPnuwk7zgZQiC4AozLivxYo0Jf1nGLRWrhSiofQXlwE+YbSzgud1+NMsUUy4ax9eKX8AMS2zuQ+WGGqWoTdkE4pwo12bmw3h9SQo=
+Received: from SJ0PR05CA0148.namprd05.prod.outlook.com (2603:10b6:a03:33d::33)
+ by SJ0PR10MB4640.namprd10.prod.outlook.com (2603:10b6:a03:2af::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.25; Mon, 9 Mar
+ 2026 07:27:35 +0000
+Received: from SJ5PEPF0000020A.namprd05.prod.outlook.com
+ (2603:10b6:a03:33d:cafe::ca) by SJ0PR05CA0148.outlook.office365.com
+ (2603:10b6:a03:33d::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.19 via Frontend Transport; Mon,
+ 9 Mar 2026 07:27:30 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ SJ5PEPF0000020A.mail.protection.outlook.com (10.167.244.43) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9678.18 via Frontend Transport; Mon, 9 Mar 2026 07:27:35 +0000
+Received: from DLEE212.ent.ti.com (157.170.170.114) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 9 Mar
+ 2026 02:27:34 -0500
+Received: from DLEE206.ent.ti.com (157.170.170.90) by DLEE212.ent.ti.com
+ (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 9 Mar
+ 2026 02:27:34 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE206.ent.ti.com
+ (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 9 Mar 2026 02:27:34 -0500
+Received: from [172.24.233.103] (uda0132425.dhcp.ti.com [172.24.233.103])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6297RV9B659938;
+	Mon, 9 Mar 2026 02:27:31 -0500
+Message-ID: <89c40ed3-50a4-419e-872b-5cde8b26b8a3@ti.com>
+Date: Mon, 9 Mar 2026 12:57:30 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: =?UTF-8?B?UmU6IOWbnuWkjTogW1BBVENIXSBhcm02NDogZHRzOiBjaXg6IEFkZCBz?=
- =?UTF-8?Q?cmi_powerdomain_nodes_for_sky1?=
-To: Gary Yang <gary.yang@cixtech.com>, Peter Chen <peter.chen@cixtech.com>,
- Fugang Duan <fugang.duan@cixtech.com>, "robh@kernel.org" <robh@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>
-Cc: "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- cix-kernel-upstream <cix-kernel-upstream@cixtech.com>
-References: <20260306090659.990527-1-gary.yang@cixtech.com>
- <e09f1c6c-bf5d-4ebe-8a61-74f76830248c@kernel.org>
- <PUZPR06MB58876D6D6752128F8F0154B7EF79A@PUZPR06MB5887.apcprd06.prod.outlook.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH 1/4] arm64: dts: ti: k3-j721s2-main: Add mmio-sram node to
+ main_navss
+To: Brandon Brnich <b-brnich@ti.com>, <nm@ti.com>, <kristo@kernel.org>,
+	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20260302181800.445653-1-b-brnich@ti.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <PUZPR06MB58876D6D6752128F8F0154B7EF79A@PUZPR06MB5887.apcprd06.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
+From: Vignesh Raghavendra <vigneshr@ti.com>
+In-Reply-To: <20260302181800.445653-1-b-brnich@ti.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF0000020A:EE_|SJ0PR10MB4640:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6cf56efe-e82e-472a-9560-08de7dad558f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|376014;
+X-Microsoft-Antispam-Message-Info: rheRtfbHTugkp0MZNaPCkt49m1zCyDePuWTQW6SOWwVQth90dE4SjIAB02vtZ67E/RPmwvIZ4297RW/y7S4a5+46Fc/hxYYjSJUOAsAiE2f0p1TEqXt9WC5XAeCx8mBWrHhlz7/cQz6OW1zr17XAoSxASrFb5NfkUC19BR/a1meGe4zPkvXFRT5tqV8UHArpenlDkPwUq2GYX2opEwdqLee6ObqQoPHdKbEchEIGMDPwmbDUSpVmD8DTyijM+y7CxcdsRP//2dMPlIioiO8/LDhv/kp6+Y9xcwidzXmIkj3F7l50sY3zMKPJAJxwsWVPkxe9QTSPMs6wSXHTbksgm2fFTeYYIJVi2j9EaRt7Mi1IMvOJs1T6xSz+ZuWmy0hmARPv5gyMvxvN/rHogzZqFsgslhjEeQS0tuupnU0zvy+MGPqDllpSGrY927d5PXlzOP4nDJuZct13qPF+clGOgntkyGq3sp+7W8Poo6JhwCSvYo5egsVApEGy0OAcaXLTTZ3Nuba7mYK7ykx93/fynFE+C7rkK6KB6yhiU1iqObooEUrsKvTjgdyCp4ErEBuXSkjGPDwjvdMm5pv/cNNl2DAh9MqaidS4Qosg4el0IWJuuf68UknGDsRpD5M0nqtaasZeU0Da9Q0NwPyLBctkzCFw/qGNBrRI5YDnAsQbpj1KQAJGdr6P3ze+3eEO102ZwyXdL6acHnQwgwkjgyA4xIKWByrs90tN9zHfpPFcgyRMbH7jNBTMr/ahEvfO6NJ2iaFB/q9JTNn1w5GbvcGUPw==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: E09Ik7qd0mAiuQi6Kz+lIYFZYrauMYMRbW+ZewahOk+99zsY8JslKDpQ16hGDFAh08UpdRgg5doUJArdsEvmZci+/iYlCzwj/WuVn5AG8bhxyLjzk3GQQ61MORboG/V/7McIyBKKQ1BERN3BdoaeXfCyWG/e2D1RKLmxASuT6RQ4MgPIXis9YDlj4n+Pb2AnbOnfqLR6RaplNpbJIfuy2P36fWJKVLJkyhBtFwzmQmvuhG6CYHQ3Whiq3HabAaTJpE1/y3hWrM98E621bdlLcbO4GiCKHKTZ03N7tp9QZzcPFzkwYzCec3MrTTpKpYk+1A+hmNAwFHf0Vk8ey9MXOx/JtVuDTA9KAtdcUYyCZNcAzytDN1rEVcsnkDW8exLNuXwqnq/J/YekP/fTrh52qD+nHWzQWqFRV+WXf5ROs72rFJzDW8mwHY1HrKMazB3X
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Mar 2026 07:27:35.0077
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6cf56efe-e82e-472a-9560-08de7dad558f
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF0000020A.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB4640
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_001120_115529_FCF2FF1F 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20260309_002745_237304_0D8D5EBD 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,43 +132,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/03/2026 02:56, Gary Yang wrote:
-> Hi Krzysztof:
+
+
+On 02/03/26 23:47, Brandon Brnich wrote:
+> The NavigatorSS (NAVSS) address space contains a 64 KiB on-chip SRAM
+> region at its base address. Add an mmio-sram node to expose this region
+> to consumers via the generic SRAM allocator API.
 > 
-> Thanks for your comments
+> Signed-off-by: Brandon Brnich <b-brnich@ti.com>
+> ---
+>  arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi | 8 ++++++++
+>  1 file changed, 8 insertions(+)
 > 
->> EXTERNAL EMAIL
->>
->> On 06/03/2026 10:06, Gary Yang wrote:
->>> Add a second SCMI channel using SMC transport to communicate with TF-A
->>> for power domain management on the Sky1 SoC.
->>>
->>> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
->>> ---
->>>  arch/arm64/boot/dts/cix/sky1-power.h | 34
->>> ++++++++++++++++++++++++++++
->>
->> Why do you add dead code?
->>
-> 
-> The power domain serves as the foundation for serval modules with independent power domains.
+> diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
+> index 80c51b11ac9f..7b1ba34ab719 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
+> @@ -785,6 +785,14 @@ main_navss: bus@30000000 {
+>  		dma-coherent;
+>  		dma-ranges;
+>  
+> +		main_navss_sram: navss-sram@30000000 {
 
-So you add dead code because power domains are foundation? No. Dead code
-is still dead code.
+This fails make dtbs_check
 
-> For example, you will see GPU patch based on this patch soon. SKY1_PD_GPU is used in its dts node.
+> +			compatible = "mmio-sram";
+> +			reg = <0x00 0x30000000 0x00 0x10000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +			ranges = <0x0 0x00 0x30000000 0x10000>;
+> +		};
+> +
+>  		main_navss_intr: interrupt-controller@310e0000 {
+>  			compatible = "ti,sci-intr";
+>  			reg = <0x00 0x310e0000 0x00 0x4000>;
 
-There is no such patch.
+-- 
+Regards
+Vignesh
+https://ti.com/opensource
 
-> 
-> If take any mistakes or miss any information, please let us know.
-
-Don't ever add dead code.
-
-> 
-
-
-
-Best regards,
-Krzysztof
 
