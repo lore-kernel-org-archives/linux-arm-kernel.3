@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3434FFCC9D9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 07:56:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 595BCFCC9D9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 07:56:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ww4nYucVcxYHOiIbxAnzL68uueWTV/h2bRDqOLnsme0=; b=DQ6FCjhZcbvaEua1iv9UMEms14
-	lpQwVmoZbyf+Cfq3Y3Zid5SYJ3Mql7Gpl4ae9UhayZc5dUeomSrLPXCIdnPllpsC4EJBqMZwh010x
-	TKDz/J/yPPJy29LYBlMvPUVwlFGJ2kC8TLFP2b/CWNG/8kcQ2kt+vL3/HfaVM0fHOKfe+c+ZpVon8
-	gau0lDVRF9xZX3egDaLsDXR4CDNj2y9cyiX0D2l4p5i72He5D4E879hlizNsA5TNFQqsnR48qvU8+
-	1v6a5W746NjPPMiQ8xZhp9B1qd0R8sySzGMUmZ4xwpm69Lm/7chvwWZbZPliWRcm7yvaui2r00Wr+
-	iP+Du/Yw==;
+	bh=DrYbAeF/DBAGfsthsqCRbLaGggzDcpjeVSk1HFVUxu0=; b=zDz/iOVDZrq09m00yLJQuODs6s
+	d+jOWxWJQj4OOl2rMpBnCfBw9HwRRni9p7NBh4uY8S4cyb1LK7bcI9RxAuhKphHLW7/ShGi4f5PXF
+	U24kvrlBF+3HL21Edr/0ZgQuJ42MzeKQy7dz56QHjfIrJUGUH1o744YMLNV9OIzLttR2QDc70v13P
+	6ilqH63IX9NCKrkJhQH6Q3BVRTwDjt1UqLxDsDb30OBY8w5XrgEmeKDinAW3C9c/kstbiwq7NZjTe
+	ZKzIcA+BxkR1rgUqsv68rbPb3GkqBdXqjJ9rZ/ZAW/HoHtVFAysmZCarTk8amKOkO9U2Iasmc6s/n
+	E9D9nomQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzrwq-00000008stl-0HIH;
-	Tue, 10 Mar 2026 07:56:12 +0000
+	id 1vzrwu-00000008svr-1UjU;
+	Tue, 10 Mar 2026 07:56:16 +0000
 Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzrwn-00000008sse-0ccb
+	id 1vzrwq-00000008stg-41py
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 07:56:10 +0000
+	Tue, 10 Mar 2026 07:56:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	sang-engineering.com; h=from:to:cc:subject:date:message-id
 	:in-reply-to:references:mime-version:content-transfer-encoding;
-	 s=k1; bh=Ww4nYucVcxYHOiIbxAnzL68uueWTV/h2bRDqOLnsme0=; b=jSnsmL
-	qYMbsKvWcgJkDyGTS/MKc6CavAjUlEjTs7Jc1fq4TKz63lF18ap7o8k4SN8PXbyS
-	AHL8q+PdihoH4HtcqxO1Zy9d6w3gs2vfEITGwDJ18954tz/bYbrqQpz/k5n1K+Nt
-	vqA+pg0pr/pfiZ2fyH5RHWpZiNLfI2uD5UnE6EKKWdtKakY3rKSVsxEeWvmAX4PB
-	+B3SdKbjJvBo2xJWzM61toM3yRYMNng1r3e81RTJbF7WjE0V86GHf4eX9TX5YlDv
-	GFNVWeKy9ahgzUkxhBCCWgdgtJ2nAGza2RYfakik/k4ZYVxFHNsMPQILQ5qr5KgQ
-	co7yFG/J9Xj4yChg==
-Received: (qmail 3112619 invoked from network); 10 Mar 2026 08:55:50 +0100
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 10 Mar 2026 08:55:50 +0100
-X-UD-Smtp-Session: l3s3148p1@Bz4S2aZMrpAujntP
+	 s=k1; bh=DrYbAeF/DBAGfsthsqCRbLaGggzDcpjeVSk1HFVUxu0=; b=WUxZQC
+	63ndJu3cy8ghzOVpHbL/TxVuLnSZDeMa3nmXddnpEcDPGzGWJvTDW5+YbDTI8OhG
+	mvBJy3nfTXwUWt26h98bBW2G/974SxMnWVBQpeMkbkIB0QLwgGfqb/w6fG9+CkUY
+	fNav8drcTE8XHbiIWGi5zj2+LkXzuYK8TVYlJDGl8vRmbfJxa913Qp0KBgtQGqZQ
+	hQvEtlfXIWk/M9a8Z9jq2peeXsXro5pUdeTWUX4PWVTBLhTdE9csqC1+ZPYbC9gA
+	XXIMCpogydoswZ8Ky5VXdjyuUkxGINAX5ZlGTCzPSUzxBBKQj7wsPdsv9FyI+big
+	24j9SMtKQ/rJ+WPQ==
+Received: (qmail 3112640 invoked from network); 10 Mar 2026 08:55:52 +0100
+Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 10 Mar 2026 08:55:52 +0100
+X-UD-Smtp-Session: l3s3148p1@B5Yn2aZMtpAujntP
 From: Wolfram Sang <wsa+renesas@sang-engineering.com>
 To: linux-renesas-soc@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -60,17 +60,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev
-Subject: [PATCH v4 03/15] hwspinlock: add helpers to retrieve core data
-Date: Tue, 10 Mar 2026 08:55:18 +0100
-Message-ID: <20260310075539.11701-4-wsa+renesas@sang-engineering.com>
+Subject: [PATCH v4 04/15] hwspinlock: add callback to fill private data of a hwspinlock
+Date: Tue, 10 Mar 2026 08:55:19 +0100
+Message-ID: <20260310075539.11701-5-wsa+renesas@sang-engineering.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260310075539.11701-1-wsa+renesas@sang-engineering.com>
 References: <20260310075539.11701-1-wsa+renesas@sang-engineering.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_005609_466748_CFEDC0B1 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20260310_005613_280576_DAF910D2 
+X-CRM114-Status: GOOD (  22.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,194 +85,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is a first step to hide internal core structs from hwspinlock
-providers. It adds helper functions to retrieve the data needed by them.
-Because all users are only within the hwspinlock subsystem and the
-change there is trivial, conversion is included in this patch as well.
+To hide internal core structures from providers, a callback is added to
+the ops which allows to set the 'priv' field of a hwspinlock. It is
+called when a hwspinlock device is registered and, thus, iterated over
+all locks. The register-functions are also extended to pass a data
+pointer to this callback, so it can do necessary calculations for the
+priv field of each hwspinlock. Providers are added only an empty
+placeholder and are converted separately because these changes need
+dedicated reviews.
 
 Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 ---
- drivers/hwspinlock/hwspinlock_core.c  | 12 ++++++++++++
- drivers/hwspinlock/omap_hwspinlock.c  |  4 ++--
- drivers/hwspinlock/qcom_hwspinlock.c  | 11 ++++++-----
- drivers/hwspinlock/sprd_hwspinlock.c  |  6 +++---
- drivers/hwspinlock/stm32_hwspinlock.c |  4 ++--
- drivers/hwspinlock/sun6i_hwspinlock.c |  4 ++--
- include/linux/hwspinlock.h            |  2 ++
- 7 files changed, 29 insertions(+), 14 deletions(-)
+ drivers/hwspinlock/hwspinlock_core.c     | 19 +++++++++++++++----
+ drivers/hwspinlock/hwspinlock_internal.h | 19 +++++++++++--------
+ drivers/hwspinlock/omap_hwspinlock.c     |  2 +-
+ drivers/hwspinlock/qcom_hwspinlock.c     |  2 +-
+ drivers/hwspinlock/sprd_hwspinlock.c     |  2 +-
+ drivers/hwspinlock/stm32_hwspinlock.c    |  2 +-
+ drivers/hwspinlock/sun6i_hwspinlock.c    |  2 +-
+ include/linux/hwspinlock.h               |  4 ++--
+ 8 files changed, 33 insertions(+), 19 deletions(-)
 
 diff --git a/drivers/hwspinlock/hwspinlock_core.c b/drivers/hwspinlock/hwspinlock_core.c
-index cc8e952a6772..2c9eceba7fe8 100644
+index 2c9eceba7fe8..afe1e7ce2829 100644
 --- a/drivers/hwspinlock/hwspinlock_core.c
 +++ b/drivers/hwspinlock/hwspinlock_core.c
-@@ -888,5 +888,17 @@ struct hwspinlock *devm_hwspin_lock_request_specific(struct device *dev,
- }
- EXPORT_SYMBOL_GPL(devm_hwspin_lock_request_specific);
+@@ -507,6 +507,7 @@ static struct hwspinlock *hwspin_lock_unregister_single(unsigned int id)
+  * @ops: hwspinlock handlers for this device
+  * @base_id: id of the first hardware spinlock in this bank
+  * @num_locks: number of hwspinlocks provided by this device
++ * @init_data: additional data passed on to the init_priv callback
+  *
+  * This function should be called from the underlying platform-specific
+  * implementation, to register a new hwspinlock device instance.
+@@ -516,10 +517,11 @@ static struct hwspinlock *hwspin_lock_unregister_single(unsigned int id)
+  * Returns: %0 on success, or an appropriate error code on failure
+  */
+ int hwspin_lock_register(struct hwspinlock_device *bank, struct device *dev,
+-		const struct hwspinlock_ops *ops, int base_id, int num_locks)
++		const struct hwspinlock_ops *ops, int base_id, int num_locks,
++		void *init_data)
+ {
+ 	struct hwspinlock *hwlock;
+-	int ret = 0, i;
++	int ret, i;
  
-+void *hwspin_lock_get_priv(struct hwspinlock *hwlock)
-+{
-+	return hwlock->priv;
-+}
-+EXPORT_SYMBOL_GPL(hwspin_lock_get_priv);
+ 	if (!bank || !ops || !dev || !num_locks || !ops->trylock ||
+ 							!ops->unlock) {
+@@ -538,6 +540,14 @@ int hwspin_lock_register(struct hwspinlock_device *bank, struct device *dev,
+ 		spin_lock_init(&hwlock->lock);
+ 		hwlock->bank = bank;
+ 
++		if (ops->init_priv) {
++			hwlock->priv = ops->init_priv(i, init_data);
++			if (IS_ERR(hwlock->priv)) {
++				ret = PTR_ERR(hwlock->priv);
++				goto reg_failed;
++			}
++		}
 +
-+struct device *hwspin_lock_get_dev(struct hwspinlock *hwlock)
-+{
-+	return hwlock->bank->dev;
-+}
-+EXPORT_SYMBOL_GPL(hwspin_lock_get_dev);
-+
- MODULE_DESCRIPTION("Hardware spinlock interface");
- MODULE_AUTHOR("Ohad Ben-Cohen <ohad@wizery.com>");
+ 		ret = hwspin_lock_register_single(hwlock, base_id + i);
+ 		if (ret)
+ 			goto reg_failed;
+@@ -633,6 +643,7 @@ EXPORT_SYMBOL_GPL(devm_hwspin_lock_unregister);
+  * @ops: hwspinlock handlers for this device
+  * @base_id: id of the first hardware spinlock in this bank
+  * @num_locks: number of hwspinlocks provided by this device
++ * @init_data: additional data passed on to the init_priv callback
+  *
+  * This function should be called from the underlying platform-specific
+  * implementation, to register a new hwspinlock device instance.
+@@ -644,7 +655,7 @@ EXPORT_SYMBOL_GPL(devm_hwspin_lock_unregister);
+ int devm_hwspin_lock_register(struct device *dev,
+ 			      struct hwspinlock_device *bank,
+ 			      const struct hwspinlock_ops *ops,
+-			      int base_id, int num_locks)
++			      int base_id, int num_locks, void *init_data)
+ {
+ 	struct hwspinlock_device **ptr;
+ 	int ret;
+@@ -653,7 +664,7 @@ int devm_hwspin_lock_register(struct device *dev,
+ 	if (!ptr)
+ 		return -ENOMEM;
+ 
+-	ret = hwspin_lock_register(bank, dev, ops, base_id, num_locks);
++	ret = hwspin_lock_register(bank, dev, ops, base_id, num_locks, init_data);
+ 	if (!ret) {
+ 		*ptr = bank;
+ 		devres_add(dev, ptr);
+diff --git a/drivers/hwspinlock/hwspinlock_internal.h b/drivers/hwspinlock/hwspinlock_internal.h
+index f298fc0ee5ad..3c835d96bf86 100644
+--- a/drivers/hwspinlock/hwspinlock_internal.h
++++ b/drivers/hwspinlock/hwspinlock_internal.h
+@@ -18,20 +18,23 @@ struct hwspinlock_device;
+ /**
+  * struct hwspinlock_ops - platform-specific hwspinlock handlers
+  *
+- * @trylock: make a single attempt to take the lock. returns 0 on
+- *	     failure and true on success. may _not_ sleep.
+- * @unlock:  release the lock. always succeed. may _not_ sleep.
+- * @bust:    optional, platform-specific bust handler, called by hwspinlock
+- *	     core to bust a specific lock.
+- * @relax:   optional, platform-specific relax handler, called by hwspinlock
+- *	     core while spinning on a lock, between two successive
+- *	     invocations of @trylock. may _not_ sleep.
++ * @trylock:	make a single attempt to take the lock. returns 0 on
++ *		failure and true on success. may _not_ sleep.
++ * @unlock:	release the lock. always succeed. may _not_ sleep.
++ * @bust:	optional, platform-specific bust handler, called by hwspinlock
++ *		core to bust a specific lock.
++ * @relax:	optional, platform-specific relax handler, called by hwspinlock
++ *		core while spinning on a lock, between two successive
++ *		invocations of @trylock. may _not_ sleep.
++ * @init_priv:	optional, callback used when registering the hwspinlock device.
++ *		Its return value will be used to fill the per-lock 'priv' data.
+  */
+ struct hwspinlock_ops {
+ 	int (*trylock)(struct hwspinlock *lock);
+ 	void (*unlock)(struct hwspinlock *lock);
+ 	int (*bust)(struct hwspinlock *lock, unsigned int id);
+ 	void (*relax)(struct hwspinlock *lock);
++	void *(*init_priv)(int local_id, void *init_data);
+ };
+ 
+ /**
 diff --git a/drivers/hwspinlock/omap_hwspinlock.c b/drivers/hwspinlock/omap_hwspinlock.c
-index 1832e0c3af6b..5bf0061d3fd6 100644
+index 5bf0061d3fd6..adff502bcbc4 100644
 --- a/drivers/hwspinlock/omap_hwspinlock.c
 +++ b/drivers/hwspinlock/omap_hwspinlock.c
-@@ -37,7 +37,7 @@
+@@ -120,7 +120,7 @@ static int omap_hwspinlock_probe(struct platform_device *pdev)
+ 		bank->lock[i].priv = io_base + LOCK_BASE_OFFSET + sizeof(u32) * i;
  
- static int omap_hwspinlock_trylock(struct hwspinlock *lock)
- {
--	void __iomem *lock_addr = lock->priv;
-+	void __iomem *lock_addr = hwspin_lock_get_priv(lock);
+ 	return devm_hwspin_lock_register(&pdev->dev, bank, &omap_hwspinlock_ops,
+-						base_id, num_locks);
++						base_id, num_locks, NULL);
+ }
  
- 	/* attempt to acquire the lock by reading its value */
- 	return (SPINLOCK_NOTTAKEN == readl(lock_addr));
-@@ -45,7 +45,7 @@ static int omap_hwspinlock_trylock(struct hwspinlock *lock)
- 
- static void omap_hwspinlock_unlock(struct hwspinlock *lock)
- {
--	void __iomem *lock_addr = lock->priv;
-+	void __iomem *lock_addr = hwspin_lock_get_priv(lock);
- 
- 	/* release the lock by writing 0 to it */
- 	writel(SPINLOCK_NOTTAKEN, lock_addr);
+ static const struct of_device_id omap_hwspinlock_of_match[] = {
 diff --git a/drivers/hwspinlock/qcom_hwspinlock.c b/drivers/hwspinlock/qcom_hwspinlock.c
-index 0390979fd765..7ff89c3e8c6b 100644
+index 7ff89c3e8c6b..7960a4972eab 100644
 --- a/drivers/hwspinlock/qcom_hwspinlock.c
 +++ b/drivers/hwspinlock/qcom_hwspinlock.c
-@@ -27,7 +27,7 @@ struct qcom_hwspinlock_of_data {
- 
- static int qcom_hwspinlock_trylock(struct hwspinlock *lock)
- {
--	struct regmap_field *field = lock->priv;
-+	struct regmap_field *field = hwspin_lock_get_priv(lock);
- 	u32 lock_owner;
- 	int ret;
- 
-@@ -44,7 +44,7 @@ static int qcom_hwspinlock_trylock(struct hwspinlock *lock)
- 
- static void qcom_hwspinlock_unlock(struct hwspinlock *lock)
- {
--	struct regmap_field *field = lock->priv;
-+	struct regmap_field *field = hwspin_lock_get_priv(lock);
- 	u32 lock_owner;
- 	int ret;
- 
-@@ -66,13 +66,14 @@ static void qcom_hwspinlock_unlock(struct hwspinlock *lock)
- 
- static int qcom_hwspinlock_bust(struct hwspinlock *lock, unsigned int id)
- {
--	struct regmap_field *field = lock->priv;
-+	struct regmap_field *field = hwspin_lock_get_priv(lock);
-+	struct device *dev = hwspin_lock_get_dev(lock);
- 	u32 owner;
- 	int ret;
- 
- 	ret = regmap_field_read(field, &owner);
- 	if (ret) {
--		dev_err(lock->bank->dev, "unable to query spinlock owner\n");
-+		dev_err(dev, "unable to query spinlock owner\n");
- 		return ret;
+@@ -236,7 +236,7 @@ static int qcom_hwspinlock_probe(struct platform_device *pdev)
  	}
  
-@@ -81,7 +82,7 @@ static int qcom_hwspinlock_bust(struct hwspinlock *lock, unsigned int id)
+ 	return devm_hwspin_lock_register(&pdev->dev, bank, &qcom_hwspinlock_ops,
+-					 0, QCOM_MUTEX_NUM_LOCKS);
++					 0, QCOM_MUTEX_NUM_LOCKS, NULL);
+ }
  
- 	ret = regmap_field_write(field, 0);
- 	if (ret) {
--		dev_err(lock->bank->dev, "failed to bust spinlock\n");
-+		dev_err(dev, "failed to bust spinlock\n");
- 		return ret;
- 	}
- 
+ static struct platform_driver qcom_hwspinlock_driver = {
 diff --git a/drivers/hwspinlock/sprd_hwspinlock.c b/drivers/hwspinlock/sprd_hwspinlock.c
-index 22e2ffb91743..0d08efbdfb07 100644
+index 0d08efbdfb07..0b91bdd4303d 100644
 --- a/drivers/hwspinlock/sprd_hwspinlock.c
 +++ b/drivers/hwspinlock/sprd_hwspinlock.c
-@@ -40,8 +40,8 @@ struct sprd_hwspinlock_dev {
- static int sprd_hwspinlock_trylock(struct hwspinlock *lock)
- {
- 	struct sprd_hwspinlock_dev *sprd_hwlock =
--		dev_get_drvdata(lock->bank->dev);
--	void __iomem *addr = lock->priv;
-+		dev_get_drvdata(hwspin_lock_get_dev(lock));
-+	void __iomem *addr = hwspin_lock_get_priv(lock);
- 	int user_id, lock_id;
+@@ -132,7 +132,7 @@ static int sprd_hwspinlock_probe(struct platform_device *pdev)
  
- 	if (!readl(addr))
-@@ -59,7 +59,7 @@ static int sprd_hwspinlock_trylock(struct hwspinlock *lock)
- /* unlock the hardware spinlock */
- static void sprd_hwspinlock_unlock(struct hwspinlock *lock)
- {
--	void __iomem *lock_addr = lock->priv;
-+	void __iomem *lock_addr = hwspin_lock_get_priv(lock);
- 
- 	writel(HWSPINLOCK_NOTTAKEN, lock_addr);
+ 	return devm_hwspin_lock_register(&pdev->dev, &sprd_hwlock->bank,
+ 					 &sprd_hwspinlock_ops, 0,
+-					 SPRD_HWLOCKS_NUM);
++					 SPRD_HWLOCKS_NUM, NULL);
  }
+ 
+ static const struct of_device_id sprd_hwspinlock_of_match[] = {
 diff --git a/drivers/hwspinlock/stm32_hwspinlock.c b/drivers/hwspinlock/stm32_hwspinlock.c
-index bb5c7e5f7a80..1d75dc03f4ad 100644
+index 1d75dc03f4ad..51e8e533ac31 100644
 --- a/drivers/hwspinlock/stm32_hwspinlock.c
 +++ b/drivers/hwspinlock/stm32_hwspinlock.c
-@@ -27,7 +27,7 @@ struct stm32_hwspinlock {
+@@ -110,7 +110,7 @@ static int stm32_hwspinlock_probe(struct platform_device *pdev)
+ 		hw->bank.lock[i].priv = io_base + i * sizeof(u32);
  
- static int stm32_hwspinlock_trylock(struct hwspinlock *lock)
- {
--	void __iomem *lock_addr = lock->priv;
-+	void __iomem *lock_addr = hwspin_lock_get_priv(lock);
- 	u32 status;
+ 	ret = devm_hwspin_lock_register(dev, &hw->bank, &stm32_hwspinlock_ops,
+-					0, STM32_MUTEX_NUM_LOCKS);
++					0, STM32_MUTEX_NUM_LOCKS, NULL);
  
- 	writel(STM32_MUTEX_LOCK_BIT | STM32_MUTEX_COREID, lock_addr);
-@@ -38,7 +38,7 @@ static int stm32_hwspinlock_trylock(struct hwspinlock *lock)
- 
- static void stm32_hwspinlock_unlock(struct hwspinlock *lock)
- {
--	void __iomem *lock_addr = lock->priv;
-+	void __iomem *lock_addr = hwspin_lock_get_priv(lock);
- 
- 	writel(STM32_MUTEX_COREID, lock_addr);
- }
+ 	if (ret)
+ 		dev_err(dev, "Failed to register hwspinlock\n");
 diff --git a/drivers/hwspinlock/sun6i_hwspinlock.c b/drivers/hwspinlock/sun6i_hwspinlock.c
-index c2d314588046..8ff81cb5880a 100644
+index 8ff81cb5880a..a0c76bba3f05 100644
 --- a/drivers/hwspinlock/sun6i_hwspinlock.c
 +++ b/drivers/hwspinlock/sun6i_hwspinlock.c
-@@ -62,14 +62,14 @@ static void sun6i_hwspinlock_debugfs_init(struct sun6i_hwspinlock_data *priv)
+@@ -180,7 +180,7 @@ static int sun6i_hwspinlock_probe(struct platform_device *pdev)
+ 	platform_set_drvdata(pdev, priv);
  
- static int sun6i_hwspinlock_trylock(struct hwspinlock *lock)
- {
--	void __iomem *lock_addr = lock->priv;
-+	void __iomem *lock_addr = hwspin_lock_get_priv(lock);
+ 	return devm_hwspin_lock_register(&pdev->dev, priv->bank, &sun6i_hwspinlock_ops,
+-					 SPINLOCK_BASE_ID, priv->nlocks);
++					 SPINLOCK_BASE_ID, priv->nlocks, NULL);
  
- 	return (readl(lock_addr) == SPINLOCK_NOTTAKEN);
- }
- 
- static void sun6i_hwspinlock_unlock(struct hwspinlock *lock)
- {
--	void __iomem *lock_addr = lock->priv;
-+	void __iomem *lock_addr = hwspin_lock_get_priv(lock);
- 
- 	writel(SPINLOCK_NOTTAKEN, lock_addr);
- }
+ bank_fail:
+ 	clk_disable_unprepare(priv->ahb_clk);
 diff --git a/include/linux/hwspinlock.h b/include/linux/hwspinlock.h
-index 74b91244fe0e..dffa1dff7289 100644
+index dffa1dff7289..094a6d0d39d6 100644
 --- a/include/linux/hwspinlock.h
 +++ b/include/linux/hwspinlock.h
-@@ -27,6 +27,8 @@ struct hwspinlock_ops;
- 
- #ifdef CONFIG_HWSPINLOCK
- 
-+void *hwspin_lock_get_priv(struct hwspinlock *hwlock);
-+struct device *hwspin_lock_get_dev(struct hwspinlock *hwlock);
+@@ -30,7 +30,7 @@ struct hwspinlock_ops;
+ void *hwspin_lock_get_priv(struct hwspinlock *hwlock);
+ struct device *hwspin_lock_get_dev(struct hwspinlock *hwlock);
  int hwspin_lock_register(struct hwspinlock_device *bank, struct device *dev,
- 		const struct hwspinlock_ops *ops, int base_id, int num_locks);
+-		const struct hwspinlock_ops *ops, int base_id, int num_locks);
++		const struct hwspinlock_ops *ops, int base_id, int num_locks, void *init_data);
  int hwspin_lock_unregister(struct hwspinlock_device *bank);
+ struct hwspinlock *hwspin_lock_request_specific(unsigned int id);
+ int hwspin_lock_free(struct hwspinlock *hwlock);
+@@ -49,7 +49,7 @@ int devm_hwspin_lock_unregister(struct device *dev,
+ int devm_hwspin_lock_register(struct device *dev,
+ 			      struct hwspinlock_device *bank,
+ 			      const struct hwspinlock_ops *ops,
+-			      int base_id, int num_locks);
++			      int base_id, int num_locks, void *init_data);
+ 
+ #else /* !CONFIG_HWSPINLOCK */
+ 
 -- 
 2.47.3
 
