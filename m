@@ -4,90 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 224B1FCC9D4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 07:39:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFBB2FCC9D8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 07:42:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JlO8adotrgTmGEsdWMg2mwGPeOU1XLogiHHsGTKFnm8=; b=HDw5Yi7BJKr/OXJT0HzXbWnsD0
-	umtKSjeUDSGIL94Q0clnxC1il3EaE4yLQLaUXOTuk+ZATSiWm0mI86N+Ey0VX77g0skRmRL0skx5w
-	1wIp+mD2xRzQkw+JGxUtYLXfqb7A+zJ+cO8lEXpyIiPP65N7xgV0L+fs4J4lLdpqF1PFDAQP37NFr
-	Do77CaPCM1IzWDAyAkFuAghiaBheBES2chWw9/tjhJBQ9XR1cejfv7phzBQ1uhlM/9a6TtfMgt3Fr
-	6GfgElz7N5fxIvFQ1s9D9AwWOsnLse8pwOuwfD3I5kwYlAvKHWfg9XI8aNnqRcekCP8XcmQfvxaU7
-	cO1JVmNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tGDNInPBjaoJpZiHZ2mHlNGfsOzx0bF6uHg5FVl81Wg=; b=z+G1zh2LP7zdsv56MZivHPIHjb
+	eBPOJknmFFX/ea+WAywfAqMyEDFRJeModewB8u3yW1wYLi0mEFqWjk/TjdvUR59QSLbAS9v838lrA
+	7nxE25dBpEFnK3ME/25GfkgfXVP5H4jEnvUW0cjXD8f1XNWdyEIycITivv8r0m6z7rilmOb01b15L
+	Q81YI/72xtTB2Szqzanb1ocPh/bBg9JK6aDBZaRKZa6u/6OKSHJGnUxdhzMs1CrFc3pfcI0a6dqGW
+	lJXZONd+6mdgR5YhDLquxPte5tpYnQY/7uO4oOV4v9+Ly/mGE7oAPL6BTqt6RTIkg1R7wAVZZmxrW
+	TD2l9vBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzrgh-00000008rVK-0YMY;
-	Tue, 10 Mar 2026 07:39:31 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
+	id 1vzrjY-00000008riv-2oHu;
+	Tue, 10 Mar 2026 07:42:28 +0000
+Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzrgd-00000008rTz-3LRR
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 07:39:30 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.177])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4fVQjx74lFzKHMZS
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 15:39:01 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.252])
-	by mail.maildlp.com (Postfix) with ESMTP id EB26F40590
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 15:39:16 +0800 (CST)
-Received: from [10.67.111.192] (unknown [10.67.111.192])
-	by APP3 (Coremail) with SMTP id _Ch0CgAnBVKgyq9pcMZ+AQ--.56907S2;
-	Tue, 10 Mar 2026 15:39:13 +0800 (CST)
-Message-ID: <017ac6a8-2a17-41c0-8bfd-bd7bdd76509f@huaweicloud.com>
-Date: Tue, 10 Mar 2026 15:39:12 +0800
-MIME-Version: 1.0
+	id 1vzrjV-00000008riS-34AP;
+	Tue, 10 Mar 2026 07:42:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JfG2IW4GtsFGXcT49FdqpYp1646/8qWc17aB4SDqg9Y5Kw1ufX57dnuDmkUEaQ36mEeNxPwii8H+vtbJ72LWIR/Wn7NvuCZqJpWxn+LCkkVp8hSZiFgBsFnsGbgXO0UOZ6h0P6PvtHIVI1FSffrT4o5WABScOzHgRcA6yBVukI1qFgh6dI3HJ3YO+8fd4WTQvlZVt0AhpJC6UQFnoCYXZni5ddWMTyCxoj4eOO5eODPkOF3i06Q0Y3nt8ngIVk5Ti4wjqcesA76MhLsdv0XRsMMgso31XoFxTtSkh2z4xM7ECDF36feqdb8du/65twmET7t/jfF7KOyxzDeoQhiiWg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tGDNInPBjaoJpZiHZ2mHlNGfsOzx0bF6uHg5FVl81Wg=;
+ b=MqtQ3RLtLFl4H/1Ii4/rmsxVC0kUTUT7Eq7IwBx4cn0mxCsgNccecw2bFz7GZhm+fnTFWiqYtMmW/Cb0UctAI/8zVjY9r4P0p9/ibLaObZ76rzI8yu4HXNfJAF89SzNXOm3B6YU7mZXV/Epfw3g9BPtNYEscdXf/lvflfNWQQgZj2O50/Xcc2oKxbqWGpOn5Pbelm0mlKAfEhYZt/c+2p5Rsev1sobcrxOSJP5djqDh+WL6/5e3h5GGdwI61hyWhzuyd0n8ccbG29jnNcOgNpJojlD3Xufm8T2+MZYv7LB5jOiN1lfgM0zGE9zEA+mb0QyL/Gqvx9+cLej3d0aMH5Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tGDNInPBjaoJpZiHZ2mHlNGfsOzx0bF6uHg5FVl81Wg=;
+ b=xRbvYZZtn5gmgAJkxEf8a+R3LMErYTe1yw7FTxOBi10cOX/dkLyZ+Rk7D5GrLF6tSwsSlwZd98TP+uAfiKqDNrDqQ7w+yt+9zzOE5PC/AVzLRjSOfcAhM1TXPUnKzXUrQ9ShBztkCdt2uR4imbRdljCA9JOkfaqhpNCWOKa0H6VJeUGdHTdL1iU3wNbJpYMrMgheXoj7Q+LYziwD4h4aJLhFbZHpnhiWanlHXyrK6VSycT4hOwxON9drjiLefQpuEOf1vn+xRrTwgXfwba482T5d3ux6rC79iE1S0rWl9Ma5fjCsSVONLHsebB5zFU+GVBnFWxkN3/mrthgKulwJLw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
+ by SI2PR03MB6758.apcprd03.prod.outlook.com (2603:1096:4:1ed::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.24; Tue, 10 Mar
+ 2026 07:42:11 +0000
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::2f06:12a:fff0:6506]) by KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::2f06:12a:fff0:6506%5]) with mapi id 15.20.9678.024; Tue, 10 Mar 2026
+ 07:42:11 +0000
+Message-ID: <1b8d4e13-0365-45e9-baa8-975595153ad5@amlogic.com>
+Date: Tue, 10 Mar 2026 15:42:07 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [bpf-next v8 1/5] bpf: Move constants blinding from JIT to
- verifier
-Content-Language: en-US
-To: Eduard Zingerman <eddyz87@gmail.com>, bpf@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
- Martin KaFai Lau <martin.lau@linux.dev>,
- Yonghong Song <yonghong.song@linux.dev>, Puranjay Mohan
- <puranjay@kernel.org>, Anton Protopopov <a.s.protopopov@gmail.com>,
- Shahab Vahedi <list+bpf@vahedi.org>, Russell King <linux@armlinux.org.uk>,
- Tiezhu Yang <yangtiezhu@loongson.cn>, Hengqi Chen <hengqi.chen@gmail.com>,
- Johan Almbladh <johan.almbladh@anyfinetworks.com>,
- Paul Burton <paulburton@kernel.org>, Hari Bathini <hbathini@linux.ibm.com>,
- Christophe Leroy <chleroy@kernel.org>, Naveen N Rao <naveen@kernel.org>,
- Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
- Pu Lehui <pulehui@huawei.com>, Ilya Leoshkevich <iii@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- "David S . Miller" <davem@davemloft.net>, Wang YanQing <udknight@gmail.com>
-References: <20260309140044.2652538-1-xukuohai@huaweicloud.com>
- <20260309140044.2652538-2-xukuohai@huaweicloud.com>
- <7905ed2d99a46a2f7a4eb41d4cb9f1dec108ecd3.camel@gmail.com>
-From: Xu Kuohai <xukuohai@huaweicloud.com>
-In-Reply-To: <7905ed2d99a46a2f7a4eb41d4cb9f1dec108ecd3.camel@gmail.com>
+Subject: Re: [PATCH 2/3] dt-bindings: clock: amlogic: t7: Add missing mpll3
+ parent clock
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Jerome Brunet <jbrunet@baylibre.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Stephen Boyd <sboyd@kernel.org>, Michael Turquette
+ <mturquette@baylibre.com>, robh+dt <robh+dt@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, devicetree <devicetree@vger.kernel.org>,
+ linux-clk <linux-clk@vger.kernel.org>,
+ linux-amlogic <linux-amlogic@lists.infradead.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ Ronald Claveau <linux-kernel-dev@aliel.fr>
+References: <20260305074328.639993-1-jian.hu@amlogic.com>
+ <20260305074328.639993-3-jian.hu@amlogic.com>
+ <1j4imubqcb.fsf@starbuckisacylon.baylibre.com>
+ <20260306-artichoke-parakeet-of-innovation-af5b36@quoll>
+From: Jian Hu <jian.hu@amlogic.com>
+In-Reply-To: <20260306-artichoke-parakeet-of-innovation-af5b36@quoll>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: _Ch0CgAnBVKgyq9pcMZ+AQ--.56907S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7CrWDKF45Zr48uFWfAF43ZFb_yoW8KFyxpF
-	4DJF17Cw4qgr4UWF47t3W8JF4Utw4jgFW7uF4YkrZYkFn0qrs7XF1ak3yj9FZxZry5Xw1r
-	Aay8Kr9Fka4v9aDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvYb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
-	14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
-	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWr
-	XwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x
-	0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_
-	Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x07
-	jxCztUUUUU=
-X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
+X-ClientProxiedBy: SE2P216CA0103.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:2c4::13) To KL1PR03MB7149.apcprd03.prod.outlook.com
+ (2603:1096:820:ca::7)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KL1PR03MB7149:EE_|SI2PR03MB6758:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3bc80ade-992c-48a3-dec9-08de7e788a3e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
+X-Microsoft-Antispam-Message-Info: yulGF/X+46WFs302nQ3cjWGmDUwT//+njDSJU26731eBxfT9Hbz74HV6/SUgPdB80EQG/fYMO3hxfDa8UU2ajHJutGF2eRXDeZG/+5P0bZuYuTmVz3lc82d6Ph81UV/jqxo4q9BVnsY8mnxnfMhaBcZKhIT+HlHKE3Eff/7NiGbGq1zIPIb+z5yI/8axtsf1Uzl7c57Y7uS8noQfsv9UM2l+5sagScTRTy2MOTukBEc6JqCTi6l2DGsAQl4TMrY+qKMeuI03p37jSShaC3JMTXI11oFSBsZSvwbxUIPkwxgECrKEoehb053oAbSLqOV7PD9KnDj8cwP6+UOzBxCtsFTACBzKls56jVcq0tgfn5kJkKRCItKhNNPvDICIW8M7CWz1nYYqcL1Kyz3ZDNtRLsw2gvggw7AdIcbMRn/6d93NRydl1FotqmYd5BRZqdHO2GRHlJeVTXsDNBq+86m6ynxRBQvJYqUw5x/nlocppmTS3t53f7pPCk2j8pWfQPlniJKEHUyqtG+iKJvLCgHAqpb7ZPZjtLGUKdxyRp4bUQxWoUAz2PJSMwKSQRN0yn47n2+lfCTaFxk9yWk1rNykbzeknG5YANlSOHZZ5/jCL5GqMWfNpaA1Odg2fSuqgztRwfPsUdMxmEzq/dQIJiXCJgHLrsa9XBmLaSM9FPnbsqY9jN+60uVStcVdiLyNgob1ul/sE4nMqv4+fk/mQTmVQfu6Iiah2pjDPZf5PodI05g=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB7149.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dGtvWDdMNHhIaVpiblp5aHR5Z0RTQVh0WVErdlhDUFpiaDV6dkNVV3B5a2hC?=
+ =?utf-8?B?MVVBSnRtN3ZlNERHZ2Y5VGxmMExIcWlIQ0VzTTZYank1R0hCcTQ2SldCSFJD?=
+ =?utf-8?B?OHNpMU9rYXp3MU9wd28rZ09RckorZG4xaEU4dG5YdmdRM2VaUjJaY09yTS96?=
+ =?utf-8?B?Z1h4UjNEeU9PVDJsdmlObkM0UTFaMGdtOHJCU3I5SWZmTGVCY0hkU3Q3UWdB?=
+ =?utf-8?B?d2NGQzhUaXFQcWh0Ti8vdXdqeVFiKy9wKzl6Q25XVndqN2FlNE44eXpFaXMx?=
+ =?utf-8?B?cVFKQlkvczV0U0VQQ2FDZ0ZkOCtIYXBZdGw3b1VTWWFscUs0RStBWDk2dWd1?=
+ =?utf-8?B?cGx0V09XMU1RMkFxUThhcDNtYUc1aTcrLzZsRXJmSVdTbHZTV3M4MWlqL0kr?=
+ =?utf-8?B?bmxrWXFtaTJLUHY4bVAzNkxzcDVmYVdhN1VDUDFiZ1FieFU3QTVuSnFNQUQ0?=
+ =?utf-8?B?Z09nOUt3MU4yTTRkOWpXNHo5bDBVTjRxLytqcE5JTWJEMWNSK2lkL2hGeHN1?=
+ =?utf-8?B?d3h5a1FuVjhkMzN2U3ZXaFNSR3BBRmdFQzRhT1UyeElJaVg3THZJbTFoeWRU?=
+ =?utf-8?B?aURvT3F6ckFWVGU1TC9YZmdXd1V2Skw1OFBRUVZySWxSUkFhalliUWpZNHVE?=
+ =?utf-8?B?bHhQOGJqMmZMNk5scVhHbDJLelFqYVlDb2J5L2xPS2JzaUhlQUtMREU0UGxs?=
+ =?utf-8?B?REhkbGNQNlF0MDBGdDNyMzNZNGI4czBBUE16RnVKWHg2M0F0M2J5Z0VqWWxY?=
+ =?utf-8?B?bE5SV1gxRUxRSExrQmQ2WkJaT09RbW8rMHNiVmdjUVZCVVFFR2trbjZhb3Jt?=
+ =?utf-8?B?b290eXVqclU3em55bExDSEpma2phVHJHcmpSS0I4UlZHN28vKzgzRTlGWmli?=
+ =?utf-8?B?MVo2eWw0RXlJbk1UOWsrb3RRSVNuS3drSlBuMjRZM0NxSU5LU2ZHUlZMVm94?=
+ =?utf-8?B?QzBJOTFHZklWV2hrSTVmTVRjRjFwUEZBWkpNeG1kTTlocThKU2JTM25pS3Vz?=
+ =?utf-8?B?SHdraUZSLzFydkFJbnF4M2JuZmNVTmZzUHZvUXlZMEF1UkFrek55OGMwblpk?=
+ =?utf-8?B?cEdLcVM0RVlCVlZSTkwrWFFzZFlwQy9MUnpHUE9oUWM0YjFQWVQ2M21EY3k5?=
+ =?utf-8?B?QVRveEg4dVc5Q0NPNUtMZm5GUlQ5Zyt6T0JmSWhzR2xHeW04c2hvNmZIRGFZ?=
+ =?utf-8?B?WGRuUFVuNG9wKy9wandaYlp6NldtR25KZktwZDJyeFJZZDhRRFJUamdvMGd6?=
+ =?utf-8?B?TzAwaU16QXVMN2xRVTRLbzdIL2NMTVJIcGNDYm1EOEJINmhTRGtpZWtkM2hk?=
+ =?utf-8?B?VzhQSmdUWk94NWl1dVE0c0FYcXR2RTJkQ2FFRjF3bmo5cDZxUCtWRGN4NzVN?=
+ =?utf-8?B?eEwyQWtnR290Z0xRV3VRVHdiNUhKeThIbEdLUkZoVGFJcS9mb0J5Q0V3RTFh?=
+ =?utf-8?B?aXVpWnowQ2h2VHlHZS9uQmdCNnMrTHRBajR4Unl4SE52MHUwQzlybHBxNW1X?=
+ =?utf-8?B?OE5qcTUwNlZEZFM1OFpRWVN0SEwvd2N4b1RDQ2ZVV1hPaDU5OTJDM20zNm9n?=
+ =?utf-8?B?bzRjSjVtbmFvS05PS0JwOXdHYmQzejhrQXlLSHpLd1diRDF5aHJGQU1YMzA3?=
+ =?utf-8?B?MVhYWUNXdElnY0JmTEg1eXgzSGVMSU5kRmd3MjVQMTZTQ0ZjTG85OTNJelBJ?=
+ =?utf-8?B?eFloS1RpN0NBWFRJUXdlcmk5ZDJaTllnZGdNZmVoOHFNTi84TDNmZDFmS0ZI?=
+ =?utf-8?B?cWdRR2VGTTk1LzhZN0hEdnRocW8yRTY3cXhtd0NyOEpBelBESnk2RDNaWnh6?=
+ =?utf-8?B?NW9SSkdrc2tTRXJzcDRrKzVRcTJyZ1NZcGM1TzNoQXVzb0VFV0JHUEVHTkwv?=
+ =?utf-8?B?dCthd3BVZS8zUkZvS1J5SVhxUGZBTkpuRWJ3OVJ6VU9EdUdDZFJLeGhjSjdU?=
+ =?utf-8?B?eVlSOXI0RjI0TlY4b1U4WVNGNTJweDdObWU4ZW5KTjdpaEEyckQycDRJNDdw?=
+ =?utf-8?B?c1NQN2hyc0ltNnE2WkxwT0RYL1ZnNUFQeXZJdnlzbzlBdjh3ZENpc3p2ODhs?=
+ =?utf-8?B?YVhFb3JGVHF2VlJPQUU5ZW00cGN6dGE5R1VldytGaTBUckVXblRmM2hZT3V3?=
+ =?utf-8?B?UjFjcXFCalhhZXhiQ1lDWlhZWnFwdkg1NUdUR0gzSkZtWXNrK0ZVeTdNdFFo?=
+ =?utf-8?B?TUxKbWc2MjV3TklEdS9YM2NZVW1kbGlwNlNqSloyWHI2YWoyQmxlYXpYTzk5?=
+ =?utf-8?B?L1VUWEljUERWM1lVT3FxOVdoMFFoTjI1RnJXL2xlUmE0Q05DcWZyQXB2S3Z4?=
+ =?utf-8?B?a0doYW5HbzVZcHhsSWxlcnJtNTJkeXhncGFnQS9rbjRzZldtaUVwdz09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3bc80ade-992c-48a3-dec9-08de7e788a3e
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7149.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2026 07:42:11.5569
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vbDYg8T+MJGdyTFpQtYg2jRQzGrasT3VRBbQVVGVAQVDWqwb7arMvRi28Yv4jPe9hlvRkqLnLvfx23VhC/LzKg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI2PR03MB6758
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_003928_208598_B1904C8F 
-X-CRM114-Status: GOOD (  17.73  )
+X-CRM114-CacheID: sfid-20260310_004225_803331_C20C92F0 
+X-CRM114-Status: GOOD (  21.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,85 +159,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/10/2026 5:25 AM, Eduard Zingerman wrote:
-> On Mon, 2026-03-09 at 22:00 +0800, Xu Kuohai wrote:
-> 
-> This was discussed some time ago in [1]. In that message Daniel notes
-> the following:
-> 
->    > constant blinding needs to work from native bpf(2) as well as from
->    > cbpf->ebpf (seccomp-bpf, filters, etc)
-> 
-> It appears this patch does not address the cbpf->ebpf part, or did I
-> miss something?
-> 
-> [1] https://lore.kernel.org/bpf/284404c7-c6e0-4cf9-8ada-71ebfc681541@iogearbox.net/
+
+On 3/6/2026 4:14 PM, Krzysztof Kozlowski wrote:
+> [ EXTERNAL EMAIL ]
 >
+> On Thu, Mar 05, 2026 at 10:03:32AM +0100, Jerome Brunet wrote:
+>> On jeu. 05 mars 2026 at 15:43, Jian Hu <jian.hu@amlogic.com> wrote:
+>>
+>>> The mpll3 clock is a valid parent clock for sd_emmc and mipi_isp on
+>>> the Amlogic T7 SoC, but was missing from t7-peripherals-clkc.yaml.
+>>> Add it to enable proper clock parent configuration for these peripherals.
+>> ... but this changes the index of the clocks after this mpll3, and those
+>> index are supposed to be stable if I'm not mistaken.
+>>
+>> It is indeed more convenient to have the optional clocks at the end
+>> as it avoids writing multiple <0> in DT when we do not have them.
+>>
+>> At the very least, your commit description should say that this change
+>> will not break any existing DT because these bindings are not used yet.
+>>
+>> I leave it to the DT folks to say if the change is OK in such case.
+> Based on commit msg it is not OK, that's why we ask about explaining
+> true problem and actual impact, IOW whether this did not work in the
+> first place and authors did not bother to test it...
 
-Hmm, I overlooked that the cbpf jit also needs constant blinding. I'll add it back
-in bpf_prog_select_runtime() before the JIT is invoked.
 
-> [...]
-> 
->> diff --git a/arch/powerpc/net/bpf_jit_comp.c b/arch/powerpc/net/bpf_jit_comp.c
->> index 52162e4a7f84..7a7c49640a2f 100644
->> --- a/arch/powerpc/net/bpf_jit_comp.c
->> +++ b/arch/powerpc/net/bpf_jit_comp.c
-> 
-> [...]
-> 
->> @@ -272,7 +250,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
->>   				       extra_pass)) {
->>   			bpf_arch_text_copy(&fhdr->size, &hdr->size, sizeof(hdr->size));
->>   			bpf_jit_binary_pack_free(fhdr, hdr);
->> -			fp = org_fp;
-> 
-> Is it necessary to set `...; fp->jited = 0; ...` here?
-> It seems it does if extra_pass is set.
-> 
-Yes. When extra_pass is set, orig_fp and fp are the same, so the original
-fp = orig_fp cannot restore fp either.
+Thank you for the clarification and explanation.
 
->>   			goto out_addrs;
->>   		}
->>   		bpf_jit_build_epilogue(code_base, &cgctx);
->> @@ -301,7 +278,9 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
->>   
->>   	if (!fp->is_func || extra_pass) {
->>   		if (bpf_jit_binary_pack_finalize(fhdr, hdr)) {
->> -			fp = org_fp;
->> +			fp->bpf_func = NULL;
->> +			fp->jited = 0;
->> +			fp->jited_len = 0;
->>   			goto out_addrs;
->>   		}
->>   		bpf_prog_fill_jited_linfo(fp, addrs);
-> 
-> [...]
-> 
->> diff --git a/arch/s390/net/bpf_jit_comp.c b/arch/s390/net/bpf_jit_comp.c
->> index 1f9a6b728beb..d6de2abfe4a7 100644
->> --- a/arch/s390/net/bpf_jit_comp.c
->> +++ b/arch/s390/net/bpf_jit_comp.c
-> 
-> [...]
-> 
->> @@ -2383,7 +2360,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
->>   	if (!fp->is_func || extra_pass) {
->>   		if (bpf_jit_binary_lock_ro(header)) {
->>   			bpf_jit_binary_free(header);
->> -			fp = orig_fp;
-> 
-> In the similar condition for powerpc you reset `...; prog->jited = 0; ...`,
-> is this case different?
+mpll3 is one of the clock sources for sd_emmc, and this use case was 
+indeed not verified in the initial version.
+
+mpll3 is typically used by the audio module and is one of the required 
+clock sources for the audio clock driver.
+
+In practice, sd_emmc does not use mpll3.
+During testing, only the other clock sources of sd_emmc were verified: 
+fdivx, gp0, hifi.
+I apologize for this oversight.
+
+Even though sd_emmc does not use mpll3, the clock driver should still 
+support it as a valid clock source.
+
+Additionally, I have confirmed that all required clock sources are 
+defined in the T7 peripheral device tree.
+
+I will update the commit message to state that this change does not 
+affect the ABI.
+> Best regards,
+> Krzysztof
 >
-
-No difference, will fix it.
-
->>   			goto free_addrs;
->>   		}
->>   	} else {
-> 
-> [...]
-
 
