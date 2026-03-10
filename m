@@ -4,60 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E301AFD2D91
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 13:42:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CDC3FD2D93
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 13:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hauwQrbptV0V28GKnzmSA65ywFu0mF8caAGW+8R6ENY=; b=CXbMuUHde/w7tCn3Q87V1JQVH0
-	+tW0J7oF8CVZUhZEe/ztTzC/0XAgJ2j60I5UkSJjoJ+DTgWhSODOrm2RxyshIEr6nSEZrYPU+1/G4
-	AicbT/8Ov5saUwEHXbefjvk6OsK9q5TZJOUmHvlRT4G/K6BVdZCiQGOaBFML4FRh4URDsmXrGWHXb
-	oXa4SEB1Mj9aQPlVxQw5Ezvg/NZvpni79P/hlH7Xk/06q6vMk2TRona6OadDyg7I5NdPvhJu3PTV5
-	sU6mQy4b1W1vnMIGNHH2G6jRdGmKb6LbyKCeDNGNkgWqQ+DN5vPh+G86+LAOVKVCTN852M0EVrPJs
-	Qdh7vbww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RNwIOPtDQ3K4e8H13UtOnAOXYZbBxfMy4251chivmuk=; b=0WSnc8r+3jNmGDb/rQLDWdwMaK
+	gGbUeq/4tCzETbrmQ+N2n5l6aswZuf8nLf8NxkvPOU7qGqhVzb0+HlUeFKrhzMYYsywNZQZ+r6FGO
+	p0KtUA2fZtro9h22ttYseUFWgh9BXgIgc5QYOEwV8DNzaQX27bcP1YkdJCnj0F4VSl5QLD76uIPrs
+	7cHcfOY1TsvNvSbYaUaipA9jtpJDER/VMcZT9Nqh12j+uOm6/gPxFGSDQcxsewab+oivMwacK0//v
+	44zzUvBPZQcTxdIEIm/Q7PPI2SHfd27+Zkai8pt++l7wgZTC099knrF5ZrSGvPYWr9pLy2PmdH9A2
+	iuGYgk0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzxLZ-00000009cYn-2bQf;
-	Tue, 10 Mar 2026 13:42:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzxLX-00000009cYJ-196o;
-	Tue, 10 Mar 2026 13:42:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6250916A3;
-	Tue, 10 Mar 2026 06:41:53 -0700 (PDT)
-Received: from [10.57.59.166] (unknown [10.57.59.166])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C1BBE3F73B;
-	Tue, 10 Mar 2026 06:41:56 -0700 (PDT)
-Message-ID: <87bc37ee-234c-4568-b72e-955c130a6838@arm.com>
-Date: Tue, 10 Mar 2026 13:41:56 +0000
-MIME-Version: 1.0
+	id 1vzxTZ-00000009dMl-30Iy;
+	Tue, 10 Mar 2026 13:50:21 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vzxTW-00000009dLj-3Um0
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Mar 2026 13:50:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=piwTtPsfoKM94cxzJl5sj7yvR+ehews8F+dVA0kLU9IITFPKraC0ReeZqkvbqHqNo66F3KAipbDN6EYeIYh1C8vZ8DluUERz/3iVbkZk0RdlHjGKKV80iuctvyLc19dqefCnD42+zJE7bwacbKxLBFDvFOHuNmaVF1ysEoCof03QMqG9lwkJ+u7NfNQ1hbGoVT/YNVGBo5wc0ZkcYcQSEK2IXpuDIyJGjsRAT/wUkoo9VWzNiH1egxqCyWB+kl8qMzTH8Vas4cZT6GmgZKjXsdAnU+Nv5+pxf627cjl0SIPlCjJl5HlLtlg9kNXfjMyhNWB469KLHcMeucYzp13JPg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RNwIOPtDQ3K4e8H13UtOnAOXYZbBxfMy4251chivmuk=;
+ b=VP3SDKEWf4R6+0D39lnmPY4ufTz6IJj/dFprvsi/8IVY5AE6UgP4GYJj1ec47aSb4y/gKHuviavYbHxLavxLWK7s8n+IE72syUJgUN4+C2BCh7LD48ISIKrjXZcFkW7BJOO+t8yluQ+oxxO6ntlR/LhV+mdQHk/2TbP2VC0/E8mO/9jIvItyH/84rj/VC6pEmZ2CGrcwGESDzlf0RB1XoJIlzA00P7MObIAh3XbGKPpnQppneCI9omsFPkIJUNBC14lJHkSMScNLrpVbtpltSm6Qoa0njVI5M/9eCrZ9eitumLUXUCBeXgDOo1e+onxnq13v99MWA7Ta+nftKZFWiA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RNwIOPtDQ3K4e8H13UtOnAOXYZbBxfMy4251chivmuk=;
+ b=wMl3Q6pfBTy95/hrINw02oSfROvjouNnwmheHmpqeql/BiDJ6SIXK5rWWw51PFr1aSv0S2bKKGLpLx3VWp0eMRrdlj7OiVI3FN5ER+ZDNPtNH4F0RDNCuh5ntRH/1Wf+VFQokPJNUd0xPVFB/JOqd95td/0oYvlgBCi54r8kcaR3R661iDA3o32WpJftGeAfM7h9Wznp93ISvi2stQoab3U5+bjvV9nALL1chwXDf/GiRGoJGEhrG8/yV110t6Jk591UGOLyJOqttdrfFJvDSgjbIA0x6a2bXAG+W5f2vLvmk17fxESw3xw8f1e1R+FkR/yHfMn2UUSGpmnXBHU49Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB9154.eurprd04.prod.outlook.com (2603:10a6:102:22d::9)
+ by AM7PR04MB6789.eurprd04.prod.outlook.com (2603:10a6:20b:107::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.19; Tue, 10 Mar
+ 2026 13:50:12 +0000
+Received: from PAXPR04MB9154.eurprd04.prod.outlook.com
+ ([fe80::b0a5:fb7f:4353:6a82]) by PAXPR04MB9154.eurprd04.prod.outlook.com
+ ([fe80::b0a5:fb7f:4353:6a82%5]) with mapi id 15.20.9678.024; Tue, 10 Mar 2026
+ 13:50:12 +0000
+Message-ID: <67e082c5-2b34-4960-8fd1-6cd007e0584c@oss.nxp.com>
+Date: Tue, 10 Mar 2026 15:49:54 +0200
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] PCI: dw-rockchip: Enable async probe by default
-To: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
- Heiko Stuebner <heiko@sntech.de>, Niklas Cassel <cassel@kernel.org>,
- Shawn Lin <shawn.lin@rock-chips.com>, Hans Zhang <18255117159@163.com>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Wilfred Mallawa <wilfred.mallawa@wdc.com>, linux-pci@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Anand Moon <linux.amoon@gmail.com>
-Cc: Grimmauld <grimmauld@grimmauld.de>
-References: <20260226101032.1042-1-linux.amoon@gmail.com>
- <177260693908.10259.13055467642416391434.b4-ty@kernel.org>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <177260693908.10259.13055467642416391434.b4-ty@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH] arm64: dts: s32g: force S32G RTC as rtc0
+To: Fabio Estevam <festevam@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+ NXP S32 Linux Team <s32@nxp.com>, Chester Lin <chester62515@gmail.com>,
+ Matthias Brugger <mbrugger@suse.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260310124950.1345117-1-andrei.botila@oss.nxp.com>
+ <CAOMZO5BVtRHW1+qtMEH9akO7ULS3LppzGXMB2_M-JJVwjbv1oQ@mail.gmail.com>
+Content-Language: en-US
+From: Andrei Botila <andrei.botila@oss.nxp.com>
+In-Reply-To: <CAOMZO5BVtRHW1+qtMEH9akO7ULS3LppzGXMB2_M-JJVwjbv1oQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR4P281CA0300.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:e7::11) To PAXPR04MB9154.eurprd04.prod.outlook.com
+ (2603:10a6:102:22d::9)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9154:EE_|AM7PR04MB6789:EE_
+X-MS-Office365-Filtering-Correlation-Id: bfcaacd8-8b74-4fc6-c738-08de7eabf39a
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|19092799006|22082099002;
+X-Microsoft-Antispam-Message-Info: 1PRk97QUxOCM8HQjid2t9CY6oZa9BGziG0yEakXZAzfrfd1QfMsRbkwELig22/H+2ft1gLyk751PhFu8qq2zlztySMnwusA1EDTzRtEqGh0JaTp0wiLpZgw9q75V9biyS14yVMiFuamOoagOYEsmQsExLN1i2Fm6wanE6CGLaDBlbEbTD8m0faD3wvXp2UiDHr9QP7ChRxdPflcrbAUR/XK/e2w7VsDuitVzY/3IDDe1NJF1uF69vs8mKknBhBJi6OV2KSabkqPinS8emxRfdMqphlEzgLXLqT4EfYf1J4W5xpUiH+J0a9dkEmN+bVC8xBwUsXKY+wUGWLBobhjNwA6PtRJguLaFUZqvAZitCCFN9rEVRAKNDpdfzzgCy2M/NSaZ7bJAoOeDLYI4tGj8VpA6wwg3iqeD9+O92Rwv6XW0No5sg0gZhpD44C8rZ46ZQ6fcqf178GyosQBqT9j8p55Vvwnl++E5Xi/nnZ0gzcpNDvKbw0eRwmDdLOhUz03rZ4M0d1IeFxoJaB/sT7NWkrGneUo1v6xE4GNwABPXSzHMFSY5iwskz2A1b7vgJ88iWr+1TqE9wELU2XxMAZ//RJM4wa29izE4LYzI7A3O4J59RXBk6mhmFILbqy5Ar/TWtoGyGgFgx+VQOs8PM7migI2UuPAnGJq8/C10NFcbkd6wdr0/K57ZDuRxhV3f5tLleiYshIl4oSyXpXZ+2032fGXpSX1BHOeHGomvznZYaTI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9154.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(19092799006)(22082099002);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bm54ZERVOUp3NklNVlI1U2l0eURBMlAvenZNTUs3dnZFNXY0SHl2cGlzZExh?=
+ =?utf-8?B?NGVvNldJUUlBWHM2L2NJTVpjb3pIZnNLZWM4WGppNWxXR2ZBakVsd0cyWElC?=
+ =?utf-8?B?SXhicEI0MnFITnAwVEF6cE9jVjZXUkZjcHJiNW1rNUxlTG9iVXRiT05TMXhI?=
+ =?utf-8?B?Tnh6Z0F5ZElJWXpCVjRTY1lSR0tRbTc4eERucDNQZ20xa0RTMzVlZ2FVc1pI?=
+ =?utf-8?B?bUY3TlhSNHVUbTMyeUxhSXIvL0dETXFrbUFGWlRqOTlWa0tiWWQxdmd3MW9Y?=
+ =?utf-8?B?VC85RjNIRlFXdW10WlFUcXNKdTJGSThZUGs3OGYwOGdQUi9hRnFXRTFKOU10?=
+ =?utf-8?B?OHVKejI2dmJxdjFHMXpUblJUdTVTQzgybDJoNHEzTE9tZXhWNVlZMjFxTlYw?=
+ =?utf-8?B?ZDF5WjJ4L2N3NDhnRExYREFMK0I0RTM4V0t2WG1oV1RpUGJ2OWxqNjJSdEwv?=
+ =?utf-8?B?dldPSnV2TEFFSHhacGQ2K3ZLQWpveG5oRTJ0Ujlnb2txR1o0bXlDS1hCNTY4?=
+ =?utf-8?B?K2NacU1kc2hYazRnR3phRkFtZXBmS2lDRXBQRlhORzRpTnQwUWsxb1llM1Ez?=
+ =?utf-8?B?WTJkQ3EyU2VaRHg0QjRBSmNJVHNIS2w2amo3TE5Kc0dzWXkzNm9IeXI3Q3VH?=
+ =?utf-8?B?Y3lraTVzKytJUFRmcENocWM1cnFXSnBBOU80YmF5eHkrc1RsNDFXMWRMZ0tR?=
+ =?utf-8?B?OGFvekRsRHJoQkZVMzdxOEVta2N6WjRxTS9qM1p4Mjd6VE1LME1XQ1dJbU14?=
+ =?utf-8?B?OGQrODROaG5wWUNya3dNRVdBaldHdlRWWmdtdjc0ZGl4VWw3TzR6VThiamtZ?=
+ =?utf-8?B?Nkc2eVRvdmdDb1dDYldEYlF5azk4TzZwTlhjS0l5eStYd25iMjVYYU1GTGc2?=
+ =?utf-8?B?aWFUMFFoNE1jVUZpdGxLUWxzK3k1TGp0RmpPQ1phQVBHSndYc2RRejQ5MmtE?=
+ =?utf-8?B?U0dxcVJGOE4rWk5BWmNNb0piZGFPYTRyWVNpU3g2ZG9odDlwVkZTZ21aNGI0?=
+ =?utf-8?B?ZGg5TEJaR1dsd2tDVVRGTVVYWEl5ZDhPRFZvenh0dzdYMEhFR0VkcDIxY3Rn?=
+ =?utf-8?B?dGd3YUREWGRuUitzUk1QRkdxTlQzOEYzNzBCWlFZY2RXd01rOHBWZUxCZHRu?=
+ =?utf-8?B?Wkt4SVRxTWJhTDM0UlUxL0QyWXRWYmFmNzBEdHpkaXgrcHRndDN5YVExMmNM?=
+ =?utf-8?B?RFp1d3E4QndQT1crQS9wVUtKbmErU2YyOUc5a2NmT2pydTRKcExFU08rYUpT?=
+ =?utf-8?B?MC9GRk5uTFZIUkdydjlnYzJFUjcxemdXN29BeG8zSGJ6SHZsSEdOeEhnTmF1?=
+ =?utf-8?B?VTdON00xZUYvOXNkc1NibTMzaFlOSytoUTVRZnVEV0dnVWVCWXRCVW1UdDVK?=
+ =?utf-8?B?ZUQwZjRlTE9EOWRjYUltTkRDdjNHMGE2eTdFaDBmZFBuRkM5YnU4Y25VUG9B?=
+ =?utf-8?B?Wm1QeDdJVGU5WTR1NEVudGFoRjZyWXpTSmZubTd5M0paaDRlZ1RORE9VSHlQ?=
+ =?utf-8?B?VFN0VWpUOGRYbWRTdkgrWnRUbGFiYzRxMG1CN0JVZ2N1bEdNWGZGVWsyQ1Fy?=
+ =?utf-8?B?VEJZN1FOd05GQ3p0bStQSjE4UDg4NUxRWkI2L1IxT0YvRHozTW44a2QwQ0tm?=
+ =?utf-8?B?UC8zeUh2U2s0RFlvLzRzVW5zcUUyc1NoQnMyY1R5ZWtEUlI4L2tkcVlQMi9Y?=
+ =?utf-8?B?b29kZTUzRC9TL2tjalV3ckFLQjZsZnBvOS92T0VTU0tOWmxjKzlrZG9SbkJI?=
+ =?utf-8?B?bTNDVDd4UFpEc0JTS09YUFVvdG9xV3dsemo4VXgrdUJkRFlmMGRmRzVFZWJE?=
+ =?utf-8?B?SGUwZVpUemhPMm5XSW5HTWZBaVNmL3JML3FhV2E5cUpDZDR1aWRTSFJaNkR3?=
+ =?utf-8?B?RkJFcmFMendKQllQd01BY1htZTQ5bXpsNzNra1BPekJ1RFRoYWh5K1g5UytO?=
+ =?utf-8?B?T0t6dnRhYVNzNlhwTFhsZCtSV1JZb0RXN2ZXbjZLUFdkdkhtUHBLcTFoQlVY?=
+ =?utf-8?B?WGVJZ3NBT2xHRjFxb05JNkVRQXNUL0hpbElIREpFeHk4UGkzWFo0OGVhMHJw?=
+ =?utf-8?B?Y1VkZUJJZ3Z4eU0vOWRsVDVSOURaajI5UDhzTi9PbzB1WlhTakR3TDJzcHBU?=
+ =?utf-8?B?Rkg4aVpJUUE3bE0yRmRYRDNTNllPaitGRmxKUmFCbEpydUxkZzlmT2wrUi91?=
+ =?utf-8?B?VFE3SExwS0FhQ1NoMUREc2RKUVpIS0UvbmVvVjlzWDMycHBhWGx5OG1WMjRH?=
+ =?utf-8?B?Q3NHclpHZEtYYUVaNmZmM2pObFAzNjhHdzA2ZXhxV2NURW5IVWRudEh0VFBy?=
+ =?utf-8?B?ekd4aTM1VVBrdVo3VXB3SDFVZDVuYUMwd3cyR3RnQ3BtUEJOcnFkVVlHVG9S?=
+ =?utf-8?Q?IwBFw/aYl5r5yA18=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bfcaacd8-8b74-4fc6-c738-08de7eabf39a
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9154.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2026 13:50:12.6947
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: NYGQ+eaVNXr7/BqHZ46lG8syk/1HN68LClVmlsI4RkJpT0SJ7/kPOcKGA99ZAMJTn4qWG1aSGA72sX9+H0iJAw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6789
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_064203_416229_228A0328 
-X-CRM114-Status: GOOD (  11.35  )
+X-CRM114-CacheID: sfid-20260310_065018_882644_1C9F33E4 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,93 +157,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mani,
-
-On 2026-03-04 6:48 am, Manivannan Sadhasivam wrote:
-> 
-> On Thu, 26 Feb 2026 15:40:23 +0530, Anand Moon wrote:
->> Rockchip DWC PCIe driver currently performs synchronous link training for
->> combo PHYs (PCIe 3.0/2.0 and SATA 3.0) during boot. This process waits for
->> the link to be fully established, adding several milliseconds to the boot
->> sequence. To optimize boot time, this change enables asynchronous probing,
->> allowing link establishment to proceed in the background while the kernel
->> continues probing other devices.
+On 3/10/2026 3:14 PM, Fabio Estevam wrote:
+> On Tue, Mar 10, 2026 at 9:50 AM Andrei Botila <andrei.botila@oss.nxp.com> wrote:
 >>
->> [...]
+>> S32G RTC is probed after the RTC on RDB (PCA85073A) so the S32G RTC
+>> ends up on /dev/rtc1. This causes the suspend/resume or hwclock to use
+>> the wrong RTC since it takes by default rtc0.
+>> Force the S32G RTC to be assigned rtc0.
 > 
-> Applied, thanks!
+> We usually prefer to use the I2C RTC as rtc0 because it is battery-backed.
 > 
-> [1/1] PCI: dw-rockchip: Enable async probe by default
->        commit: ec392abc95932838bf7e3d659d358f4df9ff5a0a
+> What's the exact problem with using the I2C RTC as rtc0?
+> 
+> Is the S32G RTC battery-backed?
 
-This appears to have the side-effect that calling pci_host_probe() from
-async context can effectively force async probe for the endpoint drivers
-as well, but some drivers are not OK with that, as our CI has just
-flagged up.
+Hello,
 
-(And as for that particular warning, ISTR last time I looked into it
-another context, the opinion of the MDIO/phy maintainers seemed to be
-"don't force async probe".)
+S32G RTC is not battery-backed.
 
-Thanks,
-Robin.
+Regarding the I2C RTC(PCA85073A) commands like hwclock or rtcwake use by
+default /dev/rtc, /dev/rtc0 so they will try to use PCA and fail.
 
+Also from what I could find online PCA85073A is also not battery-backed.
 
-1467 00:47:33.141229  <4>[   18.243373] ------------[ cut here ]------------
-1468 00:47:33.141490  <4>[   18.243803] WARNING: kernel/module/kmod.c:144 at __request_module+0x198/0x200, CPU#4: kworker/u32:5/101
-1469 00:47:33.142056  <4>[   18.244653] Modules linked in: r8169 snd_soc_hdmi_codec rfkill_gpio rfkill pwm_fan display_connector snd_soc_simple_card rtc_hym8563 rk805_pwrkey snd_soc_es8316 industrialio_triggered_buffer typec phy_rockchip_samsung_hdptx rockchip_thermal kfifo_buf phy_rockchip_naneng_combphy spi_rockchip_sfc rockchip_dfi synopsys_hdmirx v4l2_dv_timings snd_soc_rockchip_i2s_tdm hantro_vpu v4l2_vp9 v4l2_h264 v4l2_jpeg videobuf2_dma_contig rockchip_rga videobuf2_dma_sg v4l2_mem2mem videobuf2_memops videobuf2_v4l2 videodev videobuf2_common mc pci_endpoint_test rockchipdrm dw_hdmi_qp analogix_dp inno_hdmi dw_dp dw_mipi_dsi drm_dp_aux_bus dw_hdmi panthor drm_display_helper drm_gpuvm drm_exec cec drm_shmem_helper drm_client_lib gpu_sched drm_dma_helper drm_kms_helper snd_soc_audio_graph_card snd_soc_simple_card_utils snd_soc_core snd_compress snd_pcm_dmaengine snd_pcm drm snd_timer snd backlight soundcore dm_mod ipv6
-1470 00:47:33.142376  <4>[   18.251632] CPU: 4 UID: 0 PID: 101 Comm: kworker/u32:5 Not tainted 7.0.0-rc3-next-20260309 #1 PREEMPT
-1471 00:47:33.142648  <4>[   18.252465] Hardware name: Radxa ROCK 5B (DT)
-1472 00:47:33.142915  <4>[   18.252866] Workqueue: async async_run_entry_fn
-1473 00:47:33.143182  <4>[   18.253291] pstate: 00400009 (nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-1474 00:47:33.143450  <4>[   18.253920] pc : __request_module+0x198/0x200
-1475 00:47:33.143714  <4>[   18.254325] lr : __request_module+0x190/0x200
-1476 00:47:33.143979  <4>[   18.254730] sp : ffff800084233420
-1477 00:47:33.144239  <4>[   18.255042] x29: ffff800084233420 x28: ffff000116886000 x27: ffff000116887000
-1478 00:47:33.144524  <4>[   18.255687] x26: ffff0001168870d0 x25: ffff80007b6c1738 x24: 0000000000000000
-1479 00:47:33.172973  <4>[   18.256333] x23: ffff000116886000 x22: 0000000000000000 x21: ffff00011b80f800
-1480 00:47:33.173352  <4>[   18.256979] x20: 0000000000000001 x19: ffff800081e2bfd8 x18: 0000000000000002
-1481 00:47:33.173658  <4>[   18.257625] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
-1482 00:47:33.173946  <4>[   18.258270] x14: 0000000000000001 x13: 0000000000000000 x12: 0000000000000000
-1483 00:47:33.174228  <4>[   18.258916] x11: 0000000000000000 x10: 0000000000000000 x9 : 0000000000000000
-1484 00:47:33.174507  <4>[   18.259561] x8 : ffff8000842334c8 x7 : 0000000000000000 x6 : 0000000000000000
-1485 00:47:33.174779  <4>[   18.260206] x5 : 0000000000000000 x4 : 0000000000000000 x3 : 0000000000000030
-1486 00:47:33.175050  <4>[   18.260851] x2 : 0000000000000008 x1 : ffff8000800df110 x0 : 0000000000000001
-1487 00:47:33.175318  <4>[   18.261497] Call trace:
-1488 00:47:33.175584  <4>[   18.261735]  __request_module+0x198/0x200 (P)
-1489 00:47:33.175851  <4>[   18.262141]  phy_request_driver_module+0x11c/0x17c
-1490 00:47:33.176116  <4>[   18.262584]  phy_device_create+0x234/0x260
-1491 00:47:33.176381  <4>[   18.262967]  get_phy_device+0x74/0x150
-1492 00:47:33.176674  <4>[   18.263319]  mdiobus_scan+0x34/0x114
-1493 00:47:33.176938  <4>[   18.263657]  __mdiobus_register+0x1e4/0x430
-1494 00:47:33.177201  <4>[   18.264047]  __devm_mdiobus_register+0x70/0xe8
-1495 00:47:33.177465  <4>[   18.264460]  rtl_init_one+0x95c/0x1040 [r8169]
-1496 00:47:33.177730  <4>[   18.264884]  local_pci_probe+0x40/0xa8
-1497 00:47:33.177993  <4>[   18.265239]  pci_device_probe+0xd0/0x21c
-1498 00:47:33.178255  <4>[   18.265609]  really_probe+0xbc/0x298
-1499 00:47:33.178516  <4>[   18.265948]  __driver_probe_device+0x78/0x12c
-1500 00:47:33.178778  <4>[   18.266353]  driver_probe_device+0x3c/0x15c
-1501 00:47:33.179040  <4>[   18.266742]  __device_attach_driver+0xb8/0x134
-1502 00:47:33.179302  <4>[   18.267155]  bus_for_each_drv+0x84/0xe0
-1503 00:47:33.179561  <4>[   18.267514]  __device_attach+0x9c/0x188
-1504 00:47:33.179821  <4>[   18.267874]  device_initial_probe+0x50/0x54
-1505 00:47:33.180082  <4>[   18.268264]  pci_bus_add_device+0x74/0x100
-1506 00:47:33.180343  <4>[   18.268647]  pci_bus_add_devices+0x38/0x84
-1507 00:47:33.180623  <4>[   18.269030]  pci_bus_add_devices+0x64/0x84
-1508 00:47:33.180883  <4>[   18.269412]  pci_host_probe+0x90/0x108
-1509 00:47:33.181145  <4>[   18.269766]  dw_pcie_host_init+0x3fc/0x5bc
-1510 00:47:33.181407  <4>[   18.270148]  rockchip_pcie_probe+0x354/0x380
-1511 00:47:33.181668  <4>[   18.270546]  platform_probe+0x5c/0x98
-1512 00:47:33.181933  <4>[   18.270892]  really_probe+0xbc/0x298
-1513 00:47:33.182197  <4>[   18.271229]  __driver_probe_device+0x78/0x12c
-1514 00:47:33.182460  <4>[   18.271634]  driver_probe_device+0x3c/0x15c
-1515 00:47:33.182721  <4>[   18.272025]  __device_attach_driver+0xb8/0x134
-1516 00:47:33.182981  <4>[   18.272438]  bus_for_each_drv+0x84/0xe0
-1517 00:47:33.183241  <4>[   18.272798]  __device_attach_async_helper+0xac/0xd0
-1518 00:47:33.183502  <4>[   18.273247]  async_run_entry_fn+0x34/0xe0
-1519 00:47:33.183763  <4>[   18.273622]  process_one_work+0x158/0x29c
-1520 00:47:33.184023  <4>[   18.273997]  worker_thread+0x184/0x300
-1521 00:47:33.184284  <4>[   18.274348]  kthread+0x11c/0x128
-1522 00:47:33.184560  <4>[   18.274656]  ret_from_fork+0x10/0x20
-1523 00:47:33.184823  <4>[   18.274995] ---[ end trace 0000000000000000 ]---
+Thank you,
+Andrei
 
