@@ -4,107 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DAE9FCC9D1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 07:30:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83DA1FCC9D4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 07:39:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GW8Ui04KBGs65F4OekD5HnBdJ5TgUItKUISLOqKU5jc=; b=FwUB/BCfHoWwyaRrKSVXSDWzUL
-	O6K8yTYG+4pRR2sqYeOXxS++IBaqDc/8JuQ/70oPHSiTaCq3eE+hVdHJ/Ht2/fs9B/pA2FEjCc2Ks
-	Bo/+hF17bDh6Qugp4CQcXHfmQHCWXF/IM5WVxtZqtrSEtBjlk20maoWrCATt2D1jY7ykJaZFY0hZq
-	xhvrZaY0tXqj6NpEWACJDZGlQ+VGgP97+HsShM75B97NaJvfF/RihAJXw9/91Yb1us1ayZLeUl0BC
-	9VIUuv8NmuA2IvOI3Z2tRXfdq3zY6jk6H0C/Vs2BFzzen5VoSjzw5rU0R0ObaZOQAHswqe8UV88ul
-	uVgWphfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UJs3j1qgdiSLL660koBbkByqwIfjlXm9V1J/kzsZhok=; b=oGR+/wsaRSVqDtgckhnFlljUIT
+	OS6olh9cQB+xWmnlnF6bS+ENWUxaKYpbIDKXBJFMJjNewU1XMSPiGTqeG3wN7Y2vsHAFZZRmsDRAP
+	f/lCDVumI2LdHQhT43TfNVxNfEydK+TXaqdVeEJUYkKcQ8pWSG1g2SGhay8WcaGd3qwZOSww0glg0
+	vG1o6yGEPNETSFO72mARSOxkJ/W5ee2EbfVmC4wgG2eXaECRCiAOMPC7moh6tlnTJp7VkK7SzRoyp
+	mWgfY7ceM46btIrs/M1alxAzRdGFbjW5wIpkUujgohZsYEHkf/IWOVnUUNP3BXrWC0bCVopHsy9O+
+	SCCDUhbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzrY1-00000008qx6-3Fv0;
-	Tue, 10 Mar 2026 07:30:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vzrgF-00000008rP8-08Px;
+	Tue, 10 Mar 2026 07:39:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzrY0-00000008qx0-0iEq
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 07:30:32 +0000
+	id 1vzrgC-00000008rOj-1B7Q;
+	Tue, 10 Mar 2026 07:39:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 54994600B0;
-	Tue, 10 Mar 2026 07:30:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A4E4C19423;
-	Tue, 10 Mar 2026 07:30:27 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6F0374348D;
+	Tue, 10 Mar 2026 07:38:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDBEBC19423;
+	Tue, 10 Mar 2026 07:38:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773127831;
-	bh=5pyb7W5QNpy2WAHMfRvtAJ4Ws9aSPlbsE5/cAQt7xno=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KPcbUCfEqMoZYnISLuK0VEESgtrmKLR+TWIG4f5z+6m4qdyODRWxyvdYCTrQmqnn6
-	 b1jywT3nZEfEIVWhsAvLFEhWdaFAvIwSQsq56v3BDdlsxAuuKf95MXLb2ACzY2lKIs
-	 n3iOIhFVxC8GwbmdCKVb85m4U4bIBeuqcYgxSHcFpEbepRzvAX9fuhX3yuyoptAbAu
-	 bs+jjeTYdIXCkLgeK3om22hPHMlPvP8W4ZLltul6AJ4TGm/sOMwTFrlLV5cXaSO8bz
-	 rNYpu1EvIMNJQuRuXQNnJVV2xE9mMYZXzo04GNFQOVUK+BTpXojNXLjo30Xvqcn93w
-	 Zd8C+CV2VLpjA==
-Message-ID: <841c0b46-76dc-49c2-bb74-7fc2e5a2a702@kernel.org>
-Date: Tue, 10 Mar 2026 08:30:26 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: PCI: update CIX Sky1 PCIe Root
- Complex bindings
-To: Gary Yang <gary.yang@cixtech.com>, bhelgaas@google.com,
- lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- peter.chen@cixtech.com
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- cix-kernel-upstream@cixtech.com
-References: <20260310065338.2337761-1-gary.yang@cixtech.com>
- <20260310065338.2337761-2-gary.yang@cixtech.com>
+	s=k20201202; t=1773128338;
+	bh=eigS/zAmAe39yYs+o8HKoJPAI0Rl29kSXCxO5QeFKrg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ioa+vCv3zf1suIzQ56s0muplBFPtUWyxbX/mtLahEuzfGKcPw0u1wt4TOY1tn0n/6
+	 ybrFCK6eDjaY/nBNHzjF+G7qwIvc3qPT+vS0qKpjjTfPX+owKYUOjJMh7j+TdA/xxS
+	 xeACZi8K7y8Ss9NOLB+cR2EBxSyO3Qw7WGKubeqGMjYpvAs4dqqlYHhsoFOLQ0sJ7X
+	 2x2vL2Wr9NROMmp4yslHyCXfdZts61+YBbUoC5jPMAHMjfVRjxN/R+R4fRPODd5IVv
+	 YmyC8Ud6PxpaRHZkluLjIbNuATJmHa1CK2/pUr1vVMhQa0rWgXkK7u+yXXR7sG5JoH
+	 EgnTZI9pQDm3g==
+Date: Tue, 10 Mar 2026 08:38:55 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260310065338.2337761-2-gary.yang@cixtech.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+To: "irving.ch.lin" <irving-ch.lin@mediatek.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Richard Cochran <richardcochran@gmail.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>, 
+	Miles Chen <miles.chen@mediatek.com>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com, Qiqi Wang <qiqi.wang@mediatek.com>, sirius.wang@mediatek.com, 
+	vince-wl.liu@mediatek.com, jh.hsu@mediatek.com
+Subject: Re: [PATCH v6 01/18] dt-bindings: clock: Add MediaTek MT8189 clock
+Message-ID: <20260310-notorious-manul-of-maturity-facd51@quoll>
+References: <20260309120512.3624804-1-irving-ch.lin@mediatek.com>
+ <20260309120512.3624804-2-irving-ch.lin@mediatek.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260309120512.3624804-2-irving-ch.lin@mediatek.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260310_003900_344364_54F32E00 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,33 +80,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/03/2026 07:53, Gary Yang wrote:
-> add power-domains and power-domain-names property
-
-Why? Please write complete sentences explaining why you are doing this.
-
+On Mon, Mar 09, 2026 at 08:04:43PM +0800, irving.ch.lin wrote:
+> From: Irving-CH Lin <irving-ch.lin@mediatek.com>
 > 
-> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
+> Add dt schema and IDs for the clocks of MediaTek MT8189 SoC.
+> The MT8189 clock IP provide clock control for main system
+> (apmixedsys, topcksys and vlpcksys) and
+> subsys (eg. peri, mfg, venc/vdec ...).
+> 
+> Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
 > ---
->  .../devicetree/bindings/pci/cix,sky1-pcie-host.yaml         | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/pci/cix,sky1-pcie-host.yaml b/Documentation/devicetree/bindings/pci/cix,sky1-pcie-host.yaml
-> index b910a42e0843..1d8ee8310588 100644
-> --- a/Documentation/devicetree/bindings/pci/cix,sky1-pcie-host.yaml
-> +++ b/Documentation/devicetree/bindings/pci/cix,sky1-pcie-host.yaml
-> @@ -38,6 +38,12 @@ properties:
->    ranges:
->      maxItems: 3
->  
-> +  power-domains:
-> +    minItems: 1
-> +
-> +  power-domain-names:
-> +    minItems: 1
+>  .../bindings/clock/mediatek,apmixedsys.yaml   |   1 +
+>  .../bindings/clock/mediatek,infracfg.yaml     |   1 +
+>  .../bindings/clock/mediatek,pericfg.yaml      |   1 +
+>  .../bindings/clock/mediatek,syscon.yaml       |  27 +
+>  .../bindings/clock/mediatek,topckgen.yaml     |   2 +
+>  .../dt-bindings/clock/mediatek,mt8189-clk.h   | 577 ++++++++++++++++++
+>  6 files changed, 609 insertions(+)
+>  create mode 100644 include/dt-bindings/clock/mediatek,mt8189-clk.h
 
-There is no such syntax. Open any existing bindinh.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
 Krzysztof
+
 
