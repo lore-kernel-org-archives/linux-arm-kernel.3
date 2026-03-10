@@ -4,120 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD911FD2D79
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 13:20:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C770DFD2D81
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 13:28:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2nfThJO5oXB7WZ5MAEjom4iH5WGBmI4Q+rtCNbUu5Yk=; b=RPZpG0OziKRDOVbVTiByVMJvUQ
-	IB484mF87qqs9WIgeTzhEXBiD8sz3XlhxbU1nyN4aYZBtWPSnJ/2ROhSMV04PTpkPbYLTgcMCCSDX
-	AOfpzeG2XVYQSTPQTSCl0FEBbP7im4zzY76cU3vEKGDfQWy1S1H9dQyKcZwjgRQ9EWWquVEOLKOE2
-	Fy1ELHiGyzJ42sD/M+5kwaQGoYimxso57R3rQPyuySSTGWAtEmGtotec/oyWF3XiVfBZP1D5jizDD
-	sGWB0a8VM6deBhd9+2ccVn76oLiX3p1rVwjbNOQWEaY3O1DA9F0D3XS8c+hiE5nBQ4AwINLA5ui1y
-	alCBo17g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VcGwuo35RKK8ljJatS1Nd7WDDHQVev0Yemy6C4hCd2w=; b=uETmTG+HAo+Z/+elw8ByhtVxqz
+	dhiDIB2yZ1i5XzXBluHo55/fUlPP6MV4HAp1iHT7ex7/AQS4O7M3rPg0lqi1wcyWoi/s0TCV6QCaM
+	JoSWoDBJnnGIzHW/IITjA1AOIH6ttJl7onWAf+7hkkiAeF8FIixNw2Y72WEsYQusrxqMl9WxkDyPm
+	Ooac4UJLKgoVzvwUbbWXwsIqAvQ6f2nJxhMzNih6YBj3Z25KxbwmNxgJeIHGtZ71BQDxPvP8B2Uk9
+	sLOfVyNacTyzNt69/seTV4mFnklLx0SQSBOvSeHvkWApH2DW1rQ49aptX6OkYwPMjkFq4Jlqvta6l
+	GnrxIudA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzx13-00000009a5w-2ZVG;
-	Tue, 10 Mar 2026 13:20:53 +0000
-Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1vzx8c-00000009bJa-48Ku;
+	Tue, 10 Mar 2026 13:28:43 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzx10-00000009a5a-476d
+	id 1vzx8Z-00000009bIg-2c2g
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 13:20:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ReV1FiIwzh0PVHexE/TVCcZWDnWT8U0Ac7eIndJ1Aj07cfI4QB2RgwgmjbBxt3ejKttSCurhoKOew/q7vHHqMnmOyH6ZBOZvWytxQLUJYInFATbYIth+mklGkBJtfJvH5X4XsuhBt5FDgqoZENN1plSir1rzpoCGWtkHtbFgr2dP5TnjB1YIaJHumOshG2ygBwCIipOldIn58HhceeC3B0gYIx2+mpehconk2/Zwm5qkOBgeoBKQyjV9Sr8yYCKqKbnjjTStab0OjsplPQaZ7LkgZOvsgijUufVv1RxrJfGZrLnSezZHPZtd2Agdsz7m4KPO/HNzwjwjW/mSEItv+A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2nfThJO5oXB7WZ5MAEjom4iH5WGBmI4Q+rtCNbUu5Yk=;
- b=jru9Buf0J3wMXBejUgZsCGHQ/0rZiBYe1DpvQoot+R0v/nfAAOV+6fqdN4F3lD+a0CoOp4SqYT1VfpVix8wxcoz6hhRwf90Rn0hi9en6fd9Jp6J2iL41Lf9lV3X4w2mjD1aWDZ/9KdGi2Qcgw6DEe2TWmvWlLn46txevF0XkhgRwNo23a0rT3NnU5fAXAXPiUuRQyaNZDCGeLC0UOOE/8tYra+E/j23qZdIiOIqx2QS0mq2EF9apaG/9voQMPi2JxKHAY2DQa0hYi8/nxJeBdBqEAf9m5zEHo55Lx7X7XV9XcKYSEvTWCz+Kjqx+sXWUfdV8t0rvetc5f9erk9YO6w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=lunn.ch smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2nfThJO5oXB7WZ5MAEjom4iH5WGBmI4Q+rtCNbUu5Yk=;
- b=b9c82RExcf1RnnikKrAQGMZcB4/oxSz734o/QCO37bVaxpG4WqGvFXtJtJdW8YrNJDdvZO2hjtngNScLnR0XZth03GMScQUQQ0yuMBm0Tn6FiAmrSmTTUGzW6orDysQ/5J9aJiAEhKdVhgZxKeUY8iQw0hPB9Ps3toH89fMztXs=
-Received: from BL1PR13CA0166.namprd13.prod.outlook.com (2603:10b6:208:2bd::21)
- by DS0PR10MB7175.namprd10.prod.outlook.com (2603:10b6:8:dd::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.24; Tue, 10 Mar
- 2026 13:20:44 +0000
-Received: from BL6PEPF00020E5F.namprd04.prod.outlook.com
- (2603:10b6:208:2bd:cafe::b0) by BL1PR13CA0166.outlook.office365.com
- (2603:10b6:208:2bd::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.24 via Frontend Transport; Tue,
- 10 Mar 2026 13:20:24 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- BL6PEPF00020E5F.mail.protection.outlook.com (10.167.249.20) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9678.18 via Frontend Transport; Tue, 10 Mar 2026 13:20:43 +0000
-Received: from DLEE201.ent.ti.com (157.170.170.76) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 10 Mar
- 2026 08:20:39 -0500
-Received: from DLEE214.ent.ti.com (157.170.170.117) by DLEE201.ent.ti.com
- (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 10 Mar
- 2026 08:20:39 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE214.ent.ti.com
- (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 10 Mar 2026 08:20:39 -0500
-Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62ADKcqt3128000;
-	Tue, 10 Mar 2026 08:20:38 -0500
-Received: from localhost (dhcp-172-24-231-152.dhcp.ti.com [172.24.231.152])
-	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 62ADKccc013573;
-	Tue, 10 Mar 2026 08:20:38 -0500
-From: MD Danish Anwar <danishanwar@ti.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <danishanwar@ti.com>
-Subject: [PATCH net-next] net: ti: icssg: Fix wrong macro used in RX classifier configuration
-Date: Tue, 10 Mar 2026 18:50:35 +0530
-Message-ID: <20260310132035.1299787-1-danishanwar@ti.com>
-X-Mailer: git-send-email 2.34.1
+	Tue, 10 Mar 2026 13:28:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1773149318;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VcGwuo35RKK8ljJatS1Nd7WDDHQVev0Yemy6C4hCd2w=;
+	b=JJz7QsQIWVCrRtMBlSPsYpJb7Ew9GPUImMa8XRE266HhE2PfHd9RtSRgaUSSKpUfeco2by
+	6L+C7pu7wFAfZGflAjmX/GtrCCHXQQhZ8rFTfXUnb4C/Cno9d5Z+f0JJCTK4g2eQuEH6pI
+	AIPFLoYe1f70VhHVk0XHgmFVcrNNYYs=
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com
+ [209.85.219.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-170-qHa4B3KAOzu_8_o-w1DIVQ-1; Tue, 10 Mar 2026 09:28:36 -0400
+X-MC-Unique: qHa4B3KAOzu_8_o-w1DIVQ-1
+X-Mimecast-MFC-AGG-ID: qHa4B3KAOzu_8_o-w1DIVQ_1773149316
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-899ea295601so150252006d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 06:28:36 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773149316; x=1773754116;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=VcGwuo35RKK8ljJatS1Nd7WDDHQVev0Yemy6C4hCd2w=;
+        b=wXlEj6oeKVLuN5oqx+VUkAFG4r3AsYEIsXDet2lIlFe4J2oEcBUGdTwIY6yhv8bcJV
+         oxUyFz+rv7/l6IrPajiKkzVKEGG/EVhG1ULnDCPp2a6enHeZgNwZRjeux1NcMndeB4Uf
+         7gvfQ5L/6avqdJP/na9i/+/BZMzVKMSzItQSoBHAQltIZ2LWczrIGp0JgLvQTSU1E9pj
+         8EPU4iujGNZHGrTExIoZku2LlNUx7pUKn9947eij4/6mun1NVznsOlVxcBEtOeREGGqT
+         zxaiWmsUIe3+/p8lC7Z53IdsWCnrc1t84RGcKpv7BPa1T40cFO3bpLiayxFz4tMmTiNh
+         0/6g==
+X-Forwarded-Encrypted: i=1; AJvYcCVLq9M2cUJsfjI7g6EuzRYgQw3M14z+Bl4lcpIrXH1kFsTbLp4eT5E0PVfink7fbsADPWdRuualYNycc1Th/qwn@lists.infradead.org
+X-Gm-Message-State: AOJu0YxYqwz463m4QDtXJo3GFrVi4vxbqvwgWcF4NmGDXfuNp2I0p22s
+	MVCKASqmpUXu3RXnX0qAK+2BYTVkxMdgbUiwRoj3vDR1J7Y9fpHZi72Irg1qc0rcYBloOqTPNad
+	6cXt9Rl1ODdZkXJNQ77FvVzJTN7/uzvOG1GRzw5CzDp5KtKm8wICtcQwFnOAsFEfXrEuOhM7niN
+	ug
+X-Gm-Gg: ATEYQzzcEVFcuRn8TVh7QnA1uyUK9AuRkXXNXRp//cybjH9kG9vZOBYUyBHCry/KgA6
+	FhTgKOViGrzZCT2QGnquxAl7ya9kmfVaLN68jcR/CpnHDC5W8hFvWnXiurLfTlpX8JVa6MZeHU/
+	Pd/AvxWiQHqKeonz+xCsu7acUqSHJxMBSZxds7J6VucKcyrFtwNuVoeuSFY3q4o5/2QtqpUMhKW
+	VzN8jlkiZ5UxVep91Fn4NE1nRmq/hsMKtdvBdcoXB9bI2IW/JxH1dgVwP0uoFqC1zmjNXntx+uT
+	cA2Aqv5pCWZAOd+b3vWo1QOItGIEH3j/CGRf7e7s8msdWuCCXq6RDTky+uHkckggYZsvWlrKrrA
+	T67YijhyKeKeXD1GXHumGzSK03CNdSbuOzoUn1vatbJWUjfJVDMyhklt2
+X-Received: by 2002:a05:6214:400d:b0:89a:ff2:b8da with SMTP id 6a1803df08f44-89a30acb81bmr214491646d6.47.1773149315809;
+        Tue, 10 Mar 2026 06:28:35 -0700 (PDT)
+X-Received: by 2002:a05:6214:400d:b0:89a:ff2:b8da with SMTP id 6a1803df08f44-89a30acb81bmr214491196d6.47.1773149315391;
+        Tue, 10 Mar 2026 06:28:35 -0700 (PDT)
+Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-89a57a4b079sm18433156d6.20.2026.03.10.06.28.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Mar 2026 06:28:34 -0700 (PDT)
+Date: Tue, 10 Mar 2026 09:28:30 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+Cc: linux-clk@vger.kernel.org, sboyd@kernel.org, mturquette@baylibre.com,
+	sebastian.hesselbarth@gmail.com, gregory.clement@bootlin.co,
+	andrew@lunn.c, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] clk: mvebu: armada-37xx-periph: fix __iomem casts in
+ structure init
+Message-ID: <abAcfphl-aakfcf5@redhat.com>
+References: <20260310123625.163846-1-ben.dooks@codethink.co.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF00020E5F:EE_|DS0PR10MB7175:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5c3a51cc-bd82-4a4a-f05e-08de7ea7d55e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|36860700016|1800799024;
-X-Microsoft-Antispam-Message-Info: FsXUmvAFPWzA/8Jc/TsuH89vym1Zi0AJ5jstGTmOl6w62UPLbRuDDJVMSsmkdYGy3kxx5huvgPJ5XIDzxuzk62KpvBuQ1eLZTKOaJNAMkLxAbJ3CUG1Raaj+nsYpLEdqK99qyvmjsjdBHU/2tCE/CPbZH/08YU22/ydgc18INWSip4ELcvkQInpNY8HqB5Yms3IAWlvTQ2tiE3K/nigyOjztN+j70AZedcbz501Pj8ESoZwFOJ7EEJ+koRIUJM4Dcw4TgJRN9Hiky+XS/DSNpR/wI2uclJC60gLe0T8QOhPY7BzcdWRI3jx/6xDyENp8bZl5d4ka6l8c24fgmoSj3iRQ2JMeIcqvKnzmVdGX+G/VDy5CkweI4LulE394YI9jJkC/hQqAYCkP2E49nnrcf1m9LQCQ//e0RiQb+Vx5N5KTOI5xLMjPYqaBXPetTRac8hMKH8+ElfRVvQQgQ04pEaNCh2Su1n1DU6y0E2wn+zGpHz6Zpb7sjujj5MsyBOhx4VFWiWQSaRnvCvlJ4ZI0lgz4dCLYP2on7SipurbMOz3h53yWTz/09ex4qbjhNaIpNe2T/8/hST8XLcGFJNQe+HsCsONj+6Mj0QCZ4VXDBtpSRywuF1dSqBWWB8w0ZWlRihyd2eSnpkRTCJdSWpp9zT7INF0NKdeLIpCtXICyBV1IM0u90ZX1uESPTNC1YXWdXbnRjR0cI0W7WUGizZqydtpfsLOmBmi9EpQ0knxft71unxMFI5lXE0pRROEJz6xjSubgNJcWeDqZRTzxNiyAaA==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(36860700016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: H7zGWnmRO+C1XF5Ckq4O1nV17oHetCqgFq/Hm1iLqD+/3uHaoFWtNfCeUa59/G/c7ZvEV1PDT9QEsk2xE8RhCiiC4TXFgs5pfpBH5n1IRF2YGWTyfshPeFKhbjEBbBxFUhWG2sWaJO24QSU5Hm0ve0TUSPD/QiZt4pZI35i/6QPccfoYtGH0iX3WcyYUkg6U8KyaKUPjtyax52OkImJbVDoLdv+mecBDlkvt+OvMIVM4cUvdXM1ZgF1Zi2+BfKlNtR18DJfegZRGxskvbUIDdlAXlcLnUbg4zswegeHxJ0uFoIsF6+mjeSSSvTXL2K+x3lOefHKP3ewa4bEyXMeZKbzDAbgfgn6xpSBKhKWCfQgD9kkmelP9yVQ9boRBtAYDLu2dyVTuMW6PJ8RHoEv2jGVejC799gsRNZA8Ub/adr9FwEU6IZIF0XwHSw16p9uZ
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2026 13:20:43.6461
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5c3a51cc-bd82-4a4a-f05e-08de7ea7d55e
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF00020E5F.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB7175
+In-Reply-To: <20260310123625.163846-1-ben.dooks@codethink.co.uk>
+User-Agent: Mutt/2.2.14 (2025-02-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: a6Uos3r6-39W4jZ4W2kvI2zEQbDsVq3EXvrid5NiKTo_1773149316
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_062051_149088_207A9238 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20260310_062839_730619_A8BEA732 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,48 +110,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RX_CLASS_OR_REG macro is being used with RX_CLASS_OR_EN parameter
-when writing to the AND enable register. This should use RX_CLASS_AND_EN
-instead to properly configure the classifier AND enable register.
+On Tue, Mar 10, 2026 at 12:36:25PM +0000, Ben Dooks wrote:
+> There are a number of casts to "void __iomem *" in the initialsation
+> of the driver's clk information. Fix this by adding a helper macro
+> for the cast.
+> 
+> Silences a number of sparse warnings:
+> 
+> drivers/clk/mvebu/armada-37xx-periph.c:254:1: warning: incorrect type in initializer (different address spaces)
+> drivers/clk/mvebu/armada-37xx-periph.c:254:1:    expected void [noderef] __iomem *reg
+> drivers/clk/mvebu/armada-37xx-periph.c:254:1:    got void *
+> drivers/clk/mvebu/armada-37xx-periph.c:254:1: warning: incorrect type in initializer (different address spaces)
+> drivers/clk/mvebu/armada-37xx-periph.c:254:1:    expected void [noderef] __iomem *reg1
+> drivers/clk/mvebu/armada-37xx-periph.c:254:1:    got void *
+> drivers/clk/mvebu/armada-37xx-periph.c:254:1: warning: incorrect type in initializer (different address spaces)
+> drivers/clk/mvebu/armada-37xx-periph.c:254:1:    expected void [noderef] __iomem *reg2
+> drivers/clk/mvebu/armada-37xx-periph.c:254:1:    got void *
+> drivers/clk/mvebu/armada-37xx-periph.c:255:1: warning: incorrect type in initializer (different address spaces)
+> drivers/clk/mvebu/armada-37xx-periph.c:255:1:    expected void [noderef] __iomem *reg
+> drivers/clk/mvebu/armada-37xx-periph.c:255:1:    got void *
+> ...
+> 
+> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
 
-Fix this by using the correct RX_CLASS_AND_EN macro parameter for
-RX_CLASS_OR_REG when configuring the PTP duplicate and HSR tag
-classifiers.
-
-Fixes: f56438a74d88 ("net: ti: icssg: Add HSR/PRP protocol frame filtering")
-Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
----
-This is a fix. Posting this to net-next as the guilty cposting ommit is part
-of net-next tree and it's not part of net tree yet.
-
- drivers/net/ethernet/ti/icssg/icssg_classifier.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_classifier.c b/drivers/net/ethernet/ti/icssg/icssg_classifier.c
-index cde53d9aaa7b..87a8577093db 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_classifier.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_classifier.c
-@@ -517,7 +517,7 @@ void icssg_ft3_hsr_configurations(struct regmap *miig_rt, int slice,
- 
- 	regmap_write(miig_rt, RX_CLASS_N_REG(slice, CLASSIFIER_PTP_DUP, RX_CLASS_AND_EN),
- 		     RX_CLASS_DISABLE);
--	regmap_write(miig_rt, RX_CLASS_OR_REG(slice, CLASSIFIER_PTP_DUP, RX_CLASS_OR_EN),
-+	regmap_write(miig_rt, RX_CLASS_OR_REG(slice, CLASSIFIER_PTP_DUP, RX_CLASS_AND_EN),
- 		     RX_CLASS_OR_DUP_PTP);
- 	regmap_write(miig_rt, RX_CLASS_GATES_N_REG(slice, CLASSIFIER_PTP_DUP),
- 		     RX_CLASS_GATE_PTP);
-@@ -525,7 +525,7 @@ void icssg_ft3_hsr_configurations(struct regmap *miig_rt, int slice,
- 	if (prueth->hsr_prp_version != PRP_V1) {
- 		regmap_write(miig_rt, RX_CLASS_N_REG(slice, CLASSIFIER_HSR_TAG, RX_CLASS_AND_EN),
- 			     RX_CLASS_DISABLE);
--		regmap_write(miig_rt, RX_CLASS_OR_REG(slice, CLASSIFIER_HSR_TAG, RX_CLASS_OR_EN),
-+		regmap_write(miig_rt, RX_CLASS_OR_REG(slice, CLASSIFIER_HSR_TAG, RX_CLASS_AND_EN),
- 			     RX_CLASS_OR_HSR_TAG);
- 		regmap_write(miig_rt, RX_CLASS_GATES_N_REG(slice, CLASSIFIER_HSR_TAG),
- 			     RX_CLASS_GATE_PTP);
-
-base-commit: 89fe91c65992a37863241e35aec151210efc53ce
--- 
-2.34.1
+Reviewed-by: Brian Masney <bmasney@redhat.com>
 
 
