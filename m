@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26E85EB1061
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 14:55:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9439DEB105A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 14:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pwf6Nc7CaGHddB3FSw2OYM6VouGq/Ldl0n4v0DGTvQM=; b=ePGkYVFmXzaeGGuTozSPYETS/c
-	/OYQW4GppEskwwItPLtlUXyo9YgmHMSC2ZrIIYOa3ZpCQDTUcI9Yb/orfbtb1G1pQBRloOZZHiHca
-	CGbwK5jV9U4U5YQmGAK7gUbCDI6z1MO57e+2sDIvEScXQdFWJK54uAd9vwYpbBCxlNmUVniEBkJv6
-	+rxne4jYlihUgMuZ1rzc4h0GNVMXsY9Yfk0cDO/XXvGkYndZhd5P1Y7m/qFn/51BiahzrHsCUmnpA
-	AQgSKoypZTgMxLzBqsdtiM1tyKNCl/ceuOtNYorzEuf0dZ8+emZrO+nB2+85vtCWobI68wi04DwXJ
-	yGC7ZjdQ==;
+	bh=4Koap7c4nmBUn1jQcRs2TKnT3RilQxG9yZc8gbf4yHA=; b=HFjZ9XkCkkzhm+fvVGNn7Wfysn
+	AtKBsBTeWK78AhWMqpBJDWvkbT1NPIvzsHZQjUXVRCXOfeBgMgtwo7pRtmzQIOcJ3qFPp03s7qqB/
+	KiZloVfu9X2VT17dan3jB6fvmufMLdr04q7Wd5kj5DPcHjkiXOtUi2rhbpOuZAAakcqdZwxUpk6jl
+	tGbq9ZF5umvdOKqZzBTUwHfDIaE8UeuEKyKUvfP9LTqmXSagKLyhqqTIw9VStUmGRokQL+dpGj0mr
+	E5VWb6q1gAGv0qRTNPWtXl5J9gyNf2NBr/APY74L9MROmUVe339SaSNktWAQIe50oDNC2u0Nm//jA
+	HvsFwbug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzyU7-00000009jh1-3zrU;
-	Tue, 10 Mar 2026 14:54:59 +0000
-Received: from mta1.migadu.com ([2001:41d0:203:375::] helo=out-187.mta1.migadu.com)
+	id 1vzyUC-00000009jjx-13jz;
+	Tue, 10 Mar 2026 14:55:04 +0000
+Received: from out-181.mta0.migadu.com ([2001:41d0:1004:224b::b5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzyU5-00000009jf4-2aa3
+	id 1vzyUA-00000009jhk-2hmc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 14:54:58 +0000
+	Tue, 10 Mar 2026 14:55:04 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1773154493;
+	t=1773154499;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Pwf6Nc7CaGHddB3FSw2OYM6VouGq/Ldl0n4v0DGTvQM=;
-	b=gD0zzF1ZzkpibyiRY+w+AjVdGRw9wPyUFI+y5FS68pAmCO1c1M9m41DEaxy2QyJUSTMhzg
-	P5XvbFOUZoVyZubGSqW0JOoPKegDPZYBJmxRz5fKJnH3JtcIuHIQQfgUEkfvTqhC9I4zI7
-	8e/PuxvBlI2swPY3tUz0PqrlB4hUlJQ=
+	bh=4Koap7c4nmBUn1jQcRs2TKnT3RilQxG9yZc8gbf4yHA=;
+	b=Q7J9Xayb3tuq1RwczoR+kkYcwmbHr2IBdva+1kWyUfpOmeUqFxY8p3HhUG0VvkvFVRO7cq
+	rcbAym+WsHWFr//SsTKMXbfjnthBN1AVMJKC4S1BQIu+Y4f+asu6YqEK9FjMKM6HNAuqFg
+	o+kIhQjL1lj8wyLdBd5OI3jV01FKMB4=
 From: Usama Arif <usama.arif@linux.dev>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	ryan.roberts@arm.com,
@@ -71,17 +71,17 @@ Cc: ajd@linux.ibm.com,
 	shakeel.butt@linux.dev,
 	kernel-team@meta.com,
 	Usama Arif <usama.arif@linux.dev>
-Subject: [PATCH 3/4] elf: align ET_DYN base to exec folio order for contpte mapping
-Date: Tue, 10 Mar 2026 07:51:16 -0700
-Message-ID: <20260310145406.3073394-4-usama.arif@linux.dev>
+Subject: [PATCH 4/4] mm: align file-backed mmap to exec folio order in thp_get_unmapped_area
+Date: Tue, 10 Mar 2026 07:51:17 -0700
+Message-ID: <20260310145406.3073394-5-usama.arif@linux.dev>
 In-Reply-To: <20260310145406.3073394-1-usama.arif@linux.dev>
 References: <20260310145406.3073394-1-usama.arif@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_075457_814456_A9EF0CB3 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20260310_075502_846992_B6DA5A9C 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,62 +96,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For PIE binaries (ET_DYN), the load address is randomized at PAGE_SIZE
-granularity via arch_mmap_rnd(). On arm64 with 64K base pages, this
-means the binary is 64K-aligned, but contpte mapping requires 2M
-(CONT_PTE_SIZE) alignment.
+thp_get_unmapped_area() is the get_unmapped_area callback for
+filesystems like ext4, xfs, and btrfs. It attempts to align the virtual
+address for PMD_SIZE THP mappings, but on arm64 with 64K base pages
+PMD_SIZE is 512M, which is too large for typical shared library mappings,
+so the alignment always fails and falls back to PAGE_SIZE.
 
-Without proper virtual address alignment, the readahead patches that
-allocate 2M folios with 2M-aligned file offsets and physical addresses
-cannot benefit from contpte mapping. The contpte fold check in
-contpte_set_ptes() requires the virtual address to be CONT_PTE_SIZE-
-aligned, and since the misalignment from vma->vm_start is constant
-across all folios in the VMA, no folio gets the contiguous PTE bit
-set, resulting in zero iTLB coalescing benefit.
+This means shared libraries loaded by ld.so via mmap() get 64K-aligned
+virtual addresses, preventing contpte mapping even when 2M folios are
+allocated with properly aligned file offsets and physical addresses.
 
-Fix this by bumping the ELF alignment to PAGE_SIZE << exec_folio_order()
-when the arch defines a non-zero exec_folio_order(). This ensures
-load_bias is aligned to the folio size, so that file-offset-aligned
-folios map to properly aligned virtual addresses.
+Add a fallback in thp_get_unmapped_area_vmflags() that tries
+PAGE_SIZE << exec_folio_order() alignment (2M on arm64 64K pages)
+when PMD_SIZE alignment fails. This is small enough that shared
+libraries could qualify, enabling contpte mapping for their executable
+segments.
+
+This applies to all file-backed mappings (not just exec). Non-exec
+file-backed mappings also benefit from contpte mapping when large
+folios are used. Aligning all file-backed mappings ensures that any
+large folio in the page cache can be contpte-mapped regardless of
+the mapping's protection flags, reducing dTLB misses for read-heavy
+workloads.
+
+The fallback is gated by exec_folio_order() which returns 0 by default,
+making this a no-op on architectures that don't define it.
 
 Signed-off-by: Usama Arif <usama.arif@linux.dev>
 ---
- fs/binfmt_elf.c | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+ mm/huge_memory.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-diff --git a/fs/binfmt_elf.c b/fs/binfmt_elf.c
-index 8e89cc5b28200..2d2b3e9fd474f 100644
---- a/fs/binfmt_elf.c
-+++ b/fs/binfmt_elf.c
-@@ -49,6 +49,7 @@
- #include <uapi/linux/rseq.h>
- #include <asm/param.h>
- #include <asm/page.h>
-+#include <linux/pgtable.h>
+diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+index 8e2746ea74adf..1c9476a5ed51c 100644
+--- a/mm/huge_memory.c
++++ b/mm/huge_memory.c
+@@ -1242,6 +1242,23 @@ unsigned long thp_get_unmapped_area_vmflags(struct file *filp, unsigned long add
+ 	if (ret)
+ 		return ret;
  
- #ifndef ELF_COMPAT
- #define ELF_COMPAT 0
-@@ -1106,6 +1107,20 @@ static int load_elf_binary(struct linux_binprm *bprm)
- 			/* Calculate any requested alignment. */
- 			alignment = maximum_alignment(elf_phdata, elf_ex->e_phnum);
- 
-+			/*
-+			 * If the arch requested large folios for exec
-+			 * memory via exec_folio_order(), ensure the
-+			 * binary is mapped with sufficient alignment so
-+			 * that virtual addresses of exec pages are
-+			 * aligned to the folio boundary. Without this,
-+			 * the hardware cannot coalesce PTEs (e.g. arm64
-+			 * contpte) even though the physical memory and
-+			 * file offset are correctly aligned.
-+			 */
-+			if (exec_folio_order())
-+				alignment = max(alignment,
-+					(unsigned long)PAGE_SIZE << exec_folio_order());
++	/*
++	 * If the arch requested large folios for exec memory, try to align
++	 * to the folio size as a fallback. This is much smaller than PMD_SIZE
++	 * (e.g. 2M vs 512M on arm64 64K pages), so it succeeds for mappings
++	 * that are too small for PMD alignment. Proper alignment ensures that
++	 * the hardware can coalesce PTEs (e.g. arm64 contpte) when large
++	 * folios are mapped.
++	 */
++	if (exec_folio_order()) {
++		unsigned long folio_size = PAGE_SIZE << exec_folio_order();
 +
- 			/**
- 			 * DOC: PIE handling
- 			 *
++		ret = __thp_get_unmapped_area(filp, addr, len, off, flags,
++					      folio_size, vm_flags);
++		if (ret)
++			return ret;
++	}
++
+ 	return mm_get_unmapped_area_vmflags(filp, addr, len, pgoff, flags,
+ 					    vm_flags);
+ }
 -- 
 2.47.3
 
