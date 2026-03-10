@@ -4,78 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC1B2FD4F06
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 16:50:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B63DFD4F04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 16:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=98dDtC5xCuAF/vm+hGfxkNYwBtTmfyvGndD1+gW7qYY=; b=2/HmTdP81KyL7xJ9bwsZ+yXkkX
-	i+YIm0fzMjYG8pDralFRIb/RHogG5dq56fBfF6EjCZ8A1BiIXILg38A3UwbYZSzqYB+d2SsX6ybUs
-	3C4eyOkwJ2wWI3w5gwKY7+5GoKUe6snN11XaoJMhimknScZ37hhtxIel6rDeQH9OsZtDJiodcWD4o
-	SnoilJq4PazGqSwujcrbcjqcivWyEWfmS+J1+DjCGyCANo9VJKRiONPHuK1QN0u/8Fh+1xHCA2CeS
-	8t2RhnVenGs/rZtc3zRTOBGS4Enin07A9/rpJkvtn+0dobSc1tO1rt3pvc4pDkfCcYdo5dElco/3C
-	P80EzUmQ==;
+	bh=auHdVnEiNttivU3WpAwlPNPg2IpeSVq/bDwRs4IssAc=; b=PcRDTJqrMprgKurDJ8QHtZeXN+
+	hdlKCVPqOsIGSmT7ab7NCeDs5hPr7GI3IEyJquBGVd0eYpTkUgmLnDN/R5hqVs6XcVnh++og59QM+
+	IaWokdmpeQ5P1U3GwcrbPKl/Aa6wn1HCDiTKNUSUKR+io7amURp6ButnA9SbZC7yqEDzbE1Mmy1FB
+	IyKQEhxRHDYynDFswA81F7yV9Iq4pe48cAeFzqsiGDZu6mgEwaCHTVGPp7Ajvb2uPTaVgIyFx9AXj
+	PVCVmH/GsernWIPV+dv1eWuP61M/L25RkueC/kAw28YPyCXpSVDuqzGpXwM6TWErxflYNImxcw9wM
+	TRupXhxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w00Hs-00000009w0N-0u3O;
-	Tue, 10 Mar 2026 16:50:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w00Hy-00000009w2e-0ElU;
+	Tue, 10 Mar 2026 16:50:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w00Hq-00000009w0B-02wQ
+	id 1w00Hs-00000009w0c-44D9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 16:50:26 +0000
+	Tue, 10 Mar 2026 16:50:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2200F60054;
-	Tue, 10 Mar 2026 16:50:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C49ABC19423;
-	Tue, 10 Mar 2026 16:50:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6478741A33;
+	Tue, 10 Mar 2026 16:50:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93214C2BC9E;
+	Tue, 10 Mar 2026 16:50:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773161424;
-	bh=63jyBytLUR+i/lBx8xB06KCEs0ZPeYJ2c2pno8lKA2Y=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=H1ZTJD2cZrCrN0dUV3oOcdFSF7HE2Prlvnd9N0z+j1ZW5sugWTWx7VsJ8n5qoErKS
-	 M6qT644sZKMQ6VYclH69y+7CLlfm4hfn/T8Ef1upsdoD18zpNiJFsUvGia2Sf05nhk
-	 V7bEQiy5lcta2nis1EEZrkKKZjxZuG5aqnykwlNP3wR4tsWjKuUKlfmJOfCQG8nPqJ
-	 d0M2SsKJleGjDdJ1GsXNXH0+8Iid/hB3Lm2j+g1exJtE+RFuZvpyQm1Jew9AL8aSt+
-	 ZOPtdsS33TOfVhzc+49S05SU9glAv0XJlDcmB1aIeNA8eK6auP5UQgvGyJltdAOJiE
-	 TMqzS0JHS36vA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1w00Hm-00000000Xkq-1nlO;
-	Tue, 10 Mar 2026 16:50:22 +0000
-Date: Tue, 10 Mar 2026 16:50:22 +0000
-Message-ID: <86bjgv7ho1.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Oliver Upton <oupton@kernel.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH RESEND 2/2] KVM: arm64: nv: Expose shadow page tables in debugfs
-In-Reply-To: <thetpwxswabflbntrrxfsxpej4scwq25qpviv2svmbj7br3w3d@mdrrhsuexsf4>
-References: <20260308231829.864983-1-weilin.chang@arm.com>
-	<20260308231829.864983-3-weilin.chang@arm.com>
-	<20260310152604.GA3093715@e124191.cambridge.arm.com>
-	<thetpwxswabflbntrrxfsxpej4scwq25qpviv2svmbj7br3w3d@mdrrhsuexsf4>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: weilin.chang@arm.com, joey.gouly@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oupton@kernel.org, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1773161428;
+	bh=BAxA5cq+4SCMpHLZSPR6IGnVcUVzSzmQy7VsDQVyUX4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ULTxrBpNDsZcxV9AuGVsXi+DANSUSzVpfnuy2GPkkgeYbPno1sr+1uOzV718EewgQ
+	 AC7sj6TUvxixeh67QfgXBu2PGYdNCMyWR4/H91vk3sKnEwxY+5Ycd7N8fXSXI+jCfa
+	 W9JmAF1nN330XEAqewpnqCJiSXT5r9sKFJop5ITYVaS4TnuvudoZUOnhTbmaoXJB6g
+	 +2I8j3Z/+TpbZw3ALUqKns73fQHgarvkhFgaZ9Y29scfKcfEmQYaW2BTFG2jG/hf/i
+	 Dcr52hbeabN0EcsfDoMf0EkN9uTgZDGMWTuVTnwuiC/Kfvk7M741MEv3w5aofGPEBs
+	 wzfpNE9GeiRbA==
+Date: Tue, 10 Mar 2026 16:50:23 +0000
+From: Will Deacon <will@kernel.org>
+To: Anna Maniscalco <anna.maniscalco2000@gmail.com>
+Cc: Rob Clark <robin.clark@oss.qualcomm.com>,
+	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+	iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iommu: arm-smmu-qcom: Ensure smmu is powered up in
+ set_ttbr0_cfg
+Message-ID: <abBLz16xYE0xJqgE@willie-the-truck>
+References: <20260210-qcom_smmu_pmfix-v1-1-78b7143ac053@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260210-qcom_smmu_pmfix-v1-1-78b7143ac053@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260310_095029_157842_14F828CD 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,48 +74,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 10 Mar 2026 16:17:07 +0000,
-Wei-Lin Chang <weilin.chang@arm.com> wrote:
+On Tue, Feb 10, 2026 at 05:17:38PM +0100, Anna Maniscalco wrote:
+> Previously the device was being accessed while potentially in a
+> suspended state.
 > 
-> On Tue, Mar 10, 2026 at 03:26:04PM +0000, Joey Gouly wrote:
-
-> > > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> > > index 5d5a3bbdb95e..f88f6c4d646e 100644
-> > > --- a/arch/arm64/include/asm/kvm_host.h
-> > > +++ b/arch/arm64/include/asm/kvm_host.h
-> > > @@ -217,6 +217,10 @@ struct kvm_s2_mmu {
-> > >  	 */
-> > >  	bool	nested_stage2_enabled;
-> > >  
-> > > +#ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
-> > > +	struct dentry *shadow_pt_debugfs_dentry;
-> > > +#endif
-> > > +
-> > >  	/*
-> > >  	 * true when this MMU needs to be unmapped before being used for a new
-> > >  	 * purpose.
-> > > @@ -405,6 +409,9 @@ struct kvm_arch {
-> > >  	 * the associated pKVM instance in the hypervisor.
-> > >  	 */
-> > >  	struct kvm_protected_vm pkvm;
-> > > +
-> > > +	/* Nested virtualization info */
-> > > +	struct dentry *debugfs_nv_dentry;
-> > 
-> > Seems like this could be guarded with CONFIG_PTDUMP_STAGE2_DEBUGFS too, or is
-> > there a reason you didn't?
+> Signed-off-by: Anna Maniscalco <anna.maniscalco2000@gmail.com>
+> ---
+>  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 27 +++++++++++++++++++++------
+>  1 file changed, 21 insertions(+), 6 deletions(-)
 > 
-> Right, I was thinking this "nested" directory can also hold other NV
-> related information in the future, that's why I didn't keep it behind
-> the option.
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> index 573085349df3..ca34b7a141e6 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> @@ -231,16 +231,27 @@ static int qcom_adreno_smmu_set_ttbr0_cfg(const void *cookie,
+>  	struct io_pgtable *pgtable = io_pgtable_ops_to_pgtable(smmu_domain->pgtbl_ops);
+>  	struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
+>  	struct arm_smmu_cb *cb = &smmu_domain->smmu->cbs[cfg->cbndx];
+> +	int ret;
+> +
+> +	ret = pm_runtime_resume_and_get(smmu_domain->smmu->dev);
+> +	if (ret < 0) {
+> +		dev_err(smmu_domain->smmu->dev, "failed to get runtime PM: %d\n", ret);
+> +		return -ENODEV;
+> +	}
+>  
+>  	/* The domain must have split pagetables already enabled */
+> -	if (cb->tcr[0] & ARM_SMMU_TCR_EPD1)
+> -		return -EINVAL;
+> +	if (cb->tcr[0] & ARM_SMMU_TCR_EPD1) {
+> +		ret = -EINVAL;
+> +		goto out;
+> +	}
 
-We can cross that bridge when we get there. In the meantime, I'd side
-with Joey and would rather not have a dangling pointer.
+Presumably, you only need to stabilise the power state across the call
+to arm_smmu_write_context_bank(), in which case why not defer that until
+you've gone past all these early exits?
 
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Will
 
