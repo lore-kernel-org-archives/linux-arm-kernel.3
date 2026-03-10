@@ -4,81 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C0E7EB105E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 14:36:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C731EB1054
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 14:43:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mTgu1785s5aO20nIJwGtvYvJg7rw80/9Czh5nhcWUPc=; b=MKezs22+src7+8Lg/h7OVtMTnN
-	KM0RJqVa9HKxFOLa+/1b4UoL84KabW047wRPc6FNxSi+lV9CmKKvG3V1MusoKORJy3+FD8sxzoYi9
-	bzLF+j12R9qKy+vKwwB/GGwnqzzLDev81/jqVhrd49UaDfswa1itf1l1Rk9wAeNht4fLSCxx1K0AP
-	0QxpNuUOLptuULfhMsfxXveLBDo6VNeKrEUKK/vgVvyK0OitLUwwcBHXWc/aLZKFRKH0P50Vk79GP
-	5r97U+0r63WWupTFzvrcDkzMrpGbDPRIUREHy8vis0vhsDRH/5k9RIMVCZ2mGZ+1MKixvyxixmMdj
-	GrBH0wxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xcyvy0hY9QeImFtkFkXgzm9/GiU96F/MAFJKt+yYvBI=; b=b4hAbr/chuCIdkXkp9DzQA6hgY
+	npELKUkJPTB3EnpvIVDH2FIre1MoWjJBksGaJPj5o/wbF/YoPF81Uhxrg5TWEFjOI1m0+IQ0YaIfh
+	lYCRTdDZa7xmhFl4/NnfSxGvPVDwfpH8xOFXh0FgLckjDhDD6PH8C/FJbIq19OvjV5DY3EePIMagF
+	o15CNmy2yeIKnJUn0qg0MJVTwEXQwezOx/Aw7qZrcTPS4EjlIYC7WRtsp+2zC0z5Q50SOQCuOr8sm
+	2cqJ5olmJZyqXxaAeB+pJYuUCdVncUeXCfGSXtLeNHPGMnqbWOJDUMo4RgY4uoz4FuK1Tr57cYlzn
+	QywMiKmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzyBr-00000009i6a-2Gk2;
-	Tue, 10 Mar 2026 14:36:07 +0000
-Received: from mx203.easyname.com ([212.232.28.124])
+	id 1vzyIW-00000009ikw-32iy;
+	Tue, 10 Mar 2026 14:43:00 +0000
+Received: from smtprelay0014.hostedemail.com ([216.40.44.14] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzyBm-00000009i4z-2M9i
+	id 1vzyIU-00000009ikb-2722
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 14:36:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=peppergray.xyz; s=easyname; h=Content-Type:Cc:To:Subject:Message-ID:Date:
-	From:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=mTgu1785s5aO20nIJwGtvYvJg7rw80/9Czh5nhcWUPc=; b=qF0zP+Odhomk9Nqu5KkzmaH94O
-	qqgtTYnwN1A74gqroFe2jMlQKAROIYmOVpBEmJ4nzEB7RKtLXPXDL1V6pQVmdOigCCQiPBjsyI3MU
-	nNC/MzNR8mv8GNSMATv4O4QSEVfSCFYZe1m8BXV3Z2N7Src6SYrNAu/rrfg31cE0jUKeZ223iD4NM
-	iuEBjBeenfiNYHaqrHB58MP0fwq0KGbIRXcrRMs1WM4JvRP2I50RGGr7xKk+2JKm6yy3PHgftnu8f
-	WCDgmGOWQX0NjD7om4D5t7jRBljbVnS91EyHjsqruH1/9P3GQSr+qwPVJt25lykL8JtGxEaXH8juU
-	LX4QS8ZA==;
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=peppergray.xyz; s=easyname; h=Content-Type:Cc:To:Subject:Message-ID:Date:
-	From:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=mTgu1785s5aO20nIJwGtvYvJg7rw80/9Czh5nhcWUPc=; b=qF0zP+Odhomk9Nqu5KkzmaH94O
-	qqgtTYnwN1A74gqroFe2jMlQKAROIYmOVpBEmJ4nzEB7RKtLXPXDL1V6pQVmdOigCCQiPBjsyI3MU
-	nNC/MzNR8mv8GNSMATv4O4QSEVfSCFYZe1m8BXV3Z2N7Src6SYrNAu/rrfg31cE0jUKeZ223iD4NM
-	iuEBjBeenfiNYHaqrHB58MP0fwq0KGbIRXcrRMs1WM4JvRP2I50RGGr7xKk+2JKm6yy3PHgftnu8f
-	WCDgmGOWQX0NjD7om4D5t7jRBljbVnS91EyHjsqruH1/9P3GQSr+qwPVJt25lykL8JtGxEaXH8juU
-	LX4QS8ZA==;
-Received: from mail-ed1-f43.google.com ([209.85.208.43])
-	by mx.easyname.com with esmtpsa (TLSv1.3:TLS_AES_128_GCM_SHA256:128)
-	(Exim 4.92)
-	(envelope-from <hello@peppergray.xyz>)
-	id 1vzxsY-0000lk-Q5
-	for linux-arm-kernel@lists.infradead.org; Tue, 10 Mar 2026 14:16:12 +0000
-Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-6617f0bcad2so7742799a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 07:16:08 -0700 (PDT)
-X-Gm-Message-State: AOJu0YyEZnnWD3Nh/vU6LExWXHQvkmDtlIEWgjcNYTgwuxOVUt1FZZiR
-	h+MbTrrNhLjn74alNfLrJpkXb1AEBfsBQYCLw2GCvhxByi+yaRg5XngnLaFp38NpYAKbxP+in2y
-	ajc5eflJydoEB7yyUbRHKCdpcsb5MDZE=
-X-Received: by 2002:a17:906:7307:b0:b8e:fe3c:2255 with SMTP id
- a640c23a62f3a-b942dbcd330mr853312666b.5.1773152167871; Tue, 10 Mar 2026
- 07:16:07 -0700 (PDT)
+	Tue, 10 Mar 2026 14:42:59 +0000
+Received: from omf10.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay06.hostedemail.com (Postfix) with ESMTP id 0E62B1B6C86;
+	Tue, 10 Mar 2026 14:42:55 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf10.hostedemail.com (Postfix) with ESMTPA id B501E40;
+	Tue, 10 Mar 2026 14:42:51 +0000 (UTC)
+Date: Tue, 10 Mar 2026 10:43:01 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
+ linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+ kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ jstultz@google.com, qperret@google.com, will@kernel.org,
+ aneesh.kumar@kernel.org, kernel-team@android.com,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v14 00/30] Tracefs support for pKVM
+Message-ID: <20260310104301.665bc684@gandalf.local.home>
+In-Reply-To: <20260309162516.2623589-1-vdonnefort@google.com>
+References: <20260309162516.2623589-1-vdonnefort@google.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-From: Pepper Gray <hello@peppergray.xyz>
-Date: Tue, 10 Mar 2026 15:15:56 +0100
-X-Gmail-Original-Message-ID: <CAC+fAGbCjQSGbtkbGr5Qb=tPez1i4KZ7TtC0DPHxGbC0wLvBAw@mail.gmail.com>
-X-Gm-Features: AaiRm503pGz-nb_M9Lz3egtWB6_FCbOps3F_-QJ5XL4fGPd7A88B0Kv0vylRoWk
-Message-ID: <CAC+fAGbCjQSGbtkbGr5Qb=tPez1i4KZ7TtC0DPHxGbC0wLvBAw@mail.gmail.com>
-Subject: [PATCH] arm64/scs: Fix handling of advance_loc4
-To: linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Stat-Signature: 4dz8tkqbqdur7t1oxrqypc1fny4f8est
+X-Rspamd-Server: rspamout02
+X-Rspamd-Queue-Id: B501E40
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1+DNCjV7dq3BIMgJPb6chTxzLYz8EtnyHM=
+X-HE-Tag: 1773153771-423745
+X-HE-Meta: U2FsdGVkX18n6LeKxHu/K8lrNosbg33R7MUM0BYl15C/a6ynYReUnFyq+jAHHl9dj4LFnQshyXL7OLItBj+Eouj8fvPWaNp+LBnrNYZf3jEjjzX+E9q+iYmzFNgGYC4oM2qcAfvLkzMgpczH6srVhwqHNl5YyzW763zKc+lvNjlXGgELd3NCBbMrEf0wcGQyDbN5iiU6Djv/+CTyk9l5zNAjc5aqNh0vIjGFmfr0g7FOAfXUk1swp0mgBxbCpDyO2NX3K6xUbTxq8kf1UPQ4lWjplk2N71zu7idjH6ZMuBi6XoGA/QJ1Vj612bYcVTPm/l0TqqB0xWcxDSOvK/OipdOWZhpsceIVikH36Jz2YobqoPOoKsqmGQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_073602_593740_EB30DA5E 
-X-CRM114-Status: UNSURE (   8.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260310_074258_604056_CC3AF127 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,33 +74,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DW_CFA_advance_loc4 is defined but no handler is implemented. Its
-CFA opcode defaults to EDYNSCS_INVALID_CFA_OPCODE triggering an
-error which wrongfully prevents modules from loading.
+On Mon,  9 Mar 2026 16:24:46 +0000
+Vincent Donnefort <vdonnefort@google.com> wrote:
 
-Signed-off-by: Pepper Gray <hello@peppergray.xyz>
----
- arch/arm64/kernel/pi/patch-scs.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
 
-diff --git a/arch/arm64/kernel/pi/patch-scs.c b/arch/arm64/kernel/pi/patch-scs.c
-index bbe7d30ed12b32..dac568e4a54f23 100644
---- a/arch/arm64/kernel/pi/patch-scs.c
-+++ b/arch/arm64/kernel/pi/patch-scs.c
-@@ -192,6 +192,14 @@ static int scs_handle_fde_frame(const struct
-eh_frame *frame,
-  size -= 2;
-  break;
+> 5. pKVM
+> -------
+> 
+> The pKVM support simply creates a "hypervisor" trace_remote on the
+> kernel side and inherits from simple-ring-buffer.c on the hypervisor
+> side.
+> 
+> A new event macro is created HYP_EVENT() that is under the hood re-using
+> REMOTE_EVENT() (defined in the previous paragaph) as well as generate
+> hypervisor specific struct and trace_<event>() functions.
 
-+ case DW_CFA_advance_loc4:
-+ loc += *opcode++ * code_alignment_factor;
-+ loc += (*opcode++ << 8) * code_alignment_factor;
-+ loc += (*opcode++ << 16) * code_alignment_factor;
-+ loc += (*opcode++ << 24) * code_alignment_factor;
-+ size -= 4;
-+ break;
-+
-  case DW_CFA_def_cfa:
-  case DW_CFA_offset_extended:
-  size = skip_xleb128(&opcode, size);
+I pulled in all the tracing related patches (1-18) and pushed it to my repo:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace.git  ring-buffer/for-next
+
+It's based on top of v7.0-rc3. I'm not going to rebase that branch,
+although I may built on top of it, but for now, feel free to merge it into
+the arm tree and put the rest of the patches on top of it.
+
+-- Steve
 
