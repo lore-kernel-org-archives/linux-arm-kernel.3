@@ -4,124 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A4BAEB1048
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 10:33:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5752EB1049
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 10:34:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PoTT90q9wcR7jWtc52LXPjNTt4k/OTLh0LDj06sPSFg=; b=utKDQl+2+JiNf+rBqvr6x0YLgE
-	3oszTIXKUccFJW5Ki7pczms5XtNr3wNrVBsIJ5bMuAh2Tk114KhdyVPQLFXBapv6Zj9s4RB3FXEcJ
-	iyAtLj4JHnr5Z5tKly1W8CN0ogkPayJbUBCzNUOxnYUn6sQs9DGZHvltp3IUmYzOqch6xxOfcx2Gz
-	mmVpQijA+kontJvJFcdjS0tNJXcCeVVvnyzP4AYqdiJawkIB+YijKw8VR+psviCqoYaVvLb2wKlil
-	qCKtEorri5yA0fFsKWUOfxn1/0aU0NSKMmODBU7pwCPER/pH/PE+T/RcVHuX9eq7CVL9KM0j6ag4d
-	WUwoThaw==;
+	bh=8WaDDT20xUGl6yGh5IPza+ltaEnUO/3lX2to0edzDu0=; b=Ef+wacL1OgDMwdISZdWRdRt5Du
+	gxnFt6on5669ED0VOXegOI59QiFNoSHBxZP7xi7BkWsJPiJkd3kO+ahQL0vv5HIjpl0/wHfCEJ1Ka
+	7oHQlRW4KjoiJOjdG7XA8WOKFGg/6B2gPito3mQFEDzU5wdf8GomTeG6PO6GZLaNLAbxsNWRcC0R5
+	cHULdXowKBRcGLuhkrCAcSc7iPw6qqRlI/WChhwBvUFQJG07KRY338eTCPWNr8Hf8pP2GyobrEJgq
+	CCSZ+1aRciauNwQLwTtqfJX2U13X/sqJNXaN3hxbjbRV7TiEAPES4r0n7//THvZn80Es7mIeUyxvm
+	jlScJvPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzuOl-00000009CuH-3tbm;
-	Tue, 10 Mar 2026 10:33:11 +0000
-Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzuOj-00000009CtW-0mUL
+	id 1vzuPt-00000009D2j-2xRz;
+	Tue, 10 Mar 2026 10:34:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vzuPq-00000009D2E-3OQ1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 10:33:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jSDZmznF3wYbm/CxwJ5DnFYGzlyOoKoCNLq09Y0VekfbJ6XEufxUSXLkVEDSTnvcwXjIvcF33xCXbiex3ljCvMKiLh78R8AR5XRi4uwFtXMMLEJBk7El+O91nZxkWyqW/7vnHXyk6nCe/toRLhF+J784aBqYY6YjiahJuY6tXmpedEQtXizSwS1ANiTKHiBwRh4KIRaM+UBbn5XscIy/i0MOQyrHZLQnzFLkqL+CWaLeGDmDYZYirdTKO35a3QDnyancXzbNYZTvVptkVTXRrzAsYOa5rwSZxmojYpfwrKEo6/yKRKjAsqgI+My+tNHUNNYEkEw0Yyd6bN8z9xnqZQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PoTT90q9wcR7jWtc52LXPjNTt4k/OTLh0LDj06sPSFg=;
- b=BKhc4HY/AT8nBr7dolX7bbQzrljOFifQDxIbAUnhrOmWRx68nGgyUUo29tDWRsK+g2kJAFkuzTAopiGewia1sQ+QSp6nRq+S3+KbffEaahnKnZvUDxrmXpR6Efhtv7zPutyhvTeI6JuRczKyarNZZBmkOEr77RFw3wguYsjYAvAhytc14Lso5rATjbDNpcblBl6cc5QvOqvr89Qib1rhMGAkQdIkruh13cepFGE5D6K3dEW36mZ7BIVeGS58endHolxEQwtXWQxLCzA8KgpwPKlG71yfLPmWPoKpyDkUzsnNdu+4OwDzox7FetCAr51/v2KzX++QyjOnKKlJGIqliQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PoTT90q9wcR7jWtc52LXPjNTt4k/OTLh0LDj06sPSFg=;
- b=lzLukqo7DtrCsZF3DuNe9WPN/Yfsu0Ke9MSpCBwaWWq3Ad7G8bZsIxYcRDLM86bc6r6vjU1zGxFbVRTpoT2KldEynDbO0WVvS7amkFigh5zjpjH61GU+avAY5putdLpbZsacTufz5nVjD57JuJTDbMbqqWU/25PbteoNj+enszM=
-Received: from BN0PR04CA0077.namprd04.prod.outlook.com (2603:10b6:408:ea::22)
- by BY5PR10MB4257.namprd10.prod.outlook.com (2603:10b6:a03:211::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.25; Tue, 10 Mar
- 2026 10:33:05 +0000
-Received: from BN2PEPF00004FC1.namprd04.prod.outlook.com
- (2603:10b6:408:ea:cafe::1d) by BN0PR04CA0077.outlook.office365.com
- (2603:10b6:408:ea::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.25 via Frontend Transport; Tue,
- 10 Mar 2026 10:32:43 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- BN2PEPF00004FC1.mail.protection.outlook.com (10.167.243.187) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9678.18 via Frontend Transport; Tue, 10 Mar 2026 10:33:03 +0000
-Received: from DLEE214.ent.ti.com (157.170.170.117) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 10 Mar
- 2026 05:33:03 -0500
-Received: from DLEE200.ent.ti.com (157.170.170.75) by DLEE214.ent.ti.com
- (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 10 Mar
- 2026 05:33:03 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE200.ent.ti.com
- (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 10 Mar 2026 05:33:03 -0500
-Received: from [10.24.50.162] (uda0510294.dhcp.ti.com [10.24.50.162])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62AAWwR52902597;
-	Tue, 10 Mar 2026 05:32:59 -0500
-Message-ID: <0b3ee45b-a83e-40bf-a463-bd7b36906245@ti.com>
-Date: Tue, 10 Mar 2026 16:02:58 +0530
+	Tue, 10 Mar 2026 10:34:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3136F14BF;
+	Tue, 10 Mar 2026 03:34:10 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 80AFA3F7BD;
+	Tue, 10 Mar 2026 03:34:12 -0700 (PDT)
+Message-ID: <efcc71ac-35a2-4a2d-8e26-4b4e1079f411@arm.com>
+Date: Tue, 10 Mar 2026 10:34:11 +0000
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/6] arm64: dts: ti: k3-j721s2-main: Add DSI1
-To: Dominik Haller <d.haller@phytec.de>, <adrien.grassein@gmail.com>,
-	<jernej.skrabec@gmail.com>, <onas@kwiboo.se>,
-	<Laurent.pinchart@ideasonboard.com>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <robh@kernel.org>, Nishanth Menon <nm@ti.com>,
-	"Vignesh Raghavendra" <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>
-CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <upstream@lists.phytec.de>,
-	<linux-kernel@vger.kernel.org>
-References: <20260130205820.83189-1-d.haller@phytec.de>
- <20260130205820.83189-5-d.haller@phytec.de>
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v5 13/41] arm_mpam: resctrl: Add boilerplate cpuhp and
+ domain allocation
+To: Gavin Shan <gshan@redhat.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, james.morse@arm.com, jonathan.cameron@huawei.com,
+ kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
+ zengheng4@huawei.com, linux-doc@vger.kernel.org,
+ Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+References: <20260224175720.2663924-1-ben.horgan@arm.com>
+ <20260224175720.2663924-14-ben.horgan@arm.com>
+ <5a1429a6-c551-4d49-ae65-1ac7fd5e4715@redhat.com>
 Content-Language: en-US
-From: Beleswar Prasad Padhi <b-padhi@ti.com>
-In-Reply-To: <20260130205820.83189-5-d.haller@phytec.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF00004FC1:EE_|BY5PR10MB4257:EE_
-X-MS-Office365-Filtering-Correlation-Id: a67b70d3-3502-4503-777b-08de7e90694f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|36860700016|1800799024|921020;
-X-Microsoft-Antispam-Message-Info: LgduKC3ohNGmyXvt0iitGgPmlbUeKi8lKZvKs5/rE4mzjc+RyokdzAyeQJBzfHjb4NxumOHv8sTlldM5MD5DQ8vySS2MDBIKlJiR6SLH58ewODwcDeRwN/8SFbAFtk7f8syQEWXWkstlr4WwxxyOWPVmby2eYNbEP+s2W9duG+tIGgwgyEzFxcmno4T62ntktiiWHmLsYrZ5XfRH0l8YfmVaXHQ1bksWW15yg+hgNfvv/tv689a8PjuLgUgRaH0cnY01hm+v4IG4poXCPzdjLG7phoED3owfLn0yMXbGkaLTPVjeLl2/4zqhoPWp+eakjkOveMYa95MDr/d2t+wGe8m1QDVLK1h8f7sR00KYYNOLdJgyH+Ld2OXnCsrsAlea+bu+3UlNS6Gy8JO/MdPjbomjGAE0SRp3UTKQ5kLdr2uiqmwpSwU52R/ddWPb6Yhg4sE5/2TxwAzktyhoUqhDysKxq8XcGU4uEgvfFIqV9H5D9DHqsorpdtY8V4c43PHEGYLo/oOxXrG6lSVVxPELSnmG6xR0AXF39YPPQMb6fsGBySgooKITcQgzIQurZPs/yhBPRDm2eWdoTCh3c7tUko00mTLCR9XZ0xNEq7VZPXHbqIx4BsR5HqzKplq7sYt9ooxtmyxiequZ6bZSnEkdcx7WV8sdgLXisaJ/MMXQbvqLy89ryUm4LyHs5P+9Xeti13cbVwk4j9FQGFcxYxUiuqCwRFrlch07s2m9BU2V44I8P+4+D8cjdI/UHMWmRg2rQ4+UZtl+C/3S0svCYePME1FOimSWg6ocCLt9W1CorJ7vc9ZunWBTCJi+FH46fh/0
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(36860700016)(1800799024)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 17OWIspPzF6gwX8hSv3WRdLqConkas7uU9itavs3djen4WEAtxA5pwbfdvY/DA/MMheZ8UyFXcMQRxYfmIHr84XkpIvqXwLF1rFGSvxizEHjQ5USDhrr8+DfpW/r1F2IiYMXuQvvGrIIqiiCLTtslPG5HLctSPSXX1DyWkAnHSJebPHjQVw9n9wbBDjCfShZvmmUH8GkLwI1YckSSAdrn6L0HdcNas8PtLEAyFOeYJMEquXbCx/huLnW/iBkIWXiLf0tfWdJEdQkcfQFNELAlP1OHfrtjYUdMDR1QMj3TUNBZubikoE5AzMdRkrHy4BFMEJzLY6MYMbnTCuX9fKOiDcBjY7tSf+nYeOpVqbTE3nfzBJC3+8L90gO5AJlJRslP5OoRNNxMpyTENFaeGVkVI3X9Q4/Vt6YvDGKWdfU9e0aleldNGTvmnMEMmsd6TL9
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2026 10:33:03.9283
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a67b70d3-3502-4503-777b-08de7e90694f
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF00004FC1.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR10MB4257
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <5a1429a6-c551-4d49-ae65-1ac7fd5e4715@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_033309_522973_73131141 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20260310_033418_941711_8751B892 
+X-CRM114-Status: GOOD (  36.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,78 +79,544 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Gavin,
 
-On 31/01/26 02:28, Dominik Haller wrote:
-> Add the second DSI instance and its corresponding phy to the main domain
-> include file.
->
-> Signed-off-by: Dominik Haller <d.haller@phytec.de>
+On 3/10/26 06:17, Gavin Shan wrote:
+> Hi Ben,
+> 
+> On 2/25/26 3:56 AM, Ben Horgan wrote:
+>> From: James Morse <james.morse@arm.com>
+>>
+>> resctrl has its own data structures to describe its resources. We
+>> can't use
+>> these directly as we play tricks with the 'MBA' resource, picking the
+>> MPAM
+>> controls or monitors that best apply. We may export the same component as
+>> both L3 and MBA.
+>>
+>> Add mpam_resctrl_res[] as the array of class->resctrl mappings we are
+>> exporting, and add the cpuhp hooks that allocated and free the resctrl
+>> domain structures. Only the mpam control feature are considered here and
+>> monitor support will be added later.
+>>
+>> While we're here, plumb in a few other obvious things.
+>>
+>> CONFIG_ARM_CPU_RESCTRL is used to allow this code to be built even though
+>> it can't yet be linked against resctrl.
+>>
+> 
+> CONFIG_ARM_CPU_RESCTRL isn't valid. I guess you're probably mentioning
+> CONFIG_ARCH_HAS_CPU_RESCTRL?
 
+CONFIG_ARM_CPU_RESCTRL is added in the Makefile in this patch. As
+stated, this is just to allow build testing and the link will fail.
+E.g.
 
-Reviewed-by: Beleswar Padhi <b-padhi@ti.com>
+$ CONFIG_ARM_CPU_RESCTRL=y make O=out drivers/resctrl/
+
+Trying this now I note there is also a build warning about the
+'offline_ctrl_domain' label being unused which I'll fix.
+
+> 
+>> Tested-by: Gavin Shan <gshan@redhat.com>
+>> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+>> Tested-by: Peter Newman <peternewman@google.com>
+>> Tested-by: Zeng Heng <zengheng4@huawei.com>
+>> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+>> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+>> ---
+>> Changes since rfc:
+>> Domain list is an rcu list
+>> Add synchronize_rcu() to free the deleted element
+>> Code flow simplification (Jonathan)
+>>
+>> Changes since v2:
+>> Iterate over mpam_resctrl_dom directly (Jonathan)
+>> Code flow clarification
+>> Comment tidying
+>> Remove power of 2 check as no longer creates holes in rmid indices
+>> Remove unused type argument
+>> add macro helper for_each_mpam_resctrl_control
+>>
+>> Changes since v3:
+>> Add and use mpam_resctrl_online_domain_hdr()
+>> mpam_resctrl_alloc_domain() error paths (Reinette)
+>> rebase on x86/cache changes rdt_mon_domain becomes rdt_l3_mon_domain
+>> etc
+>>
+>> Changes since v4:
+>> Set rid in domain_hdr
+>> Use rescctrl_res.alloc_capable to determine if alloc_capable as the
+>> decision may depend on the resctrl mount options (cdp)
+>> Squash in arm_mpam: resctrl: Sort the order of the domain lists
+>> Move out monitor/counter changes to a separate patch
+>> Commit message update
+>> ---
+>>   drivers/resctrl/Makefile        |   1 +
+>>   drivers/resctrl/mpam_devices.c  |  12 ++
+>>   drivers/resctrl/mpam_internal.h |  21 ++
+>>   drivers/resctrl/mpam_resctrl.c  | 327 ++++++++++++++++++++++++++++++++
+>>   include/linux/arm_mpam.h        |   3 +
+>>   5 files changed, 364 insertions(+)
+>>   create mode 100644 drivers/resctrl/mpam_resctrl.c
+>>
+>> diff --git a/drivers/resctrl/Makefile b/drivers/resctrl/Makefile
+>> index 898199dcf80d..40beaf999582 100644
+>> --- a/drivers/resctrl/Makefile
+>> +++ b/drivers/resctrl/Makefile
+>> @@ -1,4 +1,5 @@
+>>   obj-$(CONFIG_ARM64_MPAM_DRIVER)            += mpam.o
+>>   mpam-y                        += mpam_devices.o
+>> +mpam-$(CONFIG_ARM_CPU_RESCTRL)            += mpam_resctrl.o
+
+Here.
+
+>>     ccflags-$(CONFIG_ARM64_MPAM_DRIVER_DEBUG)    += -DDEBUG
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/
+>> mpam_devices.c
+>> index b400a7381d9a..b45743c5fb46 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -1628,6 +1628,9 @@ static int mpam_cpu_online(unsigned int cpu)
+>>               mpam_reprogram_msc(msc);
+>>       }
+>>   +    if (mpam_is_enabled())
+>> +        return mpam_resctrl_online_cpu(cpu);
+>> +
+>>       return 0;
+>>   }
+>>   @@ -1671,6 +1674,9 @@ static int mpam_cpu_offline(unsigned int cpu)
+>>   {
+>>       struct mpam_msc *msc;
+>>   +    if (mpam_is_enabled())
+>> +        mpam_resctrl_offline_cpu(cpu);
+>> +
+>>       guard(srcu)(&mpam_srcu);
+>>       list_for_each_entry_srcu(msc, &mpam_all_msc, all_msc_list,
+>>                    srcu_read_lock_held(&mpam_srcu)) {
+>> @@ -2516,6 +2522,12 @@ static void mpam_enable_once(void)
+>>       mutex_unlock(&mpam_list_lock);
+>>       cpus_read_unlock();
+>>   +    if (!err) {
+>> +        err = mpam_resctrl_setup();
+>> +        if (err)
+>> +            pr_err("Failed to initialise resctrl: %d\n", err);
+>> +    }
+>> +
+>>       if (err) {
+>>           mpam_disable_reason = "Failed to enable.";
+>>           schedule_work(&mpam_broken_work);
+>> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/
+>> mpam_internal.h
+>> index 4632985bcca6..28ac501e1ac3 100644
+>> --- a/drivers/resctrl/mpam_internal.h
+>> +++ b/drivers/resctrl/mpam_internal.h
+>> @@ -12,6 +12,7 @@
+>>   #include <linux/jump_label.h>
+>>   #include <linux/llist.h>
+>>   #include <linux/mutex.h>
+>> +#include <linux/resctrl.h>
+>>   #include <linux/spinlock.h>
+>>   #include <linux/srcu.h>
+>>   #include <linux/types.h>
+>> @@ -337,6 +338,16 @@ struct mpam_msc_ris {
+>>       struct mpam_garbage    garbage;
+>>   };
+>>   +struct mpam_resctrl_dom {
+>> +    struct mpam_component        *ctrl_comp;
+>> +    struct rdt_ctrl_domain        resctrl_ctrl_dom;
+>> +};
+>> +
+>> +struct mpam_resctrl_res {
+>> +    struct mpam_class    *class;
+>> +    struct rdt_resource    resctrl_res;
+>> +};
+>> +
+>>   static inline int mpam_alloc_csu_mon(struct mpam_class *class)
+>>   {
+>>       struct mpam_props *cprops = &class->props;
+>> @@ -391,6 +402,16 @@ void mpam_msmon_reset_mbwu(struct mpam_component
+>> *comp, struct mon_cfg *ctx);
+>>   int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32
+>> cache_level,
+>>                      cpumask_t *affinity);
+>>   +#ifdef CONFIG_RESCTRL_FS
+>> +int mpam_resctrl_setup(void);
+>> +int mpam_resctrl_online_cpu(unsigned int cpu);
+>> +void mpam_resctrl_offline_cpu(unsigned int cpu);
+>> +#else
+>> +static inline int mpam_resctrl_setup(void) { return 0; }
+>> +static inline int mpam_resctrl_online_cpu(unsigned int cpu) { return
+>> 0; }
+>> +static inline void mpam_resctrl_offline_cpu(unsigned int cpu) { }
+>> +#endif /* CONFIG_RESCTRL_FS */
+>> +
+>>   /*
+>>    * MPAM MSCs have the following register layout. See:
+>>    * Arm Memory System Resource Partitioning and Monitoring (MPAM) System
+>> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/
+>> mpam_resctrl.c
+>> new file mode 100644
+>> index 000000000000..2ffba7a15d6a
+>> --- /dev/null
+>> +++ b/drivers/resctrl/mpam_resctrl.c
+>> @@ -0,0 +1,327 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +// Copyright (C) 2025 Arm Ltd.
+>> +
+>> +#define pr_fmt(fmt) "%s:%s: " fmt, KBUILD_MODNAME, __func__
+>> +
+>> +#include <linux/arm_mpam.h>
+>> +#include <linux/cacheinfo.h>
+>> +#include <linux/cpu.h>
+>> +#include <linux/cpumask.h>
+>> +#include <linux/errno.h>
+>> +#include <linux/list.h>
+>> +#include <linux/printk.h>
+>> +#include <linux/rculist.h>
+>> +#include <linux/resctrl.h>
+>> +#include <linux/slab.h>
+>> +#include <linux/types.h>
+>> +
+>> +#include <asm/mpam.h>
+>> +
+>> +#include "mpam_internal.h"
+>> +
+> 
+> The list of included headers could be simplified since several header files
+> have been included to mpam_internal.h, for example <linux/arm_mpam.h>,
+> <linux/cpumask.h>, <asm/mpam.h> and others.
+
+Could be but it is a deliberate choice to where practical include the
+header where the symbols are defined rather than relying on the indirect
+includes.
+
+> 
+>> +/*
+>> + * The classes we've picked to map to resctrl resources, wrapped
+>> + * in with their resctrl structure.
+>> + * Class pointer may be NULL.
+>> + */
+>> +static struct mpam_resctrl_res mpam_resctrl_controls[RDT_NUM_RESOURCES];
+>> +
+>> +#define for_each_mpam_resctrl_control(res, rid)                    \
+>> +    for (rid = 0, res = &mpam_resctrl_controls[rid];            \
+>> +         rid < RDT_NUM_RESOURCES;                        \
+>> +         rid++, res = &mpam_resctrl_controls[rid])
+>> +
+>> +/* The lock for modifying resctrl's domain lists from cpuhp
+>> callbacks. */
+>> +static DEFINE_MUTEX(domain_list_lock);
+>> +
+>> +bool resctrl_arch_alloc_capable(void)
+>> +{
+>> +    struct mpam_resctrl_res *res;
+>> +    enum resctrl_res_level rid;
+>> +
+>> +    for_each_mpam_resctrl_control(res, rid) {
+>> +        if (res->resctrl_res.alloc_capable)
+>> +            return true;
+>> +    }
+>> +
+>> +    return false;
+>> +}
+>> +
+>> +/*
+>> + * MSC may raise an error interrupt if it sees an out or range
+>> partid/pmg,
+>> + * and go on to truncate the value. Regardless of what the hardware
+>> supports,
+>> + * only the system wide safe value is safe to use.
+>> + */
+>> +u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)
+>> +{
+>> +    return mpam_partid_max + 1;
+>> +}
+>> +
+>> +struct rdt_resource *resctrl_arch_get_resource(enum resctrl_res_level l)
+>> +{
+>> +    if (l >= RDT_NUM_RESOURCES)
+>> +        return NULL;
+>> +
+>> +    return &mpam_resctrl_controls[l].resctrl_res;
+>> +}
+>> +
+>> +static int mpam_resctrl_control_init(struct mpam_resctrl_res *res)
+>> +{
+>> +    /* TODO: initialise the resctrl resources */
+>> +
+>> +    return 0;
+>> +}
+>> +
+>> +static int mpam_resctrl_pick_domain_id(int cpu, struct mpam_component
+>> *comp)
+>> +{
+>> +    struct mpam_class *class = comp->class;
+>> +
+>> +    if (class->type == MPAM_CLASS_CACHE)
+>> +        return comp->comp_id;
+>> +
+>> +    /* TODO: repaint domain ids to match the L3 domain ids */
+>> +    /* Otherwise, expose the ID used by the firmware table code. */
+>> +    return comp->comp_id;
+>> +}
+>> +
+>> +static void mpam_resctrl_domain_hdr_init(int cpu, struct
+>> mpam_component *comp,
+>> +                     enum resctrl_res_level rid,
+>> +                     struct rdt_domain_hdr *hdr)
+>> +{
+>> +    lockdep_assert_cpus_held();
+>> +
+>> +    INIT_LIST_HEAD(&hdr->list);
+>> +    hdr->id = mpam_resctrl_pick_domain_id(cpu, comp);
+>> +    hdr->rid = rid;
+>> +    cpumask_set_cpu(cpu, &hdr->cpu_mask);
+>> +}
+>> +
+>> +static void mpam_resctrl_online_domain_hdr(unsigned int cpu,
+>> +                       struct rdt_domain_hdr *hdr)
+>> +{
+>> +    lockdep_assert_cpus_held();
+>> +
+>> +    cpumask_set_cpu(cpu, &hdr->cpu_mask);
+>> +}
+>> +
+>> +/**
+>> + * mpam_resctrl_offline_domain_hdr() - Update the domain header to
+>> remove a CPU.
+>> + * @cpu:    The CPU to remove from the domain.
+>> + * @hdr:    The domain's header.
+>> + *
+>> + * Removes @cpu from the header mask. If this was the last CPU in the
+>> domain,
+>                                                  ^^^
+>                                                  is
+> 
+>> + * the domain header is removed from its parent list and true is
+>> returned,
+>> + * indicating the parent structure can be freed.
+>> + * If there are other CPUs in the domain, returns false.
+>> + */
+>> +static bool mpam_resctrl_offline_domain_hdr(unsigned int cpu,
+>> +                        struct rdt_domain_hdr *hdr)
+>> +{
+>> +    lockdep_assert_held(&domain_list_lock);
+>> +
+>> +    cpumask_clear_cpu(cpu, &hdr->cpu_mask);
+>> +    if (cpumask_empty(&hdr->cpu_mask)) {
+>> +        list_del_rcu(&hdr->list);
+>> +        synchronize_rcu();
+>> +        return true;
+>> +    }
+>> +
+>> +    return false;
+>> +}
+>> +
+>> +static void mpam_resctrl_domain_insert(struct list_head *list,
+>> +                       struct rdt_domain_hdr *new)
+>> +{
+>> +    struct rdt_domain_hdr *err;
+>> +    struct list_head *pos = NULL;
+>> +
+>> +    lockdep_assert_held(&domain_list_lock);
+>> +
+>> +    err = resctrl_find_domain(list, new->id, &pos);
+>> +    if (WARN_ON_ONCE(err))
+>> +        return;
+>> +
+>> +    list_add_tail_rcu(&new->list, pos);
+>> +}
+>> +
+>> +static struct mpam_resctrl_dom *
+>> +mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res
+>> *res)
+>> +{
+>> +    int err;
+>> +    struct mpam_resctrl_dom *dom;
+>> +    struct rdt_ctrl_domain *ctrl_d;
+>> +    struct mpam_class *class = res->class;
+>> +    struct mpam_component *comp_iter, *ctrl_comp;
+>> +    struct rdt_resource *r = &res->resctrl_res;
+>> +
+>> +    lockdep_assert_held(&domain_list_lock);
+>> +
+>> +    ctrl_comp = NULL;
+>> +    guard(srcu)(&mpam_srcu);
+>> +    list_for_each_entry_srcu(comp_iter, &class->components, class_list,
+>> +                 srcu_read_lock_held(&mpam_srcu)) {
+>> +        if (cpumask_test_cpu(cpu, &comp_iter->affinity)) {
+>> +            ctrl_comp = comp_iter;
+>> +            break;
+>> +        }
+>> +    }
+>> +
+>> +    /* class has no component for this CPU */
+>> +    if (WARN_ON_ONCE(!ctrl_comp))
+>> +        return ERR_PTR(-EINVAL);
+>> +
+>> +    dom = kzalloc_node(sizeof(*dom), GFP_KERNEL, cpu_to_node(cpu));
+>> +    if (!dom)
+>> +        return ERR_PTR(-ENOMEM);
+>> +
+>> +    if (resctrl_arch_alloc_capable()) {
+>> +        dom->ctrl_comp = ctrl_comp;
+>> +
+>> +        ctrl_d = &dom->resctrl_ctrl_dom;
+>> +        mpam_resctrl_domain_hdr_init(cpu, ctrl_comp, r->rid, &ctrl_d-
+>> >hdr);
+>> +        ctrl_d->hdr.type = RESCTRL_CTRL_DOMAIN;
+>> +        err = resctrl_online_ctrl_domain(r, ctrl_d);
+>> +        if (err)
+>> +            goto free_domain;
+>> +
+>> +        mpam_resctrl_domain_insert(&r->ctrl_domains, &ctrl_d->hdr);
+>> +    } else {
+>> +        pr_debug("Skipped control domain online - no controls\n");
+>> +    }
+>> +    return dom;
+>> +
+>> +offline_ctrl_domain:
+>> +    if (resctrl_arch_alloc_capable()) {
+>> +        mpam_resctrl_offline_domain_hdr(cpu, &ctrl_d->hdr);
+>> +        resctrl_offline_ctrl_domain(r, ctrl_d);
+>> +    }
+>> +free_domain:
+>> +    kfree(dom);
+>> +    dom = ERR_PTR(err);
+>> +
+>> +    return dom;
+>> +}
+>> +
+>> +static struct mpam_resctrl_dom *
+>> +mpam_resctrl_get_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
+>> +{
+>> +    struct mpam_resctrl_dom *dom;
+>> +    struct rdt_resource *r = &res->resctrl_res;
+>> +
+>> +    lockdep_assert_cpus_held();
+>> +
+>> +    list_for_each_entry_rcu(dom, &r->ctrl_domains,
+>> resctrl_ctrl_dom.hdr.list) {
+>> +        if (cpumask_test_cpu(cpu, &dom->ctrl_comp->affinity))
+>> +            return dom;
+>> +    }
+>> +
+>> +    return NULL;
+>> +}
+>> +
+>> +int mpam_resctrl_online_cpu(unsigned int cpu)
+>> +{
+>> +    struct mpam_resctrl_res *res;
+>> +    enum resctrl_res_level rid;
+>> +
+>> +    guard(mutex)(&domain_list_lock);
+>> +    for_each_mpam_resctrl_control(res, rid) {
+>> +        struct mpam_resctrl_dom *dom;
+>> +
+>> +        if (!res->class)
+>> +            continue;    // dummy_resource;
+>> +
+>> +        dom = mpam_resctrl_get_domain_from_cpu(cpu, res);
+>> +        if (!dom) {
+>> +            dom = mpam_resctrl_alloc_domain(cpu, res);
+>> +        } else {
+>> +            if (resctrl_arch_alloc_capable()) {
+>> +                struct rdt_ctrl_domain *ctrl_d = &dom->resctrl_ctrl_dom;
+>> +
+>> +                mpam_resctrl_online_domain_hdr(cpu, &ctrl_d->hdr);
+>> +            }
+>> +        }
+>> +        if (IS_ERR(dom))
+>> +            return PTR_ERR(dom);
+>> +    }
+>> +
+>> +    resctrl_online_cpu(cpu);
+>> +
+>> +    return 0;
+>> +}
+>> +
+>> +void mpam_resctrl_offline_cpu(unsigned int cpu)
+>> +{
+>> +    struct mpam_resctrl_res *res;
+>> +    enum resctrl_res_level rid;
+>> +
+>> +    resctrl_offline_cpu(cpu);
+>> +
+>> +    guard(mutex)(&domain_list_lock);
+>> +    for_each_mpam_resctrl_control(res, rid) {
+>> +        struct mpam_resctrl_dom *dom;
+>> +        struct rdt_ctrl_domain *ctrl_d;
+>> +        bool ctrl_dom_empty;
+>> +
+>> +        if (!res->class)
+>> +            continue;    // dummy resource
+>> +
+>> +        dom = mpam_resctrl_get_domain_from_cpu(cpu, res);
+>> +        if (WARN_ON_ONCE(!dom))
+>> +            continue;
+>> +
+>> +        if (resctrl_arch_alloc_capable()) {
+>> +            ctrl_d = &dom->resctrl_ctrl_dom;
+>> +            ctrl_dom_empty = mpam_resctrl_offline_domain_hdr(cpu,
+>> &ctrl_d->hdr);
+>> +            if (ctrl_dom_empty)
+>> +                resctrl_offline_ctrl_domain(&res->resctrl_res, ctrl_d);
+>> +        } else {
+>> +            ctrl_dom_empty = true;
+>> +        }
+>> +
+>> +        if (ctrl_dom_empty)
+>> +            kfree(dom);
+>> +    }
+>> +}
+>> +
+>> +int mpam_resctrl_setup(void)
+>> +{
+>> +    int err = 0;
+>> +    struct mpam_resctrl_res *res;
+>> +    enum resctrl_res_level rid;
+>> +
+>> +    cpus_read_lock();
+>> +    for_each_mpam_resctrl_control(res, rid) {
+>> +        INIT_LIST_HEAD_RCU(&res->resctrl_res.ctrl_domains);
+>> +        res->resctrl_res.rid = rid;
+>> +    }
+>> +
+>> +    /* TODO: pick MPAM classes to map to resctrl resources */
+>> +
+>> +    /* Initialise the resctrl structures from the classes */
+>> +    for_each_mpam_resctrl_control(res, rid) {
+>> +        if (!res->class)
+>> +            continue;    // dummy resource
+>> +
+>> +        err = mpam_resctrl_control_init(res);
+>> +        if (err) {
+>> +            pr_debug("Failed to initialise rid %u\n", rid);
+>> +            break;
+>> +        }
+>> +    }
+>> +    cpus_read_unlock();
+>> +
+>> +    if (err) {
+>> +        pr_debug("Internal error %d - resctrl not supported\n", err);
+>> +        return err;
+>> +    }
+>> +
+> 
+> This pr_debug() could be dropped since @err is set to true only when
+> a error is returned from mpam_resctrl_control_init(), we already had
+> a pr_debug() for the reported error.
+
+Later in the series this can be an error from
+mpam_resctrl_monitor_init() which does also have an associated
+pr_debug() but to me it seems reasonable to have this extra message
+to make the severity clearer.
 
 Thanks,
-Beleswar
 
-> ---
->  arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi | 39 ++++++++++++++++++++++
->  1 file changed, 39 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
-> index 80c51b11ac9f..80a32c451d1b 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
-> @@ -1815,6 +1815,19 @@ dphy_tx0: phy@4480000 {
->  		status = "disabled";
->  	};
->  
-> +	dphy_tx1: phy@4481000 {
-> +		compatible = "ti,j721e-dphy";
-> +		reg = <0x00 0x04481000 0x00 0x00001000>;
-> +		clocks = <&k3_clks 364 8>, <&k3_clks 364 14>;
-> +		clock-names = "psm", "pll_ref";
-> +		#phy-cells = <0>;
-> +		power-domains = <&k3_pds 364 TI_SCI_PD_EXCLUSIVE>;
-> +		assigned-clocks = <&k3_clks 364 14>;
-> +		assigned-clock-parents = <&k3_clks 364 15>;
-> +		assigned-clock-rates = <19200000>;
-> +		status = "disabled";
-> +	};
-> +
->  	dsi0: dsi@4800000 {
->  		compatible = "ti,j721e-dsi";
->  		reg = <0x00 0x04800000 0x00 0x00100000>,
-> @@ -1841,6 +1854,32 @@ port@1 {
->  		};
->  	};
->  
-> +	dsi1: dsi@4900000 {
-> +		compatible = "ti,j721e-dsi";
-> +		reg = <0x00 0x04900000 0x00 0x00100000>,
-> +		      <0x00 0x04720000 0x00 0x00000100>;
-> +		clocks = <&k3_clks 155 4>, <&k3_clks 155 1>;
-> +		clock-names = "dsi_p_clk", "dsi_sys_clk";
-> +		power-domains = <&k3_pds 155 TI_SCI_PD_EXCLUSIVE>;
-> +		interrupts = <GIC_SPI 601 IRQ_TYPE_LEVEL_HIGH>;
-> +		phys = <&dphy_tx1>;
-> +		phy-names = "dphy";
-> +		status = "disabled";
-> +
-> +		dsi1_ports: ports {
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			port@0 {
-> +				reg = <0>;
-> +			};
-> +
-> +			port@1 {
-> +				reg = <1>;
-> +			};
-> +		};
-> +	};
-> +
->  	dss: dss@4a00000 {
->  		compatible = "ti,j721e-dss";
->  		reg = <0x00 0x04a00000 0x00 0x10000>, /* common_m */
+Ben
+
 
