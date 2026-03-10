@@ -4,74 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8F55EA8550
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 09:39:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC4F0EFCD9F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 09:43:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1qSrUEvg0nHFtxaJdm9W+cfuf2yxO/HVEsocACAPAd0=; b=0HseEVIuUERqNJ
-	jfuV0ECx6KZVef2LHtmo7+6/h5CWeitdzbwxzEyIIwpGjL36qFOgj8QxvuheEIZwSHQGUJG5DO5Eu
-	2DRabzh0dRixz1B4keRPuQ0N0omKjxQ/Lb06O7H2NRFpfq6vqP1jJNwV9UMdzzcN2DH01aIKaTdZT
-	JUoWawy3XoBxFnA7BLLEHCkcX3lNjgyikP/fDNuzp2wCNhLN/A+ZiJ224wcRQcffDpogutzsy7BOF
-	S+fGMpSnHTryZOCFFgBN0AimqCCLEaag9bl+z0ZNWCqtDI07s2YI6YBuMGB7uMJ7CXgZ14B76EZ4E
-	QxYO4T1+FVfCtVctUkLw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=18RUZG97teY730eFtK3DqHGqp72SEuZ4zQ9E5JUkQlM=; b=lLWHnF52oMOwSIfc+2V4lKeSom
+	WYAlUS9T2LXZgWmeQSPbhoaxE3NgZ2QssryWbhFH7VUXBKWJ/EqVwc/vKOu5py604OfODDed985KB
+	vxCqbFs74BDZLa0UOouSrfHVdwr6mDOK6wQ7YaPl0/gQ83MD1PNzjrw5jXarglUGk9orP52QZyMN+
+	jqiMxqvf02hfSavUFeC75RCglHHShnK9IJ1HVoGDOXedQlox6t7U2hrjPG5iM7/7z5KCN6kLjywAF
+	uaq7eYiOEm/BhuaiBmb3tszET2MhKZF9bCl1gnxGIfFoxu5gFzSxHzutMUqk0uETxGXTdMSqriTSt
+	9813K1cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vztYv-000000097A9-2UQh;
-	Tue, 10 Mar 2026 09:39:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vztcZ-000000097UY-02WB;
+	Tue, 10 Mar 2026 09:43:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vztYs-0000000979Z-3Uid
+	id 1vztcW-000000097UB-1JFr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 09:39:35 +0000
+	Tue, 10 Mar 2026 09:43:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 47E5543D4B
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 09:39:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25641C2BC86
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 09:39:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A146840B9A;
+	Tue, 10 Mar 2026 09:43:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7ADC1C19423;
+	Tue, 10 Mar 2026 09:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773135574;
-	bh=0NvNqkbHvopZkhx6T/+IIZIFE+ZXvBvs4x160lciOgk=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=H2KpT2PXchY67iKw4BU6/Yl1d5CyFTJydVwdKiWhENgeBM56oCA722NqgJC/ZRPIG
-	 mcX0jIQIx1kcMLR4OAZYfqOZhUuRE8gNRiDITuGd8390h+DBEOY3DKTZeZoT8Lj5ar
-	 nVvSqlDVfImNkLRJWGOl6ukW7wHz2UZOTRMp7uhj+htw+N2CB3c65aiGg5qW6tW9sy
-	 Ak9PlF6y3l0DaC1BlEqnIrD7tMN1F9ugJ8VYbpYFwJJtAT8OcQG0kIoU52TdKendeA
-	 R5pbTOaQ167IykMHzzTJNVBSeraixqXTaF2fxtNnL3Y4GzbNRkW+CgoOijPvyqjJBh
-	 GecNHMqtZ/Omw==
-Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-38a5584e31fso17186571fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 02:39:34 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVcJa9zntGZzixOTZXVo5+X0vYB3PIhK3yZ5t6kPYtJsrRGOiuaH3zxE4yOKriS5aXVp/2dOIJw40WJ4T/9rv9J@lists.infradead.org
-X-Gm-Message-State: AOJu0YwV0d0ySAHrTeI5bEq1ro4HF07Rj9GZSfDzMuqhRXGRAa+rL1XL
-	fVo4RTCLj6VEjj10hutP/5eA/V6lHhhBcrScZKyUfbtkCxOewCIvoSm1I2T4I4vOqHrYubrmMBg
-	now+29RhY7zQ4dOjrtpuEIQFKxf33XGo=
-X-Received: by 2002:a05:651c:20ce:10b0:38a:3660:7feb with SMTP id
- 38308e7fff4ca-38a5d010b86mr7646831fa.9.1773135572499; Tue, 10 Mar 2026
- 02:39:32 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260310075539.11701-1-wsa+renesas@sang-engineering.com> <20260310075539.11701-10-wsa+renesas@sang-engineering.com>
-In-Reply-To: <20260310075539.11701-10-wsa+renesas@sang-engineering.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 10 Mar 2026 17:39:20 +0800
-X-Gmail-Original-Message-ID: <CAGb2v64gTM41Q3aBkS+dqJ7w9fHtePte-6jeoFR3j-O1_aX9-Q@mail.gmail.com>
-X-Gm-Features: AaiRm504Z-6QWp77ZJMLsW12D2p9SNHT7rtRZg5o6Wu6DQVg4_G6syeE7d95ZJ4
-Message-ID: <CAGb2v64gTM41Q3aBkS+dqJ7w9fHtePte-6jeoFR3j-O1_aX9-Q@mail.gmail.com>
-Subject: Re: [PATCH v4 09/15] hwspinlock: sun6i: use new callback to
- initialize hwspinlock priv
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Wilken Gottwalt <wilken.gottwalt@posteo.net>, Bjorn Andersson <andersson@kernel.org>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, linux-remoteproc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	s=k20201202; t=1773135799;
+	bh=rX6EbNTfCAw+gMJvCUFXy5h+IdLeSvGG0MpJALk0dUs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=aqS4ux+Pcv/CBNuEfLqERLr/KQ0IHVo9pvV26zmwml+mMYwPQuSrW+POsk4d2sUP8
+	 cxh9m4NDTlGjS4aotA7D22HuKpWQm2BGJzDpPpI//cqHxQU7phgNnf1K6g7oEDrXNc
+	 va9JiA+Ks8Gi5cqLO1wu3jV+/MAsbcV7I4Rzxun+5+LznOIZdkVmux1Lb3GkuDIrNE
+	 C9/kgMGwF6AXhJafX1IVQMilAeYa2dZNfT8zkw9xGdnYy6uorVLvRLzIrMVusi4dhV
+	 zTjlfzZ9DsT2BbO1NR5Lo6OYOy8gL4veDPkS43CZ75RuYonNK5yttxa83huWvH9Wf0
+	 T9kzwXme6kN3g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vztcT-00000000N6v-2Ea1;
+	Tue, 10 Mar 2026 09:43:17 +0000
+Date: Tue, 10 Mar 2026 09:43:17 +0000
+Message-ID: <86cy1c6mve.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Quentin Perret <qperret@google.com>,
+	Fuad Tabba <tabba@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: pkvm: Don't reprobe for ICH_VTR_EL2.TDS on CPU hotplug
+In-Reply-To: <5a5afd0a-de2d-4697-a5ba-0e470ddb20f2@arm.com>
+References: <20260310085433.3936742-1-maz@kernel.org>
+	<5a5afd0a-de2d-4697-a5ba-0e470ddb20f2@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: suzuki.poulose@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, oupton@kernel.org, yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com, qperret@google.com, tabba@google.com, vdonnefort@google.com, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_023934_909285_629557C5 
-X-CRM114-Status: GOOD (  21.80  )
+X-CRM114-CacheID: sfid-20260310_024320_397602_70DFF60F 
+X-CRM114-Status: GOOD (  26.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,91 +90,72 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 10, 2026 at 3:56=E2=80=AFPM Wolfram Sang
-<wsa+renesas@sang-engineering.com> wrote:
->
-> Apply the new helper to avoid using internal structures from the core.
-> Remove superfluous setting of drvdata while here.
->
-> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
-> Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
-> ---
->  drivers/hwspinlock/sun6i_hwspinlock.c | 18 ++++++++----------
->  1 file changed, 8 insertions(+), 10 deletions(-)
->
-> diff --git a/drivers/hwspinlock/sun6i_hwspinlock.c b/drivers/hwspinlock/s=
-un6i_hwspinlock.c
-> index a0c76bba3f05..c3db81cb1793 100644
-> --- a/drivers/hwspinlock/sun6i_hwspinlock.c
-> +++ b/drivers/hwspinlock/sun6i_hwspinlock.c
-> @@ -74,9 +74,15 @@ static void sun6i_hwspinlock_unlock(struct hwspinlock =
-*lock)
->         writel(SPINLOCK_NOTTAKEN, lock_addr);
->  }
->
-> +static void *sun6i_hwspinlock_init_priv(int local_id, void *init_data)
-> +{
-> +       return init_data + sizeof(u32) * local_id;
-> +}
-> +
->  static const struct hwspinlock_ops sun6i_hwspinlock_ops =3D {
->         .trylock        =3D sun6i_hwspinlock_trylock,
->         .unlock         =3D sun6i_hwspinlock_unlock,
-> +       .init_priv      =3D sun6i_hwspinlock_init_priv,
->  };
->
->  static void sun6i_hwspinlock_disable(void *data)
-> @@ -91,10 +97,9 @@ static void sun6i_hwspinlock_disable(void *data)
->  static int sun6i_hwspinlock_probe(struct platform_device *pdev)
->  {
->         struct sun6i_hwspinlock_data *priv;
-> -       struct hwspinlock *hwlock;
->         void __iomem *io_base;
->         u32 num_banks;
-> -       int err, i;
-> +       int err;
->
->         io_base =3D devm_platform_ioremap_resource(pdev, SPINLOCK_BASE_ID=
-);
->         if (IS_ERR(io_base))
-> @@ -161,11 +166,6 @@ static int sun6i_hwspinlock_probe(struct platform_de=
-vice *pdev)
->                 goto bank_fail;
->         }
->
-> -       for (i =3D 0; i < priv->nlocks; ++i) {
-> -               hwlock =3D &priv->bank->lock[i];
-> -               hwlock->priv =3D io_base + SPINLOCK_LOCK_REGN + sizeof(u3=
-2) * i;
-> -       }
-> -
->         /* failure of debugfs is considered non-fatal */
->         sun6i_hwspinlock_debugfs_init(priv);
->         if (IS_ERR(priv->debugfs))
-> @@ -177,10 +177,8 @@ static int sun6i_hwspinlock_probe(struct platform_de=
-vice *pdev)
->                 goto bank_fail;
->         }
->
-> -       platform_set_drvdata(pdev, priv);
-> -
->         return devm_hwspin_lock_register(&pdev->dev, priv->bank, &sun6i_h=
-wspinlock_ops,
-> -                                        SPINLOCK_BASE_ID, priv->nlocks, =
-NULL);
-> +                                        SPINLOCK_BASE_ID, priv->nlocks, =
-io_base + SPINLOCK_LOCK_REGN);
->
->  bank_fail:
->         clk_disable_unprepare(priv->ahb_clk);
+On Tue, 10 Mar 2026 09:17:43 +0000,
+Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+> 
+> On 10/03/2026 08:54, Marc Zyngier wrote:
+> > Hotplugging a CPU off and back on fails with pKVM, as we try to
+> > probe for ICH_VTR_EL2.TDS. In a non-VHE setup, this is achieved
+> > by using an EL2 stub helper. However, the stubs are out of reach
+> > once pKVM has deprivileged the kernel. The CPU never boots.
+> > 
+> > Since pKVM doesn't allow late onlining of CPUs, we can detect
+> > that protected mode is enforced early on, and return the current
+> > state of the capability.
+> > 
+> > Fixes: 2a28810cbb8b2 ("KVM: arm64: GICv3: Detect and work around the lack of ICV_DIR_EL1 trapping")
+> > Reported-by: Vincent Donnefort <vdonnefort@google.com>
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > Cc: stable@vger.kernel.org
+> > ---
+> >   arch/arm64/kernel/cpufeature.c | 3 +++
+> >   1 file changed, 3 insertions(+)
+> > 
+> > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> > index c31f8e17732a3..947ff71b3b66b 100644
+> > --- a/arch/arm64/kernel/cpufeature.c
+> > +++ b/arch/arm64/kernel/cpufeature.c
+> > @@ -2345,6 +2345,9 @@ static bool can_trap_icv_dir_el1(const struct arm64_cpu_capabilities *entry,
+> >   	    !is_midr_in_range_list(has_vgic_v3))
+> >   		return false;
+> >   +	if (system_capabilities_finalized() &&
+> > is_protected_kvm_enabled())
+> > +		return cpus_have_final_cap(ARM64_HAS_ICH_HCR_EL2_TDIR);
+> 
+> Is it a worth adding a comment here ? Otherwise this looks very odd -
+> Returning the system state of a capability for a "hotplugged" CPU.
 
-Just a note, I see further code savings in using the clk and reset devm_
-helpers. I'll do this after this series is merged, as the context overlaps.
+How about this?
 
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 947ff71b3b66b..32c2dbcc0c641 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -2345,6 +2345,12 @@ static bool can_trap_icv_dir_el1(const struct arm64_cpu_capabilities *entry,
+ 	    !is_midr_in_range_list(has_vgic_v3))
+ 		return false;
+ 
++	/*
++	 * pKVM prevents late onlining of CPUs. This means that whatever
++	 * state the capability is in after deprivilege cannot be affected
++	 * by a new CPU booting -- this is garanteed to be a CPU we have
++	 * already seen, and the cap is therefore unchanged.
++	 */
+ 	if (system_capabilities_finalized() && is_protected_kvm_enabled())
+ 		return cpus_have_final_cap(ARM64_HAS_ICH_HCR_EL2_TDIR);
 
-ChenYu
+>
+> Otherwise
+> 
+> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+
+Thanks!
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
