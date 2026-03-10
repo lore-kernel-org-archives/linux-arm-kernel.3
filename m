@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03B47FCC9AE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 03:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0AEEFCC9AD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 03:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xqZhTvRFtzuGISMCU5NHhMjD9DbEtLmM9zdfMwZlja4=; b=nUvF7eoNzoPEYH9VqcFDUBZhlH
-	U+kpqjl3BFbABg6kOONBQ0/K0lPTy5Fjas+3C0qxqSthRjZMc2r8QmhC0sNt83qAsDv/cnMQm0f5O
-	EzM7GbVsOMqSOwQTulYbQ4tKh3o6g4oFPDulOPtYMYtJHnmEDbQUI4yZKBxTI2dKWHsiXaoOK4JnE
-	PuXb8vuX1N6m2vIpj/MIci1CTPbmYoUQe5fxTIAjDFZ9GXnHlyen9LmtmF79Fad3lz8m79BrFpqiU
-	ReTrz+jR+IgpBkC5OvunYxtvgQDbi9emblS0AoAkmY+1fhWIePErQXqmhnbIznoMAQUk+yS306aMf
-	LqRseRPA==;
+	bh=9jUAQ5D4wJOfJgWpzyrFt3Hw32ZGQnCnoTnBRH4Vot0=; b=qZ1NNILG1ZAHqBxqgGTpe5fF5w
+	GAE2jK3ug/jpctMoi+mEhNIM2nHRJsRyD7W0AMzyUEm8VA6J/XP8WgU4K0mPUIGGrYIM+kfNEPx56
+	1mO/9UMkWyssy+RmIxtM9PmKuExrYUEyP7YfVOAs/6ZeWLrt5VAhgpg+V1h4PnjTmzuCvHPKUVdFX
+	CFRHPjNmurXeP1T1NnZoO9oNmZPIWTLfesFNADYjI+wh/rrDjsx3Qjn7G/YUuzWPMHenE20on0J8C
+	IHc5wMIEhVx/sps/KCNaruBD4xQzpWlVSSLmORZwgJF0eTFMcIyTRyvOyWlZp/Bsljhj3wm2cnQGE
+	i4BV3ZIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vznKp-00000008bi6-2OQp;
-	Tue, 10 Mar 2026 03:00:39 +0000
+	id 1vznKt-00000008bjZ-3f9G;
+	Tue, 10 Mar 2026 03:00:43 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vznKp-00000008bht-05ZJ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 03:00:39 +0000
+	id 1vznKq-00000008biU-178H;
+	Tue, 10 Mar 2026 03:00:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 75D426011F;
-	Tue, 10 Mar 2026 03:00:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BD9EC19423;
-	Tue, 10 Mar 2026 03:00:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B27EC600AE;
+	Tue, 10 Mar 2026 03:00:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 662F8C4CEF7;
+	Tue, 10 Mar 2026 03:00:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773111638;
-	bh=0Cds6kc09BVIRVjCoSPKhdBQsuXH0Iml0FDgoBrHwWw=;
+	s=k20201202; t=1773111639;
+	bh=3+2lYVzbzk7uvgRnRhf4lG9qT2OLixK/h/w5dFHyCmM=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=n3yv+jr5PBzgHxFh9U6Z63J3WEC7wrixS11Co244TfLFocCf8sEUkmggqFyrqfJRX
-	 VsBFMEhcx6eENrMKibiJvD0WRBFqfmwEjqWxCzLmFr3QOAzQ0Mj/AeU+vDtyrIY16U
-	 t57l01dwH7nE+gDijjkg9s+unb+f3/rx6h06n3g4PWhyhkJ3x2xvFKzDyg5PvSjmQt
-	 7G4+BqeFJ6FeULNDTFr8tD5ZOfTTLGh6mR9gLujLk8y/ULYPMT+KAlIgu+JM+LsuME
-	 E+8sT21I6ynzFJYdkeMWo2EIBq5QHZOjVsGldaJ+5SGaa8rDCkhqQ3bp08dh7UwjIc
-	 68XAcBzf+7tOA==
+	b=T061+9v1A1Vba7QK0q0xa5c44YReaYrIOcS7933froKRzwqMRNC/gmyoeYLFgPD6/
+	 n7m+q4CVSjgYii94cB7EYQtH7AMZf7ewoJIO6F0wHSmsvtVZ8sHlDltvb/28kDVTO9
+	 3XRt959HRdvNFrf986WW5sy+ciopDIlHOgw5Ql4eUzi28V4z3+1TNi6y85iu8L+Qk6
+	 ggJRDYwJ0vOOzLeot5p0xOPDlVOrPpbZOjnr2/1GlOnIUirKNhpQ9lFcNp6CG0c7Wz
+	 DaAhdF0rjC+hlPiJneKgi/7sQaxoUUI1lBFGEv8sROHHyJ11uB8uY7dN0+gR38ldYx
+	 Q57Vpn6ZKGXBQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7CEDD3808200;
-	Tue, 10 Mar 2026 03:00:36 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA0053808200;
+	Tue, 10 Mar 2026 03:00:37 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next 0/2] net: stmmac: further ptp cleanups
+Subject: Re: [PATCH net-next v2] net: airoha: Make flow control source port
+ mapping dependent on nbq parameter
 From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <177311163503.2039470.12160246560923313829.git-patchwork-notify@kernel.org>
-Date: Tue, 10 Mar 2026 03:00:35 +0000
-References: <aawDiK7DjcSXSs1X@shell.armlinux.org.uk>
-In-Reply-To: <aawDiK7DjcSXSs1X@shell.armlinux.org.uk>
-To: Russell King (Oracle) <linux@armlinux.org.uk>
-Cc: andrew@lunn.ch, alexandre.torgue@foss.st.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
- pabeni@redhat.com
+Message-Id: <177311163655.2039470.10429303373608059245.git-patchwork-notify@kernel.org>
+Date: Tue, 10 Mar 2026 03:00:36 +0000
+References: <20260306-airoha-fix-loopback-for-usb-serdes-v2-1-319de9c96826@kernel.org>
+In-Reply-To: <20260306-airoha-fix-loopback-for-usb-serdes-v2-1-319de9c96826@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,25 +74,22 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hello:
 
-This series was applied to netdev/net-next.git (main)
+This patch was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Sat, 7 Mar 2026 10:52:56 +0000 you wrote:
-> Hi,
+On Fri, 06 Mar 2026 09:07:27 +0100 you wrote:
+> Flow control source port mapping for USB serdes needs to be configured
+> according to the GDM port nbq parameter. This is a preliminary patch
+> since nbq parameter is specific for the given port serdes and needs to
+> be read from the DTS (in the current codebase is assigned statically).
 > 
-> A couple of extra PTP cleanup patches.
-> 
-> The first uses a local variable when setting n_ext_ts which is a minor
-> simplification of the code. The second removes the now unnecessary
-> "available" flag for the PPS outputs.
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 > 
 > [...]
 
 Here is the summary with links:
-  - [net-next,1/2] net: stmmac: ptp: rearrange n_ext_ts initialisation
-    https://git.kernel.org/netdev/net-next/c/b560d4434f98
-  - [net-next,2/2] net: stmmac: ptp: remove redundant priv->pps[].available
-    https://git.kernel.org/netdev/net-next/c/687e7863f027
+  - [net-next,v2] net: airoha: Make flow control source port mapping dependent on nbq parameter
+    https://git.kernel.org/netdev/net-next/c/bf3471e6e6c0
 
 You are awesome, thank you!
 -- 
