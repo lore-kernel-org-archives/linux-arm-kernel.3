@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AD30FD4F02
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 16:04:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C9D7FD4F01
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 16:04:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xAnyRGN8z6xKLGZlYFMgLp/A5pT+TAMariqUx9yE0P8=; b=GRR0NeBpdtV6c8IUAEIvw5BESt
-	OkZS1GQrb7UpdP8dylDmYn/2Wbjq8CC3qJ72acoor/C02SAmgpqMFFy/HGQbboCc/1ZEP/0XYOygP
-	ByNtmriXTZxKYHv90jWLdbFD6kR7o3ymbaXv6wqNJCKXenj/fNxF1h20QFCSfZRBJiW54XlB3YzXt
-	pD0zB9PtK0CZ7cbHphMQbq15GXYAUpXVbllYe0UTP0ukLbY4uTXZSWPumFfArbG1Vp8djWMIkCpxL
-	5ML+8pUEce7jMSK5YLw5gNyDUAOv6/AoWFlfz6VJBfo5bc+75BUhaHrRfz4N+W2I3zxuqLnrWsKxh
-	5zZ3rTZw==;
+	bh=7Dz/OMdPvIQTsygrn0Zl8C5qWhun/IaJyrtYcn7X2+4=; b=05Ch52nJWTL52spDuvOYkx0YV1
+	eAn36ix79fsxUK0OIgsIf9feON5ZhOWtRlnDyJMNf+xyom06kQDjEdM5Hfr/8Mh0v10MGR/58QMy4
+	5l3QYQ0dJiciAzwa86jgT9za0Z24nHMdP20Ii9fMi0l3l5vS1rLgaXuEbLZUwmYOzOZWjEztzusgf
+	LNhX+7aWWtPA3ppY82WnbNuULyaYxJa3y0WRFlg97qoqBuw8Krp6AZpdMhbGtLL/4MYo1BG+aUkvj
+	R2HTsFCaWU3DzbXhAzPqnezdOD3lFaj2I8RL5ODjqBozzvJmt6p5SLzQNr7wuE9g6RqgJ6BcZcxY0
+	4Ag392/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzzZ4-00000009sfg-28aR;
-	Tue, 10 Mar 2026 16:04:10 +0000
+	id 1vzzZi-00000009slf-3XZt;
+	Tue, 10 Mar 2026 16:04:50 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzzZ3-00000009sfX-0rm4
+	id 1vzzZh-00000009slC-2SLu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 16:04:09 +0000
+	Tue, 10 Mar 2026 16:04:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6336160054;
-	Tue, 10 Mar 2026 16:04:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CE80C19423;
-	Tue, 10 Mar 2026 16:04:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0C92A600C4;
+	Tue, 10 Mar 2026 16:04:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD2BFC19423;
+	Tue, 10 Mar 2026 16:04:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773158648;
-	bh=3vTsoiQM6i7kY7LrHCQyDmM3Co4y6Ipej73O1XI5CsM=;
+	s=k20201202; t=1773158688;
+	bh=599XQUj+u0HpLGnVBeL+8eF691wPvbQV+mEAtH2dpcw=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=EGxdc25XWo0m5WaJOlbYKFD2CecpSF2u65CUxLs5LEg+VBgWNwY+oKu8IpH5Voncu
-	 emt1beNypaOnGxnIlmF9AZz12RflrU1hUk7NidW9H6zQrPQXnvuyW5Q0Su5rbBOAtq
-	 CxYiU52nMOyBLweyAfIyE42P2HrUXwDnDxVD9e58t/fm0EKeHqJHbTWc87NdOcSJ+n
-	 578Lq8rhSGOHkTxIgqmqJe5OfwVaWUIgawi6s+Wa46ctUwthyo6qeRGsu69wC2F5qu
-	 Sd0+a8Jt0763wt1YtC7ApZk2h7/LmGlOIZ+1M2fCDKoMaLpOPqWqtXdKuD6OYUPClD
-	 HlGsndZNM77aA==
+	b=IWp/paplcXI+fO43fgIA/0YwOPbsNrc2e2RPNDN02NErSMHWxitNc5q1SmafqbW1P
+	 go3kHt/ut2euvOZeMofHJ1UHlqSf1P0nw2BdACPabWlYYws67f0q6U20jXWvNNqDCa
+	 7QXwFAFEWddJqUU5IvEhetZ6YeBlQhcDmcDm9y81J3F/fB1zrqL1s9/BRn2p6q7bOn
+	 SBhhRNbDT+MQ/InMvqFp4LYNLhiG6b2TCYuJZMd2HuJCWW+7nOepCVkjLKtEFz6F+W
+	 IfLn8zwIHdNHjZckfsbAGBOgnqMmEaaD4A6bQkRKW7dPBEVSIcOQrZullQS6eTYMJ3
+	 cE0jMxJv5Ssgw==
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
@@ -52,8 +52,8 @@ In-Reply-To: <20260305-dts-exynos-i2c-v1-0-2c8d3df3b9ca@oss.qualcomm.com>
 References: <20260305-dts-exynos-i2c-v1-0-2c8d3df3b9ca@oss.qualcomm.com>
 Subject: Re: (subset) [PATCH 0/5] ARM: dts: exynos: Cleanup I2C
  address-cells and size-cells
-Message-Id: <177315864595.219146.1067906832304585370.b4-ty@kernel.org>
-Date: Tue, 10 Mar 2026 17:04:05 +0100
+Message-Id: <177315868659.219585.16811317225740215009.b4-ty@kernel.org>
+Date: Tue, 10 Mar 2026 17:04:46 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -82,12 +82,10 @@ On Thu, 05 Mar 2026 10:09:23 +0100, Krzysztof Kozlowski wrote:
 
 Applied, thanks!
 
-[3/5] ARM: dts: exynos3250: Drop duplicated I2C address/size-cells
-      https://git.kernel.org/krzk/linux/c/cb243c21bbe14739406b5be680c850cdf20c9739
-[4/5] ARM: dts: exynos4210-smdkv310: Drop duplicated I2C address/size-cells
-      https://git.kernel.org/krzk/linux/c/7c40913bc532f3645c522a89886070a08b1ad23b
-[5/5] ARM: dts: exyons4412: Drop duplicated I2C address/size-cells
-      https://git.kernel.org/krzk/linux/c/44ee52a030a6dd2f6e0ecb3632ecf8b263114619
+[1/5] arm64: dts: exynos7870: Move I2C address/size-cells to DTSI
+      https://git.kernel.org/krzk/linux/c/41dadc6f78150b7bf0308269fba7ba8a1a516392
+[2/5] arm64: dts: exynos8895: Move I2C address/size-cells to DTSI
+      https://git.kernel.org/krzk/linux/c/90f771a9745476a5e2b95b5efe225a943c090bb9
 
 Best regards,
 -- 
