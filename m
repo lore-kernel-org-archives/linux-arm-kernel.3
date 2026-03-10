@@ -4,112 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F179EA854E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 08:51:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D24DEFCC9DB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 08:51:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SfyK9P8L3qKmhBVKguzAuFPEV90EQuTX160xP0QtpWE=; b=jV6/SIVQgpjEna+GyZJKk40P+R
-	ghTF77GTMRO8lreSvqn/UVlbMKweF5D3zGaE9RciJWadUkF28d4Zfg7Wl5fUg+ej9pC3ajCTt3wvF
-	xNo1+BrdJOyHYhg6QEfsK1nz7z4Od3y2SKUQYTbGUH9RIXnkLKUSg+OXgPG+PAksbKMrqkKI7BKTt
-	WbQoM3nw+jBLdYz/acMaHEVGCo7XuQDH7TjRaLbFli9YgPz4wx6mVnDO1ydGOJ7UNFdEMnbMym8nR
-	5F5HKzpc5qx0mtJphvlCshhmjCNCau3qTAAb6oRiZ026j78ukKd3JJcj078M5NNPJrxYek1N9Lkvx
-	rITEj6qA==;
+	bh=JYLXkZee8AOhu6gc4XsxestgweNg0g6c2mI6cIoJIg4=; b=rkOByvOg2jwkll1wFCwP6XQBZE
+	M3aa+wuITtZeJWeShmPmM5Q+hv5ct1N8Lpt0MnSTS1JCpmI3Q0G0Gy535J+njmyed504ooCPoWCJE
+	dTVDyfeBUMPJ1DK7gOGG9J6T0Qw06O8ixmvOlrWfaiamvMLFRWPQTlfD/M0CugdPgmInomsaxuzxt
+	amgLG8zZneQ1bMnpWaapZJM/OUuBRbpPahaDMu7daaZv34xubNfQW54G5mTrzphhsG1sFytbW8ylk
+	XYd563c5/PdOjVEAL1B+lMg1yedInwkSAKEQxxBaV3/dUqSF0h2PtxpEhrlLkS7A94bSVCRz2fo6v
+	S4JFv9Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzsoB-0000000908x-0cqo;
-	Tue, 10 Mar 2026 08:51:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vzsof-000000090ER-47Gi;
+	Tue, 10 Mar 2026 08:51:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzso9-0000000908j-2D0u;
-	Tue, 10 Mar 2026 08:51:17 +0000
+	id 1vzsod-000000090Dq-39NM
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Mar 2026 08:51:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8178660054;
-	Tue, 10 Mar 2026 08:51:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 938D5C19423;
-	Tue, 10 Mar 2026 08:51:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CE79241A5A
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 08:51:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE872C2BCB1
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 08:51:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773132676;
-	bh=A5jsVSjKnT6U7wl0p+5sd9qd2joVHNzCFPfuHFmwE08=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gPict/x5dkJJU848YPB0xKwDej6YAR+7lLQey74KLIQB/AVUaWPhBcLjxXB6tRAvn
-	 Ms0oHOjMHKydyglf/IPdBAEZoWJh38W+Rs1/2UXrexXlREqcPicKop3hO9ByNUYhS7
-	 s7Picia/YhjtWxXz6PFOqPgOjcKJPcVTWEvEnbi9iGtNN/v4oXzGZycocaV3mS3JvO
-	 Jt6jXEv4dmJM78dsirnnVEtP+tY870BZKFQ0yxl7EkInJlQT5OZ46HP6lofdmk8K6M
-	 V2kwpOMmAXSKDae+/iuJHKz5D/sOBJZtk+QWA9T90sgQc3bZ7kEFshFaNVZQiKRaFH
-	 XGbXuAu5OwqtA==
-Message-ID: <5d1e8475-64df-4e79-81b8-77bd930af497@kernel.org>
-Date: Tue, 10 Mar 2026 09:51:08 +0100
+	s=k20201202; t=1773132706;
+	bh=vVoj3FLi83VXmJyuCRq2Dd+bxXjKaU+NntpFAWe/BT4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Zct30tSL3h4O0vrlc0FGEfY06o2E9w0S4RpZ3oU4xghwLQTLssYmSSmsIOaAXXJed
+	 GKp04zVWjV/rboXJu0znMzuHIhNcjAAHCPTqfjdOHx5SJOogCMDfFiXwQaeV6zNlj8
+	 DZyLtTSXYgnjg+zrA9J5y5CyI2Tucq5+RKbfV0zVr7P7ZZHdlQKSI3dR4wndWrXYh8
+	 4W4NSylgs6Xj1JcmztWDqzx7kskIHyPe4fUKskMhME8+fhxxKMlUrWlrpJ01IelZQ8
+	 G0RZjP94IHthM+0mqwwd46gxPz/r4ZLGHNMhvCgMMgoFvulyrcuC3K43Rc2UQmbtts
+	 hLwezImpohRfA==
+Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5a140efd2d5so4095380e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 01:51:46 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUg89m+QExPzHLNBM6ldHeTdXrVc11cjBLJui25B8713ykAie4yXGmb/KCTucDm6NPhb2Oco+5QlVDnsLXnIQz9@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHvklxdT5f6YXQB+hMbpPZXLnrgzzaaIWAHisnl/05Dmg7yIIC
+	YeGPO0wtDyIgUcZHC/YDMg8bWL/JSQgJpuHYseGi4Wy3JlVDCMQL91ZZVnE5jZColH3oocGUj9n
+	gCtPfnMiYxsrXDaB2I0erGdSq4RxwBfEbuMIk0vroqg==
+X-Received: by 2002:a05:6512:304f:b0:5a1:3e8d:aa27 with SMTP id
+ 2adb3069b0e04-5a13e8dad62mr4744483e87.36.1773132705315; Tue, 10 Mar 2026
+ 01:51:45 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/8] dt-bindings: clock, reset: Add econet EN751221
-To: Caleb James DeLisle <cjd@cjdns.fr>
-Cc: linux-mips@vger.kernel.org, naseefkm@gmail.com, mturquette@baylibre.com,
- sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- tsbogend@alpha.franken.de, ryder.lee@mediatek.com,
- jianjun.wang@mediatek.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
- mani@kernel.org, bhelgaas@google.com, vkoul@kernel.org,
- neil.armstrong@linaro.org, p.zabel@pengutronix.de, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, nbd@nbd.name, ansuelsmth@gmail.com,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260309131818.74467-1-cjd@cjdns.fr>
- <20260309131818.74467-2-cjd@cjdns.fr>
- <20260310-rousing-tacky-catfish-fcba60@quoll>
- <b48c07a8-3bc0-401e-9085-fc7030187db0@cjdns.fr>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <b48c07a8-3bc0-401e-9085-fc7030187db0@cjdns.fr>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260308021535.48098-1-rosenp@gmail.com> <CAD++jLkLj235Q=U_9E-hSneW5E42JjU=dRBJxKJNnqwgBLCm=w@mail.gmail.com>
+ <CAKxU2N9JbAzEYfmLpbw5b9Y6MsYUZ1FfLirfy8Hg8MCOUY6PAg@mail.gmail.com>
+ <CAMRc=Me+oUX5xbNY7PX43cTH0e5ouu=Ex3TqhvWvoefmR7jYYQ@mail.gmail.com> <CAKxU2N8_V7U11X18Ja+=tdYPWT6jnmM7bYt+5GHgeXAXOJ5cng@mail.gmail.com>
+In-Reply-To: <CAKxU2N8_V7U11X18Ja+=tdYPWT6jnmM7bYt+5GHgeXAXOJ5cng@mail.gmail.com>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Tue, 10 Mar 2026 09:51:33 +0100
+X-Gmail-Original-Message-ID: <CAMRc=Md3uAPzndudyvpFiLki8fkYHgAtumtaauXMkXwU4vANBA@mail.gmail.com>
+X-Gm-Features: AaiRm52QyqGRA5XZTuwTzrHYnzWWeX8i1qdpXgK_Fun3PV5g-eaSB6k0RbEVzRo
+Message-ID: <CAMRc=Md3uAPzndudyvpFiLki8fkYHgAtumtaauXMkXwU4vANBA@mail.gmail.com>
+Subject: Re: [PATCH] gpio: msc313: remove kcalloc
+To: Rosen Penev <rosenp@gmail.com>
+Cc: Linus Walleij <linusw@kernel.org>, linux-gpio@vger.kernel.org, 
+	Daniel Palmer <daniel@thingy.jp>, linux-hardening@vger.kernel.org, gustavoars@kernel.org, 
+	Romain Perier <romain.perier@gmail.com>, 
+	"moderated list:ARM/MStar/Sigmastar Armv7 SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260310_015147_830088_4DF2E0DF 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,24 +87,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/03/2026 09:37, Caleb James DeLisle wrote:
->>> diff --git a/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml b/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml
->>> index a8471367175b..91abe7716fce 100644
->>> --- a/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml
->>> +++ b/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml
->>> @@ -32,6 +32,7 @@ properties:
->>>         - enum:
->>>             - airoha,en7523-scu
->>>             - airoha,en7581-scu
->>> +          - econet,en751221-scu
->> 751 < 752, keep alphanumeric order
-> 
-> 
-> "econet," after "airoha," because e > a, of course I can order by number 
-> if that's really what you want.
+On Mon, Mar 9, 2026 at 11:00=E2=80=AFPM Rosen Penev <rosenp@gmail.com> wrot=
+e:
+>
+> On Mon, Mar 9, 2026 at 2:03=E2=80=AFAM Bartosz Golaszewski <brgl@kernel.o=
+rg> wrote:
+> >
+> > On Mon, Mar 9, 2026 at 2:27=E2=80=AFAM Rosen Penev <rosenp@gmail.com> w=
+rote:
+> > >
+> > > On Sun, Mar 8, 2026 at 5:06=E2=80=AFPM Linus Walleij <linusw@kernel.o=
+rg> wrote:
+> > > >
+> > > > On Sun, Mar 8, 2026 at 3:15=E2=80=AFAM Rosen Penev <rosenp@gmail.co=
+m> wrote:
+> > > >
+> > > > > Use a flexible array member to combine kzalloc and kcalloc.
+> > > > >
+> > > > > Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> > > > (...)
+> > > > >  struct msc313_gpio {
+> > > > >         void __iomem *base;
+> > > > >         const struct msc313_gpio_data *gpio_data;
+> > > >
+> > > > Do you wanna add:
+> > > >
+> > > > const unsigned int saved_size;
+> > > So in the code there's
+> > >
+> > > for (i =3D 0; i < gpio->gpio_data->num; i++)
+> > >
+> > > which is equivalent to match->num.
+> > >
+> > > __counted_by doesn't support pointers AFAIK.
+> > > >
+> >
+> > This is a regular flexible array of u8. It should work fine with
+> > __counted_by and I too am in favor of using it as it has become
+> > standard for flexible arrays.
+> That requires adding an extra variable in the struct.
 
-Ah, yes, code is correct.
+That's ok, it's negligible and provides tangible advantages.
 
-Best regards,
-Krzysztof
+Please do the same for your other patches.
+
+Bart
 
