@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACC19FD4F30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 19:34:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ED1DFD4F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 19:41:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uXGSMdyPLPak8eP7BVwmVxBskx1z5iRhXJhm2M1XFP4=; b=gmcJ/GLncEqBQ6sWFOIhaF+KQh
-	ulQqaBhx9P3jJByfkFMjq4nbegB3iwqJ2FjrUiJalEMb/S5/KkZLjEmcr4MZ78un0yPop9LWiqFY6
-	q2K9SxGznZlS9euFVCXGUpQ8+Fc2KwhQBClkFxS0kopXCAVFhICDRBb7PZjR9Bxng7j0CVhfX2siC
-	YN1cQJB7hq84vroRlGRXjVPYxJTJL89UccJ11gbAf1/ccYoDzmlpkO+ngq8AUeGvQdn6fYy8zvGBX
-	y11U2regpKDo07VHxu38eA8MqRO9Iu5Ov6Vxp4rESP7LmrCjpmgcg8PzRxHOO5B0+XGggmh/DyTm0
-	vklBax5Q==;
+	bh=D7vY2UrB9SGH6OvdmDiCHyzJiFowvOHfRjqE+9AkweY=; b=V0GAKdQ45HG39cJuRasgQ9RAGY
+	aSgQ3kOrR7qUHCaE4BAL8Pi7wn6kkHT2/rVmDnMiKxJSsHEo0dYG0Ytd/lVmbxubEtDWoYoOPBItJ
+	NVUiJQHd2QR1S464niYXQVaHQv8ni9bc5D4J5qVO+fB7BeT0JYjBMk5BnpO6POR2UpPstAxovVF3F
+	JdVJ/H/ZRbQlmcMZeIayt8VRHikEYYzrI8glvA8GKwyN+64himA89jOf1i42nDtaE+COXwVWYDP9h
+	2NslvLN299MUyL4PXUasm4b7z1lWUXq/OAzmKzLPBOj7v20Wm1i5SxMexiN3jjffFZtNGga0Cuquk
+	oyFgfFdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w02qJ-0000000ABIM-0iyT;
-	Tue, 10 Mar 2026 19:34:11 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1w02x1-0000000ABZY-0B3c;
+	Tue, 10 Mar 2026 19:41:07 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w02qG-0000000ABHw-2Y0U
+	id 1w02wy-0000000ABZA-37A4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 19:34:09 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2ae49120e97so20565ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 12:34:08 -0700 (PDT)
+	Tue, 10 Mar 2026 19:41:05 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2ae3f822163so28815ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 12:41:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1773171247; x=1773776047; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1773171664; x=1773776464; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=uXGSMdyPLPak8eP7BVwmVxBskx1z5iRhXJhm2M1XFP4=;
-        b=fyKiLWXLQa9MIovggoe4rSrUFwbzUbyt/pS02d/33ZuZYVWwJ8rtLORteHFYxYJXZp
-         0MTcR42GKjvuPt7a3uCqZ9HQhtqY2EybhJU3pGBHYDN80QwVgCL94SH8+VjXoWigYTKq
-         gWNUeSSk5Dprt+NDfmZumHDnPiMPmiskU6Xqn57Um6FuazsVSNySQ/WqTevX1R+x2vNi
-         VUJUWXY/9rag/7vR/8oWnKOMl5ccrGt4ceJZ3Lsx2xxOQ1C33cBGlYQzUUqtd7g3tTg5
-         rDh7yM4G6skQYp+8/7rqyZv6zvLJk5ZzywOi5LRw4H9Lh0oRkEU+t9sLE2VayQZ9mKXq
-         yFiQ==
+        bh=D7vY2UrB9SGH6OvdmDiCHyzJiFowvOHfRjqE+9AkweY=;
+        b=4goJQOiju4Sx/QcWCDSzp/s3RMkGvy/vK7dMbJFhoI5gjJfTkAFoosrN347Br+Q4Ib
+         3/OZ/ykwKVFJmjAclpabEV9ho6sxiNho55uhsrC6TPbP0L9PLNur3O8U8JO5FZ1+TwXw
+         L8I+hKTCZ3bBPaFyS2qkkMEqhH5MrNtaG2yG5nUzwoOBMrJ5JHnMcHyR1DKBZvKwflQ4
+         OQLgFDoMsC05+iLu4PwZwUMl4JRhPZTjTVPR93W9EzQQlKPfI3gxXcvtj+9ufjDfWrsp
+         ZaCGM3AXTUPYIQegWgYi/KTSlqPKvlbWk6M1v+9epUCkHEbkQl0raqbL3G4jRoiQ4jLW
+         h50w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773171247; x=1773776047;
+        d=1e100.net; s=20230601; t=1773171664; x=1773776464;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=uXGSMdyPLPak8eP7BVwmVxBskx1z5iRhXJhm2M1XFP4=;
-        b=hlzvQRK9GIhhkmhkBo0S8ERZG7bNHNzPMSOXTKnKHOVqxxpvTFvpVjgd1ewMdDiRNG
-         iPwegc0B7/Iqci6U8N6TAtJDsNGWA17nXtNB9GJylsEVOENzS3rTZQViVVNuN/3hHHTn
-         /ZGGaWpl+fT62p8sRzfmzJAYSDmjU2aN/sMm0sCqIFl4J6SpwHf4uy+3/EV8kg47ydba
-         7so0EVvnE6rgmiOYelAO4N//t9heXb5MiNJpw1AGjYOsb9IVSN86eWp4a9IFN/sLTupv
-         zde+QPqUi4ESU/NF8U64V6ArUTOw6Acywr3UgyvvWzb09g/IMVHB40Gr9L4cTepkFIp+
-         hxWw==
-X-Forwarded-Encrypted: i=1; AJvYcCV25TmTywzU5EjkYlPObVWCyXzEVQG4JpU417xkMKkVifvmLTD22/QMZHJ4icWjCHcqP/ZCI13ilSrOcvsDx3HC@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWB2qLo3KXEtJmi0YDhFejS9x3Bzue1uKq/e0VZyS1/NWYNO3u
-	WvQaCcE3sleGywH+Tk95NWAp9641UlUL5gqE3eMnVFt1Zcx3Xg0y9y5cINlpmYLwFA==
-X-Gm-Gg: ATEYQzyttxF2rMxT+x9frdXSDrliBL21+eHrOMJdjl9Y9LdnFKHJKXZuKGH8GNdJz3Y
-	839AM09FZiFwQYqyXXvRp4ua82QEdmggRjn3orBWpglbtIT6XhCQbttGF9EtZxvkW0FkZuvt1Ga
-	b9jsLWTNqGlNvSNW14wA3eo3GVHYDBxxUOOcKHxG9+VyR4cA0tn4APGDQhi7GkdI5qF1zI7k81N
-	1UD3LYR/ebC0G5ubcX8s3ofTQXjbb+30Hd6izUuw33LFhaJdd7ZpsixEw8xDlNbmJnLEjbKEFd4
-	is5C/vf5hUZaodbLtXuga/sfbrxM23JD7NKLcv6TxbQCGJxA+qFNzerkw6+GflnhdvLb8mV4qCf
-	M0jhiSxOdZwOsC1I1tukYe+RYpuTblaaF+fngfKb2IcU0miLYl3NQprUNNwbOT4j9CvyERw2ole
-	kvu88JeYeWWyvOTe+lCdrd2eZ5Re9SsivJgUliZhGu5L2byPRVGIUQ+pc5Bg==
-X-Received: by 2002:a17:902:f710:b0:2ae:4e8e:954e with SMTP id d9443c01a7336-2aeae7082d4mr4705ad.5.1773171247142;
-        Tue, 10 Mar 2026 12:34:07 -0700 (PDT)
+        bh=D7vY2UrB9SGH6OvdmDiCHyzJiFowvOHfRjqE+9AkweY=;
+        b=kcqjV4utNJMVS4dPxYGXdRQ5l471Wm5TjtI7DLxFJu7zQ65kzLHKMJ20dn9JcM9Thz
+         rvCApSz9TBfcdd/AIcFsWHDTa4/Qeu8f6fNe+Fzhb1VUEN9djFYYIH6haK2HBExCTV9g
+         oNyc9i2wmiUKOYvfaZfdnOQZxYmGDaosFNxJ3ck3mngYWEwr0RYPGovutaV2N50F6ryN
+         beqm4qqnBZmStYfhsiPZxYsT0e8FKbsAFLNlHKn3IWGTvOfRbPMBeb5HdU2BotQAMfIO
+         DtJj9ROBYyd4ST3QKAHGBbvej/IomVyLUTA+I/yA51GIjxQtgJRyQP2FvBeoWisF5leR
+         3NOA==
+X-Forwarded-Encrypted: i=1; AJvYcCUbyuo6tju/H78DzfIEMDYpBXrp9Q/5cSTpXdtbN4O4VloAU1Cq9jzK+wl6Nk6SeqqAr0MbkYAhgzJDVTe8Xnl+@lists.infradead.org
+X-Gm-Message-State: AOJu0YwB8HxXhVSHiU1ekvP5WQpuylJTcjrHOhns3iInUTOfitf2pE7m
+	OsFHB9ApJkY5Eho5LWWUBzXqNkF6Wpgi6ZLbqPZcjim90Zb3Nff+TSHEd6f7z08+9A==
+X-Gm-Gg: ATEYQzy3Nw2CoX9PEL7cjuV0U6DcFknynEZv3YsuBQhPThto3lIk13r8t5wzWR5ON1b
+	+3zVEG1MD2Chpj8Eii4DPoW+IXmQqQy7319Vs4GBUDL3+Ba8AxfZ3BmZx2LqcU/yHf2t1W9gDez
+	yirLcFTnCzNR7QGlN7Je0rur4tSi71YlBDtnfibis0mHgukrkHlCTnstd9B9nfmGUnjGhZE4n1z
+	JVaNx65UKVOFHAgo2U3vhDmN3fuQ3ZMFDUl7oKCHTVKZKK14wHdfcXBqjXBhuSlPoZm7ZT+Sa7p
+	1iaQeabYz5CcqCRG5Gtvvf63+4ri1Pcr0cSN2Jz4PTbDCMqWcSxzEdNbkWBK88Jiff7JTFPft+7
+	+EhBIUR75lKECYOFf4cf27odqTxJ95jyD7/uFMr7ihWbDjml58fdesx0iLyENxqNHDX8TAA0nCj
+	gB6zzdsHkAAom29zL7jj7Pdt3MXQyiuGfLFoEMsjlCpLAr39W3zGHDlICMHw==
+X-Received: by 2002:a17:903:191:b0:2ae:44ff:5f42 with SMTP id d9443c01a7336-2aead3e3606mr687905ad.20.1773171663319;
+        Tue, 10 Mar 2026 12:41:03 -0700 (PDT)
 Received: from google.com (10.129.124.34.bc.googleusercontent.com. [34.124.129.10])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2aeae34d873sm382665ad.42.2026.03.10.12.34.03
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-359f05edd69sm3807665a91.1.2026.03.10.12.40.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Mar 2026 12:34:06 -0700 (PDT)
-Date: Tue, 10 Mar 2026 19:34:00 +0000
+        Tue, 10 Mar 2026 12:41:02 -0700 (PDT)
+Date: Tue, 10 Mar 2026 19:40:56 +0000
 From: Pranjal Shrivastava <praan@google.com>
 To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Robin Murphy <robin.murphy@arm.com>, Nicolin Chen <nicolinc@nvidia.com>,
-	will@kernel.org, joro@8bytes.org, bhelgaas@google.com,
+Cc: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
+	robin.murphy@arm.com, joro@8bytes.org, bhelgaas@google.com,
 	rafael@kernel.org, lenb@kernel.org, kees@kernel.org,
 	baolu.lu@linux.intel.com, smostafa@google.com,
 	Alexander.Grest@microsoft.com, kevin.tian@intel.com,
@@ -81,21 +81,23 @@ Cc: Robin Murphy <robin.murphy@arm.com>, Nicolin Chen <nicolinc@nvidia.com>,
 	linux-acpi@vger.kernel.org, linux-pci@vger.kernel.org,
 	vsethi@nvidia.com
 Subject: Re: [PATCH v1 2/2] iommu/arm-smmu-v3: Recover ATC invalidate timeouts
-Message-ID: <abByKCl4xZlgF74z@google.com>
+Message-ID: <abBzyKNZRzRykRV5@google.com>
 References: <cover.1772686998.git.nicolinc@nvidia.com>
  <ca7ab934bf0f433b62a5c15d42241632c4cb9366.1772686998.git.nicolinc@nvidia.com>
- <a5ff7a43-ea52-462d-a316-d3a6c08410e0@arm.com>
- <aanwTQtMMplXY3du@Asurada-Nvidia>
- <20260305235252.GC1651202@nvidia.com>
- <03461707-783e-403a-86fa-ae7a5107fa30@arm.com>
- <20260306155646.GI1651202@nvidia.com>
+ <20260305153911.GT972761@nvidia.com>
+ <aanygWWZLA1htDdQ@Asurada-Nvidia>
+ <20260305234158.GB1651202@nvidia.com>
+ <aaot8uRsli5jNPzH@Asurada-Nvidia>
+ <20260306013347.GD1651202@nvidia.com>
+ <aapgyXadT1TEz29u@Asurada-Nvidia>
+ <20260306130202.GG1651202@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260306155646.GI1651202@nvidia.com>
+In-Reply-To: <20260306130202.GG1651202@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_123408_685294_DEF5A5CC 
-X-CRM114-Status: GOOD (  31.48  )
+X-CRM114-CacheID: sfid-20260310_124104_789940_2CA722A8 
+X-CRM114-Status: GOOD (  25.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,62 +112,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 11:56:46AM -0400, Jason Gunthorpe wrote:
-> On Fri, Mar 06, 2026 at 03:24:20PM +0000, Robin Murphy wrote:
-> > On 2026-03-05 11:52 pm, Jason Gunthorpe wrote:
-> > > On Thu, Mar 05, 2026 at 01:06:21PM -0800, Nicolin Chen wrote:
-> > > > That sounds like the IOPF implementation. Maybe inventing another
-> > > > IOMMU_FAULT_ATC_TIMEOUT to reuse the existing infrastructure would
-> > > > make things cleaner.
+On Fri, Mar 06, 2026 at 09:02:02AM -0400, Jason Gunthorpe wrote:
+> On Thu, Mar 05, 2026 at 09:06:17PM -0800, Nicolin Chen wrote:
+> > On Thu, Mar 05, 2026 at 09:33:47PM -0400, Jason Gunthorpe wrote:
+> > > On Thu, Mar 05, 2026 at 05:29:22PM -0800, Nicolin Chen wrote:
 > > > 
-> > > I think the routing is quite different, IOPF wants to route an event
-> > > the domain creator, here you want to route an event to the IOMMU core
-> > > then the PCIe RAS callbacks.
+> > > > But arm_smmu_cmdq_issue_cmdlist() doesn't know when to push another
+> > > > CMD. In my case where ATC_INV irq occurs, the return value from the
+> > > > arm_smmu_cmdq_poll_until_sync() in the Step 5 is 0, and prods/cons
+> > > > are also matched. Actually, at this point that NOP ISR has already
+> > > > finished.
 > > > 
-> > > IDK if there is much to be reused there, especially since IOPF
-> > > requires a memory allocation and ideally we should not be allocating
-> > > memory to resolve this critical error condition.
+> > > Yes, you'd need a sneaky way to convay the error from the ISR to the
+> > > cmdlist code that didn't harm performance. Maybe we could come up with
+> > > something, but if it works replacing the NOP with flush sounds fairly
+> > > appealing - though can you do a single WORD edit to the STE that will
+> > > block translated requests? Zero EATS?
 > > 
-> > Yeah, sorry, for a moment there I somehow forgot that we can expect to use
-> > ATS without PRI, so indeed tying this to IOPF wouldn't be appropriate. And
-> > given the general difficulty of trying to infer what went wrong and what to
-> > do from the CMDQ contents alone, I do like your idea of trying to return a
-> > new kind of sync failure back to arm_smmu_atc_inv_{master,domain}() so that
-> > we can take any defensive action from there, with all the information to
-> > hand. We'd just have to ensure that if a large set of ATCI commands needs to
-> > span multiple batches, every batch must contain its own sync (since if some
-> > other batch of unrelated commands could get interleaved in the middle and
-> > issue a sync that then fails due to someone else's ATC timeout, everything's
-> > likely to get confused and go wrong).
+> > Yea. I can give that a try.
 > 
-> Yeah, that all makes sense to me.
+> This also really needs to go after the invalidation changes because it
+> is feasible to also edit the lockless RCU invalidation list from the
+> ISR and disable the ATC for the failed device too.
 > 
-> The batching issue is scary, we definately can't allow an ATC
-> invalidation to be pushed without a SYNC that localizes any failure to
-> this specific thread, or we can't properly disambiguate the failures
-> anymore.
+> > > Also, will the SMMU start spamming with blocked translation events or
+> > > something that will need suppression too?
+> > 
+> > CD.R=0 can suppress fault records, but we would need to override
+> > that in every CD of the device.
 > 
-> My feeling is when the sync "fails", it can bubble up the error and we
-> can get back to the invalidation list processor which can then see it
-> failed to process an ATC batch and take an appropriate action.
+> That's too much to do from ISR, but maybe we can do it from a WQ..
 > 
 
-+1 just saw this thread (replied something similar)
+(Skimming through these, apologies if I'm losing context), shouldn't we
+do all that (marking it as an inv STE / abort STE, suppressing the
+faults) in the worker instead of trying to reset/recover the device?
 
-> > The fiddly thing then is that we might also have to be prepared to "handle"
-> > CMD_SYNC timeout by manually checking for GERRORs, in case the whole
-> > invalidation is in the context of an dma_unmap within some other device's
-> > IRQ handler, which happens to be on the same CPU where the GERROR IRQ is now
-> > pending, but can't be taken until we can complete the inv and return out of
-> > the current IRQ :/
-> 
-> IIRC didn't the PM patches propose to add this anyhow?
+> Jason
 
-If this is regarding the runtime pm patches, I've tried to address the
-Gerror issue (pointed out by you in v4) in the v5 [1]
-
-Thanks,
+Thanks
 Praan
-
-[1] https://lore.kernel.org/all/20260126151157.3418145-9-praan@google.com/
 
