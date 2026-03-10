@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2890FD4F2E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 20:01:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17486FD4F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 20:04:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x9uoDZoX5wcYSBPe17Yxmax+57dy5y/EA9jB+yCG4Lo=; b=V5rreebB5qlsoQkyqNw4uDMlqC
-	c+NkwSoeo3MF21Bf8BBgKvdBrntnUxoPeXADZ7MeWHVj0/hpG/9YfdUeUpd3VdijsACJH7h+hOHF5
-	7EtswvnzVqTmZYlmV3Sn5vtiJGh/e6gR17LzmKLNYKH7xLv1Gg6ViGTamYULLWGicqoUBDQl/5U+m
-	i4SUhGSR1xlt7FfsyRPcJLO6xCu3Zc13JvlxUkOiJ1OxXS5ilm83iopvaZDUT4mhPWe4jPzFx9Epa
-	0sZnkQSegVXNuR8bNjS50MmZ2ZepC97y6rtHSram4WUGuatsoAr6796kJ3WwMdC72WgEIR1ZYKahJ
-	awioqCFg==;
+	bh=pouRMyraIJfJRyRFv87tQoZjJ+P4d5SAB0a9EGBIRqk=; b=hWAPBSiWwO+2/mmufgyrZfnqNk
+	N9TcKofGCth3V9TRIPyEO4ftoB8RkdcDxtKoEkM/GOXovbWb6cZ2fjyGOaJS2aLlr6ZmNm6C0NvQo
+	JHjtizKZ8xqO03add4b6aGJTfWPUlGWFJ0SUqgp912s7ZuLBf2N18FrfnwsFyaAceHitJKvK2kFmA
+	pDN408M20S1LRWnEDP3Nm1DiEfjIH1+TqGwF6pPpFxHWV3SwDwHTZCo0p2Ks4WURXsUKkliW2ma74
+	ucUkAgv/48CSPqKlrGls5RfOY+nxdrJC3MxnYoQtpK76iXlu6P388bKt5SxNHZQ1s1m9jf6bCT3Xp
+	u6RGwYpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w03GI-0000000AD81-03hF;
-	Tue, 10 Mar 2026 20:01:02 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1w03JY-0000000ADP2-2pp5;
+	Tue, 10 Mar 2026 20:04:24 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w03GC-0000000AD65-1vSf
+	id 1w03JW-0000000ADOf-1P8T
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 20:00:57 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2ae3f822163so31225ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 13:00:56 -0700 (PDT)
+	Tue, 10 Mar 2026 20:04:23 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2aea4ebb048so6645ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 13:04:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1773172855; x=1773777655; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1773173061; x=1773777861; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=x9uoDZoX5wcYSBPe17Yxmax+57dy5y/EA9jB+yCG4Lo=;
-        b=XTdImRstbaJVLcGD7Rm9KyoUVO2SRoMYmQ0Qruj2hSjRAsoIsQIIwkMwLeBp/w34L8
-         w9OvvEJjSpWdQeDuLS52AsQtsZ7Ubf4o/zR7KjixfNlQ/J5Bo+QmfLQe+XO7QdSMnPWF
-         u8bBeTrIXla526zVxQTJfiAEtlRzV6n5kIESrWIfYA7XiGzx9lajYGHQCnBBnxOqyw+d
-         euvdWPwcjXMgy5VZko7+Kwlc6c+LOrqgFlGDulwNBM6ZO9tbkMkTKuHY865/WoQiJgOc
-         eDqOi4UQmFFmMKYZA910FLLsCBf/u9EtvolgLkppHkHDlRsOR+tKg5DUpYjq1SuCervz
-         rHsQ==
+        bh=pouRMyraIJfJRyRFv87tQoZjJ+P4d5SAB0a9EGBIRqk=;
+        b=LuEoxCgrzrvx/hjZW5jGTUgn6N9pg6tZqfv8bsnCpIzZZvP+fmQSyBmzXX7BxiQP80
+         l6VkNC4d4t9iYvtqGcrQl/CQQHsdO27RTzaMaaOMDBUj3bxMQ8M7PedCzJo+n1Y11xxW
+         BWmOjckmkepZqlXv0ZM78CTr7+xmoW9s/hxe/jJB+lnWWa7mJDKMM8+wklefO2rZAaqW
+         DeJm5l9kXLu+J3Vy8bqQp+rSjWk4ACT4YczaeNBQwKGjkaX8SkySjf/TRZeiT5KUKWYn
+         iEoemB07YiW4xogf+IqEU5FAZn8QGTQdKlzgSCon97GA7sZJMs+LETr4AkWYsyrw20cU
+         O+mg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773172855; x=1773777655;
+        d=1e100.net; s=20230601; t=1773173061; x=1773777861;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=x9uoDZoX5wcYSBPe17Yxmax+57dy5y/EA9jB+yCG4Lo=;
-        b=L1ZB4qkb6E+LSxts4w4Vs42ZRKpm2N82cPDpdmhrFXfkcinuV8lHKSmZnY9swzivVJ
-         S6eRV565XY0HQOD7q5ul2oAlMpxXWE1Xx+svw+P1xOT7Oi0e6rt10QxCSxEq4StPJIyX
-         T/lxqj3u04stCojeGhazFpd/t9knUGG+NSvx6mDVvwDtAC9nS9jHV0m7Tac/nHGT6iLL
-         2Ay/UKjdo0pekefPrvaIYaweVXKZSFlyrDsAZwIrJgVk5TZqoyvp9Ccm0iPiqml+FlzW
-         dFRLLT67CKCcdo02fmOiFOej0TFbGp4gNRx2kqaNMLYtPBnpViJdpNrLeMW1DjGiXMpp
-         aZVg==
-X-Forwarded-Encrypted: i=1; AJvYcCUblBggVrq0wtDsjryAGTX5GHiv0gPXZaQ8rXRIcKYBActxuvR5S7DhUfG2H+3e3BEpvCITrbTrsU4TN5EVX/64@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnCzWKUrButx41kHOsa4skfZPaIk8NbRkzarq/3qhuU7maXh66
-	Jas7k2gfnkOBo5dpxZr93aseFMYy2jElgunoq8UZOzh5tQJxJxs2pVEeZDCMvMK2Zg==
-X-Gm-Gg: ATEYQzzpBhSsfey1KA9aNARE70p1gm6gXf9pFskI+UQsSGj9GgFj1Jg+5ih9PgAQvvl
-	7BQhYiGwh1s/bb7hZDCyOIOsRhTk5aCe/qjIEAY2jbJd0aBM0tSxGuZlA8vrIVG4nmoFI31ClS/
-	pkGeXm5IEiWR/ClKGdZDRwadzNChEzvdzeyRQgIT2mj4Vf5P04+7IWECjBO8Ng/ihsRUSwAvJbq
-	+J0z0Da1obHjidfPK0oWUs985muL9B56AW8pm0kYmvADyoh6cx+ww3n6RLe5PFIr83KD3Uvp9WU
-	zy/K4D5wBmtxas5PD2TjPMCiMXwD80YZCXkuaGgDb6SUJnnmE2e4bmgW8TaXMVxrhRNZwgPJhQC
-	s0/x+2FtiDZ4YeJp4NvedO4gdHCC2zLv1xJmFi39mAv6YD0bySnHF+ubkiIWQ3eJr8l3Yoo4Xl8
-	vM0rXpck5725ekyIb2tyrIk+iCKEJsnuCbui3HypJ8gidT36ucHvEZBO7elw==
-X-Received: by 2002:a17:903:2ca:b0:2ae:5d57:c94f with SMTP id d9443c01a7336-2aead3e31a0mr779595ad.16.1773172854782;
-        Tue, 10 Mar 2026 13:00:54 -0700 (PDT)
+        bh=pouRMyraIJfJRyRFv87tQoZjJ+P4d5SAB0a9EGBIRqk=;
+        b=S2f2XMHqxEIyyHDd4P01M/YpTyGbfIRSAfI65bKmAuuf8l9YV7v/cueLCIlY/7RKpy
+         RQHXlYd0/SA4qZjZFC7Pcrxo9REGWT7Uv6kgV6zfYiQauwpyJH1vY2JvFpduLhi6Z2QZ
+         Il2EcTfIh3Z5AjPDMR85r1rDdOXGPzHGoOjcMMfcsaBIR4W6fSLM3JRbTFyKoTiwJZ75
+         8XTac61zJrmmnKcQrr4jzWA7H8WlnZP6kNc5AthZjBLPosXmUrMJp2rDbcFDLRRzpcKU
+         tlIzAYKjlY4iPOngZ1fIgw6rs2oUqg6IHvWTTFnsrZ8Gx0ik9siq69dciKlzCpr7JylR
+         osLw==
+X-Forwarded-Encrypted: i=1; AJvYcCU9+EBPVk/WlJcOGU9tWs19uc94WmaI/FOFMLPpzy5bn7EI60XBQISP1+gnL/sezL0t5S6KJPA9VaSV2tOW0oOo@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy6u+bgmbCW/OJwaBKJxs32l8S9e1Phadq1svbu654Ig8J4mVrd
+	kxSKerQy56H8qontHRrgU75vcudGva7XUOpfAs9hqTEFQ/6ghetMF4I6GXb8WqOlCQ==
+X-Gm-Gg: ATEYQzxG4NOUXfXhxYk+Ni/hBsUM9HbexE+vBj7CxE1LFGB0858VoNnhB1McuXEbhjN
+	KHsOmVBYgoci1BFND67EIrix+K0mxLLZ6pWvcRda9Adzm3PSytQse1kM3WoPs/Rhq23pfOPYrQB
+	bzWeP8OXjzXkXmvpyCm4bssb2ahO7IW1+uuPZ12xcv9kk5vP2CleRzlhBpNXPwTWB543fJ3RWMJ
+	Y2d8ADPcblorsaF1DgWjFeorwXiKZbaKbtgrzMpwFda/S2RZBJ7m8vLc8bZkyePNEVIrgky50JR
+	5CIDfEGxp/TZi3ViR70giIAvoYqfbS6CSnqtL+JXV/lz6rFWuNSL6E1Bn5+IA7LVCCBfI8T7G9w
+	OfgXMM++kTvA1ymJfSmCn0g+P8PYcCUMhSeSmecCkM1m1oZInQI1U63bDxOeQvQX//9o/KJxL9c
+	BmbZtVsVR+7iZYsKcT93LMCTJ+gcbzKyKaZPvxab+FtsgsK61OHQqE+vgeag==
+X-Received: by 2002:a17:902:cf12:b0:2a7:4151:2c74 with SMTP id d9443c01a7336-2aead3dfdfemr722415ad.16.1773173060930;
+        Tue, 10 Mar 2026 13:04:20 -0700 (PDT)
 Received: from google.com (10.129.124.34.bc.googleusercontent.com. [34.124.129.10])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-829f6eebe95sm83922b3a.36.2026.03.10.13.00.50
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-359ffdae223sm100059a91.0.2026.03.10.13.04.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Mar 2026 13:00:54 -0700 (PDT)
-Date: Tue, 10 Mar 2026 20:00:48 +0000
+        Tue, 10 Mar 2026 13:04:19 -0700 (PDT)
+Date: Tue, 10 Mar 2026 20:04:14 +0000
 From: Pranjal Shrivastava <praan@google.com>
 To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
-	bhelgaas@google.com, jgg@nvidia.com, rafael@kernel.org,
+Cc: Jason Gunthorpe <jgg@nvidia.com>, will@kernel.org, robin.murphy@arm.com,
+	joro@8bytes.org, bhelgaas@google.com, rafael@kernel.org,
 	lenb@kernel.org, kees@kernel.org, baolu.lu@linux.intel.com,
 	smostafa@google.com, Alexander.Grest@microsoft.com,
 	kevin.tian@intel.com, miko.lenczewski@arm.com,
@@ -80,18 +80,24 @@ Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
 	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
 	linux-pci@vger.kernel.org, vsethi@nvidia.com
 Subject: Re: [PATCH v1 2/2] iommu/arm-smmu-v3: Recover ATC invalidate timeouts
-Message-ID: <abB4cAjZjIvIzhkp@google.com>
-References: <cover.1772686998.git.nicolinc@nvidia.com>
- <ca7ab934bf0f433b62a5c15d42241632c4cb9366.1772686998.git.nicolinc@nvidia.com>
- <abBt8qj8QpkG-Fwh@google.com>
- <abB2V8VGfoh5yO45@Asurada-Nvidia>
+Message-ID: <abB5PsFiBvCOjmnW@google.com>
+References: <ca7ab934bf0f433b62a5c15d42241632c4cb9366.1772686998.git.nicolinc@nvidia.com>
+ <20260305153911.GT972761@nvidia.com>
+ <aanygWWZLA1htDdQ@Asurada-Nvidia>
+ <20260305234158.GB1651202@nvidia.com>
+ <aaot8uRsli5jNPzH@Asurada-Nvidia>
+ <20260306013347.GD1651202@nvidia.com>
+ <aapgyXadT1TEz29u@Asurada-Nvidia>
+ <20260306130202.GG1651202@nvidia.com>
+ <abBzyKNZRzRykRV5@google.com>
+ <abB3qt3QTroym7D+@Asurada-Nvidia>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <abB2V8VGfoh5yO45@Asurada-Nvidia>
+In-Reply-To: <abB3qt3QTroym7D+@Asurada-Nvidia>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_130056_504045_F070372F 
-X-CRM114-Status: GOOD (  33.44  )
+X-CRM114-CacheID: sfid-20260310_130422_383355_1EA47BAF 
+X-CRM114-Status: GOOD (  31.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,74 +112,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 10, 2026 at 12:51:51PM -0700, Nicolin Chen wrote:
-> On Tue, Mar 10, 2026 at 07:16:02PM +0000, Pranjal Shrivastava wrote:
-> > On Wed, Mar 04, 2026 at 09:21:42PM -0800, Nicolin Chen wrote:
-> > > +	/*
-> > > +	 * ATC timeout indicates the device has stopped responding to coherence
-> > > +	 * protocol requests. The only safe recovery is a reset to flush stale
-> > > +	 * cached translations. Note that pci_reset_function() internally calls
-> > > +	 * pci_dev_reset_iommu_prepare/done() as well and ensures to block ATS
-> > > +	 * if PCI-level reset fails.
-> > > +	 */
-> > > +	if (!pci_reset_function(pdev)) {
+On Tue, Mar 10, 2026 at 12:57:30PM -0700, Nicolin Chen wrote:
+> On Tue, Mar 10, 2026 at 07:40:56PM +0000, Pranjal Shrivastava wrote:
+> > On Fri, Mar 06, 2026 at 09:02:02AM -0400, Jason Gunthorpe wrote:
+> > > On Thu, Mar 05, 2026 at 09:06:17PM -0800, Nicolin Chen wrote:
+> > > > On Thu, Mar 05, 2026 at 09:33:47PM -0400, Jason Gunthorpe wrote:
+> > > > > On Thu, Mar 05, 2026 at 05:29:22PM -0800, Nicolin Chen wrote:
+> > > > > 
+> > > > > > But arm_smmu_cmdq_issue_cmdlist() doesn't know when to push another
+> > > > > > CMD. In my case where ATC_INV irq occurs, the return value from the
+> > > > > > arm_smmu_cmdq_poll_until_sync() in the Step 5 is 0, and prods/cons
+> > > > > > are also matched. Actually, at this point that NOP ISR has already
+> > > > > > finished.
+> > > > > 
+> > > > > Yes, you'd need a sneaky way to convay the error from the ISR to the
+> > > > > cmdlist code that didn't harm performance. Maybe we could come up with
+> > > > > something, but if it works replacing the NOP with flush sounds fairly
+> > > > > appealing - though can you do a single WORD edit to the STE that will
+> > > > > block translated requests? Zero EATS?
+> > > > 
+> > > > Yea. I can give that a try.
+> > > 
+> > > This also really needs to go after the invalidation changes because it
+> > > is feasible to also edit the lockless RCU invalidation list from the
+> > > ISR and disable the ATC for the failed device too.
+> > > 
+> > > > > Also, will the SMMU start spamming with blocked translation events or
+> > > > > something that will need suppression too?
+> > > > 
+> > > > CD.R=0 can suppress fault records, but we would need to override
+> > > > that in every CD of the device.
+> > > 
+> > > That's too much to do from ISR, but maybe we can do it from a WQ..
+> > > 
 > > 
-> > I'm a little uncomfortable with this, why is an IOMMU driver poking into
-> > the PCI mechanics? I agree that a reset might be the right thing to do
-> > here but we wouldn't want the IOMMU driver to trigger it.. Ideally, we'd
-> > need a mechanism that bubbles up fatal IOMMU faults to the PCI core and
-> > let it decide/perform the reset. Maybe this could mean adding another op
-> > to struct pci_error_handlers or something like that?
+> > (Skimming through these, apologies if I'm losing context), shouldn't we
+> > do all that (marking it as an inv STE / abort STE, suppressing the
+> > faults) in the worker instead of trying to reset/recover the device?
 > 
-> Robin/Jason already had similar remarks (to most of your other
-> comments as well). I have acked their comments, and am already
-> reworking on these.
+> EATS should be unset asap to avoid memory corruption. It's best
+> to do in the unmap() context where the page isn't reclaimed yet
+> by the kernel.
 > 
 
-Yea just saw those discussions as well, replied before seeing those.
+Makes sense.
 
-> > > +		/*
-> > > +		 * If reset succeeds, set BME back. Otherwise, fence the system
-> > > +		 * from a faulty device, in which case user will have to replug
-> > > +		 * the device to invoke pci_set_master().
-> > > +		 */
-> > > +		pci_dev_lock(pdev);
-> > 
-> > Why are we using spinlock_irqsave across the worker? Also, why does
-> > atc_recovery.lock have to be a spinlock? The workers run in process
-> > context, and I also don't see anyone else take the atc_recovery.lock?
-> 
-> I guess mutex would be okay here, since there is no other place
-> access the linked list. Pairing a linked list with a spinlock is
-> just a common practice..
-> 
-
-Ack agreed. No problem with the type of the lock, just questioning the
-choice to use spinlock_irqsave et al since I don't believe this could be
-in interrupt context.
-
-> > Why does it need to be irq-safe? If this can somehow run in irq context,
-> > we also seem to be using pci_dev_lock and streams_mutex across the
-> > worker?
-> 
-> pci_dev_lock was to fence race on the PCI level. Yet, the entire
-> BME call is probably not a good idea. So, dropping that means we
-> won't need pci_dev_lock.
-> 
+> Worker thread will be a bit late, but it is good enough for any
+> further step.
+>
 
 Ack.
-
-> > Mixing mutexes with spinlocks is brittle and invites 
-> > "sleep-while-atomic" bugs in future refactors..
-> 
-> Either streams_mutex or atc_recovery.lock was scoped for only a
-> few lines each section. Each was released before the other one
-> was taken. Where is the "mixing" or "sleep-while-atomic" case?
-
-The case doesn't exist yet, I meant it as a warning against future
-re-factors, since I didn't see the need to use a spinlock here, I didn't
-understand why couldn't all 3 be mutexes when the existing 2 already
-were.
-
 Praan
 
