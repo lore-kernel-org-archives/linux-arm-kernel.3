@@ -4,84 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9439DEB105A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 14:55:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F69FEB1064
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 15:00:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Koap7c4nmBUn1jQcRs2TKnT3RilQxG9yZc8gbf4yHA=; b=HFjZ9XkCkkzhm+fvVGNn7Wfysn
-	AtKBsBTeWK78AhWMqpBJDWvkbT1NPIvzsHZQjUXVRCXOfeBgMgtwo7pRtmzQIOcJ3qFPp03s7qqB/
-	KiZloVfu9X2VT17dan3jB6fvmufMLdr04q7Wd5kj5DPcHjkiXOtUi2rhbpOuZAAakcqdZwxUpk6jl
-	tGbq9ZF5umvdOKqZzBTUwHfDIaE8UeuEKyKUvfP9LTqmXSagKLyhqqTIw9VStUmGRokQL+dpGj0mr
-	E5VWb6q1gAGv0qRTNPWtXl5J9gyNf2NBr/APY74L9MROmUVe339SaSNktWAQIe50oDNC2u0Nm//jA
-	HvsFwbug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L9HJnIOv/gl6gXck9N/1XQzG9e0hZX7YRN6h4E+kuow=; b=nxfD5OiaHUqh2mJZyHj/4zvDNA
+	KrWbQJEg/VGhH0V9y8/Ai73V1x0Hx5b5SXbmKFUel5fPs3F8PxBgtPcyDRvZ3yNp28hXNdc07Q51l
+	a5Zb4aIvhMdoZUkSkPPAdOlTncuS6zqKqCDuJixLSr2DFnVuP/N9Up5+Ms0C/axmd4A6JqQLLI9db
+	aMeTNfyRg6WD61tBlVgqRlYStzX4edg0g4jWZYh5qdfsWDMhzLbrdR+I/dd2jRm/54xpyy5JYc1rT
+	Qhtq+AxbYcch0Yb47Sx90M4CaNkvxejyRaQ1zNBIWCH8JF4PGJ+EHaIBIpj8JCHHFcnTGXm1JXmAv
+	rXuro2zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzyUC-00000009jjx-13jz;
-	Tue, 10 Mar 2026 14:55:04 +0000
-Received: from out-181.mta0.migadu.com ([2001:41d0:1004:224b::b5])
+	id 1vzyZK-00000009kXL-0bEo;
+	Tue, 10 Mar 2026 15:00:22 +0000
+Received: from mail-westeuropeazon11010047.outbound.protection.outlook.com ([52.101.69.47] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzyUA-00000009jhk-2hmc
+	id 1vzyZB-00000009kNO-1JcB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 14:55:04 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1773154499;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4Koap7c4nmBUn1jQcRs2TKnT3RilQxG9yZc8gbf4yHA=;
-	b=Q7J9Xayb3tuq1RwczoR+kkYcwmbHr2IBdva+1kWyUfpOmeUqFxY8p3HhUG0VvkvFVRO7cq
-	rcbAym+WsHWFr//SsTKMXbfjnthBN1AVMJKC4S1BQIu+Y4f+asu6YqEK9FjMKM6HNAuqFg
-	o+kIhQjL1lj8wyLdBd5OI3jV01FKMB4=
-From: Usama Arif <usama.arif@linux.dev>
-To: Andrew Morton <akpm@linux-foundation.org>,
-	ryan.roberts@arm.com,
-	david@kernel.org
-Cc: ajd@linux.ibm.com,
-	anshuman.khandual@arm.com,
-	apopple@nvidia.com,
-	baohua@kernel.org,
-	baolin.wang@linux.alibaba.com,
-	brauner@kernel.org,
-	catalin.marinas@arm.com,
-	dev.jain@arm.com,
-	jack@suse.cz,
-	kees@kernel.org,
-	kevin.brodsky@arm.com,
-	lance.yang@linux.dev,
-	Liam.Howlett@oracle.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	lorenzo.stoakes@oracle.com,
-	npache@redhat.com,
-	rmclure@linux.ibm.com,
-	Al Viro <viro@zeniv.linux.org.uk>,
-	will@kernel.org,
-	willy@infradead.org,
-	ziy@nvidia.com,
-	hannes@cmpxchg.org,
-	kas@kernel.org,
-	shakeel.butt@linux.dev,
-	kernel-team@meta.com,
-	Usama Arif <usama.arif@linux.dev>
-Subject: [PATCH 4/4] mm: align file-backed mmap to exec folio order in thp_get_unmapped_area
-Date: Tue, 10 Mar 2026 07:51:17 -0700
-Message-ID: <20260310145406.3073394-5-usama.arif@linux.dev>
-In-Reply-To: <20260310145406.3073394-1-usama.arif@linux.dev>
-References: <20260310145406.3073394-1-usama.arif@linux.dev>
+	Tue, 10 Mar 2026 15:00:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=l+ucPOXkjGBSUv5Svi/GLUVLLKW6PGQeJu/ZN2LrNrSJ/DgjdQ7QEn9ojo/I2mR/ygHlUuhGexx4dgPCkIIh0b5GU8cw+zuLDVcxHzmuaUipBvsd/UdcbLcy4Mh92aRzITqOpNzqYaLquWPHGFAvTpOFNWNjNSIWqOGSrLn6fgLQAwPqpm6Ejp0Ht/N8kKZOph2otcJrxgNa2pt1RKtYXmcsnLo9cuswek8Rux/LTm3EliMKQ+UXBt1u0dj06MuYS0qoRQG3vOLegJ3TpXWFuunRRjUH5AvruH2LSWLk84G3FVA3kuFDDvzAw4yv/q3Z9h5weMpaBMhiCJ/d0fUEBw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=L9HJnIOv/gl6gXck9N/1XQzG9e0hZX7YRN6h4E+kuow=;
+ b=NBF+KOhYX7xmJe4b67LXoKiM5I7AUXs1UbeCQnpy/zyoOaoCGb4JT60t/ZRK8uIQ2QWlMAAIO6P2HXYxV5XLTYWphAw4O+WXdu4qdojnlxXRK5gX+xcxJqM4JLck4iJBDfaP9HP//5k9ST3DaCHKN2s358ZNSnUPEuj+o2Nb5GskJicOwYVerUq0YVmF37uybdCKgsVRblUzdL911B2sfSRoN92A0GuLtSbbU2aoJ90+bUDRfTXatKR8N3E/jTDH7y/cAIt6ZPzV3XI8VcZTrCSsSVvRVdZtRtG4jZD9uF6/XuMvTaNTx8mZi32dTCp4bkOEGG0jLU238ec4rBwxtg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=L9HJnIOv/gl6gXck9N/1XQzG9e0hZX7YRN6h4E+kuow=;
+ b=Q7/F69diH70Q++Ys4uVbasPgr2FbQBIB5sqJSMlTiCsFF+ngd+0LCnOa2yibr/Jof93mVNj6td7Emi4a4cl7lT+d9AqWnCUKxeRkIIQ6zr5Qj2MHKQvei/G9bUdaWFEuvvRrwboxqbvP0XDuboC9y/zvNqUBBPuFgEme0q0BbQeM0o2U90hSISN+AYm0tc03wDquw0IH1F2wLfBLONPb6mYBBRjryKJk1fVz4iRYZz5jAlaPKT/dJPcQDzUt9Mf8sjFcYS+2kIVu5OG6sIOQmXHZ6k2+676O7WKd58Gn4V7wAfLgEqxMtIzYA+Pptuh4X7uyPTM0qghhdQJXHA56bA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by PAXPR04MB9107.eurprd04.prod.outlook.com (2603:10a6:102:229::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.17; Tue, 10 Mar
+ 2026 15:00:06 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9678.017; Tue, 10 Mar 2026
+ 15:00:06 +0000
+Date: Tue, 10 Mar 2026 10:59:58 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 4/6] arm64: dts: freescale: imx95-verdin: Add Ivy carrier
+ board
+Message-ID: <abAx3_5SHKmeZTt0@lizhi-Precision-Tower-5810>
+References: <20260305-verdin-imx95-upstream-frank-li-base-v1-0-823fad02def9@toradex.com>
+ <20260305-verdin-imx95-upstream-frank-li-base-v1-4-823fad02def9@toradex.com>
+ <xghf5wajmzkz3vhi565q5fmclrelczobbvywg7z2tj3gj2rzlq@idn3vyhxxsde>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <xghf5wajmzkz3vhi565q5fmclrelczobbvywg7z2tj3gj2rzlq@idn3vyhxxsde>
+X-ClientProxiedBy: SA1P222CA0092.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:35e::12) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PAXPR04MB9107:EE_
+X-MS-Office365-Filtering-Correlation-Id: dd2575fd-87a7-417b-6756-08de7eb5b6ff
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|376014|7416014|19092799006|38350700014|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: th2OkAotL9JfyeicUJZlAT1qO/s29In4NuVM6riZAfw1uB7w6D17MLpvm41O6UmYTD8vIdwUaHaGFIb2SyX6xl6ystgiFCbIdIZl+ag5/58AkrezcsSF1XDrm0xk2k+qTSCwWyC3oJdo2fTUTicMVDHaERXorJTMzecK4m14KGpqBVsNtUyUZocWoMzilWOVNX/p4BkE7vHCBs7ORgvs9NWYXyNxh8lCUxeo9Op5to5fYabZtJZFf1p9X7MQeq/ONOwpwAUkRa6V2x0Rmd4kIFi/HtNknQdEyTmY0GvFbhK88sEEnZZV7SWdUScBuPAhFqJbgf5wJYeC9AemSDVe08Se5Rw0e9gO8gIiV2N2D/BWCWsvpVm3w9Xo7nI3UAUYc1WnCG2lVn44qqwnezaFvndfstClriUNAju0JZQfVCrd9GcXr1XQO95CVz94VDQMdKy3TFyHkiv/XzFm9tw+gOctU7PezGPiOwGU+U5lBXojBQCluj4Sa+hz6r4CEwF+XKO/repvPDcqPYdP6T2JXm7uBWNUZPjHhPKitCtgM/VKyq37hBZNUoJuKfV1Yd216DJxnEsQJrztKM2oPUZNRzNSwmkw8+uYHme4y/B7ggR/H5msLf/AERljEmODowLl8+Xa+SUggulsryhmOfFZVD8MxpQIVw6CV5UEL2iShp2Fttl6cC+zvtJbpf/pwBNo/V7GA8lqXbabN9ItKdfWN6rYd2ZI0jZYTzXUbKTc7WUjrtwg5bpH+OSsIZEo6hddoS/vGSKOWHgLm78+yZhqCrlKv2IpHMo+/MRfWt41N0c=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(376014)(7416014)(19092799006)(38350700014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1Qe/uXD4wsIgkxboWhUraVF6ExyX9S6YzL9+zttD24r1jW525GLr5ivfun4U?=
+ =?us-ascii?Q?fJ/Dge8RvfrqeFC7pWy+qJl+SIEAfzdCI9GbhKjbs0YdPCrYlbP3jrg4mY0h?=
+ =?us-ascii?Q?ciarF4C08mB1jlzDidhTOJOHPtgbkGt8cOVsKyqU//9FD84mXULbssJTgqE3?=
+ =?us-ascii?Q?AvDiaY2uh0GFvKdSxlYi3Dp/muoxFlErEeZo4AjJsWUmN9QeF3+wpoD3inqs?=
+ =?us-ascii?Q?dklAVWT2x/DqJig1jFb9MGu9NrTWTX9ADDnDorJ4kj9WRanL+wPa+79rTZAz?=
+ =?us-ascii?Q?BzJ+heTtGmQoaFFitu356MAyjFwZDzWStTESKvQbcEhIFntfK1nMeI9UZvNM?=
+ =?us-ascii?Q?D8ObXsAmsqjiN+L0JLrgFX0RN7CxG3AwVPIA6fT7oG0an2JePpfRVBz/KXgH?=
+ =?us-ascii?Q?waZO2vfEh5JBJme8QWlSNtYUqDUDf57G4yVdA0LiP8TpwkwEXqGsVVnO1Oac?=
+ =?us-ascii?Q?NjvthJCWfWzam6IKNlhoBt5ITse4HXbqERMiWDjZhhyWalntHxUARKTzgAtt?=
+ =?us-ascii?Q?5CTl8XRoR6X3nnmrsTFHvF6JlZlQ9PvNdU867v9sedsDBut/rfY47lI1rQmO?=
+ =?us-ascii?Q?7WQtdWhWEUuAwNvWcQWi9EcmSV73uSHOuK2xxL/mc9m6OBa02e3UmKsMgkof?=
+ =?us-ascii?Q?j4ZgGQ+OhFdjlmK1/MAwIevPAkayShvOXKCNUjjBlOujNghcuviRukmjp8NZ?=
+ =?us-ascii?Q?fBjd7Kcp8ieX6x4l/HTdokHuDelM0y6hqI+sDmM9qWijgqCXy3vTudNVnZL3?=
+ =?us-ascii?Q?x3qN9ncnIPZb/jjZf17294bJQ5XJwSyGQy0ZG2KIjZ9hsqk5LKfLiVyNSURl?=
+ =?us-ascii?Q?5qnU9zUMDVP3YbaERTOT0HXWnHo1WlD80zq+aCugYfrbQ8uIQhnt8rYgT+4i?=
+ =?us-ascii?Q?U3uNZKf0nb6x4vssnyzPH/D1v04sMzRk1he2meoNSk+bzUyuVIn6FBShSexQ?=
+ =?us-ascii?Q?TzntDWSecmzR0tNnssJ10PQeCuWESwj/FJUAn9USngtLlBz/drU12xHuE2jY?=
+ =?us-ascii?Q?Prp8NsFIvwHFmLBImLgcV/XYQk33Rmgn3Ay/OcajaS2g+XGcPhm+UYh/nswQ?=
+ =?us-ascii?Q?LsnteJxOsC3MH/i86T35pKhx/T+3Npa+IGoK5oLKz2Mx0n+mPwKMTAvcJqXs?=
+ =?us-ascii?Q?Ls9n/F13wkvkVLhGGGgpvdSLZizeatgGgLP6LbZ8AHfQIjuBhrCfQGJdz/Ap?=
+ =?us-ascii?Q?iPhDJTPvtCappk+5sbCkSoM/9q6wjpqLtvisYrEEB+Dx9h83twoEtT8kS9lr?=
+ =?us-ascii?Q?lcSy8xb9DymmzvOt49Xo1KEJaPIJkmS7ELQDdykGpvuFICI8vUNxzRn9f/5z?=
+ =?us-ascii?Q?wY4/uNC5YulHFwqOiG784uUs/5r3A8h3R2k87dCenuHKh/RD/sxVQKhmq7xo?=
+ =?us-ascii?Q?ziaFXDMP+hQ5j54kQ7+gUfYWDAju0NXOdZf3vXFs08YWb8+5zYl6iZpHe/nN?=
+ =?us-ascii?Q?GEd8XrYjjuiaAi9NqgBUQp1wOO7MmexwPtA11JvrS+1EeD1w/8J+bSVs7cbY?=
+ =?us-ascii?Q?Cu3ATkApSDPl36FSwtMoQtAz+x3WRtoNOSW4N+apMr3TfPxoZZh9l+CmMuNF?=
+ =?us-ascii?Q?875eKscHQrzZ9wSD18En7H4eyFWEBCx3Fhzx1+Jk1e73ZMwviqCslsEHJQ54?=
+ =?us-ascii?Q?NikOR93+U2UN3nc6wVZjosLqRESmgyzwItUNKP8NXmpsipIMom42N1OuEA0y?=
+ =?us-ascii?Q?JmvLZ52JMzuEOA8N3zUm93v0V6wAxDTnwfxrmwv/xWk5MGBWcAsYareyuPjL?=
+ =?us-ascii?Q?oK+UZbh5bA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dd2575fd-87a7-417b-6756-08de7eb5b6ff
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2026 15:00:05.9526
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZktM1zHLcAYM0dbbwGaPHWA85xh4BBzqe7zHO5t7pNQwG9Wl9/ofzYMmlk+HierA6gSpc5wB9A6+TnwiApwxww==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9107
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_075502_846992_B6DA5A9C 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20260310_080013_378116_64878228 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,66 +146,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-thp_get_unmapped_area() is the get_unmapped_area callback for
-filesystems like ext4, xfs, and btrfs. It attempts to align the virtual
-address for PMD_SIZE THP mappings, but on arm64 with 64K base pages
-PMD_SIZE is 512M, which is too large for typical shared library mappings,
-so the alignment always fails and falls back to PAGE_SIZE.
+On Tue, Mar 10, 2026 at 11:06:08AM +0100, Ernest Van Hoecke wrote:
+> On Thu, Mar 05, 2026 at 06:24:32PM +0100, Ernest Van Hoecke wrote:
+>
+> Hello Krzysztof,
+> Hello Frank,
+>
+> Thanks for your review so far. I noticed that the node order here is
+> also wrong and not alphanumeric on node name. I will fix some of them,
+> but for some it could mean that for example, 'ain2_voltage_unmanaged:
+> voltage-divider-ain2' is far from 'ain2-voltage', which is unfortunate
+> since they are related. Together with the the current-sense and
+> mux-controller nodes they form something of a logical group and it seems
+> undesirable to have them be separated by a long 'leds' node and the
+> regulator nodes.
+>
+> Would it be acceptable to keep the "group" together and sort
+> alphanumerically within it, or is it preferred to sort all nodes
+> alphanumerically?
 
-This means shared libraries loaded by ld.so via mmap() get 64K-aligned
-virtual addresses, preventing contpte mapping even when 2M folios are
-allocated with properly aligned file offsets and physical addresses.
+Previous happen insert duplicated nodes many times because try "group"
+function togeter or random order.
 
-Add a fallback in thp_get_unmapped_area_vmflags() that tries
-PAGE_SIZE << exec_folio_order() alignment (2M on arm64 64K pages)
-when PMD_SIZE alignment fails. This is small enough that shared
-libraries could qualify, enabling contpte mapping for their executable
-segments.
+It is hard to define "group".  Use alphanumerically is easily to folllow
+and it can use tools to check.
 
-This applies to all file-backed mappings (not just exec). Non-exec
-file-backed mappings also benefit from contpte mapping when large
-folios are used. Aligning all file-backed mappings ensures that any
-large folio in the page cache can be contpte-mapped regardless of
-the mapping's protection flags, reducing dTLB misses for read-heavy
-workloads.
+Now I take over freescale dts tree. there are over 500 dts under arm64
+freescale. I want to use simple and straingforward rule to manage it.
 
-The fallback is gated by exec_folio_order() which returns 0 by default,
-making this a no-op on architectures that don't define it.
+ref use label (free nameing), you can use nice label name to keep good
+orders.
 
-Signed-off-by: Usama Arif <usama.arif@linux.dev>
----
- mm/huge_memory.c | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+Frank
 
-diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-index 8e2746ea74adf..1c9476a5ed51c 100644
---- a/mm/huge_memory.c
-+++ b/mm/huge_memory.c
-@@ -1242,6 +1242,23 @@ unsigned long thp_get_unmapped_area_vmflags(struct file *filp, unsigned long add
- 	if (ret)
- 		return ret;
- 
-+	/*
-+	 * If the arch requested large folios for exec memory, try to align
-+	 * to the folio size as a fallback. This is much smaller than PMD_SIZE
-+	 * (e.g. 2M vs 512M on arm64 64K pages), so it succeeds for mappings
-+	 * that are too small for PMD alignment. Proper alignment ensures that
-+	 * the hardware can coalesce PTEs (e.g. arm64 contpte) when large
-+	 * folios are mapped.
-+	 */
-+	if (exec_folio_order()) {
-+		unsigned long folio_size = PAGE_SIZE << exec_folio_order();
-+
-+		ret = __thp_get_unmapped_area(filp, addr, len, off, flags,
-+					      folio_size, vm_flags);
-+		if (ret)
-+			return ret;
-+	}
-+
- 	return mm_get_unmapped_area_vmflags(filp, addr, len, pgoff, flags,
- 					    vm_flags);
- }
--- 
-2.47.3
-
+>
+> Kind regards,
+> Ernest
 
