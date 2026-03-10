@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 075E0FD2D72
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 12:50:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A14AFD2D70
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 12:50:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AuLKSluxKmhn480CzigIfSkaIIQucOGgq+FPielHBMw=; b=QE9XaSaYrH0le3rmwwv+QreTtY
-	MuccSZcObMl92Rsj+iA62wKG4Xp12PqRT7Yf+XAjlYEVw/Wx+zhYovvO6kxZNUXdhe3fTtq1IlE+N
-	KDrVc9iCwpBIZcnsKOlVyS6ZfVJD820J7CZ6wyOMLAU4YMZm1MSUL+MHcuUxkG+GIoqQAoCNV6+ap
-	XE8vGCacEmg8XqV5JrnKGQTPMqgW7LkLJZXZFmZIh0wwwOTYxvHjtppf7VvjYXALH4NrMnuzfYMFu
-	Adzti0vIsIomVA9DzNNAnzgRdU25rFkAnF+xdB4CpoDUnCUOK/KnsOdKafFmsUEKb09KPKTXanXUp
-	l2gnL1HQ==;
+	bh=l6n5Y9iqY7rq1n5Q/lgdkU3SuBp6Rv+RQlbX0vgQT/A=; b=qgCN9lKQ+uvSpvPPbqc+j+GKYh
+	C4eMIXzhLaXkrQ6imQlieLdT52lECrCzzq7rr3xpzbxNMFiofqQvukqKwQSmPxxx+sNmFAOv4KN+4
+	ontw82hefOoG5REgmoKVeRa3zyXe35tlXE3jhJmq2Mh66zR7QbmvmT9Yx1buS0esgj3pUB2Ns6Z0K
+	/spvzbDA7dpzop8KNRi5Kz/SklFXbzMAHa+h9iEtj0VwWrTOlPSRLaOFiTvS0yqmbfdyAXTPzsZWN
+	yIJsnAky+BTF8cZ2j3Db7VFqk7nLWmZYi2ntEzynUgVUvFvLILunfnbhQ6YYudtwW+uhawLOtDSEV
+	QDEwhhMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzwX5-00000009W9U-3gFI;
+	id 1vzwX5-00000009W8K-0wW1;
 	Tue, 10 Mar 2026 12:49:55 +0000
-Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzwX1-00000009W5Z-3VSx
+	id 1vzwWy-00000009W3c-2zBU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 12:49:53 +0000
-Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-b96ec4966cbso225337966b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 05:49:50 -0700 (PDT)
+	Tue, 10 Mar 2026 12:49:49 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4853ab1cae0so20355025e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 05:49:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1773146989; x=1773751789; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1773146987; x=1773751787; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=AuLKSluxKmhn480CzigIfSkaIIQucOGgq+FPielHBMw=;
-        b=BVlf2n+lKRb0ATp67eCtmpFkLozXosIIzjRvj7aou+vjDI7WP/h5HUz9zcdG5bjcpU
-         NY6Pav7/3iuvfjtxT6n6WeVbnKBK8QfHoK+AGe+9ofwcy69oC9xcsGWRL+bOvSNbFp30
-         NRvn9OricY5Ra8yMf/Ahlul2phZP4Upisr4XA2i6YNPsr12iWfWvQUwzXYiAksDSWCAk
-         KkN1HqDatCyIqWUFZc2N5phGwdeBUG9V8+LbvRXgk4IE9KeCjnW2RLq1Gh8rpse+vkJL
-         ro6E0LlB+LSWttH+TzGSLPa2usrojlHE8EXuzQih2bc937UtyHUzSQCF1vHH5TgZK+1m
-         cmYA==
+        bh=l6n5Y9iqY7rq1n5Q/lgdkU3SuBp6Rv+RQlbX0vgQT/A=;
+        b=A2JJvcEF5wB1q8SAOfpfbtpwfQhfRbK0VZQlLr9QC1QSjQsdxFOBzWqChjWliLO8eE
+         7N+AR9CoypiTQxA0UrBCK2bYxfHLv0GswcHbyjablVXUFSXTcSnmk7stdxc5mSZui2n9
+         /9Q7IQCzjUtg+uowtxwO9zQe0pIvCjwutYG5mvEIJGZd1bjsR+vmc7BikcjqBGbIrS0t
+         S+lts59ReiFemeNjTqtMuo20Y0TKEBvUslc2/UmHFaJ3JL8jjFhK8VxS24JylstK46MW
+         8BYJxY6dkCgluT+xcsm3HBBzbIzDBfKj67bmgzBKUtxsEOPr65KhWSMvjK9dcLg89nWy
+         D7UA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773146989; x=1773751789;
+        d=1e100.net; s=20230601; t=1773146987; x=1773751787;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=AuLKSluxKmhn480CzigIfSkaIIQucOGgq+FPielHBMw=;
-        b=hBSL97alrLQk9/JYIBF5DCMbchNJRyCW/lfsBJ/klZI47Zaj0GzKAQAIJ4I6cXkTXc
-         ikUSZVVeTOwRdUY3I2hs2AFB6p4Uv0LbacUxqTYiNWRSaJ2mHGf5UFQnZRI4x/5W1ZPd
-         9duIC0M1VelYoyVsKv3E3APR7GAWtRcqKjE0cSkAvqVy3oZDduDkbgbpHhw4uNQSv8uA
-         El4alAwE2OyQywexerDzwNmWD8e8a88rLG/FMv+6tVJNKydIfUtfw9TlZ9esVafz12f/
-         JdXS+SIOZ2xC8n/KFFiUd9k7q2Pv02Y/5fry9CaOvqRQnCZmA9sBNz6L65TWg+VA1uKq
-         bksw==
-X-Forwarded-Encrypted: i=1; AJvYcCX76g5sN3D/YFenKflxDQa8tUrLZFz8Qg/cBGEvEM9vJlYNMnOeWni3mHZQpaF55ruwqfIRPXv+0rYKRMZrnan0@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAcqUqwFlOBjU7z4C+eUxtRCCVyILTSgY7KB3hcdTpq0tGCYcO
-	CKwPOvXn2HUsHp++i1FoGV/MAqAQnm1Pvg6WND6xRVvhuJndvPly2AVHufwByF9jMs1bbXgaX4Y
-	i15jnUgKbjOXznpXTuG7WXn9o+0+tLQ==
-X-Received: from edfa4.prod.google.com ([2002:a50:9e84:0:b0:662:810d:badd])
+        bh=l6n5Y9iqY7rq1n5Q/lgdkU3SuBp6Rv+RQlbX0vgQT/A=;
+        b=hUY9NyeoPQdzpvEerHddk6vP2XDk3xSZdhIGvDLsZxiw0uk6917KmKn1NiPvM7/47q
+         taObbzqiiQ02Yga+GEALYa5txEYETvkNcc0CPYMgHV8nCdS0nFJSg+ChD5R4zAoqQZ8r
+         npGqQ7u1AHusSZe0d6qvrgLYeP8mvFgw6wefN+OIeCoGatU4eeFu1rwAFSlEmXiGajgy
+         uPHhfc1N2mSvM3+DTPiy32cJo1zgE08Glo9i96df7p/oIzKREQMls9Lac4MBlq2AG/uz
+         eizIOa7PgPcQpRLFwQiPCqsj5WeYrNwCAvwK7liW71VeW5+1R68yWQGPTfuGjjLFZKGZ
+         TQdg==
+X-Forwarded-Encrypted: i=1; AJvYcCXpQ6UcEllLa42TJxUDprnx8ZSOnrjNSEmKZqq6tdMk9e0dynYB4fWYMILgRbvJuvViolses2JL3rQUurBo2oQF@lists.infradead.org
+X-Gm-Message-State: AOJu0YxN2K8qnqw5XjRjx4vWd8y55fMe6hGobVOOXeP7qDMM6CbH/7IW
+	PyQxH7/oo0Mbhsq6zX5YD64nOW8PqBl2YhneIODwi3fHnaqJ6sTLlnUUqKUPLqyMBa3mVszvTML
+	DNHrQKrlrszEcoIggPWvu5RhUlYv/dg==
+X-Received: from wmby21.prod.google.com ([2002:a05:600c:c055:b0:485:343f:9fb3])
  (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:907:7290:b0:b8e:9a0:1bfb with SMTP id a640c23a62f3a-b942d58ea78mr829388866b.0.1773146989033;
- Tue, 10 Mar 2026 05:49:49 -0700 (PDT)
-Date: Tue, 10 Mar 2026 12:49:25 +0000
+ 2002:a05:600c:138a:b0:477:7ae0:cd6e with SMTP id 5b1f17b1804b1-485269196ffmr271672925e9.5.1773146986648;
+ Tue, 10 Mar 2026 05:49:46 -0700 (PDT)
+Date: Tue, 10 Mar 2026 12:49:23 +0000
 In-Reply-To: <20260310124933.830025-1-sebastianene@google.com>
 Mime-Version: 1.0
 References: <20260310124933.830025-1-sebastianene@google.com>
 X-Mailer: git-send-email 2.53.0.473.g4a7958ca14-goog
-Message-ID: <20260310124933.830025-7-sebastianene@google.com>
-Subject: [PATCH 06/14] KVM: arm64: Add infrastructure for ITS emulation setup
+Message-ID: <20260310124933.830025-5-sebastianene@google.com>
+Subject: [PATCH 04/14] KVM: arm64: Mediate host access to GIC/ITS MMIO via unmapping
 From: Sebastian Ene <sebastianene@google.com>
 To: alexandru.elisei@arm.com, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
@@ -78,8 +78,8 @@ Cc: catalin.marinas@arm.com, dbrazdil@google.com, joey.gouly@arm.com,
 	will@kernel.org, yuzenghui@huawei.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_054951_936230_B3449EE5 
-X-CRM114-Status: GOOD (  22.81  )
+X-CRM114-CacheID: sfid-20260310_054948_802075_0BB1363A 
+X-CRM114-Status: GOOD (  22.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,278 +94,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Share the host command queue with the hypervisor. Donate
-the original command queue memory to the hypervisor to ensure
-host exclusion and trap accesses on GITS_CWRITE register.
-On a CWRITER write, the hypervisor copies commands from the
-host's queue to the protected queue before updating the
-hardware register.
-This ensures the hypervisor mediates all commands sent to
-the physical ITS.
+Unmap the ITS MMIO region from the host address space to enforce
+hypervisor mediation.
+Identify the ITS base address from the device tree and store it in a
+protected region. A callback is registered to handle host accesses to
+this region; currently, the handler simply forwards all MMIO requests
+to the physical hardware. This provides the infrastructure for future
+hardware state validation without changing current behavior.
 
 Signed-off-by: Sebastian Ene <sebastianene@google.com>
 ---
- arch/arm64/include/asm/kvm_pkvm.h             |   1 +
- arch/arm64/kvm/hyp/include/nvhe/its_emulate.h |  17 ++
- arch/arm64/kvm/hyp/nvhe/its_emulate.c         | 203 ++++++++++++++++++
- 3 files changed, 221 insertions(+)
- create mode 100644 arch/arm64/kvm/hyp/include/nvhe/its_emulate.h
+ arch/arm64/include/asm/kvm_pkvm.h     |  2 ++
+ arch/arm64/kvm/hyp/nvhe/Makefile      |  3 ++-
+ arch/arm64/kvm/hyp/nvhe/its_emulate.c | 23 ++++++++++++++++
+ arch/arm64/kvm/pkvm.c                 | 38 +++++++++++++++++++++++++++
+ 4 files changed, 65 insertions(+), 1 deletion(-)
+ create mode 100644 arch/arm64/kvm/hyp/nvhe/its_emulate.c
 
 diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-index ef00c1bf7d00..dc5ef2f9ac49 100644
+index 5321ced2f50a..ef00c1bf7d00 100644
 --- a/arch/arm64/include/asm/kvm_pkvm.h
 +++ b/arch/arm64/include/asm/kvm_pkvm.h
-@@ -28,6 +28,7 @@ struct pkvm_protected_reg {
- 	u64 start_pfn;
- 	size_t num_pages;
- 	pkvm_emulate_handler *cb;
-+	void *priv;
- };
+@@ -32,6 +32,8 @@ struct pkvm_protected_reg {
  
  extern struct pkvm_protected_reg kvm_nvhe_sym(pkvm_protected_regs)[];
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/its_emulate.h b/arch/arm64/kvm/hyp/include/nvhe/its_emulate.h
+ extern unsigned int kvm_nvhe_sym(num_protected_reg);
++extern void kvm_nvhe_sym(pkvm_handle_forward_req)(struct pkvm_protected_reg *region, u64 offset,
++						  bool write, u64 *reg, u8 reg_size);
+ 
+ int pkvm_init_host_vm(struct kvm *kvm);
+ int pkvm_create_hyp_vm(struct kvm *kvm);
+diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
+index a244ec25f8c5..eb43269fbac2 100644
+--- a/arch/arm64/kvm/hyp/nvhe/Makefile
++++ b/arch/arm64/kvm/hyp/nvhe/Makefile
+@@ -24,7 +24,8 @@ CFLAGS_switch.nvhe.o += -Wno-override-init
+ 
+ hyp-obj-y := timer-sr.o sysreg-sr.o debug-sr.o switch.o tlb.o hyp-init.o host.o \
+ 	 hyp-main.o hyp-smp.o psci-relay.o early_alloc.o page_alloc.o \
+-	 cache.o setup.o mm.o mem_protect.o sys_regs.o pkvm.o stacktrace.o ffa.o
++	 cache.o setup.o mm.o mem_protect.o sys_regs.o pkvm.o stacktrace.o ffa.o \
++	 its_emulate.o
+ hyp-obj-y += ../vgic-v3-sr.o ../aarch32.o ../vgic-v2-cpuif-proxy.o ../entry.o \
+ 	 ../fpsimd.o ../hyp-entry.o ../exception.o ../pgtable.o
+ hyp-obj-y += ../../../kernel/smccc-call.o
+diff --git a/arch/arm64/kvm/hyp/nvhe/its_emulate.c b/arch/arm64/kvm/hyp/nvhe/its_emulate.c
 new file mode 100644
-index 000000000000..6be24c723658
+index 000000000000..0eecbb011898
 --- /dev/null
-+++ b/arch/arm64/kvm/hyp/include/nvhe/its_emulate.h
-@@ -0,0 +1,17 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+
-+#ifndef __NVHE_ITS_EMULATE_H
-+#define __NVHE_ITS_EMULATE_H
-+
++++ b/arch/arm64/kvm/hyp/nvhe/its_emulate.c
+@@ -0,0 +1,23 @@
++// SPDX-License-Identifier: GPL-2.0-only
 +
 +#include <asm/kvm_pkvm.h>
++#include <nvhe/mem_protect.h>
 +
 +
-+struct its_shadow_tables;
++void pkvm_handle_forward_req(struct pkvm_protected_reg *region, u64 offset, bool write,
++			     u64 *reg, u8 reg_size)
++{
++	void __iomem *addr = __hyp_va((region->start_pfn << PAGE_SHIFT) + offset);
 +
-+int pkvm_init_gic_its_emulation(phys_addr_t dev_addr, void *priv_state,
-+				struct its_shadow_tables *shadow);
-+
-+void pkvm_handle_gic_emulation(struct pkvm_protected_reg *region, u64 offset, bool write,
-+			       u64 *reg, u8 reg_size);
-+#endif /* __NVHE_ITS_EMULATE_H */
-diff --git a/arch/arm64/kvm/hyp/nvhe/its_emulate.c b/arch/arm64/kvm/hyp/nvhe/its_emulate.c
-index 0eecbb011898..4a3ccc90a1a9 100644
---- a/arch/arm64/kvm/hyp/nvhe/its_emulate.c
-+++ b/arch/arm64/kvm/hyp/nvhe/its_emulate.c
-@@ -1,8 +1,75 @@
- // SPDX-License-Identifier: GPL-2.0-only
++	if (reg_size == sizeof(u32)) {
++		if (!write)
++			*reg = readl_relaxed(addr);
++		else
++			writel_relaxed(*reg, addr);
++	} else if (reg_size == sizeof(u64)) {
++		if (!write)
++			*reg = readq_relaxed(addr);
++		else
++			writeq_relaxed(*reg, addr);
++	}
++}
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index d7a0f69a9982..a766be6de735 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -11,6 +11,9 @@
+ #include <asm/kvm_mmu.h>
+ #include <linux/memblock.h>
+ #include <linux/mutex.h>
++#include <linux/of_address.h>
++#include <linux/of_reserved_mem.h>
++#include <linux/platform_device.h>
  
  #include <asm/kvm_pkvm.h>
-+#include <linux/irqchip/arm-gic-v3.h>
-+#include <nvhe/its_emulate.h>
- #include <nvhe/mem_protect.h>
  
-+struct its_priv_state {
-+	void *base;
-+	void *cmd_hyp_base;
-+	void *cmd_host_base;
-+	void *cmd_host_cwriter;
-+	struct its_shadow_tables *shadow;
-+	hyp_spinlock_t its_lock;
-+};
-+
-+struct its_handler {
-+	u64 offset;
-+	u8 access_size;
-+	void (*write)(struct its_priv_state *its, u64 offset, u64 value);
-+	void (*read)(struct its_priv_state *its, u64 offset, u64 *read);
-+};
-+
-+DEFINE_HYP_SPINLOCK(its_setup_lock);
-+
-+static void cwriter_write(struct its_priv_state *its, u64 offset, u64 value)
-+{
-+	u64 cwriter_offset = value & GENMASK(19, 5);
-+	int cmd_len, cmd_offset;
-+	size_t cmdq_sz = its->shadow->cmdq_len;
-+
-+	if (cwriter_offset > cmdq_sz)
-+		return;
-+
-+	cmd_offset = its->cmd_host_cwriter - its->cmd_host_base;
-+	cmd_len = cwriter_offset - cmd_offset;
-+	if (cmd_len < 0)
-+		cmd_len = cmdq_sz - cmd_offset;
-+
-+	if (cmd_offset + cmd_len > cmdq_sz)
-+		return;
-+
-+	memcpy(its->cmd_hyp_base + cmd_offset, its->cmd_host_cwriter, cmd_len);
-+
-+	its->cmd_host_cwriter = its->cmd_host_base +
-+		(cmd_offset + cmd_len) % cmdq_sz;
-+	if (its->cmd_host_cwriter == its->cmd_host_base) {
-+		memcpy(its->cmd_hyp_base, its->cmd_host_base, cwriter_offset);
-+
-+		its->cmd_host_cwriter = its->cmd_host_base + cwriter_offset;
-+	}
-+
-+	writeq_relaxed(value, its->base + GITS_CWRITER);
-+}
-+
-+static void cwriter_read(struct its_priv_state *its, u64 offset, u64 *read)
-+{
-+	*read = readq_relaxed(its->base + GITS_CWRITER);
-+}
-+
-+#define ITS_HANDLER(off, sz, write_cb, read_cb)	\
-+{							\
-+	.offset = (off),				\
-+	.access_size = (sz),				\
-+	.write = (write_cb),				\
-+	.read = (read_cb),				\
-+}
-+
-+static struct its_handler its_handlers[] = {
-+	ITS_HANDLER(GITS_CWRITER, sizeof(u64), cwriter_write, cwriter_read),
-+	{},
-+};
+@@ -18,6 +21,7 @@
  
- void pkvm_handle_forward_req(struct pkvm_protected_reg *region, u64 offset, bool write,
- 			     u64 *reg, u8 reg_size)
-@@ -21,3 +88,139 @@ void pkvm_handle_forward_req(struct pkvm_protected_reg *region, u64 offset, bool
- 			writeq_relaxed(*reg, addr);
- 	}
+ DEFINE_STATIC_KEY_FALSE(kvm_protected_mode_initialized);
+ 
++static struct pkvm_protected_reg *pkvm_protected_regs = kvm_nvhe_sym(pkvm_protected_regs);
+ static struct memblock_region *hyp_memory = kvm_nvhe_sym(hyp_memory);
+ static unsigned int *hyp_memblock_nr_ptr = &kvm_nvhe_sym(hyp_memblock_nr);
+ 
+@@ -39,6 +43,34 @@ static int __init register_memblock_regions(void)
+ 	return 0;
  }
-+
-+void pkvm_handle_gic_emulation(struct pkvm_protected_reg *region, u64 offset, bool write,
-+			       u64 *reg, u8 reg_size)
+ 
++static int __init register_protected_regions(void)
 +{
-+	struct its_priv_state *its_priv = region->priv;
-+	void __iomem *addr;
-+	struct its_handler *reg_handler;
++	int i = 0, ret;
++	struct device_node *np;
++	struct resource res;
 +
-+	if (!its_priv)
-+		return;
-+
-+	addr = its_priv->base + offset;
-+	for (reg_handler = its_handlers; reg_handler->access_size; reg_handler++) {
-+		if (reg_handler->offset > offset ||
-+		    reg_handler->offset + reg_handler->access_size <= offset)
-+			continue;
-+
-+		if (reg_handler->access_size & (reg_size - 1))
-+			continue;
-+
-+		if (write && reg_handler->write) {
-+			hyp_spin_lock(&its_priv->its_lock);
-+			reg_handler->write(its_priv, offset, *reg);
-+			hyp_spin_unlock(&its_priv->its_lock);
-+			return;
-+		}
-+
-+		if (!write && reg_handler->read) {
-+			hyp_spin_lock(&its_priv->its_lock);
-+			reg_handler->read(its_priv, offset, reg);
-+			hyp_spin_unlock(&its_priv->its_lock);
-+			return;
-+		}
-+
-+		return;
-+	}
-+
-+	pkvm_handle_forward_req(region, offset, write, reg, reg_size);
-+}
-+
-+static struct pkvm_protected_reg *get_region(phys_addr_t dev_addr)
-+{
-+	int i;
-+	u64 dev_pfn = dev_addr >> PAGE_SHIFT;
-+
-+	for (i = 0; i < PKVM_PROTECTED_REGS_NUM; i++) {
-+		if (pkvm_protected_regs[i].start_pfn == dev_pfn)
-+			return &pkvm_protected_regs[i];
-+	}
-+
-+	return NULL;
-+}
-+
-+static int pkvm_setup_its_shadow_cmdq(struct its_shadow_tables *shadow)
-+{
-+	int ret, i, num_pages;
-+	u64 shadow_start_pfn, original_start_pfn;
-+	void *cmd_shadow_va = kern_hyp_va(shadow->cmd_shadow);
-+
-+	shadow_start_pfn = hyp_virt_to_pfn(cmd_shadow_va);
-+	original_start_pfn = hyp_virt_to_pfn(kern_hyp_va(shadow->cmd_original));
-+	num_pages = shadow->cmdq_len >> PAGE_SHIFT;
-+
-+	for (i = 0; i < num_pages; i++) {
-+		ret = __pkvm_host_share_hyp(shadow_start_pfn + i);
++	for_each_compatible_node(np, NULL, "arm,gic-v3-its") {
++		ret = of_address_to_resource(np, i, &res);
 +		if (ret)
-+			goto unshare_shadow;
++			return ret;
++
++		if (i >= PKVM_PROTECTED_REGS_NUM)
++			return -ENOMEM;
++
++		if (!PAGE_ALIGNED(res.start) || !PAGE_ALIGNED(resource_size(&res)))
++			return -EINVAL;
++
++		pkvm_protected_regs[i].start_pfn = res.start >> PAGE_SHIFT;
++		pkvm_protected_regs[i].num_pages = resource_size(&res) >> PAGE_SHIFT;
++		pkvm_protected_regs[i].cb = lm_alias(&kvm_nvhe_sym(pkvm_handle_forward_req));
++		i++;
 +	}
 +
-+	ret = hyp_pin_shared_mem(cmd_shadow_va, cmd_shadow_va + shadow->cmdq_len);
-+	if (ret)
-+		goto unshare_shadow;
-+
-+	ret = __pkvm_host_donate_hyp(original_start_pfn, num_pages);
-+	if (ret)
-+		goto unpin_shadow;
-+
-+	return ret;
-+
-+unpin_shadow:
-+	hyp_unpin_shared_mem(cmd_shadow_va, cmd_shadow_va + shadow->cmdq_len);
-+
-+unshare_shadow:
-+	for (i = i - 1; i >= 0; i--)
-+		__pkvm_host_unshare_hyp(shadow_start_pfn + i);
-+
-+	return ret;
-+}
-+
-+int pkvm_init_gic_its_emulation(phys_addr_t dev_addr, void *host_priv_state,
-+				struct its_shadow_tables *host_shadow)
-+{
-+	int ret;
-+	struct its_priv_state *priv_state = kern_hyp_va(host_priv_state);
-+	struct its_shadow_tables *shadow = kern_hyp_va(host_shadow);
-+	struct pkvm_protected_reg *its_reg;
-+
-+	hyp_spin_lock(&its_setup_lock);
-+	its_reg = get_region(dev_addr);
-+	if (!its_reg)
-+		return -ENODEV;
-+
-+	if (its_reg->priv)
-+		return -EOPNOTSUPP;
-+
-+	ret = __pkvm_host_donate_hyp(hyp_virt_to_pfn(priv_state), 1);
-+	if (ret)
-+		return ret;
-+
-+	ret = __pkvm_host_donate_hyp(hyp_virt_to_pfn(shadow), 1);
-+	if (ret)
-+		goto err_with_state;
-+
-+	ret = pkvm_setup_its_shadow_cmdq(shadow);
-+	if (ret)
-+		goto err_with_shadow;
-+
-+	its_reg->priv = priv_state;
-+
-+	hyp_spin_lock_init(&priv_state->its_lock);
-+	priv_state->shadow = shadow;
-+	priv_state->base = __hyp_va(dev_addr);
-+
-+	priv_state->cmd_hyp_base = kern_hyp_va(shadow->cmd_original);
-+	priv_state->cmd_host_base = kern_hyp_va(shadow->cmd_shadow);
-+	priv_state->cmd_host_cwriter = priv_state->cmd_host_base;
-+
-+	hyp_spin_unlock(&its_setup_lock);
++	kvm_nvhe_sym(num_protected_reg) = i;
 +
 +	return 0;
-+err_with_shadow:
-+	__pkvm_hyp_donate_host(hyp_virt_to_pfn(shadow), 1);
-+err_with_state:
-+	__pkvm_hyp_donate_host(hyp_virt_to_pfn(priv_state), 1);
-+	return ret;
 +}
++
+ void __init kvm_hyp_reserve(void)
+ {
+ 	u64 hyp_mem_pages = 0;
+@@ -57,6 +89,12 @@ void __init kvm_hyp_reserve(void)
+ 		return;
+ 	}
+ 
++	ret = register_protected_regions();
++	if (ret) {
++		kvm_err("Failed to register protected reg: %d\n", ret);
++		return;
++	}
++
+ 	hyp_mem_pages += hyp_s1_pgtable_pages();
+ 	hyp_mem_pages += host_s2_pgtable_pages();
+ 	hyp_mem_pages += hyp_vm_table_pages();
 -- 
 2.53.0.473.g4a7958ca14-goog
 
