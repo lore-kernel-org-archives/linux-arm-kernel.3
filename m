@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99E6DEFCD9F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 09:33:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8F55EA8550
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 09:39:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gtAKY3v431qqeWUjD++I1TP6i0kJW8buNjRiUxF1sy8=; b=uVCq9adRYCz3Xl8l8ZrP/fedKT
-	EaLiETgTbFa9YR3weJKq9cT9hgdMc+PDsJoPh3aM32/a0tTHirlbn+HFQaFJmL8vrwbBwHqXLbAJw
-	LptBdChyT5AD0VI0aDln31/CChgnjno9ITmiS1KE11IZe81f7O1SaqG40vNqZ4nsJVszjHP12umDw
-	MvUu0gTF154QqgUkW4eX5O4SLPrpK99nQv+b71uXp+jBWE2JmDGXlf09H9GDlB52W/2h0TF9eSSxa
-	eznyLenwsjBlXTQGpXFj8dASGwXGCsXZ5ZdjTStKpUy5qAdr35BI+jEVeSamgmRGe066iiAXoLib/
-	mTPbGCmg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1qSrUEvg0nHFtxaJdm9W+cfuf2yxO/HVEsocACAPAd0=; b=0HseEVIuUERqNJ
+	jfuV0ECx6KZVef2LHtmo7+6/h5CWeitdzbwxzEyIIwpGjL36qFOgj8QxvuheEIZwSHQGUJG5DO5Eu
+	2DRabzh0dRixz1B4keRPuQ0N0omKjxQ/Lb06O7H2NRFpfq6vqP1jJNwV9UMdzzcN2DH01aIKaTdZT
+	JUoWawy3XoBxFnA7BLLEHCkcX3lNjgyikP/fDNuzp2wCNhLN/A+ZiJ224wcRQcffDpogutzsy7BOF
+	S+fGMpSnHTryZOCFFgBN0AimqCCLEaag9bl+z0ZNWCqtDI07s2YI6YBuMGB7uMJ7CXgZ14B76EZ4E
+	QxYO4T1+FVfCtVctUkLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vztTP-000000096eT-10qw;
-	Tue, 10 Mar 2026 09:33:55 +0000
-Received: from mout.web.de ([212.227.15.4])
+	id 1vztYv-000000097A9-2UQh;
+	Tue, 10 Mar 2026 09:39:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vztTL-000000096dQ-3nha
+	id 1vztYs-0000000979Z-3Uid
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 09:33:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1773135215; x=1773740015; i=markus.elfring@web.de;
-	bh=gtAKY3v431qqeWUjD++I1TP6i0kJW8buNjRiUxF1sy8=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=BcrJO7NxugS6+JlLp8RC2uNTv9AbjXnIdRlIoIeJ2t/Yk9uqSFLFi1UdtG5ri9tg
-	 fc7MxPiHIPkT1oDx6GkYz0Wk8DP13AP0SA0rq1IjdOby4hmpN9yPNB+0iyV7m9Shl
-	 GI3iX05ekUYJQjaxTd6fqr40nY9N4c6qpZn5AiY3JOExf+Do1zqMvQo1IOspyg+qN
-	 c/DAJFb4PYKSrmD5AgIWHH75OtwQjvkhu9sLwFwP1CSbBUq9nivjaDHxxGHBdBmZA
-	 tV26DlezGxxJTWY6+U3cqcOn8DUHS82fLAJdLUIEvO1muzNR7RK7XHxaY4YDCpfLw
-	 m5a4QGbdbbPWXsq8Ng==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb006
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MtyA4-1venFC3sXE-012FPH; Tue, 10
- Mar 2026 10:33:34 +0100
-Message-ID: <6af3368d-cf12-437e-adba-3e8a56dc19ee@web.de>
-Date: Tue, 10 Mar 2026 10:33:21 +0100
+	Tue, 10 Mar 2026 09:39:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 47E5543D4B
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 09:39:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25641C2BC86
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 09:39:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773135574;
+	bh=0NvNqkbHvopZkhx6T/+IIZIFE+ZXvBvs4x160lciOgk=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
+	b=H2KpT2PXchY67iKw4BU6/Yl1d5CyFTJydVwdKiWhENgeBM56oCA722NqgJC/ZRPIG
+	 mcX0jIQIx1kcMLR4OAZYfqOZhUuRE8gNRiDITuGd8390h+DBEOY3DKTZeZoT8Lj5ar
+	 nVvSqlDVfImNkLRJWGOl6ukW7wHz2UZOTRMp7uhj+htw+N2CB3c65aiGg5qW6tW9sy
+	 Ak9PlF6y3l0DaC1BlEqnIrD7tMN1F9ugJ8VYbpYFwJJtAT8OcQG0kIoU52TdKendeA
+	 R5pbTOaQ167IykMHzzTJNVBSeraixqXTaF2fxtNnL3Y4GzbNRkW+CgoOijPvyqjJBh
+	 GecNHMqtZ/Omw==
+Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-38a5584e31fso17186571fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 02:39:34 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVcJa9zntGZzixOTZXVo5+X0vYB3PIhK3yZ5t6kPYtJsrRGOiuaH3zxE4yOKriS5aXVp/2dOIJw40WJ4T/9rv9J@lists.infradead.org
+X-Gm-Message-State: AOJu0YwV0d0ySAHrTeI5bEq1ro4HF07Rj9GZSfDzMuqhRXGRAa+rL1XL
+	fVo4RTCLj6VEjj10hutP/5eA/V6lHhhBcrScZKyUfbtkCxOewCIvoSm1I2T4I4vOqHrYubrmMBg
+	now+29RhY7zQ4dOjrtpuEIQFKxf33XGo=
+X-Received: by 2002:a05:651c:20ce:10b0:38a:3660:7feb with SMTP id
+ 38308e7fff4ca-38a5d010b86mr7646831fa.9.1773135572499; Tue, 10 Mar 2026
+ 02:39:32 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Felix Gu <ustc.gu@gmail.com>, linux-spi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Alejandro Colomar <alx@kernel.org>,
- Harshit Shah <hshah@axiado.com>, Mark Brown <broonie@kernel.org>,
- Prasad Bolisetty <pbolisetty@axiado.com>, Swark Yang <syang@axiado.com>,
- Tzu-Hao Wei <twei@axiado.com>, Vladimir Moravcevic <vmoravcevic@axiado.com>
-Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
-References: <20260307-axiado-1-v1-1-e90aa1b6dd9b@gmail.com>
-Subject: Re: [PATCH] spi: axiado: Remove redundant pm_runtime_mark_last_busy()
- call
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20260307-axiado-1-v1-1-e90aa1b6dd9b@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+References: <20260310075539.11701-1-wsa+renesas@sang-engineering.com> <20260310075539.11701-10-wsa+renesas@sang-engineering.com>
+In-Reply-To: <20260310075539.11701-10-wsa+renesas@sang-engineering.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Tue, 10 Mar 2026 17:39:20 +0800
+X-Gmail-Original-Message-ID: <CAGb2v64gTM41Q3aBkS+dqJ7w9fHtePte-6jeoFR3j-O1_aX9-Q@mail.gmail.com>
+X-Gm-Features: AaiRm504Z-6QWp77ZJMLsW12D2p9SNHT7rtRZg5o6Wu6DQVg4_G6syeE7d95ZJ4
+Message-ID: <CAGb2v64gTM41Q3aBkS+dqJ7w9fHtePte-6jeoFR3j-O1_aX9-Q@mail.gmail.com>
+Subject: Re: [PATCH v4 09/15] hwspinlock: sun6i: use new callback to
+ initialize hwspinlock priv
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Wilken Gottwalt <wilken.gottwalt@posteo.net>, Bjorn Andersson <andersson@kernel.org>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, linux-remoteproc@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:3Li34vvZ8XoqBbYAtYckdDrAi3TlFD/bPuIhMK3UnW4JnMVVTcP
- zLKg/BakcxsxB3M6SlPgdhy6xt2PWAjFkAnJMDQEyHwIq5lyOP6/Ts+45fxVypbOZQjggCk
- sugMZyYmsprVv+2Q46MkrIl5eI2wjDnaZShDUyaJPxrMVp0d/4Zek+yW94NKqTIvCoxAJJj
- QcILqiRgVPDGDSfDyy+hw==
-UI-OutboundReport: notjunk:1;M01:P0:c9hesAzB+0c=;OqexhA+RSNFUGHlYTTdUwEwMKqz orb8aGmV+QejhLdXHffaJfE6TekUvcEJwcOxWQ9ZXoeLte2CMZcRrOyTaV/Pwcjj1lhWW9Lkw nw3J8LahLfEyzoj0jdJ+HZIaEn36ZnAKJ7BGb726WIFk3JHDz45AB7ZbDIPE5VLrwY+ssvtqq aco7UhEWiQwcF9hIQqFA+leI4KVIsVjzaklsc0Y5xUKojNPLLTaNDNzHKzvmnNOh8jt8gLI+/ ja9vkabHVRrP0ys3xnWQFj8fy4+KMsBoix6rlchWqI3MMALz/nQkhxuLHknlTdt8uEROxaXiR 35jPwn2k/WmxEhGHKvvUEMEGLoLyNoqV7GfwD4SJ4K4mwskhVYQq3Q/86c43atQi9yVKlT1C0 6rzF6k7d0Qppo+zGh+9TYagDZ/mioo28bFMcJ/j48FWIGMFi9GEMVLfwq8/57vmJGofFLD9Ja iQDVGULxQ62TH0NtOTO1FMF0GxJ5nMWev2fu1O2G257ptucKoopgrFfnJ+cQeoUlu3DrShLyW 1IcvPC50nWKlAcbihhQJdnyTKTDCb2FypSqUnyNMvxXk7K0BsjalwFfmDfqB/YF4HdV0bqciH BfUOvdwkxqhKofguqge3z9jLFD5ZjJrA5vrFGSmnBbupArCVI8igaJmulNjeIIMYlNa6GN6hi q+Pk5wgy9InrHzLHQ4AxBJzyaKFmD1Od3vMWOh63siSFiE45O0wG0IZczj95KSYtAqR8Rhid2 gDmSRwk37oujiUd8jOgaTDH3Y8E7Q4FhhRgz6UDB0bA8BK3vMvzdqKfm2sa2Z3Mfh/7mzPzIB ZoiRZ9sgCt161iaE6s9GI5adMgtQ15/B8iOSiUMran7fdzhBUYWwX7LUsV2+gOzMNf2sNXUxY swf22iirkjYEpCkJ6WOnaRu43aUCcUKsoAT7pGef1WZLad2T5KbBO2CIsHZd88igEMeElqCv5 dqxk50+YoPuwVkf89cGEer+qmD+QkxmqJpcifEQWhHj5G9fPfCd2ZNW+WfPyhvhZ/zTlQab+Q qoJ/u+g/Nm3G+ct3kEp7LfDxolm2xJyMsygfvydST8P4rDTDRiDX6JuJQcbmzpo/50zNKU3L7 ipLlHHllqG08eGiA4lSKgI84Q6wl5UODE5Gx/LQLLdFhFZMGQ+jtFz3pyv0Ht7XWVXvik1dBm WrfslwMQ0oDftck2j0u75esp4qmxBAIVqaCkN6uyLV4qqUI3IFAx5cjioZXHlNo1H8GJpSlLB K+7UKWlrTlgzhE0wNif0+iHWIv1YdXETrUU9su6jyggVpX8yxNZZNJwHiqyWdsYmt1olpYzUh 2SC/kv9rWMuAKRWi/i6eqAOxzFp4ncb2XzZS9bVJum6ydVgkPOn8sxp6+hGPSVe0yIeCOsQZq 2SB83vFnx79JvZXcKsHC0Ox6TnD5x6FtN7JmFg9qLb4XUZ9iGEuga0xKuyfB5JzQmfzI+UquF mPXu9NqB2FhPZjgrtVTQDEMDCKpIBgfo4b/VPI2i0qb3Ls/w/hF9Fipq3tEcb2RntsQ8Ogzzk 4qg/tp2IZX6iQFJapAQscbkZ86c3LpSjJcoORhMzK7JskWoQ+WLSIevjQRloqdt6k8NPAoNYx 55PE4PFoVLqBsMuWs/V1/XF3NLKOwFXT+mVRBWveV6YXo2XkEHe5biehUKLCNyFJnFd7tYFeO +l/XsWMLrOeSZLekjgT3jOlFjkox0QvGtdNgxUy8i9a5c/R8db4JazNnq6MM2roBDiqFGkTp3 AhwvEYLsBrYdG3S0S8UvyMtr521Xvv4uA6yg3awmBMfhwy/6i9sZeIe4v0T3VPRhhbVwtdml/ eBqbQgDlPzt4KwyA/7OchR98wwNB/rttUuibesbkBXYSJnLpZ6awFEEpZoStKkHhkozZhG+ly RzZqBMsRjBufh43JzZQj7x2UwgDRoYqHLu/C2UIjHeWOvptwfFWmcaZJ4BLDIVA/qqGFklEN7 oxxk+esPPhMunrNS8co72YT1R5QYKYBcIduHaWg5hn4HbpwN+lQl8zYl0/3vN9tf+R5t6voib 3lhIGzeeKRC7QPokUuO9YMAz9OVwoDCYpD5wukzD2ICtGB8ia/fkxQ5wXuN3s/a0T5jbZLWtQ hbGu2QRAjx4XGPy0t3IqaK5TLmqfJQyKHOsON+Ws/Ckm62oh4F1ML5A7j7Xxkmw91s603n8LY Vz/RLcs2iN3uZnqIm760VbE3NMXhVZn1sZLVFfPOed29IFgd4vqGXr1uTBBeLs5Kb0ckokoLO QNCTCHM0QH2+CS75Tlb5WyP59fRys5Orx6uF5/lV8X0B+zpc4y2xeLlC/LScy067HR3geWgNA mu4cvF6qNlD9TTwJtJvVm6Uqr577jxhYfcfI2/LeJq33mQ0zSdw4BbnNUPsDnFar+83R13cvi EYLwjTHDjoMK7LWhjckbCb6DL1fMacb5MCoT4wSQuXOEYQE+/ZwRbwEWW0L529lZ0apfVg4RC n4n8uWFSueu82Xdj1NQ97bur/dCBTbtprrgB09O8AuU3+S+hQLZhMq81jZvWYtEG9BKr4CZ30 g4Cco+bVC/0VRF9B5ykomz9qsezE46kQw48j2Yc4Kxgipk/+3NSldr27CxTF3bdb1SzCq3PxI oDZJD8nq7kq/SPO9BiL9lTxpkxDpKXItZApaXHYfEU+k5dvxprmUZsommYE0JBh8cC5QnvHu3 3pAEOGJ2id5QYMjilM6GNny/PVj//cubJAbGHs5/krgcijMiTA8oXVhTRGpmTnc9TpB0vPGFg RK0v7rVsoyIbxwyWHrhT4gTWacQcU3GJ4J4NzOWWhkQ7enCSWdJYqJ8UUreQfb2krGCacQz/P x//5lskVVA1mT9qvDyLxY8+901tnZWHmC9qRiT49LTlbYMiDvZ3pwhL4DbeCRLYxBE5c2gRM6 R4uzvm12V4zCtQxywSrsI1WNLI/B8Xq7ebcjHJ9rDDiXbalid8mKSoFOl4ASiJ0zeYqI2O2g/ kHR2zMo8WUgHODpgGmQagMdKAtagf8RFrV34W3m6f0q/vlxXIVCpTqMJXp/meIHNO3YUVxAf1 8uzOZ/LlhDP8bk4qpPY1ejBTqDlnZ3dhEQ8dI0T9v6FCM4rpPFjG23XSqeh3Fz04hAaLDrJZl 5dYR769dIJnBn6rkMv2V9o12x0gGq1ahfsaW8ptOPRw1wdJTupaAeDBAfrO8i/Py3KeMK70Qt mCZect7sFcaDV1TV+e0f2Num/BDwi49Yk5N2qyUrVIGGEgQRnp2cuK9uDyqyZSjX6NnDiLH3/ dsUsAI9Sn4firFosL5v61ee9dVFQRR1IizmvYWQBG2zDsDvRkzh+pbDh6WlXPWLz1D7tQ8JIW nx2nlkGVNqs/YBx6TBjkoTI+YP6eHBokeTQQ+tceFFwpK+9I2h/yUZS4RZWP8SbMDWJGLRGJw ZFydSnDLEsq8il69qVlvi/o+sdc7vcEjX66mgTizKO42lzLuXD65fyjOx3OP6PYYk1vgaSpVp xqbd6f1AymZUUGtG+1OxYqW2wbwyj2gu2eI/adIFy+QesZDW0k0v1kYIcVjCcO3GGflGqAWLX 3vih6aYCVImZ4xjJJe5TPRO3KkyDGzGMuBWxSmZv4vSLVe9R0pAQK67j3uSuMdPcRAY3UCR/k n/XXMKQuhdmBrf1gpDCtW9IBsrFmnrNoeuT1rrnhF9vKffgTX0lGq0wUVSSR3NDAjszPBjduS elOO1GTJJ0lXtH2wtwQ41UifoFYsm8xjajOlu66D/DV7PjfNvb0tCG+hsrYZ660daztJBRzRc tfoQP/XnQ+h2ucH30UVGQkyAuhA8Fggk0XmNCMArqd62huSrsctaSqpzNTrRhIfiVtN7w8Y7O grfWnTzfKv6mkSK1cM6TBNNUhtA1mwoWYSzicpnd3iOlRp3uvDQ+wSje9pftOZrI3Tw7MHv2M
- e954wqG4qzWSLmXPw74W4eKFpeg16s+JawWk0ExV79jW1fWH6GqbgBW8yMx9d7nS470B7OQiN 9law/+FOylqhLqrWSpJUH6IqAxbQAJhSxvj1xKZ6QCWR0rZKlef68segT7w6lXBDqeguhlxmz Xgoo1qj7zgh0gT1eC8jP9bMls1F2/Tu6VERLNRYecXC15wBvlPqrMbnvWg9HW3nU8EThlKwkx GTkBDDjsXR6Al418I627oICP9Eoh/1Yk0T5CRPwmSCWDk6p6IMSILt3k1CEG03ycO77Y9SxY4 g8iGjNc7l9rAfRSbYPMP+izR5dVia42a1kVF8YC5b/8/jnCkzNBs2P6IeM3kmN3mJDwQtYzj3 YWHTFJAKZxw6sThNrmFfqor4fRHDqZj65tHOrJGsDap+XAUpA389MAgcJnGfLcMHMubGeM9/f wVi2I5r2GVh8XGJvp1vb8hppECU3CwZhS8rcx3dO2xmq9mSqOiEPOH8N58KRL1G9lBKQF+Mdy 5XRsaJAihBMJfyQrHRFmJ86IQYsCHggfP/IN/yMhVIDnXhLT/canimXdVLjycWXSg08pFip67 LiWBeS0/MoG7tC7kxrgcRX9QdTEU2bx2YXjRN60byPITPvpIBQeN5Th5Dnbv/UXNr4UHTyCF1 nN3l7C+fR4mY43X3CjEJqVZ0/J0acYzrympflsn5yvdSUZlpn47NQkKSmdF9MDkiciMyYXrq2 tT/7/KI9YOZA3n1JiWUK5UrrKLqvymtzMadOhnyoHGIITy/tvKn46UoJbv8hzHyCT5hBiZ40g jWGABh6bj7Zd5erBB8JxXFA9xqFHxQ5GdhSP6zvp9MmDp0IxL/57rnUONzGPmDJksoXZAwvHU lfAubU7KqvdmtQwhxJC/yXA4VkZJ2ELhoqL+x0Ry4H6HF7wLa/jMUfK8XDR+qSY9Nr+yHxzQe AiRXYlM0rH41DnoJss4cm4SQrb5pvd/Q02yQ5yjAon8SPePpHGyTMbn4bPNz1MK7vDz4Q6v3Z PeiCXoXCEkYjiO1ZZResxwV5czz1lvBYgeEehOaUA+N7wUAOObXGnu1MWiQ98oz69goVtKLG/ KIulRB6RZHARfT7lzvtaYdawI5J3Xr9mnnyu/YlJkSl/e8X0KdgYqniTZ6cPluErekDDjRHxq aNfrgSkSBCIXvzgBeIlNQc54lSpGEtWPx3lIQu+chHc95gBdPly65BtD2b8XPSUyg8/F8PSAN pRZ+YJKPvACDtz65ASiJQoqqUUHrJMHt6z/caH6aKwvN6HQoL00GnB5u+VSg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_023352_296846_9A0148B5 
-X-CRM114-Status: UNSURE (   7.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260310_023934_909285_629557C5 
+X-CRM114-Status: GOOD (  21.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,26 +83,91 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E2=80=A6
-> +++ b/drivers/spi/spi-axiado.c
-> @@ -850,7 +850,6 @@ static int ax_spi_probe(struct platform_device *pdev=
-)
-> =20
->  	ctlr->bits_per_word_mask =3D SPI_BPW_MASK(8);
-> =20
-> -	pm_runtime_mark_last_busy(&pdev->dev);
->  	pm_runtime_put_autosuspend(&pdev->dev);
-> =20
->  	ctlr->mem_ops =3D &ax_spi_mem_ops;
+On Tue, Mar 10, 2026 at 3:56=E2=80=AFPM Wolfram Sang
+<wsa+renesas@sang-engineering.com> wrote:
+>
+> Apply the new helper to avoid using internal structures from the core.
+> Remove superfluous setting of drvdata while here.
+>
+> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+> Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+> ---
+>  drivers/hwspinlock/sun6i_hwspinlock.c | 18 ++++++++----------
+>  1 file changed, 8 insertions(+), 10 deletions(-)
+>
+> diff --git a/drivers/hwspinlock/sun6i_hwspinlock.c b/drivers/hwspinlock/s=
+un6i_hwspinlock.c
+> index a0c76bba3f05..c3db81cb1793 100644
+> --- a/drivers/hwspinlock/sun6i_hwspinlock.c
+> +++ b/drivers/hwspinlock/sun6i_hwspinlock.c
+> @@ -74,9 +74,15 @@ static void sun6i_hwspinlock_unlock(struct hwspinlock =
+*lock)
+>         writel(SPINLOCK_NOTTAKEN, lock_addr);
+>  }
+>
+> +static void *sun6i_hwspinlock_init_priv(int local_id, void *init_data)
+> +{
+> +       return init_data + sizeof(u32) * local_id;
+> +}
+> +
+>  static const struct hwspinlock_ops sun6i_hwspinlock_ops =3D {
+>         .trylock        =3D sun6i_hwspinlock_trylock,
+>         .unlock         =3D sun6i_hwspinlock_unlock,
+> +       .init_priv      =3D sun6i_hwspinlock_init_priv,
+>  };
+>
+>  static void sun6i_hwspinlock_disable(void *data)
+> @@ -91,10 +97,9 @@ static void sun6i_hwspinlock_disable(void *data)
+>  static int sun6i_hwspinlock_probe(struct platform_device *pdev)
+>  {
+>         struct sun6i_hwspinlock_data *priv;
+> -       struct hwspinlock *hwlock;
+>         void __iomem *io_base;
+>         u32 num_banks;
+> -       int err, i;
+> +       int err;
+>
+>         io_base =3D devm_platform_ioremap_resource(pdev, SPINLOCK_BASE_ID=
+);
+>         if (IS_ERR(io_base))
+> @@ -161,11 +166,6 @@ static int sun6i_hwspinlock_probe(struct platform_de=
+vice *pdev)
+>                 goto bank_fail;
+>         }
+>
+> -       for (i =3D 0; i < priv->nlocks; ++i) {
+> -               hwlock =3D &priv->bank->lock[i];
+> -               hwlock->priv =3D io_base + SPINLOCK_LOCK_REGN + sizeof(u3=
+2) * i;
+> -       }
+> -
+>         /* failure of debugfs is considered non-fatal */
+>         sun6i_hwspinlock_debugfs_init(priv);
+>         if (IS_ERR(priv->debugfs))
+> @@ -177,10 +177,8 @@ static int sun6i_hwspinlock_probe(struct platform_de=
+vice *pdev)
+>                 goto bank_fail;
+>         }
+>
+> -       platform_set_drvdata(pdev, priv);
+> -
+>         return devm_hwspin_lock_register(&pdev->dev, priv->bank, &sun6i_h=
+wspinlock_ops,
+> -                                        SPINLOCK_BASE_ID, priv->nlocks, =
+NULL);
+> +                                        SPINLOCK_BASE_ID, priv->nlocks, =
+io_base + SPINLOCK_LOCK_REGN);
+>
+>  bank_fail:
+>         clk_disable_unprepare(priv->ahb_clk);
 
-How do you think about to construct another coccicheck script
-for such a source code transformation pattern?
-https://elixir.bootlin.com/linux/v7.0-rc3/source/include/linux/pm_runtime.=
-h#L579-L603
+Just a note, I see further code savings in using the clk and reset devm_
+helpers. I'll do this after this series is merged, as the context overlaps.
 
-Regards,
-Markus
+
+ChenYu
 
