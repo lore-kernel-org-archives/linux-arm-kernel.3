@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D7DEA8550
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 14:02:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A091CFD2D9A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 14:02:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DslaNb19DfeVhpacm4nk/mIFTbz7d90d1ejbt66KOaU=; b=s9H55ZEiqlb1rYxewRBNMAkK73
-	txVHuSryQSJ+6djdOpVDPnYTnJ6+qBLWc4Dz5I+Zg4H0jodgA61Mvnn3l6LRL/ByH2483D0p0yARS
-	Azs7JewQ8rQqySKrAptx1RvYV3n4qrBm14hlddkRiHUf/9wVCdT5NkFdtXEJ+AUbq3wgDwnWdxd5P
-	mu3dV4iAbHxhoAOPVCin1b+aw1NZelmdOjYNYVAAnIacAziRkrCecv9RSAq8GPaPnphQNNKArx31x
-	hMt7j7HU5JXrT4ZRTYb5pwdjTqgLVWsjLWl5ACBFIT7cbs02wP6PGjTDwlE/QH34sfgx3MqH8EBrw
-	pUDtN8BQ==;
+	bh=K+gl4ftI60bYvB9A5oywMe6ciJBn4vuw0gtWrdHw4Hc=; b=ORvcLyjyNKJC98Bo6qBLHTn6oq
+	Ib16ksYHFtnz/Nlkg/oqO9CGnyGoTXpYFv1F80pq8+vCxN9em9H5NTnvA6eRc7xdGYxGse9s6D+Qf
+	gUV6sLESSzkJu2XIjNepUZFD4+Vfmhs2/rMYLQewdMi2wUz9lMuGe0iJvXxVAKf0UUZKKgn6s0MJI
+	LcmaVzSc5P4LR46nPavoJ5ZIZ9CR1SwEI6SMicbQGEEyTujL8FY/h/chNJlUhNDtXbLQfhXRxcKqG
+	ljaZ5FUISkTRnjLl0kR435CfkxhY2Ay6KX4nc6VigO7kJ2FGPJNRxCRVgTpiRF5Q5xuAWC9yfEaCv
+	M3v1oQCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzxfC-00000009eQ6-2dPX;
-	Tue, 10 Mar 2026 14:02:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vzxfG-00000009eT1-0quH;
+	Tue, 10 Mar 2026 14:02:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzxfC-00000009eOw-0t0h;
-	Tue, 10 Mar 2026 14:02:22 +0000
+	id 1vzxfC-00000009eOr-00lz;
+	Tue, 10 Mar 2026 14:02:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4E46460133;
+	by sea.source.kernel.org (Postfix) with ESMTP id 0AE7843258;
 	Tue, 10 Mar 2026 14:02:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id DAF3CC2BCAF;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C8C66C19425;
 	Tue, 10 Mar 2026 14:02:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773151341;
-	bh=GpQHCMLy/+U8kyMZUGmI9yqiy5cIdh0/0TbBdyLaW4M=;
+	s=k20201202; t=1773151340;
+	bh=e+CijSnACpAvUHE3G+ydvnXHYVPcarBDrd6Vye65l2c=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=g/rXouWQ7QGvp+LlKvpXqU8CgzMvER3Lipgr3OQ3ca47w9sHbqwcIi/oiyueQdIx6
-	 VQ/DYQ7ncsC6iUdO1ioa7t06hpt3hhc3y3isnzKZ0Gx8VS5o4KSv/mpKFEckrYvwHz
-	 vRk+/d45Gcrdep1VaGBn2ixgshfkNLFz535d0O17UXJ/EEvKkPXJdAxpX/kZAwjC1l
-	 TWRoc898Q4VHGxo6mq5OR2uOMAt1HMP9MP2tAFhamdb4xC1oon50Y5BDrVIW+sXz94
-	 q7VOUu/h2i27LBjVJcC5W2T2JUk/cznmn30Ma5+RKPiloc70hsQCL7wKGXrpn3hwWy
-	 C3GibuSe7j9Dg==
+	b=rRMr6uhDGG/EHpghKLYQCDX4tTJE/Qqta2nrySIKYuwJi6GUgT8qEEtBOQbz31Ksh
+	 cGKx+5EBlKR0qKLm5jHzjQ+u4w3QBMnZpAEltxg2TI90wPRk+ucg701iI+YftyquzP
+	 6RgZyIN9GclRffH4uBOx45q0nDeMhedcn+Yi3dzxTq4FxSk4fixzLX9klQaMw6iXNI
+	 Ip5PdETcw1nyM4WUUlgTjZtjbeIu8pbjF6MxHT+UIrF/KWQdzgt05pB3q9m/jGnUix
+	 HoTt6D0T22/PGU26F8weCO8VSEBqBmOaQutrsxVkZ7DsfgbnnRqYVnfAHqX7QWCqDe
+	 7hB082PhZNe/A==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C9519FD2D9A;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B6A77FD2D9C;
 	Tue, 10 Mar 2026 14:02:20 +0000 (UTC)
 From: Manivannan Sadhasivam via B4 Relay <devnull+manivannan.sadhasivam.oss.qualcomm.com@kernel.org>
-Date: Tue, 10 Mar 2026 19:32:00 +0530
-Subject: [PATCH v7 2/4] PCI: host-common: Add link down handling for Root
- Ports
+Date: Tue, 10 Mar 2026 19:31:59 +0530
+Subject: [PATCH v7 1/4] PCI/ERR: Add support for resetting the Root Ports
+ in a platform specific way
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260310-pci-port-reset-v7-2-9dd00ccc25ab@oss.qualcomm.com>
+Message-Id: <20260310-pci-port-reset-v7-1-9dd00ccc25ab@oss.qualcomm.com>
 References: <20260310-pci-port-reset-v7-0-9dd00ccc25ab@oss.qualcomm.com>
 In-Reply-To: <20260310-pci-port-reset-v7-0-9dd00ccc25ab@oss.qualcomm.com>
 To: Bjorn Helgaas <bhelgaas@google.com>, 
@@ -73,21 +73,24 @@ Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
  Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
  Frank Li <Frank.Li@nxp.com>, Manivannan Sadhasivam <mani@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5047;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3320;
  i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
- bh=aFkx7QcjgWXLjqxldAdhXr9ROuajXIiL4yi0K0WOE5c=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBpsCRqrlJW+b7djwMK1Ei7k62UFLEXZ1gYZNshe
- vHMm6FRURuJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCabAkagAKCRBVnxHm/pHO
- 9SvAB/427KkqnhQGX1Vab4Rm6k/g6XchDY2PORDJ+5iwcCnCf9Krh5sdAjTOPlxS/HuGaFWLQX8
- D8CC26e9shL+jLIW9lLal+zwYf88gxcByt2TRMXFpR+HKjMSC0g+9BENXS0h/YjQBdhrUrY3T4Z
- thDUb3YalcqRLDZR0eo6tr/kZiz5WY7jEXdhaACyp0Z9xqzftp03RGn2/M2ouk0FeXke8CaUIvl
- CKfeDrps41NgtH3KQXW0YdUbPiSqdtqFGATgAnpiZI+vWxwnYosZFUO3LU8kqvSMDW+svgOTAbH
- wAc/ZKEfGHGP0gevdD0RvdFzQm34buVpT1/dSdqL3pZIyxFY
+ bh=aIuqRb8fuH3xOsqx29xICH+yE2vzbaBFc8FQ37/gZEg=;
+ b=kA0DAAoBVZ8R5v6RzvUByyZiAGmwJGrIK+D57DvdlL7z3X181VCMvq/D7qe2Thyq3G7p5Xs5m
+ YkBMwQAAQoAHRYhBGelQyqBSMvYpFgnl1WfEeb+kc71BQJpsCRqAAoJEFWfEeb+kc71Wp4H/3cK
+ ODnO2eBBsukQIGEgP3e2NvJeNsuGlwwqXTdWBG19kbpSzCyBD4wpIbZrDBp8XXrVGpcxcF7z6dV
+ 8KvoURHI+nuJMje2pDNIUaCpqm3YC5Q7BQzf3lTbiRf8TxN32uUPjG2v39Z9SjcpzxtOs9lresP
+ aFTDdoSXB4BCmX7Hk4MbaiLZpPmM+Oz9rv1soh9RBN71C3E+CXWkR6qSiYEQefskb94p8rEEEsv
+ 903JEz1zg3QEydn3YGKWFiWRllJJw/wVEdvNdaH/yRsx6ZAnUoT9tMdoAm29X4k9W23NAOs0VUa
+ RCMktpuV94fAjd5Q7HHEgJYqF53Z/3EoH/3kVRI=
 X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
  fpr=C668AEC3C3188E4C611465E7488550E901166008
 X-Endpoint-Received: by B4 Relay for
  manivannan.sadhasivam@oss.qualcomm.com/default with auth_id=461
 X-Original-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260310_070222_090541_F7E68D61 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,28 +108,16 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Manivannan Sadhasivam <mani@kernel.org>
 
-The PCI link, when down, needs to be recovered to bring it back. But on
-some platforms, that cannot be done in a generic way as link recovery
-procedure is platform specific. So add a new API
-pci_host_handle_link_down() that could be called by the host bridge drivers
-for a specific Root Port when the link goes down.
+Some host bridge devices require resetting the Root Ports in a platform
+specific way to recover them from error conditions such as Fatal AER
+errors, Link Down etc... So introduce pci_host_bridge::reset_root_port()
+callback and call it from pcibios_reset_secondary_bus() if available. Also,
+save the Root Port config space before reset and restore it afterwards.
 
-The API accepts the 'pci_dev' corresponding to the Root Port which observed
-the link down event. If CONFIG_PCIEAER is enabled, the API calls
-pcie_do_recovery() function with 'pci_channel_io_frozen' as the state. This
-will result in the execution of the AER Fatal error handling code. Since
-the link down recovery is pretty much the same as AER Fatal error handling,
-pcie_do_recovery() helper is reused here. First, the AER error_detected()
-callback will be triggered for the bridge and then for the downstream
-devices. Finally, pci_host_reset_root_port() will be called for the Root
-Port, which will reset the Root Port using 'reset_root_port' callback to
-recover the link. Once that's done, resume message will be broadcasted to
-the bridge and the downstream devices, indicating successful link recovery.
-
-But if CONFIG_PCIEAER is not enabled in the kernel, only
-pci_host_reset_root_port() API will be called, which will in turn call
-pci_bus_error_reset() to just reset the Root Port as there is no way we
-could inform the drivers about link recovery.
+The 'reset_root_port' callback is responsible for resetting the given Root
+Port referenced by the 'pci_dev' pointer in a platform specific way and
+bring it back to the working state if possible. If any error occurs during
+the reset operation, relevant errno should be returned.
 
 Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
@@ -135,100 +126,70 @@ Tested-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
 Tested-by: Richard Zhu <hongxing.zhu@nxp.com>
 Reviewed-by: Frank Li <Frank.Li@nxp.com>
 ---
- drivers/pci/controller/pci-host-common.c | 35 ++++++++++++++++++++++++++++++++
- drivers/pci/controller/pci-host-common.h |  1 +
- drivers/pci/pci.c                        |  1 +
- drivers/pci/pcie/err.c                   |  1 +
- 4 files changed, 38 insertions(+)
+ drivers/pci/pci.c      | 20 ++++++++++++++++++++
+ drivers/pci/pcie/err.c |  5 -----
+ include/linux/pci.h    |  1 +
+ 3 files changed, 21 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
-index d6258c1cffe5..15ebff8a542a 100644
---- a/drivers/pci/controller/pci-host-common.c
-+++ b/drivers/pci/controller/pci-host-common.c
-@@ -12,9 +12,11 @@
- #include <linux/of.h>
- #include <linux/of_address.h>
- #include <linux/of_pci.h>
-+#include <linux/pci.h>
- #include <linux/pci-ecam.h>
- #include <linux/platform_device.h>
- 
-+#include "../pci.h"
- #include "pci-host-common.h"
- 
- static void gen_pci_unmap_cfg(void *ptr)
-@@ -106,5 +108,38 @@ void pci_host_common_remove(struct platform_device *pdev)
- }
- EXPORT_SYMBOL_GPL(pci_host_common_remove);
- 
-+static pci_ers_result_t pci_host_reset_root_port(struct pci_dev *dev)
-+{
-+	int ret;
-+
-+	pci_lock_rescan_remove();
-+	ret = pci_bus_error_reset(dev);
-+	pci_unlock_rescan_remove();
-+	if (ret) {
-+		pci_err(dev, "Failed to reset Root Port: %d\n", ret);
-+		return PCI_ERS_RESULT_DISCONNECT;
-+	}
-+
-+	pci_info(dev, "Root Port has been reset\n");
-+
-+	return PCI_ERS_RESULT_RECOVERED;
-+}
-+
-+static void pci_host_recover_root_port(struct pci_dev *port)
-+{
-+#if IS_ENABLED(CONFIG_PCIEAER)
-+	pcie_do_recovery(port, pci_channel_io_frozen, pci_host_reset_root_port);
-+#else
-+	pci_host_reset_root_port(port);
-+#endif
-+}
-+
-+void pci_host_handle_link_down(struct pci_dev *port)
-+{
-+	pci_info(port, "Recovering Root Port due to Link Down\n");
-+	pci_host_recover_root_port(port);
-+}
-+EXPORT_SYMBOL_GPL(pci_host_handle_link_down);
-+
- MODULE_DESCRIPTION("Common library for PCI host controller drivers");
- MODULE_LICENSE("GPL v2");
-diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/controller/pci-host-common.h
-index b5075d4bd7eb..dd12dd1a1b23 100644
---- a/drivers/pci/controller/pci-host-common.h
-+++ b/drivers/pci/controller/pci-host-common.h
-@@ -17,6 +17,7 @@ int pci_host_common_init(struct platform_device *pdev,
- 			 struct pci_host_bridge *bridge,
- 			 const struct pci_ecam_ops *ops);
- void pci_host_common_remove(struct platform_device *pdev);
-+void pci_host_handle_link_down(struct pci_dev *port);
- 
- struct pci_config_window *pci_host_common_ecam_create(struct device *dev,
- 	struct pci_host_bridge *bridge, const struct pci_ecam_ops *ops);
 diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
-index 6f09057d83e0..1b37bfe6d079 100644
+index 8479c2e1f74f..6f09057d83e0 100644
 --- a/drivers/pci/pci.c
 +++ b/drivers/pci/pci.c
-@@ -5650,6 +5650,7 @@ int pci_bus_error_reset(struct pci_dev *bridge)
- 	mutex_unlock(&pci_slot_mutex);
- 	return pci_bus_reset(bridge->subordinate, PCI_RESET_DO_RESET);
- }
-+EXPORT_SYMBOL_GPL(pci_bus_error_reset);
+@@ -4812,6 +4812,26 @@ void pci_reset_secondary_bus(struct pci_dev *dev)
  
- /**
-  * pci_probe_reset_bus - probe whether a PCI bus can be reset
+ void __weak pcibios_reset_secondary_bus(struct pci_dev *dev)
+ {
++	struct pci_host_bridge *host = pci_find_host_bridge(dev->bus);
++	int ret;
++
++	if (pci_is_root_bus(dev->bus) && host->reset_root_port) {
++		/*
++		 * Save the config space of the Root Port before doing the
++		 * reset, since the state could be lost. The Endpoint state
++		 * should've been saved by the caller.
++		 */
++		pci_save_state(dev);
++		ret = host->reset_root_port(host, dev);
++		if (ret)
++			pci_err(dev, "Failed to reset Root Port: %d\n", ret);
++		else
++			/* Now restore it on success */
++			pci_restore_state(dev);
++
++		return;
++	}
++
+ 	pci_reset_secondary_bus(dev);
+ }
+ 
 diff --git a/drivers/pci/pcie/err.c b/drivers/pci/pcie/err.c
-index 13b9d9eb714f..d77403d8855b 100644
+index bebe4bc111d7..13b9d9eb714f 100644
 --- a/drivers/pci/pcie/err.c
 +++ b/drivers/pci/pcie/err.c
-@@ -292,3 +292,4 @@ pci_ers_result_t pcie_do_recovery(struct pci_dev *dev,
+@@ -256,11 +256,6 @@ pci_ers_result_t pcie_do_recovery(struct pci_dev *dev,
+ 	}
  
- 	return status;
- }
-+EXPORT_SYMBOL_GPL(pcie_do_recovery);
+ 	if (status == PCI_ERS_RESULT_NEED_RESET) {
+-		/*
+-		 * TODO: Should call platform-specific
+-		 * functions to reset slot before calling
+-		 * drivers' slot_reset callbacks?
+-		 */
+ 		status = PCI_ERS_RESULT_RECOVERED;
+ 		pci_dbg(bridge, "broadcast slot_reset message\n");
+ 		pci_walk_bridge(bridge, report_slot_reset, &status);
+diff --git a/include/linux/pci.h b/include/linux/pci.h
+index 1c270f1d5123..34c434b79abb 100644
+--- a/include/linux/pci.h
++++ b/include/linux/pci.h
+@@ -644,6 +644,7 @@ struct pci_host_bridge {
+ 	void (*release_fn)(struct pci_host_bridge *);
+ 	int (*enable_device)(struct pci_host_bridge *bridge, struct pci_dev *dev);
+ 	void (*disable_device)(struct pci_host_bridge *bridge, struct pci_dev *dev);
++	int (*reset_root_port)(struct pci_host_bridge *bridge, struct pci_dev *dev);
+ 	void		*release_data;
+ 	unsigned int	ignore_reset_delay:1;	/* For entire hierarchy */
+ 	unsigned int	no_ext_tags:1;		/* No Extended Tags */
 
 -- 
 2.51.0
