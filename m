@@ -4,62 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF0FEEB105A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 14:47:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3F91EB1054
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 14:54:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vAuXFE6SQ6ahZ8jbVQg2624wAFWJM5XMUjKARgfeT7I=; b=yxb2hMihjgOkr8BY17radhmVjS
-	u+yoKBsMgh/9qLyZThLVoiWBznq9bJHtRTKZb/hx0AxUy6Y5gjdAuYmPfVquF6Gtwdvx8RztL/eq8
-	QxRuBstwpQUrWbEkXAn/50941mnm89RnXSzhF9bsoik5QEhl6MVIGvsfyPnWMZ/qfzByGJZ1RvJc6
-	OLQLhErMQb/bzLfehI6JkrGHabZ1dB+rm0HGzEbPJeHEuHNOXokDmetNe2wgnZ++u/bmeRBLIqye0
-	NxO4wYGnaVDz3S1La7RCqPdAqd+Iu4umWddjU4ryWH8Q7GZ8egA/XGSLwhWXaAUJZCxX3qL2NGrIx
-	yELWG2mQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EGWvFNNHbAVQyTUs3YvCDY0GyMiml7VfROhcweab0g8=; b=Azi9XeEoPRH12jWAFLtuvid64B
+	zh9lQv/LpUib/bLewOQcIq53BJ3fJsq0y7/0ZXZfGEAL9GhDPap+SARcVNNTyssL6W5g/G6tBT7j3
+	GoPrmKW3qSn/hrrpAkS5LuL3vZyPTfw8whITsePxKguymUK2S9euFjLrD+K8DuPJmUXIeJqGBw6rA
+	1GKhx6P4DzOYPfr5RFuTSAcZ9Z77Ik5lMhs9syTVyrcVCibf7qR3JeLw4apA9XVf3aUaEQ4N+3CUI
+	0xEecgoPda5WDdXldzcb+xPAJDlE8NTJLbBWxdTHUZYQjIB/EIcVjV8/Otto5CLcZnTJCVxgujLnc
+	VuVY9iSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzyMh-00000009j7E-41l7;
-	Tue, 10 Mar 2026 14:47:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vzyTv-00000009jbK-284F;
+	Tue, 10 Mar 2026 14:54:47 +0000
+Received: from out-179.mta0.migadu.com ([2001:41d0:1004:224b::b3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzyMg-00000009j75-1vBQ;
-	Tue, 10 Mar 2026 14:47:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8992160126;
-	Tue, 10 Mar 2026 14:47:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1CFDC19423;
-	Tue, 10 Mar 2026 14:47:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773154037;
-	bh=BfbSFgreWiIQp6vhNWoyJ3zBM1Hl+T/lGWmkHzyJQyM=;
-	h=From:Date:Subject:To:Cc:From;
-	b=Dx24Uj8hsLn46ThSQMA2cMAwMvcFgW5G41kDLuikgo5F+QsEFhhHVscq6NeVDMHvp
-	 GGBcIhYHAhdDdMkKRA0zL7abaq/VYSAV1gBBsCH6PwMb0evo/CPo/Opu+E8LGGpIB1
-	 wist/aS+MXSMsSTU+AVDZAtINkF1C9cDWRPObFv6atdC6tiRoTsA+cmjxH6lz2eiyh
-	 jlZGfnd9sGePZoDs7JwJOqry1PnFkMr2VvlC/HpI4dskFBRZiXIi+WTN2sAw6DWr+Y
-	 xH7jzhefqrZTaFluiQbqjGkd9LpQ4DX3lbBQKTMKnY29428YOJqaM96ljIS2K+mhWt
-	 ulM2UB5hHdSCw==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Tue, 10 Mar 2026 15:46:53 +0100
-Subject: [PATCH net-next] net: airoha: select QDMA block according LAN/WAN
- configuration
+	id 1vzyTs-00000009jaK-1600
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Mar 2026 14:54:46 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1773154479;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=EGWvFNNHbAVQyTUs3YvCDY0GyMiml7VfROhcweab0g8=;
+	b=taHmAdo34oCwjQFIaRdmRojINXQm081BWLVpiG89JRPghIcpldJ2rwOWU0KURRrhy5yjpf
+	19sWjb7mkMYRCePOGCQXpG9Wc5IKYu1fi/V6HuLIH/qnuv0qdwjurQ0tE2yqYewmgWxhBS
+	i69FLwkpsJPKnJP2wwNrpkeBXTBIoAo=
+From: Usama Arif <usama.arif@linux.dev>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	ryan.roberts@arm.com,
+	david@kernel.org
+Cc: ajd@linux.ibm.com,
+	anshuman.khandual@arm.com,
+	apopple@nvidia.com,
+	baohua@kernel.org,
+	baolin.wang@linux.alibaba.com,
+	brauner@kernel.org,
+	catalin.marinas@arm.com,
+	dev.jain@arm.com,
+	jack@suse.cz,
+	kees@kernel.org,
+	kevin.brodsky@arm.com,
+	lance.yang@linux.dev,
+	Liam.Howlett@oracle.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	lorenzo.stoakes@oracle.com,
+	npache@redhat.com,
+	rmclure@linux.ibm.com,
+	Al Viro <viro@zeniv.linux.org.uk>,
+	will@kernel.org,
+	willy@infradead.org,
+	ziy@nvidia.com,
+	hannes@cmpxchg.org,
+	kas@kernel.org,
+	shakeel.butt@linux.dev,
+	kernel-team@meta.com,
+	Usama Arif <usama.arif@linux.dev>
+Subject: [PATCH 1/4] arm64: request contpte-sized folios for exec memory
+Date: Tue, 10 Mar 2026 07:51:14 -0700
+Message-ID: <20260310145406.3073394-2-usama.arif@linux.dev>
+In-Reply-To: <20260310145406.3073394-1-usama.arif@linux.dev>
+References: <20260310145406.3073394-1-usama.arif@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260310-airoha-qdma-lan-wan-mode-v1-1-64ec74dea872@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MsQqEMBAFf0W2diEmYOGviMViXnRBEy+BU5D8+
- 4Urpphi5qWCrCg0dS9lfLVoik2GvqN1l7iB1Tcna+xo3GBYNKdd+ONP4UMi340zefDovLMWCAi
- OWn5lBH3+63mp9Qdg8uBtagAAAA==
-X-Change-ID: 20260310-airoha-qdma-lan-wan-mode-63d322eefef3
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260310_075444_463785_B432FF92 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,120 +96,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Select the QDMA block used to send the traffic to host cpu according to
-LAN/WAN port confiugration:
-- QDMA0 is used for LAN devices
-- QDMA1 is used for WAN devices
+exec_folio_order() was introduced [1] to request readahead of executable
+file-backed pages at an arch-preferred folio order, so that the hardware
+can coalesce contiguous PTEs into fewer iTLB entries (contpte).
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+The current implementation uses ilog2(SZ_64K >> PAGE_SHIFT), which
+requests 64K folios. This is optimal for 4K base pages (where CONT_PTES
+= 16, contpte size = 64K), but suboptimal for 16K and 64K base pages:
+
+Page size | Before (order) | After (order) | contpte
+----------|----------------|---------------|--------
+4K        | 4 (64K)        | 4 (64K)       | Yes (unchanged)
+16K       | 2 (64K)        | 7 (2M)        | Yes (new)
+64K       | 0 (64K)        | 5 (2M)        | Yes (new)
+
+For 16K pages, CONT_PTES = 128 and the contpte size is 2M (order 7).
+For 64K pages, CONT_PTES = 32 and the contpte size is 2M (order 5).
+
+Use ilog2(CONT_PTES) instead, which directly evaluates to contpte-aligned
+order for all page sizes.
+
+The worst-case waste is bounded to one folio (up to 2MB - 64KB)
+at the end of the file, since page_cache_ra_order() reduces the folio
+order near EOF to avoid allocating past i_size.
+
+[1] https://lore.kernel.org/all/20250430145920.3748738-6-ryan.roberts@arm.com/
+
+Signed-off-by: Usama Arif <usama.arif@linux.dev>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 18 ++++++++----------
- drivers/net/ethernet/airoha/airoha_eth.h |  1 +
- 2 files changed, 9 insertions(+), 10 deletions(-)
+ arch/arm64/include/asm/pgtable.h | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 3e9ec5c178f86fdd055e079078a23461edf97951..b4563b5d53bbf174d45548a5efc6fdfb79d33c19 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -1754,11 +1754,13 @@ static int airhoha_set_gdm2_loopback(struct airoha_gdm_port *port)
- static int airoha_dev_init(struct net_device *dev)
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index b3e58735c49bd..a1110a33acb35 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -1600,12 +1600,11 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
+ #define arch_wants_old_prefaulted_pte	cpu_has_hw_af
+ 
+ /*
+- * Request exec memory is read into pagecache in at least 64K folios. This size
+- * can be contpte-mapped when 4K base pages are in use (16 pages into 1 iTLB
+- * entry), and HPA can coalesce it (4 pages into 1 TLB entry) when 16K base
+- * pages are in use.
++ * Request exec memory is read into pagecache in contpte-sized folios. The
++ * contpte size is the number of contiguous PTEs that the hardware can coalesce
++ * into a single iTLB entry: 64K for 4K pages, 2M for 16K and 64K pages.
+  */
+-#define exec_folio_order() ilog2(SZ_64K >> PAGE_SHIFT)
++#define exec_folio_order() ilog2(CONT_PTES)
+ 
+ static inline bool pud_sect_supported(void)
  {
- 	struct airoha_gdm_port *port = netdev_priv(dev);
--	struct airoha_qdma *qdma = port->qdma;
--	struct airoha_eth *eth = qdma->eth;
-+	struct airoha_eth *eth = port->eth;
- 	u32 fe_cpu_port;
- 	u8 ppe_id;
- 
-+	/* QDMA0 is used for lan ports while QDMA1 is used for WAN ports */
-+	port->qdma = &eth->qdma[!airoha_is_lan_gdm_port(port)];
-+	port->dev->irq = port->qdma->irq_banks[0].irq;
- 	airoha_set_macaddr(port, dev->dev_addr);
- 
- 	switch (port->id) {
-@@ -1782,7 +1784,7 @@ static int airoha_dev_init(struct net_device *dev)
- 		}
- 		fallthrough;
- 	default: {
--		u8 qdma_id = qdma - &eth->qdma[0];
-+		u8 qdma_id = port->qdma - &eth->qdma[0];
- 
- 		/* For PPE1 select cpu port according to the running QDMA. */
- 		fe_cpu_port = qdma_id ? FE_PSE_PORT_CDM2 : FE_PSE_PORT_CDM1;
-@@ -2866,11 +2868,10 @@ bool airoha_is_valid_gdm_port(struct airoha_eth *eth,
- }
- 
- static int airoha_alloc_gdm_port(struct airoha_eth *eth,
--				 struct device_node *np, int index)
-+				 struct device_node *np)
- {
- 	const __be32 *id_ptr = of_get_property(np, "reg", NULL);
- 	struct airoha_gdm_port *port;
--	struct airoha_qdma *qdma;
- 	struct net_device *dev;
- 	int err, p;
- 	u32 id;
-@@ -2901,7 +2902,6 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth,
- 		return -ENOMEM;
- 	}
- 
--	qdma = &eth->qdma[index % AIROHA_MAX_NUM_QDMA];
- 	dev->netdev_ops = &airoha_netdev_ops;
- 	dev->ethtool_ops = &airoha_ethtool_ops;
- 	dev->max_mtu = AIROHA_MAX_MTU;
-@@ -2913,7 +2913,6 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth,
- 	dev->features |= dev->hw_features;
- 	dev->vlan_features = dev->hw_features;
- 	dev->dev.of_node = np;
--	dev->irq = qdma->irq_banks[0].irq;
- 	SET_NETDEV_DEV(dev, eth->dev);
- 
- 	/* reserve hw queues for HTB offloading */
-@@ -2934,7 +2933,7 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth,
- 	port = netdev_priv(dev);
- 	u64_stats_init(&port->stats.syncp);
- 	spin_lock_init(&port->stats.lock);
--	port->qdma = qdma;
-+	port->eth = eth;
- 	port->dev = dev;
- 	port->id = id;
- 	eth->ports[p] = port;
-@@ -3034,7 +3033,6 @@ static int airoha_probe(struct platform_device *pdev)
- 	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
- 		airoha_qdma_start_napi(&eth->qdma[i]);
- 
--	i = 0;
- 	for_each_child_of_node(pdev->dev.of_node, np) {
- 		if (!of_device_is_compatible(np, "airoha,eth-mac"))
- 			continue;
-@@ -3042,7 +3040,7 @@ static int airoha_probe(struct platform_device *pdev)
- 		if (!of_device_is_available(np))
- 			continue;
- 
--		err = airoha_alloc_gdm_port(eth, np, i++);
-+		err = airoha_alloc_gdm_port(eth, np);
- 		if (err) {
- 			of_node_put(np);
- 			goto error_napi_stop;
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index 59ed7569f7c33620ea694ec52384a37e1917eaf8..8cfa94ec084a16d6b2d3c94c404f25904c1150e3 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -533,6 +533,7 @@ struct airoha_qdma {
- 
- struct airoha_gdm_port {
- 	struct airoha_qdma *qdma;
-+	struct airoha_eth *eth;
- 	struct net_device *dev;
- 	int id;
- 
-
----
-base-commit: 89fe91c65992a37863241e35aec151210efc53ce
-change-id: 20260310-airoha-qdma-lan-wan-mode-63d322eefef3
-
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.47.3
 
 
