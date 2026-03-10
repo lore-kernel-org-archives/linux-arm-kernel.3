@@ -4,46 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B520EEB104A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 10:37:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35705EB104A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 10:40:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jHawHue/HHoIMdOylZQNB/N2WuX1uZGGBcXmmXhdZ6Q=; b=Ei5qxgpTKCDD34jHL2aWm4AACg
-	b2OXegYLQ5GwUrYMXDLGfhqwnfsiGALUXiH10vQE/ftLWUxBk8AqMk8eHTSPWj1eb1LZcaSL5NtLB
-	0VmHeSPZbamQSCfQKmWfHSmO1A7SN4+kDr8aD7A1kgaq93D0IifNN82ULCGlw40PeUl8HM/MaW0wF
-	j9ZVJv8X2PMkhFowzN3nsqXtKismVexcQ8QoNlVuTCe0S+BN1hJ2DWKlnrnKxqiECbS8Ku8qEPkFc
-	zXAEjMuFPeucSlXs2YbfMlIZ8Ze8h79VKM7NPbMdLX6sTVp3DwgEBUU6NLgEHZb9Uu4ZYwCm2qflK
-	AcQE3ipg==;
+	bh=bNWa0t4MFObd8+hfmLJ7T8EckRXZlaGXkMcUSAG9pJo=; b=KhTswo/zNXcvKJYm3d6IUtHG86
+	bqKCz7T5kWxqbWtkFLW0tp2oWBu5ZinO40QWMy/Os7ZYPdWexM25EXjpgaNwY/wnr6T5aDH0LrW8y
+	cr9VmVHZWab6JgGyYhyGENtjhQyqarLOAxKmvYFrjZYe33517c2HfoESLkOcFR501z+e3kv/ifYVQ
+	tWWaa96gU2eGB5ozL9v6FryNys1SD/CYQ9kBy04aay8F3WINWolqNnhHa/knAsf2LIRWOSJLtGYdw
+	/DH6DwMTxVxaXfQ41h220PxKBf2QzJ1hnfsS7PNrlCMkanG500s32U5mZK2qdMk6b6DjD869ifZ0s
+	EatAPmaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzuT3-00000009DLH-2AYw;
-	Tue, 10 Mar 2026 10:37:37 +0000
-Received: from mail.cjdns.fr ([5.135.140.105])
+	id 1vzuVd-00000009DW7-2JuZ;
+	Tue, 10 Mar 2026 10:40:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzuT0-00000009DKp-3A4g;
-	Tue, 10 Mar 2026 10:37:35 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B1E2D28EE37;
-	Tue, 10 Mar 2026 11:37:24 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
-	t=1773139050; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=jHawHue/HHoIMdOylZQNB/N2WuX1uZGGBcXmmXhdZ6Q=;
-	b=Ad7zddx8oLtstjGz5KASb6EIQGTzoZs9lk+j6pG7a0EA2N4rQpTuEP/dPCcVzlag/LRZmu
-	A81x245jxiYDnd5BMETB4uihbQnNA7byLOz7LruvohZlV/sNgt1BnsyR0wJiCRLK48B63M
-	gagBE0XLsr4ZbDD8AF0PvSXE/QSv+xEMMV608qhIzaFzoVIdQolWDUmN1+9NtEPf8O1Pyx
-	xZcZf+m3VNtkOThDFb2EuxSNqPbznlw1h2JWdyN8vSP1NdYYgIBXce9F97j7LVneL1fTfv
-	Ba5bkpXm9uRLbjKmPKvQXQpF91TvVk8rjDBQJBgYsVxamlUen4GS0++ZGkdZEA==
-Message-ID: <1611d3d5-8c3b-4298-bf50-55ab2c2db0e7@cjdns.fr>
-Date: Tue, 10 Mar 2026 11:37:23 +0100
+	id 1vzuVb-00000009DVt-36Qk;
+	Tue, 10 Mar 2026 10:40:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B6185600B0;
+	Tue, 10 Mar 2026 10:40:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEBC7C2BC87;
+	Tue, 10 Mar 2026 10:40:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773139214;
+	bh=MoKgYl0vLVu36PnTao/xS9QzS9BMFCGl/qTAvQXVhyk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=V6Z7NmDYoWCGMfPUwi15oNOjflIXpMhfxSISANRRyl4/FDt/ohN81jKsIDPNN0b2H
+	 Ls78W9MlVOhIhTxSxUTiy903DcXGWz3sR24G8YTexRcgXltKsMKR1rtI9QUHEAoBnm
+	 nm3k60AsDS/IL7u9bi4Squ6MTSg0LYDhzlFe4Bkw2ruqUBUiPb863JDTPzWpDdnUAZ
+	 b/EyTvojQAgxuZaiqXoqg6GPDvs27qCeRm4pIqEsxIDNYC0KJfdB5j5nVjuittQ9t3
+	 RsCmUCvwezvWniblviHN5+CoFsR/tk1MozTk4++E+I8nm8a1L7eLPG6MWfQB1erm2B
+	 tSevhOlvrNZmg==
+Message-ID: <05b0fc76-4cdb-4aff-815c-1aad500837b2@kernel.org>
+Date: Tue, 10 Mar 2026 11:40:06 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 3/8] dt-bindings: phy: Document PCIe PHY in EcoNet
  EN751221 and EN7528
-To: Krzysztof Kozlowski <krzk@kernel.org>
+To: Caleb James DeLisle <cjd@cjdns.fr>
 Cc: linux-mips@vger.kernel.org, naseefkm@gmail.com, mturquette@baylibre.com,
  sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
  tsbogend@alpha.franken.de, ryder.lee@mediatek.com,
@@ -58,15 +62,55 @@ Cc: linux-mips@vger.kernel.org, naseefkm@gmail.com, mturquette@baylibre.com,
 References: <20260309131818.74467-1-cjd@cjdns.fr>
  <20260309131818.74467-4-cjd@cjdns.fr>
  <20260310-scrupulous-fat-ara-eab47c@quoll>
+ <1611d3d5-8c3b-4298-bf50-55ab2c2db0e7@cjdns.fr>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Caleb James DeLisle <cjd@cjdns.fr>
-In-Reply-To: <20260310-scrupulous-fat-ara-eab47c@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <1611d3d5-8c3b-4298-bf50-55ab2c2db0e7@cjdns.fr>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_033735_010430_710C64C2 
-X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,45 +125,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 10/03/2026 11:37, Caleb James DeLisle wrote:
+> 
+> On 10/03/2026 09:24, Krzysztof Kozlowski wrote:
+>> On Mon, Mar 09, 2026 at 01:18:13PM +0000, Caleb James DeLisle wrote:
+>>> EN751221 and EN7528 SoCs have two PCIe slots, and each one has a PHY
+>>> which behaves slightly differently because one slot is Gen1/Gen2 while
+>>> the other is Gen1 only.
+>>>
+>>> Signed-off-by: Caleb James DeLisle <cjd@cjdns.fr>
+>> Still, four separate subsystems unnecessarily merged into one patchset.
+>> Split independent parts of your work per subsystem. See also submitting
+>> patches.
+> 
+> 
+> I asked for clarification last time and didn't get a reply. I'm not 
+> against changing it but need to understand exactly what's expected b/c 
+> the way I'm imagining it seems way worse. submitting-patches.rst only 
+> says of patch sets "only post say 15 or so at a time", obviously not the 
+> case here.
+> 
+> If you're asking for one patchset for phy, one for clock, one for PCI, 
+> and then one to introduce them to the device, I can do that. I just want 
+> to be sure because introducing unused code, and patch sets that depend 
 
-On 10/03/2026 09:24, Krzysztof Kozlowski wrote:
-> On Mon, Mar 09, 2026 at 01:18:13PM +0000, Caleb James DeLisle wrote:
->> EN751221 and EN7528 SoCs have two PCIe slots, and each one has a PHY
->> which behaves slightly differently because one slot is Gen1/Gen2 while
->> the other is Gen1 only.
->>
->> Signed-off-by: Caleb James DeLisle <cjd@cjdns.fr>
-> Still, four separate subsystems unnecessarily merged into one patchset.
-> Split independent parts of your work per subsystem. See also submitting
-> patches.
+What is "unused" code? Or how is it unused? Do you understand this will
+go via different subsystems and nothing will be "used" anyway?
+
+> on other patch sets both seem like anti-patterns to me.
+
+And asking four different maintainers to manually pick up individual
+bits with multiple commands, instead of just applying entire set
+targeting their subsystem, is pro-pattern here? No. Why adding more work
+to maintainers?
+
+Think how this is seen by individual subsystem maintainers and how they
+should handle it.
 
 
-I asked for clarification last time and didn't get a reply. I'm not 
-against changing it but need to understand exactly what's expected b/c 
-the way I'm imagining it seems way worse. submitting-patches.rst only 
-says of patch sets "only post say 15 or so at a time", obviously not the 
-case here.
 
-If you're asking for one patchset for phy, one for clock, one for PCI, 
-and then one to introduce them to the device, I can do that. I just want 
-to be sure because introducing unused code, and patch sets that depend 
-on other patch sets both seem like anti-patterns to me.
-
-
-Thanks,
-
-Caleb
-
-
->> ---
->>   .../phy/econet,en751221-pcie-phy.yaml         | 50 +++++++++++++++++++
->>   MAINTAINERS                                   |  6 +++
->>   2 files changed, 56 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/phy/econet,en751221-pcie-phy.yaml
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
->
-> Best regards,
-> Krzysztof
->
->
+Best regards,
+Krzysztof
 
