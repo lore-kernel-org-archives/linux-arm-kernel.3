@@ -4,139 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9299EEFCD9F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 09:30:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 661EFEA8550
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 09:31:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3ezt7r5MPZcpZqnlMod22aGxAG5DNKkRttNoQ3zj5LA=; b=P5L8zCdLy9PUeExW5hoiBr6RuB
-	m7uD8pC06EjHeAsHVjYuQJyliv3q9DHR0cAhojSPvvOaWOKewc9NWoDNd8NpdUt/+Ylr0vnp4Befc
-	T13dix4/oZEQQBCR5dKtTM8PH/2nbyxMNuAr0RskwLGwUf9vYdDrt92xhtcdwbJcG5pnRJJw/rfK6
-	XiaqZKVVq1QkOf1c8ZapOCed/QC1cU+Zz7y43k2e8lnweRDEKTkABOyXA3dscVO6Qxubiggkp7B+h
-	bzn+4tJG8G9Pos1SgUfJmT+nDgmb88qbTdq1Yg0JTzriiyaIrPFmBSrej/EBtr67N4efBF61KfFQW
-	x0fsGmgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QmiIi7mrpmFyjVusTkJBYSfoQnHnQMebnoeDL33M1go=; b=stZe7JUk8RNCvVTPkRqGz/xq4A
+	p2XZqiz0FaMmvJxOgLJdNudbUYP/axIr9/pC9gKlwPtttBivLfUA1kA47u02C7GarEPX15UlVgKPI
+	4CzHOGoPQYiSaFgHpqE06fyvaiDlk3yMOWjKNfJqeSZRmebq5x7j1Mm6EYRnLBuiCosOtawxArCjB
+	QTNPv9Kq/HyoxDC6i/iE8kdOC0jKWVNEqBUPEA6XE2yAE8WjOQdB1CAB+BlVywfDqN/EhByA/GxqI
+	HJABLznS/VUWEJwFCoylHvsfjDbXoz4RkjmUFH4O/yh9qANqmrgZEQc5eOc3LmQYk1/2l0AOSJjHU
+	jALwrQEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vztQV-0000000967M-07oE;
-	Tue, 10 Mar 2026 09:30:55 +0000
-Received: from mail-westeuropeazon11011031.outbound.protection.outlook.com ([52.101.70.31] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1vztQf-000000096AR-1aLZ;
+	Tue, 10 Mar 2026 09:31:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vztQR-0000000965D-2GWg
+	id 1vztQe-0000000969v-1BDo
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 10 Mar 2026 09:31:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=QmiIi7mrpmFyjVusTkJBYSfoQnHnQMebnoeDL33M1go=; b=V9li8TmL5G2dM/2hqnqo6QNScr
+	AJAGG7uuhzZdAbi1ASbHuebT13ucFEzs4Lvag7qS2QtP9Axi276IS6Vh/c2lhHutFA0P9VzLNlX/Q
+	xlAamwgrkFADCO5RvV4VcJlO2VhHHzaFUIfAkf8P3Rz8OmF65rDfnFmDOiuafRNg8hLjAZ47rFeGW
+	pwfqMh5IompXP8mZhKyYhdphMVF+johxupAF10cRsPGSuce1R+D47j/cHuOcR2I6aNVqC92SmEIeT
+	to6JCKZsnzUK3D8CyrT2jIkR/v1KyIrgJ9jlZSa52HnSn33EUCKnOFeYDvW0bBO6UB6fIk1WHWihd
+	iHk9l/rQ==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vztQX-0000000E7wI-09Z2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 09:30:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IV3cLIXVNnEt+/KVHQYKMgjhGAoAKtHgjjkS2GNGHcrx8XqsuzXbNaEW3G7WuVJuhSL28WnUdZGObEiXkY0Rm6kviwuvOL7t/QmJhXZZiL0oez3fbACFajvuGEmWA1e/IB/PeuKtft6twXJcr8q2T6pKAp+2VPnK7809bjsEei0+HoUUqYI27+GLm2khJvCUPtgsBEeUGkPUwsIRC0yYogwD7nBeHt/9QPYMIfqdrYSemau1i3KfvM2MTIv2R30Q4kT1ZpO2MOC/uymlVlYdFXsVPiUai+Pdf5TM2KpniWk9cMPrcxL5zqNsLAuQlpOoE0UfTD3mS1wsxpmIhaj9dw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3ezt7r5MPZcpZqnlMod22aGxAG5DNKkRttNoQ3zj5LA=;
- b=V1IFkM0IXS9e8iT24EcCMe6rrmtO3ouDtwOdwglU8B9/ZOX7nQqa/zH8q6l7ne/PWvFRGYj81SHmVXgE+UvzUvyZAKL02Szl+nOvEaVGtJFx2whzdR6b5fDxC/ZviYFHdv+2QCthTyr9iRyXxSHPUaao/5PAFHBp05J1yPK5LvdD5Sx2uY4tiAIs6DxwITAv3L5jtidRYIasQo25NhE88uAVcBnx9gRfxUhLwonQfp1GVzEE6ZSl5wdEH0rktN/AGSOjpXzSleZk9w460j91wfNLtSARrNpRNB1pZd96n89q032JSWBaZ5XXYThEgIpsxjyK8JEgjhU7lYye2NzIXA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3ezt7r5MPZcpZqnlMod22aGxAG5DNKkRttNoQ3zj5LA=;
- b=QV05TeXu1hkH2oCqbM/tTmb+Dotfx78sSGBdpA+7ThtfjBpEzyusiD7kOz34fz0oUw3I+4Qr758U6BRk4Pi7Nn5lvK3zkPwW2O6pXL4QmyRS+CRUxF8UtrTdbxmNAV9wPf6QSLRmyk4HUEuUSHoEFLOnfe0KvCShgCDa/ecF8Tc=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from GVXPR04MB12038.eurprd04.prod.outlook.com (2603:10a6:150:2be::5)
- by DB5PR04MB12177.eurprd04.prod.outlook.com (2603:10a6:10:648::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.25; Tue, 10 Mar
- 2026 09:30:44 +0000
-Received: from GVXPR04MB12038.eurprd04.prod.outlook.com
- ([fe80::6c04:8947:f2f0:5e78]) by GVXPR04MB12038.eurprd04.prod.outlook.com
- ([fe80::6c04:8947:f2f0:5e78%6]) with mapi id 15.20.9678.023; Tue, 10 Mar 2026
- 09:30:42 +0000
-Message-ID: <b3e4a7a0-120d-4d73-a4fc-a7fa0c64462e@cherry.de>
-Date: Tue, 10 Mar 2026 10:30:38 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] clk: rockchip: rk3588: Don't change PLL rates when
- setting dclk_vop2_src
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, zhangqing@rock-chips.com,
- sebastian.reichel@collabora.com, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- andyshrk@163.com, macromorgan@hotmail.com,
- Heiko Stuebner <heiko.stuebner@cherry.de>, stable@vger.kernel.org
-References: <20260304121426.1184680-1-heiko@sntech.de>
- <20260304121426.1184680-2-heiko@sntech.de>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <20260304121426.1184680-2-heiko@sntech.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0124.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:b9::16) To GVXPR04MB12038.eurprd04.prod.outlook.com
- (2603:10a6:150:2be::5)
+	Tue, 10 Mar 2026 09:31:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 575F543F5F
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 09:30:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 382A8C2BC86
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 09:30:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773135055;
+	bh=agiCRx0LS/bfEJl/CwuVWUUNv8yCzJiBoPST+kfXouk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=MX18Ydfp7DvcWWdKTSqMxo/9iGz9m+pEYOhYU7+fPSwAa2tamoHRXITRm0QtO3w6a
+	 DxIrRIolRzwan1cxqGV997I1tYAltfDYyFivXflV4HcJNPgf/1QXaE9AnLTnNzmFgm
+	 SSxyTK5lBj8wnwH1Bizephl0aPQMmA0AZZ3pEH15X4Nn8US6M/VaBvnqFp6LuJmSNu
+	 AuQCzG8Iu3O3/8Xl3oQkqWygRt173/hkvifMAsXSTHihH24RJU7F2Is3C408fZGCdx
+	 BHk2dwRljMolc7TIwzJc0YJnTRYkBX9tDz2FSd9tFOONf5YawZFY5Ocqg89/9Xp7gi
+	 8CS2++qr9if3Q==
+Received: by mail-yw1-f181.google.com with SMTP id 00721157ae682-78fc4425b6bso126244797b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 02:30:55 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXInfmqZ6P9+lav0scQrYomHCQwBinqR+SXn+2c16a3E5A4yUmuvoIiIS7fre7UClE7ObfPPPT1W2Eo3+VnYACy@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4aSlkCsCr6c3N71WsGr/PggyM7GMoif4hNNQIMGMGeb9hvYfh
+	GW/LoC9P1AqtLOpOibealgKPSDWMqcgIHKC+6zD4dP4fo8jMjJeCc59SuZCQ4rDbFsZWbwoWepy
+	A6/NPrbbXeDOykPuCVdR2kiyu4GtOpWI=
+X-Received: by 2002:a05:690c:6d81:b0:797:afeb:de93 with SMTP id
+ 00721157ae682-798dd672745mr141065777b3.12.1773135054620; Tue, 10 Mar 2026
+ 02:30:54 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12038:EE_|DB5PR04MB12177:EE_
-X-MS-Office365-Filtering-Correlation-Id: a2fb2d7f-1f2e-4072-d215-08de7e87b2e7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: WmBK/+3v6dtW3NbhfzGIYPd67qlxPCBGpcyzncltZDsk1CbxdYR9EC/OB5GDwD2oqFPFYrHUIqWPcdM40ivgMehVRQZReZQgJ9JxbzkeueE2stsYeFTkFAPLv0flpGbITCYXddZexiPYR5RBMqOmG/mLVn0zFTZu3/iuoSjKCp/VElV2+bcAq2rog9AKr8j22pPByfGsCM1phlAmhLIsBwalch29AhndQER2B9A4O6+SZSDBRIbvkQVoPgYtsfHqKWgpbxiGrK/IXOYsh9KM1I3RsWLAx20b6yAFGCGO1aUMg9ta4xcXquBI0IXQ4P0gyZFw6HKgc0wLA6qjmyHHprVfouHcu3mkG+lSwa6MKsXHCnv/GeOEroGmxoBDfb9gvIynZ+MZu5AiCK2Gasd3gdtgqmvuro99K96SNyWw3FKQBeyy0E9THCmoV+Lu+WpI4JFeuCEUeq/wPTtIIcPcnv8TEmnR4FU5+Mm2IQ7KCTjKVwgOqSPflqm8phJcrIQ/WR6h1ZbmFHSbouu0bzUbMamorCzeCstmOGAK8aP/N7Byoy+Oa7oUCzqnqgRqKL1HFP3znyTEQftrH6++BWnNeMw215aX41wd1F5naHlLr+TpoSA4SEgk0k0xtkg/NhMzXRL2gmZbVBEgneTvqj2nXm+FWTUKJRhb22MWWzJEpXA4apDhwU7eFXChO+cuPhL3V5LOnP2KTW8YntkagOqGdtwrlsgl+1XxcHeV0LcSN80=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12038.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UnNhclpqNjM3MXIwVzJkVFc2YzV2TjRtd1daR2w0eVM1RUVvU25Eb3c1bmpn?=
- =?utf-8?B?NkJvOERGK0V6S2dkb2lzMEg5SFBOQzd0YzRkS1RNL2h5OFc5VnlBaFJId3Ju?=
- =?utf-8?B?b1FSTDR2OVJMWXVLbmVDcUE1Qi9CdTFyZTFYeVkreGdrbjNseEx3ZlB5M3VG?=
- =?utf-8?B?alNvZ0t5THJWNGE0VCtad3F5VFNqaDNjRHJJVGtTdFZaUFZKYzdDU3FvNkFw?=
- =?utf-8?B?UFlMditxanErVXMwTG1XSXo2QW5JSmRUWlAzcTV4aUtkM2pyQnkwaVl6aGxR?=
- =?utf-8?B?V2RqRnJrdXJjRnNBU1lqR2d1ei9hWjlsL1Y0MlJhNE5XYktlTnZRdWRLWUhT?=
- =?utf-8?B?RUQ2a1VYaW9mWjVtRTZDNW51WVJ1RDNDVHc4V2twRVdYdXlkUzh5c29GRng2?=
- =?utf-8?B?VFhIdG9zZzlEeEVwSGMrR1ZaUTNqNU1mRk5pV2hJUWJVU0xyTE0yVzFpL1U0?=
- =?utf-8?B?M1lSUkdwMWFSY3M4NG12U1RqNWYvcHAxOG9UWmE0cW10VGdTcGYyUEIyV0tU?=
- =?utf-8?B?YnFYT2hPMXZIR0tzOGprREdhKzQ2cHp0VWRsN3pZd3MvUW5FcEdBMVpSOGNF?=
- =?utf-8?B?MW5hdys3RkE1NGZBczRuZFpmTmxwQ1BRV2JUK25TN0RnTEFSd0prQWFWWnVC?=
- =?utf-8?B?bUQrQkVZNTJCUk9xUTlyRlEvYWtnSTNXdE1TTS9ZRHoramRVMlRGQXhycTJD?=
- =?utf-8?B?dHFianA3QndidG9ZTjRYR2d1eE85cDdzMGY2OFkwU0hiK2hTUFh5MmxMRDZV?=
- =?utf-8?B?a3VKTDBXOUJISTJtQzNqanN4d005bzVCSXlkQ3JTYjhOUmR0cTZQMHJQK1dr?=
- =?utf-8?B?dGJJSGNsVnBQWUVRTFNQN1J6YXpldTk4LzZCMkt6Tk85TFI5RW54NTl4TkJL?=
- =?utf-8?B?ZGVHNlh0TlBSd3ZuWXpNK1hmcEtsUExJRHk4cnVtL3Q2dGZESGljRDI2MFN2?=
- =?utf-8?B?SGFrNUtWWWQyS29uK3gyU2ZvMlJqdHJtTzZFc1BHYW14ZnFuWjR3MmtGc1c2?=
- =?utf-8?B?TUVSSUJCSjdzWnJYSWQ3QU11YU0xeEY0RXVERzFqNDBWMWJ4dk1zbTdIQTZX?=
- =?utf-8?B?UHRITzV2ZHpEZUt5eDBkaDhqV2hSVHBzY05SL0dxVXhoU25MNDZaQ2JJZWd6?=
- =?utf-8?B?LzFxRitZMHltNEhrM2FnUW90VGJtWXpZMVVFdTZmMUhvS2ZRdnhxTWZFMWpp?=
- =?utf-8?B?M05VL1VraG15K1AzODFoaVQ2SXJxd0ZzUUZDcUZFaktaOEJQZmlKT2FFQ2lM?=
- =?utf-8?B?eFNqNzRjakVwQjhPeXB3TTdRMjV2SDFibTJEd0paTjNhRWE3aWZDb3FaNGE0?=
- =?utf-8?B?L2ZwbGFCbVFZWjdkRFN0UC8rQUt5bStmWDdpWUxucFlZempmaThOelRvbjJm?=
- =?utf-8?B?UnFTckxBK0RWNHJIYmp6RHNWMldkMVhVT05VU2hYWURTN3JmMVpqNTFQWGdq?=
- =?utf-8?B?WHVsMTMvWmhYNzgySXgvZmFlQnJjZkdYWjE0SW13eUhKajNWUzdkSHdSL3Ri?=
- =?utf-8?B?UDJicEFJbk51VUZRT2ZwQjNHYW1pSlY4dUtJTTEvYm5jWmhsN2NUWms4ZlVI?=
- =?utf-8?B?WDdDaVowa01UTlhSZGtLSDZRY1gxdk5GUHlnTFdCU2JFUTBsSXZueWNkZG10?=
- =?utf-8?B?bnp6Z3MwMGpPOXVhSm1ickNKQmtrV2xSSzVuTXJTZGV2VTlGTSt2UkdLeGxX?=
- =?utf-8?B?aWJNYU91bnljYTVlUndVMFErU3NOTHdQYVN5MzJTUlRXRk5ZSDV5ZHFuRmNl?=
- =?utf-8?B?S09RTDAzZWlHYk5pdHJiZDYyWkxQQkZZUTh4STRMMk1lQjF5bXJVT0xhNGNx?=
- =?utf-8?B?ZWFyS3hKb2w5bDNybWlwckRDYnZrR2lWTXQrWHdjWU9UQlVJVUlmaEdyeklu?=
- =?utf-8?B?OXZWdXFBTm1IWUkzY1NwcGhSVk9KU084SWJpUWd5MWVBWHh4WkFDR0pwN3Rj?=
- =?utf-8?B?eTZjM1pmTUFqUERwMUhyNHZabXZjREs3bDN4YnRxazdBZ2FaNDdkRWJzeHBr?=
- =?utf-8?B?bmhBc2JqanpGWnJFQmtueXoyekRjZjZkVDVwODFiKzBBcW5KcG5MMG9uVnRC?=
- =?utf-8?B?WWJ3akJIVzl3dEpVWlk0Wi9JeUQxdlcxdGtWZXUxZ2dBcCtibFNjejRXK25K?=
- =?utf-8?B?NElNcXFUeFA2dGFyUGNEVHBoVGJudmZxQWZvSUYxeTRZVFNELy9iMy9nektE?=
- =?utf-8?B?M3hzdTZkWmRhenhIVW14NjlDTFBXei9UTndsb2ZqYUV6YWRlcXFXUEpFbzJN?=
- =?utf-8?B?TklaeFBEclBqeHRoNDFnWDlkK2d3cjRyWHUvR3BJWFlHQ2ZyNWxuUTVXNzlJ?=
- =?utf-8?B?bFdqRmUyNmtmWTVYaS9qTndSazdiUUZlRzVaTW5VRGpLUXdYMlhFUT09?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: a2fb2d7f-1f2e-4072-d215-08de7e87b2e7
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12038.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2026 09:30:42.2899
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HFHxebAuarCUVfmb37pTEapdVE/H9tWUXk/1c6BxnMELg584y1CobLZAOALLs+qAxgVpct6LIRhfCqI6wTrNKjAh0SEqSCZWpy/ruCKrfEk=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB5PR04MB12177
+References: <20260306075244.1170399-1-eleanor.lin@realtek.com>
+In-Reply-To: <20260306075244.1170399-1-eleanor.lin@realtek.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 10 Mar 2026 10:30:43 +0100
+X-Gmail-Original-Message-ID: <CAD++jLnwhtf5Xc3JGoFB=4usGHk+0YqoZn8uE-jkspgkg58VCg@mail.gmail.com>
+X-Gm-Features: AaiRm52eP1yr7ANILgx2XyXkmjF2STcxuzgrGYJxJFGEnHNkuVbhE64J6uxuaQE
+Message-ID: <CAD++jLnwhtf5Xc3JGoFB=4usGHk+0YqoZn8uE-jkspgkg58VCg@mail.gmail.com>
+Subject: Re: [PATCH v2 00/14] pinctrl: realtek: Core improvements and RTD1625 support
+To: Yu-Chun Lin <eleanor.lin@realtek.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	bartosz.golaszewski@oss.qualcomm.com, afaerber@suse.com, 
+	james.tai@realtek.com, cy.huang@realtek.com, stanley_chang@realtek.com, 
+	tychang@realtek.com, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-realtek-soc@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_023051_693718_CFCCDD5D 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20260310_093101_591147_364550A8 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,36 +101,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+Hi Yu-Chun,
 
-On 3/4/26 1:14 PM, Heiko Stuebner wrote:
-> From: Heiko Stuebner <heiko.stuebner@cherry.de>
-> 
-> dclk_vop2_src currently has the CLK_SET_RATE_PARENT flag set, which is
-> very different from dclk_vop0_src or dclk_vop1_src, which don't have it.
-> 
-> With this flag in dclk_vop2_src, actually setting the clock then results
-> in a lot of other peripherals breaking, because setting the rate results
-> in the PLL source getting changed:
-> 
-> [   14.898718] clk_core_set_rate_nolock: setting rate for dclk_vop2 to 152840000
-> [   15.155017] clk_change_rate: setting rate for pll_gpll to 1680000000
-> [ clk adjusting every gpll user ]
-> 
-> This includes possibly the other vops, i2s, spdif and even the uarts.
-> Among other possible things, this breaks the uart console on a board
-> I use. Sometimes it recovers later on, but there will be a big block
-> of garbled output for a while at least.
-> 
-> Shared PLLs should not be changed by individual users, so drop this flag
-> from dclk_vop2_src.
-> 
-> Fixes: f1c506d152ff ("clk: rockchip: add clock controller for the RK3588")
-> Cc: stable@vger.kernel.org
-> Tested-by: Quentin Schulz <quentin.schulz@cherry.de> # RK3588 Tiger w/ DP
+On Fri, Mar 6, 2026 at 8:52=E2=80=AFAM Yu-Chun Lin <eleanor.lin@realtek.com=
+> wrote:
 
-Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
 
-Thanks!
-Quentin
+> Yu-Chun Lin (14):
+>   pinctrl: realtek: cleanup license string
+>   pinctrl: realtek: Fix return value and silence log for unsupported
+>     configs
+>   pinctrl: realtek: Switch to use devm functions
+>   pinctrl: realtek: Simplify error handling with dev_err_probe()
+>   pinctrl: realtek: Fix grammar in error messages
+>   pinctrl: realtek: support system suspend and resume
+
+I applied these 6 uncontroversial patches to the pinctrl tree, so you
+can rebase on my "devel" branch in the pinctrl git tree as soon as I
+push out the changes and just resend the rest of the
+patches.
+
+Yours,
+Linus Walleij
 
