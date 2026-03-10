@@ -4,73 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BE9DEB1061
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 14:35:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C0E7EB105E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 14:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LbjNeoBYYh1/4lEscILGgIxgQ4FqoZIve4WteSmd/GM=; b=1nEmdVoXBACtIOYui3RCxGuWTu
-	X4yrIKwgXBwSOEdUhMeUGuTssbNAtS9dZXDe8+c794tEDU0e/VB7edYSJ8nYEqWG5PqoEPxFrbx+/
-	ew4gWhJ+V+orEKcOm6GzlXz4qbnyBNRhMZ6cUsXt885qVIsJgG3Dk69RSHOdclpwRbqz0w3/B1Q8F
-	KkcvP/lpk5Ftl4ayrBxP9FxCGZbp8E3KxpDbGczb4Vk13TS4hQFFl/FjCa0j/UgrEEasiOz7/ZPMp
-	7WDyJMkG9BqelFuavRJprrycZCS1/tiGkSkSYes7NElb/oa3LGTJF0SDbpvHwZcTu6sunqfSX3ONR
-	MlGWSHAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mTgu1785s5aO20nIJwGtvYvJg7rw80/9Czh5nhcWUPc=; b=MKezs22+src7+8Lg/h7OVtMTnN
+	KM0RJqVa9HKxFOLa+/1b4UoL84KabW047wRPc6FNxSi+lV9CmKKvG3V1MusoKORJy3+FD8sxzoYi9
+	bzLF+j12R9qKy+vKwwB/GGwnqzzLDev81/jqVhrd49UaDfswa1itf1l1Rk9wAeNht4fLSCxx1K0AP
+	0QxpNuUOLptuULfhMsfxXveLBDo6VNeKrEUKK/vgVvyK0OitLUwwcBHXWc/aLZKFRKH0P50Vk79GP
+	5r97U+0r63WWupTFzvrcDkzMrpGbDPRIUREHy8vis0vhsDRH/5k9RIMVCZ2mGZ+1MKixvyxixmMdj
+	GrBH0wxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzyBK-00000009htY-2gXP;
-	Tue, 10 Mar 2026 14:35:34 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vzyBr-00000009i6a-2Gk2;
+	Tue, 10 Mar 2026 14:36:07 +0000
+Received: from mx203.easyname.com ([212.232.28.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzyBF-00000009hq2-0oMz;
-	Tue, 10 Mar 2026 14:35:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1773153326;
-	bh=I3ivQi2ChJ94YeNeg1ow1Xv3TT7FwdrmIrvkpNkfC4M=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PVHIwtzmzXzCCi+0ShIUUqVRfuyZnQDUT4mlXtHUC3YwM0ciw4/ovJBRkfHug4I1V
-	 RqVMdwXAJWIaSbA4lLyoW88/2N3Qd3D8bXjY9XDjXuE+p9cVXUt7rmIkVhuZK9ZqtX
-	 Gf6rN/uMT7+3wCyo46YVd+8msYbtf8NYCT8JHbIKzENuq2Ft/s/SHZx1b+rBotaUXf
-	 UVZZHWBZQFOufQpujrjlTaVHDBzHKUAtROfM6m/8JN5zmxUkDg3gHyHGmKKwgHUK8t
-	 VfXyKOIpcZknSAn0g+eh/gXctMV3ETGdZgMzs9KdFTRNSnQ8WY0DXV2axp8cINSV4h
-	 3P3dmF9XzmXMw==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C0ACE17E13C1;
-	Tue, 10 Mar 2026 15:35:25 +0100 (CET)
-Message-ID: <6c2c9803-1210-412a-b391-660735e1d5fa@collabora.com>
-Date: Tue, 10 Mar 2026 15:35:25 +0100
+	id 1vzyBm-00000009i4z-2M9i
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Mar 2026 14:36:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=peppergray.xyz; s=easyname; h=Content-Type:Cc:To:Subject:Message-ID:Date:
+	From:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=mTgu1785s5aO20nIJwGtvYvJg7rw80/9Czh5nhcWUPc=; b=qF0zP+Odhomk9Nqu5KkzmaH94O
+	qqgtTYnwN1A74gqroFe2jMlQKAROIYmOVpBEmJ4nzEB7RKtLXPXDL1V6pQVmdOigCCQiPBjsyI3MU
+	nNC/MzNR8mv8GNSMATv4O4QSEVfSCFYZe1m8BXV3Z2N7Src6SYrNAu/rrfg31cE0jUKeZ223iD4NM
+	iuEBjBeenfiNYHaqrHB58MP0fwq0KGbIRXcrRMs1WM4JvRP2I50RGGr7xKk+2JKm6yy3PHgftnu8f
+	WCDgmGOWQX0NjD7om4D5t7jRBljbVnS91EyHjsqruH1/9P3GQSr+qwPVJt25lykL8JtGxEaXH8juU
+	LX4QS8ZA==;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=peppergray.xyz; s=easyname; h=Content-Type:Cc:To:Subject:Message-ID:Date:
+	From:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=mTgu1785s5aO20nIJwGtvYvJg7rw80/9Czh5nhcWUPc=; b=qF0zP+Odhomk9Nqu5KkzmaH94O
+	qqgtTYnwN1A74gqroFe2jMlQKAROIYmOVpBEmJ4nzEB7RKtLXPXDL1V6pQVmdOigCCQiPBjsyI3MU
+	nNC/MzNR8mv8GNSMATv4O4QSEVfSCFYZe1m8BXV3Z2N7Src6SYrNAu/rrfg31cE0jUKeZ223iD4NM
+	iuEBjBeenfiNYHaqrHB58MP0fwq0KGbIRXcrRMs1WM4JvRP2I50RGGr7xKk+2JKm6yy3PHgftnu8f
+	WCDgmGOWQX0NjD7om4D5t7jRBljbVnS91EyHjsqruH1/9P3GQSr+qwPVJt25lykL8JtGxEaXH8juU
+	LX4QS8ZA==;
+Received: from mail-ed1-f43.google.com ([209.85.208.43])
+	by mx.easyname.com with esmtpsa (TLSv1.3:TLS_AES_128_GCM_SHA256:128)
+	(Exim 4.92)
+	(envelope-from <hello@peppergray.xyz>)
+	id 1vzxsY-0000lk-Q5
+	for linux-arm-kernel@lists.infradead.org; Tue, 10 Mar 2026 14:16:12 +0000
+Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-6617f0bcad2so7742799a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 07:16:08 -0700 (PDT)
+X-Gm-Message-State: AOJu0YyEZnnWD3Nh/vU6LExWXHQvkmDtlIEWgjcNYTgwuxOVUt1FZZiR
+	h+MbTrrNhLjn74alNfLrJpkXb1AEBfsBQYCLw2GCvhxByi+yaRg5XngnLaFp38NpYAKbxP+in2y
+	ajc5eflJydoEB7yyUbRHKCdpcsb5MDZE=
+X-Received: by 2002:a17:906:7307:b0:b8e:fe3c:2255 with SMTP id
+ a640c23a62f3a-b942dbcd330mr853312666b.5.1773152167871; Tue, 10 Mar 2026
+ 07:16:07 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/5] remoteproc: mtp_scp_ipi: Constify buffer passed to
- scp_ipi_send()
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Srinivas Kandagatla <srini@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, linux-sound@vger.kernel.org,
- linux-media@vger.kernel.org, Mathieu Poirier <mathieuu.poirier@linaro.org>
-References: <20260310-rpmsg-send-const-v2-0-0e94c5db9bf4@oss.qualcomm.com>
- <20260310-rpmsg-send-const-v2-1-0e94c5db9bf4@oss.qualcomm.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20260310-rpmsg-send-const-v2-1-0e94c5db9bf4@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+From: Pepper Gray <hello@peppergray.xyz>
+Date: Tue, 10 Mar 2026 15:15:56 +0100
+X-Gmail-Original-Message-ID: <CAC+fAGbCjQSGbtkbGr5Qb=tPez1i4KZ7TtC0DPHxGbC0wLvBAw@mail.gmail.com>
+X-Gm-Features: AaiRm503pGz-nb_M9Lz3egtWB6_FCbOps3F_-QJ5XL4fGPd7A88B0Kv0vylRoWk
+Message-ID: <CAC+fAGbCjQSGbtkbGr5Qb=tPez1i4KZ7TtC0DPHxGbC0wLvBAw@mail.gmail.com>
+Subject: [PATCH] arm64/scs: Fix handling of advance_loc4
+To: linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_073529_432076_1053241E 
-X-CRM114-Status: UNSURE (   7.54  )
+X-CRM114-CacheID: sfid-20260310_073602_593740_EB30DA5E 
+X-CRM114-Status: UNSURE (   8.91  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,17 +93,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 10/03/26 12:22, Krzysztof Kozlowski ha scritto:
-> scp_ipi_send() should only send the passed buffer, without modifying its
-> contents, so mark pointer 'buf' as pointer to const.
-> 
-> Acked-by: Mathieu Poirier <mathieuu.poirier@linaro.org>
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+DW_CFA_advance_loc4 is defined but no handler is implemented. Its
+CFA opcode defaults to EDYNSCS_INVALID_CFA_OPCODE triggering an
+error which wrongfully prevents modules from loading.
 
-Please fix the commit title - that should be `remoteproc: mtk_scp_ipi: .....`
+Signed-off-by: Pepper Gray <hello@peppergray.xyz>
+---
+ arch/arm64/kernel/pi/patch-scs.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-After which:
+diff --git a/arch/arm64/kernel/pi/patch-scs.c b/arch/arm64/kernel/pi/patch-scs.c
+index bbe7d30ed12b32..dac568e4a54f23 100644
+--- a/arch/arm64/kernel/pi/patch-scs.c
++++ b/arch/arm64/kernel/pi/patch-scs.c
+@@ -192,6 +192,14 @@ static int scs_handle_fde_frame(const struct
+eh_frame *frame,
+  size -= 2;
+  break;
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-
++ case DW_CFA_advance_loc4:
++ loc += *opcode++ * code_alignment_factor;
++ loc += (*opcode++ << 8) * code_alignment_factor;
++ loc += (*opcode++ << 16) * code_alignment_factor;
++ loc += (*opcode++ << 24) * code_alignment_factor;
++ size -= 4;
++ break;
++
+  case DW_CFA_def_cfa:
+  case DW_CFA_offset_extended:
+  size = skip_xleb128(&opcode, size);
 
