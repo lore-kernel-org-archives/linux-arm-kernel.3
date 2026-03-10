@@ -4,151 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDFC3FCC9AE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 02:56:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 702D9FCC9AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 02:56:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e4Mc7EWz04URkw8Ms/9iaGWoTsmbni5zZSlTfhonv3g=; b=zLl3cRgmr1F4jVgIeesqqIazlQ
-	sQv7JYLpedqn3iGmFjnV/4z8FnPCpdb28HmsW2Y44nG8SK4g8Jb9XYiOYcvqx3rTJo8HEXxVIg+lP
-	b3eeSYQaCy9f0OPrHBlcqrORNIafv4DBrVqh/YlB/I6IqnEbCHMtZNbpT5Ngu5P/daEkdSAOZ8Hbi
-	z7ee9yYPrkXhwFGJNb56Ukefx48h6FfKnvWNTDCN5PQBLMjA+OsKogaMVirevp1+ALxwEQ1fhLwJO
-	P6rKIE7NkF+i010QJExN2DgCn60DjX2jUx62XmhREs0IKFrvKflf0fDNQXqonKzlqqzu+vxkElSXn
-	JYxGPCEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IPeNaI7yJ6rN7QDAg6cmHZUEk/n4Ga/qldWclJyzUAo=; b=unyuOki9wNdEPdqtdAFhA1JS4c
+	yjU4jkIVaoVlQxZAelbOXOBT/A6/ombLc83WOZm1h35ARphwukRsjD/Xi0iRXNnYHumJLkyUYJ6SG
+	LtSMnC8UG0H6btu7fz/AGjvAYfsQns0iAg96UND0C/POugL742+TitTyWe0cZVIzJBg5Eds04K14a
+	gv5uQRe6x44CS1VBstWGuKKKqt/HgYxMZUejMzNpFjGLOH+NbyzPBktirvvTlfUV7uzx5zLe+liXt
+	LlcBuqXKSoP3C4GuiqA1g0G8H0eEo9WWwkCAtSHEOxXR3QpjwltZO6nTxmI6Ukl8hQ/WPzXhTis95
+	qOdbiGaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vznGn-00000008b3Y-10sy;
-	Tue, 10 Mar 2026 02:56:29 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1vznGt-00000008b4H-2F8F;
+	Tue, 10 Mar 2026 02:56:36 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vznGk-00000008b2u-3TvN
+	id 1vznGl-00000008b2v-2LWv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 02:56:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tlTPlYgZ/2dEmvY2waFAIEKFINZatgTAnByc1vcaSuzl+mncVeDLGNjHT9/GUFlkcxW2IAUsKakaTb5tHRCkwsR0a9t0G1g93m233FNcf7yMBJ17iOwT8czy1wYFHxwNbkkiDE4By/7JVBbsAsDWYanFjtnWOWVMkdVSvNdRXVESKN8xY8xc+rOptXvLcXSKrlNB9LfcLct/AiI+AktuKDwP8Hwap745JdEqx/p+qcI1Xef5BgXxI8W0ZKtyKFdnyWT9RNENE1iByGGM3/Uf5GP4dkYtp8vTVyVp6+Wanz8XdBB1TfHrA1U5M97QuI0Lo0JFmM2CqVFRAmt4KgVD8w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=e4Mc7EWz04URkw8Ms/9iaGWoTsmbni5zZSlTfhonv3g=;
- b=JVO+ReCCfAWjmAnn8tvn6lY8zzCLkHWebFIeWDF9Yh040/lVnfQ+WPEawxAaTAVOoVLgLRBLwDIT1bctg+Du2pR66AKUX5DaYRx06rsln/VOBLbKFPz6gVSZOy7wWeU7c9uZhLM9oAtD1AgFH0pCbD0L+toABwxbxlzO0zlOcZVGxr26WOw9nB8vreERM0L94eerOg/mAegJNJiEQvvSy37lvceOVvEVWEYLmPo1ZYf/8jiwVi9483/LX1KqX21nqWUt85l2EFk13Zf+uoeM2qCkNrD7ktLnc2T6wNLO+8Dmj4izuT0BPA+Ir3XARMojVUDPHV6HmWHWEmQjHQkw3A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=e4Mc7EWz04URkw8Ms/9iaGWoTsmbni5zZSlTfhonv3g=;
- b=PE2Jg7lsgzdEtBfXYUhmf+4UT2PYxNkrcc7kLnFcrJBnyPCTsWiyVyp4uV8D8mOSVJJdBF6aA+U9/s4JEWAV+XCT0JejEDvZjnnBc10vi7qdrUlONFcjy2vvDQgM6BuutwzXQG1zU++T6PYYKbxKRW2vZpw0HrHneQN7ZOg5dmT1sIaJo3NcnjJD7D1cQTpMee/furPoqdVyk+VLA2/fCk40znZgyho4KkUSQ495p12QDMVVsO2S1dGnCKI9HxqIX7u3wk9fiVqrdzDGVX/MYMZ++1yUMuaX8sbevRxsqHB/rDo56+JPziwrzWzFgSx9TtA+c/ANvD6Z7ZjX76dRvw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by VI0PR04MB11071.eurprd04.prod.outlook.com (2603:10a6:800:262::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.24; Tue, 10 Mar
- 2026 02:56:21 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64%3]) with mapi id 15.20.9678.024; Tue, 10 Mar 2026
- 02:56:20 +0000
-Message-ID: <33e09cc9-69bd-468b-8361-b92a50686f74@nxp.com>
-Date: Tue, 10 Mar 2026 10:57:26 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 2/3] drm/bridge: imx: Add i.MX93 parallel display
- format configuration support
-To: Marco Felsch <m.felsch@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- luca.ceresoli@bootlin.com, Frank Li <Frank.Li@nxp.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org
-References: <20260303-v6-18-topic-imx93-parallel-display-v11-0-1b03733c8461@pengutronix.de>
- <20260303-v6-18-topic-imx93-parallel-display-v11-2-1b03733c8461@pengutronix.de>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <20260303-v6-18-topic-imx93-parallel-display-v11-2-1b03733c8461@pengutronix.de>
+	Tue, 10 Mar 2026 02:56:28 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4853e1ce427so16328245e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 19:56:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1773111385; x=1773716185; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IPeNaI7yJ6rN7QDAg6cmHZUEk/n4Ga/qldWclJyzUAo=;
+        b=HtttWlBuogdKXYhh4HGd+xxJUUTqZFOPK+dlTxOppVx/CSXM6OlsYYEEG2C2CDGBwX
+         SbjvNL9nbBP4589EkAHqhNINB6VU3GCbsEw4oNw3s7g2VuEgbg87iTqvg3+ZFA5vBuxv
+         XDP19t/XQL1BuINqo1zmakQKH9NmJeKD6pYy5FHC0uDSdJp3HiYt6JbKHzlqgtvrLFM3
+         KYDrNxpcaZUDAagOBvj31EbH92DjwKsf0ZqPPBlC3feuxA8f8Fy8Z/qLynqA8tkjJL20
+         cyjoUoPQYT1+ZZBIAPCFpEsGIjhdjFeVSH8T86UtlS0ZDRBtk4Qr55ubynSnOH/VASK3
+         gsXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773111385; x=1773716185;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=IPeNaI7yJ6rN7QDAg6cmHZUEk/n4Ga/qldWclJyzUAo=;
+        b=jHY5W+mLMWbsn8oep9yrO6dle0aJcEzzquhR9e/JS9mcaJ+zPQxyRRF2ZVr8pEfw03
+         FKnr3zs8I7OjhfnxSbPJ927OnmzEFxMma47CfZ163sRrFVSWqlH2nILMr0C0R5z7Bf93
+         4Og1b/BxC8itN29KUtd0jptMdClpfUDx7iVHr5qrKkKpX5yQoOAJr83iMynEVeRw+afZ
+         llABnzT+p2N7ZCaSvDTIOW00MGKulObg02/fJLD4u2Ve2yYMG+9apviJ7fnii2yH5wDk
+         hQG6ZwkiOOAnmFjk4NERqnx2tUdpsYioFIyDew3ooViH6aTLRWJMBURbtkOS0dRO4Q/N
+         pzyg==
+X-Forwarded-Encrypted: i=1; AJvYcCUFzOJ27goudPTlHekWDxXQtXasFl9KitoZATIsU4lT6iLS9q0+cvcL3HQcEZzy0/vjo5Etl8HRQov9RAd1nMv3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxI1WlH9xEgHfLqQF/7EV2zkcvilUXKMt3xjwEVcv7wszhhiFfG
+	XxA6RX3LhbEPzjyGr+DMt/0JfZqfliyCXN6YD/b7a4eGD6aN54bsE9CpConjF3q7Tuw=
+X-Gm-Gg: ATEYQzyI5Rm2Mwt01sZMLD6eXSl3r66IxZQfVRgJwu0HWpY4YHI8c4M6C1HULqTd/KQ
+	ik2+lYLcY17MhfCI5eVvnDzfC0U8TUX4DNE5xCb+9RcAwaNUFB7lBlJffSfKm1feGFlW+F33yvt
+	EhSEgItvCTG7AtlSdyCX/O3uiJDQLUC15148LgHZbhpjlVvZQqmThORHHksFTJukdAj7y/FYDN5
+	66q+BdcsKW4EByronp+4q0j/xA3K/q0a6Y9SYSQipoCLb84swaZM0Igo/Sje/OxTT5VNHM08Dzn
+	8hx9BZRC68TOSv2SnGiypJx2V2gj8Cg8FumF785wlEiUTJDcN/QMqTpDveTAhfv84QPOWF5Gjww
+	4dd6YYq/0nkqV0IwTnYN6pba4a6SCyNuwmCpMqlBAIslDYSIWjBn2pXmDb5y5aYaWaJchJ1yq9H
+	e8i85p2U0f4K8RVsf/3Yg1lWR1LrPmI8FOVRFG9q8ehsMzG17wbZTNy6bR/O1QVmKpk6kA81vYD
+	PY5jmYwHk6aIaz1
+X-Received: by 2002:a05:600c:a0d:b0:485:1878:7b8c with SMTP id 5b1f17b1804b1-4852695b6fcmr215782145e9.18.1773111384919;
+        Mon, 09 Mar 2026 19:56:24 -0700 (PDT)
+Received: from localhost ([2a02:c7c:5e34:8000:7b62:c11f:db20:9ab])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48541b8d4easm38369165e9.15.2026.03.09.19.56.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 09 Mar 2026 19:56:24 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI2PR04CA0009.apcprd04.prod.outlook.com
- (2603:1096:4:197::8) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|VI0PR04MB11071:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0b18a93b-a996-4661-5142-08de7e509bb3
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|19092799006|366016|921020;
-X-Microsoft-Antispam-Message-Info: GozEzNpMx+BsVEMz6iE8RrWkIiAy/DbADF/w8VeY4l0hrCx2dYXI7n6Ltsrar6rE/XpF0JhPQUBwH0G1fwm27beFhE4ynLVbzVauqCBcG6QD1P09oROS/W0lEBj4dVzWJL3/R8MBycRyCR/SgCmNiZY6WRCjb7Mb+kXoou83JefrU+6ymUdkHUR9YuOFoG9PvyEDZ1uRIGmAmkRDsflogY3TKi8X82XxHgTLfM9ldkSjhh0InZ41DS8um8XSCNzAAZuTJvhYIR9+37/2ymy/E6fcjk54UcXY4kvENl89rCPzFVjOsgY3OoDbLySq4FJDtT6beiKk0EfEbwjb+U0CX5DVxmYaltpwJ9z6DahS14aYL6ClWlR54/WoImi+tYoYbpfRGqCgE7oHx1m/pJLcpHnoI88wtdHe0og/llhwW4cGLRcQI9DUzyHbsgDbxx8vm6wVhIXZn1c8SirnYgeRNQpJt0tvxdVcDGudoAt6W1Aa6M0z2QFMMhKWc5Kst4TwqnZviZEisafsBQ6rBcNutDFMzwdlhC3URMzBYAEuFhYlu0O0EaykmeykDu9GVs30yMSaTaTjo28x8xLdA8j98zU4xS2FWqbsNzQS9koMn0ueaqXOWN+s1c5oUeEkS+mxTYbFu9mP3FfUmSDjrSjrAduNc/EBSOdx7uYQmnGkcht5BbyBE7QBrdp3TP1XCqQHb/OyzK7eJmBZy4EslMc9B9ocGvb7r0eNtqwp2ICswd32ClpY6wQkugTouC0V7WZT7agzjGGMkyfaTgRrz8xktWuzBudD4Edj9VAuxl0bzMo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(19092799006)(366016)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eTBCOTdSWWprUVYvTnlBenNQcTUxZEtSSFU3TlgvMlhvYVVKN0U3K1RmT2Zo?=
- =?utf-8?B?bk9wQndKekFuNXN5T0J3MkpkeTgyRlIvdmo5MkNkV1N4MHlSZGZSR3BYelNF?=
- =?utf-8?B?aFI1eEdpWkl0VE82cjNuaU5kRUVQQ3pUTURnbWxvOTFTL0NqS3V3WXh2NkM1?=
- =?utf-8?B?V2dZWDZkcWE3NzlEMUp6WDBuY2pRRC9LVXQwanE3YkVrcVZHOTFWUDM0aXVy?=
- =?utf-8?B?d3JjQXc2TmpVcTF6bktFalVsVHd5UmpjTkNiV2ZBSGx6ZkJHTlc4cUZZM2Fn?=
- =?utf-8?B?TGhWb215cjlWeDNiejRVOGJBdStXU1VteUsxM2RObUN6ZFkxZkt5aTQ2eTJW?=
- =?utf-8?B?a3VJQTc5NkQ2N1h0T2ZvMkN3bHVGQU1UaVdvMVdMd3owVG00MURhYThFalZG?=
- =?utf-8?B?dnNieWNVYUo2TzBzY2h3NXltSjlCQXVvTXh4MzhSQlg0VFoxUTBYZVIxKzlH?=
- =?utf-8?B?UFlYQjRxZGxIc0l3cFRWbkdxQW0vclN4M3diMFNPZUxqRjF3dy9IeURLRTMv?=
- =?utf-8?B?MGZ1UlpsK0FrNmlOZUdTSnFyMkt2ZkN3Z3hqQlFSbGVUTDVHU2NUbFZUdXFp?=
- =?utf-8?B?RHVaRmVITzBkc01XaDVtWWhqalFZb1l1WnltS08zeEJZOWhTem5lYUkwQ0tC?=
- =?utf-8?B?dk5iK2xacGtINWdMTzBZRHpwRjhvRTNOQ08xUCtjb2JYUWhaNFZjTWtRTFJI?=
- =?utf-8?B?RXJ0elBNdk1ZYkxRc3ZCVTFBVmpoSDFYWFBSNCsyRlVMQXdQRzR5RlJ4NmF3?=
- =?utf-8?B?RktiK2ZEbkwzdGp2dU1KMXhXZS9WcFpORGZDaUEyZzE2aHVuNjRreVg0UEt4?=
- =?utf-8?B?M242dHEyaElpTDRqSUpxQkF6aTdsMXo3YUFGaTcrNU1CSGs5M211ZG5iUHFl?=
- =?utf-8?B?UU1kekVka05rSFArT3lpZERsRURVazhjb3JGZWxWYzBTeW9LU3hvTVh4dEdj?=
- =?utf-8?B?bW5FRklmSUJwT2E5WnMzM0JxRGxWcUlnTm9WL3hyUzVUZmZKSlJLSExwQnly?=
- =?utf-8?B?M0x6UFdiSk9wdGNFanFCdzI2SlJjbjRWNGxjMStTNVdrWHl5OXh0ZXpxdXVh?=
- =?utf-8?B?bEpoZ3lXOU9aMldsQm5zY2IwZThhb2hMUURQZkVnUmNUUFI4Z0pIWVVvVlhk?=
- =?utf-8?B?eW52R2MxajJPNDAzaW54RlZXL2xWUXBQSThuSzhNSE0reHZTQ2h0c1lUK0pG?=
- =?utf-8?B?bVFYMVgzc2NzR3k1WHVZUEhWWWJhOFM5N1pjTXlmZUNrenB1ckhlRjd0c2VC?=
- =?utf-8?B?dG1pQ2NHNXRDVDRxbk1EclhvU0xCQm8wRXR6eEpwZ2lOSmd1SU41eHM5Q09t?=
- =?utf-8?B?cjc1K1ZRazRDWDJXRDl4aVE4WFhza0RmaGo5dzBBWWJYRWlvNnRwdHd2bmtm?=
- =?utf-8?B?VFdWTCsrMDUxejhUbE5PaFRBbHFUd3FUSnFGMXF5Z0dEYktwaGw4aFQvYU1v?=
- =?utf-8?B?dFQrQmljZHNsdkRZVThCK0hPYTZTN0J2cCtydVVmT3h3eUpQd0d4Nzc3OXpX?=
- =?utf-8?B?cEs1U21BbG1UZlFMdWVPQ3RhVkQ4cWRHQ0lNRGt5MERVZUUvUmtWc1dZc3NZ?=
- =?utf-8?B?N3lGREVFL1lPQmZibGNnNmhpU2dwSkUveXZEMEFaaitDL1oyZUVHVmNvTWts?=
- =?utf-8?B?RExTUExVZHh4R1lQVnA0UHlkNWl2WklFb0t5dFhzUXA2Z1dROEFFSUJBdnI5?=
- =?utf-8?B?VFN0Q1Z6KzZ5cGQzV2g2MDNXT2xEM3pxMWNlVmZkMXMrMmZuOGF5TEVqSlBa?=
- =?utf-8?B?OVNPYkcza0JGV2dGd2cxQnNUaExNa202WW1SZWZTQ1hOaTlrc2JoSHNQM0NJ?=
- =?utf-8?B?Y0gwWWVFZjZEdmc4ZG9FNnY1eVZ5T0R0MHpkL2czeU9DWjZuYnJjcEo4WUFY?=
- =?utf-8?B?LzlJWUxtcjAxMVJMSElpWVpaUmY2MG9venJFKzFleU81TEtZWDJQZVlBMTlF?=
- =?utf-8?B?TXNpSVZkTDhtVFlncjlzamN2LzJaT0JsVEVhNnk1WnZNRVZWd01POERFejVW?=
- =?utf-8?B?aGRFNCtHU0JxOTJhSm5pSkJVdFNnWW9KWUF5RXBUQ3IydEYvdmRDdHhMb3Yy?=
- =?utf-8?B?cTg2RzBsZ3p5c2VGcFBsVXJRaDVZMEM2UjFGa0FVZGpPWGRRbStLK0Zua0s4?=
- =?utf-8?B?QjFQc2N5V0Z2Rnh6aVdFNHZ0TExMMEVJUmNYVnlDZjFCN2VZcjAyQmM3L3Jq?=
- =?utf-8?B?N0I2K1c2MEw1cFlsZ1JITW1EVmhkbGM1Y1dwWEV5QmY5N1VMQVJwdjB2MHBB?=
- =?utf-8?B?dzVOdnBYcDBnVGZycTh5NE53MmVVRDUvZlBOdjNQbXNtRUZ1dlUwZDMwcWdw?=
- =?utf-8?B?TEtOdVpwVXJPSVhHUWVkK2d0ZXpoWk9Bb012eExrSVFTdisvS0g2dz09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0b18a93b-a996-4661-5142-08de7e509bb3
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2026 02:56:20.9373
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YUdzhQ/Ajl/qbXh2FUVj8C3SM1+wHXXGvNya1pp/wBzGC+VkRsLGE0NCEIOx6Sttr3XAeyueHZ8CO9ZU7D2S3w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11071
+Date: Tue, 10 Mar 2026 02:56:23 +0000
+Message-Id: <DGYRJ0FUBJIB.3HUS30VW280A4@linaro.org>
+Cc: <linux-samsung-soc@vger.kernel.org>, <linux-pm@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, "Bartlomiej Zolnierkiewicz"
+ <bzolnier@gmail.com>, "Krzysztof Kozlowski" <krzk@kernel.org>, "Rafael J.
+ Wysocki" <rafael@kernel.org>, "Daniel Lezcano" <daniel.lezcano@linaro.org>,
+ "Zhang Rui" <rui.zhang@intel.com>, "Lukasz Luba" <lukasz.luba@arm.com>,
+ "Rob Herring" <robh@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Alim Akhtar" <alim.akhtar@samsung.com>, "Sam Protsenko"
+ <semen.protsenko@linaro.org>, "Anand Moon" <linux.amoon@gmail.com>, "Marek
+ Szyprowski" <m.szyprowski@samsung.com>
+Subject: Re: [PATCH v4 0/7] Add initial Exynos850 support to the thermal
+ driver
+From: "Alexey Klimov" <alexey.klimov@linaro.org>
+To: "Mateusz Majewski" <m.majewski2@samsung.com>
+X-Mailer: aerc 0.20.0
+References: <CGME20260303090219eucas1p1711b5b0f0e8ae56bc421ad8f6e5bf365@eucas1p1.samsung.com> <20260303090211.673143-1-m.majewski2@samsung.com>
+In-Reply-To: <20260303090211.673143-1-m.majewski2@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_195626_880640_B852D0C3 
-X-CRM114-Status: UNSURE (   9.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260309_195627_623889_05212273 
+X-CRM114-Status: GOOD (  21.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,29 +109,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marco, Luca,
+Hello Mateusz,
 
-On Tue, Mar 03, 2026 at 11:34:27AM +0100, Marco Felsch wrote:
+Sorry for delayed response too.
 
-[...]
+On Tue Mar 3, 2026 at 9:02 AM GMT, Mateusz Majewski wrote:
+> Hello and sorry for missing your mail, thankfully Marek pointed it out
+> to me.
+>
+>> I applied the whole series locally, it applies fine on 6.19 but I didn't
+>> check linux-next; and tested it on Exynos850 E850-96 board with the
+>> following DT node:
+>>=20
+>> tmuctrl_0: tmu@10070000 {
+>>     compatible =3D "samsung,exynos850-tmu";
+>>     reg =3D <0x10070000 0x800>;
+>>     interrupts =3D <GIC_SPI 226 IRQ_TYPE_LEVEL_HIGH>;
+>>     clocks =3D <&cmu_peri CLK_GOUT_BUSIF_TMU_PCLK>;
+>>     clock-names =3D "tmu_apbif";
+>>     #thermal-sensor-cells =3D <0>;
+>> };
+>>=20
+>> and thermal zones as you mentioned way back. It works just fine.
+>> Temp goes up to 48 C with a loaded CPUs and settles at 36-37C when idle.
+>>=20
+>> So for the whole series:
+>> Tested-by: Alexey Klimov <alexey.klimov@linaro.org>
+>
+> Thank you!
+>
+>> However, do you have plans to update it or re-submit?
+>> Or any other plans working on it?
+>
+> Honestly not sure. If any other patches are merged that conflict with
+> this series, I definitely can resolve the commits (for now it applies
+> just fine to next-20260227, though I haven't compiled the result yet).
+> Correct me if I am wrong, but I don't recall anything to be done in this
+> series otherwise. If there is interest in this series, I can retest this
+> on the other boards and re-submit this later this week.
 
-> +	next_bridge = devm_drm_of_get_bridge(dev, dev->of_node, 1, 0);
-> +	if (IS_ERR(next_bridge))
-> +		return dev_err_probe(dev, PTR_ERR(next_bridge),
-> +				     "failed to get next bridge\n");
-> +	pdfc->dev = dev;
-> +	pdfc->bridge.of_node = dev->of_node;
-> +	pdfc->bridge.type = DRM_MODE_CONNECTOR_DPI;
-> +	pdfc->bridge.next_bridge = next_bridge;
+So, I bumped into the same issue you described in your other email.
+Other sensors seems to be not initialised and always return some weird
+temp (minus 29 or smth like that). Only first sensors works.
 
-When I was reviewing another patch[1], I was aware of the necessity of
-calling drm_bridge_get() for next_bridge to balance the next bridge's
-refcount put from __drm_bridge_free() for this bridge.  I'd be good if
-Luca may confirm this is correct.  Sorry for bringing this up late.
+I initially started to look at this after enabling idle states on E850-96
+(they work with only some un-upstreamable change). Having at least one
+sensor is better than nothing.
 
-[1] https://lore.kernel.org/all/5edd40f3-f83e-4a1b-99d4-1e595fc0e4cb@nxp.com/
+I am looking at enabling ACPM thermal thingy but so far I see similar
+issue that temp of all sensors is reported as 10 C regardless via ACPM.
 
--- 
-Regards,
-Liu Ying
+Having said that I am not going to oppose this series moving forward if
+you wish.
+
+Thank you.
+
+Best regards,
+Alexey
 
