@@ -4,113 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3C5CFCC9AD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 03:24:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D2ABFCC9B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 03:25:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a9IUAxs7VdJbIzLXaHTJJ0fopPqXXR7atfJlc6YXf10=; b=K7YmvXE5mB98ey759sgckEaa0U
-	Uh+9F/PpPe8ibZWpdYDuPtXlUwmst6bEAF63lbF70KHKdAe9UxsFxjYJmfejF7R+62yEy56XoXLJe
-	wKsP49rIMrBaLyszHjPjLKuQoTdP7M0SnCIf4e2QX2HxP1WMDSrzrZJx91OqlSvZJq/pN2zYc7pr8
-	itdtc+BJKSGHkfvgNY584eR/JjLS9+hq2HEDitQurcI8/vmIVXEcxuUhSSiXWA+Q13cLCKpDdPq7D
-	V+msM2hkJxYg4i9lkksqVtuaGlzFPU/5OQkJTgEQpo5JqT1f0tN4Iv/PsDNDRwMUdsSzSk2vOAbHD
-	CmHT/ZzA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OoV76OKOjG7uxIKEUxi5pEmwh+JGNhbt1HMoxK+jnjw=; b=nCLp2/FnDUJ3Y2FwC/ryD1mRVz
+	b7oUfSPuHnotVb8atN/msKhsBt64ts2Dfmc1BG1ojPeyyREfTIHFmN8r8I4O2qzkPER+knB4C1m/t
+	1aTvyyiWg5UTPRF5ueH3L+YxDokx/TxgvLP0eOVU+LMc1e8Vrb5d2hK4Rq5XMizA3MUeyo04hpoYD
+	thu1LV2CETzgKRcCFiR1QJUuU9W5el99jXjC/w14Gk+C4GZmFFK9DZzx3Zh4ytKI6gab5kCczK1+k
+	dmimGEwLJvUQbXNtKXp+kgP8jEqw7U53ygpad49gRf5jKQioo3YpCzi1J6Ns+++W2pi8k9q9SWvmb
+	92ZKfk5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vznhZ-00000008dxc-3Ks1;
-	Tue, 10 Mar 2026 03:24:09 +0000
-Received: from mail-oa1-x32.google.com ([2001:4860:4864:20::32])
+	id 1vznj6-00000008eAT-1muP;
+	Tue, 10 Mar 2026 03:25:44 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vznhX-00000008dvV-2hDY
+	id 1vznj3-00000008e9h-3ofs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 03:24:08 +0000
-Received: by mail-oa1-x32.google.com with SMTP id 586e51a60fabf-41706b23543so1793805fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 20:24:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773113046; cv=none;
-        d=google.com; s=arc-20240605;
-        b=lrjhX1jg5Ae3OjqRRekhcY3sUyNlXPIuCcQJ426L5GqkPepsrqiYCBIIcufFvbGE6d
-         Eza/SlvQAgz6r42IyNF8lpgsXmpAxqlOzVZjlnhz5lErFKOmK1UlXVCdp/YPqzhlxveW
-         zL1xasH/pYKXP1Z65QCgnU6X8kh7YT8hkEvG+nD4Uf5pnNr0s3iBpIr1cKpQ/WHi3o/R
-         uBTUr1gGSQTYs8SbwUy2/SqfCM9QDc5mI6foREXaMblo9LjT/HMBJwBS/Io0Iax2WIVd
-         WtBUorZ4KIHX3vwpbmr7qSw6Y4Ai5Dxj/s1D68JkPK6rG5esevzC2Z00ez44TrA1LHfg
-         0VZg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=a9IUAxs7VdJbIzLXaHTJJ0fopPqXXR7atfJlc6YXf10=;
-        fh=uNAl3nJgsZOIiRprtaPBaiU+xqeyYNPCyGKmhSY+QFU=;
-        b=lipkCKUc9nTSFGybDRQVl4KgbYO/lK9dP5yh4U4WTiG38NQ9Mmx5L5A4/0RuuZNTxq
-         L1Wd9J2UOydjh0eL5jgpIUU82oEtQB7U1SgqA0t09Kzr5Yl3iyfmXbWbb6Q+Rj4ddPnq
-         udSrmwUSO5pLWXrdoGhPAlJwLalbSVpiRZ2vXqHq80cvKi2NzoPzz1FB1koXmf4tnSWV
-         S4uxt4RKcE7v90audAns2lG5mlOkfac4fsFGjLiBwj3WiGW6Vj0EhJOfbo1yAs/nET0z
-         owaNpq4h81xpwfperx1JlJsvUVsL3YIQC5pyfBWplLR8lKeKSSuVLY6X0Vgeq7HdHSaY
-         1W/A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Tue, 10 Mar 2026 03:25:43 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2ae5423b02aso57663175ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Mar 2026 20:25:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773113046; x=1773717846; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=a9IUAxs7VdJbIzLXaHTJJ0fopPqXXR7atfJlc6YXf10=;
-        b=HFmXMuLnO63acliv+N9nop1i+mcEIgBqQRSgeohvFbP21b5ykmRvH4DgQcwWEd1QY0
-         jw1grbSPkDk3K0SDdCt5NM6TjOKJWDmQRqakHWsXxaBc7oRkJWtWgHr96UJ/Sa5XNYCw
-         H4pzcZgRnvUpT71B7MaB82ybTyrzhnrNNQPyNYUxiVQyokdX+7f+MwpAQ3HZ8AruSRwN
-         77IYmNB6noue7S7UUMoBFxP/4/ww5DaiKNDFCuyM3EqIrMCdCrcYR8BtBwqI0G16EVWR
-         0KUY4QupfKMtNSvdvQtOG9kAvuxztF14RRQtP0zn+Y0ubzLFOfo0qrz3xHRbDTgqDI3p
-         wptw==
+        d=chromium.org; s=google; t=1773113141; x=1773717941; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=OoV76OKOjG7uxIKEUxi5pEmwh+JGNhbt1HMoxK+jnjw=;
+        b=lFR+M6XWZe1CN5RSP2b5Lcf80Zwm7zJAUokRwQWqn9YkIUN3A9i567Gv2XXfiy1nvz
+         xRkM4qgnTtd/K/hnG18X9e1zjdFfSFsQU3XPEQkxhvn+5ewu/7wdWI3kdv7IRn93RE0x
+         VyuQn9cCB1sli6QItvDPB9S4c9/XdzlBLLhY8=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773113046; x=1773717846;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=a9IUAxs7VdJbIzLXaHTJJ0fopPqXXR7atfJlc6YXf10=;
-        b=GEE/iI2noMjKQCHxX/tBhZmoT+vS67uwFM6yJL3YhB0AO+LjnYTKqxKj88UaObli2r
-         jGKTJlNqOFoZ+Jo0dmIpVGs61Mm5WuPm/t+TMvh+o0i9uClB2SZXJ3NCBYBtn2yic2JP
-         Gew1ks1E/IzIrOgNhwPh5yfJrOPPZYON6H4ZMBu7AH7R82NNDShoslHc4FQYhVtKovEP
-         pIL0Sj1OY3cvQ4k0qN9dGsVJIggUiL/CDaPL+vJdYwboNlfPxZn4pqR1VgslgVpxRYO/
-         tvNy3xpAVkoAeyml0WAR04O+CuNyzfLY5MyGJ5kYy13U87bWMXbetmb6tH2qWZBHYC+Y
-         2ALA==
-X-Forwarded-Encrypted: i=1; AJvYcCXpoQn0dloI+7PGa2biME8tjkIexBPZhnHbGlVlyjncOhXLlsIH2TJjcwTy8eNmaNcaFF+nMynKiNIK8SgXp+/8@lists.infradead.org
-X-Gm-Message-State: AOJu0YwuFigsC+suHyGWSRcJG/8xQV0ifjzwJXkEtMD9idIeoj6YXj4Q
-	sxDe5rdq0jL+X/NIZr/szSq82Fqj0Xgu2cueL92OKtngTwieKx3iUAnhCSOHkXqtZX2vtRCAIzU
-	pKCcs7h7afGOoM5gUz/zzE8mrzJdQNEY=
-X-Gm-Gg: ATEYQzy9BKblOLqSzwF6J5x/UnwFsxyKd4zw85GHcD2Fv8WHvqoqkuw+kqmadE/9dpv
-	eCYXiMGJGrJsUe8Oocdx5d/77dlAgue3LSB95QHaKCLbk3TRGJE55EJ+Uwhu2xyQWAl5XpDqRTC
-	WxEjlwkVFTHqyw4MGepsoMDjtbfZ192xeHAdhtp0J8pVAJW1y/NwmLIjFYY3EcO5HNMJzZ+uSOE
-	xQUYyoKZj6g/NI6+pS5Ztwg2sWyMlrC6PSWJiaCNhuEAkGY0R1qmDSSw+2phLfHcj6b9mxbIxvq
-	8Pi7hFPy
-X-Received: by 2002:a05:6870:a0b1:b0:416:42f9:8d86 with SMTP id
- 586e51a60fabf-417568d4325mr1271236fac.10.1773113045873; Mon, 09 Mar 2026
- 20:24:05 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1773113141; x=1773717941;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OoV76OKOjG7uxIKEUxi5pEmwh+JGNhbt1HMoxK+jnjw=;
+        b=kX4IC6uhbx1zrYmhJrUqdGZM6IWY8t844EZvFUeczikbj/idz6ZKT1Ga9veeb8zYin
+         wrMnRwijTeecbF6rhup4cs76rcNpArPe0BbeVBrcGdA2yYOl+CMfPiJGcV6eGpK2YUUM
+         f3G2PDBb0y22rknY/vPIMKSEU92qNgP0FeCcdMiIJIkttdUE3NWockyWYim7ccgz2/SW
+         oHLt6Fyz63TWWajqSE++ynNU5/REAeuKl5IROFmMUL1mtFI4Ohn3gHzUhORDQi95w+Ys
+         AOc4Brly+16WIbfZezmtqR4euHMosgsP+2tKmue2SodKXaLmvb8igZvI2UxD7wFAb2SC
+         F/DA==
+X-Forwarded-Encrypted: i=1; AJvYcCVMEGzflKClaIWuF4UpG47IOpe5qC5uNsIfXw9eUZk3jNoh30WsIq8qNpTXMBJ5KNKxt+1fiAzdv+oxaPHc4rW5@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDpLk8ySM2kbl0Ar26i3a3J7sKTApXGl9v06xWbCAmWbZijNo4
+	hh4+3cnbSAg/sVy0WavR0IqJXUxHCS6bomk7mZGulYjZKPfFRz8mrg92j+kzzbf1jw==
+X-Gm-Gg: ATEYQzzA2cqZ+trMWeQtPM0GD+4378WIXDLEfgsc6mi8lbRW2m/fwxJS5syBM0pXHoK
+	kIgH8RzAFYFLNC6PS/oFkVfrxoDxSxSCXifp1VckpYl3V0kqNEG15Z494vQVfXVl0JEseo/XlKc
+	tb19cJX2E+SqmQ/ZNjM/hFBdUFJtmstIBNFnXaxJ+3FsUblxUHirzmH1pcwsRDxV7C41BFkpZuI
+	SW3d+BSzRFOLUB1Dt6PFhBcqfdJUQAU1GEaKyHelDPSLUEJoe891ZkVSE/qlRhxCvvfqDuLxHHQ
+	jNcScpwjTrdsTye45Qs+lM0JPLc2VuMU6OnJwybeETASzQ3L+NB8CAztT/3YDG0hyc1/BUlyunp
+	44xm54cFRDA947/Y6nqfDDc5WeYz94oPFN7Y2oWf3fBjG5shwjmQNHBslz1YR/YaFfXZ2GbQgei
+	pLJ86wzxCDTJ11+rk3zRD1p82h1sWNXOru74d3wYV2TRzR6rUw2YbhcGanhbVF2E3OwBZOFJ5rM
+	JfU8lrl
+X-Received: by 2002:a17:903:2452:b0:2ae:5752:af82 with SMTP id d9443c01a7336-2ae82498328mr120569975ad.49.1773113140915;
+        Mon, 09 Mar 2026 20:25:40 -0700 (PDT)
+Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:ee38:e01e:e888:6900])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae83e575e6sm126695095ad.5.2026.03.09.20.25.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Mar 2026 20:25:39 -0700 (PDT)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	linux-sunxi@lists.linux.dev,
+	Paul Kocialkowski <paulk@sys-base.io>,
+	linux-mediatek@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH RESEND 0/4] drm/gem-dma: Support dedicated DMA device for allocation
+Date: Tue, 10 Mar 2026 11:25:05 +0800
+Message-ID: <20260310032511.2545500-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.53.0.473.g4a7958ca14-goog
 MIME-Version: 1.0
-References: <20260216181002.3475421-1-dianders@chromium.org> <20260216100943.v3.1.I600d04c0553f5c5ba39c2f92201da313aedfe746@changeid>
-In-Reply-To: <20260216100943.v3.1.I600d04c0553f5c5ba39c2f92201da313aedfe746@changeid>
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Mon, 9 Mar 2026 22:23:54 -0500
-X-Gm-Features: AaiRm53275_H0CT6bFAmFiNzU5-bzNSMm5pKGBVqlCEoP2LLCsiLm-21V_J1GP8
-Message-ID: <CABb+yY2RKJgyNQ6789ua6s8C4tuOvhWqdcS16_4yU3AHjAiv_A@mail.gmail.com>
-Subject: Re: [PATCH v3 01/15] mailbox: Deprecate NULL mbox messages; Introduce mbox_ring_doorbell()
-To: Douglas Anderson <dianders@chromium.org>
-Cc: Bjorn Andersson <andersson@kernel.org>, Frank.Li@nxp.com, arm-scmi@vger.kernel.org, 
-	cristian.marussi@arm.com, festevam@gmail.com, imx@lists.linux.dev, 
-	jay.buddhabhatti@amd.com, jonathanh@nvidia.com, kernel@pengutronix.de, 
-	konradybcio@kernel.org, krzk@kernel.org, lenb@kernel.org, 
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-remoteproc@vger.kernel.org, linux-tegra@vger.kernel.org, 
-	lucaswei@google.com, mathieu.poirier@linaro.org, michal.simek@amd.com, 
-	nm@ti.com, rafael@kernel.org, robh@kernel.org, s.hauer@pengutronix.de, 
-	shawn.guo@linaro.org, ssantosh@kernel.org, sudeep.holla@kernel.org, 
-	tglx@kernel.org, thierry.reding@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_202407_721914_C0144722 
-X-CRM114-Status: GOOD (  16.30  )
+X-CRM114-CacheID: sfid-20260309_202542_002665_9F14B6E2 
+X-CRM114-Status: GOOD (  18.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,49 +109,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Doug,
+(resent with Samuel's email address fixed)
 
-On Mon, Feb 16, 2026 at 12:11=E2=80=AFPM Douglas Anderson <dianders@chromiu=
-m.org> wrote:
-> @@ -249,6 +255,28 @@ int mbox_send_message(struct mbox_chan *chan, void *=
-mssg)
->         if (!chan || !chan->cl)
->                 return -EINVAL;
->
-> +       /*
-> +        * The mailbox core gets confused when mbox_send_message() is cal=
-led
-> +        * with NULL messages since the code directly stores messages in
-> +        * `active_req` and assumes that a NULL `active_req` means no req=
-uest
-> +        * is active. This causes the core to call the mailbox controller=
- a
-> +        * second time even if the previous message hasn't finished and a=
-lso
-> +        * means the client's tx_done() callback will never be called. Ho=
-wever,
-> +        * clients historically passed NULL anyway. Deprecate passing NUL=
-L
-> +        * here by adding a warning.
-> +        *
-> +        * Clients who don't have a message should switch to using
-> +        * mbox_ring_doorbell(), which explicitly documents the immediate
-> +        * sending of doorbells, the lack of txdone, and what happens if =
-you
-> +        * mix doorbells and normal messages.
-> +        *
-> +        * TODO: when it's certain that all clients have transitioned, co=
-nsider
-> +        * changing this to return -EINVAL.
-> +        */
-> +       if (!mssg)
-> +               dev_warn_once(chan->mbox->dev,
-> +                             "NULL mbox messages are deprecated; use mbo=
-x_ring_doorbell\n");
-> +
-Does this patchset leave some such clients out?  If not, should we
-drop this block and return -EINVAL already?
+Hi folks,
 
-Thanks,
-Jassi
+This series expands the "dedicated DMA device" support in DRM to the GEM
+DMA helpers, and converts the MediaTek DRM driver to setting the DMA
+device and dropping the custom GEM helpers that implemented this
+function.
+
+Various display drivers implement the "dedicated DMA device" support
+with custom GEM helpers. These include Exynos, MediaTek, and Rockchip
+to name a few. Allwinner does something entirely different, calling
+of_dma_configure() on the virtual display device using the OF node of
+the actual DMA device. Recently this causes a warning if IOMMUs are
+involved.
+
+This series intends to allow the core helpers to deal with it, and not
+have every driver implement it in slightly different ways, duplicating
+code.
+
+Patch 1 adds dedicated DMA device support to drm_prime_pages_to_sg().
+I believe this was missing from the original change that added dedicated
+DMA devices for PRIME.
+
+Patch 2 adds support for dedicated DMA device to the GEM DMA helpers
+for GEM buffer allocation and mmap.
+
+Patch 3 converts the MediaTek DRM driver to use the dedicated DMA device
+support, and drop all the remaining custom GEM callbacks that deal with
+it.
+
+Patch 4 converts the Allwinner sun4i DRM driver to use the dedicated DMA
+device support, instead of the of_dma_configure() hack it currently has.
+
+The series should be merged through drm-misc-next so that other drivers
+can take advantage of the change.
+
+I also intend to try to convert the Exynos and Rockchip drivers, however
+both also have options to set DMA_ATTR_NO_KERNEL_MAPPING when using
+dma_alloc_attrs() to allocate memory for the buffers. I intend to
+resurrect the DRM_MODE_DUMB_KERNEL_MAP work from Rob Herring [1]
+to handle this. The Rockchip driver also has custom IOMMU attachment
+that I'm still trying to understand.
+
+
+Thanks
+ChenYu
+
+
+Chen-Yu Tsai (4):
+  drm/prime: Limit scatter list size with dedicated DMA device
+  drm/gem-dma: Support dedicated DMA device for allocation and mapping
+  drm/mediatek: Set dedicated DMA device and drop custom GEM callbacks
+  drm/sun4i: Use backend/mixer as dedicated DMA device
+
+ drivers/gpu/drm/drm_gem_dma_helper.c   |  21 ++-
+ drivers/gpu/drm/drm_prime.c            |   2 +-
+ drivers/gpu/drm/mediatek/mtk_crtc.c    |   1 -
+ drivers/gpu/drm/mediatek/mtk_drm_drv.c |  21 +--
+ drivers/gpu/drm/mediatek/mtk_drm_drv.h |   1 -
+ drivers/gpu/drm/mediatek/mtk_gem.c     | 231 -------------------------
+ drivers/gpu/drm/mediatek/mtk_gem.h     |  17 --
+ drivers/gpu/drm/sun4i/sun4i_backend.c  |  27 +--
+ drivers/gpu/drm/sun4i/sun8i_mixer.c    |  27 +--
+ 9 files changed, 46 insertions(+), 302 deletions(-)
+ delete mode 100644 drivers/gpu/drm/mediatek/mtk_gem.c
+ delete mode 100644 drivers/gpu/drm/mediatek/mtk_gem.h
+
+-- 
+2.53.0.473.g4a7958ca14-goog
+
 
