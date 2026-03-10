@@ -4,37 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF84EEA8550
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 09:30:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED132EFCD9F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 09:30:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XW5x2W70/4qH1wnLG28SxFGceYyAdqEbV+ODm4WuYMg=; b=ba9JOkD93jakfgtYBzah5E4TrI
-	l0uimPONUb2C1IBgfiWyT73V7g9Qbcff/pU2xYmH+zuSJ6DiAdwcL17keN8utiM4amwygA5p7SNVw
-	oKPWoipntZLhcpBbGiIcfgnOKmRcGvrKR0i0BOq3WWYA1XDHlsnlWcBTXiZAYnZ5qQApg69EyJ95D
-	Re8m416mb+reWBTd8Nv6989esn9I03/vDMx/nVxNp/JmK5TzNNNVAGRrqg20gxaSFaoQDB6aeCWMd
-	OJjc3wfeR0DQQ70bIuwG8Uhx4CyaS+tP/4K6PQ4t/e81X9PNos4ttHa4Hyuu4QmJgcKaCZblYsYrF
-	QC9qLzsw==;
+	bh=295Eju0p2WbkYSgU8MIR85cU967byrAnLTlZcHA3YXk=; b=BWCmMCfWGMNdvFv1FEhC+taBgd
+	LswI4r5Bp/L+vDh3lrd3MXJadyAeHMzMYnSAFp0PcqHAoU6/SS8rmixNKGV5/o7ld22WhHA7s/Nhh
+	oEOd74ngCV0CD5VrcLBvxFShqff+28erkaPGxlUo8nebu/XuRDvStvUVzKUKUWBHPYkKFTPUMgb+X
+	FIQDUeqgB6AyGjitU9sIrQvOiFypJnu6+M1vUs7xd9hd2Tkif2OW90SgYllgb8+GmFl5NkcD2Ef49
+	9kVB4bAJ+oxoVtm1+U2WLv96BpYyGpIK2QvBi20CYVQ+uFupTByDbxHNPQ+vPBI1Xkq4KaFy8DPYq
+	fjn3Fb2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vztPm-000000095mF-3ldu;
-	Tue, 10 Mar 2026 09:30:10 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vztPs-000000095oR-20RD;
+	Tue, 10 Mar 2026 09:30:16 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vztPk-000000095lU-2v3A;
-	Tue, 10 Mar 2026 09:30:09 +0000
+	id 1vztPn-000000095mB-2I5b;
+	Tue, 10 Mar 2026 09:30:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=295Eju0p2WbkYSgU8MIR85cU967byrAnLTlZcHA3YXk=; b=eLVnuY5zmPpyUTWbS6y0/dU5OF
+	XGWbKoljOz0uqoeQnZVGR9Rmhzm3Jx5TgL2OS/3QmdnC5P5WzRHUknUOh3fH0lp9l/b+TZwfDy2pX
+	3MZ3d6kYOk4zju2ORWX1u5oPWgf+tY3gLTZtokc+taLc+DyfsNl/1l2WuFMRohwhhy0K93lRUQaEp
+	fOmVKJRiEnLr471bv052BoGwQtmF3vHrbw7UVZAYQ/gp8mOGh6coCxAy4dA+jb536WJGFfMUrZwr6
+	ZwqfCoVapsv0Y2aM+3wjcX0TcQtQFaM1SL739EzqCNIW+WSwfx0/BYxOdalj64Vc7qSfN9KVNjVpb
+	OUyk8p6Q==;
+Received: from gloria.sntech.de ([185.11.138.130])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vztPk-0000000E7n4-0CXc;
+	Tue, 10 Mar 2026 09:30:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=XW5x2W70/4qH1wnLG28SxFGceYyAdqEbV+ODm4WuYMg=; b=AXZiRj3XaLjCcEcg6QX35x7Q7S
-	+gR7ns3jStOmeS0rkfMeYt3tnLMbvRTFwDgc8Ft5TKwsFLVLATTFA0ZfWs1VcZb0Mb+7aw/WDNBak
-	bKAcwLYW5l0b+dwGRpr9M30txEbxjxFhdmme8XWm+0nAwx+Mu4Tnhxd/R/PRZVUbLYJXgqnfWVeHv
-	yML0UHWTDARQPfVNWq3KpGGkSXwLKPUaKDNe5CI33Af3j0rRgo4+AyDRF1F4sWomD3HneyvKxHhXp
-	hw8PWlC4da8rzUUeWCpGaIjD/kUzjswHfy62agnvfbzWbMt+QmrAYrEsa5cYQNpwsiPEMyDGAIGh3
-	EKsvhBKQ==;
+	bh=295Eju0p2WbkYSgU8MIR85cU967byrAnLTlZcHA3YXk=; b=zLaS+svAn7jCcZqIleOnjVYEMO
+	rHAQEgFUR3vm8bRgUDFWbdf4gPawnQWLoppSFax09jr36egDvBoEwQJv9m4xke/sef2srokqSl8Bf
+	fHuUDCvbA00MG3/BXE301Jqb4sWf9vCy6SgH+hlCnoAyyQLSHcbdz0h+Z4DkARdCz63pmGmMLnp9w
+	Mr1DNyOAYt697MbhIkophblOK3do1RrCx/LN3H7vSGi96KFzxcMffzeGSfWQ24SPYkDNk/X0irOlA
+	UrZ7p7GOP3c8GEzTiqnMuXIUZFyMD4cc+4lITUbK5B3unMIUqS4fm3fnQrnZTvZTj7BP3rHAsnAXC
+	gR9v0Qfg==;
 From: Heiko Stuebner <heiko@sntech.de>
 To: Fabio Estevam <festevam@gmail.com>
 Cc: Heiko Stuebner <heiko@sntech.de>,
@@ -45,18 +59,19 @@ Cc: Heiko Stuebner <heiko@sntech.de>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ARM: dts: rockchip: Fix the trackpad supply on rk3288-veyron-jerry
-Date: Tue, 10 Mar 2026 10:29:54 +0100
-Message-ID: <177313498974.2340533.2031096927430655073.b4-ty@sntech.de>
+Subject: Re: [PATCH 1/3] ARM: dts: rockchip: Describe the touchscreen interrupt on rk3288-phycore-rdk
+Date: Tue, 10 Mar 2026 10:29:53 +0100
+Message-ID: <177313498975.2340533.15820241073630283765.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260304164448.1024410-1-festevam@gmail.com>
-References: <20260304164448.1024410-1-festevam@gmail.com>
+In-Reply-To: <20260303193855.828892-1-festevam@gmail.com>
+References: <20260303193855.828892-1-festevam@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_023008_755950_991E1F86 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20260310_093008_348408_BC2912B5 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,20 +87,24 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 04 Mar 2026 13:44:48 -0300, Fabio Estevam wrote:
-> According to hid-over-i2c.yaml, the correct name for the 3.3V supply
-> is 'vdd-supply'.
+On Tue, 03 Mar 2026 16:38:53 -0300, Fabio Estevam wrote:
+> According to the phyCORE - RK3288 Hardware Manual, GPIO5_B4 corresponds to
+> the touchscreen interrupt line:
 > 
-> Fix it accordingly.
+> https://www.phytec.eu/fileadmin/legacy/downloads/Manuals/L-826e_1.pdf
 > 
-> This fixes the following dt-schema warning:
+> Describe it to improve the devicetree representation.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] ARM: dts: rockchip: Fix the trackpad supply on rk3288-veyron-jerry
-      commit: 3ca314a5643057ad30d16b18c99ceaa5474c1200
+[1/3] ARM: dts: rockchip: Describe the touchscreen interrupt on rk3288-phycore-rdk
+      commit: adf54d9282e8071da6c8774ac104dc00f78451c8
+[2/3] ARM: dts: rockchip: Improve the RTC description on rk3288-firefly-reload
+      commit: 30b0084d438012083024feffa40ca1af8e1c096a
+[3/3] ARM: dts: rockchip: Improve GMAC description n RK3288 boards
+      commit: bd60d32070916c471ba5a212261746ad69a292eb
 
 Best regards,
 -- 
