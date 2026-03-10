@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9704DEA8550
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 09:33:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC9E8F3C27D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 09:33:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QbslF3ayhf5j57yOSEHBy8h3Ekscc5WaKLdzlOVhmKM=; b=W+vjjjOMdFddxU
-	1PbOUJQ6/fGVRUHIbNWmn79MNZ/oXyKxVa09dSD6ukzf+YplT5pADCRUYtae84H4WT/aQb0vpHdAI
-	hqy6YuHhwT+3NTevUMawsxoMEb0PpeHJDKHmB7GFK9FQ9qYEwdin1jkp8V88H9XiG1zRFsB4TTLdq
-	GqK6JvYxOkUFb0jTsrCV0tiUH3SdVHYsrC44ZiScZ+H3sXIohCIm4EsO6wMRS0RjhePXWCz3sIZ2N
-	43ic6LSOauGiQ9F7eUpAJk27xaJb2HR6sa9r8gw1HNGbKEAypo+sO+TGONyQT+Z88Vm5qoDQlsLLL
-	soP93Fdyy56xEY6FKmHQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:Cc:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mBTi+Diqk25yIasnhVjZ42wpi09vWfP+RtyQmstJvHA=; b=ZhzapEn+ubW8iKQgAFuehnANRu
+	EZ5X+EUsA0fCGtzoroev1pz9bMNsb1oi3cyw+BYXiqxqFkhSaSjNWUtEgvZACRZsVcSIobS+Njcnz
+	RQgf+aoNBbIFHl0whTWSFCOdGtNjOnldq9elUrbiWS2feRzLmT9pzR7HTC7tM4aUunGdQy0XD7yk9
+	yS9QkAexLbH2SqwzeaKyRQH4VzBGh6YlY2GNzxVIQOwUXHpI2C/ED7sqMI5lmWKQXOjV7LpYGM6DS
+	jEFVxQxN6Ty6xdlzvT9ha9jHNjSIHNLfiQ1szAWr3NG5Y9pSJnhXAdPk0++9fWSbozqE17B4O0tST
+	T+mbuP3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vztSl-000000096WC-1WOX;
-	Tue, 10 Mar 2026 09:33:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vztT3-000000096ZG-3t5q;
+	Tue, 10 Mar 2026 09:33:33 +0000
+Received: from mail-m32124.qiye.163.com ([220.197.32.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vztSj-000000096W5-47LW
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 09:33:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 57E9960130
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 09:33:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0A3BC2BCB8
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 09:33:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773135192;
-	bh=iJrlNVsjh6+70Ec05z6rXG0svXgiagQ0oIi5LjzykKg=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=KE80/p/KUIZZ0m7i/OIN43aBTaEeymRBmw0M6WAtsm4CddJyu6nn4tSPfT2/7FiBZ
-	 VFPj8QNK4E02O7q/2/SlWu33xsm7/CFxdA6fI9rFAD095OwGBGSlkjkTfoMcEmd7Oh
-	 Yl2fKpC5Z67Zc6JouVMQaZUCgUZapXYbhdS5Fan+jT3GEnIjNyt2buK2SVTsHoPEFn
-	 P+DAd3fSZ+QFLK+kxmiFqv+fly1pMLuv2BUxWPX7HNWkvV43CkBu8OydVQ4BzbABKI
-	 bg47oniWxm1db2FiSb2qkr7aEziiA2m5wvfkxwhK9M17HDyMiIa++d+pBaMU8VZWWp
-	 B8GXp3pFeOn/Q==
-Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-38a2a59baa6so54208351fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 02:33:12 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVRhl4riY2fSIV7mkR9oRFmIqS/1y5viImF6zl+qoHzILXDIdIPbAHw8MuFcHQoBCURZE+MZqBkoUtRi42hRZ3t@lists.infradead.org
-X-Gm-Message-State: AOJu0YxyHIAmUmuTJxI/1zzn58/HLyN/c4XdvG5x3/upKh0z5q64Gv5o
-	RnmBR9l5K5HwjTqk1QOhyCpoL1y6NPjcGxZ4TcGzgiZ2QiOv1JEWg1oP36eVrmERLu2viwtYrHF
-	vUGrhHUGYE2caiAE2Tplff0V0Yo+2laM=
-X-Received: by 2002:a2e:bd82:0:b0:387:20:bdbc with SMTP id 38308e7fff4ca-38a40d61d78mr46199441fa.12.1773135191017;
- Tue, 10 Mar 2026 02:33:11 -0700 (PDT)
+	id 1vztT0-000000096XY-0MGb;
+	Tue, 10 Mar 2026 09:33:32 +0000
+Received: from [172.16.12.17] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3665d3ef2;
+	Tue, 10 Mar 2026 17:33:22 +0800 (GMT+08:00)
+Cc: shawn.lin@rock-chips.com, iommu@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iommu/rockchip: Drop global rk_ops in favor of per-device
+ ops
+To: Simon Xue <xxm@rock-chips.com>, Joerg Roedel <joro@8bytes.org>,
+ Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Heiko Stuebner <heiko@sntech.de>
+References: <20260310084812.126082-1-xxm@rock-chips.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+Message-ID: <a2719902-e5cb-bd4d-4eb4-a01371a57aed@rock-chips.com>
+Date: Tue, 10 Mar 2026 17:33:18 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
 MIME-Version: 1.0
-References: <20260310075539.11701-1-wsa+renesas@sang-engineering.com> <20260310075539.11701-4-wsa+renesas@sang-engineering.com>
-In-Reply-To: <20260310075539.11701-4-wsa+renesas@sang-engineering.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 10 Mar 2026 17:32:56 +0800
-X-Gmail-Original-Message-ID: <CAGb2v65gV+2xZDO7h9Dsx=iOHX6Jt_JyHTOeWRYaEMuC+jR1FA@mail.gmail.com>
-X-Gm-Features: AaiRm51CffgMBtgWhMZCUpMdeeAdI463XBf8sQip2RO0V2c7exzECk92c7gy0OY
-Message-ID: <CAGb2v65gV+2xZDO7h9Dsx=iOHX6Jt_JyHTOeWRYaEMuC+jR1FA@mail.gmail.com>
-Subject: Re: [PATCH v4 03/15] hwspinlock: add helpers to retrieve core data
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Bjorn Andersson <andersson@kernel.org>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
-	Orson Zhai <orsonzhai@gmail.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Wilken Gottwalt <wilken.gottwalt@posteo.net>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, linux-remoteproc@vger.kernel.org, 
-	linux-omap@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260310084812.126082-1-xxm@rock-chips.com>
+Content-Type: text/plain; charset=gbk; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9cd718098809cckunm7907381ceb4dc
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkxKSFZCTUIdSkpCHkpCTxhWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=LfN4T1hyZ7F/Fgc3GdQa6KkyTJsBBYXeMneDyaHtkZD66iT4bIqkSGQ+21SreSvQnHOsDGsZPoyJML87v5z5OGZ3hpaF3rLUmaeCanZdLysYoiEe1/WhuqnTqYue/i9OmmJWrM4Uo+vjt3wmtvTkMaY0A1mI5Ls2sqt30XxO3BY=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=mBTi+Diqk25yIasnhVjZ42wpi09vWfP+RtyQmstJvHA=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260310_023331_441528_60020838 
+X-CRM114-Status: GOOD (  18.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,27 +71,58 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 10, 2026 at 3:56=E2=80=AFPM Wolfram Sang
-<wsa+renesas@sang-engineering.com> wrote:
->
-> This is a first step to hide internal core structs from hwspinlock
-> providers. It adds helper functions to retrieve the data needed by them.
-> Because all users are only within the hwspinlock subsystem and the
-> change there is trivial, conversion is included in this patch as well.
->
-> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Hi Simon,
+
+在 2026/03/10 星期二 16:48, Simon Xue 写道:
+> The driver currently uses a global rk_ops pointer, forcing all IOMMU
+> instances to share the same operations. This restricts the driver from
+> supporting SoCs that might integrate different versions of IOMMU hardware.
+> 
+> Since the IOMMU framework passes the master device information to
+> iommu_paging_domain_alloc(), the global variable is no longer needed.
+> 
+> Fix this by moving rk_ops into struct rk_iommu and struct rk_iommu_domain.
+> Initialize it per-device during probe via of_device_get_match_data(),
+> and replace all global references with the instance-specific pointers.
+> 
+> Signed-off-by: Simon Xue <xxm@rock-chips.com>
 > ---
->  drivers/hwspinlock/hwspinlock_core.c  | 12 ++++++++++++
->  drivers/hwspinlock/omap_hwspinlock.c  |  4 ++--
->  drivers/hwspinlock/qcom_hwspinlock.c  | 11 ++++++-----
->  drivers/hwspinlock/sprd_hwspinlock.c  |  6 +++---
->  drivers/hwspinlock/stm32_hwspinlock.c |  4 ++--
 
->  drivers/hwspinlock/sun6i_hwspinlock.c |  4 ++--
+...
 
-Acked-by: Chen-Yu Tsai <wens@kernel.org> # sun6i
+>   					 SPAGE_SIZE, DMA_TO_DEVICE);
+> @@ -1212,15 +1215,7 @@ static int rk_iommu_probe(struct platform_device *pdev)
+>   	iommu->num_mmu = 0;
+>   
+>   	ops = of_device_get_match_data(dev);
+
+Could you remove this one-time-used ops variable and use iommu->rk_ops
+directly. The other parts make sense to me.
+
+> -	if (!rk_ops)
+> -		rk_ops = ops;
+> -
+> -	/*
+> -	 * That should not happen unless different versions of the
+> -	 * hardware block are embedded the same SoC
+> -	 */
+> -	if (WARN_ON(rk_ops != ops))
+> -		return -EINVAL;
+> +	iommu->rk_ops = ops;
+>   
+>   	iommu->bases = devm_kcalloc(dev, num_res, sizeof(*iommu->bases),
+>   				    GFP_KERNEL);
+> @@ -1286,7 +1281,7 @@ static int rk_iommu_probe(struct platform_device *pdev)
+>   			goto err_pm_disable;
+>   	}
+>   
+> -	dma_set_mask_and_coherent(dev, rk_ops->dma_bit_mask);
+> +	dma_set_mask_and_coherent(dev, iommu->rk_ops->dma_bit_mask);
+>   
+>   	err = iommu_device_sysfs_add(&iommu->iommu, dev, NULL, dev_name(dev));
+>   	if (err)
+> 
 
