@@ -4,56 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2905FD4F23
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 19:07:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1171AFD4F23
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 19:07:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g/K7gtYgLL3plzYYxydf8Co+Z6hAbKpfB7mbLa5qOFQ=; b=pFX3mZk/CA3GEgYNIrRSUnxp9N
-	FPoRqpLs9SFXzP1QTAJA19LRtymSy5l9A5+UC2vX2gPTNI3ItI3+9UIUvrsSNOdR4a/0Cxqa9L5eW
-	eqU0KaKHkFsklZKUULANxmotWCb1sC9Hh0gtFifUEXkVfSCrz1kxUpt+it/XQn+/mGETkFfn+Xq++
-	OL7TL0X4Cq4Nkw/PbZnBDTHTB1G9PU8wf7k1KnBVdcN/psGQAj1jcUIalVpv4IclyDMxiftJkv5+N
-	C3XUannTpmKo7JW/OC8rWk/fQm/zYs/olnCUpEzMNu+RW+7E+DndsDMk3yPGRkjGKGFb+JGfu2N6L
-	OY5t1IzQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Jnz60ypajBHuYcSAD+/Xp1U8yDdwdzI8Rxliv7hTJ68=; b=v+fqEsagwxXZ8m3adWq4Hx8kq3
+	dlVo0L1xFsX4ybk6TseREjHe2Kkk4Li5d+cIJsPayh0r2SrbPgOFKn3jU1+qHwgXhFoBrDAI+VIR1
+	F4xFu4ACO3lEetg6eb5/91mDxoCHsZQB9WYwFWhio806bAAl9r2SZ33vkdQAUCnRpyEqUDX/l5u12
+	lGQA7QOwMRBq+4AjH+Q6kBFWH/UC8Aj1v1niAgQSpvziMgz5l9EuiZF84tfU4JJ3tOYsjDh3WG8hU
+	I2y5BG8ScqVcTdfCjdN19PZRm6gzL/dlzW8lmniQx2Mx+WclJFOCetg1dMI/rOzDNp/kVldFw9gsA
+	N1qPVa1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w02Ql-0000000A91M-0fTx;
-	Tue, 10 Mar 2026 19:07:47 +0000
+	id 1w02Qm-0000000A92M-34Nl;
+	Tue, 10 Mar 2026 19:07:48 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w02Qf-0000000A8yP-24Wn;
-	Tue, 10 Mar 2026 19:07:42 +0000
+	id 1w02Qf-0000000A8yL-24hI;
+	Tue, 10 Mar 2026 19:07:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 71D87443C2;
+	by sea.source.kernel.org (Postfix) with ESMTP id 57953403BB;
 	Tue, 10 Mar 2026 19:07:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 5444BC2BC87;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 25ACCC19423;
 	Tue, 10 Mar 2026 19:07:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1773169660;
-	bh=n7rqnTqHcTU+Z9n7OFWpBoqNm3TxgqssESQFtWSZ8q4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=PwU48YKOp3Pg1VKaSlojDgFVscW/acfj1UOugHunURkvBTNeTZGlAQavnfEZ3BxGL
-	 ab+af7bJ57R0/f0C8Zo3MsMrueSPjXHwcLlCJVNST8Cf6wyd1Cg9KC5GkegILl4jtp
-	 LbW3k2Qdwa20tL3rXO6UAWUClgdSPM1plr6UIALfB3X1du1ztEEg3YX28UWXbXHhrQ
-	 Wzj48s1GxYFuF5H7CXibdegRDXKSw4uGa1ds2PmsNQxbIZM0JDcxwVhN5rwWd4Ymv4
-	 J5v6XUk/ahWm7dBwEKouWj2gu+rjOZzxD0ZIVz6VcqwmlxsOudPPbkuxzYQjl7IzzI
-	 X9s+UamEU3ERw==
+	bh=gCNcVUJrbZCTx48PDUwX/v6AbMJIIgCA0UtWdlcRzS8=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=pX2WUf1p4xIkgApszm33gEz3I8nqKMZ9vY7xIE7T9cfwWAW4q5WjvWMnbWnsBilyO
+	 EJwKfMgQMVikqKJq+x+HL30FGCqxiCj07dUPJT9zeZVWXssLhSZlrc9fVTAcKU9bNb
+	 w5hIMA31eGE1foUMK/u7wqDC+vHGY9qj8gRZxYMzx7yorcXRaOWmJ6oVXfZZB1i+oY
+	 /MXDpS76xg8R0ReulFP4eC9NlzyWE6OO+mVipulAHfWnar/RY1U2eaNXfmOgnXitc1
+	 hJnhivwAdJHBSwi9j+Gmw1SEJKFnCQIYetcJDkzyTSkYK7QhlvnaG4DrErtJ/xTsPX
+	 y7F0jeH4UY+Tw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4AADEFD4F2A;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 16945FD4F0D;
 	Tue, 10 Mar 2026 19:07:40 +0000 (UTC)
 From: Frank Li via B4 Relay <devnull+Frank.Li.nxp.com@kernel.org>
-Date: Tue, 10 Mar 2026 15:07:39 -0400
-Subject: [PATCH 3/3] mtd: rawnand: ifc: set chip->of_node to nand@0 child
- node if present
+Subject: [PATCH 0/3] mtd: rawnand: mxc: set raw chip's to child nand@0
+Date: Tue, 10 Mar 2026 15:07:36 -0400
+Message-Id: <20260310-gpmi_nand-v1-0-6a665151aa75@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260310-gpmi_nand-v1-3-6a665151aa75@nxp.com>
-References: <20260310-gpmi_nand-v1-0-6a665151aa75@nxp.com>
-In-Reply-To: <20260310-gpmi_nand-v1-0-6a665151aa75@nxp.com>
+X-B4-Tracking: v=1; b=H4sIAPhrsGkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDYwMT3fSC3Mz4vMS8FN00C3MDM9MUCyOL1DQloPqCotS0zAqwWdGxtbU
+ ATw+ipVsAAAA=
+X-Change-ID: 20260304-gpmi_nand-f87065d828ef
 To: Han Xu <han.xu@nxp.com>, Miquel Raynal <miquel.raynal@bootlin.com>, 
  Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
  Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -65,19 +66,20 @@ Cc: imx@lists.linux.dev, linux-mtd@lists.infradead.org,
  Francesco Dolcini <francesco.dolcini@toradex.com>, 
  Frank Li <Frank.Li@nxp.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773169659; l=1853;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773169659; l=1291;
  i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=FIv1RVBcoqzfpJswOf6h6v3Eh4uNH7jSmUjj7+1dAxc=;
- b=SgBvQQvJLJMzDfPgP5eRXTcA1aGwmtKBs8AGRLQPnTELvBnzgmMNZBvBP0vi5EUThIcaVGZek
- n1VMQPg0srWBQv/1McFma4ch70Qryj0Ns5QOXu+kXWD3c7ZCtFX7TnT
+ bh=gCNcVUJrbZCTx48PDUwX/v6AbMJIIgCA0UtWdlcRzS8=;
+ b=JtKAcoccqwCOput4I+Q0xQSZ8wccSMzXvMjV1Hy9NnjhF2ZqA43LLSYFkQeUDYjNFVKtFmLWB
+ XIxkoshi519BUYVKc28LvUWBnuScyy/mJY7iVD9SaFK/mWwa2xzFFpz
 X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
  pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
 X-Endpoint-Received: by B4 Relay for Frank.Li@nxp.com/20240130 with
  auth_id=121
 X-Original-From: Frank Li <Frank.Li@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_120741_573563_728FBB8D 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20260310_120741_557883_ACEBEDA0 
+X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,8 +94,6 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Reply-To: Frank.Li@nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
-
-From: Frank Li <Frank.Li@nxp.com>
 
 The nand-controller.yaml binding requires a child node (e.g. nand@0) under
 the NAND controller. However, the driver currently assigns the controller's
@@ -111,43 +111,22 @@ chips.
 
 Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
-build test only because can't find hardware to test it. but basic logic is
-the same as gpmi.
+Frank Li (3):
+      mtd: rawnand: gpmi: set chip->of_node to nand@0 child node if present
+      mtd: rawnand: mxc: set chip->of_node to nand@0 child node if present
+      mtd: rawnand: ifc: set chip->of_node to nand@0 child node if present
+
+ drivers/mtd/nand/raw/fsl_ifc_nand.c        | 10 +++++++++-
+ drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c | 11 ++++++++++-
+ drivers/mtd/nand/raw/mxc_nand.c            | 10 +++++++++-
+ 3 files changed, 28 insertions(+), 3 deletions(-)
 ---
- drivers/mtd/nand/raw/fsl_ifc_nand.c | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
+base-commit: fc7b1a72c6cd5cbbd989c6c32a6486e3e4e3594d
+change-id: 20260304-gpmi_nand-f87065d828ef
 
-diff --git a/drivers/mtd/nand/raw/fsl_ifc_nand.c b/drivers/mtd/nand/raw/fsl_ifc_nand.c
-index dd88b22a91bd13f1619c3061866dec22eceb55f5..fad0334f759dd5f81113e10ec04e8bbaf490bc83 100644
---- a/drivers/mtd/nand/raw/fsl_ifc_nand.c
-+++ b/drivers/mtd/nand/raw/fsl_ifc_nand.c
-@@ -7,6 +7,7 @@
-  * Author: Dipen Dudhat <Dipen.Dudhat@freescale.com>
-  */
- 
-+#include <linux/cleanup.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
- #include <linux/types.h>
-@@ -863,7 +864,14 @@ static int fsl_ifc_chip_init(struct fsl_ifc_mtd *priv)
- 
- 	/* Fill in fsl_ifc_mtd structure */
- 	mtd->dev.parent = priv->dev;
--	nand_set_flash_node(chip, priv->dev->of_node);
-+
-+	struct device_node *np __free(device_node) =
-+		of_get_next_child_with_prefix(priv->dev->of_node, NULL, "nand");
-+
-+	if (np)
-+		nand_set_flash_node(chip, np);
-+	else
-+		nand_set_flash_node(chip, priv->dev->of_node);
- 
- 	/* fill in nand_chip structure */
- 	/* set up function call table */
-
--- 
-2.43.0
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
 
 
 
