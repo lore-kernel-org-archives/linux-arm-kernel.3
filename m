@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35705EB104A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 10:40:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EAE4EB1049
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 10:41:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bNWa0t4MFObd8+hfmLJ7T8EckRXZlaGXkMcUSAG9pJo=; b=KhTswo/zNXcvKJYm3d6IUtHG86
-	bqKCz7T5kWxqbWtkFLW0tp2oWBu5ZinO40QWMy/Os7ZYPdWexM25EXjpgaNwY/wnr6T5aDH0LrW8y
-	cr9VmVHZWab6JgGyYhyGENtjhQyqarLOAxKmvYFrjZYe33517c2HfoESLkOcFR501z+e3kv/ifYVQ
-	tWWaa96gU2eGB5ozL9v6FryNys1SD/CYQ9kBy04aay8F3WINWolqNnhHa/knAsf2LIRWOSJLtGYdw
-	/DH6DwMTxVxaXfQ41h220PxKBf2QzJ1hnfsS7PNrlCMkanG500s32U5mZK2qdMk6b6DjD869ifZ0s
-	EatAPmaQ==;
+	bh=9MLfIi+VDa6BCKeGDvb4kF9qUy/BM6zeDL3R81FMboQ=; b=y+BZzMW7EwXkEl6aAVvS3CvkWT
+	1MUv9vZXpKNezVcDPidoXwy1X0ifSC0POdZxIMFPGg+QI/N2Jp56uN6uOK6MIlN+hFzuPKKLTE/se
+	rXx3kLjZL3f9U3moOiopQD3gSLKYma2bGV8827c2wane1ysXyDtgxuvlAdwUO6gntJVI65wwAQ3w4
+	r+Ro0wYfwWIN2aH4D8LLXWPTsYRQTl18JKSzWVBkzuOfiuu12Tc1cW1AgrBMWGPKvRsbys2kJguND
+	tgMnEnS+8IgeTJ9luXZXBq6cwLoXhOwHj5d0v5m58+p/tY2fjcxFG3co8fi6mhO5j7SGdRYeyPsmi
+	9rLLHf3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzuVd-00000009DW7-2JuZ;
-	Tue, 10 Mar 2026 10:40:17 +0000
+	id 1vzuWQ-00000009Dc1-205q;
+	Tue, 10 Mar 2026 10:41:06 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzuVb-00000009DVt-36Qk;
-	Tue, 10 Mar 2026 10:40:15 +0000
+	id 1vzuWP-00000009Dbm-0aut;
+	Tue, 10 Mar 2026 10:41:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B6185600B0;
-	Tue, 10 Mar 2026 10:40:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEBC7C2BC87;
-	Tue, 10 Mar 2026 10:40:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2F39760054;
+	Tue, 10 Mar 2026 10:41:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40541C19423;
+	Tue, 10 Mar 2026 10:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773139214;
-	bh=MoKgYl0vLVu36PnTao/xS9QzS9BMFCGl/qTAvQXVhyk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=V6Z7NmDYoWCGMfPUwi15oNOjflIXpMhfxSISANRRyl4/FDt/ohN81jKsIDPNN0b2H
-	 Ls78W9MlVOhIhTxSxUTiy903DcXGWz3sR24G8YTexRcgXltKsMKR1rtI9QUHEAoBnm
-	 nm3k60AsDS/IL7u9bi4Squ6MTSg0LYDhzlFe4Bkw2ruqUBUiPb863JDTPzWpDdnUAZ
-	 b/EyTvojQAgxuZaiqXoqg6GPDvs27qCeRm4pIqEsxIDNYC0KJfdB5j5nVjuittQ9t3
-	 RsCmUCvwezvWniblviHN5+CoFsR/tk1MozTk4++E+I8nm8a1L7eLPG6MWfQB1erm2B
-	 tSevhOlvrNZmg==
-Message-ID: <05b0fc76-4cdb-4aff-815c-1aad500837b2@kernel.org>
-Date: Tue, 10 Mar 2026 11:40:06 +0100
+	s=k20201202; t=1773139263;
+	bh=asvOEST4uwRrtt2D/HAUgmhuq7slPPPHSAWNCo1XBcE=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=k64jc+xhhHvvQWnOiftB8UsRcGPuChpsItRAjCN46Mq0HlCLS92rjqEngzQ59PJvn
+	 di697NfgHSZHglZZqn7YNn5K1uIg/k8sWKvPWVuF6H8dlc3AtEN4SkD9nYHEas1dop
+	 m7IlGWHmepliA2sgPtn17fZ2D/HDfxXOLu7KHOOCTpH2RBxc1ZNxLmpDcSxjegCiuo
+	 mZ2FiZpJLZ0W0Xj+of3YRi+4GTnRo5uFPMMNExVz23ZRR1KMKmcA973/3DzF5jyN/B
+	 kAmhaVvmHlORkQWzscBiiMMPYICYpJzjUhhoKvGGWurl+myw/KZQ0q1gXaNH6clxKN
+	 HecN9+CqSNlCw==
+Message-ID: <0a116a99-d1cd-4687-a594-226ce70c66f1@kernel.org>
+Date: Tue, 10 Mar 2026 11:40:56 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 3/8] dt-bindings: phy: Document PCIe PHY in EcoNet
  EN751221 and EN7528
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Caleb James DeLisle <cjd@cjdns.fr>
 Cc: linux-mips@vger.kernel.org, naseefkm@gmail.com, mturquette@baylibre.com,
  sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
@@ -63,7 +64,7 @@ References: <20260309131818.74467-1-cjd@cjdns.fr>
  <20260309131818.74467-4-cjd@cjdns.fr>
  <20260310-scrupulous-fat-ara-eab47c@quoll>
  <1611d3d5-8c3b-4298-bf50-55ab2c2db0e7@cjdns.fr>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <05b0fc76-4cdb-4aff-815c-1aad500837b2@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -108,7 +109,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <1611d3d5-8c3b-4298-bf50-55ab2c2db0e7@cjdns.fr>
+In-Reply-To: <05b0fc76-4cdb-4aff-815c-1aad500837b2@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -125,44 +126,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/03/2026 11:37, Caleb James DeLisle wrote:
+On 10/03/2026 11:40, Krzysztof Kozlowski wrote:
+> On 10/03/2026 11:37, Caleb James DeLisle wrote:
+>>
+>> On 10/03/2026 09:24, Krzysztof Kozlowski wrote:
+>>> On Mon, Mar 09, 2026 at 01:18:13PM +0000, Caleb James DeLisle wrote:
+>>>> EN751221 and EN7528 SoCs have two PCIe slots, and each one has a PHY
+>>>> which behaves slightly differently because one slot is Gen1/Gen2 while
+>>>> the other is Gen1 only.
+>>>>
+>>>> Signed-off-by: Caleb James DeLisle <cjd@cjdns.fr>
+>>> Still, four separate subsystems unnecessarily merged into one patchset.
+>>> Split independent parts of your work per subsystem. See also submitting
+>>> patches.
+>>
+>>
+>> I asked for clarification last time and didn't get a reply. I'm not 
+>> against changing it but need to understand exactly what's expected b/c 
+>> the way I'm imagining it seems way worse. submitting-patches.rst only 
+>> says of patch sets "only post say 15 or so at a time", obviously not the 
+>> case here.
+>>
+>> If you're asking for one patchset for phy, one for clock, one for PCI, 
+>> and then one to introduce them to the device, I can do that. I just want 
+>> to be sure because introducing unused code, and patch sets that depend 
 > 
-> On 10/03/2026 09:24, Krzysztof Kozlowski wrote:
->> On Mon, Mar 09, 2026 at 01:18:13PM +0000, Caleb James DeLisle wrote:
->>> EN751221 and EN7528 SoCs have two PCIe slots, and each one has a PHY
->>> which behaves slightly differently because one slot is Gen1/Gen2 while
->>> the other is Gen1 only.
->>>
->>> Signed-off-by: Caleb James DeLisle <cjd@cjdns.fr>
->> Still, four separate subsystems unnecessarily merged into one patchset.
->> Split independent parts of your work per subsystem. See also submitting
->> patches.
+> What is "unused" code? Or how is it unused? Do you understand this will
+> go via different subsystems and nothing will be "used" anyway?
 > 
+>> on other patch sets both seem like anti-patterns to me.
 > 
-> I asked for clarification last time and didn't get a reply. I'm not 
-> against changing it but need to understand exactly what's expected b/c 
-> the way I'm imagining it seems way worse. submitting-patches.rst only 
-> says of patch sets "only post say 15 or so at a time", obviously not the 
-> case here.
+> And asking four different maintainers to manually pick up individual
+> bits with multiple commands, instead of just applying entire set
+> targeting their subsystem, is pro-pattern here? No. Why adding more work
+> to maintainers?
 > 
-> If you're asking for one patchset for phy, one for clock, one for PCI, 
-> and then one to introduce them to the device, I can do that. I just want 
-> to be sure because introducing unused code, and patch sets that depend 
+> Think how this is seen by individual subsystem maintainers and how they
+> should handle it.
+> 
 
-What is "unused" code? Or how is it unused? Do you understand this will
-go via different subsystems and nothing will be "used" anyway?
-
-> on other patch sets both seem like anti-patterns to me.
-
-And asking four different maintainers to manually pick up individual
-bits with multiple commands, instead of just applying entire set
-targeting their subsystem, is pro-pattern here? No. Why adding more work
-to maintainers?
-
-Think how this is seen by individual subsystem maintainers and how they
-should handle it.
-
-
+Heh, and nothing of this is explained in cover letter - nothing about
+dependencies or merging order - so how anyone can figure out what can be
+applied here?
 
 Best regards,
 Krzysztof
