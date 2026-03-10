@@ -4,96 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE1B7FD2D9A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 14:02:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F5CCFD2D9A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 14:02:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KN2eUI7s7wzTWopOkYJSTMRYLW0x0wevTiYioDlExj0=; b=oFgFqTEwQKN913aIbXTFQjgBm1
-	paiazb6g/zlVCS8dLc62OpE419cmUw4kYqrK2fqu71eB5wW1NAwGG8aKh9OLqh+fr6JLGPfavBa9M
-	jrcIQMtvq1cCMSsrAR6j/pFx5TrUrsxvqBYQRicXRQtuMvM1NWRDOyBqLd4Y9zylbCEvGRMT1flpW
-	W27Ldg98Yw52kd7rwcLgt4GiDPSOfvXWtinUkn05/VH3pIYleo1Pgmccds6MRGRYFOpH5fq4Y/yCH
-	ZijHidVXlBADvj1IhBZSPlO0ypYf8oEA5bnI3JgE4zBsokISZ+R0DhR5x9kli2R2WHY5CmLssDbqC
-	Oh+j5TbA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+cjMHYImNRSSja4s6HqYCd0m/oShCUOYPaIwWGsmcTM=; b=1WcqlmsGWQSf1FmYVXsUCE7chH
+	Y5YEX1dA6mysB8wpsVemR1o/ozAEMRTfVWbf80GCIfj3SG0WhTS/j+ua41fxgps5Roe4gOMjbomog
+	RG8LtGD8fHlkYStE/lyhDL8qPSZNN2g2utakDp8zlYewejJ9kVvurW66rMRL1voyduGmlVpE/op5E
+	INzuOVf6C8vwgUO4JIQuyivMhIFOlC45FHEWS2QOJeeOUH3epAzRzAkhpD61QC09TpIyeF4q0tEfu
+	06ytQ47Ts+XVb+TQ3cUUkB+xinykK6IFvRBPOl/zK6t2gy0d1b9dNCGv9yOf6WX7JdAjxISCLmGvY
+	mjuLq8qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzxfL-00000009eYb-3yAM;
-	Tue, 10 Mar 2026 14:02:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vzxfg-00000009eqi-3RdH;
+	Tue, 10 Mar 2026 14:02:52 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzxfC-00000009eOp-0urU;
-	Tue, 10 Mar 2026 14:02:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E103E41708;
-	Tue, 10 Mar 2026 14:02:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id B51ABC19423;
-	Tue, 10 Mar 2026 14:02:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773151340;
-	bh=/1oXQSl8lOctBMm0s6V4ROPxq8kPUCe8v+kkkA6uVT4=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=a6AscwoaKiH4Ca/n0QYxHQlBh3GonUFp4+NFHMdPElR0wdLHCLoNIMO+4inJslY8k
-	 AZfDhTy6vJLX1RrVztyRGHgQ/bouContf25YuLxspS6xnBZGoZuu+bfW3HZYghc40D
-	 co5mSz+tCaf+J/7C7eEFKOvfhOWWrdYeLC0TBGK3mQc+XIJeG0h4WwVHc7GxpOtSpM
-	 TcPNZZeYh8yF6JtIA7LO+VeOhIrw1w+XKUfscCDp6zgFq7JUCWz3wdLPHQhG/WzmJD
-	 dHCuu1T+ZcmUTTMAVTStgiTw/jc+6fmaQjnNnKvAfBl05DqpOy7PEtddfrqdt9E60/
-	 lShVALLUAE7KA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A217EFD2D9F;
-	Tue, 10 Mar 2026 14:02:20 +0000 (UTC)
-From: Manivannan Sadhasivam via B4 Relay <devnull+manivannan.sadhasivam.oss.qualcomm.com@kernel.org>
-Subject: [PATCH v7 0/4] PCI: Add support for resetting the Root Ports in a
- platform specific way
-Date: Tue, 10 Mar 2026 19:31:58 +0530
-Message-Id: <20260310-pci-port-reset-v7-0-9dd00ccc25ab@oss.qualcomm.com>
+	id 1vzxfd-00000009emz-27He
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Mar 2026 14:02:51 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-5a1307438ddso5342116e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 07:02:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773151367; cv=none;
+        d=google.com; s=arc-20240605;
+        b=N77mT4T1BGxG/waqo/hHb1EzfvKJrU+hhJKKW8qLgX1drUWvmg0hadjeZLWWA0GBlT
+         gUgcU1Rrv7PW8Tn1wZq15GtjJvKojT0N+9tuwPYlwC4R/IGb0GHdKofOUbmA/+TrS2d8
+         yX1M0elxAsi4U3DTqX4BATzkGMfZRRKGQPkBJdpFb5CmaqMX7v+j/nMkwpa5OPJ6y2w5
+         C2lg5o9fWMlhcp7bAeZTnVHd38dGp0LXqMmrWYUGIfospWJt6HmWI+EseObhjoa3H5s5
+         cVeo7uwGe8YeQJxqysc5INI9bV1rHThLz4JM/dMRdenWMXwymg5wxEVXnnsl5hVAQ77X
+         fD+A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=+cjMHYImNRSSja4s6HqYCd0m/oShCUOYPaIwWGsmcTM=;
+        fh=4aBNK4+UA1KQQPpsqCs/WSWrt62piUep8Kh08PLB2iA=;
+        b=JDKI3cinFCRS8gLm9uBi01vTMarT67FdYMmyEGivCuD73Um/JSZI6xpHM07LIXxndC
+         xZ6/AaSfI7OP1zDBBKwa0BiAWixARqpFLoFHXYHsPXMUq53n2+3qx9URx8wjCPMo306m
+         DmT5y7rXtiZBMg4IfPM69ReCR29y+HMVeOHCp74L2y2J6uU2ml9ZQXOc7ua4ta1vfSAF
+         TET4vZQo7McVLF0IPPhH+QF4XIeZJA0ii2Mihe+KVjtu03LZF/eEieYn1WJfMpoLh9a1
+         QAjEXdmgzvEWleqFKELJTEtvPt4tDK9LHpqeG2qMmpbWzHvhgK7gN4nbHWazuJDlWP+J
+         Q9tg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773151367; x=1773756167; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+cjMHYImNRSSja4s6HqYCd0m/oShCUOYPaIwWGsmcTM=;
+        b=WnS5p2hAn0vHHxYxrzTEI1nqAUAFF7+gqJbL9wSF7viHJDhmVxApJVGwzykGrMFCOh
+         gSxcD7n5D7gV8QLeflwFQrXb/v6bYagpFcnl4ytByrAYQdNySWeD5CH0SguB3SH2++dZ
+         UjtMrOVjMGI8EHGIJNvlMph0Hrmgk4RhnIXTX4yzkJByWqaRAgPiSpxo20A6P87NSmdF
+         oZOxIIitctGjfioAClNRV6MLzUzwf4Ci1v3RH5FmyHZU2s7r2U2tZmTUrgOuSyTy43Ij
+         APo7nKj3P/MkvTbTOZ1y3CanJsmAtI/AUlbjEnem/UuzHn/+hKfT9ExhfJGbaU32hPqt
+         Bqow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773151367; x=1773756167;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=+cjMHYImNRSSja4s6HqYCd0m/oShCUOYPaIwWGsmcTM=;
+        b=CLIkHT8yLm4xe+c8KdWC27wbNZVhScCU9x1sj1YKy0NLnhqkHlqOW9JzNAcEThOMXd
+         b6aclwL252KeyvpUdFN9BwN/4XnmPE+1ob8B4D9xvvMf28WDVSuHer5eoj4TwWOJwkXg
+         ThlfKblqlqyLHSCakCWvoBpQouWgAk0kZvlm1DuaQ4T7UNmm0KVt2cMssw9kIA+b+PD+
+         Dk4mC376NszuOXMjKtcauGNsm7HYbIwe1Gtkq7yH12ml7GR/a4Hm1jdXT0R+ZLVWk2fT
+         pBKankbXzH1fT56CdJp4zagaLugF8WpWS6qLp3DBrclKCXaOlKmSvsJoAfTWJsO2+kqT
+         N3iQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX+xLdSdSpCzAzZaUutujZr5AQ6lvjkd8adnuGDtqRYf2LgdXqVI6rVCztldjCcXEBuysxLhXv38Pk5ikNa0Vtd@lists.infradead.org
+X-Gm-Message-State: AOJu0YwqZRUirUNQHX+q6zJCxhinv+1DBiDJjLL/DXs35Q7GYIOI0xh6
+	6iN/XHLe3ycIgH1epa9H85DVcnAL32P8QGvQca0V47LfWrSWtkHAtL6DSL3VTTnWIzi19xuJ5U8
+	FxS7kUOHs5lScGqFplo36KSETF/qUWA8=
+X-Gm-Gg: ATEYQzxQdicoxtie28f/+quLPhWWlTtwqTwhJ/dL5hClD3ZuVNeVunXMQcnunj2/ZCq
+	hPi2cDv5mkXDTeCQ3tpkj6PPyfygahInUGNF8VvnVA077o6XgHyMqEhyidUqHLdX+qj/RoV2EzG
+	bklNGrxazSajAmDjTMaS5TEVt29zFjw4ZyMXRwWZKSwWd18za8U8wrV5WwlzocMvwt36HFCNxPO
+	q2pZSFt+DSWv3STFMKE00Em9AHOPPnfKAGfasGwVOiS55dLM2wm/g9iSYMqWXQYl8m7Z1brsQ7f
+	NmOYSGvoYn/kwGiP1Lv+SFJ+yW4za+KclfCS+F2DIsyncqFm84TdL0d8YrXefczBxrpfUlc=
+X-Received: by 2002:a05:6512:63cb:b0:5a1:5305:74c9 with SMTP id
+ 2adb3069b0e04-5a1530575afmr52626e87.49.1773151366877; Tue, 10 Mar 2026
+ 07:02:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAFYksGkC/33MQQ6CMBCF4auQri0plWmtK+9hXEA7SBOx2MFGQ
- 7i7hbW6meSf5H0zI4weiR2LmUVMnny459C7gtm+uV+Re5ebSSFB6Ar4aD0fQ5x4RMKJ185AZUC
- LSu5ZHo0RO//awPMld+9pCvG9+QnW708qARdcqgac1AfX1uIUiMrHs7nZMAxlPmwVk/qvqKyoz
- liLpkbdtl+UZVk+WqomYfkAAAA=
-X-Change-ID: 20250715-pci-port-reset-4d9519570123
-To: Bjorn Helgaas <bhelgaas@google.com>, 
- Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
- Oliver O'Halloran <oohall@gmail.com>, Will Deacon <will@kernel.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
- linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- Niklas Cassel <cassel@kernel.org>, 
- Wilfred Mallawa <wilfred.mallawa@wdc.com>, 
- Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
- mani@kernel.org, Lukas Wunner <lukas@wunner.de>, 
- Richard Zhu <hongxing.zhu@nxp.com>, Brian Norris <briannorris@chromium.org>, 
- Wilson Ding <dingwei@marvell.com>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
- Frank Li <Frank.Li@nxp.com>, Manivannan Sadhasivam <mani@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4549;
- i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
- bh=/1oXQSl8lOctBMm0s6V4ROPxq8kPUCe8v+kkkA6uVT4=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBpsCRpmEGa2hN7YHyPGgSxWL0QcI1jloZjMug0C
- ziHFfnkJ4mJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCabAkaQAKCRBVnxHm/pHO
- 9dicB/9BFlu24MWD8df02ktuKIEzBuxaGoGisvvBQguIP1YvPxL6t7rSxiaEXEr6MBTkXbOJoey
- bpQXx2vbrVy0Gx1Txt+q8ulgdI9dyDYmzjCuiqo2VCispItRKXaXcAvLJrmNLMPWSxCTf45skF8
- Cs5UFPJ9199lg5Ytm6McfZ2sIpFUK1BYIRhDavMrcPCx0l4793mt+8SVEXQKFlB7AAgDVek0TBe
- aC7nIEbUbxZ4SZNoMHk/Bg9YY9geNxJ0XL/lAJQO5rbpSMad9w9UEZ+msF9kGXuEbaMNVcJjNFp
- sDgHozJQxUV/+G61M3/HBCoYnDYr2OVfAUvtib/7MHWyfq0P
-X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
-X-Endpoint-Received: by B4 Relay for
- manivannan.sadhasivam@oss.qualcomm.com/default with auth_id=461
-X-Original-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+References: <20260310124950.1345117-1-andrei.botila@oss.nxp.com>
+ <CAOMZO5BVtRHW1+qtMEH9akO7ULS3LppzGXMB2_M-JJVwjbv1oQ@mail.gmail.com> <67e082c5-2b34-4960-8fd1-6cd007e0584c@oss.nxp.com>
+In-Reply-To: <67e082c5-2b34-4960-8fd1-6cd007e0584c@oss.nxp.com>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Tue, 10 Mar 2026 11:02:35 -0300
+X-Gm-Features: AaiRm52bhcWWMfREEMDJLPaGrxzwDMESu5gS0-COwtzMY13DiIy4Ieg-CBISC-g
+Message-ID: <CAOMZO5CHGssc3Tuf6fJg2_P=bp7=itfDVRANqQOiK2b-2ooeFA@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: s32g: force S32G RTC as rtc0
+To: Andrei Botila <andrei.botila@oss.nxp.com>
+Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
+	NXP S32 Linux Team <s32@nxp.com>, Chester Lin <chester62515@gmail.com>, 
+	Matthias Brugger <mbrugger@suse.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_070222_321720_F2177A2E 
-X-CRM114-Status: GOOD (  18.06  )
+X-CRM114-CacheID: sfid-20260310_070249_601303_8C8E1FF2 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,102 +119,24 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: manivannan.sadhasivam@oss.qualcomm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Tue, Mar 10, 2026 at 10:50=E2=80=AFAM Andrei Botila
+<andrei.botila@oss.nxp.com> wrote:
 
-Currently, in the event of AER/DPC, PCI core will try to reset the slot (Root
-Port) and its subordinate devices by invoking bridge control reset and FLR. But
-in some cases like AER Fatal error, it might be necessary to reset the Root
-Ports using the PCI host bridge drivers in a platform specific way (as indicated
-by the TODO in the pcie_do_recovery() function in drivers/pci/pcie/err.c).
-Otherwise, the PCI link won't be recovered successfully.
+> Regarding the I2C RTC(PCA85073A) commands like hwclock or rtcwake use by
+> default /dev/rtc, /dev/rtc0 so they will try to use PCA and fail.
 
-So this series adds a new callback 'pci_host_bridge::reset_root_port' for the
-host bridge drivers to reset the Root Port when a fatal error happens.
+These commands should not fail.
 
-Also, this series allows the host bridge drivers to handle PCI link down event
-by resetting the Root Ports and recovering the bus. This is accomplished by the
-help of the new 'pci_host_handle_link_down()' API. Host bridge drivers are
-expected to call this API (preferrably from a threaded IRQ handler) with
-relevant Root Port 'pci_dev' when a link down event is detected for the port.
-The API will reuse the pcie_do_recovery() function to recover the link if AER
-support is enabled, otherwise it will directly call the reset_root_port()
-callback of the host bridge driver (if exists).
+date -s "2026-03-10 11:00:00"
+hwclock -w
 
-For reference, I've modified the pcie-qcom driver to call
-pci_host_handle_link_down() API with Root Port 'pci_dev' after receiving the
-LDn global_irq event and populated 'pci_host_bridge::reset_root_port()'
-callback to reset the Root Ports.
- 
-Testing
--------
+Power-cycle the board. Does the "date" command retain the correct time?
 
-Tested on Qcom Lemans AU Ride platform with Host and EP SoCs connected over PCIe
-link. Simulated the LDn by disabling LTSSM_EN on the EP and I could verify that
-the link was getting recovered successfully.
+> Also from what I could find online PCA85073A is also not battery-backed.
 
-Changes in v7:
-- Dropped Rockchip Root port reset patch due to reported issues. But the series
-  works on other platforms as tested by others.
-- Added pci_{lock/unlock}_rescan_remove() to guard pci_bus_error_reset() as the
-  device could be removed in-between due to Native hotplug interrupt.
-- Rebased on top of v7.0-rc1
-- Link to v6: https://lore.kernel.org/r/20250715-pci-port-reset-v6-0-6f9cce94e7bb@oss.qualcomm.com
-
-Changes in v6:
-- Incorporated the patch: https://lore.kernel.org/all/20250524185304.26698-2-manivannan.sadhasivam@linaro.org/
-- Link to v5: https://lore.kernel.org/r/20250715-pci-port-reset-v5-0-26a5d278db40@oss.qualcomm.com
-
-Changes in v5:
-* Reworked the pci_host_handle_link_down() to accept Root Port instead of
-  resetting all Root Ports in the event of link down.
-* Renamed 'reset_slot' to 'reset_root_port' to avoid confusion as both terms
-  were used interchangibly and the series is intended to reset Root Port only.
-* Added the Rockchip driver change to this series.
-* Dropped the applied patches and review/tested tags due to rework.
-* Rebased on top of v6.16-rc1.
-
-Changes in v4:
-- Handled link down first in the irq handler
-- Updated ICC & OPP bandwidth after link up in reset_slot() callback
-- Link to v3: https://lore.kernel.org/r/20250417-pcie-reset-slot-v3-0-59a10811c962@linaro.org
-
-Changes in v3:
-- Made the pci-host-common driver as a common library for host controller
-  drivers
-- Moved the reset slot code to pci-host-common library
-- Link to v2: https://lore.kernel.org/r/20250416-pcie-reset-slot-v2-0-efe76b278c10@linaro.org
-
-Changes in v2:
-- Moved calling reset_slot() callback from pcie_do_recovery() to pcibios_reset_secondary_bus()
-- Link to v1: https://lore.kernel.org/r/20250404-pcie-reset-slot-v1-0-98952918bf90@linaro.org
-
-Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
----
-Manivannan Sadhasivam (4):
-      PCI/ERR: Add support for resetting the Root Ports in a platform specific way
-      PCI: host-common: Add link down handling for Root Ports
-      PCI: qcom: Add support for resetting the Root Port due to link down event
-      misc: pci_endpoint_test: Add AER error handlers
-
- drivers/misc/pci_endpoint_test.c         |  20 +++++
- drivers/pci/controller/dwc/pcie-qcom.c   | 143 ++++++++++++++++++++++++++++++-
- drivers/pci/controller/pci-host-common.c |  35 ++++++++
- drivers/pci/controller/pci-host-common.h |   1 +
- drivers/pci/pci.c                        |  21 +++++
- drivers/pci/pcie/err.c                   |   6 +-
- include/linux/pci.h                      |   1 +
- 7 files changed, 221 insertions(+), 6 deletions(-)
----
-base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-change-id: 20250715-pci-port-reset-4d9519570123
-
-Best regards,
--- 
-Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-
-
+I haven't checked, but this looks strange. How will the board retain
+the time then, after a power cycle?
 
