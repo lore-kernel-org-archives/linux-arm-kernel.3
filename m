@@ -4,109 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CD9AFD2D7A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 13:15:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD911FD2D79
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 13:20:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OvafpqEGtS/OiggsxcjnYSMqpd/KvJAmp7arL+ZUBVY=; b=XGBUFoh0jP+E//GpdPGQLeJLno
-	Q5354I/rcAFCE2c1s5bBR/nNsN9Txli7fxMXe57Pw4RkdSANT/4DrmMBZBlCNTL/sssH0Cg4JxApA
-	MjfujfH8DreWvfIVcYqTMt2swKy1K69Ar+ZIC/AFxniIy+pyncZO6AD4k+taUIudOH3RTr8L4cBhJ
-	a8GnXrG+YrzA2kFuXvS1EfWv/XHxbePmvQ9Y9bLX2vXc3P/IxuHTD6HwODqK1M0ztHcCXzh1EbzgV
-	nnu1PUpHMUvW7ymxHCDDicPWgv2pcZz43niy7Dl4pwyRMc5sVmes70JBl/MaCtNMTapaGJ8qgsobD
-	3hSNwOkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2nfThJO5oXB7WZ5MAEjom4iH5WGBmI4Q+rtCNbUu5Yk=; b=RPZpG0OziKRDOVbVTiByVMJvUQ
+	IB484mF87qqs9WIgeTzhEXBiD8sz3XlhxbU1nyN4aYZBtWPSnJ/2ROhSMV04PTpkPbYLTgcMCCSDX
+	AOfpzeG2XVYQSTPQTSCl0FEBbP7im4zzY76cU3vEKGDfQWy1S1H9dQyKcZwjgRQ9EWWquVEOLKOE2
+	Fy1ELHiGyzJ42sD/M+5kwaQGoYimxso57R3rQPyuySSTGWAtEmGtotec/oyWF3XiVfBZP1D5jizDD
+	sGWB0a8VM6deBhd9+2ccVn76oLiX3p1rVwjbNOQWEaY3O1DA9F0D3XS8c+hiE5nBQ4AwINLA5ui1y
+	alCBo17g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzwvM-00000009ZDl-3opL;
-	Tue, 10 Mar 2026 13:15:00 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1vzx13-00000009a5w-2ZVG;
+	Tue, 10 Mar 2026 13:20:53 +0000
+Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzwvJ-00000009ZCt-2RBj
+	id 1vzx10-00000009a5a-476d
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 13:14:59 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5a12f88d839so6668808e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 06:14:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773148495; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Ixldw5Ii2hVZRC0qodVSpZz41gQPY50zzoHXjdXKQ7TqSz95s/+EionWf8fNDzAU8m
-         qAO00+OmhNOtm3cpClfWepc3nAA2kGcv/KtyuwhY4h2no2Nk2DxW2FmaBHq0AUfOOnha
-         ndOkY2Nt+Cca0158Z4RkxG90FODGCpH60mCCCfxePTtxGZgmF2Clt8FJLJbSbAWUCcOT
-         z4GC+geCvXIpPAWJ76P5rP2nYIj+1WsdErzU+yzbpegTFg8KKLws07czE3h4n1xBAeyn
-         NiRl5WzhOauf8pgFFDomgjwKNeu338OLk7fZKWKzl6XdpfAoXxaSx3y7Dk4R1ZrLq32Z
-         bmMA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=OvafpqEGtS/OiggsxcjnYSMqpd/KvJAmp7arL+ZUBVY=;
-        fh=CXikR66D8iFv+AfAfb4d24EDYOgdrq74Y3pDUFCvFbw=;
-        b=YbpnCrzFrS7Nmo5pxsEtBRi/0ZzNeSafMHubZ/kWlrGIoeFrOgU4wHKLcOOlMeza6C
-         EZuGQym/0458I7BaO69tGNEw1qLPNy1dGyVm9I6TnLYjwYqn/74AYPQcgFfry/uHuAgI
-         eAO69cQfZQiFSNPjfdQWjRye1JnuW/DRKBp5tA3xseauNakgZpQFc2q4GvFxahIa0tFy
-         gy7WHvmGBfn8J5w2YGaTuTH/Nr1OTWjab5fgNlr4p/iEG31fzkcS2rbuTK4CPI1Wza4s
-         lwgnzishRGE23Q/lLSUSTPl9EPqFQ+vxD9luTudOCYEpcnl5vHKxA9AkuJep5/F8yKga
-         s4EQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773148495; x=1773753295; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OvafpqEGtS/OiggsxcjnYSMqpd/KvJAmp7arL+ZUBVY=;
-        b=ff0seY8lHqlETdvjEAo7O3iMyek4vWDugMiDIdefLLWWlgCtfGJWubk0dddlpLK62z
-         5qBImpQnmkwA2b5JCV/bbeQ8c6dyyCaHeWi02SFVr5Nx1DBqcn73fh50RIomQeP+Y2po
-         uwtVz+tdDMML7HCd8lOBSV9NvEiTwO/CN/oN/24SCiQZv82ySAwH5rUIaYajJzytAcx2
-         nj/ro8U0xEr6HZwlp5U1U5TmYSy1BS+WbfKU/R3xTkHo927cUPD+6eBGtHVb5ak+G5V4
-         DUK/TOxan/I77968ockxnwEHf3HrSz4EKkAqX/FnnOchjUKdpymGZFpRM5c0oHEqR0NU
-         Y/tw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773148495; x=1773753295;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=OvafpqEGtS/OiggsxcjnYSMqpd/KvJAmp7arL+ZUBVY=;
-        b=aQPcjCi/V5BZGWIkR7Rw1ckFn2Ak3B4DQmIqwihEXxyWQQVLJAefzC3dH6/VjZrpJu
-         lR9GtzJE8a1aiil3RjMKHB7SIcf5Atz15z6uBje+kaKoSaSN10CXaJFAqOPQ5JflsPYH
-         OSqizdYSQjxWF7ZB/RvSQCceM/WbhcnTgaIvIplEqywhyrKDEHon37HXekdapWK2haWn
-         im4TK0TGLv1E1Zb6QxnWSsDMSKTZNDwehCwBKBlJkMeu50OMRHuxDYKpBfZ1i5UlaEEF
-         mzfAPG2uTGMQmSLm0la5MR6TvBmuC5wtZUIf8EceCdCVV7mU3XTI5pLfI+ty8W6W92q1
-         lhcQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUm6/aqNAdzyRhwZJ+LKuMpDe5Tfx1xizA3eBYksMA1Wh+EHCYPF8GgvN3atwB4w8Z7mb08ZcKj82Nufsi/WwN6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+vdLxSCH/X1kd9sm5kPisHHhpK1I3tAlRe4elSqXkCRql7heV
-	qG9RBgYSGbc/2h3OHoOAyytyUeeyIgMl75eWjQNgEzYl/pIScnZ86ueHT4koZaz+K+recCSJbsE
-	0UWGCz5yn27aUiguhMsk2WfwA4jRl1qQ=
-X-Gm-Gg: ATEYQzxmjLady7YlsH9bMuzh13htoCFiMswGh6NW0RziD6W64P59+6EfFmjhSFofehG
-	ZCrcIEStbfbNWyUvi3zfAIta1tj263/bsw7CAyBbKcmMmHakH6rv5/RHTzPSYaXp6XMjsubq2Oo
-	3CjHwfRlh7SZJvhpEJ3kIxvY/2WC5FXvWZYCBW+yuFW7+f/LCpPCf8AC8C3bUA3gQJ0Db9q95CT
-	kyoWbT+GtcauRrXyY/GrNeBvDVY9gTg3srwQQT08X/32Ymf3Vf97gjH3m9ysTiwsfkmxreYulnb
-	/UCPohEJdOck+8ynD6C2jB9ldEGbIMar/+mdweppuVbTPVB56c9JObyIfUUBYcYS4/chJ+s=
-X-Received: by 2002:a05:6512:3ba8:b0:5a1:43cc:9f97 with SMTP id
- 2adb3069b0e04-5a143cca133mr3775932e87.48.1773148495109; Tue, 10 Mar 2026
- 06:14:55 -0700 (PDT)
+	Tue, 10 Mar 2026 13:20:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ReV1FiIwzh0PVHexE/TVCcZWDnWT8U0Ac7eIndJ1Aj07cfI4QB2RgwgmjbBxt3ejKttSCurhoKOew/q7vHHqMnmOyH6ZBOZvWytxQLUJYInFATbYIth+mklGkBJtfJvH5X4XsuhBt5FDgqoZENN1plSir1rzpoCGWtkHtbFgr2dP5TnjB1YIaJHumOshG2ygBwCIipOldIn58HhceeC3B0gYIx2+mpehconk2/Zwm5qkOBgeoBKQyjV9Sr8yYCKqKbnjjTStab0OjsplPQaZ7LkgZOvsgijUufVv1RxrJfGZrLnSezZHPZtd2Agdsz7m4KPO/HNzwjwjW/mSEItv+A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2nfThJO5oXB7WZ5MAEjom4iH5WGBmI4Q+rtCNbUu5Yk=;
+ b=jru9Buf0J3wMXBejUgZsCGHQ/0rZiBYe1DpvQoot+R0v/nfAAOV+6fqdN4F3lD+a0CoOp4SqYT1VfpVix8wxcoz6hhRwf90Rn0hi9en6fd9Jp6J2iL41Lf9lV3X4w2mjD1aWDZ/9KdGi2Qcgw6DEe2TWmvWlLn46txevF0XkhgRwNo23a0rT3NnU5fAXAXPiUuRQyaNZDCGeLC0UOOE/8tYra+E/j23qZdIiOIqx2QS0mq2EF9apaG/9voQMPi2JxKHAY2DQa0hYi8/nxJeBdBqEAf9m5zEHo55Lx7X7XV9XcKYSEvTWCz+Kjqx+sXWUfdV8t0rvetc5f9erk9YO6w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=lunn.ch smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2nfThJO5oXB7WZ5MAEjom4iH5WGBmI4Q+rtCNbUu5Yk=;
+ b=b9c82RExcf1RnnikKrAQGMZcB4/oxSz734o/QCO37bVaxpG4WqGvFXtJtJdW8YrNJDdvZO2hjtngNScLnR0XZth03GMScQUQQ0yuMBm0Tn6FiAmrSmTTUGzW6orDysQ/5J9aJiAEhKdVhgZxKeUY8iQw0hPB9Ps3toH89fMztXs=
+Received: from BL1PR13CA0166.namprd13.prod.outlook.com (2603:10b6:208:2bd::21)
+ by DS0PR10MB7175.namprd10.prod.outlook.com (2603:10b6:8:dd::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.24; Tue, 10 Mar
+ 2026 13:20:44 +0000
+Received: from BL6PEPF00020E5F.namprd04.prod.outlook.com
+ (2603:10b6:208:2bd:cafe::b0) by BL1PR13CA0166.outlook.office365.com
+ (2603:10b6:208:2bd::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9678.24 via Frontend Transport; Tue,
+ 10 Mar 2026 13:20:24 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ BL6PEPF00020E5F.mail.protection.outlook.com (10.167.249.20) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9678.18 via Frontend Transport; Tue, 10 Mar 2026 13:20:43 +0000
+Received: from DLEE201.ent.ti.com (157.170.170.76) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 10 Mar
+ 2026 08:20:39 -0500
+Received: from DLEE214.ent.ti.com (157.170.170.117) by DLEE201.ent.ti.com
+ (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 10 Mar
+ 2026 08:20:39 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE214.ent.ti.com
+ (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 10 Mar 2026 08:20:39 -0500
+Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62ADKcqt3128000;
+	Tue, 10 Mar 2026 08:20:38 -0500
+Received: from localhost (dhcp-172-24-231-152.dhcp.ti.com [172.24.231.152])
+	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 62ADKccc013573;
+	Tue, 10 Mar 2026 08:20:38 -0500
+From: MD Danish Anwar <danishanwar@ti.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <danishanwar@ti.com>
+Subject: [PATCH net-next] net: ti: icssg: Fix wrong macro used in RX classifier configuration
+Date: Tue, 10 Mar 2026 18:50:35 +0530
+Message-ID: <20260310132035.1299787-1-danishanwar@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20260310124950.1345117-1-andrei.botila@oss.nxp.com>
-In-Reply-To: <20260310124950.1345117-1-andrei.botila@oss.nxp.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Tue, 10 Mar 2026 10:14:43 -0300
-X-Gm-Features: AaiRm52E00LdH2rZwxuFYXGjz-kZKy_GcD7ZYQ2nDQ3vRAIkTC8eVlnQwrS5urM
-Message-ID: <CAOMZO5BVtRHW1+qtMEH9akO7ULS3LppzGXMB2_M-JJVwjbv1oQ@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: s32g: force S32G RTC as rtc0
-To: Andrei Botila <andrei.botila@oss.nxp.com>
-Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
-	NXP S32 Linux Team <s32@nxp.com>, Chester Lin <chester62515@gmail.com>, 
-	Matthias Brugger <mbrugger@suse.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF00020E5F:EE_|DS0PR10MB7175:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5c3a51cc-bd82-4a4a-f05e-08de7ea7d55e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|36860700016|1800799024;
+X-Microsoft-Antispam-Message-Info: FsXUmvAFPWzA/8Jc/TsuH89vym1Zi0AJ5jstGTmOl6w62UPLbRuDDJVMSsmkdYGy3kxx5huvgPJ5XIDzxuzk62KpvBuQ1eLZTKOaJNAMkLxAbJ3CUG1Raaj+nsYpLEdqK99qyvmjsjdBHU/2tCE/CPbZH/08YU22/ydgc18INWSip4ELcvkQInpNY8HqB5Yms3IAWlvTQ2tiE3K/nigyOjztN+j70AZedcbz501Pj8ESoZwFOJ7EEJ+koRIUJM4Dcw4TgJRN9Hiky+XS/DSNpR/wI2uclJC60gLe0T8QOhPY7BzcdWRI3jx/6xDyENp8bZl5d4ka6l8c24fgmoSj3iRQ2JMeIcqvKnzmVdGX+G/VDy5CkweI4LulE394YI9jJkC/hQqAYCkP2E49nnrcf1m9LQCQ//e0RiQb+Vx5N5KTOI5xLMjPYqaBXPetTRac8hMKH8+ElfRVvQQgQ04pEaNCh2Su1n1DU6y0E2wn+zGpHz6Zpb7sjujj5MsyBOhx4VFWiWQSaRnvCvlJ4ZI0lgz4dCLYP2on7SipurbMOz3h53yWTz/09ex4qbjhNaIpNe2T/8/hST8XLcGFJNQe+HsCsONj+6Mj0QCZ4VXDBtpSRywuF1dSqBWWB8w0ZWlRihyd2eSnpkRTCJdSWpp9zT7INF0NKdeLIpCtXICyBV1IM0u90ZX1uESPTNC1YXWdXbnRjR0cI0W7WUGizZqydtpfsLOmBmi9EpQ0knxft71unxMFI5lXE0pRROEJz6xjSubgNJcWeDqZRTzxNiyAaA==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(36860700016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: H7zGWnmRO+C1XF5Ckq4O1nV17oHetCqgFq/Hm1iLqD+/3uHaoFWtNfCeUa59/G/c7ZvEV1PDT9QEsk2xE8RhCiiC4TXFgs5pfpBH5n1IRF2YGWTyfshPeFKhbjEBbBxFUhWG2sWaJO24QSU5Hm0ve0TUSPD/QiZt4pZI35i/6QPccfoYtGH0iX3WcyYUkg6U8KyaKUPjtyax52OkImJbVDoLdv+mecBDlkvt+OvMIVM4cUvdXM1ZgF1Zi2+BfKlNtR18DJfegZRGxskvbUIDdlAXlcLnUbg4zswegeHxJ0uFoIsF6+mjeSSSvTXL2K+x3lOefHKP3ewa4bEyXMeZKbzDAbgfgn6xpSBKhKWCfQgD9kkmelP9yVQ9boRBtAYDLu2dyVTuMW6PJ8RHoEv2jGVejC799gsRNZA8Ub/adr9FwEU6IZIF0XwHSw16p9uZ
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2026 13:20:43.6461
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5c3a51cc-bd82-4a4a-f05e-08de7ea7d55e
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF00020E5F.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB7175
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_061457_656981_8E080A7F 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20260310_062051_149088_207A9238 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,17 +132,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 10, 2026 at 9:50=E2=80=AFAM Andrei Botila <andrei.botila@oss.nx=
-p.com> wrote:
->
-> S32G RTC is probed after the RTC on RDB (PCA85073A) so the S32G RTC
-> ends up on /dev/rtc1. This causes the suspend/resume or hwclock to use
-> the wrong RTC since it takes by default rtc0.
-> Force the S32G RTC to be assigned rtc0.
+The RX_CLASS_OR_REG macro is being used with RX_CLASS_OR_EN parameter
+when writing to the AND enable register. This should use RX_CLASS_AND_EN
+instead to properly configure the classifier AND enable register.
 
-We usually prefer to use the I2C RTC as rtc0 because it is battery-backed.
+Fix this by using the correct RX_CLASS_AND_EN macro parameter for
+RX_CLASS_OR_REG when configuring the PTP duplicate and HSR tag
+classifiers.
 
-What's the exact problem with using the I2C RTC as rtc0?
+Fixes: f56438a74d88 ("net: ti: icssg: Add HSR/PRP protocol frame filtering")
+Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+---
+This is a fix. Posting this to net-next as the guilty cposting ommit is part
+of net-next tree and it's not part of net tree yet.
 
-Is the S32G RTC battery-backed?
+ drivers/net/ethernet/ti/icssg/icssg_classifier.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_classifier.c b/drivers/net/ethernet/ti/icssg/icssg_classifier.c
+index cde53d9aaa7b..87a8577093db 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_classifier.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_classifier.c
+@@ -517,7 +517,7 @@ void icssg_ft3_hsr_configurations(struct regmap *miig_rt, int slice,
+ 
+ 	regmap_write(miig_rt, RX_CLASS_N_REG(slice, CLASSIFIER_PTP_DUP, RX_CLASS_AND_EN),
+ 		     RX_CLASS_DISABLE);
+-	regmap_write(miig_rt, RX_CLASS_OR_REG(slice, CLASSIFIER_PTP_DUP, RX_CLASS_OR_EN),
++	regmap_write(miig_rt, RX_CLASS_OR_REG(slice, CLASSIFIER_PTP_DUP, RX_CLASS_AND_EN),
+ 		     RX_CLASS_OR_DUP_PTP);
+ 	regmap_write(miig_rt, RX_CLASS_GATES_N_REG(slice, CLASSIFIER_PTP_DUP),
+ 		     RX_CLASS_GATE_PTP);
+@@ -525,7 +525,7 @@ void icssg_ft3_hsr_configurations(struct regmap *miig_rt, int slice,
+ 	if (prueth->hsr_prp_version != PRP_V1) {
+ 		regmap_write(miig_rt, RX_CLASS_N_REG(slice, CLASSIFIER_HSR_TAG, RX_CLASS_AND_EN),
+ 			     RX_CLASS_DISABLE);
+-		regmap_write(miig_rt, RX_CLASS_OR_REG(slice, CLASSIFIER_HSR_TAG, RX_CLASS_OR_EN),
++		regmap_write(miig_rt, RX_CLASS_OR_REG(slice, CLASSIFIER_HSR_TAG, RX_CLASS_AND_EN),
+ 			     RX_CLASS_OR_HSR_TAG);
+ 		regmap_write(miig_rt, RX_CLASS_GATES_N_REG(slice, CLASSIFIER_HSR_TAG),
+ 			     RX_CLASS_GATE_PTP);
+
+base-commit: 89fe91c65992a37863241e35aec151210efc53ce
+-- 
+2.34.1
+
 
