@@ -4,90 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAB7FFCC9D1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 06:55:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2627CFCC9D1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 07:08:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VHrnh2XvB9dLHuZbwMpSUt0oltqbhmog0w3ztV7cqCU=; b=44xT5Ah0CBlFg1B3mfVTv2tZEp
-	TNfsGl+tsKM07bMgBUWdHlgD4Mh+BqvJpSfEZB34hsxLT8uYKNRAuq0gYtrAeTRg3lP6FYYkJi+TY
-	NBYI6QW50DrP0OegIBeF9H2E0iVNbmFzGRej8cQO1z62mnXo4TjiF7NTj0NVVe64cMRlKgUCvSFCg
-	9jF1gNiQWJFPlk2cLJcakAonwZ9XIeTtumJRd07xSchJr5VEw1lAgubvuLSGC35Zlf/XPgsgixSWI
-	fdhUl9+UxFuXFtjC2a8+K5LegUTkEwAnGNu+6+YwC5txaD3VW38y9JBMECtgNE4bdnrgYAmfeuP+R
-	9qZ6G2Jw==;
+	bh=g1tu3M7PhrrHThVXf/AiIPepHI8paEY8U37si8REZmE=; b=WO1C4y0Symhn14XTvq42SFJxgi
+	sozQXxpJnedxK3IcV3rXBLON5cl8XTNYbITl+oBqw1KLRuPMeq8c8WTKNEb31ZExURDytLIiXRc9N
+	+VwVxWM34IpX5ijPiWxnNjol1DUaamnhcAYtY/3SdP4Faef5sDCMns5vMrC/MoSPOeMD8xluEdWhp
+	OBE45mzfyTRLSbwZMiZm1tlxlbPfm7zXqzS0t4T6AqORpvPiitIb7JX4igTsdaSjJsD4ax3Eii/Rc
+	QIy8HN0nTDDRiRSAfu9DvTKk63/UTLWlMjcyVqdKq8tc40q3w1wCLAcHjBG44jDNBoKMp2oJ2KLA1
+	RLy9vfZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzr09-00000008otM-36Ei;
-	Tue, 10 Mar 2026 06:55:33 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
+	id 1vzrCo-00000008phr-1rZi;
+	Tue, 10 Mar 2026 07:08:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzr06-00000008ot0-3Lib
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 06:55:32 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.170])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4fVPlL2CjvzKHMMf
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 14:55:10 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id 3605440539
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 14:55:25 +0800 (CST)
-Received: from [10.67.111.192] (unknown [10.67.111.192])
-	by APP1 (Coremail) with SMTP id cCh0CgBnt9dbwK9ptOx8AQ--.50254S2;
-	Tue, 10 Mar 2026 14:55:24 +0800 (CST)
-Message-ID: <1cd2c566-382c-4bbc-a1fa-1220fd76e827@huaweicloud.com>
-Date: Tue, 10 Mar 2026 14:55:23 +0800
+	id 1vzrCm-00000008phd-2sWp;
+	Tue, 10 Mar 2026 07:08:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CA93760054;
+	Tue, 10 Mar 2026 07:08:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07921C19423;
+	Tue, 10 Mar 2026 07:08:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773126515;
+	bh=Qc8RIHVnG/G+O7zxmTFwnhzygNKfDF/os6qTjWveTVs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=uYT9unOR70JVGqoTYsi62DP00CUpknDRG8IdDFi4JEdGEdAo76g9bDLPkG96Phl00
+	 LbCjkun7dn/T+h3xoK4wHGgJ7oGke3kaqGqCgCt6BeOuL2eGt5mbB8GGhGP7Pk7XVc
+	 NPwHrliiQlldpKISdhaD1D8p5OaR7zM6R86Y6E4EoQnGEhILoa5P0W+eNlFTuMzCGW
+	 zdsRG5uxP1nnVp3A+/jyJraQTRSyLDpA8cZVpwjQNPFkTLYQdnSHRaYeGsrbGgpIy/
+	 RtWw4TZ7VAIXosVDCLyjN7u9WnzMBlzleJ6nNLd7R/Pt1b62KXCYRTAqxF49b08Lcp
+	 WXYU2lx0ic4DA==
+Message-ID: <0f336f9c-455d-4438-8b65-442ba9501e92@kernel.org>
+Date: Tue, 10 Mar 2026 08:08:30 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [bpf-next v8 0/5] emit ENDBR/BTI instructions for indirect jump
- targets
+Subject: Re: [PATCH 2/3] dt-bindings: clock: amlogic: t7: Add missing mpll3
+ parent clock
+To: Jian Hu <jian.hu@amlogic.com>
+Cc: Jerome Brunet <jbrunet@baylibre.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Stephen Boyd <sboyd@kernel.org>, Michael Turquette
+ <mturquette@baylibre.com>, robh+dt <robh+dt@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, devicetree <devicetree@vger.kernel.org>,
+ linux-clk <linux-clk@vger.kernel.org>,
+ linux-amlogic <linux-amlogic@lists.infradead.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ Ronald Claveau <linux-kernel-dev@aliel.fr>
+References: <20260305074328.639993-1-jian.hu@amlogic.com>
+ <20260305074328.639993-3-jian.hu@amlogic.com>
+ <20260306-monumental-nuthatch-from-avalon-bf108b@quoll>
+ <fb47c7f7-9eb7-4895-8652-3b5329d23752@amlogic.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-To: Anton Protopopov <a.s.protopopov@gmail.com>
-Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
- Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
- <eddyz87@gmail.com>, Yonghong Song <yonghong.song@linux.dev>,
- Puranjay Mohan <puranjay@kernel.org>, Shahab Vahedi <list+bpf@vahedi.org>,
- Russell King <linux@armlinux.org.uk>, Tiezhu Yang <yangtiezhu@loongson.cn>,
- Hengqi Chen <hengqi.chen@gmail.com>,
- Johan Almbladh <johan.almbladh@anyfinetworks.com>,
- Paul Burton <paulburton@kernel.org>, Hari Bathini <hbathini@linux.ibm.com>,
- Christophe Leroy <chleroy@kernel.org>, Naveen N Rao <naveen@kernel.org>,
- Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
- Pu Lehui <pulehui@huawei.com>, Ilya Leoshkevich <iii@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- "David S . Miller" <davem@davemloft.net>, Wang YanQing <udknight@gmail.com>
-References: <20260309140044.2652538-1-xukuohai@huaweicloud.com>
- <aa8EuW4fcwOXnIP7@mail.gmail.com>
-From: Xu Kuohai <xukuohai@huaweicloud.com>
-In-Reply-To: <aa8EuW4fcwOXnIP7@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <fb47c7f7-9eb7-4895-8652-3b5329d23752@amlogic.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: cCh0CgBnt9dbwK9ptOx8AQ--.50254S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7KFyUGw48ZF15ArW7JFW8JFb_yoW8Jw1UpF
-	Wvk342qFWDJr4kCrnrJay8GryagwsxJa1DtFn8C34xGw4Ygrn3tF4fKrW2vas0yr4YkwnF
-	vF4Y9a48u398CFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvFb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
-	14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
-	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWr
-	XwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x
-	0267AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v2
-	6r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvj
-	xUxZXoDUUUU
-X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_235531_250053_CB9DF7AF 
-X-CRM114-Status: UNSURE (   9.48  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,31 +127,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/10/2026 1:34 AM, Anton Protopopov wrote:
-> On 26/03/09 10:00PM, Xu Kuohai wrote:
->> On architectures with CFI protection enabled that require landing pad
->> instructions at indirect jump targets, such as x86 with CET/IBT eanbled
->                                                                    ^ enabled
->> and arm64 with BTI enabled, kernel panics when an indirect jump lands on
->> a target witout landing pad. Therefore, the JIT must emit landing pad
->             ^ without
->> instructions for indirect jump targets.
+On 10/03/2026 07:51, Jian Hu wrote:
+> 
+> On 3/6/2026 4:12 PM, Krzysztof Kozlowski wrote:
+>> [ EXTERNAL EMAIL ]
 >>
->> The verifier already recognizes which instructions are indirect jump
->> targets during the verification phase. So we can stores this information
->                                                     ^ store
->> in env->insn_aux_data and pass it to the JIT as new parameter, so the JIT
->> knows which instructions are indirect jump targets.
->>
->> During JIT, constants blinding is performed. It rewrites the private copy
->> of instructions for the JITed program, but it does not adjust the global
->> env->insn_aux_data array. As a result, after constants blinding, the
->> instruction indexes used by JIT may no longer match the indexes in
->> env->insn_aux_data, so the JIT can not lookup env->insn_aux_data directly.
->>
->> To avoid this mistach, and considering that all existing arch-specific JITs
->                  ^ mismatch?
+>> On Thu, Mar 05, 2026 at 03:43:26PM +0800, Jian Hu wrote:
+>>> The mpll3 clock is a valid parent clock for sd_emmc and mipi_isp on
+>>> the Amlogic T7 SoC, but was missing from t7-peripherals-clkc.yaml.
+>>> Add it to enable proper clock parent configuration for these peripherals.
+>>>
+>>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+>>> ---
+>>>   .../bindings/clock/amlogic,t7-peripherals-clkc.yaml       | 8 ++++++--
+>>>   1 file changed, 6 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/clock/amlogic,t7-peripherals-clkc.yaml b/Documentation/devicetree/bindings/clock/amlogic,t7-peripherals-clkc.yaml
+>>> index 55bb73707d58..27cc1f331587 100644
+>>> --- a/Documentation/devicetree/bindings/clock/amlogic,t7-peripherals-clkc.yaml
+>>> +++ b/Documentation/devicetree/bindings/clock/amlogic,t7-peripherals-clkc.yaml
+>>> @@ -24,7 +24,7 @@ properties:
+>>>       const: 1
+>>>
+>>>     clocks:
+>>> -    minItems: 14
+>>> +    minItems: 15
+>>>       items:
+>>>         - description: input oscillator
+>>>         - description: input sys clk
+>>> @@ -40,12 +40,13 @@ properties:
+>>>         - description: input gp1 pll
+>>>         - description: input mpll1
+>>>         - description: input mpll2
+>>> +      - description: input mpll3
+>> Nah, ABI break. You add it to the end of the list or provide arguments
+>> on ABI impact.
+> 
+> The third patch in this series enables the DT for the Amlogic T7 clock 
+> controller.
+> 
+> The clock controller node for amlogic,t7-peripherals-clkc has not been 
+> merged upstream yet.
+> This change modifies the clock index order, but it will not break any 
+> existing device tree since the
+> amlogic,t7-peripherals-clkc bindings are not used by any upstream or 
+> downstream DT at this time.
+> 
+> Therefore, it does NOT break the ABI.
 
-I'll fix them and run a spelling check before sending the next version, thanks.
+It does. Clearly visible from the diff above, because the order is the ABI.
 
+> 
+> The last clock entry is an external pad input for RTC and it is optional.
+> For logical consistency, it is better to place the required mpll3 entry 
+> before the optional entry.
+> 
+> If this change does not break the ABI, could I keep it in its original 
+> logical order right after mpll2?
+
+Change breaks the ABI and commit must explain why and the impact.
+
+
+Best regards,
+Krzysztof
 
