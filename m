@@ -4,89 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEAF6FCC9D8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 08:00:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FDDAFCC9D8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 08:03:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KqIPOwRpRqITuPKlVFROkbdbn/ZsOOONyffpgVOhaoU=; b=nA/Ks+VpIsviLKFCfKRvkcQRPB
-	R/6qNhkWpOj+Yiibgyhll8CnwDo3+xNu1IgcaXxUE66m8LaV4rH5+l2ZTjwJMmnX3QwOjoe0BneqL
-	GPKnbU8BKN3ZYJHS7rqMXBOnS7MKrNbRlsXiRyyYPk6M8KnkXHAGZDTsTbnkN9cuKU0aO1uA9H6KG
-	P0E5ywO9mKs24W3Ojp9SLmnVoOxdxSQh6L5HJ3qc4AmZ7y0tfXn5QKOW/9j/EsSSIBS8jQMdCcQ2R
-	Yeh1Grsyh/hBfpMKi8ThuPtCwceQEpyztpGjRQ0O+KbrsjU1h3wE2GDQJ4K8pUewE1jTWbHSNYKP2
-	wTlxpY2w==;
+	bh=9cAog/jJiOZAHcF3mfjX+pINQKdf8B7xpYPMgOiBJbE=; b=ipBpw1Wt1kbUrsDcFzvYxrOGwb
+	CFVnOvt0vNam/qdyRjNQl3LbiBx4XsyPR9lxPGXIKL8RGmhDBhVgCMZG7N8WQbKCzbpqEl36p90NQ
+	76RN8VVwYMvcuZz7Ql3sH2ROMkjVA65+CMMZldbRX4wqLG+J1fO69MWC6oimxe+pVvOLXpTlBXR8d
+	DujageZ3D+cBvQCjcCJZDnGzbRtbtp+IgN9vbvwlB6XZvK3AmaVScnWhenNtsb9MEaSU2qSGx71bT
+	+7wZvEmA47YWrH7x1/cO8e+kuedgPqFFrwI+VwR2yPR3SNnXQsjEqohBqYtKhExbQ2zFDpSYYo/GC
+	16cQdRBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzs0o-00000008tzu-0V4J;
-	Tue, 10 Mar 2026 08:00:18 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1vzs3V-00000008uEc-370J;
+	Tue, 10 Mar 2026 08:03:05 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzs0l-00000008tyS-2W7c
+	id 1vzs3Q-00000008uDx-07WM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 08:00:16 +0000
+	Tue, 10 Mar 2026 08:03:04 +0000
 Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 8F7AB5BCE2;
-	Tue, 10 Mar 2026 08:00:12 +0000 (UTC)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 074744D2DF;
+	Tue, 10 Mar 2026 08:02:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1773129613; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1773129778; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=KqIPOwRpRqITuPKlVFROkbdbn/ZsOOONyffpgVOhaoU=;
-	b=o417b1grygb4U5bcr08EmS1vRhQFK9p52/nq2rwbuntEHJQRUpjVjmqacZOcZhutf32+Xn
-	5OgWPvJDEkFiT6oxKZ8+bqUXQKrdAK2IH2mF9WfTeOpytZzdBSmgJz+BOokDLIeOPNkuAw
-	IS69dKx3VyHxDDvpfisucDvRNGwT850=
+	bh=9cAog/jJiOZAHcF3mfjX+pINQKdf8B7xpYPMgOiBJbE=;
+	b=Pll1L/5SSdgvVHPUp4CZ1aQjfzyJQ+b00zOkd3bvTMtSjUlmJBNidBeIKtyY1drHt8c2Bh
+	q5QBiWmA1FrCwM40Q0wdnHYx2Y5MMXmei+g2LpFEOPxXWwZrJBH4POd9OaEVSqU6DitYMy
+	RqUt3rNFls7AqGVlV3xQH01LfIUAtg0=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1773129613;
+	s=susede2_ed25519; t=1773129778;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=KqIPOwRpRqITuPKlVFROkbdbn/ZsOOONyffpgVOhaoU=;
-	b=yeyrnJxa17roC/vJq9w/4ivhroo3Hx8r4v9IIaQsYLA3/A5Wx+s8b+Lm0o8yNDUpgHFVKT
-	cGlP2WPig1lgpfAw==
-Authentication-Results: smtp-out2.suse.de;
+	bh=9cAog/jJiOZAHcF3mfjX+pINQKdf8B7xpYPMgOiBJbE=;
+	b=Ohriz17Rr/qAVXIwpWFvkVGtJfrHYByZ89uab60iD5TQe70jkp3l0s62UHd7PbbeUsY6/z
+	aNJ1RQkc2CBXCfDg==
+Authentication-Results: smtp-out1.suse.de;
 	none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1773129612; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1773129778; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=KqIPOwRpRqITuPKlVFROkbdbn/ZsOOONyffpgVOhaoU=;
-	b=XxY1irlyv+6vHvL/qq6l5FjMEqq7N7a5EDvS80n7HnnA9FRccwQTAeo29dXefz+GcbBhnN
-	1PiddYHVJstoFxESlmh+yhbLxP2XO/yj3bZqpGprl3AjmD4UNDac3HB2hFkeS/mHZOyIt0
-	Pyrhm5kfM/ScCJSgv5e2QGC8sY86198=
+	bh=9cAog/jJiOZAHcF3mfjX+pINQKdf8B7xpYPMgOiBJbE=;
+	b=Pll1L/5SSdgvVHPUp4CZ1aQjfzyJQ+b00zOkd3bvTMtSjUlmJBNidBeIKtyY1drHt8c2Bh
+	q5QBiWmA1FrCwM40Q0wdnHYx2Y5MMXmei+g2LpFEOPxXWwZrJBH4POd9OaEVSqU6DitYMy
+	RqUt3rNFls7AqGVlV3xQH01LfIUAtg0=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1773129612;
+	s=susede2_ed25519; t=1773129778;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=KqIPOwRpRqITuPKlVFROkbdbn/ZsOOONyffpgVOhaoU=;
-	b=RnDGfbwPaYH43ILigTiDcxfdc3THG82seo8ebtbd6iaaInNOZsnTCb23L2oriXkrYCt9AZ
-	sH2DVfeJxD7IqDAQ==
+	bh=9cAog/jJiOZAHcF3mfjX+pINQKdf8B7xpYPMgOiBJbE=;
+	b=Ohriz17Rr/qAVXIwpWFvkVGtJfrHYByZ89uab60iD5TQe70jkp3l0s62UHd7PbbeUsY6/z
+	aNJ1RQkc2CBXCfDg==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 1F0073F353;
-	Tue, 10 Mar 2026 08:00:12 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 8A70E3F353;
+	Tue, 10 Mar 2026 08:02:57 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id DSAsBYzPr2necwAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Tue, 10 Mar 2026 08:00:12 +0000
-Message-ID: <b58b64a2-fc89-4643-a428-c4551aa4b7aa@suse.de>
-Date: Tue, 10 Mar 2026 09:00:11 +0100
+	id AmIhIDHQr2nVdgAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Tue, 10 Mar 2026 08:02:57 +0000
+Message-ID: <c6d68974-fd3e-42a6-bdff-35f15d2a1a24@suse.de>
+Date: Tue, 10 Mar 2026 09:02:57 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND 1/4] drm/prime: Limit scatter list size with
- dedicated DMA device
+Subject: Re: [PATCH RESEND 2/4] drm/gem-dma: Support dedicated DMA device for
+ allocation and mapping
 To: Chen-Yu Tsai <wenst@chromium.org>,
  Matthias Brugger <matthias.bgg@gmail.com>,
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
@@ -100,7 +100,7 @@ Cc: linux-sunxi@lists.linux.dev, Paul Kocialkowski <paulk@sys-base.io>,
  linux-mediatek@lists.infradead.org, dri-devel@lists.freedesktop.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20260310032511.2545500-1-wenst@chromium.org>
- <20260310032511.2545500-2-wenst@chromium.org>
+ <20260310032511.2545500-3-wenst@chromium.org>
 Content-Language: en-US
 From: Thomas Zimmermann <tzimmermann@suse.de>
 Autocrypt: addr=tzimmermann@suse.de; keydata=
@@ -127,7 +127,7 @@ Autocrypt: addr=tzimmermann@suse.de; keydata=
  SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
  Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
  4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <20260310032511.2545500-2-wenst@chromium.org>
+In-Reply-To: <20260310032511.2545500-3-wenst@chromium.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-Spamd-Result: default: False [-2.80 / 50.00];
@@ -152,10 +152,10 @@ X-Spamd-Result: default: False [-2.80 / 50.00];
 	RCVD_COUNT_TWO(0.00)[2];
 	TO_MATCH_ENVRCPT_ALL(0.00)[];
 	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[chromium.org:email,suse.de:mid,suse.de:email,suse.com:url]
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,chromium.org:email,suse.de:mid,suse.de:email,suse.com:url]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_010015_789643_A25E397F 
-X-CRM114-Status: GOOD (  18.15  )
+X-CRM114-CacheID: sfid-20260310_010300_360103_1AD7BF68 
+X-CRM114-Status: GOOD (  27.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,37 +173,101 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 Am 10.03.26 um 04:25 schrieb Chen-Yu Tsai:
-> If a dedicated DMA device is specified for the DRM device, then the
-> scatter list size limit should pertain to the DMA device.
+> Support for a dedicated DMA device for prime imports was added in commit
+> 143ec8d3f939 ("drm/prime: Support dedicated DMA device for dma-buf imports").
+> This allowed the DRM driver to provide a dedicated DMA device when its
+> own underlying device was not capable of DMA, for example when it is a
+> USB device (the original target) or a virtual device. The latter case is
+> common on embedded SoCs, on which the display pipeline is composed of
+> various fixed function blocks, and the DRM device is simply a made-up
+> device, an address space managing the routing between the blocks, or
+> whichever block the implementor thought made sense at the time. The
+> point is that the chosen device is often not the actual device doing
+> the DMA. Various drivers have used workarounds or reimplemented the
+> GEM DMA helpers to get the DMA addresses and IOMMUs to work correctly.
 >
-> Use the dedicated DMA device, if given, to limit the scatter list size.
-> This only applies to drivers that have called drm_dev_set_dma_dev() and
-> are using drm_prime_pages_to_sg() either directly or through the SHMEM
-> helpers. At the time of this writing, the former case only includes the
-> Rockchip DRM driver, while the latter case includes the gud, udl, and
-> the tiny appletbdrm and gm12u320 drivers.
+> Add support for the dedicated DMA device to the GEM DMA helpers.
+>
+> No existing driver currently uses the GEM DMA helpers and calls
+> drm_dev_set_dma_dev() to set a dedicated DMA device, so no existing
+> users should be affected.
+
+In these patches (or at least the series' cover letter) you should 
+mention that drm_dev_dma_dev() returns the regular device if no DMA 
+device has been set.
+
 >
 > Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 
 Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
 
 > ---
->   drivers/gpu/drm/drm_prime.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
+>   drivers/gpu/drm/drm_gem_dma_helper.c | 21 ++++++++++++---------
+>   1 file changed, 12 insertions(+), 9 deletions(-)
 >
-> diff --git a/drivers/gpu/drm/drm_prime.c b/drivers/gpu/drm/drm_prime.c
-> index 51fdb06d3e9f..9b44c78cd77f 100644
-> --- a/drivers/gpu/drm/drm_prime.c
-> +++ b/drivers/gpu/drm/drm_prime.c
-> @@ -859,7 +859,7 @@ struct sg_table *drm_prime_pages_to_sg(struct drm_device *dev,
+> diff --git a/drivers/gpu/drm/drm_gem_dma_helper.c b/drivers/gpu/drm/drm_gem_dma_helper.c
+> index ecb9746f4da8..70f83e464476 100644
+> --- a/drivers/gpu/drm/drm_gem_dma_helper.c
+> +++ b/drivers/gpu/drm/drm_gem_dma_helper.c
+> @@ -146,12 +146,13 @@ struct drm_gem_dma_object *drm_gem_dma_create(struct drm_device *drm,
+>   		return dma_obj;
+>   
+>   	if (dma_obj->map_noncoherent) {
+> -		dma_obj->vaddr = dma_alloc_noncoherent(drm->dev, size,
+> +		dma_obj->vaddr = dma_alloc_noncoherent(drm_dev_dma_dev(drm),
+> +						       size,
+>   						       &dma_obj->dma_addr,
+>   						       DMA_TO_DEVICE,
+>   						       GFP_KERNEL | __GFP_NOWARN);
+>   	} else {
+> -		dma_obj->vaddr = dma_alloc_wc(drm->dev, size,
+> +		dma_obj->vaddr = dma_alloc_wc(drm_dev_dma_dev(drm), size,
+>   					      &dma_obj->dma_addr,
+>   					      GFP_KERNEL | __GFP_NOWARN);
+>   	}
+> @@ -236,12 +237,14 @@ void drm_gem_dma_free(struct drm_gem_dma_object *dma_obj)
+>   		drm_prime_gem_destroy(gem_obj, dma_obj->sgt);
+>   	} else if (dma_obj->vaddr) {
+>   		if (dma_obj->map_noncoherent)
+> -			dma_free_noncoherent(gem_obj->dev->dev, dma_obj->base.size,
+> +			dma_free_noncoherent(drm_dev_dma_dev(gem_obj->dev),
+> +					     dma_obj->base.size,
+>   					     dma_obj->vaddr, dma_obj->dma_addr,
+>   					     DMA_TO_DEVICE);
+>   		else
+> -			dma_free_wc(gem_obj->dev->dev, dma_obj->base.size,
+> -				    dma_obj->vaddr, dma_obj->dma_addr);
+> +			dma_free_wc(drm_dev_dma_dev(gem_obj->dev),
+> +				    dma_obj->base.size, dma_obj->vaddr,
+> +				    dma_obj->dma_addr);
+>   	}
+>   
+>   	drm_gem_object_release(gem_obj);
+> @@ -432,7 +435,7 @@ struct sg_table *drm_gem_dma_get_sg_table(struct drm_gem_dma_object *dma_obj)
+>   	if (!sgt)
 >   		return ERR_PTR(-ENOMEM);
 >   
->   	if (dev)
-> -		max_segment = dma_max_mapping_size(dev->dev);
-> +		max_segment = dma_max_mapping_size(drm_dev_dma_dev(dev));
->   	if (max_segment == 0)
->   		max_segment = UINT_MAX;
->   	err = sg_alloc_table_from_pages_segment(sg, pages, nr_pages, 0,
+> -	ret = dma_get_sgtable(obj->dev->dev, sgt, dma_obj->vaddr,
+> +	ret = dma_get_sgtable(drm_dev_dma_dev(obj->dev), sgt, dma_obj->vaddr,
+>   			      dma_obj->dma_addr, obj->size);
+>   	if (ret < 0)
+>   		goto out;
+> @@ -539,12 +542,12 @@ int drm_gem_dma_mmap(struct drm_gem_dma_object *dma_obj, struct vm_area_struct *
+>   	if (dma_obj->map_noncoherent) {
+>   		vma->vm_page_prot = vm_get_page_prot(vma->vm_flags);
+>   
+> -		ret = dma_mmap_pages(dma_obj->base.dev->dev,
+> +		ret = dma_mmap_pages(drm_dev_dma_dev(dma_obj->base.dev),
+>   				     vma, vma->vm_end - vma->vm_start,
+>   				     virt_to_page(dma_obj->vaddr));
+>   	} else {
+> -		ret = dma_mmap_wc(dma_obj->base.dev->dev, vma, dma_obj->vaddr,
+> -				  dma_obj->dma_addr,
+> +		ret = dma_mmap_wc(drm_dev_dma_dev(dma_obj->base.dev), vma,
+> +				  dma_obj->vaddr, dma_obj->dma_addr,
+>   				  vma->vm_end - vma->vm_start);
+>   	}
+>   	if (ret)
 
 -- 
 --
