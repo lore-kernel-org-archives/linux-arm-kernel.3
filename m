@@ -4,68 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D40D3EB1042
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 10:22:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA2CBEB1042
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 10:25:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tO8o5psNJZ2qR9UHpfV+KG0CtdqeJkCrtjFX1YzkKoM=; b=Vv/0uVh/jUCbL97xYbXPMcRiAz
-	u2kSucYcX9YH/EFQ8tVSb52EzBirSDYGsxtidTZzV+oRBh4hPb73VfVjl/stZiwdq3jXtg5yw1jFx
-	2H7aU5z4i+i08z7f87Lpf+ie7CYTgArDp//1U+glO21t8XvMHwiR6zGYO5HPkB8HUdOymGj2C7ww+
-	m2IrS8+VEOVseIxKR8XdWDYO+2x+f+MjBm0yWH/qM1bBL/a2yBzTQDEo51RBur2JPyS1ocRJAdMwi
-	XG9IDCHk/8eGPHvPbp+haZofDk+2DJoGyESFxDv/m/BQ0mH4Qas2ZgleGHhPd6tOb2BIyUaLF91M8
-	imHTigCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3ezt7r5MPZcpZqnlMod22aGxAG5DNKkRttNoQ3zj5LA=; b=qjJaer0UcjMVE1+bKBRrXZuAbO
+	XrXB2uU3J58V8IF4CizEefEysXQBO3SyNzlqQgu6jAR/wQMgs8C63OfQAjDIyJ4SgiSSsN8AUs/lF
+	AZ/hWkU87FeGBFJngrK4n4yarLOP9cVuNsGiZq/7WpAgvJxy2SSnqF64hdeFru92hG+GWnex7RY8r
+	6JD9evY6bOMfHSGzw3Ai9dacCMpQVJgZUrs5JNP+dVswEbc19+Q4OWqovtq5Zix7HFzRx2BvSEeMc
+	p2AvbClxLfZXVeEWFJAjUX3qgNycaBT6p8WrgkbbCFmx8zRIof++32lhQSPcaorab8UEWFdtlq3y9
+	YBNEkRTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzuER-00000009BQN-2vBg;
-	Tue, 10 Mar 2026 10:22:31 +0000
-Received: from mout02.posteo.de ([185.67.36.66])
+	id 1vzuHe-00000009BjP-41R6;
+	Tue, 10 Mar 2026 10:25:50 +0000
+Received: from mail-northeuropeazon11011047.outbound.protection.outlook.com ([52.101.65.47] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzuEP-00000009BPy-02Dx
+	id 1vzuHb-00000009BiP-390u
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 10:22:30 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id 303E0240101
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 11:22:23 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net; s=2017;
-	t=1773138144; bh=tO8o5psNJZ2qR9UHpfV+KG0CtdqeJkCrtjFX1YzkKoM=;
-	h=Date:From:To:Cc:Subject:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:From;
-	b=gsFsIoCr9uZZKPz4ar5qI8Ox0LsZElQLsYQMiD0ABLHKVt5jdzCI1/6aBnQp3Hlwc
-	 dEVxhcnE+zu60m2er6vSYoBzRKA5dLOMGWcGEDlRL4xBA9dyoK4IEwsWc4chN4GMLl
-	 7lGBYCjoVrbN0m788jZRPqyp+ASBZoZutFJ8/aJ88amUMHP6+xtED3cs2yHUgiDlqR
-	 kbFxXBF873fU+bB58RDWwEuzhzv34Nd0ER7P1xMsYvaRqpB6ONygS3RGRgHafj2vlU
-	 VcS81f3ClfS1LxozRZxCQHRec7gNayyELN0/YtJuHo4O7qJ2zIEDQBGnK34uu5WbOu
-	 TujPQ2QHDqfhQ==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4fVVLP2Xrvz6tx7;
-	Tue, 10 Mar 2026 11:22:21 +0100 (CET)
-Date: Tue, 10 Mar 2026 10:22:23 +0000
-From: Wilken Gottwalt <wilken.gottwalt@posteo.net>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: Chen-Yu Tsai <wens@kernel.org>, linux-renesas-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org, Bjorn Andersson <andersson@kernel.org>,
- Baolin Wang <baolin.wang@linux.alibaba.com>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- linux-remoteproc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v4 09/15] hwspinlock: sun6i: use new callback to
- initialize hwspinlock priv
-Message-ID: <20260310112220.771011e0@posteo.net>
-In-Reply-To: <aa_sckE7C3kwqYxb@shikoro>
-References: <20260310075539.11701-1-wsa+renesas@sang-engineering.com>
-	<20260310075539.11701-10-wsa+renesas@sang-engineering.com>
-	<CAGb2v64gTM41Q3aBkS+dqJ7w9fHtePte-6jeoFR3j-O1_aX9-Q@mail.gmail.com>
-	<aa_sckE7C3kwqYxb@shikoro>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+	Tue, 10 Mar 2026 10:25:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=n7ldkBKWb1kHImQ+Kc3RCc1Kt/p6Xq+2zC6JsRRmxeac4Q22GBuRkGmmtYen1zOjCzdiPn6kDDmCRlpaFpAIs/Nbe5x6hurKdXIQrEn3naxc2/Md473jZtJEOSmhjwIdALjpSVaPOhhIRzY9O3tUtbmWQQHtYYKci5oMPOxHprG0AlGHO6ON9+BHa3yme/0YxRcZqRT2QUHi52HDPj7SFEH3xL13ixDm65TAO3JhwtsIuJxne+gbHx1MtkLvsg0V+K5PDC/ymKnDLJ+Ca8+GB9q6pyM/YxqjOI3PWhcPgeFGvaBK+3NKTmCBE/dkG3GA2mu23BRQIBpA00sgWfPT6g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3ezt7r5MPZcpZqnlMod22aGxAG5DNKkRttNoQ3zj5LA=;
+ b=j8cSu9H0nNOUKpfTbNqFCclEiiiOfqMmmkzAwDiuYUgVNAIOVWE8reGBTmmgw/Q7kVUz6Z3sQ88rzYoNh0XZIwVH07u9z7jZfY0WkmYZD2PA9mMAXv8jFAqzKbd6XlImGkOtN798oxgrKT61gyLSL7A8FWUmAup4QY8QAW3becmBZUbOMIxVNJ2/6YF3O5BIqcfCc+jbvRrKwovoB/pDQUKTcEjT6fVKNR1UYX5hpIvIlyNEOmDVjot2LNsolHMW4i0cWhUljDLrUhvOq7rXpYTfJZEs3y2KJIj2Rgmnt7Y9+JWnD2ebBHhP1t/5qmCag/CA1mkSqGXUQNdRX9S8Og==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3ezt7r5MPZcpZqnlMod22aGxAG5DNKkRttNoQ3zj5LA=;
+ b=curTfLvuH6/12XZP5MKV/JxCV2X6Fvdn8pu7AlMwnPr5riTwdLMYr4xNtRhhEjz+FHE7IUwBdZmoq2IABpVFP8bpGFtBAwlxS7eETB/L9l1f6SCZX6C3hg6X+t4m7i+l2DJyXPCxvjWywBaqK7S77zwU6oeDLXgqLyOMFw/NMtk=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from GVXPR04MB12038.eurprd04.prod.outlook.com (2603:10a6:150:2be::5)
+ by PA6PR04MB11802.eurprd04.prod.outlook.com (2603:10a6:102:521::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.25; Tue, 10 Mar
+ 2026 10:25:42 +0000
+Received: from GVXPR04MB12038.eurprd04.prod.outlook.com
+ ([fe80::6c04:8947:f2f0:5e78]) by GVXPR04MB12038.eurprd04.prod.outlook.com
+ ([fe80::6c04:8947:f2f0:5e78%6]) with mapi id 15.20.9678.023; Tue, 10 Mar 2026
+ 10:25:41 +0000
+Message-ID: <df1cf96c-cbd9-4ea7-a5da-9e69b91db2c1@cherry.de>
+Date: Tue, 10 Mar 2026 11:25:31 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] clk: rockchip: rk3588: Don't change PLL rates when
+ setting dclk_vop2_src
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, zhangqing@rock-chips.com,
+ sebastian.reichel@collabora.com, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ andyshrk@163.com, macromorgan@hotmail.com,
+ Heiko Stuebner <heiko.stuebner@cherry.de>, stable@vger.kernel.org
+References: <20260304121426.1184680-1-heiko@sntech.de>
+ <20260304121426.1184680-2-heiko@sntech.de>
+Content-Language: en-US
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <20260304121426.1184680-2-heiko@sntech.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR4P281CA0245.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:f5::9) To GVXPR04MB12038.eurprd04.prod.outlook.com
+ (2603:10a6:150:2be::5)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12038:EE_|PA6PR04MB11802:EE_
+X-MS-Office365-Filtering-Correlation-Id: d2e44a52-8704-4744-c431-08de7e8f6186
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: XxQOqre+9J63qcpbv29APpRLK3I00zSdcMyZPX4uKteQasHyEiBVRla5hFDm3DGLAOM6DpnzrMmjMBoyZVfNFSrUdNNbr4fsl68QdsGrfjF2KAz6El2VdsDbD3sqAqbc0CAAP1DosybtiDoRTsaaUwBi3WuIJZPGTczoyZP0WOwaxYeyj+2Y8HSjOJr3DwDABq0Tw/R6ztBwxe6dGeKOQBMjMTgYYkj5y4WTbIqtEFCItc370+8J1p8GcDhoQpR/GXHdnxjs0ASlDK101a4ZKVXdublFEhofRxRo8zKGnInM0NOtlR80qEMtvLUJbBclc1T7FdICVOwPDmQoYCjjeYItbM4tPDmzaQKUddqKMphws0YU0TWP3GB8TZmM5P6J5wzQGa1yJWFd6CkAGP6q78DVVzSofgJcRFbTwqSwla942IUdZkVyvG7CVQHOjw0hZrSOW1tOuk4KzxTe2h0bDKPrV++5R3KiAKWWxs/WtYmawVzYHinPyTtZBC1bhMuTkpcasYyU14/EM1wdpG1VCWXnjwLCF637fDnk31L/OJIlkuGXl+F39hZ7lePmQThxo+8TmocLFu9ylPTWZiDqOlMYRmXqxr2cXixaTBdmn03f3Lt58RUfmbzyRghsCmUErDRvEWibDd19uXw1/HL7PFstgeMx5P2p/N7I99ZWG3+7cMUCWwm8za5tehTXe8G2WfvBB0yc25l+M0Awh22WL95AKu2i/yi0/AnIHjjvGs8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12038.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VDh6eERpdzFXcmpvQWEwVGtxdTVRY0o0T2M1MjI3SGs1eVVxSlM3amRMR3R1?=
+ =?utf-8?B?QVdDOFFucW1JUmlramw0UmJzbi9NNFlBVnhyUFgvZjA3MXlBR2lWSTBzOFRT?=
+ =?utf-8?B?WWc0SU1yNmo4VHB3OFV3RG5Wci9uOEFYbks5ZHdxZGdsc0dSaUFTZGFtNHhs?=
+ =?utf-8?B?dlpCbjlsMlBpQ01ZMHhhTVVRaWs2MDJJcUUveGN3S2RiQ3MwYUNzTllWWlh2?=
+ =?utf-8?B?SnpocjNpY3kyQzVKaGJ1bnN0bjFGVTdTTnlsQnZCbzFjd3g2WWlkV1kxck5o?=
+ =?utf-8?B?TUg0OUxBOEJvalJ3UWtDbjhrdkR5T3MzTExIVHpXK3kxeW9tNUU4TExNS2dD?=
+ =?utf-8?B?VStUaTNQTmgwYkYvVEZublBVcjJTS0RwaFliTVJmS0VTcFZkYmFXcTlybXpC?=
+ =?utf-8?B?T1ZPdU5EVU9YaXlmYWZrUkRDN2tKMVBSUGZSRmNrRi9rcXV1OEI4QXlSUmpl?=
+ =?utf-8?B?ZVRoTS9VamJPUmxKTnF3eGZBMk5XSDBXaURLblBvencyMUxmNWZudVhyWEd3?=
+ =?utf-8?B?SHRBdXE1THVHMENMcEY4MUVMRkdmNHNBQngxeUdpNEFObU5NRHBoZUdJRnI3?=
+ =?utf-8?B?Z1Bic1Z0SzREV29IbE01SGwrOEZjaldObTZMSEd1R0g3NFc5bW1TZkFzZHA4?=
+ =?utf-8?B?V3g3dTc1ZlpzRERZTmwxSGxJWHpUSHlZTlNJa2lDdURzbDBRcTlkdFZGdzNG?=
+ =?utf-8?B?UTI2NXNpWk5oczIzdksrSXpxMW1OQ3JPZnFPbXVobG95eXNoY3VZQXhUU1RY?=
+ =?utf-8?B?bStZZzcyTmtiMHY1RTJ5TldoS1VpVm53U3gxWUdpREoyQkxRNjRPK2V0aGVv?=
+ =?utf-8?B?RlZ4dGVleGJxOFZuZXRlVks0NXRaNjZ3QnBQK0JaeC9aYVZGV0xZVnQ2U0Vt?=
+ =?utf-8?B?SktJdndvKysxcjU1eVJoU1l2VlpyUFVkME5VUDhvemlTSEowL3ZtZDA1QU9z?=
+ =?utf-8?B?eU5Eb3dpckxaUEpDcjdyd3NUWnFvQUhRMHkwMFVEdlJlK2NwOXRsbURrdHVm?=
+ =?utf-8?B?aVJJcUdveXF3UGMwZFpUNmcrd2ZSWlRIMTlpUFkyTUNKS3NubndIRU4rbU1M?=
+ =?utf-8?B?eU56a0lVRkQ3ODhYa3V2dGZ0cS9rdEh0eVhMcUFpbUJVbU1SOTBsVm95UzVL?=
+ =?utf-8?B?VG5HS3p5MFVST3hZNjNpODRSVGVvam80UVBveDNLUElJbzRFck9PQ3pMaTlk?=
+ =?utf-8?B?UlJBUnpKZHF4d1ltRUNIUVp2RmdVZjVIS3RlWHdhYm1WYjA5anJHQVNUbWlF?=
+ =?utf-8?B?S0tGUzBKS0FKU2F2MFJrUHdlVHlOR3ZLVGpMemVxcnk4VTN6Z05wMzJzaVYz?=
+ =?utf-8?B?NXo3akhaRVYrNk9ib2ZiOTFKUW9sZ2JkaDZqcDhJSEN0b3Z6V1EwUHZNRXlJ?=
+ =?utf-8?B?WnNJcXhZQ1ZnbXZ2dHQ3OFlKMURpc3A1OUg2K3hobVFCKzRCN1NjWkF6N2t6?=
+ =?utf-8?B?YUJpZGtEb0NFTFVTaVlyTXcyRnlzc2FIMzh1N3ZhbnErdVBsZTk3d3FiMHJo?=
+ =?utf-8?B?TS9sZmZJTmRtNnBGQzRRUUN4c1BkY1JqYUhCd3hpTm9uNUc1TnlXc1N2Tity?=
+ =?utf-8?B?UHE3UnpyMTVFUW4vMnhIVTJJY0dmSG5tSElsMkZPbnc3dG00Ui82S0phVjQx?=
+ =?utf-8?B?MVRqa2RnRlpIbFc4WGFDNDdETUlEbExiUUZjcmo0QjF1d0VSYnN4N2tSY1pG?=
+ =?utf-8?B?NUhCVFJKTlQxN0FyOU5PRnkrU1FGZ3JGUHFMdnVIWmhXSkNZM0tvSUtaZXBC?=
+ =?utf-8?B?cmk2VERqTnVYSTdyWDRBdXgrYWtJRlluTmhXVUJaTXNEV1k3WjFzcFVMQTRw?=
+ =?utf-8?B?VTFKNGdyWVIwYVlpeTBPYzVjaGlLUjhXMTlyQUwyRzBkSkdjVWhUQk96R2Zt?=
+ =?utf-8?B?TDZZVEdZb0hnLzJMcyt1VXp6RWxwbHZNdWhBaWRvWklMZjZpM05GTDZ5NEdG?=
+ =?utf-8?B?QURaZmpxWDU3Q3A4L2xVVWhQcVozNEpYOTN0d0E2cm1DTDRYNy83aGN4Z0h4?=
+ =?utf-8?B?RHl2TE1wd0pIWUJDSVdidUd5a3d4VitXbnNOMmY0M211ak0xQlJxb2QwTW9n?=
+ =?utf-8?B?YlNUNmF4UHhEODFyMkdUSlptZ0FGdUdhdWNiTjNBZC9acXZnMVVoUkxISmVv?=
+ =?utf-8?B?bFBGY3p5c29JUUtPdnN0TjM5MFVEZjZ4UUZaTmo1UDh5cTFoQmVPaEdVVEdW?=
+ =?utf-8?B?SEZPMG9pK1hiNzhMOUM1M3FMTnNoUjJuRHRObVJ5VnlmeFVmYklGcmw1MElp?=
+ =?utf-8?B?bnJxZi8reVlsa1ZhSzRaVnJIbnR2VHNhcHhYK2F3VUNSQ3NlcEVDbUNpSnEy?=
+ =?utf-8?B?VGREc1VpbHpmaWNqYlZUZEo3TGxOeXFkbXNqWkRoN2VzZXJMWVZDdz09?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: d2e44a52-8704-4744-c431-08de7e8f6186
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12038.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2026 10:25:41.7738
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HXgcy69SQXASqc2mBhpHY8aSKPlyzhdTfnX+TjIV9nOqTy+YX9/TeRITvHIgIVUikZ+m/lOsnz14HUY4OLPilqQ5YdDGD1ncJLJI+En4P5Y=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA6PR04MB11802
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_032229_197302_9D681F24 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20260310_032547_784844_0158A808 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,25 +151,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 10 Mar 2026 11:03:30 +0100
-Wolfram Sang <wsa+renesas@sang-engineering.com> wrote:
+Hi Heiko,
 
-> Hi ChenYu,
+On 3/4/26 1:14 PM, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
 > 
-> > >  bank_fail:
-> > >         clk_disable_unprepare(priv->ahb_clk);
-> > 
-> > Just a note, I see further code savings in using the clk and reset devm_
-> > helpers. I'll do this after this series is merged, as the context overlaps.
+> dclk_vop2_src currently has the CLK_SET_RATE_PARENT flag set, which is
+> very different from dclk_vop0_src or dclk_vop1_src, which don't have it.
 > 
-> Yes, I saw this, too, but thought that this needs HW for proper testing.
-> Great that you are up for it!
+> With this flag in dclk_vop2_src, actually setting the clock then results
+> in a lot of other peripherals breaking, because setting the rate results
+> in the PLL source getting changed:
+> 
+> [   14.898718] clk_core_set_rate_nolock: setting rate for dclk_vop2 to 152840000
+> [   15.155017] clk_change_rate: setting rate for pll_gpll to 1680000000
+> [ clk adjusting every gpll user ]
+> 
+> This includes possibly the other vops, i2s, spdif and even the uarts.
+> Among other possible things, this breaks the uart console on a board
+> I use. Sometimes it recovers later on, but there will be a big block
+> of garbled output for a while at least.
+> 
+> Shared PLLs should not be changed by individual users, so drop this flag
+> from dclk_vop2_src.
+> 
+> Fixes: f1c506d152ff ("clk: rockchip: add clock controller for the RK3588")
+> Cc: stable@vger.kernel.org
+> Tested-by: Quentin Schulz <quentin.schulz@cherry.de> # RK3588 Tiger w/ DP
 
-Not only that. You may also need to run the CRUST firmware on the OpenRISC
-companion core. Getting that hwspinlock driver done and tested was some real
-pain in the past. I still have everything on github for this
-(https://github.com/wgottwalt/sunxi_hwspinlock). But I may not be able to test
-that in time. I moved a while ago and, uhm, quite some hardware disappeared.
+Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
 
-greetings
+Thanks!
+Quentin
 
