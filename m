@@ -4,129 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70FE8EB1071
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 15:24:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A35B1EB1071
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 15:26:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dMGlkNgRfmW0WZkBPii+MnaoNLvkWEKsO8PlpD0+fTY=; b=4TkRYREhscz0MIE/O+JTMFFiLv
-	xiwCGV7GPZfBnNUg5Vo9glmkAzuei0as9Yc9dZHwsgkJrQdxpU8ZiERH19UobyKa2qMRgDmjzMb5L
-	UMqQG87fMv1sswHhPLrRWcs2sp6umRvCyPbRXEcAAwIrVKRlfE0V1iefEUigaBPHpmS5KzwfOQXB5
-	1Wozou8lg+LwiVKmyh7PW8EBn6rQ8lEAGo44sXC8MZ/enqUDmoiGBa6okJi7dRFTOVzGBFS+Lqv7y
-	2IXbZOD8vTlTl7lI6VwSIk2nRmtQ3QE4Zy4O7GqPIom8EkfmAI6KhJ/DuU0cw6+BizXmd/kM6GYG7
-	WUSqE2sA==;
+	bh=99zyft5Fjn0SAaq//GMdgUcwm4kJZBkeCZ3MNcMBqmU=; b=Qf1NpBoP+x/XLiClqraO081EZO
+	6A6UCaWKA1lrsP8cV/jn4IMc/SObC+UBv6hDpJim9ldKRHlldD4hsXbd4eWOxHGDwaURYVLxzI/0q
+	fhJGH8CcAYNDSSrfXi6G+KpWYyBwC56q+a+1+2o9aXMRW9CXXGe5Jc6oougJuhLbYvsSWt1cMr4D3
+	wX/+YxcqeCkD3lRgsXCJOGkZSpT1oMTVIlGyWi1W+d8ZfnVD99MsEc2XpxBng9kb1kEEAmyMKwvYE
+	6PHRmd6RElNir7PjXmnMNavLyDtqMIrPikoeofIjfhQDBC2pTM3dD/P+plHJbeyVfequKDC5KTH9B
+	iPG0Hp7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzywA-00000009nSS-3mKm;
-	Tue, 10 Mar 2026 15:23:58 +0000
-Received: from mail-northeuropeazon11011003.outbound.protection.outlook.com ([52.101.65.3] helo=DU2PR03CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzyw9-00000009nS4-1OPW
+	id 1vzyyP-00000009o9S-1Ppu;
+	Tue, 10 Mar 2026 15:26:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vzyyN-00000009o96-0DtA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 15:23:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=zKp8Oy3Z3OroCh9OqO5UKKGBVRzdR6F3N9BghtHp1cQQpyAPH63OMd8rYORquarVUOpyCiRlgZpGrHa0+UPhdT6o1SNsfr4PSk+G4uzQ72AcZJK3qUrlQ2dAKfFYxfljTV2DspKoQ5UvYUDt8ezfVBqGW8fdfIL5DCfyUqPd7O77v37561sD6BjgCpKljSn4h8P3iLxT61Ss+MxcWfvUOtumQkGGncbLe9NSHcb5YnUk1WQF7ZIqbXzqSUPK3SrAbGdXiU1R90uthaySV+8xpKWGIKmiy6iENIZ5sH/diG9L2KQqx6MYg/xuUuOy0161Z9jt4ggT3sUpYicSOiB7SA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dMGlkNgRfmW0WZkBPii+MnaoNLvkWEKsO8PlpD0+fTY=;
- b=aPQt7fQTJL4NIUdNbUDDklSJwJITaBH+ZP1XQOVkITkGmyP/eo0pTRcYTY/EEAKozXpFgakGCdYzWK+TWH6J4BiEx2+uIls3mgkl+XniLKQ+xMPhjnBUJL4/eplRIVONq9fTw+R2Fd/OGVtSFoTIoMc4WEXdk5d+dRAdQGYRu9C2oHGYvHJ8KCHGGkem6ztUOX5M/ztF/VbtCF0vz17SV/RFg+Ec5quMF0cjZbFrIFIJGpOclipjTCDo49Kc+ssrGSeIjdp+nPWL2mTnTulPeLWNhVi8edutuYq6/RlQ0tbypE8uE2q+A9uRiTDHEHyo0dfYmyFT1ukyZ4N7DJ30Fg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dMGlkNgRfmW0WZkBPii+MnaoNLvkWEKsO8PlpD0+fTY=;
- b=RKXYCZwwNLgk9NeQuSp+zcJ94gSiAwFmbkLDZxwDH9DpmiaI8yg4TKO2rzdqef2djqfYgzEtPK8oBP/2r/y5LTnYmymu4rhIxmQHR1Y0oHVwQ00VTbWdFMFYJHmUKzuTC5Cy18wBuPITkneQAKSEOnDpyVOSp3zyfISapyA/7RNyybxsAT6CQGJqWvHdfszMlHnJX3VNFGAIQU2HYfrtcsbeOwOXbtg9KFCBcpx0dfv1+afDblT6RTv5hxwMTye6eqEoYeFF2RPll3F6DQMNgfOsvMW3MQsSZ3vJ4AMgZ71r8Pw0ZTwcaueeXtPhduUhAuLK3TPcQ4z2dXwFJxVuGg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by VI1PR04MB6912.eurprd04.prod.outlook.com (2603:10a6:803:134::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.18; Tue, 10 Mar
- 2026 15:23:51 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9678.017; Tue, 10 Mar 2026
- 15:23:51 +0000
-Date: Tue, 10 Mar 2026 11:23:41 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Sherry Sun <sherry.sun@nxp.com>
-Cc: hongxing.zhu@nxp.com, l.stach@pengutronix.de, bhelgaas@google.com,
-	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	s.hauer@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev,
-	kernel@pengutronix.de, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V7 04/13] PCI: imx6: Assert PERST# before enabling
- regulators
-Message-ID: <abA3cM-Icmz47Ti2@lizhi-Precision-Tower-5810>
-References: <20260310015426.365675-1-sherry.sun@nxp.com>
- <20260310015426.365675-5-sherry.sun@nxp.com>
+	Tue, 10 Mar 2026 15:26:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BF302169C;
+	Tue, 10 Mar 2026 08:26:04 -0700 (PDT)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 780B33F7BD;
+	Tue, 10 Mar 2026 08:26:09 -0700 (PDT)
+Date: Tue, 10 Mar 2026 15:26:04 +0000
+From: Joey Gouly <joey.gouly@arm.com>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH RESEND 2/2] KVM: arm64: nv: Expose shadow page tables in
+ debugfs
+Message-ID: <20260310152604.GA3093715@e124191.cambridge.arm.com>
+References: <20260308231829.864983-1-weilin.chang@arm.com>
+ <20260308231829.864983-3-weilin.chang@arm.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260310015426.365675-5-sherry.sun@nxp.com>
-X-ClientProxiedBy: PH8P220CA0026.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:348::12) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI1PR04MB6912:EE_
-X-MS-Office365-Filtering-Correlation-Id: f548b2b8-cf65-4ac9-1726-08de7eb9086f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|376014|1800799024|7416014|366016|38350700014|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: I52nz5lX1KJgJ37lfjQETSN7MiTRZ6IqJ2BDLpOFwr+8t40F2X62HV75Rc06wXK6c6edY2yBoutWjvfUdbbFv632xiZ0zt8mLrzpriOoGKZzi0gCkyrdvR3BOjKJINFYSaIz6OKxCr4AtzEO33z6KSIwE1i9p5xDNHfUkTOW92fGguO6nvKrpRVTJfDmJglwKolegVfCO8NK2lgOtthT6rZX7xrNoCnkkVPjMGqhOZaZS735oQSDbW9H35OQddiwtz3Lpves3UTZtFxMDmJ6UMhjuc0ri05o2tKD75DiT5l8S4+mfdLs0K2esDAWeDwfqT53tVoBiFXUAl3+Ed5AwFBJv/BrcJcr3uj6c6r7ATT1j4WbrrT29F1KRF5ZH1WTh7F6xFI8mLa4jxG1bUHASILFERWZRS4351k219LSlIbCpCN2Dl+TtV4zogt0hgnrQT0FdC6b8M2iQS3NXfM7eO56+cg5SQL5Dgma/a2nROKGrtuYZVxZR67R0I3iOsfFCkSj3fxZI3XL1rr9GbQL+c7kD4HS5V1w+z0SESK9Q1Rjegse7KWM4QP/48ZKEyyZ0yPPiIIjDZ7bIBX9hYC9AR42yeU97htiQhrLAyC2nhF5vJJsWgr6ObQnFsQPJld+a/VHzg3IvkgtS8l3gU10TUKrTja8jFqm0rN6PxoZHRnjFL2FRm+PYIYnRXTYTGsjbvF0B7WhhCb3uOqs/Jai6k/henyExszYu8+7xCTLzhWU9vDGN0TtWtUEE7MNwEz6FvnoI3HBY62t7jBOeZmb4pHNhsxd9i6w2+QsfyHQ/Vw=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(376014)(1800799024)(7416014)(366016)(38350700014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?czRAcRrezlkzprOx7M1CFyIQ9ljc4CT8458iDmV1frx3FTIjaGegirvqkLML?=
- =?us-ascii?Q?jNubVjw19G+9CQXWy65T28W2IRyOTmlZUYBkV3t1AZfkaZGnaZs+ZNr2+oq1?=
- =?us-ascii?Q?9Cvi5We9CFbANT64X8K2800DjXM0X21KIt5uO8KrMHTEej5fHIn/bhmoOtZG?=
- =?us-ascii?Q?1S2X2CnsDC8rxn2k6uyejtMjdsVkV/OvhzBgE9kX6KgP4uaMVmy5Gb9H3jWj?=
- =?us-ascii?Q?oMiJTaxPOGQRU9wZit6HVXfJmD5J4M7T2Trb7omTbHmcmFnCtJLbqnBEbeDU?=
- =?us-ascii?Q?WM/ZsZc79eBhPfq5zKKjvZsDZLSAS0ISuas2Dg/R08iSeu3pRZZpeoINNDZ3?=
- =?us-ascii?Q?eeQLqUqEIYLZt37xs0IV2TkxXXNmySfWGub9K2o3h+1ywnJHjb6E5fCqSLIZ?=
- =?us-ascii?Q?mpn1EvRhHx2uFWFtMLvEYEJzUjWFKNrZ0WuZ/X4Ml8rgDhEjzmPRiQyTdFxy?=
- =?us-ascii?Q?aorNdqx7yUDtdW/gTay6z6FAzzkCxtpUDxdl7GFjMfKSAyee+X+DV4+CRCiR?=
- =?us-ascii?Q?koe4D/Usub6xbfTtgVX6pT7pY6zw56Z3jlFJvUn8t3R1k0qSW+KyE2I8KUvF?=
- =?us-ascii?Q?7CGm2T22MnzcGZv+vTk2XRnGE3XQ7Igstvf1Be4HBE+QVU2Ydzo8rduP67KT?=
- =?us-ascii?Q?TVB6wzFBF+UxEBOn4vJ58WoBafqpHKwy9UNayK6kEGLnGsqA1yYZmMlnac1U?=
- =?us-ascii?Q?yI5iPw9JgjibCDkWxMmCL+yKPnBCevX/0x08IZobDP0BmoH1QOmuaTz4sAYo?=
- =?us-ascii?Q?s9C6AVjgfwGK44feIwsu9OE7s/aaMdOWnMkBClBCcaaWGDj5+2yxB8Ae0Ggo?=
- =?us-ascii?Q?PPmAtqkK+dE/YRlU+hnH6FuN9sPER236mhzWHMSmQTODxpwYq7dSxdbWW3ik?=
- =?us-ascii?Q?dawEE3/H0Q20agettyUlHNF8IEOWxZm+j6PB3ooL/T/ym91Bdb96M7ISQ7lZ?=
- =?us-ascii?Q?I3xI5cs2F/DWdjaMkn6zV4WBPQHb8uEmp+e5X0hujhe8Pf3E+wXFaMAp4t7s?=
- =?us-ascii?Q?Jk0M29YqDj3pwei7fmjUw5nIKYaHITMruyVYlU3nsRgP7fst00M8MQm8Sl/F?=
- =?us-ascii?Q?0Utb2v6a3CkFpGo4125d/hbQJcMgSgIbKPw4cHJ1aA0SuAujs55R/O67hrvA?=
- =?us-ascii?Q?cSIHOe8Fx9SF/am9TFxO1uy0dnGKsjqVgCVJn6si2ynKNHdcoeFVHSbbgInh?=
- =?us-ascii?Q?4Z8v/dO/MbO7c1OQuD1YL9VOuPE3P1LG4r0Uulj1x7ymDEt7vITpUBZ0G59t?=
- =?us-ascii?Q?AxXKWG/YRkGw82YSn5YaMQsIbd1nXwezkXKyCq2jEhnjlvjpdfHTQwRV1Qj2?=
- =?us-ascii?Q?fvh17wtX8yo+ZWqBEMCo+hLbmwcwgHxUXfrwgmMYPAP3aMxKY2KdYlbRG8PI?=
- =?us-ascii?Q?qjZ96m95RZm/KcZuvzYNV8E+2JKtNRdL62vjkBzQBpBI0wQJnbsLITl9GSTt?=
- =?us-ascii?Q?tOzVfPJfoqymkKx73ATQAvMU0qAUwSqNpEYAOSzoR4sNMbHPQZOLtGVPo3Dl?=
- =?us-ascii?Q?QhODgSX/tIliVoQOXkMYCCw6NdcRS09vZ3nW/gA2jH2NffS5uCH2YYjaZGIh?=
- =?us-ascii?Q?dxCQglSiUMDiUXynEgXrbGxfsTAmsJO/J5yjNKP+w4Ivo/HYNRZt2pSnHctq?=
- =?us-ascii?Q?abkH2rdeIX7jdIUGusP77mr1fdiS6eLhskj3B+3Q3ZD8QlIBrNTGp+lcb3EU?=
- =?us-ascii?Q?8uRvKittxDBZcEdLwpj7sXvrTVqh+pbcj/P5YHOdtJPn6XJFyAu5O00PphUT?=
- =?us-ascii?Q?BEkumfSalA=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f548b2b8-cf65-4ac9-1726-08de7eb9086f
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2026 15:23:51.3389
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SlgV73jF1XbUIERR6I1ELhuyEvnMsOMLs27C3sBjHZY7a4U1OMceoGa1buF/eDGB/hJoq+Ii5C/KZJbSkU3h2w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6912
+In-Reply-To: <20260308231829.864983-3-weilin.chang@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_082357_378216_684D180D 
-X-CRM114-Status: GOOD (  22.48  )
+X-CRM114-CacheID: sfid-20260310_082615_202982_5BBA52BE 
+X-CRM114-Status: GOOD (  30.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,83 +69,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 10, 2026 at 09:54:17AM +0800, Sherry Sun wrote:
-> According to the PCIe initialization requirements, PERST# signal should
-> be asserted before applying power to the PCIe device, and deasserted
-> after power and reference clock are stable.
->
-> Currently, the driver enables the vpcie3v3aux regulator in
-> imx_pcie_probe() before PERST# is asserted in imx_pcie_host_init(),
-> which violates the PCIe power sequencing requirements. However, there
-> is no issue so far because PERST# is requested as GPIOD_OUT_HIGH in
-> imx_pcie_probe(), which guarantees that PERST# is asserted before
-> enabling the vpcie3v3aux regulator.
->
-> This is a preparation patch for the upcoming changes that will parse the
-
-Nit: This is prepare for ...
-
-> reset property using the new Root Port binding, which will use
-> GPIOD_ASIS when requesting the reset GPIO. With GPIOD_ASIS, the GPIO
-> state is not guaranteed, so explicit sequencing is required.
->
-> Fix the power sequencing by:
-> 1. Moving vpcie3v3aux regulator enable from probe to
->    imx_pcie_host_init(), where it can be properly sequenced with PERST#.
-> 2. Moving imx_pcie_assert_perst() before regulator and clock enable to
->    ensure correct ordering.
->
-> The vpcie3v3aux regulator is kept enabled for the entire PCIe controller
-> lifecycle and automatically disabled on device removal via devm cleanup.
->
-> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+On Sun, Mar 08, 2026 at 11:18:29PM +0000, Wei-Lin Chang wrote:
+> Exposing shadow page tables in debugfs improves the debugability and
+> testability of NV. With this patch a new directory "nested" is created
+> for each VM created if the host is NV capable. Within the directory each
+> valid s2 mmu will have its shadow page table exposed as a readable file
+> with the file name formatted as 0x<vttbr>-0x<vtcr>-s2-{en,dis}abled. The
+> creation and removal of the files happen at the points when an s2 mmu
+> becomes valid, or the context it represents change. In the future the
+> "nested" directory can also hold other NV related information.
+> 
+> This is gated behind CONFIG_PTDUMP_STAGE2_DEBUGFS.
+> 
+> Suggested-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
 > ---
-...
->  static void imx_pcie_assert_perst(struct imx_pcie *imx_pcie, bool assert)
+>  arch/arm64/include/asm/kvm_host.h |  7 +++++++
+>  arch/arm64/include/asm/kvm_mmu.h  |  4 ++++
+>  arch/arm64/kvm/nested.c           |  6 +++++-
+>  arch/arm64/kvm/ptdump.c           | 27 +++++++++++++++++++++++++++
+>  4 files changed, 43 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 5d5a3bbdb95e..f88f6c4d646e 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -217,6 +217,10 @@ struct kvm_s2_mmu {
+>  	 */
+>  	bool	nested_stage2_enabled;
+>  
+> +#ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
+> +	struct dentry *shadow_pt_debugfs_dentry;
+> +#endif
+> +
+>  	/*
+>  	 * true when this MMU needs to be unmapped before being used for a new
+>  	 * purpose.
+> @@ -405,6 +409,9 @@ struct kvm_arch {
+>  	 * the associated pKVM instance in the hypervisor.
+>  	 */
+>  	struct kvm_protected_vm pkvm;
+> +
+> +	/* Nested virtualization info */
+> +	struct dentry *debugfs_nv_dentry;
+
+Seems like this could be guarded with CONFIG_PTDUMP_STAGE2_DEBUGFS too, or is
+there a reason you didn't?
+
+Thanks,
+Joey
+
+>  };
+>  
+>  struct kvm_vcpu_fault_info {
+> diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
+> index d968aca0461a..01e9c72d6aa7 100644
+> --- a/arch/arm64/include/asm/kvm_mmu.h
+> +++ b/arch/arm64/include/asm/kvm_mmu.h
+> @@ -393,8 +393,12 @@ static inline bool kvm_supports_cacheable_pfnmap(void)
+>  
+>  #ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
+>  void kvm_s2_ptdump_create_debugfs(struct kvm *kvm);
+> +void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu);
+> +void kvm_nested_s2_ptdump_remove_debugfs(struct kvm_s2_mmu *mmu);
+>  #else
+>  static inline void kvm_s2_ptdump_create_debugfs(struct kvm *kvm) {}
+> +static inline void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu) {}
+> +static inline void kvm_nested_s2_ptdump_remove_debugfs(struct kvm_s2_mmu *mmu) {}
+>  #endif /* CONFIG_PTDUMP_STAGE2_DEBUGFS */
+>  
+>  #endif /* __ASSEMBLER__ */
+> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> index eeea5e692370..31d74ed8449e 100644
+> --- a/arch/arm64/kvm/nested.c
+> +++ b/arch/arm64/kvm/nested.c
+> @@ -730,8 +730,10 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
+>  	kvm->arch.nested_mmus_next = (i + 1) % kvm->arch.nested_mmus_size;
+>  
+>  	/* Make sure we don't forget to do the laundry */
+> -	if (kvm_s2_mmu_valid(s2_mmu))
+> +	if (kvm_s2_mmu_valid(s2_mmu)) {
+> +		kvm_nested_s2_ptdump_remove_debugfs(s2_mmu);
+>  		s2_mmu->pending_unmap = true;
+> +	}
+>  
+>  	/*
+>  	 * The virtual VMID (modulo CnP) will be used as a key when matching
+> @@ -745,6 +747,8 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
+>  	s2_mmu->tlb_vtcr = vcpu_read_sys_reg(vcpu, VTCR_EL2);
+>  	s2_mmu->nested_stage2_enabled = vcpu_read_sys_reg(vcpu, HCR_EL2) & HCR_VM;
+>  
+> +	kvm_nested_s2_ptdump_create_debugfs(s2_mmu);
+> +
+>  out:
+>  	atomic_inc(&s2_mmu->refcnt);
+>  
+> diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
+> index 98763b291956..3a70f633fc8b 100644
+> --- a/arch/arm64/kvm/ptdump.c
+> +++ b/arch/arm64/kvm/ptdump.c
+> @@ -10,6 +10,7 @@
+>  #include <linux/kvm_host.h>
+>  #include <linux/seq_file.h>
+>  
+> +#include <asm/cpufeature.h>
+>  #include <asm/kvm_mmu.h>
+>  #include <asm/kvm_pgtable.h>
+>  #include <asm/ptdump.h>
+> @@ -277,6 +278,29 @@ static const struct file_operations kvm_pgtable_levels_fops = {
+>  	.release	= kvm_pgtable_debugfs_close,
+>  };
+>  
+> +void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu)
+> +{
+> +	struct dentry *dent;
+> +	/* format: 0x<vttbr>-0x<vtcr>-s2-{en, dis}abled\0 */
+> +	char file_name[2 + 16 + 1 + 2 + 16 + 4 + 3 + 6];
+> +
+> +	snprintf(file_name, sizeof(file_name), "0x%llx-0x%llx-s2-%sabled",
+> +		 mmu->tlb_vttbr,
+> +		 mmu->tlb_vtcr,
+> +		 mmu->nested_stage2_enabled ? "en" : "dis");
+> +
+> +	dent = debugfs_create_file(file_name, 0400,
+> +				   mmu->arch->debugfs_nv_dentry, mmu,
+> +				   &kvm_ptdump_guest_fops);
+> +
+> +	mmu->shadow_pt_debugfs_dentry = dent;
+> +}
+> +
+> +void kvm_nested_s2_ptdump_remove_debugfs(struct kvm_s2_mmu *mmu)
+> +{
+> +	debugfs_remove(mmu->shadow_pt_debugfs_dentry);
+> +}
+> +
+>  void kvm_s2_ptdump_create_debugfs(struct kvm *kvm)
 >  {
->  	if (assert) {
-> @@ -1240,6 +1249,29 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
->  	struct imx_pcie *imx_pcie = to_imx_pcie(pci);
->  	int ret;
->
-> +	if (pp->bridge && imx_check_flag(imx_pcie, IMX_PCIE_FLAG_HAS_LUT)) {
-> +		pp->bridge->enable_device = imx_pcie_enable_device;
-> +		pp->bridge->disable_device = imx_pcie_disable_device;
-> +	}
-
-are you sure need move this part? it is not related preset and vaux.
-
-> +
-> +	imx_pcie_assert_perst(imx_pcie, true);
-> +
-> +	/* Keep 3.3Vaux supply enabled for the entire PCIe controller lifecycle */
-> +	if (imx_pcie->vpcie_aux && !imx_pcie->vpcie_aux_enabled) {
-
-How about two pcie shared one vaux regulator?
-
-...
->  		if (ret) {
-> @@ -1790,9 +1816,12 @@ static int imx_pcie_probe(struct platform_device *pdev)
->  	of_property_read_u32(node, "fsl,max-link-speed", &pci->max_link_speed);
->  	imx_pcie->supports_clkreq = of_property_read_bool(node, "supports-clkreq");
->
-> -	ret = devm_regulator_get_enable_optional(&pdev->dev, "vpcie3v3aux");
-> -	if (ret < 0 && ret != -ENODEV)
-> -		return dev_err_probe(dev, ret, "failed to enable Vaux supply\n");
-> +	imx_pcie->vpcie_aux = devm_regulator_get_optional(&pdev->dev, "vpcie3v3aux");
-> +	if (IS_ERR(imx_pcie->vpcie_aux)) {
-> +		if (PTR_ERR(imx_pcie->vpcie_aux) != -ENODEV)
-> +			return PTR_ERR(imx_pcie->vpcie_aux);
-
-keep old dev_err_probe(), just message change to "failed to get Vaux supply".
-
-Frnak
-> +		imx_pcie->vpcie_aux = NULL;
-> +	}
->
->  	imx_pcie->vpcie = devm_regulator_get_optional(&pdev->dev, "vpcie");
->  	if (IS_ERR(imx_pcie->vpcie)) {
-> --
-> 2.37.1
->
+>  	debugfs_create_file("stage2_page_tables", 0400, kvm->debugfs_dentry,
+> @@ -285,4 +309,7 @@ void kvm_s2_ptdump_create_debugfs(struct kvm *kvm)
+>  			    &kvm->arch.mmu, &kvm_pgtable_range_fops);
+>  	debugfs_create_file("stage2_levels", 0400, kvm->debugfs_dentry,
+>  			    &kvm->arch.mmu, &kvm_pgtable_levels_fops);
+> +	if (cpus_have_final_cap(ARM64_HAS_NESTED_VIRT))
+> +		kvm->arch.debugfs_nv_dentry =
+> +			debugfs_create_dir("nested", kvm->debugfs_dentry);
+>  }
+> -- 
+> 2.43.0
+> 
 
