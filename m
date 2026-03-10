@@ -4,70 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29CD7FCC9AF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 03:34:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A088FCC9B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 03:36:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ukfr+AuSSjalhcEuGd775EwrTPxyhTtDQGkfF9cnnoI=; b=pS1qo81fArhf8XcY3G4WVBIlrk
-	V6jnopYwbS6uajFTajnZ+0v6JovjQTgGiON6bUB51nJXBsGwnXvczPGTlhbMWrLBW5AOxw6Q45cKC
-	lGNNsRyiW3xRzEzZQDsyuLWkZOI0NxlyBdnu28GfMGAd7fXGY1cCV46ZYada0D9yBE577myGShNth
-	qUXttt4o8frTwvj3v58Ff+4oLnTskt7qQD34S6cayOvpEBRkupcMNwiByE4UX6K4/hibIqqEuzHVa
-	QF9m7aEe6Jk5QAn+SGtmiubKC4lEJCELCuyXFRYr3wrZL8omUV8rAe6i3OAIfKhz0xcIGVlklcpF4
-	5Dvfj49g==;
+	bh=ot5C4phsn/D5HCjzZ0Ig3HqX6b1yZe2wL22xhQfLHmg=; b=rwlZ7DEw36hvU96P8pU5OfDyZt
+	+RzA9kWe6qTSSfP5Iwqvl5Sh5fqEwgBpXqBZXdwePBT6H9YN07N/11t/vc0PSx8fiuuRlXdvfnOoB
+	qfGvm+U7feBK6L8uul1pWNbsC05blWioD/zMG9jaIbILV1puQ97jdcisty3HXzE1f1wLQe0o32b/Y
+	QZfvv4FgSzwKdLwMj3mtSetU3jHTEkeX6NqRCpEYIFEhfo1kcvAfiZIfzZcYnw9r6Wp4tdPSY9mOh
+	5S/vpPNrVx3te5pVbOmo2COqO/2RVTn5PGN6/XYhBaMs+fD2gwNTI98t2TnlpNKXWeRyvLOvuRnrl
+	cXpSZLkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vznrE-00000008fTB-1GZn;
-	Tue, 10 Mar 2026 03:34:08 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1vznth-00000008fdN-152h;
+	Tue, 10 Mar 2026 03:36:41 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vznrD-00000008fT3-2lWk
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 10 Mar 2026 03:34:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=ukfr+AuSSjalhcEuGd775EwrTPxyhTtDQGkfF9cnnoI=; b=WMogFKSqCSKUdR+O6S5o+sP6+U
-	F8AunVCzUZ5oYgGu8SuwI4veviCt1f+ty4cxictiBN5kNO5ipay9jDyzS4Miq0Bat73MVmUxonMiC
-	v3JtXA5iwuGDwmE79QLUlBVGyjLChCkNhBoW0NAeaRqtO42prco7QOJjYQgxfA6A8lexledIPSc/a
-	f8N67FaSH34Gycv3pwIAqJu5nuxCffmDRXjR4Bd3zMJWW5pwMPjR38RHR+CZjNIqvz2gDaAvsSpLq
-	WlgxY9UKK/GHtoQNRMNf4N+g4FpxxQupkdrFlq753rqkF7dWUDlrPsNyqtOfTKVBeru499V/FT5F7
-	52Finsrg==;
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vznr9-000000075LG-0cIO
+	id 1vznte-00000008fd2-1qdU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 03:34:05 +0000
+	Tue, 10 Mar 2026 03:36:39 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=ukfr+AuSSjalhcEuGd775EwrTPxyhTtDQGkfF9cnnoI=;
-	b=25WpgtJUdMU4EPFULH4K6br31HYc+68SzizJgcjOO0/WwTWrFm0I23gaAhtwXnemVVXog/D/6
-	BKz/296PrNYryXCSs7MiOe69iLEyRVgoaq5Khg5lETGv3V86EtVXKGw/JnmgCWQ0KZKoJSPlifM
-	iFUEDnQb9cUjb9lEiLhCOWk=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4fVK7D71ZgzcbS0;
-	Tue, 10 Mar 2026 11:27:04 +0800 (CST)
+	bh=ot5C4phsn/D5HCjzZ0Ig3HqX6b1yZe2wL22xhQfLHmg=;
+	b=u/Y5l5+N4i469pymJs6TizNMRhaXRY3XQYDkxsFl8M0qt2iPo/czlg6L4roHgwf6Ip1oXoqm1
+	ascKg5gs8YVj2fROA1QIFoKpqalvRjzL7LS7HXslvZjro8o1K1ud6Vkerhap9qLy7VjeW+0w97x
+	UGB+091hZnHHBRVLz06b+qk=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4fVKCg5mZDz12LCw;
+	Tue, 10 Mar 2026 11:30:55 +0800 (CST)
 Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
-	by mail.maildlp.com (Postfix) with ESMTPS id 0A90840569;
-	Tue, 10 Mar 2026 11:32:29 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id F058D40538;
+	Tue, 10 Mar 2026 11:36:31 +0800 (CST)
 Received: from [10.174.179.248] (10.174.179.248) by
  kwepemr500001.china.huawei.com (7.202.194.229) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 10 Mar 2026 11:32:26 +0800
-Message-ID: <875a5d1b-4bed-4f70-a122-acd625265bfa@huawei.com>
-Date: Tue, 10 Mar 2026 11:32:26 +0800
+ 15.2.1544.11; Tue, 10 Mar 2026 11:36:29 +0800
+Message-ID: <0dc36f64-3e6c-4e4b-bdd1-6e364babb0bc@huawei.com>
+Date: Tue, 10 Mar 2026 11:36:29 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH RFC v3 2/4] mm/pgtable: Make pfn_pte() filter out huge
  page attributes
-To: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>, Matthew Wilcox
-	<willy@infradead.org>
-CC: <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>, <x86@kernel.org>,
+To: Matthew Wilcox <willy@infradead.org>
+CC: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>,
+	<linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>, <x86@kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <david@kernel.org>,
 	<catalin.marinas@arm.com>, <will@kernel.org>, <tglx@kernel.org>,
 	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
@@ -88,17 +73,18 @@ References: <20260228070906.1418911-1-yintirui@huawei.com>
  <20260228070906.1418911-3-yintirui@huawei.com>
  <5eaf3846-01db-471e-9903-b0b239d7838d@suse.com>
  <e8d5ba16-3071-4b4a-b6a1-d492cc46e8c2@huawei.com>
- <4d7c396a-6a48-4e56-b8d1-3ac7bd5d10fb@suse.com>
+ <aapXRN4KjWtUUJ0g@casper.infradead.org>
 From: Yin Tirui <yintirui@huawei.com>
-In-Reply-To: <4d7c396a-6a48-4e56-b8d1-3ac7bd5d10fb@suse.com>
+In-Reply-To: <aapXRN4KjWtUUJ0g@casper.infradead.org>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-Originating-IP: [10.174.179.248]
 X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
  kwepemr500001.china.huawei.com (7.202.194.229)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_033403_704635_143DBFC5 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20260309_203638_664213_C135BDEC 
+X-CRM114-Status: UNSURE (   7.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,56 +101,19 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 3/5/2026 6:05 PM, Jürgen Groß wrote:
->> Hi Willy and Jürgen,
->>
->> Following up on the x86 _PAGE_PSE and _PAGE_PAT aliasing issue.
->>
->> To achieve the goal of keeping pfn_pte() pure and completely 
->> eradicating the pte_clrhuge() anti-pattern, we need a way to ensure 
->> pfn_pte() never receives a pgprot with the huge bit set.
->>
->> @Jürgen:
->> Just to be absolutely certain: is there any safe way to filter out the 
->> huge page attributes directly inside x86's pfn_pte() without breaking 
->> PAT? Or does the hardware bit-aliasing make this strictly impossible 
->> at the pfn_pte() level?
+On 3/6/2026 12:25 PM, Matthew Wilcox wrote:
 > 
-> There is no huge bit at the PTE level. It is existing only at the PMD 
-> and the
-> PUD level.
+> I don't think we should have pgprot_large_2_4k().  Or rather, I think it
+> should be embedded in pmd_pgprot() / pud_pgprot().  That is, we should
+> have an 'ideal' pgprot which, on x86, perhaps matches that used by the
+> 4k level.  pfn_pmd() should be converting from the ideal pgprot to
+> that actually used by PMDs (and setting _PAGE_PSE?)
 > 
-> So: yes, it is absolutely impossible to filter it out, as the bit has a
-> different meaning in "real" PTEs (with "PTE" having the meaning: a 
-> translation
-> entry in a page referenced by a PMD entry not having the PSE bit set).
-> 
-Hi Jürgen,
 
-Thank you for your confirmation.
+Hi Willy,
 
->>
->> @Willy @Jürgen:
->> Assuming it is impossible to filter this safely inside pfn_pte() on 
->> x86, we must translate the pgprot before passing it down. To maintain 
->> strict type-safety and still drop pte_clrhuge(), I plan to introduce 
->> two arch-neutral wrappers:
->>
->> x86:
->> /* Translates large prot to 4K. Shifts PAT back to bit 7, inherently 
->> clearing _PAGE_PSE */
->> #define pgprot_huge_to_pte(prot)    pgprot_large_2_4k(prot)
->> /* Translates 4K prot to large. Shifts PAT to bit 12, strictly sets 
->> _PAGE_PSE */
->> #define pgprot_pte_to_huge(prot) 
->> __pgprot(pgprot_val(pgprot_4k_2_large(prot)) | _PAGE_PSE)
-> 
-> Seems to be okay.
-While the wrapper approach handles the aliasing, Willy recently 
-suggested taking it a step further by embedding this translation 
-directly into `pfn_pmd()` and `pmd_pgprot()`.
-
-I am going to explore this embedded approach for the v4 respin.
+I will take this route and implement the embedded approach for the v4 
+respin.
 
 -- 
 Yin Tirui
