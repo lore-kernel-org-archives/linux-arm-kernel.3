@@ -4,80 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38D89EB1040
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 10:17:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D40D3EB1042
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 10:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WXSLHFTDe/z9HdL+15JiLmPPZjdjwbNvabjtjXjKC3s=; b=ZkKY49IhxGqDMZt8HqenK9iqW7
-	NJKm66sgI2fi0LDyzqkOCvQYoic6geuDUDTCQM4uWiOHijNIATcC8SHvvrpuV5/aE3KzIXlS9nU3Z
-	n7+D2M+65L73D1n9M1sQderLR8rIqARmuI8DMkC1ZzWcf2LZlnT7atTX9NJ355gJKvScT+K3M1eDa
-	/yHCpKN3FGQiYIdRvVKXeh50bgVMpIWdee5FYCWq71d0W0dVcI2emekSlU/0ABdFLXTSckliYfBdN
-	yXmIdiFH0KdAAh6luIc7wvnibxoh1gVoTpPvagxHYsJXI2stJLhlurhN6T0r5AOufjXEiHNQjzSOq
-	2OA526lQ==;
+	bh=tO8o5psNJZ2qR9UHpfV+KG0CtdqeJkCrtjFX1YzkKoM=; b=Vv/0uVh/jUCbL97xYbXPMcRiAz
+	u2kSucYcX9YH/EFQ8tVSb52EzBirSDYGsxtidTZzV+oRBh4hPb73VfVjl/stZiwdq3jXtg5yw1jFx
+	2H7aU5z4i+i08z7f87Lpf+ie7CYTgArDp//1U+glO21t8XvMHwiR6zGYO5HPkB8HUdOymGj2C7ww+
+	m2IrS8+VEOVseIxKR8XdWDYO+2x+f+MjBm0yWH/qM1bBL/a2yBzTQDEo51RBur2JPyS1ocRJAdMwi
+	XG9IDCHk/8eGPHvPbp+haZofDk+2DJoGyESFxDv/m/BQ0mH4Qas2ZgleGHhPd6tOb2BIyUaLF91M8
+	imHTigCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzu9q-00000009B6W-2lD3;
-	Tue, 10 Mar 2026 10:17:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vzuER-00000009BQN-2vBg;
+	Tue, 10 Mar 2026 10:22:31 +0000
+Received: from mout02.posteo.de ([185.67.36.66])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzu9p-00000009B67-0QzA
+	id 1vzuEP-00000009BPy-02Dx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 10:17:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5661E41914;
-	Tue, 10 Mar 2026 10:17:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2ADDCC19423;
-	Tue, 10 Mar 2026 10:17:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773137864;
-	bh=Qxw/VILjMxL5tYwGisG8wNcvLEzrIZL+mg/GMioXi5M=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=RsGrawZXNEdMQp+PaZuDU43zWRxHbjZ8j6fyiolG3EvTxY3PQSyWwM0w62zV9iLHq
-	 k1P/46kZ7BTR61yQovXhshPxdztGJv00n/T9XbM3Ziyvy1TMfN+jB5fHKtUfOwcVM6
-	 DVRRd3Wl7JfjXQJjGQ/j4Aa4q7LSH+TvZg81ckMYk8hAcIzAk6i+QsjlrGDTK9IMY9
-	 NtbAW5w9dkgQKzEfJHyZxmKFG0lC3Ybb6/0GyEHhVzsg6bx0NaHEgd2L7BVlUFcwy2
-	 pzTHWdWo/TrJ0i4LyxTabPS9KMsMUY97/h84+qNLVofeY2kawD96kic6GFe16Mo0i0
-	 nd7Rh/QmF03xg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vzu9m-00000000NyC-04GK;
-	Tue, 10 Mar 2026 10:17:42 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Quentin Perret <qperret@google.com>,
-	Fuad Tabba <tabba@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: pkvm: Don't reprobe for ICH_VTR_EL2.TDS on CPU hotplug
-Date: Tue, 10 Mar 2026 10:17:39 +0000
-Message-ID: <177313784323.3940002.13678040844049570488.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260310085433.3936742-1-maz@kernel.org>
-References: <20260310085433.3936742-1-maz@kernel.org>
+	Tue, 10 Mar 2026 10:22:30 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout02.posteo.de (Postfix) with ESMTPS id 303E0240101
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 11:22:23 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net; s=2017;
+	t=1773138144; bh=tO8o5psNJZ2qR9UHpfV+KG0CtdqeJkCrtjFX1YzkKoM=;
+	h=Date:From:To:Cc:Subject:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:From;
+	b=gsFsIoCr9uZZKPz4ar5qI8Ox0LsZElQLsYQMiD0ABLHKVt5jdzCI1/6aBnQp3Hlwc
+	 dEVxhcnE+zu60m2er6vSYoBzRKA5dLOMGWcGEDlRL4xBA9dyoK4IEwsWc4chN4GMLl
+	 7lGBYCjoVrbN0m788jZRPqyp+ASBZoZutFJ8/aJ88amUMHP6+xtED3cs2yHUgiDlqR
+	 kbFxXBF873fU+bB58RDWwEuzhzv34Nd0ER7P1xMsYvaRqpB6ONygS3RGRgHafj2vlU
+	 VcS81f3ClfS1LxozRZxCQHRec7gNayyELN0/YtJuHo4O7qJ2zIEDQBGnK34uu5WbOu
+	 TujPQ2QHDqfhQ==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4fVVLP2Xrvz6tx7;
+	Tue, 10 Mar 2026 11:22:21 +0100 (CET)
+Date: Tue, 10 Mar 2026 10:22:23 +0000
+From: Wilken Gottwalt <wilken.gottwalt@posteo.net>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: Chen-Yu Tsai <wens@kernel.org>, linux-renesas-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Bjorn Andersson <andersson@kernel.org>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
+ linux-remoteproc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v4 09/15] hwspinlock: sun6i: use new callback to
+ initialize hwspinlock priv
+Message-ID: <20260310112220.771011e0@posteo.net>
+In-Reply-To: <aa_sckE7C3kwqYxb@shikoro>
+References: <20260310075539.11701-1-wsa+renesas@sang-engineering.com>
+	<20260310075539.11701-10-wsa+renesas@sang-engineering.com>
+	<CAGb2v64gTM41Q3aBkS+dqJ7w9fHtePte-6jeoFR3j-O1_aX9-Q@mail.gmail.com>
+	<aa_sckE7C3kwqYxb@shikoro>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com, qperret@google.com, tabba@google.com, vdonnefort@google.com, stable@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_031745_165050_A7CFA565 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20260310_032229_197302_9D681F24 
+X-CRM114-Status: GOOD (  14.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,28 +80,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 10 Mar 2026 08:54:33 +0000, Marc Zyngier wrote:
-> Hotplugging a CPU off and back on fails with pKVM, as we try to
-> probe for ICH_VTR_EL2.TDS. In a non-VHE setup, this is achieved
-> by using an EL2 stub helper. However, the stubs are out of reach
-> once pKVM has deprivileged the kernel. The CPU never boots.
+On Tue, 10 Mar 2026 11:03:30 +0100
+Wolfram Sang <wsa+renesas@sang-engineering.com> wrote:
+
+> Hi ChenYu,
 > 
-> Since pKVM doesn't allow late onlining of CPUs, we can detect
-> that protected mode is enforced early on, and return the current
-> state of the capability.
+> > >  bank_fail:
+> > >         clk_disable_unprepare(priv->ahb_clk);
+> > 
+> > Just a note, I see further code savings in using the clk and reset devm_
+> > helpers. I'll do this after this series is merged, as the context overlaps.
 > 
-> [...]
+> Yes, I saw this, too, but thought that this needs HW for proper testing.
+> Great that you are up for it!
 
-Applied to fixes, thanks!
+Not only that. You may also need to run the CRUST firmware on the OpenRISC
+companion core. Getting that hwspinlock driver done and tested was some real
+pain in the past. I still have everything on github for this
+(https://github.com/wgottwalt/sunxi_hwspinlock). But I may not be able to test
+that in time. I moved a while ago and, uhm, quite some hardware disappeared.
 
-[1/1] KVM: arm64: pkvm: Don't reprobe for ICH_VTR_EL2.TDS on CPU hotplug
-      commit: a79f7b4aeb8e7562cd6dbf9c223e2c2a04b1a85f
-
-Cheers,
-
-	M.
--- 
-Without deviation from the norm, progress is not possible.
-
-
+greetings
 
