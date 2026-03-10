@@ -4,40 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6086EB1054
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 14:54:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6C68EB1054
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 14:55:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cGK3lb1Gl4HCpee4Gph+9eiHmaXQeXqY6khXIDpX7y0=; b=tPZ2iApTkziasqXuPdUKy2QhuQ
-	zXMRS2YUTyxDwThJXOOkjENlx6Ou0X96v/yECj6ToE+509JPaUm4MaL6+mKb7X9jrSg5InAoFXKvH
-	Qb5qt5xv5hbKi1IlGF0RRqzxxeDNX//BhCyD+DdHHnHyBbe4UMOTAkjD0DJyU7ihPJ/SrymOu1Y+W
-	jjFKVG6zRP8BkCEPpgL1oLoP4AK8t+sb2kyB4KSQX1vmvIkt7eutklq1sqL9BUGNB+wO7eye/bWk/
-	BNtCAkD/AK7WPMG5gt0SWSQMszZl5QTC42d4WubMLFae1tQGPX/CuIUSPkIaYu2s76OHtd34BniCh
-	y1PJn8ow==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uuUPog/sat/7+aZpFjgpyR9bUfWW9xmLj9hpLXqUPz0=; b=jkl/V/fExMCJ2rnhdqfynRF5cF
+	dYbtbn/Xk7HDvAfLPbZip0rx6FE/kvmeYXdaJAtgUgc9MOurX1PII+Rhz8HMcu1wX81acREj0Ermq
+	uof1EibqgR2Fj7Lbd1gbJ5X7TH+8A9lHtO/HnAF1O19IrGrMvVE6/maCeUHFvExCQ+pDHFddw8B1D
+	WNbai58KnQmOtnA6oCiMVoLredZC2sMod7oUthHaTJoukw7jRclGpHs9UiY9pRCxEtYiRAk+2U9sG
+	5wbYf1YSTxs2ozclsUCtIzhlTWZ6CrFPyKVZm0nw6fdXmo175xXxsKaaNuBBDsIfVEhiQ6Aznh5zZ
+	u4D/wA8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzyU0-00000009jcl-0Rsa;
-	Tue, 10 Mar 2026 14:54:52 +0000
-Received: from out-179.mta0.migadu.com ([2001:41d0:1004:224b::b3])
+	id 1vzyTv-00000009jbO-3NlP;
+	Tue, 10 Mar 2026 14:54:47 +0000
+Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzyTv-00000009jbJ-482N
+	id 1vzyTt-00000009jae-03eN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 14:54:49 +0000
+	Tue, 10 Mar 2026 14:54:46 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1773154485;
+	t=1773154471;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cGK3lb1Gl4HCpee4Gph+9eiHmaXQeXqY6khXIDpX7y0=;
-	b=LmrODPSVrXpm2EmXagV1g0RUXMxioQTzpSwL5eNBUJ9rkDCjz6bNRfo8KV+CqZRbnHjE68
-	I8WEXf5qsZGH5CDbqxlCSz2yMBlvWrR6/6lzTS3KHT+IOo4Pw70p5ooXE//x8R2klmN4qF
-	c7PhpqQjMaabhHUGcyJnaSnjqP8H69o=
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=uuUPog/sat/7+aZpFjgpyR9bUfWW9xmLj9hpLXqUPz0=;
+	b=NqRwT0FmjKurBS8uijqZStk0R4uXypa5ydCIh60zoT51JmyCam2xRx7RNnUj7Tn7disMZo
+	z4+VQpi4Mp7pjrF7uEPmv4kl/BI1ZAjZWNWs+m9wRMcAopWE6LbczsrDmPbOEbqD+/2AHD
+	xsGdWVOhi6nRUAa376ydbe0mcaoZJtk=
 From: Usama Arif <usama.arif@linux.dev>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	ryan.roberts@arm.com,
@@ -71,17 +70,15 @@ Cc: ajd@linux.ibm.com,
 	shakeel.butt@linux.dev,
 	kernel-team@meta.com,
 	Usama Arif <usama.arif@linux.dev>
-Subject: [PATCH 2/4] mm: bypass mmap_miss heuristic for VM_EXEC readahead
-Date: Tue, 10 Mar 2026 07:51:15 -0700
-Message-ID: <20260310145406.3073394-3-usama.arif@linux.dev>
-In-Reply-To: <20260310145406.3073394-1-usama.arif@linux.dev>
-References: <20260310145406.3073394-1-usama.arif@linux.dev>
+Subject: [PATCH 0/4] arm64/mm: contpte-sized exec folios for 16K and 64K pages
+Date: Tue, 10 Mar 2026 07:51:13 -0700
+Message-ID: <20260310145406.3073394-1-usama.arif@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_075448_334255_5FCAF37B 
-X-CRM114-Status: GOOD (  18.88  )
+X-CRM114-CacheID: sfid-20260310_075445_335647_D1F00CAE 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,143 +93,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The mmap_miss counter in do_sync_mmap_readahead() tracks whether
-readahead is useful for mmap'd file access. It is incremented by 1 on
-every page cache miss in do_sync_mmap_readahead(), and decremented in
-two places:
+On arm64, the contpte hardware feature coalesces multiple contiguous PTEs
+into a single iTLB entry, reducing iTLB pressure for large executable
+mappings.
 
-  - filemap_map_pages(): decremented by N for each of N pages
-    successfully mapped via fault-around (pages found already in cache,
-    evidence readahead was useful). Only pages not in the workingset
-    count as hits.
+exec_folio_order() was introduced [1] to request readahead at an
+arch-preferred folio order for executable memory, enabling contpte
+mapping on the fault path.
 
-  - do_async_mmap_readahead(): decremented by 1 when a page with
-    PG_readahead is found in cache.
+However, several things prevent this from working optimally on 16K and
+64K page configurations:
 
-When the counter exceeds MMAP_LOTSAMISS (100), all readahead is
-disabled, including the targeted VM_EXEC readahead [1] that requests
-arch-preferred folio orders for contpte mapping.
+1. exec_folio_order() returns ilog2(SZ_64K >> PAGE_SHIFT), which only
+   produces the optimal contpte order for 4K pages. For 16K pages it
+   returns order 2 (64K) instead of order 7 (2M), and for 64K pages it
+   returns order 0 (64K) instead of order 5 (2M). Patch 1 fixes this by
+   using ilog2(CONT_PTES) which evaluates to the optimal order for all
+   page sizes.
 
-On arm64 with 64K base pages, both decrement paths are inactive:
+2. Even with the optimal order, the mmap_miss heuristic in
+   do_sync_mmap_readahead() silently disables exec readahead after 100
+   page faults. The mmap_miss counter tracks whether readahead is useful
+   for mmap'd file access:
 
-  1. filemap_map_pages() is never called because fault_around_pages
+   - Incremented by 1 in do_sync_mmap_readahead() on every page cache
+     miss (page needed IO).
+
+   - Decremented by N in filemap_map_pages() for N pages successfully
+     mapped via fault-around (pages found in cache without faulting,
+     evidence that readahead was useful). Only non-workingset pages
+     count and recently evicted and re-read pages don't count as hits.
+
+   - Decremented by 1 in do_async_mmap_readahead() when a PG_readahead
+     marker page is found (indicates sequential consumption of readahead
+     pages).
+
+   When mmap_miss exceeds MMAP_LOTSAMISS (100), all readahead is
+   disabled. On 64K pages, both decrement paths are inactive:
+
+   - filemap_map_pages() is never called because fault_around_pages
      (65536 >> PAGE_SHIFT = 1) disables should_fault_around(), which
      requires fault_around_pages > 1. With only 1 page in the
      fault-around window, there is nothing "around" to map.
 
-  2. do_async_mmap_readahead() never fires for exec mappings because
+   - do_async_mmap_readahead() never fires for exec mappings because
      exec readahead sets async_size = 0, so no PG_readahead markers
      are placed.
 
-With no decrements, mmap_miss monotonically increases past
-MMAP_LOTSAMISS after 100 page faults, disabling all subsequent
-exec readahead.
+   With no decrements, mmap_miss monotonically increases past
+   MMAP_LOTSAMISS after 100 faults, disabling exec readahead
+   for the remainder of the mapping.
+   Patch 2 fixes this by moving the VM_EXEC readahead block
+   above the mmap_miss check, since exec readahead is targeted (one
+   folio at the fault location, async_size=0) not speculative prefetch.
 
-Fix this by moving the VM_EXEC readahead block above the mmap_miss
-check. The exec readahead path is targeted. It reads a single folio at
-the fault location with async_size=0, not speculative prefetch, so the
-mmap_miss heuristic designed to throttle wasteful speculative readahead
-should not gate it. The page would need to be faulted in regardless,
-the only question is at what order.
+3. Even with correct folio order and readahead, contpte mapping requires
+   the virtual address to be aligned to CONT_PTE_SIZE (2M on 64K pages).
+   The readahead path aligns file offsets and the buddy allocator aligns
+   physical memory, but the virtual address depends on the VMA start.
+   For PIE binaries, ASLR randomizes the load address at PAGE_SIZE (64K)
+   granularity, giving only a 1/32 chance of 2M alignment. When
+   misaligned, contpte_set_ptes() never sets the contiguous PTE bit for
+   any folio in the VMA, resulting in zero iTLB coalescing benefit.
+
+   Patch 3 fixes this for the main binary by bumping the ELF loader's
+   alignment to PAGE_SIZE << exec_folio_order() for ET_DYN binaries.
+
+   Patch 4 fixes this for shared libraries by adding a contpte-size
+   alignment fallback in thp_get_unmapped_area_vmflags(). The existing
+   PMD_SIZE alignment (512M on 64K pages) is too large for typical shared
+   libraries, so this smaller fallback (2M) succeeds where PMD fails.
+
+I created a benchmark that mmaps a large executable file and calls
+RET-stub functions at PAGE_SIZE offsets across it. "Cold" measures
+fault + readahead cost. "Random" first faults in all pages with a
+sequential sweep (not measured), then measures time for calling random
+offsets, isolating iTLB miss cost for scattered execution.
+
+The benchmark results on Neoverse V2 (Grace), arm64 with 64K base pages,
+512MB executable file on ext4, averaged over 3 runs:
+
+  Phase      | Baseline     | Patched      | Improvement
+  -----------|--------------|--------------|------------------
+  Cold fault | 83.4 ms      | 41.3 ms      | 50% faster
+  Random     | 76.0 ms      | 58.3 ms      | 23% faster
 
 [1] https://lore.kernel.org/all/20250430145920.3748738-6-ryan.roberts@arm.com/
 
-Signed-off-by: Usama Arif <usama.arif@linux.dev>
----
- mm/filemap.c | 72 ++++++++++++++++++++++++++++------------------------
- 1 file changed, 39 insertions(+), 33 deletions(-)
+Usama Arif (4):
+  arm64: request contpte-sized folios for exec memory
+  mm: bypass mmap_miss heuristic for VM_EXEC readahead
+  elf: align ET_DYN base to exec folio order for contpte mapping
+  mm: align file-backed mmap to exec folio order in
+    thp_get_unmapped_area
 
-diff --git a/mm/filemap.c b/mm/filemap.c
-index 6cd7974d4adab..c064f31ecec5a 100644
---- a/mm/filemap.c
-+++ b/mm/filemap.c
-@@ -3331,6 +3331,37 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
- 		}
- 	}
- 
-+	if (vm_flags & VM_EXEC) {
-+		/*
-+		 * Allow arch to request a preferred minimum folio order for
-+		 * executable memory. This can often be beneficial to
-+		 * performance if (e.g.) arm64 can contpte-map the folio.
-+		 * Executable memory rarely benefits from readahead, due to its
-+		 * random access nature, so set async_size to 0.
-+		 *
-+		 * Limit to the boundaries of the VMA to avoid reading in any
-+		 * pad that might exist between sections, which would be a waste
-+		 * of memory.
-+		 *
-+		 * This is targeted readahead (one folio at the fault location),
-+		 * not speculative prefetch, so bypass the mmap_miss heuristic
-+		 * which would otherwise disable it after MMAP_LOTSAMISS faults.
-+		 */
-+		struct vm_area_struct *vma = vmf->vma;
-+		unsigned long start = vma->vm_pgoff;
-+		unsigned long end = start + vma_pages(vma);
-+		unsigned long ra_end;
-+
-+		ra->order = exec_folio_order();
-+		ra->start = round_down(vmf->pgoff, 1UL << ra->order);
-+		ra->start = max(ra->start, start);
-+		ra_end = round_up(ra->start + ra->ra_pages, 1UL << ra->order);
-+		ra_end = min(ra_end, end);
-+		ra->size = ra_end - ra->start;
-+		ra->async_size = 0;
-+		goto do_readahead;
-+	}
-+
- 	if (!(vm_flags & VM_SEQ_READ)) {
- 		/* Avoid banging the cache line if not needed */
- 		mmap_miss = READ_ONCE(ra->mmap_miss);
-@@ -3361,40 +3392,15 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
- 		return fpin;
- 	}
- 
--	if (vm_flags & VM_EXEC) {
--		/*
--		 * Allow arch to request a preferred minimum folio order for
--		 * executable memory. This can often be beneficial to
--		 * performance if (e.g.) arm64 can contpte-map the folio.
--		 * Executable memory rarely benefits from readahead, due to its
--		 * random access nature, so set async_size to 0.
--		 *
--		 * Limit to the boundaries of the VMA to avoid reading in any
--		 * pad that might exist between sections, which would be a waste
--		 * of memory.
--		 */
--		struct vm_area_struct *vma = vmf->vma;
--		unsigned long start = vma->vm_pgoff;
--		unsigned long end = start + vma_pages(vma);
--		unsigned long ra_end;
--
--		ra->order = exec_folio_order();
--		ra->start = round_down(vmf->pgoff, 1UL << ra->order);
--		ra->start = max(ra->start, start);
--		ra_end = round_up(ra->start + ra->ra_pages, 1UL << ra->order);
--		ra_end = min(ra_end, end);
--		ra->size = ra_end - ra->start;
--		ra->async_size = 0;
--	} else {
--		/*
--		 * mmap read-around
--		 */
--		ra->start = max_t(long, 0, vmf->pgoff - ra->ra_pages / 2);
--		ra->size = ra->ra_pages;
--		ra->async_size = ra->ra_pages / 4;
--		ra->order = 0;
--	}
-+	/*
-+	 * mmap read-around
-+	 */
-+	ra->start = max_t(long, 0, vmf->pgoff - ra->ra_pages / 2);
-+	ra->size = ra->ra_pages;
-+	ra->async_size = ra->ra_pages / 4;
-+	ra->order = 0;
- 
-+do_readahead:
- 	fpin = maybe_unlock_mmap_for_io(vmf, fpin);
- 	ractl._index = ra->start;
- 	page_cache_ra_order(&ractl, ra);
+ arch/arm64/include/asm/pgtable.h |  9 ++--
+ fs/binfmt_elf.c                  | 15 +++++++
+ mm/filemap.c                     | 72 +++++++++++++++++---------------
+ mm/huge_memory.c                 | 17 ++++++++
+ 4 files changed, 75 insertions(+), 38 deletions(-)
+
 -- 
 2.47.3
 
