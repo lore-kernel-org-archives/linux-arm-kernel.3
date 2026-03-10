@@ -4,89 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0FC7F3C27D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 09:11:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8208EFCD9F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 09:12:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k2F848Zif0ENv+dioxwCTNyt1oN71pv8VacY1VvtFtA=; b=ZaBBHr2E0by59t+L+Ct1ktxsSM
-	Xe0QHIJsp997M72XG5s0DMRUNSWCqReGQh2IrFVZOrXtp0VAN/KwmGQ0NO5yBSrA1fFvSRn00rOvn
-	0MaiR0fvbeYKU/J0Tkr5ZEEgA0aStAmrm1wV7O/m7V1uSvA9DqR0+kp8//IAVrNIiHUcNh885MQjy
-	HSnN8r3vEwlEXLPamUfItHAtaTonEwWordQCCvgPo7fpyf3L7wjBezqfml8dYoLK5rNhsHLbV7GNS
-	v/+LDIT1DpYl5/p977Wv/YSB5wFCaPh836ymK4/Btm8S725jw+iDTrCY+SPXKjIyeLHQRUmAqmsAZ
-	LC27iF+g==;
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8byY2pi6aZMASU/wIMl2Z52enhJy2O8vbvW26gwVodc=; b=bf22Pr0HaL6RrbuhSUkwTFjDtH
+	RS6whWLXEAHhClCVqkVSi4mBuWw6TDi+GLfDCHsMqUh9ryvRcMiu622S7nffFMQJ/tUskH6/dpDLi
+	DEBhMhkrxnjmvYRwW4Ye2baFXulTA7Iju82+8bNZ5JXPHX9aWiG7Wc7kupl4NLt8iUphypiTxakAT
+	8q3VvRF1IWHBlEKXliAMCbjXR9nf9AHh8+W6ciboP6Mw2srmic7yhfs+BunVyMPJ7AxT9whElkIVQ
+	FVVwz6qSgRkUl8OfuwTgPqD2lZU9+DZ5RKIRkuvPJnBBdmcrzo7K3axEcg3bH6eyj8Cgw5yG3Nyji
+	VSoRLjMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzt80-000000092we-2dx2;
-	Tue, 10 Mar 2026 09:11:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vzt8G-0000000932I-2spF;
+	Tue, 10 Mar 2026 09:12:04 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzt7y-000000092w8-1uGJ
+	id 1vzt8F-0000000931z-0jBN
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 10 Mar 2026 09:12:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=8byY2pi6aZMASU/wIMl2Z52enhJy2O8vbvW26gwVodc=; b=c/EE42fihHitKo1KQQLWBaT6uj
+	zyQ5RegpS+bWfbHWYOv0YSU/P3FQ81bGzXFkOYttKNT20awPJhl1Su/0QeuUwMPSsqWtTx3JCkm4k
+	ILUwIVOnp1/k92bqNtX1YJVSmfxdSPC5Nk6VD7U1B6vx9RNFitOIqkGcUg3+0z+sDy6aIAW9iU8Bd
+	tu5ZHwVI0herGbvg0NxgmbNjUcKeR//cRjYBYLRGX42qDx8mnKXGtCoN0mEGmQDZ5iACfPY1xAOAA
+	nS5Jaqv0IZhpqD2XSTAtu6I5xV02caE2Zwf8+DXbtwBmKG73XUshD3g6ooOw/5rcFngQaSb9xbEYx
+	dxRBe+6w==;
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vzt8B-0000000E4eg-0RxU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 09:11:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7A1734455F
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 09:11:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60917C4AF11
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 09:11:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773133905;
-	bh=k2F848Zif0ENv+dioxwCTNyt1oN71pv8VacY1VvtFtA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=KGzE+AkPTbDePLOfxxSTz0NJMri0EekeriaoMph7b9Jbqih5Ia32kL2tB0bpRXAaZ
-	 Xd6EgwIO3zW8wsj5KPHnW557mQOlYLsZmYMSs3/zPmDxiTQ1jEJyWWcLDAgaOVZ26j
-	 8FNpzsqFjoQvFDl4B1/w6djudKuYNee9wTmWamLyhMa75x3wa/pvdJZWCYDV6nWoc9
-	 f2cKKUD8Pm9nT3qQuRFerXNryMwk6751oxzDK5gkcVrGPVN+HdpSxKhW+p/6F3f2aq
-	 TBbzKVwfBxOwsnrEtZL5vhU6EQaU8FtIppabfHdyf8tNXzvPe1lMPdjxpy8rJPAK6p
-	 E1LbYo0/ajrAw==
-Received: by mail-yx1-f53.google.com with SMTP id 956f58d0204a3-64937edbc9eso11502064d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 02:11:45 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCV+qobh1DaBS5RaMqZtsCL9eDr34qE3SgJG7ol9nTtXhbT6hev1S14qElsJyrrHDujkE9QwBtnUoRftKc3lb+NT@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDpX1IZPrlKfirq9PHOxr2q3fwcx3t2c2QaWuDKN1KF4CebVi9
-	1MdJj4olrkih5qL4SBXIkR4/u8OOggNjxlRBLwD80Wz48QNaQ8XkaNjQXfL1NvjLWHcIV93XXq+
-	LTJ34TP4khXQeSCGGFfEAx2nSokIjNl8=
-X-Received: by 2002:a05:690e:b8c:b0:64c:905:6f2c with SMTP id
- 956f58d0204a3-64d1411d8b4mr13101525d50.20.1773133904182; Tue, 10 Mar 2026
- 02:11:44 -0700 (PDT)
+	Tue, 10 Mar 2026 09:12:01 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-482f454be5bso126820965e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 02:11:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773133917; x=1773738717; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=8byY2pi6aZMASU/wIMl2Z52enhJy2O8vbvW26gwVodc=;
+        b=N4WwplS1Yur1du37EIxsv4BSakOCO3PShvNMUsBlmJ4wXtFkfrUt/H5POxfkQYP6/a
+         grtp2KMlsbfF4nLPk/WYM1RYtdWWIJUjAUUp8FHO6enwgKYQodHd0XW1nCQ0iBZzZwGg
+         v4eMRa3ZyOCI6SLy6lL9J9ZrCw6a0UejCF4CgxNlHPyS7avy/+SdpzSlguHGOBKSolnI
+         Adua9SfqpQwsgEFVtXG3NnNRr5o3gFWF2VE6+76HS2JvtrlkhE+vCk6ABmBG0c9Z4/HX
+         yB12+oy7Zkdax378mxGRfBFUx1lHN1w7/rl4+z5CsUsU6+XNndh8f97LhmoevyrSGm2W
+         rYiQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773133917; x=1773738717;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8byY2pi6aZMASU/wIMl2Z52enhJy2O8vbvW26gwVodc=;
+        b=oYJMBtNp0rNkdGueFzeCpwrtfwIjGujw0pDzv/EfSLLE7jB3NrdUyrQRHD2hWmPqMC
+         8d/76MdxSsY7+1Ihsqq2m9YxS4eX1+5Jp7PFSom8y385tZurCtW/YbnIhhpWP3gTp79X
+         4OW6pPFafIr9Tsj2krubM6vk1sXzyw2/JFnaTkBT3MTQBIDERjx2y3rIkJjxCfl2rYFy
+         mDAgI8X8y3FZDIwGnXaGgjTQ5o7hpDT+d7+5Lj0NywgUPpFmvkltEYcft6jJk0DPKagr
+         adW3HHQDKNYtpPzsgU+c6A8fLzyu+TglMcWYG7iurue4/58H71HCpbpxpi5fJvLC0YLK
+         PleQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXy6sDNy4z1+y5zZbntv7seqkAGjW4Erzt70WPAUyOzH+iZObBiFApc85nFECfrFQOxip0V+PSTCCwoiPITXYWR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw8DdpePwSp0zud3l9QLpDTCxIGgumVG0t7aqFgbyUSEI9VaTUC
+	MxlexZ4V98C2TeDCPmCQcZnYuZqiAJsknYficpOa12SIg0RVIUZ/5jrI
+X-Gm-Gg: ATEYQzxYxhnjT2FvFgaPG8VyrNAVgVdUbs5FnhWvbV3QQxj/0ZcBllbKLrZLyJre6Bb
+	aZsIsV5xp5IERL3s08YzEEUGKJZZadcilsMVZsqd8tuap1kJft8L2WGBycAlwGdVexLW2xRd7QL
+	e3UpN+WQEw/FnpyRX6CXiGp5/fQHUCYQV16R71od4cBhPof12u9jG96e37hA2iuRgTOcXpF3dMg
+	5rSh0XA8RgRzsj6qczexCHnCY1GwzWTX8xRamAjJDtdLZr1wnCRXUDe1zobIWJ7KhEGqXQxEdJ7
+	Ae/YfCdR3d0R8spMFQVzWdynzTiVhIHfyNlbJuJT068wuxe/Y17rPrae0L/jT7TUxMUpateIf9C
+	eZBu1pKLvUOyVeQhsOdeUHwqzXvkVcU9PkWh2DessnIqywp0gt7XhyH/ZMvYXIkDNnrILhasnTY
+	AnOAdtgzhAn+viSVr7CsBemmMTdM1TH3plVekH01fI7g==
+X-Received: by 2002:a05:600c:8b4b:b0:46e:59bd:f7e2 with SMTP id 5b1f17b1804b1-485419f1614mr41410525e9.11.1773133916565;
+        Tue, 10 Mar 2026 02:11:56 -0700 (PDT)
+Received: from homeserver.tail6d6c39.ts.net ([82.137.32.29])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-48541a6bb86sm56808345e9.1.2026.03.10.02.11.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Mar 2026 02:11:56 -0700 (PDT)
+From: Eduard Bostina <egbostina@gmail.com>
+To: daniel.baluta@nxp.com,
+	simona.toaca@nxp.com,
+	egbostina@gmail.com,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [RFC PATCH] arm64: dts: imx8mp-edm-g-wb: Use 0 for reserved bit
+Date: Tue, 10 Mar 2026 09:10:53 +0000
+Message-ID: <20260310091054.2029912-1-egbostina@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260304-gpio-of-kconfig-v1-0-d597916e79e7@oss.qualcomm.com> <20260304-gpio-of-kconfig-v1-7-d597916e79e7@oss.qualcomm.com>
-In-Reply-To: <20260304-gpio-of-kconfig-v1-7-d597916e79e7@oss.qualcomm.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 10 Mar 2026 10:11:32 +0100
-X-Gmail-Original-Message-ID: <CAD++jL=pOw2ZZqMXFK4cQ67g3yUGho6mjbW3JM8iQDQpiKL8TA@mail.gmail.com>
-X-Gm-Features: AaiRm53Xu9gGfY3MrM83r361-dKQ36aGj99vP6wgofH18qCwDYgWNRZvm6MhVmA
-Message-ID: <CAD++jL=pOw2ZZqMXFK4cQ67g3yUGho6mjbW3JM8iQDQpiKL8TA@mail.gmail.com>
-Subject: Re: [PATCH 07/14] pinctrl: Kconfig: drop unneeded dependencies on OF_GPIO
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Alexey Brodkin <abrodkin@synopsys.com>, Vineet Gupta <vgupta@kernel.org>, Scott Wood <oss@buserror.net>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Dvorkin Dmitry <dvorkin@tibbo.com>, 
-	Wells Lu <wellslutw@gmail.com>, Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>, 
-	Guenter Roeck <linux@roeck-us.net>, Wim Van Sebroeck <wim@linux-watchdog.org>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Sebastian Reichel <sre@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org, 
-	linuxppc-dev@lists.ozlabs.org, netdev@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-amlogic@lists.infradead.org, 
-	linux-leds@vger.kernel.org, linux-hwmon@vger.kernel.org, 
-	linux-watchdog@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-staging@lists.linux.dev, linux-pm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_021146_532738_E0B36156 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20260310_091159_297532_FB5FD342 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,17 +121,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 4, 2026 at 10:03=E2=80=AFAM Bartosz Golaszewski
-<bartosz.golaszewski@oss.qualcomm.com> wrote:
+The i.MX8MP Reference Manual documents bit 0 of the
+IOMUXC_SW_PAD_CTL_PAD registers as reserved. The hd3ss3220
+IRQ pin (SAI1_RXD6/GPIO4_IO08) currently uses pad config
+value 0x41 which sets this reserved bit.
 
-> OF_GPIO is selected automatically on all OF systems. Any symbols it
-> controls also provide stubs so there's really no reason to select it
-> explicitly.
->
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Change 0x41 to 0x40 to leave the reserved bit cleared, as
+recommended by the reference manual. This also allows for
+easier conversion to symbolic macros.
 
-Patch applied to the pinctrl tree!
+Signed-off-by: Eduard Bostina <egbostina@gmail.com>
+---
+ arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Yours,
-Linus Walleij
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts b/arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts
+index 242fa930b..a78401d11 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts
+@@ -345,7 +345,7 @@ MX8MP_IOMUXC_SAI1_TXD5__GPIO4_IO17		0x16 /* DSI_VDDEN */
+ 
+ 	pinctrl_hd3ss3220_irq: hd3ss3220-irqgrp {
+ 		fsl,pins = <
+-			MX8MP_IOMUXC_SAI1_RXD6__GPIO4_IO08		0x41 /* GPIO_P253 */
++			MX8MP_IOMUXC_SAI1_RXD6__GPIO4_IO08		0x40 /* GPIO_P253 */
+ 		>;
+ 	};
+ 
+-- 
+2.43.0
+
 
