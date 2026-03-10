@@ -4,59 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F8AFFD4F09
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 17:33:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D27DBFD4F0E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 17:41:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:In-Reply-To:References:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pbRHkg6j9RRwu7gnA0/6n+CmNyUAf+QALaWx+a/gjiE=; b=kqvjKWVx/QIdpEDgg0U8Gz74ib
-	bv7RnqSrAfsaMfLKDFiDce1nZkHCc5g1Nkd5YQepF6uJ57aUm3MhKmpaXeH/REomxNk8MBmWeBhtJ
-	YVzIZ9l7EQk2IninNvrbJZ9spQDtqebx5FOFQEwRSQ8KZlrcP6g6lvaRZzYUpfM5rmtFJKHY7LFzG
-	VXOr0yXd545mdlT6tNKReQYe4jFx9+t71upvDoJtBDQN/JRP4b7QxDeadpjURUkH2SVI5qDRid30c
-	L8D540FX++YRzprIeJ8UVpu/pPA80veS9Px3RMMPACTIcm97tUmxLdR3SXkEfnCUcTcFw7zsHsiVK
-	hBvOIBhA==;
+	bh=ksDXxhaAY3/nfrA68QD3fGkJjj3Wzw0Af1Y1+KsLeSg=; b=K62S5OO4H3nnaCFNZrC0FRAgfT
+	gHii7F3Pgahq0+kV3khA73sXeU7a8KZKnc6GWk9SNCQMkUt5/v7UU3Xf/ZkT79Yx4gw5RTWY/7yWC
+	MlKyQYHxSc+4ANaDmCKt4FtILjnhOTMOXTYkO2hGBp055rNToM/Z4Z5mvcA06YXaqNyoZlOeVQVCy
+	OgofZydRMDSxnmXM0EkM2tCtjeKpAtvKzMbX49ArqfBduBZHLdqYRgss3I+hl5AEb8xFsXi//9M9Z
+	vTYkKGea0j2LA84VGOo6xGRCbCfHw0tayNBtArQK4hd6G21F0ZP6rckMoiGYTHD0RTI3L7aX05v6m
+	1IwjBN4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w00xp-00000009zkO-0tTP;
-	Tue, 10 Mar 2026 17:33:49 +0000
-Received: from mta1.migadu.com ([2001:41d0:203:375::] helo=out-181.mta1.migadu.com)
+	id 1w015E-0000000A0Fb-1VMY;
+	Tue, 10 Mar 2026 17:41:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w00xl-00000009zik-0n0Y
+	id 1w015D-0000000A0FI-160W
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 10 Mar 2026 17:41:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=ksDXxhaAY3/nfrA68QD3fGkJjj3Wzw0Af1Y1+KsLeSg=; b=V16WwbUC0IECibGmlCYTyhnMKa
+	VXxLQMExRjebry6N+DqWfLtRikAIRQ1FoCXW5vPCkMfg7b32C/IuV1IkIb2lBY2RD5MDLqxz2I6de
+	7IhAnMoTvSBP/hKhrajSHeXFtNhETvSV+kfb17AAD5YVezurHEjl3bZK8G+fpieQm/faCQYVe9nin
+	lFXrCa+0FQUvrvMTJc+O8mTuAv06QWxV2e24seqr+NoDwh8Y2HDedr90LS/eVvwTNH7SAnTK2jbLc
+	XYXWsvO6K0OrSnUnMH5fETxEEjwiBqDjOtXAzBcBm0M24oJBMsNiJbwL8g25Z3sR57ucggHVFeplo
+	HagGMs8w==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0159-0000000FFHs-32fk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 17:33:47 +0000
-Date: Tue, 10 Mar 2026 17:30:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=postmarketos.org;
-	s=key1; t=1773164011;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pbRHkg6j9RRwu7gnA0/6n+CmNyUAf+QALaWx+a/gjiE=;
-	b=pIm114EZhCnFvihJDz6EkqgldikGB5peLN/GNoPVUM8SKl14CnwYJIOE4ErMAHwCKfGtB3
-	oiRo5WnSWNBtmG5SJUFTonIS3T48mLUDfhQRC8IJMHHuBXt0TisKqY/AYSO1npzSuETDi3
-	gAAWkmCY+2/Ycd8B74gOr8ijLiy49hUQu6zDCk1n8iGqvuQukdPenkomdX6v5eaYRIq1PE
-	IcCJb1wnZcWUm/PWHiyv4g4Fd4VasAJSTNWatypqr5ulUsI2qy0MSto4QGxM6/iPJ4stqb
-	qeF3jkwOIT70sGs5srpp0wqvq8EhAVDnxWciCRok0RGf1q67atuqob0kXOhQ5Q==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Ferass El Hafidi <funderscore@postmarketos.org>
-To: linux-amlogic@lists.infradead.org, Jian Hu <jian.hu@amlogic.com>, Jerome Brunet <jbrunet@baylibre.com>, Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, Martin  
- Blumenstingl <martin.blumenstingl@googlemail.com>, Stephen Boyd <sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, robh+dt <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: Jian Hu <jian.hu@amlogic.com>, devicetree <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>, linux-amlogic <linux-amlogic@lists.infradead.org>, linux-kernel <linux-kernel@vger.kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, Ronald Claveau <linux-kernel-dev@aliel.fr>
-Subject: Re: [PATCH 3/3] arm64: dts: amlogic: t7: Add clock controller nodes
-References: <20260305074328.639993-1-jian.hu@amlogic.com> <20260305074328.639993-4-jian.hu@amlogic.com>
-In-Reply-To: <20260305074328.639993-4-jian.hu@amlogic.com>
-Message-ID: <tbp23s.3oymu5iyepvke@postmarketos.org>
+	Tue, 10 Mar 2026 17:41:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0D7141596;
+	Tue, 10 Mar 2026 10:41:15 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3DD4C3F694;
+	Tue, 10 Mar 2026 10:41:18 -0700 (PDT)
+Date: Tue, 10 Mar 2026 17:41:07 +0000
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, Oliver Upton <oupton@kernel.org>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Subject: Re: [PATCH RESEND 2/2] KVM: arm64: nv: Expose shadow page tables in
+ debugfs
+Message-ID: <2c42eqpjf4m7teualhtgor6kzv7bk2rot4iwdivj6jf7zpe4m6@s3aqt53czzif>
+References: <20260308231829.864983-1-weilin.chang@arm.com>
+ <20260308231829.864983-3-weilin.chang@arm.com>
+ <20260310152604.GA3093715@e124191.cambridge.arm.com>
+ <thetpwxswabflbntrrxfsxpej4scwq25qpviv2svmbj7br3w3d@mdrrhsuexsf4>
+ <86bjgv7ho1.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset=utf-8; format=flowed
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86bjgv7ho1.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_103345_558351_C927162E 
-X-CRM114-Status: UNSURE (   9.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260310_174124_112515_CD7B2F63 
+X-CRM114-Status: GOOD (  21.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,198 +84,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 05 Mar 2026 07:43, Jian Hu <jian.hu@amlogic.com> wrote:
->Add the required clock controller nodes for Amlogic T7 SoC family:
->- SCMI clock controller
->- PLL clock controller
->- Peripheral clock controller
->
->Signed-off-by: Jian Hu <jian.hu@amlogic.com>
->---
-> arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 125 ++++++++++++++++++++
-> 1 file changed, 125 insertions(+)
->
->diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
->index 6510068bcff9..6ea1b583b13d 100644
->--- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
->+++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
->@@ -6,6 +6,9 @@
-> #include <dt-bindings/interrupt-controller/arm-gic.h>
-> #include <dt-bindings/power/amlogic,t7-pwrc.h>
-> #include "amlogic-t7-reset.h"
->+#include <dt-bindings/clock/amlogic,t7-scmi.h>
->+#include <dt-bindings/clock/amlogic,t7-pll-clkc.h>
->+#include <dt-bindings/clock/amlogic,t7-peripherals-clkc.h>
+On Tue, Mar 10, 2026 at 04:50:22PM +0000, Marc Zyngier wrote:
+> On Tue, 10 Mar 2026 16:17:07 +0000,
+> Wei-Lin Chang <weilin.chang@arm.com> wrote:
+> > 
+> > On Tue, Mar 10, 2026 at 03:26:04PM +0000, Joey Gouly wrote:
 > 
-> / {
-> 	interrupt-parent = <&gic>;
->@@ -201,6 +204,33 @@ pwrc: power-controller {
-> 		};
-> 	};
+> > > > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > > > index 5d5a3bbdb95e..f88f6c4d646e 100644
+> > > > --- a/arch/arm64/include/asm/kvm_host.h
+> > > > +++ b/arch/arm64/include/asm/kvm_host.h
+> > > > @@ -217,6 +217,10 @@ struct kvm_s2_mmu {
+> > > >  	 */
+> > > >  	bool	nested_stage2_enabled;
+> > > >  
+> > > > +#ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
+> > > > +	struct dentry *shadow_pt_debugfs_dentry;
+> > > > +#endif
+> > > > +
+> > > >  	/*
+> > > >  	 * true when this MMU needs to be unmapped before being used for a new
+> > > >  	 * purpose.
+> > > > @@ -405,6 +409,9 @@ struct kvm_arch {
+> > > >  	 * the associated pKVM instance in the hypervisor.
+> > > >  	 */
+> > > >  	struct kvm_protected_vm pkvm;
+> > > > +
+> > > > +	/* Nested virtualization info */
+> > > > +	struct dentry *debugfs_nv_dentry;
+> > > 
+> > > Seems like this could be guarded with CONFIG_PTDUMP_STAGE2_DEBUGFS too, or is
+> > > there a reason you didn't?
+> > 
+> > Right, I was thinking this "nested" directory can also hold other NV
+> > related information in the future, that's why I didn't keep it behind
+> > the option.
 > 
->+	sram@f7042000 {
->+		compatible = "mmio-sram";
->+		#address-cells = <1>;
->+		#size-cells = <1>;
->+		ranges = <0 0x0 0xf7042000 0x100>;
->+
->+		scmi_shmem: sram@0 {
->+			compatible = "arm,scmi-shmem";
->+			reg = <0x0 0x100>;
->+		};
->+	};
->+
->+	firmware {
->+		scmi: scmi {
->+			compatible = "arm,scmi-smc";
->+			arm,smc-id = <0x820000c1>;
->+			shmem = <&scmi_shmem>;
->+			#address-cells = <1>;
->+			#size-cells = <0>;
->+
->+			scmi_clk: protocol@14 {
->+				reg = <0x14>;
->+				#clock-cells = <1>;
->+			};
->+		};
->+	};
->+
-> 	soc {
-> 		compatible = "simple-bus";
-> 		#address-cells = <2>;
->@@ -224,6 +254,42 @@ apb4: bus@fe000000 {
-> 			#size-cells = <2>;
-> 			ranges = <0x0 0x0 0x0 0xfe000000 0x0 0x480000>;
+> We can cross that bridge when we get there. In the meantime, I'd side
+> with Joey and would rather not have a dangling pointer.
+
+Sure!
+Let me guard it with CONFIG_PTDUMP_STAGE2_DEBUGFS too.
+
+Thanks,
+Wei-Lin Chang
+
 > 
->+			clkc_periphs:clock-controller@0 {
->+				compatible = "amlogic,t7-peripherals-clkc";
->+				reg = <0x0 0x0 0x0 0x1c8>;
->+				#clock-cells = <1>;
->+				clocks = <&xtal>,
->+					 <&scmi_clk CLKID_SYS_CLK>,
->+					 <&scmi_clk CLKID_FIXED_PLL>,
->+					 <&scmi_clk CLKID_FCLK_DIV2>,
->+					 <&scmi_clk CLKID_FCLK_DIV2P5>,
->+					 <&scmi_clk CLKID_FCLK_DIV3>,
->+					 <&scmi_clk CLKID_FCLK_DIV4>,
->+					 <&scmi_clk CLKID_FCLK_DIV5>,
->+					 <&scmi_clk CLKID_FCLK_DIV7>,
->+					 <&hifi CLKID_HIFI_PLL>,
->+					 <&gp0 CLKID_GP0_PLL>,
->+					 <&gp1 CLKID_GP1_PLL>,
->+					 <&mpll CLKID_MPLL1>,
->+					 <&mpll CLKID_MPLL2>,
->+					 <&mpll CLKID_MPLL3>;
->+				clock-names = "xtal",
->+					      "sys",
->+					      "fix",
->+					      "fdiv2",
->+					      "fdiv2p5",
->+					      "fdiv3",
->+					      "fdiv4",
->+					      "fdiv5",
->+					      "fdiv7",
->+					      "hifi",
->+					      "gp0",
->+					      "gp1",
->+					      "mpll1",
->+					      "mpll2",
->+					      "mpll3";
->+			};
->+
-> 			reset: reset-controller@2000 {
-> 				compatible = "amlogic,t7-reset";
-> 				reg = <0x0 0x2000 0x0 0x98>;
->@@ -234,6 +300,7 @@ watchdog@2100 {
-> 				compatible = "amlogic,t7-wdt";
-> 				reg = <0x0 0x2100 0x0 0x10>;
-> 				clocks = <&xtal>;
->+
-> 			};
+> Thanks,
 > 
-> 			periphs_pinctrl: pinctrl@4000 {
->@@ -269,6 +336,64 @@ uart_a: serial@78000 {
-> 				status = "disabled";
-> 			};
+> 	M.
 > 
->+			gp0:clock-controller@8080 {
->+				compatible = "amlogic,t7-gp0-pll";
->+				reg = <0x0 0x8080 0x0 0x20>;
->+				clocks = <&scmi_clk CLKID_TOP_PLL_OSC>;
->+				clock-names = "in0";
->+				#clock-cells = <1>;
->+			};
-
-I would separate `gp0:` and `clock-controller@8080` with a space, like so:
-
-			gp0: clock-controller@8080 {
-
-Same for the others below (and `clkc_periphs:clock-controller@0` above).
-
->+
->+			gp1:clock-controller@80c0 {
->+				compatible = "amlogic,t7-gp1-pll";
->+				reg = <0x0 0x80c0 0x0 0x14>;
->+				clocks = <&scmi_clk CLKID_TOP_PLL_OSC>;
->+				clock-names = "in0";
->+				#clock-cells = <1>;
->+			};
->+
->+			hifi:clock-controller@8100 {
->+				compatible = "amlogic,t7-hifi-pll";
->+				reg = <0x0 0x8100 0x0 0x20>;
->+				clocks = <&scmi_clk CLKID_TOP_PLL_OSC>;
->+				clock-names = "in0";
->+				#clock-cells = <1>;
->+			};
->+
->+			pcie:clock-controller@8140 {
->+				compatible = "amlogic,t7-pcie-pll";
->+				reg = <0x0 0x8140 0x0 0x1c>;
->+				clocks = <&scmi_clk CLKID_PCIE_OSC>;
->+				clock-names = "in0";
->+				#clock-cells = <1>;
->+			};
->+
->+			mpll:clock-controller@8180 {
->+				compatible = "amlogic,t7-mpll";
->+				reg = <0x0 0x8180 0x0 0x28>;
->+				clocks = <&scmi_clk CLKID_FIXED_PLL_DCO>;
->+				clock-names = "in0";
->+				#clock-cells = <1>;
->+			};
->+
->+			hdmi:clock-controller@81c0 {
->+				compatible = "amlogic,t7-hdmi-pll";
->+				reg = <0x0 0x81c0 0x0 0x20>;
->+				clocks = <&scmi_clk CLKID_HDMI_PLL_OSC>;
->+				clock-names = "in0";
->+				#clock-cells = <1>;
->+			};
->+
->+			mclk:clock-controller@8300 {
->+				compatible = "amlogic,t7-mclk-pll";
->+				reg = <0x0 0x8300 0x0 0x18>;
->+				clocks = <&scmi_clk CLKID_MCLK_PLL_OSC>,
->+					 <&xtal>,
->+					 <&scmi_clk CLKID_FCLK_50M>;
->+				clock-names = "in0", "in1", "in2";
->+				#clock-cells = <1>;
->+			};
->+
-> 			sec_ao: ao-secure@10220 {
-> 				compatible = "amlogic,t7-ao-secure",
-> 					     "amlogic,meson-gx-ao-secure",
->-- 
->2.47.1
->
->
-
-Best regards,
-Ferass
-
->_______________________________________________
->linux-amlogic mailing list
->linux-amlogic@lists.infradead.org
->http://lists.infradead.org/mailman/listinfo/linux-amlogic
+> -- 
+> Without deviation from the norm, progress is not possible.
 
