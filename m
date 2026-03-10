@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA4FFD2D69
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 12:30:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D84DFD2D63
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 12:36:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ELrrCbxIPB/3LJIx8lDJKH/BBlwUfQI6JhtI01g48AA=; b=FgWdF9smkdn4rtHh0vsj4i+iQI
-	GnULPOc7c+vwfsUYgto/tJc+o1otCwpKQoExDVKEJ01crwWFceEpnpBtxzb/vBLE57dPvMqB9xkoM
-	zjq7FY/M3Bv7/hpNQJeKXnRirDW/A3GqeMBq/wdLzWM7S4VDs5Zm44rmsKHvvbthmMoLt7f5I3NcJ
-	ltH57TlI8vADyM+HL/VAMvBQo3ja0O+tGjisU/9yN5UTCuw3/q55pjFGV2ITzF+j871T9tjT0P8dw
-	05GWE0mDxtQuu+nwmhWiIoeOwJiHvtUFGjccAV0PpPbAqXhxD5DtopTxI3o6oTyyBB7FOQ6CcpLqo
-	o8j8ToaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IU8oWwwvjxEc+ee+Sw/7Fv1DFEugv27jyfna2MxitOo=; b=yCaqC9tLzbNCQwSE5Qgi5hbEpO
+	bV5zx3zcF9FAczxcAapCG7DcVmqPucIktuaTMP8mzTSVsmgig3SiVyVHKvwuv/E1tHmKlDbJ0yuEf
+	vThd+YZZ0Hej+dK/Uqm7myKhydrKPHxGfmcCr1ABgo5OtFEApGI/N3WwQ5sA5uJwoaniQVqXHjdvk
+	eQHgeYw0iHMfFxiH2ou0aVfCUUM1G07gsvvFsykeyFimCWDA9onRWWGYuu54CenqYQplvFk6IBR3/
+	pqG5LVKgV4Ux6d1fGaXAaOI7/G7BcSUhADjtoeTymbygb+FdqN3KOpv+J6F479d+wgudfj5pDIUWr
+	15zORyhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzwE1-00000009UHp-1gPe;
-	Tue, 10 Mar 2026 12:30:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vzwKL-00000009Uv9-40Ab;
+	Tue, 10 Mar 2026 12:36:45 +0000
+Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzwDy-00000009UHO-2tU3;
-	Tue, 10 Mar 2026 12:30:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 933FF408D7;
-	Tue, 10 Mar 2026 12:30:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68D47C19425;
-	Tue, 10 Mar 2026 12:30:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773145809;
-	bh=TzlCotxcVT6dvedJ0FiuS4FRNkDSl+AbCRH0nt2v3jU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=oMuqiL5KD/vE1T73WmdbrD7Ys72rQc4Gj/7cE98alu6HSeOGlVn/QMZYHFrt3ZXHM
-	 TMcZ4f2OE9l6gnGZxp8LUFqKYIUCHVJtZgsDspWwhqIo1NpsRAj2dZsz/OSDf3ki5n
-	 cAaDVOx+oF+SclLCMH/HYHssnfVPAgjt8+p5geEAt1hb4YjznDLyHDKHOH3QUzM21U
-	 5MCW68OxflZWKyfojLH67hpcKx+VP0U+JakijCwEBRBIqy8NqHnPvWYFRxVhrexNrv
-	 CBb2r6BJRJT0/TSafCp4wLTQBFIYS995fb24DFVSycGil1bmoxZ/FmIaQONKcGKTbc
-	 YiJ4YfCJh04Ww==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7CDF53808200;
-	Tue, 10 Mar 2026 12:30:07 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1vzwKI-00000009Utg-3ZSM
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Mar 2026 12:36:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=codethink.co.uk; s=imap4-20230908; h=Sender:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:In-Reply-To:
+	References; bh=IU8oWwwvjxEc+ee+Sw/7Fv1DFEugv27jyfna2MxitOo=; b=NaN+ur9ZCceLTp
+	bMFKuyyOxhDvOqyiTk+pNrPJoRtIx4qBxz2xjDvWEBCMcblLgO93klik3wtkqqeYShVqfxONVkZLh
+	/4pIG0LC6oCz1QywgnhL59vXRTmpH+CDNeXo8zw1B8shUDKKUKjj0Q+n8xD8EqgJfUCgU5g6C0ZZm
+	CZrYosjNCev1+MRrA7y0sFoM3vMInLYf8InbMaKHHbeVVFR7DKtV6Yzkl1I+yLHKSTbg4Z5ohHkyc
+	ZkmA/GLBS8aSiU64bv5hfUFKv6MT999TukfMhFFOi4rNvMRRU1mPMYo/khhKxGfKHWz+d1CbVmH8y
+	DCW5pVWDjR14ezyocPZg==;
+Received: from [63.135.74.212] (helo=rainbowdash)
+	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1vzwK3-006p9w-CY; Tue, 10 Mar 2026 12:36:27 +0000
+Received: from ben by rainbowdash with local (Exim 4.99.1)
+	(envelope-from <ben@rainbowdash>)
+	id 1vzwK2-00000000gct-2Y8k;
+	Tue, 10 Mar 2026 12:36:26 +0000
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+To: linux-clk@vger.kernel.org,
+	sboyd@kernel.org,
+	mturquette@baylibre.com,
+	sebastian.hesselbarth@gmail.com,
+	gregory.clement@bootlin.co,
+	andrew@lunn.c
+Cc: linux-arm-kernel@lists.infradead.org,
+	Ben Dooks <ben.dooks@codethink.co.uk>
+Subject: [PATCH] clk: mvebu: armada-37xx-periph: fix __iomem casts in structure init
+Date: Tue, 10 Mar 2026 12:36:25 +0000
+Message-Id: <20260310123625.163846-1-ben.dooks@codethink.co.uk>
+X-Mailer: git-send-email 2.37.2.352.g3c44437643
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next] net: airoha: Move GDM forward port configuration
- in ndo_open/ndo_stop callbacks
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <177314580605.2263385.3496529123194142050.git-patchwork-notify@kernel.org>
-Date: Tue, 10 Mar 2026 12:30:06 +0000
-References: <20260306-airoha-gdm-forward-ndo-open-stop-v1-1-7b7a20dd9ef0@kernel.org>
-In-Reply-To: <20260306-airoha-gdm-forward-ndo-open-stop-v1-1-7b7a20dd9ef0@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_053010_770863_AA9F890F 
-X-CRM114-Status: UNSURE (   8.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260310_053642_996104_E720D122 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,29 +75,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+There are a number of casts to "void __iomem *" in the initialsation
+of the driver's clk information. Fix this by adding a helper macro
+for the cast.
 
-This patch was applied to netdev/net-next.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
+Silences a number of sparse warnings:
 
-On Fri, 06 Mar 2026 16:09:47 +0100 you wrote:
-> This change allows to set GDM forward port configuration to
-> FE_PSE_PORT_DROP stopping the network device. Hw design requires to stop
-> packet forwarding putting the interface down.  Moreover, PPE firmware
-> requires to use PPE1 for GDM3 or GDM4.
-> 
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> 
-> [...]
+drivers/clk/mvebu/armada-37xx-periph.c:254:1: warning: incorrect type in initializer (different address spaces)
+drivers/clk/mvebu/armada-37xx-periph.c:254:1:    expected void [noderef] __iomem *reg
+drivers/clk/mvebu/armada-37xx-periph.c:254:1:    got void *
+drivers/clk/mvebu/armada-37xx-periph.c:254:1: warning: incorrect type in initializer (different address spaces)
+drivers/clk/mvebu/armada-37xx-periph.c:254:1:    expected void [noderef] __iomem *reg1
+drivers/clk/mvebu/armada-37xx-periph.c:254:1:    got void *
+drivers/clk/mvebu/armada-37xx-periph.c:254:1: warning: incorrect type in initializer (different address spaces)
+drivers/clk/mvebu/armada-37xx-periph.c:254:1:    expected void [noderef] __iomem *reg2
+drivers/clk/mvebu/armada-37xx-periph.c:254:1:    got void *
+drivers/clk/mvebu/armada-37xx-periph.c:255:1: warning: incorrect type in initializer (different address spaces)
+drivers/clk/mvebu/armada-37xx-periph.c:255:1:    expected void [noderef] __iomem *reg
+drivers/clk/mvebu/armada-37xx-periph.c:255:1:    got void *
+...
 
-Here is the summary with links:
-  - [net-next] net: airoha: Move GDM forward port configuration in ndo_open/ndo_stop callbacks
-    https://git.kernel.org/netdev/net-next/c/46097d011f77
+Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+---
+ drivers/clk/mvebu/armada-37xx-periph.c | 16 +++++++++-------
+ 1 file changed, 9 insertions(+), 7 deletions(-)
 
-You are awesome, thank you!
+diff --git a/drivers/clk/mvebu/armada-37xx-periph.c b/drivers/clk/mvebu/armada-37xx-periph.c
+index bd0bc8e7b1e7..3123771b9c99 100644
+--- a/drivers/clk/mvebu/armada-37xx-periph.c
++++ b/drivers/clk/mvebu/armada-37xx-periph.c
+@@ -126,9 +126,11 @@ static const struct clk_div_table clk_table2[] = {
+ static const struct clk_ops clk_double_div_ops;
+ static const struct clk_ops clk_pm_cpu_ops;
+ 
++#define __reg(__x) ((void __iomem __force *)(__x))
++
+ #define PERIPH_GATE(_name, _bit)		\
+ struct clk_gate gate_##_name = {		\
+-	.reg = (void *)CLK_DIS,			\
++	.reg = __reg(CLK_DIS),			\
+ 	.bit_idx = _bit,			\
+ 	.hw.init = &(struct clk_init_data){	\
+ 		.ops =  &clk_gate_ops,		\
+@@ -137,7 +139,7 @@ struct clk_gate gate_##_name = {		\
+ 
+ #define PERIPH_MUX(_name, _shift)		\
+ struct clk_mux mux_##_name = {			\
+-	.reg = (void *)TBG_SEL,			\
++	.reg = __reg(TBG_SEL),			\
+ 	.shift = _shift,			\
+ 	.mask = 3,				\
+ 	.hw.init = &(struct clk_init_data){	\
+@@ -147,8 +149,8 @@ struct clk_mux mux_##_name = {			\
+ 
+ #define PERIPH_DOUBLEDIV(_name, _reg1, _reg2, _shift1, _shift2)	\
+ struct clk_double_div rate_##_name = {		\
+-	.reg1 = (void *)_reg1,			\
+-	.reg2 = (void *)_reg2,			\
++	.reg1 = __reg(_reg1),			\
++	.reg2 = __reg(_reg2),			\
+ 	.shift1 = _shift1,			\
+ 	.shift2 = _shift2,			\
+ 	.hw.init = &(struct clk_init_data){	\
+@@ -158,7 +160,7 @@ struct clk_double_div rate_##_name = {		\
+ 
+ #define PERIPH_DIV(_name, _reg, _shift, _table)	\
+ struct clk_divider rate_##_name = {		\
+-	.reg = (void *)_reg,			\
++	.reg = __reg(_reg),			\
+ 	.table = _table,			\
+ 	.shift = _shift,			\
+ 	.hw.init = &(struct clk_init_data){	\
+@@ -168,10 +170,10 @@ struct clk_divider rate_##_name = {		\
+ 
+ #define PERIPH_PM_CPU(_name, _shift1, _reg, _shift2)	\
+ struct clk_pm_cpu muxrate_##_name = {		\
+-	.reg_mux = (void *)TBG_SEL,		\
++	.reg_mux = __reg(TBG_SEL),		\
+ 	.mask_mux = 3,				\
+ 	.shift_mux = _shift1,			\
+-	.reg_div = (void *)_reg,		\
++	.reg_div = __reg(_reg),			\
+ 	.shift_div = _shift2,			\
+ 	.hw.init = &(struct clk_init_data){	\
+ 		.ops =  &clk_pm_cpu_ops,	\
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.37.2.352.g3c44437643
 
 
