@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B56DCFD2D71
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B062EFD2D70
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Mar 2026 12:50:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,60 +12,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VEWbELOsDpdm123yqs/nC4AQmYY2qHXqVI/qysPxPqQ=; b=kSwCXWpMbmxF4OnkVSR62deW0+
-	c85sJB0A1IwGrQMWvThtrUfRwaaOy4+TB9XmYR4pzcCUIullICXrQ+0gM8LsiLuOVoj83vgXFBuyQ
-	YzqMSeCT6B3yFvmUGToGbfTGIjo9J3Y4kt0C07ilnawKglKjD3DBJhTUIGW1EHL27JuaeO1DeT/o1
-	pR92zDbvueuEzZt3zSfSS8rRiB6zZbDUH7U+n1wF0f3yvSVBRLJ4DSE22QMyfV4Z8PM9xyom/iCFa
-	pun2z1o2clqUhMhpiWR6Kg7+ZFfRiW9XxOp1B4MtHtgkzHp50VZtSW1OFFNjz+Q7fCPZqtPijeFz0
-	Bc52yCvg==;
+	bh=cabtoOO69urPXAXi1nwx09QASEtiR2iqFRPNp+1JRfM=; b=1qMiA9oYb1NnsrjOZF4l49VxY2
+	hnhIyjsRFeWEGbgYXX4aMhwNUysHnRrNde8CH59z98+TeSys+ktdcSvHFsceYB6M9ujh13twfNQkK
+	8JLkkYBvtKzvOMSY1FpVwKr9BUH4rgUHqcQRRMTDfiwQ5esZAdNcfdY4CYhdMEwYu8JOFNx4IXyMW
+	SesqcppYBRXi73AGTjk7MX4+T5nwwxZgEAtaAfOVEijkJiTl+YZlZXAV5RHjIJ4LHfE3AEWogkucO
+	WnYMHsSazVHCRVQSI/FfdIDyDKjWwhOWukqFFo/g/3V+bCRiBMxPPz3y4XaVqlBRf8dFW96Yq/H5c
+	woXKp2Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzwXE-00000009WJu-2Nq7;
-	Tue, 10 Mar 2026 12:50:04 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1vzwXD-00000009WI2-3GrH;
+	Tue, 10 Mar 2026 12:50:03 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzwX9-00000009WBe-13Qj
+	id 1vzwX6-00000009W7z-2U4T
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Mar 2026 12:50:00 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-485375aa56eso19334135e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 05:49:58 -0700 (PDT)
+	Tue, 10 Mar 2026 12:49:57 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-48539bda3dcso20882335e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Mar 2026 05:49:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1773146997; x=1773751797; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1773146994; x=1773751794; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=VEWbELOsDpdm123yqs/nC4AQmYY2qHXqVI/qysPxPqQ=;
-        b=IW8OtlBYVjJu5cFJvt2aFfDbDQ3FZBDRBRW9W16OsJuLynNG0UOTFHe7T91RRq9Tdu
-         sFKHonqnnJgHMPH+gT2VUTU1+D/WnThBiPwGQqMigDJ4g0bRAg0FfQzpdDvnr/lp+HjD
-         RYQI2vsQKzNK3d4N3NcFUbOfklbSeHy156tiZ0y+eJbC2c6q8vb2eBXCTQI+z7EdhYZr
-         RHsK0yiGmxyFzhXBy0GQZhojmQAxRC+5J7KcaJZXUW8mqv1e52CcHJPSDdgilwQE3Nwj
-         qsdLU+pbe6Tnop5RVBvrhbpuKfSsAJTB+VZmDhWYp7caordf5CFrKKoojyuVHH/8WVgb
-         oW6A==
+        bh=cabtoOO69urPXAXi1nwx09QASEtiR2iqFRPNp+1JRfM=;
+        b=NL32K0kKBZ+in2HyU9c3pQQFtIYYiopgdarhjibRP/zC+dhEK5WVnooo7DUA5rdc45
+         uU8PyluNW3sMqTPuPFAd+7Xw0sNqDbu+stuMIRMd94lAY543/09QzIBXHSq1MiPq9ikn
+         5/mZU3f5c7Q7SZK1NwgWKAxISY0h3gHdW+0J0q4wIvLiI8rma0n7omUP9eLZRg24XATl
+         TQFkEh/2/dnXhOabNhKI9fwlYbmhWlxvG5bZyCxBdbZQ8Q4UI/Q3CA6LBwDGC0e01gEM
+         l1OtPSD2LO4iGy3d9Pw+CKGIIAdgDqMqkE6MMRBkV1tEhRTpfixvwh6iGKv1sUO3g1L8
+         UvLw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773146997; x=1773751797;
+        d=1e100.net; s=20230601; t=1773146994; x=1773751794;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VEWbELOsDpdm123yqs/nC4AQmYY2qHXqVI/qysPxPqQ=;
-        b=IxLju62pbExOtNw57MYprZ2KrNClgNQp6rnuBTv0jw3eh96H2JrPFDCmCDWqqLuFV4
-         vOhlOeI4eYDAJZMTMi2Ht5950wOeMma7aaNNFJ5U6UCx2BmSiCWzyhkpEVfZM2QP5nel
-         /ysBTJRQolCn8Xalnj+boej9AS2JbG/G8Gx2Bx86mYtnn1NVZdUOVoctg9+9IZIMKUKW
-         ZAL6awRuliUX6OVghyXcRG3jIAaUOwk/AxDfbbYOjmdsDG7ufUdfG3CAk+wrQujFGOv2
-         SWnvsvwVZhCM06Dehx9LTCIO5+O4Hxl8qvFmDNkzaP+pqlJW1ZBY1fgiFCGE/GEYMSYg
-         24UQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXX1gVr5A4Xlq2aATEzR+9xqZTZPGVoifQ09m/pv1/YgR2iFyr/l/A7R4k7vmWNnaoNL5sBEmbweuHBcpZg1M4M@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxr7FgBNXtcYgag2DwR7LKM92fgTYYoDjYm7KJ0m2Jzlgr2JWHV
-	eMTq1SvSbgSDvIfRaIw3tlI0hQYnfMiskcDcXahCa78XQmf0ryAKOSOmDQaxi2AmZFEvbJD4e3V
-	RgE3KkhvrKx3L/5ApZI1Lx2BMZxwz+A==
-X-Received: from wmpj41.prod.google.com ([2002:a05:600c:48a9:b0:485:3a2f:2f7e])
+        bh=cabtoOO69urPXAXi1nwx09QASEtiR2iqFRPNp+1JRfM=;
+        b=KSHXpsWU4Z3Ri2q6GgvSS2gRUullUWPylUtdJtJdZtgHgG1ac9IH62V915+yH7ovAh
+         goQGfY8JlqzdW0eT9RCx/ePCIXjyxgJwxBOZ5lvz3e+rgroYk6wsgTZYNyy7fWwRDSz2
+         mkVf9jvCSP29QHYAup+9hIm4ngZVAvVSR3wVfNKW1sp71MhMrtdoX0yoQadt5xBaJ6Cm
+         ng9Gceg/vto0QGQZqG8blSpwpS9ybJfUSsJ2mOEsij8JCT0U9PM1BgG8bdtldvQ9FgdK
+         c5M7V+YJf02wYpDeg/0kpki0qL/7IkF1p7ISOPKl4Piz8se+IyNt7CAWmc+nmylmYYa1
+         gZbA==
+X-Forwarded-Encrypted: i=1; AJvYcCW+70V0PNfxxYfIDtPED2pxv8PL3i3jT6Zjm4ufrepjqrkdAc6FT6eOdfANDZEGX1+jPl1yX1gAxpEKpush0DP0@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIA3nk73NXiUdJKuVq2vL6hUTFj2wT2KoSbpnmEk1NZuNiZicI
+	LEplXenK5enGHYFAFVuvePPpiR5IRlgnAsHXyeOAjc9j1l55XZOWppnERnjTinWQHfB3gGfJd2b
+	a7Zj7TYqiYvzPATNC2F7+tnBFyEdLeQ==
+X-Received: from wmbjq3.prod.google.com ([2002:a05:600c:55c3:b0:483:6e28:c16f])
  (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:46cb:b0:485:3dfc:57c with SMTP id 5b1f17b1804b1-4853dfc073cmr92510315e9.21.1773146996957;
- Tue, 10 Mar 2026 05:49:56 -0700 (PDT)
-Date: Tue, 10 Mar 2026 12:49:31 +0000
+ 2002:a05:600c:350e:b0:483:3380:ca11 with SMTP id 5b1f17b1804b1-48526978900mr254229025e9.33.1773146994098;
+ Tue, 10 Mar 2026 05:49:54 -0700 (PDT)
+Date: Tue, 10 Mar 2026 12:49:29 +0000
 In-Reply-To: <20260310124933.830025-1-sebastianene@google.com>
 Mime-Version: 1.0
 References: <20260310124933.830025-1-sebastianene@google.com>
 X-Mailer: git-send-email 2.53.0.473.g4a7958ca14-goog
-Message-ID: <20260310124933.830025-13-sebastianene@google.com>
-Subject: [PATCH 12/14] KVM: arm64: Restrict host updates to GITS_CBASER
+Message-ID: <20260310124933.830025-11-sebastianene@google.com>
+Subject: [PATCH 10/14] KVM: arm64: Trap & emulate the ITS MAPC command
 From: Sebastian Ene <sebastianene@google.com>
 To: alexandru.elisei@arm.com, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
@@ -78,8 +78,8 @@ Cc: catalin.marinas@arm.com, dbrazdil@google.com, joey.gouly@arm.com,
 	will@kernel.org, yuzenghui@huawei.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_054959_321863_30EF2DFD 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20260310_054956_648487_01C8AA79 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,61 +94,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Prevent the host from updating the ITS command queue base address
-(GITS_CBASER) while the ITS is enabled or not in a quiescent state.
-This enforcement prevents unpredictable hardware behavior and ensures
-the host cannot update the hardware with a new queue address behind the
-hypervisor's back, which would bypass the command queue shadowing
-mechanism.
+Parse the MAPC command and verify if we need to do any
+updates to the shadow if the collection table is
+configured with an indirect layout.
 
 Signed-off-by: Sebastian Ene <sebastianene@google.com>
 ---
- arch/arm64/kvm/hyp/nvhe/its_emulate.c | 25 +++++++++++++++++++++++++
- 1 file changed, 25 insertions(+)
+ arch/arm64/kvm/hyp/nvhe/its_emulate.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
 diff --git a/arch/arm64/kvm/hyp/nvhe/its_emulate.c b/arch/arm64/kvm/hyp/nvhe/its_emulate.c
-index 539d2ee3b58e..9715f15cd432 100644
+index 7049d307a236..4782a9a24caa 100644
 --- a/arch/arm64/kvm/hyp/nvhe/its_emulate.c
 +++ b/arch/arm64/kvm/hyp/nvhe/its_emulate.c
-@@ -291,6 +291,30 @@ static void ctlr_write(struct its_priv_state *its, u64 offset, u64 value)
- 	writeq_relaxed(value, its->base + GITS_CTLR);
+@@ -198,6 +198,13 @@ static int process_its_vmapp(struct its_priv_state *its, struct its_cmd_block *c
+ 	return track_pfn(its, base_pfn, num_pages, remove);
  }
  
-+static void cbaser_write(struct its_priv_state *its, u64 offset, u64 value)
++static int process_its_mapc(struct its_priv_state *its, struct its_cmd_block *cmd)
 +{
-+	u64 ctlr = readq_relaxed(its->base + GITS_CTLR);
-+	int num_pages;
++	u32 icid = cmd->raw_cmd[2] & GENMASK(15, 0);
 +
-+	if ((ctlr & GITS_CTLR_ENABLE) ||
-+	    !(ctlr & GITS_CTLR_QUIESCENT))
-+		return;
-+
-+	num_pages = its->shadow->cmdq_len / SZ_4K;
-+	value &= ~GENMASK(7, 0) | ~GENMASK_ULL(51, 12);
-+
-+	value |= (num_pages - 1) & GENMASK(7, 0);
-+	value |= __hyp_pa(its->cmd_hyp_base) & GENMASK_ULL(51, 12);
-+
-+	its->cmd_host_cwriter = its->cmd_host_base;
-+	writeq_relaxed(value, its->base + GITS_CBASER);
++	return check_table_update(its, icid, GITS_BASER_TYPE_COLLECTION);
 +}
 +
-+static void cbaser_read(struct its_priv_state *its, u64 offset, u64 *read)
-+{
-+	*read = readq_relaxed(its->base + GITS_CBASER);
-+}
+ static int parse_its_cmdq(struct its_priv_state *its, int offset, ssize_t len)
+ {
+ 	struct its_cmd_block *cmd = its->cmd_hyp_base + offset;
+@@ -215,6 +222,10 @@ static int parse_its_cmdq(struct its_priv_state *its, int offset, ssize_t len)
+ 		case GITS_CMD_VMAPP:
+ 			ret = process_its_vmapp(its, cmd);
+ 			break;
 +
- #define ITS_HANDLER(off, sz, write_cb, read_cb)	\
- {							\
- 	.offset = (off),				\
-@@ -302,6 +326,7 @@ static void ctlr_write(struct its_priv_state *its, u64 offset, u64 value)
- static struct its_handler its_handlers[] = {
- 	ITS_HANDLER(GITS_CWRITER, sizeof(u64), cwriter_write, cwriter_read),
- 	ITS_HANDLER(GITS_CTLR, sizeof(u64), ctlr_write, ctlr_read),
-+	ITS_HANDLER(GITS_CBASER, sizeof(u64), cbaser_write, cbaser_read),
- 	{},
- };
++		case GITS_CMD_MAPC:
++			ret = process_its_mapc(its, cmd);
++			break;
+ 		}
  
+ 		cmd++;
 -- 
 2.53.0.473.g4a7958ca14-goog
 
